@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFpgaImageState' smart constructor.
 data FpgaImageState = FpgaImageState'
-  { -- | The state. The following are the possible values:
+  { -- | If the state is @failed@, this is the error message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The state. The following are the possible values:
     --
     -- -   @pending@ - AFI bitstream generation is in progress.
     --
@@ -39,9 +41,7 @@ data FpgaImageState = FpgaImageState'
     -- -   @failed@ - AFI bitstream generation failed.
     --
     -- -   @unavailable@ - The AFI is no longer available for use.
-    code :: Prelude.Maybe FpgaImageStateCode,
-    -- | If the state is @failed@, this is the error message.
-    message :: Prelude.Maybe Prelude.Text
+    code :: Prelude.Maybe FpgaImageStateCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,8 @@ data FpgaImageState = FpgaImageState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'fpgaImageState_message' - If the state is @failed@, this is the error message.
+--
 -- 'code', 'fpgaImageState_code' - The state. The following are the possible values:
 --
 -- -   @pending@ - AFI bitstream generation is in progress.
@@ -62,15 +64,17 @@ data FpgaImageState = FpgaImageState'
 -- -   @failed@ - AFI bitstream generation failed.
 --
 -- -   @unavailable@ - The AFI is no longer available for use.
---
--- 'message', 'fpgaImageState_message' - If the state is @failed@, this is the error message.
 newFpgaImageState ::
   FpgaImageState
 newFpgaImageState =
   FpgaImageState'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
+
+-- | If the state is @failed@, this is the error message.
+fpgaImageState_message :: Lens.Lens' FpgaImageState (Prelude.Maybe Prelude.Text)
+fpgaImageState_message = Lens.lens (\FpgaImageState' {message} -> message) (\s@FpgaImageState' {} a -> s {message = a} :: FpgaImageState)
 
 -- | The state. The following are the possible values:
 --
@@ -84,21 +88,17 @@ newFpgaImageState =
 fpgaImageState_code :: Lens.Lens' FpgaImageState (Prelude.Maybe FpgaImageStateCode)
 fpgaImageState_code = Lens.lens (\FpgaImageState' {code} -> code) (\s@FpgaImageState' {} a -> s {code = a} :: FpgaImageState)
 
--- | If the state is @failed@, this is the error message.
-fpgaImageState_message :: Lens.Lens' FpgaImageState (Prelude.Maybe Prelude.Text)
-fpgaImageState_message = Lens.lens (\FpgaImageState' {message} -> message) (\s@FpgaImageState' {} a -> s {message = a} :: FpgaImageState)
-
 instance Core.FromXML FpgaImageState where
   parseXML x =
     FpgaImageState'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance Prelude.Hashable FpgaImageState where
   hashWithSalt _salt FpgaImageState' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData FpgaImageState where
   rnf FpgaImageState' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

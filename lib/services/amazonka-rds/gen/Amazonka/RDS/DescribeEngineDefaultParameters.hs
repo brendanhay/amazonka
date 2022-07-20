@@ -30,8 +30,8 @@ module Amazonka.RDS.DescribeEngineDefaultParameters
     newDescribeEngineDefaultParameters,
 
     -- * Request Lenses
-    describeEngineDefaultParameters_filters,
     describeEngineDefaultParameters_marker,
+    describeEngineDefaultParameters_filters,
     describeEngineDefaultParameters_maxRecords,
     describeEngineDefaultParameters_dbParameterGroupFamily,
 
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-  { -- | This parameter isn\'t currently supported.
-    filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
+  { -- | An optional pagination token provided by a previous
     -- @DescribeEngineDefaultParameters@ request. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -85,12 +85,12 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeEngineDefaultParameters_filters' - This parameter isn\'t currently supported.
---
 -- 'marker', 'describeEngineDefaultParameters_marker' - An optional pagination token provided by a previous
 -- @DescribeEngineDefaultParameters@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
+--
+-- 'filters', 'describeEngineDefaultParameters_filters' - This parameter isn\'t currently supported.
 --
 -- 'maxRecords', 'describeEngineDefaultParameters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -109,17 +109,13 @@ newDescribeEngineDefaultParameters ::
 newDescribeEngineDefaultParameters
   pDBParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
-      { filters =
+      { marker =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
+        filters = Prelude.Nothing,
         maxRecords = Prelude.Nothing,
         dbParameterGroupFamily =
           pDBParameterGroupFamily_
       }
-
--- | This parameter isn\'t currently supported.
-describeEngineDefaultParameters_filters :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe [Filter])
-describeEngineDefaultParameters_filters = Lens.lens (\DescribeEngineDefaultParameters' {filters} -> filters) (\s@DescribeEngineDefaultParameters' {} a -> s {filters = a} :: DescribeEngineDefaultParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeEngineDefaultParameters@ request. If this parameter is
@@ -127,6 +123,10 @@ describeEngineDefaultParameters_filters = Lens.lens (\DescribeEngineDefaultParam
 -- the value specified by @MaxRecords@.
 describeEngineDefaultParameters_marker :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Text)
 describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParameters' {marker} -> marker) (\s@DescribeEngineDefaultParameters' {} a -> s {marker = a} :: DescribeEngineDefaultParameters)
+
+-- | This parameter isn\'t currently supported.
+describeEngineDefaultParameters_filters :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe [Filter])
+describeEngineDefaultParameters_filters = Lens.lens (\DescribeEngineDefaultParameters' {filters} -> filters) (\s@DescribeEngineDefaultParameters' {} a -> s {filters = a} :: DescribeEngineDefaultParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -195,8 +195,8 @@ instance
   hashWithSalt
     _salt
     DescribeEngineDefaultParameters' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` marker
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` dbParameterGroupFamily
 
@@ -205,8 +205,8 @@ instance
     DescribeEngineDefaultParameters
   where
   rnf DescribeEngineDefaultParameters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbParameterGroupFamily
 
@@ -228,10 +228,10 @@ instance Core.ToQuery DescribeEngineDefaultParameters where
                   ),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Core.=: marker,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
         "DBParameterGroupFamily"
           Core.=: dbParameterGroupFamily

@@ -34,13 +34,13 @@ module Amazonka.ElasticTranscoder.CreateJob
     newCreateJob,
 
     -- * Request Lenses
-    createJob_inputs,
     createJob_input,
-    createJob_userMetadata,
     createJob_outputs,
     createJob_output,
     createJob_playlists,
     createJob_outputKeyPrefix,
+    createJob_inputs,
+    createJob_userMetadata,
     createJob_pipelineId,
 
     -- * Destructuring the Response
@@ -64,18 +64,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { -- | A section of the request body that provides information about the files
-    -- that are being transcoded.
-    inputs :: Prelude.Maybe [JobInput],
-    -- | A section of the request body that provides information about the file
+  { -- | A section of the request body that provides information about the file
     -- that is being transcoded.
     input :: Prelude.Maybe JobInput,
-    -- | User-defined metadata that you want to associate with an Elastic
-    -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
-    -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
-    -- guarantee that @key\/value@ pairs are returned in the same order in
-    -- which you specify them.
-    userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A section of the request body that provides information about the
     -- transcoded (target) files. We recommend that you use the @Outputs@
     -- syntax instead of the @Output@ syntax.
@@ -94,6 +85,15 @@ data CreateJob = CreateJob'
     -- names of all files that this job creates, including output files,
     -- thumbnails, and playlists.
     outputKeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | A section of the request body that provides information about the files
+    -- that are being transcoded.
+    inputs :: Prelude.Maybe [JobInput],
+    -- | User-defined metadata that you want to associate with an Elastic
+    -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
+    -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
+    -- guarantee that @key\/value@ pairs are returned in the same order in
+    -- which you specify them.
+    userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
     -- transcoding. The pipeline determines several settings, including the
     -- Amazon S3 bucket from which Elastic Transcoder gets the files to
@@ -111,17 +111,8 @@ data CreateJob = CreateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputs', 'createJob_inputs' - A section of the request body that provides information about the files
--- that are being transcoded.
---
 -- 'input', 'createJob_input' - A section of the request body that provides information about the file
 -- that is being transcoded.
---
--- 'userMetadata', 'createJob_userMetadata' - User-defined metadata that you want to associate with an Elastic
--- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
--- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
--- guarantee that @key\/value@ pairs are returned in the same order in
--- which you specify them.
 --
 -- 'outputs', 'createJob_outputs' - A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the @Outputs@
@@ -141,6 +132,15 @@ data CreateJob = CreateJob'
 -- names of all files that this job creates, including output files,
 -- thumbnails, and playlists.
 --
+-- 'inputs', 'createJob_inputs' - A section of the request body that provides information about the files
+-- that are being transcoded.
+--
+-- 'userMetadata', 'createJob_userMetadata' - User-defined metadata that you want to associate with an Elastic
+-- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
+-- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
+-- guarantee that @key\/value@ pairs are returned in the same order in
+-- which you specify them.
+--
 -- 'pipelineId', 'createJob_pipelineId' - The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
 -- Amazon S3 bucket from which Elastic Transcoder gets the files to
@@ -152,33 +152,20 @@ newCreateJob ::
   CreateJob
 newCreateJob pPipelineId_ =
   CreateJob'
-    { inputs = Prelude.Nothing,
-      input = Prelude.Nothing,
-      userMetadata = Prelude.Nothing,
+    { input = Prelude.Nothing,
       outputs = Prelude.Nothing,
       output = Prelude.Nothing,
       playlists = Prelude.Nothing,
       outputKeyPrefix = Prelude.Nothing,
+      inputs = Prelude.Nothing,
+      userMetadata = Prelude.Nothing,
       pipelineId = pPipelineId_
     }
-
--- | A section of the request body that provides information about the files
--- that are being transcoded.
-createJob_inputs :: Lens.Lens' CreateJob (Prelude.Maybe [JobInput])
-createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} a -> s {inputs = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A section of the request body that provides information about the file
 -- that is being transcoded.
 createJob_input :: Lens.Lens' CreateJob (Prelude.Maybe JobInput)
 createJob_input = Lens.lens (\CreateJob' {input} -> input) (\s@CreateJob' {} a -> s {input = a} :: CreateJob)
-
--- | User-defined metadata that you want to associate with an Elastic
--- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
--- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
--- guarantee that @key\/value@ pairs are returned in the same order in
--- which you specify them.
-createJob_userMetadata :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createJob_userMetadata = Lens.lens (\CreateJob' {userMetadata} -> userMetadata) (\s@CreateJob' {} a -> s {userMetadata = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the @Outputs@
@@ -206,6 +193,19 @@ createJob_playlists = Lens.lens (\CreateJob' {playlists} -> playlists) (\s@Creat
 createJob_outputKeyPrefix :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_outputKeyPrefix = Lens.lens (\CreateJob' {outputKeyPrefix} -> outputKeyPrefix) (\s@CreateJob' {} a -> s {outputKeyPrefix = a} :: CreateJob)
 
+-- | A section of the request body that provides information about the files
+-- that are being transcoded.
+createJob_inputs :: Lens.Lens' CreateJob (Prelude.Maybe [JobInput])
+createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} a -> s {inputs = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | User-defined metadata that you want to associate with an Elastic
+-- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
+-- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
+-- guarantee that @key\/value@ pairs are returned in the same order in
+-- which you specify them.
+createJob_userMetadata :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createJob_userMetadata = Lens.lens (\CreateJob' {userMetadata} -> userMetadata) (\s@CreateJob' {} a -> s {userMetadata = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
+
 -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
 -- Amazon S3 bucket from which Elastic Transcoder gets the files to
@@ -227,24 +227,24 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` inputs
-      `Prelude.hashWithSalt` input
-      `Prelude.hashWithSalt` userMetadata
+    _salt `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` playlists
       `Prelude.hashWithSalt` outputKeyPrefix
+      `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` userMetadata
       `Prelude.hashWithSalt` pipelineId
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf userMetadata
+    Prelude.rnf input
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf output
       `Prelude.seq` Prelude.rnf playlists
       `Prelude.seq` Prelude.rnf outputKeyPrefix
+      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf userMetadata
       `Prelude.seq` Prelude.rnf pipelineId
 
 instance Core.ToHeaders CreateJob where
@@ -254,14 +254,14 @@ instance Core.ToJSON CreateJob where
   toJSON CreateJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Inputs" Core..=) Prelude.<$> inputs,
-            ("Input" Core..=) Prelude.<$> input,
-            ("UserMetadata" Core..=) Prelude.<$> userMetadata,
+          [ ("Input" Core..=) Prelude.<$> input,
             ("Outputs" Core..=) Prelude.<$> outputs,
             ("Output" Core..=) Prelude.<$> output,
             ("Playlists" Core..=) Prelude.<$> playlists,
             ("OutputKeyPrefix" Core..=)
               Prelude.<$> outputKeyPrefix,
+            ("Inputs" Core..=) Prelude.<$> inputs,
+            ("UserMetadata" Core..=) Prelude.<$> userMetadata,
             Prelude.Just ("PipelineId" Core..= pipelineId)
           ]
       )

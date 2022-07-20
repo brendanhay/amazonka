@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskRunFilterCriteria' smart constructor.
 data TaskRunFilterCriteria = TaskRunFilterCriteria'
-  { -- | The current status of the task run.
+  { -- | Filter on task runs started before this date.
+    startedBefore :: Prelude.Maybe Core.POSIX,
+    -- | The current status of the task run.
     status :: Prelude.Maybe TaskStatusType,
     -- | Filter on task runs started after this date.
     startedAfter :: Prelude.Maybe Core.POSIX,
-    -- | Filter on task runs started before this date.
-    startedBefore :: Prelude.Maybe Core.POSIX,
     -- | The type of task run.
     taskRunType :: Prelude.Maybe TaskType
   }
@@ -49,22 +49,27 @@ data TaskRunFilterCriteria = TaskRunFilterCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'startedBefore', 'taskRunFilterCriteria_startedBefore' - Filter on task runs started before this date.
+--
 -- 'status', 'taskRunFilterCriteria_status' - The current status of the task run.
 --
 -- 'startedAfter', 'taskRunFilterCriteria_startedAfter' - Filter on task runs started after this date.
---
--- 'startedBefore', 'taskRunFilterCriteria_startedBefore' - Filter on task runs started before this date.
 --
 -- 'taskRunType', 'taskRunFilterCriteria_taskRunType' - The type of task run.
 newTaskRunFilterCriteria ::
   TaskRunFilterCriteria
 newTaskRunFilterCriteria =
   TaskRunFilterCriteria'
-    { status = Prelude.Nothing,
+    { startedBefore =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       startedAfter = Prelude.Nothing,
-      startedBefore = Prelude.Nothing,
       taskRunType = Prelude.Nothing
     }
+
+-- | Filter on task runs started before this date.
+taskRunFilterCriteria_startedBefore :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe Prelude.UTCTime)
+taskRunFilterCriteria_startedBefore = Lens.lens (\TaskRunFilterCriteria' {startedBefore} -> startedBefore) (\s@TaskRunFilterCriteria' {} a -> s {startedBefore = a} :: TaskRunFilterCriteria) Prelude.. Lens.mapping Core._Time
 
 -- | The current status of the task run.
 taskRunFilterCriteria_status :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe TaskStatusType)
@@ -74,35 +79,31 @@ taskRunFilterCriteria_status = Lens.lens (\TaskRunFilterCriteria' {status} -> st
 taskRunFilterCriteria_startedAfter :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe Prelude.UTCTime)
 taskRunFilterCriteria_startedAfter = Lens.lens (\TaskRunFilterCriteria' {startedAfter} -> startedAfter) (\s@TaskRunFilterCriteria' {} a -> s {startedAfter = a} :: TaskRunFilterCriteria) Prelude.. Lens.mapping Core._Time
 
--- | Filter on task runs started before this date.
-taskRunFilterCriteria_startedBefore :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-taskRunFilterCriteria_startedBefore = Lens.lens (\TaskRunFilterCriteria' {startedBefore} -> startedBefore) (\s@TaskRunFilterCriteria' {} a -> s {startedBefore = a} :: TaskRunFilterCriteria) Prelude.. Lens.mapping Core._Time
-
 -- | The type of task run.
 taskRunFilterCriteria_taskRunType :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe TaskType)
 taskRunFilterCriteria_taskRunType = Lens.lens (\TaskRunFilterCriteria' {taskRunType} -> taskRunType) (\s@TaskRunFilterCriteria' {} a -> s {taskRunType = a} :: TaskRunFilterCriteria)
 
 instance Prelude.Hashable TaskRunFilterCriteria where
   hashWithSalt _salt TaskRunFilterCriteria' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` startedBefore
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` startedAfter
-      `Prelude.hashWithSalt` startedBefore
       `Prelude.hashWithSalt` taskRunType
 
 instance Prelude.NFData TaskRunFilterCriteria where
   rnf TaskRunFilterCriteria' {..} =
-    Prelude.rnf status
+    Prelude.rnf startedBefore
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf startedAfter
-      `Prelude.seq` Prelude.rnf startedBefore
       `Prelude.seq` Prelude.rnf taskRunType
 
 instance Core.ToJSON TaskRunFilterCriteria where
   toJSON TaskRunFilterCriteria' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
+          [ ("StartedBefore" Core..=) Prelude.<$> startedBefore,
+            ("Status" Core..=) Prelude.<$> status,
             ("StartedAfter" Core..=) Prelude.<$> startedAfter,
-            ("StartedBefore" Core..=) Prelude.<$> startedBefore,
             ("TaskRunType" Core..=) Prelude.<$> taskRunType
           ]
       )

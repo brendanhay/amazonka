@@ -27,11 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetShippingLabel $
---             newGetShippingLabel
+--         [ requestCancelJob $
+--             newCancelJob
 --
 --         , requestCreateJob $
 --             newCreateJob
+--
+--         , requestGetShippingLabel $
+--             newGetShippingLabel
+--
+--         , requestGetStatus $
+--             newGetStatus
 --
 --         , requestListJobs $
 --             newListJobs
@@ -39,20 +45,20 @@ import Test.Tasty
 --         , requestUpdateJob $
 --             newUpdateJob
 --
---         , requestGetStatus $
---             newGetStatus
---
---         , requestCancelJob $
---             newCancelJob
---
 --           ]
 
 --     , testGroup "response"
---         [ responseGetShippingLabel $
---             newGetShippingLabelResponse
+--         [ responseCancelJob $
+--             newCancelJobResponse
 --
 --         , responseCreateJob $
 --             newCreateJobResponse
+--
+--         , responseGetShippingLabel $
+--             newGetShippingLabelResponse
+--
+--         , responseGetStatus $
+--             newGetStatusResponse
 --
 --         , responseListJobs $
 --             newListJobsResponse
@@ -60,16 +66,22 @@ import Test.Tasty
 --         , responseUpdateJob $
 --             newUpdateJobResponse
 --
---         , responseGetStatus $
---             newGetStatusResponse
---
---         , responseCancelJob $
---             newCancelJobResponse
---
 --           ]
 --     ]
 
 -- Requests
+
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob =
+  req
+    "CancelJob"
+    "fixture/CancelJob.yaml"
+
+requestCreateJob :: CreateJob -> TestTree
+requestCreateJob =
+  req
+    "CreateJob"
+    "fixture/CreateJob.yaml"
 
 requestGetShippingLabel :: GetShippingLabel -> TestTree
 requestGetShippingLabel =
@@ -77,11 +89,11 @@ requestGetShippingLabel =
     "GetShippingLabel"
     "fixture/GetShippingLabel.yaml"
 
-requestCreateJob :: CreateJob -> TestTree
-requestCreateJob =
+requestGetStatus :: GetStatus -> TestTree
+requestGetStatus =
   req
-    "CreateJob"
-    "fixture/CreateJob.yaml"
+    "GetStatus"
+    "fixture/GetStatus.yaml"
 
 requestListJobs :: ListJobs -> TestTree
 requestListJobs =
@@ -95,19 +107,23 @@ requestUpdateJob =
     "UpdateJob"
     "fixture/UpdateJob.yaml"
 
-requestGetStatus :: GetStatus -> TestTree
-requestGetStatus =
-  req
-    "GetStatus"
-    "fixture/GetStatus.yaml"
-
-requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
-    "CancelJob"
-    "fixture/CancelJob.yaml"
-
 -- Responses
+
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob =
+  res
+    "CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelJob)
+
+responseCreateJob :: CreateJobResponse -> TestTree
+responseCreateJob =
+  res
+    "CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateJob)
 
 responseGetShippingLabel :: GetShippingLabelResponse -> TestTree
 responseGetShippingLabel =
@@ -117,13 +133,13 @@ responseGetShippingLabel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetShippingLabel)
 
-responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob =
+responseGetStatus :: GetStatusResponse -> TestTree
+responseGetStatus =
   res
-    "CreateJobResponse"
-    "fixture/CreateJobResponse.proto"
+    "GetStatusResponse"
+    "fixture/GetStatusResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateJob)
+    (Proxy.Proxy :: Proxy.Proxy GetStatus)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
@@ -140,19 +156,3 @@ responseUpdateJob =
     "fixture/UpdateJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateJob)
-
-responseGetStatus :: GetStatusResponse -> TestTree
-responseGetStatus =
-  res
-    "GetStatusResponse"
-    "fixture/GetStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStatus)
-
-responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
-    "CancelJobResponse"
-    "fixture/CancelJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelJob)

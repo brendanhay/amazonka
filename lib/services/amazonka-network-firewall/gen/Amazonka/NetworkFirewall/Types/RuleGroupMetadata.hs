@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleGroupMetadata' smart constructor.
 data RuleGroupMetadata = RuleGroupMetadata'
-  { -- | The Amazon Resource Name (ARN) of the rule group.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive name of the rule group. You can\'t change the name of a
+  { -- | The descriptive name of the rule group. You can\'t change the name of a
     -- rule group after you create it.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the rule group.
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data RuleGroupMetadata = RuleGroupMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'ruleGroupMetadata_arn' - The Amazon Resource Name (ARN) of the rule group.
---
 -- 'name', 'ruleGroupMetadata_name' - The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
+--
+-- 'arn', 'ruleGroupMetadata_arn' - The Amazon Resource Name (ARN) of the rule group.
 newRuleGroupMetadata ::
   RuleGroupMetadata
 newRuleGroupMetadata =
   RuleGroupMetadata'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the rule group.
-ruleGroupMetadata_arn :: Lens.Lens' RuleGroupMetadata (Prelude.Maybe Prelude.Text)
-ruleGroupMetadata_arn = Lens.lens (\RuleGroupMetadata' {arn} -> arn) (\s@RuleGroupMetadata' {} a -> s {arn = a} :: RuleGroupMetadata)
 
 -- | The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
 ruleGroupMetadata_name :: Lens.Lens' RuleGroupMetadata (Prelude.Maybe Prelude.Text)
 ruleGroupMetadata_name = Lens.lens (\RuleGroupMetadata' {name} -> name) (\s@RuleGroupMetadata' {} a -> s {name = a} :: RuleGroupMetadata)
+
+-- | The Amazon Resource Name (ARN) of the rule group.
+ruleGroupMetadata_arn :: Lens.Lens' RuleGroupMetadata (Prelude.Maybe Prelude.Text)
+ruleGroupMetadata_arn = Lens.lens (\RuleGroupMetadata' {arn} -> arn) (\s@RuleGroupMetadata' {} a -> s {arn = a} :: RuleGroupMetadata)
 
 instance Core.FromJSON RuleGroupMetadata where
   parseJSON =
@@ -72,14 +72,14 @@ instance Core.FromJSON RuleGroupMetadata where
       "RuleGroupMetadata"
       ( \x ->
           RuleGroupMetadata'
-            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Arn")
       )
 
 instance Prelude.Hashable RuleGroupMetadata where
   hashWithSalt _salt RuleGroupMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData RuleGroupMetadata where
   rnf RuleGroupMetadata' {..} =
-    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf arn

@@ -74,8 +74,8 @@ module Amazonka.SecretsManager.DeleteSecret
     newDeleteSecretResponse,
 
     -- * Response Lenses
-    deleteSecretResponse_arn,
     deleteSecretResponse_name,
+    deleteSecretResponse_arn,
     deleteSecretResponse_deletionDate,
     deleteSecretResponse_httpStatus,
   )
@@ -227,8 +227,8 @@ instance Core.AWSRequest DeleteSecret where
     Response.receiveJSON
       ( \s h x ->
           DeleteSecretResponse'
-            Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (x Core..?> "DeletionDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -280,10 +280,10 @@ instance Core.ToQuery DeleteSecret where
 
 -- | /See:/ 'newDeleteSecretResponse' smart constructor.
 data DeleteSecretResponse = DeleteSecretResponse'
-  { -- | The ARN of the secret that is now scheduled for deletion.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret currently scheduled for deletion.
+  { -- | The friendly name of the secret currently scheduled for deletion.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret that is now scheduled for deletion.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time after which this secret can be deleted by Secrets
     -- Manager and can no longer be restored. This value is the date and time
     -- of the delete request plus the number of days specified in
@@ -302,9 +302,9 @@ data DeleteSecretResponse = DeleteSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'deleteSecretResponse_arn' - The ARN of the secret that is now scheduled for deletion.
---
 -- 'name', 'deleteSecretResponse_name' - The friendly name of the secret currently scheduled for deletion.
+--
+-- 'arn', 'deleteSecretResponse_arn' - The ARN of the secret that is now scheduled for deletion.
 --
 -- 'deletionDate', 'deleteSecretResponse_deletionDate' - The date and time after which this secret can be deleted by Secrets
 -- Manager and can no longer be restored. This value is the date and time
@@ -318,19 +318,19 @@ newDeleteSecretResponse ::
   DeleteSecretResponse
 newDeleteSecretResponse pHttpStatus_ =
   DeleteSecretResponse'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       deletionDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN of the secret that is now scheduled for deletion.
-deleteSecretResponse_arn :: Lens.Lens' DeleteSecretResponse (Prelude.Maybe Prelude.Text)
-deleteSecretResponse_arn = Lens.lens (\DeleteSecretResponse' {arn} -> arn) (\s@DeleteSecretResponse' {} a -> s {arn = a} :: DeleteSecretResponse)
-
 -- | The friendly name of the secret currently scheduled for deletion.
 deleteSecretResponse_name :: Lens.Lens' DeleteSecretResponse (Prelude.Maybe Prelude.Text)
 deleteSecretResponse_name = Lens.lens (\DeleteSecretResponse' {name} -> name) (\s@DeleteSecretResponse' {} a -> s {name = a} :: DeleteSecretResponse)
+
+-- | The ARN of the secret that is now scheduled for deletion.
+deleteSecretResponse_arn :: Lens.Lens' DeleteSecretResponse (Prelude.Maybe Prelude.Text)
+deleteSecretResponse_arn = Lens.lens (\DeleteSecretResponse' {arn} -> arn) (\s@DeleteSecretResponse' {} a -> s {arn = a} :: DeleteSecretResponse)
 
 -- | The date and time after which this secret can be deleted by Secrets
 -- Manager and can no longer be restored. This value is the date and time
@@ -345,7 +345,7 @@ deleteSecretResponse_httpStatus = Lens.lens (\DeleteSecretResponse' {httpStatus}
 
 instance Prelude.NFData DeleteSecretResponse where
   rnf DeleteSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf deletionDate
       `Prelude.seq` Prelude.rnf httpStatus

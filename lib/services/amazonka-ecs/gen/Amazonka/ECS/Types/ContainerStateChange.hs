@@ -28,21 +28,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerStateChange' smart constructor.
 data ContainerStateChange = ContainerStateChange'
-  { -- | Any network bindings associated with the container.
-    networkBindings :: Prelude.Maybe [NetworkBinding],
+  { -- | The name of the container.
+    containerName :: Prelude.Maybe Prelude.Text,
     -- | The status of the container.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the container.
-    containerName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Docker container.
+    runtimeId :: Prelude.Maybe Prelude.Text,
+    -- | Any network bindings associated with the container.
+    networkBindings :: Prelude.Maybe [NetworkBinding],
     -- | The reason for the state change.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The container image SHA 256 digest.
-    imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The exit code for the container, if the state change is a result of the
     -- container exiting.
     exitCode :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the Docker container.
-    runtimeId :: Prelude.Maybe Prelude.Text
+    -- | The container image SHA 256 digest.
+    imageDigest :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,94 +54,94 @@ data ContainerStateChange = ContainerStateChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkBindings', 'containerStateChange_networkBindings' - Any network bindings associated with the container.
+-- 'containerName', 'containerStateChange_containerName' - The name of the container.
 --
 -- 'status', 'containerStateChange_status' - The status of the container.
 --
--- 'containerName', 'containerStateChange_containerName' - The name of the container.
+-- 'runtimeId', 'containerStateChange_runtimeId' - The ID of the Docker container.
+--
+-- 'networkBindings', 'containerStateChange_networkBindings' - Any network bindings associated with the container.
 --
 -- 'reason', 'containerStateChange_reason' - The reason for the state change.
---
--- 'imageDigest', 'containerStateChange_imageDigest' - The container image SHA 256 digest.
 --
 -- 'exitCode', 'containerStateChange_exitCode' - The exit code for the container, if the state change is a result of the
 -- container exiting.
 --
--- 'runtimeId', 'containerStateChange_runtimeId' - The ID of the Docker container.
+-- 'imageDigest', 'containerStateChange_imageDigest' - The container image SHA 256 digest.
 newContainerStateChange ::
   ContainerStateChange
 newContainerStateChange =
   ContainerStateChange'
-    { networkBindings =
+    { containerName =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      containerName = Prelude.Nothing,
+      runtimeId = Prelude.Nothing,
+      networkBindings = Prelude.Nothing,
       reason = Prelude.Nothing,
-      imageDigest = Prelude.Nothing,
       exitCode = Prelude.Nothing,
-      runtimeId = Prelude.Nothing
+      imageDigest = Prelude.Nothing
     }
-
--- | Any network bindings associated with the container.
-containerStateChange_networkBindings :: Lens.Lens' ContainerStateChange (Prelude.Maybe [NetworkBinding])
-containerStateChange_networkBindings = Lens.lens (\ContainerStateChange' {networkBindings} -> networkBindings) (\s@ContainerStateChange' {} a -> s {networkBindings = a} :: ContainerStateChange) Prelude.. Lens.mapping Lens.coerced
-
--- | The status of the container.
-containerStateChange_status :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
-containerStateChange_status = Lens.lens (\ContainerStateChange' {status} -> status) (\s@ContainerStateChange' {} a -> s {status = a} :: ContainerStateChange)
 
 -- | The name of the container.
 containerStateChange_containerName :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
 containerStateChange_containerName = Lens.lens (\ContainerStateChange' {containerName} -> containerName) (\s@ContainerStateChange' {} a -> s {containerName = a} :: ContainerStateChange)
 
+-- | The status of the container.
+containerStateChange_status :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
+containerStateChange_status = Lens.lens (\ContainerStateChange' {status} -> status) (\s@ContainerStateChange' {} a -> s {status = a} :: ContainerStateChange)
+
+-- | The ID of the Docker container.
+containerStateChange_runtimeId :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
+containerStateChange_runtimeId = Lens.lens (\ContainerStateChange' {runtimeId} -> runtimeId) (\s@ContainerStateChange' {} a -> s {runtimeId = a} :: ContainerStateChange)
+
+-- | Any network bindings associated with the container.
+containerStateChange_networkBindings :: Lens.Lens' ContainerStateChange (Prelude.Maybe [NetworkBinding])
+containerStateChange_networkBindings = Lens.lens (\ContainerStateChange' {networkBindings} -> networkBindings) (\s@ContainerStateChange' {} a -> s {networkBindings = a} :: ContainerStateChange) Prelude.. Lens.mapping Lens.coerced
+
 -- | The reason for the state change.
 containerStateChange_reason :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
 containerStateChange_reason = Lens.lens (\ContainerStateChange' {reason} -> reason) (\s@ContainerStateChange' {} a -> s {reason = a} :: ContainerStateChange)
-
--- | The container image SHA 256 digest.
-containerStateChange_imageDigest :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
-containerStateChange_imageDigest = Lens.lens (\ContainerStateChange' {imageDigest} -> imageDigest) (\s@ContainerStateChange' {} a -> s {imageDigest = a} :: ContainerStateChange)
 
 -- | The exit code for the container, if the state change is a result of the
 -- container exiting.
 containerStateChange_exitCode :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Int)
 containerStateChange_exitCode = Lens.lens (\ContainerStateChange' {exitCode} -> exitCode) (\s@ContainerStateChange' {} a -> s {exitCode = a} :: ContainerStateChange)
 
--- | The ID of the Docker container.
-containerStateChange_runtimeId :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
-containerStateChange_runtimeId = Lens.lens (\ContainerStateChange' {runtimeId} -> runtimeId) (\s@ContainerStateChange' {} a -> s {runtimeId = a} :: ContainerStateChange)
+-- | The container image SHA 256 digest.
+containerStateChange_imageDigest :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
+containerStateChange_imageDigest = Lens.lens (\ContainerStateChange' {imageDigest} -> imageDigest) (\s@ContainerStateChange' {} a -> s {imageDigest = a} :: ContainerStateChange)
 
 instance Prelude.Hashable ContainerStateChange where
   hashWithSalt _salt ContainerStateChange' {..} =
-    _salt `Prelude.hashWithSalt` networkBindings
+    _salt `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` containerName
-      `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` imageDigest
-      `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` runtimeId
+      `Prelude.hashWithSalt` networkBindings
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` imageDigest
 
 instance Prelude.NFData ContainerStateChange where
   rnf ContainerStateChange' {..} =
-    Prelude.rnf networkBindings
+    Prelude.rnf containerName
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf exitCode
       `Prelude.seq` Prelude.rnf runtimeId
+      `Prelude.seq` Prelude.rnf networkBindings
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf imageDigest
 
 instance Core.ToJSON ContainerStateChange where
   toJSON ContainerStateChange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("networkBindings" Core..=)
-              Prelude.<$> networkBindings,
+          [ ("containerName" Core..=) Prelude.<$> containerName,
             ("status" Core..=) Prelude.<$> status,
-            ("containerName" Core..=) Prelude.<$> containerName,
+            ("runtimeId" Core..=) Prelude.<$> runtimeId,
+            ("networkBindings" Core..=)
+              Prelude.<$> networkBindings,
             ("reason" Core..=) Prelude.<$> reason,
-            ("imageDigest" Core..=) Prelude.<$> imageDigest,
             ("exitCode" Core..=) Prelude.<$> exitCode,
-            ("runtimeId" Core..=) Prelude.<$> runtimeId
+            ("imageDigest" Core..=) Prelude.<$> imageDigest
           ]
       )

@@ -32,16 +32,16 @@ module Amazonka.Personalize.ListRecipes
 
     -- * Request Lenses
     listRecipes_nextToken,
-    listRecipes_maxResults,
     listRecipes_recipeProvider,
+    listRecipes_maxResults,
 
     -- * Destructuring the Response
     ListRecipesResponse (..),
     newListRecipesResponse,
 
     -- * Response Lenses
-    listRecipesResponse_nextToken,
     listRecipesResponse_recipes,
+    listRecipesResponse_nextToken,
     listRecipesResponse_httpStatus,
   )
 where
@@ -58,10 +58,10 @@ data ListRecipes = ListRecipes'
   { -- | A token returned from the previous call to @ListRecipes@ for getting the
     -- next set of recipes (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of recipes to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The default is @SERVICE@.
-    recipeProvider :: Prelude.Maybe RecipeProvider
+    recipeProvider :: Prelude.Maybe RecipeProvider,
+    -- | The maximum number of recipes to return.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,16 +76,16 @@ data ListRecipes = ListRecipes'
 -- 'nextToken', 'listRecipes_nextToken' - A token returned from the previous call to @ListRecipes@ for getting the
 -- next set of recipes (if they exist).
 --
--- 'maxResults', 'listRecipes_maxResults' - The maximum number of recipes to return.
---
 -- 'recipeProvider', 'listRecipes_recipeProvider' - The default is @SERVICE@.
+--
+-- 'maxResults', 'listRecipes_maxResults' - The maximum number of recipes to return.
 newListRecipes ::
   ListRecipes
 newListRecipes =
   ListRecipes'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      recipeProvider = Prelude.Nothing
+      recipeProvider = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A token returned from the previous call to @ListRecipes@ for getting the
@@ -93,13 +93,13 @@ newListRecipes =
 listRecipes_nextToken :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Text)
 listRecipes_nextToken = Lens.lens (\ListRecipes' {nextToken} -> nextToken) (\s@ListRecipes' {} a -> s {nextToken = a} :: ListRecipes)
 
--- | The maximum number of recipes to return.
-listRecipes_maxResults :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Natural)
-listRecipes_maxResults = Lens.lens (\ListRecipes' {maxResults} -> maxResults) (\s@ListRecipes' {} a -> s {maxResults = a} :: ListRecipes)
-
 -- | The default is @SERVICE@.
 listRecipes_recipeProvider :: Lens.Lens' ListRecipes (Prelude.Maybe RecipeProvider)
 listRecipes_recipeProvider = Lens.lens (\ListRecipes' {recipeProvider} -> recipeProvider) (\s@ListRecipes' {} a -> s {recipeProvider = a} :: ListRecipes)
+
+-- | The maximum number of recipes to return.
+listRecipes_maxResults :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Natural)
+listRecipes_maxResults = Lens.lens (\ListRecipes' {maxResults} -> maxResults) (\s@ListRecipes' {} a -> s {maxResults = a} :: ListRecipes)
 
 instance Core.AWSPager ListRecipes where
   page rq rs
@@ -127,22 +127,22 @@ instance Core.AWSRequest ListRecipes where
     Response.receiveJSON
       ( \s h x ->
           ListRecipesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "recipes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "recipes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRecipes where
   hashWithSalt _salt ListRecipes' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` recipeProvider
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListRecipes where
   rnf ListRecipes' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf recipeProvider
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRecipes where
   toHeaders =
@@ -164,9 +164,9 @@ instance Core.ToJSON ListRecipes where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("recipeProvider" Core..=)
-              Prelude.<$> recipeProvider
+              Prelude.<$> recipeProvider,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -178,10 +178,10 @@ instance Core.ToQuery ListRecipes where
 
 -- | /See:/ 'newListRecipesResponse' smart constructor.
 data ListRecipesResponse = ListRecipesResponse'
-  { -- | A token for getting the next set of recipes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of available recipes.
+  { -- | The list of available recipes.
     recipes :: Prelude.Maybe [RecipeSummary],
+    -- | A token for getting the next set of recipes.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data ListRecipesResponse = ListRecipesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecipesResponse_nextToken' - A token for getting the next set of recipes.
---
 -- 'recipes', 'listRecipesResponse_recipes' - The list of available recipes.
+--
+-- 'nextToken', 'listRecipesResponse_nextToken' - A token for getting the next set of recipes.
 --
 -- 'httpStatus', 'listRecipesResponse_httpStatus' - The response's http status code.
 newListRecipesResponse ::
@@ -206,18 +206,18 @@ newListRecipesResponse ::
   ListRecipesResponse
 newListRecipesResponse pHttpStatus_ =
   ListRecipesResponse'
-    { nextToken = Prelude.Nothing,
-      recipes = Prelude.Nothing,
+    { recipes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token for getting the next set of recipes.
-listRecipesResponse_nextToken :: Lens.Lens' ListRecipesResponse (Prelude.Maybe Prelude.Text)
-listRecipesResponse_nextToken = Lens.lens (\ListRecipesResponse' {nextToken} -> nextToken) (\s@ListRecipesResponse' {} a -> s {nextToken = a} :: ListRecipesResponse)
 
 -- | The list of available recipes.
 listRecipesResponse_recipes :: Lens.Lens' ListRecipesResponse (Prelude.Maybe [RecipeSummary])
 listRecipesResponse_recipes = Lens.lens (\ListRecipesResponse' {recipes} -> recipes) (\s@ListRecipesResponse' {} a -> s {recipes = a} :: ListRecipesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token for getting the next set of recipes.
+listRecipesResponse_nextToken :: Lens.Lens' ListRecipesResponse (Prelude.Maybe Prelude.Text)
+listRecipesResponse_nextToken = Lens.lens (\ListRecipesResponse' {nextToken} -> nextToken) (\s@ListRecipesResponse' {} a -> s {nextToken = a} :: ListRecipesResponse)
 
 -- | The response's http status code.
 listRecipesResponse_httpStatus :: Lens.Lens' ListRecipesResponse Prelude.Int
@@ -225,6 +225,6 @@ listRecipesResponse_httpStatus = Lens.lens (\ListRecipesResponse' {httpStatus} -
 
 instance Prelude.NFData ListRecipesResponse where
   rnf ListRecipesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recipes
+    Prelude.rnf recipes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

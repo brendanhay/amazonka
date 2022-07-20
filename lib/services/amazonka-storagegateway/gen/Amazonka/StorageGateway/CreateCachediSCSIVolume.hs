@@ -45,11 +45,11 @@ module Amazonka.StorageGateway.CreateCachediSCSIVolume
     newCreateCachediSCSIVolume,
 
     -- * Request Lenses
-    createCachediSCSIVolume_kmsKey,
-    createCachediSCSIVolume_sourceVolumeARN,
-    createCachediSCSIVolume_kmsEncrypted,
     createCachediSCSIVolume_tags,
     createCachediSCSIVolume_snapshotId,
+    createCachediSCSIVolume_kmsKey,
+    createCachediSCSIVolume_kmsEncrypted,
+    createCachediSCSIVolume_sourceVolumeARN,
     createCachediSCSIVolume_gatewayARN,
     createCachediSCSIVolume_volumeSizeInBytes,
     createCachediSCSIVolume_targetName,
@@ -76,22 +76,7 @@ import Amazonka.StorageGateway.Types
 
 -- | /See:/ 'newCreateCachediSCSIVolume' smart constructor.
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
-  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
-    -- used for Amazon S3 server-side encryption. Storage Gateway does not
-    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
-    -- is @true@. Optional.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The ARN for an existing volume. Specifying this ARN makes the new volume
-    -- into an exact copy of the specified existing volume\'s latest recovery
-    -- point. The @VolumeSizeInBytes@ value for this new volume must be equal
-    -- to or larger than the size of the existing volume, in bytes.
-    sourceVolumeARN :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
-    -- key, or @false@ to use a key managed by Amazon S3. Optional.
-    --
-    -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
-    -- | A list of up to 50 tags that you can assign to a cached volume. Each tag
+  { -- | A list of up to 50 tags that you can assign to a cached volume. Each tag
     -- is a key-value pair.
     --
     -- Valid characters for key and value are letters, spaces, and numbers that
@@ -106,6 +91,21 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
     -- in the /Amazon Elastic Compute Cloud API Reference/.
     snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+    -- used for Amazon S3 server-side encryption. Storage Gateway does not
+    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+    -- is @true@. Optional.
+    kmsKey :: Prelude.Maybe Prelude.Text,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN for an existing volume. Specifying this ARN makes the new volume
+    -- into an exact copy of the specified existing volume\'s latest recovery
+    -- point. The @VolumeSizeInBytes@ value for this new volume must be equal
+    -- to or larger than the size of the existing volume, in bytes.
+    sourceVolumeARN :: Prelude.Maybe Prelude.Text,
     gatewayARN :: Prelude.Text,
     -- | The size of the volume in bytes.
     volumeSizeInBytes :: Prelude.Integer,
@@ -139,21 +139,6 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKey', 'createCachediSCSIVolume_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
---
--- 'sourceVolumeARN', 'createCachediSCSIVolume_sourceVolumeARN' - The ARN for an existing volume. Specifying this ARN makes the new volume
--- into an exact copy of the specified existing volume\'s latest recovery
--- point. The @VolumeSizeInBytes@ value for this new volume must be equal
--- to or larger than the size of the existing volume, in bytes.
---
--- 'kmsEncrypted', 'createCachediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
---
 -- 'tags', 'createCachediSCSIVolume_tags' - A list of up to 50 tags that you can assign to a cached volume. Each tag
 -- is a key-value pair.
 --
@@ -168,6 +153,21 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
 -- field. To list snapshots for your account use
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
 -- in the /Amazon Elastic Compute Cloud API Reference/.
+--
+-- 'kmsKey', 'createCachediSCSIVolume_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+--
+-- 'kmsEncrypted', 'createCachediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- 'sourceVolumeARN', 'createCachediSCSIVolume_sourceVolumeARN' - The ARN for an existing volume. Specifying this ARN makes the new volume
+-- into an exact copy of the specified existing volume\'s latest recovery
+-- point. The @VolumeSizeInBytes@ value for this new volume must be equal
+-- to or larger than the size of the existing volume, in bytes.
 --
 -- 'gatewayARN', 'createCachediSCSIVolume_gatewayARN' - Undocumented member.
 --
@@ -210,38 +210,17 @@ newCreateCachediSCSIVolume
   pNetworkInterfaceId_
   pClientToken_ =
     CreateCachediSCSIVolume'
-      { kmsKey = Prelude.Nothing,
-        sourceVolumeARN = Prelude.Nothing,
-        kmsEncrypted = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         snapshotId = Prelude.Nothing,
+        kmsKey = Prelude.Nothing,
+        kmsEncrypted = Prelude.Nothing,
+        sourceVolumeARN = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         volumeSizeInBytes = pVolumeSizeInBytes_,
         targetName = pTargetName_,
         networkInterfaceId = pNetworkInterfaceId_,
         clientToken = pClientToken_
       }
-
--- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
-createCachediSCSIVolume_kmsKey :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Text)
-createCachediSCSIVolume_kmsKey = Lens.lens (\CreateCachediSCSIVolume' {kmsKey} -> kmsKey) (\s@CreateCachediSCSIVolume' {} a -> s {kmsKey = a} :: CreateCachediSCSIVolume)
-
--- | The ARN for an existing volume. Specifying this ARN makes the new volume
--- into an exact copy of the specified existing volume\'s latest recovery
--- point. The @VolumeSizeInBytes@ value for this new volume must be equal
--- to or larger than the size of the existing volume, in bytes.
-createCachediSCSIVolume_sourceVolumeARN :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Text)
-createCachediSCSIVolume_sourceVolumeARN = Lens.lens (\CreateCachediSCSIVolume' {sourceVolumeARN} -> sourceVolumeARN) (\s@CreateCachediSCSIVolume' {} a -> s {sourceVolumeARN = a} :: CreateCachediSCSIVolume)
-
--- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
-createCachediSCSIVolume_kmsEncrypted :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Bool)
-createCachediSCSIVolume_kmsEncrypted = Lens.lens (\CreateCachediSCSIVolume' {kmsEncrypted} -> kmsEncrypted) (\s@CreateCachediSCSIVolume' {} a -> s {kmsEncrypted = a} :: CreateCachediSCSIVolume)
 
 -- | A list of up to 50 tags that you can assign to a cached volume. Each tag
 -- is a key-value pair.
@@ -261,6 +240,27 @@ createCachediSCSIVolume_tags = Lens.lens (\CreateCachediSCSIVolume' {tags} -> ta
 -- in the /Amazon Elastic Compute Cloud API Reference/.
 createCachediSCSIVolume_snapshotId :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Text)
 createCachediSCSIVolume_snapshotId = Lens.lens (\CreateCachediSCSIVolume' {snapshotId} -> snapshotId) (\s@CreateCachediSCSIVolume' {} a -> s {snapshotId = a} :: CreateCachediSCSIVolume)
+
+-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+createCachediSCSIVolume_kmsKey :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Text)
+createCachediSCSIVolume_kmsKey = Lens.lens (\CreateCachediSCSIVolume' {kmsKey} -> kmsKey) (\s@CreateCachediSCSIVolume' {} a -> s {kmsKey = a} :: CreateCachediSCSIVolume)
+
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+createCachediSCSIVolume_kmsEncrypted :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Bool)
+createCachediSCSIVolume_kmsEncrypted = Lens.lens (\CreateCachediSCSIVolume' {kmsEncrypted} -> kmsEncrypted) (\s@CreateCachediSCSIVolume' {} a -> s {kmsEncrypted = a} :: CreateCachediSCSIVolume)
+
+-- | The ARN for an existing volume. Specifying this ARN makes the new volume
+-- into an exact copy of the specified existing volume\'s latest recovery
+-- point. The @VolumeSizeInBytes@ value for this new volume must be equal
+-- to or larger than the size of the existing volume, in bytes.
+createCachediSCSIVolume_sourceVolumeARN :: Lens.Lens' CreateCachediSCSIVolume (Prelude.Maybe Prelude.Text)
+createCachediSCSIVolume_sourceVolumeARN = Lens.lens (\CreateCachediSCSIVolume' {sourceVolumeARN} -> sourceVolumeARN) (\s@CreateCachediSCSIVolume' {} a -> s {sourceVolumeARN = a} :: CreateCachediSCSIVolume)
 
 -- | Undocumented member.
 createCachediSCSIVolume_gatewayARN :: Lens.Lens' CreateCachediSCSIVolume Prelude.Text
@@ -311,11 +311,11 @@ instance Core.AWSRequest CreateCachediSCSIVolume where
 
 instance Prelude.Hashable CreateCachediSCSIVolume where
   hashWithSalt _salt CreateCachediSCSIVolume' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` sourceVolumeARN
-      `Prelude.hashWithSalt` kmsEncrypted
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` sourceVolumeARN
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` volumeSizeInBytes
       `Prelude.hashWithSalt` targetName
@@ -324,11 +324,11 @@ instance Prelude.Hashable CreateCachediSCSIVolume where
 
 instance Prelude.NFData CreateCachediSCSIVolume where
   rnf CreateCachediSCSIVolume' {..} =
-    Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf sourceVolumeARN
-      `Prelude.seq` Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf sourceVolumeARN
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf volumeSizeInBytes
       `Prelude.seq` Prelude.rnf targetName
@@ -354,12 +354,12 @@ instance Core.ToJSON CreateCachediSCSIVolume where
   toJSON CreateCachediSCSIVolume' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KMSKey" Core..=) Prelude.<$> kmsKey,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
+            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
             ("SourceVolumeARN" Core..=)
               Prelude.<$> sourceVolumeARN,
-            ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
             Prelude.Just ("GatewayARN" Core..= gatewayARN),
             Prelude.Just
               ("VolumeSizeInBytes" Core..= volumeSizeInBytes),

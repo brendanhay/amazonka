@@ -39,8 +39,8 @@ module Amazonka.Personalize.ListBatchInferenceJobs
     newListBatchInferenceJobsResponse,
 
     -- * Response Lenses
-    listBatchInferenceJobsResponse_batchInferenceJobs,
     listBatchInferenceJobsResponse_nextToken,
+    listBatchInferenceJobsResponse_batchInferenceJobs,
     listBatchInferenceJobsResponse_httpStatus,
   )
 where
@@ -135,10 +135,10 @@ instance Core.AWSRequest ListBatchInferenceJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBatchInferenceJobsResponse'
-            Prelude.<$> ( x Core..?> "batchInferenceJobs"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "batchInferenceJobs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,11 +188,11 @@ instance Core.ToQuery ListBatchInferenceJobs where
 
 -- | /See:/ 'newListBatchInferenceJobsResponse' smart constructor.
 data ListBatchInferenceJobsResponse = ListBatchInferenceJobsResponse'
-  { -- | A list containing information on each job that is returned.
-    batchInferenceJobs :: Prelude.Maybe [BatchInferenceJobSummary],
-    -- | The token to use to retrieve the next page of results. The value is
+  { -- | The token to use to retrieve the next page of results. The value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list containing information on each job that is returned.
+    batchInferenceJobs :: Prelude.Maybe [BatchInferenceJobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,10 +206,10 @@ data ListBatchInferenceJobsResponse = ListBatchInferenceJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'batchInferenceJobs', 'listBatchInferenceJobsResponse_batchInferenceJobs' - A list containing information on each job that is returned.
---
 -- 'nextToken', 'listBatchInferenceJobsResponse_nextToken' - The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.
+--
+-- 'batchInferenceJobs', 'listBatchInferenceJobsResponse_batchInferenceJobs' - A list containing information on each job that is returned.
 --
 -- 'httpStatus', 'listBatchInferenceJobsResponse_httpStatus' - The response's http status code.
 newListBatchInferenceJobsResponse ::
@@ -218,20 +218,20 @@ newListBatchInferenceJobsResponse ::
   ListBatchInferenceJobsResponse
 newListBatchInferenceJobsResponse pHttpStatus_ =
   ListBatchInferenceJobsResponse'
-    { batchInferenceJobs =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      batchInferenceJobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list containing information on each job that is returned.
-listBatchInferenceJobsResponse_batchInferenceJobs :: Lens.Lens' ListBatchInferenceJobsResponse (Prelude.Maybe [BatchInferenceJobSummary])
-listBatchInferenceJobsResponse_batchInferenceJobs = Lens.lens (\ListBatchInferenceJobsResponse' {batchInferenceJobs} -> batchInferenceJobs) (\s@ListBatchInferenceJobsResponse' {} a -> s {batchInferenceJobs = a} :: ListBatchInferenceJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.
 listBatchInferenceJobsResponse_nextToken :: Lens.Lens' ListBatchInferenceJobsResponse (Prelude.Maybe Prelude.Text)
 listBatchInferenceJobsResponse_nextToken = Lens.lens (\ListBatchInferenceJobsResponse' {nextToken} -> nextToken) (\s@ListBatchInferenceJobsResponse' {} a -> s {nextToken = a} :: ListBatchInferenceJobsResponse)
+
+-- | A list containing information on each job that is returned.
+listBatchInferenceJobsResponse_batchInferenceJobs :: Lens.Lens' ListBatchInferenceJobsResponse (Prelude.Maybe [BatchInferenceJobSummary])
+listBatchInferenceJobsResponse_batchInferenceJobs = Lens.lens (\ListBatchInferenceJobsResponse' {batchInferenceJobs} -> batchInferenceJobs) (\s@ListBatchInferenceJobsResponse' {} a -> s {batchInferenceJobs = a} :: ListBatchInferenceJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBatchInferenceJobsResponse_httpStatus :: Lens.Lens' ListBatchInferenceJobsResponse Prelude.Int
@@ -242,6 +242,6 @@ instance
     ListBatchInferenceJobsResponse
   where
   rnf ListBatchInferenceJobsResponse' {..} =
-    Prelude.rnf batchInferenceJobs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf batchInferenceJobs
       `Prelude.seq` Prelude.rnf httpStatus

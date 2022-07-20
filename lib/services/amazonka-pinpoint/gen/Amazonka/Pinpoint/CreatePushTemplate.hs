@@ -135,14 +135,7 @@ instance Core.ToHeaders CreatePushTemplate where
 
 instance Core.ToJSON CreatePushTemplate where
   toJSON CreatePushTemplate' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "PushNotificationTemplateRequest"
-                  Core..= pushNotificationTemplateRequest
-              )
-          ]
-      )
+    Core.toJSON pushNotificationTemplateRequest
 
 instance Core.ToPath CreatePushTemplate where
   toPath CreatePushTemplate' {..} =

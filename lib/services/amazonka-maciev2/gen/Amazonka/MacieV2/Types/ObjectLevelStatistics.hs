@@ -34,17 +34,17 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newObjectLevelStatistics' smart constructor.
 data ObjectLevelStatistics = ObjectLevelStatistics'
   { -- | The total storage size (in bytes) or number of objects that Amazon Macie
+    -- can\'t analyze because the objects use an unsupported storage class or
+    -- don\'t have a file name extension for a supported file or storage
+    -- format.
+    total :: Prelude.Maybe Prelude.Integer,
+    -- | The total storage size (in bytes) or number of objects that Amazon Macie
     -- can\'t analyze because the objects don\'t have a file name extension for
     -- a supported file or storage format.
     fileType :: Prelude.Maybe Prelude.Integer,
     -- | The total storage size (in bytes) or number of objects that Amazon Macie
     -- can\'t analyze because the objects use an unsupported storage class.
-    storageClass :: Prelude.Maybe Prelude.Integer,
-    -- | The total storage size (in bytes) or number of objects that Amazon Macie
-    -- can\'t analyze because the objects use an unsupported storage class or
-    -- don\'t have a file name extension for a supported file or storage
-    -- format.
-    total :: Prelude.Maybe Prelude.Integer
+    storageClass :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,25 +56,32 @@ data ObjectLevelStatistics = ObjectLevelStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'total', 'objectLevelStatistics_total' - The total storage size (in bytes) or number of objects that Amazon Macie
+-- can\'t analyze because the objects use an unsupported storage class or
+-- don\'t have a file name extension for a supported file or storage
+-- format.
+--
 -- 'fileType', 'objectLevelStatistics_fileType' - The total storage size (in bytes) or number of objects that Amazon Macie
 -- can\'t analyze because the objects don\'t have a file name extension for
 -- a supported file or storage format.
 --
 -- 'storageClass', 'objectLevelStatistics_storageClass' - The total storage size (in bytes) or number of objects that Amazon Macie
 -- can\'t analyze because the objects use an unsupported storage class.
---
--- 'total', 'objectLevelStatistics_total' - The total storage size (in bytes) or number of objects that Amazon Macie
--- can\'t analyze because the objects use an unsupported storage class or
--- don\'t have a file name extension for a supported file or storage
--- format.
 newObjectLevelStatistics ::
   ObjectLevelStatistics
 newObjectLevelStatistics =
   ObjectLevelStatistics'
-    { fileType = Prelude.Nothing,
-      storageClass = Prelude.Nothing,
-      total = Prelude.Nothing
+    { total = Prelude.Nothing,
+      fileType = Prelude.Nothing,
+      storageClass = Prelude.Nothing
     }
+
+-- | The total storage size (in bytes) or number of objects that Amazon Macie
+-- can\'t analyze because the objects use an unsupported storage class or
+-- don\'t have a file name extension for a supported file or storage
+-- format.
+objectLevelStatistics_total :: Lens.Lens' ObjectLevelStatistics (Prelude.Maybe Prelude.Integer)
+objectLevelStatistics_total = Lens.lens (\ObjectLevelStatistics' {total} -> total) (\s@ObjectLevelStatistics' {} a -> s {total = a} :: ObjectLevelStatistics)
 
 -- | The total storage size (in bytes) or number of objects that Amazon Macie
 -- can\'t analyze because the objects don\'t have a file name extension for
@@ -87,32 +94,25 @@ objectLevelStatistics_fileType = Lens.lens (\ObjectLevelStatistics' {fileType} -
 objectLevelStatistics_storageClass :: Lens.Lens' ObjectLevelStatistics (Prelude.Maybe Prelude.Integer)
 objectLevelStatistics_storageClass = Lens.lens (\ObjectLevelStatistics' {storageClass} -> storageClass) (\s@ObjectLevelStatistics' {} a -> s {storageClass = a} :: ObjectLevelStatistics)
 
--- | The total storage size (in bytes) or number of objects that Amazon Macie
--- can\'t analyze because the objects use an unsupported storage class or
--- don\'t have a file name extension for a supported file or storage
--- format.
-objectLevelStatistics_total :: Lens.Lens' ObjectLevelStatistics (Prelude.Maybe Prelude.Integer)
-objectLevelStatistics_total = Lens.lens (\ObjectLevelStatistics' {total} -> total) (\s@ObjectLevelStatistics' {} a -> s {total = a} :: ObjectLevelStatistics)
-
 instance Core.FromJSON ObjectLevelStatistics where
   parseJSON =
     Core.withObject
       "ObjectLevelStatistics"
       ( \x ->
           ObjectLevelStatistics'
-            Prelude.<$> (x Core..:? "fileType")
+            Prelude.<$> (x Core..:? "total")
+            Prelude.<*> (x Core..:? "fileType")
             Prelude.<*> (x Core..:? "storageClass")
-            Prelude.<*> (x Core..:? "total")
       )
 
 instance Prelude.Hashable ObjectLevelStatistics where
   hashWithSalt _salt ObjectLevelStatistics' {..} =
-    _salt `Prelude.hashWithSalt` fileType
+    _salt `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` fileType
       `Prelude.hashWithSalt` storageClass
-      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData ObjectLevelStatistics where
   rnf ObjectLevelStatistics' {..} =
-    Prelude.rnf fileType
+    Prelude.rnf total
+      `Prelude.seq` Prelude.rnf fileType
       `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf total

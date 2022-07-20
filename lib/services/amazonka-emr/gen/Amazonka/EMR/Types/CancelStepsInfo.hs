@@ -32,10 +32,10 @@ data CancelStepsInfo = CancelStepsInfo'
   { -- | The status of a CancelSteps Request. The value may be SUBMITTED or
     -- FAILED.
     status :: Prelude.Maybe CancelStepsRequestStatus,
-    -- | The encrypted StepId of a step.
-    stepId :: Prelude.Maybe Prelude.Text,
     -- | The reason for the failure if the CancelSteps request fails.
-    reason :: Prelude.Maybe Prelude.Text
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The encrypted StepId of a step.
+    stepId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,16 +50,16 @@ data CancelStepsInfo = CancelStepsInfo'
 -- 'status', 'cancelStepsInfo_status' - The status of a CancelSteps Request. The value may be SUBMITTED or
 -- FAILED.
 --
--- 'stepId', 'cancelStepsInfo_stepId' - The encrypted StepId of a step.
---
 -- 'reason', 'cancelStepsInfo_reason' - The reason for the failure if the CancelSteps request fails.
+--
+-- 'stepId', 'cancelStepsInfo_stepId' - The encrypted StepId of a step.
 newCancelStepsInfo ::
   CancelStepsInfo
 newCancelStepsInfo =
   CancelStepsInfo'
     { status = Prelude.Nothing,
-      stepId = Prelude.Nothing,
-      reason = Prelude.Nothing
+      reason = Prelude.Nothing,
+      stepId = Prelude.Nothing
     }
 
 -- | The status of a CancelSteps Request. The value may be SUBMITTED or
@@ -67,13 +67,13 @@ newCancelStepsInfo =
 cancelStepsInfo_status :: Lens.Lens' CancelStepsInfo (Prelude.Maybe CancelStepsRequestStatus)
 cancelStepsInfo_status = Lens.lens (\CancelStepsInfo' {status} -> status) (\s@CancelStepsInfo' {} a -> s {status = a} :: CancelStepsInfo)
 
--- | The encrypted StepId of a step.
-cancelStepsInfo_stepId :: Lens.Lens' CancelStepsInfo (Prelude.Maybe Prelude.Text)
-cancelStepsInfo_stepId = Lens.lens (\CancelStepsInfo' {stepId} -> stepId) (\s@CancelStepsInfo' {} a -> s {stepId = a} :: CancelStepsInfo)
-
 -- | The reason for the failure if the CancelSteps request fails.
 cancelStepsInfo_reason :: Lens.Lens' CancelStepsInfo (Prelude.Maybe Prelude.Text)
 cancelStepsInfo_reason = Lens.lens (\CancelStepsInfo' {reason} -> reason) (\s@CancelStepsInfo' {} a -> s {reason = a} :: CancelStepsInfo)
+
+-- | The encrypted StepId of a step.
+cancelStepsInfo_stepId :: Lens.Lens' CancelStepsInfo (Prelude.Maybe Prelude.Text)
+cancelStepsInfo_stepId = Lens.lens (\CancelStepsInfo' {stepId} -> stepId) (\s@CancelStepsInfo' {} a -> s {stepId = a} :: CancelStepsInfo)
 
 instance Core.FromJSON CancelStepsInfo where
   parseJSON =
@@ -82,18 +82,18 @@ instance Core.FromJSON CancelStepsInfo where
       ( \x ->
           CancelStepsInfo'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "StepId")
             Prelude.<*> (x Core..:? "Reason")
+            Prelude.<*> (x Core..:? "StepId")
       )
 
 instance Prelude.Hashable CancelStepsInfo where
   hashWithSalt _salt CancelStepsInfo' {..} =
     _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` stepId
       `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` stepId
 
 instance Prelude.NFData CancelStepsInfo where
   rnf CancelStepsInfo' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf stepId
       `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf stepId

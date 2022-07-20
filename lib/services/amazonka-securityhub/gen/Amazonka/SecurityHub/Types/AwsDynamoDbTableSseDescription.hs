@@ -27,9 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsDynamoDbTableSseDescription' smart constructor.
 data AwsDynamoDbTableSseDescription = AwsDynamoDbTableSseDescription'
-  { -- | The status of the server-side encryption.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | If the key is inaccessible, the date and time when DynamoDB detected
+  { -- | If the key is inaccessible, the date and time when DynamoDB detected
     -- that the key was inaccessible.
     --
     -- Uses the @date-time@ format specified in
@@ -37,6 +35,8 @@ data AwsDynamoDbTableSseDescription = AwsDynamoDbTableSseDescription'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     inaccessibleEncryptionDateTime :: Prelude.Maybe Prelude.Text,
+    -- | The status of the server-side encryption.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The type of server-side encryption.
     sseType :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the KMS key that is used for the KMS encryption.
@@ -52,8 +52,6 @@ data AwsDynamoDbTableSseDescription = AwsDynamoDbTableSseDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'awsDynamoDbTableSseDescription_status' - The status of the server-side encryption.
---
 -- 'inaccessibleEncryptionDateTime', 'awsDynamoDbTableSseDescription_inaccessibleEncryptionDateTime' - If the key is inaccessible, the date and time when DynamoDB detected
 -- that the key was inaccessible.
 --
@@ -62,6 +60,8 @@ data AwsDynamoDbTableSseDescription = AwsDynamoDbTableSseDescription'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
+-- 'status', 'awsDynamoDbTableSseDescription_status' - The status of the server-side encryption.
+--
 -- 'sseType', 'awsDynamoDbTableSseDescription_sseType' - The type of server-side encryption.
 --
 -- 'kmsMasterKeyArn', 'awsDynamoDbTableSseDescription_kmsMasterKeyArn' - The ARN of the KMS key that is used for the KMS encryption.
@@ -69,17 +69,12 @@ newAwsDynamoDbTableSseDescription ::
   AwsDynamoDbTableSseDescription
 newAwsDynamoDbTableSseDescription =
   AwsDynamoDbTableSseDescription'
-    { status =
+    { inaccessibleEncryptionDateTime =
         Prelude.Nothing,
-      inaccessibleEncryptionDateTime =
-        Prelude.Nothing,
+      status = Prelude.Nothing,
       sseType = Prelude.Nothing,
       kmsMasterKeyArn = Prelude.Nothing
     }
-
--- | The status of the server-side encryption.
-awsDynamoDbTableSseDescription_status :: Lens.Lens' AwsDynamoDbTableSseDescription (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableSseDescription_status = Lens.lens (\AwsDynamoDbTableSseDescription' {status} -> status) (\s@AwsDynamoDbTableSseDescription' {} a -> s {status = a} :: AwsDynamoDbTableSseDescription)
 
 -- | If the key is inaccessible, the date and time when DynamoDB detected
 -- that the key was inaccessible.
@@ -90,6 +85,10 @@ awsDynamoDbTableSseDescription_status = Lens.lens (\AwsDynamoDbTableSseDescripti
 -- @2020-03-22T13:22:13.933Z@.
 awsDynamoDbTableSseDescription_inaccessibleEncryptionDateTime :: Lens.Lens' AwsDynamoDbTableSseDescription (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableSseDescription_inaccessibleEncryptionDateTime = Lens.lens (\AwsDynamoDbTableSseDescription' {inaccessibleEncryptionDateTime} -> inaccessibleEncryptionDateTime) (\s@AwsDynamoDbTableSseDescription' {} a -> s {inaccessibleEncryptionDateTime = a} :: AwsDynamoDbTableSseDescription)
+
+-- | The status of the server-side encryption.
+awsDynamoDbTableSseDescription_status :: Lens.Lens' AwsDynamoDbTableSseDescription (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableSseDescription_status = Lens.lens (\AwsDynamoDbTableSseDescription' {status} -> status) (\s@AwsDynamoDbTableSseDescription' {} a -> s {status = a} :: AwsDynamoDbTableSseDescription)
 
 -- | The type of server-side encryption.
 awsDynamoDbTableSseDescription_sseType :: Lens.Lens' AwsDynamoDbTableSseDescription (Prelude.Maybe Prelude.Text)
@@ -105,8 +104,8 @@ instance Core.FromJSON AwsDynamoDbTableSseDescription where
       "AwsDynamoDbTableSseDescription"
       ( \x ->
           AwsDynamoDbTableSseDescription'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "InaccessibleEncryptionDateTime")
+            Prelude.<$> (x Core..:? "InaccessibleEncryptionDateTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "SseType")
             Prelude.<*> (x Core..:? "KmsMasterKeyArn")
       )
@@ -118,8 +117,9 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableSseDescription' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
         `Prelude.hashWithSalt` inaccessibleEncryptionDateTime
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` sseType
         `Prelude.hashWithSalt` kmsMasterKeyArn
 
@@ -128,8 +128,8 @@ instance
     AwsDynamoDbTableSseDescription
   where
   rnf AwsDynamoDbTableSseDescription' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf inaccessibleEncryptionDateTime
+    Prelude.rnf inaccessibleEncryptionDateTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf sseType
       `Prelude.seq` Prelude.rnf kmsMasterKeyArn
 
@@ -137,9 +137,9 @@ instance Core.ToJSON AwsDynamoDbTableSseDescription where
   toJSON AwsDynamoDbTableSseDescription' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("InaccessibleEncryptionDateTime" Core..=)
+          [ ("InaccessibleEncryptionDateTime" Core..=)
               Prelude.<$> inaccessibleEncryptionDateTime,
+            ("Status" Core..=) Prelude.<$> status,
             ("SseType" Core..=) Prelude.<$> sseType,
             ("KmsMasterKeyArn" Core..=)
               Prelude.<$> kmsMasterKeyArn

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
-  { -- | The date and time when the instance was ready to perform tasks.
-    readyDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The creation date and time of the instance.
+  { -- | The creation date and time of the instance.
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The date and time when the instance was ready to perform tasks.
+    readyDateTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time when the instance was terminated.
     endDateTime :: Prelude.Maybe Core.POSIX
   }
@@ -44,27 +44,28 @@ data InstanceTimeline = InstanceTimeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readyDateTime', 'instanceTimeline_readyDateTime' - The date and time when the instance was ready to perform tasks.
---
 -- 'creationDateTime', 'instanceTimeline_creationDateTime' - The creation date and time of the instance.
+--
+-- 'readyDateTime', 'instanceTimeline_readyDateTime' - The date and time when the instance was ready to perform tasks.
 --
 -- 'endDateTime', 'instanceTimeline_endDateTime' - The date and time when the instance was terminated.
 newInstanceTimeline ::
   InstanceTimeline
 newInstanceTimeline =
   InstanceTimeline'
-    { readyDateTime = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+    { creationDateTime =
+        Prelude.Nothing,
+      readyDateTime = Prelude.Nothing,
       endDateTime = Prelude.Nothing
     }
-
--- | The date and time when the instance was ready to perform tasks.
-instanceTimeline_readyDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceTimeline_readyDateTime = Lens.lens (\InstanceTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceTimeline' {} a -> s {readyDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The creation date and time of the instance.
 instanceTimeline_creationDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
 instanceTimeline_creationDateTime = Lens.lens (\InstanceTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceTimeline' {} a -> s {creationDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time when the instance was ready to perform tasks.
+instanceTimeline_readyDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
+instanceTimeline_readyDateTime = Lens.lens (\InstanceTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceTimeline' {} a -> s {readyDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time when the instance was terminated.
 instanceTimeline_endDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
@@ -76,19 +77,19 @@ instance Core.FromJSON InstanceTimeline where
       "InstanceTimeline"
       ( \x ->
           InstanceTimeline'
-            Prelude.<$> (x Core..:? "ReadyDateTime")
-            Prelude.<*> (x Core..:? "CreationDateTime")
+            Prelude.<$> (x Core..:? "CreationDateTime")
+            Prelude.<*> (x Core..:? "ReadyDateTime")
             Prelude.<*> (x Core..:? "EndDateTime")
       )
 
 instance Prelude.Hashable InstanceTimeline where
   hashWithSalt _salt InstanceTimeline' {..} =
-    _salt `Prelude.hashWithSalt` readyDateTime
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` readyDateTime
       `Prelude.hashWithSalt` endDateTime
 
 instance Prelude.NFData InstanceTimeline where
   rnf InstanceTimeline' {..} =
-    Prelude.rnf readyDateTime
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf readyDateTime
       `Prelude.seq` Prelude.rnf endDateTime

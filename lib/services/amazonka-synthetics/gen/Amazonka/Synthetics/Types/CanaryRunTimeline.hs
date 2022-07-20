@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCanaryRunTimeline' smart constructor.
 data CanaryRunTimeline = CanaryRunTimeline'
-  { -- | The end time of the run.
-    completed :: Prelude.Maybe Core.POSIX,
-    -- | The start time of the run.
-    started :: Prelude.Maybe Core.POSIX
+  { -- | The start time of the run.
+    started :: Prelude.Maybe Core.POSIX,
+    -- | The end time of the run.
+    completed :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data CanaryRunTimeline = CanaryRunTimeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'completed', 'canaryRunTimeline_completed' - The end time of the run.
---
 -- 'started', 'canaryRunTimeline_started' - The start time of the run.
+--
+-- 'completed', 'canaryRunTimeline_completed' - The end time of the run.
 newCanaryRunTimeline ::
   CanaryRunTimeline
 newCanaryRunTimeline =
   CanaryRunTimeline'
-    { completed = Prelude.Nothing,
-      started = Prelude.Nothing
+    { started = Prelude.Nothing,
+      completed = Prelude.Nothing
     }
-
--- | The end time of the run.
-canaryRunTimeline_completed :: Lens.Lens' CanaryRunTimeline (Prelude.Maybe Prelude.UTCTime)
-canaryRunTimeline_completed = Lens.lens (\CanaryRunTimeline' {completed} -> completed) (\s@CanaryRunTimeline' {} a -> s {completed = a} :: CanaryRunTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The start time of the run.
 canaryRunTimeline_started :: Lens.Lens' CanaryRunTimeline (Prelude.Maybe Prelude.UTCTime)
 canaryRunTimeline_started = Lens.lens (\CanaryRunTimeline' {started} -> started) (\s@CanaryRunTimeline' {} a -> s {started = a} :: CanaryRunTimeline) Prelude.. Lens.mapping Core._Time
+
+-- | The end time of the run.
+canaryRunTimeline_completed :: Lens.Lens' CanaryRunTimeline (Prelude.Maybe Prelude.UTCTime)
+canaryRunTimeline_completed = Lens.lens (\CanaryRunTimeline' {completed} -> completed) (\s@CanaryRunTimeline' {} a -> s {completed = a} :: CanaryRunTimeline) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON CanaryRunTimeline where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON CanaryRunTimeline where
       "CanaryRunTimeline"
       ( \x ->
           CanaryRunTimeline'
-            Prelude.<$> (x Core..:? "Completed")
-            Prelude.<*> (x Core..:? "Started")
+            Prelude.<$> (x Core..:? "Started")
+            Prelude.<*> (x Core..:? "Completed")
       )
 
 instance Prelude.Hashable CanaryRunTimeline where
   hashWithSalt _salt CanaryRunTimeline' {..} =
-    _salt `Prelude.hashWithSalt` completed
-      `Prelude.hashWithSalt` started
+    _salt `Prelude.hashWithSalt` started
+      `Prelude.hashWithSalt` completed
 
 instance Prelude.NFData CanaryRunTimeline where
   rnf CanaryRunTimeline' {..} =
-    Prelude.rnf completed
-      `Prelude.seq` Prelude.rnf started
+    Prelude.rnf started
+      `Prelude.seq` Prelude.rnf completed

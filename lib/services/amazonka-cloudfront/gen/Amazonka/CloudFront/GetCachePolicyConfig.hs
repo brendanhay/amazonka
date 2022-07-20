@@ -40,8 +40,8 @@ module Amazonka.CloudFront.GetCachePolicyConfig
     newGetCachePolicyConfigResponse,
 
     -- * Response Lenses
-    getCachePolicyConfigResponse_eTag,
     getCachePolicyConfigResponse_cachePolicyConfig,
+    getCachePolicyConfigResponse_eTag,
     getCachePolicyConfigResponse_httpStatus,
   )
 where
@@ -101,8 +101,8 @@ instance Core.AWSRequest GetCachePolicyConfig where
     Response.receiveXML
       ( \s h x ->
           GetCachePolicyConfigResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,10 +129,10 @@ instance Core.ToQuery GetCachePolicyConfig where
 
 -- | /See:/ 'newGetCachePolicyConfigResponse' smart constructor.
 data GetCachePolicyConfigResponse = GetCachePolicyConfigResponse'
-  { -- | The current version of the cache policy.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The cache policy configuration.
+  { -- | The cache policy configuration.
     cachePolicyConfig :: Prelude.Maybe CachePolicyConfig,
+    -- | The current version of the cache policy.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,9 +146,9 @@ data GetCachePolicyConfigResponse = GetCachePolicyConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'getCachePolicyConfigResponse_eTag' - The current version of the cache policy.
---
 -- 'cachePolicyConfig', 'getCachePolicyConfigResponse_cachePolicyConfig' - The cache policy configuration.
+--
+-- 'eTag', 'getCachePolicyConfigResponse_eTag' - The current version of the cache policy.
 --
 -- 'httpStatus', 'getCachePolicyConfigResponse_httpStatus' - The response's http status code.
 newGetCachePolicyConfigResponse ::
@@ -157,19 +157,19 @@ newGetCachePolicyConfigResponse ::
   GetCachePolicyConfigResponse
 newGetCachePolicyConfigResponse pHttpStatus_ =
   GetCachePolicyConfigResponse'
-    { eTag =
+    { cachePolicyConfig =
         Prelude.Nothing,
-      cachePolicyConfig = Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current version of the cache policy.
-getCachePolicyConfigResponse_eTag :: Lens.Lens' GetCachePolicyConfigResponse (Prelude.Maybe Prelude.Text)
-getCachePolicyConfigResponse_eTag = Lens.lens (\GetCachePolicyConfigResponse' {eTag} -> eTag) (\s@GetCachePolicyConfigResponse' {} a -> s {eTag = a} :: GetCachePolicyConfigResponse)
 
 -- | The cache policy configuration.
 getCachePolicyConfigResponse_cachePolicyConfig :: Lens.Lens' GetCachePolicyConfigResponse (Prelude.Maybe CachePolicyConfig)
 getCachePolicyConfigResponse_cachePolicyConfig = Lens.lens (\GetCachePolicyConfigResponse' {cachePolicyConfig} -> cachePolicyConfig) (\s@GetCachePolicyConfigResponse' {} a -> s {cachePolicyConfig = a} :: GetCachePolicyConfigResponse)
+
+-- | The current version of the cache policy.
+getCachePolicyConfigResponse_eTag :: Lens.Lens' GetCachePolicyConfigResponse (Prelude.Maybe Prelude.Text)
+getCachePolicyConfigResponse_eTag = Lens.lens (\GetCachePolicyConfigResponse' {eTag} -> eTag) (\s@GetCachePolicyConfigResponse' {} a -> s {eTag = a} :: GetCachePolicyConfigResponse)
 
 -- | The response's http status code.
 getCachePolicyConfigResponse_httpStatus :: Lens.Lens' GetCachePolicyConfigResponse Prelude.Int
@@ -177,6 +177,6 @@ getCachePolicyConfigResponse_httpStatus = Lens.lens (\GetCachePolicyConfigRespon
 
 instance Prelude.NFData GetCachePolicyConfigResponse where
   rnf GetCachePolicyConfigResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf cachePolicyConfig
+    Prelude.rnf cachePolicyConfig
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

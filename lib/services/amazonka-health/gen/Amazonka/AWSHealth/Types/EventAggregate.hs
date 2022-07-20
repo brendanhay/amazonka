@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventAggregate' smart constructor.
 data EventAggregate = EventAggregate'
-  { -- | The number of events of the associated issue type.
-    count :: Prelude.Maybe Prelude.Int,
-    -- | The issue type for the associated count.
-    aggregateValue :: Prelude.Maybe Prelude.Text
+  { -- | The issue type for the associated count.
+    aggregateValue :: Prelude.Maybe Prelude.Text,
+    -- | The number of events of the associated issue type.
+    count :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data EventAggregate = EventAggregate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'count', 'eventAggregate_count' - The number of events of the associated issue type.
---
 -- 'aggregateValue', 'eventAggregate_aggregateValue' - The issue type for the associated count.
+--
+-- 'count', 'eventAggregate_count' - The number of events of the associated issue type.
 newEventAggregate ::
   EventAggregate
 newEventAggregate =
   EventAggregate'
-    { count = Prelude.Nothing,
-      aggregateValue = Prelude.Nothing
+    { aggregateValue = Prelude.Nothing,
+      count = Prelude.Nothing
     }
-
--- | The number of events of the associated issue type.
-eventAggregate_count :: Lens.Lens' EventAggregate (Prelude.Maybe Prelude.Int)
-eventAggregate_count = Lens.lens (\EventAggregate' {count} -> count) (\s@EventAggregate' {} a -> s {count = a} :: EventAggregate)
 
 -- | The issue type for the associated count.
 eventAggregate_aggregateValue :: Lens.Lens' EventAggregate (Prelude.Maybe Prelude.Text)
 eventAggregate_aggregateValue = Lens.lens (\EventAggregate' {aggregateValue} -> aggregateValue) (\s@EventAggregate' {} a -> s {aggregateValue = a} :: EventAggregate)
+
+-- | The number of events of the associated issue type.
+eventAggregate_count :: Lens.Lens' EventAggregate (Prelude.Maybe Prelude.Int)
+eventAggregate_count = Lens.lens (\EventAggregate' {count} -> count) (\s@EventAggregate' {} a -> s {count = a} :: EventAggregate)
 
 instance Core.FromJSON EventAggregate where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON EventAggregate where
       "EventAggregate"
       ( \x ->
           EventAggregate'
-            Prelude.<$> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "aggregateValue")
+            Prelude.<$> (x Core..:? "aggregateValue")
+            Prelude.<*> (x Core..:? "count")
       )
 
 instance Prelude.Hashable EventAggregate where
   hashWithSalt _salt EventAggregate' {..} =
-    _salt `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` aggregateValue
+    _salt `Prelude.hashWithSalt` aggregateValue
+      `Prelude.hashWithSalt` count
 
 instance Prelude.NFData EventAggregate where
   rnf EventAggregate' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf aggregateValue
+    Prelude.rnf aggregateValue
+      `Prelude.seq` Prelude.rnf count

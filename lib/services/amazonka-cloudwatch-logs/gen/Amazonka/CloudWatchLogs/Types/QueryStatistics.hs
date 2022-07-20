@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryStatistics' smart constructor.
 data QueryStatistics = QueryStatistics'
-  { -- | The total number of log events scanned during the query.
-    recordsScanned :: Prelude.Maybe Prelude.Double,
+  { -- | The number of log events that matched the query string.
+    recordsMatched :: Prelude.Maybe Prelude.Double,
     -- | The total number of bytes in the log events scanned during the query.
     bytesScanned :: Prelude.Maybe Prelude.Double,
-    -- | The number of log events that matched the query string.
-    recordsMatched :: Prelude.Maybe Prelude.Double
+    -- | The total number of log events scanned during the query.
+    recordsScanned :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,31 @@ data QueryStatistics = QueryStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recordsScanned', 'queryStatistics_recordsScanned' - The total number of log events scanned during the query.
+-- 'recordsMatched', 'queryStatistics_recordsMatched' - The number of log events that matched the query string.
 --
 -- 'bytesScanned', 'queryStatistics_bytesScanned' - The total number of bytes in the log events scanned during the query.
 --
--- 'recordsMatched', 'queryStatistics_recordsMatched' - The number of log events that matched the query string.
+-- 'recordsScanned', 'queryStatistics_recordsScanned' - The total number of log events scanned during the query.
 newQueryStatistics ::
   QueryStatistics
 newQueryStatistics =
   QueryStatistics'
-    { recordsScanned = Prelude.Nothing,
+    { recordsMatched = Prelude.Nothing,
       bytesScanned = Prelude.Nothing,
-      recordsMatched = Prelude.Nothing
+      recordsScanned = Prelude.Nothing
     }
 
--- | The total number of log events scanned during the query.
-queryStatistics_recordsScanned :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
-queryStatistics_recordsScanned = Lens.lens (\QueryStatistics' {recordsScanned} -> recordsScanned) (\s@QueryStatistics' {} a -> s {recordsScanned = a} :: QueryStatistics)
+-- | The number of log events that matched the query string.
+queryStatistics_recordsMatched :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
+queryStatistics_recordsMatched = Lens.lens (\QueryStatistics' {recordsMatched} -> recordsMatched) (\s@QueryStatistics' {} a -> s {recordsMatched = a} :: QueryStatistics)
 
 -- | The total number of bytes in the log events scanned during the query.
 queryStatistics_bytesScanned :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
 queryStatistics_bytesScanned = Lens.lens (\QueryStatistics' {bytesScanned} -> bytesScanned) (\s@QueryStatistics' {} a -> s {bytesScanned = a} :: QueryStatistics)
 
--- | The number of log events that matched the query string.
-queryStatistics_recordsMatched :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
-queryStatistics_recordsMatched = Lens.lens (\QueryStatistics' {recordsMatched} -> recordsMatched) (\s@QueryStatistics' {} a -> s {recordsMatched = a} :: QueryStatistics)
+-- | The total number of log events scanned during the query.
+queryStatistics_recordsScanned :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
+queryStatistics_recordsScanned = Lens.lens (\QueryStatistics' {recordsScanned} -> recordsScanned) (\s@QueryStatistics' {} a -> s {recordsScanned = a} :: QueryStatistics)
 
 instance Core.FromJSON QueryStatistics where
   parseJSON =
@@ -78,19 +78,19 @@ instance Core.FromJSON QueryStatistics where
       "QueryStatistics"
       ( \x ->
           QueryStatistics'
-            Prelude.<$> (x Core..:? "recordsScanned")
+            Prelude.<$> (x Core..:? "recordsMatched")
             Prelude.<*> (x Core..:? "bytesScanned")
-            Prelude.<*> (x Core..:? "recordsMatched")
+            Prelude.<*> (x Core..:? "recordsScanned")
       )
 
 instance Prelude.Hashable QueryStatistics where
   hashWithSalt _salt QueryStatistics' {..} =
-    _salt `Prelude.hashWithSalt` recordsScanned
+    _salt `Prelude.hashWithSalt` recordsMatched
       `Prelude.hashWithSalt` bytesScanned
-      `Prelude.hashWithSalt` recordsMatched
+      `Prelude.hashWithSalt` recordsScanned
 
 instance Prelude.NFData QueryStatistics where
   rnf QueryStatistics' {..} =
-    Prelude.rnf recordsScanned
+    Prelude.rnf recordsMatched
       `Prelude.seq` Prelude.rnf bytesScanned
-      `Prelude.seq` Prelude.rnf recordsMatched
+      `Prelude.seq` Prelude.rnf recordsScanned

@@ -49,10 +49,6 @@ data PipelineOutputConfig = PipelineOutputConfig'
     -- S3 storage class, omit OutputBucket and specify values for
     -- @ContentConfig@ and @ThumbnailConfig@ instead.
     bucket :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 storage class, @Standard@ or @ReducedRedundancy@, that you
-    -- want Elastic Transcoder to assign to the video files and playlists that
-    -- it stores in your Amazon S3 bucket.
-    storageClass :: Prelude.Maybe Prelude.Text,
     -- | Optional. The @Permissions@ object specifies which users and\/or
     -- predefined Amazon S3 groups you want to have access to transcoded files
     -- and playlists, and the type of access you want them to have. You can
@@ -67,7 +63,11 @@ data PipelineOutputConfig = PipelineOutputConfig'
     -- If you omit @Permissions@, Elastic Transcoder grants full control over
     -- the transcoded files and playlists to the owner of the role specified by
     -- @Role@, and grants no other permissions to any other user or group.
-    permissions :: Prelude.Maybe [Permission]
+    permissions :: Prelude.Maybe [Permission],
+    -- | The Amazon S3 storage class, @Standard@ or @ReducedRedundancy@, that you
+    -- want Elastic Transcoder to assign to the video files and playlists that
+    -- it stores in your Amazon S3 bucket.
+    storageClass :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,10 +100,6 @@ data PipelineOutputConfig = PipelineOutputConfig'
 -- S3 storage class, omit OutputBucket and specify values for
 -- @ContentConfig@ and @ThumbnailConfig@ instead.
 --
--- 'storageClass', 'pipelineOutputConfig_storageClass' - The Amazon S3 storage class, @Standard@ or @ReducedRedundancy@, that you
--- want Elastic Transcoder to assign to the video files and playlists that
--- it stores in your Amazon S3 bucket.
---
 -- 'permissions', 'pipelineOutputConfig_permissions' - Optional. The @Permissions@ object specifies which users and\/or
 -- predefined Amazon S3 groups you want to have access to transcoded files
 -- and playlists, and the type of access you want them to have. You can
@@ -118,13 +114,17 @@ data PipelineOutputConfig = PipelineOutputConfig'
 -- If you omit @Permissions@, Elastic Transcoder grants full control over
 -- the transcoded files and playlists to the owner of the role specified by
 -- @Role@, and grants no other permissions to any other user or group.
+--
+-- 'storageClass', 'pipelineOutputConfig_storageClass' - The Amazon S3 storage class, @Standard@ or @ReducedRedundancy@, that you
+-- want Elastic Transcoder to assign to the video files and playlists that
+-- it stores in your Amazon S3 bucket.
 newPipelineOutputConfig ::
   PipelineOutputConfig
 newPipelineOutputConfig =
   PipelineOutputConfig'
     { bucket = Prelude.Nothing,
-      storageClass = Prelude.Nothing,
-      permissions = Prelude.Nothing
+      permissions = Prelude.Nothing,
+      storageClass = Prelude.Nothing
     }
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
@@ -150,12 +150,6 @@ newPipelineOutputConfig =
 pipelineOutputConfig_bucket :: Lens.Lens' PipelineOutputConfig (Prelude.Maybe Prelude.Text)
 pipelineOutputConfig_bucket = Lens.lens (\PipelineOutputConfig' {bucket} -> bucket) (\s@PipelineOutputConfig' {} a -> s {bucket = a} :: PipelineOutputConfig)
 
--- | The Amazon S3 storage class, @Standard@ or @ReducedRedundancy@, that you
--- want Elastic Transcoder to assign to the video files and playlists that
--- it stores in your Amazon S3 bucket.
-pipelineOutputConfig_storageClass :: Lens.Lens' PipelineOutputConfig (Prelude.Maybe Prelude.Text)
-pipelineOutputConfig_storageClass = Lens.lens (\PipelineOutputConfig' {storageClass} -> storageClass) (\s@PipelineOutputConfig' {} a -> s {storageClass = a} :: PipelineOutputConfig)
-
 -- | Optional. The @Permissions@ object specifies which users and\/or
 -- predefined Amazon S3 groups you want to have access to transcoded files
 -- and playlists, and the type of access you want them to have. You can
@@ -173,6 +167,12 @@ pipelineOutputConfig_storageClass = Lens.lens (\PipelineOutputConfig' {storageCl
 pipelineOutputConfig_permissions :: Lens.Lens' PipelineOutputConfig (Prelude.Maybe [Permission])
 pipelineOutputConfig_permissions = Lens.lens (\PipelineOutputConfig' {permissions} -> permissions) (\s@PipelineOutputConfig' {} a -> s {permissions = a} :: PipelineOutputConfig) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon S3 storage class, @Standard@ or @ReducedRedundancy@, that you
+-- want Elastic Transcoder to assign to the video files and playlists that
+-- it stores in your Amazon S3 bucket.
+pipelineOutputConfig_storageClass :: Lens.Lens' PipelineOutputConfig (Prelude.Maybe Prelude.Text)
+pipelineOutputConfig_storageClass = Lens.lens (\PipelineOutputConfig' {storageClass} -> storageClass) (\s@PipelineOutputConfig' {} a -> s {storageClass = a} :: PipelineOutputConfig)
+
 instance Core.FromJSON PipelineOutputConfig where
   parseJSON =
     Core.withObject
@@ -180,28 +180,28 @@ instance Core.FromJSON PipelineOutputConfig where
       ( \x ->
           PipelineOutputConfig'
             Prelude.<$> (x Core..:? "Bucket")
-            Prelude.<*> (x Core..:? "StorageClass")
             Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "StorageClass")
       )
 
 instance Prelude.Hashable PipelineOutputConfig where
   hashWithSalt _salt PipelineOutputConfig' {..} =
     _salt `Prelude.hashWithSalt` bucket
-      `Prelude.hashWithSalt` storageClass
       `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` storageClass
 
 instance Prelude.NFData PipelineOutputConfig where
   rnf PipelineOutputConfig' {..} =
     Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf storageClass
       `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf storageClass
 
 instance Core.ToJSON PipelineOutputConfig where
   toJSON PipelineOutputConfig' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Bucket" Core..=) Prelude.<$> bucket,
-            ("StorageClass" Core..=) Prelude.<$> storageClass,
-            ("Permissions" Core..=) Prelude.<$> permissions
+            ("Permissions" Core..=) Prelude.<$> permissions,
+            ("StorageClass" Core..=) Prelude.<$> storageClass
           ]
       )

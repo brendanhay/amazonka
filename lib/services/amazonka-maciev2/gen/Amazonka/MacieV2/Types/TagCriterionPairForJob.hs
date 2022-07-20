@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagCriterionPairForJob' smart constructor.
 data TagCriterionPairForJob = TagCriterionPairForJob'
-  { -- | The tag value to use in the condition.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The value for the tag key to use in the condition.
-    key :: Prelude.Maybe Prelude.Text
+  { -- | The value for the tag key to use in the condition.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The tag value to use in the condition.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data TagCriterionPairForJob = TagCriterionPairForJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'tagCriterionPairForJob_value' - The tag value to use in the condition.
---
 -- 'key', 'tagCriterionPairForJob_key' - The value for the tag key to use in the condition.
+--
+-- 'value', 'tagCriterionPairForJob_value' - The tag value to use in the condition.
 newTagCriterionPairForJob ::
   TagCriterionPairForJob
 newTagCriterionPairForJob =
   TagCriterionPairForJob'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The tag value to use in the condition.
-tagCriterionPairForJob_value :: Lens.Lens' TagCriterionPairForJob (Prelude.Maybe Prelude.Text)
-tagCriterionPairForJob_value = Lens.lens (\TagCriterionPairForJob' {value} -> value) (\s@TagCriterionPairForJob' {} a -> s {value = a} :: TagCriterionPairForJob)
 
 -- | The value for the tag key to use in the condition.
 tagCriterionPairForJob_key :: Lens.Lens' TagCriterionPairForJob (Prelude.Maybe Prelude.Text)
 tagCriterionPairForJob_key = Lens.lens (\TagCriterionPairForJob' {key} -> key) (\s@TagCriterionPairForJob' {} a -> s {key = a} :: TagCriterionPairForJob)
+
+-- | The tag value to use in the condition.
+tagCriterionPairForJob_value :: Lens.Lens' TagCriterionPairForJob (Prelude.Maybe Prelude.Text)
+tagCriterionPairForJob_value = Lens.lens (\TagCriterionPairForJob' {value} -> value) (\s@TagCriterionPairForJob' {} a -> s {value = a} :: TagCriterionPairForJob)
 
 instance Core.FromJSON TagCriterionPairForJob where
   parseJSON =
@@ -71,23 +71,23 @@ instance Core.FromJSON TagCriterionPairForJob where
       "TagCriterionPairForJob"
       ( \x ->
           TagCriterionPairForJob'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
+            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable TagCriterionPairForJob where
   hashWithSalt _salt TagCriterionPairForJob' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TagCriterionPairForJob where
   rnf TagCriterionPairForJob' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON TagCriterionPairForJob where
   toJSON TagCriterionPairForJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("key" Core..=) Prelude.<$> key
+          [ ("key" Core..=) Prelude.<$> key,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

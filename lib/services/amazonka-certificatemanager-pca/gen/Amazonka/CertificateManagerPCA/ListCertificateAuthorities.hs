@@ -40,8 +40,8 @@ module Amazonka.CertificateManagerPCA.ListCertificateAuthorities
     newListCertificateAuthoritiesResponse,
 
     -- * Response Lenses
-    listCertificateAuthoritiesResponse_certificateAuthorities,
     listCertificateAuthoritiesResponse_nextToken,
+    listCertificateAuthoritiesResponse_certificateAuthorities,
     listCertificateAuthoritiesResponse_httpStatus,
   )
 where
@@ -151,10 +151,10 @@ instance Core.AWSRequest ListCertificateAuthorities where
     Response.receiveJSON
       ( \s h x ->
           ListCertificateAuthoritiesResponse'
-            Prelude.<$> ( x Core..?> "CertificateAuthorities"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "CertificateAuthorities"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,11 +203,11 @@ instance Core.ToQuery ListCertificateAuthorities where
 
 -- | /See:/ 'newListCertificateAuthoritiesResponse' smart constructor.
 data ListCertificateAuthoritiesResponse = ListCertificateAuthoritiesResponse'
-  { -- | Summary information about each certificate authority you have created.
-    certificateAuthorities :: Prelude.Maybe [CertificateAuthority],
-    -- | When the list is truncated, this value is present and should be used for
+  { -- | When the list is truncated, this value is present and should be used for
     -- the @NextToken@ parameter in a subsequent pagination request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Summary information about each certificate authority you have created.
+    certificateAuthorities :: Prelude.Maybe [CertificateAuthority],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,10 +221,10 @@ data ListCertificateAuthoritiesResponse = ListCertificateAuthoritiesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateAuthorities', 'listCertificateAuthoritiesResponse_certificateAuthorities' - Summary information about each certificate authority you have created.
---
 -- 'nextToken', 'listCertificateAuthoritiesResponse_nextToken' - When the list is truncated, this value is present and should be used for
 -- the @NextToken@ parameter in a subsequent pagination request.
+--
+-- 'certificateAuthorities', 'listCertificateAuthoritiesResponse_certificateAuthorities' - Summary information about each certificate authority you have created.
 --
 -- 'httpStatus', 'listCertificateAuthoritiesResponse_httpStatus' - The response's http status code.
 newListCertificateAuthoritiesResponse ::
@@ -233,20 +233,21 @@ newListCertificateAuthoritiesResponse ::
   ListCertificateAuthoritiesResponse
 newListCertificateAuthoritiesResponse pHttpStatus_ =
   ListCertificateAuthoritiesResponse'
-    { certificateAuthorities =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      certificateAuthorities =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Summary information about each certificate authority you have created.
-listCertificateAuthoritiesResponse_certificateAuthorities :: Lens.Lens' ListCertificateAuthoritiesResponse (Prelude.Maybe [CertificateAuthority])
-listCertificateAuthoritiesResponse_certificateAuthorities = Lens.lens (\ListCertificateAuthoritiesResponse' {certificateAuthorities} -> certificateAuthorities) (\s@ListCertificateAuthoritiesResponse' {} a -> s {certificateAuthorities = a} :: ListCertificateAuthoritiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When the list is truncated, this value is present and should be used for
 -- the @NextToken@ parameter in a subsequent pagination request.
 listCertificateAuthoritiesResponse_nextToken :: Lens.Lens' ListCertificateAuthoritiesResponse (Prelude.Maybe Prelude.Text)
 listCertificateAuthoritiesResponse_nextToken = Lens.lens (\ListCertificateAuthoritiesResponse' {nextToken} -> nextToken) (\s@ListCertificateAuthoritiesResponse' {} a -> s {nextToken = a} :: ListCertificateAuthoritiesResponse)
+
+-- | Summary information about each certificate authority you have created.
+listCertificateAuthoritiesResponse_certificateAuthorities :: Lens.Lens' ListCertificateAuthoritiesResponse (Prelude.Maybe [CertificateAuthority])
+listCertificateAuthoritiesResponse_certificateAuthorities = Lens.lens (\ListCertificateAuthoritiesResponse' {certificateAuthorities} -> certificateAuthorities) (\s@ListCertificateAuthoritiesResponse' {} a -> s {certificateAuthorities = a} :: ListCertificateAuthoritiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCertificateAuthoritiesResponse_httpStatus :: Lens.Lens' ListCertificateAuthoritiesResponse Prelude.Int
@@ -257,6 +258,6 @@ instance
     ListCertificateAuthoritiesResponse
   where
   rnf ListCertificateAuthoritiesResponse' {..} =
-    Prelude.rnf certificateAuthorities
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf certificateAuthorities
       `Prelude.seq` Prelude.rnf httpStatus

@@ -76,8 +76,8 @@ module Amazonka.CloudWatchLogs.PutLogEvents
     newPutLogEventsResponse,
 
     -- * Response Lenses
-    putLogEventsResponse_rejectedLogEventsInfo,
     putLogEventsResponse_nextSequenceToken,
+    putLogEventsResponse_rejectedLogEventsInfo,
     putLogEventsResponse_httpStatus,
   )
 where
@@ -177,8 +177,8 @@ instance Core.AWSRequest PutLogEvents where
     Response.receiveJSON
       ( \s h x ->
           PutLogEventsResponse'
-            Prelude.<$> (x Core..?> "rejectedLogEventsInfo")
-            Prelude.<*> (x Core..?> "nextSequenceToken")
+            Prelude.<$> (x Core..?> "nextSequenceToken")
+            Prelude.<*> (x Core..?> "rejectedLogEventsInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,10 +228,10 @@ instance Core.ToQuery PutLogEvents where
 
 -- | /See:/ 'newPutLogEventsResponse' smart constructor.
 data PutLogEventsResponse = PutLogEventsResponse'
-  { -- | The rejected events.
-    rejectedLogEventsInfo :: Prelude.Maybe RejectedLogEventsInfo,
-    -- | The next sequence token.
+  { -- | The next sequence token.
     nextSequenceToken :: Prelude.Maybe Prelude.Text,
+    -- | The rejected events.
+    rejectedLogEventsInfo :: Prelude.Maybe RejectedLogEventsInfo,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,9 +245,9 @@ data PutLogEventsResponse = PutLogEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rejectedLogEventsInfo', 'putLogEventsResponse_rejectedLogEventsInfo' - The rejected events.
---
 -- 'nextSequenceToken', 'putLogEventsResponse_nextSequenceToken' - The next sequence token.
+--
+-- 'rejectedLogEventsInfo', 'putLogEventsResponse_rejectedLogEventsInfo' - The rejected events.
 --
 -- 'httpStatus', 'putLogEventsResponse_httpStatus' - The response's http status code.
 newPutLogEventsResponse ::
@@ -256,19 +256,19 @@ newPutLogEventsResponse ::
   PutLogEventsResponse
 newPutLogEventsResponse pHttpStatus_ =
   PutLogEventsResponse'
-    { rejectedLogEventsInfo =
+    { nextSequenceToken =
         Prelude.Nothing,
-      nextSequenceToken = Prelude.Nothing,
+      rejectedLogEventsInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The rejected events.
-putLogEventsResponse_rejectedLogEventsInfo :: Lens.Lens' PutLogEventsResponse (Prelude.Maybe RejectedLogEventsInfo)
-putLogEventsResponse_rejectedLogEventsInfo = Lens.lens (\PutLogEventsResponse' {rejectedLogEventsInfo} -> rejectedLogEventsInfo) (\s@PutLogEventsResponse' {} a -> s {rejectedLogEventsInfo = a} :: PutLogEventsResponse)
 
 -- | The next sequence token.
 putLogEventsResponse_nextSequenceToken :: Lens.Lens' PutLogEventsResponse (Prelude.Maybe Prelude.Text)
 putLogEventsResponse_nextSequenceToken = Lens.lens (\PutLogEventsResponse' {nextSequenceToken} -> nextSequenceToken) (\s@PutLogEventsResponse' {} a -> s {nextSequenceToken = a} :: PutLogEventsResponse)
+
+-- | The rejected events.
+putLogEventsResponse_rejectedLogEventsInfo :: Lens.Lens' PutLogEventsResponse (Prelude.Maybe RejectedLogEventsInfo)
+putLogEventsResponse_rejectedLogEventsInfo = Lens.lens (\PutLogEventsResponse' {rejectedLogEventsInfo} -> rejectedLogEventsInfo) (\s@PutLogEventsResponse' {} a -> s {rejectedLogEventsInfo = a} :: PutLogEventsResponse)
 
 -- | The response's http status code.
 putLogEventsResponse_httpStatus :: Lens.Lens' PutLogEventsResponse Prelude.Int
@@ -276,6 +276,6 @@ putLogEventsResponse_httpStatus = Lens.lens (\PutLogEventsResponse' {httpStatus}
 
 instance Prelude.NFData PutLogEventsResponse where
   rnf PutLogEventsResponse' {..} =
-    Prelude.rnf rejectedLogEventsInfo
-      `Prelude.seq` Prelude.rnf nextSequenceToken
+    Prelude.rnf nextSequenceToken
+      `Prelude.seq` Prelude.rnf rejectedLogEventsInfo
       `Prelude.seq` Prelude.rnf httpStatus

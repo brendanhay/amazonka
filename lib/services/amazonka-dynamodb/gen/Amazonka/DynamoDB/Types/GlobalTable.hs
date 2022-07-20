@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlobalTable' smart constructor.
 data GlobalTable = GlobalTable'
-  { -- | The global table name.
-    globalTableName :: Prelude.Maybe Prelude.Text,
-    -- | The Regions where the global table has replicas.
-    replicationGroup :: Prelude.Maybe [Replica]
+  { -- | The Regions where the global table has replicas.
+    replicationGroup :: Prelude.Maybe [Replica],
+    -- | The global table name.
+    globalTableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data GlobalTable = GlobalTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalTableName', 'globalTable_globalTableName' - The global table name.
---
 -- 'replicationGroup', 'globalTable_replicationGroup' - The Regions where the global table has replicas.
+--
+-- 'globalTableName', 'globalTable_globalTableName' - The global table name.
 newGlobalTable ::
   GlobalTable
 newGlobalTable =
   GlobalTable'
-    { globalTableName = Prelude.Nothing,
-      replicationGroup = Prelude.Nothing
+    { replicationGroup = Prelude.Nothing,
+      globalTableName = Prelude.Nothing
     }
-
--- | The global table name.
-globalTable_globalTableName :: Lens.Lens' GlobalTable (Prelude.Maybe Prelude.Text)
-globalTable_globalTableName = Lens.lens (\GlobalTable' {globalTableName} -> globalTableName) (\s@GlobalTable' {} a -> s {globalTableName = a} :: GlobalTable)
 
 -- | The Regions where the global table has replicas.
 globalTable_replicationGroup :: Lens.Lens' GlobalTable (Prelude.Maybe [Replica])
 globalTable_replicationGroup = Lens.lens (\GlobalTable' {replicationGroup} -> replicationGroup) (\s@GlobalTable' {} a -> s {replicationGroup = a} :: GlobalTable) Prelude.. Lens.mapping Lens.coerced
+
+-- | The global table name.
+globalTable_globalTableName :: Lens.Lens' GlobalTable (Prelude.Maybe Prelude.Text)
+globalTable_globalTableName = Lens.lens (\GlobalTable' {globalTableName} -> globalTableName) (\s@GlobalTable' {} a -> s {globalTableName = a} :: GlobalTable)
 
 instance Core.FromJSON GlobalTable where
   parseJSON =
@@ -69,18 +69,18 @@ instance Core.FromJSON GlobalTable where
       "GlobalTable"
       ( \x ->
           GlobalTable'
-            Prelude.<$> (x Core..:? "GlobalTableName")
-            Prelude.<*> ( x Core..:? "ReplicationGroup"
+            Prelude.<$> ( x Core..:? "ReplicationGroup"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "GlobalTableName")
       )
 
 instance Prelude.Hashable GlobalTable where
   hashWithSalt _salt GlobalTable' {..} =
-    _salt `Prelude.hashWithSalt` globalTableName
-      `Prelude.hashWithSalt` replicationGroup
+    _salt `Prelude.hashWithSalt` replicationGroup
+      `Prelude.hashWithSalt` globalTableName
 
 instance Prelude.NFData GlobalTable where
   rnf GlobalTable' {..} =
-    Prelude.rnf globalTableName
-      `Prelude.seq` Prelude.rnf replicationGroup
+    Prelude.rnf replicationGroup
+      `Prelude.seq` Prelude.rnf globalTableName

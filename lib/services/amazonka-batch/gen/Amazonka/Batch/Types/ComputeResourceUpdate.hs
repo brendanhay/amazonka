@@ -30,26 +30,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComputeResourceUpdate' smart constructor.
 data ComputeResourceUpdate = ComputeResourceUpdate'
-  { -- | The Amazon EC2 security groups associated with instances launched in the
-    -- compute environment. This parameter is required for Fargate compute
-    -- resources, where it can contain up to 5 security groups. This can\'t be
-    -- specified for EC2 compute resources. Providing an empty list is handled
-    -- as if this parameter wasn\'t specified and no change is made.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The VPC subnets where the compute resources are launched. Fargate
-    -- compute resources can contain up to 16 subnets. Providing an empty list
-    -- will be handled as if this parameter wasn\'t specified and no change is
-    -- made. This can\'t be specified for EC2 compute resources. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
-    -- in the /Amazon VPC User Guide/.
-    subnets :: Prelude.Maybe [Prelude.Text],
-    -- | The minimum number of Amazon EC2 vCPUs that an environment should
+  { -- | The minimum number of Amazon EC2 vCPUs that an environment should
     -- maintain.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources, and shouldn\'t be specified.
     minvCpus :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon EC2 security groups associated with instances launched in the
+    -- compute environment. This parameter is required for Fargate compute
+    -- resources, where it can contain up to 5 security groups. This can\'t be
+    -- specified for EC2 compute resources. Providing an empty list is handled
+    -- as if this parameter wasn\'t specified and no change is made.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The desired number of Amazon EC2 vCPUS in the compute environment.
+    --
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources, and shouldn\'t be specified.
+    desiredvCpus :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
     --
     -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
@@ -58,11 +55,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- @maxvCpus@ by more than a single instance. That is, no more than a
     -- single instance from among those specified in your compute environment.
     maxvCpus :: Prelude.Maybe Prelude.Int,
-    -- | The desired number of Amazon EC2 vCPUS in the compute environment.
-    --
-    -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources, and shouldn\'t be specified.
-    desiredvCpus :: Prelude.Maybe Prelude.Int
+    -- | The VPC subnets where the compute resources are launched. Fargate
+    -- compute resources can contain up to 16 subnets. Providing an empty list
+    -- will be handled as if this parameter wasn\'t specified and no change is
+    -- made. This can\'t be specified for EC2 compute resources. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+    -- in the /Amazon VPC User Guide/.
+    subnets :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,22 +74,19 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'minvCpus', 'computeResourceUpdate_minvCpus' - The minimum number of Amazon EC2 vCPUs that an environment should
+-- maintain.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources, and shouldn\'t be specified.
+--
 -- 'securityGroupIds', 'computeResourceUpdate_securityGroupIds' - The Amazon EC2 security groups associated with instances launched in the
 -- compute environment. This parameter is required for Fargate compute
 -- resources, where it can contain up to 5 security groups. This can\'t be
 -- specified for EC2 compute resources. Providing an empty list is handled
 -- as if this parameter wasn\'t specified and no change is made.
 --
--- 'subnets', 'computeResourceUpdate_subnets' - The VPC subnets where the compute resources are launched. Fargate
--- compute resources can contain up to 16 subnets. Providing an empty list
--- will be handled as if this parameter wasn\'t specified and no change is
--- made. This can\'t be specified for EC2 compute resources. For more
--- information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
--- in the /Amazon VPC User Guide/.
---
--- 'minvCpus', 'computeResourceUpdate_minvCpus' - The minimum number of Amazon EC2 vCPUs that an environment should
--- maintain.
+-- 'desiredvCpus', 'computeResourceUpdate_desiredvCpus' - The desired number of Amazon EC2 vCPUS in the compute environment.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources, and shouldn\'t be specified.
@@ -102,21 +99,31 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- @maxvCpus@ by more than a single instance. That is, no more than a
 -- single instance from among those specified in your compute environment.
 --
--- 'desiredvCpus', 'computeResourceUpdate_desiredvCpus' - The desired number of Amazon EC2 vCPUS in the compute environment.
---
--- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
+-- 'subnets', 'computeResourceUpdate_subnets' - The VPC subnets where the compute resources are launched. Fargate
+-- compute resources can contain up to 16 subnets. Providing an empty list
+-- will be handled as if this parameter wasn\'t specified and no change is
+-- made. This can\'t be specified for EC2 compute resources. For more
+-- information, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+-- in the /Amazon VPC User Guide/.
 newComputeResourceUpdate ::
   ComputeResourceUpdate
 newComputeResourceUpdate =
   ComputeResourceUpdate'
-    { securityGroupIds =
-        Prelude.Nothing,
-      subnets = Prelude.Nothing,
-      minvCpus = Prelude.Nothing,
+    { minvCpus = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
+      desiredvCpus = Prelude.Nothing,
       maxvCpus = Prelude.Nothing,
-      desiredvCpus = Prelude.Nothing
+      subnets = Prelude.Nothing
     }
+
+-- | The minimum number of Amazon EC2 vCPUs that an environment should
+-- maintain.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources, and shouldn\'t be specified.
+computeResourceUpdate_minvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
+computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -> minvCpus) (\s@ComputeResourceUpdate' {} a -> s {minvCpus = a} :: ComputeResourceUpdate)
 
 -- | The Amazon EC2 security groups associated with instances launched in the
 -- compute environment. This parameter is required for Fargate compute
@@ -126,23 +133,12 @@ newComputeResourceUpdate =
 computeResourceUpdate_securityGroupIds :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
 computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {securityGroupIds} -> securityGroupIds) (\s@ComputeResourceUpdate' {} a -> s {securityGroupIds = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
 
--- | The VPC subnets where the compute resources are launched. Fargate
--- compute resources can contain up to 16 subnets. Providing an empty list
--- will be handled as if this parameter wasn\'t specified and no change is
--- made. This can\'t be specified for EC2 compute resources. For more
--- information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
--- in the /Amazon VPC User Guide/.
-computeResourceUpdate_subnets :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
-computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> subnets) (\s@ComputeResourceUpdate' {} a -> s {subnets = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
-
--- | The minimum number of Amazon EC2 vCPUs that an environment should
--- maintain.
+-- | The desired number of Amazon EC2 vCPUS in the compute environment.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources, and shouldn\'t be specified.
-computeResourceUpdate_minvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
-computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -> minvCpus) (\s@ComputeResourceUpdate' {} a -> s {minvCpus = a} :: ComputeResourceUpdate)
+computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
+computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
 
 -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
 --
@@ -154,38 +150,41 @@ computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -
 computeResourceUpdate_maxvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_maxvCpus = Lens.lens (\ComputeResourceUpdate' {maxvCpus} -> maxvCpus) (\s@ComputeResourceUpdate' {} a -> s {maxvCpus = a} :: ComputeResourceUpdate)
 
--- | The desired number of Amazon EC2 vCPUS in the compute environment.
---
--- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources, and shouldn\'t be specified.
-computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
-computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
+-- | The VPC subnets where the compute resources are launched. Fargate
+-- compute resources can contain up to 16 subnets. Providing an empty list
+-- will be handled as if this parameter wasn\'t specified and no change is
+-- made. This can\'t be specified for EC2 compute resources. For more
+-- information, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+-- in the /Amazon VPC User Guide/.
+computeResourceUpdate_subnets :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
+computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> subnets) (\s@ComputeResourceUpdate' {} a -> s {subnets = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable ComputeResourceUpdate where
   hashWithSalt _salt ComputeResourceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` subnets
-      `Prelude.hashWithSalt` minvCpus
-      `Prelude.hashWithSalt` maxvCpus
+    _salt `Prelude.hashWithSalt` minvCpus
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` desiredvCpus
+      `Prelude.hashWithSalt` maxvCpus
+      `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData ComputeResourceUpdate where
   rnf ComputeResourceUpdate' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf minvCpus
-      `Prelude.seq` Prelude.rnf maxvCpus
+    Prelude.rnf minvCpus
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf desiredvCpus
+      `Prelude.seq` Prelude.rnf maxvCpus
+      `Prelude.seq` Prelude.rnf subnets
 
 instance Core.ToJSON ComputeResourceUpdate where
   toJSON ComputeResourceUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("securityGroupIds" Core..=)
+          [ ("minvCpus" Core..=) Prelude.<$> minvCpus,
+            ("securityGroupIds" Core..=)
               Prelude.<$> securityGroupIds,
-            ("subnets" Core..=) Prelude.<$> subnets,
-            ("minvCpus" Core..=) Prelude.<$> minvCpus,
+            ("desiredvCpus" Core..=) Prelude.<$> desiredvCpus,
             ("maxvCpus" Core..=) Prelude.<$> maxvCpus,
-            ("desiredvCpus" Core..=) Prelude.<$> desiredvCpus
+            ("subnets" Core..=) Prelude.<$> subnets
           ]
       )

@@ -33,10 +33,10 @@ module Amazonka.IoT.ListAuthorizers
     newListAuthorizers,
 
     -- * Request Lenses
-    listAuthorizers_status,
     listAuthorizers_marker,
-    listAuthorizers_ascendingOrder,
+    listAuthorizers_status,
     listAuthorizers_pageSize,
+    listAuthorizers_ascendingOrder,
 
     -- * Destructuring the Response
     ListAuthorizersResponse (..),
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAuthorizers' smart constructor.
 data ListAuthorizers = ListAuthorizers'
-  { -- | The status of the list authorizers request.
-    status :: Prelude.Maybe AuthorizerStatus,
-    -- | A marker used to get the next set of results.
+  { -- | A marker used to get the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Return the list of authorizers in ascending alphabetical order.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool,
+    -- | The status of the list authorizers request.
+    status :: Prelude.Maybe AuthorizerStatus,
     -- | The maximum number of results to return at one time.
-    pageSize :: Prelude.Maybe Prelude.Natural
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | Return the list of authorizers in ascending alphabetical order.
+    ascendingOrder :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,38 +77,38 @@ data ListAuthorizers = ListAuthorizers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listAuthorizers_status' - The status of the list authorizers request.
---
 -- 'marker', 'listAuthorizers_marker' - A marker used to get the next set of results.
 --
--- 'ascendingOrder', 'listAuthorizers_ascendingOrder' - Return the list of authorizers in ascending alphabetical order.
+-- 'status', 'listAuthorizers_status' - The status of the list authorizers request.
 --
 -- 'pageSize', 'listAuthorizers_pageSize' - The maximum number of results to return at one time.
+--
+-- 'ascendingOrder', 'listAuthorizers_ascendingOrder' - Return the list of authorizers in ascending alphabetical order.
 newListAuthorizers ::
   ListAuthorizers
 newListAuthorizers =
   ListAuthorizers'
-    { status = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      status = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing
     }
-
--- | The status of the list authorizers request.
-listAuthorizers_status :: Lens.Lens' ListAuthorizers (Prelude.Maybe AuthorizerStatus)
-listAuthorizers_status = Lens.lens (\ListAuthorizers' {status} -> status) (\s@ListAuthorizers' {} a -> s {status = a} :: ListAuthorizers)
 
 -- | A marker used to get the next set of results.
 listAuthorizers_marker :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Text)
 listAuthorizers_marker = Lens.lens (\ListAuthorizers' {marker} -> marker) (\s@ListAuthorizers' {} a -> s {marker = a} :: ListAuthorizers)
 
--- | Return the list of authorizers in ascending alphabetical order.
-listAuthorizers_ascendingOrder :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Bool)
-listAuthorizers_ascendingOrder = Lens.lens (\ListAuthorizers' {ascendingOrder} -> ascendingOrder) (\s@ListAuthorizers' {} a -> s {ascendingOrder = a} :: ListAuthorizers)
+-- | The status of the list authorizers request.
+listAuthorizers_status :: Lens.Lens' ListAuthorizers (Prelude.Maybe AuthorizerStatus)
+listAuthorizers_status = Lens.lens (\ListAuthorizers' {status} -> status) (\s@ListAuthorizers' {} a -> s {status = a} :: ListAuthorizers)
 
 -- | The maximum number of results to return at one time.
 listAuthorizers_pageSize :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Natural)
 listAuthorizers_pageSize = Lens.lens (\ListAuthorizers' {pageSize} -> pageSize) (\s@ListAuthorizers' {} a -> s {pageSize = a} :: ListAuthorizers)
+
+-- | Return the list of authorizers in ascending alphabetical order.
+listAuthorizers_ascendingOrder :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Bool)
+listAuthorizers_ascendingOrder = Lens.lens (\ListAuthorizers' {ascendingOrder} -> ascendingOrder) (\s@ListAuthorizers' {} a -> s {ascendingOrder = a} :: ListAuthorizers)
 
 instance Core.AWSPager ListAuthorizers where
   page rq rs
@@ -148,17 +148,17 @@ instance Core.AWSRequest ListAuthorizers where
 
 instance Prelude.Hashable ListAuthorizers where
   hashWithSalt _salt ListAuthorizers' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` ascendingOrder
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` ascendingOrder
 
 instance Prelude.NFData ListAuthorizers where
   rnf ListAuthorizers' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf ascendingOrder
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf ascendingOrder
 
 instance Core.ToHeaders ListAuthorizers where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,10 +169,10 @@ instance Core.ToPath ListAuthorizers where
 instance Core.ToQuery ListAuthorizers where
   toQuery ListAuthorizers' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
-        "marker" Core.=: marker,
-        "isAscendingOrder" Core.=: ascendingOrder,
-        "pageSize" Core.=: pageSize
+      [ "marker" Core.=: marker,
+        "status" Core.=: status,
+        "pageSize" Core.=: pageSize,
+        "isAscendingOrder" Core.=: ascendingOrder
       ]
 
 -- | /See:/ 'newListAuthorizersResponse' smart constructor.

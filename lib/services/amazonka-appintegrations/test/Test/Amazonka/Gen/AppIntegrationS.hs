@@ -27,38 +27,38 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetEventIntegration $
---             newGetEventIntegration
---
---         , requestListDataIntegrations $
---             newListDataIntegrations
---
---         , requestCreateDataIntegration $
+--         [ requestCreateDataIntegration $
 --             newCreateDataIntegration
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListEventIntegrationAssociations $
---             newListEventIntegrationAssociations
---
---         , requestGetDataIntegration $
---             newGetDataIntegration
---
---         , requestListEventIntegrations $
---             newListEventIntegrations
---
---         , requestDeleteEventIntegration $
---             newDeleteEventIntegration
---
---         , requestUpdateEventIntegration $
---             newUpdateEventIntegration
+--         , requestCreateEventIntegration $
+--             newCreateEventIntegration
 --
 --         , requestDeleteDataIntegration $
 --             newDeleteDataIntegration
 --
---         , requestUpdateDataIntegration $
---             newUpdateDataIntegration
+--         , requestDeleteEventIntegration $
+--             newDeleteEventIntegration
+--
+--         , requestGetDataIntegration $
+--             newGetDataIntegration
+--
+--         , requestGetEventIntegration $
+--             newGetEventIntegration
+--
+--         , requestListDataIntegrationAssociations $
+--             newListDataIntegrationAssociations
+--
+--         , requestListDataIntegrations $
+--             newListDataIntegrations
+--
+--         , requestListEventIntegrationAssociations $
+--             newListEventIntegrationAssociations
+--
+--         , requestListEventIntegrations $
+--             newListEventIntegrations
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestTagResource $
 --             newTagResource
@@ -66,47 +66,47 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestListDataIntegrationAssociations $
---             newListDataIntegrationAssociations
+--         , requestUpdateDataIntegration $
+--             newUpdateDataIntegration
 --
---         , requestCreateEventIntegration $
---             newCreateEventIntegration
+--         , requestUpdateEventIntegration $
+--             newUpdateEventIntegration
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetEventIntegration $
---             newGetEventIntegrationResponse
---
---         , responseListDataIntegrations $
---             newListDataIntegrationsResponse
---
---         , responseCreateDataIntegration $
+--         [ responseCreateDataIntegration $
 --             newCreateDataIntegrationResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListEventIntegrationAssociations $
---             newListEventIntegrationAssociationsResponse
---
---         , responseGetDataIntegration $
---             newGetDataIntegrationResponse
---
---         , responseListEventIntegrations $
---             newListEventIntegrationsResponse
---
---         , responseDeleteEventIntegration $
---             newDeleteEventIntegrationResponse
---
---         , responseUpdateEventIntegration $
---             newUpdateEventIntegrationResponse
+--         , responseCreateEventIntegration $
+--             newCreateEventIntegrationResponse
 --
 --         , responseDeleteDataIntegration $
 --             newDeleteDataIntegrationResponse
 --
---         , responseUpdateDataIntegration $
---             newUpdateDataIntegrationResponse
+--         , responseDeleteEventIntegration $
+--             newDeleteEventIntegrationResponse
+--
+--         , responseGetDataIntegration $
+--             newGetDataIntegrationResponse
+--
+--         , responseGetEventIntegration $
+--             newGetEventIntegrationResponse
+--
+--         , responseListDataIntegrationAssociations $
+--             newListDataIntegrationAssociationsResponse
+--
+--         , responseListDataIntegrations $
+--             newListDataIntegrationsResponse
+--
+--         , responseListEventIntegrationAssociations $
+--             newListEventIntegrationAssociationsResponse
+--
+--         , responseListEventIntegrations $
+--             newListEventIntegrationsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -114,28 +114,16 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseListDataIntegrationAssociations $
---             newListDataIntegrationAssociationsResponse
+--         , responseUpdateDataIntegration $
+--             newUpdateDataIntegrationResponse
 --
---         , responseCreateEventIntegration $
---             newCreateEventIntegrationResponse
+--         , responseUpdateEventIntegration $
+--             newUpdateEventIntegrationResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetEventIntegration :: GetEventIntegration -> TestTree
-requestGetEventIntegration =
-  req
-    "GetEventIntegration"
-    "fixture/GetEventIntegration.yaml"
-
-requestListDataIntegrations :: ListDataIntegrations -> TestTree
-requestListDataIntegrations =
-  req
-    "ListDataIntegrations"
-    "fixture/ListDataIntegrations.yaml"
 
 requestCreateDataIntegration :: CreateDataIntegration -> TestTree
 requestCreateDataIntegration =
@@ -143,41 +131,11 @@ requestCreateDataIntegration =
     "CreateDataIntegration"
     "fixture/CreateDataIntegration.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestCreateEventIntegration :: CreateEventIntegration -> TestTree
+requestCreateEventIntegration =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListEventIntegrationAssociations :: ListEventIntegrationAssociations -> TestTree
-requestListEventIntegrationAssociations =
-  req
-    "ListEventIntegrationAssociations"
-    "fixture/ListEventIntegrationAssociations.yaml"
-
-requestGetDataIntegration :: GetDataIntegration -> TestTree
-requestGetDataIntegration =
-  req
-    "GetDataIntegration"
-    "fixture/GetDataIntegration.yaml"
-
-requestListEventIntegrations :: ListEventIntegrations -> TestTree
-requestListEventIntegrations =
-  req
-    "ListEventIntegrations"
-    "fixture/ListEventIntegrations.yaml"
-
-requestDeleteEventIntegration :: DeleteEventIntegration -> TestTree
-requestDeleteEventIntegration =
-  req
-    "DeleteEventIntegration"
-    "fixture/DeleteEventIntegration.yaml"
-
-requestUpdateEventIntegration :: UpdateEventIntegration -> TestTree
-requestUpdateEventIntegration =
-  req
-    "UpdateEventIntegration"
-    "fixture/UpdateEventIntegration.yaml"
+    "CreateEventIntegration"
+    "fixture/CreateEventIntegration.yaml"
 
 requestDeleteDataIntegration :: DeleteDataIntegration -> TestTree
 requestDeleteDataIntegration =
@@ -185,11 +143,53 @@ requestDeleteDataIntegration =
     "DeleteDataIntegration"
     "fixture/DeleteDataIntegration.yaml"
 
-requestUpdateDataIntegration :: UpdateDataIntegration -> TestTree
-requestUpdateDataIntegration =
+requestDeleteEventIntegration :: DeleteEventIntegration -> TestTree
+requestDeleteEventIntegration =
   req
-    "UpdateDataIntegration"
-    "fixture/UpdateDataIntegration.yaml"
+    "DeleteEventIntegration"
+    "fixture/DeleteEventIntegration.yaml"
+
+requestGetDataIntegration :: GetDataIntegration -> TestTree
+requestGetDataIntegration =
+  req
+    "GetDataIntegration"
+    "fixture/GetDataIntegration.yaml"
+
+requestGetEventIntegration :: GetEventIntegration -> TestTree
+requestGetEventIntegration =
+  req
+    "GetEventIntegration"
+    "fixture/GetEventIntegration.yaml"
+
+requestListDataIntegrationAssociations :: ListDataIntegrationAssociations -> TestTree
+requestListDataIntegrationAssociations =
+  req
+    "ListDataIntegrationAssociations"
+    "fixture/ListDataIntegrationAssociations.yaml"
+
+requestListDataIntegrations :: ListDataIntegrations -> TestTree
+requestListDataIntegrations =
+  req
+    "ListDataIntegrations"
+    "fixture/ListDataIntegrations.yaml"
+
+requestListEventIntegrationAssociations :: ListEventIntegrationAssociations -> TestTree
+requestListEventIntegrationAssociations =
+  req
+    "ListEventIntegrationAssociations"
+    "fixture/ListEventIntegrationAssociations.yaml"
+
+requestListEventIntegrations :: ListEventIntegrations -> TestTree
+requestListEventIntegrations =
+  req
+    "ListEventIntegrations"
+    "fixture/ListEventIntegrations.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -203,35 +203,19 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestListDataIntegrationAssociations :: ListDataIntegrationAssociations -> TestTree
-requestListDataIntegrationAssociations =
+requestUpdateDataIntegration :: UpdateDataIntegration -> TestTree
+requestUpdateDataIntegration =
   req
-    "ListDataIntegrationAssociations"
-    "fixture/ListDataIntegrationAssociations.yaml"
+    "UpdateDataIntegration"
+    "fixture/UpdateDataIntegration.yaml"
 
-requestCreateEventIntegration :: CreateEventIntegration -> TestTree
-requestCreateEventIntegration =
+requestUpdateEventIntegration :: UpdateEventIntegration -> TestTree
+requestUpdateEventIntegration =
   req
-    "CreateEventIntegration"
-    "fixture/CreateEventIntegration.yaml"
+    "UpdateEventIntegration"
+    "fixture/UpdateEventIntegration.yaml"
 
 -- Responses
-
-responseGetEventIntegration :: GetEventIntegrationResponse -> TestTree
-responseGetEventIntegration =
-  res
-    "GetEventIntegrationResponse"
-    "fixture/GetEventIntegrationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEventIntegration)
-
-responseListDataIntegrations :: ListDataIntegrationsResponse -> TestTree
-responseListDataIntegrations =
-  res
-    "ListDataIntegrationsResponse"
-    "fixture/ListDataIntegrationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDataIntegrations)
 
 responseCreateDataIntegration :: CreateDataIntegrationResponse -> TestTree
 responseCreateDataIntegration =
@@ -241,53 +225,13 @@ responseCreateDataIntegration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDataIntegration)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseCreateEventIntegration :: CreateEventIntegrationResponse -> TestTree
+responseCreateEventIntegration =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "CreateEventIntegrationResponse"
+    "fixture/CreateEventIntegrationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListEventIntegrationAssociations :: ListEventIntegrationAssociationsResponse -> TestTree
-responseListEventIntegrationAssociations =
-  res
-    "ListEventIntegrationAssociationsResponse"
-    "fixture/ListEventIntegrationAssociationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEventIntegrationAssociations)
-
-responseGetDataIntegration :: GetDataIntegrationResponse -> TestTree
-responseGetDataIntegration =
-  res
-    "GetDataIntegrationResponse"
-    "fixture/GetDataIntegrationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDataIntegration)
-
-responseListEventIntegrations :: ListEventIntegrationsResponse -> TestTree
-responseListEventIntegrations =
-  res
-    "ListEventIntegrationsResponse"
-    "fixture/ListEventIntegrationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEventIntegrations)
-
-responseDeleteEventIntegration :: DeleteEventIntegrationResponse -> TestTree
-responseDeleteEventIntegration =
-  res
-    "DeleteEventIntegrationResponse"
-    "fixture/DeleteEventIntegrationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEventIntegration)
-
-responseUpdateEventIntegration :: UpdateEventIntegrationResponse -> TestTree
-responseUpdateEventIntegration =
-  res
-    "UpdateEventIntegrationResponse"
-    "fixture/UpdateEventIntegrationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateEventIntegration)
+    (Proxy.Proxy :: Proxy.Proxy CreateEventIntegration)
 
 responseDeleteDataIntegration :: DeleteDataIntegrationResponse -> TestTree
 responseDeleteDataIntegration =
@@ -297,13 +241,69 @@ responseDeleteDataIntegration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDataIntegration)
 
-responseUpdateDataIntegration :: UpdateDataIntegrationResponse -> TestTree
-responseUpdateDataIntegration =
+responseDeleteEventIntegration :: DeleteEventIntegrationResponse -> TestTree
+responseDeleteEventIntegration =
   res
-    "UpdateDataIntegrationResponse"
-    "fixture/UpdateDataIntegrationResponse.proto"
+    "DeleteEventIntegrationResponse"
+    "fixture/DeleteEventIntegrationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDataIntegration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventIntegration)
+
+responseGetDataIntegration :: GetDataIntegrationResponse -> TestTree
+responseGetDataIntegration =
+  res
+    "GetDataIntegrationResponse"
+    "fixture/GetDataIntegrationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataIntegration)
+
+responseGetEventIntegration :: GetEventIntegrationResponse -> TestTree
+responseGetEventIntegration =
+  res
+    "GetEventIntegrationResponse"
+    "fixture/GetEventIntegrationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventIntegration)
+
+responseListDataIntegrationAssociations :: ListDataIntegrationAssociationsResponse -> TestTree
+responseListDataIntegrationAssociations =
+  res
+    "ListDataIntegrationAssociationsResponse"
+    "fixture/ListDataIntegrationAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataIntegrationAssociations)
+
+responseListDataIntegrations :: ListDataIntegrationsResponse -> TestTree
+responseListDataIntegrations =
+  res
+    "ListDataIntegrationsResponse"
+    "fixture/ListDataIntegrationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataIntegrations)
+
+responseListEventIntegrationAssociations :: ListEventIntegrationAssociationsResponse -> TestTree
+responseListEventIntegrationAssociations =
+  res
+    "ListEventIntegrationAssociationsResponse"
+    "fixture/ListEventIntegrationAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventIntegrationAssociations)
+
+responseListEventIntegrations :: ListEventIntegrationsResponse -> TestTree
+responseListEventIntegrations =
+  res
+    "ListEventIntegrationsResponse"
+    "fixture/ListEventIntegrationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventIntegrations)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -321,18 +321,18 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseListDataIntegrationAssociations :: ListDataIntegrationAssociationsResponse -> TestTree
-responseListDataIntegrationAssociations =
+responseUpdateDataIntegration :: UpdateDataIntegrationResponse -> TestTree
+responseUpdateDataIntegration =
   res
-    "ListDataIntegrationAssociationsResponse"
-    "fixture/ListDataIntegrationAssociationsResponse.proto"
+    "UpdateDataIntegrationResponse"
+    "fixture/UpdateDataIntegrationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDataIntegrationAssociations)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataIntegration)
 
-responseCreateEventIntegration :: CreateEventIntegrationResponse -> TestTree
-responseCreateEventIntegration =
+responseUpdateEventIntegration :: UpdateEventIntegrationResponse -> TestTree
+responseUpdateEventIntegration =
   res
-    "CreateEventIntegrationResponse"
-    "fixture/CreateEventIntegrationResponse.proto"
+    "UpdateEventIntegrationResponse"
+    "fixture/UpdateEventIntegrationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateEventIntegration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEventIntegration)

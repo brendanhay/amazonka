@@ -30,16 +30,16 @@ import Amazonka.QuickSight.Types.NamespaceStatus
 --
 -- /See:/ 'newNamespaceInfoV2' smart constructor.
 data NamespaceInfoV2 = NamespaceInfoV2'
-  { -- | The namespace Amazon Web Services Region.
-    capacityRegion :: Prelude.Maybe Prelude.Text,
-    -- | The namespace ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The creation status of a namespace that is not yet completely created.
+  { -- | The creation status of a namespace that is not yet completely created.
     creationStatus :: Prelude.Maybe NamespaceStatus,
     -- | The name of the error.
     name :: Prelude.Maybe Prelude.Text,
     -- | An error that occurred when the namespace was created.
     namespaceError :: Prelude.Maybe NamespaceError,
+    -- | The namespace ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The namespace Amazon Web Services Region.
+    capacityRegion :: Prelude.Maybe Prelude.Text,
     -- | The identity store used for the namespace.
     identityStore :: Prelude.Maybe IdentityStore
   }
@@ -53,36 +53,28 @@ data NamespaceInfoV2 = NamespaceInfoV2'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'capacityRegion', 'namespaceInfoV2_capacityRegion' - The namespace Amazon Web Services Region.
---
--- 'arn', 'namespaceInfoV2_arn' - The namespace ARN.
---
 -- 'creationStatus', 'namespaceInfoV2_creationStatus' - The creation status of a namespace that is not yet completely created.
 --
 -- 'name', 'namespaceInfoV2_name' - The name of the error.
 --
 -- 'namespaceError', 'namespaceInfoV2_namespaceError' - An error that occurred when the namespace was created.
 --
+-- 'arn', 'namespaceInfoV2_arn' - The namespace ARN.
+--
+-- 'capacityRegion', 'namespaceInfoV2_capacityRegion' - The namespace Amazon Web Services Region.
+--
 -- 'identityStore', 'namespaceInfoV2_identityStore' - The identity store used for the namespace.
 newNamespaceInfoV2 ::
   NamespaceInfoV2
 newNamespaceInfoV2 =
   NamespaceInfoV2'
-    { capacityRegion = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      creationStatus = Prelude.Nothing,
+    { creationStatus = Prelude.Nothing,
       name = Prelude.Nothing,
       namespaceError = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      capacityRegion = Prelude.Nothing,
       identityStore = Prelude.Nothing
     }
-
--- | The namespace Amazon Web Services Region.
-namespaceInfoV2_capacityRegion :: Lens.Lens' NamespaceInfoV2 (Prelude.Maybe Prelude.Text)
-namespaceInfoV2_capacityRegion = Lens.lens (\NamespaceInfoV2' {capacityRegion} -> capacityRegion) (\s@NamespaceInfoV2' {} a -> s {capacityRegion = a} :: NamespaceInfoV2)
-
--- | The namespace ARN.
-namespaceInfoV2_arn :: Lens.Lens' NamespaceInfoV2 (Prelude.Maybe Prelude.Text)
-namespaceInfoV2_arn = Lens.lens (\NamespaceInfoV2' {arn} -> arn) (\s@NamespaceInfoV2' {} a -> s {arn = a} :: NamespaceInfoV2)
 
 -- | The creation status of a namespace that is not yet completely created.
 namespaceInfoV2_creationStatus :: Lens.Lens' NamespaceInfoV2 (Prelude.Maybe NamespaceStatus)
@@ -96,6 +88,14 @@ namespaceInfoV2_name = Lens.lens (\NamespaceInfoV2' {name} -> name) (\s@Namespac
 namespaceInfoV2_namespaceError :: Lens.Lens' NamespaceInfoV2 (Prelude.Maybe NamespaceError)
 namespaceInfoV2_namespaceError = Lens.lens (\NamespaceInfoV2' {namespaceError} -> namespaceError) (\s@NamespaceInfoV2' {} a -> s {namespaceError = a} :: NamespaceInfoV2)
 
+-- | The namespace ARN.
+namespaceInfoV2_arn :: Lens.Lens' NamespaceInfoV2 (Prelude.Maybe Prelude.Text)
+namespaceInfoV2_arn = Lens.lens (\NamespaceInfoV2' {arn} -> arn) (\s@NamespaceInfoV2' {} a -> s {arn = a} :: NamespaceInfoV2)
+
+-- | The namespace Amazon Web Services Region.
+namespaceInfoV2_capacityRegion :: Lens.Lens' NamespaceInfoV2 (Prelude.Maybe Prelude.Text)
+namespaceInfoV2_capacityRegion = Lens.lens (\NamespaceInfoV2' {capacityRegion} -> capacityRegion) (\s@NamespaceInfoV2' {} a -> s {capacityRegion = a} :: NamespaceInfoV2)
+
 -- | The identity store used for the namespace.
 namespaceInfoV2_identityStore :: Lens.Lens' NamespaceInfoV2 (Prelude.Maybe IdentityStore)
 namespaceInfoV2_identityStore = Lens.lens (\NamespaceInfoV2' {identityStore} -> identityStore) (\s@NamespaceInfoV2' {} a -> s {identityStore = a} :: NamespaceInfoV2)
@@ -106,28 +106,28 @@ instance Core.FromJSON NamespaceInfoV2 where
       "NamespaceInfoV2"
       ( \x ->
           NamespaceInfoV2'
-            Prelude.<$> (x Core..:? "CapacityRegion")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreationStatus")
+            Prelude.<$> (x Core..:? "CreationStatus")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "NamespaceError")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "CapacityRegion")
             Prelude.<*> (x Core..:? "IdentityStore")
       )
 
 instance Prelude.Hashable NamespaceInfoV2 where
   hashWithSalt _salt NamespaceInfoV2' {..} =
-    _salt `Prelude.hashWithSalt` capacityRegion
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` creationStatus
+    _salt `Prelude.hashWithSalt` creationStatus
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespaceError
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` capacityRegion
       `Prelude.hashWithSalt` identityStore
 
 instance Prelude.NFData NamespaceInfoV2 where
   rnf NamespaceInfoV2' {..} =
-    Prelude.rnf capacityRegion
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
+    Prelude.rnf creationStatus
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf namespaceError
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf capacityRegion
       `Prelude.seq` Prelude.rnf identityStore

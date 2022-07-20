@@ -32,21 +32,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogDeliveryConfiguration' smart constructor.
 data LogDeliveryConfiguration = LogDeliveryConfiguration'
-  { -- | Returns the log delivery configuration status. Values are one of
+  { -- | Returns an error message for the log delivery configuration.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | Refers to <https://redis.io/commands/slowlog slow-log>.
+    logType :: Prelude.Maybe LogType,
+    -- | Returns the destination type, either @cloudwatch-logs@ or
+    -- @kinesis-firehose@.
+    destinationType :: Prelude.Maybe DestinationType,
+    -- | Returns the log delivery configuration status. Values are one of
     -- @enabling@ | @disabling@ | @modifying@ | @active@ | @error@
     status :: Prelude.Maybe LogDeliveryConfigurationStatus,
     -- | Returns the log format, either JSON or TEXT.
     logFormat :: Prelude.Maybe LogFormat,
     -- | Configuration details of either a CloudWatch Logs destination or Kinesis
     -- Data Firehose destination.
-    destinationDetails :: Prelude.Maybe DestinationDetails,
-    -- | Refers to <https://redis.io/commands/slowlog slow-log>.
-    logType :: Prelude.Maybe LogType,
-    -- | Returns the destination type, either @cloudwatch-logs@ or
-    -- @kinesis-firehose@.
-    destinationType :: Prelude.Maybe DestinationType,
-    -- | Returns an error message for the log delivery configuration.
-    message :: Prelude.Maybe Prelude.Text
+    destinationDetails :: Prelude.Maybe DestinationDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +58,13 @@ data LogDeliveryConfiguration = LogDeliveryConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'logDeliveryConfiguration_message' - Returns an error message for the log delivery configuration.
+--
+-- 'logType', 'logDeliveryConfiguration_logType' - Refers to <https://redis.io/commands/slowlog slow-log>.
+--
+-- 'destinationType', 'logDeliveryConfiguration_destinationType' - Returns the destination type, either @cloudwatch-logs@ or
+-- @kinesis-firehose@.
+--
 -- 'status', 'logDeliveryConfiguration_status' - Returns the log delivery configuration status. Values are one of
 -- @enabling@ | @disabling@ | @modifying@ | @active@ | @error@
 --
@@ -65,24 +72,31 @@ data LogDeliveryConfiguration = LogDeliveryConfiguration'
 --
 -- 'destinationDetails', 'logDeliveryConfiguration_destinationDetails' - Configuration details of either a CloudWatch Logs destination or Kinesis
 -- Data Firehose destination.
---
--- 'logType', 'logDeliveryConfiguration_logType' - Refers to <https://redis.io/commands/slowlog slow-log>.
---
--- 'destinationType', 'logDeliveryConfiguration_destinationType' - Returns the destination type, either @cloudwatch-logs@ or
--- @kinesis-firehose@.
---
--- 'message', 'logDeliveryConfiguration_message' - Returns an error message for the log delivery configuration.
 newLogDeliveryConfiguration ::
   LogDeliveryConfiguration
 newLogDeliveryConfiguration =
   LogDeliveryConfiguration'
-    { status = Prelude.Nothing,
-      logFormat = Prelude.Nothing,
-      destinationDetails = Prelude.Nothing,
+    { message =
+        Prelude.Nothing,
       logType = Prelude.Nothing,
       destinationType = Prelude.Nothing,
-      message = Prelude.Nothing
+      status = Prelude.Nothing,
+      logFormat = Prelude.Nothing,
+      destinationDetails = Prelude.Nothing
     }
+
+-- | Returns an error message for the log delivery configuration.
+logDeliveryConfiguration_message :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe Prelude.Text)
+logDeliveryConfiguration_message = Lens.lens (\LogDeliveryConfiguration' {message} -> message) (\s@LogDeliveryConfiguration' {} a -> s {message = a} :: LogDeliveryConfiguration)
+
+-- | Refers to <https://redis.io/commands/slowlog slow-log>.
+logDeliveryConfiguration_logType :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe LogType)
+logDeliveryConfiguration_logType = Lens.lens (\LogDeliveryConfiguration' {logType} -> logType) (\s@LogDeliveryConfiguration' {} a -> s {logType = a} :: LogDeliveryConfiguration)
+
+-- | Returns the destination type, either @cloudwatch-logs@ or
+-- @kinesis-firehose@.
+logDeliveryConfiguration_destinationType :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe DestinationType)
+logDeliveryConfiguration_destinationType = Lens.lens (\LogDeliveryConfiguration' {destinationType} -> destinationType) (\s@LogDeliveryConfiguration' {} a -> s {destinationType = a} :: LogDeliveryConfiguration)
 
 -- | Returns the log delivery configuration status. Values are one of
 -- @enabling@ | @disabling@ | @modifying@ | @active@ | @error@
@@ -98,43 +112,30 @@ logDeliveryConfiguration_logFormat = Lens.lens (\LogDeliveryConfiguration' {logF
 logDeliveryConfiguration_destinationDetails :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe DestinationDetails)
 logDeliveryConfiguration_destinationDetails = Lens.lens (\LogDeliveryConfiguration' {destinationDetails} -> destinationDetails) (\s@LogDeliveryConfiguration' {} a -> s {destinationDetails = a} :: LogDeliveryConfiguration)
 
--- | Refers to <https://redis.io/commands/slowlog slow-log>.
-logDeliveryConfiguration_logType :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe LogType)
-logDeliveryConfiguration_logType = Lens.lens (\LogDeliveryConfiguration' {logType} -> logType) (\s@LogDeliveryConfiguration' {} a -> s {logType = a} :: LogDeliveryConfiguration)
-
--- | Returns the destination type, either @cloudwatch-logs@ or
--- @kinesis-firehose@.
-logDeliveryConfiguration_destinationType :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe DestinationType)
-logDeliveryConfiguration_destinationType = Lens.lens (\LogDeliveryConfiguration' {destinationType} -> destinationType) (\s@LogDeliveryConfiguration' {} a -> s {destinationType = a} :: LogDeliveryConfiguration)
-
--- | Returns an error message for the log delivery configuration.
-logDeliveryConfiguration_message :: Lens.Lens' LogDeliveryConfiguration (Prelude.Maybe Prelude.Text)
-logDeliveryConfiguration_message = Lens.lens (\LogDeliveryConfiguration' {message} -> message) (\s@LogDeliveryConfiguration' {} a -> s {message = a} :: LogDeliveryConfiguration)
-
 instance Core.FromXML LogDeliveryConfiguration where
   parseXML x =
     LogDeliveryConfiguration'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "LogFormat")
-      Prelude.<*> (x Core..@? "DestinationDetails")
+      Prelude.<$> (x Core..@? "Message")
       Prelude.<*> (x Core..@? "LogType")
       Prelude.<*> (x Core..@? "DestinationType")
-      Prelude.<*> (x Core..@? "Message")
+      Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "LogFormat")
+      Prelude.<*> (x Core..@? "DestinationDetails")
 
 instance Prelude.Hashable LogDeliveryConfiguration where
   hashWithSalt _salt LogDeliveryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` logFormat
-      `Prelude.hashWithSalt` destinationDetails
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` logType
       `Prelude.hashWithSalt` destinationType
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` logFormat
+      `Prelude.hashWithSalt` destinationDetails
 
 instance Prelude.NFData LogDeliveryConfiguration where
   rnf LogDeliveryConfiguration' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf logFormat
-      `Prelude.seq` Prelude.rnf destinationDetails
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf logType
       `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf logFormat
+      `Prelude.seq` Prelude.rnf destinationDetails

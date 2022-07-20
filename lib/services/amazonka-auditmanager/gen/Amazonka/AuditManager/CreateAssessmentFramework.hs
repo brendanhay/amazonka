@@ -27,9 +27,9 @@ module Amazonka.AuditManager.CreateAssessmentFramework
     newCreateAssessmentFramework,
 
     -- * Request Lenses
-    createAssessmentFramework_complianceType,
-    createAssessmentFramework_description,
     createAssessmentFramework_tags,
+    createAssessmentFramework_description,
+    createAssessmentFramework_complianceType,
     createAssessmentFramework_name,
     createAssessmentFramework_controlSets,
 
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAssessmentFramework' smart constructor.
 data CreateAssessmentFramework = CreateAssessmentFramework'
-  { -- | The compliance type that the new custom framework supports, such as CIS
-    -- or HIPAA.
-    complianceType :: Prelude.Maybe Prelude.Text,
+  { -- | The tags associated with the framework.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An optional description for the new custom framework.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with the framework.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The compliance type that the new custom framework supports, such as CIS
+    -- or HIPAA.
+    complianceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the new custom framework.
     name :: Prelude.Text,
     -- | The control sets to be associated with the framework.
@@ -74,12 +74,12 @@ data CreateAssessmentFramework = CreateAssessmentFramework'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'complianceType', 'createAssessmentFramework_complianceType' - The compliance type that the new custom framework supports, such as CIS
--- or HIPAA.
+-- 'tags', 'createAssessmentFramework_tags' - The tags associated with the framework.
 --
 -- 'description', 'createAssessmentFramework_description' - An optional description for the new custom framework.
 --
--- 'tags', 'createAssessmentFramework_tags' - The tags associated with the framework.
+-- 'complianceType', 'createAssessmentFramework_complianceType' - The compliance type that the new custom framework supports, such as CIS
+-- or HIPAA.
 --
 -- 'name', 'createAssessmentFramework_name' - The name of the new custom framework.
 --
@@ -92,26 +92,25 @@ newCreateAssessmentFramework ::
   CreateAssessmentFramework
 newCreateAssessmentFramework pName_ pControlSets_ =
   CreateAssessmentFramework'
-    { complianceType =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      complianceType = Prelude.Nothing,
       name = pName_,
       controlSets = Lens.coerced Lens.# pControlSets_
     }
 
--- | The compliance type that the new custom framework supports, such as CIS
--- or HIPAA.
-createAssessmentFramework_complianceType :: Lens.Lens' CreateAssessmentFramework (Prelude.Maybe Prelude.Text)
-createAssessmentFramework_complianceType = Lens.lens (\CreateAssessmentFramework' {complianceType} -> complianceType) (\s@CreateAssessmentFramework' {} a -> s {complianceType = a} :: CreateAssessmentFramework)
+-- | The tags associated with the framework.
+createAssessmentFramework_tags :: Lens.Lens' CreateAssessmentFramework (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAssessmentFramework_tags = Lens.lens (\CreateAssessmentFramework' {tags} -> tags) (\s@CreateAssessmentFramework' {} a -> s {tags = a} :: CreateAssessmentFramework) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional description for the new custom framework.
 createAssessmentFramework_description :: Lens.Lens' CreateAssessmentFramework (Prelude.Maybe Prelude.Text)
 createAssessmentFramework_description = Lens.lens (\CreateAssessmentFramework' {description} -> description) (\s@CreateAssessmentFramework' {} a -> s {description = a} :: CreateAssessmentFramework)
 
--- | The tags associated with the framework.
-createAssessmentFramework_tags :: Lens.Lens' CreateAssessmentFramework (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAssessmentFramework_tags = Lens.lens (\CreateAssessmentFramework' {tags} -> tags) (\s@CreateAssessmentFramework' {} a -> s {tags = a} :: CreateAssessmentFramework) Prelude.. Lens.mapping Lens.coerced
+-- | The compliance type that the new custom framework supports, such as CIS
+-- or HIPAA.
+createAssessmentFramework_complianceType :: Lens.Lens' CreateAssessmentFramework (Prelude.Maybe Prelude.Text)
+createAssessmentFramework_complianceType = Lens.lens (\CreateAssessmentFramework' {complianceType} -> complianceType) (\s@CreateAssessmentFramework' {} a -> s {complianceType = a} :: CreateAssessmentFramework)
 
 -- | The name of the new custom framework.
 createAssessmentFramework_name :: Lens.Lens' CreateAssessmentFramework Prelude.Text
@@ -136,17 +135,17 @@ instance Core.AWSRequest CreateAssessmentFramework where
 
 instance Prelude.Hashable CreateAssessmentFramework where
   hashWithSalt _salt CreateAssessmentFramework' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` controlSets
 
 instance Prelude.NFData CreateAssessmentFramework where
   rnf CreateAssessmentFramework' {..} =
-    Prelude.rnf complianceType
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf complianceType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf controlSets
 
@@ -165,10 +164,10 @@ instance Core.ToJSON CreateAssessmentFramework where
   toJSON CreateAssessmentFramework' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("complianceType" Core..=)
-              Prelude.<$> complianceType,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("complianceType" Core..=)
+              Prelude.<$> complianceType,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("controlSets" Core..= controlSets)
           ]

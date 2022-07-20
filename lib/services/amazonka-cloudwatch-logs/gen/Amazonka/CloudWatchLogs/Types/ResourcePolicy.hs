@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 data ResourcePolicy = ResourcePolicy'
   { -- | The name of the resource policy.
     policyName :: Prelude.Maybe Prelude.Text,
-    -- | The details of the policy.
-    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | Timestamp showing when this policy was last updated, expressed as the
     -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Natural
+    lastUpdatedTime :: Prelude.Maybe Prelude.Natural,
+    -- | The details of the policy.
+    policyDocument :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,31 @@ data ResourcePolicy = ResourcePolicy'
 --
 -- 'policyName', 'resourcePolicy_policyName' - The name of the resource policy.
 --
--- 'policyDocument', 'resourcePolicy_policyDocument' - The details of the policy.
---
 -- 'lastUpdatedTime', 'resourcePolicy_lastUpdatedTime' - Timestamp showing when this policy was last updated, expressed as the
 -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+--
+-- 'policyDocument', 'resourcePolicy_policyDocument' - The details of the policy.
 newResourcePolicy ::
   ResourcePolicy
 newResourcePolicy =
   ResourcePolicy'
     { policyName = Prelude.Nothing,
-      policyDocument = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing,
+      policyDocument = Prelude.Nothing
     }
 
 -- | The name of the resource policy.
 resourcePolicy_policyName :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_policyName = Lens.lens (\ResourcePolicy' {policyName} -> policyName) (\s@ResourcePolicy' {} a -> s {policyName = a} :: ResourcePolicy)
 
--- | The details of the policy.
-resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
-resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> policyDocument) (\s@ResourcePolicy' {} a -> s {policyDocument = a} :: ResourcePolicy)
-
 -- | Timestamp showing when this policy was last updated, expressed as the
 -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 resourcePolicy_lastUpdatedTime :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Natural)
 resourcePolicy_lastUpdatedTime = Lens.lens (\ResourcePolicy' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourcePolicy' {} a -> s {lastUpdatedTime = a} :: ResourcePolicy)
+
+-- | The details of the policy.
+resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
+resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> policyDocument) (\s@ResourcePolicy' {} a -> s {policyDocument = a} :: ResourcePolicy)
 
 instance Core.FromJSON ResourcePolicy where
   parseJSON =
@@ -81,18 +81,18 @@ instance Core.FromJSON ResourcePolicy where
       ( \x ->
           ResourcePolicy'
             Prelude.<$> (x Core..:? "policyName")
-            Prelude.<*> (x Core..:? "policyDocument")
             Prelude.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<*> (x Core..:? "policyDocument")
       )
 
 instance Prelude.Hashable ResourcePolicy where
   hashWithSalt _salt ResourcePolicy' {..} =
     _salt `Prelude.hashWithSalt` policyName
-      `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` policyDocument
 
 instance Prelude.NFData ResourcePolicy where
   rnf ResourcePolicy' {..} =
     Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf policyDocument

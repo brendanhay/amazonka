@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyTypeSummary' smart constructor.
 data PolicyTypeSummary = PolicyTypeSummary'
-  { -- | The status of the policy type as it relates to the associated root. To
+  { -- | The name of the policy type.
+    type' :: Prelude.Maybe PolicyType,
+    -- | The status of the policy type as it relates to the associated root. To
     -- attach a policy of the specified type to a root or to an OU or account
     -- in that root, it must be available in the organization and enabled for
     -- that root.
-    status :: Prelude.Maybe PolicyTypeStatus,
-    -- | The name of the policy type.
-    type' :: Prelude.Maybe PolicyType
+    status :: Prelude.Maybe PolicyTypeStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,19 +48,23 @@ data PolicyTypeSummary = PolicyTypeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'policyTypeSummary_type' - The name of the policy type.
+--
 -- 'status', 'policyTypeSummary_status' - The status of the policy type as it relates to the associated root. To
 -- attach a policy of the specified type to a root or to an OU or account
 -- in that root, it must be available in the organization and enabled for
 -- that root.
---
--- 'type'', 'policyTypeSummary_type' - The name of the policy type.
 newPolicyTypeSummary ::
   PolicyTypeSummary
 newPolicyTypeSummary =
   PolicyTypeSummary'
-    { status = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The name of the policy type.
+policyTypeSummary_type :: Lens.Lens' PolicyTypeSummary (Prelude.Maybe PolicyType)
+policyTypeSummary_type = Lens.lens (\PolicyTypeSummary' {type'} -> type') (\s@PolicyTypeSummary' {} a -> s {type' = a} :: PolicyTypeSummary)
 
 -- | The status of the policy type as it relates to the associated root. To
 -- attach a policy of the specified type to a root or to an OU or account
@@ -69,25 +73,21 @@ newPolicyTypeSummary =
 policyTypeSummary_status :: Lens.Lens' PolicyTypeSummary (Prelude.Maybe PolicyTypeStatus)
 policyTypeSummary_status = Lens.lens (\PolicyTypeSummary' {status} -> status) (\s@PolicyTypeSummary' {} a -> s {status = a} :: PolicyTypeSummary)
 
--- | The name of the policy type.
-policyTypeSummary_type :: Lens.Lens' PolicyTypeSummary (Prelude.Maybe PolicyType)
-policyTypeSummary_type = Lens.lens (\PolicyTypeSummary' {type'} -> type') (\s@PolicyTypeSummary' {} a -> s {type' = a} :: PolicyTypeSummary)
-
 instance Core.FromJSON PolicyTypeSummary where
   parseJSON =
     Core.withObject
       "PolicyTypeSummary"
       ( \x ->
           PolicyTypeSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Status")
       )
 
 instance Prelude.Hashable PolicyTypeSummary where
   hashWithSalt _salt PolicyTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData PolicyTypeSummary where
   rnf PolicyTypeSummary' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf status

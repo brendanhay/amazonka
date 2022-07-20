@@ -27,15 +27,15 @@ module Amazonka.SSM.PutParameter
     newPutParameter,
 
     -- * Request Lenses
-    putParameter_keyId,
-    putParameter_tier,
-    putParameter_allowedPattern,
-    putParameter_type,
-    putParameter_dataType,
-    putParameter_overwrite,
-    putParameter_description,
-    putParameter_policies,
     putParameter_tags,
+    putParameter_type,
+    putParameter_allowedPattern,
+    putParameter_description,
+    putParameter_tier,
+    putParameter_policies,
+    putParameter_overwrite,
+    putParameter_keyId,
+    putParameter_dataType,
     putParameter_name,
     putParameter_value,
 
@@ -59,21 +59,44 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newPutParameter' smart constructor.
 data PutParameter = PutParameter'
-  { -- | The Key Management Service (KMS) ID that you want to use to encrypt a
-    -- parameter. Either the default KMS key automatically assigned to your
-    -- Amazon Web Services account or a custom key. Required for parameters
-    -- that use the @SecureString@ data type.
+  { -- | Optional metadata that you assign to a resource. Tags enable you to
+    -- categorize a resource in different ways, such as by purpose, owner, or
+    -- environment. For example, you might want to tag a Systems Manager
+    -- parameter to identify the type of resource to which it applies, the
+    -- environment, or the type of configuration data referenced by the
+    -- parameter. In this case, you could specify the following key-value
+    -- pairs:
     --
-    -- If you don\'t specify a key ID, the system uses the default key
-    -- associated with your Amazon Web Services account.
+    -- -   @Key=Resource,Value=S3bucket@
     --
-    -- -   To use your default KMS key, choose the @SecureString@ data type,
-    --     and do /not/ specify the @Key ID@ when you create the parameter. The
-    --     system automatically populates @Key ID@ with your default KMS key.
+    -- -   @Key=OS,Value=Windows@
     --
-    -- -   To use a custom KMS key, choose the @SecureString@ data type with
-    --     the @Key ID@ parameter.
-    keyId :: Prelude.Maybe Prelude.Text,
+    -- -   @Key=ParameterType,Value=LicenseKey@
+    --
+    -- To add tags to an existing Systems Manager parameter, use the
+    -- AddTagsToResource operation.
+    tags :: Prelude.Maybe [Tag],
+    -- | The type of parameter that you want to add to the system.
+    --
+    -- @SecureString@ isn\'t currently supported for CloudFormation templates.
+    --
+    -- Items in a @StringList@ must be separated by a comma (,). You can\'t use
+    -- other punctuation or special character to escape items in the list. If
+    -- you have a parameter value that requires a comma, then use the @String@
+    -- data type.
+    --
+    -- Specifying a parameter type isn\'t required when updating a parameter.
+    -- You must specify a parameter type when creating a parameter.
+    type' :: Prelude.Maybe ParameterType,
+    -- | A regular expression used to validate the parameter value. For example,
+    -- for String types with values restricted to numbers, you can specify the
+    -- following: AllowedPattern=^\\d+$
+    allowedPattern :: Prelude.Maybe Prelude.Text,
+    -- | Information about the parameter that you want to add to the system.
+    -- Optional but recommended.
+    --
+    -- Don\'t enter personally identifiable information in this field.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The parameter tier to assign to a parameter.
     --
     -- Parameter Store offers a standard tier and an advanced tier for
@@ -143,46 +166,6 @@ data PutParameter = PutParameter'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html Specifying a default parameter tier>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     tier :: Prelude.Maybe ParameterTier,
-    -- | A regular expression used to validate the parameter value. For example,
-    -- for String types with values restricted to numbers, you can specify the
-    -- following: AllowedPattern=^\\d+$
-    allowedPattern :: Prelude.Maybe Prelude.Text,
-    -- | The type of parameter that you want to add to the system.
-    --
-    -- @SecureString@ isn\'t currently supported for CloudFormation templates.
-    --
-    -- Items in a @StringList@ must be separated by a comma (,). You can\'t use
-    -- other punctuation or special character to escape items in the list. If
-    -- you have a parameter value that requires a comma, then use the @String@
-    -- data type.
-    --
-    -- Specifying a parameter type isn\'t required when updating a parameter.
-    -- You must specify a parameter type when creating a parameter.
-    type' :: Prelude.Maybe ParameterType,
-    -- | The data type for a @String@ parameter. Supported data types include
-    -- plain text and Amazon Machine Image (AMI) IDs.
-    --
-    -- __The following data type values are supported.__
-    --
-    -- -   @text@
-    --
-    -- -   @aws:ec2:image@
-    --
-    -- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
-    -- Web Services Systems Manager validates the parameter value is in the
-    -- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
-    -- AMI is available in your Amazon Web Services account. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    dataType :: Prelude.Maybe Prelude.Text,
-    -- | Overwrite an existing parameter. The default value is @false@.
-    overwrite :: Prelude.Maybe Prelude.Bool,
-    -- | Information about the parameter that you want to add to the system.
-    -- Optional but recommended.
-    --
-    -- Don\'t enter personally identifiable information in this field.
-    description :: Prelude.Maybe Prelude.Text,
     -- | One or more policies to apply to a parameter. This operation takes a
     -- JSON array. Parameter Store, a capability of Amazon Web Services Systems
     -- Manager supports the following policy types:
@@ -207,23 +190,40 @@ data PutParameter = PutParameter'
     -- empty policy. For more information about parameter policies, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html Assigning parameter policies>.
     policies :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you assign to a resource. Tags enable you to
-    -- categorize a resource in different ways, such as by purpose, owner, or
-    -- environment. For example, you might want to tag a Systems Manager
-    -- parameter to identify the type of resource to which it applies, the
-    -- environment, or the type of configuration data referenced by the
-    -- parameter. In this case, you could specify the following key-value
-    -- pairs:
+    -- | Overwrite an existing parameter. The default value is @false@.
+    overwrite :: Prelude.Maybe Prelude.Bool,
+    -- | The Key Management Service (KMS) ID that you want to use to encrypt a
+    -- parameter. Either the default KMS key automatically assigned to your
+    -- Amazon Web Services account or a custom key. Required for parameters
+    -- that use the @SecureString@ data type.
     --
-    -- -   @Key=Resource,Value=S3bucket@
+    -- If you don\'t specify a key ID, the system uses the default key
+    -- associated with your Amazon Web Services account.
     --
-    -- -   @Key=OS,Value=Windows@
+    -- -   To use your default KMS key, choose the @SecureString@ data type,
+    --     and do /not/ specify the @Key ID@ when you create the parameter. The
+    --     system automatically populates @Key ID@ with your default KMS key.
     --
-    -- -   @Key=ParameterType,Value=LicenseKey@
+    -- -   To use a custom KMS key, choose the @SecureString@ data type with
+    --     the @Key ID@ parameter.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The data type for a @String@ parameter. Supported data types include
+    -- plain text and Amazon Machine Image (AMI) IDs.
     --
-    -- To add tags to an existing Systems Manager parameter, use the
-    -- AddTagsToResource operation.
-    tags :: Prelude.Maybe [Tag],
+    -- __The following data type values are supported.__
+    --
+    -- -   @text@
+    --
+    -- -   @aws:ec2:image@
+    --
+    -- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
+    -- Web Services Systems Manager validates the parameter value is in the
+    -- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
+    -- AMI is available in your Amazon Web Services account. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    dataType :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified name of the parameter that you want to add to the
     -- system. The fully qualified name includes the complete hierarchy of the
     -- parameter path and name. For parameters in a hierarchy, you must include
@@ -282,20 +282,43 @@ data PutParameter = PutParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'putParameter_keyId' - The Key Management Service (KMS) ID that you want to use to encrypt a
--- parameter. Either the default KMS key automatically assigned to your
--- Amazon Web Services account or a custom key. Required for parameters
--- that use the @SecureString@ data type.
+-- 'tags', 'putParameter_tags' - Optional metadata that you assign to a resource. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag a Systems Manager
+-- parameter to identify the type of resource to which it applies, the
+-- environment, or the type of configuration data referenced by the
+-- parameter. In this case, you could specify the following key-value
+-- pairs:
 --
--- If you don\'t specify a key ID, the system uses the default key
--- associated with your Amazon Web Services account.
+-- -   @Key=Resource,Value=S3bucket@
 --
--- -   To use your default KMS key, choose the @SecureString@ data type,
---     and do /not/ specify the @Key ID@ when you create the parameter. The
---     system automatically populates @Key ID@ with your default KMS key.
+-- -   @Key=OS,Value=Windows@
 --
--- -   To use a custom KMS key, choose the @SecureString@ data type with
---     the @Key ID@ parameter.
+-- -   @Key=ParameterType,Value=LicenseKey@
+--
+-- To add tags to an existing Systems Manager parameter, use the
+-- AddTagsToResource operation.
+--
+-- 'type'', 'putParameter_type' - The type of parameter that you want to add to the system.
+--
+-- @SecureString@ isn\'t currently supported for CloudFormation templates.
+--
+-- Items in a @StringList@ must be separated by a comma (,). You can\'t use
+-- other punctuation or special character to escape items in the list. If
+-- you have a parameter value that requires a comma, then use the @String@
+-- data type.
+--
+-- Specifying a parameter type isn\'t required when updating a parameter.
+-- You must specify a parameter type when creating a parameter.
+--
+-- 'allowedPattern', 'putParameter_allowedPattern' - A regular expression used to validate the parameter value. For example,
+-- for String types with values restricted to numbers, you can specify the
+-- following: AllowedPattern=^\\d+$
+--
+-- 'description', 'putParameter_description' - Information about the parameter that you want to add to the system.
+-- Optional but recommended.
+--
+-- Don\'t enter personally identifiable information in this field.
 --
 -- 'tier', 'putParameter_tier' - The parameter tier to assign to a parameter.
 --
@@ -366,46 +389,6 @@ data PutParameter = PutParameter'
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html Specifying a default parameter tier>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- 'allowedPattern', 'putParameter_allowedPattern' - A regular expression used to validate the parameter value. For example,
--- for String types with values restricted to numbers, you can specify the
--- following: AllowedPattern=^\\d+$
---
--- 'type'', 'putParameter_type' - The type of parameter that you want to add to the system.
---
--- @SecureString@ isn\'t currently supported for CloudFormation templates.
---
--- Items in a @StringList@ must be separated by a comma (,). You can\'t use
--- other punctuation or special character to escape items in the list. If
--- you have a parameter value that requires a comma, then use the @String@
--- data type.
---
--- Specifying a parameter type isn\'t required when updating a parameter.
--- You must specify a parameter type when creating a parameter.
---
--- 'dataType', 'putParameter_dataType' - The data type for a @String@ parameter. Supported data types include
--- plain text and Amazon Machine Image (AMI) IDs.
---
--- __The following data type values are supported.__
---
--- -   @text@
---
--- -   @aws:ec2:image@
---
--- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
--- Web Services Systems Manager validates the parameter value is in the
--- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
--- AMI is available in your Amazon Web Services account. For more
--- information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
--- 'overwrite', 'putParameter_overwrite' - Overwrite an existing parameter. The default value is @false@.
---
--- 'description', 'putParameter_description' - Information about the parameter that you want to add to the system.
--- Optional but recommended.
---
--- Don\'t enter personally identifiable information in this field.
---
 -- 'policies', 'putParameter_policies' - One or more policies to apply to a parameter. This operation takes a
 -- JSON array. Parameter Store, a capability of Amazon Web Services Systems
 -- Manager supports the following policy types:
@@ -430,22 +413,39 @@ data PutParameter = PutParameter'
 -- empty policy. For more information about parameter policies, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html Assigning parameter policies>.
 --
--- 'tags', 'putParameter_tags' - Optional metadata that you assign to a resource. Tags enable you to
--- categorize a resource in different ways, such as by purpose, owner, or
--- environment. For example, you might want to tag a Systems Manager
--- parameter to identify the type of resource to which it applies, the
--- environment, or the type of configuration data referenced by the
--- parameter. In this case, you could specify the following key-value
--- pairs:
+-- 'overwrite', 'putParameter_overwrite' - Overwrite an existing parameter. The default value is @false@.
 --
--- -   @Key=Resource,Value=S3bucket@
+-- 'keyId', 'putParameter_keyId' - The Key Management Service (KMS) ID that you want to use to encrypt a
+-- parameter. Either the default KMS key automatically assigned to your
+-- Amazon Web Services account or a custom key. Required for parameters
+-- that use the @SecureString@ data type.
 --
--- -   @Key=OS,Value=Windows@
+-- If you don\'t specify a key ID, the system uses the default key
+-- associated with your Amazon Web Services account.
 --
--- -   @Key=ParameterType,Value=LicenseKey@
+-- -   To use your default KMS key, choose the @SecureString@ data type,
+--     and do /not/ specify the @Key ID@ when you create the parameter. The
+--     system automatically populates @Key ID@ with your default KMS key.
 --
--- To add tags to an existing Systems Manager parameter, use the
--- AddTagsToResource operation.
+-- -   To use a custom KMS key, choose the @SecureString@ data type with
+--     the @Key ID@ parameter.
+--
+-- 'dataType', 'putParameter_dataType' - The data type for a @String@ parameter. Supported data types include
+-- plain text and Amazon Machine Image (AMI) IDs.
+--
+-- __The following data type values are supported.__
+--
+-- -   @text@
+--
+-- -   @aws:ec2:image@
+--
+-- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
+-- Web Services Systems Manager validates the parameter value is in the
+-- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
+-- AMI is available in your Amazon Web Services account. For more
+-- information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'name', 'putParameter_name' - The fully qualified name of the parameter that you want to add to the
 -- system. The fully qualified name includes the complete hierarchy of the
@@ -501,35 +501,64 @@ newPutParameter ::
   PutParameter
 newPutParameter pName_ pValue_ =
   PutParameter'
-    { keyId = Prelude.Nothing,
-      tier = Prelude.Nothing,
-      allowedPattern = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       type' = Prelude.Nothing,
-      dataType = Prelude.Nothing,
-      overwrite = Prelude.Nothing,
+      allowedPattern = Prelude.Nothing,
       description = Prelude.Nothing,
+      tier = Prelude.Nothing,
       policies = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      overwrite = Prelude.Nothing,
+      keyId = Prelude.Nothing,
+      dataType = Prelude.Nothing,
       name = pName_,
       value = Core._Sensitive Lens.# pValue_
     }
 
--- | The Key Management Service (KMS) ID that you want to use to encrypt a
--- parameter. Either the default KMS key automatically assigned to your
--- Amazon Web Services account or a custom key. Required for parameters
--- that use the @SecureString@ data type.
+-- | Optional metadata that you assign to a resource. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag a Systems Manager
+-- parameter to identify the type of resource to which it applies, the
+-- environment, or the type of configuration data referenced by the
+-- parameter. In this case, you could specify the following key-value
+-- pairs:
 --
--- If you don\'t specify a key ID, the system uses the default key
--- associated with your Amazon Web Services account.
+-- -   @Key=Resource,Value=S3bucket@
 --
--- -   To use your default KMS key, choose the @SecureString@ data type,
---     and do /not/ specify the @Key ID@ when you create the parameter. The
---     system automatically populates @Key ID@ with your default KMS key.
+-- -   @Key=OS,Value=Windows@
 --
--- -   To use a custom KMS key, choose the @SecureString@ data type with
---     the @Key ID@ parameter.
-putParameter_keyId :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
-putParameter_keyId = Lens.lens (\PutParameter' {keyId} -> keyId) (\s@PutParameter' {} a -> s {keyId = a} :: PutParameter)
+-- -   @Key=ParameterType,Value=LicenseKey@
+--
+-- To add tags to an existing Systems Manager parameter, use the
+-- AddTagsToResource operation.
+putParameter_tags :: Lens.Lens' PutParameter (Prelude.Maybe [Tag])
+putParameter_tags = Lens.lens (\PutParameter' {tags} -> tags) (\s@PutParameter' {} a -> s {tags = a} :: PutParameter) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of parameter that you want to add to the system.
+--
+-- @SecureString@ isn\'t currently supported for CloudFormation templates.
+--
+-- Items in a @StringList@ must be separated by a comma (,). You can\'t use
+-- other punctuation or special character to escape items in the list. If
+-- you have a parameter value that requires a comma, then use the @String@
+-- data type.
+--
+-- Specifying a parameter type isn\'t required when updating a parameter.
+-- You must specify a parameter type when creating a parameter.
+putParameter_type :: Lens.Lens' PutParameter (Prelude.Maybe ParameterType)
+putParameter_type = Lens.lens (\PutParameter' {type'} -> type') (\s@PutParameter' {} a -> s {type' = a} :: PutParameter)
+
+-- | A regular expression used to validate the parameter value. For example,
+-- for String types with values restricted to numbers, you can specify the
+-- following: AllowedPattern=^\\d+$
+putParameter_allowedPattern :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_allowedPattern = Lens.lens (\PutParameter' {allowedPattern} -> allowedPattern) (\s@PutParameter' {} a -> s {allowedPattern = a} :: PutParameter)
+
+-- | Information about the parameter that you want to add to the system.
+-- Optional but recommended.
+--
+-- Don\'t enter personally identifiable information in this field.
+putParameter_description :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_description = Lens.lens (\PutParameter' {description} -> description) (\s@PutParameter' {} a -> s {description = a} :: PutParameter)
 
 -- | The parameter tier to assign to a parameter.
 --
@@ -602,56 +631,6 @@ putParameter_keyId = Lens.lens (\PutParameter' {keyId} -> keyId) (\s@PutParamete
 putParameter_tier :: Lens.Lens' PutParameter (Prelude.Maybe ParameterTier)
 putParameter_tier = Lens.lens (\PutParameter' {tier} -> tier) (\s@PutParameter' {} a -> s {tier = a} :: PutParameter)
 
--- | A regular expression used to validate the parameter value. For example,
--- for String types with values restricted to numbers, you can specify the
--- following: AllowedPattern=^\\d+$
-putParameter_allowedPattern :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
-putParameter_allowedPattern = Lens.lens (\PutParameter' {allowedPattern} -> allowedPattern) (\s@PutParameter' {} a -> s {allowedPattern = a} :: PutParameter)
-
--- | The type of parameter that you want to add to the system.
---
--- @SecureString@ isn\'t currently supported for CloudFormation templates.
---
--- Items in a @StringList@ must be separated by a comma (,). You can\'t use
--- other punctuation or special character to escape items in the list. If
--- you have a parameter value that requires a comma, then use the @String@
--- data type.
---
--- Specifying a parameter type isn\'t required when updating a parameter.
--- You must specify a parameter type when creating a parameter.
-putParameter_type :: Lens.Lens' PutParameter (Prelude.Maybe ParameterType)
-putParameter_type = Lens.lens (\PutParameter' {type'} -> type') (\s@PutParameter' {} a -> s {type' = a} :: PutParameter)
-
--- | The data type for a @String@ parameter. Supported data types include
--- plain text and Amazon Machine Image (AMI) IDs.
---
--- __The following data type values are supported.__
---
--- -   @text@
---
--- -   @aws:ec2:image@
---
--- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
--- Web Services Systems Manager validates the parameter value is in the
--- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
--- AMI is available in your Amazon Web Services account. For more
--- information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
--- in the /Amazon Web Services Systems Manager User Guide/.
-putParameter_dataType :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
-putParameter_dataType = Lens.lens (\PutParameter' {dataType} -> dataType) (\s@PutParameter' {} a -> s {dataType = a} :: PutParameter)
-
--- | Overwrite an existing parameter. The default value is @false@.
-putParameter_overwrite :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Bool)
-putParameter_overwrite = Lens.lens (\PutParameter' {overwrite} -> overwrite) (\s@PutParameter' {} a -> s {overwrite = a} :: PutParameter)
-
--- | Information about the parameter that you want to add to the system.
--- Optional but recommended.
---
--- Don\'t enter personally identifiable information in this field.
-putParameter_description :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
-putParameter_description = Lens.lens (\PutParameter' {description} -> description) (\s@PutParameter' {} a -> s {description = a} :: PutParameter)
-
 -- | One or more policies to apply to a parameter. This operation takes a
 -- JSON array. Parameter Store, a capability of Amazon Web Services Systems
 -- Manager supports the following policy types:
@@ -678,24 +657,45 @@ putParameter_description = Lens.lens (\PutParameter' {description} -> descriptio
 putParameter_policies :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
 putParameter_policies = Lens.lens (\PutParameter' {policies} -> policies) (\s@PutParameter' {} a -> s {policies = a} :: PutParameter)
 
--- | Optional metadata that you assign to a resource. Tags enable you to
--- categorize a resource in different ways, such as by purpose, owner, or
--- environment. For example, you might want to tag a Systems Manager
--- parameter to identify the type of resource to which it applies, the
--- environment, or the type of configuration data referenced by the
--- parameter. In this case, you could specify the following key-value
--- pairs:
+-- | Overwrite an existing parameter. The default value is @false@.
+putParameter_overwrite :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Bool)
+putParameter_overwrite = Lens.lens (\PutParameter' {overwrite} -> overwrite) (\s@PutParameter' {} a -> s {overwrite = a} :: PutParameter)
+
+-- | The Key Management Service (KMS) ID that you want to use to encrypt a
+-- parameter. Either the default KMS key automatically assigned to your
+-- Amazon Web Services account or a custom key. Required for parameters
+-- that use the @SecureString@ data type.
 --
--- -   @Key=Resource,Value=S3bucket@
+-- If you don\'t specify a key ID, the system uses the default key
+-- associated with your Amazon Web Services account.
 --
--- -   @Key=OS,Value=Windows@
+-- -   To use your default KMS key, choose the @SecureString@ data type,
+--     and do /not/ specify the @Key ID@ when you create the parameter. The
+--     system automatically populates @Key ID@ with your default KMS key.
 --
--- -   @Key=ParameterType,Value=LicenseKey@
+-- -   To use a custom KMS key, choose the @SecureString@ data type with
+--     the @Key ID@ parameter.
+putParameter_keyId :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_keyId = Lens.lens (\PutParameter' {keyId} -> keyId) (\s@PutParameter' {} a -> s {keyId = a} :: PutParameter)
+
+-- | The data type for a @String@ parameter. Supported data types include
+-- plain text and Amazon Machine Image (AMI) IDs.
 --
--- To add tags to an existing Systems Manager parameter, use the
--- AddTagsToResource operation.
-putParameter_tags :: Lens.Lens' PutParameter (Prelude.Maybe [Tag])
-putParameter_tags = Lens.lens (\PutParameter' {tags} -> tags) (\s@PutParameter' {} a -> s {tags = a} :: PutParameter) Prelude.. Lens.mapping Lens.coerced
+-- __The following data type values are supported.__
+--
+-- -   @text@
+--
+-- -   @aws:ec2:image@
+--
+-- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
+-- Web Services Systems Manager validates the parameter value is in the
+-- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
+-- AMI is available in your Amazon Web Services account. For more
+-- information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+putParameter_dataType :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_dataType = Lens.lens (\PutParameter' {dataType} -> dataType) (\s@PutParameter' {} a -> s {dataType = a} :: PutParameter)
 
 -- | The fully qualified name of the parameter that you want to add to the
 -- system. The fully qualified name includes the complete hierarchy of the
@@ -762,29 +762,29 @@ instance Core.AWSRequest PutParameter where
 
 instance Prelude.Hashable PutParameter where
   hashWithSalt _salt PutParameter' {..} =
-    _salt `Prelude.hashWithSalt` keyId
-      `Prelude.hashWithSalt` tier
-      `Prelude.hashWithSalt` allowedPattern
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` dataType
-      `Prelude.hashWithSalt` overwrite
+      `Prelude.hashWithSalt` allowedPattern
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tier
       `Prelude.hashWithSalt` policies
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` overwrite
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PutParameter where
   rnf PutParameter' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf allowedPattern
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf dataType
-      `Prelude.seq` Prelude.rnf overwrite
+      `Prelude.seq` Prelude.rnf allowedPattern
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf overwrite
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
@@ -805,16 +805,16 @@ instance Core.ToJSON PutParameter where
   toJSON PutParameter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KeyId" Core..=) Prelude.<$> keyId,
-            ("Tier" Core..=) Prelude.<$> tier,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Type" Core..=) Prelude.<$> type',
             ("AllowedPattern" Core..=)
               Prelude.<$> allowedPattern,
-            ("Type" Core..=) Prelude.<$> type',
-            ("DataType" Core..=) Prelude.<$> dataType,
-            ("Overwrite" Core..=) Prelude.<$> overwrite,
             ("Description" Core..=) Prelude.<$> description,
+            ("Tier" Core..=) Prelude.<$> tier,
             ("Policies" Core..=) Prelude.<$> policies,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Overwrite" Core..=) Prelude.<$> overwrite,
+            ("KeyId" Core..=) Prelude.<$> keyId,
+            ("DataType" Core..=) Prelude.<$> dataType,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Value" Core..= value)
           ]

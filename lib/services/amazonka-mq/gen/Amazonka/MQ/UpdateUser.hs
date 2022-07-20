@@ -27,9 +27,9 @@ module Amazonka.MQ.UpdateUser
     newUpdateUser,
 
     -- * Request Lenses
-    updateUser_groups,
-    updateUser_consoleAccess,
     updateUser_password,
+    updateUser_consoleAccess,
+    updateUser_groups,
     updateUser_username,
     updateUser_brokerId,
 
@@ -53,17 +53,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
+  { -- | The password of the user. This value must be at least 12 characters
+    -- long, must contain at least 4 unique characters, and must not contain
+    -- commas, colons, or equal signs (,:=).
+    password :: Prelude.Maybe Prelude.Text,
+    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+    consoleAccess :: Prelude.Maybe Prelude.Bool,
+    -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
     -- value can contain only alphanumeric characters, dashes, periods,
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Prelude.Maybe Prelude.Bool,
-    -- | The password of the user. This value must be at least 12 characters
-    -- long, must contain at least 4 unique characters, and must not contain
-    -- commas, colons, or equal signs (,:=).
-    password :: Prelude.Maybe Prelude.Text,
     -- | The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
@@ -81,16 +81,16 @@ data UpdateUser = UpdateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'password', 'updateUser_password' - The password of the user. This value must be at least 12 characters
+-- long, must contain at least 4 unique characters, and must not contain
+-- commas, colons, or equal signs (,:=).
+--
+-- 'consoleAccess', 'updateUser_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+--
 -- 'groups', 'updateUser_groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This
 -- value can contain only alphanumeric characters, dashes, periods,
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
---
--- 'consoleAccess', 'updateUser_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
---
--- 'password', 'updateUser_password' - The password of the user. This value must be at least 12 characters
--- long, must contain at least 4 unique characters, and must not contain
--- commas, colons, or equal signs (,:=).
 --
 -- 'username', 'updateUser_username' - The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -105,12 +105,22 @@ newUpdateUser ::
   UpdateUser
 newUpdateUser pUsername_ pBrokerId_ =
   UpdateUser'
-    { groups = Prelude.Nothing,
+    { password = Prelude.Nothing,
       consoleAccess = Prelude.Nothing,
-      password = Prelude.Nothing,
+      groups = Prelude.Nothing,
       username = pUsername_,
       brokerId = pBrokerId_
     }
+
+-- | The password of the user. This value must be at least 12 characters
+-- long, must contain at least 4 unique characters, and must not contain
+-- commas, colons, or equal signs (,:=).
+updateUser_password :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_password = Lens.lens (\UpdateUser' {password} -> password) (\s@UpdateUser' {} a -> s {password = a} :: UpdateUser)
+
+-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+updateUser_consoleAccess :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Bool)
+updateUser_consoleAccess = Lens.lens (\UpdateUser' {consoleAccess} -> consoleAccess) (\s@UpdateUser' {} a -> s {consoleAccess = a} :: UpdateUser)
 
 -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
 -- value can contain only alphanumeric characters, dashes, periods,
@@ -118,16 +128,6 @@ newUpdateUser pUsername_ pBrokerId_ =
 -- long.
 updateUser_groups :: Lens.Lens' UpdateUser (Prelude.Maybe [Prelude.Text])
 updateUser_groups = Lens.lens (\UpdateUser' {groups} -> groups) (\s@UpdateUser' {} a -> s {groups = a} :: UpdateUser) Prelude.. Lens.mapping Lens.coerced
-
--- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-updateUser_consoleAccess :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Bool)
-updateUser_consoleAccess = Lens.lens (\UpdateUser' {consoleAccess} -> consoleAccess) (\s@UpdateUser' {} a -> s {consoleAccess = a} :: UpdateUser)
-
--- | The password of the user. This value must be at least 12 characters
--- long, must contain at least 4 unique characters, and must not contain
--- commas, colons, or equal signs (,:=).
-updateUser_password :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_password = Lens.lens (\UpdateUser' {password} -> password) (\s@UpdateUser' {} a -> s {password = a} :: UpdateUser)
 
 -- | The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -151,17 +151,17 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` consoleAccess
-      `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` brokerId
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf groups
+    Prelude.rnf password
       `Prelude.seq` Prelude.rnf consoleAccess
-      `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf brokerId
 
@@ -180,9 +180,9 @@ instance Core.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("groups" Core..=) Prelude.<$> groups,
+          [ ("password" Core..=) Prelude.<$> password,
             ("consoleAccess" Core..=) Prelude.<$> consoleAccess,
-            ("password" Core..=) Prelude.<$> password
+            ("groups" Core..=) Prelude.<$> groups
           ]
       )
 

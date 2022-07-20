@@ -34,8 +34,8 @@ data Entity = Entity'
     -- character from a particular graphical representation. For example, a
     -- multi-byte UTF-8 character maps to a single code point.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The text of the entity.
-    text :: Prelude.Maybe Prelude.Text,
+    -- | The entity\'s type.
+    type' :: Prelude.Maybe EntityType,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
     score :: Prelude.Maybe Prelude.Double,
@@ -45,8 +45,8 @@ data Entity = Entity'
     -- representation. For example, a multi-byte UTF-8 character maps to a
     -- single code point.
     endOffset :: Prelude.Maybe Prelude.Int,
-    -- | The entity\'s type.
-    type' :: Prelude.Maybe EntityType
+    -- | The text of the entity.
+    text :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,7 +64,7 @@ data Entity = Entity'
 -- character from a particular graphical representation. For example, a
 -- multi-byte UTF-8 character maps to a single code point.
 --
--- 'text', 'entity_text' - The text of the entity.
+-- 'type'', 'entity_type' - The entity\'s type.
 --
 -- 'score', 'entity_score' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
@@ -75,16 +75,16 @@ data Entity = Entity'
 -- representation. For example, a multi-byte UTF-8 character maps to a
 -- single code point.
 --
--- 'type'', 'entity_type' - The entity\'s type.
+-- 'text', 'entity_text' - The text of the entity.
 newEntity ::
   Entity
 newEntity =
   Entity'
     { beginOffset = Prelude.Nothing,
-      text = Prelude.Nothing,
+      type' = Prelude.Nothing,
       score = Prelude.Nothing,
       endOffset = Prelude.Nothing,
-      type' = Prelude.Nothing
+      text = Prelude.Nothing
     }
 
 -- | A character offset in the input text that shows where the entity begins
@@ -95,9 +95,9 @@ newEntity =
 entity_beginOffset :: Lens.Lens' Entity (Prelude.Maybe Prelude.Int)
 entity_beginOffset = Lens.lens (\Entity' {beginOffset} -> beginOffset) (\s@Entity' {} a -> s {beginOffset = a} :: Entity)
 
--- | The text of the entity.
-entity_text :: Lens.Lens' Entity (Prelude.Maybe Prelude.Text)
-entity_text = Lens.lens (\Entity' {text} -> text) (\s@Entity' {} a -> s {text = a} :: Entity)
+-- | The entity\'s type.
+entity_type :: Lens.Lens' Entity (Prelude.Maybe EntityType)
+entity_type = Lens.lens (\Entity' {type'} -> type') (\s@Entity' {} a -> s {type' = a} :: Entity)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
@@ -112,9 +112,9 @@ entity_score = Lens.lens (\Entity' {score} -> score) (\s@Entity' {} a -> s {scor
 entity_endOffset :: Lens.Lens' Entity (Prelude.Maybe Prelude.Int)
 entity_endOffset = Lens.lens (\Entity' {endOffset} -> endOffset) (\s@Entity' {} a -> s {endOffset = a} :: Entity)
 
--- | The entity\'s type.
-entity_type :: Lens.Lens' Entity (Prelude.Maybe EntityType)
-entity_type = Lens.lens (\Entity' {type'} -> type') (\s@Entity' {} a -> s {type' = a} :: Entity)
+-- | The text of the entity.
+entity_text :: Lens.Lens' Entity (Prelude.Maybe Prelude.Text)
+entity_text = Lens.lens (\Entity' {text} -> text) (\s@Entity' {} a -> s {text = a} :: Entity)
 
 instance Core.FromJSON Entity where
   parseJSON =
@@ -123,24 +123,24 @@ instance Core.FromJSON Entity where
       ( \x ->
           Entity'
             Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Text")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Score")
             Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Text")
       )
 
 instance Prelude.Hashable Entity where
   hashWithSalt _salt Entity' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
-      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` endOffset
-      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` text
 
 instance Prelude.NFData Entity where
   rnf Entity' {..} =
     Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf text

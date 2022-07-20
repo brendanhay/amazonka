@@ -31,11 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCriterionAdditionalProperties' smart constructor.
 data CriterionAdditionalProperties = CriterionAdditionalProperties'
-  { -- | The value for the property matches (equals) the specified value. If you
-    -- specify multiple values, Macie uses OR logic to join the values.
-    eq :: Prelude.Maybe [Prelude.Text],
+  { -- | The value for the property doesn\'t match (doesn\'t equal) the specified
+    -- value. If you specify multiple values, Macie uses OR logic to join the
+    -- values.
+    neq :: Prelude.Maybe [Prelude.Text],
     -- | The value for the property is less than or equal to the specified value.
     lte :: Prelude.Maybe Prelude.Integer,
+    -- | The value for the property is less than the specified value.
+    lt :: Prelude.Maybe Prelude.Integer,
+    -- | The value for the property is greater than or equal to the specified
+    -- value.
+    gte :: Prelude.Maybe Prelude.Integer,
+    -- | The value for the property matches (equals) the specified value. If you
+    -- specify multiple values, Macie uses OR logic to join the values.
+    eq :: Prelude.Maybe [Prelude.Text],
     -- | The value for the property is greater than the specified value.
     gt :: Prelude.Maybe Prelude.Integer,
     -- | The value for the property exclusively matches (equals an exact match
@@ -50,16 +59,7 @@ data CriterionAdditionalProperties = CriterionAdditionalProperties'
     -- resourcesAffected.s3Object.tags.key,
     -- resourcesAffected.s3Object.tags.value, sensitiveData.category, and
     -- sensitiveData.detections.type.
-    eqExactMatch :: Prelude.Maybe [Prelude.Text],
-    -- | The value for the property doesn\'t match (doesn\'t equal) the specified
-    -- value. If you specify multiple values, Macie uses OR logic to join the
-    -- values.
-    neq :: Prelude.Maybe [Prelude.Text],
-    -- | The value for the property is less than the specified value.
-    lt :: Prelude.Maybe Prelude.Integer,
-    -- | The value for the property is greater than or equal to the specified
-    -- value.
-    gte :: Prelude.Maybe Prelude.Integer
+    eqExactMatch :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,10 +71,19 @@ data CriterionAdditionalProperties = CriterionAdditionalProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eq', 'criterionAdditionalProperties_eq' - The value for the property matches (equals) the specified value. If you
--- specify multiple values, Macie uses OR logic to join the values.
+-- 'neq', 'criterionAdditionalProperties_neq' - The value for the property doesn\'t match (doesn\'t equal) the specified
+-- value. If you specify multiple values, Macie uses OR logic to join the
+-- values.
 --
 -- 'lte', 'criterionAdditionalProperties_lte' - The value for the property is less than or equal to the specified value.
+--
+-- 'lt', 'criterionAdditionalProperties_lt' - The value for the property is less than the specified value.
+--
+-- 'gte', 'criterionAdditionalProperties_gte' - The value for the property is greater than or equal to the specified
+-- value.
+--
+-- 'eq', 'criterionAdditionalProperties_eq' - The value for the property matches (equals) the specified value. If you
+-- specify multiple values, Macie uses OR logic to join the values.
 --
 -- 'gt', 'criterionAdditionalProperties_gt' - The value for the property is greater than the specified value.
 --
@@ -90,37 +99,43 @@ data CriterionAdditionalProperties = CriterionAdditionalProperties'
 -- resourcesAffected.s3Object.tags.key,
 -- resourcesAffected.s3Object.tags.value, sensitiveData.category, and
 -- sensitiveData.detections.type.
---
--- 'neq', 'criterionAdditionalProperties_neq' - The value for the property doesn\'t match (doesn\'t equal) the specified
--- value. If you specify multiple values, Macie uses OR logic to join the
--- values.
---
--- 'lt', 'criterionAdditionalProperties_lt' - The value for the property is less than the specified value.
---
--- 'gte', 'criterionAdditionalProperties_gte' - The value for the property is greater than or equal to the specified
--- value.
 newCriterionAdditionalProperties ::
   CriterionAdditionalProperties
 newCriterionAdditionalProperties =
   CriterionAdditionalProperties'
-    { eq =
+    { neq =
         Prelude.Nothing,
       lte = Prelude.Nothing,
-      gt = Prelude.Nothing,
-      eqExactMatch = Prelude.Nothing,
-      neq = Prelude.Nothing,
       lt = Prelude.Nothing,
-      gte = Prelude.Nothing
+      gte = Prelude.Nothing,
+      eq = Prelude.Nothing,
+      gt = Prelude.Nothing,
+      eqExactMatch = Prelude.Nothing
     }
+
+-- | The value for the property doesn\'t match (doesn\'t equal) the specified
+-- value. If you specify multiple values, Macie uses OR logic to join the
+-- values.
+criterionAdditionalProperties_neq :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe [Prelude.Text])
+criterionAdditionalProperties_neq = Lens.lens (\CriterionAdditionalProperties' {neq} -> neq) (\s@CriterionAdditionalProperties' {} a -> s {neq = a} :: CriterionAdditionalProperties) Prelude.. Lens.mapping Lens.coerced
+
+-- | The value for the property is less than or equal to the specified value.
+criterionAdditionalProperties_lte :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe Prelude.Integer)
+criterionAdditionalProperties_lte = Lens.lens (\CriterionAdditionalProperties' {lte} -> lte) (\s@CriterionAdditionalProperties' {} a -> s {lte = a} :: CriterionAdditionalProperties)
+
+-- | The value for the property is less than the specified value.
+criterionAdditionalProperties_lt :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe Prelude.Integer)
+criterionAdditionalProperties_lt = Lens.lens (\CriterionAdditionalProperties' {lt} -> lt) (\s@CriterionAdditionalProperties' {} a -> s {lt = a} :: CriterionAdditionalProperties)
+
+-- | The value for the property is greater than or equal to the specified
+-- value.
+criterionAdditionalProperties_gte :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe Prelude.Integer)
+criterionAdditionalProperties_gte = Lens.lens (\CriterionAdditionalProperties' {gte} -> gte) (\s@CriterionAdditionalProperties' {} a -> s {gte = a} :: CriterionAdditionalProperties)
 
 -- | The value for the property matches (equals) the specified value. If you
 -- specify multiple values, Macie uses OR logic to join the values.
 criterionAdditionalProperties_eq :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe [Prelude.Text])
 criterionAdditionalProperties_eq = Lens.lens (\CriterionAdditionalProperties' {eq} -> eq) (\s@CriterionAdditionalProperties' {} a -> s {eq = a} :: CriterionAdditionalProperties) Prelude.. Lens.mapping Lens.coerced
-
--- | The value for the property is less than or equal to the specified value.
-criterionAdditionalProperties_lte :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe Prelude.Integer)
-criterionAdditionalProperties_lte = Lens.lens (\CriterionAdditionalProperties' {lte} -> lte) (\s@CriterionAdditionalProperties' {} a -> s {lte = a} :: CriterionAdditionalProperties)
 
 -- | The value for the property is greater than the specified value.
 criterionAdditionalProperties_gt :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe Prelude.Integer)
@@ -141,34 +156,19 @@ criterionAdditionalProperties_gt = Lens.lens (\CriterionAdditionalProperties' {g
 criterionAdditionalProperties_eqExactMatch :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe [Prelude.Text])
 criterionAdditionalProperties_eqExactMatch = Lens.lens (\CriterionAdditionalProperties' {eqExactMatch} -> eqExactMatch) (\s@CriterionAdditionalProperties' {} a -> s {eqExactMatch = a} :: CriterionAdditionalProperties) Prelude.. Lens.mapping Lens.coerced
 
--- | The value for the property doesn\'t match (doesn\'t equal) the specified
--- value. If you specify multiple values, Macie uses OR logic to join the
--- values.
-criterionAdditionalProperties_neq :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe [Prelude.Text])
-criterionAdditionalProperties_neq = Lens.lens (\CriterionAdditionalProperties' {neq} -> neq) (\s@CriterionAdditionalProperties' {} a -> s {neq = a} :: CriterionAdditionalProperties) Prelude.. Lens.mapping Lens.coerced
-
--- | The value for the property is less than the specified value.
-criterionAdditionalProperties_lt :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe Prelude.Integer)
-criterionAdditionalProperties_lt = Lens.lens (\CriterionAdditionalProperties' {lt} -> lt) (\s@CriterionAdditionalProperties' {} a -> s {lt = a} :: CriterionAdditionalProperties)
-
--- | The value for the property is greater than or equal to the specified
--- value.
-criterionAdditionalProperties_gte :: Lens.Lens' CriterionAdditionalProperties (Prelude.Maybe Prelude.Integer)
-criterionAdditionalProperties_gte = Lens.lens (\CriterionAdditionalProperties' {gte} -> gte) (\s@CriterionAdditionalProperties' {} a -> s {gte = a} :: CriterionAdditionalProperties)
-
 instance Core.FromJSON CriterionAdditionalProperties where
   parseJSON =
     Core.withObject
       "CriterionAdditionalProperties"
       ( \x ->
           CriterionAdditionalProperties'
-            Prelude.<$> (x Core..:? "eq" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "neq" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "lte")
-            Prelude.<*> (x Core..:? "gt")
-            Prelude.<*> (x Core..:? "eqExactMatch" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "neq" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "lt")
             Prelude.<*> (x Core..:? "gte")
+            Prelude.<*> (x Core..:? "eq" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "gt")
+            Prelude.<*> (x Core..:? "eqExactMatch" Core..!= Prelude.mempty)
       )
 
 instance
@@ -176,34 +176,34 @@ instance
     CriterionAdditionalProperties
   where
   hashWithSalt _salt CriterionAdditionalProperties' {..} =
-    _salt `Prelude.hashWithSalt` eq
+    _salt `Prelude.hashWithSalt` neq
       `Prelude.hashWithSalt` lte
-      `Prelude.hashWithSalt` gt
-      `Prelude.hashWithSalt` eqExactMatch
-      `Prelude.hashWithSalt` neq
       `Prelude.hashWithSalt` lt
       `Prelude.hashWithSalt` gte
+      `Prelude.hashWithSalt` eq
+      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` eqExactMatch
 
 instance Prelude.NFData CriterionAdditionalProperties where
   rnf CriterionAdditionalProperties' {..} =
-    Prelude.rnf eq
+    Prelude.rnf neq
       `Prelude.seq` Prelude.rnf lte
-      `Prelude.seq` Prelude.rnf gt
-      `Prelude.seq` Prelude.rnf eqExactMatch
-      `Prelude.seq` Prelude.rnf neq
       `Prelude.seq` Prelude.rnf lt
       `Prelude.seq` Prelude.rnf gte
+      `Prelude.seq` Prelude.rnf eq
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf eqExactMatch
 
 instance Core.ToJSON CriterionAdditionalProperties where
   toJSON CriterionAdditionalProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("eq" Core..=) Prelude.<$> eq,
+          [ ("neq" Core..=) Prelude.<$> neq,
             ("lte" Core..=) Prelude.<$> lte,
-            ("gt" Core..=) Prelude.<$> gt,
-            ("eqExactMatch" Core..=) Prelude.<$> eqExactMatch,
-            ("neq" Core..=) Prelude.<$> neq,
             ("lt" Core..=) Prelude.<$> lt,
-            ("gte" Core..=) Prelude.<$> gte
+            ("gte" Core..=) Prelude.<$> gte,
+            ("eq" Core..=) Prelude.<$> eq,
+            ("gt" Core..=) Prelude.<$> gt,
+            ("eqExactMatch" Core..=) Prelude.<$> eqExactMatch
           ]
       )

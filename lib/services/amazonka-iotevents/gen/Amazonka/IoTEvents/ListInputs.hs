@@ -35,8 +35,8 @@ module Amazonka.IoTEvents.ListInputs
     newListInputsResponse,
 
     -- * Response Lenses
-    listInputsResponse_inputSummaries,
     listInputsResponse_nextToken,
+    listInputsResponse_inputSummaries,
     listInputsResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance Core.AWSRequest ListInputs where
     Response.receiveJSON
       ( \s h x ->
           ListInputsResponse'
-            Prelude.<$> (x Core..?> "inputSummaries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "inputSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,11 +121,11 @@ instance Core.ToQuery ListInputs where
 
 -- | /See:/ 'newListInputsResponse' smart constructor.
 data ListInputsResponse = ListInputsResponse'
-  { -- | Summary information about the inputs.
-    inputSummaries :: Prelude.Maybe [InputSummary],
-    -- | The token that you can use to return the next set of results, or @null@
+  { -- | The token that you can use to return the next set of results, or @null@
     -- if there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Summary information about the inputs.
+    inputSummaries :: Prelude.Maybe [InputSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,10 +139,10 @@ data ListInputsResponse = ListInputsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputSummaries', 'listInputsResponse_inputSummaries' - Summary information about the inputs.
---
 -- 'nextToken', 'listInputsResponse_nextToken' - The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
+--
+-- 'inputSummaries', 'listInputsResponse_inputSummaries' - Summary information about the inputs.
 --
 -- 'httpStatus', 'listInputsResponse_httpStatus' - The response's http status code.
 newListInputsResponse ::
@@ -151,20 +151,19 @@ newListInputsResponse ::
   ListInputsResponse
 newListInputsResponse pHttpStatus_ =
   ListInputsResponse'
-    { inputSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      inputSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Summary information about the inputs.
-listInputsResponse_inputSummaries :: Lens.Lens' ListInputsResponse (Prelude.Maybe [InputSummary])
-listInputsResponse_inputSummaries = Lens.lens (\ListInputsResponse' {inputSummaries} -> inputSummaries) (\s@ListInputsResponse' {} a -> s {inputSummaries = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
 listInputsResponse_nextToken :: Lens.Lens' ListInputsResponse (Prelude.Maybe Prelude.Text)
 listInputsResponse_nextToken = Lens.lens (\ListInputsResponse' {nextToken} -> nextToken) (\s@ListInputsResponse' {} a -> s {nextToken = a} :: ListInputsResponse)
+
+-- | Summary information about the inputs.
+listInputsResponse_inputSummaries :: Lens.Lens' ListInputsResponse (Prelude.Maybe [InputSummary])
+listInputsResponse_inputSummaries = Lens.lens (\ListInputsResponse' {inputSummaries} -> inputSummaries) (\s@ListInputsResponse' {} a -> s {inputSummaries = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInputsResponse_httpStatus :: Lens.Lens' ListInputsResponse Prelude.Int
@@ -172,6 +171,6 @@ listInputsResponse_httpStatus = Lens.lens (\ListInputsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListInputsResponse where
   rnf ListInputsResponse' {..} =
-    Prelude.rnf inputSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf inputSummaries
       `Prelude.seq` Prelude.rnf httpStatus

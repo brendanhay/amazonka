@@ -34,8 +34,8 @@ module Amazonka.Forecast.ListPredictors
     newListPredictors,
 
     -- * Request Lenses
-    listPredictors_filters,
     listPredictors_nextToken,
+    listPredictors_filters,
     listPredictors_maxResults,
 
     -- * Destructuring the Response
@@ -58,7 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPredictors' smart constructor.
 data ListPredictors = ListPredictors'
-  { -- | An array of filters. For each filter, you provide a condition and a
+  { -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of filters. For each filter, you provide a condition and a
     -- match statement. The condition is either @IS@ or @IS_NOT@, which
     -- specifies whether to include or exclude the predictors that match the
     -- statement from the list, respectively. The match statement consists of a
@@ -80,10 +84,6 @@ data ListPredictors = ListPredictors'
     --
     -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
     filters :: Prelude.Maybe [Filter],
-    -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of items to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -96,6 +96,10 @@ data ListPredictors = ListPredictors'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listPredictors_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listPredictors_filters' - An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -119,19 +123,21 @@ data ListPredictors = ListPredictors'
 --
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
 --
--- 'nextToken', 'listPredictors_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
---
 -- 'maxResults', 'listPredictors_maxResults' - The number of items to return in the response.
 newListPredictors ::
   ListPredictors
 newListPredictors =
   ListPredictors'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+listPredictors_nextToken :: Lens.Lens' ListPredictors (Prelude.Maybe Prelude.Text)
+listPredictors_nextToken = Lens.lens (\ListPredictors' {nextToken} -> nextToken) (\s@ListPredictors' {} a -> s {nextToken = a} :: ListPredictors)
 
 -- | An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -156,12 +162,6 @@ newListPredictors =
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
 listPredictors_filters :: Lens.Lens' ListPredictors (Prelude.Maybe [Filter])
 listPredictors_filters = Lens.lens (\ListPredictors' {filters} -> filters) (\s@ListPredictors' {} a -> s {filters = a} :: ListPredictors) Prelude.. Lens.mapping Lens.coerced
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-listPredictors_nextToken :: Lens.Lens' ListPredictors (Prelude.Maybe Prelude.Text)
-listPredictors_nextToken = Lens.lens (\ListPredictors' {nextToken} -> nextToken) (\s@ListPredictors' {} a -> s {nextToken = a} :: ListPredictors)
 
 -- | The number of items to return in the response.
 listPredictors_maxResults :: Lens.Lens' ListPredictors (Prelude.Maybe Prelude.Natural)
@@ -204,14 +204,14 @@ instance Core.AWSRequest ListPredictors where
 
 instance Prelude.Hashable ListPredictors where
   hashWithSalt _salt ListPredictors' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListPredictors where
   rnf ListPredictors' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPredictors where
@@ -233,8 +233,8 @@ instance Core.ToJSON ListPredictors where
   toJSON ListPredictors' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

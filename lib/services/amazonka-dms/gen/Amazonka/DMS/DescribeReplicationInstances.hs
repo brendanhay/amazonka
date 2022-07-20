@@ -30,8 +30,8 @@ module Amazonka.DMS.DescribeReplicationInstances
     newDescribeReplicationInstances,
 
     -- * Request Lenses
-    describeReplicationInstances_filters,
     describeReplicationInstances_marker,
+    describeReplicationInstances_filters,
     describeReplicationInstances_maxRecords,
 
     -- * Destructuring the Response
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReplicationInstances' smart constructor.
 data DescribeReplicationInstances = DescribeReplicationInstances'
-  { -- | Filters applied to replication instances.
+  { -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Filters applied to replication instances.
     --
     -- Valid filter names: replication-instance-arn | replication-instance-id |
     -- replication-instance-class | engine-version
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -85,14 +85,14 @@ data DescribeReplicationInstances = DescribeReplicationInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'describeReplicationInstances_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'filters', 'describeReplicationInstances_filters' - Filters applied to replication instances.
 --
 -- Valid filter names: replication-instance-arn | replication-instance-id |
 -- replication-instance-class | engine-version
---
--- 'marker', 'describeReplicationInstances_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeReplicationInstances_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -106,11 +106,17 @@ newDescribeReplicationInstances ::
   DescribeReplicationInstances
 newDescribeReplicationInstances =
   DescribeReplicationInstances'
-    { filters =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationInstances_marker :: Lens.Lens' DescribeReplicationInstances (Prelude.Maybe Prelude.Text)
+describeReplicationInstances_marker = Lens.lens (\DescribeReplicationInstances' {marker} -> marker) (\s@DescribeReplicationInstances' {} a -> s {marker = a} :: DescribeReplicationInstances)
 
 -- | Filters applied to replication instances.
 --
@@ -118,12 +124,6 @@ newDescribeReplicationInstances =
 -- replication-instance-class | engine-version
 describeReplicationInstances_filters :: Lens.Lens' DescribeReplicationInstances (Prelude.Maybe [Filter])
 describeReplicationInstances_filters = Lens.lens (\DescribeReplicationInstances' {filters} -> filters) (\s@DescribeReplicationInstances' {} a -> s {filters = a} :: DescribeReplicationInstances) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeReplicationInstances_marker :: Lens.Lens' DescribeReplicationInstances (Prelude.Maybe Prelude.Text)
-describeReplicationInstances_marker = Lens.lens (\DescribeReplicationInstances' {marker} -> marker) (\s@DescribeReplicationInstances' {} a -> s {marker = a} :: DescribeReplicationInstances)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -179,14 +179,14 @@ instance
     DescribeReplicationInstances
   where
   hashWithSalt _salt DescribeReplicationInstances' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeReplicationInstances where
   rnf DescribeReplicationInstances' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeReplicationInstances where
@@ -208,8 +208,8 @@ instance Core.ToJSON DescribeReplicationInstances where
   toJSON DescribeReplicationInstances' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("Marker" Core..=) Prelude.<$> marker,
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxRecords" Core..=) Prelude.<$> maxRecords
           ]
       )

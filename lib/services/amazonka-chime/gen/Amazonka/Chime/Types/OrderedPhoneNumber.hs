@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrderedPhoneNumber' smart constructor.
 data OrderedPhoneNumber = OrderedPhoneNumber'
-  { -- | The phone number status.
-    status :: Prelude.Maybe OrderedPhoneNumberStatus,
-    -- | The phone number, in E.164 format.
-    e164PhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+  { -- | The phone number, in E.164 format.
+    e164PhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The phone number status.
+    status :: Prelude.Maybe OrderedPhoneNumberStatus
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data OrderedPhoneNumber = OrderedPhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'orderedPhoneNumber_status' - The phone number status.
---
 -- 'e164PhoneNumber', 'orderedPhoneNumber_e164PhoneNumber' - The phone number, in E.164 format.
+--
+-- 'status', 'orderedPhoneNumber_status' - The phone number status.
 newOrderedPhoneNumber ::
   OrderedPhoneNumber
 newOrderedPhoneNumber =
   OrderedPhoneNumber'
-    { status = Prelude.Nothing,
-      e164PhoneNumber = Prelude.Nothing
+    { e164PhoneNumber =
+        Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The phone number status.
-orderedPhoneNumber_status :: Lens.Lens' OrderedPhoneNumber (Prelude.Maybe OrderedPhoneNumberStatus)
-orderedPhoneNumber_status = Lens.lens (\OrderedPhoneNumber' {status} -> status) (\s@OrderedPhoneNumber' {} a -> s {status = a} :: OrderedPhoneNumber)
 
 -- | The phone number, in E.164 format.
 orderedPhoneNumber_e164PhoneNumber :: Lens.Lens' OrderedPhoneNumber (Prelude.Maybe Prelude.Text)
 orderedPhoneNumber_e164PhoneNumber = Lens.lens (\OrderedPhoneNumber' {e164PhoneNumber} -> e164PhoneNumber) (\s@OrderedPhoneNumber' {} a -> s {e164PhoneNumber = a} :: OrderedPhoneNumber) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The phone number status.
+orderedPhoneNumber_status :: Lens.Lens' OrderedPhoneNumber (Prelude.Maybe OrderedPhoneNumberStatus)
+orderedPhoneNumber_status = Lens.lens (\OrderedPhoneNumber' {status} -> status) (\s@OrderedPhoneNumber' {} a -> s {status = a} :: OrderedPhoneNumber)
 
 instance Core.FromJSON OrderedPhoneNumber where
   parseJSON =
@@ -68,16 +69,16 @@ instance Core.FromJSON OrderedPhoneNumber where
       "OrderedPhoneNumber"
       ( \x ->
           OrderedPhoneNumber'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "E164PhoneNumber")
+            Prelude.<$> (x Core..:? "E164PhoneNumber")
+            Prelude.<*> (x Core..:? "Status")
       )
 
 instance Prelude.Hashable OrderedPhoneNumber where
   hashWithSalt _salt OrderedPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` e164PhoneNumber
+    _salt `Prelude.hashWithSalt` e164PhoneNumber
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData OrderedPhoneNumber where
   rnf OrderedPhoneNumber' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf e164PhoneNumber
+    Prelude.rnf e164PhoneNumber
+      `Prelude.seq` Prelude.rnf status

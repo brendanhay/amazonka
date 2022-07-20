@@ -36,10 +36,10 @@ module Amazonka.DirectConnect.DescribeDirectConnectGatewayAttachments
     newDescribeDirectConnectGatewayAttachments,
 
     -- * Request Lenses
-    describeDirectConnectGatewayAttachments_directConnectGatewayId,
     describeDirectConnectGatewayAttachments_nextToken,
-    describeDirectConnectGatewayAttachments_maxResults,
+    describeDirectConnectGatewayAttachments_directConnectGatewayId,
     describeDirectConnectGatewayAttachments_virtualInterfaceId,
+    describeDirectConnectGatewayAttachments_maxResults,
 
     -- * Destructuring the Response
     DescribeDirectConnectGatewayAttachmentsResponse (..),
@@ -61,19 +61,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDirectConnectGatewayAttachments' smart constructor.
 data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttachments'
-  { -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The token provided in the previous call to retrieve the next page.
+  { -- | The token provided in the previous call to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the virtual interface.
+    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     --
     -- If @MaxResults@ is given a value larger than 100, only 100 results are
     -- returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the virtual interface.
-    virtualInterfaceId :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,9 +85,11 @@ data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttac
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeDirectConnectGatewayAttachments_nextToken' - The token provided in the previous call to retrieve the next page.
+--
 -- 'directConnectGatewayId', 'describeDirectConnectGatewayAttachments_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- 'nextToken', 'describeDirectConnectGatewayAttachments_nextToken' - The token provided in the previous call to retrieve the next page.
+-- 'virtualInterfaceId', 'describeDirectConnectGatewayAttachments_virtualInterfaceId' - The ID of the virtual interface.
 --
 -- 'maxResults', 'describeDirectConnectGatewayAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -95,27 +97,30 @@ data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttac
 --
 -- If @MaxResults@ is given a value larger than 100, only 100 results are
 -- returned.
---
--- 'virtualInterfaceId', 'describeDirectConnectGatewayAttachments_virtualInterfaceId' - The ID of the virtual interface.
 newDescribeDirectConnectGatewayAttachments ::
   DescribeDirectConnectGatewayAttachments
 newDescribeDirectConnectGatewayAttachments =
   DescribeDirectConnectGatewayAttachments'
-    { directConnectGatewayId =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      directConnectGatewayId =
+        Prelude.Nothing,
       virtualInterfaceId =
-        Prelude.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The token provided in the previous call to retrieve the next page.
+describeDirectConnectGatewayAttachments_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAttachments_nextToken = Lens.lens (\DescribeDirectConnectGatewayAttachments' {nextToken} -> nextToken) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {nextToken = a} :: DescribeDirectConnectGatewayAttachments)
 
 -- | The ID of the Direct Connect gateway.
 describeDirectConnectGatewayAttachments_directConnectGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
 describeDirectConnectGatewayAttachments_directConnectGatewayId = Lens.lens (\DescribeDirectConnectGatewayAttachments' {directConnectGatewayId} -> directConnectGatewayId) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {directConnectGatewayId = a} :: DescribeDirectConnectGatewayAttachments)
 
--- | The token provided in the previous call to retrieve the next page.
-describeDirectConnectGatewayAttachments_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
-describeDirectConnectGatewayAttachments_nextToken = Lens.lens (\DescribeDirectConnectGatewayAttachments' {nextToken} -> nextToken) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {nextToken = a} :: DescribeDirectConnectGatewayAttachments)
+-- | The ID of the virtual interface.
+describeDirectConnectGatewayAttachments_virtualInterfaceId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAttachments_virtualInterfaceId = Lens.lens (\DescribeDirectConnectGatewayAttachments' {virtualInterfaceId} -> virtualInterfaceId) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {virtualInterfaceId = a} :: DescribeDirectConnectGatewayAttachments)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -125,10 +130,6 @@ describeDirectConnectGatewayAttachments_nextToken = Lens.lens (\DescribeDirectCo
 -- returned.
 describeDirectConnectGatewayAttachments_maxResults :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Int)
 describeDirectConnectGatewayAttachments_maxResults = Lens.lens (\DescribeDirectConnectGatewayAttachments' {maxResults} -> maxResults) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {maxResults = a} :: DescribeDirectConnectGatewayAttachments)
-
--- | The ID of the virtual interface.
-describeDirectConnectGatewayAttachments_virtualInterfaceId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
-describeDirectConnectGatewayAttachments_virtualInterfaceId = Lens.lens (\DescribeDirectConnectGatewayAttachments' {virtualInterfaceId} -> virtualInterfaceId) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {virtualInterfaceId = a} :: DescribeDirectConnectGatewayAttachments)
 
 instance
   Core.AWSPager
@@ -182,20 +183,20 @@ instance
   hashWithSalt
     _salt
     DescribeDirectConnectGatewayAttachments' {..} =
-      _salt `Prelude.hashWithSalt` directConnectGatewayId
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` directConnectGatewayId
         `Prelude.hashWithSalt` virtualInterfaceId
+        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeDirectConnectGatewayAttachments
   where
   rnf DescribeDirectConnectGatewayAttachments' {..} =
-    Prelude.rnf directConnectGatewayId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf directConnectGatewayId
       `Prelude.seq` Prelude.rnf virtualInterfaceId
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Core.ToHeaders
@@ -222,12 +223,12 @@ instance
   toJSON DescribeDirectConnectGatewayAttachments' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("directConnectGatewayId" Core..=)
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("directConnectGatewayId" Core..=)
               Prelude.<$> directConnectGatewayId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("virtualInterfaceId" Core..=)
-              Prelude.<$> virtualInterfaceId
+              Prelude.<$> virtualInterfaceId,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

@@ -14,106 +14,520 @@
 module Amazonka.GameLift.Lens
   ( -- * Operations
 
-    -- ** StopMatchmaking
-    stopMatchmaking_ticketId,
-    stopMatchmakingResponse_httpStatus,
+    -- ** AcceptMatch
+    acceptMatch_ticketId,
+    acceptMatch_playerIds,
+    acceptMatch_acceptanceType,
+    acceptMatchResponse_httpStatus,
 
-    -- ** DescribeGameServerInstances
-    describeGameServerInstances_nextToken,
-    describeGameServerInstances_instanceIds,
-    describeGameServerInstances_limit,
-    describeGameServerInstances_gameServerGroupName,
-    describeGameServerInstancesResponse_gameServerInstances,
-    describeGameServerInstancesResponse_nextToken,
-    describeGameServerInstancesResponse_httpStatus,
-
-    -- ** CreateGameSession
-    createGameSession_idempotencyToken,
-    createGameSession_gameProperties,
-    createGameSession_location,
-    createGameSession_gameSessionId,
-    createGameSession_aliasId,
-    createGameSession_name,
-    createGameSession_gameSessionData,
-    createGameSession_fleetId,
-    createGameSession_creatorId,
-    createGameSession_maximumPlayerSessionCount,
-    createGameSessionResponse_gameSession,
-    createGameSessionResponse_httpStatus,
-
-    -- ** DeleteScalingPolicy
-    deleteScalingPolicy_name,
-    deleteScalingPolicy_fleetId,
-
-    -- ** PutScalingPolicy
-    putScalingPolicy_scalingAdjustmentType,
-    putScalingPolicy_evaluationPeriods,
-    putScalingPolicy_policyType,
-    putScalingPolicy_comparisonOperator,
-    putScalingPolicy_threshold,
-    putScalingPolicy_scalingAdjustment,
-    putScalingPolicy_targetConfiguration,
-    putScalingPolicy_name,
-    putScalingPolicy_fleetId,
-    putScalingPolicy_metricName,
-    putScalingPolicyResponse_name,
-    putScalingPolicyResponse_httpStatus,
-
-    -- ** ListBuilds
-    listBuilds_status,
-    listBuilds_nextToken,
-    listBuilds_limit,
-    listBuildsResponse_builds,
-    listBuildsResponse_nextToken,
-    listBuildsResponse_httpStatus,
-
-    -- ** DeleteFleet
-    deleteFleet_fleetId,
-
-    -- ** CreateBuild
-    createBuild_storageLocation,
-    createBuild_operatingSystem,
-    createBuild_name,
-    createBuild_version,
-    createBuild_tags,
-    createBuildResponse_storageLocation,
-    createBuildResponse_uploadCredentials,
-    createBuildResponse_build,
-    createBuildResponse_httpStatus,
-
-    -- ** RequestUploadCredentials
-    requestUploadCredentials_buildId,
-    requestUploadCredentialsResponse_storageLocation,
-    requestUploadCredentialsResponse_uploadCredentials,
-    requestUploadCredentialsResponse_httpStatus,
+    -- ** ClaimGameServer
+    claimGameServer_gameServerData,
+    claimGameServer_gameServerId,
+    claimGameServer_gameServerGroupName,
+    claimGameServerResponse_gameServer,
+    claimGameServerResponse_httpStatus,
 
     -- ** CreateAlias
-    createAlias_description,
     createAlias_tags,
+    createAlias_description,
     createAlias_name,
     createAlias_routingStrategy,
     createAliasResponse_alias,
     createAliasResponse_httpStatus,
 
+    -- ** CreateBuild
+    createBuild_tags,
+    createBuild_operatingSystem,
+    createBuild_name,
+    createBuild_storageLocation,
+    createBuild_version,
+    createBuildResponse_build,
+    createBuildResponse_uploadCredentials,
+    createBuildResponse_storageLocation,
+    createBuildResponse_httpStatus,
+
+    -- ** CreateFleet
+    createFleet_tags,
+    createFleet_serverLaunchPath,
+    createFleet_fleetType,
+    createFleet_certificateConfiguration,
+    createFleet_instanceRoleArn,
+    createFleet_buildId,
+    createFleet_newGameSessionProtectionPolicy,
+    createFleet_description,
+    createFleet_logPaths,
+    createFleet_runtimeConfiguration,
+    createFleet_peerVpcId,
+    createFleet_metricGroups,
+    createFleet_serverLaunchParameters,
+    createFleet_locations,
+    createFleet_eC2InboundPermissions,
+    createFleet_scriptId,
+    createFleet_peerVpcAwsAccountId,
+    createFleet_resourceCreationLimitPolicy,
+    createFleet_name,
+    createFleet_eC2InstanceType,
+    createFleetResponse_fleetAttributes,
+    createFleetResponse_locationStates,
+    createFleetResponse_httpStatus,
+
+    -- ** CreateFleetLocations
+    createFleetLocations_fleetId,
+    createFleetLocations_locations,
+    createFleetLocationsResponse_fleetId,
+    createFleetLocationsResponse_locationStates,
+    createFleetLocationsResponse_fleetArn,
+    createFleetLocationsResponse_httpStatus,
+
+    -- ** CreateGameServerGroup
+    createGameServerGroup_tags,
+    createGameServerGroup_gameServerProtectionPolicy,
+    createGameServerGroup_vpcSubnets,
+    createGameServerGroup_balancingStrategy,
+    createGameServerGroup_autoScalingPolicy,
+    createGameServerGroup_gameServerGroupName,
+    createGameServerGroup_roleArn,
+    createGameServerGroup_minSize,
+    createGameServerGroup_maxSize,
+    createGameServerGroup_launchTemplate,
+    createGameServerGroup_instanceDefinitions,
+    createGameServerGroupResponse_gameServerGroup,
+    createGameServerGroupResponse_httpStatus,
+
+    -- ** CreateGameSession
+    createGameSession_gameSessionId,
+    createGameSession_fleetId,
+    createGameSession_creatorId,
+    createGameSession_name,
+    createGameSession_gameSessionData,
+    createGameSession_aliasId,
+    createGameSession_idempotencyToken,
+    createGameSession_location,
+    createGameSession_gameProperties,
+    createGameSession_maximumPlayerSessionCount,
+    createGameSessionResponse_gameSession,
+    createGameSessionResponse_httpStatus,
+
+    -- ** CreateGameSessionQueue
+    createGameSessionQueue_tags,
+    createGameSessionQueue_notificationTarget,
+    createGameSessionQueue_priorityConfiguration,
+    createGameSessionQueue_timeoutInSeconds,
+    createGameSessionQueue_playerLatencyPolicies,
+    createGameSessionQueue_destinations,
+    createGameSessionQueue_filterConfiguration,
+    createGameSessionQueue_customEventData,
+    createGameSessionQueue_name,
+    createGameSessionQueueResponse_gameSessionQueue,
+    createGameSessionQueueResponse_httpStatus,
+
+    -- ** CreateMatchmakingConfiguration
+    createMatchmakingConfiguration_tags,
+    createMatchmakingConfiguration_notificationTarget,
+    createMatchmakingConfiguration_acceptanceTimeoutSeconds,
+    createMatchmakingConfiguration_additionalPlayerCount,
+    createMatchmakingConfiguration_gameSessionData,
+    createMatchmakingConfiguration_flexMatchMode,
+    createMatchmakingConfiguration_description,
+    createMatchmakingConfiguration_backfillMode,
+    createMatchmakingConfiguration_gameSessionQueueArns,
+    createMatchmakingConfiguration_gameProperties,
+    createMatchmakingConfiguration_customEventData,
+    createMatchmakingConfiguration_name,
+    createMatchmakingConfiguration_requestTimeoutSeconds,
+    createMatchmakingConfiguration_acceptanceRequired,
+    createMatchmakingConfiguration_ruleSetName,
+    createMatchmakingConfigurationResponse_configuration,
+    createMatchmakingConfigurationResponse_httpStatus,
+
+    -- ** CreateMatchmakingRuleSet
+    createMatchmakingRuleSet_tags,
+    createMatchmakingRuleSet_name,
+    createMatchmakingRuleSet_ruleSetBody,
+    createMatchmakingRuleSetResponse_httpStatus,
+    createMatchmakingRuleSetResponse_ruleSet,
+
+    -- ** CreatePlayerSession
+    createPlayerSession_playerData,
+    createPlayerSession_gameSessionId,
+    createPlayerSession_playerId,
+    createPlayerSessionResponse_playerSession,
+    createPlayerSessionResponse_httpStatus,
+
+    -- ** CreatePlayerSessions
+    createPlayerSessions_playerDataMap,
+    createPlayerSessions_gameSessionId,
+    createPlayerSessions_playerIds,
+    createPlayerSessionsResponse_playerSessions,
+    createPlayerSessionsResponse_httpStatus,
+
+    -- ** CreateScript
+    createScript_tags,
+    createScript_name,
+    createScript_zipFile,
+    createScript_storageLocation,
+    createScript_version,
+    createScriptResponse_script,
+    createScriptResponse_httpStatus,
+
+    -- ** CreateVpcPeeringAuthorization
+    createVpcPeeringAuthorization_gameLiftAwsAccountId,
+    createVpcPeeringAuthorization_peerVpcId,
+    createVpcPeeringAuthorizationResponse_vpcPeeringAuthorization,
+    createVpcPeeringAuthorizationResponse_httpStatus,
+
+    -- ** CreateVpcPeeringConnection
+    createVpcPeeringConnection_fleetId,
+    createVpcPeeringConnection_peerVpcAwsAccountId,
+    createVpcPeeringConnection_peerVpcId,
+    createVpcPeeringConnectionResponse_httpStatus,
+
+    -- ** DeleteAlias
+    deleteAlias_aliasId,
+
+    -- ** DeleteBuild
+    deleteBuild_buildId,
+
+    -- ** DeleteFleet
+    deleteFleet_fleetId,
+
+    -- ** DeleteFleetLocations
+    deleteFleetLocations_fleetId,
+    deleteFleetLocations_locations,
+    deleteFleetLocationsResponse_fleetId,
+    deleteFleetLocationsResponse_locationStates,
+    deleteFleetLocationsResponse_fleetArn,
+    deleteFleetLocationsResponse_httpStatus,
+
+    -- ** DeleteGameServerGroup
+    deleteGameServerGroup_deleteOption,
+    deleteGameServerGroup_gameServerGroupName,
+    deleteGameServerGroupResponse_gameServerGroup,
+    deleteGameServerGroupResponse_httpStatus,
+
+    -- ** DeleteGameSessionQueue
+    deleteGameSessionQueue_name,
+    deleteGameSessionQueueResponse_httpStatus,
+
+    -- ** DeleteMatchmakingConfiguration
+    deleteMatchmakingConfiguration_name,
+    deleteMatchmakingConfigurationResponse_httpStatus,
+
+    -- ** DeleteMatchmakingRuleSet
+    deleteMatchmakingRuleSet_name,
+    deleteMatchmakingRuleSetResponse_httpStatus,
+
+    -- ** DeleteScalingPolicy
+    deleteScalingPolicy_name,
+    deleteScalingPolicy_fleetId,
+
+    -- ** DeleteScript
+    deleteScript_scriptId,
+
+    -- ** DeleteVpcPeeringAuthorization
+    deleteVpcPeeringAuthorization_gameLiftAwsAccountId,
+    deleteVpcPeeringAuthorization_peerVpcId,
+    deleteVpcPeeringAuthorizationResponse_httpStatus,
+
+    -- ** DeleteVpcPeeringConnection
+    deleteVpcPeeringConnection_fleetId,
+    deleteVpcPeeringConnection_vpcPeeringConnectionId,
+    deleteVpcPeeringConnectionResponse_httpStatus,
+
+    -- ** DeregisterGameServer
+    deregisterGameServer_gameServerGroupName,
+    deregisterGameServer_gameServerId,
+
+    -- ** DescribeAlias
+    describeAlias_aliasId,
+    describeAliasResponse_alias,
+    describeAliasResponse_httpStatus,
+
+    -- ** DescribeBuild
+    describeBuild_buildId,
+    describeBuildResponse_build,
+    describeBuildResponse_httpStatus,
+
+    -- ** DescribeEC2InstanceLimits
+    describeEC2InstanceLimits_eC2InstanceType,
+    describeEC2InstanceLimits_location,
+    describeEC2InstanceLimitsResponse_eC2InstanceLimits,
+    describeEC2InstanceLimitsResponse_httpStatus,
+
+    -- ** DescribeFleetAttributes
+    describeFleetAttributes_nextToken,
+    describeFleetAttributes_fleetIds,
+    describeFleetAttributes_limit,
+    describeFleetAttributesResponse_nextToken,
+    describeFleetAttributesResponse_fleetAttributes,
+    describeFleetAttributesResponse_httpStatus,
+
+    -- ** DescribeFleetCapacity
+    describeFleetCapacity_nextToken,
+    describeFleetCapacity_fleetIds,
+    describeFleetCapacity_limit,
+    describeFleetCapacityResponse_nextToken,
+    describeFleetCapacityResponse_fleetCapacity,
+    describeFleetCapacityResponse_httpStatus,
+
+    -- ** DescribeFleetEvents
+    describeFleetEvents_nextToken,
+    describeFleetEvents_endTime,
+    describeFleetEvents_limit,
+    describeFleetEvents_startTime,
+    describeFleetEvents_fleetId,
+    describeFleetEventsResponse_nextToken,
+    describeFleetEventsResponse_events,
+    describeFleetEventsResponse_httpStatus,
+
+    -- ** DescribeFleetLocationAttributes
+    describeFleetLocationAttributes_nextToken,
+    describeFleetLocationAttributes_limit,
+    describeFleetLocationAttributes_locations,
+    describeFleetLocationAttributes_fleetId,
+    describeFleetLocationAttributesResponse_fleetId,
+    describeFleetLocationAttributesResponse_nextToken,
+    describeFleetLocationAttributesResponse_locationAttributes,
+    describeFleetLocationAttributesResponse_fleetArn,
+    describeFleetLocationAttributesResponse_httpStatus,
+
+    -- ** DescribeFleetLocationCapacity
+    describeFleetLocationCapacity_fleetId,
+    describeFleetLocationCapacity_location,
+    describeFleetLocationCapacityResponse_fleetCapacity,
+    describeFleetLocationCapacityResponse_httpStatus,
+
+    -- ** DescribeFleetLocationUtilization
+    describeFleetLocationUtilization_fleetId,
+    describeFleetLocationUtilization_location,
+    describeFleetLocationUtilizationResponse_fleetUtilization,
+    describeFleetLocationUtilizationResponse_httpStatus,
+
+    -- ** DescribeFleetPortSettings
+    describeFleetPortSettings_location,
+    describeFleetPortSettings_fleetId,
+    describeFleetPortSettingsResponse_fleetId,
+    describeFleetPortSettingsResponse_inboundPermissions,
+    describeFleetPortSettingsResponse_updateStatus,
+    describeFleetPortSettingsResponse_location,
+    describeFleetPortSettingsResponse_fleetArn,
+    describeFleetPortSettingsResponse_httpStatus,
+
+    -- ** DescribeFleetUtilization
+    describeFleetUtilization_nextToken,
+    describeFleetUtilization_fleetIds,
+    describeFleetUtilization_limit,
+    describeFleetUtilizationResponse_nextToken,
+    describeFleetUtilizationResponse_fleetUtilization,
+    describeFleetUtilizationResponse_httpStatus,
+
+    -- ** DescribeGameServer
+    describeGameServer_gameServerGroupName,
+    describeGameServer_gameServerId,
+    describeGameServerResponse_gameServer,
+    describeGameServerResponse_httpStatus,
+
+    -- ** DescribeGameServerGroup
+    describeGameServerGroup_gameServerGroupName,
+    describeGameServerGroupResponse_gameServerGroup,
+    describeGameServerGroupResponse_httpStatus,
+
+    -- ** DescribeGameServerInstances
+    describeGameServerInstances_nextToken,
+    describeGameServerInstances_limit,
+    describeGameServerInstances_instanceIds,
+    describeGameServerInstances_gameServerGroupName,
+    describeGameServerInstancesResponse_nextToken,
+    describeGameServerInstancesResponse_gameServerInstances,
+    describeGameServerInstancesResponse_httpStatus,
+
+    -- ** DescribeGameSessionDetails
+    describeGameSessionDetails_gameSessionId,
+    describeGameSessionDetails_fleetId,
+    describeGameSessionDetails_nextToken,
+    describeGameSessionDetails_aliasId,
+    describeGameSessionDetails_location,
+    describeGameSessionDetails_limit,
+    describeGameSessionDetails_statusFilter,
+    describeGameSessionDetailsResponse_nextToken,
+    describeGameSessionDetailsResponse_gameSessionDetails,
+    describeGameSessionDetailsResponse_httpStatus,
+
+    -- ** DescribeGameSessionPlacement
+    describeGameSessionPlacement_placementId,
+    describeGameSessionPlacementResponse_gameSessionPlacement,
+    describeGameSessionPlacementResponse_httpStatus,
+
+    -- ** DescribeGameSessionQueues
+    describeGameSessionQueues_nextToken,
+    describeGameSessionQueues_names,
+    describeGameSessionQueues_limit,
+    describeGameSessionQueuesResponse_nextToken,
+    describeGameSessionQueuesResponse_gameSessionQueues,
+    describeGameSessionQueuesResponse_httpStatus,
+
+    -- ** DescribeGameSessions
+    describeGameSessions_gameSessionId,
+    describeGameSessions_fleetId,
+    describeGameSessions_nextToken,
+    describeGameSessions_aliasId,
+    describeGameSessions_location,
+    describeGameSessions_limit,
+    describeGameSessions_statusFilter,
+    describeGameSessionsResponse_nextToken,
+    describeGameSessionsResponse_gameSessions,
+    describeGameSessionsResponse_httpStatus,
+
+    -- ** DescribeInstances
+    describeInstances_nextToken,
+    describeInstances_location,
+    describeInstances_instanceId,
+    describeInstances_limit,
+    describeInstances_fleetId,
+    describeInstancesResponse_instances,
+    describeInstancesResponse_nextToken,
+    describeInstancesResponse_httpStatus,
+
+    -- ** DescribeMatchmaking
+    describeMatchmaking_ticketIds,
+    describeMatchmakingResponse_ticketList,
+    describeMatchmakingResponse_httpStatus,
+
+    -- ** DescribeMatchmakingConfigurations
+    describeMatchmakingConfigurations_nextToken,
+    describeMatchmakingConfigurations_ruleSetName,
+    describeMatchmakingConfigurations_names,
+    describeMatchmakingConfigurations_limit,
+    describeMatchmakingConfigurationsResponse_nextToken,
+    describeMatchmakingConfigurationsResponse_configurations,
+    describeMatchmakingConfigurationsResponse_httpStatus,
+
+    -- ** DescribeMatchmakingRuleSets
+    describeMatchmakingRuleSets_nextToken,
+    describeMatchmakingRuleSets_names,
+    describeMatchmakingRuleSets_limit,
+    describeMatchmakingRuleSetsResponse_nextToken,
+    describeMatchmakingRuleSetsResponse_httpStatus,
+    describeMatchmakingRuleSetsResponse_ruleSets,
+
+    -- ** DescribePlayerSessions
+    describePlayerSessions_gameSessionId,
+    describePlayerSessions_nextToken,
+    describePlayerSessions_playerSessionId,
+    describePlayerSessions_playerSessionStatusFilter,
+    describePlayerSessions_playerId,
+    describePlayerSessions_limit,
+    describePlayerSessionsResponse_nextToken,
+    describePlayerSessionsResponse_playerSessions,
+    describePlayerSessionsResponse_httpStatus,
+
+    -- ** DescribeRuntimeConfiguration
+    describeRuntimeConfiguration_fleetId,
+    describeRuntimeConfigurationResponse_runtimeConfiguration,
+    describeRuntimeConfigurationResponse_httpStatus,
+
+    -- ** DescribeScalingPolicies
+    describeScalingPolicies_nextToken,
+    describeScalingPolicies_location,
+    describeScalingPolicies_limit,
+    describeScalingPolicies_statusFilter,
+    describeScalingPolicies_fleetId,
+    describeScalingPoliciesResponse_nextToken,
+    describeScalingPoliciesResponse_scalingPolicies,
+    describeScalingPoliciesResponse_httpStatus,
+
+    -- ** DescribeScript
+    describeScript_scriptId,
+    describeScriptResponse_script,
+    describeScriptResponse_httpStatus,
+
+    -- ** DescribeVpcPeeringAuthorizations
+    describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations,
+    describeVpcPeeringAuthorizationsResponse_httpStatus,
+
+    -- ** DescribeVpcPeeringConnections
+    describeVpcPeeringConnections_fleetId,
+    describeVpcPeeringConnectionsResponse_vpcPeeringConnections,
+    describeVpcPeeringConnectionsResponse_httpStatus,
+
+    -- ** GetGameSessionLogUrl
+    getGameSessionLogUrl_gameSessionId,
+    getGameSessionLogUrlResponse_preSignedUrl,
+    getGameSessionLogUrlResponse_httpStatus,
+
+    -- ** GetInstanceAccess
+    getInstanceAccess_fleetId,
+    getInstanceAccess_instanceId,
+    getInstanceAccessResponse_instanceAccess,
+    getInstanceAccessResponse_httpStatus,
+
+    -- ** ListAliases
+    listAliases_name,
+    listAliases_nextToken,
+    listAliases_limit,
+    listAliases_routingStrategyType,
+    listAliasesResponse_nextToken,
+    listAliasesResponse_aliases,
+    listAliasesResponse_httpStatus,
+
+    -- ** ListBuilds
+    listBuilds_nextToken,
+    listBuilds_status,
+    listBuilds_limit,
+    listBuildsResponse_nextToken,
+    listBuildsResponse_builds,
+    listBuildsResponse_httpStatus,
+
+    -- ** ListFleets
+    listFleets_nextToken,
+    listFleets_buildId,
+    listFleets_limit,
+    listFleets_scriptId,
+    listFleetsResponse_nextToken,
+    listFleetsResponse_fleetIds,
+    listFleetsResponse_httpStatus,
+
+    -- ** ListGameServerGroups
+    listGameServerGroups_nextToken,
+    listGameServerGroups_limit,
+    listGameServerGroupsResponse_nextToken,
+    listGameServerGroupsResponse_gameServerGroups,
+    listGameServerGroupsResponse_httpStatus,
+
     -- ** ListGameServers
-    listGameServers_nextToken,
     listGameServers_sortOrder,
+    listGameServers_nextToken,
     listGameServers_limit,
     listGameServers_gameServerGroupName,
-    listGameServersResponse_gameServers,
     listGameServersResponse_nextToken,
+    listGameServersResponse_gameServers,
     listGameServersResponse_httpStatus,
 
-    -- ** ResolveAlias
-    resolveAlias_aliasId,
-    resolveAliasResponse_fleetArn,
-    resolveAliasResponse_fleetId,
-    resolveAliasResponse_httpStatus,
+    -- ** ListScripts
+    listScripts_nextToken,
+    listScripts_limit,
+    listScriptsResponse_nextToken,
+    listScriptsResponse_scripts,
+    listScriptsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceARN,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** PutScalingPolicy
+    putScalingPolicy_policyType,
+    putScalingPolicy_evaluationPeriods,
+    putScalingPolicy_targetConfiguration,
+    putScalingPolicy_threshold,
+    putScalingPolicy_scalingAdjustment,
+    putScalingPolicy_comparisonOperator,
+    putScalingPolicy_scalingAdjustmentType,
+    putScalingPolicy_name,
+    putScalingPolicy_fleetId,
+    putScalingPolicy_metricName,
+    putScalingPolicyResponse_name,
+    putScalingPolicyResponse_httpStatus,
 
     -- ** RegisterGameServer
     registerGameServer_gameServerData,
@@ -124,285 +538,55 @@ module Amazonka.GameLift.Lens
     registerGameServerResponse_gameServer,
     registerGameServerResponse_httpStatus,
 
-    -- ** ListAliases
-    listAliases_routingStrategyType,
-    listAliases_nextToken,
-    listAliases_name,
-    listAliases_limit,
-    listAliasesResponse_aliases,
-    listAliasesResponse_nextToken,
-    listAliasesResponse_httpStatus,
+    -- ** RequestUploadCredentials
+    requestUploadCredentials_buildId,
+    requestUploadCredentialsResponse_uploadCredentials,
+    requestUploadCredentialsResponse_storageLocation,
+    requestUploadCredentialsResponse_httpStatus,
 
-    -- ** UpdateRuntimeConfiguration
-    updateRuntimeConfiguration_fleetId,
-    updateRuntimeConfiguration_runtimeConfiguration,
-    updateRuntimeConfigurationResponse_runtimeConfiguration,
-    updateRuntimeConfigurationResponse_httpStatus,
+    -- ** ResolveAlias
+    resolveAlias_aliasId,
+    resolveAliasResponse_fleetId,
+    resolveAliasResponse_fleetArn,
+    resolveAliasResponse_httpStatus,
 
-    -- ** CreateVpcPeeringConnection
-    createVpcPeeringConnection_fleetId,
-    createVpcPeeringConnection_peerVpcAwsAccountId,
-    createVpcPeeringConnection_peerVpcId,
-    createVpcPeeringConnectionResponse_httpStatus,
-
-    -- ** ListGameServerGroups
-    listGameServerGroups_nextToken,
-    listGameServerGroups_limit,
-    listGameServerGroupsResponse_gameServerGroups,
-    listGameServerGroupsResponse_nextToken,
-    listGameServerGroupsResponse_httpStatus,
-
-    -- ** CreateGameSessionQueue
-    createGameSessionQueue_playerLatencyPolicies,
-    createGameSessionQueue_filterConfiguration,
-    createGameSessionQueue_notificationTarget,
-    createGameSessionQueue_timeoutInSeconds,
-    createGameSessionQueue_destinations,
-    createGameSessionQueue_customEventData,
-    createGameSessionQueue_priorityConfiguration,
-    createGameSessionQueue_tags,
-    createGameSessionQueue_name,
-    createGameSessionQueueResponse_gameSessionQueue,
-    createGameSessionQueueResponse_httpStatus,
+    -- ** ResumeGameServerGroup
+    resumeGameServerGroup_gameServerGroupName,
+    resumeGameServerGroup_resumeActions,
+    resumeGameServerGroupResponse_gameServerGroup,
+    resumeGameServerGroupResponse_httpStatus,
 
     -- ** SearchGameSessions
+    searchGameSessions_fleetId,
+    searchGameSessions_sortExpression,
+    searchGameSessions_nextToken,
+    searchGameSessions_aliasId,
     searchGameSessions_filterExpression,
     searchGameSessions_location,
-    searchGameSessions_sortExpression,
-    searchGameSessions_aliasId,
-    searchGameSessions_nextToken,
     searchGameSessions_limit,
-    searchGameSessions_fleetId,
-    searchGameSessionsResponse_gameSessions,
     searchGameSessionsResponse_nextToken,
+    searchGameSessionsResponse_gameSessions,
     searchGameSessionsResponse_httpStatus,
-
-    -- ** CreateVpcPeeringAuthorization
-    createVpcPeeringAuthorization_gameLiftAwsAccountId,
-    createVpcPeeringAuthorization_peerVpcId,
-    createVpcPeeringAuthorizationResponse_vpcPeeringAuthorization,
-    createVpcPeeringAuthorizationResponse_httpStatus,
-
-    -- ** UpdateGameSessionQueue
-    updateGameSessionQueue_playerLatencyPolicies,
-    updateGameSessionQueue_filterConfiguration,
-    updateGameSessionQueue_notificationTarget,
-    updateGameSessionQueue_timeoutInSeconds,
-    updateGameSessionQueue_destinations,
-    updateGameSessionQueue_customEventData,
-    updateGameSessionQueue_priorityConfiguration,
-    updateGameSessionQueue_name,
-    updateGameSessionQueueResponse_gameSessionQueue,
-    updateGameSessionQueueResponse_httpStatus,
-
-    -- ** DeleteGameSessionQueue
-    deleteGameSessionQueue_name,
-    deleteGameSessionQueueResponse_httpStatus,
-
-    -- ** CreateGameServerGroup
-    createGameServerGroup_vpcSubnets,
-    createGameServerGroup_balancingStrategy,
-    createGameServerGroup_autoScalingPolicy,
-    createGameServerGroup_gameServerProtectionPolicy,
-    createGameServerGroup_tags,
-    createGameServerGroup_gameServerGroupName,
-    createGameServerGroup_roleArn,
-    createGameServerGroup_minSize,
-    createGameServerGroup_maxSize,
-    createGameServerGroup_launchTemplate,
-    createGameServerGroup_instanceDefinitions,
-    createGameServerGroupResponse_gameServerGroup,
-    createGameServerGroupResponse_httpStatus,
-
-    -- ** DeleteVpcPeeringConnection
-    deleteVpcPeeringConnection_fleetId,
-    deleteVpcPeeringConnection_vpcPeeringConnectionId,
-    deleteVpcPeeringConnectionResponse_httpStatus,
 
     -- ** StartFleetActions
     startFleetActions_location,
     startFleetActions_fleetId,
     startFleetActions_actions,
-    startFleetActionsResponse_fleetArn,
     startFleetActionsResponse_fleetId,
+    startFleetActionsResponse_fleetArn,
     startFleetActionsResponse_httpStatus,
 
-    -- ** DeregisterGameServer
-    deregisterGameServer_gameServerGroupName,
-    deregisterGameServer_gameServerId,
-
-    -- ** GetInstanceAccess
-    getInstanceAccess_fleetId,
-    getInstanceAccess_instanceId,
-    getInstanceAccessResponse_instanceAccess,
-    getInstanceAccessResponse_httpStatus,
-
-    -- ** DescribeScalingPolicies
-    describeScalingPolicies_location,
-    describeScalingPolicies_nextToken,
-    describeScalingPolicies_statusFilter,
-    describeScalingPolicies_limit,
-    describeScalingPolicies_fleetId,
-    describeScalingPoliciesResponse_nextToken,
-    describeScalingPoliciesResponse_scalingPolicies,
-    describeScalingPoliciesResponse_httpStatus,
-
-    -- ** DescribeMatchmakingRuleSets
-    describeMatchmakingRuleSets_nextToken,
-    describeMatchmakingRuleSets_names,
-    describeMatchmakingRuleSets_limit,
-    describeMatchmakingRuleSetsResponse_nextToken,
-    describeMatchmakingRuleSetsResponse_httpStatus,
-    describeMatchmakingRuleSetsResponse_ruleSets,
-
-    -- ** DescribeGameSessions
-    describeGameSessions_location,
-    describeGameSessions_gameSessionId,
-    describeGameSessions_aliasId,
-    describeGameSessions_nextToken,
-    describeGameSessions_statusFilter,
-    describeGameSessions_limit,
-    describeGameSessions_fleetId,
-    describeGameSessionsResponse_gameSessions,
-    describeGameSessionsResponse_nextToken,
-    describeGameSessionsResponse_httpStatus,
-
-    -- ** DescribeGameServer
-    describeGameServer_gameServerGroupName,
-    describeGameServer_gameServerId,
-    describeGameServerResponse_gameServer,
-    describeGameServerResponse_httpStatus,
-
-    -- ** UpdateScript
-    updateScript_storageLocation,
-    updateScript_zipFile,
-    updateScript_name,
-    updateScript_version,
-    updateScript_scriptId,
-    updateScriptResponse_script,
-    updateScriptResponse_httpStatus,
-
-    -- ** DeleteScript
-    deleteScript_scriptId,
-
     -- ** StartGameSessionPlacement
-    startGameSessionPlacement_gameProperties,
     startGameSessionPlacement_gameSessionName,
-    startGameSessionPlacement_playerLatencies,
     startGameSessionPlacement_gameSessionData,
     startGameSessionPlacement_desiredPlayerSessions,
+    startGameSessionPlacement_playerLatencies,
+    startGameSessionPlacement_gameProperties,
     startGameSessionPlacement_placementId,
     startGameSessionPlacement_gameSessionQueueName,
     startGameSessionPlacement_maximumPlayerSessionCount,
     startGameSessionPlacementResponse_gameSessionPlacement,
     startGameSessionPlacementResponse_httpStatus,
-
-    -- ** DescribeFleetUtilization
-    describeFleetUtilization_nextToken,
-    describeFleetUtilization_limit,
-    describeFleetUtilization_fleetIds,
-    describeFleetUtilizationResponse_nextToken,
-    describeFleetUtilizationResponse_fleetUtilization,
-    describeFleetUtilizationResponse_httpStatus,
-
-    -- ** DescribeRuntimeConfiguration
-    describeRuntimeConfiguration_fleetId,
-    describeRuntimeConfigurationResponse_runtimeConfiguration,
-    describeRuntimeConfigurationResponse_httpStatus,
-
-    -- ** GetGameSessionLogUrl
-    getGameSessionLogUrl_gameSessionId,
-    getGameSessionLogUrlResponse_preSignedUrl,
-    getGameSessionLogUrlResponse_httpStatus,
-
-    -- ** DescribeFleetAttributes
-    describeFleetAttributes_nextToken,
-    describeFleetAttributes_limit,
-    describeFleetAttributes_fleetIds,
-    describeFleetAttributesResponse_nextToken,
-    describeFleetAttributesResponse_fleetAttributes,
-    describeFleetAttributesResponse_httpStatus,
-
-    -- ** DescribeGameSessionPlacement
-    describeGameSessionPlacement_placementId,
-    describeGameSessionPlacementResponse_gameSessionPlacement,
-    describeGameSessionPlacementResponse_httpStatus,
-
-    -- ** DescribeFleetEvents
-    describeFleetEvents_startTime,
-    describeFleetEvents_nextToken,
-    describeFleetEvents_endTime,
-    describeFleetEvents_limit,
-    describeFleetEvents_fleetId,
-    describeFleetEventsResponse_nextToken,
-    describeFleetEventsResponse_events,
-    describeFleetEventsResponse_httpStatus,
-
-    -- ** CreateFleetLocations
-    createFleetLocations_fleetId,
-    createFleetLocations_locations,
-    createFleetLocationsResponse_fleetArn,
-    createFleetLocationsResponse_locationStates,
-    createFleetLocationsResponse_fleetId,
-    createFleetLocationsResponse_httpStatus,
-
-    -- ** StartMatchmaking
-    startMatchmaking_ticketId,
-    startMatchmaking_configurationName,
-    startMatchmaking_players,
-    startMatchmakingResponse_matchmakingTicket,
-    startMatchmakingResponse_httpStatus,
-
-    -- ** CreateMatchmakingRuleSet
-    createMatchmakingRuleSet_tags,
-    createMatchmakingRuleSet_name,
-    createMatchmakingRuleSet_ruleSetBody,
-    createMatchmakingRuleSetResponse_httpStatus,
-    createMatchmakingRuleSetResponse_ruleSet,
-
-    -- ** DescribeFleetLocationUtilization
-    describeFleetLocationUtilization_fleetId,
-    describeFleetLocationUtilization_location,
-    describeFleetLocationUtilizationResponse_fleetUtilization,
-    describeFleetLocationUtilizationResponse_httpStatus,
-
-    -- ** DescribeFleetCapacity
-    describeFleetCapacity_nextToken,
-    describeFleetCapacity_limit,
-    describeFleetCapacity_fleetIds,
-    describeFleetCapacityResponse_nextToken,
-    describeFleetCapacityResponse_fleetCapacity,
-    describeFleetCapacityResponse_httpStatus,
-
-    -- ** DeleteBuild
-    deleteBuild_buildId,
-
-    -- ** UpdateBuild
-    updateBuild_name,
-    updateBuild_version,
-    updateBuild_buildId,
-    updateBuildResponse_build,
-    updateBuildResponse_httpStatus,
-
-    -- ** ListFleets
-    listFleets_buildId,
-    listFleets_nextToken,
-    listFleets_scriptId,
-    listFleets_limit,
-    listFleetsResponse_nextToken,
-    listFleetsResponse_fleetIds,
-    listFleetsResponse_httpStatus,
-
-    -- ** DeleteAlias
-    deleteAlias_aliasId,
-
-    -- ** UpdateAlias
-    updateAlias_routingStrategy,
-    updateAlias_name,
-    updateAlias_description,
-    updateAlias_aliasId,
-    updateAliasResponse_alias,
-    updateAliasResponse_httpStatus,
 
     -- ** StartMatchBackfill
     startMatchBackfill_ticketId,
@@ -412,221 +596,81 @@ module Amazonka.GameLift.Lens
     startMatchBackfillResponse_matchmakingTicket,
     startMatchBackfillResponse_httpStatus,
 
-    -- ** DescribeInstances
-    describeInstances_instanceId,
-    describeInstances_location,
-    describeInstances_nextToken,
-    describeInstances_limit,
-    describeInstances_fleetId,
-    describeInstancesResponse_nextToken,
-    describeInstancesResponse_instances,
-    describeInstancesResponse_httpStatus,
+    -- ** StartMatchmaking
+    startMatchmaking_ticketId,
+    startMatchmaking_configurationName,
+    startMatchmaking_players,
+    startMatchmakingResponse_matchmakingTicket,
+    startMatchmakingResponse_httpStatus,
 
-    -- ** DescribeGameSessionDetails
-    describeGameSessionDetails_location,
-    describeGameSessionDetails_gameSessionId,
-    describeGameSessionDetails_aliasId,
-    describeGameSessionDetails_nextToken,
-    describeGameSessionDetails_statusFilter,
-    describeGameSessionDetails_limit,
-    describeGameSessionDetails_fleetId,
-    describeGameSessionDetailsResponse_gameSessionDetails,
-    describeGameSessionDetailsResponse_nextToken,
-    describeGameSessionDetailsResponse_httpStatus,
+    -- ** StopFleetActions
+    stopFleetActions_location,
+    stopFleetActions_fleetId,
+    stopFleetActions_actions,
+    stopFleetActionsResponse_fleetId,
+    stopFleetActionsResponse_fleetArn,
+    stopFleetActionsResponse_httpStatus,
 
-    -- ** DescribeFleetPortSettings
-    describeFleetPortSettings_location,
-    describeFleetPortSettings_fleetId,
-    describeFleetPortSettingsResponse_location,
-    describeFleetPortSettingsResponse_inboundPermissions,
-    describeFleetPortSettingsResponse_fleetArn,
-    describeFleetPortSettingsResponse_updateStatus,
-    describeFleetPortSettingsResponse_fleetId,
-    describeFleetPortSettingsResponse_httpStatus,
+    -- ** StopGameSessionPlacement
+    stopGameSessionPlacement_placementId,
+    stopGameSessionPlacementResponse_gameSessionPlacement,
+    stopGameSessionPlacementResponse_httpStatus,
 
-    -- ** DescribeGameSessionQueues
-    describeGameSessionQueues_nextToken,
-    describeGameSessionQueues_names,
-    describeGameSessionQueues_limit,
-    describeGameSessionQueuesResponse_nextToken,
-    describeGameSessionQueuesResponse_gameSessionQueues,
-    describeGameSessionQueuesResponse_httpStatus,
+    -- ** StopMatchmaking
+    stopMatchmaking_ticketId,
+    stopMatchmakingResponse_httpStatus,
 
-    -- ** DescribeVpcPeeringConnections
-    describeVpcPeeringConnections_fleetId,
-    describeVpcPeeringConnectionsResponse_vpcPeeringConnections,
-    describeVpcPeeringConnectionsResponse_httpStatus,
-
-    -- ** DescribeScript
-    describeScript_scriptId,
-    describeScriptResponse_script,
-    describeScriptResponse_httpStatus,
-
-    -- ** CreatePlayerSessions
-    createPlayerSessions_playerDataMap,
-    createPlayerSessions_gameSessionId,
-    createPlayerSessions_playerIds,
-    createPlayerSessionsResponse_playerSessions,
-    createPlayerSessionsResponse_httpStatus,
-
-    -- ** DescribeMatchmakingConfigurations
-    describeMatchmakingConfigurations_ruleSetName,
-    describeMatchmakingConfigurations_nextToken,
-    describeMatchmakingConfigurations_names,
-    describeMatchmakingConfigurations_limit,
-    describeMatchmakingConfigurationsResponse_configurations,
-    describeMatchmakingConfigurationsResponse_nextToken,
-    describeMatchmakingConfigurationsResponse_httpStatus,
-
-    -- ** DescribeVpcPeeringAuthorizations
-    describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations,
-    describeVpcPeeringAuthorizationsResponse_httpStatus,
-
-    -- ** UpdateGameServer
-    updateGameServer_healthCheck,
-    updateGameServer_gameServerData,
-    updateGameServer_utilizationStatus,
-    updateGameServer_gameServerGroupName,
-    updateGameServer_gameServerId,
-    updateGameServerResponse_gameServer,
-    updateGameServerResponse_httpStatus,
-
-    -- ** CreateFleet
-    createFleet_serverLaunchParameters,
-    createFleet_logPaths,
-    createFleet_peerVpcId,
-    createFleet_buildId,
-    createFleet_fleetType,
-    createFleet_peerVpcAwsAccountId,
-    createFleet_eC2InboundPermissions,
-    createFleet_runtimeConfiguration,
-    createFleet_newGameSessionProtectionPolicy,
-    createFleet_scriptId,
-    createFleet_certificateConfiguration,
-    createFleet_serverLaunchPath,
-    createFleet_instanceRoleArn,
-    createFleet_metricGroups,
-    createFleet_description,
-    createFleet_resourceCreationLimitPolicy,
-    createFleet_locations,
-    createFleet_tags,
-    createFleet_name,
-    createFleet_eC2InstanceType,
-    createFleetResponse_locationStates,
-    createFleetResponse_fleetAttributes,
-    createFleetResponse_httpStatus,
-
-    -- ** DescribeFleetLocationCapacity
-    describeFleetLocationCapacity_fleetId,
-    describeFleetLocationCapacity_location,
-    describeFleetLocationCapacityResponse_fleetCapacity,
-    describeFleetLocationCapacityResponse_httpStatus,
-
-    -- ** DeleteMatchmakingConfiguration
-    deleteMatchmakingConfiguration_name,
-    deleteMatchmakingConfigurationResponse_httpStatus,
-
-    -- ** UpdateMatchmakingConfiguration
-    updateMatchmakingConfiguration_backfillMode,
-    updateMatchmakingConfiguration_gameProperties,
-    updateMatchmakingConfiguration_ruleSetName,
-    updateMatchmakingConfiguration_acceptanceTimeoutSeconds,
-    updateMatchmakingConfiguration_requestTimeoutSeconds,
-    updateMatchmakingConfiguration_notificationTarget,
-    updateMatchmakingConfiguration_flexMatchMode,
-    updateMatchmakingConfiguration_gameSessionQueueArns,
-    updateMatchmakingConfiguration_customEventData,
-    updateMatchmakingConfiguration_acceptanceRequired,
-    updateMatchmakingConfiguration_gameSessionData,
-    updateMatchmakingConfiguration_description,
-    updateMatchmakingConfiguration_additionalPlayerCount,
-    updateMatchmakingConfiguration_name,
-    updateMatchmakingConfigurationResponse_configuration,
-    updateMatchmakingConfigurationResponse_httpStatus,
-
-    -- ** DeleteGameServerGroup
-    deleteGameServerGroup_deleteOption,
-    deleteGameServerGroup_gameServerGroupName,
-    deleteGameServerGroupResponse_gameServerGroup,
-    deleteGameServerGroupResponse_httpStatus,
-
-    -- ** UpdateGameServerGroup
-    updateGameServerGroup_instanceDefinitions,
-    updateGameServerGroup_balancingStrategy,
-    updateGameServerGroup_gameServerProtectionPolicy,
-    updateGameServerGroup_roleArn,
-    updateGameServerGroup_gameServerGroupName,
-    updateGameServerGroupResponse_gameServerGroup,
-    updateGameServerGroupResponse_httpStatus,
-
-    -- ** ResumeGameServerGroup
-    resumeGameServerGroup_gameServerGroupName,
-    resumeGameServerGroup_resumeActions,
-    resumeGameServerGroupResponse_gameServerGroup,
-    resumeGameServerGroupResponse_httpStatus,
-
-    -- ** DeleteVpcPeeringAuthorization
-    deleteVpcPeeringAuthorization_gameLiftAwsAccountId,
-    deleteVpcPeeringAuthorization_peerVpcId,
-    deleteVpcPeeringAuthorizationResponse_httpStatus,
-
-    -- ** UpdateFleetAttributes
-    updateFleetAttributes_newGameSessionProtectionPolicy,
-    updateFleetAttributes_name,
-    updateFleetAttributes_metricGroups,
-    updateFleetAttributes_description,
-    updateFleetAttributes_resourceCreationLimitPolicy,
-    updateFleetAttributes_fleetId,
-    updateFleetAttributesResponse_fleetId,
-    updateFleetAttributesResponse_httpStatus,
+    -- ** SuspendGameServerGroup
+    suspendGameServerGroup_gameServerGroupName,
+    suspendGameServerGroup_suspendActions,
+    suspendGameServerGroupResponse_gameServerGroup,
+    suspendGameServerGroupResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceARN,
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** CreateMatchmakingConfiguration
-    createMatchmakingConfiguration_backfillMode,
-    createMatchmakingConfiguration_gameProperties,
-    createMatchmakingConfiguration_acceptanceTimeoutSeconds,
-    createMatchmakingConfiguration_notificationTarget,
-    createMatchmakingConfiguration_flexMatchMode,
-    createMatchmakingConfiguration_gameSessionQueueArns,
-    createMatchmakingConfiguration_customEventData,
-    createMatchmakingConfiguration_gameSessionData,
-    createMatchmakingConfiguration_description,
-    createMatchmakingConfiguration_tags,
-    createMatchmakingConfiguration_additionalPlayerCount,
-    createMatchmakingConfiguration_name,
-    createMatchmakingConfiguration_requestTimeoutSeconds,
-    createMatchmakingConfiguration_acceptanceRequired,
-    createMatchmakingConfiguration_ruleSetName,
-    createMatchmakingConfigurationResponse_configuration,
-    createMatchmakingConfigurationResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
-    -- ** DescribePlayerSessions
-    describePlayerSessions_gameSessionId,
-    describePlayerSessions_nextToken,
-    describePlayerSessions_limit,
-    describePlayerSessions_playerSessionId,
-    describePlayerSessions_playerId,
-    describePlayerSessions_playerSessionStatusFilter,
-    describePlayerSessionsResponse_nextToken,
-    describePlayerSessionsResponse_playerSessions,
-    describePlayerSessionsResponse_httpStatus,
+    -- ** UpdateAlias
+    updateAlias_name,
+    updateAlias_routingStrategy,
+    updateAlias_description,
+    updateAlias_aliasId,
+    updateAliasResponse_alias,
+    updateAliasResponse_httpStatus,
 
-    -- ** StopFleetActions
-    stopFleetActions_location,
-    stopFleetActions_fleetId,
-    stopFleetActions_actions,
-    stopFleetActionsResponse_fleetArn,
-    stopFleetActionsResponse_fleetId,
-    stopFleetActionsResponse_httpStatus,
+    -- ** UpdateBuild
+    updateBuild_name,
+    updateBuild_version,
+    updateBuild_buildId,
+    updateBuildResponse_build,
+    updateBuildResponse_httpStatus,
 
-    -- ** DescribeBuild
-    describeBuild_buildId,
-    describeBuildResponse_build,
-    describeBuildResponse_httpStatus,
+    -- ** UpdateFleetAttributes
+    updateFleetAttributes_name,
+    updateFleetAttributes_newGameSessionProtectionPolicy,
+    updateFleetAttributes_description,
+    updateFleetAttributes_metricGroups,
+    updateFleetAttributes_resourceCreationLimitPolicy,
+    updateFleetAttributes_fleetId,
+    updateFleetAttributesResponse_fleetId,
+    updateFleetAttributesResponse_httpStatus,
+
+    -- ** UpdateFleetCapacity
+    updateFleetCapacity_desiredInstances,
+    updateFleetCapacity_location,
+    updateFleetCapacity_minSize,
+    updateFleetCapacity_maxSize,
+    updateFleetCapacity_fleetId,
+    updateFleetCapacityResponse_fleetId,
+    updateFleetCapacityResponse_location,
+    updateFleetCapacityResponse_fleetArn,
+    updateFleetCapacityResponse_httpStatus,
 
     -- ** UpdateFleetPortSettings
     updateFleetPortSettings_inboundPermissionRevocations,
@@ -635,231 +679,187 @@ module Amazonka.GameLift.Lens
     updateFleetPortSettingsResponse_fleetId,
     updateFleetPortSettingsResponse_httpStatus,
 
-    -- ** UpdateFleetCapacity
-    updateFleetCapacity_location,
-    updateFleetCapacity_maxSize,
-    updateFleetCapacity_minSize,
-    updateFleetCapacity_desiredInstances,
-    updateFleetCapacity_fleetId,
-    updateFleetCapacityResponse_location,
-    updateFleetCapacityResponse_fleetArn,
-    updateFleetCapacityResponse_fleetId,
-    updateFleetCapacityResponse_httpStatus,
+    -- ** UpdateGameServer
+    updateGameServer_gameServerData,
+    updateGameServer_healthCheck,
+    updateGameServer_utilizationStatus,
+    updateGameServer_gameServerGroupName,
+    updateGameServer_gameServerId,
+    updateGameServerResponse_gameServer,
+    updateGameServerResponse_httpStatus,
 
-    -- ** CreateScript
-    createScript_storageLocation,
-    createScript_zipFile,
-    createScript_name,
-    createScript_version,
-    createScript_tags,
-    createScriptResponse_script,
-    createScriptResponse_httpStatus,
+    -- ** UpdateGameServerGroup
+    updateGameServerGroup_roleArn,
+    updateGameServerGroup_instanceDefinitions,
+    updateGameServerGroup_gameServerProtectionPolicy,
+    updateGameServerGroup_balancingStrategy,
+    updateGameServerGroup_gameServerGroupName,
+    updateGameServerGroupResponse_gameServerGroup,
+    updateGameServerGroupResponse_httpStatus,
 
-    -- ** AcceptMatch
-    acceptMatch_ticketId,
-    acceptMatch_playerIds,
-    acceptMatch_acceptanceType,
-    acceptMatchResponse_httpStatus,
+    -- ** UpdateGameSession
+    updateGameSession_name,
+    updateGameSession_protectionPolicy,
+    updateGameSession_playerSessionCreationPolicy,
+    updateGameSession_maximumPlayerSessionCount,
+    updateGameSession_gameSessionId,
+    updateGameSessionResponse_gameSession,
+    updateGameSessionResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** UpdateGameSessionQueue
+    updateGameSessionQueue_notificationTarget,
+    updateGameSessionQueue_priorityConfiguration,
+    updateGameSessionQueue_timeoutInSeconds,
+    updateGameSessionQueue_playerLatencyPolicies,
+    updateGameSessionQueue_destinations,
+    updateGameSessionQueue_filterConfiguration,
+    updateGameSessionQueue_customEventData,
+    updateGameSessionQueue_name,
+    updateGameSessionQueueResponse_gameSessionQueue,
+    updateGameSessionQueueResponse_httpStatus,
 
-    -- ** DescribeAlias
-    describeAlias_aliasId,
-    describeAliasResponse_alias,
-    describeAliasResponse_httpStatus,
+    -- ** UpdateMatchmakingConfiguration
+    updateMatchmakingConfiguration_notificationTarget,
+    updateMatchmakingConfiguration_acceptanceTimeoutSeconds,
+    updateMatchmakingConfiguration_ruleSetName,
+    updateMatchmakingConfiguration_acceptanceRequired,
+    updateMatchmakingConfiguration_additionalPlayerCount,
+    updateMatchmakingConfiguration_gameSessionData,
+    updateMatchmakingConfiguration_flexMatchMode,
+    updateMatchmakingConfiguration_description,
+    updateMatchmakingConfiguration_backfillMode,
+    updateMatchmakingConfiguration_gameSessionQueueArns,
+    updateMatchmakingConfiguration_gameProperties,
+    updateMatchmakingConfiguration_requestTimeoutSeconds,
+    updateMatchmakingConfiguration_customEventData,
+    updateMatchmakingConfiguration_name,
+    updateMatchmakingConfigurationResponse_configuration,
+    updateMatchmakingConfigurationResponse_httpStatus,
+
+    -- ** UpdateRuntimeConfiguration
+    updateRuntimeConfiguration_fleetId,
+    updateRuntimeConfiguration_runtimeConfiguration,
+    updateRuntimeConfigurationResponse_runtimeConfiguration,
+    updateRuntimeConfigurationResponse_httpStatus,
+
+    -- ** UpdateScript
+    updateScript_name,
+    updateScript_zipFile,
+    updateScript_storageLocation,
+    updateScript_version,
+    updateScript_scriptId,
+    updateScriptResponse_script,
+    updateScriptResponse_httpStatus,
 
     -- ** ValidateMatchmakingRuleSet
     validateMatchmakingRuleSet_ruleSetBody,
     validateMatchmakingRuleSetResponse_valid,
     validateMatchmakingRuleSetResponse_httpStatus,
 
-    -- ** ListScripts
-    listScripts_nextToken,
-    listScripts_limit,
-    listScriptsResponse_scripts,
-    listScriptsResponse_nextToken,
-    listScriptsResponse_httpStatus,
-
-    -- ** DescribeEC2InstanceLimits
-    describeEC2InstanceLimits_location,
-    describeEC2InstanceLimits_eC2InstanceType,
-    describeEC2InstanceLimitsResponse_eC2InstanceLimits,
-    describeEC2InstanceLimitsResponse_httpStatus,
-
-    -- ** SuspendGameServerGroup
-    suspendGameServerGroup_gameServerGroupName,
-    suspendGameServerGroup_suspendActions,
-    suspendGameServerGroupResponse_gameServerGroup,
-    suspendGameServerGroupResponse_httpStatus,
-
-    -- ** DeleteFleetLocations
-    deleteFleetLocations_fleetId,
-    deleteFleetLocations_locations,
-    deleteFleetLocationsResponse_fleetArn,
-    deleteFleetLocationsResponse_locationStates,
-    deleteFleetLocationsResponse_fleetId,
-    deleteFleetLocationsResponse_httpStatus,
-
-    -- ** DeleteMatchmakingRuleSet
-    deleteMatchmakingRuleSet_name,
-    deleteMatchmakingRuleSetResponse_httpStatus,
-
-    -- ** StopGameSessionPlacement
-    stopGameSessionPlacement_placementId,
-    stopGameSessionPlacementResponse_gameSessionPlacement,
-    stopGameSessionPlacementResponse_httpStatus,
-
-    -- ** ClaimGameServer
-    claimGameServer_gameServerData,
-    claimGameServer_gameServerId,
-    claimGameServer_gameServerGroupName,
-    claimGameServerResponse_gameServer,
-    claimGameServerResponse_httpStatus,
-
-    -- ** UpdateGameSession
-    updateGameSession_maximumPlayerSessionCount,
-    updateGameSession_playerSessionCreationPolicy,
-    updateGameSession_name,
-    updateGameSession_protectionPolicy,
-    updateGameSession_gameSessionId,
-    updateGameSessionResponse_gameSession,
-    updateGameSessionResponse_httpStatus,
-
-    -- ** DescribeFleetLocationAttributes
-    describeFleetLocationAttributes_nextToken,
-    describeFleetLocationAttributes_limit,
-    describeFleetLocationAttributes_locations,
-    describeFleetLocationAttributes_fleetId,
-    describeFleetLocationAttributesResponse_fleetArn,
-    describeFleetLocationAttributesResponse_nextToken,
-    describeFleetLocationAttributesResponse_locationAttributes,
-    describeFleetLocationAttributesResponse_fleetId,
-    describeFleetLocationAttributesResponse_httpStatus,
-
-    -- ** DescribeMatchmaking
-    describeMatchmaking_ticketIds,
-    describeMatchmakingResponse_ticketList,
-    describeMatchmakingResponse_httpStatus,
-
-    -- ** CreatePlayerSession
-    createPlayerSession_playerData,
-    createPlayerSession_gameSessionId,
-    createPlayerSession_playerId,
-    createPlayerSessionResponse_playerSession,
-    createPlayerSessionResponse_httpStatus,
-
-    -- ** DescribeGameServerGroup
-    describeGameServerGroup_gameServerGroupName,
-    describeGameServerGroupResponse_gameServerGroup,
-    describeGameServerGroupResponse_httpStatus,
-
     -- * Types
 
     -- ** Alias
-    alias_creationTime,
-    alias_lastUpdatedTime,
-    alias_aliasId,
-    alias_routingStrategy,
     alias_name,
+    alias_aliasId,
     alias_aliasArn,
+    alias_routingStrategy,
+    alias_lastUpdatedTime,
     alias_description,
+    alias_creationTime,
 
     -- ** AttributeValue
     attributeValue_sl,
+    attributeValue_s,
     attributeValue_sdm,
     attributeValue_n,
-    attributeValue_s,
 
     -- ** AwsCredentials
-    awsCredentials_secretAccessKey,
     awsCredentials_sessionToken,
+    awsCredentials_secretAccessKey,
     awsCredentials_accessKeyId,
 
     -- ** Build
-    build_creationTime,
-    build_status,
     build_operatingSystem,
-    build_buildId,
     build_name,
-    build_version,
+    build_buildId,
     build_buildArn,
     build_sizeOnDisk,
+    build_status,
+    build_creationTime,
+    build_version,
 
     -- ** CertificateConfiguration
     certificateConfiguration_certificateType,
 
     -- ** DesiredPlayerSession
-    desiredPlayerSession_playerData,
     desiredPlayerSession_playerId,
+    desiredPlayerSession_playerData,
 
     -- ** EC2InstanceCounts
-    eC2InstanceCounts_idle,
-    eC2InstanceCounts_terminating,
-    eC2InstanceCounts_pending,
-    eC2InstanceCounts_maximum,
-    eC2InstanceCounts_desired,
     eC2InstanceCounts_minimum,
     eC2InstanceCounts_active,
+    eC2InstanceCounts_terminating,
+    eC2InstanceCounts_desired,
+    eC2InstanceCounts_maximum,
+    eC2InstanceCounts_pending,
+    eC2InstanceCounts_idle,
 
     -- ** EC2InstanceLimit
-    eC2InstanceLimit_location,
+    eC2InstanceLimit_instanceLimit,
     eC2InstanceLimit_eC2InstanceType,
     eC2InstanceLimit_currentInstances,
-    eC2InstanceLimit_instanceLimit,
+    eC2InstanceLimit_location,
 
     -- ** Event
     event_resourceId,
-    event_preSignedLogUrl,
-    event_eventTime,
-    event_message,
     event_eventCode,
+    event_message,
     event_eventId,
+    event_eventTime,
+    event_preSignedLogUrl,
 
     -- ** FilterConfiguration
     filterConfiguration_allowedLocations,
 
     -- ** FleetAttributes
-    fleetAttributes_creationTime,
-    fleetAttributes_status,
-    fleetAttributes_serverLaunchParameters,
-    fleetAttributes_logPaths,
-    fleetAttributes_operatingSystem,
-    fleetAttributes_buildId,
-    fleetAttributes_fleetArn,
-    fleetAttributes_fleetType,
-    fleetAttributes_terminationTime,
-    fleetAttributes_instanceType,
-    fleetAttributes_stoppedActions,
-    fleetAttributes_newGameSessionProtectionPolicy,
-    fleetAttributes_name,
-    fleetAttributes_scriptId,
     fleetAttributes_scriptArn,
-    fleetAttributes_certificateConfiguration,
+    fleetAttributes_operatingSystem,
     fleetAttributes_serverLaunchPath,
-    fleetAttributes_instanceRoleArn,
-    fleetAttributes_metricGroups,
-    fleetAttributes_buildArn,
     fleetAttributes_fleetId,
+    fleetAttributes_name,
+    fleetAttributes_fleetType,
+    fleetAttributes_certificateConfiguration,
+    fleetAttributes_instanceRoleArn,
+    fleetAttributes_buildId,
+    fleetAttributes_buildArn,
+    fleetAttributes_newGameSessionProtectionPolicy,
+    fleetAttributes_stoppedActions,
+    fleetAttributes_status,
     fleetAttributes_description,
+    fleetAttributes_instanceType,
+    fleetAttributes_fleetArn,
+    fleetAttributes_terminationTime,
+    fleetAttributes_logPaths,
+    fleetAttributes_creationTime,
+    fleetAttributes_metricGroups,
+    fleetAttributes_serverLaunchParameters,
+    fleetAttributes_scriptId,
     fleetAttributes_resourceCreationLimitPolicy,
 
     -- ** FleetCapacity
-    fleetCapacity_location,
-    fleetCapacity_fleetArn,
-    fleetCapacity_instanceType,
     fleetCapacity_fleetId,
     fleetCapacity_instanceCounts,
+    fleetCapacity_location,
+    fleetCapacity_instanceType,
+    fleetCapacity_fleetArn,
 
     -- ** FleetUtilization
-    fleetUtilization_activeGameSessionCount,
+    fleetUtilization_fleetId,
+    fleetUtilization_currentPlayerSessionCount,
     fleetUtilization_location,
     fleetUtilization_fleetArn,
     fleetUtilization_maximumPlayerSessionCount,
-    fleetUtilization_currentPlayerSessionCount,
-    fleetUtilization_fleetId,
+    fleetUtilization_activeGameSessionCount,
     fleetUtilization_activeServerProcessCount,
 
     -- ** GameProperty
@@ -867,126 +867,126 @@ module Amazonka.GameLift.Lens
     gameProperty_value,
 
     -- ** GameServer
-    gameServer_instanceId,
-    gameServer_lastClaimTime,
-    gameServer_gameServerGroupName,
     gameServer_gameServerData,
     gameServer_claimStatus,
-    gameServer_gameServerId,
-    gameServer_utilizationStatus,
+    gameServer_gameServerGroupName,
+    gameServer_lastClaimTime,
+    gameServer_instanceId,
+    gameServer_gameServerGroupArn,
     gameServer_registrationTime,
     gameServer_lastHealthCheckTime,
     gameServer_connectionInfo,
-    gameServer_gameServerGroupArn,
+    gameServer_utilizationStatus,
+    gameServer_gameServerId,
 
     -- ** GameServerGroup
-    gameServerGroup_creationTime,
-    gameServerGroup_status,
+    gameServerGroup_suspendedActions,
+    gameServerGroup_roleArn,
+    gameServerGroup_autoScalingGroupArn,
     gameServerGroup_instanceDefinitions,
+    gameServerGroup_statusReason,
+    gameServerGroup_gameServerGroupName,
+    gameServerGroup_status,
+    gameServerGroup_gameServerProtectionPolicy,
     gameServerGroup_lastUpdatedTime,
     gameServerGroup_balancingStrategy,
-    gameServerGroup_gameServerGroupName,
-    gameServerGroup_suspendedActions,
-    gameServerGroup_autoScalingGroupArn,
-    gameServerGroup_statusReason,
-    gameServerGroup_gameServerProtectionPolicy,
     gameServerGroup_gameServerGroupArn,
-    gameServerGroup_roleArn,
+    gameServerGroup_creationTime,
 
     -- ** GameServerGroupAutoScalingPolicy
     gameServerGroupAutoScalingPolicy_estimatedInstanceWarmup,
     gameServerGroupAutoScalingPolicy_targetTrackingConfiguration,
 
     -- ** GameServerInstance
-    gameServerInstance_instanceId,
-    gameServerInstance_gameServerGroupName,
     gameServerInstance_instanceStatus,
+    gameServerInstance_gameServerGroupName,
+    gameServerInstance_instanceId,
     gameServerInstance_gameServerGroupArn,
 
     -- ** GameSession
-    gameSession_creationTime,
-    gameSession_status,
-    gameSession_gameProperties,
-    gameSession_ipAddress,
-    gameSession_location,
-    gameSession_gameSessionId,
+    gameSession_port,
     gameSession_matchmakerData,
-    gameSession_fleetArn,
-    gameSession_maximumPlayerSessionCount,
-    gameSession_terminationTime,
-    gameSession_playerSessionCreationPolicy,
+    gameSession_gameSessionId,
+    gameSession_fleetId,
+    gameSession_creatorId,
     gameSession_name,
     gameSession_currentPlayerSessionCount,
-    gameSession_statusReason,
     gameSession_gameSessionData,
-    gameSession_fleetId,
+    gameSession_playerSessionCreationPolicy,
+    gameSession_statusReason,
+    gameSession_status,
+    gameSession_location,
+    gameSession_fleetArn,
+    gameSession_terminationTime,
+    gameSession_maximumPlayerSessionCount,
+    gameSession_gameProperties,
+    gameSession_creationTime,
     gameSession_dnsName,
-    gameSession_creatorId,
-    gameSession_port,
+    gameSession_ipAddress,
 
     -- ** GameSessionConnectionInfo
+    gameSessionConnectionInfo_port,
     gameSessionConnectionInfo_matchedPlayerSessions,
-    gameSessionConnectionInfo_ipAddress,
     gameSessionConnectionInfo_gameSessionArn,
     gameSessionConnectionInfo_dnsName,
-    gameSessionConnectionInfo_port,
+    gameSessionConnectionInfo_ipAddress,
 
     -- ** GameSessionDetail
-    gameSessionDetail_gameSession,
     gameSessionDetail_protectionPolicy,
+    gameSessionDetail_gameSession,
 
     -- ** GameSessionPlacement
-    gameSessionPlacement_status,
-    gameSessionPlacement_placementId,
-    gameSessionPlacement_gameProperties,
-    gameSessionPlacement_ipAddress,
-    gameSessionPlacement_gameSessionName,
-    gameSessionPlacement_startTime,
-    gameSessionPlacement_gameSessionId,
-    gameSessionPlacement_gameSessionRegion,
-    gameSessionPlacement_matchmakerData,
-    gameSessionPlacement_maximumPlayerSessionCount,
-    gameSessionPlacement_endTime,
-    gameSessionPlacement_gameSessionArn,
-    gameSessionPlacement_playerLatencies,
-    gameSessionPlacement_gameSessionData,
-    gameSessionPlacement_dnsName,
-    gameSessionPlacement_gameSessionQueueName,
     gameSessionPlacement_placedPlayerSessions,
     gameSessionPlacement_port,
+    gameSessionPlacement_placementId,
+    gameSessionPlacement_matchmakerData,
+    gameSessionPlacement_gameSessionId,
+    gameSessionPlacement_gameSessionName,
+    gameSessionPlacement_gameSessionData,
+    gameSessionPlacement_status,
+    gameSessionPlacement_gameSessionQueueName,
+    gameSessionPlacement_gameSessionRegion,
+    gameSessionPlacement_endTime,
+    gameSessionPlacement_playerLatencies,
+    gameSessionPlacement_maximumPlayerSessionCount,
+    gameSessionPlacement_gameProperties,
+    gameSessionPlacement_gameSessionArn,
+    gameSessionPlacement_dnsName,
+    gameSessionPlacement_startTime,
+    gameSessionPlacement_ipAddress,
 
     -- ** GameSessionQueue
-    gameSessionQueue_gameSessionQueueArn,
-    gameSessionQueue_playerLatencyPolicies,
-    gameSessionQueue_filterConfiguration,
     gameSessionQueue_notificationTarget,
-    gameSessionQueue_timeoutInSeconds,
-    gameSessionQueue_destinations,
     gameSessionQueue_name,
-    gameSessionQueue_customEventData,
     gameSessionQueue_priorityConfiguration,
+    gameSessionQueue_gameSessionQueueArn,
+    gameSessionQueue_timeoutInSeconds,
+    gameSessionQueue_playerLatencyPolicies,
+    gameSessionQueue_destinations,
+    gameSessionQueue_filterConfiguration,
+    gameSessionQueue_customEventData,
 
     -- ** GameSessionQueueDestination
     gameSessionQueueDestination_destinationArn,
 
     -- ** Instance
-    instance_creationTime,
-    instance_instanceId,
-    instance_status,
-    instance_ipAddress,
-    instance_location,
     instance_operatingSystem,
-    instance_fleetArn,
-    instance_type,
     instance_fleetId,
+    instance_type,
+    instance_status,
+    instance_location,
+    instance_instanceId,
+    instance_fleetArn,
+    instance_creationTime,
     instance_dnsName,
+    instance_ipAddress,
 
     -- ** InstanceAccess
-    instanceAccess_instanceId,
-    instanceAccess_ipAddress,
     instanceAccess_operatingSystem,
-    instanceAccess_credentials,
     instanceAccess_fleetId,
+    instanceAccess_instanceId,
+    instanceAccess_credentials,
+    instanceAccess_ipAddress,
 
     -- ** InstanceCredentials
     instanceCredentials_userName,
@@ -1003,14 +1003,14 @@ module Amazonka.GameLift.Lens
     ipPermission_protocol,
 
     -- ** LaunchTemplateSpecification
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_launchTemplateId,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- ** LocationAttributes
+    locationAttributes_updateStatus,
     locationAttributes_stoppedActions,
     locationAttributes_locationState,
-    locationAttributes_updateStatus,
 
     -- ** LocationConfiguration
     locationConfiguration_location,
@@ -1024,124 +1024,124 @@ module Amazonka.GameLift.Lens
     matchedPlayerSession_playerId,
 
     -- ** MatchmakingConfiguration
-    matchmakingConfiguration_creationTime,
-    matchmakingConfiguration_backfillMode,
-    matchmakingConfiguration_gameProperties,
-    matchmakingConfiguration_ruleSetName,
-    matchmakingConfiguration_acceptanceTimeoutSeconds,
-    matchmakingConfiguration_requestTimeoutSeconds,
-    matchmakingConfiguration_notificationTarget,
-    matchmakingConfiguration_flexMatchMode,
-    matchmakingConfiguration_gameSessionQueueArns,
-    matchmakingConfiguration_name,
-    matchmakingConfiguration_customEventData,
     matchmakingConfiguration_configurationArn,
+    matchmakingConfiguration_notificationTarget,
+    matchmakingConfiguration_name,
+    matchmakingConfiguration_acceptanceTimeoutSeconds,
+    matchmakingConfiguration_ruleSetName,
     matchmakingConfiguration_acceptanceRequired,
-    matchmakingConfiguration_gameSessionData,
-    matchmakingConfiguration_description,
     matchmakingConfiguration_additionalPlayerCount,
+    matchmakingConfiguration_gameSessionData,
     matchmakingConfiguration_ruleSetArn,
+    matchmakingConfiguration_flexMatchMode,
+    matchmakingConfiguration_description,
+    matchmakingConfiguration_backfillMode,
+    matchmakingConfiguration_gameSessionQueueArns,
+    matchmakingConfiguration_gameProperties,
+    matchmakingConfiguration_creationTime,
+    matchmakingConfiguration_requestTimeoutSeconds,
+    matchmakingConfiguration_customEventData,
 
     -- ** MatchmakingRuleSet
-    matchmakingRuleSet_creationTime,
     matchmakingRuleSet_ruleSetName,
     matchmakingRuleSet_ruleSetArn,
+    matchmakingRuleSet_creationTime,
     matchmakingRuleSet_ruleSetBody,
 
     -- ** MatchmakingTicket
-    matchmakingTicket_status,
-    matchmakingTicket_configurationName,
-    matchmakingTicket_startTime,
-    matchmakingTicket_gameSessionConnectionInfo,
-    matchmakingTicket_ticketId,
-    matchmakingTicket_estimatedWaitTime,
-    matchmakingTicket_statusMessage,
-    matchmakingTicket_endTime,
-    matchmakingTicket_configurationArn,
-    matchmakingTicket_statusReason,
     matchmakingTicket_players,
+    matchmakingTicket_configurationArn,
+    matchmakingTicket_estimatedWaitTime,
+    matchmakingTicket_statusReason,
+    matchmakingTicket_status,
+    matchmakingTicket_endTime,
+    matchmakingTicket_ticketId,
+    matchmakingTicket_gameSessionConnectionInfo,
+    matchmakingTicket_configurationName,
+    matchmakingTicket_statusMessage,
+    matchmakingTicket_startTime,
 
     -- ** PlacedPlayerSession
     placedPlayerSession_playerSessionId,
     placedPlayerSession_playerId,
 
     -- ** Player
-    player_playerAttributes,
     player_team,
-    player_playerId,
+    player_playerAttributes,
     player_latencyInMs,
+    player_playerId,
 
     -- ** PlayerLatency
     playerLatency_latencyInMilliseconds,
-    playerLatency_regionIdentifier,
     playerLatency_playerId,
+    playerLatency_regionIdentifier,
 
     -- ** PlayerLatencyPolicy
-    playerLatencyPolicy_policyDurationSeconds,
     playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds,
+    playerLatencyPolicy_policyDurationSeconds,
 
     -- ** PlayerSession
-    playerSession_creationTime,
-    playerSession_status,
-    playerSession_ipAddress,
+    playerSession_port,
     playerSession_gameSessionId,
+    playerSession_fleetId,
+    playerSession_playerSessionId,
+    playerSession_status,
+    playerSession_playerId,
     playerSession_fleetArn,
     playerSession_terminationTime,
-    playerSession_playerSessionId,
-    playerSession_fleetId,
-    playerSession_playerData,
-    playerSession_playerId,
+    playerSession_creationTime,
     playerSession_dnsName,
-    playerSession_port,
+    playerSession_playerData,
+    playerSession_ipAddress,
 
     -- ** PriorityConfiguration
-    priorityConfiguration_priorityOrder,
     priorityConfiguration_locationOrder,
+    priorityConfiguration_priorityOrder,
 
     -- ** ResourceCreationLimitPolicy
     resourceCreationLimitPolicy_newGameSessionsPerCreator,
     resourceCreationLimitPolicy_policyPeriodInMinutes,
 
     -- ** RoutingStrategy
-    routingStrategy_type,
-    routingStrategy_message,
     routingStrategy_fleetId,
+    routingStrategy_message,
+    routingStrategy_type,
 
     -- ** RuntimeConfiguration
+    runtimeConfiguration_maxConcurrentGameSessionActivations,
     runtimeConfiguration_gameSessionActivationTimeoutSeconds,
     runtimeConfiguration_serverProcesses,
-    runtimeConfiguration_maxConcurrentGameSessionActivations,
 
     -- ** S3Location
-    s3Location_bucket,
     s3Location_key,
-    s3Location_objectVersion,
     s3Location_roleArn,
+    s3Location_bucket,
+    s3Location_objectVersion,
 
     -- ** ScalingPolicy
-    scalingPolicy_status,
-    scalingPolicy_scalingAdjustmentType,
-    scalingPolicy_location,
-    scalingPolicy_evaluationPeriods,
-    scalingPolicy_policyType,
-    scalingPolicy_metricName,
-    scalingPolicy_fleetArn,
-    scalingPolicy_comparisonOperator,
+    scalingPolicy_fleetId,
     scalingPolicy_name,
+    scalingPolicy_policyType,
+    scalingPolicy_updateStatus,
+    scalingPolicy_status,
+    scalingPolicy_evaluationPeriods,
+    scalingPolicy_location,
+    scalingPolicy_fleetArn,
+    scalingPolicy_metricName,
+    scalingPolicy_targetConfiguration,
     scalingPolicy_threshold,
     scalingPolicy_scalingAdjustment,
-    scalingPolicy_updateStatus,
-    scalingPolicy_fleetId,
-    scalingPolicy_targetConfiguration,
+    scalingPolicy_comparisonOperator,
+    scalingPolicy_scalingAdjustmentType,
 
     -- ** Script
-    script_creationTime,
-    script_storageLocation,
+    script_scriptArn,
     script_name,
+    script_sizeOnDisk,
+    script_storageLocation,
+    script_creationTime,
     script_scriptId,
     script_version,
-    script_scriptArn,
-    script_sizeOnDisk,
 
     -- ** ServerProcess
     serverProcess_parameters,
@@ -1159,24 +1159,24 @@ module Amazonka.GameLift.Lens
     targetTrackingConfiguration_targetValue,
 
     -- ** VpcPeeringAuthorization
+    vpcPeeringAuthorization_expirationTime,
+    vpcPeeringAuthorization_gameLiftAwsAccountId,
     vpcPeeringAuthorization_creationTime,
     vpcPeeringAuthorization_peerVpcId,
     vpcPeeringAuthorization_peerVpcAwsAccountId,
-    vpcPeeringAuthorization_gameLiftAwsAccountId,
-    vpcPeeringAuthorization_expirationTime,
 
     -- ** VpcPeeringConnection
+    vpcPeeringConnection_fleetId,
+    vpcPeeringConnection_gameLiftVpcId,
+    vpcPeeringConnection_ipV4CidrBlock,
     vpcPeeringConnection_vpcPeeringConnectionId,
     vpcPeeringConnection_status,
-    vpcPeeringConnection_peerVpcId,
     vpcPeeringConnection_fleetArn,
-    vpcPeeringConnection_ipV4CidrBlock,
-    vpcPeeringConnection_gameLiftVpcId,
-    vpcPeeringConnection_fleetId,
+    vpcPeeringConnection_peerVpcId,
 
     -- ** VpcPeeringConnectionStatus
-    vpcPeeringConnectionStatus_code,
     vpcPeeringConnectionStatus_message,
+    vpcPeeringConnectionStatus_code,
   )
 where
 

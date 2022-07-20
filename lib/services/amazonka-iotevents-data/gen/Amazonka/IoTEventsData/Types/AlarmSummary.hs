@@ -28,14 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAlarmSummary' smart constructor.
 data AlarmSummary = AlarmSummary'
-  { -- | The value of the key used as a filter to select only the alarms
-    -- associated with the
-    -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
-    keyValue :: Prelude.Maybe Prelude.Text,
-    -- | The time the alarm was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the alarm model.
+  { -- | The name of the alarm model.
     alarmModelName :: Prelude.Maybe Prelude.Text,
+    -- | The version of the alarm model.
+    alarmModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the alarm state. The state name can be one of the following
     -- values:
     --
@@ -62,10 +58,14 @@ data AlarmSummary = AlarmSummary'
     --     within the specified range. To change the alarm to the @NORMAL@
     --     state, you must acknowledge the alarm.
     stateName :: Prelude.Maybe AlarmStateName,
+    -- | The value of the key used as a filter to select only the alarms
+    -- associated with the
+    -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
+    keyValue :: Prelude.Maybe Prelude.Text,
+    -- | The time the alarm was created, in the Unix epoch format.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The time the alarm was last updated, in the Unix epoch format.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
-    -- | The version of the alarm model.
-    alarmModelVersion :: Prelude.Maybe Prelude.Text
+    lastUpdateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,13 +77,9 @@ data AlarmSummary = AlarmSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyValue', 'alarmSummary_keyValue' - The value of the key used as a filter to select only the alarms
--- associated with the
--- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
---
--- 'creationTime', 'alarmSummary_creationTime' - The time the alarm was created, in the Unix epoch format.
---
 -- 'alarmModelName', 'alarmSummary_alarmModelName' - The name of the alarm model.
+--
+-- 'alarmModelVersion', 'alarmSummary_alarmModelVersion' - The version of the alarm model.
 --
 -- 'stateName', 'alarmSummary_stateName' - The name of the alarm state. The state name can be one of the following
 -- values:
@@ -111,34 +107,32 @@ data AlarmSummary = AlarmSummary'
 --     within the specified range. To change the alarm to the @NORMAL@
 --     state, you must acknowledge the alarm.
 --
--- 'lastUpdateTime', 'alarmSummary_lastUpdateTime' - The time the alarm was last updated, in the Unix epoch format.
+-- 'keyValue', 'alarmSummary_keyValue' - The value of the key used as a filter to select only the alarms
+-- associated with the
+-- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
 --
--- 'alarmModelVersion', 'alarmSummary_alarmModelVersion' - The version of the alarm model.
+-- 'creationTime', 'alarmSummary_creationTime' - The time the alarm was created, in the Unix epoch format.
+--
+-- 'lastUpdateTime', 'alarmSummary_lastUpdateTime' - The time the alarm was last updated, in the Unix epoch format.
 newAlarmSummary ::
   AlarmSummary
 newAlarmSummary =
   AlarmSummary'
-    { keyValue = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      alarmModelName = Prelude.Nothing,
+    { alarmModelName = Prelude.Nothing,
+      alarmModelVersion = Prelude.Nothing,
       stateName = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing,
-      alarmModelVersion = Prelude.Nothing
+      keyValue = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing
     }
-
--- | The value of the key used as a filter to select only the alarms
--- associated with the
--- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
-alarmSummary_keyValue :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.Text)
-alarmSummary_keyValue = Lens.lens (\AlarmSummary' {keyValue} -> keyValue) (\s@AlarmSummary' {} a -> s {keyValue = a} :: AlarmSummary)
-
--- | The time the alarm was created, in the Unix epoch format.
-alarmSummary_creationTime :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.UTCTime)
-alarmSummary_creationTime = Lens.lens (\AlarmSummary' {creationTime} -> creationTime) (\s@AlarmSummary' {} a -> s {creationTime = a} :: AlarmSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the alarm model.
 alarmSummary_alarmModelName :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.Text)
 alarmSummary_alarmModelName = Lens.lens (\AlarmSummary' {alarmModelName} -> alarmModelName) (\s@AlarmSummary' {} a -> s {alarmModelName = a} :: AlarmSummary)
+
+-- | The version of the alarm model.
+alarmSummary_alarmModelVersion :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.Text)
+alarmSummary_alarmModelVersion = Lens.lens (\AlarmSummary' {alarmModelVersion} -> alarmModelVersion) (\s@AlarmSummary' {} a -> s {alarmModelVersion = a} :: AlarmSummary)
 
 -- | The name of the alarm state. The state name can be one of the following
 -- values:
@@ -168,13 +162,19 @@ alarmSummary_alarmModelName = Lens.lens (\AlarmSummary' {alarmModelName} -> alar
 alarmSummary_stateName :: Lens.Lens' AlarmSummary (Prelude.Maybe AlarmStateName)
 alarmSummary_stateName = Lens.lens (\AlarmSummary' {stateName} -> stateName) (\s@AlarmSummary' {} a -> s {stateName = a} :: AlarmSummary)
 
+-- | The value of the key used as a filter to select only the alarms
+-- associated with the
+-- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
+alarmSummary_keyValue :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.Text)
+alarmSummary_keyValue = Lens.lens (\AlarmSummary' {keyValue} -> keyValue) (\s@AlarmSummary' {} a -> s {keyValue = a} :: AlarmSummary)
+
+-- | The time the alarm was created, in the Unix epoch format.
+alarmSummary_creationTime :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.UTCTime)
+alarmSummary_creationTime = Lens.lens (\AlarmSummary' {creationTime} -> creationTime) (\s@AlarmSummary' {} a -> s {creationTime = a} :: AlarmSummary) Prelude.. Lens.mapping Core._Time
+
 -- | The time the alarm was last updated, in the Unix epoch format.
 alarmSummary_lastUpdateTime :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.UTCTime)
 alarmSummary_lastUpdateTime = Lens.lens (\AlarmSummary' {lastUpdateTime} -> lastUpdateTime) (\s@AlarmSummary' {} a -> s {lastUpdateTime = a} :: AlarmSummary) Prelude.. Lens.mapping Core._Time
-
--- | The version of the alarm model.
-alarmSummary_alarmModelVersion :: Lens.Lens' AlarmSummary (Prelude.Maybe Prelude.Text)
-alarmSummary_alarmModelVersion = Lens.lens (\AlarmSummary' {alarmModelVersion} -> alarmModelVersion) (\s@AlarmSummary' {} a -> s {alarmModelVersion = a} :: AlarmSummary)
 
 instance Core.FromJSON AlarmSummary where
   parseJSON =
@@ -182,28 +182,28 @@ instance Core.FromJSON AlarmSummary where
       "AlarmSummary"
       ( \x ->
           AlarmSummary'
-            Prelude.<$> (x Core..:? "keyValue")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "alarmModelName")
-            Prelude.<*> (x Core..:? "stateName")
-            Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<$> (x Core..:? "alarmModelName")
             Prelude.<*> (x Core..:? "alarmModelVersion")
+            Prelude.<*> (x Core..:? "stateName")
+            Prelude.<*> (x Core..:? "keyValue")
+            Prelude.<*> (x Core..:? "creationTime")
+            Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable AlarmSummary where
   hashWithSalt _salt AlarmSummary' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` alarmModelName
-      `Prelude.hashWithSalt` stateName
-      `Prelude.hashWithSalt` lastUpdateTime
+    _salt `Prelude.hashWithSalt` alarmModelName
       `Prelude.hashWithSalt` alarmModelVersion
+      `Prelude.hashWithSalt` stateName
+      `Prelude.hashWithSalt` keyValue
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastUpdateTime
 
 instance Prelude.NFData AlarmSummary where
   rnf AlarmSummary' {..} =
-    Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf alarmModelName
-      `Prelude.seq` Prelude.rnf stateName
-      `Prelude.seq` Prelude.rnf lastUpdateTime
+    Prelude.rnf alarmModelName
       `Prelude.seq` Prelude.rnf alarmModelVersion
+      `Prelude.seq` Prelude.rnf stateName
+      `Prelude.seq` Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime

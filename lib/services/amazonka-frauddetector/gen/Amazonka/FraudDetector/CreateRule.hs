@@ -27,8 +27,8 @@ module Amazonka.FraudDetector.CreateRule
     newCreateRule,
 
     -- * Request Lenses
-    createRule_description,
     createRule_tags,
+    createRule_description,
     createRule_ruleId,
     createRule_detectorId,
     createRule_expression,
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRule' smart constructor.
 data CreateRule = CreateRule'
-  { -- | The rule description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A collection of key and value pairs.
+  { -- | A collection of key and value pairs.
     tags :: Prelude.Maybe [Tag],
+    -- | The rule description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The rule ID.
     ruleId :: Prelude.Text,
     -- | The detector ID for the rule\'s parent detector.
@@ -79,9 +79,9 @@ data CreateRule = CreateRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createRule_description' - The rule description.
---
 -- 'tags', 'createRule_tags' - A collection of key and value pairs.
+--
+-- 'description', 'createRule_description' - The rule description.
 --
 -- 'ruleId', 'createRule_ruleId' - The rule ID.
 --
@@ -111,8 +111,8 @@ newCreateRule
   pLanguage_
   pOutcomes_ =
     CreateRule'
-      { description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         ruleId = pRuleId_,
         detectorId = pDetectorId_,
         expression = Core._Sensitive Lens.# pExpression_,
@@ -120,13 +120,13 @@ newCreateRule
         outcomes = Lens.coerced Lens.# pOutcomes_
       }
 
--- | The rule description.
-createRule_description :: Lens.Lens' CreateRule (Prelude.Maybe Prelude.Text)
-createRule_description = Lens.lens (\CreateRule' {description} -> description) (\s@CreateRule' {} a -> s {description = a} :: CreateRule)
-
 -- | A collection of key and value pairs.
 createRule_tags :: Lens.Lens' CreateRule (Prelude.Maybe [Tag])
 createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The rule description.
+createRule_description :: Lens.Lens' CreateRule (Prelude.Maybe Prelude.Text)
+createRule_description = Lens.lens (\CreateRule' {description} -> description) (\s@CreateRule' {} a -> s {description = a} :: CreateRule)
 
 -- | The rule ID.
 createRule_ruleId :: Lens.Lens' CreateRule Prelude.Text
@@ -161,8 +161,8 @@ instance Core.AWSRequest CreateRule where
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` expression
@@ -171,8 +171,8 @@ instance Prelude.Hashable CreateRule where
 
 instance Prelude.NFData CreateRule where
   rnf CreateRule' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf ruleId
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf expression
@@ -198,8 +198,8 @@ instance Core.ToJSON CreateRule where
   toJSON CreateRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("ruleId" Core..= ruleId),
             Prelude.Just ("detectorId" Core..= detectorId),
             Prelude.Just ("expression" Core..= expression),

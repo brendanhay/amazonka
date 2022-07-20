@@ -38,14 +38,14 @@ data AccountAssignment = AccountAssignment'
     -- PrincipalIds in Amazon Web Services SSO, see the
     -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | The entity type for which the assignment will be created.
-    principalType :: Prelude.Maybe PrincipalType,
     -- | The identifier of the Amazon Web Services account.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the permission set. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
-    permissionSetArn :: Prelude.Maybe Prelude.Text
+    permissionSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The entity type for which the assignment will be created.
+    principalType :: Prelude.Maybe PrincipalType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,21 +63,21 @@ data AccountAssignment = AccountAssignment'
 -- PrincipalIds in Amazon Web Services SSO, see the
 -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
 --
--- 'principalType', 'accountAssignment_principalType' - The entity type for which the assignment will be created.
---
 -- 'accountId', 'accountAssignment_accountId' - The identifier of the Amazon Web Services account.
 --
 -- 'permissionSetArn', 'accountAssignment_permissionSetArn' - The ARN of the permission set. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
+--
+-- 'principalType', 'accountAssignment_principalType' - The entity type for which the assignment will be created.
 newAccountAssignment ::
   AccountAssignment
 newAccountAssignment =
   AccountAssignment'
     { principalId = Prelude.Nothing,
-      principalType = Prelude.Nothing,
       accountId = Prelude.Nothing,
-      permissionSetArn = Prelude.Nothing
+      permissionSetArn = Prelude.Nothing,
+      principalType = Prelude.Nothing
     }
 
 -- | An identifier for an object in Amazon Web Services SSO, such as a user
@@ -87,10 +87,6 @@ newAccountAssignment =
 -- </singlesignon/latest/IdentityStoreAPIReference/welcome.html Amazon Web Services SSO Identity Store API Reference>.
 accountAssignment_principalId :: Lens.Lens' AccountAssignment (Prelude.Maybe Prelude.Text)
 accountAssignment_principalId = Lens.lens (\AccountAssignment' {principalId} -> principalId) (\s@AccountAssignment' {} a -> s {principalId = a} :: AccountAssignment)
-
--- | The entity type for which the assignment will be created.
-accountAssignment_principalType :: Lens.Lens' AccountAssignment (Prelude.Maybe PrincipalType)
-accountAssignment_principalType = Lens.lens (\AccountAssignment' {principalType} -> principalType) (\s@AccountAssignment' {} a -> s {principalType = a} :: AccountAssignment)
 
 -- | The identifier of the Amazon Web Services account.
 accountAssignment_accountId :: Lens.Lens' AccountAssignment (Prelude.Maybe Prelude.Text)
@@ -102,6 +98,10 @@ accountAssignment_accountId = Lens.lens (\AccountAssignment' {accountId} -> acco
 accountAssignment_permissionSetArn :: Lens.Lens' AccountAssignment (Prelude.Maybe Prelude.Text)
 accountAssignment_permissionSetArn = Lens.lens (\AccountAssignment' {permissionSetArn} -> permissionSetArn) (\s@AccountAssignment' {} a -> s {permissionSetArn = a} :: AccountAssignment)
 
+-- | The entity type for which the assignment will be created.
+accountAssignment_principalType :: Lens.Lens' AccountAssignment (Prelude.Maybe PrincipalType)
+accountAssignment_principalType = Lens.lens (\AccountAssignment' {principalType} -> principalType) (\s@AccountAssignment' {} a -> s {principalType = a} :: AccountAssignment)
+
 instance Core.FromJSON AccountAssignment where
   parseJSON =
     Core.withObject
@@ -109,21 +109,21 @@ instance Core.FromJSON AccountAssignment where
       ( \x ->
           AccountAssignment'
             Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "PrincipalType")
             Prelude.<*> (x Core..:? "AccountId")
             Prelude.<*> (x Core..:? "PermissionSetArn")
+            Prelude.<*> (x Core..:? "PrincipalType")
       )
 
 instance Prelude.Hashable AccountAssignment where
   hashWithSalt _salt AccountAssignment' {..} =
     _salt `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` principalType
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` permissionSetArn
+      `Prelude.hashWithSalt` principalType
 
 instance Prelude.NFData AccountAssignment where
   rnf AccountAssignment' {..} =
     Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf principalType
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf permissionSetArn
+      `Prelude.seq` Prelude.rnf principalType

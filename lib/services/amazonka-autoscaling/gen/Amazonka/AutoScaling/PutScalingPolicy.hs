@@ -44,17 +44,17 @@ module Amazonka.AutoScaling.PutScalingPolicy
     newPutScalingPolicy,
 
     -- * Request Lenses
-    putScalingPolicy_minAdjustmentStep,
+    putScalingPolicy_metricAggregationType,
+    putScalingPolicy_policyType,
+    putScalingPolicy_cooldown,
+    putScalingPolicy_adjustmentType,
     putScalingPolicy_estimatedInstanceWarmup,
     putScalingPolicy_enabled,
-    putScalingPolicy_policyType,
-    putScalingPolicy_stepAdjustments,
     putScalingPolicy_targetTrackingConfiguration,
-    putScalingPolicy_adjustmentType,
-    putScalingPolicy_predictiveScalingConfiguration,
+    putScalingPolicy_minAdjustmentStep,
     putScalingPolicy_scalingAdjustment,
-    putScalingPolicy_cooldown,
-    putScalingPolicy_metricAggregationType,
+    putScalingPolicy_stepAdjustments,
+    putScalingPolicy_predictiveScalingConfiguration,
     putScalingPolicy_minAdjustmentMagnitude,
     putScalingPolicy_autoScalingGroupName,
     putScalingPolicy_policyName,
@@ -64,8 +64,8 @@ module Amazonka.AutoScaling.PutScalingPolicy
     newPutScalingPolicyResponse,
 
     -- * Response Lenses
-    putScalingPolicyResponse_policyARN,
     putScalingPolicyResponse_alarms,
+    putScalingPolicyResponse_policyARN,
     putScalingPolicyResponse_httpStatus,
   )
 where
@@ -79,9 +79,40 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
-    -- instead.
-    minAdjustmentStep :: Prelude.Maybe Prelude.Int,
+  { -- | The aggregation type for the CloudWatch metrics. The valid values are
+    -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+    -- the value is treated as @Average@.
+    --
+    -- Valid only if the policy type is @StepScaling@.
+    metricAggregationType :: Prelude.Maybe Prelude.Text,
+    -- | One of the following policy types:
+    --
+    -- -   @TargetTrackingScaling@
+    --
+    -- -   @StepScaling@
+    --
+    -- -   @SimpleScaling@ (default)
+    --
+    -- -   @PredictiveScaling@
+    policyType :: Prelude.Maybe Prelude.Text,
+    -- | The duration of the policy\'s cooldown period, in seconds. When a
+    -- cooldown period is specified here, it overrides the default cooldown
+    -- period defined for the Auto Scaling group.
+    --
+    -- Valid only if the policy type is @SimpleScaling@. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    cooldown :: Prelude.Maybe Prelude.Int,
+    -- | Specifies how the scaling adjustment is interpreted (for example, an
+    -- absolute number or a percentage). The valid values are
+    -- @ChangeInCapacity@, @ExactCapacity@, and @PercentChangeInCapacity@.
+    --
+    -- Required if the policy type is @StepScaling@ or @SimpleScaling@. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    adjustmentType :: Prelude.Maybe Prelude.Text,
     -- | The estimated time, in seconds, until a newly launched instance can
     -- contribute to the CloudWatch metrics. If not provided, the default is to
     -- use the value from the default cooldown period for the Auto Scaling
@@ -95,22 +126,6 @@ data PutScalingPolicy = PutScalingPolicy'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html Disabling a scaling policy for an Auto Scaling group>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | One of the following policy types:
-    --
-    -- -   @TargetTrackingScaling@
-    --
-    -- -   @StepScaling@
-    --
-    -- -   @SimpleScaling@ (default)
-    --
-    -- -   @PredictiveScaling@
-    policyType :: Prelude.Maybe Prelude.Text,
-    -- | A set of adjustments that enable you to scale based on the size of the
-    -- alarm breach.
-    --
-    -- Required if the policy type is @StepScaling@. (Not used with any other
-    -- policy type.)
-    stepAdjustments :: Prelude.Maybe [StepAdjustment],
     -- | A target tracking scaling policy. Provides support for predefined or
     -- customized metrics.
     --
@@ -134,15 +149,23 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- Required if the policy type is @TargetTrackingScaling@.
     targetTrackingConfiguration :: Prelude.Maybe TargetTrackingConfiguration,
-    -- | Specifies how the scaling adjustment is interpreted (for example, an
-    -- absolute number or a percentage). The valid values are
-    -- @ChangeInCapacity@, @ExactCapacity@, and @PercentChangeInCapacity@.
+    -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
+    -- instead.
+    minAdjustmentStep :: Prelude.Maybe Prelude.Int,
+    -- | The amount by which to scale, based on the specified adjustment type. A
+    -- positive value adds to the current capacity while a negative number
+    -- removes from the current capacity. For exact capacity, you must specify
+    -- a positive value.
     --
-    -- Required if the policy type is @StepScaling@ or @SimpleScaling@. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
-    -- in the /Amazon EC2 Auto Scaling User Guide/.
-    adjustmentType :: Prelude.Maybe Prelude.Text,
+    -- Required if the policy type is @SimpleScaling@. (Not used with any other
+    -- policy type.)
+    scalingAdjustment :: Prelude.Maybe Prelude.Int,
+    -- | A set of adjustments that enable you to scale based on the size of the
+    -- alarm breach.
+    --
+    -- Required if the policy type is @StepScaling@. (Not used with any other
+    -- policy type.)
+    stepAdjustments :: Prelude.Maybe [StepAdjustment],
     -- | A predictive scaling policy. Provides support for only predefined
     -- metrics.
     --
@@ -155,29 +178,6 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- Required if the policy type is @PredictiveScaling@.
     predictiveScalingConfiguration :: Prelude.Maybe PredictiveScalingConfiguration,
-    -- | The amount by which to scale, based on the specified adjustment type. A
-    -- positive value adds to the current capacity while a negative number
-    -- removes from the current capacity. For exact capacity, you must specify
-    -- a positive value.
-    --
-    -- Required if the policy type is @SimpleScaling@. (Not used with any other
-    -- policy type.)
-    scalingAdjustment :: Prelude.Maybe Prelude.Int,
-    -- | The duration of the policy\'s cooldown period, in seconds. When a
-    -- cooldown period is specified here, it overrides the default cooldown
-    -- period defined for the Auto Scaling group.
-    --
-    -- Valid only if the policy type is @SimpleScaling@. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
-    -- in the /Amazon EC2 Auto Scaling User Guide/.
-    cooldown :: Prelude.Maybe Prelude.Int,
-    -- | The aggregation type for the CloudWatch metrics. The valid values are
-    -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
-    -- the value is treated as @Average@.
-    --
-    -- Valid only if the policy type is @StepScaling@.
-    metricAggregationType :: Prelude.Maybe Prelude.Text,
     -- | The minimum value to scale by when the adjustment type is
     -- @PercentChangeInCapacity@. For example, suppose that you create a step
     -- scaling policy to scale out an Auto Scaling group by 25 percent and you
@@ -210,8 +210,39 @@ data PutScalingPolicy = PutScalingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minAdjustmentStep', 'putScalingPolicy_minAdjustmentStep' - Available for backward compatibility. Use @MinAdjustmentMagnitude@
--- instead.
+-- 'metricAggregationType', 'putScalingPolicy_metricAggregationType' - The aggregation type for the CloudWatch metrics. The valid values are
+-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+-- the value is treated as @Average@.
+--
+-- Valid only if the policy type is @StepScaling@.
+--
+-- 'policyType', 'putScalingPolicy_policyType' - One of the following policy types:
+--
+-- -   @TargetTrackingScaling@
+--
+-- -   @StepScaling@
+--
+-- -   @SimpleScaling@ (default)
+--
+-- -   @PredictiveScaling@
+--
+-- 'cooldown', 'putScalingPolicy_cooldown' - The duration of the policy\'s cooldown period, in seconds. When a
+-- cooldown period is specified here, it overrides the default cooldown
+-- period defined for the Auto Scaling group.
+--
+-- Valid only if the policy type is @SimpleScaling@. For more information,
+-- see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- 'adjustmentType', 'putScalingPolicy_adjustmentType' - Specifies how the scaling adjustment is interpreted (for example, an
+-- absolute number or a percentage). The valid values are
+-- @ChangeInCapacity@, @ExactCapacity@, and @PercentChangeInCapacity@.
+--
+-- Required if the policy type is @StepScaling@ or @SimpleScaling@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- 'estimatedInstanceWarmup', 'putScalingPolicy_estimatedInstanceWarmup' - The estimated time, in seconds, until a newly launched instance can
 -- contribute to the CloudWatch metrics. If not provided, the default is to
@@ -225,22 +256,6 @@ data PutScalingPolicy = PutScalingPolicy'
 -- is enabled. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html Disabling a scaling policy for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
---
--- 'policyType', 'putScalingPolicy_policyType' - One of the following policy types:
---
--- -   @TargetTrackingScaling@
---
--- -   @StepScaling@
---
--- -   @SimpleScaling@ (default)
---
--- -   @PredictiveScaling@
---
--- 'stepAdjustments', 'putScalingPolicy_stepAdjustments' - A set of adjustments that enable you to scale based on the size of the
--- alarm breach.
---
--- Required if the policy type is @StepScaling@. (Not used with any other
--- policy type.)
 --
 -- 'targetTrackingConfiguration', 'putScalingPolicy_targetTrackingConfiguration' - A target tracking scaling policy. Provides support for predefined or
 -- customized metrics.
@@ -265,14 +280,22 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- Required if the policy type is @TargetTrackingScaling@.
 --
--- 'adjustmentType', 'putScalingPolicy_adjustmentType' - Specifies how the scaling adjustment is interpreted (for example, an
--- absolute number or a percentage). The valid values are
--- @ChangeInCapacity@, @ExactCapacity@, and @PercentChangeInCapacity@.
+-- 'minAdjustmentStep', 'putScalingPolicy_minAdjustmentStep' - Available for backward compatibility. Use @MinAdjustmentMagnitude@
+-- instead.
 --
--- Required if the policy type is @StepScaling@ or @SimpleScaling@. For
--- more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
--- in the /Amazon EC2 Auto Scaling User Guide/.
+-- 'scalingAdjustment', 'putScalingPolicy_scalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A
+-- positive value adds to the current capacity while a negative number
+-- removes from the current capacity. For exact capacity, you must specify
+-- a positive value.
+--
+-- Required if the policy type is @SimpleScaling@. (Not used with any other
+-- policy type.)
+--
+-- 'stepAdjustments', 'putScalingPolicy_stepAdjustments' - A set of adjustments that enable you to scale based on the size of the
+-- alarm breach.
+--
+-- Required if the policy type is @StepScaling@. (Not used with any other
+-- policy type.)
 --
 -- 'predictiveScalingConfiguration', 'putScalingPolicy_predictiveScalingConfiguration' - A predictive scaling policy. Provides support for only predefined
 -- metrics.
@@ -285,29 +308,6 @@ data PutScalingPolicy = PutScalingPolicy'
 -- in the /Amazon EC2 Auto Scaling API Reference/.
 --
 -- Required if the policy type is @PredictiveScaling@.
---
--- 'scalingAdjustment', 'putScalingPolicy_scalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A
--- positive value adds to the current capacity while a negative number
--- removes from the current capacity. For exact capacity, you must specify
--- a positive value.
---
--- Required if the policy type is @SimpleScaling@. (Not used with any other
--- policy type.)
---
--- 'cooldown', 'putScalingPolicy_cooldown' - The duration of the policy\'s cooldown period, in seconds. When a
--- cooldown period is specified here, it overrides the default cooldown
--- period defined for the Auto Scaling group.
---
--- Valid only if the policy type is @SimpleScaling@. For more information,
--- see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
--- in the /Amazon EC2 Auto Scaling User Guide/.
---
--- 'metricAggregationType', 'putScalingPolicy_metricAggregationType' - The aggregation type for the CloudWatch metrics. The valid values are
--- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
--- the value is treated as @Average@.
---
--- Valid only if the policy type is @StepScaling@.
 --
 -- 'minAdjustmentMagnitude', 'putScalingPolicy_minAdjustmentMagnitude' - The minimum value to scale by when the adjustment type is
 -- @PercentChangeInCapacity@. For example, suppose that you create a step
@@ -339,27 +339,64 @@ newPutScalingPolicy
   pAutoScalingGroupName_
   pPolicyName_ =
     PutScalingPolicy'
-      { minAdjustmentStep =
+      { metricAggregationType =
           Prelude.Nothing,
+        policyType = Prelude.Nothing,
+        cooldown = Prelude.Nothing,
+        adjustmentType = Prelude.Nothing,
         estimatedInstanceWarmup = Prelude.Nothing,
         enabled = Prelude.Nothing,
-        policyType = Prelude.Nothing,
-        stepAdjustments = Prelude.Nothing,
         targetTrackingConfiguration = Prelude.Nothing,
-        adjustmentType = Prelude.Nothing,
-        predictiveScalingConfiguration = Prelude.Nothing,
+        minAdjustmentStep = Prelude.Nothing,
         scalingAdjustment = Prelude.Nothing,
-        cooldown = Prelude.Nothing,
-        metricAggregationType = Prelude.Nothing,
+        stepAdjustments = Prelude.Nothing,
+        predictiveScalingConfiguration = Prelude.Nothing,
         minAdjustmentMagnitude = Prelude.Nothing,
         autoScalingGroupName = pAutoScalingGroupName_,
         policyName = pPolicyName_
       }
 
--- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
--- instead.
-putScalingPolicy_minAdjustmentStep :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
-putScalingPolicy_minAdjustmentStep = Lens.lens (\PutScalingPolicy' {minAdjustmentStep} -> minAdjustmentStep) (\s@PutScalingPolicy' {} a -> s {minAdjustmentStep = a} :: PutScalingPolicy)
+-- | The aggregation type for the CloudWatch metrics. The valid values are
+-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+-- the value is treated as @Average@.
+--
+-- Valid only if the policy type is @StepScaling@.
+putScalingPolicy_metricAggregationType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
+putScalingPolicy_metricAggregationType = Lens.lens (\PutScalingPolicy' {metricAggregationType} -> metricAggregationType) (\s@PutScalingPolicy' {} a -> s {metricAggregationType = a} :: PutScalingPolicy)
+
+-- | One of the following policy types:
+--
+-- -   @TargetTrackingScaling@
+--
+-- -   @StepScaling@
+--
+-- -   @SimpleScaling@ (default)
+--
+-- -   @PredictiveScaling@
+putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
+putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> policyType) (\s@PutScalingPolicy' {} a -> s {policyType = a} :: PutScalingPolicy)
+
+-- | The duration of the policy\'s cooldown period, in seconds. When a
+-- cooldown period is specified here, it overrides the default cooldown
+-- period defined for the Auto Scaling group.
+--
+-- Valid only if the policy type is @SimpleScaling@. For more information,
+-- see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+putScalingPolicy_cooldown :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
+putScalingPolicy_cooldown = Lens.lens (\PutScalingPolicy' {cooldown} -> cooldown) (\s@PutScalingPolicy' {} a -> s {cooldown = a} :: PutScalingPolicy)
+
+-- | Specifies how the scaling adjustment is interpreted (for example, an
+-- absolute number or a percentage). The valid values are
+-- @ChangeInCapacity@, @ExactCapacity@, and @PercentChangeInCapacity@.
+--
+-- Required if the policy type is @StepScaling@ or @SimpleScaling@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+putScalingPolicy_adjustmentType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
+putScalingPolicy_adjustmentType = Lens.lens (\PutScalingPolicy' {adjustmentType} -> adjustmentType) (\s@PutScalingPolicy' {} a -> s {adjustmentType = a} :: PutScalingPolicy)
 
 -- | The estimated time, in seconds, until a newly launched instance can
 -- contribute to the CloudWatch metrics. If not provided, the default is to
@@ -377,26 +414,6 @@ putScalingPolicy_estimatedInstanceWarmup = Lens.lens (\PutScalingPolicy' {estima
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 putScalingPolicy_enabled :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Bool)
 putScalingPolicy_enabled = Lens.lens (\PutScalingPolicy' {enabled} -> enabled) (\s@PutScalingPolicy' {} a -> s {enabled = a} :: PutScalingPolicy)
-
--- | One of the following policy types:
---
--- -   @TargetTrackingScaling@
---
--- -   @StepScaling@
---
--- -   @SimpleScaling@ (default)
---
--- -   @PredictiveScaling@
-putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
-putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> policyType) (\s@PutScalingPolicy' {} a -> s {policyType = a} :: PutScalingPolicy)
-
--- | A set of adjustments that enable you to scale based on the size of the
--- alarm breach.
---
--- Required if the policy type is @StepScaling@. (Not used with any other
--- policy type.)
-putScalingPolicy_stepAdjustments :: Lens.Lens' PutScalingPolicy (Prelude.Maybe [StepAdjustment])
-putScalingPolicy_stepAdjustments = Lens.lens (\PutScalingPolicy' {stepAdjustments} -> stepAdjustments) (\s@PutScalingPolicy' {} a -> s {stepAdjustments = a} :: PutScalingPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | A target tracking scaling policy. Provides support for predefined or
 -- customized metrics.
@@ -423,16 +440,28 @@ putScalingPolicy_stepAdjustments = Lens.lens (\PutScalingPolicy' {stepAdjustment
 putScalingPolicy_targetTrackingConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe TargetTrackingConfiguration)
 putScalingPolicy_targetTrackingConfiguration = Lens.lens (\PutScalingPolicy' {targetTrackingConfiguration} -> targetTrackingConfiguration) (\s@PutScalingPolicy' {} a -> s {targetTrackingConfiguration = a} :: PutScalingPolicy)
 
--- | Specifies how the scaling adjustment is interpreted (for example, an
--- absolute number or a percentage). The valid values are
--- @ChangeInCapacity@, @ExactCapacity@, and @PercentChangeInCapacity@.
+-- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
+-- instead.
+putScalingPolicy_minAdjustmentStep :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
+putScalingPolicy_minAdjustmentStep = Lens.lens (\PutScalingPolicy' {minAdjustmentStep} -> minAdjustmentStep) (\s@PutScalingPolicy' {} a -> s {minAdjustmentStep = a} :: PutScalingPolicy)
+
+-- | The amount by which to scale, based on the specified adjustment type. A
+-- positive value adds to the current capacity while a negative number
+-- removes from the current capacity. For exact capacity, you must specify
+-- a positive value.
 --
--- Required if the policy type is @StepScaling@ or @SimpleScaling@. For
--- more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
--- in the /Amazon EC2 Auto Scaling User Guide/.
-putScalingPolicy_adjustmentType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
-putScalingPolicy_adjustmentType = Lens.lens (\PutScalingPolicy' {adjustmentType} -> adjustmentType) (\s@PutScalingPolicy' {} a -> s {adjustmentType = a} :: PutScalingPolicy)
+-- Required if the policy type is @SimpleScaling@. (Not used with any other
+-- policy type.)
+putScalingPolicy_scalingAdjustment :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
+putScalingPolicy_scalingAdjustment = Lens.lens (\PutScalingPolicy' {scalingAdjustment} -> scalingAdjustment) (\s@PutScalingPolicy' {} a -> s {scalingAdjustment = a} :: PutScalingPolicy)
+
+-- | A set of adjustments that enable you to scale based on the size of the
+-- alarm breach.
+--
+-- Required if the policy type is @StepScaling@. (Not used with any other
+-- policy type.)
+putScalingPolicy_stepAdjustments :: Lens.Lens' PutScalingPolicy (Prelude.Maybe [StepAdjustment])
+putScalingPolicy_stepAdjustments = Lens.lens (\PutScalingPolicy' {stepAdjustments} -> stepAdjustments) (\s@PutScalingPolicy' {} a -> s {stepAdjustments = a} :: PutScalingPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | A predictive scaling policy. Provides support for only predefined
 -- metrics.
@@ -447,35 +476,6 @@ putScalingPolicy_adjustmentType = Lens.lens (\PutScalingPolicy' {adjustmentType}
 -- Required if the policy type is @PredictiveScaling@.
 putScalingPolicy_predictiveScalingConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe PredictiveScalingConfiguration)
 putScalingPolicy_predictiveScalingConfiguration = Lens.lens (\PutScalingPolicy' {predictiveScalingConfiguration} -> predictiveScalingConfiguration) (\s@PutScalingPolicy' {} a -> s {predictiveScalingConfiguration = a} :: PutScalingPolicy)
-
--- | The amount by which to scale, based on the specified adjustment type. A
--- positive value adds to the current capacity while a negative number
--- removes from the current capacity. For exact capacity, you must specify
--- a positive value.
---
--- Required if the policy type is @SimpleScaling@. (Not used with any other
--- policy type.)
-putScalingPolicy_scalingAdjustment :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
-putScalingPolicy_scalingAdjustment = Lens.lens (\PutScalingPolicy' {scalingAdjustment} -> scalingAdjustment) (\s@PutScalingPolicy' {} a -> s {scalingAdjustment = a} :: PutScalingPolicy)
-
--- | The duration of the policy\'s cooldown period, in seconds. When a
--- cooldown period is specified here, it overrides the default cooldown
--- period defined for the Auto Scaling group.
---
--- Valid only if the policy type is @SimpleScaling@. For more information,
--- see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
--- in the /Amazon EC2 Auto Scaling User Guide/.
-putScalingPolicy_cooldown :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
-putScalingPolicy_cooldown = Lens.lens (\PutScalingPolicy' {cooldown} -> cooldown) (\s@PutScalingPolicy' {} a -> s {cooldown = a} :: PutScalingPolicy)
-
--- | The aggregation type for the CloudWatch metrics. The valid values are
--- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
--- the value is treated as @Average@.
---
--- Valid only if the policy type is @StepScaling@.
-putScalingPolicy_metricAggregationType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
-putScalingPolicy_metricAggregationType = Lens.lens (\PutScalingPolicy' {metricAggregationType} -> metricAggregationType) (\s@PutScalingPolicy' {} a -> s {metricAggregationType = a} :: PutScalingPolicy)
 
 -- | The minimum value to scale by when the adjustment type is
 -- @PercentChangeInCapacity@. For example, suppose that you create a step
@@ -514,43 +514,43 @@ instance Core.AWSRequest PutScalingPolicy where
       "PutScalingPolicyResult"
       ( \s h x ->
           PutScalingPolicyResponse'
-            Prelude.<$> (x Core..@? "PolicyARN")
-            Prelude.<*> ( x Core..@? "Alarms" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Alarms" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "PolicyARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable PutScalingPolicy where
   hashWithSalt _salt PutScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` minAdjustmentStep
+    _salt `Prelude.hashWithSalt` metricAggregationType
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` cooldown
+      `Prelude.hashWithSalt` adjustmentType
       `Prelude.hashWithSalt` estimatedInstanceWarmup
       `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` policyType
-      `Prelude.hashWithSalt` stepAdjustments
       `Prelude.hashWithSalt` targetTrackingConfiguration
-      `Prelude.hashWithSalt` adjustmentType
-      `Prelude.hashWithSalt` predictiveScalingConfiguration
+      `Prelude.hashWithSalt` minAdjustmentStep
       `Prelude.hashWithSalt` scalingAdjustment
-      `Prelude.hashWithSalt` cooldown
-      `Prelude.hashWithSalt` metricAggregationType
+      `Prelude.hashWithSalt` stepAdjustments
+      `Prelude.hashWithSalt` predictiveScalingConfiguration
       `Prelude.hashWithSalt` minAdjustmentMagnitude
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData PutScalingPolicy where
   rnf PutScalingPolicy' {..} =
-    Prelude.rnf minAdjustmentStep
+    Prelude.rnf metricAggregationType
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf cooldown
+      `Prelude.seq` Prelude.rnf adjustmentType
       `Prelude.seq` Prelude.rnf estimatedInstanceWarmup
       `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf stepAdjustments
       `Prelude.seq` Prelude.rnf targetTrackingConfiguration
-      `Prelude.seq` Prelude.rnf adjustmentType
-      `Prelude.seq` Prelude.rnf predictiveScalingConfiguration
+      `Prelude.seq` Prelude.rnf minAdjustmentStep
       `Prelude.seq` Prelude.rnf scalingAdjustment
-      `Prelude.seq` Prelude.rnf cooldown
-      `Prelude.seq` Prelude.rnf metricAggregationType
+      `Prelude.seq` Prelude.rnf stepAdjustments
+      `Prelude.seq` Prelude.rnf predictiveScalingConfiguration
       `Prelude.seq` Prelude.rnf minAdjustmentMagnitude
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf policyName
@@ -568,25 +568,25 @@ instance Core.ToQuery PutScalingPolicy where
           Core.=: ("PutScalingPolicy" :: Prelude.ByteString),
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "MinAdjustmentStep" Core.=: minAdjustmentStep,
+        "MetricAggregationType"
+          Core.=: metricAggregationType,
+        "PolicyType" Core.=: policyType,
+        "Cooldown" Core.=: cooldown,
+        "AdjustmentType" Core.=: adjustmentType,
         "EstimatedInstanceWarmup"
           Core.=: estimatedInstanceWarmup,
         "Enabled" Core.=: enabled,
-        "PolicyType" Core.=: policyType,
+        "TargetTrackingConfiguration"
+          Core.=: targetTrackingConfiguration,
+        "MinAdjustmentStep" Core.=: minAdjustmentStep,
+        "ScalingAdjustment" Core.=: scalingAdjustment,
         "StepAdjustments"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> stepAdjustments
             ),
-        "TargetTrackingConfiguration"
-          Core.=: targetTrackingConfiguration,
-        "AdjustmentType" Core.=: adjustmentType,
         "PredictiveScalingConfiguration"
           Core.=: predictiveScalingConfiguration,
-        "ScalingAdjustment" Core.=: scalingAdjustment,
-        "Cooldown" Core.=: cooldown,
-        "MetricAggregationType"
-          Core.=: metricAggregationType,
         "MinAdjustmentMagnitude"
           Core.=: minAdjustmentMagnitude,
         "AutoScalingGroupName" Core.=: autoScalingGroupName,
@@ -597,10 +597,10 @@ instance Core.ToQuery PutScalingPolicy where
 --
 -- /See:/ 'newPutScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-  { -- | The Amazon Resource Name (ARN) of the policy.
-    policyARN :: Prelude.Maybe Prelude.Text,
-    -- | The CloudWatch alarms created for the target tracking scaling policy.
+  { -- | The CloudWatch alarms created for the target tracking scaling policy.
     alarms :: Prelude.Maybe [Alarm],
+    -- | The Amazon Resource Name (ARN) of the policy.
+    policyARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -614,9 +614,9 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyARN', 'putScalingPolicyResponse_policyARN' - The Amazon Resource Name (ARN) of the policy.
---
 -- 'alarms', 'putScalingPolicyResponse_alarms' - The CloudWatch alarms created for the target tracking scaling policy.
+--
+-- 'policyARN', 'putScalingPolicyResponse_policyARN' - The Amazon Resource Name (ARN) of the policy.
 --
 -- 'httpStatus', 'putScalingPolicyResponse_httpStatus' - The response's http status code.
 newPutScalingPolicyResponse ::
@@ -625,19 +625,18 @@ newPutScalingPolicyResponse ::
   PutScalingPolicyResponse
 newPutScalingPolicyResponse pHttpStatus_ =
   PutScalingPolicyResponse'
-    { policyARN =
-        Prelude.Nothing,
-      alarms = Prelude.Nothing,
+    { alarms = Prelude.Nothing,
+      policyARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the policy.
-putScalingPolicyResponse_policyARN :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe Prelude.Text)
-putScalingPolicyResponse_policyARN = Lens.lens (\PutScalingPolicyResponse' {policyARN} -> policyARN) (\s@PutScalingPolicyResponse' {} a -> s {policyARN = a} :: PutScalingPolicyResponse)
 
 -- | The CloudWatch alarms created for the target tracking scaling policy.
 putScalingPolicyResponse_alarms :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe [Alarm])
 putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms} -> alarms) (\s@PutScalingPolicyResponse' {} a -> s {alarms = a} :: PutScalingPolicyResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the policy.
+putScalingPolicyResponse_policyARN :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe Prelude.Text)
+putScalingPolicyResponse_policyARN = Lens.lens (\PutScalingPolicyResponse' {policyARN} -> policyARN) (\s@PutScalingPolicyResponse' {} a -> s {policyARN = a} :: PutScalingPolicyResponse)
 
 -- | The response's http status code.
 putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Prelude.Int
@@ -645,6 +644,6 @@ putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {htt
 
 instance Prelude.NFData PutScalingPolicyResponse where
   rnf PutScalingPolicyResponse' {..} =
-    Prelude.rnf policyARN
-      `Prelude.seq` Prelude.rnf alarms
+    Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf policyARN
       `Prelude.seq` Prelude.rnf httpStatus

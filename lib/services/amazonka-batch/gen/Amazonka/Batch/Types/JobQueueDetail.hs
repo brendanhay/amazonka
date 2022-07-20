@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobQueueDetail' smart constructor.
 data JobQueueDetail = JobQueueDetail'
-  { -- | The status of the job queue (for example, @CREATING@ or @VALID@).
-    status :: Prelude.Maybe JQStatus,
-    -- | A short, human-readable string to provide additional details about the
-    -- current status of the job queue.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The tags applied to the job queue. For more information, see
+  { -- | The tags applied to the job queue. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
     -- in /Batch User Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A short, human-readable string to provide additional details about the
+    -- current status of the job queue.
+    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The status of the job queue (for example, @CREATING@ or @VALID@).
+    status :: Prelude.Maybe JQStatus,
     -- | The name of the job queue.
     jobQueueName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the job queue.
@@ -72,14 +72,14 @@ data JobQueueDetail = JobQueueDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).
+-- 'tags', 'jobQueueDetail_tags' - The tags applied to the job queue. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
 --
 -- 'statusReason', 'jobQueueDetail_statusReason' - A short, human-readable string to provide additional details about the
 -- current status of the job queue.
 --
--- 'tags', 'jobQueueDetail_tags' - The tags applied to the job queue. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
--- in /Batch User Guide/.
+-- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).
 --
 -- 'jobQueueName', 'jobQueueDetail_jobQueueName' - The name of the job queue.
 --
@@ -118,9 +118,9 @@ newJobQueueDetail
   pState_
   pPriority_ =
     JobQueueDetail'
-      { status = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         statusReason = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        status = Prelude.Nothing,
         jobQueueName = pJobQueueName_,
         jobQueueArn = pJobQueueArn_,
         state = pState_,
@@ -128,20 +128,20 @@ newJobQueueDetail
         computeEnvironmentOrder = Prelude.mempty
       }
 
--- | The status of the job queue (for example, @CREATING@ or @VALID@).
-jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Prelude.Maybe JQStatus)
-jobQueueDetail_status = Lens.lens (\JobQueueDetail' {status} -> status) (\s@JobQueueDetail' {} a -> s {status = a} :: JobQueueDetail)
+-- | The tags applied to the job queue. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
+jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | A short, human-readable string to provide additional details about the
 -- current status of the job queue.
 jobQueueDetail_statusReason :: Lens.Lens' JobQueueDetail (Prelude.Maybe Prelude.Text)
 jobQueueDetail_statusReason = Lens.lens (\JobQueueDetail' {statusReason} -> statusReason) (\s@JobQueueDetail' {} a -> s {statusReason = a} :: JobQueueDetail)
 
--- | The tags applied to the job queue. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
--- in /Batch User Guide/.
-jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Prelude.. Lens.mapping Lens.coerced
+-- | The status of the job queue (for example, @CREATING@ or @VALID@).
+jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Prelude.Maybe JQStatus)
+jobQueueDetail_status = Lens.lens (\JobQueueDetail' {status} -> status) (\s@JobQueueDetail' {} a -> s {status = a} :: JobQueueDetail)
 
 -- | The name of the job queue.
 jobQueueDetail_jobQueueName :: Lens.Lens' JobQueueDetail Prelude.Text
@@ -181,9 +181,9 @@ instance Core.FromJSON JobQueueDetail where
       "JobQueueDetail"
       ( \x ->
           JobQueueDetail'
-            Prelude.<$> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..: "jobQueueName")
             Prelude.<*> (x Core..: "jobQueueArn")
             Prelude.<*> (x Core..: "state")
@@ -195,9 +195,9 @@ instance Core.FromJSON JobQueueDetail where
 
 instance Prelude.Hashable JobQueueDetail where
   hashWithSalt _salt JobQueueDetail' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` jobQueueName
       `Prelude.hashWithSalt` jobQueueArn
       `Prelude.hashWithSalt` state
@@ -206,9 +206,9 @@ instance Prelude.Hashable JobQueueDetail where
 
 instance Prelude.NFData JobQueueDetail where
   rnf JobQueueDetail' {..} =
-    Prelude.rnf status
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf jobQueueName
       `Prelude.seq` Prelude.rnf jobQueueArn
       `Prelude.seq` Prelude.rnf state

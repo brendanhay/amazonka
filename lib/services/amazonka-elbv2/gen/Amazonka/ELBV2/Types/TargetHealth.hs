@@ -31,6 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 data TargetHealth = TargetHealth'
   { -- | The state of the target.
     state :: Prelude.Maybe TargetHealthStateEnum,
+    -- | A description of the target health that provides additional details. If
+    -- the state is @healthy@, a description is not provided.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The reason code.
     --
     -- If the target state is @healthy@, a reason code is not provided.
@@ -93,10 +96,7 @@ data TargetHealth = TargetHealth'
     --
     -- -   @Elb.InternalError@ - Target health is unavailable due to an
     --     internal error. Applies only to Network Load Balancers.
-    reason :: Prelude.Maybe TargetHealthReasonEnum,
-    -- | A description of the target health that provides additional details. If
-    -- the state is @healthy@, a description is not provided.
-    description :: Prelude.Maybe Prelude.Text
+    reason :: Prelude.Maybe TargetHealthReasonEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,6 +109,9 @@ data TargetHealth = TargetHealth'
 -- for backwards compatibility:
 --
 -- 'state', 'targetHealth_state' - The state of the target.
+--
+-- 'description', 'targetHealth_description' - A description of the target health that provides additional details. If
+-- the state is @healthy@, a description is not provided.
 --
 -- 'reason', 'targetHealth_reason' - The reason code.
 --
@@ -172,21 +175,23 @@ data TargetHealth = TargetHealth'
 --
 -- -   @Elb.InternalError@ - Target health is unavailable due to an
 --     internal error. Applies only to Network Load Balancers.
---
--- 'description', 'targetHealth_description' - A description of the target health that provides additional details. If
--- the state is @healthy@, a description is not provided.
 newTargetHealth ::
   TargetHealth
 newTargetHealth =
   TargetHealth'
     { state = Prelude.Nothing,
-      reason = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      reason = Prelude.Nothing
     }
 
 -- | The state of the target.
 targetHealth_state :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthStateEnum)
 targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealth' {} a -> s {state = a} :: TargetHealth)
+
+-- | A description of the target health that provides additional details. If
+-- the state is @healthy@, a description is not provided.
+targetHealth_description :: Lens.Lens' TargetHealth (Prelude.Maybe Prelude.Text)
+targetHealth_description = Lens.lens (\TargetHealth' {description} -> description) (\s@TargetHealth' {} a -> s {description = a} :: TargetHealth)
 
 -- | The reason code.
 --
@@ -253,26 +258,21 @@ targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealt
 targetHealth_reason :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthReasonEnum)
 targetHealth_reason = Lens.lens (\TargetHealth' {reason} -> reason) (\s@TargetHealth' {} a -> s {reason = a} :: TargetHealth)
 
--- | A description of the target health that provides additional details. If
--- the state is @healthy@, a description is not provided.
-targetHealth_description :: Lens.Lens' TargetHealth (Prelude.Maybe Prelude.Text)
-targetHealth_description = Lens.lens (\TargetHealth' {description} -> description) (\s@TargetHealth' {} a -> s {description = a} :: TargetHealth)
-
 instance Core.FromXML TargetHealth where
   parseXML x =
     TargetHealth'
       Prelude.<$> (x Core..@? "State")
-      Prelude.<*> (x Core..@? "Reason")
       Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "Reason")
 
 instance Prelude.Hashable TargetHealth where
   hashWithSalt _salt TargetHealth' {..} =
     _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData TargetHealth where
   rnf TargetHealth' {..} =
     Prelude.rnf state
-      `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf reason

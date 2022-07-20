@@ -78,10 +78,10 @@ module Amazonka.S3.PutObjectTagging
     newPutObjectTagging,
 
     -- * Request Lenses
-    putObjectTagging_versionId,
-    putObjectTagging_requestPayer,
     putObjectTagging_contentMD5,
     putObjectTagging_expectedBucketOwner,
+    putObjectTagging_requestPayer,
+    putObjectTagging_versionId,
     putObjectTagging_bucket,
     putObjectTagging_key,
     putObjectTagging_tagging,
@@ -105,10 +105,7 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutObjectTagging' smart constructor.
 data PutObjectTagging = PutObjectTagging'
-  { -- | The versionId of the object that the tag-set will be added to.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | The MD5 hash for the request body.
+  { -- | The MD5 hash for the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
@@ -118,6 +115,9 @@ data PutObjectTagging = PutObjectTagging'
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The versionId of the object that the tag-set will be added to.
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name containing the object.
     --
     -- When using this action with an access point, you must direct requests to
@@ -154,10 +154,6 @@ data PutObjectTagging = PutObjectTagging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'putObjectTagging_versionId' - The versionId of the object that the tag-set will be added to.
---
--- 'requestPayer', 'putObjectTagging_requestPayer' - Undocumented member.
---
 -- 'contentMD5', 'putObjectTagging_contentMD5' - The MD5 hash for the request body.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
@@ -167,6 +163,10 @@ data PutObjectTagging = PutObjectTagging'
 -- 'expectedBucketOwner', 'putObjectTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'requestPayer', 'putObjectTagging_requestPayer' - Undocumented member.
+--
+-- 'versionId', 'putObjectTagging_versionId' - The versionId of the object that the tag-set will be added to.
 --
 -- 'bucket', 'putObjectTagging_bucket' - The bucket name containing the object.
 --
@@ -202,22 +202,14 @@ newPutObjectTagging ::
   PutObjectTagging
 newPutObjectTagging pBucket_ pKey_ pTagging_ =
   PutObjectTagging'
-    { versionId = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
+    { contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       tagging = pTagging_
     }
-
--- | The versionId of the object that the tag-set will be added to.
-putObjectTagging_versionId :: Lens.Lens' PutObjectTagging (Prelude.Maybe ObjectVersionId)
-putObjectTagging_versionId = Lens.lens (\PutObjectTagging' {versionId} -> versionId) (\s@PutObjectTagging' {} a -> s {versionId = a} :: PutObjectTagging)
-
--- | Undocumented member.
-putObjectTagging_requestPayer :: Lens.Lens' PutObjectTagging (Prelude.Maybe RequestPayer)
-putObjectTagging_requestPayer = Lens.lens (\PutObjectTagging' {requestPayer} -> requestPayer) (\s@PutObjectTagging' {} a -> s {requestPayer = a} :: PutObjectTagging)
 
 -- | The MD5 hash for the request body.
 --
@@ -232,6 +224,14 @@ putObjectTagging_contentMD5 = Lens.lens (\PutObjectTagging' {contentMD5} -> cont
 -- @403 (Access Denied)@ error.
 putObjectTagging_expectedBucketOwner :: Lens.Lens' PutObjectTagging (Prelude.Maybe Prelude.Text)
 putObjectTagging_expectedBucketOwner = Lens.lens (\PutObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectTagging' {} a -> s {expectedBucketOwner = a} :: PutObjectTagging)
+
+-- | Undocumented member.
+putObjectTagging_requestPayer :: Lens.Lens' PutObjectTagging (Prelude.Maybe RequestPayer)
+putObjectTagging_requestPayer = Lens.lens (\PutObjectTagging' {requestPayer} -> requestPayer) (\s@PutObjectTagging' {} a -> s {requestPayer = a} :: PutObjectTagging)
+
+-- | The versionId of the object that the tag-set will be added to.
+putObjectTagging_versionId :: Lens.Lens' PutObjectTagging (Prelude.Maybe ObjectVersionId)
+putObjectTagging_versionId = Lens.lens (\PutObjectTagging' {versionId} -> versionId) (\s@PutObjectTagging' {} a -> s {versionId = a} :: PutObjectTagging)
 
 -- | The bucket name containing the object.
 --
@@ -281,20 +281,20 @@ instance Core.AWSRequest PutObjectTagging where
 
 instance Prelude.Hashable PutObjectTagging where
   hashWithSalt _salt PutObjectTagging' {..} =
-    _salt `Prelude.hashWithSalt` versionId
-      `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` tagging
 
 instance Prelude.NFData PutObjectTagging where
   rnf PutObjectTagging' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf contentMD5
+    Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf tagging
@@ -308,10 +308,10 @@ instance Core.ToElement PutObjectTagging where
 instance Core.ToHeaders PutObjectTagging where
   toHeaders PutObjectTagging' {..} =
     Prelude.mconcat
-      [ "x-amz-request-payer" Core.=# requestPayer,
-        "Content-MD5" Core.=# contentMD5,
+      [ "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
 instance Core.ToPath PutObjectTagging where

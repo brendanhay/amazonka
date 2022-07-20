@@ -36,8 +36,8 @@ module Amazonka.WAFRegional.ListSizeConstraintSets
     newListSizeConstraintSets,
 
     -- * Request Lenses
-    listSizeConstraintSets_nextMarker,
     listSizeConstraintSets_limit,
+    listSizeConstraintSets_nextMarker,
 
     -- * Destructuring the Response
     ListSizeConstraintSetsResponse (..),
@@ -59,20 +59,20 @@ import Amazonka.WAFRegional.Types
 
 -- | /See:/ 'newListSizeConstraintSets' smart constructor.
 data ListSizeConstraintSets = ListSizeConstraintSets'
-  { -- | If you specify a value for @Limit@ and you have more
+  { -- | Specifies the number of @SizeConstraintSet@ objects that you want AWS
+    -- WAF to return for this request. If you have more @SizeConstraintSets@
+    -- objects than the number you specify for @Limit@, the response includes a
+    -- @NextMarker@ value that you can use to get another batch of
+    -- @SizeConstraintSet@ objects.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a value for @Limit@ and you have more
     -- @SizeConstraintSets@ than the value of @Limit@, AWS WAF returns a
     -- @NextMarker@ value in the response that allows you to list another group
     -- of @SizeConstraintSets@. For the second and subsequent
     -- @ListSizeConstraintSets@ requests, specify the value of @NextMarker@
     -- from the previous response to get information about another batch of
     -- @SizeConstraintSets@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of @SizeConstraintSet@ objects that you want AWS
-    -- WAF to return for this request. If you have more @SizeConstraintSets@
-    -- objects than the number you specify for @Limit@, the response includes a
-    -- @NextMarker@ value that you can use to get another batch of
-    -- @SizeConstraintSet@ objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,6 +84,12 @@ data ListSizeConstraintSets = ListSizeConstraintSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listSizeConstraintSets_limit' - Specifies the number of @SizeConstraintSet@ objects that you want AWS
+-- WAF to return for this request. If you have more @SizeConstraintSets@
+-- objects than the number you specify for @Limit@, the response includes a
+-- @NextMarker@ value that you can use to get another batch of
+-- @SizeConstraintSet@ objects.
+--
 -- 'nextMarker', 'listSizeConstraintSets_nextMarker' - If you specify a value for @Limit@ and you have more
 -- @SizeConstraintSets@ than the value of @Limit@, AWS WAF returns a
 -- @NextMarker@ value in the response that allows you to list another group
@@ -91,20 +97,21 @@ data ListSizeConstraintSets = ListSizeConstraintSets'
 -- @ListSizeConstraintSets@ requests, specify the value of @NextMarker@
 -- from the previous response to get information about another batch of
 -- @SizeConstraintSets@.
---
--- 'limit', 'listSizeConstraintSets_limit' - Specifies the number of @SizeConstraintSet@ objects that you want AWS
--- WAF to return for this request. If you have more @SizeConstraintSets@
--- objects than the number you specify for @Limit@, the response includes a
--- @NextMarker@ value that you can use to get another batch of
--- @SizeConstraintSet@ objects.
 newListSizeConstraintSets ::
   ListSizeConstraintSets
 newListSizeConstraintSets =
   ListSizeConstraintSets'
-    { nextMarker =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      nextMarker = Prelude.Nothing
     }
+
+-- | Specifies the number of @SizeConstraintSet@ objects that you want AWS
+-- WAF to return for this request. If you have more @SizeConstraintSets@
+-- objects than the number you specify for @Limit@, the response includes a
+-- @NextMarker@ value that you can use to get another batch of
+-- @SizeConstraintSet@ objects.
+listSizeConstraintSets_limit :: Lens.Lens' ListSizeConstraintSets (Prelude.Maybe Prelude.Natural)
+listSizeConstraintSets_limit = Lens.lens (\ListSizeConstraintSets' {limit} -> limit) (\s@ListSizeConstraintSets' {} a -> s {limit = a} :: ListSizeConstraintSets)
 
 -- | If you specify a value for @Limit@ and you have more
 -- @SizeConstraintSets@ than the value of @Limit@, AWS WAF returns a
@@ -115,14 +122,6 @@ newListSizeConstraintSets =
 -- @SizeConstraintSets@.
 listSizeConstraintSets_nextMarker :: Lens.Lens' ListSizeConstraintSets (Prelude.Maybe Prelude.Text)
 listSizeConstraintSets_nextMarker = Lens.lens (\ListSizeConstraintSets' {nextMarker} -> nextMarker) (\s@ListSizeConstraintSets' {} a -> s {nextMarker = a} :: ListSizeConstraintSets)
-
--- | Specifies the number of @SizeConstraintSet@ objects that you want AWS
--- WAF to return for this request. If you have more @SizeConstraintSets@
--- objects than the number you specify for @Limit@, the response includes a
--- @NextMarker@ value that you can use to get another batch of
--- @SizeConstraintSet@ objects.
-listSizeConstraintSets_limit :: Lens.Lens' ListSizeConstraintSets (Prelude.Maybe Prelude.Natural)
-listSizeConstraintSets_limit = Lens.lens (\ListSizeConstraintSets' {limit} -> limit) (\s@ListSizeConstraintSets' {} a -> s {limit = a} :: ListSizeConstraintSets)
 
 instance Core.AWSRequest ListSizeConstraintSets where
   type
@@ -142,13 +141,13 @@ instance Core.AWSRequest ListSizeConstraintSets where
 
 instance Prelude.Hashable ListSizeConstraintSets where
   hashWithSalt _salt ListSizeConstraintSets' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListSizeConstraintSets where
   rnf ListSizeConstraintSets' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextMarker
 
 instance Core.ToHeaders ListSizeConstraintSets where
   toHeaders =
@@ -169,8 +168,8 @@ instance Core.ToJSON ListSizeConstraintSets where
   toJSON ListSizeConstraintSets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker
           ]
       )
 

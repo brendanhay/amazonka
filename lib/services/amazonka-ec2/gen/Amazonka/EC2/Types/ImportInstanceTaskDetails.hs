@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportInstanceTaskDetails' smart constructor.
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
-  { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The instance operating system.
+  { -- | The instance operating system.
     platform :: Prelude.Maybe PlatformValues,
+    -- | A description of the task.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The volumes.
     volumes :: Prelude.Maybe [ImportInstanceVolumeDetailItem],
-    -- | A description of the task.
-    description :: Prelude.Maybe Prelude.Text
+    -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,60 +49,60 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'importInstanceTaskDetails_instanceId' - The ID of the instance.
---
 -- 'platform', 'importInstanceTaskDetails_platform' - The instance operating system.
+--
+-- 'description', 'importInstanceTaskDetails_description' - A description of the task.
 --
 -- 'volumes', 'importInstanceTaskDetails_volumes' - The volumes.
 --
--- 'description', 'importInstanceTaskDetails_description' - A description of the task.
+-- 'instanceId', 'importInstanceTaskDetails_instanceId' - The ID of the instance.
 newImportInstanceTaskDetails ::
   ImportInstanceTaskDetails
 newImportInstanceTaskDetails =
   ImportInstanceTaskDetails'
-    { instanceId =
+    { platform =
         Prelude.Nothing,
-      platform = Prelude.Nothing,
+      description = Prelude.Nothing,
       volumes = Prelude.Nothing,
-      description = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
-
--- | The ID of the instance.
-importInstanceTaskDetails_instanceId :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe Prelude.Text)
-importInstanceTaskDetails_instanceId = Lens.lens (\ImportInstanceTaskDetails' {instanceId} -> instanceId) (\s@ImportInstanceTaskDetails' {} a -> s {instanceId = a} :: ImportInstanceTaskDetails)
 
 -- | The instance operating system.
 importInstanceTaskDetails_platform :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe PlatformValues)
 importInstanceTaskDetails_platform = Lens.lens (\ImportInstanceTaskDetails' {platform} -> platform) (\s@ImportInstanceTaskDetails' {} a -> s {platform = a} :: ImportInstanceTaskDetails)
 
--- | The volumes.
-importInstanceTaskDetails_volumes :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe [ImportInstanceVolumeDetailItem])
-importInstanceTaskDetails_volumes = Lens.lens (\ImportInstanceTaskDetails' {volumes} -> volumes) (\s@ImportInstanceTaskDetails' {} a -> s {volumes = a} :: ImportInstanceTaskDetails) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description of the task.
 importInstanceTaskDetails_description :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe Prelude.Text)
 importInstanceTaskDetails_description = Lens.lens (\ImportInstanceTaskDetails' {description} -> description) (\s@ImportInstanceTaskDetails' {} a -> s {description = a} :: ImportInstanceTaskDetails)
 
+-- | The volumes.
+importInstanceTaskDetails_volumes :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe [ImportInstanceVolumeDetailItem])
+importInstanceTaskDetails_volumes = Lens.lens (\ImportInstanceTaskDetails' {volumes} -> volumes) (\s@ImportInstanceTaskDetails' {} a -> s {volumes = a} :: ImportInstanceTaskDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the instance.
+importInstanceTaskDetails_instanceId :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe Prelude.Text)
+importInstanceTaskDetails_instanceId = Lens.lens (\ImportInstanceTaskDetails' {instanceId} -> instanceId) (\s@ImportInstanceTaskDetails' {} a -> s {instanceId = a} :: ImportInstanceTaskDetails)
+
 instance Core.FromXML ImportInstanceTaskDetails where
   parseXML x =
     ImportInstanceTaskDetails'
-      Prelude.<$> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "platform")
+      Prelude.<$> (x Core..@? "platform")
+      Prelude.<*> (x Core..@? "description")
       Prelude.<*> ( x Core..@? "volumes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "instanceId")
 
 instance Prelude.Hashable ImportInstanceTaskDetails where
   hashWithSalt _salt ImportInstanceTaskDetails' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` platform
-      `Prelude.hashWithSalt` volumes
+    _salt `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ImportInstanceTaskDetails where
   rnf ImportInstanceTaskDetails' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf volumes
+    Prelude.rnf platform
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf instanceId

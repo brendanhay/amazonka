@@ -17,14 +17,14 @@ module Amazonka.FinSpace.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _InvalidRequestException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
     _LimitExceededException,
+    _ThrottlingException,
+    _ValidationException,
+    _InvalidRequestException,
 
     -- * EnvironmentStatus
     EnvironmentStatus (..),
@@ -35,28 +35,28 @@ module Amazonka.FinSpace.Types
     -- * Environment
     Environment (..),
     newEnvironment,
-    environment_status,
-    environment_federationParameters,
-    environment_dedicatedServiceAccountId,
-    environment_environmentUrl,
-    environment_federationMode,
     environment_awsAccountId,
     environment_name,
-    environment_kmsKeyId,
-    environment_environmentId,
-    environment_environmentArn,
-    environment_sageMakerStudioDomainUrl,
+    environment_federationParameters,
+    environment_status,
     environment_description,
+    environment_federationMode,
+    environment_environmentUrl,
+    environment_kmsKeyId,
+    environment_dedicatedServiceAccountId,
+    environment_environmentArn,
+    environment_environmentId,
+    environment_sageMakerStudioDomainUrl,
 
     -- * FederationParameters
     FederationParameters (..),
     newFederationParameters,
-    federationParameters_samlMetadataURL,
-    federationParameters_applicationCallBackURL,
-    federationParameters_federationURN,
-    federationParameters_attributeMap,
     federationParameters_federationProviderName,
     federationParameters_samlMetadataDocument,
+    federationParameters_federationURN,
+    federationParameters_samlMetadataURL,
+    federationParameters_applicationCallBackURL,
+    federationParameters_attributeMap,
   )
 where
 
@@ -94,35 +94,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -131,21 +104,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input fails to satisfy the constraints specified by an AWS service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | You do not have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -155,14 +147,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The request is invalid. Something is wrong with the input to the
--- request.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | The request processing has failed because of an unknown error, exception
+-- or failure.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | You have exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use Service Quotas to request
@@ -173,23 +165,6 @@ _ServiceQuotaExceededException =
     defaultService
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
-
--- | The request processing has failed because of an unknown error, exception
--- or failure.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
 
 -- | One or more resources can\'t be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -205,4 +180,29 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | The input fails to satisfy the constraints specified by an AWS service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request is invalid. Something is wrong with the input to the
+-- request.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
     Prelude.. Core.hasStatus 400

@@ -33,22 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFileSourceSettings' smart constructor.
 data FileSourceSettings = FileSourceSettings'
-  { -- | Ignore this setting unless your input captions format is SCC. To have
-    -- the service compensate for differing frame rates between your input
-    -- captions and input video, specify the frame rate of the captions file.
-    -- Specify this value as a fraction. When you work directly in your JSON
-    -- job specification, use the settings framerateNumerator and
-    -- framerateDenominator. For example, you might specify 24 \/ 1 for 24 fps,
-    -- 25 \/ 1 for 25 fps, 24000 \/ 1001 for 23.976 fps, or 30000 \/ 1001 for
-    -- 29.97 fps.
-    framerate :: Prelude.Maybe CaptionSourceFramerate,
-    -- | Specify whether this set of input captions appears in your outputs in
-    -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
-    -- MediaConvert includes the captions data in two ways: it passes the 608
-    -- data through using the 608 compatibility bytes fields of the 708
-    -- wrapper, and it also translates the 608 data into 708.
-    convert608To708 :: Prelude.Maybe FileSourceConvert608To708,
-    -- | Optional. Use this setting when you need to adjust the sync between your
+  { -- | Optional. Use this setting when you need to adjust the sync between your
     -- sidecar captions and your video. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/time-delta-use-cases.html.
     -- Enter a positive or negative number to modify the times in the captions
@@ -64,6 +49,12 @@ data FileSourceSettings = FileSourceSettings'
     -- rate is 25 fps and you specify 1010ms for time delta, MediaConvert
     -- delays your captions by 1000 ms.
     timeDelta :: Prelude.Maybe Prelude.Int,
+    -- | Specify whether this set of input captions appears in your outputs in
+    -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
+    -- MediaConvert includes the captions data in two ways: it passes the 608
+    -- data through using the 608 compatibility bytes fields of the 708
+    -- wrapper, and it also translates the 608 data into 708.
+    convert608To708 :: Prelude.Maybe FileSourceConvert608To708,
     -- | When you use the setting Time delta (TimeDelta) to adjust the sync
     -- between your sidecar captions and your video, use this setting to
     -- specify the units for the delta that you specify. When you don\'t
@@ -73,7 +64,16 @@ data FileSourceSettings = FileSourceSettings'
     -- | External caption file used for loading captions. Accepted file
     -- extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', \'xml\',
     -- \'smi\', \'webvtt\', and \'vtt\'.
-    sourceFile :: Prelude.Maybe Prelude.Text
+    sourceFile :: Prelude.Maybe Prelude.Text,
+    -- | Ignore this setting unless your input captions format is SCC. To have
+    -- the service compensate for differing frame rates between your input
+    -- captions and input video, specify the frame rate of the captions file.
+    -- Specify this value as a fraction. When you work directly in your JSON
+    -- job specification, use the settings framerateNumerator and
+    -- framerateDenominator. For example, you might specify 24 \/ 1 for 24 fps,
+    -- 25 \/ 1 for 25 fps, 24000 \/ 1001 for 23.976 fps, or 30000 \/ 1001 for
+    -- 29.97 fps.
+    framerate :: Prelude.Maybe CaptionSourceFramerate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,21 +84,6 @@ data FileSourceSettings = FileSourceSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'framerate', 'fileSourceSettings_framerate' - Ignore this setting unless your input captions format is SCC. To have
--- the service compensate for differing frame rates between your input
--- captions and input video, specify the frame rate of the captions file.
--- Specify this value as a fraction. When you work directly in your JSON
--- job specification, use the settings framerateNumerator and
--- framerateDenominator. For example, you might specify 24 \/ 1 for 24 fps,
--- 25 \/ 1 for 25 fps, 24000 \/ 1001 for 23.976 fps, or 30000 \/ 1001 for
--- 29.97 fps.
---
--- 'convert608To708', 'fileSourceSettings_convert608To708' - Specify whether this set of input captions appears in your outputs in
--- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
--- MediaConvert includes the captions data in two ways: it passes the 608
--- data through using the 608 compatibility bytes fields of the 708
--- wrapper, and it also translates the 608 data into 708.
 --
 -- 'timeDelta', 'fileSourceSettings_timeDelta' - Optional. Use this setting when you need to adjust the sync between your
 -- sidecar captions and your video. For more information, see
@@ -116,6 +101,12 @@ data FileSourceSettings = FileSourceSettings'
 -- rate is 25 fps and you specify 1010ms for time delta, MediaConvert
 -- delays your captions by 1000 ms.
 --
+-- 'convert608To708', 'fileSourceSettings_convert608To708' - Specify whether this set of input captions appears in your outputs in
+-- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
+-- MediaConvert includes the captions data in two ways: it passes the 608
+-- data through using the 608 compatibility bytes fields of the 708
+-- wrapper, and it also translates the 608 data into 708.
+--
 -- 'timeDeltaUnits', 'fileSourceSettings_timeDeltaUnits' - When you use the setting Time delta (TimeDelta) to adjust the sync
 -- between your sidecar captions and your video, use this setting to
 -- specify the units for the delta that you specify. When you don\'t
@@ -125,18 +116,8 @@ data FileSourceSettings = FileSourceSettings'
 -- 'sourceFile', 'fileSourceSettings_sourceFile' - External caption file used for loading captions. Accepted file
 -- extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', \'xml\',
 -- \'smi\', \'webvtt\', and \'vtt\'.
-newFileSourceSettings ::
-  FileSourceSettings
-newFileSourceSettings =
-  FileSourceSettings'
-    { framerate = Prelude.Nothing,
-      convert608To708 = Prelude.Nothing,
-      timeDelta = Prelude.Nothing,
-      timeDeltaUnits = Prelude.Nothing,
-      sourceFile = Prelude.Nothing
-    }
-
--- | Ignore this setting unless your input captions format is SCC. To have
+--
+-- 'framerate', 'fileSourceSettings_framerate' - Ignore this setting unless your input captions format is SCC. To have
 -- the service compensate for differing frame rates between your input
 -- captions and input video, specify the frame rate of the captions file.
 -- Specify this value as a fraction. When you work directly in your JSON
@@ -144,16 +125,16 @@ newFileSourceSettings =
 -- framerateDenominator. For example, you might specify 24 \/ 1 for 24 fps,
 -- 25 \/ 1 for 25 fps, 24000 \/ 1001 for 23.976 fps, or 30000 \/ 1001 for
 -- 29.97 fps.
-fileSourceSettings_framerate :: Lens.Lens' FileSourceSettings (Prelude.Maybe CaptionSourceFramerate)
-fileSourceSettings_framerate = Lens.lens (\FileSourceSettings' {framerate} -> framerate) (\s@FileSourceSettings' {} a -> s {framerate = a} :: FileSourceSettings)
-
--- | Specify whether this set of input captions appears in your outputs in
--- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
--- MediaConvert includes the captions data in two ways: it passes the 608
--- data through using the 608 compatibility bytes fields of the 708
--- wrapper, and it also translates the 608 data into 708.
-fileSourceSettings_convert608To708 :: Lens.Lens' FileSourceSettings (Prelude.Maybe FileSourceConvert608To708)
-fileSourceSettings_convert608To708 = Lens.lens (\FileSourceSettings' {convert608To708} -> convert608To708) (\s@FileSourceSettings' {} a -> s {convert608To708 = a} :: FileSourceSettings)
+newFileSourceSettings ::
+  FileSourceSettings
+newFileSourceSettings =
+  FileSourceSettings'
+    { timeDelta = Prelude.Nothing,
+      convert608To708 = Prelude.Nothing,
+      timeDeltaUnits = Prelude.Nothing,
+      sourceFile = Prelude.Nothing,
+      framerate = Prelude.Nothing
+    }
 
 -- | Optional. Use this setting when you need to adjust the sync between your
 -- sidecar captions and your video. For more information, see
@@ -173,6 +154,14 @@ fileSourceSettings_convert608To708 = Lens.lens (\FileSourceSettings' {convert608
 fileSourceSettings_timeDelta :: Lens.Lens' FileSourceSettings (Prelude.Maybe Prelude.Int)
 fileSourceSettings_timeDelta = Lens.lens (\FileSourceSettings' {timeDelta} -> timeDelta) (\s@FileSourceSettings' {} a -> s {timeDelta = a} :: FileSourceSettings)
 
+-- | Specify whether this set of input captions appears in your outputs in
+-- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
+-- MediaConvert includes the captions data in two ways: it passes the 608
+-- data through using the 608 compatibility bytes fields of the 708
+-- wrapper, and it also translates the 608 data into 708.
+fileSourceSettings_convert608To708 :: Lens.Lens' FileSourceSettings (Prelude.Maybe FileSourceConvert608To708)
+fileSourceSettings_convert608To708 = Lens.lens (\FileSourceSettings' {convert608To708} -> convert608To708) (\s@FileSourceSettings' {} a -> s {convert608To708 = a} :: FileSourceSettings)
+
 -- | When you use the setting Time delta (TimeDelta) to adjust the sync
 -- between your sidecar captions and your video, use this setting to
 -- specify the units for the delta that you specify. When you don\'t
@@ -187,45 +176,56 @@ fileSourceSettings_timeDeltaUnits = Lens.lens (\FileSourceSettings' {timeDeltaUn
 fileSourceSettings_sourceFile :: Lens.Lens' FileSourceSettings (Prelude.Maybe Prelude.Text)
 fileSourceSettings_sourceFile = Lens.lens (\FileSourceSettings' {sourceFile} -> sourceFile) (\s@FileSourceSettings' {} a -> s {sourceFile = a} :: FileSourceSettings)
 
+-- | Ignore this setting unless your input captions format is SCC. To have
+-- the service compensate for differing frame rates between your input
+-- captions and input video, specify the frame rate of the captions file.
+-- Specify this value as a fraction. When you work directly in your JSON
+-- job specification, use the settings framerateNumerator and
+-- framerateDenominator. For example, you might specify 24 \/ 1 for 24 fps,
+-- 25 \/ 1 for 25 fps, 24000 \/ 1001 for 23.976 fps, or 30000 \/ 1001 for
+-- 29.97 fps.
+fileSourceSettings_framerate :: Lens.Lens' FileSourceSettings (Prelude.Maybe CaptionSourceFramerate)
+fileSourceSettings_framerate = Lens.lens (\FileSourceSettings' {framerate} -> framerate) (\s@FileSourceSettings' {} a -> s {framerate = a} :: FileSourceSettings)
+
 instance Core.FromJSON FileSourceSettings where
   parseJSON =
     Core.withObject
       "FileSourceSettings"
       ( \x ->
           FileSourceSettings'
-            Prelude.<$> (x Core..:? "framerate")
+            Prelude.<$> (x Core..:? "timeDelta")
             Prelude.<*> (x Core..:? "convert608To708")
-            Prelude.<*> (x Core..:? "timeDelta")
             Prelude.<*> (x Core..:? "timeDeltaUnits")
             Prelude.<*> (x Core..:? "sourceFile")
+            Prelude.<*> (x Core..:? "framerate")
       )
 
 instance Prelude.Hashable FileSourceSettings where
   hashWithSalt _salt FileSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` framerate
+    _salt `Prelude.hashWithSalt` timeDelta
       `Prelude.hashWithSalt` convert608To708
-      `Prelude.hashWithSalt` timeDelta
       `Prelude.hashWithSalt` timeDeltaUnits
       `Prelude.hashWithSalt` sourceFile
+      `Prelude.hashWithSalt` framerate
 
 instance Prelude.NFData FileSourceSettings where
   rnf FileSourceSettings' {..} =
-    Prelude.rnf framerate
+    Prelude.rnf timeDelta
       `Prelude.seq` Prelude.rnf convert608To708
-      `Prelude.seq` Prelude.rnf timeDelta
       `Prelude.seq` Prelude.rnf timeDeltaUnits
       `Prelude.seq` Prelude.rnf sourceFile
+      `Prelude.seq` Prelude.rnf framerate
 
 instance Core.ToJSON FileSourceSettings where
   toJSON FileSourceSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("framerate" Core..=) Prelude.<$> framerate,
+          [ ("timeDelta" Core..=) Prelude.<$> timeDelta,
             ("convert608To708" Core..=)
               Prelude.<$> convert608To708,
-            ("timeDelta" Core..=) Prelude.<$> timeDelta,
             ("timeDeltaUnits" Core..=)
               Prelude.<$> timeDeltaUnits,
-            ("sourceFile" Core..=) Prelude.<$> sourceFile
+            ("sourceFile" Core..=) Prelude.<$> sourceFile,
+            ("framerate" Core..=) Prelude.<$> framerate
           ]
       )

@@ -30,7 +30,10 @@ import Amazonka.Rekognition.Types.Reason
 --
 -- /See:/ 'newUnindexedFace' smart constructor.
 data UnindexedFace = UnindexedFace'
-  { -- | An array of reasons that specify why a face wasn\'t indexed.
+  { -- | The structure that contains attributes of a face that
+    -- @IndexFaces@detected, but didn\'t index.
+    faceDetail :: Prelude.Maybe FaceDetail,
+    -- | An array of reasons that specify why a face wasn\'t indexed.
     --
     -- -   EXTREME_POSE - The face is at a pose that can\'t be detected. For
     --     example, the head is turned too far away from the camera.
@@ -46,10 +49,7 @@ data UnindexedFace = UnindexedFace'
     -- -   LOW_CONFIDENCE - The face was detected with a low confidence.
     --
     -- -   SMALL_BOUNDING_BOX - The bounding box around the face is too small.
-    reasons :: Prelude.Maybe [Reason],
-    -- | The structure that contains attributes of a face that
-    -- @IndexFaces@detected, but didn\'t index.
-    faceDetail :: Prelude.Maybe FaceDetail
+    reasons :: Prelude.Maybe [Reason]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,6 +60,9 @@ data UnindexedFace = UnindexedFace'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'faceDetail', 'unindexedFace_faceDetail' - The structure that contains attributes of a face that
+-- @IndexFaces@detected, but didn\'t index.
 --
 -- 'reasons', 'unindexedFace_reasons' - An array of reasons that specify why a face wasn\'t indexed.
 --
@@ -77,16 +80,18 @@ data UnindexedFace = UnindexedFace'
 -- -   LOW_CONFIDENCE - The face was detected with a low confidence.
 --
 -- -   SMALL_BOUNDING_BOX - The bounding box around the face is too small.
---
--- 'faceDetail', 'unindexedFace_faceDetail' - The structure that contains attributes of a face that
--- @IndexFaces@detected, but didn\'t index.
 newUnindexedFace ::
   UnindexedFace
 newUnindexedFace =
   UnindexedFace'
-    { reasons = Prelude.Nothing,
-      faceDetail = Prelude.Nothing
+    { faceDetail = Prelude.Nothing,
+      reasons = Prelude.Nothing
     }
+
+-- | The structure that contains attributes of a face that
+-- @IndexFaces@detected, but didn\'t index.
+unindexedFace_faceDetail :: Lens.Lens' UnindexedFace (Prelude.Maybe FaceDetail)
+unindexedFace_faceDetail = Lens.lens (\UnindexedFace' {faceDetail} -> faceDetail) (\s@UnindexedFace' {} a -> s {faceDetail = a} :: UnindexedFace)
 
 -- | An array of reasons that specify why a face wasn\'t indexed.
 --
@@ -107,27 +112,22 @@ newUnindexedFace =
 unindexedFace_reasons :: Lens.Lens' UnindexedFace (Prelude.Maybe [Reason])
 unindexedFace_reasons = Lens.lens (\UnindexedFace' {reasons} -> reasons) (\s@UnindexedFace' {} a -> s {reasons = a} :: UnindexedFace) Prelude.. Lens.mapping Lens.coerced
 
--- | The structure that contains attributes of a face that
--- @IndexFaces@detected, but didn\'t index.
-unindexedFace_faceDetail :: Lens.Lens' UnindexedFace (Prelude.Maybe FaceDetail)
-unindexedFace_faceDetail = Lens.lens (\UnindexedFace' {faceDetail} -> faceDetail) (\s@UnindexedFace' {} a -> s {faceDetail = a} :: UnindexedFace)
-
 instance Core.FromJSON UnindexedFace where
   parseJSON =
     Core.withObject
       "UnindexedFace"
       ( \x ->
           UnindexedFace'
-            Prelude.<$> (x Core..:? "Reasons" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FaceDetail")
+            Prelude.<$> (x Core..:? "FaceDetail")
+            Prelude.<*> (x Core..:? "Reasons" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UnindexedFace where
   hashWithSalt _salt UnindexedFace' {..} =
-    _salt `Prelude.hashWithSalt` reasons
-      `Prelude.hashWithSalt` faceDetail
+    _salt `Prelude.hashWithSalt` faceDetail
+      `Prelude.hashWithSalt` reasons
 
 instance Prelude.NFData UnindexedFace where
   rnf UnindexedFace' {..} =
-    Prelude.rnf reasons
-      `Prelude.seq` Prelude.rnf faceDetail
+    Prelude.rnf faceDetail
+      `Prelude.seq` Prelude.rnf reasons

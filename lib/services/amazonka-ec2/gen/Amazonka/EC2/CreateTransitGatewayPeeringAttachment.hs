@@ -33,8 +33,8 @@ module Amazonka.EC2.CreateTransitGatewayPeeringAttachment
     newCreateTransitGatewayPeeringAttachment,
 
     -- * Request Lenses
-    createTransitGatewayPeeringAttachment_tagSpecifications,
     createTransitGatewayPeeringAttachment_dryRun,
+    createTransitGatewayPeeringAttachment_tagSpecifications,
     createTransitGatewayPeeringAttachment_transitGatewayId,
     createTransitGatewayPeeringAttachment_peerTransitGatewayId,
     createTransitGatewayPeeringAttachment_peerAccountId,
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayPeeringAttachment' smart constructor.
 data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachment'
-  { -- | The tags to apply to the transit gateway peering attachment.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to apply to the transit gateway peering attachment.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the transit gateway.
     transitGatewayId :: Prelude.Text,
     -- | The ID of the peer transit gateway with which to create the peering
@@ -87,12 +87,12 @@ data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachme
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createTransitGatewayPeeringAttachment_tagSpecifications' - The tags to apply to the transit gateway peering attachment.
---
 -- 'dryRun', 'createTransitGatewayPeeringAttachment_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createTransitGatewayPeeringAttachment_tagSpecifications' - The tags to apply to the transit gateway peering attachment.
 --
 -- 'transitGatewayId', 'createTransitGatewayPeeringAttachment_transitGatewayId' - The ID of the transit gateway.
 --
@@ -119,9 +119,9 @@ newCreateTransitGatewayPeeringAttachment
   pPeerAccountId_
   pPeerRegion_ =
     CreateTransitGatewayPeeringAttachment'
-      { tagSpecifications =
+      { dryRun =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
         transitGatewayId =
           pTransitGatewayId_,
         peerTransitGatewayId =
@@ -130,16 +130,16 @@ newCreateTransitGatewayPeeringAttachment
         peerRegion = pPeerRegion_
       }
 
--- | The tags to apply to the transit gateway peering attachment.
-createTransitGatewayPeeringAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe [TagSpecification])
-createTransitGatewayPeeringAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayPeeringAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayPeeringAttachment) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 createTransitGatewayPeeringAttachment_dryRun :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Bool)
 createTransitGatewayPeeringAttachment_dryRun = Lens.lens (\CreateTransitGatewayPeeringAttachment' {dryRun} -> dryRun) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {dryRun = a} :: CreateTransitGatewayPeeringAttachment)
+
+-- | The tags to apply to the transit gateway peering attachment.
+createTransitGatewayPeeringAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe [TagSpecification])
+createTransitGatewayPeeringAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayPeeringAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayPeeringAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the transit gateway.
 createTransitGatewayPeeringAttachment_transitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Prelude.Text
@@ -183,8 +183,8 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayPeeringAttachment' {..} =
-      _salt `Prelude.hashWithSalt` tagSpecifications
-        `Prelude.hashWithSalt` dryRun
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` transitGatewayId
         `Prelude.hashWithSalt` peerTransitGatewayId
         `Prelude.hashWithSalt` peerAccountId
@@ -195,8 +195,8 @@ instance
     CreateTransitGatewayPeeringAttachment
   where
   rnf CreateTransitGatewayPeeringAttachment' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf transitGatewayId
       `Prelude.seq` Prelude.rnf peerTransitGatewayId
       `Prelude.seq` Prelude.rnf peerAccountId
@@ -226,11 +226,11 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "TransitGatewayId" Core.=: transitGatewayId,
         "PeerTransitGatewayId" Core.=: peerTransitGatewayId,
         "PeerAccountId" Core.=: peerAccountId,

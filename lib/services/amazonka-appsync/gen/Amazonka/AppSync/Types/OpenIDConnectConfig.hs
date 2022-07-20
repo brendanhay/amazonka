@@ -27,17 +27,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOpenIDConnectConfig' smart constructor.
 data OpenIDConnectConfig = OpenIDConnectConfig'
-  { -- | The number of milliseconds a token is valid after being authenticated.
-    authTTL :: Prelude.Maybe Prelude.Integer,
+  { -- | The number of milliseconds a token is valid after being issued to a
+    -- user.
+    iatTTL :: Prelude.Maybe Prelude.Integer,
     -- | The client identifier of the Relying party at the OpenID identity
     -- provider. This identifier is typically obtained when the Relying party
     -- is registered with the OpenID identity provider. You can specify a
     -- regular expression so the AppSync can validate against multiple client
     -- identifiers at a time.
     clientId :: Prelude.Maybe Prelude.Text,
-    -- | The number of milliseconds a token is valid after being issued to a
-    -- user.
-    iatTTL :: Prelude.Maybe Prelude.Integer,
+    -- | The number of milliseconds a token is valid after being authenticated.
+    authTTL :: Prelude.Maybe Prelude.Integer,
     -- | The issuer for the OpenID Connect configuration. The issuer returned by
     -- discovery must exactly match the value of @iss@ in the ID token.
     issuer :: Prelude.Text
@@ -52,7 +52,8 @@ data OpenIDConnectConfig = OpenIDConnectConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authTTL', 'openIDConnectConfig_authTTL' - The number of milliseconds a token is valid after being authenticated.
+-- 'iatTTL', 'openIDConnectConfig_iatTTL' - The number of milliseconds a token is valid after being issued to a
+-- user.
 --
 -- 'clientId', 'openIDConnectConfig_clientId' - The client identifier of the Relying party at the OpenID identity
 -- provider. This identifier is typically obtained when the Relying party
@@ -60,8 +61,7 @@ data OpenIDConnectConfig = OpenIDConnectConfig'
 -- regular expression so the AppSync can validate against multiple client
 -- identifiers at a time.
 --
--- 'iatTTL', 'openIDConnectConfig_iatTTL' - The number of milliseconds a token is valid after being issued to a
--- user.
+-- 'authTTL', 'openIDConnectConfig_authTTL' - The number of milliseconds a token is valid after being authenticated.
 --
 -- 'issuer', 'openIDConnectConfig_issuer' - The issuer for the OpenID Connect configuration. The issuer returned by
 -- discovery must exactly match the value of @iss@ in the ID token.
@@ -71,15 +71,16 @@ newOpenIDConnectConfig ::
   OpenIDConnectConfig
 newOpenIDConnectConfig pIssuer_ =
   OpenIDConnectConfig'
-    { authTTL = Prelude.Nothing,
+    { iatTTL = Prelude.Nothing,
       clientId = Prelude.Nothing,
-      iatTTL = Prelude.Nothing,
+      authTTL = Prelude.Nothing,
       issuer = pIssuer_
     }
 
--- | The number of milliseconds a token is valid after being authenticated.
-openIDConnectConfig_authTTL :: Lens.Lens' OpenIDConnectConfig (Prelude.Maybe Prelude.Integer)
-openIDConnectConfig_authTTL = Lens.lens (\OpenIDConnectConfig' {authTTL} -> authTTL) (\s@OpenIDConnectConfig' {} a -> s {authTTL = a} :: OpenIDConnectConfig)
+-- | The number of milliseconds a token is valid after being issued to a
+-- user.
+openIDConnectConfig_iatTTL :: Lens.Lens' OpenIDConnectConfig (Prelude.Maybe Prelude.Integer)
+openIDConnectConfig_iatTTL = Lens.lens (\OpenIDConnectConfig' {iatTTL} -> iatTTL) (\s@OpenIDConnectConfig' {} a -> s {iatTTL = a} :: OpenIDConnectConfig)
 
 -- | The client identifier of the Relying party at the OpenID identity
 -- provider. This identifier is typically obtained when the Relying party
@@ -89,10 +90,9 @@ openIDConnectConfig_authTTL = Lens.lens (\OpenIDConnectConfig' {authTTL} -> auth
 openIDConnectConfig_clientId :: Lens.Lens' OpenIDConnectConfig (Prelude.Maybe Prelude.Text)
 openIDConnectConfig_clientId = Lens.lens (\OpenIDConnectConfig' {clientId} -> clientId) (\s@OpenIDConnectConfig' {} a -> s {clientId = a} :: OpenIDConnectConfig)
 
--- | The number of milliseconds a token is valid after being issued to a
--- user.
-openIDConnectConfig_iatTTL :: Lens.Lens' OpenIDConnectConfig (Prelude.Maybe Prelude.Integer)
-openIDConnectConfig_iatTTL = Lens.lens (\OpenIDConnectConfig' {iatTTL} -> iatTTL) (\s@OpenIDConnectConfig' {} a -> s {iatTTL = a} :: OpenIDConnectConfig)
+-- | The number of milliseconds a token is valid after being authenticated.
+openIDConnectConfig_authTTL :: Lens.Lens' OpenIDConnectConfig (Prelude.Maybe Prelude.Integer)
+openIDConnectConfig_authTTL = Lens.lens (\OpenIDConnectConfig' {authTTL} -> authTTL) (\s@OpenIDConnectConfig' {} a -> s {authTTL = a} :: OpenIDConnectConfig)
 
 -- | The issuer for the OpenID Connect configuration. The issuer returned by
 -- discovery must exactly match the value of @iss@ in the ID token.
@@ -105,33 +105,33 @@ instance Core.FromJSON OpenIDConnectConfig where
       "OpenIDConnectConfig"
       ( \x ->
           OpenIDConnectConfig'
-            Prelude.<$> (x Core..:? "authTTL")
+            Prelude.<$> (x Core..:? "iatTTL")
             Prelude.<*> (x Core..:? "clientId")
-            Prelude.<*> (x Core..:? "iatTTL")
+            Prelude.<*> (x Core..:? "authTTL")
             Prelude.<*> (x Core..: "issuer")
       )
 
 instance Prelude.Hashable OpenIDConnectConfig where
   hashWithSalt _salt OpenIDConnectConfig' {..} =
-    _salt `Prelude.hashWithSalt` authTTL
+    _salt `Prelude.hashWithSalt` iatTTL
       `Prelude.hashWithSalt` clientId
-      `Prelude.hashWithSalt` iatTTL
+      `Prelude.hashWithSalt` authTTL
       `Prelude.hashWithSalt` issuer
 
 instance Prelude.NFData OpenIDConnectConfig where
   rnf OpenIDConnectConfig' {..} =
-    Prelude.rnf authTTL
+    Prelude.rnf iatTTL
       `Prelude.seq` Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf iatTTL
+      `Prelude.seq` Prelude.rnf authTTL
       `Prelude.seq` Prelude.rnf issuer
 
 instance Core.ToJSON OpenIDConnectConfig where
   toJSON OpenIDConnectConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("authTTL" Core..=) Prelude.<$> authTTL,
+          [ ("iatTTL" Core..=) Prelude.<$> iatTTL,
             ("clientId" Core..=) Prelude.<$> clientId,
-            ("iatTTL" Core..=) Prelude.<$> iatTTL,
+            ("authTTL" Core..=) Prelude.<$> authTTL,
             Prelude.Just ("issuer" Core..= issuer)
           ]
       )

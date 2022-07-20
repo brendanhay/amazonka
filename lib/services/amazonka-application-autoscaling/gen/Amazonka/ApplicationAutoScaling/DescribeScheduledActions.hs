@@ -39,11 +39,11 @@ module Amazonka.ApplicationAutoScaling.DescribeScheduledActions
     newDescribeScheduledActions,
 
     -- * Request Lenses
-    describeScheduledActions_scalableDimension,
     describeScheduledActions_resourceId,
     describeScheduledActions_nextToken,
-    describeScheduledActions_scheduledActionNames,
+    describeScheduledActions_scalableDimension,
     describeScheduledActions_maxResults,
+    describeScheduledActions_scheduledActionNames,
     describeScheduledActions_serviceNamespace,
 
     -- * Destructuring the Response
@@ -66,74 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
-  { -- | The scalable dimension. This string consists of the service namespace,
-    -- resource type, and scaling property. If you specify a scalable
-    -- dimension, you must also specify a resource ID.
-    --
-    -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
-    --     service.
-    --
-    -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
-    --     of an EMR Instance Group.
-    --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet.
-    --
-    -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
-    --     AppStream 2.0 fleet.
-    --
-    -- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity
-    --     for a DynamoDB table.
-    --
-    -- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity
-    --     for a DynamoDB table.
-    --
-    -- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity
-    --     for a DynamoDB global secondary index.
-    --
-    -- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity
-    --     for a DynamoDB global secondary index.
-    --
-    -- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an
-    --     Aurora DB cluster. Available for Aurora MySQL-compatible edition and
-    --     Aurora PostgreSQL-compatible edition.
-    --
-    -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an SageMaker model endpoint variant.
-    --
-    -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
-    --     a custom resource provided by your own application or service.
-    --
-    -- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -
-    --     The number of inference units for an Amazon Comprehend document
-    --     classification endpoint.
-    --
-    -- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The
-    --     number of inference units for an Amazon Comprehend entity recognizer
-    --     endpoint.
-    --
-    -- -   @lambda:function:ProvisionedConcurrency@ - The provisioned
-    --     concurrency for a Lambda function.
-    --
-    -- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity
-    --     for an Amazon Keyspaces table.
-    --
-    -- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write
-    --     capacity for an Amazon Keyspaces table.
-    --
-    -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
-    --     GiB) for brokers in an Amazon MSK cluster.
-    --
-    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
-    --     groups for an Amazon ElastiCache replication group.
-    --
-    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
-    --     per node group for an Amazon ElastiCache replication group.
-    --
-    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
-    --     an Amazon Neptune DB cluster.
-    scalableDimension :: Prelude.Maybe ScalableDimension,
-    -- | The identifier of the resource associated with the scheduled action.
+  { -- | The identifier of the resource associated with the scheduled action.
     -- This string consists of the resource type and unique identifier.
     --
     -- -   ECS service - The resource type is @service@ and the unique
@@ -203,8 +136,73 @@ data DescribeScheduledActions = DescribeScheduledActions'
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of the scheduled actions to describe.
-    scheduledActionNames :: Prelude.Maybe [Prelude.Text],
+    -- | The scalable dimension. This string consists of the service namespace,
+    -- resource type, and scaling property. If you specify a scalable
+    -- dimension, you must also specify a resource ID.
+    --
+    -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
+    --     service.
+    --
+    -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
+    --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet.
+    --
+    -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
+    --     AppStream 2.0 fleet.
+    --
+    -- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity
+    --     for a DynamoDB table.
+    --
+    -- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity
+    --     for a DynamoDB table.
+    --
+    -- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity
+    --     for a DynamoDB global secondary index.
+    --
+    -- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity
+    --     for a DynamoDB global secondary index.
+    --
+    -- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an
+    --     Aurora DB cluster. Available for Aurora MySQL-compatible edition and
+    --     Aurora PostgreSQL-compatible edition.
+    --
+    -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
+    --     instances for an SageMaker model endpoint variant.
+    --
+    -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
+    --     a custom resource provided by your own application or service.
+    --
+    -- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -
+    --     The number of inference units for an Amazon Comprehend document
+    --     classification endpoint.
+    --
+    -- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The
+    --     number of inference units for an Amazon Comprehend entity recognizer
+    --     endpoint.
+    --
+    -- -   @lambda:function:ProvisionedConcurrency@ - The provisioned
+    --     concurrency for a Lambda function.
+    --
+    -- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity
+    --     for an Amazon Keyspaces table.
+    --
+    -- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write
+    --     capacity for an Amazon Keyspaces table.
+    --
+    -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
+    --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
+    --
+    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+    --     an Amazon Neptune DB cluster.
+    scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The maximum number of scheduled action results. This value can be
     -- between 1 and 50. The default value is 50.
     --
@@ -214,6 +212,8 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- parameter is not used, the operation returns up to 50 results and a
     -- @NextToken@ value, if applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The names of the scheduled actions to describe.
+    scheduledActionNames :: Prelude.Maybe [Prelude.Text],
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -228,73 +228,6 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'scalableDimension', 'describeScheduledActions_scalableDimension' - The scalable dimension. This string consists of the service namespace,
--- resource type, and scaling property. If you specify a scalable
--- dimension, you must also specify a resource ID.
---
--- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
---     service.
---
--- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
---     of an EMR Instance Group.
---
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet.
---
--- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
---     AppStream 2.0 fleet.
---
--- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity
---     for a DynamoDB table.
---
--- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity
---     for a DynamoDB table.
---
--- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity
---     for a DynamoDB global secondary index.
---
--- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity
---     for a DynamoDB global secondary index.
---
--- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an
---     Aurora DB cluster. Available for Aurora MySQL-compatible edition and
---     Aurora PostgreSQL-compatible edition.
---
--- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
---
--- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
---     a custom resource provided by your own application or service.
---
--- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -
---     The number of inference units for an Amazon Comprehend document
---     classification endpoint.
---
--- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The
---     number of inference units for an Amazon Comprehend entity recognizer
---     endpoint.
---
--- -   @lambda:function:ProvisionedConcurrency@ - The provisioned
---     concurrency for a Lambda function.
---
--- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity
---     for an Amazon Keyspaces table.
---
--- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write
---     capacity for an Amazon Keyspaces table.
---
--- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
---     GiB) for brokers in an Amazon MSK cluster.
---
--- -   @elasticache:replication-group:NodeGroups@ - The number of node
---     groups for an Amazon ElastiCache replication group.
---
--- -   @elasticache:replication-group:Replicas@ - The number of replicas
---     per node group for an Amazon ElastiCache replication group.
---
--- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
---     an Amazon Neptune DB cluster.
 --
 -- 'resourceId', 'describeScheduledActions_resourceId' - The identifier of the resource associated with the scheduled action.
 -- This string consists of the resource type and unique identifier.
@@ -366,36 +299,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --
 -- 'nextToken', 'describeScheduledActions_nextToken' - The token for the next set of results.
 --
--- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of the scheduled actions to describe.
---
--- 'maxResults', 'describeScheduledActions_maxResults' - The maximum number of scheduled action results. This value can be
--- between 1 and 50. The default value is 50.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
---
--- 'serviceNamespace', 'describeScheduledActions_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
--- resource. For a resource provided by your own application or service,
--- use @custom-resource@ instead.
-newDescribeScheduledActions ::
-  -- | 'serviceNamespace'
-  ServiceNamespace ->
-  DescribeScheduledActions
-newDescribeScheduledActions pServiceNamespace_ =
-  DescribeScheduledActions'
-    { scalableDimension =
-        Prelude.Nothing,
-      resourceId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      scheduledActionNames = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      serviceNamespace = pServiceNamespace_
-    }
-
--- | The scalable dimension. This string consists of the service namespace,
+-- 'scalableDimension', 'describeScheduledActions_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
 --
@@ -461,8 +365,35 @@ newDescribeScheduledActions pServiceNamespace_ =
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
-describeScheduledActions_scalableDimension :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe ScalableDimension)
-describeScheduledActions_scalableDimension = Lens.lens (\DescribeScheduledActions' {scalableDimension} -> scalableDimension) (\s@DescribeScheduledActions' {} a -> s {scalableDimension = a} :: DescribeScheduledActions)
+--
+-- 'maxResults', 'describeScheduledActions_maxResults' - The maximum number of scheduled action results. This value can be
+-- between 1 and 50. The default value is 50.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 50 results and a
+-- @NextToken@ value, if applicable.
+--
+-- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of the scheduled actions to describe.
+--
+-- 'serviceNamespace', 'describeScheduledActions_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
+newDescribeScheduledActions ::
+  -- | 'serviceNamespace'
+  ServiceNamespace ->
+  DescribeScheduledActions
+newDescribeScheduledActions pServiceNamespace_ =
+  DescribeScheduledActions'
+    { resourceId =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      scalableDimension = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      scheduledActionNames = Prelude.Nothing,
+      serviceNamespace = pServiceNamespace_
+    }
 
 -- | The identifier of the resource associated with the scheduled action.
 -- This string consists of the resource type and unique identifier.
@@ -538,9 +469,74 @@ describeScheduledActions_resourceId = Lens.lens (\DescribeScheduledActions' {res
 describeScheduledActions_nextToken :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {nextToken} -> nextToken) (\s@DescribeScheduledActions' {} a -> s {nextToken = a} :: DescribeScheduledActions)
 
--- | The names of the scheduled actions to describe.
-describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [Prelude.Text])
-describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens.coerced
+-- | The scalable dimension. This string consists of the service namespace,
+-- resource type, and scaling property. If you specify a scalable
+-- dimension, you must also specify a resource ID.
+--
+-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
+--     service.
+--
+-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
+--     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet.
+--
+-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
+--     AppStream 2.0 fleet.
+--
+-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity
+--     for a DynamoDB table.
+--
+-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity
+--     for a DynamoDB table.
+--
+-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity
+--     for a DynamoDB global secondary index.
+--
+-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity
+--     for a DynamoDB global secondary index.
+--
+-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an
+--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and
+--     Aurora PostgreSQL-compatible edition.
+--
+-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
+--     instances for an SageMaker model endpoint variant.
+--
+-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
+--     a custom resource provided by your own application or service.
+--
+-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -
+--     The number of inference units for an Amazon Comprehend document
+--     classification endpoint.
+--
+-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The
+--     number of inference units for an Amazon Comprehend entity recognizer
+--     endpoint.
+--
+-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned
+--     concurrency for a Lambda function.
+--
+-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity
+--     for an Amazon Keyspaces table.
+--
+-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write
+--     capacity for an Amazon Keyspaces table.
+--
+-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
+--     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
+describeScheduledActions_scalableDimension :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe ScalableDimension)
+describeScheduledActions_scalableDimension = Lens.lens (\DescribeScheduledActions' {scalableDimension} -> scalableDimension) (\s@DescribeScheduledActions' {} a -> s {scalableDimension = a} :: DescribeScheduledActions)
 
 -- | The maximum number of scheduled action results. This value can be
 -- between 1 and 50. The default value is 50.
@@ -552,6 +548,10 @@ describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledAct
 -- @NextToken@ value, if applicable.
 describeScheduledActions_maxResults :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Int)
 describeScheduledActions_maxResults = Lens.lens (\DescribeScheduledActions' {maxResults} -> maxResults) (\s@DescribeScheduledActions' {} a -> s {maxResults = a} :: DescribeScheduledActions)
+
+-- | The names of the scheduled actions to describe.
+describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [Prelude.Text])
+describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -599,20 +599,20 @@ instance Core.AWSRequest DescribeScheduledActions where
 
 instance Prelude.Hashable DescribeScheduledActions where
   hashWithSalt _salt DescribeScheduledActions' {..} =
-    _salt `Prelude.hashWithSalt` scalableDimension
-      `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` scheduledActionNames
+      `Prelude.hashWithSalt` scalableDimension
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` scheduledActionNames
       `Prelude.hashWithSalt` serviceNamespace
 
 instance Prelude.NFData DescribeScheduledActions where
   rnf DescribeScheduledActions' {..} =
-    Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf resourceId
+    Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scheduledActionNames
+      `Prelude.seq` Prelude.rnf scalableDimension
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf scheduledActionNames
       `Prelude.seq` Prelude.rnf serviceNamespace
 
 instance Core.ToHeaders DescribeScheduledActions where
@@ -634,13 +634,13 @@ instance Core.ToJSON DescribeScheduledActions where
   toJSON DescribeScheduledActions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ScalableDimension" Core..=)
-              Prelude.<$> scalableDimension,
-            ("ResourceId" Core..=) Prelude.<$> resourceId,
+          [ ("ResourceId" Core..=) Prelude.<$> resourceId,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ScalableDimension" Core..=)
+              Prelude.<$> scalableDimension,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ScheduledActionNames" Core..=)
               Prelude.<$> scheduledActionNames,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace)
           ]

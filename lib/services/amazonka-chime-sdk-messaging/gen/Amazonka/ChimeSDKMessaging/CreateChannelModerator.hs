@@ -50,8 +50,8 @@ module Amazonka.ChimeSDKMessaging.CreateChannelModerator
     newCreateChannelModeratorResponse,
 
     -- * Response Lenses
-    createChannelModeratorResponse_channelModerator,
     createChannelModeratorResponse_channelArn,
+    createChannelModeratorResponse_channelModerator,
     createChannelModeratorResponse_httpStatus,
   )
 where
@@ -126,8 +126,8 @@ instance Core.AWSRequest CreateChannelModerator where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelModeratorResponse'
-            Prelude.<$> (x Core..?> "ChannelModerator")
-            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Core..?> "ChannelArn")
+            Prelude.<*> (x Core..?> "ChannelModerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,10 +167,10 @@ instance Core.ToQuery CreateChannelModerator where
 
 -- | /See:/ 'newCreateChannelModeratorResponse' smart constructor.
 data CreateChannelModeratorResponse = CreateChannelModeratorResponse'
-  { -- | The ARNs of the channel and the moderator.
-    channelModerator :: Prelude.Maybe Identity,
-    -- | The ARN of the channel.
+  { -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs of the channel and the moderator.
+    channelModerator :: Prelude.Maybe Identity,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data CreateChannelModeratorResponse = CreateChannelModeratorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelModerator', 'createChannelModeratorResponse_channelModerator' - The ARNs of the channel and the moderator.
---
 -- 'channelArn', 'createChannelModeratorResponse_channelArn' - The ARN of the channel.
+--
+-- 'channelModerator', 'createChannelModeratorResponse_channelModerator' - The ARNs of the channel and the moderator.
 --
 -- 'httpStatus', 'createChannelModeratorResponse_httpStatus' - The response's http status code.
 newCreateChannelModeratorResponse ::
@@ -195,19 +195,19 @@ newCreateChannelModeratorResponse ::
   CreateChannelModeratorResponse
 newCreateChannelModeratorResponse pHttpStatus_ =
   CreateChannelModeratorResponse'
-    { channelModerator =
+    { channelArn =
         Prelude.Nothing,
-      channelArn = Prelude.Nothing,
+      channelModerator = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARNs of the channel and the moderator.
-createChannelModeratorResponse_channelModerator :: Lens.Lens' CreateChannelModeratorResponse (Prelude.Maybe Identity)
-createChannelModeratorResponse_channelModerator = Lens.lens (\CreateChannelModeratorResponse' {channelModerator} -> channelModerator) (\s@CreateChannelModeratorResponse' {} a -> s {channelModerator = a} :: CreateChannelModeratorResponse)
 
 -- | The ARN of the channel.
 createChannelModeratorResponse_channelArn :: Lens.Lens' CreateChannelModeratorResponse (Prelude.Maybe Prelude.Text)
 createChannelModeratorResponse_channelArn = Lens.lens (\CreateChannelModeratorResponse' {channelArn} -> channelArn) (\s@CreateChannelModeratorResponse' {} a -> s {channelArn = a} :: CreateChannelModeratorResponse)
+
+-- | The ARNs of the channel and the moderator.
+createChannelModeratorResponse_channelModerator :: Lens.Lens' CreateChannelModeratorResponse (Prelude.Maybe Identity)
+createChannelModeratorResponse_channelModerator = Lens.lens (\CreateChannelModeratorResponse' {channelModerator} -> channelModerator) (\s@CreateChannelModeratorResponse' {} a -> s {channelModerator = a} :: CreateChannelModeratorResponse)
 
 -- | The response's http status code.
 createChannelModeratorResponse_httpStatus :: Lens.Lens' CreateChannelModeratorResponse Prelude.Int
@@ -218,6 +218,6 @@ instance
     CreateChannelModeratorResponse
   where
   rnf CreateChannelModeratorResponse' {..} =
-    Prelude.rnf channelModerator
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf channelModerator
       `Prelude.seq` Prelude.rnf httpStatus

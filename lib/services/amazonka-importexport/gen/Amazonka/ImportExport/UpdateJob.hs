@@ -42,8 +42,8 @@ module Amazonka.ImportExport.UpdateJob
     newUpdateJobResponse,
 
     -- * Response Lenses
-    updateJobResponse_success,
     updateJobResponse_warningMessage,
+    updateJobResponse_success,
     updateJobResponse_artifactList,
     updateJobResponse_httpStatus,
   )
@@ -136,8 +136,8 @@ instance Core.AWSRequest UpdateJob where
       "UpdateJobResult"
       ( \s h x ->
           UpdateJobResponse'
-            Prelude.<$> (x Core..@? "Success")
-            Prelude.<*> (x Core..@? "WarningMessage")
+            Prelude.<$> (x Core..@? "WarningMessage")
+            Prelude.<*> (x Core..@? "Success")
             Prelude.<*> ( x Core..@? "ArtifactList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
@@ -184,8 +184,8 @@ instance Core.ToQuery UpdateJob where
 --
 -- /See:/ 'newUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  { success :: Prelude.Maybe Prelude.Bool,
-    warningMessage :: Prelude.Maybe Prelude.Text,
+  { warningMessage :: Prelude.Maybe Prelude.Text,
+    success :: Prelude.Maybe Prelude.Bool,
     artifactList :: Prelude.Maybe [Artifact],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -200,9 +200,9 @@ data UpdateJobResponse = UpdateJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'success', 'updateJobResponse_success' - Undocumented member.
---
 -- 'warningMessage', 'updateJobResponse_warningMessage' - Undocumented member.
+--
+-- 'success', 'updateJobResponse_success' - Undocumented member.
 --
 -- 'artifactList', 'updateJobResponse_artifactList' - Undocumented member.
 --
@@ -213,19 +213,20 @@ newUpdateJobResponse ::
   UpdateJobResponse
 newUpdateJobResponse pHttpStatus_ =
   UpdateJobResponse'
-    { success = Prelude.Nothing,
-      warningMessage = Prelude.Nothing,
+    { warningMessage =
+        Prelude.Nothing,
+      success = Prelude.Nothing,
       artifactList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateJobResponse_success :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Bool)
-updateJobResponse_success = Lens.lens (\UpdateJobResponse' {success} -> success) (\s@UpdateJobResponse' {} a -> s {success = a} :: UpdateJobResponse)
-
--- | Undocumented member.
 updateJobResponse_warningMessage :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Text)
 updateJobResponse_warningMessage = Lens.lens (\UpdateJobResponse' {warningMessage} -> warningMessage) (\s@UpdateJobResponse' {} a -> s {warningMessage = a} :: UpdateJobResponse)
+
+-- | Undocumented member.
+updateJobResponse_success :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Bool)
+updateJobResponse_success = Lens.lens (\UpdateJobResponse' {success} -> success) (\s@UpdateJobResponse' {} a -> s {success = a} :: UpdateJobResponse)
 
 -- | Undocumented member.
 updateJobResponse_artifactList :: Lens.Lens' UpdateJobResponse (Prelude.Maybe [Artifact])
@@ -237,7 +238,7 @@ updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData UpdateJobResponse where
   rnf UpdateJobResponse' {..} =
-    Prelude.rnf success
-      `Prelude.seq` Prelude.rnf warningMessage
+    Prelude.rnf warningMessage
+      `Prelude.seq` Prelude.rnf success
       `Prelude.seq` Prelude.rnf artifactList
       `Prelude.seq` Prelude.rnf httpStatus

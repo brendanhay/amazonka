@@ -38,14 +38,14 @@ module Amazonka.IoT.DescribeDomainConfiguration
     newDescribeDomainConfigurationResponse,
 
     -- * Response Lenses
-    describeDomainConfigurationResponse_domainConfigurationName,
-    describeDomainConfigurationResponse_serverCertificates,
-    describeDomainConfigurationResponse_authorizerConfig,
-    describeDomainConfigurationResponse_lastStatusChangeDate,
-    describeDomainConfigurationResponse_domainConfigurationStatus,
-    describeDomainConfigurationResponse_domainName,
     describeDomainConfigurationResponse_domainConfigurationArn,
+    describeDomainConfigurationResponse_lastStatusChangeDate,
+    describeDomainConfigurationResponse_domainName,
+    describeDomainConfigurationResponse_authorizerConfig,
     describeDomainConfigurationResponse_serviceType,
+    describeDomainConfigurationResponse_serverCertificates,
+    describeDomainConfigurationResponse_domainConfigurationName,
+    describeDomainConfigurationResponse_domainConfigurationStatus,
     describeDomainConfigurationResponse_domainType,
     describeDomainConfigurationResponse_httpStatus,
   )
@@ -98,16 +98,16 @@ instance Core.AWSRequest DescribeDomainConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainConfigurationResponse'
-            Prelude.<$> (x Core..?> "domainConfigurationName")
+            Prelude.<$> (x Core..?> "domainConfigurationArn")
+            Prelude.<*> (x Core..?> "lastStatusChangeDate")
+            Prelude.<*> (x Core..?> "domainName")
+            Prelude.<*> (x Core..?> "authorizerConfig")
+            Prelude.<*> (x Core..?> "serviceType")
             Prelude.<*> ( x Core..?> "serverCertificates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "authorizerConfig")
-            Prelude.<*> (x Core..?> "lastStatusChangeDate")
+            Prelude.<*> (x Core..?> "domainConfigurationName")
             Prelude.<*> (x Core..?> "domainConfigurationStatus")
-            Prelude.<*> (x Core..?> "domainName")
-            Prelude.<*> (x Core..?> "domainConfigurationArn")
-            Prelude.<*> (x Core..?> "serviceType")
             Prelude.<*> (x Core..?> "domainType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -136,24 +136,24 @@ instance Core.ToQuery DescribeDomainConfiguration where
 
 -- | /See:/ 'newDescribeDomainConfigurationResponse' smart constructor.
 data DescribeDomainConfigurationResponse = DescribeDomainConfigurationResponse'
-  { -- | The name of the domain configuration.
-    domainConfigurationName :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the domain configuration.
+    domainConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the domain configuration\'s status was last changed.
+    lastStatusChangeDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the domain.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | An object that specifies the authorization service for a domain.
+    authorizerConfig :: Prelude.Maybe AuthorizerConfig,
+    -- | The type of service delivered by the endpoint.
+    serviceType :: Prelude.Maybe ServiceType,
     -- | A list containing summary information about the server certificate
     -- included in the domain configuration.
     serverCertificates :: Prelude.Maybe [ServerCertificateSummary],
-    -- | An object that specifies the authorization service for a domain.
-    authorizerConfig :: Prelude.Maybe AuthorizerConfig,
-    -- | The date and time the domain configuration\'s status was last changed.
-    lastStatusChangeDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the domain configuration.
+    domainConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value that specifies the current state of the domain
     -- configuration.
     domainConfigurationStatus :: Prelude.Maybe DomainConfigurationStatus,
-    -- | The name of the domain.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the domain configuration.
-    domainConfigurationArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of service delivered by the endpoint.
-    serviceType :: Prelude.Maybe ServiceType,
     -- | The type of the domain.
     domainType :: Prelude.Maybe DomainType,
     -- | The response's http status code.
@@ -169,23 +169,23 @@ data DescribeDomainConfigurationResponse = DescribeDomainConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainConfigurationName', 'describeDomainConfigurationResponse_domainConfigurationName' - The name of the domain configuration.
+-- 'domainConfigurationArn', 'describeDomainConfigurationResponse_domainConfigurationArn' - The ARN of the domain configuration.
+--
+-- 'lastStatusChangeDate', 'describeDomainConfigurationResponse_lastStatusChangeDate' - The date and time the domain configuration\'s status was last changed.
+--
+-- 'domainName', 'describeDomainConfigurationResponse_domainName' - The name of the domain.
+--
+-- 'authorizerConfig', 'describeDomainConfigurationResponse_authorizerConfig' - An object that specifies the authorization service for a domain.
+--
+-- 'serviceType', 'describeDomainConfigurationResponse_serviceType' - The type of service delivered by the endpoint.
 --
 -- 'serverCertificates', 'describeDomainConfigurationResponse_serverCertificates' - A list containing summary information about the server certificate
 -- included in the domain configuration.
 --
--- 'authorizerConfig', 'describeDomainConfigurationResponse_authorizerConfig' - An object that specifies the authorization service for a domain.
---
--- 'lastStatusChangeDate', 'describeDomainConfigurationResponse_lastStatusChangeDate' - The date and time the domain configuration\'s status was last changed.
+-- 'domainConfigurationName', 'describeDomainConfigurationResponse_domainConfigurationName' - The name of the domain configuration.
 --
 -- 'domainConfigurationStatus', 'describeDomainConfigurationResponse_domainConfigurationStatus' - A Boolean value that specifies the current state of the domain
 -- configuration.
---
--- 'domainName', 'describeDomainConfigurationResponse_domainName' - The name of the domain.
---
--- 'domainConfigurationArn', 'describeDomainConfigurationResponse_domainConfigurationArn' - The ARN of the domain configuration.
---
--- 'serviceType', 'describeDomainConfigurationResponse_serviceType' - The type of service delivered by the endpoint.
 --
 -- 'domainType', 'describeDomainConfigurationResponse_domainType' - The type of the domain.
 --
@@ -196,54 +196,54 @@ newDescribeDomainConfigurationResponse ::
   DescribeDomainConfigurationResponse
 newDescribeDomainConfigurationResponse pHttpStatus_ =
   DescribeDomainConfigurationResponse'
-    { domainConfigurationName =
+    { domainConfigurationArn =
         Prelude.Nothing,
-      serverCertificates = Prelude.Nothing,
-      authorizerConfig = Prelude.Nothing,
       lastStatusChangeDate = Prelude.Nothing,
+      domainName = Prelude.Nothing,
+      authorizerConfig = Prelude.Nothing,
+      serviceType = Prelude.Nothing,
+      serverCertificates = Prelude.Nothing,
+      domainConfigurationName =
+        Prelude.Nothing,
       domainConfigurationStatus =
         Prelude.Nothing,
-      domainName = Prelude.Nothing,
-      domainConfigurationArn =
-        Prelude.Nothing,
-      serviceType = Prelude.Nothing,
       domainType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the domain configuration.
-describeDomainConfigurationResponse_domainConfigurationName :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeDomainConfigurationResponse_domainConfigurationName = Lens.lens (\DescribeDomainConfigurationResponse' {domainConfigurationName} -> domainConfigurationName) (\s@DescribeDomainConfigurationResponse' {} a -> s {domainConfigurationName = a} :: DescribeDomainConfigurationResponse)
+-- | The ARN of the domain configuration.
+describeDomainConfigurationResponse_domainConfigurationArn :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeDomainConfigurationResponse_domainConfigurationArn = Lens.lens (\DescribeDomainConfigurationResponse' {domainConfigurationArn} -> domainConfigurationArn) (\s@DescribeDomainConfigurationResponse' {} a -> s {domainConfigurationArn = a} :: DescribeDomainConfigurationResponse)
+
+-- | The date and time the domain configuration\'s status was last changed.
+describeDomainConfigurationResponse_lastStatusChangeDate :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+describeDomainConfigurationResponse_lastStatusChangeDate = Lens.lens (\DescribeDomainConfigurationResponse' {lastStatusChangeDate} -> lastStatusChangeDate) (\s@DescribeDomainConfigurationResponse' {} a -> s {lastStatusChangeDate = a} :: DescribeDomainConfigurationResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the domain.
+describeDomainConfigurationResponse_domainName :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeDomainConfigurationResponse_domainName = Lens.lens (\DescribeDomainConfigurationResponse' {domainName} -> domainName) (\s@DescribeDomainConfigurationResponse' {} a -> s {domainName = a} :: DescribeDomainConfigurationResponse)
+
+-- | An object that specifies the authorization service for a domain.
+describeDomainConfigurationResponse_authorizerConfig :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe AuthorizerConfig)
+describeDomainConfigurationResponse_authorizerConfig = Lens.lens (\DescribeDomainConfigurationResponse' {authorizerConfig} -> authorizerConfig) (\s@DescribeDomainConfigurationResponse' {} a -> s {authorizerConfig = a} :: DescribeDomainConfigurationResponse)
+
+-- | The type of service delivered by the endpoint.
+describeDomainConfigurationResponse_serviceType :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe ServiceType)
+describeDomainConfigurationResponse_serviceType = Lens.lens (\DescribeDomainConfigurationResponse' {serviceType} -> serviceType) (\s@DescribeDomainConfigurationResponse' {} a -> s {serviceType = a} :: DescribeDomainConfigurationResponse)
 
 -- | A list containing summary information about the server certificate
 -- included in the domain configuration.
 describeDomainConfigurationResponse_serverCertificates :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe [ServerCertificateSummary])
 describeDomainConfigurationResponse_serverCertificates = Lens.lens (\DescribeDomainConfigurationResponse' {serverCertificates} -> serverCertificates) (\s@DescribeDomainConfigurationResponse' {} a -> s {serverCertificates = a} :: DescribeDomainConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that specifies the authorization service for a domain.
-describeDomainConfigurationResponse_authorizerConfig :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe AuthorizerConfig)
-describeDomainConfigurationResponse_authorizerConfig = Lens.lens (\DescribeDomainConfigurationResponse' {authorizerConfig} -> authorizerConfig) (\s@DescribeDomainConfigurationResponse' {} a -> s {authorizerConfig = a} :: DescribeDomainConfigurationResponse)
-
--- | The date and time the domain configuration\'s status was last changed.
-describeDomainConfigurationResponse_lastStatusChangeDate :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeDomainConfigurationResponse_lastStatusChangeDate = Lens.lens (\DescribeDomainConfigurationResponse' {lastStatusChangeDate} -> lastStatusChangeDate) (\s@DescribeDomainConfigurationResponse' {} a -> s {lastStatusChangeDate = a} :: DescribeDomainConfigurationResponse) Prelude.. Lens.mapping Core._Time
+-- | The name of the domain configuration.
+describeDomainConfigurationResponse_domainConfigurationName :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeDomainConfigurationResponse_domainConfigurationName = Lens.lens (\DescribeDomainConfigurationResponse' {domainConfigurationName} -> domainConfigurationName) (\s@DescribeDomainConfigurationResponse' {} a -> s {domainConfigurationName = a} :: DescribeDomainConfigurationResponse)
 
 -- | A Boolean value that specifies the current state of the domain
 -- configuration.
 describeDomainConfigurationResponse_domainConfigurationStatus :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe DomainConfigurationStatus)
 describeDomainConfigurationResponse_domainConfigurationStatus = Lens.lens (\DescribeDomainConfigurationResponse' {domainConfigurationStatus} -> domainConfigurationStatus) (\s@DescribeDomainConfigurationResponse' {} a -> s {domainConfigurationStatus = a} :: DescribeDomainConfigurationResponse)
-
--- | The name of the domain.
-describeDomainConfigurationResponse_domainName :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeDomainConfigurationResponse_domainName = Lens.lens (\DescribeDomainConfigurationResponse' {domainName} -> domainName) (\s@DescribeDomainConfigurationResponse' {} a -> s {domainName = a} :: DescribeDomainConfigurationResponse)
-
--- | The ARN of the domain configuration.
-describeDomainConfigurationResponse_domainConfigurationArn :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeDomainConfigurationResponse_domainConfigurationArn = Lens.lens (\DescribeDomainConfigurationResponse' {domainConfigurationArn} -> domainConfigurationArn) (\s@DescribeDomainConfigurationResponse' {} a -> s {domainConfigurationArn = a} :: DescribeDomainConfigurationResponse)
-
--- | The type of service delivered by the endpoint.
-describeDomainConfigurationResponse_serviceType :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe ServiceType)
-describeDomainConfigurationResponse_serviceType = Lens.lens (\DescribeDomainConfigurationResponse' {serviceType} -> serviceType) (\s@DescribeDomainConfigurationResponse' {} a -> s {serviceType = a} :: DescribeDomainConfigurationResponse)
 
 -- | The type of the domain.
 describeDomainConfigurationResponse_domainType :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe DomainType)
@@ -258,13 +258,13 @@ instance
     DescribeDomainConfigurationResponse
   where
   rnf DescribeDomainConfigurationResponse' {..} =
-    Prelude.rnf domainConfigurationName
-      `Prelude.seq` Prelude.rnf serverCertificates
-      `Prelude.seq` Prelude.rnf authorizerConfig
+    Prelude.rnf domainConfigurationArn
       `Prelude.seq` Prelude.rnf lastStatusChangeDate
-      `Prelude.seq` Prelude.rnf domainConfigurationStatus
       `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf domainConfigurationArn
+      `Prelude.seq` Prelude.rnf authorizerConfig
       `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf serverCertificates
+      `Prelude.seq` Prelude.rnf domainConfigurationName
+      `Prelude.seq` Prelude.rnf domainConfigurationStatus
       `Prelude.seq` Prelude.rnf domainType
       `Prelude.seq` Prelude.rnf httpStatus

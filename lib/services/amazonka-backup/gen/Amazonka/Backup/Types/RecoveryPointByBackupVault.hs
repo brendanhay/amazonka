@@ -32,27 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecoveryPointByBackupVault' smart constructor.
 data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
-  { -- | A Boolean value that is returned as @TRUE@ if the specified recovery
-    -- point is encrypted, or @FALSE@ if the recovery point is not encrypted.
-    isEncrypted :: Prelude.Maybe Prelude.Bool,
-    -- | A status code specifying the state of the recovery point.
-    status :: Prelude.Maybe RecoveryPointStatus,
-    -- | Specifies the IAM role ARN used to create the target recovery point; for
-    -- example, @arn:aws:iam::123456789012:role\/S3Access@.
-    iamRoleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The server-side encryption key that is used to protect your backups; for
+    -- example,
+    -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Web Services resource saved as a recovery point; for
     -- example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
     -- Relational Database Service (Amazon RDS) database. For Windows Volume
     -- Shadow Copy Service (VSS) backups, the only supported resource type is
     -- Amazon EC2.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | Contains identifying information about the creation of a recovery point,
-    -- including the @BackupPlanArn@, @BackupPlanId@, @BackupPlanVersion@, and
-    -- @BackupRuleId@ of the backup plan that is used to create it.
-    createdBy :: Prelude.Maybe RecoveryPointCreator,
-    -- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
-    -- @MoveToColdStorageAt@ timestamps.
-    calculatedLifecycle :: Prelude.Maybe CalculatedLifecycle,
     -- | The lifecycle defines when a protected resource is transitioned to cold
     -- storage and when it expires. Backup transitions and expires backups
     -- automatically according to the lifecycle that you define.
@@ -65,38 +54,10 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
     --
     -- Only Amazon EFS file system backups can be transitioned to cold storage.
     lifecycle :: Prelude.Maybe Lifecycle,
-    -- | An ARN that uniquely identifies a backup vault; for example,
-    -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-    backupVaultArn :: Prelude.Maybe Prelude.Text,
-    -- | The backup vault where the recovery point was originally copied from. If
-    -- the recovery point is restored to the same account this value will be
-    -- @null@.
-    sourceBackupVaultArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time a recovery point was last restored, in Unix format and
-    -- Coordinated Universal Time (UTC). The value of @LastRestoreTime@ is
-    -- accurate to milliseconds. For example, the value 1516925490.087
-    -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    lastRestoreTime :: Prelude.Maybe Core.POSIX,
-    -- | An ARN that uniquely identifies a resource. The format of the ARN
-    -- depends on the resource type.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | A message explaining the reason of the recovery point deletion failure.
-    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
     -- for example,
     -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
     recoveryPointArn :: Prelude.Maybe Prelude.Text,
-    -- | The server-side encryption key that is used to protect your backups; for
-    -- example,
-    -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
-    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The size, in bytes, of a backup.
-    backupSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The date and time a recovery point is created, in Unix format and
-    -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
-    -- accurate to milliseconds. For example, the value 1516925490.087
-    -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The date and time a job to restore a recovery point is completed, in
     -- Unix format and Coordinated Universal Time (UTC). The value of
     -- @CompletionDate@ is accurate to milliseconds. For example, the value
@@ -106,7 +67,46 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
     -- are identified by names that are unique to the account used to create
     -- them and the Amazon Web Services Region where they are created. They
     -- consist of lowercase letters, numbers, and hyphens.
-    backupVaultName :: Prelude.Maybe Prelude.Text
+    backupVaultName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time a recovery point is created, in Unix format and
+    -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+    -- accurate to milliseconds. For example, the value 1516925490.087
+    -- represents Friday, January 26, 2018 12:11:30.087 AM.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The size, in bytes, of a backup.
+    backupSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | A status code specifying the state of the recovery point.
+    status :: Prelude.Maybe RecoveryPointStatus,
+    -- | An ARN that uniquely identifies a backup vault; for example,
+    -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+    backupVaultArn :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that is returned as @TRUE@ if the specified recovery
+    -- point is encrypted, or @FALSE@ if the recovery point is not encrypted.
+    isEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the IAM role ARN used to create the target recovery point; for
+    -- example, @arn:aws:iam::123456789012:role\/S3Access@.
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The backup vault where the recovery point was originally copied from. If
+    -- the recovery point is restored to the same account this value will be
+    -- @null@.
+    sourceBackupVaultArn :: Prelude.Maybe Prelude.Text,
+    -- | An ARN that uniquely identifies a resource. The format of the ARN
+    -- depends on the resource type.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | A message explaining the reason of the recovery point deletion failure.
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | Contains identifying information about the creation of a recovery point,
+    -- including the @BackupPlanArn@, @BackupPlanId@, @BackupPlanVersion@, and
+    -- @BackupRuleId@ of the backup plan that is used to create it.
+    createdBy :: Prelude.Maybe RecoveryPointCreator,
+    -- | The date and time a recovery point was last restored, in Unix format and
+    -- Coordinated Universal Time (UTC). The value of @LastRestoreTime@ is
+    -- accurate to milliseconds. For example, the value 1516925490.087
+    -- represents Friday, January 26, 2018 12:11:30.087 AM.
+    lastRestoreTime :: Prelude.Maybe Core.POSIX,
+    -- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
+    -- @MoveToColdStorageAt@ timestamps.
+    calculatedLifecycle :: Prelude.Maybe CalculatedLifecycle
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,26 +118,15 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isEncrypted', 'recoveryPointByBackupVault_isEncrypted' - A Boolean value that is returned as @TRUE@ if the specified recovery
--- point is encrypted, or @FALSE@ if the recovery point is not encrypted.
---
--- 'status', 'recoveryPointByBackupVault_status' - A status code specifying the state of the recovery point.
---
--- 'iamRoleArn', 'recoveryPointByBackupVault_iamRoleArn' - Specifies the IAM role ARN used to create the target recovery point; for
--- example, @arn:aws:iam::123456789012:role\/S3Access@.
+-- 'encryptionKeyArn', 'recoveryPointByBackupVault_encryptionKeyArn' - The server-side encryption key that is used to protect your backups; for
+-- example,
+-- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
 --
 -- 'resourceType', 'recoveryPointByBackupVault_resourceType' - The type of Amazon Web Services resource saved as a recovery point; for
 -- example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
 -- Relational Database Service (Amazon RDS) database. For Windows Volume
 -- Shadow Copy Service (VSS) backups, the only supported resource type is
 -- Amazon EC2.
---
--- 'createdBy', 'recoveryPointByBackupVault_createdBy' - Contains identifying information about the creation of a recovery point,
--- including the @BackupPlanArn@, @BackupPlanId@, @BackupPlanVersion@, and
--- @BackupRuleId@ of the backup plan that is used to create it.
---
--- 'calculatedLifecycle', 'recoveryPointByBackupVault_calculatedLifecycle' - A @CalculatedLifecycle@ object containing @DeleteAt@ and
--- @MoveToColdStorageAt@ timestamps.
 --
 -- 'lifecycle', 'recoveryPointByBackupVault_lifecycle' - The lifecycle defines when a protected resource is transitioned to cold
 -- storage and when it expires. Backup transitions and expires backups
@@ -151,37 +140,9 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
 --
 -- Only Amazon EFS file system backups can be transitioned to cold storage.
 --
--- 'backupVaultArn', 'recoveryPointByBackupVault_backupVaultArn' - An ARN that uniquely identifies a backup vault; for example,
--- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
---
--- 'sourceBackupVaultArn', 'recoveryPointByBackupVault_sourceBackupVaultArn' - The backup vault where the recovery point was originally copied from. If
--- the recovery point is restored to the same account this value will be
--- @null@.
---
--- 'lastRestoreTime', 'recoveryPointByBackupVault_lastRestoreTime' - The date and time a recovery point was last restored, in Unix format and
--- Coordinated Universal Time (UTC). The value of @LastRestoreTime@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
---
--- 'resourceArn', 'recoveryPointByBackupVault_resourceArn' - An ARN that uniquely identifies a resource. The format of the ARN
--- depends on the resource type.
---
--- 'statusMessage', 'recoveryPointByBackupVault_statusMessage' - A message explaining the reason of the recovery point deletion failure.
---
 -- 'recoveryPointArn', 'recoveryPointByBackupVault_recoveryPointArn' - An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
 -- for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
---
--- 'encryptionKeyArn', 'recoveryPointByBackupVault_encryptionKeyArn' - The server-side encryption key that is used to protect your backups; for
--- example,
--- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
---
--- 'backupSizeInBytes', 'recoveryPointByBackupVault_backupSizeInBytes' - The size, in bytes, of a backup.
---
--- 'creationDate', 'recoveryPointByBackupVault_creationDate' - The date and time a recovery point is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
 -- 'completionDate', 'recoveryPointByBackupVault_completionDate' - The date and time a job to restore a recovery point is completed, in
 -- Unix format and Coordinated Universal Time (UTC). The value of
@@ -192,44 +153,75 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
 -- are identified by names that are unique to the account used to create
 -- them and the Amazon Web Services Region where they are created. They
 -- consist of lowercase letters, numbers, and hyphens.
+--
+-- 'creationDate', 'recoveryPointByBackupVault_creationDate' - The date and time a recovery point is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+--
+-- 'backupSizeInBytes', 'recoveryPointByBackupVault_backupSizeInBytes' - The size, in bytes, of a backup.
+--
+-- 'status', 'recoveryPointByBackupVault_status' - A status code specifying the state of the recovery point.
+--
+-- 'backupVaultArn', 'recoveryPointByBackupVault_backupVaultArn' - An ARN that uniquely identifies a backup vault; for example,
+-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+--
+-- 'isEncrypted', 'recoveryPointByBackupVault_isEncrypted' - A Boolean value that is returned as @TRUE@ if the specified recovery
+-- point is encrypted, or @FALSE@ if the recovery point is not encrypted.
+--
+-- 'iamRoleArn', 'recoveryPointByBackupVault_iamRoleArn' - Specifies the IAM role ARN used to create the target recovery point; for
+-- example, @arn:aws:iam::123456789012:role\/S3Access@.
+--
+-- 'sourceBackupVaultArn', 'recoveryPointByBackupVault_sourceBackupVaultArn' - The backup vault where the recovery point was originally copied from. If
+-- the recovery point is restored to the same account this value will be
+-- @null@.
+--
+-- 'resourceArn', 'recoveryPointByBackupVault_resourceArn' - An ARN that uniquely identifies a resource. The format of the ARN
+-- depends on the resource type.
+--
+-- 'statusMessage', 'recoveryPointByBackupVault_statusMessage' - A message explaining the reason of the recovery point deletion failure.
+--
+-- 'createdBy', 'recoveryPointByBackupVault_createdBy' - Contains identifying information about the creation of a recovery point,
+-- including the @BackupPlanArn@, @BackupPlanId@, @BackupPlanVersion@, and
+-- @BackupRuleId@ of the backup plan that is used to create it.
+--
+-- 'lastRestoreTime', 'recoveryPointByBackupVault_lastRestoreTime' - The date and time a recovery point was last restored, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @LastRestoreTime@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+--
+-- 'calculatedLifecycle', 'recoveryPointByBackupVault_calculatedLifecycle' - A @CalculatedLifecycle@ object containing @DeleteAt@ and
+-- @MoveToColdStorageAt@ timestamps.
 newRecoveryPointByBackupVault ::
   RecoveryPointByBackupVault
 newRecoveryPointByBackupVault =
   RecoveryPointByBackupVault'
-    { isEncrypted =
+    { encryptionKeyArn =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      iamRoleArn = Prelude.Nothing,
       resourceType = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      calculatedLifecycle = Prelude.Nothing,
       lifecycle = Prelude.Nothing,
+      recoveryPointArn = Prelude.Nothing,
+      completionDate = Prelude.Nothing,
+      backupVaultName = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      backupSizeInBytes = Prelude.Nothing,
+      status = Prelude.Nothing,
       backupVaultArn = Prelude.Nothing,
+      isEncrypted = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
       sourceBackupVaultArn = Prelude.Nothing,
-      lastRestoreTime = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
-      recoveryPointArn = Prelude.Nothing,
-      encryptionKeyArn = Prelude.Nothing,
-      backupSizeInBytes = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      completionDate = Prelude.Nothing,
-      backupVaultName = Prelude.Nothing
+      createdBy = Prelude.Nothing,
+      lastRestoreTime = Prelude.Nothing,
+      calculatedLifecycle = Prelude.Nothing
     }
 
--- | A Boolean value that is returned as @TRUE@ if the specified recovery
--- point is encrypted, or @FALSE@ if the recovery point is not encrypted.
-recoveryPointByBackupVault_isEncrypted :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Bool)
-recoveryPointByBackupVault_isEncrypted = Lens.lens (\RecoveryPointByBackupVault' {isEncrypted} -> isEncrypted) (\s@RecoveryPointByBackupVault' {} a -> s {isEncrypted = a} :: RecoveryPointByBackupVault)
-
--- | A status code specifying the state of the recovery point.
-recoveryPointByBackupVault_status :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe RecoveryPointStatus)
-recoveryPointByBackupVault_status = Lens.lens (\RecoveryPointByBackupVault' {status} -> status) (\s@RecoveryPointByBackupVault' {} a -> s {status = a} :: RecoveryPointByBackupVault)
-
--- | Specifies the IAM role ARN used to create the target recovery point; for
--- example, @arn:aws:iam::123456789012:role\/S3Access@.
-recoveryPointByBackupVault_iamRoleArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
-recoveryPointByBackupVault_iamRoleArn = Lens.lens (\RecoveryPointByBackupVault' {iamRoleArn} -> iamRoleArn) (\s@RecoveryPointByBackupVault' {} a -> s {iamRoleArn = a} :: RecoveryPointByBackupVault)
+-- | The server-side encryption key that is used to protect your backups; for
+-- example,
+-- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+recoveryPointByBackupVault_encryptionKeyArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
+recoveryPointByBackupVault_encryptionKeyArn = Lens.lens (\RecoveryPointByBackupVault' {encryptionKeyArn} -> encryptionKeyArn) (\s@RecoveryPointByBackupVault' {} a -> s {encryptionKeyArn = a} :: RecoveryPointByBackupVault)
 
 -- | The type of Amazon Web Services resource saved as a recovery point; for
 -- example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
@@ -238,17 +230,6 @@ recoveryPointByBackupVault_iamRoleArn = Lens.lens (\RecoveryPointByBackupVault' 
 -- Amazon EC2.
 recoveryPointByBackupVault_resourceType :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
 recoveryPointByBackupVault_resourceType = Lens.lens (\RecoveryPointByBackupVault' {resourceType} -> resourceType) (\s@RecoveryPointByBackupVault' {} a -> s {resourceType = a} :: RecoveryPointByBackupVault)
-
--- | Contains identifying information about the creation of a recovery point,
--- including the @BackupPlanArn@, @BackupPlanId@, @BackupPlanVersion@, and
--- @BackupRuleId@ of the backup plan that is used to create it.
-recoveryPointByBackupVault_createdBy :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe RecoveryPointCreator)
-recoveryPointByBackupVault_createdBy = Lens.lens (\RecoveryPointByBackupVault' {createdBy} -> createdBy) (\s@RecoveryPointByBackupVault' {} a -> s {createdBy = a} :: RecoveryPointByBackupVault)
-
--- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
--- @MoveToColdStorageAt@ timestamps.
-recoveryPointByBackupVault_calculatedLifecycle :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe CalculatedLifecycle)
-recoveryPointByBackupVault_calculatedLifecycle = Lens.lens (\RecoveryPointByBackupVault' {calculatedLifecycle} -> calculatedLifecycle) (\s@RecoveryPointByBackupVault' {} a -> s {calculatedLifecycle = a} :: RecoveryPointByBackupVault)
 
 -- | The lifecycle defines when a protected resource is transitioned to cold
 -- storage and when it expires. Backup transitions and expires backups
@@ -264,55 +245,11 @@ recoveryPointByBackupVault_calculatedLifecycle = Lens.lens (\RecoveryPointByBack
 recoveryPointByBackupVault_lifecycle :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Lifecycle)
 recoveryPointByBackupVault_lifecycle = Lens.lens (\RecoveryPointByBackupVault' {lifecycle} -> lifecycle) (\s@RecoveryPointByBackupVault' {} a -> s {lifecycle = a} :: RecoveryPointByBackupVault)
 
--- | An ARN that uniquely identifies a backup vault; for example,
--- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-recoveryPointByBackupVault_backupVaultArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
-recoveryPointByBackupVault_backupVaultArn = Lens.lens (\RecoveryPointByBackupVault' {backupVaultArn} -> backupVaultArn) (\s@RecoveryPointByBackupVault' {} a -> s {backupVaultArn = a} :: RecoveryPointByBackupVault)
-
--- | The backup vault where the recovery point was originally copied from. If
--- the recovery point is restored to the same account this value will be
--- @null@.
-recoveryPointByBackupVault_sourceBackupVaultArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
-recoveryPointByBackupVault_sourceBackupVaultArn = Lens.lens (\RecoveryPointByBackupVault' {sourceBackupVaultArn} -> sourceBackupVaultArn) (\s@RecoveryPointByBackupVault' {} a -> s {sourceBackupVaultArn = a} :: RecoveryPointByBackupVault)
-
--- | The date and time a recovery point was last restored, in Unix format and
--- Coordinated Universal Time (UTC). The value of @LastRestoreTime@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
-recoveryPointByBackupVault_lastRestoreTime :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.UTCTime)
-recoveryPointByBackupVault_lastRestoreTime = Lens.lens (\RecoveryPointByBackupVault' {lastRestoreTime} -> lastRestoreTime) (\s@RecoveryPointByBackupVault' {} a -> s {lastRestoreTime = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Core._Time
-
--- | An ARN that uniquely identifies a resource. The format of the ARN
--- depends on the resource type.
-recoveryPointByBackupVault_resourceArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
-recoveryPointByBackupVault_resourceArn = Lens.lens (\RecoveryPointByBackupVault' {resourceArn} -> resourceArn) (\s@RecoveryPointByBackupVault' {} a -> s {resourceArn = a} :: RecoveryPointByBackupVault)
-
--- | A message explaining the reason of the recovery point deletion failure.
-recoveryPointByBackupVault_statusMessage :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
-recoveryPointByBackupVault_statusMessage = Lens.lens (\RecoveryPointByBackupVault' {statusMessage} -> statusMessage) (\s@RecoveryPointByBackupVault' {} a -> s {statusMessage = a} :: RecoveryPointByBackupVault)
-
 -- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
 -- for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
 recoveryPointByBackupVault_recoveryPointArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
 recoveryPointByBackupVault_recoveryPointArn = Lens.lens (\RecoveryPointByBackupVault' {recoveryPointArn} -> recoveryPointArn) (\s@RecoveryPointByBackupVault' {} a -> s {recoveryPointArn = a} :: RecoveryPointByBackupVault)
-
--- | The server-side encryption key that is used to protect your backups; for
--- example,
--- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
-recoveryPointByBackupVault_encryptionKeyArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
-recoveryPointByBackupVault_encryptionKeyArn = Lens.lens (\RecoveryPointByBackupVault' {encryptionKeyArn} -> encryptionKeyArn) (\s@RecoveryPointByBackupVault' {} a -> s {encryptionKeyArn = a} :: RecoveryPointByBackupVault)
-
--- | The size, in bytes, of a backup.
-recoveryPointByBackupVault_backupSizeInBytes :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Integer)
-recoveryPointByBackupVault_backupSizeInBytes = Lens.lens (\RecoveryPointByBackupVault' {backupSizeInBytes} -> backupSizeInBytes) (\s@RecoveryPointByBackupVault' {} a -> s {backupSizeInBytes = a} :: RecoveryPointByBackupVault)
-
--- | The date and time a recovery point is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
-recoveryPointByBackupVault_creationDate :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.UTCTime)
-recoveryPointByBackupVault_creationDate = Lens.lens (\RecoveryPointByBackupVault' {creationDate} -> creationDate) (\s@RecoveryPointByBackupVault' {} a -> s {creationDate = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time a job to restore a recovery point is completed, in
 -- Unix format and Coordinated Universal Time (UTC). The value of
@@ -328,70 +265,133 @@ recoveryPointByBackupVault_completionDate = Lens.lens (\RecoveryPointByBackupVau
 recoveryPointByBackupVault_backupVaultName :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
 recoveryPointByBackupVault_backupVaultName = Lens.lens (\RecoveryPointByBackupVault' {backupVaultName} -> backupVaultName) (\s@RecoveryPointByBackupVault' {} a -> s {backupVaultName = a} :: RecoveryPointByBackupVault)
 
+-- | The date and time a recovery point is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+recoveryPointByBackupVault_creationDate :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.UTCTime)
+recoveryPointByBackupVault_creationDate = Lens.lens (\RecoveryPointByBackupVault' {creationDate} -> creationDate) (\s@RecoveryPointByBackupVault' {} a -> s {creationDate = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Core._Time
+
+-- | The size, in bytes, of a backup.
+recoveryPointByBackupVault_backupSizeInBytes :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Integer)
+recoveryPointByBackupVault_backupSizeInBytes = Lens.lens (\RecoveryPointByBackupVault' {backupSizeInBytes} -> backupSizeInBytes) (\s@RecoveryPointByBackupVault' {} a -> s {backupSizeInBytes = a} :: RecoveryPointByBackupVault)
+
+-- | A status code specifying the state of the recovery point.
+recoveryPointByBackupVault_status :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe RecoveryPointStatus)
+recoveryPointByBackupVault_status = Lens.lens (\RecoveryPointByBackupVault' {status} -> status) (\s@RecoveryPointByBackupVault' {} a -> s {status = a} :: RecoveryPointByBackupVault)
+
+-- | An ARN that uniquely identifies a backup vault; for example,
+-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+recoveryPointByBackupVault_backupVaultArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
+recoveryPointByBackupVault_backupVaultArn = Lens.lens (\RecoveryPointByBackupVault' {backupVaultArn} -> backupVaultArn) (\s@RecoveryPointByBackupVault' {} a -> s {backupVaultArn = a} :: RecoveryPointByBackupVault)
+
+-- | A Boolean value that is returned as @TRUE@ if the specified recovery
+-- point is encrypted, or @FALSE@ if the recovery point is not encrypted.
+recoveryPointByBackupVault_isEncrypted :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Bool)
+recoveryPointByBackupVault_isEncrypted = Lens.lens (\RecoveryPointByBackupVault' {isEncrypted} -> isEncrypted) (\s@RecoveryPointByBackupVault' {} a -> s {isEncrypted = a} :: RecoveryPointByBackupVault)
+
+-- | Specifies the IAM role ARN used to create the target recovery point; for
+-- example, @arn:aws:iam::123456789012:role\/S3Access@.
+recoveryPointByBackupVault_iamRoleArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
+recoveryPointByBackupVault_iamRoleArn = Lens.lens (\RecoveryPointByBackupVault' {iamRoleArn} -> iamRoleArn) (\s@RecoveryPointByBackupVault' {} a -> s {iamRoleArn = a} :: RecoveryPointByBackupVault)
+
+-- | The backup vault where the recovery point was originally copied from. If
+-- the recovery point is restored to the same account this value will be
+-- @null@.
+recoveryPointByBackupVault_sourceBackupVaultArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
+recoveryPointByBackupVault_sourceBackupVaultArn = Lens.lens (\RecoveryPointByBackupVault' {sourceBackupVaultArn} -> sourceBackupVaultArn) (\s@RecoveryPointByBackupVault' {} a -> s {sourceBackupVaultArn = a} :: RecoveryPointByBackupVault)
+
+-- | An ARN that uniquely identifies a resource. The format of the ARN
+-- depends on the resource type.
+recoveryPointByBackupVault_resourceArn :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
+recoveryPointByBackupVault_resourceArn = Lens.lens (\RecoveryPointByBackupVault' {resourceArn} -> resourceArn) (\s@RecoveryPointByBackupVault' {} a -> s {resourceArn = a} :: RecoveryPointByBackupVault)
+
+-- | A message explaining the reason of the recovery point deletion failure.
+recoveryPointByBackupVault_statusMessage :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.Text)
+recoveryPointByBackupVault_statusMessage = Lens.lens (\RecoveryPointByBackupVault' {statusMessage} -> statusMessage) (\s@RecoveryPointByBackupVault' {} a -> s {statusMessage = a} :: RecoveryPointByBackupVault)
+
+-- | Contains identifying information about the creation of a recovery point,
+-- including the @BackupPlanArn@, @BackupPlanId@, @BackupPlanVersion@, and
+-- @BackupRuleId@ of the backup plan that is used to create it.
+recoveryPointByBackupVault_createdBy :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe RecoveryPointCreator)
+recoveryPointByBackupVault_createdBy = Lens.lens (\RecoveryPointByBackupVault' {createdBy} -> createdBy) (\s@RecoveryPointByBackupVault' {} a -> s {createdBy = a} :: RecoveryPointByBackupVault)
+
+-- | The date and time a recovery point was last restored, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @LastRestoreTime@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+recoveryPointByBackupVault_lastRestoreTime :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Prelude.UTCTime)
+recoveryPointByBackupVault_lastRestoreTime = Lens.lens (\RecoveryPointByBackupVault' {lastRestoreTime} -> lastRestoreTime) (\s@RecoveryPointByBackupVault' {} a -> s {lastRestoreTime = a} :: RecoveryPointByBackupVault) Prelude.. Lens.mapping Core._Time
+
+-- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
+-- @MoveToColdStorageAt@ timestamps.
+recoveryPointByBackupVault_calculatedLifecycle :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe CalculatedLifecycle)
+recoveryPointByBackupVault_calculatedLifecycle = Lens.lens (\RecoveryPointByBackupVault' {calculatedLifecycle} -> calculatedLifecycle) (\s@RecoveryPointByBackupVault' {} a -> s {calculatedLifecycle = a} :: RecoveryPointByBackupVault)
+
 instance Core.FromJSON RecoveryPointByBackupVault where
   parseJSON =
     Core.withObject
       "RecoveryPointByBackupVault"
       ( \x ->
           RecoveryPointByBackupVault'
-            Prelude.<$> (x Core..:? "IsEncrypted")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "IamRoleArn")
+            Prelude.<$> (x Core..:? "EncryptionKeyArn")
             Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "CalculatedLifecycle")
             Prelude.<*> (x Core..:? "Lifecycle")
-            Prelude.<*> (x Core..:? "BackupVaultArn")
-            Prelude.<*> (x Core..:? "SourceBackupVaultArn")
-            Prelude.<*> (x Core..:? "LastRestoreTime")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..:? "RecoveryPointArn")
-            Prelude.<*> (x Core..:? "EncryptionKeyArn")
-            Prelude.<*> (x Core..:? "BackupSizeInBytes")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "CompletionDate")
             Prelude.<*> (x Core..:? "BackupVaultName")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "BackupSizeInBytes")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "BackupVaultArn")
+            Prelude.<*> (x Core..:? "IsEncrypted")
+            Prelude.<*> (x Core..:? "IamRoleArn")
+            Prelude.<*> (x Core..:? "SourceBackupVaultArn")
+            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "LastRestoreTime")
+            Prelude.<*> (x Core..:? "CalculatedLifecycle")
       )
 
 instance Prelude.Hashable RecoveryPointByBackupVault where
   hashWithSalt _salt RecoveryPointByBackupVault' {..} =
-    _salt `Prelude.hashWithSalt` isEncrypted
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` iamRoleArn
+    _salt `Prelude.hashWithSalt` encryptionKeyArn
       `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` createdBy
-      `Prelude.hashWithSalt` calculatedLifecycle
       `Prelude.hashWithSalt` lifecycle
-      `Prelude.hashWithSalt` backupVaultArn
-      `Prelude.hashWithSalt` sourceBackupVaultArn
-      `Prelude.hashWithSalt` lastRestoreTime
-      `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` recoveryPointArn
-      `Prelude.hashWithSalt` encryptionKeyArn
-      `Prelude.hashWithSalt` backupSizeInBytes
-      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` completionDate
       `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` backupSizeInBytes
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` backupVaultArn
+      `Prelude.hashWithSalt` isEncrypted
+      `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` sourceBackupVaultArn
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` lastRestoreTime
+      `Prelude.hashWithSalt` calculatedLifecycle
 
 instance Prelude.NFData RecoveryPointByBackupVault where
   rnf RecoveryPointByBackupVault' {..} =
-    Prelude.rnf isEncrypted
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf encryptionKeyArn
       `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf calculatedLifecycle
       `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
-      `Prelude.seq` Prelude.rnf lastRestoreTime
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf backupSizeInBytes
-      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf completionDate
       `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf backupSizeInBytes
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf isEncrypted
+      `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf sourceBackupVaultArn
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastRestoreTime
+      `Prelude.seq` Prelude.rnf calculatedLifecycle

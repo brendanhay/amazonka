@@ -48,8 +48,8 @@ module Amazonka.SSM.StartSession
     newStartSessionResponse,
 
     -- * Response Lenses
-    startSessionResponse_streamUrl,
     startSessionResponse_tokenValue,
+    startSessionResponse_streamUrl,
     startSessionResponse_sessionId,
     startSessionResponse_httpStatus,
   )
@@ -128,8 +128,8 @@ instance Core.AWSRequest StartSession where
     Response.receiveJSON
       ( \s h x ->
           StartSessionResponse'
-            Prelude.<$> (x Core..?> "StreamUrl")
-            Prelude.<*> (x Core..?> "TokenValue")
+            Prelude.<$> (x Core..?> "TokenValue")
+            Prelude.<*> (x Core..?> "StreamUrl")
             Prelude.<*> (x Core..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -177,7 +177,10 @@ instance Core.ToQuery StartSession where
 
 -- | /See:/ 'newStartSessionResponse' smart constructor.
 data StartSessionResponse = StartSessionResponse'
-  { -- | A URL back to SSM Agent on the instance that the Session Manager client
+  { -- | An encrypted token value containing session and caller information. Used
+    -- to authenticate the connection to the instance.
+    tokenValue :: Prelude.Maybe Prelude.Text,
+    -- | A URL back to SSM Agent on the instance that the Session Manager client
     -- uses to send commands and receive output from the instance. Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
     --
@@ -191,9 +194,6 @@ data StartSessionResponse = StartSessionResponse'
     -- __session-id__ represents the ID of a Session Manager session, such as
     -- @1a2b3c4dEXAMPLE@.
     streamUrl :: Prelude.Maybe Prelude.Text,
-    -- | An encrypted token value containing session and caller information. Used
-    -- to authenticate the connection to the instance.
-    tokenValue :: Prelude.Maybe Prelude.Text,
     -- | The ID of the session.
     sessionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -209,6 +209,9 @@ data StartSessionResponse = StartSessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tokenValue', 'startSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used
+-- to authenticate the connection to the instance.
+--
 -- 'streamUrl', 'startSessionResponse_streamUrl' - A URL back to SSM Agent on the instance that the Session Manager client
 -- uses to send commands and receive output from the instance. Format:
 -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
@@ -223,9 +226,6 @@ data StartSessionResponse = StartSessionResponse'
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.
 --
--- 'tokenValue', 'startSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used
--- to authenticate the connection to the instance.
---
 -- 'sessionId', 'startSessionResponse_sessionId' - The ID of the session.
 --
 -- 'httpStatus', 'startSessionResponse_httpStatus' - The response's http status code.
@@ -235,11 +235,16 @@ newStartSessionResponse ::
   StartSessionResponse
 newStartSessionResponse pHttpStatus_ =
   StartSessionResponse'
-    { streamUrl = Prelude.Nothing,
-      tokenValue = Prelude.Nothing,
+    { tokenValue = Prelude.Nothing,
+      streamUrl = Prelude.Nothing,
       sessionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An encrypted token value containing session and caller information. Used
+-- to authenticate the connection to the instance.
+startSessionResponse_tokenValue :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
+startSessionResponse_tokenValue = Lens.lens (\StartSessionResponse' {tokenValue} -> tokenValue) (\s@StartSessionResponse' {} a -> s {tokenValue = a} :: StartSessionResponse)
 
 -- | A URL back to SSM Agent on the instance that the Session Manager client
 -- uses to send commands and receive output from the instance. Format:
@@ -257,11 +262,6 @@ newStartSessionResponse pHttpStatus_ =
 startSessionResponse_streamUrl :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
 startSessionResponse_streamUrl = Lens.lens (\StartSessionResponse' {streamUrl} -> streamUrl) (\s@StartSessionResponse' {} a -> s {streamUrl = a} :: StartSessionResponse)
 
--- | An encrypted token value containing session and caller information. Used
--- to authenticate the connection to the instance.
-startSessionResponse_tokenValue :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
-startSessionResponse_tokenValue = Lens.lens (\StartSessionResponse' {tokenValue} -> tokenValue) (\s@StartSessionResponse' {} a -> s {tokenValue = a} :: StartSessionResponse)
-
 -- | The ID of the session.
 startSessionResponse_sessionId :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
 startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -> sessionId) (\s@StartSessionResponse' {} a -> s {sessionId = a} :: StartSessionResponse)
@@ -272,7 +272,7 @@ startSessionResponse_httpStatus = Lens.lens (\StartSessionResponse' {httpStatus}
 
 instance Prelude.NFData StartSessionResponse where
   rnf StartSessionResponse' {..} =
-    Prelude.rnf streamUrl
-      `Prelude.seq` Prelude.rnf tokenValue
+    Prelude.rnf tokenValue
+      `Prelude.seq` Prelude.rnf streamUrl
       `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf httpStatus

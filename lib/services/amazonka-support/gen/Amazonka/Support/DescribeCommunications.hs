@@ -50,10 +50,10 @@ module Amazonka.Support.DescribeCommunications
     newDescribeCommunications,
 
     -- * Request Lenses
-    describeCommunications_afterTime,
-    describeCommunications_beforeTime,
     describeCommunications_nextToken,
+    describeCommunications_afterTime,
     describeCommunications_maxResults,
+    describeCommunications_beforeTime,
     describeCommunications_caseId,
 
     -- * Destructuring the Response
@@ -76,17 +76,17 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newDescribeCommunications' smart constructor.
 data DescribeCommunications = DescribeCommunications'
-  { -- | The start date for a filtered date search on support case
+  { -- | A resumption point for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The start date for a filtered date search on support case
     -- communications. Case communications are available for 12 months after
     -- creation.
     afterTime :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return before paginating.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The end date for a filtered date search on support case communications.
     -- Case communications are available for 12 months after creation.
     beforeTime :: Prelude.Maybe Prelude.Text,
-    -- | A resumption point for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return before paginating.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The support case ID requested or returned in the call. The case ID is an
     -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
@@ -102,16 +102,16 @@ data DescribeCommunications = DescribeCommunications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeCommunications_nextToken' - A resumption point for pagination.
+--
 -- 'afterTime', 'describeCommunications_afterTime' - The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
 -- creation.
 --
+-- 'maxResults', 'describeCommunications_maxResults' - The maximum number of results to return before paginating.
+--
 -- 'beforeTime', 'describeCommunications_beforeTime' - The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
---
--- 'nextToken', 'describeCommunications_nextToken' - A resumption point for pagination.
---
--- 'maxResults', 'describeCommunications_maxResults' - The maximum number of results to return before paginating.
 --
 -- 'caseId', 'describeCommunications_caseId' - The support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example:
@@ -122,13 +122,17 @@ newDescribeCommunications ::
   DescribeCommunications
 newDescribeCommunications pCaseId_ =
   DescribeCommunications'
-    { afterTime =
+    { nextToken =
         Prelude.Nothing,
-      beforeTime = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      afterTime = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      beforeTime = Prelude.Nothing,
       caseId = pCaseId_
     }
+
+-- | A resumption point for pagination.
+describeCommunications_nextToken :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
+describeCommunications_nextToken = Lens.lens (\DescribeCommunications' {nextToken} -> nextToken) (\s@DescribeCommunications' {} a -> s {nextToken = a} :: DescribeCommunications)
 
 -- | The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
@@ -136,18 +140,14 @@ newDescribeCommunications pCaseId_ =
 describeCommunications_afterTime :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
 describeCommunications_afterTime = Lens.lens (\DescribeCommunications' {afterTime} -> afterTime) (\s@DescribeCommunications' {} a -> s {afterTime = a} :: DescribeCommunications)
 
+-- | The maximum number of results to return before paginating.
+describeCommunications_maxResults :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Natural)
+describeCommunications_maxResults = Lens.lens (\DescribeCommunications' {maxResults} -> maxResults) (\s@DescribeCommunications' {} a -> s {maxResults = a} :: DescribeCommunications)
+
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 describeCommunications_beforeTime :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
 describeCommunications_beforeTime = Lens.lens (\DescribeCommunications' {beforeTime} -> beforeTime) (\s@DescribeCommunications' {} a -> s {beforeTime = a} :: DescribeCommunications)
-
--- | A resumption point for pagination.
-describeCommunications_nextToken :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
-describeCommunications_nextToken = Lens.lens (\DescribeCommunications' {nextToken} -> nextToken) (\s@DescribeCommunications' {} a -> s {nextToken = a} :: DescribeCommunications)
-
--- | The maximum number of results to return before paginating.
-describeCommunications_maxResults :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Natural)
-describeCommunications_maxResults = Lens.lens (\DescribeCommunications' {maxResults} -> maxResults) (\s@DescribeCommunications' {} a -> s {maxResults = a} :: DescribeCommunications)
 
 -- | The support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example:
@@ -193,18 +193,18 @@ instance Core.AWSRequest DescribeCommunications where
 
 instance Prelude.Hashable DescribeCommunications where
   hashWithSalt _salt DescribeCommunications' {..} =
-    _salt `Prelude.hashWithSalt` afterTime
-      `Prelude.hashWithSalt` beforeTime
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` afterTime
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` beforeTime
       `Prelude.hashWithSalt` caseId
 
 instance Prelude.NFData DescribeCommunications where
   rnf DescribeCommunications' {..} =
-    Prelude.rnf afterTime
-      `Prelude.seq` Prelude.rnf beforeTime
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf afterTime
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf beforeTime
       `Prelude.seq` Prelude.rnf caseId
 
 instance Core.ToHeaders DescribeCommunications where
@@ -226,10 +226,10 @@ instance Core.ToJSON DescribeCommunications where
   toJSON DescribeCommunications' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("afterTime" Core..=) Prelude.<$> afterTime,
-            ("beforeTime" Core..=) Prelude.<$> beforeTime,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("afterTime" Core..=) Prelude.<$> afterTime,
             ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("beforeTime" Core..=) Prelude.<$> beforeTime,
             Prelude.Just ("caseId" Core..= caseId)
           ]
       )

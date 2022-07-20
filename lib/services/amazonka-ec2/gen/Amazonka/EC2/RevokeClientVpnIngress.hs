@@ -27,9 +27,9 @@ module Amazonka.EC2.RevokeClientVpnIngress
     newRevokeClientVpnIngress,
 
     -- * Request Lenses
-    revokeClientVpnIngress_accessGroupId,
     revokeClientVpnIngress_revokeAllGroups,
     revokeClientVpnIngress_dryRun,
+    revokeClientVpnIngress_accessGroupId,
     revokeClientVpnIngress_clientVpnEndpointId,
     revokeClientVpnIngress_targetNetworkCidr,
 
@@ -52,15 +52,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRevokeClientVpnIngress' smart constructor.
 data RevokeClientVpnIngress = RevokeClientVpnIngress'
-  { -- | The ID of the Active Directory group for which to revoke access.
-    accessGroupId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether access should be revoked for all clients.
+  { -- | Indicates whether access should be revoked for all clients.
     revokeAllGroups :: Prelude.Maybe Prelude.Bool,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the Active Directory group for which to revoke access.
+    accessGroupId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint with which the authorization rule is
     -- associated.
     clientVpnEndpointId :: Prelude.Text,
@@ -78,14 +78,14 @@ data RevokeClientVpnIngress = RevokeClientVpnIngress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessGroupId', 'revokeClientVpnIngress_accessGroupId' - The ID of the Active Directory group for which to revoke access.
---
 -- 'revokeAllGroups', 'revokeClientVpnIngress_revokeAllGroups' - Indicates whether access should be revoked for all clients.
 --
 -- 'dryRun', 'revokeClientVpnIngress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'accessGroupId', 'revokeClientVpnIngress_accessGroupId' - The ID of the Active Directory group for which to revoke access.
 --
 -- 'clientVpnEndpointId', 'revokeClientVpnIngress_clientVpnEndpointId' - The ID of the Client VPN endpoint with which the authorization rule is
 -- associated.
@@ -102,17 +102,13 @@ newRevokeClientVpnIngress
   pClientVpnEndpointId_
   pTargetNetworkCidr_ =
     RevokeClientVpnIngress'
-      { accessGroupId =
+      { revokeAllGroups =
           Prelude.Nothing,
-        revokeAllGroups = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        accessGroupId = Prelude.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_,
         targetNetworkCidr = pTargetNetworkCidr_
       }
-
--- | The ID of the Active Directory group for which to revoke access.
-revokeClientVpnIngress_accessGroupId :: Lens.Lens' RevokeClientVpnIngress (Prelude.Maybe Prelude.Text)
-revokeClientVpnIngress_accessGroupId = Lens.lens (\RevokeClientVpnIngress' {accessGroupId} -> accessGroupId) (\s@RevokeClientVpnIngress' {} a -> s {accessGroupId = a} :: RevokeClientVpnIngress)
 
 -- | Indicates whether access should be revoked for all clients.
 revokeClientVpnIngress_revokeAllGroups :: Lens.Lens' RevokeClientVpnIngress (Prelude.Maybe Prelude.Bool)
@@ -124,6 +120,10 @@ revokeClientVpnIngress_revokeAllGroups = Lens.lens (\RevokeClientVpnIngress' {re
 -- Otherwise, it is @UnauthorizedOperation@.
 revokeClientVpnIngress_dryRun :: Lens.Lens' RevokeClientVpnIngress (Prelude.Maybe Prelude.Bool)
 revokeClientVpnIngress_dryRun = Lens.lens (\RevokeClientVpnIngress' {dryRun} -> dryRun) (\s@RevokeClientVpnIngress' {} a -> s {dryRun = a} :: RevokeClientVpnIngress)
+
+-- | The ID of the Active Directory group for which to revoke access.
+revokeClientVpnIngress_accessGroupId :: Lens.Lens' RevokeClientVpnIngress (Prelude.Maybe Prelude.Text)
+revokeClientVpnIngress_accessGroupId = Lens.lens (\RevokeClientVpnIngress' {accessGroupId} -> accessGroupId) (\s@RevokeClientVpnIngress' {} a -> s {accessGroupId = a} :: RevokeClientVpnIngress)
 
 -- | The ID of the Client VPN endpoint with which the authorization rule is
 -- associated.
@@ -150,17 +150,17 @@ instance Core.AWSRequest RevokeClientVpnIngress where
 
 instance Prelude.Hashable RevokeClientVpnIngress where
   hashWithSalt _salt RevokeClientVpnIngress' {..} =
-    _salt `Prelude.hashWithSalt` accessGroupId
-      `Prelude.hashWithSalt` revokeAllGroups
+    _salt `Prelude.hashWithSalt` revokeAllGroups
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` accessGroupId
       `Prelude.hashWithSalt` clientVpnEndpointId
       `Prelude.hashWithSalt` targetNetworkCidr
 
 instance Prelude.NFData RevokeClientVpnIngress where
   rnf RevokeClientVpnIngress' {..} =
-    Prelude.rnf accessGroupId
-      `Prelude.seq` Prelude.rnf revokeAllGroups
+    Prelude.rnf revokeAllGroups
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf accessGroupId
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
       `Prelude.seq` Prelude.rnf targetNetworkCidr
 
@@ -177,9 +177,9 @@ instance Core.ToQuery RevokeClientVpnIngress where
           Core.=: ("RevokeClientVpnIngress" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AccessGroupId" Core.=: accessGroupId,
         "RevokeAllGroups" Core.=: revokeAllGroups,
         "DryRun" Core.=: dryRun,
+        "AccessGroupId" Core.=: accessGroupId,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
         "TargetNetworkCidr" Core.=: targetNetworkCidr
       ]

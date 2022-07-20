@@ -34,21 +34,6 @@ newObjectNotExists =
         [Core.matchStatus 404 Core.AcceptSuccess]
     }
 
--- | Polls 'Amazonka.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newBucketExists :: Core.Wait HeadBucket
-newBucketExists =
-  Core.Wait
-    { Core._waitName = "BucketExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchStatus 301 Core.AcceptSuccess,
-          Core.matchStatus 403 Core.AcceptSuccess,
-          Core.matchStatus 404 Core.AcceptRetry
-        ]
-    }
-
 -- | Polls 'Amazonka.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newObjectExists :: Core.Wait HeadObject
 newObjectExists =
@@ -71,4 +56,19 @@ newBucketNotExists =
       Core._waitDelay = 5,
       Core._waitAcceptors =
         [Core.matchStatus 404 Core.AcceptSuccess]
+    }
+
+-- | Polls 'Amazonka.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newBucketExists :: Core.Wait HeadBucket
+newBucketExists =
+  Core.Wait
+    { Core._waitName = "BucketExists",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchStatus 301 Core.AcceptSuccess,
+          Core.matchStatus 403 Core.AcceptSuccess,
+          Core.matchStatus 404 Core.AcceptRetry
+        ]
     }

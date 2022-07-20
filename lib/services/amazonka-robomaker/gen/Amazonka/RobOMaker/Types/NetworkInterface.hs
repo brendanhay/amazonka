@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | The ID of the network interface.
+  { -- | The IPv4 public address of the network interface.
+    publicIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 address of the network interface within the subnet.
-    privateIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | The IPv4 public address of the network interface.
-    publicIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,20 +44,24 @@ data NetworkInterface = NetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'publicIpAddress', 'networkInterface_publicIpAddress' - The IPv4 public address of the network interface.
+--
 -- 'networkInterfaceId', 'networkInterface_networkInterfaceId' - The ID of the network interface.
 --
 -- 'privateIpAddress', 'networkInterface_privateIpAddress' - The IPv4 address of the network interface within the subnet.
---
--- 'publicIpAddress', 'networkInterface_publicIpAddress' - The IPv4 public address of the network interface.
 newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { networkInterfaceId =
+    { publicIpAddress =
         Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing,
-      publicIpAddress = Prelude.Nothing
+      networkInterfaceId = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
+
+-- | The IPv4 public address of the network interface.
+networkInterface_publicIpAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_publicIpAddress = Lens.lens (\NetworkInterface' {publicIpAddress} -> publicIpAddress) (\s@NetworkInterface' {} a -> s {publicIpAddress = a} :: NetworkInterface)
 
 -- | The ID of the network interface.
 networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
@@ -67,29 +71,25 @@ networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInte
 networkInterface_privateIpAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_privateIpAddress = Lens.lens (\NetworkInterface' {privateIpAddress} -> privateIpAddress) (\s@NetworkInterface' {} a -> s {privateIpAddress = a} :: NetworkInterface)
 
--- | The IPv4 public address of the network interface.
-networkInterface_publicIpAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
-networkInterface_publicIpAddress = Lens.lens (\NetworkInterface' {publicIpAddress} -> publicIpAddress) (\s@NetworkInterface' {} a -> s {publicIpAddress = a} :: NetworkInterface)
-
 instance Core.FromJSON NetworkInterface where
   parseJSON =
     Core.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "networkInterfaceId")
+            Prelude.<$> (x Core..:? "publicIpAddress")
+            Prelude.<*> (x Core..:? "networkInterfaceId")
             Prelude.<*> (x Core..:? "privateIpAddress")
-            Prelude.<*> (x Core..:? "publicIpAddress")
       )
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` networkInterfaceId
+    _salt `Prelude.hashWithSalt` publicIpAddress
+      `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` privateIpAddress
-      `Prelude.hashWithSalt` publicIpAddress
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf networkInterfaceId
+    Prelude.rnf publicIpAddress
+      `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf publicIpAddress

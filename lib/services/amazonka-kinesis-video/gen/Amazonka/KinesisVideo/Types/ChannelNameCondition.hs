@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelNameCondition' smart constructor.
 data ChannelNameCondition = ChannelNameCondition'
-  { -- | A comparison operator. Currently, you can only specify the @BEGINS_WITH@
+  { -- | A value to compare.
+    comparisonValue :: Prelude.Maybe Prelude.Text,
+    -- | A comparison operator. Currently, you can only specify the @BEGINS_WITH@
     -- operator, which finds signaling channels whose names begin with a given
     -- prefix.
-    comparisonOperator :: Prelude.Maybe ComparisonOperator,
-    -- | A value to compare.
-    comparisonValue :: Prelude.Maybe Prelude.Text
+    comparisonOperator :: Prelude.Maybe ComparisonOperator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,19 +48,23 @@ data ChannelNameCondition = ChannelNameCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'comparisonValue', 'channelNameCondition_comparisonValue' - A value to compare.
+--
 -- 'comparisonOperator', 'channelNameCondition_comparisonOperator' - A comparison operator. Currently, you can only specify the @BEGINS_WITH@
 -- operator, which finds signaling channels whose names begin with a given
 -- prefix.
---
--- 'comparisonValue', 'channelNameCondition_comparisonValue' - A value to compare.
 newChannelNameCondition ::
   ChannelNameCondition
 newChannelNameCondition =
   ChannelNameCondition'
-    { comparisonOperator =
+    { comparisonValue =
         Prelude.Nothing,
-      comparisonValue = Prelude.Nothing
+      comparisonOperator = Prelude.Nothing
     }
+
+-- | A value to compare.
+channelNameCondition_comparisonValue :: Lens.Lens' ChannelNameCondition (Prelude.Maybe Prelude.Text)
+channelNameCondition_comparisonValue = Lens.lens (\ChannelNameCondition' {comparisonValue} -> comparisonValue) (\s@ChannelNameCondition' {} a -> s {comparisonValue = a} :: ChannelNameCondition)
 
 -- | A comparison operator. Currently, you can only specify the @BEGINS_WITH@
 -- operator, which finds signaling channels whose names begin with a given
@@ -68,27 +72,23 @@ newChannelNameCondition =
 channelNameCondition_comparisonOperator :: Lens.Lens' ChannelNameCondition (Prelude.Maybe ComparisonOperator)
 channelNameCondition_comparisonOperator = Lens.lens (\ChannelNameCondition' {comparisonOperator} -> comparisonOperator) (\s@ChannelNameCondition' {} a -> s {comparisonOperator = a} :: ChannelNameCondition)
 
--- | A value to compare.
-channelNameCondition_comparisonValue :: Lens.Lens' ChannelNameCondition (Prelude.Maybe Prelude.Text)
-channelNameCondition_comparisonValue = Lens.lens (\ChannelNameCondition' {comparisonValue} -> comparisonValue) (\s@ChannelNameCondition' {} a -> s {comparisonValue = a} :: ChannelNameCondition)
-
 instance Prelude.Hashable ChannelNameCondition where
   hashWithSalt _salt ChannelNameCondition' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
-      `Prelude.hashWithSalt` comparisonValue
+    _salt `Prelude.hashWithSalt` comparisonValue
+      `Prelude.hashWithSalt` comparisonOperator
 
 instance Prelude.NFData ChannelNameCondition where
   rnf ChannelNameCondition' {..} =
-    Prelude.rnf comparisonOperator
-      `Prelude.seq` Prelude.rnf comparisonValue
+    Prelude.rnf comparisonValue
+      `Prelude.seq` Prelude.rnf comparisonOperator
 
 instance Core.ToJSON ChannelNameCondition where
   toJSON ChannelNameCondition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ComparisonOperator" Core..=)
-              Prelude.<$> comparisonOperator,
-            ("ComparisonValue" Core..=)
-              Prelude.<$> comparisonValue
+          [ ("ComparisonValue" Core..=)
+              Prelude.<$> comparisonValue,
+            ("ComparisonOperator" Core..=)
+              Prelude.<$> comparisonOperator
           ]
       )

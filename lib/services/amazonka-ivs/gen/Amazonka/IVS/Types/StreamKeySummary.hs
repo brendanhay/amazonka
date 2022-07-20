@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamKeySummary' smart constructor.
 data StreamKeySummary = StreamKeySummary'
-  { -- | Stream-key ARN.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Stream-key ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Channel ARN for the stream.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    channelArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,19 +44,23 @@ data StreamKeySummary = StreamKeySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'streamKeySummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+--
 -- 'arn', 'streamKeySummary_arn' - Stream-key ARN.
 --
 -- 'channelArn', 'streamKeySummary_channelArn' - Channel ARN for the stream.
---
--- 'tags', 'streamKeySummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
 newStreamKeySummary ::
   StreamKeySummary
 newStreamKeySummary =
   StreamKeySummary'
-    { arn = Prelude.Nothing,
-      channelArn = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      channelArn = Prelude.Nothing
     }
+
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+streamKeySummary_tags :: Lens.Lens' StreamKeySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+streamKeySummary_tags = Lens.lens (\StreamKeySummary' {tags} -> tags) (\s@StreamKeySummary' {} a -> s {tags = a} :: StreamKeySummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Stream-key ARN.
 streamKeySummary_arn :: Lens.Lens' StreamKeySummary (Prelude.Maybe Prelude.Text)
@@ -66,29 +70,25 @@ streamKeySummary_arn = Lens.lens (\StreamKeySummary' {arn} -> arn) (\s@StreamKey
 streamKeySummary_channelArn :: Lens.Lens' StreamKeySummary (Prelude.Maybe Prelude.Text)
 streamKeySummary_channelArn = Lens.lens (\StreamKeySummary' {channelArn} -> channelArn) (\s@StreamKeySummary' {} a -> s {channelArn = a} :: StreamKeySummary)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-streamKeySummary_tags :: Lens.Lens' StreamKeySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-streamKeySummary_tags = Lens.lens (\StreamKeySummary' {tags} -> tags) (\s@StreamKeySummary' {} a -> s {tags = a} :: StreamKeySummary) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON StreamKeySummary where
   parseJSON =
     Core.withObject
       "StreamKeySummary"
       ( \x ->
           StreamKeySummary'
-            Prelude.<$> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "channelArn")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StreamKeySummary where
   hashWithSalt _salt StreamKeySummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelArn
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData StreamKeySummary where
   rnf StreamKeySummary' {..} =
-    Prelude.rnf arn
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf tags

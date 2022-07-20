@@ -28,10 +28,10 @@ import Amazonka.Signer.Types.ValidityType
 --
 -- /See:/ 'newSignatureValidityPeriod' smart constructor.
 data SignatureValidityPeriod = SignatureValidityPeriod'
-  { -- | The numerical value of the time unit for signature validity.
-    value :: Prelude.Maybe Prelude.Int,
-    -- | The time unit for signature validity.
-    type' :: Prelude.Maybe ValidityType
+  { -- | The time unit for signature validity.
+    type' :: Prelude.Maybe ValidityType,
+    -- | The numerical value of the time unit for signature validity.
+    value :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data SignatureValidityPeriod = SignatureValidityPeriod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'signatureValidityPeriod_value' - The numerical value of the time unit for signature validity.
---
 -- 'type'', 'signatureValidityPeriod_type' - The time unit for signature validity.
+--
+-- 'value', 'signatureValidityPeriod_value' - The numerical value of the time unit for signature validity.
 newSignatureValidityPeriod ::
   SignatureValidityPeriod
 newSignatureValidityPeriod =
   SignatureValidityPeriod'
-    { value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The numerical value of the time unit for signature validity.
-signatureValidityPeriod_value :: Lens.Lens' SignatureValidityPeriod (Prelude.Maybe Prelude.Int)
-signatureValidityPeriod_value = Lens.lens (\SignatureValidityPeriod' {value} -> value) (\s@SignatureValidityPeriod' {} a -> s {value = a} :: SignatureValidityPeriod)
 
 -- | The time unit for signature validity.
 signatureValidityPeriod_type :: Lens.Lens' SignatureValidityPeriod (Prelude.Maybe ValidityType)
 signatureValidityPeriod_type = Lens.lens (\SignatureValidityPeriod' {type'} -> type') (\s@SignatureValidityPeriod' {} a -> s {type' = a} :: SignatureValidityPeriod)
+
+-- | The numerical value of the time unit for signature validity.
+signatureValidityPeriod_value :: Lens.Lens' SignatureValidityPeriod (Prelude.Maybe Prelude.Int)
+signatureValidityPeriod_value = Lens.lens (\SignatureValidityPeriod' {value} -> value) (\s@SignatureValidityPeriod' {} a -> s {value = a} :: SignatureValidityPeriod)
 
 instance Core.FromJSON SignatureValidityPeriod where
   parseJSON =
@@ -68,23 +68,23 @@ instance Core.FromJSON SignatureValidityPeriod where
       "SignatureValidityPeriod"
       ( \x ->
           SignatureValidityPeriod'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable SignatureValidityPeriod where
   hashWithSalt _salt SignatureValidityPeriod' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SignatureValidityPeriod where
   rnf SignatureValidityPeriod' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SignatureValidityPeriod where
   toJSON SignatureValidityPeriod' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("type" Core..=) Prelude.<$> type'
+          [ ("type" Core..=) Prelude.<$> type',
+            ("value" Core..=) Prelude.<$> value
           ]
       )

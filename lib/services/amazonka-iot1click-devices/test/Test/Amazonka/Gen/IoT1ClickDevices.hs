@@ -27,14 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetDeviceMethods $
---             newGetDeviceMethods
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestClaimDevicesByClaimCode $
+--         [ requestClaimDevicesByClaimCode $
 --             newClaimDevicesByClaimCode
+--
+--         , requestDescribeDevice $
+--             newDescribeDevice
+--
+--         , requestFinalizeDeviceClaim $
+--             newFinalizeDeviceClaim
+--
+--         , requestGetDeviceMethods $
+--             newGetDeviceMethods
 --
 --         , requestInitiateDeviceClaim $
 --             newInitiateDeviceClaim
@@ -42,17 +45,20 @@ import Test.Tasty
 --         , requestInvokeDeviceMethod $
 --             newInvokeDeviceMethod
 --
---         , requestDescribeDevice $
---             newDescribeDevice
---
 --         , requestListDeviceEvents $
 --             newListDeviceEvents
 --
---         , requestFinalizeDeviceClaim $
---             newFinalizeDeviceClaim
+--         , requestListDevices $
+--             newListDevices
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestTagResource $
 --             newTagResource
+--
+--         , requestUnclaimDevice $
+--             newUnclaimDevice
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -60,23 +66,20 @@ import Test.Tasty
 --         , requestUpdateDeviceState $
 --             newUpdateDeviceState
 --
---         , requestUnclaimDevice $
---             newUnclaimDevice
---
---         , requestListDevices $
---             newListDevices
---
 --           ]
 
 --     , testGroup "response"
---         [ responseGetDeviceMethods $
---             newGetDeviceMethodsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseClaimDevicesByClaimCode $
+--         [ responseClaimDevicesByClaimCode $
 --             newClaimDevicesByClaimCodeResponse
+--
+--         , responseDescribeDevice $
+--             newDescribeDeviceResponse
+--
+--         , responseFinalizeDeviceClaim $
+--             newFinalizeDeviceClaimResponse
+--
+--         , responseGetDeviceMethods $
+--             newGetDeviceMethodsResponse
 --
 --         , responseInitiateDeviceClaim $
 --             newInitiateDeviceClaimResponse
@@ -84,17 +87,20 @@ import Test.Tasty
 --         , responseInvokeDeviceMethod $
 --             newInvokeDeviceMethodResponse
 --
---         , responseDescribeDevice $
---             newDescribeDeviceResponse
---
 --         , responseListDeviceEvents $
 --             newListDeviceEventsResponse
 --
---         , responseFinalizeDeviceClaim $
---             newFinalizeDeviceClaimResponse
+--         , responseListDevices $
+--             newListDevicesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responseUnclaimDevice $
+--             newUnclaimDeviceResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -102,34 +108,34 @@ import Test.Tasty
 --         , responseUpdateDeviceState $
 --             newUpdateDeviceStateResponse
 --
---         , responseUnclaimDevice $
---             newUnclaimDeviceResponse
---
---         , responseListDevices $
---             newListDevicesResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestGetDeviceMethods :: GetDeviceMethods -> TestTree
-requestGetDeviceMethods =
-  req
-    "GetDeviceMethods"
-    "fixture/GetDeviceMethods.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
 
 requestClaimDevicesByClaimCode :: ClaimDevicesByClaimCode -> TestTree
 requestClaimDevicesByClaimCode =
   req
     "ClaimDevicesByClaimCode"
     "fixture/ClaimDevicesByClaimCode.yaml"
+
+requestDescribeDevice :: DescribeDevice -> TestTree
+requestDescribeDevice =
+  req
+    "DescribeDevice"
+    "fixture/DescribeDevice.yaml"
+
+requestFinalizeDeviceClaim :: FinalizeDeviceClaim -> TestTree
+requestFinalizeDeviceClaim =
+  req
+    "FinalizeDeviceClaim"
+    "fixture/FinalizeDeviceClaim.yaml"
+
+requestGetDeviceMethods :: GetDeviceMethods -> TestTree
+requestGetDeviceMethods =
+  req
+    "GetDeviceMethods"
+    "fixture/GetDeviceMethods.yaml"
 
 requestInitiateDeviceClaim :: InitiateDeviceClaim -> TestTree
 requestInitiateDeviceClaim =
@@ -143,29 +149,35 @@ requestInvokeDeviceMethod =
     "InvokeDeviceMethod"
     "fixture/InvokeDeviceMethod.yaml"
 
-requestDescribeDevice :: DescribeDevice -> TestTree
-requestDescribeDevice =
-  req
-    "DescribeDevice"
-    "fixture/DescribeDevice.yaml"
-
 requestListDeviceEvents :: ListDeviceEvents -> TestTree
 requestListDeviceEvents =
   req
     "ListDeviceEvents"
     "fixture/ListDeviceEvents.yaml"
 
-requestFinalizeDeviceClaim :: FinalizeDeviceClaim -> TestTree
-requestFinalizeDeviceClaim =
+requestListDevices :: ListDevices -> TestTree
+requestListDevices =
   req
-    "FinalizeDeviceClaim"
-    "fixture/FinalizeDeviceClaim.yaml"
+    "ListDevices"
+    "fixture/ListDevices.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestUnclaimDevice :: UnclaimDevice -> TestTree
+requestUnclaimDevice =
+  req
+    "UnclaimDevice"
+    "fixture/UnclaimDevice.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -179,35 +191,7 @@ requestUpdateDeviceState =
     "UpdateDeviceState"
     "fixture/UpdateDeviceState.yaml"
 
-requestUnclaimDevice :: UnclaimDevice -> TestTree
-requestUnclaimDevice =
-  req
-    "UnclaimDevice"
-    "fixture/UnclaimDevice.yaml"
-
-requestListDevices :: ListDevices -> TestTree
-requestListDevices =
-  req
-    "ListDevices"
-    "fixture/ListDevices.yaml"
-
 -- Responses
-
-responseGetDeviceMethods :: GetDeviceMethodsResponse -> TestTree
-responseGetDeviceMethods =
-  res
-    "GetDeviceMethodsResponse"
-    "fixture/GetDeviceMethodsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDeviceMethods)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseClaimDevicesByClaimCode :: ClaimDevicesByClaimCodeResponse -> TestTree
 responseClaimDevicesByClaimCode =
@@ -216,6 +200,30 @@ responseClaimDevicesByClaimCode =
     "fixture/ClaimDevicesByClaimCodeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ClaimDevicesByClaimCode)
+
+responseDescribeDevice :: DescribeDeviceResponse -> TestTree
+responseDescribeDevice =
+  res
+    "DescribeDeviceResponse"
+    "fixture/DescribeDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
+
+responseFinalizeDeviceClaim :: FinalizeDeviceClaimResponse -> TestTree
+responseFinalizeDeviceClaim =
+  res
+    "FinalizeDeviceClaimResponse"
+    "fixture/FinalizeDeviceClaimResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy FinalizeDeviceClaim)
+
+responseGetDeviceMethods :: GetDeviceMethodsResponse -> TestTree
+responseGetDeviceMethods =
+  res
+    "GetDeviceMethodsResponse"
+    "fixture/GetDeviceMethodsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDeviceMethods)
 
 responseInitiateDeviceClaim :: InitiateDeviceClaimResponse -> TestTree
 responseInitiateDeviceClaim =
@@ -233,14 +241,6 @@ responseInvokeDeviceMethod =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy InvokeDeviceMethod)
 
-responseDescribeDevice :: DescribeDeviceResponse -> TestTree
-responseDescribeDevice =
-  res
-    "DescribeDeviceResponse"
-    "fixture/DescribeDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
-
 responseListDeviceEvents :: ListDeviceEventsResponse -> TestTree
 responseListDeviceEvents =
   res
@@ -249,13 +249,21 @@ responseListDeviceEvents =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDeviceEvents)
 
-responseFinalizeDeviceClaim :: FinalizeDeviceClaimResponse -> TestTree
-responseFinalizeDeviceClaim =
+responseListDevices :: ListDevicesResponse -> TestTree
+responseListDevices =
   res
-    "FinalizeDeviceClaimResponse"
-    "fixture/FinalizeDeviceClaimResponse.proto"
+    "ListDevicesResponse"
+    "fixture/ListDevicesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy FinalizeDeviceClaim)
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -264,6 +272,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUnclaimDevice :: UnclaimDeviceResponse -> TestTree
+responseUnclaimDevice =
+  res
+    "UnclaimDeviceResponse"
+    "fixture/UnclaimDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UnclaimDevice)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -280,19 +296,3 @@ responseUpdateDeviceState =
     "fixture/UpdateDeviceStateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDeviceState)
-
-responseUnclaimDevice :: UnclaimDeviceResponse -> TestTree
-responseUnclaimDevice =
-  res
-    "UnclaimDeviceResponse"
-    "fixture/UnclaimDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UnclaimDevice)
-
-responseListDevices :: ListDevicesResponse -> TestTree
-responseListDevices =
-  res
-    "ListDevicesResponse"
-    "fixture/ListDevicesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDevices)

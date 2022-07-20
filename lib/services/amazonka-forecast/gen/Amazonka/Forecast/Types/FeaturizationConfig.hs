@@ -42,10 +42,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFeaturizationConfig' smart constructor.
 data FeaturizationConfig = FeaturizationConfig'
-  { -- | An array of featurization (transformation) information for the fields of
-    -- a dataset.
-    featurizations :: Prelude.Maybe (Prelude.NonEmpty Featurization),
-    -- | An array of dimension (field) names that specify how to group the
+  { -- | An array of dimension (field) names that specify how to group the
     -- generated forecast.
     --
     -- For example, suppose that you are generating a forecast for item sales
@@ -58,6 +55,9 @@ data FeaturizationConfig = FeaturizationConfig'
     -- forecast dimensions specified in the @RELATED_TIME_SERIES@ dataset must
     -- be specified in the @CreatePredictor@ request.
     forecastDimensions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | An array of featurization (transformation) information for the fields of
+    -- a dataset.
+    featurizations :: Prelude.Maybe (Prelude.NonEmpty Featurization),
     -- | The frequency of predictions in a forecast.
     --
     -- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
@@ -82,9 +82,6 @@ data FeaturizationConfig = FeaturizationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'featurizations', 'featurizationConfig_featurizations' - An array of featurization (transformation) information for the fields of
--- a dataset.
---
 -- 'forecastDimensions', 'featurizationConfig_forecastDimensions' - An array of dimension (field) names that specify how to group the
 -- generated forecast.
 --
@@ -97,6 +94,9 @@ data FeaturizationConfig = FeaturizationConfig'
 -- don\'t need to be specified in the @CreatePredictor@ request. All
 -- forecast dimensions specified in the @RELATED_TIME_SERIES@ dataset must
 -- be specified in the @CreatePredictor@ request.
+--
+-- 'featurizations', 'featurizationConfig_featurizations' - An array of featurization (transformation) information for the fields of
+-- a dataset.
 --
 -- 'forecastFrequency', 'featurizationConfig_forecastFrequency' - The frequency of predictions in a forecast.
 --
@@ -116,16 +116,11 @@ newFeaturizationConfig ::
   FeaturizationConfig
 newFeaturizationConfig pForecastFrequency_ =
   FeaturizationConfig'
-    { featurizations =
+    { forecastDimensions =
         Prelude.Nothing,
-      forecastDimensions = Prelude.Nothing,
+      featurizations = Prelude.Nothing,
       forecastFrequency = pForecastFrequency_
     }
-
--- | An array of featurization (transformation) information for the fields of
--- a dataset.
-featurizationConfig_featurizations :: Lens.Lens' FeaturizationConfig (Prelude.Maybe (Prelude.NonEmpty Featurization))
-featurizationConfig_featurizations = Lens.lens (\FeaturizationConfig' {featurizations} -> featurizations) (\s@FeaturizationConfig' {} a -> s {featurizations = a} :: FeaturizationConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of dimension (field) names that specify how to group the
 -- generated forecast.
@@ -141,6 +136,11 @@ featurizationConfig_featurizations = Lens.lens (\FeaturizationConfig' {featuriza
 -- be specified in the @CreatePredictor@ request.
 featurizationConfig_forecastDimensions :: Lens.Lens' FeaturizationConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 featurizationConfig_forecastDimensions = Lens.lens (\FeaturizationConfig' {forecastDimensions} -> forecastDimensions) (\s@FeaturizationConfig' {} a -> s {forecastDimensions = a} :: FeaturizationConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of featurization (transformation) information for the fields of
+-- a dataset.
+featurizationConfig_featurizations :: Lens.Lens' FeaturizationConfig (Prelude.Maybe (Prelude.NonEmpty Featurization))
+featurizationConfig_featurizations = Lens.lens (\FeaturizationConfig' {featurizations} -> featurizations) (\s@FeaturizationConfig' {} a -> s {featurizations = a} :: FeaturizationConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The frequency of predictions in a forecast.
 --
@@ -163,31 +163,31 @@ instance Core.FromJSON FeaturizationConfig where
       "FeaturizationConfig"
       ( \x ->
           FeaturizationConfig'
-            Prelude.<$> (x Core..:? "Featurizations")
-            Prelude.<*> (x Core..:? "ForecastDimensions")
+            Prelude.<$> (x Core..:? "ForecastDimensions")
+            Prelude.<*> (x Core..:? "Featurizations")
             Prelude.<*> (x Core..: "ForecastFrequency")
       )
 
 instance Prelude.Hashable FeaturizationConfig where
   hashWithSalt _salt FeaturizationConfig' {..} =
-    _salt `Prelude.hashWithSalt` featurizations
-      `Prelude.hashWithSalt` forecastDimensions
+    _salt `Prelude.hashWithSalt` forecastDimensions
+      `Prelude.hashWithSalt` featurizations
       `Prelude.hashWithSalt` forecastFrequency
 
 instance Prelude.NFData FeaturizationConfig where
   rnf FeaturizationConfig' {..} =
-    Prelude.rnf featurizations
-      `Prelude.seq` Prelude.rnf forecastDimensions
+    Prelude.rnf forecastDimensions
+      `Prelude.seq` Prelude.rnf featurizations
       `Prelude.seq` Prelude.rnf forecastFrequency
 
 instance Core.ToJSON FeaturizationConfig where
   toJSON FeaturizationConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Featurizations" Core..=)
-              Prelude.<$> featurizations,
-            ("ForecastDimensions" Core..=)
+          [ ("ForecastDimensions" Core..=)
               Prelude.<$> forecastDimensions,
+            ("Featurizations" Core..=)
+              Prelude.<$> featurizations,
             Prelude.Just
               ("ForecastFrequency" Core..= forecastFrequency)
           ]

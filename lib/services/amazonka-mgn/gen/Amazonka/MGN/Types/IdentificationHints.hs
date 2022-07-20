@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentificationHints' smart constructor.
 data IdentificationHints = IdentificationHints'
-  { -- | Hostname identification hint.
-    hostname :: Prelude.Maybe Prelude.Text,
+  { -- | AWS Instance ID identification hint.
+    awsInstanceID :: Prelude.Maybe Prelude.Text,
     -- | FQDN address identification hint.
     fqdn :: Prelude.Maybe Prelude.Text,
-    -- | AWS Instance ID identification hint.
-    awsInstanceID :: Prelude.Maybe Prelude.Text,
+    -- | Hostname identification hint.
+    hostname :: Prelude.Maybe Prelude.Text,
     -- | vmWare UUID identification hint.
     vmWareUuid :: Prelude.Maybe Prelude.Text
   }
@@ -46,34 +46,35 @@ data IdentificationHints = IdentificationHints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostname', 'identificationHints_hostname' - Hostname identification hint.
+-- 'awsInstanceID', 'identificationHints_awsInstanceID' - AWS Instance ID identification hint.
 --
 -- 'fqdn', 'identificationHints_fqdn' - FQDN address identification hint.
 --
--- 'awsInstanceID', 'identificationHints_awsInstanceID' - AWS Instance ID identification hint.
+-- 'hostname', 'identificationHints_hostname' - Hostname identification hint.
 --
 -- 'vmWareUuid', 'identificationHints_vmWareUuid' - vmWare UUID identification hint.
 newIdentificationHints ::
   IdentificationHints
 newIdentificationHints =
   IdentificationHints'
-    { hostname = Prelude.Nothing,
+    { awsInstanceID =
+        Prelude.Nothing,
       fqdn = Prelude.Nothing,
-      awsInstanceID = Prelude.Nothing,
+      hostname = Prelude.Nothing,
       vmWareUuid = Prelude.Nothing
     }
 
--- | Hostname identification hint.
-identificationHints_hostname :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
-identificationHints_hostname = Lens.lens (\IdentificationHints' {hostname} -> hostname) (\s@IdentificationHints' {} a -> s {hostname = a} :: IdentificationHints)
+-- | AWS Instance ID identification hint.
+identificationHints_awsInstanceID :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
+identificationHints_awsInstanceID = Lens.lens (\IdentificationHints' {awsInstanceID} -> awsInstanceID) (\s@IdentificationHints' {} a -> s {awsInstanceID = a} :: IdentificationHints)
 
 -- | FQDN address identification hint.
 identificationHints_fqdn :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
 identificationHints_fqdn = Lens.lens (\IdentificationHints' {fqdn} -> fqdn) (\s@IdentificationHints' {} a -> s {fqdn = a} :: IdentificationHints)
 
--- | AWS Instance ID identification hint.
-identificationHints_awsInstanceID :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
-identificationHints_awsInstanceID = Lens.lens (\IdentificationHints' {awsInstanceID} -> awsInstanceID) (\s@IdentificationHints' {} a -> s {awsInstanceID = a} :: IdentificationHints)
+-- | Hostname identification hint.
+identificationHints_hostname :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
+identificationHints_hostname = Lens.lens (\IdentificationHints' {hostname} -> hostname) (\s@IdentificationHints' {} a -> s {hostname = a} :: IdentificationHints)
 
 -- | vmWare UUID identification hint.
 identificationHints_vmWareUuid :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
@@ -85,22 +86,22 @@ instance Core.FromJSON IdentificationHints where
       "IdentificationHints"
       ( \x ->
           IdentificationHints'
-            Prelude.<$> (x Core..:? "hostname")
+            Prelude.<$> (x Core..:? "awsInstanceID")
             Prelude.<*> (x Core..:? "fqdn")
-            Prelude.<*> (x Core..:? "awsInstanceID")
+            Prelude.<*> (x Core..:? "hostname")
             Prelude.<*> (x Core..:? "vmWareUuid")
       )
 
 instance Prelude.Hashable IdentificationHints where
   hashWithSalt _salt IdentificationHints' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt `Prelude.hashWithSalt` awsInstanceID
       `Prelude.hashWithSalt` fqdn
-      `Prelude.hashWithSalt` awsInstanceID
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` vmWareUuid
 
 instance Prelude.NFData IdentificationHints where
   rnf IdentificationHints' {..} =
-    Prelude.rnf hostname
+    Prelude.rnf awsInstanceID
       `Prelude.seq` Prelude.rnf fqdn
-      `Prelude.seq` Prelude.rnf awsInstanceID
+      `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf vmWareUuid

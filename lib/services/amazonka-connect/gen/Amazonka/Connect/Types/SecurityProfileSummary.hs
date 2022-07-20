@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecurityProfileSummary' smart constructor.
 data SecurityProfileSummary = SecurityProfileSummary'
-  { -- | The Amazon Resource Name (ARN) of the security profile.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the security profile.
+  { -- | The name of the security profile.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the security profile.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the security profile.
     id :: Prelude.Maybe Prelude.Text
   }
@@ -44,27 +44,27 @@ data SecurityProfileSummary = SecurityProfileSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'securityProfileSummary_arn' - The Amazon Resource Name (ARN) of the security profile.
---
 -- 'name', 'securityProfileSummary_name' - The name of the security profile.
+--
+-- 'arn', 'securityProfileSummary_arn' - The Amazon Resource Name (ARN) of the security profile.
 --
 -- 'id', 'securityProfileSummary_id' - The identifier of the security profile.
 newSecurityProfileSummary ::
   SecurityProfileSummary
 newSecurityProfileSummary =
   SecurityProfileSummary'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the security profile.
-securityProfileSummary_arn :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
-securityProfileSummary_arn = Lens.lens (\SecurityProfileSummary' {arn} -> arn) (\s@SecurityProfileSummary' {} a -> s {arn = a} :: SecurityProfileSummary)
 
 -- | The name of the security profile.
 securityProfileSummary_name :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
 securityProfileSummary_name = Lens.lens (\SecurityProfileSummary' {name} -> name) (\s@SecurityProfileSummary' {} a -> s {name = a} :: SecurityProfileSummary)
+
+-- | The Amazon Resource Name (ARN) of the security profile.
+securityProfileSummary_arn :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
+securityProfileSummary_arn = Lens.lens (\SecurityProfileSummary' {arn} -> arn) (\s@SecurityProfileSummary' {} a -> s {arn = a} :: SecurityProfileSummary)
 
 -- | The identifier of the security profile.
 securityProfileSummary_id :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
@@ -76,19 +76,19 @@ instance Core.FromJSON SecurityProfileSummary where
       "SecurityProfileSummary"
       ( \x ->
           SecurityProfileSummary'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable SecurityProfileSummary where
   hashWithSalt _salt SecurityProfileSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData SecurityProfileSummary where
   rnf SecurityProfileSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id

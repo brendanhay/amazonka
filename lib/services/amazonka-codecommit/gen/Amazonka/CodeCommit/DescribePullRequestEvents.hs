@@ -29,10 +29,10 @@ module Amazonka.CodeCommit.DescribePullRequestEvents
     newDescribePullRequestEvents,
 
     -- * Request Lenses
-    describePullRequestEvents_pullRequestEventType,
-    describePullRequestEvents_actorArn,
     describePullRequestEvents_nextToken,
     describePullRequestEvents_maxResults,
+    describePullRequestEvents_actorArn,
+    describePullRequestEvents_pullRequestEventType,
     describePullRequestEvents_pullRequestId,
 
     -- * Destructuring the Response
@@ -55,20 +55,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePullRequestEvents' smart constructor.
 data DescribePullRequestEvents = DescribePullRequestEvents'
-  { -- | Optional. The pull request event type about which you want to return
-    -- information.
-    pullRequestEventType :: Prelude.Maybe PullRequestEventType,
-    -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the
-    -- event. Examples include updating the pull request with more commits or
-    -- changing the status of a pull request.
-    actorArn :: Prelude.Maybe Prelude.Text,
-    -- | An enumeration token that, when provided in a request, returns the next
+  { -- | An enumeration token that, when provided in a request, returns the next
     -- batch of the results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A non-zero, non-negative integer used to limit the number of returned
     -- results. The default is 100 events, which is also the maximum number of
     -- events that can be returned in a result.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the
+    -- event. Examples include updating the pull request with more commits or
+    -- changing the status of a pull request.
+    actorArn :: Prelude.Maybe Prelude.Text,
+    -- | Optional. The pull request event type about which you want to return
+    -- information.
+    pullRequestEventType :: Prelude.Maybe PullRequestEventType,
     -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
     pullRequestId :: Prelude.Text
@@ -83,19 +83,19 @@ data DescribePullRequestEvents = DescribePullRequestEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pullRequestEventType', 'describePullRequestEvents_pullRequestEventType' - Optional. The pull request event type about which you want to return
--- information.
---
--- 'actorArn', 'describePullRequestEvents_actorArn' - The Amazon Resource Name (ARN) of the user whose actions resulted in the
--- event. Examples include updating the pull request with more commits or
--- changing the status of a pull request.
---
 -- 'nextToken', 'describePullRequestEvents_nextToken' - An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
 --
 -- 'maxResults', 'describePullRequestEvents_maxResults' - A non-zero, non-negative integer used to limit the number of returned
 -- results. The default is 100 events, which is also the maximum number of
 -- events that can be returned in a result.
+--
+-- 'actorArn', 'describePullRequestEvents_actorArn' - The Amazon Resource Name (ARN) of the user whose actions resulted in the
+-- event. Examples include updating the pull request with more commits or
+-- changing the status of a pull request.
+--
+-- 'pullRequestEventType', 'describePullRequestEvents_pullRequestEventType' - Optional. The pull request event type about which you want to return
+-- information.
 --
 -- 'pullRequestId', 'describePullRequestEvents_pullRequestId' - The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -105,24 +105,13 @@ newDescribePullRequestEvents ::
   DescribePullRequestEvents
 newDescribePullRequestEvents pPullRequestId_ =
   DescribePullRequestEvents'
-    { pullRequestEventType =
+    { nextToken =
         Prelude.Nothing,
-      actorArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      actorArn = Prelude.Nothing,
+      pullRequestEventType = Prelude.Nothing,
       pullRequestId = pPullRequestId_
     }
-
--- | Optional. The pull request event type about which you want to return
--- information.
-describePullRequestEvents_pullRequestEventType :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe PullRequestEventType)
-describePullRequestEvents_pullRequestEventType = Lens.lens (\DescribePullRequestEvents' {pullRequestEventType} -> pullRequestEventType) (\s@DescribePullRequestEvents' {} a -> s {pullRequestEventType = a} :: DescribePullRequestEvents)
-
--- | The Amazon Resource Name (ARN) of the user whose actions resulted in the
--- event. Examples include updating the pull request with more commits or
--- changing the status of a pull request.
-describePullRequestEvents_actorArn :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe Prelude.Text)
-describePullRequestEvents_actorArn = Lens.lens (\DescribePullRequestEvents' {actorArn} -> actorArn) (\s@DescribePullRequestEvents' {} a -> s {actorArn = a} :: DescribePullRequestEvents)
 
 -- | An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
@@ -134,6 +123,17 @@ describePullRequestEvents_nextToken = Lens.lens (\DescribePullRequestEvents' {ne
 -- events that can be returned in a result.
 describePullRequestEvents_maxResults :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe Prelude.Int)
 describePullRequestEvents_maxResults = Lens.lens (\DescribePullRequestEvents' {maxResults} -> maxResults) (\s@DescribePullRequestEvents' {} a -> s {maxResults = a} :: DescribePullRequestEvents)
+
+-- | The Amazon Resource Name (ARN) of the user whose actions resulted in the
+-- event. Examples include updating the pull request with more commits or
+-- changing the status of a pull request.
+describePullRequestEvents_actorArn :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe Prelude.Text)
+describePullRequestEvents_actorArn = Lens.lens (\DescribePullRequestEvents' {actorArn} -> actorArn) (\s@DescribePullRequestEvents' {} a -> s {actorArn = a} :: DescribePullRequestEvents)
+
+-- | Optional. The pull request event type about which you want to return
+-- information.
+describePullRequestEvents_pullRequestEventType :: Lens.Lens' DescribePullRequestEvents (Prelude.Maybe PullRequestEventType)
+describePullRequestEvents_pullRequestEventType = Lens.lens (\DescribePullRequestEvents' {pullRequestEventType} -> pullRequestEventType) (\s@DescribePullRequestEvents' {} a -> s {pullRequestEventType = a} :: DescribePullRequestEvents)
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -179,18 +179,18 @@ instance Core.AWSRequest DescribePullRequestEvents where
 
 instance Prelude.Hashable DescribePullRequestEvents where
   hashWithSalt _salt DescribePullRequestEvents' {..} =
-    _salt `Prelude.hashWithSalt` pullRequestEventType
-      `Prelude.hashWithSalt` actorArn
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` actorArn
+      `Prelude.hashWithSalt` pullRequestEventType
       `Prelude.hashWithSalt` pullRequestId
 
 instance Prelude.NFData DescribePullRequestEvents where
   rnf DescribePullRequestEvents' {..} =
-    Prelude.rnf pullRequestEventType
-      `Prelude.seq` Prelude.rnf actorArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf actorArn
+      `Prelude.seq` Prelude.rnf pullRequestEventType
       `Prelude.seq` Prelude.rnf pullRequestId
 
 instance Core.ToHeaders DescribePullRequestEvents where
@@ -212,11 +212,11 @@ instance Core.ToJSON DescribePullRequestEvents where
   toJSON DescribePullRequestEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("pullRequestEventType" Core..=)
-              Prelude.<$> pullRequestEventType,
-            ("actorArn" Core..=) Prelude.<$> actorArn,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("actorArn" Core..=) Prelude.<$> actorArn,
+            ("pullRequestEventType" Core..=)
+              Prelude.<$> pullRequestEventType,
             Prelude.Just
               ("pullRequestId" Core..= pullRequestId)
           ]

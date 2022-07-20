@@ -17,16 +17,16 @@ module Amazonka.IVS.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _StreamUnavailable,
-    _PendingVerification,
-    _ChannelNotBroadcasting,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
+    _StreamUnavailable,
     _ResourceNotFoundException,
+    _PendingVerification,
+    _ConflictException,
+    _ThrottlingException,
+    _ChannelNotBroadcasting,
+    _ValidationException,
 
     -- * ChannelLatencyMode
     ChannelLatencyMode (..),
@@ -46,32 +46,32 @@ module Amazonka.IVS.Types
     -- * BatchError
     BatchError (..),
     newBatchError,
-    batchError_arn,
-    batchError_code,
     batchError_message,
+    batchError_code,
+    batchError_arn,
 
     -- * Channel
     Channel (..),
     newChannel,
-    channel_playbackUrl,
-    channel_authorized,
-    channel_arn,
-    channel_latencyMode,
-    channel_name,
-    channel_recordingConfigurationArn,
-    channel_type,
     channel_tags,
+    channel_name,
+    channel_type,
+    channel_latencyMode,
+    channel_arn,
+    channel_authorized,
+    channel_playbackUrl,
     channel_ingestEndpoint,
+    channel_recordingConfigurationArn,
 
     -- * ChannelSummary
     ChannelSummary (..),
     newChannelSummary,
-    channelSummary_authorized,
-    channelSummary_arn,
-    channelSummary_latencyMode,
-    channelSummary_name,
-    channelSummary_recordingConfigurationArn,
     channelSummary_tags,
+    channelSummary_name,
+    channelSummary_latencyMode,
+    channelSummary_arn,
+    channelSummary_authorized,
+    channelSummary_recordingConfigurationArn,
 
     -- * DestinationConfiguration
     DestinationConfiguration (..),
@@ -81,23 +81,23 @@ module Amazonka.IVS.Types
     -- * PlaybackKeyPair
     PlaybackKeyPair (..),
     newPlaybackKeyPair,
+    playbackKeyPair_tags,
+    playbackKeyPair_name,
     playbackKeyPair_arn,
     playbackKeyPair_fingerprint,
-    playbackKeyPair_name,
-    playbackKeyPair_tags,
 
     -- * PlaybackKeyPairSummary
     PlaybackKeyPairSummary (..),
     newPlaybackKeyPairSummary,
-    playbackKeyPairSummary_arn,
-    playbackKeyPairSummary_name,
     playbackKeyPairSummary_tags,
+    playbackKeyPairSummary_name,
+    playbackKeyPairSummary_arn,
 
     -- * RecordingConfiguration
     RecordingConfiguration (..),
     newRecordingConfiguration,
-    recordingConfiguration_name,
     recordingConfiguration_tags,
+    recordingConfiguration_name,
     recordingConfiguration_arn,
     recordingConfiguration_destinationConfiguration,
     recordingConfiguration_state,
@@ -105,8 +105,8 @@ module Amazonka.IVS.Types
     -- * RecordingConfigurationSummary
     RecordingConfigurationSummary (..),
     newRecordingConfigurationSummary,
-    recordingConfigurationSummary_name,
     recordingConfigurationSummary_tags,
+    recordingConfigurationSummary_name,
     recordingConfigurationSummary_arn,
     recordingConfigurationSummary_destinationConfiguration,
     recordingConfigurationSummary_state,
@@ -119,36 +119,36 @@ module Amazonka.IVS.Types
     -- * Stream
     Stream (..),
     newStream,
-    stream_playbackUrl,
-    stream_state,
-    stream_startTime,
-    stream_channelArn,
     stream_viewerCount,
+    stream_channelArn,
+    stream_state,
+    stream_playbackUrl,
     stream_health,
+    stream_startTime,
 
     -- * StreamKey
     StreamKey (..),
     newStreamKey,
-    streamKey_arn,
-    streamKey_value,
-    streamKey_channelArn,
     streamKey_tags,
+    streamKey_arn,
+    streamKey_channelArn,
+    streamKey_value,
 
     -- * StreamKeySummary
     StreamKeySummary (..),
     newStreamKeySummary,
+    streamKeySummary_tags,
     streamKeySummary_arn,
     streamKeySummary_channelArn,
-    streamKeySummary_tags,
 
     -- * StreamSummary
     StreamSummary (..),
     newStreamSummary,
-    streamSummary_state,
-    streamSummary_startTime,
-    streamSummary_channelArn,
     streamSummary_viewerCount,
+    streamSummary_channelArn,
+    streamSummary_state,
     streamSummary_health,
+    streamSummary_startTime,
   )
 where
 
@@ -200,35 +200,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -237,21 +210,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- |
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- |
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -262,36 +254,12 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- |
-_StreamUnavailable :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StreamUnavailable =
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "StreamUnavailable"
-    Prelude.. Core.hasStatus 503
-
--- |
-_PendingVerification :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PendingVerification =
-  Core._MatchServiceError
-    defaultService
-    "PendingVerification"
-    Prelude.. Core.hasStatus 403
-
--- |
-_ChannelNotBroadcasting :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ChannelNotBroadcasting =
-  Core._MatchServiceError
-    defaultService
-    "ChannelNotBroadcasting"
-    Prelude.. Core.hasStatus 404
-
--- |
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- |
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -302,20 +270,12 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- |
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+_StreamUnavailable :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StreamUnavailable =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
-
--- |
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
+    "StreamUnavailable"
+    Prelude.. Core.hasStatus 503
 
 -- |
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -324,3 +284,43 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- |
+_PendingVerification :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PendingVerification =
+  Core._MatchServiceError
+    defaultService
+    "PendingVerification"
+    Prelude.. Core.hasStatus 403
+
+-- |
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- |
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- |
+_ChannelNotBroadcasting :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ChannelNotBroadcasting =
+  Core._MatchServiceError
+    defaultService
+    "ChannelNotBroadcasting"
+    Prelude.. Core.hasStatus 404
+
+-- |
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

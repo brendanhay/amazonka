@@ -29,10 +29,10 @@ import Amazonka.SageMaker.Types.MetricDatum
 --
 -- /See:/ 'newCandidateProperties' smart constructor.
 data CandidateProperties = CandidateProperties'
-  { -- | The Amazon S3 prefix to the artifacts generated for an AutoML candidate.
-    candidateArtifactLocations :: Prelude.Maybe CandidateArtifactLocations,
-    -- | Information about the candidate metrics for an AutoML job.
-    candidateMetrics :: Prelude.Maybe [MetricDatum]
+  { -- | Information about the candidate metrics for an AutoML job.
+    candidateMetrics :: Prelude.Maybe [MetricDatum],
+    -- | The Amazon S3 prefix to the artifacts generated for an AutoML candidate.
+    candidateArtifactLocations :: Prelude.Maybe CandidateArtifactLocations
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data CandidateProperties = CandidateProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'candidateArtifactLocations', 'candidateProperties_candidateArtifactLocations' - The Amazon S3 prefix to the artifacts generated for an AutoML candidate.
---
 -- 'candidateMetrics', 'candidateProperties_candidateMetrics' - Information about the candidate metrics for an AutoML job.
+--
+-- 'candidateArtifactLocations', 'candidateProperties_candidateArtifactLocations' - The Amazon S3 prefix to the artifacts generated for an AutoML candidate.
 newCandidateProperties ::
   CandidateProperties
 newCandidateProperties =
   CandidateProperties'
-    { candidateArtifactLocations =
+    { candidateMetrics =
         Prelude.Nothing,
-      candidateMetrics = Prelude.Nothing
+      candidateArtifactLocations = Prelude.Nothing
     }
-
--- | The Amazon S3 prefix to the artifacts generated for an AutoML candidate.
-candidateProperties_candidateArtifactLocations :: Lens.Lens' CandidateProperties (Prelude.Maybe CandidateArtifactLocations)
-candidateProperties_candidateArtifactLocations = Lens.lens (\CandidateProperties' {candidateArtifactLocations} -> candidateArtifactLocations) (\s@CandidateProperties' {} a -> s {candidateArtifactLocations = a} :: CandidateProperties)
 
 -- | Information about the candidate metrics for an AutoML job.
 candidateProperties_candidateMetrics :: Lens.Lens' CandidateProperties (Prelude.Maybe [MetricDatum])
 candidateProperties_candidateMetrics = Lens.lens (\CandidateProperties' {candidateMetrics} -> candidateMetrics) (\s@CandidateProperties' {} a -> s {candidateMetrics = a} :: CandidateProperties) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon S3 prefix to the artifacts generated for an AutoML candidate.
+candidateProperties_candidateArtifactLocations :: Lens.Lens' CandidateProperties (Prelude.Maybe CandidateArtifactLocations)
+candidateProperties_candidateArtifactLocations = Lens.lens (\CandidateProperties' {candidateArtifactLocations} -> candidateArtifactLocations) (\s@CandidateProperties' {} a -> s {candidateArtifactLocations = a} :: CandidateProperties)
 
 instance Core.FromJSON CandidateProperties where
   parseJSON =
@@ -70,19 +70,18 @@ instance Core.FromJSON CandidateProperties where
       "CandidateProperties"
       ( \x ->
           CandidateProperties'
-            Prelude.<$> (x Core..:? "CandidateArtifactLocations")
-            Prelude.<*> ( x Core..:? "CandidateMetrics"
+            Prelude.<$> ( x Core..:? "CandidateMetrics"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "CandidateArtifactLocations")
       )
 
 instance Prelude.Hashable CandidateProperties where
   hashWithSalt _salt CandidateProperties' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` candidateMetrics
       `Prelude.hashWithSalt` candidateArtifactLocations
-      `Prelude.hashWithSalt` candidateMetrics
 
 instance Prelude.NFData CandidateProperties where
   rnf CandidateProperties' {..} =
-    Prelude.rnf candidateArtifactLocations
-      `Prelude.seq` Prelude.rnf candidateMetrics
+    Prelude.rnf candidateMetrics
+      `Prelude.seq` Prelude.rnf candidateArtifactLocations

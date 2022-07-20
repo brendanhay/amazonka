@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFirewallPolicyMetadata' smart constructor.
 data FirewallPolicyMetadata = FirewallPolicyMetadata'
-  { -- | The Amazon Resource Name (ARN) of the firewall policy.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive name of the firewall policy. You can\'t change the name
+  { -- | The descriptive name of the firewall policy. You can\'t change the name
     -- of a firewall policy after you create it.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the firewall policy.
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data FirewallPolicyMetadata = FirewallPolicyMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'firewallPolicyMetadata_arn' - The Amazon Resource Name (ARN) of the firewall policy.
---
 -- 'name', 'firewallPolicyMetadata_name' - The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
+--
+-- 'arn', 'firewallPolicyMetadata_arn' - The Amazon Resource Name (ARN) of the firewall policy.
 newFirewallPolicyMetadata ::
   FirewallPolicyMetadata
 newFirewallPolicyMetadata =
   FirewallPolicyMetadata'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the firewall policy.
-firewallPolicyMetadata_arn :: Lens.Lens' FirewallPolicyMetadata (Prelude.Maybe Prelude.Text)
-firewallPolicyMetadata_arn = Lens.lens (\FirewallPolicyMetadata' {arn} -> arn) (\s@FirewallPolicyMetadata' {} a -> s {arn = a} :: FirewallPolicyMetadata)
 
 -- | The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
 firewallPolicyMetadata_name :: Lens.Lens' FirewallPolicyMetadata (Prelude.Maybe Prelude.Text)
 firewallPolicyMetadata_name = Lens.lens (\FirewallPolicyMetadata' {name} -> name) (\s@FirewallPolicyMetadata' {} a -> s {name = a} :: FirewallPolicyMetadata)
+
+-- | The Amazon Resource Name (ARN) of the firewall policy.
+firewallPolicyMetadata_arn :: Lens.Lens' FirewallPolicyMetadata (Prelude.Maybe Prelude.Text)
+firewallPolicyMetadata_arn = Lens.lens (\FirewallPolicyMetadata' {arn} -> arn) (\s@FirewallPolicyMetadata' {} a -> s {arn = a} :: FirewallPolicyMetadata)
 
 instance Core.FromJSON FirewallPolicyMetadata where
   parseJSON =
@@ -73,14 +73,14 @@ instance Core.FromJSON FirewallPolicyMetadata where
       "FirewallPolicyMetadata"
       ( \x ->
           FirewallPolicyMetadata'
-            Prelude.<$> (x Core..:? "Arn") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Arn")
       )
 
 instance Prelude.Hashable FirewallPolicyMetadata where
   hashWithSalt _salt FirewallPolicyMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData FirewallPolicyMetadata where
   rnf FirewallPolicyMetadata' {..} =
-    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf arn

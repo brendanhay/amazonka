@@ -30,10 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSystemResourceLimits' smart constructor.
 data SystemResourceLimits = SystemResourceLimits'
-  { -- | The maximum amount of RAM, expressed in kilobytes, that a component\'s
-    -- processes can use on the core device.
-    memory :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum amount of CPU time that a component\'s processes can use on
+  { -- | The maximum amount of CPU time that a component\'s processes can use on
     -- the core device. A core device\'s total CPU time is equivalent to the
     -- device\'s number of CPU cores. For example, on a core device with 4 CPU
     -- cores, you can set this value to @2@ to limit the component\'s processes
@@ -42,7 +39,10 @@ data SystemResourceLimits = SystemResourceLimits'
     -- percent usage of the CPU. If you set this value to a number greater than
     -- the number of CPU cores, the IoT Greengrass Core software doesn\'t limit
     -- the component\'s CPU usage.
-    cpus :: Prelude.Maybe Prelude.Double
+    cpus :: Prelude.Maybe Prelude.Double,
+    -- | The maximum amount of RAM, expressed in kilobytes, that a component\'s
+    -- processes can use on the core device.
+    memory :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +54,6 @@ data SystemResourceLimits = SystemResourceLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memory', 'systemResourceLimits_memory' - The maximum amount of RAM, expressed in kilobytes, that a component\'s
--- processes can use on the core device.
---
 -- 'cpus', 'systemResourceLimits_cpus' - The maximum amount of CPU time that a component\'s processes can use on
 -- the core device. A core device\'s total CPU time is equivalent to the
 -- device\'s number of CPU cores. For example, on a core device with 4 CPU
@@ -66,18 +63,16 @@ data SystemResourceLimits = SystemResourceLimits'
 -- percent usage of the CPU. If you set this value to a number greater than
 -- the number of CPU cores, the IoT Greengrass Core software doesn\'t limit
 -- the component\'s CPU usage.
+--
+-- 'memory', 'systemResourceLimits_memory' - The maximum amount of RAM, expressed in kilobytes, that a component\'s
+-- processes can use on the core device.
 newSystemResourceLimits ::
   SystemResourceLimits
 newSystemResourceLimits =
   SystemResourceLimits'
-    { memory = Prelude.Nothing,
-      cpus = Prelude.Nothing
+    { cpus = Prelude.Nothing,
+      memory = Prelude.Nothing
     }
-
--- | The maximum amount of RAM, expressed in kilobytes, that a component\'s
--- processes can use on the core device.
-systemResourceLimits_memory :: Lens.Lens' SystemResourceLimits (Prelude.Maybe Prelude.Natural)
-systemResourceLimits_memory = Lens.lens (\SystemResourceLimits' {memory} -> memory) (\s@SystemResourceLimits' {} a -> s {memory = a} :: SystemResourceLimits)
 
 -- | The maximum amount of CPU time that a component\'s processes can use on
 -- the core device. A core device\'s total CPU time is equivalent to the
@@ -91,30 +86,35 @@ systemResourceLimits_memory = Lens.lens (\SystemResourceLimits' {memory} -> memo
 systemResourceLimits_cpus :: Lens.Lens' SystemResourceLimits (Prelude.Maybe Prelude.Double)
 systemResourceLimits_cpus = Lens.lens (\SystemResourceLimits' {cpus} -> cpus) (\s@SystemResourceLimits' {} a -> s {cpus = a} :: SystemResourceLimits)
 
+-- | The maximum amount of RAM, expressed in kilobytes, that a component\'s
+-- processes can use on the core device.
+systemResourceLimits_memory :: Lens.Lens' SystemResourceLimits (Prelude.Maybe Prelude.Natural)
+systemResourceLimits_memory = Lens.lens (\SystemResourceLimits' {memory} -> memory) (\s@SystemResourceLimits' {} a -> s {memory = a} :: SystemResourceLimits)
+
 instance Core.FromJSON SystemResourceLimits where
   parseJSON =
     Core.withObject
       "SystemResourceLimits"
       ( \x ->
           SystemResourceLimits'
-            Prelude.<$> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "cpus")
+            Prelude.<$> (x Core..:? "cpus")
+            Prelude.<*> (x Core..:? "memory")
       )
 
 instance Prelude.Hashable SystemResourceLimits where
   hashWithSalt _salt SystemResourceLimits' {..} =
-    _salt `Prelude.hashWithSalt` memory
-      `Prelude.hashWithSalt` cpus
+    _salt `Prelude.hashWithSalt` cpus
+      `Prelude.hashWithSalt` memory
 
 instance Prelude.NFData SystemResourceLimits where
   rnf SystemResourceLimits' {..} =
-    Prelude.rnf memory `Prelude.seq` Prelude.rnf cpus
+    Prelude.rnf cpus `Prelude.seq` Prelude.rnf memory
 
 instance Core.ToJSON SystemResourceLimits where
   toJSON SystemResourceLimits' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("memory" Core..=) Prelude.<$> memory,
-            ("cpus" Core..=) Prelude.<$> cpus
+          [ ("cpus" Core..=) Prelude.<$> cpus,
+            ("memory" Core..=) Prelude.<$> memory
           ]
       )

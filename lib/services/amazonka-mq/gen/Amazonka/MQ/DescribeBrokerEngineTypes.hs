@@ -36,8 +36,8 @@ module Amazonka.MQ.DescribeBrokerEngineTypes
     newDescribeBrokerEngineTypesResponse,
 
     -- * Response Lenses
-    describeBrokerEngineTypesResponse_brokerEngineTypes,
     describeBrokerEngineTypesResponse_nextToken,
+    describeBrokerEngineTypesResponse_brokerEngineTypes,
     describeBrokerEngineTypesResponse_maxResults,
     describeBrokerEngineTypesResponse_httpStatus,
   )
@@ -111,10 +111,10 @@ instance Core.AWSRequest DescribeBrokerEngineTypes where
     Response.receiveJSON
       ( \s h x ->
           DescribeBrokerEngineTypesResponse'
-            Prelude.<$> ( x Core..?> "brokerEngineTypes"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "brokerEngineTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -155,11 +155,11 @@ instance Core.ToQuery DescribeBrokerEngineTypes where
 
 -- | /See:/ 'newDescribeBrokerEngineTypesResponse' smart constructor.
 data DescribeBrokerEngineTypesResponse = DescribeBrokerEngineTypesResponse'
-  { -- | List of available engine types and versions.
-    brokerEngineTypes :: Prelude.Maybe [BrokerEngineType],
-    -- | The token that specifies the next page of results Amazon MQ should
+  { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of available engine types and versions.
+    brokerEngineTypes :: Prelude.Maybe [BrokerEngineType],
     -- | Required. The maximum number of engine types that can be returned per
     -- page (20 by default). This value must be an integer from 5 to 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -176,10 +176,10 @@ data DescribeBrokerEngineTypesResponse = DescribeBrokerEngineTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'brokerEngineTypes', 'describeBrokerEngineTypesResponse_brokerEngineTypes' - List of available engine types and versions.
---
 -- 'nextToken', 'describeBrokerEngineTypesResponse_nextToken' - The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
+--
+-- 'brokerEngineTypes', 'describeBrokerEngineTypesResponse_brokerEngineTypes' - List of available engine types and versions.
 --
 -- 'maxResults', 'describeBrokerEngineTypesResponse_maxResults' - Required. The maximum number of engine types that can be returned per
 -- page (20 by default). This value must be an integer from 5 to 100.
@@ -191,21 +191,21 @@ newDescribeBrokerEngineTypesResponse ::
   DescribeBrokerEngineTypesResponse
 newDescribeBrokerEngineTypesResponse pHttpStatus_ =
   DescribeBrokerEngineTypesResponse'
-    { brokerEngineTypes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      brokerEngineTypes = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of available engine types and versions.
-describeBrokerEngineTypesResponse_brokerEngineTypes :: Lens.Lens' DescribeBrokerEngineTypesResponse (Prelude.Maybe [BrokerEngineType])
-describeBrokerEngineTypesResponse_brokerEngineTypes = Lens.lens (\DescribeBrokerEngineTypesResponse' {brokerEngineTypes} -> brokerEngineTypes) (\s@DescribeBrokerEngineTypesResponse' {} a -> s {brokerEngineTypes = a} :: DescribeBrokerEngineTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
 describeBrokerEngineTypesResponse_nextToken :: Lens.Lens' DescribeBrokerEngineTypesResponse (Prelude.Maybe Prelude.Text)
 describeBrokerEngineTypesResponse_nextToken = Lens.lens (\DescribeBrokerEngineTypesResponse' {nextToken} -> nextToken) (\s@DescribeBrokerEngineTypesResponse' {} a -> s {nextToken = a} :: DescribeBrokerEngineTypesResponse)
+
+-- | List of available engine types and versions.
+describeBrokerEngineTypesResponse_brokerEngineTypes :: Lens.Lens' DescribeBrokerEngineTypesResponse (Prelude.Maybe [BrokerEngineType])
+describeBrokerEngineTypesResponse_brokerEngineTypes = Lens.lens (\DescribeBrokerEngineTypesResponse' {brokerEngineTypes} -> brokerEngineTypes) (\s@DescribeBrokerEngineTypesResponse' {} a -> s {brokerEngineTypes = a} :: DescribeBrokerEngineTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Required. The maximum number of engine types that can be returned per
 -- page (20 by default). This value must be an integer from 5 to 100.
@@ -221,7 +221,7 @@ instance
     DescribeBrokerEngineTypesResponse
   where
   rnf DescribeBrokerEngineTypesResponse' {..} =
-    Prelude.rnf brokerEngineTypes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf brokerEngineTypes
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf httpStatus

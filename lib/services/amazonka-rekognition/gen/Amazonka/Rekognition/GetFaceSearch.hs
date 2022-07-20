@@ -59,8 +59,8 @@ module Amazonka.Rekognition.GetFaceSearch
 
     -- * Request Lenses
     getFaceSearch_nextToken,
-    getFaceSearch_maxResults,
     getFaceSearch_sortBy,
+    getFaceSearch_maxResults,
     getFaceSearch_jobId,
 
     -- * Destructuring the Response
@@ -69,10 +69,10 @@ module Amazonka.Rekognition.GetFaceSearch
 
     -- * Response Lenses
     getFaceSearchResponse_nextToken,
-    getFaceSearchResponse_videoMetadata,
-    getFaceSearchResponse_statusMessage,
     getFaceSearchResponse_jobStatus,
+    getFaceSearchResponse_videoMetadata,
     getFaceSearchResponse_persons,
+    getFaceSearchResponse_statusMessage,
     getFaceSearchResponse_httpStatus,
   )
 where
@@ -91,14 +91,14 @@ data GetFaceSearch = GetFaceSearch'
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of search results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to return per paginated call. The largest
-    -- value you can specify is 1000. If you specify a value greater than 1000,
-    -- a maximum of 1000 results is returned. The default value is 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group
     -- faces by the time that they are recognized. Use @INDEX@ to sort by
     -- recognized faces.
     sortBy :: Prelude.Maybe FaceSearchSortBy,
+    -- | Maximum number of results to return per paginated call. The largest
+    -- value you can specify is 1000. If you specify a value greater than 1000,
+    -- a maximum of 1000 results is returned. The default value is 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The job identifer for the search request. You get the job identifier
     -- from an initial call to @StartFaceSearch@.
     jobId :: Prelude.Text
@@ -118,13 +118,13 @@ data GetFaceSearch = GetFaceSearch'
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of search results.
 --
--- 'maxResults', 'getFaceSearch_maxResults' - Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000. If you specify a value greater than 1000,
--- a maximum of 1000 results is returned. The default value is 1000.
---
 -- 'sortBy', 'getFaceSearch_sortBy' - Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group
 -- faces by the time that they are recognized. Use @INDEX@ to sort by
 -- recognized faces.
+--
+-- 'maxResults', 'getFaceSearch_maxResults' - Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
 --
 -- 'jobId', 'getFaceSearch_jobId' - The job identifer for the search request. You get the job identifier
 -- from an initial call to @StartFaceSearch@.
@@ -135,8 +135,8 @@ newGetFaceSearch ::
 newGetFaceSearch pJobId_ =
   GetFaceSearch'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       jobId = pJobId_
     }
 
@@ -147,17 +147,17 @@ newGetFaceSearch pJobId_ =
 getFaceSearch_nextToken :: Lens.Lens' GetFaceSearch (Prelude.Maybe Prelude.Text)
 getFaceSearch_nextToken = Lens.lens (\GetFaceSearch' {nextToken} -> nextToken) (\s@GetFaceSearch' {} a -> s {nextToken = a} :: GetFaceSearch)
 
--- | Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000. If you specify a value greater than 1000,
--- a maximum of 1000 results is returned. The default value is 1000.
-getFaceSearch_maxResults :: Lens.Lens' GetFaceSearch (Prelude.Maybe Prelude.Natural)
-getFaceSearch_maxResults = Lens.lens (\GetFaceSearch' {maxResults} -> maxResults) (\s@GetFaceSearch' {} a -> s {maxResults = a} :: GetFaceSearch)
-
 -- | Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group
 -- faces by the time that they are recognized. Use @INDEX@ to sort by
 -- recognized faces.
 getFaceSearch_sortBy :: Lens.Lens' GetFaceSearch (Prelude.Maybe FaceSearchSortBy)
 getFaceSearch_sortBy = Lens.lens (\GetFaceSearch' {sortBy} -> sortBy) (\s@GetFaceSearch' {} a -> s {sortBy = a} :: GetFaceSearch)
+
+-- | Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
+getFaceSearch_maxResults :: Lens.Lens' GetFaceSearch (Prelude.Maybe Prelude.Natural)
+getFaceSearch_maxResults = Lens.lens (\GetFaceSearch' {maxResults} -> maxResults) (\s@GetFaceSearch' {} a -> s {maxResults = a} :: GetFaceSearch)
 
 -- | The job identifer for the search request. You get the job identifier
 -- from an initial call to @StartFaceSearch@.
@@ -174,25 +174,25 @@ instance Core.AWSRequest GetFaceSearch where
       ( \s h x ->
           GetFaceSearchResponse'
             Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "VideoMetadata")
             Prelude.<*> (x Core..?> "Persons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetFaceSearch where
   hashWithSalt _salt GetFaceSearch' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetFaceSearch where
   rnf GetFaceSearch' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetFaceSearch where
@@ -215,8 +215,8 @@ instance Core.ToJSON GetFaceSearch where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("JobId" Core..= jobId)
           ]
       )
@@ -233,14 +233,12 @@ data GetFaceSearchResponse = GetFaceSearchResponse'
     -- token that you can use in the subsequent request to retrieve the next
     -- set of search results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the face search job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | Information about a video that Amazon Rekognition analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition Video operation.
     videoMetadata :: Prelude.Maybe VideoMetadata,
-    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the face search job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | An array of persons, PersonMatch, in the video whose face(s) match the
     -- face(s) in an Amazon Rekognition collection. It also includes time
     -- information for when persons are matched in the video. You specify the
@@ -249,6 +247,8 @@ data GetFaceSearchResponse = GetFaceSearchResponse'
     -- (@FaceMatches@) for matching faces in the collection, and person
     -- information (@Person@) for the matched person.
     persons :: Prelude.Maybe [PersonMatch],
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,13 +266,11 @@ data GetFaceSearchResponse = GetFaceSearchResponse'
 -- token that you can use in the subsequent request to retrieve the next
 -- set of search results.
 --
+-- 'jobStatus', 'getFaceSearchResponse_jobStatus' - The current status of the face search job.
+--
 -- 'videoMetadata', 'getFaceSearchResponse_videoMetadata' - Information about a video that Amazon Rekognition analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
---
--- 'statusMessage', 'getFaceSearchResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- 'jobStatus', 'getFaceSearchResponse_jobStatus' - The current status of the face search job.
 --
 -- 'persons', 'getFaceSearchResponse_persons' - An array of persons, PersonMatch, in the video whose face(s) match the
 -- face(s) in an Amazon Rekognition collection. It also includes time
@@ -282,6 +280,8 @@ data GetFaceSearchResponse = GetFaceSearchResponse'
 -- (@FaceMatches@) for matching faces in the collection, and person
 -- information (@Person@) for the matched person.
 --
+-- 'statusMessage', 'getFaceSearchResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+--
 -- 'httpStatus', 'getFaceSearchResponse_httpStatus' - The response's http status code.
 newGetFaceSearchResponse ::
   -- | 'httpStatus'
@@ -290,10 +290,10 @@ newGetFaceSearchResponse ::
 newGetFaceSearchResponse pHttpStatus_ =
   GetFaceSearchResponse'
     { nextToken = Prelude.Nothing,
-      videoMetadata = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
+      videoMetadata = Prelude.Nothing,
       persons = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -303,19 +303,15 @@ newGetFaceSearchResponse pHttpStatus_ =
 getFaceSearchResponse_nextToken :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe Prelude.Text)
 getFaceSearchResponse_nextToken = Lens.lens (\GetFaceSearchResponse' {nextToken} -> nextToken) (\s@GetFaceSearchResponse' {} a -> s {nextToken = a} :: GetFaceSearchResponse)
 
+-- | The current status of the face search job.
+getFaceSearchResponse_jobStatus :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe VideoJobStatus)
+getFaceSearchResponse_jobStatus = Lens.lens (\GetFaceSearchResponse' {jobStatus} -> jobStatus) (\s@GetFaceSearchResponse' {} a -> s {jobStatus = a} :: GetFaceSearchResponse)
+
 -- | Information about a video that Amazon Rekognition analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
 getFaceSearchResponse_videoMetadata :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe VideoMetadata)
 getFaceSearchResponse_videoMetadata = Lens.lens (\GetFaceSearchResponse' {videoMetadata} -> videoMetadata) (\s@GetFaceSearchResponse' {} a -> s {videoMetadata = a} :: GetFaceSearchResponse)
-
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getFaceSearchResponse_statusMessage :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe Prelude.Text)
-getFaceSearchResponse_statusMessage = Lens.lens (\GetFaceSearchResponse' {statusMessage} -> statusMessage) (\s@GetFaceSearchResponse' {} a -> s {statusMessage = a} :: GetFaceSearchResponse)
-
--- | The current status of the face search job.
-getFaceSearchResponse_jobStatus :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe VideoJobStatus)
-getFaceSearchResponse_jobStatus = Lens.lens (\GetFaceSearchResponse' {jobStatus} -> jobStatus) (\s@GetFaceSearchResponse' {} a -> s {jobStatus = a} :: GetFaceSearchResponse)
 
 -- | An array of persons, PersonMatch, in the video whose face(s) match the
 -- face(s) in an Amazon Rekognition collection. It also includes time
@@ -327,6 +323,10 @@ getFaceSearchResponse_jobStatus = Lens.lens (\GetFaceSearchResponse' {jobStatus}
 getFaceSearchResponse_persons :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe [PersonMatch])
 getFaceSearchResponse_persons = Lens.lens (\GetFaceSearchResponse' {persons} -> persons) (\s@GetFaceSearchResponse' {} a -> s {persons = a} :: GetFaceSearchResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+getFaceSearchResponse_statusMessage :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe Prelude.Text)
+getFaceSearchResponse_statusMessage = Lens.lens (\GetFaceSearchResponse' {statusMessage} -> statusMessage) (\s@GetFaceSearchResponse' {} a -> s {statusMessage = a} :: GetFaceSearchResponse)
+
 -- | The response's http status code.
 getFaceSearchResponse_httpStatus :: Lens.Lens' GetFaceSearchResponse Prelude.Int
 getFaceSearchResponse_httpStatus = Lens.lens (\GetFaceSearchResponse' {httpStatus} -> httpStatus) (\s@GetFaceSearchResponse' {} a -> s {httpStatus = a} :: GetFaceSearchResponse)
@@ -334,8 +334,8 @@ getFaceSearchResponse_httpStatus = Lens.lens (\GetFaceSearchResponse' {httpStatu
 instance Prelude.NFData GetFaceSearchResponse where
   rnf GetFaceSearchResponse' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf persons
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf httpStatus

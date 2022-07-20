@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newShard' smart constructor.
 data Shard = Shard'
-  { -- | The shard ID of the shard adjacent to the shard\'s parent.
-    adjacentParentShardId :: Prelude.Maybe Prelude.Text,
-    -- | The shard ID of the shard\'s parent.
+  { -- | The shard ID of the shard\'s parent.
     parentShardId :: Prelude.Maybe Prelude.Text,
+    -- | The shard ID of the shard adjacent to the shard\'s parent.
+    adjacentParentShardId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the shard within the stream.
     shardId :: Prelude.Text,
     -- | The range of possible hash key values for the shard, which is a set of
@@ -51,9 +51,9 @@ data Shard = Shard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adjacentParentShardId', 'shard_adjacentParentShardId' - The shard ID of the shard adjacent to the shard\'s parent.
---
 -- 'parentShardId', 'shard_parentShardId' - The shard ID of the shard\'s parent.
+--
+-- 'adjacentParentShardId', 'shard_adjacentParentShardId' - The shard ID of the shard adjacent to the shard\'s parent.
 --
 -- 'shardId', 'shard_shardId' - The unique identifier of the shard within the stream.
 --
@@ -74,20 +74,20 @@ newShard
   pHashKeyRange_
   pSequenceNumberRange_ =
     Shard'
-      { adjacentParentShardId = Prelude.Nothing,
-        parentShardId = Prelude.Nothing,
+      { parentShardId = Prelude.Nothing,
+        adjacentParentShardId = Prelude.Nothing,
         shardId = pShardId_,
         hashKeyRange = pHashKeyRange_,
         sequenceNumberRange = pSequenceNumberRange_
       }
 
--- | The shard ID of the shard adjacent to the shard\'s parent.
-shard_adjacentParentShardId :: Lens.Lens' Shard (Prelude.Maybe Prelude.Text)
-shard_adjacentParentShardId = Lens.lens (\Shard' {adjacentParentShardId} -> adjacentParentShardId) (\s@Shard' {} a -> s {adjacentParentShardId = a} :: Shard)
-
 -- | The shard ID of the shard\'s parent.
 shard_parentShardId :: Lens.Lens' Shard (Prelude.Maybe Prelude.Text)
 shard_parentShardId = Lens.lens (\Shard' {parentShardId} -> parentShardId) (\s@Shard' {} a -> s {parentShardId = a} :: Shard)
+
+-- | The shard ID of the shard adjacent to the shard\'s parent.
+shard_adjacentParentShardId :: Lens.Lens' Shard (Prelude.Maybe Prelude.Text)
+shard_adjacentParentShardId = Lens.lens (\Shard' {adjacentParentShardId} -> adjacentParentShardId) (\s@Shard' {} a -> s {adjacentParentShardId = a} :: Shard)
 
 -- | The unique identifier of the shard within the stream.
 shard_shardId :: Lens.Lens' Shard Prelude.Text
@@ -108,8 +108,8 @@ instance Core.FromJSON Shard where
       "Shard"
       ( \x ->
           Shard'
-            Prelude.<$> (x Core..:? "AdjacentParentShardId")
-            Prelude.<*> (x Core..:? "ParentShardId")
+            Prelude.<$> (x Core..:? "ParentShardId")
+            Prelude.<*> (x Core..:? "AdjacentParentShardId")
             Prelude.<*> (x Core..: "ShardId")
             Prelude.<*> (x Core..: "HashKeyRange")
             Prelude.<*> (x Core..: "SequenceNumberRange")
@@ -117,16 +117,16 @@ instance Core.FromJSON Shard where
 
 instance Prelude.Hashable Shard where
   hashWithSalt _salt Shard' {..} =
-    _salt `Prelude.hashWithSalt` adjacentParentShardId
-      `Prelude.hashWithSalt` parentShardId
+    _salt `Prelude.hashWithSalt` parentShardId
+      `Prelude.hashWithSalt` adjacentParentShardId
       `Prelude.hashWithSalt` shardId
       `Prelude.hashWithSalt` hashKeyRange
       `Prelude.hashWithSalt` sequenceNumberRange
 
 instance Prelude.NFData Shard where
   rnf Shard' {..} =
-    Prelude.rnf adjacentParentShardId
-      `Prelude.seq` Prelude.rnf parentShardId
+    Prelude.rnf parentShardId
+      `Prelude.seq` Prelude.rnf adjacentParentShardId
       `Prelude.seq` Prelude.rnf shardId
       `Prelude.seq` Prelude.rnf hashKeyRange
       `Prelude.seq` Prelude.rnf sequenceNumberRange

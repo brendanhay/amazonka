@@ -129,12 +129,7 @@ instance Core.ToHeaders CreateSegment where
 
 instance Core.ToJSON CreateSegment where
   toJSON CreateSegment' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WriteSegmentRequest" Core..= writeSegmentRequest)
-          ]
-      )
+    Core.toJSON writeSegmentRequest
 
 instance Core.ToPath CreateSegment where
   toPath CreateSegment' {..} =

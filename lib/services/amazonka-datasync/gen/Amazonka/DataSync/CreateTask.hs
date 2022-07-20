@@ -47,13 +47,13 @@ module Amazonka.DataSync.CreateTask
     newCreateTask,
 
     -- * Request Lenses
+    createTask_tags,
     createTask_schedule,
-    createTask_includes,
     createTask_name,
+    createTask_cloudWatchLogGroupArn,
     createTask_excludes,
     createTask_options,
-    createTask_cloudWatchLogGroupArn,
-    createTask_tags,
+    createTask_includes,
     createTask_sourceLocationArn,
     createTask_destinationLocationArn,
 
@@ -78,19 +78,20 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateTask' smart constructor.
 data CreateTask = CreateTask'
-  { -- | Specifies a schedule used to periodically transfer files from a source
+  { -- | The key-value pair that represents the tag that you want to add to the
+    -- resource. The value can be an empty string.
+    tags :: Prelude.Maybe [TagListEntry],
+    -- | Specifies a schedule used to periodically transfer files from a source
     -- to a destination location. The schedule should be specified in UTC time.
     -- For more information, see
     -- <https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html Scheduling your task>.
     schedule :: Prelude.Maybe TaskSchedule,
-    -- | A list of filter rules that determines which files to include when
-    -- running a task. The pattern should contain a single filter string that
-    -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
-    includes :: Prelude.Maybe [FilterRule],
     -- | The name of a task. This value is a text reference that is used to
     -- identify the task in the console.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
+    -- is used to monitor and log events in the task.
+    cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | A list of filter rules that determines which files to exclude from a
     -- task. The list should contain a single filter string that consists of
     -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
@@ -108,12 +109,11 @@ data CreateTask = CreateTask'
     -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>
     -- operation.
     options :: Prelude.Maybe Options,
-    -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
-    -- is used to monitor and log events in the task.
-    cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The key-value pair that represents the tag that you want to add to the
-    -- resource. The value can be an empty string.
-    tags :: Prelude.Maybe [TagListEntry],
+    -- | A list of filter rules that determines which files to include when
+    -- running a task. The pattern should contain a single filter string that
+    -- consists of the patterns to include. The patterns are delimited by \"|\"
+    -- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+    includes :: Prelude.Maybe [FilterRule],
     -- | The Amazon Resource Name (ARN) of the source location for the task.
     sourceLocationArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an Amazon Web Services storage
@@ -130,18 +130,19 @@ data CreateTask = CreateTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createTask_tags' - The key-value pair that represents the tag that you want to add to the
+-- resource. The value can be an empty string.
+--
 -- 'schedule', 'createTask_schedule' - Specifies a schedule used to periodically transfer files from a source
 -- to a destination location. The schedule should be specified in UTC time.
 -- For more information, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html Scheduling your task>.
 --
--- 'includes', 'createTask_includes' - A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
---
 -- 'name', 'createTask_name' - The name of a task. This value is a text reference that is used to
 -- identify the task in the console.
+--
+-- 'cloudWatchLogGroupArn', 'createTask_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
+-- is used to monitor and log events in the task.
 --
 -- 'excludes', 'createTask_excludes' - A list of filter rules that determines which files to exclude from a
 -- task. The list should contain a single filter string that consists of
@@ -160,11 +161,10 @@ data CreateTask = CreateTask'
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html StartTaskExecution>
 -- operation.
 --
--- 'cloudWatchLogGroupArn', 'createTask_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
--- is used to monitor and log events in the task.
---
--- 'tags', 'createTask_tags' - The key-value pair that represents the tag that you want to add to the
--- resource. The value can be an empty string.
+-- 'includes', 'createTask_includes' - A list of filter rules that determines which files to include when
+-- running a task. The pattern should contain a single filter string that
+-- consists of the patterns to include. The patterns are delimited by \"|\"
+-- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
 --
 -- 'sourceLocationArn', 'createTask_sourceLocationArn' - The Amazon Resource Name (ARN) of the source location for the task.
 --
@@ -180,16 +180,21 @@ newCreateTask
   pSourceLocationArn_
   pDestinationLocationArn_ =
     CreateTask'
-      { schedule = Prelude.Nothing,
-        includes = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        schedule = Prelude.Nothing,
         name = Prelude.Nothing,
+        cloudWatchLogGroupArn = Prelude.Nothing,
         excludes = Prelude.Nothing,
         options = Prelude.Nothing,
-        cloudWatchLogGroupArn = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        includes = Prelude.Nothing,
         sourceLocationArn = pSourceLocationArn_,
         destinationLocationArn = pDestinationLocationArn_
       }
+
+-- | The key-value pair that represents the tag that you want to add to the
+-- resource. The value can be an empty string.
+createTask_tags :: Lens.Lens' CreateTask (Prelude.Maybe [TagListEntry])
+createTask_tags = Lens.lens (\CreateTask' {tags} -> tags) (\s@CreateTask' {} a -> s {tags = a} :: CreateTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies a schedule used to periodically transfer files from a source
 -- to a destination location. The schedule should be specified in UTC time.
@@ -198,17 +203,15 @@ newCreateTask
 createTask_schedule :: Lens.Lens' CreateTask (Prelude.Maybe TaskSchedule)
 createTask_schedule = Lens.lens (\CreateTask' {schedule} -> schedule) (\s@CreateTask' {} a -> s {schedule = a} :: CreateTask)
 
--- | A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
-createTask_includes :: Lens.Lens' CreateTask (Prelude.Maybe [FilterRule])
-createTask_includes = Lens.lens (\CreateTask' {includes} -> includes) (\s@CreateTask' {} a -> s {includes = a} :: CreateTask) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of a task. This value is a text reference that is used to
 -- identify the task in the console.
 createTask_name :: Lens.Lens' CreateTask (Prelude.Maybe Prelude.Text)
 createTask_name = Lens.lens (\CreateTask' {name} -> name) (\s@CreateTask' {} a -> s {name = a} :: CreateTask)
+
+-- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
+-- is used to monitor and log events in the task.
+createTask_cloudWatchLogGroupArn :: Lens.Lens' CreateTask (Prelude.Maybe Prelude.Text)
+createTask_cloudWatchLogGroupArn = Lens.lens (\CreateTask' {cloudWatchLogGroupArn} -> cloudWatchLogGroupArn) (\s@CreateTask' {} a -> s {cloudWatchLogGroupArn = a} :: CreateTask)
 
 -- | A list of filter rules that determines which files to exclude from a
 -- task. The list should contain a single filter string that consists of
@@ -231,15 +234,12 @@ createTask_excludes = Lens.lens (\CreateTask' {excludes} -> excludes) (\s@Create
 createTask_options :: Lens.Lens' CreateTask (Prelude.Maybe Options)
 createTask_options = Lens.lens (\CreateTask' {options} -> options) (\s@CreateTask' {} a -> s {options = a} :: CreateTask)
 
--- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
--- is used to monitor and log events in the task.
-createTask_cloudWatchLogGroupArn :: Lens.Lens' CreateTask (Prelude.Maybe Prelude.Text)
-createTask_cloudWatchLogGroupArn = Lens.lens (\CreateTask' {cloudWatchLogGroupArn} -> cloudWatchLogGroupArn) (\s@CreateTask' {} a -> s {cloudWatchLogGroupArn = a} :: CreateTask)
-
--- | The key-value pair that represents the tag that you want to add to the
--- resource. The value can be an empty string.
-createTask_tags :: Lens.Lens' CreateTask (Prelude.Maybe [TagListEntry])
-createTask_tags = Lens.lens (\CreateTask' {tags} -> tags) (\s@CreateTask' {} a -> s {tags = a} :: CreateTask) Prelude.. Lens.mapping Lens.coerced
+-- | A list of filter rules that determines which files to include when
+-- running a task. The pattern should contain a single filter string that
+-- consists of the patterns to include. The patterns are delimited by \"|\"
+-- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+createTask_includes :: Lens.Lens' CreateTask (Prelude.Maybe [FilterRule])
+createTask_includes = Lens.lens (\CreateTask' {includes} -> includes) (\s@CreateTask' {} a -> s {includes = a} :: CreateTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the source location for the task.
 createTask_sourceLocationArn :: Lens.Lens' CreateTask Prelude.Text
@@ -263,25 +263,25 @@ instance Core.AWSRequest CreateTask where
 
 instance Prelude.Hashable CreateTask where
   hashWithSalt _salt CreateTask' {..} =
-    _salt `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` includes
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` options
-      `Prelude.hashWithSalt` cloudWatchLogGroupArn
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` sourceLocationArn
       `Prelude.hashWithSalt` destinationLocationArn
 
 instance Prelude.NFData CreateTask where
   rnf CreateTask' {..} =
-    Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf includes
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
       `Prelude.seq` Prelude.rnf excludes
       `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf sourceLocationArn
       `Prelude.seq` Prelude.rnf destinationLocationArn
 
@@ -302,14 +302,14 @@ instance Core.ToJSON CreateTask where
   toJSON CreateTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Includes" Core..=) Prelude.<$> includes,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Schedule" Core..=) Prelude.<$> schedule,
             ("Name" Core..=) Prelude.<$> name,
-            ("Excludes" Core..=) Prelude.<$> excludes,
-            ("Options" Core..=) Prelude.<$> options,
             ("CloudWatchLogGroupArn" Core..=)
               Prelude.<$> cloudWatchLogGroupArn,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Excludes" Core..=) Prelude.<$> excludes,
+            ("Options" Core..=) Prelude.<$> options,
+            ("Includes" Core..=) Prelude.<$> includes,
             Prelude.Just
               ("SourceLocationArn" Core..= sourceLocationArn),
             Prelude.Just

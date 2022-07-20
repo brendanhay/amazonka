@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalyzerSummary' smart constructor.
 data AnalyzerSummary = AnalyzerSummary'
-  { -- | The time at which the most recently analyzed resource was analyzed.
+  { -- | The tags added to the analyzer.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The time at which the most recently analyzed resource was analyzed.
     lastResourceAnalyzedAt :: Prelude.Maybe Core.POSIX,
     -- | The resource that was most recently analyzed by the analyzer.
     lastResourceAnalyzed :: Prelude.Maybe Prelude.Text,
@@ -41,8 +43,6 @@ data AnalyzerSummary = AnalyzerSummary'
     -- service-linked roles required in the member accounts of the Amazon Web
     -- Services organization.
     statusReason :: Prelude.Maybe StatusReason,
-    -- | The tags added to the analyzer.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the analyzer.
     arn :: Prelude.Text,
     -- | A timestamp for the time at which the analyzer was created.
@@ -71,6 +71,8 @@ data AnalyzerSummary = AnalyzerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'analyzerSummary_tags' - The tags added to the analyzer.
+--
 -- 'lastResourceAnalyzedAt', 'analyzerSummary_lastResourceAnalyzedAt' - The time at which the most recently analyzed resource was analyzed.
 --
 -- 'lastResourceAnalyzed', 'analyzerSummary_lastResourceAnalyzed' - The resource that was most recently analyzed by the analyzer.
@@ -81,8 +83,6 @@ data AnalyzerSummary = AnalyzerSummary'
 -- type, this failure can be due to an issue with creating the
 -- service-linked roles required in the member accounts of the Amazon Web
 -- Services organization.
---
--- 'tags', 'analyzerSummary_tags' - The tags added to the analyzer.
 --
 -- 'arn', 'analyzerSummary_arn' - The ARN of the analyzer.
 --
@@ -119,17 +119,20 @@ newAnalyzerSummary
   pStatus_
   pType_ =
     AnalyzerSummary'
-      { lastResourceAnalyzedAt =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        lastResourceAnalyzedAt = Prelude.Nothing,
         lastResourceAnalyzed = Prelude.Nothing,
         statusReason = Prelude.Nothing,
-        tags = Prelude.Nothing,
         arn = pArn_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         name = pName_,
         status = pStatus_,
         type' = pType_
       }
+
+-- | The tags added to the analyzer.
+analyzerSummary_tags :: Lens.Lens' AnalyzerSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+analyzerSummary_tags = Lens.lens (\AnalyzerSummary' {tags} -> tags) (\s@AnalyzerSummary' {} a -> s {tags = a} :: AnalyzerSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time at which the most recently analyzed resource was analyzed.
 analyzerSummary_lastResourceAnalyzedAt :: Lens.Lens' AnalyzerSummary (Prelude.Maybe Prelude.UTCTime)
@@ -147,10 +150,6 @@ analyzerSummary_lastResourceAnalyzed = Lens.lens (\AnalyzerSummary' {lastResourc
 -- Services organization.
 analyzerSummary_statusReason :: Lens.Lens' AnalyzerSummary (Prelude.Maybe StatusReason)
 analyzerSummary_statusReason = Lens.lens (\AnalyzerSummary' {statusReason} -> statusReason) (\s@AnalyzerSummary' {} a -> s {statusReason = a} :: AnalyzerSummary)
-
--- | The tags added to the analyzer.
-analyzerSummary_tags :: Lens.Lens' AnalyzerSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-analyzerSummary_tags = Lens.lens (\AnalyzerSummary' {tags} -> tags) (\s@AnalyzerSummary' {} a -> s {tags = a} :: AnalyzerSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the analyzer.
 analyzerSummary_arn :: Lens.Lens' AnalyzerSummary Prelude.Text
@@ -185,10 +184,10 @@ instance Core.FromJSON AnalyzerSummary where
       "AnalyzerSummary"
       ( \x ->
           AnalyzerSummary'
-            Prelude.<$> (x Core..:? "lastResourceAnalyzedAt")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "lastResourceAnalyzedAt")
             Prelude.<*> (x Core..:? "lastResourceAnalyzed")
             Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "name")
@@ -198,10 +197,10 @@ instance Core.FromJSON AnalyzerSummary where
 
 instance Prelude.Hashable AnalyzerSummary where
   hashWithSalt _salt AnalyzerSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastResourceAnalyzedAt
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastResourceAnalyzedAt
       `Prelude.hashWithSalt` lastResourceAnalyzed
       `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` name
@@ -210,10 +209,10 @@ instance Prelude.Hashable AnalyzerSummary where
 
 instance Prelude.NFData AnalyzerSummary where
   rnf AnalyzerSummary' {..} =
-    Prelude.rnf lastResourceAnalyzedAt
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastResourceAnalyzedAt
       `Prelude.seq` Prelude.rnf lastResourceAnalyzed
       `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf name

@@ -29,11 +29,11 @@ module Amazonka.Glue.GetConnections
     newGetConnections,
 
     -- * Request Lenses
-    getConnections_catalogId,
     getConnections_nextToken,
     getConnections_hidePassword,
     getConnections_filter,
     getConnections_maxResults,
+    getConnections_catalogId,
 
     -- * Destructuring the Response
     GetConnectionsResponse (..),
@@ -55,10 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConnections' smart constructor.
 data GetConnections = GetConnections'
-  { -- | The ID of the Data Catalog in which the connections reside. If none is
-    -- provided, the Amazon Web Services account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | A continuation token, if this is a continuation call.
+  { -- | A continuation token, if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Allows you to retrieve the connection metadata without returning the
     -- password. For instance, the AWS Glue console uses this flag to retrieve
@@ -70,7 +67,10 @@ data GetConnections = GetConnections'
     -- | A filter that controls which connections are returned.
     filter' :: Prelude.Maybe GetConnectionsFilter,
     -- | The maximum number of connections to return in one response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog in which the connections reside. If none is
+    -- provided, the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,9 +81,6 @@ data GetConnections = GetConnections'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'catalogId', 'getConnections_catalogId' - The ID of the Data Catalog in which the connections reside. If none is
--- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'nextToken', 'getConnections_nextToken' - A continuation token, if this is a continuation call.
 --
@@ -97,21 +94,19 @@ data GetConnections = GetConnections'
 -- 'filter'', 'getConnections_filter' - A filter that controls which connections are returned.
 --
 -- 'maxResults', 'getConnections_maxResults' - The maximum number of connections to return in one response.
+--
+-- 'catalogId', 'getConnections_catalogId' - The ID of the Data Catalog in which the connections reside. If none is
+-- provided, the Amazon Web Services account ID is used by default.
 newGetConnections ::
   GetConnections
 newGetConnections =
   GetConnections'
-    { catalogId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       hidePassword = Prelude.Nothing,
       filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing
     }
-
--- | The ID of the Data Catalog in which the connections reside. If none is
--- provided, the Amazon Web Services account ID is used by default.
-getConnections_catalogId :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Text)
-getConnections_catalogId = Lens.lens (\GetConnections' {catalogId} -> catalogId) (\s@GetConnections' {} a -> s {catalogId = a} :: GetConnections)
 
 -- | A continuation token, if this is a continuation call.
 getConnections_nextToken :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Text)
@@ -133,6 +128,11 @@ getConnections_filter = Lens.lens (\GetConnections' {filter'} -> filter') (\s@Ge
 -- | The maximum number of connections to return in one response.
 getConnections_maxResults :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Natural)
 getConnections_maxResults = Lens.lens (\GetConnections' {maxResults} -> maxResults) (\s@GetConnections' {} a -> s {maxResults = a} :: GetConnections)
+
+-- | The ID of the Data Catalog in which the connections reside. If none is
+-- provided, the Amazon Web Services account ID is used by default.
+getConnections_catalogId :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Text)
+getConnections_catalogId = Lens.lens (\GetConnections' {catalogId} -> catalogId) (\s@GetConnections' {} a -> s {catalogId = a} :: GetConnections)
 
 instance Core.AWSPager GetConnections where
   page rq rs
@@ -171,19 +171,19 @@ instance Core.AWSRequest GetConnections where
 
 instance Prelude.Hashable GetConnections where
   hashWithSalt _salt GetConnections' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` hidePassword
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` catalogId
 
 instance Prelude.NFData GetConnections where
   rnf GetConnections' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf hidePassword
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf catalogId
 
 instance Core.ToHeaders GetConnections where
   toHeaders =
@@ -202,11 +202,11 @@ instance Core.ToJSON GetConnections where
   toJSON GetConnections' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("HidePassword" Core..=) Prelude.<$> hidePassword,
             ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId
           ]
       )
 

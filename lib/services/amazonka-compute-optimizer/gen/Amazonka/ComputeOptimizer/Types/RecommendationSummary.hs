@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationSummary' smart constructor.
 data RecommendationSummary = RecommendationSummary'
-  { -- | The Amazon Web Services account ID of the recommendation summary.
-    accountId :: Prelude.Maybe Prelude.Text,
+  { -- | The resource type of the recommendation.
+    recommendationResourceType :: Prelude.Maybe RecommendationSourceType,
     -- | An array of objects that describe a recommendation summary.
     summaries :: Prelude.Maybe [Summary],
-    -- | The resource type of the recommendation.
-    recommendationResourceType :: Prelude.Maybe RecommendationSourceType
+    -- | The Amazon Web Services account ID of the recommendation summary.
+    accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,32 @@ data RecommendationSummary = RecommendationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'recommendationSummary_accountId' - The Amazon Web Services account ID of the recommendation summary.
+-- 'recommendationResourceType', 'recommendationSummary_recommendationResourceType' - The resource type of the recommendation.
 --
 -- 'summaries', 'recommendationSummary_summaries' - An array of objects that describe a recommendation summary.
 --
--- 'recommendationResourceType', 'recommendationSummary_recommendationResourceType' - The resource type of the recommendation.
+-- 'accountId', 'recommendationSummary_accountId' - The Amazon Web Services account ID of the recommendation summary.
 newRecommendationSummary ::
   RecommendationSummary
 newRecommendationSummary =
   RecommendationSummary'
-    { accountId = Prelude.Nothing,
+    { recommendationResourceType =
+        Prelude.Nothing,
       summaries = Prelude.Nothing,
-      recommendationResourceType = Prelude.Nothing
+      accountId = Prelude.Nothing
     }
 
--- | The Amazon Web Services account ID of the recommendation summary.
-recommendationSummary_accountId :: Lens.Lens' RecommendationSummary (Prelude.Maybe Prelude.Text)
-recommendationSummary_accountId = Lens.lens (\RecommendationSummary' {accountId} -> accountId) (\s@RecommendationSummary' {} a -> s {accountId = a} :: RecommendationSummary)
+-- | The resource type of the recommendation.
+recommendationSummary_recommendationResourceType :: Lens.Lens' RecommendationSummary (Prelude.Maybe RecommendationSourceType)
+recommendationSummary_recommendationResourceType = Lens.lens (\RecommendationSummary' {recommendationResourceType} -> recommendationResourceType) (\s@RecommendationSummary' {} a -> s {recommendationResourceType = a} :: RecommendationSummary)
 
 -- | An array of objects that describe a recommendation summary.
 recommendationSummary_summaries :: Lens.Lens' RecommendationSummary (Prelude.Maybe [Summary])
 recommendationSummary_summaries = Lens.lens (\RecommendationSummary' {summaries} -> summaries) (\s@RecommendationSummary' {} a -> s {summaries = a} :: RecommendationSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The resource type of the recommendation.
-recommendationSummary_recommendationResourceType :: Lens.Lens' RecommendationSummary (Prelude.Maybe RecommendationSourceType)
-recommendationSummary_recommendationResourceType = Lens.lens (\RecommendationSummary' {recommendationResourceType} -> recommendationResourceType) (\s@RecommendationSummary' {} a -> s {recommendationResourceType = a} :: RecommendationSummary)
+-- | The Amazon Web Services account ID of the recommendation summary.
+recommendationSummary_accountId :: Lens.Lens' RecommendationSummary (Prelude.Maybe Prelude.Text)
+recommendationSummary_accountId = Lens.lens (\RecommendationSummary' {accountId} -> accountId) (\s@RecommendationSummary' {} a -> s {accountId = a} :: RecommendationSummary)
 
 instance Core.FromJSON RecommendationSummary where
   parseJSON =
@@ -78,19 +79,20 @@ instance Core.FromJSON RecommendationSummary where
       "RecommendationSummary"
       ( \x ->
           RecommendationSummary'
-            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<$> (x Core..:? "recommendationResourceType")
             Prelude.<*> (x Core..:? "summaries" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "recommendationResourceType")
+            Prelude.<*> (x Core..:? "accountId")
       )
 
 instance Prelude.Hashable RecommendationSummary where
   hashWithSalt _salt RecommendationSummary' {..} =
-    _salt `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` summaries
+    _salt
       `Prelude.hashWithSalt` recommendationResourceType
+      `Prelude.hashWithSalt` summaries
+      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData RecommendationSummary where
   rnf RecommendationSummary' {..} =
-    Prelude.rnf accountId
+    Prelude.rnf recommendationResourceType
       `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf recommendationResourceType
+      `Prelude.seq` Prelude.rnf accountId

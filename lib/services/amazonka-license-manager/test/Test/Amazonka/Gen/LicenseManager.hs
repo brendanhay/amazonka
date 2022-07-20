@@ -27,56 +27,65 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListLicenseManagerReportGenerators $
---             newListLicenseManagerReportGenerators
---
---         , requestDeleteLicenseManagerReportGenerator $
---             newDeleteLicenseManagerReportGenerator
---
---         , requestUpdateLicenseManagerReportGenerator $
---             newUpdateLicenseManagerReportGenerator
---
---         , requestListUsageForLicenseConfiguration $
---             newListUsageForLicenseConfiguration
---
---         , requestCreateLicenseConfiguration $
---             newCreateLicenseConfiguration
---
---         , requestCreateLicense $
---             newCreateLicense
---
---         , requestListLicenseConversionTasks $
---             newListLicenseConversionTasks
---
---         , requestListResourceInventory $
---             newListResourceInventory
---
---         , requestDeleteToken $
---             newDeleteToken
---
---         , requestDeleteLicenseConfiguration $
---             newDeleteLicenseConfiguration
---
---         , requestUpdateLicenseConfiguration $
---             newUpdateLicenseConfiguration
+--         [ requestAcceptGrant $
+--             newAcceptGrant
 --
 --         , requestCheckInLicense $
 --             newCheckInLicense
 --
---         , requestListTokens $
---             newListTokens
+--         , requestCheckoutBorrowLicense $
+--             newCheckoutBorrowLicense
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestCheckoutLicense $
+--             newCheckoutLicense
 --
 --         , requestCreateGrant $
 --             newCreateGrant
 --
---         , requestUpdateLicenseSpecificationsForResource $
---             newUpdateLicenseSpecificationsForResource
+--         , requestCreateGrantVersion $
+--             newCreateGrantVersion
+--
+--         , requestCreateLicense $
+--             newCreateLicense
+--
+--         , requestCreateLicenseConfiguration $
+--             newCreateLicenseConfiguration
+--
+--         , requestCreateLicenseConversionTaskForResource $
+--             newCreateLicenseConversionTaskForResource
+--
+--         , requestCreateLicenseManagerReportGenerator $
+--             newCreateLicenseManagerReportGenerator
 --
 --         , requestCreateLicenseVersion $
 --             newCreateLicenseVersion
+--
+--         , requestCreateToken $
+--             newCreateToken
+--
+--         , requestDeleteGrant $
+--             newDeleteGrant
+--
+--         , requestDeleteLicense $
+--             newDeleteLicense
+--
+--         , requestDeleteLicenseConfiguration $
+--             newDeleteLicenseConfiguration
+--
+--         , requestDeleteLicenseManagerReportGenerator $
+--             newDeleteLicenseManagerReportGenerator
+--
+--         , requestDeleteToken $
+--             newDeleteToken
+--
+--         , requestExtendLicenseConsumption $
+--             newExtendLicenseConsumption
+--
+--         , requestGetAccessToken $
+--             newGetAccessToken
+--
+--         , requestGetGrant $
+--             newGetGrant
 --
 --         , requestGetLicense $
 --             newGetLicense
@@ -84,44 +93,20 @@ import Test.Tasty
 --         , requestGetLicenseConfiguration $
 --             newGetLicenseConfiguration
 --
---         , requestListReceivedGrants $
---             newListReceivedGrants
---
 --         , requestGetLicenseConversionTask $
 --             newGetLicenseConversionTask
+--
+--         , requestGetLicenseManagerReportGenerator $
+--             newGetLicenseManagerReportGenerator
 --
 --         , requestGetLicenseUsage $
 --             newGetLicenseUsage
 --
---         , requestExtendLicenseConsumption $
---             newExtendLicenseConsumption
---
---         , requestGetGrant $
---             newGetGrant
---
---         , requestCheckoutLicense $
---             newCheckoutLicense
---
---         , requestCreateLicenseConversionTaskForResource $
---             newCreateLicenseConversionTaskForResource
---
---         , requestAcceptGrant $
---             newAcceptGrant
---
---         , requestListLicenseSpecificationsForResource $
---             newListLicenseSpecificationsForResource
---
---         , requestCheckoutBorrowLicense $
---             newCheckoutBorrowLicense
---
 --         , requestGetServiceSettings $
 --             newGetServiceSettings
 --
---         , requestRejectGrant $
---             newRejectGrant
---
---         , requestUpdateServiceSettings $
---             newUpdateServiceSettings
+--         , requestListAssociationsForLicenseConfiguration $
+--             newListAssociationsForLicenseConfiguration
 --
 --         , requestListDistributedGrants $
 --             newListDistributedGrants
@@ -129,101 +114,125 @@ import Test.Tasty
 --         , requestListFailuresForLicenseConfigurationOperations $
 --             newListFailuresForLicenseConfigurationOperations
 --
---         , requestDeleteGrant $
---             newDeleteGrant
---
---         , requestCreateToken $
---             newCreateToken
---
---         , requestDeleteLicense $
---             newDeleteLicense
---
---         , requestListLicenses $
---             newListLicenses
---
 --         , requestListLicenseConfigurations $
 --             newListLicenseConfigurations
 --
---         , requestListReceivedLicenses $
---             newListReceivedLicenses
+--         , requestListLicenseConversionTasks $
+--             newListLicenseConversionTasks
 --
---         , requestCreateGrantVersion $
---             newCreateGrantVersion
+--         , requestListLicenseManagerReportGenerators $
+--             newListLicenseManagerReportGenerators
 --
---         , requestListAssociationsForLicenseConfiguration $
---             newListAssociationsForLicenseConfiguration
---
---         , requestTagResource $
---             newTagResource
+--         , requestListLicenseSpecificationsForResource $
+--             newListLicenseSpecificationsForResource
 --
 --         , requestListLicenseVersions $
 --             newListLicenseVersions
 --
+--         , requestListLicenses $
+--             newListLicenses
+--
+--         , requestListReceivedGrants $
+--             newListReceivedGrants
+--
+--         , requestListReceivedLicenses $
+--             newListReceivedLicenses
+--
+--         , requestListResourceInventory $
+--             newListResourceInventory
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListTokens $
+--             newListTokens
+--
+--         , requestListUsageForLicenseConfiguration $
+--             newListUsageForLicenseConfiguration
+--
+--         , requestRejectGrant $
+--             newRejectGrant
+--
+--         , requestTagResource $
+--             newTagResource
+--
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetLicenseManagerReportGenerator $
---             newGetLicenseManagerReportGenerator
+--         , requestUpdateLicenseConfiguration $
+--             newUpdateLicenseConfiguration
 --
---         , requestGetAccessToken $
---             newGetAccessToken
+--         , requestUpdateLicenseManagerReportGenerator $
+--             newUpdateLicenseManagerReportGenerator
 --
---         , requestCreateLicenseManagerReportGenerator $
---             newCreateLicenseManagerReportGenerator
+--         , requestUpdateLicenseSpecificationsForResource $
+--             newUpdateLicenseSpecificationsForResource
+--
+--         , requestUpdateServiceSettings $
+--             newUpdateServiceSettings
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListLicenseManagerReportGenerators $
---             newListLicenseManagerReportGeneratorsResponse
---
---         , responseDeleteLicenseManagerReportGenerator $
---             newDeleteLicenseManagerReportGeneratorResponse
---
---         , responseUpdateLicenseManagerReportGenerator $
---             newUpdateLicenseManagerReportGeneratorResponse
---
---         , responseListUsageForLicenseConfiguration $
---             newListUsageForLicenseConfigurationResponse
---
---         , responseCreateLicenseConfiguration $
---             newCreateLicenseConfigurationResponse
---
---         , responseCreateLicense $
---             newCreateLicenseResponse
---
---         , responseListLicenseConversionTasks $
---             newListLicenseConversionTasksResponse
---
---         , responseListResourceInventory $
---             newListResourceInventoryResponse
---
---         , responseDeleteToken $
---             newDeleteTokenResponse
---
---         , responseDeleteLicenseConfiguration $
---             newDeleteLicenseConfigurationResponse
---
---         , responseUpdateLicenseConfiguration $
---             newUpdateLicenseConfigurationResponse
+--         [ responseAcceptGrant $
+--             newAcceptGrantResponse
 --
 --         , responseCheckInLicense $
 --             newCheckInLicenseResponse
 --
---         , responseListTokens $
---             newListTokensResponse
+--         , responseCheckoutBorrowLicense $
+--             newCheckoutBorrowLicenseResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseCheckoutLicense $
+--             newCheckoutLicenseResponse
 --
 --         , responseCreateGrant $
 --             newCreateGrantResponse
 --
---         , responseUpdateLicenseSpecificationsForResource $
---             newUpdateLicenseSpecificationsForResourceResponse
+--         , responseCreateGrantVersion $
+--             newCreateGrantVersionResponse
+--
+--         , responseCreateLicense $
+--             newCreateLicenseResponse
+--
+--         , responseCreateLicenseConfiguration $
+--             newCreateLicenseConfigurationResponse
+--
+--         , responseCreateLicenseConversionTaskForResource $
+--             newCreateLicenseConversionTaskForResourceResponse
+--
+--         , responseCreateLicenseManagerReportGenerator $
+--             newCreateLicenseManagerReportGeneratorResponse
 --
 --         , responseCreateLicenseVersion $
 --             newCreateLicenseVersionResponse
+--
+--         , responseCreateToken $
+--             newCreateTokenResponse
+--
+--         , responseDeleteGrant $
+--             newDeleteGrantResponse
+--
+--         , responseDeleteLicense $
+--             newDeleteLicenseResponse
+--
+--         , responseDeleteLicenseConfiguration $
+--             newDeleteLicenseConfigurationResponse
+--
+--         , responseDeleteLicenseManagerReportGenerator $
+--             newDeleteLicenseManagerReportGeneratorResponse
+--
+--         , responseDeleteToken $
+--             newDeleteTokenResponse
+--
+--         , responseExtendLicenseConsumption $
+--             newExtendLicenseConsumptionResponse
+--
+--         , responseGetAccessToken $
+--             newGetAccessTokenResponse
+--
+--         , responseGetGrant $
+--             newGetGrantResponse
 --
 --         , responseGetLicense $
 --             newGetLicenseResponse
@@ -231,44 +240,20 @@ import Test.Tasty
 --         , responseGetLicenseConfiguration $
 --             newGetLicenseConfigurationResponse
 --
---         , responseListReceivedGrants $
---             newListReceivedGrantsResponse
---
 --         , responseGetLicenseConversionTask $
 --             newGetLicenseConversionTaskResponse
+--
+--         , responseGetLicenseManagerReportGenerator $
+--             newGetLicenseManagerReportGeneratorResponse
 --
 --         , responseGetLicenseUsage $
 --             newGetLicenseUsageResponse
 --
---         , responseExtendLicenseConsumption $
---             newExtendLicenseConsumptionResponse
---
---         , responseGetGrant $
---             newGetGrantResponse
---
---         , responseCheckoutLicense $
---             newCheckoutLicenseResponse
---
---         , responseCreateLicenseConversionTaskForResource $
---             newCreateLicenseConversionTaskForResourceResponse
---
---         , responseAcceptGrant $
---             newAcceptGrantResponse
---
---         , responseListLicenseSpecificationsForResource $
---             newListLicenseSpecificationsForResourceResponse
---
---         , responseCheckoutBorrowLicense $
---             newCheckoutBorrowLicenseResponse
---
 --         , responseGetServiceSettings $
 --             newGetServiceSettingsResponse
 --
---         , responseRejectGrant $
---             newRejectGrantResponse
---
---         , responseUpdateServiceSettings $
---             newUpdateServiceSettingsResponse
+--         , responseListAssociationsForLicenseConfiguration $
+--             newListAssociationsForLicenseConfigurationResponse
 --
 --         , responseListDistributedGrants $
 --             newListDistributedGrantsResponse
@@ -276,118 +261,73 @@ import Test.Tasty
 --         , responseListFailuresForLicenseConfigurationOperations $
 --             newListFailuresForLicenseConfigurationOperationsResponse
 --
---         , responseDeleteGrant $
---             newDeleteGrantResponse
---
---         , responseCreateToken $
---             newCreateTokenResponse
---
---         , responseDeleteLicense $
---             newDeleteLicenseResponse
---
---         , responseListLicenses $
---             newListLicensesResponse
---
 --         , responseListLicenseConfigurations $
 --             newListLicenseConfigurationsResponse
 --
---         , responseListReceivedLicenses $
---             newListReceivedLicensesResponse
+--         , responseListLicenseConversionTasks $
+--             newListLicenseConversionTasksResponse
 --
---         , responseCreateGrantVersion $
---             newCreateGrantVersionResponse
+--         , responseListLicenseManagerReportGenerators $
+--             newListLicenseManagerReportGeneratorsResponse
 --
---         , responseListAssociationsForLicenseConfiguration $
---             newListAssociationsForLicenseConfigurationResponse
---
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseListLicenseSpecificationsForResource $
+--             newListLicenseSpecificationsForResourceResponse
 --
 --         , responseListLicenseVersions $
 --             newListLicenseVersionsResponse
 --
+--         , responseListLicenses $
+--             newListLicensesResponse
+--
+--         , responseListReceivedGrants $
+--             newListReceivedGrantsResponse
+--
+--         , responseListReceivedLicenses $
+--             newListReceivedLicensesResponse
+--
+--         , responseListResourceInventory $
+--             newListResourceInventoryResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListTokens $
+--             newListTokensResponse
+--
+--         , responseListUsageForLicenseConfiguration $
+--             newListUsageForLicenseConfigurationResponse
+--
+--         , responseRejectGrant $
+--             newRejectGrantResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetLicenseManagerReportGenerator $
---             newGetLicenseManagerReportGeneratorResponse
+--         , responseUpdateLicenseConfiguration $
+--             newUpdateLicenseConfigurationResponse
 --
---         , responseGetAccessToken $
---             newGetAccessTokenResponse
+--         , responseUpdateLicenseManagerReportGenerator $
+--             newUpdateLicenseManagerReportGeneratorResponse
 --
---         , responseCreateLicenseManagerReportGenerator $
---             newCreateLicenseManagerReportGeneratorResponse
+--         , responseUpdateLicenseSpecificationsForResource $
+--             newUpdateLicenseSpecificationsForResourceResponse
+--
+--         , responseUpdateServiceSettings $
+--             newUpdateServiceSettingsResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestListLicenseManagerReportGenerators :: ListLicenseManagerReportGenerators -> TestTree
-requestListLicenseManagerReportGenerators =
+requestAcceptGrant :: AcceptGrant -> TestTree
+requestAcceptGrant =
   req
-    "ListLicenseManagerReportGenerators"
-    "fixture/ListLicenseManagerReportGenerators.yaml"
-
-requestDeleteLicenseManagerReportGenerator :: DeleteLicenseManagerReportGenerator -> TestTree
-requestDeleteLicenseManagerReportGenerator =
-  req
-    "DeleteLicenseManagerReportGenerator"
-    "fixture/DeleteLicenseManagerReportGenerator.yaml"
-
-requestUpdateLicenseManagerReportGenerator :: UpdateLicenseManagerReportGenerator -> TestTree
-requestUpdateLicenseManagerReportGenerator =
-  req
-    "UpdateLicenseManagerReportGenerator"
-    "fixture/UpdateLicenseManagerReportGenerator.yaml"
-
-requestListUsageForLicenseConfiguration :: ListUsageForLicenseConfiguration -> TestTree
-requestListUsageForLicenseConfiguration =
-  req
-    "ListUsageForLicenseConfiguration"
-    "fixture/ListUsageForLicenseConfiguration.yaml"
-
-requestCreateLicenseConfiguration :: CreateLicenseConfiguration -> TestTree
-requestCreateLicenseConfiguration =
-  req
-    "CreateLicenseConfiguration"
-    "fixture/CreateLicenseConfiguration.yaml"
-
-requestCreateLicense :: CreateLicense -> TestTree
-requestCreateLicense =
-  req
-    "CreateLicense"
-    "fixture/CreateLicense.yaml"
-
-requestListLicenseConversionTasks :: ListLicenseConversionTasks -> TestTree
-requestListLicenseConversionTasks =
-  req
-    "ListLicenseConversionTasks"
-    "fixture/ListLicenseConversionTasks.yaml"
-
-requestListResourceInventory :: ListResourceInventory -> TestTree
-requestListResourceInventory =
-  req
-    "ListResourceInventory"
-    "fixture/ListResourceInventory.yaml"
-
-requestDeleteToken :: DeleteToken -> TestTree
-requestDeleteToken =
-  req
-    "DeleteToken"
-    "fixture/DeleteToken.yaml"
-
-requestDeleteLicenseConfiguration :: DeleteLicenseConfiguration -> TestTree
-requestDeleteLicenseConfiguration =
-  req
-    "DeleteLicenseConfiguration"
-    "fixture/DeleteLicenseConfiguration.yaml"
-
-requestUpdateLicenseConfiguration :: UpdateLicenseConfiguration -> TestTree
-requestUpdateLicenseConfiguration =
-  req
-    "UpdateLicenseConfiguration"
-    "fixture/UpdateLicenseConfiguration.yaml"
+    "AcceptGrant"
+    "fixture/AcceptGrant.yaml"
 
 requestCheckInLicense :: CheckInLicense -> TestTree
 requestCheckInLicense =
@@ -395,17 +335,17 @@ requestCheckInLicense =
     "CheckInLicense"
     "fixture/CheckInLicense.yaml"
 
-requestListTokens :: ListTokens -> TestTree
-requestListTokens =
+requestCheckoutBorrowLicense :: CheckoutBorrowLicense -> TestTree
+requestCheckoutBorrowLicense =
   req
-    "ListTokens"
-    "fixture/ListTokens.yaml"
+    "CheckoutBorrowLicense"
+    "fixture/CheckoutBorrowLicense.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestCheckoutLicense :: CheckoutLicense -> TestTree
+requestCheckoutLicense =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "CheckoutLicense"
+    "fixture/CheckoutLicense.yaml"
 
 requestCreateGrant :: CreateGrant -> TestTree
 requestCreateGrant =
@@ -413,17 +353,95 @@ requestCreateGrant =
     "CreateGrant"
     "fixture/CreateGrant.yaml"
 
-requestUpdateLicenseSpecificationsForResource :: UpdateLicenseSpecificationsForResource -> TestTree
-requestUpdateLicenseSpecificationsForResource =
+requestCreateGrantVersion :: CreateGrantVersion -> TestTree
+requestCreateGrantVersion =
   req
-    "UpdateLicenseSpecificationsForResource"
-    "fixture/UpdateLicenseSpecificationsForResource.yaml"
+    "CreateGrantVersion"
+    "fixture/CreateGrantVersion.yaml"
+
+requestCreateLicense :: CreateLicense -> TestTree
+requestCreateLicense =
+  req
+    "CreateLicense"
+    "fixture/CreateLicense.yaml"
+
+requestCreateLicenseConfiguration :: CreateLicenseConfiguration -> TestTree
+requestCreateLicenseConfiguration =
+  req
+    "CreateLicenseConfiguration"
+    "fixture/CreateLicenseConfiguration.yaml"
+
+requestCreateLicenseConversionTaskForResource :: CreateLicenseConversionTaskForResource -> TestTree
+requestCreateLicenseConversionTaskForResource =
+  req
+    "CreateLicenseConversionTaskForResource"
+    "fixture/CreateLicenseConversionTaskForResource.yaml"
+
+requestCreateLicenseManagerReportGenerator :: CreateLicenseManagerReportGenerator -> TestTree
+requestCreateLicenseManagerReportGenerator =
+  req
+    "CreateLicenseManagerReportGenerator"
+    "fixture/CreateLicenseManagerReportGenerator.yaml"
 
 requestCreateLicenseVersion :: CreateLicenseVersion -> TestTree
 requestCreateLicenseVersion =
   req
     "CreateLicenseVersion"
     "fixture/CreateLicenseVersion.yaml"
+
+requestCreateToken :: CreateToken -> TestTree
+requestCreateToken =
+  req
+    "CreateToken"
+    "fixture/CreateToken.yaml"
+
+requestDeleteGrant :: DeleteGrant -> TestTree
+requestDeleteGrant =
+  req
+    "DeleteGrant"
+    "fixture/DeleteGrant.yaml"
+
+requestDeleteLicense :: DeleteLicense -> TestTree
+requestDeleteLicense =
+  req
+    "DeleteLicense"
+    "fixture/DeleteLicense.yaml"
+
+requestDeleteLicenseConfiguration :: DeleteLicenseConfiguration -> TestTree
+requestDeleteLicenseConfiguration =
+  req
+    "DeleteLicenseConfiguration"
+    "fixture/DeleteLicenseConfiguration.yaml"
+
+requestDeleteLicenseManagerReportGenerator :: DeleteLicenseManagerReportGenerator -> TestTree
+requestDeleteLicenseManagerReportGenerator =
+  req
+    "DeleteLicenseManagerReportGenerator"
+    "fixture/DeleteLicenseManagerReportGenerator.yaml"
+
+requestDeleteToken :: DeleteToken -> TestTree
+requestDeleteToken =
+  req
+    "DeleteToken"
+    "fixture/DeleteToken.yaml"
+
+requestExtendLicenseConsumption :: ExtendLicenseConsumption -> TestTree
+requestExtendLicenseConsumption =
+  req
+    "ExtendLicenseConsumption"
+    "fixture/ExtendLicenseConsumption.yaml"
+
+requestGetAccessToken :: GetAccessToken -> TestTree
+requestGetAccessToken =
+  req
+    "GetAccessToken"
+    "fixture/GetAccessToken.yaml"
+
+requestGetGrant :: GetGrant -> TestTree
+requestGetGrant =
+  req
+    "GetGrant"
+    "fixture/GetGrant.yaml"
 
 requestGetLicense :: GetLicense -> TestTree
 requestGetLicense =
@@ -437,17 +455,17 @@ requestGetLicenseConfiguration =
     "GetLicenseConfiguration"
     "fixture/GetLicenseConfiguration.yaml"
 
-requestListReceivedGrants :: ListReceivedGrants -> TestTree
-requestListReceivedGrants =
-  req
-    "ListReceivedGrants"
-    "fixture/ListReceivedGrants.yaml"
-
 requestGetLicenseConversionTask :: GetLicenseConversionTask -> TestTree
 requestGetLicenseConversionTask =
   req
     "GetLicenseConversionTask"
     "fixture/GetLicenseConversionTask.yaml"
+
+requestGetLicenseManagerReportGenerator :: GetLicenseManagerReportGenerator -> TestTree
+requestGetLicenseManagerReportGenerator =
+  req
+    "GetLicenseManagerReportGenerator"
+    "fixture/GetLicenseManagerReportGenerator.yaml"
 
 requestGetLicenseUsage :: GetLicenseUsage -> TestTree
 requestGetLicenseUsage =
@@ -455,65 +473,17 @@ requestGetLicenseUsage =
     "GetLicenseUsage"
     "fixture/GetLicenseUsage.yaml"
 
-requestExtendLicenseConsumption :: ExtendLicenseConsumption -> TestTree
-requestExtendLicenseConsumption =
-  req
-    "ExtendLicenseConsumption"
-    "fixture/ExtendLicenseConsumption.yaml"
-
-requestGetGrant :: GetGrant -> TestTree
-requestGetGrant =
-  req
-    "GetGrant"
-    "fixture/GetGrant.yaml"
-
-requestCheckoutLicense :: CheckoutLicense -> TestTree
-requestCheckoutLicense =
-  req
-    "CheckoutLicense"
-    "fixture/CheckoutLicense.yaml"
-
-requestCreateLicenseConversionTaskForResource :: CreateLicenseConversionTaskForResource -> TestTree
-requestCreateLicenseConversionTaskForResource =
-  req
-    "CreateLicenseConversionTaskForResource"
-    "fixture/CreateLicenseConversionTaskForResource.yaml"
-
-requestAcceptGrant :: AcceptGrant -> TestTree
-requestAcceptGrant =
-  req
-    "AcceptGrant"
-    "fixture/AcceptGrant.yaml"
-
-requestListLicenseSpecificationsForResource :: ListLicenseSpecificationsForResource -> TestTree
-requestListLicenseSpecificationsForResource =
-  req
-    "ListLicenseSpecificationsForResource"
-    "fixture/ListLicenseSpecificationsForResource.yaml"
-
-requestCheckoutBorrowLicense :: CheckoutBorrowLicense -> TestTree
-requestCheckoutBorrowLicense =
-  req
-    "CheckoutBorrowLicense"
-    "fixture/CheckoutBorrowLicense.yaml"
-
 requestGetServiceSettings :: GetServiceSettings -> TestTree
 requestGetServiceSettings =
   req
     "GetServiceSettings"
     "fixture/GetServiceSettings.yaml"
 
-requestRejectGrant :: RejectGrant -> TestTree
-requestRejectGrant =
+requestListAssociationsForLicenseConfiguration :: ListAssociationsForLicenseConfiguration -> TestTree
+requestListAssociationsForLicenseConfiguration =
   req
-    "RejectGrant"
-    "fixture/RejectGrant.yaml"
-
-requestUpdateServiceSettings :: UpdateServiceSettings -> TestTree
-requestUpdateServiceSettings =
-  req
-    "UpdateServiceSettings"
-    "fixture/UpdateServiceSettings.yaml"
+    "ListAssociationsForLicenseConfiguration"
+    "fixture/ListAssociationsForLicenseConfiguration.yaml"
 
 requestListDistributedGrants :: ListDistributedGrants -> TestTree
 requestListDistributedGrants =
@@ -527,59 +497,29 @@ requestListFailuresForLicenseConfigurationOperations =
     "ListFailuresForLicenseConfigurationOperations"
     "fixture/ListFailuresForLicenseConfigurationOperations.yaml"
 
-requestDeleteGrant :: DeleteGrant -> TestTree
-requestDeleteGrant =
-  req
-    "DeleteGrant"
-    "fixture/DeleteGrant.yaml"
-
-requestCreateToken :: CreateToken -> TestTree
-requestCreateToken =
-  req
-    "CreateToken"
-    "fixture/CreateToken.yaml"
-
-requestDeleteLicense :: DeleteLicense -> TestTree
-requestDeleteLicense =
-  req
-    "DeleteLicense"
-    "fixture/DeleteLicense.yaml"
-
-requestListLicenses :: ListLicenses -> TestTree
-requestListLicenses =
-  req
-    "ListLicenses"
-    "fixture/ListLicenses.yaml"
-
 requestListLicenseConfigurations :: ListLicenseConfigurations -> TestTree
 requestListLicenseConfigurations =
   req
     "ListLicenseConfigurations"
     "fixture/ListLicenseConfigurations.yaml"
 
-requestListReceivedLicenses :: ListReceivedLicenses -> TestTree
-requestListReceivedLicenses =
+requestListLicenseConversionTasks :: ListLicenseConversionTasks -> TestTree
+requestListLicenseConversionTasks =
   req
-    "ListReceivedLicenses"
-    "fixture/ListReceivedLicenses.yaml"
+    "ListLicenseConversionTasks"
+    "fixture/ListLicenseConversionTasks.yaml"
 
-requestCreateGrantVersion :: CreateGrantVersion -> TestTree
-requestCreateGrantVersion =
+requestListLicenseManagerReportGenerators :: ListLicenseManagerReportGenerators -> TestTree
+requestListLicenseManagerReportGenerators =
   req
-    "CreateGrantVersion"
-    "fixture/CreateGrantVersion.yaml"
+    "ListLicenseManagerReportGenerators"
+    "fixture/ListLicenseManagerReportGenerators.yaml"
 
-requestListAssociationsForLicenseConfiguration :: ListAssociationsForLicenseConfiguration -> TestTree
-requestListAssociationsForLicenseConfiguration =
+requestListLicenseSpecificationsForResource :: ListLicenseSpecificationsForResource -> TestTree
+requestListLicenseSpecificationsForResource =
   req
-    "ListAssociationsForLicenseConfiguration"
-    "fixture/ListAssociationsForLicenseConfiguration.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "ListLicenseSpecificationsForResource"
+    "fixture/ListLicenseSpecificationsForResource.yaml"
 
 requestListLicenseVersions :: ListLicenseVersions -> TestTree
 requestListLicenseVersions =
@@ -587,119 +527,99 @@ requestListLicenseVersions =
     "ListLicenseVersions"
     "fixture/ListLicenseVersions.yaml"
 
+requestListLicenses :: ListLicenses -> TestTree
+requestListLicenses =
+  req
+    "ListLicenses"
+    "fixture/ListLicenses.yaml"
+
+requestListReceivedGrants :: ListReceivedGrants -> TestTree
+requestListReceivedGrants =
+  req
+    "ListReceivedGrants"
+    "fixture/ListReceivedGrants.yaml"
+
+requestListReceivedLicenses :: ListReceivedLicenses -> TestTree
+requestListReceivedLicenses =
+  req
+    "ListReceivedLicenses"
+    "fixture/ListReceivedLicenses.yaml"
+
+requestListResourceInventory :: ListResourceInventory -> TestTree
+requestListResourceInventory =
+  req
+    "ListResourceInventory"
+    "fixture/ListResourceInventory.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListTokens :: ListTokens -> TestTree
+requestListTokens =
+  req
+    "ListTokens"
+    "fixture/ListTokens.yaml"
+
+requestListUsageForLicenseConfiguration :: ListUsageForLicenseConfiguration -> TestTree
+requestListUsageForLicenseConfiguration =
+  req
+    "ListUsageForLicenseConfiguration"
+    "fixture/ListUsageForLicenseConfiguration.yaml"
+
+requestRejectGrant :: RejectGrant -> TestTree
+requestRejectGrant =
+  req
+    "RejectGrant"
+    "fixture/RejectGrant.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetLicenseManagerReportGenerator :: GetLicenseManagerReportGenerator -> TestTree
-requestGetLicenseManagerReportGenerator =
+requestUpdateLicenseConfiguration :: UpdateLicenseConfiguration -> TestTree
+requestUpdateLicenseConfiguration =
   req
-    "GetLicenseManagerReportGenerator"
-    "fixture/GetLicenseManagerReportGenerator.yaml"
+    "UpdateLicenseConfiguration"
+    "fixture/UpdateLicenseConfiguration.yaml"
 
-requestGetAccessToken :: GetAccessToken -> TestTree
-requestGetAccessToken =
+requestUpdateLicenseManagerReportGenerator :: UpdateLicenseManagerReportGenerator -> TestTree
+requestUpdateLicenseManagerReportGenerator =
   req
-    "GetAccessToken"
-    "fixture/GetAccessToken.yaml"
+    "UpdateLicenseManagerReportGenerator"
+    "fixture/UpdateLicenseManagerReportGenerator.yaml"
 
-requestCreateLicenseManagerReportGenerator :: CreateLicenseManagerReportGenerator -> TestTree
-requestCreateLicenseManagerReportGenerator =
+requestUpdateLicenseSpecificationsForResource :: UpdateLicenseSpecificationsForResource -> TestTree
+requestUpdateLicenseSpecificationsForResource =
   req
-    "CreateLicenseManagerReportGenerator"
-    "fixture/CreateLicenseManagerReportGenerator.yaml"
+    "UpdateLicenseSpecificationsForResource"
+    "fixture/UpdateLicenseSpecificationsForResource.yaml"
+
+requestUpdateServiceSettings :: UpdateServiceSettings -> TestTree
+requestUpdateServiceSettings =
+  req
+    "UpdateServiceSettings"
+    "fixture/UpdateServiceSettings.yaml"
 
 -- Responses
 
-responseListLicenseManagerReportGenerators :: ListLicenseManagerReportGeneratorsResponse -> TestTree
-responseListLicenseManagerReportGenerators =
+responseAcceptGrant :: AcceptGrantResponse -> TestTree
+responseAcceptGrant =
   res
-    "ListLicenseManagerReportGeneratorsResponse"
-    "fixture/ListLicenseManagerReportGeneratorsResponse.proto"
+    "AcceptGrantResponse"
+    "fixture/AcceptGrantResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLicenseManagerReportGenerators)
-
-responseDeleteLicenseManagerReportGenerator :: DeleteLicenseManagerReportGeneratorResponse -> TestTree
-responseDeleteLicenseManagerReportGenerator =
-  res
-    "DeleteLicenseManagerReportGeneratorResponse"
-    "fixture/DeleteLicenseManagerReportGeneratorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLicenseManagerReportGenerator)
-
-responseUpdateLicenseManagerReportGenerator :: UpdateLicenseManagerReportGeneratorResponse -> TestTree
-responseUpdateLicenseManagerReportGenerator =
-  res
-    "UpdateLicenseManagerReportGeneratorResponse"
-    "fixture/UpdateLicenseManagerReportGeneratorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseManagerReportGenerator)
-
-responseListUsageForLicenseConfiguration :: ListUsageForLicenseConfigurationResponse -> TestTree
-responseListUsageForLicenseConfiguration =
-  res
-    "ListUsageForLicenseConfigurationResponse"
-    "fixture/ListUsageForLicenseConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListUsageForLicenseConfiguration)
-
-responseCreateLicenseConfiguration :: CreateLicenseConfigurationResponse -> TestTree
-responseCreateLicenseConfiguration =
-  res
-    "CreateLicenseConfigurationResponse"
-    "fixture/CreateLicenseConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLicenseConfiguration)
-
-responseCreateLicense :: CreateLicenseResponse -> TestTree
-responseCreateLicense =
-  res
-    "CreateLicenseResponse"
-    "fixture/CreateLicenseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLicense)
-
-responseListLicenseConversionTasks :: ListLicenseConversionTasksResponse -> TestTree
-responseListLicenseConversionTasks =
-  res
-    "ListLicenseConversionTasksResponse"
-    "fixture/ListLicenseConversionTasksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLicenseConversionTasks)
-
-responseListResourceInventory :: ListResourceInventoryResponse -> TestTree
-responseListResourceInventory =
-  res
-    "ListResourceInventoryResponse"
-    "fixture/ListResourceInventoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResourceInventory)
-
-responseDeleteToken :: DeleteTokenResponse -> TestTree
-responseDeleteToken =
-  res
-    "DeleteTokenResponse"
-    "fixture/DeleteTokenResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteToken)
-
-responseDeleteLicenseConfiguration :: DeleteLicenseConfigurationResponse -> TestTree
-responseDeleteLicenseConfiguration =
-  res
-    "DeleteLicenseConfigurationResponse"
-    "fixture/DeleteLicenseConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLicenseConfiguration)
-
-responseUpdateLicenseConfiguration :: UpdateLicenseConfigurationResponse -> TestTree
-responseUpdateLicenseConfiguration =
-  res
-    "UpdateLicenseConfigurationResponse"
-    "fixture/UpdateLicenseConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy AcceptGrant)
 
 responseCheckInLicense :: CheckInLicenseResponse -> TestTree
 responseCheckInLicense =
@@ -709,21 +629,21 @@ responseCheckInLicense =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CheckInLicense)
 
-responseListTokens :: ListTokensResponse -> TestTree
-responseListTokens =
+responseCheckoutBorrowLicense :: CheckoutBorrowLicenseResponse -> TestTree
+responseCheckoutBorrowLicense =
   res
-    "ListTokensResponse"
-    "fixture/ListTokensResponse.proto"
+    "CheckoutBorrowLicenseResponse"
+    "fixture/CheckoutBorrowLicenseResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTokens)
+    (Proxy.Proxy :: Proxy.Proxy CheckoutBorrowLicense)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseCheckoutLicense :: CheckoutLicenseResponse -> TestTree
+responseCheckoutLicense =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "CheckoutLicenseResponse"
+    "fixture/CheckoutLicenseResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy CheckoutLicense)
 
 responseCreateGrant :: CreateGrantResponse -> TestTree
 responseCreateGrant =
@@ -733,13 +653,45 @@ responseCreateGrant =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateGrant)
 
-responseUpdateLicenseSpecificationsForResource :: UpdateLicenseSpecificationsForResourceResponse -> TestTree
-responseUpdateLicenseSpecificationsForResource =
+responseCreateGrantVersion :: CreateGrantVersionResponse -> TestTree
+responseCreateGrantVersion =
   res
-    "UpdateLicenseSpecificationsForResourceResponse"
-    "fixture/UpdateLicenseSpecificationsForResourceResponse.proto"
+    "CreateGrantVersionResponse"
+    "fixture/CreateGrantVersionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseSpecificationsForResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateGrantVersion)
+
+responseCreateLicense :: CreateLicenseResponse -> TestTree
+responseCreateLicense =
+  res
+    "CreateLicenseResponse"
+    "fixture/CreateLicenseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLicense)
+
+responseCreateLicenseConfiguration :: CreateLicenseConfigurationResponse -> TestTree
+responseCreateLicenseConfiguration =
+  res
+    "CreateLicenseConfigurationResponse"
+    "fixture/CreateLicenseConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLicenseConfiguration)
+
+responseCreateLicenseConversionTaskForResource :: CreateLicenseConversionTaskForResourceResponse -> TestTree
+responseCreateLicenseConversionTaskForResource =
+  res
+    "CreateLicenseConversionTaskForResourceResponse"
+    "fixture/CreateLicenseConversionTaskForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLicenseConversionTaskForResource)
+
+responseCreateLicenseManagerReportGenerator :: CreateLicenseManagerReportGeneratorResponse -> TestTree
+responseCreateLicenseManagerReportGenerator =
+  res
+    "CreateLicenseManagerReportGeneratorResponse"
+    "fixture/CreateLicenseManagerReportGeneratorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLicenseManagerReportGenerator)
 
 responseCreateLicenseVersion :: CreateLicenseVersionResponse -> TestTree
 responseCreateLicenseVersion =
@@ -748,6 +700,78 @@ responseCreateLicenseVersion =
     "fixture/CreateLicenseVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLicenseVersion)
+
+responseCreateToken :: CreateTokenResponse -> TestTree
+responseCreateToken =
+  res
+    "CreateTokenResponse"
+    "fixture/CreateTokenResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateToken)
+
+responseDeleteGrant :: DeleteGrantResponse -> TestTree
+responseDeleteGrant =
+  res
+    "DeleteGrantResponse"
+    "fixture/DeleteGrantResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteGrant)
+
+responseDeleteLicense :: DeleteLicenseResponse -> TestTree
+responseDeleteLicense =
+  res
+    "DeleteLicenseResponse"
+    "fixture/DeleteLicenseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLicense)
+
+responseDeleteLicenseConfiguration :: DeleteLicenseConfigurationResponse -> TestTree
+responseDeleteLicenseConfiguration =
+  res
+    "DeleteLicenseConfigurationResponse"
+    "fixture/DeleteLicenseConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLicenseConfiguration)
+
+responseDeleteLicenseManagerReportGenerator :: DeleteLicenseManagerReportGeneratorResponse -> TestTree
+responseDeleteLicenseManagerReportGenerator =
+  res
+    "DeleteLicenseManagerReportGeneratorResponse"
+    "fixture/DeleteLicenseManagerReportGeneratorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLicenseManagerReportGenerator)
+
+responseDeleteToken :: DeleteTokenResponse -> TestTree
+responseDeleteToken =
+  res
+    "DeleteTokenResponse"
+    "fixture/DeleteTokenResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteToken)
+
+responseExtendLicenseConsumption :: ExtendLicenseConsumptionResponse -> TestTree
+responseExtendLicenseConsumption =
+  res
+    "ExtendLicenseConsumptionResponse"
+    "fixture/ExtendLicenseConsumptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExtendLicenseConsumption)
+
+responseGetAccessToken :: GetAccessTokenResponse -> TestTree
+responseGetAccessToken =
+  res
+    "GetAccessTokenResponse"
+    "fixture/GetAccessTokenResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAccessToken)
+
+responseGetGrant :: GetGrantResponse -> TestTree
+responseGetGrant =
+  res
+    "GetGrantResponse"
+    "fixture/GetGrantResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetGrant)
 
 responseGetLicense :: GetLicenseResponse -> TestTree
 responseGetLicense =
@@ -765,14 +789,6 @@ responseGetLicenseConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLicenseConfiguration)
 
-responseListReceivedGrants :: ListReceivedGrantsResponse -> TestTree
-responseListReceivedGrants =
-  res
-    "ListReceivedGrantsResponse"
-    "fixture/ListReceivedGrantsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReceivedGrants)
-
 responseGetLicenseConversionTask :: GetLicenseConversionTaskResponse -> TestTree
 responseGetLicenseConversionTask =
   res
@@ -780,6 +796,14 @@ responseGetLicenseConversionTask =
     "fixture/GetLicenseConversionTaskResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLicenseConversionTask)
+
+responseGetLicenseManagerReportGenerator :: GetLicenseManagerReportGeneratorResponse -> TestTree
+responseGetLicenseManagerReportGenerator =
+  res
+    "GetLicenseManagerReportGeneratorResponse"
+    "fixture/GetLicenseManagerReportGeneratorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLicenseManagerReportGenerator)
 
 responseGetLicenseUsage :: GetLicenseUsageResponse -> TestTree
 responseGetLicenseUsage =
@@ -789,62 +813,6 @@ responseGetLicenseUsage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLicenseUsage)
 
-responseExtendLicenseConsumption :: ExtendLicenseConsumptionResponse -> TestTree
-responseExtendLicenseConsumption =
-  res
-    "ExtendLicenseConsumptionResponse"
-    "fixture/ExtendLicenseConsumptionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExtendLicenseConsumption)
-
-responseGetGrant :: GetGrantResponse -> TestTree
-responseGetGrant =
-  res
-    "GetGrantResponse"
-    "fixture/GetGrantResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetGrant)
-
-responseCheckoutLicense :: CheckoutLicenseResponse -> TestTree
-responseCheckoutLicense =
-  res
-    "CheckoutLicenseResponse"
-    "fixture/CheckoutLicenseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CheckoutLicense)
-
-responseCreateLicenseConversionTaskForResource :: CreateLicenseConversionTaskForResourceResponse -> TestTree
-responseCreateLicenseConversionTaskForResource =
-  res
-    "CreateLicenseConversionTaskForResourceResponse"
-    "fixture/CreateLicenseConversionTaskForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLicenseConversionTaskForResource)
-
-responseAcceptGrant :: AcceptGrantResponse -> TestTree
-responseAcceptGrant =
-  res
-    "AcceptGrantResponse"
-    "fixture/AcceptGrantResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AcceptGrant)
-
-responseListLicenseSpecificationsForResource :: ListLicenseSpecificationsForResourceResponse -> TestTree
-responseListLicenseSpecificationsForResource =
-  res
-    "ListLicenseSpecificationsForResourceResponse"
-    "fixture/ListLicenseSpecificationsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLicenseSpecificationsForResource)
-
-responseCheckoutBorrowLicense :: CheckoutBorrowLicenseResponse -> TestTree
-responseCheckoutBorrowLicense =
-  res
-    "CheckoutBorrowLicenseResponse"
-    "fixture/CheckoutBorrowLicenseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CheckoutBorrowLicense)
-
 responseGetServiceSettings :: GetServiceSettingsResponse -> TestTree
 responseGetServiceSettings =
   res
@@ -853,21 +821,13 @@ responseGetServiceSettings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetServiceSettings)
 
-responseRejectGrant :: RejectGrantResponse -> TestTree
-responseRejectGrant =
+responseListAssociationsForLicenseConfiguration :: ListAssociationsForLicenseConfigurationResponse -> TestTree
+responseListAssociationsForLicenseConfiguration =
   res
-    "RejectGrantResponse"
-    "fixture/RejectGrantResponse.proto"
+    "ListAssociationsForLicenseConfigurationResponse"
+    "fixture/ListAssociationsForLicenseConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RejectGrant)
-
-responseUpdateServiceSettings :: UpdateServiceSettingsResponse -> TestTree
-responseUpdateServiceSettings =
-  res
-    "UpdateServiceSettingsResponse"
-    "fixture/UpdateServiceSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateServiceSettings)
+    (Proxy.Proxy :: Proxy.Proxy ListAssociationsForLicenseConfiguration)
 
 responseListDistributedGrants :: ListDistributedGrantsResponse -> TestTree
 responseListDistributedGrants =
@@ -885,38 +845,6 @@ responseListFailuresForLicenseConfigurationOperations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFailuresForLicenseConfigurationOperations)
 
-responseDeleteGrant :: DeleteGrantResponse -> TestTree
-responseDeleteGrant =
-  res
-    "DeleteGrantResponse"
-    "fixture/DeleteGrantResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteGrant)
-
-responseCreateToken :: CreateTokenResponse -> TestTree
-responseCreateToken =
-  res
-    "CreateTokenResponse"
-    "fixture/CreateTokenResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateToken)
-
-responseDeleteLicense :: DeleteLicenseResponse -> TestTree
-responseDeleteLicense =
-  res
-    "DeleteLicenseResponse"
-    "fixture/DeleteLicenseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLicense)
-
-responseListLicenses :: ListLicensesResponse -> TestTree
-responseListLicenses =
-  res
-    "ListLicensesResponse"
-    "fixture/ListLicensesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLicenses)
-
 responseListLicenseConfigurations :: ListLicenseConfigurationsResponse -> TestTree
 responseListLicenseConfigurations =
   res
@@ -925,37 +853,29 @@ responseListLicenseConfigurations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListLicenseConfigurations)
 
-responseListReceivedLicenses :: ListReceivedLicensesResponse -> TestTree
-responseListReceivedLicenses =
+responseListLicenseConversionTasks :: ListLicenseConversionTasksResponse -> TestTree
+responseListLicenseConversionTasks =
   res
-    "ListReceivedLicensesResponse"
-    "fixture/ListReceivedLicensesResponse.proto"
+    "ListLicenseConversionTasksResponse"
+    "fixture/ListLicenseConversionTasksResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReceivedLicenses)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenseConversionTasks)
 
-responseCreateGrantVersion :: CreateGrantVersionResponse -> TestTree
-responseCreateGrantVersion =
+responseListLicenseManagerReportGenerators :: ListLicenseManagerReportGeneratorsResponse -> TestTree
+responseListLicenseManagerReportGenerators =
   res
-    "CreateGrantVersionResponse"
-    "fixture/CreateGrantVersionResponse.proto"
+    "ListLicenseManagerReportGeneratorsResponse"
+    "fixture/ListLicenseManagerReportGeneratorsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateGrantVersion)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenseManagerReportGenerators)
 
-responseListAssociationsForLicenseConfiguration :: ListAssociationsForLicenseConfigurationResponse -> TestTree
-responseListAssociationsForLicenseConfiguration =
+responseListLicenseSpecificationsForResource :: ListLicenseSpecificationsForResourceResponse -> TestTree
+responseListLicenseSpecificationsForResource =
   res
-    "ListAssociationsForLicenseConfigurationResponse"
-    "fixture/ListAssociationsForLicenseConfigurationResponse.proto"
+    "ListLicenseSpecificationsForResourceResponse"
+    "fixture/ListLicenseSpecificationsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssociationsForLicenseConfiguration)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy ListLicenseSpecificationsForResource)
 
 responseListLicenseVersions :: ListLicenseVersionsResponse -> TestTree
 responseListLicenseVersions =
@@ -965,6 +885,78 @@ responseListLicenseVersions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListLicenseVersions)
 
+responseListLicenses :: ListLicensesResponse -> TestTree
+responseListLicenses =
+  res
+    "ListLicensesResponse"
+    "fixture/ListLicensesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLicenses)
+
+responseListReceivedGrants :: ListReceivedGrantsResponse -> TestTree
+responseListReceivedGrants =
+  res
+    "ListReceivedGrantsResponse"
+    "fixture/ListReceivedGrantsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReceivedGrants)
+
+responseListReceivedLicenses :: ListReceivedLicensesResponse -> TestTree
+responseListReceivedLicenses =
+  res
+    "ListReceivedLicensesResponse"
+    "fixture/ListReceivedLicensesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReceivedLicenses)
+
+responseListResourceInventory :: ListResourceInventoryResponse -> TestTree
+responseListResourceInventory =
+  res
+    "ListResourceInventoryResponse"
+    "fixture/ListResourceInventoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceInventory)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTokens :: ListTokensResponse -> TestTree
+responseListTokens =
+  res
+    "ListTokensResponse"
+    "fixture/ListTokensResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTokens)
+
+responseListUsageForLicenseConfiguration :: ListUsageForLicenseConfigurationResponse -> TestTree
+responseListUsageForLicenseConfiguration =
+  res
+    "ListUsageForLicenseConfigurationResponse"
+    "fixture/ListUsageForLicenseConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListUsageForLicenseConfiguration)
+
+responseRejectGrant :: RejectGrantResponse -> TestTree
+responseRejectGrant =
+  res
+    "RejectGrantResponse"
+    "fixture/RejectGrantResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RejectGrant)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -973,26 +965,34 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseGetLicenseManagerReportGenerator :: GetLicenseManagerReportGeneratorResponse -> TestTree
-responseGetLicenseManagerReportGenerator =
+responseUpdateLicenseConfiguration :: UpdateLicenseConfigurationResponse -> TestTree
+responseUpdateLicenseConfiguration =
   res
-    "GetLicenseManagerReportGeneratorResponse"
-    "fixture/GetLicenseManagerReportGeneratorResponse.proto"
+    "UpdateLicenseConfigurationResponse"
+    "fixture/UpdateLicenseConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetLicenseManagerReportGenerator)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseConfiguration)
 
-responseGetAccessToken :: GetAccessTokenResponse -> TestTree
-responseGetAccessToken =
+responseUpdateLicenseManagerReportGenerator :: UpdateLicenseManagerReportGeneratorResponse -> TestTree
+responseUpdateLicenseManagerReportGenerator =
   res
-    "GetAccessTokenResponse"
-    "fixture/GetAccessTokenResponse.proto"
+    "UpdateLicenseManagerReportGeneratorResponse"
+    "fixture/UpdateLicenseManagerReportGeneratorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAccessToken)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseManagerReportGenerator)
 
-responseCreateLicenseManagerReportGenerator :: CreateLicenseManagerReportGeneratorResponse -> TestTree
-responseCreateLicenseManagerReportGenerator =
+responseUpdateLicenseSpecificationsForResource :: UpdateLicenseSpecificationsForResourceResponse -> TestTree
+responseUpdateLicenseSpecificationsForResource =
   res
-    "CreateLicenseManagerReportGeneratorResponse"
-    "fixture/CreateLicenseManagerReportGeneratorResponse.proto"
+    "UpdateLicenseSpecificationsForResourceResponse"
+    "fixture/UpdateLicenseSpecificationsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLicenseManagerReportGenerator)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLicenseSpecificationsForResource)
+
+responseUpdateServiceSettings :: UpdateServiceSettingsResponse -> TestTree
+responseUpdateServiceSettings =
+  res
+    "UpdateServiceSettingsResponse"
+    "fixture/UpdateServiceSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceSettings)

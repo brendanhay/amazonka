@@ -27,50 +27,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateLedger $
---             newUpdateLedger
---
---         , requestDeleteLedger $
---             newDeleteLedger
---
---         , requestListJournalKinesisStreamsForLedger $
---             newListJournalKinesisStreamsForLedger
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetRevision $
---             newGetRevision
---
---         , requestDescribeLedger $
---             newDescribeLedger
---
---         , requestCancelJournalKinesisStream $
+--         [ requestCancelJournalKinesisStream $
 --             newCancelJournalKinesisStream
---
---         , requestExportJournalToS3 $
---             newExportJournalToS3
---
---         , requestStreamJournalToKinesis $
---             newStreamJournalToKinesis
 --
 --         , requestCreateLedger $
 --             newCreateLedger
 --
---         , requestListLedgers $
---             newListLedgers
---
---         , requestListJournalS3Exports $
---             newListJournalS3Exports
---
---         , requestUpdateLedgerPermissionsMode $
---             newUpdateLedgerPermissionsMode
---
---         , requestGetBlock $
---             newGetBlock
---
---         , requestListJournalS3ExportsForLedger $
---             newListJournalS3ExportsForLedger
+--         , requestDeleteLedger $
+--             newDeleteLedger
 --
 --         , requestDescribeJournalKinesisStream $
 --             newDescribeJournalKinesisStream
@@ -78,62 +42,62 @@ import Test.Tasty
 --         , requestDescribeJournalS3Export $
 --             newDescribeJournalS3Export
 --
+--         , requestDescribeLedger $
+--             newDescribeLedger
+--
+--         , requestExportJournalToS3 $
+--             newExportJournalToS3
+--
+--         , requestGetBlock $
+--             newGetBlock
+--
+--         , requestGetDigest $
+--             newGetDigest
+--
+--         , requestGetRevision $
+--             newGetRevision
+--
+--         , requestListJournalKinesisStreamsForLedger $
+--             newListJournalKinesisStreamsForLedger
+--
+--         , requestListJournalS3Exports $
+--             newListJournalS3Exports
+--
+--         , requestListJournalS3ExportsForLedger $
+--             newListJournalS3ExportsForLedger
+--
+--         , requestListLedgers $
+--             newListLedgers
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestStreamJournalToKinesis $
+--             newStreamJournalToKinesis
+--
 --         , requestTagResource $
 --             newTagResource
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetDigest $
---             newGetDigest
+--         , requestUpdateLedger $
+--             newUpdateLedger
+--
+--         , requestUpdateLedgerPermissionsMode $
+--             newUpdateLedgerPermissionsMode
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateLedger $
---             newUpdateLedgerResponse
---
---         , responseDeleteLedger $
---             newDeleteLedgerResponse
---
---         , responseListJournalKinesisStreamsForLedger $
---             newListJournalKinesisStreamsForLedgerResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetRevision $
---             newGetRevisionResponse
---
---         , responseDescribeLedger $
---             newDescribeLedgerResponse
---
---         , responseCancelJournalKinesisStream $
+--         [ responseCancelJournalKinesisStream $
 --             newCancelJournalKinesisStreamResponse
---
---         , responseExportJournalToS3 $
---             newExportJournalToS3Response
---
---         , responseStreamJournalToKinesis $
---             newStreamJournalToKinesisResponse
 --
 --         , responseCreateLedger $
 --             newCreateLedgerResponse
 --
---         , responseListLedgers $
---             newListLedgersResponse
---
---         , responseListJournalS3Exports $
---             newListJournalS3ExportsResponse
---
---         , responseUpdateLedgerPermissionsMode $
---             newUpdateLedgerPermissionsModeResponse
---
---         , responseGetBlock $
---             newGetBlockResponse
---
---         , responseListJournalS3ExportsForLedger $
---             newListJournalS3ExportsForLedgerResponse
+--         , responseDeleteLedger $
+--             newDeleteLedgerResponse
 --
 --         , responseDescribeJournalKinesisStream $
 --             newDescribeJournalKinesisStreamResponse
@@ -141,55 +105,55 @@ import Test.Tasty
 --         , responseDescribeJournalS3Export $
 --             newDescribeJournalS3ExportResponse
 --
+--         , responseDescribeLedger $
+--             newDescribeLedgerResponse
+--
+--         , responseExportJournalToS3 $
+--             newExportJournalToS3Response
+--
+--         , responseGetBlock $
+--             newGetBlockResponse
+--
+--         , responseGetDigest $
+--             newGetDigestResponse
+--
+--         , responseGetRevision $
+--             newGetRevisionResponse
+--
+--         , responseListJournalKinesisStreamsForLedger $
+--             newListJournalKinesisStreamsForLedgerResponse
+--
+--         , responseListJournalS3Exports $
+--             newListJournalS3ExportsResponse
+--
+--         , responseListJournalS3ExportsForLedger $
+--             newListJournalS3ExportsForLedgerResponse
+--
+--         , responseListLedgers $
+--             newListLedgersResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseStreamJournalToKinesis $
+--             newStreamJournalToKinesisResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetDigest $
---             newGetDigestResponse
+--         , responseUpdateLedger $
+--             newUpdateLedgerResponse
+--
+--         , responseUpdateLedgerPermissionsMode $
+--             newUpdateLedgerPermissionsModeResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdateLedger :: UpdateLedger -> TestTree
-requestUpdateLedger =
-  req
-    "UpdateLedger"
-    "fixture/UpdateLedger.yaml"
-
-requestDeleteLedger :: DeleteLedger -> TestTree
-requestDeleteLedger =
-  req
-    "DeleteLedger"
-    "fixture/DeleteLedger.yaml"
-
-requestListJournalKinesisStreamsForLedger :: ListJournalKinesisStreamsForLedger -> TestTree
-requestListJournalKinesisStreamsForLedger =
-  req
-    "ListJournalKinesisStreamsForLedger"
-    "fixture/ListJournalKinesisStreamsForLedger.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetRevision :: GetRevision -> TestTree
-requestGetRevision =
-  req
-    "GetRevision"
-    "fixture/GetRevision.yaml"
-
-requestDescribeLedger :: DescribeLedger -> TestTree
-requestDescribeLedger =
-  req
-    "DescribeLedger"
-    "fixture/DescribeLedger.yaml"
 
 requestCancelJournalKinesisStream :: CancelJournalKinesisStream -> TestTree
 requestCancelJournalKinesisStream =
@@ -197,53 +161,17 @@ requestCancelJournalKinesisStream =
     "CancelJournalKinesisStream"
     "fixture/CancelJournalKinesisStream.yaml"
 
-requestExportJournalToS3 :: ExportJournalToS3 -> TestTree
-requestExportJournalToS3 =
-  req
-    "ExportJournalToS3"
-    "fixture/ExportJournalToS3.yaml"
-
-requestStreamJournalToKinesis :: StreamJournalToKinesis -> TestTree
-requestStreamJournalToKinesis =
-  req
-    "StreamJournalToKinesis"
-    "fixture/StreamJournalToKinesis.yaml"
-
 requestCreateLedger :: CreateLedger -> TestTree
 requestCreateLedger =
   req
     "CreateLedger"
     "fixture/CreateLedger.yaml"
 
-requestListLedgers :: ListLedgers -> TestTree
-requestListLedgers =
+requestDeleteLedger :: DeleteLedger -> TestTree
+requestDeleteLedger =
   req
-    "ListLedgers"
-    "fixture/ListLedgers.yaml"
-
-requestListJournalS3Exports :: ListJournalS3Exports -> TestTree
-requestListJournalS3Exports =
-  req
-    "ListJournalS3Exports"
-    "fixture/ListJournalS3Exports.yaml"
-
-requestUpdateLedgerPermissionsMode :: UpdateLedgerPermissionsMode -> TestTree
-requestUpdateLedgerPermissionsMode =
-  req
-    "UpdateLedgerPermissionsMode"
-    "fixture/UpdateLedgerPermissionsMode.yaml"
-
-requestGetBlock :: GetBlock -> TestTree
-requestGetBlock =
-  req
-    "GetBlock"
-    "fixture/GetBlock.yaml"
-
-requestListJournalS3ExportsForLedger :: ListJournalS3ExportsForLedger -> TestTree
-requestListJournalS3ExportsForLedger =
-  req
-    "ListJournalS3ExportsForLedger"
-    "fixture/ListJournalS3ExportsForLedger.yaml"
+    "DeleteLedger"
+    "fixture/DeleteLedger.yaml"
 
 requestDescribeJournalKinesisStream :: DescribeJournalKinesisStream -> TestTree
 requestDescribeJournalKinesisStream =
@@ -257,6 +185,72 @@ requestDescribeJournalS3Export =
     "DescribeJournalS3Export"
     "fixture/DescribeJournalS3Export.yaml"
 
+requestDescribeLedger :: DescribeLedger -> TestTree
+requestDescribeLedger =
+  req
+    "DescribeLedger"
+    "fixture/DescribeLedger.yaml"
+
+requestExportJournalToS3 :: ExportJournalToS3 -> TestTree
+requestExportJournalToS3 =
+  req
+    "ExportJournalToS3"
+    "fixture/ExportJournalToS3.yaml"
+
+requestGetBlock :: GetBlock -> TestTree
+requestGetBlock =
+  req
+    "GetBlock"
+    "fixture/GetBlock.yaml"
+
+requestGetDigest :: GetDigest -> TestTree
+requestGetDigest =
+  req
+    "GetDigest"
+    "fixture/GetDigest.yaml"
+
+requestGetRevision :: GetRevision -> TestTree
+requestGetRevision =
+  req
+    "GetRevision"
+    "fixture/GetRevision.yaml"
+
+requestListJournalKinesisStreamsForLedger :: ListJournalKinesisStreamsForLedger -> TestTree
+requestListJournalKinesisStreamsForLedger =
+  req
+    "ListJournalKinesisStreamsForLedger"
+    "fixture/ListJournalKinesisStreamsForLedger.yaml"
+
+requestListJournalS3Exports :: ListJournalS3Exports -> TestTree
+requestListJournalS3Exports =
+  req
+    "ListJournalS3Exports"
+    "fixture/ListJournalS3Exports.yaml"
+
+requestListJournalS3ExportsForLedger :: ListJournalS3ExportsForLedger -> TestTree
+requestListJournalS3ExportsForLedger =
+  req
+    "ListJournalS3ExportsForLedger"
+    "fixture/ListJournalS3ExportsForLedger.yaml"
+
+requestListLedgers :: ListLedgers -> TestTree
+requestListLedgers =
+  req
+    "ListLedgers"
+    "fixture/ListLedgers.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestStreamJournalToKinesis :: StreamJournalToKinesis -> TestTree
+requestStreamJournalToKinesis =
+  req
+    "StreamJournalToKinesis"
+    "fixture/StreamJournalToKinesis.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -269,61 +263,19 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetDigest :: GetDigest -> TestTree
-requestGetDigest =
+requestUpdateLedger :: UpdateLedger -> TestTree
+requestUpdateLedger =
   req
-    "GetDigest"
-    "fixture/GetDigest.yaml"
+    "UpdateLedger"
+    "fixture/UpdateLedger.yaml"
+
+requestUpdateLedgerPermissionsMode :: UpdateLedgerPermissionsMode -> TestTree
+requestUpdateLedgerPermissionsMode =
+  req
+    "UpdateLedgerPermissionsMode"
+    "fixture/UpdateLedgerPermissionsMode.yaml"
 
 -- Responses
-
-responseUpdateLedger :: UpdateLedgerResponse -> TestTree
-responseUpdateLedger =
-  res
-    "UpdateLedgerResponse"
-    "fixture/UpdateLedgerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLedger)
-
-responseDeleteLedger :: DeleteLedgerResponse -> TestTree
-responseDeleteLedger =
-  res
-    "DeleteLedgerResponse"
-    "fixture/DeleteLedgerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLedger)
-
-responseListJournalKinesisStreamsForLedger :: ListJournalKinesisStreamsForLedgerResponse -> TestTree
-responseListJournalKinesisStreamsForLedger =
-  res
-    "ListJournalKinesisStreamsForLedgerResponse"
-    "fixture/ListJournalKinesisStreamsForLedgerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListJournalKinesisStreamsForLedger)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetRevision :: GetRevisionResponse -> TestTree
-responseGetRevision =
-  res
-    "GetRevisionResponse"
-    "fixture/GetRevisionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRevision)
-
-responseDescribeLedger :: DescribeLedgerResponse -> TestTree
-responseDescribeLedger =
-  res
-    "DescribeLedgerResponse"
-    "fixture/DescribeLedgerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLedger)
 
 responseCancelJournalKinesisStream :: CancelJournalKinesisStreamResponse -> TestTree
 responseCancelJournalKinesisStream =
@@ -333,22 +285,6 @@ responseCancelJournalKinesisStream =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelJournalKinesisStream)
 
-responseExportJournalToS3 :: ExportJournalToS3Response -> TestTree
-responseExportJournalToS3 =
-  res
-    "ExportJournalToS3Response"
-    "fixture/ExportJournalToS3Response.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExportJournalToS3)
-
-responseStreamJournalToKinesis :: StreamJournalToKinesisResponse -> TestTree
-responseStreamJournalToKinesis =
-  res
-    "StreamJournalToKinesisResponse"
-    "fixture/StreamJournalToKinesisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StreamJournalToKinesis)
-
 responseCreateLedger :: CreateLedgerResponse -> TestTree
 responseCreateLedger =
   res
@@ -357,45 +293,13 @@ responseCreateLedger =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLedger)
 
-responseListLedgers :: ListLedgersResponse -> TestTree
-responseListLedgers =
+responseDeleteLedger :: DeleteLedgerResponse -> TestTree
+responseDeleteLedger =
   res
-    "ListLedgersResponse"
-    "fixture/ListLedgersResponse.proto"
+    "DeleteLedgerResponse"
+    "fixture/DeleteLedgerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLedgers)
-
-responseListJournalS3Exports :: ListJournalS3ExportsResponse -> TestTree
-responseListJournalS3Exports =
-  res
-    "ListJournalS3ExportsResponse"
-    "fixture/ListJournalS3ExportsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListJournalS3Exports)
-
-responseUpdateLedgerPermissionsMode :: UpdateLedgerPermissionsModeResponse -> TestTree
-responseUpdateLedgerPermissionsMode =
-  res
-    "UpdateLedgerPermissionsModeResponse"
-    "fixture/UpdateLedgerPermissionsModeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLedgerPermissionsMode)
-
-responseGetBlock :: GetBlockResponse -> TestTree
-responseGetBlock =
-  res
-    "GetBlockResponse"
-    "fixture/GetBlockResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetBlock)
-
-responseListJournalS3ExportsForLedger :: ListJournalS3ExportsForLedgerResponse -> TestTree
-responseListJournalS3ExportsForLedger =
-  res
-    "ListJournalS3ExportsForLedgerResponse"
-    "fixture/ListJournalS3ExportsForLedgerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListJournalS3ExportsForLedger)
+    (Proxy.Proxy :: Proxy.Proxy DeleteLedger)
 
 responseDescribeJournalKinesisStream :: DescribeJournalKinesisStreamResponse -> TestTree
 responseDescribeJournalKinesisStream =
@@ -413,6 +317,94 @@ responseDescribeJournalS3Export =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeJournalS3Export)
 
+responseDescribeLedger :: DescribeLedgerResponse -> TestTree
+responseDescribeLedger =
+  res
+    "DescribeLedgerResponse"
+    "fixture/DescribeLedgerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLedger)
+
+responseExportJournalToS3 :: ExportJournalToS3Response -> TestTree
+responseExportJournalToS3 =
+  res
+    "ExportJournalToS3Response"
+    "fixture/ExportJournalToS3Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportJournalToS3)
+
+responseGetBlock :: GetBlockResponse -> TestTree
+responseGetBlock =
+  res
+    "GetBlockResponse"
+    "fixture/GetBlockResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBlock)
+
+responseGetDigest :: GetDigestResponse -> TestTree
+responseGetDigest =
+  res
+    "GetDigestResponse"
+    "fixture/GetDigestResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDigest)
+
+responseGetRevision :: GetRevisionResponse -> TestTree
+responseGetRevision =
+  res
+    "GetRevisionResponse"
+    "fixture/GetRevisionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRevision)
+
+responseListJournalKinesisStreamsForLedger :: ListJournalKinesisStreamsForLedgerResponse -> TestTree
+responseListJournalKinesisStreamsForLedger =
+  res
+    "ListJournalKinesisStreamsForLedgerResponse"
+    "fixture/ListJournalKinesisStreamsForLedgerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJournalKinesisStreamsForLedger)
+
+responseListJournalS3Exports :: ListJournalS3ExportsResponse -> TestTree
+responseListJournalS3Exports =
+  res
+    "ListJournalS3ExportsResponse"
+    "fixture/ListJournalS3ExportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJournalS3Exports)
+
+responseListJournalS3ExportsForLedger :: ListJournalS3ExportsForLedgerResponse -> TestTree
+responseListJournalS3ExportsForLedger =
+  res
+    "ListJournalS3ExportsForLedgerResponse"
+    "fixture/ListJournalS3ExportsForLedgerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJournalS3ExportsForLedger)
+
+responseListLedgers :: ListLedgersResponse -> TestTree
+responseListLedgers =
+  res
+    "ListLedgersResponse"
+    "fixture/ListLedgersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLedgers)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseStreamJournalToKinesis :: StreamJournalToKinesisResponse -> TestTree
+responseStreamJournalToKinesis =
+  res
+    "StreamJournalToKinesisResponse"
+    "fixture/StreamJournalToKinesisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StreamJournalToKinesis)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -429,10 +421,18 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseGetDigest :: GetDigestResponse -> TestTree
-responseGetDigest =
+responseUpdateLedger :: UpdateLedgerResponse -> TestTree
+responseUpdateLedger =
   res
-    "GetDigestResponse"
-    "fixture/GetDigestResponse.proto"
+    "UpdateLedgerResponse"
+    "fixture/UpdateLedgerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDigest)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLedger)
+
+responseUpdateLedgerPermissionsMode :: UpdateLedgerPermissionsModeResponse -> TestTree
+responseUpdateLedgerPermissionsMode =
+  res
+    "UpdateLedgerPermissionsModeResponse"
+    "fixture/UpdateLedgerPermissionsModeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLedgerPermissionsMode)

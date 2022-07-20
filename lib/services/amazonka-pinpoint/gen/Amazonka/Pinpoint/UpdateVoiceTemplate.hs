@@ -28,8 +28,8 @@ module Amazonka.Pinpoint.UpdateVoiceTemplate
     newUpdateVoiceTemplate,
 
     -- * Request Lenses
-    updateVoiceTemplate_version,
     updateVoiceTemplate_createNewVersion,
+    updateVoiceTemplate_version,
     updateVoiceTemplate_templateName,
     updateVoiceTemplate_voiceTemplateRequest,
 
@@ -52,7 +52,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateVoiceTemplate' smart constructor.
 data UpdateVoiceTemplate = UpdateVoiceTemplate'
-  { -- | The unique identifier for the version of the message template to update,
+  { -- | Specifies whether to save the updates as a new version of the message
+    -- template. Valid values are: true, save the updates as a new version;
+    -- and, false, save the updates to (overwrite) the latest existing version
+    -- of the template.
+    --
+    -- If you don\'t specify a value for this parameter, Amazon Pinpoint saves
+    -- the updates to (overwrites) the latest existing version of the template.
+    -- If you specify a value of true for this parameter, don\'t specify a
+    -- value for the version parameter. Otherwise, an error will occur.
+    createNewVersion :: Prelude.Maybe Prelude.Bool,
+    -- | The unique identifier for the version of the message template to update,
     -- retrieve information about, or delete. To retrieve identifiers and other
     -- information for all the versions of a template, use the Template
     -- Versions resource.
@@ -75,16 +85,6 @@ data UpdateVoiceTemplate = UpdateVoiceTemplate'
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
     version :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to save the updates as a new version of the message
-    -- template. Valid values are: true, save the updates as a new version;
-    -- and, false, save the updates to (overwrite) the latest existing version
-    -- of the template.
-    --
-    -- If you don\'t specify a value for this parameter, Amazon Pinpoint saves
-    -- the updates to (overwrites) the latest existing version of the template.
-    -- If you specify a value of true for this parameter, don\'t specify a
-    -- value for the version parameter. Otherwise, an error will occur.
-    createNewVersion :: Prelude.Maybe Prelude.Bool,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
@@ -101,6 +101,16 @@ data UpdateVoiceTemplate = UpdateVoiceTemplate'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'createNewVersion', 'updateVoiceTemplate_createNewVersion' - Specifies whether to save the updates as a new version of the message
+-- template. Valid values are: true, save the updates as a new version;
+-- and, false, save the updates to (overwrite) the latest existing version
+-- of the template.
+--
+-- If you don\'t specify a value for this parameter, Amazon Pinpoint saves
+-- the updates to (overwrites) the latest existing version of the template.
+-- If you specify a value of true for this parameter, don\'t specify a
+-- value for the version parameter. Otherwise, an error will occur.
 --
 -- 'version', 'updateVoiceTemplate_version' - The unique identifier for the version of the message template to update,
 -- retrieve information about, or delete. To retrieve identifiers and other
@@ -125,16 +135,6 @@ data UpdateVoiceTemplate = UpdateVoiceTemplate'
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
 --
--- 'createNewVersion', 'updateVoiceTemplate_createNewVersion' - Specifies whether to save the updates as a new version of the message
--- template. Valid values are: true, save the updates as a new version;
--- and, false, save the updates to (overwrite) the latest existing version
--- of the template.
---
--- If you don\'t specify a value for this parameter, Amazon Pinpoint saves
--- the updates to (overwrites) the latest existing version of the template.
--- If you specify a value of true for this parameter, don\'t specify a
--- value for the version parameter. Otherwise, an error will occur.
---
 -- 'templateName', 'updateVoiceTemplate_templateName' - The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
@@ -151,11 +151,24 @@ newUpdateVoiceTemplate
   pTemplateName_
   pVoiceTemplateRequest_ =
     UpdateVoiceTemplate'
-      { version = Prelude.Nothing,
-        createNewVersion = Prelude.Nothing,
+      { createNewVersion =
+          Prelude.Nothing,
+        version = Prelude.Nothing,
         templateName = pTemplateName_,
         voiceTemplateRequest = pVoiceTemplateRequest_
       }
+
+-- | Specifies whether to save the updates as a new version of the message
+-- template. Valid values are: true, save the updates as a new version;
+-- and, false, save the updates to (overwrite) the latest existing version
+-- of the template.
+--
+-- If you don\'t specify a value for this parameter, Amazon Pinpoint saves
+-- the updates to (overwrites) the latest existing version of the template.
+-- If you specify a value of true for this parameter, don\'t specify a
+-- value for the version parameter. Otherwise, an error will occur.
+updateVoiceTemplate_createNewVersion :: Lens.Lens' UpdateVoiceTemplate (Prelude.Maybe Prelude.Bool)
+updateVoiceTemplate_createNewVersion = Lens.lens (\UpdateVoiceTemplate' {createNewVersion} -> createNewVersion) (\s@UpdateVoiceTemplate' {} a -> s {createNewVersion = a} :: UpdateVoiceTemplate)
 
 -- | The unique identifier for the version of the message template to update,
 -- retrieve information about, or delete. To retrieve identifiers and other
@@ -181,18 +194,6 @@ newUpdateVoiceTemplate
 --     of the template.
 updateVoiceTemplate_version :: Lens.Lens' UpdateVoiceTemplate (Prelude.Maybe Prelude.Text)
 updateVoiceTemplate_version = Lens.lens (\UpdateVoiceTemplate' {version} -> version) (\s@UpdateVoiceTemplate' {} a -> s {version = a} :: UpdateVoiceTemplate)
-
--- | Specifies whether to save the updates as a new version of the message
--- template. Valid values are: true, save the updates as a new version;
--- and, false, save the updates to (overwrite) the latest existing version
--- of the template.
---
--- If you don\'t specify a value for this parameter, Amazon Pinpoint saves
--- the updates to (overwrites) the latest existing version of the template.
--- If you specify a value of true for this parameter, don\'t specify a
--- value for the version parameter. Otherwise, an error will occur.
-updateVoiceTemplate_createNewVersion :: Lens.Lens' UpdateVoiceTemplate (Prelude.Maybe Prelude.Bool)
-updateVoiceTemplate_createNewVersion = Lens.lens (\UpdateVoiceTemplate' {createNewVersion} -> createNewVersion) (\s@UpdateVoiceTemplate' {} a -> s {createNewVersion = a} :: UpdateVoiceTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
@@ -220,15 +221,15 @@ instance Core.AWSRequest UpdateVoiceTemplate where
 
 instance Prelude.Hashable UpdateVoiceTemplate where
   hashWithSalt _salt UpdateVoiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` createNewVersion
+    _salt `Prelude.hashWithSalt` createNewVersion
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` voiceTemplateRequest
 
 instance Prelude.NFData UpdateVoiceTemplate where
   rnf UpdateVoiceTemplate' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf createNewVersion
+    Prelude.rnf createNewVersion
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf voiceTemplateRequest
 
@@ -245,14 +246,7 @@ instance Core.ToHeaders UpdateVoiceTemplate where
 
 instance Core.ToJSON UpdateVoiceTemplate where
   toJSON UpdateVoiceTemplate' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "VoiceTemplateRequest"
-                  Core..= voiceTemplateRequest
-              )
-          ]
-      )
+    Core.toJSON voiceTemplateRequest
 
 instance Core.ToPath UpdateVoiceTemplate where
   toPath UpdateVoiceTemplate' {..} =
@@ -262,8 +256,8 @@ instance Core.ToPath UpdateVoiceTemplate where
 instance Core.ToQuery UpdateVoiceTemplate where
   toQuery UpdateVoiceTemplate' {..} =
     Prelude.mconcat
-      [ "version" Core.=: version,
-        "create-new-version" Core.=: createNewVersion
+      [ "create-new-version" Core.=: createNewVersion,
+        "version" Core.=: version
       ]
 
 -- | /See:/ 'newUpdateVoiceTemplateResponse' smart constructor.

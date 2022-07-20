@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSunglasses' smart constructor.
 data Sunglasses = Sunglasses'
-  { -- | Boolean value that indicates whether the face is wearing sunglasses or
+  { -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | Boolean value that indicates whether the face is wearing sunglasses or
     -- not.
-    value :: Prelude.Maybe Prelude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double
+    value :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data Sunglasses = Sunglasses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'confidence', 'sunglasses_confidence' - Level of confidence in the determination.
+--
 -- 'value', 'sunglasses_value' - Boolean value that indicates whether the face is wearing sunglasses or
 -- not.
---
--- 'confidence', 'sunglasses_confidence' - Level of confidence in the determination.
 newSunglasses ::
   Sunglasses
 newSunglasses =
   Sunglasses'
-    { value = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | Level of confidence in the determination.
+sunglasses_confidence :: Lens.Lens' Sunglasses (Prelude.Maybe Prelude.Double)
+sunglasses_confidence = Lens.lens (\Sunglasses' {confidence} -> confidence) (\s@Sunglasses' {} a -> s {confidence = a} :: Sunglasses)
 
 -- | Boolean value that indicates whether the face is wearing sunglasses or
 -- not.
 sunglasses_value :: Lens.Lens' Sunglasses (Prelude.Maybe Prelude.Bool)
 sunglasses_value = Lens.lens (\Sunglasses' {value} -> value) (\s@Sunglasses' {} a -> s {value = a} :: Sunglasses)
-
--- | Level of confidence in the determination.
-sunglasses_confidence :: Lens.Lens' Sunglasses (Prelude.Maybe Prelude.Double)
-sunglasses_confidence = Lens.lens (\Sunglasses' {confidence} -> confidence) (\s@Sunglasses' {} a -> s {confidence = a} :: Sunglasses)
 
 instance Core.FromJSON Sunglasses where
   parseJSON =
@@ -71,16 +71,16 @@ instance Core.FromJSON Sunglasses where
       "Sunglasses"
       ( \x ->
           Sunglasses'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Sunglasses where
   hashWithSalt _salt Sunglasses' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Sunglasses where
   rnf Sunglasses' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf value

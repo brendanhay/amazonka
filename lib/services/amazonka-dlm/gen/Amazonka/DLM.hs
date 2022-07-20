@@ -28,9 +28,6 @@ module Amazonka.DLM
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** InternalServerException
     _InternalServerException,
 
@@ -40,29 +37,14 @@ module Amazonka.DLM
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** DeleteLifecyclePolicy
-    DeleteLifecyclePolicy (DeleteLifecyclePolicy'),
-    newDeleteLifecyclePolicy,
-    DeleteLifecyclePolicyResponse (DeleteLifecyclePolicyResponse'),
-    newDeleteLifecyclePolicyResponse,
-
-    -- ** UpdateLifecyclePolicy
-    UpdateLifecyclePolicy (UpdateLifecyclePolicy'),
-    newUpdateLifecyclePolicy,
-    UpdateLifecyclePolicyResponse (UpdateLifecyclePolicyResponse'),
-    newUpdateLifecyclePolicyResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
 
     -- ** CreateLifecyclePolicy
     CreateLifecyclePolicy (CreateLifecyclePolicy'),
@@ -70,11 +52,29 @@ module Amazonka.DLM
     CreateLifecyclePolicyResponse (CreateLifecyclePolicyResponse'),
     newCreateLifecyclePolicyResponse,
 
+    -- ** DeleteLifecyclePolicy
+    DeleteLifecyclePolicy (DeleteLifecyclePolicy'),
+    newDeleteLifecyclePolicy,
+    DeleteLifecyclePolicyResponse (DeleteLifecyclePolicyResponse'),
+    newDeleteLifecyclePolicyResponse,
+
+    -- ** GetLifecyclePolicies
+    GetLifecyclePolicies (GetLifecyclePolicies'),
+    newGetLifecyclePolicies,
+    GetLifecyclePoliciesResponse (GetLifecyclePoliciesResponse'),
+    newGetLifecyclePoliciesResponse,
+
     -- ** GetLifecyclePolicy
     GetLifecyclePolicy (GetLifecyclePolicy'),
     newGetLifecyclePolicy,
     GetLifecyclePolicyResponse (GetLifecyclePolicyResponse'),
     newGetLifecyclePolicyResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -88,11 +88,11 @@ module Amazonka.DLM
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetLifecyclePolicies
-    GetLifecyclePolicies (GetLifecyclePolicies'),
-    newGetLifecyclePolicies,
-    GetLifecyclePoliciesResponse (GetLifecyclePoliciesResponse'),
-    newGetLifecyclePoliciesResponse,
+    -- ** UpdateLifecyclePolicy
+    UpdateLifecyclePolicy (UpdateLifecyclePolicy'),
+    newUpdateLifecyclePolicy,
+    UpdateLifecyclePolicyResponse (UpdateLifecyclePolicyResponse'),
+    newUpdateLifecyclePolicyResponse,
 
     -- * Types
 

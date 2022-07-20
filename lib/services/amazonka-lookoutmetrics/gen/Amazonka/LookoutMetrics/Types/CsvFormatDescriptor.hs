@@ -33,14 +33,14 @@ data CsvFormatDescriptor = CsvFormatDescriptor'
     quoteSymbol :: Prelude.Maybe Prelude.Text,
     -- | Whether or not the source CSV file contains a header.
     containsHeader :: Prelude.Maybe Prelude.Bool,
-    -- | The character set in which the source CSV file is written.
-    charset :: Prelude.Maybe Prelude.Text,
+    -- | The character used to delimit the source CSV file.
+    delimiter :: Prelude.Maybe Prelude.Text,
     -- | A list of the source CSV file\'s headers, if any.
     headerList :: Prelude.Maybe [Prelude.Text],
     -- | The level of compression of the source CSV file.
     fileCompression :: Prelude.Maybe CSVFileCompression,
-    -- | The character used to delimit the source CSV file.
-    delimiter :: Prelude.Maybe Prelude.Text
+    -- | The character set in which the source CSV file is written.
+    charset :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,23 +56,23 @@ data CsvFormatDescriptor = CsvFormatDescriptor'
 --
 -- 'containsHeader', 'csvFormatDescriptor_containsHeader' - Whether or not the source CSV file contains a header.
 --
--- 'charset', 'csvFormatDescriptor_charset' - The character set in which the source CSV file is written.
+-- 'delimiter', 'csvFormatDescriptor_delimiter' - The character used to delimit the source CSV file.
 --
 -- 'headerList', 'csvFormatDescriptor_headerList' - A list of the source CSV file\'s headers, if any.
 --
 -- 'fileCompression', 'csvFormatDescriptor_fileCompression' - The level of compression of the source CSV file.
 --
--- 'delimiter', 'csvFormatDescriptor_delimiter' - The character used to delimit the source CSV file.
+-- 'charset', 'csvFormatDescriptor_charset' - The character set in which the source CSV file is written.
 newCsvFormatDescriptor ::
   CsvFormatDescriptor
 newCsvFormatDescriptor =
   CsvFormatDescriptor'
     { quoteSymbol = Prelude.Nothing,
       containsHeader = Prelude.Nothing,
-      charset = Prelude.Nothing,
+      delimiter = Prelude.Nothing,
       headerList = Prelude.Nothing,
       fileCompression = Prelude.Nothing,
-      delimiter = Prelude.Nothing
+      charset = Prelude.Nothing
     }
 
 -- | The character used as a quote character.
@@ -83,9 +83,9 @@ csvFormatDescriptor_quoteSymbol = Lens.lens (\CsvFormatDescriptor' {quoteSymbol}
 csvFormatDescriptor_containsHeader :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Bool)
 csvFormatDescriptor_containsHeader = Lens.lens (\CsvFormatDescriptor' {containsHeader} -> containsHeader) (\s@CsvFormatDescriptor' {} a -> s {containsHeader = a} :: CsvFormatDescriptor)
 
--- | The character set in which the source CSV file is written.
-csvFormatDescriptor_charset :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
-csvFormatDescriptor_charset = Lens.lens (\CsvFormatDescriptor' {charset} -> charset) (\s@CsvFormatDescriptor' {} a -> s {charset = a} :: CsvFormatDescriptor)
+-- | The character used to delimit the source CSV file.
+csvFormatDescriptor_delimiter :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
+csvFormatDescriptor_delimiter = Lens.lens (\CsvFormatDescriptor' {delimiter} -> delimiter) (\s@CsvFormatDescriptor' {} a -> s {delimiter = a} :: CsvFormatDescriptor)
 
 -- | A list of the source CSV file\'s headers, if any.
 csvFormatDescriptor_headerList :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe [Prelude.Text])
@@ -95,9 +95,9 @@ csvFormatDescriptor_headerList = Lens.lens (\CsvFormatDescriptor' {headerList} -
 csvFormatDescriptor_fileCompression :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe CSVFileCompression)
 csvFormatDescriptor_fileCompression = Lens.lens (\CsvFormatDescriptor' {fileCompression} -> fileCompression) (\s@CsvFormatDescriptor' {} a -> s {fileCompression = a} :: CsvFormatDescriptor)
 
--- | The character used to delimit the source CSV file.
-csvFormatDescriptor_delimiter :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
-csvFormatDescriptor_delimiter = Lens.lens (\CsvFormatDescriptor' {delimiter} -> delimiter) (\s@CsvFormatDescriptor' {} a -> s {delimiter = a} :: CsvFormatDescriptor)
+-- | The character set in which the source CSV file is written.
+csvFormatDescriptor_charset :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
+csvFormatDescriptor_charset = Lens.lens (\CsvFormatDescriptor' {charset} -> charset) (\s@CsvFormatDescriptor' {} a -> s {charset = a} :: CsvFormatDescriptor)
 
 instance Core.FromJSON CsvFormatDescriptor where
   parseJSON =
@@ -107,29 +107,29 @@ instance Core.FromJSON CsvFormatDescriptor where
           CsvFormatDescriptor'
             Prelude.<$> (x Core..:? "QuoteSymbol")
             Prelude.<*> (x Core..:? "ContainsHeader")
-            Prelude.<*> (x Core..:? "Charset")
+            Prelude.<*> (x Core..:? "Delimiter")
             Prelude.<*> (x Core..:? "HeaderList" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "FileCompression")
-            Prelude.<*> (x Core..:? "Delimiter")
+            Prelude.<*> (x Core..:? "Charset")
       )
 
 instance Prelude.Hashable CsvFormatDescriptor where
   hashWithSalt _salt CsvFormatDescriptor' {..} =
     _salt `Prelude.hashWithSalt` quoteSymbol
       `Prelude.hashWithSalt` containsHeader
-      `Prelude.hashWithSalt` charset
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` headerList
       `Prelude.hashWithSalt` fileCompression
-      `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` charset
 
 instance Prelude.NFData CsvFormatDescriptor where
   rnf CsvFormatDescriptor' {..} =
     Prelude.rnf quoteSymbol
       `Prelude.seq` Prelude.rnf containsHeader
-      `Prelude.seq` Prelude.rnf charset
+      `Prelude.seq` Prelude.rnf delimiter
       `Prelude.seq` Prelude.rnf headerList
       `Prelude.seq` Prelude.rnf fileCompression
-      `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf charset
 
 instance Core.ToJSON CsvFormatDescriptor where
   toJSON CsvFormatDescriptor' {..} =
@@ -138,10 +138,10 @@ instance Core.ToJSON CsvFormatDescriptor where
           [ ("QuoteSymbol" Core..=) Prelude.<$> quoteSymbol,
             ("ContainsHeader" Core..=)
               Prelude.<$> containsHeader,
-            ("Charset" Core..=) Prelude.<$> charset,
+            ("Delimiter" Core..=) Prelude.<$> delimiter,
             ("HeaderList" Core..=) Prelude.<$> headerList,
             ("FileCompression" Core..=)
               Prelude.<$> fileCompression,
-            ("Delimiter" Core..=) Prelude.<$> delimiter
+            ("Charset" Core..=) Prelude.<$> charset
           ]
       )

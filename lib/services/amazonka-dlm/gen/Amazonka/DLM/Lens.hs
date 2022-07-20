@@ -14,23 +14,6 @@
 module Amazonka.DLM.Lens
   ( -- * Operations
 
-    -- ** DeleteLifecyclePolicy
-    deleteLifecyclePolicy_policyId,
-    deleteLifecyclePolicyResponse_httpStatus,
-
-    -- ** UpdateLifecyclePolicy
-    updateLifecyclePolicy_state,
-    updateLifecyclePolicy_policyDetails,
-    updateLifecyclePolicy_executionRoleArn,
-    updateLifecyclePolicy_description,
-    updateLifecyclePolicy_policyId,
-    updateLifecyclePolicyResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
     -- ** CreateLifecyclePolicy
     createLifecyclePolicy_tags,
     createLifecyclePolicy_executionRoleArn,
@@ -40,10 +23,28 @@ module Amazonka.DLM.Lens
     createLifecyclePolicyResponse_policyId,
     createLifecyclePolicyResponse_httpStatus,
 
+    -- ** DeleteLifecyclePolicy
+    deleteLifecyclePolicy_policyId,
+    deleteLifecyclePolicyResponse_httpStatus,
+
+    -- ** GetLifecyclePolicies
+    getLifecyclePolicies_tagsToAdd,
+    getLifecyclePolicies_targetTags,
+    getLifecyclePolicies_state,
+    getLifecyclePolicies_policyIds,
+    getLifecyclePolicies_resourceTypes,
+    getLifecyclePoliciesResponse_policies,
+    getLifecyclePoliciesResponse_httpStatus,
+
     -- ** GetLifecyclePolicy
     getLifecyclePolicy_policyId,
     getLifecyclePolicyResponse_policy,
     getLifecyclePolicyResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -55,14 +56,13 @@ module Amazonka.DLM.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** GetLifecyclePolicies
-    getLifecyclePolicies_state,
-    getLifecyclePolicies_targetTags,
-    getLifecyclePolicies_tagsToAdd,
-    getLifecyclePolicies_policyIds,
-    getLifecyclePolicies_resourceTypes,
-    getLifecyclePoliciesResponse_policies,
-    getLifecyclePoliciesResponse_httpStatus,
+    -- ** UpdateLifecyclePolicy
+    updateLifecyclePolicy_policyDetails,
+    updateLifecyclePolicy_state,
+    updateLifecyclePolicy_description,
+    updateLifecyclePolicy_executionRoleArn,
+    updateLifecyclePolicy_policyId,
+    updateLifecyclePolicyResponse_httpStatus,
 
     -- * Types
 
@@ -71,11 +71,11 @@ module Amazonka.DLM.Lens
     action_crossRegionCopy,
 
     -- ** CreateRule
-    createRule_location,
     createRule_interval,
-    createRule_cronExpression,
-    createRule_times,
+    createRule_location,
     createRule_intervalUnit,
+    createRule_times,
+    createRule_cronExpression,
 
     -- ** CrossRegionCopyAction
     crossRegionCopyAction_retainRule,
@@ -91,17 +91,17 @@ module Amazonka.DLM.Lens
     crossRegionCopyRetainRule_intervalUnit,
 
     -- ** CrossRegionCopyRule
-    crossRegionCopyRule_deprecateRule,
-    crossRegionCopyRule_targetRegion,
-    crossRegionCopyRule_copyTags,
     crossRegionCopyRule_cmkArn,
+    crossRegionCopyRule_copyTags,
     crossRegionCopyRule_retainRule,
     crossRegionCopyRule_target,
+    crossRegionCopyRule_targetRegion,
+    crossRegionCopyRule_deprecateRule,
     crossRegionCopyRule_encrypted,
 
     -- ** DeprecateRule
-    deprecateRule_count,
     deprecateRule_interval,
+    deprecateRule_count,
     deprecateRule_intervalUnit,
 
     -- ** EncryptionConfiguration
@@ -118,64 +118,64 @@ module Amazonka.DLM.Lens
     eventSource_type,
 
     -- ** FastRestoreRule
-    fastRestoreRule_count,
     fastRestoreRule_interval,
+    fastRestoreRule_count,
     fastRestoreRule_intervalUnit,
     fastRestoreRule_availabilityZones,
 
     -- ** LifecyclePolicy
-    lifecyclePolicy_state,
-    lifecyclePolicy_policyDetails,
+    lifecyclePolicy_tags,
     lifecyclePolicy_policyId,
-    lifecyclePolicy_executionRoleArn,
+    lifecyclePolicy_policyDetails,
+    lifecyclePolicy_state,
+    lifecyclePolicy_description,
+    lifecyclePolicy_policyArn,
     lifecyclePolicy_dateCreated,
+    lifecyclePolicy_executionRoleArn,
     lifecyclePolicy_statusMessage,
     lifecyclePolicy_dateModified,
-    lifecyclePolicy_policyArn,
-    lifecyclePolicy_description,
-    lifecyclePolicy_tags,
 
     -- ** LifecyclePolicySummary
-    lifecyclePolicySummary_state,
+    lifecyclePolicySummary_tags,
     lifecyclePolicySummary_policyId,
     lifecyclePolicySummary_policyType,
+    lifecyclePolicySummary_state,
     lifecyclePolicySummary_description,
-    lifecyclePolicySummary_tags,
 
     -- ** Parameters
-    parameters_noReboot,
     parameters_excludeBootVolume,
+    parameters_noReboot,
 
     -- ** PolicyDetails
-    policyDetails_actions,
-    policyDetails_targetTags,
     policyDetails_policyType,
+    policyDetails_targetTags,
     policyDetails_resourceLocations,
-    policyDetails_parameters,
     policyDetails_schedules,
-    policyDetails_eventSource,
     policyDetails_resourceTypes,
+    policyDetails_actions,
+    policyDetails_eventSource,
+    policyDetails_parameters,
 
     -- ** RetainRule
-    retainRule_count,
     retainRule_interval,
+    retainRule_count,
     retainRule_intervalUnit,
 
     -- ** Schedule
-    schedule_variableTags,
-    schedule_createRule,
-    schedule_deprecateRule,
-    schedule_copyTags,
     schedule_name,
-    schedule_shareRules,
-    schedule_tagsToAdd,
-    schedule_retainRule,
-    schedule_crossRegionCopyRules,
     schedule_fastRestoreRule,
+    schedule_variableTags,
+    schedule_tagsToAdd,
+    schedule_createRule,
+    schedule_copyTags,
+    schedule_retainRule,
+    schedule_deprecateRule,
+    schedule_crossRegionCopyRules,
+    schedule_shareRules,
 
     -- ** ShareRule
-    shareRule_unshareIntervalUnit,
     shareRule_unshareInterval,
+    shareRule_unshareIntervalUnit,
     shareRule_targetAccounts,
 
     -- ** Tag

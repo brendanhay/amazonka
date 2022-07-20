@@ -34,21 +34,21 @@ module Amazonka.SSM.GetMaintenanceWindow
     newGetMaintenanceWindowResponse,
 
     -- * Response Lenses
-    getMaintenanceWindowResponse_enabled,
     getMaintenanceWindowResponse_schedule,
-    getMaintenanceWindowResponse_nextExecutionTime,
-    getMaintenanceWindowResponse_scheduleOffset,
+    getMaintenanceWindowResponse_cutoff,
+    getMaintenanceWindowResponse_name,
     getMaintenanceWindowResponse_endDate,
+    getMaintenanceWindowResponse_windowId,
+    getMaintenanceWindowResponse_description,
+    getMaintenanceWindowResponse_enabled,
+    getMaintenanceWindowResponse_duration,
     getMaintenanceWindowResponse_scheduleTimezone,
+    getMaintenanceWindowResponse_scheduleOffset,
     getMaintenanceWindowResponse_startDate,
     getMaintenanceWindowResponse_createdDate,
-    getMaintenanceWindowResponse_name,
     getMaintenanceWindowResponse_modifiedDate,
-    getMaintenanceWindowResponse_cutoff,
+    getMaintenanceWindowResponse_nextExecutionTime,
     getMaintenanceWindowResponse_allowUnassociatedTargets,
-    getMaintenanceWindowResponse_description,
-    getMaintenanceWindowResponse_duration,
-    getMaintenanceWindowResponse_windowId,
     getMaintenanceWindowResponse_httpStatus,
   )
 where
@@ -99,21 +99,21 @@ instance Core.AWSRequest GetMaintenanceWindow where
     Response.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowResponse'
-            Prelude.<$> (x Core..?> "Enabled")
-            Prelude.<*> (x Core..?> "Schedule")
-            Prelude.<*> (x Core..?> "NextExecutionTime")
-            Prelude.<*> (x Core..?> "ScheduleOffset")
+            Prelude.<$> (x Core..?> "Schedule")
+            Prelude.<*> (x Core..?> "Cutoff")
+            Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "EndDate")
+            Prelude.<*> (x Core..?> "WindowId")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "Enabled")
+            Prelude.<*> (x Core..?> "Duration")
             Prelude.<*> (x Core..?> "ScheduleTimezone")
+            Prelude.<*> (x Core..?> "ScheduleOffset")
             Prelude.<*> (x Core..?> "StartDate")
             Prelude.<*> (x Core..?> "CreatedDate")
-            Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "ModifiedDate")
-            Prelude.<*> (x Core..?> "Cutoff")
+            Prelude.<*> (x Core..?> "NextExecutionTime")
             Prelude.<*> (x Core..?> "AllowUnassociatedTargets")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Duration")
-            Prelude.<*> (x Core..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,22 +154,26 @@ instance Core.ToQuery GetMaintenanceWindow where
 
 -- | /See:/ 'newGetMaintenanceWindowResponse' smart constructor.
 data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
-  { -- | Indicates whether the maintenance window is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The schedule of the maintenance window in the form of a cron or rate
+  { -- | The schedule of the maintenance window in the form of a cron or rate
     -- expression.
     schedule :: Prelude.Maybe Prelude.Text,
-    -- | The next time the maintenance window will actually run, taking into
-    -- account any specified times for the maintenance window to become active
-    -- or inactive.
-    nextExecutionTime :: Prelude.Maybe Prelude.Text,
-    -- | The number of days to wait to run a maintenance window after the
-    -- scheduled cron expression date and time.
-    scheduleOffset :: Prelude.Maybe Prelude.Natural,
+    -- | The number of hours before the end of the maintenance window that Amazon
+    -- Web Services Systems Manager stops scheduling new tasks for execution.
+    cutoff :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the maintenance window.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in ISO-8601 Extended format, for when the maintenance
     -- window is scheduled to become inactive. The maintenance window won\'t
     -- run after this specified time.
     endDate :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the created maintenance window.
+    windowId :: Prelude.Maybe Prelude.Text,
+    -- | The description of the maintenance window.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Indicates whether the maintenance window is enabled.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The duration of the maintenance window in hours.
+    duration :: Prelude.Maybe Prelude.Natural,
     -- | The time zone that the scheduled maintenance window executions are based
     -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
     -- \"America\/Los_Angeles\", \"UTC\", or \"Asia\/Seoul\". For more
@@ -177,28 +181,24 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
     -- <https://www.iana.org/time-zones Time Zone Database> on the IANA
     -- website.
     scheduleTimezone :: Prelude.Maybe Prelude.Text,
+    -- | The number of days to wait to run a maintenance window after the
+    -- scheduled cron expression date and time.
+    scheduleOffset :: Prelude.Maybe Prelude.Natural,
     -- | The date and time, in ISO-8601 Extended format, for when the maintenance
     -- window is scheduled to become active. The maintenance window won\'t run
     -- before this specified time.
     startDate :: Prelude.Maybe Prelude.Text,
     -- | The date the maintenance window was created.
     createdDate :: Prelude.Maybe Core.POSIX,
-    -- | The name of the maintenance window.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The date the maintenance window was last modified.
     modifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The number of hours before the end of the maintenance window that Amazon
-    -- Web Services Systems Manager stops scheduling new tasks for execution.
-    cutoff :: Prelude.Maybe Prelude.Natural,
+    -- | The next time the maintenance window will actually run, taking into
+    -- account any specified times for the maintenance window to become active
+    -- or inactive.
+    nextExecutionTime :: Prelude.Maybe Prelude.Text,
     -- | Whether targets must be registered with the maintenance window before
     -- tasks can be defined for those targets.
     allowUnassociatedTargets :: Prelude.Maybe Prelude.Bool,
-    -- | The description of the maintenance window.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The duration of the maintenance window in hours.
-    duration :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the created maintenance window.
-    windowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,21 +212,25 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'getMaintenanceWindowResponse_enabled' - Indicates whether the maintenance window is enabled.
---
 -- 'schedule', 'getMaintenanceWindowResponse_schedule' - The schedule of the maintenance window in the form of a cron or rate
 -- expression.
 --
--- 'nextExecutionTime', 'getMaintenanceWindowResponse_nextExecutionTime' - The next time the maintenance window will actually run, taking into
--- account any specified times for the maintenance window to become active
--- or inactive.
+-- 'cutoff', 'getMaintenanceWindowResponse_cutoff' - The number of hours before the end of the maintenance window that Amazon
+-- Web Services Systems Manager stops scheduling new tasks for execution.
 --
--- 'scheduleOffset', 'getMaintenanceWindowResponse_scheduleOffset' - The number of days to wait to run a maintenance window after the
--- scheduled cron expression date and time.
+-- 'name', 'getMaintenanceWindowResponse_name' - The name of the maintenance window.
 --
 -- 'endDate', 'getMaintenanceWindowResponse_endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance
 -- window is scheduled to become inactive. The maintenance window won\'t
 -- run after this specified time.
+--
+-- 'windowId', 'getMaintenanceWindowResponse_windowId' - The ID of the created maintenance window.
+--
+-- 'description', 'getMaintenanceWindowResponse_description' - The description of the maintenance window.
+--
+-- 'enabled', 'getMaintenanceWindowResponse_enabled' - Indicates whether the maintenance window is enabled.
+--
+-- 'duration', 'getMaintenanceWindowResponse_duration' - The duration of the maintenance window in hours.
 --
 -- 'scheduleTimezone', 'getMaintenanceWindowResponse_scheduleTimezone' - The time zone that the scheduled maintenance window executions are based
 -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
@@ -235,27 +239,23 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
 -- <https://www.iana.org/time-zones Time Zone Database> on the IANA
 -- website.
 --
+-- 'scheduleOffset', 'getMaintenanceWindowResponse_scheduleOffset' - The number of days to wait to run a maintenance window after the
+-- scheduled cron expression date and time.
+--
 -- 'startDate', 'getMaintenanceWindowResponse_startDate' - The date and time, in ISO-8601 Extended format, for when the maintenance
 -- window is scheduled to become active. The maintenance window won\'t run
 -- before this specified time.
 --
 -- 'createdDate', 'getMaintenanceWindowResponse_createdDate' - The date the maintenance window was created.
 --
--- 'name', 'getMaintenanceWindowResponse_name' - The name of the maintenance window.
---
 -- 'modifiedDate', 'getMaintenanceWindowResponse_modifiedDate' - The date the maintenance window was last modified.
 --
--- 'cutoff', 'getMaintenanceWindowResponse_cutoff' - The number of hours before the end of the maintenance window that Amazon
--- Web Services Systems Manager stops scheduling new tasks for execution.
+-- 'nextExecutionTime', 'getMaintenanceWindowResponse_nextExecutionTime' - The next time the maintenance window will actually run, taking into
+-- account any specified times for the maintenance window to become active
+-- or inactive.
 --
 -- 'allowUnassociatedTargets', 'getMaintenanceWindowResponse_allowUnassociatedTargets' - Whether targets must be registered with the maintenance window before
 -- tasks can be defined for those targets.
---
--- 'description', 'getMaintenanceWindowResponse_description' - The description of the maintenance window.
---
--- 'duration', 'getMaintenanceWindowResponse_duration' - The duration of the maintenance window in hours.
---
--- 'windowId', 'getMaintenanceWindowResponse_windowId' - The ID of the created maintenance window.
 --
 -- 'httpStatus', 'getMaintenanceWindowResponse_httpStatus' - The response's http status code.
 newGetMaintenanceWindowResponse ::
@@ -264,50 +264,60 @@ newGetMaintenanceWindowResponse ::
   GetMaintenanceWindowResponse
 newGetMaintenanceWindowResponse pHttpStatus_ =
   GetMaintenanceWindowResponse'
-    { enabled =
+    { schedule =
         Prelude.Nothing,
-      schedule = Prelude.Nothing,
-      nextExecutionTime = Prelude.Nothing,
-      scheduleOffset = Prelude.Nothing,
+      cutoff = Prelude.Nothing,
+      name = Prelude.Nothing,
       endDate = Prelude.Nothing,
+      windowId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      duration = Prelude.Nothing,
       scheduleTimezone = Prelude.Nothing,
+      scheduleOffset = Prelude.Nothing,
       startDate = Prelude.Nothing,
       createdDate = Prelude.Nothing,
-      name = Prelude.Nothing,
       modifiedDate = Prelude.Nothing,
-      cutoff = Prelude.Nothing,
+      nextExecutionTime = Prelude.Nothing,
       allowUnassociatedTargets = Prelude.Nothing,
-      description = Prelude.Nothing,
-      duration = Prelude.Nothing,
-      windowId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Indicates whether the maintenance window is enabled.
-getMaintenanceWindowResponse_enabled :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Bool)
-getMaintenanceWindowResponse_enabled = Lens.lens (\GetMaintenanceWindowResponse' {enabled} -> enabled) (\s@GetMaintenanceWindowResponse' {} a -> s {enabled = a} :: GetMaintenanceWindowResponse)
 
 -- | The schedule of the maintenance window in the form of a cron or rate
 -- expression.
 getMaintenanceWindowResponse_schedule :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowResponse_schedule = Lens.lens (\GetMaintenanceWindowResponse' {schedule} -> schedule) (\s@GetMaintenanceWindowResponse' {} a -> s {schedule = a} :: GetMaintenanceWindowResponse)
 
--- | The next time the maintenance window will actually run, taking into
--- account any specified times for the maintenance window to become active
--- or inactive.
-getMaintenanceWindowResponse_nextExecutionTime :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
-getMaintenanceWindowResponse_nextExecutionTime = Lens.lens (\GetMaintenanceWindowResponse' {nextExecutionTime} -> nextExecutionTime) (\s@GetMaintenanceWindowResponse' {} a -> s {nextExecutionTime = a} :: GetMaintenanceWindowResponse)
+-- | The number of hours before the end of the maintenance window that Amazon
+-- Web Services Systems Manager stops scheduling new tasks for execution.
+getMaintenanceWindowResponse_cutoff :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Natural)
+getMaintenanceWindowResponse_cutoff = Lens.lens (\GetMaintenanceWindowResponse' {cutoff} -> cutoff) (\s@GetMaintenanceWindowResponse' {} a -> s {cutoff = a} :: GetMaintenanceWindowResponse)
 
--- | The number of days to wait to run a maintenance window after the
--- scheduled cron expression date and time.
-getMaintenanceWindowResponse_scheduleOffset :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Natural)
-getMaintenanceWindowResponse_scheduleOffset = Lens.lens (\GetMaintenanceWindowResponse' {scheduleOffset} -> scheduleOffset) (\s@GetMaintenanceWindowResponse' {} a -> s {scheduleOffset = a} :: GetMaintenanceWindowResponse)
+-- | The name of the maintenance window.
+getMaintenanceWindowResponse_name :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowResponse_name = Lens.lens (\GetMaintenanceWindowResponse' {name} -> name) (\s@GetMaintenanceWindowResponse' {} a -> s {name = a} :: GetMaintenanceWindowResponse)
 
 -- | The date and time, in ISO-8601 Extended format, for when the maintenance
 -- window is scheduled to become inactive. The maintenance window won\'t
 -- run after this specified time.
 getMaintenanceWindowResponse_endDate :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowResponse_endDate = Lens.lens (\GetMaintenanceWindowResponse' {endDate} -> endDate) (\s@GetMaintenanceWindowResponse' {} a -> s {endDate = a} :: GetMaintenanceWindowResponse)
+
+-- | The ID of the created maintenance window.
+getMaintenanceWindowResponse_windowId :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowResponse_windowId = Lens.lens (\GetMaintenanceWindowResponse' {windowId} -> windowId) (\s@GetMaintenanceWindowResponse' {} a -> s {windowId = a} :: GetMaintenanceWindowResponse)
+
+-- | The description of the maintenance window.
+getMaintenanceWindowResponse_description :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowResponse_description = Lens.lens (\GetMaintenanceWindowResponse' {description} -> description) (\s@GetMaintenanceWindowResponse' {} a -> s {description = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Indicates whether the maintenance window is enabled.
+getMaintenanceWindowResponse_enabled :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Bool)
+getMaintenanceWindowResponse_enabled = Lens.lens (\GetMaintenanceWindowResponse' {enabled} -> enabled) (\s@GetMaintenanceWindowResponse' {} a -> s {enabled = a} :: GetMaintenanceWindowResponse)
+
+-- | The duration of the maintenance window in hours.
+getMaintenanceWindowResponse_duration :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Natural)
+getMaintenanceWindowResponse_duration = Lens.lens (\GetMaintenanceWindowResponse' {duration} -> duration) (\s@GetMaintenanceWindowResponse' {} a -> s {duration = a} :: GetMaintenanceWindowResponse)
 
 -- | The time zone that the scheduled maintenance window executions are based
 -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
@@ -317,6 +327,11 @@ getMaintenanceWindowResponse_endDate = Lens.lens (\GetMaintenanceWindowResponse'
 -- website.
 getMaintenanceWindowResponse_scheduleTimezone :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowResponse_scheduleTimezone = Lens.lens (\GetMaintenanceWindowResponse' {scheduleTimezone} -> scheduleTimezone) (\s@GetMaintenanceWindowResponse' {} a -> s {scheduleTimezone = a} :: GetMaintenanceWindowResponse)
+
+-- | The number of days to wait to run a maintenance window after the
+-- scheduled cron expression date and time.
+getMaintenanceWindowResponse_scheduleOffset :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Natural)
+getMaintenanceWindowResponse_scheduleOffset = Lens.lens (\GetMaintenanceWindowResponse' {scheduleOffset} -> scheduleOffset) (\s@GetMaintenanceWindowResponse' {} a -> s {scheduleOffset = a} :: GetMaintenanceWindowResponse)
 
 -- | The date and time, in ISO-8601 Extended format, for when the maintenance
 -- window is scheduled to become active. The maintenance window won\'t run
@@ -328,35 +343,20 @@ getMaintenanceWindowResponse_startDate = Lens.lens (\GetMaintenanceWindowRespons
 getMaintenanceWindowResponse_createdDate :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.UTCTime)
 getMaintenanceWindowResponse_createdDate = Lens.lens (\GetMaintenanceWindowResponse' {createdDate} -> createdDate) (\s@GetMaintenanceWindowResponse' {} a -> s {createdDate = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the maintenance window.
-getMaintenanceWindowResponse_name :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
-getMaintenanceWindowResponse_name = Lens.lens (\GetMaintenanceWindowResponse' {name} -> name) (\s@GetMaintenanceWindowResponse' {} a -> s {name = a} :: GetMaintenanceWindowResponse)
-
 -- | The date the maintenance window was last modified.
 getMaintenanceWindowResponse_modifiedDate :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.UTCTime)
 getMaintenanceWindowResponse_modifiedDate = Lens.lens (\GetMaintenanceWindowResponse' {modifiedDate} -> modifiedDate) (\s@GetMaintenanceWindowResponse' {} a -> s {modifiedDate = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Core._Time
 
--- | The number of hours before the end of the maintenance window that Amazon
--- Web Services Systems Manager stops scheduling new tasks for execution.
-getMaintenanceWindowResponse_cutoff :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Natural)
-getMaintenanceWindowResponse_cutoff = Lens.lens (\GetMaintenanceWindowResponse' {cutoff} -> cutoff) (\s@GetMaintenanceWindowResponse' {} a -> s {cutoff = a} :: GetMaintenanceWindowResponse)
+-- | The next time the maintenance window will actually run, taking into
+-- account any specified times for the maintenance window to become active
+-- or inactive.
+getMaintenanceWindowResponse_nextExecutionTime :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowResponse_nextExecutionTime = Lens.lens (\GetMaintenanceWindowResponse' {nextExecutionTime} -> nextExecutionTime) (\s@GetMaintenanceWindowResponse' {} a -> s {nextExecutionTime = a} :: GetMaintenanceWindowResponse)
 
 -- | Whether targets must be registered with the maintenance window before
 -- tasks can be defined for those targets.
 getMaintenanceWindowResponse_allowUnassociatedTargets :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Bool)
 getMaintenanceWindowResponse_allowUnassociatedTargets = Lens.lens (\GetMaintenanceWindowResponse' {allowUnassociatedTargets} -> allowUnassociatedTargets) (\s@GetMaintenanceWindowResponse' {} a -> s {allowUnassociatedTargets = a} :: GetMaintenanceWindowResponse)
-
--- | The description of the maintenance window.
-getMaintenanceWindowResponse_description :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
-getMaintenanceWindowResponse_description = Lens.lens (\GetMaintenanceWindowResponse' {description} -> description) (\s@GetMaintenanceWindowResponse' {} a -> s {description = a} :: GetMaintenanceWindowResponse) Prelude.. Lens.mapping Core._Sensitive
-
--- | The duration of the maintenance window in hours.
-getMaintenanceWindowResponse_duration :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Natural)
-getMaintenanceWindowResponse_duration = Lens.lens (\GetMaintenanceWindowResponse' {duration} -> duration) (\s@GetMaintenanceWindowResponse' {} a -> s {duration = a} :: GetMaintenanceWindowResponse)
-
--- | The ID of the created maintenance window.
-getMaintenanceWindowResponse_windowId :: Lens.Lens' GetMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
-getMaintenanceWindowResponse_windowId = Lens.lens (\GetMaintenanceWindowResponse' {windowId} -> windowId) (\s@GetMaintenanceWindowResponse' {} a -> s {windowId = a} :: GetMaintenanceWindowResponse)
 
 -- | The response's http status code.
 getMaintenanceWindowResponse_httpStatus :: Lens.Lens' GetMaintenanceWindowResponse Prelude.Int
@@ -364,19 +364,19 @@ getMaintenanceWindowResponse_httpStatus = Lens.lens (\GetMaintenanceWindowRespon
 
 instance Prelude.NFData GetMaintenanceWindowResponse where
   rnf GetMaintenanceWindowResponse' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf nextExecutionTime
-      `Prelude.seq` Prelude.rnf scheduleOffset
+    Prelude.rnf schedule
+      `Prelude.seq` Prelude.rnf cutoff
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf duration
       `Prelude.seq` Prelude.rnf scheduleTimezone
+      `Prelude.seq` Prelude.rnf scheduleOffset
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf modifiedDate
-      `Prelude.seq` Prelude.rnf cutoff
+      `Prelude.seq` Prelude.rnf nextExecutionTime
       `Prelude.seq` Prelude.rnf allowUnassociatedTargets
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf windowId
       `Prelude.seq` Prelude.rnf httpStatus

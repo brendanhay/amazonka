@@ -36,9 +36,9 @@ module Amazonka.WellArchitected.GetLensVersionDifference
 
     -- * Response Lenses
     getLensVersionDifferenceResponse_lensAlias,
-    getLensVersionDifferenceResponse_latestLensVersion,
     getLensVersionDifferenceResponse_baseLensVersion,
     getLensVersionDifferenceResponse_versionDifferences,
+    getLensVersionDifferenceResponse_latestLensVersion,
     getLensVersionDifferenceResponse_httpStatus,
   )
 where
@@ -101,9 +101,9 @@ instance Core.AWSRequest GetLensVersionDifference where
       ( \s h x ->
           GetLensVersionDifferenceResponse'
             Prelude.<$> (x Core..?> "LensAlias")
-            Prelude.<*> (x Core..?> "LatestLensVersion")
             Prelude.<*> (x Core..?> "BaseLensVersion")
             Prelude.<*> (x Core..?> "VersionDifferences")
+            Prelude.<*> (x Core..?> "LatestLensVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,11 +144,11 @@ instance Core.ToQuery GetLensVersionDifference where
 -- | /See:/ 'newGetLensVersionDifferenceResponse' smart constructor.
 data GetLensVersionDifferenceResponse = GetLensVersionDifferenceResponse'
   { lensAlias :: Prelude.Maybe Prelude.Text,
-    -- | The latest version of the lens.
-    latestLensVersion :: Prelude.Maybe Prelude.Text,
     -- | The base version of the lens.
     baseLensVersion :: Prelude.Maybe Prelude.Text,
     versionDifferences :: Prelude.Maybe VersionDifferences,
+    -- | The latest version of the lens.
+    latestLensVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,11 +164,11 @@ data GetLensVersionDifferenceResponse = GetLensVersionDifferenceResponse'
 --
 -- 'lensAlias', 'getLensVersionDifferenceResponse_lensAlias' - Undocumented member.
 --
--- 'latestLensVersion', 'getLensVersionDifferenceResponse_latestLensVersion' - The latest version of the lens.
---
 -- 'baseLensVersion', 'getLensVersionDifferenceResponse_baseLensVersion' - The base version of the lens.
 --
 -- 'versionDifferences', 'getLensVersionDifferenceResponse_versionDifferences' - Undocumented member.
+--
+-- 'latestLensVersion', 'getLensVersionDifferenceResponse_latestLensVersion' - The latest version of the lens.
 --
 -- 'httpStatus', 'getLensVersionDifferenceResponse_httpStatus' - The response's http status code.
 newGetLensVersionDifferenceResponse ::
@@ -179,19 +179,15 @@ newGetLensVersionDifferenceResponse pHttpStatus_ =
   GetLensVersionDifferenceResponse'
     { lensAlias =
         Prelude.Nothing,
-      latestLensVersion = Prelude.Nothing,
       baseLensVersion = Prelude.Nothing,
       versionDifferences = Prelude.Nothing,
+      latestLensVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
 getLensVersionDifferenceResponse_lensAlias :: Lens.Lens' GetLensVersionDifferenceResponse (Prelude.Maybe Prelude.Text)
 getLensVersionDifferenceResponse_lensAlias = Lens.lens (\GetLensVersionDifferenceResponse' {lensAlias} -> lensAlias) (\s@GetLensVersionDifferenceResponse' {} a -> s {lensAlias = a} :: GetLensVersionDifferenceResponse)
-
--- | The latest version of the lens.
-getLensVersionDifferenceResponse_latestLensVersion :: Lens.Lens' GetLensVersionDifferenceResponse (Prelude.Maybe Prelude.Text)
-getLensVersionDifferenceResponse_latestLensVersion = Lens.lens (\GetLensVersionDifferenceResponse' {latestLensVersion} -> latestLensVersion) (\s@GetLensVersionDifferenceResponse' {} a -> s {latestLensVersion = a} :: GetLensVersionDifferenceResponse)
 
 -- | The base version of the lens.
 getLensVersionDifferenceResponse_baseLensVersion :: Lens.Lens' GetLensVersionDifferenceResponse (Prelude.Maybe Prelude.Text)
@@ -200,6 +196,10 @@ getLensVersionDifferenceResponse_baseLensVersion = Lens.lens (\GetLensVersionDif
 -- | Undocumented member.
 getLensVersionDifferenceResponse_versionDifferences :: Lens.Lens' GetLensVersionDifferenceResponse (Prelude.Maybe VersionDifferences)
 getLensVersionDifferenceResponse_versionDifferences = Lens.lens (\GetLensVersionDifferenceResponse' {versionDifferences} -> versionDifferences) (\s@GetLensVersionDifferenceResponse' {} a -> s {versionDifferences = a} :: GetLensVersionDifferenceResponse)
+
+-- | The latest version of the lens.
+getLensVersionDifferenceResponse_latestLensVersion :: Lens.Lens' GetLensVersionDifferenceResponse (Prelude.Maybe Prelude.Text)
+getLensVersionDifferenceResponse_latestLensVersion = Lens.lens (\GetLensVersionDifferenceResponse' {latestLensVersion} -> latestLensVersion) (\s@GetLensVersionDifferenceResponse' {} a -> s {latestLensVersion = a} :: GetLensVersionDifferenceResponse)
 
 -- | The response's http status code.
 getLensVersionDifferenceResponse_httpStatus :: Lens.Lens' GetLensVersionDifferenceResponse Prelude.Int
@@ -211,7 +211,7 @@ instance
   where
   rnf GetLensVersionDifferenceResponse' {..} =
     Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf latestLensVersion
       `Prelude.seq` Prelude.rnf baseLensVersion
       `Prelude.seq` Prelude.rnf versionDifferences
+      `Prelude.seq` Prelude.rnf latestLensVersion
       `Prelude.seq` Prelude.rnf httpStatus

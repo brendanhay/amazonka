@@ -26,13 +26,13 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newInstanceTypeDetails' smart constructor.
 data InstanceTypeDetails = InstanceTypeDetails'
-  { encryptionEnabled :: Prelude.Maybe Prelude.Bool,
+  { advancedSecurityEnabled :: Prelude.Maybe Prelude.Bool,
+    encryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
     cognitoEnabled :: Prelude.Maybe Prelude.Bool,
     instanceRole :: Prelude.Maybe [Prelude.Text],
-    instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
-    warmEnabled :: Prelude.Maybe Prelude.Bool,
-    advancedSecurityEnabled :: Prelude.Maybe Prelude.Bool,
-    appLogsEnabled :: Prelude.Maybe Prelude.Bool
+    appLogsEnabled :: Prelude.Maybe Prelude.Bool,
+    warmEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,36 +44,44 @@ data InstanceTypeDetails = InstanceTypeDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'advancedSecurityEnabled', 'instanceTypeDetails_advancedSecurityEnabled' - Undocumented member.
+--
 -- 'encryptionEnabled', 'instanceTypeDetails_encryptionEnabled' - Undocumented member.
+--
+-- 'instanceType', 'instanceTypeDetails_instanceType' - Undocumented member.
 --
 -- 'cognitoEnabled', 'instanceTypeDetails_cognitoEnabled' - Undocumented member.
 --
 -- 'instanceRole', 'instanceTypeDetails_instanceRole' - Undocumented member.
 --
--- 'instanceType', 'instanceTypeDetails_instanceType' - Undocumented member.
+-- 'appLogsEnabled', 'instanceTypeDetails_appLogsEnabled' - Undocumented member.
 --
 -- 'warmEnabled', 'instanceTypeDetails_warmEnabled' - Undocumented member.
---
--- 'advancedSecurityEnabled', 'instanceTypeDetails_advancedSecurityEnabled' - Undocumented member.
---
--- 'appLogsEnabled', 'instanceTypeDetails_appLogsEnabled' - Undocumented member.
 newInstanceTypeDetails ::
   InstanceTypeDetails
 newInstanceTypeDetails =
   InstanceTypeDetails'
-    { encryptionEnabled =
+    { advancedSecurityEnabled =
         Prelude.Nothing,
+      encryptionEnabled = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       cognitoEnabled = Prelude.Nothing,
       instanceRole = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      warmEnabled = Prelude.Nothing,
-      advancedSecurityEnabled = Prelude.Nothing,
-      appLogsEnabled = Prelude.Nothing
+      appLogsEnabled = Prelude.Nothing,
+      warmEnabled = Prelude.Nothing
     }
+
+-- | Undocumented member.
+instanceTypeDetails_advancedSecurityEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
+instanceTypeDetails_advancedSecurityEnabled = Lens.lens (\InstanceTypeDetails' {advancedSecurityEnabled} -> advancedSecurityEnabled) (\s@InstanceTypeDetails' {} a -> s {advancedSecurityEnabled = a} :: InstanceTypeDetails)
 
 -- | Undocumented member.
 instanceTypeDetails_encryptionEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_encryptionEnabled = Lens.lens (\InstanceTypeDetails' {encryptionEnabled} -> encryptionEnabled) (\s@InstanceTypeDetails' {} a -> s {encryptionEnabled = a} :: InstanceTypeDetails)
+
+-- | Undocumented member.
+instanceTypeDetails_instanceType :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe OpenSearchPartitionInstanceType)
+instanceTypeDetails_instanceType = Lens.lens (\InstanceTypeDetails' {instanceType} -> instanceType) (\s@InstanceTypeDetails' {} a -> s {instanceType = a} :: InstanceTypeDetails)
 
 -- | Undocumented member.
 instanceTypeDetails_cognitoEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
@@ -84,20 +92,12 @@ instanceTypeDetails_instanceRole :: Lens.Lens' InstanceTypeDetails (Prelude.Mayb
 instanceTypeDetails_instanceRole = Lens.lens (\InstanceTypeDetails' {instanceRole} -> instanceRole) (\s@InstanceTypeDetails' {} a -> s {instanceRole = a} :: InstanceTypeDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-instanceTypeDetails_instanceType :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe OpenSearchPartitionInstanceType)
-instanceTypeDetails_instanceType = Lens.lens (\InstanceTypeDetails' {instanceType} -> instanceType) (\s@InstanceTypeDetails' {} a -> s {instanceType = a} :: InstanceTypeDetails)
+instanceTypeDetails_appLogsEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
+instanceTypeDetails_appLogsEnabled = Lens.lens (\InstanceTypeDetails' {appLogsEnabled} -> appLogsEnabled) (\s@InstanceTypeDetails' {} a -> s {appLogsEnabled = a} :: InstanceTypeDetails)
 
 -- | Undocumented member.
 instanceTypeDetails_warmEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_warmEnabled = Lens.lens (\InstanceTypeDetails' {warmEnabled} -> warmEnabled) (\s@InstanceTypeDetails' {} a -> s {warmEnabled = a} :: InstanceTypeDetails)
-
--- | Undocumented member.
-instanceTypeDetails_advancedSecurityEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
-instanceTypeDetails_advancedSecurityEnabled = Lens.lens (\InstanceTypeDetails' {advancedSecurityEnabled} -> advancedSecurityEnabled) (\s@InstanceTypeDetails' {} a -> s {advancedSecurityEnabled = a} :: InstanceTypeDetails)
-
--- | Undocumented member.
-instanceTypeDetails_appLogsEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
-instanceTypeDetails_appLogsEnabled = Lens.lens (\InstanceTypeDetails' {appLogsEnabled} -> appLogsEnabled) (\s@InstanceTypeDetails' {} a -> s {appLogsEnabled = a} :: InstanceTypeDetails)
 
 instance Core.FromJSON InstanceTypeDetails where
   parseJSON =
@@ -105,31 +105,32 @@ instance Core.FromJSON InstanceTypeDetails where
       "InstanceTypeDetails"
       ( \x ->
           InstanceTypeDetails'
-            Prelude.<$> (x Core..:? "EncryptionEnabled")
+            Prelude.<$> (x Core..:? "AdvancedSecurityEnabled")
+            Prelude.<*> (x Core..:? "EncryptionEnabled")
+            Prelude.<*> (x Core..:? "InstanceType")
             Prelude.<*> (x Core..:? "CognitoEnabled")
             Prelude.<*> (x Core..:? "InstanceRole" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "WarmEnabled")
-            Prelude.<*> (x Core..:? "AdvancedSecurityEnabled")
             Prelude.<*> (x Core..:? "AppLogsEnabled")
+            Prelude.<*> (x Core..:? "WarmEnabled")
       )
 
 instance Prelude.Hashable InstanceTypeDetails where
   hashWithSalt _salt InstanceTypeDetails' {..} =
-    _salt `Prelude.hashWithSalt` encryptionEnabled
+    _salt
+      `Prelude.hashWithSalt` advancedSecurityEnabled
+      `Prelude.hashWithSalt` encryptionEnabled
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` cognitoEnabled
       `Prelude.hashWithSalt` instanceRole
-      `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` warmEnabled
-      `Prelude.hashWithSalt` advancedSecurityEnabled
       `Prelude.hashWithSalt` appLogsEnabled
+      `Prelude.hashWithSalt` warmEnabled
 
 instance Prelude.NFData InstanceTypeDetails where
   rnf InstanceTypeDetails' {..} =
-    Prelude.rnf encryptionEnabled
+    Prelude.rnf advancedSecurityEnabled
+      `Prelude.seq` Prelude.rnf encryptionEnabled
+      `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf cognitoEnabled
       `Prelude.seq` Prelude.rnf instanceRole
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf warmEnabled
-      `Prelude.seq` Prelude.rnf advancedSecurityEnabled
       `Prelude.seq` Prelude.rnf appLogsEnabled
+      `Prelude.seq` Prelude.rnf warmEnabled

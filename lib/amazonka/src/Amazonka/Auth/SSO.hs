@@ -75,12 +75,8 @@ fromSSO cachedTokenFile ssoRegion accountId roleName env = do
               (fromSensitive accessToken)
 
       resp <- runResourceT $ sendUnsigned ssoEnv getRoleCredentials
-      let mCreds = do
-            rc <- resp ^. SSO.getRoleCredentialsResponse_roleCredentials
-            roleCredentialsToAuthEnv rc
-      case mCreds of
-        Nothing -> fail "sso:GetRoleWithCredentials returned no credentials."
-        Just c -> pure c
+      pure . roleCredentialsToAuthEnv $
+        resp ^. SSO.getRoleCredentialsResponse_roleCredentials
 
 -- | Return the cached token file for a given @sso_start_url@
 --
@@ -107,12 +103,10 @@ readCachedAccessToken p = liftIO $
               " is missing or invalid."
             ]
 
-roleCredentialsToAuthEnv :: SSO.RoleCredentials -> Maybe AuthEnv
+roleCredentialsToAuthEnv :: SSO.RoleCredentials -> AuthEnv
 roleCredentialsToAuthEnv rc =
   AuthEnv
-    <$> (AccessKey . Text.encodeUtf8 <$> SSO.accessKeyId rc)
-    <*> (fmap (SecretKey . Text.encodeUtf8) <$> SSO.secretAccessKey rc)
-    <*> pure (fmap (SessionToken . Text.encodeUtf8) <$> SSO.sessionToken rc)
-    <*> pure (expirationToExpires <$> SSO.expiration rc)
-  where
-    expirationToExpires = Time . posixSecondsToUTCTime . fromInteger
+    (SSO.accessKeyId rc)
+    (SSO.secretAccessKey rc)
+    (SSO.sessionToken rc)
+    (Time . posixSecondsToUTCTime . fromInteger <$> SSO.expiration rc)

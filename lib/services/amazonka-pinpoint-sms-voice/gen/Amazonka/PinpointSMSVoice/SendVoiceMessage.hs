@@ -27,11 +27,11 @@ module Amazonka.PinpointSMSVoice.SendVoiceMessage
     newSendVoiceMessage,
 
     -- * Request Lenses
-    sendVoiceMessage_configurationSetName,
     sendVoiceMessage_callerId,
+    sendVoiceMessage_configurationSetName,
+    sendVoiceMessage_destinationPhoneNumber,
     sendVoiceMessage_originationPhoneNumber,
     sendVoiceMessage_content,
-    sendVoiceMessage_destinationPhoneNumber,
 
     -- * Destructuring the Response
     SendVoiceMessageResponse (..),
@@ -54,20 +54,20 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newSendVoiceMessage' smart constructor.
 data SendVoiceMessage = SendVoiceMessage'
-  { -- | The name of the configuration set that you want to use to send the
-    -- message.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The phone number that appears on recipients\' devices when they receive
+  { -- | The phone number that appears on recipients\' devices when they receive
     -- the message.
     callerId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration set that you want to use to send the
+    -- message.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | The phone number that you want to send the voice message to.
+    destinationPhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The phone number that Amazon Pinpoint should use to send the voice
     -- message. This isn\'t necessarily the phone number that appears on
     -- recipients\' devices when they receive the message, because you can
     -- specify a CallerId parameter in the request.
     originationPhoneNumber :: Prelude.Maybe Prelude.Text,
-    content :: Prelude.Maybe VoiceMessageContent,
-    -- | The phone number that you want to send the voice message to.
-    destinationPhoneNumber :: Prelude.Maybe Prelude.Text
+    content :: Prelude.Maybe VoiceMessageContent
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,11 +79,13 @@ data SendVoiceMessage = SendVoiceMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'callerId', 'sendVoiceMessage_callerId' - The phone number that appears on recipients\' devices when they receive
+-- the message.
+--
 -- 'configurationSetName', 'sendVoiceMessage_configurationSetName' - The name of the configuration set that you want to use to send the
 -- message.
 --
--- 'callerId', 'sendVoiceMessage_callerId' - The phone number that appears on recipients\' devices when they receive
--- the message.
+-- 'destinationPhoneNumber', 'sendVoiceMessage_destinationPhoneNumber' - The phone number that you want to send the voice message to.
 --
 -- 'originationPhoneNumber', 'sendVoiceMessage_originationPhoneNumber' - The phone number that Amazon Pinpoint should use to send the voice
 -- message. This isn\'t necessarily the phone number that appears on
@@ -91,29 +93,30 @@ data SendVoiceMessage = SendVoiceMessage'
 -- specify a CallerId parameter in the request.
 --
 -- 'content', 'sendVoiceMessage_content' - Undocumented member.
---
--- 'destinationPhoneNumber', 'sendVoiceMessage_destinationPhoneNumber' - The phone number that you want to send the voice message to.
 newSendVoiceMessage ::
   SendVoiceMessage
 newSendVoiceMessage =
   SendVoiceMessage'
-    { configurationSetName =
-        Prelude.Nothing,
-      callerId = Prelude.Nothing,
+    { callerId = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
+      destinationPhoneNumber = Prelude.Nothing,
       originationPhoneNumber = Prelude.Nothing,
-      content = Prelude.Nothing,
-      destinationPhoneNumber = Prelude.Nothing
+      content = Prelude.Nothing
     }
+
+-- | The phone number that appears on recipients\' devices when they receive
+-- the message.
+sendVoiceMessage_callerId :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
+sendVoiceMessage_callerId = Lens.lens (\SendVoiceMessage' {callerId} -> callerId) (\s@SendVoiceMessage' {} a -> s {callerId = a} :: SendVoiceMessage)
 
 -- | The name of the configuration set that you want to use to send the
 -- message.
 sendVoiceMessage_configurationSetName :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
 sendVoiceMessage_configurationSetName = Lens.lens (\SendVoiceMessage' {configurationSetName} -> configurationSetName) (\s@SendVoiceMessage' {} a -> s {configurationSetName = a} :: SendVoiceMessage)
 
--- | The phone number that appears on recipients\' devices when they receive
--- the message.
-sendVoiceMessage_callerId :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
-sendVoiceMessage_callerId = Lens.lens (\SendVoiceMessage' {callerId} -> callerId) (\s@SendVoiceMessage' {} a -> s {callerId = a} :: SendVoiceMessage)
+-- | The phone number that you want to send the voice message to.
+sendVoiceMessage_destinationPhoneNumber :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
+sendVoiceMessage_destinationPhoneNumber = Lens.lens (\SendVoiceMessage' {destinationPhoneNumber} -> destinationPhoneNumber) (\s@SendVoiceMessage' {} a -> s {destinationPhoneNumber = a} :: SendVoiceMessage)
 
 -- | The phone number that Amazon Pinpoint should use to send the voice
 -- message. This isn\'t necessarily the phone number that appears on
@@ -125,10 +128,6 @@ sendVoiceMessage_originationPhoneNumber = Lens.lens (\SendVoiceMessage' {origina
 -- | Undocumented member.
 sendVoiceMessage_content :: Lens.Lens' SendVoiceMessage (Prelude.Maybe VoiceMessageContent)
 sendVoiceMessage_content = Lens.lens (\SendVoiceMessage' {content} -> content) (\s@SendVoiceMessage' {} a -> s {content = a} :: SendVoiceMessage)
-
--- | The phone number that you want to send the voice message to.
-sendVoiceMessage_destinationPhoneNumber :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
-sendVoiceMessage_destinationPhoneNumber = Lens.lens (\SendVoiceMessage' {destinationPhoneNumber} -> destinationPhoneNumber) (\s@SendVoiceMessage' {} a -> s {destinationPhoneNumber = a} :: SendVoiceMessage)
 
 instance Core.AWSRequest SendVoiceMessage where
   type
@@ -145,19 +144,19 @@ instance Core.AWSRequest SendVoiceMessage where
 
 instance Prelude.Hashable SendVoiceMessage where
   hashWithSalt _salt SendVoiceMessage' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
-      `Prelude.hashWithSalt` callerId
+    _salt `Prelude.hashWithSalt` callerId
+      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` destinationPhoneNumber
       `Prelude.hashWithSalt` originationPhoneNumber
       `Prelude.hashWithSalt` content
-      `Prelude.hashWithSalt` destinationPhoneNumber
 
 instance Prelude.NFData SendVoiceMessage where
   rnf SendVoiceMessage' {..} =
-    Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf callerId
+    Prelude.rnf callerId
+      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf destinationPhoneNumber
       `Prelude.seq` Prelude.rnf originationPhoneNumber
       `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf destinationPhoneNumber
 
 instance Core.ToHeaders SendVoiceMessage where
   toHeaders =
@@ -174,14 +173,14 @@ instance Core.ToJSON SendVoiceMessage where
   toJSON SendVoiceMessage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConfigurationSetName" Core..=)
+          [ ("CallerId" Core..=) Prelude.<$> callerId,
+            ("ConfigurationSetName" Core..=)
               Prelude.<$> configurationSetName,
-            ("CallerId" Core..=) Prelude.<$> callerId,
+            ("DestinationPhoneNumber" Core..=)
+              Prelude.<$> destinationPhoneNumber,
             ("OriginationPhoneNumber" Core..=)
               Prelude.<$> originationPhoneNumber,
-            ("Content" Core..=) Prelude.<$> content,
-            ("DestinationPhoneNumber" Core..=)
-              Prelude.<$> destinationPhoneNumber
+            ("Content" Core..=) Prelude.<$> content
           ]
       )
 

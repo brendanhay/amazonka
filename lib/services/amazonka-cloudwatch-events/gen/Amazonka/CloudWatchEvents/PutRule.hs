@@ -90,13 +90,13 @@ module Amazonka.CloudWatchEvents.PutRule
     newPutRule,
 
     -- * Request Lenses
-    putRule_eventPattern,
-    putRule_state,
-    putRule_eventBusName,
-    putRule_scheduleExpression,
-    putRule_description,
     putRule_tags,
     putRule_roleArn,
+    putRule_eventPattern,
+    putRule_eventBusName,
+    putRule_state,
+    putRule_description,
+    putRule_scheduleExpression,
     putRule_name,
 
     -- * Destructuring the Response
@@ -118,21 +118,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutRule' smart constructor.
 data PutRule = PutRule'
-  { -- | The event pattern. For more information, see
-    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
-    -- in the /Amazon EventBridge User Guide/.
-    eventPattern :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the rule is enabled or disabled.
-    state :: Prelude.Maybe RuleState,
-    -- | The name or ARN of the event bus to associate with this rule. If you
-    -- omit this, the default event bus is used.
-    eventBusName :: Prelude.Maybe Prelude.Text,
-    -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\" or
-    -- \"rate(5 minutes)\".
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | A description of the rule.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The list of key-value pairs to associate with the rule.
+  { -- | The list of key-value pairs to associate with the rule.
     tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
     --
@@ -142,6 +128,20 @@ data PutRule = PutRule'
     -- proper permissions in the @Target@ structure, instead of here in this
     -- parameter.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The event pattern. For more information, see
+    -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
+    -- in the /Amazon EventBridge User Guide/.
+    eventPattern :: Prelude.Maybe Prelude.Text,
+    -- | The name or ARN of the event bus to associate with this rule. If you
+    -- omit this, the default event bus is used.
+    eventBusName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the rule is enabled or disabled.
+    state :: Prelude.Maybe RuleState,
+    -- | A description of the rule.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The scheduling expression. For example, \"cron(0 20 * * ? *)\" or
+    -- \"rate(5 minutes)\".
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule that you are creating or updating.
     name :: Prelude.Text
   }
@@ -155,20 +155,6 @@ data PutRule = PutRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventPattern', 'putRule_eventPattern' - The event pattern. For more information, see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
--- in the /Amazon EventBridge User Guide/.
---
--- 'state', 'putRule_state' - Indicates whether the rule is enabled or disabled.
---
--- 'eventBusName', 'putRule_eventBusName' - The name or ARN of the event bus to associate with this rule. If you
--- omit this, the default event bus is used.
---
--- 'scheduleExpression', 'putRule_scheduleExpression' - The scheduling expression. For example, \"cron(0 20 * * ? *)\" or
--- \"rate(5 minutes)\".
---
--- 'description', 'putRule_description' - A description of the rule.
---
 -- 'tags', 'putRule_tags' - The list of key-value pairs to associate with the rule.
 --
 -- 'roleArn', 'putRule_roleArn' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
@@ -179,6 +165,20 @@ data PutRule = PutRule'
 -- proper permissions in the @Target@ structure, instead of here in this
 -- parameter.
 --
+-- 'eventPattern', 'putRule_eventPattern' - The event pattern. For more information, see
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
+-- in the /Amazon EventBridge User Guide/.
+--
+-- 'eventBusName', 'putRule_eventBusName' - The name or ARN of the event bus to associate with this rule. If you
+-- omit this, the default event bus is used.
+--
+-- 'state', 'putRule_state' - Indicates whether the rule is enabled or disabled.
+--
+-- 'description', 'putRule_description' - A description of the rule.
+--
+-- 'scheduleExpression', 'putRule_scheduleExpression' - The scheduling expression. For example, \"cron(0 20 * * ? *)\" or
+-- \"rate(5 minutes)\".
+--
 -- 'name', 'putRule_name' - The name of the rule that you are creating or updating.
 newPutRule ::
   -- | 'name'
@@ -186,39 +186,15 @@ newPutRule ::
   PutRule
 newPutRule pName_ =
   PutRule'
-    { eventPattern = Prelude.Nothing,
-      state = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
-      description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       roleArn = Prelude.Nothing,
+      eventPattern = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      state = Prelude.Nothing,
+      description = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
       name = pName_
     }
-
--- | The event pattern. For more information, see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
--- in the /Amazon EventBridge User Guide/.
-putRule_eventPattern :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
-putRule_eventPattern = Lens.lens (\PutRule' {eventPattern} -> eventPattern) (\s@PutRule' {} a -> s {eventPattern = a} :: PutRule)
-
--- | Indicates whether the rule is enabled or disabled.
-putRule_state :: Lens.Lens' PutRule (Prelude.Maybe RuleState)
-putRule_state = Lens.lens (\PutRule' {state} -> state) (\s@PutRule' {} a -> s {state = a} :: PutRule)
-
--- | The name or ARN of the event bus to associate with this rule. If you
--- omit this, the default event bus is used.
-putRule_eventBusName :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
-putRule_eventBusName = Lens.lens (\PutRule' {eventBusName} -> eventBusName) (\s@PutRule' {} a -> s {eventBusName = a} :: PutRule)
-
--- | The scheduling expression. For example, \"cron(0 20 * * ? *)\" or
--- \"rate(5 minutes)\".
-putRule_scheduleExpression :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
-putRule_scheduleExpression = Lens.lens (\PutRule' {scheduleExpression} -> scheduleExpression) (\s@PutRule' {} a -> s {scheduleExpression = a} :: PutRule)
-
--- | A description of the rule.
-putRule_description :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
-putRule_description = Lens.lens (\PutRule' {description} -> description) (\s@PutRule' {} a -> s {description = a} :: PutRule)
 
 -- | The list of key-value pairs to associate with the rule.
 putRule_tags :: Lens.Lens' PutRule (Prelude.Maybe [Tag])
@@ -233,6 +209,30 @@ putRule_tags = Lens.lens (\PutRule' {tags} -> tags) (\s@PutRule' {} a -> s {tags
 -- parameter.
 putRule_roleArn :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
 putRule_roleArn = Lens.lens (\PutRule' {roleArn} -> roleArn) (\s@PutRule' {} a -> s {roleArn = a} :: PutRule)
+
+-- | The event pattern. For more information, see
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns>
+-- in the /Amazon EventBridge User Guide/.
+putRule_eventPattern :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
+putRule_eventPattern = Lens.lens (\PutRule' {eventPattern} -> eventPattern) (\s@PutRule' {} a -> s {eventPattern = a} :: PutRule)
+
+-- | The name or ARN of the event bus to associate with this rule. If you
+-- omit this, the default event bus is used.
+putRule_eventBusName :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
+putRule_eventBusName = Lens.lens (\PutRule' {eventBusName} -> eventBusName) (\s@PutRule' {} a -> s {eventBusName = a} :: PutRule)
+
+-- | Indicates whether the rule is enabled or disabled.
+putRule_state :: Lens.Lens' PutRule (Prelude.Maybe RuleState)
+putRule_state = Lens.lens (\PutRule' {state} -> state) (\s@PutRule' {} a -> s {state = a} :: PutRule)
+
+-- | A description of the rule.
+putRule_description :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
+putRule_description = Lens.lens (\PutRule' {description} -> description) (\s@PutRule' {} a -> s {description = a} :: PutRule)
+
+-- | The scheduling expression. For example, \"cron(0 20 * * ? *)\" or
+-- \"rate(5 minutes)\".
+putRule_scheduleExpression :: Lens.Lens' PutRule (Prelude.Maybe Prelude.Text)
+putRule_scheduleExpression = Lens.lens (\PutRule' {scheduleExpression} -> scheduleExpression) (\s@PutRule' {} a -> s {scheduleExpression = a} :: PutRule)
 
 -- | The name of the rule that you are creating or updating.
 putRule_name :: Lens.Lens' PutRule Prelude.Text
@@ -251,24 +251,24 @@ instance Core.AWSRequest PutRule where
 
 instance Prelude.Hashable PutRule where
   hashWithSalt _salt PutRule' {..} =
-    _salt `Prelude.hashWithSalt` eventPattern
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` eventBusName
-      `Prelude.hashWithSalt` scheduleExpression
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` eventPattern
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` scheduleExpression
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData PutRule where
   rnf PutRule' {..} =
-    Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders PutRule where
@@ -288,14 +288,14 @@ instance Core.ToJSON PutRule where
   toJSON PutRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EventPattern" Core..=) Prelude.<$> eventPattern,
-            ("State" Core..=) Prelude.<$> state,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("EventPattern" Core..=) Prelude.<$> eventPattern,
             ("EventBusName" Core..=) Prelude.<$> eventBusName,
+            ("State" Core..=) Prelude.<$> state,
+            ("Description" Core..=) Prelude.<$> description,
             ("ScheduleExpression" Core..=)
               Prelude.<$> scheduleExpression,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
             Prelude.Just ("Name" Core..= name)
           ]
       )

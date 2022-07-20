@@ -21,26 +21,26 @@ module Amazonka.ElasticTranscoder
     -- * Errors
     -- $errors
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- ** IncompatibleVersionException
     _IncompatibleVersionException,
 
     -- ** ValidationException
     _ValidationException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
     -- ** InternalServiceException
     _InternalServiceException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -51,35 +51,11 @@ module Amazonka.ElasticTranscoder
     -- * Operations
     -- $operations
 
-    -- ** DeletePreset
-    DeletePreset (DeletePreset'),
-    newDeletePreset,
-    DeletePresetResponse (DeletePresetResponse'),
-    newDeletePresetResponse,
-
-    -- ** UpdatePipelineStatus
-    UpdatePipelineStatus (UpdatePipelineStatus'),
-    newUpdatePipelineStatus,
-    UpdatePipelineStatusResponse (UpdatePipelineStatusResponse'),
-    newUpdatePipelineStatusResponse,
-
-    -- ** ListJobsByPipeline (Paginated)
-    ListJobsByPipeline (ListJobsByPipeline'),
-    newListJobsByPipeline,
-    ListJobsByPipelineResponse (ListJobsByPipelineResponse'),
-    newListJobsByPipelineResponse,
-
-    -- ** UpdatePipeline
-    UpdatePipeline (UpdatePipeline'),
-    newUpdatePipeline,
-    UpdatePipelineResponse (UpdatePipelineResponse'),
-    newUpdatePipelineResponse,
-
-    -- ** DeletePipeline
-    DeletePipeline (DeletePipeline'),
-    newDeletePipeline,
-    DeletePipelineResponse (DeletePipelineResponse'),
-    newDeletePipelineResponse,
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- ** CreateJob
     CreateJob (CreateJob'),
@@ -87,11 +63,11 @@ module Amazonka.ElasticTranscoder
     CreateJobResponse (CreateJobResponse'),
     newCreateJobResponse,
 
-    -- ** ListPipelines (Paginated)
-    ListPipelines (ListPipelines'),
-    newListPipelines,
-    ListPipelinesResponse (ListPipelinesResponse'),
-    newListPipelinesResponse,
+    -- ** CreatePipeline
+    CreatePipeline (CreatePipeline'),
+    newCreatePipeline,
+    CreatePipelineResponse (CreatePipelineResponse'),
+    newCreatePipelineResponse,
 
     -- ** CreatePreset
     CreatePreset (CreatePreset'),
@@ -99,41 +75,23 @@ module Amazonka.ElasticTranscoder
     CreatePresetResponse (CreatePresetResponse'),
     newCreatePresetResponse,
 
-    -- ** ListPresets (Paginated)
-    ListPresets (ListPresets'),
-    newListPresets,
-    ListPresetsResponse (ListPresetsResponse'),
-    newListPresetsResponse,
+    -- ** DeletePipeline
+    DeletePipeline (DeletePipeline'),
+    newDeletePipeline,
+    DeletePipelineResponse (DeletePipelineResponse'),
+    newDeletePipelineResponse,
 
-    -- ** ReadPreset
-    ReadPreset (ReadPreset'),
-    newReadPreset,
-    ReadPresetResponse (ReadPresetResponse'),
-    newReadPresetResponse,
+    -- ** DeletePreset
+    DeletePreset (DeletePreset'),
+    newDeletePreset,
+    DeletePresetResponse (DeletePresetResponse'),
+    newDeletePresetResponse,
 
-    -- ** ReadJob
-    ReadJob (ReadJob'),
-    newReadJob,
-    ReadJobResponse (ReadJobResponse'),
-    newReadJobResponse,
-
-    -- ** UpdatePipelineNotifications
-    UpdatePipelineNotifications (UpdatePipelineNotifications'),
-    newUpdatePipelineNotifications,
-    UpdatePipelineNotificationsResponse (UpdatePipelineNotificationsResponse'),
-    newUpdatePipelineNotificationsResponse,
-
-    -- ** ReadPipeline
-    ReadPipeline (ReadPipeline'),
-    newReadPipeline,
-    ReadPipelineResponse (ReadPipelineResponse'),
-    newReadPipelineResponse,
-
-    -- ** CreatePipeline
-    CreatePipeline (CreatePipeline'),
-    newCreatePipeline,
-    CreatePipelineResponse (CreatePipelineResponse'),
-    newCreatePipelineResponse,
+    -- ** ListJobsByPipeline (Paginated)
+    ListJobsByPipeline (ListJobsByPipeline'),
+    newListJobsByPipeline,
+    ListJobsByPipelineResponse (ListJobsByPipelineResponse'),
+    newListJobsByPipelineResponse,
 
     -- ** ListJobsByStatus (Paginated)
     ListJobsByStatus (ListJobsByStatus'),
@@ -141,11 +99,53 @@ module Amazonka.ElasticTranscoder
     ListJobsByStatusResponse (ListJobsByStatusResponse'),
     newListJobsByStatusResponse,
 
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
+    -- ** ListPipelines (Paginated)
+    ListPipelines (ListPipelines'),
+    newListPipelines,
+    ListPipelinesResponse (ListPipelinesResponse'),
+    newListPipelinesResponse,
+
+    -- ** ListPresets (Paginated)
+    ListPresets (ListPresets'),
+    newListPresets,
+    ListPresetsResponse (ListPresetsResponse'),
+    newListPresetsResponse,
+
+    -- ** ReadJob
+    ReadJob (ReadJob'),
+    newReadJob,
+    ReadJobResponse (ReadJobResponse'),
+    newReadJobResponse,
+
+    -- ** ReadPipeline
+    ReadPipeline (ReadPipeline'),
+    newReadPipeline,
+    ReadPipelineResponse (ReadPipelineResponse'),
+    newReadPipelineResponse,
+
+    -- ** ReadPreset
+    ReadPreset (ReadPreset'),
+    newReadPreset,
+    ReadPresetResponse (ReadPresetResponse'),
+    newReadPresetResponse,
+
+    -- ** UpdatePipeline
+    UpdatePipeline (UpdatePipeline'),
+    newUpdatePipeline,
+    UpdatePipelineResponse (UpdatePipelineResponse'),
+    newUpdatePipelineResponse,
+
+    -- ** UpdatePipelineNotifications
+    UpdatePipelineNotifications (UpdatePipelineNotifications'),
+    newUpdatePipelineNotifications,
+    UpdatePipelineNotificationsResponse (UpdatePipelineNotificationsResponse'),
+    newUpdatePipelineNotificationsResponse,
+
+    -- ** UpdatePipelineStatus
+    UpdatePipelineStatus (UpdatePipelineStatus'),
+    newUpdatePipelineStatus,
+    UpdatePipelineStatusResponse (UpdatePipelineStatusResponse'),
+    newUpdatePipelineStatusResponse,
 
     -- * Types
 

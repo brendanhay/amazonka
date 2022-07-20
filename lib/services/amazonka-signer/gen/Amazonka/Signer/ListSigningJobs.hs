@@ -36,23 +36,23 @@ module Amazonka.Signer.ListSigningJobs
     newListSigningJobs,
 
     -- * Request Lenses
-    listSigningJobs_status,
-    listSigningJobs_signatureExpiresAfter,
-    listSigningJobs_requestedBy,
-    listSigningJobs_isRevoked,
-    listSigningJobs_nextToken,
-    listSigningJobs_platformId,
-    listSigningJobs_jobInvoker,
     listSigningJobs_signatureExpiresBefore,
+    listSigningJobs_nextToken,
+    listSigningJobs_jobInvoker,
+    listSigningJobs_status,
     listSigningJobs_maxResults,
+    listSigningJobs_isRevoked,
+    listSigningJobs_requestedBy,
+    listSigningJobs_signatureExpiresAfter,
+    listSigningJobs_platformId,
 
     -- * Destructuring the Response
     ListSigningJobsResponse (..),
     newListSigningJobsResponse,
 
     -- * Response Lenses
-    listSigningJobsResponse_jobs,
     listSigningJobsResponse_nextToken,
+    listSigningJobsResponse_jobs,
     listSigningJobsResponse_httpStatus,
   )
 where
@@ -66,35 +66,35 @@ import Amazonka.Signer.Types
 
 -- | /See:/ 'newListSigningJobs' smart constructor.
 data ListSigningJobs = ListSigningJobs'
-  { -- | A status value with which to filter your results.
-    status :: Prelude.Maybe SigningStatus,
-    -- | Filters results to return only signing jobs with signatures expiring
-    -- after a specified timestamp.
-    signatureExpiresAfter :: Prelude.Maybe Core.POSIX,
-    -- | The IAM principal that requested the signing job.
-    requestedBy :: Prelude.Maybe Prelude.Text,
-    -- | Filters results to return only signing jobs with revoked signatures.
-    isRevoked :: Prelude.Maybe Prelude.Bool,
+  { -- | Filters results to return only signing jobs with signatures expiring
+    -- before a specified timestamp.
+    signatureExpiresBefore :: Prelude.Maybe Core.POSIX,
     -- | String for specifying the next set of paginated results to return. After
     -- you receive a response with truncated results, use this parameter in a
     -- subsequent request. Set it to the value of @nextToken@ from the response
     -- that you just received.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of microcontroller platform that you specified for the
-    -- distribution of your code image.
-    platformId :: Prelude.Maybe Prelude.Text,
     -- | Filters results to return only signing jobs initiated by a specified IAM
     -- entity.
     jobInvoker :: Prelude.Maybe Prelude.Text,
-    -- | Filters results to return only signing jobs with signatures expiring
-    -- before a specified timestamp.
-    signatureExpiresBefore :: Prelude.Maybe Core.POSIX,
+    -- | A status value with which to filter your results.
+    status :: Prelude.Maybe SigningStatus,
     -- | Specifies the maximum number of items to return in the response. Use
     -- this parameter when paginating results. If additional items exist beyond
     -- the number you specify, the @nextToken@ element is set in the response.
     -- Use the @nextToken@ value in a subsequent request to retrieve additional
     -- items.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Filters results to return only signing jobs with revoked signatures.
+    isRevoked :: Prelude.Maybe Prelude.Bool,
+    -- | The IAM principal that requested the signing job.
+    requestedBy :: Prelude.Maybe Prelude.Text,
+    -- | Filters results to return only signing jobs with signatures expiring
+    -- after a specified timestamp.
+    signatureExpiresAfter :: Prelude.Maybe Core.POSIX,
+    -- | The ID of microcontroller platform that you specified for the
+    -- distribution of your code image.
+    platformId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,65 +106,54 @@ data ListSigningJobs = ListSigningJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listSigningJobs_status' - A status value with which to filter your results.
---
--- 'signatureExpiresAfter', 'listSigningJobs_signatureExpiresAfter' - Filters results to return only signing jobs with signatures expiring
--- after a specified timestamp.
---
--- 'requestedBy', 'listSigningJobs_requestedBy' - The IAM principal that requested the signing job.
---
--- 'isRevoked', 'listSigningJobs_isRevoked' - Filters results to return only signing jobs with revoked signatures.
+-- 'signatureExpiresBefore', 'listSigningJobs_signatureExpiresBefore' - Filters results to return only signing jobs with signatures expiring
+-- before a specified timestamp.
 --
 -- 'nextToken', 'listSigningJobs_nextToken' - String for specifying the next set of paginated results to return. After
 -- you receive a response with truncated results, use this parameter in a
 -- subsequent request. Set it to the value of @nextToken@ from the response
 -- that you just received.
 --
--- 'platformId', 'listSigningJobs_platformId' - The ID of microcontroller platform that you specified for the
--- distribution of your code image.
---
 -- 'jobInvoker', 'listSigningJobs_jobInvoker' - Filters results to return only signing jobs initiated by a specified IAM
 -- entity.
 --
--- 'signatureExpiresBefore', 'listSigningJobs_signatureExpiresBefore' - Filters results to return only signing jobs with signatures expiring
--- before a specified timestamp.
+-- 'status', 'listSigningJobs_status' - A status value with which to filter your results.
 --
 -- 'maxResults', 'listSigningJobs_maxResults' - Specifies the maximum number of items to return in the response. Use
 -- this parameter when paginating results. If additional items exist beyond
 -- the number you specify, the @nextToken@ element is set in the response.
 -- Use the @nextToken@ value in a subsequent request to retrieve additional
 -- items.
+--
+-- 'isRevoked', 'listSigningJobs_isRevoked' - Filters results to return only signing jobs with revoked signatures.
+--
+-- 'requestedBy', 'listSigningJobs_requestedBy' - The IAM principal that requested the signing job.
+--
+-- 'signatureExpiresAfter', 'listSigningJobs_signatureExpiresAfter' - Filters results to return only signing jobs with signatures expiring
+-- after a specified timestamp.
+--
+-- 'platformId', 'listSigningJobs_platformId' - The ID of microcontroller platform that you specified for the
+-- distribution of your code image.
 newListSigningJobs ::
   ListSigningJobs
 newListSigningJobs =
   ListSigningJobs'
-    { status = Prelude.Nothing,
-      signatureExpiresAfter = Prelude.Nothing,
-      requestedBy = Prelude.Nothing,
-      isRevoked = Prelude.Nothing,
+    { signatureExpiresBefore =
+        Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      platformId = Prelude.Nothing,
       jobInvoker = Prelude.Nothing,
-      signatureExpiresBefore = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      isRevoked = Prelude.Nothing,
+      requestedBy = Prelude.Nothing,
+      signatureExpiresAfter = Prelude.Nothing,
+      platformId = Prelude.Nothing
     }
 
--- | A status value with which to filter your results.
-listSigningJobs_status :: Lens.Lens' ListSigningJobs (Prelude.Maybe SigningStatus)
-listSigningJobs_status = Lens.lens (\ListSigningJobs' {status} -> status) (\s@ListSigningJobs' {} a -> s {status = a} :: ListSigningJobs)
-
 -- | Filters results to return only signing jobs with signatures expiring
--- after a specified timestamp.
-listSigningJobs_signatureExpiresAfter :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.UTCTime)
-listSigningJobs_signatureExpiresAfter = Lens.lens (\ListSigningJobs' {signatureExpiresAfter} -> signatureExpiresAfter) (\s@ListSigningJobs' {} a -> s {signatureExpiresAfter = a} :: ListSigningJobs) Prelude.. Lens.mapping Core._Time
-
--- | The IAM principal that requested the signing job.
-listSigningJobs_requestedBy :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Text)
-listSigningJobs_requestedBy = Lens.lens (\ListSigningJobs' {requestedBy} -> requestedBy) (\s@ListSigningJobs' {} a -> s {requestedBy = a} :: ListSigningJobs)
-
--- | Filters results to return only signing jobs with revoked signatures.
-listSigningJobs_isRevoked :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Bool)
-listSigningJobs_isRevoked = Lens.lens (\ListSigningJobs' {isRevoked} -> isRevoked) (\s@ListSigningJobs' {} a -> s {isRevoked = a} :: ListSigningJobs)
+-- before a specified timestamp.
+listSigningJobs_signatureExpiresBefore :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.UTCTime)
+listSigningJobs_signatureExpiresBefore = Lens.lens (\ListSigningJobs' {signatureExpiresBefore} -> signatureExpiresBefore) (\s@ListSigningJobs' {} a -> s {signatureExpiresBefore = a} :: ListSigningJobs) Prelude.. Lens.mapping Core._Time
 
 -- | String for specifying the next set of paginated results to return. After
 -- you receive a response with truncated results, use this parameter in a
@@ -173,20 +162,14 @@ listSigningJobs_isRevoked = Lens.lens (\ListSigningJobs' {isRevoked} -> isRevoke
 listSigningJobs_nextToken :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Text)
 listSigningJobs_nextToken = Lens.lens (\ListSigningJobs' {nextToken} -> nextToken) (\s@ListSigningJobs' {} a -> s {nextToken = a} :: ListSigningJobs)
 
--- | The ID of microcontroller platform that you specified for the
--- distribution of your code image.
-listSigningJobs_platformId :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Text)
-listSigningJobs_platformId = Lens.lens (\ListSigningJobs' {platformId} -> platformId) (\s@ListSigningJobs' {} a -> s {platformId = a} :: ListSigningJobs)
-
 -- | Filters results to return only signing jobs initiated by a specified IAM
 -- entity.
 listSigningJobs_jobInvoker :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Text)
 listSigningJobs_jobInvoker = Lens.lens (\ListSigningJobs' {jobInvoker} -> jobInvoker) (\s@ListSigningJobs' {} a -> s {jobInvoker = a} :: ListSigningJobs)
 
--- | Filters results to return only signing jobs with signatures expiring
--- before a specified timestamp.
-listSigningJobs_signatureExpiresBefore :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.UTCTime)
-listSigningJobs_signatureExpiresBefore = Lens.lens (\ListSigningJobs' {signatureExpiresBefore} -> signatureExpiresBefore) (\s@ListSigningJobs' {} a -> s {signatureExpiresBefore = a} :: ListSigningJobs) Prelude.. Lens.mapping Core._Time
+-- | A status value with which to filter your results.
+listSigningJobs_status :: Lens.Lens' ListSigningJobs (Prelude.Maybe SigningStatus)
+listSigningJobs_status = Lens.lens (\ListSigningJobs' {status} -> status) (\s@ListSigningJobs' {} a -> s {status = a} :: ListSigningJobs)
 
 -- | Specifies the maximum number of items to return in the response. Use
 -- this parameter when paginating results. If additional items exist beyond
@@ -195,6 +178,24 @@ listSigningJobs_signatureExpiresBefore = Lens.lens (\ListSigningJobs' {signature
 -- items.
 listSigningJobs_maxResults :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Natural)
 listSigningJobs_maxResults = Lens.lens (\ListSigningJobs' {maxResults} -> maxResults) (\s@ListSigningJobs' {} a -> s {maxResults = a} :: ListSigningJobs)
+
+-- | Filters results to return only signing jobs with revoked signatures.
+listSigningJobs_isRevoked :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Bool)
+listSigningJobs_isRevoked = Lens.lens (\ListSigningJobs' {isRevoked} -> isRevoked) (\s@ListSigningJobs' {} a -> s {isRevoked = a} :: ListSigningJobs)
+
+-- | The IAM principal that requested the signing job.
+listSigningJobs_requestedBy :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Text)
+listSigningJobs_requestedBy = Lens.lens (\ListSigningJobs' {requestedBy} -> requestedBy) (\s@ListSigningJobs' {} a -> s {requestedBy = a} :: ListSigningJobs)
+
+-- | Filters results to return only signing jobs with signatures expiring
+-- after a specified timestamp.
+listSigningJobs_signatureExpiresAfter :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.UTCTime)
+listSigningJobs_signatureExpiresAfter = Lens.lens (\ListSigningJobs' {signatureExpiresAfter} -> signatureExpiresAfter) (\s@ListSigningJobs' {} a -> s {signatureExpiresAfter = a} :: ListSigningJobs) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of microcontroller platform that you specified for the
+-- distribution of your code image.
+listSigningJobs_platformId :: Lens.Lens' ListSigningJobs (Prelude.Maybe Prelude.Text)
+listSigningJobs_platformId = Lens.lens (\ListSigningJobs' {platformId} -> platformId) (\s@ListSigningJobs' {} a -> s {platformId = a} :: ListSigningJobs)
 
 instance Core.AWSPager ListSigningJobs where
   page rq rs
@@ -226,34 +227,34 @@ instance Core.AWSRequest ListSigningJobs where
     Response.receiveJSON
       ( \s h x ->
           ListSigningJobsResponse'
-            Prelude.<$> (x Core..?> "jobs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSigningJobs where
   hashWithSalt _salt ListSigningJobs' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` signatureExpiresAfter
-      `Prelude.hashWithSalt` requestedBy
-      `Prelude.hashWithSalt` isRevoked
+    _salt `Prelude.hashWithSalt` signatureExpiresBefore
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` platformId
       `Prelude.hashWithSalt` jobInvoker
-      `Prelude.hashWithSalt` signatureExpiresBefore
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` isRevoked
+      `Prelude.hashWithSalt` requestedBy
+      `Prelude.hashWithSalt` signatureExpiresAfter
+      `Prelude.hashWithSalt` platformId
 
 instance Prelude.NFData ListSigningJobs where
   rnf ListSigningJobs' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf signatureExpiresAfter
-      `Prelude.seq` Prelude.rnf requestedBy
-      `Prelude.seq` Prelude.rnf isRevoked
+    Prelude.rnf signatureExpiresBefore
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf platformId
       `Prelude.seq` Prelude.rnf jobInvoker
-      `Prelude.seq` Prelude.rnf signatureExpiresBefore
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf isRevoked
+      `Prelude.seq` Prelude.rnf requestedBy
+      `Prelude.seq` Prelude.rnf signatureExpiresAfter
+      `Prelude.seq` Prelude.rnf platformId
 
 instance Core.ToHeaders ListSigningJobs where
   toHeaders =
@@ -272,25 +273,25 @@ instance Core.ToPath ListSigningJobs where
 instance Core.ToQuery ListSigningJobs where
   toQuery ListSigningJobs' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
+      [ "signatureExpiresBefore"
+          Core.=: signatureExpiresBefore,
+        "nextToken" Core.=: nextToken,
+        "jobInvoker" Core.=: jobInvoker,
+        "status" Core.=: status,
+        "maxResults" Core.=: maxResults,
+        "isRevoked" Core.=: isRevoked,
+        "requestedBy" Core.=: requestedBy,
         "signatureExpiresAfter"
           Core.=: signatureExpiresAfter,
-        "requestedBy" Core.=: requestedBy,
-        "isRevoked" Core.=: isRevoked,
-        "nextToken" Core.=: nextToken,
-        "platformId" Core.=: platformId,
-        "jobInvoker" Core.=: jobInvoker,
-        "signatureExpiresBefore"
-          Core.=: signatureExpiresBefore,
-        "maxResults" Core.=: maxResults
+        "platformId" Core.=: platformId
       ]
 
 -- | /See:/ 'newListSigningJobsResponse' smart constructor.
 data ListSigningJobsResponse = ListSigningJobsResponse'
-  { -- | A list of your signing jobs.
-    jobs :: Prelude.Maybe [SigningJob],
-    -- | String for specifying the next set of paginated results.
+  { -- | String for specifying the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of your signing jobs.
+    jobs :: Prelude.Maybe [SigningJob],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -304,9 +305,9 @@ data ListSigningJobsResponse = ListSigningJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobs', 'listSigningJobsResponse_jobs' - A list of your signing jobs.
---
 -- 'nextToken', 'listSigningJobsResponse_nextToken' - String for specifying the next set of paginated results.
+--
+-- 'jobs', 'listSigningJobsResponse_jobs' - A list of your signing jobs.
 --
 -- 'httpStatus', 'listSigningJobsResponse_httpStatus' - The response's http status code.
 newListSigningJobsResponse ::
@@ -315,18 +316,19 @@ newListSigningJobsResponse ::
   ListSigningJobsResponse
 newListSigningJobsResponse pHttpStatus_ =
   ListSigningJobsResponse'
-    { jobs = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      jobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of your signing jobs.
-listSigningJobsResponse_jobs :: Lens.Lens' ListSigningJobsResponse (Prelude.Maybe [SigningJob])
-listSigningJobsResponse_jobs = Lens.lens (\ListSigningJobsResponse' {jobs} -> jobs) (\s@ListSigningJobsResponse' {} a -> s {jobs = a} :: ListSigningJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | String for specifying the next set of paginated results.
 listSigningJobsResponse_nextToken :: Lens.Lens' ListSigningJobsResponse (Prelude.Maybe Prelude.Text)
 listSigningJobsResponse_nextToken = Lens.lens (\ListSigningJobsResponse' {nextToken} -> nextToken) (\s@ListSigningJobsResponse' {} a -> s {nextToken = a} :: ListSigningJobsResponse)
+
+-- | A list of your signing jobs.
+listSigningJobsResponse_jobs :: Lens.Lens' ListSigningJobsResponse (Prelude.Maybe [SigningJob])
+listSigningJobsResponse_jobs = Lens.lens (\ListSigningJobsResponse' {jobs} -> jobs) (\s@ListSigningJobsResponse' {} a -> s {jobs = a} :: ListSigningJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSigningJobsResponse_httpStatus :: Lens.Lens' ListSigningJobsResponse Prelude.Int
@@ -334,6 +336,6 @@ listSigningJobsResponse_httpStatus = Lens.lens (\ListSigningJobsResponse' {httpS
 
 instance Prelude.NFData ListSigningJobsResponse where
   rnf ListSigningJobsResponse' {..} =
-    Prelude.rnf jobs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobs
       `Prelude.seq` Prelude.rnf httpStatus

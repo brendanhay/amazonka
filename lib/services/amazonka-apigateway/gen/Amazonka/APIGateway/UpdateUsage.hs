@@ -37,10 +37,10 @@ module Amazonka.APIGateway.UpdateUsage
     newUsage,
 
     -- * Response Lenses
-    usage_usagePlanId,
-    usage_endDate,
     usage_items,
+    usage_endDate,
     usage_startDate,
+    usage_usagePlanId,
     usage_position,
   )
 where

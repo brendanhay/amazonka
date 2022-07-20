@@ -42,8 +42,8 @@ module Amazonka.SSO.ListAccounts
     newListAccountsResponse,
 
     -- * Response Lenses
-    listAccountsResponse_accountList,
     listAccountsResponse_nextToken,
+    listAccountsResponse_accountList,
     listAccountsResponse_httpStatus,
   )
 where
@@ -141,8 +141,8 @@ instance Core.AWSRequest ListAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListAccountsResponse'
-            Prelude.<$> (x Core..?> "accountList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "accountList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,11 +178,11 @@ instance Core.ToQuery ListAccounts where
 
 -- | /See:/ 'newListAccountsResponse' smart constructor.
 data ListAccountsResponse = ListAccountsResponse'
-  { -- | A paginated response with the list of account information and the next
+  { -- | The page token client that is used to retrieve the list of accounts.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A paginated response with the list of account information and the next
     -- token if more results are available.
     accountList :: Prelude.Maybe [AccountInfo],
-    -- | The page token client that is used to retrieve the list of accounts.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,10 +196,10 @@ data ListAccountsResponse = ListAccountsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listAccountsResponse_nextToken' - The page token client that is used to retrieve the list of accounts.
+--
 -- 'accountList', 'listAccountsResponse_accountList' - A paginated response with the list of account information and the next
 -- token if more results are available.
---
--- 'nextToken', 'listAccountsResponse_nextToken' - The page token client that is used to retrieve the list of accounts.
 --
 -- 'httpStatus', 'listAccountsResponse_httpStatus' - The response's http status code.
 newListAccountsResponse ::
@@ -208,20 +208,19 @@ newListAccountsResponse ::
   ListAccountsResponse
 newListAccountsResponse pHttpStatus_ =
   ListAccountsResponse'
-    { accountList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      accountList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The page token client that is used to retrieve the list of accounts.
+listAccountsResponse_nextToken :: Lens.Lens' ListAccountsResponse (Prelude.Maybe Prelude.Text)
+listAccountsResponse_nextToken = Lens.lens (\ListAccountsResponse' {nextToken} -> nextToken) (\s@ListAccountsResponse' {} a -> s {nextToken = a} :: ListAccountsResponse)
 
 -- | A paginated response with the list of account information and the next
 -- token if more results are available.
 listAccountsResponse_accountList :: Lens.Lens' ListAccountsResponse (Prelude.Maybe [AccountInfo])
 listAccountsResponse_accountList = Lens.lens (\ListAccountsResponse' {accountList} -> accountList) (\s@ListAccountsResponse' {} a -> s {accountList = a} :: ListAccountsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The page token client that is used to retrieve the list of accounts.
-listAccountsResponse_nextToken :: Lens.Lens' ListAccountsResponse (Prelude.Maybe Prelude.Text)
-listAccountsResponse_nextToken = Lens.lens (\ListAccountsResponse' {nextToken} -> nextToken) (\s@ListAccountsResponse' {} a -> s {nextToken = a} :: ListAccountsResponse)
 
 -- | The response's http status code.
 listAccountsResponse_httpStatus :: Lens.Lens' ListAccountsResponse Prelude.Int
@@ -229,6 +228,6 @@ listAccountsResponse_httpStatus = Lens.lens (\ListAccountsResponse' {httpStatus}
 
 instance Prelude.NFData ListAccountsResponse where
   rnf ListAccountsResponse' {..} =
-    Prelude.rnf accountList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accountList
       `Prelude.seq` Prelude.rnf httpStatus

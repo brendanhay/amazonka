@@ -28,13 +28,13 @@ module Amazonka.ServiceCatalog.SearchProvisionedProducts
     newSearchProvisionedProducts,
 
     -- * Request Lenses
-    searchProvisionedProducts_filters,
     searchProvisionedProducts_sortOrder,
-    searchProvisionedProducts_acceptLanguage,
     searchProvisionedProducts_accessLevelFilter,
+    searchProvisionedProducts_filters,
+    searchProvisionedProducts_sortBy,
     searchProvisionedProducts_pageToken,
     searchProvisionedProducts_pageSize,
-    searchProvisionedProducts_sortBy,
+    searchProvisionedProducts_acceptLanguage,
 
     -- * Destructuring the Response
     SearchProvisionedProductsResponse (..),
@@ -42,8 +42,8 @@ module Amazonka.ServiceCatalog.SearchProvisionedProducts
 
     -- * Response Lenses
     searchProvisionedProductsResponse_nextPageToken,
-    searchProvisionedProductsResponse_provisionedProducts,
     searchProvisionedProductsResponse_totalResultsCount,
+    searchProvisionedProductsResponse_provisionedProducts,
     searchProvisionedProductsResponse_httpStatus,
   )
 where
@@ -57,7 +57,11 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newSearchProvisionedProducts' smart constructor.
 data SearchProvisionedProducts = SearchProvisionedProducts'
-  { -- | The search filters.
+  { -- | The sort order. If no value is specified, the results are not sorted.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | The access level to use to obtain results. The default is @User@.
+    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
+    -- | The search filters.
     --
     -- When the key is @SearchQuery@, the searchable fields are @arn@,
     -- @createdTime@, @id@, @lastRecordId@, @idempotencyToken@, @name@,
@@ -68,8 +72,14 @@ data SearchProvisionedProducts = SearchProvisionedProducts'
     --
     -- Example: @\"SearchQuery\":[\"status:AVAILABLE\"]@
     filters :: Prelude.Maybe (Prelude.HashMap ProvisionedProductViewFilterBy [Prelude.Text]),
-    -- | The sort order. If no value is specified, the results are not sorted.
-    sortOrder :: Prelude.Maybe SortOrder,
+    -- | The sort field. If no value is specified, the results are not sorted.
+    -- The valid values are @arn@, @id@, @name@, and @lastRecordId@.
+    sortBy :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -77,17 +87,7 @@ data SearchProvisionedProducts = SearchProvisionedProducts'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The access level to use to obtain results. The default is @User@.
-    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The sort field. If no value is specified, the results are not sorted.
-    -- The valid values are @arn@, @id@, @name@, and @lastRecordId@.
-    sortBy :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,6 +98,10 @@ data SearchProvisionedProducts = SearchProvisionedProducts'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'sortOrder', 'searchProvisionedProducts_sortOrder' - The sort order. If no value is specified, the results are not sorted.
+--
+-- 'accessLevelFilter', 'searchProvisionedProducts_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
 --
 -- 'filters', 'searchProvisionedProducts_filters' - The search filters.
 --
@@ -110,7 +114,13 @@ data SearchProvisionedProducts = SearchProvisionedProducts'
 --
 -- Example: @\"SearchQuery\":[\"status:AVAILABLE\"]@
 --
--- 'sortOrder', 'searchProvisionedProducts_sortOrder' - The sort order. If no value is specified, the results are not sorted.
+-- 'sortBy', 'searchProvisionedProducts_sortBy' - The sort field. If no value is specified, the results are not sorted.
+-- The valid values are @arn@, @id@, @name@, and @lastRecordId@.
+--
+-- 'pageToken', 'searchProvisionedProducts_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'searchProvisionedProducts_pageSize' - The maximum number of items to return with this call.
 --
 -- 'acceptLanguage', 'searchProvisionedProducts_acceptLanguage' - The language code.
 --
@@ -119,29 +129,27 @@ data SearchProvisionedProducts = SearchProvisionedProducts'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'accessLevelFilter', 'searchProvisionedProducts_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
---
--- 'pageToken', 'searchProvisionedProducts_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'searchProvisionedProducts_pageSize' - The maximum number of items to return with this call.
---
--- 'sortBy', 'searchProvisionedProducts_sortBy' - The sort field. If no value is specified, the results are not sorted.
--- The valid values are @arn@, @id@, @name@, and @lastRecordId@.
 newSearchProvisionedProducts ::
   SearchProvisionedProducts
 newSearchProvisionedProducts =
   SearchProvisionedProducts'
-    { filters =
+    { sortOrder =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
       accessLevelFilter = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       pageToken = Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      acceptLanguage = Prelude.Nothing
     }
+
+-- | The sort order. If no value is specified, the results are not sorted.
+searchProvisionedProducts_sortOrder :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe SortOrder)
+searchProvisionedProducts_sortOrder = Lens.lens (\SearchProvisionedProducts' {sortOrder} -> sortOrder) (\s@SearchProvisionedProducts' {} a -> s {sortOrder = a} :: SearchProvisionedProducts)
+
+-- | The access level to use to obtain results. The default is @User@.
+searchProvisionedProducts_accessLevelFilter :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe AccessLevelFilter)
+searchProvisionedProducts_accessLevelFilter = Lens.lens (\SearchProvisionedProducts' {accessLevelFilter} -> accessLevelFilter) (\s@SearchProvisionedProducts' {} a -> s {accessLevelFilter = a} :: SearchProvisionedProducts)
 
 -- | The search filters.
 --
@@ -156,9 +164,19 @@ newSearchProvisionedProducts =
 searchProvisionedProducts_filters :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe (Prelude.HashMap ProvisionedProductViewFilterBy [Prelude.Text]))
 searchProvisionedProducts_filters = Lens.lens (\SearchProvisionedProducts' {filters} -> filters) (\s@SearchProvisionedProducts' {} a -> s {filters = a} :: SearchProvisionedProducts) Prelude.. Lens.mapping Lens.coerced
 
--- | The sort order. If no value is specified, the results are not sorted.
-searchProvisionedProducts_sortOrder :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe SortOrder)
-searchProvisionedProducts_sortOrder = Lens.lens (\SearchProvisionedProducts' {sortOrder} -> sortOrder) (\s@SearchProvisionedProducts' {} a -> s {sortOrder = a} :: SearchProvisionedProducts)
+-- | The sort field. If no value is specified, the results are not sorted.
+-- The valid values are @arn@, @id@, @name@, and @lastRecordId@.
+searchProvisionedProducts_sortBy :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe Prelude.Text)
+searchProvisionedProducts_sortBy = Lens.lens (\SearchProvisionedProducts' {sortBy} -> sortBy) (\s@SearchProvisionedProducts' {} a -> s {sortBy = a} :: SearchProvisionedProducts)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+searchProvisionedProducts_pageToken :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe Prelude.Text)
+searchProvisionedProducts_pageToken = Lens.lens (\SearchProvisionedProducts' {pageToken} -> pageToken) (\s@SearchProvisionedProducts' {} a -> s {pageToken = a} :: SearchProvisionedProducts)
+
+-- | The maximum number of items to return with this call.
+searchProvisionedProducts_pageSize :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe Prelude.Natural)
+searchProvisionedProducts_pageSize = Lens.lens (\SearchProvisionedProducts' {pageSize} -> pageSize) (\s@SearchProvisionedProducts' {} a -> s {pageSize = a} :: SearchProvisionedProducts)
 
 -- | The language code.
 --
@@ -170,24 +188,6 @@ searchProvisionedProducts_sortOrder = Lens.lens (\SearchProvisionedProducts' {so
 searchProvisionedProducts_acceptLanguage :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe Prelude.Text)
 searchProvisionedProducts_acceptLanguage = Lens.lens (\SearchProvisionedProducts' {acceptLanguage} -> acceptLanguage) (\s@SearchProvisionedProducts' {} a -> s {acceptLanguage = a} :: SearchProvisionedProducts)
 
--- | The access level to use to obtain results. The default is @User@.
-searchProvisionedProducts_accessLevelFilter :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe AccessLevelFilter)
-searchProvisionedProducts_accessLevelFilter = Lens.lens (\SearchProvisionedProducts' {accessLevelFilter} -> accessLevelFilter) (\s@SearchProvisionedProducts' {} a -> s {accessLevelFilter = a} :: SearchProvisionedProducts)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-searchProvisionedProducts_pageToken :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe Prelude.Text)
-searchProvisionedProducts_pageToken = Lens.lens (\SearchProvisionedProducts' {pageToken} -> pageToken) (\s@SearchProvisionedProducts' {} a -> s {pageToken = a} :: SearchProvisionedProducts)
-
--- | The maximum number of items to return with this call.
-searchProvisionedProducts_pageSize :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe Prelude.Natural)
-searchProvisionedProducts_pageSize = Lens.lens (\SearchProvisionedProducts' {pageSize} -> pageSize) (\s@SearchProvisionedProducts' {} a -> s {pageSize = a} :: SearchProvisionedProducts)
-
--- | The sort field. If no value is specified, the results are not sorted.
--- The valid values are @arn@, @id@, @name@, and @lastRecordId@.
-searchProvisionedProducts_sortBy :: Lens.Lens' SearchProvisionedProducts (Prelude.Maybe Prelude.Text)
-searchProvisionedProducts_sortBy = Lens.lens (\SearchProvisionedProducts' {sortBy} -> sortBy) (\s@SearchProvisionedProducts' {} a -> s {sortBy = a} :: SearchProvisionedProducts)
-
 instance Core.AWSRequest SearchProvisionedProducts where
   type
     AWSResponse SearchProvisionedProducts =
@@ -198,32 +198,32 @@ instance Core.AWSRequest SearchProvisionedProducts where
       ( \s h x ->
           SearchProvisionedProductsResponse'
             Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Core..?> "TotalResultsCount")
             Prelude.<*> ( x Core..?> "ProvisionedProducts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "TotalResultsCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SearchProvisionedProducts where
   hashWithSalt _salt SearchProvisionedProducts' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` acceptLanguage
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` accessLevelFilter
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` acceptLanguage
 
 instance Prelude.NFData SearchProvisionedProducts where
   rnf SearchProvisionedProducts' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf acceptLanguage
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf accessLevelFilter
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders SearchProvisionedProducts where
   toHeaders =
@@ -244,15 +244,15 @@ instance Core.ToJSON SearchProvisionedProducts where
   toJSON SearchProvisionedProducts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("AccessLevelFilter" Core..=)
               Prelude.<$> accessLevelFilter,
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("PageToken" Core..=) Prelude.<$> pageToken,
             ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 
@@ -267,10 +267,10 @@ data SearchProvisionedProductsResponse = SearchProvisionedProductsResponse'
   { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the provisioned products.
-    provisionedProducts :: Prelude.Maybe [ProvisionedProductAttribute],
     -- | The number of provisioned products found.
     totalResultsCount :: Prelude.Maybe Prelude.Int,
+    -- | Information about the provisioned products.
+    provisionedProducts :: Prelude.Maybe [ProvisionedProductAttribute],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -287,9 +287,9 @@ data SearchProvisionedProductsResponse = SearchProvisionedProductsResponse'
 -- 'nextPageToken', 'searchProvisionedProductsResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 --
--- 'provisionedProducts', 'searchProvisionedProductsResponse_provisionedProducts' - Information about the provisioned products.
---
 -- 'totalResultsCount', 'searchProvisionedProductsResponse_totalResultsCount' - The number of provisioned products found.
+--
+-- 'provisionedProducts', 'searchProvisionedProductsResponse_provisionedProducts' - Information about the provisioned products.
 --
 -- 'httpStatus', 'searchProvisionedProductsResponse_httpStatus' - The response's http status code.
 newSearchProvisionedProductsResponse ::
@@ -300,8 +300,8 @@ newSearchProvisionedProductsResponse pHttpStatus_ =
   SearchProvisionedProductsResponse'
     { nextPageToken =
         Prelude.Nothing,
-      provisionedProducts = Prelude.Nothing,
       totalResultsCount = Prelude.Nothing,
+      provisionedProducts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -310,13 +310,13 @@ newSearchProvisionedProductsResponse pHttpStatus_ =
 searchProvisionedProductsResponse_nextPageToken :: Lens.Lens' SearchProvisionedProductsResponse (Prelude.Maybe Prelude.Text)
 searchProvisionedProductsResponse_nextPageToken = Lens.lens (\SearchProvisionedProductsResponse' {nextPageToken} -> nextPageToken) (\s@SearchProvisionedProductsResponse' {} a -> s {nextPageToken = a} :: SearchProvisionedProductsResponse)
 
--- | Information about the provisioned products.
-searchProvisionedProductsResponse_provisionedProducts :: Lens.Lens' SearchProvisionedProductsResponse (Prelude.Maybe [ProvisionedProductAttribute])
-searchProvisionedProductsResponse_provisionedProducts = Lens.lens (\SearchProvisionedProductsResponse' {provisionedProducts} -> provisionedProducts) (\s@SearchProvisionedProductsResponse' {} a -> s {provisionedProducts = a} :: SearchProvisionedProductsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The number of provisioned products found.
 searchProvisionedProductsResponse_totalResultsCount :: Lens.Lens' SearchProvisionedProductsResponse (Prelude.Maybe Prelude.Int)
 searchProvisionedProductsResponse_totalResultsCount = Lens.lens (\SearchProvisionedProductsResponse' {totalResultsCount} -> totalResultsCount) (\s@SearchProvisionedProductsResponse' {} a -> s {totalResultsCount = a} :: SearchProvisionedProductsResponse)
+
+-- | Information about the provisioned products.
+searchProvisionedProductsResponse_provisionedProducts :: Lens.Lens' SearchProvisionedProductsResponse (Prelude.Maybe [ProvisionedProductAttribute])
+searchProvisionedProductsResponse_provisionedProducts = Lens.lens (\SearchProvisionedProductsResponse' {provisionedProducts} -> provisionedProducts) (\s@SearchProvisionedProductsResponse' {} a -> s {provisionedProducts = a} :: SearchProvisionedProductsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 searchProvisionedProductsResponse_httpStatus :: Lens.Lens' SearchProvisionedProductsResponse Prelude.Int
@@ -328,6 +328,6 @@ instance
   where
   rnf SearchProvisionedProductsResponse' {..} =
     Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf provisionedProducts
       `Prelude.seq` Prelude.rnf totalResultsCount
+      `Prelude.seq` Prelude.rnf provisionedProducts
       `Prelude.seq` Prelude.rnf httpStatus

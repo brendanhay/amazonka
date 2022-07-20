@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentRunAgent' smart constructor.
 data AssessmentRunAgent = AssessmentRunAgent'
-  { -- | The Auto Scaling group of the EC2 instance that is specified by the
+  { -- | The description for the agent health code.
+    agentHealthDetails :: Prelude.Maybe Prelude.Text,
+    -- | The Auto Scaling group of the EC2 instance that is specified by the
     -- agent ID.
     autoScalingGroup :: Prelude.Maybe Prelude.Text,
-    -- | The description for the agent health code.
-    agentHealthDetails :: Prelude.Maybe Prelude.Text,
     -- | The AWS account of the EC2 instance where the agent is installed.
     agentId :: Prelude.Text,
     -- | The ARN of the assessment run that is associated with the agent.
@@ -58,10 +58,10 @@ data AssessmentRunAgent = AssessmentRunAgent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'agentHealthDetails', 'assessmentRunAgent_agentHealthDetails' - The description for the agent health code.
+--
 -- 'autoScalingGroup', 'assessmentRunAgent_autoScalingGroup' - The Auto Scaling group of the EC2 instance that is specified by the
 -- agent ID.
---
--- 'agentHealthDetails', 'assessmentRunAgent_agentHealthDetails' - The description for the agent health code.
 --
 -- 'agentId', 'assessmentRunAgent_agentId' - The AWS account of the EC2 instance where the agent is installed.
 --
@@ -89,9 +89,9 @@ newAssessmentRunAgent
   pAgentHealth_
   pAgentHealthCode_ =
     AssessmentRunAgent'
-      { autoScalingGroup =
+      { agentHealthDetails =
           Prelude.Nothing,
-        agentHealthDetails = Prelude.Nothing,
+        autoScalingGroup = Prelude.Nothing,
         agentId = pAgentId_,
         assessmentRunArn = pAssessmentRunArn_,
         agentHealth = pAgentHealth_,
@@ -99,14 +99,14 @@ newAssessmentRunAgent
         telemetryMetadata = Prelude.mempty
       }
 
+-- | The description for the agent health code.
+assessmentRunAgent_agentHealthDetails :: Lens.Lens' AssessmentRunAgent (Prelude.Maybe Prelude.Text)
+assessmentRunAgent_agentHealthDetails = Lens.lens (\AssessmentRunAgent' {agentHealthDetails} -> agentHealthDetails) (\s@AssessmentRunAgent' {} a -> s {agentHealthDetails = a} :: AssessmentRunAgent)
+
 -- | The Auto Scaling group of the EC2 instance that is specified by the
 -- agent ID.
 assessmentRunAgent_autoScalingGroup :: Lens.Lens' AssessmentRunAgent (Prelude.Maybe Prelude.Text)
 assessmentRunAgent_autoScalingGroup = Lens.lens (\AssessmentRunAgent' {autoScalingGroup} -> autoScalingGroup) (\s@AssessmentRunAgent' {} a -> s {autoScalingGroup = a} :: AssessmentRunAgent)
-
--- | The description for the agent health code.
-assessmentRunAgent_agentHealthDetails :: Lens.Lens' AssessmentRunAgent (Prelude.Maybe Prelude.Text)
-assessmentRunAgent_agentHealthDetails = Lens.lens (\AssessmentRunAgent' {agentHealthDetails} -> agentHealthDetails) (\s@AssessmentRunAgent' {} a -> s {agentHealthDetails = a} :: AssessmentRunAgent)
 
 -- | The AWS account of the EC2 instance where the agent is installed.
 assessmentRunAgent_agentId :: Lens.Lens' AssessmentRunAgent Prelude.Text
@@ -135,8 +135,8 @@ instance Core.FromJSON AssessmentRunAgent where
       "AssessmentRunAgent"
       ( \x ->
           AssessmentRunAgent'
-            Prelude.<$> (x Core..:? "autoScalingGroup")
-            Prelude.<*> (x Core..:? "agentHealthDetails")
+            Prelude.<$> (x Core..:? "agentHealthDetails")
+            Prelude.<*> (x Core..:? "autoScalingGroup")
             Prelude.<*> (x Core..: "agentId")
             Prelude.<*> (x Core..: "assessmentRunArn")
             Prelude.<*> (x Core..: "agentHealth")
@@ -148,8 +148,8 @@ instance Core.FromJSON AssessmentRunAgent where
 
 instance Prelude.Hashable AssessmentRunAgent where
   hashWithSalt _salt AssessmentRunAgent' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroup
-      `Prelude.hashWithSalt` agentHealthDetails
+    _salt `Prelude.hashWithSalt` agentHealthDetails
+      `Prelude.hashWithSalt` autoScalingGroup
       `Prelude.hashWithSalt` agentId
       `Prelude.hashWithSalt` assessmentRunArn
       `Prelude.hashWithSalt` agentHealth
@@ -158,8 +158,8 @@ instance Prelude.Hashable AssessmentRunAgent where
 
 instance Prelude.NFData AssessmentRunAgent where
   rnf AssessmentRunAgent' {..} =
-    Prelude.rnf autoScalingGroup
-      `Prelude.seq` Prelude.rnf agentHealthDetails
+    Prelude.rnf agentHealthDetails
+      `Prelude.seq` Prelude.rnf autoScalingGroup
       `Prelude.seq` Prelude.rnf agentId
       `Prelude.seq` Prelude.rnf assessmentRunArn
       `Prelude.seq` Prelude.rnf agentHealth

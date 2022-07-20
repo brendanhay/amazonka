@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCategory' smart constructor.
 data Category = Category'
-  { -- | The name of the skill store category.
-    categoryName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the skill store category.
-    categoryId :: Prelude.Maybe Prelude.Natural
+  { -- | The ID of the skill store category.
+    categoryId :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the skill store category.
+    categoryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Category = Category'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'categoryName', 'category_categoryName' - The name of the skill store category.
---
 -- 'categoryId', 'category_categoryId' - The ID of the skill store category.
+--
+-- 'categoryName', 'category_categoryName' - The name of the skill store category.
 newCategory ::
   Category
 newCategory =
   Category'
-    { categoryName = Prelude.Nothing,
-      categoryId = Prelude.Nothing
+    { categoryId = Prelude.Nothing,
+      categoryName = Prelude.Nothing
     }
-
--- | The name of the skill store category.
-category_categoryName :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
-category_categoryName = Lens.lens (\Category' {categoryName} -> categoryName) (\s@Category' {} a -> s {categoryName = a} :: Category)
 
 -- | The ID of the skill store category.
 category_categoryId :: Lens.Lens' Category (Prelude.Maybe Prelude.Natural)
 category_categoryId = Lens.lens (\Category' {categoryId} -> categoryId) (\s@Category' {} a -> s {categoryId = a} :: Category)
+
+-- | The name of the skill store category.
+category_categoryName :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
+category_categoryName = Lens.lens (\Category' {categoryName} -> categoryName) (\s@Category' {} a -> s {categoryName = a} :: Category)
 
 instance Core.FromJSON Category where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON Category where
       "Category"
       ( \x ->
           Category'
-            Prelude.<$> (x Core..:? "CategoryName")
-            Prelude.<*> (x Core..:? "CategoryId")
+            Prelude.<$> (x Core..:? "CategoryId")
+            Prelude.<*> (x Core..:? "CategoryName")
       )
 
 instance Prelude.Hashable Category where
   hashWithSalt _salt Category' {..} =
-    _salt `Prelude.hashWithSalt` categoryName
-      `Prelude.hashWithSalt` categoryId
+    _salt `Prelude.hashWithSalt` categoryId
+      `Prelude.hashWithSalt` categoryName
 
 instance Prelude.NFData Category where
   rnf Category' {..} =
-    Prelude.rnf categoryName
-      `Prelude.seq` Prelude.rnf categoryId
+    Prelude.rnf categoryId
+      `Prelude.seq` Prelude.rnf categoryName

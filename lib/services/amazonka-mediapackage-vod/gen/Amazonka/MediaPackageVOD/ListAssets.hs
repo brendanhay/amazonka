@@ -29,8 +29,8 @@ module Amazonka.MediaPackageVOD.ListAssets
     newListAssets,
 
     -- * Request Lenses
-    listAssets_packagingGroupId,
     listAssets_nextToken,
+    listAssets_packagingGroupId,
     listAssets_maxResults,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssets' smart constructor.
 data ListAssets = ListAssets'
-  { -- | Returns Assets associated with the specified PackagingGroup.
-    packagingGroupId :: Prelude.Maybe Prelude.Text,
-    -- | A token used to resume pagination from the end of a previous request.
+  { -- | A token used to resume pagination from the end of a previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns Assets associated with the specified PackagingGroup.
+    packagingGroupId :: Prelude.Maybe Prelude.Text,
     -- | Upper bound on number of records to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -70,27 +70,27 @@ data ListAssets = ListAssets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packagingGroupId', 'listAssets_packagingGroupId' - Returns Assets associated with the specified PackagingGroup.
---
 -- 'nextToken', 'listAssets_nextToken' - A token used to resume pagination from the end of a previous request.
+--
+-- 'packagingGroupId', 'listAssets_packagingGroupId' - Returns Assets associated with the specified PackagingGroup.
 --
 -- 'maxResults', 'listAssets_maxResults' - Upper bound on number of records to return.
 newListAssets ::
   ListAssets
 newListAssets =
   ListAssets'
-    { packagingGroupId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      packagingGroupId = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Returns Assets associated with the specified PackagingGroup.
-listAssets_packagingGroupId :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
-listAssets_packagingGroupId = Lens.lens (\ListAssets' {packagingGroupId} -> packagingGroupId) (\s@ListAssets' {} a -> s {packagingGroupId = a} :: ListAssets)
 
 -- | A token used to resume pagination from the end of a previous request.
 listAssets_nextToken :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
 listAssets_nextToken = Lens.lens (\ListAssets' {nextToken} -> nextToken) (\s@ListAssets' {} a -> s {nextToken = a} :: ListAssets)
+
+-- | Returns Assets associated with the specified PackagingGroup.
+listAssets_packagingGroupId :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
+listAssets_packagingGroupId = Lens.lens (\ListAssets' {packagingGroupId} -> packagingGroupId) (\s@ListAssets' {} a -> s {packagingGroupId = a} :: ListAssets)
 
 -- | Upper bound on number of records to return.
 listAssets_maxResults :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Natural)
@@ -129,14 +129,14 @@ instance Core.AWSRequest ListAssets where
 
 instance Prelude.Hashable ListAssets where
   hashWithSalt _salt ListAssets' {..} =
-    _salt `Prelude.hashWithSalt` packagingGroupId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` packagingGroupId
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAssets where
   rnf ListAssets' {..} =
-    Prelude.rnf packagingGroupId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf packagingGroupId
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssets where
@@ -156,8 +156,8 @@ instance Core.ToPath ListAssets where
 instance Core.ToQuery ListAssets where
   toQuery ListAssets' {..} =
     Prelude.mconcat
-      [ "packagingGroupId" Core.=: packagingGroupId,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "packagingGroupId" Core.=: packagingGroupId,
         "maxResults" Core.=: maxResults
       ]
 

@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelationalDatabaseEvent' smart constructor.
 data RelationalDatabaseEvent = RelationalDatabaseEvent'
-  { -- | The timestamp when the database event was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The message of the database event.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The category that the database event belongs to.
     eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | The timestamp when the database event was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The database that the database event relates to.
-    resource :: Prelude.Maybe Prelude.Text,
-    -- | The message of the database event.
-    message :: Prelude.Maybe Prelude.Text
+    resource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,39 +46,38 @@ data RelationalDatabaseEvent = RelationalDatabaseEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'relationalDatabaseEvent_createdAt' - The timestamp when the database event was created.
+-- 'message', 'relationalDatabaseEvent_message' - The message of the database event.
 --
 -- 'eventCategories', 'relationalDatabaseEvent_eventCategories' - The category that the database event belongs to.
 --
--- 'resource', 'relationalDatabaseEvent_resource' - The database that the database event relates to.
+-- 'createdAt', 'relationalDatabaseEvent_createdAt' - The timestamp when the database event was created.
 --
--- 'message', 'relationalDatabaseEvent_message' - The message of the database event.
+-- 'resource', 'relationalDatabaseEvent_resource' - The database that the database event relates to.
 newRelationalDatabaseEvent ::
   RelationalDatabaseEvent
 newRelationalDatabaseEvent =
   RelationalDatabaseEvent'
-    { createdAt =
-        Prelude.Nothing,
+    { message = Prelude.Nothing,
       eventCategories = Prelude.Nothing,
-      resource = Prelude.Nothing,
-      message = Prelude.Nothing
+      createdAt = Prelude.Nothing,
+      resource = Prelude.Nothing
     }
 
--- | The timestamp when the database event was created.
-relationalDatabaseEvent_createdAt :: Lens.Lens' RelationalDatabaseEvent (Prelude.Maybe Prelude.UTCTime)
-relationalDatabaseEvent_createdAt = Lens.lens (\RelationalDatabaseEvent' {createdAt} -> createdAt) (\s@RelationalDatabaseEvent' {} a -> s {createdAt = a} :: RelationalDatabaseEvent) Prelude.. Lens.mapping Core._Time
+-- | The message of the database event.
+relationalDatabaseEvent_message :: Lens.Lens' RelationalDatabaseEvent (Prelude.Maybe Prelude.Text)
+relationalDatabaseEvent_message = Lens.lens (\RelationalDatabaseEvent' {message} -> message) (\s@RelationalDatabaseEvent' {} a -> s {message = a} :: RelationalDatabaseEvent)
 
 -- | The category that the database event belongs to.
 relationalDatabaseEvent_eventCategories :: Lens.Lens' RelationalDatabaseEvent (Prelude.Maybe [Prelude.Text])
 relationalDatabaseEvent_eventCategories = Lens.lens (\RelationalDatabaseEvent' {eventCategories} -> eventCategories) (\s@RelationalDatabaseEvent' {} a -> s {eventCategories = a} :: RelationalDatabaseEvent) Prelude.. Lens.mapping Lens.coerced
 
+-- | The timestamp when the database event was created.
+relationalDatabaseEvent_createdAt :: Lens.Lens' RelationalDatabaseEvent (Prelude.Maybe Prelude.UTCTime)
+relationalDatabaseEvent_createdAt = Lens.lens (\RelationalDatabaseEvent' {createdAt} -> createdAt) (\s@RelationalDatabaseEvent' {} a -> s {createdAt = a} :: RelationalDatabaseEvent) Prelude.. Lens.mapping Core._Time
+
 -- | The database that the database event relates to.
 relationalDatabaseEvent_resource :: Lens.Lens' RelationalDatabaseEvent (Prelude.Maybe Prelude.Text)
 relationalDatabaseEvent_resource = Lens.lens (\RelationalDatabaseEvent' {resource} -> resource) (\s@RelationalDatabaseEvent' {} a -> s {resource = a} :: RelationalDatabaseEvent)
-
--- | The message of the database event.
-relationalDatabaseEvent_message :: Lens.Lens' RelationalDatabaseEvent (Prelude.Maybe Prelude.Text)
-relationalDatabaseEvent_message = Lens.lens (\RelationalDatabaseEvent' {message} -> message) (\s@RelationalDatabaseEvent' {} a -> s {message = a} :: RelationalDatabaseEvent)
 
 instance Core.FromJSON RelationalDatabaseEvent where
   parseJSON =
@@ -86,24 +85,24 @@ instance Core.FromJSON RelationalDatabaseEvent where
       "RelationalDatabaseEvent"
       ( \x ->
           RelationalDatabaseEvent'
-            Prelude.<$> (x Core..:? "createdAt")
+            Prelude.<$> (x Core..:? "message")
             Prelude.<*> ( x Core..:? "eventCategories"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "resource")
-            Prelude.<*> (x Core..:? "message")
       )
 
 instance Prelude.Hashable RelationalDatabaseEvent where
   hashWithSalt _salt RelationalDatabaseEvent' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` resource
-      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData RelationalDatabaseEvent where
   rnf RelationalDatabaseEvent' {..} =
-    Prelude.rnf createdAt
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf message

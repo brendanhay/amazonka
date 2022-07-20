@@ -14,56 +14,28 @@
 module Amazonka.Panorama.Lens
   ( -- * Operations
 
-    -- ** UpdateDeviceMetadata
-    updateDeviceMetadata_description,
-    updateDeviceMetadata_deviceId,
-    updateDeviceMetadataResponse_deviceId,
-    updateDeviceMetadataResponse_httpStatus,
-
-    -- ** DescribeApplicationInstanceDetails
-    describeApplicationInstanceDetails_applicationInstanceId,
-    describeApplicationInstanceDetailsResponse_createdTime,
-    describeApplicationInstanceDetailsResponse_defaultRuntimeContextDevice,
-    describeApplicationInstanceDetailsResponse_manifestOverridesPayload,
-    describeApplicationInstanceDetailsResponse_name,
-    describeApplicationInstanceDetailsResponse_applicationInstanceId,
-    describeApplicationInstanceDetailsResponse_description,
-    describeApplicationInstanceDetailsResponse_manifestPayload,
-    describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace,
-    describeApplicationInstanceDetailsResponse_httpStatus,
-
     -- ** CreateApplicationInstance
-    createApplicationInstance_manifestOverridesPayload,
-    createApplicationInstance_name,
-    createApplicationInstance_runtimeRoleArn,
-    createApplicationInstance_description,
     createApplicationInstance_tags,
+    createApplicationInstance_name,
     createApplicationInstance_applicationInstanceIdToReplace,
+    createApplicationInstance_manifestOverridesPayload,
+    createApplicationInstance_description,
+    createApplicationInstance_runtimeRoleArn,
     createApplicationInstance_manifestPayload,
     createApplicationInstance_defaultRuntimeContextDevice,
     createApplicationInstanceResponse_httpStatus,
     createApplicationInstanceResponse_applicationInstanceId,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** RemoveApplicationInstance
-    removeApplicationInstance_applicationInstanceId,
-    removeApplicationInstanceResponse_httpStatus,
-
-    -- ** ListDevicesJobs
-    listDevicesJobs_nextToken,
-    listDevicesJobs_deviceId,
-    listDevicesJobs_maxResults,
-    listDevicesJobsResponse_nextToken,
-    listDevicesJobsResponse_deviceJobs,
-    listDevicesJobsResponse_httpStatus,
+    -- ** CreateJobForDevices
+    createJobForDevices_deviceIds,
+    createJobForDevices_deviceJobConfig,
+    createJobForDevices_jobType,
+    createJobForDevicesResponse_httpStatus,
+    createJobForDevicesResponse_jobs,
 
     -- ** CreateNodeFromTemplateJob
-    createNodeFromTemplateJob_jobTags,
     createNodeFromTemplateJob_nodeDescription,
+    createNodeFromTemplateJob_jobTags,
     createNodeFromTemplateJob_templateType,
     createNodeFromTemplateJob_outputPackageName,
     createNodeFromTemplateJob_outputPackageVersion,
@@ -72,62 +44,13 @@ module Amazonka.Panorama.Lens
     createNodeFromTemplateJobResponse_httpStatus,
     createNodeFromTemplateJobResponse_jobId,
 
-    -- ** DeregisterPackageVersion
-    deregisterPackageVersion_updatedLatestPatchVersion,
-    deregisterPackageVersion_ownerAccount,
-    deregisterPackageVersion_packageId,
-    deregisterPackageVersion_packageVersion,
-    deregisterPackageVersion_patchVersion,
-    deregisterPackageVersionResponse_httpStatus,
-
-    -- ** ListPackages
-    listPackages_nextToken,
-    listPackages_maxResults,
-    listPackagesResponse_packages,
-    listPackagesResponse_nextToken,
-    listPackagesResponse_httpStatus,
-
-    -- ** DescribeApplicationInstance
-    describeApplicationInstance_applicationInstanceId,
-    describeApplicationInstanceResponse_status,
-    describeApplicationInstanceResponse_statusDescription,
-    describeApplicationInstanceResponse_lastUpdatedTime,
-    describeApplicationInstanceResponse_arn,
-    describeApplicationInstanceResponse_createdTime,
-    describeApplicationInstanceResponse_defaultRuntimeContextDevice,
-    describeApplicationInstanceResponse_defaultRuntimeContextDeviceName,
-    describeApplicationInstanceResponse_name,
-    describeApplicationInstanceResponse_runtimeRoleArn,
-    describeApplicationInstanceResponse_healthStatus,
-    describeApplicationInstanceResponse_applicationInstanceId,
-    describeApplicationInstanceResponse_description,
-    describeApplicationInstanceResponse_tags,
-    describeApplicationInstanceResponse_applicationInstanceIdToReplace,
-    describeApplicationInstanceResponse_httpStatus,
-
-    -- ** RegisterPackageVersion
-    registerPackageVersion_markLatest,
-    registerPackageVersion_ownerAccount,
-    registerPackageVersion_packageId,
-    registerPackageVersion_packageVersion,
-    registerPackageVersion_patchVersion,
-    registerPackageVersionResponse_httpStatus,
-
-    -- ** DescribeNodeFromTemplateJob
-    describeNodeFromTemplateJob_jobId,
-    describeNodeFromTemplateJobResponse_jobTags,
-    describeNodeFromTemplateJobResponse_nodeDescription,
-    describeNodeFromTemplateJobResponse_httpStatus,
-    describeNodeFromTemplateJobResponse_jobId,
-    describeNodeFromTemplateJobResponse_status,
-    describeNodeFromTemplateJobResponse_statusMessage,
-    describeNodeFromTemplateJobResponse_createdTime,
-    describeNodeFromTemplateJobResponse_lastUpdatedTime,
-    describeNodeFromTemplateJobResponse_outputPackageName,
-    describeNodeFromTemplateJobResponse_outputPackageVersion,
-    describeNodeFromTemplateJobResponse_nodeName,
-    describeNodeFromTemplateJobResponse_templateType,
-    describeNodeFromTemplateJobResponse_templateParameters,
+    -- ** CreatePackage
+    createPackage_tags,
+    createPackage_packageName,
+    createPackageResponse_arn,
+    createPackageResponse_packageId,
+    createPackageResponse_httpStatus,
+    createPackageResponse_storageLocation,
 
     -- ** CreatePackageImportJob
     createPackageImportJob_jobTags,
@@ -138,89 +61,84 @@ module Amazonka.Panorama.Lens
     createPackageImportJobResponse_httpStatus,
     createPackageImportJobResponse_jobId,
 
-    -- ** DescribePackage
-    describePackage_packageId,
-    describePackageResponse_writeAccessPrincipalArns,
-    describePackageResponse_readAccessPrincipalArns,
-    describePackageResponse_httpStatus,
-    describePackageResponse_packageId,
-    describePackageResponse_packageName,
-    describePackageResponse_arn,
-    describePackageResponse_storageLocation,
-    describePackageResponse_createdTime,
-    describePackageResponse_tags,
+    -- ** DeleteDevice
+    deleteDevice_deviceId,
+    deleteDeviceResponse_deviceId,
+    deleteDeviceResponse_httpStatus,
 
-    -- ** ListApplicationInstances
-    listApplicationInstances_nextToken,
-    listApplicationInstances_statusFilter,
-    listApplicationInstances_deviceId,
-    listApplicationInstances_maxResults,
-    listApplicationInstancesResponse_nextToken,
-    listApplicationInstancesResponse_applicationInstances,
-    listApplicationInstancesResponse_httpStatus,
+    -- ** DeletePackage
+    deletePackage_forceDelete,
+    deletePackage_packageId,
+    deletePackageResponse_httpStatus,
 
-    -- ** DescribeDeviceJob
-    describeDeviceJob_jobId,
-    describeDeviceJobResponse_status,
-    describeDeviceJobResponse_jobId,
-    describeDeviceJobResponse_createdTime,
-    describeDeviceJobResponse_deviceArn,
-    describeDeviceJobResponse_imageVersion,
-    describeDeviceJobResponse_deviceName,
-    describeDeviceJobResponse_deviceId,
-    describeDeviceJobResponse_deviceType,
-    describeDeviceJobResponse_httpStatus,
+    -- ** DeregisterPackageVersion
+    deregisterPackageVersion_updatedLatestPatchVersion,
+    deregisterPackageVersion_ownerAccount,
+    deregisterPackageVersion_packageId,
+    deregisterPackageVersion_packageVersion,
+    deregisterPackageVersion_patchVersion,
+    deregisterPackageVersionResponse_httpStatus,
 
-    -- ** DescribePackageImportJob
-    describePackageImportJob_jobId,
-    describePackageImportJobResponse_clientToken,
-    describePackageImportJobResponse_jobTags,
-    describePackageImportJobResponse_httpStatus,
-    describePackageImportJobResponse_jobId,
-    describePackageImportJobResponse_jobType,
-    describePackageImportJobResponse_inputConfig,
-    describePackageImportJobResponse_outputConfig,
-    describePackageImportJobResponse_output,
-    describePackageImportJobResponse_createdTime,
-    describePackageImportJobResponse_lastUpdatedTime,
-    describePackageImportJobResponse_status,
-    describePackageImportJobResponse_statusMessage,
+    -- ** DescribeApplicationInstance
+    describeApplicationInstance_applicationInstanceId,
+    describeApplicationInstanceResponse_tags,
+    describeApplicationInstanceResponse_statusDescription,
+    describeApplicationInstanceResponse_name,
+    describeApplicationInstanceResponse_createdTime,
+    describeApplicationInstanceResponse_defaultRuntimeContextDevice,
+    describeApplicationInstanceResponse_applicationInstanceIdToReplace,
+    describeApplicationInstanceResponse_healthStatus,
+    describeApplicationInstanceResponse_arn,
+    describeApplicationInstanceResponse_status,
+    describeApplicationInstanceResponse_lastUpdatedTime,
+    describeApplicationInstanceResponse_description,
+    describeApplicationInstanceResponse_applicationInstanceId,
+    describeApplicationInstanceResponse_runtimeRoleArn,
+    describeApplicationInstanceResponse_defaultRuntimeContextDeviceName,
+    describeApplicationInstanceResponse_httpStatus,
+
+    -- ** DescribeApplicationInstanceDetails
+    describeApplicationInstanceDetails_applicationInstanceId,
+    describeApplicationInstanceDetailsResponse_name,
+    describeApplicationInstanceDetailsResponse_createdTime,
+    describeApplicationInstanceDetailsResponse_defaultRuntimeContextDevice,
+    describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace,
+    describeApplicationInstanceDetailsResponse_manifestOverridesPayload,
+    describeApplicationInstanceDetailsResponse_manifestPayload,
+    describeApplicationInstanceDetailsResponse_description,
+    describeApplicationInstanceDetailsResponse_applicationInstanceId,
+    describeApplicationInstanceDetailsResponse_httpStatus,
 
     -- ** DescribeDevice
     describeDevice_deviceId,
+    describeDeviceResponse_tags,
+    describeDeviceResponse_currentNetworkingStatus,
+    describeDeviceResponse_name,
+    describeDeviceResponse_type,
+    describeDeviceResponse_createdTime,
+    describeDeviceResponse_leaseExpirationTime,
     describeDeviceResponse_latestSoftware,
     describeDeviceResponse_provisioningStatus,
-    describeDeviceResponse_arn,
-    describeDeviceResponse_createdTime,
-    describeDeviceResponse_currentSoftware,
-    describeDeviceResponse_name,
-    describeDeviceResponse_deviceConnectionStatus,
     describeDeviceResponse_deviceId,
-    describeDeviceResponse_type,
-    describeDeviceResponse_leaseExpirationTime,
-    describeDeviceResponse_serialNumber,
-    describeDeviceResponse_currentNetworkingStatus,
-    describeDeviceResponse_description,
     describeDeviceResponse_networkingConfiguration,
-    describeDeviceResponse_tags,
+    describeDeviceResponse_arn,
+    describeDeviceResponse_description,
+    describeDeviceResponse_deviceConnectionStatus,
+    describeDeviceResponse_serialNumber,
+    describeDeviceResponse_currentSoftware,
     describeDeviceResponse_httpStatus,
 
-    -- ** DescribePackageVersion
-    describePackageVersion_patchVersion,
-    describePackageVersion_ownerAccount,
-    describePackageVersion_packageId,
-    describePackageVersion_packageVersion,
-    describePackageVersionResponse_statusDescription,
-    describePackageVersionResponse_packageArn,
-    describePackageVersionResponse_registeredTime,
-    describePackageVersionResponse_ownerAccount,
-    describePackageVersionResponse_httpStatus,
-    describePackageVersionResponse_packageId,
-    describePackageVersionResponse_packageName,
-    describePackageVersionResponse_packageVersion,
-    describePackageVersionResponse_patchVersion,
-    describePackageVersionResponse_isLatestPatch,
-    describePackageVersionResponse_status,
+    -- ** DescribeDeviceJob
+    describeDeviceJob_jobId,
+    describeDeviceJobResponse_createdTime,
+    describeDeviceJobResponse_deviceId,
+    describeDeviceJobResponse_deviceName,
+    describeDeviceJobResponse_jobId,
+    describeDeviceJobResponse_status,
+    describeDeviceJobResponse_imageVersion,
+    describeDeviceJobResponse_deviceArn,
+    describeDeviceJobResponse_deviceType,
+    describeDeviceJobResponse_httpStatus,
 
     -- ** DescribeNode
     describeNode_ownerAccount,
@@ -241,24 +159,72 @@ module Amazonka.Panorama.Lens
     describeNodeResponse_createdTime,
     describeNodeResponse_lastUpdatedTime,
 
-    -- ** ListNodeFromTemplateJobs
-    listNodeFromTemplateJobs_nextToken,
-    listNodeFromTemplateJobs_maxResults,
-    listNodeFromTemplateJobsResponse_nextToken,
-    listNodeFromTemplateJobsResponse_httpStatus,
-    listNodeFromTemplateJobsResponse_nodeFromTemplateJobs,
+    -- ** DescribeNodeFromTemplateJob
+    describeNodeFromTemplateJob_jobId,
+    describeNodeFromTemplateJobResponse_nodeDescription,
+    describeNodeFromTemplateJobResponse_jobTags,
+    describeNodeFromTemplateJobResponse_httpStatus,
+    describeNodeFromTemplateJobResponse_jobId,
+    describeNodeFromTemplateJobResponse_status,
+    describeNodeFromTemplateJobResponse_statusMessage,
+    describeNodeFromTemplateJobResponse_createdTime,
+    describeNodeFromTemplateJobResponse_lastUpdatedTime,
+    describeNodeFromTemplateJobResponse_outputPackageName,
+    describeNodeFromTemplateJobResponse_outputPackageVersion,
+    describeNodeFromTemplateJobResponse_nodeName,
+    describeNodeFromTemplateJobResponse_templateType,
+    describeNodeFromTemplateJobResponse_templateParameters,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** DescribePackage
+    describePackage_packageId,
+    describePackageResponse_writeAccessPrincipalArns,
+    describePackageResponse_readAccessPrincipalArns,
+    describePackageResponse_httpStatus,
+    describePackageResponse_packageId,
+    describePackageResponse_packageName,
+    describePackageResponse_arn,
+    describePackageResponse_storageLocation,
+    describePackageResponse_createdTime,
+    describePackageResponse_tags,
+
+    -- ** DescribePackageImportJob
+    describePackageImportJob_jobId,
+    describePackageImportJobResponse_clientToken,
+    describePackageImportJobResponse_jobTags,
+    describePackageImportJobResponse_httpStatus,
+    describePackageImportJobResponse_jobId,
+    describePackageImportJobResponse_jobType,
+    describePackageImportJobResponse_inputConfig,
+    describePackageImportJobResponse_outputConfig,
+    describePackageImportJobResponse_output,
+    describePackageImportJobResponse_createdTime,
+    describePackageImportJobResponse_lastUpdatedTime,
+    describePackageImportJobResponse_status,
+    describePackageImportJobResponse_statusMessage,
+
+    -- ** DescribePackageVersion
+    describePackageVersion_patchVersion,
+    describePackageVersion_ownerAccount,
+    describePackageVersion_packageId,
+    describePackageVersion_packageVersion,
+    describePackageVersionResponse_statusDescription,
+    describePackageVersionResponse_packageArn,
+    describePackageVersionResponse_registeredTime,
+    describePackageVersionResponse_ownerAccount,
+    describePackageVersionResponse_httpStatus,
+    describePackageVersionResponse_packageId,
+    describePackageVersionResponse_packageName,
+    describePackageVersionResponse_packageVersion,
+    describePackageVersionResponse_patchVersion,
+    describePackageVersionResponse_isLatestPatch,
+    describePackageVersionResponse_status,
 
     -- ** ListApplicationInstanceDependencies
     listApplicationInstanceDependencies_nextToken,
     listApplicationInstanceDependencies_maxResults,
     listApplicationInstanceDependencies_applicationInstanceId,
-    listApplicationInstanceDependenciesResponse_packageObjects,
     listApplicationInstanceDependenciesResponse_nextToken,
+    listApplicationInstanceDependenciesResponse_packageObjects,
     listApplicationInstanceDependenciesResponse_httpStatus,
 
     -- ** ListApplicationInstanceNodeInstances
@@ -269,59 +235,14 @@ module Amazonka.Panorama.Lens
     listApplicationInstanceNodeInstancesResponse_nodeInstances,
     listApplicationInstanceNodeInstancesResponse_httpStatus,
 
-    -- ** CreateJobForDevices
-    createJobForDevices_deviceIds,
-    createJobForDevices_deviceJobConfig,
-    createJobForDevices_jobType,
-    createJobForDevicesResponse_httpStatus,
-    createJobForDevicesResponse_jobs,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** DeletePackage
-    deletePackage_forceDelete,
-    deletePackage_packageId,
-    deletePackageResponse_httpStatus,
-
-    -- ** CreatePackage
-    createPackage_tags,
-    createPackage_packageName,
-    createPackageResponse_packageId,
-    createPackageResponse_arn,
-    createPackageResponse_httpStatus,
-    createPackageResponse_storageLocation,
-
-    -- ** ProvisionDevice
-    provisionDevice_description,
-    provisionDevice_networkingConfiguration,
-    provisionDevice_tags,
-    provisionDevice_name,
-    provisionDeviceResponse_certificates,
-    provisionDeviceResponse_deviceId,
-    provisionDeviceResponse_iotThingName,
-    provisionDeviceResponse_httpStatus,
-    provisionDeviceResponse_arn,
-    provisionDeviceResponse_status,
-
-    -- ** DeleteDevice
-    deleteDevice_deviceId,
-    deleteDeviceResponse_deviceId,
-    deleteDeviceResponse_httpStatus,
-
-    -- ** ListNodes
-    listNodes_patchVersion,
-    listNodes_packageName,
-    listNodes_packageVersion,
-    listNodes_category,
-    listNodes_nextToken,
-    listNodes_ownerAccount,
-    listNodes_maxResults,
-    listNodesResponse_nextToken,
-    listNodesResponse_nodes,
-    listNodesResponse_httpStatus,
+    -- ** ListApplicationInstances
+    listApplicationInstances_nextToken,
+    listApplicationInstances_deviceId,
+    listApplicationInstances_maxResults,
+    listApplicationInstances_statusFilter,
+    listApplicationInstancesResponse_nextToken,
+    listApplicationInstancesResponse_applicationInstances,
+    listApplicationInstancesResponse_httpStatus,
 
     -- ** ListDevices
     listDevices_nextToken,
@@ -330,6 +251,33 @@ module Amazonka.Panorama.Lens
     listDevicesResponse_httpStatus,
     listDevicesResponse_devices,
 
+    -- ** ListDevicesJobs
+    listDevicesJobs_nextToken,
+    listDevicesJobs_deviceId,
+    listDevicesJobs_maxResults,
+    listDevicesJobsResponse_nextToken,
+    listDevicesJobsResponse_deviceJobs,
+    listDevicesJobsResponse_httpStatus,
+
+    -- ** ListNodeFromTemplateJobs
+    listNodeFromTemplateJobs_nextToken,
+    listNodeFromTemplateJobs_maxResults,
+    listNodeFromTemplateJobsResponse_nextToken,
+    listNodeFromTemplateJobsResponse_httpStatus,
+    listNodeFromTemplateJobsResponse_nodeFromTemplateJobs,
+
+    -- ** ListNodes
+    listNodes_nextToken,
+    listNodes_packageName,
+    listNodes_packageVersion,
+    listNodes_maxResults,
+    listNodes_category,
+    listNodes_patchVersion,
+    listNodes_ownerAccount,
+    listNodesResponse_nextToken,
+    listNodesResponse_nodes,
+    listNodesResponse_httpStatus,
+
     -- ** ListPackageImportJobs
     listPackageImportJobs_nextToken,
     listPackageImportJobs_maxResults,
@@ -337,34 +285,86 @@ module Amazonka.Panorama.Lens
     listPackageImportJobsResponse_httpStatus,
     listPackageImportJobsResponse_packageImportJobs,
 
+    -- ** ListPackages
+    listPackages_nextToken,
+    listPackages_maxResults,
+    listPackagesResponse_nextToken,
+    listPackagesResponse_packages,
+    listPackagesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ProvisionDevice
+    provisionDevice_tags,
+    provisionDevice_networkingConfiguration,
+    provisionDevice_description,
+    provisionDevice_name,
+    provisionDeviceResponse_deviceId,
+    provisionDeviceResponse_iotThingName,
+    provisionDeviceResponse_certificates,
+    provisionDeviceResponse_httpStatus,
+    provisionDeviceResponse_arn,
+    provisionDeviceResponse_status,
+
+    -- ** RegisterPackageVersion
+    registerPackageVersion_ownerAccount,
+    registerPackageVersion_markLatest,
+    registerPackageVersion_packageId,
+    registerPackageVersion_packageVersion,
+    registerPackageVersion_patchVersion,
+    registerPackageVersionResponse_httpStatus,
+
+    -- ** RemoveApplicationInstance
+    removeApplicationInstance_applicationInstanceId,
+    removeApplicationInstanceResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateDeviceMetadata
+    updateDeviceMetadata_description,
+    updateDeviceMetadata_deviceId,
+    updateDeviceMetadataResponse_deviceId,
+    updateDeviceMetadataResponse_httpStatus,
+
     -- * Types
 
     -- ** ApplicationInstance
-    applicationInstance_status,
+    applicationInstance_tags,
     applicationInstance_statusDescription,
-    applicationInstance_arn,
+    applicationInstance_name,
     applicationInstance_createdTime,
     applicationInstance_defaultRuntimeContextDevice,
-    applicationInstance_defaultRuntimeContextDeviceName,
-    applicationInstance_name,
     applicationInstance_healthStatus,
-    applicationInstance_applicationInstanceId,
+    applicationInstance_arn,
+    applicationInstance_status,
     applicationInstance_description,
-    applicationInstance_tags,
+    applicationInstance_applicationInstanceId,
+    applicationInstance_defaultRuntimeContextDeviceName,
 
     -- ** Device
-    device_lastUpdatedTime,
-    device_provisioningStatus,
-    device_createdTime,
     device_name,
-    device_deviceId,
+    device_createdTime,
     device_leaseExpirationTime,
+    device_provisioningStatus,
+    device_deviceId,
+    device_lastUpdatedTime,
 
     -- ** DeviceJob
-    deviceJob_jobId,
     deviceJob_createdTime,
-    deviceJob_deviceName,
     deviceJob_deviceId,
+    deviceJob_deviceName,
+    deviceJob_jobId,
 
     -- ** DeviceJobConfig
     deviceJobConfig_oTAJobConfig,
@@ -374,13 +374,13 @@ module Amazonka.Panorama.Lens
     ethernetPayload_connectionType,
 
     -- ** EthernetStatus
-    ethernetStatus_ipAddress,
-    ethernetStatus_connectionStatus,
     ethernetStatus_hwAddress,
+    ethernetStatus_connectionStatus,
+    ethernetStatus_ipAddress,
 
     -- ** Job
-    job_jobId,
     job_deviceId,
+    job_jobId,
 
     -- ** JobResourceTags
     jobResourceTags_resourceType,
@@ -393,17 +393,17 @@ module Amazonka.Panorama.Lens
     manifestPayload_payloadData,
 
     -- ** NetworkPayload
-    networkPayload_ethernet1,
     networkPayload_ethernet0,
+    networkPayload_ethernet1,
 
     -- ** NetworkStatus
-    networkStatus_ethernet1Status,
     networkStatus_ethernet0Status,
+    networkStatus_ethernet1Status,
 
     -- ** Node
     node_packageArn,
-    node_ownerAccount,
     node_description,
+    node_ownerAccount,
     node_nodeId,
     node_name,
     node_category,
@@ -414,26 +414,26 @@ module Amazonka.Panorama.Lens
     node_createdTime,
 
     -- ** NodeFromTemplateJob
-    nodeFromTemplateJob_status,
-    nodeFromTemplateJob_jobId,
-    nodeFromTemplateJob_createdTime,
     nodeFromTemplateJob_templateType,
+    nodeFromTemplateJob_createdTime,
+    nodeFromTemplateJob_jobId,
+    nodeFromTemplateJob_status,
     nodeFromTemplateJob_nodeName,
     nodeFromTemplateJob_statusMessage,
 
     -- ** NodeInputPort
-    nodeInputPort_maxConnections,
     nodeInputPort_name,
-    nodeInputPort_defaultValue,
     nodeInputPort_type,
+    nodeInputPort_defaultValue,
     nodeInputPort_description,
+    nodeInputPort_maxConnections,
 
     -- ** NodeInstance
-    nodeInstance_packageName,
-    nodeInstance_packageVersion,
-    nodeInstance_packagePatchVersion,
-    nodeInstance_nodeName,
     nodeInstance_nodeId,
+    nodeInstance_packageName,
+    nodeInstance_packagePatchVersion,
+    nodeInstance_packageVersion,
+    nodeInstance_nodeName,
     nodeInstance_nodeInstanceId,
     nodeInstance_currentStatus,
 
@@ -454,12 +454,12 @@ module Amazonka.Panorama.Lens
     outPutS3Location_objectKey,
 
     -- ** PackageImportJob
-    packageImportJob_status,
-    packageImportJob_jobType,
-    packageImportJob_lastUpdatedTime,
-    packageImportJob_jobId,
     packageImportJob_createdTime,
+    packageImportJob_jobId,
+    packageImportJob_status,
+    packageImportJob_lastUpdatedTime,
     packageImportJob_statusMessage,
+    packageImportJob_jobType,
 
     -- ** PackageImportJobInputConfig
     packageImportJobInputConfig_packageVersionInputConfig,
@@ -474,11 +474,11 @@ module Amazonka.Panorama.Lens
     packageImportJobOutputConfig_packageVersionOutputConfig,
 
     -- ** PackageListItem
-    packageListItem_packageId,
-    packageListItem_arn,
-    packageListItem_createdTime,
-    packageListItem_packageName,
     packageListItem_tags,
+    packageListItem_packageName,
+    packageListItem_createdTime,
+    packageListItem_arn,
+    packageListItem_packageId,
 
     -- ** PackageObject
     packageObject_name,

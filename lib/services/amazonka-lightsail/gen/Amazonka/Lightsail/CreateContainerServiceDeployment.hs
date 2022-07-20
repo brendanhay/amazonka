@@ -40,8 +40,8 @@ module Amazonka.Lightsail.CreateContainerServiceDeployment
     newCreateContainerServiceDeployment,
 
     -- * Request Lenses
-    createContainerServiceDeployment_publicEndpoint,
     createContainerServiceDeployment_containers,
+    createContainerServiceDeployment_publicEndpoint,
     createContainerServiceDeployment_serviceName,
 
     -- * Destructuring the Response
@@ -63,12 +63,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateContainerServiceDeployment' smart constructor.
 data CreateContainerServiceDeployment = CreateContainerServiceDeployment'
-  { -- | An object that describes the settings of the public endpoint for the
-    -- container service.
-    publicEndpoint :: Prelude.Maybe EndpointRequest,
-    -- | An object that describes the settings of the containers that will be
+  { -- | An object that describes the settings of the containers that will be
     -- launched on the container service.
     containers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Container),
+    -- | An object that describes the settings of the public endpoint for the
+    -- container service.
+    publicEndpoint :: Prelude.Maybe EndpointRequest,
     -- | The name of the container service for which to create the deployment.
     serviceName :: Prelude.Text
   }
@@ -82,11 +82,11 @@ data CreateContainerServiceDeployment = CreateContainerServiceDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publicEndpoint', 'createContainerServiceDeployment_publicEndpoint' - An object that describes the settings of the public endpoint for the
--- container service.
---
 -- 'containers', 'createContainerServiceDeployment_containers' - An object that describes the settings of the containers that will be
 -- launched on the container service.
+--
+-- 'publicEndpoint', 'createContainerServiceDeployment_publicEndpoint' - An object that describes the settings of the public endpoint for the
+-- container service.
 --
 -- 'serviceName', 'createContainerServiceDeployment_serviceName' - The name of the container service for which to create the deployment.
 newCreateContainerServiceDeployment ::
@@ -95,21 +95,21 @@ newCreateContainerServiceDeployment ::
   CreateContainerServiceDeployment
 newCreateContainerServiceDeployment pServiceName_ =
   CreateContainerServiceDeployment'
-    { publicEndpoint =
+    { containers =
         Prelude.Nothing,
-      containers = Prelude.Nothing,
+      publicEndpoint = Prelude.Nothing,
       serviceName = pServiceName_
     }
-
--- | An object that describes the settings of the public endpoint for the
--- container service.
-createContainerServiceDeployment_publicEndpoint :: Lens.Lens' CreateContainerServiceDeployment (Prelude.Maybe EndpointRequest)
-createContainerServiceDeployment_publicEndpoint = Lens.lens (\CreateContainerServiceDeployment' {publicEndpoint} -> publicEndpoint) (\s@CreateContainerServiceDeployment' {} a -> s {publicEndpoint = a} :: CreateContainerServiceDeployment)
 
 -- | An object that describes the settings of the containers that will be
 -- launched on the container service.
 createContainerServiceDeployment_containers :: Lens.Lens' CreateContainerServiceDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Container))
 createContainerServiceDeployment_containers = Lens.lens (\CreateContainerServiceDeployment' {containers} -> containers) (\s@CreateContainerServiceDeployment' {} a -> s {containers = a} :: CreateContainerServiceDeployment) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that describes the settings of the public endpoint for the
+-- container service.
+createContainerServiceDeployment_publicEndpoint :: Lens.Lens' CreateContainerServiceDeployment (Prelude.Maybe EndpointRequest)
+createContainerServiceDeployment_publicEndpoint = Lens.lens (\CreateContainerServiceDeployment' {publicEndpoint} -> publicEndpoint) (\s@CreateContainerServiceDeployment' {} a -> s {publicEndpoint = a} :: CreateContainerServiceDeployment)
 
 -- | The name of the container service for which to create the deployment.
 createContainerServiceDeployment_serviceName :: Lens.Lens' CreateContainerServiceDeployment Prelude.Text
@@ -138,8 +138,8 @@ instance
   hashWithSalt
     _salt
     CreateContainerServiceDeployment' {..} =
-      _salt `Prelude.hashWithSalt` publicEndpoint
-        `Prelude.hashWithSalt` containers
+      _salt `Prelude.hashWithSalt` containers
+        `Prelude.hashWithSalt` publicEndpoint
         `Prelude.hashWithSalt` serviceName
 
 instance
@@ -147,8 +147,8 @@ instance
     CreateContainerServiceDeployment
   where
   rnf CreateContainerServiceDeployment' {..} =
-    Prelude.rnf publicEndpoint
-      `Prelude.seq` Prelude.rnf containers
+    Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf publicEndpoint
       `Prelude.seq` Prelude.rnf serviceName
 
 instance
@@ -173,9 +173,9 @@ instance Core.ToJSON CreateContainerServiceDeployment where
   toJSON CreateContainerServiceDeployment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("publicEndpoint" Core..=)
+          [ ("containers" Core..=) Prelude.<$> containers,
+            ("publicEndpoint" Core..=)
               Prelude.<$> publicEndpoint,
-            ("containers" Core..=) Prelude.<$> containers,
             Prelude.Just ("serviceName" Core..= serviceName)
           ]
       )

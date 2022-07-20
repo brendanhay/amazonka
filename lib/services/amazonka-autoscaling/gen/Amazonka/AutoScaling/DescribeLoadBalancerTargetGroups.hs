@@ -63,8 +63,8 @@ module Amazonka.AutoScaling.DescribeLoadBalancerTargetGroups
     newDescribeLoadBalancerTargetGroupsResponse,
 
     -- * Response Lenses
-    describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups,
     describeLoadBalancerTargetGroupsResponse_nextToken,
+    describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups,
     describeLoadBalancerTargetGroupsResponse_httpStatus,
   )
 where
@@ -170,11 +170,11 @@ instance
       "DescribeLoadBalancerTargetGroupsResult"
       ( \s h x ->
           DescribeLoadBalancerTargetGroupsResponse'
-            Prelude.<$> ( x Core..@? "LoadBalancerTargetGroups"
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "LoadBalancerTargetGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -226,13 +226,13 @@ instance
 
 -- | /See:/ 'newDescribeLoadBalancerTargetGroupsResponse' smart constructor.
 data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroupsResponse'
-  { -- | Information about the target groups.
-    loadBalancerTargetGroups :: Prelude.Maybe [LoadBalancerTargetGroupState],
-    -- | A string that indicates that the response contains more items than can
+  { -- | A string that indicates that the response contains more items than can
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the target groups.
+    loadBalancerTargetGroups :: Prelude.Maybe [LoadBalancerTargetGroupState],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,12 +246,12 @@ data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroups
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loadBalancerTargetGroups', 'describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups' - Information about the target groups.
---
 -- 'nextToken', 'describeLoadBalancerTargetGroupsResponse_nextToken' - A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
+--
+-- 'loadBalancerTargetGroups', 'describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups' - Information about the target groups.
 --
 -- 'httpStatus', 'describeLoadBalancerTargetGroupsResponse_httpStatus' - The response's http status code.
 newDescribeLoadBalancerTargetGroupsResponse ::
@@ -261,15 +261,12 @@ newDescribeLoadBalancerTargetGroupsResponse ::
 newDescribeLoadBalancerTargetGroupsResponse
   pHttpStatus_ =
     DescribeLoadBalancerTargetGroupsResponse'
-      { loadBalancerTargetGroups =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        loadBalancerTargetGroups =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the target groups.
-describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse (Prelude.Maybe [LoadBalancerTargetGroupState])
-describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups = Lens.lens (\DescribeLoadBalancerTargetGroupsResponse' {loadBalancerTargetGroups} -> loadBalancerTargetGroups) (\s@DescribeLoadBalancerTargetGroupsResponse' {} a -> s {loadBalancerTargetGroups = a} :: DescribeLoadBalancerTargetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
@@ -277,6 +274,10 @@ describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups = Lens.lens (\
 -- items. This value is null when there are no more items to return.
 describeLoadBalancerTargetGroupsResponse_nextToken :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse (Prelude.Maybe Prelude.Text)
 describeLoadBalancerTargetGroupsResponse_nextToken = Lens.lens (\DescribeLoadBalancerTargetGroupsResponse' {nextToken} -> nextToken) (\s@DescribeLoadBalancerTargetGroupsResponse' {} a -> s {nextToken = a} :: DescribeLoadBalancerTargetGroupsResponse)
+
+-- | Information about the target groups.
+describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse (Prelude.Maybe [LoadBalancerTargetGroupState])
+describeLoadBalancerTargetGroupsResponse_loadBalancerTargetGroups = Lens.lens (\DescribeLoadBalancerTargetGroupsResponse' {loadBalancerTargetGroups} -> loadBalancerTargetGroups) (\s@DescribeLoadBalancerTargetGroupsResponse' {} a -> s {loadBalancerTargetGroups = a} :: DescribeLoadBalancerTargetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLoadBalancerTargetGroupsResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerTargetGroupsResponse Prelude.Int
@@ -287,6 +288,6 @@ instance
     DescribeLoadBalancerTargetGroupsResponse
   where
   rnf DescribeLoadBalancerTargetGroupsResponse' {..} =
-    Prelude.rnf loadBalancerTargetGroups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf loadBalancerTargetGroups
       `Prelude.seq` Prelude.rnf httpStatus

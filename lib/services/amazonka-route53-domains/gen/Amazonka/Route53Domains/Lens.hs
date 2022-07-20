@@ -14,38 +14,22 @@
 module Amazonka.Route53Domains.Lens
   ( -- * Operations
 
-    -- ** ListOperations
-    listOperations_marker,
-    listOperations_maxItems,
-    listOperations_submittedSince,
-    listOperationsResponse_nextPageMarker,
-    listOperationsResponse_httpStatus,
-    listOperationsResponse_operations,
+    -- ** AcceptDomainTransferFromAnotherAwsAccount
+    acceptDomainTransferFromAnotherAwsAccount_domainName,
+    acceptDomainTransferFromAnotherAwsAccount_password,
+    acceptDomainTransferFromAnotherAwsAccountResponse_operationId,
+    acceptDomainTransferFromAnotherAwsAccountResponse_httpStatus,
 
-    -- ** GetDomainDetail
-    getDomainDetail_domainName,
-    getDomainDetailResponse_techPrivacy,
-    getDomainDetailResponse_dnsSec,
-    getDomainDetailResponse_whoIsServer,
-    getDomainDetailResponse_registryDomainId,
-    getDomainDetailResponse_registrantPrivacy,
-    getDomainDetailResponse_updatedDate,
-    getDomainDetailResponse_adminPrivacy,
-    getDomainDetailResponse_autoRenew,
-    getDomainDetailResponse_abuseContactPhone,
-    getDomainDetailResponse_registrarUrl,
-    getDomainDetailResponse_abuseContactEmail,
-    getDomainDetailResponse_expirationDate,
-    getDomainDetailResponse_creationDate,
-    getDomainDetailResponse_registrarName,
-    getDomainDetailResponse_reseller,
-    getDomainDetailResponse_statusList,
-    getDomainDetailResponse_httpStatus,
-    getDomainDetailResponse_domainName,
-    getDomainDetailResponse_nameservers,
-    getDomainDetailResponse_adminContact,
-    getDomainDetailResponse_registrantContact,
-    getDomainDetailResponse_techContact,
+    -- ** CancelDomainTransferToAnotherAwsAccount
+    cancelDomainTransferToAnotherAwsAccount_domainName,
+    cancelDomainTransferToAnotherAwsAccountResponse_operationId,
+    cancelDomainTransferToAnotherAwsAccountResponse_httpStatus,
+
+    -- ** CheckDomainAvailability
+    checkDomainAvailability_idnLangCode,
+    checkDomainAvailability_domainName,
+    checkDomainAvailabilityResponse_httpStatus,
+    checkDomainAvailabilityResponse_availability,
 
     -- ** CheckDomainTransferability
     checkDomainTransferability_authCode,
@@ -53,86 +37,59 @@ module Amazonka.Route53Domains.Lens
     checkDomainTransferabilityResponse_httpStatus,
     checkDomainTransferabilityResponse_transferability,
 
-    -- ** UpdateDomainContactPrivacy
-    updateDomainContactPrivacy_techPrivacy,
-    updateDomainContactPrivacy_registrantPrivacy,
-    updateDomainContactPrivacy_adminPrivacy,
-    updateDomainContactPrivacy_domainName,
-    updateDomainContactPrivacyResponse_httpStatus,
-    updateDomainContactPrivacyResponse_operationId,
-
-    -- ** GetOperationDetail
-    getOperationDetail_operationId,
-    getOperationDetailResponse_status,
-    getOperationDetailResponse_submittedDate,
-    getOperationDetailResponse_domainName,
-    getOperationDetailResponse_operationId,
-    getOperationDetailResponse_type,
-    getOperationDetailResponse_message,
-    getOperationDetailResponse_httpStatus,
-
-    -- ** RejectDomainTransferFromAnotherAwsAccount
-    rejectDomainTransferFromAnotherAwsAccount_domainName,
-    rejectDomainTransferFromAnotherAwsAccountResponse_operationId,
-    rejectDomainTransferFromAnotherAwsAccountResponse_httpStatus,
-
-    -- ** EnableDomainAutoRenew
-    enableDomainAutoRenew_domainName,
-    enableDomainAutoRenewResponse_httpStatus,
-
-    -- ** ResendContactReachabilityEmail
-    resendContactReachabilityEmail_domainName,
-    resendContactReachabilityEmailResponse_domainName,
-    resendContactReachabilityEmailResponse_emailAddress,
-    resendContactReachabilityEmailResponse_isAlreadyVerified,
-    resendContactReachabilityEmailResponse_httpStatus,
+    -- ** DeleteTagsForDomain
+    deleteTagsForDomain_domainName,
+    deleteTagsForDomain_tagsToDelete,
+    deleteTagsForDomainResponse_httpStatus,
 
     -- ** DisableDomainAutoRenew
     disableDomainAutoRenew_domainName,
     disableDomainAutoRenewResponse_httpStatus,
 
-    -- ** RenewDomain
-    renewDomain_durationInYears,
-    renewDomain_domainName,
-    renewDomain_currentExpiryYear,
-    renewDomainResponse_httpStatus,
-    renewDomainResponse_operationId,
+    -- ** DisableDomainTransferLock
+    disableDomainTransferLock_domainName,
+    disableDomainTransferLockResponse_httpStatus,
+    disableDomainTransferLockResponse_operationId,
 
-    -- ** ViewBilling
-    viewBilling_start,
-    viewBilling_end,
-    viewBilling_marker,
-    viewBilling_maxItems,
-    viewBillingResponse_nextPageMarker,
-    viewBillingResponse_billingRecords,
-    viewBillingResponse_httpStatus,
-
-    -- ** UpdateDomainContact
-    updateDomainContact_registrantContact,
-    updateDomainContact_adminContact,
-    updateDomainContact_techContact,
-    updateDomainContact_domainName,
-    updateDomainContactResponse_httpStatus,
-    updateDomainContactResponse_operationId,
+    -- ** EnableDomainAutoRenew
+    enableDomainAutoRenew_domainName,
+    enableDomainAutoRenewResponse_httpStatus,
 
     -- ** EnableDomainTransferLock
     enableDomainTransferLock_domainName,
     enableDomainTransferLockResponse_httpStatus,
     enableDomainTransferLockResponse_operationId,
 
-    -- ** RegisterDomain
-    registerDomain_privacyProtectTechContact,
-    registerDomain_privacyProtectRegistrantContact,
-    registerDomain_autoRenew,
-    registerDomain_privacyProtectAdminContact,
-    registerDomain_idnLangCode,
-    registerDomain_domainName,
-    registerDomain_durationInYears,
-    registerDomain_adminContact,
-    registerDomain_registrantContact,
-    registerDomain_techContact,
-    registerDomainResponse_httpStatus,
-    registerDomainResponse_operationId,
+    -- ** GetContactReachabilityStatus
+    getContactReachabilityStatus_domainName,
+    getContactReachabilityStatusResponse_domainName,
+    getContactReachabilityStatusResponse_status,
+    getContactReachabilityStatusResponse_httpStatus,
+
+    -- ** GetDomainDetail
+    getDomainDetail_domainName,
+    getDomainDetailResponse_reseller,
+    getDomainDetailResponse_registrantPrivacy,
+    getDomainDetailResponse_autoRenew,
+    getDomainDetailResponse_registrarName,
+    getDomainDetailResponse_creationDate,
+    getDomainDetailResponse_dnsSec,
+    getDomainDetailResponse_registryDomainId,
+    getDomainDetailResponse_techPrivacy,
+    getDomainDetailResponse_adminPrivacy,
+    getDomainDetailResponse_whoIsServer,
+    getDomainDetailResponse_statusList,
+    getDomainDetailResponse_updatedDate,
+    getDomainDetailResponse_abuseContactEmail,
+    getDomainDetailResponse_abuseContactPhone,
+    getDomainDetailResponse_expirationDate,
+    getDomainDetailResponse_registrarUrl,
+    getDomainDetailResponse_httpStatus,
+    getDomainDetailResponse_domainName,
+    getDomainDetailResponse_nameservers,
+    getDomainDetailResponse_adminContact,
+    getDomainDetailResponse_registrantContact,
+    getDomainDetailResponse_techContact,
 
     -- ** GetDomainSuggestions
     getDomainSuggestions_domainName,
@@ -141,57 +98,68 @@ module Amazonka.Route53Domains.Lens
     getDomainSuggestionsResponse_suggestionsList,
     getDomainSuggestionsResponse_httpStatus,
 
-    -- ** DisableDomainTransferLock
-    disableDomainTransferLock_domainName,
-    disableDomainTransferLockResponse_httpStatus,
-    disableDomainTransferLockResponse_operationId,
+    -- ** GetOperationDetail
+    getOperationDetail_operationId,
+    getOperationDetailResponse_submittedDate,
+    getOperationDetailResponse_message,
+    getOperationDetailResponse_type,
+    getOperationDetailResponse_domainName,
+    getOperationDetailResponse_operationId,
+    getOperationDetailResponse_status,
+    getOperationDetailResponse_httpStatus,
 
-    -- ** CheckDomainAvailability
-    checkDomainAvailability_idnLangCode,
-    checkDomainAvailability_domainName,
-    checkDomainAvailabilityResponse_httpStatus,
-    checkDomainAvailabilityResponse_availability,
+    -- ** ListDomains
+    listDomains_marker,
+    listDomains_maxItems,
+    listDomainsResponse_nextPageMarker,
+    listDomainsResponse_httpStatus,
+    listDomainsResponse_domains,
 
-    -- ** TransferDomainToAnotherAwsAccount
-    transferDomainToAnotherAwsAccount_domainName,
-    transferDomainToAnotherAwsAccount_accountId,
-    transferDomainToAnotherAwsAccountResponse_password,
-    transferDomainToAnotherAwsAccountResponse_operationId,
-    transferDomainToAnotherAwsAccountResponse_httpStatus,
-
-    -- ** AcceptDomainTransferFromAnotherAwsAccount
-    acceptDomainTransferFromAnotherAwsAccount_domainName,
-    acceptDomainTransferFromAnotherAwsAccount_password,
-    acceptDomainTransferFromAnotherAwsAccountResponse_operationId,
-    acceptDomainTransferFromAnotherAwsAccountResponse_httpStatus,
-
-    -- ** GetContactReachabilityStatus
-    getContactReachabilityStatus_domainName,
-    getContactReachabilityStatusResponse_status,
-    getContactReachabilityStatusResponse_domainName,
-    getContactReachabilityStatusResponse_httpStatus,
+    -- ** ListOperations
+    listOperations_marker,
+    listOperations_maxItems,
+    listOperations_submittedSince,
+    listOperationsResponse_nextPageMarker,
+    listOperationsResponse_httpStatus,
+    listOperationsResponse_operations,
 
     -- ** ListTagsForDomain
     listTagsForDomain_domainName,
     listTagsForDomainResponse_httpStatus,
     listTagsForDomainResponse_tagList,
 
-    -- ** UpdateDomainNameservers
-    updateDomainNameservers_fIAuthKey,
-    updateDomainNameservers_domainName,
-    updateDomainNameservers_nameservers,
-    updateDomainNameserversResponse_httpStatus,
-    updateDomainNameserversResponse_operationId,
+    -- ** RegisterDomain
+    registerDomain_autoRenew,
+    registerDomain_idnLangCode,
+    registerDomain_privacyProtectRegistrantContact,
+    registerDomain_privacyProtectAdminContact,
+    registerDomain_privacyProtectTechContact,
+    registerDomain_domainName,
+    registerDomain_durationInYears,
+    registerDomain_adminContact,
+    registerDomain_registrantContact,
+    registerDomain_techContact,
+    registerDomainResponse_httpStatus,
+    registerDomainResponse_operationId,
 
-    -- ** DeleteTagsForDomain
-    deleteTagsForDomain_domainName,
-    deleteTagsForDomain_tagsToDelete,
-    deleteTagsForDomainResponse_httpStatus,
+    -- ** RejectDomainTransferFromAnotherAwsAccount
+    rejectDomainTransferFromAnotherAwsAccount_domainName,
+    rejectDomainTransferFromAnotherAwsAccountResponse_operationId,
+    rejectDomainTransferFromAnotherAwsAccountResponse_httpStatus,
 
-    -- ** UpdateTagsForDomain
-    updateTagsForDomain_tagsToUpdate,
-    updateTagsForDomain_domainName,
-    updateTagsForDomainResponse_httpStatus,
+    -- ** RenewDomain
+    renewDomain_durationInYears,
+    renewDomain_domainName,
+    renewDomain_currentExpiryYear,
+    renewDomainResponse_httpStatus,
+    renewDomainResponse_operationId,
+
+    -- ** ResendContactReachabilityEmail
+    resendContactReachabilityEmail_domainName,
+    resendContactReachabilityEmailResponse_domainName,
+    resendContactReachabilityEmailResponse_isAlreadyVerified,
+    resendContactReachabilityEmailResponse_emailAddress,
+    resendContactReachabilityEmailResponse_httpStatus,
 
     -- ** RetrieveDomainAuthCode
     retrieveDomainAuthCode_domainName,
@@ -199,12 +167,12 @@ module Amazonka.Route53Domains.Lens
     retrieveDomainAuthCodeResponse_authCode,
 
     -- ** TransferDomain
-    transferDomain_privacyProtectTechContact,
-    transferDomain_privacyProtectRegistrantContact,
     transferDomain_autoRenew,
-    transferDomain_privacyProtectAdminContact,
-    transferDomain_idnLangCode,
     transferDomain_authCode,
+    transferDomain_idnLangCode,
+    transferDomain_privacyProtectRegistrantContact,
+    transferDomain_privacyProtectAdminContact,
+    transferDomain_privacyProtectTechContact,
     transferDomain_nameservers,
     transferDomain_domainName,
     transferDomain_durationInYears,
@@ -214,51 +182,83 @@ module Amazonka.Route53Domains.Lens
     transferDomainResponse_httpStatus,
     transferDomainResponse_operationId,
 
-    -- ** ListDomains
-    listDomains_marker,
-    listDomains_maxItems,
-    listDomainsResponse_nextPageMarker,
-    listDomainsResponse_httpStatus,
-    listDomainsResponse_domains,
+    -- ** TransferDomainToAnotherAwsAccount
+    transferDomainToAnotherAwsAccount_domainName,
+    transferDomainToAnotherAwsAccount_accountId,
+    transferDomainToAnotherAwsAccountResponse_password,
+    transferDomainToAnotherAwsAccountResponse_operationId,
+    transferDomainToAnotherAwsAccountResponse_httpStatus,
 
-    -- ** CancelDomainTransferToAnotherAwsAccount
-    cancelDomainTransferToAnotherAwsAccount_domainName,
-    cancelDomainTransferToAnotherAwsAccountResponse_operationId,
-    cancelDomainTransferToAnotherAwsAccountResponse_httpStatus,
+    -- ** UpdateDomainContact
+    updateDomainContact_adminContact,
+    updateDomainContact_techContact,
+    updateDomainContact_registrantContact,
+    updateDomainContact_domainName,
+    updateDomainContactResponse_httpStatus,
+    updateDomainContactResponse_operationId,
+
+    -- ** UpdateDomainContactPrivacy
+    updateDomainContactPrivacy_registrantPrivacy,
+    updateDomainContactPrivacy_techPrivacy,
+    updateDomainContactPrivacy_adminPrivacy,
+    updateDomainContactPrivacy_domainName,
+    updateDomainContactPrivacyResponse_httpStatus,
+    updateDomainContactPrivacyResponse_operationId,
+
+    -- ** UpdateDomainNameservers
+    updateDomainNameservers_fIAuthKey,
+    updateDomainNameservers_domainName,
+    updateDomainNameservers_nameservers,
+    updateDomainNameserversResponse_httpStatus,
+    updateDomainNameserversResponse_operationId,
+
+    -- ** UpdateTagsForDomain
+    updateTagsForDomain_tagsToUpdate,
+    updateTagsForDomain_domainName,
+    updateTagsForDomainResponse_httpStatus,
+
+    -- ** ViewBilling
+    viewBilling_marker,
+    viewBilling_start,
+    viewBilling_maxItems,
+    viewBilling_end,
+    viewBillingResponse_billingRecords,
+    viewBillingResponse_nextPageMarker,
+    viewBillingResponse_httpStatus,
 
     -- * Types
 
     -- ** BillingRecord
-    billingRecord_operation,
     billingRecord_invoiceId,
-    billingRecord_domainName,
     billingRecord_billDate,
+    billingRecord_domainName,
     billingRecord_price,
+    billingRecord_operation,
 
     -- ** ContactDetail
-    contactDetail_organizationName,
-    contactDetail_email,
-    contactDetail_state,
-    contactDetail_fax,
-    contactDetail_lastName,
-    contactDetail_extraParams,
     contactDetail_zipCode,
+    contactDetail_firstName,
+    contactDetail_email,
+    contactDetail_extraParams,
+    contactDetail_addressLine2,
+    contactDetail_organizationName,
+    contactDetail_countryCode,
+    contactDetail_state,
+    contactDetail_contactType,
+    contactDetail_lastName,
     contactDetail_addressLine1,
     contactDetail_city,
+    contactDetail_fax,
     contactDetail_phoneNumber,
-    contactDetail_addressLine2,
-    contactDetail_firstName,
-    contactDetail_countryCode,
-    contactDetail_contactType,
 
     -- ** DomainSuggestion
-    domainSuggestion_availability,
     domainSuggestion_domainName,
+    domainSuggestion_availability,
 
     -- ** DomainSummary
+    domainSummary_autoRenew,
     domainSummary_expiry,
     domainSummary_transferLock,
-    domainSummary_autoRenew,
     domainSummary_domainName,
 
     -- ** DomainTransferability
@@ -279,8 +279,8 @@ module Amazonka.Route53Domains.Lens
     operationSummary_submittedDate,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
   )
 where
 

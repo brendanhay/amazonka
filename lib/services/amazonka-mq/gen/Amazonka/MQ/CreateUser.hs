@@ -27,8 +27,8 @@ module Amazonka.MQ.CreateUser
     newCreateUser,
 
     -- * Request Lenses
-    createUser_groups,
     createUser_consoleAccess,
+    createUser_groups,
     createUser_username,
     createUser_brokerId,
     createUser_password,
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
+  { -- | Enables access to the ActiveMQ Web Console for the ActiveMQ user.
+    consoleAccess :: Prelude.Maybe Prelude.Bool,
+    -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
     -- value can contain only alphanumeric characters, dashes, periods,
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | Enables access to the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Prelude.Maybe Prelude.Bool,
     -- | The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
@@ -81,12 +81,12 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'consoleAccess', 'createUser_consoleAccess' - Enables access to the ActiveMQ Web Console for the ActiveMQ user.
+--
 -- 'groups', 'createUser_groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This
 -- value can contain only alphanumeric characters, dashes, periods,
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
---
--- 'consoleAccess', 'createUser_consoleAccess' - Enables access to the ActiveMQ Web Console for the ActiveMQ user.
 --
 -- 'username', 'createUser_username' - The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -107,12 +107,16 @@ newCreateUser ::
   CreateUser
 newCreateUser pUsername_ pBrokerId_ pPassword_ =
   CreateUser'
-    { groups = Prelude.Nothing,
-      consoleAccess = Prelude.Nothing,
+    { consoleAccess = Prelude.Nothing,
+      groups = Prelude.Nothing,
       username = pUsername_,
       brokerId = pBrokerId_,
       password = pPassword_
     }
+
+-- | Enables access to the ActiveMQ Web Console for the ActiveMQ user.
+createUser_consoleAccess :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Bool)
+createUser_consoleAccess = Lens.lens (\CreateUser' {consoleAccess} -> consoleAccess) (\s@CreateUser' {} a -> s {consoleAccess = a} :: CreateUser)
 
 -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
 -- value can contain only alphanumeric characters, dashes, periods,
@@ -120,10 +124,6 @@ newCreateUser pUsername_ pBrokerId_ pPassword_ =
 -- long.
 createUser_groups :: Lens.Lens' CreateUser (Prelude.Maybe [Prelude.Text])
 createUser_groups = Lens.lens (\CreateUser' {groups} -> groups) (\s@CreateUser' {} a -> s {groups = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
-
--- | Enables access to the ActiveMQ Web Console for the ActiveMQ user.
-createUser_consoleAccess :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Bool)
-createUser_consoleAccess = Lens.lens (\CreateUser' {consoleAccess} -> consoleAccess) (\s@CreateUser' {} a -> s {consoleAccess = a} :: CreateUser)
 
 -- | The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -153,16 +153,16 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` groups
-      `Prelude.hashWithSalt` consoleAccess
+    _salt `Prelude.hashWithSalt` consoleAccess
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` brokerId
       `Prelude.hashWithSalt` password
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf consoleAccess
+    Prelude.rnf consoleAccess
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf brokerId
       `Prelude.seq` Prelude.rnf password
@@ -182,8 +182,8 @@ instance Core.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("groups" Core..=) Prelude.<$> groups,
-            ("consoleAccess" Core..=) Prelude.<$> consoleAccess,
+          [ ("consoleAccess" Core..=) Prelude.<$> consoleAccess,
+            ("groups" Core..=) Prelude.<$> groups,
             Prelude.Just ("password" Core..= password)
           ]
       )

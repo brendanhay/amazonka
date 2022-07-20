@@ -27,9 +27,9 @@ module Amazonka.NetworkFirewall.DescribeRuleGroup
     newDescribeRuleGroup,
 
     -- * Request Lenses
-    describeRuleGroup_ruleGroupArn,
-    describeRuleGroup_type,
     describeRuleGroup_ruleGroupName,
+    describeRuleGroup_type,
+    describeRuleGroup_ruleGroupArn,
 
     -- * Destructuring the Response
     DescribeRuleGroupResponse (..),
@@ -52,10 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRuleGroup' smart constructor.
 data DescribeRuleGroup = DescribeRuleGroup'
-  { -- | The Amazon Resource Name (ARN) of the rule group.
+  { -- | The descriptive name of the rule group. You can\'t change the name of a
+    -- rule group after you create it.
     --
     -- You must specify the ARN or the name, and you can specify both.
-    ruleGroupArn :: Prelude.Maybe Prelude.Text,
+    ruleGroupName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the rule group is stateless or stateful. If the rule
     -- group is stateless, it contains stateless rules. If it is stateful, it
     -- contains stateful rules.
@@ -63,11 +64,10 @@ data DescribeRuleGroup = DescribeRuleGroup'
     -- This setting is required for requests that do not include the
     -- @RuleGroupARN@.
     type' :: Prelude.Maybe RuleGroupType,
-    -- | The descriptive name of the rule group. You can\'t change the name of a
-    -- rule group after you create it.
+    -- | The Amazon Resource Name (ARN) of the rule group.
     --
     -- You must specify the ARN or the name, and you can specify both.
-    ruleGroupName :: Prelude.Maybe Prelude.Text
+    ruleGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,7 +79,8 @@ data DescribeRuleGroup = DescribeRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleGroupArn', 'describeRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
+-- 'ruleGroupName', 'describeRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
+-- rule group after you create it.
 --
 -- You must specify the ARN or the name, and you can specify both.
 --
@@ -90,24 +91,24 @@ data DescribeRuleGroup = DescribeRuleGroup'
 -- This setting is required for requests that do not include the
 -- @RuleGroupARN@.
 --
--- 'ruleGroupName', 'describeRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
--- rule group after you create it.
+-- 'ruleGroupArn', 'describeRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
 --
 -- You must specify the ARN or the name, and you can specify both.
 newDescribeRuleGroup ::
   DescribeRuleGroup
 newDescribeRuleGroup =
   DescribeRuleGroup'
-    { ruleGroupArn = Prelude.Nothing,
+    { ruleGroupName = Prelude.Nothing,
       type' = Prelude.Nothing,
-      ruleGroupName = Prelude.Nothing
+      ruleGroupArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the rule group.
+-- | The descriptive name of the rule group. You can\'t change the name of a
+-- rule group after you create it.
 --
 -- You must specify the ARN or the name, and you can specify both.
-describeRuleGroup_ruleGroupArn :: Lens.Lens' DescribeRuleGroup (Prelude.Maybe Prelude.Text)
-describeRuleGroup_ruleGroupArn = Lens.lens (\DescribeRuleGroup' {ruleGroupArn} -> ruleGroupArn) (\s@DescribeRuleGroup' {} a -> s {ruleGroupArn = a} :: DescribeRuleGroup)
+describeRuleGroup_ruleGroupName :: Lens.Lens' DescribeRuleGroup (Prelude.Maybe Prelude.Text)
+describeRuleGroup_ruleGroupName = Lens.lens (\DescribeRuleGroup' {ruleGroupName} -> ruleGroupName) (\s@DescribeRuleGroup' {} a -> s {ruleGroupName = a} :: DescribeRuleGroup)
 
 -- | Indicates whether the rule group is stateless or stateful. If the rule
 -- group is stateless, it contains stateless rules. If it is stateful, it
@@ -118,12 +119,11 @@ describeRuleGroup_ruleGroupArn = Lens.lens (\DescribeRuleGroup' {ruleGroupArn} -
 describeRuleGroup_type :: Lens.Lens' DescribeRuleGroup (Prelude.Maybe RuleGroupType)
 describeRuleGroup_type = Lens.lens (\DescribeRuleGroup' {type'} -> type') (\s@DescribeRuleGroup' {} a -> s {type' = a} :: DescribeRuleGroup)
 
--- | The descriptive name of the rule group. You can\'t change the name of a
--- rule group after you create it.
+-- | The Amazon Resource Name (ARN) of the rule group.
 --
 -- You must specify the ARN or the name, and you can specify both.
-describeRuleGroup_ruleGroupName :: Lens.Lens' DescribeRuleGroup (Prelude.Maybe Prelude.Text)
-describeRuleGroup_ruleGroupName = Lens.lens (\DescribeRuleGroup' {ruleGroupName} -> ruleGroupName) (\s@DescribeRuleGroup' {} a -> s {ruleGroupName = a} :: DescribeRuleGroup)
+describeRuleGroup_ruleGroupArn :: Lens.Lens' DescribeRuleGroup (Prelude.Maybe Prelude.Text)
+describeRuleGroup_ruleGroupArn = Lens.lens (\DescribeRuleGroup' {ruleGroupArn} -> ruleGroupArn) (\s@DescribeRuleGroup' {} a -> s {ruleGroupArn = a} :: DescribeRuleGroup)
 
 instance Core.AWSRequest DescribeRuleGroup where
   type
@@ -142,15 +142,15 @@ instance Core.AWSRequest DescribeRuleGroup where
 
 instance Prelude.Hashable DescribeRuleGroup where
   hashWithSalt _salt DescribeRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` ruleGroupArn
+    _salt `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` ruleGroupName
+      `Prelude.hashWithSalt` ruleGroupArn
 
 instance Prelude.NFData DescribeRuleGroup where
   rnf DescribeRuleGroup' {..} =
-    Prelude.rnf ruleGroupArn
+    Prelude.rnf ruleGroupName
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf ruleGroupName
+      `Prelude.seq` Prelude.rnf ruleGroupArn
 
 instance Core.ToHeaders DescribeRuleGroup where
   toHeaders =
@@ -171,9 +171,9 @@ instance Core.ToJSON DescribeRuleGroup where
   toJSON DescribeRuleGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn,
+          [ ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName,
             ("Type" Core..=) Prelude.<$> type',
-            ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName
+            ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn
           ]
       )
 

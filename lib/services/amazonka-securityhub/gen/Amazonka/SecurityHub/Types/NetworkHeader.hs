@@ -31,10 +31,10 @@ import Amazonka.SecurityHub.Types.NetworkPathComponentDetails
 data NetworkHeader = NetworkHeader'
   { -- | Information about the destination of the component.
     destination :: Prelude.Maybe NetworkPathComponentDetails,
-    -- | The protocol used for the component.
-    protocol :: Prelude.Maybe Prelude.Text,
     -- | Information about the origin of the component.
-    source :: Prelude.Maybe NetworkPathComponentDetails
+    source :: Prelude.Maybe NetworkPathComponentDetails,
+    -- | The protocol used for the component.
+    protocol :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data NetworkHeader = NetworkHeader'
 --
 -- 'destination', 'networkHeader_destination' - Information about the destination of the component.
 --
--- 'protocol', 'networkHeader_protocol' - The protocol used for the component.
---
 -- 'source', 'networkHeader_source' - Information about the origin of the component.
+--
+-- 'protocol', 'networkHeader_protocol' - The protocol used for the component.
 newNetworkHeader ::
   NetworkHeader
 newNetworkHeader =
   NetworkHeader'
     { destination = Prelude.Nothing,
-      protocol = Prelude.Nothing,
-      source = Prelude.Nothing
+      source = Prelude.Nothing,
+      protocol = Prelude.Nothing
     }
 
 -- | Information about the destination of the component.
 networkHeader_destination :: Lens.Lens' NetworkHeader (Prelude.Maybe NetworkPathComponentDetails)
 networkHeader_destination = Lens.lens (\NetworkHeader' {destination} -> destination) (\s@NetworkHeader' {} a -> s {destination = a} :: NetworkHeader)
 
--- | The protocol used for the component.
-networkHeader_protocol :: Lens.Lens' NetworkHeader (Prelude.Maybe Prelude.Text)
-networkHeader_protocol = Lens.lens (\NetworkHeader' {protocol} -> protocol) (\s@NetworkHeader' {} a -> s {protocol = a} :: NetworkHeader)
-
 -- | Information about the origin of the component.
 networkHeader_source :: Lens.Lens' NetworkHeader (Prelude.Maybe NetworkPathComponentDetails)
 networkHeader_source = Lens.lens (\NetworkHeader' {source} -> source) (\s@NetworkHeader' {} a -> s {source = a} :: NetworkHeader)
+
+-- | The protocol used for the component.
+networkHeader_protocol :: Lens.Lens' NetworkHeader (Prelude.Maybe Prelude.Text)
+networkHeader_protocol = Lens.lens (\NetworkHeader' {protocol} -> protocol) (\s@NetworkHeader' {} a -> s {protocol = a} :: NetworkHeader)
 
 instance Core.FromJSON NetworkHeader where
   parseJSON =
@@ -79,28 +79,28 @@ instance Core.FromJSON NetworkHeader where
       ( \x ->
           NetworkHeader'
             Prelude.<$> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "Protocol")
             Prelude.<*> (x Core..:? "Source")
+            Prelude.<*> (x Core..:? "Protocol")
       )
 
 instance Prelude.Hashable NetworkHeader where
   hashWithSalt _salt NetworkHeader' {..} =
     _salt `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` protocol
 
 instance Prelude.NFData NetworkHeader where
   rnf NetworkHeader' {..} =
     Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf protocol
 
 instance Core.ToJSON NetworkHeader where
   toJSON NetworkHeader' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Destination" Core..=) Prelude.<$> destination,
-            ("Protocol" Core..=) Prelude.<$> protocol,
-            ("Source" Core..=) Prelude.<$> source
+            ("Source" Core..=) Prelude.<$> source,
+            ("Protocol" Core..=) Prelude.<$> protocol
           ]
       )

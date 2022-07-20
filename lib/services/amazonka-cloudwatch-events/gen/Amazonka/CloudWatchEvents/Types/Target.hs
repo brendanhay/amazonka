@@ -48,9 +48,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTarget' smart constructor.
 data Target = Target'
-  { -- | Parameters used when you are using the rule to invoke Amazon EC2 Run
-    -- Command.
-    runCommandParameters :: Prelude.Maybe RunCommandParameters,
+  { -- | The custom parameter you can use to control the shard assignment, when
+    -- the target is a Kinesis data stream. If you do not include this
+    -- parameter, the default is to use the @eventId@ as the partition key.
+    kinesisParameters :: Prelude.Maybe KinesisParameters,
     -- | Contains the HTTP parameters to use when the target is a API Gateway
     -- REST endpoint or EventBridge ApiDestination.
     --
@@ -61,17 +62,15 @@ data Target = Target'
     -- Connection can also have these values configured. In case of any
     -- conflicting keys, values from the Connection take precedence.
     httpParameters :: Prelude.Maybe HttpParameters,
-    -- | The custom parameter you can use to control the shard assignment, when
-    -- the target is a Kinesis data stream. If you do not include this
-    -- parameter, the default is to use the @eventId@ as the partition key.
-    kinesisParameters :: Prelude.Maybe KinesisParameters,
-    -- | Settings to enable you to provide custom input to a target based on
-    -- certain event data. You can extract one or more key-value pairs from the
-    -- event and then use that data to send customized input to the target.
-    inputTransformer :: Prelude.Maybe InputTransformer,
-    -- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
-    -- queue events to.
-    deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
+    -- | The Amazon Resource Name (ARN) of the IAM role to be used for this
+    -- target when the rule is triggered. If one rule triggers multiple
+    -- targets, you can use a different IAM role for each target.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The value of the JSONPath that is used for extracting part of the
+    -- matched event when passing it to the target. You must use JSON dot
+    -- notation, not bracket notation. For more information about JSON paths,
+    -- see <http://goessner.net/articles/JsonPath/ JSONPath>.
+    inputPath :: Prelude.Maybe Prelude.Text,
     -- | Contains the SageMaker Model Building Pipeline parameters to start
     -- execution of a SageMaker Model Building Pipeline.
     --
@@ -79,20 +78,13 @@ data Target = Target'
     -- use this to specify parameters to start a pipeline execution based on
     -- EventBridge events.
     sageMakerPipelineParameters :: Prelude.Maybe SageMakerPipelineParameters,
-    -- | Contains the message group ID to use when the target is a FIFO queue.
-    --
-    -- If you specify an SQS FIFO queue as a target, the queue must have
-    -- content-based deduplication enabled.
-    sqsParameters :: Prelude.Maybe SqsParameters,
+    -- | Parameters used when you are using the rule to invoke Amazon EC2 Run
+    -- Command.
+    runCommandParameters :: Prelude.Maybe RunCommandParameters,
     -- | Valid JSON text passed to the target. In this case, nothing from the
     -- event itself is passed to the target. For more information, see
     -- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
     input :: Prelude.Maybe Prelude.Text,
-    -- | If the event target is an Batch job, this contains the job definition,
-    -- job name, and other parameters. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
-    -- the /Batch User Guide/.
-    batchParameters :: Prelude.Maybe BatchParameters,
     -- | Contains the Amazon Redshift Data API parameters to use when the target
     -- is a Amazon Redshift cluster.
     --
@@ -100,6 +92,20 @@ data Target = Target'
     -- to specify parameters to invoke the Amazon Redshift Data API
     -- ExecuteStatement based on EventBridge events.
     redshiftDataParameters :: Prelude.Maybe RedshiftDataParameters,
+    -- | Contains the message group ID to use when the target is a FIFO queue.
+    --
+    -- If you specify an SQS FIFO queue as a target, the queue must have
+    -- content-based deduplication enabled.
+    sqsParameters :: Prelude.Maybe SqsParameters,
+    -- | Settings to enable you to provide custom input to a target based on
+    -- certain event data. You can extract one or more key-value pairs from the
+    -- event and then use that data to send customized input to the target.
+    inputTransformer :: Prelude.Maybe InputTransformer,
+    -- | If the event target is an Batch job, this contains the job definition,
+    -- job name, and other parameters. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
+    -- the /Batch User Guide/.
+    batchParameters :: Prelude.Maybe BatchParameters,
     -- | Contains the Amazon ECS task definition and task count to be used, if
     -- the event target is an Amazon ECS task. For more information about
     -- Amazon ECS tasks, see
@@ -109,15 +115,9 @@ data Target = Target'
     -- | The @RetryPolicy@ object that contains the retry policy configuration to
     -- use for the dead-letter queue.
     retryPolicy :: Prelude.Maybe RetryPolicy,
-    -- | The value of the JSONPath that is used for extracting part of the
-    -- matched event when passing it to the target. You must use JSON dot
-    -- notation, not bracket notation. For more information about JSON paths,
-    -- see <http://goessner.net/articles/JsonPath/ JSONPath>.
-    inputPath :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role to be used for this
-    -- target when the rule is triggered. If one rule triggers multiple
-    -- targets, you can use a different IAM role for each target.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
+    -- queue events to.
+    deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
     -- | The ID of the target. We recommend using a memorable and unique string.
     id :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target.
@@ -133,8 +133,9 @@ data Target = Target'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runCommandParameters', 'target_runCommandParameters' - Parameters used when you are using the rule to invoke Amazon EC2 Run
--- Command.
+-- 'kinesisParameters', 'target_kinesisParameters' - The custom parameter you can use to control the shard assignment, when
+-- the target is a Kinesis data stream. If you do not include this
+-- parameter, the default is to use the @eventId@ as the partition key.
 --
 -- 'httpParameters', 'target_httpParameters' - Contains the HTTP parameters to use when the target is a API Gateway
 -- REST endpoint or EventBridge ApiDestination.
@@ -146,16 +147,14 @@ data Target = Target'
 -- Connection can also have these values configured. In case of any
 -- conflicting keys, values from the Connection take precedence.
 --
--- 'kinesisParameters', 'target_kinesisParameters' - The custom parameter you can use to control the shard assignment, when
--- the target is a Kinesis data stream. If you do not include this
--- parameter, the default is to use the @eventId@ as the partition key.
+-- 'roleArn', 'target_roleArn' - The Amazon Resource Name (ARN) of the IAM role to be used for this
+-- target when the rule is triggered. If one rule triggers multiple
+-- targets, you can use a different IAM role for each target.
 --
--- 'inputTransformer', 'target_inputTransformer' - Settings to enable you to provide custom input to a target based on
--- certain event data. You can extract one or more key-value pairs from the
--- event and then use that data to send customized input to the target.
---
--- 'deadLetterConfig', 'target_deadLetterConfig' - The @DeadLetterConfig@ that defines the target queue to send dead-letter
--- queue events to.
+-- 'inputPath', 'target_inputPath' - The value of the JSONPath that is used for extracting part of the
+-- matched event when passing it to the target. You must use JSON dot
+-- notation, not bracket notation. For more information about JSON paths,
+-- see <http://goessner.net/articles/JsonPath/ JSONPath>.
 --
 -- 'sageMakerPipelineParameters', 'target_sageMakerPipelineParameters' - Contains the SageMaker Model Building Pipeline parameters to start
 -- execution of a SageMaker Model Building Pipeline.
@@ -164,19 +163,12 @@ data Target = Target'
 -- use this to specify parameters to start a pipeline execution based on
 -- EventBridge events.
 --
--- 'sqsParameters', 'target_sqsParameters' - Contains the message group ID to use when the target is a FIFO queue.
---
--- If you specify an SQS FIFO queue as a target, the queue must have
--- content-based deduplication enabled.
+-- 'runCommandParameters', 'target_runCommandParameters' - Parameters used when you are using the rule to invoke Amazon EC2 Run
+-- Command.
 --
 -- 'input', 'target_input' - Valid JSON text passed to the target. In this case, nothing from the
 -- event itself is passed to the target. For more information, see
 -- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
---
--- 'batchParameters', 'target_batchParameters' - If the event target is an Batch job, this contains the job definition,
--- job name, and other parameters. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
--- the /Batch User Guide/.
 --
 -- 'redshiftDataParameters', 'target_redshiftDataParameters' - Contains the Amazon Redshift Data API parameters to use when the target
 -- is a Amazon Redshift cluster.
@@ -184,6 +176,20 @@ data Target = Target'
 -- If you specify a Amazon Redshift Cluster as a Target, you can use this
 -- to specify parameters to invoke the Amazon Redshift Data API
 -- ExecuteStatement based on EventBridge events.
+--
+-- 'sqsParameters', 'target_sqsParameters' - Contains the message group ID to use when the target is a FIFO queue.
+--
+-- If you specify an SQS FIFO queue as a target, the queue must have
+-- content-based deduplication enabled.
+--
+-- 'inputTransformer', 'target_inputTransformer' - Settings to enable you to provide custom input to a target based on
+-- certain event data. You can extract one or more key-value pairs from the
+-- event and then use that data to send customized input to the target.
+--
+-- 'batchParameters', 'target_batchParameters' - If the event target is an Batch job, this contains the job definition,
+-- job name, and other parameters. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
+-- the /Batch User Guide/.
 --
 -- 'ecsParameters', 'target_ecsParameters' - Contains the Amazon ECS task definition and task count to be used, if
 -- the event target is an Amazon ECS task. For more information about
@@ -194,14 +200,8 @@ data Target = Target'
 -- 'retryPolicy', 'target_retryPolicy' - The @RetryPolicy@ object that contains the retry policy configuration to
 -- use for the dead-letter queue.
 --
--- 'inputPath', 'target_inputPath' - The value of the JSONPath that is used for extracting part of the
--- matched event when passing it to the target. You must use JSON dot
--- notation, not bracket notation. For more information about JSON paths,
--- see <http://goessner.net/articles/JsonPath/ JSONPath>.
---
--- 'roleArn', 'target_roleArn' - The Amazon Resource Name (ARN) of the IAM role to be used for this
--- target when the rule is triggered. If one rule triggers multiple
--- targets, you can use a different IAM role for each target.
+-- 'deadLetterConfig', 'target_deadLetterConfig' - The @DeadLetterConfig@ that defines the target queue to send dead-letter
+-- queue events to.
 --
 -- 'id', 'target_id' - The ID of the target. We recommend using a memorable and unique string.
 --
@@ -214,28 +214,29 @@ newTarget ::
   Target
 newTarget pId_ pArn_ =
   Target'
-    { runCommandParameters = Prelude.Nothing,
+    { kinesisParameters = Prelude.Nothing,
       httpParameters = Prelude.Nothing,
-      kinesisParameters = Prelude.Nothing,
-      inputTransformer = Prelude.Nothing,
-      deadLetterConfig = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      inputPath = Prelude.Nothing,
       sageMakerPipelineParameters = Prelude.Nothing,
-      sqsParameters = Prelude.Nothing,
+      runCommandParameters = Prelude.Nothing,
       input = Prelude.Nothing,
-      batchParameters = Prelude.Nothing,
       redshiftDataParameters = Prelude.Nothing,
+      sqsParameters = Prelude.Nothing,
+      inputTransformer = Prelude.Nothing,
+      batchParameters = Prelude.Nothing,
       ecsParameters = Prelude.Nothing,
       retryPolicy = Prelude.Nothing,
-      inputPath = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      deadLetterConfig = Prelude.Nothing,
       id = pId_,
       arn = pArn_
     }
 
--- | Parameters used when you are using the rule to invoke Amazon EC2 Run
--- Command.
-target_runCommandParameters :: Lens.Lens' Target (Prelude.Maybe RunCommandParameters)
-target_runCommandParameters = Lens.lens (\Target' {runCommandParameters} -> runCommandParameters) (\s@Target' {} a -> s {runCommandParameters = a} :: Target)
+-- | The custom parameter you can use to control the shard assignment, when
+-- the target is a Kinesis data stream. If you do not include this
+-- parameter, the default is to use the @eventId@ as the partition key.
+target_kinesisParameters :: Lens.Lens' Target (Prelude.Maybe KinesisParameters)
+target_kinesisParameters = Lens.lens (\Target' {kinesisParameters} -> kinesisParameters) (\s@Target' {} a -> s {kinesisParameters = a} :: Target)
 
 -- | Contains the HTTP parameters to use when the target is a API Gateway
 -- REST endpoint or EventBridge ApiDestination.
@@ -249,22 +250,18 @@ target_runCommandParameters = Lens.lens (\Target' {runCommandParameters} -> runC
 target_httpParameters :: Lens.Lens' Target (Prelude.Maybe HttpParameters)
 target_httpParameters = Lens.lens (\Target' {httpParameters} -> httpParameters) (\s@Target' {} a -> s {httpParameters = a} :: Target)
 
--- | The custom parameter you can use to control the shard assignment, when
--- the target is a Kinesis data stream. If you do not include this
--- parameter, the default is to use the @eventId@ as the partition key.
-target_kinesisParameters :: Lens.Lens' Target (Prelude.Maybe KinesisParameters)
-target_kinesisParameters = Lens.lens (\Target' {kinesisParameters} -> kinesisParameters) (\s@Target' {} a -> s {kinesisParameters = a} :: Target)
+-- | The Amazon Resource Name (ARN) of the IAM role to be used for this
+-- target when the rule is triggered. If one rule triggers multiple
+-- targets, you can use a different IAM role for each target.
+target_roleArn :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
+target_roleArn = Lens.lens (\Target' {roleArn} -> roleArn) (\s@Target' {} a -> s {roleArn = a} :: Target)
 
--- | Settings to enable you to provide custom input to a target based on
--- certain event data. You can extract one or more key-value pairs from the
--- event and then use that data to send customized input to the target.
-target_inputTransformer :: Lens.Lens' Target (Prelude.Maybe InputTransformer)
-target_inputTransformer = Lens.lens (\Target' {inputTransformer} -> inputTransformer) (\s@Target' {} a -> s {inputTransformer = a} :: Target)
-
--- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
--- queue events to.
-target_deadLetterConfig :: Lens.Lens' Target (Prelude.Maybe DeadLetterConfig)
-target_deadLetterConfig = Lens.lens (\Target' {deadLetterConfig} -> deadLetterConfig) (\s@Target' {} a -> s {deadLetterConfig = a} :: Target)
+-- | The value of the JSONPath that is used for extracting part of the
+-- matched event when passing it to the target. You must use JSON dot
+-- notation, not bracket notation. For more information about JSON paths,
+-- see <http://goessner.net/articles/JsonPath/ JSONPath>.
+target_inputPath :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
+target_inputPath = Lens.lens (\Target' {inputPath} -> inputPath) (\s@Target' {} a -> s {inputPath = a} :: Target)
 
 -- | Contains the SageMaker Model Building Pipeline parameters to start
 -- execution of a SageMaker Model Building Pipeline.
@@ -275,25 +272,16 @@ target_deadLetterConfig = Lens.lens (\Target' {deadLetterConfig} -> deadLetterCo
 target_sageMakerPipelineParameters :: Lens.Lens' Target (Prelude.Maybe SageMakerPipelineParameters)
 target_sageMakerPipelineParameters = Lens.lens (\Target' {sageMakerPipelineParameters} -> sageMakerPipelineParameters) (\s@Target' {} a -> s {sageMakerPipelineParameters = a} :: Target)
 
--- | Contains the message group ID to use when the target is a FIFO queue.
---
--- If you specify an SQS FIFO queue as a target, the queue must have
--- content-based deduplication enabled.
-target_sqsParameters :: Lens.Lens' Target (Prelude.Maybe SqsParameters)
-target_sqsParameters = Lens.lens (\Target' {sqsParameters} -> sqsParameters) (\s@Target' {} a -> s {sqsParameters = a} :: Target)
+-- | Parameters used when you are using the rule to invoke Amazon EC2 Run
+-- Command.
+target_runCommandParameters :: Lens.Lens' Target (Prelude.Maybe RunCommandParameters)
+target_runCommandParameters = Lens.lens (\Target' {runCommandParameters} -> runCommandParameters) (\s@Target' {} a -> s {runCommandParameters = a} :: Target)
 
 -- | Valid JSON text passed to the target. In this case, nothing from the
 -- event itself is passed to the target. For more information, see
 -- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
 target_input :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_input = Lens.lens (\Target' {input} -> input) (\s@Target' {} a -> s {input = a} :: Target)
-
--- | If the event target is an Batch job, this contains the job definition,
--- job name, and other parameters. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
--- the /Batch User Guide/.
-target_batchParameters :: Lens.Lens' Target (Prelude.Maybe BatchParameters)
-target_batchParameters = Lens.lens (\Target' {batchParameters} -> batchParameters) (\s@Target' {} a -> s {batchParameters = a} :: Target)
 
 -- | Contains the Amazon Redshift Data API parameters to use when the target
 -- is a Amazon Redshift cluster.
@@ -303,6 +291,26 @@ target_batchParameters = Lens.lens (\Target' {batchParameters} -> batchParameter
 -- ExecuteStatement based on EventBridge events.
 target_redshiftDataParameters :: Lens.Lens' Target (Prelude.Maybe RedshiftDataParameters)
 target_redshiftDataParameters = Lens.lens (\Target' {redshiftDataParameters} -> redshiftDataParameters) (\s@Target' {} a -> s {redshiftDataParameters = a} :: Target)
+
+-- | Contains the message group ID to use when the target is a FIFO queue.
+--
+-- If you specify an SQS FIFO queue as a target, the queue must have
+-- content-based deduplication enabled.
+target_sqsParameters :: Lens.Lens' Target (Prelude.Maybe SqsParameters)
+target_sqsParameters = Lens.lens (\Target' {sqsParameters} -> sqsParameters) (\s@Target' {} a -> s {sqsParameters = a} :: Target)
+
+-- | Settings to enable you to provide custom input to a target based on
+-- certain event data. You can extract one or more key-value pairs from the
+-- event and then use that data to send customized input to the target.
+target_inputTransformer :: Lens.Lens' Target (Prelude.Maybe InputTransformer)
+target_inputTransformer = Lens.lens (\Target' {inputTransformer} -> inputTransformer) (\s@Target' {} a -> s {inputTransformer = a} :: Target)
+
+-- | If the event target is an Batch job, this contains the job definition,
+-- job name, and other parameters. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
+-- the /Batch User Guide/.
+target_batchParameters :: Lens.Lens' Target (Prelude.Maybe BatchParameters)
+target_batchParameters = Lens.lens (\Target' {batchParameters} -> batchParameters) (\s@Target' {} a -> s {batchParameters = a} :: Target)
 
 -- | Contains the Amazon ECS task definition and task count to be used, if
 -- the event target is an Amazon ECS task. For more information about
@@ -317,18 +325,10 @@ target_ecsParameters = Lens.lens (\Target' {ecsParameters} -> ecsParameters) (\s
 target_retryPolicy :: Lens.Lens' Target (Prelude.Maybe RetryPolicy)
 target_retryPolicy = Lens.lens (\Target' {retryPolicy} -> retryPolicy) (\s@Target' {} a -> s {retryPolicy = a} :: Target)
 
--- | The value of the JSONPath that is used for extracting part of the
--- matched event when passing it to the target. You must use JSON dot
--- notation, not bracket notation. For more information about JSON paths,
--- see <http://goessner.net/articles/JsonPath/ JSONPath>.
-target_inputPath :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
-target_inputPath = Lens.lens (\Target' {inputPath} -> inputPath) (\s@Target' {} a -> s {inputPath = a} :: Target)
-
--- | The Amazon Resource Name (ARN) of the IAM role to be used for this
--- target when the rule is triggered. If one rule triggers multiple
--- targets, you can use a different IAM role for each target.
-target_roleArn :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
-target_roleArn = Lens.lens (\Target' {roleArn} -> roleArn) (\s@Target' {} a -> s {roleArn = a} :: Target)
+-- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
+-- queue events to.
+target_deadLetterConfig :: Lens.Lens' Target (Prelude.Maybe DeadLetterConfig)
+target_deadLetterConfig = Lens.lens (\Target' {deadLetterConfig} -> deadLetterConfig) (\s@Target' {} a -> s {deadLetterConfig = a} :: Target)
 
 -- | The ID of the target. We recommend using a memorable and unique string.
 target_id :: Lens.Lens' Target Prelude.Text
@@ -344,59 +344,59 @@ instance Core.FromJSON Target where
       "Target"
       ( \x ->
           Target'
-            Prelude.<$> (x Core..:? "RunCommandParameters")
+            Prelude.<$> (x Core..:? "KinesisParameters")
             Prelude.<*> (x Core..:? "HttpParameters")
-            Prelude.<*> (x Core..:? "KinesisParameters")
-            Prelude.<*> (x Core..:? "InputTransformer")
-            Prelude.<*> (x Core..:? "DeadLetterConfig")
+            Prelude.<*> (x Core..:? "RoleArn")
+            Prelude.<*> (x Core..:? "InputPath")
             Prelude.<*> (x Core..:? "SageMakerPipelineParameters")
-            Prelude.<*> (x Core..:? "SqsParameters")
+            Prelude.<*> (x Core..:? "RunCommandParameters")
             Prelude.<*> (x Core..:? "Input")
-            Prelude.<*> (x Core..:? "BatchParameters")
             Prelude.<*> (x Core..:? "RedshiftDataParameters")
+            Prelude.<*> (x Core..:? "SqsParameters")
+            Prelude.<*> (x Core..:? "InputTransformer")
+            Prelude.<*> (x Core..:? "BatchParameters")
             Prelude.<*> (x Core..:? "EcsParameters")
             Prelude.<*> (x Core..:? "RetryPolicy")
-            Prelude.<*> (x Core..:? "InputPath")
-            Prelude.<*> (x Core..:? "RoleArn")
+            Prelude.<*> (x Core..:? "DeadLetterConfig")
             Prelude.<*> (x Core..: "Id")
             Prelude.<*> (x Core..: "Arn")
       )
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` runCommandParameters
+    _salt `Prelude.hashWithSalt` kinesisParameters
       `Prelude.hashWithSalt` httpParameters
-      `Prelude.hashWithSalt` kinesisParameters
-      `Prelude.hashWithSalt` inputTransformer
-      `Prelude.hashWithSalt` deadLetterConfig
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` inputPath
       `Prelude.hashWithSalt` sageMakerPipelineParameters
-      `Prelude.hashWithSalt` sqsParameters
+      `Prelude.hashWithSalt` runCommandParameters
       `Prelude.hashWithSalt` input
-      `Prelude.hashWithSalt` batchParameters
       `Prelude.hashWithSalt` redshiftDataParameters
+      `Prelude.hashWithSalt` sqsParameters
+      `Prelude.hashWithSalt` inputTransformer
+      `Prelude.hashWithSalt` batchParameters
       `Prelude.hashWithSalt` ecsParameters
       `Prelude.hashWithSalt` retryPolicy
-      `Prelude.hashWithSalt` inputPath
-      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData Target where
   rnf Target' {..} =
-    Prelude.rnf runCommandParameters
+    Prelude.rnf kinesisParameters
       `Prelude.seq` Prelude.rnf httpParameters
-      `Prelude.seq` Prelude.rnf kinesisParameters
-      `Prelude.seq` Prelude.rnf inputTransformer
-      `Prelude.seq` Prelude.rnf deadLetterConfig
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf inputPath
       `Prelude.seq` Prelude.rnf sageMakerPipelineParameters
-      `Prelude.seq` Prelude.rnf sqsParameters
+      `Prelude.seq` Prelude.rnf runCommandParameters
       `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf batchParameters
       `Prelude.seq` Prelude.rnf redshiftDataParameters
+      `Prelude.seq` Prelude.rnf sqsParameters
+      `Prelude.seq` Prelude.rnf inputTransformer
+      `Prelude.seq` Prelude.rnf batchParameters
       `Prelude.seq` Prelude.rnf ecsParameters
       `Prelude.seq` Prelude.rnf retryPolicy
-      `Prelude.seq` Prelude.rnf inputPath
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf deadLetterConfig
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
 
@@ -404,28 +404,28 @@ instance Core.ToJSON Target where
   toJSON Target' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RunCommandParameters" Core..=)
-              Prelude.<$> runCommandParameters,
+          [ ("KinesisParameters" Core..=)
+              Prelude.<$> kinesisParameters,
             ("HttpParameters" Core..=)
               Prelude.<$> httpParameters,
-            ("KinesisParameters" Core..=)
-              Prelude.<$> kinesisParameters,
-            ("InputTransformer" Core..=)
-              Prelude.<$> inputTransformer,
-            ("DeadLetterConfig" Core..=)
-              Prelude.<$> deadLetterConfig,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("InputPath" Core..=) Prelude.<$> inputPath,
             ("SageMakerPipelineParameters" Core..=)
               Prelude.<$> sageMakerPipelineParameters,
-            ("SqsParameters" Core..=) Prelude.<$> sqsParameters,
+            ("RunCommandParameters" Core..=)
+              Prelude.<$> runCommandParameters,
             ("Input" Core..=) Prelude.<$> input,
-            ("BatchParameters" Core..=)
-              Prelude.<$> batchParameters,
             ("RedshiftDataParameters" Core..=)
               Prelude.<$> redshiftDataParameters,
+            ("SqsParameters" Core..=) Prelude.<$> sqsParameters,
+            ("InputTransformer" Core..=)
+              Prelude.<$> inputTransformer,
+            ("BatchParameters" Core..=)
+              Prelude.<$> batchParameters,
             ("EcsParameters" Core..=) Prelude.<$> ecsParameters,
             ("RetryPolicy" Core..=) Prelude.<$> retryPolicy,
-            ("InputPath" Core..=) Prelude.<$> inputPath,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("DeadLetterConfig" Core..=)
+              Prelude.<$> deadLetterConfig,
             Prelude.Just ("Id" Core..= id),
             Prelude.Just ("Arn" Core..= arn)
           ]

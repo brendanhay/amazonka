@@ -27,10 +27,10 @@ module Amazonka.LicenseManager.UpdateServiceSettings
     newUpdateServiceSettings,
 
     -- * Request Lenses
-    updateServiceSettings_enableCrossAccountsDiscovery,
-    updateServiceSettings_snsTopicArn,
-    updateServiceSettings_s3BucketArn,
     updateServiceSettings_organizationConfiguration,
+    updateServiceSettings_snsTopicArn,
+    updateServiceSettings_enableCrossAccountsDiscovery,
+    updateServiceSettings_s3BucketArn,
 
     -- * Destructuring the Response
     UpdateServiceSettingsResponse (..),
@@ -50,16 +50,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateServiceSettings' smart constructor.
 data UpdateServiceSettings = UpdateServiceSettings'
-  { -- | Activates cross-account discovery.
-    enableCrossAccountsDiscovery :: Prelude.Maybe Prelude.Bool,
+  { -- | Enables integration with Organizations for cross-account discovery.
+    organizationConfiguration :: Prelude.Maybe OrganizationConfiguration,
     -- | Amazon Resource Name (ARN) of the Amazon SNS topic used for License
     -- Manager alerts.
     snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | Activates cross-account discovery.
+    enableCrossAccountsDiscovery :: Prelude.Maybe Prelude.Bool,
     -- | Amazon Resource Name (ARN) of the Amazon S3 bucket where the License
     -- Manager information is stored.
-    s3BucketArn :: Prelude.Maybe Prelude.Text,
-    -- | Enables integration with Organizations for cross-account discovery.
-    organizationConfiguration :: Prelude.Maybe OrganizationConfiguration
+    s3BucketArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,43 +71,43 @@ data UpdateServiceSettings = UpdateServiceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableCrossAccountsDiscovery', 'updateServiceSettings_enableCrossAccountsDiscovery' - Activates cross-account discovery.
+-- 'organizationConfiguration', 'updateServiceSettings_organizationConfiguration' - Enables integration with Organizations for cross-account discovery.
 --
 -- 'snsTopicArn', 'updateServiceSettings_snsTopicArn' - Amazon Resource Name (ARN) of the Amazon SNS topic used for License
 -- Manager alerts.
 --
+-- 'enableCrossAccountsDiscovery', 'updateServiceSettings_enableCrossAccountsDiscovery' - Activates cross-account discovery.
+--
 -- 's3BucketArn', 'updateServiceSettings_s3BucketArn' - Amazon Resource Name (ARN) of the Amazon S3 bucket where the License
 -- Manager information is stored.
---
--- 'organizationConfiguration', 'updateServiceSettings_organizationConfiguration' - Enables integration with Organizations for cross-account discovery.
 newUpdateServiceSettings ::
   UpdateServiceSettings
 newUpdateServiceSettings =
   UpdateServiceSettings'
-    { enableCrossAccountsDiscovery =
+    { organizationConfiguration =
         Prelude.Nothing,
       snsTopicArn = Prelude.Nothing,
-      s3BucketArn = Prelude.Nothing,
-      organizationConfiguration = Prelude.Nothing
+      enableCrossAccountsDiscovery = Prelude.Nothing,
+      s3BucketArn = Prelude.Nothing
     }
 
--- | Activates cross-account discovery.
-updateServiceSettings_enableCrossAccountsDiscovery :: Lens.Lens' UpdateServiceSettings (Prelude.Maybe Prelude.Bool)
-updateServiceSettings_enableCrossAccountsDiscovery = Lens.lens (\UpdateServiceSettings' {enableCrossAccountsDiscovery} -> enableCrossAccountsDiscovery) (\s@UpdateServiceSettings' {} a -> s {enableCrossAccountsDiscovery = a} :: UpdateServiceSettings)
+-- | Enables integration with Organizations for cross-account discovery.
+updateServiceSettings_organizationConfiguration :: Lens.Lens' UpdateServiceSettings (Prelude.Maybe OrganizationConfiguration)
+updateServiceSettings_organizationConfiguration = Lens.lens (\UpdateServiceSettings' {organizationConfiguration} -> organizationConfiguration) (\s@UpdateServiceSettings' {} a -> s {organizationConfiguration = a} :: UpdateServiceSettings)
 
 -- | Amazon Resource Name (ARN) of the Amazon SNS topic used for License
 -- Manager alerts.
 updateServiceSettings_snsTopicArn :: Lens.Lens' UpdateServiceSettings (Prelude.Maybe Prelude.Text)
 updateServiceSettings_snsTopicArn = Lens.lens (\UpdateServiceSettings' {snsTopicArn} -> snsTopicArn) (\s@UpdateServiceSettings' {} a -> s {snsTopicArn = a} :: UpdateServiceSettings)
 
+-- | Activates cross-account discovery.
+updateServiceSettings_enableCrossAccountsDiscovery :: Lens.Lens' UpdateServiceSettings (Prelude.Maybe Prelude.Bool)
+updateServiceSettings_enableCrossAccountsDiscovery = Lens.lens (\UpdateServiceSettings' {enableCrossAccountsDiscovery} -> enableCrossAccountsDiscovery) (\s@UpdateServiceSettings' {} a -> s {enableCrossAccountsDiscovery = a} :: UpdateServiceSettings)
+
 -- | Amazon Resource Name (ARN) of the Amazon S3 bucket where the License
 -- Manager information is stored.
 updateServiceSettings_s3BucketArn :: Lens.Lens' UpdateServiceSettings (Prelude.Maybe Prelude.Text)
 updateServiceSettings_s3BucketArn = Lens.lens (\UpdateServiceSettings' {s3BucketArn} -> s3BucketArn) (\s@UpdateServiceSettings' {} a -> s {s3BucketArn = a} :: UpdateServiceSettings)
-
--- | Enables integration with Organizations for cross-account discovery.
-updateServiceSettings_organizationConfiguration :: Lens.Lens' UpdateServiceSettings (Prelude.Maybe OrganizationConfiguration)
-updateServiceSettings_organizationConfiguration = Lens.lens (\UpdateServiceSettings' {organizationConfiguration} -> organizationConfiguration) (\s@UpdateServiceSettings' {} a -> s {organizationConfiguration = a} :: UpdateServiceSettings)
 
 instance Core.AWSRequest UpdateServiceSettings where
   type
@@ -124,17 +124,17 @@ instance Core.AWSRequest UpdateServiceSettings where
 instance Prelude.Hashable UpdateServiceSettings where
   hashWithSalt _salt UpdateServiceSettings' {..} =
     _salt
-      `Prelude.hashWithSalt` enableCrossAccountsDiscovery
-      `Prelude.hashWithSalt` snsTopicArn
-      `Prelude.hashWithSalt` s3BucketArn
       `Prelude.hashWithSalt` organizationConfiguration
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` enableCrossAccountsDiscovery
+      `Prelude.hashWithSalt` s3BucketArn
 
 instance Prelude.NFData UpdateServiceSettings where
   rnf UpdateServiceSettings' {..} =
-    Prelude.rnf enableCrossAccountsDiscovery
+    Prelude.rnf organizationConfiguration
       `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf enableCrossAccountsDiscovery
       `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf organizationConfiguration
 
 instance Core.ToHeaders UpdateServiceSettings where
   toHeaders =
@@ -155,12 +155,12 @@ instance Core.ToJSON UpdateServiceSettings where
   toJSON UpdateServiceSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EnableCrossAccountsDiscovery" Core..=)
-              Prelude.<$> enableCrossAccountsDiscovery,
+          [ ("OrganizationConfiguration" Core..=)
+              Prelude.<$> organizationConfiguration,
             ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("S3BucketArn" Core..=) Prelude.<$> s3BucketArn,
-            ("OrganizationConfiguration" Core..=)
-              Prelude.<$> organizationConfiguration
+            ("EnableCrossAccountsDiscovery" Core..=)
+              Prelude.<$> enableCrossAccountsDiscovery,
+            ("S3BucketArn" Core..=) Prelude.<$> s3BucketArn
           ]
       )
 

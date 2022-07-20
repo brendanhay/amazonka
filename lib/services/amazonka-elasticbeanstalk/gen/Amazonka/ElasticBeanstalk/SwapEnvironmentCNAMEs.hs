@@ -27,10 +27,10 @@ module Amazonka.ElasticBeanstalk.SwapEnvironmentCNAMEs
     newSwapEnvironmentCNAMEs,
 
     -- * Request Lenses
-    swapEnvironmentCNAMEs_destinationEnvironmentName,
-    swapEnvironmentCNAMEs_destinationEnvironmentId,
-    swapEnvironmentCNAMEs_sourceEnvironmentName,
     swapEnvironmentCNAMEs_sourceEnvironmentId,
+    swapEnvironmentCNAMEs_sourceEnvironmentName,
+    swapEnvironmentCNAMEs_destinationEnvironmentId,
+    swapEnvironmentCNAMEs_destinationEnvironmentName,
 
     -- * Destructuring the Response
     SwapEnvironmentCNAMEsResponse (..),
@@ -49,19 +49,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newSwapEnvironmentCNAMEs' smart constructor.
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
-  { -- | The name of the destination environment.
+  { -- | The ID of the source environment.
     --
-    -- Condition: You must specify at least the @DestinationEnvironmentID@ or
-    -- the @DestinationEnvironmentName@. You may also specify both. You must
-    -- specify the @SourceEnvironmentName@ with the
-    -- @DestinationEnvironmentName@.
-    destinationEnvironmentName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the destination environment.
-    --
-    -- Condition: You must specify at least the @DestinationEnvironmentID@ or
-    -- the @DestinationEnvironmentName@. You may also specify both. You must
-    -- specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@.
-    destinationEnvironmentId :: Prelude.Maybe Prelude.Text,
+    -- Condition: You must specify at least the @SourceEnvironmentID@ or the
+    -- @SourceEnvironmentName@. You may also specify both. If you specify the
+    -- @SourceEnvironmentId@, you must specify the @DestinationEnvironmentId@.
+    sourceEnvironmentId :: Prelude.Maybe Prelude.Text,
     -- | The name of the source environment.
     --
     -- Condition: You must specify at least the @SourceEnvironmentID@ or the
@@ -69,12 +62,19 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
     -- @SourceEnvironmentName@, you must specify the
     -- @DestinationEnvironmentName@.
     sourceEnvironmentName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the source environment.
+    -- | The ID of the destination environment.
     --
-    -- Condition: You must specify at least the @SourceEnvironmentID@ or the
-    -- @SourceEnvironmentName@. You may also specify both. If you specify the
-    -- @SourceEnvironmentId@, you must specify the @DestinationEnvironmentId@.
-    sourceEnvironmentId :: Prelude.Maybe Prelude.Text
+    -- Condition: You must specify at least the @DestinationEnvironmentID@ or
+    -- the @DestinationEnvironmentName@. You may also specify both. You must
+    -- specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@.
+    destinationEnvironmentId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the destination environment.
+    --
+    -- Condition: You must specify at least the @DestinationEnvironmentID@ or
+    -- the @DestinationEnvironmentName@. You may also specify both. You must
+    -- specify the @SourceEnvironmentName@ with the
+    -- @DestinationEnvironmentName@.
+    destinationEnvironmentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,18 +86,11 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationEnvironmentName', 'swapEnvironmentCNAMEs_destinationEnvironmentName' - The name of the destination environment.
+-- 'sourceEnvironmentId', 'swapEnvironmentCNAMEs_sourceEnvironmentId' - The ID of the source environment.
 --
--- Condition: You must specify at least the @DestinationEnvironmentID@ or
--- the @DestinationEnvironmentName@. You may also specify both. You must
--- specify the @SourceEnvironmentName@ with the
--- @DestinationEnvironmentName@.
---
--- 'destinationEnvironmentId', 'swapEnvironmentCNAMEs_destinationEnvironmentId' - The ID of the destination environment.
---
--- Condition: You must specify at least the @DestinationEnvironmentID@ or
--- the @DestinationEnvironmentName@. You may also specify both. You must
--- specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@.
+-- Condition: You must specify at least the @SourceEnvironmentID@ or the
+-- @SourceEnvironmentName@. You may also specify both. If you specify the
+-- @SourceEnvironmentId@, you must specify the @DestinationEnvironmentId@.
 --
 -- 'sourceEnvironmentName', 'swapEnvironmentCNAMEs_sourceEnvironmentName' - The name of the source environment.
 --
@@ -106,38 +99,36 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
 -- @SourceEnvironmentName@, you must specify the
 -- @DestinationEnvironmentName@.
 --
--- 'sourceEnvironmentId', 'swapEnvironmentCNAMEs_sourceEnvironmentId' - The ID of the source environment.
+-- 'destinationEnvironmentId', 'swapEnvironmentCNAMEs_destinationEnvironmentId' - The ID of the destination environment.
 --
--- Condition: You must specify at least the @SourceEnvironmentID@ or the
--- @SourceEnvironmentName@. You may also specify both. If you specify the
--- @SourceEnvironmentId@, you must specify the @DestinationEnvironmentId@.
-newSwapEnvironmentCNAMEs ::
-  SwapEnvironmentCNAMEs
-newSwapEnvironmentCNAMEs =
-  SwapEnvironmentCNAMEs'
-    { destinationEnvironmentName =
-        Prelude.Nothing,
-      destinationEnvironmentId = Prelude.Nothing,
-      sourceEnvironmentName = Prelude.Nothing,
-      sourceEnvironmentId = Prelude.Nothing
-    }
-
--- | The name of the destination environment.
+-- Condition: You must specify at least the @DestinationEnvironmentID@ or
+-- the @DestinationEnvironmentName@. You may also specify both. You must
+-- specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@.
+--
+-- 'destinationEnvironmentName', 'swapEnvironmentCNAMEs_destinationEnvironmentName' - The name of the destination environment.
 --
 -- Condition: You must specify at least the @DestinationEnvironmentID@ or
 -- the @DestinationEnvironmentName@. You may also specify both. You must
 -- specify the @SourceEnvironmentName@ with the
 -- @DestinationEnvironmentName@.
-swapEnvironmentCNAMEs_destinationEnvironmentName :: Lens.Lens' SwapEnvironmentCNAMEs (Prelude.Maybe Prelude.Text)
-swapEnvironmentCNAMEs_destinationEnvironmentName = Lens.lens (\SwapEnvironmentCNAMEs' {destinationEnvironmentName} -> destinationEnvironmentName) (\s@SwapEnvironmentCNAMEs' {} a -> s {destinationEnvironmentName = a} :: SwapEnvironmentCNAMEs)
+newSwapEnvironmentCNAMEs ::
+  SwapEnvironmentCNAMEs
+newSwapEnvironmentCNAMEs =
+  SwapEnvironmentCNAMEs'
+    { sourceEnvironmentId =
+        Prelude.Nothing,
+      sourceEnvironmentName = Prelude.Nothing,
+      destinationEnvironmentId = Prelude.Nothing,
+      destinationEnvironmentName = Prelude.Nothing
+    }
 
--- | The ID of the destination environment.
+-- | The ID of the source environment.
 --
--- Condition: You must specify at least the @DestinationEnvironmentID@ or
--- the @DestinationEnvironmentName@. You may also specify both. You must
--- specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@.
-swapEnvironmentCNAMEs_destinationEnvironmentId :: Lens.Lens' SwapEnvironmentCNAMEs (Prelude.Maybe Prelude.Text)
-swapEnvironmentCNAMEs_destinationEnvironmentId = Lens.lens (\SwapEnvironmentCNAMEs' {destinationEnvironmentId} -> destinationEnvironmentId) (\s@SwapEnvironmentCNAMEs' {} a -> s {destinationEnvironmentId = a} :: SwapEnvironmentCNAMEs)
+-- Condition: You must specify at least the @SourceEnvironmentID@ or the
+-- @SourceEnvironmentName@. You may also specify both. If you specify the
+-- @SourceEnvironmentId@, you must specify the @DestinationEnvironmentId@.
+swapEnvironmentCNAMEs_sourceEnvironmentId :: Lens.Lens' SwapEnvironmentCNAMEs (Prelude.Maybe Prelude.Text)
+swapEnvironmentCNAMEs_sourceEnvironmentId = Lens.lens (\SwapEnvironmentCNAMEs' {sourceEnvironmentId} -> sourceEnvironmentId) (\s@SwapEnvironmentCNAMEs' {} a -> s {sourceEnvironmentId = a} :: SwapEnvironmentCNAMEs)
 
 -- | The name of the source environment.
 --
@@ -148,13 +139,22 @@ swapEnvironmentCNAMEs_destinationEnvironmentId = Lens.lens (\SwapEnvironmentCNAM
 swapEnvironmentCNAMEs_sourceEnvironmentName :: Lens.Lens' SwapEnvironmentCNAMEs (Prelude.Maybe Prelude.Text)
 swapEnvironmentCNAMEs_sourceEnvironmentName = Lens.lens (\SwapEnvironmentCNAMEs' {sourceEnvironmentName} -> sourceEnvironmentName) (\s@SwapEnvironmentCNAMEs' {} a -> s {sourceEnvironmentName = a} :: SwapEnvironmentCNAMEs)
 
--- | The ID of the source environment.
+-- | The ID of the destination environment.
 --
--- Condition: You must specify at least the @SourceEnvironmentID@ or the
--- @SourceEnvironmentName@. You may also specify both. If you specify the
--- @SourceEnvironmentId@, you must specify the @DestinationEnvironmentId@.
-swapEnvironmentCNAMEs_sourceEnvironmentId :: Lens.Lens' SwapEnvironmentCNAMEs (Prelude.Maybe Prelude.Text)
-swapEnvironmentCNAMEs_sourceEnvironmentId = Lens.lens (\SwapEnvironmentCNAMEs' {sourceEnvironmentId} -> sourceEnvironmentId) (\s@SwapEnvironmentCNAMEs' {} a -> s {sourceEnvironmentId = a} :: SwapEnvironmentCNAMEs)
+-- Condition: You must specify at least the @DestinationEnvironmentID@ or
+-- the @DestinationEnvironmentName@. You may also specify both. You must
+-- specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@.
+swapEnvironmentCNAMEs_destinationEnvironmentId :: Lens.Lens' SwapEnvironmentCNAMEs (Prelude.Maybe Prelude.Text)
+swapEnvironmentCNAMEs_destinationEnvironmentId = Lens.lens (\SwapEnvironmentCNAMEs' {destinationEnvironmentId} -> destinationEnvironmentId) (\s@SwapEnvironmentCNAMEs' {} a -> s {destinationEnvironmentId = a} :: SwapEnvironmentCNAMEs)
+
+-- | The name of the destination environment.
+--
+-- Condition: You must specify at least the @DestinationEnvironmentID@ or
+-- the @DestinationEnvironmentName@. You may also specify both. You must
+-- specify the @SourceEnvironmentName@ with the
+-- @DestinationEnvironmentName@.
+swapEnvironmentCNAMEs_destinationEnvironmentName :: Lens.Lens' SwapEnvironmentCNAMEs (Prelude.Maybe Prelude.Text)
+swapEnvironmentCNAMEs_destinationEnvironmentName = Lens.lens (\SwapEnvironmentCNAMEs' {destinationEnvironmentName} -> destinationEnvironmentName) (\s@SwapEnvironmentCNAMEs' {} a -> s {destinationEnvironmentName = a} :: SwapEnvironmentCNAMEs)
 
 instance Core.AWSRequest SwapEnvironmentCNAMEs where
   type
@@ -166,18 +166,17 @@ instance Core.AWSRequest SwapEnvironmentCNAMEs where
 
 instance Prelude.Hashable SwapEnvironmentCNAMEs where
   hashWithSalt _salt SwapEnvironmentCNAMEs' {..} =
-    _salt
-      `Prelude.hashWithSalt` destinationEnvironmentName
-      `Prelude.hashWithSalt` destinationEnvironmentId
+    _salt `Prelude.hashWithSalt` sourceEnvironmentId
       `Prelude.hashWithSalt` sourceEnvironmentName
-      `Prelude.hashWithSalt` sourceEnvironmentId
+      `Prelude.hashWithSalt` destinationEnvironmentId
+      `Prelude.hashWithSalt` destinationEnvironmentName
 
 instance Prelude.NFData SwapEnvironmentCNAMEs where
   rnf SwapEnvironmentCNAMEs' {..} =
-    Prelude.rnf destinationEnvironmentName
-      `Prelude.seq` Prelude.rnf destinationEnvironmentId
+    Prelude.rnf sourceEnvironmentId
       `Prelude.seq` Prelude.rnf sourceEnvironmentName
-      `Prelude.seq` Prelude.rnf sourceEnvironmentId
+      `Prelude.seq` Prelude.rnf destinationEnvironmentId
+      `Prelude.seq` Prelude.rnf destinationEnvironmentName
 
 instance Core.ToHeaders SwapEnvironmentCNAMEs where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,13 +191,13 @@ instance Core.ToQuery SwapEnvironmentCNAMEs where
           Core.=: ("SwapEnvironmentCNAMEs" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "DestinationEnvironmentName"
-          Core.=: destinationEnvironmentName,
-        "DestinationEnvironmentId"
-          Core.=: destinationEnvironmentId,
+        "SourceEnvironmentId" Core.=: sourceEnvironmentId,
         "SourceEnvironmentName"
           Core.=: sourceEnvironmentName,
-        "SourceEnvironmentId" Core.=: sourceEnvironmentId
+        "DestinationEnvironmentId"
+          Core.=: destinationEnvironmentId,
+        "DestinationEnvironmentName"
+          Core.=: destinationEnvironmentName
       ]
 
 -- | /See:/ 'newSwapEnvironmentCNAMEsResponse' smart constructor.

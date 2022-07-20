@@ -27,8 +27,8 @@ module Amazonka.MemoryDb.UpdateUser
     newUpdateUser,
 
     -- * Request Lenses
-    updateUser_authenticationMode,
     updateUser_accessString,
+    updateUser_authenticationMode,
     updateUser_userName,
 
     -- * Destructuring the Response
@@ -50,11 +50,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { -- | Denotes the user\'s authentication properties, such as whether it
+  { -- | Access permissions string used for this user.
+    accessString :: Prelude.Maybe Prelude.Text,
+    -- | Denotes the user\'s authentication properties, such as whether it
     -- requires a password to authenticate.
     authenticationMode :: Prelude.Maybe AuthenticationMode,
-    -- | Access permissions string used for this user.
-    accessString :: Prelude.Maybe Prelude.Text,
     -- | The name of the user
     userName :: Prelude.Text
   }
@@ -68,10 +68,10 @@ data UpdateUser = UpdateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accessString', 'updateUser_accessString' - Access permissions string used for this user.
+--
 -- 'authenticationMode', 'updateUser_authenticationMode' - Denotes the user\'s authentication properties, such as whether it
 -- requires a password to authenticate.
---
--- 'accessString', 'updateUser_accessString' - Access permissions string used for this user.
 --
 -- 'userName', 'updateUser_userName' - The name of the user
 newUpdateUser ::
@@ -80,19 +80,19 @@ newUpdateUser ::
   UpdateUser
 newUpdateUser pUserName_ =
   UpdateUser'
-    { authenticationMode = Prelude.Nothing,
-      accessString = Prelude.Nothing,
+    { accessString = Prelude.Nothing,
+      authenticationMode = Prelude.Nothing,
       userName = pUserName_
     }
+
+-- | Access permissions string used for this user.
+updateUser_accessString :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_accessString = Lens.lens (\UpdateUser' {accessString} -> accessString) (\s@UpdateUser' {} a -> s {accessString = a} :: UpdateUser)
 
 -- | Denotes the user\'s authentication properties, such as whether it
 -- requires a password to authenticate.
 updateUser_authenticationMode :: Lens.Lens' UpdateUser (Prelude.Maybe AuthenticationMode)
 updateUser_authenticationMode = Lens.lens (\UpdateUser' {authenticationMode} -> authenticationMode) (\s@UpdateUser' {} a -> s {authenticationMode = a} :: UpdateUser)
-
--- | Access permissions string used for this user.
-updateUser_accessString :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_accessString = Lens.lens (\UpdateUser' {accessString} -> accessString) (\s@UpdateUser' {} a -> s {accessString = a} :: UpdateUser)
 
 -- | The name of the user
 updateUser_userName :: Lens.Lens' UpdateUser Prelude.Text
@@ -111,14 +111,14 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` authenticationMode
-      `Prelude.hashWithSalt` accessString
+    _salt `Prelude.hashWithSalt` accessString
+      `Prelude.hashWithSalt` authenticationMode
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf authenticationMode
-      `Prelude.seq` Prelude.rnf accessString
+    Prelude.rnf accessString
+      `Prelude.seq` Prelude.rnf authenticationMode
       `Prelude.seq` Prelude.rnf userName
 
 instance Core.ToHeaders UpdateUser where
@@ -138,9 +138,9 @@ instance Core.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AuthenticationMode" Core..=)
+          [ ("AccessString" Core..=) Prelude.<$> accessString,
+            ("AuthenticationMode" Core..=)
               Prelude.<$> authenticationMode,
-            ("AccessString" Core..=) Prelude.<$> accessString,
             Prelude.Just ("UserName" Core..= userName)
           ]
       )

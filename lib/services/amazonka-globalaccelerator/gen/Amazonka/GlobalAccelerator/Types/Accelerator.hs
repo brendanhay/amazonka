@@ -33,28 +33,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccelerator' smart constructor.
 data Accelerator = Accelerator'
-  { -- | Describes the deployment status of the accelerator.
-    status :: Prelude.Maybe AcceleratorStatus,
+  { -- | The static IP addresses that Global Accelerator associates with the
+    -- accelerator.
+    ipSets :: Prelude.Maybe [IpSet],
+    -- | The name of the accelerator. The name must contain only alphanumeric
+    -- characters or hyphens (-), and must not begin or end with a hyphen.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the accelerator.
     acceleratorArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the accelerator was created.
+    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | Describes the deployment status of the accelerator.
+    status :: Prelude.Maybe AcceleratorStatus,
     -- | Indicates whether the accelerator is enabled. The value is true or
     -- false. The default value is true.
     --
     -- If the value is set to true, the accelerator cannot be deleted. If set
     -- to false, accelerator can be deleted.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The date and time that the accelerator was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the accelerator was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The value for the address type must be IPv4.
-    ipAddressType :: Prelude.Maybe IpAddressType,
-    -- | The name of the accelerator. The name must contain only alphanumeric
-    -- characters or hyphens (-), and must not begin or end with a hyphen.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The static IP addresses that Global Accelerator associates with the
-    -- accelerator.
-    ipSets :: Prelude.Maybe [IpSet],
     -- | The Domain Name System (DNS) name that Global Accelerator creates that
     -- points to your accelerator\'s static IP addresses.
     --
@@ -66,7 +64,9 @@ data Accelerator = Accelerator'
     -- For more information about the default DNS name, see
     -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
     -- in the /AWS Global Accelerator Developer Guide/.
-    dnsName :: Prelude.Maybe Prelude.Text
+    dnsName :: Prelude.Maybe Prelude.Text,
+    -- | The value for the address type must be IPv4.
+    ipAddressType :: Prelude.Maybe IpAddressType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,9 +78,17 @@ data Accelerator = Accelerator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'accelerator_status' - Describes the deployment status of the accelerator.
+-- 'ipSets', 'accelerator_ipSets' - The static IP addresses that Global Accelerator associates with the
+-- accelerator.
+--
+-- 'name', 'accelerator_name' - The name of the accelerator. The name must contain only alphanumeric
+-- characters or hyphens (-), and must not begin or end with a hyphen.
 --
 -- 'acceleratorArn', 'accelerator_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator.
+--
+-- 'createdTime', 'accelerator_createdTime' - The date and time that the accelerator was created.
+--
+-- 'status', 'accelerator_status' - Describes the deployment status of the accelerator.
 --
 -- 'enabled', 'accelerator_enabled' - Indicates whether the accelerator is enabled. The value is true or
 -- false. The default value is true.
@@ -88,17 +96,7 @@ data Accelerator = Accelerator'
 -- If the value is set to true, the accelerator cannot be deleted. If set
 -- to false, accelerator can be deleted.
 --
--- 'createdTime', 'accelerator_createdTime' - The date and time that the accelerator was created.
---
 -- 'lastModifiedTime', 'accelerator_lastModifiedTime' - The date and time that the accelerator was last modified.
---
--- 'ipAddressType', 'accelerator_ipAddressType' - The value for the address type must be IPv4.
---
--- 'name', 'accelerator_name' - The name of the accelerator. The name must contain only alphanumeric
--- characters or hyphens (-), and must not begin or end with a hyphen.
---
--- 'ipSets', 'accelerator_ipSets' - The static IP addresses that Global Accelerator associates with the
--- accelerator.
 --
 -- 'dnsName', 'accelerator_dnsName' - The Domain Name System (DNS) name that Global Accelerator creates that
 -- points to your accelerator\'s static IP addresses.
@@ -111,28 +109,44 @@ data Accelerator = Accelerator'
 -- For more information about the default DNS name, see
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
 -- in the /AWS Global Accelerator Developer Guide/.
+--
+-- 'ipAddressType', 'accelerator_ipAddressType' - The value for the address type must be IPv4.
 newAccelerator ::
   Accelerator
 newAccelerator =
   Accelerator'
-    { status = Prelude.Nothing,
-      acceleratorArn = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      ipAddressType = Prelude.Nothing,
+    { ipSets = Prelude.Nothing,
       name = Prelude.Nothing,
-      ipSets = Prelude.Nothing,
-      dnsName = Prelude.Nothing
+      acceleratorArn = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      status = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      dnsName = Prelude.Nothing,
+      ipAddressType = Prelude.Nothing
     }
 
--- | Describes the deployment status of the accelerator.
-accelerator_status :: Lens.Lens' Accelerator (Prelude.Maybe AcceleratorStatus)
-accelerator_status = Lens.lens (\Accelerator' {status} -> status) (\s@Accelerator' {} a -> s {status = a} :: Accelerator)
+-- | The static IP addresses that Global Accelerator associates with the
+-- accelerator.
+accelerator_ipSets :: Lens.Lens' Accelerator (Prelude.Maybe [IpSet])
+accelerator_ipSets = Lens.lens (\Accelerator' {ipSets} -> ipSets) (\s@Accelerator' {} a -> s {ipSets = a} :: Accelerator) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the accelerator. The name must contain only alphanumeric
+-- characters or hyphens (-), and must not begin or end with a hyphen.
+accelerator_name :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Text)
+accelerator_name = Lens.lens (\Accelerator' {name} -> name) (\s@Accelerator' {} a -> s {name = a} :: Accelerator)
 
 -- | The Amazon Resource Name (ARN) of the accelerator.
 accelerator_acceleratorArn :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Text)
 accelerator_acceleratorArn = Lens.lens (\Accelerator' {acceleratorArn} -> acceleratorArn) (\s@Accelerator' {} a -> s {acceleratorArn = a} :: Accelerator)
+
+-- | The date and time that the accelerator was created.
+accelerator_createdTime :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.UTCTime)
+accelerator_createdTime = Lens.lens (\Accelerator' {createdTime} -> createdTime) (\s@Accelerator' {} a -> s {createdTime = a} :: Accelerator) Prelude.. Lens.mapping Core._Time
+
+-- | Describes the deployment status of the accelerator.
+accelerator_status :: Lens.Lens' Accelerator (Prelude.Maybe AcceleratorStatus)
+accelerator_status = Lens.lens (\Accelerator' {status} -> status) (\s@Accelerator' {} a -> s {status = a} :: Accelerator)
 
 -- | Indicates whether the accelerator is enabled. The value is true or
 -- false. The default value is true.
@@ -142,27 +156,9 @@ accelerator_acceleratorArn = Lens.lens (\Accelerator' {acceleratorArn} -> accele
 accelerator_enabled :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Bool)
 accelerator_enabled = Lens.lens (\Accelerator' {enabled} -> enabled) (\s@Accelerator' {} a -> s {enabled = a} :: Accelerator)
 
--- | The date and time that the accelerator was created.
-accelerator_createdTime :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.UTCTime)
-accelerator_createdTime = Lens.lens (\Accelerator' {createdTime} -> createdTime) (\s@Accelerator' {} a -> s {createdTime = a} :: Accelerator) Prelude.. Lens.mapping Core._Time
-
 -- | The date and time that the accelerator was last modified.
 accelerator_lastModifiedTime :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.UTCTime)
 accelerator_lastModifiedTime = Lens.lens (\Accelerator' {lastModifiedTime} -> lastModifiedTime) (\s@Accelerator' {} a -> s {lastModifiedTime = a} :: Accelerator) Prelude.. Lens.mapping Core._Time
-
--- | The value for the address type must be IPv4.
-accelerator_ipAddressType :: Lens.Lens' Accelerator (Prelude.Maybe IpAddressType)
-accelerator_ipAddressType = Lens.lens (\Accelerator' {ipAddressType} -> ipAddressType) (\s@Accelerator' {} a -> s {ipAddressType = a} :: Accelerator)
-
--- | The name of the accelerator. The name must contain only alphanumeric
--- characters or hyphens (-), and must not begin or end with a hyphen.
-accelerator_name :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Text)
-accelerator_name = Lens.lens (\Accelerator' {name} -> name) (\s@Accelerator' {} a -> s {name = a} :: Accelerator)
-
--- | The static IP addresses that Global Accelerator associates with the
--- accelerator.
-accelerator_ipSets :: Lens.Lens' Accelerator (Prelude.Maybe [IpSet])
-accelerator_ipSets = Lens.lens (\Accelerator' {ipSets} -> ipSets) (\s@Accelerator' {} a -> s {ipSets = a} :: Accelerator) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Domain Name System (DNS) name that Global Accelerator creates that
 -- points to your accelerator\'s static IP addresses.
@@ -178,43 +174,47 @@ accelerator_ipSets = Lens.lens (\Accelerator' {ipSets} -> ipSets) (\s@Accelerato
 accelerator_dnsName :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Text)
 accelerator_dnsName = Lens.lens (\Accelerator' {dnsName} -> dnsName) (\s@Accelerator' {} a -> s {dnsName = a} :: Accelerator)
 
+-- | The value for the address type must be IPv4.
+accelerator_ipAddressType :: Lens.Lens' Accelerator (Prelude.Maybe IpAddressType)
+accelerator_ipAddressType = Lens.lens (\Accelerator' {ipAddressType} -> ipAddressType) (\s@Accelerator' {} a -> s {ipAddressType = a} :: Accelerator)
+
 instance Core.FromJSON Accelerator where
   parseJSON =
     Core.withObject
       "Accelerator"
       ( \x ->
           Accelerator'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AcceleratorArn")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "IpAddressType")
+            Prelude.<$> (x Core..:? "IpSets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "IpSets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AcceleratorArn")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "DnsName")
+            Prelude.<*> (x Core..:? "IpAddressType")
       )
 
 instance Prelude.Hashable Accelerator where
   hashWithSalt _salt Accelerator' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` acceleratorArn
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` ipAddressType
+    _salt `Prelude.hashWithSalt` ipSets
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` ipSets
+      `Prelude.hashWithSalt` acceleratorArn
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` ipAddressType
 
 instance Prelude.NFData Accelerator where
   rnf Accelerator' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf acceleratorArn
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf ipAddressType
+    Prelude.rnf ipSets
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf ipSets
+      `Prelude.seq` Prelude.rnf acceleratorArn
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf ipAddressType

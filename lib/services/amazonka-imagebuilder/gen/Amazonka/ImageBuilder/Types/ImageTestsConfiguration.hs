@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageTestsConfiguration' smart constructor.
 data ImageTestsConfiguration = ImageTestsConfiguration'
-  { -- | The maximum time in minutes that tests are permitted to run.
-    timeoutMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | Defines if tests should be executed when building this image.
-    imageTestsEnabled :: Prelude.Maybe Prelude.Bool
+  { -- | Defines if tests should be executed when building this image.
+    imageTestsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum time in minutes that tests are permitted to run.
+    timeoutMinutes :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ImageTestsConfiguration = ImageTestsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeoutMinutes', 'imageTestsConfiguration_timeoutMinutes' - The maximum time in minutes that tests are permitted to run.
---
 -- 'imageTestsEnabled', 'imageTestsConfiguration_imageTestsEnabled' - Defines if tests should be executed when building this image.
+--
+-- 'timeoutMinutes', 'imageTestsConfiguration_timeoutMinutes' - The maximum time in minutes that tests are permitted to run.
 newImageTestsConfiguration ::
   ImageTestsConfiguration
 newImageTestsConfiguration =
   ImageTestsConfiguration'
-    { timeoutMinutes =
+    { imageTestsEnabled =
         Prelude.Nothing,
-      imageTestsEnabled = Prelude.Nothing
+      timeoutMinutes = Prelude.Nothing
     }
-
--- | The maximum time in minutes that tests are permitted to run.
-imageTestsConfiguration_timeoutMinutes :: Lens.Lens' ImageTestsConfiguration (Prelude.Maybe Prelude.Natural)
-imageTestsConfiguration_timeoutMinutes = Lens.lens (\ImageTestsConfiguration' {timeoutMinutes} -> timeoutMinutes) (\s@ImageTestsConfiguration' {} a -> s {timeoutMinutes = a} :: ImageTestsConfiguration)
 
 -- | Defines if tests should be executed when building this image.
 imageTestsConfiguration_imageTestsEnabled :: Lens.Lens' ImageTestsConfiguration (Prelude.Maybe Prelude.Bool)
 imageTestsConfiguration_imageTestsEnabled = Lens.lens (\ImageTestsConfiguration' {imageTestsEnabled} -> imageTestsEnabled) (\s@ImageTestsConfiguration' {} a -> s {imageTestsEnabled = a} :: ImageTestsConfiguration)
+
+-- | The maximum time in minutes that tests are permitted to run.
+imageTestsConfiguration_timeoutMinutes :: Lens.Lens' ImageTestsConfiguration (Prelude.Maybe Prelude.Natural)
+imageTestsConfiguration_timeoutMinutes = Lens.lens (\ImageTestsConfiguration' {timeoutMinutes} -> timeoutMinutes) (\s@ImageTestsConfiguration' {} a -> s {timeoutMinutes = a} :: ImageTestsConfiguration)
 
 instance Core.FromJSON ImageTestsConfiguration where
   parseJSON =
@@ -68,27 +68,27 @@ instance Core.FromJSON ImageTestsConfiguration where
       "ImageTestsConfiguration"
       ( \x ->
           ImageTestsConfiguration'
-            Prelude.<$> (x Core..:? "timeoutMinutes")
-            Prelude.<*> (x Core..:? "imageTestsEnabled")
+            Prelude.<$> (x Core..:? "imageTestsEnabled")
+            Prelude.<*> (x Core..:? "timeoutMinutes")
       )
 
 instance Prelude.Hashable ImageTestsConfiguration where
   hashWithSalt _salt ImageTestsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` timeoutMinutes
-      `Prelude.hashWithSalt` imageTestsEnabled
+    _salt `Prelude.hashWithSalt` imageTestsEnabled
+      `Prelude.hashWithSalt` timeoutMinutes
 
 instance Prelude.NFData ImageTestsConfiguration where
   rnf ImageTestsConfiguration' {..} =
-    Prelude.rnf timeoutMinutes
-      `Prelude.seq` Prelude.rnf imageTestsEnabled
+    Prelude.rnf imageTestsEnabled
+      `Prelude.seq` Prelude.rnf timeoutMinutes
 
 instance Core.ToJSON ImageTestsConfiguration where
   toJSON ImageTestsConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("timeoutMinutes" Core..=)
-              Prelude.<$> timeoutMinutes,
-            ("imageTestsEnabled" Core..=)
-              Prelude.<$> imageTestsEnabled
+          [ ("imageTestsEnabled" Core..=)
+              Prelude.<$> imageTestsEnabled,
+            ("timeoutMinutes" Core..=)
+              Prelude.<$> timeoutMinutes
           ]
       )

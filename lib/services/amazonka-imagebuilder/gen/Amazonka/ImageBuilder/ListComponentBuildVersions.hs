@@ -47,9 +47,9 @@ module Amazonka.ImageBuilder.ListComponentBuildVersions
     newListComponentBuildVersionsResponse,
 
     -- * Response Lenses
-    listComponentBuildVersionsResponse_requestId,
-    listComponentBuildVersionsResponse_nextToken,
     listComponentBuildVersionsResponse_componentSummaryList,
+    listComponentBuildVersionsResponse_nextToken,
+    listComponentBuildVersionsResponse_requestId,
     listComponentBuildVersionsResponse_httpStatus,
   )
 where
@@ -124,11 +124,11 @@ instance Core.AWSRequest ListComponentBuildVersions where
     Response.receiveJSON
       ( \s h x ->
           ListComponentBuildVersionsResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "componentSummaryList"
+            Prelude.<$> ( x Core..?> "componentSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,15 +174,15 @@ instance Core.ToQuery ListComponentBuildVersions where
 
 -- | /See:/ 'newListComponentBuildVersionsResponse' smart constructor.
 data ListComponentBuildVersionsResponse = ListComponentBuildVersionsResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | The list of component summaries for the specified semantic version.
+    componentSummaryList :: Prelude.Maybe [ComponentSummary],
     -- | The next token used for paginated responses. When this is not empty,
     -- there are additional elements that the service has not included in this
     -- request. Use this token with the next request to retrieve additional
     -- objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of component summaries for the specified semantic version.
-    componentSummaryList :: Prelude.Maybe [ComponentSummary],
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,14 +196,14 @@ data ListComponentBuildVersionsResponse = ListComponentBuildVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listComponentBuildVersionsResponse_requestId' - The request ID that uniquely identifies this request.
+-- 'componentSummaryList', 'listComponentBuildVersionsResponse_componentSummaryList' - The list of component summaries for the specified semantic version.
 --
 -- 'nextToken', 'listComponentBuildVersionsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
 -- request. Use this token with the next request to retrieve additional
 -- objects.
 --
--- 'componentSummaryList', 'listComponentBuildVersionsResponse_componentSummaryList' - The list of component summaries for the specified semantic version.
+-- 'requestId', 'listComponentBuildVersionsResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'listComponentBuildVersionsResponse_httpStatus' - The response's http status code.
 newListComponentBuildVersionsResponse ::
@@ -212,16 +212,16 @@ newListComponentBuildVersionsResponse ::
   ListComponentBuildVersionsResponse
 newListComponentBuildVersionsResponse pHttpStatus_ =
   ListComponentBuildVersionsResponse'
-    { requestId =
+    { componentSummaryList =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      componentSummaryList = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The request ID that uniquely identifies this request.
-listComponentBuildVersionsResponse_requestId :: Lens.Lens' ListComponentBuildVersionsResponse (Prelude.Maybe Prelude.Text)
-listComponentBuildVersionsResponse_requestId = Lens.lens (\ListComponentBuildVersionsResponse' {requestId} -> requestId) (\s@ListComponentBuildVersionsResponse' {} a -> s {requestId = a} :: ListComponentBuildVersionsResponse)
+-- | The list of component summaries for the specified semantic version.
+listComponentBuildVersionsResponse_componentSummaryList :: Lens.Lens' ListComponentBuildVersionsResponse (Prelude.Maybe [ComponentSummary])
+listComponentBuildVersionsResponse_componentSummaryList = Lens.lens (\ListComponentBuildVersionsResponse' {componentSummaryList} -> componentSummaryList) (\s@ListComponentBuildVersionsResponse' {} a -> s {componentSummaryList = a} :: ListComponentBuildVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
@@ -230,9 +230,9 @@ listComponentBuildVersionsResponse_requestId = Lens.lens (\ListComponentBuildVer
 listComponentBuildVersionsResponse_nextToken :: Lens.Lens' ListComponentBuildVersionsResponse (Prelude.Maybe Prelude.Text)
 listComponentBuildVersionsResponse_nextToken = Lens.lens (\ListComponentBuildVersionsResponse' {nextToken} -> nextToken) (\s@ListComponentBuildVersionsResponse' {} a -> s {nextToken = a} :: ListComponentBuildVersionsResponse)
 
--- | The list of component summaries for the specified semantic version.
-listComponentBuildVersionsResponse_componentSummaryList :: Lens.Lens' ListComponentBuildVersionsResponse (Prelude.Maybe [ComponentSummary])
-listComponentBuildVersionsResponse_componentSummaryList = Lens.lens (\ListComponentBuildVersionsResponse' {componentSummaryList} -> componentSummaryList) (\s@ListComponentBuildVersionsResponse' {} a -> s {componentSummaryList = a} :: ListComponentBuildVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The request ID that uniquely identifies this request.
+listComponentBuildVersionsResponse_requestId :: Lens.Lens' ListComponentBuildVersionsResponse (Prelude.Maybe Prelude.Text)
+listComponentBuildVersionsResponse_requestId = Lens.lens (\ListComponentBuildVersionsResponse' {requestId} -> requestId) (\s@ListComponentBuildVersionsResponse' {} a -> s {requestId = a} :: ListComponentBuildVersionsResponse)
 
 -- | The response's http status code.
 listComponentBuildVersionsResponse_httpStatus :: Lens.Lens' ListComponentBuildVersionsResponse Prelude.Int
@@ -243,7 +243,7 @@ instance
     ListComponentBuildVersionsResponse
   where
   rnf ListComponentBuildVersionsResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf componentSummaryList
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf componentSummaryList
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

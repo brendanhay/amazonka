@@ -33,8 +33,8 @@ module Amazonka.StepFunctions.StartExecution
     newStartExecution,
 
     -- * Request Lenses
-    startExecution_input,
     startExecution_name,
+    startExecution_input,
     startExecution_traceHeader,
     startExecution_stateMachineArn,
 
@@ -58,18 +58,7 @@ import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newStartExecution' smart constructor.
 data StartExecution = StartExecution'
-  { -- | The string that contains the JSON input data for the execution, for
-    -- example:
-    --
-    -- @\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"@
-    --
-    -- If you don\'t include any JSON input data, you still must include the
-    -- two braces, for example: @\"input\": \"{}\"@
-    --
-    -- Length constraints apply to the payload size, and are expressed as bytes
-    -- in UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the execution. This name must be unique for your AWS
+  { -- | The name of the execution. This name must be unique for your AWS
     -- account, region, and state machine for 90 days. For more information,
     -- see
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions>
@@ -90,6 +79,17 @@ data StartExecution = StartExecution'
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The string that contains the JSON input data for the execution, for
+    -- example:
+    --
+    -- @\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"@
+    --
+    -- If you don\'t include any JSON input data, you still must include the
+    -- two braces, for example: @\"input\": \"{}\"@
+    --
+    -- Length constraints apply to the payload size, and are expressed as bytes
+    -- in UTF-8 encoding.
+    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Passes the AWS X-Ray trace header. The trace header can also be passed
     -- in the request payload.
     traceHeader :: Prelude.Maybe Prelude.Text,
@@ -105,17 +105,6 @@ data StartExecution = StartExecution'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'input', 'startExecution_input' - The string that contains the JSON input data for the execution, for
--- example:
---
--- @\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"@
---
--- If you don\'t include any JSON input data, you still must include the
--- two braces, for example: @\"input\": \"{}\"@
---
--- Length constraints apply to the payload size, and are expressed as bytes
--- in UTF-8 encoding.
 --
 -- 'name', 'startExecution_name' - The name of the execution. This name must be unique for your AWS
 -- account, region, and state machine for 90 days. For more information,
@@ -138,6 +127,17 @@ data StartExecution = StartExecution'
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
 --
+-- 'input', 'startExecution_input' - The string that contains the JSON input data for the execution, for
+-- example:
+--
+-- @\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"@
+--
+-- If you don\'t include any JSON input data, you still must include the
+-- two braces, for example: @\"input\": \"{}\"@
+--
+-- Length constraints apply to the payload size, and are expressed as bytes
+-- in UTF-8 encoding.
+--
 -- 'traceHeader', 'startExecution_traceHeader' - Passes the AWS X-Ray trace header. The trace header can also be passed
 -- in the request payload.
 --
@@ -148,24 +148,11 @@ newStartExecution ::
   StartExecution
 newStartExecution pStateMachineArn_ =
   StartExecution'
-    { input = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      input = Prelude.Nothing,
       traceHeader = Prelude.Nothing,
       stateMachineArn = pStateMachineArn_
     }
-
--- | The string that contains the JSON input data for the execution, for
--- example:
---
--- @\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"@
---
--- If you don\'t include any JSON input data, you still must include the
--- two braces, for example: @\"input\": \"{}\"@
---
--- Length constraints apply to the payload size, and are expressed as bytes
--- in UTF-8 encoding.
-startExecution_input :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
-startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartExecution' {} a -> s {input = a} :: StartExecution) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the execution. This name must be unique for your AWS
 -- account, region, and state machine for 90 days. For more information,
@@ -189,6 +176,19 @@ startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartEx
 -- 0-9, A-Z, a-z, - and _.
 startExecution_name :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
 startExecution_name = Lens.lens (\StartExecution' {name} -> name) (\s@StartExecution' {} a -> s {name = a} :: StartExecution)
+
+-- | The string that contains the JSON input data for the execution, for
+-- example:
+--
+-- @\"input\": \"{\\\"first_name\\\" : \\\"test\\\"}\"@
+--
+-- If you don\'t include any JSON input data, you still must include the
+-- two braces, for example: @\"input\": \"{}\"@
+--
+-- Length constraints apply to the payload size, and are expressed as bytes
+-- in UTF-8 encoding.
+startExecution_input :: Lens.Lens' StartExecution (Prelude.Maybe Prelude.Text)
+startExecution_input = Lens.lens (\StartExecution' {input} -> input) (\s@StartExecution' {} a -> s {input = a} :: StartExecution) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Passes the AWS X-Ray trace header. The trace header can also be passed
 -- in the request payload.
@@ -215,15 +215,15 @@ instance Core.AWSRequest StartExecution where
 
 instance Prelude.Hashable StartExecution where
   hashWithSalt _salt StartExecution' {..} =
-    _salt `Prelude.hashWithSalt` input
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` traceHeader
       `Prelude.hashWithSalt` stateMachineArn
 
 instance Prelude.NFData StartExecution where
   rnf StartExecution' {..} =
-    Prelude.rnf input
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf input
       `Prelude.seq` Prelude.rnf traceHeader
       `Prelude.seq` Prelude.rnf stateMachineArn
 
@@ -246,8 +246,8 @@ instance Core.ToJSON StartExecution where
   toJSON StartExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("input" Core..=) Prelude.<$> input,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("input" Core..=) Prelude.<$> input,
             ("traceHeader" Core..=) Prelude.<$> traceHeader,
             Prelude.Just
               ("stateMachineArn" Core..= stateMachineArn)

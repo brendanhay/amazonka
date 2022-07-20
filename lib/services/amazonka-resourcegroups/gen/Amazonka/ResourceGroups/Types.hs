@@ -17,13 +17,13 @@ module Amazonka.ResourceGroups.Types
     defaultService,
 
     -- * Errors
-    _ForbiddenException,
-    _NotFoundException,
-    _TooManyRequestsException,
-    _InternalServerErrorException,
-    _MethodNotAllowedException,
     _UnauthorizedException,
+    _NotFoundException,
+    _InternalServerErrorException,
+    _ForbiddenException,
+    _MethodNotAllowedException,
     _BadRequestException,
+    _TooManyRequestsException,
 
     -- * GroupConfigurationStatus
     GroupConfigurationStatus (..),
@@ -46,9 +46,9 @@ module Amazonka.ResourceGroups.Types
     -- * FailedResource
     FailedResource (..),
     newFailedResource,
-    failedResource_resourceArn,
-    failedResource_errorCode,
     failedResource_errorMessage,
+    failedResource_errorCode,
+    failedResource_resourceArn,
 
     -- * Group
     Group (..),
@@ -60,10 +60,10 @@ module Amazonka.ResourceGroups.Types
     -- * GroupConfiguration
     GroupConfiguration (..),
     newGroupConfiguration,
-    groupConfiguration_status,
-    groupConfiguration_failureReason,
     groupConfiguration_proposedConfiguration,
     groupConfiguration_configuration,
+    groupConfiguration_status,
+    groupConfiguration_failureReason,
 
     -- * GroupConfigurationItem
     GroupConfigurationItem (..),
@@ -86,8 +86,8 @@ module Amazonka.ResourceGroups.Types
     -- * GroupIdentifier
     GroupIdentifier (..),
     newGroupIdentifier,
-    groupIdentifier_groupArn,
     groupIdentifier_groupName,
+    groupIdentifier_groupArn,
 
     -- * GroupQuery
     GroupQuery (..),
@@ -109,8 +109,8 @@ module Amazonka.ResourceGroups.Types
     -- * QueryError
     QueryError (..),
     newQueryError,
-    queryError_errorCode,
     queryError_message,
+    queryError_errorCode,
 
     -- * ResourceFilter
     ResourceFilter (..),
@@ -190,35 +190,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -227,56 +200,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The caller isn\'t authorized to make the request. Check permissions.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | One or more of the specified resources don\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | You\'ve exceeded throttling limits by making too many requests in a
--- period of time.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
-
--- | An internal error occurred while processing the request. Try again
--- later.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | The request uses an HTTP method that isn\'t allowed for the specified
--- resource.
-_MethodNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MethodNotAllowedException =
-  Core._MatchServiceError
-    defaultService
-    "MethodNotAllowedException"
-    Prelude.. Core.hasStatus 405
 
 -- | The request was rejected because it doesn\'t have valid credentials for
 -- the target resource.
@@ -287,6 +244,40 @@ _UnauthorizedException =
     "UnauthorizedException"
     Prelude.. Core.hasStatus 401
 
+-- | One or more of the specified resources don\'t exist.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | An internal error occurred while processing the request. Try again
+-- later.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | The caller isn\'t authorized to make the request. Check permissions.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
+
+-- | The request uses an HTTP method that isn\'t allowed for the specified
+-- resource.
+_MethodNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MethodNotAllowedException =
+  Core._MatchServiceError
+    defaultService
+    "MethodNotAllowedException"
+    Prelude.. Core.hasStatus 405
+
 -- | The request includes one or more parameters that violate validation
 -- rules.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -295,3 +286,12 @@ _BadRequestException =
     defaultService
     "BadRequestException"
     Prelude.. Core.hasStatus 400
+
+-- | You\'ve exceeded throttling limits by making too many requests in a
+-- period of time.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429

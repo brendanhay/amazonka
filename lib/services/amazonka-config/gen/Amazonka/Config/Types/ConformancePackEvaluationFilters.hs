@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConformancePackEvaluationFilters' smart constructor.
 data ConformancePackEvaluationFilters = ConformancePackEvaluationFilters'
-  { -- | Filters the results by resource IDs.
+  { -- | Filters the results by the resource type (for example,
+    -- @\"AWS::EC2::Instance\"@).
+    resourceType :: Prelude.Maybe Prelude.Text,
+    -- | Filters the results by resource IDs.
     --
     -- This is valid only when you provide resource type. If there is no
     -- resource type, you will see an error.
     resourceIds :: Prelude.Maybe [Prelude.Text],
-    -- | Filters the results by the resource type (for example,
-    -- @\"AWS::EC2::Instance\"@).
-    resourceType :: Prelude.Maybe Prelude.Text,
     -- | Filters the results by Config rule names.
     configRuleNames :: Prelude.Maybe [Prelude.Text],
     -- | Filters the results by compliance.
@@ -55,13 +55,13 @@ data ConformancePackEvaluationFilters = ConformancePackEvaluationFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceType', 'conformancePackEvaluationFilters_resourceType' - Filters the results by the resource type (for example,
+-- @\"AWS::EC2::Instance\"@).
+--
 -- 'resourceIds', 'conformancePackEvaluationFilters_resourceIds' - Filters the results by resource IDs.
 --
 -- This is valid only when you provide resource type. If there is no
 -- resource type, you will see an error.
---
--- 'resourceType', 'conformancePackEvaluationFilters_resourceType' - Filters the results by the resource type (for example,
--- @\"AWS::EC2::Instance\"@).
 --
 -- 'configRuleNames', 'conformancePackEvaluationFilters_configRuleNames' - Filters the results by Config rule names.
 --
@@ -73,12 +73,17 @@ newConformancePackEvaluationFilters ::
   ConformancePackEvaluationFilters
 newConformancePackEvaluationFilters =
   ConformancePackEvaluationFilters'
-    { resourceIds =
+    { resourceType =
         Prelude.Nothing,
-      resourceType = Prelude.Nothing,
+      resourceIds = Prelude.Nothing,
       configRuleNames = Prelude.Nothing,
       complianceType = Prelude.Nothing
     }
+
+-- | Filters the results by the resource type (for example,
+-- @\"AWS::EC2::Instance\"@).
+conformancePackEvaluationFilters_resourceType :: Lens.Lens' ConformancePackEvaluationFilters (Prelude.Maybe Prelude.Text)
+conformancePackEvaluationFilters_resourceType = Lens.lens (\ConformancePackEvaluationFilters' {resourceType} -> resourceType) (\s@ConformancePackEvaluationFilters' {} a -> s {resourceType = a} :: ConformancePackEvaluationFilters)
 
 -- | Filters the results by resource IDs.
 --
@@ -86,11 +91,6 @@ newConformancePackEvaluationFilters =
 -- resource type, you will see an error.
 conformancePackEvaluationFilters_resourceIds :: Lens.Lens' ConformancePackEvaluationFilters (Prelude.Maybe [Prelude.Text])
 conformancePackEvaluationFilters_resourceIds = Lens.lens (\ConformancePackEvaluationFilters' {resourceIds} -> resourceIds) (\s@ConformancePackEvaluationFilters' {} a -> s {resourceIds = a} :: ConformancePackEvaluationFilters) Prelude.. Lens.mapping Lens.coerced
-
--- | Filters the results by the resource type (for example,
--- @\"AWS::EC2::Instance\"@).
-conformancePackEvaluationFilters_resourceType :: Lens.Lens' ConformancePackEvaluationFilters (Prelude.Maybe Prelude.Text)
-conformancePackEvaluationFilters_resourceType = Lens.lens (\ConformancePackEvaluationFilters' {resourceType} -> resourceType) (\s@ConformancePackEvaluationFilters' {} a -> s {resourceType = a} :: ConformancePackEvaluationFilters)
 
 -- | Filters the results by Config rule names.
 conformancePackEvaluationFilters_configRuleNames :: Lens.Lens' ConformancePackEvaluationFilters (Prelude.Maybe [Prelude.Text])
@@ -110,8 +110,8 @@ instance
   hashWithSalt
     _salt
     ConformancePackEvaluationFilters' {..} =
-      _salt `Prelude.hashWithSalt` resourceIds
-        `Prelude.hashWithSalt` resourceType
+      _salt `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` resourceIds
         `Prelude.hashWithSalt` configRuleNames
         `Prelude.hashWithSalt` complianceType
 
@@ -120,8 +120,8 @@ instance
     ConformancePackEvaluationFilters
   where
   rnf ConformancePackEvaluationFilters' {..} =
-    Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceIds
       `Prelude.seq` Prelude.rnf configRuleNames
       `Prelude.seq` Prelude.rnf complianceType
 
@@ -129,8 +129,8 @@ instance Core.ToJSON ConformancePackEvaluationFilters where
   toJSON ConformancePackEvaluationFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceIds" Core..=) Prelude.<$> resourceIds,
-            ("ResourceType" Core..=) Prelude.<$> resourceType,
+          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
+            ("ResourceIds" Core..=) Prelude.<$> resourceIds,
             ("ConfigRuleNames" Core..=)
               Prelude.<$> configRuleNames,
             ("ComplianceType" Core..=)

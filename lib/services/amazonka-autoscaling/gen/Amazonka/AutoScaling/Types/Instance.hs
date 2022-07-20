@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
-  { -- | The number of capacity units contributed by the instance based on its
+  { -- | The launch template for the instance.
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+    -- | The launch configuration associated with the instance.
+    launchConfigurationName :: Prelude.Maybe Prelude.Text,
+    -- | The instance type of the EC2 instance.
+    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The number of capacity units contributed by the instance based on its
     -- instance type.
     --
     -- Valid Range: Minimum value of 1. Maximum value of 999.
     weightedCapacity :: Prelude.Maybe Prelude.Text,
-    -- | The instance type of the EC2 instance.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The launch configuration associated with the instance.
-    launchConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | The launch template for the instance.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
     -- | The ID of the instance.
     instanceId :: Prelude.Text,
     -- | The Availability Zone in which the instance is running.
@@ -68,16 +68,16 @@ data Instance = Instance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'launchTemplate', 'instance_launchTemplate' - The launch template for the instance.
+--
+-- 'launchConfigurationName', 'instance_launchConfigurationName' - The launch configuration associated with the instance.
+--
+-- 'instanceType', 'instance_instanceType' - The instance type of the EC2 instance.
+--
 -- 'weightedCapacity', 'instance_weightedCapacity' - The number of capacity units contributed by the instance based on its
 -- instance type.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 999.
---
--- 'instanceType', 'instance_instanceType' - The instance type of the EC2 instance.
---
--- 'launchConfigurationName', 'instance_launchConfigurationName' - The launch configuration associated with the instance.
---
--- 'launchTemplate', 'instance_launchTemplate' - The launch template for the instance.
 --
 -- 'instanceId', 'instance_instanceId' - The ID of the instance.
 --
@@ -114,10 +114,10 @@ newInstance
   pHealthStatus_
   pProtectedFromScaleIn_ =
     Instance'
-      { weightedCapacity = Prelude.Nothing,
-        instanceType = Prelude.Nothing,
+      { launchTemplate = Prelude.Nothing,
         launchConfigurationName = Prelude.Nothing,
-        launchTemplate = Prelude.Nothing,
+        instanceType = Prelude.Nothing,
+        weightedCapacity = Prelude.Nothing,
         instanceId = pInstanceId_,
         availabilityZone = pAvailabilityZone_,
         lifecycleState = pLifecycleState_,
@@ -125,24 +125,24 @@ newInstance
         protectedFromScaleIn = pProtectedFromScaleIn_
       }
 
+-- | The launch template for the instance.
+instance_launchTemplate :: Lens.Lens' Instance (Prelude.Maybe LaunchTemplateSpecification)
+instance_launchTemplate = Lens.lens (\Instance' {launchTemplate} -> launchTemplate) (\s@Instance' {} a -> s {launchTemplate = a} :: Instance)
+
+-- | The launch configuration associated with the instance.
+instance_launchConfigurationName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_launchConfigurationName = Lens.lens (\Instance' {launchConfigurationName} -> launchConfigurationName) (\s@Instance' {} a -> s {launchConfigurationName = a} :: Instance)
+
+-- | The instance type of the EC2 instance.
+instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
+
 -- | The number of capacity units contributed by the instance based on its
 -- instance type.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 999.
 instance_weightedCapacity :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_weightedCapacity = Lens.lens (\Instance' {weightedCapacity} -> weightedCapacity) (\s@Instance' {} a -> s {weightedCapacity = a} :: Instance)
-
--- | The instance type of the EC2 instance.
-instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
-
--- | The launch configuration associated with the instance.
-instance_launchConfigurationName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_launchConfigurationName = Lens.lens (\Instance' {launchConfigurationName} -> launchConfigurationName) (\s@Instance' {} a -> s {launchConfigurationName = a} :: Instance)
-
--- | The launch template for the instance.
-instance_launchTemplate :: Lens.Lens' Instance (Prelude.Maybe LaunchTemplateSpecification)
-instance_launchTemplate = Lens.lens (\Instance' {launchTemplate} -> launchTemplate) (\s@Instance' {} a -> s {launchTemplate = a} :: Instance)
 
 -- | The ID of the instance.
 instance_instanceId :: Lens.Lens' Instance Prelude.Text
@@ -174,10 +174,10 @@ instance_protectedFromScaleIn = Lens.lens (\Instance' {protectedFromScaleIn} -> 
 instance Core.FromXML Instance where
   parseXML x =
     Instance'
-      Prelude.<$> (x Core..@? "WeightedCapacity")
-      Prelude.<*> (x Core..@? "InstanceType")
+      Prelude.<$> (x Core..@? "LaunchTemplate")
       Prelude.<*> (x Core..@? "LaunchConfigurationName")
-      Prelude.<*> (x Core..@? "LaunchTemplate")
+      Prelude.<*> (x Core..@? "InstanceType")
+      Prelude.<*> (x Core..@? "WeightedCapacity")
       Prelude.<*> (x Core..@ "InstanceId")
       Prelude.<*> (x Core..@ "AvailabilityZone")
       Prelude.<*> (x Core..@ "LifecycleState")
@@ -186,10 +186,10 @@ instance Core.FromXML Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` weightedCapacity
-      `Prelude.hashWithSalt` instanceType
+    _salt `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` launchConfigurationName
-      `Prelude.hashWithSalt` launchTemplate
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` weightedCapacity
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` lifecycleState
@@ -198,10 +198,10 @@ instance Prelude.Hashable Instance where
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf weightedCapacity
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf launchTemplate
       `Prelude.seq` Prelude.rnf launchConfigurationName
-      `Prelude.seq` Prelude.rnf launchTemplate
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf weightedCapacity
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf lifecycleState

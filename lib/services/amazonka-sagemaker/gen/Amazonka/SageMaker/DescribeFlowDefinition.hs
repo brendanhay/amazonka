@@ -34,9 +34,9 @@ module Amazonka.SageMaker.DescribeFlowDefinition
     newDescribeFlowDefinitionResponse,
 
     -- * Response Lenses
-    describeFlowDefinitionResponse_failureReason,
-    describeFlowDefinitionResponse_humanLoopRequestSource,
     describeFlowDefinitionResponse_humanLoopActivationConfig,
+    describeFlowDefinitionResponse_humanLoopRequestSource,
+    describeFlowDefinitionResponse_failureReason,
     describeFlowDefinitionResponse_httpStatus,
     describeFlowDefinitionResponse_flowDefinitionArn,
     describeFlowDefinitionResponse_flowDefinitionName,
@@ -94,9 +94,9 @@ instance Core.AWSRequest DescribeFlowDefinition where
     Response.receiveJSON
       ( \s h x ->
           DescribeFlowDefinitionResponse'
-            Prelude.<$> (x Core..?> "FailureReason")
+            Prelude.<$> (x Core..?> "HumanLoopActivationConfig")
             Prelude.<*> (x Core..?> "HumanLoopRequestSource")
-            Prelude.<*> (x Core..?> "HumanLoopActivationConfig")
+            Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "FlowDefinitionArn")
             Prelude.<*> (x Core..:> "FlowDefinitionName")
@@ -147,15 +147,15 @@ instance Core.ToQuery DescribeFlowDefinition where
 
 -- | /See:/ 'newDescribeFlowDefinitionResponse' smart constructor.
 data DescribeFlowDefinitionResponse = DescribeFlowDefinitionResponse'
-  { -- | The reason your flow definition failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+  { -- | An object containing information about what triggers a human review
+    -- workflow.
+    humanLoopActivationConfig :: Prelude.Maybe HumanLoopActivationConfig,
     -- | Container for configuring the source of human task requests. Used to
     -- specify if Amazon Rekognition or Amazon Textract is used as an
     -- integration source.
     humanLoopRequestSource :: Prelude.Maybe HumanLoopRequestSource,
-    -- | An object containing information about what triggers a human review
-    -- workflow.
-    humanLoopActivationConfig :: Prelude.Maybe HumanLoopActivationConfig,
+    -- | The reason your flow definition failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the flow defintion.
@@ -185,14 +185,14 @@ data DescribeFlowDefinitionResponse = DescribeFlowDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'describeFlowDefinitionResponse_failureReason' - The reason your flow definition failed.
+-- 'humanLoopActivationConfig', 'describeFlowDefinitionResponse_humanLoopActivationConfig' - An object containing information about what triggers a human review
+-- workflow.
 --
 -- 'humanLoopRequestSource', 'describeFlowDefinitionResponse_humanLoopRequestSource' - Container for configuring the source of human task requests. Used to
 -- specify if Amazon Rekognition or Amazon Textract is used as an
 -- integration source.
 --
--- 'humanLoopActivationConfig', 'describeFlowDefinitionResponse_humanLoopActivationConfig' - An object containing information about what triggers a human review
--- workflow.
+-- 'failureReason', 'describeFlowDefinitionResponse_failureReason' - The reason your flow definition failed.
 --
 -- 'httpStatus', 'describeFlowDefinitionResponse_httpStatus' - The response's http status code.
 --
@@ -239,10 +239,10 @@ newDescribeFlowDefinitionResponse
   pOutputConfig_
   pRoleArn_ =
     DescribeFlowDefinitionResponse'
-      { failureReason =
+      { humanLoopActivationConfig =
           Prelude.Nothing,
         humanLoopRequestSource = Prelude.Nothing,
-        humanLoopActivationConfig = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         flowDefinitionArn = pFlowDefinitionArn_,
         flowDefinitionName = pFlowDefinitionName_,
@@ -255,9 +255,10 @@ newDescribeFlowDefinitionResponse
         roleArn = pRoleArn_
       }
 
--- | The reason your flow definition failed.
-describeFlowDefinitionResponse_failureReason :: Lens.Lens' DescribeFlowDefinitionResponse (Prelude.Maybe Prelude.Text)
-describeFlowDefinitionResponse_failureReason = Lens.lens (\DescribeFlowDefinitionResponse' {failureReason} -> failureReason) (\s@DescribeFlowDefinitionResponse' {} a -> s {failureReason = a} :: DescribeFlowDefinitionResponse)
+-- | An object containing information about what triggers a human review
+-- workflow.
+describeFlowDefinitionResponse_humanLoopActivationConfig :: Lens.Lens' DescribeFlowDefinitionResponse (Prelude.Maybe HumanLoopActivationConfig)
+describeFlowDefinitionResponse_humanLoopActivationConfig = Lens.lens (\DescribeFlowDefinitionResponse' {humanLoopActivationConfig} -> humanLoopActivationConfig) (\s@DescribeFlowDefinitionResponse' {} a -> s {humanLoopActivationConfig = a} :: DescribeFlowDefinitionResponse)
 
 -- | Container for configuring the source of human task requests. Used to
 -- specify if Amazon Rekognition or Amazon Textract is used as an
@@ -265,10 +266,9 @@ describeFlowDefinitionResponse_failureReason = Lens.lens (\DescribeFlowDefinitio
 describeFlowDefinitionResponse_humanLoopRequestSource :: Lens.Lens' DescribeFlowDefinitionResponse (Prelude.Maybe HumanLoopRequestSource)
 describeFlowDefinitionResponse_humanLoopRequestSource = Lens.lens (\DescribeFlowDefinitionResponse' {humanLoopRequestSource} -> humanLoopRequestSource) (\s@DescribeFlowDefinitionResponse' {} a -> s {humanLoopRequestSource = a} :: DescribeFlowDefinitionResponse)
 
--- | An object containing information about what triggers a human review
--- workflow.
-describeFlowDefinitionResponse_humanLoopActivationConfig :: Lens.Lens' DescribeFlowDefinitionResponse (Prelude.Maybe HumanLoopActivationConfig)
-describeFlowDefinitionResponse_humanLoopActivationConfig = Lens.lens (\DescribeFlowDefinitionResponse' {humanLoopActivationConfig} -> humanLoopActivationConfig) (\s@DescribeFlowDefinitionResponse' {} a -> s {humanLoopActivationConfig = a} :: DescribeFlowDefinitionResponse)
+-- | The reason your flow definition failed.
+describeFlowDefinitionResponse_failureReason :: Lens.Lens' DescribeFlowDefinitionResponse (Prelude.Maybe Prelude.Text)
+describeFlowDefinitionResponse_failureReason = Lens.lens (\DescribeFlowDefinitionResponse' {failureReason} -> failureReason) (\s@DescribeFlowDefinitionResponse' {} a -> s {failureReason = a} :: DescribeFlowDefinitionResponse)
 
 -- | The response's http status code.
 describeFlowDefinitionResponse_httpStatus :: Lens.Lens' DescribeFlowDefinitionResponse Prelude.Int
@@ -309,9 +309,9 @@ instance
     DescribeFlowDefinitionResponse
   where
   rnf DescribeFlowDefinitionResponse' {..} =
-    Prelude.rnf failureReason
+    Prelude.rnf humanLoopActivationConfig
       `Prelude.seq` Prelude.rnf humanLoopRequestSource
-      `Prelude.seq` Prelude.rnf humanLoopActivationConfig
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf flowDefinitionArn
       `Prelude.seq` Prelude.rnf flowDefinitionName

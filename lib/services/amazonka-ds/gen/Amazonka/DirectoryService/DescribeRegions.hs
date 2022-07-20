@@ -28,8 +28,8 @@ module Amazonka.DirectoryService.DescribeRegions
     newDescribeRegions,
 
     -- * Request Lenses
-    describeRegions_regionName,
     describeRegions_nextToken,
+    describeRegions_regionName,
     describeRegions_directoryId,
 
     -- * Destructuring the Response
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
-  { -- | The name of the Region. For example, @us-east-1@.
-    regionName :: Prelude.Maybe Prelude.Text,
-    -- | The @DescribeRegionsResult.NextToken@ value from a previous call to
+  { -- | The @DescribeRegionsResult.NextToken@ value from a previous call to
     -- DescribeRegions. Pass null if this is the first call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Region. For example, @us-east-1@.
+    regionName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the directory.
     directoryId :: Prelude.Text
   }
@@ -70,10 +70,10 @@ data DescribeRegions = DescribeRegions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionName', 'describeRegions_regionName' - The name of the Region. For example, @us-east-1@.
---
 -- 'nextToken', 'describeRegions_nextToken' - The @DescribeRegionsResult.NextToken@ value from a previous call to
 -- DescribeRegions. Pass null if this is the first call.
+--
+-- 'regionName', 'describeRegions_regionName' - The name of the Region. For example, @us-east-1@.
 --
 -- 'directoryId', 'describeRegions_directoryId' - The identifier of the directory.
 newDescribeRegions ::
@@ -82,19 +82,19 @@ newDescribeRegions ::
   DescribeRegions
 newDescribeRegions pDirectoryId_ =
   DescribeRegions'
-    { regionName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      regionName = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
-
--- | The name of the Region. For example, @us-east-1@.
-describeRegions_regionName :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Text)
-describeRegions_regionName = Lens.lens (\DescribeRegions' {regionName} -> regionName) (\s@DescribeRegions' {} a -> s {regionName = a} :: DescribeRegions)
 
 -- | The @DescribeRegionsResult.NextToken@ value from a previous call to
 -- DescribeRegions. Pass null if this is the first call.
 describeRegions_nextToken :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Text)
 describeRegions_nextToken = Lens.lens (\DescribeRegions' {nextToken} -> nextToken) (\s@DescribeRegions' {} a -> s {nextToken = a} :: DescribeRegions)
+
+-- | The name of the Region. For example, @us-east-1@.
+describeRegions_regionName :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Text)
+describeRegions_regionName = Lens.lens (\DescribeRegions' {regionName} -> regionName) (\s@DescribeRegions' {} a -> s {regionName = a} :: DescribeRegions)
 
 -- | The identifier of the directory.
 describeRegions_directoryId :: Lens.Lens' DescribeRegions Prelude.Text
@@ -118,14 +118,14 @@ instance Core.AWSRequest DescribeRegions where
 
 instance Prelude.Hashable DescribeRegions where
   hashWithSalt _salt DescribeRegions' {..} =
-    _salt `Prelude.hashWithSalt` regionName
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` directoryId
 
 instance Prelude.NFData DescribeRegions where
   rnf DescribeRegions' {..} =
-    Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf regionName
       `Prelude.seq` Prelude.rnf directoryId
 
 instance Core.ToHeaders DescribeRegions where
@@ -147,8 +147,8 @@ instance Core.ToJSON DescribeRegions where
   toJSON DescribeRegions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RegionName" Core..=) Prelude.<$> regionName,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("RegionName" Core..=) Prelude.<$> regionName,
             Prelude.Just ("DirectoryId" Core..= directoryId)
           ]
       )

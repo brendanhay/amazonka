@@ -29,6 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data PlatformBranchSummary = PlatformBranchSummary'
   { -- | The name of the platform branch.
     branchName :: Prelude.Maybe Prelude.Text,
+    -- | The environment tiers that platform versions in this branch support.
+    --
+    -- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
+    supportedTierList :: Prelude.Maybe [Prelude.Text],
     -- | An ordinal number that designates the order in which platform branches
     -- have been added to a platform. This can be helpful, for example, if your
     -- code calls the @ListPlatformBranches@ action and then displays a list of
@@ -39,10 +43,6 @@ data PlatformBranchSummary = PlatformBranchSummary'
     branchOrder :: Prelude.Maybe Prelude.Int,
     -- | The name of the platform to which this platform branch belongs.
     platformName :: Prelude.Maybe Prelude.Text,
-    -- | The environment tiers that platform versions in this branch support.
-    --
-    -- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
-    supportedTierList :: Prelude.Maybe [Prelude.Text],
     -- | The support life cycle state of the platform branch.
     --
     -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
@@ -60,6 +60,10 @@ data PlatformBranchSummary = PlatformBranchSummary'
 --
 -- 'branchName', 'platformBranchSummary_branchName' - The name of the platform branch.
 --
+-- 'supportedTierList', 'platformBranchSummary_supportedTierList' - The environment tiers that platform versions in this branch support.
+--
+-- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
+--
 -- 'branchOrder', 'platformBranchSummary_branchOrder' - An ordinal number that designates the order in which platform branches
 -- have been added to a platform. This can be helpful, for example, if your
 -- code calls the @ListPlatformBranches@ action and then displays a list of
@@ -70,10 +74,6 @@ data PlatformBranchSummary = PlatformBranchSummary'
 --
 -- 'platformName', 'platformBranchSummary_platformName' - The name of the platform to which this platform branch belongs.
 --
--- 'supportedTierList', 'platformBranchSummary_supportedTierList' - The environment tiers that platform versions in this branch support.
---
--- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
---
 -- 'lifecycleState', 'platformBranchSummary_lifecycleState' - The support life cycle state of the platform branch.
 --
 -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
@@ -83,15 +83,21 @@ newPlatformBranchSummary =
   PlatformBranchSummary'
     { branchName =
         Prelude.Nothing,
+      supportedTierList = Prelude.Nothing,
       branchOrder = Prelude.Nothing,
       platformName = Prelude.Nothing,
-      supportedTierList = Prelude.Nothing,
       lifecycleState = Prelude.Nothing
     }
 
 -- | The name of the platform branch.
 platformBranchSummary_branchName :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
 platformBranchSummary_branchName = Lens.lens (\PlatformBranchSummary' {branchName} -> branchName) (\s@PlatformBranchSummary' {} a -> s {branchName = a} :: PlatformBranchSummary)
+
+-- | The environment tiers that platform versions in this branch support.
+--
+-- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
+platformBranchSummary_supportedTierList :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe [Prelude.Text])
+platformBranchSummary_supportedTierList = Lens.lens (\PlatformBranchSummary' {supportedTierList} -> supportedTierList) (\s@PlatformBranchSummary' {} a -> s {supportedTierList = a} :: PlatformBranchSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | An ordinal number that designates the order in which platform branches
 -- have been added to a platform. This can be helpful, for example, if your
@@ -107,12 +113,6 @@ platformBranchSummary_branchOrder = Lens.lens (\PlatformBranchSummary' {branchOr
 platformBranchSummary_platformName :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
 platformBranchSummary_platformName = Lens.lens (\PlatformBranchSummary' {platformName} -> platformName) (\s@PlatformBranchSummary' {} a -> s {platformName = a} :: PlatformBranchSummary)
 
--- | The environment tiers that platform versions in this branch support.
---
--- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
-platformBranchSummary_supportedTierList :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe [Prelude.Text])
-platformBranchSummary_supportedTierList = Lens.lens (\PlatformBranchSummary' {supportedTierList} -> supportedTierList) (\s@PlatformBranchSummary' {} a -> s {supportedTierList = a} :: PlatformBranchSummary) Prelude.. Lens.mapping Lens.coerced
-
 -- | The support life cycle state of the platform branch.
 --
 -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
@@ -123,26 +123,26 @@ instance Core.FromXML PlatformBranchSummary where
   parseXML x =
     PlatformBranchSummary'
       Prelude.<$> (x Core..@? "BranchName")
-      Prelude.<*> (x Core..@? "BranchOrder")
-      Prelude.<*> (x Core..@? "PlatformName")
       Prelude.<*> ( x Core..@? "SupportedTierList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "BranchOrder")
+      Prelude.<*> (x Core..@? "PlatformName")
       Prelude.<*> (x Core..@? "LifecycleState")
 
 instance Prelude.Hashable PlatformBranchSummary where
   hashWithSalt _salt PlatformBranchSummary' {..} =
     _salt `Prelude.hashWithSalt` branchName
+      `Prelude.hashWithSalt` supportedTierList
       `Prelude.hashWithSalt` branchOrder
       `Prelude.hashWithSalt` platformName
-      `Prelude.hashWithSalt` supportedTierList
       `Prelude.hashWithSalt` lifecycleState
 
 instance Prelude.NFData PlatformBranchSummary where
   rnf PlatformBranchSummary' {..} =
     Prelude.rnf branchName
+      `Prelude.seq` Prelude.rnf supportedTierList
       `Prelude.seq` Prelude.rnf branchOrder
       `Prelude.seq` Prelude.rnf platformName
-      `Prelude.seq` Prelude.rnf supportedTierList
       `Prelude.seq` Prelude.rnf lifecycleState

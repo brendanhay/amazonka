@@ -38,8 +38,8 @@ module Amazonka.ServiceCatalog.ListTagOptions
     newListTagOptionsResponse,
 
     -- * Response Lenses
-    listTagOptionsResponse_pageToken,
     listTagOptionsResponse_tagOptionDetails,
+    listTagOptionsResponse_pageToken,
     listTagOptionsResponse_httpStatus,
   )
 where
@@ -132,10 +132,10 @@ instance Core.AWSRequest ListTagOptions where
     Response.receiveJSON
       ( \s h x ->
           ListTagOptionsResponse'
-            Prelude.<$> (x Core..?> "PageToken")
-            Prelude.<*> ( x Core..?> "TagOptionDetails"
+            Prelude.<$> ( x Core..?> "TagOptionDetails"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "PageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,11 +184,11 @@ instance Core.ToQuery ListTagOptions where
 
 -- | /See:/ 'newListTagOptionsResponse' smart constructor.
 data ListTagOptionsResponse = ListTagOptionsResponse'
-  { -- | The page token for the next set of results. To retrieve the first set of
+  { -- | Information about the TagOptions.
+    tagOptionDetails :: Prelude.Maybe [TagOptionDetail],
+    -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
     pageToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the TagOptions.
-    tagOptionDetails :: Prelude.Maybe [TagOptionDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,10 +202,10 @@ data ListTagOptionsResponse = ListTagOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tagOptionDetails', 'listTagOptionsResponse_tagOptionDetails' - Information about the TagOptions.
+--
 -- 'pageToken', 'listTagOptionsResponse_pageToken' - The page token for the next set of results. To retrieve the first set of
 -- results, use null.
---
--- 'tagOptionDetails', 'listTagOptionsResponse_tagOptionDetails' - Information about the TagOptions.
 --
 -- 'httpStatus', 'listTagOptionsResponse_httpStatus' - The response's http status code.
 newListTagOptionsResponse ::
@@ -214,20 +214,20 @@ newListTagOptionsResponse ::
   ListTagOptionsResponse
 newListTagOptionsResponse pHttpStatus_ =
   ListTagOptionsResponse'
-    { pageToken =
+    { tagOptionDetails =
         Prelude.Nothing,
-      tagOptionDetails = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the TagOptions.
+listTagOptionsResponse_tagOptionDetails :: Lens.Lens' ListTagOptionsResponse (Prelude.Maybe [TagOptionDetail])
+listTagOptionsResponse_tagOptionDetails = Lens.lens (\ListTagOptionsResponse' {tagOptionDetails} -> tagOptionDetails) (\s@ListTagOptionsResponse' {} a -> s {tagOptionDetails = a} :: ListTagOptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
 listTagOptionsResponse_pageToken :: Lens.Lens' ListTagOptionsResponse (Prelude.Maybe Prelude.Text)
 listTagOptionsResponse_pageToken = Lens.lens (\ListTagOptionsResponse' {pageToken} -> pageToken) (\s@ListTagOptionsResponse' {} a -> s {pageToken = a} :: ListTagOptionsResponse)
-
--- | Information about the TagOptions.
-listTagOptionsResponse_tagOptionDetails :: Lens.Lens' ListTagOptionsResponse (Prelude.Maybe [TagOptionDetail])
-listTagOptionsResponse_tagOptionDetails = Lens.lens (\ListTagOptionsResponse' {tagOptionDetails} -> tagOptionDetails) (\s@ListTagOptionsResponse' {} a -> s {tagOptionDetails = a} :: ListTagOptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagOptionsResponse_httpStatus :: Lens.Lens' ListTagOptionsResponse Prelude.Int
@@ -235,6 +235,6 @@ listTagOptionsResponse_httpStatus = Lens.lens (\ListTagOptionsResponse' {httpSta
 
 instance Prelude.NFData ListTagOptionsResponse where
   rnf ListTagOptionsResponse' {..} =
-    Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf tagOptionDetails
+    Prelude.rnf tagOptionDetails
+      `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf httpStatus

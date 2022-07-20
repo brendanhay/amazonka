@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSqlApplicationConfiguration' smart constructor.
 data SqlApplicationConfiguration = SqlApplicationConfiguration'
-  { -- | The array of Input objects describing the input streams used by the
+  { -- | The array of Output objects describing the destination streams used by
+    -- the application.
+    outputs :: Prelude.Maybe [Output],
+    -- | The array of Input objects describing the input streams used by the
     -- application.
     inputs :: Prelude.Maybe [Input],
     -- | The array of ReferenceDataSource objects describing the reference data
     -- sources used by the application.
-    referenceDataSources :: Prelude.Maybe [ReferenceDataSource],
-    -- | The array of Output objects describing the destination streams used by
-    -- the application.
-    outputs :: Prelude.Maybe [Output]
+    referenceDataSources :: Prelude.Maybe [ReferenceDataSource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,23 +51,28 @@ data SqlApplicationConfiguration = SqlApplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'outputs', 'sqlApplicationConfiguration_outputs' - The array of Output objects describing the destination streams used by
+-- the application.
+--
 -- 'inputs', 'sqlApplicationConfiguration_inputs' - The array of Input objects describing the input streams used by the
 -- application.
 --
 -- 'referenceDataSources', 'sqlApplicationConfiguration_referenceDataSources' - The array of ReferenceDataSource objects describing the reference data
 -- sources used by the application.
---
--- 'outputs', 'sqlApplicationConfiguration_outputs' - The array of Output objects describing the destination streams used by
--- the application.
 newSqlApplicationConfiguration ::
   SqlApplicationConfiguration
 newSqlApplicationConfiguration =
   SqlApplicationConfiguration'
-    { inputs =
+    { outputs =
         Prelude.Nothing,
-      referenceDataSources = Prelude.Nothing,
-      outputs = Prelude.Nothing
+      inputs = Prelude.Nothing,
+      referenceDataSources = Prelude.Nothing
     }
+
+-- | The array of Output objects describing the destination streams used by
+-- the application.
+sqlApplicationConfiguration_outputs :: Lens.Lens' SqlApplicationConfiguration (Prelude.Maybe [Output])
+sqlApplicationConfiguration_outputs = Lens.lens (\SqlApplicationConfiguration' {outputs} -> outputs) (\s@SqlApplicationConfiguration' {} a -> s {outputs = a} :: SqlApplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The array of Input objects describing the input streams used by the
 -- application.
@@ -79,30 +84,25 @@ sqlApplicationConfiguration_inputs = Lens.lens (\SqlApplicationConfiguration' {i
 sqlApplicationConfiguration_referenceDataSources :: Lens.Lens' SqlApplicationConfiguration (Prelude.Maybe [ReferenceDataSource])
 sqlApplicationConfiguration_referenceDataSources = Lens.lens (\SqlApplicationConfiguration' {referenceDataSources} -> referenceDataSources) (\s@SqlApplicationConfiguration' {} a -> s {referenceDataSources = a} :: SqlApplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The array of Output objects describing the destination streams used by
--- the application.
-sqlApplicationConfiguration_outputs :: Lens.Lens' SqlApplicationConfiguration (Prelude.Maybe [Output])
-sqlApplicationConfiguration_outputs = Lens.lens (\SqlApplicationConfiguration' {outputs} -> outputs) (\s@SqlApplicationConfiguration' {} a -> s {outputs = a} :: SqlApplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance Prelude.Hashable SqlApplicationConfiguration where
   hashWithSalt _salt SqlApplicationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inputs
+    _salt `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` referenceDataSources
-      `Prelude.hashWithSalt` outputs
 
 instance Prelude.NFData SqlApplicationConfiguration where
   rnf SqlApplicationConfiguration' {..} =
-    Prelude.rnf inputs
+    Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf referenceDataSources
-      `Prelude.seq` Prelude.rnf outputs
 
 instance Core.ToJSON SqlApplicationConfiguration where
   toJSON SqlApplicationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Inputs" Core..=) Prelude.<$> inputs,
+          [ ("Outputs" Core..=) Prelude.<$> outputs,
+            ("Inputs" Core..=) Prelude.<$> inputs,
             ("ReferenceDataSources" Core..=)
-              Prelude.<$> referenceDataSources,
-            ("Outputs" Core..=) Prelude.<$> outputs
+              Prelude.<$> referenceDataSources
           ]
       )

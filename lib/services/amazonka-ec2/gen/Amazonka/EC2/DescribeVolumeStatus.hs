@@ -69,9 +69,9 @@ module Amazonka.EC2.DescribeVolumeStatus
     newDescribeVolumeStatus,
 
     -- * Request Lenses
-    describeVolumeStatus_filters,
-    describeVolumeStatus_volumeIds,
     describeVolumeStatus_nextToken,
+    describeVolumeStatus_volumeIds,
+    describeVolumeStatus_filters,
     describeVolumeStatus_dryRun,
     describeVolumeStatus_maxResults,
 
@@ -95,7 +95,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVolumeStatus' smart constructor.
 data DescribeVolumeStatus = DescribeVolumeStatus'
-  { -- | The filters.
+  { -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
+    -- request. When the results of the request exceed @MaxResults@, this value
+    -- can be used to retrieve the next page of results. This value is @null@
+    -- when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the volumes.
+    --
+    -- Default: Describes all your volumes.
+    volumeIds :: Prelude.Maybe [Prelude.Text],
+    -- | The filters.
     --
     -- -   @action.code@ - The action code for the event (for example,
     --     @enable-volume-io@).
@@ -129,15 +138,6 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
     -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
     --     | @warning@ | @insufficient-data@).
     filters :: Prelude.Maybe [Filter],
-    -- | The IDs of the volumes.
-    --
-    -- Default: Describes all your volumes.
-    volumeIds :: Prelude.Maybe [Prelude.Text],
-    -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
-    -- request. When the results of the request exceed @MaxResults@, this value
-    -- can be used to retrieve the next page of results. This value is @null@
-    -- when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -163,6 +163,15 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeVolumeStatus_nextToken' - The @NextToken@ value to include in a future @DescribeVolumeStatus@
+-- request. When the results of the request exceed @MaxResults@, this value
+-- can be used to retrieve the next page of results. This value is @null@
+-- when there are no more results to return.
+--
+-- 'volumeIds', 'describeVolumeStatus_volumeIds' - The IDs of the volumes.
+--
+-- Default: Describes all your volumes.
 --
 -- 'filters', 'describeVolumeStatus_filters' - The filters.
 --
@@ -198,15 +207,6 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
 -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
 --     | @warning@ | @insufficient-data@).
 --
--- 'volumeIds', 'describeVolumeStatus_volumeIds' - The IDs of the volumes.
---
--- Default: Describes all your volumes.
---
--- 'nextToken', 'describeVolumeStatus_nextToken' - The @NextToken@ value to include in a future @DescribeVolumeStatus@
--- request. When the results of the request exceed @MaxResults@, this value
--- can be used to retrieve the next page of results. This value is @null@
--- when there are no more results to return.
---
 -- 'dryRun', 'describeVolumeStatus_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -225,12 +225,25 @@ newDescribeVolumeStatus ::
   DescribeVolumeStatus
 newDescribeVolumeStatus =
   DescribeVolumeStatus'
-    { filters = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       volumeIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
+-- request. When the results of the request exceed @MaxResults@, this value
+-- can be used to retrieve the next page of results. This value is @null@
+-- when there are no more results to return.
+describeVolumeStatus_nextToken :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Text)
+describeVolumeStatus_nextToken = Lens.lens (\DescribeVolumeStatus' {nextToken} -> nextToken) (\s@DescribeVolumeStatus' {} a -> s {nextToken = a} :: DescribeVolumeStatus)
+
+-- | The IDs of the volumes.
+--
+-- Default: Describes all your volumes.
+describeVolumeStatus_volumeIds :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Prelude.Text])
+describeVolumeStatus_volumeIds = Lens.lens (\DescribeVolumeStatus' {volumeIds} -> volumeIds) (\s@DescribeVolumeStatus' {} a -> s {volumeIds = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters.
 --
@@ -267,19 +280,6 @@ newDescribeVolumeStatus =
 --     | @warning@ | @insufficient-data@).
 describeVolumeStatus_filters :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Filter])
 describeVolumeStatus_filters = Lens.lens (\DescribeVolumeStatus' {filters} -> filters) (\s@DescribeVolumeStatus' {} a -> s {filters = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens.coerced
-
--- | The IDs of the volumes.
---
--- Default: Describes all your volumes.
-describeVolumeStatus_volumeIds :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Prelude.Text])
-describeVolumeStatus_volumeIds = Lens.lens (\DescribeVolumeStatus' {volumeIds} -> volumeIds) (\s@DescribeVolumeStatus' {} a -> s {volumeIds = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens.coerced
-
--- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
--- request. When the results of the request exceed @MaxResults@, this value
--- can be used to retrieve the next page of results. This value is @null@
--- when there are no more results to return.
-describeVolumeStatus_nextToken :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Text)
-describeVolumeStatus_nextToken = Lens.lens (\DescribeVolumeStatus' {nextToken} -> nextToken) (\s@DescribeVolumeStatus' {} a -> s {nextToken = a} :: DescribeVolumeStatus)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -340,17 +340,17 @@ instance Core.AWSRequest DescribeVolumeStatus where
 
 instance Prelude.Hashable DescribeVolumeStatus where
   hashWithSalt _salt DescribeVolumeStatus' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` volumeIds
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeVolumeStatus where
   rnf DescribeVolumeStatus' {..} =
-    Prelude.rnf filters
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf volumeIds
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -367,11 +367,11 @@ instance Core.ToQuery DescribeVolumeStatus where
           Core.=: ("DescribeVolumeStatus" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
-        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]

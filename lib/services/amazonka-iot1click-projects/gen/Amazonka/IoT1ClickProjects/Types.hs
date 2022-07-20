@@ -17,17 +17,17 @@ module Amazonka.IoT1ClickProjects.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
-    _TooManyRequestsException,
-    _InternalFailureException,
-    _ResourceConflictException,
     _ResourceNotFoundException,
+    _ResourceConflictException,
+    _TooManyRequestsException,
+    _InvalidRequestException,
+    _InternalFailureException,
 
     -- * DeviceTemplate
     DeviceTemplate (..),
     newDeviceTemplate,
-    deviceTemplate_deviceType,
     deviceTemplate_callbackOverrides,
+    deviceTemplate_deviceType,
 
     -- * PlacementDescription
     PlacementDescription (..),
@@ -55,10 +55,10 @@ module Amazonka.IoT1ClickProjects.Types
     -- * ProjectDescription
     ProjectDescription (..),
     newProjectDescription,
-    projectDescription_arn,
-    projectDescription_placementTemplate,
-    projectDescription_description,
     projectDescription_tags,
+    projectDescription_arn,
+    projectDescription_description,
+    projectDescription_placementTemplate,
     projectDescription_projectName,
     projectDescription_createdDate,
     projectDescription_updatedDate,
@@ -66,8 +66,8 @@ module Amazonka.IoT1ClickProjects.Types
     -- * ProjectSummary
     ProjectSummary (..),
     newProjectSummary,
-    projectSummary_arn,
     projectSummary_tags,
+    projectSummary_arn,
     projectSummary_projectName,
     projectSummary_createdDate,
     projectSummary_updatedDate,
@@ -112,35 +112,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -149,37 +122,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- |
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
-
--- |
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
-
--- |
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- |
 _ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -190,9 +174,25 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- |
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429
+
+-- |
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- |
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500

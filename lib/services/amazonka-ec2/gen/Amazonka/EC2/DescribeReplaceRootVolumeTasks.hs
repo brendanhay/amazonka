@@ -31,9 +31,9 @@ module Amazonka.EC2.DescribeReplaceRootVolumeTasks
     newDescribeReplaceRootVolumeTasks,
 
     -- * Request Lenses
-    describeReplaceRootVolumeTasks_filters,
-    describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds,
     describeReplaceRootVolumeTasks_nextToken,
+    describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds,
+    describeReplaceRootVolumeTasks_filters,
     describeReplaceRootVolumeTasks_dryRun,
     describeReplaceRootVolumeTasks_maxResults,
 
@@ -42,8 +42,8 @@ module Amazonka.EC2.DescribeReplaceRootVolumeTasks
     newDescribeReplaceRootVolumeTasksResponse,
 
     -- * Response Lenses
-    describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks,
     describeReplaceRootVolumeTasksResponse_nextToken,
+    describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks,
     describeReplaceRootVolumeTasksResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeReplaceRootVolumeTasks' smart constructor.
 data DescribeReplaceRootVolumeTasks = DescribeReplaceRootVolumeTasks'
-  { -- | Filter to use:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the root volume replacement task to view.
+    replaceRootVolumeTaskIds :: Prelude.Maybe [Prelude.Text],
+    -- | Filter to use:
     --
     -- -   @instance-id@ - The ID of the instance for which the root volume
     --     replacement task was created.
     filters :: Prelude.Maybe [Filter],
-    -- | The ID of the root volume replacement task to view.
-    replaceRootVolumeTaskIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -86,14 +86,14 @@ data DescribeReplaceRootVolumeTasks = DescribeReplaceRootVolumeTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeReplaceRootVolumeTasks_nextToken' - The token for the next page of results.
+--
+-- 'replaceRootVolumeTaskIds', 'describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds' - The ID of the root volume replacement task to view.
+--
 -- 'filters', 'describeReplaceRootVolumeTasks_filters' - Filter to use:
 --
 -- -   @instance-id@ - The ID of the instance for which the root volume
 --     replacement task was created.
---
--- 'replaceRootVolumeTaskIds', 'describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds' - The ID of the root volume replacement task to view.
---
--- 'nextToken', 'describeReplaceRootVolumeTasks_nextToken' - The token for the next page of results.
 --
 -- 'dryRun', 'describeReplaceRootVolumeTasks_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -107,13 +107,21 @@ newDescribeReplaceRootVolumeTasks ::
   DescribeReplaceRootVolumeTasks
 newDescribeReplaceRootVolumeTasks =
   DescribeReplaceRootVolumeTasks'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
       replaceRootVolumeTaskIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeReplaceRootVolumeTasks_nextToken :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe Prelude.Text)
+describeReplaceRootVolumeTasks_nextToken = Lens.lens (\DescribeReplaceRootVolumeTasks' {nextToken} -> nextToken) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {nextToken = a} :: DescribeReplaceRootVolumeTasks)
+
+-- | The ID of the root volume replacement task to view.
+describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe [Prelude.Text])
+describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds = Lens.lens (\DescribeReplaceRootVolumeTasks' {replaceRootVolumeTaskIds} -> replaceRootVolumeTaskIds) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {replaceRootVolumeTaskIds = a} :: DescribeReplaceRootVolumeTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filter to use:
 --
@@ -121,14 +129,6 @@ newDescribeReplaceRootVolumeTasks =
 --     replacement task was created.
 describeReplaceRootVolumeTasks_filters :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe [Filter])
 describeReplaceRootVolumeTasks_filters = Lens.lens (\DescribeReplaceRootVolumeTasks' {filters} -> filters) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {filters = a} :: DescribeReplaceRootVolumeTasks) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the root volume replacement task to view.
-describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe [Prelude.Text])
-describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds = Lens.lens (\DescribeReplaceRootVolumeTasks' {replaceRootVolumeTaskIds} -> replaceRootVolumeTaskIds) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {replaceRootVolumeTaskIds = a} :: DescribeReplaceRootVolumeTasks) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-describeReplaceRootVolumeTasks_nextToken :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe Prelude.Text)
-describeReplaceRootVolumeTasks_nextToken = Lens.lens (\DescribeReplaceRootVolumeTasks' {nextToken} -> nextToken) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {nextToken = a} :: DescribeReplaceRootVolumeTasks)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -177,11 +177,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeReplaceRootVolumeTasksResponse'
-            Prelude.<$> ( x Core..@? "replaceRootVolumeTaskSet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "replaceRootVolumeTaskSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,9 +192,9 @@ instance
   hashWithSalt
     _salt
     DescribeReplaceRootVolumeTasks' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` replaceRootVolumeTaskIds
-        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
 
@@ -203,9 +203,9 @@ instance
     DescribeReplaceRootVolumeTasks
   where
   rnf DescribeReplaceRootVolumeTasks' {..} =
-    Prelude.rnf filters
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf replaceRootVolumeTaskIds
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -227,24 +227,24 @@ instance Core.ToQuery DescribeReplaceRootVolumeTasks where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           ( Core.toQueryList "ReplaceRootVolumeTaskId"
               Prelude.<$> replaceRootVolumeTaskIds
           ),
-        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeReplaceRootVolumeTasksResponse' smart constructor.
 data DescribeReplaceRootVolumeTasksResponse = DescribeReplaceRootVolumeTasksResponse'
-  { -- | Information about the root volume replacement task.
-    replaceRootVolumeTasks :: Prelude.Maybe [ReplaceRootVolumeTask],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the root volume replacement task.
+    replaceRootVolumeTasks :: Prelude.Maybe [ReplaceRootVolumeTask],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -258,10 +258,10 @@ data DescribeReplaceRootVolumeTasksResponse = DescribeReplaceRootVolumeTasksResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replaceRootVolumeTasks', 'describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks' - Information about the root volume replacement task.
---
 -- 'nextToken', 'describeReplaceRootVolumeTasksResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'replaceRootVolumeTasks', 'describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks' - Information about the root volume replacement task.
 --
 -- 'httpStatus', 'describeReplaceRootVolumeTasksResponse_httpStatus' - The response's http status code.
 newDescribeReplaceRootVolumeTasksResponse ::
@@ -271,20 +271,21 @@ newDescribeReplaceRootVolumeTasksResponse ::
 newDescribeReplaceRootVolumeTasksResponse
   pHttpStatus_ =
     DescribeReplaceRootVolumeTasksResponse'
-      { replaceRootVolumeTasks =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        replaceRootVolumeTasks =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the root volume replacement task.
-describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks :: Lens.Lens' DescribeReplaceRootVolumeTasksResponse (Prelude.Maybe [ReplaceRootVolumeTask])
-describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks = Lens.lens (\DescribeReplaceRootVolumeTasksResponse' {replaceRootVolumeTasks} -> replaceRootVolumeTasks) (\s@DescribeReplaceRootVolumeTasksResponse' {} a -> s {replaceRootVolumeTasks = a} :: DescribeReplaceRootVolumeTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeReplaceRootVolumeTasksResponse_nextToken :: Lens.Lens' DescribeReplaceRootVolumeTasksResponse (Prelude.Maybe Prelude.Text)
 describeReplaceRootVolumeTasksResponse_nextToken = Lens.lens (\DescribeReplaceRootVolumeTasksResponse' {nextToken} -> nextToken) (\s@DescribeReplaceRootVolumeTasksResponse' {} a -> s {nextToken = a} :: DescribeReplaceRootVolumeTasksResponse)
+
+-- | Information about the root volume replacement task.
+describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks :: Lens.Lens' DescribeReplaceRootVolumeTasksResponse (Prelude.Maybe [ReplaceRootVolumeTask])
+describeReplaceRootVolumeTasksResponse_replaceRootVolumeTasks = Lens.lens (\DescribeReplaceRootVolumeTasksResponse' {replaceRootVolumeTasks} -> replaceRootVolumeTasks) (\s@DescribeReplaceRootVolumeTasksResponse' {} a -> s {replaceRootVolumeTasks = a} :: DescribeReplaceRootVolumeTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeReplaceRootVolumeTasksResponse_httpStatus :: Lens.Lens' DescribeReplaceRootVolumeTasksResponse Prelude.Int
@@ -295,6 +296,6 @@ instance
     DescribeReplaceRootVolumeTasksResponse
   where
   rnf DescribeReplaceRootVolumeTasksResponse' {..} =
-    Prelude.rnf replaceRootVolumeTasks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf replaceRootVolumeTasks
       `Prelude.seq` Prelude.rnf httpStatus

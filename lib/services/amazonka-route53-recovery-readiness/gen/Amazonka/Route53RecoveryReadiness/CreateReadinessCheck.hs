@@ -36,10 +36,10 @@ module Amazonka.Route53RecoveryReadiness.CreateReadinessCheck
     newCreateReadinessCheckResponse,
 
     -- * Response Lenses
-    createReadinessCheckResponse_readinessCheckName,
-    createReadinessCheckResponse_resourceSet,
-    createReadinessCheckResponse_readinessCheckArn,
     createReadinessCheckResponse_tags,
+    createReadinessCheckResponse_resourceSet,
+    createReadinessCheckResponse_readinessCheckName,
+    createReadinessCheckResponse_readinessCheckArn,
     createReadinessCheckResponse_httpStatus,
   )
 where
@@ -112,10 +112,10 @@ instance Core.AWSRequest CreateReadinessCheck where
     Response.receiveJSON
       ( \s h x ->
           CreateReadinessCheckResponse'
-            Prelude.<$> (x Core..?> "readinessCheckName")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "resourceSet")
+            Prelude.<*> (x Core..?> "readinessCheckName")
             Prelude.<*> (x Core..?> "readinessCheckArn")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,13 +162,13 @@ instance Core.ToQuery CreateReadinessCheck where
 
 -- | /See:/ 'newCreateReadinessCheckResponse' smart constructor.
 data CreateReadinessCheckResponse = CreateReadinessCheckResponse'
-  { -- | Name for a ReadinessCheck
-    readinessCheckName :: Prelude.Maybe Prelude.Text,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Name of the ResourceSet to be checked
     resourceSet :: Prelude.Maybe Prelude.Text,
+    -- | Name for a ReadinessCheck
+    readinessCheckName :: Prelude.Maybe Prelude.Text,
     -- | Arn associated with ReadinessCheck
     readinessCheckArn :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,13 +182,13 @@ data CreateReadinessCheckResponse = CreateReadinessCheckResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readinessCheckName', 'createReadinessCheckResponse_readinessCheckName' - Name for a ReadinessCheck
+-- 'tags', 'createReadinessCheckResponse_tags' - Undocumented member.
 --
 -- 'resourceSet', 'createReadinessCheckResponse_resourceSet' - Name of the ResourceSet to be checked
 --
--- 'readinessCheckArn', 'createReadinessCheckResponse_readinessCheckArn' - Arn associated with ReadinessCheck
+-- 'readinessCheckName', 'createReadinessCheckResponse_readinessCheckName' - Name for a ReadinessCheck
 --
--- 'tags', 'createReadinessCheckResponse_tags' - Undocumented member.
+-- 'readinessCheckArn', 'createReadinessCheckResponse_readinessCheckArn' - Arn associated with ReadinessCheck
 --
 -- 'httpStatus', 'createReadinessCheckResponse_httpStatus' - The response's http status code.
 newCreateReadinessCheckResponse ::
@@ -197,29 +197,29 @@ newCreateReadinessCheckResponse ::
   CreateReadinessCheckResponse
 newCreateReadinessCheckResponse pHttpStatus_ =
   CreateReadinessCheckResponse'
-    { readinessCheckName =
+    { tags =
         Prelude.Nothing,
       resourceSet = Prelude.Nothing,
+      readinessCheckName = Prelude.Nothing,
       readinessCheckArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Name for a ReadinessCheck
-createReadinessCheckResponse_readinessCheckName :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
-createReadinessCheckResponse_readinessCheckName = Lens.lens (\CreateReadinessCheckResponse' {readinessCheckName} -> readinessCheckName) (\s@CreateReadinessCheckResponse' {} a -> s {readinessCheckName = a} :: CreateReadinessCheckResponse)
+-- | Undocumented member.
+createReadinessCheckResponse_tags :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createReadinessCheckResponse_tags = Lens.lens (\CreateReadinessCheckResponse' {tags} -> tags) (\s@CreateReadinessCheckResponse' {} a -> s {tags = a} :: CreateReadinessCheckResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Name of the ResourceSet to be checked
 createReadinessCheckResponse_resourceSet :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
 createReadinessCheckResponse_resourceSet = Lens.lens (\CreateReadinessCheckResponse' {resourceSet} -> resourceSet) (\s@CreateReadinessCheckResponse' {} a -> s {resourceSet = a} :: CreateReadinessCheckResponse)
 
+-- | Name for a ReadinessCheck
+createReadinessCheckResponse_readinessCheckName :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
+createReadinessCheckResponse_readinessCheckName = Lens.lens (\CreateReadinessCheckResponse' {readinessCheckName} -> readinessCheckName) (\s@CreateReadinessCheckResponse' {} a -> s {readinessCheckName = a} :: CreateReadinessCheckResponse)
+
 -- | Arn associated with ReadinessCheck
 createReadinessCheckResponse_readinessCheckArn :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
 createReadinessCheckResponse_readinessCheckArn = Lens.lens (\CreateReadinessCheckResponse' {readinessCheckArn} -> readinessCheckArn) (\s@CreateReadinessCheckResponse' {} a -> s {readinessCheckArn = a} :: CreateReadinessCheckResponse)
-
--- | Undocumented member.
-createReadinessCheckResponse_tags :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createReadinessCheckResponse_tags = Lens.lens (\CreateReadinessCheckResponse' {tags} -> tags) (\s@CreateReadinessCheckResponse' {} a -> s {tags = a} :: CreateReadinessCheckResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createReadinessCheckResponse_httpStatus :: Lens.Lens' CreateReadinessCheckResponse Prelude.Int
@@ -227,8 +227,8 @@ createReadinessCheckResponse_httpStatus = Lens.lens (\CreateReadinessCheckRespon
 
 instance Prelude.NFData CreateReadinessCheckResponse where
   rnf CreateReadinessCheckResponse' {..} =
-    Prelude.rnf readinessCheckName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceSet
+      `Prelude.seq` Prelude.rnf readinessCheckName
       `Prelude.seq` Prelude.rnf readinessCheckArn
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

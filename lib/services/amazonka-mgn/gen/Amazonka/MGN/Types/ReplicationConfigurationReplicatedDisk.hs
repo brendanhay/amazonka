@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReplicationConfigurationReplicatedDisk' smart constructor.
 data ReplicationConfigurationReplicatedDisk = ReplicationConfigurationReplicatedDisk'
-  { -- | Replication Configuration replicated disk staging disk type.
-    stagingDiskType :: Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType,
-    -- | Replication Configuration replicated disk IOPs.
-    iops :: Prelude.Maybe Prelude.Natural,
-    -- | Replication Configuration replicated disk boot disk.
+  { -- | Replication Configuration replicated disk boot disk.
     isBootDisk :: Prelude.Maybe Prelude.Bool,
     -- | Replication Configuration replicated disk device name.
-    deviceName :: Prelude.Maybe Prelude.Text
+    deviceName :: Prelude.Maybe Prelude.Text,
+    -- | Replication Configuration replicated disk staging disk type.
+    stagingDiskType :: Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType,
+    -- | Replication Configuration replicated disk IOPs.
+    iops :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,31 +47,23 @@ data ReplicationConfigurationReplicatedDisk = ReplicationConfigurationReplicated
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stagingDiskType', 'replicationConfigurationReplicatedDisk_stagingDiskType' - Replication Configuration replicated disk staging disk type.
---
--- 'iops', 'replicationConfigurationReplicatedDisk_iops' - Replication Configuration replicated disk IOPs.
---
 -- 'isBootDisk', 'replicationConfigurationReplicatedDisk_isBootDisk' - Replication Configuration replicated disk boot disk.
 --
 -- 'deviceName', 'replicationConfigurationReplicatedDisk_deviceName' - Replication Configuration replicated disk device name.
+--
+-- 'stagingDiskType', 'replicationConfigurationReplicatedDisk_stagingDiskType' - Replication Configuration replicated disk staging disk type.
+--
+-- 'iops', 'replicationConfigurationReplicatedDisk_iops' - Replication Configuration replicated disk IOPs.
 newReplicationConfigurationReplicatedDisk ::
   ReplicationConfigurationReplicatedDisk
 newReplicationConfigurationReplicatedDisk =
   ReplicationConfigurationReplicatedDisk'
-    { stagingDiskType =
+    { isBootDisk =
         Prelude.Nothing,
-      iops = Prelude.Nothing,
-      isBootDisk = Prelude.Nothing,
-      deviceName = Prelude.Nothing
+      deviceName = Prelude.Nothing,
+      stagingDiskType = Prelude.Nothing,
+      iops = Prelude.Nothing
     }
-
--- | Replication Configuration replicated disk staging disk type.
-replicationConfigurationReplicatedDisk_stagingDiskType :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType)
-replicationConfigurationReplicatedDisk_stagingDiskType = Lens.lens (\ReplicationConfigurationReplicatedDisk' {stagingDiskType} -> stagingDiskType) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {stagingDiskType = a} :: ReplicationConfigurationReplicatedDisk)
-
--- | Replication Configuration replicated disk IOPs.
-replicationConfigurationReplicatedDisk_iops :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe Prelude.Natural)
-replicationConfigurationReplicatedDisk_iops = Lens.lens (\ReplicationConfigurationReplicatedDisk' {iops} -> iops) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {iops = a} :: ReplicationConfigurationReplicatedDisk)
 
 -- | Replication Configuration replicated disk boot disk.
 replicationConfigurationReplicatedDisk_isBootDisk :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe Prelude.Bool)
@@ -80,6 +72,14 @@ replicationConfigurationReplicatedDisk_isBootDisk = Lens.lens (\ReplicationConfi
 -- | Replication Configuration replicated disk device name.
 replicationConfigurationReplicatedDisk_deviceName :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe Prelude.Text)
 replicationConfigurationReplicatedDisk_deviceName = Lens.lens (\ReplicationConfigurationReplicatedDisk' {deviceName} -> deviceName) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {deviceName = a} :: ReplicationConfigurationReplicatedDisk)
+
+-- | Replication Configuration replicated disk staging disk type.
+replicationConfigurationReplicatedDisk_stagingDiskType :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType)
+replicationConfigurationReplicatedDisk_stagingDiskType = Lens.lens (\ReplicationConfigurationReplicatedDisk' {stagingDiskType} -> stagingDiskType) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {stagingDiskType = a} :: ReplicationConfigurationReplicatedDisk)
+
+-- | Replication Configuration replicated disk IOPs.
+replicationConfigurationReplicatedDisk_iops :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe Prelude.Natural)
+replicationConfigurationReplicatedDisk_iops = Lens.lens (\ReplicationConfigurationReplicatedDisk' {iops} -> iops) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {iops = a} :: ReplicationConfigurationReplicatedDisk)
 
 instance
   Core.FromJSON
@@ -90,10 +90,10 @@ instance
       "ReplicationConfigurationReplicatedDisk"
       ( \x ->
           ReplicationConfigurationReplicatedDisk'
-            Prelude.<$> (x Core..:? "stagingDiskType")
-            Prelude.<*> (x Core..:? "iops")
-            Prelude.<*> (x Core..:? "isBootDisk")
+            Prelude.<$> (x Core..:? "isBootDisk")
             Prelude.<*> (x Core..:? "deviceName")
+            Prelude.<*> (x Core..:? "stagingDiskType")
+            Prelude.<*> (x Core..:? "iops")
       )
 
 instance
@@ -103,20 +103,20 @@ instance
   hashWithSalt
     _salt
     ReplicationConfigurationReplicatedDisk' {..} =
-      _salt `Prelude.hashWithSalt` stagingDiskType
-        `Prelude.hashWithSalt` iops
-        `Prelude.hashWithSalt` isBootDisk
+      _salt `Prelude.hashWithSalt` isBootDisk
         `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` stagingDiskType
+        `Prelude.hashWithSalt` iops
 
 instance
   Prelude.NFData
     ReplicationConfigurationReplicatedDisk
   where
   rnf ReplicationConfigurationReplicatedDisk' {..} =
-    Prelude.rnf stagingDiskType
-      `Prelude.seq` Prelude.rnf iops
-      `Prelude.seq` Prelude.rnf isBootDisk
+    Prelude.rnf isBootDisk
       `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf stagingDiskType
+      `Prelude.seq` Prelude.rnf iops
 
 instance
   Core.ToJSON
@@ -125,10 +125,10 @@ instance
   toJSON ReplicationConfigurationReplicatedDisk' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("stagingDiskType" Core..=)
+          [ ("isBootDisk" Core..=) Prelude.<$> isBootDisk,
+            ("deviceName" Core..=) Prelude.<$> deviceName,
+            ("stagingDiskType" Core..=)
               Prelude.<$> stagingDiskType,
-            ("iops" Core..=) Prelude.<$> iops,
-            ("isBootDisk" Core..=) Prelude.<$> isBootDisk,
-            ("deviceName" Core..=) Prelude.<$> deviceName
+            ("iops" Core..=) Prelude.<$> iops
           ]
       )

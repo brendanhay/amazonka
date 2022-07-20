@@ -27,19 +27,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutpost' smart constructor.
 data Outpost = Outpost'
-  { availabilityZoneId :: Prelude.Maybe Prelude.Text,
-    outpostArn :: Prelude.Maybe Prelude.Text,
-    ownerId :: Prelude.Maybe Prelude.Text,
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+  { -- | The Outpost tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     name :: Prelude.Maybe Prelude.Text,
-    lifeCycleStatus :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Outpost.
     outpostId :: Prelude.Maybe Prelude.Text,
-    siteId :: Prelude.Maybe Prelude.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
+    ownerId :: Prelude.Maybe Prelude.Text,
     siteArn :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Outpost tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    siteId :: Prelude.Maybe Prelude.Text,
+    lifeCycleStatus :: Prelude.Maybe Prelude.Text,
+    availabilityZoneId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,47 +51,55 @@ data Outpost = Outpost'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'availabilityZoneId', 'outpost_availabilityZoneId' - Undocumented member.
+-- 'tags', 'outpost_tags' - The Outpost tags.
+--
+-- 'name', 'outpost_name' - Undocumented member.
+--
+-- 'outpostId', 'outpost_outpostId' - The ID of the Outpost.
 --
 -- 'outpostArn', 'outpost_outpostArn' - Undocumented member.
 --
 -- 'ownerId', 'outpost_ownerId' - Undocumented member.
 --
--- 'availabilityZone', 'outpost_availabilityZone' - Undocumented member.
---
--- 'name', 'outpost_name' - Undocumented member.
---
--- 'lifeCycleStatus', 'outpost_lifeCycleStatus' - Undocumented member.
---
--- 'outpostId', 'outpost_outpostId' - The ID of the Outpost.
---
--- 'siteId', 'outpost_siteId' - Undocumented member.
---
 -- 'siteArn', 'outpost_siteArn' - Undocumented member.
+--
+-- 'availabilityZone', 'outpost_availabilityZone' - Undocumented member.
 --
 -- 'description', 'outpost_description' - Undocumented member.
 --
--- 'tags', 'outpost_tags' - The Outpost tags.
+-- 'siteId', 'outpost_siteId' - Undocumented member.
+--
+-- 'lifeCycleStatus', 'outpost_lifeCycleStatus' - Undocumented member.
+--
+-- 'availabilityZoneId', 'outpost_availabilityZoneId' - Undocumented member.
 newOutpost ::
   Outpost
 newOutpost =
   Outpost'
-    { availabilityZoneId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      outpostId = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
       ownerId = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lifeCycleStatus = Prelude.Nothing,
-      outpostId = Prelude.Nothing,
-      siteId = Prelude.Nothing,
       siteArn = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing
+      siteId = Prelude.Nothing,
+      lifeCycleStatus = Prelude.Nothing,
+      availabilityZoneId = Prelude.Nothing
     }
 
+-- | The Outpost tags.
+outpost_tags :: Lens.Lens' Outpost (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+outpost_tags = Lens.lens (\Outpost' {tags} -> tags) (\s@Outpost' {} a -> s {tags = a} :: Outpost) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
-outpost_availabilityZoneId :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
-outpost_availabilityZoneId = Lens.lens (\Outpost' {availabilityZoneId} -> availabilityZoneId) (\s@Outpost' {} a -> s {availabilityZoneId = a} :: Outpost)
+outpost_name :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
+outpost_name = Lens.lens (\Outpost' {name} -> name) (\s@Outpost' {} a -> s {name = a} :: Outpost)
+
+-- | The ID of the Outpost.
+outpost_outpostId :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
+outpost_outpostId = Lens.lens (\Outpost' {outpostId} -> outpostId) (\s@Outpost' {} a -> s {outpostId = a} :: Outpost)
 
 -- | Undocumented member.
 outpost_outpostArn :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
@@ -102,36 +110,28 @@ outpost_ownerId :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
 outpost_ownerId = Lens.lens (\Outpost' {ownerId} -> ownerId) (\s@Outpost' {} a -> s {ownerId = a} :: Outpost)
 
 -- | Undocumented member.
+outpost_siteArn :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
+outpost_siteArn = Lens.lens (\Outpost' {siteArn} -> siteArn) (\s@Outpost' {} a -> s {siteArn = a} :: Outpost)
+
+-- | Undocumented member.
 outpost_availabilityZone :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
 outpost_availabilityZone = Lens.lens (\Outpost' {availabilityZone} -> availabilityZone) (\s@Outpost' {} a -> s {availabilityZone = a} :: Outpost)
 
 -- | Undocumented member.
-outpost_name :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
-outpost_name = Lens.lens (\Outpost' {name} -> name) (\s@Outpost' {} a -> s {name = a} :: Outpost)
-
--- | Undocumented member.
-outpost_lifeCycleStatus :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
-outpost_lifeCycleStatus = Lens.lens (\Outpost' {lifeCycleStatus} -> lifeCycleStatus) (\s@Outpost' {} a -> s {lifeCycleStatus = a} :: Outpost)
-
--- | The ID of the Outpost.
-outpost_outpostId :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
-outpost_outpostId = Lens.lens (\Outpost' {outpostId} -> outpostId) (\s@Outpost' {} a -> s {outpostId = a} :: Outpost)
+outpost_description :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
+outpost_description = Lens.lens (\Outpost' {description} -> description) (\s@Outpost' {} a -> s {description = a} :: Outpost)
 
 -- | Undocumented member.
 outpost_siteId :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
 outpost_siteId = Lens.lens (\Outpost' {siteId} -> siteId) (\s@Outpost' {} a -> s {siteId = a} :: Outpost)
 
 -- | Undocumented member.
-outpost_siteArn :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
-outpost_siteArn = Lens.lens (\Outpost' {siteArn} -> siteArn) (\s@Outpost' {} a -> s {siteArn = a} :: Outpost)
+outpost_lifeCycleStatus :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
+outpost_lifeCycleStatus = Lens.lens (\Outpost' {lifeCycleStatus} -> lifeCycleStatus) (\s@Outpost' {} a -> s {lifeCycleStatus = a} :: Outpost)
 
 -- | Undocumented member.
-outpost_description :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
-outpost_description = Lens.lens (\Outpost' {description} -> description) (\s@Outpost' {} a -> s {description = a} :: Outpost)
-
--- | The Outpost tags.
-outpost_tags :: Lens.Lens' Outpost (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-outpost_tags = Lens.lens (\Outpost' {tags} -> tags) (\s@Outpost' {} a -> s {tags = a} :: Outpost) Prelude.. Lens.mapping Lens.coerced
+outpost_availabilityZoneId :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
+outpost_availabilityZoneId = Lens.lens (\Outpost' {availabilityZoneId} -> availabilityZoneId) (\s@Outpost' {} a -> s {availabilityZoneId = a} :: Outpost)
 
 instance Core.FromJSON Outpost where
   parseJSON =
@@ -139,43 +139,43 @@ instance Core.FromJSON Outpost where
       "Outpost"
       ( \x ->
           Outpost'
-            Prelude.<$> (x Core..:? "AvailabilityZoneId")
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "OutpostId")
             Prelude.<*> (x Core..:? "OutpostArn")
             Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LifeCycleStatus")
-            Prelude.<*> (x Core..:? "OutpostId")
-            Prelude.<*> (x Core..:? "SiteId")
             Prelude.<*> (x Core..:? "SiteArn")
+            Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SiteId")
+            Prelude.<*> (x Core..:? "LifeCycleStatus")
+            Prelude.<*> (x Core..:? "AvailabilityZoneId")
       )
 
 instance Prelude.Hashable Outpost where
   hashWithSalt _salt Outpost' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneId
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outpostId
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
-      `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lifeCycleStatus
-      `Prelude.hashWithSalt` outpostId
-      `Prelude.hashWithSalt` siteId
       `Prelude.hashWithSalt` siteArn
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` lifeCycleStatus
+      `Prelude.hashWithSalt` availabilityZoneId
 
 instance Prelude.NFData Outpost where
   rnf Outpost' {..} =
-    Prelude.rnf availabilityZoneId
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outpostId
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lifeCycleStatus
-      `Prelude.seq` Prelude.rnf outpostId
-      `Prelude.seq` Prelude.rnf siteId
       `Prelude.seq` Prelude.rnf siteArn
+      `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf lifeCycleStatus
+      `Prelude.seq` Prelude.rnf availabilityZoneId

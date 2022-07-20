@@ -20,38 +20,35 @@ module Amazonka.Route53RecoveryControlConfig
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** ClusterCreated
-    newClusterCreated,
-
-    -- ** RoutingControlCreated
-    newRoutingControlCreated,
-
     -- ** RoutingControlDeleted
     newRoutingControlDeleted,
+
+    -- ** ClusterCreated
+    newClusterCreated,
 
     -- ** ControlPanelCreated
     newControlPanelCreated,
@@ -62,68 +59,11 @@ module Amazonka.Route53RecoveryControlConfig
     -- ** ClusterDeleted
     newClusterDeleted,
 
+    -- ** RoutingControlCreated
+    newRoutingControlCreated,
+
     -- * Operations
     -- $operations
-
-    -- ** DescribeControlPanel
-    DescribeControlPanel (DescribeControlPanel'),
-    newDescribeControlPanel,
-    DescribeControlPanelResponse (DescribeControlPanelResponse'),
-    newDescribeControlPanelResponse,
-
-    -- ** CreateRoutingControl
-    CreateRoutingControl (CreateRoutingControl'),
-    newCreateRoutingControl,
-    CreateRoutingControlResponse (CreateRoutingControlResponse'),
-    newCreateRoutingControlResponse,
-
-    -- ** DescribeCluster
-    DescribeCluster (DescribeCluster'),
-    newDescribeCluster,
-    DescribeClusterResponse (DescribeClusterResponse'),
-    newDescribeClusterResponse,
-
-    -- ** DeleteRoutingControl
-    DeleteRoutingControl (DeleteRoutingControl'),
-    newDeleteRoutingControl,
-    DeleteRoutingControlResponse (DeleteRoutingControlResponse'),
-    newDeleteRoutingControlResponse,
-
-    -- ** UpdateRoutingControl
-    UpdateRoutingControl (UpdateRoutingControl'),
-    newUpdateRoutingControl,
-    UpdateRoutingControlResponse (UpdateRoutingControlResponse'),
-    newUpdateRoutingControlResponse,
-
-    -- ** CreateControlPanel
-    CreateControlPanel (CreateControlPanel'),
-    newCreateControlPanel,
-    CreateControlPanelResponse (CreateControlPanelResponse'),
-    newCreateControlPanelResponse,
-
-    -- ** UpdateControlPanel
-    UpdateControlPanel (UpdateControlPanel'),
-    newUpdateControlPanel,
-    UpdateControlPanelResponse (UpdateControlPanelResponse'),
-    newUpdateControlPanelResponse,
-
-    -- ** DeleteControlPanel
-    DeleteControlPanel (DeleteControlPanel'),
-    newDeleteControlPanel,
-    DeleteControlPanelResponse (DeleteControlPanelResponse'),
-    newDeleteControlPanelResponse,
-
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
-    -- ** CreateSafetyRule
-    CreateSafetyRule (CreateSafetyRule'),
-    newCreateSafetyRule,
-    CreateSafetyRuleResponse (CreateSafetyRuleResponse'),
-    newCreateSafetyRuleResponse,
 
     -- ** CreateCluster
     CreateCluster (CreateCluster'),
@@ -131,35 +71,41 @@ module Amazonka.Route53RecoveryControlConfig
     CreateClusterResponse (CreateClusterResponse'),
     newCreateClusterResponse,
 
-    -- ** ListAssociatedRoute53HealthChecks
-    ListAssociatedRoute53HealthChecks (ListAssociatedRoute53HealthChecks'),
-    newListAssociatedRoute53HealthChecks,
-    ListAssociatedRoute53HealthChecksResponse (ListAssociatedRoute53HealthChecksResponse'),
-    newListAssociatedRoute53HealthChecksResponse,
+    -- ** CreateControlPanel
+    CreateControlPanel (CreateControlPanel'),
+    newCreateControlPanel,
+    CreateControlPanelResponse (CreateControlPanelResponse'),
+    newCreateControlPanelResponse,
 
-    -- ** DescribeSafetyRule
-    DescribeSafetyRule (DescribeSafetyRule'),
-    newDescribeSafetyRule,
-    DescribeSafetyRuleResponse (DescribeSafetyRuleResponse'),
-    newDescribeSafetyRuleResponse,
+    -- ** CreateRoutingControl
+    CreateRoutingControl (CreateRoutingControl'),
+    newCreateRoutingControl,
+    CreateRoutingControlResponse (CreateRoutingControlResponse'),
+    newCreateRoutingControlResponse,
 
-    -- ** ListRoutingControls
-    ListRoutingControls (ListRoutingControls'),
-    newListRoutingControls,
-    ListRoutingControlsResponse (ListRoutingControlsResponse'),
-    newListRoutingControlsResponse,
+    -- ** CreateSafetyRule
+    CreateSafetyRule (CreateSafetyRule'),
+    newCreateSafetyRule,
+    CreateSafetyRuleResponse (CreateSafetyRuleResponse'),
+    newCreateSafetyRuleResponse,
 
-    -- ** ListControlPanels
-    ListControlPanels (ListControlPanels'),
-    newListControlPanels,
-    ListControlPanelsResponse (ListControlPanelsResponse'),
-    newListControlPanelsResponse,
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
 
-    -- ** UpdateSafetyRule
-    UpdateSafetyRule (UpdateSafetyRule'),
-    newUpdateSafetyRule,
-    UpdateSafetyRuleResponse (UpdateSafetyRuleResponse'),
-    newUpdateSafetyRuleResponse,
+    -- ** DeleteControlPanel
+    DeleteControlPanel (DeleteControlPanel'),
+    newDeleteControlPanel,
+    DeleteControlPanelResponse (DeleteControlPanelResponse'),
+    newDeleteControlPanelResponse,
+
+    -- ** DeleteRoutingControl
+    DeleteRoutingControl (DeleteRoutingControl'),
+    newDeleteRoutingControl,
+    DeleteRoutingControlResponse (DeleteRoutingControlResponse'),
+    newDeleteRoutingControlResponse,
 
     -- ** DeleteSafetyRule
     DeleteSafetyRule (DeleteSafetyRule'),
@@ -167,11 +113,53 @@ module Amazonka.Route53RecoveryControlConfig
     DeleteSafetyRuleResponse (DeleteSafetyRuleResponse'),
     newDeleteSafetyRuleResponse,
 
+    -- ** DescribeCluster
+    DescribeCluster (DescribeCluster'),
+    newDescribeCluster,
+    DescribeClusterResponse (DescribeClusterResponse'),
+    newDescribeClusterResponse,
+
+    -- ** DescribeControlPanel
+    DescribeControlPanel (DescribeControlPanel'),
+    newDescribeControlPanel,
+    DescribeControlPanelResponse (DescribeControlPanelResponse'),
+    newDescribeControlPanelResponse,
+
+    -- ** DescribeRoutingControl
+    DescribeRoutingControl (DescribeRoutingControl'),
+    newDescribeRoutingControl,
+    DescribeRoutingControlResponse (DescribeRoutingControlResponse'),
+    newDescribeRoutingControlResponse,
+
+    -- ** DescribeSafetyRule
+    DescribeSafetyRule (DescribeSafetyRule'),
+    newDescribeSafetyRule,
+    DescribeSafetyRuleResponse (DescribeSafetyRuleResponse'),
+    newDescribeSafetyRuleResponse,
+
+    -- ** ListAssociatedRoute53HealthChecks
+    ListAssociatedRoute53HealthChecks (ListAssociatedRoute53HealthChecks'),
+    newListAssociatedRoute53HealthChecks,
+    ListAssociatedRoute53HealthChecksResponse (ListAssociatedRoute53HealthChecksResponse'),
+    newListAssociatedRoute53HealthChecksResponse,
+
     -- ** ListClusters
     ListClusters (ListClusters'),
     newListClusters,
     ListClustersResponse (ListClustersResponse'),
     newListClustersResponse,
+
+    -- ** ListControlPanels
+    ListControlPanels (ListControlPanels'),
+    newListControlPanels,
+    ListControlPanelsResponse (ListControlPanelsResponse'),
+    newListControlPanelsResponse,
+
+    -- ** ListRoutingControls
+    ListRoutingControls (ListRoutingControls'),
+    newListRoutingControls,
+    ListRoutingControlsResponse (ListRoutingControlsResponse'),
+    newListRoutingControlsResponse,
 
     -- ** ListSafetyRules
     ListSafetyRules (ListSafetyRules'),
@@ -179,11 +167,23 @@ module Amazonka.Route53RecoveryControlConfig
     ListSafetyRulesResponse (ListSafetyRulesResponse'),
     newListSafetyRulesResponse,
 
-    -- ** DescribeRoutingControl
-    DescribeRoutingControl (DescribeRoutingControl'),
-    newDescribeRoutingControl,
-    DescribeRoutingControlResponse (DescribeRoutingControlResponse'),
-    newDescribeRoutingControlResponse,
+    -- ** UpdateControlPanel
+    UpdateControlPanel (UpdateControlPanel'),
+    newUpdateControlPanel,
+    UpdateControlPanelResponse (UpdateControlPanelResponse'),
+    newUpdateControlPanelResponse,
+
+    -- ** UpdateRoutingControl
+    UpdateRoutingControl (UpdateRoutingControl'),
+    newUpdateRoutingControl,
+    UpdateRoutingControlResponse (UpdateRoutingControlResponse'),
+    newUpdateRoutingControlResponse,
+
+    -- ** UpdateSafetyRule
+    UpdateSafetyRule (UpdateSafetyRule'),
+    newUpdateSafetyRule,
+    UpdateSafetyRuleResponse (UpdateSafetyRuleResponse'),
+    newUpdateSafetyRuleResponse,
 
     -- * Types
 

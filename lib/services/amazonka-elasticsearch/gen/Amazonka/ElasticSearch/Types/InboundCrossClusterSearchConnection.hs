@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInboundCrossClusterSearchConnection' smart constructor.
 data InboundCrossClusterSearchConnection = InboundCrossClusterSearchConnection'
-  { -- | Specifies the @DomainInformation@ for the destination Elasticsearch
-    -- domain.
-    destinationDomainInfo :: Prelude.Maybe DomainInformation,
-    -- | Specifies the connection id for the inbound cross-cluster search
+  { -- | Specifies the connection id for the inbound cross-cluster search
     -- connection.
     crossClusterSearchConnectionId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the @DomainInformation@ for the source Elasticsearch domain.
+    sourceDomainInfo :: Prelude.Maybe DomainInformation,
     -- | Specifies the @InboundCrossClusterSearchConnectionStatus@ for the
     -- outbound connection.
     connectionStatus :: Prelude.Maybe InboundCrossClusterSearchConnectionStatus,
-    -- | Specifies the @DomainInformation@ for the source Elasticsearch domain.
-    sourceDomainInfo :: Prelude.Maybe DomainInformation
+    -- | Specifies the @DomainInformation@ for the destination Elasticsearch
+    -- domain.
+    destinationDomainInfo :: Prelude.Maybe DomainInformation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,46 +51,46 @@ data InboundCrossClusterSearchConnection = InboundCrossClusterSearchConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationDomainInfo', 'inboundCrossClusterSearchConnection_destinationDomainInfo' - Specifies the @DomainInformation@ for the destination Elasticsearch
--- domain.
---
 -- 'crossClusterSearchConnectionId', 'inboundCrossClusterSearchConnection_crossClusterSearchConnectionId' - Specifies the connection id for the inbound cross-cluster search
 -- connection.
+--
+-- 'sourceDomainInfo', 'inboundCrossClusterSearchConnection_sourceDomainInfo' - Specifies the @DomainInformation@ for the source Elasticsearch domain.
 --
 -- 'connectionStatus', 'inboundCrossClusterSearchConnection_connectionStatus' - Specifies the @InboundCrossClusterSearchConnectionStatus@ for the
 -- outbound connection.
 --
--- 'sourceDomainInfo', 'inboundCrossClusterSearchConnection_sourceDomainInfo' - Specifies the @DomainInformation@ for the source Elasticsearch domain.
+-- 'destinationDomainInfo', 'inboundCrossClusterSearchConnection_destinationDomainInfo' - Specifies the @DomainInformation@ for the destination Elasticsearch
+-- domain.
 newInboundCrossClusterSearchConnection ::
   InboundCrossClusterSearchConnection
 newInboundCrossClusterSearchConnection =
   InboundCrossClusterSearchConnection'
-    { destinationDomainInfo =
+    { crossClusterSearchConnectionId =
         Prelude.Nothing,
-      crossClusterSearchConnectionId =
-        Prelude.Nothing,
+      sourceDomainInfo = Prelude.Nothing,
       connectionStatus = Prelude.Nothing,
-      sourceDomainInfo = Prelude.Nothing
+      destinationDomainInfo =
+        Prelude.Nothing
     }
-
--- | Specifies the @DomainInformation@ for the destination Elasticsearch
--- domain.
-inboundCrossClusterSearchConnection_destinationDomainInfo :: Lens.Lens' InboundCrossClusterSearchConnection (Prelude.Maybe DomainInformation)
-inboundCrossClusterSearchConnection_destinationDomainInfo = Lens.lens (\InboundCrossClusterSearchConnection' {destinationDomainInfo} -> destinationDomainInfo) (\s@InboundCrossClusterSearchConnection' {} a -> s {destinationDomainInfo = a} :: InboundCrossClusterSearchConnection)
 
 -- | Specifies the connection id for the inbound cross-cluster search
 -- connection.
 inboundCrossClusterSearchConnection_crossClusterSearchConnectionId :: Lens.Lens' InboundCrossClusterSearchConnection (Prelude.Maybe Prelude.Text)
 inboundCrossClusterSearchConnection_crossClusterSearchConnectionId = Lens.lens (\InboundCrossClusterSearchConnection' {crossClusterSearchConnectionId} -> crossClusterSearchConnectionId) (\s@InboundCrossClusterSearchConnection' {} a -> s {crossClusterSearchConnectionId = a} :: InboundCrossClusterSearchConnection)
 
+-- | Specifies the @DomainInformation@ for the source Elasticsearch domain.
+inboundCrossClusterSearchConnection_sourceDomainInfo :: Lens.Lens' InboundCrossClusterSearchConnection (Prelude.Maybe DomainInformation)
+inboundCrossClusterSearchConnection_sourceDomainInfo = Lens.lens (\InboundCrossClusterSearchConnection' {sourceDomainInfo} -> sourceDomainInfo) (\s@InboundCrossClusterSearchConnection' {} a -> s {sourceDomainInfo = a} :: InboundCrossClusterSearchConnection)
+
 -- | Specifies the @InboundCrossClusterSearchConnectionStatus@ for the
 -- outbound connection.
 inboundCrossClusterSearchConnection_connectionStatus :: Lens.Lens' InboundCrossClusterSearchConnection (Prelude.Maybe InboundCrossClusterSearchConnectionStatus)
 inboundCrossClusterSearchConnection_connectionStatus = Lens.lens (\InboundCrossClusterSearchConnection' {connectionStatus} -> connectionStatus) (\s@InboundCrossClusterSearchConnection' {} a -> s {connectionStatus = a} :: InboundCrossClusterSearchConnection)
 
--- | Specifies the @DomainInformation@ for the source Elasticsearch domain.
-inboundCrossClusterSearchConnection_sourceDomainInfo :: Lens.Lens' InboundCrossClusterSearchConnection (Prelude.Maybe DomainInformation)
-inboundCrossClusterSearchConnection_sourceDomainInfo = Lens.lens (\InboundCrossClusterSearchConnection' {sourceDomainInfo} -> sourceDomainInfo) (\s@InboundCrossClusterSearchConnection' {} a -> s {sourceDomainInfo = a} :: InboundCrossClusterSearchConnection)
+-- | Specifies the @DomainInformation@ for the destination Elasticsearch
+-- domain.
+inboundCrossClusterSearchConnection_destinationDomainInfo :: Lens.Lens' InboundCrossClusterSearchConnection (Prelude.Maybe DomainInformation)
+inboundCrossClusterSearchConnection_destinationDomainInfo = Lens.lens (\InboundCrossClusterSearchConnection' {destinationDomainInfo} -> destinationDomainInfo) (\s@InboundCrossClusterSearchConnection' {} a -> s {destinationDomainInfo = a} :: InboundCrossClusterSearchConnection)
 
 instance
   Core.FromJSON
@@ -101,10 +101,10 @@ instance
       "InboundCrossClusterSearchConnection"
       ( \x ->
           InboundCrossClusterSearchConnection'
-            Prelude.<$> (x Core..:? "DestinationDomainInfo")
-            Prelude.<*> (x Core..:? "CrossClusterSearchConnectionId")
-            Prelude.<*> (x Core..:? "ConnectionStatus")
+            Prelude.<$> (x Core..:? "CrossClusterSearchConnectionId")
             Prelude.<*> (x Core..:? "SourceDomainInfo")
+            Prelude.<*> (x Core..:? "ConnectionStatus")
+            Prelude.<*> (x Core..:? "DestinationDomainInfo")
       )
 
 instance
@@ -114,17 +114,18 @@ instance
   hashWithSalt
     _salt
     InboundCrossClusterSearchConnection' {..} =
-      _salt `Prelude.hashWithSalt` destinationDomainInfo
+      _salt
         `Prelude.hashWithSalt` crossClusterSearchConnectionId
-        `Prelude.hashWithSalt` connectionStatus
         `Prelude.hashWithSalt` sourceDomainInfo
+        `Prelude.hashWithSalt` connectionStatus
+        `Prelude.hashWithSalt` destinationDomainInfo
 
 instance
   Prelude.NFData
     InboundCrossClusterSearchConnection
   where
   rnf InboundCrossClusterSearchConnection' {..} =
-    Prelude.rnf destinationDomainInfo
-      `Prelude.seq` Prelude.rnf crossClusterSearchConnectionId
-      `Prelude.seq` Prelude.rnf connectionStatus
+    Prelude.rnf crossClusterSearchConnectionId
       `Prelude.seq` Prelude.rnf sourceDomainInfo
+      `Prelude.seq` Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf destinationDomainInfo

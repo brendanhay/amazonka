@@ -28,23 +28,23 @@ import Amazonka.SecurityHub.Types.AwsSecretsManagerSecretRotationRules
 --
 -- /See:/ 'newAwsSecretsManagerSecretDetails' smart constructor.
 data AwsSecretsManagerSecretDetails = AwsSecretsManagerSecretDetails'
-  { -- | Defines the rotation schedule for the secret.
-    rotationRules :: Prelude.Maybe AwsSecretsManagerSecretRotationRules,
-    -- | Whether rotation is enabled.
-    rotationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN, Key ID, or alias of the KMS key used to encrypt the
-    -- @SecretString@ or @SecretBinary@ values for versions of this secret.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the secret.
+  { -- | The name of the secret.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Lambda function that rotates the secret.
+    rotationLambdaArn :: Prelude.Maybe Prelude.Text,
+    -- | Defines the rotation schedule for the secret.
+    rotationRules :: Prelude.Maybe AwsSecretsManagerSecretRotationRules,
     -- | Whether the secret is deleted.
     deleted :: Prelude.Maybe Prelude.Bool,
     -- | The user-provided description of the secret.
     description :: Prelude.Maybe Prelude.Text,
     -- | Whether the rotation occurred within the specified rotation frequency.
     rotationOccurredWithinFrequency :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the Lambda function that rotates the secret.
-    rotationLambdaArn :: Prelude.Maybe Prelude.Text
+    -- | Whether rotation is enabled.
+    rotationEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN, Key ID, or alias of the KMS key used to encrypt the
+    -- @SecretString@ or @SecretBinary@ values for versions of this secret.
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,14 +56,11 @@ data AwsSecretsManagerSecretDetails = AwsSecretsManagerSecretDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rotationRules', 'awsSecretsManagerSecretDetails_rotationRules' - Defines the rotation schedule for the secret.
---
--- 'rotationEnabled', 'awsSecretsManagerSecretDetails_rotationEnabled' - Whether rotation is enabled.
---
--- 'kmsKeyId', 'awsSecretsManagerSecretDetails_kmsKeyId' - The ARN, Key ID, or alias of the KMS key used to encrypt the
--- @SecretString@ or @SecretBinary@ values for versions of this secret.
---
 -- 'name', 'awsSecretsManagerSecretDetails_name' - The name of the secret.
+--
+-- 'rotationLambdaArn', 'awsSecretsManagerSecretDetails_rotationLambdaArn' - The ARN of the Lambda function that rotates the secret.
+--
+-- 'rotationRules', 'awsSecretsManagerSecretDetails_rotationRules' - Defines the rotation schedule for the secret.
 --
 -- 'deleted', 'awsSecretsManagerSecretDetails_deleted' - Whether the secret is deleted.
 --
@@ -71,39 +68,37 @@ data AwsSecretsManagerSecretDetails = AwsSecretsManagerSecretDetails'
 --
 -- 'rotationOccurredWithinFrequency', 'awsSecretsManagerSecretDetails_rotationOccurredWithinFrequency' - Whether the rotation occurred within the specified rotation frequency.
 --
--- 'rotationLambdaArn', 'awsSecretsManagerSecretDetails_rotationLambdaArn' - The ARN of the Lambda function that rotates the secret.
+-- 'rotationEnabled', 'awsSecretsManagerSecretDetails_rotationEnabled' - Whether rotation is enabled.
+--
+-- 'kmsKeyId', 'awsSecretsManagerSecretDetails_kmsKeyId' - The ARN, Key ID, or alias of the KMS key used to encrypt the
+-- @SecretString@ or @SecretBinary@ values for versions of this secret.
 newAwsSecretsManagerSecretDetails ::
   AwsSecretsManagerSecretDetails
 newAwsSecretsManagerSecretDetails =
   AwsSecretsManagerSecretDetails'
-    { rotationRules =
+    { name =
         Prelude.Nothing,
-      rotationEnabled = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      name = Prelude.Nothing,
+      rotationLambdaArn = Prelude.Nothing,
+      rotationRules = Prelude.Nothing,
       deleted = Prelude.Nothing,
       description = Prelude.Nothing,
       rotationOccurredWithinFrequency =
         Prelude.Nothing,
-      rotationLambdaArn = Prelude.Nothing
+      rotationEnabled = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing
     }
-
--- | Defines the rotation schedule for the secret.
-awsSecretsManagerSecretDetails_rotationRules :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe AwsSecretsManagerSecretRotationRules)
-awsSecretsManagerSecretDetails_rotationRules = Lens.lens (\AwsSecretsManagerSecretDetails' {rotationRules} -> rotationRules) (\s@AwsSecretsManagerSecretDetails' {} a -> s {rotationRules = a} :: AwsSecretsManagerSecretDetails)
-
--- | Whether rotation is enabled.
-awsSecretsManagerSecretDetails_rotationEnabled :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Bool)
-awsSecretsManagerSecretDetails_rotationEnabled = Lens.lens (\AwsSecretsManagerSecretDetails' {rotationEnabled} -> rotationEnabled) (\s@AwsSecretsManagerSecretDetails' {} a -> s {rotationEnabled = a} :: AwsSecretsManagerSecretDetails)
-
--- | The ARN, Key ID, or alias of the KMS key used to encrypt the
--- @SecretString@ or @SecretBinary@ values for versions of this secret.
-awsSecretsManagerSecretDetails_kmsKeyId :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Text)
-awsSecretsManagerSecretDetails_kmsKeyId = Lens.lens (\AwsSecretsManagerSecretDetails' {kmsKeyId} -> kmsKeyId) (\s@AwsSecretsManagerSecretDetails' {} a -> s {kmsKeyId = a} :: AwsSecretsManagerSecretDetails)
 
 -- | The name of the secret.
 awsSecretsManagerSecretDetails_name :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Text)
 awsSecretsManagerSecretDetails_name = Lens.lens (\AwsSecretsManagerSecretDetails' {name} -> name) (\s@AwsSecretsManagerSecretDetails' {} a -> s {name = a} :: AwsSecretsManagerSecretDetails)
+
+-- | The ARN of the Lambda function that rotates the secret.
+awsSecretsManagerSecretDetails_rotationLambdaArn :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Text)
+awsSecretsManagerSecretDetails_rotationLambdaArn = Lens.lens (\AwsSecretsManagerSecretDetails' {rotationLambdaArn} -> rotationLambdaArn) (\s@AwsSecretsManagerSecretDetails' {} a -> s {rotationLambdaArn = a} :: AwsSecretsManagerSecretDetails)
+
+-- | Defines the rotation schedule for the secret.
+awsSecretsManagerSecretDetails_rotationRules :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe AwsSecretsManagerSecretRotationRules)
+awsSecretsManagerSecretDetails_rotationRules = Lens.lens (\AwsSecretsManagerSecretDetails' {rotationRules} -> rotationRules) (\s@AwsSecretsManagerSecretDetails' {} a -> s {rotationRules = a} :: AwsSecretsManagerSecretDetails)
 
 -- | Whether the secret is deleted.
 awsSecretsManagerSecretDetails_deleted :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Bool)
@@ -117,9 +112,14 @@ awsSecretsManagerSecretDetails_description = Lens.lens (\AwsSecretsManagerSecret
 awsSecretsManagerSecretDetails_rotationOccurredWithinFrequency :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Bool)
 awsSecretsManagerSecretDetails_rotationOccurredWithinFrequency = Lens.lens (\AwsSecretsManagerSecretDetails' {rotationOccurredWithinFrequency} -> rotationOccurredWithinFrequency) (\s@AwsSecretsManagerSecretDetails' {} a -> s {rotationOccurredWithinFrequency = a} :: AwsSecretsManagerSecretDetails)
 
--- | The ARN of the Lambda function that rotates the secret.
-awsSecretsManagerSecretDetails_rotationLambdaArn :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Text)
-awsSecretsManagerSecretDetails_rotationLambdaArn = Lens.lens (\AwsSecretsManagerSecretDetails' {rotationLambdaArn} -> rotationLambdaArn) (\s@AwsSecretsManagerSecretDetails' {} a -> s {rotationLambdaArn = a} :: AwsSecretsManagerSecretDetails)
+-- | Whether rotation is enabled.
+awsSecretsManagerSecretDetails_rotationEnabled :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Bool)
+awsSecretsManagerSecretDetails_rotationEnabled = Lens.lens (\AwsSecretsManagerSecretDetails' {rotationEnabled} -> rotationEnabled) (\s@AwsSecretsManagerSecretDetails' {} a -> s {rotationEnabled = a} :: AwsSecretsManagerSecretDetails)
+
+-- | The ARN, Key ID, or alias of the KMS key used to encrypt the
+-- @SecretString@ or @SecretBinary@ values for versions of this secret.
+awsSecretsManagerSecretDetails_kmsKeyId :: Lens.Lens' AwsSecretsManagerSecretDetails (Prelude.Maybe Prelude.Text)
+awsSecretsManagerSecretDetails_kmsKeyId = Lens.lens (\AwsSecretsManagerSecretDetails' {kmsKeyId} -> kmsKeyId) (\s@AwsSecretsManagerSecretDetails' {} a -> s {kmsKeyId = a} :: AwsSecretsManagerSecretDetails)
 
 instance Core.FromJSON AwsSecretsManagerSecretDetails where
   parseJSON =
@@ -127,14 +127,14 @@ instance Core.FromJSON AwsSecretsManagerSecretDetails where
       "AwsSecretsManagerSecretDetails"
       ( \x ->
           AwsSecretsManagerSecretDetails'
-            Prelude.<$> (x Core..:? "RotationRules")
-            Prelude.<*> (x Core..:? "RotationEnabled")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "RotationLambdaArn")
+            Prelude.<*> (x Core..:? "RotationRules")
             Prelude.<*> (x Core..:? "Deleted")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "RotationOccurredWithinFrequency")
-            Prelude.<*> (x Core..:? "RotationLambdaArn")
+            Prelude.<*> (x Core..:? "RotationEnabled")
+            Prelude.<*> (x Core..:? "KmsKeyId")
       )
 
 instance
@@ -144,43 +144,43 @@ instance
   hashWithSalt
     _salt
     AwsSecretsManagerSecretDetails' {..} =
-      _salt `Prelude.hashWithSalt` rotationRules
-        `Prelude.hashWithSalt` rotationEnabled
-        `Prelude.hashWithSalt` kmsKeyId
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` rotationLambdaArn
+        `Prelude.hashWithSalt` rotationRules
         `Prelude.hashWithSalt` deleted
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` rotationOccurredWithinFrequency
-        `Prelude.hashWithSalt` rotationLambdaArn
+        `Prelude.hashWithSalt` rotationEnabled
+        `Prelude.hashWithSalt` kmsKeyId
 
 instance
   Prelude.NFData
     AwsSecretsManagerSecretDetails
   where
   rnf AwsSecretsManagerSecretDetails' {..} =
-    Prelude.rnf rotationRules
-      `Prelude.seq` Prelude.rnf rotationEnabled
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rotationLambdaArn
+      `Prelude.seq` Prelude.rnf rotationRules
       `Prelude.seq` Prelude.rnf deleted
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf rotationOccurredWithinFrequency
-      `Prelude.seq` Prelude.rnf rotationLambdaArn
+      `Prelude.seq` Prelude.rnf rotationEnabled
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToJSON AwsSecretsManagerSecretDetails where
   toJSON AwsSecretsManagerSecretDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RotationRules" Core..=) Prelude.<$> rotationRules,
-            ("RotationEnabled" Core..=)
-              Prelude.<$> rotationEnabled,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("RotationLambdaArn" Core..=)
+              Prelude.<$> rotationLambdaArn,
+            ("RotationRules" Core..=) Prelude.<$> rotationRules,
             ("Deleted" Core..=) Prelude.<$> deleted,
             ("Description" Core..=) Prelude.<$> description,
             ("RotationOccurredWithinFrequency" Core..=)
               Prelude.<$> rotationOccurredWithinFrequency,
-            ("RotationLambdaArn" Core..=)
-              Prelude.<$> rotationLambdaArn
+            ("RotationEnabled" Core..=)
+              Prelude.<$> rotationEnabled,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId
           ]
       )

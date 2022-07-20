@@ -45,13 +45,13 @@ module Amazonka.ResourceGroupsTagging.GetComplianceSummary
     newGetComplianceSummary,
 
     -- * Request Lenses
-    getComplianceSummary_groupBy,
-    getComplianceSummary_paginationToken,
+    getComplianceSummary_tagKeyFilters,
     getComplianceSummary_targetIdFilters,
+    getComplianceSummary_paginationToken,
+    getComplianceSummary_groupBy,
+    getComplianceSummary_maxResults,
     getComplianceSummary_resourceTypeFilters,
     getComplianceSummary_regionFilters,
-    getComplianceSummary_tagKeyFilters,
-    getComplianceSummary_maxResults,
 
     -- * Destructuring the Response
     GetComplianceSummaryResponse (..),
@@ -73,18 +73,29 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetComplianceSummary' smart constructor.
 data GetComplianceSummary = GetComplianceSummary'
-  { -- | Specifies a list of attributes to group the counts of noncompliant
-    -- resources by. If supplied, the counts are sorted by those attributes.
-    groupBy :: Prelude.Maybe [GroupByAttribute],
-    -- | Specifies a @PaginationToken@ response value from a previous request to
-    -- indicate that you want the next page of results. Leave this parameter
-    -- empty in your initial request.
-    paginationToken :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies that you want the response to include information for only
+    -- resources that have tags with the specified tag keys. If you use this
+    -- parameter, the count of returned noncompliant resources includes only
+    -- resources that have the specified tag keys.
+    tagKeyFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies target identifiers (usually, specific account IDs) to limit
     -- the output by. If you use this parameter, the count of returned
     -- noncompliant resources includes only resources with the specified target
     -- IDs.
     targetIdFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Specifies a @PaginationToken@ response value from a previous request to
+    -- indicate that you want the next page of results. Leave this parameter
+    -- empty in your initial request.
+    paginationToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a list of attributes to group the counts of noncompliant
+    -- resources by. If supplied, the counts are sorted by those attributes.
+    groupBy :: Prelude.Maybe [GroupByAttribute],
+    -- | Specifies the maximum number of results to be returned in each page. A
+    -- query can return fewer than this maximum, even if there are more results
+    -- still to return. You should always check the @PaginationToken@ response
+    -- value to see if there are more results. You can specify a minimum of 1
+    -- and a maximum value of 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies that you want the response to include information for only
     -- resources of the specified types. The format of each resource type is
     -- @service[:resourceType]@. For example, specifying a resource type of
@@ -111,18 +122,7 @@ data GetComplianceSummary = GetComplianceSummary'
     -- | Specifies a list of AWS Regions to limit the output by. If you use this
     -- parameter, the count of returned noncompliant resources includes only
     -- resources in the specified Regions.
-    regionFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specifies that you want the response to include information for only
-    -- resources that have tags with the specified tag keys. If you use this
-    -- parameter, the count of returned noncompliant resources includes only
-    -- resources that have the specified tag keys.
-    tagKeyFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specifies the maximum number of results to be returned in each page. A
-    -- query can return fewer than this maximum, even if there are more results
-    -- still to return. You should always check the @PaginationToken@ response
-    -- value to see if there are more results. You can specify a minimum of 1
-    -- and a maximum value of 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    regionFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -134,17 +134,28 @@ data GetComplianceSummary = GetComplianceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupBy', 'getComplianceSummary_groupBy' - Specifies a list of attributes to group the counts of noncompliant
--- resources by. If supplied, the counts are sorted by those attributes.
---
--- 'paginationToken', 'getComplianceSummary_paginationToken' - Specifies a @PaginationToken@ response value from a previous request to
--- indicate that you want the next page of results. Leave this parameter
--- empty in your initial request.
+-- 'tagKeyFilters', 'getComplianceSummary_tagKeyFilters' - Specifies that you want the response to include information for only
+-- resources that have tags with the specified tag keys. If you use this
+-- parameter, the count of returned noncompliant resources includes only
+-- resources that have the specified tag keys.
 --
 -- 'targetIdFilters', 'getComplianceSummary_targetIdFilters' - Specifies target identifiers (usually, specific account IDs) to limit
 -- the output by. If you use this parameter, the count of returned
 -- noncompliant resources includes only resources with the specified target
 -- IDs.
+--
+-- 'paginationToken', 'getComplianceSummary_paginationToken' - Specifies a @PaginationToken@ response value from a previous request to
+-- indicate that you want the next page of results. Leave this parameter
+-- empty in your initial request.
+--
+-- 'groupBy', 'getComplianceSummary_groupBy' - Specifies a list of attributes to group the counts of noncompliant
+-- resources by. If supplied, the counts are sorted by those attributes.
+--
+-- 'maxResults', 'getComplianceSummary_maxResults' - Specifies the maximum number of results to be returned in each page. A
+-- query can return fewer than this maximum, even if there are more results
+-- still to return. You should always check the @PaginationToken@ response
+-- value to see if there are more results. You can specify a minimum of 1
+-- and a maximum value of 100.
 --
 -- 'resourceTypeFilters', 'getComplianceSummary_resourceTypeFilters' - Specifies that you want the response to include information for only
 -- resources of the specified types. The format of each resource type is
@@ -172,40 +183,26 @@ data GetComplianceSummary = GetComplianceSummary'
 -- 'regionFilters', 'getComplianceSummary_regionFilters' - Specifies a list of AWS Regions to limit the output by. If you use this
 -- parameter, the count of returned noncompliant resources includes only
 -- resources in the specified Regions.
---
--- 'tagKeyFilters', 'getComplianceSummary_tagKeyFilters' - Specifies that you want the response to include information for only
--- resources that have tags with the specified tag keys. If you use this
--- parameter, the count of returned noncompliant resources includes only
--- resources that have the specified tag keys.
---
--- 'maxResults', 'getComplianceSummary_maxResults' - Specifies the maximum number of results to be returned in each page. A
--- query can return fewer than this maximum, even if there are more results
--- still to return. You should always check the @PaginationToken@ response
--- value to see if there are more results. You can specify a minimum of 1
--- and a maximum value of 100.
 newGetComplianceSummary ::
   GetComplianceSummary
 newGetComplianceSummary =
   GetComplianceSummary'
-    { groupBy = Prelude.Nothing,
-      paginationToken = Prelude.Nothing,
+    { tagKeyFilters =
+        Prelude.Nothing,
       targetIdFilters = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
+      groupBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       resourceTypeFilters = Prelude.Nothing,
-      regionFilters = Prelude.Nothing,
-      tagKeyFilters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      regionFilters = Prelude.Nothing
     }
 
--- | Specifies a list of attributes to group the counts of noncompliant
--- resources by. If supplied, the counts are sorted by those attributes.
-getComplianceSummary_groupBy :: Lens.Lens' GetComplianceSummary (Prelude.Maybe [GroupByAttribute])
-getComplianceSummary_groupBy = Lens.lens (\GetComplianceSummary' {groupBy} -> groupBy) (\s@GetComplianceSummary' {} a -> s {groupBy = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies a @PaginationToken@ response value from a previous request to
--- indicate that you want the next page of results. Leave this parameter
--- empty in your initial request.
-getComplianceSummary_paginationToken :: Lens.Lens' GetComplianceSummary (Prelude.Maybe Prelude.Text)
-getComplianceSummary_paginationToken = Lens.lens (\GetComplianceSummary' {paginationToken} -> paginationToken) (\s@GetComplianceSummary' {} a -> s {paginationToken = a} :: GetComplianceSummary)
+-- | Specifies that you want the response to include information for only
+-- resources that have tags with the specified tag keys. If you use this
+-- parameter, the count of returned noncompliant resources includes only
+-- resources that have the specified tag keys.
+getComplianceSummary_tagKeyFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getComplianceSummary_tagKeyFilters = Lens.lens (\GetComplianceSummary' {tagKeyFilters} -> tagKeyFilters) (\s@GetComplianceSummary' {} a -> s {tagKeyFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies target identifiers (usually, specific account IDs) to limit
 -- the output by. If you use this parameter, the count of returned
@@ -213,6 +210,25 @@ getComplianceSummary_paginationToken = Lens.lens (\GetComplianceSummary' {pagina
 -- IDs.
 getComplianceSummary_targetIdFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getComplianceSummary_targetIdFilters = Lens.lens (\GetComplianceSummary' {targetIdFilters} -> targetIdFilters) (\s@GetComplianceSummary' {} a -> s {targetIdFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies a @PaginationToken@ response value from a previous request to
+-- indicate that you want the next page of results. Leave this parameter
+-- empty in your initial request.
+getComplianceSummary_paginationToken :: Lens.Lens' GetComplianceSummary (Prelude.Maybe Prelude.Text)
+getComplianceSummary_paginationToken = Lens.lens (\GetComplianceSummary' {paginationToken} -> paginationToken) (\s@GetComplianceSummary' {} a -> s {paginationToken = a} :: GetComplianceSummary)
+
+-- | Specifies a list of attributes to group the counts of noncompliant
+-- resources by. If supplied, the counts are sorted by those attributes.
+getComplianceSummary_groupBy :: Lens.Lens' GetComplianceSummary (Prelude.Maybe [GroupByAttribute])
+getComplianceSummary_groupBy = Lens.lens (\GetComplianceSummary' {groupBy} -> groupBy) (\s@GetComplianceSummary' {} a -> s {groupBy = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the maximum number of results to be returned in each page. A
+-- query can return fewer than this maximum, even if there are more results
+-- still to return. You should always check the @PaginationToken@ response
+-- value to see if there are more results. You can specify a minimum of 1
+-- and a maximum value of 100.
+getComplianceSummary_maxResults :: Lens.Lens' GetComplianceSummary (Prelude.Maybe Prelude.Natural)
+getComplianceSummary_maxResults = Lens.lens (\GetComplianceSummary' {maxResults} -> maxResults) (\s@GetComplianceSummary' {} a -> s {maxResults = a} :: GetComplianceSummary)
 
 -- | Specifies that you want the response to include information for only
 -- resources of the specified types. The format of each resource type is
@@ -244,21 +260,6 @@ getComplianceSummary_resourceTypeFilters = Lens.lens (\GetComplianceSummary' {re
 -- resources in the specified Regions.
 getComplianceSummary_regionFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getComplianceSummary_regionFilters = Lens.lens (\GetComplianceSummary' {regionFilters} -> regionFilters) (\s@GetComplianceSummary' {} a -> s {regionFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies that you want the response to include information for only
--- resources that have tags with the specified tag keys. If you use this
--- parameter, the count of returned noncompliant resources includes only
--- resources that have the specified tag keys.
-getComplianceSummary_tagKeyFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getComplianceSummary_tagKeyFilters = Lens.lens (\GetComplianceSummary' {tagKeyFilters} -> tagKeyFilters) (\s@GetComplianceSummary' {} a -> s {tagKeyFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the maximum number of results to be returned in each page. A
--- query can return fewer than this maximum, even if there are more results
--- still to return. You should always check the @PaginationToken@ response
--- value to see if there are more results. You can specify a minimum of 1
--- and a maximum value of 100.
-getComplianceSummary_maxResults :: Lens.Lens' GetComplianceSummary (Prelude.Maybe Prelude.Natural)
-getComplianceSummary_maxResults = Lens.lens (\GetComplianceSummary' {maxResults} -> maxResults) (\s@GetComplianceSummary' {} a -> s {maxResults = a} :: GetComplianceSummary)
 
 instance Core.AWSPager GetComplianceSummary where
   page rq rs
@@ -298,23 +299,23 @@ instance Core.AWSRequest GetComplianceSummary where
 
 instance Prelude.Hashable GetComplianceSummary where
   hashWithSalt _salt GetComplianceSummary' {..} =
-    _salt `Prelude.hashWithSalt` groupBy
-      `Prelude.hashWithSalt` paginationToken
+    _salt `Prelude.hashWithSalt` tagKeyFilters
       `Prelude.hashWithSalt` targetIdFilters
+      `Prelude.hashWithSalt` paginationToken
+      `Prelude.hashWithSalt` groupBy
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` resourceTypeFilters
       `Prelude.hashWithSalt` regionFilters
-      `Prelude.hashWithSalt` tagKeyFilters
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetComplianceSummary where
   rnf GetComplianceSummary' {..} =
-    Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf paginationToken
+    Prelude.rnf tagKeyFilters
       `Prelude.seq` Prelude.rnf targetIdFilters
+      `Prelude.seq` Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf groupBy
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceTypeFilters
       `Prelude.seq` Prelude.rnf regionFilters
-      `Prelude.seq` Prelude.rnf tagKeyFilters
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetComplianceSummary where
   toHeaders =
@@ -335,16 +336,16 @@ instance Core.ToJSON GetComplianceSummary where
   toJSON GetComplianceSummary' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GroupBy" Core..=) Prelude.<$> groupBy,
-            ("PaginationToken" Core..=)
-              Prelude.<$> paginationToken,
+          [ ("TagKeyFilters" Core..=) Prelude.<$> tagKeyFilters,
             ("TargetIdFilters" Core..=)
               Prelude.<$> targetIdFilters,
+            ("PaginationToken" Core..=)
+              Prelude.<$> paginationToken,
+            ("GroupBy" Core..=) Prelude.<$> groupBy,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ResourceTypeFilters" Core..=)
               Prelude.<$> resourceTypeFilters,
-            ("RegionFilters" Core..=) Prelude.<$> regionFilters,
-            ("TagKeyFilters" Core..=) Prelude.<$> tagKeyFilters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("RegionFilters" Core..=) Prelude.<$> regionFilters
           ]
       )
 

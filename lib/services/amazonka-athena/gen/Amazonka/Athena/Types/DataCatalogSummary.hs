@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataCatalogSummary' smart constructor.
 data DataCatalogSummary = DataCatalogSummary'
-  { -- | The name of the data catalog.
-    catalogName :: Prelude.Maybe Prelude.Text,
-    -- | The data catalog type.
-    type' :: Prelude.Maybe DataCatalogType
+  { -- | The data catalog type.
+    type' :: Prelude.Maybe DataCatalogType,
+    -- | The name of the data catalog.
+    catalogName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data DataCatalogSummary = DataCatalogSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogName', 'dataCatalogSummary_catalogName' - The name of the data catalog.
---
 -- 'type'', 'dataCatalogSummary_type' - The data catalog type.
+--
+-- 'catalogName', 'dataCatalogSummary_catalogName' - The name of the data catalog.
 newDataCatalogSummary ::
   DataCatalogSummary
 newDataCatalogSummary =
   DataCatalogSummary'
-    { catalogName = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      catalogName = Prelude.Nothing
     }
-
--- | The name of the data catalog.
-dataCatalogSummary_catalogName :: Lens.Lens' DataCatalogSummary (Prelude.Maybe Prelude.Text)
-dataCatalogSummary_catalogName = Lens.lens (\DataCatalogSummary' {catalogName} -> catalogName) (\s@DataCatalogSummary' {} a -> s {catalogName = a} :: DataCatalogSummary)
 
 -- | The data catalog type.
 dataCatalogSummary_type :: Lens.Lens' DataCatalogSummary (Prelude.Maybe DataCatalogType)
 dataCatalogSummary_type = Lens.lens (\DataCatalogSummary' {type'} -> type') (\s@DataCatalogSummary' {} a -> s {type' = a} :: DataCatalogSummary)
+
+-- | The name of the data catalog.
+dataCatalogSummary_catalogName :: Lens.Lens' DataCatalogSummary (Prelude.Maybe Prelude.Text)
+dataCatalogSummary_catalogName = Lens.lens (\DataCatalogSummary' {catalogName} -> catalogName) (\s@DataCatalogSummary' {} a -> s {catalogName = a} :: DataCatalogSummary)
 
 instance Core.FromJSON DataCatalogSummary where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON DataCatalogSummary where
       "DataCatalogSummary"
       ( \x ->
           DataCatalogSummary'
-            Prelude.<$> (x Core..:? "CatalogName")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "CatalogName")
       )
 
 instance Prelude.Hashable DataCatalogSummary where
   hashWithSalt _salt DataCatalogSummary' {..} =
-    _salt `Prelude.hashWithSalt` catalogName
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` catalogName
 
 instance Prelude.NFData DataCatalogSummary where
   rnf DataCatalogSummary' {..} =
-    Prelude.rnf catalogName
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf catalogName

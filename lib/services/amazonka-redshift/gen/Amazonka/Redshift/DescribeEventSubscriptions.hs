@@ -42,10 +42,10 @@ module Amazonka.Redshift.DescribeEventSubscriptions
     newDescribeEventSubscriptions,
 
     -- * Request Lenses
-    describeEventSubscriptions_subscriptionName,
-    describeEventSubscriptions_tagValues,
     describeEventSubscriptions_tagKeys,
     describeEventSubscriptions_marker,
+    describeEventSubscriptions_tagValues,
+    describeEventSubscriptions_subscriptionName,
     describeEventSubscriptions_maxRecords,
 
     -- * Destructuring the Response
@@ -53,8 +53,8 @@ module Amazonka.Redshift.DescribeEventSubscriptions
     newDescribeEventSubscriptionsResponse,
 
     -- * Response Lenses
-    describeEventSubscriptionsResponse_eventSubscriptionsList,
     describeEventSubscriptionsResponse_marker,
+    describeEventSubscriptionsResponse_eventSubscriptionsList,
     describeEventSubscriptionsResponse_httpStatus,
   )
 where
@@ -70,18 +70,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEventSubscriptions' smart constructor.
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-  { -- | The name of the Amazon Redshift event notification subscription to be
-    -- described.
-    subscriptionName :: Prelude.Maybe Prelude.Text,
-    -- | A tag value or values for which you want to return all matching event
-    -- notification subscriptions that are associated with the specified tag
-    -- value or values. For example, suppose that you have subscriptions that
-    -- are tagged with values called @admin@ and @test@. If you specify both of
-    -- these tag values in the request, Amazon Redshift returns a response with
-    -- the subscriptions that have either or both of these tag values
-    -- associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | A tag key or keys for which you want to return all matching event
+  { -- | A tag key or keys for which you want to return all matching event
     -- notification subscriptions that are associated with the specified key or
     -- keys. For example, suppose that you have subscriptions that are tagged
     -- with keys called @owner@ and @environment@. If you specify both of these
@@ -96,6 +85,17 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
     -- the next set of response records by providing the returned marker value
     -- in the @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A tag value or values for which you want to return all matching event
+    -- notification subscriptions that are associated with the specified tag
+    -- value or values. For example, suppose that you have subscriptions that
+    -- are tagged with values called @admin@ and @test@. If you specify both of
+    -- these tag values in the request, Amazon Redshift returns a response with
+    -- the subscriptions that have either or both of these tag values
+    -- associated with them.
+    tagValues :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the Amazon Redshift event notification subscription to be
+    -- described.
+    subscriptionName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -117,17 +117,6 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriptionName', 'describeEventSubscriptions_subscriptionName' - The name of the Amazon Redshift event notification subscription to be
--- described.
---
--- 'tagValues', 'describeEventSubscriptions_tagValues' - A tag value or values for which you want to return all matching event
--- notification subscriptions that are associated with the specified tag
--- value or values. For example, suppose that you have subscriptions that
--- are tagged with values called @admin@ and @test@. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the subscriptions that have either or both of these tag values
--- associated with them.
---
 -- 'tagKeys', 'describeEventSubscriptions_tagKeys' - A tag key or keys for which you want to return all matching event
 -- notification subscriptions that are associated with the specified key or
 -- keys. For example, suppose that you have subscriptions that are tagged
@@ -143,6 +132,17 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
 --
+-- 'tagValues', 'describeEventSubscriptions_tagValues' - A tag value or values for which you want to return all matching event
+-- notification subscriptions that are associated with the specified tag
+-- value or values. For example, suppose that you have subscriptions that
+-- are tagged with values called @admin@ and @test@. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the subscriptions that have either or both of these tag values
+-- associated with them.
+--
+-- 'subscriptionName', 'describeEventSubscriptions_subscriptionName' - The name of the Amazon Redshift event notification subscription to be
+-- described.
+--
 -- 'maxRecords', 'describeEventSubscriptions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -156,28 +156,13 @@ newDescribeEventSubscriptions ::
   DescribeEventSubscriptions
 newDescribeEventSubscriptions =
   DescribeEventSubscriptions'
-    { subscriptionName =
+    { tagKeys =
         Prelude.Nothing,
-      tagValues = Prelude.Nothing,
-      tagKeys = Prelude.Nothing,
       marker = Prelude.Nothing,
+      tagValues = Prelude.Nothing,
+      subscriptionName = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
-
--- | The name of the Amazon Redshift event notification subscription to be
--- described.
-describeEventSubscriptions_subscriptionName :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
-describeEventSubscriptions_subscriptionName = Lens.lens (\DescribeEventSubscriptions' {subscriptionName} -> subscriptionName) (\s@DescribeEventSubscriptions' {} a -> s {subscriptionName = a} :: DescribeEventSubscriptions)
-
--- | A tag value or values for which you want to return all matching event
--- notification subscriptions that are associated with the specified tag
--- value or values. For example, suppose that you have subscriptions that
--- are tagged with values called @admin@ and @test@. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the subscriptions that have either or both of these tag values
--- associated with them.
-describeEventSubscriptions_tagValues :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe [Prelude.Text])
-describeEventSubscriptions_tagValues = Lens.lens (\DescribeEventSubscriptions' {tagValues} -> tagValues) (\s@DescribeEventSubscriptions' {} a -> s {tagValues = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | A tag key or keys for which you want to return all matching event
 -- notification subscriptions that are associated with the specified key or
@@ -197,6 +182,21 @@ describeEventSubscriptions_tagKeys = Lens.lens (\DescribeEventSubscriptions' {ta
 -- in the @Marker@ parameter and retrying the request.
 describeEventSubscriptions_marker :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
 describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {marker} -> marker) (\s@DescribeEventSubscriptions' {} a -> s {marker = a} :: DescribeEventSubscriptions)
+
+-- | A tag value or values for which you want to return all matching event
+-- notification subscriptions that are associated with the specified tag
+-- value or values. For example, suppose that you have subscriptions that
+-- are tagged with values called @admin@ and @test@. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the subscriptions that have either or both of these tag values
+-- associated with them.
+describeEventSubscriptions_tagValues :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe [Prelude.Text])
+describeEventSubscriptions_tagValues = Lens.lens (\DescribeEventSubscriptions' {tagValues} -> tagValues) (\s@DescribeEventSubscriptions' {} a -> s {tagValues = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the Amazon Redshift event notification subscription to be
+-- described.
+describeEventSubscriptions_subscriptionName :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
+describeEventSubscriptions_subscriptionName = Lens.lens (\DescribeEventSubscriptions' {subscriptionName} -> subscriptionName) (\s@DescribeEventSubscriptions' {} a -> s {subscriptionName = a} :: DescribeEventSubscriptions)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -242,28 +242,28 @@ instance Core.AWSRequest DescribeEventSubscriptions where
       "DescribeEventSubscriptionsResult"
       ( \s h x ->
           DescribeEventSubscriptionsResponse'
-            Prelude.<$> ( x Core..@? "EventSubscriptionsList"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "EventSubscriptionsList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "EventSubscription")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeEventSubscriptions where
   hashWithSalt _salt DescribeEventSubscriptions' {..} =
-    _salt `Prelude.hashWithSalt` subscriptionName
-      `Prelude.hashWithSalt` tagValues
-      `Prelude.hashWithSalt` tagKeys
+    _salt `Prelude.hashWithSalt` tagKeys
       `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` subscriptionName
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeEventSubscriptions where
   rnf DescribeEventSubscriptions' {..} =
-    Prelude.rnf subscriptionName
-      `Prelude.seq` Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf tagKeys
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeEventSubscriptions where
@@ -279,14 +279,14 @@ instance Core.ToQuery DescribeEventSubscriptions where
           Core.=: ("DescribeEventSubscriptions" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "SubscriptionName" Core.=: subscriptionName,
-        "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
         "TagKeys"
           Core.=: Core.toQuery
             (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
         "Marker" Core.=: marker,
+        "TagValues"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
+        "SubscriptionName" Core.=: subscriptionName,
         "MaxRecords" Core.=: maxRecords
       ]
 
@@ -294,15 +294,15 @@ instance Core.ToQuery DescribeEventSubscriptions where
 --
 -- /See:/ 'newDescribeEventSubscriptionsResponse' smart constructor.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-  { -- | A list of event subscriptions.
-    eventSubscriptionsList :: Prelude.Maybe [EventSubscription],
-    -- | A value that indicates the starting point for the next set of response
+  { -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of event subscriptions.
+    eventSubscriptionsList :: Prelude.Maybe [EventSubscription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -316,14 +316,14 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventSubscriptionsList', 'describeEventSubscriptionsResponse_eventSubscriptionsList' - A list of event subscriptions.
---
 -- 'marker', 'describeEventSubscriptionsResponse_marker' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
+--
+-- 'eventSubscriptionsList', 'describeEventSubscriptionsResponse_eventSubscriptionsList' - A list of event subscriptions.
 --
 -- 'httpStatus', 'describeEventSubscriptionsResponse_httpStatus' - The response's http status code.
 newDescribeEventSubscriptionsResponse ::
@@ -332,15 +332,12 @@ newDescribeEventSubscriptionsResponse ::
   DescribeEventSubscriptionsResponse
 newDescribeEventSubscriptionsResponse pHttpStatus_ =
   DescribeEventSubscriptionsResponse'
-    { eventSubscriptionsList =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      eventSubscriptionsList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of event subscriptions.
-describeEventSubscriptionsResponse_eventSubscriptionsList :: Lens.Lens' DescribeEventSubscriptionsResponse (Prelude.Maybe [EventSubscription])
-describeEventSubscriptionsResponse_eventSubscriptionsList = Lens.lens (\DescribeEventSubscriptionsResponse' {eventSubscriptionsList} -> eventSubscriptionsList) (\s@DescribeEventSubscriptionsResponse' {} a -> s {eventSubscriptionsList = a} :: DescribeEventSubscriptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -351,6 +348,10 @@ describeEventSubscriptionsResponse_eventSubscriptionsList = Lens.lens (\Describe
 describeEventSubscriptionsResponse_marker :: Lens.Lens' DescribeEventSubscriptionsResponse (Prelude.Maybe Prelude.Text)
 describeEventSubscriptionsResponse_marker = Lens.lens (\DescribeEventSubscriptionsResponse' {marker} -> marker) (\s@DescribeEventSubscriptionsResponse' {} a -> s {marker = a} :: DescribeEventSubscriptionsResponse)
 
+-- | A list of event subscriptions.
+describeEventSubscriptionsResponse_eventSubscriptionsList :: Lens.Lens' DescribeEventSubscriptionsResponse (Prelude.Maybe [EventSubscription])
+describeEventSubscriptionsResponse_eventSubscriptionsList = Lens.lens (\DescribeEventSubscriptionsResponse' {eventSubscriptionsList} -> eventSubscriptionsList) (\s@DescribeEventSubscriptionsResponse' {} a -> s {eventSubscriptionsList = a} :: DescribeEventSubscriptionsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeEventSubscriptionsResponse_httpStatus :: Lens.Lens' DescribeEventSubscriptionsResponse Prelude.Int
 describeEventSubscriptionsResponse_httpStatus = Lens.lens (\DescribeEventSubscriptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventSubscriptionsResponse' {} a -> s {httpStatus = a} :: DescribeEventSubscriptionsResponse)
@@ -360,6 +361,6 @@ instance
     DescribeEventSubscriptionsResponse
   where
   rnf DescribeEventSubscriptionsResponse' {..} =
-    Prelude.rnf eventSubscriptionsList
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf eventSubscriptionsList
       `Prelude.seq` Prelude.rnf httpStatus

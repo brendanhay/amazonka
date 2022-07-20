@@ -34,7 +34,25 @@ import Amazonka.SageMaker.Types.TrainingInputMode
 --
 -- /See:/ 'newAlgorithmSpecification' smart constructor.
 data AlgorithmSpecification = AlgorithmSpecification'
-  { -- | To generate and save time-series metrics during training, set to @true@.
+  { -- | The name of the algorithm resource to use for the training job. This
+    -- must be an algorithm resource that you created or subscribe to on Amazon
+    -- Web Services Marketplace. If you specify a value for this parameter, you
+    -- can\'t specify a value for @TrainingImage@.
+    algorithmName :: Prelude.Maybe Prelude.Text,
+    -- | A list of metric definition objects. Each object specifies the metric
+    -- name and regular expressions used to parse algorithm logs. Amazon
+    -- SageMaker publishes each metric to Amazon CloudWatch.
+    metricDefinitions :: Prelude.Maybe [MetricDefinition],
+    -- | The registry path of the Docker image that contains the training
+    -- algorithm. For information about docker registry paths for built-in
+    -- algorithms, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
+    -- Amazon SageMaker supports both @registry\/repository[:tag]@ and
+    -- @registry\/repository[\@digest]@ image path formats. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
+    trainingImage :: Prelude.Maybe Prelude.Text,
+    -- | To generate and save time-series metrics during training, set to @true@.
     -- The default is @false@ and time-series metrics aren\'t generated except
     -- in the following cases:
     --
@@ -51,24 +69,6 @@ data AlgorithmSpecification = AlgorithmSpecification'
     --
     -- -   You specify at least one MetricDefinition
     enableSageMakerMetricsTimeSeries :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the algorithm resource to use for the training job. This
-    -- must be an algorithm resource that you created or subscribe to on Amazon
-    -- Web Services Marketplace. If you specify a value for this parameter, you
-    -- can\'t specify a value for @TrainingImage@.
-    algorithmName :: Prelude.Maybe Prelude.Text,
-    -- | The registry path of the Docker image that contains the training
-    -- algorithm. For information about docker registry paths for built-in
-    -- algorithms, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
-    -- Amazon SageMaker supports both @registry\/repository[:tag]@ and
-    -- @registry\/repository[\@digest]@ image path formats. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
-    trainingImage :: Prelude.Maybe Prelude.Text,
-    -- | A list of metric definition objects. Each object specifies the metric
-    -- name and regular expressions used to parse algorithm logs. Amazon
-    -- SageMaker publishes each metric to Amazon CloudWatch.
-    metricDefinitions :: Prelude.Maybe [MetricDefinition],
     trainingInputMode :: TrainingInputMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,6 +80,24 @@ data AlgorithmSpecification = AlgorithmSpecification'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'algorithmName', 'algorithmSpecification_algorithmName' - The name of the algorithm resource to use for the training job. This
+-- must be an algorithm resource that you created or subscribe to on Amazon
+-- Web Services Marketplace. If you specify a value for this parameter, you
+-- can\'t specify a value for @TrainingImage@.
+--
+-- 'metricDefinitions', 'algorithmSpecification_metricDefinitions' - A list of metric definition objects. Each object specifies the metric
+-- name and regular expressions used to parse algorithm logs. Amazon
+-- SageMaker publishes each metric to Amazon CloudWatch.
+--
+-- 'trainingImage', 'algorithmSpecification_trainingImage' - The registry path of the Docker image that contains the training
+-- algorithm. For information about docker registry paths for built-in
+-- algorithms, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
+-- Amazon SageMaker supports both @registry\/repository[:tag]@ and
+-- @registry\/repository[\@digest]@ image path formats. For more
+-- information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
 --
 -- 'enableSageMakerMetricsTimeSeries', 'algorithmSpecification_enableSageMakerMetricsTimeSeries' - To generate and save time-series metrics during training, set to @true@.
 -- The default is @false@ and time-series metrics aren\'t generated except
@@ -98,24 +116,6 @@ data AlgorithmSpecification = AlgorithmSpecification'
 --
 -- -   You specify at least one MetricDefinition
 --
--- 'algorithmName', 'algorithmSpecification_algorithmName' - The name of the algorithm resource to use for the training job. This
--- must be an algorithm resource that you created or subscribe to on Amazon
--- Web Services Marketplace. If you specify a value for this parameter, you
--- can\'t specify a value for @TrainingImage@.
---
--- 'trainingImage', 'algorithmSpecification_trainingImage' - The registry path of the Docker image that contains the training
--- algorithm. For information about docker registry paths for built-in
--- algorithms, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
--- Amazon SageMaker supports both @registry\/repository[:tag]@ and
--- @registry\/repository[\@digest]@ image path formats. For more
--- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
---
--- 'metricDefinitions', 'algorithmSpecification_metricDefinitions' - A list of metric definition objects. Each object specifies the metric
--- name and regular expressions used to parse algorithm logs. Amazon
--- SageMaker publishes each metric to Amazon CloudWatch.
---
 -- 'trainingInputMode', 'algorithmSpecification_trainingInputMode' - Undocumented member.
 newAlgorithmSpecification ::
   -- | 'trainingInputMode'
@@ -123,13 +123,37 @@ newAlgorithmSpecification ::
   AlgorithmSpecification
 newAlgorithmSpecification pTrainingInputMode_ =
   AlgorithmSpecification'
-    { enableSageMakerMetricsTimeSeries =
+    { algorithmName =
         Prelude.Nothing,
-      algorithmName = Prelude.Nothing,
-      trainingImage = Prelude.Nothing,
       metricDefinitions = Prelude.Nothing,
+      trainingImage = Prelude.Nothing,
+      enableSageMakerMetricsTimeSeries = Prelude.Nothing,
       trainingInputMode = pTrainingInputMode_
     }
+
+-- | The name of the algorithm resource to use for the training job. This
+-- must be an algorithm resource that you created or subscribe to on Amazon
+-- Web Services Marketplace. If you specify a value for this parameter, you
+-- can\'t specify a value for @TrainingImage@.
+algorithmSpecification_algorithmName :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Text)
+algorithmSpecification_algorithmName = Lens.lens (\AlgorithmSpecification' {algorithmName} -> algorithmName) (\s@AlgorithmSpecification' {} a -> s {algorithmName = a} :: AlgorithmSpecification)
+
+-- | A list of metric definition objects. Each object specifies the metric
+-- name and regular expressions used to parse algorithm logs. Amazon
+-- SageMaker publishes each metric to Amazon CloudWatch.
+algorithmSpecification_metricDefinitions :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe [MetricDefinition])
+algorithmSpecification_metricDefinitions = Lens.lens (\AlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@AlgorithmSpecification' {} a -> s {metricDefinitions = a} :: AlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | The registry path of the Docker image that contains the training
+-- algorithm. For information about docker registry paths for built-in
+-- algorithms, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
+-- Amazon SageMaker supports both @registry\/repository[:tag]@ and
+-- @registry\/repository[\@digest]@ image path formats. For more
+-- information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
+algorithmSpecification_trainingImage :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Text)
+algorithmSpecification_trainingImage = Lens.lens (\AlgorithmSpecification' {trainingImage} -> trainingImage) (\s@AlgorithmSpecification' {} a -> s {trainingImage = a} :: AlgorithmSpecification)
 
 -- | To generate and save time-series metrics during training, set to @true@.
 -- The default is @false@ and time-series metrics aren\'t generated except
@@ -150,30 +174,6 @@ newAlgorithmSpecification pTrainingInputMode_ =
 algorithmSpecification_enableSageMakerMetricsTimeSeries :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Bool)
 algorithmSpecification_enableSageMakerMetricsTimeSeries = Lens.lens (\AlgorithmSpecification' {enableSageMakerMetricsTimeSeries} -> enableSageMakerMetricsTimeSeries) (\s@AlgorithmSpecification' {} a -> s {enableSageMakerMetricsTimeSeries = a} :: AlgorithmSpecification)
 
--- | The name of the algorithm resource to use for the training job. This
--- must be an algorithm resource that you created or subscribe to on Amazon
--- Web Services Marketplace. If you specify a value for this parameter, you
--- can\'t specify a value for @TrainingImage@.
-algorithmSpecification_algorithmName :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Text)
-algorithmSpecification_algorithmName = Lens.lens (\AlgorithmSpecification' {algorithmName} -> algorithmName) (\s@AlgorithmSpecification' {} a -> s {algorithmName = a} :: AlgorithmSpecification)
-
--- | The registry path of the Docker image that contains the training
--- algorithm. For information about docker registry paths for built-in
--- algorithms, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
--- Amazon SageMaker supports both @registry\/repository[:tag]@ and
--- @registry\/repository[\@digest]@ image path formats. For more
--- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
-algorithmSpecification_trainingImage :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Text)
-algorithmSpecification_trainingImage = Lens.lens (\AlgorithmSpecification' {trainingImage} -> trainingImage) (\s@AlgorithmSpecification' {} a -> s {trainingImage = a} :: AlgorithmSpecification)
-
--- | A list of metric definition objects. Each object specifies the metric
--- name and regular expressions used to parse algorithm logs. Amazon
--- SageMaker publishes each metric to Amazon CloudWatch.
-algorithmSpecification_metricDefinitions :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe [MetricDefinition])
-algorithmSpecification_metricDefinitions = Lens.lens (\AlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@AlgorithmSpecification' {} a -> s {metricDefinitions = a} :: AlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
 algorithmSpecification_trainingInputMode :: Lens.Lens' AlgorithmSpecification TrainingInputMode
 algorithmSpecification_trainingInputMode = Lens.lens (\AlgorithmSpecification' {trainingInputMode} -> trainingInputMode) (\s@AlgorithmSpecification' {} a -> s {trainingInputMode = a} :: AlgorithmSpecification)
@@ -184,42 +184,41 @@ instance Core.FromJSON AlgorithmSpecification where
       "AlgorithmSpecification"
       ( \x ->
           AlgorithmSpecification'
-            Prelude.<$> (x Core..:? "EnableSageMakerMetricsTimeSeries")
-            Prelude.<*> (x Core..:? "AlgorithmName")
-            Prelude.<*> (x Core..:? "TrainingImage")
+            Prelude.<$> (x Core..:? "AlgorithmName")
             Prelude.<*> ( x Core..:? "MetricDefinitions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "TrainingImage")
+            Prelude.<*> (x Core..:? "EnableSageMakerMetricsTimeSeries")
             Prelude.<*> (x Core..: "TrainingInputMode")
       )
 
 instance Prelude.Hashable AlgorithmSpecification where
   hashWithSalt _salt AlgorithmSpecification' {..} =
-    _salt
-      `Prelude.hashWithSalt` enableSageMakerMetricsTimeSeries
-      `Prelude.hashWithSalt` algorithmName
-      `Prelude.hashWithSalt` trainingImage
+    _salt `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` metricDefinitions
+      `Prelude.hashWithSalt` trainingImage
+      `Prelude.hashWithSalt` enableSageMakerMetricsTimeSeries
       `Prelude.hashWithSalt` trainingInputMode
 
 instance Prelude.NFData AlgorithmSpecification where
   rnf AlgorithmSpecification' {..} =
-    Prelude.rnf enableSageMakerMetricsTimeSeries
-      `Prelude.seq` Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf trainingImage
+    Prelude.rnf algorithmName
       `Prelude.seq` Prelude.rnf metricDefinitions
+      `Prelude.seq` Prelude.rnf trainingImage
+      `Prelude.seq` Prelude.rnf enableSageMakerMetricsTimeSeries
       `Prelude.seq` Prelude.rnf trainingInputMode
 
 instance Core.ToJSON AlgorithmSpecification where
   toJSON AlgorithmSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EnableSageMakerMetricsTimeSeries" Core..=)
-              Prelude.<$> enableSageMakerMetricsTimeSeries,
-            ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
-            ("TrainingImage" Core..=) Prelude.<$> trainingImage,
+          [ ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
             ("MetricDefinitions" Core..=)
               Prelude.<$> metricDefinitions,
+            ("TrainingImage" Core..=) Prelude.<$> trainingImage,
+            ("EnableSageMakerMetricsTimeSeries" Core..=)
+              Prelude.<$> enableSageMakerMetricsTimeSeries,
             Prelude.Just
               ("TrainingInputMode" Core..= trainingInputMode)
           ]

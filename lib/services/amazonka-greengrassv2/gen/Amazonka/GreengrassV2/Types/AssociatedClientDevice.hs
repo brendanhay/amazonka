@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssociatedClientDevice' smart constructor.
 data AssociatedClientDevice = AssociatedClientDevice'
-  { -- | The time that the client device was associated, expressed in ISO 8601
+  { -- | The name of the IoT thing that represents the associated client device.
+    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The time that the client device was associated, expressed in ISO 8601
     -- format.
-    associationTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The name of the IoT thing that represents the associated client device.
-    thingName :: Prelude.Maybe Prelude.Text
+    associationTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data AssociatedClientDevice = AssociatedClientDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'thingName', 'associatedClientDevice_thingName' - The name of the IoT thing that represents the associated client device.
+--
 -- 'associationTimestamp', 'associatedClientDevice_associationTimestamp' - The time that the client device was associated, expressed in ISO 8601
 -- format.
---
--- 'thingName', 'associatedClientDevice_thingName' - The name of the IoT thing that represents the associated client device.
 newAssociatedClientDevice ::
   AssociatedClientDevice
 newAssociatedClientDevice =
   AssociatedClientDevice'
-    { associationTimestamp =
+    { thingName =
         Prelude.Nothing,
-      thingName = Prelude.Nothing
+      associationTimestamp = Prelude.Nothing
     }
+
+-- | The name of the IoT thing that represents the associated client device.
+associatedClientDevice_thingName :: Lens.Lens' AssociatedClientDevice (Prelude.Maybe Prelude.Text)
+associatedClientDevice_thingName = Lens.lens (\AssociatedClientDevice' {thingName} -> thingName) (\s@AssociatedClientDevice' {} a -> s {thingName = a} :: AssociatedClientDevice)
 
 -- | The time that the client device was associated, expressed in ISO 8601
 -- format.
 associatedClientDevice_associationTimestamp :: Lens.Lens' AssociatedClientDevice (Prelude.Maybe Prelude.UTCTime)
 associatedClientDevice_associationTimestamp = Lens.lens (\AssociatedClientDevice' {associationTimestamp} -> associationTimestamp) (\s@AssociatedClientDevice' {} a -> s {associationTimestamp = a} :: AssociatedClientDevice) Prelude.. Lens.mapping Core._Time
-
--- | The name of the IoT thing that represents the associated client device.
-associatedClientDevice_thingName :: Lens.Lens' AssociatedClientDevice (Prelude.Maybe Prelude.Text)
-associatedClientDevice_thingName = Lens.lens (\AssociatedClientDevice' {thingName} -> thingName) (\s@AssociatedClientDevice' {} a -> s {thingName = a} :: AssociatedClientDevice)
 
 instance Core.FromJSON AssociatedClientDevice where
   parseJSON =
@@ -72,16 +72,16 @@ instance Core.FromJSON AssociatedClientDevice where
       "AssociatedClientDevice"
       ( \x ->
           AssociatedClientDevice'
-            Prelude.<$> (x Core..:? "associationTimestamp")
-            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<$> (x Core..:? "thingName")
+            Prelude.<*> (x Core..:? "associationTimestamp")
       )
 
 instance Prelude.Hashable AssociatedClientDevice where
   hashWithSalt _salt AssociatedClientDevice' {..} =
-    _salt `Prelude.hashWithSalt` associationTimestamp
-      `Prelude.hashWithSalt` thingName
+    _salt `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` associationTimestamp
 
 instance Prelude.NFData AssociatedClientDevice where
   rnf AssociatedClientDevice' {..} =
-    Prelude.rnf associationTimestamp
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf associationTimestamp

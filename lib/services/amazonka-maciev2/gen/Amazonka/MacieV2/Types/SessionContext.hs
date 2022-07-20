@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSessionContext' smart constructor.
 data SessionContext = SessionContext'
-  { -- | The date and time when the credentials were issued, and whether the
+  { -- | The source and type of credentials that were issued to the entity.
+    sessionIssuer :: Prelude.Maybe SessionIssuer,
+    -- | The date and time when the credentials were issued, and whether the
     -- credentials were authenticated with a multi-factor authentication (MFA)
     -- device.
-    attributes :: Prelude.Maybe SessionContextAttributes,
-    -- | The source and type of credentials that were issued to the entity.
-    sessionIssuer :: Prelude.Maybe SessionIssuer
+    attributes :: Prelude.Maybe SessionContextAttributes
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,18 +47,22 @@ data SessionContext = SessionContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sessionIssuer', 'sessionContext_sessionIssuer' - The source and type of credentials that were issued to the entity.
+--
 -- 'attributes', 'sessionContext_attributes' - The date and time when the credentials were issued, and whether the
 -- credentials were authenticated with a multi-factor authentication (MFA)
 -- device.
---
--- 'sessionIssuer', 'sessionContext_sessionIssuer' - The source and type of credentials that were issued to the entity.
 newSessionContext ::
   SessionContext
 newSessionContext =
   SessionContext'
-    { attributes = Prelude.Nothing,
-      sessionIssuer = Prelude.Nothing
+    { sessionIssuer = Prelude.Nothing,
+      attributes = Prelude.Nothing
     }
+
+-- | The source and type of credentials that were issued to the entity.
+sessionContext_sessionIssuer :: Lens.Lens' SessionContext (Prelude.Maybe SessionIssuer)
+sessionContext_sessionIssuer = Lens.lens (\SessionContext' {sessionIssuer} -> sessionIssuer) (\s@SessionContext' {} a -> s {sessionIssuer = a} :: SessionContext)
 
 -- | The date and time when the credentials were issued, and whether the
 -- credentials were authenticated with a multi-factor authentication (MFA)
@@ -66,26 +70,22 @@ newSessionContext =
 sessionContext_attributes :: Lens.Lens' SessionContext (Prelude.Maybe SessionContextAttributes)
 sessionContext_attributes = Lens.lens (\SessionContext' {attributes} -> attributes) (\s@SessionContext' {} a -> s {attributes = a} :: SessionContext)
 
--- | The source and type of credentials that were issued to the entity.
-sessionContext_sessionIssuer :: Lens.Lens' SessionContext (Prelude.Maybe SessionIssuer)
-sessionContext_sessionIssuer = Lens.lens (\SessionContext' {sessionIssuer} -> sessionIssuer) (\s@SessionContext' {} a -> s {sessionIssuer = a} :: SessionContext)
-
 instance Core.FromJSON SessionContext where
   parseJSON =
     Core.withObject
       "SessionContext"
       ( \x ->
           SessionContext'
-            Prelude.<$> (x Core..:? "attributes")
-            Prelude.<*> (x Core..:? "sessionIssuer")
+            Prelude.<$> (x Core..:? "sessionIssuer")
+            Prelude.<*> (x Core..:? "attributes")
       )
 
 instance Prelude.Hashable SessionContext where
   hashWithSalt _salt SessionContext' {..} =
-    _salt `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` sessionIssuer
+    _salt `Prelude.hashWithSalt` sessionIssuer
+      `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData SessionContext where
   rnf SessionContext' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf sessionIssuer
+    Prelude.rnf sessionIssuer
+      `Prelude.seq` Prelude.rnf attributes

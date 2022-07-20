@@ -27,25 +27,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApprovalRuleTemplate' smart constructor.
 data ApprovalRuleTemplate = ApprovalRuleTemplate'
-  { -- | The SHA-256 hash signature for the content of the approval rule
-    -- template.
-    ruleContentSha256 :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated ID of the approval rule template.
-    approvalRuleTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The date the approval rule template was most recently changed, in
-    -- timestamp format.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The description of the approval rule template.
-    approvalRuleTemplateDescription :: Prelude.Maybe Prelude.Text,
-    -- | The content of the approval rule template.
+  { -- | The content of the approval rule template.
     approvalRuleTemplateContent :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the user who made the most recent
     -- changes to the approval rule template.
     lastModifiedUser :: Prelude.Maybe Prelude.Text,
+    -- | The date the approval rule template was most recently changed, in
+    -- timestamp format.
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The date the approval rule template was created, in timestamp format.
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the approval rule template.
-    approvalRuleTemplateName :: Prelude.Maybe Prelude.Text
+    approvalRuleTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | The SHA-256 hash signature for the content of the approval rule
+    -- template.
+    ruleContentSha256 :: Prelude.Maybe Prelude.Text,
+    -- | The description of the approval rule template.
+    approvalRuleTemplateDescription :: Prelude.Maybe Prelude.Text,
+    -- | The system-generated ID of the approval rule template.
+    approvalRuleTemplateId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,56 +57,38 @@ data ApprovalRuleTemplate = ApprovalRuleTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleContentSha256', 'approvalRuleTemplate_ruleContentSha256' - The SHA-256 hash signature for the content of the approval rule
--- template.
---
--- 'approvalRuleTemplateId', 'approvalRuleTemplate_approvalRuleTemplateId' - The system-generated ID of the approval rule template.
---
--- 'lastModifiedDate', 'approvalRuleTemplate_lastModifiedDate' - The date the approval rule template was most recently changed, in
--- timestamp format.
---
--- 'approvalRuleTemplateDescription', 'approvalRuleTemplate_approvalRuleTemplateDescription' - The description of the approval rule template.
---
 -- 'approvalRuleTemplateContent', 'approvalRuleTemplate_approvalRuleTemplateContent' - The content of the approval rule template.
 --
 -- 'lastModifiedUser', 'approvalRuleTemplate_lastModifiedUser' - The Amazon Resource Name (ARN) of the user who made the most recent
 -- changes to the approval rule template.
 --
+-- 'lastModifiedDate', 'approvalRuleTemplate_lastModifiedDate' - The date the approval rule template was most recently changed, in
+-- timestamp format.
+--
 -- 'creationDate', 'approvalRuleTemplate_creationDate' - The date the approval rule template was created, in timestamp format.
 --
 -- 'approvalRuleTemplateName', 'approvalRuleTemplate_approvalRuleTemplateName' - The name of the approval rule template.
+--
+-- 'ruleContentSha256', 'approvalRuleTemplate_ruleContentSha256' - The SHA-256 hash signature for the content of the approval rule
+-- template.
+--
+-- 'approvalRuleTemplateDescription', 'approvalRuleTemplate_approvalRuleTemplateDescription' - The description of the approval rule template.
+--
+-- 'approvalRuleTemplateId', 'approvalRuleTemplate_approvalRuleTemplateId' - The system-generated ID of the approval rule template.
 newApprovalRuleTemplate ::
   ApprovalRuleTemplate
 newApprovalRuleTemplate =
   ApprovalRuleTemplate'
-    { ruleContentSha256 =
+    { approvalRuleTemplateContent =
         Prelude.Nothing,
-      approvalRuleTemplateId = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      approvalRuleTemplateDescription = Prelude.Nothing,
-      approvalRuleTemplateContent = Prelude.Nothing,
       lastModifiedUser = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      approvalRuleTemplateName = Prelude.Nothing
+      approvalRuleTemplateName = Prelude.Nothing,
+      ruleContentSha256 = Prelude.Nothing,
+      approvalRuleTemplateDescription = Prelude.Nothing,
+      approvalRuleTemplateId = Prelude.Nothing
     }
-
--- | The SHA-256 hash signature for the content of the approval rule
--- template.
-approvalRuleTemplate_ruleContentSha256 :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
-approvalRuleTemplate_ruleContentSha256 = Lens.lens (\ApprovalRuleTemplate' {ruleContentSha256} -> ruleContentSha256) (\s@ApprovalRuleTemplate' {} a -> s {ruleContentSha256 = a} :: ApprovalRuleTemplate)
-
--- | The system-generated ID of the approval rule template.
-approvalRuleTemplate_approvalRuleTemplateId :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
-approvalRuleTemplate_approvalRuleTemplateId = Lens.lens (\ApprovalRuleTemplate' {approvalRuleTemplateId} -> approvalRuleTemplateId) (\s@ApprovalRuleTemplate' {} a -> s {approvalRuleTemplateId = a} :: ApprovalRuleTemplate)
-
--- | The date the approval rule template was most recently changed, in
--- timestamp format.
-approvalRuleTemplate_lastModifiedDate :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.UTCTime)
-approvalRuleTemplate_lastModifiedDate = Lens.lens (\ApprovalRuleTemplate' {lastModifiedDate} -> lastModifiedDate) (\s@ApprovalRuleTemplate' {} a -> s {lastModifiedDate = a} :: ApprovalRuleTemplate) Prelude.. Lens.mapping Core._Time
-
--- | The description of the approval rule template.
-approvalRuleTemplate_approvalRuleTemplateDescription :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
-approvalRuleTemplate_approvalRuleTemplateDescription = Lens.lens (\ApprovalRuleTemplate' {approvalRuleTemplateDescription} -> approvalRuleTemplateDescription) (\s@ApprovalRuleTemplate' {} a -> s {approvalRuleTemplateDescription = a} :: ApprovalRuleTemplate)
 
 -- | The content of the approval rule template.
 approvalRuleTemplate_approvalRuleTemplateContent :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
@@ -117,6 +99,11 @@ approvalRuleTemplate_approvalRuleTemplateContent = Lens.lens (\ApprovalRuleTempl
 approvalRuleTemplate_lastModifiedUser :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
 approvalRuleTemplate_lastModifiedUser = Lens.lens (\ApprovalRuleTemplate' {lastModifiedUser} -> lastModifiedUser) (\s@ApprovalRuleTemplate' {} a -> s {lastModifiedUser = a} :: ApprovalRuleTemplate)
 
+-- | The date the approval rule template was most recently changed, in
+-- timestamp format.
+approvalRuleTemplate_lastModifiedDate :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.UTCTime)
+approvalRuleTemplate_lastModifiedDate = Lens.lens (\ApprovalRuleTemplate' {lastModifiedDate} -> lastModifiedDate) (\s@ApprovalRuleTemplate' {} a -> s {lastModifiedDate = a} :: ApprovalRuleTemplate) Prelude.. Lens.mapping Core._Time
+
 -- | The date the approval rule template was created, in timestamp format.
 approvalRuleTemplate_creationDate :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.UTCTime)
 approvalRuleTemplate_creationDate = Lens.lens (\ApprovalRuleTemplate' {creationDate} -> creationDate) (\s@ApprovalRuleTemplate' {} a -> s {creationDate = a} :: ApprovalRuleTemplate) Prelude.. Lens.mapping Core._Time
@@ -125,40 +112,54 @@ approvalRuleTemplate_creationDate = Lens.lens (\ApprovalRuleTemplate' {creationD
 approvalRuleTemplate_approvalRuleTemplateName :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
 approvalRuleTemplate_approvalRuleTemplateName = Lens.lens (\ApprovalRuleTemplate' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@ApprovalRuleTemplate' {} a -> s {approvalRuleTemplateName = a} :: ApprovalRuleTemplate)
 
+-- | The SHA-256 hash signature for the content of the approval rule
+-- template.
+approvalRuleTemplate_ruleContentSha256 :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
+approvalRuleTemplate_ruleContentSha256 = Lens.lens (\ApprovalRuleTemplate' {ruleContentSha256} -> ruleContentSha256) (\s@ApprovalRuleTemplate' {} a -> s {ruleContentSha256 = a} :: ApprovalRuleTemplate)
+
+-- | The description of the approval rule template.
+approvalRuleTemplate_approvalRuleTemplateDescription :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
+approvalRuleTemplate_approvalRuleTemplateDescription = Lens.lens (\ApprovalRuleTemplate' {approvalRuleTemplateDescription} -> approvalRuleTemplateDescription) (\s@ApprovalRuleTemplate' {} a -> s {approvalRuleTemplateDescription = a} :: ApprovalRuleTemplate)
+
+-- | The system-generated ID of the approval rule template.
+approvalRuleTemplate_approvalRuleTemplateId :: Lens.Lens' ApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
+approvalRuleTemplate_approvalRuleTemplateId = Lens.lens (\ApprovalRuleTemplate' {approvalRuleTemplateId} -> approvalRuleTemplateId) (\s@ApprovalRuleTemplate' {} a -> s {approvalRuleTemplateId = a} :: ApprovalRuleTemplate)
+
 instance Core.FromJSON ApprovalRuleTemplate where
   parseJSON =
     Core.withObject
       "ApprovalRuleTemplate"
       ( \x ->
           ApprovalRuleTemplate'
-            Prelude.<$> (x Core..:? "ruleContentSha256")
-            Prelude.<*> (x Core..:? "approvalRuleTemplateId")
-            Prelude.<*> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "approvalRuleTemplateDescription")
-            Prelude.<*> (x Core..:? "approvalRuleTemplateContent")
+            Prelude.<$> (x Core..:? "approvalRuleTemplateContent")
             Prelude.<*> (x Core..:? "lastModifiedUser")
+            Prelude.<*> (x Core..:? "lastModifiedDate")
             Prelude.<*> (x Core..:? "creationDate")
             Prelude.<*> (x Core..:? "approvalRuleTemplateName")
+            Prelude.<*> (x Core..:? "ruleContentSha256")
+            Prelude.<*> (x Core..:? "approvalRuleTemplateDescription")
+            Prelude.<*> (x Core..:? "approvalRuleTemplateId")
       )
 
 instance Prelude.Hashable ApprovalRuleTemplate where
   hashWithSalt _salt ApprovalRuleTemplate' {..} =
-    _salt `Prelude.hashWithSalt` ruleContentSha256
-      `Prelude.hashWithSalt` approvalRuleTemplateId
-      `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` approvalRuleTemplateDescription
+    _salt
       `Prelude.hashWithSalt` approvalRuleTemplateContent
       `Prelude.hashWithSalt` lastModifiedUser
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` approvalRuleTemplateName
+      `Prelude.hashWithSalt` ruleContentSha256
+      `Prelude.hashWithSalt` approvalRuleTemplateDescription
+      `Prelude.hashWithSalt` approvalRuleTemplateId
 
 instance Prelude.NFData ApprovalRuleTemplate where
   rnf ApprovalRuleTemplate' {..} =
-    Prelude.rnf ruleContentSha256
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateId
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateDescription
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateContent
+    Prelude.rnf approvalRuleTemplateContent
       `Prelude.seq` Prelude.rnf lastModifiedUser
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf approvalRuleTemplateName
+      `Prelude.seq` Prelude.rnf ruleContentSha256
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateDescription
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateId

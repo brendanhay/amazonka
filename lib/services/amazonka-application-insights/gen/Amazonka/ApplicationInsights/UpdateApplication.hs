@@ -27,8 +27,8 @@ module Amazonka.ApplicationInsights.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
-    updateApplication_cWEMonitorEnabled,
     updateApplication_opsItemSNSTopicArn,
+    updateApplication_cWEMonitorEnabled,
     updateApplication_removeSNSTopic,
     updateApplication_opsCenterEnabled,
     updateApplication_resourceGroupName,
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | Indicates whether Application Insights can listen to CloudWatch events
-    -- for the application resources, such as @instance terminated@,
-    -- @failed deployment@, and others.
-    cWEMonitorEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The SNS topic provided to Application Insights that is associated to the
+  { -- | The SNS topic provided to Application Insights that is associated to the
     -- created opsItem. Allows you to receive notifications for updates to the
     -- opsItem.
     opsItemSNSTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether Application Insights can listen to CloudWatch events
+    -- for the application resources, such as @instance terminated@,
+    -- @failed deployment@, and others.
+    cWEMonitorEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Disassociates the SNS topic from the opsItem created for detected
     -- problems.
     removeSNSTopic :: Prelude.Maybe Prelude.Bool,
@@ -79,13 +79,13 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cWEMonitorEnabled', 'updateApplication_cWEMonitorEnabled' - Indicates whether Application Insights can listen to CloudWatch events
--- for the application resources, such as @instance terminated@,
--- @failed deployment@, and others.
---
 -- 'opsItemSNSTopicArn', 'updateApplication_opsItemSNSTopicArn' - The SNS topic provided to Application Insights that is associated to the
 -- created opsItem. Allows you to receive notifications for updates to the
 -- opsItem.
+--
+-- 'cWEMonitorEnabled', 'updateApplication_cWEMonitorEnabled' - Indicates whether Application Insights can listen to CloudWatch events
+-- for the application resources, such as @instance terminated@,
+-- @failed deployment@, and others.
 --
 -- 'removeSNSTopic', 'updateApplication_removeSNSTopic' - Disassociates the SNS topic from the opsItem created for detected
 -- problems.
@@ -100,25 +100,25 @@ newUpdateApplication ::
   UpdateApplication
 newUpdateApplication pResourceGroupName_ =
   UpdateApplication'
-    { cWEMonitorEnabled =
+    { opsItemSNSTopicArn =
         Prelude.Nothing,
-      opsItemSNSTopicArn = Prelude.Nothing,
+      cWEMonitorEnabled = Prelude.Nothing,
       removeSNSTopic = Prelude.Nothing,
       opsCenterEnabled = Prelude.Nothing,
       resourceGroupName = pResourceGroupName_
     }
-
--- | Indicates whether Application Insights can listen to CloudWatch events
--- for the application resources, such as @instance terminated@,
--- @failed deployment@, and others.
-updateApplication_cWEMonitorEnabled :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Bool)
-updateApplication_cWEMonitorEnabled = Lens.lens (\UpdateApplication' {cWEMonitorEnabled} -> cWEMonitorEnabled) (\s@UpdateApplication' {} a -> s {cWEMonitorEnabled = a} :: UpdateApplication)
 
 -- | The SNS topic provided to Application Insights that is associated to the
 -- created opsItem. Allows you to receive notifications for updates to the
 -- opsItem.
 updateApplication_opsItemSNSTopicArn :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_opsItemSNSTopicArn = Lens.lens (\UpdateApplication' {opsItemSNSTopicArn} -> opsItemSNSTopicArn) (\s@UpdateApplication' {} a -> s {opsItemSNSTopicArn = a} :: UpdateApplication)
+
+-- | Indicates whether Application Insights can listen to CloudWatch events
+-- for the application resources, such as @instance terminated@,
+-- @failed deployment@, and others.
+updateApplication_cWEMonitorEnabled :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Bool)
+updateApplication_cWEMonitorEnabled = Lens.lens (\UpdateApplication' {cWEMonitorEnabled} -> cWEMonitorEnabled) (\s@UpdateApplication' {} a -> s {cWEMonitorEnabled = a} :: UpdateApplication)
 
 -- | Disassociates the SNS topic from the opsItem created for detected
 -- problems.
@@ -149,16 +149,16 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` cWEMonitorEnabled
-      `Prelude.hashWithSalt` opsItemSNSTopicArn
+    _salt `Prelude.hashWithSalt` opsItemSNSTopicArn
+      `Prelude.hashWithSalt` cWEMonitorEnabled
       `Prelude.hashWithSalt` removeSNSTopic
       `Prelude.hashWithSalt` opsCenterEnabled
       `Prelude.hashWithSalt` resourceGroupName
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf cWEMonitorEnabled
-      `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
+    Prelude.rnf opsItemSNSTopicArn
+      `Prelude.seq` Prelude.rnf cWEMonitorEnabled
       `Prelude.seq` Prelude.rnf removeSNSTopic
       `Prelude.seq` Prelude.rnf opsCenterEnabled
       `Prelude.seq` Prelude.rnf resourceGroupName
@@ -182,10 +182,10 @@ instance Core.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CWEMonitorEnabled" Core..=)
-              Prelude.<$> cWEMonitorEnabled,
-            ("OpsItemSNSTopicArn" Core..=)
+          [ ("OpsItemSNSTopicArn" Core..=)
               Prelude.<$> opsItemSNSTopicArn,
+            ("CWEMonitorEnabled" Core..=)
+              Prelude.<$> cWEMonitorEnabled,
             ("RemoveSNSTopic" Core..=)
               Prelude.<$> removeSNSTopic,
             ("OpsCenterEnabled" Core..=)

@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceLocation' smart constructor.
 data SourceLocation = SourceLocation'
-  { -- | The timestamp that indicates when the source location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The timestamp that indicates when the source location was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+  { -- | The tags assigned to the source location.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The access configuration for the source location.
     accessConfiguration :: Prelude.Maybe AccessConfiguration,
     -- | The default segment delivery configuration.
     defaultSegmentDeliveryConfiguration :: Prelude.Maybe DefaultSegmentDeliveryConfiguration,
-    -- | The tags assigned to the source location.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The timestamp that indicates when the source location was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The timestamp that indicates when the source location was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the source location.
     sourceLocationName :: Prelude.Text,
     -- | The HTTP configuration for the source location.
@@ -57,15 +57,15 @@ data SourceLocation = SourceLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'sourceLocation_creationTime' - The timestamp that indicates when the source location was created.
---
--- 'lastModifiedTime', 'sourceLocation_lastModifiedTime' - The timestamp that indicates when the source location was last modified.
+-- 'tags', 'sourceLocation_tags' - The tags assigned to the source location.
 --
 -- 'accessConfiguration', 'sourceLocation_accessConfiguration' - The access configuration for the source location.
 --
 -- 'defaultSegmentDeliveryConfiguration', 'sourceLocation_defaultSegmentDeliveryConfiguration' - The default segment delivery configuration.
 --
--- 'tags', 'sourceLocation_tags' - The tags assigned to the source location.
+-- 'lastModifiedTime', 'sourceLocation_lastModifiedTime' - The timestamp that indicates when the source location was last modified.
+--
+-- 'creationTime', 'sourceLocation_creationTime' - The timestamp that indicates when the source location was created.
 --
 -- 'sourceLocationName', 'sourceLocation_sourceLocationName' - The name of the source location.
 --
@@ -85,24 +85,20 @@ newSourceLocation
   pHttpConfiguration_
   pArn_ =
     SourceLocation'
-      { creationTime = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         accessConfiguration = Prelude.Nothing,
         defaultSegmentDeliveryConfiguration =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        creationTime = Prelude.Nothing,
         sourceLocationName = pSourceLocationName_,
         httpConfiguration = pHttpConfiguration_,
         arn = pArn_
       }
 
--- | The timestamp that indicates when the source location was created.
-sourceLocation_creationTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
-sourceLocation_creationTime = Lens.lens (\SourceLocation' {creationTime} -> creationTime) (\s@SourceLocation' {} a -> s {creationTime = a} :: SourceLocation) Prelude.. Lens.mapping Core._Time
-
--- | The timestamp that indicates when the source location was last modified.
-sourceLocation_lastModifiedTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
-sourceLocation_lastModifiedTime = Lens.lens (\SourceLocation' {lastModifiedTime} -> lastModifiedTime) (\s@SourceLocation' {} a -> s {lastModifiedTime = a} :: SourceLocation) Prelude.. Lens.mapping Core._Time
+-- | The tags assigned to the source location.
+sourceLocation_tags :: Lens.Lens' SourceLocation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+sourceLocation_tags = Lens.lens (\SourceLocation' {tags} -> tags) (\s@SourceLocation' {} a -> s {tags = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The access configuration for the source location.
 sourceLocation_accessConfiguration :: Lens.Lens' SourceLocation (Prelude.Maybe AccessConfiguration)
@@ -112,9 +108,13 @@ sourceLocation_accessConfiguration = Lens.lens (\SourceLocation' {accessConfigur
 sourceLocation_defaultSegmentDeliveryConfiguration :: Lens.Lens' SourceLocation (Prelude.Maybe DefaultSegmentDeliveryConfiguration)
 sourceLocation_defaultSegmentDeliveryConfiguration = Lens.lens (\SourceLocation' {defaultSegmentDeliveryConfiguration} -> defaultSegmentDeliveryConfiguration) (\s@SourceLocation' {} a -> s {defaultSegmentDeliveryConfiguration = a} :: SourceLocation)
 
--- | The tags assigned to the source location.
-sourceLocation_tags :: Lens.Lens' SourceLocation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-sourceLocation_tags = Lens.lens (\SourceLocation' {tags} -> tags) (\s@SourceLocation' {} a -> s {tags = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
+-- | The timestamp that indicates when the source location was last modified.
+sourceLocation_lastModifiedTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
+sourceLocation_lastModifiedTime = Lens.lens (\SourceLocation' {lastModifiedTime} -> lastModifiedTime) (\s@SourceLocation' {} a -> s {lastModifiedTime = a} :: SourceLocation) Prelude.. Lens.mapping Core._Time
+
+-- | The timestamp that indicates when the source location was created.
+sourceLocation_creationTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
+sourceLocation_creationTime = Lens.lens (\SourceLocation' {creationTime} -> creationTime) (\s@SourceLocation' {} a -> s {creationTime = a} :: SourceLocation) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the source location.
 sourceLocation_sourceLocationName :: Lens.Lens' SourceLocation Prelude.Text
@@ -134,11 +134,11 @@ instance Core.FromJSON SourceLocation where
       "SourceLocation"
       ( \x ->
           SourceLocation'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AccessConfiguration")
             Prelude.<*> (x Core..:? "DefaultSegmentDeliveryConfiguration")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..: "SourceLocationName")
             Prelude.<*> (x Core..: "HttpConfiguration")
             Prelude.<*> (x Core..: "Arn")
@@ -146,22 +146,22 @@ instance Core.FromJSON SourceLocation where
 
 instance Prelude.Hashable SourceLocation where
   hashWithSalt _salt SourceLocation' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` lastModifiedTime
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` accessConfiguration
       `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` sourceLocationName
       `Prelude.hashWithSalt` httpConfiguration
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData SourceLocation where
   rnf SourceLocation' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpConfiguration
       `Prelude.seq` Prelude.rnf arn

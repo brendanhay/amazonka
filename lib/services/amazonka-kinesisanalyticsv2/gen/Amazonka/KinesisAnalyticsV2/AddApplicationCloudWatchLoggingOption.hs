@@ -28,8 +28,8 @@ module Amazonka.KinesisAnalyticsV2.AddApplicationCloudWatchLoggingOption
     newAddApplicationCloudWatchLoggingOption,
 
     -- * Request Lenses
-    addApplicationCloudWatchLoggingOption_currentApplicationVersionId,
     addApplicationCloudWatchLoggingOption_conditionalToken,
+    addApplicationCloudWatchLoggingOption_currentApplicationVersionId,
     addApplicationCloudWatchLoggingOption_applicationName,
     addApplicationCloudWatchLoggingOption_cloudWatchLoggingOption,
 
@@ -39,8 +39,8 @@ module Amazonka.KinesisAnalyticsV2.AddApplicationCloudWatchLoggingOption
 
     -- * Response Lenses
     addApplicationCloudWatchLoggingOptionResponse_applicationARN,
-    addApplicationCloudWatchLoggingOptionResponse_applicationVersionId,
     addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions,
+    addApplicationCloudWatchLoggingOptionResponse_applicationVersionId,
     addApplicationCloudWatchLoggingOptionResponse_httpStatus,
   )
 where
@@ -54,19 +54,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAddApplicationCloudWatchLoggingOption' smart constructor.
 data AddApplicationCloudWatchLoggingOption = AddApplicationCloudWatchLoggingOption'
-  { -- | The version ID of the Kinesis Data Analytics application. You must
-    -- provide the @CurrentApplicationVersionId@ or the @ConditionalToken@.You
-    -- can retrieve the application version ID using DescribeApplication. For
-    -- better concurrency support, use the @ConditionalToken@ parameter instead
-    -- of @CurrentApplicationVersionId@.
-    currentApplicationVersionId :: Prelude.Maybe Prelude.Natural,
-    -- | A value you use to implement strong concurrency for application updates.
+  { -- | A value you use to implement strong concurrency for application updates.
     -- You must provide the @CurrentApplicationVersionId@ or the
     -- @ConditionalToken@. You get the application\'s current
     -- @ConditionalToken@ using DescribeApplication. For better concurrency
     -- support, use the @ConditionalToken@ parameter instead of
     -- @CurrentApplicationVersionId@.
     conditionalToken :: Prelude.Maybe Prelude.Text,
+    -- | The version ID of the Kinesis Data Analytics application. You must
+    -- provide the @CurrentApplicationVersionId@ or the @ConditionalToken@.You
+    -- can retrieve the application version ID using DescribeApplication. For
+    -- better concurrency support, use the @ConditionalToken@ parameter instead
+    -- of @CurrentApplicationVersionId@.
+    currentApplicationVersionId :: Prelude.Maybe Prelude.Natural,
     -- | The Kinesis Data Analytics application name.
     applicationName :: Prelude.Text,
     -- | Provides the Amazon CloudWatch log stream Amazon Resource Name (ARN).
@@ -82,18 +82,18 @@ data AddApplicationCloudWatchLoggingOption = AddApplicationCloudWatchLoggingOpti
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'currentApplicationVersionId', 'addApplicationCloudWatchLoggingOption_currentApplicationVersionId' - The version ID of the Kinesis Data Analytics application. You must
--- provide the @CurrentApplicationVersionId@ or the @ConditionalToken@.You
--- can retrieve the application version ID using DescribeApplication. For
--- better concurrency support, use the @ConditionalToken@ parameter instead
--- of @CurrentApplicationVersionId@.
---
 -- 'conditionalToken', 'addApplicationCloudWatchLoggingOption_conditionalToken' - A value you use to implement strong concurrency for application updates.
 -- You must provide the @CurrentApplicationVersionId@ or the
 -- @ConditionalToken@. You get the application\'s current
 -- @ConditionalToken@ using DescribeApplication. For better concurrency
 -- support, use the @ConditionalToken@ parameter instead of
 -- @CurrentApplicationVersionId@.
+--
+-- 'currentApplicationVersionId', 'addApplicationCloudWatchLoggingOption_currentApplicationVersionId' - The version ID of the Kinesis Data Analytics application. You must
+-- provide the @CurrentApplicationVersionId@ or the @ConditionalToken@.You
+-- can retrieve the application version ID using DescribeApplication. For
+-- better concurrency support, use the @ConditionalToken@ parameter instead
+-- of @CurrentApplicationVersionId@.
 --
 -- 'applicationName', 'addApplicationCloudWatchLoggingOption_applicationName' - The Kinesis Data Analytics application name.
 --
@@ -108,21 +108,14 @@ newAddApplicationCloudWatchLoggingOption
   pApplicationName_
   pCloudWatchLoggingOption_ =
     AddApplicationCloudWatchLoggingOption'
-      { currentApplicationVersionId =
+      { conditionalToken =
           Prelude.Nothing,
-        conditionalToken = Prelude.Nothing,
+        currentApplicationVersionId =
+          Prelude.Nothing,
         applicationName = pApplicationName_,
         cloudWatchLoggingOption =
           pCloudWatchLoggingOption_
       }
-
--- | The version ID of the Kinesis Data Analytics application. You must
--- provide the @CurrentApplicationVersionId@ or the @ConditionalToken@.You
--- can retrieve the application version ID using DescribeApplication. For
--- better concurrency support, use the @ConditionalToken@ parameter instead
--- of @CurrentApplicationVersionId@.
-addApplicationCloudWatchLoggingOption_currentApplicationVersionId :: Lens.Lens' AddApplicationCloudWatchLoggingOption (Prelude.Maybe Prelude.Natural)
-addApplicationCloudWatchLoggingOption_currentApplicationVersionId = Lens.lens (\AddApplicationCloudWatchLoggingOption' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationCloudWatchLoggingOption' {} a -> s {currentApplicationVersionId = a} :: AddApplicationCloudWatchLoggingOption)
 
 -- | A value you use to implement strong concurrency for application updates.
 -- You must provide the @CurrentApplicationVersionId@ or the
@@ -132,6 +125,14 @@ addApplicationCloudWatchLoggingOption_currentApplicationVersionId = Lens.lens (\
 -- @CurrentApplicationVersionId@.
 addApplicationCloudWatchLoggingOption_conditionalToken :: Lens.Lens' AddApplicationCloudWatchLoggingOption (Prelude.Maybe Prelude.Text)
 addApplicationCloudWatchLoggingOption_conditionalToken = Lens.lens (\AddApplicationCloudWatchLoggingOption' {conditionalToken} -> conditionalToken) (\s@AddApplicationCloudWatchLoggingOption' {} a -> s {conditionalToken = a} :: AddApplicationCloudWatchLoggingOption)
+
+-- | The version ID of the Kinesis Data Analytics application. You must
+-- provide the @CurrentApplicationVersionId@ or the @ConditionalToken@.You
+-- can retrieve the application version ID using DescribeApplication. For
+-- better concurrency support, use the @ConditionalToken@ parameter instead
+-- of @CurrentApplicationVersionId@.
+addApplicationCloudWatchLoggingOption_currentApplicationVersionId :: Lens.Lens' AddApplicationCloudWatchLoggingOption (Prelude.Maybe Prelude.Natural)
+addApplicationCloudWatchLoggingOption_currentApplicationVersionId = Lens.lens (\AddApplicationCloudWatchLoggingOption' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationCloudWatchLoggingOption' {} a -> s {currentApplicationVersionId = a} :: AddApplicationCloudWatchLoggingOption)
 
 -- | The Kinesis Data Analytics application name.
 addApplicationCloudWatchLoggingOption_applicationName :: Lens.Lens' AddApplicationCloudWatchLoggingOption Prelude.Text
@@ -155,10 +156,10 @@ instance
       ( \s h x ->
           AddApplicationCloudWatchLoggingOptionResponse'
             Prelude.<$> (x Core..?> "ApplicationARN")
-              Prelude.<*> (x Core..?> "ApplicationVersionId")
               Prelude.<*> ( x Core..?> "CloudWatchLoggingOptionDescriptions"
                               Core..!@ Prelude.mempty
                           )
+              Prelude.<*> (x Core..?> "ApplicationVersionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,9 +170,8 @@ instance
   hashWithSalt
     _salt
     AddApplicationCloudWatchLoggingOption' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` conditionalToken
         `Prelude.hashWithSalt` currentApplicationVersionId
-        `Prelude.hashWithSalt` conditionalToken
         `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` cloudWatchLoggingOption
 
@@ -180,8 +180,8 @@ instance
     AddApplicationCloudWatchLoggingOption
   where
   rnf AddApplicationCloudWatchLoggingOption' {..} =
-    Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf conditionalToken
+    Prelude.rnf conditionalToken
+      `Prelude.seq` Prelude.rnf currentApplicationVersionId
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf cloudWatchLoggingOption
 
@@ -210,10 +210,10 @@ instance
   toJSON AddApplicationCloudWatchLoggingOption' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CurrentApplicationVersionId" Core..=)
-              Prelude.<$> currentApplicationVersionId,
-            ("ConditionalToken" Core..=)
+          [ ("ConditionalToken" Core..=)
               Prelude.<$> conditionalToken,
+            ("CurrentApplicationVersionId" Core..=)
+              Prelude.<$> currentApplicationVersionId,
             Prelude.Just
               ("ApplicationName" Core..= applicationName),
             Prelude.Just
@@ -239,13 +239,13 @@ instance
 data AddApplicationCloudWatchLoggingOptionResponse = AddApplicationCloudWatchLoggingOptionResponse'
   { -- | The application\'s ARN.
     applicationARN :: Prelude.Maybe Prelude.Text,
+    -- | The descriptions of the current CloudWatch logging options for the
+    -- Kinesis Data Analytics application.
+    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
     -- | The new version ID of the Kinesis Data Analytics application. Kinesis
     -- Data Analytics updates the @ApplicationVersionId@ each time you change
     -- the CloudWatch logging options.
     applicationVersionId :: Prelude.Maybe Prelude.Natural,
-    -- | The descriptions of the current CloudWatch logging options for the
-    -- Kinesis Data Analytics application.
-    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -261,12 +261,12 @@ data AddApplicationCloudWatchLoggingOptionResponse = AddApplicationCloudWatchLog
 --
 -- 'applicationARN', 'addApplicationCloudWatchLoggingOptionResponse_applicationARN' - The application\'s ARN.
 --
+-- 'cloudWatchLoggingOptionDescriptions', 'addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions' - The descriptions of the current CloudWatch logging options for the
+-- Kinesis Data Analytics application.
+--
 -- 'applicationVersionId', 'addApplicationCloudWatchLoggingOptionResponse_applicationVersionId' - The new version ID of the Kinesis Data Analytics application. Kinesis
 -- Data Analytics updates the @ApplicationVersionId@ each time you change
 -- the CloudWatch logging options.
---
--- 'cloudWatchLoggingOptionDescriptions', 'addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions' - The descriptions of the current CloudWatch logging options for the
--- Kinesis Data Analytics application.
 --
 -- 'httpStatus', 'addApplicationCloudWatchLoggingOptionResponse_httpStatus' - The response's http status code.
 newAddApplicationCloudWatchLoggingOptionResponse ::
@@ -278,9 +278,9 @@ newAddApplicationCloudWatchLoggingOptionResponse
     AddApplicationCloudWatchLoggingOptionResponse'
       { applicationARN =
           Prelude.Nothing,
-        applicationVersionId =
-          Prelude.Nothing,
         cloudWatchLoggingOptionDescriptions =
+          Prelude.Nothing,
+        applicationVersionId =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -289,16 +289,16 @@ newAddApplicationCloudWatchLoggingOptionResponse
 addApplicationCloudWatchLoggingOptionResponse_applicationARN :: Lens.Lens' AddApplicationCloudWatchLoggingOptionResponse (Prelude.Maybe Prelude.Text)
 addApplicationCloudWatchLoggingOptionResponse_applicationARN = Lens.lens (\AddApplicationCloudWatchLoggingOptionResponse' {applicationARN} -> applicationARN) (\s@AddApplicationCloudWatchLoggingOptionResponse' {} a -> s {applicationARN = a} :: AddApplicationCloudWatchLoggingOptionResponse)
 
+-- | The descriptions of the current CloudWatch logging options for the
+-- Kinesis Data Analytics application.
+addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions :: Lens.Lens' AddApplicationCloudWatchLoggingOptionResponse (Prelude.Maybe [CloudWatchLoggingOptionDescription])
+addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions = Lens.lens (\AddApplicationCloudWatchLoggingOptionResponse' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@AddApplicationCloudWatchLoggingOptionResponse' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: AddApplicationCloudWatchLoggingOptionResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The new version ID of the Kinesis Data Analytics application. Kinesis
 -- Data Analytics updates the @ApplicationVersionId@ each time you change
 -- the CloudWatch logging options.
 addApplicationCloudWatchLoggingOptionResponse_applicationVersionId :: Lens.Lens' AddApplicationCloudWatchLoggingOptionResponse (Prelude.Maybe Prelude.Natural)
 addApplicationCloudWatchLoggingOptionResponse_applicationVersionId = Lens.lens (\AddApplicationCloudWatchLoggingOptionResponse' {applicationVersionId} -> applicationVersionId) (\s@AddApplicationCloudWatchLoggingOptionResponse' {} a -> s {applicationVersionId = a} :: AddApplicationCloudWatchLoggingOptionResponse)
-
--- | The descriptions of the current CloudWatch logging options for the
--- Kinesis Data Analytics application.
-addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions :: Lens.Lens' AddApplicationCloudWatchLoggingOptionResponse (Prelude.Maybe [CloudWatchLoggingOptionDescription])
-addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions = Lens.lens (\AddApplicationCloudWatchLoggingOptionResponse' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@AddApplicationCloudWatchLoggingOptionResponse' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: AddApplicationCloudWatchLoggingOptionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 addApplicationCloudWatchLoggingOptionResponse_httpStatus :: Lens.Lens' AddApplicationCloudWatchLoggingOptionResponse Prelude.Int
@@ -311,6 +311,6 @@ instance
   rnf
     AddApplicationCloudWatchLoggingOptionResponse' {..} =
       Prelude.rnf applicationARN
-        `Prelude.seq` Prelude.rnf applicationVersionId
         `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
+        `Prelude.seq` Prelude.rnf applicationVersionId
         `Prelude.seq` Prelude.rnf httpStatus

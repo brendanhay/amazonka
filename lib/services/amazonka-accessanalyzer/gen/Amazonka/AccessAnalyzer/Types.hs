@@ -17,13 +17,13 @@ module Amazonka.AccessAnalyzer.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * AccessPreviewStatus
     AccessPreviewStatus (..),
@@ -92,15 +92,15 @@ module Amazonka.AccessAnalyzer.Types
     -- * AccessPreviewFinding
     AccessPreviewFinding (..),
     newAccessPreviewFinding,
-    accessPreviewFinding_existingFindingStatus,
-    accessPreviewFinding_error,
-    accessPreviewFinding_isPublic,
-    accessPreviewFinding_action,
-    accessPreviewFinding_sources,
-    accessPreviewFinding_resource,
     accessPreviewFinding_principal,
+    accessPreviewFinding_sources,
+    accessPreviewFinding_isPublic,
     accessPreviewFinding_existingFindingId,
     accessPreviewFinding_condition,
+    accessPreviewFinding_action,
+    accessPreviewFinding_error,
+    accessPreviewFinding_existingFindingStatus,
+    accessPreviewFinding_resource,
     accessPreviewFinding_changeType,
     accessPreviewFinding_createdAt,
     accessPreviewFinding_id,
@@ -132,9 +132,9 @@ module Amazonka.AccessAnalyzer.Types
     AnalyzedResource (..),
     newAnalyzedResource,
     analyzedResource_status,
-    analyzedResource_actions,
-    analyzedResource_error,
     analyzedResource_sharedVia,
+    analyzedResource_error,
+    analyzedResource_actions,
     analyzedResource_analyzedAt,
     analyzedResource_createdAt,
     analyzedResource_isPublic,
@@ -153,10 +153,10 @@ module Amazonka.AccessAnalyzer.Types
     -- * AnalyzerSummary
     AnalyzerSummary (..),
     newAnalyzerSummary,
+    analyzerSummary_tags,
     analyzerSummary_lastResourceAnalyzedAt,
     analyzerSummary_lastResourceAnalyzed,
     analyzerSummary_statusReason,
-    analyzerSummary_tags,
     analyzerSummary_arn,
     analyzerSummary_createdAt,
     analyzerSummary_name,
@@ -189,29 +189,29 @@ module Amazonka.AccessAnalyzer.Types
     -- * Configuration
     Configuration (..),
     newConfiguration,
-    configuration_kmsKey,
-    configuration_secretsManagerSecret,
-    configuration_sqsQueue,
     configuration_s3Bucket,
     configuration_iamRole,
+    configuration_kmsKey,
+    configuration_sqsQueue,
+    configuration_secretsManagerSecret,
 
     -- * Criterion
     Criterion (..),
     newCriterion,
-    criterion_eq,
-    criterion_exists,
     criterion_neq,
+    criterion_exists,
     criterion_contains,
+    criterion_eq,
 
     -- * Finding
     Finding (..),
     newFinding,
-    finding_error,
+    finding_principal,
+    finding_sources,
     finding_isPublic,
     finding_action,
-    finding_sources,
+    finding_error,
     finding_resource,
-    finding_principal,
     finding_analyzedAt,
     finding_condition,
     finding_createdAt,
@@ -235,12 +235,12 @@ module Amazonka.AccessAnalyzer.Types
     -- * FindingSummary
     FindingSummary (..),
     newFindingSummary,
-    findingSummary_error,
+    findingSummary_principal,
+    findingSummary_sources,
     findingSummary_isPublic,
     findingSummary_action,
-    findingSummary_sources,
+    findingSummary_error,
     findingSummary_resource,
-    findingSummary_principal,
     findingSummary_analyzedAt,
     findingSummary_condition,
     findingSummary_createdAt,
@@ -286,8 +286,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * JobDetails
     JobDetails (..),
     newJobDetails,
-    jobDetails_completedOn,
     jobDetails_jobError,
+    jobDetails_completedOn,
     jobDetails_jobId,
     jobDetails_startedOn,
     jobDetails_status,
@@ -301,8 +301,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * KmsGrantConfiguration
     KmsGrantConfiguration (..),
     newKmsGrantConfiguration,
-    kmsGrantConfiguration_retiringPrincipal,
     kmsGrantConfiguration_constraints,
+    kmsGrantConfiguration_retiringPrincipal,
     kmsGrantConfiguration_granteePrincipal,
     kmsGrantConfiguration_issuingAccount,
     kmsGrantConfiguration_operations,
@@ -310,8 +310,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * KmsGrantConstraints
     KmsGrantConstraints (..),
     newKmsGrantConstraints,
-    kmsGrantConstraints_encryptionContextEquals,
     kmsGrantConstraints_encryptionContextSubset,
+    kmsGrantConstraints_encryptionContextEquals,
 
     -- * KmsKeyConfiguration
     KmsKeyConfiguration (..),
@@ -328,16 +328,16 @@ module Amazonka.AccessAnalyzer.Types
     -- * NetworkOriginConfiguration
     NetworkOriginConfiguration (..),
     newNetworkOriginConfiguration,
-    networkOriginConfiguration_internetConfiguration,
     networkOriginConfiguration_vpcConfiguration,
+    networkOriginConfiguration_internetConfiguration,
 
     -- * PathElement
     PathElement (..),
     newPathElement,
-    pathElement_value,
-    pathElement_substring,
     pathElement_key,
     pathElement_index,
+    pathElement_substring,
+    pathElement_value,
 
     -- * PolicyGeneration
     PolicyGeneration (..),
@@ -364,8 +364,8 @@ module Amazonka.AccessAnalyzer.Types
     S3AccessPointConfiguration (..),
     newS3AccessPointConfiguration,
     s3AccessPointConfiguration_publicAccessBlock,
-    s3AccessPointConfiguration_accessPointPolicy,
     s3AccessPointConfiguration_networkOrigin,
+    s3AccessPointConfiguration_accessPointPolicy,
 
     -- * S3BucketAclGrantConfiguration
     S3BucketAclGrantConfiguration (..),
@@ -390,8 +390,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * SecretsManagerSecretConfiguration
     SecretsManagerSecretConfiguration (..),
     newSecretsManagerSecretConfiguration,
-    secretsManagerSecretConfiguration_kmsKeyId,
     secretsManagerSecretConfiguration_secretPolicy,
+    secretsManagerSecretConfiguration_kmsKeyId,
 
     -- * SortCriteria
     SortCriteria (..),
@@ -549,35 +549,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -586,21 +559,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Validation exception error.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | You do not have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -610,13 +602,13 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | A conflict exception error.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | Internal server error.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | Service quote met error.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -626,6 +618,22 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
+-- | The specified resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | A conflict exception error.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | Throttling limit exceeded error.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -634,18 +642,10 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | Internal server error.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | Validation exception error.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

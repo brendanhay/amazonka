@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSidewalkDevice' smart constructor.
 data SidewalkDevice = SidewalkDevice'
-  { -- | The Sidewalk manufacturing series number.
-    sidewalkManufacturingSn :: Prelude.Maybe Prelude.Text,
-    amazonId :: Prelude.Maybe Prelude.Text,
-    -- | The sidewalk device certificates for Ed25519 and P256r1.
+  { -- | The sidewalk device certificates for Ed25519 and P256r1.
     deviceCertificates :: Prelude.Maybe [CertificateList],
     -- | The sidewalk device identification.
-    sidewalkId :: Prelude.Maybe Prelude.Text
+    sidewalkId :: Prelude.Maybe Prelude.Text,
+    amazonId :: Prelude.Maybe Prelude.Text,
+    -- | The Sidewalk manufacturing series number.
+    sidewalkManufacturingSn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,23 @@ data SidewalkDevice = SidewalkDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sidewalkManufacturingSn', 'sidewalkDevice_sidewalkManufacturingSn' - The Sidewalk manufacturing series number.
---
--- 'amazonId', 'sidewalkDevice_amazonId' - Undocumented member.
---
 -- 'deviceCertificates', 'sidewalkDevice_deviceCertificates' - The sidewalk device certificates for Ed25519 and P256r1.
 --
 -- 'sidewalkId', 'sidewalkDevice_sidewalkId' - The sidewalk device identification.
+--
+-- 'amazonId', 'sidewalkDevice_amazonId' - Undocumented member.
+--
+-- 'sidewalkManufacturingSn', 'sidewalkDevice_sidewalkManufacturingSn' - The Sidewalk manufacturing series number.
 newSidewalkDevice ::
   SidewalkDevice
 newSidewalkDevice =
   SidewalkDevice'
-    { sidewalkManufacturingSn =
+    { deviceCertificates =
         Prelude.Nothing,
+      sidewalkId = Prelude.Nothing,
       amazonId = Prelude.Nothing,
-      deviceCertificates = Prelude.Nothing,
-      sidewalkId = Prelude.Nothing
+      sidewalkManufacturingSn = Prelude.Nothing
     }
-
--- | The Sidewalk manufacturing series number.
-sidewalkDevice_sidewalkManufacturingSn :: Lens.Lens' SidewalkDevice (Prelude.Maybe Prelude.Text)
-sidewalkDevice_sidewalkManufacturingSn = Lens.lens (\SidewalkDevice' {sidewalkManufacturingSn} -> sidewalkManufacturingSn) (\s@SidewalkDevice' {} a -> s {sidewalkManufacturingSn = a} :: SidewalkDevice)
-
--- | Undocumented member.
-sidewalkDevice_amazonId :: Lens.Lens' SidewalkDevice (Prelude.Maybe Prelude.Text)
-sidewalkDevice_amazonId = Lens.lens (\SidewalkDevice' {amazonId} -> amazonId) (\s@SidewalkDevice' {} a -> s {amazonId = a} :: SidewalkDevice)
 
 -- | The sidewalk device certificates for Ed25519 and P256r1.
 sidewalkDevice_deviceCertificates :: Lens.Lens' SidewalkDevice (Prelude.Maybe [CertificateList])
@@ -80,31 +72,38 @@ sidewalkDevice_deviceCertificates = Lens.lens (\SidewalkDevice' {deviceCertifica
 sidewalkDevice_sidewalkId :: Lens.Lens' SidewalkDevice (Prelude.Maybe Prelude.Text)
 sidewalkDevice_sidewalkId = Lens.lens (\SidewalkDevice' {sidewalkId} -> sidewalkId) (\s@SidewalkDevice' {} a -> s {sidewalkId = a} :: SidewalkDevice)
 
+-- | Undocumented member.
+sidewalkDevice_amazonId :: Lens.Lens' SidewalkDevice (Prelude.Maybe Prelude.Text)
+sidewalkDevice_amazonId = Lens.lens (\SidewalkDevice' {amazonId} -> amazonId) (\s@SidewalkDevice' {} a -> s {amazonId = a} :: SidewalkDevice)
+
+-- | The Sidewalk manufacturing series number.
+sidewalkDevice_sidewalkManufacturingSn :: Lens.Lens' SidewalkDevice (Prelude.Maybe Prelude.Text)
+sidewalkDevice_sidewalkManufacturingSn = Lens.lens (\SidewalkDevice' {sidewalkManufacturingSn} -> sidewalkManufacturingSn) (\s@SidewalkDevice' {} a -> s {sidewalkManufacturingSn = a} :: SidewalkDevice)
+
 instance Core.FromJSON SidewalkDevice where
   parseJSON =
     Core.withObject
       "SidewalkDevice"
       ( \x ->
           SidewalkDevice'
-            Prelude.<$> (x Core..:? "SidewalkManufacturingSn")
-            Prelude.<*> (x Core..:? "AmazonId")
-            Prelude.<*> ( x Core..:? "DeviceCertificates"
+            Prelude.<$> ( x Core..:? "DeviceCertificates"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "SidewalkId")
+            Prelude.<*> (x Core..:? "AmazonId")
+            Prelude.<*> (x Core..:? "SidewalkManufacturingSn")
       )
 
 instance Prelude.Hashable SidewalkDevice where
   hashWithSalt _salt SidewalkDevice' {..} =
-    _salt
-      `Prelude.hashWithSalt` sidewalkManufacturingSn
-      `Prelude.hashWithSalt` amazonId
-      `Prelude.hashWithSalt` deviceCertificates
+    _salt `Prelude.hashWithSalt` deviceCertificates
       `Prelude.hashWithSalt` sidewalkId
+      `Prelude.hashWithSalt` amazonId
+      `Prelude.hashWithSalt` sidewalkManufacturingSn
 
 instance Prelude.NFData SidewalkDevice where
   rnf SidewalkDevice' {..} =
-    Prelude.rnf sidewalkManufacturingSn
-      `Prelude.seq` Prelude.rnf amazonId
-      `Prelude.seq` Prelude.rnf deviceCertificates
+    Prelude.rnf deviceCertificates
       `Prelude.seq` Prelude.rnf sidewalkId
+      `Prelude.seq` Prelude.rnf amazonId
+      `Prelude.seq` Prelude.rnf sidewalkManufacturingSn

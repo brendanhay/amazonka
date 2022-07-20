@@ -41,8 +41,8 @@ module Amazonka.IAM.ListSigningCertificates
     newListSigningCertificates,
 
     -- * Request Lenses
-    listSigningCertificates_userName,
     listSigningCertificates_marker,
+    listSigningCertificates_userName,
     listSigningCertificates_maxItems,
 
     -- * Destructuring the Response
@@ -66,18 +66,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSigningCertificates' smart constructor.
 data ListSigningCertificates = ListSigningCertificates'
-  { -- | The name of the IAM user whose signing certificates you want to examine.
+  { -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The name of the IAM user whose signing certificates you want to examine.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
     userName :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -99,17 +99,17 @@ data ListSigningCertificates = ListSigningCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listSigningCertificates_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
 -- 'userName', 'listSigningCertificates_userName' - The name of the IAM user whose signing certificates you want to examine.
 --
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
---
--- 'marker', 'listSigningCertificates_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
 --
 -- 'maxItems', 'listSigningCertificates_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -124,11 +124,17 @@ newListSigningCertificates ::
   ListSigningCertificates
 newListSigningCertificates =
   ListSigningCertificates'
-    { userName =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      userName = Prelude.Nothing,
       maxItems = Prelude.Nothing
     }
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listSigningCertificates_marker :: Lens.Lens' ListSigningCertificates (Prelude.Maybe Prelude.Text)
+listSigningCertificates_marker = Lens.lens (\ListSigningCertificates' {marker} -> marker) (\s@ListSigningCertificates' {} a -> s {marker = a} :: ListSigningCertificates)
 
 -- | The name of the IAM user whose signing certificates you want to examine.
 --
@@ -138,13 +144,6 @@ newListSigningCertificates =
 -- spaces. You can also include any of the following characters: _+=,.\@-
 listSigningCertificates_userName :: Lens.Lens' ListSigningCertificates (Prelude.Maybe Prelude.Text)
 listSigningCertificates_userName = Lens.lens (\ListSigningCertificates' {userName} -> userName) (\s@ListSigningCertificates' {} a -> s {userName = a} :: ListSigningCertificates)
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-listSigningCertificates_marker :: Lens.Lens' ListSigningCertificates (Prelude.Maybe Prelude.Text)
-listSigningCertificates_marker = Lens.lens (\ListSigningCertificates' {marker} -> marker) (\s@ListSigningCertificates' {} a -> s {marker = a} :: ListSigningCertificates)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -200,14 +199,14 @@ instance Core.AWSRequest ListSigningCertificates where
 
 instance Prelude.Hashable ListSigningCertificates where
   hashWithSalt _salt ListSigningCertificates' {..} =
-    _salt `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListSigningCertificates where
   rnf ListSigningCertificates' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListSigningCertificates where
@@ -223,8 +222,8 @@ instance Core.ToQuery ListSigningCertificates where
           Core.=: ("ListSigningCertificates" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
         "Marker" Core.=: marker,
+        "UserName" Core.=: userName,
         "MaxItems" Core.=: maxItems
       ]
 

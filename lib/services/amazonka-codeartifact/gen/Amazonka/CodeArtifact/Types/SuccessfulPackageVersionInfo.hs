@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuccessfulPackageVersionInfo' smart constructor.
 data SuccessfulPackageVersionInfo = SuccessfulPackageVersionInfo'
-  { -- | The status of a package version. Valid statuses are:
+  { -- | The revision of a package version.
+    revision :: Prelude.Maybe Prelude.Text,
+    -- | The status of a package version. Valid statuses are:
     --
     -- -   @Published@
     --
@@ -39,9 +41,7 @@ data SuccessfulPackageVersionInfo = SuccessfulPackageVersionInfo'
     -- -   @Archived@
     --
     -- -   @Disposed@
-    status :: Prelude.Maybe PackageVersionStatus,
-    -- | The revision of a package version.
-    revision :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe PackageVersionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,8 @@ data SuccessfulPackageVersionInfo = SuccessfulPackageVersionInfo'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'revision', 'successfulPackageVersionInfo_revision' - The revision of a package version.
 --
 -- 'status', 'successfulPackageVersionInfo_status' - The status of a package version. Valid statuses are:
 --
@@ -64,16 +66,18 @@ data SuccessfulPackageVersionInfo = SuccessfulPackageVersionInfo'
 -- -   @Archived@
 --
 -- -   @Disposed@
---
--- 'revision', 'successfulPackageVersionInfo_revision' - The revision of a package version.
 newSuccessfulPackageVersionInfo ::
   SuccessfulPackageVersionInfo
 newSuccessfulPackageVersionInfo =
   SuccessfulPackageVersionInfo'
-    { status =
+    { revision =
         Prelude.Nothing,
-      revision = Prelude.Nothing
+      status = Prelude.Nothing
     }
+
+-- | The revision of a package version.
+successfulPackageVersionInfo_revision :: Lens.Lens' SuccessfulPackageVersionInfo (Prelude.Maybe Prelude.Text)
+successfulPackageVersionInfo_revision = Lens.lens (\SuccessfulPackageVersionInfo' {revision} -> revision) (\s@SuccessfulPackageVersionInfo' {} a -> s {revision = a} :: SuccessfulPackageVersionInfo)
 
 -- | The status of a package version. Valid statuses are:
 --
@@ -89,18 +93,14 @@ newSuccessfulPackageVersionInfo =
 successfulPackageVersionInfo_status :: Lens.Lens' SuccessfulPackageVersionInfo (Prelude.Maybe PackageVersionStatus)
 successfulPackageVersionInfo_status = Lens.lens (\SuccessfulPackageVersionInfo' {status} -> status) (\s@SuccessfulPackageVersionInfo' {} a -> s {status = a} :: SuccessfulPackageVersionInfo)
 
--- | The revision of a package version.
-successfulPackageVersionInfo_revision :: Lens.Lens' SuccessfulPackageVersionInfo (Prelude.Maybe Prelude.Text)
-successfulPackageVersionInfo_revision = Lens.lens (\SuccessfulPackageVersionInfo' {revision} -> revision) (\s@SuccessfulPackageVersionInfo' {} a -> s {revision = a} :: SuccessfulPackageVersionInfo)
-
 instance Core.FromJSON SuccessfulPackageVersionInfo where
   parseJSON =
     Core.withObject
       "SuccessfulPackageVersionInfo"
       ( \x ->
           SuccessfulPackageVersionInfo'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "revision")
+            Prelude.<$> (x Core..:? "revision")
+            Prelude.<*> (x Core..:? "status")
       )
 
 instance
@@ -108,10 +108,10 @@ instance
     SuccessfulPackageVersionInfo
   where
   hashWithSalt _salt SuccessfulPackageVersionInfo' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` revision
+    _salt `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SuccessfulPackageVersionInfo where
   rnf SuccessfulPackageVersionInfo' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf status

@@ -30,8 +30,8 @@ module Amazonka.EC2.GetTransitGatewayAttachmentPropagations
     newGetTransitGatewayAttachmentPropagations,
 
     -- * Request Lenses
-    getTransitGatewayAttachmentPropagations_filters,
     getTransitGatewayAttachmentPropagations_nextToken,
+    getTransitGatewayAttachmentPropagations_filters,
     getTransitGatewayAttachmentPropagations_dryRun,
     getTransitGatewayAttachmentPropagations_maxResults,
     getTransitGatewayAttachmentPropagations_transitGatewayAttachmentId,
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayAttachmentPropagations' smart constructor.
 data GetTransitGatewayAttachmentPropagations = GetTransitGatewayAttachmentPropagations'
-  { -- | One or more filters. The possible values are:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. The possible values are:
     --
     -- -   @transit-gateway-route-table-id@ - The ID of the transit gateway
     --     route table.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -85,12 +85,12 @@ data GetTransitGatewayAttachmentPropagations = GetTransitGatewayAttachmentPropag
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getTransitGatewayAttachmentPropagations_nextToken' - The token for the next page of results.
+--
 -- 'filters', 'getTransitGatewayAttachmentPropagations_filters' - One or more filters. The possible values are:
 --
 -- -   @transit-gateway-route-table-id@ - The ID of the transit gateway
 --     route table.
---
--- 'nextToken', 'getTransitGatewayAttachmentPropagations_nextToken' - The token for the next page of results.
 --
 -- 'dryRun', 'getTransitGatewayAttachmentPropagations_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -109,14 +109,18 @@ newGetTransitGatewayAttachmentPropagations ::
 newGetTransitGatewayAttachmentPropagations
   pTransitGatewayAttachmentId_ =
     GetTransitGatewayAttachmentPropagations'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_
       }
+
+-- | The token for the next page of results.
+getTransitGatewayAttachmentPropagations_nextToken :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Prelude.Maybe Prelude.Text)
+getTransitGatewayAttachmentPropagations_nextToken = Lens.lens (\GetTransitGatewayAttachmentPropagations' {nextToken} -> nextToken) (\s@GetTransitGatewayAttachmentPropagations' {} a -> s {nextToken = a} :: GetTransitGatewayAttachmentPropagations)
 
 -- | One or more filters. The possible values are:
 --
@@ -124,10 +128,6 @@ newGetTransitGatewayAttachmentPropagations
 --     route table.
 getTransitGatewayAttachmentPropagations_filters :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Prelude.Maybe [Filter])
 getTransitGatewayAttachmentPropagations_filters = Lens.lens (\GetTransitGatewayAttachmentPropagations' {filters} -> filters) (\s@GetTransitGatewayAttachmentPropagations' {} a -> s {filters = a} :: GetTransitGatewayAttachmentPropagations) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-getTransitGatewayAttachmentPropagations_nextToken :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Prelude.Maybe Prelude.Text)
-getTransitGatewayAttachmentPropagations_nextToken = Lens.lens (\GetTransitGatewayAttachmentPropagations' {nextToken} -> nextToken) (\s@GetTransitGatewayAttachmentPropagations' {} a -> s {nextToken = a} :: GetTransitGatewayAttachmentPropagations)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -199,8 +199,8 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayAttachmentPropagations' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` transitGatewayAttachmentId
@@ -210,8 +210,8 @@ instance
     GetTransitGatewayAttachmentPropagations
   where
   rnf GetTransitGatewayAttachmentPropagations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
@@ -240,9 +240,9 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "TransitGatewayAttachmentId"

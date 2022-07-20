@@ -28,8 +28,8 @@ module Amazonka.Pinpoint.GetCampaignVersions
     newGetCampaignVersions,
 
     -- * Request Lenses
-    getCampaignVersions_token,
     getCampaignVersions_pageSize,
+    getCampaignVersions_token,
     getCampaignVersions_applicationId,
     getCampaignVersions_campaignId,
 
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCampaignVersions' smart constructor.
 data GetCampaignVersions = GetCampaignVersions'
-  { -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of a paginated
+  { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
+    -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text,
@@ -75,12 +75,12 @@ data GetCampaignVersions = GetCampaignVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'token', 'getCampaignVersions_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
---
 -- 'pageSize', 'getCampaignVersions_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
+--
+-- 'token', 'getCampaignVersions_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
 --
 -- 'applicationId', 'getCampaignVersions_applicationId' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -94,22 +94,22 @@ newGetCampaignVersions ::
   GetCampaignVersions
 newGetCampaignVersions pApplicationId_ pCampaignId_ =
   GetCampaignVersions'
-    { token = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
+    { pageSize = Prelude.Nothing,
+      token = Prelude.Nothing,
       applicationId = pApplicationId_,
       campaignId = pCampaignId_
     }
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getCampaignVersions_token :: Lens.Lens' GetCampaignVersions (Prelude.Maybe Prelude.Text)
-getCampaignVersions_token = Lens.lens (\GetCampaignVersions' {token} -> token) (\s@GetCampaignVersions' {} a -> s {token = a} :: GetCampaignVersions)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getCampaignVersions_pageSize :: Lens.Lens' GetCampaignVersions (Prelude.Maybe Prelude.Text)
 getCampaignVersions_pageSize = Lens.lens (\GetCampaignVersions' {pageSize} -> pageSize) (\s@GetCampaignVersions' {} a -> s {pageSize = a} :: GetCampaignVersions)
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getCampaignVersions_token :: Lens.Lens' GetCampaignVersions (Prelude.Maybe Prelude.Text)
+getCampaignVersions_token = Lens.lens (\GetCampaignVersions' {token} -> token) (\s@GetCampaignVersions' {} a -> s {token = a} :: GetCampaignVersions)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -135,15 +135,15 @@ instance Core.AWSRequest GetCampaignVersions where
 
 instance Prelude.Hashable GetCampaignVersions where
   hashWithSalt _salt GetCampaignVersions' {..} =
-    _salt `Prelude.hashWithSalt` token
-      `Prelude.hashWithSalt` pageSize
+    _salt `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` campaignId
 
 instance Prelude.NFData GetCampaignVersions where
   rnf GetCampaignVersions' {..} =
-    Prelude.rnf token
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf campaignId
 
@@ -171,7 +171,7 @@ instance Core.ToPath GetCampaignVersions where
 instance Core.ToQuery GetCampaignVersions where
   toQuery GetCampaignVersions' {..} =
     Prelude.mconcat
-      ["token" Core.=: token, "page-size" Core.=: pageSize]
+      ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetCampaignVersionsResponse' smart constructor.
 data GetCampaignVersionsResponse = GetCampaignVersionsResponse'

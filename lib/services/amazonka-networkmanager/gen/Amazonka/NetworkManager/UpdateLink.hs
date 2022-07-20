@@ -28,10 +28,10 @@ module Amazonka.NetworkManager.UpdateLink
     newUpdateLink,
 
     -- * Request Lenses
-    updateLink_bandwidth,
     updateLink_type,
-    updateLink_description,
+    updateLink_bandwidth,
     updateLink_provider,
+    updateLink_description,
     updateLink_globalNetworkId,
     updateLink_linkId,
 
@@ -54,20 +54,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLink' smart constructor.
 data UpdateLink = UpdateLink'
-  { -- | The upload and download speed in Mbps.
-    bandwidth :: Prelude.Maybe Bandwidth,
-    -- | The type of the link.
+  { -- | The type of the link.
     --
     -- Length Constraints: Maximum length of 128 characters.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | A description of the link.
-    --
-    -- Length Constraints: Maximum length of 256 characters.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The upload and download speed in Mbps.
+    bandwidth :: Prelude.Maybe Bandwidth,
     -- | The provider of the link.
     --
     -- Length Constraints: Maximum length of 128 characters.
     provider :: Prelude.Maybe Prelude.Text,
+    -- | A description of the link.
+    --
+    -- Length Constraints: Maximum length of 256 characters.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
     -- | The ID of the link.
@@ -83,19 +83,19 @@ data UpdateLink = UpdateLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'updateLink_type' - The type of the link.
+--
+-- Length Constraints: Maximum length of 128 characters.
+--
 -- 'bandwidth', 'updateLink_bandwidth' - The upload and download speed in Mbps.
 --
--- 'type'', 'updateLink_type' - The type of the link.
+-- 'provider', 'updateLink_provider' - The provider of the link.
 --
 -- Length Constraints: Maximum length of 128 characters.
 --
 -- 'description', 'updateLink_description' - A description of the link.
 --
 -- Length Constraints: Maximum length of 256 characters.
---
--- 'provider', 'updateLink_provider' - The provider of the link.
---
--- Length Constraints: Maximum length of 128 characters.
 --
 -- 'globalNetworkId', 'updateLink_globalNetworkId' - The ID of the global network.
 --
@@ -108,17 +108,13 @@ newUpdateLink ::
   UpdateLink
 newUpdateLink pGlobalNetworkId_ pLinkId_ =
   UpdateLink'
-    { bandwidth = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { type' = Prelude.Nothing,
+      bandwidth = Prelude.Nothing,
       provider = Prelude.Nothing,
+      description = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_,
       linkId = pLinkId_
     }
-
--- | The upload and download speed in Mbps.
-updateLink_bandwidth :: Lens.Lens' UpdateLink (Prelude.Maybe Bandwidth)
-updateLink_bandwidth = Lens.lens (\UpdateLink' {bandwidth} -> bandwidth) (\s@UpdateLink' {} a -> s {bandwidth = a} :: UpdateLink)
 
 -- | The type of the link.
 --
@@ -126,17 +122,21 @@ updateLink_bandwidth = Lens.lens (\UpdateLink' {bandwidth} -> bandwidth) (\s@Upd
 updateLink_type :: Lens.Lens' UpdateLink (Prelude.Maybe Prelude.Text)
 updateLink_type = Lens.lens (\UpdateLink' {type'} -> type') (\s@UpdateLink' {} a -> s {type' = a} :: UpdateLink)
 
--- | A description of the link.
---
--- Length Constraints: Maximum length of 256 characters.
-updateLink_description :: Lens.Lens' UpdateLink (Prelude.Maybe Prelude.Text)
-updateLink_description = Lens.lens (\UpdateLink' {description} -> description) (\s@UpdateLink' {} a -> s {description = a} :: UpdateLink)
+-- | The upload and download speed in Mbps.
+updateLink_bandwidth :: Lens.Lens' UpdateLink (Prelude.Maybe Bandwidth)
+updateLink_bandwidth = Lens.lens (\UpdateLink' {bandwidth} -> bandwidth) (\s@UpdateLink' {} a -> s {bandwidth = a} :: UpdateLink)
 
 -- | The provider of the link.
 --
 -- Length Constraints: Maximum length of 128 characters.
 updateLink_provider :: Lens.Lens' UpdateLink (Prelude.Maybe Prelude.Text)
 updateLink_provider = Lens.lens (\UpdateLink' {provider} -> provider) (\s@UpdateLink' {} a -> s {provider = a} :: UpdateLink)
+
+-- | A description of the link.
+--
+-- Length Constraints: Maximum length of 256 characters.
+updateLink_description :: Lens.Lens' UpdateLink (Prelude.Maybe Prelude.Text)
+updateLink_description = Lens.lens (\UpdateLink' {description} -> description) (\s@UpdateLink' {} a -> s {description = a} :: UpdateLink)
 
 -- | The ID of the global network.
 updateLink_globalNetworkId :: Lens.Lens' UpdateLink Prelude.Text
@@ -159,19 +159,19 @@ instance Core.AWSRequest UpdateLink where
 
 instance Prelude.Hashable UpdateLink where
   hashWithSalt _salt UpdateLink' {..} =
-    _salt `Prelude.hashWithSalt` bandwidth
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` bandwidth
       `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` linkId
 
 instance Prelude.NFData UpdateLink where
   rnf UpdateLink' {..} =
-    Prelude.rnf bandwidth
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf bandwidth
       `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf linkId
 
@@ -190,10 +190,10 @@ instance Core.ToJSON UpdateLink where
   toJSON UpdateLink' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Bandwidth" Core..=) Prelude.<$> bandwidth,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Description" Core..=) Prelude.<$> description,
-            ("Provider" Core..=) Prelude.<$> provider
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("Bandwidth" Core..=) Prelude.<$> bandwidth,
+            ("Provider" Core..=) Prelude.<$> provider,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )
 

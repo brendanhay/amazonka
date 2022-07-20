@@ -39,9 +39,9 @@ module Amazonka.Route53.ListGeoLocations
     newListGeoLocations,
 
     -- * Request Lenses
+    listGeoLocations_startCountryCode,
     listGeoLocations_startSubdivisionCode,
     listGeoLocations_maxItems,
-    listGeoLocations_startCountryCode,
     listGeoLocations_startContinentCode,
 
     -- * Destructuring the Response
@@ -49,9 +49,9 @@ module Amazonka.Route53.ListGeoLocations
     newListGeoLocationsResponse,
 
     -- * Response Lenses
-    listGeoLocationsResponse_nextContinentCode,
-    listGeoLocationsResponse_nextCountryCode,
     listGeoLocationsResponse_nextSubdivisionCode,
+    listGeoLocationsResponse_nextCountryCode,
+    listGeoLocationsResponse_nextContinentCode,
     listGeoLocationsResponse_httpStatus,
     listGeoLocationsResponse_geoLocationDetailsList,
     listGeoLocationsResponse_isTruncated,
@@ -71,7 +71,13 @@ import Amazonka.Route53.Types
 --
 -- /See:/ 'newListGeoLocations' smart constructor.
 data ListGeoLocations = ListGeoLocations'
-  { -- | The code for the state of the United States with which you want to start
+  { -- | The code for the country with which you want to start listing locations
+    -- that Amazon Route 53 supports for geolocation. If Route 53 has already
+    -- returned a page or more of results, if @IsTruncated@ is @true@, and if
+    -- @NextCountryCode@ from the previous response has a value, enter that
+    -- value in @startcountrycode@ to return the next page of results.
+    startCountryCode :: Prelude.Maybe Prelude.Text,
+    -- | The code for the state of the United States with which you want to start
     -- listing locations that Amazon Route 53 supports for geolocation. If
     -- Route 53 has already returned a page or more of results, if
     -- @IsTruncated@ is @true@, and if @NextSubdivisionCode@ from the previous
@@ -86,12 +92,6 @@ data ListGeoLocations = ListGeoLocations'
     -- remain to be listed, then the value of the @IsTruncated@ element in the
     -- response is @true@.
     maxItems :: Prelude.Maybe Prelude.Text,
-    -- | The code for the country with which you want to start listing locations
-    -- that Amazon Route 53 supports for geolocation. If Route 53 has already
-    -- returned a page or more of results, if @IsTruncated@ is @true@, and if
-    -- @NextCountryCode@ from the previous response has a value, enter that
-    -- value in @startcountrycode@ to return the next page of results.
-    startCountryCode :: Prelude.Maybe Prelude.Text,
     -- | The code for the continent with which you want to start listing
     -- locations that Amazon Route 53 supports for geolocation. If Route 53 has
     -- already returned a page or more of results, if @IsTruncated@ is true,
@@ -113,6 +113,12 @@ data ListGeoLocations = ListGeoLocations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'startCountryCode', 'listGeoLocations_startCountryCode' - The code for the country with which you want to start listing locations
+-- that Amazon Route 53 supports for geolocation. If Route 53 has already
+-- returned a page or more of results, if @IsTruncated@ is @true@, and if
+-- @NextCountryCode@ from the previous response has a value, enter that
+-- value in @startcountrycode@ to return the next page of results.
+--
 -- 'startSubdivisionCode', 'listGeoLocations_startSubdivisionCode' - The code for the state of the United States with which you want to start
 -- listing locations that Amazon Route 53 supports for geolocation. If
 -- Route 53 has already returned a page or more of results, if
@@ -128,12 +134,6 @@ data ListGeoLocations = ListGeoLocations'
 -- remain to be listed, then the value of the @IsTruncated@ element in the
 -- response is @true@.
 --
--- 'startCountryCode', 'listGeoLocations_startCountryCode' - The code for the country with which you want to start listing locations
--- that Amazon Route 53 supports for geolocation. If Route 53 has already
--- returned a page or more of results, if @IsTruncated@ is @true@, and if
--- @NextCountryCode@ from the previous response has a value, enter that
--- value in @startcountrycode@ to return the next page of results.
---
 -- 'startContinentCode', 'listGeoLocations_startContinentCode' - The code for the continent with which you want to start listing
 -- locations that Amazon Route 53 supports for geolocation. If Route 53 has
 -- already returned a page or more of results, if @IsTruncated@ is true,
@@ -147,12 +147,20 @@ newListGeoLocations ::
   ListGeoLocations
 newListGeoLocations =
   ListGeoLocations'
-    { startSubdivisionCode =
+    { startCountryCode =
         Prelude.Nothing,
+      startSubdivisionCode = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      startCountryCode = Prelude.Nothing,
       startContinentCode = Prelude.Nothing
     }
+
+-- | The code for the country with which you want to start listing locations
+-- that Amazon Route 53 supports for geolocation. If Route 53 has already
+-- returned a page or more of results, if @IsTruncated@ is @true@, and if
+-- @NextCountryCode@ from the previous response has a value, enter that
+-- value in @startcountrycode@ to return the next page of results.
+listGeoLocations_startCountryCode :: Lens.Lens' ListGeoLocations (Prelude.Maybe Prelude.Text)
+listGeoLocations_startCountryCode = Lens.lens (\ListGeoLocations' {startCountryCode} -> startCountryCode) (\s@ListGeoLocations' {} a -> s {startCountryCode = a} :: ListGeoLocations)
 
 -- | The code for the state of the United States with which you want to start
 -- listing locations that Amazon Route 53 supports for geolocation. If
@@ -172,14 +180,6 @@ listGeoLocations_startSubdivisionCode = Lens.lens (\ListGeoLocations' {startSubd
 -- response is @true@.
 listGeoLocations_maxItems :: Lens.Lens' ListGeoLocations (Prelude.Maybe Prelude.Text)
 listGeoLocations_maxItems = Lens.lens (\ListGeoLocations' {maxItems} -> maxItems) (\s@ListGeoLocations' {} a -> s {maxItems = a} :: ListGeoLocations)
-
--- | The code for the country with which you want to start listing locations
--- that Amazon Route 53 supports for geolocation. If Route 53 has already
--- returned a page or more of results, if @IsTruncated@ is @true@, and if
--- @NextCountryCode@ from the previous response has a value, enter that
--- value in @startcountrycode@ to return the next page of results.
-listGeoLocations_startCountryCode :: Lens.Lens' ListGeoLocations (Prelude.Maybe Prelude.Text)
-listGeoLocations_startCountryCode = Lens.lens (\ListGeoLocations' {startCountryCode} -> startCountryCode) (\s@ListGeoLocations' {} a -> s {startCountryCode = a} :: ListGeoLocations)
 
 -- | The code for the continent with which you want to start listing
 -- locations that Amazon Route 53 supports for geolocation. If Route 53 has
@@ -202,9 +202,9 @@ instance Core.AWSRequest ListGeoLocations where
     Response.receiveXML
       ( \s h x ->
           ListGeoLocationsResponse'
-            Prelude.<$> (x Core..@? "NextContinentCode")
+            Prelude.<$> (x Core..@? "NextSubdivisionCode")
             Prelude.<*> (x Core..@? "NextCountryCode")
-            Prelude.<*> (x Core..@? "NextSubdivisionCode")
+            Prelude.<*> (x Core..@? "NextContinentCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..@? "GeoLocationDetailsList"
                             Core..!@ Prelude.mempty
@@ -216,16 +216,16 @@ instance Core.AWSRequest ListGeoLocations where
 
 instance Prelude.Hashable ListGeoLocations where
   hashWithSalt _salt ListGeoLocations' {..} =
-    _salt `Prelude.hashWithSalt` startSubdivisionCode
+    _salt `Prelude.hashWithSalt` startCountryCode
+      `Prelude.hashWithSalt` startSubdivisionCode
       `Prelude.hashWithSalt` maxItems
-      `Prelude.hashWithSalt` startCountryCode
       `Prelude.hashWithSalt` startContinentCode
 
 instance Prelude.NFData ListGeoLocations where
   rnf ListGeoLocations' {..} =
-    Prelude.rnf startSubdivisionCode
+    Prelude.rnf startCountryCode
+      `Prelude.seq` Prelude.rnf startSubdivisionCode
       `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf startCountryCode
       `Prelude.seq` Prelude.rnf startContinentCode
 
 instance Core.ToHeaders ListGeoLocations where
@@ -237,9 +237,9 @@ instance Core.ToPath ListGeoLocations where
 instance Core.ToQuery ListGeoLocations where
   toQuery ListGeoLocations' {..} =
     Prelude.mconcat
-      [ "startsubdivisioncode" Core.=: startSubdivisionCode,
+      [ "startcountrycode" Core.=: startCountryCode,
+        "startsubdivisioncode" Core.=: startSubdivisionCode,
         "maxitems" Core.=: maxItems,
-        "startcountrycode" Core.=: startCountryCode,
         "startcontinentcode" Core.=: startContinentCode
       ]
 
@@ -248,17 +248,17 @@ instance Core.ToQuery ListGeoLocations where
 -- /See:/ 'newListGeoLocationsResponse' smart constructor.
 data ListGeoLocationsResponse = ListGeoLocationsResponse'
   { -- | If @IsTruncated@ is @true@, you can make a follow-up request to display
-    -- more locations. Enter the value of @NextContinentCode@ in the
-    -- @startcontinentcode@ parameter in another @ListGeoLocations@ request.
-    nextContinentCode :: Prelude.Maybe Prelude.Text,
+    -- more locations. Enter the value of @NextSubdivisionCode@ in the
+    -- @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
+    nextSubdivisionCode :: Prelude.Maybe Prelude.Text,
     -- | If @IsTruncated@ is @true@, you can make a follow-up request to display
     -- more locations. Enter the value of @NextCountryCode@ in the
     -- @startcountrycode@ parameter in another @ListGeoLocations@ request.
     nextCountryCode :: Prelude.Maybe Prelude.Text,
     -- | If @IsTruncated@ is @true@, you can make a follow-up request to display
-    -- more locations. Enter the value of @NextSubdivisionCode@ in the
-    -- @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
-    nextSubdivisionCode :: Prelude.Maybe Prelude.Text,
+    -- more locations. Enter the value of @NextContinentCode@ in the
+    -- @startcontinentcode@ parameter in another @ListGeoLocations@ request.
+    nextContinentCode :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A complex type that contains one @GeoLocationDetails@ element for each
@@ -284,17 +284,17 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextContinentCode', 'listGeoLocationsResponse_nextContinentCode' - If @IsTruncated@ is @true@, you can make a follow-up request to display
--- more locations. Enter the value of @NextContinentCode@ in the
--- @startcontinentcode@ parameter in another @ListGeoLocations@ request.
+-- 'nextSubdivisionCode', 'listGeoLocationsResponse_nextSubdivisionCode' - If @IsTruncated@ is @true@, you can make a follow-up request to display
+-- more locations. Enter the value of @NextSubdivisionCode@ in the
+-- @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
 --
 -- 'nextCountryCode', 'listGeoLocationsResponse_nextCountryCode' - If @IsTruncated@ is @true@, you can make a follow-up request to display
 -- more locations. Enter the value of @NextCountryCode@ in the
 -- @startcountrycode@ parameter in another @ListGeoLocations@ request.
 --
--- 'nextSubdivisionCode', 'listGeoLocationsResponse_nextSubdivisionCode' - If @IsTruncated@ is @true@, you can make a follow-up request to display
--- more locations. Enter the value of @NextSubdivisionCode@ in the
--- @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
+-- 'nextContinentCode', 'listGeoLocationsResponse_nextContinentCode' - If @IsTruncated@ is @true@, you can make a follow-up request to display
+-- more locations. Enter the value of @NextContinentCode@ in the
+-- @startcontinentcode@ parameter in another @ListGeoLocations@ request.
 --
 -- 'httpStatus', 'listGeoLocationsResponse_httpStatus' - The response's http status code.
 --
@@ -322,10 +322,10 @@ newListGeoLocationsResponse
   pIsTruncated_
   pMaxItems_ =
     ListGeoLocationsResponse'
-      { nextContinentCode =
+      { nextSubdivisionCode =
           Prelude.Nothing,
         nextCountryCode = Prelude.Nothing,
-        nextSubdivisionCode = Prelude.Nothing,
+        nextContinentCode = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         geoLocationDetailsList = Prelude.mempty,
         isTruncated = pIsTruncated_,
@@ -333,10 +333,10 @@ newListGeoLocationsResponse
       }
 
 -- | If @IsTruncated@ is @true@, you can make a follow-up request to display
--- more locations. Enter the value of @NextContinentCode@ in the
--- @startcontinentcode@ parameter in another @ListGeoLocations@ request.
-listGeoLocationsResponse_nextContinentCode :: Lens.Lens' ListGeoLocationsResponse (Prelude.Maybe Prelude.Text)
-listGeoLocationsResponse_nextContinentCode = Lens.lens (\ListGeoLocationsResponse' {nextContinentCode} -> nextContinentCode) (\s@ListGeoLocationsResponse' {} a -> s {nextContinentCode = a} :: ListGeoLocationsResponse)
+-- more locations. Enter the value of @NextSubdivisionCode@ in the
+-- @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
+listGeoLocationsResponse_nextSubdivisionCode :: Lens.Lens' ListGeoLocationsResponse (Prelude.Maybe Prelude.Text)
+listGeoLocationsResponse_nextSubdivisionCode = Lens.lens (\ListGeoLocationsResponse' {nextSubdivisionCode} -> nextSubdivisionCode) (\s@ListGeoLocationsResponse' {} a -> s {nextSubdivisionCode = a} :: ListGeoLocationsResponse)
 
 -- | If @IsTruncated@ is @true@, you can make a follow-up request to display
 -- more locations. Enter the value of @NextCountryCode@ in the
@@ -345,10 +345,10 @@ listGeoLocationsResponse_nextCountryCode :: Lens.Lens' ListGeoLocationsResponse 
 listGeoLocationsResponse_nextCountryCode = Lens.lens (\ListGeoLocationsResponse' {nextCountryCode} -> nextCountryCode) (\s@ListGeoLocationsResponse' {} a -> s {nextCountryCode = a} :: ListGeoLocationsResponse)
 
 -- | If @IsTruncated@ is @true@, you can make a follow-up request to display
--- more locations. Enter the value of @NextSubdivisionCode@ in the
--- @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
-listGeoLocationsResponse_nextSubdivisionCode :: Lens.Lens' ListGeoLocationsResponse (Prelude.Maybe Prelude.Text)
-listGeoLocationsResponse_nextSubdivisionCode = Lens.lens (\ListGeoLocationsResponse' {nextSubdivisionCode} -> nextSubdivisionCode) (\s@ListGeoLocationsResponse' {} a -> s {nextSubdivisionCode = a} :: ListGeoLocationsResponse)
+-- more locations. Enter the value of @NextContinentCode@ in the
+-- @startcontinentcode@ parameter in another @ListGeoLocations@ request.
+listGeoLocationsResponse_nextContinentCode :: Lens.Lens' ListGeoLocationsResponse (Prelude.Maybe Prelude.Text)
+listGeoLocationsResponse_nextContinentCode = Lens.lens (\ListGeoLocationsResponse' {nextContinentCode} -> nextContinentCode) (\s@ListGeoLocationsResponse' {} a -> s {nextContinentCode = a} :: ListGeoLocationsResponse)
 
 -- | The response's http status code.
 listGeoLocationsResponse_httpStatus :: Lens.Lens' ListGeoLocationsResponse Prelude.Int
@@ -374,9 +374,9 @@ listGeoLocationsResponse_maxItems = Lens.lens (\ListGeoLocationsResponse' {maxIt
 
 instance Prelude.NFData ListGeoLocationsResponse where
   rnf ListGeoLocationsResponse' {..} =
-    Prelude.rnf nextContinentCode
+    Prelude.rnf nextSubdivisionCode
       `Prelude.seq` Prelude.rnf nextCountryCode
-      `Prelude.seq` Prelude.rnf nextSubdivisionCode
+      `Prelude.seq` Prelude.rnf nextContinentCode
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf geoLocationDetailsList
       `Prelude.seq` Prelude.rnf isTruncated

@@ -39,8 +39,8 @@ module Amazonka.QuickSight.UpdateAnalysis
     newUpdateAnalysisResponse,
 
     -- * Response Lenses
-    updateAnalysisResponse_requestId,
     updateAnalysisResponse_analysisId,
+    updateAnalysisResponse_requestId,
     updateAnalysisResponse_arn,
     updateAnalysisResponse_updateStatus,
     updateAnalysisResponse_status,
@@ -174,8 +174,8 @@ instance Core.AWSRequest UpdateAnalysis where
     Response.receiveJSON
       ( \s h x ->
           UpdateAnalysisResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "AnalysisId")
+            Prelude.<$> (x Core..?> "AnalysisId")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "UpdateStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -235,10 +235,10 @@ instance Core.ToQuery UpdateAnalysis where
 
 -- | /See:/ 'newUpdateAnalysisResponse' smart constructor.
 data UpdateAnalysisResponse = UpdateAnalysisResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the analysis.
+  { -- | The ID of the analysis.
     analysisId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the analysis that you\'re updating.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The update status of the last update that was made to the analysis.
@@ -256,9 +256,9 @@ data UpdateAnalysisResponse = UpdateAnalysisResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'analysisId', 'updateAnalysisResponse_analysisId' - The ID of the analysis.
+--
+-- 'requestId', 'updateAnalysisResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'arn', 'updateAnalysisResponse_arn' - The ARN of the analysis that you\'re updating.
 --
@@ -271,21 +271,21 @@ newUpdateAnalysisResponse ::
   UpdateAnalysisResponse
 newUpdateAnalysisResponse pStatus_ =
   UpdateAnalysisResponse'
-    { requestId =
+    { analysisId =
         Prelude.Nothing,
-      analysisId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       arn = Prelude.Nothing,
       updateStatus = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-updateAnalysisResponse_requestId :: Lens.Lens' UpdateAnalysisResponse (Prelude.Maybe Prelude.Text)
-updateAnalysisResponse_requestId = Lens.lens (\UpdateAnalysisResponse' {requestId} -> requestId) (\s@UpdateAnalysisResponse' {} a -> s {requestId = a} :: UpdateAnalysisResponse)
-
 -- | The ID of the analysis.
 updateAnalysisResponse_analysisId :: Lens.Lens' UpdateAnalysisResponse (Prelude.Maybe Prelude.Text)
 updateAnalysisResponse_analysisId = Lens.lens (\UpdateAnalysisResponse' {analysisId} -> analysisId) (\s@UpdateAnalysisResponse' {} a -> s {analysisId = a} :: UpdateAnalysisResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+updateAnalysisResponse_requestId :: Lens.Lens' UpdateAnalysisResponse (Prelude.Maybe Prelude.Text)
+updateAnalysisResponse_requestId = Lens.lens (\UpdateAnalysisResponse' {requestId} -> requestId) (\s@UpdateAnalysisResponse' {} a -> s {requestId = a} :: UpdateAnalysisResponse)
 
 -- | The ARN of the analysis that you\'re updating.
 updateAnalysisResponse_arn :: Lens.Lens' UpdateAnalysisResponse (Prelude.Maybe Prelude.Text)
@@ -301,8 +301,8 @@ updateAnalysisResponse_status = Lens.lens (\UpdateAnalysisResponse' {status} -> 
 
 instance Prelude.NFData UpdateAnalysisResponse where
   rnf UpdateAnalysisResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf analysisId
+    Prelude.rnf analysisId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf updateStatus
       `Prelude.seq` Prelude.rnf status

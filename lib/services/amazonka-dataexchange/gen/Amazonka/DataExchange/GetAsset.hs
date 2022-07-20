@@ -36,16 +36,16 @@ module Amazonka.DataExchange.GetAsset
     newGetAssetResponse,
 
     -- * Response Lenses
-    getAssetResponse_arn,
-    getAssetResponse_createdAt,
-    getAssetResponse_sourceId,
-    getAssetResponse_dataSetId,
     getAssetResponse_name,
+    getAssetResponse_sourceId,
     getAssetResponse_assetDetails,
+    getAssetResponse_arn,
     getAssetResponse_id,
     getAssetResponse_assetType,
-    getAssetResponse_updatedAt,
     getAssetResponse_revisionId,
+    getAssetResponse_dataSetId,
+    getAssetResponse_createdAt,
+    getAssetResponse_updatedAt,
     getAssetResponse_httpStatus,
   )
 where
@@ -115,16 +115,16 @@ instance Core.AWSRequest GetAsset where
     Response.receiveJSON
       ( \s h x ->
           GetAssetResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "SourceId")
-            Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "AssetDetails")
+            Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "AssetType")
-            Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (x Core..?> "RevisionId")
+            Prelude.<*> (x Core..?> "DataSetId")
+            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,30 +167,30 @@ instance Core.ToQuery GetAsset where
 
 -- | /See:/ 'newGetAssetResponse' smart constructor.
 data GetAssetResponse = GetAssetResponse'
-  { -- | The ARN for the asset.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the asset was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The name of the asset. When importing from Amazon S3, the S3 object key
+    -- is used as the asset name. When exporting to Amazon S3, the asset name
+    -- is used as default target S3 object key.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The asset ID of the owned asset corresponding to the entitled asset
     -- being viewed. This parameter is returned when an asset owner is viewing
     -- the entitled copy of its owned asset.
     sourceId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the data set associated with this asset.
-    dataSetId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the asset. When importing from Amazon S3, the S3 object key
-    -- is used as the asset name. When exporting to Amazon S3, the asset name
-    -- is used as default target S3 object key.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Information about the asset.
     assetDetails :: Prelude.Maybe AssetDetails,
+    -- | The ARN for the asset.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the asset.
     id :: Prelude.Maybe Prelude.Text,
     -- | The type of asset that is added to a data set.
     assetType :: Prelude.Maybe AssetType,
-    -- | The date and time that the asset was last updated, in ISO 8601 format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier for the revision associated with this asset.
     revisionId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the data set associated with this asset.
+    dataSetId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the asset was created, in ISO 8601 format.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The date and time that the asset was last updated, in ISO 8601 format.
+    updatedAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,29 +204,29 @@ data GetAssetResponse = GetAssetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getAssetResponse_arn' - The ARN for the asset.
---
--- 'createdAt', 'getAssetResponse_createdAt' - The date and time that the asset was created, in ISO 8601 format.
+-- 'name', 'getAssetResponse_name' - The name of the asset. When importing from Amazon S3, the S3 object key
+-- is used as the asset name. When exporting to Amazon S3, the asset name
+-- is used as default target S3 object key.
 --
 -- 'sourceId', 'getAssetResponse_sourceId' - The asset ID of the owned asset corresponding to the entitled asset
 -- being viewed. This parameter is returned when an asset owner is viewing
 -- the entitled copy of its owned asset.
 --
--- 'dataSetId', 'getAssetResponse_dataSetId' - The unique identifier for the data set associated with this asset.
---
--- 'name', 'getAssetResponse_name' - The name of the asset. When importing from Amazon S3, the S3 object key
--- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key.
---
 -- 'assetDetails', 'getAssetResponse_assetDetails' - Information about the asset.
+--
+-- 'arn', 'getAssetResponse_arn' - The ARN for the asset.
 --
 -- 'id', 'getAssetResponse_id' - The unique identifier for the asset.
 --
 -- 'assetType', 'getAssetResponse_assetType' - The type of asset that is added to a data set.
 --
--- 'updatedAt', 'getAssetResponse_updatedAt' - The date and time that the asset was last updated, in ISO 8601 format.
---
 -- 'revisionId', 'getAssetResponse_revisionId' - The unique identifier for the revision associated with this asset.
+--
+-- 'dataSetId', 'getAssetResponse_dataSetId' - The unique identifier for the data set associated with this asset.
+--
+-- 'createdAt', 'getAssetResponse_createdAt' - The date and time that the asset was created, in ISO 8601 format.
+--
+-- 'updatedAt', 'getAssetResponse_updatedAt' - The date and time that the asset was last updated, in ISO 8601 format.
 --
 -- 'httpStatus', 'getAssetResponse_httpStatus' - The response's http status code.
 newGetAssetResponse ::
@@ -235,36 +235,18 @@ newGetAssetResponse ::
   GetAssetResponse
 newGetAssetResponse pHttpStatus_ =
   GetAssetResponse'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { name = Prelude.Nothing,
       sourceId = Prelude.Nothing,
-      dataSetId = Prelude.Nothing,
-      name = Prelude.Nothing,
       assetDetails = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
       assetType = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
       revisionId = Prelude.Nothing,
+      dataSetId = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN for the asset.
-getAssetResponse_arn :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
-getAssetResponse_arn = Lens.lens (\GetAssetResponse' {arn} -> arn) (\s@GetAssetResponse' {} a -> s {arn = a} :: GetAssetResponse)
-
--- | The date and time that the asset was created, in ISO 8601 format.
-getAssetResponse_createdAt :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.UTCTime)
-getAssetResponse_createdAt = Lens.lens (\GetAssetResponse' {createdAt} -> createdAt) (\s@GetAssetResponse' {} a -> s {createdAt = a} :: GetAssetResponse) Prelude.. Lens.mapping Core._Time
-
--- | The asset ID of the owned asset corresponding to the entitled asset
--- being viewed. This parameter is returned when an asset owner is viewing
--- the entitled copy of its owned asset.
-getAssetResponse_sourceId :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
-getAssetResponse_sourceId = Lens.lens (\GetAssetResponse' {sourceId} -> sourceId) (\s@GetAssetResponse' {} a -> s {sourceId = a} :: GetAssetResponse)
-
--- | The unique identifier for the data set associated with this asset.
-getAssetResponse_dataSetId :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
-getAssetResponse_dataSetId = Lens.lens (\GetAssetResponse' {dataSetId} -> dataSetId) (\s@GetAssetResponse' {} a -> s {dataSetId = a} :: GetAssetResponse)
 
 -- | The name of the asset. When importing from Amazon S3, the S3 object key
 -- is used as the asset name. When exporting to Amazon S3, the asset name
@@ -272,9 +254,19 @@ getAssetResponse_dataSetId = Lens.lens (\GetAssetResponse' {dataSetId} -> dataSe
 getAssetResponse_name :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
 getAssetResponse_name = Lens.lens (\GetAssetResponse' {name} -> name) (\s@GetAssetResponse' {} a -> s {name = a} :: GetAssetResponse)
 
+-- | The asset ID of the owned asset corresponding to the entitled asset
+-- being viewed. This parameter is returned when an asset owner is viewing
+-- the entitled copy of its owned asset.
+getAssetResponse_sourceId :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
+getAssetResponse_sourceId = Lens.lens (\GetAssetResponse' {sourceId} -> sourceId) (\s@GetAssetResponse' {} a -> s {sourceId = a} :: GetAssetResponse)
+
 -- | Information about the asset.
 getAssetResponse_assetDetails :: Lens.Lens' GetAssetResponse (Prelude.Maybe AssetDetails)
 getAssetResponse_assetDetails = Lens.lens (\GetAssetResponse' {assetDetails} -> assetDetails) (\s@GetAssetResponse' {} a -> s {assetDetails = a} :: GetAssetResponse)
+
+-- | The ARN for the asset.
+getAssetResponse_arn :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
+getAssetResponse_arn = Lens.lens (\GetAssetResponse' {arn} -> arn) (\s@GetAssetResponse' {} a -> s {arn = a} :: GetAssetResponse)
 
 -- | The unique identifier for the asset.
 getAssetResponse_id :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
@@ -284,13 +276,21 @@ getAssetResponse_id = Lens.lens (\GetAssetResponse' {id} -> id) (\s@GetAssetResp
 getAssetResponse_assetType :: Lens.Lens' GetAssetResponse (Prelude.Maybe AssetType)
 getAssetResponse_assetType = Lens.lens (\GetAssetResponse' {assetType} -> assetType) (\s@GetAssetResponse' {} a -> s {assetType = a} :: GetAssetResponse)
 
--- | The date and time that the asset was last updated, in ISO 8601 format.
-getAssetResponse_updatedAt :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.UTCTime)
-getAssetResponse_updatedAt = Lens.lens (\GetAssetResponse' {updatedAt} -> updatedAt) (\s@GetAssetResponse' {} a -> s {updatedAt = a} :: GetAssetResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The unique identifier for the revision associated with this asset.
 getAssetResponse_revisionId :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
 getAssetResponse_revisionId = Lens.lens (\GetAssetResponse' {revisionId} -> revisionId) (\s@GetAssetResponse' {} a -> s {revisionId = a} :: GetAssetResponse)
+
+-- | The unique identifier for the data set associated with this asset.
+getAssetResponse_dataSetId :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.Text)
+getAssetResponse_dataSetId = Lens.lens (\GetAssetResponse' {dataSetId} -> dataSetId) (\s@GetAssetResponse' {} a -> s {dataSetId = a} :: GetAssetResponse)
+
+-- | The date and time that the asset was created, in ISO 8601 format.
+getAssetResponse_createdAt :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.UTCTime)
+getAssetResponse_createdAt = Lens.lens (\GetAssetResponse' {createdAt} -> createdAt) (\s@GetAssetResponse' {} a -> s {createdAt = a} :: GetAssetResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time that the asset was last updated, in ISO 8601 format.
+getAssetResponse_updatedAt :: Lens.Lens' GetAssetResponse (Prelude.Maybe Prelude.UTCTime)
+getAssetResponse_updatedAt = Lens.lens (\GetAssetResponse' {updatedAt} -> updatedAt) (\s@GetAssetResponse' {} a -> s {updatedAt = a} :: GetAssetResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 getAssetResponse_httpStatus :: Lens.Lens' GetAssetResponse Prelude.Int
@@ -298,14 +298,14 @@ getAssetResponse_httpStatus = Lens.lens (\GetAssetResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetAssetResponse where
   rnf GetAssetResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf assetDetails
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

@@ -44,10 +44,10 @@ module Amazonka.ElasticTranscoder.CreatePreset
     newCreatePreset,
 
     -- * Request Lenses
-    createPreset_video,
-    createPreset_thumbnails,
-    createPreset_description,
     createPreset_audio,
+    createPreset_description,
+    createPreset_thumbnails,
+    createPreset_video,
     createPreset_name,
     createPreset_container,
 
@@ -73,15 +73,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreatePreset' smart constructor.
 data CreatePreset = CreatePreset'
-  { -- | A section of the request body that specifies the video parameters.
-    video :: Prelude.Maybe VideoParameters,
+  { -- | A section of the request body that specifies the audio parameters.
+    audio :: Prelude.Maybe AudioParameters,
+    -- | A description of the preset.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A section of the request body that specifies the thumbnail parameters,
     -- if any.
     thumbnails :: Prelude.Maybe Thumbnails,
-    -- | A description of the preset.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A section of the request body that specifies the audio parameters.
-    audio :: Prelude.Maybe AudioParameters,
+    -- | A section of the request body that specifies the video parameters.
+    video :: Prelude.Maybe VideoParameters,
     -- | The name of the preset. We recommend that the name be unique within the
     -- AWS account, but uniqueness is not enforced.
     name :: Prelude.Text,
@@ -100,14 +100,14 @@ data CreatePreset = CreatePreset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'video', 'createPreset_video' - A section of the request body that specifies the video parameters.
+-- 'audio', 'createPreset_audio' - A section of the request body that specifies the audio parameters.
+--
+-- 'description', 'createPreset_description' - A description of the preset.
 --
 -- 'thumbnails', 'createPreset_thumbnails' - A section of the request body that specifies the thumbnail parameters,
 -- if any.
 --
--- 'description', 'createPreset_description' - A description of the preset.
---
--- 'audio', 'createPreset_audio' - A section of the request body that specifies the audio parameters.
+-- 'video', 'createPreset_video' - A section of the request body that specifies the video parameters.
 --
 -- 'name', 'createPreset_name' - The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
@@ -123,30 +123,30 @@ newCreatePreset ::
   CreatePreset
 newCreatePreset pName_ pContainer_ =
   CreatePreset'
-    { video = Prelude.Nothing,
-      thumbnails = Prelude.Nothing,
+    { audio = Prelude.Nothing,
       description = Prelude.Nothing,
-      audio = Prelude.Nothing,
+      thumbnails = Prelude.Nothing,
+      video = Prelude.Nothing,
       name = pName_,
       container = pContainer_
     }
 
--- | A section of the request body that specifies the video parameters.
-createPreset_video :: Lens.Lens' CreatePreset (Prelude.Maybe VideoParameters)
-createPreset_video = Lens.lens (\CreatePreset' {video} -> video) (\s@CreatePreset' {} a -> s {video = a} :: CreatePreset)
+-- | A section of the request body that specifies the audio parameters.
+createPreset_audio :: Lens.Lens' CreatePreset (Prelude.Maybe AudioParameters)
+createPreset_audio = Lens.lens (\CreatePreset' {audio} -> audio) (\s@CreatePreset' {} a -> s {audio = a} :: CreatePreset)
+
+-- | A description of the preset.
+createPreset_description :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
+createPreset_description = Lens.lens (\CreatePreset' {description} -> description) (\s@CreatePreset' {} a -> s {description = a} :: CreatePreset)
 
 -- | A section of the request body that specifies the thumbnail parameters,
 -- if any.
 createPreset_thumbnails :: Lens.Lens' CreatePreset (Prelude.Maybe Thumbnails)
 createPreset_thumbnails = Lens.lens (\CreatePreset' {thumbnails} -> thumbnails) (\s@CreatePreset' {} a -> s {thumbnails = a} :: CreatePreset)
 
--- | A description of the preset.
-createPreset_description :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
-createPreset_description = Lens.lens (\CreatePreset' {description} -> description) (\s@CreatePreset' {} a -> s {description = a} :: CreatePreset)
-
--- | A section of the request body that specifies the audio parameters.
-createPreset_audio :: Lens.Lens' CreatePreset (Prelude.Maybe AudioParameters)
-createPreset_audio = Lens.lens (\CreatePreset' {audio} -> audio) (\s@CreatePreset' {} a -> s {audio = a} :: CreatePreset)
+-- | A section of the request body that specifies the video parameters.
+createPreset_video :: Lens.Lens' CreatePreset (Prelude.Maybe VideoParameters)
+createPreset_video = Lens.lens (\CreatePreset' {video} -> video) (\s@CreatePreset' {} a -> s {video = a} :: CreatePreset)
 
 -- | The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
@@ -173,19 +173,19 @@ instance Core.AWSRequest CreatePreset where
 
 instance Prelude.Hashable CreatePreset where
   hashWithSalt _salt CreatePreset' {..} =
-    _salt `Prelude.hashWithSalt` video
-      `Prelude.hashWithSalt` thumbnails
+    _salt `Prelude.hashWithSalt` audio
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` audio
+      `Prelude.hashWithSalt` thumbnails
+      `Prelude.hashWithSalt` video
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` container
 
 instance Prelude.NFData CreatePreset where
   rnf CreatePreset' {..} =
-    Prelude.rnf video
-      `Prelude.seq` Prelude.rnf thumbnails
+    Prelude.rnf audio
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf audio
+      `Prelude.seq` Prelude.rnf thumbnails
+      `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf container
 
@@ -196,10 +196,10 @@ instance Core.ToJSON CreatePreset where
   toJSON CreatePreset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Video" Core..=) Prelude.<$> video,
-            ("Thumbnails" Core..=) Prelude.<$> thumbnails,
+          [ ("Audio" Core..=) Prelude.<$> audio,
             ("Description" Core..=) Prelude.<$> description,
-            ("Audio" Core..=) Prelude.<$> audio,
+            ("Thumbnails" Core..=) Prelude.<$> thumbnails,
+            ("Video" Core..=) Prelude.<$> video,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Container" Core..= container)
           ]

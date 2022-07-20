@@ -37,10 +37,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPatchOrchestratorFilter' smart constructor.
 data PatchOrchestratorFilter = PatchOrchestratorFilter'
-  { -- | The value for the filter.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The key for the filter.
-    key :: Prelude.Maybe Prelude.Text
+  { -- | The key for the filter.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The value for the filter.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,39 +52,39 @@ data PatchOrchestratorFilter = PatchOrchestratorFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'patchOrchestratorFilter_values' - The value for the filter.
---
 -- 'key', 'patchOrchestratorFilter_key' - The key for the filter.
+--
+-- 'values', 'patchOrchestratorFilter_values' - The value for the filter.
 newPatchOrchestratorFilter ::
   PatchOrchestratorFilter
 newPatchOrchestratorFilter =
   PatchOrchestratorFilter'
-    { values = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The value for the filter.
-patchOrchestratorFilter_values :: Lens.Lens' PatchOrchestratorFilter (Prelude.Maybe [Prelude.Text])
-patchOrchestratorFilter_values = Lens.lens (\PatchOrchestratorFilter' {values} -> values) (\s@PatchOrchestratorFilter' {} a -> s {values = a} :: PatchOrchestratorFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The key for the filter.
 patchOrchestratorFilter_key :: Lens.Lens' PatchOrchestratorFilter (Prelude.Maybe Prelude.Text)
 patchOrchestratorFilter_key = Lens.lens (\PatchOrchestratorFilter' {key} -> key) (\s@PatchOrchestratorFilter' {} a -> s {key = a} :: PatchOrchestratorFilter)
 
+-- | The value for the filter.
+patchOrchestratorFilter_values :: Lens.Lens' PatchOrchestratorFilter (Prelude.Maybe [Prelude.Text])
+patchOrchestratorFilter_values = Lens.lens (\PatchOrchestratorFilter' {values} -> values) (\s@PatchOrchestratorFilter' {} a -> s {values = a} :: PatchOrchestratorFilter) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable PatchOrchestratorFilter where
   hashWithSalt _salt PatchOrchestratorFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData PatchOrchestratorFilter where
   rnf PatchOrchestratorFilter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON PatchOrchestratorFilter where
   toJSON PatchOrchestratorFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

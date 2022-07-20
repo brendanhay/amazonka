@@ -36,8 +36,8 @@ module Amazonka.WellArchitected.ListWorkloads
     newListWorkloadsResponse,
 
     -- * Response Lenses
-    listWorkloadsResponse_workloadSummaries,
     listWorkloadsResponse_nextToken,
+    listWorkloadsResponse_workloadSummaries,
     listWorkloadsResponse_httpStatus,
   )
 where
@@ -103,10 +103,10 @@ instance Core.AWSRequest ListWorkloads where
     Response.receiveJSON
       ( \s h x ->
           ListWorkloadsResponse'
-            Prelude.<$> ( x Core..?> "WorkloadSummaries"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "WorkloadSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,8 +154,8 @@ instance Core.ToQuery ListWorkloads where
 --
 -- /See:/ 'newListWorkloadsResponse' smart constructor.
 data ListWorkloadsResponse = ListWorkloadsResponse'
-  { workloadSummaries :: Prelude.Maybe [WorkloadSummary],
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    workloadSummaries :: Prelude.Maybe [WorkloadSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,9 +169,9 @@ data ListWorkloadsResponse = ListWorkloadsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workloadSummaries', 'listWorkloadsResponse_workloadSummaries' - Undocumented member.
---
 -- 'nextToken', 'listWorkloadsResponse_nextToken' - Undocumented member.
+--
+-- 'workloadSummaries', 'listWorkloadsResponse_workloadSummaries' - Undocumented member.
 --
 -- 'httpStatus', 'listWorkloadsResponse_httpStatus' - The response's http status code.
 newListWorkloadsResponse ::
@@ -180,19 +180,18 @@ newListWorkloadsResponse ::
   ListWorkloadsResponse
 newListWorkloadsResponse pHttpStatus_ =
   ListWorkloadsResponse'
-    { workloadSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      workloadSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listWorkloadsResponse_workloadSummaries :: Lens.Lens' ListWorkloadsResponse (Prelude.Maybe [WorkloadSummary])
-listWorkloadsResponse_workloadSummaries = Lens.lens (\ListWorkloadsResponse' {workloadSummaries} -> workloadSummaries) (\s@ListWorkloadsResponse' {} a -> s {workloadSummaries = a} :: ListWorkloadsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 listWorkloadsResponse_nextToken :: Lens.Lens' ListWorkloadsResponse (Prelude.Maybe Prelude.Text)
 listWorkloadsResponse_nextToken = Lens.lens (\ListWorkloadsResponse' {nextToken} -> nextToken) (\s@ListWorkloadsResponse' {} a -> s {nextToken = a} :: ListWorkloadsResponse)
+
+-- | Undocumented member.
+listWorkloadsResponse_workloadSummaries :: Lens.Lens' ListWorkloadsResponse (Prelude.Maybe [WorkloadSummary])
+listWorkloadsResponse_workloadSummaries = Lens.lens (\ListWorkloadsResponse' {workloadSummaries} -> workloadSummaries) (\s@ListWorkloadsResponse' {} a -> s {workloadSummaries = a} :: ListWorkloadsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWorkloadsResponse_httpStatus :: Lens.Lens' ListWorkloadsResponse Prelude.Int
@@ -200,6 +199,6 @@ listWorkloadsResponse_httpStatus = Lens.lens (\ListWorkloadsResponse' {httpStatu
 
 instance Prelude.NFData ListWorkloadsResponse where
   rnf ListWorkloadsResponse' {..} =
-    Prelude.rnf workloadSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workloadSummaries
       `Prelude.seq` Prelude.rnf httpStatus

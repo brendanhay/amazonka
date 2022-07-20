@@ -29,10 +29,10 @@ module Amazonka.Outposts.CreateOutpost
     newCreateOutpost,
 
     -- * Request Lenses
-    createOutpost_availabilityZoneId,
+    createOutpost_tags,
     createOutpost_availabilityZone,
     createOutpost_description,
-    createOutpost_tags,
+    createOutpost_availabilityZoneId,
     createOutpost_name,
     createOutpost_siteId,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateOutpost' smart constructor.
 data CreateOutpost = CreateOutpost'
-  { availabilityZoneId :: Prelude.Maybe Prelude.Text,
+  { -- | The tags to apply to the Outpost.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     availabilityZone :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the Outpost.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     name :: Prelude.Text,
     siteId :: Prelude.Text
   }
@@ -73,13 +73,13 @@ data CreateOutpost = CreateOutpost'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'availabilityZoneId', 'createOutpost_availabilityZoneId' - Undocumented member.
+-- 'tags', 'createOutpost_tags' - The tags to apply to the Outpost.
 --
 -- 'availabilityZone', 'createOutpost_availabilityZone' - Undocumented member.
 --
 -- 'description', 'createOutpost_description' - Undocumented member.
 --
--- 'tags', 'createOutpost_tags' - The tags to apply to the Outpost.
+-- 'availabilityZoneId', 'createOutpost_availabilityZoneId' - Undocumented member.
 --
 -- 'name', 'createOutpost_name' - Undocumented member.
 --
@@ -92,18 +92,17 @@ newCreateOutpost ::
   CreateOutpost
 newCreateOutpost pName_ pSiteId_ =
   CreateOutpost'
-    { availabilityZoneId =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      availabilityZoneId = Prelude.Nothing,
       name = pName_,
       siteId = pSiteId_
     }
 
--- | Undocumented member.
-createOutpost_availabilityZoneId :: Lens.Lens' CreateOutpost (Prelude.Maybe Prelude.Text)
-createOutpost_availabilityZoneId = Lens.lens (\CreateOutpost' {availabilityZoneId} -> availabilityZoneId) (\s@CreateOutpost' {} a -> s {availabilityZoneId = a} :: CreateOutpost)
+-- | The tags to apply to the Outpost.
+createOutpost_tags :: Lens.Lens' CreateOutpost (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createOutpost_tags = Lens.lens (\CreateOutpost' {tags} -> tags) (\s@CreateOutpost' {} a -> s {tags = a} :: CreateOutpost) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createOutpost_availabilityZone :: Lens.Lens' CreateOutpost (Prelude.Maybe Prelude.Text)
@@ -113,9 +112,9 @@ createOutpost_availabilityZone = Lens.lens (\CreateOutpost' {availabilityZone} -
 createOutpost_description :: Lens.Lens' CreateOutpost (Prelude.Maybe Prelude.Text)
 createOutpost_description = Lens.lens (\CreateOutpost' {description} -> description) (\s@CreateOutpost' {} a -> s {description = a} :: CreateOutpost)
 
--- | The tags to apply to the Outpost.
-createOutpost_tags :: Lens.Lens' CreateOutpost (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createOutpost_tags = Lens.lens (\CreateOutpost' {tags} -> tags) (\s@CreateOutpost' {} a -> s {tags = a} :: CreateOutpost) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+createOutpost_availabilityZoneId :: Lens.Lens' CreateOutpost (Prelude.Maybe Prelude.Text)
+createOutpost_availabilityZoneId = Lens.lens (\CreateOutpost' {availabilityZoneId} -> availabilityZoneId) (\s@CreateOutpost' {} a -> s {availabilityZoneId = a} :: CreateOutpost)
 
 -- | Undocumented member.
 createOutpost_name :: Lens.Lens' CreateOutpost Prelude.Text
@@ -140,19 +139,19 @@ instance Core.AWSRequest CreateOutpost where
 
 instance Prelude.Hashable CreateOutpost where
   hashWithSalt _salt CreateOutpost' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` siteId
 
 instance Prelude.NFData CreateOutpost where
   rnf CreateOutpost' {..} =
-    Prelude.rnf availabilityZoneId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf availabilityZoneId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf siteId
 
@@ -171,12 +170,12 @@ instance Core.ToJSON CreateOutpost where
   toJSON CreateOutpost' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AvailabilityZoneId" Core..=)
-              Prelude.<$> availabilityZoneId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("AvailabilityZone" Core..=)
               Prelude.<$> availabilityZone,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("AvailabilityZoneId" Core..=)
+              Prelude.<$> availabilityZoneId,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("SiteId" Core..= siteId)
           ]

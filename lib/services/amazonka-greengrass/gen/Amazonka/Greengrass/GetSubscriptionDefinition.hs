@@ -34,14 +34,14 @@ module Amazonka.Greengrass.GetSubscriptionDefinition
     newGetSubscriptionDefinitionResponse,
 
     -- * Response Lenses
-    getSubscriptionDefinitionResponse_latestVersionArn,
-    getSubscriptionDefinitionResponse_arn,
-    getSubscriptionDefinitionResponse_name,
-    getSubscriptionDefinitionResponse_creationTimestamp,
-    getSubscriptionDefinitionResponse_id,
-    getSubscriptionDefinitionResponse_latestVersion,
     getSubscriptionDefinitionResponse_lastUpdatedTimestamp,
     getSubscriptionDefinitionResponse_tags,
+    getSubscriptionDefinitionResponse_name,
+    getSubscriptionDefinitionResponse_arn,
+    getSubscriptionDefinitionResponse_latestVersion,
+    getSubscriptionDefinitionResponse_id,
+    getSubscriptionDefinitionResponse_creationTimestamp,
+    getSubscriptionDefinitionResponse_latestVersionArn,
     getSubscriptionDefinitionResponse_httpStatus,
   )
 where
@@ -93,14 +93,14 @@ instance Core.AWSRequest GetSubscriptionDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetSubscriptionDefinitionResponse'
-            Prelude.<$> (x Core..?> "LatestVersionArn")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "LatestVersion")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
+            Prelude.<$> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "LatestVersion")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,24 +136,24 @@ instance Core.ToQuery GetSubscriptionDefinition where
 
 -- | /See:/ 'newGetSubscriptionDefinitionResponse' smart constructor.
 data GetSubscriptionDefinitionResponse = GetSubscriptionDefinitionResponse'
-  { -- | The ARN of the latest version associated with the definition.
-    latestVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the definition.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the definition was
-    -- created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the definition.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the definition was last
+  { -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
     -- | Tag(s) attached to the resource arn.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the definition.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the definition.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was
+    -- created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,23 +167,23 @@ data GetSubscriptionDefinitionResponse = GetSubscriptionDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latestVersionArn', 'getSubscriptionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
---
--- 'arn', 'getSubscriptionDefinitionResponse_arn' - The ARN of the definition.
---
--- 'name', 'getSubscriptionDefinitionResponse_name' - The name of the definition.
---
--- 'creationTimestamp', 'getSubscriptionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
--- created.
---
--- 'id', 'getSubscriptionDefinitionResponse_id' - The ID of the definition.
---
--- 'latestVersion', 'getSubscriptionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
---
 -- 'lastUpdatedTimestamp', 'getSubscriptionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 --
 -- 'tags', 'getSubscriptionDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
+-- 'name', 'getSubscriptionDefinitionResponse_name' - The name of the definition.
+--
+-- 'arn', 'getSubscriptionDefinitionResponse_arn' - The ARN of the definition.
+--
+-- 'latestVersion', 'getSubscriptionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
+--
+-- 'id', 'getSubscriptionDefinitionResponse_id' - The ID of the definition.
+--
+-- 'creationTimestamp', 'getSubscriptionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
+-- created.
+--
+-- 'latestVersionArn', 'getSubscriptionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
 --
 -- 'httpStatus', 'getSubscriptionDefinitionResponse_httpStatus' - The response's http status code.
 newGetSubscriptionDefinitionResponse ::
@@ -192,42 +192,17 @@ newGetSubscriptionDefinitionResponse ::
   GetSubscriptionDefinitionResponse
 newGetSubscriptionDefinitionResponse pHttpStatus_ =
   GetSubscriptionDefinitionResponse'
-    { latestVersionArn =
+    { lastUpdatedTimestamp =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      creationTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
+      id = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      latestVersionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the latest version associated with the definition.
-getSubscriptionDefinitionResponse_latestVersionArn :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getSubscriptionDefinitionResponse_latestVersionArn = Lens.lens (\GetSubscriptionDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@GetSubscriptionDefinitionResponse' {} a -> s {latestVersionArn = a} :: GetSubscriptionDefinitionResponse)
-
--- | The ARN of the definition.
-getSubscriptionDefinitionResponse_arn :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getSubscriptionDefinitionResponse_arn = Lens.lens (\GetSubscriptionDefinitionResponse' {arn} -> arn) (\s@GetSubscriptionDefinitionResponse' {} a -> s {arn = a} :: GetSubscriptionDefinitionResponse)
-
--- | The name of the definition.
-getSubscriptionDefinitionResponse_name :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getSubscriptionDefinitionResponse_name = Lens.lens (\GetSubscriptionDefinitionResponse' {name} -> name) (\s@GetSubscriptionDefinitionResponse' {} a -> s {name = a} :: GetSubscriptionDefinitionResponse)
-
--- | The time, in milliseconds since the epoch, when the definition was
--- created.
-getSubscriptionDefinitionResponse_creationTimestamp :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getSubscriptionDefinitionResponse_creationTimestamp = Lens.lens (\GetSubscriptionDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetSubscriptionDefinitionResponse' {} a -> s {creationTimestamp = a} :: GetSubscriptionDefinitionResponse)
-
--- | The ID of the definition.
-getSubscriptionDefinitionResponse_id :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getSubscriptionDefinitionResponse_id = Lens.lens (\GetSubscriptionDefinitionResponse' {id} -> id) (\s@GetSubscriptionDefinitionResponse' {} a -> s {id = a} :: GetSubscriptionDefinitionResponse)
-
--- | The ID of the latest version associated with the definition.
-getSubscriptionDefinitionResponse_latestVersion :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getSubscriptionDefinitionResponse_latestVersion = Lens.lens (\GetSubscriptionDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetSubscriptionDefinitionResponse' {} a -> s {latestVersion = a} :: GetSubscriptionDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
@@ -238,6 +213,31 @@ getSubscriptionDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetSubscrip
 getSubscriptionDefinitionResponse_tags :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getSubscriptionDefinitionResponse_tags = Lens.lens (\GetSubscriptionDefinitionResponse' {tags} -> tags) (\s@GetSubscriptionDefinitionResponse' {} a -> s {tags = a} :: GetSubscriptionDefinitionResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the definition.
+getSubscriptionDefinitionResponse_name :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSubscriptionDefinitionResponse_name = Lens.lens (\GetSubscriptionDefinitionResponse' {name} -> name) (\s@GetSubscriptionDefinitionResponse' {} a -> s {name = a} :: GetSubscriptionDefinitionResponse)
+
+-- | The ARN of the definition.
+getSubscriptionDefinitionResponse_arn :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSubscriptionDefinitionResponse_arn = Lens.lens (\GetSubscriptionDefinitionResponse' {arn} -> arn) (\s@GetSubscriptionDefinitionResponse' {} a -> s {arn = a} :: GetSubscriptionDefinitionResponse)
+
+-- | The ID of the latest version associated with the definition.
+getSubscriptionDefinitionResponse_latestVersion :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSubscriptionDefinitionResponse_latestVersion = Lens.lens (\GetSubscriptionDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetSubscriptionDefinitionResponse' {} a -> s {latestVersion = a} :: GetSubscriptionDefinitionResponse)
+
+-- | The ID of the definition.
+getSubscriptionDefinitionResponse_id :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSubscriptionDefinitionResponse_id = Lens.lens (\GetSubscriptionDefinitionResponse' {id} -> id) (\s@GetSubscriptionDefinitionResponse' {} a -> s {id = a} :: GetSubscriptionDefinitionResponse)
+
+-- | The time, in milliseconds since the epoch, when the definition was
+-- created.
+getSubscriptionDefinitionResponse_creationTimestamp :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSubscriptionDefinitionResponse_creationTimestamp = Lens.lens (\GetSubscriptionDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetSubscriptionDefinitionResponse' {} a -> s {creationTimestamp = a} :: GetSubscriptionDefinitionResponse)
+
+-- | The ARN of the latest version associated with the definition.
+getSubscriptionDefinitionResponse_latestVersionArn :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSubscriptionDefinitionResponse_latestVersionArn = Lens.lens (\GetSubscriptionDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@GetSubscriptionDefinitionResponse' {} a -> s {latestVersionArn = a} :: GetSubscriptionDefinitionResponse)
+
 -- | The response's http status code.
 getSubscriptionDefinitionResponse_httpStatus :: Lens.Lens' GetSubscriptionDefinitionResponse Prelude.Int
 getSubscriptionDefinitionResponse_httpStatus = Lens.lens (\GetSubscriptionDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetSubscriptionDefinitionResponse' {} a -> s {httpStatus = a} :: GetSubscriptionDefinitionResponse)
@@ -247,12 +247,12 @@ instance
     GetSubscriptionDefinitionResponse
   where
   rnf GetSubscriptionDefinitionResponse' {..} =
-    Prelude.rnf latestVersionArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+    Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf latestVersionArn
       `Prelude.seq` Prelude.rnf httpStatus

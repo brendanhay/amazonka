@@ -17,14 +17,14 @@ module Amazonka.Kafka.Types
     defaultService,
 
     -- * Errors
-    _ConflictException,
-    _ForbiddenException,
-    _NotFoundException,
-    _TooManyRequestsException,
-    _InternalServerErrorException,
-    _ServiceUnavailableException,
     _UnauthorizedException,
+    _NotFoundException,
+    _ServiceUnavailableException,
+    _InternalServerErrorException,
+    _ForbiddenException,
+    _ConflictException,
     _BadRequestException,
+    _TooManyRequestsException,
 
     -- * BrokerAZDistribution
     BrokerAZDistribution (..),
@@ -64,27 +64,27 @@ module Amazonka.Kafka.Types
     BrokerNodeGroupInfo (..),
     newBrokerNodeGroupInfo,
     brokerNodeGroupInfo_storageInfo,
-    brokerNodeGroupInfo_brokerAZDistribution,
     brokerNodeGroupInfo_securityGroups,
+    brokerNodeGroupInfo_brokerAZDistribution,
     brokerNodeGroupInfo_clientSubnets,
     brokerNodeGroupInfo_instanceType,
 
     -- * BrokerNodeInfo
     BrokerNodeInfo (..),
     newBrokerNodeInfo,
-    brokerNodeInfo_currentBrokerSoftwareInfo,
     brokerNodeInfo_clientSubnet,
-    brokerNodeInfo_attachedENIId,
     brokerNodeInfo_endpoints,
-    brokerNodeInfo_clientVpcIpAddress,
     brokerNodeInfo_brokerId,
+    brokerNodeInfo_clientVpcIpAddress,
+    brokerNodeInfo_attachedENIId,
+    brokerNodeInfo_currentBrokerSoftwareInfo,
 
     -- * BrokerSoftwareInfo
     BrokerSoftwareInfo (..),
     newBrokerSoftwareInfo,
-    brokerSoftwareInfo_configurationRevision,
-    brokerSoftwareInfo_kafkaVersion,
     brokerSoftwareInfo_configurationArn,
+    brokerSoftwareInfo_kafkaVersion,
+    brokerSoftwareInfo_configurationRevision,
 
     -- * ClientAuthentication
     ClientAuthentication (..),
@@ -102,39 +102,39 @@ module Amazonka.Kafka.Types
     -- * ClusterInfo
     ClusterInfo (..),
     newClusterInfo,
+    clusterInfo_clusterArn,
+    clusterInfo_tags,
+    clusterInfo_openMonitoring,
+    clusterInfo_encryptionInfo,
+    clusterInfo_stateInfo,
+    clusterInfo_brokerNodeGroupInfo,
+    clusterInfo_numberOfBrokerNodes,
+    clusterInfo_state,
+    clusterInfo_clientAuthentication,
+    clusterInfo_currentVersion,
+    clusterInfo_zookeeperConnectString,
     clusterInfo_creationTime,
     clusterInfo_activeOperationArn,
-    clusterInfo_state,
-    clusterInfo_clusterArn,
-    clusterInfo_numberOfBrokerNodes,
-    clusterInfo_enhancedMonitoring,
-    clusterInfo_brokerNodeGroupInfo,
-    clusterInfo_openMonitoring,
-    clusterInfo_currentBrokerSoftwareInfo,
-    clusterInfo_currentVersion,
-    clusterInfo_stateInfo,
     clusterInfo_loggingInfo,
-    clusterInfo_zookeeperConnectString,
+    clusterInfo_currentBrokerSoftwareInfo,
     clusterInfo_clusterName,
     clusterInfo_zookeeperConnectStringTls,
-    clusterInfo_clientAuthentication,
-    clusterInfo_tags,
-    clusterInfo_encryptionInfo,
+    clusterInfo_enhancedMonitoring,
 
     -- * ClusterOperationInfo
     ClusterOperationInfo (..),
     newClusterOperationInfo,
-    clusterOperationInfo_creationTime,
     clusterOperationInfo_clusterArn,
-    clusterOperationInfo_clientRequestId,
-    clusterOperationInfo_targetClusterInfo,
-    clusterOperationInfo_sourceClusterInfo,
-    clusterOperationInfo_operationSteps,
-    clusterOperationInfo_operationState,
-    clusterOperationInfo_endTime,
     clusterOperationInfo_operationType,
     clusterOperationInfo_operationArn,
+    clusterOperationInfo_endTime,
+    clusterOperationInfo_sourceClusterInfo,
+    clusterOperationInfo_targetClusterInfo,
+    clusterOperationInfo_clientRequestId,
+    clusterOperationInfo_creationTime,
+    clusterOperationInfo_operationState,
     clusterOperationInfo_errorInfo,
+    clusterOperationInfo_operationSteps,
 
     -- * ClusterOperationStep
     ClusterOperationStep (..),
@@ -150,8 +150,8 @@ module Amazonka.Kafka.Types
     -- * CompatibleKafkaVersion
     CompatibleKafkaVersion (..),
     newCompatibleKafkaVersion,
-    compatibleKafkaVersion_sourceVersion,
     compatibleKafkaVersion_targetVersions,
+    compatibleKafkaVersion_sourceVersion,
 
     -- * Configuration
     Configuration (..),
@@ -190,14 +190,14 @@ module Amazonka.Kafka.Types
     -- * EncryptionInTransit
     EncryptionInTransit (..),
     newEncryptionInTransit,
-    encryptionInTransit_clientBroker,
     encryptionInTransit_inCluster,
+    encryptionInTransit_clientBroker,
 
     -- * EncryptionInfo
     EncryptionInfo (..),
     newEncryptionInfo,
-    encryptionInfo_encryptionAtRest,
     encryptionInfo_encryptionInTransit,
+    encryptionInfo_encryptionAtRest,
 
     -- * ErrorInfo
     ErrorInfo (..),
@@ -240,16 +240,16 @@ module Amazonka.Kafka.Types
     -- * MutableClusterInfo
     MutableClusterInfo (..),
     newMutableClusterInfo,
-    mutableClusterInfo_numberOfBrokerNodes,
-    mutableClusterInfo_enhancedMonitoring,
     mutableClusterInfo_openMonitoring,
-    mutableClusterInfo_configurationInfo,
-    mutableClusterInfo_instanceType,
-    mutableClusterInfo_kafkaVersion,
-    mutableClusterInfo_loggingInfo,
-    mutableClusterInfo_clientAuthentication,
-    mutableClusterInfo_brokerEBSVolumeInfo,
     mutableClusterInfo_encryptionInfo,
+    mutableClusterInfo_numberOfBrokerNodes,
+    mutableClusterInfo_clientAuthentication,
+    mutableClusterInfo_instanceType,
+    mutableClusterInfo_brokerEBSVolumeInfo,
+    mutableClusterInfo_loggingInfo,
+    mutableClusterInfo_configurationInfo,
+    mutableClusterInfo_kafkaVersion,
+    mutableClusterInfo_enhancedMonitoring,
 
     -- * NodeExporter
     NodeExporter (..),
@@ -264,12 +264,12 @@ module Amazonka.Kafka.Types
     -- * NodeInfo
     NodeInfo (..),
     newNodeInfo,
-    nodeInfo_addedToClusterTime,
-    nodeInfo_nodeARN,
-    nodeInfo_zookeeperNodeInfo,
-    nodeInfo_instanceType,
     nodeInfo_brokerNodeInfo,
+    nodeInfo_zookeeperNodeInfo,
     nodeInfo_nodeType,
+    nodeInfo_nodeARN,
+    nodeInfo_instanceType,
+    nodeInfo_addedToClusterTime,
 
     -- * OpenMonitoring
     OpenMonitoring (..),
@@ -296,15 +296,15 @@ module Amazonka.Kafka.Types
     -- * S3
     S3 (..),
     newS3,
-    s3_prefix,
     s3_bucket,
+    s3_prefix,
     s3_enabled,
 
     -- * Sasl
     Sasl (..),
     newSasl,
-    sasl_iam,
     sasl_scram,
+    sasl_iam,
 
     -- * Scram
     Scram (..),
@@ -314,8 +314,8 @@ module Amazonka.Kafka.Types
     -- * StateInfo
     StateInfo (..),
     newStateInfo,
-    stateInfo_code,
     stateInfo_message,
+    stateInfo_code,
 
     -- * StorageInfo
     StorageInfo (..),
@@ -325,8 +325,8 @@ module Amazonka.Kafka.Types
     -- * Tls
     Tls (..),
     newTls,
-    tls_enabled,
     tls_certificateAuthorityArnList,
+    tls_enabled,
 
     -- * Unauthenticated
     Unauthenticated (..),
@@ -336,17 +336,17 @@ module Amazonka.Kafka.Types
     -- * UnprocessedScramSecret
     UnprocessedScramSecret (..),
     newUnprocessedScramSecret,
-    unprocessedScramSecret_errorCode,
     unprocessedScramSecret_errorMessage,
     unprocessedScramSecret_secretArn,
+    unprocessedScramSecret_errorCode,
 
     -- * ZookeeperNodeInfo
     ZookeeperNodeInfo (..),
     newZookeeperNodeInfo,
-    zookeeperNodeInfo_zookeeperVersion,
-    zookeeperNodeInfo_attachedENIId,
     zookeeperNodeInfo_endpoints,
+    zookeeperNodeInfo_zookeeperVersion,
     zookeeperNodeInfo_clientVpcIpAddress,
+    zookeeperNodeInfo_attachedENIId,
     zookeeperNodeInfo_zookeeperId,
   )
 where
@@ -431,35 +431,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -468,61 +441,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Returns information about an error.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | Returns information about an error.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | Returns information about an error.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Returns information about an error.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
-
--- | Returns information about an error.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | Returns information about an error.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
 
 -- | Returns information about an error.
 _UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -533,9 +485,57 @@ _UnauthorizedException =
     Prelude.. Core.hasStatus 401
 
 -- | Returns information about an error.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | Returns information about an error.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | Returns information about an error.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | Returns information about an error.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
+
+-- | Returns information about an error.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | Returns information about an error.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
     "BadRequestException"
     Prelude.. Core.hasStatus 400
+
+-- | Returns information about an error.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429

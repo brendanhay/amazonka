@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobTemplateSummary' smart constructor.
 data JobTemplateSummary = JobTemplateSummary'
-  { -- | The time, in seconds since the epoch, when the job template was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The ARN of the job template.
+    jobTemplateArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the job template.
     jobTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the job template.
-    jobTemplateArn :: Prelude.Maybe Prelude.Text,
     -- | A description of the job template.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The time, in seconds since the epoch, when the job template was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,39 @@ data JobTemplateSummary = JobTemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'jobTemplateSummary_createdAt' - The time, in seconds since the epoch, when the job template was created.
+-- 'jobTemplateArn', 'jobTemplateSummary_jobTemplateArn' - The ARN of the job template.
 --
 -- 'jobTemplateId', 'jobTemplateSummary_jobTemplateId' - The unique identifier of the job template.
 --
--- 'jobTemplateArn', 'jobTemplateSummary_jobTemplateArn' - The ARN of the job template.
---
 -- 'description', 'jobTemplateSummary_description' - A description of the job template.
+--
+-- 'createdAt', 'jobTemplateSummary_createdAt' - The time, in seconds since the epoch, when the job template was created.
 newJobTemplateSummary ::
   JobTemplateSummary
 newJobTemplateSummary =
   JobTemplateSummary'
-    { createdAt = Prelude.Nothing,
+    { jobTemplateArn =
+        Prelude.Nothing,
       jobTemplateId = Prelude.Nothing,
-      jobTemplateArn = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
-
--- | The time, in seconds since the epoch, when the job template was created.
-jobTemplateSummary_createdAt :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.UTCTime)
-jobTemplateSummary_createdAt = Lens.lens (\JobTemplateSummary' {createdAt} -> createdAt) (\s@JobTemplateSummary' {} a -> s {createdAt = a} :: JobTemplateSummary) Prelude.. Lens.mapping Core._Time
-
--- | The unique identifier of the job template.
-jobTemplateSummary_jobTemplateId :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.Text)
-jobTemplateSummary_jobTemplateId = Lens.lens (\JobTemplateSummary' {jobTemplateId} -> jobTemplateId) (\s@JobTemplateSummary' {} a -> s {jobTemplateId = a} :: JobTemplateSummary)
 
 -- | The ARN of the job template.
 jobTemplateSummary_jobTemplateArn :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.Text)
 jobTemplateSummary_jobTemplateArn = Lens.lens (\JobTemplateSummary' {jobTemplateArn} -> jobTemplateArn) (\s@JobTemplateSummary' {} a -> s {jobTemplateArn = a} :: JobTemplateSummary)
 
+-- | The unique identifier of the job template.
+jobTemplateSummary_jobTemplateId :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.Text)
+jobTemplateSummary_jobTemplateId = Lens.lens (\JobTemplateSummary' {jobTemplateId} -> jobTemplateId) (\s@JobTemplateSummary' {} a -> s {jobTemplateId = a} :: JobTemplateSummary)
+
 -- | A description of the job template.
 jobTemplateSummary_description :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.Text)
 jobTemplateSummary_description = Lens.lens (\JobTemplateSummary' {description} -> description) (\s@JobTemplateSummary' {} a -> s {description = a} :: JobTemplateSummary)
+
+-- | The time, in seconds since the epoch, when the job template was created.
+jobTemplateSummary_createdAt :: Lens.Lens' JobTemplateSummary (Prelude.Maybe Prelude.UTCTime)
+jobTemplateSummary_createdAt = Lens.lens (\JobTemplateSummary' {createdAt} -> createdAt) (\s@JobTemplateSummary' {} a -> s {createdAt = a} :: JobTemplateSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON JobTemplateSummary where
   parseJSON =
@@ -85,22 +86,22 @@ instance Core.FromJSON JobTemplateSummary where
       "JobTemplateSummary"
       ( \x ->
           JobTemplateSummary'
-            Prelude.<$> (x Core..:? "createdAt")
+            Prelude.<$> (x Core..:? "jobTemplateArn")
             Prelude.<*> (x Core..:? "jobTemplateId")
-            Prelude.<*> (x Core..:? "jobTemplateArn")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable JobTemplateSummary where
   hashWithSalt _salt JobTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` jobTemplateArn
       `Prelude.hashWithSalt` jobTemplateId
-      `Prelude.hashWithSalt` jobTemplateArn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData JobTemplateSummary where
   rnf JobTemplateSummary' {..} =
-    Prelude.rnf createdAt
+    Prelude.rnf jobTemplateArn
       `Prelude.seq` Prelude.rnf jobTemplateId
-      `Prelude.seq` Prelude.rnf jobTemplateArn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createdAt

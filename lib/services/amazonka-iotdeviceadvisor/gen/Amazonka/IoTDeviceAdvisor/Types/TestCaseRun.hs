@@ -28,24 +28,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTestCaseRun' smart constructor.
 data TestCaseRun = TestCaseRun'
-  { -- | Provides test case run status.
-    status :: Prelude.Maybe Status,
+  { -- | Provides test case run definition Id.
+    testCaseDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Provides test case run log Url.
     logUrl :: Prelude.Maybe Prelude.Text,
-    -- | Provides test case run start time.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | Provides test case run Id.
-    testCaseRunId :: Prelude.Maybe Prelude.Text,
-    -- | Provides test case run warnings.
-    warnings :: Prelude.Maybe Prelude.Text,
+    -- | Provides test case run status.
+    status :: Prelude.Maybe Status,
     -- | Provides test case run end time.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | Provides test case run definition Id.
-    testCaseDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Provides test case run failure result.
     failure :: Prelude.Maybe Prelude.Text,
     -- | Provides test case run definition Name.
-    testCaseDefinitionName :: Prelude.Maybe Prelude.Text
+    testCaseDefinitionName :: Prelude.Maybe Prelude.Text,
+    -- | Provides test case run warnings.
+    warnings :: Prelude.Maybe Prelude.Text,
+    -- | Provides test case run Id.
+    testCaseRunId :: Prelude.Maybe Prelude.Text,
+    -- | Provides test case run start time.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,65 +57,54 @@ data TestCaseRun = TestCaseRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'testCaseRun_status' - Provides test case run status.
+-- 'testCaseDefinitionId', 'testCaseRun_testCaseDefinitionId' - Provides test case run definition Id.
 --
 -- 'logUrl', 'testCaseRun_logUrl' - Provides test case run log Url.
 --
--- 'startTime', 'testCaseRun_startTime' - Provides test case run start time.
---
--- 'testCaseRunId', 'testCaseRun_testCaseRunId' - Provides test case run Id.
---
--- 'warnings', 'testCaseRun_warnings' - Provides test case run warnings.
+-- 'status', 'testCaseRun_status' - Provides test case run status.
 --
 -- 'endTime', 'testCaseRun_endTime' - Provides test case run end time.
---
--- 'testCaseDefinitionId', 'testCaseRun_testCaseDefinitionId' - Provides test case run definition Id.
 --
 -- 'failure', 'testCaseRun_failure' - Provides test case run failure result.
 --
 -- 'testCaseDefinitionName', 'testCaseRun_testCaseDefinitionName' - Provides test case run definition Name.
+--
+-- 'warnings', 'testCaseRun_warnings' - Provides test case run warnings.
+--
+-- 'testCaseRunId', 'testCaseRun_testCaseRunId' - Provides test case run Id.
+--
+-- 'startTime', 'testCaseRun_startTime' - Provides test case run start time.
 newTestCaseRun ::
   TestCaseRun
 newTestCaseRun =
   TestCaseRun'
-    { status = Prelude.Nothing,
+    { testCaseDefinitionId =
+        Prelude.Nothing,
       logUrl = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      testCaseRunId = Prelude.Nothing,
-      warnings = Prelude.Nothing,
+      status = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      testCaseDefinitionId = Prelude.Nothing,
       failure = Prelude.Nothing,
-      testCaseDefinitionName = Prelude.Nothing
+      testCaseDefinitionName = Prelude.Nothing,
+      warnings = Prelude.Nothing,
+      testCaseRunId = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
 
--- | Provides test case run status.
-testCaseRun_status :: Lens.Lens' TestCaseRun (Prelude.Maybe Status)
-testCaseRun_status = Lens.lens (\TestCaseRun' {status} -> status) (\s@TestCaseRun' {} a -> s {status = a} :: TestCaseRun)
+-- | Provides test case run definition Id.
+testCaseRun_testCaseDefinitionId :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
+testCaseRun_testCaseDefinitionId = Lens.lens (\TestCaseRun' {testCaseDefinitionId} -> testCaseDefinitionId) (\s@TestCaseRun' {} a -> s {testCaseDefinitionId = a} :: TestCaseRun)
 
 -- | Provides test case run log Url.
 testCaseRun_logUrl :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
 testCaseRun_logUrl = Lens.lens (\TestCaseRun' {logUrl} -> logUrl) (\s@TestCaseRun' {} a -> s {logUrl = a} :: TestCaseRun)
 
--- | Provides test case run start time.
-testCaseRun_startTime :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.UTCTime)
-testCaseRun_startTime = Lens.lens (\TestCaseRun' {startTime} -> startTime) (\s@TestCaseRun' {} a -> s {startTime = a} :: TestCaseRun) Prelude.. Lens.mapping Core._Time
-
--- | Provides test case run Id.
-testCaseRun_testCaseRunId :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
-testCaseRun_testCaseRunId = Lens.lens (\TestCaseRun' {testCaseRunId} -> testCaseRunId) (\s@TestCaseRun' {} a -> s {testCaseRunId = a} :: TestCaseRun)
-
--- | Provides test case run warnings.
-testCaseRun_warnings :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
-testCaseRun_warnings = Lens.lens (\TestCaseRun' {warnings} -> warnings) (\s@TestCaseRun' {} a -> s {warnings = a} :: TestCaseRun)
+-- | Provides test case run status.
+testCaseRun_status :: Lens.Lens' TestCaseRun (Prelude.Maybe Status)
+testCaseRun_status = Lens.lens (\TestCaseRun' {status} -> status) (\s@TestCaseRun' {} a -> s {status = a} :: TestCaseRun)
 
 -- | Provides test case run end time.
 testCaseRun_endTime :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.UTCTime)
 testCaseRun_endTime = Lens.lens (\TestCaseRun' {endTime} -> endTime) (\s@TestCaseRun' {} a -> s {endTime = a} :: TestCaseRun) Prelude.. Lens.mapping Core._Time
-
--- | Provides test case run definition Id.
-testCaseRun_testCaseDefinitionId :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
-testCaseRun_testCaseDefinitionId = Lens.lens (\TestCaseRun' {testCaseDefinitionId} -> testCaseDefinitionId) (\s@TestCaseRun' {} a -> s {testCaseDefinitionId = a} :: TestCaseRun)
 
 -- | Provides test case run failure result.
 testCaseRun_failure :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
@@ -125,43 +114,55 @@ testCaseRun_failure = Lens.lens (\TestCaseRun' {failure} -> failure) (\s@TestCas
 testCaseRun_testCaseDefinitionName :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
 testCaseRun_testCaseDefinitionName = Lens.lens (\TestCaseRun' {testCaseDefinitionName} -> testCaseDefinitionName) (\s@TestCaseRun' {} a -> s {testCaseDefinitionName = a} :: TestCaseRun)
 
+-- | Provides test case run warnings.
+testCaseRun_warnings :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
+testCaseRun_warnings = Lens.lens (\TestCaseRun' {warnings} -> warnings) (\s@TestCaseRun' {} a -> s {warnings = a} :: TestCaseRun)
+
+-- | Provides test case run Id.
+testCaseRun_testCaseRunId :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.Text)
+testCaseRun_testCaseRunId = Lens.lens (\TestCaseRun' {testCaseRunId} -> testCaseRunId) (\s@TestCaseRun' {} a -> s {testCaseRunId = a} :: TestCaseRun)
+
+-- | Provides test case run start time.
+testCaseRun_startTime :: Lens.Lens' TestCaseRun (Prelude.Maybe Prelude.UTCTime)
+testCaseRun_startTime = Lens.lens (\TestCaseRun' {startTime} -> startTime) (\s@TestCaseRun' {} a -> s {startTime = a} :: TestCaseRun) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON TestCaseRun where
   parseJSON =
     Core.withObject
       "TestCaseRun"
       ( \x ->
           TestCaseRun'
-            Prelude.<$> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "testCaseDefinitionId")
             Prelude.<*> (x Core..:? "logUrl")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "testCaseRunId")
-            Prelude.<*> (x Core..:? "warnings")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "testCaseDefinitionId")
             Prelude.<*> (x Core..:? "failure")
             Prelude.<*> (x Core..:? "testCaseDefinitionName")
+            Prelude.<*> (x Core..:? "warnings")
+            Prelude.<*> (x Core..:? "testCaseRunId")
+            Prelude.<*> (x Core..:? "startTime")
       )
 
 instance Prelude.Hashable TestCaseRun where
   hashWithSalt _salt TestCaseRun' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` testCaseDefinitionId
       `Prelude.hashWithSalt` logUrl
-      `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` testCaseRunId
-      `Prelude.hashWithSalt` warnings
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` testCaseDefinitionId
       `Prelude.hashWithSalt` failure
       `Prelude.hashWithSalt` testCaseDefinitionName
+      `Prelude.hashWithSalt` warnings
+      `Prelude.hashWithSalt` testCaseRunId
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TestCaseRun where
   rnf TestCaseRun' {..} =
-    Prelude.rnf status
+    Prelude.rnf testCaseDefinitionId
       `Prelude.seq` Prelude.rnf logUrl
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf testCaseRunId
-      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf testCaseDefinitionId
       `Prelude.seq` Prelude.rnf failure
       `Prelude.seq` Prelude.rnf testCaseDefinitionName
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf testCaseRunId
+      `Prelude.seq` Prelude.rnf startTime

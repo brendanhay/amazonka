@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigurationProfileSummary' smart constructor.
 data ConfigurationProfileSummary = ConfigurationProfileSummary'
-  { -- | The URI location of the configuration.
-    locationUri :: Prelude.Maybe Prelude.Text,
-    -- | The application ID.
-    applicationId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration profile.
+  { -- | The name of the configuration profile.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The types of validators in the configuration profile.
+    validatorTypes :: Prelude.Maybe [ValidatorType],
     -- | The ID of the configuration profile.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The types of validators in the configuration profile.
-    validatorTypes :: Prelude.Maybe [ValidatorType]
+    -- | The URI location of the configuration.
+    locationUri :: Prelude.Maybe Prelude.Text,
+    -- | The application ID.
+    applicationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,38 @@ data ConfigurationProfileSummary = ConfigurationProfileSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'locationUri', 'configurationProfileSummary_locationUri' - The URI location of the configuration.
---
--- 'applicationId', 'configurationProfileSummary_applicationId' - The application ID.
---
 -- 'name', 'configurationProfileSummary_name' - The name of the configuration profile.
+--
+-- 'validatorTypes', 'configurationProfileSummary_validatorTypes' - The types of validators in the configuration profile.
 --
 -- 'id', 'configurationProfileSummary_id' - The ID of the configuration profile.
 --
--- 'validatorTypes', 'configurationProfileSummary_validatorTypes' - The types of validators in the configuration profile.
+-- 'locationUri', 'configurationProfileSummary_locationUri' - The URI location of the configuration.
+--
+-- 'applicationId', 'configurationProfileSummary_applicationId' - The application ID.
 newConfigurationProfileSummary ::
   ConfigurationProfileSummary
 newConfigurationProfileSummary =
   ConfigurationProfileSummary'
-    { locationUri =
+    { name =
         Prelude.Nothing,
-      applicationId = Prelude.Nothing,
-      name = Prelude.Nothing,
+      validatorTypes = Prelude.Nothing,
       id = Prelude.Nothing,
-      validatorTypes = Prelude.Nothing
+      locationUri = Prelude.Nothing,
+      applicationId = Prelude.Nothing
     }
+
+-- | The name of the configuration profile.
+configurationProfileSummary_name :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
+configurationProfileSummary_name = Lens.lens (\ConfigurationProfileSummary' {name} -> name) (\s@ConfigurationProfileSummary' {} a -> s {name = a} :: ConfigurationProfileSummary)
+
+-- | The types of validators in the configuration profile.
+configurationProfileSummary_validatorTypes :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe [ValidatorType])
+configurationProfileSummary_validatorTypes = Lens.lens (\ConfigurationProfileSummary' {validatorTypes} -> validatorTypes) (\s@ConfigurationProfileSummary' {} a -> s {validatorTypes = a} :: ConfigurationProfileSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the configuration profile.
+configurationProfileSummary_id :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
+configurationProfileSummary_id = Lens.lens (\ConfigurationProfileSummary' {id} -> id) (\s@ConfigurationProfileSummary' {} a -> s {id = a} :: ConfigurationProfileSummary)
 
 -- | The URI location of the configuration.
 configurationProfileSummary_locationUri :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
@@ -78,45 +90,31 @@ configurationProfileSummary_locationUri = Lens.lens (\ConfigurationProfileSummar
 configurationProfileSummary_applicationId :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
 configurationProfileSummary_applicationId = Lens.lens (\ConfigurationProfileSummary' {applicationId} -> applicationId) (\s@ConfigurationProfileSummary' {} a -> s {applicationId = a} :: ConfigurationProfileSummary)
 
--- | The name of the configuration profile.
-configurationProfileSummary_name :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
-configurationProfileSummary_name = Lens.lens (\ConfigurationProfileSummary' {name} -> name) (\s@ConfigurationProfileSummary' {} a -> s {name = a} :: ConfigurationProfileSummary)
-
--- | The ID of the configuration profile.
-configurationProfileSummary_id :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
-configurationProfileSummary_id = Lens.lens (\ConfigurationProfileSummary' {id} -> id) (\s@ConfigurationProfileSummary' {} a -> s {id = a} :: ConfigurationProfileSummary)
-
--- | The types of validators in the configuration profile.
-configurationProfileSummary_validatorTypes :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe [ValidatorType])
-configurationProfileSummary_validatorTypes = Lens.lens (\ConfigurationProfileSummary' {validatorTypes} -> validatorTypes) (\s@ConfigurationProfileSummary' {} a -> s {validatorTypes = a} :: ConfigurationProfileSummary) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON ConfigurationProfileSummary where
   parseJSON =
     Core.withObject
       "ConfigurationProfileSummary"
       ( \x ->
           ConfigurationProfileSummary'
-            Prelude.<$> (x Core..:? "LocationUri")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ValidatorTypes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> ( x Core..:? "ValidatorTypes"
-                            Core..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Core..:? "LocationUri")
+            Prelude.<*> (x Core..:? "ApplicationId")
       )
 
 instance Prelude.Hashable ConfigurationProfileSummary where
   hashWithSalt _salt ConfigurationProfileSummary' {..} =
-    _salt `Prelude.hashWithSalt` locationUri
-      `Prelude.hashWithSalt` applicationId
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` validatorTypes
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` locationUri
+      `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ConfigurationProfileSummary where
   rnf ConfigurationProfileSummary' {..} =
-    Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf validatorTypes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf applicationId

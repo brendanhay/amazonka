@@ -29,8 +29,8 @@ module Amazonka.Mobile.ExportBundle
     newExportBundle,
 
     -- * Request Lenses
-    exportBundle_platform,
     exportBundle_projectId,
+    exportBundle_platform,
     exportBundle_bundleId,
 
     -- * Destructuring the Response
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newExportBundle' smart constructor.
 data ExportBundle = ExportBundle'
-  { -- | Developer desktop or target application platform.
-    platform :: Prelude.Maybe Platform,
-    -- | Unique project identifier.
+  { -- | Unique project identifier.
     projectId :: Prelude.Maybe Prelude.Text,
+    -- | Developer desktop or target application platform.
+    platform :: Prelude.Maybe Platform,
     -- | Unique bundle identifier.
     bundleId :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data ExportBundle = ExportBundle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'platform', 'exportBundle_platform' - Developer desktop or target application platform.
---
 -- 'projectId', 'exportBundle_projectId' - Unique project identifier.
+--
+-- 'platform', 'exportBundle_platform' - Developer desktop or target application platform.
 --
 -- 'bundleId', 'exportBundle_bundleId' - Unique bundle identifier.
 newExportBundle ::
@@ -84,18 +84,18 @@ newExportBundle ::
   ExportBundle
 newExportBundle pBundleId_ =
   ExportBundle'
-    { platform = Prelude.Nothing,
-      projectId = Prelude.Nothing,
+    { projectId = Prelude.Nothing,
+      platform = Prelude.Nothing,
       bundleId = pBundleId_
     }
-
--- | Developer desktop or target application platform.
-exportBundle_platform :: Lens.Lens' ExportBundle (Prelude.Maybe Platform)
-exportBundle_platform = Lens.lens (\ExportBundle' {platform} -> platform) (\s@ExportBundle' {} a -> s {platform = a} :: ExportBundle)
 
 -- | Unique project identifier.
 exportBundle_projectId :: Lens.Lens' ExportBundle (Prelude.Maybe Prelude.Text)
 exportBundle_projectId = Lens.lens (\ExportBundle' {projectId} -> projectId) (\s@ExportBundle' {} a -> s {projectId = a} :: ExportBundle)
+
+-- | Developer desktop or target application platform.
+exportBundle_platform :: Lens.Lens' ExportBundle (Prelude.Maybe Platform)
+exportBundle_platform = Lens.lens (\ExportBundle' {platform} -> platform) (\s@ExportBundle' {} a -> s {platform = a} :: ExportBundle)
 
 -- | Unique bundle identifier.
 exportBundle_bundleId :: Lens.Lens' ExportBundle Prelude.Text
@@ -114,14 +114,14 @@ instance Core.AWSRequest ExportBundle where
 
 instance Prelude.Hashable ExportBundle where
   hashWithSalt _salt ExportBundle' {..} =
-    _salt `Prelude.hashWithSalt` platform
-      `Prelude.hashWithSalt` projectId
+    _salt `Prelude.hashWithSalt` projectId
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` bundleId
 
 instance Prelude.NFData ExportBundle where
   rnf ExportBundle' {..} =
-    Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf projectId
+    Prelude.rnf projectId
+      `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf bundleId
 
 instance Core.ToHeaders ExportBundle where
@@ -145,8 +145,8 @@ instance Core.ToPath ExportBundle where
 instance Core.ToQuery ExportBundle where
   toQuery ExportBundle' {..} =
     Prelude.mconcat
-      [ "platform" Core.=: platform,
-        "projectId" Core.=: projectId
+      [ "projectId" Core.=: projectId,
+        "platform" Core.=: platform
       ]
 
 -- | Result structure which contains link to download custom-generated SDK

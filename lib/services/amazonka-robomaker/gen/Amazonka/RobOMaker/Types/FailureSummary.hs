@@ -28,10 +28,10 @@ import Amazonka.RobOMaker.Types.WorldFailure
 --
 -- /See:/ 'newFailureSummary' smart constructor.
 data FailureSummary = FailureSummary'
-  { -- | The worlds that failed.
-    failures :: Prelude.Maybe [WorldFailure],
-    -- | The total number of failures.
-    totalFailureCount :: Prelude.Maybe Prelude.Int
+  { -- | The total number of failures.
+    totalFailureCount :: Prelude.Maybe Prelude.Int,
+    -- | The worlds that failed.
+    failures :: Prelude.Maybe [WorldFailure]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data FailureSummary = FailureSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failures', 'failureSummary_failures' - The worlds that failed.
---
 -- 'totalFailureCount', 'failureSummary_totalFailureCount' - The total number of failures.
+--
+-- 'failures', 'failureSummary_failures' - The worlds that failed.
 newFailureSummary ::
   FailureSummary
 newFailureSummary =
   FailureSummary'
-    { failures = Prelude.Nothing,
-      totalFailureCount = Prelude.Nothing
+    { totalFailureCount =
+        Prelude.Nothing,
+      failures = Prelude.Nothing
     }
-
--- | The worlds that failed.
-failureSummary_failures :: Lens.Lens' FailureSummary (Prelude.Maybe [WorldFailure])
-failureSummary_failures = Lens.lens (\FailureSummary' {failures} -> failures) (\s@FailureSummary' {} a -> s {failures = a} :: FailureSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of failures.
 failureSummary_totalFailureCount :: Lens.Lens' FailureSummary (Prelude.Maybe Prelude.Int)
 failureSummary_totalFailureCount = Lens.lens (\FailureSummary' {totalFailureCount} -> totalFailureCount) (\s@FailureSummary' {} a -> s {totalFailureCount = a} :: FailureSummary)
+
+-- | The worlds that failed.
+failureSummary_failures :: Lens.Lens' FailureSummary (Prelude.Maybe [WorldFailure])
+failureSummary_failures = Lens.lens (\FailureSummary' {failures} -> failures) (\s@FailureSummary' {} a -> s {failures = a} :: FailureSummary) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON FailureSummary where
   parseJSON =
@@ -68,16 +69,16 @@ instance Core.FromJSON FailureSummary where
       "FailureSummary"
       ( \x ->
           FailureSummary'
-            Prelude.<$> (x Core..:? "failures" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "totalFailureCount")
+            Prelude.<$> (x Core..:? "totalFailureCount")
+            Prelude.<*> (x Core..:? "failures" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FailureSummary where
   hashWithSalt _salt FailureSummary' {..} =
-    _salt `Prelude.hashWithSalt` failures
-      `Prelude.hashWithSalt` totalFailureCount
+    _salt `Prelude.hashWithSalt` totalFailureCount
+      `Prelude.hashWithSalt` failures
 
 instance Prelude.NFData FailureSummary where
   rnf FailureSummary' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf totalFailureCount
+    Prelude.rnf totalFailureCount
+      `Prelude.seq` Prelude.rnf failures

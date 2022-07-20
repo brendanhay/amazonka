@@ -34,11 +34,11 @@ data DestinationBackup = DestinationBackup'
     -- | The AWS region that contains the source backup from which the new backup
     -- was copied.
     sourceRegion :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when both the source backup was created.
+    createTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The identifier (ID) of the source backup from which the new backup was
     -- copied.
-    sourceBackup :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when both the source backup was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX
+    sourceBackup :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,18 +56,18 @@ data DestinationBackup = DestinationBackup'
 -- 'sourceRegion', 'destinationBackup_sourceRegion' - The AWS region that contains the source backup from which the new backup
 -- was copied.
 --
+-- 'createTimestamp', 'destinationBackup_createTimestamp' - The date and time when both the source backup was created.
+--
 -- 'sourceBackup', 'destinationBackup_sourceBackup' - The identifier (ID) of the source backup from which the new backup was
 -- copied.
---
--- 'createTimestamp', 'destinationBackup_createTimestamp' - The date and time when both the source backup was created.
 newDestinationBackup ::
   DestinationBackup
 newDestinationBackup =
   DestinationBackup'
     { sourceCluster = Prelude.Nothing,
       sourceRegion = Prelude.Nothing,
-      sourceBackup = Prelude.Nothing,
-      createTimestamp = Prelude.Nothing
+      createTimestamp = Prelude.Nothing,
+      sourceBackup = Prelude.Nothing
     }
 
 -- | The identifier (ID) of the cluster containing the source backup from
@@ -80,14 +80,14 @@ destinationBackup_sourceCluster = Lens.lens (\DestinationBackup' {sourceCluster}
 destinationBackup_sourceRegion :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.Text)
 destinationBackup_sourceRegion = Lens.lens (\DestinationBackup' {sourceRegion} -> sourceRegion) (\s@DestinationBackup' {} a -> s {sourceRegion = a} :: DestinationBackup)
 
+-- | The date and time when both the source backup was created.
+destinationBackup_createTimestamp :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.UTCTime)
+destinationBackup_createTimestamp = Lens.lens (\DestinationBackup' {createTimestamp} -> createTimestamp) (\s@DestinationBackup' {} a -> s {createTimestamp = a} :: DestinationBackup) Prelude.. Lens.mapping Core._Time
+
 -- | The identifier (ID) of the source backup from which the new backup was
 -- copied.
 destinationBackup_sourceBackup :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.Text)
 destinationBackup_sourceBackup = Lens.lens (\DestinationBackup' {sourceBackup} -> sourceBackup) (\s@DestinationBackup' {} a -> s {sourceBackup = a} :: DestinationBackup)
-
--- | The date and time when both the source backup was created.
-destinationBackup_createTimestamp :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.UTCTime)
-destinationBackup_createTimestamp = Lens.lens (\DestinationBackup' {createTimestamp} -> createTimestamp) (\s@DestinationBackup' {} a -> s {createTimestamp = a} :: DestinationBackup) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON DestinationBackup where
   parseJSON =
@@ -97,20 +97,20 @@ instance Core.FromJSON DestinationBackup where
           DestinationBackup'
             Prelude.<$> (x Core..:? "SourceCluster")
             Prelude.<*> (x Core..:? "SourceRegion")
-            Prelude.<*> (x Core..:? "SourceBackup")
             Prelude.<*> (x Core..:? "CreateTimestamp")
+            Prelude.<*> (x Core..:? "SourceBackup")
       )
 
 instance Prelude.Hashable DestinationBackup where
   hashWithSalt _salt DestinationBackup' {..} =
     _salt `Prelude.hashWithSalt` sourceCluster
       `Prelude.hashWithSalt` sourceRegion
-      `Prelude.hashWithSalt` sourceBackup
       `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` sourceBackup
 
 instance Prelude.NFData DestinationBackup where
   rnf DestinationBackup' {..} =
     Prelude.rnf sourceCluster
       `Prelude.seq` Prelude.rnf sourceRegion
-      `Prelude.seq` Prelude.rnf sourceBackup
       `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf sourceBackup

@@ -38,27 +38,25 @@ import Amazonka.Transfer.Types.WorkflowDetails
 --
 -- /See:/ 'newDescribedServer' smart constructor.
 data DescribedServer = DescribedServer'
-  { -- | The protocol settings that are configured for your server.
+  { -- | Specifies the key-value pairs that you can use to search for and group
+    -- servers that were assigned to the server that was described.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Specifies the number of users that are assigned to a server you
+    -- specified with the @ServerId@.
+    userCount :: Prelude.Maybe Prelude.Int,
+    -- | The protocol settings that are configured for your server.
     --
     -- Use the @PassiveIp@ parameter to indicate passive mode. Enter a single
     -- dotted-quad IPv4 address, such as the external IP address of a firewall,
     -- router, or load balancer.
     protocolDetails :: Prelude.Maybe ProtocolDetails,
-    -- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
-    -- Identity and Access Management (IAM) role that allows a server to turn
-    -- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
-    -- set, user activity can be viewed in your CloudWatch logs.
-    loggingRole :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the condition of a server for the server that was described. A
-    -- value of @ONLINE@ indicates that the server can accept jobs and transfer
-    -- files. A @State@ value of @OFFLINE@ means that the server cannot perform
-    -- file transfer operations.
-    --
-    -- The states of @STARTING@ and @STOPPING@ indicate that the server is in
-    -- an intermediate state, either not fully able to respond, or not fully
-    -- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an
-    -- error condition.
-    state :: Prelude.Maybe State,
+    -- | Specifies information to call a customer-supplied authentication API.
+    -- This field is not populated when the @IdentityProviderType@ of a server
+    -- is @AWS_DIRECTORY_SERVICE@ or @SERVICE_MANAGED@.
+    identityProviderDetails :: Prelude.Maybe IdentityProviderDetails,
+    -- | Specifies the domain of the storage system that is used for file
+    -- transfers.
+    domain :: Prelude.Maybe Domain,
     -- | Specifies the mode of authentication for a server. The default value is
     -- @SERVICE_MANAGED@, which allows you to store and access user credentials
     -- within the Amazon Web Services Transfer Family service.
@@ -74,6 +72,29 @@ data DescribedServer = DescribedServer'
     -- Gateway endpoint URL to call for authentication using the
     -- @IdentityProviderDetails@ parameter.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
+    -- | Specifies the name of the security policy that is attached to the
+    -- server.
+    securityPolicyName :: Prelude.Maybe Prelude.Text,
+    -- | The virtual private cloud (VPC) endpoint settings that are configured
+    -- for your server. When you host your endpoint within your VPC, you can
+    -- make it accessible only to resources within your VPC, or you can attach
+    -- Elastic IP addresses and make it accessible to clients over the
+    -- internet. Your VPC\'s default security groups are automatically assigned
+    -- to your endpoint.
+    endpointDetails :: Prelude.Maybe EndpointDetails,
+    -- | Specifies the condition of a server for the server that was described. A
+    -- value of @ONLINE@ indicates that the server can accept jobs and transfer
+    -- files. A @State@ value of @OFFLINE@ means that the server cannot perform
+    -- file transfer operations.
+    --
+    -- The states of @STARTING@ and @STOPPING@ indicate that the server is in
+    -- an intermediate state, either not fully able to respond, or not fully
+    -- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an
+    -- error condition.
+    state :: Prelude.Maybe State,
+    -- | Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM)
+    -- certificate. Required when @Protocols@ is set to @FTPS@.
+    certificate :: Prelude.Maybe Prelude.Text,
     -- | Specifies the file transfer protocol or protocols over which your file
     -- transfer protocol client can connect to your server\'s endpoint. The
     -- available protocols are:
@@ -86,46 +107,25 @@ data DescribedServer = DescribedServer'
     --
     -- -   @FTP@ (File Transfer Protocol): Unencrypted file transfer
     protocols :: Prelude.Maybe (Prelude.NonEmpty Protocol),
-    -- | Specifies the unique system-assigned identifier for a server that you
-    -- instantiate.
-    serverId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the domain of the storage system that is used for file
-    -- transfers.
-    domain :: Prelude.Maybe Domain,
     -- | Defines the type of endpoint that your server is connected to. If your
     -- server is connected to a VPC endpoint, your server isn\'t accessible
     -- over the public internet.
     endpointType :: Prelude.Maybe EndpointType,
-    -- | Specifies the name of the security policy that is attached to the
-    -- server.
-    securityPolicyName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Base64-encoded SHA256 fingerprint of the server\'s host
     -- key. This value is equivalent to the output of the
     -- @ssh-keygen -l -f my-new-server-key@ command.
     hostKeyFingerprint :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of users that are assigned to a server you
-    -- specified with the @ServerId@.
-    userCount :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM)
-    -- certificate. Required when @Protocols@ is set to @FTPS@.
-    certificate :: Prelude.Maybe Prelude.Text,
-    -- | Specifies information to call a customer-supplied authentication API.
-    -- This field is not populated when the @IdentityProviderType@ of a server
-    -- is @AWS_DIRECTORY_SERVICE@ or @SERVICE_MANAGED@.
-    identityProviderDetails :: Prelude.Maybe IdentityProviderDetails,
+    -- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
+    -- Identity and Access Management (IAM) role that allows a server to turn
+    -- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
+    -- set, user activity can be viewed in your CloudWatch logs.
+    loggingRole :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the unique system-assigned identifier for a server that you
+    -- instantiate.
+    serverId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role used for executing the workflow.
     workflowDetails :: Prelude.Maybe WorkflowDetails,
-    -- | Specifies the key-value pairs that you can use to search for and group
-    -- servers that were assigned to the server that was described.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The virtual private cloud (VPC) endpoint settings that are configured
-    -- for your server. When you host your endpoint within your VPC, you can
-    -- make it accessible only to resources within your VPC, or you can attach
-    -- Elastic IP addresses and make it accessible to clients over the
-    -- internet. Your VPC\'s default security groups are automatically assigned
-    -- to your endpoint.
-    endpointDetails :: Prelude.Maybe EndpointDetails,
     -- | Specifies the unique Amazon Resource Name (ARN) of the server.
     arn :: Prelude.Text
   }
@@ -139,26 +139,24 @@ data DescribedServer = DescribedServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'describedServer_tags' - Specifies the key-value pairs that you can use to search for and group
+-- servers that were assigned to the server that was described.
+--
+-- 'userCount', 'describedServer_userCount' - Specifies the number of users that are assigned to a server you
+-- specified with the @ServerId@.
+--
 -- 'protocolDetails', 'describedServer_protocolDetails' - The protocol settings that are configured for your server.
 --
 -- Use the @PassiveIp@ parameter to indicate passive mode. Enter a single
 -- dotted-quad IPv4 address, such as the external IP address of a firewall,
 -- router, or load balancer.
 --
--- 'loggingRole', 'describedServer_loggingRole' - Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
--- Identity and Access Management (IAM) role that allows a server to turn
--- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
--- set, user activity can be viewed in your CloudWatch logs.
+-- 'identityProviderDetails', 'describedServer_identityProviderDetails' - Specifies information to call a customer-supplied authentication API.
+-- This field is not populated when the @IdentityProviderType@ of a server
+-- is @AWS_DIRECTORY_SERVICE@ or @SERVICE_MANAGED@.
 --
--- 'state', 'describedServer_state' - Specifies the condition of a server for the server that was described. A
--- value of @ONLINE@ indicates that the server can accept jobs and transfer
--- files. A @State@ value of @OFFLINE@ means that the server cannot perform
--- file transfer operations.
---
--- The states of @STARTING@ and @STOPPING@ indicate that the server is in
--- an intermediate state, either not fully able to respond, or not fully
--- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an
--- error condition.
+-- 'domain', 'describedServer_domain' - Specifies the domain of the storage system that is used for file
+-- transfers.
 --
 -- 'identityProviderType', 'describedServer_identityProviderType' - Specifies the mode of authentication for a server. The default value is
 -- @SERVICE_MANAGED@, which allows you to store and access user credentials
@@ -175,6 +173,29 @@ data DescribedServer = DescribedServer'
 -- Gateway endpoint URL to call for authentication using the
 -- @IdentityProviderDetails@ parameter.
 --
+-- 'securityPolicyName', 'describedServer_securityPolicyName' - Specifies the name of the security policy that is attached to the
+-- server.
+--
+-- 'endpointDetails', 'describedServer_endpointDetails' - The virtual private cloud (VPC) endpoint settings that are configured
+-- for your server. When you host your endpoint within your VPC, you can
+-- make it accessible only to resources within your VPC, or you can attach
+-- Elastic IP addresses and make it accessible to clients over the
+-- internet. Your VPC\'s default security groups are automatically assigned
+-- to your endpoint.
+--
+-- 'state', 'describedServer_state' - Specifies the condition of a server for the server that was described. A
+-- value of @ONLINE@ indicates that the server can accept jobs and transfer
+-- files. A @State@ value of @OFFLINE@ means that the server cannot perform
+-- file transfer operations.
+--
+-- The states of @STARTING@ and @STOPPING@ indicate that the server is in
+-- an intermediate state, either not fully able to respond, or not fully
+-- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an
+-- error condition.
+--
+-- 'certificate', 'describedServer_certificate' - Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM)
+-- certificate. Required when @Protocols@ is set to @FTPS@.
+--
 -- 'protocols', 'describedServer_protocols' - Specifies the file transfer protocol or protocols over which your file
 -- transfer protocol client can connect to your server\'s endpoint. The
 -- available protocols are:
@@ -187,45 +208,24 @@ data DescribedServer = DescribedServer'
 --
 -- -   @FTP@ (File Transfer Protocol): Unencrypted file transfer
 --
--- 'serverId', 'describedServer_serverId' - Specifies the unique system-assigned identifier for a server that you
--- instantiate.
---
--- 'domain', 'describedServer_domain' - Specifies the domain of the storage system that is used for file
--- transfers.
---
 -- 'endpointType', 'describedServer_endpointType' - Defines the type of endpoint that your server is connected to. If your
 -- server is connected to a VPC endpoint, your server isn\'t accessible
 -- over the public internet.
---
--- 'securityPolicyName', 'describedServer_securityPolicyName' - Specifies the name of the security policy that is attached to the
--- server.
 --
 -- 'hostKeyFingerprint', 'describedServer_hostKeyFingerprint' - Specifies the Base64-encoded SHA256 fingerprint of the server\'s host
 -- key. This value is equivalent to the output of the
 -- @ssh-keygen -l -f my-new-server-key@ command.
 --
--- 'userCount', 'describedServer_userCount' - Specifies the number of users that are assigned to a server you
--- specified with the @ServerId@.
+-- 'loggingRole', 'describedServer_loggingRole' - Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
+-- Identity and Access Management (IAM) role that allows a server to turn
+-- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
+-- set, user activity can be viewed in your CloudWatch logs.
 --
--- 'certificate', 'describedServer_certificate' - Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM)
--- certificate. Required when @Protocols@ is set to @FTPS@.
---
--- 'identityProviderDetails', 'describedServer_identityProviderDetails' - Specifies information to call a customer-supplied authentication API.
--- This field is not populated when the @IdentityProviderType@ of a server
--- is @AWS_DIRECTORY_SERVICE@ or @SERVICE_MANAGED@.
+-- 'serverId', 'describedServer_serverId' - Specifies the unique system-assigned identifier for a server that you
+-- instantiate.
 --
 -- 'workflowDetails', 'describedServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role used for executing the workflow.
---
--- 'tags', 'describedServer_tags' - Specifies the key-value pairs that you can use to search for and group
--- servers that were assigned to the server that was described.
---
--- 'endpointDetails', 'describedServer_endpointDetails' - The virtual private cloud (VPC) endpoint settings that are configured
--- for your server. When you host your endpoint within your VPC, you can
--- make it accessible only to resources within your VPC, or you can attach
--- Elastic IP addresses and make it accessible to clients over the
--- internet. Your VPC\'s default security groups are automatically assigned
--- to your endpoint.
 --
 -- 'arn', 'describedServer_arn' - Specifies the unique Amazon Resource Name (ARN) of the server.
 newDescribedServer ::
@@ -234,24 +234,34 @@ newDescribedServer ::
   DescribedServer
 newDescribedServer pArn_ =
   DescribedServer'
-    { protocolDetails = Prelude.Nothing,
-      loggingRole = Prelude.Nothing,
-      state = Prelude.Nothing,
-      identityProviderType = Prelude.Nothing,
-      protocols = Prelude.Nothing,
-      serverId = Prelude.Nothing,
-      domain = Prelude.Nothing,
-      endpointType = Prelude.Nothing,
-      securityPolicyName = Prelude.Nothing,
-      hostKeyFingerprint = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       userCount = Prelude.Nothing,
-      certificate = Prelude.Nothing,
+      protocolDetails = Prelude.Nothing,
       identityProviderDetails = Prelude.Nothing,
-      workflowDetails = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      identityProviderType = Prelude.Nothing,
+      securityPolicyName = Prelude.Nothing,
       endpointDetails = Prelude.Nothing,
+      state = Prelude.Nothing,
+      certificate = Prelude.Nothing,
+      protocols = Prelude.Nothing,
+      endpointType = Prelude.Nothing,
+      hostKeyFingerprint = Prelude.Nothing,
+      loggingRole = Prelude.Nothing,
+      serverId = Prelude.Nothing,
+      workflowDetails = Prelude.Nothing,
       arn = pArn_
     }
+
+-- | Specifies the key-value pairs that you can use to search for and group
+-- servers that were assigned to the server that was described.
+describedServer_tags :: Lens.Lens' DescribedServer (Prelude.Maybe (Prelude.NonEmpty Tag))
+describedServer_tags = Lens.lens (\DescribedServer' {tags} -> tags) (\s@DescribedServer' {} a -> s {tags = a} :: DescribedServer) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the number of users that are assigned to a server you
+-- specified with the @ServerId@.
+describedServer_userCount :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Int)
+describedServer_userCount = Lens.lens (\DescribedServer' {userCount} -> userCount) (\s@DescribedServer' {} a -> s {userCount = a} :: DescribedServer)
 
 -- | The protocol settings that are configured for your server.
 --
@@ -261,24 +271,16 @@ newDescribedServer pArn_ =
 describedServer_protocolDetails :: Lens.Lens' DescribedServer (Prelude.Maybe ProtocolDetails)
 describedServer_protocolDetails = Lens.lens (\DescribedServer' {protocolDetails} -> protocolDetails) (\s@DescribedServer' {} a -> s {protocolDetails = a} :: DescribedServer)
 
--- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
--- Identity and Access Management (IAM) role that allows a server to turn
--- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
--- set, user activity can be viewed in your CloudWatch logs.
-describedServer_loggingRole :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
-describedServer_loggingRole = Lens.lens (\DescribedServer' {loggingRole} -> loggingRole) (\s@DescribedServer' {} a -> s {loggingRole = a} :: DescribedServer)
+-- | Specifies information to call a customer-supplied authentication API.
+-- This field is not populated when the @IdentityProviderType@ of a server
+-- is @AWS_DIRECTORY_SERVICE@ or @SERVICE_MANAGED@.
+describedServer_identityProviderDetails :: Lens.Lens' DescribedServer (Prelude.Maybe IdentityProviderDetails)
+describedServer_identityProviderDetails = Lens.lens (\DescribedServer' {identityProviderDetails} -> identityProviderDetails) (\s@DescribedServer' {} a -> s {identityProviderDetails = a} :: DescribedServer)
 
--- | Specifies the condition of a server for the server that was described. A
--- value of @ONLINE@ indicates that the server can accept jobs and transfer
--- files. A @State@ value of @OFFLINE@ means that the server cannot perform
--- file transfer operations.
---
--- The states of @STARTING@ and @STOPPING@ indicate that the server is in
--- an intermediate state, either not fully able to respond, or not fully
--- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an
--- error condition.
-describedServer_state :: Lens.Lens' DescribedServer (Prelude.Maybe State)
-describedServer_state = Lens.lens (\DescribedServer' {state} -> state) (\s@DescribedServer' {} a -> s {state = a} :: DescribedServer)
+-- | Specifies the domain of the storage system that is used for file
+-- transfers.
+describedServer_domain :: Lens.Lens' DescribedServer (Prelude.Maybe Domain)
+describedServer_domain = Lens.lens (\DescribedServer' {domain} -> domain) (\s@DescribedServer' {} a -> s {domain = a} :: DescribedServer)
 
 -- | Specifies the mode of authentication for a server. The default value is
 -- @SERVICE_MANAGED@, which allows you to store and access user credentials
@@ -297,6 +299,37 @@ describedServer_state = Lens.lens (\DescribedServer' {state} -> state) (\s@Descr
 describedServer_identityProviderType :: Lens.Lens' DescribedServer (Prelude.Maybe IdentityProviderType)
 describedServer_identityProviderType = Lens.lens (\DescribedServer' {identityProviderType} -> identityProviderType) (\s@DescribedServer' {} a -> s {identityProviderType = a} :: DescribedServer)
 
+-- | Specifies the name of the security policy that is attached to the
+-- server.
+describedServer_securityPolicyName :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
+describedServer_securityPolicyName = Lens.lens (\DescribedServer' {securityPolicyName} -> securityPolicyName) (\s@DescribedServer' {} a -> s {securityPolicyName = a} :: DescribedServer)
+
+-- | The virtual private cloud (VPC) endpoint settings that are configured
+-- for your server. When you host your endpoint within your VPC, you can
+-- make it accessible only to resources within your VPC, or you can attach
+-- Elastic IP addresses and make it accessible to clients over the
+-- internet. Your VPC\'s default security groups are automatically assigned
+-- to your endpoint.
+describedServer_endpointDetails :: Lens.Lens' DescribedServer (Prelude.Maybe EndpointDetails)
+describedServer_endpointDetails = Lens.lens (\DescribedServer' {endpointDetails} -> endpointDetails) (\s@DescribedServer' {} a -> s {endpointDetails = a} :: DescribedServer)
+
+-- | Specifies the condition of a server for the server that was described. A
+-- value of @ONLINE@ indicates that the server can accept jobs and transfer
+-- files. A @State@ value of @OFFLINE@ means that the server cannot perform
+-- file transfer operations.
+--
+-- The states of @STARTING@ and @STOPPING@ indicate that the server is in
+-- an intermediate state, either not fully able to respond, or not fully
+-- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an
+-- error condition.
+describedServer_state :: Lens.Lens' DescribedServer (Prelude.Maybe State)
+describedServer_state = Lens.lens (\DescribedServer' {state} -> state) (\s@DescribedServer' {} a -> s {state = a} :: DescribedServer)
+
+-- | Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM)
+-- certificate. Required when @Protocols@ is set to @FTPS@.
+describedServer_certificate :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
+describedServer_certificate = Lens.lens (\DescribedServer' {certificate} -> certificate) (\s@DescribedServer' {} a -> s {certificate = a} :: DescribedServer)
+
 -- | Specifies the file transfer protocol or protocols over which your file
 -- transfer protocol client can connect to your server\'s endpoint. The
 -- available protocols are:
@@ -311,26 +344,11 @@ describedServer_identityProviderType = Lens.lens (\DescribedServer' {identityPro
 describedServer_protocols :: Lens.Lens' DescribedServer (Prelude.Maybe (Prelude.NonEmpty Protocol))
 describedServer_protocols = Lens.lens (\DescribedServer' {protocols} -> protocols) (\s@DescribedServer' {} a -> s {protocols = a} :: DescribedServer) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the unique system-assigned identifier for a server that you
--- instantiate.
-describedServer_serverId :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
-describedServer_serverId = Lens.lens (\DescribedServer' {serverId} -> serverId) (\s@DescribedServer' {} a -> s {serverId = a} :: DescribedServer)
-
--- | Specifies the domain of the storage system that is used for file
--- transfers.
-describedServer_domain :: Lens.Lens' DescribedServer (Prelude.Maybe Domain)
-describedServer_domain = Lens.lens (\DescribedServer' {domain} -> domain) (\s@DescribedServer' {} a -> s {domain = a} :: DescribedServer)
-
 -- | Defines the type of endpoint that your server is connected to. If your
 -- server is connected to a VPC endpoint, your server isn\'t accessible
 -- over the public internet.
 describedServer_endpointType :: Lens.Lens' DescribedServer (Prelude.Maybe EndpointType)
 describedServer_endpointType = Lens.lens (\DescribedServer' {endpointType} -> endpointType) (\s@DescribedServer' {} a -> s {endpointType = a} :: DescribedServer)
-
--- | Specifies the name of the security policy that is attached to the
--- server.
-describedServer_securityPolicyName :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
-describedServer_securityPolicyName = Lens.lens (\DescribedServer' {securityPolicyName} -> securityPolicyName) (\s@DescribedServer' {} a -> s {securityPolicyName = a} :: DescribedServer)
 
 -- | Specifies the Base64-encoded SHA256 fingerprint of the server\'s host
 -- key. This value is equivalent to the output of the
@@ -338,40 +356,22 @@ describedServer_securityPolicyName = Lens.lens (\DescribedServer' {securityPolic
 describedServer_hostKeyFingerprint :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
 describedServer_hostKeyFingerprint = Lens.lens (\DescribedServer' {hostKeyFingerprint} -> hostKeyFingerprint) (\s@DescribedServer' {} a -> s {hostKeyFingerprint = a} :: DescribedServer)
 
--- | Specifies the number of users that are assigned to a server you
--- specified with the @ServerId@.
-describedServer_userCount :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Int)
-describedServer_userCount = Lens.lens (\DescribedServer' {userCount} -> userCount) (\s@DescribedServer' {} a -> s {userCount = a} :: DescribedServer)
+-- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
+-- Identity and Access Management (IAM) role that allows a server to turn
+-- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
+-- set, user activity can be viewed in your CloudWatch logs.
+describedServer_loggingRole :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
+describedServer_loggingRole = Lens.lens (\DescribedServer' {loggingRole} -> loggingRole) (\s@DescribedServer' {} a -> s {loggingRole = a} :: DescribedServer)
 
--- | Specifies the ARN of the Amazon Web ServicesCertificate Manager (ACM)
--- certificate. Required when @Protocols@ is set to @FTPS@.
-describedServer_certificate :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
-describedServer_certificate = Lens.lens (\DescribedServer' {certificate} -> certificate) (\s@DescribedServer' {} a -> s {certificate = a} :: DescribedServer)
-
--- | Specifies information to call a customer-supplied authentication API.
--- This field is not populated when the @IdentityProviderType@ of a server
--- is @AWS_DIRECTORY_SERVICE@ or @SERVICE_MANAGED@.
-describedServer_identityProviderDetails :: Lens.Lens' DescribedServer (Prelude.Maybe IdentityProviderDetails)
-describedServer_identityProviderDetails = Lens.lens (\DescribedServer' {identityProviderDetails} -> identityProviderDetails) (\s@DescribedServer' {} a -> s {identityProviderDetails = a} :: DescribedServer)
+-- | Specifies the unique system-assigned identifier for a server that you
+-- instantiate.
+describedServer_serverId :: Lens.Lens' DescribedServer (Prelude.Maybe Prelude.Text)
+describedServer_serverId = Lens.lens (\DescribedServer' {serverId} -> serverId) (\s@DescribedServer' {} a -> s {serverId = a} :: DescribedServer)
 
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role used for executing the workflow.
 describedServer_workflowDetails :: Lens.Lens' DescribedServer (Prelude.Maybe WorkflowDetails)
 describedServer_workflowDetails = Lens.lens (\DescribedServer' {workflowDetails} -> workflowDetails) (\s@DescribedServer' {} a -> s {workflowDetails = a} :: DescribedServer)
-
--- | Specifies the key-value pairs that you can use to search for and group
--- servers that were assigned to the server that was described.
-describedServer_tags :: Lens.Lens' DescribedServer (Prelude.Maybe (Prelude.NonEmpty Tag))
-describedServer_tags = Lens.lens (\DescribedServer' {tags} -> tags) (\s@DescribedServer' {} a -> s {tags = a} :: DescribedServer) Prelude.. Lens.mapping Lens.coerced
-
--- | The virtual private cloud (VPC) endpoint settings that are configured
--- for your server. When you host your endpoint within your VPC, you can
--- make it accessible only to resources within your VPC, or you can attach
--- Elastic IP addresses and make it accessible to clients over the
--- internet. Your VPC\'s default security groups are automatically assigned
--- to your endpoint.
-describedServer_endpointDetails :: Lens.Lens' DescribedServer (Prelude.Maybe EndpointDetails)
-describedServer_endpointDetails = Lens.lens (\DescribedServer' {endpointDetails} -> endpointDetails) (\s@DescribedServer' {} a -> s {endpointDetails = a} :: DescribedServer)
 
 -- | Specifies the unique Amazon Resource Name (ARN) of the server.
 describedServer_arn :: Lens.Lens' DescribedServer Prelude.Text
@@ -383,61 +383,61 @@ instance Core.FromJSON DescribedServer where
       "DescribedServer"
       ( \x ->
           DescribedServer'
-            Prelude.<$> (x Core..:? "ProtocolDetails")
-            Prelude.<*> (x Core..:? "LoggingRole")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "IdentityProviderType")
-            Prelude.<*> (x Core..:? "Protocols")
-            Prelude.<*> (x Core..:? "ServerId")
-            Prelude.<*> (x Core..:? "Domain")
-            Prelude.<*> (x Core..:? "EndpointType")
-            Prelude.<*> (x Core..:? "SecurityPolicyName")
-            Prelude.<*> (x Core..:? "HostKeyFingerprint")
+            Prelude.<$> (x Core..:? "Tags")
             Prelude.<*> (x Core..:? "UserCount")
-            Prelude.<*> (x Core..:? "Certificate")
+            Prelude.<*> (x Core..:? "ProtocolDetails")
             Prelude.<*> (x Core..:? "IdentityProviderDetails")
-            Prelude.<*> (x Core..:? "WorkflowDetails")
-            Prelude.<*> (x Core..:? "Tags")
+            Prelude.<*> (x Core..:? "Domain")
+            Prelude.<*> (x Core..:? "IdentityProviderType")
+            Prelude.<*> (x Core..:? "SecurityPolicyName")
             Prelude.<*> (x Core..:? "EndpointDetails")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "Certificate")
+            Prelude.<*> (x Core..:? "Protocols")
+            Prelude.<*> (x Core..:? "EndpointType")
+            Prelude.<*> (x Core..:? "HostKeyFingerprint")
+            Prelude.<*> (x Core..:? "LoggingRole")
+            Prelude.<*> (x Core..:? "ServerId")
+            Prelude.<*> (x Core..:? "WorkflowDetails")
             Prelude.<*> (x Core..: "Arn")
       )
 
 instance Prelude.Hashable DescribedServer where
   hashWithSalt _salt DescribedServer' {..} =
-    _salt `Prelude.hashWithSalt` protocolDetails
-      `Prelude.hashWithSalt` loggingRole
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` identityProviderType
-      `Prelude.hashWithSalt` protocols
-      `Prelude.hashWithSalt` serverId
-      `Prelude.hashWithSalt` domain
-      `Prelude.hashWithSalt` endpointType
-      `Prelude.hashWithSalt` securityPolicyName
-      `Prelude.hashWithSalt` hostKeyFingerprint
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userCount
-      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` protocolDetails
       `Prelude.hashWithSalt` identityProviderDetails
-      `Prelude.hashWithSalt` workflowDetails
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` identityProviderType
+      `Prelude.hashWithSalt` securityPolicyName
       `Prelude.hashWithSalt` endpointDetails
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` hostKeyFingerprint
+      `Prelude.hashWithSalt` loggingRole
+      `Prelude.hashWithSalt` serverId
+      `Prelude.hashWithSalt` workflowDetails
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData DescribedServer where
   rnf DescribedServer' {..} =
-    Prelude.rnf protocolDetails
-      `Prelude.seq` Prelude.rnf loggingRole
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf identityProviderType
-      `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf serverId
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf securityPolicyName
-      `Prelude.seq` Prelude.rnf hostKeyFingerprint
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userCount
-      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf protocolDetails
       `Prelude.seq` Prelude.rnf identityProviderDetails
-      `Prelude.seq` Prelude.rnf workflowDetails
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf identityProviderType
+      `Prelude.seq` Prelude.rnf securityPolicyName
       `Prelude.seq` Prelude.rnf endpointDetails
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf hostKeyFingerprint
+      `Prelude.seq` Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf serverId
+      `Prelude.seq` Prelude.rnf workflowDetails
       `Prelude.seq` Prelude.rnf arn

@@ -27,14 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListEnvironments $
---             newListEnvironments
---
---         , requestUpdateEnvironment $
---             newUpdateEnvironment
+--         [ requestCreateEnvironment $
+--             newCreateEnvironment
 --
 --         , requestDeleteEnvironment $
 --             newDeleteEnvironment
+--
+--         , requestGetEnvironment $
+--             newGetEnvironment
+--
+--         , requestListEnvironments $
+--             newListEnvironments
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -42,26 +45,26 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestGetEnvironment $
---             newGetEnvironment
---
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestCreateEnvironment $
---             newCreateEnvironment
+--         , requestUpdateEnvironment $
+--             newUpdateEnvironment
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListEnvironments $
---             newListEnvironmentsResponse
---
---         , responseUpdateEnvironment $
---             newUpdateEnvironmentResponse
+--         [ responseCreateEnvironment $
+--             newCreateEnvironmentResponse
 --
 --         , responseDeleteEnvironment $
 --             newDeleteEnvironmentResponse
+--
+--         , responseGetEnvironment $
+--             newGetEnvironmentResponse
+--
+--         , responseListEnvironments $
+--             newListEnvironmentsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -69,37 +72,40 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseGetEnvironment $
---             newGetEnvironmentResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseCreateEnvironment $
---             newCreateEnvironmentResponse
+--         , responseUpdateEnvironment $
+--             newUpdateEnvironmentResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestListEnvironments :: ListEnvironments -> TestTree
-requestListEnvironments =
+requestCreateEnvironment :: CreateEnvironment -> TestTree
+requestCreateEnvironment =
   req
-    "ListEnvironments"
-    "fixture/ListEnvironments.yaml"
-
-requestUpdateEnvironment :: UpdateEnvironment -> TestTree
-requestUpdateEnvironment =
-  req
-    "UpdateEnvironment"
-    "fixture/UpdateEnvironment.yaml"
+    "CreateEnvironment"
+    "fixture/CreateEnvironment.yaml"
 
 requestDeleteEnvironment :: DeleteEnvironment -> TestTree
 requestDeleteEnvironment =
   req
     "DeleteEnvironment"
     "fixture/DeleteEnvironment.yaml"
+
+requestGetEnvironment :: GetEnvironment -> TestTree
+requestGetEnvironment =
+  req
+    "GetEnvironment"
+    "fixture/GetEnvironment.yaml"
+
+requestListEnvironments :: ListEnvironments -> TestTree
+requestListEnvironments =
+  req
+    "ListEnvironments"
+    "fixture/ListEnvironments.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -113,41 +119,27 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestGetEnvironment :: GetEnvironment -> TestTree
-requestGetEnvironment =
-  req
-    "GetEnvironment"
-    "fixture/GetEnvironment.yaml"
-
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestCreateEnvironment :: CreateEnvironment -> TestTree
-requestCreateEnvironment =
+requestUpdateEnvironment :: UpdateEnvironment -> TestTree
+requestUpdateEnvironment =
   req
-    "CreateEnvironment"
-    "fixture/CreateEnvironment.yaml"
+    "UpdateEnvironment"
+    "fixture/UpdateEnvironment.yaml"
 
 -- Responses
 
-responseListEnvironments :: ListEnvironmentsResponse -> TestTree
-responseListEnvironments =
+responseCreateEnvironment :: CreateEnvironmentResponse -> TestTree
+responseCreateEnvironment =
   res
-    "ListEnvironmentsResponse"
-    "fixture/ListEnvironmentsResponse.proto"
+    "CreateEnvironmentResponse"
+    "fixture/CreateEnvironmentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEnvironments)
-
-responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
-responseUpdateEnvironment =
-  res
-    "UpdateEnvironmentResponse"
-    "fixture/UpdateEnvironmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy CreateEnvironment)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
 responseDeleteEnvironment =
@@ -156,6 +148,22 @@ responseDeleteEnvironment =
     "fixture/DeleteEnvironmentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteEnvironment)
+
+responseGetEnvironment :: GetEnvironmentResponse -> TestTree
+responseGetEnvironment =
+  res
+    "GetEnvironmentResponse"
+    "fixture/GetEnvironmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEnvironment)
+
+responseListEnvironments :: ListEnvironmentsResponse -> TestTree
+responseListEnvironments =
+  res
+    "ListEnvironmentsResponse"
+    "fixture/ListEnvironmentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEnvironments)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -173,14 +181,6 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseGetEnvironment :: GetEnvironmentResponse -> TestTree
-responseGetEnvironment =
-  res
-    "GetEnvironmentResponse"
-    "fixture/GetEnvironmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEnvironment)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -189,10 +189,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseCreateEnvironment :: CreateEnvironmentResponse -> TestTree
-responseCreateEnvironment =
+responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
+responseUpdateEnvironment =
   res
-    "CreateEnvironmentResponse"
-    "fixture/CreateEnvironmentResponse.proto"
+    "UpdateEnvironmentResponse"
+    "fixture/UpdateEnvironmentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateEnvironment)
+    (Proxy.Proxy :: Proxy.Proxy UpdateEnvironment)

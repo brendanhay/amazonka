@@ -30,12 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobWatermark' smart constructor.
 data JobWatermark = JobWatermark'
-  { -- | The ID of the watermark settings that Elastic Transcoder uses to add
-    -- watermarks to the video during transcoding. The settings are in the
-    -- preset specified by Preset for the current output. In that preset, the
-    -- value of Watermarks Id tells Elastic Transcoder which settings to use.
-    presetWatermarkId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the .png or .jpg file that you want to use for the
+  { -- | The name of the .png or .jpg file that you want to use for the
     -- watermark. To determine which Amazon S3 bucket contains the specified
     -- file, Elastic Transcoder checks the pipeline specified by @Pipeline@;
     -- the @Input Bucket@ object in that pipeline identifies the bucket.
@@ -46,7 +41,12 @@ data JobWatermark = JobWatermark'
     inputKey :: Prelude.Maybe Prelude.Text,
     -- | The encryption settings, if any, that you want Elastic Transcoder to
     -- apply to your watermarks.
-    encryption :: Prelude.Maybe Encryption
+    encryption :: Prelude.Maybe Encryption,
+    -- | The ID of the watermark settings that Elastic Transcoder uses to add
+    -- watermarks to the video during transcoding. The settings are in the
+    -- preset specified by Preset for the current output. In that preset, the
+    -- value of Watermarks Id tells Elastic Transcoder which settings to use.
+    presetWatermarkId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,11 +57,6 @@ data JobWatermark = JobWatermark'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'presetWatermarkId', 'jobWatermark_presetWatermarkId' - The ID of the watermark settings that Elastic Transcoder uses to add
--- watermarks to the video during transcoding. The settings are in the
--- preset specified by Preset for the current output. In that preset, the
--- value of Watermarks Id tells Elastic Transcoder which settings to use.
 --
 -- 'inputKey', 'jobWatermark_inputKey' - The name of the .png or .jpg file that you want to use for the
 -- watermark. To determine which Amazon S3 bucket contains the specified
@@ -74,21 +69,19 @@ data JobWatermark = JobWatermark'
 --
 -- 'encryption', 'jobWatermark_encryption' - The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your watermarks.
+--
+-- 'presetWatermarkId', 'jobWatermark_presetWatermarkId' - The ID of the watermark settings that Elastic Transcoder uses to add
+-- watermarks to the video during transcoding. The settings are in the
+-- preset specified by Preset for the current output. In that preset, the
+-- value of Watermarks Id tells Elastic Transcoder which settings to use.
 newJobWatermark ::
   JobWatermark
 newJobWatermark =
   JobWatermark'
-    { presetWatermarkId = Prelude.Nothing,
-      inputKey = Prelude.Nothing,
-      encryption = Prelude.Nothing
+    { inputKey = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      presetWatermarkId = Prelude.Nothing
     }
-
--- | The ID of the watermark settings that Elastic Transcoder uses to add
--- watermarks to the video during transcoding. The settings are in the
--- preset specified by Preset for the current output. In that preset, the
--- value of Watermarks Id tells Elastic Transcoder which settings to use.
-jobWatermark_presetWatermarkId :: Lens.Lens' JobWatermark (Prelude.Maybe Prelude.Text)
-jobWatermark_presetWatermarkId = Lens.lens (\JobWatermark' {presetWatermarkId} -> presetWatermarkId) (\s@JobWatermark' {} a -> s {presetWatermarkId = a} :: JobWatermark)
 
 -- | The name of the .png or .jpg file that you want to use for the
 -- watermark. To determine which Amazon S3 bucket contains the specified
@@ -106,36 +99,43 @@ jobWatermark_inputKey = Lens.lens (\JobWatermark' {inputKey} -> inputKey) (\s@Jo
 jobWatermark_encryption :: Lens.Lens' JobWatermark (Prelude.Maybe Encryption)
 jobWatermark_encryption = Lens.lens (\JobWatermark' {encryption} -> encryption) (\s@JobWatermark' {} a -> s {encryption = a} :: JobWatermark)
 
+-- | The ID of the watermark settings that Elastic Transcoder uses to add
+-- watermarks to the video during transcoding. The settings are in the
+-- preset specified by Preset for the current output. In that preset, the
+-- value of Watermarks Id tells Elastic Transcoder which settings to use.
+jobWatermark_presetWatermarkId :: Lens.Lens' JobWatermark (Prelude.Maybe Prelude.Text)
+jobWatermark_presetWatermarkId = Lens.lens (\JobWatermark' {presetWatermarkId} -> presetWatermarkId) (\s@JobWatermark' {} a -> s {presetWatermarkId = a} :: JobWatermark)
+
 instance Core.FromJSON JobWatermark where
   parseJSON =
     Core.withObject
       "JobWatermark"
       ( \x ->
           JobWatermark'
-            Prelude.<$> (x Core..:? "PresetWatermarkId")
-            Prelude.<*> (x Core..:? "InputKey")
+            Prelude.<$> (x Core..:? "InputKey")
             Prelude.<*> (x Core..:? "Encryption")
+            Prelude.<*> (x Core..:? "PresetWatermarkId")
       )
 
 instance Prelude.Hashable JobWatermark where
   hashWithSalt _salt JobWatermark' {..} =
-    _salt `Prelude.hashWithSalt` presetWatermarkId
-      `Prelude.hashWithSalt` inputKey
+    _salt `Prelude.hashWithSalt` inputKey
       `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` presetWatermarkId
 
 instance Prelude.NFData JobWatermark where
   rnf JobWatermark' {..} =
-    Prelude.rnf presetWatermarkId
-      `Prelude.seq` Prelude.rnf inputKey
+    Prelude.rnf inputKey
       `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf presetWatermarkId
 
 instance Core.ToJSON JobWatermark where
   toJSON JobWatermark' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PresetWatermarkId" Core..=)
-              Prelude.<$> presetWatermarkId,
-            ("InputKey" Core..=) Prelude.<$> inputKey,
-            ("Encryption" Core..=) Prelude.<$> encryption
+          [ ("InputKey" Core..=) Prelude.<$> inputKey,
+            ("Encryption" Core..=) Prelude.<$> encryption,
+            ("PresetWatermarkId" Core..=)
+              Prelude.<$> presetWatermarkId
           ]
       )

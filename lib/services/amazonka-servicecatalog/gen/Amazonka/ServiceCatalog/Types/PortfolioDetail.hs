@@ -27,18 +27,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPortfolioDetail' smart constructor.
 data PortfolioDetail = PortfolioDetail'
-  { -- | The ARN assigned to the portfolio.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The UTC time stamp of the creation time.
+  { -- | The UTC time stamp of the creation time.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The portfolio identifier.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the portfolio provider.
+    providerName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN assigned to the portfolio.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name to use for display purposes.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | The portfolio identifier.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The description of the portfolio.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the portfolio provider.
-    providerName :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,52 +50,52 @@ data PortfolioDetail = PortfolioDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'portfolioDetail_arn' - The ARN assigned to the portfolio.
---
 -- 'createdTime', 'portfolioDetail_createdTime' - The UTC time stamp of the creation time.
 --
--- 'id', 'portfolioDetail_id' - The portfolio identifier.
+-- 'providerName', 'portfolioDetail_providerName' - The name of the portfolio provider.
+--
+-- 'arn', 'portfolioDetail_arn' - The ARN assigned to the portfolio.
 --
 -- 'displayName', 'portfolioDetail_displayName' - The name to use for display purposes.
 --
--- 'description', 'portfolioDetail_description' - The description of the portfolio.
+-- 'id', 'portfolioDetail_id' - The portfolio identifier.
 --
--- 'providerName', 'portfolioDetail_providerName' - The name of the portfolio provider.
+-- 'description', 'portfolioDetail_description' - The description of the portfolio.
 newPortfolioDetail ::
   PortfolioDetail
 newPortfolioDetail =
   PortfolioDetail'
-    { arn = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
+      providerName = Prelude.Nothing,
+      arn = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      providerName = Prelude.Nothing
+      id = Prelude.Nothing,
+      description = Prelude.Nothing
     }
-
--- | The ARN assigned to the portfolio.
-portfolioDetail_arn :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
-portfolioDetail_arn = Lens.lens (\PortfolioDetail' {arn} -> arn) (\s@PortfolioDetail' {} a -> s {arn = a} :: PortfolioDetail)
 
 -- | The UTC time stamp of the creation time.
 portfolioDetail_createdTime :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.UTCTime)
 portfolioDetail_createdTime = Lens.lens (\PortfolioDetail' {createdTime} -> createdTime) (\s@PortfolioDetail' {} a -> s {createdTime = a} :: PortfolioDetail) Prelude.. Lens.mapping Core._Time
 
--- | The portfolio identifier.
-portfolioDetail_id :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
-portfolioDetail_id = Lens.lens (\PortfolioDetail' {id} -> id) (\s@PortfolioDetail' {} a -> s {id = a} :: PortfolioDetail)
+-- | The name of the portfolio provider.
+portfolioDetail_providerName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
+portfolioDetail_providerName = Lens.lens (\PortfolioDetail' {providerName} -> providerName) (\s@PortfolioDetail' {} a -> s {providerName = a} :: PortfolioDetail)
+
+-- | The ARN assigned to the portfolio.
+portfolioDetail_arn :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
+portfolioDetail_arn = Lens.lens (\PortfolioDetail' {arn} -> arn) (\s@PortfolioDetail' {} a -> s {arn = a} :: PortfolioDetail)
 
 -- | The name to use for display purposes.
 portfolioDetail_displayName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_displayName = Lens.lens (\PortfolioDetail' {displayName} -> displayName) (\s@PortfolioDetail' {} a -> s {displayName = a} :: PortfolioDetail)
 
+-- | The portfolio identifier.
+portfolioDetail_id :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
+portfolioDetail_id = Lens.lens (\PortfolioDetail' {id} -> id) (\s@PortfolioDetail' {} a -> s {id = a} :: PortfolioDetail)
+
 -- | The description of the portfolio.
 portfolioDetail_description :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_description = Lens.lens (\PortfolioDetail' {description} -> description) (\s@PortfolioDetail' {} a -> s {description = a} :: PortfolioDetail)
-
--- | The name of the portfolio provider.
-portfolioDetail_providerName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
-portfolioDetail_providerName = Lens.lens (\PortfolioDetail' {providerName} -> providerName) (\s@PortfolioDetail' {} a -> s {providerName = a} :: PortfolioDetail)
 
 instance Core.FromJSON PortfolioDetail where
   parseJSON =
@@ -103,28 +103,28 @@ instance Core.FromJSON PortfolioDetail where
       "PortfolioDetail"
       ( \x ->
           PortfolioDetail'
-            Prelude.<$> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "ProviderName")
+            Prelude.<*> (x Core..:? "ARN")
+            Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable PortfolioDetail where
   hashWithSalt _salt PortfolioDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData PortfolioDetail where
   rnf PortfolioDetail' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf description

@@ -15,9 +15,9 @@ module Amazonka.FinSpaceData.Lens
   ( -- * Operations
 
     -- ** CreateChangeset
+    createChangeset_tags,
     createChangeset_formatParams,
     createChangeset_formatType,
-    createChangeset_tags,
     createChangeset_datasetId,
     createChangeset_changeType,
     createChangeset_sourceType,
@@ -34,32 +34,32 @@ module Amazonka.FinSpaceData.Lens
 
     -- ** GetWorkingLocation
     getWorkingLocation_locationType,
+    getWorkingLocationResponse_s3Bucket,
     getWorkingLocationResponse_s3Path,
     getWorkingLocationResponse_s3Uri,
-    getWorkingLocationResponse_s3Bucket,
     getWorkingLocationResponse_httpStatus,
 
     -- * Types
 
     -- ** ChangesetInfo
+    changesetInfo_sourceParams,
+    changesetInfo_updatedByChangesetId,
+    changesetInfo_changeType,
+    changesetInfo_createTimestamp,
+    changesetInfo_changesetArn,
+    changesetInfo_formatParams,
+    changesetInfo_formatType,
     changesetInfo_status,
     changesetInfo_sourceType,
-    changesetInfo_sourceParams,
-    changesetInfo_changesetLabels,
-    changesetInfo_updatedByChangesetId,
-    changesetInfo_datasetId,
-    changesetInfo_formatParams,
-    changesetInfo_createTimestamp,
     changesetInfo_id,
-    changesetInfo_formatType,
+    changesetInfo_changesetLabels,
     changesetInfo_updatesChangesetId,
-    changesetInfo_changeType,
+    changesetInfo_datasetId,
     changesetInfo_errorInfo,
-    changesetInfo_changesetArn,
 
     -- ** Credentials
-    credentials_secretAccessKey,
     credentials_sessionToken,
+    credentials_secretAccessKey,
     credentials_accessKeyId,
 
     -- ** ErrorInfo

@@ -27,8 +27,8 @@ module Amazonka.CodeStarConnections.UpdateHost
     newUpdateHost,
 
     -- * Request Lenses
-    updateHost_providerEndpoint,
     updateHost_vpcConfiguration,
+    updateHost_providerEndpoint,
     updateHost_hostArn,
 
     -- * Destructuring the Response
@@ -49,12 +49,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateHost' smart constructor.
 data UpdateHost = UpdateHost'
-  { -- | The URL or endpoint of the host to be updated.
-    providerEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The VPC configuration of the host to be updated. A VPC must be
+  { -- | The VPC configuration of the host to be updated. A VPC must be
     -- configured and the infrastructure to be represented by the host must
     -- already be connected to the VPC.
     vpcConfiguration :: Prelude.Maybe VpcConfiguration,
+    -- | The URL or endpoint of the host to be updated.
+    providerEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the host to be updated.
     hostArn :: Prelude.Text
   }
@@ -68,11 +68,11 @@ data UpdateHost = UpdateHost'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerEndpoint', 'updateHost_providerEndpoint' - The URL or endpoint of the host to be updated.
---
 -- 'vpcConfiguration', 'updateHost_vpcConfiguration' - The VPC configuration of the host to be updated. A VPC must be
 -- configured and the infrastructure to be represented by the host must
 -- already be connected to the VPC.
+--
+-- 'providerEndpoint', 'updateHost_providerEndpoint' - The URL or endpoint of the host to be updated.
 --
 -- 'hostArn', 'updateHost_hostArn' - The Amazon Resource Name (ARN) of the host to be updated.
 newUpdateHost ::
@@ -81,20 +81,20 @@ newUpdateHost ::
   UpdateHost
 newUpdateHost pHostArn_ =
   UpdateHost'
-    { providerEndpoint = Prelude.Nothing,
-      vpcConfiguration = Prelude.Nothing,
+    { vpcConfiguration = Prelude.Nothing,
+      providerEndpoint = Prelude.Nothing,
       hostArn = pHostArn_
     }
-
--- | The URL or endpoint of the host to be updated.
-updateHost_providerEndpoint :: Lens.Lens' UpdateHost (Prelude.Maybe Prelude.Text)
-updateHost_providerEndpoint = Lens.lens (\UpdateHost' {providerEndpoint} -> providerEndpoint) (\s@UpdateHost' {} a -> s {providerEndpoint = a} :: UpdateHost)
 
 -- | The VPC configuration of the host to be updated. A VPC must be
 -- configured and the infrastructure to be represented by the host must
 -- already be connected to the VPC.
 updateHost_vpcConfiguration :: Lens.Lens' UpdateHost (Prelude.Maybe VpcConfiguration)
 updateHost_vpcConfiguration = Lens.lens (\UpdateHost' {vpcConfiguration} -> vpcConfiguration) (\s@UpdateHost' {} a -> s {vpcConfiguration = a} :: UpdateHost)
+
+-- | The URL or endpoint of the host to be updated.
+updateHost_providerEndpoint :: Lens.Lens' UpdateHost (Prelude.Maybe Prelude.Text)
+updateHost_providerEndpoint = Lens.lens (\UpdateHost' {providerEndpoint} -> providerEndpoint) (\s@UpdateHost' {} a -> s {providerEndpoint = a} :: UpdateHost)
 
 -- | The Amazon Resource Name (ARN) of the host to be updated.
 updateHost_hostArn :: Lens.Lens' UpdateHost Prelude.Text
@@ -112,14 +112,14 @@ instance Core.AWSRequest UpdateHost where
 
 instance Prelude.Hashable UpdateHost where
   hashWithSalt _salt UpdateHost' {..} =
-    _salt `Prelude.hashWithSalt` providerEndpoint
-      `Prelude.hashWithSalt` vpcConfiguration
+    _salt `Prelude.hashWithSalt` vpcConfiguration
+      `Prelude.hashWithSalt` providerEndpoint
       `Prelude.hashWithSalt` hostArn
 
 instance Prelude.NFData UpdateHost where
   rnf UpdateHost' {..} =
-    Prelude.rnf providerEndpoint
-      `Prelude.seq` Prelude.rnf vpcConfiguration
+    Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf providerEndpoint
       `Prelude.seq` Prelude.rnf hostArn
 
 instance Core.ToHeaders UpdateHost where
@@ -141,10 +141,10 @@ instance Core.ToJSON UpdateHost where
   toJSON UpdateHost' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProviderEndpoint" Core..=)
-              Prelude.<$> providerEndpoint,
-            ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Core..=)
               Prelude.<$> vpcConfiguration,
+            ("ProviderEndpoint" Core..=)
+              Prelude.<$> providerEndpoint,
             Prelude.Just ("HostArn" Core..= hostArn)
           ]
       )

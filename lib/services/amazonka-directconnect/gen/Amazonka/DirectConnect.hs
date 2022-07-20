@@ -28,8 +28,8 @@ module Amazonka.DirectConnect
     -- * Errors
     -- $errors
 
-    -- ** DirectConnectClientException
-    _DirectConnectClientException,
+    -- ** DirectConnectServerException
+    _DirectConnectServerException,
 
     -- ** DuplicateTagKeysException
     _DuplicateTagKeysException,
@@ -37,8 +37,8 @@ module Amazonka.DirectConnect
     -- ** TooManyTagsException
     _TooManyTagsException,
 
-    -- ** DirectConnectServerException
-    _DirectConnectServerException,
+    -- ** DirectConnectClientException
+    _DirectConnectClientException,
 
     -- * Waiters
     -- $waiters
@@ -46,245 +46,11 @@ module Amazonka.DirectConnect
     -- * Operations
     -- $operations
 
-    -- ** DescribeDirectConnectGatewayAssociations (Paginated)
-    DescribeDirectConnectGatewayAssociations (DescribeDirectConnectGatewayAssociations'),
-    newDescribeDirectConnectGatewayAssociations,
-    DescribeDirectConnectGatewayAssociationsResponse (DescribeDirectConnectGatewayAssociationsResponse'),
-    newDescribeDirectConnectGatewayAssociationsResponse,
-
-    -- ** DescribeInterconnects
-    DescribeInterconnects (DescribeInterconnects'),
-    newDescribeInterconnects,
-    DescribeInterconnectsResponse (DescribeInterconnectsResponse'),
-    newDescribeInterconnectsResponse,
-
-    -- ** DescribeTags
-    DescribeTags (DescribeTags'),
-    newDescribeTags,
-    DescribeTagsResponse (DescribeTagsResponse'),
-    newDescribeTagsResponse,
-
-    -- ** CreateTransitVirtualInterface
-    CreateTransitVirtualInterface (CreateTransitVirtualInterface'),
-    newCreateTransitVirtualInterface,
-    CreateTransitVirtualInterfaceResponse (CreateTransitVirtualInterfaceResponse'),
-    newCreateTransitVirtualInterfaceResponse,
-
-    -- ** DescribeLoa
-    DescribeLoa (DescribeLoa'),
-    newDescribeLoa,
-    DescribeLoaResponse (DescribeLoaResponse'),
-    newDescribeLoaResponse,
-
-    -- ** DisassociateMacSecKey
-    DisassociateMacSecKey (DisassociateMacSecKey'),
-    newDisassociateMacSecKey,
-    DisassociateMacSecKeyResponse (DisassociateMacSecKeyResponse'),
-    newDisassociateMacSecKeyResponse,
-
-    -- ** DeleteConnection
-    DeleteConnection (DeleteConnection'),
-    newDeleteConnection,
-    Connection (Connection'),
-    newConnection,
-
-    -- ** UpdateConnection
-    UpdateConnection (UpdateConnection'),
-    newUpdateConnection,
-    Connection (Connection'),
-    newConnection,
-
-    -- ** StartBgpFailoverTest
-    StartBgpFailoverTest (StartBgpFailoverTest'),
-    newStartBgpFailoverTest,
-    StartBgpFailoverTestResponse (StartBgpFailoverTestResponse'),
-    newStartBgpFailoverTestResponse,
-
-    -- ** UpdateVirtualInterfaceAttributes
-    UpdateVirtualInterfaceAttributes (UpdateVirtualInterfaceAttributes'),
-    newUpdateVirtualInterfaceAttributes,
-    VirtualInterface (VirtualInterface'),
-    newVirtualInterface,
-
-    -- ** AssociateConnectionWithLag
-    AssociateConnectionWithLag (AssociateConnectionWithLag'),
-    newAssociateConnectionWithLag,
-    Connection (Connection'),
-    newConnection,
-
-    -- ** CreateDirectConnectGatewayAssociationProposal
-    CreateDirectConnectGatewayAssociationProposal (CreateDirectConnectGatewayAssociationProposal'),
-    newCreateDirectConnectGatewayAssociationProposal,
-    CreateDirectConnectGatewayAssociationProposalResponse (CreateDirectConnectGatewayAssociationProposalResponse'),
-    newCreateDirectConnectGatewayAssociationProposalResponse,
-
-    -- ** CreateConnection
-    CreateConnection (CreateConnection'),
-    newCreateConnection,
-    Connection (Connection'),
-    newConnection,
-
-    -- ** DescribeDirectConnectGateways (Paginated)
-    DescribeDirectConnectGateways (DescribeDirectConnectGateways'),
-    newDescribeDirectConnectGateways,
-    DescribeDirectConnectGatewaysResponse (DescribeDirectConnectGatewaysResponse'),
-    newDescribeDirectConnectGatewaysResponse,
-
-    -- ** AssociateVirtualInterface
-    AssociateVirtualInterface (AssociateVirtualInterface'),
-    newAssociateVirtualInterface,
-    VirtualInterface (VirtualInterface'),
-    newVirtualInterface,
-
-    -- ** DescribeConnections
-    DescribeConnections (DescribeConnections'),
-    newDescribeConnections,
-    Connections (Connections'),
-    newConnections,
-
-    -- ** ConfirmCustomerAgreement
-    ConfirmCustomerAgreement (ConfirmCustomerAgreement'),
-    newConfirmCustomerAgreement,
-    ConfirmCustomerAgreementResponse (ConfirmCustomerAgreementResponse'),
-    newConfirmCustomerAgreementResponse,
-
-    -- ** DeleteInterconnect
-    DeleteInterconnect (DeleteInterconnect'),
-    newDeleteInterconnect,
-    DeleteInterconnectResponse (DeleteInterconnectResponse'),
-    newDeleteInterconnectResponse,
-
-    -- ** ConfirmPrivateVirtualInterface
-    ConfirmPrivateVirtualInterface (ConfirmPrivateVirtualInterface'),
-    newConfirmPrivateVirtualInterface,
-    ConfirmPrivateVirtualInterfaceResponse (ConfirmPrivateVirtualInterfaceResponse'),
-    newConfirmPrivateVirtualInterfaceResponse,
-
-    -- ** UpdateDirectConnectGatewayAssociation
-    UpdateDirectConnectGatewayAssociation (UpdateDirectConnectGatewayAssociation'),
-    newUpdateDirectConnectGatewayAssociation,
-    UpdateDirectConnectGatewayAssociationResponse (UpdateDirectConnectGatewayAssociationResponse'),
-    newUpdateDirectConnectGatewayAssociationResponse,
-
-    -- ** DeleteDirectConnectGatewayAssociation
-    DeleteDirectConnectGatewayAssociation (DeleteDirectConnectGatewayAssociation'),
-    newDeleteDirectConnectGatewayAssociation,
-    DeleteDirectConnectGatewayAssociationResponse (DeleteDirectConnectGatewayAssociationResponse'),
-    newDeleteDirectConnectGatewayAssociationResponse,
-
-    -- ** DescribeLocations
-    DescribeLocations (DescribeLocations'),
-    newDescribeLocations,
-    DescribeLocationsResponse (DescribeLocationsResponse'),
-    newDescribeLocationsResponse,
-
-    -- ** CreateDirectConnectGatewayAssociation
-    CreateDirectConnectGatewayAssociation (CreateDirectConnectGatewayAssociation'),
-    newCreateDirectConnectGatewayAssociation,
-    CreateDirectConnectGatewayAssociationResponse (CreateDirectConnectGatewayAssociationResponse'),
-    newCreateDirectConnectGatewayAssociationResponse,
-
     -- ** AcceptDirectConnectGatewayAssociationProposal
     AcceptDirectConnectGatewayAssociationProposal (AcceptDirectConnectGatewayAssociationProposal'),
     newAcceptDirectConnectGatewayAssociationProposal,
     AcceptDirectConnectGatewayAssociationProposalResponse (AcceptDirectConnectGatewayAssociationProposalResponse'),
     newAcceptDirectConnectGatewayAssociationProposalResponse,
-
-    -- ** CreatePublicVirtualInterface
-    CreatePublicVirtualInterface (CreatePublicVirtualInterface'),
-    newCreatePublicVirtualInterface,
-    VirtualInterface (VirtualInterface'),
-    newVirtualInterface,
-
-    -- ** AssociateMacSecKey
-    AssociateMacSecKey (AssociateMacSecKey'),
-    newAssociateMacSecKey,
-    AssociateMacSecKeyResponse (AssociateMacSecKeyResponse'),
-    newAssociateMacSecKeyResponse,
-
-    -- ** AllocatePrivateVirtualInterface
-    AllocatePrivateVirtualInterface (AllocatePrivateVirtualInterface'),
-    newAllocatePrivateVirtualInterface,
-    VirtualInterface (VirtualInterface'),
-    newVirtualInterface,
-
-    -- ** DescribeLags
-    DescribeLags (DescribeLags'),
-    newDescribeLags,
-    DescribeLagsResponse (DescribeLagsResponse'),
-    newDescribeLagsResponse,
-
-    -- ** ConfirmConnection
-    ConfirmConnection (ConfirmConnection'),
-    newConfirmConnection,
-    ConfirmConnectionResponse (ConfirmConnectionResponse'),
-    newConfirmConnectionResponse,
-
-    -- ** DescribeDirectConnectGatewayAttachments (Paginated)
-    DescribeDirectConnectGatewayAttachments (DescribeDirectConnectGatewayAttachments'),
-    newDescribeDirectConnectGatewayAttachments,
-    DescribeDirectConnectGatewayAttachmentsResponse (DescribeDirectConnectGatewayAttachmentsResponse'),
-    newDescribeDirectConnectGatewayAttachmentsResponse,
-
-    -- ** DescribeCustomerMetadata
-    DescribeCustomerMetadata (DescribeCustomerMetadata'),
-    newDescribeCustomerMetadata,
-    DescribeCustomerMetadataResponse (DescribeCustomerMetadataResponse'),
-    newDescribeCustomerMetadataResponse,
-
-    -- ** ConfirmPublicVirtualInterface
-    ConfirmPublicVirtualInterface (ConfirmPublicVirtualInterface'),
-    newConfirmPublicVirtualInterface,
-    ConfirmPublicVirtualInterfaceResponse (ConfirmPublicVirtualInterfaceResponse'),
-    newConfirmPublicVirtualInterfaceResponse,
-
-    -- ** DescribeVirtualGateways
-    DescribeVirtualGateways (DescribeVirtualGateways'),
-    newDescribeVirtualGateways,
-    DescribeVirtualGatewaysResponse (DescribeVirtualGatewaysResponse'),
-    newDescribeVirtualGatewaysResponse,
-
-    -- ** DeleteDirectConnectGatewayAssociationProposal
-    DeleteDirectConnectGatewayAssociationProposal (DeleteDirectConnectGatewayAssociationProposal'),
-    newDeleteDirectConnectGatewayAssociationProposal,
-    DeleteDirectConnectGatewayAssociationProposalResponse (DeleteDirectConnectGatewayAssociationProposalResponse'),
-    newDeleteDirectConnectGatewayAssociationProposalResponse,
-
-    -- ** StopBgpFailoverTest
-    StopBgpFailoverTest (StopBgpFailoverTest'),
-    newStopBgpFailoverTest,
-    StopBgpFailoverTestResponse (StopBgpFailoverTestResponse'),
-    newStopBgpFailoverTestResponse,
-
-    -- ** CreateDirectConnectGateway
-    CreateDirectConnectGateway (CreateDirectConnectGateway'),
-    newCreateDirectConnectGateway,
-    CreateDirectConnectGatewayResponse (CreateDirectConnectGatewayResponse'),
-    newCreateDirectConnectGatewayResponse,
-
-    -- ** DeleteDirectConnectGateway
-    DeleteDirectConnectGateway (DeleteDirectConnectGateway'),
-    newDeleteDirectConnectGateway,
-    DeleteDirectConnectGatewayResponse (DeleteDirectConnectGatewayResponse'),
-    newDeleteDirectConnectGatewayResponse,
-
-    -- ** UpdateDirectConnectGateway
-    UpdateDirectConnectGateway (UpdateDirectConnectGateway'),
-    newUpdateDirectConnectGateway,
-    UpdateDirectConnectGatewayResponse (UpdateDirectConnectGatewayResponse'),
-    newUpdateDirectConnectGatewayResponse,
-
-    -- ** DescribeVirtualInterfaces
-    DescribeVirtualInterfaces (DescribeVirtualInterfaces'),
-    newDescribeVirtualInterfaces,
-    DescribeVirtualInterfacesResponse (DescribeVirtualInterfacesResponse'),
-    newDescribeVirtualInterfacesResponse,
-
-    -- ** ListVirtualInterfaceTestHistory
-    ListVirtualInterfaceTestHistory (ListVirtualInterfaceTestHistory'),
-    newListVirtualInterfaceTestHistory,
-    ListVirtualInterfaceTestHistoryResponse (ListVirtualInterfaceTestHistoryResponse'),
-    newListVirtualInterfaceTestHistoryResponse,
 
     -- ** AllocateHostedConnection
     AllocateHostedConnection (AllocateHostedConnection'),
@@ -292,15 +58,9 @@ module Amazonka.DirectConnect
     Connection (Connection'),
     newConnection,
 
-    -- ** DeleteVirtualInterface
-    DeleteVirtualInterface (DeleteVirtualInterface'),
-    newDeleteVirtualInterface,
-    DeleteVirtualInterfaceResponse (DeleteVirtualInterfaceResponse'),
-    newDeleteVirtualInterfaceResponse,
-
-    -- ** CreatePrivateVirtualInterface
-    CreatePrivateVirtualInterface (CreatePrivateVirtualInterface'),
-    newCreatePrivateVirtualInterface,
+    -- ** AllocatePrivateVirtualInterface
+    AllocatePrivateVirtualInterface (AllocatePrivateVirtualInterface'),
+    newAllocatePrivateVirtualInterface,
     VirtualInterface (VirtualInterface'),
     newVirtualInterface,
 
@@ -310,47 +70,17 @@ module Amazonka.DirectConnect
     VirtualInterface (VirtualInterface'),
     newVirtualInterface,
 
-    -- ** DescribeDirectConnectGatewayAssociationProposals
-    DescribeDirectConnectGatewayAssociationProposals (DescribeDirectConnectGatewayAssociationProposals'),
-    newDescribeDirectConnectGatewayAssociationProposals,
-    DescribeDirectConnectGatewayAssociationProposalsResponse (DescribeDirectConnectGatewayAssociationProposalsResponse'),
-    newDescribeDirectConnectGatewayAssociationProposalsResponse,
+    -- ** AllocateTransitVirtualInterface
+    AllocateTransitVirtualInterface (AllocateTransitVirtualInterface'),
+    newAllocateTransitVirtualInterface,
+    AllocateTransitVirtualInterfaceResponse (AllocateTransitVirtualInterfaceResponse'),
+    newAllocateTransitVirtualInterfaceResponse,
 
-    -- ** DisassociateConnectionFromLag
-    DisassociateConnectionFromLag (DisassociateConnectionFromLag'),
-    newDisassociateConnectionFromLag,
+    -- ** AssociateConnectionWithLag
+    AssociateConnectionWithLag (AssociateConnectionWithLag'),
+    newAssociateConnectionWithLag,
     Connection (Connection'),
     newConnection,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DeleteLag
-    DeleteLag (DeleteLag'),
-    newDeleteLag,
-    Lag (Lag'),
-    newLag,
-
-    -- ** UpdateLag
-    UpdateLag (UpdateLag'),
-    newUpdateLag,
-    Lag (Lag'),
-    newLag,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateBGPPeer
-    CreateBGPPeer (CreateBGPPeer'),
-    newCreateBGPPeer,
-    CreateBGPPeerResponse (CreateBGPPeerResponse'),
-    newCreateBGPPeerResponse,
 
     -- ** AssociateHostedConnection
     AssociateHostedConnection (AssociateHostedConnection'),
@@ -358,35 +88,41 @@ module Amazonka.DirectConnect
     Connection (Connection'),
     newConnection,
 
-    -- ** CreateInterconnect
-    CreateInterconnect (CreateInterconnect'),
-    newCreateInterconnect,
-    Interconnect (Interconnect'),
-    newInterconnect,
+    -- ** AssociateMacSecKey
+    AssociateMacSecKey (AssociateMacSecKey'),
+    newAssociateMacSecKey,
+    AssociateMacSecKeyResponse (AssociateMacSecKeyResponse'),
+    newAssociateMacSecKeyResponse,
 
-    -- ** DescribeRouterConfiguration
-    DescribeRouterConfiguration (DescribeRouterConfiguration'),
-    newDescribeRouterConfiguration,
-    DescribeRouterConfigurationResponse (DescribeRouterConfigurationResponse'),
-    newDescribeRouterConfigurationResponse,
+    -- ** AssociateVirtualInterface
+    AssociateVirtualInterface (AssociateVirtualInterface'),
+    newAssociateVirtualInterface,
+    VirtualInterface (VirtualInterface'),
+    newVirtualInterface,
 
-    -- ** DeleteBGPPeer
-    DeleteBGPPeer (DeleteBGPPeer'),
-    newDeleteBGPPeer,
-    DeleteBGPPeerResponse (DeleteBGPPeerResponse'),
-    newDeleteBGPPeerResponse,
+    -- ** ConfirmConnection
+    ConfirmConnection (ConfirmConnection'),
+    newConfirmConnection,
+    ConfirmConnectionResponse (ConfirmConnectionResponse'),
+    newConfirmConnectionResponse,
 
-    -- ** AllocateTransitVirtualInterface
-    AllocateTransitVirtualInterface (AllocateTransitVirtualInterface'),
-    newAllocateTransitVirtualInterface,
-    AllocateTransitVirtualInterfaceResponse (AllocateTransitVirtualInterfaceResponse'),
-    newAllocateTransitVirtualInterfaceResponse,
+    -- ** ConfirmCustomerAgreement
+    ConfirmCustomerAgreement (ConfirmCustomerAgreement'),
+    newConfirmCustomerAgreement,
+    ConfirmCustomerAgreementResponse (ConfirmCustomerAgreementResponse'),
+    newConfirmCustomerAgreementResponse,
 
-    -- ** CreateLag
-    CreateLag (CreateLag'),
-    newCreateLag,
-    Lag (Lag'),
-    newLag,
+    -- ** ConfirmPrivateVirtualInterface
+    ConfirmPrivateVirtualInterface (ConfirmPrivateVirtualInterface'),
+    newConfirmPrivateVirtualInterface,
+    ConfirmPrivateVirtualInterfaceResponse (ConfirmPrivateVirtualInterfaceResponse'),
+    newConfirmPrivateVirtualInterfaceResponse,
+
+    -- ** ConfirmPublicVirtualInterface
+    ConfirmPublicVirtualInterface (ConfirmPublicVirtualInterface'),
+    newConfirmPublicVirtualInterface,
+    ConfirmPublicVirtualInterfaceResponse (ConfirmPublicVirtualInterfaceResponse'),
+    newConfirmPublicVirtualInterfaceResponse,
 
     -- ** ConfirmTransitVirtualInterface
     ConfirmTransitVirtualInterface (ConfirmTransitVirtualInterface'),
@@ -394,11 +130,275 @@ module Amazonka.DirectConnect
     ConfirmTransitVirtualInterfaceResponse (ConfirmTransitVirtualInterfaceResponse'),
     newConfirmTransitVirtualInterfaceResponse,
 
+    -- ** CreateBGPPeer
+    CreateBGPPeer (CreateBGPPeer'),
+    newCreateBGPPeer,
+    CreateBGPPeerResponse (CreateBGPPeerResponse'),
+    newCreateBGPPeerResponse,
+
+    -- ** CreateConnection
+    CreateConnection (CreateConnection'),
+    newCreateConnection,
+    Connection (Connection'),
+    newConnection,
+
+    -- ** CreateDirectConnectGateway
+    CreateDirectConnectGateway (CreateDirectConnectGateway'),
+    newCreateDirectConnectGateway,
+    CreateDirectConnectGatewayResponse (CreateDirectConnectGatewayResponse'),
+    newCreateDirectConnectGatewayResponse,
+
+    -- ** CreateDirectConnectGatewayAssociation
+    CreateDirectConnectGatewayAssociation (CreateDirectConnectGatewayAssociation'),
+    newCreateDirectConnectGatewayAssociation,
+    CreateDirectConnectGatewayAssociationResponse (CreateDirectConnectGatewayAssociationResponse'),
+    newCreateDirectConnectGatewayAssociationResponse,
+
+    -- ** CreateDirectConnectGatewayAssociationProposal
+    CreateDirectConnectGatewayAssociationProposal (CreateDirectConnectGatewayAssociationProposal'),
+    newCreateDirectConnectGatewayAssociationProposal,
+    CreateDirectConnectGatewayAssociationProposalResponse (CreateDirectConnectGatewayAssociationProposalResponse'),
+    newCreateDirectConnectGatewayAssociationProposalResponse,
+
+    -- ** CreateInterconnect
+    CreateInterconnect (CreateInterconnect'),
+    newCreateInterconnect,
+    Interconnect (Interconnect'),
+    newInterconnect,
+
+    -- ** CreateLag
+    CreateLag (CreateLag'),
+    newCreateLag,
+    Lag (Lag'),
+    newLag,
+
+    -- ** CreatePrivateVirtualInterface
+    CreatePrivateVirtualInterface (CreatePrivateVirtualInterface'),
+    newCreatePrivateVirtualInterface,
+    VirtualInterface (VirtualInterface'),
+    newVirtualInterface,
+
+    -- ** CreatePublicVirtualInterface
+    CreatePublicVirtualInterface (CreatePublicVirtualInterface'),
+    newCreatePublicVirtualInterface,
+    VirtualInterface (VirtualInterface'),
+    newVirtualInterface,
+
+    -- ** CreateTransitVirtualInterface
+    CreateTransitVirtualInterface (CreateTransitVirtualInterface'),
+    newCreateTransitVirtualInterface,
+    CreateTransitVirtualInterfaceResponse (CreateTransitVirtualInterfaceResponse'),
+    newCreateTransitVirtualInterfaceResponse,
+
+    -- ** DeleteBGPPeer
+    DeleteBGPPeer (DeleteBGPPeer'),
+    newDeleteBGPPeer,
+    DeleteBGPPeerResponse (DeleteBGPPeerResponse'),
+    newDeleteBGPPeerResponse,
+
+    -- ** DeleteConnection
+    DeleteConnection (DeleteConnection'),
+    newDeleteConnection,
+    Connection (Connection'),
+    newConnection,
+
+    -- ** DeleteDirectConnectGateway
+    DeleteDirectConnectGateway (DeleteDirectConnectGateway'),
+    newDeleteDirectConnectGateway,
+    DeleteDirectConnectGatewayResponse (DeleteDirectConnectGatewayResponse'),
+    newDeleteDirectConnectGatewayResponse,
+
+    -- ** DeleteDirectConnectGatewayAssociation
+    DeleteDirectConnectGatewayAssociation (DeleteDirectConnectGatewayAssociation'),
+    newDeleteDirectConnectGatewayAssociation,
+    DeleteDirectConnectGatewayAssociationResponse (DeleteDirectConnectGatewayAssociationResponse'),
+    newDeleteDirectConnectGatewayAssociationResponse,
+
+    -- ** DeleteDirectConnectGatewayAssociationProposal
+    DeleteDirectConnectGatewayAssociationProposal (DeleteDirectConnectGatewayAssociationProposal'),
+    newDeleteDirectConnectGatewayAssociationProposal,
+    DeleteDirectConnectGatewayAssociationProposalResponse (DeleteDirectConnectGatewayAssociationProposalResponse'),
+    newDeleteDirectConnectGatewayAssociationProposalResponse,
+
+    -- ** DeleteInterconnect
+    DeleteInterconnect (DeleteInterconnect'),
+    newDeleteInterconnect,
+    DeleteInterconnectResponse (DeleteInterconnectResponse'),
+    newDeleteInterconnectResponse,
+
+    -- ** DeleteLag
+    DeleteLag (DeleteLag'),
+    newDeleteLag,
+    Lag (Lag'),
+    newLag,
+
+    -- ** DeleteVirtualInterface
+    DeleteVirtualInterface (DeleteVirtualInterface'),
+    newDeleteVirtualInterface,
+    DeleteVirtualInterfaceResponse (DeleteVirtualInterfaceResponse'),
+    newDeleteVirtualInterfaceResponse,
+
+    -- ** DescribeConnections
+    DescribeConnections (DescribeConnections'),
+    newDescribeConnections,
+    Connections (Connections'),
+    newConnections,
+
+    -- ** DescribeCustomerMetadata
+    DescribeCustomerMetadata (DescribeCustomerMetadata'),
+    newDescribeCustomerMetadata,
+    DescribeCustomerMetadataResponse (DescribeCustomerMetadataResponse'),
+    newDescribeCustomerMetadataResponse,
+
+    -- ** DescribeDirectConnectGatewayAssociationProposals
+    DescribeDirectConnectGatewayAssociationProposals (DescribeDirectConnectGatewayAssociationProposals'),
+    newDescribeDirectConnectGatewayAssociationProposals,
+    DescribeDirectConnectGatewayAssociationProposalsResponse (DescribeDirectConnectGatewayAssociationProposalsResponse'),
+    newDescribeDirectConnectGatewayAssociationProposalsResponse,
+
+    -- ** DescribeDirectConnectGatewayAssociations (Paginated)
+    DescribeDirectConnectGatewayAssociations (DescribeDirectConnectGatewayAssociations'),
+    newDescribeDirectConnectGatewayAssociations,
+    DescribeDirectConnectGatewayAssociationsResponse (DescribeDirectConnectGatewayAssociationsResponse'),
+    newDescribeDirectConnectGatewayAssociationsResponse,
+
+    -- ** DescribeDirectConnectGatewayAttachments (Paginated)
+    DescribeDirectConnectGatewayAttachments (DescribeDirectConnectGatewayAttachments'),
+    newDescribeDirectConnectGatewayAttachments,
+    DescribeDirectConnectGatewayAttachmentsResponse (DescribeDirectConnectGatewayAttachmentsResponse'),
+    newDescribeDirectConnectGatewayAttachmentsResponse,
+
+    -- ** DescribeDirectConnectGateways (Paginated)
+    DescribeDirectConnectGateways (DescribeDirectConnectGateways'),
+    newDescribeDirectConnectGateways,
+    DescribeDirectConnectGatewaysResponse (DescribeDirectConnectGatewaysResponse'),
+    newDescribeDirectConnectGatewaysResponse,
+
     -- ** DescribeHostedConnections
     DescribeHostedConnections (DescribeHostedConnections'),
     newDescribeHostedConnections,
     Connections (Connections'),
     newConnections,
+
+    -- ** DescribeInterconnects
+    DescribeInterconnects (DescribeInterconnects'),
+    newDescribeInterconnects,
+    DescribeInterconnectsResponse (DescribeInterconnectsResponse'),
+    newDescribeInterconnectsResponse,
+
+    -- ** DescribeLags
+    DescribeLags (DescribeLags'),
+    newDescribeLags,
+    DescribeLagsResponse (DescribeLagsResponse'),
+    newDescribeLagsResponse,
+
+    -- ** DescribeLoa
+    DescribeLoa (DescribeLoa'),
+    newDescribeLoa,
+    DescribeLoaResponse (DescribeLoaResponse'),
+    newDescribeLoaResponse,
+
+    -- ** DescribeLocations
+    DescribeLocations (DescribeLocations'),
+    newDescribeLocations,
+    DescribeLocationsResponse (DescribeLocationsResponse'),
+    newDescribeLocationsResponse,
+
+    -- ** DescribeRouterConfiguration
+    DescribeRouterConfiguration (DescribeRouterConfiguration'),
+    newDescribeRouterConfiguration,
+    DescribeRouterConfigurationResponse (DescribeRouterConfigurationResponse'),
+    newDescribeRouterConfigurationResponse,
+
+    -- ** DescribeTags
+    DescribeTags (DescribeTags'),
+    newDescribeTags,
+    DescribeTagsResponse (DescribeTagsResponse'),
+    newDescribeTagsResponse,
+
+    -- ** DescribeVirtualGateways
+    DescribeVirtualGateways (DescribeVirtualGateways'),
+    newDescribeVirtualGateways,
+    DescribeVirtualGatewaysResponse (DescribeVirtualGatewaysResponse'),
+    newDescribeVirtualGatewaysResponse,
+
+    -- ** DescribeVirtualInterfaces
+    DescribeVirtualInterfaces (DescribeVirtualInterfaces'),
+    newDescribeVirtualInterfaces,
+    DescribeVirtualInterfacesResponse (DescribeVirtualInterfacesResponse'),
+    newDescribeVirtualInterfacesResponse,
+
+    -- ** DisassociateConnectionFromLag
+    DisassociateConnectionFromLag (DisassociateConnectionFromLag'),
+    newDisassociateConnectionFromLag,
+    Connection (Connection'),
+    newConnection,
+
+    -- ** DisassociateMacSecKey
+    DisassociateMacSecKey (DisassociateMacSecKey'),
+    newDisassociateMacSecKey,
+    DisassociateMacSecKeyResponse (DisassociateMacSecKeyResponse'),
+    newDisassociateMacSecKeyResponse,
+
+    -- ** ListVirtualInterfaceTestHistory
+    ListVirtualInterfaceTestHistory (ListVirtualInterfaceTestHistory'),
+    newListVirtualInterfaceTestHistory,
+    ListVirtualInterfaceTestHistoryResponse (ListVirtualInterfaceTestHistoryResponse'),
+    newListVirtualInterfaceTestHistoryResponse,
+
+    -- ** StartBgpFailoverTest
+    StartBgpFailoverTest (StartBgpFailoverTest'),
+    newStartBgpFailoverTest,
+    StartBgpFailoverTestResponse (StartBgpFailoverTestResponse'),
+    newStartBgpFailoverTestResponse,
+
+    -- ** StopBgpFailoverTest
+    StopBgpFailoverTest (StopBgpFailoverTest'),
+    newStopBgpFailoverTest,
+    StopBgpFailoverTestResponse (StopBgpFailoverTestResponse'),
+    newStopBgpFailoverTestResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateConnection
+    UpdateConnection (UpdateConnection'),
+    newUpdateConnection,
+    Connection (Connection'),
+    newConnection,
+
+    -- ** UpdateDirectConnectGateway
+    UpdateDirectConnectGateway (UpdateDirectConnectGateway'),
+    newUpdateDirectConnectGateway,
+    UpdateDirectConnectGatewayResponse (UpdateDirectConnectGatewayResponse'),
+    newUpdateDirectConnectGatewayResponse,
+
+    -- ** UpdateDirectConnectGatewayAssociation
+    UpdateDirectConnectGatewayAssociation (UpdateDirectConnectGatewayAssociation'),
+    newUpdateDirectConnectGatewayAssociation,
+    UpdateDirectConnectGatewayAssociationResponse (UpdateDirectConnectGatewayAssociationResponse'),
+    newUpdateDirectConnectGatewayAssociationResponse,
+
+    -- ** UpdateLag
+    UpdateLag (UpdateLag'),
+    newUpdateLag,
+    Lag (Lag'),
+    newLag,
+
+    -- ** UpdateVirtualInterfaceAttributes
+    UpdateVirtualInterfaceAttributes (UpdateVirtualInterfaceAttributes'),
+    newUpdateVirtualInterfaceAttributes,
+    VirtualInterface (VirtualInterface'),
+    newVirtualInterface,
 
     -- * Types
 

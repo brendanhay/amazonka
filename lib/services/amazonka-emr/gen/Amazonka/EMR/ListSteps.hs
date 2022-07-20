@@ -34,9 +34,9 @@ module Amazonka.EMR.ListSteps
     newListSteps,
 
     -- * Request Lenses
-    listSteps_stepIds,
-    listSteps_stepStates,
     listSteps_marker,
+    listSteps_stepStates,
+    listSteps_stepIds,
     listSteps_clusterId,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.EMR.ListSteps
     newListStepsResponse,
 
     -- * Response Lenses
-    listStepsResponse_steps,
     listStepsResponse_marker,
+    listStepsResponse_steps,
     listStepsResponse_httpStatus,
   )
 where
@@ -61,17 +61,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListSteps' smart constructor.
 data ListSteps = ListSteps'
-  { -- | The filter to limit the step list based on the identifier of the steps.
-    -- You can specify a maximum of ten Step IDs. The character constraint
-    -- applies to the overall length of the array.
-    stepIds :: Prelude.Maybe [Prelude.Text],
-    -- | The filter to limit the step list based on certain states.
-    stepStates :: Prelude.Maybe [StepState],
-    -- | The maximum number of steps that a single @ListSteps@ action returns is
+  { -- | The maximum number of steps that a single @ListSteps@ action returns is
     -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
     -- along with the @Marker@ parameter, which is a pagination token that
     -- indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The filter to limit the step list based on certain states.
+    stepStates :: Prelude.Maybe [StepState],
+    -- | The filter to limit the step list based on the identifier of the steps.
+    -- You can specify a maximum of ten Step IDs. The character constraint
+    -- applies to the overall length of the array.
+    stepIds :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the cluster for which to list the steps.
     clusterId :: Prelude.Text
   }
@@ -85,16 +85,16 @@ data ListSteps = ListSteps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stepIds', 'listSteps_stepIds' - The filter to limit the step list based on the identifier of the steps.
--- You can specify a maximum of ten Step IDs. The character constraint
--- applies to the overall length of the array.
---
--- 'stepStates', 'listSteps_stepStates' - The filter to limit the step list based on certain states.
---
 -- 'marker', 'listSteps_marker' - The maximum number of steps that a single @ListSteps@ action returns is
 -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
 -- along with the @Marker@ parameter, which is a pagination token that
 -- indicates the next set of results to retrieve.
+--
+-- 'stepStates', 'listSteps_stepStates' - The filter to limit the step list based on certain states.
+--
+-- 'stepIds', 'listSteps_stepIds' - The filter to limit the step list based on the identifier of the steps.
+-- You can specify a maximum of ten Step IDs. The character constraint
+-- applies to the overall length of the array.
 --
 -- 'clusterId', 'listSteps_clusterId' - The identifier of the cluster for which to list the steps.
 newListSteps ::
@@ -103,21 +103,11 @@ newListSteps ::
   ListSteps
 newListSteps pClusterId_ =
   ListSteps'
-    { stepIds = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       stepStates = Prelude.Nothing,
-      marker = Prelude.Nothing,
+      stepIds = Prelude.Nothing,
       clusterId = pClusterId_
     }
-
--- | The filter to limit the step list based on the identifier of the steps.
--- You can specify a maximum of ten Step IDs. The character constraint
--- applies to the overall length of the array.
-listSteps_stepIds :: Lens.Lens' ListSteps (Prelude.Maybe [Prelude.Text])
-listSteps_stepIds = Lens.lens (\ListSteps' {stepIds} -> stepIds) (\s@ListSteps' {} a -> s {stepIds = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
-
--- | The filter to limit the step list based on certain states.
-listSteps_stepStates :: Lens.Lens' ListSteps (Prelude.Maybe [StepState])
-listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of steps that a single @ListSteps@ action returns is
 -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
@@ -125,6 +115,16 @@ listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@Li
 -- indicates the next set of results to retrieve.
 listSteps_marker :: Lens.Lens' ListSteps (Prelude.Maybe Prelude.Text)
 listSteps_marker = Lens.lens (\ListSteps' {marker} -> marker) (\s@ListSteps' {} a -> s {marker = a} :: ListSteps)
+
+-- | The filter to limit the step list based on certain states.
+listSteps_stepStates :: Lens.Lens' ListSteps (Prelude.Maybe [StepState])
+listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
+
+-- | The filter to limit the step list based on the identifier of the steps.
+-- You can specify a maximum of ten Step IDs. The character constraint
+-- applies to the overall length of the array.
+listSteps_stepIds :: Lens.Lens' ListSteps (Prelude.Maybe [Prelude.Text])
+listSteps_stepIds = Lens.lens (\ListSteps' {stepIds} -> stepIds) (\s@ListSteps' {} a -> s {stepIds = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the cluster for which to list the steps.
 listSteps_clusterId :: Lens.Lens' ListSteps Prelude.Text
@@ -156,23 +156,23 @@ instance Core.AWSRequest ListSteps where
     Response.receiveJSON
       ( \s h x ->
           ListStepsResponse'
-            Prelude.<$> (x Core..?> "Steps" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Steps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSteps where
   hashWithSalt _salt ListSteps' {..} =
-    _salt `Prelude.hashWithSalt` stepIds
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` stepStates
-      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` stepIds
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData ListSteps where
   rnf ListSteps' {..} =
-    Prelude.rnf stepIds
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf stepStates
-      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf stepIds
       `Prelude.seq` Prelude.rnf clusterId
 
 instance Core.ToHeaders ListSteps where
@@ -192,9 +192,9 @@ instance Core.ToJSON ListSteps where
   toJSON ListSteps' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StepIds" Core..=) Prelude.<$> stepIds,
+          [ ("Marker" Core..=) Prelude.<$> marker,
             ("StepStates" Core..=) Prelude.<$> stepStates,
-            ("Marker" Core..=) Prelude.<$> marker,
+            ("StepIds" Core..=) Prelude.<$> stepIds,
             Prelude.Just ("ClusterId" Core..= clusterId)
           ]
       )
@@ -210,13 +210,13 @@ instance Core.ToQuery ListSteps where
 --
 -- /See:/ 'newListStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
-  { -- | The filtered list of steps for the cluster.
-    steps :: Prelude.Maybe [StepSummary],
-    -- | The maximum number of steps that a single @ListSteps@ action returns is
+  { -- | The maximum number of steps that a single @ListSteps@ action returns is
     -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
     -- along with the @Marker@ parameter, which is a pagination token that
     -- indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The filtered list of steps for the cluster.
+    steps :: Prelude.Maybe [StepSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,12 +230,12 @@ data ListStepsResponse = ListStepsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'steps', 'listStepsResponse_steps' - The filtered list of steps for the cluster.
---
 -- 'marker', 'listStepsResponse_marker' - The maximum number of steps that a single @ListSteps@ action returns is
 -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
 -- along with the @Marker@ parameter, which is a pagination token that
 -- indicates the next set of results to retrieve.
+--
+-- 'steps', 'listStepsResponse_steps' - The filtered list of steps for the cluster.
 --
 -- 'httpStatus', 'listStepsResponse_httpStatus' - The response's http status code.
 newListStepsResponse ::
@@ -244,14 +244,10 @@ newListStepsResponse ::
   ListStepsResponse
 newListStepsResponse pHttpStatus_ =
   ListStepsResponse'
-    { steps = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      steps = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The filtered list of steps for the cluster.
-listStepsResponse_steps :: Lens.Lens' ListStepsResponse (Prelude.Maybe [StepSummary])
-listStepsResponse_steps = Lens.lens (\ListStepsResponse' {steps} -> steps) (\s@ListStepsResponse' {} a -> s {steps = a} :: ListStepsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of steps that a single @ListSteps@ action returns is
 -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
@@ -260,12 +256,16 @@ listStepsResponse_steps = Lens.lens (\ListStepsResponse' {steps} -> steps) (\s@L
 listStepsResponse_marker :: Lens.Lens' ListStepsResponse (Prelude.Maybe Prelude.Text)
 listStepsResponse_marker = Lens.lens (\ListStepsResponse' {marker} -> marker) (\s@ListStepsResponse' {} a -> s {marker = a} :: ListStepsResponse)
 
+-- | The filtered list of steps for the cluster.
+listStepsResponse_steps :: Lens.Lens' ListStepsResponse (Prelude.Maybe [StepSummary])
+listStepsResponse_steps = Lens.lens (\ListStepsResponse' {steps} -> steps) (\s@ListStepsResponse' {} a -> s {steps = a} :: ListStepsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listStepsResponse_httpStatus :: Lens.Lens' ListStepsResponse Prelude.Int
 listStepsResponse_httpStatus = Lens.lens (\ListStepsResponse' {httpStatus} -> httpStatus) (\s@ListStepsResponse' {} a -> s {httpStatus = a} :: ListStepsResponse)
 
 instance Prelude.NFData ListStepsResponse where
   rnf ListStepsResponse' {..} =
-    Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf steps
       `Prelude.seq` Prelude.rnf httpStatus

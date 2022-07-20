@@ -28,16 +28,16 @@ import Amazonka.SageMaker.Types.ProcessingInstanceType
 --
 -- /See:/ 'newProfilerRuleConfiguration' smart constructor.
 data ProfilerRuleConfiguration = ProfilerRuleConfiguration'
-  { -- | Runtime configuration for rule container.
-    ruleParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Path to Amazon S3 storage location for rules.
+  { -- | Path to Amazon S3 storage location for rules.
     s3OutputPath :: Prelude.Maybe Prelude.Text,
-    -- | Path to local storage location for output of rules. Defaults to
-    -- @\/opt\/ml\/processing\/output\/rule\/@.
-    localPath :: Prelude.Maybe Prelude.Text,
     -- | The instance type to deploy a Debugger custom rule for profiling a
     -- training job.
     instanceType :: Prelude.Maybe ProcessingInstanceType,
+    -- | Runtime configuration for rule container.
+    ruleParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Path to local storage location for output of rules. Defaults to
+    -- @\/opt\/ml\/processing\/output\/rule\/@.
+    localPath :: Prelude.Maybe Prelude.Text,
     -- | The size, in GB, of the ML storage volume attached to the processing
     -- instance.
     volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
@@ -58,15 +58,15 @@ data ProfilerRuleConfiguration = ProfilerRuleConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleParameters', 'profilerRuleConfiguration_ruleParameters' - Runtime configuration for rule container.
---
 -- 's3OutputPath', 'profilerRuleConfiguration_s3OutputPath' - Path to Amazon S3 storage location for rules.
---
--- 'localPath', 'profilerRuleConfiguration_localPath' - Path to local storage location for output of rules. Defaults to
--- @\/opt\/ml\/processing\/output\/rule\/@.
 --
 -- 'instanceType', 'profilerRuleConfiguration_instanceType' - The instance type to deploy a Debugger custom rule for profiling a
 -- training job.
+--
+-- 'ruleParameters', 'profilerRuleConfiguration_ruleParameters' - Runtime configuration for rule container.
+--
+-- 'localPath', 'profilerRuleConfiguration_localPath' - Path to local storage location for output of rules. Defaults to
+-- @\/opt\/ml\/processing\/output\/rule\/@.
 --
 -- 'volumeSizeInGB', 'profilerRuleConfiguration_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing
 -- instance.
@@ -86,33 +86,33 @@ newProfilerRuleConfiguration
   pRuleConfigurationName_
   pRuleEvaluatorImage_ =
     ProfilerRuleConfiguration'
-      { ruleParameters =
+      { s3OutputPath =
           Prelude.Nothing,
-        s3OutputPath = Prelude.Nothing,
-        localPath = Prelude.Nothing,
         instanceType = Prelude.Nothing,
+        ruleParameters = Prelude.Nothing,
+        localPath = Prelude.Nothing,
         volumeSizeInGB = Prelude.Nothing,
         ruleConfigurationName = pRuleConfigurationName_,
         ruleEvaluatorImage = pRuleEvaluatorImage_
       }
 
--- | Runtime configuration for rule container.
-profilerRuleConfiguration_ruleParameters :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-profilerRuleConfiguration_ruleParameters = Lens.lens (\ProfilerRuleConfiguration' {ruleParameters} -> ruleParameters) (\s@ProfilerRuleConfiguration' {} a -> s {ruleParameters = a} :: ProfilerRuleConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | Path to Amazon S3 storage location for rules.
 profilerRuleConfiguration_s3OutputPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
 profilerRuleConfiguration_s3OutputPath = Lens.lens (\ProfilerRuleConfiguration' {s3OutputPath} -> s3OutputPath) (\s@ProfilerRuleConfiguration' {} a -> s {s3OutputPath = a} :: ProfilerRuleConfiguration)
-
--- | Path to local storage location for output of rules. Defaults to
--- @\/opt\/ml\/processing\/output\/rule\/@.
-profilerRuleConfiguration_localPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
-profilerRuleConfiguration_localPath = Lens.lens (\ProfilerRuleConfiguration' {localPath} -> localPath) (\s@ProfilerRuleConfiguration' {} a -> s {localPath = a} :: ProfilerRuleConfiguration)
 
 -- | The instance type to deploy a Debugger custom rule for profiling a
 -- training job.
 profilerRuleConfiguration_instanceType :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe ProcessingInstanceType)
 profilerRuleConfiguration_instanceType = Lens.lens (\ProfilerRuleConfiguration' {instanceType} -> instanceType) (\s@ProfilerRuleConfiguration' {} a -> s {instanceType = a} :: ProfilerRuleConfiguration)
+
+-- | Runtime configuration for rule container.
+profilerRuleConfiguration_ruleParameters :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+profilerRuleConfiguration_ruleParameters = Lens.lens (\ProfilerRuleConfiguration' {ruleParameters} -> ruleParameters) (\s@ProfilerRuleConfiguration' {} a -> s {ruleParameters = a} :: ProfilerRuleConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Path to local storage location for output of rules. Defaults to
+-- @\/opt\/ml\/processing\/output\/rule\/@.
+profilerRuleConfiguration_localPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
+profilerRuleConfiguration_localPath = Lens.lens (\ProfilerRuleConfiguration' {localPath} -> localPath) (\s@ProfilerRuleConfiguration' {} a -> s {localPath = a} :: ProfilerRuleConfiguration)
 
 -- | The size, in GB, of the ML storage volume attached to the processing
 -- instance.
@@ -135,10 +135,10 @@ instance Core.FromJSON ProfilerRuleConfiguration where
       "ProfilerRuleConfiguration"
       ( \x ->
           ProfilerRuleConfiguration'
-            Prelude.<$> (x Core..:? "RuleParameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "S3OutputPath")
-            Prelude.<*> (x Core..:? "LocalPath")
+            Prelude.<$> (x Core..:? "S3OutputPath")
             Prelude.<*> (x Core..:? "InstanceType")
+            Prelude.<*> (x Core..:? "RuleParameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LocalPath")
             Prelude.<*> (x Core..:? "VolumeSizeInGB")
             Prelude.<*> (x Core..: "RuleConfigurationName")
             Prelude.<*> (x Core..: "RuleEvaluatorImage")
@@ -146,20 +146,20 @@ instance Core.FromJSON ProfilerRuleConfiguration where
 
 instance Prelude.Hashable ProfilerRuleConfiguration where
   hashWithSalt _salt ProfilerRuleConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ruleParameters
-      `Prelude.hashWithSalt` s3OutputPath
-      `Prelude.hashWithSalt` localPath
+    _salt `Prelude.hashWithSalt` s3OutputPath
       `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` ruleParameters
+      `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` volumeSizeInGB
       `Prelude.hashWithSalt` ruleConfigurationName
       `Prelude.hashWithSalt` ruleEvaluatorImage
 
 instance Prelude.NFData ProfilerRuleConfiguration where
   rnf ProfilerRuleConfiguration' {..} =
-    Prelude.rnf ruleParameters
-      `Prelude.seq` Prelude.rnf s3OutputPath
-      `Prelude.seq` Prelude.rnf localPath
+    Prelude.rnf s3OutputPath
       `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf ruleParameters
+      `Prelude.seq` Prelude.rnf localPath
       `Prelude.seq` Prelude.rnf volumeSizeInGB
       `Prelude.seq` Prelude.rnf ruleConfigurationName
       `Prelude.seq` Prelude.rnf ruleEvaluatorImage
@@ -168,11 +168,11 @@ instance Core.ToJSON ProfilerRuleConfiguration where
   toJSON ProfilerRuleConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RuleParameters" Core..=)
-              Prelude.<$> ruleParameters,
-            ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
+          [ ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
             ("InstanceType" Core..=) Prelude.<$> instanceType,
+            ("RuleParameters" Core..=)
+              Prelude.<$> ruleParameters,
+            ("LocalPath" Core..=) Prelude.<$> localPath,
             ("VolumeSizeInGB" Core..=)
               Prelude.<$> volumeSizeInGB,
             Prelude.Just

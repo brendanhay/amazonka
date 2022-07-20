@@ -27,10 +27,10 @@ module Amazonka.MGN.UpdateLaunchConfiguration
     newUpdateLaunchConfiguration,
 
     -- * Request Lenses
-    updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
-    updateLaunchConfiguration_launchDisposition,
-    updateLaunchConfiguration_copyTags,
     updateLaunchConfiguration_name,
+    updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
+    updateLaunchConfiguration_copyTags,
+    updateLaunchConfiguration_launchDisposition,
     updateLaunchConfiguration_licensing,
     updateLaunchConfiguration_copyPrivateIp,
     updateLaunchConfiguration_sourceServerID,
@@ -40,11 +40,11 @@ module Amazonka.MGN.UpdateLaunchConfiguration
     newLaunchConfiguration,
 
     -- * Response Lenses
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_copyTags,
     launchConfiguration_name,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
+    launchConfiguration_copyTags,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_ec2LaunchTemplateID,
     launchConfiguration_sourceServerID,
     launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLaunchConfiguration' smart constructor.
 data UpdateLaunchConfiguration = UpdateLaunchConfiguration'
-  { -- | Update Launch configuration Target instance right sizing request.
+  { -- | Update Launch configuration name request.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Update Launch configuration Target instance right sizing request.
     targetInstanceTypeRightSizingMethod :: Prelude.Maybe TargetInstanceTypeRightSizingMethod,
-    -- | Update Launch configuration launch disposition request.
-    launchDisposition :: Prelude.Maybe LaunchDisposition,
     -- | Update Launch configuration copy Tags request.
     copyTags :: Prelude.Maybe Prelude.Bool,
-    -- | Update Launch configuration name request.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | Update Launch configuration launch disposition request.
+    launchDisposition :: Prelude.Maybe LaunchDisposition,
     -- | Update Launch configuration licensing request.
     licensing :: Prelude.Maybe Licensing,
     -- | Update Launch configuration copy Private IP request.
@@ -85,13 +85,13 @@ data UpdateLaunchConfiguration = UpdateLaunchConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetInstanceTypeRightSizingMethod', 'updateLaunchConfiguration_targetInstanceTypeRightSizingMethod' - Update Launch configuration Target instance right sizing request.
+-- 'name', 'updateLaunchConfiguration_name' - Update Launch configuration name request.
 --
--- 'launchDisposition', 'updateLaunchConfiguration_launchDisposition' - Update Launch configuration launch disposition request.
+-- 'targetInstanceTypeRightSizingMethod', 'updateLaunchConfiguration_targetInstanceTypeRightSizingMethod' - Update Launch configuration Target instance right sizing request.
 --
 -- 'copyTags', 'updateLaunchConfiguration_copyTags' - Update Launch configuration copy Tags request.
 --
--- 'name', 'updateLaunchConfiguration_name' - Update Launch configuration name request.
+-- 'launchDisposition', 'updateLaunchConfiguration_launchDisposition' - Update Launch configuration launch disposition request.
 --
 -- 'licensing', 'updateLaunchConfiguration_licensing' - Update Launch configuration licensing request.
 --
@@ -104,31 +104,31 @@ newUpdateLaunchConfiguration ::
   UpdateLaunchConfiguration
 newUpdateLaunchConfiguration pSourceServerID_ =
   UpdateLaunchConfiguration'
-    { targetInstanceTypeRightSizingMethod =
+    { name = Prelude.Nothing,
+      targetInstanceTypeRightSizingMethod =
         Prelude.Nothing,
-      launchDisposition = Prelude.Nothing,
       copyTags = Prelude.Nothing,
-      name = Prelude.Nothing,
+      launchDisposition = Prelude.Nothing,
       licensing = Prelude.Nothing,
       copyPrivateIp = Prelude.Nothing,
       sourceServerID = pSourceServerID_
     }
 
+-- | Update Launch configuration name request.
+updateLaunchConfiguration_name :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Prelude.Text)
+updateLaunchConfiguration_name = Lens.lens (\UpdateLaunchConfiguration' {name} -> name) (\s@UpdateLaunchConfiguration' {} a -> s {name = a} :: UpdateLaunchConfiguration)
+
 -- | Update Launch configuration Target instance right sizing request.
 updateLaunchConfiguration_targetInstanceTypeRightSizingMethod :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe TargetInstanceTypeRightSizingMethod)
 updateLaunchConfiguration_targetInstanceTypeRightSizingMethod = Lens.lens (\UpdateLaunchConfiguration' {targetInstanceTypeRightSizingMethod} -> targetInstanceTypeRightSizingMethod) (\s@UpdateLaunchConfiguration' {} a -> s {targetInstanceTypeRightSizingMethod = a} :: UpdateLaunchConfiguration)
-
--- | Update Launch configuration launch disposition request.
-updateLaunchConfiguration_launchDisposition :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe LaunchDisposition)
-updateLaunchConfiguration_launchDisposition = Lens.lens (\UpdateLaunchConfiguration' {launchDisposition} -> launchDisposition) (\s@UpdateLaunchConfiguration' {} a -> s {launchDisposition = a} :: UpdateLaunchConfiguration)
 
 -- | Update Launch configuration copy Tags request.
 updateLaunchConfiguration_copyTags :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Prelude.Bool)
 updateLaunchConfiguration_copyTags = Lens.lens (\UpdateLaunchConfiguration' {copyTags} -> copyTags) (\s@UpdateLaunchConfiguration' {} a -> s {copyTags = a} :: UpdateLaunchConfiguration)
 
--- | Update Launch configuration name request.
-updateLaunchConfiguration_name :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Prelude.Text)
-updateLaunchConfiguration_name = Lens.lens (\UpdateLaunchConfiguration' {name} -> name) (\s@UpdateLaunchConfiguration' {} a -> s {name = a} :: UpdateLaunchConfiguration)
+-- | Update Launch configuration launch disposition request.
+updateLaunchConfiguration_launchDisposition :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe LaunchDisposition)
+updateLaunchConfiguration_launchDisposition = Lens.lens (\UpdateLaunchConfiguration' {launchDisposition} -> launchDisposition) (\s@UpdateLaunchConfiguration' {} a -> s {launchDisposition = a} :: UpdateLaunchConfiguration)
 
 -- | Update Launch configuration licensing request.
 updateLaunchConfiguration_licensing :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Licensing)
@@ -153,21 +153,20 @@ instance Core.AWSRequest UpdateLaunchConfiguration where
 
 instance Prelude.Hashable UpdateLaunchConfiguration where
   hashWithSalt _salt UpdateLaunchConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetInstanceTypeRightSizingMethod
-      `Prelude.hashWithSalt` launchDisposition
       `Prelude.hashWithSalt` copyTags
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` launchDisposition
       `Prelude.hashWithSalt` licensing
       `Prelude.hashWithSalt` copyPrivateIp
       `Prelude.hashWithSalt` sourceServerID
 
 instance Prelude.NFData UpdateLaunchConfiguration where
   rnf UpdateLaunchConfiguration' {..} =
-    Prelude.rnf targetInstanceTypeRightSizingMethod
-      `Prelude.seq` Prelude.rnf launchDisposition
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targetInstanceTypeRightSizingMethod
       `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf launchDisposition
       `Prelude.seq` Prelude.rnf licensing
       `Prelude.seq` Prelude.rnf copyPrivateIp
       `Prelude.seq` Prelude.rnf sourceServerID
@@ -187,12 +186,12 @@ instance Core.ToJSON UpdateLaunchConfiguration where
   toJSON UpdateLaunchConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("targetInstanceTypeRightSizingMethod" Core..=)
+          [ ("name" Core..=) Prelude.<$> name,
+            ("targetInstanceTypeRightSizingMethod" Core..=)
               Prelude.<$> targetInstanceTypeRightSizingMethod,
+            ("copyTags" Core..=) Prelude.<$> copyTags,
             ("launchDisposition" Core..=)
               Prelude.<$> launchDisposition,
-            ("copyTags" Core..=) Prelude.<$> copyTags,
-            ("name" Core..=) Prelude.<$> name,
             ("licensing" Core..=) Prelude.<$> licensing,
             ("copyPrivateIp" Core..=) Prelude.<$> copyPrivateIp,
             Prelude.Just

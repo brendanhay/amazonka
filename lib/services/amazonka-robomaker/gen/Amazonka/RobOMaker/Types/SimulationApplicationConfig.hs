@@ -31,24 +31,24 @@ import Amazonka.RobOMaker.Types.WorldConfig
 --
 -- /See:/ 'newSimulationApplicationConfig' smart constructor.
 data SimulationApplicationConfig = SimulationApplicationConfig'
-  { -- | A Boolean indicating whether to use default upload configurations. By
+  { -- | A list of world configurations.
+    worldConfigs :: Prelude.Maybe [WorldConfig],
+    -- | Information about tools configured for the simulation application.
+    tools :: Prelude.Maybe [Tool],
+    -- | A Boolean indicating whether to use default simulation application
+    -- tools. The default tools are rviz, rqt, terminal and rosbag record. The
+    -- default is @False@.
+    useDefaultTools :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean indicating whether to use default upload configurations. By
     -- default, @.ros@ and @.gazebo@ files are uploaded when the application
     -- terminates and all ROS topics will be recorded.
     --
     -- If you set this value, you must specify an @outputLocation@.
     useDefaultUploadConfigurations :: Prelude.Maybe Prelude.Bool,
-    -- | A Boolean indicating whether to use default simulation application
-    -- tools. The default tools are rviz, rqt, terminal and rosbag record. The
-    -- default is @False@.
-    useDefaultTools :: Prelude.Maybe Prelude.Bool,
-    -- | The version of the simulation application.
-    applicationVersion :: Prelude.Maybe Prelude.Text,
     -- | Information about upload configurations for the simulation application.
     uploadConfigurations :: Prelude.Maybe [UploadConfiguration],
-    -- | Information about tools configured for the simulation application.
-    tools :: Prelude.Maybe [Tool],
-    -- | A list of world configurations.
-    worldConfigs :: Prelude.Maybe [WorldConfig],
+    -- | The version of the simulation application.
+    applicationVersion :: Prelude.Maybe Prelude.Text,
     -- | The application information for the simulation application.
     application :: Prelude.Text,
     -- | The launch configuration for the simulation application.
@@ -64,23 +64,23 @@ data SimulationApplicationConfig = SimulationApplicationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'worldConfigs', 'simulationApplicationConfig_worldConfigs' - A list of world configurations.
+--
+-- 'tools', 'simulationApplicationConfig_tools' - Information about tools configured for the simulation application.
+--
+-- 'useDefaultTools', 'simulationApplicationConfig_useDefaultTools' - A Boolean indicating whether to use default simulation application
+-- tools. The default tools are rviz, rqt, terminal and rosbag record. The
+-- default is @False@.
+--
 -- 'useDefaultUploadConfigurations', 'simulationApplicationConfig_useDefaultUploadConfigurations' - A Boolean indicating whether to use default upload configurations. By
 -- default, @.ros@ and @.gazebo@ files are uploaded when the application
 -- terminates and all ROS topics will be recorded.
 --
 -- If you set this value, you must specify an @outputLocation@.
 --
--- 'useDefaultTools', 'simulationApplicationConfig_useDefaultTools' - A Boolean indicating whether to use default simulation application
--- tools. The default tools are rviz, rqt, terminal and rosbag record. The
--- default is @False@.
---
--- 'applicationVersion', 'simulationApplicationConfig_applicationVersion' - The version of the simulation application.
---
 -- 'uploadConfigurations', 'simulationApplicationConfig_uploadConfigurations' - Information about upload configurations for the simulation application.
 --
--- 'tools', 'simulationApplicationConfig_tools' - Information about tools configured for the simulation application.
---
--- 'worldConfigs', 'simulationApplicationConfig_worldConfigs' - A list of world configurations.
+-- 'applicationVersion', 'simulationApplicationConfig_applicationVersion' - The version of the simulation application.
 --
 -- 'application', 'simulationApplicationConfig_application' - The application information for the simulation application.
 --
@@ -95,16 +95,31 @@ newSimulationApplicationConfig
   pApplication_
   pLaunchConfig_ =
     SimulationApplicationConfig'
-      { useDefaultUploadConfigurations =
+      { worldConfigs =
           Prelude.Nothing,
-        useDefaultTools = Prelude.Nothing,
-        applicationVersion = Prelude.Nothing,
-        uploadConfigurations = Prelude.Nothing,
         tools = Prelude.Nothing,
-        worldConfigs = Prelude.Nothing,
+        useDefaultTools = Prelude.Nothing,
+        useDefaultUploadConfigurations =
+          Prelude.Nothing,
+        uploadConfigurations = Prelude.Nothing,
+        applicationVersion = Prelude.Nothing,
         application = pApplication_,
         launchConfig = pLaunchConfig_
       }
+
+-- | A list of world configurations.
+simulationApplicationConfig_worldConfigs :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe [WorldConfig])
+simulationApplicationConfig_worldConfigs = Lens.lens (\SimulationApplicationConfig' {worldConfigs} -> worldConfigs) (\s@SimulationApplicationConfig' {} a -> s {worldConfigs = a} :: SimulationApplicationConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about tools configured for the simulation application.
+simulationApplicationConfig_tools :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe [Tool])
+simulationApplicationConfig_tools = Lens.lens (\SimulationApplicationConfig' {tools} -> tools) (\s@SimulationApplicationConfig' {} a -> s {tools = a} :: SimulationApplicationConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | A Boolean indicating whether to use default simulation application
+-- tools. The default tools are rviz, rqt, terminal and rosbag record. The
+-- default is @False@.
+simulationApplicationConfig_useDefaultTools :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe Prelude.Bool)
+simulationApplicationConfig_useDefaultTools = Lens.lens (\SimulationApplicationConfig' {useDefaultTools} -> useDefaultTools) (\s@SimulationApplicationConfig' {} a -> s {useDefaultTools = a} :: SimulationApplicationConfig)
 
 -- | A Boolean indicating whether to use default upload configurations. By
 -- default, @.ros@ and @.gazebo@ files are uploaded when the application
@@ -114,27 +129,13 @@ newSimulationApplicationConfig
 simulationApplicationConfig_useDefaultUploadConfigurations :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe Prelude.Bool)
 simulationApplicationConfig_useDefaultUploadConfigurations = Lens.lens (\SimulationApplicationConfig' {useDefaultUploadConfigurations} -> useDefaultUploadConfigurations) (\s@SimulationApplicationConfig' {} a -> s {useDefaultUploadConfigurations = a} :: SimulationApplicationConfig)
 
--- | A Boolean indicating whether to use default simulation application
--- tools. The default tools are rviz, rqt, terminal and rosbag record. The
--- default is @False@.
-simulationApplicationConfig_useDefaultTools :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe Prelude.Bool)
-simulationApplicationConfig_useDefaultTools = Lens.lens (\SimulationApplicationConfig' {useDefaultTools} -> useDefaultTools) (\s@SimulationApplicationConfig' {} a -> s {useDefaultTools = a} :: SimulationApplicationConfig)
-
--- | The version of the simulation application.
-simulationApplicationConfig_applicationVersion :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe Prelude.Text)
-simulationApplicationConfig_applicationVersion = Lens.lens (\SimulationApplicationConfig' {applicationVersion} -> applicationVersion) (\s@SimulationApplicationConfig' {} a -> s {applicationVersion = a} :: SimulationApplicationConfig)
-
 -- | Information about upload configurations for the simulation application.
 simulationApplicationConfig_uploadConfigurations :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe [UploadConfiguration])
 simulationApplicationConfig_uploadConfigurations = Lens.lens (\SimulationApplicationConfig' {uploadConfigurations} -> uploadConfigurations) (\s@SimulationApplicationConfig' {} a -> s {uploadConfigurations = a} :: SimulationApplicationConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about tools configured for the simulation application.
-simulationApplicationConfig_tools :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe [Tool])
-simulationApplicationConfig_tools = Lens.lens (\SimulationApplicationConfig' {tools} -> tools) (\s@SimulationApplicationConfig' {} a -> s {tools = a} :: SimulationApplicationConfig) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of world configurations.
-simulationApplicationConfig_worldConfigs :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe [WorldConfig])
-simulationApplicationConfig_worldConfigs = Lens.lens (\SimulationApplicationConfig' {worldConfigs} -> worldConfigs) (\s@SimulationApplicationConfig' {} a -> s {worldConfigs = a} :: SimulationApplicationConfig) Prelude.. Lens.mapping Lens.coerced
+-- | The version of the simulation application.
+simulationApplicationConfig_applicationVersion :: Lens.Lens' SimulationApplicationConfig (Prelude.Maybe Prelude.Text)
+simulationApplicationConfig_applicationVersion = Lens.lens (\SimulationApplicationConfig' {applicationVersion} -> applicationVersion) (\s@SimulationApplicationConfig' {} a -> s {applicationVersion = a} :: SimulationApplicationConfig)
 
 -- | The application information for the simulation application.
 simulationApplicationConfig_application :: Lens.Lens' SimulationApplicationConfig Prelude.Text
@@ -150,38 +151,37 @@ instance Core.FromJSON SimulationApplicationConfig where
       "SimulationApplicationConfig"
       ( \x ->
           SimulationApplicationConfig'
-            Prelude.<$> (x Core..:? "useDefaultUploadConfigurations")
+            Prelude.<$> (x Core..:? "worldConfigs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "tools" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "useDefaultTools")
-            Prelude.<*> (x Core..:? "applicationVersion")
+            Prelude.<*> (x Core..:? "useDefaultUploadConfigurations")
             Prelude.<*> ( x Core..:? "uploadConfigurations"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "tools" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "worldConfigs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "applicationVersion")
             Prelude.<*> (x Core..: "application")
             Prelude.<*> (x Core..: "launchConfig")
       )
 
 instance Prelude.Hashable SimulationApplicationConfig where
   hashWithSalt _salt SimulationApplicationConfig' {..} =
-    _salt
-      `Prelude.hashWithSalt` useDefaultUploadConfigurations
-      `Prelude.hashWithSalt` useDefaultTools
-      `Prelude.hashWithSalt` applicationVersion
-      `Prelude.hashWithSalt` uploadConfigurations
+    _salt `Prelude.hashWithSalt` worldConfigs
       `Prelude.hashWithSalt` tools
-      `Prelude.hashWithSalt` worldConfigs
+      `Prelude.hashWithSalt` useDefaultTools
+      `Prelude.hashWithSalt` useDefaultUploadConfigurations
+      `Prelude.hashWithSalt` uploadConfigurations
+      `Prelude.hashWithSalt` applicationVersion
       `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` launchConfig
 
 instance Prelude.NFData SimulationApplicationConfig where
   rnf SimulationApplicationConfig' {..} =
-    Prelude.rnf useDefaultUploadConfigurations
-      `Prelude.seq` Prelude.rnf useDefaultTools
-      `Prelude.seq` Prelude.rnf applicationVersion
-      `Prelude.seq` Prelude.rnf uploadConfigurations
+    Prelude.rnf worldConfigs
       `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf worldConfigs
+      `Prelude.seq` Prelude.rnf useDefaultTools
+      `Prelude.seq` Prelude.rnf useDefaultUploadConfigurations
+      `Prelude.seq` Prelude.rnf uploadConfigurations
+      `Prelude.seq` Prelude.rnf applicationVersion
       `Prelude.seq` Prelude.rnf application
       `Prelude.seq` Prelude.rnf launchConfig
 
@@ -189,16 +189,16 @@ instance Core.ToJSON SimulationApplicationConfig where
   toJSON SimulationApplicationConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("useDefaultUploadConfigurations" Core..=)
-              Prelude.<$> useDefaultUploadConfigurations,
+          [ ("worldConfigs" Core..=) Prelude.<$> worldConfigs,
+            ("tools" Core..=) Prelude.<$> tools,
             ("useDefaultTools" Core..=)
               Prelude.<$> useDefaultTools,
-            ("applicationVersion" Core..=)
-              Prelude.<$> applicationVersion,
+            ("useDefaultUploadConfigurations" Core..=)
+              Prelude.<$> useDefaultUploadConfigurations,
             ("uploadConfigurations" Core..=)
               Prelude.<$> uploadConfigurations,
-            ("tools" Core..=) Prelude.<$> tools,
-            ("worldConfigs" Core..=) Prelude.<$> worldConfigs,
+            ("applicationVersion" Core..=)
+              Prelude.<$> applicationVersion,
             Prelude.Just ("application" Core..= application),
             Prelude.Just ("launchConfig" Core..= launchConfig)
           ]

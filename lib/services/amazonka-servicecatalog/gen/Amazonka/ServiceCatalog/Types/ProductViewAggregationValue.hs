@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProductViewAggregationValue' smart constructor.
 data ProductViewAggregationValue = ProductViewAggregationValue'
-  { -- | The value of the product view aggregation.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | An approximate count of the products that match the value.
-    approximateCount :: Prelude.Maybe Prelude.Int
+  { -- | An approximate count of the products that match the value.
+    approximateCount :: Prelude.Maybe Prelude.Int,
+    -- | The value of the product view aggregation.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ProductViewAggregationValue = ProductViewAggregationValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'productViewAggregationValue_value' - The value of the product view aggregation.
---
 -- 'approximateCount', 'productViewAggregationValue_approximateCount' - An approximate count of the products that match the value.
+--
+-- 'value', 'productViewAggregationValue_value' - The value of the product view aggregation.
 newProductViewAggregationValue ::
   ProductViewAggregationValue
 newProductViewAggregationValue =
   ProductViewAggregationValue'
-    { value =
+    { approximateCount =
         Prelude.Nothing,
-      approximateCount = Prelude.Nothing
+      value = Prelude.Nothing
     }
-
--- | The value of the product view aggregation.
-productViewAggregationValue_value :: Lens.Lens' ProductViewAggregationValue (Prelude.Maybe Prelude.Text)
-productViewAggregationValue_value = Lens.lens (\ProductViewAggregationValue' {value} -> value) (\s@ProductViewAggregationValue' {} a -> s {value = a} :: ProductViewAggregationValue)
 
 -- | An approximate count of the products that match the value.
 productViewAggregationValue_approximateCount :: Lens.Lens' ProductViewAggregationValue (Prelude.Maybe Prelude.Int)
 productViewAggregationValue_approximateCount = Lens.lens (\ProductViewAggregationValue' {approximateCount} -> approximateCount) (\s@ProductViewAggregationValue' {} a -> s {approximateCount = a} :: ProductViewAggregationValue)
+
+-- | The value of the product view aggregation.
+productViewAggregationValue_value :: Lens.Lens' ProductViewAggregationValue (Prelude.Maybe Prelude.Text)
+productViewAggregationValue_value = Lens.lens (\ProductViewAggregationValue' {value} -> value) (\s@ProductViewAggregationValue' {} a -> s {value = a} :: ProductViewAggregationValue)
 
 instance Core.FromJSON ProductViewAggregationValue where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON ProductViewAggregationValue where
       "ProductViewAggregationValue"
       ( \x ->
           ProductViewAggregationValue'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "ApproximateCount")
+            Prelude.<$> (x Core..:? "ApproximateCount")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable ProductViewAggregationValue where
   hashWithSalt _salt ProductViewAggregationValue' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` approximateCount
+    _salt `Prelude.hashWithSalt` approximateCount
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ProductViewAggregationValue where
   rnf ProductViewAggregationValue' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf approximateCount
+    Prelude.rnf approximateCount
+      `Prelude.seq` Prelude.rnf value

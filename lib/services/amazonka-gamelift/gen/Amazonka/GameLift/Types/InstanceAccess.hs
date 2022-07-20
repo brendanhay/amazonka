@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceAccess' smart constructor.
 data InstanceAccess = InstanceAccess'
-  { -- | A unique identifier for the instance being accessed.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | IP address that is assigned to the instance.
-    ipAddress :: Prelude.Maybe Prelude.Text,
-    -- | Operating system that is running on the instance.
+  { -- | Operating system that is running on the instance.
     operatingSystem :: Prelude.Maybe OperatingSystem,
-    -- | Credentials required to access the instance.
-    credentials :: Prelude.Maybe (Core.Sensitive InstanceCredentials),
     -- | A unique identifier for the fleet containing the instance being
     -- accessed.
-    fleetId :: Prelude.Maybe Prelude.Text
+    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the instance being accessed.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | Credentials required to access the instance.
+    credentials :: Prelude.Maybe (Core.Sensitive InstanceCredentials),
+    -- | IP address that is assigned to the instance.
+    ipAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,47 +52,47 @@ data InstanceAccess = InstanceAccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'instanceAccess_instanceId' - A unique identifier for the instance being accessed.
---
--- 'ipAddress', 'instanceAccess_ipAddress' - IP address that is assigned to the instance.
---
 -- 'operatingSystem', 'instanceAccess_operatingSystem' - Operating system that is running on the instance.
---
--- 'credentials', 'instanceAccess_credentials' - Credentials required to access the instance.
 --
 -- 'fleetId', 'instanceAccess_fleetId' - A unique identifier for the fleet containing the instance being
 -- accessed.
+--
+-- 'instanceId', 'instanceAccess_instanceId' - A unique identifier for the instance being accessed.
+--
+-- 'credentials', 'instanceAccess_credentials' - Credentials required to access the instance.
+--
+-- 'ipAddress', 'instanceAccess_ipAddress' - IP address that is assigned to the instance.
 newInstanceAccess ::
   InstanceAccess
 newInstanceAccess =
   InstanceAccess'
-    { instanceId = Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
+    { operatingSystem = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       credentials = Prelude.Nothing,
-      fleetId = Prelude.Nothing
+      ipAddress = Prelude.Nothing
     }
-
--- | A unique identifier for the instance being accessed.
-instanceAccess_instanceId :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
-instanceAccess_instanceId = Lens.lens (\InstanceAccess' {instanceId} -> instanceId) (\s@InstanceAccess' {} a -> s {instanceId = a} :: InstanceAccess)
-
--- | IP address that is assigned to the instance.
-instanceAccess_ipAddress :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
-instanceAccess_ipAddress = Lens.lens (\InstanceAccess' {ipAddress} -> ipAddress) (\s@InstanceAccess' {} a -> s {ipAddress = a} :: InstanceAccess)
 
 -- | Operating system that is running on the instance.
 instanceAccess_operatingSystem :: Lens.Lens' InstanceAccess (Prelude.Maybe OperatingSystem)
 instanceAccess_operatingSystem = Lens.lens (\InstanceAccess' {operatingSystem} -> operatingSystem) (\s@InstanceAccess' {} a -> s {operatingSystem = a} :: InstanceAccess)
 
--- | Credentials required to access the instance.
-instanceAccess_credentials :: Lens.Lens' InstanceAccess (Prelude.Maybe InstanceCredentials)
-instanceAccess_credentials = Lens.lens (\InstanceAccess' {credentials} -> credentials) (\s@InstanceAccess' {} a -> s {credentials = a} :: InstanceAccess) Prelude.. Lens.mapping Core._Sensitive
-
 -- | A unique identifier for the fleet containing the instance being
 -- accessed.
 instanceAccess_fleetId :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
 instanceAccess_fleetId = Lens.lens (\InstanceAccess' {fleetId} -> fleetId) (\s@InstanceAccess' {} a -> s {fleetId = a} :: InstanceAccess)
+
+-- | A unique identifier for the instance being accessed.
+instanceAccess_instanceId :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
+instanceAccess_instanceId = Lens.lens (\InstanceAccess' {instanceId} -> instanceId) (\s@InstanceAccess' {} a -> s {instanceId = a} :: InstanceAccess)
+
+-- | Credentials required to access the instance.
+instanceAccess_credentials :: Lens.Lens' InstanceAccess (Prelude.Maybe InstanceCredentials)
+instanceAccess_credentials = Lens.lens (\InstanceAccess' {credentials} -> credentials) (\s@InstanceAccess' {} a -> s {credentials = a} :: InstanceAccess) Prelude.. Lens.mapping Core._Sensitive
+
+-- | IP address that is assigned to the instance.
+instanceAccess_ipAddress :: Lens.Lens' InstanceAccess (Prelude.Maybe Prelude.Text)
+instanceAccess_ipAddress = Lens.lens (\InstanceAccess' {ipAddress} -> ipAddress) (\s@InstanceAccess' {} a -> s {ipAddress = a} :: InstanceAccess)
 
 instance Core.FromJSON InstanceAccess where
   parseJSON =
@@ -100,25 +100,25 @@ instance Core.FromJSON InstanceAccess where
       "InstanceAccess"
       ( \x ->
           InstanceAccess'
-            Prelude.<$> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "IpAddress")
-            Prelude.<*> (x Core..:? "OperatingSystem")
-            Prelude.<*> (x Core..:? "Credentials")
+            Prelude.<$> (x Core..:? "OperatingSystem")
             Prelude.<*> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "Credentials")
+            Prelude.<*> (x Core..:? "IpAddress")
       )
 
 instance Prelude.Hashable InstanceAccess where
   hashWithSalt _salt InstanceAccess' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` ipAddress
-      `Prelude.hashWithSalt` operatingSystem
-      `Prelude.hashWithSalt` credentials
+    _salt `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` ipAddress
 
 instance Prelude.NFData InstanceAccess where
   rnf InstanceAccess' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf credentials
+    Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf ipAddress

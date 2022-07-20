@@ -30,8 +30,8 @@ module Amazonka.Snowball.CreateLongTermPricing
     newCreateLongTermPricing,
 
     -- * Request Lenses
-    createLongTermPricing_snowballType,
     createLongTermPricing_isLongTermPricingAutoRenew,
+    createLongTermPricing_snowballType,
     createLongTermPricing_longTermPricingType,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import Amazonka.Snowball.Types
 
 -- | /See:/ 'newCreateLongTermPricing' smart constructor.
 data CreateLongTermPricing = CreateLongTermPricing'
-  { -- | The type of AWS Snow Family device to use for the long-term pricing job.
-    snowballType :: Prelude.Maybe SnowballType,
-    -- | Specifies whether the current long-term pricing type for the device
+  { -- | Specifies whether the current long-term pricing type for the device
     -- should be renewed.
     isLongTermPricingAutoRenew :: Prelude.Maybe Prelude.Bool,
+    -- | The type of AWS Snow Family device to use for the long-term pricing job.
+    snowballType :: Prelude.Maybe SnowballType,
     -- | The type of long-term pricing option you want for the device, either
     -- 1-year or 3-year long-term pricing.
     longTermPricingType :: LongTermPricingType
@@ -72,10 +72,10 @@ data CreateLongTermPricing = CreateLongTermPricing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snowballType', 'createLongTermPricing_snowballType' - The type of AWS Snow Family device to use for the long-term pricing job.
---
 -- 'isLongTermPricingAutoRenew', 'createLongTermPricing_isLongTermPricingAutoRenew' - Specifies whether the current long-term pricing type for the device
 -- should be renewed.
+--
+-- 'snowballType', 'createLongTermPricing_snowballType' - The type of AWS Snow Family device to use for the long-term pricing job.
 --
 -- 'longTermPricingType', 'createLongTermPricing_longTermPricingType' - The type of long-term pricing option you want for the device, either
 -- 1-year or 3-year long-term pricing.
@@ -85,20 +85,20 @@ newCreateLongTermPricing ::
   CreateLongTermPricing
 newCreateLongTermPricing pLongTermPricingType_ =
   CreateLongTermPricing'
-    { snowballType =
+    { isLongTermPricingAutoRenew =
         Prelude.Nothing,
-      isLongTermPricingAutoRenew = Prelude.Nothing,
+      snowballType = Prelude.Nothing,
       longTermPricingType = pLongTermPricingType_
     }
-
--- | The type of AWS Snow Family device to use for the long-term pricing job.
-createLongTermPricing_snowballType :: Lens.Lens' CreateLongTermPricing (Prelude.Maybe SnowballType)
-createLongTermPricing_snowballType = Lens.lens (\CreateLongTermPricing' {snowballType} -> snowballType) (\s@CreateLongTermPricing' {} a -> s {snowballType = a} :: CreateLongTermPricing)
 
 -- | Specifies whether the current long-term pricing type for the device
 -- should be renewed.
 createLongTermPricing_isLongTermPricingAutoRenew :: Lens.Lens' CreateLongTermPricing (Prelude.Maybe Prelude.Bool)
 createLongTermPricing_isLongTermPricingAutoRenew = Lens.lens (\CreateLongTermPricing' {isLongTermPricingAutoRenew} -> isLongTermPricingAutoRenew) (\s@CreateLongTermPricing' {} a -> s {isLongTermPricingAutoRenew = a} :: CreateLongTermPricing)
+
+-- | The type of AWS Snow Family device to use for the long-term pricing job.
+createLongTermPricing_snowballType :: Lens.Lens' CreateLongTermPricing (Prelude.Maybe SnowballType)
+createLongTermPricing_snowballType = Lens.lens (\CreateLongTermPricing' {snowballType} -> snowballType) (\s@CreateLongTermPricing' {} a -> s {snowballType = a} :: CreateLongTermPricing)
 
 -- | The type of long-term pricing option you want for the device, either
 -- 1-year or 3-year long-term pricing.
@@ -120,14 +120,15 @@ instance Core.AWSRequest CreateLongTermPricing where
 
 instance Prelude.Hashable CreateLongTermPricing where
   hashWithSalt _salt CreateLongTermPricing' {..} =
-    _salt `Prelude.hashWithSalt` snowballType
+    _salt
       `Prelude.hashWithSalt` isLongTermPricingAutoRenew
+      `Prelude.hashWithSalt` snowballType
       `Prelude.hashWithSalt` longTermPricingType
 
 instance Prelude.NFData CreateLongTermPricing where
   rnf CreateLongTermPricing' {..} =
-    Prelude.rnf snowballType
-      `Prelude.seq` Prelude.rnf isLongTermPricingAutoRenew
+    Prelude.rnf isLongTermPricingAutoRenew
+      `Prelude.seq` Prelude.rnf snowballType
       `Prelude.seq` Prelude.rnf longTermPricingType
 
 instance Core.ToHeaders CreateLongTermPricing where
@@ -149,9 +150,9 @@ instance Core.ToJSON CreateLongTermPricing where
   toJSON CreateLongTermPricing' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SnowballType" Core..=) Prelude.<$> snowballType,
-            ("IsLongTermPricingAutoRenew" Core..=)
+          [ ("IsLongTermPricingAutoRenew" Core..=)
               Prelude.<$> isLongTermPricingAutoRenew,
+            ("SnowballType" Core..=) Prelude.<$> snowballType,
             Prelude.Just
               ("LongTermPricingType" Core..= longTermPricingType)
           ]

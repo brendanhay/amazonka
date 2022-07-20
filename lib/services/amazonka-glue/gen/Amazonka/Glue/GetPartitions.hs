@@ -29,12 +29,12 @@ module Amazonka.Glue.GetPartitions
     newGetPartitions,
 
     -- * Request Lenses
-    getPartitions_catalogId,
-    getPartitions_excludeColumnSchema,
     getPartitions_nextToken,
     getPartitions_expression,
     getPartitions_segment,
     getPartitions_maxResults,
+    getPartitions_catalogId,
+    getPartitions_excludeColumnSchema,
     getPartitions_databaseName,
     getPartitions_tableName,
 
@@ -43,8 +43,8 @@ module Amazonka.Glue.GetPartitions
     newGetPartitionsResponse,
 
     -- * Response Lenses
-    getPartitionsResponse_partitions,
     getPartitionsResponse_nextToken,
+    getPartitionsResponse_partitions,
     getPartitionsResponse_httpStatus,
   )
 where
@@ -58,15 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPartitions' smart constructor.
 data GetPartitions = GetPartitions'
-  { -- | The ID of the Data Catalog where the partitions in question reside. If
-    -- none is provided, the Amazon Web Services account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | When true, specifies not returning the partition column schema. Useful
-    -- when you are interested only in other partition attributes such as
-    -- partition values or location. This approach avoids the problem of a
-    -- large response by not returning duplicate data.
-    excludeColumnSchema :: Prelude.Maybe Prelude.Bool,
-    -- | A continuation token, if this is not the first call to retrieve these
+  { -- | A continuation token, if this is not the first call to retrieve these
     -- partitions.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An expression that filters the partitions to be returned.
@@ -155,6 +147,14 @@ data GetPartitions = GetPartitions'
     segment :: Prelude.Maybe Segment,
     -- | The maximum number of partitions to return in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog where the partitions in question reside. If
+    -- none is provided, the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | When true, specifies not returning the partition column schema. Useful
+    -- when you are interested only in other partition attributes such as
+    -- partition values or location. This approach avoids the problem of a
+    -- large response by not returning duplicate data.
+    excludeColumnSchema :: Prelude.Maybe Prelude.Bool,
     -- | The name of the catalog database where the partitions reside.
     databaseName :: Prelude.Text,
     -- | The name of the partitions\' table.
@@ -169,14 +169,6 @@ data GetPartitions = GetPartitions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'catalogId', 'getPartitions_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
--- none is provided, the Amazon Web Services account ID is used by default.
---
--- 'excludeColumnSchema', 'getPartitions_excludeColumnSchema' - When true, specifies not returning the partition column schema. Useful
--- when you are interested only in other partition attributes such as
--- partition values or location. This approach avoids the problem of a
--- large response by not returning duplicate data.
 --
 -- 'nextToken', 'getPartitions_nextToken' - A continuation token, if this is not the first call to retrieve these
 -- partitions.
@@ -267,6 +259,14 @@ data GetPartitions = GetPartitions'
 --
 -- 'maxResults', 'getPartitions_maxResults' - The maximum number of partitions to return in a single response.
 --
+-- 'catalogId', 'getPartitions_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
+-- none is provided, the Amazon Web Services account ID is used by default.
+--
+-- 'excludeColumnSchema', 'getPartitions_excludeColumnSchema' - When true, specifies not returning the partition column schema. Useful
+-- when you are interested only in other partition attributes such as
+-- partition values or location. This approach avoids the problem of a
+-- large response by not returning duplicate data.
+--
 -- 'databaseName', 'getPartitions_databaseName' - The name of the catalog database where the partitions reside.
 --
 -- 'tableName', 'getPartitions_tableName' - The name of the partitions\' table.
@@ -278,27 +278,15 @@ newGetPartitions ::
   GetPartitions
 newGetPartitions pDatabaseName_ pTableName_ =
   GetPartitions'
-    { catalogId = Prelude.Nothing,
-      excludeColumnSchema = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       expression = Prelude.Nothing,
       segment = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      excludeColumnSchema = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
-
--- | The ID of the Data Catalog where the partitions in question reside. If
--- none is provided, the Amazon Web Services account ID is used by default.
-getPartitions_catalogId :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
-getPartitions_catalogId = Lens.lens (\GetPartitions' {catalogId} -> catalogId) (\s@GetPartitions' {} a -> s {catalogId = a} :: GetPartitions)
-
--- | When true, specifies not returning the partition column schema. Useful
--- when you are interested only in other partition attributes such as
--- partition values or location. This approach avoids the problem of a
--- large response by not returning duplicate data.
-getPartitions_excludeColumnSchema :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Bool)
-getPartitions_excludeColumnSchema = Lens.lens (\GetPartitions' {excludeColumnSchema} -> excludeColumnSchema) (\s@GetPartitions' {} a -> s {excludeColumnSchema = a} :: GetPartitions)
 
 -- | A continuation token, if this is not the first call to retrieve these
 -- partitions.
@@ -397,6 +385,18 @@ getPartitions_segment = Lens.lens (\GetPartitions' {segment} -> segment) (\s@Get
 getPartitions_maxResults :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Natural)
 getPartitions_maxResults = Lens.lens (\GetPartitions' {maxResults} -> maxResults) (\s@GetPartitions' {} a -> s {maxResults = a} :: GetPartitions)
 
+-- | The ID of the Data Catalog where the partitions in question reside. If
+-- none is provided, the Amazon Web Services account ID is used by default.
+getPartitions_catalogId :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
+getPartitions_catalogId = Lens.lens (\GetPartitions' {catalogId} -> catalogId) (\s@GetPartitions' {} a -> s {catalogId = a} :: GetPartitions)
+
+-- | When true, specifies not returning the partition column schema. Useful
+-- when you are interested only in other partition attributes such as
+-- partition values or location. This approach avoids the problem of a
+-- large response by not returning duplicate data.
+getPartitions_excludeColumnSchema :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Bool)
+getPartitions_excludeColumnSchema = Lens.lens (\GetPartitions' {excludeColumnSchema} -> excludeColumnSchema) (\s@GetPartitions' {} a -> s {excludeColumnSchema = a} :: GetPartitions)
+
 -- | The name of the catalog database where the partitions reside.
 getPartitions_databaseName :: Lens.Lens' GetPartitions Prelude.Text
 getPartitions_databaseName = Lens.lens (\GetPartitions' {databaseName} -> databaseName) (\s@GetPartitions' {} a -> s {databaseName = a} :: GetPartitions)
@@ -434,30 +434,30 @@ instance Core.AWSRequest GetPartitions where
     Response.receiveJSON
       ( \s h x ->
           GetPartitionsResponse'
-            Prelude.<$> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetPartitions where
   hashWithSalt _salt GetPartitions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
-      `Prelude.hashWithSalt` excludeColumnSchema
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` segment
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` excludeColumnSchema
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData GetPartitions where
   rnf GetPartitions' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf excludeColumnSchema
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf segment
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf excludeColumnSchema
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
@@ -478,13 +478,13 @@ instance Core.ToJSON GetPartitions where
   toJSON GetPartitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("ExcludeColumnSchema" Core..=)
-              Prelude.<$> excludeColumnSchema,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Expression" Core..=) Prelude.<$> expression,
             ("Segment" Core..=) Prelude.<$> segment,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("ExcludeColumnSchema" Core..=)
+              Prelude.<$> excludeColumnSchema,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("TableName" Core..= tableName)
           ]
@@ -498,11 +498,11 @@ instance Core.ToQuery GetPartitions where
 
 -- | /See:/ 'newGetPartitionsResponse' smart constructor.
 data GetPartitionsResponse = GetPartitionsResponse'
-  { -- | A list of requested partitions.
-    partitions :: Prelude.Maybe [Partition],
-    -- | A continuation token, if the returned list of partitions does not
+  { -- | A continuation token, if the returned list of partitions does not
     -- include the last one.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of requested partitions.
+    partitions :: Prelude.Maybe [Partition],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -516,10 +516,10 @@ data GetPartitionsResponse = GetPartitionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partitions', 'getPartitionsResponse_partitions' - A list of requested partitions.
---
 -- 'nextToken', 'getPartitionsResponse_nextToken' - A continuation token, if the returned list of partitions does not
 -- include the last one.
+--
+-- 'partitions', 'getPartitionsResponse_partitions' - A list of requested partitions.
 --
 -- 'httpStatus', 'getPartitionsResponse_httpStatus' - The response's http status code.
 newGetPartitionsResponse ::
@@ -528,20 +528,19 @@ newGetPartitionsResponse ::
   GetPartitionsResponse
 newGetPartitionsResponse pHttpStatus_ =
   GetPartitionsResponse'
-    { partitions =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      partitions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of requested partitions.
-getPartitionsResponse_partitions :: Lens.Lens' GetPartitionsResponse (Prelude.Maybe [Partition])
-getPartitionsResponse_partitions = Lens.lens (\GetPartitionsResponse' {partitions} -> partitions) (\s@GetPartitionsResponse' {} a -> s {partitions = a} :: GetPartitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if the returned list of partitions does not
 -- include the last one.
 getPartitionsResponse_nextToken :: Lens.Lens' GetPartitionsResponse (Prelude.Maybe Prelude.Text)
 getPartitionsResponse_nextToken = Lens.lens (\GetPartitionsResponse' {nextToken} -> nextToken) (\s@GetPartitionsResponse' {} a -> s {nextToken = a} :: GetPartitionsResponse)
+
+-- | A list of requested partitions.
+getPartitionsResponse_partitions :: Lens.Lens' GetPartitionsResponse (Prelude.Maybe [Partition])
+getPartitionsResponse_partitions = Lens.lens (\GetPartitionsResponse' {partitions} -> partitions) (\s@GetPartitionsResponse' {} a -> s {partitions = a} :: GetPartitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getPartitionsResponse_httpStatus :: Lens.Lens' GetPartitionsResponse Prelude.Int
@@ -549,6 +548,6 @@ getPartitionsResponse_httpStatus = Lens.lens (\GetPartitionsResponse' {httpStatu
 
 instance Prelude.NFData GetPartitionsResponse where
   rnf GetPartitionsResponse' {..} =
-    Prelude.rnf partitions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf partitions
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,8 +29,8 @@ module Amazonka.IoTThingsGraph.SearchSystemInstances
     newSearchSystemInstances,
 
     -- * Request Lenses
-    searchSystemInstances_filters,
     searchSystemInstances_nextToken,
+    searchSystemInstances_filters,
     searchSystemInstances_maxResults,
 
     -- * Destructuring the Response
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchSystemInstances' smart constructor.
 data SearchSystemInstances = SearchSystemInstances'
-  { -- | Optional filter to apply to the search. Valid filters are
+  { -- | The string that specifies the next page of results. Use this when
+    -- you\'re paginating results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional filter to apply to the search. Valid filters are
     -- @SYSTEM_TEMPLATE_ID@, @STATUS@, and @GREENGRASS_GROUP_NAME@.
     --
     -- Multiple filters function as OR criteria in the query. Multiple values
     -- passed inside the filter function as AND criteria.
     filters :: Prelude.Maybe [SystemInstanceFilter],
-    -- | The string that specifies the next page of results. Use this when
-    -- you\'re paginating results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -75,24 +75,29 @@ data SearchSystemInstances = SearchSystemInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'searchSystemInstances_nextToken' - The string that specifies the next page of results. Use this when
+-- you\'re paginating results.
+--
 -- 'filters', 'searchSystemInstances_filters' - Optional filter to apply to the search. Valid filters are
 -- @SYSTEM_TEMPLATE_ID@, @STATUS@, and @GREENGRASS_GROUP_NAME@.
 --
 -- Multiple filters function as OR criteria in the query. Multiple values
 -- passed inside the filter function as AND criteria.
 --
--- 'nextToken', 'searchSystemInstances_nextToken' - The string that specifies the next page of results. Use this when
--- you\'re paginating results.
---
 -- 'maxResults', 'searchSystemInstances_maxResults' - The maximum number of results to return in the response.
 newSearchSystemInstances ::
   SearchSystemInstances
 newSearchSystemInstances =
   SearchSystemInstances'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The string that specifies the next page of results. Use this when
+-- you\'re paginating results.
+searchSystemInstances_nextToken :: Lens.Lens' SearchSystemInstances (Prelude.Maybe Prelude.Text)
+searchSystemInstances_nextToken = Lens.lens (\SearchSystemInstances' {nextToken} -> nextToken) (\s@SearchSystemInstances' {} a -> s {nextToken = a} :: SearchSystemInstances)
 
 -- | Optional filter to apply to the search. Valid filters are
 -- @SYSTEM_TEMPLATE_ID@, @STATUS@, and @GREENGRASS_GROUP_NAME@.
@@ -101,11 +106,6 @@ newSearchSystemInstances =
 -- passed inside the filter function as AND criteria.
 searchSystemInstances_filters :: Lens.Lens' SearchSystemInstances (Prelude.Maybe [SystemInstanceFilter])
 searchSystemInstances_filters = Lens.lens (\SearchSystemInstances' {filters} -> filters) (\s@SearchSystemInstances' {} a -> s {filters = a} :: SearchSystemInstances) Prelude.. Lens.mapping Lens.coerced
-
--- | The string that specifies the next page of results. Use this when
--- you\'re paginating results.
-searchSystemInstances_nextToken :: Lens.Lens' SearchSystemInstances (Prelude.Maybe Prelude.Text)
-searchSystemInstances_nextToken = Lens.lens (\SearchSystemInstances' {nextToken} -> nextToken) (\s@SearchSystemInstances' {} a -> s {nextToken = a} :: SearchSystemInstances)
 
 -- | The maximum number of results to return in the response.
 searchSystemInstances_maxResults :: Lens.Lens' SearchSystemInstances (Prelude.Maybe Prelude.Natural)
@@ -149,14 +149,14 @@ instance Core.AWSRequest SearchSystemInstances where
 
 instance Prelude.Hashable SearchSystemInstances where
   hashWithSalt _salt SearchSystemInstances' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData SearchSystemInstances where
   rnf SearchSystemInstances' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchSystemInstances where
@@ -178,8 +178,8 @@ instance Core.ToJSON SearchSystemInstances where
   toJSON SearchSystemInstances' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filters" Core..=) Prelude.<$> filters,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

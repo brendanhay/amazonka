@@ -29,22 +29,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFunctionCode' smart constructor.
 data FunctionCode = FunctionCode'
-  { -- | For versioned objects, the version of the deployment package object to
-    -- use.
-    s3ObjectVersion :: Prelude.Maybe Prelude.Text,
+  { -- | An Amazon S3 bucket in the same Amazon Web Services Region as your
+    -- function. The bucket can be in a different Amazon Web Services account.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | URI of a
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>
+    -- in the Amazon ECR registry.
+    imageUri :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 key of the deployment package.
     s3Key :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded contents of the deployment package. Amazon Web
     -- Services SDK and Amazon Web Services CLI clients handle the encoding for
     -- you.
     zipFile :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | URI of a
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>
-    -- in the Amazon ECR registry.
-    imageUri :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon S3 bucket in the same Amazon Web Services Region as your
-    -- function. The bucket can be in a different Amazon Web Services account.
-    s3Bucket :: Prelude.Maybe Prelude.Text
+    -- | For versioned objects, the version of the deployment package object to
+    -- use.
+    s3ObjectVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -56,8 +56,12 @@ data FunctionCode = FunctionCode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3ObjectVersion', 'functionCode_s3ObjectVersion' - For versioned objects, the version of the deployment package object to
--- use.
+-- 's3Bucket', 'functionCode_s3Bucket' - An Amazon S3 bucket in the same Amazon Web Services Region as your
+-- function. The bucket can be in a different Amazon Web Services account.
+--
+-- 'imageUri', 'functionCode_imageUri' - URI of a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>
+-- in the Amazon ECR registry.
 --
 -- 's3Key', 'functionCode_s3Key' - The Amazon S3 key of the deployment package.
 --
@@ -69,27 +73,29 @@ data FunctionCode = FunctionCode'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'imageUri', 'functionCode_imageUri' - URI of a
--- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>
--- in the Amazon ECR registry.
---
--- 's3Bucket', 'functionCode_s3Bucket' - An Amazon S3 bucket in the same Amazon Web Services Region as your
--- function. The bucket can be in a different Amazon Web Services account.
+-- 's3ObjectVersion', 'functionCode_s3ObjectVersion' - For versioned objects, the version of the deployment package object to
+-- use.
 newFunctionCode ::
   FunctionCode
 newFunctionCode =
   FunctionCode'
-    { s3ObjectVersion = Prelude.Nothing,
+    { s3Bucket = Prelude.Nothing,
+      imageUri = Prelude.Nothing,
       s3Key = Prelude.Nothing,
       zipFile = Prelude.Nothing,
-      imageUri = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing
+      s3ObjectVersion = Prelude.Nothing
     }
 
--- | For versioned objects, the version of the deployment package object to
--- use.
-functionCode_s3ObjectVersion :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.Text)
-functionCode_s3ObjectVersion = Lens.lens (\FunctionCode' {s3ObjectVersion} -> s3ObjectVersion) (\s@FunctionCode' {} a -> s {s3ObjectVersion = a} :: FunctionCode)
+-- | An Amazon S3 bucket in the same Amazon Web Services Region as your
+-- function. The bucket can be in a different Amazon Web Services account.
+functionCode_s3Bucket :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.Text)
+functionCode_s3Bucket = Lens.lens (\FunctionCode' {s3Bucket} -> s3Bucket) (\s@FunctionCode' {} a -> s {s3Bucket = a} :: FunctionCode)
+
+-- | URI of a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>
+-- in the Amazon ECR registry.
+functionCode_imageUri :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.Text)
+functionCode_imageUri = Lens.lens (\FunctionCode' {imageUri} -> imageUri) (\s@FunctionCode' {} a -> s {imageUri = a} :: FunctionCode)
 
 -- | The Amazon S3 key of the deployment package.
 functionCode_s3Key :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.Text)
@@ -105,42 +111,36 @@ functionCode_s3Key = Lens.lens (\FunctionCode' {s3Key} -> s3Key) (\s@FunctionCod
 functionCode_zipFile :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.ByteString)
 functionCode_zipFile = Lens.lens (\FunctionCode' {zipFile} -> zipFile) (\s@FunctionCode' {} a -> s {zipFile = a} :: FunctionCode) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | URI of a
--- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>
--- in the Amazon ECR registry.
-functionCode_imageUri :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.Text)
-functionCode_imageUri = Lens.lens (\FunctionCode' {imageUri} -> imageUri) (\s@FunctionCode' {} a -> s {imageUri = a} :: FunctionCode)
-
--- | An Amazon S3 bucket in the same Amazon Web Services Region as your
--- function. The bucket can be in a different Amazon Web Services account.
-functionCode_s3Bucket :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.Text)
-functionCode_s3Bucket = Lens.lens (\FunctionCode' {s3Bucket} -> s3Bucket) (\s@FunctionCode' {} a -> s {s3Bucket = a} :: FunctionCode)
+-- | For versioned objects, the version of the deployment package object to
+-- use.
+functionCode_s3ObjectVersion :: Lens.Lens' FunctionCode (Prelude.Maybe Prelude.Text)
+functionCode_s3ObjectVersion = Lens.lens (\FunctionCode' {s3ObjectVersion} -> s3ObjectVersion) (\s@FunctionCode' {} a -> s {s3ObjectVersion = a} :: FunctionCode)
 
 instance Prelude.Hashable FunctionCode where
   hashWithSalt _salt FunctionCode' {..} =
-    _salt `Prelude.hashWithSalt` s3ObjectVersion
+    _salt `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` imageUri
       `Prelude.hashWithSalt` s3Key
       `Prelude.hashWithSalt` zipFile
-      `Prelude.hashWithSalt` imageUri
-      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3ObjectVersion
 
 instance Prelude.NFData FunctionCode where
   rnf FunctionCode' {..} =
-    Prelude.rnf s3ObjectVersion
+    Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf imageUri
       `Prelude.seq` Prelude.rnf s3Key
       `Prelude.seq` Prelude.rnf zipFile
-      `Prelude.seq` Prelude.rnf imageUri
-      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3ObjectVersion
 
 instance Core.ToJSON FunctionCode where
   toJSON FunctionCode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3ObjectVersion" Core..=)
-              Prelude.<$> s3ObjectVersion,
+          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
+            ("ImageUri" Core..=) Prelude.<$> imageUri,
             ("S3Key" Core..=) Prelude.<$> s3Key,
             ("ZipFile" Core..=) Prelude.<$> zipFile,
-            ("ImageUri" Core..=) Prelude.<$> imageUri,
-            ("S3Bucket" Core..=) Prelude.<$> s3Bucket
+            ("S3ObjectVersion" Core..=)
+              Prelude.<$> s3ObjectVersion
           ]
       )

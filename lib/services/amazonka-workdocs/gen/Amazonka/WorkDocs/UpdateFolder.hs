@@ -28,9 +28,9 @@ module Amazonka.WorkDocs.UpdateFolder
     newUpdateFolder,
 
     -- * Request Lenses
+    updateFolder_name,
     updateFolder_parentFolderId,
     updateFolder_authenticationToken,
-    updateFolder_name,
     updateFolder_resourceState,
     updateFolder_folderId,
 
@@ -49,13 +49,13 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newUpdateFolder' smart constructor.
 data UpdateFolder = UpdateFolder'
-  { -- | The ID of the parent folder.
+  { -- | The name of the folder.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent folder.
     parentFolderId :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the folder.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted
     -- values from the API.
     resourceState :: Prelude.Maybe ResourceStateType,
@@ -72,12 +72,12 @@ data UpdateFolder = UpdateFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'updateFolder_name' - The name of the folder.
+--
 -- 'parentFolderId', 'updateFolder_parentFolderId' - The ID of the parent folder.
 --
 -- 'authenticationToken', 'updateFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
---
--- 'name', 'updateFolder_name' - The name of the folder.
 --
 -- 'resourceState', 'updateFolder_resourceState' - The resource state of the folder. Only ACTIVE and RECYCLED are accepted
 -- values from the API.
@@ -89,12 +89,16 @@ newUpdateFolder ::
   UpdateFolder
 newUpdateFolder pFolderId_ =
   UpdateFolder'
-    { parentFolderId = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      parentFolderId = Prelude.Nothing,
       authenticationToken = Prelude.Nothing,
-      name = Prelude.Nothing,
       resourceState = Prelude.Nothing,
       folderId = pFolderId_
     }
+
+-- | The name of the folder.
+updateFolder_name :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
+updateFolder_name = Lens.lens (\UpdateFolder' {name} -> name) (\s@UpdateFolder' {} a -> s {name = a} :: UpdateFolder)
 
 -- | The ID of the parent folder.
 updateFolder_parentFolderId :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
@@ -104,10 +108,6 @@ updateFolder_parentFolderId = Lens.lens (\UpdateFolder' {parentFolderId} -> pare
 -- administrator credentials to access the API.
 updateFolder_authenticationToken :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
 updateFolder_authenticationToken = Lens.lens (\UpdateFolder' {authenticationToken} -> authenticationToken) (\s@UpdateFolder' {} a -> s {authenticationToken = a} :: UpdateFolder) Prelude.. Lens.mapping Core._Sensitive
-
--- | The name of the folder.
-updateFolder_name :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
-updateFolder_name = Lens.lens (\UpdateFolder' {name} -> name) (\s@UpdateFolder' {} a -> s {name = a} :: UpdateFolder)
 
 -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted
 -- values from the API.
@@ -125,17 +125,17 @@ instance Core.AWSRequest UpdateFolder where
 
 instance Prelude.Hashable UpdateFolder where
   hashWithSalt _salt UpdateFolder' {..} =
-    _salt `Prelude.hashWithSalt` parentFolderId
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` parentFolderId
       `Prelude.hashWithSalt` authenticationToken
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceState
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData UpdateFolder where
   rnf UpdateFolder' {..} =
-    Prelude.rnf parentFolderId
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf parentFolderId
       `Prelude.seq` Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceState
       `Prelude.seq` Prelude.rnf folderId
 
@@ -151,9 +151,9 @@ instance Core.ToJSON UpdateFolder where
   toJSON UpdateFolder' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParentFolderId" Core..=)
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("ParentFolderId" Core..=)
               Prelude.<$> parentFolderId,
-            ("Name" Core..=) Prelude.<$> name,
             ("ResourceState" Core..=) Prelude.<$> resourceState
           ]
       )

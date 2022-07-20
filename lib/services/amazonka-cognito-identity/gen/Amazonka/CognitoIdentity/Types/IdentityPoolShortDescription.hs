@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentityPoolShortDescription' smart constructor.
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
-  { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
-    -- | A string that you provide.
-    identityPoolName :: Prelude.Maybe Prelude.Text
+  { -- | A string that you provide.
+    identityPoolName :: Prelude.Maybe Prelude.Text,
+    -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data IdentityPoolShortDescription = IdentityPoolShortDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityPoolId', 'identityPoolShortDescription_identityPoolId' - An identity pool ID in the format REGION:GUID.
---
 -- 'identityPoolName', 'identityPoolShortDescription_identityPoolName' - A string that you provide.
+--
+-- 'identityPoolId', 'identityPoolShortDescription_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newIdentityPoolShortDescription ::
   IdentityPoolShortDescription
 newIdentityPoolShortDescription =
   IdentityPoolShortDescription'
-    { identityPoolId =
+    { identityPoolName =
         Prelude.Nothing,
-      identityPoolName = Prelude.Nothing
+      identityPoolId = Prelude.Nothing
     }
-
--- | An identity pool ID in the format REGION:GUID.
-identityPoolShortDescription_identityPoolId :: Lens.Lens' IdentityPoolShortDescription (Prelude.Maybe Prelude.Text)
-identityPoolShortDescription_identityPoolId = Lens.lens (\IdentityPoolShortDescription' {identityPoolId} -> identityPoolId) (\s@IdentityPoolShortDescription' {} a -> s {identityPoolId = a} :: IdentityPoolShortDescription)
 
 -- | A string that you provide.
 identityPoolShortDescription_identityPoolName :: Lens.Lens' IdentityPoolShortDescription (Prelude.Maybe Prelude.Text)
 identityPoolShortDescription_identityPoolName = Lens.lens (\IdentityPoolShortDescription' {identityPoolName} -> identityPoolName) (\s@IdentityPoolShortDescription' {} a -> s {identityPoolName = a} :: IdentityPoolShortDescription)
+
+-- | An identity pool ID in the format REGION:GUID.
+identityPoolShortDescription_identityPoolId :: Lens.Lens' IdentityPoolShortDescription (Prelude.Maybe Prelude.Text)
+identityPoolShortDescription_identityPoolId = Lens.lens (\IdentityPoolShortDescription' {identityPoolId} -> identityPoolId) (\s@IdentityPoolShortDescription' {} a -> s {identityPoolId = a} :: IdentityPoolShortDescription)
 
 instance Core.FromJSON IdentityPoolShortDescription where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON IdentityPoolShortDescription where
       "IdentityPoolShortDescription"
       ( \x ->
           IdentityPoolShortDescription'
-            Prelude.<$> (x Core..:? "IdentityPoolId")
-            Prelude.<*> (x Core..:? "IdentityPoolName")
+            Prelude.<$> (x Core..:? "IdentityPoolName")
+            Prelude.<*> (x Core..:? "IdentityPoolId")
       )
 
 instance
@@ -77,10 +77,10 @@ instance
     IdentityPoolShortDescription
   where
   hashWithSalt _salt IdentityPoolShortDescription' {..} =
-    _salt `Prelude.hashWithSalt` identityPoolId
-      `Prelude.hashWithSalt` identityPoolName
+    _salt `Prelude.hashWithSalt` identityPoolName
+      `Prelude.hashWithSalt` identityPoolId
 
 instance Prelude.NFData IdentityPoolShortDescription where
   rnf IdentityPoolShortDescription' {..} =
-    Prelude.rnf identityPoolId
-      `Prelude.seq` Prelude.rnf identityPoolName
+    Prelude.rnf identityPoolName
+      `Prelude.seq` Prelude.rnf identityPoolId

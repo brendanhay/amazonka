@@ -65,35 +65,6 @@ newStepComplete =
     }
 
 -- | Polls 'Amazonka.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newClusterTerminated :: Core.Wait DescribeCluster
-newClusterTerminated =
-  Core.Wait
-    { Core._waitName = "ClusterTerminated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "TERMINATED"
-            Core.AcceptSuccess
-            ( describeClusterResponse_cluster
-                Prelude.. cluster_status
-                Prelude.. clusterStatus_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "TERMINATED_WITH_ERRORS"
-            Core.AcceptFailure
-            ( describeClusterResponse_cluster
-                Prelude.. cluster_status
-                Prelude.. clusterStatus_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newClusterRunning :: Core.Wait DescribeCluster
 newClusterRunning =
   Core.Wait
@@ -131,6 +102,35 @@ newClusterRunning =
           Core.matchAll
             "TERMINATED"
             Core.AcceptFailure
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "TERMINATED_WITH_ERRORS"
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newClusterTerminated :: Core.Wait DescribeCluster
+newClusterTerminated =
+  Core.Wait
+    { Core._waitName = "ClusterTerminated",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "TERMINATED"
+            Core.AcceptSuccess
             ( describeClusterResponse_cluster
                 Prelude.. cluster_status
                 Prelude.. clusterStatus_state

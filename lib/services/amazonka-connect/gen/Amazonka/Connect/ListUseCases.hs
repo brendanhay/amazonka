@@ -39,8 +39,8 @@ module Amazonka.Connect.ListUseCases
     newListUseCasesResponse,
 
     -- * Response Lenses
-    listUseCasesResponse_useCaseSummaryList,
     listUseCasesResponse_nextToken,
+    listUseCasesResponse_useCaseSummaryList,
     listUseCasesResponse_httpStatus,
   )
 where
@@ -152,10 +152,10 @@ instance Core.AWSRequest ListUseCases where
     Response.receiveJSON
       ( \s h x ->
           ListUseCasesResponse'
-            Prelude.<$> ( x Core..?> "UseCaseSummaryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "UseCaseSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,11 +203,11 @@ instance Core.ToQuery ListUseCases where
 
 -- | /See:/ 'newListUseCasesResponse' smart constructor.
 data ListUseCasesResponse = ListUseCasesResponse'
-  { -- | The use cases.
-    useCaseSummaryList :: Prelude.Maybe [UseCase],
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The use cases.
+    useCaseSummaryList :: Prelude.Maybe [UseCase],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,10 +221,10 @@ data ListUseCasesResponse = ListUseCasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useCaseSummaryList', 'listUseCasesResponse_useCaseSummaryList' - The use cases.
---
 -- 'nextToken', 'listUseCasesResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'useCaseSummaryList', 'listUseCasesResponse_useCaseSummaryList' - The use cases.
 --
 -- 'httpStatus', 'listUseCasesResponse_httpStatus' - The response's http status code.
 newListUseCasesResponse ::
@@ -233,20 +233,19 @@ newListUseCasesResponse ::
   ListUseCasesResponse
 newListUseCasesResponse pHttpStatus_ =
   ListUseCasesResponse'
-    { useCaseSummaryList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      useCaseSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The use cases.
-listUseCasesResponse_useCaseSummaryList :: Lens.Lens' ListUseCasesResponse (Prelude.Maybe [UseCase])
-listUseCasesResponse_useCaseSummaryList = Lens.lens (\ListUseCasesResponse' {useCaseSummaryList} -> useCaseSummaryList) (\s@ListUseCasesResponse' {} a -> s {useCaseSummaryList = a} :: ListUseCasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listUseCasesResponse_nextToken :: Lens.Lens' ListUseCasesResponse (Prelude.Maybe Prelude.Text)
 listUseCasesResponse_nextToken = Lens.lens (\ListUseCasesResponse' {nextToken} -> nextToken) (\s@ListUseCasesResponse' {} a -> s {nextToken = a} :: ListUseCasesResponse)
+
+-- | The use cases.
+listUseCasesResponse_useCaseSummaryList :: Lens.Lens' ListUseCasesResponse (Prelude.Maybe [UseCase])
+listUseCasesResponse_useCaseSummaryList = Lens.lens (\ListUseCasesResponse' {useCaseSummaryList} -> useCaseSummaryList) (\s@ListUseCasesResponse' {} a -> s {useCaseSummaryList = a} :: ListUseCasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listUseCasesResponse_httpStatus :: Lens.Lens' ListUseCasesResponse Prelude.Int
@@ -254,6 +253,6 @@ listUseCasesResponse_httpStatus = Lens.lens (\ListUseCasesResponse' {httpStatus}
 
 instance Prelude.NFData ListUseCasesResponse where
   rnf ListUseCasesResponse' {..} =
-    Prelude.rnf useCaseSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf useCaseSummaryList
       `Prelude.seq` Prelude.rnf httpStatus

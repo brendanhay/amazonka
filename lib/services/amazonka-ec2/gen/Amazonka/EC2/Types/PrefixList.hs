@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrefixList' smart constructor.
 data PrefixList = PrefixList'
-  { -- | The IP address range of the Amazon Web Service.
-    cidrs :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the prefix.
+  { -- | The ID of the prefix.
     prefixListId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address range of the Amazon Web Service.
+    cidrs :: Prelude.Maybe [Prelude.Text],
     -- | The name of the prefix.
     prefixListName :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data PrefixList = PrefixList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cidrs', 'prefixList_cidrs' - The IP address range of the Amazon Web Service.
---
 -- 'prefixListId', 'prefixList_prefixListId' - The ID of the prefix.
+--
+-- 'cidrs', 'prefixList_cidrs' - The IP address range of the Amazon Web Service.
 --
 -- 'prefixListName', 'prefixList_prefixListName' - The name of the prefix.
 newPrefixList ::
   PrefixList
 newPrefixList =
   PrefixList'
-    { cidrs = Prelude.Nothing,
-      prefixListId = Prelude.Nothing,
+    { prefixListId = Prelude.Nothing,
+      cidrs = Prelude.Nothing,
       prefixListName = Prelude.Nothing
     }
-
--- | The IP address range of the Amazon Web Service.
-prefixList_cidrs :: Lens.Lens' PrefixList (Prelude.Maybe [Prelude.Text])
-prefixList_cidrs = Lens.lens (\PrefixList' {cidrs} -> cidrs) (\s@PrefixList' {} a -> s {cidrs = a} :: PrefixList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the prefix.
 prefixList_prefixListId :: Lens.Lens' PrefixList (Prelude.Maybe Prelude.Text)
 prefixList_prefixListId = Lens.lens (\PrefixList' {prefixListId} -> prefixListId) (\s@PrefixList' {} a -> s {prefixListId = a} :: PrefixList)
+
+-- | The IP address range of the Amazon Web Service.
+prefixList_cidrs :: Lens.Lens' PrefixList (Prelude.Maybe [Prelude.Text])
+prefixList_cidrs = Lens.lens (\PrefixList' {cidrs} -> cidrs) (\s@PrefixList' {} a -> s {cidrs = a} :: PrefixList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the prefix.
 prefixList_prefixListName :: Lens.Lens' PrefixList (Prelude.Maybe Prelude.Text)
@@ -74,20 +74,20 @@ prefixList_prefixListName = Lens.lens (\PrefixList' {prefixListName} -> prefixLi
 instance Core.FromXML PrefixList where
   parseXML x =
     PrefixList'
-      Prelude.<$> ( x Core..@? "cidrSet" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "prefixListId")
+      Prelude.<*> ( x Core..@? "cidrSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "prefixListId")
       Prelude.<*> (x Core..@? "prefixListName")
 
 instance Prelude.Hashable PrefixList where
   hashWithSalt _salt PrefixList' {..} =
-    _salt `Prelude.hashWithSalt` cidrs
-      `Prelude.hashWithSalt` prefixListId
+    _salt `Prelude.hashWithSalt` prefixListId
+      `Prelude.hashWithSalt` cidrs
       `Prelude.hashWithSalt` prefixListName
 
 instance Prelude.NFData PrefixList where
   rnf PrefixList' {..} =
-    Prelude.rnf cidrs
-      `Prelude.seq` Prelude.rnf prefixListId
+    Prelude.rnf prefixListId
+      `Prelude.seq` Prelude.rnf cidrs
       `Prelude.seq` Prelude.rnf prefixListName

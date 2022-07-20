@@ -28,8 +28,8 @@ module Amazonka.Pinpoint.GetImportJobs
     newGetImportJobs,
 
     -- * Request Lenses
-    getImportJobs_token,
     getImportJobs_pageSize,
+    getImportJobs_token,
     getImportJobs_applicationId,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetImportJobs' smart constructor.
 data GetImportJobs = GetImportJobs'
-  { -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of a paginated
+  { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
+    -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text
@@ -72,12 +72,12 @@ data GetImportJobs = GetImportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'token', 'getImportJobs_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
---
 -- 'pageSize', 'getImportJobs_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
+--
+-- 'token', 'getImportJobs_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
 --
 -- 'applicationId', 'getImportJobs_applicationId' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -87,21 +87,21 @@ newGetImportJobs ::
   GetImportJobs
 newGetImportJobs pApplicationId_ =
   GetImportJobs'
-    { token = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
+    { pageSize = Prelude.Nothing,
+      token = Prelude.Nothing,
       applicationId = pApplicationId_
     }
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getImportJobs_token :: Lens.Lens' GetImportJobs (Prelude.Maybe Prelude.Text)
-getImportJobs_token = Lens.lens (\GetImportJobs' {token} -> token) (\s@GetImportJobs' {} a -> s {token = a} :: GetImportJobs)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getImportJobs_pageSize :: Lens.Lens' GetImportJobs (Prelude.Maybe Prelude.Text)
 getImportJobs_pageSize = Lens.lens (\GetImportJobs' {pageSize} -> pageSize) (\s@GetImportJobs' {} a -> s {pageSize = a} :: GetImportJobs)
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getImportJobs_token :: Lens.Lens' GetImportJobs (Prelude.Maybe Prelude.Text)
+getImportJobs_token = Lens.lens (\GetImportJobs' {token} -> token) (\s@GetImportJobs' {} a -> s {token = a} :: GetImportJobs)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -123,14 +123,14 @@ instance Core.AWSRequest GetImportJobs where
 
 instance Prelude.Hashable GetImportJobs where
   hashWithSalt _salt GetImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` token
-      `Prelude.hashWithSalt` pageSize
+    _salt `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData GetImportJobs where
   rnf GetImportJobs' {..} =
-    Prelude.rnf token
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Core.ToHeaders GetImportJobs where
@@ -155,7 +155,7 @@ instance Core.ToPath GetImportJobs where
 instance Core.ToQuery GetImportJobs where
   toQuery GetImportJobs' {..} =
     Prelude.mconcat
-      ["token" Core.=: token, "page-size" Core.=: pageSize]
+      ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetImportJobsResponse' smart constructor.
 data GetImportJobsResponse = GetImportJobsResponse'

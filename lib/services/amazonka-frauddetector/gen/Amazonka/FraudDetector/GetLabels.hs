@@ -32,8 +32,8 @@ module Amazonka.FraudDetector.GetLabels
     newGetLabels,
 
     -- * Request Lenses
-    getLabels_nextToken,
     getLabels_name,
+    getLabels_nextToken,
     getLabels_maxResults,
 
     -- * Destructuring the Response
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLabels' smart constructor.
 data GetLabels = GetLabels'
-  { -- | The next token for the subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the label or labels to get.
+  { -- | The name of the label or labels to get.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The next token for the subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects to return for the request.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -73,27 +73,27 @@ data GetLabels = GetLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getLabels_nextToken' - The next token for the subsequent request.
---
 -- 'name', 'getLabels_name' - The name of the label or labels to get.
+--
+-- 'nextToken', 'getLabels_nextToken' - The next token for the subsequent request.
 --
 -- 'maxResults', 'getLabels_maxResults' - The maximum number of objects to return for the request.
 newGetLabels ::
   GetLabels
 newGetLabels =
   GetLabels'
-    { nextToken = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The next token for the subsequent request.
-getLabels_nextToken :: Lens.Lens' GetLabels (Prelude.Maybe Prelude.Text)
-getLabels_nextToken = Lens.lens (\GetLabels' {nextToken} -> nextToken) (\s@GetLabels' {} a -> s {nextToken = a} :: GetLabels)
 
 -- | The name of the label or labels to get.
 getLabels_name :: Lens.Lens' GetLabels (Prelude.Maybe Prelude.Text)
 getLabels_name = Lens.lens (\GetLabels' {name} -> name) (\s@GetLabels' {} a -> s {name = a} :: GetLabels)
+
+-- | The next token for the subsequent request.
+getLabels_nextToken :: Lens.Lens' GetLabels (Prelude.Maybe Prelude.Text)
+getLabels_nextToken = Lens.lens (\GetLabels' {nextToken} -> nextToken) (\s@GetLabels' {} a -> s {nextToken = a} :: GetLabels)
 
 -- | The maximum number of objects to return for the request.
 getLabels_maxResults :: Lens.Lens' GetLabels (Prelude.Maybe Prelude.Natural)
@@ -113,14 +113,14 @@ instance Core.AWSRequest GetLabels where
 
 instance Prelude.Hashable GetLabels where
   hashWithSalt _salt GetLabels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetLabels where
   rnf GetLabels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetLabels where
@@ -142,8 +142,8 @@ instance Core.ToJSON GetLabels where
   toJSON GetLabels' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

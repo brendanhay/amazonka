@@ -28,24 +28,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelSummary' smart constructor.
 data ChannelSummary = ChannelSummary'
-  { -- | Whether the channel is private (enabled for playback authorization).
-    -- Default: @false@.
-    authorized :: Prelude.Maybe Prelude.Bool,
-    -- | Channel ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Channel name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
     -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
     -- Default: @LOW@. (Note: In the Amazon IVS console, @LOW@ and @NORMAL@
     -- correspond to Ultra-low and Standard, respectively.)
     latencyMode :: Prelude.Maybe ChannelLatencyMode,
-    -- | Channel name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | Channel ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Whether the channel is private (enabled for playback authorization).
+    -- Default: @false@.
+    authorized :: Prelude.Maybe Prelude.Bool,
     -- | Recording-configuration ARN. A value other than an empty string
     -- indicates that recording is enabled. Default: \"\" (empty string,
     -- recording is disabled).
-    recordingConfigurationArn :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    recordingConfigurationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,43 +57,42 @@ data ChannelSummary = ChannelSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorized', 'channelSummary_authorized' - Whether the channel is private (enabled for playback authorization).
--- Default: @false@.
+-- 'tags', 'channelSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
 --
--- 'arn', 'channelSummary_arn' - Channel ARN.
+-- 'name', 'channelSummary_name' - Channel name.
 --
 -- 'latencyMode', 'channelSummary_latencyMode' - Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
 -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
 -- Default: @LOW@. (Note: In the Amazon IVS console, @LOW@ and @NORMAL@
 -- correspond to Ultra-low and Standard, respectively.)
 --
--- 'name', 'channelSummary_name' - Channel name.
+-- 'arn', 'channelSummary_arn' - Channel ARN.
+--
+-- 'authorized', 'channelSummary_authorized' - Whether the channel is private (enabled for playback authorization).
+-- Default: @false@.
 --
 -- 'recordingConfigurationArn', 'channelSummary_recordingConfigurationArn' - Recording-configuration ARN. A value other than an empty string
 -- indicates that recording is enabled. Default: \"\" (empty string,
 -- recording is disabled).
---
--- 'tags', 'channelSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
 newChannelSummary ::
   ChannelSummary
 newChannelSummary =
   ChannelSummary'
-    { authorized = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      latencyMode = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
-      recordingConfigurationArn = Prelude.Nothing,
-      tags = Prelude.Nothing
+      latencyMode = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      authorized = Prelude.Nothing,
+      recordingConfigurationArn = Prelude.Nothing
     }
 
--- | Whether the channel is private (enabled for playback authorization).
--- Default: @false@.
-channelSummary_authorized :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Bool)
-channelSummary_authorized = Lens.lens (\ChannelSummary' {authorized} -> authorized) (\s@ChannelSummary' {} a -> s {authorized = a} :: ChannelSummary)
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+channelSummary_tags :: Lens.Lens' ChannelSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+channelSummary_tags = Lens.lens (\ChannelSummary' {tags} -> tags) (\s@ChannelSummary' {} a -> s {tags = a} :: ChannelSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | Channel ARN.
-channelSummary_arn :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
-channelSummary_arn = Lens.lens (\ChannelSummary' {arn} -> arn) (\s@ChannelSummary' {} a -> s {arn = a} :: ChannelSummary)
+-- | Channel name.
+channelSummary_name :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
+channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSummary' {} a -> s {name = a} :: ChannelSummary)
 
 -- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
 -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
@@ -102,9 +101,14 @@ channelSummary_arn = Lens.lens (\ChannelSummary' {arn} -> arn) (\s@ChannelSummar
 channelSummary_latencyMode :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelLatencyMode)
 channelSummary_latencyMode = Lens.lens (\ChannelSummary' {latencyMode} -> latencyMode) (\s@ChannelSummary' {} a -> s {latencyMode = a} :: ChannelSummary)
 
--- | Channel name.
-channelSummary_name :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
-channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSummary' {} a -> s {name = a} :: ChannelSummary)
+-- | Channel ARN.
+channelSummary_arn :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
+channelSummary_arn = Lens.lens (\ChannelSummary' {arn} -> arn) (\s@ChannelSummary' {} a -> s {arn = a} :: ChannelSummary)
+
+-- | Whether the channel is private (enabled for playback authorization).
+-- Default: @false@.
+channelSummary_authorized :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Bool)
+channelSummary_authorized = Lens.lens (\ChannelSummary' {authorized} -> authorized) (\s@ChannelSummary' {} a -> s {authorized = a} :: ChannelSummary)
 
 -- | Recording-configuration ARN. A value other than an empty string
 -- indicates that recording is enabled. Default: \"\" (empty string,
@@ -112,38 +116,34 @@ channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSum
 channelSummary_recordingConfigurationArn :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
 channelSummary_recordingConfigurationArn = Lens.lens (\ChannelSummary' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@ChannelSummary' {} a -> s {recordingConfigurationArn = a} :: ChannelSummary)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-channelSummary_tags :: Lens.Lens' ChannelSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-channelSummary_tags = Lens.lens (\ChannelSummary' {tags} -> tags) (\s@ChannelSummary' {} a -> s {tags = a} :: ChannelSummary) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON ChannelSummary where
   parseJSON =
     Core.withObject
       "ChannelSummary"
       ( \x ->
           ChannelSummary'
-            Prelude.<$> (x Core..:? "authorized")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "latencyMode")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "latencyMode")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "authorized")
             Prelude.<*> (x Core..:? "recordingConfigurationArn")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ChannelSummary where
   hashWithSalt _salt ChannelSummary' {..} =
-    _salt `Prelude.hashWithSalt` authorized
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` latencyMode
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` latencyMode
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` authorized
       `Prelude.hashWithSalt` recordingConfigurationArn
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ChannelSummary where
   rnf ChannelSummary' {..} =
-    Prelude.rnf authorized
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf latencyMode
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf latencyMode
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf authorized
       `Prelude.seq` Prelude.rnf recordingConfigurationArn
-      `Prelude.seq` Prelude.rnf tags

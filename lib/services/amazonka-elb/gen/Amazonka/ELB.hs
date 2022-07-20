@@ -47,38 +47,65 @@ module Amazonka.ELB
     -- * Errors
     -- $errors
 
-    -- ** PolicyNotFoundException
-    _PolicyNotFoundException,
+    -- ** InvalidSchemeException
+    _InvalidSchemeException,
 
-    -- ** AccessPointNotFoundException
-    _AccessPointNotFoundException,
+    -- ** ListenerNotFoundException
+    _ListenerNotFoundException,
 
     -- ** DuplicatePolicyNameException
     _DuplicatePolicyNameException,
 
-    -- ** InvalidConfigurationRequestException
-    _InvalidConfigurationRequestException,
-
-    -- ** SubnetNotFoundException
-    _SubnetNotFoundException,
-
-    -- ** LoadBalancerAttributeNotFoundException
-    _LoadBalancerAttributeNotFoundException,
-
-    -- ** InvalidSubnetException
-    _InvalidSubnetException,
-
     -- ** DuplicateTagKeysException
     _DuplicateTagKeysException,
 
-    -- ** DuplicateListenerException
-    _DuplicateListenerException,
+    -- ** PolicyTypeNotFoundException
+    _PolicyTypeNotFoundException,
+
+    -- ** CertificateNotFoundException
+    _CertificateNotFoundException,
 
     -- ** TooManyTagsException
     _TooManyTagsException,
 
-    -- ** PolicyTypeNotFoundException
-    _PolicyTypeNotFoundException,
+    -- ** InvalidSecurityGroupException
+    _InvalidSecurityGroupException,
+
+    -- ** LoadBalancerAttributeNotFoundException
+    _LoadBalancerAttributeNotFoundException,
+
+    -- ** DependencyThrottleException
+    _DependencyThrottleException,
+
+    -- ** PolicyNotFoundException
+    _PolicyNotFoundException,
+
+    -- ** TooManyPoliciesException
+    _TooManyPoliciesException,
+
+    -- ** TooManyAccessPointsException
+    _TooManyAccessPointsException,
+
+    -- ** AccessPointNotFoundException
+    _AccessPointNotFoundException,
+
+    -- ** InvalidEndPointException
+    _InvalidEndPointException,
+
+    -- ** InvalidSubnetException
+    _InvalidSubnetException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** InvalidConfigurationRequestException
+    _InvalidConfigurationRequestException,
+
+    -- ** DuplicateListenerException
+    _DuplicateListenerException,
+
+    -- ** SubnetNotFoundException
+    _SubnetNotFoundException,
 
     -- ** UnsupportedProtocolException
     _UnsupportedProtocolException,
@@ -86,41 +113,14 @@ module Amazonka.ELB
     -- ** DuplicateAccessPointNameException
     _DuplicateAccessPointNameException,
 
-    -- ** InvalidSecurityGroupException
-    _InvalidSecurityGroupException,
-
-    -- ** ListenerNotFoundException
-    _ListenerNotFoundException,
-
-    -- ** InvalidEndPointException
-    _InvalidEndPointException,
-
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** DependencyThrottleException
-    _DependencyThrottleException,
-
-    -- ** InvalidSchemeException
-    _InvalidSchemeException,
-
-    -- ** TooManyAccessPointsException
-    _TooManyAccessPointsException,
-
-    -- ** TooManyPoliciesException
-    _TooManyPoliciesException,
-
-    -- ** CertificateNotFoundException
-    _CertificateNotFoundException,
-
     -- * Waiters
     -- $waiters
 
-    -- ** AnyInstanceInService
-    newAnyInstanceInService,
-
     -- ** InstanceDeregistered
     newInstanceDeregistered,
+
+    -- ** AnyInstanceInService
+    newAnyInstanceInService,
 
     -- ** InstanceInService
     newInstanceInService,
@@ -128,95 +128,17 @@ module Amazonka.ELB
     -- * Operations
     -- $operations
 
-    -- ** DescribeLoadBalancers (Paginated)
-    DescribeLoadBalancers (DescribeLoadBalancers'),
-    newDescribeLoadBalancers,
-    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
-    newDescribeLoadBalancersResponse,
-
-    -- ** DescribeTags
-    DescribeTags (DescribeTags'),
-    newDescribeTags,
-    DescribeTagsResponse (DescribeTagsResponse'),
-    newDescribeTagsResponse,
-
-    -- ** DescribeLoadBalancerPolicyTypes
-    DescribeLoadBalancerPolicyTypes (DescribeLoadBalancerPolicyTypes'),
-    newDescribeLoadBalancerPolicyTypes,
-    DescribeLoadBalancerPolicyTypesResponse (DescribeLoadBalancerPolicyTypesResponse'),
-    newDescribeLoadBalancerPolicyTypesResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
 
     -- ** ApplySecurityGroupsToLoadBalancer
     ApplySecurityGroupsToLoadBalancer (ApplySecurityGroupsToLoadBalancer'),
     newApplySecurityGroupsToLoadBalancer,
     ApplySecurityGroupsToLoadBalancerResponse (ApplySecurityGroupsToLoadBalancerResponse'),
     newApplySecurityGroupsToLoadBalancerResponse,
-
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
-
-    -- ** CreateLBCookieStickinessPolicy
-    CreateLBCookieStickinessPolicy (CreateLBCookieStickinessPolicy'),
-    newCreateLBCookieStickinessPolicy,
-    CreateLBCookieStickinessPolicyResponse (CreateLBCookieStickinessPolicyResponse'),
-    newCreateLBCookieStickinessPolicyResponse,
-
-    -- ** DeleteLoadBalancer
-    DeleteLoadBalancer (DeleteLoadBalancer'),
-    newDeleteLoadBalancer,
-    DeleteLoadBalancerResponse (DeleteLoadBalancerResponse'),
-    newDeleteLoadBalancerResponse,
-
-    -- ** DeregisterInstancesFromLoadBalancer
-    DeregisterInstancesFromLoadBalancer (DeregisterInstancesFromLoadBalancer'),
-    newDeregisterInstancesFromLoadBalancer,
-    DeregisterInstancesFromLoadBalancerResponse (DeregisterInstancesFromLoadBalancerResponse'),
-    newDeregisterInstancesFromLoadBalancerResponse,
-
-    -- ** CreateLoadBalancerPolicy
-    CreateLoadBalancerPolicy (CreateLoadBalancerPolicy'),
-    newCreateLoadBalancerPolicy,
-    CreateLoadBalancerPolicyResponse (CreateLoadBalancerPolicyResponse'),
-    newCreateLoadBalancerPolicyResponse,
-
-    -- ** DescribeLoadBalancerPolicies
-    DescribeLoadBalancerPolicies (DescribeLoadBalancerPolicies'),
-    newDescribeLoadBalancerPolicies,
-    DescribeLoadBalancerPoliciesResponse (DescribeLoadBalancerPoliciesResponse'),
-    newDescribeLoadBalancerPoliciesResponse,
-
-    -- ** DisableAvailabilityZonesForLoadBalancer
-    DisableAvailabilityZonesForLoadBalancer (DisableAvailabilityZonesForLoadBalancer'),
-    newDisableAvailabilityZonesForLoadBalancer,
-    DisableAvailabilityZonesForLoadBalancerResponse (DisableAvailabilityZonesForLoadBalancerResponse'),
-    newDisableAvailabilityZonesForLoadBalancerResponse,
-
-    -- ** EnableAvailabilityZonesForLoadBalancer
-    EnableAvailabilityZonesForLoadBalancer (EnableAvailabilityZonesForLoadBalancer'),
-    newEnableAvailabilityZonesForLoadBalancer,
-    EnableAvailabilityZonesForLoadBalancerResponse (EnableAvailabilityZonesForLoadBalancerResponse'),
-    newEnableAvailabilityZonesForLoadBalancerResponse,
-
-    -- ** SetLoadBalancerPoliciesForBackendServer
-    SetLoadBalancerPoliciesForBackendServer (SetLoadBalancerPoliciesForBackendServer'),
-    newSetLoadBalancerPoliciesForBackendServer,
-    SetLoadBalancerPoliciesForBackendServerResponse (SetLoadBalancerPoliciesForBackendServerResponse'),
-    newSetLoadBalancerPoliciesForBackendServerResponse,
-
-    -- ** SetLoadBalancerListenerSSLCertificate
-    SetLoadBalancerListenerSSLCertificate (SetLoadBalancerListenerSSLCertificate'),
-    newSetLoadBalancerListenerSSLCertificate,
-    SetLoadBalancerListenerSSLCertificateResponse (SetLoadBalancerListenerSSLCertificateResponse'),
-    newSetLoadBalancerListenerSSLCertificateResponse,
-
-    -- ** DescribeAccountLimits (Paginated)
-    DescribeAccountLimits (DescribeAccountLimits'),
-    newDescribeAccountLimits,
-    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
-    newDescribeAccountLimitsResponse,
 
     -- ** AttachLoadBalancerToSubnets
     AttachLoadBalancerToSubnets (AttachLoadBalancerToSubnets'),
@@ -230,59 +152,17 @@ module Amazonka.ELB
     ConfigureHealthCheckResponse (ConfigureHealthCheckResponse'),
     newConfigureHealthCheckResponse,
 
-    -- ** ModifyLoadBalancerAttributes
-    ModifyLoadBalancerAttributes (ModifyLoadBalancerAttributes'),
-    newModifyLoadBalancerAttributes,
-    ModifyLoadBalancerAttributesResponse (ModifyLoadBalancerAttributesResponse'),
-    newModifyLoadBalancerAttributesResponse,
-
     -- ** CreateAppCookieStickinessPolicy
     CreateAppCookieStickinessPolicy (CreateAppCookieStickinessPolicy'),
     newCreateAppCookieStickinessPolicy,
     CreateAppCookieStickinessPolicyResponse (CreateAppCookieStickinessPolicyResponse'),
     newCreateAppCookieStickinessPolicyResponse,
 
-    -- ** DescribeInstanceHealth
-    DescribeInstanceHealth (DescribeInstanceHealth'),
-    newDescribeInstanceHealth,
-    DescribeInstanceHealthResponse (DescribeInstanceHealthResponse'),
-    newDescribeInstanceHealthResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
-    -- ** DescribeLoadBalancerAttributes
-    DescribeLoadBalancerAttributes (DescribeLoadBalancerAttributes'),
-    newDescribeLoadBalancerAttributes,
-    DescribeLoadBalancerAttributesResponse (DescribeLoadBalancerAttributesResponse'),
-    newDescribeLoadBalancerAttributesResponse,
-
-    -- ** CreateLoadBalancerListeners
-    CreateLoadBalancerListeners (CreateLoadBalancerListeners'),
-    newCreateLoadBalancerListeners,
-    CreateLoadBalancerListenersResponse (CreateLoadBalancerListenersResponse'),
-    newCreateLoadBalancerListenersResponse,
-
-    -- ** DeleteLoadBalancerPolicy
-    DeleteLoadBalancerPolicy (DeleteLoadBalancerPolicy'),
-    newDeleteLoadBalancerPolicy,
-    DeleteLoadBalancerPolicyResponse (DeleteLoadBalancerPolicyResponse'),
-    newDeleteLoadBalancerPolicyResponse,
-
-    -- ** DetachLoadBalancerFromSubnets
-    DetachLoadBalancerFromSubnets (DetachLoadBalancerFromSubnets'),
-    newDetachLoadBalancerFromSubnets,
-    DetachLoadBalancerFromSubnetsResponse (DetachLoadBalancerFromSubnetsResponse'),
-    newDetachLoadBalancerFromSubnetsResponse,
-
-    -- ** RegisterInstancesWithLoadBalancer
-    RegisterInstancesWithLoadBalancer (RegisterInstancesWithLoadBalancer'),
-    newRegisterInstancesWithLoadBalancer,
-    RegisterInstancesWithLoadBalancerResponse (RegisterInstancesWithLoadBalancerResponse'),
-    newRegisterInstancesWithLoadBalancerResponse,
+    -- ** CreateLBCookieStickinessPolicy
+    CreateLBCookieStickinessPolicy (CreateLBCookieStickinessPolicy'),
+    newCreateLBCookieStickinessPolicy,
+    CreateLBCookieStickinessPolicyResponse (CreateLBCookieStickinessPolicyResponse'),
+    newCreateLBCookieStickinessPolicyResponse,
 
     -- ** CreateLoadBalancer
     CreateLoadBalancer (CreateLoadBalancer'),
@@ -290,11 +170,131 @@ module Amazonka.ELB
     CreateLoadBalancerResponse (CreateLoadBalancerResponse'),
     newCreateLoadBalancerResponse,
 
+    -- ** CreateLoadBalancerListeners
+    CreateLoadBalancerListeners (CreateLoadBalancerListeners'),
+    newCreateLoadBalancerListeners,
+    CreateLoadBalancerListenersResponse (CreateLoadBalancerListenersResponse'),
+    newCreateLoadBalancerListenersResponse,
+
+    -- ** CreateLoadBalancerPolicy
+    CreateLoadBalancerPolicy (CreateLoadBalancerPolicy'),
+    newCreateLoadBalancerPolicy,
+    CreateLoadBalancerPolicyResponse (CreateLoadBalancerPolicyResponse'),
+    newCreateLoadBalancerPolicyResponse,
+
+    -- ** DeleteLoadBalancer
+    DeleteLoadBalancer (DeleteLoadBalancer'),
+    newDeleteLoadBalancer,
+    DeleteLoadBalancerResponse (DeleteLoadBalancerResponse'),
+    newDeleteLoadBalancerResponse,
+
     -- ** DeleteLoadBalancerListeners
     DeleteLoadBalancerListeners (DeleteLoadBalancerListeners'),
     newDeleteLoadBalancerListeners,
     DeleteLoadBalancerListenersResponse (DeleteLoadBalancerListenersResponse'),
     newDeleteLoadBalancerListenersResponse,
+
+    -- ** DeleteLoadBalancerPolicy
+    DeleteLoadBalancerPolicy (DeleteLoadBalancerPolicy'),
+    newDeleteLoadBalancerPolicy,
+    DeleteLoadBalancerPolicyResponse (DeleteLoadBalancerPolicyResponse'),
+    newDeleteLoadBalancerPolicyResponse,
+
+    -- ** DeregisterInstancesFromLoadBalancer
+    DeregisterInstancesFromLoadBalancer (DeregisterInstancesFromLoadBalancer'),
+    newDeregisterInstancesFromLoadBalancer,
+    DeregisterInstancesFromLoadBalancerResponse (DeregisterInstancesFromLoadBalancerResponse'),
+    newDeregisterInstancesFromLoadBalancerResponse,
+
+    -- ** DescribeAccountLimits (Paginated)
+    DescribeAccountLimits (DescribeAccountLimits'),
+    newDescribeAccountLimits,
+    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
+    newDescribeAccountLimitsResponse,
+
+    -- ** DescribeInstanceHealth
+    DescribeInstanceHealth (DescribeInstanceHealth'),
+    newDescribeInstanceHealth,
+    DescribeInstanceHealthResponse (DescribeInstanceHealthResponse'),
+    newDescribeInstanceHealthResponse,
+
+    -- ** DescribeLoadBalancerAttributes
+    DescribeLoadBalancerAttributes (DescribeLoadBalancerAttributes'),
+    newDescribeLoadBalancerAttributes,
+    DescribeLoadBalancerAttributesResponse (DescribeLoadBalancerAttributesResponse'),
+    newDescribeLoadBalancerAttributesResponse,
+
+    -- ** DescribeLoadBalancerPolicies
+    DescribeLoadBalancerPolicies (DescribeLoadBalancerPolicies'),
+    newDescribeLoadBalancerPolicies,
+    DescribeLoadBalancerPoliciesResponse (DescribeLoadBalancerPoliciesResponse'),
+    newDescribeLoadBalancerPoliciesResponse,
+
+    -- ** DescribeLoadBalancerPolicyTypes
+    DescribeLoadBalancerPolicyTypes (DescribeLoadBalancerPolicyTypes'),
+    newDescribeLoadBalancerPolicyTypes,
+    DescribeLoadBalancerPolicyTypesResponse (DescribeLoadBalancerPolicyTypesResponse'),
+    newDescribeLoadBalancerPolicyTypesResponse,
+
+    -- ** DescribeLoadBalancers (Paginated)
+    DescribeLoadBalancers (DescribeLoadBalancers'),
+    newDescribeLoadBalancers,
+    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
+    newDescribeLoadBalancersResponse,
+
+    -- ** DescribeTags
+    DescribeTags (DescribeTags'),
+    newDescribeTags,
+    DescribeTagsResponse (DescribeTagsResponse'),
+    newDescribeTagsResponse,
+
+    -- ** DetachLoadBalancerFromSubnets
+    DetachLoadBalancerFromSubnets (DetachLoadBalancerFromSubnets'),
+    newDetachLoadBalancerFromSubnets,
+    DetachLoadBalancerFromSubnetsResponse (DetachLoadBalancerFromSubnetsResponse'),
+    newDetachLoadBalancerFromSubnetsResponse,
+
+    -- ** DisableAvailabilityZonesForLoadBalancer
+    DisableAvailabilityZonesForLoadBalancer (DisableAvailabilityZonesForLoadBalancer'),
+    newDisableAvailabilityZonesForLoadBalancer,
+    DisableAvailabilityZonesForLoadBalancerResponse (DisableAvailabilityZonesForLoadBalancerResponse'),
+    newDisableAvailabilityZonesForLoadBalancerResponse,
+
+    -- ** EnableAvailabilityZonesForLoadBalancer
+    EnableAvailabilityZonesForLoadBalancer (EnableAvailabilityZonesForLoadBalancer'),
+    newEnableAvailabilityZonesForLoadBalancer,
+    EnableAvailabilityZonesForLoadBalancerResponse (EnableAvailabilityZonesForLoadBalancerResponse'),
+    newEnableAvailabilityZonesForLoadBalancerResponse,
+
+    -- ** ModifyLoadBalancerAttributes
+    ModifyLoadBalancerAttributes (ModifyLoadBalancerAttributes'),
+    newModifyLoadBalancerAttributes,
+    ModifyLoadBalancerAttributesResponse (ModifyLoadBalancerAttributesResponse'),
+    newModifyLoadBalancerAttributesResponse,
+
+    -- ** RegisterInstancesWithLoadBalancer
+    RegisterInstancesWithLoadBalancer (RegisterInstancesWithLoadBalancer'),
+    newRegisterInstancesWithLoadBalancer,
+    RegisterInstancesWithLoadBalancerResponse (RegisterInstancesWithLoadBalancerResponse'),
+    newRegisterInstancesWithLoadBalancerResponse,
+
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
+
+    -- ** SetLoadBalancerListenerSSLCertificate
+    SetLoadBalancerListenerSSLCertificate (SetLoadBalancerListenerSSLCertificate'),
+    newSetLoadBalancerListenerSSLCertificate,
+    SetLoadBalancerListenerSSLCertificateResponse (SetLoadBalancerListenerSSLCertificateResponse'),
+    newSetLoadBalancerListenerSSLCertificateResponse,
+
+    -- ** SetLoadBalancerPoliciesForBackendServer
+    SetLoadBalancerPoliciesForBackendServer (SetLoadBalancerPoliciesForBackendServer'),
+    newSetLoadBalancerPoliciesForBackendServer,
+    SetLoadBalancerPoliciesForBackendServerResponse (SetLoadBalancerPoliciesForBackendServerResponse'),
+    newSetLoadBalancerPoliciesForBackendServerResponse,
 
     -- ** SetLoadBalancerPoliciesOfListener
     SetLoadBalancerPoliciesOfListener (SetLoadBalancerPoliciesOfListener'),

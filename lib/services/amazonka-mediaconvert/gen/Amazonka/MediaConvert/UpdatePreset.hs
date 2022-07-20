@@ -27,9 +27,9 @@ module Amazonka.MediaConvert.UpdatePreset
     newUpdatePreset,
 
     -- * Request Lenses
+    updatePreset_description,
     updatePreset_settings,
     updatePreset_category,
-    updatePreset_description,
     updatePreset_name,
 
     -- * Destructuring the Response
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePreset' smart constructor.
 data UpdatePreset = UpdatePreset'
-  { -- | Settings for preset
+  { -- | The new description for the preset, if you are changing it.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Settings for preset
     settings :: Prelude.Maybe PresetSettings,
     -- | The new category for the preset, if you are changing it.
     category :: Prelude.Maybe Prelude.Text,
-    -- | The new description for the preset, if you are changing it.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the preset you are modifying.
     name :: Prelude.Text
   }
@@ -70,11 +70,11 @@ data UpdatePreset = UpdatePreset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updatePreset_description' - The new description for the preset, if you are changing it.
+--
 -- 'settings', 'updatePreset_settings' - Settings for preset
 --
 -- 'category', 'updatePreset_category' - The new category for the preset, if you are changing it.
---
--- 'description', 'updatePreset_description' - The new description for the preset, if you are changing it.
 --
 -- 'name', 'updatePreset_name' - The name of the preset you are modifying.
 newUpdatePreset ::
@@ -83,11 +83,15 @@ newUpdatePreset ::
   UpdatePreset
 newUpdatePreset pName_ =
   UpdatePreset'
-    { settings = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      settings = Prelude.Nothing,
       category = Prelude.Nothing,
-      description = Prelude.Nothing,
       name = pName_
     }
+
+-- | The new description for the preset, if you are changing it.
+updatePreset_description :: Lens.Lens' UpdatePreset (Prelude.Maybe Prelude.Text)
+updatePreset_description = Lens.lens (\UpdatePreset' {description} -> description) (\s@UpdatePreset' {} a -> s {description = a} :: UpdatePreset)
 
 -- | Settings for preset
 updatePreset_settings :: Lens.Lens' UpdatePreset (Prelude.Maybe PresetSettings)
@@ -96,10 +100,6 @@ updatePreset_settings = Lens.lens (\UpdatePreset' {settings} -> settings) (\s@Up
 -- | The new category for the preset, if you are changing it.
 updatePreset_category :: Lens.Lens' UpdatePreset (Prelude.Maybe Prelude.Text)
 updatePreset_category = Lens.lens (\UpdatePreset' {category} -> category) (\s@UpdatePreset' {} a -> s {category = a} :: UpdatePreset)
-
--- | The new description for the preset, if you are changing it.
-updatePreset_description :: Lens.Lens' UpdatePreset (Prelude.Maybe Prelude.Text)
-updatePreset_description = Lens.lens (\UpdatePreset' {description} -> description) (\s@UpdatePreset' {} a -> s {description = a} :: UpdatePreset)
 
 -- | The name of the preset you are modifying.
 updatePreset_name :: Lens.Lens' UpdatePreset Prelude.Text
@@ -118,16 +118,16 @@ instance Core.AWSRequest UpdatePreset where
 
 instance Prelude.Hashable UpdatePreset where
   hashWithSalt _salt UpdatePreset' {..} =
-    _salt `Prelude.hashWithSalt` settings
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdatePreset where
   rnf UpdatePreset' {..} =
-    Prelude.rnf settings
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdatePreset where
@@ -145,9 +145,9 @@ instance Core.ToJSON UpdatePreset where
   toJSON UpdatePreset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("settings" Core..=) Prelude.<$> settings,
-            ("category" Core..=) Prelude.<$> category,
-            ("description" Core..=) Prelude.<$> description
+          [ ("description" Core..=) Prelude.<$> description,
+            ("settings" Core..=) Prelude.<$> settings,
+            ("category" Core..=) Prelude.<$> category
           ]
       )
 

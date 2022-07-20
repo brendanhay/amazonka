@@ -38,8 +38,8 @@ module Amazonka.Comprehend.ListEntitiesDetectionJobs
     newListEntitiesDetectionJobsResponse,
 
     -- * Response Lenses
-    listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList,
     listEntitiesDetectionJobsResponse_nextToken,
+    listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList,
     listEntitiesDetectionJobsResponse_httpStatus,
   )
 where
@@ -137,10 +137,10 @@ instance Core.AWSRequest ListEntitiesDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListEntitiesDetectionJobsResponse'
-            Prelude.<$> ( x Core..?> "EntitiesDetectionJobPropertiesList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "EntitiesDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,10 +189,10 @@ instance Core.ToQuery ListEntitiesDetectionJobs where
 
 -- | /See:/ 'newListEntitiesDetectionJobsResponse' smart constructor.
 data ListEntitiesDetectionJobsResponse = ListEntitiesDetectionJobsResponse'
-  { -- | A list containing the properties of each job that is returned.
-    entitiesDetectionJobPropertiesList :: Prelude.Maybe [EntitiesDetectionJobProperties],
-    -- | Identifies the next page of results to return.
+  { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list containing the properties of each job that is returned.
+    entitiesDetectionJobPropertiesList :: Prelude.Maybe [EntitiesDetectionJobProperties],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,9 +206,9 @@ data ListEntitiesDetectionJobsResponse = ListEntitiesDetectionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entitiesDetectionJobPropertiesList', 'listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
---
 -- 'nextToken', 'listEntitiesDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
+--
+-- 'entitiesDetectionJobPropertiesList', 'listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
 --
 -- 'httpStatus', 'listEntitiesDetectionJobsResponse_httpStatus' - The response's http status code.
 newListEntitiesDetectionJobsResponse ::
@@ -217,19 +217,20 @@ newListEntitiesDetectionJobsResponse ::
   ListEntitiesDetectionJobsResponse
 newListEntitiesDetectionJobsResponse pHttpStatus_ =
   ListEntitiesDetectionJobsResponse'
-    { entitiesDetectionJobPropertiesList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      entitiesDetectionJobPropertiesList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list containing the properties of each job that is returned.
-listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList :: Lens.Lens' ListEntitiesDetectionJobsResponse (Prelude.Maybe [EntitiesDetectionJobProperties])
-listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList = Lens.lens (\ListEntitiesDetectionJobsResponse' {entitiesDetectionJobPropertiesList} -> entitiesDetectionJobPropertiesList) (\s@ListEntitiesDetectionJobsResponse' {} a -> s {entitiesDetectionJobPropertiesList = a} :: ListEntitiesDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies the next page of results to return.
 listEntitiesDetectionJobsResponse_nextToken :: Lens.Lens' ListEntitiesDetectionJobsResponse (Prelude.Maybe Prelude.Text)
 listEntitiesDetectionJobsResponse_nextToken = Lens.lens (\ListEntitiesDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListEntitiesDetectionJobsResponse' {} a -> s {nextToken = a} :: ListEntitiesDetectionJobsResponse)
+
+-- | A list containing the properties of each job that is returned.
+listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList :: Lens.Lens' ListEntitiesDetectionJobsResponse (Prelude.Maybe [EntitiesDetectionJobProperties])
+listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList = Lens.lens (\ListEntitiesDetectionJobsResponse' {entitiesDetectionJobPropertiesList} -> entitiesDetectionJobPropertiesList) (\s@ListEntitiesDetectionJobsResponse' {} a -> s {entitiesDetectionJobPropertiesList = a} :: ListEntitiesDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEntitiesDetectionJobsResponse_httpStatus :: Lens.Lens' ListEntitiesDetectionJobsResponse Prelude.Int
@@ -240,6 +241,6 @@ instance
     ListEntitiesDetectionJobsResponse
   where
   rnf ListEntitiesDetectionJobsResponse' {..} =
-    Prelude.rnf entitiesDetectionJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf entitiesDetectionJobPropertiesList
       `Prelude.seq` Prelude.rnf httpStatus

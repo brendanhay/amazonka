@@ -35,8 +35,8 @@ module Amazonka.IoTWireless.ListPartnerAccounts
     newListPartnerAccountsResponse,
 
     -- * Response Lenses
-    listPartnerAccountsResponse_sidewalk,
     listPartnerAccountsResponse_nextToken,
+    listPartnerAccountsResponse_sidewalk,
     listPartnerAccountsResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest ListPartnerAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListPartnerAccountsResponse'
-            Prelude.<$> (x Core..?> "Sidewalk" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Sidewalk" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,11 +129,11 @@ instance Core.ToQuery ListPartnerAccounts where
 
 -- | /See:/ 'newListPartnerAccountsResponse' smart constructor.
 data ListPartnerAccountsResponse = ListPartnerAccountsResponse'
-  { -- | The Sidewalk account credentials.
-    sidewalk :: Prelude.Maybe [SidewalkAccountInfoWithFingerprint],
-    -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Sidewalk account credentials.
+    sidewalk :: Prelude.Maybe [SidewalkAccountInfoWithFingerprint],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,10 +147,10 @@ data ListPartnerAccountsResponse = ListPartnerAccountsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sidewalk', 'listPartnerAccountsResponse_sidewalk' - The Sidewalk account credentials.
---
 -- 'nextToken', 'listPartnerAccountsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
+--
+-- 'sidewalk', 'listPartnerAccountsResponse_sidewalk' - The Sidewalk account credentials.
 --
 -- 'httpStatus', 'listPartnerAccountsResponse_httpStatus' - The response's http status code.
 newListPartnerAccountsResponse ::
@@ -159,20 +159,20 @@ newListPartnerAccountsResponse ::
   ListPartnerAccountsResponse
 newListPartnerAccountsResponse pHttpStatus_ =
   ListPartnerAccountsResponse'
-    { sidewalk =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sidewalk = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Sidewalk account credentials.
-listPartnerAccountsResponse_sidewalk :: Lens.Lens' ListPartnerAccountsResponse (Prelude.Maybe [SidewalkAccountInfoWithFingerprint])
-listPartnerAccountsResponse_sidewalk = Lens.lens (\ListPartnerAccountsResponse' {sidewalk} -> sidewalk) (\s@ListPartnerAccountsResponse' {} a -> s {sidewalk = a} :: ListPartnerAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listPartnerAccountsResponse_nextToken :: Lens.Lens' ListPartnerAccountsResponse (Prelude.Maybe Prelude.Text)
 listPartnerAccountsResponse_nextToken = Lens.lens (\ListPartnerAccountsResponse' {nextToken} -> nextToken) (\s@ListPartnerAccountsResponse' {} a -> s {nextToken = a} :: ListPartnerAccountsResponse)
+
+-- | The Sidewalk account credentials.
+listPartnerAccountsResponse_sidewalk :: Lens.Lens' ListPartnerAccountsResponse (Prelude.Maybe [SidewalkAccountInfoWithFingerprint])
+listPartnerAccountsResponse_sidewalk = Lens.lens (\ListPartnerAccountsResponse' {sidewalk} -> sidewalk) (\s@ListPartnerAccountsResponse' {} a -> s {sidewalk = a} :: ListPartnerAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPartnerAccountsResponse_httpStatus :: Lens.Lens' ListPartnerAccountsResponse Prelude.Int
@@ -180,6 +180,6 @@ listPartnerAccountsResponse_httpStatus = Lens.lens (\ListPartnerAccountsResponse
 
 instance Prelude.NFData ListPartnerAccountsResponse where
   rnf ListPartnerAccountsResponse' {..} =
-    Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sidewalk
       `Prelude.seq` Prelude.rnf httpStatus

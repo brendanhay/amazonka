@@ -37,8 +37,8 @@ module Amazonka.AuditManager.GetEvidenceFoldersByAssessment
     newGetEvidenceFoldersByAssessmentResponse,
 
     -- * Response Lenses
-    getEvidenceFoldersByAssessmentResponse_nextToken,
     getEvidenceFoldersByAssessmentResponse_evidenceFolders,
+    getEvidenceFoldersByAssessmentResponse_nextToken,
     getEvidenceFoldersByAssessmentResponse_httpStatus,
   )
 where
@@ -113,10 +113,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEvidenceFoldersByAssessmentResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "evidenceFolders"
+            Prelude.<$> ( x Core..?> "evidenceFolders"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,11 +171,11 @@ instance Core.ToQuery GetEvidenceFoldersByAssessment where
 
 -- | /See:/ 'newGetEvidenceFoldersByAssessmentResponse' smart constructor.
 data GetEvidenceFoldersByAssessmentResponse = GetEvidenceFoldersByAssessmentResponse'
-  { -- | The pagination token used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of evidence folders returned by the
+  { -- | The list of evidence folders returned by the
     -- @GetEvidenceFoldersByAssessment@ API.
     evidenceFolders :: Prelude.Maybe [AssessmentEvidenceFolder],
+    -- | The pagination token used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,10 +189,10 @@ data GetEvidenceFoldersByAssessmentResponse = GetEvidenceFoldersByAssessmentResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEvidenceFoldersByAssessmentResponse_nextToken' - The pagination token used to fetch the next set of results.
---
 -- 'evidenceFolders', 'getEvidenceFoldersByAssessmentResponse_evidenceFolders' - The list of evidence folders returned by the
 -- @GetEvidenceFoldersByAssessment@ API.
+--
+-- 'nextToken', 'getEvidenceFoldersByAssessmentResponse_nextToken' - The pagination token used to fetch the next set of results.
 --
 -- 'httpStatus', 'getEvidenceFoldersByAssessmentResponse_httpStatus' - The response's http status code.
 newGetEvidenceFoldersByAssessmentResponse ::
@@ -202,20 +202,20 @@ newGetEvidenceFoldersByAssessmentResponse ::
 newGetEvidenceFoldersByAssessmentResponse
   pHttpStatus_ =
     GetEvidenceFoldersByAssessmentResponse'
-      { nextToken =
+      { evidenceFolders =
           Prelude.Nothing,
-        evidenceFolders = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The pagination token used to fetch the next set of results.
-getEvidenceFoldersByAssessmentResponse_nextToken :: Lens.Lens' GetEvidenceFoldersByAssessmentResponse (Prelude.Maybe Prelude.Text)
-getEvidenceFoldersByAssessmentResponse_nextToken = Lens.lens (\GetEvidenceFoldersByAssessmentResponse' {nextToken} -> nextToken) (\s@GetEvidenceFoldersByAssessmentResponse' {} a -> s {nextToken = a} :: GetEvidenceFoldersByAssessmentResponse)
 
 -- | The list of evidence folders returned by the
 -- @GetEvidenceFoldersByAssessment@ API.
 getEvidenceFoldersByAssessmentResponse_evidenceFolders :: Lens.Lens' GetEvidenceFoldersByAssessmentResponse (Prelude.Maybe [AssessmentEvidenceFolder])
 getEvidenceFoldersByAssessmentResponse_evidenceFolders = Lens.lens (\GetEvidenceFoldersByAssessmentResponse' {evidenceFolders} -> evidenceFolders) (\s@GetEvidenceFoldersByAssessmentResponse' {} a -> s {evidenceFolders = a} :: GetEvidenceFoldersByAssessmentResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token used to fetch the next set of results.
+getEvidenceFoldersByAssessmentResponse_nextToken :: Lens.Lens' GetEvidenceFoldersByAssessmentResponse (Prelude.Maybe Prelude.Text)
+getEvidenceFoldersByAssessmentResponse_nextToken = Lens.lens (\GetEvidenceFoldersByAssessmentResponse' {nextToken} -> nextToken) (\s@GetEvidenceFoldersByAssessmentResponse' {} a -> s {nextToken = a} :: GetEvidenceFoldersByAssessmentResponse)
 
 -- | The response's http status code.
 getEvidenceFoldersByAssessmentResponse_httpStatus :: Lens.Lens' GetEvidenceFoldersByAssessmentResponse Prelude.Int
@@ -226,6 +226,6 @@ instance
     GetEvidenceFoldersByAssessmentResponse
   where
   rnf GetEvidenceFoldersByAssessmentResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf evidenceFolders
+    Prelude.rnf evidenceFolders
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

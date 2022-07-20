@@ -30,8 +30,8 @@ module Amazonka.RAM.GetResourcePolicies
     newGetResourcePolicies,
 
     -- * Request Lenses
-    getResourcePolicies_nextToken,
     getResourcePolicies_principal,
+    getResourcePolicies_nextToken,
     getResourcePolicies_maxResults,
     getResourcePolicies_resourceArns,
 
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourcePolicies' smart constructor.
 data GetResourcePolicies = GetResourcePolicies'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The principal.
+  { -- | The principal.
     principal :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -76,9 +76,9 @@ data GetResourcePolicies = GetResourcePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getResourcePolicies_nextToken' - The token for the next page of results.
---
 -- 'principal', 'getResourcePolicies_principal' - The principal.
+--
+-- 'nextToken', 'getResourcePolicies_nextToken' - The token for the next page of results.
 --
 -- 'maxResults', 'getResourcePolicies_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -89,19 +89,19 @@ newGetResourcePolicies ::
   GetResourcePolicies
 newGetResourcePolicies =
   GetResourcePolicies'
-    { nextToken = Prelude.Nothing,
-      principal = Prelude.Nothing,
+    { principal = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       resourceArns = Prelude.mempty
     }
 
--- | The token for the next page of results.
-getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
-getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
-
 -- | The principal.
 getResourcePolicies_principal :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
 getResourcePolicies_principal = Lens.lens (\GetResourcePolicies' {principal} -> principal) (\s@GetResourcePolicies' {} a -> s {principal = a} :: GetResourcePolicies)
+
+-- | The token for the next page of results.
+getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
+getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -151,15 +151,15 @@ instance Core.AWSRequest GetResourcePolicies where
 
 instance Prelude.Hashable GetResourcePolicies where
   hashWithSalt _salt GetResourcePolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` principal
+    _salt `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` resourceArns
 
 instance Prelude.NFData GetResourcePolicies where
   rnf GetResourcePolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceArns
 
@@ -178,8 +178,8 @@ instance Core.ToJSON GetResourcePolicies where
   toJSON GetResourcePolicies' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("principal" Core..=) Prelude.<$> principal,
+          [ ("principal" Core..=) Prelude.<$> principal,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("resourceArns" Core..= resourceArns)
           ]

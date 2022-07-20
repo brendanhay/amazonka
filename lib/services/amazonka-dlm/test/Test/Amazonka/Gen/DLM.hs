@@ -27,20 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteLifecyclePolicy $
+--         [ requestCreateLifecyclePolicy $
+--             newCreateLifecyclePolicy
+--
+--         , requestDeleteLifecyclePolicy $
 --             newDeleteLifecyclePolicy
 --
---         , requestUpdateLifecyclePolicy $
---             newUpdateLifecyclePolicy
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestCreateLifecyclePolicy $
---             newCreateLifecyclePolicy
+--         , requestGetLifecyclePolicies $
+--             newGetLifecyclePolicies
 --
 --         , requestGetLifecyclePolicy $
 --             newGetLifecyclePolicy
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestTagResource $
 --             newTagResource
@@ -48,26 +48,26 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetLifecyclePolicies $
---             newGetLifecyclePolicies
+--         , requestUpdateLifecyclePolicy $
+--             newUpdateLifecyclePolicy
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteLifecyclePolicy $
+--         [ responseCreateLifecyclePolicy $
+--             newCreateLifecyclePolicyResponse
+--
+--         , responseDeleteLifecyclePolicy $
 --             newDeleteLifecyclePolicyResponse
 --
---         , responseUpdateLifecyclePolicy $
---             newUpdateLifecyclePolicyResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseCreateLifecyclePolicy $
---             newCreateLifecyclePolicyResponse
+--         , responseGetLifecyclePolicies $
+--             newGetLifecyclePoliciesResponse
 --
 --         , responseGetLifecyclePolicy $
 --             newGetLifecyclePolicyResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -75,31 +75,13 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetLifecyclePolicies $
---             newGetLifecyclePoliciesResponse
+--         , responseUpdateLifecyclePolicy $
+--             newUpdateLifecyclePolicyResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDeleteLifecyclePolicy :: DeleteLifecyclePolicy -> TestTree
-requestDeleteLifecyclePolicy =
-  req
-    "DeleteLifecyclePolicy"
-    "fixture/DeleteLifecyclePolicy.yaml"
-
-requestUpdateLifecyclePolicy :: UpdateLifecyclePolicy -> TestTree
-requestUpdateLifecyclePolicy =
-  req
-    "UpdateLifecyclePolicy"
-    "fixture/UpdateLifecyclePolicy.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
 
 requestCreateLifecyclePolicy :: CreateLifecyclePolicy -> TestTree
 requestCreateLifecyclePolicy =
@@ -107,11 +89,29 @@ requestCreateLifecyclePolicy =
     "CreateLifecyclePolicy"
     "fixture/CreateLifecyclePolicy.yaml"
 
+requestDeleteLifecyclePolicy :: DeleteLifecyclePolicy -> TestTree
+requestDeleteLifecyclePolicy =
+  req
+    "DeleteLifecyclePolicy"
+    "fixture/DeleteLifecyclePolicy.yaml"
+
+requestGetLifecyclePolicies :: GetLifecyclePolicies -> TestTree
+requestGetLifecyclePolicies =
+  req
+    "GetLifecyclePolicies"
+    "fixture/GetLifecyclePolicies.yaml"
+
 requestGetLifecyclePolicy :: GetLifecyclePolicy -> TestTree
 requestGetLifecyclePolicy =
   req
     "GetLifecyclePolicy"
     "fixture/GetLifecyclePolicy.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -125,37 +125,13 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetLifecyclePolicies :: GetLifecyclePolicies -> TestTree
-requestGetLifecyclePolicies =
+requestUpdateLifecyclePolicy :: UpdateLifecyclePolicy -> TestTree
+requestUpdateLifecyclePolicy =
   req
-    "GetLifecyclePolicies"
-    "fixture/GetLifecyclePolicies.yaml"
+    "UpdateLifecyclePolicy"
+    "fixture/UpdateLifecyclePolicy.yaml"
 
 -- Responses
-
-responseDeleteLifecyclePolicy :: DeleteLifecyclePolicyResponse -> TestTree
-responseDeleteLifecyclePolicy =
-  res
-    "DeleteLifecyclePolicyResponse"
-    "fixture/DeleteLifecyclePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLifecyclePolicy)
-
-responseUpdateLifecyclePolicy :: UpdateLifecyclePolicyResponse -> TestTree
-responseUpdateLifecyclePolicy =
-  res
-    "UpdateLifecyclePolicyResponse"
-    "fixture/UpdateLifecyclePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLifecyclePolicy)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateLifecyclePolicy :: CreateLifecyclePolicyResponse -> TestTree
 responseCreateLifecyclePolicy =
@@ -165,6 +141,22 @@ responseCreateLifecyclePolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLifecyclePolicy)
 
+responseDeleteLifecyclePolicy :: DeleteLifecyclePolicyResponse -> TestTree
+responseDeleteLifecyclePolicy =
+  res
+    "DeleteLifecyclePolicyResponse"
+    "fixture/DeleteLifecyclePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLifecyclePolicy)
+
+responseGetLifecyclePolicies :: GetLifecyclePoliciesResponse -> TestTree
+responseGetLifecyclePolicies =
+  res
+    "GetLifecyclePoliciesResponse"
+    "fixture/GetLifecyclePoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLifecyclePolicies)
+
 responseGetLifecyclePolicy :: GetLifecyclePolicyResponse -> TestTree
 responseGetLifecyclePolicy =
   res
@@ -172,6 +164,14 @@ responseGetLifecyclePolicy =
     "fixture/GetLifecyclePolicyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLifecyclePolicy)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -189,10 +189,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseGetLifecyclePolicies :: GetLifecyclePoliciesResponse -> TestTree
-responseGetLifecyclePolicies =
+responseUpdateLifecyclePolicy :: UpdateLifecyclePolicyResponse -> TestTree
+responseUpdateLifecyclePolicy =
   res
-    "GetLifecyclePoliciesResponse"
-    "fixture/GetLifecyclePoliciesResponse.proto"
+    "UpdateLifecyclePolicyResponse"
+    "fixture/UpdateLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetLifecyclePolicies)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLifecyclePolicy)

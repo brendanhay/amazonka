@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchMetricsDimension' smart constructor.
 data CloudWatchMetricsDimension = CloudWatchMetricsDimension'
-  { -- | The value of the CloudWatch dimension.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the CloudWatch dimension.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the CloudWatch dimension.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The value of the CloudWatch dimension.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,24 @@ data CloudWatchMetricsDimension = CloudWatchMetricsDimension'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'cloudWatchMetricsDimension_value' - The value of the CloudWatch dimension.
---
 -- 'name', 'cloudWatchMetricsDimension_name' - The name of the CloudWatch dimension.
+--
+-- 'value', 'cloudWatchMetricsDimension_value' - The value of the CloudWatch dimension.
 newCloudWatchMetricsDimension ::
   CloudWatchMetricsDimension
 newCloudWatchMetricsDimension =
   CloudWatchMetricsDimension'
-    { value =
-        Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the CloudWatch dimension.
-cloudWatchMetricsDimension_value :: Lens.Lens' CloudWatchMetricsDimension (Prelude.Maybe Prelude.Text)
-cloudWatchMetricsDimension_value = Lens.lens (\CloudWatchMetricsDimension' {value} -> value) (\s@CloudWatchMetricsDimension' {} a -> s {value = a} :: CloudWatchMetricsDimension)
 
 -- | The name of the CloudWatch dimension.
 cloudWatchMetricsDimension_name :: Lens.Lens' CloudWatchMetricsDimension (Prelude.Maybe Prelude.Text)
 cloudWatchMetricsDimension_name = Lens.lens (\CloudWatchMetricsDimension' {name} -> name) (\s@CloudWatchMetricsDimension' {} a -> s {name = a} :: CloudWatchMetricsDimension)
+
+-- | The value of the CloudWatch dimension.
+cloudWatchMetricsDimension_value :: Lens.Lens' CloudWatchMetricsDimension (Prelude.Maybe Prelude.Text)
+cloudWatchMetricsDimension_value = Lens.lens (\CloudWatchMetricsDimension' {value} -> value) (\s@CloudWatchMetricsDimension' {} a -> s {value = a} :: CloudWatchMetricsDimension)
 
 instance Core.FromJSON CloudWatchMetricsDimension where
   parseJSON =
@@ -74,14 +73,14 @@ instance Core.FromJSON CloudWatchMetricsDimension where
       "CloudWatchMetricsDimension"
       ( \x ->
           CloudWatchMetricsDimension'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable CloudWatchMetricsDimension where
   hashWithSalt _salt CloudWatchMetricsDimension' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CloudWatchMetricsDimension where
   rnf CloudWatchMetricsDimension' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value

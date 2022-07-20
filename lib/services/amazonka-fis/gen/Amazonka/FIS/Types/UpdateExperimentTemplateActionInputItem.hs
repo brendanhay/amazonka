@@ -31,14 +31,14 @@ data UpdateExperimentTemplateActionInputItem = UpdateExperimentTemplateActionInp
     -- starts. Omit this parameter to run the action at the start of the
     -- experiment.
     startAfter :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the action.
-    actionId :: Prelude.Maybe Prelude.Text,
-    -- | The parameters for the action, if applicable.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The targets for the action.
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A description for the action.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the action.
+    actionId :: Prelude.Maybe Prelude.Text,
+    -- | The parameters for the action, if applicable.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,23 +54,23 @@ data UpdateExperimentTemplateActionInputItem = UpdateExperimentTemplateActionInp
 -- starts. Omit this parameter to run the action at the start of the
 -- experiment.
 --
--- 'actionId', 'updateExperimentTemplateActionInputItem_actionId' - The ID of the action.
---
--- 'parameters', 'updateExperimentTemplateActionInputItem_parameters' - The parameters for the action, if applicable.
---
 -- 'targets', 'updateExperimentTemplateActionInputItem_targets' - The targets for the action.
 --
 -- 'description', 'updateExperimentTemplateActionInputItem_description' - A description for the action.
+--
+-- 'actionId', 'updateExperimentTemplateActionInputItem_actionId' - The ID of the action.
+--
+-- 'parameters', 'updateExperimentTemplateActionInputItem_parameters' - The parameters for the action, if applicable.
 newUpdateExperimentTemplateActionInputItem ::
   UpdateExperimentTemplateActionInputItem
 newUpdateExperimentTemplateActionInputItem =
   UpdateExperimentTemplateActionInputItem'
     { startAfter =
         Prelude.Nothing,
-      actionId = Prelude.Nothing,
-      parameters = Prelude.Nothing,
       targets = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      actionId = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
 
 -- | The name of the action that must be completed before the current action
@@ -78,14 +78,6 @@ newUpdateExperimentTemplateActionInputItem =
 -- experiment.
 updateExperimentTemplateActionInputItem_startAfter :: Lens.Lens' UpdateExperimentTemplateActionInputItem (Prelude.Maybe [Prelude.Text])
 updateExperimentTemplateActionInputItem_startAfter = Lens.lens (\UpdateExperimentTemplateActionInputItem' {startAfter} -> startAfter) (\s@UpdateExperimentTemplateActionInputItem' {} a -> s {startAfter = a} :: UpdateExperimentTemplateActionInputItem) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the action.
-updateExperimentTemplateActionInputItem_actionId :: Lens.Lens' UpdateExperimentTemplateActionInputItem (Prelude.Maybe Prelude.Text)
-updateExperimentTemplateActionInputItem_actionId = Lens.lens (\UpdateExperimentTemplateActionInputItem' {actionId} -> actionId) (\s@UpdateExperimentTemplateActionInputItem' {} a -> s {actionId = a} :: UpdateExperimentTemplateActionInputItem)
-
--- | The parameters for the action, if applicable.
-updateExperimentTemplateActionInputItem_parameters :: Lens.Lens' UpdateExperimentTemplateActionInputItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateExperimentTemplateActionInputItem_parameters = Lens.lens (\UpdateExperimentTemplateActionInputItem' {parameters} -> parameters) (\s@UpdateExperimentTemplateActionInputItem' {} a -> s {parameters = a} :: UpdateExperimentTemplateActionInputItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The targets for the action.
 updateExperimentTemplateActionInputItem_targets :: Lens.Lens' UpdateExperimentTemplateActionInputItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -95,6 +87,14 @@ updateExperimentTemplateActionInputItem_targets = Lens.lens (\UpdateExperimentTe
 updateExperimentTemplateActionInputItem_description :: Lens.Lens' UpdateExperimentTemplateActionInputItem (Prelude.Maybe Prelude.Text)
 updateExperimentTemplateActionInputItem_description = Lens.lens (\UpdateExperimentTemplateActionInputItem' {description} -> description) (\s@UpdateExperimentTemplateActionInputItem' {} a -> s {description = a} :: UpdateExperimentTemplateActionInputItem)
 
+-- | The ID of the action.
+updateExperimentTemplateActionInputItem_actionId :: Lens.Lens' UpdateExperimentTemplateActionInputItem (Prelude.Maybe Prelude.Text)
+updateExperimentTemplateActionInputItem_actionId = Lens.lens (\UpdateExperimentTemplateActionInputItem' {actionId} -> actionId) (\s@UpdateExperimentTemplateActionInputItem' {} a -> s {actionId = a} :: UpdateExperimentTemplateActionInputItem)
+
+-- | The parameters for the action, if applicable.
+updateExperimentTemplateActionInputItem_parameters :: Lens.Lens' UpdateExperimentTemplateActionInputItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateExperimentTemplateActionInputItem_parameters = Lens.lens (\UpdateExperimentTemplateActionInputItem' {parameters} -> parameters) (\s@UpdateExperimentTemplateActionInputItem' {} a -> s {parameters = a} :: UpdateExperimentTemplateActionInputItem) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Prelude.Hashable
     UpdateExperimentTemplateActionInputItem
@@ -103,10 +103,10 @@ instance
     _salt
     UpdateExperimentTemplateActionInputItem' {..} =
       _salt `Prelude.hashWithSalt` startAfter
-        `Prelude.hashWithSalt` actionId
-        `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` targets
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` actionId
+        `Prelude.hashWithSalt` parameters
 
 instance
   Prelude.NFData
@@ -114,10 +114,10 @@ instance
   where
   rnf UpdateExperimentTemplateActionInputItem' {..} =
     Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf parameters
 
 instance
   Core.ToJSON
@@ -127,9 +127,9 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("startAfter" Core..=) Prelude.<$> startAfter,
-            ("actionId" Core..=) Prelude.<$> actionId,
-            ("parameters" Core..=) Prelude.<$> parameters,
             ("targets" Core..=) Prelude.<$> targets,
-            ("description" Core..=) Prelude.<$> description
+            ("description" Core..=) Prelude.<$> description,
+            ("actionId" Core..=) Prelude.<$> actionId,
+            ("parameters" Core..=) Prelude.<$> parameters
           ]
       )

@@ -27,8 +27,8 @@ module Amazonka.Greengrass.ResetDeployments
     newResetDeployments,
 
     -- * Request Lenses
-    resetDeployments_amznClientToken,
     resetDeployments_force,
+    resetDeployments_amznClientToken,
     resetDeployments_groupId,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newResetDeployments' smart constructor.
 data ResetDeployments = ResetDeployments'
-  { -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text,
-    -- | If true, performs a best-effort only core reset.
+  { -- | If true, performs a best-effort only core reset.
     force :: Prelude.Maybe Prelude.Bool,
+    -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Greengrass group.
     groupId :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data ResetDeployments = ResetDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'amznClientToken', 'resetDeployments_amznClientToken' - A client token used to correlate requests and responses.
---
 -- 'force', 'resetDeployments_force' - If true, performs a best-effort only core reset.
+--
+-- 'amznClientToken', 'resetDeployments_amznClientToken' - A client token used to correlate requests and responses.
 --
 -- 'groupId', 'resetDeployments_groupId' - The ID of the Greengrass group.
 newResetDeployments ::
@@ -81,19 +81,18 @@ newResetDeployments ::
   ResetDeployments
 newResetDeployments pGroupId_ =
   ResetDeployments'
-    { amznClientToken =
-        Prelude.Nothing,
-      force = Prelude.Nothing,
+    { force = Prelude.Nothing,
+      amznClientToken = Prelude.Nothing,
       groupId = pGroupId_
     }
-
--- | A client token used to correlate requests and responses.
-resetDeployments_amznClientToken :: Lens.Lens' ResetDeployments (Prelude.Maybe Prelude.Text)
-resetDeployments_amznClientToken = Lens.lens (\ResetDeployments' {amznClientToken} -> amznClientToken) (\s@ResetDeployments' {} a -> s {amznClientToken = a} :: ResetDeployments)
 
 -- | If true, performs a best-effort only core reset.
 resetDeployments_force :: Lens.Lens' ResetDeployments (Prelude.Maybe Prelude.Bool)
 resetDeployments_force = Lens.lens (\ResetDeployments' {force} -> force) (\s@ResetDeployments' {} a -> s {force = a} :: ResetDeployments)
+
+-- | A client token used to correlate requests and responses.
+resetDeployments_amznClientToken :: Lens.Lens' ResetDeployments (Prelude.Maybe Prelude.Text)
+resetDeployments_amznClientToken = Lens.lens (\ResetDeployments' {amznClientToken} -> amznClientToken) (\s@ResetDeployments' {} a -> s {amznClientToken = a} :: ResetDeployments)
 
 -- | The ID of the Greengrass group.
 resetDeployments_groupId :: Lens.Lens' ResetDeployments Prelude.Text
@@ -115,14 +114,14 @@ instance Core.AWSRequest ResetDeployments where
 
 instance Prelude.Hashable ResetDeployments where
   hashWithSalt _salt ResetDeployments' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
-      `Prelude.hashWithSalt` force
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData ResetDeployments where
   rnf ResetDeployments' {..} =
-    Prelude.rnf amznClientToken
-      `Prelude.seq` Prelude.rnf force
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf amznClientToken
       `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToHeaders ResetDeployments where

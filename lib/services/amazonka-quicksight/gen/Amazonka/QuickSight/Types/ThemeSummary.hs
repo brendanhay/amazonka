@@ -27,19 +27,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThemeSummary' smart constructor.
 data ThemeSummary = ThemeSummary'
-  { -- | The ID of the theme. This ID is unique per Amazon Web Services Region
-    -- for each Amazon Web Services account.
-    themeId :: Prelude.Maybe Prelude.Text,
-    -- | The last date and time that this theme was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+  { -- | the display name for the theme.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that this theme was created.
+    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The latest version number for the theme.
     latestVersionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that this theme was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
-    -- | the display name for the theme.
-    name :: Prelude.Maybe Prelude.Text
+    -- | The last date and time that this theme was updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the theme. This ID is unique per Amazon Web Services Region
+    -- for each Amazon Web Services account.
+    themeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,38 +51,37 @@ data ThemeSummary = ThemeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'themeId', 'themeSummary_themeId' - The ID of the theme. This ID is unique per Amazon Web Services Region
--- for each Amazon Web Services account.
+-- 'name', 'themeSummary_name' - the display name for the theme.
 --
--- 'lastUpdatedTime', 'themeSummary_lastUpdatedTime' - The last date and time that this theme was updated.
+-- 'createdTime', 'themeSummary_createdTime' - The date and time that this theme was created.
 --
 -- 'latestVersionNumber', 'themeSummary_latestVersionNumber' - The latest version number for the theme.
 --
 -- 'arn', 'themeSummary_arn' - The Amazon Resource Name (ARN) of the resource.
 --
--- 'createdTime', 'themeSummary_createdTime' - The date and time that this theme was created.
+-- 'lastUpdatedTime', 'themeSummary_lastUpdatedTime' - The last date and time that this theme was updated.
 --
--- 'name', 'themeSummary_name' - the display name for the theme.
+-- 'themeId', 'themeSummary_themeId' - The ID of the theme. This ID is unique per Amazon Web Services Region
+-- for each Amazon Web Services account.
 newThemeSummary ::
   ThemeSummary
 newThemeSummary =
   ThemeSummary'
-    { themeId = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       latestVersionNumber = Prelude.Nothing,
       arn = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      name = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing,
+      themeId = Prelude.Nothing
     }
 
--- | The ID of the theme. This ID is unique per Amazon Web Services Region
--- for each Amazon Web Services account.
-themeSummary_themeId :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.Text)
-themeSummary_themeId = Lens.lens (\ThemeSummary' {themeId} -> themeId) (\s@ThemeSummary' {} a -> s {themeId = a} :: ThemeSummary)
+-- | the display name for the theme.
+themeSummary_name :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.Text)
+themeSummary_name = Lens.lens (\ThemeSummary' {name} -> name) (\s@ThemeSummary' {} a -> s {name = a} :: ThemeSummary)
 
--- | The last date and time that this theme was updated.
-themeSummary_lastUpdatedTime :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.UTCTime)
-themeSummary_lastUpdatedTime = Lens.lens (\ThemeSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ThemeSummary' {} a -> s {lastUpdatedTime = a} :: ThemeSummary) Prelude.. Lens.mapping Core._Time
+-- | The date and time that this theme was created.
+themeSummary_createdTime :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.UTCTime)
+themeSummary_createdTime = Lens.lens (\ThemeSummary' {createdTime} -> createdTime) (\s@ThemeSummary' {} a -> s {createdTime = a} :: ThemeSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The latest version number for the theme.
 themeSummary_latestVersionNumber :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.Natural)
@@ -92,13 +91,14 @@ themeSummary_latestVersionNumber = Lens.lens (\ThemeSummary' {latestVersionNumbe
 themeSummary_arn :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.Text)
 themeSummary_arn = Lens.lens (\ThemeSummary' {arn} -> arn) (\s@ThemeSummary' {} a -> s {arn = a} :: ThemeSummary)
 
--- | The date and time that this theme was created.
-themeSummary_createdTime :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.UTCTime)
-themeSummary_createdTime = Lens.lens (\ThemeSummary' {createdTime} -> createdTime) (\s@ThemeSummary' {} a -> s {createdTime = a} :: ThemeSummary) Prelude.. Lens.mapping Core._Time
+-- | The last date and time that this theme was updated.
+themeSummary_lastUpdatedTime :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.UTCTime)
+themeSummary_lastUpdatedTime = Lens.lens (\ThemeSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ThemeSummary' {} a -> s {lastUpdatedTime = a} :: ThemeSummary) Prelude.. Lens.mapping Core._Time
 
--- | the display name for the theme.
-themeSummary_name :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.Text)
-themeSummary_name = Lens.lens (\ThemeSummary' {name} -> name) (\s@ThemeSummary' {} a -> s {name = a} :: ThemeSummary)
+-- | The ID of the theme. This ID is unique per Amazon Web Services Region
+-- for each Amazon Web Services account.
+themeSummary_themeId :: Lens.Lens' ThemeSummary (Prelude.Maybe Prelude.Text)
+themeSummary_themeId = Lens.lens (\ThemeSummary' {themeId} -> themeId) (\s@ThemeSummary' {} a -> s {themeId = a} :: ThemeSummary)
 
 instance Core.FromJSON ThemeSummary where
   parseJSON =
@@ -106,28 +106,28 @@ instance Core.FromJSON ThemeSummary where
       "ThemeSummary"
       ( \x ->
           ThemeSummary'
-            Prelude.<$> (x Core..:? "ThemeId")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "LatestVersionNumber")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
+            Prelude.<*> (x Core..:? "ThemeId")
       )
 
 instance Prelude.Hashable ThemeSummary where
   hashWithSalt _salt ThemeSummary' {..} =
-    _salt `Prelude.hashWithSalt` themeId
-      `Prelude.hashWithSalt` lastUpdatedTime
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` latestVersionNumber
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` themeId
 
 instance Prelude.NFData ThemeSummary where
   rnf ThemeSummary' {..} =
-    Prelude.rnf themeId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf latestVersionNumber
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf themeId

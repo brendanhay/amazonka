@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHdr10Plus' smart constructor.
 data Hdr10Plus = Hdr10Plus'
-  { -- | Specify the HDR10+ mastering display normalized peak luminance, in nits.
-    -- This is the normalized actual peak luminance of the mastering display,
-    -- as defined by ST 2094-40.
-    masteringMonitorNits :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the HDR10+ target display nominal peak luminance, in nits. This
+  { -- | Specify the HDR10+ target display nominal peak luminance, in nits. This
     -- is the nominal maximum luminance of the target display as defined by ST
     -- 2094-40.
-    targetMonitorNits :: Prelude.Maybe Prelude.Natural
+    targetMonitorNits :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the HDR10+ mastering display normalized peak luminance, in nits.
+    -- This is the normalized actual peak luminance of the mastering display,
+    -- as defined by ST 2094-40.
+    masteringMonitorNits :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,20 @@ data Hdr10Plus = Hdr10Plus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'masteringMonitorNits', 'hdr10Plus_masteringMonitorNits' - Specify the HDR10+ mastering display normalized peak luminance, in nits.
--- This is the normalized actual peak luminance of the mastering display,
--- as defined by ST 2094-40.
---
 -- 'targetMonitorNits', 'hdr10Plus_targetMonitorNits' - Specify the HDR10+ target display nominal peak luminance, in nits. This
 -- is the nominal maximum luminance of the target display as defined by ST
 -- 2094-40.
+--
+-- 'masteringMonitorNits', 'hdr10Plus_masteringMonitorNits' - Specify the HDR10+ mastering display normalized peak luminance, in nits.
+-- This is the normalized actual peak luminance of the mastering display,
+-- as defined by ST 2094-40.
 newHdr10Plus ::
   Hdr10Plus
 newHdr10Plus =
   Hdr10Plus'
-    { masteringMonitorNits = Prelude.Nothing,
-      targetMonitorNits = Prelude.Nothing
+    { targetMonitorNits = Prelude.Nothing,
+      masteringMonitorNits = Prelude.Nothing
     }
-
--- | Specify the HDR10+ mastering display normalized peak luminance, in nits.
--- This is the normalized actual peak luminance of the mastering display,
--- as defined by ST 2094-40.
-hdr10Plus_masteringMonitorNits :: Lens.Lens' Hdr10Plus (Prelude.Maybe Prelude.Natural)
-hdr10Plus_masteringMonitorNits = Lens.lens (\Hdr10Plus' {masteringMonitorNits} -> masteringMonitorNits) (\s@Hdr10Plus' {} a -> s {masteringMonitorNits = a} :: Hdr10Plus)
 
 -- | Specify the HDR10+ target display nominal peak luminance, in nits. This
 -- is the nominal maximum luminance of the target display as defined by ST
@@ -73,33 +67,39 @@ hdr10Plus_masteringMonitorNits = Lens.lens (\Hdr10Plus' {masteringMonitorNits} -
 hdr10Plus_targetMonitorNits :: Lens.Lens' Hdr10Plus (Prelude.Maybe Prelude.Natural)
 hdr10Plus_targetMonitorNits = Lens.lens (\Hdr10Plus' {targetMonitorNits} -> targetMonitorNits) (\s@Hdr10Plus' {} a -> s {targetMonitorNits = a} :: Hdr10Plus)
 
+-- | Specify the HDR10+ mastering display normalized peak luminance, in nits.
+-- This is the normalized actual peak luminance of the mastering display,
+-- as defined by ST 2094-40.
+hdr10Plus_masteringMonitorNits :: Lens.Lens' Hdr10Plus (Prelude.Maybe Prelude.Natural)
+hdr10Plus_masteringMonitorNits = Lens.lens (\Hdr10Plus' {masteringMonitorNits} -> masteringMonitorNits) (\s@Hdr10Plus' {} a -> s {masteringMonitorNits = a} :: Hdr10Plus)
+
 instance Core.FromJSON Hdr10Plus where
   parseJSON =
     Core.withObject
       "Hdr10Plus"
       ( \x ->
           Hdr10Plus'
-            Prelude.<$> (x Core..:? "masteringMonitorNits")
-            Prelude.<*> (x Core..:? "targetMonitorNits")
+            Prelude.<$> (x Core..:? "targetMonitorNits")
+            Prelude.<*> (x Core..:? "masteringMonitorNits")
       )
 
 instance Prelude.Hashable Hdr10Plus where
   hashWithSalt _salt Hdr10Plus' {..} =
-    _salt `Prelude.hashWithSalt` masteringMonitorNits
-      `Prelude.hashWithSalt` targetMonitorNits
+    _salt `Prelude.hashWithSalt` targetMonitorNits
+      `Prelude.hashWithSalt` masteringMonitorNits
 
 instance Prelude.NFData Hdr10Plus where
   rnf Hdr10Plus' {..} =
-    Prelude.rnf masteringMonitorNits
-      `Prelude.seq` Prelude.rnf targetMonitorNits
+    Prelude.rnf targetMonitorNits
+      `Prelude.seq` Prelude.rnf masteringMonitorNits
 
 instance Core.ToJSON Hdr10Plus where
   toJSON Hdr10Plus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("masteringMonitorNits" Core..=)
-              Prelude.<$> masteringMonitorNits,
-            ("targetMonitorNits" Core..=)
-              Prelude.<$> targetMonitorNits
+          [ ("targetMonitorNits" Core..=)
+              Prelude.<$> targetMonitorNits,
+            ("masteringMonitorNits" Core..=)
+              Prelude.<$> masteringMonitorNits
           ]
       )

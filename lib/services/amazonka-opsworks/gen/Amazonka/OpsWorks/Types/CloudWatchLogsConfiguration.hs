@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLogsConfiguration' smart constructor.
 data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
-  { -- | Whether CloudWatch Logs is enabled for a layer.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | A list of configuration options for CloudWatch Logs.
-    logStreams :: Prelude.Maybe [CloudWatchLogsLogStream]
+  { -- | A list of configuration options for CloudWatch Logs.
+    logStreams :: Prelude.Maybe [CloudWatchLogsLogStream],
+    -- | Whether CloudWatch Logs is enabled for a layer.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'cloudWatchLogsConfiguration_enabled' - Whether CloudWatch Logs is enabled for a layer.
---
 -- 'logStreams', 'cloudWatchLogsConfiguration_logStreams' - A list of configuration options for CloudWatch Logs.
+--
+-- 'enabled', 'cloudWatchLogsConfiguration_enabled' - Whether CloudWatch Logs is enabled for a layer.
 newCloudWatchLogsConfiguration ::
   CloudWatchLogsConfiguration
 newCloudWatchLogsConfiguration =
   CloudWatchLogsConfiguration'
-    { enabled =
+    { logStreams =
         Prelude.Nothing,
-      logStreams = Prelude.Nothing
+      enabled = Prelude.Nothing
     }
-
--- | Whether CloudWatch Logs is enabled for a layer.
-cloudWatchLogsConfiguration_enabled :: Lens.Lens' CloudWatchLogsConfiguration (Prelude.Maybe Prelude.Bool)
-cloudWatchLogsConfiguration_enabled = Lens.lens (\CloudWatchLogsConfiguration' {enabled} -> enabled) (\s@CloudWatchLogsConfiguration' {} a -> s {enabled = a} :: CloudWatchLogsConfiguration)
 
 -- | A list of configuration options for CloudWatch Logs.
 cloudWatchLogsConfiguration_logStreams :: Lens.Lens' CloudWatchLogsConfiguration (Prelude.Maybe [CloudWatchLogsLogStream])
 cloudWatchLogsConfiguration_logStreams = Lens.lens (\CloudWatchLogsConfiguration' {logStreams} -> logStreams) (\s@CloudWatchLogsConfiguration' {} a -> s {logStreams = a} :: CloudWatchLogsConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Whether CloudWatch Logs is enabled for a layer.
+cloudWatchLogsConfiguration_enabled :: Lens.Lens' CloudWatchLogsConfiguration (Prelude.Maybe Prelude.Bool)
+cloudWatchLogsConfiguration_enabled = Lens.lens (\CloudWatchLogsConfiguration' {enabled} -> enabled) (\s@CloudWatchLogsConfiguration' {} a -> s {enabled = a} :: CloudWatchLogsConfiguration)
 
 instance Core.FromJSON CloudWatchLogsConfiguration where
   parseJSON =
@@ -69,25 +69,25 @@ instance Core.FromJSON CloudWatchLogsConfiguration where
       "CloudWatchLogsConfiguration"
       ( \x ->
           CloudWatchLogsConfiguration'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "LogStreams" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "LogStreams" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Enabled")
       )
 
 instance Prelude.Hashable CloudWatchLogsConfiguration where
   hashWithSalt _salt CloudWatchLogsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` logStreams
+    _salt `Prelude.hashWithSalt` logStreams
+      `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData CloudWatchLogsConfiguration where
   rnf CloudWatchLogsConfiguration' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf logStreams
+    Prelude.rnf logStreams
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON CloudWatchLogsConfiguration where
   toJSON CloudWatchLogsConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("LogStreams" Core..=) Prelude.<$> logStreams
+          [ ("LogStreams" Core..=) Prelude.<$> logStreams,
+            ("Enabled" Core..=) Prelude.<$> enabled
           ]
       )

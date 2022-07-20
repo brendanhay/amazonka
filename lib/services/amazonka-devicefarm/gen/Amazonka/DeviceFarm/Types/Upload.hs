@@ -31,37 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpload' smart constructor.
 data Upload = Upload'
-  { -- | The upload\'s status.
-    --
-    -- Must be one of the following values:
-    --
-    -- -   FAILED
-    --
-    -- -   INITIALIZED
-    --
-    -- -   PROCESSING
-    --
-    -- -   SUCCEEDED
-    status :: Prelude.Maybe UploadStatus,
-    -- | The upload\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | When the upload was created.
-    created :: Prelude.Maybe Core.POSIX,
-    -- | The upload\'s category. Allowed values include:
-    --
-    -- -   CURATED: An upload managed by AWS Device Farm.
-    --
-    -- -   PRIVATE: An upload managed by the AWS Device Farm customer.
-    category :: Prelude.Maybe UploadCategory,
-    -- | The presigned Amazon S3 URL that was used to store a file using a PUT
-    -- request.
-    url :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+  { -- | A message about the upload\'s result.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The upload\'s file name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The upload\'s metadata. For example, for Android, this contains
-    -- information that is parsed from the manifest and is displayed in the AWS
-    -- Device Farm console after the associated app is uploaded.
-    metadata :: Prelude.Maybe Prelude.Text,
     -- | The upload\'s type.
     --
     -- Must be one of the following values:
@@ -130,8 +103,35 @@ data Upload = Upload'
     --
     -- -   XCTEST_UI_TEST_SPEC
     type' :: Prelude.Maybe UploadType,
-    -- | A message about the upload\'s result.
-    message :: Prelude.Maybe Prelude.Text,
+    -- | When the upload was created.
+    created :: Prelude.Maybe Core.POSIX,
+    -- | The upload\'s metadata. For example, for Android, this contains
+    -- information that is parsed from the manifest and is displayed in the AWS
+    -- Device Farm console after the associated app is uploaded.
+    metadata :: Prelude.Maybe Prelude.Text,
+    -- | The upload\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The presigned Amazon S3 URL that was used to store a file using a PUT
+    -- request.
+    url :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The upload\'s status.
+    --
+    -- Must be one of the following values:
+    --
+    -- -   FAILED
+    --
+    -- -   INITIALIZED
+    --
+    -- -   PROCESSING
+    --
+    -- -   SUCCEEDED
+    status :: Prelude.Maybe UploadStatus,
+    -- | The upload\'s category. Allowed values include:
+    --
+    -- -   CURATED: An upload managed by AWS Device Farm.
+    --
+    -- -   PRIVATE: An upload managed by the AWS Device Farm customer.
+    category :: Prelude.Maybe UploadCategory,
     -- | The upload\'s content type (for example, @application\/octet-stream@).
     contentType :: Prelude.Maybe Prelude.Text
   }
@@ -145,36 +145,9 @@ data Upload = Upload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'upload_status' - The upload\'s status.
---
--- Must be one of the following values:
---
--- -   FAILED
---
--- -   INITIALIZED
---
--- -   PROCESSING
---
--- -   SUCCEEDED
---
--- 'arn', 'upload_arn' - The upload\'s ARN.
---
--- 'created', 'upload_created' - When the upload was created.
---
--- 'category', 'upload_category' - The upload\'s category. Allowed values include:
---
--- -   CURATED: An upload managed by AWS Device Farm.
---
--- -   PRIVATE: An upload managed by the AWS Device Farm customer.
---
--- 'url', 'upload_url' - The presigned Amazon S3 URL that was used to store a file using a PUT
--- request.
+-- 'message', 'upload_message' - A message about the upload\'s result.
 --
 -- 'name', 'upload_name' - The upload\'s file name.
---
--- 'metadata', 'upload_metadata' - The upload\'s metadata. For example, for Android, this contains
--- information that is parsed from the manifest and is displayed in the AWS
--- Device Farm console after the associated app is uploaded.
 --
 -- 'type'', 'upload_type' - The upload\'s type.
 --
@@ -244,26 +217,18 @@ data Upload = Upload'
 --
 -- -   XCTEST_UI_TEST_SPEC
 --
--- 'message', 'upload_message' - A message about the upload\'s result.
+-- 'created', 'upload_created' - When the upload was created.
 --
--- 'contentType', 'upload_contentType' - The upload\'s content type (for example, @application\/octet-stream@).
-newUpload ::
-  Upload
-newUpload =
-  Upload'
-    { status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      created = Prelude.Nothing,
-      category = Prelude.Nothing,
-      url = Prelude.Nothing,
-      name = Prelude.Nothing,
-      metadata = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      message = Prelude.Nothing,
-      contentType = Prelude.Nothing
-    }
-
--- | The upload\'s status.
+-- 'metadata', 'upload_metadata' - The upload\'s metadata. For example, for Android, this contains
+-- information that is parsed from the manifest and is displayed in the AWS
+-- Device Farm console after the associated app is uploaded.
+--
+-- 'arn', 'upload_arn' - The upload\'s ARN.
+--
+-- 'url', 'upload_url' - The presigned Amazon S3 URL that was used to store a file using a PUT
+-- request.
+--
+-- 'status', 'upload_status' - The upload\'s status.
 --
 -- Must be one of the following values:
 --
@@ -274,39 +239,37 @@ newUpload =
 -- -   PROCESSING
 --
 -- -   SUCCEEDED
-upload_status :: Lens.Lens' Upload (Prelude.Maybe UploadStatus)
-upload_status = Lens.lens (\Upload' {status} -> status) (\s@Upload' {} a -> s {status = a} :: Upload)
-
--- | The upload\'s ARN.
-upload_arn :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
-upload_arn = Lens.lens (\Upload' {arn} -> arn) (\s@Upload' {} a -> s {arn = a} :: Upload)
-
--- | When the upload was created.
-upload_created :: Lens.Lens' Upload (Prelude.Maybe Prelude.UTCTime)
-upload_created = Lens.lens (\Upload' {created} -> created) (\s@Upload' {} a -> s {created = a} :: Upload) Prelude.. Lens.mapping Core._Time
-
--- | The upload\'s category. Allowed values include:
+--
+-- 'category', 'upload_category' - The upload\'s category. Allowed values include:
 --
 -- -   CURATED: An upload managed by AWS Device Farm.
 --
 -- -   PRIVATE: An upload managed by the AWS Device Farm customer.
-upload_category :: Lens.Lens' Upload (Prelude.Maybe UploadCategory)
-upload_category = Lens.lens (\Upload' {category} -> category) (\s@Upload' {} a -> s {category = a} :: Upload)
+--
+-- 'contentType', 'upload_contentType' - The upload\'s content type (for example, @application\/octet-stream@).
+newUpload ::
+  Upload
+newUpload =
+  Upload'
+    { message = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      created = Prelude.Nothing,
+      metadata = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      url = Prelude.Nothing,
+      status = Prelude.Nothing,
+      category = Prelude.Nothing,
+      contentType = Prelude.Nothing
+    }
 
--- | The presigned Amazon S3 URL that was used to store a file using a PUT
--- request.
-upload_url :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
-upload_url = Lens.lens (\Upload' {url} -> url) (\s@Upload' {} a -> s {url = a} :: Upload) Prelude.. Lens.mapping Core._Sensitive
+-- | A message about the upload\'s result.
+upload_message :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_message = Lens.lens (\Upload' {message} -> message) (\s@Upload' {} a -> s {message = a} :: Upload)
 
 -- | The upload\'s file name.
 upload_name :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
 upload_name = Lens.lens (\Upload' {name} -> name) (\s@Upload' {} a -> s {name = a} :: Upload)
-
--- | The upload\'s metadata. For example, for Android, this contains
--- information that is parsed from the manifest and is displayed in the AWS
--- Device Farm console after the associated app is uploaded.
-upload_metadata :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
-upload_metadata = Lens.lens (\Upload' {metadata} -> metadata) (\s@Upload' {} a -> s {metadata = a} :: Upload)
 
 -- | The upload\'s type.
 --
@@ -378,9 +341,46 @@ upload_metadata = Lens.lens (\Upload' {metadata} -> metadata) (\s@Upload' {} a -
 upload_type :: Lens.Lens' Upload (Prelude.Maybe UploadType)
 upload_type = Lens.lens (\Upload' {type'} -> type') (\s@Upload' {} a -> s {type' = a} :: Upload)
 
--- | A message about the upload\'s result.
-upload_message :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
-upload_message = Lens.lens (\Upload' {message} -> message) (\s@Upload' {} a -> s {message = a} :: Upload)
+-- | When the upload was created.
+upload_created :: Lens.Lens' Upload (Prelude.Maybe Prelude.UTCTime)
+upload_created = Lens.lens (\Upload' {created} -> created) (\s@Upload' {} a -> s {created = a} :: Upload) Prelude.. Lens.mapping Core._Time
+
+-- | The upload\'s metadata. For example, for Android, this contains
+-- information that is parsed from the manifest and is displayed in the AWS
+-- Device Farm console after the associated app is uploaded.
+upload_metadata :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_metadata = Lens.lens (\Upload' {metadata} -> metadata) (\s@Upload' {} a -> s {metadata = a} :: Upload)
+
+-- | The upload\'s ARN.
+upload_arn :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_arn = Lens.lens (\Upload' {arn} -> arn) (\s@Upload' {} a -> s {arn = a} :: Upload)
+
+-- | The presigned Amazon S3 URL that was used to store a file using a PUT
+-- request.
+upload_url :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_url = Lens.lens (\Upload' {url} -> url) (\s@Upload' {} a -> s {url = a} :: Upload) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The upload\'s status.
+--
+-- Must be one of the following values:
+--
+-- -   FAILED
+--
+-- -   INITIALIZED
+--
+-- -   PROCESSING
+--
+-- -   SUCCEEDED
+upload_status :: Lens.Lens' Upload (Prelude.Maybe UploadStatus)
+upload_status = Lens.lens (\Upload' {status} -> status) (\s@Upload' {} a -> s {status = a} :: Upload)
+
+-- | The upload\'s category. Allowed values include:
+--
+-- -   CURATED: An upload managed by AWS Device Farm.
+--
+-- -   PRIVATE: An upload managed by the AWS Device Farm customer.
+upload_category :: Lens.Lens' Upload (Prelude.Maybe UploadCategory)
+upload_category = Lens.lens (\Upload' {category} -> category) (\s@Upload' {} a -> s {category = a} :: Upload)
 
 -- | The upload\'s content type (for example, @application\/octet-stream@).
 upload_contentType :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
@@ -392,40 +392,40 @@ instance Core.FromJSON Upload where
       "Upload"
       ( \x ->
           Upload'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "url")
+            Prelude.<$> (x Core..:? "message")
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "metadata")
             Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "metadata")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "url")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "category")
             Prelude.<*> (x Core..:? "contentType")
       )
 
 instance Prelude.Hashable Upload where
   hashWithSalt _salt Upload' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` created
-      `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` url
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` contentType
 
 instance Prelude.NFData Upload where
   rnf Upload' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf contentType

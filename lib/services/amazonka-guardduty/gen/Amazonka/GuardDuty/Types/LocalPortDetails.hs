@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLocalPortDetails' smart constructor.
 data LocalPortDetails = LocalPortDetails'
-  { -- | The port name of the local connection.
-    portName :: Prelude.Maybe Prelude.Text,
-    -- | The port number of the local connection.
-    port :: Prelude.Maybe Prelude.Int
+  { -- | The port number of the local connection.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The port name of the local connection.
+    portName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data LocalPortDetails = LocalPortDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portName', 'localPortDetails_portName' - The port name of the local connection.
---
 -- 'port', 'localPortDetails_port' - The port number of the local connection.
+--
+-- 'portName', 'localPortDetails_portName' - The port name of the local connection.
 newLocalPortDetails ::
   LocalPortDetails
 newLocalPortDetails =
   LocalPortDetails'
-    { portName = Prelude.Nothing,
-      port = Prelude.Nothing
+    { port = Prelude.Nothing,
+      portName = Prelude.Nothing
     }
-
--- | The port name of the local connection.
-localPortDetails_portName :: Lens.Lens' LocalPortDetails (Prelude.Maybe Prelude.Text)
-localPortDetails_portName = Lens.lens (\LocalPortDetails' {portName} -> portName) (\s@LocalPortDetails' {} a -> s {portName = a} :: LocalPortDetails)
 
 -- | The port number of the local connection.
 localPortDetails_port :: Lens.Lens' LocalPortDetails (Prelude.Maybe Prelude.Int)
 localPortDetails_port = Lens.lens (\LocalPortDetails' {port} -> port) (\s@LocalPortDetails' {} a -> s {port = a} :: LocalPortDetails)
+
+-- | The port name of the local connection.
+localPortDetails_portName :: Lens.Lens' LocalPortDetails (Prelude.Maybe Prelude.Text)
+localPortDetails_portName = Lens.lens (\LocalPortDetails' {portName} -> portName) (\s@LocalPortDetails' {} a -> s {portName = a} :: LocalPortDetails)
 
 instance Core.FromJSON LocalPortDetails where
   parseJSON =
@@ -67,15 +67,15 @@ instance Core.FromJSON LocalPortDetails where
       "LocalPortDetails"
       ( \x ->
           LocalPortDetails'
-            Prelude.<$> (x Core..:? "portName")
-            Prelude.<*> (x Core..:? "port")
+            Prelude.<$> (x Core..:? "port")
+            Prelude.<*> (x Core..:? "portName")
       )
 
 instance Prelude.Hashable LocalPortDetails where
   hashWithSalt _salt LocalPortDetails' {..} =
-    _salt `Prelude.hashWithSalt` portName
-      `Prelude.hashWithSalt` port
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` portName
 
 instance Prelude.NFData LocalPortDetails where
   rnf LocalPortDetails' {..} =
-    Prelude.rnf portName `Prelude.seq` Prelude.rnf port
+    Prelude.rnf port `Prelude.seq` Prelude.rnf portName

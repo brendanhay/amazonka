@@ -27,14 +27,68 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateSourceLocation $
+--         [ requestConfigureLogsForPlaybackConfiguration $
+--             newConfigureLogsForPlaybackConfiguration
+--
+--         , requestCreateChannel $
+--             newCreateChannel
+--
+--         , requestCreatePrefetchSchedule $
+--             newCreatePrefetchSchedule
+--
+--         , requestCreateProgram $
+--             newCreateProgram
+--
+--         , requestCreateSourceLocation $
 --             newCreateSourceLocation
 --
---         , requestListPrefetchSchedules $
---             newListPrefetchSchedules
+--         , requestCreateVodSource $
+--             newCreateVodSource
+--
+--         , requestDeleteChannel $
+--             newDeleteChannel
+--
+--         , requestDeleteChannelPolicy $
+--             newDeleteChannelPolicy
+--
+--         , requestDeletePlaybackConfiguration $
+--             newDeletePlaybackConfiguration
 --
 --         , requestDeletePrefetchSchedule $
 --             newDeletePrefetchSchedule
+--
+--         , requestDeleteProgram $
+--             newDeleteProgram
+--
+--         , requestDeleteSourceLocation $
+--             newDeleteSourceLocation
+--
+--         , requestDeleteVodSource $
+--             newDeleteVodSource
+--
+--         , requestDescribeChannel $
+--             newDescribeChannel
+--
+--         , requestDescribeProgram $
+--             newDescribeProgram
+--
+--         , requestDescribeSourceLocation $
+--             newDescribeSourceLocation
+--
+--         , requestDescribeVodSource $
+--             newDescribeVodSource
+--
+--         , requestGetChannelPolicy $
+--             newGetChannelPolicy
+--
+--         , requestGetChannelSchedule $
+--             newGetChannelSchedule
+--
+--         , requestGetPlaybackConfiguration $
+--             newGetPlaybackConfiguration
+--
+--         , requestGetPrefetchSchedule $
+--             newGetPrefetchSchedule
 --
 --         , requestListAlerts $
 --             newListAlerts
@@ -42,113 +96,113 @@ import Test.Tasty
 --         , requestListChannels $
 --             newListChannels
 --
---         , requestCreatePrefetchSchedule $
---             newCreatePrefetchSchedule
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDeleteChannel $
---             newDeleteChannel
---
---         , requestUpdateChannel $
---             newUpdateChannel
---
---         , requestGetChannelPolicy $
---             newGetChannelPolicy
---
---         , requestDescribeVodSource $
---             newDescribeVodSource
---
---         , requestDescribeSourceLocation $
---             newDescribeSourceLocation
---
---         , requestGetPrefetchSchedule $
---             newGetPrefetchSchedule
---
---         , requestCreateProgram $
---             newCreateProgram
---
---         , requestStartChannel $
---             newStartChannel
---
 --         , requestListPlaybackConfigurations $
 --             newListPlaybackConfigurations
 --
---         , requestDeletePlaybackConfiguration $
---             newDeletePlaybackConfiguration
---
---         , requestPutPlaybackConfiguration $
---             newPutPlaybackConfiguration
+--         , requestListPrefetchSchedules $
+--             newListPrefetchSchedules
 --
 --         , requestListSourceLocations $
 --             newListSourceLocations
 --
---         , requestUpdateSourceLocation $
---             newUpdateSourceLocation
---
---         , requestDeleteSourceLocation $
---             newDeleteSourceLocation
---
---         , requestGetPlaybackConfiguration $
---             newGetPlaybackConfiguration
---
---         , requestDeleteVodSource $
---             newDeleteVodSource
---
---         , requestUpdateVodSource $
---             newUpdateVodSource
---
---         , requestCreateVodSource $
---             newCreateVodSource
---
---         , requestCreateChannel $
---             newCreateChannel
---
---         , requestDeleteChannelPolicy $
---             newDeleteChannelPolicy
---
---         , requestPutChannelPolicy $
---             newPutChannelPolicy
---
---         , requestDeleteProgram $
---             newDeleteProgram
---
---         , requestGetChannelSchedule $
---             newGetChannelSchedule
---
---         , requestTagResource $
---             newTagResource
---
---         , requestConfigureLogsForPlaybackConfiguration $
---             newConfigureLogsForPlaybackConfiguration
---
---         , requestStopChannel $
---             newStopChannel
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestDescribeChannel $
---             newDescribeChannel
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestListVodSources $
 --             newListVodSources
 --
---         , requestDescribeProgram $
---             newDescribeProgram
+--         , requestPutChannelPolicy $
+--             newPutChannelPolicy
+--
+--         , requestPutPlaybackConfiguration $
+--             newPutPlaybackConfiguration
+--
+--         , requestStartChannel $
+--             newStartChannel
+--
+--         , requestStopChannel $
+--             newStopChannel
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateChannel $
+--             newUpdateChannel
+--
+--         , requestUpdateSourceLocation $
+--             newUpdateSourceLocation
+--
+--         , requestUpdateVodSource $
+--             newUpdateVodSource
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateSourceLocation $
+--         [ responseConfigureLogsForPlaybackConfiguration $
+--             newConfigureLogsForPlaybackConfigurationResponse
+--
+--         , responseCreateChannel $
+--             newCreateChannelResponse
+--
+--         , responseCreatePrefetchSchedule $
+--             newCreatePrefetchScheduleResponse
+--
+--         , responseCreateProgram $
+--             newCreateProgramResponse
+--
+--         , responseCreateSourceLocation $
 --             newCreateSourceLocationResponse
 --
---         , responseListPrefetchSchedules $
---             newListPrefetchSchedulesResponse
+--         , responseCreateVodSource $
+--             newCreateVodSourceResponse
+--
+--         , responseDeleteChannel $
+--             newDeleteChannelResponse
+--
+--         , responseDeleteChannelPolicy $
+--             newDeleteChannelPolicyResponse
+--
+--         , responseDeletePlaybackConfiguration $
+--             newDeletePlaybackConfigurationResponse
 --
 --         , responseDeletePrefetchSchedule $
 --             newDeletePrefetchScheduleResponse
+--
+--         , responseDeleteProgram $
+--             newDeleteProgramResponse
+--
+--         , responseDeleteSourceLocation $
+--             newDeleteSourceLocationResponse
+--
+--         , responseDeleteVodSource $
+--             newDeleteVodSourceResponse
+--
+--         , responseDescribeChannel $
+--             newDescribeChannelResponse
+--
+--         , responseDescribeProgram $
+--             newDescribeProgramResponse
+--
+--         , responseDescribeSourceLocation $
+--             newDescribeSourceLocationResponse
+--
+--         , responseDescribeVodSource $
+--             newDescribeVodSourceResponse
+--
+--         , responseGetChannelPolicy $
+--             newGetChannelPolicyResponse
+--
+--         , responseGetChannelSchedule $
+--             newGetChannelScheduleResponse
+--
+--         , responseGetPlaybackConfiguration $
+--             newGetPlaybackConfigurationResponse
+--
+--         , responseGetPrefetchSchedule $
+--             newGetPrefetchScheduleResponse
 --
 --         , responseListAlerts $
 --             newListAlertsResponse
@@ -156,106 +210,76 @@ import Test.Tasty
 --         , responseListChannels $
 --             newListChannelsResponse
 --
---         , responseCreatePrefetchSchedule $
---             newCreatePrefetchScheduleResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDeleteChannel $
---             newDeleteChannelResponse
---
---         , responseUpdateChannel $
---             newUpdateChannelResponse
---
---         , responseGetChannelPolicy $
---             newGetChannelPolicyResponse
---
---         , responseDescribeVodSource $
---             newDescribeVodSourceResponse
---
---         , responseDescribeSourceLocation $
---             newDescribeSourceLocationResponse
---
---         , responseGetPrefetchSchedule $
---             newGetPrefetchScheduleResponse
---
---         , responseCreateProgram $
---             newCreateProgramResponse
---
---         , responseStartChannel $
---             newStartChannelResponse
---
 --         , responseListPlaybackConfigurations $
 --             newListPlaybackConfigurationsResponse
 --
---         , responseDeletePlaybackConfiguration $
---             newDeletePlaybackConfigurationResponse
---
---         , responsePutPlaybackConfiguration $
---             newPutPlaybackConfigurationResponse
+--         , responseListPrefetchSchedules $
+--             newListPrefetchSchedulesResponse
 --
 --         , responseListSourceLocations $
 --             newListSourceLocationsResponse
 --
---         , responseUpdateSourceLocation $
---             newUpdateSourceLocationResponse
---
---         , responseDeleteSourceLocation $
---             newDeleteSourceLocationResponse
---
---         , responseGetPlaybackConfiguration $
---             newGetPlaybackConfigurationResponse
---
---         , responseDeleteVodSource $
---             newDeleteVodSourceResponse
---
---         , responseUpdateVodSource $
---             newUpdateVodSourceResponse
---
---         , responseCreateVodSource $
---             newCreateVodSourceResponse
---
---         , responseCreateChannel $
---             newCreateChannelResponse
---
---         , responseDeleteChannelPolicy $
---             newDeleteChannelPolicyResponse
---
---         , responsePutChannelPolicy $
---             newPutChannelPolicyResponse
---
---         , responseDeleteProgram $
---             newDeleteProgramResponse
---
---         , responseGetChannelSchedule $
---             newGetChannelScheduleResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseConfigureLogsForPlaybackConfiguration $
---             newConfigureLogsForPlaybackConfigurationResponse
---
---         , responseStopChannel $
---             newStopChannelResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseDescribeChannel $
---             newDescribeChannelResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseListVodSources $
 --             newListVodSourcesResponse
 --
---         , responseDescribeProgram $
---             newDescribeProgramResponse
+--         , responsePutChannelPolicy $
+--             newPutChannelPolicyResponse
+--
+--         , responsePutPlaybackConfiguration $
+--             newPutPlaybackConfigurationResponse
+--
+--         , responseStartChannel $
+--             newStartChannelResponse
+--
+--         , responseStopChannel $
+--             newStopChannelResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateChannel $
+--             newUpdateChannelResponse
+--
+--         , responseUpdateSourceLocation $
+--             newUpdateSourceLocationResponse
+--
+--         , responseUpdateVodSource $
+--             newUpdateVodSourceResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestConfigureLogsForPlaybackConfiguration :: ConfigureLogsForPlaybackConfiguration -> TestTree
+requestConfigureLogsForPlaybackConfiguration =
+  req
+    "ConfigureLogsForPlaybackConfiguration"
+    "fixture/ConfigureLogsForPlaybackConfiguration.yaml"
+
+requestCreateChannel :: CreateChannel -> TestTree
+requestCreateChannel =
+  req
+    "CreateChannel"
+    "fixture/CreateChannel.yaml"
+
+requestCreatePrefetchSchedule :: CreatePrefetchSchedule -> TestTree
+requestCreatePrefetchSchedule =
+  req
+    "CreatePrefetchSchedule"
+    "fixture/CreatePrefetchSchedule.yaml"
+
+requestCreateProgram :: CreateProgram -> TestTree
+requestCreateProgram =
+  req
+    "CreateProgram"
+    "fixture/CreateProgram.yaml"
 
 requestCreateSourceLocation :: CreateSourceLocation -> TestTree
 requestCreateSourceLocation =
@@ -263,17 +287,101 @@ requestCreateSourceLocation =
     "CreateSourceLocation"
     "fixture/CreateSourceLocation.yaml"
 
-requestListPrefetchSchedules :: ListPrefetchSchedules -> TestTree
-requestListPrefetchSchedules =
+requestCreateVodSource :: CreateVodSource -> TestTree
+requestCreateVodSource =
   req
-    "ListPrefetchSchedules"
-    "fixture/ListPrefetchSchedules.yaml"
+    "CreateVodSource"
+    "fixture/CreateVodSource.yaml"
+
+requestDeleteChannel :: DeleteChannel -> TestTree
+requestDeleteChannel =
+  req
+    "DeleteChannel"
+    "fixture/DeleteChannel.yaml"
+
+requestDeleteChannelPolicy :: DeleteChannelPolicy -> TestTree
+requestDeleteChannelPolicy =
+  req
+    "DeleteChannelPolicy"
+    "fixture/DeleteChannelPolicy.yaml"
+
+requestDeletePlaybackConfiguration :: DeletePlaybackConfiguration -> TestTree
+requestDeletePlaybackConfiguration =
+  req
+    "DeletePlaybackConfiguration"
+    "fixture/DeletePlaybackConfiguration.yaml"
 
 requestDeletePrefetchSchedule :: DeletePrefetchSchedule -> TestTree
 requestDeletePrefetchSchedule =
   req
     "DeletePrefetchSchedule"
     "fixture/DeletePrefetchSchedule.yaml"
+
+requestDeleteProgram :: DeleteProgram -> TestTree
+requestDeleteProgram =
+  req
+    "DeleteProgram"
+    "fixture/DeleteProgram.yaml"
+
+requestDeleteSourceLocation :: DeleteSourceLocation -> TestTree
+requestDeleteSourceLocation =
+  req
+    "DeleteSourceLocation"
+    "fixture/DeleteSourceLocation.yaml"
+
+requestDeleteVodSource :: DeleteVodSource -> TestTree
+requestDeleteVodSource =
+  req
+    "DeleteVodSource"
+    "fixture/DeleteVodSource.yaml"
+
+requestDescribeChannel :: DescribeChannel -> TestTree
+requestDescribeChannel =
+  req
+    "DescribeChannel"
+    "fixture/DescribeChannel.yaml"
+
+requestDescribeProgram :: DescribeProgram -> TestTree
+requestDescribeProgram =
+  req
+    "DescribeProgram"
+    "fixture/DescribeProgram.yaml"
+
+requestDescribeSourceLocation :: DescribeSourceLocation -> TestTree
+requestDescribeSourceLocation =
+  req
+    "DescribeSourceLocation"
+    "fixture/DescribeSourceLocation.yaml"
+
+requestDescribeVodSource :: DescribeVodSource -> TestTree
+requestDescribeVodSource =
+  req
+    "DescribeVodSource"
+    "fixture/DescribeVodSource.yaml"
+
+requestGetChannelPolicy :: GetChannelPolicy -> TestTree
+requestGetChannelPolicy =
+  req
+    "GetChannelPolicy"
+    "fixture/GetChannelPolicy.yaml"
+
+requestGetChannelSchedule :: GetChannelSchedule -> TestTree
+requestGetChannelSchedule =
+  req
+    "GetChannelSchedule"
+    "fixture/GetChannelSchedule.yaml"
+
+requestGetPlaybackConfiguration :: GetPlaybackConfiguration -> TestTree
+requestGetPlaybackConfiguration =
+  req
+    "GetPlaybackConfiguration"
+    "fixture/GetPlaybackConfiguration.yaml"
+
+requestGetPrefetchSchedule :: GetPrefetchSchedule -> TestTree
+requestGetPrefetchSchedule =
+  req
+    "GetPrefetchSchedule"
+    "fixture/GetPrefetchSchedule.yaml"
 
 requestListAlerts :: ListAlerts -> TestTree
 requestListAlerts =
@@ -287,83 +395,17 @@ requestListChannels =
     "ListChannels"
     "fixture/ListChannels.yaml"
 
-requestCreatePrefetchSchedule :: CreatePrefetchSchedule -> TestTree
-requestCreatePrefetchSchedule =
-  req
-    "CreatePrefetchSchedule"
-    "fixture/CreatePrefetchSchedule.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteChannel :: DeleteChannel -> TestTree
-requestDeleteChannel =
-  req
-    "DeleteChannel"
-    "fixture/DeleteChannel.yaml"
-
-requestUpdateChannel :: UpdateChannel -> TestTree
-requestUpdateChannel =
-  req
-    "UpdateChannel"
-    "fixture/UpdateChannel.yaml"
-
-requestGetChannelPolicy :: GetChannelPolicy -> TestTree
-requestGetChannelPolicy =
-  req
-    "GetChannelPolicy"
-    "fixture/GetChannelPolicy.yaml"
-
-requestDescribeVodSource :: DescribeVodSource -> TestTree
-requestDescribeVodSource =
-  req
-    "DescribeVodSource"
-    "fixture/DescribeVodSource.yaml"
-
-requestDescribeSourceLocation :: DescribeSourceLocation -> TestTree
-requestDescribeSourceLocation =
-  req
-    "DescribeSourceLocation"
-    "fixture/DescribeSourceLocation.yaml"
-
-requestGetPrefetchSchedule :: GetPrefetchSchedule -> TestTree
-requestGetPrefetchSchedule =
-  req
-    "GetPrefetchSchedule"
-    "fixture/GetPrefetchSchedule.yaml"
-
-requestCreateProgram :: CreateProgram -> TestTree
-requestCreateProgram =
-  req
-    "CreateProgram"
-    "fixture/CreateProgram.yaml"
-
-requestStartChannel :: StartChannel -> TestTree
-requestStartChannel =
-  req
-    "StartChannel"
-    "fixture/StartChannel.yaml"
-
 requestListPlaybackConfigurations :: ListPlaybackConfigurations -> TestTree
 requestListPlaybackConfigurations =
   req
     "ListPlaybackConfigurations"
     "fixture/ListPlaybackConfigurations.yaml"
 
-requestDeletePlaybackConfiguration :: DeletePlaybackConfiguration -> TestTree
-requestDeletePlaybackConfiguration =
+requestListPrefetchSchedules :: ListPrefetchSchedules -> TestTree
+requestListPrefetchSchedules =
   req
-    "DeletePlaybackConfiguration"
-    "fixture/DeletePlaybackConfiguration.yaml"
-
-requestPutPlaybackConfiguration :: PutPlaybackConfiguration -> TestTree
-requestPutPlaybackConfiguration =
-  req
-    "PutPlaybackConfiguration"
-    "fixture/PutPlaybackConfiguration.yaml"
+    "ListPrefetchSchedules"
+    "fixture/ListPrefetchSchedules.yaml"
 
 requestListSourceLocations :: ListSourceLocations -> TestTree
 requestListSourceLocations =
@@ -371,101 +413,11 @@ requestListSourceLocations =
     "ListSourceLocations"
     "fixture/ListSourceLocations.yaml"
 
-requestUpdateSourceLocation :: UpdateSourceLocation -> TestTree
-requestUpdateSourceLocation =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "UpdateSourceLocation"
-    "fixture/UpdateSourceLocation.yaml"
-
-requestDeleteSourceLocation :: DeleteSourceLocation -> TestTree
-requestDeleteSourceLocation =
-  req
-    "DeleteSourceLocation"
-    "fixture/DeleteSourceLocation.yaml"
-
-requestGetPlaybackConfiguration :: GetPlaybackConfiguration -> TestTree
-requestGetPlaybackConfiguration =
-  req
-    "GetPlaybackConfiguration"
-    "fixture/GetPlaybackConfiguration.yaml"
-
-requestDeleteVodSource :: DeleteVodSource -> TestTree
-requestDeleteVodSource =
-  req
-    "DeleteVodSource"
-    "fixture/DeleteVodSource.yaml"
-
-requestUpdateVodSource :: UpdateVodSource -> TestTree
-requestUpdateVodSource =
-  req
-    "UpdateVodSource"
-    "fixture/UpdateVodSource.yaml"
-
-requestCreateVodSource :: CreateVodSource -> TestTree
-requestCreateVodSource =
-  req
-    "CreateVodSource"
-    "fixture/CreateVodSource.yaml"
-
-requestCreateChannel :: CreateChannel -> TestTree
-requestCreateChannel =
-  req
-    "CreateChannel"
-    "fixture/CreateChannel.yaml"
-
-requestDeleteChannelPolicy :: DeleteChannelPolicy -> TestTree
-requestDeleteChannelPolicy =
-  req
-    "DeleteChannelPolicy"
-    "fixture/DeleteChannelPolicy.yaml"
-
-requestPutChannelPolicy :: PutChannelPolicy -> TestTree
-requestPutChannelPolicy =
-  req
-    "PutChannelPolicy"
-    "fixture/PutChannelPolicy.yaml"
-
-requestDeleteProgram :: DeleteProgram -> TestTree
-requestDeleteProgram =
-  req
-    "DeleteProgram"
-    "fixture/DeleteProgram.yaml"
-
-requestGetChannelSchedule :: GetChannelSchedule -> TestTree
-requestGetChannelSchedule =
-  req
-    "GetChannelSchedule"
-    "fixture/GetChannelSchedule.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestConfigureLogsForPlaybackConfiguration :: ConfigureLogsForPlaybackConfiguration -> TestTree
-requestConfigureLogsForPlaybackConfiguration =
-  req
-    "ConfigureLogsForPlaybackConfiguration"
-    "fixture/ConfigureLogsForPlaybackConfiguration.yaml"
-
-requestStopChannel :: StopChannel -> TestTree
-requestStopChannel =
-  req
-    "StopChannel"
-    "fixture/StopChannel.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestDescribeChannel :: DescribeChannel -> TestTree
-requestDescribeChannel =
-  req
-    "DescribeChannel"
-    "fixture/DescribeChannel.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestListVodSources :: ListVodSources -> TestTree
 requestListVodSources =
@@ -473,13 +425,93 @@ requestListVodSources =
     "ListVodSources"
     "fixture/ListVodSources.yaml"
 
-requestDescribeProgram :: DescribeProgram -> TestTree
-requestDescribeProgram =
+requestPutChannelPolicy :: PutChannelPolicy -> TestTree
+requestPutChannelPolicy =
   req
-    "DescribeProgram"
-    "fixture/DescribeProgram.yaml"
+    "PutChannelPolicy"
+    "fixture/PutChannelPolicy.yaml"
+
+requestPutPlaybackConfiguration :: PutPlaybackConfiguration -> TestTree
+requestPutPlaybackConfiguration =
+  req
+    "PutPlaybackConfiguration"
+    "fixture/PutPlaybackConfiguration.yaml"
+
+requestStartChannel :: StartChannel -> TestTree
+requestStartChannel =
+  req
+    "StartChannel"
+    "fixture/StartChannel.yaml"
+
+requestStopChannel :: StopChannel -> TestTree
+requestStopChannel =
+  req
+    "StopChannel"
+    "fixture/StopChannel.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateChannel :: UpdateChannel -> TestTree
+requestUpdateChannel =
+  req
+    "UpdateChannel"
+    "fixture/UpdateChannel.yaml"
+
+requestUpdateSourceLocation :: UpdateSourceLocation -> TestTree
+requestUpdateSourceLocation =
+  req
+    "UpdateSourceLocation"
+    "fixture/UpdateSourceLocation.yaml"
+
+requestUpdateVodSource :: UpdateVodSource -> TestTree
+requestUpdateVodSource =
+  req
+    "UpdateVodSource"
+    "fixture/UpdateVodSource.yaml"
 
 -- Responses
+
+responseConfigureLogsForPlaybackConfiguration :: ConfigureLogsForPlaybackConfigurationResponse -> TestTree
+responseConfigureLogsForPlaybackConfiguration =
+  res
+    "ConfigureLogsForPlaybackConfigurationResponse"
+    "fixture/ConfigureLogsForPlaybackConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ConfigureLogsForPlaybackConfiguration)
+
+responseCreateChannel :: CreateChannelResponse -> TestTree
+responseCreateChannel =
+  res
+    "CreateChannelResponse"
+    "fixture/CreateChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
+
+responseCreatePrefetchSchedule :: CreatePrefetchScheduleResponse -> TestTree
+responseCreatePrefetchSchedule =
+  res
+    "CreatePrefetchScheduleResponse"
+    "fixture/CreatePrefetchScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePrefetchSchedule)
+
+responseCreateProgram :: CreateProgramResponse -> TestTree
+responseCreateProgram =
+  res
+    "CreateProgramResponse"
+    "fixture/CreateProgramResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateProgram)
 
 responseCreateSourceLocation :: CreateSourceLocationResponse -> TestTree
 responseCreateSourceLocation =
@@ -489,13 +521,37 @@ responseCreateSourceLocation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSourceLocation)
 
-responseListPrefetchSchedules :: ListPrefetchSchedulesResponse -> TestTree
-responseListPrefetchSchedules =
+responseCreateVodSource :: CreateVodSourceResponse -> TestTree
+responseCreateVodSource =
   res
-    "ListPrefetchSchedulesResponse"
-    "fixture/ListPrefetchSchedulesResponse.proto"
+    "CreateVodSourceResponse"
+    "fixture/CreateVodSourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPrefetchSchedules)
+    (Proxy.Proxy :: Proxy.Proxy CreateVodSource)
+
+responseDeleteChannel :: DeleteChannelResponse -> TestTree
+responseDeleteChannel =
+  res
+    "DeleteChannelResponse"
+    "fixture/DeleteChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
+
+responseDeleteChannelPolicy :: DeleteChannelPolicyResponse -> TestTree
+responseDeleteChannelPolicy =
+  res
+    "DeleteChannelPolicyResponse"
+    "fixture/DeleteChannelPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelPolicy)
+
+responseDeletePlaybackConfiguration :: DeletePlaybackConfigurationResponse -> TestTree
+responseDeletePlaybackConfiguration =
+  res
+    "DeletePlaybackConfigurationResponse"
+    "fixture/DeletePlaybackConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePlaybackConfiguration)
 
 responseDeletePrefetchSchedule :: DeletePrefetchScheduleResponse -> TestTree
 responseDeletePrefetchSchedule =
@@ -504,6 +560,94 @@ responseDeletePrefetchSchedule =
     "fixture/DeletePrefetchScheduleResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePrefetchSchedule)
+
+responseDeleteProgram :: DeleteProgramResponse -> TestTree
+responseDeleteProgram =
+  res
+    "DeleteProgramResponse"
+    "fixture/DeleteProgramResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProgram)
+
+responseDeleteSourceLocation :: DeleteSourceLocationResponse -> TestTree
+responseDeleteSourceLocation =
+  res
+    "DeleteSourceLocationResponse"
+    "fixture/DeleteSourceLocationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSourceLocation)
+
+responseDeleteVodSource :: DeleteVodSourceResponse -> TestTree
+responseDeleteVodSource =
+  res
+    "DeleteVodSourceResponse"
+    "fixture/DeleteVodSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVodSource)
+
+responseDescribeChannel :: DescribeChannelResponse -> TestTree
+responseDescribeChannel =
+  res
+    "DescribeChannelResponse"
+    "fixture/DescribeChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
+
+responseDescribeProgram :: DescribeProgramResponse -> TestTree
+responseDescribeProgram =
+  res
+    "DescribeProgramResponse"
+    "fixture/DescribeProgramResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeProgram)
+
+responseDescribeSourceLocation :: DescribeSourceLocationResponse -> TestTree
+responseDescribeSourceLocation =
+  res
+    "DescribeSourceLocationResponse"
+    "fixture/DescribeSourceLocationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSourceLocation)
+
+responseDescribeVodSource :: DescribeVodSourceResponse -> TestTree
+responseDescribeVodSource =
+  res
+    "DescribeVodSourceResponse"
+    "fixture/DescribeVodSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVodSource)
+
+responseGetChannelPolicy :: GetChannelPolicyResponse -> TestTree
+responseGetChannelPolicy =
+  res
+    "GetChannelPolicyResponse"
+    "fixture/GetChannelPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetChannelPolicy)
+
+responseGetChannelSchedule :: GetChannelScheduleResponse -> TestTree
+responseGetChannelSchedule =
+  res
+    "GetChannelScheduleResponse"
+    "fixture/GetChannelScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetChannelSchedule)
+
+responseGetPlaybackConfiguration :: GetPlaybackConfigurationResponse -> TestTree
+responseGetPlaybackConfiguration =
+  res
+    "GetPlaybackConfigurationResponse"
+    "fixture/GetPlaybackConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPlaybackConfiguration)
+
+responseGetPrefetchSchedule :: GetPrefetchScheduleResponse -> TestTree
+responseGetPrefetchSchedule =
+  res
+    "GetPrefetchScheduleResponse"
+    "fixture/GetPrefetchScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPrefetchSchedule)
 
 responseListAlerts :: ListAlertsResponse -> TestTree
 responseListAlerts =
@@ -521,86 +665,6 @@ responseListChannels =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
-responseCreatePrefetchSchedule :: CreatePrefetchScheduleResponse -> TestTree
-responseCreatePrefetchSchedule =
-  res
-    "CreatePrefetchScheduleResponse"
-    "fixture/CreatePrefetchScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePrefetchSchedule)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteChannel :: DeleteChannelResponse -> TestTree
-responseDeleteChannel =
-  res
-    "DeleteChannelResponse"
-    "fixture/DeleteChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
-
-responseUpdateChannel :: UpdateChannelResponse -> TestTree
-responseUpdateChannel =
-  res
-    "UpdateChannelResponse"
-    "fixture/UpdateChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
-
-responseGetChannelPolicy :: GetChannelPolicyResponse -> TestTree
-responseGetChannelPolicy =
-  res
-    "GetChannelPolicyResponse"
-    "fixture/GetChannelPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetChannelPolicy)
-
-responseDescribeVodSource :: DescribeVodSourceResponse -> TestTree
-responseDescribeVodSource =
-  res
-    "DescribeVodSourceResponse"
-    "fixture/DescribeVodSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeVodSource)
-
-responseDescribeSourceLocation :: DescribeSourceLocationResponse -> TestTree
-responseDescribeSourceLocation =
-  res
-    "DescribeSourceLocationResponse"
-    "fixture/DescribeSourceLocationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSourceLocation)
-
-responseGetPrefetchSchedule :: GetPrefetchScheduleResponse -> TestTree
-responseGetPrefetchSchedule =
-  res
-    "GetPrefetchScheduleResponse"
-    "fixture/GetPrefetchScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPrefetchSchedule)
-
-responseCreateProgram :: CreateProgramResponse -> TestTree
-responseCreateProgram =
-  res
-    "CreateProgramResponse"
-    "fixture/CreateProgramResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateProgram)
-
-responseStartChannel :: StartChannelResponse -> TestTree
-responseStartChannel =
-  res
-    "StartChannelResponse"
-    "fixture/StartChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartChannel)
-
 responseListPlaybackConfigurations :: ListPlaybackConfigurationsResponse -> TestTree
 responseListPlaybackConfigurations =
   res
@@ -609,21 +673,13 @@ responseListPlaybackConfigurations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPlaybackConfigurations)
 
-responseDeletePlaybackConfiguration :: DeletePlaybackConfigurationResponse -> TestTree
-responseDeletePlaybackConfiguration =
+responseListPrefetchSchedules :: ListPrefetchSchedulesResponse -> TestTree
+responseListPrefetchSchedules =
   res
-    "DeletePlaybackConfigurationResponse"
-    "fixture/DeletePlaybackConfigurationResponse.proto"
+    "ListPrefetchSchedulesResponse"
+    "fixture/ListPrefetchSchedulesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePlaybackConfiguration)
-
-responsePutPlaybackConfiguration :: PutPlaybackConfigurationResponse -> TestTree
-responsePutPlaybackConfiguration =
-  res
-    "PutPlaybackConfigurationResponse"
-    "fixture/PutPlaybackConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutPlaybackConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy ListPrefetchSchedules)
 
 responseListSourceLocations :: ListSourceLocationsResponse -> TestTree
 responseListSourceLocations =
@@ -633,133 +689,13 @@ responseListSourceLocations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSourceLocations)
 
-responseUpdateSourceLocation :: UpdateSourceLocationResponse -> TestTree
-responseUpdateSourceLocation =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "UpdateSourceLocationResponse"
-    "fixture/UpdateSourceLocationResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSourceLocation)
-
-responseDeleteSourceLocation :: DeleteSourceLocationResponse -> TestTree
-responseDeleteSourceLocation =
-  res
-    "DeleteSourceLocationResponse"
-    "fixture/DeleteSourceLocationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSourceLocation)
-
-responseGetPlaybackConfiguration :: GetPlaybackConfigurationResponse -> TestTree
-responseGetPlaybackConfiguration =
-  res
-    "GetPlaybackConfigurationResponse"
-    "fixture/GetPlaybackConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPlaybackConfiguration)
-
-responseDeleteVodSource :: DeleteVodSourceResponse -> TestTree
-responseDeleteVodSource =
-  res
-    "DeleteVodSourceResponse"
-    "fixture/DeleteVodSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVodSource)
-
-responseUpdateVodSource :: UpdateVodSourceResponse -> TestTree
-responseUpdateVodSource =
-  res
-    "UpdateVodSourceResponse"
-    "fixture/UpdateVodSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVodSource)
-
-responseCreateVodSource :: CreateVodSourceResponse -> TestTree
-responseCreateVodSource =
-  res
-    "CreateVodSourceResponse"
-    "fixture/CreateVodSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVodSource)
-
-responseCreateChannel :: CreateChannelResponse -> TestTree
-responseCreateChannel =
-  res
-    "CreateChannelResponse"
-    "fixture/CreateChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
-
-responseDeleteChannelPolicy :: DeleteChannelPolicyResponse -> TestTree
-responseDeleteChannelPolicy =
-  res
-    "DeleteChannelPolicyResponse"
-    "fixture/DeleteChannelPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannelPolicy)
-
-responsePutChannelPolicy :: PutChannelPolicyResponse -> TestTree
-responsePutChannelPolicy =
-  res
-    "PutChannelPolicyResponse"
-    "fixture/PutChannelPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutChannelPolicy)
-
-responseDeleteProgram :: DeleteProgramResponse -> TestTree
-responseDeleteProgram =
-  res
-    "DeleteProgramResponse"
-    "fixture/DeleteProgramResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteProgram)
-
-responseGetChannelSchedule :: GetChannelScheduleResponse -> TestTree
-responseGetChannelSchedule =
-  res
-    "GetChannelScheduleResponse"
-    "fixture/GetChannelScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetChannelSchedule)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseConfigureLogsForPlaybackConfiguration :: ConfigureLogsForPlaybackConfigurationResponse -> TestTree
-responseConfigureLogsForPlaybackConfiguration =
-  res
-    "ConfigureLogsForPlaybackConfigurationResponse"
-    "fixture/ConfigureLogsForPlaybackConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ConfigureLogsForPlaybackConfiguration)
-
-responseStopChannel :: StopChannelResponse -> TestTree
-responseStopChannel =
-  res
-    "StopChannelResponse"
-    "fixture/StopChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopChannel)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseDescribeChannel :: DescribeChannelResponse -> TestTree
-responseDescribeChannel =
-  res
-    "DescribeChannelResponse"
-    "fixture/DescribeChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListVodSources :: ListVodSourcesResponse -> TestTree
 responseListVodSources =
@@ -769,10 +705,74 @@ responseListVodSources =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListVodSources)
 
-responseDescribeProgram :: DescribeProgramResponse -> TestTree
-responseDescribeProgram =
+responsePutChannelPolicy :: PutChannelPolicyResponse -> TestTree
+responsePutChannelPolicy =
   res
-    "DescribeProgramResponse"
-    "fixture/DescribeProgramResponse.proto"
+    "PutChannelPolicyResponse"
+    "fixture/PutChannelPolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeProgram)
+    (Proxy.Proxy :: Proxy.Proxy PutChannelPolicy)
+
+responsePutPlaybackConfiguration :: PutPlaybackConfigurationResponse -> TestTree
+responsePutPlaybackConfiguration =
+  res
+    "PutPlaybackConfigurationResponse"
+    "fixture/PutPlaybackConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutPlaybackConfiguration)
+
+responseStartChannel :: StartChannelResponse -> TestTree
+responseStartChannel =
+  res
+    "StartChannelResponse"
+    "fixture/StartChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartChannel)
+
+responseStopChannel :: StopChannelResponse -> TestTree
+responseStopChannel =
+  res
+    "StopChannelResponse"
+    "fixture/StopChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopChannel)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateChannel :: UpdateChannelResponse -> TestTree
+responseUpdateChannel =
+  res
+    "UpdateChannelResponse"
+    "fixture/UpdateChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
+
+responseUpdateSourceLocation :: UpdateSourceLocationResponse -> TestTree
+responseUpdateSourceLocation =
+  res
+    "UpdateSourceLocationResponse"
+    "fixture/UpdateSourceLocationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSourceLocation)
+
+responseUpdateVodSource :: UpdateVodSourceResponse -> TestTree
+responseUpdateVodSource =
+  res
+    "UpdateVodSourceResponse"
+    "fixture/UpdateVodSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVodSource)

@@ -39,8 +39,8 @@ module Amazonka.MediaConnect.RemoveFlowOutput
     newRemoveFlowOutputResponse,
 
     -- * Response Lenses
-    removeFlowOutputResponse_flowArn,
     removeFlowOutputResponse_outputArn,
+    removeFlowOutputResponse_flowArn,
     removeFlowOutputResponse_httpStatus,
   )
 where
@@ -101,8 +101,8 @@ instance Core.AWSRequest RemoveFlowOutput where
     Response.receiveJSON
       ( \s h x ->
           RemoveFlowOutputResponse'
-            Prelude.<$> (x Core..?> "flowArn")
-            Prelude.<*> (x Core..?> "outputArn")
+            Prelude.<$> (x Core..?> "outputArn")
+            Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,10 +141,10 @@ instance Core.ToQuery RemoveFlowOutput where
 
 -- | /See:/ 'newRemoveFlowOutputResponse' smart constructor.
 data RemoveFlowOutputResponse = RemoveFlowOutputResponse'
-  { -- | The ARN of the flow that is associated with the output you removed.
-    flowArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the output that was removed.
+  { -- | The ARN of the output that was removed.
     outputArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the flow that is associated with the output you removed.
+    flowArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,9 +158,9 @@ data RemoveFlowOutputResponse = RemoveFlowOutputResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flowArn', 'removeFlowOutputResponse_flowArn' - The ARN of the flow that is associated with the output you removed.
---
 -- 'outputArn', 'removeFlowOutputResponse_outputArn' - The ARN of the output that was removed.
+--
+-- 'flowArn', 'removeFlowOutputResponse_flowArn' - The ARN of the flow that is associated with the output you removed.
 --
 -- 'httpStatus', 'removeFlowOutputResponse_httpStatus' - The response's http status code.
 newRemoveFlowOutputResponse ::
@@ -169,19 +169,19 @@ newRemoveFlowOutputResponse ::
   RemoveFlowOutputResponse
 newRemoveFlowOutputResponse pHttpStatus_ =
   RemoveFlowOutputResponse'
-    { flowArn =
+    { outputArn =
         Prelude.Nothing,
-      outputArn = Prelude.Nothing,
+      flowArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the flow that is associated with the output you removed.
-removeFlowOutputResponse_flowArn :: Lens.Lens' RemoveFlowOutputResponse (Prelude.Maybe Prelude.Text)
-removeFlowOutputResponse_flowArn = Lens.lens (\RemoveFlowOutputResponse' {flowArn} -> flowArn) (\s@RemoveFlowOutputResponse' {} a -> s {flowArn = a} :: RemoveFlowOutputResponse)
 
 -- | The ARN of the output that was removed.
 removeFlowOutputResponse_outputArn :: Lens.Lens' RemoveFlowOutputResponse (Prelude.Maybe Prelude.Text)
 removeFlowOutputResponse_outputArn = Lens.lens (\RemoveFlowOutputResponse' {outputArn} -> outputArn) (\s@RemoveFlowOutputResponse' {} a -> s {outputArn = a} :: RemoveFlowOutputResponse)
+
+-- | The ARN of the flow that is associated with the output you removed.
+removeFlowOutputResponse_flowArn :: Lens.Lens' RemoveFlowOutputResponse (Prelude.Maybe Prelude.Text)
+removeFlowOutputResponse_flowArn = Lens.lens (\RemoveFlowOutputResponse' {flowArn} -> flowArn) (\s@RemoveFlowOutputResponse' {} a -> s {flowArn = a} :: RemoveFlowOutputResponse)
 
 -- | The response's http status code.
 removeFlowOutputResponse_httpStatus :: Lens.Lens' RemoveFlowOutputResponse Prelude.Int
@@ -189,6 +189,6 @@ removeFlowOutputResponse_httpStatus = Lens.lens (\RemoveFlowOutputResponse' {htt
 
 instance Prelude.NFData RemoveFlowOutputResponse where
   rnf RemoveFlowOutputResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf outputArn
+    Prelude.rnf outputArn
+      `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf httpStatus

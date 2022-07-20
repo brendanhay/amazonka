@@ -31,8 +31,8 @@ module Amazonka.CognitoIdentityProvider.ListUsers
     -- * Request Lenses
     listUsers_paginationToken,
     listUsers_attributesToGet,
-    listUsers_limit,
     listUsers_filter,
+    listUsers_limit,
     listUsers_userPoolId,
 
     -- * Destructuring the Response
@@ -65,8 +65,6 @@ data ListUsers = ListUsers'
     -- to be returned for each user in the search results. If the array is
     -- null, all attributes are returned.
     attributesToGet :: Prelude.Maybe [Prelude.Text],
-    -- | Maximum number of users to be returned.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | A filter string of the form \"/AttributeName/ /Filter-Type/
     -- \"/AttributeValue/\"\". Quotation marks within the filter string must be
     -- escaped using the backslash (\\) character. For example, \"@family_name@
@@ -116,6 +114,8 @@ data ListUsers = ListUsers'
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples Examples of Using the ListUsers API>
     -- in the /Amazon Cognito Developer Guide/.
     filter' :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of users to be returned.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The user pool ID for the user pool on which the search should be
     -- performed.
     userPoolId :: Prelude.Text
@@ -137,8 +137,6 @@ data ListUsers = ListUsers'
 -- 'attributesToGet', 'listUsers_attributesToGet' - An array of strings, where each string is the name of a user attribute
 -- to be returned for each user in the search results. If the array is
 -- null, all attributes are returned.
---
--- 'limit', 'listUsers_limit' - Maximum number of users to be returned.
 --
 -- 'filter'', 'listUsers_filter' - A filter string of the form \"/AttributeName/ /Filter-Type/
 -- \"/AttributeValue/\"\". Quotation marks within the filter string must be
@@ -189,6 +187,8 @@ data ListUsers = ListUsers'
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples Examples of Using the ListUsers API>
 -- in the /Amazon Cognito Developer Guide/.
 --
+-- 'limit', 'listUsers_limit' - Maximum number of users to be returned.
+--
 -- 'userPoolId', 'listUsers_userPoolId' - The user pool ID for the user pool on which the search should be
 -- performed.
 newListUsers ::
@@ -199,8 +199,8 @@ newListUsers pUserPoolId_ =
   ListUsers'
     { paginationToken = Prelude.Nothing,
       attributesToGet = Prelude.Nothing,
-      limit = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      limit = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
 
@@ -215,10 +215,6 @@ listUsers_paginationToken = Lens.lens (\ListUsers' {paginationToken} -> paginati
 -- null, all attributes are returned.
 listUsers_attributesToGet :: Lens.Lens' ListUsers (Prelude.Maybe [Prelude.Text])
 listUsers_attributesToGet = Lens.lens (\ListUsers' {attributesToGet} -> attributesToGet) (\s@ListUsers' {} a -> s {attributesToGet = a} :: ListUsers) Prelude.. Lens.mapping Lens.coerced
-
--- | Maximum number of users to be returned.
-listUsers_limit :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
-listUsers_limit = Lens.lens (\ListUsers' {limit} -> limit) (\s@ListUsers' {} a -> s {limit = a} :: ListUsers)
 
 -- | A filter string of the form \"/AttributeName/ /Filter-Type/
 -- \"/AttributeValue/\"\". Quotation marks within the filter string must be
@@ -271,6 +267,10 @@ listUsers_limit = Lens.lens (\ListUsers' {limit} -> limit) (\s@ListUsers' {} a -
 listUsers_filter :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
 listUsers_filter = Lens.lens (\ListUsers' {filter'} -> filter') (\s@ListUsers' {} a -> s {filter' = a} :: ListUsers)
 
+-- | Maximum number of users to be returned.
+listUsers_limit :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
+listUsers_limit = Lens.lens (\ListUsers' {limit} -> limit) (\s@ListUsers' {} a -> s {limit = a} :: ListUsers)
+
 -- | The user pool ID for the user pool on which the search should be
 -- performed.
 listUsers_userPoolId :: Lens.Lens' ListUsers Prelude.Text
@@ -313,16 +313,16 @@ instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
     _salt `Prelude.hashWithSalt` paginationToken
       `Prelude.hashWithSalt` attributesToGet
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
     Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf attributesToGet
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Core.ToHeaders ListUsers where
@@ -348,8 +348,8 @@ instance Core.ToJSON ListUsers where
               Prelude.<$> paginationToken,
             ("AttributesToGet" Core..=)
               Prelude.<$> attributesToGet,
-            ("Limit" Core..=) Prelude.<$> limit,
             ("Filter" Core..=) Prelude.<$> filter',
+            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]
       )

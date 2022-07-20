@@ -28,9 +28,9 @@ import Amazonka.SageMaker.Types.MonitoringConstraintsResource
 --
 -- /See:/ 'newModelBiasBaselineConfig' smart constructor.
 data ModelBiasBaselineConfig = ModelBiasBaselineConfig'
-  { constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
-    -- | The name of the baseline model bias job.
-    baseliningJobName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the baseline model bias job.
+    baseliningJobName :: Prelude.Maybe Prelude.Text,
+    constraintsResource :: Prelude.Maybe MonitoringConstraintsResource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ModelBiasBaselineConfig = ModelBiasBaselineConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constraintsResource', 'modelBiasBaselineConfig_constraintsResource' - Undocumented member.
---
 -- 'baseliningJobName', 'modelBiasBaselineConfig_baseliningJobName' - The name of the baseline model bias job.
+--
+-- 'constraintsResource', 'modelBiasBaselineConfig_constraintsResource' - Undocumented member.
 newModelBiasBaselineConfig ::
   ModelBiasBaselineConfig
 newModelBiasBaselineConfig =
   ModelBiasBaselineConfig'
-    { constraintsResource =
+    { baseliningJobName =
         Prelude.Nothing,
-      baseliningJobName = Prelude.Nothing
+      constraintsResource = Prelude.Nothing
     }
-
--- | Undocumented member.
-modelBiasBaselineConfig_constraintsResource :: Lens.Lens' ModelBiasBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
-modelBiasBaselineConfig_constraintsResource = Lens.lens (\ModelBiasBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelBiasBaselineConfig' {} a -> s {constraintsResource = a} :: ModelBiasBaselineConfig)
 
 -- | The name of the baseline model bias job.
 modelBiasBaselineConfig_baseliningJobName :: Lens.Lens' ModelBiasBaselineConfig (Prelude.Maybe Prelude.Text)
 modelBiasBaselineConfig_baseliningJobName = Lens.lens (\ModelBiasBaselineConfig' {baseliningJobName} -> baseliningJobName) (\s@ModelBiasBaselineConfig' {} a -> s {baseliningJobName = a} :: ModelBiasBaselineConfig)
+
+-- | Undocumented member.
+modelBiasBaselineConfig_constraintsResource :: Lens.Lens' ModelBiasBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
+modelBiasBaselineConfig_constraintsResource = Lens.lens (\ModelBiasBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelBiasBaselineConfig' {} a -> s {constraintsResource = a} :: ModelBiasBaselineConfig)
 
 instance Core.FromJSON ModelBiasBaselineConfig where
   parseJSON =
@@ -68,27 +68,27 @@ instance Core.FromJSON ModelBiasBaselineConfig where
       "ModelBiasBaselineConfig"
       ( \x ->
           ModelBiasBaselineConfig'
-            Prelude.<$> (x Core..:? "ConstraintsResource")
-            Prelude.<*> (x Core..:? "BaseliningJobName")
+            Prelude.<$> (x Core..:? "BaseliningJobName")
+            Prelude.<*> (x Core..:? "ConstraintsResource")
       )
 
 instance Prelude.Hashable ModelBiasBaselineConfig where
   hashWithSalt _salt ModelBiasBaselineConfig' {..} =
-    _salt `Prelude.hashWithSalt` constraintsResource
-      `Prelude.hashWithSalt` baseliningJobName
+    _salt `Prelude.hashWithSalt` baseliningJobName
+      `Prelude.hashWithSalt` constraintsResource
 
 instance Prelude.NFData ModelBiasBaselineConfig where
   rnf ModelBiasBaselineConfig' {..} =
-    Prelude.rnf constraintsResource
-      `Prelude.seq` Prelude.rnf baseliningJobName
+    Prelude.rnf baseliningJobName
+      `Prelude.seq` Prelude.rnf constraintsResource
 
 instance Core.ToJSON ModelBiasBaselineConfig where
   toJSON ModelBiasBaselineConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConstraintsResource" Core..=)
-              Prelude.<$> constraintsResource,
-            ("BaseliningJobName" Core..=)
-              Prelude.<$> baseliningJobName
+          [ ("BaseliningJobName" Core..=)
+              Prelude.<$> baseliningJobName,
+            ("ConstraintsResource" Core..=)
+              Prelude.<$> constraintsResource
           ]
       )

@@ -50,16 +50,16 @@ import Amazonka.Textract.Types.S3Object
 --
 -- /See:/ 'newDocument' smart constructor.
 data Document = Document'
-  { -- | Identifies an S3 object as the document source. The maximum size of a
-    -- document that\'s stored in an S3 bucket is 5 MB.
-    s3Object :: Prelude.Maybe S3Object,
-    -- | A blob of base64-encoded document bytes. The maximum size of a document
+  { -- | A blob of base64-encoded document bytes. The maximum size of a document
     -- that\'s provided in a blob of bytes is 5 MB. The document bytes must be
     -- in PNG or JPEG format.
     --
     -- If you\'re using an AWS SDK to call Amazon Textract, you might not need
     -- to base64-encode image bytes passed using the @Bytes@ field.
-    bytes :: Prelude.Maybe Core.Base64
+    bytes :: Prelude.Maybe Core.Base64,
+    -- | Identifies an S3 object as the document source. The maximum size of a
+    -- document that\'s stored in an S3 bucket is 5 MB.
+    s3Object :: Prelude.Maybe S3Object
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,9 +71,6 @@ data Document = Document'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Object', 'document_s3Object' - Identifies an S3 object as the document source. The maximum size of a
--- document that\'s stored in an S3 bucket is 5 MB.
---
 -- 'bytes', 'document_bytes' - A blob of base64-encoded document bytes. The maximum size of a document
 -- that\'s provided in a blob of bytes is 5 MB. The document bytes must be
 -- in PNG or JPEG format.
@@ -84,18 +81,16 @@ data Document = Document'
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 's3Object', 'document_s3Object' - Identifies an S3 object as the document source. The maximum size of a
+-- document that\'s stored in an S3 bucket is 5 MB.
 newDocument ::
   Document
 newDocument =
   Document'
-    { s3Object = Prelude.Nothing,
-      bytes = Prelude.Nothing
+    { bytes = Prelude.Nothing,
+      s3Object = Prelude.Nothing
     }
-
--- | Identifies an S3 object as the document source. The maximum size of a
--- document that\'s stored in an S3 bucket is 5 MB.
-document_s3Object :: Lens.Lens' Document (Prelude.Maybe S3Object)
-document_s3Object = Lens.lens (\Document' {s3Object} -> s3Object) (\s@Document' {} a -> s {s3Object = a} :: Document)
 
 -- | A blob of base64-encoded document bytes. The maximum size of a document
 -- that\'s provided in a blob of bytes is 5 MB. The document bytes must be
@@ -110,21 +105,26 @@ document_s3Object = Lens.lens (\Document' {s3Object} -> s3Object) (\s@Document' 
 document_bytes :: Lens.Lens' Document (Prelude.Maybe Prelude.ByteString)
 document_bytes = Lens.lens (\Document' {bytes} -> bytes) (\s@Document' {} a -> s {bytes = a} :: Document) Prelude.. Lens.mapping Core._Base64
 
+-- | Identifies an S3 object as the document source. The maximum size of a
+-- document that\'s stored in an S3 bucket is 5 MB.
+document_s3Object :: Lens.Lens' Document (Prelude.Maybe S3Object)
+document_s3Object = Lens.lens (\Document' {s3Object} -> s3Object) (\s@Document' {} a -> s {s3Object = a} :: Document)
+
 instance Prelude.Hashable Document where
   hashWithSalt _salt Document' {..} =
-    _salt `Prelude.hashWithSalt` s3Object
-      `Prelude.hashWithSalt` bytes
+    _salt `Prelude.hashWithSalt` bytes
+      `Prelude.hashWithSalt` s3Object
 
 instance Prelude.NFData Document where
   rnf Document' {..} =
-    Prelude.rnf s3Object
-      `Prelude.seq` Prelude.rnf bytes
+    Prelude.rnf bytes
+      `Prelude.seq` Prelude.rnf s3Object
 
 instance Core.ToJSON Document where
   toJSON Document' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3Object" Core..=) Prelude.<$> s3Object,
-            ("Bytes" Core..=) Prelude.<$> bytes
+          [ ("Bytes" Core..=) Prelude.<$> bytes,
+            ("S3Object" Core..=) Prelude.<$> s3Object
           ]
       )

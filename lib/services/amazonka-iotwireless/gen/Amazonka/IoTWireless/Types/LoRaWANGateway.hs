@@ -32,8 +32,8 @@ data LoRaWANGateway = LoRaWANGateway'
     subBands :: Prelude.Maybe [Prelude.Natural],
     -- | The gateway\'s EUI value.
     gatewayEui :: Prelude.Maybe Prelude.Text,
-    joinEuiFilters :: Prelude.Maybe [Prelude.NonEmpty Prelude.Text],
-    netIdFilters :: Prelude.Maybe [Prelude.Text]
+    netIdFilters :: Prelude.Maybe [Prelude.Text],
+    joinEuiFilters :: Prelude.Maybe [Prelude.NonEmpty Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,9 +51,9 @@ data LoRaWANGateway = LoRaWANGateway'
 --
 -- 'gatewayEui', 'loRaWANGateway_gatewayEui' - The gateway\'s EUI value.
 --
--- 'joinEuiFilters', 'loRaWANGateway_joinEuiFilters' - Undocumented member.
---
 -- 'netIdFilters', 'loRaWANGateway_netIdFilters' - Undocumented member.
+--
+-- 'joinEuiFilters', 'loRaWANGateway_joinEuiFilters' - Undocumented member.
 newLoRaWANGateway ::
   LoRaWANGateway
 newLoRaWANGateway =
@@ -61,8 +61,8 @@ newLoRaWANGateway =
     { rfRegion = Prelude.Nothing,
       subBands = Prelude.Nothing,
       gatewayEui = Prelude.Nothing,
-      joinEuiFilters = Prelude.Nothing,
-      netIdFilters = Prelude.Nothing
+      netIdFilters = Prelude.Nothing,
+      joinEuiFilters = Prelude.Nothing
     }
 
 -- | The frequency band (RFRegion) value.
@@ -78,12 +78,12 @@ loRaWANGateway_gatewayEui :: Lens.Lens' LoRaWANGateway (Prelude.Maybe Prelude.Te
 loRaWANGateway_gatewayEui = Lens.lens (\LoRaWANGateway' {gatewayEui} -> gatewayEui) (\s@LoRaWANGateway' {} a -> s {gatewayEui = a} :: LoRaWANGateway)
 
 -- | Undocumented member.
-loRaWANGateway_joinEuiFilters :: Lens.Lens' LoRaWANGateway (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
-loRaWANGateway_joinEuiFilters = Lens.lens (\LoRaWANGateway' {joinEuiFilters} -> joinEuiFilters) (\s@LoRaWANGateway' {} a -> s {joinEuiFilters = a} :: LoRaWANGateway) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 loRaWANGateway_netIdFilters :: Lens.Lens' LoRaWANGateway (Prelude.Maybe [Prelude.Text])
 loRaWANGateway_netIdFilters = Lens.lens (\LoRaWANGateway' {netIdFilters} -> netIdFilters) (\s@LoRaWANGateway' {} a -> s {netIdFilters = a} :: LoRaWANGateway) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+loRaWANGateway_joinEuiFilters :: Lens.Lens' LoRaWANGateway (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
+loRaWANGateway_joinEuiFilters = Lens.lens (\LoRaWANGateway' {joinEuiFilters} -> joinEuiFilters) (\s@LoRaWANGateway' {} a -> s {joinEuiFilters = a} :: LoRaWANGateway) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LoRaWANGateway where
   parseJSON =
@@ -94,8 +94,10 @@ instance Core.FromJSON LoRaWANGateway where
             Prelude.<$> (x Core..:? "RfRegion")
             Prelude.<*> (x Core..:? "SubBands" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "GatewayEui")
-            Prelude.<*> (x Core..:? "JoinEuiFilters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "NetIdFilters" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "JoinEuiFilters"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable LoRaWANGateway where
@@ -103,16 +105,16 @@ instance Prelude.Hashable LoRaWANGateway where
     _salt `Prelude.hashWithSalt` rfRegion
       `Prelude.hashWithSalt` subBands
       `Prelude.hashWithSalt` gatewayEui
-      `Prelude.hashWithSalt` joinEuiFilters
       `Prelude.hashWithSalt` netIdFilters
+      `Prelude.hashWithSalt` joinEuiFilters
 
 instance Prelude.NFData LoRaWANGateway where
   rnf LoRaWANGateway' {..} =
     Prelude.rnf rfRegion
       `Prelude.seq` Prelude.rnf subBands
       `Prelude.seq` Prelude.rnf gatewayEui
-      `Prelude.seq` Prelude.rnf joinEuiFilters
       `Prelude.seq` Prelude.rnf netIdFilters
+      `Prelude.seq` Prelude.rnf joinEuiFilters
 
 instance Core.ToJSON LoRaWANGateway where
   toJSON LoRaWANGateway' {..} =
@@ -121,8 +123,8 @@ instance Core.ToJSON LoRaWANGateway where
           [ ("RfRegion" Core..=) Prelude.<$> rfRegion,
             ("SubBands" Core..=) Prelude.<$> subBands,
             ("GatewayEui" Core..=) Prelude.<$> gatewayEui,
+            ("NetIdFilters" Core..=) Prelude.<$> netIdFilters,
             ("JoinEuiFilters" Core..=)
-              Prelude.<$> joinEuiFilters,
-            ("NetIdFilters" Core..=) Prelude.<$> netIdFilters
+              Prelude.<$> joinEuiFilters
           ]
       )

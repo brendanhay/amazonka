@@ -34,8 +34,8 @@ module Amazonka.Panorama.DescribeNodeFromTemplateJob
     newDescribeNodeFromTemplateJobResponse,
 
     -- * Response Lenses
-    describeNodeFromTemplateJobResponse_jobTags,
     describeNodeFromTemplateJobResponse_nodeDescription,
+    describeNodeFromTemplateJobResponse_jobTags,
     describeNodeFromTemplateJobResponse_httpStatus,
     describeNodeFromTemplateJobResponse_jobId,
     describeNodeFromTemplateJobResponse_status,
@@ -93,8 +93,8 @@ instance Core.AWSRequest DescribeNodeFromTemplateJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeNodeFromTemplateJobResponse'
-            Prelude.<$> (x Core..?> "JobTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NodeDescription")
+            Prelude.<$> (x Core..?> "NodeDescription")
+            Prelude.<*> (x Core..?> "JobTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "JobId")
             Prelude.<*> (x Core..:> "Status")
@@ -139,10 +139,10 @@ instance Core.ToQuery DescribeNodeFromTemplateJob where
 
 -- | /See:/ 'newDescribeNodeFromTemplateJobResponse' smart constructor.
 data DescribeNodeFromTemplateJobResponse = DescribeNodeFromTemplateJobResponse'
-  { -- | The job\'s tags.
-    jobTags :: Prelude.Maybe [JobResourceTags],
-    -- | The node\'s description.
+  { -- | The node\'s description.
     nodeDescription :: Prelude.Maybe Prelude.Text,
+    -- | The job\'s tags.
+    jobTags :: Prelude.Maybe [JobResourceTags],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The job\'s ID.
@@ -176,9 +176,9 @@ data DescribeNodeFromTemplateJobResponse = DescribeNodeFromTemplateJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobTags', 'describeNodeFromTemplateJobResponse_jobTags' - The job\'s tags.
---
 -- 'nodeDescription', 'describeNodeFromTemplateJobResponse_nodeDescription' - The node\'s description.
+--
+-- 'jobTags', 'describeNodeFromTemplateJobResponse_jobTags' - The job\'s tags.
 --
 -- 'httpStatus', 'describeNodeFromTemplateJobResponse_httpStatus' - The response's http status code.
 --
@@ -235,9 +235,9 @@ newDescribeNodeFromTemplateJobResponse
   pNodeName_
   pTemplateType_ =
     DescribeNodeFromTemplateJobResponse'
-      { jobTags =
+      { nodeDescription =
           Prelude.Nothing,
-        nodeDescription = Prelude.Nothing,
+        jobTags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         jobId = pJobId_,
         status = pStatus_,
@@ -255,13 +255,13 @@ newDescribeNodeFromTemplateJobResponse
         templateParameters = Prelude.mempty
       }
 
--- | The job\'s tags.
-describeNodeFromTemplateJobResponse_jobTags :: Lens.Lens' DescribeNodeFromTemplateJobResponse (Prelude.Maybe [JobResourceTags])
-describeNodeFromTemplateJobResponse_jobTags = Lens.lens (\DescribeNodeFromTemplateJobResponse' {jobTags} -> jobTags) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {jobTags = a} :: DescribeNodeFromTemplateJobResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The node\'s description.
 describeNodeFromTemplateJobResponse_nodeDescription :: Lens.Lens' DescribeNodeFromTemplateJobResponse (Prelude.Maybe Prelude.Text)
 describeNodeFromTemplateJobResponse_nodeDescription = Lens.lens (\DescribeNodeFromTemplateJobResponse' {nodeDescription} -> nodeDescription) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {nodeDescription = a} :: DescribeNodeFromTemplateJobResponse)
+
+-- | The job\'s tags.
+describeNodeFromTemplateJobResponse_jobTags :: Lens.Lens' DescribeNodeFromTemplateJobResponse (Prelude.Maybe [JobResourceTags])
+describeNodeFromTemplateJobResponse_jobTags = Lens.lens (\DescribeNodeFromTemplateJobResponse' {jobTags} -> jobTags) (\s@DescribeNodeFromTemplateJobResponse' {} a -> s {jobTags = a} :: DescribeNodeFromTemplateJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNodeFromTemplateJobResponse_httpStatus :: Lens.Lens' DescribeNodeFromTemplateJobResponse Prelude.Int
@@ -312,8 +312,8 @@ instance
     DescribeNodeFromTemplateJobResponse
   where
   rnf DescribeNodeFromTemplateJobResponse' {..} =
-    Prelude.rnf jobTags
-      `Prelude.seq` Prelude.rnf nodeDescription
+    Prelude.rnf nodeDescription
+      `Prelude.seq` Prelude.rnf jobTags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf status

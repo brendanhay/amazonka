@@ -14,150 +14,32 @@
 module Amazonka.DataSync.Lens
   ( -- * Operations
 
-    -- ** UpdateTask
-    updateTask_schedule,
-    updateTask_includes,
-    updateTask_name,
-    updateTask_excludes,
-    updateTask_options,
-    updateTask_cloudWatchLogGroupArn,
-    updateTask_taskArn,
-    updateTaskResponse_httpStatus,
+    -- ** CancelTaskExecution
+    cancelTaskExecution_taskExecutionArn,
+    cancelTaskExecutionResponse_httpStatus,
 
-    -- ** DescribeAgent
-    describeAgent_agentArn,
-    describeAgentResponse_creationTime,
-    describeAgentResponse_status,
-    describeAgentResponse_privateLinkConfig,
-    describeAgentResponse_endpointType,
-    describeAgentResponse_lastConnectionTime,
-    describeAgentResponse_agentArn,
-    describeAgentResponse_name,
-    describeAgentResponse_httpStatus,
+    -- ** CreateAgent
+    createAgent_tags,
+    createAgent_agentName,
+    createAgent_subnetArns,
+    createAgent_vpcEndpointId,
+    createAgent_securityGroupArns,
+    createAgent_activationKey,
+    createAgentResponse_agentArn,
+    createAgentResponse_httpStatus,
 
-    -- ** DeleteTask
-    deleteTask_taskArn,
-    deleteTaskResponse_httpStatus,
-
-    -- ** DescribeLocationSmb
-    describeLocationSmb_locationArn,
-    describeLocationSmbResponse_creationTime,
-    describeLocationSmbResponse_agentArns,
-    describeLocationSmbResponse_domain,
-    describeLocationSmbResponse_locationUri,
-    describeLocationSmbResponse_user,
-    describeLocationSmbResponse_mountOptions,
-    describeLocationSmbResponse_locationArn,
-    describeLocationSmbResponse_httpStatus,
-
-    -- ** ListLocations
-    listLocations_filters,
-    listLocations_nextToken,
-    listLocations_maxResults,
-    listLocationsResponse_nextToken,
-    listLocationsResponse_locations,
-    listLocationsResponse_httpStatus,
-
-    -- ** CreateLocationNfs
-    createLocationNfs_mountOptions,
-    createLocationNfs_tags,
-    createLocationNfs_subdirectory,
-    createLocationNfs_serverHostname,
-    createLocationNfs_onPremConfig,
-    createLocationNfsResponse_locationArn,
-    createLocationNfsResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_maxResults,
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DescribeLocationFsxWindows
-    describeLocationFsxWindows_locationArn,
-    describeLocationFsxWindowsResponse_creationTime,
-    describeLocationFsxWindowsResponse_securityGroupArns,
-    describeLocationFsxWindowsResponse_domain,
-    describeLocationFsxWindowsResponse_locationUri,
-    describeLocationFsxWindowsResponse_user,
-    describeLocationFsxWindowsResponse_locationArn,
-    describeLocationFsxWindowsResponse_httpStatus,
-
-    -- ** CreateLocationObjectStorage
-    createLocationObjectStorage_serverPort,
-    createLocationObjectStorage_serverProtocol,
-    createLocationObjectStorage_secretKey,
-    createLocationObjectStorage_subdirectory,
-    createLocationObjectStorage_accessKey,
-    createLocationObjectStorage_tags,
-    createLocationObjectStorage_serverHostname,
-    createLocationObjectStorage_bucketName,
-    createLocationObjectStorage_agentArns,
-    createLocationObjectStorageResponse_locationArn,
-    createLocationObjectStorageResponse_httpStatus,
-
-    -- ** DescribeTask
-    describeTask_taskArn,
-    describeTaskResponse_creationTime,
-    describeTaskResponse_status,
-    describeTaskResponse_schedule,
-    describeTaskResponse_taskArn,
-    describeTaskResponse_currentTaskExecutionArn,
-    describeTaskResponse_destinationNetworkInterfaceArns,
-    describeTaskResponse_destinationLocationArn,
-    describeTaskResponse_includes,
-    describeTaskResponse_name,
-    describeTaskResponse_errorCode,
-    describeTaskResponse_sourceLocationArn,
-    describeTaskResponse_excludes,
-    describeTaskResponse_sourceNetworkInterfaceArns,
-    describeTaskResponse_options,
-    describeTaskResponse_cloudWatchLogGroupArn,
-    describeTaskResponse_errorDetail,
-    describeTaskResponse_httpStatus,
-
-    -- ** DescribeLocationS3
-    describeLocationS3_locationArn,
-    describeLocationS3Response_creationTime,
-    describeLocationS3Response_agentArns,
-    describeLocationS3Response_s3StorageClass,
-    describeLocationS3Response_locationUri,
-    describeLocationS3Response_s3Config,
-    describeLocationS3Response_locationArn,
-    describeLocationS3Response_httpStatus,
-
-    -- ** ListAgents
-    listAgents_nextToken,
-    listAgents_maxResults,
-    listAgentsResponse_agents,
-    listAgentsResponse_nextToken,
-    listAgentsResponse_httpStatus,
-
-    -- ** UpdateLocationSmb
-    updateLocationSmb_agentArns,
-    updateLocationSmb_domain,
-    updateLocationSmb_user,
-    updateLocationSmb_password,
-    updateLocationSmb_subdirectory,
-    updateLocationSmb_mountOptions,
-    updateLocationSmb_locationArn,
-    updateLocationSmbResponse_httpStatus,
-
-    -- ** DeleteAgent
-    deleteAgent_agentArn,
-    deleteAgentResponse_httpStatus,
-
-    -- ** UpdateAgent
-    updateAgent_name,
-    updateAgent_agentArn,
-    updateAgentResponse_httpStatus,
+    -- ** CreateLocationEfs
+    createLocationEfs_tags,
+    createLocationEfs_subdirectory,
+    createLocationEfs_efsFilesystemArn,
+    createLocationEfs_ec2Config,
+    createLocationEfsResponse_locationArn,
+    createLocationEfsResponse_httpStatus,
 
     -- ** CreateLocationFsxWindows
+    createLocationFsxWindows_tags,
     createLocationFsxWindows_domain,
     createLocationFsxWindows_subdirectory,
-    createLocationFsxWindows_tags,
     createLocationFsxWindows_fsxFilesystemArn,
     createLocationFsxWindows_securityGroupArns,
     createLocationFsxWindows_user,
@@ -165,108 +47,42 @@ module Amazonka.DataSync.Lens
     createLocationFsxWindowsResponse_locationArn,
     createLocationFsxWindowsResponse_httpStatus,
 
-    -- ** ListTaskExecutions
-    listTaskExecutions_taskArn,
-    listTaskExecutions_nextToken,
-    listTaskExecutions_maxResults,
-    listTaskExecutionsResponse_nextToken,
-    listTaskExecutionsResponse_taskExecutions,
-    listTaskExecutionsResponse_httpStatus,
+    -- ** CreateLocationNfs
+    createLocationNfs_tags,
+    createLocationNfs_mountOptions,
+    createLocationNfs_subdirectory,
+    createLocationNfs_serverHostname,
+    createLocationNfs_onPremConfig,
+    createLocationNfsResponse_locationArn,
+    createLocationNfsResponse_httpStatus,
 
-    -- ** UpdateTaskExecution
-    updateTaskExecution_taskExecutionArn,
-    updateTaskExecution_options,
-    updateTaskExecutionResponse_httpStatus,
+    -- ** CreateLocationObjectStorage
+    createLocationObjectStorage_tags,
+    createLocationObjectStorage_serverProtocol,
+    createLocationObjectStorage_serverPort,
+    createLocationObjectStorage_accessKey,
+    createLocationObjectStorage_secretKey,
+    createLocationObjectStorage_subdirectory,
+    createLocationObjectStorage_serverHostname,
+    createLocationObjectStorage_bucketName,
+    createLocationObjectStorage_agentArns,
+    createLocationObjectStorageResponse_locationArn,
+    createLocationObjectStorageResponse_httpStatus,
 
     -- ** CreateLocationS3
-    createLocationS3_agentArns,
+    createLocationS3_tags,
     createLocationS3_s3StorageClass,
     createLocationS3_subdirectory,
-    createLocationS3_tags,
+    createLocationS3_agentArns,
     createLocationS3_s3BucketArn,
     createLocationS3_s3Config,
     createLocationS3Response_locationArn,
     createLocationS3Response_httpStatus,
 
-    -- ** CreateTask
-    createTask_schedule,
-    createTask_includes,
-    createTask_name,
-    createTask_excludes,
-    createTask_options,
-    createTask_cloudWatchLogGroupArn,
-    createTask_tags,
-    createTask_sourceLocationArn,
-    createTask_destinationLocationArn,
-    createTaskResponse_taskArn,
-    createTaskResponse_httpStatus,
-
-    -- ** CreateLocationEfs
-    createLocationEfs_subdirectory,
-    createLocationEfs_tags,
-    createLocationEfs_efsFilesystemArn,
-    createLocationEfs_ec2Config,
-    createLocationEfsResponse_locationArn,
-    createLocationEfsResponse_httpStatus,
-
-    -- ** DescribeLocationObjectStorage
-    describeLocationObjectStorage_locationArn,
-    describeLocationObjectStorageResponse_serverPort,
-    describeLocationObjectStorageResponse_creationTime,
-    describeLocationObjectStorageResponse_agentArns,
-    describeLocationObjectStorageResponse_locationUri,
-    describeLocationObjectStorageResponse_serverProtocol,
-    describeLocationObjectStorageResponse_locationArn,
-    describeLocationObjectStorageResponse_accessKey,
-    describeLocationObjectStorageResponse_httpStatus,
-
-    -- ** DeleteLocation
-    deleteLocation_locationArn,
-    deleteLocationResponse_httpStatus,
-
-    -- ** ListTasks
-    listTasks_filters,
-    listTasks_nextToken,
-    listTasks_maxResults,
-    listTasksResponse_tasks,
-    listTasksResponse_nextToken,
-    listTasksResponse_httpStatus,
-
-    -- ** StartTaskExecution
-    startTaskExecution_overrideOptions,
-    startTaskExecution_includes,
-    startTaskExecution_excludes,
-    startTaskExecution_taskArn,
-    startTaskExecutionResponse_taskExecutionArn,
-    startTaskExecutionResponse_httpStatus,
-
-    -- ** UpdateLocationNfs
-    updateLocationNfs_onPremConfig,
-    updateLocationNfs_subdirectory,
-    updateLocationNfs_mountOptions,
-    updateLocationNfs_locationArn,
-    updateLocationNfsResponse_httpStatus,
-
-    -- ** DescribeTaskExecution
-    describeTaskExecution_taskExecutionArn,
-    describeTaskExecutionResponse_status,
-    describeTaskExecutionResponse_taskExecutionArn,
-    describeTaskExecutionResponse_startTime,
-    describeTaskExecutionResponse_filesTransferred,
-    describeTaskExecutionResponse_bytesWritten,
-    describeTaskExecutionResponse_bytesTransferred,
-    describeTaskExecutionResponse_result,
-    describeTaskExecutionResponse_includes,
-    describeTaskExecutionResponse_estimatedFilesToTransfer,
-    describeTaskExecutionResponse_excludes,
-    describeTaskExecutionResponse_options,
-    describeTaskExecutionResponse_estimatedBytesToTransfer,
-    describeTaskExecutionResponse_httpStatus,
-
     -- ** CreateLocationSmb
+    createLocationSmb_tags,
     createLocationSmb_domain,
     createLocationSmb_mountOptions,
-    createLocationSmb_tags,
     createLocationSmb_subdirectory,
     createLocationSmb_serverHostname,
     createLocationSmb_user,
@@ -275,33 +91,183 @@ module Amazonka.DataSync.Lens
     createLocationSmbResponse_locationArn,
     createLocationSmbResponse_httpStatus,
 
-    -- ** CreateAgent
-    createAgent_securityGroupArns,
-    createAgent_subnetArns,
-    createAgent_agentName,
-    createAgent_vpcEndpointId,
-    createAgent_tags,
-    createAgent_activationKey,
-    createAgentResponse_agentArn,
-    createAgentResponse_httpStatus,
+    -- ** CreateTask
+    createTask_tags,
+    createTask_schedule,
+    createTask_name,
+    createTask_cloudWatchLogGroupArn,
+    createTask_excludes,
+    createTask_options,
+    createTask_includes,
+    createTask_sourceLocationArn,
+    createTask_destinationLocationArn,
+    createTaskResponse_taskArn,
+    createTaskResponse_httpStatus,
 
-    -- ** UpdateLocationObjectStorage
-    updateLocationObjectStorage_serverPort,
-    updateLocationObjectStorage_agentArns,
-    updateLocationObjectStorage_serverProtocol,
-    updateLocationObjectStorage_secretKey,
-    updateLocationObjectStorage_subdirectory,
-    updateLocationObjectStorage_accessKey,
-    updateLocationObjectStorage_locationArn,
-    updateLocationObjectStorageResponse_httpStatus,
+    -- ** DeleteAgent
+    deleteAgent_agentArn,
+    deleteAgentResponse_httpStatus,
+
+    -- ** DeleteLocation
+    deleteLocation_locationArn,
+    deleteLocationResponse_httpStatus,
+
+    -- ** DeleteTask
+    deleteTask_taskArn,
+    deleteTaskResponse_httpStatus,
+
+    -- ** DescribeAgent
+    describeAgent_agentArn,
+    describeAgentResponse_name,
+    describeAgentResponse_privateLinkConfig,
+    describeAgentResponse_status,
+    describeAgentResponse_endpointType,
+    describeAgentResponse_creationTime,
+    describeAgentResponse_lastConnectionTime,
+    describeAgentResponse_agentArn,
+    describeAgentResponse_httpStatus,
 
     -- ** DescribeLocationEfs
     describeLocationEfs_locationArn,
-    describeLocationEfsResponse_creationTime,
-    describeLocationEfsResponse_locationUri,
     describeLocationEfsResponse_locationArn,
     describeLocationEfsResponse_ec2Config,
+    describeLocationEfsResponse_locationUri,
+    describeLocationEfsResponse_creationTime,
     describeLocationEfsResponse_httpStatus,
+
+    -- ** DescribeLocationFsxWindows
+    describeLocationFsxWindows_locationArn,
+    describeLocationFsxWindowsResponse_user,
+    describeLocationFsxWindowsResponse_domain,
+    describeLocationFsxWindowsResponse_locationArn,
+    describeLocationFsxWindowsResponse_locationUri,
+    describeLocationFsxWindowsResponse_securityGroupArns,
+    describeLocationFsxWindowsResponse_creationTime,
+    describeLocationFsxWindowsResponse_httpStatus,
+
+    -- ** DescribeLocationNfs
+    describeLocationNfs_locationArn,
+    describeLocationNfsResponse_onPremConfig,
+    describeLocationNfsResponse_mountOptions,
+    describeLocationNfsResponse_locationArn,
+    describeLocationNfsResponse_locationUri,
+    describeLocationNfsResponse_creationTime,
+    describeLocationNfsResponse_httpStatus,
+
+    -- ** DescribeLocationObjectStorage
+    describeLocationObjectStorage_locationArn,
+    describeLocationObjectStorageResponse_serverProtocol,
+    describeLocationObjectStorageResponse_locationArn,
+    describeLocationObjectStorageResponse_serverPort,
+    describeLocationObjectStorageResponse_accessKey,
+    describeLocationObjectStorageResponse_locationUri,
+    describeLocationObjectStorageResponse_creationTime,
+    describeLocationObjectStorageResponse_agentArns,
+    describeLocationObjectStorageResponse_httpStatus,
+
+    -- ** DescribeLocationS3
+    describeLocationS3_locationArn,
+    describeLocationS3Response_locationArn,
+    describeLocationS3Response_s3Config,
+    describeLocationS3Response_s3StorageClass,
+    describeLocationS3Response_locationUri,
+    describeLocationS3Response_creationTime,
+    describeLocationS3Response_agentArns,
+    describeLocationS3Response_httpStatus,
+
+    -- ** DescribeLocationSmb
+    describeLocationSmb_locationArn,
+    describeLocationSmbResponse_user,
+    describeLocationSmbResponse_domain,
+    describeLocationSmbResponse_mountOptions,
+    describeLocationSmbResponse_locationArn,
+    describeLocationSmbResponse_locationUri,
+    describeLocationSmbResponse_creationTime,
+    describeLocationSmbResponse_agentArns,
+    describeLocationSmbResponse_httpStatus,
+
+    -- ** DescribeTask
+    describeTask_taskArn,
+    describeTaskResponse_schedule,
+    describeTaskResponse_name,
+    describeTaskResponse_taskArn,
+    describeTaskResponse_cloudWatchLogGroupArn,
+    describeTaskResponse_excludes,
+    describeTaskResponse_sourceLocationArn,
+    describeTaskResponse_status,
+    describeTaskResponse_options,
+    describeTaskResponse_destinationNetworkInterfaceArns,
+    describeTaskResponse_errorCode,
+    describeTaskResponse_destinationLocationArn,
+    describeTaskResponse_includes,
+    describeTaskResponse_creationTime,
+    describeTaskResponse_currentTaskExecutionArn,
+    describeTaskResponse_sourceNetworkInterfaceArns,
+    describeTaskResponse_errorDetail,
+    describeTaskResponse_httpStatus,
+
+    -- ** DescribeTaskExecution
+    describeTaskExecution_taskExecutionArn,
+    describeTaskExecutionResponse_excludes,
+    describeTaskExecutionResponse_filesTransferred,
+    describeTaskExecutionResponse_status,
+    describeTaskExecutionResponse_options,
+    describeTaskExecutionResponse_estimatedFilesToTransfer,
+    describeTaskExecutionResponse_includes,
+    describeTaskExecutionResponse_result,
+    describeTaskExecutionResponse_estimatedBytesToTransfer,
+    describeTaskExecutionResponse_bytesTransferred,
+    describeTaskExecutionResponse_taskExecutionArn,
+    describeTaskExecutionResponse_bytesWritten,
+    describeTaskExecutionResponse_startTime,
+    describeTaskExecutionResponse_httpStatus,
+
+    -- ** ListAgents
+    listAgents_nextToken,
+    listAgents_maxResults,
+    listAgentsResponse_nextToken,
+    listAgentsResponse_agents,
+    listAgentsResponse_httpStatus,
+
+    -- ** ListLocations
+    listLocations_nextToken,
+    listLocations_filters,
+    listLocations_maxResults,
+    listLocationsResponse_nextToken,
+    listLocationsResponse_locations,
+    listLocationsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_maxResults,
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListTaskExecutions
+    listTaskExecutions_nextToken,
+    listTaskExecutions_taskArn,
+    listTaskExecutions_maxResults,
+    listTaskExecutionsResponse_nextToken,
+    listTaskExecutionsResponse_taskExecutions,
+    listTaskExecutionsResponse_httpStatus,
+
+    -- ** ListTasks
+    listTasks_nextToken,
+    listTasks_filters,
+    listTasks_maxResults,
+    listTasksResponse_tasks,
+    listTasksResponse_nextToken,
+    listTasksResponse_httpStatus,
+
+    -- ** StartTaskExecution
+    startTaskExecution_overrideOptions,
+    startTaskExecution_excludes,
+    startTaskExecution_includes,
+    startTaskExecution_taskArn,
+    startTaskExecutionResponse_taskExecutionArn,
+    startTaskExecutionResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -313,25 +279,59 @@ module Amazonka.DataSync.Lens
     untagResource_keys,
     untagResourceResponse_httpStatus,
 
-    -- ** DescribeLocationNfs
-    describeLocationNfs_locationArn,
-    describeLocationNfsResponse_creationTime,
-    describeLocationNfsResponse_locationUri,
-    describeLocationNfsResponse_onPremConfig,
-    describeLocationNfsResponse_mountOptions,
-    describeLocationNfsResponse_locationArn,
-    describeLocationNfsResponse_httpStatus,
+    -- ** UpdateAgent
+    updateAgent_name,
+    updateAgent_agentArn,
+    updateAgentResponse_httpStatus,
 
-    -- ** CancelTaskExecution
-    cancelTaskExecution_taskExecutionArn,
-    cancelTaskExecutionResponse_httpStatus,
+    -- ** UpdateLocationNfs
+    updateLocationNfs_onPremConfig,
+    updateLocationNfs_mountOptions,
+    updateLocationNfs_subdirectory,
+    updateLocationNfs_locationArn,
+    updateLocationNfsResponse_httpStatus,
+
+    -- ** UpdateLocationObjectStorage
+    updateLocationObjectStorage_serverProtocol,
+    updateLocationObjectStorage_serverPort,
+    updateLocationObjectStorage_accessKey,
+    updateLocationObjectStorage_secretKey,
+    updateLocationObjectStorage_subdirectory,
+    updateLocationObjectStorage_agentArns,
+    updateLocationObjectStorage_locationArn,
+    updateLocationObjectStorageResponse_httpStatus,
+
+    -- ** UpdateLocationSmb
+    updateLocationSmb_password,
+    updateLocationSmb_user,
+    updateLocationSmb_domain,
+    updateLocationSmb_mountOptions,
+    updateLocationSmb_subdirectory,
+    updateLocationSmb_agentArns,
+    updateLocationSmb_locationArn,
+    updateLocationSmbResponse_httpStatus,
+
+    -- ** UpdateTask
+    updateTask_schedule,
+    updateTask_name,
+    updateTask_cloudWatchLogGroupArn,
+    updateTask_excludes,
+    updateTask_options,
+    updateTask_includes,
+    updateTask_taskArn,
+    updateTaskResponse_httpStatus,
+
+    -- ** UpdateTaskExecution
+    updateTaskExecution_taskExecutionArn,
+    updateTaskExecution_options,
+    updateTaskExecutionResponse_httpStatus,
 
     -- * Types
 
     -- ** AgentListEntry
+    agentListEntry_name,
     agentListEntry_status,
     agentListEntry_agentArn,
-    agentListEntry_name,
 
     -- ** Ec2Config
     ec2Config_subnetArn,
@@ -347,8 +347,8 @@ module Amazonka.DataSync.Lens
     locationFilter_operator,
 
     -- ** LocationListEntry
-    locationListEntry_locationUri,
     locationListEntry_locationArn,
+    locationListEntry_locationUri,
 
     -- ** NfsMountOptions
     nfsMountOptions_version,
@@ -357,26 +357,26 @@ module Amazonka.DataSync.Lens
     onPremConfig_agentArns,
 
     -- ** Options
-    options_atime,
-    options_verifyMode,
-    options_taskQueueing,
-    options_logLevel,
-    options_posixPermissions,
-    options_mtime,
-    options_uid,
-    options_bytesPerSecond,
-    options_securityDescriptorCopyFlags,
     options_gid,
-    options_overwriteMode,
-    options_transferMode,
-    options_preserveDeletedFiles,
+    options_logLevel,
+    options_taskQueueing,
     options_preserveDevices,
+    options_overwriteMode,
+    options_mtime,
+    options_transferMode,
+    options_uid,
+    options_verifyMode,
+    options_preserveDeletedFiles,
+    options_atime,
+    options_posixPermissions,
+    options_securityDescriptorCopyFlags,
+    options_bytesPerSecond,
 
     -- ** PrivateLinkConfig
-    privateLinkConfig_securityGroupArns,
     privateLinkConfig_subnetArns,
     privateLinkConfig_privateLinkEndpoint,
     privateLinkConfig_vpcEndpointId,
+    privateLinkConfig_securityGroupArns,
 
     -- ** S3Config
     s3Config_bucketAccessRoleArn,
@@ -393,14 +393,14 @@ module Amazonka.DataSync.Lens
     taskExecutionListEntry_taskExecutionArn,
 
     -- ** TaskExecutionResultDetail
-    taskExecutionResultDetail_prepareDuration,
     taskExecutionResultDetail_prepareStatus,
-    taskExecutionResultDetail_verifyStatus,
-    taskExecutionResultDetail_verifyDuration,
     taskExecutionResultDetail_totalDuration,
     taskExecutionResultDetail_transferStatus,
-    taskExecutionResultDetail_errorCode,
+    taskExecutionResultDetail_verifyStatus,
     taskExecutionResultDetail_transferDuration,
+    taskExecutionResultDetail_prepareDuration,
+    taskExecutionResultDetail_errorCode,
+    taskExecutionResultDetail_verifyDuration,
     taskExecutionResultDetail_errorDetail,
 
     -- ** TaskFilter
@@ -409,9 +409,9 @@ module Amazonka.DataSync.Lens
     taskFilter_operator,
 
     -- ** TaskListEntry
-    taskListEntry_status,
-    taskListEntry_taskArn,
     taskListEntry_name,
+    taskListEntry_taskArn,
+    taskListEntry_status,
 
     -- ** TaskSchedule
     taskSchedule_scheduleExpression,

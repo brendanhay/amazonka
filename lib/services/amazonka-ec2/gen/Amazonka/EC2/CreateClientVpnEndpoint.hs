@@ -29,18 +29,18 @@ module Amazonka.EC2.CreateClientVpnEndpoint
     newCreateClientVpnEndpoint,
 
     -- * Request Lenses
-    createClientVpnEndpoint_securityGroupIds,
-    createClientVpnEndpoint_splitTunnel,
     createClientVpnEndpoint_clientToken,
     createClientVpnEndpoint_transportProtocol,
-    createClientVpnEndpoint_vpcId,
-    createClientVpnEndpoint_vpnPort,
-    createClientVpnEndpoint_tagSpecifications,
+    createClientVpnEndpoint_securityGroupIds,
     createClientVpnEndpoint_dnsServers,
-    createClientVpnEndpoint_clientConnectOptions,
-    createClientVpnEndpoint_selfServicePortal,
     createClientVpnEndpoint_description,
     createClientVpnEndpoint_dryRun,
+    createClientVpnEndpoint_clientConnectOptions,
+    createClientVpnEndpoint_splitTunnel,
+    createClientVpnEndpoint_vpcId,
+    createClientVpnEndpoint_tagSpecifications,
+    createClientVpnEndpoint_vpnPort,
+    createClientVpnEndpoint_selfServicePortal,
     createClientVpnEndpoint_clientCidrBlock,
     createClientVpnEndpoint_serverCertificateArn,
     createClientVpnEndpoint_authenticationOptions,
@@ -67,10 +67,33 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateClientVpnEndpoint' smart constructor.
 data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
-  { -- | The IDs of one or more security groups to apply to the target network.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The transport protocol to be used by the VPN session.
+    --
+    -- Default value: @udp@
+    transportProtocol :: Prelude.Maybe TransportProtocol,
+    -- | The IDs of one or more security groups to apply to the target network.
     -- You must also specify the ID of the VPC that contains the security
     -- groups.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | Information about the DNS servers to be used for DNS resolution. A
+    -- Client VPN endpoint can have up to two DNS servers. If no DNS server is
+    -- specified, the DNS address configured on the device is used for the DNS
+    -- server.
+    dnsServers :: Prelude.Maybe [Prelude.Text],
+    -- | A brief description of the Client VPN endpoint.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The options for managing connection authorization for new client
+    -- connections.
+    clientConnectOptions :: Prelude.Maybe ClientConnectOptions,
     -- | Indicates whether split-tunnel is enabled on the Client VPN endpoint.
     --
     -- By default, split-tunnel on a VPN endpoint is disabled.
@@ -79,18 +102,12 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
     -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
     -- in the /Client VPN Administrator Guide/.
     splitTunnel :: Prelude.Maybe Prelude.Bool,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The transport protocol to be used by the VPN session.
-    --
-    -- Default value: @udp@
-    transportProtocol :: Prelude.Maybe TransportProtocol,
     -- | The ID of the VPC to associate with the Client VPN endpoint. If no
     -- security group IDs are specified in the request, the default security
     -- group for the VPC is applied.
     vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the Client VPN endpoint during creation.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The port number to assign to the Client VPN endpoint for TCP and UDP
     -- traffic.
     --
@@ -98,28 +115,11 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
     --
     -- Default Value: @443@
     vpnPort :: Prelude.Maybe Prelude.Int,
-    -- | The tags to apply to the Client VPN endpoint during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Information about the DNS servers to be used for DNS resolution. A
-    -- Client VPN endpoint can have up to two DNS servers. If no DNS server is
-    -- specified, the DNS address configured on the device is used for the DNS
-    -- server.
-    dnsServers :: Prelude.Maybe [Prelude.Text],
-    -- | The options for managing connection authorization for new client
-    -- connections.
-    clientConnectOptions :: Prelude.Maybe ClientConnectOptions,
     -- | Specify whether to enable the self-service portal for the Client VPN
     -- endpoint.
     --
     -- Default Value: @enabled@
     selfServicePortal :: Prelude.Maybe SelfServicePortal,
-    -- | A brief description of the Client VPN endpoint.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IPv4 address range, in CIDR notation, from which to assign client IP
     -- addresses. The address range cannot overlap with the local CIDR of the
     -- VPC in which the associated subnet is located, or the routes that you
@@ -157,9 +157,32 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createClientVpnEndpoint_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+--
+-- 'transportProtocol', 'createClientVpnEndpoint_transportProtocol' - The transport protocol to be used by the VPN session.
+--
+-- Default value: @udp@
+--
 -- 'securityGroupIds', 'createClientVpnEndpoint_securityGroupIds' - The IDs of one or more security groups to apply to the target network.
 -- You must also specify the ID of the VPC that contains the security
 -- groups.
+--
+-- 'dnsServers', 'createClientVpnEndpoint_dnsServers' - Information about the DNS servers to be used for DNS resolution. A
+-- Client VPN endpoint can have up to two DNS servers. If no DNS server is
+-- specified, the DNS address configured on the device is used for the DNS
+-- server.
+--
+-- 'description', 'createClientVpnEndpoint_description' - A brief description of the Client VPN endpoint.
+--
+-- 'dryRun', 'createClientVpnEndpoint_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'clientConnectOptions', 'createClientVpnEndpoint_clientConnectOptions' - The options for managing connection authorization for new client
+-- connections.
 --
 -- 'splitTunnel', 'createClientVpnEndpoint_splitTunnel' - Indicates whether split-tunnel is enabled on the Client VPN endpoint.
 --
@@ -169,17 +192,11 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
 -- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
 -- in the /Client VPN Administrator Guide/.
 --
--- 'clientToken', 'createClientVpnEndpoint_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
---
--- 'transportProtocol', 'createClientVpnEndpoint_transportProtocol' - The transport protocol to be used by the VPN session.
---
--- Default value: @udp@
---
 -- 'vpcId', 'createClientVpnEndpoint_vpcId' - The ID of the VPC to associate with the Client VPN endpoint. If no
 -- security group IDs are specified in the request, the default security
 -- group for the VPC is applied.
+--
+-- 'tagSpecifications', 'createClientVpnEndpoint_tagSpecifications' - The tags to apply to the Client VPN endpoint during creation.
 --
 -- 'vpnPort', 'createClientVpnEndpoint_vpnPort' - The port number to assign to the Client VPN endpoint for TCP and UDP
 -- traffic.
@@ -188,27 +205,10 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
 --
 -- Default Value: @443@
 --
--- 'tagSpecifications', 'createClientVpnEndpoint_tagSpecifications' - The tags to apply to the Client VPN endpoint during creation.
---
--- 'dnsServers', 'createClientVpnEndpoint_dnsServers' - Information about the DNS servers to be used for DNS resolution. A
--- Client VPN endpoint can have up to two DNS servers. If no DNS server is
--- specified, the DNS address configured on the device is used for the DNS
--- server.
---
--- 'clientConnectOptions', 'createClientVpnEndpoint_clientConnectOptions' - The options for managing connection authorization for new client
--- connections.
---
 -- 'selfServicePortal', 'createClientVpnEndpoint_selfServicePortal' - Specify whether to enable the self-service portal for the Client VPN
 -- endpoint.
 --
 -- Default Value: @enabled@
---
--- 'description', 'createClientVpnEndpoint_description' - A brief description of the Client VPN endpoint.
---
--- 'dryRun', 'createClientVpnEndpoint_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'clientCidrBlock', 'createClientVpnEndpoint_clientCidrBlock' - The IPv4 address range, in CIDR notation, from which to assign client IP
 -- addresses. The address range cannot overlap with the local CIDR of the
@@ -248,40 +248,24 @@ newCreateClientVpnEndpoint
   pServerCertificateArn_
   pConnectionLogOptions_ =
     CreateClientVpnEndpoint'
-      { securityGroupIds =
+      { clientToken =
           Prelude.Nothing,
-        splitTunnel = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         transportProtocol = Prelude.Nothing,
-        vpcId = Prelude.Nothing,
-        vpnPort = Prelude.Nothing,
-        tagSpecifications = Prelude.Nothing,
+        securityGroupIds = Prelude.Nothing,
         dnsServers = Prelude.Nothing,
-        clientConnectOptions = Prelude.Nothing,
-        selfServicePortal = Prelude.Nothing,
         description = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        clientConnectOptions = Prelude.Nothing,
+        splitTunnel = Prelude.Nothing,
+        vpcId = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
+        vpnPort = Prelude.Nothing,
+        selfServicePortal = Prelude.Nothing,
         clientCidrBlock = pClientCidrBlock_,
         serverCertificateArn = pServerCertificateArn_,
         authenticationOptions = Prelude.mempty,
         connectionLogOptions = pConnectionLogOptions_
       }
-
--- | The IDs of one or more security groups to apply to the target network.
--- You must also specify the ID of the VPC that contains the security
--- groups.
-createClientVpnEndpoint_securityGroupIds :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe [Prelude.Text])
-createClientVpnEndpoint_securityGroupIds = Lens.lens (\CreateClientVpnEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateClientVpnEndpoint' {} a -> s {securityGroupIds = a} :: CreateClientVpnEndpoint) Prelude.. Lens.mapping Lens.coerced
-
--- | Indicates whether split-tunnel is enabled on the Client VPN endpoint.
---
--- By default, split-tunnel on a VPN endpoint is disabled.
---
--- For information about split-tunnel VPN endpoints, see
--- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
--- in the /Client VPN Administrator Guide/.
-createClientVpnEndpoint_splitTunnel :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
-createClientVpnEndpoint_splitTunnel = Lens.lens (\CreateClientVpnEndpoint' {splitTunnel} -> splitTunnel) (\s@CreateClientVpnEndpoint' {} a -> s {splitTunnel = a} :: CreateClientVpnEndpoint)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -295,24 +279,11 @@ createClientVpnEndpoint_clientToken = Lens.lens (\CreateClientVpnEndpoint' {clie
 createClientVpnEndpoint_transportProtocol :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe TransportProtocol)
 createClientVpnEndpoint_transportProtocol = Lens.lens (\CreateClientVpnEndpoint' {transportProtocol} -> transportProtocol) (\s@CreateClientVpnEndpoint' {} a -> s {transportProtocol = a} :: CreateClientVpnEndpoint)
 
--- | The ID of the VPC to associate with the Client VPN endpoint. If no
--- security group IDs are specified in the request, the default security
--- group for the VPC is applied.
-createClientVpnEndpoint_vpcId :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Text)
-createClientVpnEndpoint_vpcId = Lens.lens (\CreateClientVpnEndpoint' {vpcId} -> vpcId) (\s@CreateClientVpnEndpoint' {} a -> s {vpcId = a} :: CreateClientVpnEndpoint)
-
--- | The port number to assign to the Client VPN endpoint for TCP and UDP
--- traffic.
---
--- Valid Values: @443@ | @1194@
---
--- Default Value: @443@
-createClientVpnEndpoint_vpnPort :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Int)
-createClientVpnEndpoint_vpnPort = Lens.lens (\CreateClientVpnEndpoint' {vpnPort} -> vpnPort) (\s@CreateClientVpnEndpoint' {} a -> s {vpnPort = a} :: CreateClientVpnEndpoint)
-
--- | The tags to apply to the Client VPN endpoint during creation.
-createClientVpnEndpoint_tagSpecifications :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe [TagSpecification])
-createClientVpnEndpoint_tagSpecifications = Lens.lens (\CreateClientVpnEndpoint' {tagSpecifications} -> tagSpecifications) (\s@CreateClientVpnEndpoint' {} a -> s {tagSpecifications = a} :: CreateClientVpnEndpoint) Prelude.. Lens.mapping Lens.coerced
+-- | The IDs of one or more security groups to apply to the target network.
+-- You must also specify the ID of the VPC that contains the security
+-- groups.
+createClientVpnEndpoint_securityGroupIds :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe [Prelude.Text])
+createClientVpnEndpoint_securityGroupIds = Lens.lens (\CreateClientVpnEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateClientVpnEndpoint' {} a -> s {securityGroupIds = a} :: CreateClientVpnEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the DNS servers to be used for DNS resolution. A
 -- Client VPN endpoint can have up to two DNS servers. If no DNS server is
@@ -320,18 +291,6 @@ createClientVpnEndpoint_tagSpecifications = Lens.lens (\CreateClientVpnEndpoint'
 -- server.
 createClientVpnEndpoint_dnsServers :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe [Prelude.Text])
 createClientVpnEndpoint_dnsServers = Lens.lens (\CreateClientVpnEndpoint' {dnsServers} -> dnsServers) (\s@CreateClientVpnEndpoint' {} a -> s {dnsServers = a} :: CreateClientVpnEndpoint) Prelude.. Lens.mapping Lens.coerced
-
--- | The options for managing connection authorization for new client
--- connections.
-createClientVpnEndpoint_clientConnectOptions :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe ClientConnectOptions)
-createClientVpnEndpoint_clientConnectOptions = Lens.lens (\CreateClientVpnEndpoint' {clientConnectOptions} -> clientConnectOptions) (\s@CreateClientVpnEndpoint' {} a -> s {clientConnectOptions = a} :: CreateClientVpnEndpoint)
-
--- | Specify whether to enable the self-service portal for the Client VPN
--- endpoint.
---
--- Default Value: @enabled@
-createClientVpnEndpoint_selfServicePortal :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe SelfServicePortal)
-createClientVpnEndpoint_selfServicePortal = Lens.lens (\CreateClientVpnEndpoint' {selfServicePortal} -> selfServicePortal) (\s@CreateClientVpnEndpoint' {} a -> s {selfServicePortal = a} :: CreateClientVpnEndpoint)
 
 -- | A brief description of the Client VPN endpoint.
 createClientVpnEndpoint_description :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Text)
@@ -343,6 +302,47 @@ createClientVpnEndpoint_description = Lens.lens (\CreateClientVpnEndpoint' {desc
 -- Otherwise, it is @UnauthorizedOperation@.
 createClientVpnEndpoint_dryRun :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
 createClientVpnEndpoint_dryRun = Lens.lens (\CreateClientVpnEndpoint' {dryRun} -> dryRun) (\s@CreateClientVpnEndpoint' {} a -> s {dryRun = a} :: CreateClientVpnEndpoint)
+
+-- | The options for managing connection authorization for new client
+-- connections.
+createClientVpnEndpoint_clientConnectOptions :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe ClientConnectOptions)
+createClientVpnEndpoint_clientConnectOptions = Lens.lens (\CreateClientVpnEndpoint' {clientConnectOptions} -> clientConnectOptions) (\s@CreateClientVpnEndpoint' {} a -> s {clientConnectOptions = a} :: CreateClientVpnEndpoint)
+
+-- | Indicates whether split-tunnel is enabled on the Client VPN endpoint.
+--
+-- By default, split-tunnel on a VPN endpoint is disabled.
+--
+-- For information about split-tunnel VPN endpoints, see
+-- <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-tunnel Client VPN endpoint>
+-- in the /Client VPN Administrator Guide/.
+createClientVpnEndpoint_splitTunnel :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
+createClientVpnEndpoint_splitTunnel = Lens.lens (\CreateClientVpnEndpoint' {splitTunnel} -> splitTunnel) (\s@CreateClientVpnEndpoint' {} a -> s {splitTunnel = a} :: CreateClientVpnEndpoint)
+
+-- | The ID of the VPC to associate with the Client VPN endpoint. If no
+-- security group IDs are specified in the request, the default security
+-- group for the VPC is applied.
+createClientVpnEndpoint_vpcId :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Text)
+createClientVpnEndpoint_vpcId = Lens.lens (\CreateClientVpnEndpoint' {vpcId} -> vpcId) (\s@CreateClientVpnEndpoint' {} a -> s {vpcId = a} :: CreateClientVpnEndpoint)
+
+-- | The tags to apply to the Client VPN endpoint during creation.
+createClientVpnEndpoint_tagSpecifications :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe [TagSpecification])
+createClientVpnEndpoint_tagSpecifications = Lens.lens (\CreateClientVpnEndpoint' {tagSpecifications} -> tagSpecifications) (\s@CreateClientVpnEndpoint' {} a -> s {tagSpecifications = a} :: CreateClientVpnEndpoint) Prelude.. Lens.mapping Lens.coerced
+
+-- | The port number to assign to the Client VPN endpoint for TCP and UDP
+-- traffic.
+--
+-- Valid Values: @443@ | @1194@
+--
+-- Default Value: @443@
+createClientVpnEndpoint_vpnPort :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Int)
+createClientVpnEndpoint_vpnPort = Lens.lens (\CreateClientVpnEndpoint' {vpnPort} -> vpnPort) (\s@CreateClientVpnEndpoint' {} a -> s {vpnPort = a} :: CreateClientVpnEndpoint)
+
+-- | Specify whether to enable the self-service portal for the Client VPN
+-- endpoint.
+--
+-- Default Value: @enabled@
+createClientVpnEndpoint_selfServicePortal :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe SelfServicePortal)
+createClientVpnEndpoint_selfServicePortal = Lens.lens (\CreateClientVpnEndpoint' {selfServicePortal} -> selfServicePortal) (\s@CreateClientVpnEndpoint' {} a -> s {selfServicePortal = a} :: CreateClientVpnEndpoint)
 
 -- | The IPv4 address range, in CIDR notation, from which to assign client IP
 -- addresses. The address range cannot overlap with the local CIDR of the
@@ -395,18 +395,18 @@ instance Core.AWSRequest CreateClientVpnEndpoint where
 
 instance Prelude.Hashable CreateClientVpnEndpoint where
   hashWithSalt _salt CreateClientVpnEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` splitTunnel
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` transportProtocol
-      `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` vpnPort
-      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` dnsServers
-      `Prelude.hashWithSalt` clientConnectOptions
-      `Prelude.hashWithSalt` selfServicePortal
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientConnectOptions
+      `Prelude.hashWithSalt` splitTunnel
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` vpnPort
+      `Prelude.hashWithSalt` selfServicePortal
       `Prelude.hashWithSalt` clientCidrBlock
       `Prelude.hashWithSalt` serverCertificateArn
       `Prelude.hashWithSalt` authenticationOptions
@@ -414,18 +414,18 @@ instance Prelude.Hashable CreateClientVpnEndpoint where
 
 instance Prelude.NFData CreateClientVpnEndpoint where
   rnf CreateClientVpnEndpoint' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf splitTunnel
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf transportProtocol
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf vpnPort
-      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf dnsServers
-      `Prelude.seq` Prelude.rnf clientConnectOptions
-      `Prelude.seq` Prelude.rnf selfServicePortal
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientConnectOptions
+      `Prelude.seq` Prelude.rnf splitTunnel
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf vpnPort
+      `Prelude.seq` Prelude.rnf selfServicePortal
       `Prelude.seq` Prelude.rnf clientCidrBlock
       `Prelude.seq` Prelude.rnf serverCertificateArn
       `Prelude.seq` Prelude.rnf authenticationOptions
@@ -444,27 +444,27 @@ instance Core.ToQuery CreateClientVpnEndpoint where
           Core.=: ("CreateClientVpnEndpoint" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Core.=: clientToken,
+        "TransportProtocol" Core.=: transportProtocol,
         Core.toQuery
           ( Core.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
-          ),
-        "SplitTunnel" Core.=: splitTunnel,
-        "ClientToken" Core.=: clientToken,
-        "TransportProtocol" Core.=: transportProtocol,
-        "VpcId" Core.=: vpcId,
-        "VpnPort" Core.=: vpnPort,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
           ),
         Core.toQuery
           ( Core.toQueryList "DnsServers"
               Prelude.<$> dnsServers
           ),
-        "ClientConnectOptions" Core.=: clientConnectOptions,
-        "SelfServicePortal" Core.=: selfServicePortal,
         "Description" Core.=: description,
         "DryRun" Core.=: dryRun,
+        "ClientConnectOptions" Core.=: clientConnectOptions,
+        "SplitTunnel" Core.=: splitTunnel,
+        "VpcId" Core.=: vpcId,
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          ),
+        "VpnPort" Core.=: vpnPort,
+        "SelfServicePortal" Core.=: selfServicePortal,
         "ClientCidrBlock" Core.=: clientCidrBlock,
         "ServerCertificateArn" Core.=: serverCertificateArn,
         Core.toQueryList

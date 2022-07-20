@@ -30,8 +30,8 @@ module Amazonka.DataBrew.ListRecipes
 
     -- * Request Lenses
     listRecipes_nextToken,
-    listRecipes_recipeVersion,
     listRecipes_maxResults,
+    listRecipes_recipeVersion,
 
     -- * Destructuring the Response
     ListRecipesResponse (..),
@@ -56,14 +56,14 @@ data ListRecipes = ListRecipes'
   { -- | The token returned by a previous call to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in this request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Return only those recipes with a version identifier of @LATEST_WORKING@
     -- or @LATEST_PUBLISHED@. If @RecipeVersion@ is omitted, @ListRecipes@
     -- returns all of the @LATEST_PUBLISHED@ recipe versions.
     --
     -- Valid values: @LATEST_WORKING@ | @LATEST_PUBLISHED@
-    recipeVersion :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    recipeVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,26 +78,30 @@ data ListRecipes = ListRecipes'
 -- 'nextToken', 'listRecipes_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
 --
+-- 'maxResults', 'listRecipes_maxResults' - The maximum number of results to return in this request.
+--
 -- 'recipeVersion', 'listRecipes_recipeVersion' - Return only those recipes with a version identifier of @LATEST_WORKING@
 -- or @LATEST_PUBLISHED@. If @RecipeVersion@ is omitted, @ListRecipes@
 -- returns all of the @LATEST_PUBLISHED@ recipe versions.
 --
 -- Valid values: @LATEST_WORKING@ | @LATEST_PUBLISHED@
---
--- 'maxResults', 'listRecipes_maxResults' - The maximum number of results to return in this request.
 newListRecipes ::
   ListRecipes
 newListRecipes =
   ListRecipes'
     { nextToken = Prelude.Nothing,
-      recipeVersion = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      recipeVersion = Prelude.Nothing
     }
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
 listRecipes_nextToken :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Text)
 listRecipes_nextToken = Lens.lens (\ListRecipes' {nextToken} -> nextToken) (\s@ListRecipes' {} a -> s {nextToken = a} :: ListRecipes)
+
+-- | The maximum number of results to return in this request.
+listRecipes_maxResults :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Natural)
+listRecipes_maxResults = Lens.lens (\ListRecipes' {maxResults} -> maxResults) (\s@ListRecipes' {} a -> s {maxResults = a} :: ListRecipes)
 
 -- | Return only those recipes with a version identifier of @LATEST_WORKING@
 -- or @LATEST_PUBLISHED@. If @RecipeVersion@ is omitted, @ListRecipes@
@@ -106,10 +110,6 @@ listRecipes_nextToken = Lens.lens (\ListRecipes' {nextToken} -> nextToken) (\s@L
 -- Valid values: @LATEST_WORKING@ | @LATEST_PUBLISHED@
 listRecipes_recipeVersion :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Text)
 listRecipes_recipeVersion = Lens.lens (\ListRecipes' {recipeVersion} -> recipeVersion) (\s@ListRecipes' {} a -> s {recipeVersion = a} :: ListRecipes)
-
--- | The maximum number of results to return in this request.
-listRecipes_maxResults :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Natural)
-listRecipes_maxResults = Lens.lens (\ListRecipes' {maxResults} -> maxResults) (\s@ListRecipes' {} a -> s {maxResults = a} :: ListRecipes)
 
 instance Core.AWSPager ListRecipes where
   page rq rs
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListRecipes where
 instance Prelude.Hashable ListRecipes where
   hashWithSalt _salt ListRecipes' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` recipeVersion
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` recipeVersion
 
 instance Prelude.NFData ListRecipes where
   rnf ListRecipes' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recipeVersion
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf recipeVersion
 
 instance Core.ToHeaders ListRecipes where
   toHeaders =
@@ -169,8 +169,8 @@ instance Core.ToQuery ListRecipes where
   toQuery ListRecipes' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "recipeVersion" Core.=: recipeVersion,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "recipeVersion" Core.=: recipeVersion
       ]
 
 -- | /See:/ 'newListRecipesResponse' smart constructor.

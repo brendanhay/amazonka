@@ -34,38 +34,38 @@ import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails
 --
 -- /See:/ 'newAwsEcsTaskDefinitionDetails' smart constructor.
 data AwsEcsTaskDefinitionDetails = AwsEcsTaskDefinitionDetails'
-  { -- | The Elastic Inference accelerators to use for the containers in the
-    -- task.
-    inferenceAccelerators :: Prelude.Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails],
-    -- | The ARN of the task execution role that grants the container agent
-    -- permission to make API calls on behalf of the container user.
-    executionRoleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The configuration details for the App Mesh proxy.
+    proxyConfiguration :: Prelude.Maybe AwsEcsTaskDefinitionProxyConfigurationDetails,
     -- | The process namespace to use for the containers in the task.
     pidMode :: Prelude.Maybe Prelude.Text,
-    -- | The name of a family that this task definition is registered to.
-    family :: Prelude.Maybe Prelude.Text,
-    -- | The task launch types that the task definition was validated against.
-    requiresCompatibilities :: Prelude.Maybe [Prelude.Text],
-    -- | The container definitions that describe the containers that make up the
-    -- task.
-    containerDefinitions :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails],
+    -- | The number of CPU units used by the task.
+    cpu :: Prelude.Maybe Prelude.Text,
     -- | The amount (in MiB) of memory used by the task.
     memory :: Prelude.Maybe Prelude.Text,
-    -- | The IPC resource namespace to use for the containers in the task.
-    ipcMode :: Prelude.Maybe Prelude.Text,
     -- | The short name or ARN of the IAM role that grants containers in the task
     -- permission to call Amazon Web Services API operations on your behalf.
     taskRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The configuration details for the App Mesh proxy.
-    proxyConfiguration :: Prelude.Maybe AwsEcsTaskDefinitionProxyConfigurationDetails,
-    -- | The placement constraint objects to use for tasks.
-    placementConstraints :: Prelude.Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails],
-    -- | The Docker networking mode to use for the containers in the task.
-    networkMode :: Prelude.Maybe Prelude.Text,
+    -- | The Elastic Inference accelerators to use for the containers in the
+    -- task.
+    inferenceAccelerators :: Prelude.Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails],
     -- | The data volume definitions for the task.
     volumes :: Prelude.Maybe [AwsEcsTaskDefinitionVolumesDetails],
-    -- | The number of CPU units used by the task.
-    cpu :: Prelude.Maybe Prelude.Text
+    -- | The task launch types that the task definition was validated against.
+    requiresCompatibilities :: Prelude.Maybe [Prelude.Text],
+    -- | The placement constraint objects to use for tasks.
+    placementConstraints :: Prelude.Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails],
+    -- | The name of a family that this task definition is registered to.
+    family :: Prelude.Maybe Prelude.Text,
+    -- | The container definitions that describe the containers that make up the
+    -- task.
+    containerDefinitions :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails],
+    -- | The ARN of the task execution role that grants the container agent
+    -- permission to make API calls on behalf of the container user.
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Docker networking mode to use for the containers in the task.
+    networkMode :: Prelude.Maybe Prelude.Text,
+    -- | The IPC resource namespace to use for the containers in the task.
+    ipcMode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,117 +77,117 @@ data AwsEcsTaskDefinitionDetails = AwsEcsTaskDefinitionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'proxyConfiguration', 'awsEcsTaskDefinitionDetails_proxyConfiguration' - The configuration details for the App Mesh proxy.
+--
+-- 'pidMode', 'awsEcsTaskDefinitionDetails_pidMode' - The process namespace to use for the containers in the task.
+--
+-- 'cpu', 'awsEcsTaskDefinitionDetails_cpu' - The number of CPU units used by the task.
+--
+-- 'memory', 'awsEcsTaskDefinitionDetails_memory' - The amount (in MiB) of memory used by the task.
+--
+-- 'taskRoleArn', 'awsEcsTaskDefinitionDetails_taskRoleArn' - The short name or ARN of the IAM role that grants containers in the task
+-- permission to call Amazon Web Services API operations on your behalf.
+--
 -- 'inferenceAccelerators', 'awsEcsTaskDefinitionDetails_inferenceAccelerators' - The Elastic Inference accelerators to use for the containers in the
+-- task.
+--
+-- 'volumes', 'awsEcsTaskDefinitionDetails_volumes' - The data volume definitions for the task.
+--
+-- 'requiresCompatibilities', 'awsEcsTaskDefinitionDetails_requiresCompatibilities' - The task launch types that the task definition was validated against.
+--
+-- 'placementConstraints', 'awsEcsTaskDefinitionDetails_placementConstraints' - The placement constraint objects to use for tasks.
+--
+-- 'family', 'awsEcsTaskDefinitionDetails_family' - The name of a family that this task definition is registered to.
+--
+-- 'containerDefinitions', 'awsEcsTaskDefinitionDetails_containerDefinitions' - The container definitions that describe the containers that make up the
 -- task.
 --
 -- 'executionRoleArn', 'awsEcsTaskDefinitionDetails_executionRoleArn' - The ARN of the task execution role that grants the container agent
 -- permission to make API calls on behalf of the container user.
 --
--- 'pidMode', 'awsEcsTaskDefinitionDetails_pidMode' - The process namespace to use for the containers in the task.
---
--- 'family', 'awsEcsTaskDefinitionDetails_family' - The name of a family that this task definition is registered to.
---
--- 'requiresCompatibilities', 'awsEcsTaskDefinitionDetails_requiresCompatibilities' - The task launch types that the task definition was validated against.
---
--- 'containerDefinitions', 'awsEcsTaskDefinitionDetails_containerDefinitions' - The container definitions that describe the containers that make up the
--- task.
---
--- 'memory', 'awsEcsTaskDefinitionDetails_memory' - The amount (in MiB) of memory used by the task.
---
--- 'ipcMode', 'awsEcsTaskDefinitionDetails_ipcMode' - The IPC resource namespace to use for the containers in the task.
---
--- 'taskRoleArn', 'awsEcsTaskDefinitionDetails_taskRoleArn' - The short name or ARN of the IAM role that grants containers in the task
--- permission to call Amazon Web Services API operations on your behalf.
---
--- 'proxyConfiguration', 'awsEcsTaskDefinitionDetails_proxyConfiguration' - The configuration details for the App Mesh proxy.
---
--- 'placementConstraints', 'awsEcsTaskDefinitionDetails_placementConstraints' - The placement constraint objects to use for tasks.
---
 -- 'networkMode', 'awsEcsTaskDefinitionDetails_networkMode' - The Docker networking mode to use for the containers in the task.
 --
--- 'volumes', 'awsEcsTaskDefinitionDetails_volumes' - The data volume definitions for the task.
---
--- 'cpu', 'awsEcsTaskDefinitionDetails_cpu' - The number of CPU units used by the task.
+-- 'ipcMode', 'awsEcsTaskDefinitionDetails_ipcMode' - The IPC resource namespace to use for the containers in the task.
 newAwsEcsTaskDefinitionDetails ::
   AwsEcsTaskDefinitionDetails
 newAwsEcsTaskDefinitionDetails =
   AwsEcsTaskDefinitionDetails'
-    { inferenceAccelerators =
+    { proxyConfiguration =
         Prelude.Nothing,
-      executionRoleArn = Prelude.Nothing,
       pidMode = Prelude.Nothing,
-      family = Prelude.Nothing,
-      requiresCompatibilities = Prelude.Nothing,
-      containerDefinitions = Prelude.Nothing,
+      cpu = Prelude.Nothing,
       memory = Prelude.Nothing,
-      ipcMode = Prelude.Nothing,
       taskRoleArn = Prelude.Nothing,
-      proxyConfiguration = Prelude.Nothing,
-      placementConstraints = Prelude.Nothing,
-      networkMode = Prelude.Nothing,
+      inferenceAccelerators = Prelude.Nothing,
       volumes = Prelude.Nothing,
-      cpu = Prelude.Nothing
+      requiresCompatibilities = Prelude.Nothing,
+      placementConstraints = Prelude.Nothing,
+      family = Prelude.Nothing,
+      containerDefinitions = Prelude.Nothing,
+      executionRoleArn = Prelude.Nothing,
+      networkMode = Prelude.Nothing,
+      ipcMode = Prelude.Nothing
     }
 
--- | The Elastic Inference accelerators to use for the containers in the
--- task.
-awsEcsTaskDefinitionDetails_inferenceAccelerators :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
-awsEcsTaskDefinitionDetails_inferenceAccelerators = Lens.lens (\AwsEcsTaskDefinitionDetails' {inferenceAccelerators} -> inferenceAccelerators) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {inferenceAccelerators = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of the task execution role that grants the container agent
--- permission to make API calls on behalf of the container user.
-awsEcsTaskDefinitionDetails_executionRoleArn :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionDetails_executionRoleArn = Lens.lens (\AwsEcsTaskDefinitionDetails' {executionRoleArn} -> executionRoleArn) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {executionRoleArn = a} :: AwsEcsTaskDefinitionDetails)
+-- | The configuration details for the App Mesh proxy.
+awsEcsTaskDefinitionDetails_proxyConfiguration :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe AwsEcsTaskDefinitionProxyConfigurationDetails)
+awsEcsTaskDefinitionDetails_proxyConfiguration = Lens.lens (\AwsEcsTaskDefinitionDetails' {proxyConfiguration} -> proxyConfiguration) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {proxyConfiguration = a} :: AwsEcsTaskDefinitionDetails)
 
 -- | The process namespace to use for the containers in the task.
 awsEcsTaskDefinitionDetails_pidMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_pidMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {pidMode} -> pidMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {pidMode = a} :: AwsEcsTaskDefinitionDetails)
 
--- | The name of a family that this task definition is registered to.
-awsEcsTaskDefinitionDetails_family :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionDetails_family = Lens.lens (\AwsEcsTaskDefinitionDetails' {family} -> family) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {family = a} :: AwsEcsTaskDefinitionDetails)
-
--- | The task launch types that the task definition was validated against.
-awsEcsTaskDefinitionDetails_requiresCompatibilities :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [Prelude.Text])
-awsEcsTaskDefinitionDetails_requiresCompatibilities = Lens.lens (\AwsEcsTaskDefinitionDetails' {requiresCompatibilities} -> requiresCompatibilities) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {requiresCompatibilities = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The container definitions that describe the containers that make up the
--- task.
-awsEcsTaskDefinitionDetails_containerDefinitions :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
-awsEcsTaskDefinitionDetails_containerDefinitions = Lens.lens (\AwsEcsTaskDefinitionDetails' {containerDefinitions} -> containerDefinitions) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {containerDefinitions = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
+-- | The number of CPU units used by the task.
+awsEcsTaskDefinitionDetails_cpu :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionDetails_cpu = Lens.lens (\AwsEcsTaskDefinitionDetails' {cpu} -> cpu) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {cpu = a} :: AwsEcsTaskDefinitionDetails)
 
 -- | The amount (in MiB) of memory used by the task.
 awsEcsTaskDefinitionDetails_memory :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_memory = Lens.lens (\AwsEcsTaskDefinitionDetails' {memory} -> memory) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {memory = a} :: AwsEcsTaskDefinitionDetails)
-
--- | The IPC resource namespace to use for the containers in the task.
-awsEcsTaskDefinitionDetails_ipcMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionDetails_ipcMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {ipcMode} -> ipcMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {ipcMode = a} :: AwsEcsTaskDefinitionDetails)
 
 -- | The short name or ARN of the IAM role that grants containers in the task
 -- permission to call Amazon Web Services API operations on your behalf.
 awsEcsTaskDefinitionDetails_taskRoleArn :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_taskRoleArn = Lens.lens (\AwsEcsTaskDefinitionDetails' {taskRoleArn} -> taskRoleArn) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {taskRoleArn = a} :: AwsEcsTaskDefinitionDetails)
 
--- | The configuration details for the App Mesh proxy.
-awsEcsTaskDefinitionDetails_proxyConfiguration :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe AwsEcsTaskDefinitionProxyConfigurationDetails)
-awsEcsTaskDefinitionDetails_proxyConfiguration = Lens.lens (\AwsEcsTaskDefinitionDetails' {proxyConfiguration} -> proxyConfiguration) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {proxyConfiguration = a} :: AwsEcsTaskDefinitionDetails)
-
--- | The placement constraint objects to use for tasks.
-awsEcsTaskDefinitionDetails_placementConstraints :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
-awsEcsTaskDefinitionDetails_placementConstraints = Lens.lens (\AwsEcsTaskDefinitionDetails' {placementConstraints} -> placementConstraints) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {placementConstraints = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The Docker networking mode to use for the containers in the task.
-awsEcsTaskDefinitionDetails_networkMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionDetails_networkMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {networkMode} -> networkMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {networkMode = a} :: AwsEcsTaskDefinitionDetails)
+-- | The Elastic Inference accelerators to use for the containers in the
+-- task.
+awsEcsTaskDefinitionDetails_inferenceAccelerators :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [AwsEcsTaskDefinitionInferenceAcceleratorsDetails])
+awsEcsTaskDefinitionDetails_inferenceAccelerators = Lens.lens (\AwsEcsTaskDefinitionDetails' {inferenceAccelerators} -> inferenceAccelerators) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {inferenceAccelerators = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data volume definitions for the task.
 awsEcsTaskDefinitionDetails_volumes :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [AwsEcsTaskDefinitionVolumesDetails])
 awsEcsTaskDefinitionDetails_volumes = Lens.lens (\AwsEcsTaskDefinitionDetails' {volumes} -> volumes) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {volumes = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The number of CPU units used by the task.
-awsEcsTaskDefinitionDetails_cpu :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionDetails_cpu = Lens.lens (\AwsEcsTaskDefinitionDetails' {cpu} -> cpu) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {cpu = a} :: AwsEcsTaskDefinitionDetails)
+-- | The task launch types that the task definition was validated against.
+awsEcsTaskDefinitionDetails_requiresCompatibilities :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [Prelude.Text])
+awsEcsTaskDefinitionDetails_requiresCompatibilities = Lens.lens (\AwsEcsTaskDefinitionDetails' {requiresCompatibilities} -> requiresCompatibilities) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {requiresCompatibilities = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The placement constraint objects to use for tasks.
+awsEcsTaskDefinitionDetails_placementConstraints :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [AwsEcsTaskDefinitionPlacementConstraintsDetails])
+awsEcsTaskDefinitionDetails_placementConstraints = Lens.lens (\AwsEcsTaskDefinitionDetails' {placementConstraints} -> placementConstraints) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {placementConstraints = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of a family that this task definition is registered to.
+awsEcsTaskDefinitionDetails_family :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionDetails_family = Lens.lens (\AwsEcsTaskDefinitionDetails' {family} -> family) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {family = a} :: AwsEcsTaskDefinitionDetails)
+
+-- | The container definitions that describe the containers that make up the
+-- task.
+awsEcsTaskDefinitionDetails_containerDefinitions :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsDetails])
+awsEcsTaskDefinitionDetails_containerDefinitions = Lens.lens (\AwsEcsTaskDefinitionDetails' {containerDefinitions} -> containerDefinitions) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {containerDefinitions = a} :: AwsEcsTaskDefinitionDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the task execution role that grants the container agent
+-- permission to make API calls on behalf of the container user.
+awsEcsTaskDefinitionDetails_executionRoleArn :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionDetails_executionRoleArn = Lens.lens (\AwsEcsTaskDefinitionDetails' {executionRoleArn} -> executionRoleArn) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {executionRoleArn = a} :: AwsEcsTaskDefinitionDetails)
+
+-- | The Docker networking mode to use for the containers in the task.
+awsEcsTaskDefinitionDetails_networkMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionDetails_networkMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {networkMode} -> networkMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {networkMode = a} :: AwsEcsTaskDefinitionDetails)
+
+-- | The IPC resource namespace to use for the containers in the task.
+awsEcsTaskDefinitionDetails_ipcMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionDetails_ipcMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {ipcMode} -> ipcMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {ipcMode = a} :: AwsEcsTaskDefinitionDetails)
 
 instance Core.FromJSON AwsEcsTaskDefinitionDetails where
   parseJSON =
@@ -195,87 +195,87 @@ instance Core.FromJSON AwsEcsTaskDefinitionDetails where
       "AwsEcsTaskDefinitionDetails"
       ( \x ->
           AwsEcsTaskDefinitionDetails'
-            Prelude.<$> ( x Core..:? "InferenceAccelerators"
+            Prelude.<$> (x Core..:? "ProxyConfiguration")
+            Prelude.<*> (x Core..:? "PidMode")
+            Prelude.<*> (x Core..:? "Cpu")
+            Prelude.<*> (x Core..:? "Memory")
+            Prelude.<*> (x Core..:? "TaskRoleArn")
+            Prelude.<*> ( x Core..:? "InferenceAccelerators"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ExecutionRoleArn")
-            Prelude.<*> (x Core..:? "PidMode")
-            Prelude.<*> (x Core..:? "Family")
+            Prelude.<*> (x Core..:? "Volumes" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "RequiresCompatibilities"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ContainerDefinitions"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "Memory")
-            Prelude.<*> (x Core..:? "IpcMode")
-            Prelude.<*> (x Core..:? "TaskRoleArn")
-            Prelude.<*> (x Core..:? "ProxyConfiguration")
             Prelude.<*> ( x Core..:? "PlacementConstraints"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "Family")
+            Prelude.<*> ( x Core..:? "ContainerDefinitions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ExecutionRoleArn")
             Prelude.<*> (x Core..:? "NetworkMode")
-            Prelude.<*> (x Core..:? "Volumes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Cpu")
+            Prelude.<*> (x Core..:? "IpcMode")
       )
 
 instance Prelude.Hashable AwsEcsTaskDefinitionDetails where
   hashWithSalt _salt AwsEcsTaskDefinitionDetails' {..} =
-    _salt `Prelude.hashWithSalt` inferenceAccelerators
-      `Prelude.hashWithSalt` executionRoleArn
+    _salt `Prelude.hashWithSalt` proxyConfiguration
       `Prelude.hashWithSalt` pidMode
-      `Prelude.hashWithSalt` family
-      `Prelude.hashWithSalt` requiresCompatibilities
-      `Prelude.hashWithSalt` containerDefinitions
-      `Prelude.hashWithSalt` memory
-      `Prelude.hashWithSalt` ipcMode
-      `Prelude.hashWithSalt` taskRoleArn
-      `Prelude.hashWithSalt` proxyConfiguration
-      `Prelude.hashWithSalt` placementConstraints
-      `Prelude.hashWithSalt` networkMode
-      `Prelude.hashWithSalt` volumes
       `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` memory
+      `Prelude.hashWithSalt` taskRoleArn
+      `Prelude.hashWithSalt` inferenceAccelerators
+      `Prelude.hashWithSalt` volumes
+      `Prelude.hashWithSalt` requiresCompatibilities
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` containerDefinitions
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` networkMode
+      `Prelude.hashWithSalt` ipcMode
 
 instance Prelude.NFData AwsEcsTaskDefinitionDetails where
   rnf AwsEcsTaskDefinitionDetails' {..} =
-    Prelude.rnf inferenceAccelerators
-      `Prelude.seq` Prelude.rnf executionRoleArn
+    Prelude.rnf proxyConfiguration
       `Prelude.seq` Prelude.rnf pidMode
-      `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf requiresCompatibilities
-      `Prelude.seq` Prelude.rnf containerDefinitions
-      `Prelude.seq` Prelude.rnf memory
-      `Prelude.seq` Prelude.rnf ipcMode
-      `Prelude.seq` Prelude.rnf taskRoleArn
-      `Prelude.seq` Prelude.rnf proxyConfiguration
-      `Prelude.seq` Prelude.rnf placementConstraints
-      `Prelude.seq` Prelude.rnf networkMode
-      `Prelude.seq` Prelude.rnf volumes
       `Prelude.seq` Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf memory
+      `Prelude.seq` Prelude.rnf taskRoleArn
+      `Prelude.seq` Prelude.rnf inferenceAccelerators
+      `Prelude.seq` Prelude.rnf volumes
+      `Prelude.seq` Prelude.rnf requiresCompatibilities
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf containerDefinitions
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf networkMode
+      `Prelude.seq` Prelude.rnf ipcMode
 
 instance Core.ToJSON AwsEcsTaskDefinitionDetails where
   toJSON AwsEcsTaskDefinitionDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InferenceAccelerators" Core..=)
-              Prelude.<$> inferenceAccelerators,
-            ("ExecutionRoleArn" Core..=)
-              Prelude.<$> executionRoleArn,
+          [ ("ProxyConfiguration" Core..=)
+              Prelude.<$> proxyConfiguration,
             ("PidMode" Core..=) Prelude.<$> pidMode,
-            ("Family" Core..=) Prelude.<$> family,
+            ("Cpu" Core..=) Prelude.<$> cpu,
+            ("Memory" Core..=) Prelude.<$> memory,
+            ("TaskRoleArn" Core..=) Prelude.<$> taskRoleArn,
+            ("InferenceAccelerators" Core..=)
+              Prelude.<$> inferenceAccelerators,
+            ("Volumes" Core..=) Prelude.<$> volumes,
             ("RequiresCompatibilities" Core..=)
               Prelude.<$> requiresCompatibilities,
-            ("ContainerDefinitions" Core..=)
-              Prelude.<$> containerDefinitions,
-            ("Memory" Core..=) Prelude.<$> memory,
-            ("IpcMode" Core..=) Prelude.<$> ipcMode,
-            ("TaskRoleArn" Core..=) Prelude.<$> taskRoleArn,
-            ("ProxyConfiguration" Core..=)
-              Prelude.<$> proxyConfiguration,
             ("PlacementConstraints" Core..=)
               Prelude.<$> placementConstraints,
+            ("Family" Core..=) Prelude.<$> family,
+            ("ContainerDefinitions" Core..=)
+              Prelude.<$> containerDefinitions,
+            ("ExecutionRoleArn" Core..=)
+              Prelude.<$> executionRoleArn,
             ("NetworkMode" Core..=) Prelude.<$> networkMode,
-            ("Volumes" Core..=) Prelude.<$> volumes,
-            ("Cpu" Core..=) Prelude.<$> cpu
+            ("IpcMode" Core..=) Prelude.<$> ipcMode
           ]
       )

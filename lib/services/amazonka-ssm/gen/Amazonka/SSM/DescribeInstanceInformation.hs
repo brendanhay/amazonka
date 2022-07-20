@@ -40,10 +40,10 @@ module Amazonka.SSM.DescribeInstanceInformation
     newDescribeInstanceInformation,
 
     -- * Request Lenses
-    describeInstanceInformation_instanceInformationFilterList,
-    describeInstanceInformation_filters,
     describeInstanceInformation_nextToken,
+    describeInstanceInformation_filters,
     describeInstanceInformation_maxResults,
+    describeInstanceInformation_instanceInformationFilterList,
 
     -- * Destructuring the Response
     DescribeInstanceInformationResponse (..),
@@ -65,26 +65,26 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeInstanceInformation' smart constructor.
 data DescribeInstanceInformation = DescribeInstanceInformation'
-  { -- | This is a legacy method. We recommend that you don\'t use this method.
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. Use a filter to return a more specific list of
+    -- instances. You can filter based on tags applied to EC2 instances. Use
+    -- this @Filters@ data type instead of @InstanceInformationFilterList@,
+    -- which is deprecated.
+    filters :: Prelude.Maybe [InstanceInformationStringFilter],
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | This is a legacy method. We recommend that you don\'t use this method.
     -- Instead, use the @Filters@ data type. @Filters@ enables you to return
     -- instance information by filtering based on tags applied to managed
     -- instances.
     --
     -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
     -- an exception error.
-    instanceInformationFilterList :: Prelude.Maybe [InstanceInformationFilter],
-    -- | One or more filters. Use a filter to return a more specific list of
-    -- instances. You can filter based on tags applied to EC2 instances. Use
-    -- this @Filters@ data type instead of @InstanceInformationFilterList@,
-    -- which is deprecated.
-    filters :: Prelude.Maybe [InstanceInformationStringFilter],
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    instanceInformationFilterList :: Prelude.Maybe [InstanceInformationFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,6 +96,18 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeInstanceInformation_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'filters', 'describeInstanceInformation_filters' - One or more filters. Use a filter to return a more specific list of
+-- instances. You can filter based on tags applied to EC2 instances. Use
+-- this @Filters@ data type instead of @InstanceInformationFilterList@,
+-- which is deprecated.
+--
+-- 'maxResults', 'describeInstanceInformation_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+--
 -- 'instanceInformationFilterList', 'describeInstanceInformation_instanceInformationFilterList' - This is a legacy method. We recommend that you don\'t use this method.
 -- Instead, use the @Filters@ data type. @Filters@ enables you to return
 -- instance information by filtering based on tags applied to managed
@@ -103,28 +115,35 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 --
 -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
 -- an exception error.
---
--- 'filters', 'describeInstanceInformation_filters' - One or more filters. Use a filter to return a more specific list of
--- instances. You can filter based on tags applied to EC2 instances. Use
--- this @Filters@ data type instead of @InstanceInformationFilterList@,
--- which is deprecated.
---
--- 'nextToken', 'describeInstanceInformation_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
--- 'maxResults', 'describeInstanceInformation_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
 newDescribeInstanceInformation ::
   DescribeInstanceInformation
 newDescribeInstanceInformation =
   DescribeInstanceInformation'
-    { instanceInformationFilterList =
+    { nextToken =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      instanceInformationFilterList =
+        Prelude.Nothing
     }
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeInstanceInformation_nextToken :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Text)
+describeInstanceInformation_nextToken = Lens.lens (\DescribeInstanceInformation' {nextToken} -> nextToken) (\s@DescribeInstanceInformation' {} a -> s {nextToken = a} :: DescribeInstanceInformation)
+
+-- | One or more filters. Use a filter to return a more specific list of
+-- instances. You can filter based on tags applied to EC2 instances. Use
+-- this @Filters@ data type instead of @InstanceInformationFilterList@,
+-- which is deprecated.
+describeInstanceInformation_filters :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationStringFilter])
+describeInstanceInformation_filters = Lens.lens (\DescribeInstanceInformation' {filters} -> filters) (\s@DescribeInstanceInformation' {} a -> s {filters = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+describeInstanceInformation_maxResults :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Natural)
+describeInstanceInformation_maxResults = Lens.lens (\DescribeInstanceInformation' {maxResults} -> maxResults) (\s@DescribeInstanceInformation' {} a -> s {maxResults = a} :: DescribeInstanceInformation)
 
 -- | This is a legacy method. We recommend that you don\'t use this method.
 -- Instead, use the @Filters@ data type. @Filters@ enables you to return
@@ -135,24 +154,6 @@ newDescribeInstanceInformation =
 -- an exception error.
 describeInstanceInformation_instanceInformationFilterList :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationFilter])
 describeInstanceInformation_instanceInformationFilterList = Lens.lens (\DescribeInstanceInformation' {instanceInformationFilterList} -> instanceInformationFilterList) (\s@DescribeInstanceInformation' {} a -> s {instanceInformationFilterList = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more filters. Use a filter to return a more specific list of
--- instances. You can filter based on tags applied to EC2 instances. Use
--- this @Filters@ data type instead of @InstanceInformationFilterList@,
--- which is deprecated.
-describeInstanceInformation_filters :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationStringFilter])
-describeInstanceInformation_filters = Lens.lens (\DescribeInstanceInformation' {filters} -> filters) (\s@DescribeInstanceInformation' {} a -> s {filters = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeInstanceInformation_nextToken :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Text)
-describeInstanceInformation_nextToken = Lens.lens (\DescribeInstanceInformation' {nextToken} -> nextToken) (\s@DescribeInstanceInformation' {} a -> s {nextToken = a} :: DescribeInstanceInformation)
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-describeInstanceInformation_maxResults :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Natural)
-describeInstanceInformation_maxResults = Lens.lens (\DescribeInstanceInformation' {maxResults} -> maxResults) (\s@DescribeInstanceInformation' {} a -> s {maxResults = a} :: DescribeInstanceInformation)
 
 instance Core.AWSPager DescribeInstanceInformation where
   page rq rs
@@ -194,18 +195,17 @@ instance Core.AWSRequest DescribeInstanceInformation where
 
 instance Prelude.Hashable DescribeInstanceInformation where
   hashWithSalt _salt DescribeInstanceInformation' {..} =
-    _salt
-      `Prelude.hashWithSalt` instanceInformationFilterList
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` instanceInformationFilterList
 
 instance Prelude.NFData DescribeInstanceInformation where
   rnf DescribeInstanceInformation' {..} =
-    Prelude.rnf instanceInformationFilterList
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceInformationFilterList
 
 instance Core.ToHeaders DescribeInstanceInformation where
   toHeaders =
@@ -226,11 +226,11 @@ instance Core.ToJSON DescribeInstanceInformation where
   toJSON DescribeInstanceInformation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceInformationFilterList" Core..=)
-              Prelude.<$> instanceInformationFilterList,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("InstanceInformationFilterList" Core..=)
+              Prelude.<$> instanceInformationFilterList
           ]
       )
 

@@ -37,8 +37,8 @@ module Amazonka.KafkaConnect.ListCustomPlugins
     newListCustomPluginsResponse,
 
     -- * Response Lenses
-    listCustomPluginsResponse_customPlugins,
     listCustomPluginsResponse_nextToken,
+    listCustomPluginsResponse_customPlugins,
     listCustomPluginsResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance Core.AWSRequest ListCustomPlugins where
     Response.receiveJSON
       ( \s h x ->
           ListCustomPluginsResponse'
-            Prelude.<$> (x Core..?> "customPlugins" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "customPlugins" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,12 +161,12 @@ instance Core.ToQuery ListCustomPlugins where
 
 -- | /See:/ 'newListCustomPluginsResponse' smart constructor.
 data ListCustomPluginsResponse = ListCustomPluginsResponse'
-  { -- | An array of custom plugin descriptions.
-    customPlugins :: Prelude.Maybe [CustomPluginSummary],
-    -- | If the response of a ListCustomPlugins operation is truncated, it will
+  { -- | If the response of a ListCustomPlugins operation is truncated, it will
     -- include a NextToken. Send this NextToken in a subsequent request to
     -- continue listing from where the previous operation left off.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of custom plugin descriptions.
+    customPlugins :: Prelude.Maybe [CustomPluginSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,11 +180,11 @@ data ListCustomPluginsResponse = ListCustomPluginsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customPlugins', 'listCustomPluginsResponse_customPlugins' - An array of custom plugin descriptions.
---
 -- 'nextToken', 'listCustomPluginsResponse_nextToken' - If the response of a ListCustomPlugins operation is truncated, it will
 -- include a NextToken. Send this NextToken in a subsequent request to
 -- continue listing from where the previous operation left off.
+--
+-- 'customPlugins', 'listCustomPluginsResponse_customPlugins' - An array of custom plugin descriptions.
 --
 -- 'httpStatus', 'listCustomPluginsResponse_httpStatus' - The response's http status code.
 newListCustomPluginsResponse ::
@@ -193,15 +193,11 @@ newListCustomPluginsResponse ::
   ListCustomPluginsResponse
 newListCustomPluginsResponse pHttpStatus_ =
   ListCustomPluginsResponse'
-    { customPlugins =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      customPlugins = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of custom plugin descriptions.
-listCustomPluginsResponse_customPlugins :: Lens.Lens' ListCustomPluginsResponse (Prelude.Maybe [CustomPluginSummary])
-listCustomPluginsResponse_customPlugins = Lens.lens (\ListCustomPluginsResponse' {customPlugins} -> customPlugins) (\s@ListCustomPluginsResponse' {} a -> s {customPlugins = a} :: ListCustomPluginsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response of a ListCustomPlugins operation is truncated, it will
 -- include a NextToken. Send this NextToken in a subsequent request to
@@ -209,12 +205,16 @@ listCustomPluginsResponse_customPlugins = Lens.lens (\ListCustomPluginsResponse'
 listCustomPluginsResponse_nextToken :: Lens.Lens' ListCustomPluginsResponse (Prelude.Maybe Prelude.Text)
 listCustomPluginsResponse_nextToken = Lens.lens (\ListCustomPluginsResponse' {nextToken} -> nextToken) (\s@ListCustomPluginsResponse' {} a -> s {nextToken = a} :: ListCustomPluginsResponse)
 
+-- | An array of custom plugin descriptions.
+listCustomPluginsResponse_customPlugins :: Lens.Lens' ListCustomPluginsResponse (Prelude.Maybe [CustomPluginSummary])
+listCustomPluginsResponse_customPlugins = Lens.lens (\ListCustomPluginsResponse' {customPlugins} -> customPlugins) (\s@ListCustomPluginsResponse' {} a -> s {customPlugins = a} :: ListCustomPluginsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listCustomPluginsResponse_httpStatus :: Lens.Lens' ListCustomPluginsResponse Prelude.Int
 listCustomPluginsResponse_httpStatus = Lens.lens (\ListCustomPluginsResponse' {httpStatus} -> httpStatus) (\s@ListCustomPluginsResponse' {} a -> s {httpStatus = a} :: ListCustomPluginsResponse)
 
 instance Prelude.NFData ListCustomPluginsResponse where
   rnf ListCustomPluginsResponse' {..} =
-    Prelude.rnf customPlugins
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf customPlugins
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,8 +29,8 @@ module Amazonka.Chime.UpdateUser
 
     -- * Request Lenses
     updateUser_licenseType,
-    updateUser_userType,
     updateUser_alexaForBusinessMetadata,
+    updateUser_userType,
     updateUser_accountId,
     updateUser_userId,
 
@@ -56,10 +56,10 @@ data UpdateUser = UpdateUser'
   { -- | The user license type to update. This must be a supported license type
     -- for the Amazon Chime account that the user belongs to.
     licenseType :: Prelude.Maybe License,
-    -- | The user type.
-    userType :: Prelude.Maybe UserType,
     -- | The Alexa for Business metadata.
     alexaForBusinessMetadata :: Prelude.Maybe AlexaForBusinessMetadata,
+    -- | The user type.
+    userType :: Prelude.Maybe UserType,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text,
     -- | The user ID.
@@ -78,9 +78,9 @@ data UpdateUser = UpdateUser'
 -- 'licenseType', 'updateUser_licenseType' - The user license type to update. This must be a supported license type
 -- for the Amazon Chime account that the user belongs to.
 --
--- 'userType', 'updateUser_userType' - The user type.
---
 -- 'alexaForBusinessMetadata', 'updateUser_alexaForBusinessMetadata' - The Alexa for Business metadata.
+--
+-- 'userType', 'updateUser_userType' - The user type.
 --
 -- 'accountId', 'updateUser_accountId' - The Amazon Chime account ID.
 --
@@ -94,8 +94,8 @@ newUpdateUser ::
 newUpdateUser pAccountId_ pUserId_ =
   UpdateUser'
     { licenseType = Prelude.Nothing,
-      userType = Prelude.Nothing,
       alexaForBusinessMetadata = Prelude.Nothing,
+      userType = Prelude.Nothing,
       accountId = pAccountId_,
       userId = pUserId_
     }
@@ -105,13 +105,13 @@ newUpdateUser pAccountId_ pUserId_ =
 updateUser_licenseType :: Lens.Lens' UpdateUser (Prelude.Maybe License)
 updateUser_licenseType = Lens.lens (\UpdateUser' {licenseType} -> licenseType) (\s@UpdateUser' {} a -> s {licenseType = a} :: UpdateUser)
 
--- | The user type.
-updateUser_userType :: Lens.Lens' UpdateUser (Prelude.Maybe UserType)
-updateUser_userType = Lens.lens (\UpdateUser' {userType} -> userType) (\s@UpdateUser' {} a -> s {userType = a} :: UpdateUser)
-
 -- | The Alexa for Business metadata.
 updateUser_alexaForBusinessMetadata :: Lens.Lens' UpdateUser (Prelude.Maybe AlexaForBusinessMetadata)
 updateUser_alexaForBusinessMetadata = Lens.lens (\UpdateUser' {alexaForBusinessMetadata} -> alexaForBusinessMetadata) (\s@UpdateUser' {} a -> s {alexaForBusinessMetadata = a} :: UpdateUser)
+
+-- | The user type.
+updateUser_userType :: Lens.Lens' UpdateUser (Prelude.Maybe UserType)
+updateUser_userType = Lens.lens (\UpdateUser' {userType} -> userType) (\s@UpdateUser' {} a -> s {userType = a} :: UpdateUser)
 
 -- | The Amazon Chime account ID.
 updateUser_accountId :: Lens.Lens' UpdateUser Prelude.Text
@@ -135,16 +135,16 @@ instance Core.AWSRequest UpdateUser where
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
     _salt `Prelude.hashWithSalt` licenseType
-      `Prelude.hashWithSalt` userType
       `Prelude.hashWithSalt` alexaForBusinessMetadata
+      `Prelude.hashWithSalt` userType
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
     Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf userType
       `Prelude.seq` Prelude.rnf alexaForBusinessMetadata
+      `Prelude.seq` Prelude.rnf userType
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userId
 
@@ -156,9 +156,9 @@ instance Core.ToJSON UpdateUser where
     Core.object
       ( Prelude.catMaybes
           [ ("LicenseType" Core..=) Prelude.<$> licenseType,
-            ("UserType" Core..=) Prelude.<$> userType,
             ("AlexaForBusinessMetadata" Core..=)
-              Prelude.<$> alexaForBusinessMetadata
+              Prelude.<$> alexaForBusinessMetadata,
+            ("UserType" Core..=) Prelude.<$> userType
           ]
       )
 

@@ -81,8 +81,8 @@ module Amazonka.KMS.Verify
     newVerifyResponse,
 
     -- * Response Lenses
-    verifyResponse_signingAlgorithm,
     verifyResponse_signatureValid,
+    verifyResponse_signingAlgorithm,
     verifyResponse_keyId,
     verifyResponse_httpStatus,
   )
@@ -333,8 +333,8 @@ instance Core.AWSRequest Verify where
     Response.receiveJSON
       ( \s h x ->
           VerifyResponse'
-            Prelude.<$> (x Core..?> "SigningAlgorithm")
-            Prelude.<*> (x Core..?> "SignatureValid")
+            Prelude.<$> (x Core..?> "SignatureValid")
+            Prelude.<*> (x Core..?> "SigningAlgorithm")
             Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -392,14 +392,14 @@ instance Core.ToQuery Verify where
 
 -- | /See:/ 'newVerifyResponse' smart constructor.
 data VerifyResponse = VerifyResponse'
-  { -- | The signing algorithm that was used to verify the signature.
-    signingAlgorithm :: Prelude.Maybe SigningAlgorithmSpec,
-    -- | A Boolean value that indicates whether the signature was verified. A
+  { -- | A Boolean value that indicates whether the signature was verified. A
     -- value of @True@ indicates that the @Signature@ was produced by signing
     -- the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the
     -- signature is not verified, the @Verify@ operation fails with a
     -- @KMSInvalidSignatureException@ exception.
     signatureValid :: Prelude.Maybe Prelude.Bool,
+    -- | The signing algorithm that was used to verify the signature.
+    signingAlgorithm :: Prelude.Maybe SigningAlgorithmSpec,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the asymmetric KMS key that was used to verify the signature.
@@ -417,13 +417,13 @@ data VerifyResponse = VerifyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signingAlgorithm', 'verifyResponse_signingAlgorithm' - The signing algorithm that was used to verify the signature.
---
 -- 'signatureValid', 'verifyResponse_signatureValid' - A Boolean value that indicates whether the signature was verified. A
 -- value of @True@ indicates that the @Signature@ was produced by signing
 -- the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the
 -- signature is not verified, the @Verify@ operation fails with a
 -- @KMSInvalidSignatureException@ exception.
+--
+-- 'signingAlgorithm', 'verifyResponse_signingAlgorithm' - The signing algorithm that was used to verify the signature.
 --
 -- 'keyId', 'verifyResponse_keyId' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
@@ -436,15 +436,11 @@ newVerifyResponse ::
   VerifyResponse
 newVerifyResponse pHttpStatus_ =
   VerifyResponse'
-    { signingAlgorithm = Prelude.Nothing,
-      signatureValid = Prelude.Nothing,
+    { signatureValid = Prelude.Nothing,
+      signingAlgorithm = Prelude.Nothing,
       keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The signing algorithm that was used to verify the signature.
-verifyResponse_signingAlgorithm :: Lens.Lens' VerifyResponse (Prelude.Maybe SigningAlgorithmSpec)
-verifyResponse_signingAlgorithm = Lens.lens (\VerifyResponse' {signingAlgorithm} -> signingAlgorithm) (\s@VerifyResponse' {} a -> s {signingAlgorithm = a} :: VerifyResponse)
 
 -- | A Boolean value that indicates whether the signature was verified. A
 -- value of @True@ indicates that the @Signature@ was produced by signing
@@ -453,6 +449,10 @@ verifyResponse_signingAlgorithm = Lens.lens (\VerifyResponse' {signingAlgorithm}
 -- @KMSInvalidSignatureException@ exception.
 verifyResponse_signatureValid :: Lens.Lens' VerifyResponse (Prelude.Maybe Prelude.Bool)
 verifyResponse_signatureValid = Lens.lens (\VerifyResponse' {signatureValid} -> signatureValid) (\s@VerifyResponse' {} a -> s {signatureValid = a} :: VerifyResponse)
+
+-- | The signing algorithm that was used to verify the signature.
+verifyResponse_signingAlgorithm :: Lens.Lens' VerifyResponse (Prelude.Maybe SigningAlgorithmSpec)
+verifyResponse_signingAlgorithm = Lens.lens (\VerifyResponse' {signingAlgorithm} -> signingAlgorithm) (\s@VerifyResponse' {} a -> s {signingAlgorithm = a} :: VerifyResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
@@ -466,7 +466,7 @@ verifyResponse_httpStatus = Lens.lens (\VerifyResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData VerifyResponse where
   rnf VerifyResponse' {..} =
-    Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf signatureValid
+    Prelude.rnf signatureValid
+      `Prelude.seq` Prelude.rnf signingAlgorithm
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf httpStatus

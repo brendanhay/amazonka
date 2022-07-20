@@ -45,8 +45,8 @@ module Amazonka.Athena.ListQueryExecutions
     newListQueryExecutionsResponse,
 
     -- * Response Lenses
-    listQueryExecutionsResponse_queryExecutionIds,
     listQueryExecutionsResponse_nextToken,
+    listQueryExecutionsResponse_queryExecutionIds,
     listQueryExecutionsResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance Core.AWSRequest ListQueryExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListQueryExecutionsResponse'
-            Prelude.<$> (x Core..?> "QueryExecutionIds")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "QueryExecutionIds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,10 +200,10 @@ instance Core.ToQuery ListQueryExecutions where
 
 -- | /See:/ 'newListQueryExecutionsResponse' smart constructor.
 data ListQueryExecutionsResponse = ListQueryExecutionsResponse'
-  { -- | The unique IDs of each query execution as an array of strings.
-    queryExecutionIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A token to be used by the next request if this request is truncated.
+  { -- | A token to be used by the next request if this request is truncated.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The unique IDs of each query execution as an array of strings.
+    queryExecutionIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,9 +217,9 @@ data ListQueryExecutionsResponse = ListQueryExecutionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryExecutionIds', 'listQueryExecutionsResponse_queryExecutionIds' - The unique IDs of each query execution as an array of strings.
---
 -- 'nextToken', 'listQueryExecutionsResponse_nextToken' - A token to be used by the next request if this request is truncated.
+--
+-- 'queryExecutionIds', 'listQueryExecutionsResponse_queryExecutionIds' - The unique IDs of each query execution as an array of strings.
 --
 -- 'httpStatus', 'listQueryExecutionsResponse_httpStatus' - The response's http status code.
 newListQueryExecutionsResponse ::
@@ -228,19 +228,19 @@ newListQueryExecutionsResponse ::
   ListQueryExecutionsResponse
 newListQueryExecutionsResponse pHttpStatus_ =
   ListQueryExecutionsResponse'
-    { queryExecutionIds =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      queryExecutionIds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique IDs of each query execution as an array of strings.
-listQueryExecutionsResponse_queryExecutionIds :: Lens.Lens' ListQueryExecutionsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listQueryExecutionsResponse_queryExecutionIds = Lens.lens (\ListQueryExecutionsResponse' {queryExecutionIds} -> queryExecutionIds) (\s@ListQueryExecutionsResponse' {} a -> s {queryExecutionIds = a} :: ListQueryExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to be used by the next request if this request is truncated.
 listQueryExecutionsResponse_nextToken :: Lens.Lens' ListQueryExecutionsResponse (Prelude.Maybe Prelude.Text)
 listQueryExecutionsResponse_nextToken = Lens.lens (\ListQueryExecutionsResponse' {nextToken} -> nextToken) (\s@ListQueryExecutionsResponse' {} a -> s {nextToken = a} :: ListQueryExecutionsResponse)
+
+-- | The unique IDs of each query execution as an array of strings.
+listQueryExecutionsResponse_queryExecutionIds :: Lens.Lens' ListQueryExecutionsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listQueryExecutionsResponse_queryExecutionIds = Lens.lens (\ListQueryExecutionsResponse' {queryExecutionIds} -> queryExecutionIds) (\s@ListQueryExecutionsResponse' {} a -> s {queryExecutionIds = a} :: ListQueryExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listQueryExecutionsResponse_httpStatus :: Lens.Lens' ListQueryExecutionsResponse Prelude.Int
@@ -248,6 +248,6 @@ listQueryExecutionsResponse_httpStatus = Lens.lens (\ListQueryExecutionsResponse
 
 instance Prelude.NFData ListQueryExecutionsResponse where
   rnf ListQueryExecutionsResponse' {..} =
-    Prelude.rnf queryExecutionIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queryExecutionIds
       `Prelude.seq` Prelude.rnf httpStatus

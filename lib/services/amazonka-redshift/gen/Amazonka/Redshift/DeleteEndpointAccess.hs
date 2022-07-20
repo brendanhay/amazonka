@@ -34,16 +34,16 @@ module Amazonka.Redshift.DeleteEndpointAccess
     newEndpointAccess,
 
     -- * Response Lenses
-    endpointAccess_endpointName,
-    endpointAccess_endpointCreateTime,
-    endpointAccess_subnetGroupName,
-    endpointAccess_address,
-    endpointAccess_clusterIdentifier,
-    endpointAccess_endpointStatus,
-    endpointAccess_vpcSecurityGroups,
-    endpointAccess_resourceOwner,
-    endpointAccess_vpcEndpoint,
     endpointAccess_port,
+    endpointAccess_subnetGroupName,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_endpointName,
+    endpointAccess_resourceOwner,
+    endpointAccess_address,
+    endpointAccess_endpointStatus,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_vpcSecurityGroups,
   )
 where
 

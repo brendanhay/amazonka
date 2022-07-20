@@ -29,8 +29,8 @@ import Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord
 --
 -- /See:/ 'newTargetResource' smart constructor.
 data TargetResource = TargetResource'
-  { r53Resource :: Prelude.Maybe R53ResourceRecord,
-    nLBResource :: Prelude.Maybe NLBResource
+  { nLBResource :: Prelude.Maybe NLBResource,
+    r53Resource :: Prelude.Maybe R53ResourceRecord
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data TargetResource = TargetResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'r53Resource', 'targetResource_r53Resource' - Undocumented member.
---
 -- 'nLBResource', 'targetResource_nLBResource' - Undocumented member.
+--
+-- 'r53Resource', 'targetResource_r53Resource' - Undocumented member.
 newTargetResource ::
   TargetResource
 newTargetResource =
   TargetResource'
-    { r53Resource = Prelude.Nothing,
-      nLBResource = Prelude.Nothing
+    { nLBResource = Prelude.Nothing,
+      r53Resource = Prelude.Nothing
     }
-
--- | Undocumented member.
-targetResource_r53Resource :: Lens.Lens' TargetResource (Prelude.Maybe R53ResourceRecord)
-targetResource_r53Resource = Lens.lens (\TargetResource' {r53Resource} -> r53Resource) (\s@TargetResource' {} a -> s {r53Resource = a} :: TargetResource)
 
 -- | Undocumented member.
 targetResource_nLBResource :: Lens.Lens' TargetResource (Prelude.Maybe NLBResource)
 targetResource_nLBResource = Lens.lens (\TargetResource' {nLBResource} -> nLBResource) (\s@TargetResource' {} a -> s {nLBResource = a} :: TargetResource)
+
+-- | Undocumented member.
+targetResource_r53Resource :: Lens.Lens' TargetResource (Prelude.Maybe R53ResourceRecord)
+targetResource_r53Resource = Lens.lens (\TargetResource' {r53Resource} -> r53Resource) (\s@TargetResource' {} a -> s {r53Resource = a} :: TargetResource)
 
 instance Core.FromJSON TargetResource where
   parseJSON =
@@ -67,25 +67,25 @@ instance Core.FromJSON TargetResource where
       "TargetResource"
       ( \x ->
           TargetResource'
-            Prelude.<$> (x Core..:? "r53Resource")
-            Prelude.<*> (x Core..:? "nLBResource")
+            Prelude.<$> (x Core..:? "nLBResource")
+            Prelude.<*> (x Core..:? "r53Resource")
       )
 
 instance Prelude.Hashable TargetResource where
   hashWithSalt _salt TargetResource' {..} =
-    _salt `Prelude.hashWithSalt` r53Resource
-      `Prelude.hashWithSalt` nLBResource
+    _salt `Prelude.hashWithSalt` nLBResource
+      `Prelude.hashWithSalt` r53Resource
 
 instance Prelude.NFData TargetResource where
   rnf TargetResource' {..} =
-    Prelude.rnf r53Resource
-      `Prelude.seq` Prelude.rnf nLBResource
+    Prelude.rnf nLBResource
+      `Prelude.seq` Prelude.rnf r53Resource
 
 instance Core.ToJSON TargetResource where
   toJSON TargetResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("r53Resource" Core..=) Prelude.<$> r53Resource,
-            ("nLBResource" Core..=) Prelude.<$> nLBResource
+          [ ("nLBResource" Core..=) Prelude.<$> nLBResource,
+            ("r53Resource" Core..=) Prelude.<$> r53Resource
           ]
       )

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStackError' smart constructor.
 data StackError = StackError'
-  { -- | The error code.
-    errorCode :: Prelude.Maybe StackErrorCode,
-    -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text
+  { -- | The error message.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    errorCode :: Prelude.Maybe StackErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data StackError = StackError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'stackError_errorCode' - The error code.
---
 -- 'errorMessage', 'stackError_errorMessage' - The error message.
+--
+-- 'errorCode', 'stackError_errorCode' - The error code.
 newStackError ::
   StackError
 newStackError =
   StackError'
-    { errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
-
--- | The error code.
-stackError_errorCode :: Lens.Lens' StackError (Prelude.Maybe StackErrorCode)
-stackError_errorCode = Lens.lens (\StackError' {errorCode} -> errorCode) (\s@StackError' {} a -> s {errorCode = a} :: StackError)
 
 -- | The error message.
 stackError_errorMessage :: Lens.Lens' StackError (Prelude.Maybe Prelude.Text)
 stackError_errorMessage = Lens.lens (\StackError' {errorMessage} -> errorMessage) (\s@StackError' {} a -> s {errorMessage = a} :: StackError)
+
+-- | The error code.
+stackError_errorCode :: Lens.Lens' StackError (Prelude.Maybe StackErrorCode)
+stackError_errorCode = Lens.lens (\StackError' {errorCode} -> errorCode) (\s@StackError' {} a -> s {errorCode = a} :: StackError)
 
 instance Core.FromJSON StackError where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON StackError where
       "StackError"
       ( \x ->
           StackError'
-            Prelude.<$> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
 instance Prelude.Hashable StackError where
   hashWithSalt _salt StackError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData StackError where
   rnf StackError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

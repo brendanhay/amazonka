@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailureException' smart constructor.
 data FailureException = FailureException'
-  { -- | Exception name.
-    exceptionName :: Prelude.Maybe Prelude.Text,
-    -- | Description of the failure.
-    exceptionDescription :: Prelude.Maybe Prelude.Text
+  { -- | Description of the failure.
+    exceptionDescription :: Prelude.Maybe Prelude.Text,
+    -- | Exception name.
+    exceptionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data FailureException = FailureException'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exceptionName', 'failureException_exceptionName' - Exception name.
---
 -- 'exceptionDescription', 'failureException_exceptionDescription' - Description of the failure.
+--
+-- 'exceptionName', 'failureException_exceptionName' - Exception name.
 newFailureException ::
   FailureException
 newFailureException =
   FailureException'
-    { exceptionName = Prelude.Nothing,
-      exceptionDescription = Prelude.Nothing
+    { exceptionDescription =
+        Prelude.Nothing,
+      exceptionName = Prelude.Nothing
     }
-
--- | Exception name.
-failureException_exceptionName :: Lens.Lens' FailureException (Prelude.Maybe Prelude.Text)
-failureException_exceptionName = Lens.lens (\FailureException' {exceptionName} -> exceptionName) (\s@FailureException' {} a -> s {exceptionName = a} :: FailureException)
 
 -- | Description of the failure.
 failureException_exceptionDescription :: Lens.Lens' FailureException (Prelude.Maybe Prelude.Text)
 failureException_exceptionDescription = Lens.lens (\FailureException' {exceptionDescription} -> exceptionDescription) (\s@FailureException' {} a -> s {exceptionDescription = a} :: FailureException)
+
+-- | Exception name.
+failureException_exceptionName :: Lens.Lens' FailureException (Prelude.Maybe Prelude.Text)
+failureException_exceptionName = Lens.lens (\FailureException' {exceptionName} -> exceptionName) (\s@FailureException' {} a -> s {exceptionName = a} :: FailureException)
 
 instance Core.FromJSON FailureException where
   parseJSON =
@@ -68,16 +69,16 @@ instance Core.FromJSON FailureException where
       "FailureException"
       ( \x ->
           FailureException'
-            Prelude.<$> (x Core..:? "ExceptionName")
-            Prelude.<*> (x Core..:? "ExceptionDescription")
+            Prelude.<$> (x Core..:? "ExceptionDescription")
+            Prelude.<*> (x Core..:? "ExceptionName")
       )
 
 instance Prelude.Hashable FailureException where
   hashWithSalt _salt FailureException' {..} =
-    _salt `Prelude.hashWithSalt` exceptionName
-      `Prelude.hashWithSalt` exceptionDescription
+    _salt `Prelude.hashWithSalt` exceptionDescription
+      `Prelude.hashWithSalt` exceptionName
 
 instance Prelude.NFData FailureException where
   rnf FailureException' {..} =
-    Prelude.rnf exceptionName
-      `Prelude.seq` Prelude.rnf exceptionDescription
+    Prelude.rnf exceptionDescription
+      `Prelude.seq` Prelude.rnf exceptionName

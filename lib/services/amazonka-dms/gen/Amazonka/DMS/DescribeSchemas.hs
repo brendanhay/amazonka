@@ -38,8 +38,8 @@ module Amazonka.DMS.DescribeSchemas
     newDescribeSchemasResponse,
 
     -- * Response Lenses
-    describeSchemasResponse_schemas,
     describeSchemasResponse_marker,
+    describeSchemasResponse_schemas,
     describeSchemasResponse_httpStatus,
   )
 where
@@ -158,8 +158,8 @@ instance Core.AWSRequest DescribeSchemas where
     Response.receiveJSON
       ( \s h x ->
           DescribeSchemasResponse'
-            Prelude.<$> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,12 +210,12 @@ instance Core.ToQuery DescribeSchemas where
 --
 -- /See:/ 'newDescribeSchemasResponse' smart constructor.
 data DescribeSchemasResponse = DescribeSchemasResponse'
-  { -- | The described schema.
-    schemas :: Prelude.Maybe [Prelude.Text],
-    -- | An optional pagination token provided by a previous request. If this
+  { -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The described schema.
+    schemas :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,11 +229,11 @@ data DescribeSchemasResponse = DescribeSchemasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemas', 'describeSchemasResponse_schemas' - The described schema.
---
 -- 'marker', 'describeSchemasResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
+--
+-- 'schemas', 'describeSchemasResponse_schemas' - The described schema.
 --
 -- 'httpStatus', 'describeSchemasResponse_httpStatus' - The response's http status code.
 newDescribeSchemasResponse ::
@@ -242,14 +242,10 @@ newDescribeSchemasResponse ::
   DescribeSchemasResponse
 newDescribeSchemasResponse pHttpStatus_ =
   DescribeSchemasResponse'
-    { schemas = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      schemas = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The described schema.
-describeSchemasResponse_schemas :: Lens.Lens' DescribeSchemasResponse (Prelude.Maybe [Prelude.Text])
-describeSchemasResponse_schemas = Lens.lens (\DescribeSchemasResponse' {schemas} -> schemas) (\s@DescribeSchemasResponse' {} a -> s {schemas = a} :: DescribeSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -257,12 +253,16 @@ describeSchemasResponse_schemas = Lens.lens (\DescribeSchemasResponse' {schemas}
 describeSchemasResponse_marker :: Lens.Lens' DescribeSchemasResponse (Prelude.Maybe Prelude.Text)
 describeSchemasResponse_marker = Lens.lens (\DescribeSchemasResponse' {marker} -> marker) (\s@DescribeSchemasResponse' {} a -> s {marker = a} :: DescribeSchemasResponse)
 
+-- | The described schema.
+describeSchemasResponse_schemas :: Lens.Lens' DescribeSchemasResponse (Prelude.Maybe [Prelude.Text])
+describeSchemasResponse_schemas = Lens.lens (\DescribeSchemasResponse' {schemas} -> schemas) (\s@DescribeSchemasResponse' {} a -> s {schemas = a} :: DescribeSchemasResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeSchemasResponse_httpStatus :: Lens.Lens' DescribeSchemasResponse Prelude.Int
 describeSchemasResponse_httpStatus = Lens.lens (\DescribeSchemasResponse' {httpStatus} -> httpStatus) (\s@DescribeSchemasResponse' {} a -> s {httpStatus = a} :: DescribeSchemasResponse)
 
 instance Prelude.NFData DescribeSchemasResponse where
   rnf DescribeSchemasResponse' {..} =
-    Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf schemas
       `Prelude.seq` Prelude.rnf httpStatus

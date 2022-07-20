@@ -44,8 +44,8 @@ module Amazonka.IAM.CreateVirtualMFADevice
     newCreateVirtualMFADevice,
 
     -- * Request Lenses
-    createVirtualMFADevice_path,
     createVirtualMFADevice_tags,
+    createVirtualMFADevice_path,
     createVirtualMFADevice_virtualMFADeviceName,
 
     -- * Destructuring the Response
@@ -67,7 +67,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVirtualMFADevice' smart constructor.
 data CreateVirtualMFADevice = CreateVirtualMFADevice'
-  { -- | The path for the virtual MFA device. For more information about paths,
+  { -- | A list of tags that you want to attach to the new IAM virtual MFA
+    -- device. Each tag consists of a key name and an associated value. For
+    -- more information about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
+    --
+    -- If any one of the tags is invalid or if you exceed the allowed maximum
+    -- number of tags, then the entire request fails and the resource is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The path for the virtual MFA device. For more information about paths,
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
@@ -83,16 +93,6 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
     path :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags that you want to attach to the new IAM virtual MFA
-    -- device. Each tag consists of a key name and an associated value. For
-    -- more information about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
-    -- in the /IAM User Guide/.
-    --
-    -- If any one of the tags is invalid or if you exceed the allowed maximum
-    -- number of tags, then the entire request fails and the resource is not
-    -- created.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the virtual MFA device. Use with path to uniquely identify a
     -- virtual MFA device.
     --
@@ -112,6 +112,16 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createVirtualMFADevice_tags' - A list of tags that you want to attach to the new IAM virtual MFA
+-- device. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+--
 -- 'path', 'createVirtualMFADevice_path' - The path for the virtual MFA device. For more information about paths,
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -128,16 +138,6 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
 --
--- 'tags', 'createVirtualMFADevice_tags' - A list of tags that you want to attach to the new IAM virtual MFA
--- device. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
---
 -- 'virtualMFADeviceName', 'createVirtualMFADevice_virtualMFADeviceName' - The name of the virtual MFA device. Use with path to uniquely identify a
 -- virtual MFA device.
 --
@@ -151,10 +151,22 @@ newCreateVirtualMFADevice ::
   CreateVirtualMFADevice
 newCreateVirtualMFADevice pVirtualMFADeviceName_ =
   CreateVirtualMFADevice'
-    { path = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      path = Prelude.Nothing,
       virtualMFADeviceName = pVirtualMFADeviceName_
     }
+
+-- | A list of tags that you want to attach to the new IAM virtual MFA
+-- device. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+createVirtualMFADevice_tags :: Lens.Lens' CreateVirtualMFADevice (Prelude.Maybe [Tag])
+createVirtualMFADevice_tags = Lens.lens (\CreateVirtualMFADevice' {tags} -> tags) (\s@CreateVirtualMFADevice' {} a -> s {tags = a} :: CreateVirtualMFADevice) Prelude.. Lens.mapping Lens.coerced
 
 -- | The path for the virtual MFA device. For more information about paths,
 -- see
@@ -173,18 +185,6 @@ newCreateVirtualMFADevice pVirtualMFADeviceName_ =
 -- and lowercased letters.
 createVirtualMFADevice_path :: Lens.Lens' CreateVirtualMFADevice (Prelude.Maybe Prelude.Text)
 createVirtualMFADevice_path = Lens.lens (\CreateVirtualMFADevice' {path} -> path) (\s@CreateVirtualMFADevice' {} a -> s {path = a} :: CreateVirtualMFADevice)
-
--- | A list of tags that you want to attach to the new IAM virtual MFA
--- device. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
-createVirtualMFADevice_tags :: Lens.Lens' CreateVirtualMFADevice (Prelude.Maybe [Tag])
-createVirtualMFADevice_tags = Lens.lens (\CreateVirtualMFADevice' {tags} -> tags) (\s@CreateVirtualMFADevice' {} a -> s {tags = a} :: CreateVirtualMFADevice) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a
 -- virtual MFA device.
@@ -212,14 +212,14 @@ instance Core.AWSRequest CreateVirtualMFADevice where
 
 instance Prelude.Hashable CreateVirtualMFADevice where
   hashWithSalt _salt CreateVirtualMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` virtualMFADeviceName
 
 instance Prelude.NFData CreateVirtualMFADevice where
   rnf CreateVirtualMFADevice' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf virtualMFADeviceName
 
 instance Core.ToHeaders CreateVirtualMFADevice where
@@ -235,10 +235,10 @@ instance Core.ToQuery CreateVirtualMFADevice where
           Core.=: ("CreateVirtualMFADevice" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Path" Core.=: path,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
+        "Path" Core.=: path,
         "VirtualMFADeviceName" Core.=: virtualMFADeviceName
       ]
 

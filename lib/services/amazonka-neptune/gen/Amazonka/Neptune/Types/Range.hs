@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRange' smart constructor.
 data Range = Range'
-  { -- | The maximum value in the range.
-    to :: Prelude.Maybe Prelude.Int,
-    -- | The minimum value in the range.
+  { -- | The minimum value in the range.
     from :: Prelude.Maybe Prelude.Int,
+    -- | The maximum value in the range.
+    to :: Prelude.Maybe Prelude.Int,
     -- | The step value for the range. For example, if you have a range of 5,000
     -- to 10,000, with a step value of 1,000, the valid values start at 5,000
     -- and step up by 1,000. Even though 7,500 is within the range, it isn\'t a
@@ -48,9 +48,9 @@ data Range = Range'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'to', 'range_to' - The maximum value in the range.
---
 -- 'from', 'range_from' - The minimum value in the range.
+--
+-- 'to', 'range_to' - The maximum value in the range.
 --
 -- 'step', 'range_step' - The step value for the range. For example, if you have a range of 5,000
 -- to 10,000, with a step value of 1,000, the valid values start at 5,000
@@ -61,18 +61,18 @@ newRange ::
   Range
 newRange =
   Range'
-    { to = Prelude.Nothing,
-      from = Prelude.Nothing,
+    { from = Prelude.Nothing,
+      to = Prelude.Nothing,
       step = Prelude.Nothing
     }
-
--- | The maximum value in the range.
-range_to :: Lens.Lens' Range (Prelude.Maybe Prelude.Int)
-range_to = Lens.lens (\Range' {to} -> to) (\s@Range' {} a -> s {to = a} :: Range)
 
 -- | The minimum value in the range.
 range_from :: Lens.Lens' Range (Prelude.Maybe Prelude.Int)
 range_from = Lens.lens (\Range' {from} -> from) (\s@Range' {} a -> s {from = a} :: Range)
+
+-- | The maximum value in the range.
+range_to :: Lens.Lens' Range (Prelude.Maybe Prelude.Int)
+range_to = Lens.lens (\Range' {to} -> to) (\s@Range' {} a -> s {to = a} :: Range)
 
 -- | The step value for the range. For example, if you have a range of 5,000
 -- to 10,000, with a step value of 1,000, the valid values start at 5,000
@@ -85,18 +85,18 @@ range_step = Lens.lens (\Range' {step} -> step) (\s@Range' {} a -> s {step = a} 
 instance Core.FromXML Range where
   parseXML x =
     Range'
-      Prelude.<$> (x Core..@? "To")
-      Prelude.<*> (x Core..@? "From")
+      Prelude.<$> (x Core..@? "From")
+      Prelude.<*> (x Core..@? "To")
       Prelude.<*> (x Core..@? "Step")
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
-    _salt `Prelude.hashWithSalt` to
-      `Prelude.hashWithSalt` from
+    _salt `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` to
       `Prelude.hashWithSalt` step
 
 instance Prelude.NFData Range where
   rnf Range' {..} =
-    Prelude.rnf to
-      `Prelude.seq` Prelude.rnf from
+    Prelude.rnf from
+      `Prelude.seq` Prelude.rnf to
       `Prelude.seq` Prelude.rnf step

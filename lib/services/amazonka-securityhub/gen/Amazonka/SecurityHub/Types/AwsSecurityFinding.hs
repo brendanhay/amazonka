@@ -69,16 +69,20 @@ data AwsSecurityFinding = AwsSecurityFinding'
     --
     -- Security Hub does not synchronize those two attributes.
     productName :: Prelude.Maybe Prelude.Text,
-    -- | The workflow state of a finding.
-    workflowState :: Prelude.Maybe WorkflowState,
     -- | The level of importance assigned to the resources associated with the
     -- finding.
     --
     -- A score of 0 means that the underlying resources have no criticality,
     -- and a score of 100 is reserved for the most critical resources.
     criticality :: Prelude.Maybe Prelude.Int,
+    -- | A finding\'s severity.
+    severity :: Prelude.Maybe Severity,
+    -- | The details of network-related information about a finding.
+    network :: Prelude.Maybe Network,
     -- | The record state of a finding.
     recordState :: Prelude.Maybe RecordState,
+    -- | A list of related findings.
+    relatedFindings :: Prelude.Maybe [RelatedFinding],
     -- | A data type where security-findings providers can include additional
     -- solution-specific details that aren\'t part of the defined
     -- @AwsSecurityFinding@ format.
@@ -87,15 +91,6 @@ data AwsSecurityFinding = AwsSecurityFinding'
     -- can contain up to 128 characters, and the value can contain up to 2048
     -- characters.
     productFields :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | This data type is exclusive to findings that are generated as the result
-    -- of a check run against a specific rule in a supported security standard,
-    -- such as CIS Amazon Web Services Foundations. Contains security
-    -- standard-related finding details.
-    compliance :: Prelude.Maybe Compliance,
-    -- | In a @BatchImportFindings@ request, finding providers use
-    -- @FindingProviderFields@ to provide and update their own values for
-    -- confidence, criticality, related findings, severity, and types.
-    findingProviderFields :: Prelude.Maybe FindingProviderFields,
     -- | The name of the company for the product that generated the finding.
     --
     -- Security Hub populates this attribute automatically for each finding.
@@ -112,25 +107,42 @@ data AwsSecurityFinding = AwsSecurityFinding'
     --
     -- Security Hub does not synchronize those two attributes.
     companyName :: Prelude.Maybe Prelude.Text,
-    -- | A user-defined note added to a finding.
-    note :: Prelude.Maybe Note,
-    -- | The details of process-related information about a finding.
-    process :: Prelude.Maybe ProcessDetails,
-    -- | A finding\'s severity.
-    severity :: Prelude.Maybe Severity,
+    -- | Provides a list of vulnerabilities associated with the findings.
+    vulnerabilities :: Prelude.Maybe [Vulnerability],
+    -- | Threat intelligence details related to a finding.
+    threatIntelIndicators :: Prelude.Maybe [ThreatIntelIndicator],
+    -- | A data type that describes the remediation options for a finding.
+    remediation :: Prelude.Maybe Remediation,
+    -- | A finding\'s confidence. Confidence is defined as the likelihood that a
+    -- finding accurately identifies the behavior or issue that it was intended
+    -- to identify.
+    --
+    -- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
+    -- zero percent confidence and 100 means 100 percent confidence.
+    confidence :: Prelude.Maybe Prelude.Int,
+    -- | Provides an overview of the patch compliance status for an instance
+    -- against a selected compliance standard.
+    patchSummary :: Prelude.Maybe PatchSummary,
+    -- | A list of name\/value string pairs associated with the finding. These
+    -- are custom, user-defined fields added to a finding.
+    userDefinedFields :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of malware related to a finding.
+    malware :: Prelude.Maybe [Malware],
+    -- | Provides information about a network path that is relevant to a finding.
+    -- Each entry under @NetworkPath@ represents a component of that path.
+    networkPath :: Prelude.Maybe [NetworkPathComponent],
     -- | One or more finding types in the format of
     -- @namespace\/category\/classifier@ that classify a finding.
     --
     -- Valid namespace values are: Software and Configuration Checks | TTPs |
     -- Effects | Unusual Behaviors | Sensitive Data Identifications
     types :: Prelude.Maybe [Prelude.Text],
-    -- | Provides details about an action that affects or that was taken on a
-    -- resource.
-    action :: Prelude.Maybe Action,
-    -- | The details of network-related information about a finding.
-    network :: Prelude.Maybe Network,
-    -- | A list of related findings.
-    relatedFindings :: Prelude.Maybe [RelatedFinding],
+    -- | The Region from which the finding was generated.
+    --
+    -- Security Hub populates this attribute automatically for each finding.
+    -- You cannot update it using @BatchImportFindings@ or
+    -- @BatchUpdateFindings@.
+    region :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the security-findings provider first observed the
     -- potential security issue that a finding captured.
     --
@@ -139,41 +151,8 @@ data AwsSecurityFinding = AwsSecurityFinding'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     firstObservedAt :: Prelude.Maybe Prelude.Text,
-    -- | A list of malware related to a finding.
-    malware :: Prelude.Maybe [Malware],
-    -- | A finding\'s confidence. Confidence is defined as the likelihood that a
-    -- finding accurately identifies the behavior or issue that it was intended
-    -- to identify.
-    --
-    -- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
-    -- zero percent confidence and 100 means 100 percent confidence.
-    confidence :: Prelude.Maybe Prelude.Int,
-    -- | A data type that describes the remediation options for a finding.
-    remediation :: Prelude.Maybe Remediation,
-    -- | Provides an overview of the patch compliance status for an instance
-    -- against a selected compliance standard.
-    patchSummary :: Prelude.Maybe PatchSummary,
-    -- | Provides a list of vulnerabilities associated with the findings.
-    vulnerabilities :: Prelude.Maybe [Vulnerability],
-    -- | The Region from which the finding was generated.
-    --
-    -- Security Hub populates this attribute automatically for each finding.
-    -- You cannot update it using @BatchImportFindings@ or
-    -- @BatchUpdateFindings@.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | Provides information about a network path that is relevant to a finding.
-    -- Each entry under @NetworkPath@ represents a component of that path.
-    networkPath :: Prelude.Maybe [NetworkPathComponent],
-    -- | Provides information about the status of the investigation into a
-    -- finding.
-    workflow :: Prelude.Maybe Workflow,
     -- | Indicates the veracity of a finding.
     verificationState :: Prelude.Maybe VerificationState,
-    -- | Threat intelligence details related to a finding.
-    threatIntelIndicators :: Prelude.Maybe [ThreatIntelIndicator],
-    -- | A URL that links to a page about the current finding in the
-    -- security-findings provider\'s solution.
-    sourceUrl :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the security-findings provider most recently observed the
     -- potential security issue that a finding captured.
     --
@@ -182,9 +161,30 @@ data AwsSecurityFinding = AwsSecurityFinding'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     lastObservedAt :: Prelude.Maybe Prelude.Text,
-    -- | A list of name\/value string pairs associated with the finding. These
-    -- are custom, user-defined fields added to a finding.
-    userDefinedFields :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Provides details about an action that affects or that was taken on a
+    -- resource.
+    action :: Prelude.Maybe Action,
+    -- | In a @BatchImportFindings@ request, finding providers use
+    -- @FindingProviderFields@ to provide and update their own values for
+    -- confidence, criticality, related findings, severity, and types.
+    findingProviderFields :: Prelude.Maybe FindingProviderFields,
+    -- | The details of process-related information about a finding.
+    process :: Prelude.Maybe ProcessDetails,
+    -- | Provides information about the status of the investigation into a
+    -- finding.
+    workflow :: Prelude.Maybe Workflow,
+    -- | A user-defined note added to a finding.
+    note :: Prelude.Maybe Note,
+    -- | A URL that links to a page about the current finding in the
+    -- security-findings provider\'s solution.
+    sourceUrl :: Prelude.Maybe Prelude.Text,
+    -- | The workflow state of a finding.
+    workflowState :: Prelude.Maybe WorkflowState,
+    -- | This data type is exclusive to findings that are generated as the result
+    -- of a check run against a specific rule in a supported security standard,
+    -- such as CIS Amazon Web Services Foundations. Contains security
+    -- standard-related finding details.
+    compliance :: Prelude.Maybe Compliance,
     -- | The schema version that a finding is formatted for.
     schemaVersion :: Prelude.Text,
     -- | The security findings provider-specific identifier for a finding.
@@ -255,15 +255,19 @@ data AwsSecurityFinding = AwsSecurityFinding'
 --
 -- Security Hub does not synchronize those two attributes.
 --
--- 'workflowState', 'awsSecurityFinding_workflowState' - The workflow state of a finding.
---
 -- 'criticality', 'awsSecurityFinding_criticality' - The level of importance assigned to the resources associated with the
 -- finding.
 --
 -- A score of 0 means that the underlying resources have no criticality,
 -- and a score of 100 is reserved for the most critical resources.
 --
+-- 'severity', 'awsSecurityFinding_severity' - A finding\'s severity.
+--
+-- 'network', 'awsSecurityFinding_network' - The details of network-related information about a finding.
+--
 -- 'recordState', 'awsSecurityFinding_recordState' - The record state of a finding.
+--
+-- 'relatedFindings', 'awsSecurityFinding_relatedFindings' - A list of related findings.
 --
 -- 'productFields', 'awsSecurityFinding_productFields' - A data type where security-findings providers can include additional
 -- solution-specific details that aren\'t part of the defined
@@ -272,15 +276,6 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- Can contain up to 50 key-value pairs. For each key-value pair, the key
 -- can contain up to 128 characters, and the value can contain up to 2048
 -- characters.
---
--- 'compliance', 'awsSecurityFinding_compliance' - This data type is exclusive to findings that are generated as the result
--- of a check run against a specific rule in a supported security standard,
--- such as CIS Amazon Web Services Foundations. Contains security
--- standard-related finding details.
---
--- 'findingProviderFields', 'awsSecurityFinding_findingProviderFields' - In a @BatchImportFindings@ request, finding providers use
--- @FindingProviderFields@ to provide and update their own values for
--- confidence, criticality, related findings, severity, and types.
 --
 -- 'companyName', 'awsSecurityFinding_companyName' - The name of the company for the product that generated the finding.
 --
@@ -298,11 +293,29 @@ data AwsSecurityFinding = AwsSecurityFinding'
 --
 -- Security Hub does not synchronize those two attributes.
 --
--- 'note', 'awsSecurityFinding_note' - A user-defined note added to a finding.
+-- 'vulnerabilities', 'awsSecurityFinding_vulnerabilities' - Provides a list of vulnerabilities associated with the findings.
 --
--- 'process', 'awsSecurityFinding_process' - The details of process-related information about a finding.
+-- 'threatIntelIndicators', 'awsSecurityFinding_threatIntelIndicators' - Threat intelligence details related to a finding.
 --
--- 'severity', 'awsSecurityFinding_severity' - A finding\'s severity.
+-- 'remediation', 'awsSecurityFinding_remediation' - A data type that describes the remediation options for a finding.
+--
+-- 'confidence', 'awsSecurityFinding_confidence' - A finding\'s confidence. Confidence is defined as the likelihood that a
+-- finding accurately identifies the behavior or issue that it was intended
+-- to identify.
+--
+-- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
+-- zero percent confidence and 100 means 100 percent confidence.
+--
+-- 'patchSummary', 'awsSecurityFinding_patchSummary' - Provides an overview of the patch compliance status for an instance
+-- against a selected compliance standard.
+--
+-- 'userDefinedFields', 'awsSecurityFinding_userDefinedFields' - A list of name\/value string pairs associated with the finding. These
+-- are custom, user-defined fields added to a finding.
+--
+-- 'malware', 'awsSecurityFinding_malware' - A list of malware related to a finding.
+--
+-- 'networkPath', 'awsSecurityFinding_networkPath' - Provides information about a network path that is relevant to a finding.
+-- Each entry under @NetworkPath@ represents a component of that path.
 --
 -- 'types', 'awsSecurityFinding_types' - One or more finding types in the format of
 -- @namespace\/category\/classifier@ that classify a finding.
@@ -310,12 +323,11 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- Valid namespace values are: Software and Configuration Checks | TTPs |
 -- Effects | Unusual Behaviors | Sensitive Data Identifications
 --
--- 'action', 'awsSecurityFinding_action' - Provides details about an action that affects or that was taken on a
--- resource.
+-- 'region', 'awsSecurityFinding_region' - The Region from which the finding was generated.
 --
--- 'network', 'awsSecurityFinding_network' - The details of network-related information about a finding.
---
--- 'relatedFindings', 'awsSecurityFinding_relatedFindings' - A list of related findings.
+-- Security Hub populates this attribute automatically for each finding.
+-- You cannot update it using @BatchImportFindings@ or
+-- @BatchUpdateFindings@.
 --
 -- 'firstObservedAt', 'awsSecurityFinding_firstObservedAt' - Indicates when the security-findings provider first observed the
 -- potential security issue that a finding captured.
@@ -325,40 +337,7 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'malware', 'awsSecurityFinding_malware' - A list of malware related to a finding.
---
--- 'confidence', 'awsSecurityFinding_confidence' - A finding\'s confidence. Confidence is defined as the likelihood that a
--- finding accurately identifies the behavior or issue that it was intended
--- to identify.
---
--- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
--- zero percent confidence and 100 means 100 percent confidence.
---
--- 'remediation', 'awsSecurityFinding_remediation' - A data type that describes the remediation options for a finding.
---
--- 'patchSummary', 'awsSecurityFinding_patchSummary' - Provides an overview of the patch compliance status for an instance
--- against a selected compliance standard.
---
--- 'vulnerabilities', 'awsSecurityFinding_vulnerabilities' - Provides a list of vulnerabilities associated with the findings.
---
--- 'region', 'awsSecurityFinding_region' - The Region from which the finding was generated.
---
--- Security Hub populates this attribute automatically for each finding.
--- You cannot update it using @BatchImportFindings@ or
--- @BatchUpdateFindings@.
---
--- 'networkPath', 'awsSecurityFinding_networkPath' - Provides information about a network path that is relevant to a finding.
--- Each entry under @NetworkPath@ represents a component of that path.
---
--- 'workflow', 'awsSecurityFinding_workflow' - Provides information about the status of the investigation into a
--- finding.
---
 -- 'verificationState', 'awsSecurityFinding_verificationState' - Indicates the veracity of a finding.
---
--- 'threatIntelIndicators', 'awsSecurityFinding_threatIntelIndicators' - Threat intelligence details related to a finding.
---
--- 'sourceUrl', 'awsSecurityFinding_sourceUrl' - A URL that links to a page about the current finding in the
--- security-findings provider\'s solution.
 --
 -- 'lastObservedAt', 'awsSecurityFinding_lastObservedAt' - Indicates when the security-findings provider most recently observed the
 -- potential security issue that a finding captured.
@@ -368,8 +347,29 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'userDefinedFields', 'awsSecurityFinding_userDefinedFields' - A list of name\/value string pairs associated with the finding. These
--- are custom, user-defined fields added to a finding.
+-- 'action', 'awsSecurityFinding_action' - Provides details about an action that affects or that was taken on a
+-- resource.
+--
+-- 'findingProviderFields', 'awsSecurityFinding_findingProviderFields' - In a @BatchImportFindings@ request, finding providers use
+-- @FindingProviderFields@ to provide and update their own values for
+-- confidence, criticality, related findings, severity, and types.
+--
+-- 'process', 'awsSecurityFinding_process' - The details of process-related information about a finding.
+--
+-- 'workflow', 'awsSecurityFinding_workflow' - Provides information about the status of the investigation into a
+-- finding.
+--
+-- 'note', 'awsSecurityFinding_note' - A user-defined note added to a finding.
+--
+-- 'sourceUrl', 'awsSecurityFinding_sourceUrl' - A URL that links to a page about the current finding in the
+-- security-findings provider\'s solution.
+--
+-- 'workflowState', 'awsSecurityFinding_workflowState' - The workflow state of a finding.
+--
+-- 'compliance', 'awsSecurityFinding_compliance' - This data type is exclusive to findings that are generated as the result
+-- of a check run against a specific rule in a supported security standard,
+-- such as CIS Amazon Web Services Foundations. Contains security
+-- standard-related finding details.
 --
 -- 'schemaVersion', 'awsSecurityFinding_schemaVersion' - The schema version that a finding is formatted for.
 --
@@ -445,34 +445,34 @@ newAwsSecurityFinding
   pDescription_ =
     AwsSecurityFinding'
       { productName = Prelude.Nothing,
-        workflowState = Prelude.Nothing,
         criticality = Prelude.Nothing,
-        recordState = Prelude.Nothing,
-        productFields = Prelude.Nothing,
-        compliance = Prelude.Nothing,
-        findingProviderFields = Prelude.Nothing,
-        companyName = Prelude.Nothing,
-        note = Prelude.Nothing,
-        process = Prelude.Nothing,
         severity = Prelude.Nothing,
-        types = Prelude.Nothing,
-        action = Prelude.Nothing,
         network = Prelude.Nothing,
+        recordState = Prelude.Nothing,
         relatedFindings = Prelude.Nothing,
-        firstObservedAt = Prelude.Nothing,
-        malware = Prelude.Nothing,
-        confidence = Prelude.Nothing,
-        remediation = Prelude.Nothing,
-        patchSummary = Prelude.Nothing,
+        productFields = Prelude.Nothing,
+        companyName = Prelude.Nothing,
         vulnerabilities = Prelude.Nothing,
-        region = Prelude.Nothing,
-        networkPath = Prelude.Nothing,
-        workflow = Prelude.Nothing,
-        verificationState = Prelude.Nothing,
         threatIntelIndicators = Prelude.Nothing,
-        sourceUrl = Prelude.Nothing,
-        lastObservedAt = Prelude.Nothing,
+        remediation = Prelude.Nothing,
+        confidence = Prelude.Nothing,
+        patchSummary = Prelude.Nothing,
         userDefinedFields = Prelude.Nothing,
+        malware = Prelude.Nothing,
+        networkPath = Prelude.Nothing,
+        types = Prelude.Nothing,
+        region = Prelude.Nothing,
+        firstObservedAt = Prelude.Nothing,
+        verificationState = Prelude.Nothing,
+        lastObservedAt = Prelude.Nothing,
+        action = Prelude.Nothing,
+        findingProviderFields = Prelude.Nothing,
+        process = Prelude.Nothing,
+        workflow = Prelude.Nothing,
+        note = Prelude.Nothing,
+        sourceUrl = Prelude.Nothing,
+        workflowState = Prelude.Nothing,
+        compliance = Prelude.Nothing,
         schemaVersion = pSchemaVersion_,
         id = pId_,
         productArn = pProductArn_,
@@ -503,10 +503,6 @@ newAwsSecurityFinding
 awsSecurityFinding_productName :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_productName = Lens.lens (\AwsSecurityFinding' {productName} -> productName) (\s@AwsSecurityFinding' {} a -> s {productName = a} :: AwsSecurityFinding)
 
--- | The workflow state of a finding.
-awsSecurityFinding_workflowState :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe WorkflowState)
-awsSecurityFinding_workflowState = Lens.lens (\AwsSecurityFinding' {workflowState} -> workflowState) (\s@AwsSecurityFinding' {} a -> s {workflowState = a} :: AwsSecurityFinding)
-
 -- | The level of importance assigned to the resources associated with the
 -- finding.
 --
@@ -515,9 +511,21 @@ awsSecurityFinding_workflowState = Lens.lens (\AwsSecurityFinding' {workflowStat
 awsSecurityFinding_criticality :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Int)
 awsSecurityFinding_criticality = Lens.lens (\AwsSecurityFinding' {criticality} -> criticality) (\s@AwsSecurityFinding' {} a -> s {criticality = a} :: AwsSecurityFinding)
 
+-- | A finding\'s severity.
+awsSecurityFinding_severity :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Severity)
+awsSecurityFinding_severity = Lens.lens (\AwsSecurityFinding' {severity} -> severity) (\s@AwsSecurityFinding' {} a -> s {severity = a} :: AwsSecurityFinding)
+
+-- | The details of network-related information about a finding.
+awsSecurityFinding_network :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Network)
+awsSecurityFinding_network = Lens.lens (\AwsSecurityFinding' {network} -> network) (\s@AwsSecurityFinding' {} a -> s {network = a} :: AwsSecurityFinding)
+
 -- | The record state of a finding.
 awsSecurityFinding_recordState :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe RecordState)
 awsSecurityFinding_recordState = Lens.lens (\AwsSecurityFinding' {recordState} -> recordState) (\s@AwsSecurityFinding' {} a -> s {recordState = a} :: AwsSecurityFinding)
+
+-- | A list of related findings.
+awsSecurityFinding_relatedFindings :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [RelatedFinding])
+awsSecurityFinding_relatedFindings = Lens.lens (\AwsSecurityFinding' {relatedFindings} -> relatedFindings) (\s@AwsSecurityFinding' {} a -> s {relatedFindings = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
 
 -- | A data type where security-findings providers can include additional
 -- solution-specific details that aren\'t part of the defined
@@ -528,19 +536,6 @@ awsSecurityFinding_recordState = Lens.lens (\AwsSecurityFinding' {recordState} -
 -- characters.
 awsSecurityFinding_productFields :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 awsSecurityFinding_productFields = Lens.lens (\AwsSecurityFinding' {productFields} -> productFields) (\s@AwsSecurityFinding' {} a -> s {productFields = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
-
--- | This data type is exclusive to findings that are generated as the result
--- of a check run against a specific rule in a supported security standard,
--- such as CIS Amazon Web Services Foundations. Contains security
--- standard-related finding details.
-awsSecurityFinding_compliance :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Compliance)
-awsSecurityFinding_compliance = Lens.lens (\AwsSecurityFinding' {compliance} -> compliance) (\s@AwsSecurityFinding' {} a -> s {compliance = a} :: AwsSecurityFinding)
-
--- | In a @BatchImportFindings@ request, finding providers use
--- @FindingProviderFields@ to provide and update their own values for
--- confidence, criticality, related findings, severity, and types.
-awsSecurityFinding_findingProviderFields :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe FindingProviderFields)
-awsSecurityFinding_findingProviderFields = Lens.lens (\AwsSecurityFinding' {findingProviderFields} -> findingProviderFields) (\s@AwsSecurityFinding' {} a -> s {findingProviderFields = a} :: AwsSecurityFinding)
 
 -- | The name of the company for the product that generated the finding.
 --
@@ -560,17 +555,45 @@ awsSecurityFinding_findingProviderFields = Lens.lens (\AwsSecurityFinding' {find
 awsSecurityFinding_companyName :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_companyName = Lens.lens (\AwsSecurityFinding' {companyName} -> companyName) (\s@AwsSecurityFinding' {} a -> s {companyName = a} :: AwsSecurityFinding)
 
--- | A user-defined note added to a finding.
-awsSecurityFinding_note :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Note)
-awsSecurityFinding_note = Lens.lens (\AwsSecurityFinding' {note} -> note) (\s@AwsSecurityFinding' {} a -> s {note = a} :: AwsSecurityFinding)
+-- | Provides a list of vulnerabilities associated with the findings.
+awsSecurityFinding_vulnerabilities :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [Vulnerability])
+awsSecurityFinding_vulnerabilities = Lens.lens (\AwsSecurityFinding' {vulnerabilities} -> vulnerabilities) (\s@AwsSecurityFinding' {} a -> s {vulnerabilities = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
 
--- | The details of process-related information about a finding.
-awsSecurityFinding_process :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe ProcessDetails)
-awsSecurityFinding_process = Lens.lens (\AwsSecurityFinding' {process} -> process) (\s@AwsSecurityFinding' {} a -> s {process = a} :: AwsSecurityFinding)
+-- | Threat intelligence details related to a finding.
+awsSecurityFinding_threatIntelIndicators :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [ThreatIntelIndicator])
+awsSecurityFinding_threatIntelIndicators = Lens.lens (\AwsSecurityFinding' {threatIntelIndicators} -> threatIntelIndicators) (\s@AwsSecurityFinding' {} a -> s {threatIntelIndicators = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
 
--- | A finding\'s severity.
-awsSecurityFinding_severity :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Severity)
-awsSecurityFinding_severity = Lens.lens (\AwsSecurityFinding' {severity} -> severity) (\s@AwsSecurityFinding' {} a -> s {severity = a} :: AwsSecurityFinding)
+-- | A data type that describes the remediation options for a finding.
+awsSecurityFinding_remediation :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Remediation)
+awsSecurityFinding_remediation = Lens.lens (\AwsSecurityFinding' {remediation} -> remediation) (\s@AwsSecurityFinding' {} a -> s {remediation = a} :: AwsSecurityFinding)
+
+-- | A finding\'s confidence. Confidence is defined as the likelihood that a
+-- finding accurately identifies the behavior or issue that it was intended
+-- to identify.
+--
+-- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
+-- zero percent confidence and 100 means 100 percent confidence.
+awsSecurityFinding_confidence :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Int)
+awsSecurityFinding_confidence = Lens.lens (\AwsSecurityFinding' {confidence} -> confidence) (\s@AwsSecurityFinding' {} a -> s {confidence = a} :: AwsSecurityFinding)
+
+-- | Provides an overview of the patch compliance status for an instance
+-- against a selected compliance standard.
+awsSecurityFinding_patchSummary :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe PatchSummary)
+awsSecurityFinding_patchSummary = Lens.lens (\AwsSecurityFinding' {patchSummary} -> patchSummary) (\s@AwsSecurityFinding' {} a -> s {patchSummary = a} :: AwsSecurityFinding)
+
+-- | A list of name\/value string pairs associated with the finding. These
+-- are custom, user-defined fields added to a finding.
+awsSecurityFinding_userDefinedFields :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+awsSecurityFinding_userDefinedFields = Lens.lens (\AwsSecurityFinding' {userDefinedFields} -> userDefinedFields) (\s@AwsSecurityFinding' {} a -> s {userDefinedFields = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of malware related to a finding.
+awsSecurityFinding_malware :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [Malware])
+awsSecurityFinding_malware = Lens.lens (\AwsSecurityFinding' {malware} -> malware) (\s@AwsSecurityFinding' {} a -> s {malware = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
+
+-- | Provides information about a network path that is relevant to a finding.
+-- Each entry under @NetworkPath@ represents a component of that path.
+awsSecurityFinding_networkPath :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [NetworkPathComponent])
+awsSecurityFinding_networkPath = Lens.lens (\AwsSecurityFinding' {networkPath} -> networkPath) (\s@AwsSecurityFinding' {} a -> s {networkPath = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more finding types in the format of
 -- @namespace\/category\/classifier@ that classify a finding.
@@ -580,18 +603,13 @@ awsSecurityFinding_severity = Lens.lens (\AwsSecurityFinding' {severity} -> seve
 awsSecurityFinding_types :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [Prelude.Text])
 awsSecurityFinding_types = Lens.lens (\AwsSecurityFinding' {types} -> types) (\s@AwsSecurityFinding' {} a -> s {types = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
 
--- | Provides details about an action that affects or that was taken on a
--- resource.
-awsSecurityFinding_action :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Action)
-awsSecurityFinding_action = Lens.lens (\AwsSecurityFinding' {action} -> action) (\s@AwsSecurityFinding' {} a -> s {action = a} :: AwsSecurityFinding)
-
--- | The details of network-related information about a finding.
-awsSecurityFinding_network :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Network)
-awsSecurityFinding_network = Lens.lens (\AwsSecurityFinding' {network} -> network) (\s@AwsSecurityFinding' {} a -> s {network = a} :: AwsSecurityFinding)
-
--- | A list of related findings.
-awsSecurityFinding_relatedFindings :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [RelatedFinding])
-awsSecurityFinding_relatedFindings = Lens.lens (\AwsSecurityFinding' {relatedFindings} -> relatedFindings) (\s@AwsSecurityFinding' {} a -> s {relatedFindings = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
+-- | The Region from which the finding was generated.
+--
+-- Security Hub populates this attribute automatically for each finding.
+-- You cannot update it using @BatchImportFindings@ or
+-- @BatchUpdateFindings@.
+awsSecurityFinding_region :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
+awsSecurityFinding_region = Lens.lens (\AwsSecurityFinding' {region} -> region) (\s@AwsSecurityFinding' {} a -> s {region = a} :: AwsSecurityFinding)
 
 -- | Indicates when the security-findings provider first observed the
 -- potential security issue that a finding captured.
@@ -603,62 +621,9 @@ awsSecurityFinding_relatedFindings = Lens.lens (\AwsSecurityFinding' {relatedFin
 awsSecurityFinding_firstObservedAt :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_firstObservedAt = Lens.lens (\AwsSecurityFinding' {firstObservedAt} -> firstObservedAt) (\s@AwsSecurityFinding' {} a -> s {firstObservedAt = a} :: AwsSecurityFinding)
 
--- | A list of malware related to a finding.
-awsSecurityFinding_malware :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [Malware])
-awsSecurityFinding_malware = Lens.lens (\AwsSecurityFinding' {malware} -> malware) (\s@AwsSecurityFinding' {} a -> s {malware = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
-
--- | A finding\'s confidence. Confidence is defined as the likelihood that a
--- finding accurately identifies the behavior or issue that it was intended
--- to identify.
---
--- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
--- zero percent confidence and 100 means 100 percent confidence.
-awsSecurityFinding_confidence :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Int)
-awsSecurityFinding_confidence = Lens.lens (\AwsSecurityFinding' {confidence} -> confidence) (\s@AwsSecurityFinding' {} a -> s {confidence = a} :: AwsSecurityFinding)
-
--- | A data type that describes the remediation options for a finding.
-awsSecurityFinding_remediation :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Remediation)
-awsSecurityFinding_remediation = Lens.lens (\AwsSecurityFinding' {remediation} -> remediation) (\s@AwsSecurityFinding' {} a -> s {remediation = a} :: AwsSecurityFinding)
-
--- | Provides an overview of the patch compliance status for an instance
--- against a selected compliance standard.
-awsSecurityFinding_patchSummary :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe PatchSummary)
-awsSecurityFinding_patchSummary = Lens.lens (\AwsSecurityFinding' {patchSummary} -> patchSummary) (\s@AwsSecurityFinding' {} a -> s {patchSummary = a} :: AwsSecurityFinding)
-
--- | Provides a list of vulnerabilities associated with the findings.
-awsSecurityFinding_vulnerabilities :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [Vulnerability])
-awsSecurityFinding_vulnerabilities = Lens.lens (\AwsSecurityFinding' {vulnerabilities} -> vulnerabilities) (\s@AwsSecurityFinding' {} a -> s {vulnerabilities = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
-
--- | The Region from which the finding was generated.
---
--- Security Hub populates this attribute automatically for each finding.
--- You cannot update it using @BatchImportFindings@ or
--- @BatchUpdateFindings@.
-awsSecurityFinding_region :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
-awsSecurityFinding_region = Lens.lens (\AwsSecurityFinding' {region} -> region) (\s@AwsSecurityFinding' {} a -> s {region = a} :: AwsSecurityFinding)
-
--- | Provides information about a network path that is relevant to a finding.
--- Each entry under @NetworkPath@ represents a component of that path.
-awsSecurityFinding_networkPath :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [NetworkPathComponent])
-awsSecurityFinding_networkPath = Lens.lens (\AwsSecurityFinding' {networkPath} -> networkPath) (\s@AwsSecurityFinding' {} a -> s {networkPath = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
-
--- | Provides information about the status of the investigation into a
--- finding.
-awsSecurityFinding_workflow :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Workflow)
-awsSecurityFinding_workflow = Lens.lens (\AwsSecurityFinding' {workflow} -> workflow) (\s@AwsSecurityFinding' {} a -> s {workflow = a} :: AwsSecurityFinding)
-
 -- | Indicates the veracity of a finding.
 awsSecurityFinding_verificationState :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe VerificationState)
 awsSecurityFinding_verificationState = Lens.lens (\AwsSecurityFinding' {verificationState} -> verificationState) (\s@AwsSecurityFinding' {} a -> s {verificationState = a} :: AwsSecurityFinding)
-
--- | Threat intelligence details related to a finding.
-awsSecurityFinding_threatIntelIndicators :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe [ThreatIntelIndicator])
-awsSecurityFinding_threatIntelIndicators = Lens.lens (\AwsSecurityFinding' {threatIntelIndicators} -> threatIntelIndicators) (\s@AwsSecurityFinding' {} a -> s {threatIntelIndicators = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
-
--- | A URL that links to a page about the current finding in the
--- security-findings provider\'s solution.
-awsSecurityFinding_sourceUrl :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
-awsSecurityFinding_sourceUrl = Lens.lens (\AwsSecurityFinding' {sourceUrl} -> sourceUrl) (\s@AwsSecurityFinding' {} a -> s {sourceUrl = a} :: AwsSecurityFinding)
 
 -- | Indicates when the security-findings provider most recently observed the
 -- potential security issue that a finding captured.
@@ -670,10 +635,45 @@ awsSecurityFinding_sourceUrl = Lens.lens (\AwsSecurityFinding' {sourceUrl} -> so
 awsSecurityFinding_lastObservedAt :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_lastObservedAt = Lens.lens (\AwsSecurityFinding' {lastObservedAt} -> lastObservedAt) (\s@AwsSecurityFinding' {} a -> s {lastObservedAt = a} :: AwsSecurityFinding)
 
--- | A list of name\/value string pairs associated with the finding. These
--- are custom, user-defined fields added to a finding.
-awsSecurityFinding_userDefinedFields :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-awsSecurityFinding_userDefinedFields = Lens.lens (\AwsSecurityFinding' {userDefinedFields} -> userDefinedFields) (\s@AwsSecurityFinding' {} a -> s {userDefinedFields = a} :: AwsSecurityFinding) Prelude.. Lens.mapping Lens.coerced
+-- | Provides details about an action that affects or that was taken on a
+-- resource.
+awsSecurityFinding_action :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Action)
+awsSecurityFinding_action = Lens.lens (\AwsSecurityFinding' {action} -> action) (\s@AwsSecurityFinding' {} a -> s {action = a} :: AwsSecurityFinding)
+
+-- | In a @BatchImportFindings@ request, finding providers use
+-- @FindingProviderFields@ to provide and update their own values for
+-- confidence, criticality, related findings, severity, and types.
+awsSecurityFinding_findingProviderFields :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe FindingProviderFields)
+awsSecurityFinding_findingProviderFields = Lens.lens (\AwsSecurityFinding' {findingProviderFields} -> findingProviderFields) (\s@AwsSecurityFinding' {} a -> s {findingProviderFields = a} :: AwsSecurityFinding)
+
+-- | The details of process-related information about a finding.
+awsSecurityFinding_process :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe ProcessDetails)
+awsSecurityFinding_process = Lens.lens (\AwsSecurityFinding' {process} -> process) (\s@AwsSecurityFinding' {} a -> s {process = a} :: AwsSecurityFinding)
+
+-- | Provides information about the status of the investigation into a
+-- finding.
+awsSecurityFinding_workflow :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Workflow)
+awsSecurityFinding_workflow = Lens.lens (\AwsSecurityFinding' {workflow} -> workflow) (\s@AwsSecurityFinding' {} a -> s {workflow = a} :: AwsSecurityFinding)
+
+-- | A user-defined note added to a finding.
+awsSecurityFinding_note :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Note)
+awsSecurityFinding_note = Lens.lens (\AwsSecurityFinding' {note} -> note) (\s@AwsSecurityFinding' {} a -> s {note = a} :: AwsSecurityFinding)
+
+-- | A URL that links to a page about the current finding in the
+-- security-findings provider\'s solution.
+awsSecurityFinding_sourceUrl :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
+awsSecurityFinding_sourceUrl = Lens.lens (\AwsSecurityFinding' {sourceUrl} -> sourceUrl) (\s@AwsSecurityFinding' {} a -> s {sourceUrl = a} :: AwsSecurityFinding)
+
+-- | The workflow state of a finding.
+awsSecurityFinding_workflowState :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe WorkflowState)
+awsSecurityFinding_workflowState = Lens.lens (\AwsSecurityFinding' {workflowState} -> workflowState) (\s@AwsSecurityFinding' {} a -> s {workflowState = a} :: AwsSecurityFinding)
+
+-- | This data type is exclusive to findings that are generated as the result
+-- of a check run against a specific rule in a supported security standard,
+-- such as CIS Amazon Web Services Foundations. Contains security
+-- standard-related finding details.
+awsSecurityFinding_compliance :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Compliance)
+awsSecurityFinding_compliance = Lens.lens (\AwsSecurityFinding' {compliance} -> compliance) (\s@AwsSecurityFinding' {} a -> s {compliance = a} :: AwsSecurityFinding)
 
 -- | The schema version that a finding is formatted for.
 awsSecurityFinding_schemaVersion :: Lens.Lens' AwsSecurityFinding Prelude.Text
@@ -745,42 +745,42 @@ instance Core.FromJSON AwsSecurityFinding where
       ( \x ->
           AwsSecurityFinding'
             Prelude.<$> (x Core..:? "ProductName")
-            Prelude.<*> (x Core..:? "WorkflowState")
             Prelude.<*> (x Core..:? "Criticality")
-            Prelude.<*> (x Core..:? "RecordState")
-            Prelude.<*> (x Core..:? "ProductFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Compliance")
-            Prelude.<*> (x Core..:? "FindingProviderFields")
-            Prelude.<*> (x Core..:? "CompanyName")
-            Prelude.<*> (x Core..:? "Note")
-            Prelude.<*> (x Core..:? "Process")
             Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Types" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Action")
             Prelude.<*> (x Core..:? "Network")
+            Prelude.<*> (x Core..:? "RecordState")
             Prelude.<*> ( x Core..:? "RelatedFindings"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FirstObservedAt")
-            Prelude.<*> (x Core..:? "Malware" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Remediation")
-            Prelude.<*> (x Core..:? "PatchSummary")
+            Prelude.<*> (x Core..:? "ProductFields" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CompanyName")
             Prelude.<*> ( x Core..:? "Vulnerabilities"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "NetworkPath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Workflow")
-            Prelude.<*> (x Core..:? "VerificationState")
             Prelude.<*> ( x Core..:? "ThreatIntelIndicators"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SourceUrl")
-            Prelude.<*> (x Core..:? "LastObservedAt")
+            Prelude.<*> (x Core..:? "Remediation")
+            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "PatchSummary")
             Prelude.<*> ( x Core..:? "UserDefinedFields"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "Malware" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "NetworkPath" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Types" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Region")
+            Prelude.<*> (x Core..:? "FirstObservedAt")
+            Prelude.<*> (x Core..:? "VerificationState")
+            Prelude.<*> (x Core..:? "LastObservedAt")
+            Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Core..:? "FindingProviderFields")
+            Prelude.<*> (x Core..:? "Process")
+            Prelude.<*> (x Core..:? "Workflow")
+            Prelude.<*> (x Core..:? "Note")
+            Prelude.<*> (x Core..:? "SourceUrl")
+            Prelude.<*> (x Core..:? "WorkflowState")
+            Prelude.<*> (x Core..:? "Compliance")
             Prelude.<*> (x Core..: "SchemaVersion")
             Prelude.<*> (x Core..: "Id")
             Prelude.<*> (x Core..: "ProductArn")
@@ -796,34 +796,34 @@ instance Core.FromJSON AwsSecurityFinding where
 instance Prelude.Hashable AwsSecurityFinding where
   hashWithSalt _salt AwsSecurityFinding' {..} =
     _salt `Prelude.hashWithSalt` productName
-      `Prelude.hashWithSalt` workflowState
       `Prelude.hashWithSalt` criticality
-      `Prelude.hashWithSalt` recordState
-      `Prelude.hashWithSalt` productFields
-      `Prelude.hashWithSalt` compliance
-      `Prelude.hashWithSalt` findingProviderFields
-      `Prelude.hashWithSalt` companyName
-      `Prelude.hashWithSalt` note
-      `Prelude.hashWithSalt` process
       `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` types
-      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` network
+      `Prelude.hashWithSalt` recordState
       `Prelude.hashWithSalt` relatedFindings
-      `Prelude.hashWithSalt` firstObservedAt
-      `Prelude.hashWithSalt` malware
-      `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` remediation
-      `Prelude.hashWithSalt` patchSummary
+      `Prelude.hashWithSalt` productFields
+      `Prelude.hashWithSalt` companyName
       `Prelude.hashWithSalt` vulnerabilities
-      `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` networkPath
-      `Prelude.hashWithSalt` workflow
-      `Prelude.hashWithSalt` verificationState
       `Prelude.hashWithSalt` threatIntelIndicators
-      `Prelude.hashWithSalt` sourceUrl
-      `Prelude.hashWithSalt` lastObservedAt
+      `Prelude.hashWithSalt` remediation
+      `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` patchSummary
       `Prelude.hashWithSalt` userDefinedFields
+      `Prelude.hashWithSalt` malware
+      `Prelude.hashWithSalt` networkPath
+      `Prelude.hashWithSalt` types
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` firstObservedAt
+      `Prelude.hashWithSalt` verificationState
+      `Prelude.hashWithSalt` lastObservedAt
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` findingProviderFields
+      `Prelude.hashWithSalt` process
+      `Prelude.hashWithSalt` workflow
+      `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` sourceUrl
+      `Prelude.hashWithSalt` workflowState
+      `Prelude.hashWithSalt` compliance
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` productArn
@@ -838,39 +838,38 @@ instance Prelude.Hashable AwsSecurityFinding where
 instance Prelude.NFData AwsSecurityFinding where
   rnf AwsSecurityFinding' {..} =
     Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf workflowState
       `Prelude.seq` Prelude.rnf criticality
-      `Prelude.seq` Prelude.rnf recordState
-      `Prelude.seq` Prelude.rnf productFields
-      `Prelude.seq` Prelude.rnf compliance
-      `Prelude.seq` Prelude.rnf findingProviderFields
-      `Prelude.seq` Prelude.rnf companyName
-      `Prelude.seq` Prelude.rnf note
-      `Prelude.seq` Prelude.rnf process
       `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf types
-      `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf network
+      `Prelude.seq` Prelude.rnf recordState
       `Prelude.seq` Prelude.rnf relatedFindings
-      `Prelude.seq` Prelude.rnf firstObservedAt
-      `Prelude.seq` Prelude.rnf malware
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf remediation
-      `Prelude.seq` Prelude.rnf patchSummary
+      `Prelude.seq` Prelude.rnf productFields
+      `Prelude.seq` Prelude.rnf companyName
       `Prelude.seq` Prelude.rnf vulnerabilities
-      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf threatIntelIndicators
+      `Prelude.seq` Prelude.rnf remediation
+      `Prelude.seq` Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf patchSummary
+      `Prelude.seq` Prelude.rnf userDefinedFields
+      `Prelude.seq` Prelude.rnf malware
       `Prelude.seq` Prelude.rnf networkPath
+      `Prelude.seq` Prelude.rnf types
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf firstObservedAt
+      `Prelude.seq` Prelude.rnf verificationState
+      `Prelude.seq` Prelude.rnf lastObservedAt
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf
+        findingProviderFields
+      `Prelude.seq` Prelude.rnf process
       `Prelude.seq` Prelude.rnf workflow
-      `Prelude.seq` Prelude.rnf
-        verificationState
-      `Prelude.seq` Prelude.rnf
-        threatIntelIndicators
+      `Prelude.seq` Prelude.rnf note
       `Prelude.seq` Prelude.rnf
         sourceUrl
       `Prelude.seq` Prelude.rnf
-        lastObservedAt
+        workflowState
       `Prelude.seq` Prelude.rnf
-        userDefinedFields
+        compliance
       `Prelude.seq` Prelude.rnf
         schemaVersion
       `Prelude.seq` Prelude.rnf
@@ -897,42 +896,42 @@ instance Core.ToJSON AwsSecurityFinding where
     Core.object
       ( Prelude.catMaybes
           [ ("ProductName" Core..=) Prelude.<$> productName,
-            ("WorkflowState" Core..=) Prelude.<$> workflowState,
             ("Criticality" Core..=) Prelude.<$> criticality,
-            ("RecordState" Core..=) Prelude.<$> recordState,
-            ("ProductFields" Core..=) Prelude.<$> productFields,
-            ("Compliance" Core..=) Prelude.<$> compliance,
-            ("FindingProviderFields" Core..=)
-              Prelude.<$> findingProviderFields,
-            ("CompanyName" Core..=) Prelude.<$> companyName,
-            ("Note" Core..=) Prelude.<$> note,
-            ("Process" Core..=) Prelude.<$> process,
             ("Severity" Core..=) Prelude.<$> severity,
-            ("Types" Core..=) Prelude.<$> types,
-            ("Action" Core..=) Prelude.<$> action,
             ("Network" Core..=) Prelude.<$> network,
+            ("RecordState" Core..=) Prelude.<$> recordState,
             ("RelatedFindings" Core..=)
               Prelude.<$> relatedFindings,
-            ("FirstObservedAt" Core..=)
-              Prelude.<$> firstObservedAt,
-            ("Malware" Core..=) Prelude.<$> malware,
-            ("Confidence" Core..=) Prelude.<$> confidence,
-            ("Remediation" Core..=) Prelude.<$> remediation,
-            ("PatchSummary" Core..=) Prelude.<$> patchSummary,
+            ("ProductFields" Core..=) Prelude.<$> productFields,
+            ("CompanyName" Core..=) Prelude.<$> companyName,
             ("Vulnerabilities" Core..=)
               Prelude.<$> vulnerabilities,
-            ("Region" Core..=) Prelude.<$> region,
-            ("NetworkPath" Core..=) Prelude.<$> networkPath,
-            ("Workflow" Core..=) Prelude.<$> workflow,
-            ("VerificationState" Core..=)
-              Prelude.<$> verificationState,
             ("ThreatIntelIndicators" Core..=)
               Prelude.<$> threatIntelIndicators,
-            ("SourceUrl" Core..=) Prelude.<$> sourceUrl,
-            ("LastObservedAt" Core..=)
-              Prelude.<$> lastObservedAt,
+            ("Remediation" Core..=) Prelude.<$> remediation,
+            ("Confidence" Core..=) Prelude.<$> confidence,
+            ("PatchSummary" Core..=) Prelude.<$> patchSummary,
             ("UserDefinedFields" Core..=)
               Prelude.<$> userDefinedFields,
+            ("Malware" Core..=) Prelude.<$> malware,
+            ("NetworkPath" Core..=) Prelude.<$> networkPath,
+            ("Types" Core..=) Prelude.<$> types,
+            ("Region" Core..=) Prelude.<$> region,
+            ("FirstObservedAt" Core..=)
+              Prelude.<$> firstObservedAt,
+            ("VerificationState" Core..=)
+              Prelude.<$> verificationState,
+            ("LastObservedAt" Core..=)
+              Prelude.<$> lastObservedAt,
+            ("Action" Core..=) Prelude.<$> action,
+            ("FindingProviderFields" Core..=)
+              Prelude.<$> findingProviderFields,
+            ("Process" Core..=) Prelude.<$> process,
+            ("Workflow" Core..=) Prelude.<$> workflow,
+            ("Note" Core..=) Prelude.<$> note,
+            ("SourceUrl" Core..=) Prelude.<$> sourceUrl,
+            ("WorkflowState" Core..=) Prelude.<$> workflowState,
+            ("Compliance" Core..=) Prelude.<$> compliance,
             Prelude.Just ("SchemaVersion" Core..= schemaVersion),
             Prelude.Just ("Id" Core..= id),
             Prelude.Just ("ProductArn" Core..= productArn),

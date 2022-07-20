@@ -29,11 +29,11 @@ import Amazonka.SSM.Types.ComplianceStatus
 --
 -- /See:/ 'newComplianceItemEntry' smart constructor.
 data ComplianceItemEntry = ComplianceItemEntry'
-  { -- | A \"Key\": \"Value\" tag combination for the compliance item.
-    details :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The compliance item ID. For example, if the compliance item is a Windows
+  { -- | The compliance item ID. For example, if the compliance item is a Windows
     -- patch, the ID could be the number of the KB article.
     id :: Prelude.Maybe Prelude.Text,
+    -- | A \"Key\": \"Value\" tag combination for the compliance item.
+    details :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The title of the compliance item. For example, if the compliance item is
     -- a Windows patch, the title could be the title of the KB article for the
     -- patch; for example: Security Update for Active Directory Federation
@@ -56,10 +56,10 @@ data ComplianceItemEntry = ComplianceItemEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'details', 'complianceItemEntry_details' - A \"Key\": \"Value\" tag combination for the compliance item.
---
 -- 'id', 'complianceItemEntry_id' - The compliance item ID. For example, if the compliance item is a Windows
 -- patch, the ID could be the number of the KB article.
+--
+-- 'details', 'complianceItemEntry_details' - A \"Key\": \"Value\" tag combination for the compliance item.
 --
 -- 'title', 'complianceItemEntry_title' - The title of the compliance item. For example, if the compliance item is
 -- a Windows patch, the title could be the title of the KB article for the
@@ -79,21 +79,21 @@ newComplianceItemEntry ::
   ComplianceItemEntry
 newComplianceItemEntry pSeverity_ pStatus_ =
   ComplianceItemEntry'
-    { details = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      details = Prelude.Nothing,
       title = Prelude.Nothing,
       severity = pSeverity_,
       status = pStatus_
     }
 
--- | A \"Key\": \"Value\" tag combination for the compliance item.
-complianceItemEntry_details :: Lens.Lens' ComplianceItemEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-complianceItemEntry_details = Lens.lens (\ComplianceItemEntry' {details} -> details) (\s@ComplianceItemEntry' {} a -> s {details = a} :: ComplianceItemEntry) Prelude.. Lens.mapping Lens.coerced
-
 -- | The compliance item ID. For example, if the compliance item is a Windows
 -- patch, the ID could be the number of the KB article.
 complianceItemEntry_id :: Lens.Lens' ComplianceItemEntry (Prelude.Maybe Prelude.Text)
 complianceItemEntry_id = Lens.lens (\ComplianceItemEntry' {id} -> id) (\s@ComplianceItemEntry' {} a -> s {id = a} :: ComplianceItemEntry)
+
+-- | A \"Key\": \"Value\" tag combination for the compliance item.
+complianceItemEntry_details :: Lens.Lens' ComplianceItemEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+complianceItemEntry_details = Lens.lens (\ComplianceItemEntry' {details} -> details) (\s@ComplianceItemEntry' {} a -> s {details = a} :: ComplianceItemEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The title of the compliance item. For example, if the compliance item is
 -- a Windows patch, the title could be the title of the KB article for the
@@ -114,16 +114,16 @@ complianceItemEntry_status = Lens.lens (\ComplianceItemEntry' {status} -> status
 
 instance Prelude.Hashable ComplianceItemEntry where
   hashWithSalt _salt ComplianceItemEntry' {..} =
-    _salt `Prelude.hashWithSalt` details
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ComplianceItemEntry where
   rnf ComplianceItemEntry' {..} =
-    Prelude.rnf details
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf details
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf status
@@ -132,8 +132,8 @@ instance Core.ToJSON ComplianceItemEntry where
   toJSON ComplianceItemEntry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Details" Core..=) Prelude.<$> details,
-            ("Id" Core..=) Prelude.<$> id,
+          [ ("Id" Core..=) Prelude.<$> id,
+            ("Details" Core..=) Prelude.<$> details,
             ("Title" Core..=) Prelude.<$> title,
             Prelude.Just ("Severity" Core..= severity),
             Prelude.Just ("Status" Core..= status)

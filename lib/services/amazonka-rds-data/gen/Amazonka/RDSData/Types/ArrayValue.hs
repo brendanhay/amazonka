@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newArrayValue' smart constructor.
 data ArrayValue = ArrayValue'
-  { -- | An array of floating point numbers.
+  { -- | An array of strings.
+    stringValues :: Prelude.Maybe [Prelude.Text],
+    -- | An array of Boolean values.
+    booleanValues :: Prelude.Maybe [Prelude.Bool],
+    -- | An array of floating point numbers.
     longValues :: Prelude.Maybe [Prelude.Integer],
     -- | An array of integers.
     doubleValues :: Prelude.Maybe [Prelude.Double],
-    -- | An array of strings.
-    stringValues :: Prelude.Maybe [Prelude.Text],
     -- | An array of arrays.
-    arrayValues :: Prelude.Maybe [ArrayValue],
-    -- | An array of Boolean values.
-    booleanValues :: Prelude.Maybe [Prelude.Bool]
+    arrayValues :: Prelude.Maybe [ArrayValue]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,33 @@ data ArrayValue = ArrayValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stringValues', 'arrayValue_stringValues' - An array of strings.
+--
+-- 'booleanValues', 'arrayValue_booleanValues' - An array of Boolean values.
+--
 -- 'longValues', 'arrayValue_longValues' - An array of floating point numbers.
 --
 -- 'doubleValues', 'arrayValue_doubleValues' - An array of integers.
 --
--- 'stringValues', 'arrayValue_stringValues' - An array of strings.
---
 -- 'arrayValues', 'arrayValue_arrayValues' - An array of arrays.
---
--- 'booleanValues', 'arrayValue_booleanValues' - An array of Boolean values.
 newArrayValue ::
   ArrayValue
 newArrayValue =
   ArrayValue'
-    { longValues = Prelude.Nothing,
+    { stringValues = Prelude.Nothing,
+      booleanValues = Prelude.Nothing,
+      longValues = Prelude.Nothing,
       doubleValues = Prelude.Nothing,
-      stringValues = Prelude.Nothing,
-      arrayValues = Prelude.Nothing,
-      booleanValues = Prelude.Nothing
+      arrayValues = Prelude.Nothing
     }
+
+-- | An array of strings.
+arrayValue_stringValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Text])
+arrayValue_stringValues = Lens.lens (\ArrayValue' {stringValues} -> stringValues) (\s@ArrayValue' {} a -> s {stringValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of Boolean values.
+arrayValue_booleanValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Bool])
+arrayValue_booleanValues = Lens.lens (\ArrayValue' {booleanValues} -> booleanValues) (\s@ArrayValue' {} a -> s {booleanValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of floating point numbers.
 arrayValue_longValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Integer])
@@ -76,17 +84,9 @@ arrayValue_longValues = Lens.lens (\ArrayValue' {longValues} -> longValues) (\s@
 arrayValue_doubleValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Double])
 arrayValue_doubleValues = Lens.lens (\ArrayValue' {doubleValues} -> doubleValues) (\s@ArrayValue' {} a -> s {doubleValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of strings.
-arrayValue_stringValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Text])
-arrayValue_stringValues = Lens.lens (\ArrayValue' {stringValues} -> stringValues) (\s@ArrayValue' {} a -> s {stringValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
-
 -- | An array of arrays.
 arrayValue_arrayValues :: Lens.Lens' ArrayValue (Prelude.Maybe [ArrayValue])
 arrayValue_arrayValues = Lens.lens (\ArrayValue' {arrayValues} -> arrayValues) (\s@ArrayValue' {} a -> s {arrayValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of Boolean values.
-arrayValue_booleanValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Bool])
-arrayValue_booleanValues = Lens.lens (\ArrayValue' {booleanValues} -> booleanValues) (\s@ArrayValue' {} a -> s {booleanValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ArrayValue where
   parseJSON =
@@ -94,37 +94,37 @@ instance Core.FromJSON ArrayValue where
       "ArrayValue"
       ( \x ->
           ArrayValue'
-            Prelude.<$> (x Core..:? "longValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "doubleValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stringValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arrayValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "stringValues" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "booleanValues" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "longValues" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "doubleValues" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "arrayValues" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ArrayValue where
   hashWithSalt _salt ArrayValue' {..} =
-    _salt `Prelude.hashWithSalt` longValues
-      `Prelude.hashWithSalt` doubleValues
-      `Prelude.hashWithSalt` stringValues
-      `Prelude.hashWithSalt` arrayValues
+    _salt `Prelude.hashWithSalt` stringValues
       `Prelude.hashWithSalt` booleanValues
+      `Prelude.hashWithSalt` longValues
+      `Prelude.hashWithSalt` doubleValues
+      `Prelude.hashWithSalt` arrayValues
 
 instance Prelude.NFData ArrayValue where
   rnf ArrayValue' {..} =
-    Prelude.rnf longValues
-      `Prelude.seq` Prelude.rnf doubleValues
-      `Prelude.seq` Prelude.rnf stringValues
-      `Prelude.seq` Prelude.rnf arrayValues
+    Prelude.rnf stringValues
       `Prelude.seq` Prelude.rnf booleanValues
+      `Prelude.seq` Prelude.rnf longValues
+      `Prelude.seq` Prelude.rnf doubleValues
+      `Prelude.seq` Prelude.rnf arrayValues
 
 instance Core.ToJSON ArrayValue where
   toJSON ArrayValue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("longValues" Core..=) Prelude.<$> longValues,
+          [ ("stringValues" Core..=) Prelude.<$> stringValues,
+            ("booleanValues" Core..=) Prelude.<$> booleanValues,
+            ("longValues" Core..=) Prelude.<$> longValues,
             ("doubleValues" Core..=) Prelude.<$> doubleValues,
-            ("stringValues" Core..=) Prelude.<$> stringValues,
-            ("arrayValues" Core..=) Prelude.<$> arrayValues,
-            ("booleanValues" Core..=) Prelude.<$> booleanValues
+            ("arrayValues" Core..=) Prelude.<$> arrayValues
           ]
       )

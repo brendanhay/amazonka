@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelMessageCallback' smart constructor.
 data ChannelMessageCallback = ChannelMessageCallback'
-  { -- | The message content.
-    content :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The message metadata.
+  { -- | The message metadata.
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The message content.
+    content :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The message ID.
     messageId :: Prelude.Text
   }
@@ -44,9 +44,9 @@ data ChannelMessageCallback = ChannelMessageCallback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'content', 'channelMessageCallback_content' - The message content.
---
 -- 'metadata', 'channelMessageCallback_metadata' - The message metadata.
+--
+-- 'content', 'channelMessageCallback_content' - The message content.
 --
 -- 'messageId', 'channelMessageCallback_messageId' - The message ID.
 newChannelMessageCallback ::
@@ -55,18 +55,18 @@ newChannelMessageCallback ::
   ChannelMessageCallback
 newChannelMessageCallback pMessageId_ =
   ChannelMessageCallback'
-    { content = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
+      content = Prelude.Nothing,
       messageId = pMessageId_
     }
-
--- | The message content.
-channelMessageCallback_content :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
-channelMessageCallback_content = Lens.lens (\ChannelMessageCallback' {content} -> content) (\s@ChannelMessageCallback' {} a -> s {content = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The message metadata.
 channelMessageCallback_metadata :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
 channelMessageCallback_metadata = Lens.lens (\ChannelMessageCallback' {metadata} -> metadata) (\s@ChannelMessageCallback' {} a -> s {metadata = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The message content.
+channelMessageCallback_content :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
+channelMessageCallback_content = Lens.lens (\ChannelMessageCallback' {content} -> content) (\s@ChannelMessageCallback' {} a -> s {content = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The message ID.
 channelMessageCallback_messageId :: Lens.Lens' ChannelMessageCallback Prelude.Text
@@ -74,22 +74,22 @@ channelMessageCallback_messageId = Lens.lens (\ChannelMessageCallback' {messageI
 
 instance Prelude.Hashable ChannelMessageCallback where
   hashWithSalt _salt ChannelMessageCallback' {..} =
-    _salt `Prelude.hashWithSalt` content
-      `Prelude.hashWithSalt` metadata
+    _salt `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` messageId
 
 instance Prelude.NFData ChannelMessageCallback where
   rnf ChannelMessageCallback' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf messageId
 
 instance Core.ToJSON ChannelMessageCallback where
   toJSON ChannelMessageCallback' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Content" Core..=) Prelude.<$> content,
-            ("Metadata" Core..=) Prelude.<$> metadata,
+          [ ("Metadata" Core..=) Prelude.<$> metadata,
+            ("Content" Core..=) Prelude.<$> content,
             Prelude.Just ("MessageId" Core..= messageId)
           ]
       )

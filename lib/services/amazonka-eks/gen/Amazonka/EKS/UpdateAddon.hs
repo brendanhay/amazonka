@@ -27,10 +27,10 @@ module Amazonka.EKS.UpdateAddon
     newUpdateAddon,
 
     -- * Request Lenses
+    updateAddon_clientRequestToken,
     updateAddon_addonVersion,
     updateAddon_serviceAccountRoleArn,
     updateAddon_resolveConflicts,
-    updateAddon_clientRequestToken,
     updateAddon_clusterName,
     updateAddon_addonName,
 
@@ -53,7 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAddon' smart constructor.
 data UpdateAddon = UpdateAddon'
-  { -- | The version of the add-on. The version must match one of the versions
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The version of the add-on. The version must match one of the versions
     -- returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
     -- .
@@ -74,9 +77,6 @@ data UpdateAddon = UpdateAddon'
     -- | How to resolve parameter value conflicts when applying the new version
     -- of the add-on to the cluster.
     resolveConflicts :: Prelude.Maybe ResolveConflicts,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster.
     clusterName :: Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
@@ -93,6 +93,9 @@ data UpdateAddon = UpdateAddon'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientRequestToken', 'updateAddon_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
 -- 'addonVersion', 'updateAddon_addonVersion' - The version of the add-on. The version must match one of the versions
 -- returned by
@@ -115,9 +118,6 @@ data UpdateAddon = UpdateAddon'
 -- 'resolveConflicts', 'updateAddon_resolveConflicts' - How to resolve parameter value conflicts when applying the new version
 -- of the add-on to the cluster.
 --
--- 'clientRequestToken', 'updateAddon_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
---
 -- 'clusterName', 'updateAddon_clusterName' - The name of the cluster.
 --
 -- 'addonName', 'updateAddon_addonName' - The name of the add-on. The name must match one of the names returned by
@@ -131,13 +131,18 @@ newUpdateAddon ::
   UpdateAddon
 newUpdateAddon pClusterName_ pAddonName_ =
   UpdateAddon'
-    { addonVersion = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
+      addonVersion = Prelude.Nothing,
       serviceAccountRoleArn = Prelude.Nothing,
       resolveConflicts = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       clusterName = pClusterName_,
       addonName = pAddonName_
     }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+updateAddon_clientRequestToken :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
+updateAddon_clientRequestToken = Lens.lens (\UpdateAddon' {clientRequestToken} -> clientRequestToken) (\s@UpdateAddon' {} a -> s {clientRequestToken = a} :: UpdateAddon)
 
 -- | The version of the add-on. The version must match one of the versions
 -- returned by
@@ -166,11 +171,6 @@ updateAddon_serviceAccountRoleArn = Lens.lens (\UpdateAddon' {serviceAccountRole
 updateAddon_resolveConflicts :: Lens.Lens' UpdateAddon (Prelude.Maybe ResolveConflicts)
 updateAddon_resolveConflicts = Lens.lens (\UpdateAddon' {resolveConflicts} -> resolveConflicts) (\s@UpdateAddon' {} a -> s {resolveConflicts = a} :: UpdateAddon)
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-updateAddon_clientRequestToken :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
-updateAddon_clientRequestToken = Lens.lens (\UpdateAddon' {clientRequestToken} -> clientRequestToken) (\s@UpdateAddon' {} a -> s {clientRequestToken = a} :: UpdateAddon)
-
 -- | The name of the cluster.
 updateAddon_clusterName :: Lens.Lens' UpdateAddon Prelude.Text
 updateAddon_clusterName = Lens.lens (\UpdateAddon' {clusterName} -> clusterName) (\s@UpdateAddon' {} a -> s {clusterName = a} :: UpdateAddon)
@@ -194,19 +194,19 @@ instance Core.AWSRequest UpdateAddon where
 
 instance Prelude.Hashable UpdateAddon where
   hashWithSalt _salt UpdateAddon' {..} =
-    _salt `Prelude.hashWithSalt` addonVersion
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` addonVersion
       `Prelude.hashWithSalt` serviceAccountRoleArn
       `Prelude.hashWithSalt` resolveConflicts
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` addonName
 
 instance Prelude.NFData UpdateAddon where
   rnf UpdateAddon' {..} =
-    Prelude.rnf addonVersion
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf addonVersion
       `Prelude.seq` Prelude.rnf serviceAccountRoleArn
       `Prelude.seq` Prelude.rnf resolveConflicts
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf addonName
 
@@ -225,13 +225,13 @@ instance Core.ToJSON UpdateAddon where
   toJSON UpdateAddon' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("addonVersion" Core..=) Prelude.<$> addonVersion,
+          [ ("clientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            ("addonVersion" Core..=) Prelude.<$> addonVersion,
             ("serviceAccountRoleArn" Core..=)
               Prelude.<$> serviceAccountRoleArn,
             ("resolveConflicts" Core..=)
-              Prelude.<$> resolveConflicts,
-            ("clientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken
+              Prelude.<$> resolveConflicts
           ]
       )
 

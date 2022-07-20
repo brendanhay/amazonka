@@ -90,24 +90,24 @@ module Amazonka.Lambda.CreateFunction
     newCreateFunction,
 
     -- * Request Lenses
-    createFunction_memorySize,
-    createFunction_runtime,
-    createFunction_kmsKeyArn,
-    createFunction_packageType,
-    createFunction_fileSystemConfigs,
-    createFunction_environment,
-    createFunction_imageConfig,
-    createFunction_deadLetterConfig,
-    createFunction_architectures,
-    createFunction_codeSigningConfigArn,
-    createFunction_vpcConfig,
-    createFunction_layers,
-    createFunction_handler,
-    createFunction_timeout,
     createFunction_tracingConfig,
-    createFunction_description,
     createFunction_tags,
+    createFunction_fileSystemConfigs,
+    createFunction_timeout,
+    createFunction_memorySize,
     createFunction_publish,
+    createFunction_imageConfig,
+    createFunction_environment,
+    createFunction_vpcConfig,
+    createFunction_codeSigningConfigArn,
+    createFunction_runtime,
+    createFunction_description,
+    createFunction_kmsKeyArn,
+    createFunction_handler,
+    createFunction_layers,
+    createFunction_packageType,
+    createFunction_architectures,
+    createFunction_deadLetterConfig,
     createFunction_functionName,
     createFunction_role,
     createFunction_code,
@@ -117,38 +117,38 @@ module Amazonka.Lambda.CreateFunction
     newFunctionConfiguration,
 
     -- * Response Lenses
-    functionConfiguration_memorySize,
-    functionConfiguration_runtime,
-    functionConfiguration_state,
-    functionConfiguration_signingProfileVersionArn,
-    functionConfiguration_lastUpdateStatus,
-    functionConfiguration_functionArn,
-    functionConfiguration_kmsKeyArn,
-    functionConfiguration_packageType,
-    functionConfiguration_fileSystemConfigs,
-    functionConfiguration_environment,
-    functionConfiguration_deadLetterConfig,
-    functionConfiguration_architectures,
-    functionConfiguration_signingJobArn,
-    functionConfiguration_role,
-    functionConfiguration_vpcConfig,
-    functionConfiguration_version,
-    functionConfiguration_functionName,
-    functionConfiguration_layers,
-    functionConfiguration_codeSize,
-    functionConfiguration_handler,
-    functionConfiguration_timeout,
-    functionConfiguration_lastUpdateStatusReason,
-    functionConfiguration_stateReason,
-    functionConfiguration_lastModified,
-    functionConfiguration_codeSha256,
     functionConfiguration_tracingConfig,
-    functionConfiguration_stateReasonCode,
-    functionConfiguration_imageConfigResponse,
+    functionConfiguration_fileSystemConfigs,
+    functionConfiguration_lastUpdateStatusReason,
+    functionConfiguration_masterArn,
+    functionConfiguration_functionArn,
+    functionConfiguration_timeout,
+    functionConfiguration_memorySize,
+    functionConfiguration_codeSha256,
+    functionConfiguration_environment,
+    functionConfiguration_vpcConfig,
+    functionConfiguration_state,
+    functionConfiguration_functionName,
+    functionConfiguration_runtime,
+    functionConfiguration_signingProfileVersionArn,
     functionConfiguration_description,
+    functionConfiguration_kmsKeyArn,
+    functionConfiguration_handler,
+    functionConfiguration_layers,
+    functionConfiguration_stateReasonCode,
+    functionConfiguration_packageType,
     functionConfiguration_lastUpdateStatusReasonCode,
     functionConfiguration_revisionId,
-    functionConfiguration_masterArn,
+    functionConfiguration_signingJobArn,
+    functionConfiguration_imageConfigResponse,
+    functionConfiguration_lastUpdateStatus,
+    functionConfiguration_lastModified,
+    functionConfiguration_role,
+    functionConfiguration_architectures,
+    functionConfiguration_stateReason,
+    functionConfiguration_version,
+    functionConfiguration_deadLetterConfig,
+    functionConfiguration_codeSize,
   )
 where
 
@@ -161,80 +161,80 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFunction' smart constructor.
 data CreateFunction = CreateFunction'
-  { -- | The amount of
+  { -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+    -- with
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+    tracingConfig :: Prelude.Maybe TracingConfig,
+    -- | A list of
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
+    -- apply to the function.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Connection settings for an Amazon EFS file system.
+    fileSystemConfigs :: Prelude.Maybe [FileSystemConfig],
+    -- | The amount of time that Lambda allows a function to run before stopping
+    -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+    -- For additional information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
+    timeout :: Prelude.Maybe Prelude.Natural,
+    -- | The amount of
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
     -- at runtime. Increasing the function memory also increases its CPU
     -- allocation. The default value is 128 MB. The value can be any multiple
     -- of 1 MB.
     memorySize :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the function\'s
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
-    runtime :: Prelude.Maybe Runtime,
-    -- | The ARN of the Amazon Web Services Key Management Service (KMS) key
-    -- that\'s used to encrypt your function\'s environment variables. If it\'s
-    -- not provided, Lambda uses a default service key.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of deployment package. Set to @Image@ for container image and
-    -- set @Zip@ for ZIP archive.
-    packageType :: Prelude.Maybe PackageType,
-    -- | Connection settings for an Amazon EFS file system.
-    fileSystemConfigs :: Prelude.Maybe [FileSystemConfig],
-    -- | Environment variables that are accessible from function code during
-    -- execution.
-    environment :: Prelude.Maybe Environment,
+    -- | Set to true to publish the first version of the function during
+    -- creation.
+    publish :: Prelude.Maybe Prelude.Bool,
     -- | Container image
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
     -- that override the values in the container image Dockerfile.
     imageConfig :: Prelude.Maybe ImageConfig,
-    -- | A dead letter queue configuration that specifies the queue or topic
-    -- where Lambda sends asynchronous events when they fail processing. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
-    deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
-    -- | The instruction set architecture that the function supports. Enter a
-    -- string array with one of the valid values. The default value is
-    -- @x86_64@.
-    architectures :: Prelude.Maybe (Prelude.NonEmpty Architecture),
-    -- | To enable code signing for this function, specify the ARN of a
-    -- code-signing configuration. A code-signing configuration includes a set
-    -- of signing profiles, which define the trusted publishers for this
-    -- function.
-    codeSigningConfigArn :: Prelude.Maybe Prelude.Text,
+    -- | Environment variables that are accessible from function code during
+    -- execution.
+    environment :: Prelude.Maybe Environment,
     -- | For network connectivity to Amazon Web Services resources in a VPC,
     -- specify a list of security groups and subnets in the VPC. When you
     -- connect a function to a VPC, it can only access resources and the
     -- internet through that VPC. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | A list of
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
-    -- to add to the function\'s execution environment. Specify each layer by
-    -- its ARN, including the version.
-    layers :: Prelude.Maybe [Prelude.Text],
+    -- | To enable code signing for this function, specify the ARN of a
+    -- code-signing configuration. A code-signing configuration includes a set
+    -- of signing profiles, which define the trusted publishers for this
+    -- function.
+    codeSigningConfigArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the function\'s
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+    runtime :: Prelude.Maybe Runtime,
+    -- | A description of the function.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Amazon Web Services Key Management Service (KMS) key
+    -- that\'s used to encrypt your function\'s environment variables. If it\'s
+    -- not provided, Lambda uses a default service key.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the method within your code that Lambda calls to execute
     -- your function. The format includes the file name. It can also include
     -- namespaces and other qualifiers, depending on the runtime. For more
     -- information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
     handler :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time that Lambda allows a function to run before stopping
-    -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
-    -- For additional information, see
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
-    timeout :: Prelude.Maybe Prelude.Natural,
-    -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
-    -- with
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
-    tracingConfig :: Prelude.Maybe TracingConfig,
-    -- | A description of the function.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A list of
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
-    -- apply to the function.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Set to true to publish the first version of the function during
-    -- creation.
-    publish :: Prelude.Maybe Prelude.Bool,
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
+    -- to add to the function\'s execution environment. Specify each layer by
+    -- its ARN, including the version.
+    layers :: Prelude.Maybe [Prelude.Text],
+    -- | The type of deployment package. Set to @Image@ for container image and
+    -- set @Zip@ for ZIP archive.
+    packageType :: Prelude.Maybe PackageType,
+    -- | The instruction set architecture that the function supports. Enter a
+    -- string array with one of the valid values. The default value is
+    -- @x86_64@.
+    architectures :: Prelude.Maybe (Prelude.NonEmpty Architecture),
+    -- | A dead letter queue configuration that specifies the queue or topic
+    -- where Lambda sends asynchronous events when they fail processing. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
+    deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -264,44 +264,36 @@ data CreateFunction = CreateFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tracingConfig', 'createFunction_tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+-- with
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+--
+-- 'tags', 'createFunction_tags' - A list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
+-- apply to the function.
+--
+-- 'fileSystemConfigs', 'createFunction_fileSystemConfigs' - Connection settings for an Amazon EFS file system.
+--
+-- 'timeout', 'createFunction_timeout' - The amount of time that Lambda allows a function to run before stopping
+-- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- For additional information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
+--
 -- 'memorySize', 'createFunction_memorySize' - The amount of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
 -- at runtime. Increasing the function memory also increases its CPU
 -- allocation. The default value is 128 MB. The value can be any multiple
 -- of 1 MB.
 --
--- 'runtime', 'createFunction_runtime' - The identifier of the function\'s
--- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
---
--- 'kmsKeyArn', 'createFunction_kmsKeyArn' - The ARN of the Amazon Web Services Key Management Service (KMS) key
--- that\'s used to encrypt your function\'s environment variables. If it\'s
--- not provided, Lambda uses a default service key.
---
--- 'packageType', 'createFunction_packageType' - The type of deployment package. Set to @Image@ for container image and
--- set @Zip@ for ZIP archive.
---
--- 'fileSystemConfigs', 'createFunction_fileSystemConfigs' - Connection settings for an Amazon EFS file system.
---
--- 'environment', 'createFunction_environment' - Environment variables that are accessible from function code during
--- execution.
+-- 'publish', 'createFunction_publish' - Set to true to publish the first version of the function during
+-- creation.
 --
 -- 'imageConfig', 'createFunction_imageConfig' - Container image
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
 -- that override the values in the container image Dockerfile.
 --
--- 'deadLetterConfig', 'createFunction_deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic
--- where Lambda sends asynchronous events when they fail processing. For
--- more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
---
--- 'architectures', 'createFunction_architectures' - The instruction set architecture that the function supports. Enter a
--- string array with one of the valid values. The default value is
--- @x86_64@.
---
--- 'codeSigningConfigArn', 'createFunction_codeSigningConfigArn' - To enable code signing for this function, specify the ARN of a
--- code-signing configuration. A code-signing configuration includes a set
--- of signing profiles, which define the trusted publishers for this
--- function.
+-- 'environment', 'createFunction_environment' - Environment variables that are accessible from function code during
+-- execution.
 --
 -- 'vpcConfig', 'createFunction_vpcConfig' - For network connectivity to Amazon Web Services resources in a VPC,
 -- specify a list of security groups and subnets in the VPC. When you
@@ -309,10 +301,19 @@ data CreateFunction = CreateFunction'
 -- internet through that VPC. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
 --
--- 'layers', 'createFunction_layers' - A list of
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
--- to add to the function\'s execution environment. Specify each layer by
--- its ARN, including the version.
+-- 'codeSigningConfigArn', 'createFunction_codeSigningConfigArn' - To enable code signing for this function, specify the ARN of a
+-- code-signing configuration. A code-signing configuration includes a set
+-- of signing profiles, which define the trusted publishers for this
+-- function.
+--
+-- 'runtime', 'createFunction_runtime' - The identifier of the function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+--
+-- 'description', 'createFunction_description' - A description of the function.
+--
+-- 'kmsKeyArn', 'createFunction_kmsKeyArn' - The ARN of the Amazon Web Services Key Management Service (KMS) key
+-- that\'s used to encrypt your function\'s environment variables. If it\'s
+-- not provided, Lambda uses a default service key.
 --
 -- 'handler', 'createFunction_handler' - The name of the method within your code that Lambda calls to execute
 -- your function. The format includes the file name. It can also include
@@ -320,23 +321,22 @@ data CreateFunction = CreateFunction'
 -- information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
 --
--- 'timeout', 'createFunction_timeout' - The amount of time that Lambda allows a function to run before stopping
--- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
--- For additional information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
+-- 'layers', 'createFunction_layers' - A list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
+-- to add to the function\'s execution environment. Specify each layer by
+-- its ARN, including the version.
 --
--- 'tracingConfig', 'createFunction_tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
--- with
--- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+-- 'packageType', 'createFunction_packageType' - The type of deployment package. Set to @Image@ for container image and
+-- set @Zip@ for ZIP archive.
 --
--- 'description', 'createFunction_description' - A description of the function.
+-- 'architectures', 'createFunction_architectures' - The instruction set architecture that the function supports. Enter a
+-- string array with one of the valid values. The default value is
+-- @x86_64@.
 --
--- 'tags', 'createFunction_tags' - A list of
--- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
--- apply to the function.
---
--- 'publish', 'createFunction_publish' - Set to true to publish the first version of the function during
--- creation.
+-- 'deadLetterConfig', 'createFunction_deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic
+-- where Lambda sends asynchronous events when they fail processing. For
+-- more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
 --
 -- 'functionName', 'createFunction_functionName' - The name of the Lambda function.
 --
@@ -365,28 +365,51 @@ newCreateFunction ::
   CreateFunction
 newCreateFunction pFunctionName_ pRole_ pCode_ =
   CreateFunction'
-    { memorySize = Prelude.Nothing,
-      runtime = Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing,
-      packageType = Prelude.Nothing,
-      fileSystemConfigs = Prelude.Nothing,
-      environment = Prelude.Nothing,
-      imageConfig = Prelude.Nothing,
-      deadLetterConfig = Prelude.Nothing,
-      architectures = Prelude.Nothing,
-      codeSigningConfigArn = Prelude.Nothing,
-      vpcConfig = Prelude.Nothing,
-      layers = Prelude.Nothing,
-      handler = Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      tracingConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { tracingConfig = Prelude.Nothing,
       tags = Prelude.Nothing,
+      fileSystemConfigs = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      memorySize = Prelude.Nothing,
       publish = Prelude.Nothing,
+      imageConfig = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
+      codeSigningConfigArn = Prelude.Nothing,
+      runtime = Prelude.Nothing,
+      description = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
+      handler = Prelude.Nothing,
+      layers = Prelude.Nothing,
+      packageType = Prelude.Nothing,
+      architectures = Prelude.Nothing,
+      deadLetterConfig = Prelude.Nothing,
       functionName = pFunctionName_,
       role' = pRole_,
       code = pCode_
     }
+
+-- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+-- with
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+createFunction_tracingConfig :: Lens.Lens' CreateFunction (Prelude.Maybe TracingConfig)
+createFunction_tracingConfig = Lens.lens (\CreateFunction' {tracingConfig} -> tracingConfig) (\s@CreateFunction' {} a -> s {tracingConfig = a} :: CreateFunction)
+
+-- | A list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
+-- apply to the function.
+createFunction_tags :: Lens.Lens' CreateFunction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFunction_tags = Lens.lens (\CreateFunction' {tags} -> tags) (\s@CreateFunction' {} a -> s {tags = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
+
+-- | Connection settings for an Amazon EFS file system.
+createFunction_fileSystemConfigs :: Lens.Lens' CreateFunction (Prelude.Maybe [FileSystemConfig])
+createFunction_fileSystemConfigs = Lens.lens (\CreateFunction' {fileSystemConfigs} -> fileSystemConfigs) (\s@CreateFunction' {} a -> s {fileSystemConfigs = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
+
+-- | The amount of time that Lambda allows a function to run before stopping
+-- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- For additional information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
+createFunction_timeout :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
+createFunction_timeout = Lens.lens (\CreateFunction' {timeout} -> timeout) (\s@CreateFunction' {} a -> s {timeout = a} :: CreateFunction)
 
 -- | The amount of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
@@ -396,30 +419,10 @@ newCreateFunction pFunctionName_ pRole_ pCode_ =
 createFunction_memorySize :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
 createFunction_memorySize = Lens.lens (\CreateFunction' {memorySize} -> memorySize) (\s@CreateFunction' {} a -> s {memorySize = a} :: CreateFunction)
 
--- | The identifier of the function\'s
--- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
-createFunction_runtime :: Lens.Lens' CreateFunction (Prelude.Maybe Runtime)
-createFunction_runtime = Lens.lens (\CreateFunction' {runtime} -> runtime) (\s@CreateFunction' {} a -> s {runtime = a} :: CreateFunction)
-
--- | The ARN of the Amazon Web Services Key Management Service (KMS) key
--- that\'s used to encrypt your function\'s environment variables. If it\'s
--- not provided, Lambda uses a default service key.
-createFunction_kmsKeyArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
-createFunction_kmsKeyArn = Lens.lens (\CreateFunction' {kmsKeyArn} -> kmsKeyArn) (\s@CreateFunction' {} a -> s {kmsKeyArn = a} :: CreateFunction)
-
--- | The type of deployment package. Set to @Image@ for container image and
--- set @Zip@ for ZIP archive.
-createFunction_packageType :: Lens.Lens' CreateFunction (Prelude.Maybe PackageType)
-createFunction_packageType = Lens.lens (\CreateFunction' {packageType} -> packageType) (\s@CreateFunction' {} a -> s {packageType = a} :: CreateFunction)
-
--- | Connection settings for an Amazon EFS file system.
-createFunction_fileSystemConfigs :: Lens.Lens' CreateFunction (Prelude.Maybe [FileSystemConfig])
-createFunction_fileSystemConfigs = Lens.lens (\CreateFunction' {fileSystemConfigs} -> fileSystemConfigs) (\s@CreateFunction' {} a -> s {fileSystemConfigs = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
-
--- | Environment variables that are accessible from function code during
--- execution.
-createFunction_environment :: Lens.Lens' CreateFunction (Prelude.Maybe Environment)
-createFunction_environment = Lens.lens (\CreateFunction' {environment} -> environment) (\s@CreateFunction' {} a -> s {environment = a} :: CreateFunction)
+-- | Set to true to publish the first version of the function during
+-- creation.
+createFunction_publish :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Bool)
+createFunction_publish = Lens.lens (\CreateFunction' {publish} -> publish) (\s@CreateFunction' {} a -> s {publish = a} :: CreateFunction)
 
 -- | Container image
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
@@ -427,25 +430,10 @@ createFunction_environment = Lens.lens (\CreateFunction' {environment} -> enviro
 createFunction_imageConfig :: Lens.Lens' CreateFunction (Prelude.Maybe ImageConfig)
 createFunction_imageConfig = Lens.lens (\CreateFunction' {imageConfig} -> imageConfig) (\s@CreateFunction' {} a -> s {imageConfig = a} :: CreateFunction)
 
--- | A dead letter queue configuration that specifies the queue or topic
--- where Lambda sends asynchronous events when they fail processing. For
--- more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
-createFunction_deadLetterConfig :: Lens.Lens' CreateFunction (Prelude.Maybe DeadLetterConfig)
-createFunction_deadLetterConfig = Lens.lens (\CreateFunction' {deadLetterConfig} -> deadLetterConfig) (\s@CreateFunction' {} a -> s {deadLetterConfig = a} :: CreateFunction)
-
--- | The instruction set architecture that the function supports. Enter a
--- string array with one of the valid values. The default value is
--- @x86_64@.
-createFunction_architectures :: Lens.Lens' CreateFunction (Prelude.Maybe (Prelude.NonEmpty Architecture))
-createFunction_architectures = Lens.lens (\CreateFunction' {architectures} -> architectures) (\s@CreateFunction' {} a -> s {architectures = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
-
--- | To enable code signing for this function, specify the ARN of a
--- code-signing configuration. A code-signing configuration includes a set
--- of signing profiles, which define the trusted publishers for this
--- function.
-createFunction_codeSigningConfigArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
-createFunction_codeSigningConfigArn = Lens.lens (\CreateFunction' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@CreateFunction' {} a -> s {codeSigningConfigArn = a} :: CreateFunction)
+-- | Environment variables that are accessible from function code during
+-- execution.
+createFunction_environment :: Lens.Lens' CreateFunction (Prelude.Maybe Environment)
+createFunction_environment = Lens.lens (\CreateFunction' {environment} -> environment) (\s@CreateFunction' {} a -> s {environment = a} :: CreateFunction)
 
 -- | For network connectivity to Amazon Web Services resources in a VPC,
 -- specify a list of security groups and subnets in the VPC. When you
@@ -455,12 +443,27 @@ createFunction_codeSigningConfigArn = Lens.lens (\CreateFunction' {codeSigningCo
 createFunction_vpcConfig :: Lens.Lens' CreateFunction (Prelude.Maybe VpcConfig)
 createFunction_vpcConfig = Lens.lens (\CreateFunction' {vpcConfig} -> vpcConfig) (\s@CreateFunction' {} a -> s {vpcConfig = a} :: CreateFunction)
 
--- | A list of
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
--- to add to the function\'s execution environment. Specify each layer by
--- its ARN, including the version.
-createFunction_layers :: Lens.Lens' CreateFunction (Prelude.Maybe [Prelude.Text])
-createFunction_layers = Lens.lens (\CreateFunction' {layers} -> layers) (\s@CreateFunction' {} a -> s {layers = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
+-- | To enable code signing for this function, specify the ARN of a
+-- code-signing configuration. A code-signing configuration includes a set
+-- of signing profiles, which define the trusted publishers for this
+-- function.
+createFunction_codeSigningConfigArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
+createFunction_codeSigningConfigArn = Lens.lens (\CreateFunction' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@CreateFunction' {} a -> s {codeSigningConfigArn = a} :: CreateFunction)
+
+-- | The identifier of the function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+createFunction_runtime :: Lens.Lens' CreateFunction (Prelude.Maybe Runtime)
+createFunction_runtime = Lens.lens (\CreateFunction' {runtime} -> runtime) (\s@CreateFunction' {} a -> s {runtime = a} :: CreateFunction)
+
+-- | A description of the function.
+createFunction_description :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
+createFunction_description = Lens.lens (\CreateFunction' {description} -> description) (\s@CreateFunction' {} a -> s {description = a} :: CreateFunction)
+
+-- | The ARN of the Amazon Web Services Key Management Service (KMS) key
+-- that\'s used to encrypt your function\'s environment variables. If it\'s
+-- not provided, Lambda uses a default service key.
+createFunction_kmsKeyArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
+createFunction_kmsKeyArn = Lens.lens (\CreateFunction' {kmsKeyArn} -> kmsKeyArn) (\s@CreateFunction' {} a -> s {kmsKeyArn = a} :: CreateFunction)
 
 -- | The name of the method within your code that Lambda calls to execute
 -- your function. The format includes the file name. It can also include
@@ -470,33 +473,30 @@ createFunction_layers = Lens.lens (\CreateFunction' {layers} -> layers) (\s@Crea
 createFunction_handler :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
 createFunction_handler = Lens.lens (\CreateFunction' {handler} -> handler) (\s@CreateFunction' {} a -> s {handler = a} :: CreateFunction)
 
--- | The amount of time that Lambda allows a function to run before stopping
--- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
--- For additional information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
-createFunction_timeout :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
-createFunction_timeout = Lens.lens (\CreateFunction' {timeout} -> timeout) (\s@CreateFunction' {} a -> s {timeout = a} :: CreateFunction)
-
--- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
--- with
--- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
-createFunction_tracingConfig :: Lens.Lens' CreateFunction (Prelude.Maybe TracingConfig)
-createFunction_tracingConfig = Lens.lens (\CreateFunction' {tracingConfig} -> tracingConfig) (\s@CreateFunction' {} a -> s {tracingConfig = a} :: CreateFunction)
-
--- | A description of the function.
-createFunction_description :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
-createFunction_description = Lens.lens (\CreateFunction' {description} -> description) (\s@CreateFunction' {} a -> s {description = a} :: CreateFunction)
-
 -- | A list of
--- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
--- apply to the function.
-createFunction_tags :: Lens.Lens' CreateFunction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFunction_tags = Lens.lens (\CreateFunction' {tags} -> tags) (\s@CreateFunction' {} a -> s {tags = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
+-- to add to the function\'s execution environment. Specify each layer by
+-- its ARN, including the version.
+createFunction_layers :: Lens.Lens' CreateFunction (Prelude.Maybe [Prelude.Text])
+createFunction_layers = Lens.lens (\CreateFunction' {layers} -> layers) (\s@CreateFunction' {} a -> s {layers = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
 
--- | Set to true to publish the first version of the function during
--- creation.
-createFunction_publish :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Bool)
-createFunction_publish = Lens.lens (\CreateFunction' {publish} -> publish) (\s@CreateFunction' {} a -> s {publish = a} :: CreateFunction)
+-- | The type of deployment package. Set to @Image@ for container image and
+-- set @Zip@ for ZIP archive.
+createFunction_packageType :: Lens.Lens' CreateFunction (Prelude.Maybe PackageType)
+createFunction_packageType = Lens.lens (\CreateFunction' {packageType} -> packageType) (\s@CreateFunction' {} a -> s {packageType = a} :: CreateFunction)
+
+-- | The instruction set architecture that the function supports. Enter a
+-- string array with one of the valid values. The default value is
+-- @x86_64@.
+createFunction_architectures :: Lens.Lens' CreateFunction (Prelude.Maybe (Prelude.NonEmpty Architecture))
+createFunction_architectures = Lens.lens (\CreateFunction' {architectures} -> architectures) (\s@CreateFunction' {} a -> s {architectures = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
+
+-- | A dead letter queue configuration that specifies the queue or topic
+-- where Lambda sends asynchronous events when they fail processing. For
+-- more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
+createFunction_deadLetterConfig :: Lens.Lens' CreateFunction (Prelude.Maybe DeadLetterConfig)
+createFunction_deadLetterConfig = Lens.lens (\CreateFunction' {deadLetterConfig} -> deadLetterConfig) (\s@CreateFunction' {} a -> s {deadLetterConfig = a} :: CreateFunction)
 
 -- | The name of the Lambda function.
 --
@@ -533,48 +533,48 @@ instance Core.AWSRequest CreateFunction where
 
 instance Prelude.Hashable CreateFunction where
   hashWithSalt _salt CreateFunction' {..} =
-    _salt `Prelude.hashWithSalt` memorySize
-      `Prelude.hashWithSalt` runtime
-      `Prelude.hashWithSalt` kmsKeyArn
-      `Prelude.hashWithSalt` packageType
-      `Prelude.hashWithSalt` fileSystemConfigs
-      `Prelude.hashWithSalt` environment
-      `Prelude.hashWithSalt` imageConfig
-      `Prelude.hashWithSalt` deadLetterConfig
-      `Prelude.hashWithSalt` architectures
-      `Prelude.hashWithSalt` codeSigningConfigArn
-      `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` layers
-      `Prelude.hashWithSalt` handler
-      `Prelude.hashWithSalt` timeout
-      `Prelude.hashWithSalt` tracingConfig
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` tracingConfig
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fileSystemConfigs
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` memorySize
       `Prelude.hashWithSalt` publish
+      `Prelude.hashWithSalt` imageConfig
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` codeSigningConfigArn
+      `Prelude.hashWithSalt` runtime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` handler
+      `Prelude.hashWithSalt` layers
+      `Prelude.hashWithSalt` packageType
+      `Prelude.hashWithSalt` architectures
+      `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` code
 
 instance Prelude.NFData CreateFunction where
   rnf CreateFunction' {..} =
-    Prelude.rnf memorySize
-      `Prelude.seq` Prelude.rnf runtime
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf packageType
-      `Prelude.seq` Prelude.rnf fileSystemConfigs
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf imageConfig
-      `Prelude.seq` Prelude.rnf deadLetterConfig
-      `Prelude.seq` Prelude.rnf architectures
-      `Prelude.seq` Prelude.rnf codeSigningConfigArn
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf handler
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf tracingConfig
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tracingConfig
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fileSystemConfigs
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf memorySize
       `Prelude.seq` Prelude.rnf publish
+      `Prelude.seq` Prelude.rnf imageConfig
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf codeSigningConfigArn
+      `Prelude.seq` Prelude.rnf runtime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf handler
+      `Prelude.seq` Prelude.rnf layers
+      `Prelude.seq` Prelude.rnf packageType
+      `Prelude.seq` Prelude.rnf architectures
+      `Prelude.seq` Prelude.rnf deadLetterConfig
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf code
@@ -586,27 +586,27 @@ instance Core.ToJSON CreateFunction where
   toJSON CreateFunction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MemorySize" Core..=) Prelude.<$> memorySize,
-            ("Runtime" Core..=) Prelude.<$> runtime,
-            ("KMSKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("PackageType" Core..=) Prelude.<$> packageType,
+          [ ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("FileSystemConfigs" Core..=)
               Prelude.<$> fileSystemConfigs,
-            ("Environment" Core..=) Prelude.<$> environment,
+            ("Timeout" Core..=) Prelude.<$> timeout,
+            ("MemorySize" Core..=) Prelude.<$> memorySize,
+            ("Publish" Core..=) Prelude.<$> publish,
             ("ImageConfig" Core..=) Prelude.<$> imageConfig,
-            ("DeadLetterConfig" Core..=)
-              Prelude.<$> deadLetterConfig,
-            ("Architectures" Core..=) Prelude.<$> architectures,
+            ("Environment" Core..=) Prelude.<$> environment,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("CodeSigningConfigArn" Core..=)
               Prelude.<$> codeSigningConfigArn,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("Layers" Core..=) Prelude.<$> layers,
-            ("Handler" Core..=) Prelude.<$> handler,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
+            ("Runtime" Core..=) Prelude.<$> runtime,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("Publish" Core..=) Prelude.<$> publish,
+            ("KMSKeyArn" Core..=) Prelude.<$> kmsKeyArn,
+            ("Handler" Core..=) Prelude.<$> handler,
+            ("Layers" Core..=) Prelude.<$> layers,
+            ("PackageType" Core..=) Prelude.<$> packageType,
+            ("Architectures" Core..=) Prelude.<$> architectures,
+            ("DeadLetterConfig" Core..=)
+              Prelude.<$> deadLetterConfig,
             Prelude.Just ("FunctionName" Core..= functionName),
             Prelude.Just ("Role" Core..= role'),
             Prelude.Just ("Code" Core..= code)

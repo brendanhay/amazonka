@@ -28,18 +28,18 @@ module Amazonka.LookoutEquipment.ListInferenceSchedulers
     newListInferenceSchedulers,
 
     -- * Request Lenses
-    listInferenceSchedulers_modelName,
     listInferenceSchedulers_nextToken,
     listInferenceSchedulers_inferenceSchedulerNameBeginsWith,
     listInferenceSchedulers_maxResults,
+    listInferenceSchedulers_modelName,
 
     -- * Destructuring the Response
     ListInferenceSchedulersResponse (..),
     newListInferenceSchedulersResponse,
 
     -- * Response Lenses
-    listInferenceSchedulersResponse_inferenceSchedulerSummaries,
     listInferenceSchedulersResponse_nextToken,
+    listInferenceSchedulersResponse_inferenceSchedulerSummaries,
     listInferenceSchedulersResponse_httpStatus,
   )
 where
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInferenceSchedulers' smart constructor.
 data ListInferenceSchedulers = ListInferenceSchedulers'
-  { -- | The name of the ML model used by the inference scheduler to be listed.
-    modelName :: Prelude.Maybe Prelude.Text,
-    -- | An opaque pagination token indicating where to continue the listing of
+  { -- | An opaque pagination token indicating where to continue the listing of
     -- inference schedulers.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The beginning of the name of the inference schedulers to be listed.
     inferenceSchedulerNameBeginsWith :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum number of inference schedulers to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the ML model used by the inference scheduler to be listed.
+    modelName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,28 +73,24 @@ data ListInferenceSchedulers = ListInferenceSchedulers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelName', 'listInferenceSchedulers_modelName' - The name of the ML model used by the inference scheduler to be listed.
---
 -- 'nextToken', 'listInferenceSchedulers_nextToken' - An opaque pagination token indicating where to continue the listing of
 -- inference schedulers.
 --
 -- 'inferenceSchedulerNameBeginsWith', 'listInferenceSchedulers_inferenceSchedulerNameBeginsWith' - The beginning of the name of the inference schedulers to be listed.
 --
 -- 'maxResults', 'listInferenceSchedulers_maxResults' - Specifies the maximum number of inference schedulers to list.
+--
+-- 'modelName', 'listInferenceSchedulers_modelName' - The name of the ML model used by the inference scheduler to be listed.
 newListInferenceSchedulers ::
   ListInferenceSchedulers
 newListInferenceSchedulers =
   ListInferenceSchedulers'
-    { modelName =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       inferenceSchedulerNameBeginsWith = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      modelName = Prelude.Nothing
     }
-
--- | The name of the ML model used by the inference scheduler to be listed.
-listInferenceSchedulers_modelName :: Lens.Lens' ListInferenceSchedulers (Prelude.Maybe Prelude.Text)
-listInferenceSchedulers_modelName = Lens.lens (\ListInferenceSchedulers' {modelName} -> modelName) (\s@ListInferenceSchedulers' {} a -> s {modelName = a} :: ListInferenceSchedulers)
 
 -- | An opaque pagination token indicating where to continue the listing of
 -- inference schedulers.
@@ -109,6 +105,10 @@ listInferenceSchedulers_inferenceSchedulerNameBeginsWith = Lens.lens (\ListInfer
 listInferenceSchedulers_maxResults :: Lens.Lens' ListInferenceSchedulers (Prelude.Maybe Prelude.Natural)
 listInferenceSchedulers_maxResults = Lens.lens (\ListInferenceSchedulers' {maxResults} -> maxResults) (\s@ListInferenceSchedulers' {} a -> s {maxResults = a} :: ListInferenceSchedulers)
 
+-- | The name of the ML model used by the inference scheduler to be listed.
+listInferenceSchedulers_modelName :: Lens.Lens' ListInferenceSchedulers (Prelude.Maybe Prelude.Text)
+listInferenceSchedulers_modelName = Lens.lens (\ListInferenceSchedulers' {modelName} -> modelName) (\s@ListInferenceSchedulers' {} a -> s {modelName = a} :: ListInferenceSchedulers)
+
 instance Core.AWSRequest ListInferenceSchedulers where
   type
     AWSResponse ListInferenceSchedulers =
@@ -118,26 +118,26 @@ instance Core.AWSRequest ListInferenceSchedulers where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceSchedulersResponse'
-            Prelude.<$> ( x Core..?> "InferenceSchedulerSummaries"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "InferenceSchedulerSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListInferenceSchedulers where
   hashWithSalt _salt ListInferenceSchedulers' {..} =
-    _salt `Prelude.hashWithSalt` modelName
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` inferenceSchedulerNameBeginsWith
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` modelName
 
 instance Prelude.NFData ListInferenceSchedulers where
   rnf ListInferenceSchedulers' {..} =
-    Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf inferenceSchedulerNameBeginsWith
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf modelName
 
 instance Core.ToHeaders ListInferenceSchedulers where
   toHeaders =
@@ -158,11 +158,11 @@ instance Core.ToJSON ListInferenceSchedulers where
   toJSON ListInferenceSchedulers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ModelName" Core..=) Prelude.<$> modelName,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("InferenceSchedulerNameBeginsWith" Core..=)
               Prelude.<$> inferenceSchedulerNameBeginsWith,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ModelName" Core..=) Prelude.<$> modelName
           ]
       )
 
@@ -174,12 +174,12 @@ instance Core.ToQuery ListInferenceSchedulers where
 
 -- | /See:/ 'newListInferenceSchedulersResponse' smart constructor.
 data ListInferenceSchedulersResponse = ListInferenceSchedulersResponse'
-  { -- | Provides information about the specified inference scheduler, including
-    -- data upload frequency, model name and ARN, and status.
-    inferenceSchedulerSummaries :: Prelude.Maybe [InferenceSchedulerSummary],
-    -- | An opaque pagination token indicating where to continue the listing of
+  { -- | An opaque pagination token indicating where to continue the listing of
     -- inference schedulers.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Provides information about the specified inference scheduler, including
+    -- data upload frequency, model name and ARN, and status.
+    inferenceSchedulerSummaries :: Prelude.Maybe [InferenceSchedulerSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,11 +193,11 @@ data ListInferenceSchedulersResponse = ListInferenceSchedulersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inferenceSchedulerSummaries', 'listInferenceSchedulersResponse_inferenceSchedulerSummaries' - Provides information about the specified inference scheduler, including
--- data upload frequency, model name and ARN, and status.
---
 -- 'nextToken', 'listInferenceSchedulersResponse_nextToken' - An opaque pagination token indicating where to continue the listing of
 -- inference schedulers.
+--
+-- 'inferenceSchedulerSummaries', 'listInferenceSchedulersResponse_inferenceSchedulerSummaries' - Provides information about the specified inference scheduler, including
+-- data upload frequency, model name and ARN, and status.
 --
 -- 'httpStatus', 'listInferenceSchedulersResponse_httpStatus' - The response's http status code.
 newListInferenceSchedulersResponse ::
@@ -206,21 +206,22 @@ newListInferenceSchedulersResponse ::
   ListInferenceSchedulersResponse
 newListInferenceSchedulersResponse pHttpStatus_ =
   ListInferenceSchedulersResponse'
-    { inferenceSchedulerSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      inferenceSchedulerSummaries =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Provides information about the specified inference scheduler, including
--- data upload frequency, model name and ARN, and status.
-listInferenceSchedulersResponse_inferenceSchedulerSummaries :: Lens.Lens' ListInferenceSchedulersResponse (Prelude.Maybe [InferenceSchedulerSummary])
-listInferenceSchedulersResponse_inferenceSchedulerSummaries = Lens.lens (\ListInferenceSchedulersResponse' {inferenceSchedulerSummaries} -> inferenceSchedulerSummaries) (\s@ListInferenceSchedulersResponse' {} a -> s {inferenceSchedulerSummaries = a} :: ListInferenceSchedulersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque pagination token indicating where to continue the listing of
 -- inference schedulers.
 listInferenceSchedulersResponse_nextToken :: Lens.Lens' ListInferenceSchedulersResponse (Prelude.Maybe Prelude.Text)
 listInferenceSchedulersResponse_nextToken = Lens.lens (\ListInferenceSchedulersResponse' {nextToken} -> nextToken) (\s@ListInferenceSchedulersResponse' {} a -> s {nextToken = a} :: ListInferenceSchedulersResponse)
+
+-- | Provides information about the specified inference scheduler, including
+-- data upload frequency, model name and ARN, and status.
+listInferenceSchedulersResponse_inferenceSchedulerSummaries :: Lens.Lens' ListInferenceSchedulersResponse (Prelude.Maybe [InferenceSchedulerSummary])
+listInferenceSchedulersResponse_inferenceSchedulerSummaries = Lens.lens (\ListInferenceSchedulersResponse' {inferenceSchedulerSummaries} -> inferenceSchedulerSummaries) (\s@ListInferenceSchedulersResponse' {} a -> s {inferenceSchedulerSummaries = a} :: ListInferenceSchedulersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInferenceSchedulersResponse_httpStatus :: Lens.Lens' ListInferenceSchedulersResponse Prelude.Int
@@ -231,6 +232,6 @@ instance
     ListInferenceSchedulersResponse
   where
   rnf ListInferenceSchedulersResponse' {..} =
-    Prelude.rnf inferenceSchedulerSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf inferenceSchedulerSummaries
       `Prelude.seq` Prelude.rnf httpStatus

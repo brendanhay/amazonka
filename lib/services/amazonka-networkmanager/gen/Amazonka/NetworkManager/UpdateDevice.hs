@@ -28,14 +28,14 @@ module Amazonka.NetworkManager.UpdateDevice
     newUpdateDevice,
 
     -- * Request Lenses
-    updateDevice_vendor,
-    updateDevice_location,
-    updateDevice_aWSLocation,
-    updateDevice_model,
     updateDevice_type,
-    updateDevice_serialNumber,
-    updateDevice_siteId,
+    updateDevice_model,
+    updateDevice_aWSLocation,
     updateDevice_description,
+    updateDevice_siteId,
+    updateDevice_location,
+    updateDevice_serialNumber,
+    updateDevice_vendor,
     updateDevice_globalNetworkId,
     updateDevice_deviceId,
 
@@ -58,29 +58,29 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDevice' smart constructor.
 data UpdateDevice = UpdateDevice'
-  { -- | The vendor of the device.
-    --
-    -- Length Constraints: Maximum length of 128 characters.
-    vendor :: Prelude.Maybe Prelude.Text,
-    location :: Prelude.Maybe (Core.Sensitive Location),
-    -- | The AWS location of the device.
-    aWSLocation :: Prelude.Maybe AWSLocation,
+  { -- | The type of the device.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The model of the device.
     --
     -- Length Constraints: Maximum length of 128 characters.
     model :: Prelude.Maybe Prelude.Text,
-    -- | The type of the device.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The serial number of the device.
-    --
-    -- Length Constraints: Maximum length of 128 characters.
-    serialNumber :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the site.
-    siteId :: Prelude.Maybe Prelude.Text,
+    -- | The AWS location of the device.
+    aWSLocation :: Prelude.Maybe AWSLocation,
     -- | A description of the device.
     --
     -- Length Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the site.
+    siteId :: Prelude.Maybe Prelude.Text,
+    location :: Prelude.Maybe (Core.Sensitive Location),
+    -- | The serial number of the device.
+    --
+    -- Length Constraints: Maximum length of 128 characters.
+    serialNumber :: Prelude.Maybe Prelude.Text,
+    -- | The vendor of the device.
+    --
+    -- Length Constraints: Maximum length of 128 characters.
+    vendor :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
     -- | The ID of the device.
@@ -96,29 +96,29 @@ data UpdateDevice = UpdateDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vendor', 'updateDevice_vendor' - The vendor of the device.
---
--- Length Constraints: Maximum length of 128 characters.
---
--- 'location', 'updateDevice_location' - Undocumented member.
---
--- 'aWSLocation', 'updateDevice_aWSLocation' - The AWS location of the device.
+-- 'type'', 'updateDevice_type' - The type of the device.
 --
 -- 'model', 'updateDevice_model' - The model of the device.
 --
 -- Length Constraints: Maximum length of 128 characters.
 --
--- 'type'', 'updateDevice_type' - The type of the device.
+-- 'aWSLocation', 'updateDevice_aWSLocation' - The AWS location of the device.
+--
+-- 'description', 'updateDevice_description' - A description of the device.
+--
+-- Length Constraints: Maximum length of 256 characters.
+--
+-- 'siteId', 'updateDevice_siteId' - The ID of the site.
+--
+-- 'location', 'updateDevice_location' - Undocumented member.
 --
 -- 'serialNumber', 'updateDevice_serialNumber' - The serial number of the device.
 --
 -- Length Constraints: Maximum length of 128 characters.
 --
--- 'siteId', 'updateDevice_siteId' - The ID of the site.
+-- 'vendor', 'updateDevice_vendor' - The vendor of the device.
 --
--- 'description', 'updateDevice_description' - A description of the device.
---
--- Length Constraints: Maximum length of 256 characters.
+-- Length Constraints: Maximum length of 128 characters.
 --
 -- 'globalNetworkId', 'updateDevice_globalNetworkId' - The ID of the global network.
 --
@@ -131,31 +131,21 @@ newUpdateDevice ::
   UpdateDevice
 newUpdateDevice pGlobalNetworkId_ pDeviceId_ =
   UpdateDevice'
-    { vendor = Prelude.Nothing,
-      location = Prelude.Nothing,
-      aWSLocation = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       model = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      serialNumber = Prelude.Nothing,
-      siteId = Prelude.Nothing,
+      aWSLocation = Prelude.Nothing,
       description = Prelude.Nothing,
+      siteId = Prelude.Nothing,
+      location = Prelude.Nothing,
+      serialNumber = Prelude.Nothing,
+      vendor = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_,
       deviceId = pDeviceId_
     }
 
--- | The vendor of the device.
---
--- Length Constraints: Maximum length of 128 characters.
-updateDevice_vendor :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
-updateDevice_vendor = Lens.lens (\UpdateDevice' {vendor} -> vendor) (\s@UpdateDevice' {} a -> s {vendor = a} :: UpdateDevice)
-
--- | Undocumented member.
-updateDevice_location :: Lens.Lens' UpdateDevice (Prelude.Maybe Location)
-updateDevice_location = Lens.lens (\UpdateDevice' {location} -> location) (\s@UpdateDevice' {} a -> s {location = a} :: UpdateDevice) Prelude.. Lens.mapping Core._Sensitive
-
--- | The AWS location of the device.
-updateDevice_aWSLocation :: Lens.Lens' UpdateDevice (Prelude.Maybe AWSLocation)
-updateDevice_aWSLocation = Lens.lens (\UpdateDevice' {aWSLocation} -> aWSLocation) (\s@UpdateDevice' {} a -> s {aWSLocation = a} :: UpdateDevice)
+-- | The type of the device.
+updateDevice_type :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
+updateDevice_type = Lens.lens (\UpdateDevice' {type'} -> type') (\s@UpdateDevice' {} a -> s {type' = a} :: UpdateDevice)
 
 -- | The model of the device.
 --
@@ -163,9 +153,23 @@ updateDevice_aWSLocation = Lens.lens (\UpdateDevice' {aWSLocation} -> aWSLocatio
 updateDevice_model :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_model = Lens.lens (\UpdateDevice' {model} -> model) (\s@UpdateDevice' {} a -> s {model = a} :: UpdateDevice)
 
--- | The type of the device.
-updateDevice_type :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
-updateDevice_type = Lens.lens (\UpdateDevice' {type'} -> type') (\s@UpdateDevice' {} a -> s {type' = a} :: UpdateDevice)
+-- | The AWS location of the device.
+updateDevice_aWSLocation :: Lens.Lens' UpdateDevice (Prelude.Maybe AWSLocation)
+updateDevice_aWSLocation = Lens.lens (\UpdateDevice' {aWSLocation} -> aWSLocation) (\s@UpdateDevice' {} a -> s {aWSLocation = a} :: UpdateDevice)
+
+-- | A description of the device.
+--
+-- Length Constraints: Maximum length of 256 characters.
+updateDevice_description :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
+updateDevice_description = Lens.lens (\UpdateDevice' {description} -> description) (\s@UpdateDevice' {} a -> s {description = a} :: UpdateDevice)
+
+-- | The ID of the site.
+updateDevice_siteId :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
+updateDevice_siteId = Lens.lens (\UpdateDevice' {siteId} -> siteId) (\s@UpdateDevice' {} a -> s {siteId = a} :: UpdateDevice)
+
+-- | Undocumented member.
+updateDevice_location :: Lens.Lens' UpdateDevice (Prelude.Maybe Location)
+updateDevice_location = Lens.lens (\UpdateDevice' {location} -> location) (\s@UpdateDevice' {} a -> s {location = a} :: UpdateDevice) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The serial number of the device.
 --
@@ -173,15 +177,11 @@ updateDevice_type = Lens.lens (\UpdateDevice' {type'} -> type') (\s@UpdateDevice
 updateDevice_serialNumber :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_serialNumber = Lens.lens (\UpdateDevice' {serialNumber} -> serialNumber) (\s@UpdateDevice' {} a -> s {serialNumber = a} :: UpdateDevice)
 
--- | The ID of the site.
-updateDevice_siteId :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
-updateDevice_siteId = Lens.lens (\UpdateDevice' {siteId} -> siteId) (\s@UpdateDevice' {} a -> s {siteId = a} :: UpdateDevice)
-
--- | A description of the device.
+-- | The vendor of the device.
 --
--- Length Constraints: Maximum length of 256 characters.
-updateDevice_description :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
-updateDevice_description = Lens.lens (\UpdateDevice' {description} -> description) (\s@UpdateDevice' {} a -> s {description = a} :: UpdateDevice)
+-- Length Constraints: Maximum length of 128 characters.
+updateDevice_vendor :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
+updateDevice_vendor = Lens.lens (\UpdateDevice' {vendor} -> vendor) (\s@UpdateDevice' {} a -> s {vendor = a} :: UpdateDevice)
 
 -- | The ID of the global network.
 updateDevice_globalNetworkId :: Lens.Lens' UpdateDevice Prelude.Text
@@ -204,27 +204,27 @@ instance Core.AWSRequest UpdateDevice where
 
 instance Prelude.Hashable UpdateDevice where
   hashWithSalt _salt UpdateDevice' {..} =
-    _salt `Prelude.hashWithSalt` vendor
-      `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` aWSLocation
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` model
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` serialNumber
-      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` aWSLocation
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` siteId
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` vendor
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` deviceId
 
 instance Prelude.NFData UpdateDevice where
   rnf UpdateDevice' {..} =
-    Prelude.rnf vendor
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf aWSLocation
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf model
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf serialNumber
-      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf aWSLocation
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf siteId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf vendor
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf deviceId
 
@@ -243,14 +243,14 @@ instance Core.ToJSON UpdateDevice where
   toJSON UpdateDevice' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Vendor" Core..=) Prelude.<$> vendor,
-            ("Location" Core..=) Prelude.<$> location,
-            ("AWSLocation" Core..=) Prelude.<$> aWSLocation,
+          [ ("Type" Core..=) Prelude.<$> type',
             ("Model" Core..=) Prelude.<$> model,
-            ("Type" Core..=) Prelude.<$> type',
-            ("SerialNumber" Core..=) Prelude.<$> serialNumber,
+            ("AWSLocation" Core..=) Prelude.<$> aWSLocation,
+            ("Description" Core..=) Prelude.<$> description,
             ("SiteId" Core..=) Prelude.<$> siteId,
-            ("Description" Core..=) Prelude.<$> description
+            ("Location" Core..=) Prelude.<$> location,
+            ("SerialNumber" Core..=) Prelude.<$> serialNumber,
+            ("Vendor" Core..=) Prelude.<$> vendor
           ]
       )
 

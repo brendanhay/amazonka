@@ -34,13 +34,13 @@ data CustomDetection = CustomDetection'
     -- data identifier detected. A finding includes location data for a maximum
     -- of 15 occurrences of sensitive data.
     occurrences :: Prelude.Maybe Occurrences,
+    -- | The name of the custom data identifier.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the custom data identifier.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The total number of occurrences of the sensitive data that the custom
     -- data identifier detected.
-    count :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the custom data identifier.
-    name :: Prelude.Maybe Prelude.Text
+    count :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,20 +56,20 @@ data CustomDetection = CustomDetection'
 -- data identifier detected. A finding includes location data for a maximum
 -- of 15 occurrences of sensitive data.
 --
+-- 'name', 'customDetection_name' - The name of the custom data identifier.
+--
 -- 'arn', 'customDetection_arn' - The Amazon Resource Name (ARN) of the custom data identifier.
 --
 -- 'count', 'customDetection_count' - The total number of occurrences of the sensitive data that the custom
 -- data identifier detected.
---
--- 'name', 'customDetection_name' - The name of the custom data identifier.
 newCustomDetection ::
   CustomDetection
 newCustomDetection =
   CustomDetection'
     { occurrences = Prelude.Nothing,
+      name = Prelude.Nothing,
       arn = Prelude.Nothing,
-      count = Prelude.Nothing,
-      name = Prelude.Nothing
+      count = Prelude.Nothing
     }
 
 -- | The location of 1-15 occurrences of the sensitive data that the custom
@@ -77,6 +77,10 @@ newCustomDetection =
 -- of 15 occurrences of sensitive data.
 customDetection_occurrences :: Lens.Lens' CustomDetection (Prelude.Maybe Occurrences)
 customDetection_occurrences = Lens.lens (\CustomDetection' {occurrences} -> occurrences) (\s@CustomDetection' {} a -> s {occurrences = a} :: CustomDetection)
+
+-- | The name of the custom data identifier.
+customDetection_name :: Lens.Lens' CustomDetection (Prelude.Maybe Prelude.Text)
+customDetection_name = Lens.lens (\CustomDetection' {name} -> name) (\s@CustomDetection' {} a -> s {name = a} :: CustomDetection)
 
 -- | The Amazon Resource Name (ARN) of the custom data identifier.
 customDetection_arn :: Lens.Lens' CustomDetection (Prelude.Maybe Prelude.Text)
@@ -87,10 +91,6 @@ customDetection_arn = Lens.lens (\CustomDetection' {arn} -> arn) (\s@CustomDetec
 customDetection_count :: Lens.Lens' CustomDetection (Prelude.Maybe Prelude.Integer)
 customDetection_count = Lens.lens (\CustomDetection' {count} -> count) (\s@CustomDetection' {} a -> s {count = a} :: CustomDetection)
 
--- | The name of the custom data identifier.
-customDetection_name :: Lens.Lens' CustomDetection (Prelude.Maybe Prelude.Text)
-customDetection_name = Lens.lens (\CustomDetection' {name} -> name) (\s@CustomDetection' {} a -> s {name = a} :: CustomDetection)
-
 instance Core.FromJSON CustomDetection where
   parseJSON =
     Core.withObject
@@ -98,21 +98,21 @@ instance Core.FromJSON CustomDetection where
       ( \x ->
           CustomDetection'
             Prelude.<$> (x Core..:? "occurrences")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "name")
       )
 
 instance Prelude.Hashable CustomDetection where
   hashWithSalt _salt CustomDetection' {..} =
     _salt `Prelude.hashWithSalt` occurrences
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CustomDetection where
   rnf CustomDetection' {..} =
     Prelude.rnf occurrences
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf name

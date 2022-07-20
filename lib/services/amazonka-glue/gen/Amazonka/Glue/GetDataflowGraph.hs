@@ -34,8 +34,8 @@ module Amazonka.Glue.GetDataflowGraph
     newGetDataflowGraphResponse,
 
     -- * Response Lenses
-    getDataflowGraphResponse_dagEdges,
     getDataflowGraphResponse_dagNodes,
+    getDataflowGraphResponse_dagEdges,
     getDataflowGraphResponse_httpStatus,
   )
 where
@@ -81,8 +81,8 @@ instance Core.AWSRequest GetDataflowGraph where
     Response.receiveJSON
       ( \s h x ->
           GetDataflowGraphResponse'
-            Prelude.<$> (x Core..?> "DagEdges" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DagNodes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "DagNodes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "DagEdges" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,10 +121,10 @@ instance Core.ToQuery GetDataflowGraph where
 
 -- | /See:/ 'newGetDataflowGraphResponse' smart constructor.
 data GetDataflowGraphResponse = GetDataflowGraphResponse'
-  { -- | A list of the edges in the resulting DAG.
-    dagEdges :: Prelude.Maybe [CodeGenEdge],
-    -- | A list of the nodes in the resulting DAG.
+  { -- | A list of the nodes in the resulting DAG.
     dagNodes :: Prelude.Maybe [CodeGenNode],
+    -- | A list of the edges in the resulting DAG.
+    dagEdges :: Prelude.Maybe [CodeGenEdge],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -138,9 +138,9 @@ data GetDataflowGraphResponse = GetDataflowGraphResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dagEdges', 'getDataflowGraphResponse_dagEdges' - A list of the edges in the resulting DAG.
---
 -- 'dagNodes', 'getDataflowGraphResponse_dagNodes' - A list of the nodes in the resulting DAG.
+--
+-- 'dagEdges', 'getDataflowGraphResponse_dagEdges' - A list of the edges in the resulting DAG.
 --
 -- 'httpStatus', 'getDataflowGraphResponse_httpStatus' - The response's http status code.
 newGetDataflowGraphResponse ::
@@ -149,19 +149,19 @@ newGetDataflowGraphResponse ::
   GetDataflowGraphResponse
 newGetDataflowGraphResponse pHttpStatus_ =
   GetDataflowGraphResponse'
-    { dagEdges =
+    { dagNodes =
         Prelude.Nothing,
-      dagNodes = Prelude.Nothing,
+      dagEdges = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the edges in the resulting DAG.
-getDataflowGraphResponse_dagEdges :: Lens.Lens' GetDataflowGraphResponse (Prelude.Maybe [CodeGenEdge])
-getDataflowGraphResponse_dagEdges = Lens.lens (\GetDataflowGraphResponse' {dagEdges} -> dagEdges) (\s@GetDataflowGraphResponse' {} a -> s {dagEdges = a} :: GetDataflowGraphResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of the nodes in the resulting DAG.
 getDataflowGraphResponse_dagNodes :: Lens.Lens' GetDataflowGraphResponse (Prelude.Maybe [CodeGenNode])
 getDataflowGraphResponse_dagNodes = Lens.lens (\GetDataflowGraphResponse' {dagNodes} -> dagNodes) (\s@GetDataflowGraphResponse' {} a -> s {dagNodes = a} :: GetDataflowGraphResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the edges in the resulting DAG.
+getDataflowGraphResponse_dagEdges :: Lens.Lens' GetDataflowGraphResponse (Prelude.Maybe [CodeGenEdge])
+getDataflowGraphResponse_dagEdges = Lens.lens (\GetDataflowGraphResponse' {dagEdges} -> dagEdges) (\s@GetDataflowGraphResponse' {} a -> s {dagEdges = a} :: GetDataflowGraphResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDataflowGraphResponse_httpStatus :: Lens.Lens' GetDataflowGraphResponse Prelude.Int
@@ -169,6 +169,6 @@ getDataflowGraphResponse_httpStatus = Lens.lens (\GetDataflowGraphResponse' {htt
 
 instance Prelude.NFData GetDataflowGraphResponse where
   rnf GetDataflowGraphResponse' {..} =
-    Prelude.rnf dagEdges
-      `Prelude.seq` Prelude.rnf dagNodes
+    Prelude.rnf dagNodes
+      `Prelude.seq` Prelude.rnf dagEdges
       `Prelude.seq` Prelude.rnf httpStatus

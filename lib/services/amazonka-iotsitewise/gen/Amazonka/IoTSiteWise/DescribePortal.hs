@@ -34,12 +34,12 @@ module Amazonka.IoTSiteWise.DescribePortal
     newDescribePortalResponse,
 
     -- * Response Lenses
-    describePortalResponse_portalAuthMode,
-    describePortalResponse_portalDescription,
-    describePortalResponse_notificationSenderEmail,
-    describePortalResponse_portalLogoImageLocation,
     describePortalResponse_alarms,
     describePortalResponse_roleArn,
+    describePortalResponse_portalLogoImageLocation,
+    describePortalResponse_portalDescription,
+    describePortalResponse_portalAuthMode,
+    describePortalResponse_notificationSenderEmail,
     describePortalResponse_httpStatus,
     describePortalResponse_portalId,
     describePortalResponse_portalArn,
@@ -96,12 +96,12 @@ instance Core.AWSRequest DescribePortal where
     Response.receiveJSON
       ( \s h x ->
           DescribePortalResponse'
-            Prelude.<$> (x Core..?> "portalAuthMode")
-            Prelude.<*> (x Core..?> "portalDescription")
-            Prelude.<*> (x Core..?> "notificationSenderEmail")
-            Prelude.<*> (x Core..?> "portalLogoImageLocation")
-            Prelude.<*> (x Core..?> "alarms")
+            Prelude.<$> (x Core..?> "alarms")
             Prelude.<*> (x Core..?> "roleArn")
+            Prelude.<*> (x Core..?> "portalLogoImageLocation")
+            Prelude.<*> (x Core..?> "portalDescription")
+            Prelude.<*> (x Core..?> "portalAuthMode")
+            Prelude.<*> (x Core..?> "notificationSenderEmail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "portalId")
             Prelude.<*> (x Core..:> "portalArn")
@@ -141,15 +141,7 @@ instance Core.ToQuery DescribePortal where
 
 -- | /See:/ 'newDescribePortalResponse' smart constructor.
 data DescribePortalResponse = DescribePortalResponse'
-  { -- | The service to use to authenticate users to the portal.
-    portalAuthMode :: Prelude.Maybe AuthMode,
-    -- | The portal\'s description.
-    portalDescription :: Prelude.Maybe Prelude.Text,
-    -- | The email address that sends alarm notifications.
-    notificationSenderEmail :: Prelude.Maybe Prelude.Text,
-    -- | The portal\'s logo image, which is available at a URL.
-    portalLogoImageLocation :: Prelude.Maybe ImageLocation,
-    -- | Contains the configuration information of an alarm created in an IoT
+  { -- | Contains the configuration information of an alarm created in an IoT
     -- SiteWise Monitor portal.
     alarms :: Prelude.Maybe Alarms,
     -- | The
@@ -159,6 +151,14 @@ data DescribePortalResponse = DescribePortalResponse'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html Using service roles for IoT SiteWise Monitor>
     -- in the /IoT SiteWise User Guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The portal\'s logo image, which is available at a URL.
+    portalLogoImageLocation :: Prelude.Maybe ImageLocation,
+    -- | The portal\'s description.
+    portalDescription :: Prelude.Maybe Prelude.Text,
+    -- | The service to use to authenticate users to the portal.
+    portalAuthMode :: Prelude.Maybe AuthMode,
+    -- | The email address that sends alarm notifications.
+    notificationSenderEmail :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the portal.
@@ -200,14 +200,6 @@ data DescribePortalResponse = DescribePortalResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portalAuthMode', 'describePortalResponse_portalAuthMode' - The service to use to authenticate users to the portal.
---
--- 'portalDescription', 'describePortalResponse_portalDescription' - The portal\'s description.
---
--- 'notificationSenderEmail', 'describePortalResponse_notificationSenderEmail' - The email address that sends alarm notifications.
---
--- 'portalLogoImageLocation', 'describePortalResponse_portalLogoImageLocation' - The portal\'s logo image, which is available at a URL.
---
 -- 'alarms', 'describePortalResponse_alarms' - Contains the configuration information of an alarm created in an IoT
 -- SiteWise Monitor portal.
 --
@@ -217,6 +209,14 @@ data DescribePortalResponse = DescribePortalResponse'
 -- SiteWise resources on your behalf. For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html Using service roles for IoT SiteWise Monitor>
 -- in the /IoT SiteWise User Guide/.
+--
+-- 'portalLogoImageLocation', 'describePortalResponse_portalLogoImageLocation' - The portal\'s logo image, which is available at a URL.
+--
+-- 'portalDescription', 'describePortalResponse_portalDescription' - The portal\'s description.
+--
+-- 'portalAuthMode', 'describePortalResponse_portalAuthMode' - The service to use to authenticate users to the portal.
+--
+-- 'notificationSenderEmail', 'describePortalResponse_notificationSenderEmail' - The email address that sends alarm notifications.
 --
 -- 'httpStatus', 'describePortalResponse_httpStatus' - The response's http status code.
 --
@@ -281,13 +281,12 @@ newDescribePortalResponse
   pPortalCreationDate_
   pPortalLastUpdateDate_ =
     DescribePortalResponse'
-      { portalAuthMode =
-          Prelude.Nothing,
-        portalDescription = Prelude.Nothing,
-        notificationSenderEmail = Prelude.Nothing,
-        portalLogoImageLocation = Prelude.Nothing,
-        alarms = Prelude.Nothing,
+      { alarms = Prelude.Nothing,
         roleArn = Prelude.Nothing,
+        portalLogoImageLocation = Prelude.Nothing,
+        portalDescription = Prelude.Nothing,
+        portalAuthMode = Prelude.Nothing,
+        notificationSenderEmail = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         portalId = pPortalId_,
         portalArn = pPortalArn_,
@@ -302,22 +301,6 @@ newDescribePortalResponse
           Core._Time Lens.# pPortalLastUpdateDate_
       }
 
--- | The service to use to authenticate users to the portal.
-describePortalResponse_portalAuthMode :: Lens.Lens' DescribePortalResponse (Prelude.Maybe AuthMode)
-describePortalResponse_portalAuthMode = Lens.lens (\DescribePortalResponse' {portalAuthMode} -> portalAuthMode) (\s@DescribePortalResponse' {} a -> s {portalAuthMode = a} :: DescribePortalResponse)
-
--- | The portal\'s description.
-describePortalResponse_portalDescription :: Lens.Lens' DescribePortalResponse (Prelude.Maybe Prelude.Text)
-describePortalResponse_portalDescription = Lens.lens (\DescribePortalResponse' {portalDescription} -> portalDescription) (\s@DescribePortalResponse' {} a -> s {portalDescription = a} :: DescribePortalResponse)
-
--- | The email address that sends alarm notifications.
-describePortalResponse_notificationSenderEmail :: Lens.Lens' DescribePortalResponse (Prelude.Maybe Prelude.Text)
-describePortalResponse_notificationSenderEmail = Lens.lens (\DescribePortalResponse' {notificationSenderEmail} -> notificationSenderEmail) (\s@DescribePortalResponse' {} a -> s {notificationSenderEmail = a} :: DescribePortalResponse)
-
--- | The portal\'s logo image, which is available at a URL.
-describePortalResponse_portalLogoImageLocation :: Lens.Lens' DescribePortalResponse (Prelude.Maybe ImageLocation)
-describePortalResponse_portalLogoImageLocation = Lens.lens (\DescribePortalResponse' {portalLogoImageLocation} -> portalLogoImageLocation) (\s@DescribePortalResponse' {} a -> s {portalLogoImageLocation = a} :: DescribePortalResponse)
-
 -- | Contains the configuration information of an alarm created in an IoT
 -- SiteWise Monitor portal.
 describePortalResponse_alarms :: Lens.Lens' DescribePortalResponse (Prelude.Maybe Alarms)
@@ -331,6 +314,22 @@ describePortalResponse_alarms = Lens.lens (\DescribePortalResponse' {alarms} -> 
 -- in the /IoT SiteWise User Guide/.
 describePortalResponse_roleArn :: Lens.Lens' DescribePortalResponse (Prelude.Maybe Prelude.Text)
 describePortalResponse_roleArn = Lens.lens (\DescribePortalResponse' {roleArn} -> roleArn) (\s@DescribePortalResponse' {} a -> s {roleArn = a} :: DescribePortalResponse)
+
+-- | The portal\'s logo image, which is available at a URL.
+describePortalResponse_portalLogoImageLocation :: Lens.Lens' DescribePortalResponse (Prelude.Maybe ImageLocation)
+describePortalResponse_portalLogoImageLocation = Lens.lens (\DescribePortalResponse' {portalLogoImageLocation} -> portalLogoImageLocation) (\s@DescribePortalResponse' {} a -> s {portalLogoImageLocation = a} :: DescribePortalResponse)
+
+-- | The portal\'s description.
+describePortalResponse_portalDescription :: Lens.Lens' DescribePortalResponse (Prelude.Maybe Prelude.Text)
+describePortalResponse_portalDescription = Lens.lens (\DescribePortalResponse' {portalDescription} -> portalDescription) (\s@DescribePortalResponse' {} a -> s {portalDescription = a} :: DescribePortalResponse)
+
+-- | The service to use to authenticate users to the portal.
+describePortalResponse_portalAuthMode :: Lens.Lens' DescribePortalResponse (Prelude.Maybe AuthMode)
+describePortalResponse_portalAuthMode = Lens.lens (\DescribePortalResponse' {portalAuthMode} -> portalAuthMode) (\s@DescribePortalResponse' {} a -> s {portalAuthMode = a} :: DescribePortalResponse)
+
+-- | The email address that sends alarm notifications.
+describePortalResponse_notificationSenderEmail :: Lens.Lens' DescribePortalResponse (Prelude.Maybe Prelude.Text)
+describePortalResponse_notificationSenderEmail = Lens.lens (\DescribePortalResponse' {notificationSenderEmail} -> notificationSenderEmail) (\s@DescribePortalResponse' {} a -> s {notificationSenderEmail = a} :: DescribePortalResponse)
 
 -- | The response's http status code.
 describePortalResponse_httpStatus :: Lens.Lens' DescribePortalResponse Prelude.Int
@@ -384,12 +383,12 @@ describePortalResponse_portalLastUpdateDate = Lens.lens (\DescribePortalResponse
 
 instance Prelude.NFData DescribePortalResponse where
   rnf DescribePortalResponse' {..} =
-    Prelude.rnf portalAuthMode
-      `Prelude.seq` Prelude.rnf portalDescription
-      `Prelude.seq` Prelude.rnf notificationSenderEmail
-      `Prelude.seq` Prelude.rnf portalLogoImageLocation
-      `Prelude.seq` Prelude.rnf alarms
+    Prelude.rnf alarms
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf portalLogoImageLocation
+      `Prelude.seq` Prelude.rnf portalDescription
+      `Prelude.seq` Prelude.rnf portalAuthMode
+      `Prelude.seq` Prelude.rnf notificationSenderEmail
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf portalId
       `Prelude.seq` Prelude.rnf portalArn

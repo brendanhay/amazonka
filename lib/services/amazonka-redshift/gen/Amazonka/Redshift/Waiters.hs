@@ -24,6 +24,44 @@ import Amazonka.Redshift.Lens
 import Amazonka.Redshift.Types
 
 -- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
+newClusterAvailable :: Core.Wait DescribeClusters
+newClusterAvailable =
+  Core.Wait
+    { Core._waitName = "ClusterAvailable",
+      Core._waitAttempts = 30,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "available"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeClustersResponse_clusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. cluster_clusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "deleting"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeClustersResponse_clusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. cluster_clusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError "ClusterNotFound" Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newClusterRestored :: Core.Wait DescribeClusters
 newClusterRestored =
   Core.Wait
@@ -149,43 +187,5 @@ newSnapshotAvailable =
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )
-        ]
-    }
-
--- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
-newClusterAvailable :: Core.Wait DescribeClusters
-newClusterAvailable =
-  Core.Wait
-    { Core._waitName = "ClusterAvailable",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "available"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeClustersResponse_clusters
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. cluster_clusterStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "deleting"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeClustersResponse_clusters
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. cluster_clusterStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError "ClusterNotFound" Core.AcceptRetry
         ]
     }

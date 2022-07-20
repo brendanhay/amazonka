@@ -37,9 +37,9 @@ module Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
     newListAnomalyGroupSummariesResponse,
 
     -- * Response Lenses
-    listAnomalyGroupSummariesResponse_anomalyGroupStatistics,
-    listAnomalyGroupSummariesResponse_nextToken,
     listAnomalyGroupSummariesResponse_anomalyGroupSummaryList,
+    listAnomalyGroupSummariesResponse_nextToken,
+    listAnomalyGroupSummariesResponse_anomalyGroupStatistics,
     listAnomalyGroupSummariesResponse_httpStatus,
   )
 where
@@ -124,11 +124,11 @@ instance Core.AWSRequest ListAnomalyGroupSummaries where
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyGroupSummariesResponse'
-            Prelude.<$> (x Core..?> "AnomalyGroupStatistics")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AnomalyGroupSummaryList"
+            Prelude.<$> ( x Core..?> "AnomalyGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "AnomalyGroupStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,12 +180,12 @@ instance Core.ToQuery ListAnomalyGroupSummaries where
 
 -- | /See:/ 'newListAnomalyGroupSummariesResponse' smart constructor.
 data ListAnomalyGroupSummariesResponse = ListAnomalyGroupSummariesResponse'
-  { -- | Aggregated details about the anomaly groups.
-    anomalyGroupStatistics :: Prelude.Maybe AnomalyGroupStatistics,
+  { -- | A list of anomaly group summaries.
+    anomalyGroupSummaryList :: Prelude.Maybe [AnomalyGroupSummary],
     -- | The pagination token that\'s included if more results are available.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of anomaly group summaries.
-    anomalyGroupSummaryList :: Prelude.Maybe [AnomalyGroupSummary],
+    -- | Aggregated details about the anomaly groups.
+    anomalyGroupStatistics :: Prelude.Maybe AnomalyGroupStatistics,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,11 +199,11 @@ data ListAnomalyGroupSummariesResponse = ListAnomalyGroupSummariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'anomalyGroupStatistics', 'listAnomalyGroupSummariesResponse_anomalyGroupStatistics' - Aggregated details about the anomaly groups.
+-- 'anomalyGroupSummaryList', 'listAnomalyGroupSummariesResponse_anomalyGroupSummaryList' - A list of anomaly group summaries.
 --
 -- 'nextToken', 'listAnomalyGroupSummariesResponse_nextToken' - The pagination token that\'s included if more results are available.
 --
--- 'anomalyGroupSummaryList', 'listAnomalyGroupSummariesResponse_anomalyGroupSummaryList' - A list of anomaly group summaries.
+-- 'anomalyGroupStatistics', 'listAnomalyGroupSummariesResponse_anomalyGroupStatistics' - Aggregated details about the anomaly groups.
 --
 -- 'httpStatus', 'listAnomalyGroupSummariesResponse_httpStatus' - The response's http status code.
 newListAnomalyGroupSummariesResponse ::
@@ -212,25 +212,24 @@ newListAnomalyGroupSummariesResponse ::
   ListAnomalyGroupSummariesResponse
 newListAnomalyGroupSummariesResponse pHttpStatus_ =
   ListAnomalyGroupSummariesResponse'
-    { anomalyGroupStatistics =
+    { anomalyGroupSummaryList =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      anomalyGroupSummaryList =
-        Prelude.Nothing,
+      anomalyGroupStatistics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Aggregated details about the anomaly groups.
-listAnomalyGroupSummariesResponse_anomalyGroupStatistics :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe AnomalyGroupStatistics)
-listAnomalyGroupSummariesResponse_anomalyGroupStatistics = Lens.lens (\ListAnomalyGroupSummariesResponse' {anomalyGroupStatistics} -> anomalyGroupStatistics) (\s@ListAnomalyGroupSummariesResponse' {} a -> s {anomalyGroupStatistics = a} :: ListAnomalyGroupSummariesResponse)
+-- | A list of anomaly group summaries.
+listAnomalyGroupSummariesResponse_anomalyGroupSummaryList :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe [AnomalyGroupSummary])
+listAnomalyGroupSummariesResponse_anomalyGroupSummaryList = Lens.lens (\ListAnomalyGroupSummariesResponse' {anomalyGroupSummaryList} -> anomalyGroupSummaryList) (\s@ListAnomalyGroupSummariesResponse' {} a -> s {anomalyGroupSummaryList = a} :: ListAnomalyGroupSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listAnomalyGroupSummariesResponse_nextToken :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe Prelude.Text)
 listAnomalyGroupSummariesResponse_nextToken = Lens.lens (\ListAnomalyGroupSummariesResponse' {nextToken} -> nextToken) (\s@ListAnomalyGroupSummariesResponse' {} a -> s {nextToken = a} :: ListAnomalyGroupSummariesResponse)
 
--- | A list of anomaly group summaries.
-listAnomalyGroupSummariesResponse_anomalyGroupSummaryList :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe [AnomalyGroupSummary])
-listAnomalyGroupSummariesResponse_anomalyGroupSummaryList = Lens.lens (\ListAnomalyGroupSummariesResponse' {anomalyGroupSummaryList} -> anomalyGroupSummaryList) (\s@ListAnomalyGroupSummariesResponse' {} a -> s {anomalyGroupSummaryList = a} :: ListAnomalyGroupSummariesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Aggregated details about the anomaly groups.
+listAnomalyGroupSummariesResponse_anomalyGroupStatistics :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe AnomalyGroupStatistics)
+listAnomalyGroupSummariesResponse_anomalyGroupStatistics = Lens.lens (\ListAnomalyGroupSummariesResponse' {anomalyGroupStatistics} -> anomalyGroupStatistics) (\s@ListAnomalyGroupSummariesResponse' {} a -> s {anomalyGroupStatistics = a} :: ListAnomalyGroupSummariesResponse)
 
 -- | The response's http status code.
 listAnomalyGroupSummariesResponse_httpStatus :: Lens.Lens' ListAnomalyGroupSummariesResponse Prelude.Int
@@ -241,7 +240,7 @@ instance
     ListAnomalyGroupSummariesResponse
   where
   rnf ListAnomalyGroupSummariesResponse' {..} =
-    Prelude.rnf anomalyGroupStatistics
+    Prelude.rnf anomalyGroupSummaryList
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf anomalyGroupSummaryList
+      `Prelude.seq` Prelude.rnf anomalyGroupStatistics
       `Prelude.seq` Prelude.rnf httpStatus

@@ -57,9 +57,9 @@ module Amazonka.EC2.ModifyFleet
     newModifyFleet,
 
     -- * Request Lenses
-    modifyFleet_context,
-    modifyFleet_targetCapacitySpecification,
     modifyFleet_excessCapacityTerminationPolicy,
+    modifyFleet_targetCapacitySpecification,
+    modifyFleet_context,
     modifyFleet_launchTemplateConfigs,
     modifyFleet_dryRun,
     modifyFleet_fleetId,
@@ -83,14 +83,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyFleet' smart constructor.
 data ModifyFleet = ModifyFleet'
-  { -- | Reserved.
-    context :: Prelude.Maybe Prelude.Text,
-    -- | The size of the EC2 Fleet.
-    targetCapacitySpecification :: Prelude.Maybe TargetCapacitySpecificationRequest,
-    -- | Indicates whether running instances should be terminated if the total
+  { -- | Indicates whether running instances should be terminated if the total
     -- target capacity of the EC2 Fleet is decreased below the current size of
     -- the EC2 Fleet.
     excessCapacityTerminationPolicy :: Prelude.Maybe FleetExcessCapacityTerminationPolicy,
+    -- | The size of the EC2 Fleet.
+    targetCapacitySpecification :: Prelude.Maybe TargetCapacitySpecificationRequest,
+    -- | Reserved.
+    context :: Prelude.Maybe Prelude.Text,
     -- | The launch template and overrides.
     launchTemplateConfigs :: Prelude.Maybe [FleetLaunchTemplateConfigRequest],
     -- | Checks whether you have the required permissions for the action, without
@@ -111,13 +111,13 @@ data ModifyFleet = ModifyFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'context', 'modifyFleet_context' - Reserved.
---
--- 'targetCapacitySpecification', 'modifyFleet_targetCapacitySpecification' - The size of the EC2 Fleet.
---
 -- 'excessCapacityTerminationPolicy', 'modifyFleet_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total
 -- target capacity of the EC2 Fleet is decreased below the current size of
 -- the EC2 Fleet.
+--
+-- 'targetCapacitySpecification', 'modifyFleet_targetCapacitySpecification' - The size of the EC2 Fleet.
+--
+-- 'context', 'modifyFleet_context' - Reserved.
 --
 -- 'launchTemplateConfigs', 'modifyFleet_launchTemplateConfigs' - The launch template and overrides.
 --
@@ -133,27 +133,28 @@ newModifyFleet ::
   ModifyFleet
 newModifyFleet pFleetId_ =
   ModifyFleet'
-    { context = Prelude.Nothing,
+    { excessCapacityTerminationPolicy =
+        Prelude.Nothing,
       targetCapacitySpecification = Prelude.Nothing,
-      excessCapacityTerminationPolicy = Prelude.Nothing,
+      context = Prelude.Nothing,
       launchTemplateConfigs = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       fleetId = pFleetId_
     }
-
--- | Reserved.
-modifyFleet_context :: Lens.Lens' ModifyFleet (Prelude.Maybe Prelude.Text)
-modifyFleet_context = Lens.lens (\ModifyFleet' {context} -> context) (\s@ModifyFleet' {} a -> s {context = a} :: ModifyFleet)
-
--- | The size of the EC2 Fleet.
-modifyFleet_targetCapacitySpecification :: Lens.Lens' ModifyFleet (Prelude.Maybe TargetCapacitySpecificationRequest)
-modifyFleet_targetCapacitySpecification = Lens.lens (\ModifyFleet' {targetCapacitySpecification} -> targetCapacitySpecification) (\s@ModifyFleet' {} a -> s {targetCapacitySpecification = a} :: ModifyFleet)
 
 -- | Indicates whether running instances should be terminated if the total
 -- target capacity of the EC2 Fleet is decreased below the current size of
 -- the EC2 Fleet.
 modifyFleet_excessCapacityTerminationPolicy :: Lens.Lens' ModifyFleet (Prelude.Maybe FleetExcessCapacityTerminationPolicy)
 modifyFleet_excessCapacityTerminationPolicy = Lens.lens (\ModifyFleet' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@ModifyFleet' {} a -> s {excessCapacityTerminationPolicy = a} :: ModifyFleet)
+
+-- | The size of the EC2 Fleet.
+modifyFleet_targetCapacitySpecification :: Lens.Lens' ModifyFleet (Prelude.Maybe TargetCapacitySpecificationRequest)
+modifyFleet_targetCapacitySpecification = Lens.lens (\ModifyFleet' {targetCapacitySpecification} -> targetCapacitySpecification) (\s@ModifyFleet' {} a -> s {targetCapacitySpecification = a} :: ModifyFleet)
+
+-- | Reserved.
+modifyFleet_context :: Lens.Lens' ModifyFleet (Prelude.Maybe Prelude.Text)
+modifyFleet_context = Lens.lens (\ModifyFleet' {context} -> context) (\s@ModifyFleet' {} a -> s {context = a} :: ModifyFleet)
 
 -- | The launch template and overrides.
 modifyFleet_launchTemplateConfigs :: Lens.Lens' ModifyFleet (Prelude.Maybe [FleetLaunchTemplateConfigRequest])
@@ -183,18 +184,19 @@ instance Core.AWSRequest ModifyFleet where
 
 instance Prelude.Hashable ModifyFleet where
   hashWithSalt _salt ModifyFleet' {..} =
-    _salt `Prelude.hashWithSalt` context
-      `Prelude.hashWithSalt` targetCapacitySpecification
+    _salt
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy
+      `Prelude.hashWithSalt` targetCapacitySpecification
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` launchTemplateConfigs
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData ModifyFleet where
   rnf ModifyFleet' {..} =
-    Prelude.rnf context
+    Prelude.rnf excessCapacityTerminationPolicy
       `Prelude.seq` Prelude.rnf targetCapacitySpecification
-      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
+      `Prelude.seq` Prelude.rnf context
       `Prelude.seq` Prelude.rnf launchTemplateConfigs
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf fleetId
@@ -212,11 +214,11 @@ instance Core.ToQuery ModifyFleet where
           Core.=: ("ModifyFleet" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Context" Core.=: context,
-        "TargetCapacitySpecification"
-          Core.=: targetCapacitySpecification,
         "ExcessCapacityTerminationPolicy"
           Core.=: excessCapacityTerminationPolicy,
+        "TargetCapacitySpecification"
+          Core.=: targetCapacitySpecification,
+        "Context" Core.=: context,
         Core.toQuery
           ( Core.toQueryList "LaunchTemplateConfig"
               Prelude.<$> launchTemplateConfigs

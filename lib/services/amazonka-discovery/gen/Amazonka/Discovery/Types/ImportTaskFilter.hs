@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportTaskFilter' smart constructor.
 data ImportTaskFilter = ImportTaskFilter'
-  { -- | An array of strings that you can provide to match against a specific
+  { -- | The name, status, or import task ID for a specific import task.
+    name :: Prelude.Maybe ImportTaskFilterName,
+    -- | An array of strings that you can provide to match against a specific
     -- name, status, or import task ID to filter the results for your import
     -- task queries.
-    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name, status, or import task ID for a specific import task.
-    name :: Prelude.Maybe ImportTaskFilterName
+    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,18 +49,22 @@ data ImportTaskFilter = ImportTaskFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'importTaskFilter_name' - The name, status, or import task ID for a specific import task.
+--
 -- 'values', 'importTaskFilter_values' - An array of strings that you can provide to match against a specific
 -- name, status, or import task ID to filter the results for your import
 -- task queries.
---
--- 'name', 'importTaskFilter_name' - The name, status, or import task ID for a specific import task.
 newImportTaskFilter ::
   ImportTaskFilter
 newImportTaskFilter =
   ImportTaskFilter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
     }
+
+-- | The name, status, or import task ID for a specific import task.
+importTaskFilter_name :: Lens.Lens' ImportTaskFilter (Prelude.Maybe ImportTaskFilterName)
+importTaskFilter_name = Lens.lens (\ImportTaskFilter' {name} -> name) (\s@ImportTaskFilter' {} a -> s {name = a} :: ImportTaskFilter)
 
 -- | An array of strings that you can provide to match against a specific
 -- name, status, or import task ID to filter the results for your import
@@ -68,24 +72,20 @@ newImportTaskFilter =
 importTaskFilter_values :: Lens.Lens' ImportTaskFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 importTaskFilter_values = Lens.lens (\ImportTaskFilter' {values} -> values) (\s@ImportTaskFilter' {} a -> s {values = a} :: ImportTaskFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The name, status, or import task ID for a specific import task.
-importTaskFilter_name :: Lens.Lens' ImportTaskFilter (Prelude.Maybe ImportTaskFilterName)
-importTaskFilter_name = Lens.lens (\ImportTaskFilter' {name} -> name) (\s@ImportTaskFilter' {} a -> s {name = a} :: ImportTaskFilter)
-
 instance Prelude.Hashable ImportTaskFilter where
   hashWithSalt _salt ImportTaskFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ImportTaskFilter where
   rnf ImportTaskFilter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON ImportTaskFilter where
   toJSON ImportTaskFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

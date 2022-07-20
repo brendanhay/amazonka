@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterfacePrivateIpAddress' smart constructor.
 data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress'
-  { -- | Indicates whether this IPv4 address is the primary private IPv4 address
+  { -- | The association information for an Elastic IP address (IPv4) associated
+    -- with the network interface.
+    association :: Prelude.Maybe NetworkInterfaceAssociation,
+    -- | Indicates whether this IPv4 address is the primary private IPv4 address
     -- of the network interface.
     primary :: Prelude.Maybe Prelude.Bool,
     -- | The private IPv4 address.
     privateIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The private DNS name.
-    privateDnsName :: Prelude.Maybe Prelude.Text,
-    -- | The association information for an Elastic IP address (IPv4) associated
-    -- with the network interface.
-    association :: Prelude.Maybe NetworkInterfaceAssociation
+    privateDnsName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,25 +50,30 @@ data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'association', 'networkInterfacePrivateIpAddress_association' - The association information for an Elastic IP address (IPv4) associated
+-- with the network interface.
+--
 -- 'primary', 'networkInterfacePrivateIpAddress_primary' - Indicates whether this IPv4 address is the primary private IPv4 address
 -- of the network interface.
 --
 -- 'privateIpAddress', 'networkInterfacePrivateIpAddress_privateIpAddress' - The private IPv4 address.
 --
 -- 'privateDnsName', 'networkInterfacePrivateIpAddress_privateDnsName' - The private DNS name.
---
--- 'association', 'networkInterfacePrivateIpAddress_association' - The association information for an Elastic IP address (IPv4) associated
--- with the network interface.
 newNetworkInterfacePrivateIpAddress ::
   NetworkInterfacePrivateIpAddress
 newNetworkInterfacePrivateIpAddress =
   NetworkInterfacePrivateIpAddress'
-    { primary =
+    { association =
         Prelude.Nothing,
+      primary = Prelude.Nothing,
       privateIpAddress = Prelude.Nothing,
-      privateDnsName = Prelude.Nothing,
-      association = Prelude.Nothing
+      privateDnsName = Prelude.Nothing
     }
+
+-- | The association information for an Elastic IP address (IPv4) associated
+-- with the network interface.
+networkInterfacePrivateIpAddress_association :: Lens.Lens' NetworkInterfacePrivateIpAddress (Prelude.Maybe NetworkInterfaceAssociation)
+networkInterfacePrivateIpAddress_association = Lens.lens (\NetworkInterfacePrivateIpAddress' {association} -> association) (\s@NetworkInterfacePrivateIpAddress' {} a -> s {association = a} :: NetworkInterfacePrivateIpAddress)
 
 -- | Indicates whether this IPv4 address is the primary private IPv4 address
 -- of the network interface.
@@ -83,21 +88,16 @@ networkInterfacePrivateIpAddress_privateIpAddress = Lens.lens (\NetworkInterface
 networkInterfacePrivateIpAddress_privateDnsName :: Lens.Lens' NetworkInterfacePrivateIpAddress (Prelude.Maybe Prelude.Text)
 networkInterfacePrivateIpAddress_privateDnsName = Lens.lens (\NetworkInterfacePrivateIpAddress' {privateDnsName} -> privateDnsName) (\s@NetworkInterfacePrivateIpAddress' {} a -> s {privateDnsName = a} :: NetworkInterfacePrivateIpAddress)
 
--- | The association information for an Elastic IP address (IPv4) associated
--- with the network interface.
-networkInterfacePrivateIpAddress_association :: Lens.Lens' NetworkInterfacePrivateIpAddress (Prelude.Maybe NetworkInterfaceAssociation)
-networkInterfacePrivateIpAddress_association = Lens.lens (\NetworkInterfacePrivateIpAddress' {association} -> association) (\s@NetworkInterfacePrivateIpAddress' {} a -> s {association = a} :: NetworkInterfacePrivateIpAddress)
-
 instance
   Core.FromXML
     NetworkInterfacePrivateIpAddress
   where
   parseXML x =
     NetworkInterfacePrivateIpAddress'
-      Prelude.<$> (x Core..@? "primary")
+      Prelude.<$> (x Core..@? "association")
+      Prelude.<*> (x Core..@? "primary")
       Prelude.<*> (x Core..@? "privateIpAddress")
       Prelude.<*> (x Core..@? "privateDnsName")
-      Prelude.<*> (x Core..@? "association")
 
 instance
   Prelude.Hashable
@@ -106,17 +106,17 @@ instance
   hashWithSalt
     _salt
     NetworkInterfacePrivateIpAddress' {..} =
-      _salt `Prelude.hashWithSalt` primary
+      _salt `Prelude.hashWithSalt` association
+        `Prelude.hashWithSalt` primary
         `Prelude.hashWithSalt` privateIpAddress
         `Prelude.hashWithSalt` privateDnsName
-        `Prelude.hashWithSalt` association
 
 instance
   Prelude.NFData
     NetworkInterfacePrivateIpAddress
   where
   rnf NetworkInterfacePrivateIpAddress' {..} =
-    Prelude.rnf primary
+    Prelude.rnf association
+      `Prelude.seq` Prelude.rnf primary
       `Prelude.seq` Prelude.rnf privateIpAddress
       `Prelude.seq` Prelude.rnf privateDnsName
-      `Prelude.seq` Prelude.rnf association

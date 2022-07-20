@@ -29,9 +29,7 @@ import Amazonka.RDSData.Types.TypeHint
 --
 -- /See:/ 'newSqlParameter' smart constructor.
 data SqlParameter = SqlParameter'
-  { -- | The value of the parameter.
-    value :: Prelude.Maybe Field,
-    -- | The name of the parameter.
+  { -- | The name of the parameter.
     name :: Prelude.Maybe Prelude.Text,
     -- | A hint that specifies the correct object type for data type mapping.
     -- Possible values are as follows:
@@ -56,7 +54,9 @@ data SqlParameter = SqlParameter'
     --
     -- -   @UUID@ - The corresponding @String@ parameter value is sent as an
     --     object of @UUID@ type to the database.
-    typeHint :: Prelude.Maybe TypeHint
+    typeHint :: Prelude.Maybe TypeHint,
+    -- | The value of the parameter.
+    value :: Prelude.Maybe Field
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,8 +67,6 @@ data SqlParameter = SqlParameter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'value', 'sqlParameter_value' - The value of the parameter.
 --
 -- 'name', 'sqlParameter_name' - The name of the parameter.
 --
@@ -95,18 +93,16 @@ data SqlParameter = SqlParameter'
 --
 -- -   @UUID@ - The corresponding @String@ parameter value is sent as an
 --     object of @UUID@ type to the database.
+--
+-- 'value', 'sqlParameter_value' - The value of the parameter.
 newSqlParameter ::
   SqlParameter
 newSqlParameter =
   SqlParameter'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing,
-      typeHint = Prelude.Nothing
+    { name = Prelude.Nothing,
+      typeHint = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the parameter.
-sqlParameter_value :: Lens.Lens' SqlParameter (Prelude.Maybe Field)
-sqlParameter_value = Lens.lens (\SqlParameter' {value} -> value) (\s@SqlParameter' {} a -> s {value = a} :: SqlParameter)
 
 -- | The name of the parameter.
 sqlParameter_name :: Lens.Lens' SqlParameter (Prelude.Maybe Prelude.Text)
@@ -138,24 +134,28 @@ sqlParameter_name = Lens.lens (\SqlParameter' {name} -> name) (\s@SqlParameter' 
 sqlParameter_typeHint :: Lens.Lens' SqlParameter (Prelude.Maybe TypeHint)
 sqlParameter_typeHint = Lens.lens (\SqlParameter' {typeHint} -> typeHint) (\s@SqlParameter' {} a -> s {typeHint = a} :: SqlParameter)
 
+-- | The value of the parameter.
+sqlParameter_value :: Lens.Lens' SqlParameter (Prelude.Maybe Field)
+sqlParameter_value = Lens.lens (\SqlParameter' {value} -> value) (\s@SqlParameter' {} a -> s {value = a} :: SqlParameter)
+
 instance Prelude.Hashable SqlParameter where
   hashWithSalt _salt SqlParameter' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` typeHint
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SqlParameter where
   rnf SqlParameter' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf typeHint
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SqlParameter where
   toJSON SqlParameter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("name" Core..=) Prelude.<$> name,
-            ("typeHint" Core..=) Prelude.<$> typeHint
+          [ ("name" Core..=) Prelude.<$> name,
+            ("typeHint" Core..=) Prelude.<$> typeHint,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

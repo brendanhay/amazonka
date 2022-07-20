@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClientVpnAuthorizationRuleStatus' smart constructor.
 data ClientVpnAuthorizationRuleStatus = ClientVpnAuthorizationRuleStatus'
-  { -- | The state of the authorization rule.
-    code :: Prelude.Maybe ClientVpnAuthorizationRuleStatusCode,
-    -- | A message about the status of the authorization rule, if applicable.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | A message about the status of the authorization rule, if applicable.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The state of the authorization rule.
+    code :: Prelude.Maybe ClientVpnAuthorizationRuleStatusCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ClientVpnAuthorizationRuleStatus = ClientVpnAuthorizationRuleStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'clientVpnAuthorizationRuleStatus_code' - The state of the authorization rule.
---
 -- 'message', 'clientVpnAuthorizationRuleStatus_message' - A message about the status of the authorization rule, if applicable.
+--
+-- 'code', 'clientVpnAuthorizationRuleStatus_code' - The state of the authorization rule.
 newClientVpnAuthorizationRuleStatus ::
   ClientVpnAuthorizationRuleStatus
 newClientVpnAuthorizationRuleStatus =
   ClientVpnAuthorizationRuleStatus'
-    { code =
+    { message =
         Prelude.Nothing,
-      message = Prelude.Nothing
+      code = Prelude.Nothing
     }
-
--- | The state of the authorization rule.
-clientVpnAuthorizationRuleStatus_code :: Lens.Lens' ClientVpnAuthorizationRuleStatus (Prelude.Maybe ClientVpnAuthorizationRuleStatusCode)
-clientVpnAuthorizationRuleStatus_code = Lens.lens (\ClientVpnAuthorizationRuleStatus' {code} -> code) (\s@ClientVpnAuthorizationRuleStatus' {} a -> s {code = a} :: ClientVpnAuthorizationRuleStatus)
 
 -- | A message about the status of the authorization rule, if applicable.
 clientVpnAuthorizationRuleStatus_message :: Lens.Lens' ClientVpnAuthorizationRuleStatus (Prelude.Maybe Prelude.Text)
 clientVpnAuthorizationRuleStatus_message = Lens.lens (\ClientVpnAuthorizationRuleStatus' {message} -> message) (\s@ClientVpnAuthorizationRuleStatus' {} a -> s {message = a} :: ClientVpnAuthorizationRuleStatus)
+
+-- | The state of the authorization rule.
+clientVpnAuthorizationRuleStatus_code :: Lens.Lens' ClientVpnAuthorizationRuleStatus (Prelude.Maybe ClientVpnAuthorizationRuleStatusCode)
+clientVpnAuthorizationRuleStatus_code = Lens.lens (\ClientVpnAuthorizationRuleStatus' {code} -> code) (\s@ClientVpnAuthorizationRuleStatus' {} a -> s {code = a} :: ClientVpnAuthorizationRuleStatus)
 
 instance
   Core.FromXML
@@ -70,8 +70,8 @@ instance
   where
   parseXML x =
     ClientVpnAuthorizationRuleStatus'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance
   Prelude.Hashable
@@ -80,12 +80,12 @@ instance
   hashWithSalt
     _salt
     ClientVpnAuthorizationRuleStatus' {..} =
-      _salt `Prelude.hashWithSalt` code
-        `Prelude.hashWithSalt` message
+      _salt `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     ClientVpnAuthorizationRuleStatus
   where
   rnf ClientVpnAuthorizationRuleStatus' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

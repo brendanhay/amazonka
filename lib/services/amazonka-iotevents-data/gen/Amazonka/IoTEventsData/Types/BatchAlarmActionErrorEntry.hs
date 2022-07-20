@@ -38,12 +38,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchAlarmActionErrorEntry' smart constructor.
 data BatchAlarmActionErrorEntry = BatchAlarmActionErrorEntry'
-  { -- | The request ID. Each ID must be unique within each batch.
+  { -- | A message that describes the error.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The request ID. Each ID must be unique within each batch.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    errorCode :: Prelude.Maybe ErrorCode,
-    -- | A message that describes the error.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe ErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +55,24 @@ data BatchAlarmActionErrorEntry = BatchAlarmActionErrorEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorMessage', 'batchAlarmActionErrorEntry_errorMessage' - A message that describes the error.
+--
 -- 'requestId', 'batchAlarmActionErrorEntry_requestId' - The request ID. Each ID must be unique within each batch.
 --
 -- 'errorCode', 'batchAlarmActionErrorEntry_errorCode' - The error code.
---
--- 'errorMessage', 'batchAlarmActionErrorEntry_errorMessage' - A message that describes the error.
 newBatchAlarmActionErrorEntry ::
   BatchAlarmActionErrorEntry
 newBatchAlarmActionErrorEntry =
   BatchAlarmActionErrorEntry'
-    { requestId =
+    { errorMessage =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      requestId = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
+
+-- | A message that describes the error.
+batchAlarmActionErrorEntry_errorMessage :: Lens.Lens' BatchAlarmActionErrorEntry (Prelude.Maybe Prelude.Text)
+batchAlarmActionErrorEntry_errorMessage = Lens.lens (\BatchAlarmActionErrorEntry' {errorMessage} -> errorMessage) (\s@BatchAlarmActionErrorEntry' {} a -> s {errorMessage = a} :: BatchAlarmActionErrorEntry)
 
 -- | The request ID. Each ID must be unique within each batch.
 batchAlarmActionErrorEntry_requestId :: Lens.Lens' BatchAlarmActionErrorEntry (Prelude.Maybe Prelude.Text)
@@ -78,29 +82,25 @@ batchAlarmActionErrorEntry_requestId = Lens.lens (\BatchAlarmActionErrorEntry' {
 batchAlarmActionErrorEntry_errorCode :: Lens.Lens' BatchAlarmActionErrorEntry (Prelude.Maybe ErrorCode)
 batchAlarmActionErrorEntry_errorCode = Lens.lens (\BatchAlarmActionErrorEntry' {errorCode} -> errorCode) (\s@BatchAlarmActionErrorEntry' {} a -> s {errorCode = a} :: BatchAlarmActionErrorEntry)
 
--- | A message that describes the error.
-batchAlarmActionErrorEntry_errorMessage :: Lens.Lens' BatchAlarmActionErrorEntry (Prelude.Maybe Prelude.Text)
-batchAlarmActionErrorEntry_errorMessage = Lens.lens (\BatchAlarmActionErrorEntry' {errorMessage} -> errorMessage) (\s@BatchAlarmActionErrorEntry' {} a -> s {errorMessage = a} :: BatchAlarmActionErrorEntry)
-
 instance Core.FromJSON BatchAlarmActionErrorEntry where
   parseJSON =
     Core.withObject
       "BatchAlarmActionErrorEntry"
       ( \x ->
           BatchAlarmActionErrorEntry'
-            Prelude.<$> (x Core..:? "requestId")
+            Prelude.<$> (x Core..:? "errorMessage")
+            Prelude.<*> (x Core..:? "requestId")
             Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "errorMessage")
       )
 
 instance Prelude.Hashable BatchAlarmActionErrorEntry where
   hashWithSalt _salt BatchAlarmActionErrorEntry' {..} =
-    _salt `Prelude.hashWithSalt` requestId
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData BatchAlarmActionErrorEntry where
   rnf BatchAlarmActionErrorEntry' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage

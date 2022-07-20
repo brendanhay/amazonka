@@ -37,16 +37,16 @@ module Amazonka.Rekognition.DescribeStreamProcessor
     newDescribeStreamProcessorResponse,
 
     -- * Response Lenses
-    describeStreamProcessorResponse_status,
-    describeStreamProcessorResponse_settings,
-    describeStreamProcessorResponse_input,
-    describeStreamProcessorResponse_output,
     describeStreamProcessorResponse_streamProcessorArn,
-    describeStreamProcessorResponse_statusMessage,
     describeStreamProcessorResponse_name,
-    describeStreamProcessorResponse_creationTimestamp,
     describeStreamProcessorResponse_lastUpdateTimestamp,
     describeStreamProcessorResponse_roleArn,
+    describeStreamProcessorResponse_status,
+    describeStreamProcessorResponse_creationTimestamp,
+    describeStreamProcessorResponse_input,
+    describeStreamProcessorResponse_settings,
+    describeStreamProcessorResponse_output,
+    describeStreamProcessorResponse_statusMessage,
     describeStreamProcessorResponse_httpStatus,
   )
 where
@@ -94,16 +94,16 @@ instance Core.AWSRequest DescribeStreamProcessor where
     Response.receiveJSON
       ( \s h x ->
           DescribeStreamProcessorResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Settings")
-            Prelude.<*> (x Core..?> "Input")
-            Prelude.<*> (x Core..?> "Output")
-            Prelude.<*> (x Core..?> "StreamProcessorArn")
-            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Core..?> "StreamProcessorArn")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
             Prelude.<*> (x Core..?> "LastUpdateTimestamp")
             Prelude.<*> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "Input")
+            Prelude.<*> (x Core..?> "Settings")
+            Prelude.<*> (x Core..?> "Output")
+            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,31 +144,31 @@ instance Core.ToQuery DescribeStreamProcessor where
 
 -- | /See:/ 'newDescribeStreamProcessorResponse' smart constructor.
 data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
-  { -- | Current status of the stream processor.
-    status :: Prelude.Maybe StreamProcessorStatus,
-    -- | Face recognition input parameters that are being used by the stream
-    -- processor. Includes the collection to use for face recognition and the
-    -- face attributes to detect.
-    settings :: Prelude.Maybe StreamProcessorSettings,
-    -- | Kinesis video stream that provides the source streaming video.
-    input :: Prelude.Maybe StreamProcessorInput,
-    -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
-    -- results.
-    output :: Prelude.Maybe StreamProcessorOutput,
-    -- | ARN of the stream processor.
+  { -- | ARN of the stream processor.
     streamProcessorArn :: Prelude.Maybe Prelude.Text,
-    -- | Detailed status message about the stream processor.
-    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | Name of the stream processor.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Date and time the stream processor was created
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The time, in Unix format, the stream processor was last updated. For
     -- example, when the stream processor moves from a running state to a
     -- failed state, or when the user starts or stops the stream processor.
     lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
     -- | ARN of the IAM role that allows access to the stream processor.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Current status of the stream processor.
+    status :: Prelude.Maybe StreamProcessorStatus,
+    -- | Date and time the stream processor was created
+    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | Kinesis video stream that provides the source streaming video.
+    input :: Prelude.Maybe StreamProcessorInput,
+    -- | Face recognition input parameters that are being used by the stream
+    -- processor. Includes the collection to use for face recognition and the
+    -- face attributes to detect.
+    settings :: Prelude.Maybe StreamProcessorSettings,
+    -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
+    -- results.
+    output :: Prelude.Maybe StreamProcessorOutput,
+    -- | Detailed status message about the stream processor.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,30 +182,30 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeStreamProcessorResponse_status' - Current status of the stream processor.
---
--- 'settings', 'describeStreamProcessorResponse_settings' - Face recognition input parameters that are being used by the stream
--- processor. Includes the collection to use for face recognition and the
--- face attributes to detect.
---
--- 'input', 'describeStreamProcessorResponse_input' - Kinesis video stream that provides the source streaming video.
---
--- 'output', 'describeStreamProcessorResponse_output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis
--- results.
---
 -- 'streamProcessorArn', 'describeStreamProcessorResponse_streamProcessorArn' - ARN of the stream processor.
 --
--- 'statusMessage', 'describeStreamProcessorResponse_statusMessage' - Detailed status message about the stream processor.
---
 -- 'name', 'describeStreamProcessorResponse_name' - Name of the stream processor.
---
--- 'creationTimestamp', 'describeStreamProcessorResponse_creationTimestamp' - Date and time the stream processor was created
 --
 -- 'lastUpdateTimestamp', 'describeStreamProcessorResponse_lastUpdateTimestamp' - The time, in Unix format, the stream processor was last updated. For
 -- example, when the stream processor moves from a running state to a
 -- failed state, or when the user starts or stops the stream processor.
 --
 -- 'roleArn', 'describeStreamProcessorResponse_roleArn' - ARN of the IAM role that allows access to the stream processor.
+--
+-- 'status', 'describeStreamProcessorResponse_status' - Current status of the stream processor.
+--
+-- 'creationTimestamp', 'describeStreamProcessorResponse_creationTimestamp' - Date and time the stream processor was created
+--
+-- 'input', 'describeStreamProcessorResponse_input' - Kinesis video stream that provides the source streaming video.
+--
+-- 'settings', 'describeStreamProcessorResponse_settings' - Face recognition input parameters that are being used by the stream
+-- processor. Includes the collection to use for face recognition and the
+-- face attributes to detect.
+--
+-- 'output', 'describeStreamProcessorResponse_output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis
+-- results.
+--
+-- 'statusMessage', 'describeStreamProcessorResponse_statusMessage' - Detailed status message about the stream processor.
 --
 -- 'httpStatus', 'describeStreamProcessorResponse_httpStatus' - The response's http status code.
 newDescribeStreamProcessorResponse ::
@@ -214,54 +214,27 @@ newDescribeStreamProcessorResponse ::
   DescribeStreamProcessorResponse
 newDescribeStreamProcessorResponse pHttpStatus_ =
   DescribeStreamProcessorResponse'
-    { status =
+    { streamProcessorArn =
         Prelude.Nothing,
-      settings = Prelude.Nothing,
-      input = Prelude.Nothing,
-      output = Prelude.Nothing,
-      streamProcessorArn = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
       name = Prelude.Nothing,
-      creationTimestamp = Prelude.Nothing,
       lastUpdateTimestamp = Prelude.Nothing,
       roleArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      input = Prelude.Nothing,
+      settings = Prelude.Nothing,
+      output = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Current status of the stream processor.
-describeStreamProcessorResponse_status :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorStatus)
-describeStreamProcessorResponse_status = Lens.lens (\DescribeStreamProcessorResponse' {status} -> status) (\s@DescribeStreamProcessorResponse' {} a -> s {status = a} :: DescribeStreamProcessorResponse)
-
--- | Face recognition input parameters that are being used by the stream
--- processor. Includes the collection to use for face recognition and the
--- face attributes to detect.
-describeStreamProcessorResponse_settings :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorSettings)
-describeStreamProcessorResponse_settings = Lens.lens (\DescribeStreamProcessorResponse' {settings} -> settings) (\s@DescribeStreamProcessorResponse' {} a -> s {settings = a} :: DescribeStreamProcessorResponse)
-
--- | Kinesis video stream that provides the source streaming video.
-describeStreamProcessorResponse_input :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorInput)
-describeStreamProcessorResponse_input = Lens.lens (\DescribeStreamProcessorResponse' {input} -> input) (\s@DescribeStreamProcessorResponse' {} a -> s {input = a} :: DescribeStreamProcessorResponse)
-
--- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
--- results.
-describeStreamProcessorResponse_output :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorOutput)
-describeStreamProcessorResponse_output = Lens.lens (\DescribeStreamProcessorResponse' {output} -> output) (\s@DescribeStreamProcessorResponse' {} a -> s {output = a} :: DescribeStreamProcessorResponse)
 
 -- | ARN of the stream processor.
 describeStreamProcessorResponse_streamProcessorArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
 describeStreamProcessorResponse_streamProcessorArn = Lens.lens (\DescribeStreamProcessorResponse' {streamProcessorArn} -> streamProcessorArn) (\s@DescribeStreamProcessorResponse' {} a -> s {streamProcessorArn = a} :: DescribeStreamProcessorResponse)
 
--- | Detailed status message about the stream processor.
-describeStreamProcessorResponse_statusMessage :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
-describeStreamProcessorResponse_statusMessage = Lens.lens (\DescribeStreamProcessorResponse' {statusMessage} -> statusMessage) (\s@DescribeStreamProcessorResponse' {} a -> s {statusMessage = a} :: DescribeStreamProcessorResponse)
-
 -- | Name of the stream processor.
 describeStreamProcessorResponse_name :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
 describeStreamProcessorResponse_name = Lens.lens (\DescribeStreamProcessorResponse' {name} -> name) (\s@DescribeStreamProcessorResponse' {} a -> s {name = a} :: DescribeStreamProcessorResponse)
-
--- | Date and time the stream processor was created
-describeStreamProcessorResponse_creationTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.UTCTime)
-describeStreamProcessorResponse_creationTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {creationTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The time, in Unix format, the stream processor was last updated. For
 -- example, when the stream processor moves from a running state to a
@@ -273,6 +246,33 @@ describeStreamProcessorResponse_lastUpdateTimestamp = Lens.lens (\DescribeStream
 describeStreamProcessorResponse_roleArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
 describeStreamProcessorResponse_roleArn = Lens.lens (\DescribeStreamProcessorResponse' {roleArn} -> roleArn) (\s@DescribeStreamProcessorResponse' {} a -> s {roleArn = a} :: DescribeStreamProcessorResponse)
 
+-- | Current status of the stream processor.
+describeStreamProcessorResponse_status :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorStatus)
+describeStreamProcessorResponse_status = Lens.lens (\DescribeStreamProcessorResponse' {status} -> status) (\s@DescribeStreamProcessorResponse' {} a -> s {status = a} :: DescribeStreamProcessorResponse)
+
+-- | Date and time the stream processor was created
+describeStreamProcessorResponse_creationTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.UTCTime)
+describeStreamProcessorResponse_creationTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {creationTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Kinesis video stream that provides the source streaming video.
+describeStreamProcessorResponse_input :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorInput)
+describeStreamProcessorResponse_input = Lens.lens (\DescribeStreamProcessorResponse' {input} -> input) (\s@DescribeStreamProcessorResponse' {} a -> s {input = a} :: DescribeStreamProcessorResponse)
+
+-- | Face recognition input parameters that are being used by the stream
+-- processor. Includes the collection to use for face recognition and the
+-- face attributes to detect.
+describeStreamProcessorResponse_settings :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorSettings)
+describeStreamProcessorResponse_settings = Lens.lens (\DescribeStreamProcessorResponse' {settings} -> settings) (\s@DescribeStreamProcessorResponse' {} a -> s {settings = a} :: DescribeStreamProcessorResponse)
+
+-- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
+-- results.
+describeStreamProcessorResponse_output :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorOutput)
+describeStreamProcessorResponse_output = Lens.lens (\DescribeStreamProcessorResponse' {output} -> output) (\s@DescribeStreamProcessorResponse' {} a -> s {output = a} :: DescribeStreamProcessorResponse)
+
+-- | Detailed status message about the stream processor.
+describeStreamProcessorResponse_statusMessage :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+describeStreamProcessorResponse_statusMessage = Lens.lens (\DescribeStreamProcessorResponse' {statusMessage} -> statusMessage) (\s@DescribeStreamProcessorResponse' {} a -> s {statusMessage = a} :: DescribeStreamProcessorResponse)
+
 -- | The response's http status code.
 describeStreamProcessorResponse_httpStatus :: Lens.Lens' DescribeStreamProcessorResponse Prelude.Int
 describeStreamProcessorResponse_httpStatus = Lens.lens (\DescribeStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@DescribeStreamProcessorResponse' {} a -> s {httpStatus = a} :: DescribeStreamProcessorResponse)
@@ -282,14 +282,14 @@ instance
     DescribeStreamProcessorResponse
   where
   rnf DescribeStreamProcessorResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf streamProcessorArn
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf streamProcessorArn
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf lastUpdateTimestamp
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf httpStatus

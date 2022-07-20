@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceInfo' smart constructor.
 data InstanceInfo = InstanceInfo'
-  { -- | The time at which the on-premises instance was registered.
-    registerTime :: Prelude.Maybe Core.POSIX,
-    -- | The ARN of the on-premises instance.
-    instanceArn :: Prelude.Maybe Prelude.Text,
+  { -- | The tags currently associated with the on-premises instance.
+    tags :: Prelude.Maybe [Tag],
+    -- | The ARN of the IAM session associated with the on-premises instance.
+    iamSessionArn :: Prelude.Maybe Prelude.Text,
     -- | If the on-premises instance was deregistered, the time at which the
     -- on-premises instance was deregistered.
     deregisterTime :: Prelude.Maybe Core.POSIX,
@@ -39,10 +39,10 @@ data InstanceInfo = InstanceInfo'
     iamUserArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the on-premises instance.
     instanceName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM session associated with the on-premises instance.
-    iamSessionArn :: Prelude.Maybe Prelude.Text,
-    -- | The tags currently associated with the on-premises instance.
-    tags :: Prelude.Maybe [Tag]
+    -- | The time at which the on-premises instance was registered.
+    registerTime :: Prelude.Maybe Core.POSIX,
+    -- | The ARN of the on-premises instance.
+    instanceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +54,9 @@ data InstanceInfo = InstanceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registerTime', 'instanceInfo_registerTime' - The time at which the on-premises instance was registered.
+-- 'tags', 'instanceInfo_tags' - The tags currently associated with the on-premises instance.
 --
--- 'instanceArn', 'instanceInfo_instanceArn' - The ARN of the on-premises instance.
+-- 'iamSessionArn', 'instanceInfo_iamSessionArn' - The ARN of the IAM session associated with the on-premises instance.
 --
 -- 'deregisterTime', 'instanceInfo_deregisterTime' - If the on-premises instance was deregistered, the time at which the
 -- on-premises instance was deregistered.
@@ -65,29 +65,29 @@ data InstanceInfo = InstanceInfo'
 --
 -- 'instanceName', 'instanceInfo_instanceName' - The name of the on-premises instance.
 --
--- 'iamSessionArn', 'instanceInfo_iamSessionArn' - The ARN of the IAM session associated with the on-premises instance.
+-- 'registerTime', 'instanceInfo_registerTime' - The time at which the on-premises instance was registered.
 --
--- 'tags', 'instanceInfo_tags' - The tags currently associated with the on-premises instance.
+-- 'instanceArn', 'instanceInfo_instanceArn' - The ARN of the on-premises instance.
 newInstanceInfo ::
   InstanceInfo
 newInstanceInfo =
   InstanceInfo'
-    { registerTime = Prelude.Nothing,
-      instanceArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      iamSessionArn = Prelude.Nothing,
       deregisterTime = Prelude.Nothing,
       iamUserArn = Prelude.Nothing,
       instanceName = Prelude.Nothing,
-      iamSessionArn = Prelude.Nothing,
-      tags = Prelude.Nothing
+      registerTime = Prelude.Nothing,
+      instanceArn = Prelude.Nothing
     }
 
--- | The time at which the on-premises instance was registered.
-instanceInfo_registerTime :: Lens.Lens' InstanceInfo (Prelude.Maybe Prelude.UTCTime)
-instanceInfo_registerTime = Lens.lens (\InstanceInfo' {registerTime} -> registerTime) (\s@InstanceInfo' {} a -> s {registerTime = a} :: InstanceInfo) Prelude.. Lens.mapping Core._Time
+-- | The tags currently associated with the on-premises instance.
+instanceInfo_tags :: Lens.Lens' InstanceInfo (Prelude.Maybe [Tag])
+instanceInfo_tags = Lens.lens (\InstanceInfo' {tags} -> tags) (\s@InstanceInfo' {} a -> s {tags = a} :: InstanceInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the on-premises instance.
-instanceInfo_instanceArn :: Lens.Lens' InstanceInfo (Prelude.Maybe Prelude.Text)
-instanceInfo_instanceArn = Lens.lens (\InstanceInfo' {instanceArn} -> instanceArn) (\s@InstanceInfo' {} a -> s {instanceArn = a} :: InstanceInfo)
+-- | The ARN of the IAM session associated with the on-premises instance.
+instanceInfo_iamSessionArn :: Lens.Lens' InstanceInfo (Prelude.Maybe Prelude.Text)
+instanceInfo_iamSessionArn = Lens.lens (\InstanceInfo' {iamSessionArn} -> iamSessionArn) (\s@InstanceInfo' {} a -> s {iamSessionArn = a} :: InstanceInfo)
 
 -- | If the on-premises instance was deregistered, the time at which the
 -- on-premises instance was deregistered.
@@ -102,13 +102,13 @@ instanceInfo_iamUserArn = Lens.lens (\InstanceInfo' {iamUserArn} -> iamUserArn) 
 instanceInfo_instanceName :: Lens.Lens' InstanceInfo (Prelude.Maybe Prelude.Text)
 instanceInfo_instanceName = Lens.lens (\InstanceInfo' {instanceName} -> instanceName) (\s@InstanceInfo' {} a -> s {instanceName = a} :: InstanceInfo)
 
--- | The ARN of the IAM session associated with the on-premises instance.
-instanceInfo_iamSessionArn :: Lens.Lens' InstanceInfo (Prelude.Maybe Prelude.Text)
-instanceInfo_iamSessionArn = Lens.lens (\InstanceInfo' {iamSessionArn} -> iamSessionArn) (\s@InstanceInfo' {} a -> s {iamSessionArn = a} :: InstanceInfo)
+-- | The time at which the on-premises instance was registered.
+instanceInfo_registerTime :: Lens.Lens' InstanceInfo (Prelude.Maybe Prelude.UTCTime)
+instanceInfo_registerTime = Lens.lens (\InstanceInfo' {registerTime} -> registerTime) (\s@InstanceInfo' {} a -> s {registerTime = a} :: InstanceInfo) Prelude.. Lens.mapping Core._Time
 
--- | The tags currently associated with the on-premises instance.
-instanceInfo_tags :: Lens.Lens' InstanceInfo (Prelude.Maybe [Tag])
-instanceInfo_tags = Lens.lens (\InstanceInfo' {tags} -> tags) (\s@InstanceInfo' {} a -> s {tags = a} :: InstanceInfo) Prelude.. Lens.mapping Lens.coerced
+-- | The ARN of the on-premises instance.
+instanceInfo_instanceArn :: Lens.Lens' InstanceInfo (Prelude.Maybe Prelude.Text)
+instanceInfo_instanceArn = Lens.lens (\InstanceInfo' {instanceArn} -> instanceArn) (\s@InstanceInfo' {} a -> s {instanceArn = a} :: InstanceInfo)
 
 instance Core.FromJSON InstanceInfo where
   parseJSON =
@@ -116,31 +116,31 @@ instance Core.FromJSON InstanceInfo where
       "InstanceInfo"
       ( \x ->
           InstanceInfo'
-            Prelude.<$> (x Core..:? "registerTime")
-            Prelude.<*> (x Core..:? "instanceArn")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "iamSessionArn")
             Prelude.<*> (x Core..:? "deregisterTime")
             Prelude.<*> (x Core..:? "iamUserArn")
             Prelude.<*> (x Core..:? "instanceName")
-            Prelude.<*> (x Core..:? "iamSessionArn")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "registerTime")
+            Prelude.<*> (x Core..:? "instanceArn")
       )
 
 instance Prelude.Hashable InstanceInfo where
   hashWithSalt _salt InstanceInfo' {..} =
-    _salt `Prelude.hashWithSalt` registerTime
-      `Prelude.hashWithSalt` instanceArn
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` iamSessionArn
       `Prelude.hashWithSalt` deregisterTime
       `Prelude.hashWithSalt` iamUserArn
       `Prelude.hashWithSalt` instanceName
-      `Prelude.hashWithSalt` iamSessionArn
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` registerTime
+      `Prelude.hashWithSalt` instanceArn
 
 instance Prelude.NFData InstanceInfo where
   rnf InstanceInfo' {..} =
-    Prelude.rnf registerTime
-      `Prelude.seq` Prelude.rnf instanceArn
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf iamSessionArn
       `Prelude.seq` Prelude.rnf deregisterTime
       `Prelude.seq` Prelude.rnf iamUserArn
       `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf iamSessionArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf registerTime
+      `Prelude.seq` Prelude.rnf instanceArn

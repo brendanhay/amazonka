@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpointDetails' smart constructor.
 data EndpointDetails = EndpointDetails'
-  { -- | Endpoint security details.
-    securityDetails :: Prelude.Maybe SecurityDetails,
-    -- | A dataflow endpoint.
-    endpoint :: Prelude.Maybe DataflowEndpoint
+  { -- | A dataflow endpoint.
+    endpoint :: Prelude.Maybe DataflowEndpoint,
+    -- | Endpoint security details.
+    securityDetails :: Prelude.Maybe SecurityDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data EndpointDetails = EndpointDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityDetails', 'endpointDetails_securityDetails' - Endpoint security details.
---
 -- 'endpoint', 'endpointDetails_endpoint' - A dataflow endpoint.
+--
+-- 'securityDetails', 'endpointDetails_securityDetails' - Endpoint security details.
 newEndpointDetails ::
   EndpointDetails
 newEndpointDetails =
   EndpointDetails'
-    { securityDetails = Prelude.Nothing,
-      endpoint = Prelude.Nothing
+    { endpoint = Prelude.Nothing,
+      securityDetails = Prelude.Nothing
     }
-
--- | Endpoint security details.
-endpointDetails_securityDetails :: Lens.Lens' EndpointDetails (Prelude.Maybe SecurityDetails)
-endpointDetails_securityDetails = Lens.lens (\EndpointDetails' {securityDetails} -> securityDetails) (\s@EndpointDetails' {} a -> s {securityDetails = a} :: EndpointDetails)
 
 -- | A dataflow endpoint.
 endpointDetails_endpoint :: Lens.Lens' EndpointDetails (Prelude.Maybe DataflowEndpoint)
 endpointDetails_endpoint = Lens.lens (\EndpointDetails' {endpoint} -> endpoint) (\s@EndpointDetails' {} a -> s {endpoint = a} :: EndpointDetails)
+
+-- | Endpoint security details.
+endpointDetails_securityDetails :: Lens.Lens' EndpointDetails (Prelude.Maybe SecurityDetails)
+endpointDetails_securityDetails = Lens.lens (\EndpointDetails' {securityDetails} -> securityDetails) (\s@EndpointDetails' {} a -> s {securityDetails = a} :: EndpointDetails)
 
 instance Core.FromJSON EndpointDetails where
   parseJSON =
@@ -69,26 +69,26 @@ instance Core.FromJSON EndpointDetails where
       "EndpointDetails"
       ( \x ->
           EndpointDetails'
-            Prelude.<$> (x Core..:? "securityDetails")
-            Prelude.<*> (x Core..:? "endpoint")
+            Prelude.<$> (x Core..:? "endpoint")
+            Prelude.<*> (x Core..:? "securityDetails")
       )
 
 instance Prelude.Hashable EndpointDetails where
   hashWithSalt _salt EndpointDetails' {..} =
-    _salt `Prelude.hashWithSalt` securityDetails
-      `Prelude.hashWithSalt` endpoint
+    _salt `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` securityDetails
 
 instance Prelude.NFData EndpointDetails where
   rnf EndpointDetails' {..} =
-    Prelude.rnf securityDetails
-      `Prelude.seq` Prelude.rnf endpoint
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf securityDetails
 
 instance Core.ToJSON EndpointDetails where
   toJSON EndpointDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("securityDetails" Core..=)
-              Prelude.<$> securityDetails,
-            ("endpoint" Core..=) Prelude.<$> endpoint
+          [ ("endpoint" Core..=) Prelude.<$> endpoint,
+            ("securityDetails" Core..=)
+              Prelude.<$> securityDetails
           ]
       )

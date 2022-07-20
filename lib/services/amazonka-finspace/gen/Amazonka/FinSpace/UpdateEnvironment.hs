@@ -27,10 +27,10 @@ module Amazonka.FinSpace.UpdateEnvironment
     newUpdateEnvironment,
 
     -- * Request Lenses
-    updateEnvironment_federationParameters,
-    updateEnvironment_federationMode,
     updateEnvironment_name,
+    updateEnvironment_federationParameters,
     updateEnvironment_description,
+    updateEnvironment_federationMode,
     updateEnvironment_environmentId,
 
     -- * Destructuring the Response
@@ -52,7 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { federationParameters :: Prelude.Maybe FederationParameters,
+  { -- | The name of the environment.
+    name :: Prelude.Maybe Prelude.Text,
+    federationParameters :: Prelude.Maybe FederationParameters,
+    -- | The description of the environment.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Authentication mode for the environment.
     --
     -- -   @FEDERATED@ - Users access FinSpace through Single Sign On (SSO) via
@@ -61,10 +65,6 @@ data UpdateEnvironment = UpdateEnvironment'
     -- -   @LOCAL@ - Users access FinSpace via email and password managed
     --     within the FinSpace environment.
     federationMode :: Prelude.Maybe FederationMode,
-    -- | The name of the environment.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the environment.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the FinSpace environment.
     environmentId :: Prelude.Text
   }
@@ -78,7 +78,11 @@ data UpdateEnvironment = UpdateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'updateEnvironment_name' - The name of the environment.
+--
 -- 'federationParameters', 'updateEnvironment_federationParameters' - Undocumented member.
+--
+-- 'description', 'updateEnvironment_description' - The description of the environment.
 --
 -- 'federationMode', 'updateEnvironment_federationMode' - Authentication mode for the environment.
 --
@@ -88,10 +92,6 @@ data UpdateEnvironment = UpdateEnvironment'
 -- -   @LOCAL@ - Users access FinSpace via email and password managed
 --     within the FinSpace environment.
 --
--- 'name', 'updateEnvironment_name' - The name of the environment.
---
--- 'description', 'updateEnvironment_description' - The description of the environment.
---
 -- 'environmentId', 'updateEnvironment_environmentId' - The identifier of the FinSpace environment.
 newUpdateEnvironment ::
   -- | 'environmentId'
@@ -99,17 +99,24 @@ newUpdateEnvironment ::
   UpdateEnvironment
 newUpdateEnvironment pEnvironmentId_ =
   UpdateEnvironment'
-    { federationParameters =
-        Prelude.Nothing,
-      federationMode = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      federationParameters = Prelude.Nothing,
       description = Prelude.Nothing,
+      federationMode = Prelude.Nothing,
       environmentId = pEnvironmentId_
     }
+
+-- | The name of the environment.
+updateEnvironment_name :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_name = Lens.lens (\UpdateEnvironment' {name} -> name) (\s@UpdateEnvironment' {} a -> s {name = a} :: UpdateEnvironment)
 
 -- | Undocumented member.
 updateEnvironment_federationParameters :: Lens.Lens' UpdateEnvironment (Prelude.Maybe FederationParameters)
 updateEnvironment_federationParameters = Lens.lens (\UpdateEnvironment' {federationParameters} -> federationParameters) (\s@UpdateEnvironment' {} a -> s {federationParameters = a} :: UpdateEnvironment)
+
+-- | The description of the environment.
+updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment)
 
 -- | Authentication mode for the environment.
 --
@@ -120,14 +127,6 @@ updateEnvironment_federationParameters = Lens.lens (\UpdateEnvironment' {federat
 --     within the FinSpace environment.
 updateEnvironment_federationMode :: Lens.Lens' UpdateEnvironment (Prelude.Maybe FederationMode)
 updateEnvironment_federationMode = Lens.lens (\UpdateEnvironment' {federationMode} -> federationMode) (\s@UpdateEnvironment' {} a -> s {federationMode = a} :: UpdateEnvironment)
-
--- | The name of the environment.
-updateEnvironment_name :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_name = Lens.lens (\UpdateEnvironment' {name} -> name) (\s@UpdateEnvironment' {} a -> s {name = a} :: UpdateEnvironment)
-
--- | The description of the environment.
-updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment)
 
 -- | The identifier of the FinSpace environment.
 updateEnvironment_environmentId :: Lens.Lens' UpdateEnvironment Prelude.Text
@@ -148,18 +147,18 @@ instance Core.AWSRequest UpdateEnvironment where
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` federationParameters
-      `Prelude.hashWithSalt` federationMode
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` federationParameters
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` federationMode
       `Prelude.hashWithSalt` environmentId
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf federationParameters
-      `Prelude.seq` Prelude.rnf federationMode
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf federationParameters
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf federationMode
       `Prelude.seq` Prelude.rnf environmentId
 
 instance Core.ToHeaders UpdateEnvironment where
@@ -177,12 +176,12 @@ instance Core.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("federationParameters" Core..=)
+          [ ("name" Core..=) Prelude.<$> name,
+            ("federationParameters" Core..=)
               Prelude.<$> federationParameters,
+            ("description" Core..=) Prelude.<$> description,
             ("federationMode" Core..=)
-              Prelude.<$> federationMode,
-            ("name" Core..=) Prelude.<$> name,
-            ("description" Core..=) Prelude.<$> description
+              Prelude.<$> federationMode
           ]
       )
 

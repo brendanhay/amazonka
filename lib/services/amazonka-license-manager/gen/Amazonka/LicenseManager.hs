@@ -20,56 +20,56 @@ module Amazonka.LicenseManager
     -- * Errors
     -- $errors
 
+    -- ** RateLimitExceededException
+    _RateLimitExceededException,
+
+    -- ** LicenseUsageException
+    _LicenseUsageException,
+
+    -- ** AuthorizationException
+    _AuthorizationException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidResourceStateException
+    _InvalidResourceStateException,
+
+    -- ** ServerInternalException
+    _ServerInternalException,
+
+    -- ** FailedDependencyException
+    _FailedDependencyException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** UnsupportedDigitalSignatureMethodException
+    _UnsupportedDigitalSignatureMethodException,
+
+    -- ** FilterLimitExceededException
+    _FilterLimitExceededException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** NoEntitlementsAllowedException
     _NoEntitlementsAllowedException,
 
     -- ** ValidationException
     _ValidationException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** InvalidResourceStateException
-    _InvalidResourceStateException,
-
-    -- ** RateLimitExceededException
-    _RateLimitExceededException,
-
-    -- ** FailedDependencyException
-    _FailedDependencyException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** FilterLimitExceededException
-    _FilterLimitExceededException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** AuthorizationException
-    _AuthorizationException,
+    -- ** EntitlementNotAllowedException
+    _EntitlementNotAllowedException,
 
     -- ** RedirectException
     _RedirectException,
 
-    -- ** ServerInternalException
-    _ServerInternalException,
-
-    -- ** EntitlementNotAllowedException
-    _EntitlementNotAllowedException,
-
-    -- ** UnsupportedDigitalSignatureMethodException
-    _UnsupportedDigitalSignatureMethodException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LicenseUsageException
-    _LicenseUsageException,
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- * Waiters
     -- $waiters
@@ -77,71 +77,11 @@ module Amazonka.LicenseManager
     -- * Operations
     -- $operations
 
-    -- ** ListLicenseManagerReportGenerators
-    ListLicenseManagerReportGenerators (ListLicenseManagerReportGenerators'),
-    newListLicenseManagerReportGenerators,
-    ListLicenseManagerReportGeneratorsResponse (ListLicenseManagerReportGeneratorsResponse'),
-    newListLicenseManagerReportGeneratorsResponse,
-
-    -- ** DeleteLicenseManagerReportGenerator
-    DeleteLicenseManagerReportGenerator (DeleteLicenseManagerReportGenerator'),
-    newDeleteLicenseManagerReportGenerator,
-    DeleteLicenseManagerReportGeneratorResponse (DeleteLicenseManagerReportGeneratorResponse'),
-    newDeleteLicenseManagerReportGeneratorResponse,
-
-    -- ** UpdateLicenseManagerReportGenerator
-    UpdateLicenseManagerReportGenerator (UpdateLicenseManagerReportGenerator'),
-    newUpdateLicenseManagerReportGenerator,
-    UpdateLicenseManagerReportGeneratorResponse (UpdateLicenseManagerReportGeneratorResponse'),
-    newUpdateLicenseManagerReportGeneratorResponse,
-
-    -- ** ListUsageForLicenseConfiguration (Paginated)
-    ListUsageForLicenseConfiguration (ListUsageForLicenseConfiguration'),
-    newListUsageForLicenseConfiguration,
-    ListUsageForLicenseConfigurationResponse (ListUsageForLicenseConfigurationResponse'),
-    newListUsageForLicenseConfigurationResponse,
-
-    -- ** CreateLicenseConfiguration
-    CreateLicenseConfiguration (CreateLicenseConfiguration'),
-    newCreateLicenseConfiguration,
-    CreateLicenseConfigurationResponse (CreateLicenseConfigurationResponse'),
-    newCreateLicenseConfigurationResponse,
-
-    -- ** CreateLicense
-    CreateLicense (CreateLicense'),
-    newCreateLicense,
-    CreateLicenseResponse (CreateLicenseResponse'),
-    newCreateLicenseResponse,
-
-    -- ** ListLicenseConversionTasks
-    ListLicenseConversionTasks (ListLicenseConversionTasks'),
-    newListLicenseConversionTasks,
-    ListLicenseConversionTasksResponse (ListLicenseConversionTasksResponse'),
-    newListLicenseConversionTasksResponse,
-
-    -- ** ListResourceInventory (Paginated)
-    ListResourceInventory (ListResourceInventory'),
-    newListResourceInventory,
-    ListResourceInventoryResponse (ListResourceInventoryResponse'),
-    newListResourceInventoryResponse,
-
-    -- ** DeleteToken
-    DeleteToken (DeleteToken'),
-    newDeleteToken,
-    DeleteTokenResponse (DeleteTokenResponse'),
-    newDeleteTokenResponse,
-
-    -- ** DeleteLicenseConfiguration
-    DeleteLicenseConfiguration (DeleteLicenseConfiguration'),
-    newDeleteLicenseConfiguration,
-    DeleteLicenseConfigurationResponse (DeleteLicenseConfigurationResponse'),
-    newDeleteLicenseConfigurationResponse,
-
-    -- ** UpdateLicenseConfiguration
-    UpdateLicenseConfiguration (UpdateLicenseConfiguration'),
-    newUpdateLicenseConfiguration,
-    UpdateLicenseConfigurationResponse (UpdateLicenseConfigurationResponse'),
-    newUpdateLicenseConfigurationResponse,
+    -- ** AcceptGrant
+    AcceptGrant (AcceptGrant'),
+    newAcceptGrant,
+    AcceptGrantResponse (AcceptGrantResponse'),
+    newAcceptGrantResponse,
 
     -- ** CheckInLicense
     CheckInLicense (CheckInLicense'),
@@ -149,17 +89,17 @@ module Amazonka.LicenseManager
     CheckInLicenseResponse (CheckInLicenseResponse'),
     newCheckInLicenseResponse,
 
-    -- ** ListTokens
-    ListTokens (ListTokens'),
-    newListTokens,
-    ListTokensResponse (ListTokensResponse'),
-    newListTokensResponse,
+    -- ** CheckoutBorrowLicense
+    CheckoutBorrowLicense (CheckoutBorrowLicense'),
+    newCheckoutBorrowLicense,
+    CheckoutBorrowLicenseResponse (CheckoutBorrowLicenseResponse'),
+    newCheckoutBorrowLicenseResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CheckoutLicense
+    CheckoutLicense (CheckoutLicense'),
+    newCheckoutLicense,
+    CheckoutLicenseResponse (CheckoutLicenseResponse'),
+    newCheckoutLicenseResponse,
 
     -- ** CreateGrant
     CreateGrant (CreateGrant'),
@@ -167,17 +107,95 @@ module Amazonka.LicenseManager
     CreateGrantResponse (CreateGrantResponse'),
     newCreateGrantResponse,
 
-    -- ** UpdateLicenseSpecificationsForResource
-    UpdateLicenseSpecificationsForResource (UpdateLicenseSpecificationsForResource'),
-    newUpdateLicenseSpecificationsForResource,
-    UpdateLicenseSpecificationsForResourceResponse (UpdateLicenseSpecificationsForResourceResponse'),
-    newUpdateLicenseSpecificationsForResourceResponse,
+    -- ** CreateGrantVersion
+    CreateGrantVersion (CreateGrantVersion'),
+    newCreateGrantVersion,
+    CreateGrantVersionResponse (CreateGrantVersionResponse'),
+    newCreateGrantVersionResponse,
+
+    -- ** CreateLicense
+    CreateLicense (CreateLicense'),
+    newCreateLicense,
+    CreateLicenseResponse (CreateLicenseResponse'),
+    newCreateLicenseResponse,
+
+    -- ** CreateLicenseConfiguration
+    CreateLicenseConfiguration (CreateLicenseConfiguration'),
+    newCreateLicenseConfiguration,
+    CreateLicenseConfigurationResponse (CreateLicenseConfigurationResponse'),
+    newCreateLicenseConfigurationResponse,
+
+    -- ** CreateLicenseConversionTaskForResource
+    CreateLicenseConversionTaskForResource (CreateLicenseConversionTaskForResource'),
+    newCreateLicenseConversionTaskForResource,
+    CreateLicenseConversionTaskForResourceResponse (CreateLicenseConversionTaskForResourceResponse'),
+    newCreateLicenseConversionTaskForResourceResponse,
+
+    -- ** CreateLicenseManagerReportGenerator
+    CreateLicenseManagerReportGenerator (CreateLicenseManagerReportGenerator'),
+    newCreateLicenseManagerReportGenerator,
+    CreateLicenseManagerReportGeneratorResponse (CreateLicenseManagerReportGeneratorResponse'),
+    newCreateLicenseManagerReportGeneratorResponse,
 
     -- ** CreateLicenseVersion
     CreateLicenseVersion (CreateLicenseVersion'),
     newCreateLicenseVersion,
     CreateLicenseVersionResponse (CreateLicenseVersionResponse'),
     newCreateLicenseVersionResponse,
+
+    -- ** CreateToken
+    CreateToken (CreateToken'),
+    newCreateToken,
+    CreateTokenResponse (CreateTokenResponse'),
+    newCreateTokenResponse,
+
+    -- ** DeleteGrant
+    DeleteGrant (DeleteGrant'),
+    newDeleteGrant,
+    DeleteGrantResponse (DeleteGrantResponse'),
+    newDeleteGrantResponse,
+
+    -- ** DeleteLicense
+    DeleteLicense (DeleteLicense'),
+    newDeleteLicense,
+    DeleteLicenseResponse (DeleteLicenseResponse'),
+    newDeleteLicenseResponse,
+
+    -- ** DeleteLicenseConfiguration
+    DeleteLicenseConfiguration (DeleteLicenseConfiguration'),
+    newDeleteLicenseConfiguration,
+    DeleteLicenseConfigurationResponse (DeleteLicenseConfigurationResponse'),
+    newDeleteLicenseConfigurationResponse,
+
+    -- ** DeleteLicenseManagerReportGenerator
+    DeleteLicenseManagerReportGenerator (DeleteLicenseManagerReportGenerator'),
+    newDeleteLicenseManagerReportGenerator,
+    DeleteLicenseManagerReportGeneratorResponse (DeleteLicenseManagerReportGeneratorResponse'),
+    newDeleteLicenseManagerReportGeneratorResponse,
+
+    -- ** DeleteToken
+    DeleteToken (DeleteToken'),
+    newDeleteToken,
+    DeleteTokenResponse (DeleteTokenResponse'),
+    newDeleteTokenResponse,
+
+    -- ** ExtendLicenseConsumption
+    ExtendLicenseConsumption (ExtendLicenseConsumption'),
+    newExtendLicenseConsumption,
+    ExtendLicenseConsumptionResponse (ExtendLicenseConsumptionResponse'),
+    newExtendLicenseConsumptionResponse,
+
+    -- ** GetAccessToken
+    GetAccessToken (GetAccessToken'),
+    newGetAccessToken,
+    GetAccessTokenResponse (GetAccessTokenResponse'),
+    newGetAccessTokenResponse,
+
+    -- ** GetGrant
+    GetGrant (GetGrant'),
+    newGetGrant,
+    GetGrantResponse (GetGrantResponse'),
+    newGetGrantResponse,
 
     -- ** GetLicense
     GetLicense (GetLicense'),
@@ -191,17 +209,17 @@ module Amazonka.LicenseManager
     GetLicenseConfigurationResponse (GetLicenseConfigurationResponse'),
     newGetLicenseConfigurationResponse,
 
-    -- ** ListReceivedGrants
-    ListReceivedGrants (ListReceivedGrants'),
-    newListReceivedGrants,
-    ListReceivedGrantsResponse (ListReceivedGrantsResponse'),
-    newListReceivedGrantsResponse,
-
     -- ** GetLicenseConversionTask
     GetLicenseConversionTask (GetLicenseConversionTask'),
     newGetLicenseConversionTask,
     GetLicenseConversionTaskResponse (GetLicenseConversionTaskResponse'),
     newGetLicenseConversionTaskResponse,
+
+    -- ** GetLicenseManagerReportGenerator
+    GetLicenseManagerReportGenerator (GetLicenseManagerReportGenerator'),
+    newGetLicenseManagerReportGenerator,
+    GetLicenseManagerReportGeneratorResponse (GetLicenseManagerReportGeneratorResponse'),
+    newGetLicenseManagerReportGeneratorResponse,
 
     -- ** GetLicenseUsage
     GetLicenseUsage (GetLicenseUsage'),
@@ -209,65 +227,17 @@ module Amazonka.LicenseManager
     GetLicenseUsageResponse (GetLicenseUsageResponse'),
     newGetLicenseUsageResponse,
 
-    -- ** ExtendLicenseConsumption
-    ExtendLicenseConsumption (ExtendLicenseConsumption'),
-    newExtendLicenseConsumption,
-    ExtendLicenseConsumptionResponse (ExtendLicenseConsumptionResponse'),
-    newExtendLicenseConsumptionResponse,
-
-    -- ** GetGrant
-    GetGrant (GetGrant'),
-    newGetGrant,
-    GetGrantResponse (GetGrantResponse'),
-    newGetGrantResponse,
-
-    -- ** CheckoutLicense
-    CheckoutLicense (CheckoutLicense'),
-    newCheckoutLicense,
-    CheckoutLicenseResponse (CheckoutLicenseResponse'),
-    newCheckoutLicenseResponse,
-
-    -- ** CreateLicenseConversionTaskForResource
-    CreateLicenseConversionTaskForResource (CreateLicenseConversionTaskForResource'),
-    newCreateLicenseConversionTaskForResource,
-    CreateLicenseConversionTaskForResourceResponse (CreateLicenseConversionTaskForResourceResponse'),
-    newCreateLicenseConversionTaskForResourceResponse,
-
-    -- ** AcceptGrant
-    AcceptGrant (AcceptGrant'),
-    newAcceptGrant,
-    AcceptGrantResponse (AcceptGrantResponse'),
-    newAcceptGrantResponse,
-
-    -- ** ListLicenseSpecificationsForResource (Paginated)
-    ListLicenseSpecificationsForResource (ListLicenseSpecificationsForResource'),
-    newListLicenseSpecificationsForResource,
-    ListLicenseSpecificationsForResourceResponse (ListLicenseSpecificationsForResourceResponse'),
-    newListLicenseSpecificationsForResourceResponse,
-
-    -- ** CheckoutBorrowLicense
-    CheckoutBorrowLicense (CheckoutBorrowLicense'),
-    newCheckoutBorrowLicense,
-    CheckoutBorrowLicenseResponse (CheckoutBorrowLicenseResponse'),
-    newCheckoutBorrowLicenseResponse,
-
     -- ** GetServiceSettings
     GetServiceSettings (GetServiceSettings'),
     newGetServiceSettings,
     GetServiceSettingsResponse (GetServiceSettingsResponse'),
     newGetServiceSettingsResponse,
 
-    -- ** RejectGrant
-    RejectGrant (RejectGrant'),
-    newRejectGrant,
-    RejectGrantResponse (RejectGrantResponse'),
-    newRejectGrantResponse,
-
-    -- ** UpdateServiceSettings
-    UpdateServiceSettings (UpdateServiceSettings'),
-    newUpdateServiceSettings,
-    UpdateServiceSettingsResponse (UpdateServiceSettingsResponse'),
-    newUpdateServiceSettingsResponse,
+    -- ** ListAssociationsForLicenseConfiguration (Paginated)
+    ListAssociationsForLicenseConfiguration (ListAssociationsForLicenseConfiguration'),
+    newListAssociationsForLicenseConfiguration,
+    ListAssociationsForLicenseConfigurationResponse (ListAssociationsForLicenseConfigurationResponse'),
+    newListAssociationsForLicenseConfigurationResponse,
 
     -- ** ListDistributedGrants
     ListDistributedGrants (ListDistributedGrants'),
@@ -281,59 +251,29 @@ module Amazonka.LicenseManager
     ListFailuresForLicenseConfigurationOperationsResponse (ListFailuresForLicenseConfigurationOperationsResponse'),
     newListFailuresForLicenseConfigurationOperationsResponse,
 
-    -- ** DeleteGrant
-    DeleteGrant (DeleteGrant'),
-    newDeleteGrant,
-    DeleteGrantResponse (DeleteGrantResponse'),
-    newDeleteGrantResponse,
-
-    -- ** CreateToken
-    CreateToken (CreateToken'),
-    newCreateToken,
-    CreateTokenResponse (CreateTokenResponse'),
-    newCreateTokenResponse,
-
-    -- ** DeleteLicense
-    DeleteLicense (DeleteLicense'),
-    newDeleteLicense,
-    DeleteLicenseResponse (DeleteLicenseResponse'),
-    newDeleteLicenseResponse,
-
-    -- ** ListLicenses
-    ListLicenses (ListLicenses'),
-    newListLicenses,
-    ListLicensesResponse (ListLicensesResponse'),
-    newListLicensesResponse,
-
     -- ** ListLicenseConfigurations (Paginated)
     ListLicenseConfigurations (ListLicenseConfigurations'),
     newListLicenseConfigurations,
     ListLicenseConfigurationsResponse (ListLicenseConfigurationsResponse'),
     newListLicenseConfigurationsResponse,
 
-    -- ** ListReceivedLicenses
-    ListReceivedLicenses (ListReceivedLicenses'),
-    newListReceivedLicenses,
-    ListReceivedLicensesResponse (ListReceivedLicensesResponse'),
-    newListReceivedLicensesResponse,
+    -- ** ListLicenseConversionTasks
+    ListLicenseConversionTasks (ListLicenseConversionTasks'),
+    newListLicenseConversionTasks,
+    ListLicenseConversionTasksResponse (ListLicenseConversionTasksResponse'),
+    newListLicenseConversionTasksResponse,
 
-    -- ** CreateGrantVersion
-    CreateGrantVersion (CreateGrantVersion'),
-    newCreateGrantVersion,
-    CreateGrantVersionResponse (CreateGrantVersionResponse'),
-    newCreateGrantVersionResponse,
+    -- ** ListLicenseManagerReportGenerators
+    ListLicenseManagerReportGenerators (ListLicenseManagerReportGenerators'),
+    newListLicenseManagerReportGenerators,
+    ListLicenseManagerReportGeneratorsResponse (ListLicenseManagerReportGeneratorsResponse'),
+    newListLicenseManagerReportGeneratorsResponse,
 
-    -- ** ListAssociationsForLicenseConfiguration (Paginated)
-    ListAssociationsForLicenseConfiguration (ListAssociationsForLicenseConfiguration'),
-    newListAssociationsForLicenseConfiguration,
-    ListAssociationsForLicenseConfigurationResponse (ListAssociationsForLicenseConfigurationResponse'),
-    newListAssociationsForLicenseConfigurationResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** ListLicenseSpecificationsForResource (Paginated)
+    ListLicenseSpecificationsForResource (ListLicenseSpecificationsForResource'),
+    newListLicenseSpecificationsForResource,
+    ListLicenseSpecificationsForResourceResponse (ListLicenseSpecificationsForResourceResponse'),
+    newListLicenseSpecificationsForResourceResponse,
 
     -- ** ListLicenseVersions
     ListLicenseVersions (ListLicenseVersions'),
@@ -341,29 +281,89 @@ module Amazonka.LicenseManager
     ListLicenseVersionsResponse (ListLicenseVersionsResponse'),
     newListLicenseVersionsResponse,
 
+    -- ** ListLicenses
+    ListLicenses (ListLicenses'),
+    newListLicenses,
+    ListLicensesResponse (ListLicensesResponse'),
+    newListLicensesResponse,
+
+    -- ** ListReceivedGrants
+    ListReceivedGrants (ListReceivedGrants'),
+    newListReceivedGrants,
+    ListReceivedGrantsResponse (ListReceivedGrantsResponse'),
+    newListReceivedGrantsResponse,
+
+    -- ** ListReceivedLicenses
+    ListReceivedLicenses (ListReceivedLicenses'),
+    newListReceivedLicenses,
+    ListReceivedLicensesResponse (ListReceivedLicensesResponse'),
+    newListReceivedLicensesResponse,
+
+    -- ** ListResourceInventory (Paginated)
+    ListResourceInventory (ListResourceInventory'),
+    newListResourceInventory,
+    ListResourceInventoryResponse (ListResourceInventoryResponse'),
+    newListResourceInventoryResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListTokens
+    ListTokens (ListTokens'),
+    newListTokens,
+    ListTokensResponse (ListTokensResponse'),
+    newListTokensResponse,
+
+    -- ** ListUsageForLicenseConfiguration (Paginated)
+    ListUsageForLicenseConfiguration (ListUsageForLicenseConfiguration'),
+    newListUsageForLicenseConfiguration,
+    ListUsageForLicenseConfigurationResponse (ListUsageForLicenseConfigurationResponse'),
+    newListUsageForLicenseConfigurationResponse,
+
+    -- ** RejectGrant
+    RejectGrant (RejectGrant'),
+    newRejectGrant,
+    RejectGrantResponse (RejectGrantResponse'),
+    newRejectGrantResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetLicenseManagerReportGenerator
-    GetLicenseManagerReportGenerator (GetLicenseManagerReportGenerator'),
-    newGetLicenseManagerReportGenerator,
-    GetLicenseManagerReportGeneratorResponse (GetLicenseManagerReportGeneratorResponse'),
-    newGetLicenseManagerReportGeneratorResponse,
+    -- ** UpdateLicenseConfiguration
+    UpdateLicenseConfiguration (UpdateLicenseConfiguration'),
+    newUpdateLicenseConfiguration,
+    UpdateLicenseConfigurationResponse (UpdateLicenseConfigurationResponse'),
+    newUpdateLicenseConfigurationResponse,
 
-    -- ** GetAccessToken
-    GetAccessToken (GetAccessToken'),
-    newGetAccessToken,
-    GetAccessTokenResponse (GetAccessTokenResponse'),
-    newGetAccessTokenResponse,
+    -- ** UpdateLicenseManagerReportGenerator
+    UpdateLicenseManagerReportGenerator (UpdateLicenseManagerReportGenerator'),
+    newUpdateLicenseManagerReportGenerator,
+    UpdateLicenseManagerReportGeneratorResponse (UpdateLicenseManagerReportGeneratorResponse'),
+    newUpdateLicenseManagerReportGeneratorResponse,
 
-    -- ** CreateLicenseManagerReportGenerator
-    CreateLicenseManagerReportGenerator (CreateLicenseManagerReportGenerator'),
-    newCreateLicenseManagerReportGenerator,
-    CreateLicenseManagerReportGeneratorResponse (CreateLicenseManagerReportGeneratorResponse'),
-    newCreateLicenseManagerReportGeneratorResponse,
+    -- ** UpdateLicenseSpecificationsForResource
+    UpdateLicenseSpecificationsForResource (UpdateLicenseSpecificationsForResource'),
+    newUpdateLicenseSpecificationsForResource,
+    UpdateLicenseSpecificationsForResourceResponse (UpdateLicenseSpecificationsForResourceResponse'),
+    newUpdateLicenseSpecificationsForResourceResponse,
+
+    -- ** UpdateServiceSettings
+    UpdateServiceSettings (UpdateServiceSettings'),
+    newUpdateServiceSettings,
+    UpdateServiceSettingsResponse (UpdateServiceSettingsResponse'),
+    newUpdateServiceSettingsResponse,
 
     -- * Types
 

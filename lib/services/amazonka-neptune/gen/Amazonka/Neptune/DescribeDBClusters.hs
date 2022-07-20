@@ -33,9 +33,9 @@ module Amazonka.Neptune.DescribeDBClusters
     newDescribeDBClusters,
 
     -- * Request Lenses
-    describeDBClusters_dbClusterIdentifier,
-    describeDBClusters_filters,
     describeDBClusters_marker,
+    describeDBClusters_filters,
+    describeDBClusters_dbClusterIdentifier,
     describeDBClusters_maxRecords,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.Neptune.DescribeDBClusters
     newDescribeDBClustersResponse,
 
     -- * Response Lenses
-    describeDBClustersResponse_dbClusters,
     describeDBClustersResponse_marker,
+    describeDBClustersResponse_dbClusters,
     describeDBClustersResponse_httpStatus,
   )
 where
@@ -58,14 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDBClusters' smart constructor.
 data DescribeDBClusters = DescribeDBClusters'
-  { -- | The user-supplied DB cluster identifier. If this parameter is specified,
-    -- information from only the specific DB cluster is returned. This
-    -- parameter isn\'t case-sensitive.
-    --
-    -- Constraints:
-    --
-    -- -   If supplied, must match an existing DBClusterIdentifier.
-    dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
+  { -- | An optional pagination token provided by a previous DescribeDBClusters
+    -- request. If this parameter is specified, the response includes only
+    -- records beyond the marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more DB clusters to describe.
     --
     -- Supported filters:
@@ -81,10 +77,14 @@ data DescribeDBClusters = DescribeDBClusters'
     -- only Neptune DB clusters are returned, you could use the following
     -- command:
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous DescribeDBClusters
-    -- request. If this parameter is specified, the response includes only
-    -- records beyond the marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | The user-supplied DB cluster identifier. If this parameter is specified,
+    -- information from only the specific DB cluster is returned. This
+    -- parameter isn\'t case-sensitive.
+    --
+    -- Constraints:
+    --
+    -- -   If supplied, must match an existing DBClusterIdentifier.
+    dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -105,13 +105,9 @@ data DescribeDBClusters = DescribeDBClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbClusterIdentifier', 'describeDBClusters_dbClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified,
--- information from only the specific DB cluster is returned. This
--- parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   If supplied, must match an existing DBClusterIdentifier.
+-- 'marker', 'describeDBClusters_marker' - An optional pagination token provided by a previous DescribeDBClusters
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by @MaxRecords@.
 --
 -- 'filters', 'describeDBClusters_filters' - A filter that specifies one or more DB clusters to describe.
 --
@@ -128,9 +124,13 @@ data DescribeDBClusters = DescribeDBClusters'
 -- only Neptune DB clusters are returned, you could use the following
 -- command:
 --
--- 'marker', 'describeDBClusters_marker' - An optional pagination token provided by a previous DescribeDBClusters
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
+-- 'dbClusterIdentifier', 'describeDBClusters_dbClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified,
+-- information from only the specific DB cluster is returned. This
+-- parameter isn\'t case-sensitive.
+--
+-- Constraints:
+--
+-- -   If supplied, must match an existing DBClusterIdentifier.
 --
 -- 'maxRecords', 'describeDBClusters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -144,22 +144,17 @@ newDescribeDBClusters ::
   DescribeDBClusters
 newDescribeDBClusters =
   DescribeDBClusters'
-    { dbClusterIdentifier =
-        Prelude.Nothing,
+    { marker = Prelude.Nothing,
       filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
+      dbClusterIdentifier = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
 
--- | The user-supplied DB cluster identifier. If this parameter is specified,
--- information from only the specific DB cluster is returned. This
--- parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   If supplied, must match an existing DBClusterIdentifier.
-describeDBClusters_dbClusterIdentifier :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Text)
-describeDBClusters_dbClusterIdentifier = Lens.lens (\DescribeDBClusters' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@DescribeDBClusters' {} a -> s {dbClusterIdentifier = a} :: DescribeDBClusters)
+-- | An optional pagination token provided by a previous DescribeDBClusters
+-- request. If this parameter is specified, the response includes only
+-- records beyond the marker, up to the value specified by @MaxRecords@.
+describeDBClusters_marker :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Text)
+describeDBClusters_marker = Lens.lens (\DescribeDBClusters' {marker} -> marker) (\s@DescribeDBClusters' {} a -> s {marker = a} :: DescribeDBClusters)
 
 -- | A filter that specifies one or more DB clusters to describe.
 --
@@ -178,11 +173,15 @@ describeDBClusters_dbClusterIdentifier = Lens.lens (\DescribeDBClusters' {dbClus
 describeDBClusters_filters :: Lens.Lens' DescribeDBClusters (Prelude.Maybe [Filter])
 describeDBClusters_filters = Lens.lens (\DescribeDBClusters' {filters} -> filters) (\s@DescribeDBClusters' {} a -> s {filters = a} :: DescribeDBClusters) Prelude.. Lens.mapping Lens.coerced
 
--- | An optional pagination token provided by a previous DescribeDBClusters
--- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
-describeDBClusters_marker :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Text)
-describeDBClusters_marker = Lens.lens (\DescribeDBClusters' {marker} -> marker) (\s@DescribeDBClusters' {} a -> s {marker = a} :: DescribeDBClusters)
+-- | The user-supplied DB cluster identifier. If this parameter is specified,
+-- information from only the specific DB cluster is returned. This
+-- parameter isn\'t case-sensitive.
+--
+-- Constraints:
+--
+-- -   If supplied, must match an existing DBClusterIdentifier.
+describeDBClusters_dbClusterIdentifier :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Text)
+describeDBClusters_dbClusterIdentifier = Lens.lens (\DescribeDBClusters' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@DescribeDBClusters' {} a -> s {dbClusterIdentifier = a} :: DescribeDBClusters)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -227,25 +226,25 @@ instance Core.AWSRequest DescribeDBClusters where
       "DescribeDBClustersResult"
       ( \s h x ->
           DescribeDBClustersResponse'
-            Prelude.<$> ( x Core..@? "DBClusters" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "DBClusters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "DBCluster")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDBClusters where
   hashWithSalt _salt DescribeDBClusters' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifier
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeDBClusters where
   rnf DescribeDBClusters' {..} =
-    Prelude.rnf dbClusterIdentifier
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeDBClusters where
@@ -261,21 +260,21 @@ instance Core.ToQuery DescribeDBClusters where
           Core.=: ("DescribeDBClusters" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
+        "Marker" Core.=: marker,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
+        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeDBClustersResponse' smart constructor.
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
-  { -- | Contains a list of DB clusters for the user.
-    dbClusters :: Prelude.Maybe [DBCluster],
-    -- | A pagination token that can be used in a subsequent DescribeDBClusters
+  { -- | A pagination token that can be used in a subsequent DescribeDBClusters
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Contains a list of DB clusters for the user.
+    dbClusters :: Prelude.Maybe [DBCluster],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -289,10 +288,10 @@ data DescribeDBClustersResponse = DescribeDBClustersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbClusters', 'describeDBClustersResponse_dbClusters' - Contains a list of DB clusters for the user.
---
 -- 'marker', 'describeDBClustersResponse_marker' - A pagination token that can be used in a subsequent DescribeDBClusters
 -- request.
+--
+-- 'dbClusters', 'describeDBClustersResponse_dbClusters' - Contains a list of DB clusters for the user.
 --
 -- 'httpStatus', 'describeDBClustersResponse_httpStatus' - The response's http status code.
 newDescribeDBClustersResponse ::
@@ -301,20 +300,20 @@ newDescribeDBClustersResponse ::
   DescribeDBClustersResponse
 newDescribeDBClustersResponse pHttpStatus_ =
   DescribeDBClustersResponse'
-    { dbClusters =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      dbClusters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains a list of DB clusters for the user.
-describeDBClustersResponse_dbClusters :: Lens.Lens' DescribeDBClustersResponse (Prelude.Maybe [DBCluster])
-describeDBClustersResponse_dbClusters = Lens.lens (\DescribeDBClustersResponse' {dbClusters} -> dbClusters) (\s@DescribeDBClustersResponse' {} a -> s {dbClusters = a} :: DescribeDBClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that can be used in a subsequent DescribeDBClusters
 -- request.
 describeDBClustersResponse_marker :: Lens.Lens' DescribeDBClustersResponse (Prelude.Maybe Prelude.Text)
 describeDBClustersResponse_marker = Lens.lens (\DescribeDBClustersResponse' {marker} -> marker) (\s@DescribeDBClustersResponse' {} a -> s {marker = a} :: DescribeDBClustersResponse)
+
+-- | Contains a list of DB clusters for the user.
+describeDBClustersResponse_dbClusters :: Lens.Lens' DescribeDBClustersResponse (Prelude.Maybe [DBCluster])
+describeDBClustersResponse_dbClusters = Lens.lens (\DescribeDBClustersResponse' {dbClusters} -> dbClusters) (\s@DescribeDBClustersResponse' {} a -> s {dbClusters = a} :: DescribeDBClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDBClustersResponse_httpStatus :: Lens.Lens' DescribeDBClustersResponse Prelude.Int
@@ -322,6 +321,6 @@ describeDBClustersResponse_httpStatus = Lens.lens (\DescribeDBClustersResponse' 
 
 instance Prelude.NFData DescribeDBClustersResponse where
   rnf DescribeDBClustersResponse' {..} =
-    Prelude.rnf dbClusters
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf dbClusters
       `Prelude.seq` Prelude.rnf httpStatus

@@ -38,11 +38,11 @@ module Amazonka.EC2.CreateImage
     newCreateImage,
 
     -- * Request Lenses
+    createImage_blockDeviceMappings,
+    createImage_description,
+    createImage_dryRun,
     createImage_tagSpecifications,
     createImage_noReboot,
-    createImage_description,
-    createImage_blockDeviceMappings,
-    createImage_dryRun,
     createImage_instanceId,
     createImage_name,
 
@@ -65,7 +65,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateImage' smart constructor.
 data CreateImage = CreateImage'
-  { -- | The tags to apply to the AMI and snapshots on creation. You can tag the
+  { -- | The block device mappings. This parameter cannot be used to modify the
+    -- encryption status of existing volumes or snapshots. To create an AMI
+    -- with encrypted snapshots, use the CopyImage action.
+    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    -- | A description for the new image.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to apply to the AMI and snapshots on creation. You can tag the
     -- AMI, the snapshots, or both.
     --
     -- -   To tag the AMI, the value for @ResourceType@ must be @image@.
@@ -88,17 +99,6 @@ data CreateImage = CreateImage'
     -- operating system buffers are not flushed to disk before the snapshots
     -- are created).
     noReboot :: Prelude.Maybe Prelude.Bool,
-    -- | A description for the new image.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The block device mappings. This parameter cannot be used to modify the
-    -- encryption status of existing volumes or snapshots. To create an AMI
-    -- with encrypted snapshots, use the CopyImage action.
-    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
     instanceId :: Prelude.Text,
     -- | A name for the new image.
@@ -117,6 +117,17 @@ data CreateImage = CreateImage'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'blockDeviceMappings', 'createImage_blockDeviceMappings' - The block device mappings. This parameter cannot be used to modify the
+-- encryption status of existing volumes or snapshots. To create an AMI
+-- with encrypted snapshots, use the CopyImage action.
+--
+-- 'description', 'createImage_description' - A description for the new image.
+--
+-- 'dryRun', 'createImage_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'tagSpecifications', 'createImage_tagSpecifications' - The tags to apply to the AMI and snapshots on creation. You can tag the
 -- AMI, the snapshots, or both.
@@ -141,17 +152,6 @@ data CreateImage = CreateImage'
 -- operating system buffers are not flushed to disk before the snapshots
 -- are created).
 --
--- 'description', 'createImage_description' - A description for the new image.
---
--- 'blockDeviceMappings', 'createImage_blockDeviceMappings' - The block device mappings. This parameter cannot be used to modify the
--- encryption status of existing volumes or snapshots. To create an AMI
--- with encrypted snapshots, use the CopyImage action.
---
--- 'dryRun', 'createImage_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'instanceId', 'createImage_instanceId' - The ID of the instance.
 --
 -- 'name', 'createImage_name' - A name for the new image.
@@ -167,14 +167,31 @@ newCreateImage ::
   CreateImage
 newCreateImage pInstanceId_ pName_ =
   CreateImage'
-    { tagSpecifications = Prelude.Nothing,
-      noReboot = Prelude.Nothing,
+    { blockDeviceMappings = Prelude.Nothing,
       description = Prelude.Nothing,
-      blockDeviceMappings = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      noReboot = Prelude.Nothing,
       instanceId = pInstanceId_,
       name = pName_
     }
+
+-- | The block device mappings. This parameter cannot be used to modify the
+-- encryption status of existing volumes or snapshots. To create an AMI
+-- with encrypted snapshots, use the CopyImage action.
+createImage_blockDeviceMappings :: Lens.Lens' CreateImage (Prelude.Maybe [BlockDeviceMapping])
+createImage_blockDeviceMappings = Lens.lens (\CreateImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateImage' {} a -> s {blockDeviceMappings = a} :: CreateImage) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description for the new image.
+createImage_description :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Text)
+createImage_description = Lens.lens (\CreateImage' {description} -> description) (\s@CreateImage' {} a -> s {description = a} :: CreateImage)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createImage_dryRun :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
+createImage_dryRun = Lens.lens (\CreateImage' {dryRun} -> dryRun) (\s@CreateImage' {} a -> s {dryRun = a} :: CreateImage)
 
 -- | The tags to apply to the AMI and snapshots on creation. You can tag the
 -- AMI, the snapshots, or both.
@@ -203,23 +220,6 @@ createImage_tagSpecifications = Lens.lens (\CreateImage' {tagSpecifications} -> 
 createImage_noReboot :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
 createImage_noReboot = Lens.lens (\CreateImage' {noReboot} -> noReboot) (\s@CreateImage' {} a -> s {noReboot = a} :: CreateImage)
 
--- | A description for the new image.
-createImage_description :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Text)
-createImage_description = Lens.lens (\CreateImage' {description} -> description) (\s@CreateImage' {} a -> s {description = a} :: CreateImage)
-
--- | The block device mappings. This parameter cannot be used to modify the
--- encryption status of existing volumes or snapshots. To create an AMI
--- with encrypted snapshots, use the CopyImage action.
-createImage_blockDeviceMappings :: Lens.Lens' CreateImage (Prelude.Maybe [BlockDeviceMapping])
-createImage_blockDeviceMappings = Lens.lens (\CreateImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateImage' {} a -> s {blockDeviceMappings = a} :: CreateImage) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createImage_dryRun :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
-createImage_dryRun = Lens.lens (\CreateImage' {dryRun} -> dryRun) (\s@CreateImage' {} a -> s {dryRun = a} :: CreateImage)
-
 -- | The ID of the instance.
 createImage_instanceId :: Lens.Lens' CreateImage Prelude.Text
 createImage_instanceId = Lens.lens (\CreateImage' {instanceId} -> instanceId) (\s@CreateImage' {} a -> s {instanceId = a} :: CreateImage)
@@ -245,21 +245,21 @@ instance Core.AWSRequest CreateImage where
 
 instance Prelude.Hashable CreateImage where
   hashWithSalt _salt CreateImage' {..} =
-    _salt `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` noReboot
+    _salt `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` noReboot
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateImage where
   rnf CreateImage' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf noReboot
+    Prelude.rnf blockDeviceMappings
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf noReboot
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
 
@@ -277,16 +277,16 @@ instance Core.ToQuery CreateImage where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
+          ( Core.toQueryList "BlockDeviceMapping"
+              Prelude.<$> blockDeviceMappings
+          ),
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "NoReboot" Core.=: noReboot,
-        "Description" Core.=: description,
-        Core.toQuery
-          ( Core.toQueryList "BlockDeviceMapping"
-              Prelude.<$> blockDeviceMappings
-          ),
-        "DryRun" Core.=: dryRun,
         "InstanceId" Core.=: instanceId,
         "Name" Core.=: name
       ]

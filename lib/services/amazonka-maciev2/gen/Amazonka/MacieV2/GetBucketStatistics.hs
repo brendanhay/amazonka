@@ -35,18 +35,18 @@ module Amazonka.MacieV2.GetBucketStatistics
     newGetBucketStatisticsResponse,
 
     -- * Response Lenses
-    getBucketStatisticsResponse_sizeInBytesCompressed,
-    getBucketStatisticsResponse_lastUpdated,
-    getBucketStatisticsResponse_sizeInBytes,
-    getBucketStatisticsResponse_bucketCountBySharedAccessType,
-    getBucketStatisticsResponse_classifiableObjectCount,
-    getBucketStatisticsResponse_unclassifiableObjectSizeInBytes,
+    getBucketStatisticsResponse_classifiableSizeInBytes,
+    getBucketStatisticsResponse_bucketCountByEffectivePermission,
     getBucketStatisticsResponse_unclassifiableObjectCount,
     getBucketStatisticsResponse_bucketCount,
-    getBucketStatisticsResponse_bucketCountByEffectivePermission,
-    getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement,
     getBucketStatisticsResponse_objectCount,
-    getBucketStatisticsResponse_classifiableSizeInBytes,
+    getBucketStatisticsResponse_lastUpdated,
+    getBucketStatisticsResponse_classifiableObjectCount,
+    getBucketStatisticsResponse_sizeInBytes,
+    getBucketStatisticsResponse_sizeInBytesCompressed,
+    getBucketStatisticsResponse_bucketCountBySharedAccessType,
+    getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement,
+    getBucketStatisticsResponse_unclassifiableObjectSizeInBytes,
     getBucketStatisticsResponse_bucketCountByEncryptionType,
     getBucketStatisticsResponse_httpStatus,
   )
@@ -93,20 +93,20 @@ instance Core.AWSRequest GetBucketStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetBucketStatisticsResponse'
-            Prelude.<$> (x Core..?> "sizeInBytesCompressed")
-            Prelude.<*> (x Core..?> "lastUpdated")
-            Prelude.<*> (x Core..?> "sizeInBytes")
-            Prelude.<*> (x Core..?> "bucketCountBySharedAccessType")
-            Prelude.<*> (x Core..?> "classifiableObjectCount")
-            Prelude.<*> (x Core..?> "unclassifiableObjectSizeInBytes")
+            Prelude.<$> (x Core..?> "classifiableSizeInBytes")
+            Prelude.<*> (x Core..?> "bucketCountByEffectivePermission")
             Prelude.<*> (x Core..?> "unclassifiableObjectCount")
             Prelude.<*> (x Core..?> "bucketCount")
-            Prelude.<*> (x Core..?> "bucketCountByEffectivePermission")
+            Prelude.<*> (x Core..?> "objectCount")
+            Prelude.<*> (x Core..?> "lastUpdated")
+            Prelude.<*> (x Core..?> "classifiableObjectCount")
+            Prelude.<*> (x Core..?> "sizeInBytes")
+            Prelude.<*> (x Core..?> "sizeInBytesCompressed")
+            Prelude.<*> (x Core..?> "bucketCountBySharedAccessType")
             Prelude.<*> ( x
                             Core..?> "bucketCountByObjectEncryptionRequirement"
                         )
-            Prelude.<*> (x Core..?> "objectCount")
-            Prelude.<*> (x Core..?> "classifiableSizeInBytes")
+            Prelude.<*> (x Core..?> "unclassifiableObjectSizeInBytes")
             Prelude.<*> (x Core..?> "bucketCountByEncryptionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -144,53 +144,7 @@ instance Core.ToQuery GetBucketStatistics where
 
 -- | /See:/ 'newGetBucketStatisticsResponse' smart constructor.
 data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
-  { -- | The total storage size, in bytes, of the objects that are compressed
-    -- (.gz, .gzip, .zip) files in the buckets.
-    --
-    -- If versioning is enabled for any of the buckets, Amazon Macie calculates
-    -- this value based on the size of the latest version of each applicable
-    -- object in those buckets. This value doesn\'t reflect the storage size of
-    -- all versions of the applicable objects in the buckets.
-    sizeInBytesCompressed :: Prelude.Maybe Prelude.Integer,
-    -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
-    -- Macie most recently retrieved both bucket and object metadata from
-    -- Amazon S3 for the buckets.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
-    -- | The total storage size, in bytes, of the buckets.
-    --
-    -- If versioning is enabled for any of the buckets, Amazon Macie calculates
-    -- this value based on the size of the latest version of each object in
-    -- those buckets. This value doesn\'t reflect the storage size of all
-    -- versions of the objects in the buckets.
-    sizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that are or aren\'t shared with another
-    -- Amazon Web Services account.
-    bucketCountBySharedAccessType :: Prelude.Maybe BucketCountBySharedAccessType,
-    -- | The total number of objects that Amazon Macie can analyze in the
-    -- buckets. These objects use a supported storage class and have a file
-    -- name extension for a supported file or storage format.
-    classifiableObjectCount :: Prelude.Maybe Prelude.Integer,
-    -- | The total storage size, in bytes, of the objects that Amazon Macie
-    -- can\'t analyze in the buckets. These objects don\'t use a supported
-    -- storage class or don\'t have a file name extension for a supported file
-    -- or storage format.
-    unclassifiableObjectSizeInBytes :: Prelude.Maybe ObjectLevelStatistics,
-    -- | The total number of objects that Amazon Macie can\'t analyze in the
-    -- buckets. These objects don\'t use a supported storage class or don\'t
-    -- have a file name extension for a supported file or storage format.
-    unclassifiableObjectCount :: Prelude.Maybe ObjectLevelStatistics,
-    -- | The total number of buckets.
-    bucketCount :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that are publicly accessible based on a
-    -- combination of permissions settings for each bucket.
-    bucketCountByEffectivePermission :: Prelude.Maybe BucketCountByEffectivePermission,
-    -- | The total number of buckets whose bucket policies do or don\'t require
-    -- server-side encryption of objects when objects are uploaded to the
-    -- buckets.
-    bucketCountByObjectEncryptionRequirement :: Prelude.Maybe BucketCountPolicyAllowsUnencryptedObjectUploads,
-    -- | The total number of objects in the buckets.
-    objectCount :: Prelude.Maybe Prelude.Integer,
-    -- | The total storage size, in bytes, of all the objects that Amazon Macie
+  { -- | The total storage size, in bytes, of all the objects that Amazon Macie
     -- can analyze in the buckets. These objects use a supported storage class
     -- and have a file name extension for a supported file or storage format.
     --
@@ -199,6 +153,52 @@ data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
     -- in those buckets. This value doesn\'t reflect the storage size of all
     -- versions of all applicable objects in the buckets.
     classifiableSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The total number of buckets that are publicly accessible based on a
+    -- combination of permissions settings for each bucket.
+    bucketCountByEffectivePermission :: Prelude.Maybe BucketCountByEffectivePermission,
+    -- | The total number of objects that Amazon Macie can\'t analyze in the
+    -- buckets. These objects don\'t use a supported storage class or don\'t
+    -- have a file name extension for a supported file or storage format.
+    unclassifiableObjectCount :: Prelude.Maybe ObjectLevelStatistics,
+    -- | The total number of buckets.
+    bucketCount :: Prelude.Maybe Prelude.Integer,
+    -- | The total number of objects in the buckets.
+    objectCount :: Prelude.Maybe Prelude.Integer,
+    -- | The date and time, in UTC and extended ISO 8601 format, when Amazon
+    -- Macie most recently retrieved both bucket and object metadata from
+    -- Amazon S3 for the buckets.
+    lastUpdated :: Prelude.Maybe Core.POSIX,
+    -- | The total number of objects that Amazon Macie can analyze in the
+    -- buckets. These objects use a supported storage class and have a file
+    -- name extension for a supported file or storage format.
+    classifiableObjectCount :: Prelude.Maybe Prelude.Integer,
+    -- | The total storage size, in bytes, of the buckets.
+    --
+    -- If versioning is enabled for any of the buckets, Amazon Macie calculates
+    -- this value based on the size of the latest version of each object in
+    -- those buckets. This value doesn\'t reflect the storage size of all
+    -- versions of the objects in the buckets.
+    sizeInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The total storage size, in bytes, of the objects that are compressed
+    -- (.gz, .gzip, .zip) files in the buckets.
+    --
+    -- If versioning is enabled for any of the buckets, Amazon Macie calculates
+    -- this value based on the size of the latest version of each applicable
+    -- object in those buckets. This value doesn\'t reflect the storage size of
+    -- all versions of the applicable objects in the buckets.
+    sizeInBytesCompressed :: Prelude.Maybe Prelude.Integer,
+    -- | The total number of buckets that are or aren\'t shared with another
+    -- Amazon Web Services account.
+    bucketCountBySharedAccessType :: Prelude.Maybe BucketCountBySharedAccessType,
+    -- | The total number of buckets whose bucket policies do or don\'t require
+    -- server-side encryption of objects when objects are uploaded to the
+    -- buckets.
+    bucketCountByObjectEncryptionRequirement :: Prelude.Maybe BucketCountPolicyAllowsUnencryptedObjectUploads,
+    -- | The total storage size, in bytes, of the objects that Amazon Macie
+    -- can\'t analyze in the buckets. These objects don\'t use a supported
+    -- storage class or don\'t have a file name extension for a supported file
+    -- or storage format.
+    unclassifiableObjectSizeInBytes :: Prelude.Maybe ObjectLevelStatistics,
     -- | The total number of buckets that use certain types of server-side
     -- encryption to encrypt new objects by default. This object also reports
     -- the total number of buckets that don\'t encrypt new objects by default.
@@ -216,52 +216,6 @@ data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sizeInBytesCompressed', 'getBucketStatisticsResponse_sizeInBytesCompressed' - The total storage size, in bytes, of the objects that are compressed
--- (.gz, .gzip, .zip) files in the buckets.
---
--- If versioning is enabled for any of the buckets, Amazon Macie calculates
--- this value based on the size of the latest version of each applicable
--- object in those buckets. This value doesn\'t reflect the storage size of
--- all versions of the applicable objects in the buckets.
---
--- 'lastUpdated', 'getBucketStatisticsResponse_lastUpdated' - The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently retrieved both bucket and object metadata from
--- Amazon S3 for the buckets.
---
--- 'sizeInBytes', 'getBucketStatisticsResponse_sizeInBytes' - The total storage size, in bytes, of the buckets.
---
--- If versioning is enabled for any of the buckets, Amazon Macie calculates
--- this value based on the size of the latest version of each object in
--- those buckets. This value doesn\'t reflect the storage size of all
--- versions of the objects in the buckets.
---
--- 'bucketCountBySharedAccessType', 'getBucketStatisticsResponse_bucketCountBySharedAccessType' - The total number of buckets that are or aren\'t shared with another
--- Amazon Web Services account.
---
--- 'classifiableObjectCount', 'getBucketStatisticsResponse_classifiableObjectCount' - The total number of objects that Amazon Macie can analyze in the
--- buckets. These objects use a supported storage class and have a file
--- name extension for a supported file or storage format.
---
--- 'unclassifiableObjectSizeInBytes', 'getBucketStatisticsResponse_unclassifiableObjectSizeInBytes' - The total storage size, in bytes, of the objects that Amazon Macie
--- can\'t analyze in the buckets. These objects don\'t use a supported
--- storage class or don\'t have a file name extension for a supported file
--- or storage format.
---
--- 'unclassifiableObjectCount', 'getBucketStatisticsResponse_unclassifiableObjectCount' - The total number of objects that Amazon Macie can\'t analyze in the
--- buckets. These objects don\'t use a supported storage class or don\'t
--- have a file name extension for a supported file or storage format.
---
--- 'bucketCount', 'getBucketStatisticsResponse_bucketCount' - The total number of buckets.
---
--- 'bucketCountByEffectivePermission', 'getBucketStatisticsResponse_bucketCountByEffectivePermission' - The total number of buckets that are publicly accessible based on a
--- combination of permissions settings for each bucket.
---
--- 'bucketCountByObjectEncryptionRequirement', 'getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement' - The total number of buckets whose bucket policies do or don\'t require
--- server-side encryption of objects when objects are uploaded to the
--- buckets.
---
--- 'objectCount', 'getBucketStatisticsResponse_objectCount' - The total number of objects in the buckets.
---
 -- 'classifiableSizeInBytes', 'getBucketStatisticsResponse_classifiableSizeInBytes' - The total storage size, in bytes, of all the objects that Amazon Macie
 -- can analyze in the buckets. These objects use a supported storage class
 -- and have a file name extension for a supported file or storage format.
@@ -270,6 +224,52 @@ data GetBucketStatisticsResponse = GetBucketStatisticsResponse'
 -- value based on the size of the latest version of each applicable object
 -- in those buckets. This value doesn\'t reflect the storage size of all
 -- versions of all applicable objects in the buckets.
+--
+-- 'bucketCountByEffectivePermission', 'getBucketStatisticsResponse_bucketCountByEffectivePermission' - The total number of buckets that are publicly accessible based on a
+-- combination of permissions settings for each bucket.
+--
+-- 'unclassifiableObjectCount', 'getBucketStatisticsResponse_unclassifiableObjectCount' - The total number of objects that Amazon Macie can\'t analyze in the
+-- buckets. These objects don\'t use a supported storage class or don\'t
+-- have a file name extension for a supported file or storage format.
+--
+-- 'bucketCount', 'getBucketStatisticsResponse_bucketCount' - The total number of buckets.
+--
+-- 'objectCount', 'getBucketStatisticsResponse_objectCount' - The total number of objects in the buckets.
+--
+-- 'lastUpdated', 'getBucketStatisticsResponse_lastUpdated' - The date and time, in UTC and extended ISO 8601 format, when Amazon
+-- Macie most recently retrieved both bucket and object metadata from
+-- Amazon S3 for the buckets.
+--
+-- 'classifiableObjectCount', 'getBucketStatisticsResponse_classifiableObjectCount' - The total number of objects that Amazon Macie can analyze in the
+-- buckets. These objects use a supported storage class and have a file
+-- name extension for a supported file or storage format.
+--
+-- 'sizeInBytes', 'getBucketStatisticsResponse_sizeInBytes' - The total storage size, in bytes, of the buckets.
+--
+-- If versioning is enabled for any of the buckets, Amazon Macie calculates
+-- this value based on the size of the latest version of each object in
+-- those buckets. This value doesn\'t reflect the storage size of all
+-- versions of the objects in the buckets.
+--
+-- 'sizeInBytesCompressed', 'getBucketStatisticsResponse_sizeInBytesCompressed' - The total storage size, in bytes, of the objects that are compressed
+-- (.gz, .gzip, .zip) files in the buckets.
+--
+-- If versioning is enabled for any of the buckets, Amazon Macie calculates
+-- this value based on the size of the latest version of each applicable
+-- object in those buckets. This value doesn\'t reflect the storage size of
+-- all versions of the applicable objects in the buckets.
+--
+-- 'bucketCountBySharedAccessType', 'getBucketStatisticsResponse_bucketCountBySharedAccessType' - The total number of buckets that are or aren\'t shared with another
+-- Amazon Web Services account.
+--
+-- 'bucketCountByObjectEncryptionRequirement', 'getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement' - The total number of buckets whose bucket policies do or don\'t require
+-- server-side encryption of objects when objects are uploaded to the
+-- buckets.
+--
+-- 'unclassifiableObjectSizeInBytes', 'getBucketStatisticsResponse_unclassifiableObjectSizeInBytes' - The total storage size, in bytes, of the objects that Amazon Macie
+-- can\'t analyze in the buckets. These objects don\'t use a supported
+-- storage class or don\'t have a file name extension for a supported file
+-- or storage format.
 --
 -- 'bucketCountByEncryptionType', 'getBucketStatisticsResponse_bucketCountByEncryptionType' - The total number of buckets that use certain types of server-side
 -- encryption to encrypt new objects by default. This object also reports
@@ -282,94 +282,26 @@ newGetBucketStatisticsResponse ::
   GetBucketStatisticsResponse
 newGetBucketStatisticsResponse pHttpStatus_ =
   GetBucketStatisticsResponse'
-    { sizeInBytesCompressed =
+    { classifiableSizeInBytes =
         Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
-      sizeInBytes = Prelude.Nothing,
-      bucketCountBySharedAccessType =
-        Prelude.Nothing,
-      classifiableObjectCount = Prelude.Nothing,
-      unclassifiableObjectSizeInBytes =
+      bucketCountByEffectivePermission =
         Prelude.Nothing,
       unclassifiableObjectCount = Prelude.Nothing,
       bucketCount = Prelude.Nothing,
-      bucketCountByEffectivePermission =
+      objectCount = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
+      classifiableObjectCount = Prelude.Nothing,
+      sizeInBytes = Prelude.Nothing,
+      sizeInBytesCompressed = Prelude.Nothing,
+      bucketCountBySharedAccessType =
         Prelude.Nothing,
       bucketCountByObjectEncryptionRequirement =
         Prelude.Nothing,
-      objectCount = Prelude.Nothing,
-      classifiableSizeInBytes = Prelude.Nothing,
+      unclassifiableObjectSizeInBytes =
+        Prelude.Nothing,
       bucketCountByEncryptionType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The total storage size, in bytes, of the objects that are compressed
--- (.gz, .gzip, .zip) files in the buckets.
---
--- If versioning is enabled for any of the buckets, Amazon Macie calculates
--- this value based on the size of the latest version of each applicable
--- object in those buckets. This value doesn\'t reflect the storage size of
--- all versions of the applicable objects in the buckets.
-getBucketStatisticsResponse_sizeInBytesCompressed :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
-getBucketStatisticsResponse_sizeInBytesCompressed = Lens.lens (\GetBucketStatisticsResponse' {sizeInBytesCompressed} -> sizeInBytesCompressed) (\s@GetBucketStatisticsResponse' {} a -> s {sizeInBytesCompressed = a} :: GetBucketStatisticsResponse)
-
--- | The date and time, in UTC and extended ISO 8601 format, when Amazon
--- Macie most recently retrieved both bucket and object metadata from
--- Amazon S3 for the buckets.
-getBucketStatisticsResponse_lastUpdated :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.UTCTime)
-getBucketStatisticsResponse_lastUpdated = Lens.lens (\GetBucketStatisticsResponse' {lastUpdated} -> lastUpdated) (\s@GetBucketStatisticsResponse' {} a -> s {lastUpdated = a} :: GetBucketStatisticsResponse) Prelude.. Lens.mapping Core._Time
-
--- | The total storage size, in bytes, of the buckets.
---
--- If versioning is enabled for any of the buckets, Amazon Macie calculates
--- this value based on the size of the latest version of each object in
--- those buckets. This value doesn\'t reflect the storage size of all
--- versions of the objects in the buckets.
-getBucketStatisticsResponse_sizeInBytes :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
-getBucketStatisticsResponse_sizeInBytes = Lens.lens (\GetBucketStatisticsResponse' {sizeInBytes} -> sizeInBytes) (\s@GetBucketStatisticsResponse' {} a -> s {sizeInBytes = a} :: GetBucketStatisticsResponse)
-
--- | The total number of buckets that are or aren\'t shared with another
--- Amazon Web Services account.
-getBucketStatisticsResponse_bucketCountBySharedAccessType :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountBySharedAccessType)
-getBucketStatisticsResponse_bucketCountBySharedAccessType = Lens.lens (\GetBucketStatisticsResponse' {bucketCountBySharedAccessType} -> bucketCountBySharedAccessType) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountBySharedAccessType = a} :: GetBucketStatisticsResponse)
-
--- | The total number of objects that Amazon Macie can analyze in the
--- buckets. These objects use a supported storage class and have a file
--- name extension for a supported file or storage format.
-getBucketStatisticsResponse_classifiableObjectCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
-getBucketStatisticsResponse_classifiableObjectCount = Lens.lens (\GetBucketStatisticsResponse' {classifiableObjectCount} -> classifiableObjectCount) (\s@GetBucketStatisticsResponse' {} a -> s {classifiableObjectCount = a} :: GetBucketStatisticsResponse)
-
--- | The total storage size, in bytes, of the objects that Amazon Macie
--- can\'t analyze in the buckets. These objects don\'t use a supported
--- storage class or don\'t have a file name extension for a supported file
--- or storage format.
-getBucketStatisticsResponse_unclassifiableObjectSizeInBytes :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe ObjectLevelStatistics)
-getBucketStatisticsResponse_unclassifiableObjectSizeInBytes = Lens.lens (\GetBucketStatisticsResponse' {unclassifiableObjectSizeInBytes} -> unclassifiableObjectSizeInBytes) (\s@GetBucketStatisticsResponse' {} a -> s {unclassifiableObjectSizeInBytes = a} :: GetBucketStatisticsResponse)
-
--- | The total number of objects that Amazon Macie can\'t analyze in the
--- buckets. These objects don\'t use a supported storage class or don\'t
--- have a file name extension for a supported file or storage format.
-getBucketStatisticsResponse_unclassifiableObjectCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe ObjectLevelStatistics)
-getBucketStatisticsResponse_unclassifiableObjectCount = Lens.lens (\GetBucketStatisticsResponse' {unclassifiableObjectCount} -> unclassifiableObjectCount) (\s@GetBucketStatisticsResponse' {} a -> s {unclassifiableObjectCount = a} :: GetBucketStatisticsResponse)
-
--- | The total number of buckets.
-getBucketStatisticsResponse_bucketCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
-getBucketStatisticsResponse_bucketCount = Lens.lens (\GetBucketStatisticsResponse' {bucketCount} -> bucketCount) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCount = a} :: GetBucketStatisticsResponse)
-
--- | The total number of buckets that are publicly accessible based on a
--- combination of permissions settings for each bucket.
-getBucketStatisticsResponse_bucketCountByEffectivePermission :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountByEffectivePermission)
-getBucketStatisticsResponse_bucketCountByEffectivePermission = Lens.lens (\GetBucketStatisticsResponse' {bucketCountByEffectivePermission} -> bucketCountByEffectivePermission) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountByEffectivePermission = a} :: GetBucketStatisticsResponse)
-
--- | The total number of buckets whose bucket policies do or don\'t require
--- server-side encryption of objects when objects are uploaded to the
--- buckets.
-getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountPolicyAllowsUnencryptedObjectUploads)
-getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement = Lens.lens (\GetBucketStatisticsResponse' {bucketCountByObjectEncryptionRequirement} -> bucketCountByObjectEncryptionRequirement) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountByObjectEncryptionRequirement = a} :: GetBucketStatisticsResponse)
-
--- | The total number of objects in the buckets.
-getBucketStatisticsResponse_objectCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
-getBucketStatisticsResponse_objectCount = Lens.lens (\GetBucketStatisticsResponse' {objectCount} -> objectCount) (\s@GetBucketStatisticsResponse' {} a -> s {objectCount = a} :: GetBucketStatisticsResponse)
 
 -- | The total storage size, in bytes, of all the objects that Amazon Macie
 -- can analyze in the buckets. These objects use a supported storage class
@@ -381,6 +313,74 @@ getBucketStatisticsResponse_objectCount = Lens.lens (\GetBucketStatisticsRespons
 -- versions of all applicable objects in the buckets.
 getBucketStatisticsResponse_classifiableSizeInBytes :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
 getBucketStatisticsResponse_classifiableSizeInBytes = Lens.lens (\GetBucketStatisticsResponse' {classifiableSizeInBytes} -> classifiableSizeInBytes) (\s@GetBucketStatisticsResponse' {} a -> s {classifiableSizeInBytes = a} :: GetBucketStatisticsResponse)
+
+-- | The total number of buckets that are publicly accessible based on a
+-- combination of permissions settings for each bucket.
+getBucketStatisticsResponse_bucketCountByEffectivePermission :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountByEffectivePermission)
+getBucketStatisticsResponse_bucketCountByEffectivePermission = Lens.lens (\GetBucketStatisticsResponse' {bucketCountByEffectivePermission} -> bucketCountByEffectivePermission) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountByEffectivePermission = a} :: GetBucketStatisticsResponse)
+
+-- | The total number of objects that Amazon Macie can\'t analyze in the
+-- buckets. These objects don\'t use a supported storage class or don\'t
+-- have a file name extension for a supported file or storage format.
+getBucketStatisticsResponse_unclassifiableObjectCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe ObjectLevelStatistics)
+getBucketStatisticsResponse_unclassifiableObjectCount = Lens.lens (\GetBucketStatisticsResponse' {unclassifiableObjectCount} -> unclassifiableObjectCount) (\s@GetBucketStatisticsResponse' {} a -> s {unclassifiableObjectCount = a} :: GetBucketStatisticsResponse)
+
+-- | The total number of buckets.
+getBucketStatisticsResponse_bucketCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
+getBucketStatisticsResponse_bucketCount = Lens.lens (\GetBucketStatisticsResponse' {bucketCount} -> bucketCount) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCount = a} :: GetBucketStatisticsResponse)
+
+-- | The total number of objects in the buckets.
+getBucketStatisticsResponse_objectCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
+getBucketStatisticsResponse_objectCount = Lens.lens (\GetBucketStatisticsResponse' {objectCount} -> objectCount) (\s@GetBucketStatisticsResponse' {} a -> s {objectCount = a} :: GetBucketStatisticsResponse)
+
+-- | The date and time, in UTC and extended ISO 8601 format, when Amazon
+-- Macie most recently retrieved both bucket and object metadata from
+-- Amazon S3 for the buckets.
+getBucketStatisticsResponse_lastUpdated :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.UTCTime)
+getBucketStatisticsResponse_lastUpdated = Lens.lens (\GetBucketStatisticsResponse' {lastUpdated} -> lastUpdated) (\s@GetBucketStatisticsResponse' {} a -> s {lastUpdated = a} :: GetBucketStatisticsResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The total number of objects that Amazon Macie can analyze in the
+-- buckets. These objects use a supported storage class and have a file
+-- name extension for a supported file or storage format.
+getBucketStatisticsResponse_classifiableObjectCount :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
+getBucketStatisticsResponse_classifiableObjectCount = Lens.lens (\GetBucketStatisticsResponse' {classifiableObjectCount} -> classifiableObjectCount) (\s@GetBucketStatisticsResponse' {} a -> s {classifiableObjectCount = a} :: GetBucketStatisticsResponse)
+
+-- | The total storage size, in bytes, of the buckets.
+--
+-- If versioning is enabled for any of the buckets, Amazon Macie calculates
+-- this value based on the size of the latest version of each object in
+-- those buckets. This value doesn\'t reflect the storage size of all
+-- versions of the objects in the buckets.
+getBucketStatisticsResponse_sizeInBytes :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
+getBucketStatisticsResponse_sizeInBytes = Lens.lens (\GetBucketStatisticsResponse' {sizeInBytes} -> sizeInBytes) (\s@GetBucketStatisticsResponse' {} a -> s {sizeInBytes = a} :: GetBucketStatisticsResponse)
+
+-- | The total storage size, in bytes, of the objects that are compressed
+-- (.gz, .gzip, .zip) files in the buckets.
+--
+-- If versioning is enabled for any of the buckets, Amazon Macie calculates
+-- this value based on the size of the latest version of each applicable
+-- object in those buckets. This value doesn\'t reflect the storage size of
+-- all versions of the applicable objects in the buckets.
+getBucketStatisticsResponse_sizeInBytesCompressed :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe Prelude.Integer)
+getBucketStatisticsResponse_sizeInBytesCompressed = Lens.lens (\GetBucketStatisticsResponse' {sizeInBytesCompressed} -> sizeInBytesCompressed) (\s@GetBucketStatisticsResponse' {} a -> s {sizeInBytesCompressed = a} :: GetBucketStatisticsResponse)
+
+-- | The total number of buckets that are or aren\'t shared with another
+-- Amazon Web Services account.
+getBucketStatisticsResponse_bucketCountBySharedAccessType :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountBySharedAccessType)
+getBucketStatisticsResponse_bucketCountBySharedAccessType = Lens.lens (\GetBucketStatisticsResponse' {bucketCountBySharedAccessType} -> bucketCountBySharedAccessType) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountBySharedAccessType = a} :: GetBucketStatisticsResponse)
+
+-- | The total number of buckets whose bucket policies do or don\'t require
+-- server-side encryption of objects when objects are uploaded to the
+-- buckets.
+getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe BucketCountPolicyAllowsUnencryptedObjectUploads)
+getBucketStatisticsResponse_bucketCountByObjectEncryptionRequirement = Lens.lens (\GetBucketStatisticsResponse' {bucketCountByObjectEncryptionRequirement} -> bucketCountByObjectEncryptionRequirement) (\s@GetBucketStatisticsResponse' {} a -> s {bucketCountByObjectEncryptionRequirement = a} :: GetBucketStatisticsResponse)
+
+-- | The total storage size, in bytes, of the objects that Amazon Macie
+-- can\'t analyze in the buckets. These objects don\'t use a supported
+-- storage class or don\'t have a file name extension for a supported file
+-- or storage format.
+getBucketStatisticsResponse_unclassifiableObjectSizeInBytes :: Lens.Lens' GetBucketStatisticsResponse (Prelude.Maybe ObjectLevelStatistics)
+getBucketStatisticsResponse_unclassifiableObjectSizeInBytes = Lens.lens (\GetBucketStatisticsResponse' {unclassifiableObjectSizeInBytes} -> unclassifiableObjectSizeInBytes) (\s@GetBucketStatisticsResponse' {} a -> s {unclassifiableObjectSizeInBytes = a} :: GetBucketStatisticsResponse)
 
 -- | The total number of buckets that use certain types of server-side
 -- encryption to encrypt new objects by default. This object also reports
@@ -394,18 +394,18 @@ getBucketStatisticsResponse_httpStatus = Lens.lens (\GetBucketStatisticsResponse
 
 instance Prelude.NFData GetBucketStatisticsResponse where
   rnf GetBucketStatisticsResponse' {..} =
-    Prelude.rnf sizeInBytesCompressed
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf sizeInBytes
-      `Prelude.seq` Prelude.rnf bucketCountBySharedAccessType
-      `Prelude.seq` Prelude.rnf classifiableObjectCount
-      `Prelude.seq` Prelude.rnf unclassifiableObjectSizeInBytes
+    Prelude.rnf classifiableSizeInBytes
+      `Prelude.seq` Prelude.rnf bucketCountByEffectivePermission
       `Prelude.seq` Prelude.rnf unclassifiableObjectCount
       `Prelude.seq` Prelude.rnf bucketCount
-      `Prelude.seq` Prelude.rnf bucketCountByEffectivePermission
+      `Prelude.seq` Prelude.rnf objectCount
+      `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf classifiableObjectCount
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf sizeInBytesCompressed
+      `Prelude.seq` Prelude.rnf bucketCountBySharedAccessType
       `Prelude.seq` Prelude.rnf
         bucketCountByObjectEncryptionRequirement
-      `Prelude.seq` Prelude.rnf objectCount
-      `Prelude.seq` Prelude.rnf classifiableSizeInBytes
+      `Prelude.seq` Prelude.rnf unclassifiableObjectSizeInBytes
       `Prelude.seq` Prelude.rnf bucketCountByEncryptionType
       `Prelude.seq` Prelude.rnf httpStatus

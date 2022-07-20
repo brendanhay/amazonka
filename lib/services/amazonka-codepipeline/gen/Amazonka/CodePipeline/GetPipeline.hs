@@ -38,8 +38,8 @@ module Amazonka.CodePipeline.GetPipeline
     newGetPipelineResponse,
 
     -- * Response Lenses
-    getPipelineResponse_pipeline,
     getPipelineResponse_metadata,
+    getPipelineResponse_pipeline,
     getPipelineResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest GetPipeline where
     Response.receiveJSON
       ( \s h x ->
           GetPipelineResponse'
-            Prelude.<$> (x Core..?> "pipeline")
-            Prelude.<*> (x Core..?> "metadata")
+            Prelude.<$> (x Core..?> "metadata")
+            Prelude.<*> (x Core..?> "pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,12 +152,12 @@ instance Core.ToQuery GetPipeline where
 --
 -- /See:/ 'newGetPipelineResponse' smart constructor.
 data GetPipelineResponse = GetPipelineResponse'
-  { -- | Represents the structure of actions and stages to be performed in the
-    -- pipeline.
-    pipeline :: Prelude.Maybe PipelineDeclaration,
-    -- | Represents the pipeline metadata information returned as part of the
+  { -- | Represents the pipeline metadata information returned as part of the
     -- output of a @GetPipeline@ action.
     metadata :: Prelude.Maybe PipelineMetadata,
+    -- | Represents the structure of actions and stages to be performed in the
+    -- pipeline.
+    pipeline :: Prelude.Maybe PipelineDeclaration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,11 +171,11 @@ data GetPipelineResponse = GetPipelineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipeline', 'getPipelineResponse_pipeline' - Represents the structure of actions and stages to be performed in the
--- pipeline.
---
 -- 'metadata', 'getPipelineResponse_metadata' - Represents the pipeline metadata information returned as part of the
 -- output of a @GetPipeline@ action.
+--
+-- 'pipeline', 'getPipelineResponse_pipeline' - Represents the structure of actions and stages to be performed in the
+-- pipeline.
 --
 -- 'httpStatus', 'getPipelineResponse_httpStatus' - The response's http status code.
 newGetPipelineResponse ::
@@ -184,20 +184,20 @@ newGetPipelineResponse ::
   GetPipelineResponse
 newGetPipelineResponse pHttpStatus_ =
   GetPipelineResponse'
-    { pipeline = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
+      pipeline = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Represents the structure of actions and stages to be performed in the
--- pipeline.
-getPipelineResponse_pipeline :: Lens.Lens' GetPipelineResponse (Prelude.Maybe PipelineDeclaration)
-getPipelineResponse_pipeline = Lens.lens (\GetPipelineResponse' {pipeline} -> pipeline) (\s@GetPipelineResponse' {} a -> s {pipeline = a} :: GetPipelineResponse)
 
 -- | Represents the pipeline metadata information returned as part of the
 -- output of a @GetPipeline@ action.
 getPipelineResponse_metadata :: Lens.Lens' GetPipelineResponse (Prelude.Maybe PipelineMetadata)
 getPipelineResponse_metadata = Lens.lens (\GetPipelineResponse' {metadata} -> metadata) (\s@GetPipelineResponse' {} a -> s {metadata = a} :: GetPipelineResponse)
+
+-- | Represents the structure of actions and stages to be performed in the
+-- pipeline.
+getPipelineResponse_pipeline :: Lens.Lens' GetPipelineResponse (Prelude.Maybe PipelineDeclaration)
+getPipelineResponse_pipeline = Lens.lens (\GetPipelineResponse' {pipeline} -> pipeline) (\s@GetPipelineResponse' {} a -> s {pipeline = a} :: GetPipelineResponse)
 
 -- | The response's http status code.
 getPipelineResponse_httpStatus :: Lens.Lens' GetPipelineResponse Prelude.Int
@@ -205,6 +205,6 @@ getPipelineResponse_httpStatus = Lens.lens (\GetPipelineResponse' {httpStatus} -
 
 instance Prelude.NFData GetPipelineResponse where
   rnf GetPipelineResponse' {..} =
-    Prelude.rnf pipeline
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf pipeline
       `Prelude.seq` Prelude.rnf httpStatus

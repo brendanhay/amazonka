@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchStatus' smart constructor.
 data SearchStatus = SearchStatus'
-  { -- | The encrypted resource ID for the request.
-    rid :: Prelude.Maybe Prelude.Text,
-    -- | How long it took to process the request, in milliseconds.
-    timems :: Prelude.Maybe Prelude.Integer
+  { -- | How long it took to process the request, in milliseconds.
+    timems :: Prelude.Maybe Prelude.Integer,
+    -- | The encrypted resource ID for the request.
+    rid :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data SearchStatus = SearchStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rid', 'searchStatus_rid' - The encrypted resource ID for the request.
---
 -- 'timems', 'searchStatus_timems' - How long it took to process the request, in milliseconds.
+--
+-- 'rid', 'searchStatus_rid' - The encrypted resource ID for the request.
 newSearchStatus ::
   SearchStatus
 newSearchStatus =
   SearchStatus'
-    { rid = Prelude.Nothing,
-      timems = Prelude.Nothing
+    { timems = Prelude.Nothing,
+      rid = Prelude.Nothing
     }
-
--- | The encrypted resource ID for the request.
-searchStatus_rid :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Text)
-searchStatus_rid = Lens.lens (\SearchStatus' {rid} -> rid) (\s@SearchStatus' {} a -> s {rid = a} :: SearchStatus)
 
 -- | How long it took to process the request, in milliseconds.
 searchStatus_timems :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Integer)
 searchStatus_timems = Lens.lens (\SearchStatus' {timems} -> timems) (\s@SearchStatus' {} a -> s {timems = a} :: SearchStatus)
+
+-- | The encrypted resource ID for the request.
+searchStatus_rid :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Text)
+searchStatus_rid = Lens.lens (\SearchStatus' {rid} -> rid) (\s@SearchStatus' {} a -> s {rid = a} :: SearchStatus)
 
 instance Core.FromJSON SearchStatus where
   parseJSON =
@@ -68,14 +68,14 @@ instance Core.FromJSON SearchStatus where
       "SearchStatus"
       ( \x ->
           SearchStatus'
-            Prelude.<$> (x Core..:? "rid") Prelude.<*> (x Core..:? "timems")
+            Prelude.<$> (x Core..:? "timems") Prelude.<*> (x Core..:? "rid")
       )
 
 instance Prelude.Hashable SearchStatus where
   hashWithSalt _salt SearchStatus' {..} =
-    _salt `Prelude.hashWithSalt` rid
-      `Prelude.hashWithSalt` timems
+    _salt `Prelude.hashWithSalt` timems
+      `Prelude.hashWithSalt` rid
 
 instance Prelude.NFData SearchStatus where
   rnf SearchStatus' {..} =
-    Prelude.rnf rid `Prelude.seq` Prelude.rnf timems
+    Prelude.rnf timems `Prelude.seq` Prelude.rnf rid

@@ -27,8 +27,8 @@ module Amazonka.Glue.GetBlueprint
     newGetBlueprint,
 
     -- * Request Lenses
-    getBlueprint_includeParameterSpec,
     getBlueprint_includeBlueprint,
+    getBlueprint_includeParameterSpec,
     getBlueprint_name,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBlueprint' smart constructor.
 data GetBlueprint = GetBlueprint'
-  { -- | Specifies whether or not to include the parameter specification.
-    includeParameterSpec :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether or not to include the blueprint in the response.
+  { -- | Specifies whether or not to include the blueprint in the response.
     includeBlueprint :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether or not to include the parameter specification.
+    includeParameterSpec :: Prelude.Maybe Prelude.Bool,
     -- | The name of the blueprint.
     name :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data GetBlueprint = GetBlueprint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeParameterSpec', 'getBlueprint_includeParameterSpec' - Specifies whether or not to include the parameter specification.
---
 -- 'includeBlueprint', 'getBlueprint_includeBlueprint' - Specifies whether or not to include the blueprint in the response.
+--
+-- 'includeParameterSpec', 'getBlueprint_includeParameterSpec' - Specifies whether or not to include the parameter specification.
 --
 -- 'name', 'getBlueprint_name' - The name of the blueprint.
 newGetBlueprint ::
@@ -78,19 +78,18 @@ newGetBlueprint ::
   GetBlueprint
 newGetBlueprint pName_ =
   GetBlueprint'
-    { includeParameterSpec =
-        Prelude.Nothing,
-      includeBlueprint = Prelude.Nothing,
+    { includeBlueprint = Prelude.Nothing,
+      includeParameterSpec = Prelude.Nothing,
       name = pName_
     }
-
--- | Specifies whether or not to include the parameter specification.
-getBlueprint_includeParameterSpec :: Lens.Lens' GetBlueprint (Prelude.Maybe Prelude.Bool)
-getBlueprint_includeParameterSpec = Lens.lens (\GetBlueprint' {includeParameterSpec} -> includeParameterSpec) (\s@GetBlueprint' {} a -> s {includeParameterSpec = a} :: GetBlueprint)
 
 -- | Specifies whether or not to include the blueprint in the response.
 getBlueprint_includeBlueprint :: Lens.Lens' GetBlueprint (Prelude.Maybe Prelude.Bool)
 getBlueprint_includeBlueprint = Lens.lens (\GetBlueprint' {includeBlueprint} -> includeBlueprint) (\s@GetBlueprint' {} a -> s {includeBlueprint = a} :: GetBlueprint)
+
+-- | Specifies whether or not to include the parameter specification.
+getBlueprint_includeParameterSpec :: Lens.Lens' GetBlueprint (Prelude.Maybe Prelude.Bool)
+getBlueprint_includeParameterSpec = Lens.lens (\GetBlueprint' {includeParameterSpec} -> includeParameterSpec) (\s@GetBlueprint' {} a -> s {includeParameterSpec = a} :: GetBlueprint)
 
 -- | The name of the blueprint.
 getBlueprint_name :: Lens.Lens' GetBlueprint Prelude.Text
@@ -109,14 +108,14 @@ instance Core.AWSRequest GetBlueprint where
 
 instance Prelude.Hashable GetBlueprint where
   hashWithSalt _salt GetBlueprint' {..} =
-    _salt `Prelude.hashWithSalt` includeParameterSpec
-      `Prelude.hashWithSalt` includeBlueprint
+    _salt `Prelude.hashWithSalt` includeBlueprint
+      `Prelude.hashWithSalt` includeParameterSpec
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetBlueprint where
   rnf GetBlueprint' {..} =
-    Prelude.rnf includeParameterSpec
-      `Prelude.seq` Prelude.rnf includeBlueprint
+    Prelude.rnf includeBlueprint
+      `Prelude.seq` Prelude.rnf includeParameterSpec
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetBlueprint where
@@ -136,10 +135,10 @@ instance Core.ToJSON GetBlueprint where
   toJSON GetBlueprint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IncludeParameterSpec" Core..=)
-              Prelude.<$> includeParameterSpec,
-            ("IncludeBlueprint" Core..=)
+          [ ("IncludeBlueprint" Core..=)
               Prelude.<$> includeBlueprint,
+            ("IncludeParameterSpec" Core..=)
+              Prelude.<$> includeParameterSpec,
             Prelude.Just ("Name" Core..= name)
           ]
       )

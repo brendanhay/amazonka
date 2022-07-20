@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectMitigationActionsTaskTarget' smart constructor.
 data DetectMitigationActionsTaskTarget = DetectMitigationActionsTaskTarget'
-  { -- | The unique identifiers of the violations.
-    violationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name of the behavior.
+  { -- | The name of the behavior.
     behaviorName :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifiers of the violations.
+    violationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the security profile.
     securityProfileName :: Prelude.Maybe Prelude.Text
   }
@@ -44,28 +44,28 @@ data DetectMitigationActionsTaskTarget = DetectMitigationActionsTaskTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'violationIds', 'detectMitigationActionsTaskTarget_violationIds' - The unique identifiers of the violations.
---
 -- 'behaviorName', 'detectMitigationActionsTaskTarget_behaviorName' - The name of the behavior.
+--
+-- 'violationIds', 'detectMitigationActionsTaskTarget_violationIds' - The unique identifiers of the violations.
 --
 -- 'securityProfileName', 'detectMitigationActionsTaskTarget_securityProfileName' - The name of the security profile.
 newDetectMitigationActionsTaskTarget ::
   DetectMitigationActionsTaskTarget
 newDetectMitigationActionsTaskTarget =
   DetectMitigationActionsTaskTarget'
-    { violationIds =
+    { behaviorName =
         Prelude.Nothing,
-      behaviorName = Prelude.Nothing,
+      violationIds = Prelude.Nothing,
       securityProfileName = Prelude.Nothing
     }
-
--- | The unique identifiers of the violations.
-detectMitigationActionsTaskTarget_violationIds :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-detectMitigationActionsTaskTarget_violationIds = Lens.lens (\DetectMitigationActionsTaskTarget' {violationIds} -> violationIds) (\s@DetectMitigationActionsTaskTarget' {} a -> s {violationIds = a} :: DetectMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the behavior.
 detectMitigationActionsTaskTarget_behaviorName :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe Prelude.Text)
 detectMitigationActionsTaskTarget_behaviorName = Lens.lens (\DetectMitigationActionsTaskTarget' {behaviorName} -> behaviorName) (\s@DetectMitigationActionsTaskTarget' {} a -> s {behaviorName = a} :: DetectMitigationActionsTaskTarget)
+
+-- | The unique identifiers of the violations.
+detectMitigationActionsTaskTarget_violationIds :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+detectMitigationActionsTaskTarget_violationIds = Lens.lens (\DetectMitigationActionsTaskTarget' {violationIds} -> violationIds) (\s@DetectMitigationActionsTaskTarget' {} a -> s {violationIds = a} :: DetectMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the security profile.
 detectMitigationActionsTaskTarget_securityProfileName :: Lens.Lens' DetectMitigationActionsTaskTarget (Prelude.Maybe Prelude.Text)
@@ -80,8 +80,8 @@ instance
       "DetectMitigationActionsTaskTarget"
       ( \x ->
           DetectMitigationActionsTaskTarget'
-            Prelude.<$> (x Core..:? "violationIds")
-            Prelude.<*> (x Core..:? "behaviorName")
+            Prelude.<$> (x Core..:? "behaviorName")
+            Prelude.<*> (x Core..:? "violationIds")
             Prelude.<*> (x Core..:? "securityProfileName")
       )
 
@@ -92,8 +92,8 @@ instance
   hashWithSalt
     _salt
     DetectMitigationActionsTaskTarget' {..} =
-      _salt `Prelude.hashWithSalt` violationIds
-        `Prelude.hashWithSalt` behaviorName
+      _salt `Prelude.hashWithSalt` behaviorName
+        `Prelude.hashWithSalt` violationIds
         `Prelude.hashWithSalt` securityProfileName
 
 instance
@@ -101,8 +101,8 @@ instance
     DetectMitigationActionsTaskTarget
   where
   rnf DetectMitigationActionsTaskTarget' {..} =
-    Prelude.rnf violationIds
-      `Prelude.seq` Prelude.rnf behaviorName
+    Prelude.rnf behaviorName
+      `Prelude.seq` Prelude.rnf violationIds
       `Prelude.seq` Prelude.rnf securityProfileName
 
 instance
@@ -112,8 +112,8 @@ instance
   toJSON DetectMitigationActionsTaskTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("violationIds" Core..=) Prelude.<$> violationIds,
-            ("behaviorName" Core..=) Prelude.<$> behaviorName,
+          [ ("behaviorName" Core..=) Prelude.<$> behaviorName,
+            ("violationIds" Core..=) Prelude.<$> violationIds,
             ("securityProfileName" Core..=)
               Prelude.<$> securityProfileName
           ]

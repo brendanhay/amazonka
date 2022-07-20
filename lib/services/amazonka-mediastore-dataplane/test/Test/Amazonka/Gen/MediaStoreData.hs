@@ -27,10 +27,7 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutObject $
---             newPutObject
---
---         , requestDeleteObject $
+--         [ requestDeleteObject $
 --             newDeleteObject
 --
 --         , requestDescribeObject $
@@ -42,13 +39,13 @@ import Test.Tasty
 --         , requestListItems $
 --             newListItems
 --
+--         , requestPutObject $
+--             newPutObject
+--
 --           ]
 
 --     , testGroup "response"
---         [ responsePutObject $
---             newPutObjectResponse
---
---         , responseDeleteObject $
+--         [ responseDeleteObject $
 --             newDeleteObjectResponse
 --
 --         , responseDescribeObject $
@@ -59,6 +56,9 @@ import Test.Tasty
 --
 --         , responseListItems $
 --             newListItemsResponse
+--
+--         , responsePutObject $
+--             newPutObjectResponse
 --
 --           ]
 --     ]
@@ -91,14 +91,6 @@ requestListItems =
 
 -- Responses
 
-responsePutObject :: PutObjectResponse -> TestTree
-responsePutObject =
-  res
-    "PutObjectResponse"
-    "fixture/PutObjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutObject)
-
 responseDeleteObject :: DeleteObjectResponse -> TestTree
 responseDeleteObject =
   res
@@ -122,3 +114,11 @@ responseListItems =
     "fixture/ListItemsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListItems)
+
+responsePutObject :: PutObjectResponse -> TestTree
+responsePutObject =
+  res
+    "PutObjectResponse"
+    "fixture/PutObjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutObject)

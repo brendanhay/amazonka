@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInAppMessageButton' smart constructor.
 data InAppMessageButton = InAppMessageButton'
   { -- | Default button content.
-    ios :: Prelude.Maybe OverrideButtonConfiguration,
-    -- | Default button content.
-    defaultConfig :: Prelude.Maybe DefaultButtonConfiguration,
-    -- | Default button content.
     web :: Prelude.Maybe OverrideButtonConfiguration,
     -- | Default button content.
-    android :: Prelude.Maybe OverrideButtonConfiguration
+    ios :: Prelude.Maybe OverrideButtonConfiguration,
+    -- | Default button content.
+    android :: Prelude.Maybe OverrideButtonConfiguration,
+    -- | Default button content.
+    defaultConfig :: Prelude.Maybe DefaultButtonConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,38 +48,38 @@ data InAppMessageButton = InAppMessageButton'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ios', 'inAppMessageButton_ios' - Default button content.
---
--- 'defaultConfig', 'inAppMessageButton_defaultConfig' - Default button content.
---
 -- 'web', 'inAppMessageButton_web' - Default button content.
 --
+-- 'ios', 'inAppMessageButton_ios' - Default button content.
+--
 -- 'android', 'inAppMessageButton_android' - Default button content.
+--
+-- 'defaultConfig', 'inAppMessageButton_defaultConfig' - Default button content.
 newInAppMessageButton ::
   InAppMessageButton
 newInAppMessageButton =
   InAppMessageButton'
-    { ios = Prelude.Nothing,
-      defaultConfig = Prelude.Nothing,
-      web = Prelude.Nothing,
-      android = Prelude.Nothing
+    { web = Prelude.Nothing,
+      ios = Prelude.Nothing,
+      android = Prelude.Nothing,
+      defaultConfig = Prelude.Nothing
     }
-
--- | Default button content.
-inAppMessageButton_ios :: Lens.Lens' InAppMessageButton (Prelude.Maybe OverrideButtonConfiguration)
-inAppMessageButton_ios = Lens.lens (\InAppMessageButton' {ios} -> ios) (\s@InAppMessageButton' {} a -> s {ios = a} :: InAppMessageButton)
-
--- | Default button content.
-inAppMessageButton_defaultConfig :: Lens.Lens' InAppMessageButton (Prelude.Maybe DefaultButtonConfiguration)
-inAppMessageButton_defaultConfig = Lens.lens (\InAppMessageButton' {defaultConfig} -> defaultConfig) (\s@InAppMessageButton' {} a -> s {defaultConfig = a} :: InAppMessageButton)
 
 -- | Default button content.
 inAppMessageButton_web :: Lens.Lens' InAppMessageButton (Prelude.Maybe OverrideButtonConfiguration)
 inAppMessageButton_web = Lens.lens (\InAppMessageButton' {web} -> web) (\s@InAppMessageButton' {} a -> s {web = a} :: InAppMessageButton)
 
 -- | Default button content.
+inAppMessageButton_ios :: Lens.Lens' InAppMessageButton (Prelude.Maybe OverrideButtonConfiguration)
+inAppMessageButton_ios = Lens.lens (\InAppMessageButton' {ios} -> ios) (\s@InAppMessageButton' {} a -> s {ios = a} :: InAppMessageButton)
+
+-- | Default button content.
 inAppMessageButton_android :: Lens.Lens' InAppMessageButton (Prelude.Maybe OverrideButtonConfiguration)
 inAppMessageButton_android = Lens.lens (\InAppMessageButton' {android} -> android) (\s@InAppMessageButton' {} a -> s {android = a} :: InAppMessageButton)
+
+-- | Default button content.
+inAppMessageButton_defaultConfig :: Lens.Lens' InAppMessageButton (Prelude.Maybe DefaultButtonConfiguration)
+inAppMessageButton_defaultConfig = Lens.lens (\InAppMessageButton' {defaultConfig} -> defaultConfig) (\s@InAppMessageButton' {} a -> s {defaultConfig = a} :: InAppMessageButton)
 
 instance Core.FromJSON InAppMessageButton where
   parseJSON =
@@ -87,33 +87,33 @@ instance Core.FromJSON InAppMessageButton where
       "InAppMessageButton"
       ( \x ->
           InAppMessageButton'
-            Prelude.<$> (x Core..:? "IOS")
-            Prelude.<*> (x Core..:? "DefaultConfig")
-            Prelude.<*> (x Core..:? "Web")
+            Prelude.<$> (x Core..:? "Web")
+            Prelude.<*> (x Core..:? "IOS")
             Prelude.<*> (x Core..:? "Android")
+            Prelude.<*> (x Core..:? "DefaultConfig")
       )
 
 instance Prelude.Hashable InAppMessageButton where
   hashWithSalt _salt InAppMessageButton' {..} =
-    _salt `Prelude.hashWithSalt` ios
-      `Prelude.hashWithSalt` defaultConfig
-      `Prelude.hashWithSalt` web
+    _salt `Prelude.hashWithSalt` web
+      `Prelude.hashWithSalt` ios
       `Prelude.hashWithSalt` android
+      `Prelude.hashWithSalt` defaultConfig
 
 instance Prelude.NFData InAppMessageButton where
   rnf InAppMessageButton' {..} =
-    Prelude.rnf ios
-      `Prelude.seq` Prelude.rnf defaultConfig
-      `Prelude.seq` Prelude.rnf web
+    Prelude.rnf web
+      `Prelude.seq` Prelude.rnf ios
       `Prelude.seq` Prelude.rnf android
+      `Prelude.seq` Prelude.rnf defaultConfig
 
 instance Core.ToJSON InAppMessageButton where
   toJSON InAppMessageButton' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IOS" Core..=) Prelude.<$> ios,
-            ("DefaultConfig" Core..=) Prelude.<$> defaultConfig,
-            ("Web" Core..=) Prelude.<$> web,
-            ("Android" Core..=) Prelude.<$> android
+          [ ("Web" Core..=) Prelude.<$> web,
+            ("IOS" Core..=) Prelude.<$> ios,
+            ("Android" Core..=) Prelude.<$> android,
+            ("DefaultConfig" Core..=) Prelude.<$> defaultConfig
           ]
       )

@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppInstanceUser' smart constructor.
 data AppInstanceUser = AppInstanceUser'
-  { -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Prelude.Maybe Prelude.Text,
+  { -- | The time at which the @AppInstanceUser@ was last updated.
+    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of the @AppInstanceUser@.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The metadata of the @AppInstanceUser@.
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ARN of the @AppInstanceUser@.
+    appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the @AppInstanceUser@ was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The time at which the @AppInstanceUser@ was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX
+    createdTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,30 +48,30 @@ data AppInstanceUser = AppInstanceUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appInstanceUserArn', 'appInstanceUser_appInstanceUserArn' - The ARN of the @AppInstanceUser@.
+-- 'lastUpdatedTimestamp', 'appInstanceUser_lastUpdatedTimestamp' - The time at which the @AppInstanceUser@ was last updated.
 --
 -- 'name', 'appInstanceUser_name' - The name of the @AppInstanceUser@.
 --
 -- 'metadata', 'appInstanceUser_metadata' - The metadata of the @AppInstanceUser@.
 --
--- 'createdTimestamp', 'appInstanceUser_createdTimestamp' - The time at which the @AppInstanceUser@ was created.
+-- 'appInstanceUserArn', 'appInstanceUser_appInstanceUserArn' - The ARN of the @AppInstanceUser@.
 --
--- 'lastUpdatedTimestamp', 'appInstanceUser_lastUpdatedTimestamp' - The time at which the @AppInstanceUser@ was last updated.
+-- 'createdTimestamp', 'appInstanceUser_createdTimestamp' - The time at which the @AppInstanceUser@ was created.
 newAppInstanceUser ::
   AppInstanceUser
 newAppInstanceUser =
   AppInstanceUser'
-    { appInstanceUserArn =
+    { lastUpdatedTimestamp =
         Prelude.Nothing,
       name = Prelude.Nothing,
       metadata = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing
+      appInstanceUserArn = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing
     }
 
--- | The ARN of the @AppInstanceUser@.
-appInstanceUser_appInstanceUserArn :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.Text)
-appInstanceUser_appInstanceUserArn = Lens.lens (\AppInstanceUser' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUser' {} a -> s {appInstanceUserArn = a} :: AppInstanceUser)
+-- | The time at which the @AppInstanceUser@ was last updated.
+appInstanceUser_lastUpdatedTimestamp :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.UTCTime)
+appInstanceUser_lastUpdatedTimestamp = Lens.lens (\AppInstanceUser' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@AppInstanceUser' {} a -> s {lastUpdatedTimestamp = a} :: AppInstanceUser) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the @AppInstanceUser@.
 appInstanceUser_name :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.Text)
@@ -81,13 +81,13 @@ appInstanceUser_name = Lens.lens (\AppInstanceUser' {name} -> name) (\s@AppInsta
 appInstanceUser_metadata :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.Text)
 appInstanceUser_metadata = Lens.lens (\AppInstanceUser' {metadata} -> metadata) (\s@AppInstanceUser' {} a -> s {metadata = a} :: AppInstanceUser) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The ARN of the @AppInstanceUser@.
+appInstanceUser_appInstanceUserArn :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.Text)
+appInstanceUser_appInstanceUserArn = Lens.lens (\AppInstanceUser' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUser' {} a -> s {appInstanceUserArn = a} :: AppInstanceUser)
+
 -- | The time at which the @AppInstanceUser@ was created.
 appInstanceUser_createdTimestamp :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.UTCTime)
 appInstanceUser_createdTimestamp = Lens.lens (\AppInstanceUser' {createdTimestamp} -> createdTimestamp) (\s@AppInstanceUser' {} a -> s {createdTimestamp = a} :: AppInstanceUser) Prelude.. Lens.mapping Core._Time
-
--- | The time at which the @AppInstanceUser@ was last updated.
-appInstanceUser_lastUpdatedTimestamp :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.UTCTime)
-appInstanceUser_lastUpdatedTimestamp = Lens.lens (\AppInstanceUser' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@AppInstanceUser' {} a -> s {lastUpdatedTimestamp = a} :: AppInstanceUser) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON AppInstanceUser where
   parseJSON =
@@ -95,25 +95,25 @@ instance Core.FromJSON AppInstanceUser where
       "AppInstanceUser"
       ( \x ->
           AppInstanceUser'
-            Prelude.<$> (x Core..:? "AppInstanceUserArn")
+            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Metadata")
+            Prelude.<*> (x Core..:? "AppInstanceUserArn")
             Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
 instance Prelude.Hashable AppInstanceUser where
   hashWithSalt _salt AppInstanceUser' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceUserArn
+    _salt `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` createdTimestamp
-      `Prelude.hashWithSalt` lastUpdatedTimestamp
 
 instance Prelude.NFData AppInstanceUser where
   rnf AppInstanceUser' {..} =
-    Prelude.rnf appInstanceUserArn
+    Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf appInstanceUserArn
       `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp

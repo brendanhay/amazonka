@@ -38,10 +38,10 @@ module Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus
     newGetReadinessCheckStatusResponse,
 
     -- * Response Lenses
-    getReadinessCheckStatusResponse_readiness,
-    getReadinessCheckStatusResponse_resources,
     getReadinessCheckStatusResponse_nextToken,
+    getReadinessCheckStatusResponse_readiness,
     getReadinessCheckStatusResponse_messages,
+    getReadinessCheckStatusResponse_resources,
     getReadinessCheckStatusResponse_httpStatus,
   )
 where
@@ -132,10 +132,10 @@ instance Core.AWSRequest GetReadinessCheckStatus where
     Response.receiveJSON
       ( \s h x ->
           GetReadinessCheckStatusResponse'
-            Prelude.<$> (x Core..?> "readiness")
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "readiness")
             Prelude.<*> (x Core..?> "messages" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,15 +179,15 @@ instance Core.ToQuery GetReadinessCheckStatus where
 
 -- | /See:/ 'newGetReadinessCheckStatusResponse' smart constructor.
 data GetReadinessCheckStatusResponse = GetReadinessCheckStatusResponse'
-  { -- | The readiness at rule level.
-    readiness :: Prelude.Maybe Readiness,
-    -- | Summary of resources\'s readiness
-    resources :: Prelude.Maybe [ResourceResult],
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The readiness at rule level.
+    readiness :: Prelude.Maybe Readiness,
     -- | Top level messages for readiness check status
     messages :: Prelude.Maybe [Message],
+    -- | Summary of resources\'s readiness
+    resources :: Prelude.Maybe [ResourceResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,14 +201,14 @@ data GetReadinessCheckStatusResponse = GetReadinessCheckStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readiness', 'getReadinessCheckStatusResponse_readiness' - The readiness at rule level.
---
--- 'resources', 'getReadinessCheckStatusResponse_resources' - Summary of resources\'s readiness
---
 -- 'nextToken', 'getReadinessCheckStatusResponse_nextToken' - A token that can be used to resume pagination from the end of the
 -- collection.
 --
+-- 'readiness', 'getReadinessCheckStatusResponse_readiness' - The readiness at rule level.
+--
 -- 'messages', 'getReadinessCheckStatusResponse_messages' - Top level messages for readiness check status
+--
+-- 'resources', 'getReadinessCheckStatusResponse_resources' - Summary of resources\'s readiness
 --
 -- 'httpStatus', 'getReadinessCheckStatusResponse_httpStatus' - The response's http status code.
 newGetReadinessCheckStatusResponse ::
@@ -217,30 +217,30 @@ newGetReadinessCheckStatusResponse ::
   GetReadinessCheckStatusResponse
 newGetReadinessCheckStatusResponse pHttpStatus_ =
   GetReadinessCheckStatusResponse'
-    { readiness =
+    { nextToken =
         Prelude.Nothing,
-      resources = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      readiness = Prelude.Nothing,
       messages = Prelude.Nothing,
+      resources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The readiness at rule level.
-getReadinessCheckStatusResponse_readiness :: Lens.Lens' GetReadinessCheckStatusResponse (Prelude.Maybe Readiness)
-getReadinessCheckStatusResponse_readiness = Lens.lens (\GetReadinessCheckStatusResponse' {readiness} -> readiness) (\s@GetReadinessCheckStatusResponse' {} a -> s {readiness = a} :: GetReadinessCheckStatusResponse)
-
--- | Summary of resources\'s readiness
-getReadinessCheckStatusResponse_resources :: Lens.Lens' GetReadinessCheckStatusResponse (Prelude.Maybe [ResourceResult])
-getReadinessCheckStatusResponse_resources = Lens.lens (\GetReadinessCheckStatusResponse' {resources} -> resources) (\s@GetReadinessCheckStatusResponse' {} a -> s {resources = a} :: GetReadinessCheckStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 getReadinessCheckStatusResponse_nextToken :: Lens.Lens' GetReadinessCheckStatusResponse (Prelude.Maybe Prelude.Text)
 getReadinessCheckStatusResponse_nextToken = Lens.lens (\GetReadinessCheckStatusResponse' {nextToken} -> nextToken) (\s@GetReadinessCheckStatusResponse' {} a -> s {nextToken = a} :: GetReadinessCheckStatusResponse)
 
+-- | The readiness at rule level.
+getReadinessCheckStatusResponse_readiness :: Lens.Lens' GetReadinessCheckStatusResponse (Prelude.Maybe Readiness)
+getReadinessCheckStatusResponse_readiness = Lens.lens (\GetReadinessCheckStatusResponse' {readiness} -> readiness) (\s@GetReadinessCheckStatusResponse' {} a -> s {readiness = a} :: GetReadinessCheckStatusResponse)
+
 -- | Top level messages for readiness check status
 getReadinessCheckStatusResponse_messages :: Lens.Lens' GetReadinessCheckStatusResponse (Prelude.Maybe [Message])
 getReadinessCheckStatusResponse_messages = Lens.lens (\GetReadinessCheckStatusResponse' {messages} -> messages) (\s@GetReadinessCheckStatusResponse' {} a -> s {messages = a} :: GetReadinessCheckStatusResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Summary of resources\'s readiness
+getReadinessCheckStatusResponse_resources :: Lens.Lens' GetReadinessCheckStatusResponse (Prelude.Maybe [ResourceResult])
+getReadinessCheckStatusResponse_resources = Lens.lens (\GetReadinessCheckStatusResponse' {resources} -> resources) (\s@GetReadinessCheckStatusResponse' {} a -> s {resources = a} :: GetReadinessCheckStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getReadinessCheckStatusResponse_httpStatus :: Lens.Lens' GetReadinessCheckStatusResponse Prelude.Int
@@ -251,8 +251,8 @@ instance
     GetReadinessCheckStatusResponse
   where
   rnf GetReadinessCheckStatusResponse' {..} =
-    Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf readiness
       `Prelude.seq` Prelude.rnf messages
+      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

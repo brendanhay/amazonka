@@ -32,19 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Bucket' smart constructor.
 data S3Bucket = S3Bucket'
-  { -- | The Amazon Resource Name (ARN) of the bucket.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
-    -- was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The display name and canonical user ID for the Amazon Web Services
-    -- account that owns the bucket.
-    owner :: Prelude.Maybe S3BucketOwner,
+  { -- | The tags that are associated with the bucket.
+    tags :: Prelude.Maybe [KeyValuePair],
     -- | The name of the bucket.
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of server-side encryption that\'s used by default to encrypt
     -- objects in the bucket.
     defaultServerSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    -- | The Amazon Resource Name (ARN) of the bucket.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the bucket policy for the bucket requires server-side
     -- encryption of objects when objects are uploaded to the bucket. Possible
     -- values are:
@@ -66,8 +62,12 @@ data S3Bucket = S3Bucket'
     -- | The permissions settings that determine whether the bucket is publicly
     -- accessible.
     publicAccess :: Prelude.Maybe BucketPublicAccess,
-    -- | The tags that are associated with the bucket.
-    tags :: Prelude.Maybe [KeyValuePair]
+    -- | The display name and canonical user ID for the Amazon Web Services
+    -- account that owns the bucket.
+    owner :: Prelude.Maybe S3BucketOwner,
+    -- | The date and time, in UTC and extended ISO 8601 format, when the bucket
+    -- was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,18 +79,14 @@ data S3Bucket = S3Bucket'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 's3Bucket_arn' - The Amazon Resource Name (ARN) of the bucket.
---
--- 'createdAt', 's3Bucket_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the bucket
--- was created.
---
--- 'owner', 's3Bucket_owner' - The display name and canonical user ID for the Amazon Web Services
--- account that owns the bucket.
+-- 'tags', 's3Bucket_tags' - The tags that are associated with the bucket.
 --
 -- 'name', 's3Bucket_name' - The name of the bucket.
 --
 -- 'defaultServerSideEncryption', 's3Bucket_defaultServerSideEncryption' - The type of server-side encryption that\'s used by default to encrypt
 -- objects in the bucket.
+--
+-- 'arn', 's3Bucket_arn' - The Amazon Resource Name (ARN) of the bucket.
 --
 -- 'allowsUnencryptedObjectUploads', 's3Bucket_allowsUnencryptedObjectUploads' - Specifies whether the bucket policy for the bucket requires server-side
 -- encryption of objects when objects are uploaded to the bucket. Possible
@@ -113,34 +109,28 @@ data S3Bucket = S3Bucket'
 -- 'publicAccess', 's3Bucket_publicAccess' - The permissions settings that determine whether the bucket is publicly
 -- accessible.
 --
--- 'tags', 's3Bucket_tags' - The tags that are associated with the bucket.
+-- 'owner', 's3Bucket_owner' - The display name and canonical user ID for the Amazon Web Services
+-- account that owns the bucket.
+--
+-- 'createdAt', 's3Bucket_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the bucket
+-- was created.
 newS3Bucket ::
   S3Bucket
 newS3Bucket =
   S3Bucket'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      owner = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
       defaultServerSideEncryption = Prelude.Nothing,
+      arn = Prelude.Nothing,
       allowsUnencryptedObjectUploads = Prelude.Nothing,
       publicAccess = Prelude.Nothing,
-      tags = Prelude.Nothing
+      owner = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the bucket.
-s3Bucket_arn :: Lens.Lens' S3Bucket (Prelude.Maybe Prelude.Text)
-s3Bucket_arn = Lens.lens (\S3Bucket' {arn} -> arn) (\s@S3Bucket' {} a -> s {arn = a} :: S3Bucket)
-
--- | The date and time, in UTC and extended ISO 8601 format, when the bucket
--- was created.
-s3Bucket_createdAt :: Lens.Lens' S3Bucket (Prelude.Maybe Prelude.UTCTime)
-s3Bucket_createdAt = Lens.lens (\S3Bucket' {createdAt} -> createdAt) (\s@S3Bucket' {} a -> s {createdAt = a} :: S3Bucket) Prelude.. Lens.mapping Core._Time
-
--- | The display name and canonical user ID for the Amazon Web Services
--- account that owns the bucket.
-s3Bucket_owner :: Lens.Lens' S3Bucket (Prelude.Maybe S3BucketOwner)
-s3Bucket_owner = Lens.lens (\S3Bucket' {owner} -> owner) (\s@S3Bucket' {} a -> s {owner = a} :: S3Bucket)
+-- | The tags that are associated with the bucket.
+s3Bucket_tags :: Lens.Lens' S3Bucket (Prelude.Maybe [KeyValuePair])
+s3Bucket_tags = Lens.lens (\S3Bucket' {tags} -> tags) (\s@S3Bucket' {} a -> s {tags = a} :: S3Bucket) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the bucket.
 s3Bucket_name :: Lens.Lens' S3Bucket (Prelude.Maybe Prelude.Text)
@@ -150,6 +140,10 @@ s3Bucket_name = Lens.lens (\S3Bucket' {name} -> name) (\s@S3Bucket' {} a -> s {n
 -- objects in the bucket.
 s3Bucket_defaultServerSideEncryption :: Lens.Lens' S3Bucket (Prelude.Maybe ServerSideEncryption)
 s3Bucket_defaultServerSideEncryption = Lens.lens (\S3Bucket' {defaultServerSideEncryption} -> defaultServerSideEncryption) (\s@S3Bucket' {} a -> s {defaultServerSideEncryption = a} :: S3Bucket)
+
+-- | The Amazon Resource Name (ARN) of the bucket.
+s3Bucket_arn :: Lens.Lens' S3Bucket (Prelude.Maybe Prelude.Text)
+s3Bucket_arn = Lens.lens (\S3Bucket' {arn} -> arn) (\s@S3Bucket' {} a -> s {arn = a} :: S3Bucket)
 
 -- | Specifies whether the bucket policy for the bucket requires server-side
 -- encryption of objects when objects are uploaded to the bucket. Possible
@@ -176,9 +170,15 @@ s3Bucket_allowsUnencryptedObjectUploads = Lens.lens (\S3Bucket' {allowsUnencrypt
 s3Bucket_publicAccess :: Lens.Lens' S3Bucket (Prelude.Maybe BucketPublicAccess)
 s3Bucket_publicAccess = Lens.lens (\S3Bucket' {publicAccess} -> publicAccess) (\s@S3Bucket' {} a -> s {publicAccess = a} :: S3Bucket)
 
--- | The tags that are associated with the bucket.
-s3Bucket_tags :: Lens.Lens' S3Bucket (Prelude.Maybe [KeyValuePair])
-s3Bucket_tags = Lens.lens (\S3Bucket' {tags} -> tags) (\s@S3Bucket' {} a -> s {tags = a} :: S3Bucket) Prelude.. Lens.mapping Lens.coerced
+-- | The display name and canonical user ID for the Amazon Web Services
+-- account that owns the bucket.
+s3Bucket_owner :: Lens.Lens' S3Bucket (Prelude.Maybe S3BucketOwner)
+s3Bucket_owner = Lens.lens (\S3Bucket' {owner} -> owner) (\s@S3Bucket' {} a -> s {owner = a} :: S3Bucket)
+
+-- | The date and time, in UTC and extended ISO 8601 format, when the bucket
+-- was created.
+s3Bucket_createdAt :: Lens.Lens' S3Bucket (Prelude.Maybe Prelude.UTCTime)
+s3Bucket_createdAt = Lens.lens (\S3Bucket' {createdAt} -> createdAt) (\s@S3Bucket' {} a -> s {createdAt = a} :: S3Bucket) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON S3Bucket where
   parseJSON =
@@ -186,34 +186,34 @@ instance Core.FromJSON S3Bucket where
       "S3Bucket"
       ( \x ->
           S3Bucket'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "owner")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "defaultServerSideEncryption")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "allowsUnencryptedObjectUploads")
             Prelude.<*> (x Core..:? "publicAccess")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "owner")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable S3Bucket where
   hashWithSalt _salt S3Bucket' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` owner
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` defaultServerSideEncryption
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` allowsUnencryptedObjectUploads
       `Prelude.hashWithSalt` publicAccess
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData S3Bucket where
   rnf S3Bucket' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf defaultServerSideEncryption
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf allowsUnencryptedObjectUploads
       `Prelude.seq` Prelude.rnf publicAccess
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf createdAt

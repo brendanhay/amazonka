@@ -24,6 +24,169 @@ import Amazonka.RDS.DescribeDBSnapshots
 import Amazonka.RDS.Lens
 import Amazonka.RDS.Types
 
+-- | Polls 'Amazonka.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newDBClusterSnapshotDeleted :: Core.Wait DescribeDBClusterSnapshots
+newDBClusterSnapshotDeleted =
+  Core.Wait
+    { Core._waitName =
+        "DBClusterSnapshotDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchNonEmpty
+            Prelude.True
+            Core.AcceptSuccess
+            ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                Prelude.. Lens._Just
+            ),
+          Core.matchError
+            "DBClusterSnapshotNotFoundFault"
+            Core.AcceptSuccess,
+          Core.matchAny
+            "creating"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "modifying"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "rebooting"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "resetting-master-credentials"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newDBClusterSnapshotAvailable :: Core.Wait DescribeDBClusterSnapshots
+newDBClusterSnapshotAvailable =
+  Core.Wait
+    { Core._waitName =
+        "DBClusterSnapshotAvailable",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "available"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "deleted"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "deleting"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "failed"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "incompatible-restore"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "incompatible-parameters"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbClusterSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBInstanceAvailable :: Core.Wait DescribeDBInstances
 newDBInstanceAvailable =
@@ -141,223 +304,6 @@ newDBSnapshotCompleted =
     }
 
 -- | Polls 'Amazonka.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newDBSnapshotDeleted :: Core.Wait DescribeDBSnapshots
-newDBSnapshotDeleted =
-  Core.Wait
-    { Core._waitName = "DBSnapshotDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchNonEmpty
-            Prelude.True
-            Core.AcceptSuccess
-            ( describeDBSnapshotsResponse_dbSnapshots
-                Prelude.. Lens._Just
-            ),
-          Core.matchError
-            "DBSnapshotNotFound"
-            Core.AcceptSuccess,
-          Core.matchAny
-            "creating"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBSnapshotsResponse_dbSnapshots
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbSnapshot_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "modifying"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBSnapshotsResponse_dbSnapshots
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbSnapshot_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "rebooting"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBSnapshotsResponse_dbSnapshots
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbSnapshot_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "resetting-master-credentials"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBSnapshotsResponse_dbSnapshots
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbSnapshot_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newDBInstanceDeleted :: Core.Wait DescribeDBInstances
-newDBInstanceDeleted =
-  Core.Wait
-    { Core._waitName = "DBInstanceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchNonEmpty
-            Prelude.True
-            Core.AcceptSuccess
-            ( describeDBInstancesResponse_dbInstances
-                Prelude.. Lens._Just
-            ),
-          Core.matchError
-            "DBInstanceNotFound"
-            Core.AcceptSuccess,
-          Core.matchAny
-            "creating"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBInstancesResponse_dbInstances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbInstance_dbInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "modifying"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBInstancesResponse_dbInstances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbInstance_dbInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "rebooting"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBInstancesResponse_dbInstances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbInstance_dbInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "resetting-master-credentials"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBInstancesResponse_dbInstances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbInstance_dbInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newDBClusterSnapshotDeleted :: Core.Wait DescribeDBClusterSnapshots
-newDBClusterSnapshotDeleted =
-  Core.Wait
-    { Core._waitName =
-        "DBClusterSnapshotDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchNonEmpty
-            Prelude.True
-            Core.AcceptSuccess
-            ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                Prelude.. Lens._Just
-            ),
-          Core.matchError
-            "DBClusterSnapshotNotFoundFault"
-            Core.AcceptSuccess,
-          Core.matchAny
-            "creating"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbClusterSnapshot_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "modifying"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbClusterSnapshot_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "rebooting"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbClusterSnapshot_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "resetting-master-credentials"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. dbClusterSnapshot_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBSnapshotAvailable :: Core.Wait DescribeDBSnapshots
 newDBSnapshotAvailable =
   Core.Wait
@@ -446,90 +392,144 @@ newDBSnapshotAvailable =
         ]
     }
 
--- | Polls 'Amazonka.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newDBClusterSnapshotAvailable :: Core.Wait DescribeDBClusterSnapshots
-newDBClusterSnapshotAvailable =
+-- | Polls 'Amazonka.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newDBInstanceDeleted :: Core.Wait DescribeDBInstances
+newDBInstanceDeleted =
   Core.Wait
-    { Core._waitName =
-        "DBClusterSnapshotAvailable",
+    { Core._waitName = "DBInstanceDeleted",
       Core._waitAttempts = 60,
       Core._waitDelay = 30,
       Core._waitAcceptors =
-        [ Core.matchAll
-            "available"
+        [ Core.matchNonEmpty
+            Prelude.True
             Core.AcceptSuccess
+            ( describeDBInstancesResponse_dbInstances
+                Prelude.. Lens._Just
+            ),
+          Core.matchError
+            "DBInstanceNotFound"
+            Core.AcceptSuccess,
+          Core.matchAny
+            "creating"
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                    ( describeDBInstancesResponse_dbInstances
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. dbClusterSnapshot_status
+                Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
-            "deleted"
+            "modifying"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                    ( describeDBInstancesResponse_dbInstances
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. dbClusterSnapshot_status
+                Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
-            "deleting"
+            "rebooting"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                    ( describeDBInstancesResponse_dbInstances
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. dbClusterSnapshot_status
+                Prelude.. dbInstance_dbInstanceStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
-            "failed"
+            "resetting-master-credentials"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                    ( describeDBInstancesResponse_dbInstances
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. dbClusterSnapshot_status
+                Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newDBSnapshotDeleted :: Core.Wait DescribeDBSnapshots
+newDBSnapshotDeleted =
+  Core.Wait
+    { Core._waitName = "DBSnapshotDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchNonEmpty
+            Prelude.True
+            Core.AcceptSuccess
+            ( describeDBSnapshotsResponse_dbSnapshots
+                Prelude.. Lens._Just
+            ),
+          Core.matchError
+            "DBSnapshotNotFound"
+            Core.AcceptSuccess,
+          Core.matchAny
+            "creating"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBSnapshotsResponse_dbSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
-            "incompatible-restore"
+            "modifying"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                    ( describeDBSnapshotsResponse_dbSnapshots
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. dbClusterSnapshot_status
+                Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
-            "incompatible-parameters"
+            "rebooting"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeDBClusterSnapshotsResponse_dbClusterSnapshots
+                    ( describeDBSnapshotsResponse_dbSnapshots
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. dbClusterSnapshot_status
+                Prelude.. dbSnapshot_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "resetting-master-credentials"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBSnapshotsResponse_dbSnapshots
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbSnapshot_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )

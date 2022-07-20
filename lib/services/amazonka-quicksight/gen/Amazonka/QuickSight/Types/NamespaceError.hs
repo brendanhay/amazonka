@@ -28,10 +28,10 @@ import Amazonka.QuickSight.Types.NamespaceErrorType
 --
 -- /See:/ 'newNamespaceError' smart constructor.
 data NamespaceError = NamespaceError'
-  { -- | The error type.
-    type' :: Prelude.Maybe NamespaceErrorType,
-    -- | The message for the error.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The message for the error.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The error type.
+    type' :: Prelude.Maybe NamespaceErrorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data NamespaceError = NamespaceError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'namespaceError_type' - The error type.
---
 -- 'message', 'namespaceError_message' - The message for the error.
+--
+-- 'type'', 'namespaceError_type' - The error type.
 newNamespaceError ::
   NamespaceError
 newNamespaceError =
   NamespaceError'
-    { type' = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The error type.
-namespaceError_type :: Lens.Lens' NamespaceError (Prelude.Maybe NamespaceErrorType)
-namespaceError_type = Lens.lens (\NamespaceError' {type'} -> type') (\s@NamespaceError' {} a -> s {type' = a} :: NamespaceError)
 
 -- | The message for the error.
 namespaceError_message :: Lens.Lens' NamespaceError (Prelude.Maybe Prelude.Text)
 namespaceError_message = Lens.lens (\NamespaceError' {message} -> message) (\s@NamespaceError' {} a -> s {message = a} :: NamespaceError)
+
+-- | The error type.
+namespaceError_type :: Lens.Lens' NamespaceError (Prelude.Maybe NamespaceErrorType)
+namespaceError_type = Lens.lens (\NamespaceError' {type'} -> type') (\s@NamespaceError' {} a -> s {type' = a} :: NamespaceError)
 
 instance Core.FromJSON NamespaceError where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON NamespaceError where
       "NamespaceError"
       ( \x ->
           NamespaceError'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable NamespaceError where
   hashWithSalt _salt NamespaceError' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData NamespaceError where
   rnf NamespaceError' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf type'

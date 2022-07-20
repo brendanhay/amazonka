@@ -14,71 +14,6 @@
 module Amazonka.MediaConnect.Lens
   ( -- * Operations
 
-    -- ** RemoveFlowVpcInterface
-    removeFlowVpcInterface_flowArn,
-    removeFlowVpcInterface_vpcInterfaceName,
-    removeFlowVpcInterfaceResponse_flowArn,
-    removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds,
-    removeFlowVpcInterfaceResponse_vpcInterfaceName,
-    removeFlowVpcInterfaceResponse_httpStatus,
-
-    -- ** RemoveFlowMediaStream
-    removeFlowMediaStream_flowArn,
-    removeFlowMediaStream_mediaStreamName,
-    removeFlowMediaStreamResponse_mediaStreamName,
-    removeFlowMediaStreamResponse_flowArn,
-    removeFlowMediaStreamResponse_httpStatus,
-
-    -- ** UpdateFlowOutput
-    updateFlowOutput_destination,
-    updateFlowOutput_maxLatency,
-    updateFlowOutput_mediaStreamOutputConfigurations,
-    updateFlowOutput_protocol,
-    updateFlowOutput_encryption,
-    updateFlowOutput_cidrAllowList,
-    updateFlowOutput_smoothingLatency,
-    updateFlowOutput_minLatency,
-    updateFlowOutput_description,
-    updateFlowOutput_port,
-    updateFlowOutput_streamId,
-    updateFlowOutput_remoteId,
-    updateFlowOutput_vpcInterfaceAttachment,
-    updateFlowOutput_flowArn,
-    updateFlowOutput_outputArn,
-    updateFlowOutputResponse_flowArn,
-    updateFlowOutputResponse_output,
-    updateFlowOutputResponse_httpStatus,
-
-    -- ** AddFlowOutputs
-    addFlowOutputs_flowArn,
-    addFlowOutputs_outputs,
-    addFlowOutputsResponse_flowArn,
-    addFlowOutputsResponse_outputs,
-    addFlowOutputsResponse_httpStatus,
-
-    -- ** StartFlow
-    startFlow_flowArn,
-    startFlowResponse_status,
-    startFlowResponse_flowArn,
-    startFlowResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** AddFlowSources
-    addFlowSources_flowArn,
-    addFlowSources_sources,
-    addFlowSourcesResponse_flowArn,
-    addFlowSourcesResponse_sources,
-    addFlowSourcesResponse_httpStatus,
-
-    -- ** DescribeReservation
-    describeReservation_reservationArn,
-    describeReservationResponse_reservation,
-    describeReservationResponse_httpStatus,
-
     -- ** AddFlowMediaStreams
     addFlowMediaStreams_flowArn,
     addFlowMediaStreams_mediaStreams,
@@ -86,39 +21,45 @@ module Amazonka.MediaConnect.Lens
     addFlowMediaStreamsResponse_mediaStreams,
     addFlowMediaStreamsResponse_httpStatus,
 
-    -- ** RemoveFlowOutput
-    removeFlowOutput_flowArn,
-    removeFlowOutput_outputArn,
-    removeFlowOutputResponse_flowArn,
-    removeFlowOutputResponse_outputArn,
-    removeFlowOutputResponse_httpStatus,
+    -- ** AddFlowOutputs
+    addFlowOutputs_flowArn,
+    addFlowOutputs_outputs,
+    addFlowOutputsResponse_outputs,
+    addFlowOutputsResponse_flowArn,
+    addFlowOutputsResponse_httpStatus,
 
-    -- ** RevokeFlowEntitlement
-    revokeFlowEntitlement_flowArn,
-    revokeFlowEntitlement_entitlementArn,
-    revokeFlowEntitlementResponse_entitlementArn,
-    revokeFlowEntitlementResponse_flowArn,
-    revokeFlowEntitlementResponse_httpStatus,
+    -- ** AddFlowSources
+    addFlowSources_flowArn,
+    addFlowSources_sources,
+    addFlowSourcesResponse_sources,
+    addFlowSourcesResponse_flowArn,
+    addFlowSourcesResponse_httpStatus,
+
+    -- ** AddFlowVpcInterfaces
+    addFlowVpcInterfaces_flowArn,
+    addFlowVpcInterfaces_vpcInterfaces,
+    addFlowVpcInterfacesResponse_vpcInterfaces,
+    addFlowVpcInterfacesResponse_flowArn,
+    addFlowVpcInterfacesResponse_httpStatus,
 
     -- ** CreateFlow
-    createFlow_mediaStreams,
-    createFlow_sourceFailoverConfig,
-    createFlow_vpcInterfaces,
     createFlow_sources,
-    createFlow_outputs,
-    createFlow_availabilityZone,
+    createFlow_vpcInterfaces,
     createFlow_entitlements,
+    createFlow_availabilityZone,
     createFlow_source,
+    createFlow_outputs,
+    createFlow_sourceFailoverConfig,
+    createFlow_mediaStreams,
     createFlow_name,
     createFlowResponse_flow,
     createFlowResponse_httpStatus,
 
-    -- ** RemoveFlowSource
-    removeFlowSource_flowArn,
-    removeFlowSource_sourceArn,
-    removeFlowSourceResponse_flowArn,
-    removeFlowSourceResponse_sourceArn,
-    removeFlowSourceResponse_httpStatus,
+    -- ** DeleteFlow
+    deleteFlow_flowArn,
+    deleteFlowResponse_status,
+    deleteFlowResponse_flowArn,
+    deleteFlowResponse_httpStatus,
 
     -- ** DescribeFlow
     describeFlow_flowArn,
@@ -126,34 +67,22 @@ module Amazonka.MediaConnect.Lens
     describeFlowResponse_messages,
     describeFlowResponse_httpStatus,
 
-    -- ** UpdateFlowEntitlement
-    updateFlowEntitlement_encryption,
-    updateFlowEntitlement_entitlementStatus,
-    updateFlowEntitlement_description,
-    updateFlowEntitlement_subscribers,
-    updateFlowEntitlement_flowArn,
-    updateFlowEntitlement_entitlementArn,
-    updateFlowEntitlementResponse_flowArn,
-    updateFlowEntitlementResponse_entitlement,
-    updateFlowEntitlementResponse_httpStatus,
-
-    -- ** StopFlow
-    stopFlow_flowArn,
-    stopFlowResponse_status,
-    stopFlowResponse_flowArn,
-    stopFlowResponse_httpStatus,
-
     -- ** DescribeOffering
     describeOffering_offeringArn,
     describeOfferingResponse_offering,
     describeOfferingResponse_httpStatus,
 
-    -- ** AddFlowVpcInterfaces
-    addFlowVpcInterfaces_flowArn,
-    addFlowVpcInterfaces_vpcInterfaces,
-    addFlowVpcInterfacesResponse_flowArn,
-    addFlowVpcInterfacesResponse_vpcInterfaces,
-    addFlowVpcInterfacesResponse_httpStatus,
+    -- ** DescribeReservation
+    describeReservation_reservationArn,
+    describeReservationResponse_reservation,
+    describeReservationResponse_httpStatus,
+
+    -- ** GrantFlowEntitlements
+    grantFlowEntitlements_flowArn,
+    grantFlowEntitlements_entitlements,
+    grantFlowEntitlementsResponse_entitlements,
+    grantFlowEntitlementsResponse_flowArn,
+    grantFlowEntitlementsResponse_httpStatus,
 
     -- ** ListEntitlements
     listEntitlements_nextToken,
@@ -162,16 +91,31 @@ module Amazonka.MediaConnect.Lens
     listEntitlementsResponse_entitlements,
     listEntitlementsResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-
     -- ** ListFlows
     listFlows_nextToken,
     listFlows_maxResults,
     listFlowsResponse_nextToken,
     listFlowsResponse_flows,
     listFlowsResponse_httpStatus,
+
+    -- ** ListOfferings
+    listOfferings_nextToken,
+    listOfferings_maxResults,
+    listOfferingsResponse_nextToken,
+    listOfferingsResponse_offerings,
+    listOfferingsResponse_httpStatus,
+
+    -- ** ListReservations
+    listReservations_nextToken,
+    listReservations_maxResults,
+    listReservationsResponse_nextToken,
+    listReservationsResponse_reservations,
+    listReservationsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** PurchaseOffering
     purchaseOffering_offeringArn,
@@ -180,17 +124,57 @@ module Amazonka.MediaConnect.Lens
     purchaseOfferingResponse_reservation,
     purchaseOfferingResponse_httpStatus,
 
-    -- ** UpdateFlowMediaStream
-    updateFlowMediaStream_videoFormat,
-    updateFlowMediaStream_mediaStreamType,
-    updateFlowMediaStream_attributes,
-    updateFlowMediaStream_clockRate,
-    updateFlowMediaStream_description,
-    updateFlowMediaStream_flowArn,
-    updateFlowMediaStream_mediaStreamName,
-    updateFlowMediaStreamResponse_flowArn,
-    updateFlowMediaStreamResponse_mediaStream,
-    updateFlowMediaStreamResponse_httpStatus,
+    -- ** RemoveFlowMediaStream
+    removeFlowMediaStream_flowArn,
+    removeFlowMediaStream_mediaStreamName,
+    removeFlowMediaStreamResponse_mediaStreamName,
+    removeFlowMediaStreamResponse_flowArn,
+    removeFlowMediaStreamResponse_httpStatus,
+
+    -- ** RemoveFlowOutput
+    removeFlowOutput_flowArn,
+    removeFlowOutput_outputArn,
+    removeFlowOutputResponse_outputArn,
+    removeFlowOutputResponse_flowArn,
+    removeFlowOutputResponse_httpStatus,
+
+    -- ** RemoveFlowSource
+    removeFlowSource_flowArn,
+    removeFlowSource_sourceArn,
+    removeFlowSourceResponse_sourceArn,
+    removeFlowSourceResponse_flowArn,
+    removeFlowSourceResponse_httpStatus,
+
+    -- ** RemoveFlowVpcInterface
+    removeFlowVpcInterface_flowArn,
+    removeFlowVpcInterface_vpcInterfaceName,
+    removeFlowVpcInterfaceResponse_vpcInterfaceName,
+    removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds,
+    removeFlowVpcInterfaceResponse_flowArn,
+    removeFlowVpcInterfaceResponse_httpStatus,
+
+    -- ** RevokeFlowEntitlement
+    revokeFlowEntitlement_flowArn,
+    revokeFlowEntitlement_entitlementArn,
+    revokeFlowEntitlementResponse_entitlementArn,
+    revokeFlowEntitlementResponse_flowArn,
+    revokeFlowEntitlementResponse_httpStatus,
+
+    -- ** StartFlow
+    startFlow_flowArn,
+    startFlowResponse_status,
+    startFlowResponse_flowArn,
+    startFlowResponse_httpStatus,
+
+    -- ** StopFlow
+    stopFlow_flowArn,
+    stopFlowResponse_status,
+    stopFlowResponse_flowArn,
+    stopFlowResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
 
     -- ** UntagResource
     untagResource_tagKeys,
@@ -202,78 +186,94 @@ module Amazonka.MediaConnect.Lens
     updateFlowResponse_flow,
     updateFlowResponse_httpStatus,
 
-    -- ** DeleteFlow
-    deleteFlow_flowArn,
-    deleteFlowResponse_status,
-    deleteFlowResponse_flowArn,
-    deleteFlowResponse_httpStatus,
+    -- ** UpdateFlowEntitlement
+    updateFlowEntitlement_entitlementStatus,
+    updateFlowEntitlement_description,
+    updateFlowEntitlement_subscribers,
+    updateFlowEntitlement_encryption,
+    updateFlowEntitlement_flowArn,
+    updateFlowEntitlement_entitlementArn,
+    updateFlowEntitlementResponse_entitlement,
+    updateFlowEntitlementResponse_flowArn,
+    updateFlowEntitlementResponse_httpStatus,
+
+    -- ** UpdateFlowMediaStream
+    updateFlowMediaStream_mediaStreamType,
+    updateFlowMediaStream_videoFormat,
+    updateFlowMediaStream_description,
+    updateFlowMediaStream_clockRate,
+    updateFlowMediaStream_attributes,
+    updateFlowMediaStream_flowArn,
+    updateFlowMediaStream_mediaStreamName,
+    updateFlowMediaStreamResponse_mediaStream,
+    updateFlowMediaStreamResponse_flowArn,
+    updateFlowMediaStreamResponse_httpStatus,
+
+    -- ** UpdateFlowOutput
+    updateFlowOutput_destination,
+    updateFlowOutput_port,
+    updateFlowOutput_maxLatency,
+    updateFlowOutput_mediaStreamOutputConfigurations,
+    updateFlowOutput_smoothingLatency,
+    updateFlowOutput_cidrAllowList,
+    updateFlowOutput_streamId,
+    updateFlowOutput_remoteId,
+    updateFlowOutput_vpcInterfaceAttachment,
+    updateFlowOutput_description,
+    updateFlowOutput_encryption,
+    updateFlowOutput_protocol,
+    updateFlowOutput_minLatency,
+    updateFlowOutput_flowArn,
+    updateFlowOutput_outputArn,
+    updateFlowOutputResponse_output,
+    updateFlowOutputResponse_flowArn,
+    updateFlowOutputResponse_httpStatus,
 
     -- ** UpdateFlowSource
-    updateFlowSource_entitlementArn,
     updateFlowSource_maxLatency,
-    updateFlowSource_vpcInterfaceName,
-    updateFlowSource_decryption,
-    updateFlowSource_maxSyncBuffer,
-    updateFlowSource_protocol,
-    updateFlowSource_minLatency,
-    updateFlowSource_ingestPort,
-    updateFlowSource_description,
     updateFlowSource_mediaStreamSourceConfigurations,
-    updateFlowSource_whitelistCidr,
+    updateFlowSource_entitlementArn,
+    updateFlowSource_vpcInterfaceName,
+    updateFlowSource_maxSyncBuffer,
     updateFlowSource_maxBitrate,
     updateFlowSource_streamId,
+    updateFlowSource_decryption,
+    updateFlowSource_description,
+    updateFlowSource_protocol,
+    updateFlowSource_ingestPort,
+    updateFlowSource_whitelistCidr,
+    updateFlowSource_minLatency,
     updateFlowSource_flowArn,
     updateFlowSource_sourceArn,
-    updateFlowSourceResponse_flowArn,
     updateFlowSourceResponse_source,
+    updateFlowSourceResponse_flowArn,
     updateFlowSourceResponse_httpStatus,
-
-    -- ** GrantFlowEntitlements
-    grantFlowEntitlements_flowArn,
-    grantFlowEntitlements_entitlements,
-    grantFlowEntitlementsResponse_flowArn,
-    grantFlowEntitlementsResponse_entitlements,
-    grantFlowEntitlementsResponse_httpStatus,
-
-    -- ** ListReservations
-    listReservations_nextToken,
-    listReservations_maxResults,
-    listReservationsResponse_nextToken,
-    listReservationsResponse_reservations,
-    listReservationsResponse_httpStatus,
-
-    -- ** ListOfferings
-    listOfferings_nextToken,
-    listOfferings_maxResults,
-    listOfferingsResponse_nextToken,
-    listOfferingsResponse_offerings,
-    listOfferingsResponse_httpStatus,
 
     -- * Types
 
     -- ** AddMediaStreamRequest
     addMediaStreamRequest_videoFormat,
-    addMediaStreamRequest_attributes,
-    addMediaStreamRequest_clockRate,
     addMediaStreamRequest_description,
+    addMediaStreamRequest_clockRate,
+    addMediaStreamRequest_attributes,
     addMediaStreamRequest_mediaStreamType,
     addMediaStreamRequest_mediaStreamId,
     addMediaStreamRequest_mediaStreamName,
 
     -- ** AddOutputRequest
     addOutputRequest_destination,
-    addOutputRequest_maxLatency,
-    addOutputRequest_mediaStreamOutputConfigurations,
-    addOutputRequest_encryption,
-    addOutputRequest_name,
-    addOutputRequest_cidrAllowList,
-    addOutputRequest_smoothingLatency,
-    addOutputRequest_minLatency,
-    addOutputRequest_description,
     addOutputRequest_port,
+    addOutputRequest_maxLatency,
+    addOutputRequest_name,
+    addOutputRequest_mediaStreamOutputConfigurations,
+    addOutputRequest_smoothingLatency,
+    addOutputRequest_cidrAllowList,
     addOutputRequest_streamId,
     addOutputRequest_remoteId,
     addOutputRequest_vpcInterfaceAttachment,
+    addOutputRequest_description,
+    addOutputRequest_encryption,
+    addOutputRequest_minLatency,
     addOutputRequest_protocol,
 
     -- ** DestinationConfiguration
@@ -296,38 +296,38 @@ module Amazonka.MediaConnect.Lens
     encodingParametersRequest_compressionFactor,
 
     -- ** Encryption
-    encryption_keyType,
     encryption_resourceId,
-    encryption_url,
-    encryption_algorithm,
-    encryption_constantInitializationVector,
     encryption_deviceId,
+    encryption_constantInitializationVector,
+    encryption_keyType,
+    encryption_url,
     encryption_region,
     encryption_secretArn,
+    encryption_algorithm,
     encryption_roleArn,
 
     -- ** Entitlement
-    entitlement_dataTransferSubscriberFeePercent,
-    entitlement_encryption,
     entitlement_entitlementStatus,
     entitlement_description,
+    entitlement_encryption,
+    entitlement_dataTransferSubscriberFeePercent,
     entitlement_entitlementArn,
     entitlement_subscribers,
     entitlement_name,
 
     -- ** FailoverConfig
-    failoverConfig_state,
     failoverConfig_recoveryWindow,
+    failoverConfig_state,
     failoverConfig_sourcePriority,
     failoverConfig_failoverMode,
 
     -- ** Flow
-    flow_mediaStreams,
-    flow_sourceFailoverConfig,
-    flow_vpcInterfaces,
     flow_sources,
+    flow_vpcInterfaces,
     flow_egressIp,
     flow_description,
+    flow_sourceFailoverConfig,
+    flow_mediaStreams,
     flow_status,
     flow_entitlements,
     flow_outputs,
@@ -337,29 +337,29 @@ module Amazonka.MediaConnect.Lens
     flow_name,
 
     -- ** Fmtp
-    fmtp_tcs,
     fmtp_exactFramerate,
-    fmtp_par,
     fmtp_scanMode,
-    fmtp_range,
-    fmtp_channelOrder,
     fmtp_colorimetry,
+    fmtp_par,
+    fmtp_range,
+    fmtp_tcs,
+    fmtp_channelOrder,
 
     -- ** FmtpRequest
-    fmtpRequest_tcs,
     fmtpRequest_exactFramerate,
-    fmtpRequest_par,
     fmtpRequest_scanMode,
-    fmtpRequest_range,
-    fmtpRequest_channelOrder,
     fmtpRequest_colorimetry,
+    fmtpRequest_par,
+    fmtpRequest_range,
+    fmtpRequest_tcs,
+    fmtpRequest_channelOrder,
 
     -- ** GrantEntitlementRequest
-    grantEntitlementRequest_dataTransferSubscriberFeePercent,
-    grantEntitlementRequest_encryption,
     grantEntitlementRequest_name,
     grantEntitlementRequest_entitlementStatus,
     grantEntitlementRequest_description,
+    grantEntitlementRequest_encryption,
+    grantEntitlementRequest_dataTransferSubscriberFeePercent,
     grantEntitlementRequest_subscribers,
 
     -- ** InputConfiguration
@@ -392,9 +392,9 @@ module Amazonka.MediaConnect.Lens
 
     -- ** MediaStream
     mediaStream_videoFormat,
-    mediaStream_attributes,
-    mediaStream_clockRate,
     mediaStream_description,
+    mediaStream_clockRate,
+    mediaStream_attributes,
     mediaStream_mediaStreamType,
     mediaStream_mediaStreamId,
     mediaStream_mediaStreamName,
@@ -405,18 +405,18 @@ module Amazonka.MediaConnect.Lens
     mediaStreamAttributes_fmtp,
 
     -- ** MediaStreamAttributesRequest
-    mediaStreamAttributesRequest_lang,
     mediaStreamAttributesRequest_fmtp,
+    mediaStreamAttributesRequest_lang,
 
     -- ** MediaStreamOutputConfiguration
-    mediaStreamOutputConfiguration_destinationConfigurations,
     mediaStreamOutputConfiguration_encodingParameters,
+    mediaStreamOutputConfiguration_destinationConfigurations,
     mediaStreamOutputConfiguration_mediaStreamName,
     mediaStreamOutputConfiguration_encodingName,
 
     -- ** MediaStreamOutputConfigurationRequest
-    mediaStreamOutputConfigurationRequest_destinationConfigurations,
     mediaStreamOutputConfigurationRequest_encodingParameters,
+    mediaStreamOutputConfigurationRequest_destinationConfigurations,
     mediaStreamOutputConfigurationRequest_mediaStreamName,
     mediaStreamOutputConfigurationRequest_encodingName,
 
@@ -444,17 +444,17 @@ module Amazonka.MediaConnect.Lens
     offering_priceUnits,
 
     -- ** Output
-    output_entitlementArn,
-    output_dataTransferSubscriberFeePercent,
     output_destination,
-    output_mediaStreamOutputConfigurations,
-    output_mediaLiveInputArn,
-    output_encryption,
-    output_listenerAddress,
-    output_transport,
-    output_description,
     output_port,
+    output_mediaStreamOutputConfigurations,
+    output_entitlementArn,
+    output_listenerAddress,
     output_vpcInterfaceAttachment,
+    output_description,
+    output_mediaLiveInputArn,
+    output_transport,
+    output_encryption,
+    output_dataTransferSubscriberFeePercent,
     output_outputArn,
     output_name,
 
@@ -478,31 +478,31 @@ module Amazonka.MediaConnect.Lens
     resourceSpecification_resourceType,
 
     -- ** SetSourceRequest
-    setSourceRequest_entitlementArn,
     setSourceRequest_maxLatency,
-    setSourceRequest_vpcInterfaceName,
-    setSourceRequest_decryption,
-    setSourceRequest_maxSyncBuffer,
-    setSourceRequest_protocol,
     setSourceRequest_name,
-    setSourceRequest_minLatency,
-    setSourceRequest_ingestPort,
-    setSourceRequest_description,
     setSourceRequest_mediaStreamSourceConfigurations,
-    setSourceRequest_whitelistCidr,
+    setSourceRequest_entitlementArn,
+    setSourceRequest_vpcInterfaceName,
+    setSourceRequest_maxSyncBuffer,
     setSourceRequest_maxBitrate,
     setSourceRequest_streamId,
+    setSourceRequest_decryption,
+    setSourceRequest_description,
+    setSourceRequest_protocol,
+    setSourceRequest_ingestPort,
+    setSourceRequest_whitelistCidr,
+    setSourceRequest_minLatency,
 
     -- ** Source
+    source_mediaStreamSourceConfigurations,
+    source_ingestIp,
     source_entitlementArn,
-    source_dataTransferSubscriberFeePercent,
     source_vpcInterfaceName,
     source_decryption,
-    source_ingestIp,
-    source_ingestPort,
-    source_transport,
     source_description,
-    source_mediaStreamSourceConfigurations,
+    source_transport,
+    source_dataTransferSubscriberFeePercent,
+    source_ingestPort,
     source_whitelistCidr,
     source_sourceArn,
     source_name,
@@ -512,29 +512,29 @@ module Amazonka.MediaConnect.Lens
 
     -- ** Transport
     transport_maxLatency,
-    transport_maxSyncBuffer,
-    transport_cidrAllowList,
     transport_smoothingLatency,
-    transport_minLatency,
+    transport_maxSyncBuffer,
     transport_maxBitrate,
+    transport_cidrAllowList,
     transport_streamId,
     transport_remoteId,
+    transport_minLatency,
     transport_protocol,
 
     -- ** UpdateEncryption
-    updateEncryption_keyType,
     updateEncryption_resourceId,
-    updateEncryption_url,
-    updateEncryption_algorithm,
-    updateEncryption_constantInitializationVector,
+    updateEncryption_roleArn,
     updateEncryption_deviceId,
+    updateEncryption_constantInitializationVector,
+    updateEncryption_keyType,
+    updateEncryption_url,
     updateEncryption_region,
     updateEncryption_secretArn,
-    updateEncryption_roleArn,
+    updateEncryption_algorithm,
 
     -- ** UpdateFailoverConfig
-    updateFailoverConfig_state,
     updateFailoverConfig_recoveryWindow,
+    updateFailoverConfig_state,
     updateFailoverConfig_sourcePriority,
     updateFailoverConfig_failoverMode,
 

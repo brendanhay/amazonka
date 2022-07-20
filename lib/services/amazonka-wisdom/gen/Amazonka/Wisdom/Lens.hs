@@ -14,6 +14,118 @@
 module Amazonka.Wisdom.Lens
   ( -- * Operations
 
+    -- ** CreateAssistant
+    createAssistant_tags,
+    createAssistant_clientToken,
+    createAssistant_serverSideEncryptionConfiguration,
+    createAssistant_description,
+    createAssistant_name,
+    createAssistant_type,
+    createAssistantResponse_assistant,
+    createAssistantResponse_httpStatus,
+
+    -- ** CreateAssistantAssociation
+    createAssistantAssociation_tags,
+    createAssistantAssociation_clientToken,
+    createAssistantAssociation_assistantId,
+    createAssistantAssociation_association,
+    createAssistantAssociation_associationType,
+    createAssistantAssociationResponse_assistantAssociation,
+    createAssistantAssociationResponse_httpStatus,
+
+    -- ** CreateContent
+    createContent_tags,
+    createContent_clientToken,
+    createContent_metadata,
+    createContent_title,
+    createContent_overrideLinkOutUri,
+    createContent_knowledgeBaseId,
+    createContent_name,
+    createContent_uploadId,
+    createContentResponse_content,
+    createContentResponse_httpStatus,
+
+    -- ** CreateKnowledgeBase
+    createKnowledgeBase_tags,
+    createKnowledgeBase_clientToken,
+    createKnowledgeBase_sourceConfiguration,
+    createKnowledgeBase_serverSideEncryptionConfiguration,
+    createKnowledgeBase_description,
+    createKnowledgeBase_renderingConfiguration,
+    createKnowledgeBase_knowledgeBaseType,
+    createKnowledgeBase_name,
+    createKnowledgeBaseResponse_knowledgeBase,
+    createKnowledgeBaseResponse_httpStatus,
+
+    -- ** CreateSession
+    createSession_tags,
+    createSession_clientToken,
+    createSession_description,
+    createSession_assistantId,
+    createSession_name,
+    createSessionResponse_session,
+    createSessionResponse_httpStatus,
+
+    -- ** DeleteAssistant
+    deleteAssistant_assistantId,
+    deleteAssistantResponse_httpStatus,
+
+    -- ** DeleteAssistantAssociation
+    deleteAssistantAssociation_assistantAssociationId,
+    deleteAssistantAssociation_assistantId,
+    deleteAssistantAssociationResponse_httpStatus,
+
+    -- ** DeleteContent
+    deleteContent_contentId,
+    deleteContent_knowledgeBaseId,
+    deleteContentResponse_httpStatus,
+
+    -- ** DeleteKnowledgeBase
+    deleteKnowledgeBase_knowledgeBaseId,
+    deleteKnowledgeBaseResponse_httpStatus,
+
+    -- ** GetAssistant
+    getAssistant_assistantId,
+    getAssistantResponse_assistant,
+    getAssistantResponse_httpStatus,
+
+    -- ** GetAssistantAssociation
+    getAssistantAssociation_assistantAssociationId,
+    getAssistantAssociation_assistantId,
+    getAssistantAssociationResponse_assistantAssociation,
+    getAssistantAssociationResponse_httpStatus,
+
+    -- ** GetContent
+    getContent_contentId,
+    getContent_knowledgeBaseId,
+    getContentResponse_content,
+    getContentResponse_httpStatus,
+
+    -- ** GetContentSummary
+    getContentSummary_contentId,
+    getContentSummary_knowledgeBaseId,
+    getContentSummaryResponse_contentSummary,
+    getContentSummaryResponse_httpStatus,
+
+    -- ** GetKnowledgeBase
+    getKnowledgeBase_knowledgeBaseId,
+    getKnowledgeBaseResponse_knowledgeBase,
+    getKnowledgeBaseResponse_httpStatus,
+
+    -- ** GetRecommendations
+    getRecommendations_maxResults,
+    getRecommendations_waitTimeSeconds,
+    getRecommendations_assistantId,
+    getRecommendations_sessionId,
+    getRecommendationsResponse_httpStatus,
+    getRecommendationsResponse_recommendations,
+
+    -- ** GetSession
+    getSession_assistantId,
+    getSession_sessionId,
+    getSessionResponse_session,
+    getSessionResponse_httpStatus,
+
     -- ** ListAssistantAssociations
     listAssistantAssociations_nextToken,
     listAssistantAssociations_maxResults,
@@ -22,49 +134,12 @@ module Amazonka.Wisdom.Lens
     listAssistantAssociationsResponse_httpStatus,
     listAssistantAssociationsResponse_assistantAssociationSummaries,
 
-    -- ** GetRecommendations
-    getRecommendations_waitTimeSeconds,
-    getRecommendations_maxResults,
-    getRecommendations_assistantId,
-    getRecommendations_sessionId,
-    getRecommendationsResponse_httpStatus,
-    getRecommendationsResponse_recommendations,
-
-    -- ** SearchContent
-    searchContent_nextToken,
-    searchContent_maxResults,
-    searchContent_knowledgeBaseId,
-    searchContent_searchExpression,
-    searchContentResponse_nextToken,
-    searchContentResponse_httpStatus,
-    searchContentResponse_contentSummaries,
-
-    -- ** RemoveKnowledgeBaseTemplateUri
-    removeKnowledgeBaseTemplateUri_knowledgeBaseId,
-    removeKnowledgeBaseTemplateUriResponse_httpStatus,
-
-    -- ** GetAssistant
-    getAssistant_assistantId,
-    getAssistantResponse_assistant,
-    getAssistantResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
     -- ** ListAssistants
     listAssistants_nextToken,
     listAssistants_maxResults,
     listAssistantsResponse_nextToken,
     listAssistantsResponse_httpStatus,
     listAssistantsResponse_assistantSummaries,
-
-    -- ** UpdateKnowledgeBaseTemplateUri
-    updateKnowledgeBaseTemplateUri_knowledgeBaseId,
-    updateKnowledgeBaseTemplateUri_templateUri,
-    updateKnowledgeBaseTemplateUriResponse_knowledgeBase,
-    updateKnowledgeBaseTemplateUriResponse_httpStatus,
 
     -- ** ListContents
     listContents_nextToken,
@@ -74,38 +149,17 @@ module Amazonka.Wisdom.Lens
     listContentsResponse_httpStatus,
     listContentsResponse_contentSummaries,
 
-    -- ** DeleteContent
-    deleteContent_contentId,
-    deleteContent_knowledgeBaseId,
-    deleteContentResponse_httpStatus,
+    -- ** ListKnowledgeBases
+    listKnowledgeBases_nextToken,
+    listKnowledgeBases_maxResults,
+    listKnowledgeBasesResponse_nextToken,
+    listKnowledgeBasesResponse_httpStatus,
+    listKnowledgeBasesResponse_knowledgeBaseSummaries,
 
-    -- ** UpdateContent
-    updateContent_overrideLinkOutUri,
-    updateContent_removeOverrideLinkOutUri,
-    updateContent_metadata,
-    updateContent_title,
-    updateContent_revisionId,
-    updateContent_uploadId,
-    updateContent_contentId,
-    updateContent_knowledgeBaseId,
-    updateContentResponse_content,
-    updateContentResponse_httpStatus,
-
-    -- ** CreateAssistant
-    createAssistant_clientToken,
-    createAssistant_description,
-    createAssistant_serverSideEncryptionConfiguration,
-    createAssistant_tags,
-    createAssistant_name,
-    createAssistant_type,
-    createAssistantResponse_assistant,
-    createAssistantResponse_httpStatus,
-
-    -- ** GetContentSummary
-    getContentSummary_contentId,
-    getContentSummary_knowledgeBaseId,
-    getContentSummaryResponse_contentSummary,
-    getContentSummaryResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** NotifyRecommendationsReceived
     notifyRecommendationsReceived_assistantId,
@@ -114,101 +168,6 @@ module Amazonka.Wisdom.Lens
     notifyRecommendationsReceivedResponse_recommendationIds,
     notifyRecommendationsReceivedResponse_errors,
     notifyRecommendationsReceivedResponse_httpStatus,
-
-    -- ** DeleteAssistantAssociation
-    deleteAssistantAssociation_assistantAssociationId,
-    deleteAssistantAssociation_assistantId,
-    deleteAssistantAssociationResponse_httpStatus,
-
-    -- ** GetContent
-    getContent_contentId,
-    getContent_knowledgeBaseId,
-    getContentResponse_content,
-    getContentResponse_httpStatus,
-
-    -- ** StartContentUpload
-    startContentUpload_contentType,
-    startContentUpload_knowledgeBaseId,
-    startContentUploadResponse_httpStatus,
-    startContentUploadResponse_headersToInclude,
-    startContentUploadResponse_uploadId,
-    startContentUploadResponse_url,
-    startContentUploadResponse_urlExpiry,
-
-    -- ** CreateSession
-    createSession_clientToken,
-    createSession_description,
-    createSession_tags,
-    createSession_assistantId,
-    createSession_name,
-    createSessionResponse_session,
-    createSessionResponse_httpStatus,
-
-    -- ** CreateContent
-    createContent_overrideLinkOutUri,
-    createContent_clientToken,
-    createContent_metadata,
-    createContent_title,
-    createContent_tags,
-    createContent_knowledgeBaseId,
-    createContent_name,
-    createContent_uploadId,
-    createContentResponse_content,
-    createContentResponse_httpStatus,
-
-    -- ** DeleteAssistant
-    deleteAssistant_assistantId,
-    deleteAssistantResponse_httpStatus,
-
-    -- ** GetSession
-    getSession_assistantId,
-    getSession_sessionId,
-    getSessionResponse_session,
-    getSessionResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** CreateKnowledgeBase
-    createKnowledgeBase_clientToken,
-    createKnowledgeBase_renderingConfiguration,
-    createKnowledgeBase_sourceConfiguration,
-    createKnowledgeBase_description,
-    createKnowledgeBase_serverSideEncryptionConfiguration,
-    createKnowledgeBase_tags,
-    createKnowledgeBase_knowledgeBaseType,
-    createKnowledgeBase_name,
-    createKnowledgeBaseResponse_knowledgeBase,
-    createKnowledgeBaseResponse_httpStatus,
-
-    -- ** GetAssistantAssociation
-    getAssistantAssociation_assistantAssociationId,
-    getAssistantAssociation_assistantId,
-    getAssistantAssociationResponse_assistantAssociation,
-    getAssistantAssociationResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** SearchSessions
-    searchSessions_nextToken,
-    searchSessions_maxResults,
-    searchSessions_assistantId,
-    searchSessions_searchExpression,
-    searchSessionsResponse_nextToken,
-    searchSessionsResponse_httpStatus,
-    searchSessionsResponse_sessionSummaries,
-
-    -- ** ListKnowledgeBases
-    listKnowledgeBases_nextToken,
-    listKnowledgeBases_maxResults,
-    listKnowledgeBasesResponse_nextToken,
-    listKnowledgeBasesResponse_httpStatus,
-    listKnowledgeBasesResponse_knowledgeBaseSummaries,
 
     -- ** QueryAssistant
     queryAssistant_nextToken,
@@ -219,23 +178,64 @@ module Amazonka.Wisdom.Lens
     queryAssistantResponse_httpStatus,
     queryAssistantResponse_results,
 
-    -- ** DeleteKnowledgeBase
-    deleteKnowledgeBase_knowledgeBaseId,
-    deleteKnowledgeBaseResponse_httpStatus,
+    -- ** RemoveKnowledgeBaseTemplateUri
+    removeKnowledgeBaseTemplateUri_knowledgeBaseId,
+    removeKnowledgeBaseTemplateUriResponse_httpStatus,
 
-    -- ** CreateAssistantAssociation
-    createAssistantAssociation_clientToken,
-    createAssistantAssociation_tags,
-    createAssistantAssociation_assistantId,
-    createAssistantAssociation_association,
-    createAssistantAssociation_associationType,
-    createAssistantAssociationResponse_assistantAssociation,
-    createAssistantAssociationResponse_httpStatus,
+    -- ** SearchContent
+    searchContent_nextToken,
+    searchContent_maxResults,
+    searchContent_knowledgeBaseId,
+    searchContent_searchExpression,
+    searchContentResponse_nextToken,
+    searchContentResponse_httpStatus,
+    searchContentResponse_contentSummaries,
 
-    -- ** GetKnowledgeBase
-    getKnowledgeBase_knowledgeBaseId,
-    getKnowledgeBaseResponse_knowledgeBase,
-    getKnowledgeBaseResponse_httpStatus,
+    -- ** SearchSessions
+    searchSessions_nextToken,
+    searchSessions_maxResults,
+    searchSessions_assistantId,
+    searchSessions_searchExpression,
+    searchSessionsResponse_nextToken,
+    searchSessionsResponse_httpStatus,
+    searchSessionsResponse_sessionSummaries,
+
+    -- ** StartContentUpload
+    startContentUpload_contentType,
+    startContentUpload_knowledgeBaseId,
+    startContentUploadResponse_httpStatus,
+    startContentUploadResponse_headersToInclude,
+    startContentUploadResponse_uploadId,
+    startContentUploadResponse_url,
+    startContentUploadResponse_urlExpiry,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateContent
+    updateContent_uploadId,
+    updateContent_metadata,
+    updateContent_title,
+    updateContent_revisionId,
+    updateContent_overrideLinkOutUri,
+    updateContent_removeOverrideLinkOutUri,
+    updateContent_contentId,
+    updateContent_knowledgeBaseId,
+    updateContentResponse_content,
+    updateContentResponse_httpStatus,
+
+    -- ** UpdateKnowledgeBaseTemplateUri
+    updateKnowledgeBaseTemplateUri_knowledgeBaseId,
+    updateKnowledgeBaseTemplateUri_templateUri,
+    updateKnowledgeBaseTemplateUriResponse_knowledgeBase,
+    updateKnowledgeBaseTemplateUriResponse_httpStatus,
 
     -- * Types
 
@@ -268,9 +268,9 @@ module Amazonka.Wisdom.Lens
     assistantAssociationSummary_associationType,
 
     -- ** AssistantData
-    assistantData_description,
-    assistantData_serverSideEncryptionConfiguration,
     assistantData_tags,
+    assistantData_serverSideEncryptionConfiguration,
+    assistantData_description,
     assistantData_assistantArn,
     assistantData_assistantId,
     assistantData_name,
@@ -278,9 +278,9 @@ module Amazonka.Wisdom.Lens
     assistantData_type,
 
     -- ** AssistantSummary
-    assistantSummary_description,
-    assistantSummary_serverSideEncryptionConfiguration,
     assistantSummary_tags,
+    assistantSummary_serverSideEncryptionConfiguration,
+    assistantSummary_description,
     assistantSummary_assistantArn,
     assistantSummary_assistantId,
     assistantSummary_name,
@@ -288,8 +288,8 @@ module Amazonka.Wisdom.Lens
     assistantSummary_type,
 
     -- ** ContentData
-    contentData_linkOutUri,
     contentData_tags,
+    contentData_linkOutUri,
     contentData_contentArn,
     contentData_contentId,
     contentData_contentType,
@@ -304,9 +304,9 @@ module Amazonka.Wisdom.Lens
     contentData_urlExpiry,
 
     -- ** ContentReference
+    contentReference_knowledgeBaseArn,
     contentReference_contentArn,
     contentReference_contentId,
-    contentReference_knowledgeBaseArn,
     contentReference_knowledgeBaseId,
 
     -- ** ContentSummary
@@ -328,8 +328,8 @@ module Amazonka.Wisdom.Lens
     document_contentReference,
 
     -- ** DocumentText
-    documentText_text,
     documentText_highlights,
+    documentText_text,
 
     -- ** Filter
     filter_field,
@@ -345,12 +345,12 @@ module Amazonka.Wisdom.Lens
     knowledgeBaseAssociationData_knowledgeBaseId,
 
     -- ** KnowledgeBaseData
-    knowledgeBaseData_renderingConfiguration,
+    knowledgeBaseData_tags,
     knowledgeBaseData_sourceConfiguration,
+    knowledgeBaseData_serverSideEncryptionConfiguration,
     knowledgeBaseData_lastContentModificationTime,
     knowledgeBaseData_description,
-    knowledgeBaseData_serverSideEncryptionConfiguration,
-    knowledgeBaseData_tags,
+    knowledgeBaseData_renderingConfiguration,
     knowledgeBaseData_knowledgeBaseArn,
     knowledgeBaseData_knowledgeBaseId,
     knowledgeBaseData_knowledgeBaseType,
@@ -358,11 +358,11 @@ module Amazonka.Wisdom.Lens
     knowledgeBaseData_status,
 
     -- ** KnowledgeBaseSummary
-    knowledgeBaseSummary_renderingConfiguration,
-    knowledgeBaseSummary_sourceConfiguration,
-    knowledgeBaseSummary_description,
-    knowledgeBaseSummary_serverSideEncryptionConfiguration,
     knowledgeBaseSummary_tags,
+    knowledgeBaseSummary_sourceConfiguration,
+    knowledgeBaseSummary_serverSideEncryptionConfiguration,
+    knowledgeBaseSummary_description,
+    knowledgeBaseSummary_renderingConfiguration,
     knowledgeBaseSummary_knowledgeBaseArn,
     knowledgeBaseSummary_knowledgeBaseId,
     knowledgeBaseSummary_knowledgeBaseType,
@@ -370,8 +370,8 @@ module Amazonka.Wisdom.Lens
     knowledgeBaseSummary_status,
 
     -- ** NotifyRecommendationsReceivedError
-    notifyRecommendationsReceivedError_recommendationId,
     notifyRecommendationsReceivedError_message,
+    notifyRecommendationsReceivedError_recommendationId,
 
     -- ** RecommendationData
     recommendationData_relevanceLevel,
@@ -394,8 +394,8 @@ module Amazonka.Wisdom.Lens
     serverSideEncryptionConfiguration_kmsKeyId,
 
     -- ** SessionData
-    sessionData_description,
     sessionData_tags,
+    sessionData_description,
     sessionData_name,
     sessionData_sessionArn,
     sessionData_sessionId,

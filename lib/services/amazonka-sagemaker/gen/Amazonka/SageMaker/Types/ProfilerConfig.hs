@@ -28,7 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProfilerConfig' smart constructor.
 data ProfilerConfig = ProfilerConfig'
-  { -- | Configuration information for capturing framework metrics. Available key
+  { -- | A time interval for capturing system metrics in milliseconds. Available
+    -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
+    -- (1 minute) milliseconds. The default value is 500 milliseconds.
+    profilingIntervalInMilliseconds :: Prelude.Maybe Prelude.Integer,
+    -- | Configuration information for capturing framework metrics. Available key
     -- strings for different profiling options are @DetailedProfilingConfig@,
     -- @PythonProfilingConfig@, and @DataLoaderProfilingConfig@. The following
     -- codes are configuration structures for the @ProfilingParameters@
@@ -36,10 +40,6 @@ data ProfilerConfig = ProfilerConfig'
     -- @ProfilingParameters@ parameter, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
     profilingParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A time interval for capturing system metrics in milliseconds. Available
-    -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
-    -- (1 minute) milliseconds. The default value is 500 milliseconds.
-    profilingIntervalInMilliseconds :: Prelude.Maybe Prelude.Integer,
     -- | Path to Amazon S3 storage location for system and framework metrics.
     s3OutputPath :: Prelude.Text
   }
@@ -53,6 +53,10 @@ data ProfilerConfig = ProfilerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'profilingIntervalInMilliseconds', 'profilerConfig_profilingIntervalInMilliseconds' - A time interval for capturing system metrics in milliseconds. Available
+-- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
+-- (1 minute) milliseconds. The default value is 500 milliseconds.
+--
 -- 'profilingParameters', 'profilerConfig_profilingParameters' - Configuration information for capturing framework metrics. Available key
 -- strings for different profiling options are @DetailedProfilingConfig@,
 -- @PythonProfilingConfig@, and @DataLoaderProfilingConfig@. The following
@@ -61,10 +65,6 @@ data ProfilerConfig = ProfilerConfig'
 -- @ProfilingParameters@ parameter, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
 --
--- 'profilingIntervalInMilliseconds', 'profilerConfig_profilingIntervalInMilliseconds' - A time interval for capturing system metrics in milliseconds. Available
--- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
--- (1 minute) milliseconds. The default value is 500 milliseconds.
---
 -- 's3OutputPath', 'profilerConfig_s3OutputPath' - Path to Amazon S3 storage location for system and framework metrics.
 newProfilerConfig ::
   -- | 's3OutputPath'
@@ -72,11 +72,17 @@ newProfilerConfig ::
   ProfilerConfig
 newProfilerConfig pS3OutputPath_ =
   ProfilerConfig'
-    { profilingParameters =
+    { profilingIntervalInMilliseconds =
         Prelude.Nothing,
-      profilingIntervalInMilliseconds = Prelude.Nothing,
+      profilingParameters = Prelude.Nothing,
       s3OutputPath = pS3OutputPath_
     }
+
+-- | A time interval for capturing system metrics in milliseconds. Available
+-- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
+-- (1 minute) milliseconds. The default value is 500 milliseconds.
+profilerConfig_profilingIntervalInMilliseconds :: Lens.Lens' ProfilerConfig (Prelude.Maybe Prelude.Integer)
+profilerConfig_profilingIntervalInMilliseconds = Lens.lens (\ProfilerConfig' {profilingIntervalInMilliseconds} -> profilingIntervalInMilliseconds) (\s@ProfilerConfig' {} a -> s {profilingIntervalInMilliseconds = a} :: ProfilerConfig)
 
 -- | Configuration information for capturing framework metrics. Available key
 -- strings for different profiling options are @DetailedProfilingConfig@,
@@ -88,12 +94,6 @@ newProfilerConfig pS3OutputPath_ =
 profilerConfig_profilingParameters :: Lens.Lens' ProfilerConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 profilerConfig_profilingParameters = Lens.lens (\ProfilerConfig' {profilingParameters} -> profilingParameters) (\s@ProfilerConfig' {} a -> s {profilingParameters = a} :: ProfilerConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | A time interval for capturing system metrics in milliseconds. Available
--- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
--- (1 minute) milliseconds. The default value is 500 milliseconds.
-profilerConfig_profilingIntervalInMilliseconds :: Lens.Lens' ProfilerConfig (Prelude.Maybe Prelude.Integer)
-profilerConfig_profilingIntervalInMilliseconds = Lens.lens (\ProfilerConfig' {profilingIntervalInMilliseconds} -> profilingIntervalInMilliseconds) (\s@ProfilerConfig' {} a -> s {profilingIntervalInMilliseconds = a} :: ProfilerConfig)
-
 -- | Path to Amazon S3 storage location for system and framework metrics.
 profilerConfig_s3OutputPath :: Lens.Lens' ProfilerConfig Prelude.Text
 profilerConfig_s3OutputPath = Lens.lens (\ProfilerConfig' {s3OutputPath} -> s3OutputPath) (\s@ProfilerConfig' {} a -> s {s3OutputPath = a} :: ProfilerConfig)
@@ -104,33 +104,34 @@ instance Core.FromJSON ProfilerConfig where
       "ProfilerConfig"
       ( \x ->
           ProfilerConfig'
-            Prelude.<$> ( x Core..:? "ProfilingParameters"
+            Prelude.<$> (x Core..:? "ProfilingIntervalInMilliseconds")
+            Prelude.<*> ( x Core..:? "ProfilingParameters"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ProfilingIntervalInMilliseconds")
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
 instance Prelude.Hashable ProfilerConfig where
   hashWithSalt _salt ProfilerConfig' {..} =
-    _salt `Prelude.hashWithSalt` profilingParameters
+    _salt
       `Prelude.hashWithSalt` profilingIntervalInMilliseconds
+      `Prelude.hashWithSalt` profilingParameters
       `Prelude.hashWithSalt` s3OutputPath
 
 instance Prelude.NFData ProfilerConfig where
   rnf ProfilerConfig' {..} =
-    Prelude.rnf profilingParameters
-      `Prelude.seq` Prelude.rnf profilingIntervalInMilliseconds
+    Prelude.rnf profilingIntervalInMilliseconds
+      `Prelude.seq` Prelude.rnf profilingParameters
       `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Core.ToJSON ProfilerConfig where
   toJSON ProfilerConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProfilingParameters" Core..=)
-              Prelude.<$> profilingParameters,
-            ("ProfilingIntervalInMilliseconds" Core..=)
+          [ ("ProfilingIntervalInMilliseconds" Core..=)
               Prelude.<$> profilingIntervalInMilliseconds,
+            ("ProfilingParameters" Core..=)
+              Prelude.<$> profilingParameters,
             Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

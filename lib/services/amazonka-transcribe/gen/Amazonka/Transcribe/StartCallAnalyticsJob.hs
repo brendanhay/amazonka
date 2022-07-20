@@ -33,9 +33,9 @@ module Amazonka.Transcribe.StartCallAnalyticsJob
     newStartCallAnalyticsJob,
 
     -- * Request Lenses
+    startCallAnalyticsJob_outputLocation,
     startCallAnalyticsJob_settings,
     startCallAnalyticsJob_outputEncryptionKMSKeyId,
-    startCallAnalyticsJob_outputLocation,
     startCallAnalyticsJob_channelDefinitions,
     startCallAnalyticsJob_callAnalyticsJobName,
     startCallAnalyticsJob_media,
@@ -60,7 +60,36 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newStartCallAnalyticsJob' smart constructor.
 data StartCallAnalyticsJob = StartCallAnalyticsJob'
-  { -- | A @Settings@ object that provides optional settings for a call analytics
+  { -- | The Amazon S3 location where the output of the call analytics job is
+    -- stored. You can provide the following location types to store the output
+    -- of call analytics job:
+    --
+    -- -   s3:\/\/DOC-EXAMPLE-BUCKET1
+    --
+    --     If you specify a bucket, Amazon Transcribe saves the output of the
+    --     analytics job as a JSON file at the root level of the bucket.
+    --
+    -- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/
+    --
+    --     f you specify a path, Amazon Transcribe saves the output of the
+    --     analytics job as
+    --     s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/your-transcription-job-name.json
+    --
+    --     If you specify a folder, you must provide a trailing slash.
+    --
+    -- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/filename.json
+    --
+    --     If you provide a path that has the filename specified, Amazon
+    --     Transcribe saves the output of the analytics job as
+    --     s3:\/\/DOC-EXAMPLEBUCKET1\/folder\/filename.json
+    --
+    -- You can specify an Amazon Web Services Key Management Service (KMS) key
+    -- to encrypt the output of our analytics job using the
+    -- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+    -- Amazon Transcribe uses the default Amazon S3 key for server-side
+    -- encryption of the analytics job output that is placed in your S3 bucket.
+    outputLocation :: Prelude.Maybe Prelude.Text,
+    -- | A @Settings@ object that provides optional settings for a call analytics
     -- job.
     settings :: Prelude.Maybe CallAnalyticsJobSettings,
     -- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
@@ -91,35 +120,6 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location in the @OutputLocation@ parameter.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 location where the output of the call analytics job is
-    -- stored. You can provide the following location types to store the output
-    -- of call analytics job:
-    --
-    -- -   s3:\/\/DOC-EXAMPLE-BUCKET1
-    --
-    --     If you specify a bucket, Amazon Transcribe saves the output of the
-    --     analytics job as a JSON file at the root level of the bucket.
-    --
-    -- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/
-    --
-    --     f you specify a path, Amazon Transcribe saves the output of the
-    --     analytics job as
-    --     s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/your-transcription-job-name.json
-    --
-    --     If you specify a folder, you must provide a trailing slash.
-    --
-    -- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/filename.json
-    --
-    --     If you provide a path that has the filename specified, Amazon
-    --     Transcribe saves the output of the analytics job as
-    --     s3:\/\/DOC-EXAMPLEBUCKET1\/folder\/filename.json
-    --
-    -- You can specify an Amazon Web Services Key Management Service (KMS) key
-    -- to encrypt the output of our analytics job using the
-    -- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
-    -- Amazon Transcribe uses the default Amazon S3 key for server-side
-    -- encryption of the analytics job output that is placed in your S3 bucket.
-    outputLocation :: Prelude.Maybe Prelude.Text,
     -- | When you start a call analytics job, you must pass an array that maps
     -- the agent and the customer to specific audio channels. The values you
     -- can assign to a channel are 0 and 1. The agent and the customer must
@@ -149,6 +149,35 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'outputLocation', 'startCallAnalyticsJob_outputLocation' - The Amazon S3 location where the output of the call analytics job is
+-- stored. You can provide the following location types to store the output
+-- of call analytics job:
+--
+-- -   s3:\/\/DOC-EXAMPLE-BUCKET1
+--
+--     If you specify a bucket, Amazon Transcribe saves the output of the
+--     analytics job as a JSON file at the root level of the bucket.
+--
+-- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/
+--
+--     f you specify a path, Amazon Transcribe saves the output of the
+--     analytics job as
+--     s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/your-transcription-job-name.json
+--
+--     If you specify a folder, you must provide a trailing slash.
+--
+-- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/filename.json
+--
+--     If you provide a path that has the filename specified, Amazon
+--     Transcribe saves the output of the analytics job as
+--     s3:\/\/DOC-EXAMPLEBUCKET1\/folder\/filename.json
+--
+-- You can specify an Amazon Web Services Key Management Service (KMS) key
+-- to encrypt the output of our analytics job using the
+-- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+-- Amazon Transcribe uses the default Amazon S3 key for server-side
+-- encryption of the analytics job output that is placed in your S3 bucket.
 --
 -- 'settings', 'startCallAnalyticsJob_settings' - A @Settings@ object that provides optional settings for a call analytics
 -- job.
@@ -180,35 +209,6 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 --
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location in the @OutputLocation@ parameter.
---
--- 'outputLocation', 'startCallAnalyticsJob_outputLocation' - The Amazon S3 location where the output of the call analytics job is
--- stored. You can provide the following location types to store the output
--- of call analytics job:
---
--- -   s3:\/\/DOC-EXAMPLE-BUCKET1
---
---     If you specify a bucket, Amazon Transcribe saves the output of the
---     analytics job as a JSON file at the root level of the bucket.
---
--- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/
---
---     f you specify a path, Amazon Transcribe saves the output of the
---     analytics job as
---     s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/your-transcription-job-name.json
---
---     If you specify a folder, you must provide a trailing slash.
---
--- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/filename.json
---
---     If you provide a path that has the filename specified, Amazon
---     Transcribe saves the output of the analytics job as
---     s3:\/\/DOC-EXAMPLEBUCKET1\/folder\/filename.json
---
--- You can specify an Amazon Web Services Key Management Service (KMS) key
--- to encrypt the output of our analytics job using the
--- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
--- Amazon Transcribe uses the default Amazon S3 key for server-side
--- encryption of the analytics job output that is placed in your S3 bucket.
 --
 -- 'channelDefinitions', 'startCallAnalyticsJob_channelDefinitions' - When you start a call analytics job, you must pass an array that maps
 -- the agent and the customer to specific audio channels. The values you
@@ -242,14 +242,46 @@ newStartCallAnalyticsJob
   pMedia_
   pDataAccessRoleArn_ =
     StartCallAnalyticsJob'
-      { settings = Prelude.Nothing,
+      { outputLocation =
+          Prelude.Nothing,
+        settings = Prelude.Nothing,
         outputEncryptionKMSKeyId = Prelude.Nothing,
-        outputLocation = Prelude.Nothing,
         channelDefinitions = Prelude.Nothing,
         callAnalyticsJobName = pCallAnalyticsJobName_,
         media = pMedia_,
         dataAccessRoleArn = pDataAccessRoleArn_
       }
+
+-- | The Amazon S3 location where the output of the call analytics job is
+-- stored. You can provide the following location types to store the output
+-- of call analytics job:
+--
+-- -   s3:\/\/DOC-EXAMPLE-BUCKET1
+--
+--     If you specify a bucket, Amazon Transcribe saves the output of the
+--     analytics job as a JSON file at the root level of the bucket.
+--
+-- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/
+--
+--     f you specify a path, Amazon Transcribe saves the output of the
+--     analytics job as
+--     s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/your-transcription-job-name.json
+--
+--     If you specify a folder, you must provide a trailing slash.
+--
+-- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/filename.json
+--
+--     If you provide a path that has the filename specified, Amazon
+--     Transcribe saves the output of the analytics job as
+--     s3:\/\/DOC-EXAMPLEBUCKET1\/folder\/filename.json
+--
+-- You can specify an Amazon Web Services Key Management Service (KMS) key
+-- to encrypt the output of our analytics job using the
+-- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+-- Amazon Transcribe uses the default Amazon S3 key for server-side
+-- encryption of the analytics job output that is placed in your S3 bucket.
+startCallAnalyticsJob_outputLocation :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
+startCallAnalyticsJob_outputLocation = Lens.lens (\StartCallAnalyticsJob' {outputLocation} -> outputLocation) (\s@StartCallAnalyticsJob' {} a -> s {outputLocation = a} :: StartCallAnalyticsJob)
 
 -- | A @Settings@ object that provides optional settings for a call analytics
 -- job.
@@ -285,37 +317,6 @@ startCallAnalyticsJob_settings = Lens.lens (\StartCallAnalyticsJob' {settings} -
 -- an output location in the @OutputLocation@ parameter.
 startCallAnalyticsJob_outputEncryptionKMSKeyId :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
 startCallAnalyticsJob_outputEncryptionKMSKeyId = Lens.lens (\StartCallAnalyticsJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartCallAnalyticsJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartCallAnalyticsJob)
-
--- | The Amazon S3 location where the output of the call analytics job is
--- stored. You can provide the following location types to store the output
--- of call analytics job:
---
--- -   s3:\/\/DOC-EXAMPLE-BUCKET1
---
---     If you specify a bucket, Amazon Transcribe saves the output of the
---     analytics job as a JSON file at the root level of the bucket.
---
--- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/
---
---     f you specify a path, Amazon Transcribe saves the output of the
---     analytics job as
---     s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/your-transcription-job-name.json
---
---     If you specify a folder, you must provide a trailing slash.
---
--- -   s3:\/\/DOC-EXAMPLE-BUCKET1\/folder\/filename.json
---
---     If you provide a path that has the filename specified, Amazon
---     Transcribe saves the output of the analytics job as
---     s3:\/\/DOC-EXAMPLEBUCKET1\/folder\/filename.json
---
--- You can specify an Amazon Web Services Key Management Service (KMS) key
--- to encrypt the output of our analytics job using the
--- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
--- Amazon Transcribe uses the default Amazon S3 key for server-side
--- encryption of the analytics job output that is placed in your S3 bucket.
-startCallAnalyticsJob_outputLocation :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
-startCallAnalyticsJob_outputLocation = Lens.lens (\StartCallAnalyticsJob' {outputLocation} -> outputLocation) (\s@StartCallAnalyticsJob' {} a -> s {outputLocation = a} :: StartCallAnalyticsJob)
 
 -- | When you start a call analytics job, you must pass an array that maps
 -- the agent and the customer to specific audio channels. The values you
@@ -360,9 +361,9 @@ instance Core.AWSRequest StartCallAnalyticsJob where
 
 instance Prelude.Hashable StartCallAnalyticsJob where
   hashWithSalt _salt StartCallAnalyticsJob' {..} =
-    _salt `Prelude.hashWithSalt` settings
+    _salt `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` outputEncryptionKMSKeyId
-      `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` channelDefinitions
       `Prelude.hashWithSalt` callAnalyticsJobName
       `Prelude.hashWithSalt` media
@@ -370,9 +371,9 @@ instance Prelude.Hashable StartCallAnalyticsJob where
 
 instance Prelude.NFData StartCallAnalyticsJob where
   rnf StartCallAnalyticsJob' {..} =
-    Prelude.rnf settings
+    Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
-      `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf channelDefinitions
       `Prelude.seq` Prelude.rnf callAnalyticsJobName
       `Prelude.seq` Prelude.rnf media
@@ -397,11 +398,11 @@ instance Core.ToJSON StartCallAnalyticsJob where
   toJSON StartCallAnalyticsJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Settings" Core..=) Prelude.<$> settings,
+          [ ("OutputLocation" Core..=)
+              Prelude.<$> outputLocation,
+            ("Settings" Core..=) Prelude.<$> settings,
             ("OutputEncryptionKMSKeyId" Core..=)
               Prelude.<$> outputEncryptionKMSKeyId,
-            ("OutputLocation" Core..=)
-              Prelude.<$> outputLocation,
             ("ChannelDefinitions" Core..=)
               Prelude.<$> channelDefinitions,
             Prelude.Just

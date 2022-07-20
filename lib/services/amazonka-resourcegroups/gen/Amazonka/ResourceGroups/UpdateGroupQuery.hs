@@ -35,8 +35,8 @@ module Amazonka.ResourceGroups.UpdateGroupQuery
     newUpdateGroupQuery,
 
     -- * Request Lenses
-    updateGroupQuery_group,
     updateGroupQuery_groupName,
+    updateGroupQuery_group,
     updateGroupQuery_resourceQuery,
 
     -- * Destructuring the Response
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGroupQuery' smart constructor.
 data UpdateGroupQuery = UpdateGroupQuery'
-  { -- | The name or the ARN of the resource group to query.
-    group' :: Prelude.Maybe Prelude.Text,
-    -- | Don\'t use this parameter. Use @Group@ instead.
+  { -- | Don\'t use this parameter. Use @Group@ instead.
     groupName :: Prelude.Maybe Prelude.Text,
+    -- | The name or the ARN of the resource group to query.
+    group' :: Prelude.Maybe Prelude.Text,
     -- | The resource query to determine which AWS resources are members of this
     -- resource group.
     --
@@ -79,9 +79,9 @@ data UpdateGroupQuery = UpdateGroupQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'updateGroupQuery_group' - The name or the ARN of the resource group to query.
---
 -- 'groupName', 'updateGroupQuery_groupName' - Don\'t use this parameter. Use @Group@ instead.
+--
+-- 'group'', 'updateGroupQuery_group' - The name or the ARN of the resource group to query.
 --
 -- 'resourceQuery', 'updateGroupQuery_resourceQuery' - The resource query to determine which AWS resources are members of this
 -- resource group.
@@ -94,18 +94,18 @@ newUpdateGroupQuery ::
   UpdateGroupQuery
 newUpdateGroupQuery pResourceQuery_ =
   UpdateGroupQuery'
-    { group' = Prelude.Nothing,
-      groupName = Prelude.Nothing,
+    { groupName = Prelude.Nothing,
+      group' = Prelude.Nothing,
       resourceQuery = pResourceQuery_
     }
-
--- | The name or the ARN of the resource group to query.
-updateGroupQuery_group :: Lens.Lens' UpdateGroupQuery (Prelude.Maybe Prelude.Text)
-updateGroupQuery_group = Lens.lens (\UpdateGroupQuery' {group'} -> group') (\s@UpdateGroupQuery' {} a -> s {group' = a} :: UpdateGroupQuery)
 
 -- | Don\'t use this parameter. Use @Group@ instead.
 updateGroupQuery_groupName :: Lens.Lens' UpdateGroupQuery (Prelude.Maybe Prelude.Text)
 updateGroupQuery_groupName = Lens.lens (\UpdateGroupQuery' {groupName} -> groupName) (\s@UpdateGroupQuery' {} a -> s {groupName = a} :: UpdateGroupQuery)
+
+-- | The name or the ARN of the resource group to query.
+updateGroupQuery_group :: Lens.Lens' UpdateGroupQuery (Prelude.Maybe Prelude.Text)
+updateGroupQuery_group = Lens.lens (\UpdateGroupQuery' {group'} -> group') (\s@UpdateGroupQuery' {} a -> s {group' = a} :: UpdateGroupQuery)
 
 -- | The resource query to determine which AWS resources are members of this
 -- resource group.
@@ -130,14 +130,14 @@ instance Core.AWSRequest UpdateGroupQuery where
 
 instance Prelude.Hashable UpdateGroupQuery where
   hashWithSalt _salt UpdateGroupQuery' {..} =
-    _salt `Prelude.hashWithSalt` group'
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` resourceQuery
 
 instance Prelude.NFData UpdateGroupQuery where
   rnf UpdateGroupQuery' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf group'
       `Prelude.seq` Prelude.rnf resourceQuery
 
 instance Core.ToHeaders UpdateGroupQuery where
@@ -147,8 +147,8 @@ instance Core.ToJSON UpdateGroupQuery where
   toJSON UpdateGroupQuery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Group" Core..=) Prelude.<$> group',
-            ("GroupName" Core..=) Prelude.<$> groupName,
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("Group" Core..=) Prelude.<$> group',
             Prelude.Just
               ("ResourceQuery" Core..= resourceQuery)
           ]

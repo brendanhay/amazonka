@@ -35,12 +35,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newElasticsearchDestinationConfiguration' smart constructor.
 data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfiguration'
-  { -- | The Elasticsearch index rotation period. Index rotation appends a
-    -- timestamp to the @IndexName@ to facilitate the expiration of old data.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination>.
-    -- The default value is @OneDay@.
-    indexRotationPeriod :: Prelude.Maybe ElasticsearchIndexRotationPeriod,
+  { -- | The details of the VPC of the Amazon ES destination.
+    vpcConfiguration :: Prelude.Maybe VpcConfiguration,
+    -- | The data processing configuration.
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
+    -- | The buffering options. If no value is specified, the default values for
+    -- @ElasticsearchBufferingHints@ are used.
+    bufferingHints :: Prelude.Maybe ElasticsearchBufferingHints,
+    -- | The endpoint to use when communicating with the cluster. Specify either
+    -- this @ClusterEndpoint@ or the @DomainARN@ field.
+    clusterEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Amazon ES domain. The IAM role must have permissions
+    -- for @DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and
+    -- @DescribeElasticsearchDomainConfig@ after assuming the role specified in
+    -- __RoleARN__. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    --
+    -- Specify either @ClusterEndpoint@ or @DomainARN@.
+    domainARN :: Prelude.Maybe Prelude.Text,
     -- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only
     -- one type per index. If you try to specify a new type for an existing
     -- index that already has another type, Kinesis Data Firehose returns an
@@ -48,6 +60,8 @@ data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfigurati
     --
     -- For Elasticsearch 7.x, don\'t specify a @TypeName@.
     typeName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | Defines how documents should be delivered to Amazon S3. When it is set
     -- to @FailedDocumentsOnly@, Kinesis Data Firehose writes any documents
     -- that could not be indexed to the configured Amazon S3 destination, with
@@ -61,29 +75,15 @@ data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfigurati
     --
     -- You can\'t change this backup mode after you create the delivery stream.
     s3BackupMode :: Prelude.Maybe ElasticsearchS3BackupMode,
-    -- | The ARN of the Amazon ES domain. The IAM role must have permissions
-    -- for @DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and
-    -- @DescribeElasticsearchDomainConfig@ after assuming the role specified in
-    -- __RoleARN__. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    --
-    -- Specify either @ClusterEndpoint@ or @DomainARN@.
-    domainARN :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
-    -- | The details of the VPC of the Amazon ES destination.
-    vpcConfiguration :: Prelude.Maybe VpcConfiguration,
-    -- | The buffering options. If no value is specified, the default values for
-    -- @ElasticsearchBufferingHints@ are used.
-    bufferingHints :: Prelude.Maybe ElasticsearchBufferingHints,
+    -- | The Elasticsearch index rotation period. Index rotation appends a
+    -- timestamp to the @IndexName@ to facilitate the expiration of old data.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination>.
+    -- The default value is @OneDay@.
+    indexRotationPeriod :: Prelude.Maybe ElasticsearchIndexRotationPeriod,
     -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
     -- documents to Amazon ES. The default value is 300 (5 minutes).
     retryOptions :: Prelude.Maybe ElasticsearchRetryOptions,
-    -- | The data processing configuration.
-    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
-    -- | The endpoint to use when communicating with the cluster. Specify either
-    -- this @ClusterEndpoint@ or the @DomainARN@ field.
-    clusterEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis
     -- Data Firehose for calling the Amazon ES Configuration API and for
     -- indexing documents. For more information, see
@@ -106,11 +106,23 @@ data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'indexRotationPeriod', 'elasticsearchDestinationConfiguration_indexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a
--- timestamp to the @IndexName@ to facilitate the expiration of old data.
--- For more information, see
--- <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination>.
--- The default value is @OneDay@.
+-- 'vpcConfiguration', 'elasticsearchDestinationConfiguration_vpcConfiguration' - The details of the VPC of the Amazon ES destination.
+--
+-- 'processingConfiguration', 'elasticsearchDestinationConfiguration_processingConfiguration' - The data processing configuration.
+--
+-- 'bufferingHints', 'elasticsearchDestinationConfiguration_bufferingHints' - The buffering options. If no value is specified, the default values for
+-- @ElasticsearchBufferingHints@ are used.
+--
+-- 'clusterEndpoint', 'elasticsearchDestinationConfiguration_clusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either
+-- this @ClusterEndpoint@ or the @DomainARN@ field.
+--
+-- 'domainARN', 'elasticsearchDestinationConfiguration_domainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions
+-- for @DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and
+-- @DescribeElasticsearchDomainConfig@ after assuming the role specified in
+-- __RoleARN__. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+--
+-- Specify either @ClusterEndpoint@ or @DomainARN@.
 --
 -- 'typeName', 'elasticsearchDestinationConfiguration_typeName' - The Elasticsearch type name. For Elasticsearch 6.x, there can be only
 -- one type per index. If you try to specify a new type for an existing
@@ -118,6 +130,8 @@ data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfigurati
 -- error during run time.
 --
 -- For Elasticsearch 7.x, don\'t specify a @TypeName@.
+--
+-- 'cloudWatchLoggingOptions', 'elasticsearchDestinationConfiguration_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
 --
 -- 's3BackupMode', 'elasticsearchDestinationConfiguration_s3BackupMode' - Defines how documents should be delivered to Amazon S3. When it is set
 -- to @FailedDocumentsOnly@, Kinesis Data Firehose writes any documents
@@ -132,28 +146,14 @@ data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfigurati
 --
 -- You can\'t change this backup mode after you create the delivery stream.
 --
--- 'domainARN', 'elasticsearchDestinationConfiguration_domainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions
--- for @DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and
--- @DescribeElasticsearchDomainConfig@ after assuming the role specified in
--- __RoleARN__. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
---
--- Specify either @ClusterEndpoint@ or @DomainARN@.
---
--- 'cloudWatchLoggingOptions', 'elasticsearchDestinationConfiguration_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
---
--- 'vpcConfiguration', 'elasticsearchDestinationConfiguration_vpcConfiguration' - The details of the VPC of the Amazon ES destination.
---
--- 'bufferingHints', 'elasticsearchDestinationConfiguration_bufferingHints' - The buffering options. If no value is specified, the default values for
--- @ElasticsearchBufferingHints@ are used.
+-- 'indexRotationPeriod', 'elasticsearchDestinationConfiguration_indexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a
+-- timestamp to the @IndexName@ to facilitate the expiration of old data.
+-- For more information, see
+-- <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination>.
+-- The default value is @OneDay@.
 --
 -- 'retryOptions', 'elasticsearchDestinationConfiguration_retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver
 -- documents to Amazon ES. The default value is 300 (5 minutes).
---
--- 'processingConfiguration', 'elasticsearchDestinationConfiguration_processingConfiguration' - The data processing configuration.
---
--- 'clusterEndpoint', 'elasticsearchDestinationConfiguration_clusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either
--- this @ClusterEndpoint@ or the @DomainARN@ field.
 --
 -- 'roleARN', 'elasticsearchDestinationConfiguration_roleARN' - The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis
 -- Data Firehose for calling the Amazon ES Configuration API and for
@@ -178,31 +178,52 @@ newElasticsearchDestinationConfiguration
   pIndexName_
   pS3Configuration_ =
     ElasticsearchDestinationConfiguration'
-      { indexRotationPeriod =
+      { vpcConfiguration =
           Prelude.Nothing,
-        typeName = Prelude.Nothing,
-        s3BackupMode = Prelude.Nothing,
-        domainARN = Prelude.Nothing,
-        cloudWatchLoggingOptions =
-          Prelude.Nothing,
-        vpcConfiguration = Prelude.Nothing,
-        bufferingHints = Prelude.Nothing,
-        retryOptions = Prelude.Nothing,
         processingConfiguration =
           Prelude.Nothing,
+        bufferingHints = Prelude.Nothing,
         clusterEndpoint = Prelude.Nothing,
+        domainARN = Prelude.Nothing,
+        typeName = Prelude.Nothing,
+        cloudWatchLoggingOptions =
+          Prelude.Nothing,
+        s3BackupMode = Prelude.Nothing,
+        indexRotationPeriod =
+          Prelude.Nothing,
+        retryOptions = Prelude.Nothing,
         roleARN = pRoleARN_,
         indexName = pIndexName_,
         s3Configuration = pS3Configuration_
       }
 
--- | The Elasticsearch index rotation period. Index rotation appends a
--- timestamp to the @IndexName@ to facilitate the expiration of old data.
--- For more information, see
--- <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination>.
--- The default value is @OneDay@.
-elasticsearchDestinationConfiguration_indexRotationPeriod :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe ElasticsearchIndexRotationPeriod)
-elasticsearchDestinationConfiguration_indexRotationPeriod = Lens.lens (\ElasticsearchDestinationConfiguration' {indexRotationPeriod} -> indexRotationPeriod) (\s@ElasticsearchDestinationConfiguration' {} a -> s {indexRotationPeriod = a} :: ElasticsearchDestinationConfiguration)
+-- | The details of the VPC of the Amazon ES destination.
+elasticsearchDestinationConfiguration_vpcConfiguration :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe VpcConfiguration)
+elasticsearchDestinationConfiguration_vpcConfiguration = Lens.lens (\ElasticsearchDestinationConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@ElasticsearchDestinationConfiguration' {} a -> s {vpcConfiguration = a} :: ElasticsearchDestinationConfiguration)
+
+-- | The data processing configuration.
+elasticsearchDestinationConfiguration_processingConfiguration :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe ProcessingConfiguration)
+elasticsearchDestinationConfiguration_processingConfiguration = Lens.lens (\ElasticsearchDestinationConfiguration' {processingConfiguration} -> processingConfiguration) (\s@ElasticsearchDestinationConfiguration' {} a -> s {processingConfiguration = a} :: ElasticsearchDestinationConfiguration)
+
+-- | The buffering options. If no value is specified, the default values for
+-- @ElasticsearchBufferingHints@ are used.
+elasticsearchDestinationConfiguration_bufferingHints :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe ElasticsearchBufferingHints)
+elasticsearchDestinationConfiguration_bufferingHints = Lens.lens (\ElasticsearchDestinationConfiguration' {bufferingHints} -> bufferingHints) (\s@ElasticsearchDestinationConfiguration' {} a -> s {bufferingHints = a} :: ElasticsearchDestinationConfiguration)
+
+-- | The endpoint to use when communicating with the cluster. Specify either
+-- this @ClusterEndpoint@ or the @DomainARN@ field.
+elasticsearchDestinationConfiguration_clusterEndpoint :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe Prelude.Text)
+elasticsearchDestinationConfiguration_clusterEndpoint = Lens.lens (\ElasticsearchDestinationConfiguration' {clusterEndpoint} -> clusterEndpoint) (\s@ElasticsearchDestinationConfiguration' {} a -> s {clusterEndpoint = a} :: ElasticsearchDestinationConfiguration)
+
+-- | The ARN of the Amazon ES domain. The IAM role must have permissions
+-- for @DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and
+-- @DescribeElasticsearchDomainConfig@ after assuming the role specified in
+-- __RoleARN__. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+--
+-- Specify either @ClusterEndpoint@ or @DomainARN@.
+elasticsearchDestinationConfiguration_domainARN :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe Prelude.Text)
+elasticsearchDestinationConfiguration_domainARN = Lens.lens (\ElasticsearchDestinationConfiguration' {domainARN} -> domainARN) (\s@ElasticsearchDestinationConfiguration' {} a -> s {domainARN = a} :: ElasticsearchDestinationConfiguration)
 
 -- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only
 -- one type per index. If you try to specify a new type for an existing
@@ -212,6 +233,10 @@ elasticsearchDestinationConfiguration_indexRotationPeriod = Lens.lens (\Elastics
 -- For Elasticsearch 7.x, don\'t specify a @TypeName@.
 elasticsearchDestinationConfiguration_typeName :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationConfiguration_typeName = Lens.lens (\ElasticsearchDestinationConfiguration' {typeName} -> typeName) (\s@ElasticsearchDestinationConfiguration' {} a -> s {typeName = a} :: ElasticsearchDestinationConfiguration)
+
+-- | The Amazon CloudWatch logging options for your delivery stream.
+elasticsearchDestinationConfiguration_cloudWatchLoggingOptions :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe CloudWatchLoggingOptions)
+elasticsearchDestinationConfiguration_cloudWatchLoggingOptions = Lens.lens (\ElasticsearchDestinationConfiguration' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ElasticsearchDestinationConfiguration' {} a -> s {cloudWatchLoggingOptions = a} :: ElasticsearchDestinationConfiguration)
 
 -- | Defines how documents should be delivered to Amazon S3. When it is set
 -- to @FailedDocumentsOnly@, Kinesis Data Firehose writes any documents
@@ -228,42 +253,18 @@ elasticsearchDestinationConfiguration_typeName = Lens.lens (\ElasticsearchDestin
 elasticsearchDestinationConfiguration_s3BackupMode :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe ElasticsearchS3BackupMode)
 elasticsearchDestinationConfiguration_s3BackupMode = Lens.lens (\ElasticsearchDestinationConfiguration' {s3BackupMode} -> s3BackupMode) (\s@ElasticsearchDestinationConfiguration' {} a -> s {s3BackupMode = a} :: ElasticsearchDestinationConfiguration)
 
--- | The ARN of the Amazon ES domain. The IAM role must have permissions
--- for @DescribeElasticsearchDomain@, @DescribeElasticsearchDomains@, and
--- @DescribeElasticsearchDomainConfig@ after assuming the role specified in
--- __RoleARN__. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
---
--- Specify either @ClusterEndpoint@ or @DomainARN@.
-elasticsearchDestinationConfiguration_domainARN :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe Prelude.Text)
-elasticsearchDestinationConfiguration_domainARN = Lens.lens (\ElasticsearchDestinationConfiguration' {domainARN} -> domainARN) (\s@ElasticsearchDestinationConfiguration' {} a -> s {domainARN = a} :: ElasticsearchDestinationConfiguration)
-
--- | The Amazon CloudWatch logging options for your delivery stream.
-elasticsearchDestinationConfiguration_cloudWatchLoggingOptions :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe CloudWatchLoggingOptions)
-elasticsearchDestinationConfiguration_cloudWatchLoggingOptions = Lens.lens (\ElasticsearchDestinationConfiguration' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ElasticsearchDestinationConfiguration' {} a -> s {cloudWatchLoggingOptions = a} :: ElasticsearchDestinationConfiguration)
-
--- | The details of the VPC of the Amazon ES destination.
-elasticsearchDestinationConfiguration_vpcConfiguration :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe VpcConfiguration)
-elasticsearchDestinationConfiguration_vpcConfiguration = Lens.lens (\ElasticsearchDestinationConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@ElasticsearchDestinationConfiguration' {} a -> s {vpcConfiguration = a} :: ElasticsearchDestinationConfiguration)
-
--- | The buffering options. If no value is specified, the default values for
--- @ElasticsearchBufferingHints@ are used.
-elasticsearchDestinationConfiguration_bufferingHints :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe ElasticsearchBufferingHints)
-elasticsearchDestinationConfiguration_bufferingHints = Lens.lens (\ElasticsearchDestinationConfiguration' {bufferingHints} -> bufferingHints) (\s@ElasticsearchDestinationConfiguration' {} a -> s {bufferingHints = a} :: ElasticsearchDestinationConfiguration)
+-- | The Elasticsearch index rotation period. Index rotation appends a
+-- timestamp to the @IndexName@ to facilitate the expiration of old data.
+-- For more information, see
+-- <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination>.
+-- The default value is @OneDay@.
+elasticsearchDestinationConfiguration_indexRotationPeriod :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe ElasticsearchIndexRotationPeriod)
+elasticsearchDestinationConfiguration_indexRotationPeriod = Lens.lens (\ElasticsearchDestinationConfiguration' {indexRotationPeriod} -> indexRotationPeriod) (\s@ElasticsearchDestinationConfiguration' {} a -> s {indexRotationPeriod = a} :: ElasticsearchDestinationConfiguration)
 
 -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
 -- documents to Amazon ES. The default value is 300 (5 minutes).
 elasticsearchDestinationConfiguration_retryOptions :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe ElasticsearchRetryOptions)
 elasticsearchDestinationConfiguration_retryOptions = Lens.lens (\ElasticsearchDestinationConfiguration' {retryOptions} -> retryOptions) (\s@ElasticsearchDestinationConfiguration' {} a -> s {retryOptions = a} :: ElasticsearchDestinationConfiguration)
-
--- | The data processing configuration.
-elasticsearchDestinationConfiguration_processingConfiguration :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe ProcessingConfiguration)
-elasticsearchDestinationConfiguration_processingConfiguration = Lens.lens (\ElasticsearchDestinationConfiguration' {processingConfiguration} -> processingConfiguration) (\s@ElasticsearchDestinationConfiguration' {} a -> s {processingConfiguration = a} :: ElasticsearchDestinationConfiguration)
-
--- | The endpoint to use when communicating with the cluster. Specify either
--- this @ClusterEndpoint@ or the @DomainARN@ field.
-elasticsearchDestinationConfiguration_clusterEndpoint :: Lens.Lens' ElasticsearchDestinationConfiguration (Prelude.Maybe Prelude.Text)
-elasticsearchDestinationConfiguration_clusterEndpoint = Lens.lens (\ElasticsearchDestinationConfiguration' {clusterEndpoint} -> clusterEndpoint) (\s@ElasticsearchDestinationConfiguration' {} a -> s {clusterEndpoint = a} :: ElasticsearchDestinationConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis
 -- Data Firehose for calling the Amazon ES Configuration API and for
@@ -289,16 +290,16 @@ instance
   hashWithSalt
     _salt
     ElasticsearchDestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` indexRotationPeriod
-        `Prelude.hashWithSalt` typeName
-        `Prelude.hashWithSalt` s3BackupMode
-        `Prelude.hashWithSalt` domainARN
-        `Prelude.hashWithSalt` cloudWatchLoggingOptions
-        `Prelude.hashWithSalt` vpcConfiguration
-        `Prelude.hashWithSalt` bufferingHints
-        `Prelude.hashWithSalt` retryOptions
+      _salt `Prelude.hashWithSalt` vpcConfiguration
         `Prelude.hashWithSalt` processingConfiguration
+        `Prelude.hashWithSalt` bufferingHints
         `Prelude.hashWithSalt` clusterEndpoint
+        `Prelude.hashWithSalt` domainARN
+        `Prelude.hashWithSalt` typeName
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` s3BackupMode
+        `Prelude.hashWithSalt` indexRotationPeriod
+        `Prelude.hashWithSalt` retryOptions
         `Prelude.hashWithSalt` roleARN
         `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` s3Configuration
@@ -308,16 +309,16 @@ instance
     ElasticsearchDestinationConfiguration
   where
   rnf ElasticsearchDestinationConfiguration' {..} =
-    Prelude.rnf indexRotationPeriod
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf domainARN
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf bufferingHints
-      `Prelude.seq` Prelude.rnf retryOptions
+    Prelude.rnf vpcConfiguration
       `Prelude.seq` Prelude.rnf processingConfiguration
+      `Prelude.seq` Prelude.rnf bufferingHints
       `Prelude.seq` Prelude.rnf clusterEndpoint
+      `Prelude.seq` Prelude.rnf domainARN
+      `Prelude.seq` Prelude.rnf typeName
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf indexRotationPeriod
+      `Prelude.seq` Prelude.rnf retryOptions
       `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf s3Configuration
@@ -329,22 +330,22 @@ instance
   toJSON ElasticsearchDestinationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IndexRotationPeriod" Core..=)
-              Prelude.<$> indexRotationPeriod,
-            ("TypeName" Core..=) Prelude.<$> typeName,
-            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
-            ("DomainARN" Core..=) Prelude.<$> domainARN,
-            ("CloudWatchLoggingOptions" Core..=)
-              Prelude.<$> cloudWatchLoggingOptions,
-            ("VpcConfiguration" Core..=)
+          [ ("VpcConfiguration" Core..=)
               Prelude.<$> vpcConfiguration,
-            ("BufferingHints" Core..=)
-              Prelude.<$> bufferingHints,
-            ("RetryOptions" Core..=) Prelude.<$> retryOptions,
             ("ProcessingConfiguration" Core..=)
               Prelude.<$> processingConfiguration,
+            ("BufferingHints" Core..=)
+              Prelude.<$> bufferingHints,
             ("ClusterEndpoint" Core..=)
               Prelude.<$> clusterEndpoint,
+            ("DomainARN" Core..=) Prelude.<$> domainARN,
+            ("TypeName" Core..=) Prelude.<$> typeName,
+            ("CloudWatchLoggingOptions" Core..=)
+              Prelude.<$> cloudWatchLoggingOptions,
+            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
+            ("IndexRotationPeriod" Core..=)
+              Prelude.<$> indexRotationPeriod,
+            ("RetryOptions" Core..=) Prelude.<$> retryOptions,
             Prelude.Just ("RoleARN" Core..= roleARN),
             Prelude.Just ("IndexName" Core..= indexName),
             Prelude.Just

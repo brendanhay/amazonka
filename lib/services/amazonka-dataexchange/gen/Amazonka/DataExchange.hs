@@ -39,20 +39,8 @@ module Amazonka.DataExchange
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceLimitExceededException
-    _ServiceLimitExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
@@ -60,89 +48,29 @@ module Amazonka.DataExchange
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ServiceLimitExceededException
+    _ServiceLimitExceededException,
+
+    -- ** ValidationException
+    _ValidationException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** GetEventAction
-    GetEventAction (GetEventAction'),
-    newGetEventAction,
-    GetEventActionResponse (GetEventActionResponse'),
-    newGetEventActionResponse,
-
-    -- ** CreateRevision
-    CreateRevision (CreateRevision'),
-    newCreateRevision,
-    CreateRevisionResponse (CreateRevisionResponse'),
-    newCreateRevisionResponse,
-
-    -- ** ListRevisionAssets (Paginated)
-    ListRevisionAssets (ListRevisionAssets'),
-    newListRevisionAssets,
-    ListRevisionAssetsResponse (ListRevisionAssetsResponse'),
-    newListRevisionAssetsResponse,
-
-    -- ** DeleteRevision
-    DeleteRevision (DeleteRevision'),
-    newDeleteRevision,
-    DeleteRevisionResponse (DeleteRevisionResponse'),
-    newDeleteRevisionResponse,
-
-    -- ** UpdateRevision
-    UpdateRevision (UpdateRevision'),
-    newUpdateRevision,
-    UpdateRevisionResponse (UpdateRevisionResponse'),
-    newUpdateRevisionResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetRevision
-    GetRevision (GetRevision'),
-    newGetRevision,
-    GetRevisionResponse (GetRevisionResponse'),
-    newGetRevisionResponse,
-
-    -- ** DeleteDataSet
-    DeleteDataSet (DeleteDataSet'),
-    newDeleteDataSet,
-    DeleteDataSetResponse (DeleteDataSetResponse'),
-    newDeleteDataSetResponse,
-
-    -- ** UpdateDataSet
-    UpdateDataSet (UpdateDataSet'),
-    newUpdateDataSet,
-    UpdateDataSetResponse (UpdateDataSetResponse'),
-    newUpdateDataSetResponse,
-
-    -- ** CreateJob
-    CreateJob (CreateJob'),
-    newCreateJob,
-    CreateJobResponse (CreateJobResponse'),
-    newCreateJobResponse,
-
-    -- ** ListEventActions (Paginated)
-    ListEventActions (ListEventActions'),
-    newListEventActions,
-    ListEventActionsResponse (ListEventActionsResponse'),
-    newListEventActionsResponse,
-
-    -- ** GetAsset
-    GetAsset (GetAsset'),
-    newGetAsset,
-    GetAssetResponse (GetAssetResponse'),
-    newGetAssetResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- ** CreateDataSet
     CreateDataSet (CreateDataSet'),
@@ -150,17 +78,65 @@ module Amazonka.DataExchange
     CreateDataSetResponse (CreateDataSetResponse'),
     newCreateDataSetResponse,
 
+    -- ** CreateEventAction
+    CreateEventAction (CreateEventAction'),
+    newCreateEventAction,
+    CreateEventActionResponse (CreateEventActionResponse'),
+    newCreateEventActionResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** CreateRevision
+    CreateRevision (CreateRevision'),
+    newCreateRevision,
+    CreateRevisionResponse (CreateRevisionResponse'),
+    newCreateRevisionResponse,
+
     -- ** DeleteAsset
     DeleteAsset (DeleteAsset'),
     newDeleteAsset,
     DeleteAssetResponse (DeleteAssetResponse'),
     newDeleteAssetResponse,
 
-    -- ** UpdateAsset
-    UpdateAsset (UpdateAsset'),
-    newUpdateAsset,
-    UpdateAssetResponse (UpdateAssetResponse'),
-    newUpdateAssetResponse,
+    -- ** DeleteDataSet
+    DeleteDataSet (DeleteDataSet'),
+    newDeleteDataSet,
+    DeleteDataSetResponse (DeleteDataSetResponse'),
+    newDeleteDataSetResponse,
+
+    -- ** DeleteEventAction
+    DeleteEventAction (DeleteEventAction'),
+    newDeleteEventAction,
+    DeleteEventActionResponse (DeleteEventActionResponse'),
+    newDeleteEventActionResponse,
+
+    -- ** DeleteRevision
+    DeleteRevision (DeleteRevision'),
+    newDeleteRevision,
+    DeleteRevisionResponse (DeleteRevisionResponse'),
+    newDeleteRevisionResponse,
+
+    -- ** GetAsset
+    GetAsset (GetAsset'),
+    newGetAsset,
+    GetAssetResponse (GetAssetResponse'),
+    newGetAssetResponse,
+
+    -- ** GetDataSet
+    GetDataSet (GetDataSet'),
+    newGetDataSet,
+    GetDataSetResponse (GetDataSetResponse'),
+    newGetDataSetResponse,
+
+    -- ** GetEventAction
+    GetEventAction (GetEventAction'),
+    newGetEventAction,
+    GetEventActionResponse (GetEventActionResponse'),
+    newGetEventActionResponse,
 
     -- ** GetJob
     GetJob (GetJob'),
@@ -168,11 +144,47 @@ module Amazonka.DataExchange
     GetJobResponse (GetJobResponse'),
     newGetJobResponse,
 
-    -- ** GetDataSet
-    GetDataSet (GetDataSet'),
-    newGetDataSet,
-    GetDataSetResponse (GetDataSetResponse'),
-    newGetDataSetResponse,
+    -- ** GetRevision
+    GetRevision (GetRevision'),
+    newGetRevision,
+    GetRevisionResponse (GetRevisionResponse'),
+    newGetRevisionResponse,
+
+    -- ** ListDataSetRevisions (Paginated)
+    ListDataSetRevisions (ListDataSetRevisions'),
+    newListDataSetRevisions,
+    ListDataSetRevisionsResponse (ListDataSetRevisionsResponse'),
+    newListDataSetRevisionsResponse,
+
+    -- ** ListDataSets (Paginated)
+    ListDataSets (ListDataSets'),
+    newListDataSets,
+    ListDataSetsResponse (ListDataSetsResponse'),
+    newListDataSetsResponse,
+
+    -- ** ListEventActions (Paginated)
+    ListEventActions (ListEventActions'),
+    newListEventActions,
+    ListEventActionsResponse (ListEventActionsResponse'),
+    newListEventActionsResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** ListRevisionAssets (Paginated)
+    ListRevisionAssets (ListRevisionAssets'),
+    newListRevisionAssets,
+    ListRevisionAssetsResponse (ListRevisionAssetsResponse'),
+    newListRevisionAssetsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** StartJob
     StartJob (StartJob'),
@@ -186,17 +198,23 @@ module Amazonka.DataExchange
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** ListDataSetRevisions (Paginated)
-    ListDataSetRevisions (ListDataSetRevisions'),
-    newListDataSetRevisions,
-    ListDataSetRevisionsResponse (ListDataSetRevisionsResponse'),
-    newListDataSetRevisionsResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
-    -- ** DeleteEventAction
-    DeleteEventAction (DeleteEventAction'),
-    newDeleteEventAction,
-    DeleteEventActionResponse (DeleteEventActionResponse'),
-    newDeleteEventActionResponse,
+    -- ** UpdateAsset
+    UpdateAsset (UpdateAsset'),
+    newUpdateAsset,
+    UpdateAssetResponse (UpdateAssetResponse'),
+    newUpdateAssetResponse,
+
+    -- ** UpdateDataSet
+    UpdateDataSet (UpdateDataSet'),
+    newUpdateDataSet,
+    UpdateDataSetResponse (UpdateDataSetResponse'),
+    newUpdateDataSetResponse,
 
     -- ** UpdateEventAction
     UpdateEventAction (UpdateEventAction'),
@@ -204,29 +222,11 @@ module Amazonka.DataExchange
     UpdateEventActionResponse (UpdateEventActionResponse'),
     newUpdateEventActionResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** ListDataSets (Paginated)
-    ListDataSets (ListDataSets'),
-    newListDataSets,
-    ListDataSetsResponse (ListDataSetsResponse'),
-    newListDataSetsResponse,
-
-    -- ** CreateEventAction
-    CreateEventAction (CreateEventAction'),
-    newCreateEventAction,
-    CreateEventActionResponse (CreateEventActionResponse'),
-    newCreateEventActionResponse,
-
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
+    -- ** UpdateRevision
+    UpdateRevision (UpdateRevision'),
+    newUpdateRevision,
+    UpdateRevisionResponse (UpdateRevisionResponse'),
+    newUpdateRevisionResponse,
 
     -- * Types
 

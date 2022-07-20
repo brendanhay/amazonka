@@ -35,8 +35,8 @@ module Amazonka.FIS.ListExperimentTemplates
     newListExperimentTemplatesResponse,
 
     -- * Response Lenses
-    listExperimentTemplatesResponse_nextToken,
     listExperimentTemplatesResponse_experimentTemplates,
+    listExperimentTemplatesResponse_nextToken,
     listExperimentTemplatesResponse_httpStatus,
   )
 where
@@ -100,10 +100,10 @@ instance Core.AWSRequest ListExperimentTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListExperimentTemplatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "experimentTemplates"
+            Prelude.<$> ( x Core..?> "experimentTemplates"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,11 +140,11 @@ instance Core.ToQuery ListExperimentTemplates where
 
 -- | /See:/ 'newListExperimentTemplatesResponse' smart constructor.
 data ListExperimentTemplatesResponse = ListExperimentTemplatesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The experiment templates.
+    experimentTemplates :: Prelude.Maybe [ExperimentTemplateSummary],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The experiment templates.
-    experimentTemplates :: Prelude.Maybe [ExperimentTemplateSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,10 +158,10 @@ data ListExperimentTemplatesResponse = ListExperimentTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'experimentTemplates', 'listExperimentTemplatesResponse_experimentTemplates' - The experiment templates.
+--
 -- 'nextToken', 'listExperimentTemplatesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'experimentTemplates', 'listExperimentTemplatesResponse_experimentTemplates' - The experiment templates.
 --
 -- 'httpStatus', 'listExperimentTemplatesResponse_httpStatus' - The response's http status code.
 newListExperimentTemplatesResponse ::
@@ -170,20 +170,20 @@ newListExperimentTemplatesResponse ::
   ListExperimentTemplatesResponse
 newListExperimentTemplatesResponse pHttpStatus_ =
   ListExperimentTemplatesResponse'
-    { nextToken =
+    { experimentTemplates =
         Prelude.Nothing,
-      experimentTemplates = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The experiment templates.
+listExperimentTemplatesResponse_experimentTemplates :: Lens.Lens' ListExperimentTemplatesResponse (Prelude.Maybe [ExperimentTemplateSummary])
+listExperimentTemplatesResponse_experimentTemplates = Lens.lens (\ListExperimentTemplatesResponse' {experimentTemplates} -> experimentTemplates) (\s@ListExperimentTemplatesResponse' {} a -> s {experimentTemplates = a} :: ListExperimentTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 listExperimentTemplatesResponse_nextToken :: Lens.Lens' ListExperimentTemplatesResponse (Prelude.Maybe Prelude.Text)
 listExperimentTemplatesResponse_nextToken = Lens.lens (\ListExperimentTemplatesResponse' {nextToken} -> nextToken) (\s@ListExperimentTemplatesResponse' {} a -> s {nextToken = a} :: ListExperimentTemplatesResponse)
-
--- | The experiment templates.
-listExperimentTemplatesResponse_experimentTemplates :: Lens.Lens' ListExperimentTemplatesResponse (Prelude.Maybe [ExperimentTemplateSummary])
-listExperimentTemplatesResponse_experimentTemplates = Lens.lens (\ListExperimentTemplatesResponse' {experimentTemplates} -> experimentTemplates) (\s@ListExperimentTemplatesResponse' {} a -> s {experimentTemplates = a} :: ListExperimentTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listExperimentTemplatesResponse_httpStatus :: Lens.Lens' ListExperimentTemplatesResponse Prelude.Int
@@ -194,6 +194,6 @@ instance
     ListExperimentTemplatesResponse
   where
   rnf ListExperimentTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf experimentTemplates
+    Prelude.rnf experimentTemplates
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

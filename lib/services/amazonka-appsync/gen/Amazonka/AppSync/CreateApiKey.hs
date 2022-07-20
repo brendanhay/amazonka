@@ -28,8 +28,8 @@ module Amazonka.AppSync.CreateApiKey
     newCreateApiKey,
 
     -- * Request Lenses
-    createApiKey_expires,
     createApiKey_description,
+    createApiKey_expires,
     createApiKey_apiId,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApiKey' smart constructor.
 data CreateApiKey = CreateApiKey'
-  { -- | The time from creation time after which the API key expires. The date is
+  { -- | A description of the purpose of the API key.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The time from creation time after which the API key expires. The date is
     -- represented as seconds since the epoch, rounded down to the nearest
     -- hour. The default value for this parameter is 7 days from creation time.
     -- For more information, see .
     expires :: Prelude.Maybe Prelude.Integer,
-    -- | A description of the purpose of the API key.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ID for your GraphQL API.
     apiId :: Prelude.Text
   }
@@ -71,12 +71,12 @@ data CreateApiKey = CreateApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createApiKey_description' - A description of the purpose of the API key.
+--
 -- 'expires', 'createApiKey_expires' - The time from creation time after which the API key expires. The date is
 -- represented as seconds since the epoch, rounded down to the nearest
 -- hour. The default value for this parameter is 7 days from creation time.
 -- For more information, see .
---
--- 'description', 'createApiKey_description' - A description of the purpose of the API key.
 --
 -- 'apiId', 'createApiKey_apiId' - The ID for your GraphQL API.
 newCreateApiKey ::
@@ -85,10 +85,14 @@ newCreateApiKey ::
   CreateApiKey
 newCreateApiKey pApiId_ =
   CreateApiKey'
-    { expires = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      expires = Prelude.Nothing,
       apiId = pApiId_
     }
+
+-- | A description of the purpose of the API key.
+createApiKey_description :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
+createApiKey_description = Lens.lens (\CreateApiKey' {description} -> description) (\s@CreateApiKey' {} a -> s {description = a} :: CreateApiKey)
 
 -- | The time from creation time after which the API key expires. The date is
 -- represented as seconds since the epoch, rounded down to the nearest
@@ -96,10 +100,6 @@ newCreateApiKey pApiId_ =
 -- For more information, see .
 createApiKey_expires :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Integer)
 createApiKey_expires = Lens.lens (\CreateApiKey' {expires} -> expires) (\s@CreateApiKey' {} a -> s {expires = a} :: CreateApiKey)
-
--- | A description of the purpose of the API key.
-createApiKey_description :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
-createApiKey_description = Lens.lens (\CreateApiKey' {description} -> description) (\s@CreateApiKey' {} a -> s {description = a} :: CreateApiKey)
 
 -- | The ID for your GraphQL API.
 createApiKey_apiId :: Lens.Lens' CreateApiKey Prelude.Text
@@ -118,14 +118,14 @@ instance Core.AWSRequest CreateApiKey where
 
 instance Prelude.Hashable CreateApiKey where
   hashWithSalt _salt CreateApiKey' {..} =
-    _salt `Prelude.hashWithSalt` expires
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` expires
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData CreateApiKey where
   rnf CreateApiKey' {..} =
-    Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf expires
       `Prelude.seq` Prelude.rnf apiId
 
 instance Core.ToHeaders CreateApiKey where
@@ -143,8 +143,8 @@ instance Core.ToJSON CreateApiKey where
   toJSON CreateApiKey' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("expires" Core..=) Prelude.<$> expires,
-            ("description" Core..=) Prelude.<$> description
+          [ ("description" Core..=) Prelude.<$> description,
+            ("expires" Core..=) Prelude.<$> expires
           ]
       )
 

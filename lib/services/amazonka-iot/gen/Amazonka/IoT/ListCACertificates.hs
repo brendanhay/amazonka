@@ -38,8 +38,8 @@ module Amazonka.IoT.ListCACertificates
 
     -- * Request Lenses
     listCACertificates_marker,
-    listCACertificates_ascendingOrder,
     listCACertificates_pageSize,
+    listCACertificates_ascendingOrder,
 
     -- * Destructuring the Response
     ListCACertificatesResponse (..),
@@ -65,10 +65,10 @@ import qualified Amazonka.Response as Response
 data ListCACertificates = ListCACertificates'
   { -- | The marker for the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Determines the order of the results.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool,
     -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | Determines the order of the results.
+    ascendingOrder :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,29 +82,29 @@ data ListCACertificates = ListCACertificates'
 --
 -- 'marker', 'listCACertificates_marker' - The marker for the next set of results.
 --
--- 'ascendingOrder', 'listCACertificates_ascendingOrder' - Determines the order of the results.
---
 -- 'pageSize', 'listCACertificates_pageSize' - The result page size.
+--
+-- 'ascendingOrder', 'listCACertificates_ascendingOrder' - Determines the order of the results.
 newListCACertificates ::
   ListCACertificates
 newListCACertificates =
   ListCACertificates'
     { marker = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+      pageSize = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing
     }
 
 -- | The marker for the next set of results.
 listCACertificates_marker :: Lens.Lens' ListCACertificates (Prelude.Maybe Prelude.Text)
 listCACertificates_marker = Lens.lens (\ListCACertificates' {marker} -> marker) (\s@ListCACertificates' {} a -> s {marker = a} :: ListCACertificates)
 
--- | Determines the order of the results.
-listCACertificates_ascendingOrder :: Lens.Lens' ListCACertificates (Prelude.Maybe Prelude.Bool)
-listCACertificates_ascendingOrder = Lens.lens (\ListCACertificates' {ascendingOrder} -> ascendingOrder) (\s@ListCACertificates' {} a -> s {ascendingOrder = a} :: ListCACertificates)
-
 -- | The result page size.
 listCACertificates_pageSize :: Lens.Lens' ListCACertificates (Prelude.Maybe Prelude.Natural)
 listCACertificates_pageSize = Lens.lens (\ListCACertificates' {pageSize} -> pageSize) (\s@ListCACertificates' {} a -> s {pageSize = a} :: ListCACertificates)
+
+-- | Determines the order of the results.
+listCACertificates_ascendingOrder :: Lens.Lens' ListCACertificates (Prelude.Maybe Prelude.Bool)
+listCACertificates_ascendingOrder = Lens.lens (\ListCACertificates' {ascendingOrder} -> ascendingOrder) (\s@ListCACertificates' {} a -> s {ascendingOrder = a} :: ListCACertificates)
 
 instance Core.AWSPager ListCACertificates where
   page rq rs
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListCACertificates where
 instance Prelude.Hashable ListCACertificates where
   hashWithSalt _salt ListCACertificates' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` ascendingOrder
 
 instance Prelude.NFData ListCACertificates where
   rnf ListCACertificates' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf ascendingOrder
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf ascendingOrder
 
 instance Core.ToHeaders ListCACertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,8 +164,8 @@ instance Core.ToQuery ListCACertificates where
   toQuery ListCACertificates' {..} =
     Prelude.mconcat
       [ "marker" Core.=: marker,
-        "isAscendingOrder" Core.=: ascendingOrder,
-        "pageSize" Core.=: pageSize
+        "pageSize" Core.=: pageSize,
+        "isAscendingOrder" Core.=: ascendingOrder
       ]
 
 -- | The output from the ListCACertificates operation.

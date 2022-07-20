@@ -36,9 +36,9 @@ module Amazonka.Lightsail.GetOperationsForResource
     newGetOperationsForResourceResponse,
 
     -- * Response Lenses
-    getOperationsForResourceResponse_nextPageCount,
-    getOperationsForResourceResponse_nextPageToken,
     getOperationsForResourceResponse_operations,
+    getOperationsForResourceResponse_nextPageToken,
+    getOperationsForResourceResponse_nextPageCount,
     getOperationsForResourceResponse_httpStatus,
   )
 where
@@ -113,9 +113,9 @@ instance Core.AWSRequest GetOperationsForResource where
     Response.receiveJSON
       ( \s h x ->
           GetOperationsForResourceResponse'
-            Prelude.<$> (x Core..?> "nextPageCount")
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextPageCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,12 +161,10 @@ instance Core.ToQuery GetOperationsForResource where
 
 -- | /See:/ 'newGetOperationsForResourceResponse' smart constructor.
 data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
-  { -- | (Deprecated) Returns the number of pages of results that remain.
-    --
-    -- In releases prior to June 12, 2017, this parameter returned @null@ by
-    -- the API. It is now deprecated, and the API returns the @next page token@
-    -- parameter instead.
-    nextPageCount :: Prelude.Maybe Prelude.Text,
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operations :: Prelude.Maybe [Operation],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -176,10 +174,12 @@ data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
     -- @GetOperationsForResource@ request and specify the next page token using
     -- the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that describe the result of the action, such as the
-    -- status of the request, the timestamp of the request, and the resources
-    -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    -- | (Deprecated) Returns the number of pages of results that remain.
+    --
+    -- In releases prior to June 12, 2017, this parameter returned @null@ by
+    -- the API. It is now deprecated, and the API returns the @next page token@
+    -- parameter instead.
+    nextPageCount :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,11 +193,9 @@ data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageCount', 'getOperationsForResourceResponse_nextPageCount' - (Deprecated) Returns the number of pages of results that remain.
---
--- In releases prior to June 12, 2017, this parameter returned @null@ by
--- the API. It is now deprecated, and the API returns the @next page token@
--- parameter instead.
+-- 'operations', 'getOperationsForResourceResponse_operations' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
 --
 -- 'nextPageToken', 'getOperationsForResourceResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
@@ -208,9 +206,11 @@ data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
 -- @GetOperationsForResource@ request and specify the next page token using
 -- the @pageToken@ parameter.
 --
--- 'operations', 'getOperationsForResourceResponse_operations' - An array of objects that describe the result of the action, such as the
--- status of the request, the timestamp of the request, and the resources
--- affected by the request.
+-- 'nextPageCount', 'getOperationsForResourceResponse_nextPageCount' - (Deprecated) Returns the number of pages of results that remain.
+--
+-- In releases prior to June 12, 2017, this parameter returned @null@ by
+-- the API. It is now deprecated, and the API returns the @next page token@
+-- parameter instead.
 --
 -- 'httpStatus', 'getOperationsForResourceResponse_httpStatus' - The response's http status code.
 newGetOperationsForResourceResponse ::
@@ -219,20 +219,18 @@ newGetOperationsForResourceResponse ::
   GetOperationsForResourceResponse
 newGetOperationsForResourceResponse pHttpStatus_ =
   GetOperationsForResourceResponse'
-    { nextPageCount =
+    { operations =
         Prelude.Nothing,
       nextPageToken = Prelude.Nothing,
-      operations = Prelude.Nothing,
+      nextPageCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | (Deprecated) Returns the number of pages of results that remain.
---
--- In releases prior to June 12, 2017, this parameter returned @null@ by
--- the API. It is now deprecated, and the API returns the @next page token@
--- parameter instead.
-getOperationsForResourceResponse_nextPageCount :: Lens.Lens' GetOperationsForResourceResponse (Prelude.Maybe Prelude.Text)
-getOperationsForResourceResponse_nextPageCount = Lens.lens (\GetOperationsForResourceResponse' {nextPageCount} -> nextPageCount) (\s@GetOperationsForResourceResponse' {} a -> s {nextPageCount = a} :: GetOperationsForResourceResponse)
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+getOperationsForResourceResponse_operations :: Lens.Lens' GetOperationsForResourceResponse (Prelude.Maybe [Operation])
+getOperationsForResourceResponse_operations = Lens.lens (\GetOperationsForResourceResponse' {operations} -> operations) (\s@GetOperationsForResourceResponse' {} a -> s {operations = a} :: GetOperationsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -245,11 +243,13 @@ getOperationsForResourceResponse_nextPageCount = Lens.lens (\GetOperationsForRes
 getOperationsForResourceResponse_nextPageToken :: Lens.Lens' GetOperationsForResourceResponse (Prelude.Maybe Prelude.Text)
 getOperationsForResourceResponse_nextPageToken = Lens.lens (\GetOperationsForResourceResponse' {nextPageToken} -> nextPageToken) (\s@GetOperationsForResourceResponse' {} a -> s {nextPageToken = a} :: GetOperationsForResourceResponse)
 
--- | An array of objects that describe the result of the action, such as the
--- status of the request, the timestamp of the request, and the resources
--- affected by the request.
-getOperationsForResourceResponse_operations :: Lens.Lens' GetOperationsForResourceResponse (Prelude.Maybe [Operation])
-getOperationsForResourceResponse_operations = Lens.lens (\GetOperationsForResourceResponse' {operations} -> operations) (\s@GetOperationsForResourceResponse' {} a -> s {operations = a} :: GetOperationsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
+-- | (Deprecated) Returns the number of pages of results that remain.
+--
+-- In releases prior to June 12, 2017, this parameter returned @null@ by
+-- the API. It is now deprecated, and the API returns the @next page token@
+-- parameter instead.
+getOperationsForResourceResponse_nextPageCount :: Lens.Lens' GetOperationsForResourceResponse (Prelude.Maybe Prelude.Text)
+getOperationsForResourceResponse_nextPageCount = Lens.lens (\GetOperationsForResourceResponse' {nextPageCount} -> nextPageCount) (\s@GetOperationsForResourceResponse' {} a -> s {nextPageCount = a} :: GetOperationsForResourceResponse)
 
 -- | The response's http status code.
 getOperationsForResourceResponse_httpStatus :: Lens.Lens' GetOperationsForResourceResponse Prelude.Int
@@ -260,7 +260,7 @@ instance
     GetOperationsForResourceResponse
   where
   rnf GetOperationsForResourceResponse' {..} =
-    Prelude.rnf nextPageCount
+    Prelude.rnf operations
       `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf nextPageCount
       `Prelude.seq` Prelude.rnf httpStatus

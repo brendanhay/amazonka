@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPhoneNumberError' smart constructor.
 data PhoneNumberError = PhoneNumberError'
-  { -- | The phone number ID for which the action failed.
+  { -- | The error message.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The phone number ID for which the action failed.
     phoneNumberId :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    errorCode :: Prelude.Maybe ErrorCode,
-    -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe ErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data PhoneNumberError = PhoneNumberError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorMessage', 'phoneNumberError_errorMessage' - The error message.
+--
 -- 'phoneNumberId', 'phoneNumberError_phoneNumberId' - The phone number ID for which the action failed.
 --
 -- 'errorCode', 'phoneNumberError_errorCode' - The error code.
---
--- 'errorMessage', 'phoneNumberError_errorMessage' - The error message.
 newPhoneNumberError ::
   PhoneNumberError
 newPhoneNumberError =
   PhoneNumberError'
-    { phoneNumberId = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorMessage = Prelude.Nothing,
+      phoneNumberId = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
+
+-- | The error message.
+phoneNumberError_errorMessage :: Lens.Lens' PhoneNumberError (Prelude.Maybe Prelude.Text)
+phoneNumberError_errorMessage = Lens.lens (\PhoneNumberError' {errorMessage} -> errorMessage) (\s@PhoneNumberError' {} a -> s {errorMessage = a} :: PhoneNumberError)
 
 -- | The phone number ID for which the action failed.
 phoneNumberError_phoneNumberId :: Lens.Lens' PhoneNumberError (Prelude.Maybe Prelude.Text)
@@ -69,29 +73,25 @@ phoneNumberError_phoneNumberId = Lens.lens (\PhoneNumberError' {phoneNumberId} -
 phoneNumberError_errorCode :: Lens.Lens' PhoneNumberError (Prelude.Maybe ErrorCode)
 phoneNumberError_errorCode = Lens.lens (\PhoneNumberError' {errorCode} -> errorCode) (\s@PhoneNumberError' {} a -> s {errorCode = a} :: PhoneNumberError)
 
--- | The error message.
-phoneNumberError_errorMessage :: Lens.Lens' PhoneNumberError (Prelude.Maybe Prelude.Text)
-phoneNumberError_errorMessage = Lens.lens (\PhoneNumberError' {errorMessage} -> errorMessage) (\s@PhoneNumberError' {} a -> s {errorMessage = a} :: PhoneNumberError)
-
 instance Core.FromJSON PhoneNumberError where
   parseJSON =
     Core.withObject
       "PhoneNumberError"
       ( \x ->
           PhoneNumberError'
-            Prelude.<$> (x Core..:? "PhoneNumberId")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "PhoneNumberId")
             Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable PhoneNumberError where
   hashWithSalt _salt PhoneNumberError' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumberId
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` phoneNumberId
       `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData PhoneNumberError where
   rnf PhoneNumberError' {..} =
-    Prelude.rnf phoneNumberId
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf phoneNumberId
       `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage

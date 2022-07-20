@@ -28,11 +28,11 @@ module Amazonka.DataSync.UpdateTask
 
     -- * Request Lenses
     updateTask_schedule,
-    updateTask_includes,
     updateTask_name,
+    updateTask_cloudWatchLogGroupArn,
     updateTask_excludes,
     updateTask_options,
-    updateTask_cloudWatchLogGroupArn,
+    updateTask_includes,
     updateTask_taskArn,
 
     -- * Destructuring the Response
@@ -62,22 +62,22 @@ data UpdateTask = UpdateTask'
     -- UTC time. For more information, see
     -- <https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html Scheduling your task>.
     schedule :: Prelude.Maybe TaskSchedule,
-    -- | A list of filter rules that determines which files to include when
-    -- running a task. The pattern should contain a single filter string that
-    -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
-    includes :: Prelude.Maybe [FilterRule],
     -- | The name of the task to update.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the resource name of the CloudWatch
+    -- LogGroup.
+    cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | A list of filter rules that determines which files to exclude from a
     -- task. The list should contain a single filter string that consists of
     -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
     -- pipe), for example: @\"\/folder1|\/folder2\"@
     excludes :: Prelude.Maybe [FilterRule],
     options :: Prelude.Maybe Options,
-    -- | The Amazon Resource Name (ARN) of the resource name of the CloudWatch
-    -- LogGroup.
-    cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of filter rules that determines which files to include when
+    -- running a task. The pattern should contain a single filter string that
+    -- consists of the patterns to include. The patterns are delimited by \"|\"
+    -- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+    includes :: Prelude.Maybe [FilterRule],
     -- | The Amazon Resource Name (ARN) of the resource name of the task to
     -- update.
     taskArn :: Prelude.Text
@@ -99,12 +99,10 @@ data UpdateTask = UpdateTask'
 -- UTC time. For more information, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html Scheduling your task>.
 --
--- 'includes', 'updateTask_includes' - A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
---
 -- 'name', 'updateTask_name' - The name of the task to update.
+--
+-- 'cloudWatchLogGroupArn', 'updateTask_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) of the resource name of the CloudWatch
+-- LogGroup.
 --
 -- 'excludes', 'updateTask_excludes' - A list of filter rules that determines which files to exclude from a
 -- task. The list should contain a single filter string that consists of
@@ -113,8 +111,10 @@ data UpdateTask = UpdateTask'
 --
 -- 'options', 'updateTask_options' - Undocumented member.
 --
--- 'cloudWatchLogGroupArn', 'updateTask_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) of the resource name of the CloudWatch
--- LogGroup.
+-- 'includes', 'updateTask_includes' - A list of filter rules that determines which files to include when
+-- running a task. The pattern should contain a single filter string that
+-- consists of the patterns to include. The patterns are delimited by \"|\"
+-- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
 --
 -- 'taskArn', 'updateTask_taskArn' - The Amazon Resource Name (ARN) of the resource name of the task to
 -- update.
@@ -125,11 +125,11 @@ newUpdateTask ::
 newUpdateTask pTaskArn_ =
   UpdateTask'
     { schedule = Prelude.Nothing,
-      includes = Prelude.Nothing,
       name = Prelude.Nothing,
+      cloudWatchLogGroupArn = Prelude.Nothing,
       excludes = Prelude.Nothing,
       options = Prelude.Nothing,
-      cloudWatchLogGroupArn = Prelude.Nothing,
+      includes = Prelude.Nothing,
       taskArn = pTaskArn_
     }
 
@@ -142,16 +142,14 @@ newUpdateTask pTaskArn_ =
 updateTask_schedule :: Lens.Lens' UpdateTask (Prelude.Maybe TaskSchedule)
 updateTask_schedule = Lens.lens (\UpdateTask' {schedule} -> schedule) (\s@UpdateTask' {} a -> s {schedule = a} :: UpdateTask)
 
--- | A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
--- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
-updateTask_includes :: Lens.Lens' UpdateTask (Prelude.Maybe [FilterRule])
-updateTask_includes = Lens.lens (\UpdateTask' {includes} -> includes) (\s@UpdateTask' {} a -> s {includes = a} :: UpdateTask) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the task to update.
 updateTask_name :: Lens.Lens' UpdateTask (Prelude.Maybe Prelude.Text)
 updateTask_name = Lens.lens (\UpdateTask' {name} -> name) (\s@UpdateTask' {} a -> s {name = a} :: UpdateTask)
+
+-- | The Amazon Resource Name (ARN) of the resource name of the CloudWatch
+-- LogGroup.
+updateTask_cloudWatchLogGroupArn :: Lens.Lens' UpdateTask (Prelude.Maybe Prelude.Text)
+updateTask_cloudWatchLogGroupArn = Lens.lens (\UpdateTask' {cloudWatchLogGroupArn} -> cloudWatchLogGroupArn) (\s@UpdateTask' {} a -> s {cloudWatchLogGroupArn = a} :: UpdateTask)
 
 -- | A list of filter rules that determines which files to exclude from a
 -- task. The list should contain a single filter string that consists of
@@ -164,10 +162,12 @@ updateTask_excludes = Lens.lens (\UpdateTask' {excludes} -> excludes) (\s@Update
 updateTask_options :: Lens.Lens' UpdateTask (Prelude.Maybe Options)
 updateTask_options = Lens.lens (\UpdateTask' {options} -> options) (\s@UpdateTask' {} a -> s {options = a} :: UpdateTask)
 
--- | The Amazon Resource Name (ARN) of the resource name of the CloudWatch
--- LogGroup.
-updateTask_cloudWatchLogGroupArn :: Lens.Lens' UpdateTask (Prelude.Maybe Prelude.Text)
-updateTask_cloudWatchLogGroupArn = Lens.lens (\UpdateTask' {cloudWatchLogGroupArn} -> cloudWatchLogGroupArn) (\s@UpdateTask' {} a -> s {cloudWatchLogGroupArn = a} :: UpdateTask)
+-- | A list of filter rules that determines which files to include when
+-- running a task. The pattern should contain a single filter string that
+-- consists of the patterns to include. The patterns are delimited by \"|\"
+-- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+updateTask_includes :: Lens.Lens' UpdateTask (Prelude.Maybe [FilterRule])
+updateTask_includes = Lens.lens (\UpdateTask' {includes} -> includes) (\s@UpdateTask' {} a -> s {includes = a} :: UpdateTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the resource name of the task to
 -- update.
@@ -187,21 +187,21 @@ instance Core.AWSRequest UpdateTask where
 instance Prelude.Hashable UpdateTask where
   hashWithSalt _salt UpdateTask' {..} =
     _salt `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` options
-      `Prelude.hashWithSalt` cloudWatchLogGroupArn
+      `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` taskArn
 
 instance Prelude.NFData UpdateTask where
   rnf UpdateTask' {..} =
     Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
       `Prelude.seq` Prelude.rnf excludes
       `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
+      `Prelude.seq` Prelude.rnf includes
       `Prelude.seq` Prelude.rnf taskArn
 
 instance Core.ToHeaders UpdateTask where
@@ -222,12 +222,12 @@ instance Core.ToJSON UpdateTask where
     Core.object
       ( Prelude.catMaybes
           [ ("Schedule" Core..=) Prelude.<$> schedule,
-            ("Includes" Core..=) Prelude.<$> includes,
             ("Name" Core..=) Prelude.<$> name,
-            ("Excludes" Core..=) Prelude.<$> excludes,
-            ("Options" Core..=) Prelude.<$> options,
             ("CloudWatchLogGroupArn" Core..=)
               Prelude.<$> cloudWatchLogGroupArn,
+            ("Excludes" Core..=) Prelude.<$> excludes,
+            ("Options" Core..=) Prelude.<$> options,
+            ("Includes" Core..=) Prelude.<$> includes,
             Prelude.Just ("TaskArn" Core..= taskArn)
           ]
       )

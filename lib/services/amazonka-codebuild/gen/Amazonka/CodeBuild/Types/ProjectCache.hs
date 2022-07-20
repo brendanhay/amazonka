@@ -29,13 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectCache' smart constructor.
 data ProjectCache = ProjectCache'
-  { -- | Information about the cache location:
-    --
-    -- -   @NO_CACHE@ or @LOCAL@: This value is ignored.
-    --
-    -- -   @S3@: This is the S3 bucket name\/prefix.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | An array of strings that specify the local cache modes. You can use one
+  { -- | An array of strings that specify the local cache modes. You can use one
     -- or more local cache modes at the same time. This is only used for
     -- @LOCAL@ cache types.
     --
@@ -79,6 +73,12 @@ data ProjectCache = ProjectCache'
     --         item has the same name. Directories are specified using cache
     --         paths in the buildspec file.
     modes :: Prelude.Maybe [CacheMode],
+    -- | Information about the cache location:
+    --
+    -- -   @NO_CACHE@ or @LOCAL@: This value is ignored.
+    --
+    -- -   @S3@: This is the S3 bucket name\/prefix.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The type of cache used by the build project. Valid values include:
     --
     -- -   @NO_CACHE@: The build project does not use any cache.
@@ -98,12 +98,6 @@ data ProjectCache = ProjectCache'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'location', 'projectCache_location' - Information about the cache location:
---
--- -   @NO_CACHE@ or @LOCAL@: This value is ignored.
---
--- -   @S3@: This is the S3 bucket name\/prefix.
 --
 -- 'modes', 'projectCache_modes' - An array of strings that specify the local cache modes. You can use one
 -- or more local cache modes at the same time. This is only used for
@@ -149,6 +143,12 @@ data ProjectCache = ProjectCache'
 --         item has the same name. Directories are specified using cache
 --         paths in the buildspec file.
 --
+-- 'location', 'projectCache_location' - Information about the cache location:
+--
+-- -   @NO_CACHE@ or @LOCAL@: This value is ignored.
+--
+-- -   @S3@: This is the S3 bucket name\/prefix.
+--
 -- 'type'', 'projectCache_type' - The type of cache used by the build project. Valid values include:
 --
 -- -   @NO_CACHE@: The build project does not use any cache.
@@ -163,18 +163,10 @@ newProjectCache ::
   ProjectCache
 newProjectCache pType_ =
   ProjectCache'
-    { location = Prelude.Nothing,
-      modes = Prelude.Nothing,
+    { modes = Prelude.Nothing,
+      location = Prelude.Nothing,
       type' = pType_
     }
-
--- | Information about the cache location:
---
--- -   @NO_CACHE@ or @LOCAL@: This value is ignored.
---
--- -   @S3@: This is the S3 bucket name\/prefix.
-projectCache_location :: Lens.Lens' ProjectCache (Prelude.Maybe Prelude.Text)
-projectCache_location = Lens.lens (\ProjectCache' {location} -> location) (\s@ProjectCache' {} a -> s {location = a} :: ProjectCache)
 
 -- | An array of strings that specify the local cache modes. You can use one
 -- or more local cache modes at the same time. This is only used for
@@ -222,6 +214,14 @@ projectCache_location = Lens.lens (\ProjectCache' {location} -> location) (\s@Pr
 projectCache_modes :: Lens.Lens' ProjectCache (Prelude.Maybe [CacheMode])
 projectCache_modes = Lens.lens (\ProjectCache' {modes} -> modes) (\s@ProjectCache' {} a -> s {modes = a} :: ProjectCache) Prelude.. Lens.mapping Lens.coerced
 
+-- | Information about the cache location:
+--
+-- -   @NO_CACHE@ or @LOCAL@: This value is ignored.
+--
+-- -   @S3@: This is the S3 bucket name\/prefix.
+projectCache_location :: Lens.Lens' ProjectCache (Prelude.Maybe Prelude.Text)
+projectCache_location = Lens.lens (\ProjectCache' {location} -> location) (\s@ProjectCache' {} a -> s {location = a} :: ProjectCache)
+
 -- | The type of cache used by the build project. Valid values include:
 --
 -- -   @NO_CACHE@: The build project does not use any cache.
@@ -239,29 +239,29 @@ instance Core.FromJSON ProjectCache where
       "ProjectCache"
       ( \x ->
           ProjectCache'
-            Prelude.<$> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "modes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "modes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..: "type")
       )
 
 instance Prelude.Hashable ProjectCache where
   hashWithSalt _salt ProjectCache' {..} =
-    _salt `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` modes
+    _salt `Prelude.hashWithSalt` modes
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ProjectCache where
   rnf ProjectCache' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf modes
+    Prelude.rnf modes
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON ProjectCache where
   toJSON ProjectCache' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("location" Core..=) Prelude.<$> location,
-            ("modes" Core..=) Prelude.<$> modes,
+          [ ("modes" Core..=) Prelude.<$> modes,
+            ("location" Core..=) Prelude.<$> location,
             Prelude.Just ("type" Core..= type')
           ]
       )

@@ -35,14 +35,14 @@ data CustomAvailabilityZone = CustomAvailabilityZone'
   { -- | Information about the virtual private network (VPN) between the VMware
     -- vSphere cluster and the Amazon Web Services website.
     vpnDetails :: Prelude.Maybe VpnDetails,
-    -- | The name of the custom AZ.
-    customAvailabilityZoneName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the custom AZ.
+    customAvailabilityZoneStatus :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the custom AZ.
     --
     -- Amazon RDS generates a unique identifier when a custom AZ is created.
     customAvailabilityZoneId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the custom AZ.
-    customAvailabilityZoneStatus :: Prelude.Maybe Prelude.Text
+    -- | The name of the custom AZ.
+    customAvailabilityZoneName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,22 +57,22 @@ data CustomAvailabilityZone = CustomAvailabilityZone'
 -- 'vpnDetails', 'customAvailabilityZone_vpnDetails' - Information about the virtual private network (VPN) between the VMware
 -- vSphere cluster and the Amazon Web Services website.
 --
--- 'customAvailabilityZoneName', 'customAvailabilityZone_customAvailabilityZoneName' - The name of the custom AZ.
+-- 'customAvailabilityZoneStatus', 'customAvailabilityZone_customAvailabilityZoneStatus' - The status of the custom AZ.
 --
 -- 'customAvailabilityZoneId', 'customAvailabilityZone_customAvailabilityZoneId' - The identifier of the custom AZ.
 --
 -- Amazon RDS generates a unique identifier when a custom AZ is created.
 --
--- 'customAvailabilityZoneStatus', 'customAvailabilityZone_customAvailabilityZoneStatus' - The status of the custom AZ.
+-- 'customAvailabilityZoneName', 'customAvailabilityZone_customAvailabilityZoneName' - The name of the custom AZ.
 newCustomAvailabilityZone ::
   CustomAvailabilityZone
 newCustomAvailabilityZone =
   CustomAvailabilityZone'
     { vpnDetails =
         Prelude.Nothing,
-      customAvailabilityZoneName = Prelude.Nothing,
+      customAvailabilityZoneStatus = Prelude.Nothing,
       customAvailabilityZoneId = Prelude.Nothing,
-      customAvailabilityZoneStatus = Prelude.Nothing
+      customAvailabilityZoneName = Prelude.Nothing
     }
 
 -- | Information about the virtual private network (VPN) between the VMware
@@ -80,9 +80,9 @@ newCustomAvailabilityZone =
 customAvailabilityZone_vpnDetails :: Lens.Lens' CustomAvailabilityZone (Prelude.Maybe VpnDetails)
 customAvailabilityZone_vpnDetails = Lens.lens (\CustomAvailabilityZone' {vpnDetails} -> vpnDetails) (\s@CustomAvailabilityZone' {} a -> s {vpnDetails = a} :: CustomAvailabilityZone)
 
--- | The name of the custom AZ.
-customAvailabilityZone_customAvailabilityZoneName :: Lens.Lens' CustomAvailabilityZone (Prelude.Maybe Prelude.Text)
-customAvailabilityZone_customAvailabilityZoneName = Lens.lens (\CustomAvailabilityZone' {customAvailabilityZoneName} -> customAvailabilityZoneName) (\s@CustomAvailabilityZone' {} a -> s {customAvailabilityZoneName = a} :: CustomAvailabilityZone)
+-- | The status of the custom AZ.
+customAvailabilityZone_customAvailabilityZoneStatus :: Lens.Lens' CustomAvailabilityZone (Prelude.Maybe Prelude.Text)
+customAvailabilityZone_customAvailabilityZoneStatus = Lens.lens (\CustomAvailabilityZone' {customAvailabilityZoneStatus} -> customAvailabilityZoneStatus) (\s@CustomAvailabilityZone' {} a -> s {customAvailabilityZoneStatus = a} :: CustomAvailabilityZone)
 
 -- | The identifier of the custom AZ.
 --
@@ -90,28 +90,28 @@ customAvailabilityZone_customAvailabilityZoneName = Lens.lens (\CustomAvailabili
 customAvailabilityZone_customAvailabilityZoneId :: Lens.Lens' CustomAvailabilityZone (Prelude.Maybe Prelude.Text)
 customAvailabilityZone_customAvailabilityZoneId = Lens.lens (\CustomAvailabilityZone' {customAvailabilityZoneId} -> customAvailabilityZoneId) (\s@CustomAvailabilityZone' {} a -> s {customAvailabilityZoneId = a} :: CustomAvailabilityZone)
 
--- | The status of the custom AZ.
-customAvailabilityZone_customAvailabilityZoneStatus :: Lens.Lens' CustomAvailabilityZone (Prelude.Maybe Prelude.Text)
-customAvailabilityZone_customAvailabilityZoneStatus = Lens.lens (\CustomAvailabilityZone' {customAvailabilityZoneStatus} -> customAvailabilityZoneStatus) (\s@CustomAvailabilityZone' {} a -> s {customAvailabilityZoneStatus = a} :: CustomAvailabilityZone)
+-- | The name of the custom AZ.
+customAvailabilityZone_customAvailabilityZoneName :: Lens.Lens' CustomAvailabilityZone (Prelude.Maybe Prelude.Text)
+customAvailabilityZone_customAvailabilityZoneName = Lens.lens (\CustomAvailabilityZone' {customAvailabilityZoneName} -> customAvailabilityZoneName) (\s@CustomAvailabilityZone' {} a -> s {customAvailabilityZoneName = a} :: CustomAvailabilityZone)
 
 instance Core.FromXML CustomAvailabilityZone where
   parseXML x =
     CustomAvailabilityZone'
       Prelude.<$> (x Core..@? "VpnDetails")
-      Prelude.<*> (x Core..@? "CustomAvailabilityZoneName")
-      Prelude.<*> (x Core..@? "CustomAvailabilityZoneId")
       Prelude.<*> (x Core..@? "CustomAvailabilityZoneStatus")
+      Prelude.<*> (x Core..@? "CustomAvailabilityZoneId")
+      Prelude.<*> (x Core..@? "CustomAvailabilityZoneName")
 
 instance Prelude.Hashable CustomAvailabilityZone where
   hashWithSalt _salt CustomAvailabilityZone' {..} =
     _salt `Prelude.hashWithSalt` vpnDetails
-      `Prelude.hashWithSalt` customAvailabilityZoneName
-      `Prelude.hashWithSalt` customAvailabilityZoneId
       `Prelude.hashWithSalt` customAvailabilityZoneStatus
+      `Prelude.hashWithSalt` customAvailabilityZoneId
+      `Prelude.hashWithSalt` customAvailabilityZoneName
 
 instance Prelude.NFData CustomAvailabilityZone where
   rnf CustomAvailabilityZone' {..} =
     Prelude.rnf vpnDetails
-      `Prelude.seq` Prelude.rnf customAvailabilityZoneName
-      `Prelude.seq` Prelude.rnf customAvailabilityZoneId
       `Prelude.seq` Prelude.rnf customAvailabilityZoneStatus
+      `Prelude.seq` Prelude.rnf customAvailabilityZoneId
+      `Prelude.seq` Prelude.rnf customAvailabilityZoneName

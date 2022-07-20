@@ -27,59 +27,44 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateResourceSet $
---             newCreateResourceSet
---
---         , requestGetReadinessCheckStatus $
---             newGetReadinessCheckStatus
---
---         , requestGetCellReadinessSummary $
---             newGetCellReadinessSummary
---
---         , requestUpdateCell $
---             newUpdateCell
---
---         , requestDeleteCell $
---             newDeleteCell
---
---         , requestUpdateReadinessCheck $
---             newUpdateReadinessCheck
---
---         , requestDeleteReadinessCheck $
---             newDeleteReadinessCheck
---
---         , requestListCells $
---             newListCells
---
---         , requestListReadinessChecks $
---             newListReadinessChecks
---
---         , requestListRules $
---             newListRules
---
---         , requestCreateReadinessCheck $
---             newCreateReadinessCheck
---
---         , requestCreateCell $
+--         [ requestCreateCell $
 --             newCreateCell
---
---         , requestGetRecoveryGroup $
---             newGetRecoveryGroup
---
---         , requestListRecoveryGroups $
---             newListRecoveryGroups
---
---         , requestListCrossAccountAuthorizations $
---             newListCrossAccountAuthorizations
---
---         , requestGetCell $
---             newGetCell
 --
 --         , requestCreateCrossAccountAuthorization $
 --             newCreateCrossAccountAuthorization
 --
+--         , requestCreateReadinessCheck $
+--             newCreateReadinessCheck
+--
 --         , requestCreateRecoveryGroup $
 --             newCreateRecoveryGroup
+--
+--         , requestCreateResourceSet $
+--             newCreateResourceSet
+--
+--         , requestDeleteCell $
+--             newDeleteCell
+--
+--         , requestDeleteCrossAccountAuthorization $
+--             newDeleteCrossAccountAuthorization
+--
+--         , requestDeleteReadinessCheck $
+--             newDeleteReadinessCheck
+--
+--         , requestDeleteRecoveryGroup $
+--             newDeleteRecoveryGroup
+--
+--         , requestDeleteResourceSet $
+--             newDeleteResourceSet
+--
+--         , requestGetArchitectureRecommendations $
+--             newGetArchitectureRecommendations
+--
+--         , requestGetCell $
+--             newGetCell
+--
+--         , requestGetCellReadinessSummary $
+--             newGetCellReadinessSummary
 --
 --         , requestGetReadinessCheck $
 --             newGetReadinessCheck
@@ -87,26 +72,11 @@ import Test.Tasty
 --         , requestGetReadinessCheckResourceStatus $
 --             newGetReadinessCheckResourceStatus
 --
---         , requestListResourceSets $
---             newListResourceSets
+--         , requestGetReadinessCheckStatus $
+--             newGetReadinessCheckStatus
 --
---         , requestGetArchitectureRecommendations $
---             newGetArchitectureRecommendations
---
---         , requestDeleteCrossAccountAuthorization $
---             newDeleteCrossAccountAuthorization
---
---         , requestDeleteRecoveryGroup $
---             newDeleteRecoveryGroup
---
---         , requestUpdateRecoveryGroup $
---             newUpdateRecoveryGroup
---
---         , requestTagResource $
---             newTagResource
---
---         , requestUntagResource $
---             newUntagResource
+--         , requestGetRecoveryGroup $
+--             newGetRecoveryGroup
 --
 --         , requestGetRecoveryGroupReadinessSummary $
 --             newGetRecoveryGroupReadinessSummary
@@ -114,71 +84,86 @@ import Test.Tasty
 --         , requestGetResourceSet $
 --             newGetResourceSet
 --
+--         , requestListCells $
+--             newListCells
+--
+--         , requestListCrossAccountAuthorizations $
+--             newListCrossAccountAuthorizations
+--
+--         , requestListReadinessChecks $
+--             newListReadinessChecks
+--
+--         , requestListRecoveryGroups $
+--             newListRecoveryGroups
+--
+--         , requestListResourceSets $
+--             newListResourceSets
+--
+--         , requestListRules $
+--             newListRules
+--
 --         , requestListTagsForResources $
 --             newListTagsForResources
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateCell $
+--             newUpdateCell
+--
+--         , requestUpdateReadinessCheck $
+--             newUpdateReadinessCheck
+--
+--         , requestUpdateRecoveryGroup $
+--             newUpdateRecoveryGroup
 --
 --         , requestUpdateResourceSet $
 --             newUpdateResourceSet
 --
---         , requestDeleteResourceSet $
---             newDeleteResourceSet
---
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateResourceSet $
---             newCreateResourceSetResponse
---
---         , responseGetReadinessCheckStatus $
---             newGetReadinessCheckStatusResponse
---
---         , responseGetCellReadinessSummary $
---             newGetCellReadinessSummaryResponse
---
---         , responseUpdateCell $
---             newUpdateCellResponse
---
---         , responseDeleteCell $
---             newDeleteCellResponse
---
---         , responseUpdateReadinessCheck $
---             newUpdateReadinessCheckResponse
---
---         , responseDeleteReadinessCheck $
---             newDeleteReadinessCheckResponse
---
---         , responseListCells $
---             newListCellsResponse
---
---         , responseListReadinessChecks $
---             newListReadinessChecksResponse
---
---         , responseListRules $
---             newListRulesResponse
---
---         , responseCreateReadinessCheck $
---             newCreateReadinessCheckResponse
---
---         , responseCreateCell $
+--         [ responseCreateCell $
 --             newCreateCellResponse
---
---         , responseGetRecoveryGroup $
---             newGetRecoveryGroupResponse
---
---         , responseListRecoveryGroups $
---             newListRecoveryGroupsResponse
---
---         , responseListCrossAccountAuthorizations $
---             newListCrossAccountAuthorizationsResponse
---
---         , responseGetCell $
---             newGetCellResponse
 --
 --         , responseCreateCrossAccountAuthorization $
 --             newCreateCrossAccountAuthorizationResponse
 --
+--         , responseCreateReadinessCheck $
+--             newCreateReadinessCheckResponse
+--
 --         , responseCreateRecoveryGroup $
 --             newCreateRecoveryGroupResponse
+--
+--         , responseCreateResourceSet $
+--             newCreateResourceSetResponse
+--
+--         , responseDeleteCell $
+--             newDeleteCellResponse
+--
+--         , responseDeleteCrossAccountAuthorization $
+--             newDeleteCrossAccountAuthorizationResponse
+--
+--         , responseDeleteReadinessCheck $
+--             newDeleteReadinessCheckResponse
+--
+--         , responseDeleteRecoveryGroup $
+--             newDeleteRecoveryGroupResponse
+--
+--         , responseDeleteResourceSet $
+--             newDeleteResourceSetResponse
+--
+--         , responseGetArchitectureRecommendations $
+--             newGetArchitectureRecommendationsResponse
+--
+--         , responseGetCell $
+--             newGetCellResponse
+--
+--         , responseGetCellReadinessSummary $
+--             newGetCellReadinessSummaryResponse
 --
 --         , responseGetReadinessCheck $
 --             newGetReadinessCheckResponse
@@ -186,26 +171,11 @@ import Test.Tasty
 --         , responseGetReadinessCheckResourceStatus $
 --             newGetReadinessCheckResourceStatusResponse
 --
---         , responseListResourceSets $
---             newListResourceSetsResponse
+--         , responseGetReadinessCheckStatus $
+--             newGetReadinessCheckStatusResponse
 --
---         , responseGetArchitectureRecommendations $
---             newGetArchitectureRecommendationsResponse
---
---         , responseDeleteCrossAccountAuthorization $
---             newDeleteCrossAccountAuthorizationResponse
---
---         , responseDeleteRecoveryGroup $
---             newDeleteRecoveryGroupResponse
---
---         , responseUpdateRecoveryGroup $
---             newUpdateRecoveryGroupResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseGetRecoveryGroup $
+--             newGetRecoveryGroupResponse
 --
 --         , responseGetRecoveryGroupReadinessSummary $
 --             newGetRecoveryGroupReadinessSummaryResponse
@@ -213,85 +183,49 @@ import Test.Tasty
 --         , responseGetResourceSet $
 --             newGetResourceSetResponse
 --
+--         , responseListCells $
+--             newListCellsResponse
+--
+--         , responseListCrossAccountAuthorizations $
+--             newListCrossAccountAuthorizationsResponse
+--
+--         , responseListReadinessChecks $
+--             newListReadinessChecksResponse
+--
+--         , responseListRecoveryGroups $
+--             newListRecoveryGroupsResponse
+--
+--         , responseListResourceSets $
+--             newListResourceSetsResponse
+--
+--         , responseListRules $
+--             newListRulesResponse
+--
 --         , responseListTagsForResources $
 --             newListTagsForResourcesResponse
 --
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateCell $
+--             newUpdateCellResponse
+--
+--         , responseUpdateReadinessCheck $
+--             newUpdateReadinessCheckResponse
+--
+--         , responseUpdateRecoveryGroup $
+--             newUpdateRecoveryGroupResponse
+--
 --         , responseUpdateResourceSet $
 --             newUpdateResourceSetResponse
---
---         , responseDeleteResourceSet $
---             newDeleteResourceSetResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestCreateResourceSet :: CreateResourceSet -> TestTree
-requestCreateResourceSet =
-  req
-    "CreateResourceSet"
-    "fixture/CreateResourceSet.yaml"
-
-requestGetReadinessCheckStatus :: GetReadinessCheckStatus -> TestTree
-requestGetReadinessCheckStatus =
-  req
-    "GetReadinessCheckStatus"
-    "fixture/GetReadinessCheckStatus.yaml"
-
-requestGetCellReadinessSummary :: GetCellReadinessSummary -> TestTree
-requestGetCellReadinessSummary =
-  req
-    "GetCellReadinessSummary"
-    "fixture/GetCellReadinessSummary.yaml"
-
-requestUpdateCell :: UpdateCell -> TestTree
-requestUpdateCell =
-  req
-    "UpdateCell"
-    "fixture/UpdateCell.yaml"
-
-requestDeleteCell :: DeleteCell -> TestTree
-requestDeleteCell =
-  req
-    "DeleteCell"
-    "fixture/DeleteCell.yaml"
-
-requestUpdateReadinessCheck :: UpdateReadinessCheck -> TestTree
-requestUpdateReadinessCheck =
-  req
-    "UpdateReadinessCheck"
-    "fixture/UpdateReadinessCheck.yaml"
-
-requestDeleteReadinessCheck :: DeleteReadinessCheck -> TestTree
-requestDeleteReadinessCheck =
-  req
-    "DeleteReadinessCheck"
-    "fixture/DeleteReadinessCheck.yaml"
-
-requestListCells :: ListCells -> TestTree
-requestListCells =
-  req
-    "ListCells"
-    "fixture/ListCells.yaml"
-
-requestListReadinessChecks :: ListReadinessChecks -> TestTree
-requestListReadinessChecks =
-  req
-    "ListReadinessChecks"
-    "fixture/ListReadinessChecks.yaml"
-
-requestListRules :: ListRules -> TestTree
-requestListRules =
-  req
-    "ListRules"
-    "fixture/ListRules.yaml"
-
-requestCreateReadinessCheck :: CreateReadinessCheck -> TestTree
-requestCreateReadinessCheck =
-  req
-    "CreateReadinessCheck"
-    "fixture/CreateReadinessCheck.yaml"
 
 requestCreateCell :: CreateCell -> TestTree
 requestCreateCell =
@@ -299,23 +233,65 @@ requestCreateCell =
     "CreateCell"
     "fixture/CreateCell.yaml"
 
-requestGetRecoveryGroup :: GetRecoveryGroup -> TestTree
-requestGetRecoveryGroup =
+requestCreateCrossAccountAuthorization :: CreateCrossAccountAuthorization -> TestTree
+requestCreateCrossAccountAuthorization =
   req
-    "GetRecoveryGroup"
-    "fixture/GetRecoveryGroup.yaml"
+    "CreateCrossAccountAuthorization"
+    "fixture/CreateCrossAccountAuthorization.yaml"
 
-requestListRecoveryGroups :: ListRecoveryGroups -> TestTree
-requestListRecoveryGroups =
+requestCreateReadinessCheck :: CreateReadinessCheck -> TestTree
+requestCreateReadinessCheck =
   req
-    "ListRecoveryGroups"
-    "fixture/ListRecoveryGroups.yaml"
+    "CreateReadinessCheck"
+    "fixture/CreateReadinessCheck.yaml"
 
-requestListCrossAccountAuthorizations :: ListCrossAccountAuthorizations -> TestTree
-requestListCrossAccountAuthorizations =
+requestCreateRecoveryGroup :: CreateRecoveryGroup -> TestTree
+requestCreateRecoveryGroup =
   req
-    "ListCrossAccountAuthorizations"
-    "fixture/ListCrossAccountAuthorizations.yaml"
+    "CreateRecoveryGroup"
+    "fixture/CreateRecoveryGroup.yaml"
+
+requestCreateResourceSet :: CreateResourceSet -> TestTree
+requestCreateResourceSet =
+  req
+    "CreateResourceSet"
+    "fixture/CreateResourceSet.yaml"
+
+requestDeleteCell :: DeleteCell -> TestTree
+requestDeleteCell =
+  req
+    "DeleteCell"
+    "fixture/DeleteCell.yaml"
+
+requestDeleteCrossAccountAuthorization :: DeleteCrossAccountAuthorization -> TestTree
+requestDeleteCrossAccountAuthorization =
+  req
+    "DeleteCrossAccountAuthorization"
+    "fixture/DeleteCrossAccountAuthorization.yaml"
+
+requestDeleteReadinessCheck :: DeleteReadinessCheck -> TestTree
+requestDeleteReadinessCheck =
+  req
+    "DeleteReadinessCheck"
+    "fixture/DeleteReadinessCheck.yaml"
+
+requestDeleteRecoveryGroup :: DeleteRecoveryGroup -> TestTree
+requestDeleteRecoveryGroup =
+  req
+    "DeleteRecoveryGroup"
+    "fixture/DeleteRecoveryGroup.yaml"
+
+requestDeleteResourceSet :: DeleteResourceSet -> TestTree
+requestDeleteResourceSet =
+  req
+    "DeleteResourceSet"
+    "fixture/DeleteResourceSet.yaml"
+
+requestGetArchitectureRecommendations :: GetArchitectureRecommendations -> TestTree
+requestGetArchitectureRecommendations =
+  req
+    "GetArchitectureRecommendations"
+    "fixture/GetArchitectureRecommendations.yaml"
 
 requestGetCell :: GetCell -> TestTree
 requestGetCell =
@@ -323,17 +299,11 @@ requestGetCell =
     "GetCell"
     "fixture/GetCell.yaml"
 
-requestCreateCrossAccountAuthorization :: CreateCrossAccountAuthorization -> TestTree
-requestCreateCrossAccountAuthorization =
+requestGetCellReadinessSummary :: GetCellReadinessSummary -> TestTree
+requestGetCellReadinessSummary =
   req
-    "CreateCrossAccountAuthorization"
-    "fixture/CreateCrossAccountAuthorization.yaml"
-
-requestCreateRecoveryGroup :: CreateRecoveryGroup -> TestTree
-requestCreateRecoveryGroup =
-  req
-    "CreateRecoveryGroup"
-    "fixture/CreateRecoveryGroup.yaml"
+    "GetCellReadinessSummary"
+    "fixture/GetCellReadinessSummary.yaml"
 
 requestGetReadinessCheck :: GetReadinessCheck -> TestTree
 requestGetReadinessCheck =
@@ -347,47 +317,17 @@ requestGetReadinessCheckResourceStatus =
     "GetReadinessCheckResourceStatus"
     "fixture/GetReadinessCheckResourceStatus.yaml"
 
-requestListResourceSets :: ListResourceSets -> TestTree
-requestListResourceSets =
+requestGetReadinessCheckStatus :: GetReadinessCheckStatus -> TestTree
+requestGetReadinessCheckStatus =
   req
-    "ListResourceSets"
-    "fixture/ListResourceSets.yaml"
+    "GetReadinessCheckStatus"
+    "fixture/GetReadinessCheckStatus.yaml"
 
-requestGetArchitectureRecommendations :: GetArchitectureRecommendations -> TestTree
-requestGetArchitectureRecommendations =
+requestGetRecoveryGroup :: GetRecoveryGroup -> TestTree
+requestGetRecoveryGroup =
   req
-    "GetArchitectureRecommendations"
-    "fixture/GetArchitectureRecommendations.yaml"
-
-requestDeleteCrossAccountAuthorization :: DeleteCrossAccountAuthorization -> TestTree
-requestDeleteCrossAccountAuthorization =
-  req
-    "DeleteCrossAccountAuthorization"
-    "fixture/DeleteCrossAccountAuthorization.yaml"
-
-requestDeleteRecoveryGroup :: DeleteRecoveryGroup -> TestTree
-requestDeleteRecoveryGroup =
-  req
-    "DeleteRecoveryGroup"
-    "fixture/DeleteRecoveryGroup.yaml"
-
-requestUpdateRecoveryGroup :: UpdateRecoveryGroup -> TestTree
-requestUpdateRecoveryGroup =
-  req
-    "UpdateRecoveryGroup"
-    "fixture/UpdateRecoveryGroup.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "GetRecoveryGroup"
+    "fixture/GetRecoveryGroup.yaml"
 
 requestGetRecoveryGroupReadinessSummary :: GetRecoveryGroupReadinessSummary -> TestTree
 requestGetRecoveryGroupReadinessSummary =
@@ -401,11 +341,77 @@ requestGetResourceSet =
     "GetResourceSet"
     "fixture/GetResourceSet.yaml"
 
+requestListCells :: ListCells -> TestTree
+requestListCells =
+  req
+    "ListCells"
+    "fixture/ListCells.yaml"
+
+requestListCrossAccountAuthorizations :: ListCrossAccountAuthorizations -> TestTree
+requestListCrossAccountAuthorizations =
+  req
+    "ListCrossAccountAuthorizations"
+    "fixture/ListCrossAccountAuthorizations.yaml"
+
+requestListReadinessChecks :: ListReadinessChecks -> TestTree
+requestListReadinessChecks =
+  req
+    "ListReadinessChecks"
+    "fixture/ListReadinessChecks.yaml"
+
+requestListRecoveryGroups :: ListRecoveryGroups -> TestTree
+requestListRecoveryGroups =
+  req
+    "ListRecoveryGroups"
+    "fixture/ListRecoveryGroups.yaml"
+
+requestListResourceSets :: ListResourceSets -> TestTree
+requestListResourceSets =
+  req
+    "ListResourceSets"
+    "fixture/ListResourceSets.yaml"
+
+requestListRules :: ListRules -> TestTree
+requestListRules =
+  req
+    "ListRules"
+    "fixture/ListRules.yaml"
+
 requestListTagsForResources :: ListTagsForResources -> TestTree
 requestListTagsForResources =
   req
     "ListTagsForResources"
     "fixture/ListTagsForResources.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateCell :: UpdateCell -> TestTree
+requestUpdateCell =
+  req
+    "UpdateCell"
+    "fixture/UpdateCell.yaml"
+
+requestUpdateReadinessCheck :: UpdateReadinessCheck -> TestTree
+requestUpdateReadinessCheck =
+  req
+    "UpdateReadinessCheck"
+    "fixture/UpdateReadinessCheck.yaml"
+
+requestUpdateRecoveryGroup :: UpdateRecoveryGroup -> TestTree
+requestUpdateRecoveryGroup =
+  req
+    "UpdateRecoveryGroup"
+    "fixture/UpdateRecoveryGroup.yaml"
 
 requestUpdateResourceSet :: UpdateResourceSet -> TestTree
 requestUpdateResourceSet =
@@ -413,101 +419,7 @@ requestUpdateResourceSet =
     "UpdateResourceSet"
     "fixture/UpdateResourceSet.yaml"
 
-requestDeleteResourceSet :: DeleteResourceSet -> TestTree
-requestDeleteResourceSet =
-  req
-    "DeleteResourceSet"
-    "fixture/DeleteResourceSet.yaml"
-
 -- Responses
-
-responseCreateResourceSet :: CreateResourceSetResponse -> TestTree
-responseCreateResourceSet =
-  res
-    "CreateResourceSetResponse"
-    "fixture/CreateResourceSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateResourceSet)
-
-responseGetReadinessCheckStatus :: GetReadinessCheckStatusResponse -> TestTree
-responseGetReadinessCheckStatus =
-  res
-    "GetReadinessCheckStatusResponse"
-    "fixture/GetReadinessCheckStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetReadinessCheckStatus)
-
-responseGetCellReadinessSummary :: GetCellReadinessSummaryResponse -> TestTree
-responseGetCellReadinessSummary =
-  res
-    "GetCellReadinessSummaryResponse"
-    "fixture/GetCellReadinessSummaryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCellReadinessSummary)
-
-responseUpdateCell :: UpdateCellResponse -> TestTree
-responseUpdateCell =
-  res
-    "UpdateCellResponse"
-    "fixture/UpdateCellResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateCell)
-
-responseDeleteCell :: DeleteCellResponse -> TestTree
-responseDeleteCell =
-  res
-    "DeleteCellResponse"
-    "fixture/DeleteCellResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCell)
-
-responseUpdateReadinessCheck :: UpdateReadinessCheckResponse -> TestTree
-responseUpdateReadinessCheck =
-  res
-    "UpdateReadinessCheckResponse"
-    "fixture/UpdateReadinessCheckResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateReadinessCheck)
-
-responseDeleteReadinessCheck :: DeleteReadinessCheckResponse -> TestTree
-responseDeleteReadinessCheck =
-  res
-    "DeleteReadinessCheckResponse"
-    "fixture/DeleteReadinessCheckResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteReadinessCheck)
-
-responseListCells :: ListCellsResponse -> TestTree
-responseListCells =
-  res
-    "ListCellsResponse"
-    "fixture/ListCellsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListCells)
-
-responseListReadinessChecks :: ListReadinessChecksResponse -> TestTree
-responseListReadinessChecks =
-  res
-    "ListReadinessChecksResponse"
-    "fixture/ListReadinessChecksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReadinessChecks)
-
-responseListRules :: ListRulesResponse -> TestTree
-responseListRules =
-  res
-    "ListRulesResponse"
-    "fixture/ListRulesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRules)
-
-responseCreateReadinessCheck :: CreateReadinessCheckResponse -> TestTree
-responseCreateReadinessCheck =
-  res
-    "CreateReadinessCheckResponse"
-    "fixture/CreateReadinessCheckResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateReadinessCheck)
 
 responseCreateCell :: CreateCellResponse -> TestTree
 responseCreateCell =
@@ -517,29 +429,85 @@ responseCreateCell =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCell)
 
-responseGetRecoveryGroup :: GetRecoveryGroupResponse -> TestTree
-responseGetRecoveryGroup =
+responseCreateCrossAccountAuthorization :: CreateCrossAccountAuthorizationResponse -> TestTree
+responseCreateCrossAccountAuthorization =
   res
-    "GetRecoveryGroupResponse"
-    "fixture/GetRecoveryGroupResponse.proto"
+    "CreateCrossAccountAuthorizationResponse"
+    "fixture/CreateCrossAccountAuthorizationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRecoveryGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateCrossAccountAuthorization)
 
-responseListRecoveryGroups :: ListRecoveryGroupsResponse -> TestTree
-responseListRecoveryGroups =
+responseCreateReadinessCheck :: CreateReadinessCheckResponse -> TestTree
+responseCreateReadinessCheck =
   res
-    "ListRecoveryGroupsResponse"
-    "fixture/ListRecoveryGroupsResponse.proto"
+    "CreateReadinessCheckResponse"
+    "fixture/CreateReadinessCheckResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRecoveryGroups)
+    (Proxy.Proxy :: Proxy.Proxy CreateReadinessCheck)
 
-responseListCrossAccountAuthorizations :: ListCrossAccountAuthorizationsResponse -> TestTree
-responseListCrossAccountAuthorizations =
+responseCreateRecoveryGroup :: CreateRecoveryGroupResponse -> TestTree
+responseCreateRecoveryGroup =
   res
-    "ListCrossAccountAuthorizationsResponse"
-    "fixture/ListCrossAccountAuthorizationsResponse.proto"
+    "CreateRecoveryGroupResponse"
+    "fixture/CreateRecoveryGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListCrossAccountAuthorizations)
+    (Proxy.Proxy :: Proxy.Proxy CreateRecoveryGroup)
+
+responseCreateResourceSet :: CreateResourceSetResponse -> TestTree
+responseCreateResourceSet =
+  res
+    "CreateResourceSetResponse"
+    "fixture/CreateResourceSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateResourceSet)
+
+responseDeleteCell :: DeleteCellResponse -> TestTree
+responseDeleteCell =
+  res
+    "DeleteCellResponse"
+    "fixture/DeleteCellResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCell)
+
+responseDeleteCrossAccountAuthorization :: DeleteCrossAccountAuthorizationResponse -> TestTree
+responseDeleteCrossAccountAuthorization =
+  res
+    "DeleteCrossAccountAuthorizationResponse"
+    "fixture/DeleteCrossAccountAuthorizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCrossAccountAuthorization)
+
+responseDeleteReadinessCheck :: DeleteReadinessCheckResponse -> TestTree
+responseDeleteReadinessCheck =
+  res
+    "DeleteReadinessCheckResponse"
+    "fixture/DeleteReadinessCheckResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteReadinessCheck)
+
+responseDeleteRecoveryGroup :: DeleteRecoveryGroupResponse -> TestTree
+responseDeleteRecoveryGroup =
+  res
+    "DeleteRecoveryGroupResponse"
+    "fixture/DeleteRecoveryGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecoveryGroup)
+
+responseDeleteResourceSet :: DeleteResourceSetResponse -> TestTree
+responseDeleteResourceSet =
+  res
+    "DeleteResourceSetResponse"
+    "fixture/DeleteResourceSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourceSet)
+
+responseGetArchitectureRecommendations :: GetArchitectureRecommendationsResponse -> TestTree
+responseGetArchitectureRecommendations =
+  res
+    "GetArchitectureRecommendationsResponse"
+    "fixture/GetArchitectureRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetArchitectureRecommendations)
 
 responseGetCell :: GetCellResponse -> TestTree
 responseGetCell =
@@ -549,21 +517,13 @@ responseGetCell =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetCell)
 
-responseCreateCrossAccountAuthorization :: CreateCrossAccountAuthorizationResponse -> TestTree
-responseCreateCrossAccountAuthorization =
+responseGetCellReadinessSummary :: GetCellReadinessSummaryResponse -> TestTree
+responseGetCellReadinessSummary =
   res
-    "CreateCrossAccountAuthorizationResponse"
-    "fixture/CreateCrossAccountAuthorizationResponse.proto"
+    "GetCellReadinessSummaryResponse"
+    "fixture/GetCellReadinessSummaryResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCrossAccountAuthorization)
-
-responseCreateRecoveryGroup :: CreateRecoveryGroupResponse -> TestTree
-responseCreateRecoveryGroup =
-  res
-    "CreateRecoveryGroupResponse"
-    "fixture/CreateRecoveryGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRecoveryGroup)
+    (Proxy.Proxy :: Proxy.Proxy GetCellReadinessSummary)
 
 responseGetReadinessCheck :: GetReadinessCheckResponse -> TestTree
 responseGetReadinessCheck =
@@ -581,61 +541,21 @@ responseGetReadinessCheckResourceStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetReadinessCheckResourceStatus)
 
-responseListResourceSets :: ListResourceSetsResponse -> TestTree
-responseListResourceSets =
+responseGetReadinessCheckStatus :: GetReadinessCheckStatusResponse -> TestTree
+responseGetReadinessCheckStatus =
   res
-    "ListResourceSetsResponse"
-    "fixture/ListResourceSetsResponse.proto"
+    "GetReadinessCheckStatusResponse"
+    "fixture/GetReadinessCheckStatusResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResourceSets)
+    (Proxy.Proxy :: Proxy.Proxy GetReadinessCheckStatus)
 
-responseGetArchitectureRecommendations :: GetArchitectureRecommendationsResponse -> TestTree
-responseGetArchitectureRecommendations =
+responseGetRecoveryGroup :: GetRecoveryGroupResponse -> TestTree
+responseGetRecoveryGroup =
   res
-    "GetArchitectureRecommendationsResponse"
-    "fixture/GetArchitectureRecommendationsResponse.proto"
+    "GetRecoveryGroupResponse"
+    "fixture/GetRecoveryGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetArchitectureRecommendations)
-
-responseDeleteCrossAccountAuthorization :: DeleteCrossAccountAuthorizationResponse -> TestTree
-responseDeleteCrossAccountAuthorization =
-  res
-    "DeleteCrossAccountAuthorizationResponse"
-    "fixture/DeleteCrossAccountAuthorizationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCrossAccountAuthorization)
-
-responseDeleteRecoveryGroup :: DeleteRecoveryGroupResponse -> TestTree
-responseDeleteRecoveryGroup =
-  res
-    "DeleteRecoveryGroupResponse"
-    "fixture/DeleteRecoveryGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRecoveryGroup)
-
-responseUpdateRecoveryGroup :: UpdateRecoveryGroupResponse -> TestTree
-responseUpdateRecoveryGroup =
-  res
-    "UpdateRecoveryGroupResponse"
-    "fixture/UpdateRecoveryGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRecoveryGroup)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy GetRecoveryGroup)
 
 responseGetRecoveryGroupReadinessSummary :: GetRecoveryGroupReadinessSummaryResponse -> TestTree
 responseGetRecoveryGroupReadinessSummary =
@@ -653,6 +573,54 @@ responseGetResourceSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResourceSet)
 
+responseListCells :: ListCellsResponse -> TestTree
+responseListCells =
+  res
+    "ListCellsResponse"
+    "fixture/ListCellsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCells)
+
+responseListCrossAccountAuthorizations :: ListCrossAccountAuthorizationsResponse -> TestTree
+responseListCrossAccountAuthorizations =
+  res
+    "ListCrossAccountAuthorizationsResponse"
+    "fixture/ListCrossAccountAuthorizationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCrossAccountAuthorizations)
+
+responseListReadinessChecks :: ListReadinessChecksResponse -> TestTree
+responseListReadinessChecks =
+  res
+    "ListReadinessChecksResponse"
+    "fixture/ListReadinessChecksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReadinessChecks)
+
+responseListRecoveryGroups :: ListRecoveryGroupsResponse -> TestTree
+responseListRecoveryGroups =
+  res
+    "ListRecoveryGroupsResponse"
+    "fixture/ListRecoveryGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRecoveryGroups)
+
+responseListResourceSets :: ListResourceSetsResponse -> TestTree
+responseListResourceSets =
+  res
+    "ListResourceSetsResponse"
+    "fixture/ListResourceSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceSets)
+
+responseListRules :: ListRulesResponse -> TestTree
+responseListRules =
+  res
+    "ListRulesResponse"
+    "fixture/ListRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRules)
+
 responseListTagsForResources :: ListTagsForResourcesResponse -> TestTree
 responseListTagsForResources =
   res
@@ -661,6 +629,46 @@ responseListTagsForResources =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResources)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateCell :: UpdateCellResponse -> TestTree
+responseUpdateCell =
+  res
+    "UpdateCellResponse"
+    "fixture/UpdateCellResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateCell)
+
+responseUpdateReadinessCheck :: UpdateReadinessCheckResponse -> TestTree
+responseUpdateReadinessCheck =
+  res
+    "UpdateReadinessCheckResponse"
+    "fixture/UpdateReadinessCheckResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateReadinessCheck)
+
+responseUpdateRecoveryGroup :: UpdateRecoveryGroupResponse -> TestTree
+responseUpdateRecoveryGroup =
+  res
+    "UpdateRecoveryGroupResponse"
+    "fixture/UpdateRecoveryGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecoveryGroup)
+
 responseUpdateResourceSet :: UpdateResourceSetResponse -> TestTree
 responseUpdateResourceSet =
   res
@@ -668,11 +676,3 @@ responseUpdateResourceSet =
     "fixture/UpdateResourceSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateResourceSet)
-
-responseDeleteResourceSet :: DeleteResourceSetResponse -> TestTree
-responseDeleteResourceSet =
-  res
-    "DeleteResourceSetResponse"
-    "fixture/DeleteResourceSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteResourceSet)

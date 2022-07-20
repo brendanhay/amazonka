@@ -33,11 +33,11 @@ module Amazonka.EC2.DescribeManagedPrefixLists
     newDescribeManagedPrefixLists,
 
     -- * Request Lenses
-    describeManagedPrefixLists_filters,
-    describeManagedPrefixLists_prefixListIds,
     describeManagedPrefixLists_nextToken,
+    describeManagedPrefixLists_filters,
     describeManagedPrefixLists_dryRun,
     describeManagedPrefixLists_maxResults,
+    describeManagedPrefixLists_prefixListIds,
 
     -- * Destructuring the Response
     DescribeManagedPrefixListsResponse (..),
@@ -59,7 +59,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeManagedPrefixLists' smart constructor.
 data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
-  { -- | One or more filters.
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @owner-id@ - The ID of the prefix list owner.
     --
@@ -67,10 +69,6 @@ data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
     --
     -- -   @prefix-list-name@ - The name of the prefix list.
     filters :: Prelude.Maybe [Filter],
-    -- | One or more prefix list IDs.
-    prefixListIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -79,7 +77,9 @@ data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more prefix list IDs.
+    prefixListIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,6 +91,8 @@ data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeManagedPrefixLists_nextToken' - The token for the next page of results.
+--
 -- 'filters', 'describeManagedPrefixLists_filters' - One or more filters.
 --
 -- -   @owner-id@ - The ID of the prefix list owner.
@@ -98,10 +100,6 @@ data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
 -- -   @prefix-list-id@ - The ID of the prefix list.
 --
 -- -   @prefix-list-name@ - The name of the prefix list.
---
--- 'prefixListIds', 'describeManagedPrefixLists_prefixListIds' - One or more prefix list IDs.
---
--- 'nextToken', 'describeManagedPrefixLists_nextToken' - The token for the next page of results.
 --
 -- 'dryRun', 'describeManagedPrefixLists_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -111,17 +109,23 @@ data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
 -- 'maxResults', 'describeManagedPrefixLists_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'prefixListIds', 'describeManagedPrefixLists_prefixListIds' - One or more prefix list IDs.
 newDescribeManagedPrefixLists ::
   DescribeManagedPrefixLists
 newDescribeManagedPrefixLists =
   DescribeManagedPrefixLists'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      prefixListIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      prefixListIds = Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeManagedPrefixLists_nextToken :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Text)
+describeManagedPrefixLists_nextToken = Lens.lens (\DescribeManagedPrefixLists' {nextToken} -> nextToken) (\s@DescribeManagedPrefixLists' {} a -> s {nextToken = a} :: DescribeManagedPrefixLists)
 
 -- | One or more filters.
 --
@@ -132,14 +136,6 @@ newDescribeManagedPrefixLists =
 -- -   @prefix-list-name@ - The name of the prefix list.
 describeManagedPrefixLists_filters :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe [Filter])
 describeManagedPrefixLists_filters = Lens.lens (\DescribeManagedPrefixLists' {filters} -> filters) (\s@DescribeManagedPrefixLists' {} a -> s {filters = a} :: DescribeManagedPrefixLists) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more prefix list IDs.
-describeManagedPrefixLists_prefixListIds :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe [Prelude.Text])
-describeManagedPrefixLists_prefixListIds = Lens.lens (\DescribeManagedPrefixLists' {prefixListIds} -> prefixListIds) (\s@DescribeManagedPrefixLists' {} a -> s {prefixListIds = a} :: DescribeManagedPrefixLists) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-describeManagedPrefixLists_nextToken :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Text)
-describeManagedPrefixLists_nextToken = Lens.lens (\DescribeManagedPrefixLists' {nextToken} -> nextToken) (\s@DescribeManagedPrefixLists' {} a -> s {nextToken = a} :: DescribeManagedPrefixLists)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -153,6 +149,10 @@ describeManagedPrefixLists_dryRun = Lens.lens (\DescribeManagedPrefixLists' {dry
 -- value.
 describeManagedPrefixLists_maxResults :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Natural)
 describeManagedPrefixLists_maxResults = Lens.lens (\DescribeManagedPrefixLists' {maxResults} -> maxResults) (\s@DescribeManagedPrefixLists' {} a -> s {maxResults = a} :: DescribeManagedPrefixLists)
+
+-- | One or more prefix list IDs.
+describeManagedPrefixLists_prefixListIds :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe [Prelude.Text])
+describeManagedPrefixLists_prefixListIds = Lens.lens (\DescribeManagedPrefixLists' {prefixListIds} -> prefixListIds) (\s@DescribeManagedPrefixLists' {} a -> s {prefixListIds = a} :: DescribeManagedPrefixLists) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeManagedPrefixLists where
   page rq rs
@@ -194,19 +194,19 @@ instance Core.AWSRequest DescribeManagedPrefixLists where
 
 instance Prelude.Hashable DescribeManagedPrefixLists where
   hashWithSalt _salt DescribeManagedPrefixLists' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` prefixListIds
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` prefixListIds
 
 instance Prelude.NFData DescribeManagedPrefixLists where
   rnf DescribeManagedPrefixLists' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf prefixListIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf prefixListIds
 
 instance Core.ToHeaders DescribeManagedPrefixLists where
   toHeaders = Prelude.const Prelude.mempty
@@ -221,15 +221,15 @@ instance Core.ToQuery DescribeManagedPrefixLists where
           Core.=: ("DescribeManagedPrefixLists" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "PrefixListId"
               Prelude.<$> prefixListIds
-          ),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          )
       ]
 
 -- | /See:/ 'newDescribeManagedPrefixListsResponse' smart constructor.

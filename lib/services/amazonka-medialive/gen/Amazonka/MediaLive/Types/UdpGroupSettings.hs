@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUdpGroupSettings' smart constructor.
 data UdpGroupSettings = UdpGroupSettings'
-  { -- | Timed Metadata interval in seconds.
-    timedMetadataId3Period :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies behavior of last resort when input video is lost, and no more
+  { -- | Specifies behavior of last resort when input video is lost, and no more
     -- backup inputs are available. When dropTs is selected the entire
     -- transport stream will stop being emitted. When dropProgram is selected
     -- the program can be dropped from the transport stream (and replaced with
@@ -41,7 +39,9 @@ data UdpGroupSettings = UdpGroupSettings'
     -- absent input video.
     inputLossAction :: Prelude.Maybe InputLossActionForUdpOut,
     -- | Indicates ID3 frame that has the timecode.
-    timedMetadataId3Frame :: Prelude.Maybe UdpTimedMetadataId3Frame
+    timedMetadataId3Frame :: Prelude.Maybe UdpTimedMetadataId3Frame,
+    -- | Timed Metadata interval in seconds.
+    timedMetadataId3Period :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data UdpGroupSettings = UdpGroupSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timedMetadataId3Period', 'udpGroupSettings_timedMetadataId3Period' - Timed Metadata interval in seconds.
---
 -- 'inputLossAction', 'udpGroupSettings_inputLossAction' - Specifies behavior of last resort when input video is lost, and no more
 -- backup inputs are available. When dropTs is selected the entire
 -- transport stream will stop being emitted. When dropProgram is selected
@@ -65,19 +63,17 @@ data UdpGroupSettings = UdpGroupSettings'
 -- absent input video.
 --
 -- 'timedMetadataId3Frame', 'udpGroupSettings_timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
+--
+-- 'timedMetadataId3Period', 'udpGroupSettings_timedMetadataId3Period' - Timed Metadata interval in seconds.
 newUdpGroupSettings ::
   UdpGroupSettings
 newUdpGroupSettings =
   UdpGroupSettings'
-    { timedMetadataId3Period =
+    { inputLossAction =
         Prelude.Nothing,
-      inputLossAction = Prelude.Nothing,
-      timedMetadataId3Frame = Prelude.Nothing
+      timedMetadataId3Frame = Prelude.Nothing,
+      timedMetadataId3Period = Prelude.Nothing
     }
-
--- | Timed Metadata interval in seconds.
-udpGroupSettings_timedMetadataId3Period :: Lens.Lens' UdpGroupSettings (Prelude.Maybe Prelude.Natural)
-udpGroupSettings_timedMetadataId3Period = Lens.lens (\UdpGroupSettings' {timedMetadataId3Period} -> timedMetadataId3Period) (\s@UdpGroupSettings' {} a -> s {timedMetadataId3Period = a} :: UdpGroupSettings)
 
 -- | Specifies behavior of last resort when input video is lost, and no more
 -- backup inputs are available. When dropTs is selected the entire
@@ -94,38 +90,42 @@ udpGroupSettings_inputLossAction = Lens.lens (\UdpGroupSettings' {inputLossActio
 udpGroupSettings_timedMetadataId3Frame :: Lens.Lens' UdpGroupSettings (Prelude.Maybe UdpTimedMetadataId3Frame)
 udpGroupSettings_timedMetadataId3Frame = Lens.lens (\UdpGroupSettings' {timedMetadataId3Frame} -> timedMetadataId3Frame) (\s@UdpGroupSettings' {} a -> s {timedMetadataId3Frame = a} :: UdpGroupSettings)
 
+-- | Timed Metadata interval in seconds.
+udpGroupSettings_timedMetadataId3Period :: Lens.Lens' UdpGroupSettings (Prelude.Maybe Prelude.Natural)
+udpGroupSettings_timedMetadataId3Period = Lens.lens (\UdpGroupSettings' {timedMetadataId3Period} -> timedMetadataId3Period) (\s@UdpGroupSettings' {} a -> s {timedMetadataId3Period = a} :: UdpGroupSettings)
+
 instance Core.FromJSON UdpGroupSettings where
   parseJSON =
     Core.withObject
       "UdpGroupSettings"
       ( \x ->
           UdpGroupSettings'
-            Prelude.<$> (x Core..:? "timedMetadataId3Period")
-            Prelude.<*> (x Core..:? "inputLossAction")
+            Prelude.<$> (x Core..:? "inputLossAction")
             Prelude.<*> (x Core..:? "timedMetadataId3Frame")
+            Prelude.<*> (x Core..:? "timedMetadataId3Period")
       )
 
 instance Prelude.Hashable UdpGroupSettings where
   hashWithSalt _salt UdpGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` timedMetadataId3Period
-      `Prelude.hashWithSalt` inputLossAction
+    _salt `Prelude.hashWithSalt` inputLossAction
       `Prelude.hashWithSalt` timedMetadataId3Frame
+      `Prelude.hashWithSalt` timedMetadataId3Period
 
 instance Prelude.NFData UdpGroupSettings where
   rnf UdpGroupSettings' {..} =
-    Prelude.rnf timedMetadataId3Period
-      `Prelude.seq` Prelude.rnf inputLossAction
+    Prelude.rnf inputLossAction
       `Prelude.seq` Prelude.rnf timedMetadataId3Frame
+      `Prelude.seq` Prelude.rnf timedMetadataId3Period
 
 instance Core.ToJSON UdpGroupSettings where
   toJSON UdpGroupSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("timedMetadataId3Period" Core..=)
-              Prelude.<$> timedMetadataId3Period,
-            ("inputLossAction" Core..=)
+          [ ("inputLossAction" Core..=)
               Prelude.<$> inputLossAction,
             ("timedMetadataId3Frame" Core..=)
-              Prelude.<$> timedMetadataId3Frame
+              Prelude.<$> timedMetadataId3Frame,
+            ("timedMetadataId3Period" Core..=)
+              Prelude.<$> timedMetadataId3Period
           ]
       )

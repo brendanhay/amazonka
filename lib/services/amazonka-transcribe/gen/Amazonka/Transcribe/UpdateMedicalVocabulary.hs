@@ -39,10 +39,10 @@ module Amazonka.Transcribe.UpdateMedicalVocabulary
     newUpdateMedicalVocabularyResponse,
 
     -- * Response Lenses
-    updateMedicalVocabularyResponse_languageCode,
     updateMedicalVocabularyResponse_vocabularyName,
-    updateMedicalVocabularyResponse_lastModifiedTime,
     updateMedicalVocabularyResponse_vocabularyState,
+    updateMedicalVocabularyResponse_lastModifiedTime,
+    updateMedicalVocabularyResponse_languageCode,
     updateMedicalVocabularyResponse_httpStatus,
   )
 where
@@ -178,10 +178,10 @@ instance Core.AWSRequest UpdateMedicalVocabulary where
     Response.receiveJSON
       ( \s h x ->
           UpdateMedicalVocabularyResponse'
-            Prelude.<$> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "VocabularyName")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<$> (x Core..?> "VocabularyName")
             Prelude.<*> (x Core..?> "VocabularyState")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "LanguageCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,18 +232,18 @@ instance Core.ToQuery UpdateMedicalVocabulary where
 
 -- | /See:/ 'newUpdateMedicalVocabularyResponse' smart constructor.
 data UpdateMedicalVocabularyResponse = UpdateMedicalVocabularyResponse'
-  { -- | The language code for the language of the text file used to update the
-    -- custom vocabulary. US English (en-US) is the only language supported in
-    -- Amazon Transcribe Medical.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | The name of the updated vocabulary.
+  { -- | The name of the updated vocabulary.
     vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the vocabulary was updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The processing state of the update to the vocabulary. When the
     -- @VocabularyState@ field is @READY@, the vocabulary is ready to be used
     -- in a @StartMedicalTranscriptionJob@ request.
     vocabularyState :: Prelude.Maybe VocabularyState,
+    -- | The date and time that the vocabulary was updated.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The language code for the language of the text file used to update the
+    -- custom vocabulary. US English (en-US) is the only language supported in
+    -- Amazon Transcribe Medical.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,17 +257,17 @@ data UpdateMedicalVocabularyResponse = UpdateMedicalVocabularyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageCode', 'updateMedicalVocabularyResponse_languageCode' - The language code for the language of the text file used to update the
--- custom vocabulary. US English (en-US) is the only language supported in
--- Amazon Transcribe Medical.
---
 -- 'vocabularyName', 'updateMedicalVocabularyResponse_vocabularyName' - The name of the updated vocabulary.
---
--- 'lastModifiedTime', 'updateMedicalVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was updated.
 --
 -- 'vocabularyState', 'updateMedicalVocabularyResponse_vocabularyState' - The processing state of the update to the vocabulary. When the
 -- @VocabularyState@ field is @READY@, the vocabulary is ready to be used
 -- in a @StartMedicalTranscriptionJob@ request.
+--
+-- 'lastModifiedTime', 'updateMedicalVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was updated.
+--
+-- 'languageCode', 'updateMedicalVocabularyResponse_languageCode' - The language code for the language of the text file used to update the
+-- custom vocabulary. US English (en-US) is the only language supported in
+-- Amazon Transcribe Medical.
 --
 -- 'httpStatus', 'updateMedicalVocabularyResponse_httpStatus' - The response's http status code.
 newUpdateMedicalVocabularyResponse ::
@@ -276,33 +276,33 @@ newUpdateMedicalVocabularyResponse ::
   UpdateMedicalVocabularyResponse
 newUpdateMedicalVocabularyResponse pHttpStatus_ =
   UpdateMedicalVocabularyResponse'
-    { languageCode =
+    { vocabularyName =
         Prelude.Nothing,
-      vocabularyName = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       vocabularyState = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The language code for the language of the text file used to update the
--- custom vocabulary. US English (en-US) is the only language supported in
--- Amazon Transcribe Medical.
-updateMedicalVocabularyResponse_languageCode :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe LanguageCode)
-updateMedicalVocabularyResponse_languageCode = Lens.lens (\UpdateMedicalVocabularyResponse' {languageCode} -> languageCode) (\s@UpdateMedicalVocabularyResponse' {} a -> s {languageCode = a} :: UpdateMedicalVocabularyResponse)
 
 -- | The name of the updated vocabulary.
 updateMedicalVocabularyResponse_vocabularyName :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
 updateMedicalVocabularyResponse_vocabularyName = Lens.lens (\UpdateMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@UpdateMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: UpdateMedicalVocabularyResponse)
-
--- | The date and time that the vocabulary was updated.
-updateMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
-updateMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateMedicalVocabularyResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The processing state of the update to the vocabulary. When the
 -- @VocabularyState@ field is @READY@, the vocabulary is ready to be used
 -- in a @StartMedicalTranscriptionJob@ request.
 updateMedicalVocabularyResponse_vocabularyState :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe VocabularyState)
 updateMedicalVocabularyResponse_vocabularyState = Lens.lens (\UpdateMedicalVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@UpdateMedicalVocabularyResponse' {} a -> s {vocabularyState = a} :: UpdateMedicalVocabularyResponse)
+
+-- | The date and time that the vocabulary was updated.
+updateMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
+updateMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateMedicalVocabularyResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The language code for the language of the text file used to update the
+-- custom vocabulary. US English (en-US) is the only language supported in
+-- Amazon Transcribe Medical.
+updateMedicalVocabularyResponse_languageCode :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe LanguageCode)
+updateMedicalVocabularyResponse_languageCode = Lens.lens (\UpdateMedicalVocabularyResponse' {languageCode} -> languageCode) (\s@UpdateMedicalVocabularyResponse' {} a -> s {languageCode = a} :: UpdateMedicalVocabularyResponse)
 
 -- | The response's http status code.
 updateMedicalVocabularyResponse_httpStatus :: Lens.Lens' UpdateMedicalVocabularyResponse Prelude.Int
@@ -313,8 +313,8 @@ instance
     UpdateMedicalVocabularyResponse
   where
   rnf UpdateMedicalVocabularyResponse' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf vocabularyState
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf httpStatus

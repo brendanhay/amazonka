@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsDynamoDbTableRestoreSummary' smart constructor.
 data AwsDynamoDbTableRestoreSummary = AwsDynamoDbTableRestoreSummary'
-  { -- | The ARN of the source table for the backup.
-    sourceTableArn :: Prelude.Maybe Prelude.Text,
+  { -- | Whether a restore is currently in progress.
+    restoreInProgress :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the source backup from which the table was restored.
     sourceBackupArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether a restore is currently in progress.
-    restoreInProgress :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of the source table for the backup.
+    sourceTableArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the point in time that the table was restored to.
     --
     -- Uses the @date-time@ format specified in
@@ -51,11 +51,11 @@ data AwsDynamoDbTableRestoreSummary = AwsDynamoDbTableRestoreSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceTableArn', 'awsDynamoDbTableRestoreSummary_sourceTableArn' - The ARN of the source table for the backup.
+-- 'restoreInProgress', 'awsDynamoDbTableRestoreSummary_restoreInProgress' - Whether a restore is currently in progress.
 --
 -- 'sourceBackupArn', 'awsDynamoDbTableRestoreSummary_sourceBackupArn' - The ARN of the source backup from which the table was restored.
 --
--- 'restoreInProgress', 'awsDynamoDbTableRestoreSummary_restoreInProgress' - Whether a restore is currently in progress.
+-- 'sourceTableArn', 'awsDynamoDbTableRestoreSummary_sourceTableArn' - The ARN of the source table for the backup.
 --
 -- 'restoreDateTime', 'awsDynamoDbTableRestoreSummary_restoreDateTime' - Indicates the point in time that the table was restored to.
 --
@@ -67,24 +67,24 @@ newAwsDynamoDbTableRestoreSummary ::
   AwsDynamoDbTableRestoreSummary
 newAwsDynamoDbTableRestoreSummary =
   AwsDynamoDbTableRestoreSummary'
-    { sourceTableArn =
+    { restoreInProgress =
         Prelude.Nothing,
       sourceBackupArn = Prelude.Nothing,
-      restoreInProgress = Prelude.Nothing,
+      sourceTableArn = Prelude.Nothing,
       restoreDateTime = Prelude.Nothing
     }
 
--- | The ARN of the source table for the backup.
-awsDynamoDbTableRestoreSummary_sourceTableArn :: Lens.Lens' AwsDynamoDbTableRestoreSummary (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableRestoreSummary_sourceTableArn = Lens.lens (\AwsDynamoDbTableRestoreSummary' {sourceTableArn} -> sourceTableArn) (\s@AwsDynamoDbTableRestoreSummary' {} a -> s {sourceTableArn = a} :: AwsDynamoDbTableRestoreSummary)
+-- | Whether a restore is currently in progress.
+awsDynamoDbTableRestoreSummary_restoreInProgress :: Lens.Lens' AwsDynamoDbTableRestoreSummary (Prelude.Maybe Prelude.Bool)
+awsDynamoDbTableRestoreSummary_restoreInProgress = Lens.lens (\AwsDynamoDbTableRestoreSummary' {restoreInProgress} -> restoreInProgress) (\s@AwsDynamoDbTableRestoreSummary' {} a -> s {restoreInProgress = a} :: AwsDynamoDbTableRestoreSummary)
 
 -- | The ARN of the source backup from which the table was restored.
 awsDynamoDbTableRestoreSummary_sourceBackupArn :: Lens.Lens' AwsDynamoDbTableRestoreSummary (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableRestoreSummary_sourceBackupArn = Lens.lens (\AwsDynamoDbTableRestoreSummary' {sourceBackupArn} -> sourceBackupArn) (\s@AwsDynamoDbTableRestoreSummary' {} a -> s {sourceBackupArn = a} :: AwsDynamoDbTableRestoreSummary)
 
--- | Whether a restore is currently in progress.
-awsDynamoDbTableRestoreSummary_restoreInProgress :: Lens.Lens' AwsDynamoDbTableRestoreSummary (Prelude.Maybe Prelude.Bool)
-awsDynamoDbTableRestoreSummary_restoreInProgress = Lens.lens (\AwsDynamoDbTableRestoreSummary' {restoreInProgress} -> restoreInProgress) (\s@AwsDynamoDbTableRestoreSummary' {} a -> s {restoreInProgress = a} :: AwsDynamoDbTableRestoreSummary)
+-- | The ARN of the source table for the backup.
+awsDynamoDbTableRestoreSummary_sourceTableArn :: Lens.Lens' AwsDynamoDbTableRestoreSummary (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableRestoreSummary_sourceTableArn = Lens.lens (\AwsDynamoDbTableRestoreSummary' {sourceTableArn} -> sourceTableArn) (\s@AwsDynamoDbTableRestoreSummary' {} a -> s {sourceTableArn = a} :: AwsDynamoDbTableRestoreSummary)
 
 -- | Indicates the point in time that the table was restored to.
 --
@@ -101,9 +101,9 @@ instance Core.FromJSON AwsDynamoDbTableRestoreSummary where
       "AwsDynamoDbTableRestoreSummary"
       ( \x ->
           AwsDynamoDbTableRestoreSummary'
-            Prelude.<$> (x Core..:? "SourceTableArn")
+            Prelude.<$> (x Core..:? "RestoreInProgress")
             Prelude.<*> (x Core..:? "SourceBackupArn")
-            Prelude.<*> (x Core..:? "RestoreInProgress")
+            Prelude.<*> (x Core..:? "SourceTableArn")
             Prelude.<*> (x Core..:? "RestoreDateTime")
       )
 
@@ -114,9 +114,9 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableRestoreSummary' {..} =
-      _salt `Prelude.hashWithSalt` sourceTableArn
+      _salt `Prelude.hashWithSalt` restoreInProgress
         `Prelude.hashWithSalt` sourceBackupArn
-        `Prelude.hashWithSalt` restoreInProgress
+        `Prelude.hashWithSalt` sourceTableArn
         `Prelude.hashWithSalt` restoreDateTime
 
 instance
@@ -124,21 +124,21 @@ instance
     AwsDynamoDbTableRestoreSummary
   where
   rnf AwsDynamoDbTableRestoreSummary' {..} =
-    Prelude.rnf sourceTableArn
+    Prelude.rnf restoreInProgress
       `Prelude.seq` Prelude.rnf sourceBackupArn
-      `Prelude.seq` Prelude.rnf restoreInProgress
+      `Prelude.seq` Prelude.rnf sourceTableArn
       `Prelude.seq` Prelude.rnf restoreDateTime
 
 instance Core.ToJSON AwsDynamoDbTableRestoreSummary where
   toJSON AwsDynamoDbTableRestoreSummary' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourceTableArn" Core..=)
-              Prelude.<$> sourceTableArn,
+          [ ("RestoreInProgress" Core..=)
+              Prelude.<$> restoreInProgress,
             ("SourceBackupArn" Core..=)
               Prelude.<$> sourceBackupArn,
-            ("RestoreInProgress" Core..=)
-              Prelude.<$> restoreInProgress,
+            ("SourceTableArn" Core..=)
+              Prelude.<$> sourceTableArn,
             ("RestoreDateTime" Core..=)
               Prelude.<$> restoreDateTime
           ]

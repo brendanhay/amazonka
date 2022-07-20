@@ -27,41 +27,50 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestStartSigningJob $
---             newStartSigningJob
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestRevokeSigningProfile $
---             newRevokeSigningProfile
+--         [ requestAddProfilePermission $
+--             newAddProfilePermission
 --
 --         , requestCancelSigningProfile $
 --             newCancelSigningProfile
 --
---         , requestPutSigningProfile $
---             newPutSigningProfile
---
---         , requestAddProfilePermission $
---             newAddProfilePermission
---
---         , requestListSigningProfiles $
---             newListSigningProfiles
---
---         , requestListProfilePermissions $
---             newListProfilePermissions
---
---         , requestRevokeSignature $
---             newRevokeSignature
+--         , requestDescribeSigningJob $
+--             newDescribeSigningJob
 --
 --         , requestGetSigningPlatform $
 --             newGetSigningPlatform
 --
---         , requestListSigningPlatforms $
---             newListSigningPlatforms
+--         , requestGetSigningProfile $
+--             newGetSigningProfile
+--
+--         , requestListProfilePermissions $
+--             newListProfilePermissions
 --
 --         , requestListSigningJobs $
 --             newListSigningJobs
+--
+--         , requestListSigningPlatforms $
+--             newListSigningPlatforms
+--
+--         , requestListSigningProfiles $
+--             newListSigningProfiles
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutSigningProfile $
+--             newPutSigningProfile
+--
+--         , requestRemoveProfilePermission $
+--             newRemoveProfilePermission
+--
+--         , requestRevokeSignature $
+--             newRevokeSignature
+--
+--         , requestRevokeSigningProfile $
+--             newRevokeSigningProfile
+--
+--         , requestStartSigningJob $
+--             newStartSigningJob
 --
 --         , requestTagResource $
 --             newTagResource
@@ -69,53 +78,53 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestRemoveProfilePermission $
---             newRemoveProfilePermission
---
---         , requestGetSigningProfile $
---             newGetSigningProfile
---
---         , requestDescribeSigningJob $
---             newDescribeSigningJob
---
 --           ]
 
 --     , testGroup "response"
---         [ responseStartSigningJob $
---             newStartSigningJobResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseRevokeSigningProfile $
---             newRevokeSigningProfileResponse
+--         [ responseAddProfilePermission $
+--             newAddProfilePermissionResponse
 --
 --         , responseCancelSigningProfile $
 --             newCancelSigningProfileResponse
 --
---         , responsePutSigningProfile $
---             newPutSigningProfileResponse
---
---         , responseAddProfilePermission $
---             newAddProfilePermissionResponse
---
---         , responseListSigningProfiles $
---             newListSigningProfilesResponse
---
---         , responseListProfilePermissions $
---             newListProfilePermissionsResponse
---
---         , responseRevokeSignature $
---             newRevokeSignatureResponse
+--         , responseDescribeSigningJob $
+--             newDescribeSigningJobResponse
 --
 --         , responseGetSigningPlatform $
 --             newGetSigningPlatformResponse
 --
---         , responseListSigningPlatforms $
---             newListSigningPlatformsResponse
+--         , responseGetSigningProfile $
+--             newGetSigningProfileResponse
+--
+--         , responseListProfilePermissions $
+--             newListProfilePermissionsResponse
 --
 --         , responseListSigningJobs $
 --             newListSigningJobsResponse
+--
+--         , responseListSigningPlatforms $
+--             newListSigningPlatformsResponse
+--
+--         , responseListSigningProfiles $
+--             newListSigningProfilesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutSigningProfile $
+--             newPutSigningProfileResponse
+--
+--         , responseRemoveProfilePermission $
+--             newRemoveProfilePermissionResponse
+--
+--         , responseRevokeSignature $
+--             newRevokeSignatureResponse
+--
+--         , responseRevokeSigningProfile $
+--             newRevokeSigningProfileResponse
+--
+--         , responseStartSigningJob $
+--             newStartSigningJobResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -123,49 +132,10 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseRemoveProfilePermission $
---             newRemoveProfilePermissionResponse
---
---         , responseGetSigningProfile $
---             newGetSigningProfileResponse
---
---         , responseDescribeSigningJob $
---             newDescribeSigningJobResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestStartSigningJob :: StartSigningJob -> TestTree
-requestStartSigningJob =
-  req
-    "StartSigningJob"
-    "fixture/StartSigningJob.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestRevokeSigningProfile :: RevokeSigningProfile -> TestTree
-requestRevokeSigningProfile =
-  req
-    "RevokeSigningProfile"
-    "fixture/RevokeSigningProfile.yaml"
-
-requestCancelSigningProfile :: CancelSigningProfile -> TestTree
-requestCancelSigningProfile =
-  req
-    "CancelSigningProfile"
-    "fixture/CancelSigningProfile.yaml"
-
-requestPutSigningProfile :: PutSigningProfile -> TestTree
-requestPutSigningProfile =
-  req
-    "PutSigningProfile"
-    "fixture/PutSigningProfile.yaml"
 
 requestAddProfilePermission :: AddProfilePermission -> TestTree
 requestAddProfilePermission =
@@ -173,23 +143,17 @@ requestAddProfilePermission =
     "AddProfilePermission"
     "fixture/AddProfilePermission.yaml"
 
-requestListSigningProfiles :: ListSigningProfiles -> TestTree
-requestListSigningProfiles =
+requestCancelSigningProfile :: CancelSigningProfile -> TestTree
+requestCancelSigningProfile =
   req
-    "ListSigningProfiles"
-    "fixture/ListSigningProfiles.yaml"
+    "CancelSigningProfile"
+    "fixture/CancelSigningProfile.yaml"
 
-requestListProfilePermissions :: ListProfilePermissions -> TestTree
-requestListProfilePermissions =
+requestDescribeSigningJob :: DescribeSigningJob -> TestTree
+requestDescribeSigningJob =
   req
-    "ListProfilePermissions"
-    "fixture/ListProfilePermissions.yaml"
-
-requestRevokeSignature :: RevokeSignature -> TestTree
-requestRevokeSignature =
-  req
-    "RevokeSignature"
-    "fixture/RevokeSignature.yaml"
+    "DescribeSigningJob"
+    "fixture/DescribeSigningJob.yaml"
 
 requestGetSigningPlatform :: GetSigningPlatform -> TestTree
 requestGetSigningPlatform =
@@ -197,17 +161,71 @@ requestGetSigningPlatform =
     "GetSigningPlatform"
     "fixture/GetSigningPlatform.yaml"
 
-requestListSigningPlatforms :: ListSigningPlatforms -> TestTree
-requestListSigningPlatforms =
+requestGetSigningProfile :: GetSigningProfile -> TestTree
+requestGetSigningProfile =
   req
-    "ListSigningPlatforms"
-    "fixture/ListSigningPlatforms.yaml"
+    "GetSigningProfile"
+    "fixture/GetSigningProfile.yaml"
+
+requestListProfilePermissions :: ListProfilePermissions -> TestTree
+requestListProfilePermissions =
+  req
+    "ListProfilePermissions"
+    "fixture/ListProfilePermissions.yaml"
 
 requestListSigningJobs :: ListSigningJobs -> TestTree
 requestListSigningJobs =
   req
     "ListSigningJobs"
     "fixture/ListSigningJobs.yaml"
+
+requestListSigningPlatforms :: ListSigningPlatforms -> TestTree
+requestListSigningPlatforms =
+  req
+    "ListSigningPlatforms"
+    "fixture/ListSigningPlatforms.yaml"
+
+requestListSigningProfiles :: ListSigningProfiles -> TestTree
+requestListSigningProfiles =
+  req
+    "ListSigningProfiles"
+    "fixture/ListSigningProfiles.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutSigningProfile :: PutSigningProfile -> TestTree
+requestPutSigningProfile =
+  req
+    "PutSigningProfile"
+    "fixture/PutSigningProfile.yaml"
+
+requestRemoveProfilePermission :: RemoveProfilePermission -> TestTree
+requestRemoveProfilePermission =
+  req
+    "RemoveProfilePermission"
+    "fixture/RemoveProfilePermission.yaml"
+
+requestRevokeSignature :: RevokeSignature -> TestTree
+requestRevokeSignature =
+  req
+    "RevokeSignature"
+    "fixture/RevokeSignature.yaml"
+
+requestRevokeSigningProfile :: RevokeSigningProfile -> TestTree
+requestRevokeSigningProfile =
+  req
+    "RevokeSigningProfile"
+    "fixture/RevokeSigningProfile.yaml"
+
+requestStartSigningJob :: StartSigningJob -> TestTree
+requestStartSigningJob =
+  req
+    "StartSigningJob"
+    "fixture/StartSigningJob.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -221,65 +239,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestRemoveProfilePermission :: RemoveProfilePermission -> TestTree
-requestRemoveProfilePermission =
-  req
-    "RemoveProfilePermission"
-    "fixture/RemoveProfilePermission.yaml"
-
-requestGetSigningProfile :: GetSigningProfile -> TestTree
-requestGetSigningProfile =
-  req
-    "GetSigningProfile"
-    "fixture/GetSigningProfile.yaml"
-
-requestDescribeSigningJob :: DescribeSigningJob -> TestTree
-requestDescribeSigningJob =
-  req
-    "DescribeSigningJob"
-    "fixture/DescribeSigningJob.yaml"
-
 -- Responses
-
-responseStartSigningJob :: StartSigningJobResponse -> TestTree
-responseStartSigningJob =
-  res
-    "StartSigningJobResponse"
-    "fixture/StartSigningJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartSigningJob)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseRevokeSigningProfile :: RevokeSigningProfileResponse -> TestTree
-responseRevokeSigningProfile =
-  res
-    "RevokeSigningProfileResponse"
-    "fixture/RevokeSigningProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RevokeSigningProfile)
-
-responseCancelSigningProfile :: CancelSigningProfileResponse -> TestTree
-responseCancelSigningProfile =
-  res
-    "CancelSigningProfileResponse"
-    "fixture/CancelSigningProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelSigningProfile)
-
-responsePutSigningProfile :: PutSigningProfileResponse -> TestTree
-responsePutSigningProfile =
-  res
-    "PutSigningProfileResponse"
-    "fixture/PutSigningProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutSigningProfile)
 
 responseAddProfilePermission :: AddProfilePermissionResponse -> TestTree
 responseAddProfilePermission =
@@ -289,29 +249,21 @@ responseAddProfilePermission =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddProfilePermission)
 
-responseListSigningProfiles :: ListSigningProfilesResponse -> TestTree
-responseListSigningProfiles =
+responseCancelSigningProfile :: CancelSigningProfileResponse -> TestTree
+responseCancelSigningProfile =
   res
-    "ListSigningProfilesResponse"
-    "fixture/ListSigningProfilesResponse.proto"
+    "CancelSigningProfileResponse"
+    "fixture/CancelSigningProfileResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSigningProfiles)
+    (Proxy.Proxy :: Proxy.Proxy CancelSigningProfile)
 
-responseListProfilePermissions :: ListProfilePermissionsResponse -> TestTree
-responseListProfilePermissions =
+responseDescribeSigningJob :: DescribeSigningJobResponse -> TestTree
+responseDescribeSigningJob =
   res
-    "ListProfilePermissionsResponse"
-    "fixture/ListProfilePermissionsResponse.proto"
+    "DescribeSigningJobResponse"
+    "fixture/DescribeSigningJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProfilePermissions)
-
-responseRevokeSignature :: RevokeSignatureResponse -> TestTree
-responseRevokeSignature =
-  res
-    "RevokeSignatureResponse"
-    "fixture/RevokeSignatureResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RevokeSignature)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSigningJob)
 
 responseGetSigningPlatform :: GetSigningPlatformResponse -> TestTree
 responseGetSigningPlatform =
@@ -321,13 +273,21 @@ responseGetSigningPlatform =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSigningPlatform)
 
-responseListSigningPlatforms :: ListSigningPlatformsResponse -> TestTree
-responseListSigningPlatforms =
+responseGetSigningProfile :: GetSigningProfileResponse -> TestTree
+responseGetSigningProfile =
   res
-    "ListSigningPlatformsResponse"
-    "fixture/ListSigningPlatformsResponse.proto"
+    "GetSigningProfileResponse"
+    "fixture/GetSigningProfileResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSigningPlatforms)
+    (Proxy.Proxy :: Proxy.Proxy GetSigningProfile)
+
+responseListProfilePermissions :: ListProfilePermissionsResponse -> TestTree
+responseListProfilePermissions =
+  res
+    "ListProfilePermissionsResponse"
+    "fixture/ListProfilePermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProfilePermissions)
 
 responseListSigningJobs :: ListSigningJobsResponse -> TestTree
 responseListSigningJobs =
@@ -336,6 +296,70 @@ responseListSigningJobs =
     "fixture/ListSigningJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSigningJobs)
+
+responseListSigningPlatforms :: ListSigningPlatformsResponse -> TestTree
+responseListSigningPlatforms =
+  res
+    "ListSigningPlatformsResponse"
+    "fixture/ListSigningPlatformsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSigningPlatforms)
+
+responseListSigningProfiles :: ListSigningProfilesResponse -> TestTree
+responseListSigningProfiles =
+  res
+    "ListSigningProfilesResponse"
+    "fixture/ListSigningProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSigningProfiles)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutSigningProfile :: PutSigningProfileResponse -> TestTree
+responsePutSigningProfile =
+  res
+    "PutSigningProfileResponse"
+    "fixture/PutSigningProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutSigningProfile)
+
+responseRemoveProfilePermission :: RemoveProfilePermissionResponse -> TestTree
+responseRemoveProfilePermission =
+  res
+    "RemoveProfilePermissionResponse"
+    "fixture/RemoveProfilePermissionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveProfilePermission)
+
+responseRevokeSignature :: RevokeSignatureResponse -> TestTree
+responseRevokeSignature =
+  res
+    "RevokeSignatureResponse"
+    "fixture/RevokeSignatureResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RevokeSignature)
+
+responseRevokeSigningProfile :: RevokeSigningProfileResponse -> TestTree
+responseRevokeSigningProfile =
+  res
+    "RevokeSigningProfileResponse"
+    "fixture/RevokeSigningProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RevokeSigningProfile)
+
+responseStartSigningJob :: StartSigningJobResponse -> TestTree
+responseStartSigningJob =
+  res
+    "StartSigningJobResponse"
+    "fixture/StartSigningJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSigningJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -352,27 +376,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseRemoveProfilePermission :: RemoveProfilePermissionResponse -> TestTree
-responseRemoveProfilePermission =
-  res
-    "RemoveProfilePermissionResponse"
-    "fixture/RemoveProfilePermissionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveProfilePermission)
-
-responseGetSigningProfile :: GetSigningProfileResponse -> TestTree
-responseGetSigningProfile =
-  res
-    "GetSigningProfileResponse"
-    "fixture/GetSigningProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSigningProfile)
-
-responseDescribeSigningJob :: DescribeSigningJobResponse -> TestTree
-responseDescribeSigningJob =
-  res
-    "DescribeSigningJobResponse"
-    "fixture/DescribeSigningJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSigningJob)

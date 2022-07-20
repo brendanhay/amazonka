@@ -34,20 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReportGroup' smart constructor.
 data ReportGroup = ReportGroup'
-  { -- | The status of the report group. This property is read-only.
+  { -- | A list of tag key and value pairs associated with this report group.
     --
-    -- This can be one of the following values:
-    --
-    -- [ACTIVE]
-    --     The report group is active.
-    --
-    -- [DELETING]
-    --     The report group is in the process of being deleted.
-    status :: Prelude.Maybe ReportGroupStatusType,
-    -- | The ARN of the @ReportGroup@.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time this @ReportGroup@ was created.
-    created :: Prelude.Maybe Core.POSIX,
+    -- These tags are available for use by Amazon Web Services services that
+    -- support CodeBuild report group tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the @ReportGroup@.
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of the @ReportGroup@. This can be one of the following values:
@@ -58,16 +49,25 @@ data ReportGroup = ReportGroup'
     -- [TEST]
     --     The report group contains test reports.
     type' :: Prelude.Maybe ReportType,
-    -- | The date and time this @ReportGroup@ was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The date and time this @ReportGroup@ was created.
+    created :: Prelude.Maybe Core.POSIX,
+    -- | The ARN of the @ReportGroup@.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the report group. This property is read-only.
+    --
+    -- This can be one of the following values:
+    --
+    -- [ACTIVE]
+    --     The report group is active.
+    --
+    -- [DELETING]
+    --     The report group is in the process of being deleted.
+    status :: Prelude.Maybe ReportGroupStatusType,
     -- | Information about the destination where the raw data of this
     -- @ReportGroup@ is exported.
     exportConfig :: Prelude.Maybe ReportExportConfig,
-    -- | A list of tag key and value pairs associated with this report group.
-    --
-    -- These tags are available for use by Amazon Web Services services that
-    -- support CodeBuild report group tags.
-    tags :: Prelude.Maybe [Tag]
+    -- | The date and time this @ReportGroup@ was last modified.
+    lastModified :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,19 +79,10 @@ data ReportGroup = ReportGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'reportGroup_status' - The status of the report group. This property is read-only.
+-- 'tags', 'reportGroup_tags' - A list of tag key and value pairs associated with this report group.
 --
--- This can be one of the following values:
---
--- [ACTIVE]
---     The report group is active.
---
--- [DELETING]
---     The report group is in the process of being deleted.
---
--- 'arn', 'reportGroup_arn' - The ARN of the @ReportGroup@.
---
--- 'created', 'reportGroup_created' - The date and time this @ReportGroup@ was created.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
 --
 -- 'name', 'reportGroup_name' - The name of the @ReportGroup@.
 --
@@ -103,30 +94,11 @@ data ReportGroup = ReportGroup'
 -- [TEST]
 --     The report group contains test reports.
 --
--- 'lastModified', 'reportGroup_lastModified' - The date and time this @ReportGroup@ was last modified.
+-- 'created', 'reportGroup_created' - The date and time this @ReportGroup@ was created.
 --
--- 'exportConfig', 'reportGroup_exportConfig' - Information about the destination where the raw data of this
--- @ReportGroup@ is exported.
+-- 'arn', 'reportGroup_arn' - The ARN of the @ReportGroup@.
 --
--- 'tags', 'reportGroup_tags' - A list of tag key and value pairs associated with this report group.
---
--- These tags are available for use by Amazon Web Services services that
--- support CodeBuild report group tags.
-newReportGroup ::
-  ReportGroup
-newReportGroup =
-  ReportGroup'
-    { status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      created = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
-      exportConfig = Prelude.Nothing,
-      tags = Prelude.Nothing
-    }
-
--- | The status of the report group. This property is read-only.
+-- 'status', 'reportGroup_status' - The status of the report group. This property is read-only.
 --
 -- This can be one of the following values:
 --
@@ -135,16 +107,31 @@ newReportGroup =
 --
 -- [DELETING]
 --     The report group is in the process of being deleted.
-reportGroup_status :: Lens.Lens' ReportGroup (Prelude.Maybe ReportGroupStatusType)
-reportGroup_status = Lens.lens (\ReportGroup' {status} -> status) (\s@ReportGroup' {} a -> s {status = a} :: ReportGroup)
+--
+-- 'exportConfig', 'reportGroup_exportConfig' - Information about the destination where the raw data of this
+-- @ReportGroup@ is exported.
+--
+-- 'lastModified', 'reportGroup_lastModified' - The date and time this @ReportGroup@ was last modified.
+newReportGroup ::
+  ReportGroup
+newReportGroup =
+  ReportGroup'
+    { tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      created = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      exportConfig = Prelude.Nothing,
+      lastModified = Prelude.Nothing
+    }
 
--- | The ARN of the @ReportGroup@.
-reportGroup_arn :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.Text)
-reportGroup_arn = Lens.lens (\ReportGroup' {arn} -> arn) (\s@ReportGroup' {} a -> s {arn = a} :: ReportGroup)
-
--- | The date and time this @ReportGroup@ was created.
-reportGroup_created :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
-reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportGroup' {} a -> s {created = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
+-- | A list of tag key and value pairs associated with this report group.
+--
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
+reportGroup_tags :: Lens.Lens' ReportGroup (Prelude.Maybe [Tag])
+reportGroup_tags = Lens.lens (\ReportGroup' {tags} -> tags) (\s@ReportGroup' {} a -> s {tags = a} :: ReportGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the @ReportGroup@.
 reportGroup_name :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.Text)
@@ -160,21 +147,34 @@ reportGroup_name = Lens.lens (\ReportGroup' {name} -> name) (\s@ReportGroup' {} 
 reportGroup_type :: Lens.Lens' ReportGroup (Prelude.Maybe ReportType)
 reportGroup_type = Lens.lens (\ReportGroup' {type'} -> type') (\s@ReportGroup' {} a -> s {type' = a} :: ReportGroup)
 
--- | The date and time this @ReportGroup@ was last modified.
-reportGroup_lastModified :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
-reportGroup_lastModified = Lens.lens (\ReportGroup' {lastModified} -> lastModified) (\s@ReportGroup' {} a -> s {lastModified = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
+-- | The date and time this @ReportGroup@ was created.
+reportGroup_created :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
+reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportGroup' {} a -> s {created = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
+
+-- | The ARN of the @ReportGroup@.
+reportGroup_arn :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.Text)
+reportGroup_arn = Lens.lens (\ReportGroup' {arn} -> arn) (\s@ReportGroup' {} a -> s {arn = a} :: ReportGroup)
+
+-- | The status of the report group. This property is read-only.
+--
+-- This can be one of the following values:
+--
+-- [ACTIVE]
+--     The report group is active.
+--
+-- [DELETING]
+--     The report group is in the process of being deleted.
+reportGroup_status :: Lens.Lens' ReportGroup (Prelude.Maybe ReportGroupStatusType)
+reportGroup_status = Lens.lens (\ReportGroup' {status} -> status) (\s@ReportGroup' {} a -> s {status = a} :: ReportGroup)
 
 -- | Information about the destination where the raw data of this
 -- @ReportGroup@ is exported.
 reportGroup_exportConfig :: Lens.Lens' ReportGroup (Prelude.Maybe ReportExportConfig)
 reportGroup_exportConfig = Lens.lens (\ReportGroup' {exportConfig} -> exportConfig) (\s@ReportGroup' {} a -> s {exportConfig = a} :: ReportGroup)
 
--- | A list of tag key and value pairs associated with this report group.
---
--- These tags are available for use by Amazon Web Services services that
--- support CodeBuild report group tags.
-reportGroup_tags :: Lens.Lens' ReportGroup (Prelude.Maybe [Tag])
-reportGroup_tags = Lens.lens (\ReportGroup' {tags} -> tags) (\s@ReportGroup' {} a -> s {tags = a} :: ReportGroup) Prelude.. Lens.mapping Lens.coerced
+-- | The date and time this @ReportGroup@ was last modified.
+reportGroup_lastModified :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
+reportGroup_lastModified = Lens.lens (\ReportGroup' {lastModified} -> lastModified) (\s@ReportGroup' {} a -> s {lastModified = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ReportGroup where
   parseJSON =
@@ -182,34 +182,34 @@ instance Core.FromJSON ReportGroup where
       "ReportGroup"
       ( \x ->
           ReportGroup'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "created")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "lastModified")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "exportConfig")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "lastModified")
       )
 
 instance Prelude.Hashable ReportGroup where
   hashWithSalt _salt ReportGroup' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` created
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` exportConfig
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` lastModified
 
 instance Prelude.NFData ReportGroup where
   rnf ReportGroup' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf exportConfig
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModified

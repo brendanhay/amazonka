@@ -35,8 +35,8 @@ module Amazonka.AppIntegrationS.ListEventIntegrations
     newListEventIntegrationsResponse,
 
     -- * Response Lenses
-    listEventIntegrationsResponse_eventIntegrations,
     listEventIntegrationsResponse_nextToken,
+    listEventIntegrationsResponse_eventIntegrations,
     listEventIntegrationsResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest ListEventIntegrations where
     Response.receiveJSON
       ( \s h x ->
           ListEventIntegrationsResponse'
-            Prelude.<$> (x Core..?> "EventIntegrations")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "EventIntegrations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,11 +137,11 @@ instance Core.ToQuery ListEventIntegrations where
 
 -- | /See:/ 'newListEventIntegrationsResponse' smart constructor.
 data ListEventIntegrationsResponse = ListEventIntegrationsResponse'
-  { -- | The event integrations.
-    eventIntegrations :: Prelude.Maybe (Prelude.NonEmpty EventIntegration),
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The event integrations.
+    eventIntegrations :: Prelude.Maybe (Prelude.NonEmpty EventIntegration),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,10 +155,10 @@ data ListEventIntegrationsResponse = ListEventIntegrationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventIntegrations', 'listEventIntegrationsResponse_eventIntegrations' - The event integrations.
---
 -- 'nextToken', 'listEventIntegrationsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'eventIntegrations', 'listEventIntegrationsResponse_eventIntegrations' - The event integrations.
 --
 -- 'httpStatus', 'listEventIntegrationsResponse_httpStatus' - The response's http status code.
 newListEventIntegrationsResponse ::
@@ -167,20 +167,20 @@ newListEventIntegrationsResponse ::
   ListEventIntegrationsResponse
 newListEventIntegrationsResponse pHttpStatus_ =
   ListEventIntegrationsResponse'
-    { eventIntegrations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      eventIntegrations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The event integrations.
-listEventIntegrationsResponse_eventIntegrations :: Lens.Lens' ListEventIntegrationsResponse (Prelude.Maybe (Prelude.NonEmpty EventIntegration))
-listEventIntegrationsResponse_eventIntegrations = Lens.lens (\ListEventIntegrationsResponse' {eventIntegrations} -> eventIntegrations) (\s@ListEventIntegrationsResponse' {} a -> s {eventIntegrations = a} :: ListEventIntegrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listEventIntegrationsResponse_nextToken :: Lens.Lens' ListEventIntegrationsResponse (Prelude.Maybe Prelude.Text)
 listEventIntegrationsResponse_nextToken = Lens.lens (\ListEventIntegrationsResponse' {nextToken} -> nextToken) (\s@ListEventIntegrationsResponse' {} a -> s {nextToken = a} :: ListEventIntegrationsResponse)
+
+-- | The event integrations.
+listEventIntegrationsResponse_eventIntegrations :: Lens.Lens' ListEventIntegrationsResponse (Prelude.Maybe (Prelude.NonEmpty EventIntegration))
+listEventIntegrationsResponse_eventIntegrations = Lens.lens (\ListEventIntegrationsResponse' {eventIntegrations} -> eventIntegrations) (\s@ListEventIntegrationsResponse' {} a -> s {eventIntegrations = a} :: ListEventIntegrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEventIntegrationsResponse_httpStatus :: Lens.Lens' ListEventIntegrationsResponse Prelude.Int
@@ -188,6 +188,6 @@ listEventIntegrationsResponse_httpStatus = Lens.lens (\ListEventIntegrationsResp
 
 instance Prelude.NFData ListEventIntegrationsResponse where
   rnf ListEventIntegrationsResponse' {..} =
-    Prelude.rnf eventIntegrations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventIntegrations
       `Prelude.seq` Prelude.rnf httpStatus

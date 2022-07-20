@@ -30,10 +30,10 @@ module Amazonka.SSM.GetInventory
     newGetInventory,
 
     -- * Request Lenses
-    getInventory_aggregators,
-    getInventory_filters,
     getInventory_resultAttributes,
     getInventory_nextToken,
+    getInventory_filters,
+    getInventory_aggregators,
     getInventory_maxResults,
 
     -- * Destructuring the Response
@@ -56,19 +56,19 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetInventory' smart constructor.
 data GetInventory = GetInventory'
-  { -- | Returns counts of inventory types based on one or more expressions. For
-    -- example, if you aggregate by using an expression that uses the
-    -- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
-    -- many Windows and Linux instances exist in your inventoried fleet.
-    aggregators :: Prelude.Maybe (Prelude.NonEmpty InventoryAggregator),
-    -- | One or more filters. Use a filter to return a more specific list of
-    -- results.
-    filters :: Prelude.Maybe (Prelude.NonEmpty InventoryFilter),
-    -- | The list of inventory item types to return.
+  { -- | The list of inventory item types to return.
     resultAttributes :: Prelude.Maybe (Prelude.NonEmpty ResultAttribute),
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. Use a filter to return a more specific list of
+    -- results.
+    filters :: Prelude.Maybe (Prelude.NonEmpty InventoryFilter),
+    -- | Returns counts of inventory types based on one or more expressions. For
+    -- example, if you aggregate by using an expression that uses the
+    -- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
+    -- many Windows and Linux instances exist in your inventoried fleet.
+    aggregators :: Prelude.Maybe (Prelude.NonEmpty InventoryAggregator),
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -84,18 +84,18 @@ data GetInventory = GetInventory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aggregators', 'getInventory_aggregators' - Returns counts of inventory types based on one or more expressions. For
--- example, if you aggregate by using an expression that uses the
--- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
--- many Windows and Linux instances exist in your inventoried fleet.
---
--- 'filters', 'getInventory_filters' - One or more filters. Use a filter to return a more specific list of
--- results.
---
 -- 'resultAttributes', 'getInventory_resultAttributes' - The list of inventory item types to return.
 --
 -- 'nextToken', 'getInventory_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
+--
+-- 'filters', 'getInventory_filters' - One or more filters. Use a filter to return a more specific list of
+-- results.
+--
+-- 'aggregators', 'getInventory_aggregators' - Returns counts of inventory types based on one or more expressions. For
+-- example, if you aggregate by using an expression that uses the
+-- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
+-- many Windows and Linux instances exist in your inventoried fleet.
 --
 -- 'maxResults', 'getInventory_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -104,24 +104,12 @@ newGetInventory ::
   GetInventory
 newGetInventory =
   GetInventory'
-    { aggregators = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      resultAttributes = Prelude.Nothing,
+    { resultAttributes = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      aggregators = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Returns counts of inventory types based on one or more expressions. For
--- example, if you aggregate by using an expression that uses the
--- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
--- many Windows and Linux instances exist in your inventoried fleet.
-getInventory_aggregators :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty InventoryAggregator))
-getInventory_aggregators = Lens.lens (\GetInventory' {aggregators} -> aggregators) (\s@GetInventory' {} a -> s {aggregators = a} :: GetInventory) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more filters. Use a filter to return a more specific list of
--- results.
-getInventory_filters :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty InventoryFilter))
-getInventory_filters = Lens.lens (\GetInventory' {filters} -> filters) (\s@GetInventory' {} a -> s {filters = a} :: GetInventory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of inventory item types to return.
 getInventory_resultAttributes :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty ResultAttribute))
@@ -131,6 +119,18 @@ getInventory_resultAttributes = Lens.lens (\GetInventory' {resultAttributes} -> 
 -- from a previous call.)
 getInventory_nextToken :: Lens.Lens' GetInventory (Prelude.Maybe Prelude.Text)
 getInventory_nextToken = Lens.lens (\GetInventory' {nextToken} -> nextToken) (\s@GetInventory' {} a -> s {nextToken = a} :: GetInventory)
+
+-- | One or more filters. Use a filter to return a more specific list of
+-- results.
+getInventory_filters :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty InventoryFilter))
+getInventory_filters = Lens.lens (\GetInventory' {filters} -> filters) (\s@GetInventory' {} a -> s {filters = a} :: GetInventory) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returns counts of inventory types based on one or more expressions. For
+-- example, if you aggregate by using an expression that uses the
+-- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
+-- many Windows and Linux instances exist in your inventoried fleet.
+getInventory_aggregators :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty InventoryAggregator))
+getInventory_aggregators = Lens.lens (\GetInventory' {aggregators} -> aggregators) (\s@GetInventory' {} a -> s {aggregators = a} :: GetInventory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -171,18 +171,18 @@ instance Core.AWSRequest GetInventory where
 
 instance Prelude.Hashable GetInventory where
   hashWithSalt _salt GetInventory' {..} =
-    _salt `Prelude.hashWithSalt` aggregators
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` resultAttributes
+    _salt `Prelude.hashWithSalt` resultAttributes
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` aggregators
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetInventory where
   rnf GetInventory' {..} =
-    Prelude.rnf aggregators
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf resultAttributes
+    Prelude.rnf resultAttributes
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf aggregators
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetInventory where
@@ -202,11 +202,11 @@ instance Core.ToJSON GetInventory where
   toJSON GetInventory' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Aggregators" Core..=) Prelude.<$> aggregators,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("ResultAttributes" Core..=)
+          [ ("ResultAttributes" Core..=)
               Prelude.<$> resultAttributes,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("Aggregators" Core..=) Prelude.<$> aggregators,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

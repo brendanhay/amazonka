@@ -33,9 +33,9 @@ module Amazonka.SecurityHub.GetFindings
     newGetFindings,
 
     -- * Request Lenses
-    getFindings_filters,
     getFindings_sortCriteria,
     getFindings_nextToken,
+    getFindings_filters,
     getFindings_maxResults,
 
     -- * Destructuring the Response
@@ -58,7 +58,16 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newGetFindings' smart constructor.
 data GetFindings = GetFindings'
-  { -- | The finding attributes used to define a condition to filter the returned
+  { -- | The finding attributes used to sort the list of returned findings.
+    sortCriteria :: Prelude.Maybe [SortCriterion],
+    -- | The token that is required for pagination. On your first call to the
+    -- @GetFindings@ operation, set the value of this parameter to @NULL@.
+    --
+    -- For subsequent calls to the operation, to continue listing data, set the
+    -- value of this parameter to the value returned from the previous
+    -- response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The finding attributes used to define a condition to filter the returned
     -- findings.
     --
     -- You can filter by up to 10 finding attributes. For each attribute, you
@@ -68,15 +77,6 @@ data GetFindings = GetFindings'
     -- To search for a finding based on its workflow status, use
     -- @WorkflowStatus@.
     filters :: Prelude.Maybe AwsSecurityFindingFilters,
-    -- | The finding attributes used to sort the list of returned findings.
-    sortCriteria :: Prelude.Maybe [SortCriterion],
-    -- | The token that is required for pagination. On your first call to the
-    -- @GetFindings@ operation, set the value of this parameter to @NULL@.
-    --
-    -- For subsequent calls to the operation, to continue listing data, set the
-    -- value of this parameter to the value returned from the previous
-    -- response.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of findings to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -90,6 +90,15 @@ data GetFindings = GetFindings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortCriteria', 'getFindings_sortCriteria' - The finding attributes used to sort the list of returned findings.
+--
+-- 'nextToken', 'getFindings_nextToken' - The token that is required for pagination. On your first call to the
+-- @GetFindings@ operation, set the value of this parameter to @NULL@.
+--
+-- For subsequent calls to the operation, to continue listing data, set the
+-- value of this parameter to the value returned from the previous
+-- response.
+--
 -- 'filters', 'getFindings_filters' - The finding attributes used to define a condition to filter the returned
 -- findings.
 --
@@ -100,37 +109,16 @@ data GetFindings = GetFindings'
 -- To search for a finding based on its workflow status, use
 -- @WorkflowStatus@.
 --
--- 'sortCriteria', 'getFindings_sortCriteria' - The finding attributes used to sort the list of returned findings.
---
--- 'nextToken', 'getFindings_nextToken' - The token that is required for pagination. On your first call to the
--- @GetFindings@ operation, set the value of this parameter to @NULL@.
---
--- For subsequent calls to the operation, to continue listing data, set the
--- value of this parameter to the value returned from the previous
--- response.
---
 -- 'maxResults', 'getFindings_maxResults' - The maximum number of findings to return.
 newGetFindings ::
   GetFindings
 newGetFindings =
   GetFindings'
-    { filters = Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
+    { sortCriteria = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The finding attributes used to define a condition to filter the returned
--- findings.
---
--- You can filter by up to 10 finding attributes. For each attribute, you
--- can provide up to 20 filter values.
---
--- Note that in the available filter fields, @WorkflowState@ is deprecated.
--- To search for a finding based on its workflow status, use
--- @WorkflowStatus@.
-getFindings_filters :: Lens.Lens' GetFindings (Prelude.Maybe AwsSecurityFindingFilters)
-getFindings_filters = Lens.lens (\GetFindings' {filters} -> filters) (\s@GetFindings' {} a -> s {filters = a} :: GetFindings)
 
 -- | The finding attributes used to sort the list of returned findings.
 getFindings_sortCriteria :: Lens.Lens' GetFindings (Prelude.Maybe [SortCriterion])
@@ -144,6 +132,18 @@ getFindings_sortCriteria = Lens.lens (\GetFindings' {sortCriteria} -> sortCriter
 -- response.
 getFindings_nextToken :: Lens.Lens' GetFindings (Prelude.Maybe Prelude.Text)
 getFindings_nextToken = Lens.lens (\GetFindings' {nextToken} -> nextToken) (\s@GetFindings' {} a -> s {nextToken = a} :: GetFindings)
+
+-- | The finding attributes used to define a condition to filter the returned
+-- findings.
+--
+-- You can filter by up to 10 finding attributes. For each attribute, you
+-- can provide up to 20 filter values.
+--
+-- Note that in the available filter fields, @WorkflowState@ is deprecated.
+-- To search for a finding based on its workflow status, use
+-- @WorkflowStatus@.
+getFindings_filters :: Lens.Lens' GetFindings (Prelude.Maybe AwsSecurityFindingFilters)
+getFindings_filters = Lens.lens (\GetFindings' {filters} -> filters) (\s@GetFindings' {} a -> s {filters = a} :: GetFindings)
 
 -- | The maximum number of findings to return.
 getFindings_maxResults :: Lens.Lens' GetFindings (Prelude.Maybe Prelude.Natural)
@@ -179,16 +179,16 @@ instance Core.AWSRequest GetFindings where
 
 instance Prelude.Hashable GetFindings where
   hashWithSalt _salt GetFindings' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortCriteria
+    _salt `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetFindings where
   rnf GetFindings' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetFindings where
@@ -206,9 +206,9 @@ instance Core.ToJSON GetFindings where
   toJSON GetFindings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
+          [ ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

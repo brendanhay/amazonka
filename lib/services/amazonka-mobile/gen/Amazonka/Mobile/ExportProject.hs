@@ -37,8 +37,8 @@ module Amazonka.Mobile.ExportProject
     newExportProjectResponse,
 
     -- * Response Lenses
-    exportProjectResponse_shareUrl,
     exportProjectResponse_downloadUrl,
+    exportProjectResponse_shareUrl,
     exportProjectResponse_snapshotId,
     exportProjectResponse_httpStatus,
   )
@@ -90,8 +90,8 @@ instance Core.AWSRequest ExportProject where
     Response.receiveJSON
       ( \s h x ->
           ExportProjectResponse'
-            Prelude.<$> (x Core..?> "shareUrl")
-            Prelude.<*> (x Core..?> "downloadUrl")
+            Prelude.<$> (x Core..?> "downloadUrl")
+            Prelude.<*> (x Core..?> "shareUrl")
             Prelude.<*> (x Core..?> "snapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -129,16 +129,16 @@ instance Core.ToQuery ExportProject where
 --
 -- /See:/ 'newExportProjectResponse' smart constructor.
 data ExportProjectResponse = ExportProjectResponse'
-  { -- | URL which can be shared to allow other AWS users to create their own
+  { -- | URL which can be used to download the exported project configuation
+    -- file(s).
+    downloadUrl :: Prelude.Maybe Prelude.Text,
+    -- | URL which can be shared to allow other AWS users to create their own
     -- project in AWS Mobile Hub with the same configuration as the specified
     -- project. This URL pertains to a snapshot in time of the project
     -- configuration that is created when this API is called. If you want to
     -- share additional changes to your project configuration, then you will
     -- need to create and share a new snapshot by calling this method again.
     shareUrl :: Prelude.Maybe Prelude.Text,
-    -- | URL which can be used to download the exported project configuation
-    -- file(s).
-    downloadUrl :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier for the exported snapshot of the project
     -- configuration. This snapshot identifier is included in the share URL.
     snapshotId :: Prelude.Maybe Prelude.Text,
@@ -155,15 +155,15 @@ data ExportProjectResponse = ExportProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'downloadUrl', 'exportProjectResponse_downloadUrl' - URL which can be used to download the exported project configuation
+-- file(s).
+--
 -- 'shareUrl', 'exportProjectResponse_shareUrl' - URL which can be shared to allow other AWS users to create their own
 -- project in AWS Mobile Hub with the same configuration as the specified
 -- project. This URL pertains to a snapshot in time of the project
 -- configuration that is created when this API is called. If you want to
 -- share additional changes to your project configuration, then you will
 -- need to create and share a new snapshot by calling this method again.
---
--- 'downloadUrl', 'exportProjectResponse_downloadUrl' - URL which can be used to download the exported project configuation
--- file(s).
 --
 -- 'snapshotId', 'exportProjectResponse_snapshotId' - Unique identifier for the exported snapshot of the project
 -- configuration. This snapshot identifier is included in the share URL.
@@ -175,11 +175,17 @@ newExportProjectResponse ::
   ExportProjectResponse
 newExportProjectResponse pHttpStatus_ =
   ExportProjectResponse'
-    { shareUrl = Prelude.Nothing,
-      downloadUrl = Prelude.Nothing,
+    { downloadUrl =
+        Prelude.Nothing,
+      shareUrl = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | URL which can be used to download the exported project configuation
+-- file(s).
+exportProjectResponse_downloadUrl :: Lens.Lens' ExportProjectResponse (Prelude.Maybe Prelude.Text)
+exportProjectResponse_downloadUrl = Lens.lens (\ExportProjectResponse' {downloadUrl} -> downloadUrl) (\s@ExportProjectResponse' {} a -> s {downloadUrl = a} :: ExportProjectResponse)
 
 -- | URL which can be shared to allow other AWS users to create their own
 -- project in AWS Mobile Hub with the same configuration as the specified
@@ -189,11 +195,6 @@ newExportProjectResponse pHttpStatus_ =
 -- need to create and share a new snapshot by calling this method again.
 exportProjectResponse_shareUrl :: Lens.Lens' ExportProjectResponse (Prelude.Maybe Prelude.Text)
 exportProjectResponse_shareUrl = Lens.lens (\ExportProjectResponse' {shareUrl} -> shareUrl) (\s@ExportProjectResponse' {} a -> s {shareUrl = a} :: ExportProjectResponse)
-
--- | URL which can be used to download the exported project configuation
--- file(s).
-exportProjectResponse_downloadUrl :: Lens.Lens' ExportProjectResponse (Prelude.Maybe Prelude.Text)
-exportProjectResponse_downloadUrl = Lens.lens (\ExportProjectResponse' {downloadUrl} -> downloadUrl) (\s@ExportProjectResponse' {} a -> s {downloadUrl = a} :: ExportProjectResponse)
 
 -- | Unique identifier for the exported snapshot of the project
 -- configuration. This snapshot identifier is included in the share URL.
@@ -206,7 +207,7 @@ exportProjectResponse_httpStatus = Lens.lens (\ExportProjectResponse' {httpStatu
 
 instance Prelude.NFData ExportProjectResponse where
   rnf ExportProjectResponse' {..} =
-    Prelude.rnf shareUrl
-      `Prelude.seq` Prelude.rnf downloadUrl
+    Prelude.rnf downloadUrl
+      `Prelude.seq` Prelude.rnf shareUrl
       `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf httpStatus

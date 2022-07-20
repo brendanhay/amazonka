@@ -30,10 +30,10 @@ module Amazonka.EC2.DescribeTransitGateways
     newDescribeTransitGateways,
 
     -- * Request Lenses
-    describeTransitGateways_filters,
-    describeTransitGateways_transitGatewayIds,
     describeTransitGateways_nextToken,
+    describeTransitGateways_filters,
     describeTransitGateways_dryRun,
+    describeTransitGateways_transitGatewayIds,
     describeTransitGateways_maxResults,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.EC2.DescribeTransitGateways
     newDescribeTransitGatewaysResponse,
 
     -- * Response Lenses
-    describeTransitGatewaysResponse_transitGateways,
     describeTransitGatewaysResponse_nextToken,
+    describeTransitGatewaysResponse_transitGateways,
     describeTransitGatewaysResponse_httpStatus,
   )
 where
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTransitGateways' smart constructor.
 data DescribeTransitGateways = DescribeTransitGateways'
-  { -- | One or more filters. The possible values are:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. The possible values are:
     --
     -- -   @options.propagation-default-route-table-id@ - The ID of the default
     --     propagation route table.
@@ -93,15 +95,13 @@ data DescribeTransitGateways = DescribeTransitGateways'
     --
     -- -   @transit-gateway-id@ - The ID of the transit gateway.
     filters :: Prelude.Maybe [Filter],
-    -- | The IDs of the transit gateways.
-    transitGatewayIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The IDs of the transit gateways.
+    transitGatewayIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -116,6 +116,8 @@ data DescribeTransitGateways = DescribeTransitGateways'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeTransitGateways_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeTransitGateways_filters' - One or more filters. The possible values are:
 --
@@ -154,14 +156,12 @@ data DescribeTransitGateways = DescribeTransitGateways'
 --
 -- -   @transit-gateway-id@ - The ID of the transit gateway.
 --
--- 'transitGatewayIds', 'describeTransitGateways_transitGatewayIds' - The IDs of the transit gateways.
---
--- 'nextToken', 'describeTransitGateways_nextToken' - The token for the next page of results.
---
 -- 'dryRun', 'describeTransitGateways_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'transitGatewayIds', 'describeTransitGateways_transitGatewayIds' - The IDs of the transit gateways.
 --
 -- 'maxResults', 'describeTransitGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -170,12 +170,17 @@ newDescribeTransitGateways ::
   DescribeTransitGateways
 newDescribeTransitGateways =
   DescribeTransitGateways'
-    { filters = Prelude.Nothing,
-      transitGatewayIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      transitGatewayIds = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeTransitGateways_nextToken :: Lens.Lens' DescribeTransitGateways (Prelude.Maybe Prelude.Text)
+describeTransitGateways_nextToken = Lens.lens (\DescribeTransitGateways' {nextToken} -> nextToken) (\s@DescribeTransitGateways' {} a -> s {nextToken = a} :: DescribeTransitGateways)
 
 -- | One or more filters. The possible values are:
 --
@@ -216,20 +221,16 @@ newDescribeTransitGateways =
 describeTransitGateways_filters :: Lens.Lens' DescribeTransitGateways (Prelude.Maybe [Filter])
 describeTransitGateways_filters = Lens.lens (\DescribeTransitGateways' {filters} -> filters) (\s@DescribeTransitGateways' {} a -> s {filters = a} :: DescribeTransitGateways) Prelude.. Lens.mapping Lens.coerced
 
--- | The IDs of the transit gateways.
-describeTransitGateways_transitGatewayIds :: Lens.Lens' DescribeTransitGateways (Prelude.Maybe [Prelude.Text])
-describeTransitGateways_transitGatewayIds = Lens.lens (\DescribeTransitGateways' {transitGatewayIds} -> transitGatewayIds) (\s@DescribeTransitGateways' {} a -> s {transitGatewayIds = a} :: DescribeTransitGateways) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-describeTransitGateways_nextToken :: Lens.Lens' DescribeTransitGateways (Prelude.Maybe Prelude.Text)
-describeTransitGateways_nextToken = Lens.lens (\DescribeTransitGateways' {nextToken} -> nextToken) (\s@DescribeTransitGateways' {} a -> s {nextToken = a} :: DescribeTransitGateways)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeTransitGateways_dryRun :: Lens.Lens' DescribeTransitGateways (Prelude.Maybe Prelude.Bool)
 describeTransitGateways_dryRun = Lens.lens (\DescribeTransitGateways' {dryRun} -> dryRun) (\s@DescribeTransitGateways' {} a -> s {dryRun = a} :: DescribeTransitGateways)
+
+-- | The IDs of the transit gateways.
+describeTransitGateways_transitGatewayIds :: Lens.Lens' DescribeTransitGateways (Prelude.Maybe [Prelude.Text])
+describeTransitGateways_transitGatewayIds = Lens.lens (\DescribeTransitGateways' {transitGatewayIds} -> transitGatewayIds) (\s@DescribeTransitGateways' {} a -> s {transitGatewayIds = a} :: DescribeTransitGateways) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -268,28 +269,28 @@ instance Core.AWSRequest DescribeTransitGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewaysResponse'
-            Prelude.<$> ( x Core..@? "transitGatewaySet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "transitGatewaySet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeTransitGateways where
   hashWithSalt _salt DescribeTransitGateways' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` transitGatewayIds
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` transitGatewayIds
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeTransitGateways where
   rnf DescribeTransitGateways' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf transitGatewayIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf transitGatewayIds
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeTransitGateways where
@@ -305,24 +306,24 @@ instance Core.ToQuery DescribeTransitGateways where
           Core.=: ("DescribeTransitGateways" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayIds"
               Prelude.<$> transitGatewayIds
           ),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeTransitGatewaysResponse' smart constructor.
 data DescribeTransitGatewaysResponse = DescribeTransitGatewaysResponse'
-  { -- | Information about the transit gateways.
-    transitGateways :: Prelude.Maybe [TransitGateway],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the transit gateways.
+    transitGateways :: Prelude.Maybe [TransitGateway],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -336,10 +337,10 @@ data DescribeTransitGatewaysResponse = DescribeTransitGatewaysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGateways', 'describeTransitGatewaysResponse_transitGateways' - Information about the transit gateways.
---
 -- 'nextToken', 'describeTransitGatewaysResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'transitGateways', 'describeTransitGatewaysResponse_transitGateways' - Information about the transit gateways.
 --
 -- 'httpStatus', 'describeTransitGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeTransitGatewaysResponse ::
@@ -348,20 +349,20 @@ newDescribeTransitGatewaysResponse ::
   DescribeTransitGatewaysResponse
 newDescribeTransitGatewaysResponse pHttpStatus_ =
   DescribeTransitGatewaysResponse'
-    { transitGateways =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      transitGateways = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the transit gateways.
-describeTransitGatewaysResponse_transitGateways :: Lens.Lens' DescribeTransitGatewaysResponse (Prelude.Maybe [TransitGateway])
-describeTransitGatewaysResponse_transitGateways = Lens.lens (\DescribeTransitGatewaysResponse' {transitGateways} -> transitGateways) (\s@DescribeTransitGatewaysResponse' {} a -> s {transitGateways = a} :: DescribeTransitGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeTransitGatewaysResponse_nextToken :: Lens.Lens' DescribeTransitGatewaysResponse (Prelude.Maybe Prelude.Text)
 describeTransitGatewaysResponse_nextToken = Lens.lens (\DescribeTransitGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeTransitGatewaysResponse' {} a -> s {nextToken = a} :: DescribeTransitGatewaysResponse)
+
+-- | Information about the transit gateways.
+describeTransitGatewaysResponse_transitGateways :: Lens.Lens' DescribeTransitGatewaysResponse (Prelude.Maybe [TransitGateway])
+describeTransitGatewaysResponse_transitGateways = Lens.lens (\DescribeTransitGatewaysResponse' {transitGateways} -> transitGateways) (\s@DescribeTransitGatewaysResponse' {} a -> s {transitGateways = a} :: DescribeTransitGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTransitGatewaysResponse_httpStatus :: Lens.Lens' DescribeTransitGatewaysResponse Prelude.Int
@@ -372,6 +373,6 @@ instance
     DescribeTransitGatewaysResponse
   where
   rnf DescribeTransitGatewaysResponse' {..} =
-    Prelude.rnf transitGateways
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf transitGateways
       `Prelude.seq` Prelude.rnf httpStatus

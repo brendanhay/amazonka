@@ -27,9 +27,9 @@ module Amazonka.RAM.AssociateResourceSharePermission
     newAssociateResourceSharePermission,
 
     -- * Request Lenses
-    associateResourceSharePermission_replace,
     associateResourceSharePermission_clientToken,
     associateResourceSharePermission_permissionVersion,
+    associateResourceSharePermission_replace,
     associateResourceSharePermission_resourceShareArn,
     associateResourceSharePermission_permissionArn,
 
@@ -53,16 +53,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateResourceSharePermission' smart constructor.
 data AssociateResourceSharePermission = AssociateResourceSharePermission'
-  { -- | Indicates whether the permission should replace the permissions that are
-    -- currently associated with the resource share. Use @true@ to replace the
-    -- current permissions. Use @false@ to add the permission to the current
-    -- permission.
-    replace :: Prelude.Maybe Prelude.Bool,
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The version of the RAM permissions to associate with the resource share.
     permissionVersion :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the permission should replace the permissions that are
+    -- currently associated with the resource share. Use @true@ to replace the
+    -- current permissions. Use @false@ to add the permission to the current
+    -- permission.
+    replace :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the resource share.
     resourceShareArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the RAM permission to associate with
@@ -79,15 +79,15 @@ data AssociateResourceSharePermission = AssociateResourceSharePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replace', 'associateResourceSharePermission_replace' - Indicates whether the permission should replace the permissions that are
--- currently associated with the resource share. Use @true@ to replace the
--- current permissions. Use @false@ to add the permission to the current
--- permission.
---
 -- 'clientToken', 'associateResourceSharePermission_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
 -- 'permissionVersion', 'associateResourceSharePermission_permissionVersion' - The version of the RAM permissions to associate with the resource share.
+--
+-- 'replace', 'associateResourceSharePermission_replace' - Indicates whether the permission should replace the permissions that are
+-- currently associated with the resource share. Use @true@ to replace the
+-- current permissions. Use @false@ to add the permission to the current
+-- permission.
 --
 -- 'resourceShareArn', 'associateResourceSharePermission_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
 --
@@ -103,20 +103,13 @@ newAssociateResourceSharePermission
   pResourceShareArn_
   pPermissionArn_ =
     AssociateResourceSharePermission'
-      { replace =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         permissionVersion = Prelude.Nothing,
+        replace = Prelude.Nothing,
         resourceShareArn = pResourceShareArn_,
         permissionArn = pPermissionArn_
       }
-
--- | Indicates whether the permission should replace the permissions that are
--- currently associated with the resource share. Use @true@ to replace the
--- current permissions. Use @false@ to add the permission to the current
--- permission.
-associateResourceSharePermission_replace :: Lens.Lens' AssociateResourceSharePermission (Prelude.Maybe Prelude.Bool)
-associateResourceSharePermission_replace = Lens.lens (\AssociateResourceSharePermission' {replace} -> replace) (\s@AssociateResourceSharePermission' {} a -> s {replace = a} :: AssociateResourceSharePermission)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -126,6 +119,13 @@ associateResourceSharePermission_clientToken = Lens.lens (\AssociateResourceShar
 -- | The version of the RAM permissions to associate with the resource share.
 associateResourceSharePermission_permissionVersion :: Lens.Lens' AssociateResourceSharePermission (Prelude.Maybe Prelude.Int)
 associateResourceSharePermission_permissionVersion = Lens.lens (\AssociateResourceSharePermission' {permissionVersion} -> permissionVersion) (\s@AssociateResourceSharePermission' {} a -> s {permissionVersion = a} :: AssociateResourceSharePermission)
+
+-- | Indicates whether the permission should replace the permissions that are
+-- currently associated with the resource share. Use @true@ to replace the
+-- current permissions. Use @false@ to add the permission to the current
+-- permission.
+associateResourceSharePermission_replace :: Lens.Lens' AssociateResourceSharePermission (Prelude.Maybe Prelude.Bool)
+associateResourceSharePermission_replace = Lens.lens (\AssociateResourceSharePermission' {replace} -> replace) (\s@AssociateResourceSharePermission' {} a -> s {replace = a} :: AssociateResourceSharePermission)
 
 -- | The Amazon Resource Name (ARN) of the resource share.
 associateResourceSharePermission_resourceShareArn :: Lens.Lens' AssociateResourceSharePermission Prelude.Text
@@ -160,9 +160,9 @@ instance
   hashWithSalt
     _salt
     AssociateResourceSharePermission' {..} =
-      _salt `Prelude.hashWithSalt` replace
-        `Prelude.hashWithSalt` clientToken
+      _salt `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` permissionVersion
+        `Prelude.hashWithSalt` replace
         `Prelude.hashWithSalt` resourceShareArn
         `Prelude.hashWithSalt` permissionArn
 
@@ -171,9 +171,9 @@ instance
     AssociateResourceSharePermission
   where
   rnf AssociateResourceSharePermission' {..} =
-    Prelude.rnf replace
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf permissionVersion
+      `Prelude.seq` Prelude.rnf replace
       `Prelude.seq` Prelude.rnf resourceShareArn
       `Prelude.seq` Prelude.rnf permissionArn
 
@@ -195,10 +195,10 @@ instance Core.ToJSON AssociateResourceSharePermission where
   toJSON AssociateResourceSharePermission' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("replace" Core..=) Prelude.<$> replace,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
             ("permissionVersion" Core..=)
               Prelude.<$> permissionVersion,
+            ("replace" Core..=) Prelude.<$> replace,
             Prelude.Just
               ("resourceShareArn" Core..= resourceShareArn),
             Prelude.Just

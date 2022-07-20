@@ -36,8 +36,8 @@ module Amazonka.ApplicationInsights.DescribeComponent
     newDescribeComponentResponse,
 
     -- * Response Lenses
-    describeComponentResponse_applicationComponent,
     describeComponentResponse_resourceList,
+    describeComponentResponse_applicationComponent,
     describeComponentResponse_httpStatus,
   )
 where
@@ -101,8 +101,8 @@ instance Core.AWSRequest DescribeComponent where
     Response.receiveJSON
       ( \s h x ->
           DescribeComponentResponse'
-            Prelude.<$> (x Core..?> "ApplicationComponent")
-            Prelude.<*> (x Core..?> "ResourceList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ResourceList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ApplicationComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,9 +150,9 @@ instance Core.ToQuery DescribeComponent where
 
 -- | /See:/ 'newDescribeComponentResponse' smart constructor.
 data DescribeComponentResponse = DescribeComponentResponse'
-  { applicationComponent :: Prelude.Maybe ApplicationComponent,
-    -- | The list of resource ARNs that belong to the component.
+  { -- | The list of resource ARNs that belong to the component.
     resourceList :: Prelude.Maybe [Prelude.Text],
+    applicationComponent :: Prelude.Maybe ApplicationComponent,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,9 +166,9 @@ data DescribeComponentResponse = DescribeComponentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationComponent', 'describeComponentResponse_applicationComponent' - Undocumented member.
---
 -- 'resourceList', 'describeComponentResponse_resourceList' - The list of resource ARNs that belong to the component.
+--
+-- 'applicationComponent', 'describeComponentResponse_applicationComponent' - Undocumented member.
 --
 -- 'httpStatus', 'describeComponentResponse_httpStatus' - The response's http status code.
 newDescribeComponentResponse ::
@@ -177,19 +177,19 @@ newDescribeComponentResponse ::
   DescribeComponentResponse
 newDescribeComponentResponse pHttpStatus_ =
   DescribeComponentResponse'
-    { applicationComponent =
+    { resourceList =
         Prelude.Nothing,
-      resourceList = Prelude.Nothing,
+      applicationComponent = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-describeComponentResponse_applicationComponent :: Lens.Lens' DescribeComponentResponse (Prelude.Maybe ApplicationComponent)
-describeComponentResponse_applicationComponent = Lens.lens (\DescribeComponentResponse' {applicationComponent} -> applicationComponent) (\s@DescribeComponentResponse' {} a -> s {applicationComponent = a} :: DescribeComponentResponse)
 
 -- | The list of resource ARNs that belong to the component.
 describeComponentResponse_resourceList :: Lens.Lens' DescribeComponentResponse (Prelude.Maybe [Prelude.Text])
 describeComponentResponse_resourceList = Lens.lens (\DescribeComponentResponse' {resourceList} -> resourceList) (\s@DescribeComponentResponse' {} a -> s {resourceList = a} :: DescribeComponentResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+describeComponentResponse_applicationComponent :: Lens.Lens' DescribeComponentResponse (Prelude.Maybe ApplicationComponent)
+describeComponentResponse_applicationComponent = Lens.lens (\DescribeComponentResponse' {applicationComponent} -> applicationComponent) (\s@DescribeComponentResponse' {} a -> s {applicationComponent = a} :: DescribeComponentResponse)
 
 -- | The response's http status code.
 describeComponentResponse_httpStatus :: Lens.Lens' DescribeComponentResponse Prelude.Int
@@ -197,6 +197,6 @@ describeComponentResponse_httpStatus = Lens.lens (\DescribeComponentResponse' {h
 
 instance Prelude.NFData DescribeComponentResponse where
   rnf DescribeComponentResponse' {..} =
-    Prelude.rnf applicationComponent
-      `Prelude.seq` Prelude.rnf resourceList
+    Prelude.rnf resourceList
+      `Prelude.seq` Prelude.rnf applicationComponent
       `Prelude.seq` Prelude.rnf httpStatus

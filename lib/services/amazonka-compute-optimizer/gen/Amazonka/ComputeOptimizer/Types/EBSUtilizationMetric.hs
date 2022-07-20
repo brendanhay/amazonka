@@ -34,9 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEBSUtilizationMetric' smart constructor.
 data EBSUtilizationMetric = EBSUtilizationMetric'
-  { -- | The value of the utilization metric.
-    value :: Prelude.Maybe Prelude.Double,
-    -- | The name of the utilization metric.
+  { -- | The name of the utilization metric.
     --
     -- The following utilization metrics are available:
     --
@@ -74,7 +72,9 @@ data EBSUtilizationMetric = EBSUtilizationMetric'
     -- utilization metric data for your resources using Amazon CloudWatch. For
     -- more information, see the
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html Amazon CloudWatch User Guide>.
-    statistic :: Prelude.Maybe MetricStatistic
+    statistic :: Prelude.Maybe MetricStatistic,
+    -- | The value of the utilization metric.
+    value :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,8 +85,6 @@ data EBSUtilizationMetric = EBSUtilizationMetric'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'value', 'eBSUtilizationMetric_value' - The value of the utilization metric.
 --
 -- 'name', 'eBSUtilizationMetric_name' - The name of the utilization metric.
 --
@@ -126,18 +124,16 @@ data EBSUtilizationMetric = EBSUtilizationMetric'
 -- utilization metric data for your resources using Amazon CloudWatch. For
 -- more information, see the
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html Amazon CloudWatch User Guide>.
+--
+-- 'value', 'eBSUtilizationMetric_value' - The value of the utilization metric.
 newEBSUtilizationMetric ::
   EBSUtilizationMetric
 newEBSUtilizationMetric =
   EBSUtilizationMetric'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing,
-      statistic = Prelude.Nothing
+    { name = Prelude.Nothing,
+      statistic = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the utilization metric.
-eBSUtilizationMetric_value :: Lens.Lens' EBSUtilizationMetric (Prelude.Maybe Prelude.Double)
-eBSUtilizationMetric_value = Lens.lens (\EBSUtilizationMetric' {value} -> value) (\s@EBSUtilizationMetric' {} a -> s {value = a} :: EBSUtilizationMetric)
 
 -- | The name of the utilization metric.
 --
@@ -182,25 +178,29 @@ eBSUtilizationMetric_name = Lens.lens (\EBSUtilizationMetric' {name} -> name) (\
 eBSUtilizationMetric_statistic :: Lens.Lens' EBSUtilizationMetric (Prelude.Maybe MetricStatistic)
 eBSUtilizationMetric_statistic = Lens.lens (\EBSUtilizationMetric' {statistic} -> statistic) (\s@EBSUtilizationMetric' {} a -> s {statistic = a} :: EBSUtilizationMetric)
 
+-- | The value of the utilization metric.
+eBSUtilizationMetric_value :: Lens.Lens' EBSUtilizationMetric (Prelude.Maybe Prelude.Double)
+eBSUtilizationMetric_value = Lens.lens (\EBSUtilizationMetric' {value} -> value) (\s@EBSUtilizationMetric' {} a -> s {value = a} :: EBSUtilizationMetric)
+
 instance Core.FromJSON EBSUtilizationMetric where
   parseJSON =
     Core.withObject
       "EBSUtilizationMetric"
       ( \x ->
           EBSUtilizationMetric'
-            Prelude.<$> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "statistic")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable EBSUtilizationMetric where
   hashWithSalt _salt EBSUtilizationMetric' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EBSUtilizationMetric where
   rnf EBSUtilizationMetric' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf value

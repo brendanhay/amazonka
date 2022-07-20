@@ -142,14 +142,7 @@ instance Core.ToHeaders UpdateCampaign where
 
 instance Core.ToJSON UpdateCampaign where
   toJSON UpdateCampaign' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "WriteCampaignRequest"
-                  Core..= writeCampaignRequest
-              )
-          ]
-      )
+    Core.toJSON writeCampaignRequest
 
 instance Core.ToPath UpdateCampaign where
   toPath UpdateCampaign' {..} =

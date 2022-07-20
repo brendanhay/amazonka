@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourcesAffected' smart constructor.
 data ResourcesAffected = ResourcesAffected'
-  { -- | The details of the S3 object that the finding applies to.
-    s3Object :: Prelude.Maybe S3Object,
-    -- | The details of the S3 bucket that the finding applies to.
-    s3Bucket :: Prelude.Maybe S3Bucket
+  { -- | The details of the S3 bucket that the finding applies to.
+    s3Bucket :: Prelude.Maybe S3Bucket,
+    -- | The details of the S3 object that the finding applies to.
+    s3Object :: Prelude.Maybe S3Object
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ResourcesAffected = ResourcesAffected'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Object', 'resourcesAffected_s3Object' - The details of the S3 object that the finding applies to.
---
 -- 's3Bucket', 'resourcesAffected_s3Bucket' - The details of the S3 bucket that the finding applies to.
+--
+-- 's3Object', 'resourcesAffected_s3Object' - The details of the S3 object that the finding applies to.
 newResourcesAffected ::
   ResourcesAffected
 newResourcesAffected =
   ResourcesAffected'
-    { s3Object = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing
+    { s3Bucket = Prelude.Nothing,
+      s3Object = Prelude.Nothing
     }
-
--- | The details of the S3 object that the finding applies to.
-resourcesAffected_s3Object :: Lens.Lens' ResourcesAffected (Prelude.Maybe S3Object)
-resourcesAffected_s3Object = Lens.lens (\ResourcesAffected' {s3Object} -> s3Object) (\s@ResourcesAffected' {} a -> s {s3Object = a} :: ResourcesAffected)
 
 -- | The details of the S3 bucket that the finding applies to.
 resourcesAffected_s3Bucket :: Lens.Lens' ResourcesAffected (Prelude.Maybe S3Bucket)
 resourcesAffected_s3Bucket = Lens.lens (\ResourcesAffected' {s3Bucket} -> s3Bucket) (\s@ResourcesAffected' {} a -> s {s3Bucket = a} :: ResourcesAffected)
+
+-- | The details of the S3 object that the finding applies to.
+resourcesAffected_s3Object :: Lens.Lens' ResourcesAffected (Prelude.Maybe S3Object)
+resourcesAffected_s3Object = Lens.lens (\ResourcesAffected' {s3Object} -> s3Object) (\s@ResourcesAffected' {} a -> s {s3Object = a} :: ResourcesAffected)
 
 instance Core.FromJSON ResourcesAffected where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON ResourcesAffected where
       "ResourcesAffected"
       ( \x ->
           ResourcesAffected'
-            Prelude.<$> (x Core..:? "s3Object")
-            Prelude.<*> (x Core..:? "s3Bucket")
+            Prelude.<$> (x Core..:? "s3Bucket")
+            Prelude.<*> (x Core..:? "s3Object")
       )
 
 instance Prelude.Hashable ResourcesAffected where
   hashWithSalt _salt ResourcesAffected' {..} =
-    _salt `Prelude.hashWithSalt` s3Object
-      `Prelude.hashWithSalt` s3Bucket
+    _salt `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3Object
 
 instance Prelude.NFData ResourcesAffected where
   rnf ResourcesAffected' {..} =
-    Prelude.rnf s3Object
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3Object

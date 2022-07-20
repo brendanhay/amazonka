@@ -27,32 +27,23 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestStartMonitoringMember $
---             newStartMonitoringMember
+--         [ requestAcceptInvitation $
+--             newAcceptInvitation
 --
---         , requestDeleteMembers $
---             newDeleteMembers
+--         , requestCreateGraph $
+--             newCreateGraph
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestCreateMembers $
+--             newCreateMembers
 --
 --         , requestDeleteGraph $
 --             newDeleteGraph
 --
---         , requestListInvitations $
---             newListInvitations
+--         , requestDeleteMembers $
+--             newDeleteMembers
 --
 --         , requestDisassociateMembership $
 --             newDisassociateMembership
---
---         , requestAcceptInvitation $
---             newAcceptInvitation
---
---         , requestListMembers $
---             newListMembers
---
---         , requestCreateMembers $
---             newCreateMembers
 --
 --         , requestGetMembers $
 --             newGetMembers
@@ -60,47 +51,47 @@ import Test.Tasty
 --         , requestListGraphs $
 --             newListGraphs
 --
---         , requestTagResource $
---             newTagResource
+--         , requestListInvitations $
+--             newListInvitations
 --
---         , requestCreateGraph $
---             newCreateGraph
+--         , requestListMembers $
+--             newListMembers
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestRejectInvitation $
 --             newRejectInvitation
 --
+--         , requestStartMonitoringMember $
+--             newStartMonitoringMember
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseStartMonitoringMember $
---             newStartMonitoringMemberResponse
+--         [ responseAcceptInvitation $
+--             newAcceptInvitationResponse
 --
---         , responseDeleteMembers $
---             newDeleteMembersResponse
+--         , responseCreateGraph $
+--             newCreateGraphResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseCreateMembers $
+--             newCreateMembersResponse
 --
 --         , responseDeleteGraph $
 --             newDeleteGraphResponse
 --
---         , responseListInvitations $
---             newListInvitationsResponse
+--         , responseDeleteMembers $
+--             newDeleteMembersResponse
 --
 --         , responseDisassociateMembership $
 --             newDisassociateMembershipResponse
---
---         , responseAcceptInvitation $
---             newAcceptInvitationResponse
---
---         , responseListMembers $
---             newListMembersResponse
---
---         , responseCreateMembers $
---             newCreateMembersResponse
 --
 --         , responseGetMembers $
 --             newGetMembersResponse
@@ -108,58 +99,31 @@ import Test.Tasty
 --         , responseListGraphs $
 --             newListGraphsResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseListInvitations $
+--             newListInvitationsResponse
 --
---         , responseCreateGraph $
---             newCreateGraphResponse
+--         , responseListMembers $
+--             newListMembersResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseRejectInvitation $
 --             newRejectInvitationResponse
+--
+--         , responseStartMonitoringMember $
+--             newStartMonitoringMemberResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestStartMonitoringMember :: StartMonitoringMember -> TestTree
-requestStartMonitoringMember =
-  req
-    "StartMonitoringMember"
-    "fixture/StartMonitoringMember.yaml"
-
-requestDeleteMembers :: DeleteMembers -> TestTree
-requestDeleteMembers =
-  req
-    "DeleteMembers"
-    "fixture/DeleteMembers.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteGraph :: DeleteGraph -> TestTree
-requestDeleteGraph =
-  req
-    "DeleteGraph"
-    "fixture/DeleteGraph.yaml"
-
-requestListInvitations :: ListInvitations -> TestTree
-requestListInvitations =
-  req
-    "ListInvitations"
-    "fixture/ListInvitations.yaml"
-
-requestDisassociateMembership :: DisassociateMembership -> TestTree
-requestDisassociateMembership =
-  req
-    "DisassociateMembership"
-    "fixture/DisassociateMembership.yaml"
 
 requestAcceptInvitation :: AcceptInvitation -> TestTree
 requestAcceptInvitation =
@@ -167,17 +131,35 @@ requestAcceptInvitation =
     "AcceptInvitation"
     "fixture/AcceptInvitation.yaml"
 
-requestListMembers :: ListMembers -> TestTree
-requestListMembers =
+requestCreateGraph :: CreateGraph -> TestTree
+requestCreateGraph =
   req
-    "ListMembers"
-    "fixture/ListMembers.yaml"
+    "CreateGraph"
+    "fixture/CreateGraph.yaml"
 
 requestCreateMembers :: CreateMembers -> TestTree
 requestCreateMembers =
   req
     "CreateMembers"
     "fixture/CreateMembers.yaml"
+
+requestDeleteGraph :: DeleteGraph -> TestTree
+requestDeleteGraph =
+  req
+    "DeleteGraph"
+    "fixture/DeleteGraph.yaml"
+
+requestDeleteMembers :: DeleteMembers -> TestTree
+requestDeleteMembers =
+  req
+    "DeleteMembers"
+    "fixture/DeleteMembers.yaml"
+
+requestDisassociateMembership :: DisassociateMembership -> TestTree
+requestDisassociateMembership =
+  req
+    "DisassociateMembership"
+    "fixture/DisassociateMembership.yaml"
 
 requestGetMembers :: GetMembers -> TestTree
 requestGetMembers =
@@ -191,23 +173,23 @@ requestListGraphs =
     "ListGraphs"
     "fixture/ListGraphs.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestListInvitations :: ListInvitations -> TestTree
+requestListInvitations =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "ListInvitations"
+    "fixture/ListInvitations.yaml"
 
-requestCreateGraph :: CreateGraph -> TestTree
-requestCreateGraph =
+requestListMembers :: ListMembers -> TestTree
+requestListMembers =
   req
-    "CreateGraph"
-    "fixture/CreateGraph.yaml"
+    "ListMembers"
+    "fixture/ListMembers.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestRejectInvitation :: RejectInvitation -> TestTree
 requestRejectInvitation =
@@ -215,55 +197,25 @@ requestRejectInvitation =
     "RejectInvitation"
     "fixture/RejectInvitation.yaml"
 
+requestStartMonitoringMember :: StartMonitoringMember -> TestTree
+requestStartMonitoringMember =
+  req
+    "StartMonitoringMember"
+    "fixture/StartMonitoringMember.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 -- Responses
-
-responseStartMonitoringMember :: StartMonitoringMemberResponse -> TestTree
-responseStartMonitoringMember =
-  res
-    "StartMonitoringMemberResponse"
-    "fixture/StartMonitoringMemberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartMonitoringMember)
-
-responseDeleteMembers :: DeleteMembersResponse -> TestTree
-responseDeleteMembers =
-  res
-    "DeleteMembersResponse"
-    "fixture/DeleteMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMembers)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteGraph :: DeleteGraphResponse -> TestTree
-responseDeleteGraph =
-  res
-    "DeleteGraphResponse"
-    "fixture/DeleteGraphResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteGraph)
-
-responseListInvitations :: ListInvitationsResponse -> TestTree
-responseListInvitations =
-  res
-    "ListInvitationsResponse"
-    "fixture/ListInvitationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
-
-responseDisassociateMembership :: DisassociateMembershipResponse -> TestTree
-responseDisassociateMembership =
-  res
-    "DisassociateMembershipResponse"
-    "fixture/DisassociateMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateMembership)
 
 responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
 responseAcceptInvitation =
@@ -273,13 +225,13 @@ responseAcceptInvitation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptInvitation)
 
-responseListMembers :: ListMembersResponse -> TestTree
-responseListMembers =
+responseCreateGraph :: CreateGraphResponse -> TestTree
+responseCreateGraph =
   res
-    "ListMembersResponse"
-    "fixture/ListMembersResponse.proto"
+    "CreateGraphResponse"
+    "fixture/CreateGraphResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMembers)
+    (Proxy.Proxy :: Proxy.Proxy CreateGraph)
 
 responseCreateMembers :: CreateMembersResponse -> TestTree
 responseCreateMembers =
@@ -288,6 +240,30 @@ responseCreateMembers =
     "fixture/CreateMembersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMembers)
+
+responseDeleteGraph :: DeleteGraphResponse -> TestTree
+responseDeleteGraph =
+  res
+    "DeleteGraphResponse"
+    "fixture/DeleteGraphResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteGraph)
+
+responseDeleteMembers :: DeleteMembersResponse -> TestTree
+responseDeleteMembers =
+  res
+    "DeleteMembersResponse"
+    "fixture/DeleteMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMembers)
+
+responseDisassociateMembership :: DisassociateMembershipResponse -> TestTree
+responseDisassociateMembership =
+  res
+    "DisassociateMembershipResponse"
+    "fixture/DisassociateMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMembership)
 
 responseGetMembers :: GetMembersResponse -> TestTree
 responseGetMembers =
@@ -305,29 +281,29 @@ responseListGraphs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListGraphs)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseListInvitations :: ListInvitationsResponse -> TestTree
+responseListInvitations =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "ListInvitationsResponse"
+    "fixture/ListInvitationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
 
-responseCreateGraph :: CreateGraphResponse -> TestTree
-responseCreateGraph =
+responseListMembers :: ListMembersResponse -> TestTree
+responseListMembers =
   res
-    "CreateGraphResponse"
-    "fixture/CreateGraphResponse.proto"
+    "ListMembersResponse"
+    "fixture/ListMembersResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateGraph)
+    (Proxy.Proxy :: Proxy.Proxy ListMembers)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseRejectInvitation :: RejectInvitationResponse -> TestTree
 responseRejectInvitation =
@@ -336,3 +312,27 @@ responseRejectInvitation =
     "fixture/RejectInvitationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RejectInvitation)
+
+responseStartMonitoringMember :: StartMonitoringMemberResponse -> TestTree
+responseStartMonitoringMember =
+  res
+    "StartMonitoringMemberResponse"
+    "fixture/StartMonitoringMemberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartMonitoringMember)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

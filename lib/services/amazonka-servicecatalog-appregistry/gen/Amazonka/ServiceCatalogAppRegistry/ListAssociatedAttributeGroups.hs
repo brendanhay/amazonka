@@ -39,8 +39,8 @@ module Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
     newListAssociatedAttributeGroupsResponse,
 
     -- * Response Lenses
-    listAssociatedAttributeGroupsResponse_attributeGroups,
     listAssociatedAttributeGroupsResponse_nextToken,
+    listAssociatedAttributeGroupsResponse_attributeGroups,
     listAssociatedAttributeGroupsResponse_httpStatus,
   )
 where
@@ -140,10 +140,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAssociatedAttributeGroupsResponse'
-            Prelude.<$> ( x Core..?> "attributeGroups"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "attributeGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,11 +190,11 @@ instance Core.ToQuery ListAssociatedAttributeGroups where
 
 -- | /See:/ 'newListAssociatedAttributeGroupsResponse' smart constructor.
 data ListAssociatedAttributeGroupsResponse = ListAssociatedAttributeGroupsResponse'
-  { -- | A list of attribute group IDs.
-    attributeGroups :: Prelude.Maybe [Prelude.Text],
-    -- | The token to use to get the next page of results after a previous API
+  { -- | The token to use to get the next page of results after a previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of attribute group IDs.
+    attributeGroups :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,10 +208,10 @@ data ListAssociatedAttributeGroupsResponse = ListAssociatedAttributeGroupsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeGroups', 'listAssociatedAttributeGroupsResponse_attributeGroups' - A list of attribute group IDs.
---
 -- 'nextToken', 'listAssociatedAttributeGroupsResponse_nextToken' - The token to use to get the next page of results after a previous API
 -- call.
+--
+-- 'attributeGroups', 'listAssociatedAttributeGroupsResponse_attributeGroups' - A list of attribute group IDs.
 --
 -- 'httpStatus', 'listAssociatedAttributeGroupsResponse_httpStatus' - The response's http status code.
 newListAssociatedAttributeGroupsResponse ::
@@ -220,20 +220,20 @@ newListAssociatedAttributeGroupsResponse ::
   ListAssociatedAttributeGroupsResponse
 newListAssociatedAttributeGroupsResponse pHttpStatus_ =
   ListAssociatedAttributeGroupsResponse'
-    { attributeGroups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      attributeGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of attribute group IDs.
-listAssociatedAttributeGroupsResponse_attributeGroups :: Lens.Lens' ListAssociatedAttributeGroupsResponse (Prelude.Maybe [Prelude.Text])
-listAssociatedAttributeGroupsResponse_attributeGroups = Lens.lens (\ListAssociatedAttributeGroupsResponse' {attributeGroups} -> attributeGroups) (\s@ListAssociatedAttributeGroupsResponse' {} a -> s {attributeGroups = a} :: ListAssociatedAttributeGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next page of results after a previous API
 -- call.
 listAssociatedAttributeGroupsResponse_nextToken :: Lens.Lens' ListAssociatedAttributeGroupsResponse (Prelude.Maybe Prelude.Text)
 listAssociatedAttributeGroupsResponse_nextToken = Lens.lens (\ListAssociatedAttributeGroupsResponse' {nextToken} -> nextToken) (\s@ListAssociatedAttributeGroupsResponse' {} a -> s {nextToken = a} :: ListAssociatedAttributeGroupsResponse)
+
+-- | A list of attribute group IDs.
+listAssociatedAttributeGroupsResponse_attributeGroups :: Lens.Lens' ListAssociatedAttributeGroupsResponse (Prelude.Maybe [Prelude.Text])
+listAssociatedAttributeGroupsResponse_attributeGroups = Lens.lens (\ListAssociatedAttributeGroupsResponse' {attributeGroups} -> attributeGroups) (\s@ListAssociatedAttributeGroupsResponse' {} a -> s {attributeGroups = a} :: ListAssociatedAttributeGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAssociatedAttributeGroupsResponse_httpStatus :: Lens.Lens' ListAssociatedAttributeGroupsResponse Prelude.Int
@@ -244,6 +244,6 @@ instance
     ListAssociatedAttributeGroupsResponse
   where
   rnf ListAssociatedAttributeGroupsResponse' {..} =
-    Prelude.rnf attributeGroups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf attributeGroups
       `Prelude.seq` Prelude.rnf httpStatus

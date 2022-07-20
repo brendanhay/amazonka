@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPortRangeFromTo' smart constructor.
 data PortRangeFromTo = PortRangeFromTo'
-  { -- | The last port in the port range.
-    to :: Prelude.Maybe Prelude.Int,
-    -- | The first port in the port range.
-    from :: Prelude.Maybe Prelude.Int
+  { -- | The first port in the port range.
+    from :: Prelude.Maybe Prelude.Int,
+    -- | The last port in the port range.
+    to :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data PortRangeFromTo = PortRangeFromTo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'to', 'portRangeFromTo_to' - The last port in the port range.
---
 -- 'from', 'portRangeFromTo_from' - The first port in the port range.
+--
+-- 'to', 'portRangeFromTo_to' - The last port in the port range.
 newPortRangeFromTo ::
   PortRangeFromTo
 newPortRangeFromTo =
   PortRangeFromTo'
-    { to = Prelude.Nothing,
-      from = Prelude.Nothing
+    { from = Prelude.Nothing,
+      to = Prelude.Nothing
     }
-
--- | The last port in the port range.
-portRangeFromTo_to :: Lens.Lens' PortRangeFromTo (Prelude.Maybe Prelude.Int)
-portRangeFromTo_to = Lens.lens (\PortRangeFromTo' {to} -> to) (\s@PortRangeFromTo' {} a -> s {to = a} :: PortRangeFromTo)
 
 -- | The first port in the port range.
 portRangeFromTo_from :: Lens.Lens' PortRangeFromTo (Prelude.Maybe Prelude.Int)
 portRangeFromTo_from = Lens.lens (\PortRangeFromTo' {from} -> from) (\s@PortRangeFromTo' {} a -> s {from = a} :: PortRangeFromTo)
+
+-- | The last port in the port range.
+portRangeFromTo_to :: Lens.Lens' PortRangeFromTo (Prelude.Maybe Prelude.Int)
+portRangeFromTo_to = Lens.lens (\PortRangeFromTo' {to} -> to) (\s@PortRangeFromTo' {} a -> s {to = a} :: PortRangeFromTo)
 
 instance Core.FromJSON PortRangeFromTo where
   parseJSON =
@@ -67,23 +67,23 @@ instance Core.FromJSON PortRangeFromTo where
       "PortRangeFromTo"
       ( \x ->
           PortRangeFromTo'
-            Prelude.<$> (x Core..:? "To") Prelude.<*> (x Core..:? "From")
+            Prelude.<$> (x Core..:? "From") Prelude.<*> (x Core..:? "To")
       )
 
 instance Prelude.Hashable PortRangeFromTo where
   hashWithSalt _salt PortRangeFromTo' {..} =
-    _salt `Prelude.hashWithSalt` to
-      `Prelude.hashWithSalt` from
+    _salt `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` to
 
 instance Prelude.NFData PortRangeFromTo where
   rnf PortRangeFromTo' {..} =
-    Prelude.rnf to `Prelude.seq` Prelude.rnf from
+    Prelude.rnf from `Prelude.seq` Prelude.rnf to
 
 instance Core.ToJSON PortRangeFromTo where
   toJSON PortRangeFromTo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("To" Core..=) Prelude.<$> to,
-            ("From" Core..=) Prelude.<$> from
+          [ ("From" Core..=) Prelude.<$> from,
+            ("To" Core..=) Prelude.<$> to
           ]
       )

@@ -32,17 +32,11 @@ import Amazonka.Snowball.Types.SnowballType
 --
 -- /See:/ 'newJobListEntry' smart constructor.
 data JobListEntry = JobListEntry'
-  { -- | The type of job.
-    jobType :: Prelude.Maybe JobType,
+  { -- | The creation date for this job.
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The automatically generated ID for a job, for example
     -- @JID123e4567-e89b-12d3-a456-426655440000@.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The current state of this job.
-    jobState :: Prelude.Maybe JobState,
-    -- | The type of device used with this job.
-    snowballType :: Prelude.Maybe SnowballType,
-    -- | The creation date for this job.
-    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The optional description of this specific job, for example
     -- @Important Photos 2016-08-11@.
     description :: Prelude.Maybe Prelude.Text,
@@ -53,7 +47,13 @@ data JobListEntry = JobListEntry'
     -- It might take some time before the job parts associated with a
     -- particular main job are listed, because they are created after the main
     -- job is created.
-    isMaster :: Prelude.Maybe Prelude.Bool
+    isMaster :: Prelude.Maybe Prelude.Bool,
+    -- | The current state of this job.
+    jobState :: Prelude.Maybe JobState,
+    -- | The type of device used with this job.
+    snowballType :: Prelude.Maybe SnowballType,
+    -- | The type of job.
+    jobType :: Prelude.Maybe JobType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,16 +65,10 @@ data JobListEntry = JobListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobType', 'jobListEntry_jobType' - The type of job.
+-- 'creationDate', 'jobListEntry_creationDate' - The creation date for this job.
 --
 -- 'jobId', 'jobListEntry_jobId' - The automatically generated ID for a job, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
---
--- 'jobState', 'jobListEntry_jobState' - The current state of this job.
---
--- 'snowballType', 'jobListEntry_snowballType' - The type of device used with this job.
---
--- 'creationDate', 'jobListEntry_creationDate' - The creation date for this job.
 --
 -- 'description', 'jobListEntry_description' - The optional description of this specific job, for example
 -- @Important Photos 2016-08-11@.
@@ -86,39 +80,33 @@ data JobListEntry = JobListEntry'
 -- It might take some time before the job parts associated with a
 -- particular main job are listed, because they are created after the main
 -- job is created.
+--
+-- 'jobState', 'jobListEntry_jobState' - The current state of this job.
+--
+-- 'snowballType', 'jobListEntry_snowballType' - The type of device used with this job.
+--
+-- 'jobType', 'jobListEntry_jobType' - The type of job.
 newJobListEntry ::
   JobListEntry
 newJobListEntry =
   JobListEntry'
-    { jobType = Prelude.Nothing,
+    { creationDate = Prelude.Nothing,
       jobId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      isMaster = Prelude.Nothing,
       jobState = Prelude.Nothing,
       snowballType = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      description = Prelude.Nothing,
-      isMaster = Prelude.Nothing
+      jobType = Prelude.Nothing
     }
 
--- | The type of job.
-jobListEntry_jobType :: Lens.Lens' JobListEntry (Prelude.Maybe JobType)
-jobListEntry_jobType = Lens.lens (\JobListEntry' {jobType} -> jobType) (\s@JobListEntry' {} a -> s {jobType = a} :: JobListEntry)
+-- | The creation date for this job.
+jobListEntry_creationDate :: Lens.Lens' JobListEntry (Prelude.Maybe Prelude.UTCTime)
+jobListEntry_creationDate = Lens.lens (\JobListEntry' {creationDate} -> creationDate) (\s@JobListEntry' {} a -> s {creationDate = a} :: JobListEntry) Prelude.. Lens.mapping Core._Time
 
 -- | The automatically generated ID for a job, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
 jobListEntry_jobId :: Lens.Lens' JobListEntry (Prelude.Maybe Prelude.Text)
 jobListEntry_jobId = Lens.lens (\JobListEntry' {jobId} -> jobId) (\s@JobListEntry' {} a -> s {jobId = a} :: JobListEntry)
-
--- | The current state of this job.
-jobListEntry_jobState :: Lens.Lens' JobListEntry (Prelude.Maybe JobState)
-jobListEntry_jobState = Lens.lens (\JobListEntry' {jobState} -> jobState) (\s@JobListEntry' {} a -> s {jobState = a} :: JobListEntry)
-
--- | The type of device used with this job.
-jobListEntry_snowballType :: Lens.Lens' JobListEntry (Prelude.Maybe SnowballType)
-jobListEntry_snowballType = Lens.lens (\JobListEntry' {snowballType} -> snowballType) (\s@JobListEntry' {} a -> s {snowballType = a} :: JobListEntry)
-
--- | The creation date for this job.
-jobListEntry_creationDate :: Lens.Lens' JobListEntry (Prelude.Maybe Prelude.UTCTime)
-jobListEntry_creationDate = Lens.lens (\JobListEntry' {creationDate} -> creationDate) (\s@JobListEntry' {} a -> s {creationDate = a} :: JobListEntry) Prelude.. Lens.mapping Core._Time
 
 -- | The optional description of this specific job, for example
 -- @Important Photos 2016-08-11@.
@@ -135,37 +123,49 @@ jobListEntry_description = Lens.lens (\JobListEntry' {description} -> descriptio
 jobListEntry_isMaster :: Lens.Lens' JobListEntry (Prelude.Maybe Prelude.Bool)
 jobListEntry_isMaster = Lens.lens (\JobListEntry' {isMaster} -> isMaster) (\s@JobListEntry' {} a -> s {isMaster = a} :: JobListEntry)
 
+-- | The current state of this job.
+jobListEntry_jobState :: Lens.Lens' JobListEntry (Prelude.Maybe JobState)
+jobListEntry_jobState = Lens.lens (\JobListEntry' {jobState} -> jobState) (\s@JobListEntry' {} a -> s {jobState = a} :: JobListEntry)
+
+-- | The type of device used with this job.
+jobListEntry_snowballType :: Lens.Lens' JobListEntry (Prelude.Maybe SnowballType)
+jobListEntry_snowballType = Lens.lens (\JobListEntry' {snowballType} -> snowballType) (\s@JobListEntry' {} a -> s {snowballType = a} :: JobListEntry)
+
+-- | The type of job.
+jobListEntry_jobType :: Lens.Lens' JobListEntry (Prelude.Maybe JobType)
+jobListEntry_jobType = Lens.lens (\JobListEntry' {jobType} -> jobType) (\s@JobListEntry' {} a -> s {jobType = a} :: JobListEntry)
+
 instance Core.FromJSON JobListEntry where
   parseJSON =
     Core.withObject
       "JobListEntry"
       ( \x ->
           JobListEntry'
-            Prelude.<$> (x Core..:? "JobType")
+            Prelude.<$> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "JobState")
-            Prelude.<*> (x Core..:? "SnowballType")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "IsMaster")
+            Prelude.<*> (x Core..:? "JobState")
+            Prelude.<*> (x Core..:? "SnowballType")
+            Prelude.<*> (x Core..:? "JobType")
       )
 
 instance Prelude.Hashable JobListEntry where
   hashWithSalt _salt JobListEntry' {..} =
-    _salt `Prelude.hashWithSalt` jobType
+    _salt `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` jobState
-      `Prelude.hashWithSalt` snowballType
-      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isMaster
+      `Prelude.hashWithSalt` jobState
+      `Prelude.hashWithSalt` snowballType
+      `Prelude.hashWithSalt` jobType
 
 instance Prelude.NFData JobListEntry where
   rnf JobListEntry' {..} =
-    Prelude.rnf jobType
+    Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobState
-      `Prelude.seq` Prelude.rnf snowballType
-      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf isMaster
+      `Prelude.seq` Prelude.rnf jobState
+      `Prelude.seq` Prelude.rnf snowballType
+      `Prelude.seq` Prelude.rnf jobType

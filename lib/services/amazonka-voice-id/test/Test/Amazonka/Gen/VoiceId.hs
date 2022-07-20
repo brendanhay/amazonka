@@ -27,11 +27,44 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeFraudsterRegistrationJob $
---             newDescribeFraudsterRegistrationJob
+--         [ requestCreateDomain $
+--             newCreateDomain
+--
+--         , requestDeleteDomain $
+--             newDeleteDomain
+--
+--         , requestDeleteFraudster $
+--             newDeleteFraudster
 --
 --         , requestDeleteSpeaker $
 --             newDeleteSpeaker
+--
+--         , requestDescribeDomain $
+--             newDescribeDomain
+--
+--         , requestDescribeFraudster $
+--             newDescribeFraudster
+--
+--         , requestDescribeFraudsterRegistrationJob $
+--             newDescribeFraudsterRegistrationJob
+--
+--         , requestDescribeSpeaker $
+--             newDescribeSpeaker
+--
+--         , requestDescribeSpeakerEnrollmentJob $
+--             newDescribeSpeakerEnrollmentJob
+--
+--         , requestEvaluateSession $
+--             newEvaluateSession
+--
+--         , requestListDomains $
+--             newListDomains
+--
+--         , requestListFraudsterRegistrationJobs $
+--             newListFraudsterRegistrationJobs
+--
+--         , requestListSpeakerEnrollmentJobs $
+--             newListSpeakerEnrollmentJobs
 --
 --         , requestListSpeakers $
 --             newListSpeakers
@@ -39,65 +72,65 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
---         , requestEvaluateSession $
---             newEvaluateSession
---
---         , requestDescribeSpeakerEnrollmentJob $
---             newDescribeSpeakerEnrollmentJob
---
---         , requestDeleteFraudster $
---             newDeleteFraudster
---
---         , requestListFraudsterRegistrationJobs $
---             newListFraudsterRegistrationJobs
---
---         , requestDescribeFraudster $
---             newDescribeFraudster
---
---         , requestListSpeakerEnrollmentJobs $
---             newListSpeakerEnrollmentJobs
---
---         , requestCreateDomain $
---             newCreateDomain
+--         , requestOptOutSpeaker $
+--             newOptOutSpeaker
 --
 --         , requestStartFraudsterRegistrationJob $
 --             newStartFraudsterRegistrationJob
 --
---         , requestDescribeDomain $
---             newDescribeDomain
+--         , requestStartSpeakerEnrollmentJob $
+--             newStartSpeakerEnrollmentJob
 --
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestStartSpeakerEnrollmentJob $
---             newStartSpeakerEnrollmentJob
---
 --         , requestUntagResource $
 --             newUntagResource
---
---         , requestOptOutSpeaker $
---             newOptOutSpeaker
---
---         , requestDescribeSpeaker $
---             newDescribeSpeaker
---
---         , requestDeleteDomain $
---             newDeleteDomain
 --
 --         , requestUpdateDomain $
 --             newUpdateDomain
 --
---         , requestListDomains $
---             newListDomains
---
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeFraudsterRegistrationJob $
---             newDescribeFraudsterRegistrationJobResponse
+--         [ responseCreateDomain $
+--             newCreateDomainResponse
+--
+--         , responseDeleteDomain $
+--             newDeleteDomainResponse
+--
+--         , responseDeleteFraudster $
+--             newDeleteFraudsterResponse
 --
 --         , responseDeleteSpeaker $
 --             newDeleteSpeakerResponse
+--
+--         , responseDescribeDomain $
+--             newDescribeDomainResponse
+--
+--         , responseDescribeFraudster $
+--             newDescribeFraudsterResponse
+--
+--         , responseDescribeFraudsterRegistrationJob $
+--             newDescribeFraudsterRegistrationJobResponse
+--
+--         , responseDescribeSpeaker $
+--             newDescribeSpeakerResponse
+--
+--         , responseDescribeSpeakerEnrollmentJob $
+--             newDescribeSpeakerEnrollmentJobResponse
+--
+--         , responseEvaluateSession $
+--             newEvaluateSessionResponse
+--
+--         , responseListDomains $
+--             newListDomainsResponse
+--
+--         , responseListFraudsterRegistrationJobs $
+--             newListFraudsterRegistrationJobsResponse
+--
+--         , responseListSpeakerEnrollmentJobs $
+--             newListSpeakerEnrollmentJobsResponse
 --
 --         , responseListSpeakers $
 --             newListSpeakersResponse
@@ -105,61 +138,64 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
---         , responseEvaluateSession $
---             newEvaluateSessionResponse
---
---         , responseDescribeSpeakerEnrollmentJob $
---             newDescribeSpeakerEnrollmentJobResponse
---
---         , responseDeleteFraudster $
---             newDeleteFraudsterResponse
---
---         , responseListFraudsterRegistrationJobs $
---             newListFraudsterRegistrationJobsResponse
---
---         , responseDescribeFraudster $
---             newDescribeFraudsterResponse
---
---         , responseListSpeakerEnrollmentJobs $
---             newListSpeakerEnrollmentJobsResponse
---
---         , responseCreateDomain $
---             newCreateDomainResponse
+--         , responseOptOutSpeaker $
+--             newOptOutSpeakerResponse
 --
 --         , responseStartFraudsterRegistrationJob $
 --             newStartFraudsterRegistrationJobResponse
 --
---         , responseDescribeDomain $
---             newDescribeDomainResponse
+--         , responseStartSpeakerEnrollmentJob $
+--             newStartSpeakerEnrollmentJobResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseStartSpeakerEnrollmentJob $
---             newStartSpeakerEnrollmentJobResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseOptOutSpeaker $
---             newOptOutSpeakerResponse
---
---         , responseDescribeSpeaker $
---             newDescribeSpeakerResponse
---
---         , responseDeleteDomain $
---             newDeleteDomainResponse
---
 --         , responseUpdateDomain $
 --             newUpdateDomainResponse
---
---         , responseListDomains $
---             newListDomainsResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestCreateDomain :: CreateDomain -> TestTree
+requestCreateDomain =
+  req
+    "CreateDomain"
+    "fixture/CreateDomain.yaml"
+
+requestDeleteDomain :: DeleteDomain -> TestTree
+requestDeleteDomain =
+  req
+    "DeleteDomain"
+    "fixture/DeleteDomain.yaml"
+
+requestDeleteFraudster :: DeleteFraudster -> TestTree
+requestDeleteFraudster =
+  req
+    "DeleteFraudster"
+    "fixture/DeleteFraudster.yaml"
+
+requestDeleteSpeaker :: DeleteSpeaker -> TestTree
+requestDeleteSpeaker =
+  req
+    "DeleteSpeaker"
+    "fixture/DeleteSpeaker.yaml"
+
+requestDescribeDomain :: DescribeDomain -> TestTree
+requestDescribeDomain =
+  req
+    "DescribeDomain"
+    "fixture/DescribeDomain.yaml"
+
+requestDescribeFraudster :: DescribeFraudster -> TestTree
+requestDescribeFraudster =
+  req
+    "DescribeFraudster"
+    "fixture/DescribeFraudster.yaml"
 
 requestDescribeFraudsterRegistrationJob :: DescribeFraudsterRegistrationJob -> TestTree
 requestDescribeFraudsterRegistrationJob =
@@ -167,11 +203,41 @@ requestDescribeFraudsterRegistrationJob =
     "DescribeFraudsterRegistrationJob"
     "fixture/DescribeFraudsterRegistrationJob.yaml"
 
-requestDeleteSpeaker :: DeleteSpeaker -> TestTree
-requestDeleteSpeaker =
+requestDescribeSpeaker :: DescribeSpeaker -> TestTree
+requestDescribeSpeaker =
   req
-    "DeleteSpeaker"
-    "fixture/DeleteSpeaker.yaml"
+    "DescribeSpeaker"
+    "fixture/DescribeSpeaker.yaml"
+
+requestDescribeSpeakerEnrollmentJob :: DescribeSpeakerEnrollmentJob -> TestTree
+requestDescribeSpeakerEnrollmentJob =
+  req
+    "DescribeSpeakerEnrollmentJob"
+    "fixture/DescribeSpeakerEnrollmentJob.yaml"
+
+requestEvaluateSession :: EvaluateSession -> TestTree
+requestEvaluateSession =
+  req
+    "EvaluateSession"
+    "fixture/EvaluateSession.yaml"
+
+requestListDomains :: ListDomains -> TestTree
+requestListDomains =
+  req
+    "ListDomains"
+    "fixture/ListDomains.yaml"
+
+requestListFraudsterRegistrationJobs :: ListFraudsterRegistrationJobs -> TestTree
+requestListFraudsterRegistrationJobs =
+  req
+    "ListFraudsterRegistrationJobs"
+    "fixture/ListFraudsterRegistrationJobs.yaml"
+
+requestListSpeakerEnrollmentJobs :: ListSpeakerEnrollmentJobs -> TestTree
+requestListSpeakerEnrollmentJobs =
+  req
+    "ListSpeakerEnrollmentJobs"
+    "fixture/ListSpeakerEnrollmentJobs.yaml"
 
 requestListSpeakers :: ListSpeakers -> TestTree
 requestListSpeakers =
@@ -185,47 +251,11 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
-requestEvaluateSession :: EvaluateSession -> TestTree
-requestEvaluateSession =
+requestOptOutSpeaker :: OptOutSpeaker -> TestTree
+requestOptOutSpeaker =
   req
-    "EvaluateSession"
-    "fixture/EvaluateSession.yaml"
-
-requestDescribeSpeakerEnrollmentJob :: DescribeSpeakerEnrollmentJob -> TestTree
-requestDescribeSpeakerEnrollmentJob =
-  req
-    "DescribeSpeakerEnrollmentJob"
-    "fixture/DescribeSpeakerEnrollmentJob.yaml"
-
-requestDeleteFraudster :: DeleteFraudster -> TestTree
-requestDeleteFraudster =
-  req
-    "DeleteFraudster"
-    "fixture/DeleteFraudster.yaml"
-
-requestListFraudsterRegistrationJobs :: ListFraudsterRegistrationJobs -> TestTree
-requestListFraudsterRegistrationJobs =
-  req
-    "ListFraudsterRegistrationJobs"
-    "fixture/ListFraudsterRegistrationJobs.yaml"
-
-requestDescribeFraudster :: DescribeFraudster -> TestTree
-requestDescribeFraudster =
-  req
-    "DescribeFraudster"
-    "fixture/DescribeFraudster.yaml"
-
-requestListSpeakerEnrollmentJobs :: ListSpeakerEnrollmentJobs -> TestTree
-requestListSpeakerEnrollmentJobs =
-  req
-    "ListSpeakerEnrollmentJobs"
-    "fixture/ListSpeakerEnrollmentJobs.yaml"
-
-requestCreateDomain :: CreateDomain -> TestTree
-requestCreateDomain =
-  req
-    "CreateDomain"
-    "fixture/CreateDomain.yaml"
+    "OptOutSpeaker"
+    "fixture/OptOutSpeaker.yaml"
 
 requestStartFraudsterRegistrationJob :: StartFraudsterRegistrationJob -> TestTree
 requestStartFraudsterRegistrationJob =
@@ -233,11 +263,11 @@ requestStartFraudsterRegistrationJob =
     "StartFraudsterRegistrationJob"
     "fixture/StartFraudsterRegistrationJob.yaml"
 
-requestDescribeDomain :: DescribeDomain -> TestTree
-requestDescribeDomain =
+requestStartSpeakerEnrollmentJob :: StartSpeakerEnrollmentJob -> TestTree
+requestStartSpeakerEnrollmentJob =
   req
-    "DescribeDomain"
-    "fixture/DescribeDomain.yaml"
+    "StartSpeakerEnrollmentJob"
+    "fixture/StartSpeakerEnrollmentJob.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -245,35 +275,11 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestStartSpeakerEnrollmentJob :: StartSpeakerEnrollmentJob -> TestTree
-requestStartSpeakerEnrollmentJob =
-  req
-    "StartSpeakerEnrollmentJob"
-    "fixture/StartSpeakerEnrollmentJob.yaml"
-
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
-
-requestOptOutSpeaker :: OptOutSpeaker -> TestTree
-requestOptOutSpeaker =
-  req
-    "OptOutSpeaker"
-    "fixture/OptOutSpeaker.yaml"
-
-requestDescribeSpeaker :: DescribeSpeaker -> TestTree
-requestDescribeSpeaker =
-  req
-    "DescribeSpeaker"
-    "fixture/DescribeSpeaker.yaml"
-
-requestDeleteDomain :: DeleteDomain -> TestTree
-requestDeleteDomain =
-  req
-    "DeleteDomain"
-    "fixture/DeleteDomain.yaml"
 
 requestUpdateDomain :: UpdateDomain -> TestTree
 requestUpdateDomain =
@@ -281,13 +287,55 @@ requestUpdateDomain =
     "UpdateDomain"
     "fixture/UpdateDomain.yaml"
 
-requestListDomains :: ListDomains -> TestTree
-requestListDomains =
-  req
-    "ListDomains"
-    "fixture/ListDomains.yaml"
-
 -- Responses
+
+responseCreateDomain :: CreateDomainResponse -> TestTree
+responseCreateDomain =
+  res
+    "CreateDomainResponse"
+    "fixture/CreateDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
+
+responseDeleteDomain :: DeleteDomainResponse -> TestTree
+responseDeleteDomain =
+  res
+    "DeleteDomainResponse"
+    "fixture/DeleteDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
+
+responseDeleteFraudster :: DeleteFraudsterResponse -> TestTree
+responseDeleteFraudster =
+  res
+    "DeleteFraudsterResponse"
+    "fixture/DeleteFraudsterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFraudster)
+
+responseDeleteSpeaker :: DeleteSpeakerResponse -> TestTree
+responseDeleteSpeaker =
+  res
+    "DeleteSpeakerResponse"
+    "fixture/DeleteSpeakerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSpeaker)
+
+responseDescribeDomain :: DescribeDomainResponse -> TestTree
+responseDescribeDomain =
+  res
+    "DescribeDomainResponse"
+    "fixture/DescribeDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
+
+responseDescribeFraudster :: DescribeFraudsterResponse -> TestTree
+responseDescribeFraudster =
+  res
+    "DescribeFraudsterResponse"
+    "fixture/DescribeFraudsterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFraudster)
 
 responseDescribeFraudsterRegistrationJob :: DescribeFraudsterRegistrationJobResponse -> TestTree
 responseDescribeFraudsterRegistrationJob =
@@ -297,13 +345,53 @@ responseDescribeFraudsterRegistrationJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeFraudsterRegistrationJob)
 
-responseDeleteSpeaker :: DeleteSpeakerResponse -> TestTree
-responseDeleteSpeaker =
+responseDescribeSpeaker :: DescribeSpeakerResponse -> TestTree
+responseDescribeSpeaker =
   res
-    "DeleteSpeakerResponse"
-    "fixture/DeleteSpeakerResponse.proto"
+    "DescribeSpeakerResponse"
+    "fixture/DescribeSpeakerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSpeaker)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpeaker)
+
+responseDescribeSpeakerEnrollmentJob :: DescribeSpeakerEnrollmentJobResponse -> TestTree
+responseDescribeSpeakerEnrollmentJob =
+  res
+    "DescribeSpeakerEnrollmentJobResponse"
+    "fixture/DescribeSpeakerEnrollmentJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpeakerEnrollmentJob)
+
+responseEvaluateSession :: EvaluateSessionResponse -> TestTree
+responseEvaluateSession =
+  res
+    "EvaluateSessionResponse"
+    "fixture/EvaluateSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EvaluateSession)
+
+responseListDomains :: ListDomainsResponse -> TestTree
+responseListDomains =
+  res
+    "ListDomainsResponse"
+    "fixture/ListDomainsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)
+
+responseListFraudsterRegistrationJobs :: ListFraudsterRegistrationJobsResponse -> TestTree
+responseListFraudsterRegistrationJobs =
+  res
+    "ListFraudsterRegistrationJobsResponse"
+    "fixture/ListFraudsterRegistrationJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFraudsterRegistrationJobs)
+
+responseListSpeakerEnrollmentJobs :: ListSpeakerEnrollmentJobsResponse -> TestTree
+responseListSpeakerEnrollmentJobs =
+  res
+    "ListSpeakerEnrollmentJobsResponse"
+    "fixture/ListSpeakerEnrollmentJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSpeakerEnrollmentJobs)
 
 responseListSpeakers :: ListSpeakersResponse -> TestTree
 responseListSpeakers =
@@ -321,61 +409,13 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
-responseEvaluateSession :: EvaluateSessionResponse -> TestTree
-responseEvaluateSession =
+responseOptOutSpeaker :: OptOutSpeakerResponse -> TestTree
+responseOptOutSpeaker =
   res
-    "EvaluateSessionResponse"
-    "fixture/EvaluateSessionResponse.proto"
+    "OptOutSpeakerResponse"
+    "fixture/OptOutSpeakerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy EvaluateSession)
-
-responseDescribeSpeakerEnrollmentJob :: DescribeSpeakerEnrollmentJobResponse -> TestTree
-responseDescribeSpeakerEnrollmentJob =
-  res
-    "DescribeSpeakerEnrollmentJobResponse"
-    "fixture/DescribeSpeakerEnrollmentJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSpeakerEnrollmentJob)
-
-responseDeleteFraudster :: DeleteFraudsterResponse -> TestTree
-responseDeleteFraudster =
-  res
-    "DeleteFraudsterResponse"
-    "fixture/DeleteFraudsterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFraudster)
-
-responseListFraudsterRegistrationJobs :: ListFraudsterRegistrationJobsResponse -> TestTree
-responseListFraudsterRegistrationJobs =
-  res
-    "ListFraudsterRegistrationJobsResponse"
-    "fixture/ListFraudsterRegistrationJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFraudsterRegistrationJobs)
-
-responseDescribeFraudster :: DescribeFraudsterResponse -> TestTree
-responseDescribeFraudster =
-  res
-    "DescribeFraudsterResponse"
-    "fixture/DescribeFraudsterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFraudster)
-
-responseListSpeakerEnrollmentJobs :: ListSpeakerEnrollmentJobsResponse -> TestTree
-responseListSpeakerEnrollmentJobs =
-  res
-    "ListSpeakerEnrollmentJobsResponse"
-    "fixture/ListSpeakerEnrollmentJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSpeakerEnrollmentJobs)
-
-responseCreateDomain :: CreateDomainResponse -> TestTree
-responseCreateDomain =
-  res
-    "CreateDomainResponse"
-    "fixture/CreateDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
+    (Proxy.Proxy :: Proxy.Proxy OptOutSpeaker)
 
 responseStartFraudsterRegistrationJob :: StartFraudsterRegistrationJobResponse -> TestTree
 responseStartFraudsterRegistrationJob =
@@ -385,13 +425,13 @@ responseStartFraudsterRegistrationJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartFraudsterRegistrationJob)
 
-responseDescribeDomain :: DescribeDomainResponse -> TestTree
-responseDescribeDomain =
+responseStartSpeakerEnrollmentJob :: StartSpeakerEnrollmentJobResponse -> TestTree
+responseStartSpeakerEnrollmentJob =
   res
-    "DescribeDomainResponse"
-    "fixture/DescribeDomainResponse.proto"
+    "StartSpeakerEnrollmentJobResponse"
+    "fixture/StartSpeakerEnrollmentJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
+    (Proxy.Proxy :: Proxy.Proxy StartSpeakerEnrollmentJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -401,14 +441,6 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseStartSpeakerEnrollmentJob :: StartSpeakerEnrollmentJobResponse -> TestTree
-responseStartSpeakerEnrollmentJob =
-  res
-    "StartSpeakerEnrollmentJobResponse"
-    "fixture/StartSpeakerEnrollmentJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartSpeakerEnrollmentJob)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -417,30 +449,6 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseOptOutSpeaker :: OptOutSpeakerResponse -> TestTree
-responseOptOutSpeaker =
-  res
-    "OptOutSpeakerResponse"
-    "fixture/OptOutSpeakerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy OptOutSpeaker)
-
-responseDescribeSpeaker :: DescribeSpeakerResponse -> TestTree
-responseDescribeSpeaker =
-  res
-    "DescribeSpeakerResponse"
-    "fixture/DescribeSpeakerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSpeaker)
-
-responseDeleteDomain :: DeleteDomainResponse -> TestTree
-responseDeleteDomain =
-  res
-    "DeleteDomainResponse"
-    "fixture/DeleteDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
-
 responseUpdateDomain :: UpdateDomainResponse -> TestTree
 responseUpdateDomain =
   res
@@ -448,11 +456,3 @@ responseUpdateDomain =
     "fixture/UpdateDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDomain)
-
-responseListDomains :: ListDomainsResponse -> TestTree
-responseListDomains =
-  res
-    "ListDomainsResponse"
-    "fixture/ListDomainsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDomains)

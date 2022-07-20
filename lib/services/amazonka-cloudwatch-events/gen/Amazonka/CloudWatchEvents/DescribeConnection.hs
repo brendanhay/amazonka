@@ -34,17 +34,17 @@ module Amazonka.CloudWatchEvents.DescribeConnection
     newDescribeConnectionResponse,
 
     -- * Response Lenses
-    describeConnectionResponse_creationTime,
-    describeConnectionResponse_lastModifiedTime,
     describeConnectionResponse_name,
     describeConnectionResponse_authParameters,
-    describeConnectionResponse_lastAuthorizedTime,
-    describeConnectionResponse_authorizationType,
-    describeConnectionResponse_connectionArn,
-    describeConnectionResponse_stateReason,
-    describeConnectionResponse_secretArn,
-    describeConnectionResponse_description,
     describeConnectionResponse_connectionState,
+    describeConnectionResponse_description,
+    describeConnectionResponse_connectionArn,
+    describeConnectionResponse_lastModifiedTime,
+    describeConnectionResponse_secretArn,
+    describeConnectionResponse_lastAuthorizedTime,
+    describeConnectionResponse_creationTime,
+    describeConnectionResponse_authorizationType,
+    describeConnectionResponse_stateReason,
     describeConnectionResponse_httpStatus,
   )
 where
@@ -92,17 +92,17 @@ instance Core.AWSRequest DescribeConnection where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectionResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "AuthParameters")
-            Prelude.<*> (x Core..?> "LastAuthorizedTime")
-            Prelude.<*> (x Core..?> "AuthorizationType")
-            Prelude.<*> (x Core..?> "ConnectionArn")
-            Prelude.<*> (x Core..?> "StateReason")
-            Prelude.<*> (x Core..?> "SecretArn")
-            Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "ConnectionState")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "ConnectionArn")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "SecretArn")
+            Prelude.<*> (x Core..?> "LastAuthorizedTime")
+            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "AuthorizationType")
+            Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,29 +143,29 @@ instance Core.ToQuery DescribeConnection where
 
 -- | /See:/ 'newDescribeConnectionResponse' smart constructor.
 data DescribeConnectionResponse = DescribeConnectionResponse'
-  { -- | A time stamp for the time that the connection was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | A time stamp for the time that the connection was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the connection retrieved.
+  { -- | The name of the connection retrieved.
     name :: Prelude.Maybe Prelude.Text,
     -- | The parameters to use for authorization for the connection.
     authParameters :: Prelude.Maybe ConnectionAuthResponseParameters,
-    -- | A time stamp for the time that the connection was last authorized.
-    lastAuthorizedTime :: Prelude.Maybe Core.POSIX,
-    -- | The type of authorization specified for the connection.
-    authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
+    -- | The state of the connection retrieved.
+    connectionState :: Prelude.Maybe ConnectionState,
+    -- | The description for the connection retrieved.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the connection retrieved.
     connectionArn :: Prelude.Maybe Prelude.Text,
-    -- | The reason that the connection is in the current connection state.
-    stateReason :: Prelude.Maybe Prelude.Text,
+    -- | A time stamp for the time that the connection was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the secret created from the authorization parameters
     -- specified for the connection.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The description for the connection retrieved.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The state of the connection retrieved.
-    connectionState :: Prelude.Maybe ConnectionState,
+    -- | A time stamp for the time that the connection was last authorized.
+    lastAuthorizedTime :: Prelude.Maybe Core.POSIX,
+    -- | A time stamp for the time that the connection was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The type of authorization specified for the connection.
+    authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
+    -- | The reason that the connection is in the current connection state.
+    stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,28 +179,28 @@ data DescribeConnectionResponse = DescribeConnectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeConnectionResponse_creationTime' - A time stamp for the time that the connection was created.
---
--- 'lastModifiedTime', 'describeConnectionResponse_lastModifiedTime' - A time stamp for the time that the connection was last modified.
---
 -- 'name', 'describeConnectionResponse_name' - The name of the connection retrieved.
 --
 -- 'authParameters', 'describeConnectionResponse_authParameters' - The parameters to use for authorization for the connection.
 --
--- 'lastAuthorizedTime', 'describeConnectionResponse_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.
+-- 'connectionState', 'describeConnectionResponse_connectionState' - The state of the connection retrieved.
 --
--- 'authorizationType', 'describeConnectionResponse_authorizationType' - The type of authorization specified for the connection.
+-- 'description', 'describeConnectionResponse_description' - The description for the connection retrieved.
 --
 -- 'connectionArn', 'describeConnectionResponse_connectionArn' - The ARN of the connection retrieved.
 --
--- 'stateReason', 'describeConnectionResponse_stateReason' - The reason that the connection is in the current connection state.
+-- 'lastModifiedTime', 'describeConnectionResponse_lastModifiedTime' - A time stamp for the time that the connection was last modified.
 --
 -- 'secretArn', 'describeConnectionResponse_secretArn' - The ARN of the secret created from the authorization parameters
 -- specified for the connection.
 --
--- 'description', 'describeConnectionResponse_description' - The description for the connection retrieved.
+-- 'lastAuthorizedTime', 'describeConnectionResponse_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.
 --
--- 'connectionState', 'describeConnectionResponse_connectionState' - The state of the connection retrieved.
+-- 'creationTime', 'describeConnectionResponse_creationTime' - A time stamp for the time that the connection was created.
+--
+-- 'authorizationType', 'describeConnectionResponse_authorizationType' - The type of authorization specified for the connection.
+--
+-- 'stateReason', 'describeConnectionResponse_stateReason' - The reason that the connection is in the current connection state.
 --
 -- 'httpStatus', 'describeConnectionResponse_httpStatus' - The response's http status code.
 newDescribeConnectionResponse ::
@@ -209,28 +209,19 @@ newDescribeConnectionResponse ::
   DescribeConnectionResponse
 newDescribeConnectionResponse pHttpStatus_ =
   DescribeConnectionResponse'
-    { creationTime =
-        Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       authParameters = Prelude.Nothing,
-      lastAuthorizedTime = Prelude.Nothing,
-      authorizationType = Prelude.Nothing,
-      connectionArn = Prelude.Nothing,
-      stateReason = Prelude.Nothing,
-      secretArn = Prelude.Nothing,
-      description = Prelude.Nothing,
       connectionState = Prelude.Nothing,
+      description = Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
+      lastAuthorizedTime = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      authorizationType = Prelude.Nothing,
+      stateReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A time stamp for the time that the connection was created.
-describeConnectionResponse_creationTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-describeConnectionResponse_creationTime = Lens.lens (\DescribeConnectionResponse' {creationTime} -> creationTime) (\s@DescribeConnectionResponse' {} a -> s {creationTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
-
--- | A time stamp for the time that the connection was last modified.
-describeConnectionResponse_lastModifiedTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-describeConnectionResponse_lastModifiedTime = Lens.lens (\DescribeConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeConnectionResponse' {} a -> s {lastModifiedTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the connection retrieved.
 describeConnectionResponse_name :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
@@ -240,34 +231,42 @@ describeConnectionResponse_name = Lens.lens (\DescribeConnectionResponse' {name}
 describeConnectionResponse_authParameters :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe ConnectionAuthResponseParameters)
 describeConnectionResponse_authParameters = Lens.lens (\DescribeConnectionResponse' {authParameters} -> authParameters) (\s@DescribeConnectionResponse' {} a -> s {authParameters = a} :: DescribeConnectionResponse)
 
--- | A time stamp for the time that the connection was last authorized.
-describeConnectionResponse_lastAuthorizedTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
-describeConnectionResponse_lastAuthorizedTime = Lens.lens (\DescribeConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@DescribeConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
+-- | The state of the connection retrieved.
+describeConnectionResponse_connectionState :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe ConnectionState)
+describeConnectionResponse_connectionState = Lens.lens (\DescribeConnectionResponse' {connectionState} -> connectionState) (\s@DescribeConnectionResponse' {} a -> s {connectionState = a} :: DescribeConnectionResponse)
 
--- | The type of authorization specified for the connection.
-describeConnectionResponse_authorizationType :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe ConnectionAuthorizationType)
-describeConnectionResponse_authorizationType = Lens.lens (\DescribeConnectionResponse' {authorizationType} -> authorizationType) (\s@DescribeConnectionResponse' {} a -> s {authorizationType = a} :: DescribeConnectionResponse)
+-- | The description for the connection retrieved.
+describeConnectionResponse_description :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
+describeConnectionResponse_description = Lens.lens (\DescribeConnectionResponse' {description} -> description) (\s@DescribeConnectionResponse' {} a -> s {description = a} :: DescribeConnectionResponse)
 
 -- | The ARN of the connection retrieved.
 describeConnectionResponse_connectionArn :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
 describeConnectionResponse_connectionArn = Lens.lens (\DescribeConnectionResponse' {connectionArn} -> connectionArn) (\s@DescribeConnectionResponse' {} a -> s {connectionArn = a} :: DescribeConnectionResponse)
 
--- | The reason that the connection is in the current connection state.
-describeConnectionResponse_stateReason :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
-describeConnectionResponse_stateReason = Lens.lens (\DescribeConnectionResponse' {stateReason} -> stateReason) (\s@DescribeConnectionResponse' {} a -> s {stateReason = a} :: DescribeConnectionResponse)
+-- | A time stamp for the time that the connection was last modified.
+describeConnectionResponse_lastModifiedTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
+describeConnectionResponse_lastModifiedTime = Lens.lens (\DescribeConnectionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeConnectionResponse' {} a -> s {lastModifiedTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the secret created from the authorization parameters
 -- specified for the connection.
 describeConnectionResponse_secretArn :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
 describeConnectionResponse_secretArn = Lens.lens (\DescribeConnectionResponse' {secretArn} -> secretArn) (\s@DescribeConnectionResponse' {} a -> s {secretArn = a} :: DescribeConnectionResponse)
 
--- | The description for the connection retrieved.
-describeConnectionResponse_description :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
-describeConnectionResponse_description = Lens.lens (\DescribeConnectionResponse' {description} -> description) (\s@DescribeConnectionResponse' {} a -> s {description = a} :: DescribeConnectionResponse)
+-- | A time stamp for the time that the connection was last authorized.
+describeConnectionResponse_lastAuthorizedTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
+describeConnectionResponse_lastAuthorizedTime = Lens.lens (\DescribeConnectionResponse' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@DescribeConnectionResponse' {} a -> s {lastAuthorizedTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
 
--- | The state of the connection retrieved.
-describeConnectionResponse_connectionState :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe ConnectionState)
-describeConnectionResponse_connectionState = Lens.lens (\DescribeConnectionResponse' {connectionState} -> connectionState) (\s@DescribeConnectionResponse' {} a -> s {connectionState = a} :: DescribeConnectionResponse)
+-- | A time stamp for the time that the connection was created.
+describeConnectionResponse_creationTime :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.UTCTime)
+describeConnectionResponse_creationTime = Lens.lens (\DescribeConnectionResponse' {creationTime} -> creationTime) (\s@DescribeConnectionResponse' {} a -> s {creationTime = a} :: DescribeConnectionResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The type of authorization specified for the connection.
+describeConnectionResponse_authorizationType :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe ConnectionAuthorizationType)
+describeConnectionResponse_authorizationType = Lens.lens (\DescribeConnectionResponse' {authorizationType} -> authorizationType) (\s@DescribeConnectionResponse' {} a -> s {authorizationType = a} :: DescribeConnectionResponse)
+
+-- | The reason that the connection is in the current connection state.
+describeConnectionResponse_stateReason :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
+describeConnectionResponse_stateReason = Lens.lens (\DescribeConnectionResponse' {stateReason} -> stateReason) (\s@DescribeConnectionResponse' {} a -> s {stateReason = a} :: DescribeConnectionResponse)
 
 -- | The response's http status code.
 describeConnectionResponse_httpStatus :: Lens.Lens' DescribeConnectionResponse Prelude.Int
@@ -275,15 +274,15 @@ describeConnectionResponse_httpStatus = Lens.lens (\DescribeConnectionResponse' 
 
 instance Prelude.NFData DescribeConnectionResponse where
   rnf DescribeConnectionResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf authParameters
-      `Prelude.seq` Prelude.rnf lastAuthorizedTime
-      `Prelude.seq` Prelude.rnf authorizationType
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf stateReason
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf lastAuthorizedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf httpStatus

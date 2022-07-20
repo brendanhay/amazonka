@@ -27,10 +27,10 @@ module Amazonka.IoTWireless.CreateServiceProfile
     newCreateServiceProfile,
 
     -- * Request Lenses
-    createServiceProfile_loRaWAN,
+    createServiceProfile_tags,
     createServiceProfile_name,
     createServiceProfile_clientRequestToken,
-    createServiceProfile_tags,
+    createServiceProfile_loRaWAN,
 
     -- * Destructuring the Response
     CreateServiceProfileResponse (..),
@@ -52,8 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateServiceProfile' smart constructor.
 data CreateServiceProfile = CreateServiceProfile'
-  { -- | The service profile information to use to create the service profile.
-    loRaWAN :: Prelude.Maybe LoRaWANServiceProfile,
+  { -- | The tags to attach to the new service profile. Tags are metadata that
+    -- you can use to manage a resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the new resource.
     name :: Prelude.Maybe Prelude.Text,
     -- | Each resource must have a unique client request token. If you try to
@@ -61,9 +62,8 @@ data CreateServiceProfile = CreateServiceProfile'
     -- exists, an exception occurs. If you omit this value, AWS SDKs will
     -- automatically generate a unique client request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags to attach to the new service profile. Tags are metadata that
-    -- you can use to manage a resource.
-    tags :: Prelude.Maybe [Tag]
+    -- | The service profile information to use to create the service profile.
+    loRaWAN :: Prelude.Maybe LoRaWANServiceProfile
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +75,8 @@ data CreateServiceProfile = CreateServiceProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loRaWAN', 'createServiceProfile_loRaWAN' - The service profile information to use to create the service profile.
+-- 'tags', 'createServiceProfile_tags' - The tags to attach to the new service profile. Tags are metadata that
+-- you can use to manage a resource.
 --
 -- 'name', 'createServiceProfile_name' - The name of the new resource.
 --
@@ -84,21 +85,21 @@ data CreateServiceProfile = CreateServiceProfile'
 -- exists, an exception occurs. If you omit this value, AWS SDKs will
 -- automatically generate a unique client request.
 --
--- 'tags', 'createServiceProfile_tags' - The tags to attach to the new service profile. Tags are metadata that
--- you can use to manage a resource.
+-- 'loRaWAN', 'createServiceProfile_loRaWAN' - The service profile information to use to create the service profile.
 newCreateServiceProfile ::
   CreateServiceProfile
 newCreateServiceProfile =
   CreateServiceProfile'
-    { loRaWAN = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      tags = Prelude.Nothing
+      loRaWAN = Prelude.Nothing
     }
 
--- | The service profile information to use to create the service profile.
-createServiceProfile_loRaWAN :: Lens.Lens' CreateServiceProfile (Prelude.Maybe LoRaWANServiceProfile)
-createServiceProfile_loRaWAN = Lens.lens (\CreateServiceProfile' {loRaWAN} -> loRaWAN) (\s@CreateServiceProfile' {} a -> s {loRaWAN = a} :: CreateServiceProfile)
+-- | The tags to attach to the new service profile. Tags are metadata that
+-- you can use to manage a resource.
+createServiceProfile_tags :: Lens.Lens' CreateServiceProfile (Prelude.Maybe [Tag])
+createServiceProfile_tags = Lens.lens (\CreateServiceProfile' {tags} -> tags) (\s@CreateServiceProfile' {} a -> s {tags = a} :: CreateServiceProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new resource.
 createServiceProfile_name :: Lens.Lens' CreateServiceProfile (Prelude.Maybe Prelude.Text)
@@ -111,10 +112,9 @@ createServiceProfile_name = Lens.lens (\CreateServiceProfile' {name} -> name) (\
 createServiceProfile_clientRequestToken :: Lens.Lens' CreateServiceProfile (Prelude.Maybe Prelude.Text)
 createServiceProfile_clientRequestToken = Lens.lens (\CreateServiceProfile' {clientRequestToken} -> clientRequestToken) (\s@CreateServiceProfile' {} a -> s {clientRequestToken = a} :: CreateServiceProfile)
 
--- | The tags to attach to the new service profile. Tags are metadata that
--- you can use to manage a resource.
-createServiceProfile_tags :: Lens.Lens' CreateServiceProfile (Prelude.Maybe [Tag])
-createServiceProfile_tags = Lens.lens (\CreateServiceProfile' {tags} -> tags) (\s@CreateServiceProfile' {} a -> s {tags = a} :: CreateServiceProfile) Prelude.. Lens.mapping Lens.coerced
+-- | The service profile information to use to create the service profile.
+createServiceProfile_loRaWAN :: Lens.Lens' CreateServiceProfile (Prelude.Maybe LoRaWANServiceProfile)
+createServiceProfile_loRaWAN = Lens.lens (\CreateServiceProfile' {loRaWAN} -> loRaWAN) (\s@CreateServiceProfile' {} a -> s {loRaWAN = a} :: CreateServiceProfile)
 
 instance Core.AWSRequest CreateServiceProfile where
   type
@@ -132,17 +132,17 @@ instance Core.AWSRequest CreateServiceProfile where
 
 instance Prelude.Hashable CreateServiceProfile where
   hashWithSalt _salt CreateServiceProfile' {..} =
-    _salt `Prelude.hashWithSalt` loRaWAN
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loRaWAN
 
 instance Prelude.NFData CreateServiceProfile where
   rnf CreateServiceProfile' {..} =
-    Prelude.rnf loRaWAN
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loRaWAN
 
 instance Core.ToHeaders CreateServiceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,11 +151,11 @@ instance Core.ToJSON CreateServiceProfile where
   toJSON CreateServiceProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Name" Core..=) Prelude.<$> name,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags
+            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN
           ]
       )
 

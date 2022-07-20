@@ -28,18 +28,18 @@ import Amazonka.QuickSight.Types.AssignmentStatus
 --
 -- /See:/ 'newIAMPolicyAssignment' smart constructor.
 data IAMPolicyAssignment = IAMPolicyAssignment'
-  { -- | Assignment name.
-    assignmentName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID.
+  { -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | Assignment status.
-    assignmentStatus :: Prelude.Maybe AssignmentStatus,
-    -- | The Amazon Resource Name (ARN) for the IAMpolicy.
-    policyArn :: Prelude.Maybe Prelude.Text,
     -- | Identities.
     identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The Amazon Resource Name (ARN) for the IAMpolicy.
+    policyArn :: Prelude.Maybe Prelude.Text,
+    -- | Assignment name.
+    assignmentName :: Prelude.Maybe Prelude.Text,
     -- | Assignment ID.
-    assignmentId :: Prelude.Maybe Prelude.Text
+    assignmentId :: Prelude.Maybe Prelude.Text,
+    -- | Assignment status.
+    assignmentStatus :: Prelude.Maybe AssignmentStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,53 +51,53 @@ data IAMPolicyAssignment = IAMPolicyAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assignmentName', 'iAMPolicyAssignment_assignmentName' - Assignment name.
---
 -- 'awsAccountId', 'iAMPolicyAssignment_awsAccountId' - The Amazon Web Services account ID.
---
--- 'assignmentStatus', 'iAMPolicyAssignment_assignmentStatus' - Assignment status.
---
--- 'policyArn', 'iAMPolicyAssignment_policyArn' - The Amazon Resource Name (ARN) for the IAMpolicy.
 --
 -- 'identities', 'iAMPolicyAssignment_identities' - Identities.
 --
+-- 'policyArn', 'iAMPolicyAssignment_policyArn' - The Amazon Resource Name (ARN) for the IAMpolicy.
+--
+-- 'assignmentName', 'iAMPolicyAssignment_assignmentName' - Assignment name.
+--
 -- 'assignmentId', 'iAMPolicyAssignment_assignmentId' - Assignment ID.
+--
+-- 'assignmentStatus', 'iAMPolicyAssignment_assignmentStatus' - Assignment status.
 newIAMPolicyAssignment ::
   IAMPolicyAssignment
 newIAMPolicyAssignment =
   IAMPolicyAssignment'
-    { assignmentName =
+    { awsAccountId =
         Prelude.Nothing,
-      awsAccountId = Prelude.Nothing,
-      assignmentStatus = Prelude.Nothing,
-      policyArn = Prelude.Nothing,
       identities = Prelude.Nothing,
-      assignmentId = Prelude.Nothing
+      policyArn = Prelude.Nothing,
+      assignmentName = Prelude.Nothing,
+      assignmentId = Prelude.Nothing,
+      assignmentStatus = Prelude.Nothing
     }
-
--- | Assignment name.
-iAMPolicyAssignment_assignmentName :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe Prelude.Text)
-iAMPolicyAssignment_assignmentName = Lens.lens (\IAMPolicyAssignment' {assignmentName} -> assignmentName) (\s@IAMPolicyAssignment' {} a -> s {assignmentName = a} :: IAMPolicyAssignment)
 
 -- | The Amazon Web Services account ID.
 iAMPolicyAssignment_awsAccountId :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 iAMPolicyAssignment_awsAccountId = Lens.lens (\IAMPolicyAssignment' {awsAccountId} -> awsAccountId) (\s@IAMPolicyAssignment' {} a -> s {awsAccountId = a} :: IAMPolicyAssignment)
 
--- | Assignment status.
-iAMPolicyAssignment_assignmentStatus :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe AssignmentStatus)
-iAMPolicyAssignment_assignmentStatus = Lens.lens (\IAMPolicyAssignment' {assignmentStatus} -> assignmentStatus) (\s@IAMPolicyAssignment' {} a -> s {assignmentStatus = a} :: IAMPolicyAssignment)
+-- | Identities.
+iAMPolicyAssignment_identities :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+iAMPolicyAssignment_identities = Lens.lens (\IAMPolicyAssignment' {identities} -> identities) (\s@IAMPolicyAssignment' {} a -> s {identities = a} :: IAMPolicyAssignment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) for the IAMpolicy.
 iAMPolicyAssignment_policyArn :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 iAMPolicyAssignment_policyArn = Lens.lens (\IAMPolicyAssignment' {policyArn} -> policyArn) (\s@IAMPolicyAssignment' {} a -> s {policyArn = a} :: IAMPolicyAssignment)
 
--- | Identities.
-iAMPolicyAssignment_identities :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-iAMPolicyAssignment_identities = Lens.lens (\IAMPolicyAssignment' {identities} -> identities) (\s@IAMPolicyAssignment' {} a -> s {identities = a} :: IAMPolicyAssignment) Prelude.. Lens.mapping Lens.coerced
+-- | Assignment name.
+iAMPolicyAssignment_assignmentName :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe Prelude.Text)
+iAMPolicyAssignment_assignmentName = Lens.lens (\IAMPolicyAssignment' {assignmentName} -> assignmentName) (\s@IAMPolicyAssignment' {} a -> s {assignmentName = a} :: IAMPolicyAssignment)
 
 -- | Assignment ID.
 iAMPolicyAssignment_assignmentId :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 iAMPolicyAssignment_assignmentId = Lens.lens (\IAMPolicyAssignment' {assignmentId} -> assignmentId) (\s@IAMPolicyAssignment' {} a -> s {assignmentId = a} :: IAMPolicyAssignment)
+
+-- | Assignment status.
+iAMPolicyAssignment_assignmentStatus :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe AssignmentStatus)
+iAMPolicyAssignment_assignmentStatus = Lens.lens (\IAMPolicyAssignment' {assignmentStatus} -> assignmentStatus) (\s@IAMPolicyAssignment' {} a -> s {assignmentStatus = a} :: IAMPolicyAssignment)
 
 instance Core.FromJSON IAMPolicyAssignment where
   parseJSON =
@@ -105,28 +105,28 @@ instance Core.FromJSON IAMPolicyAssignment where
       "IAMPolicyAssignment"
       ( \x ->
           IAMPolicyAssignment'
-            Prelude.<$> (x Core..:? "AssignmentName")
-            Prelude.<*> (x Core..:? "AwsAccountId")
-            Prelude.<*> (x Core..:? "AssignmentStatus")
-            Prelude.<*> (x Core..:? "PolicyArn")
+            Prelude.<$> (x Core..:? "AwsAccountId")
             Prelude.<*> (x Core..:? "Identities" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "PolicyArn")
+            Prelude.<*> (x Core..:? "AssignmentName")
             Prelude.<*> (x Core..:? "AssignmentId")
+            Prelude.<*> (x Core..:? "AssignmentStatus")
       )
 
 instance Prelude.Hashable IAMPolicyAssignment where
   hashWithSalt _salt IAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentName
-      `Prelude.hashWithSalt` awsAccountId
-      `Prelude.hashWithSalt` assignmentStatus
-      `Prelude.hashWithSalt` policyArn
+    _salt `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` identities
+      `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` assignmentName
       `Prelude.hashWithSalt` assignmentId
+      `Prelude.hashWithSalt` assignmentStatus
 
 instance Prelude.NFData IAMPolicyAssignment where
   rnf IAMPolicyAssignment' {..} =
-    Prelude.rnf assignmentName
-      `Prelude.seq` Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf assignmentStatus
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf identities
+      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf assignmentName
       `Prelude.seq` Prelude.rnf assignmentId
+      `Prelude.seq` Prelude.rnf assignmentStatus

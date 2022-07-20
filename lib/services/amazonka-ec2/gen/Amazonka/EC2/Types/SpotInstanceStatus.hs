@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpotInstanceStatus' smart constructor.
 data SpotInstanceStatus = SpotInstanceStatus'
-  { -- | The date and time of the most recent status update, in UTC format (for
-    -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    updateTime :: Prelude.Maybe Core.ISO8601,
+  { -- | The description for the status code.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status code. For a list of status codes, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot status codes>
     -- in the /Amazon EC2 User Guide for Linux Instances/.
     code :: Prelude.Maybe Prelude.Text,
-    -- | The description for the status code.
-    message :: Prelude.Maybe Prelude.Text
+    -- | The date and time of the most recent status update, in UTC format (for
+    -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+    updateTime :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,27 +48,26 @@ data SpotInstanceStatus = SpotInstanceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateTime', 'spotInstanceStatus_updateTime' - The date and time of the most recent status update, in UTC format (for
--- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+-- 'message', 'spotInstanceStatus_message' - The description for the status code.
 --
 -- 'code', 'spotInstanceStatus_code' - The status code. For a list of status codes, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot status codes>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- 'message', 'spotInstanceStatus_message' - The description for the status code.
+-- 'updateTime', 'spotInstanceStatus_updateTime' - The date and time of the most recent status update, in UTC format (for
+-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 newSpotInstanceStatus ::
   SpotInstanceStatus
 newSpotInstanceStatus =
   SpotInstanceStatus'
-    { updateTime = Prelude.Nothing,
+    { message = Prelude.Nothing,
       code = Prelude.Nothing,
-      message = Prelude.Nothing
+      updateTime = Prelude.Nothing
     }
 
--- | The date and time of the most recent status update, in UTC format (for
--- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-spotInstanceStatus_updateTime :: Lens.Lens' SpotInstanceStatus (Prelude.Maybe Prelude.UTCTime)
-spotInstanceStatus_updateTime = Lens.lens (\SpotInstanceStatus' {updateTime} -> updateTime) (\s@SpotInstanceStatus' {} a -> s {updateTime = a} :: SpotInstanceStatus) Prelude.. Lens.mapping Core._Time
+-- | The description for the status code.
+spotInstanceStatus_message :: Lens.Lens' SpotInstanceStatus (Prelude.Maybe Prelude.Text)
+spotInstanceStatus_message = Lens.lens (\SpotInstanceStatus' {message} -> message) (\s@SpotInstanceStatus' {} a -> s {message = a} :: SpotInstanceStatus)
 
 -- | The status code. For a list of status codes, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot status codes>
@@ -76,25 +75,26 @@ spotInstanceStatus_updateTime = Lens.lens (\SpotInstanceStatus' {updateTime} -> 
 spotInstanceStatus_code :: Lens.Lens' SpotInstanceStatus (Prelude.Maybe Prelude.Text)
 spotInstanceStatus_code = Lens.lens (\SpotInstanceStatus' {code} -> code) (\s@SpotInstanceStatus' {} a -> s {code = a} :: SpotInstanceStatus)
 
--- | The description for the status code.
-spotInstanceStatus_message :: Lens.Lens' SpotInstanceStatus (Prelude.Maybe Prelude.Text)
-spotInstanceStatus_message = Lens.lens (\SpotInstanceStatus' {message} -> message) (\s@SpotInstanceStatus' {} a -> s {message = a} :: SpotInstanceStatus)
+-- | The date and time of the most recent status update, in UTC format (for
+-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+spotInstanceStatus_updateTime :: Lens.Lens' SpotInstanceStatus (Prelude.Maybe Prelude.UTCTime)
+spotInstanceStatus_updateTime = Lens.lens (\SpotInstanceStatus' {updateTime} -> updateTime) (\s@SpotInstanceStatus' {} a -> s {updateTime = a} :: SpotInstanceStatus) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromXML SpotInstanceStatus where
   parseXML x =
     SpotInstanceStatus'
-      Prelude.<$> (x Core..@? "updateTime")
+      Prelude.<$> (x Core..@? "message")
       Prelude.<*> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "updateTime")
 
 instance Prelude.Hashable SpotInstanceStatus where
   hashWithSalt _salt SpotInstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` updateTime
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` updateTime
 
 instance Prelude.NFData SpotInstanceStatus where
   rnf SpotInstanceStatus' {..} =
-    Prelude.rnf updateTime
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf updateTime

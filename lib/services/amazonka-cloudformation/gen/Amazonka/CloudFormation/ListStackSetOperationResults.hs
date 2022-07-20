@@ -29,8 +29,8 @@ module Amazonka.CloudFormation.ListStackSetOperationResults
     newListStackSetOperationResults,
 
     -- * Request Lenses
-    listStackSetOperationResults_callAs,
     listStackSetOperationResults_nextToken,
+    listStackSetOperationResults_callAs,
     listStackSetOperationResults_maxResults,
     listStackSetOperationResults_stackSetName,
     listStackSetOperationResults_operationId,
@@ -55,7 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStackSetOperationResults' smart constructor.
 data ListStackSetOperationResults = ListStackSetOperationResults'
-  { -- | [Service-managed permissions] Specifies whether you are acting as an
+  { -- | If the previous request didn\'t return all of the remaining results, the
+    -- response object\'s @NextToken@ parameter value is set to a token. To
+    -- retrieve the next set of results, call @ListStackSetOperationResults@
+    -- again and assign that token to the request object\'s @NextToken@
+    -- parameter. If there are no remaining results, the previous response
+    -- object\'s @NextToken@ parameter is set to @null@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
     --
@@ -72,13 +79,6 @@ data ListStackSetOperationResults = ListStackSetOperationResults'
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
-    -- | If the previous request didn\'t return all of the remaining results, the
-    -- response object\'s @NextToken@ parameter value is set to a token. To
-    -- retrieve the next set of results, call @ListStackSetOperationResults@
-    -- again and assign that token to the request object\'s @NextToken@
-    -- parameter. If there are no remaining results, the previous response
-    -- object\'s @NextToken@ parameter is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
@@ -100,6 +100,13 @@ data ListStackSetOperationResults = ListStackSetOperationResults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listStackSetOperationResults_nextToken' - If the previous request didn\'t return all of the remaining results, the
+-- response object\'s @NextToken@ parameter value is set to a token. To
+-- retrieve the next set of results, call @ListStackSetOperationResults@
+-- again and assign that token to the request object\'s @NextToken@
+-- parameter. If there are no remaining results, the previous response
+-- object\'s @NextToken@ parameter is set to @null@.
+--
 -- 'callAs', 'listStackSetOperationResults_callAs' - [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
 -- delegated administrator in a member account.
@@ -116,13 +123,6 @@ data ListStackSetOperationResults = ListStackSetOperationResults'
 --     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /CloudFormation User Guide/.
---
--- 'nextToken', 'listStackSetOperationResults_nextToken' - If the previous request didn\'t return all of the remaining results, the
--- response object\'s @NextToken@ parameter value is set to a token. To
--- retrieve the next set of results, call @ListStackSetOperationResults@
--- again and assign that token to the request object\'s @NextToken@
--- parameter. If there are no remaining results, the previous response
--- object\'s @NextToken@ parameter is set to @null@.
 --
 -- 'maxResults', 'listStackSetOperationResults_maxResults' - The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
@@ -143,13 +143,22 @@ newListStackSetOperationResults
   pStackSetName_
   pOperationId_ =
     ListStackSetOperationResults'
-      { callAs =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        callAs = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         stackSetName = pStackSetName_,
         operationId = pOperationId_
       }
+
+-- | If the previous request didn\'t return all of the remaining results, the
+-- response object\'s @NextToken@ parameter value is set to a token. To
+-- retrieve the next set of results, call @ListStackSetOperationResults@
+-- again and assign that token to the request object\'s @NextToken@
+-- parameter. If there are no remaining results, the previous response
+-- object\'s @NextToken@ parameter is set to @null@.
+listStackSetOperationResults_nextToken :: Lens.Lens' ListStackSetOperationResults (Prelude.Maybe Prelude.Text)
+listStackSetOperationResults_nextToken = Lens.lens (\ListStackSetOperationResults' {nextToken} -> nextToken) (\s@ListStackSetOperationResults' {} a -> s {nextToken = a} :: ListStackSetOperationResults)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -169,15 +178,6 @@ newListStackSetOperationResults
 --     in the /CloudFormation User Guide/.
 listStackSetOperationResults_callAs :: Lens.Lens' ListStackSetOperationResults (Prelude.Maybe CallAs)
 listStackSetOperationResults_callAs = Lens.lens (\ListStackSetOperationResults' {callAs} -> callAs) (\s@ListStackSetOperationResults' {} a -> s {callAs = a} :: ListStackSetOperationResults)
-
--- | If the previous request didn\'t return all of the remaining results, the
--- response object\'s @NextToken@ parameter value is set to a token. To
--- retrieve the next set of results, call @ListStackSetOperationResults@
--- again and assign that token to the request object\'s @NextToken@
--- parameter. If there are no remaining results, the previous response
--- object\'s @NextToken@ parameter is set to @null@.
-listStackSetOperationResults_nextToken :: Lens.Lens' ListStackSetOperationResults (Prelude.Maybe Prelude.Text)
-listStackSetOperationResults_nextToken = Lens.lens (\ListStackSetOperationResults' {nextToken} -> nextToken) (\s@ListStackSetOperationResults' {} a -> s {nextToken = a} :: ListStackSetOperationResults)
 
 -- | The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
@@ -239,16 +239,16 @@ instance
     ListStackSetOperationResults
   where
   hashWithSalt _salt ListStackSetOperationResults' {..} =
-    _salt `Prelude.hashWithSalt` callAs
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` operationId
 
 instance Prelude.NFData ListStackSetOperationResults where
   rnf ListStackSetOperationResults' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf callAs
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf operationId
@@ -268,8 +268,8 @@ instance Core.ToQuery ListStackSetOperationResults where
                   ),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Core.=: callAs,
         "NextToken" Core.=: nextToken,
+        "CallAs" Core.=: callAs,
         "MaxResults" Core.=: maxResults,
         "StackSetName" Core.=: stackSetName,
         "OperationId" Core.=: operationId

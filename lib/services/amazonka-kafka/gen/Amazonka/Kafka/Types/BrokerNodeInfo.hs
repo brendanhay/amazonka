@@ -28,19 +28,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBrokerNodeInfo' smart constructor.
 data BrokerNodeInfo = BrokerNodeInfo'
-  { -- | Information about the version of software currently deployed on the
-    -- Kafka brokers in the cluster.
-    currentBrokerSoftwareInfo :: Prelude.Maybe BrokerSoftwareInfo,
-    -- | The client subnet to which this broker node belongs.
+  { -- | The client subnet to which this broker node belongs.
     clientSubnet :: Prelude.Maybe Prelude.Text,
-    -- | The attached elastic network interface of the broker.
-    attachedENIId :: Prelude.Maybe Prelude.Text,
     -- | Endpoints for accessing the broker.
     endpoints :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the broker.
+    brokerId :: Prelude.Maybe Prelude.Double,
     -- | The virtual private cloud (VPC) of the client.
     clientVpcIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the broker.
-    brokerId :: Prelude.Maybe Prelude.Double
+    -- | The attached elastic network interface of the broker.
+    attachedENIId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the version of software currently deployed on the
+    -- Kafka brokers in the cluster.
+    currentBrokerSoftwareInfo :: Prelude.Maybe BrokerSoftwareInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,55 +52,54 @@ data BrokerNodeInfo = BrokerNodeInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'currentBrokerSoftwareInfo', 'brokerNodeInfo_currentBrokerSoftwareInfo' - Information about the version of software currently deployed on the
--- Kafka brokers in the cluster.
---
 -- 'clientSubnet', 'brokerNodeInfo_clientSubnet' - The client subnet to which this broker node belongs.
---
--- 'attachedENIId', 'brokerNodeInfo_attachedENIId' - The attached elastic network interface of the broker.
 --
 -- 'endpoints', 'brokerNodeInfo_endpoints' - Endpoints for accessing the broker.
 --
+-- 'brokerId', 'brokerNodeInfo_brokerId' - The ID of the broker.
+--
 -- 'clientVpcIpAddress', 'brokerNodeInfo_clientVpcIpAddress' - The virtual private cloud (VPC) of the client.
 --
--- 'brokerId', 'brokerNodeInfo_brokerId' - The ID of the broker.
+-- 'attachedENIId', 'brokerNodeInfo_attachedENIId' - The attached elastic network interface of the broker.
+--
+-- 'currentBrokerSoftwareInfo', 'brokerNodeInfo_currentBrokerSoftwareInfo' - Information about the version of software currently deployed on the
+-- Kafka brokers in the cluster.
 newBrokerNodeInfo ::
   BrokerNodeInfo
 newBrokerNodeInfo =
   BrokerNodeInfo'
-    { currentBrokerSoftwareInfo =
-        Prelude.Nothing,
-      clientSubnet = Prelude.Nothing,
-      attachedENIId = Prelude.Nothing,
+    { clientSubnet = Prelude.Nothing,
       endpoints = Prelude.Nothing,
+      brokerId = Prelude.Nothing,
       clientVpcIpAddress = Prelude.Nothing,
-      brokerId = Prelude.Nothing
+      attachedENIId = Prelude.Nothing,
+      currentBrokerSoftwareInfo = Prelude.Nothing
     }
-
--- | Information about the version of software currently deployed on the
--- Kafka brokers in the cluster.
-brokerNodeInfo_currentBrokerSoftwareInfo :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe BrokerSoftwareInfo)
-brokerNodeInfo_currentBrokerSoftwareInfo = Lens.lens (\BrokerNodeInfo' {currentBrokerSoftwareInfo} -> currentBrokerSoftwareInfo) (\s@BrokerNodeInfo' {} a -> s {currentBrokerSoftwareInfo = a} :: BrokerNodeInfo)
 
 -- | The client subnet to which this broker node belongs.
 brokerNodeInfo_clientSubnet :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe Prelude.Text)
 brokerNodeInfo_clientSubnet = Lens.lens (\BrokerNodeInfo' {clientSubnet} -> clientSubnet) (\s@BrokerNodeInfo' {} a -> s {clientSubnet = a} :: BrokerNodeInfo)
 
--- | The attached elastic network interface of the broker.
-brokerNodeInfo_attachedENIId :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe Prelude.Text)
-brokerNodeInfo_attachedENIId = Lens.lens (\BrokerNodeInfo' {attachedENIId} -> attachedENIId) (\s@BrokerNodeInfo' {} a -> s {attachedENIId = a} :: BrokerNodeInfo)
-
 -- | Endpoints for accessing the broker.
 brokerNodeInfo_endpoints :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe [Prelude.Text])
 brokerNodeInfo_endpoints = Lens.lens (\BrokerNodeInfo' {endpoints} -> endpoints) (\s@BrokerNodeInfo' {} a -> s {endpoints = a} :: BrokerNodeInfo) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the broker.
+brokerNodeInfo_brokerId :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe Prelude.Double)
+brokerNodeInfo_brokerId = Lens.lens (\BrokerNodeInfo' {brokerId} -> brokerId) (\s@BrokerNodeInfo' {} a -> s {brokerId = a} :: BrokerNodeInfo)
 
 -- | The virtual private cloud (VPC) of the client.
 brokerNodeInfo_clientVpcIpAddress :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe Prelude.Text)
 brokerNodeInfo_clientVpcIpAddress = Lens.lens (\BrokerNodeInfo' {clientVpcIpAddress} -> clientVpcIpAddress) (\s@BrokerNodeInfo' {} a -> s {clientVpcIpAddress = a} :: BrokerNodeInfo)
 
--- | The ID of the broker.
-brokerNodeInfo_brokerId :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe Prelude.Double)
-brokerNodeInfo_brokerId = Lens.lens (\BrokerNodeInfo' {brokerId} -> brokerId) (\s@BrokerNodeInfo' {} a -> s {brokerId = a} :: BrokerNodeInfo)
+-- | The attached elastic network interface of the broker.
+brokerNodeInfo_attachedENIId :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe Prelude.Text)
+brokerNodeInfo_attachedENIId = Lens.lens (\BrokerNodeInfo' {attachedENIId} -> attachedENIId) (\s@BrokerNodeInfo' {} a -> s {attachedENIId = a} :: BrokerNodeInfo)
+
+-- | Information about the version of software currently deployed on the
+-- Kafka brokers in the cluster.
+brokerNodeInfo_currentBrokerSoftwareInfo :: Lens.Lens' BrokerNodeInfo (Prelude.Maybe BrokerSoftwareInfo)
+brokerNodeInfo_currentBrokerSoftwareInfo = Lens.lens (\BrokerNodeInfo' {currentBrokerSoftwareInfo} -> currentBrokerSoftwareInfo) (\s@BrokerNodeInfo' {} a -> s {currentBrokerSoftwareInfo = a} :: BrokerNodeInfo)
 
 instance Core.FromJSON BrokerNodeInfo where
   parseJSON =
@@ -108,29 +107,28 @@ instance Core.FromJSON BrokerNodeInfo where
       "BrokerNodeInfo"
       ( \x ->
           BrokerNodeInfo'
-            Prelude.<$> (x Core..:? "currentBrokerSoftwareInfo")
-            Prelude.<*> (x Core..:? "clientSubnet")
-            Prelude.<*> (x Core..:? "attachedENIId")
+            Prelude.<$> (x Core..:? "clientSubnet")
             Prelude.<*> (x Core..:? "endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "clientVpcIpAddress")
             Prelude.<*> (x Core..:? "brokerId")
+            Prelude.<*> (x Core..:? "clientVpcIpAddress")
+            Prelude.<*> (x Core..:? "attachedENIId")
+            Prelude.<*> (x Core..:? "currentBrokerSoftwareInfo")
       )
 
 instance Prelude.Hashable BrokerNodeInfo where
   hashWithSalt _salt BrokerNodeInfo' {..} =
-    _salt
-      `Prelude.hashWithSalt` currentBrokerSoftwareInfo
-      `Prelude.hashWithSalt` clientSubnet
-      `Prelude.hashWithSalt` attachedENIId
+    _salt `Prelude.hashWithSalt` clientSubnet
       `Prelude.hashWithSalt` endpoints
-      `Prelude.hashWithSalt` clientVpcIpAddress
       `Prelude.hashWithSalt` brokerId
+      `Prelude.hashWithSalt` clientVpcIpAddress
+      `Prelude.hashWithSalt` attachedENIId
+      `Prelude.hashWithSalt` currentBrokerSoftwareInfo
 
 instance Prelude.NFData BrokerNodeInfo where
   rnf BrokerNodeInfo' {..} =
-    Prelude.rnf currentBrokerSoftwareInfo
-      `Prelude.seq` Prelude.rnf clientSubnet
-      `Prelude.seq` Prelude.rnf attachedENIId
+    Prelude.rnf clientSubnet
       `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf clientVpcIpAddress
       `Prelude.seq` Prelude.rnf brokerId
+      `Prelude.seq` Prelude.rnf clientVpcIpAddress
+      `Prelude.seq` Prelude.rnf attachedENIId
+      `Prelude.seq` Prelude.rnf currentBrokerSoftwareInfo

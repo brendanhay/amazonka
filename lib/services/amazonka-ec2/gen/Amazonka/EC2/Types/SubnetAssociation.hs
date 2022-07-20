@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubnetAssociation' smart constructor.
 data SubnetAssociation = SubnetAssociation'
-  { -- | The state of the subnet association.
-    state :: Prelude.Maybe TransitGatewayMulitcastDomainAssociationState,
-    -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The state of the subnet association.
+    state :: Prelude.Maybe TransitGatewayMulitcastDomainAssociationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,37 +45,37 @@ data SubnetAssociation = SubnetAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'subnetAssociation_state' - The state of the subnet association.
---
 -- 'subnetId', 'subnetAssociation_subnetId' - The ID of the subnet.
+--
+-- 'state', 'subnetAssociation_state' - The state of the subnet association.
 newSubnetAssociation ::
   SubnetAssociation
 newSubnetAssociation =
   SubnetAssociation'
-    { state = Prelude.Nothing,
-      subnetId = Prelude.Nothing
+    { subnetId = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The state of the subnet association.
-subnetAssociation_state :: Lens.Lens' SubnetAssociation (Prelude.Maybe TransitGatewayMulitcastDomainAssociationState)
-subnetAssociation_state = Lens.lens (\SubnetAssociation' {state} -> state) (\s@SubnetAssociation' {} a -> s {state = a} :: SubnetAssociation)
 
 -- | The ID of the subnet.
 subnetAssociation_subnetId :: Lens.Lens' SubnetAssociation (Prelude.Maybe Prelude.Text)
 subnetAssociation_subnetId = Lens.lens (\SubnetAssociation' {subnetId} -> subnetId) (\s@SubnetAssociation' {} a -> s {subnetId = a} :: SubnetAssociation)
 
+-- | The state of the subnet association.
+subnetAssociation_state :: Lens.Lens' SubnetAssociation (Prelude.Maybe TransitGatewayMulitcastDomainAssociationState)
+subnetAssociation_state = Lens.lens (\SubnetAssociation' {state} -> state) (\s@SubnetAssociation' {} a -> s {state = a} :: SubnetAssociation)
+
 instance Core.FromXML SubnetAssociation where
   parseXML x =
     SubnetAssociation'
-      Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "subnetId")
+      Prelude.<$> (x Core..@? "subnetId")
+      Prelude.<*> (x Core..@? "state")
 
 instance Prelude.Hashable SubnetAssociation where
   hashWithSalt _salt SubnetAssociation' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` subnetId
+    _salt `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData SubnetAssociation where
   rnf SubnetAssociation' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf state

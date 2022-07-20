@@ -34,16 +34,16 @@ module Amazonka.IoT.ListOutgoingCertificates
 
     -- * Request Lenses
     listOutgoingCertificates_marker,
-    listOutgoingCertificates_ascendingOrder,
     listOutgoingCertificates_pageSize,
+    listOutgoingCertificates_ascendingOrder,
 
     -- * Destructuring the Response
     ListOutgoingCertificatesResponse (..),
     newListOutgoingCertificatesResponse,
 
     -- * Response Lenses
-    listOutgoingCertificatesResponse_nextMarker,
     listOutgoingCertificatesResponse_outgoingCertificates,
+    listOutgoingCertificatesResponse_nextMarker,
     listOutgoingCertificatesResponse_httpStatus,
   )
 where
@@ -61,11 +61,11 @@ import qualified Amazonka.Response as Response
 data ListOutgoingCertificates = ListOutgoingCertificates'
   { -- | The marker for the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The result page size.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the order for results. If True, the results are returned in
     -- ascending order, based on the creation date.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool,
-    -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural
+    ascendingOrder :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,31 +79,31 @@ data ListOutgoingCertificates = ListOutgoingCertificates'
 --
 -- 'marker', 'listOutgoingCertificates_marker' - The marker for the next set of results.
 --
+-- 'pageSize', 'listOutgoingCertificates_pageSize' - The result page size.
+--
 -- 'ascendingOrder', 'listOutgoingCertificates_ascendingOrder' - Specifies the order for results. If True, the results are returned in
 -- ascending order, based on the creation date.
---
--- 'pageSize', 'listOutgoingCertificates_pageSize' - The result page size.
 newListOutgoingCertificates ::
   ListOutgoingCertificates
 newListOutgoingCertificates =
   ListOutgoingCertificates'
     { marker = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+      pageSize = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing
     }
 
 -- | The marker for the next set of results.
 listOutgoingCertificates_marker :: Lens.Lens' ListOutgoingCertificates (Prelude.Maybe Prelude.Text)
 listOutgoingCertificates_marker = Lens.lens (\ListOutgoingCertificates' {marker} -> marker) (\s@ListOutgoingCertificates' {} a -> s {marker = a} :: ListOutgoingCertificates)
 
+-- | The result page size.
+listOutgoingCertificates_pageSize :: Lens.Lens' ListOutgoingCertificates (Prelude.Maybe Prelude.Natural)
+listOutgoingCertificates_pageSize = Lens.lens (\ListOutgoingCertificates' {pageSize} -> pageSize) (\s@ListOutgoingCertificates' {} a -> s {pageSize = a} :: ListOutgoingCertificates)
+
 -- | Specifies the order for results. If True, the results are returned in
 -- ascending order, based on the creation date.
 listOutgoingCertificates_ascendingOrder :: Lens.Lens' ListOutgoingCertificates (Prelude.Maybe Prelude.Bool)
 listOutgoingCertificates_ascendingOrder = Lens.lens (\ListOutgoingCertificates' {ascendingOrder} -> ascendingOrder) (\s@ListOutgoingCertificates' {} a -> s {ascendingOrder = a} :: ListOutgoingCertificates)
-
--- | The result page size.
-listOutgoingCertificates_pageSize :: Lens.Lens' ListOutgoingCertificates (Prelude.Maybe Prelude.Natural)
-listOutgoingCertificates_pageSize = Lens.lens (\ListOutgoingCertificates' {pageSize} -> pageSize) (\s@ListOutgoingCertificates' {} a -> s {pageSize = a} :: ListOutgoingCertificates)
 
 instance Core.AWSPager ListOutgoingCertificates where
   page rq rs
@@ -136,24 +136,24 @@ instance Core.AWSRequest ListOutgoingCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListOutgoingCertificatesResponse'
-            Prelude.<$> (x Core..?> "nextMarker")
-            Prelude.<*> ( x Core..?> "outgoingCertificates"
+            Prelude.<$> ( x Core..?> "outgoingCertificates"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListOutgoingCertificates where
   hashWithSalt _salt ListOutgoingCertificates' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` ascendingOrder
 
 instance Prelude.NFData ListOutgoingCertificates where
   rnf ListOutgoingCertificates' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf ascendingOrder
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf ascendingOrder
 
 instance Core.ToHeaders ListOutgoingCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,18 +165,18 @@ instance Core.ToQuery ListOutgoingCertificates where
   toQuery ListOutgoingCertificates' {..} =
     Prelude.mconcat
       [ "marker" Core.=: marker,
-        "isAscendingOrder" Core.=: ascendingOrder,
-        "pageSize" Core.=: pageSize
+        "pageSize" Core.=: pageSize,
+        "isAscendingOrder" Core.=: ascendingOrder
       ]
 
 -- | The output from the ListOutgoingCertificates operation.
 --
 -- /See:/ 'newListOutgoingCertificatesResponse' smart constructor.
 data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
-  { -- | The marker for the next set of results.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The certificates that are being transferred but not yet accepted.
+  { -- | The certificates that are being transferred but not yet accepted.
     outgoingCertificates :: Prelude.Maybe [OutgoingCertificate],
+    -- | The marker for the next set of results.
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,9 +190,9 @@ data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listOutgoingCertificatesResponse_nextMarker' - The marker for the next set of results.
---
 -- 'outgoingCertificates', 'listOutgoingCertificatesResponse_outgoingCertificates' - The certificates that are being transferred but not yet accepted.
+--
+-- 'nextMarker', 'listOutgoingCertificatesResponse_nextMarker' - The marker for the next set of results.
 --
 -- 'httpStatus', 'listOutgoingCertificatesResponse_httpStatus' - The response's http status code.
 newListOutgoingCertificatesResponse ::
@@ -201,19 +201,19 @@ newListOutgoingCertificatesResponse ::
   ListOutgoingCertificatesResponse
 newListOutgoingCertificatesResponse pHttpStatus_ =
   ListOutgoingCertificatesResponse'
-    { nextMarker =
+    { outgoingCertificates =
         Prelude.Nothing,
-      outgoingCertificates = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The marker for the next set of results.
-listOutgoingCertificatesResponse_nextMarker :: Lens.Lens' ListOutgoingCertificatesResponse (Prelude.Maybe Prelude.Text)
-listOutgoingCertificatesResponse_nextMarker = Lens.lens (\ListOutgoingCertificatesResponse' {nextMarker} -> nextMarker) (\s@ListOutgoingCertificatesResponse' {} a -> s {nextMarker = a} :: ListOutgoingCertificatesResponse)
 
 -- | The certificates that are being transferred but not yet accepted.
 listOutgoingCertificatesResponse_outgoingCertificates :: Lens.Lens' ListOutgoingCertificatesResponse (Prelude.Maybe [OutgoingCertificate])
 listOutgoingCertificatesResponse_outgoingCertificates = Lens.lens (\ListOutgoingCertificatesResponse' {outgoingCertificates} -> outgoingCertificates) (\s@ListOutgoingCertificatesResponse' {} a -> s {outgoingCertificates = a} :: ListOutgoingCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The marker for the next set of results.
+listOutgoingCertificatesResponse_nextMarker :: Lens.Lens' ListOutgoingCertificatesResponse (Prelude.Maybe Prelude.Text)
+listOutgoingCertificatesResponse_nextMarker = Lens.lens (\ListOutgoingCertificatesResponse' {nextMarker} -> nextMarker) (\s@ListOutgoingCertificatesResponse' {} a -> s {nextMarker = a} :: ListOutgoingCertificatesResponse)
 
 -- | The response's http status code.
 listOutgoingCertificatesResponse_httpStatus :: Lens.Lens' ListOutgoingCertificatesResponse Prelude.Int
@@ -224,6 +224,6 @@ instance
     ListOutgoingCertificatesResponse
   where
   rnf ListOutgoingCertificatesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf outgoingCertificates
+    Prelude.rnf outgoingCertificates
+      `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf httpStatus

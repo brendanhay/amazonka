@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageVersionHistory' smart constructor.
 data PackageVersionHistory = PackageVersionHistory'
-  { -- | Timestamp which tells creation time of the package version.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | Version of the package.
+  { -- | Version of the package.
     packageVersion :: Prelude.Maybe Prelude.Text,
     -- | A message associated with the version.
-    commitMessage :: Prelude.Maybe Prelude.Text
+    commitMessage :: Prelude.Maybe Prelude.Text,
+    -- | Timestamp which tells creation time of the package version.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,23 +44,20 @@ data PackageVersionHistory = PackageVersionHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'packageVersionHistory_createdAt' - Timestamp which tells creation time of the package version.
---
 -- 'packageVersion', 'packageVersionHistory_packageVersion' - Version of the package.
 --
 -- 'commitMessage', 'packageVersionHistory_commitMessage' - A message associated with the version.
+--
+-- 'createdAt', 'packageVersionHistory_createdAt' - Timestamp which tells creation time of the package version.
 newPackageVersionHistory ::
   PackageVersionHistory
 newPackageVersionHistory =
   PackageVersionHistory'
-    { createdAt = Prelude.Nothing,
-      packageVersion = Prelude.Nothing,
-      commitMessage = Prelude.Nothing
+    { packageVersion =
+        Prelude.Nothing,
+      commitMessage = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
-
--- | Timestamp which tells creation time of the package version.
-packageVersionHistory_createdAt :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.UTCTime)
-packageVersionHistory_createdAt = Lens.lens (\PackageVersionHistory' {createdAt} -> createdAt) (\s@PackageVersionHistory' {} a -> s {createdAt = a} :: PackageVersionHistory) Prelude.. Lens.mapping Core._Time
 
 -- | Version of the package.
 packageVersionHistory_packageVersion :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.Text)
@@ -70,25 +67,29 @@ packageVersionHistory_packageVersion = Lens.lens (\PackageVersionHistory' {packa
 packageVersionHistory_commitMessage :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.Text)
 packageVersionHistory_commitMessage = Lens.lens (\PackageVersionHistory' {commitMessage} -> commitMessage) (\s@PackageVersionHistory' {} a -> s {commitMessage = a} :: PackageVersionHistory)
 
+-- | Timestamp which tells creation time of the package version.
+packageVersionHistory_createdAt :: Lens.Lens' PackageVersionHistory (Prelude.Maybe Prelude.UTCTime)
+packageVersionHistory_createdAt = Lens.lens (\PackageVersionHistory' {createdAt} -> createdAt) (\s@PackageVersionHistory' {} a -> s {createdAt = a} :: PackageVersionHistory) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON PackageVersionHistory where
   parseJSON =
     Core.withObject
       "PackageVersionHistory"
       ( \x ->
           PackageVersionHistory'
-            Prelude.<$> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "PackageVersion")
+            Prelude.<$> (x Core..:? "PackageVersion")
             Prelude.<*> (x Core..:? "CommitMessage")
+            Prelude.<*> (x Core..:? "CreatedAt")
       )
 
 instance Prelude.Hashable PackageVersionHistory where
   hashWithSalt _salt PackageVersionHistory' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` packageVersion
+    _salt `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData PackageVersionHistory where
   rnf PackageVersionHistory' {..} =
-    Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf createdAt

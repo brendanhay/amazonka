@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLastError' smart constructor.
 data LastError = LastError'
-  { -- | The error code for the VPC endpoint error.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The error message for the VPC endpoint error.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The error message for the VPC endpoint error.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The error code for the VPC endpoint error.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,36 +43,36 @@ data LastError = LastError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'lastError_code' - The error code for the VPC endpoint error.
---
 -- 'message', 'lastError_message' - The error message for the VPC endpoint error.
+--
+-- 'code', 'lastError_code' - The error code for the VPC endpoint error.
 newLastError ::
   LastError
 newLastError =
   LastError'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The error code for the VPC endpoint error.
-lastError_code :: Lens.Lens' LastError (Prelude.Maybe Prelude.Text)
-lastError_code = Lens.lens (\LastError' {code} -> code) (\s@LastError' {} a -> s {code = a} :: LastError)
 
 -- | The error message for the VPC endpoint error.
 lastError_message :: Lens.Lens' LastError (Prelude.Maybe Prelude.Text)
 lastError_message = Lens.lens (\LastError' {message} -> message) (\s@LastError' {} a -> s {message = a} :: LastError)
 
+-- | The error code for the VPC endpoint error.
+lastError_code :: Lens.Lens' LastError (Prelude.Maybe Prelude.Text)
+lastError_code = Lens.lens (\LastError' {code} -> code) (\s@LastError' {} a -> s {code = a} :: LastError)
+
 instance Core.FromXML LastError where
   parseXML x =
     LastError'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance Prelude.Hashable LastError where
   hashWithSalt _salt LastError' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData LastError where
   rnf LastError' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

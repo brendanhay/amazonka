@@ -36,7 +36,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReportDefinition' smart constructor.
 data ReportDefinition = ReportDefinition'
-  { -- | Whether you want Amazon Web Services to overwrite the previous version
+  { -- | Whether you want Amazon Web Services to update your reports after they
+    -- have been finalized if Amazon Web Services detects charges related to
+    -- previous months. These charges can include refunds, credits, or support
+    -- fees.
+    refreshClosedReports :: Prelude.Maybe Prelude.Bool,
+    -- | Whether you want Amazon Web Services to overwrite the previous version
     -- of each report or to deliver the report in addition to the previous
     -- versions.
     reportVersioning :: Prelude.Maybe ReportVersioning,
@@ -46,11 +51,6 @@ data ReportDefinition = ReportDefinition'
     -- | A list of manifests that you want Amazon Web Services to create for this
     -- report.
     additionalArtifacts :: Prelude.Maybe [AdditionalArtifact],
-    -- | Whether you want Amazon Web Services to update your reports after they
-    -- have been finalized if Amazon Web Services detects charges related to
-    -- previous months. These charges can include refunds, credits, or support
-    -- fees.
-    refreshClosedReports :: Prelude.Maybe Prelude.Bool,
     reportName :: Prelude.Text,
     timeUnit :: TimeUnit,
     format :: ReportFormat,
@@ -72,6 +72,11 @@ data ReportDefinition = ReportDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'refreshClosedReports', 'reportDefinition_refreshClosedReports' - Whether you want Amazon Web Services to update your reports after they
+-- have been finalized if Amazon Web Services detects charges related to
+-- previous months. These charges can include refunds, credits, or support
+-- fees.
+--
 -- 'reportVersioning', 'reportDefinition_reportVersioning' - Whether you want Amazon Web Services to overwrite the previous version
 -- of each report or to deliver the report in addition to the previous
 -- versions.
@@ -81,11 +86,6 @@ data ReportDefinition = ReportDefinition'
 --
 -- 'additionalArtifacts', 'reportDefinition_additionalArtifacts' - A list of manifests that you want Amazon Web Services to create for this
 -- report.
---
--- 'refreshClosedReports', 'reportDefinition_refreshClosedReports' - Whether you want Amazon Web Services to update your reports after they
--- have been finalized if Amazon Web Services detects charges related to
--- previous months. These charges can include refunds, credits, or support
--- fees.
 --
 -- 'reportName', 'reportDefinition_reportName' - Undocumented member.
 --
@@ -128,11 +128,11 @@ newReportDefinition
   pS3Prefix_
   pS3Region_ =
     ReportDefinition'
-      { reportVersioning =
+      { refreshClosedReports =
           Prelude.Nothing,
+        reportVersioning = Prelude.Nothing,
         billingViewArn = Prelude.Nothing,
         additionalArtifacts = Prelude.Nothing,
-        refreshClosedReports = Prelude.Nothing,
         reportName = pReportName_,
         timeUnit = pTimeUnit_,
         format = pFormat_,
@@ -142,6 +142,13 @@ newReportDefinition
         s3Prefix = pS3Prefix_,
         s3Region = pS3Region_
       }
+
+-- | Whether you want Amazon Web Services to update your reports after they
+-- have been finalized if Amazon Web Services detects charges related to
+-- previous months. These charges can include refunds, credits, or support
+-- fees.
+reportDefinition_refreshClosedReports :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.Bool)
+reportDefinition_refreshClosedReports = Lens.lens (\ReportDefinition' {refreshClosedReports} -> refreshClosedReports) (\s@ReportDefinition' {} a -> s {refreshClosedReports = a} :: ReportDefinition)
 
 -- | Whether you want Amazon Web Services to overwrite the previous version
 -- of each report or to deliver the report in addition to the previous
@@ -158,13 +165,6 @@ reportDefinition_billingViewArn = Lens.lens (\ReportDefinition' {billingViewArn}
 -- report.
 reportDefinition_additionalArtifacts :: Lens.Lens' ReportDefinition (Prelude.Maybe [AdditionalArtifact])
 reportDefinition_additionalArtifacts = Lens.lens (\ReportDefinition' {additionalArtifacts} -> additionalArtifacts) (\s@ReportDefinition' {} a -> s {additionalArtifacts = a} :: ReportDefinition) Prelude.. Lens.mapping Lens.coerced
-
--- | Whether you want Amazon Web Services to update your reports after they
--- have been finalized if Amazon Web Services detects charges related to
--- previous months. These charges can include refunds, credits, or support
--- fees.
-reportDefinition_refreshClosedReports :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.Bool)
-reportDefinition_refreshClosedReports = Lens.lens (\ReportDefinition' {refreshClosedReports} -> refreshClosedReports) (\s@ReportDefinition' {} a -> s {refreshClosedReports = a} :: ReportDefinition)
 
 -- | Undocumented member.
 reportDefinition_reportName :: Lens.Lens' ReportDefinition Prelude.Text
@@ -205,12 +205,12 @@ instance Core.FromJSON ReportDefinition where
       "ReportDefinition"
       ( \x ->
           ReportDefinition'
-            Prelude.<$> (x Core..:? "ReportVersioning")
+            Prelude.<$> (x Core..:? "RefreshClosedReports")
+            Prelude.<*> (x Core..:? "ReportVersioning")
             Prelude.<*> (x Core..:? "BillingViewArn")
             Prelude.<*> ( x Core..:? "AdditionalArtifacts"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "RefreshClosedReports")
             Prelude.<*> (x Core..: "ReportName")
             Prelude.<*> (x Core..: "TimeUnit")
             Prelude.<*> (x Core..: "Format")
@@ -225,10 +225,10 @@ instance Core.FromJSON ReportDefinition where
 
 instance Prelude.Hashable ReportDefinition where
   hashWithSalt _salt ReportDefinition' {..} =
-    _salt `Prelude.hashWithSalt` reportVersioning
+    _salt `Prelude.hashWithSalt` refreshClosedReports
+      `Prelude.hashWithSalt` reportVersioning
       `Prelude.hashWithSalt` billingViewArn
       `Prelude.hashWithSalt` additionalArtifacts
-      `Prelude.hashWithSalt` refreshClosedReports
       `Prelude.hashWithSalt` reportName
       `Prelude.hashWithSalt` timeUnit
       `Prelude.hashWithSalt` format
@@ -240,10 +240,10 @@ instance Prelude.Hashable ReportDefinition where
 
 instance Prelude.NFData ReportDefinition where
   rnf ReportDefinition' {..} =
-    Prelude.rnf reportVersioning
+    Prelude.rnf refreshClosedReports
+      `Prelude.seq` Prelude.rnf reportVersioning
       `Prelude.seq` Prelude.rnf billingViewArn
       `Prelude.seq` Prelude.rnf additionalArtifacts
-      `Prelude.seq` Prelude.rnf refreshClosedReports
       `Prelude.seq` Prelude.rnf reportName
       `Prelude.seq` Prelude.rnf timeUnit
       `Prelude.seq` Prelude.rnf format
@@ -257,14 +257,14 @@ instance Core.ToJSON ReportDefinition where
   toJSON ReportDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReportVersioning" Core..=)
+          [ ("RefreshClosedReports" Core..=)
+              Prelude.<$> refreshClosedReports,
+            ("ReportVersioning" Core..=)
               Prelude.<$> reportVersioning,
             ("BillingViewArn" Core..=)
               Prelude.<$> billingViewArn,
             ("AdditionalArtifacts" Core..=)
               Prelude.<$> additionalArtifacts,
-            ("RefreshClosedReports" Core..=)
-              Prelude.<$> refreshClosedReports,
             Prelude.Just ("ReportName" Core..= reportName),
             Prelude.Just ("TimeUnit" Core..= timeUnit),
             Prelude.Just ("Format" Core..= format),

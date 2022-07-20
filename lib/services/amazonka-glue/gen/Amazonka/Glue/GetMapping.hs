@@ -27,8 +27,8 @@ module Amazonka.Glue.GetMapping
     newGetMapping,
 
     -- * Request Lenses
-    getMapping_sinks,
     getMapping_location,
+    getMapping_sinks,
     getMapping_source,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMapping' smart constructor.
 data GetMapping = GetMapping'
-  { -- | A list of target tables.
-    sinks :: Prelude.Maybe [CatalogEntry],
-    -- | Parameters for the mapping.
+  { -- | Parameters for the mapping.
     location :: Prelude.Maybe Location,
+    -- | A list of target tables.
+    sinks :: Prelude.Maybe [CatalogEntry],
     -- | Specifies the source table.
     source :: CatalogEntry
   }
@@ -67,9 +67,9 @@ data GetMapping = GetMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sinks', 'getMapping_sinks' - A list of target tables.
---
 -- 'location', 'getMapping_location' - Parameters for the mapping.
+--
+-- 'sinks', 'getMapping_sinks' - A list of target tables.
 --
 -- 'source', 'getMapping_source' - Specifies the source table.
 newGetMapping ::
@@ -78,18 +78,18 @@ newGetMapping ::
   GetMapping
 newGetMapping pSource_ =
   GetMapping'
-    { sinks = Prelude.Nothing,
-      location = Prelude.Nothing,
+    { location = Prelude.Nothing,
+      sinks = Prelude.Nothing,
       source = pSource_
     }
-
--- | A list of target tables.
-getMapping_sinks :: Lens.Lens' GetMapping (Prelude.Maybe [CatalogEntry])
-getMapping_sinks = Lens.lens (\GetMapping' {sinks} -> sinks) (\s@GetMapping' {} a -> s {sinks = a} :: GetMapping) Prelude.. Lens.mapping Lens.coerced
 
 -- | Parameters for the mapping.
 getMapping_location :: Lens.Lens' GetMapping (Prelude.Maybe Location)
 getMapping_location = Lens.lens (\GetMapping' {location} -> location) (\s@GetMapping' {} a -> s {location = a} :: GetMapping)
+
+-- | A list of target tables.
+getMapping_sinks :: Lens.Lens' GetMapping (Prelude.Maybe [CatalogEntry])
+getMapping_sinks = Lens.lens (\GetMapping' {sinks} -> sinks) (\s@GetMapping' {} a -> s {sinks = a} :: GetMapping) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the source table.
 getMapping_source :: Lens.Lens' GetMapping CatalogEntry
@@ -108,14 +108,14 @@ instance Core.AWSRequest GetMapping where
 
 instance Prelude.Hashable GetMapping where
   hashWithSalt _salt GetMapping' {..} =
-    _salt `Prelude.hashWithSalt` sinks
-      `Prelude.hashWithSalt` location
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` sinks
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData GetMapping where
   rnf GetMapping' {..} =
-    Prelude.rnf sinks
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf sinks
       `Prelude.seq` Prelude.rnf source
 
 instance Core.ToHeaders GetMapping where
@@ -135,8 +135,8 @@ instance Core.ToJSON GetMapping where
   toJSON GetMapping' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Sinks" Core..=) Prelude.<$> sinks,
-            ("Location" Core..=) Prelude.<$> location,
+          [ ("Location" Core..=) Prelude.<$> location,
+            ("Sinks" Core..=) Prelude.<$> sinks,
             Prelude.Just ("Source" Core..= source)
           ]
       )

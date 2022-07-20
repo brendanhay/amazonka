@@ -41,9 +41,9 @@ module Amazonka.IoTSiteWise.ListAssets
     newListAssets,
 
     -- * Request Lenses
-    listAssets_assetModelId,
     listAssets_nextToken,
     listAssets_filter,
+    listAssets_assetModelId,
     listAssets_maxResults,
 
     -- * Destructuring the Response
@@ -66,10 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssets' smart constructor.
 data ListAssets = ListAssets'
-  { -- | The ID of the asset model by which to filter the list of assets. This
-    -- parameter is required if you choose @ALL@ for @filter@.
-    assetModelId :: Prelude.Maybe Prelude.Text,
-    -- | The token to be used for the next set of paginated results.
+  { -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The filter for the requested list of assets. Choose one of the following
     -- options:
@@ -82,6 +79,9 @@ data ListAssets = ListAssets'
     --
     -- Default: @ALL@
     filter' :: Prelude.Maybe ListAssetsFilter,
+    -- | The ID of the asset model by which to filter the list of assets. This
+    -- parameter is required if you choose @ALL@ for @filter@.
+    assetModelId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 50
@@ -97,9 +97,6 @@ data ListAssets = ListAssets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assetModelId', 'listAssets_assetModelId' - The ID of the asset model by which to filter the list of assets. This
--- parameter is required if you choose @ALL@ for @filter@.
---
 -- 'nextToken', 'listAssets_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'filter'', 'listAssets_filter' - The filter for the requested list of assets. Choose one of the following
@@ -113,6 +110,9 @@ data ListAssets = ListAssets'
 --
 -- Default: @ALL@
 --
+-- 'assetModelId', 'listAssets_assetModelId' - The ID of the asset model by which to filter the list of assets. This
+-- parameter is required if you choose @ALL@ for @filter@.
+--
 -- 'maxResults', 'listAssets_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 50
@@ -120,16 +120,11 @@ newListAssets ::
   ListAssets
 newListAssets =
   ListAssets'
-    { assetModelId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      assetModelId = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The ID of the asset model by which to filter the list of assets. This
--- parameter is required if you choose @ALL@ for @filter@.
-listAssets_assetModelId :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
-listAssets_assetModelId = Lens.lens (\ListAssets' {assetModelId} -> assetModelId) (\s@ListAssets' {} a -> s {assetModelId = a} :: ListAssets)
 
 -- | The token to be used for the next set of paginated results.
 listAssets_nextToken :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
@@ -147,6 +142,11 @@ listAssets_nextToken = Lens.lens (\ListAssets' {nextToken} -> nextToken) (\s@Lis
 -- Default: @ALL@
 listAssets_filter :: Lens.Lens' ListAssets (Prelude.Maybe ListAssetsFilter)
 listAssets_filter = Lens.lens (\ListAssets' {filter'} -> filter') (\s@ListAssets' {} a -> s {filter' = a} :: ListAssets)
+
+-- | The ID of the asset model by which to filter the list of assets. This
+-- parameter is required if you choose @ALL@ for @filter@.
+listAssets_assetModelId :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
+listAssets_assetModelId = Lens.lens (\ListAssets' {assetModelId} -> assetModelId) (\s@ListAssets' {} a -> s {assetModelId = a} :: ListAssets)
 
 -- | The maximum number of results to return for each paginated request.
 --
@@ -187,16 +187,16 @@ instance Core.AWSRequest ListAssets where
 
 instance Prelude.Hashable ListAssets where
   hashWithSalt _salt ListAssets' {..} =
-    _salt `Prelude.hashWithSalt` assetModelId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` assetModelId
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAssets where
   rnf ListAssets' {..} =
-    Prelude.rnf assetModelId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf assetModelId
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListAssets where
@@ -216,9 +216,9 @@ instance Core.ToPath ListAssets where
 instance Core.ToQuery ListAssets where
   toQuery ListAssets' {..} =
     Prelude.mconcat
-      [ "assetModelId" Core.=: assetModelId,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
         "filter" Core.=: filter',
+        "assetModelId" Core.=: assetModelId,
         "maxResults" Core.=: maxResults
       ]
 

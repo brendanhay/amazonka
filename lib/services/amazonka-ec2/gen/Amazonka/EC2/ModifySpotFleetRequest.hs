@@ -59,11 +59,11 @@ module Amazonka.EC2.ModifySpotFleetRequest
     newModifySpotFleetRequest,
 
     -- * Request Lenses
-    modifySpotFleetRequest_context,
-    modifySpotFleetRequest_targetCapacity,
     modifySpotFleetRequest_excessCapacityTerminationPolicy,
-    modifySpotFleetRequest_onDemandTargetCapacity,
+    modifySpotFleetRequest_targetCapacity,
+    modifySpotFleetRequest_context,
     modifySpotFleetRequest_launchTemplateConfigs,
+    modifySpotFleetRequest_onDemandTargetCapacity,
     modifySpotFleetRequest_spotFleetRequestId,
 
     -- * Destructuring the Response
@@ -87,21 +87,21 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newModifySpotFleetRequest' smart constructor.
 data ModifySpotFleetRequest = ModifySpotFleetRequest'
-  { -- | Reserved.
-    context :: Prelude.Maybe Prelude.Text,
-    -- | The size of the fleet.
-    targetCapacity :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether running Spot Instances should be terminated if the
+  { -- | Indicates whether running Spot Instances should be terminated if the
     -- target capacity of the Spot Fleet request is decreased below the current
     -- size of the Spot Fleet.
     excessCapacityTerminationPolicy :: Prelude.Maybe ExcessCapacityTerminationPolicy,
-    -- | The number of On-Demand Instances in the fleet.
-    onDemandTargetCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The size of the fleet.
+    targetCapacity :: Prelude.Maybe Prelude.Int,
+    -- | Reserved.
+    context :: Prelude.Maybe Prelude.Text,
     -- | The launch template and overrides. You can only use this parameter if
     -- you specified a launch template (@LaunchTemplateConfigs@) in your Spot
     -- Fleet request. If you specified @LaunchSpecifications@ in your Spot
     -- Fleet request, then omit this parameter.
     launchTemplateConfigs :: Prelude.Maybe [LaunchTemplateConfig],
+    -- | The number of On-Demand Instances in the fleet.
+    onDemandTargetCapacity :: Prelude.Maybe Prelude.Int,
     -- | The ID of the Spot Fleet request.
     spotFleetRequestId :: Prelude.Text
   }
@@ -115,20 +115,20 @@ data ModifySpotFleetRequest = ModifySpotFleetRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'context', 'modifySpotFleetRequest_context' - Reserved.
---
--- 'targetCapacity', 'modifySpotFleetRequest_targetCapacity' - The size of the fleet.
---
 -- 'excessCapacityTerminationPolicy', 'modifySpotFleetRequest_excessCapacityTerminationPolicy' - Indicates whether running Spot Instances should be terminated if the
 -- target capacity of the Spot Fleet request is decreased below the current
 -- size of the Spot Fleet.
 --
--- 'onDemandTargetCapacity', 'modifySpotFleetRequest_onDemandTargetCapacity' - The number of On-Demand Instances in the fleet.
+-- 'targetCapacity', 'modifySpotFleetRequest_targetCapacity' - The size of the fleet.
+--
+-- 'context', 'modifySpotFleetRequest_context' - Reserved.
 --
 -- 'launchTemplateConfigs', 'modifySpotFleetRequest_launchTemplateConfigs' - The launch template and overrides. You can only use this parameter if
 -- you specified a launch template (@LaunchTemplateConfigs@) in your Spot
 -- Fleet request. If you specified @LaunchSpecifications@ in your Spot
 -- Fleet request, then omit this parameter.
+--
+-- 'onDemandTargetCapacity', 'modifySpotFleetRequest_onDemandTargetCapacity' - The number of On-Demand Instances in the fleet.
 --
 -- 'spotFleetRequestId', 'modifySpotFleetRequest_spotFleetRequestId' - The ID of the Spot Fleet request.
 newModifySpotFleetRequest ::
@@ -137,21 +137,14 @@ newModifySpotFleetRequest ::
   ModifySpotFleetRequest
 newModifySpotFleetRequest pSpotFleetRequestId_ =
   ModifySpotFleetRequest'
-    { context = Prelude.Nothing,
+    { excessCapacityTerminationPolicy =
+        Prelude.Nothing,
       targetCapacity = Prelude.Nothing,
-      excessCapacityTerminationPolicy = Prelude.Nothing,
-      onDemandTargetCapacity = Prelude.Nothing,
+      context = Prelude.Nothing,
       launchTemplateConfigs = Prelude.Nothing,
+      onDemandTargetCapacity = Prelude.Nothing,
       spotFleetRequestId = pSpotFleetRequestId_
     }
-
--- | Reserved.
-modifySpotFleetRequest_context :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Text)
-modifySpotFleetRequest_context = Lens.lens (\ModifySpotFleetRequest' {context} -> context) (\s@ModifySpotFleetRequest' {} a -> s {context = a} :: ModifySpotFleetRequest)
-
--- | The size of the fleet.
-modifySpotFleetRequest_targetCapacity :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Int)
-modifySpotFleetRequest_targetCapacity = Lens.lens (\ModifySpotFleetRequest' {targetCapacity} -> targetCapacity) (\s@ModifySpotFleetRequest' {} a -> s {targetCapacity = a} :: ModifySpotFleetRequest)
 
 -- | Indicates whether running Spot Instances should be terminated if the
 -- target capacity of the Spot Fleet request is decreased below the current
@@ -159,9 +152,13 @@ modifySpotFleetRequest_targetCapacity = Lens.lens (\ModifySpotFleetRequest' {tar
 modifySpotFleetRequest_excessCapacityTerminationPolicy :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe ExcessCapacityTerminationPolicy)
 modifySpotFleetRequest_excessCapacityTerminationPolicy = Lens.lens (\ModifySpotFleetRequest' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@ModifySpotFleetRequest' {} a -> s {excessCapacityTerminationPolicy = a} :: ModifySpotFleetRequest)
 
--- | The number of On-Demand Instances in the fleet.
-modifySpotFleetRequest_onDemandTargetCapacity :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Int)
-modifySpotFleetRequest_onDemandTargetCapacity = Lens.lens (\ModifySpotFleetRequest' {onDemandTargetCapacity} -> onDemandTargetCapacity) (\s@ModifySpotFleetRequest' {} a -> s {onDemandTargetCapacity = a} :: ModifySpotFleetRequest)
+-- | The size of the fleet.
+modifySpotFleetRequest_targetCapacity :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Int)
+modifySpotFleetRequest_targetCapacity = Lens.lens (\ModifySpotFleetRequest' {targetCapacity} -> targetCapacity) (\s@ModifySpotFleetRequest' {} a -> s {targetCapacity = a} :: ModifySpotFleetRequest)
+
+-- | Reserved.
+modifySpotFleetRequest_context :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Text)
+modifySpotFleetRequest_context = Lens.lens (\ModifySpotFleetRequest' {context} -> context) (\s@ModifySpotFleetRequest' {} a -> s {context = a} :: ModifySpotFleetRequest)
 
 -- | The launch template and overrides. You can only use this parameter if
 -- you specified a launch template (@LaunchTemplateConfigs@) in your Spot
@@ -169,6 +166,10 @@ modifySpotFleetRequest_onDemandTargetCapacity = Lens.lens (\ModifySpotFleetReque
 -- Fleet request, then omit this parameter.
 modifySpotFleetRequest_launchTemplateConfigs :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe [LaunchTemplateConfig])
 modifySpotFleetRequest_launchTemplateConfigs = Lens.lens (\ModifySpotFleetRequest' {launchTemplateConfigs} -> launchTemplateConfigs) (\s@ModifySpotFleetRequest' {} a -> s {launchTemplateConfigs = a} :: ModifySpotFleetRequest) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of On-Demand Instances in the fleet.
+modifySpotFleetRequest_onDemandTargetCapacity :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Int)
+modifySpotFleetRequest_onDemandTargetCapacity = Lens.lens (\ModifySpotFleetRequest' {onDemandTargetCapacity} -> onDemandTargetCapacity) (\s@ModifySpotFleetRequest' {} a -> s {onDemandTargetCapacity = a} :: ModifySpotFleetRequest)
 
 -- | The ID of the Spot Fleet request.
 modifySpotFleetRequest_spotFleetRequestId :: Lens.Lens' ModifySpotFleetRequest Prelude.Text
@@ -189,20 +190,21 @@ instance Core.AWSRequest ModifySpotFleetRequest where
 
 instance Prelude.Hashable ModifySpotFleetRequest where
   hashWithSalt _salt ModifySpotFleetRequest' {..} =
-    _salt `Prelude.hashWithSalt` context
-      `Prelude.hashWithSalt` targetCapacity
+    _salt
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy
-      `Prelude.hashWithSalt` onDemandTargetCapacity
+      `Prelude.hashWithSalt` targetCapacity
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` onDemandTargetCapacity
       `Prelude.hashWithSalt` spotFleetRequestId
 
 instance Prelude.NFData ModifySpotFleetRequest where
   rnf ModifySpotFleetRequest' {..} =
-    Prelude.rnf context
+    Prelude.rnf excessCapacityTerminationPolicy
       `Prelude.seq` Prelude.rnf targetCapacity
-      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
-      `Prelude.seq` Prelude.rnf onDemandTargetCapacity
+      `Prelude.seq` Prelude.rnf context
       `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf onDemandTargetCapacity
       `Prelude.seq` Prelude.rnf spotFleetRequestId
 
 instance Core.ToHeaders ModifySpotFleetRequest where
@@ -218,16 +220,16 @@ instance Core.ToQuery ModifySpotFleetRequest where
           Core.=: ("ModifySpotFleetRequest" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Context" Core.=: context,
-        "TargetCapacity" Core.=: targetCapacity,
         "ExcessCapacityTerminationPolicy"
           Core.=: excessCapacityTerminationPolicy,
-        "OnDemandTargetCapacity"
-          Core.=: onDemandTargetCapacity,
+        "TargetCapacity" Core.=: targetCapacity,
+        "Context" Core.=: context,
         Core.toQuery
           ( Core.toQueryList "LaunchTemplateConfig"
               Prelude.<$> launchTemplateConfigs
           ),
+        "OnDemandTargetCapacity"
+          Core.=: onDemandTargetCapacity,
         "SpotFleetRequestId" Core.=: spotFleetRequestId
       ]
 

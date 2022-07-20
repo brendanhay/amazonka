@@ -38,8 +38,8 @@ module Amazonka.DirectoryService.ListSchemaExtensions
     newListSchemaExtensionsResponse,
 
     -- * Response Lenses
-    listSchemaExtensionsResponse_schemaExtensionsInfo,
     listSchemaExtensionsResponse_nextToken,
+    listSchemaExtensionsResponse_schemaExtensionsInfo,
     listSchemaExtensionsResponse_httpStatus,
   )
 where
@@ -135,10 +135,10 @@ instance Core.AWSRequest ListSchemaExtensions where
     Response.receiveJSON
       ( \s h x ->
           ListSchemaExtensionsResponse'
-            Prelude.<$> ( x Core..?> "SchemaExtensionsInfo"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "SchemaExtensionsInfo"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,12 +187,12 @@ instance Core.ToQuery ListSchemaExtensions where
 
 -- | /See:/ 'newListSchemaExtensionsResponse' smart constructor.
 data ListSchemaExtensionsResponse = ListSchemaExtensionsResponse'
-  { -- | Information about the schema extensions applied to the directory.
-    schemaExtensionsInfo :: Prelude.Maybe [SchemaExtensionInfo],
-    -- | If not null, more results are available. Pass this value for the
+  { -- | If not null, more results are available. Pass this value for the
     -- @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to
     -- retrieve the next set of items.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the schema extensions applied to the directory.
+    schemaExtensionsInfo :: Prelude.Maybe [SchemaExtensionInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,11 +206,11 @@ data ListSchemaExtensionsResponse = ListSchemaExtensionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaExtensionsInfo', 'listSchemaExtensionsResponse_schemaExtensionsInfo' - Information about the schema extensions applied to the directory.
---
 -- 'nextToken', 'listSchemaExtensionsResponse_nextToken' - If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to
 -- retrieve the next set of items.
+--
+-- 'schemaExtensionsInfo', 'listSchemaExtensionsResponse_schemaExtensionsInfo' - Information about the schema extensions applied to the directory.
 --
 -- 'httpStatus', 'listSchemaExtensionsResponse_httpStatus' - The response's http status code.
 newListSchemaExtensionsResponse ::
@@ -219,15 +219,11 @@ newListSchemaExtensionsResponse ::
   ListSchemaExtensionsResponse
 newListSchemaExtensionsResponse pHttpStatus_ =
   ListSchemaExtensionsResponse'
-    { schemaExtensionsInfo =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      schemaExtensionsInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the schema extensions applied to the directory.
-listSchemaExtensionsResponse_schemaExtensionsInfo :: Lens.Lens' ListSchemaExtensionsResponse (Prelude.Maybe [SchemaExtensionInfo])
-listSchemaExtensionsResponse_schemaExtensionsInfo = Lens.lens (\ListSchemaExtensionsResponse' {schemaExtensionsInfo} -> schemaExtensionsInfo) (\s@ListSchemaExtensionsResponse' {} a -> s {schemaExtensionsInfo = a} :: ListSchemaExtensionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to
@@ -235,12 +231,16 @@ listSchemaExtensionsResponse_schemaExtensionsInfo = Lens.lens (\ListSchemaExtens
 listSchemaExtensionsResponse_nextToken :: Lens.Lens' ListSchemaExtensionsResponse (Prelude.Maybe Prelude.Text)
 listSchemaExtensionsResponse_nextToken = Lens.lens (\ListSchemaExtensionsResponse' {nextToken} -> nextToken) (\s@ListSchemaExtensionsResponse' {} a -> s {nextToken = a} :: ListSchemaExtensionsResponse)
 
+-- | Information about the schema extensions applied to the directory.
+listSchemaExtensionsResponse_schemaExtensionsInfo :: Lens.Lens' ListSchemaExtensionsResponse (Prelude.Maybe [SchemaExtensionInfo])
+listSchemaExtensionsResponse_schemaExtensionsInfo = Lens.lens (\ListSchemaExtensionsResponse' {schemaExtensionsInfo} -> schemaExtensionsInfo) (\s@ListSchemaExtensionsResponse' {} a -> s {schemaExtensionsInfo = a} :: ListSchemaExtensionsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listSchemaExtensionsResponse_httpStatus :: Lens.Lens' ListSchemaExtensionsResponse Prelude.Int
 listSchemaExtensionsResponse_httpStatus = Lens.lens (\ListSchemaExtensionsResponse' {httpStatus} -> httpStatus) (\s@ListSchemaExtensionsResponse' {} a -> s {httpStatus = a} :: ListSchemaExtensionsResponse)
 
 instance Prelude.NFData ListSchemaExtensionsResponse where
   rnf ListSchemaExtensionsResponse' {..} =
-    Prelude.rnf schemaExtensionsInfo
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaExtensionsInfo
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDirectoryConfig' smart constructor.
 data DirectoryConfig = DirectoryConfig'
-  { -- | The time the directory configuration was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The credentials for the service account used by the fleet or image
+  { -- | The credentials for the service account used by the fleet or image
     -- builder to connect to the directory.
     serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
     -- | The distinguished names of the organizational units for computer
     -- accounts.
     organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
+    -- | The time the directory configuration was created.
+    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The fully qualified name of the directory (for example,
     -- corp.example.com).
     directoryName :: Prelude.Text
@@ -51,13 +51,13 @@ data DirectoryConfig = DirectoryConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTime', 'directoryConfig_createdTime' - The time the directory configuration was created.
---
 -- 'serviceAccountCredentials', 'directoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image
 -- builder to connect to the directory.
 --
 -- 'organizationalUnitDistinguishedNames', 'directoryConfig_organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer
 -- accounts.
+--
+-- 'createdTime', 'directoryConfig_createdTime' - The time the directory configuration was created.
 --
 -- 'directoryName', 'directoryConfig_directoryName' - The fully qualified name of the directory (for example,
 -- corp.example.com).
@@ -67,16 +67,13 @@ newDirectoryConfig ::
   DirectoryConfig
 newDirectoryConfig pDirectoryName_ =
   DirectoryConfig'
-    { createdTime = Prelude.Nothing,
-      serviceAccountCredentials = Prelude.Nothing,
+    { serviceAccountCredentials =
+        Prelude.Nothing,
       organizationalUnitDistinguishedNames =
         Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       directoryName = pDirectoryName_
     }
-
--- | The time the directory configuration was created.
-directoryConfig_createdTime :: Lens.Lens' DirectoryConfig (Prelude.Maybe Prelude.UTCTime)
-directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Prelude.. Lens.mapping Core._Time
 
 -- | The credentials for the service account used by the fleet or image
 -- builder to connect to the directory.
@@ -87,6 +84,10 @@ directoryConfig_serviceAccountCredentials = Lens.lens (\DirectoryConfig' {servic
 -- accounts.
 directoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' DirectoryConfig (Prelude.Maybe [Prelude.Text])
 directoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\DirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@DirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: DirectoryConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time the directory configuration was created.
+directoryConfig_createdTime :: Lens.Lens' DirectoryConfig (Prelude.Maybe Prelude.UTCTime)
+directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Prelude.. Lens.mapping Core._Time
 
 -- | The fully qualified name of the directory (for example,
 -- corp.example.com).
@@ -99,24 +100,25 @@ instance Core.FromJSON DirectoryConfig where
       "DirectoryConfig"
       ( \x ->
           DirectoryConfig'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "ServiceAccountCredentials")
+            Prelude.<$> (x Core..:? "ServiceAccountCredentials")
             Prelude.<*> ( x Core..:? "OrganizationalUnitDistinguishedNames"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..: "DirectoryName")
       )
 
 instance Prelude.Hashable DirectoryConfig where
   hashWithSalt _salt DirectoryConfig' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
       `Prelude.hashWithSalt` serviceAccountCredentials
       `Prelude.hashWithSalt` organizationalUnitDistinguishedNames
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` directoryName
 
 instance Prelude.NFData DirectoryConfig where
   rnf DirectoryConfig' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf serviceAccountCredentials
+    Prelude.rnf serviceAccountCredentials
       `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf directoryName

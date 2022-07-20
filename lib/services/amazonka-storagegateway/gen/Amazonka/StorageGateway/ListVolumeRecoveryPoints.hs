@@ -41,8 +41,8 @@ module Amazonka.StorageGateway.ListVolumeRecoveryPoints
     newListVolumeRecoveryPointsResponse,
 
     -- * Response Lenses
-    listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos,
     listVolumeRecoveryPointsResponse_gatewayARN,
+    listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos,
     listVolumeRecoveryPointsResponse_httpStatus,
   )
 where
@@ -92,10 +92,10 @@ instance Core.AWSRequest ListVolumeRecoveryPoints where
     Response.receiveJSON
       ( \s h x ->
           ListVolumeRecoveryPointsResponse'
-            Prelude.<$> ( x Core..?> "VolumeRecoveryPointInfos"
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> ( x Core..?> "VolumeRecoveryPointInfos"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,9 +137,9 @@ instance Core.ToQuery ListVolumeRecoveryPoints where
 
 -- | /See:/ 'newListVolumeRecoveryPointsResponse' smart constructor.
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
-  { -- | An array of VolumeRecoveryPointInfo objects.
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | An array of VolumeRecoveryPointInfo objects.
     volumeRecoveryPointInfos :: Prelude.Maybe [VolumeRecoveryPointInfo],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,9 +153,9 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeRecoveryPointInfos', 'listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos' - An array of VolumeRecoveryPointInfo objects.
---
 -- 'gatewayARN', 'listVolumeRecoveryPointsResponse_gatewayARN' - Undocumented member.
+--
+-- 'volumeRecoveryPointInfos', 'listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos' - An array of VolumeRecoveryPointInfo objects.
 --
 -- 'httpStatus', 'listVolumeRecoveryPointsResponse_httpStatus' - The response's http status code.
 newListVolumeRecoveryPointsResponse ::
@@ -164,19 +164,20 @@ newListVolumeRecoveryPointsResponse ::
   ListVolumeRecoveryPointsResponse
 newListVolumeRecoveryPointsResponse pHttpStatus_ =
   ListVolumeRecoveryPointsResponse'
-    { volumeRecoveryPointInfos =
+    { gatewayARN =
         Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+      volumeRecoveryPointInfos =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of VolumeRecoveryPointInfo objects.
-listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos :: Lens.Lens' ListVolumeRecoveryPointsResponse (Prelude.Maybe [VolumeRecoveryPointInfo])
-listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos = Lens.lens (\ListVolumeRecoveryPointsResponse' {volumeRecoveryPointInfos} -> volumeRecoveryPointInfos) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {volumeRecoveryPointInfos = a} :: ListVolumeRecoveryPointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 listVolumeRecoveryPointsResponse_gatewayARN :: Lens.Lens' ListVolumeRecoveryPointsResponse (Prelude.Maybe Prelude.Text)
 listVolumeRecoveryPointsResponse_gatewayARN = Lens.lens (\ListVolumeRecoveryPointsResponse' {gatewayARN} -> gatewayARN) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {gatewayARN = a} :: ListVolumeRecoveryPointsResponse)
+
+-- | An array of VolumeRecoveryPointInfo objects.
+listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos :: Lens.Lens' ListVolumeRecoveryPointsResponse (Prelude.Maybe [VolumeRecoveryPointInfo])
+listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos = Lens.lens (\ListVolumeRecoveryPointsResponse' {volumeRecoveryPointInfos} -> volumeRecoveryPointInfos) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {volumeRecoveryPointInfos = a} :: ListVolumeRecoveryPointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVolumeRecoveryPointsResponse_httpStatus :: Lens.Lens' ListVolumeRecoveryPointsResponse Prelude.Int
@@ -187,6 +188,6 @@ instance
     ListVolumeRecoveryPointsResponse
   where
   rnf ListVolumeRecoveryPointsResponse' {..} =
-    Prelude.rnf volumeRecoveryPointInfos
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf volumeRecoveryPointInfos
       `Prelude.seq` Prelude.rnf httpStatus

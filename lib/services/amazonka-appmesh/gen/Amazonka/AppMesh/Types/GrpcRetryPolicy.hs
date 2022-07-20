@@ -35,7 +35,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrpcRetryPolicy' smart constructor.
 data GrpcRetryPolicy = GrpcRetryPolicy'
-  { -- | Specify at least one of the following values.
+  { -- | Specify at least one of the valid values.
+    grpcRetryEvents :: Prelude.Maybe (Prelude.NonEmpty GrpcRetryPolicyEvent),
+    -- | Specify at least one of the following values.
     --
     -- -   __server-error__ – HTTP status codes 500, 501, 502, 503, 504, 505,
     --     506, 507, 508, 510, and 511
@@ -46,8 +48,6 @@ data GrpcRetryPolicy = GrpcRetryPolicy'
     --
     -- -   __stream-error__ – Retry on refused stream
     httpRetryEvents :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specify at least one of the valid values.
-    grpcRetryEvents :: Prelude.Maybe (Prelude.NonEmpty GrpcRetryPolicyEvent),
     -- | Specify a valid value. The event occurs before any processing of a
     -- request has started and is encountered when the upstream is temporarily
     -- or permanently unavailable.
@@ -67,6 +67,8 @@ data GrpcRetryPolicy = GrpcRetryPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'grpcRetryEvents', 'grpcRetryPolicy_grpcRetryEvents' - Specify at least one of the valid values.
+--
 -- 'httpRetryEvents', 'grpcRetryPolicy_httpRetryEvents' - Specify at least one of the following values.
 --
 -- -   __server-error__ – HTTP status codes 500, 501, 502, 503, 504, 505,
@@ -77,8 +79,6 @@ data GrpcRetryPolicy = GrpcRetryPolicy'
 -- -   __client-error__ – HTTP status code 409
 --
 -- -   __stream-error__ – Retry on refused stream
---
--- 'grpcRetryEvents', 'grpcRetryPolicy_grpcRetryEvents' - Specify at least one of the valid values.
 --
 -- 'tcpRetryEvents', 'grpcRetryPolicy_tcpRetryEvents' - Specify a valid value. The event occurs before any processing of a
 -- request has started and is encountered when the upstream is temporarily
@@ -95,12 +95,16 @@ newGrpcRetryPolicy ::
   GrpcRetryPolicy
 newGrpcRetryPolicy pMaxRetries_ pPerRetryTimeout_ =
   GrpcRetryPolicy'
-    { httpRetryEvents = Prelude.Nothing,
-      grpcRetryEvents = Prelude.Nothing,
+    { grpcRetryEvents = Prelude.Nothing,
+      httpRetryEvents = Prelude.Nothing,
       tcpRetryEvents = Prelude.Nothing,
       maxRetries = pMaxRetries_,
       perRetryTimeout = pPerRetryTimeout_
     }
+
+-- | Specify at least one of the valid values.
+grpcRetryPolicy_grpcRetryEvents :: Lens.Lens' GrpcRetryPolicy (Prelude.Maybe (Prelude.NonEmpty GrpcRetryPolicyEvent))
+grpcRetryPolicy_grpcRetryEvents = Lens.lens (\GrpcRetryPolicy' {grpcRetryEvents} -> grpcRetryEvents) (\s@GrpcRetryPolicy' {} a -> s {grpcRetryEvents = a} :: GrpcRetryPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify at least one of the following values.
 --
@@ -114,10 +118,6 @@ newGrpcRetryPolicy pMaxRetries_ pPerRetryTimeout_ =
 -- -   __stream-error__ – Retry on refused stream
 grpcRetryPolicy_httpRetryEvents :: Lens.Lens' GrpcRetryPolicy (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 grpcRetryPolicy_httpRetryEvents = Lens.lens (\GrpcRetryPolicy' {httpRetryEvents} -> httpRetryEvents) (\s@GrpcRetryPolicy' {} a -> s {httpRetryEvents = a} :: GrpcRetryPolicy) Prelude.. Lens.mapping Lens.coerced
-
--- | Specify at least one of the valid values.
-grpcRetryPolicy_grpcRetryEvents :: Lens.Lens' GrpcRetryPolicy (Prelude.Maybe (Prelude.NonEmpty GrpcRetryPolicyEvent))
-grpcRetryPolicy_grpcRetryEvents = Lens.lens (\GrpcRetryPolicy' {grpcRetryEvents} -> grpcRetryEvents) (\s@GrpcRetryPolicy' {} a -> s {grpcRetryEvents = a} :: GrpcRetryPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify a valid value. The event occurs before any processing of a
 -- request has started and is encountered when the upstream is temporarily
@@ -139,8 +139,8 @@ instance Core.FromJSON GrpcRetryPolicy where
       "GrpcRetryPolicy"
       ( \x ->
           GrpcRetryPolicy'
-            Prelude.<$> (x Core..:? "httpRetryEvents")
-            Prelude.<*> (x Core..:? "grpcRetryEvents")
+            Prelude.<$> (x Core..:? "grpcRetryEvents")
+            Prelude.<*> (x Core..:? "httpRetryEvents")
             Prelude.<*> (x Core..:? "tcpRetryEvents")
             Prelude.<*> (x Core..: "maxRetries")
             Prelude.<*> (x Core..: "perRetryTimeout")
@@ -148,16 +148,16 @@ instance Core.FromJSON GrpcRetryPolicy where
 
 instance Prelude.Hashable GrpcRetryPolicy where
   hashWithSalt _salt GrpcRetryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` httpRetryEvents
-      `Prelude.hashWithSalt` grpcRetryEvents
+    _salt `Prelude.hashWithSalt` grpcRetryEvents
+      `Prelude.hashWithSalt` httpRetryEvents
       `Prelude.hashWithSalt` tcpRetryEvents
       `Prelude.hashWithSalt` maxRetries
       `Prelude.hashWithSalt` perRetryTimeout
 
 instance Prelude.NFData GrpcRetryPolicy where
   rnf GrpcRetryPolicy' {..} =
-    Prelude.rnf httpRetryEvents
-      `Prelude.seq` Prelude.rnf grpcRetryEvents
+    Prelude.rnf grpcRetryEvents
+      `Prelude.seq` Prelude.rnf httpRetryEvents
       `Prelude.seq` Prelude.rnf tcpRetryEvents
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf perRetryTimeout
@@ -166,10 +166,10 @@ instance Core.ToJSON GrpcRetryPolicy where
   toJSON GrpcRetryPolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("httpRetryEvents" Core..=)
-              Prelude.<$> httpRetryEvents,
-            ("grpcRetryEvents" Core..=)
+          [ ("grpcRetryEvents" Core..=)
               Prelude.<$> grpcRetryEvents,
+            ("httpRetryEvents" Core..=)
+              Prelude.<$> httpRetryEvents,
             ("tcpRetryEvents" Core..=)
               Prelude.<$> tcpRetryEvents,
             Prelude.Just ("maxRetries" Core..= maxRetries),

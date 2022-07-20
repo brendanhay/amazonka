@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntityFilter' smart constructor.
 data EntityFilter = EntityFilter'
-  { -- | An array of string values for the search filter field. Multiple values
-    -- function as AND criteria in the search.
-    value :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the entity search filter field. @REFERENCED_ENTITY_ID@
+  { -- | The name of the entity search filter field. @REFERENCED_ENTITY_ID@
     -- filters on entities that are used by the entity in the result set. For
     -- example, you can filter on the ID of a property that is used in a state.
-    name :: Prelude.Maybe EntityFilterName
+    name :: Prelude.Maybe EntityFilterName,
+    -- | An array of string values for the search filter field. Multiple values
+    -- function as AND criteria in the search.
+    value :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,24 +50,19 @@ data EntityFilter = EntityFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'entityFilter_value' - An array of string values for the search filter field. Multiple values
--- function as AND criteria in the search.
---
 -- 'name', 'entityFilter_name' - The name of the entity search filter field. @REFERENCED_ENTITY_ID@
 -- filters on entities that are used by the entity in the result set. For
 -- example, you can filter on the ID of a property that is used in a state.
+--
+-- 'value', 'entityFilter_value' - An array of string values for the search filter field. Multiple values
+-- function as AND criteria in the search.
 newEntityFilter ::
   EntityFilter
 newEntityFilter =
   EntityFilter'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | An array of string values for the search filter field. Multiple values
--- function as AND criteria in the search.
-entityFilter_value :: Lens.Lens' EntityFilter (Prelude.Maybe [Prelude.Text])
-entityFilter_value = Lens.lens (\EntityFilter' {value} -> value) (\s@EntityFilter' {} a -> s {value = a} :: EntityFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the entity search filter field. @REFERENCED_ENTITY_ID@
 -- filters on entities that are used by the entity in the result set. For
@@ -75,20 +70,25 @@ entityFilter_value = Lens.lens (\EntityFilter' {value} -> value) (\s@EntityFilte
 entityFilter_name :: Lens.Lens' EntityFilter (Prelude.Maybe EntityFilterName)
 entityFilter_name = Lens.lens (\EntityFilter' {name} -> name) (\s@EntityFilter' {} a -> s {name = a} :: EntityFilter)
 
+-- | An array of string values for the search filter field. Multiple values
+-- function as AND criteria in the search.
+entityFilter_value :: Lens.Lens' EntityFilter (Prelude.Maybe [Prelude.Text])
+entityFilter_value = Lens.lens (\EntityFilter' {value} -> value) (\s@EntityFilter' {} a -> s {value = a} :: EntityFilter) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable EntityFilter where
   hashWithSalt _salt EntityFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EntityFilter where
   rnf EntityFilter' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON EntityFilter where
   toJSON EntityFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

@@ -39,11 +39,6 @@ data SpekeKeyProviderCmaf = SpekeKeyProviderCmaf'
     -- information, see
     -- https:\/\/dashif.org\/identifiers\/content_protection\/.
     dashSignaledSystemIds :: Prelude.Maybe [Prelude.Text],
-    -- | If you want your key provider to encrypt the content keys that it
-    -- provides to MediaConvert, set up a certificate with a master key using
-    -- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
-    -- (ARN) here.
-    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | Specify the URL to the key server that your SPEKE-compliant DRM key
     -- provider uses to provide keys for encrypting your content.
     url :: Prelude.Maybe Prelude.Text,
@@ -51,7 +46,12 @@ data SpekeKeyProviderCmaf = SpekeKeyProviderCmaf'
     -- that MediaConvert creates as part of this CMAF package. The HLS manifest
     -- can currently signal only one system ID. For more information, see
     -- https:\/\/dashif.org\/identifiers\/content_protection\/.
-    hlsSignaledSystemIds :: Prelude.Maybe [Prelude.Text]
+    hlsSignaledSystemIds :: Prelude.Maybe [Prelude.Text],
+    -- | If you want your key provider to encrypt the content keys that it
+    -- provides to MediaConvert, set up a certificate with a master key using
+    -- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
+    -- (ARN) here.
+    certificateArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,11 +72,6 @@ data SpekeKeyProviderCmaf = SpekeKeyProviderCmaf'
 -- information, see
 -- https:\/\/dashif.org\/identifiers\/content_protection\/.
 --
--- 'certificateArn', 'spekeKeyProviderCmaf_certificateArn' - If you want your key provider to encrypt the content keys that it
--- provides to MediaConvert, set up a certificate with a master key using
--- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
--- (ARN) here.
---
 -- 'url', 'spekeKeyProviderCmaf_url' - Specify the URL to the key server that your SPEKE-compliant DRM key
 -- provider uses to provide keys for encrypting your content.
 --
@@ -84,15 +79,20 @@ data SpekeKeyProviderCmaf = SpekeKeyProviderCmaf'
 -- that MediaConvert creates as part of this CMAF package. The HLS manifest
 -- can currently signal only one system ID. For more information, see
 -- https:\/\/dashif.org\/identifiers\/content_protection\/.
+--
+-- 'certificateArn', 'spekeKeyProviderCmaf_certificateArn' - If you want your key provider to encrypt the content keys that it
+-- provides to MediaConvert, set up a certificate with a master key using
+-- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
+-- (ARN) here.
 newSpekeKeyProviderCmaf ::
   SpekeKeyProviderCmaf
 newSpekeKeyProviderCmaf =
   SpekeKeyProviderCmaf'
     { resourceId = Prelude.Nothing,
       dashSignaledSystemIds = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
       url = Prelude.Nothing,
-      hlsSignaledSystemIds = Prelude.Nothing
+      hlsSignaledSystemIds = Prelude.Nothing,
+      certificateArn = Prelude.Nothing
     }
 
 -- | Specify the resource ID that your SPEKE-compliant key provider uses to
@@ -108,13 +108,6 @@ spekeKeyProviderCmaf_resourceId = Lens.lens (\SpekeKeyProviderCmaf' {resourceId}
 spekeKeyProviderCmaf_dashSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe [Prelude.Text])
 spekeKeyProviderCmaf_dashSignaledSystemIds = Lens.lens (\SpekeKeyProviderCmaf' {dashSignaledSystemIds} -> dashSignaledSystemIds) (\s@SpekeKeyProviderCmaf' {} a -> s {dashSignaledSystemIds = a} :: SpekeKeyProviderCmaf) Prelude.. Lens.mapping Lens.coerced
 
--- | If you want your key provider to encrypt the content keys that it
--- provides to MediaConvert, set up a certificate with a master key using
--- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
--- (ARN) here.
-spekeKeyProviderCmaf_certificateArn :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe Prelude.Text)
-spekeKeyProviderCmaf_certificateArn = Lens.lens (\SpekeKeyProviderCmaf' {certificateArn} -> certificateArn) (\s@SpekeKeyProviderCmaf' {} a -> s {certificateArn = a} :: SpekeKeyProviderCmaf)
-
 -- | Specify the URL to the key server that your SPEKE-compliant DRM key
 -- provider uses to provide keys for encrypting your content.
 spekeKeyProviderCmaf_url :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe Prelude.Text)
@@ -127,6 +120,13 @@ spekeKeyProviderCmaf_url = Lens.lens (\SpekeKeyProviderCmaf' {url} -> url) (\s@S
 spekeKeyProviderCmaf_hlsSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe [Prelude.Text])
 spekeKeyProviderCmaf_hlsSignaledSystemIds = Lens.lens (\SpekeKeyProviderCmaf' {hlsSignaledSystemIds} -> hlsSignaledSystemIds) (\s@SpekeKeyProviderCmaf' {} a -> s {hlsSignaledSystemIds = a} :: SpekeKeyProviderCmaf) Prelude.. Lens.mapping Lens.coerced
 
+-- | If you want your key provider to encrypt the content keys that it
+-- provides to MediaConvert, set up a certificate with a master key using
+-- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
+-- (ARN) here.
+spekeKeyProviderCmaf_certificateArn :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe Prelude.Text)
+spekeKeyProviderCmaf_certificateArn = Lens.lens (\SpekeKeyProviderCmaf' {certificateArn} -> certificateArn) (\s@SpekeKeyProviderCmaf' {} a -> s {certificateArn = a} :: SpekeKeyProviderCmaf)
+
 instance Core.FromJSON SpekeKeyProviderCmaf where
   parseJSON =
     Core.withObject
@@ -137,28 +137,28 @@ instance Core.FromJSON SpekeKeyProviderCmaf where
             Prelude.<*> ( x Core..:? "dashSignaledSystemIds"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "certificateArn")
             Prelude.<*> (x Core..:? "url")
             Prelude.<*> ( x Core..:? "hlsSignaledSystemIds"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "certificateArn")
       )
 
 instance Prelude.Hashable SpekeKeyProviderCmaf where
   hashWithSalt _salt SpekeKeyProviderCmaf' {..} =
     _salt `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` dashSignaledSystemIds
-      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` hlsSignaledSystemIds
+      `Prelude.hashWithSalt` certificateArn
 
 instance Prelude.NFData SpekeKeyProviderCmaf where
   rnf SpekeKeyProviderCmaf' {..} =
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf dashSignaledSystemIds
-      `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf hlsSignaledSystemIds
+      `Prelude.seq` Prelude.rnf certificateArn
 
 instance Core.ToJSON SpekeKeyProviderCmaf where
   toJSON SpekeKeyProviderCmaf' {..} =
@@ -167,10 +167,10 @@ instance Core.ToJSON SpekeKeyProviderCmaf where
           [ ("resourceId" Core..=) Prelude.<$> resourceId,
             ("dashSignaledSystemIds" Core..=)
               Prelude.<$> dashSignaledSystemIds,
-            ("certificateArn" Core..=)
-              Prelude.<$> certificateArn,
             ("url" Core..=) Prelude.<$> url,
             ("hlsSignaledSystemIds" Core..=)
-              Prelude.<$> hlsSignaledSystemIds
+              Prelude.<$> hlsSignaledSystemIds,
+            ("certificateArn" Core..=)
+              Prelude.<$> certificateArn
           ]
       )

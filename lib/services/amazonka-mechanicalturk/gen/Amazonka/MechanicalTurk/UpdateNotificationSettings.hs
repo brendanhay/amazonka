@@ -37,8 +37,8 @@ module Amazonka.MechanicalTurk.UpdateNotificationSettings
     newUpdateNotificationSettings,
 
     -- * Request Lenses
-    updateNotificationSettings_notification,
     updateNotificationSettings_active,
+    updateNotificationSettings_notification,
     updateNotificationSettings_hITTypeId,
 
     -- * Destructuring the Response
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateNotificationSettings' smart constructor.
 data UpdateNotificationSettings = UpdateNotificationSettings'
-  { -- | The notification specification for the HIT type.
-    notification :: Prelude.Maybe NotificationSpecification,
-    -- | Specifies whether notifications are sent for HITs of this HIT type,
+  { -- | Specifies whether notifications are sent for HITs of this HIT type,
     -- according to the notification specification. You must specify either the
     -- Notification parameter or the Active parameter for the call to
     -- UpdateNotificationSettings to succeed.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | The notification specification for the HIT type.
+    notification :: Prelude.Maybe NotificationSpecification,
     -- | The ID of the HIT type whose notification specification is being
     -- updated.
     hITTypeId :: Prelude.Text
@@ -80,12 +80,12 @@ data UpdateNotificationSettings = UpdateNotificationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notification', 'updateNotificationSettings_notification' - The notification specification for the HIT type.
---
 -- 'active', 'updateNotificationSettings_active' - Specifies whether notifications are sent for HITs of this HIT type,
 -- according to the notification specification. You must specify either the
 -- Notification parameter or the Active parameter for the call to
 -- UpdateNotificationSettings to succeed.
+--
+-- 'notification', 'updateNotificationSettings_notification' - The notification specification for the HIT type.
 --
 -- 'hITTypeId', 'updateNotificationSettings_hITTypeId' - The ID of the HIT type whose notification specification is being
 -- updated.
@@ -95,15 +95,11 @@ newUpdateNotificationSettings ::
   UpdateNotificationSettings
 newUpdateNotificationSettings pHITTypeId_ =
   UpdateNotificationSettings'
-    { notification =
+    { active =
         Prelude.Nothing,
-      active = Prelude.Nothing,
+      notification = Prelude.Nothing,
       hITTypeId = pHITTypeId_
     }
-
--- | The notification specification for the HIT type.
-updateNotificationSettings_notification :: Lens.Lens' UpdateNotificationSettings (Prelude.Maybe NotificationSpecification)
-updateNotificationSettings_notification = Lens.lens (\UpdateNotificationSettings' {notification} -> notification) (\s@UpdateNotificationSettings' {} a -> s {notification = a} :: UpdateNotificationSettings)
 
 -- | Specifies whether notifications are sent for HITs of this HIT type,
 -- according to the notification specification. You must specify either the
@@ -111,6 +107,10 @@ updateNotificationSettings_notification = Lens.lens (\UpdateNotificationSettings
 -- UpdateNotificationSettings to succeed.
 updateNotificationSettings_active :: Lens.Lens' UpdateNotificationSettings (Prelude.Maybe Prelude.Bool)
 updateNotificationSettings_active = Lens.lens (\UpdateNotificationSettings' {active} -> active) (\s@UpdateNotificationSettings' {} a -> s {active = a} :: UpdateNotificationSettings)
+
+-- | The notification specification for the HIT type.
+updateNotificationSettings_notification :: Lens.Lens' UpdateNotificationSettings (Prelude.Maybe NotificationSpecification)
+updateNotificationSettings_notification = Lens.lens (\UpdateNotificationSettings' {notification} -> notification) (\s@UpdateNotificationSettings' {} a -> s {notification = a} :: UpdateNotificationSettings)
 
 -- | The ID of the HIT type whose notification specification is being
 -- updated.
@@ -131,14 +131,14 @@ instance Core.AWSRequest UpdateNotificationSettings where
 
 instance Prelude.Hashable UpdateNotificationSettings where
   hashWithSalt _salt UpdateNotificationSettings' {..} =
-    _salt `Prelude.hashWithSalt` notification
-      `Prelude.hashWithSalt` active
+    _salt `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` notification
       `Prelude.hashWithSalt` hITTypeId
 
 instance Prelude.NFData UpdateNotificationSettings where
   rnf UpdateNotificationSettings' {..} =
-    Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf active
+    Prelude.rnf active
+      `Prelude.seq` Prelude.rnf notification
       `Prelude.seq` Prelude.rnf hITTypeId
 
 instance Core.ToHeaders UpdateNotificationSettings where
@@ -160,8 +160,8 @@ instance Core.ToJSON UpdateNotificationSettings where
   toJSON UpdateNotificationSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Notification" Core..=) Prelude.<$> notification,
-            ("Active" Core..=) Prelude.<$> active,
+          [ ("Active" Core..=) Prelude.<$> active,
+            ("Notification" Core..=) Prelude.<$> notification,
             Prelude.Just ("HITTypeId" Core..= hITTypeId)
           ]
       )

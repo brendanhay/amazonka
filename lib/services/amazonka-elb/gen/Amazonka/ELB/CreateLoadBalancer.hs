@@ -42,11 +42,11 @@ module Amazonka.ELB.CreateLoadBalancer
     newCreateLoadBalancer,
 
     -- * Request Lenses
-    createLoadBalancer_securityGroups,
+    createLoadBalancer_tags,
+    createLoadBalancer_scheme,
     createLoadBalancer_subnets,
     createLoadBalancer_availabilityZones,
-    createLoadBalancer_scheme,
-    createLoadBalancer_tags,
+    createLoadBalancer_securityGroups,
     createLoadBalancer_loadBalancerName,
     createLoadBalancer_listeners,
 
@@ -71,8 +71,23 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { -- | The IDs of the security groups to assign to the load balancer.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+  { -- | A list of tags to assign to the load balancer.
+    --
+    -- For more information about tagging your load balancer, see
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
+    -- in the /Classic Load Balancers Guide/.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The type of a load balancer. Valid only for load balancers in a VPC.
+    --
+    -- By default, Elastic Load Balancing creates an Internet-facing load
+    -- balancer with a DNS name that resolves to public IP addresses. For more
+    -- information about Internet-facing and Internal load balancers, see
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme>
+    -- in the /Elastic Load Balancing User Guide/.
+    --
+    -- Specify @internal@ to create a load balancer with a DNS name that
+    -- resolves to private IP addresses.
+    scheme :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the subnets in your VPC to attach to the load balancer.
     -- Specify one subnet per Availability Zone specified in
     -- @AvailabilityZones@.
@@ -85,23 +100,8 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- You can add more Availability Zones after you create the load balancer
     -- using EnableAvailabilityZonesForLoadBalancer.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | The type of a load balancer. Valid only for load balancers in a VPC.
-    --
-    -- By default, Elastic Load Balancing creates an Internet-facing load
-    -- balancer with a DNS name that resolves to public IP addresses. For more
-    -- information about Internet-facing and Internal load balancers, see
-    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme>
-    -- in the /Elastic Load Balancing User Guide/.
-    --
-    -- Specify @internal@ to create a load balancer with a DNS name that
-    -- resolves to private IP addresses.
-    scheme :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to assign to the load balancer.
-    --
-    -- For more information about tagging your load balancer, see
-    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
-    -- in the /Classic Load Balancers Guide/.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The IDs of the security groups to assign to the load balancer.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The name of the load balancer.
     --
     -- This name must be unique within your set of load balancers for the
@@ -126,7 +126,22 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroups', 'createLoadBalancer_securityGroups' - The IDs of the security groups to assign to the load balancer.
+-- 'tags', 'createLoadBalancer_tags' - A list of tags to assign to the load balancer.
+--
+-- For more information about tagging your load balancer, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
+-- in the /Classic Load Balancers Guide/.
+--
+-- 'scheme', 'createLoadBalancer_scheme' - The type of a load balancer. Valid only for load balancers in a VPC.
+--
+-- By default, Elastic Load Balancing creates an Internet-facing load
+-- balancer with a DNS name that resolves to public IP addresses. For more
+-- information about Internet-facing and Internal load balancers, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme>
+-- in the /Elastic Load Balancing User Guide/.
+--
+-- Specify @internal@ to create a load balancer with a DNS name that
+-- resolves to private IP addresses.
 --
 -- 'subnets', 'createLoadBalancer_subnets' - The IDs of the subnets in your VPC to attach to the load balancer.
 -- Specify one subnet per Availability Zone specified in
@@ -140,22 +155,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- You can add more Availability Zones after you create the load balancer
 -- using EnableAvailabilityZonesForLoadBalancer.
 --
--- 'scheme', 'createLoadBalancer_scheme' - The type of a load balancer. Valid only for load balancers in a VPC.
---
--- By default, Elastic Load Balancing creates an Internet-facing load
--- balancer with a DNS name that resolves to public IP addresses. For more
--- information about Internet-facing and Internal load balancers, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme>
--- in the /Elastic Load Balancing User Guide/.
---
--- Specify @internal@ to create a load balancer with a DNS name that
--- resolves to private IP addresses.
---
--- 'tags', 'createLoadBalancer_tags' - A list of tags to assign to the load balancer.
---
--- For more information about tagging your load balancer, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
--- in the /Classic Load Balancers Guide/.
+-- 'securityGroups', 'createLoadBalancer_securityGroups' - The IDs of the security groups to assign to the load balancer.
 --
 -- 'loadBalancerName', 'createLoadBalancer_loadBalancerName' - The name of the load balancer.
 --
@@ -175,19 +175,35 @@ newCreateLoadBalancer ::
   CreateLoadBalancer
 newCreateLoadBalancer pLoadBalancerName_ =
   CreateLoadBalancer'
-    { securityGroups =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      scheme = Prelude.Nothing,
       subnets = Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
-      scheme = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
       loadBalancerName = pLoadBalancerName_,
       listeners = Prelude.mempty
     }
 
--- | The IDs of the security groups to assign to the load balancer.
-createLoadBalancer_securityGroups :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_securityGroups = Lens.lens (\CreateLoadBalancer' {securityGroups} -> securityGroups) (\s@CreateLoadBalancer' {} a -> s {securityGroups = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+-- | A list of tags to assign to the load balancer.
+--
+-- For more information about tagging your load balancer, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
+-- in the /Classic Load Balancers Guide/.
+createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe (Prelude.NonEmpty Tag))
+createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of a load balancer. Valid only for load balancers in a VPC.
+--
+-- By default, Elastic Load Balancing creates an Internet-facing load
+-- balancer with a DNS name that resolves to public IP addresses. For more
+-- information about Internet-facing and Internal load balancers, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme>
+-- in the /Elastic Load Balancing User Guide/.
+--
+-- Specify @internal@ to create a load balancer with a DNS name that
+-- resolves to private IP addresses.
+createLoadBalancer_scheme :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_scheme = Lens.lens (\CreateLoadBalancer' {scheme} -> scheme) (\s@CreateLoadBalancer' {} a -> s {scheme = a} :: CreateLoadBalancer)
 
 -- | The IDs of the subnets in your VPC to attach to the load balancer.
 -- Specify one subnet per Availability Zone specified in
@@ -205,26 +221,9 @@ createLoadBalancer_subnets = Lens.lens (\CreateLoadBalancer' {subnets} -> subnet
 createLoadBalancer_availabilityZones :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
 createLoadBalancer_availabilityZones = Lens.lens (\CreateLoadBalancer' {availabilityZones} -> availabilityZones) (\s@CreateLoadBalancer' {} a -> s {availabilityZones = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of a load balancer. Valid only for load balancers in a VPC.
---
--- By default, Elastic Load Balancing creates an Internet-facing load
--- balancer with a DNS name that resolves to public IP addresses. For more
--- information about Internet-facing and Internal load balancers, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme>
--- in the /Elastic Load Balancing User Guide/.
---
--- Specify @internal@ to create a load balancer with a DNS name that
--- resolves to private IP addresses.
-createLoadBalancer_scheme :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
-createLoadBalancer_scheme = Lens.lens (\CreateLoadBalancer' {scheme} -> scheme) (\s@CreateLoadBalancer' {} a -> s {scheme = a} :: CreateLoadBalancer)
-
--- | A list of tags to assign to the load balancer.
---
--- For more information about tagging your load balancer, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
--- in the /Classic Load Balancers Guide/.
-createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe (Prelude.NonEmpty Tag))
-createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+-- | The IDs of the security groups to assign to the load balancer.
+createLoadBalancer_securityGroups :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
+createLoadBalancer_securityGroups = Lens.lens (\CreateLoadBalancer' {securityGroups} -> securityGroups) (\s@CreateLoadBalancer' {} a -> s {securityGroups = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the load balancer.
 --
@@ -259,21 +258,21 @@ instance Core.AWSRequest CreateLoadBalancer where
 
 instance Prelude.Hashable CreateLoadBalancer where
   hashWithSalt _salt CreateLoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` scheme
       `Prelude.hashWithSalt` subnets
       `Prelude.hashWithSalt` availabilityZones
-      `Prelude.hashWithSalt` scheme
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` listeners
 
 instance Prelude.NFData CreateLoadBalancer where
   rnf CreateLoadBalancer' {..} =
-    Prelude.rnf securityGroups
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf scheme
       `Prelude.seq` Prelude.rnf subnets
       `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf scheme
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf listeners
 
@@ -290,11 +289,10 @@ instance Core.ToQuery CreateLoadBalancer where
           Core.=: ("CreateLoadBalancer" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "SecurityGroups"
+        "Tags"
           Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> securityGroups
-            ),
+            (Core.toQueryList "member" Prelude.<$> tags),
+        "Scheme" Core.=: scheme,
         "Subnets"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> subnets),
@@ -303,10 +301,11 @@ instance Core.ToQuery CreateLoadBalancer where
             ( Core.toQueryList "member"
                 Prelude.<$> availabilityZones
             ),
-        "Scheme" Core.=: scheme,
-        "Tags"
+        "SecurityGroups"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+            ( Core.toQueryList "member"
+                Prelude.<$> securityGroups
+            ),
         "LoadBalancerName" Core.=: loadBalancerName,
         "Listeners"
           Core.=: Core.toQueryList "member" listeners

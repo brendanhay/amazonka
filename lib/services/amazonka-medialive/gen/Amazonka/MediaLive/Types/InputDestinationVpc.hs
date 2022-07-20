@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputDestinationVpc' smart constructor.
 data InputDestinationVpc = InputDestinationVpc'
-  { -- | The network interface ID of the Input destination in the VPC.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The availability zone of the Input destination.
-    availabilityZone :: Prelude.Maybe Prelude.Text
+  { -- | The availability zone of the Input destination.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The network interface ID of the Input destination in the VPC.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data InputDestinationVpc = InputDestinationVpc'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkInterfaceId', 'inputDestinationVpc_networkInterfaceId' - The network interface ID of the Input destination in the VPC.
---
 -- 'availabilityZone', 'inputDestinationVpc_availabilityZone' - The availability zone of the Input destination.
+--
+-- 'networkInterfaceId', 'inputDestinationVpc_networkInterfaceId' - The network interface ID of the Input destination in the VPC.
 newInputDestinationVpc ::
   InputDestinationVpc
 newInputDestinationVpc =
   InputDestinationVpc'
-    { networkInterfaceId =
+    { availabilityZone =
         Prelude.Nothing,
-      availabilityZone = Prelude.Nothing
+      networkInterfaceId = Prelude.Nothing
     }
-
--- | The network interface ID of the Input destination in the VPC.
-inputDestinationVpc_networkInterfaceId :: Lens.Lens' InputDestinationVpc (Prelude.Maybe Prelude.Text)
-inputDestinationVpc_networkInterfaceId = Lens.lens (\InputDestinationVpc' {networkInterfaceId} -> networkInterfaceId) (\s@InputDestinationVpc' {} a -> s {networkInterfaceId = a} :: InputDestinationVpc)
 
 -- | The availability zone of the Input destination.
 inputDestinationVpc_availabilityZone :: Lens.Lens' InputDestinationVpc (Prelude.Maybe Prelude.Text)
 inputDestinationVpc_availabilityZone = Lens.lens (\InputDestinationVpc' {availabilityZone} -> availabilityZone) (\s@InputDestinationVpc' {} a -> s {availabilityZone = a} :: InputDestinationVpc)
+
+-- | The network interface ID of the Input destination in the VPC.
+inputDestinationVpc_networkInterfaceId :: Lens.Lens' InputDestinationVpc (Prelude.Maybe Prelude.Text)
+inputDestinationVpc_networkInterfaceId = Lens.lens (\InputDestinationVpc' {networkInterfaceId} -> networkInterfaceId) (\s@InputDestinationVpc' {} a -> s {networkInterfaceId = a} :: InputDestinationVpc)
 
 instance Core.FromJSON InputDestinationVpc where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON InputDestinationVpc where
       "InputDestinationVpc"
       ( \x ->
           InputDestinationVpc'
-            Prelude.<$> (x Core..:? "networkInterfaceId")
-            Prelude.<*> (x Core..:? "availabilityZone")
+            Prelude.<$> (x Core..:? "availabilityZone")
+            Prelude.<*> (x Core..:? "networkInterfaceId")
       )
 
 instance Prelude.Hashable InputDestinationVpc where
   hashWithSalt _salt InputDestinationVpc' {..} =
-    _salt `Prelude.hashWithSalt` networkInterfaceId
-      `Prelude.hashWithSalt` availabilityZone
+    _salt `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` networkInterfaceId
 
 instance Prelude.NFData InputDestinationVpc where
   rnf InputDestinationVpc' {..} =
-    Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf networkInterfaceId

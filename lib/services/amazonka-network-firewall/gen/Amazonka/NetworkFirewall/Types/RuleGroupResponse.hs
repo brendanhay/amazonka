@@ -32,7 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleGroupResponse' smart constructor.
 data RuleGroupResponse = RuleGroupResponse'
-  { -- | The number of firewall policies that use this rule group.
+  { -- | The key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Indicates whether the rule group is stateless or stateful. If the rule
+    -- group is stateless, it contains stateless rules. If it is stateful, it
+    -- contains stateful rules.
+    type' :: Prelude.Maybe RuleGroupType,
+    -- | A description of the rule group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The number of capacity units currently consumed by the rule group rules.
+    consumedCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The number of firewall policies that use this rule group.
     numberOfAssociations :: Prelude.Maybe Prelude.Int,
     -- | The maximum operating resources that this rule group can use. Rule group
     -- capacity is fixed at creation. When you update a rule group, you are
@@ -44,18 +54,8 @@ data RuleGroupResponse = RuleGroupResponse'
     -- before you create the rule group by calling CreateRuleGroup with
     -- @DryRun@ set to @TRUE@.
     capacity :: Prelude.Maybe Prelude.Int,
-    -- | The number of capacity units currently consumed by the rule group rules.
-    consumedCapacity :: Prelude.Maybe Prelude.Int,
     -- | Detailed information about the current status of a rule group.
     ruleGroupStatus :: Prelude.Maybe ResourceStatus,
-    -- | Indicates whether the rule group is stateless or stateful. If the rule
-    -- group is stateless, it contains stateless rules. If it is stateful, it
-    -- contains stateful rules.
-    type' :: Prelude.Maybe RuleGroupType,
-    -- | A description of the rule group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The Amazon Resource Name (ARN) of the rule group.
     --
     -- If this response is for a create request that had @DryRun@ set to
@@ -78,6 +78,16 @@ data RuleGroupResponse = RuleGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'ruleGroupResponse_tags' - The key:value pairs to associate with the resource.
+--
+-- 'type'', 'ruleGroupResponse_type' - Indicates whether the rule group is stateless or stateful. If the rule
+-- group is stateless, it contains stateless rules. If it is stateful, it
+-- contains stateful rules.
+--
+-- 'description', 'ruleGroupResponse_description' - A description of the rule group.
+--
+-- 'consumedCapacity', 'ruleGroupResponse_consumedCapacity' - The number of capacity units currently consumed by the rule group rules.
+--
 -- 'numberOfAssociations', 'ruleGroupResponse_numberOfAssociations' - The number of firewall policies that use this rule group.
 --
 -- 'capacity', 'ruleGroupResponse_capacity' - The maximum operating resources that this rule group can use. Rule group
@@ -90,17 +100,7 @@ data RuleGroupResponse = RuleGroupResponse'
 -- before you create the rule group by calling CreateRuleGroup with
 -- @DryRun@ set to @TRUE@.
 --
--- 'consumedCapacity', 'ruleGroupResponse_consumedCapacity' - The number of capacity units currently consumed by the rule group rules.
---
 -- 'ruleGroupStatus', 'ruleGroupResponse_ruleGroupStatus' - Detailed information about the current status of a rule group.
---
--- 'type'', 'ruleGroupResponse_type' - Indicates whether the rule group is stateless or stateful. If the rule
--- group is stateless, it contains stateless rules. If it is stateful, it
--- contains stateful rules.
---
--- 'description', 'ruleGroupResponse_description' - A description of the rule group.
---
--- 'tags', 'ruleGroupResponse_tags' - The key:value pairs to associate with the resource.
 --
 -- 'ruleGroupArn', 'ruleGroupResponse_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
 --
@@ -125,18 +125,35 @@ newRuleGroupResponse
   pRuleGroupName_
   pRuleGroupId_ =
     RuleGroupResponse'
-      { numberOfAssociations =
-          Prelude.Nothing,
-        capacity = Prelude.Nothing,
-        consumedCapacity = Prelude.Nothing,
-        ruleGroupStatus = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         type' = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        consumedCapacity = Prelude.Nothing,
+        numberOfAssociations = Prelude.Nothing,
+        capacity = Prelude.Nothing,
+        ruleGroupStatus = Prelude.Nothing,
         ruleGroupArn = pRuleGroupArn_,
         ruleGroupName = pRuleGroupName_,
         ruleGroupId = pRuleGroupId_
       }
+
+-- | The key:value pairs to associate with the resource.
+ruleGroupResponse_tags :: Lens.Lens' RuleGroupResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+ruleGroupResponse_tags = Lens.lens (\RuleGroupResponse' {tags} -> tags) (\s@RuleGroupResponse' {} a -> s {tags = a} :: RuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether the rule group is stateless or stateful. If the rule
+-- group is stateless, it contains stateless rules. If it is stateful, it
+-- contains stateful rules.
+ruleGroupResponse_type :: Lens.Lens' RuleGroupResponse (Prelude.Maybe RuleGroupType)
+ruleGroupResponse_type = Lens.lens (\RuleGroupResponse' {type'} -> type') (\s@RuleGroupResponse' {} a -> s {type' = a} :: RuleGroupResponse)
+
+-- | A description of the rule group.
+ruleGroupResponse_description :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Text)
+ruleGroupResponse_description = Lens.lens (\RuleGroupResponse' {description} -> description) (\s@RuleGroupResponse' {} a -> s {description = a} :: RuleGroupResponse)
+
+-- | The number of capacity units currently consumed by the rule group rules.
+ruleGroupResponse_consumedCapacity :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Int)
+ruleGroupResponse_consumedCapacity = Lens.lens (\RuleGroupResponse' {consumedCapacity} -> consumedCapacity) (\s@RuleGroupResponse' {} a -> s {consumedCapacity = a} :: RuleGroupResponse)
 
 -- | The number of firewall policies that use this rule group.
 ruleGroupResponse_numberOfAssociations :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Int)
@@ -154,27 +171,9 @@ ruleGroupResponse_numberOfAssociations = Lens.lens (\RuleGroupResponse' {numberO
 ruleGroupResponse_capacity :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Int)
 ruleGroupResponse_capacity = Lens.lens (\RuleGroupResponse' {capacity} -> capacity) (\s@RuleGroupResponse' {} a -> s {capacity = a} :: RuleGroupResponse)
 
--- | The number of capacity units currently consumed by the rule group rules.
-ruleGroupResponse_consumedCapacity :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Int)
-ruleGroupResponse_consumedCapacity = Lens.lens (\RuleGroupResponse' {consumedCapacity} -> consumedCapacity) (\s@RuleGroupResponse' {} a -> s {consumedCapacity = a} :: RuleGroupResponse)
-
 -- | Detailed information about the current status of a rule group.
 ruleGroupResponse_ruleGroupStatus :: Lens.Lens' RuleGroupResponse (Prelude.Maybe ResourceStatus)
 ruleGroupResponse_ruleGroupStatus = Lens.lens (\RuleGroupResponse' {ruleGroupStatus} -> ruleGroupStatus) (\s@RuleGroupResponse' {} a -> s {ruleGroupStatus = a} :: RuleGroupResponse)
-
--- | Indicates whether the rule group is stateless or stateful. If the rule
--- group is stateless, it contains stateless rules. If it is stateful, it
--- contains stateful rules.
-ruleGroupResponse_type :: Lens.Lens' RuleGroupResponse (Prelude.Maybe RuleGroupType)
-ruleGroupResponse_type = Lens.lens (\RuleGroupResponse' {type'} -> type') (\s@RuleGroupResponse' {} a -> s {type' = a} :: RuleGroupResponse)
-
--- | A description of the rule group.
-ruleGroupResponse_description :: Lens.Lens' RuleGroupResponse (Prelude.Maybe Prelude.Text)
-ruleGroupResponse_description = Lens.lens (\RuleGroupResponse' {description} -> description) (\s@RuleGroupResponse' {} a -> s {description = a} :: RuleGroupResponse)
-
--- | The key:value pairs to associate with the resource.
-ruleGroupResponse_tags :: Lens.Lens' RuleGroupResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-ruleGroupResponse_tags = Lens.lens (\RuleGroupResponse' {tags} -> tags) (\s@RuleGroupResponse' {} a -> s {tags = a} :: RuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the rule group.
 --
@@ -199,13 +198,13 @@ instance Core.FromJSON RuleGroupResponse where
       "RuleGroupResponse"
       ( \x ->
           RuleGroupResponse'
-            Prelude.<$> (x Core..:? "NumberOfAssociations")
-            Prelude.<*> (x Core..:? "Capacity")
-            Prelude.<*> (x Core..:? "ConsumedCapacity")
-            Prelude.<*> (x Core..:? "RuleGroupStatus")
+            Prelude.<$> (x Core..:? "Tags")
             Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tags")
+            Prelude.<*> (x Core..:? "ConsumedCapacity")
+            Prelude.<*> (x Core..:? "NumberOfAssociations")
+            Prelude.<*> (x Core..:? "Capacity")
+            Prelude.<*> (x Core..:? "RuleGroupStatus")
             Prelude.<*> (x Core..: "RuleGroupArn")
             Prelude.<*> (x Core..: "RuleGroupName")
             Prelude.<*> (x Core..: "RuleGroupId")
@@ -213,26 +212,26 @@ instance Core.FromJSON RuleGroupResponse where
 
 instance Prelude.Hashable RuleGroupResponse where
   hashWithSalt _salt RuleGroupResponse' {..} =
-    _salt `Prelude.hashWithSalt` numberOfAssociations
-      `Prelude.hashWithSalt` capacity
-      `Prelude.hashWithSalt` consumedCapacity
-      `Prelude.hashWithSalt` ruleGroupStatus
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` consumedCapacity
+      `Prelude.hashWithSalt` numberOfAssociations
+      `Prelude.hashWithSalt` capacity
+      `Prelude.hashWithSalt` ruleGroupStatus
       `Prelude.hashWithSalt` ruleGroupArn
       `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` ruleGroupId
 
 instance Prelude.NFData RuleGroupResponse where
   rnf RuleGroupResponse' {..} =
-    Prelude.rnf numberOfAssociations
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf consumedCapacity
-      `Prelude.seq` Prelude.rnf ruleGroupStatus
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf numberOfAssociations
+      `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf ruleGroupStatus
       `Prelude.seq` Prelude.rnf ruleGroupArn
       `Prelude.seq` Prelude.rnf ruleGroupName
       `Prelude.seq` Prelude.rnf ruleGroupId

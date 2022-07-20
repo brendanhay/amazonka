@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDirectory' smart constructor.
 data Directory = Directory'
-  { -- | The Amazon Resource Name (ARN) that is associated with the directory.
+  { -- | The name of the directory.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the directory was created.
+    creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) that is associated with the directory.
     -- For more information, see arns.
     directoryArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the directory. Can be either @Enabled@, @Disabled@, or
     -- @Deleted@.
-    state :: Prelude.Maybe DirectoryState,
-    -- | The name of the directory.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the directory was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX
+    state :: Prelude.Maybe DirectoryState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,24 +49,32 @@ data Directory = Directory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'directory_name' - The name of the directory.
+--
+-- 'creationDateTime', 'directory_creationDateTime' - The date and time when the directory was created.
+--
 -- 'directoryArn', 'directory_directoryArn' - The Amazon Resource Name (ARN) that is associated with the directory.
 -- For more information, see arns.
 --
 -- 'state', 'directory_state' - The state of the directory. Can be either @Enabled@, @Disabled@, or
 -- @Deleted@.
---
--- 'name', 'directory_name' - The name of the directory.
---
--- 'creationDateTime', 'directory_creationDateTime' - The date and time when the directory was created.
 newDirectory ::
   Directory
 newDirectory =
   Directory'
-    { directoryArn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
+    { name = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      directoryArn = Prelude.Nothing,
+      state = Prelude.Nothing
     }
+
+-- | The name of the directory.
+directory_name :: Lens.Lens' Directory (Prelude.Maybe Prelude.Text)
+directory_name = Lens.lens (\Directory' {name} -> name) (\s@Directory' {} a -> s {name = a} :: Directory)
+
+-- | The date and time when the directory was created.
+directory_creationDateTime :: Lens.Lens' Directory (Prelude.Maybe Prelude.UTCTime)
+directory_creationDateTime = Lens.lens (\Directory' {creationDateTime} -> creationDateTime) (\s@Directory' {} a -> s {creationDateTime = a} :: Directory) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) that is associated with the directory.
 -- For more information, see arns.
@@ -78,36 +86,28 @@ directory_directoryArn = Lens.lens (\Directory' {directoryArn} -> directoryArn) 
 directory_state :: Lens.Lens' Directory (Prelude.Maybe DirectoryState)
 directory_state = Lens.lens (\Directory' {state} -> state) (\s@Directory' {} a -> s {state = a} :: Directory)
 
--- | The name of the directory.
-directory_name :: Lens.Lens' Directory (Prelude.Maybe Prelude.Text)
-directory_name = Lens.lens (\Directory' {name} -> name) (\s@Directory' {} a -> s {name = a} :: Directory)
-
--- | The date and time when the directory was created.
-directory_creationDateTime :: Lens.Lens' Directory (Prelude.Maybe Prelude.UTCTime)
-directory_creationDateTime = Lens.lens (\Directory' {creationDateTime} -> creationDateTime) (\s@Directory' {} a -> s {creationDateTime = a} :: Directory) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON Directory where
   parseJSON =
     Core.withObject
       "Directory"
       ( \x ->
           Directory'
-            Prelude.<$> (x Core..:? "DirectoryArn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "CreationDateTime")
+            Prelude.<*> (x Core..:? "DirectoryArn")
+            Prelude.<*> (x Core..:? "State")
       )
 
 instance Prelude.Hashable Directory where
   hashWithSalt _salt Directory' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData Directory where
   rnf Directory' {..} =
-    Prelude.rnf directoryArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf state

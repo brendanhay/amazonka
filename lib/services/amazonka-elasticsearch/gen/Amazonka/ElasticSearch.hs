@@ -32,38 +32,38 @@ module Amazonka.ElasticSearch
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** BaseException
-    _BaseException,
-
-    -- ** DisabledOperationException
-    _DisabledOperationException,
-
-    -- ** InternalException
-    _InternalException,
-
-    -- ** InvalidTypeException
-    _InvalidTypeException,
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
+    -- ** InvalidTypeException
+    _InvalidTypeException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** DisabledOperationException
+    _DisabledOperationException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** InternalException
+    _InternalException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** BaseException
+    _BaseException,
 
     -- * Waiters
     -- $waiters
@@ -71,89 +71,17 @@ module Amazonka.ElasticSearch
     -- * Operations
     -- $operations
 
-    -- ** CreateOutboundCrossClusterSearchConnection
-    CreateOutboundCrossClusterSearchConnection (CreateOutboundCrossClusterSearchConnection'),
-    newCreateOutboundCrossClusterSearchConnection,
-    CreateOutboundCrossClusterSearchConnectionResponse (CreateOutboundCrossClusterSearchConnectionResponse'),
-    newCreateOutboundCrossClusterSearchConnectionResponse,
+    -- ** AcceptInboundCrossClusterSearchConnection
+    AcceptInboundCrossClusterSearchConnection (AcceptInboundCrossClusterSearchConnection'),
+    newAcceptInboundCrossClusterSearchConnection,
+    AcceptInboundCrossClusterSearchConnectionResponse (AcceptInboundCrossClusterSearchConnectionResponse'),
+    newAcceptInboundCrossClusterSearchConnectionResponse,
 
-    -- ** DescribeInboundCrossClusterSearchConnections
-    DescribeInboundCrossClusterSearchConnections (DescribeInboundCrossClusterSearchConnections'),
-    newDescribeInboundCrossClusterSearchConnections,
-    DescribeInboundCrossClusterSearchConnectionsResponse (DescribeInboundCrossClusterSearchConnectionsResponse'),
-    newDescribeInboundCrossClusterSearchConnectionsResponse,
-
-    -- ** CreateElasticsearchDomain
-    CreateElasticsearchDomain (CreateElasticsearchDomain'),
-    newCreateElasticsearchDomain,
-    CreateElasticsearchDomainResponse (CreateElasticsearchDomainResponse'),
-    newCreateElasticsearchDomainResponse,
-
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
-
-    -- ** GetCompatibleElasticsearchVersions
-    GetCompatibleElasticsearchVersions (GetCompatibleElasticsearchVersions'),
-    newGetCompatibleElasticsearchVersions,
-    GetCompatibleElasticsearchVersionsResponse (GetCompatibleElasticsearchVersionsResponse'),
-    newGetCompatibleElasticsearchVersionsResponse,
-
-    -- ** DescribeElasticsearchDomains
-    DescribeElasticsearchDomains (DescribeElasticsearchDomains'),
-    newDescribeElasticsearchDomains,
-    DescribeElasticsearchDomainsResponse (DescribeElasticsearchDomainsResponse'),
-    newDescribeElasticsearchDomainsResponse,
-
-    -- ** ListDomainsForPackage
-    ListDomainsForPackage (ListDomainsForPackage'),
-    newListDomainsForPackage,
-    ListDomainsForPackageResponse (ListDomainsForPackageResponse'),
-    newListDomainsForPackageResponse,
-
-    -- ** ListPackagesForDomain
-    ListPackagesForDomain (ListPackagesForDomain'),
-    newListPackagesForDomain,
-    ListPackagesForDomainResponse (ListPackagesForDomainResponse'),
-    newListPackagesForDomainResponse,
-
-    -- ** StartElasticsearchServiceSoftwareUpdate
-    StartElasticsearchServiceSoftwareUpdate (StartElasticsearchServiceSoftwareUpdate'),
-    newStartElasticsearchServiceSoftwareUpdate,
-    StartElasticsearchServiceSoftwareUpdateResponse (StartElasticsearchServiceSoftwareUpdateResponse'),
-    newStartElasticsearchServiceSoftwareUpdateResponse,
-
-    -- ** DescribeDomainAutoTunes
-    DescribeDomainAutoTunes (DescribeDomainAutoTunes'),
-    newDescribeDomainAutoTunes,
-    DescribeDomainAutoTunesResponse (DescribeDomainAutoTunesResponse'),
-    newDescribeDomainAutoTunesResponse,
-
-    -- ** ListElasticsearchInstanceTypes (Paginated)
-    ListElasticsearchInstanceTypes (ListElasticsearchInstanceTypes'),
-    newListElasticsearchInstanceTypes,
-    ListElasticsearchInstanceTypesResponse (ListElasticsearchInstanceTypesResponse'),
-    newListElasticsearchInstanceTypesResponse,
-
-    -- ** DeleteElasticsearchServiceRole
-    DeleteElasticsearchServiceRole (DeleteElasticsearchServiceRole'),
-    newDeleteElasticsearchServiceRole,
-    DeleteElasticsearchServiceRoleResponse (DeleteElasticsearchServiceRoleResponse'),
-    newDeleteElasticsearchServiceRoleResponse,
-
-    -- ** DescribeElasticsearchDomain
-    DescribeElasticsearchDomain (DescribeElasticsearchDomain'),
-    newDescribeElasticsearchDomain,
-    DescribeElasticsearchDomainResponse (DescribeElasticsearchDomainResponse'),
-    newDescribeElasticsearchDomainResponse,
-
-    -- ** ListDomainNames
-    ListDomainNames (ListDomainNames'),
-    newListDomainNames,
-    ListDomainNamesResponse (ListDomainNamesResponse'),
-    newListDomainNamesResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
 
     -- ** AssociatePackage
     AssociatePackage (AssociatePackage'),
@@ -161,17 +89,131 @@ module Amazonka.ElasticSearch
     AssociatePackageResponse (AssociatePackageResponse'),
     newAssociatePackageResponse,
 
+    -- ** CancelElasticsearchServiceSoftwareUpdate
+    CancelElasticsearchServiceSoftwareUpdate (CancelElasticsearchServiceSoftwareUpdate'),
+    newCancelElasticsearchServiceSoftwareUpdate,
+    CancelElasticsearchServiceSoftwareUpdateResponse (CancelElasticsearchServiceSoftwareUpdateResponse'),
+    newCancelElasticsearchServiceSoftwareUpdateResponse,
+
+    -- ** CreateElasticsearchDomain
+    CreateElasticsearchDomain (CreateElasticsearchDomain'),
+    newCreateElasticsearchDomain,
+    CreateElasticsearchDomainResponse (CreateElasticsearchDomainResponse'),
+    newCreateElasticsearchDomainResponse,
+
+    -- ** CreateOutboundCrossClusterSearchConnection
+    CreateOutboundCrossClusterSearchConnection (CreateOutboundCrossClusterSearchConnection'),
+    newCreateOutboundCrossClusterSearchConnection,
+    CreateOutboundCrossClusterSearchConnectionResponse (CreateOutboundCrossClusterSearchConnectionResponse'),
+    newCreateOutboundCrossClusterSearchConnectionResponse,
+
+    -- ** CreatePackage
+    CreatePackage (CreatePackage'),
+    newCreatePackage,
+    CreatePackageResponse (CreatePackageResponse'),
+    newCreatePackageResponse,
+
+    -- ** DeleteElasticsearchDomain
+    DeleteElasticsearchDomain (DeleteElasticsearchDomain'),
+    newDeleteElasticsearchDomain,
+    DeleteElasticsearchDomainResponse (DeleteElasticsearchDomainResponse'),
+    newDeleteElasticsearchDomainResponse,
+
+    -- ** DeleteElasticsearchServiceRole
+    DeleteElasticsearchServiceRole (DeleteElasticsearchServiceRole'),
+    newDeleteElasticsearchServiceRole,
+    DeleteElasticsearchServiceRoleResponse (DeleteElasticsearchServiceRoleResponse'),
+    newDeleteElasticsearchServiceRoleResponse,
+
+    -- ** DeleteInboundCrossClusterSearchConnection
+    DeleteInboundCrossClusterSearchConnection (DeleteInboundCrossClusterSearchConnection'),
+    newDeleteInboundCrossClusterSearchConnection,
+    DeleteInboundCrossClusterSearchConnectionResponse (DeleteInboundCrossClusterSearchConnectionResponse'),
+    newDeleteInboundCrossClusterSearchConnectionResponse,
+
     -- ** DeleteOutboundCrossClusterSearchConnection
     DeleteOutboundCrossClusterSearchConnection (DeleteOutboundCrossClusterSearchConnection'),
     newDeleteOutboundCrossClusterSearchConnection,
     DeleteOutboundCrossClusterSearchConnectionResponse (DeleteOutboundCrossClusterSearchConnectionResponse'),
     newDeleteOutboundCrossClusterSearchConnectionResponse,
 
+    -- ** DeletePackage
+    DeletePackage (DeletePackage'),
+    newDeletePackage,
+    DeletePackageResponse (DeletePackageResponse'),
+    newDeletePackageResponse,
+
+    -- ** DescribeDomainAutoTunes
+    DescribeDomainAutoTunes (DescribeDomainAutoTunes'),
+    newDescribeDomainAutoTunes,
+    DescribeDomainAutoTunesResponse (DescribeDomainAutoTunesResponse'),
+    newDescribeDomainAutoTunesResponse,
+
+    -- ** DescribeElasticsearchDomain
+    DescribeElasticsearchDomain (DescribeElasticsearchDomain'),
+    newDescribeElasticsearchDomain,
+    DescribeElasticsearchDomainResponse (DescribeElasticsearchDomainResponse'),
+    newDescribeElasticsearchDomainResponse,
+
+    -- ** DescribeElasticsearchDomainConfig
+    DescribeElasticsearchDomainConfig (DescribeElasticsearchDomainConfig'),
+    newDescribeElasticsearchDomainConfig,
+    DescribeElasticsearchDomainConfigResponse (DescribeElasticsearchDomainConfigResponse'),
+    newDescribeElasticsearchDomainConfigResponse,
+
+    -- ** DescribeElasticsearchDomains
+    DescribeElasticsearchDomains (DescribeElasticsearchDomains'),
+    newDescribeElasticsearchDomains,
+    DescribeElasticsearchDomainsResponse (DescribeElasticsearchDomainsResponse'),
+    newDescribeElasticsearchDomainsResponse,
+
     -- ** DescribeElasticsearchInstanceTypeLimits
     DescribeElasticsearchInstanceTypeLimits (DescribeElasticsearchInstanceTypeLimits'),
     newDescribeElasticsearchInstanceTypeLimits,
     DescribeElasticsearchInstanceTypeLimitsResponse (DescribeElasticsearchInstanceTypeLimitsResponse'),
     newDescribeElasticsearchInstanceTypeLimitsResponse,
+
+    -- ** DescribeInboundCrossClusterSearchConnections
+    DescribeInboundCrossClusterSearchConnections (DescribeInboundCrossClusterSearchConnections'),
+    newDescribeInboundCrossClusterSearchConnections,
+    DescribeInboundCrossClusterSearchConnectionsResponse (DescribeInboundCrossClusterSearchConnectionsResponse'),
+    newDescribeInboundCrossClusterSearchConnectionsResponse,
+
+    -- ** DescribeOutboundCrossClusterSearchConnections
+    DescribeOutboundCrossClusterSearchConnections (DescribeOutboundCrossClusterSearchConnections'),
+    newDescribeOutboundCrossClusterSearchConnections,
+    DescribeOutboundCrossClusterSearchConnectionsResponse (DescribeOutboundCrossClusterSearchConnectionsResponse'),
+    newDescribeOutboundCrossClusterSearchConnectionsResponse,
+
+    -- ** DescribePackages
+    DescribePackages (DescribePackages'),
+    newDescribePackages,
+    DescribePackagesResponse (DescribePackagesResponse'),
+    newDescribePackagesResponse,
+
+    -- ** DescribeReservedElasticsearchInstanceOfferings (Paginated)
+    DescribeReservedElasticsearchInstanceOfferings (DescribeReservedElasticsearchInstanceOfferings'),
+    newDescribeReservedElasticsearchInstanceOfferings,
+    DescribeReservedElasticsearchInstanceOfferingsResponse (DescribeReservedElasticsearchInstanceOfferingsResponse'),
+    newDescribeReservedElasticsearchInstanceOfferingsResponse,
+
+    -- ** DescribeReservedElasticsearchInstances (Paginated)
+    DescribeReservedElasticsearchInstances (DescribeReservedElasticsearchInstances'),
+    newDescribeReservedElasticsearchInstances,
+    DescribeReservedElasticsearchInstancesResponse (DescribeReservedElasticsearchInstancesResponse'),
+    newDescribeReservedElasticsearchInstancesResponse,
+
+    -- ** DissociatePackage
+    DissociatePackage (DissociatePackage'),
+    newDissociatePackage,
+    DissociatePackageResponse (DissociatePackageResponse'),
+    newDissociatePackageResponse,
+
+    -- ** GetCompatibleElasticsearchVersions
+    GetCompatibleElasticsearchVersions (GetCompatibleElasticsearchVersions'),
+    newGetCompatibleElasticsearchVersions,
+    GetCompatibleElasticsearchVersionsResponse (GetCompatibleElasticsearchVersionsResponse'),
+    newGetCompatibleElasticsearchVersionsResponse,
 
     -- ** GetPackageVersionHistory
     GetPackageVersionHistory (GetPackageVersionHistory'),
@@ -185,53 +227,29 @@ module Amazonka.ElasticSearch
     GetUpgradeHistoryResponse (GetUpgradeHistoryResponse'),
     newGetUpgradeHistoryResponse,
 
-    -- ** DescribePackages
-    DescribePackages (DescribePackages'),
-    newDescribePackages,
-    DescribePackagesResponse (DescribePackagesResponse'),
-    newDescribePackagesResponse,
-
-    -- ** DescribeElasticsearchDomainConfig
-    DescribeElasticsearchDomainConfig (DescribeElasticsearchDomainConfig'),
-    newDescribeElasticsearchDomainConfig,
-    DescribeElasticsearchDomainConfigResponse (DescribeElasticsearchDomainConfigResponse'),
-    newDescribeElasticsearchDomainConfigResponse,
-
     -- ** GetUpgradeStatus
     GetUpgradeStatus (GetUpgradeStatus'),
     newGetUpgradeStatus,
     GetUpgradeStatusResponse (GetUpgradeStatusResponse'),
     newGetUpgradeStatusResponse,
 
-    -- ** DeleteElasticsearchDomain
-    DeleteElasticsearchDomain (DeleteElasticsearchDomain'),
-    newDeleteElasticsearchDomain,
-    DeleteElasticsearchDomainResponse (DeleteElasticsearchDomainResponse'),
-    newDeleteElasticsearchDomainResponse,
+    -- ** ListDomainNames
+    ListDomainNames (ListDomainNames'),
+    newListDomainNames,
+    ListDomainNamesResponse (ListDomainNamesResponse'),
+    newListDomainNamesResponse,
 
-    -- ** DissociatePackage
-    DissociatePackage (DissociatePackage'),
-    newDissociatePackage,
-    DissociatePackageResponse (DissociatePackageResponse'),
-    newDissociatePackageResponse,
+    -- ** ListDomainsForPackage
+    ListDomainsForPackage (ListDomainsForPackage'),
+    newListDomainsForPackage,
+    ListDomainsForPackageResponse (ListDomainsForPackageResponse'),
+    newListDomainsForPackageResponse,
 
-    -- ** PurchaseReservedElasticsearchInstanceOffering
-    PurchaseReservedElasticsearchInstanceOffering (PurchaseReservedElasticsearchInstanceOffering'),
-    newPurchaseReservedElasticsearchInstanceOffering,
-    PurchaseReservedElasticsearchInstanceOfferingResponse (PurchaseReservedElasticsearchInstanceOfferingResponse'),
-    newPurchaseReservedElasticsearchInstanceOfferingResponse,
-
-    -- ** DescribeReservedElasticsearchInstances (Paginated)
-    DescribeReservedElasticsearchInstances (DescribeReservedElasticsearchInstances'),
-    newDescribeReservedElasticsearchInstances,
-    DescribeReservedElasticsearchInstancesResponse (DescribeReservedElasticsearchInstancesResponse'),
-    newDescribeReservedElasticsearchInstancesResponse,
-
-    -- ** UpdateElasticsearchDomainConfig
-    UpdateElasticsearchDomainConfig (UpdateElasticsearchDomainConfig'),
-    newUpdateElasticsearchDomainConfig,
-    UpdateElasticsearchDomainConfigResponse (UpdateElasticsearchDomainConfigResponse'),
-    newUpdateElasticsearchDomainConfigResponse,
+    -- ** ListElasticsearchInstanceTypes (Paginated)
+    ListElasticsearchInstanceTypes (ListElasticsearchInstanceTypes'),
+    newListElasticsearchInstanceTypes,
+    ListElasticsearchInstanceTypesResponse (ListElasticsearchInstanceTypesResponse'),
+    newListElasticsearchInstanceTypesResponse,
 
     -- ** ListElasticsearchVersions (Paginated)
     ListElasticsearchVersions (ListElasticsearchVersions'),
@@ -239,29 +257,11 @@ module Amazonka.ElasticSearch
     ListElasticsearchVersionsResponse (ListElasticsearchVersionsResponse'),
     newListElasticsearchVersionsResponse,
 
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
-    -- ** DeleteInboundCrossClusterSearchConnection
-    DeleteInboundCrossClusterSearchConnection (DeleteInboundCrossClusterSearchConnection'),
-    newDeleteInboundCrossClusterSearchConnection,
-    DeleteInboundCrossClusterSearchConnectionResponse (DeleteInboundCrossClusterSearchConnectionResponse'),
-    newDeleteInboundCrossClusterSearchConnectionResponse,
-
-    -- ** DescribeReservedElasticsearchInstanceOfferings (Paginated)
-    DescribeReservedElasticsearchInstanceOfferings (DescribeReservedElasticsearchInstanceOfferings'),
-    newDescribeReservedElasticsearchInstanceOfferings,
-    DescribeReservedElasticsearchInstanceOfferingsResponse (DescribeReservedElasticsearchInstanceOfferingsResponse'),
-    newDescribeReservedElasticsearchInstanceOfferingsResponse,
-
-    -- ** UpgradeElasticsearchDomain
-    UpgradeElasticsearchDomain (UpgradeElasticsearchDomain'),
-    newUpgradeElasticsearchDomain,
-    UpgradeElasticsearchDomainResponse (UpgradeElasticsearchDomainResponse'),
-    newUpgradeElasticsearchDomainResponse,
+    -- ** ListPackagesForDomain
+    ListPackagesForDomain (ListPackagesForDomain'),
+    newListPackagesForDomain,
+    ListPackagesForDomainResponse (ListPackagesForDomainResponse'),
+    newListPackagesForDomainResponse,
 
     -- ** ListTags
     ListTags (ListTags'),
@@ -269,29 +269,11 @@ module Amazonka.ElasticSearch
     ListTagsResponse (ListTagsResponse'),
     newListTagsResponse,
 
-    -- ** DeletePackage
-    DeletePackage (DeletePackage'),
-    newDeletePackage,
-    DeletePackageResponse (DeletePackageResponse'),
-    newDeletePackageResponse,
-
-    -- ** UpdatePackage
-    UpdatePackage (UpdatePackage'),
-    newUpdatePackage,
-    UpdatePackageResponse (UpdatePackageResponse'),
-    newUpdatePackageResponse,
-
-    -- ** CancelElasticsearchServiceSoftwareUpdate
-    CancelElasticsearchServiceSoftwareUpdate (CancelElasticsearchServiceSoftwareUpdate'),
-    newCancelElasticsearchServiceSoftwareUpdate,
-    CancelElasticsearchServiceSoftwareUpdateResponse (CancelElasticsearchServiceSoftwareUpdateResponse'),
-    newCancelElasticsearchServiceSoftwareUpdateResponse,
-
-    -- ** CreatePackage
-    CreatePackage (CreatePackage'),
-    newCreatePackage,
-    CreatePackageResponse (CreatePackageResponse'),
-    newCreatePackageResponse,
+    -- ** PurchaseReservedElasticsearchInstanceOffering
+    PurchaseReservedElasticsearchInstanceOffering (PurchaseReservedElasticsearchInstanceOffering'),
+    newPurchaseReservedElasticsearchInstanceOffering,
+    PurchaseReservedElasticsearchInstanceOfferingResponse (PurchaseReservedElasticsearchInstanceOfferingResponse'),
+    newPurchaseReservedElasticsearchInstanceOfferingResponse,
 
     -- ** RejectInboundCrossClusterSearchConnection
     RejectInboundCrossClusterSearchConnection (RejectInboundCrossClusterSearchConnection'),
@@ -299,17 +281,35 @@ module Amazonka.ElasticSearch
     RejectInboundCrossClusterSearchConnectionResponse (RejectInboundCrossClusterSearchConnectionResponse'),
     newRejectInboundCrossClusterSearchConnectionResponse,
 
-    -- ** DescribeOutboundCrossClusterSearchConnections
-    DescribeOutboundCrossClusterSearchConnections (DescribeOutboundCrossClusterSearchConnections'),
-    newDescribeOutboundCrossClusterSearchConnections,
-    DescribeOutboundCrossClusterSearchConnectionsResponse (DescribeOutboundCrossClusterSearchConnectionsResponse'),
-    newDescribeOutboundCrossClusterSearchConnectionsResponse,
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
 
-    -- ** AcceptInboundCrossClusterSearchConnection
-    AcceptInboundCrossClusterSearchConnection (AcceptInboundCrossClusterSearchConnection'),
-    newAcceptInboundCrossClusterSearchConnection,
-    AcceptInboundCrossClusterSearchConnectionResponse (AcceptInboundCrossClusterSearchConnectionResponse'),
-    newAcceptInboundCrossClusterSearchConnectionResponse,
+    -- ** StartElasticsearchServiceSoftwareUpdate
+    StartElasticsearchServiceSoftwareUpdate (StartElasticsearchServiceSoftwareUpdate'),
+    newStartElasticsearchServiceSoftwareUpdate,
+    StartElasticsearchServiceSoftwareUpdateResponse (StartElasticsearchServiceSoftwareUpdateResponse'),
+    newStartElasticsearchServiceSoftwareUpdateResponse,
+
+    -- ** UpdateElasticsearchDomainConfig
+    UpdateElasticsearchDomainConfig (UpdateElasticsearchDomainConfig'),
+    newUpdateElasticsearchDomainConfig,
+    UpdateElasticsearchDomainConfigResponse (UpdateElasticsearchDomainConfigResponse'),
+    newUpdateElasticsearchDomainConfigResponse,
+
+    -- ** UpdatePackage
+    UpdatePackage (UpdatePackage'),
+    newUpdatePackage,
+    UpdatePackageResponse (UpdatePackageResponse'),
+    newUpdatePackageResponse,
+
+    -- ** UpgradeElasticsearchDomain
+    UpgradeElasticsearchDomain (UpgradeElasticsearchDomain'),
+    newUpgradeElasticsearchDomain,
+    UpgradeElasticsearchDomainResponse (UpgradeElasticsearchDomainResponse'),
+    newUpgradeElasticsearchDomainResponse,
 
     -- * Types
 

@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetComponentPolicy
     newGetComponentPolicyResponse,
 
     -- * Response Lenses
-    getComponentPolicyResponse_requestId,
     getComponentPolicyResponse_policy,
+    getComponentPolicyResponse_requestId,
     getComponentPolicyResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest GetComponentPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetComponentPolicyResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "policy")
+            Prelude.<$> (x Core..?> "policy")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,10 +120,10 @@ instance Core.ToQuery GetComponentPolicy where
 
 -- | /See:/ 'newGetComponentPolicyResponse' smart constructor.
 data GetComponentPolicyResponse = GetComponentPolicyResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The component policy.
+  { -- | The component policy.
     policy :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,9 +137,9 @@ data GetComponentPolicyResponse = GetComponentPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getComponentPolicyResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'policy', 'getComponentPolicyResponse_policy' - The component policy.
+--
+-- 'requestId', 'getComponentPolicyResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getComponentPolicyResponse_httpStatus' - The response's http status code.
 newGetComponentPolicyResponse ::
@@ -148,19 +148,19 @@ newGetComponentPolicyResponse ::
   GetComponentPolicyResponse
 newGetComponentPolicyResponse pHttpStatus_ =
   GetComponentPolicyResponse'
-    { requestId =
+    { policy =
         Prelude.Nothing,
-      policy = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-getComponentPolicyResponse_requestId :: Lens.Lens' GetComponentPolicyResponse (Prelude.Maybe Prelude.Text)
-getComponentPolicyResponse_requestId = Lens.lens (\GetComponentPolicyResponse' {requestId} -> requestId) (\s@GetComponentPolicyResponse' {} a -> s {requestId = a} :: GetComponentPolicyResponse)
 
 -- | The component policy.
 getComponentPolicyResponse_policy :: Lens.Lens' GetComponentPolicyResponse (Prelude.Maybe Prelude.Text)
 getComponentPolicyResponse_policy = Lens.lens (\GetComponentPolicyResponse' {policy} -> policy) (\s@GetComponentPolicyResponse' {} a -> s {policy = a} :: GetComponentPolicyResponse)
+
+-- | The request ID that uniquely identifies this request.
+getComponentPolicyResponse_requestId :: Lens.Lens' GetComponentPolicyResponse (Prelude.Maybe Prelude.Text)
+getComponentPolicyResponse_requestId = Lens.lens (\GetComponentPolicyResponse' {requestId} -> requestId) (\s@GetComponentPolicyResponse' {} a -> s {requestId = a} :: GetComponentPolicyResponse)
 
 -- | The response's http status code.
 getComponentPolicyResponse_httpStatus :: Lens.Lens' GetComponentPolicyResponse Prelude.Int
@@ -168,6 +168,6 @@ getComponentPolicyResponse_httpStatus = Lens.lens (\GetComponentPolicyResponse' 
 
 instance Prelude.NFData GetComponentPolicyResponse where
   rnf GetComponentPolicyResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

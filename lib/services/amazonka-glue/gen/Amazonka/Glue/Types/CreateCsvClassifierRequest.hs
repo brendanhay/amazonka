@@ -31,13 +31,13 @@ data CreateCsvClassifierRequest = CreateCsvClassifierRequest'
   { -- | A custom symbol to denote what combines content into a single column
     -- value. Must be different from the column delimiter.
     quoteSymbol :: Prelude.Maybe Prelude.Text,
+    -- | A list of strings representing column names.
+    header :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the CSV file contains a header.
     containsHeader :: Prelude.Maybe CsvHeaderOption,
     -- | Specifies not to trim values before identifying the type of column
     -- values. The default value is true.
     disableValueTrimming :: Prelude.Maybe Prelude.Bool,
-    -- | A list of strings representing column names.
-    header :: Prelude.Maybe [Prelude.Text],
     -- | Enables the processing of files that contain only one column.
     allowSingleColumn :: Prelude.Maybe Prelude.Bool,
     -- | A custom symbol to denote what separates each column entry in the row.
@@ -58,12 +58,12 @@ data CreateCsvClassifierRequest = CreateCsvClassifierRequest'
 -- 'quoteSymbol', 'createCsvClassifierRequest_quoteSymbol' - A custom symbol to denote what combines content into a single column
 -- value. Must be different from the column delimiter.
 --
+-- 'header', 'createCsvClassifierRequest_header' - A list of strings representing column names.
+--
 -- 'containsHeader', 'createCsvClassifierRequest_containsHeader' - Indicates whether the CSV file contains a header.
 --
 -- 'disableValueTrimming', 'createCsvClassifierRequest_disableValueTrimming' - Specifies not to trim values before identifying the type of column
 -- values. The default value is true.
---
--- 'header', 'createCsvClassifierRequest_header' - A list of strings representing column names.
 --
 -- 'allowSingleColumn', 'createCsvClassifierRequest_allowSingleColumn' - Enables the processing of files that contain only one column.
 --
@@ -78,9 +78,9 @@ newCreateCsvClassifierRequest pName_ =
   CreateCsvClassifierRequest'
     { quoteSymbol =
         Prelude.Nothing,
+      header = Prelude.Nothing,
       containsHeader = Prelude.Nothing,
       disableValueTrimming = Prelude.Nothing,
-      header = Prelude.Nothing,
       allowSingleColumn = Prelude.Nothing,
       delimiter = Prelude.Nothing,
       name = pName_
@@ -91,6 +91,10 @@ newCreateCsvClassifierRequest pName_ =
 createCsvClassifierRequest_quoteSymbol :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Text)
 createCsvClassifierRequest_quoteSymbol = Lens.lens (\CreateCsvClassifierRequest' {quoteSymbol} -> quoteSymbol) (\s@CreateCsvClassifierRequest' {} a -> s {quoteSymbol = a} :: CreateCsvClassifierRequest)
 
+-- | A list of strings representing column names.
+createCsvClassifierRequest_header :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe [Prelude.Text])
+createCsvClassifierRequest_header = Lens.lens (\CreateCsvClassifierRequest' {header} -> header) (\s@CreateCsvClassifierRequest' {} a -> s {header = a} :: CreateCsvClassifierRequest) Prelude.. Lens.mapping Lens.coerced
+
 -- | Indicates whether the CSV file contains a header.
 createCsvClassifierRequest_containsHeader :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe CsvHeaderOption)
 createCsvClassifierRequest_containsHeader = Lens.lens (\CreateCsvClassifierRequest' {containsHeader} -> containsHeader) (\s@CreateCsvClassifierRequest' {} a -> s {containsHeader = a} :: CreateCsvClassifierRequest)
@@ -99,10 +103,6 @@ createCsvClassifierRequest_containsHeader = Lens.lens (\CreateCsvClassifierReque
 -- values. The default value is true.
 createCsvClassifierRequest_disableValueTrimming :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Bool)
 createCsvClassifierRequest_disableValueTrimming = Lens.lens (\CreateCsvClassifierRequest' {disableValueTrimming} -> disableValueTrimming) (\s@CreateCsvClassifierRequest' {} a -> s {disableValueTrimming = a} :: CreateCsvClassifierRequest)
-
--- | A list of strings representing column names.
-createCsvClassifierRequest_header :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe [Prelude.Text])
-createCsvClassifierRequest_header = Lens.lens (\CreateCsvClassifierRequest' {header} -> header) (\s@CreateCsvClassifierRequest' {} a -> s {header = a} :: CreateCsvClassifierRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | Enables the processing of files that contain only one column.
 createCsvClassifierRequest_allowSingleColumn :: Lens.Lens' CreateCsvClassifierRequest (Prelude.Maybe Prelude.Bool)
@@ -119,9 +119,9 @@ createCsvClassifierRequest_name = Lens.lens (\CreateCsvClassifierRequest' {name}
 instance Prelude.Hashable CreateCsvClassifierRequest where
   hashWithSalt _salt CreateCsvClassifierRequest' {..} =
     _salt `Prelude.hashWithSalt` quoteSymbol
+      `Prelude.hashWithSalt` header
       `Prelude.hashWithSalt` containsHeader
       `Prelude.hashWithSalt` disableValueTrimming
-      `Prelude.hashWithSalt` header
       `Prelude.hashWithSalt` allowSingleColumn
       `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` name
@@ -129,9 +129,9 @@ instance Prelude.Hashable CreateCsvClassifierRequest where
 instance Prelude.NFData CreateCsvClassifierRequest where
   rnf CreateCsvClassifierRequest' {..} =
     Prelude.rnf quoteSymbol
+      `Prelude.seq` Prelude.rnf header
       `Prelude.seq` Prelude.rnf containsHeader
       `Prelude.seq` Prelude.rnf disableValueTrimming
-      `Prelude.seq` Prelude.rnf header
       `Prelude.seq` Prelude.rnf allowSingleColumn
       `Prelude.seq` Prelude.rnf delimiter
       `Prelude.seq` Prelude.rnf name
@@ -141,11 +141,11 @@ instance Core.ToJSON CreateCsvClassifierRequest where
     Core.object
       ( Prelude.catMaybes
           [ ("QuoteSymbol" Core..=) Prelude.<$> quoteSymbol,
+            ("Header" Core..=) Prelude.<$> header,
             ("ContainsHeader" Core..=)
               Prelude.<$> containsHeader,
             ("DisableValueTrimming" Core..=)
               Prelude.<$> disableValueTrimming,
-            ("Header" Core..=) Prelude.<$> header,
             ("AllowSingleColumn" Core..=)
               Prelude.<$> allowSingleColumn,
             ("Delimiter" Core..=) Prelude.<$> delimiter,

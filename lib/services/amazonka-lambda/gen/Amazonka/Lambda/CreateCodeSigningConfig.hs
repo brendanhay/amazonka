@@ -31,8 +31,8 @@ module Amazonka.Lambda.CreateCodeSigningConfig
     newCreateCodeSigningConfig,
 
     -- * Request Lenses
-    createCodeSigningConfig_codeSigningPolicies,
     createCodeSigningConfig_description,
+    createCodeSigningConfig_codeSigningPolicies,
     createCodeSigningConfig_allowedPublishers,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCodeSigningConfig' smart constructor.
 data CreateCodeSigningConfig = CreateCodeSigningConfig'
-  { -- | The code signing policies define the actions to take if the validation
+  { -- | Descriptive name for this code signing configuration.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The code signing policies define the actions to take if the validation
     -- checks fail.
     codeSigningPolicies :: Prelude.Maybe CodeSigningPolicies,
-    -- | Descriptive name for this code signing configuration.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Signing profiles for this code signing configuration.
     allowedPublishers :: AllowedPublishers
   }
@@ -72,10 +72,10 @@ data CreateCodeSigningConfig = CreateCodeSigningConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createCodeSigningConfig_description' - Descriptive name for this code signing configuration.
+--
 -- 'codeSigningPolicies', 'createCodeSigningConfig_codeSigningPolicies' - The code signing policies define the actions to take if the validation
 -- checks fail.
---
--- 'description', 'createCodeSigningConfig_description' - Descriptive name for this code signing configuration.
 --
 -- 'allowedPublishers', 'createCodeSigningConfig_allowedPublishers' - Signing profiles for this code signing configuration.
 newCreateCodeSigningConfig ::
@@ -84,20 +84,20 @@ newCreateCodeSigningConfig ::
   CreateCodeSigningConfig
 newCreateCodeSigningConfig pAllowedPublishers_ =
   CreateCodeSigningConfig'
-    { codeSigningPolicies =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
+      codeSigningPolicies = Prelude.Nothing,
       allowedPublishers = pAllowedPublishers_
     }
+
+-- | Descriptive name for this code signing configuration.
+createCodeSigningConfig_description :: Lens.Lens' CreateCodeSigningConfig (Prelude.Maybe Prelude.Text)
+createCodeSigningConfig_description = Lens.lens (\CreateCodeSigningConfig' {description} -> description) (\s@CreateCodeSigningConfig' {} a -> s {description = a} :: CreateCodeSigningConfig)
 
 -- | The code signing policies define the actions to take if the validation
 -- checks fail.
 createCodeSigningConfig_codeSigningPolicies :: Lens.Lens' CreateCodeSigningConfig (Prelude.Maybe CodeSigningPolicies)
 createCodeSigningConfig_codeSigningPolicies = Lens.lens (\CreateCodeSigningConfig' {codeSigningPolicies} -> codeSigningPolicies) (\s@CreateCodeSigningConfig' {} a -> s {codeSigningPolicies = a} :: CreateCodeSigningConfig)
-
--- | Descriptive name for this code signing configuration.
-createCodeSigningConfig_description :: Lens.Lens' CreateCodeSigningConfig (Prelude.Maybe Prelude.Text)
-createCodeSigningConfig_description = Lens.lens (\CreateCodeSigningConfig' {description} -> description) (\s@CreateCodeSigningConfig' {} a -> s {description = a} :: CreateCodeSigningConfig)
 
 -- | Signing profiles for this code signing configuration.
 createCodeSigningConfig_allowedPublishers :: Lens.Lens' CreateCodeSigningConfig AllowedPublishers
@@ -118,14 +118,14 @@ instance Core.AWSRequest CreateCodeSigningConfig where
 
 instance Prelude.Hashable CreateCodeSigningConfig where
   hashWithSalt _salt CreateCodeSigningConfig' {..} =
-    _salt `Prelude.hashWithSalt` codeSigningPolicies
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` codeSigningPolicies
       `Prelude.hashWithSalt` allowedPublishers
 
 instance Prelude.NFData CreateCodeSigningConfig where
   rnf CreateCodeSigningConfig' {..} =
-    Prelude.rnf codeSigningPolicies
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf codeSigningPolicies
       `Prelude.seq` Prelude.rnf allowedPublishers
 
 instance Core.ToHeaders CreateCodeSigningConfig where
@@ -135,9 +135,9 @@ instance Core.ToJSON CreateCodeSigningConfig where
   toJSON CreateCodeSigningConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CodeSigningPolicies" Core..=)
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("CodeSigningPolicies" Core..=)
               Prelude.<$> codeSigningPolicies,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just
               ("AllowedPublishers" Core..= allowedPublishers)
           ]

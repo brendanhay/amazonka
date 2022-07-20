@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpRoute' smart constructor.
 data IpRoute = IpRoute'
-  { -- | IP address block using CIDR format, for example 10.0.0.0\/24. This is
+  { -- | Description of the address block.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | IP address block using CIDR format, for example 10.0.0.0\/24. This is
     -- often the address block of the DNS server used for your self-managed
     -- domain. For a single IP address use a CIDR address block with \/32. For
     -- example 10.0.0.0\/32.
-    cidrIp :: Prelude.Maybe Prelude.Text,
-    -- | Description of the address block.
-    description :: Prelude.Maybe Prelude.Text
+    cidrIp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data IpRoute = IpRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'ipRoute_description' - Description of the address block.
+--
 -- 'cidrIp', 'ipRoute_cidrIp' - IP address block using CIDR format, for example 10.0.0.0\/24. This is
 -- often the address block of the DNS server used for your self-managed
 -- domain. For a single IP address use a CIDR address block with \/32. For
 -- example 10.0.0.0\/32.
---
--- 'description', 'ipRoute_description' - Description of the address block.
 newIpRoute ::
   IpRoute
 newIpRoute =
   IpRoute'
-    { cidrIp = Prelude.Nothing,
-      description = Prelude.Nothing
+    { description = Prelude.Nothing,
+      cidrIp = Prelude.Nothing
     }
+
+-- | Description of the address block.
+ipRoute_description :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)
+ipRoute_description = Lens.lens (\IpRoute' {description} -> description) (\s@IpRoute' {} a -> s {description = a} :: IpRoute)
 
 -- | IP address block using CIDR format, for example 10.0.0.0\/24. This is
 -- often the address block of the DNS server used for your self-managed
@@ -67,25 +71,21 @@ newIpRoute =
 ipRoute_cidrIp :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)
 ipRoute_cidrIp = Lens.lens (\IpRoute' {cidrIp} -> cidrIp) (\s@IpRoute' {} a -> s {cidrIp = a} :: IpRoute)
 
--- | Description of the address block.
-ipRoute_description :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)
-ipRoute_description = Lens.lens (\IpRoute' {description} -> description) (\s@IpRoute' {} a -> s {description = a} :: IpRoute)
-
 instance Prelude.Hashable IpRoute where
   hashWithSalt _salt IpRoute' {..} =
-    _salt `Prelude.hashWithSalt` cidrIp
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` cidrIp
 
 instance Prelude.NFData IpRoute where
   rnf IpRoute' {..} =
-    Prelude.rnf cidrIp
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf cidrIp
 
 instance Core.ToJSON IpRoute where
   toJSON IpRoute' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CidrIp" Core..=) Prelude.<$> cidrIp,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("CidrIp" Core..=) Prelude.<$> cidrIp
           ]
       )

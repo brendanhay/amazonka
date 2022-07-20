@@ -34,8 +34,8 @@ module Amazonka.IVS.BatchGetStreamKey
     newBatchGetStreamKeyResponse,
 
     -- * Response Lenses
-    batchGetStreamKeyResponse_streamKeys,
     batchGetStreamKeyResponse_errors,
+    batchGetStreamKeyResponse_streamKeys,
     batchGetStreamKeyResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest BatchGetStreamKey where
     Response.receiveJSON
       ( \s h x ->
           BatchGetStreamKeyResponse'
-            Prelude.<$> (x Core..?> "streamKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "streamKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,8 +124,8 @@ instance Core.ToQuery BatchGetStreamKey where
 
 -- | /See:/ 'newBatchGetStreamKeyResponse' smart constructor.
 data BatchGetStreamKeyResponse = BatchGetStreamKeyResponse'
-  { streamKeys :: Prelude.Maybe [StreamKey],
-    errors :: Prelude.Maybe [BatchError],
+  { errors :: Prelude.Maybe [BatchError],
+    streamKeys :: Prelude.Maybe [StreamKey],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,9 +139,9 @@ data BatchGetStreamKeyResponse = BatchGetStreamKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamKeys', 'batchGetStreamKeyResponse_streamKeys' -
---
 -- 'errors', 'batchGetStreamKeyResponse_errors' -
+--
+-- 'streamKeys', 'batchGetStreamKeyResponse_streamKeys' -
 --
 -- 'httpStatus', 'batchGetStreamKeyResponse_httpStatus' - The response's http status code.
 newBatchGetStreamKeyResponse ::
@@ -150,19 +150,19 @@ newBatchGetStreamKeyResponse ::
   BatchGetStreamKeyResponse
 newBatchGetStreamKeyResponse pHttpStatus_ =
   BatchGetStreamKeyResponse'
-    { streamKeys =
+    { errors =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
+      streamKeys = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-batchGetStreamKeyResponse_streamKeys :: Lens.Lens' BatchGetStreamKeyResponse (Prelude.Maybe [StreamKey])
-batchGetStreamKeyResponse_streamKeys = Lens.lens (\BatchGetStreamKeyResponse' {streamKeys} -> streamKeys) (\s@BatchGetStreamKeyResponse' {} a -> s {streamKeys = a} :: BatchGetStreamKeyResponse) Prelude.. Lens.mapping Lens.coerced
-
--- |
 batchGetStreamKeyResponse_errors :: Lens.Lens' BatchGetStreamKeyResponse (Prelude.Maybe [BatchError])
 batchGetStreamKeyResponse_errors = Lens.lens (\BatchGetStreamKeyResponse' {errors} -> errors) (\s@BatchGetStreamKeyResponse' {} a -> s {errors = a} :: BatchGetStreamKeyResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- |
+batchGetStreamKeyResponse_streamKeys :: Lens.Lens' BatchGetStreamKeyResponse (Prelude.Maybe [StreamKey])
+batchGetStreamKeyResponse_streamKeys = Lens.lens (\BatchGetStreamKeyResponse' {streamKeys} -> streamKeys) (\s@BatchGetStreamKeyResponse' {} a -> s {streamKeys = a} :: BatchGetStreamKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetStreamKeyResponse_httpStatus :: Lens.Lens' BatchGetStreamKeyResponse Prelude.Int
@@ -170,6 +170,6 @@ batchGetStreamKeyResponse_httpStatus = Lens.lens (\BatchGetStreamKeyResponse' {h
 
 instance Prelude.NFData BatchGetStreamKeyResponse where
   rnf BatchGetStreamKeyResponse' {..} =
-    Prelude.rnf streamKeys
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf streamKeys
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResponseTimeRootCauseEntity' smart constructor.
 data ResponseTimeRootCauseEntity = ResponseTimeRootCauseEntity'
-  { -- | A flag that denotes a remote subsegment.
-    remote :: Prelude.Maybe Prelude.Bool,
+  { -- | The name of the entity.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The type and messages of the exceptions.
     coverage :: Prelude.Maybe Prelude.Double,
-    -- | The name of the entity.
-    name :: Prelude.Maybe Prelude.Text
+    -- | A flag that denotes a remote subsegment.
+    remote :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,32 +45,32 @@ data ResponseTimeRootCauseEntity = ResponseTimeRootCauseEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remote', 'responseTimeRootCauseEntity_remote' - A flag that denotes a remote subsegment.
+-- 'name', 'responseTimeRootCauseEntity_name' - The name of the entity.
 --
 -- 'coverage', 'responseTimeRootCauseEntity_coverage' - The type and messages of the exceptions.
 --
--- 'name', 'responseTimeRootCauseEntity_name' - The name of the entity.
+-- 'remote', 'responseTimeRootCauseEntity_remote' - A flag that denotes a remote subsegment.
 newResponseTimeRootCauseEntity ::
   ResponseTimeRootCauseEntity
 newResponseTimeRootCauseEntity =
   ResponseTimeRootCauseEntity'
-    { remote =
+    { name =
         Prelude.Nothing,
       coverage = Prelude.Nothing,
-      name = Prelude.Nothing
+      remote = Prelude.Nothing
     }
 
--- | A flag that denotes a remote subsegment.
-responseTimeRootCauseEntity_remote :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Bool)
-responseTimeRootCauseEntity_remote = Lens.lens (\ResponseTimeRootCauseEntity' {remote} -> remote) (\s@ResponseTimeRootCauseEntity' {} a -> s {remote = a} :: ResponseTimeRootCauseEntity)
+-- | The name of the entity.
+responseTimeRootCauseEntity_name :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Text)
+responseTimeRootCauseEntity_name = Lens.lens (\ResponseTimeRootCauseEntity' {name} -> name) (\s@ResponseTimeRootCauseEntity' {} a -> s {name = a} :: ResponseTimeRootCauseEntity)
 
 -- | The type and messages of the exceptions.
 responseTimeRootCauseEntity_coverage :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Double)
 responseTimeRootCauseEntity_coverage = Lens.lens (\ResponseTimeRootCauseEntity' {coverage} -> coverage) (\s@ResponseTimeRootCauseEntity' {} a -> s {coverage = a} :: ResponseTimeRootCauseEntity)
 
--- | The name of the entity.
-responseTimeRootCauseEntity_name :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Text)
-responseTimeRootCauseEntity_name = Lens.lens (\ResponseTimeRootCauseEntity' {name} -> name) (\s@ResponseTimeRootCauseEntity' {} a -> s {name = a} :: ResponseTimeRootCauseEntity)
+-- | A flag that denotes a remote subsegment.
+responseTimeRootCauseEntity_remote :: Lens.Lens' ResponseTimeRootCauseEntity (Prelude.Maybe Prelude.Bool)
+responseTimeRootCauseEntity_remote = Lens.lens (\ResponseTimeRootCauseEntity' {remote} -> remote) (\s@ResponseTimeRootCauseEntity' {} a -> s {remote = a} :: ResponseTimeRootCauseEntity)
 
 instance Core.FromJSON ResponseTimeRootCauseEntity where
   parseJSON =
@@ -78,19 +78,19 @@ instance Core.FromJSON ResponseTimeRootCauseEntity where
       "ResponseTimeRootCauseEntity"
       ( \x ->
           ResponseTimeRootCauseEntity'
-            Prelude.<$> (x Core..:? "Remote")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Coverage")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Remote")
       )
 
 instance Prelude.Hashable ResponseTimeRootCauseEntity where
   hashWithSalt _salt ResponseTimeRootCauseEntity' {..} =
-    _salt `Prelude.hashWithSalt` remote
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` coverage
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` remote
 
 instance Prelude.NFData ResponseTimeRootCauseEntity where
   rnf ResponseTimeRootCauseEntity' {..} =
-    Prelude.rnf remote
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf coverage
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf remote

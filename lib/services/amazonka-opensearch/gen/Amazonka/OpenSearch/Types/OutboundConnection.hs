@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutboundConnection' smart constructor.
 data OutboundConnection = OutboundConnection'
-  { -- | The @ DomainInformation @ for the remote OpenSearch domain.
-    remoteDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The connection alias for the outbound cross-cluster connection.
+  { -- | The connection alias for the outbound cross-cluster connection.
     connectionAlias :: Prelude.Maybe Prelude.Text,
-    -- | The @ DomainInformation @ for the local OpenSearch domain.
-    localDomainInfo :: Prelude.Maybe DomainInformationContainer,
+    -- | The @ DomainInformation @ for the remote OpenSearch domain.
+    remoteDomainInfo :: Prelude.Maybe DomainInformationContainer,
     -- | The connection ID for the outbound cross-cluster connection.
     connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The @ DomainInformation @ for the local OpenSearch domain.
+    localDomainInfo :: Prelude.Maybe DomainInformationContainer,
     -- | The @ OutboundConnectionStatus @ for the outbound connection.
     connectionStatus :: Prelude.Maybe OutboundConnectionStatus
   }
@@ -50,42 +50,42 @@ data OutboundConnection = OutboundConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteDomainInfo', 'outboundConnection_remoteDomainInfo' - The @ DomainInformation @ for the remote OpenSearch domain.
---
 -- 'connectionAlias', 'outboundConnection_connectionAlias' - The connection alias for the outbound cross-cluster connection.
 --
--- 'localDomainInfo', 'outboundConnection_localDomainInfo' - The @ DomainInformation @ for the local OpenSearch domain.
+-- 'remoteDomainInfo', 'outboundConnection_remoteDomainInfo' - The @ DomainInformation @ for the remote OpenSearch domain.
 --
 -- 'connectionId', 'outboundConnection_connectionId' - The connection ID for the outbound cross-cluster connection.
+--
+-- 'localDomainInfo', 'outboundConnection_localDomainInfo' - The @ DomainInformation @ for the local OpenSearch domain.
 --
 -- 'connectionStatus', 'outboundConnection_connectionStatus' - The @ OutboundConnectionStatus @ for the outbound connection.
 newOutboundConnection ::
   OutboundConnection
 newOutboundConnection =
   OutboundConnection'
-    { remoteDomainInfo =
+    { connectionAlias =
         Prelude.Nothing,
-      connectionAlias = Prelude.Nothing,
-      localDomainInfo = Prelude.Nothing,
+      remoteDomainInfo = Prelude.Nothing,
       connectionId = Prelude.Nothing,
+      localDomainInfo = Prelude.Nothing,
       connectionStatus = Prelude.Nothing
     }
-
--- | The @ DomainInformation @ for the remote OpenSearch domain.
-outboundConnection_remoteDomainInfo :: Lens.Lens' OutboundConnection (Prelude.Maybe DomainInformationContainer)
-outboundConnection_remoteDomainInfo = Lens.lens (\OutboundConnection' {remoteDomainInfo} -> remoteDomainInfo) (\s@OutboundConnection' {} a -> s {remoteDomainInfo = a} :: OutboundConnection)
 
 -- | The connection alias for the outbound cross-cluster connection.
 outboundConnection_connectionAlias :: Lens.Lens' OutboundConnection (Prelude.Maybe Prelude.Text)
 outboundConnection_connectionAlias = Lens.lens (\OutboundConnection' {connectionAlias} -> connectionAlias) (\s@OutboundConnection' {} a -> s {connectionAlias = a} :: OutboundConnection)
 
--- | The @ DomainInformation @ for the local OpenSearch domain.
-outboundConnection_localDomainInfo :: Lens.Lens' OutboundConnection (Prelude.Maybe DomainInformationContainer)
-outboundConnection_localDomainInfo = Lens.lens (\OutboundConnection' {localDomainInfo} -> localDomainInfo) (\s@OutboundConnection' {} a -> s {localDomainInfo = a} :: OutboundConnection)
+-- | The @ DomainInformation @ for the remote OpenSearch domain.
+outboundConnection_remoteDomainInfo :: Lens.Lens' OutboundConnection (Prelude.Maybe DomainInformationContainer)
+outboundConnection_remoteDomainInfo = Lens.lens (\OutboundConnection' {remoteDomainInfo} -> remoteDomainInfo) (\s@OutboundConnection' {} a -> s {remoteDomainInfo = a} :: OutboundConnection)
 
 -- | The connection ID for the outbound cross-cluster connection.
 outboundConnection_connectionId :: Lens.Lens' OutboundConnection (Prelude.Maybe Prelude.Text)
 outboundConnection_connectionId = Lens.lens (\OutboundConnection' {connectionId} -> connectionId) (\s@OutboundConnection' {} a -> s {connectionId = a} :: OutboundConnection)
+
+-- | The @ DomainInformation @ for the local OpenSearch domain.
+outboundConnection_localDomainInfo :: Lens.Lens' OutboundConnection (Prelude.Maybe DomainInformationContainer)
+outboundConnection_localDomainInfo = Lens.lens (\OutboundConnection' {localDomainInfo} -> localDomainInfo) (\s@OutboundConnection' {} a -> s {localDomainInfo = a} :: OutboundConnection)
 
 -- | The @ OutboundConnectionStatus @ for the outbound connection.
 outboundConnection_connectionStatus :: Lens.Lens' OutboundConnection (Prelude.Maybe OutboundConnectionStatus)
@@ -97,25 +97,25 @@ instance Core.FromJSON OutboundConnection where
       "OutboundConnection"
       ( \x ->
           OutboundConnection'
-            Prelude.<$> (x Core..:? "RemoteDomainInfo")
-            Prelude.<*> (x Core..:? "ConnectionAlias")
-            Prelude.<*> (x Core..:? "LocalDomainInfo")
+            Prelude.<$> (x Core..:? "ConnectionAlias")
+            Prelude.<*> (x Core..:? "RemoteDomainInfo")
             Prelude.<*> (x Core..:? "ConnectionId")
+            Prelude.<*> (x Core..:? "LocalDomainInfo")
             Prelude.<*> (x Core..:? "ConnectionStatus")
       )
 
 instance Prelude.Hashable OutboundConnection where
   hashWithSalt _salt OutboundConnection' {..} =
-    _salt `Prelude.hashWithSalt` remoteDomainInfo
-      `Prelude.hashWithSalt` connectionAlias
-      `Prelude.hashWithSalt` localDomainInfo
+    _salt `Prelude.hashWithSalt` connectionAlias
+      `Prelude.hashWithSalt` remoteDomainInfo
       `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` localDomainInfo
       `Prelude.hashWithSalt` connectionStatus
 
 instance Prelude.NFData OutboundConnection where
   rnf OutboundConnection' {..} =
-    Prelude.rnf remoteDomainInfo
-      `Prelude.seq` Prelude.rnf connectionAlias
-      `Prelude.seq` Prelude.rnf localDomainInfo
+    Prelude.rnf connectionAlias
+      `Prelude.seq` Prelude.rnf remoteDomainInfo
       `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf localDomainInfo
       `Prelude.seq` Prelude.rnf connectionStatus

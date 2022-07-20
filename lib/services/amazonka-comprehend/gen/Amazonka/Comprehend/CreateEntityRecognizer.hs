@@ -29,12 +29,12 @@ module Amazonka.Comprehend.CreateEntityRecognizer
     newCreateEntityRecognizer,
 
     -- * Request Lenses
-    createEntityRecognizer_versionName,
+    createEntityRecognizer_tags,
     createEntityRecognizer_modelKmsKeyId,
+    createEntityRecognizer_clientRequestToken,
     createEntityRecognizer_vpcConfig,
     createEntityRecognizer_volumeKmsKeyId,
-    createEntityRecognizer_clientRequestToken,
-    createEntityRecognizer_tags,
+    createEntityRecognizer_versionName,
     createEntityRecognizer_recognizerName,
     createEntityRecognizer_dataAccessRoleArn,
     createEntityRecognizer_inputDataConfig,
@@ -59,11 +59,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEntityRecognizer' smart constructor.
 data CreateEntityRecognizer = CreateEntityRecognizer'
-  { -- | The version name given to the newly created recognizer. Version names
-    -- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
-    -- and underscores (_) are allowed. The version name must be unique among
-    -- all models with the same recognizer name in the account\/ AWS Region.
-    versionName :: Prelude.Maybe Prelude.Text,
+  { -- | Tags to be associated with the entity recognizer being created. A tag is
+    -- a key-value pair that adds as a metadata to a resource used by Amazon
+    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
     -- of the following formats
@@ -73,6 +73,9 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     modelKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the request. If you don\'t set the client
+    -- request token, Amazon Comprehend generates one.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Configuration parameters for an optional private Virtual Private Cloud
     -- (VPC) containing the resources you are using for your custom entity
     -- recognizer. For more information, see
@@ -88,14 +91,11 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the entity recognizer being created. A tag is
-    -- a key-value pair that adds as a metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
-    tags :: Prelude.Maybe [Tag],
+    -- | The version name given to the newly created recognizer. Version names
+    -- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
+    -- and underscores (_) are allowed. The version name must be unique among
+    -- all models with the same recognizer name in the account\/ AWS Region.
+    versionName :: Prelude.Maybe Prelude.Text,
     -- | The name given to the newly created recognizer. Recognizer names can be
     -- a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
     -- underscores (_) are allowed. The name must be unique in the
@@ -124,10 +124,10 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionName', 'createEntityRecognizer_versionName' - The version name given to the newly created recognizer. Version names
--- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
--- and underscores (_) are allowed. The version name must be unique among
--- all models with the same recognizer name in the account\/ AWS Region.
+-- 'tags', 'createEntityRecognizer_tags' - Tags to be associated with the entity recognizer being created. A tag is
+-- a key-value pair that adds as a metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
 --
 -- 'modelKmsKeyId', 'createEntityRecognizer_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
@@ -137,6 +137,9 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
+-- 'clientRequestToken', 'createEntityRecognizer_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend generates one.
 --
 -- 'vpcConfig', 'createEntityRecognizer_vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your custom entity
@@ -153,13 +156,10 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- 'clientRequestToken', 'createEntityRecognizer_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend generates one.
---
--- 'tags', 'createEntityRecognizer_tags' - Tags to be associated with the entity recognizer being created. A tag is
--- a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'versionName', 'createEntityRecognizer_versionName' - The version name given to the newly created recognizer. Version names
+-- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
+-- and underscores (_) are allowed. The version name must be unique among
+-- all models with the same recognizer name in the account\/ AWS Region.
 --
 -- 'recognizerName', 'createEntityRecognizer_recognizerName' - The name given to the newly created recognizer. Recognizer names can be
 -- a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
@@ -193,25 +193,24 @@ newCreateEntityRecognizer
   pInputDataConfig_
   pLanguageCode_ =
     CreateEntityRecognizer'
-      { versionName =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         modelKmsKeyId = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        versionName = Prelude.Nothing,
         recognizerName = pRecognizerName_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         inputDataConfig = pInputDataConfig_,
         languageCode = pLanguageCode_
       }
 
--- | The version name given to the newly created recognizer. Version names
--- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
--- and underscores (_) are allowed. The version name must be unique among
--- all models with the same recognizer name in the account\/ AWS Region.
-createEntityRecognizer_versionName :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
-createEntityRecognizer_versionName = Lens.lens (\CreateEntityRecognizer' {versionName} -> versionName) (\s@CreateEntityRecognizer' {} a -> s {versionName = a} :: CreateEntityRecognizer)
+-- | Tags to be associated with the entity recognizer being created. A tag is
+-- a key-value pair that adds as a metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+createEntityRecognizer_tags :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe [Tag])
+createEntityRecognizer_tags = Lens.lens (\CreateEntityRecognizer' {tags} -> tags) (\s@CreateEntityRecognizer' {} a -> s {tags = a} :: CreateEntityRecognizer) Prelude.. Lens.mapping Lens.coerced
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
@@ -223,6 +222,11 @@ createEntityRecognizer_versionName = Lens.lens (\CreateEntityRecognizer' {versio
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 createEntityRecognizer_modelKmsKeyId :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
 createEntityRecognizer_modelKmsKeyId = Lens.lens (\CreateEntityRecognizer' {modelKmsKeyId} -> modelKmsKeyId) (\s@CreateEntityRecognizer' {} a -> s {modelKmsKeyId = a} :: CreateEntityRecognizer)
+
+-- | A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend generates one.
+createEntityRecognizer_clientRequestToken :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
+createEntityRecognizer_clientRequestToken = Lens.lens (\CreateEntityRecognizer' {clientRequestToken} -> clientRequestToken) (\s@CreateEntityRecognizer' {} a -> s {clientRequestToken = a} :: CreateEntityRecognizer)
 
 -- | Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your custom entity
@@ -243,17 +247,12 @@ createEntityRecognizer_vpcConfig = Lens.lens (\CreateEntityRecognizer' {vpcConfi
 createEntityRecognizer_volumeKmsKeyId :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
 createEntityRecognizer_volumeKmsKeyId = Lens.lens (\CreateEntityRecognizer' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@CreateEntityRecognizer' {} a -> s {volumeKmsKeyId = a} :: CreateEntityRecognizer)
 
--- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend generates one.
-createEntityRecognizer_clientRequestToken :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
-createEntityRecognizer_clientRequestToken = Lens.lens (\CreateEntityRecognizer' {clientRequestToken} -> clientRequestToken) (\s@CreateEntityRecognizer' {} a -> s {clientRequestToken = a} :: CreateEntityRecognizer)
-
--- | Tags to be associated with the entity recognizer being created. A tag is
--- a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
-createEntityRecognizer_tags :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe [Tag])
-createEntityRecognizer_tags = Lens.lens (\CreateEntityRecognizer' {tags} -> tags) (\s@CreateEntityRecognizer' {} a -> s {tags = a} :: CreateEntityRecognizer) Prelude.. Lens.mapping Lens.coerced
+-- | The version name given to the newly created recognizer. Version names
+-- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
+-- and underscores (_) are allowed. The version name must be unique among
+-- all models with the same recognizer name in the account\/ AWS Region.
+createEntityRecognizer_versionName :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
+createEntityRecognizer_versionName = Lens.lens (\CreateEntityRecognizer' {versionName} -> versionName) (\s@CreateEntityRecognizer' {} a -> s {versionName = a} :: CreateEntityRecognizer)
 
 -- | The name given to the newly created recognizer. Recognizer names can be
 -- a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
@@ -295,12 +294,12 @@ instance Core.AWSRequest CreateEntityRecognizer where
 
 instance Prelude.Hashable CreateEntityRecognizer where
   hashWithSalt _salt CreateEntityRecognizer' {..} =
-    _salt `Prelude.hashWithSalt` versionName
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelKmsKeyId
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` volumeKmsKeyId
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` recognizerName
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` inputDataConfig
@@ -308,12 +307,12 @@ instance Prelude.Hashable CreateEntityRecognizer where
 
 instance Prelude.NFData CreateEntityRecognizer where
   rnf CreateEntityRecognizer' {..} =
-    Prelude.rnf versionName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf modelKmsKeyId
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf recognizerName
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf inputDataConfig
@@ -338,14 +337,14 @@ instance Core.ToJSON CreateEntityRecognizer where
   toJSON CreateEntityRecognizer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VersionName" Core..=) Prelude.<$> versionName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
+            ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
             ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
-            ("ClientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("VersionName" Core..=) Prelude.<$> versionName,
             Prelude.Just
               ("RecognizerName" Core..= recognizerName),
             Prelude.Just

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data MetadataInfo = MetadataInfo'
   { -- | The time at which the entry was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | Other metadata belonging to the same metadata key.
-    otherMetadataValueList :: Prelude.Maybe [OtherMetadataValueListItem],
     -- | The metadata key’s corresponding value.
-    metadataValue :: Prelude.Maybe Prelude.Text
+    metadataValue :: Prelude.Maybe Prelude.Text,
+    -- | Other metadata belonging to the same metadata key.
+    otherMetadataValueList :: Prelude.Maybe [OtherMetadataValueListItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data MetadataInfo = MetadataInfo'
 --
 -- 'createdTime', 'metadataInfo_createdTime' - The time at which the entry was created.
 --
--- 'otherMetadataValueList', 'metadataInfo_otherMetadataValueList' - Other metadata belonging to the same metadata key.
---
 -- 'metadataValue', 'metadataInfo_metadataValue' - The metadata key’s corresponding value.
+--
+-- 'otherMetadataValueList', 'metadataInfo_otherMetadataValueList' - Other metadata belonging to the same metadata key.
 newMetadataInfo ::
   MetadataInfo
 newMetadataInfo =
   MetadataInfo'
     { createdTime = Prelude.Nothing,
-      otherMetadataValueList = Prelude.Nothing,
-      metadataValue = Prelude.Nothing
+      metadataValue = Prelude.Nothing,
+      otherMetadataValueList = Prelude.Nothing
     }
 
 -- | The time at which the entry was created.
 metadataInfo_createdTime :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
 metadataInfo_createdTime = Lens.lens (\MetadataInfo' {createdTime} -> createdTime) (\s@MetadataInfo' {} a -> s {createdTime = a} :: MetadataInfo)
 
--- | Other metadata belonging to the same metadata key.
-metadataInfo_otherMetadataValueList :: Lens.Lens' MetadataInfo (Prelude.Maybe [OtherMetadataValueListItem])
-metadataInfo_otherMetadataValueList = Lens.lens (\MetadataInfo' {otherMetadataValueList} -> otherMetadataValueList) (\s@MetadataInfo' {} a -> s {otherMetadataValueList = a} :: MetadataInfo) Prelude.. Lens.mapping Lens.coerced
-
 -- | The metadata key’s corresponding value.
 metadataInfo_metadataValue :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
 metadataInfo_metadataValue = Lens.lens (\MetadataInfo' {metadataValue} -> metadataValue) (\s@MetadataInfo' {} a -> s {metadataValue = a} :: MetadataInfo)
+
+-- | Other metadata belonging to the same metadata key.
+metadataInfo_otherMetadataValueList :: Lens.Lens' MetadataInfo (Prelude.Maybe [OtherMetadataValueListItem])
+metadataInfo_otherMetadataValueList = Lens.lens (\MetadataInfo' {otherMetadataValueList} -> otherMetadataValueList) (\s@MetadataInfo' {} a -> s {otherMetadataValueList = a} :: MetadataInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON MetadataInfo where
   parseJSON =
@@ -78,20 +78,20 @@ instance Core.FromJSON MetadataInfo where
       ( \x ->
           MetadataInfo'
             Prelude.<$> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "MetadataValue")
             Prelude.<*> ( x Core..:? "OtherMetadataValueList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MetadataValue")
       )
 
 instance Prelude.Hashable MetadataInfo where
   hashWithSalt _salt MetadataInfo' {..} =
     _salt `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` otherMetadataValueList
       `Prelude.hashWithSalt` metadataValue
+      `Prelude.hashWithSalt` otherMetadataValueList
 
 instance Prelude.NFData MetadataInfo where
   rnf MetadataInfo' {..} =
     Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf otherMetadataValueList
       `Prelude.seq` Prelude.rnf metadataValue
+      `Prelude.seq` Prelude.rnf otherMetadataValueList

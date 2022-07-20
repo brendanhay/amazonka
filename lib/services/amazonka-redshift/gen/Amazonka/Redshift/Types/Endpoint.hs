@@ -29,12 +29,12 @@ import Amazonka.Redshift.Types.VpcEndpoint
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | The DNS address of the Cluster.
+  { -- | The port that the database engine is listening on.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The DNS address of the Cluster.
     address :: Prelude.Maybe Prelude.Text,
     -- | Describes a connection endpoint.
-    vpcEndpoints :: Prelude.Maybe [VpcEndpoint],
-    -- | The port that the database engine is listening on.
-    port :: Prelude.Maybe Prelude.Int
+    vpcEndpoints :: Prelude.Maybe [VpcEndpoint]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'endpoint_port' - The port that the database engine is listening on.
+--
 -- 'address', 'endpoint_address' - The DNS address of the Cluster.
 --
 -- 'vpcEndpoints', 'endpoint_vpcEndpoints' - Describes a connection endpoint.
---
--- 'port', 'endpoint_port' - The port that the database engine is listening on.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { address = Prelude.Nothing,
-      vpcEndpoints = Prelude.Nothing,
-      port = Prelude.Nothing
+    { port = Prelude.Nothing,
+      address = Prelude.Nothing,
+      vpcEndpoints = Prelude.Nothing
     }
+
+-- | The port that the database engine is listening on.
+endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
+endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
 -- | The DNS address of the Cluster.
 endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
@@ -68,27 +72,23 @@ endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} 
 endpoint_vpcEndpoints :: Lens.Lens' Endpoint (Prelude.Maybe [VpcEndpoint])
 endpoint_vpcEndpoints = Lens.lens (\Endpoint' {vpcEndpoints} -> vpcEndpoints) (\s@Endpoint' {} a -> s {vpcEndpoints = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | The port that the database engine is listening on.
-endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
-endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
-
 instance Core.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> (x Core..@? "Address")
+      Prelude.<$> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "Address")
       Prelude.<*> ( x Core..@? "VpcEndpoints" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "VpcEndpoint")
                   )
-      Prelude.<*> (x Core..@? "Port")
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` vpcEndpoints
-      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf address
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf address
       `Prelude.seq` Prelude.rnf vpcEndpoints
-      `Prelude.seq` Prelude.rnf port

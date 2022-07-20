@@ -36,9 +36,9 @@ module Amazonka.IoTSiteWise.ListAssociatedAssets
     newListAssociatedAssets,
 
     -- * Request Lenses
-    listAssociatedAssets_hierarchyId,
-    listAssociatedAssets_traversalDirection,
     listAssociatedAssets_nextToken,
+    listAssociatedAssets_traversalDirection,
+    listAssociatedAssets_hierarchyId,
     listAssociatedAssets_maxResults,
     listAssociatedAssets_assetId,
 
@@ -62,18 +62,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssociatedAssets' smart constructor.
 data ListAssociatedAssets = ListAssociatedAssets'
-  { -- | The ID of the hierarchy by which child assets are associated to the
-    -- asset. To find a hierarchy ID, use the
-    -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html DescribeAsset>
-    -- or
-    -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html DescribeAssetModel>
-    -- operations. This parameter is required if you choose @CHILD@ for
-    -- @traversalDirection@.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
-    -- in the /IoT SiteWise User Guide/.
-    hierarchyId :: Prelude.Maybe Prelude.Text,
+  { -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The direction to list associated assets. Choose one of the following
     -- options:
     --
@@ -85,8 +75,18 @@ data ListAssociatedAssets = ListAssociatedAssets'
     --
     -- Default: @CHILD@
     traversalDirection :: Prelude.Maybe TraversalDirection,
-    -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the hierarchy by which child assets are associated to the
+    -- asset. To find a hierarchy ID, use the
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html DescribeAsset>
+    -- or
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html DescribeAssetModel>
+    -- operations. This parameter is required if you choose @CHILD@ for
+    -- @traversalDirection@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
+    -- in the /IoT SiteWise User Guide/.
+    hierarchyId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 50
@@ -104,17 +104,7 @@ data ListAssociatedAssets = ListAssociatedAssets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hierarchyId', 'listAssociatedAssets_hierarchyId' - The ID of the hierarchy by which child assets are associated to the
--- asset. To find a hierarchy ID, use the
--- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html DescribeAsset>
--- or
--- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html DescribeAssetModel>
--- operations. This parameter is required if you choose @CHILD@ for
--- @traversalDirection@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
--- in the /IoT SiteWise User Guide/.
+-- 'nextToken', 'listAssociatedAssets_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'traversalDirection', 'listAssociatedAssets_traversalDirection' - The direction to list associated assets. Choose one of the following
 -- options:
@@ -127,7 +117,17 @@ data ListAssociatedAssets = ListAssociatedAssets'
 --
 -- Default: @CHILD@
 --
--- 'nextToken', 'listAssociatedAssets_nextToken' - The token to be used for the next set of paginated results.
+-- 'hierarchyId', 'listAssociatedAssets_hierarchyId' - The ID of the hierarchy by which child assets are associated to the
+-- asset. To find a hierarchy ID, use the
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html DescribeAsset>
+-- or
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html DescribeAssetModel>
+-- operations. This parameter is required if you choose @CHILD@ for
+-- @traversalDirection@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
+-- in the /IoT SiteWise User Guide/.
 --
 -- 'maxResults', 'listAssociatedAssets_maxResults' - The maximum number of results to return for each paginated request.
 --
@@ -140,27 +140,16 @@ newListAssociatedAssets ::
   ListAssociatedAssets
 newListAssociatedAssets pAssetId_ =
   ListAssociatedAssets'
-    { hierarchyId =
-        Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       traversalDirection = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      hierarchyId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       assetId = pAssetId_
     }
 
--- | The ID of the hierarchy by which child assets are associated to the
--- asset. To find a hierarchy ID, use the
--- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html DescribeAsset>
--- or
--- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html DescribeAssetModel>
--- operations. This parameter is required if you choose @CHILD@ for
--- @traversalDirection@.
---
--- For more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
--- in the /IoT SiteWise User Guide/.
-listAssociatedAssets_hierarchyId :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe Prelude.Text)
-listAssociatedAssets_hierarchyId = Lens.lens (\ListAssociatedAssets' {hierarchyId} -> hierarchyId) (\s@ListAssociatedAssets' {} a -> s {hierarchyId = a} :: ListAssociatedAssets)
+-- | The token to be used for the next set of paginated results.
+listAssociatedAssets_nextToken :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe Prelude.Text)
+listAssociatedAssets_nextToken = Lens.lens (\ListAssociatedAssets' {nextToken} -> nextToken) (\s@ListAssociatedAssets' {} a -> s {nextToken = a} :: ListAssociatedAssets)
 
 -- | The direction to list associated assets. Choose one of the following
 -- options:
@@ -175,9 +164,19 @@ listAssociatedAssets_hierarchyId = Lens.lens (\ListAssociatedAssets' {hierarchyI
 listAssociatedAssets_traversalDirection :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe TraversalDirection)
 listAssociatedAssets_traversalDirection = Lens.lens (\ListAssociatedAssets' {traversalDirection} -> traversalDirection) (\s@ListAssociatedAssets' {} a -> s {traversalDirection = a} :: ListAssociatedAssets)
 
--- | The token to be used for the next set of paginated results.
-listAssociatedAssets_nextToken :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe Prelude.Text)
-listAssociatedAssets_nextToken = Lens.lens (\ListAssociatedAssets' {nextToken} -> nextToken) (\s@ListAssociatedAssets' {} a -> s {nextToken = a} :: ListAssociatedAssets)
+-- | The ID of the hierarchy by which child assets are associated to the
+-- asset. To find a hierarchy ID, use the
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html DescribeAsset>
+-- or
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html DescribeAssetModel>
+-- operations. This parameter is required if you choose @CHILD@ for
+-- @traversalDirection@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html Asset hierarchies>
+-- in the /IoT SiteWise User Guide/.
+listAssociatedAssets_hierarchyId :: Lens.Lens' ListAssociatedAssets (Prelude.Maybe Prelude.Text)
+listAssociatedAssets_hierarchyId = Lens.lens (\ListAssociatedAssets' {hierarchyId} -> hierarchyId) (\s@ListAssociatedAssets' {} a -> s {hierarchyId = a} :: ListAssociatedAssets)
 
 -- | The maximum number of results to return for each paginated request.
 --
@@ -228,17 +227,17 @@ instance Core.AWSRequest ListAssociatedAssets where
 
 instance Prelude.Hashable ListAssociatedAssets where
   hashWithSalt _salt ListAssociatedAssets' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyId
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` traversalDirection
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` hierarchyId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` assetId
 
 instance Prelude.NFData ListAssociatedAssets where
   rnf ListAssociatedAssets' {..} =
-    Prelude.rnf hierarchyId
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf traversalDirection
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf hierarchyId
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf assetId
 
@@ -261,9 +260,9 @@ instance Core.ToPath ListAssociatedAssets where
 instance Core.ToQuery ListAssociatedAssets where
   toQuery ListAssociatedAssets' {..} =
     Prelude.mconcat
-      [ "hierarchyId" Core.=: hierarchyId,
+      [ "nextToken" Core.=: nextToken,
         "traversalDirection" Core.=: traversalDirection,
-        "nextToken" Core.=: nextToken,
+        "hierarchyId" Core.=: hierarchyId,
         "maxResults" Core.=: maxResults
       ]
 

@@ -30,8 +30,8 @@ module Amazonka.MediaTailor.GetChannelSchedule
 
     -- * Request Lenses
     getChannelSchedule_nextToken,
-    getChannelSchedule_durationMinutes,
     getChannelSchedule_maxResults,
+    getChannelSchedule_durationMinutes,
     getChannelSchedule_channelName,
 
     -- * Destructuring the Response
@@ -57,12 +57,12 @@ data GetChannelSchedule = GetChannelSchedule'
   { -- | Pagination token from the GET list request. Use the token to fetch the
     -- next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The schedule duration in minutes. The maximum duration is 4320 minutes
-    -- (three days).
-    durationMinutes :: Prelude.Maybe Prelude.Text,
     -- | Upper bound on number of records to return. The maximum number of
     -- results is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The schedule duration in minutes. The maximum duration is 4320 minutes
+    -- (three days).
+    durationMinutes :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the channel you are working on.
     channelName :: Prelude.Text
   }
@@ -79,11 +79,11 @@ data GetChannelSchedule = GetChannelSchedule'
 -- 'nextToken', 'getChannelSchedule_nextToken' - Pagination token from the GET list request. Use the token to fetch the
 -- next page of results.
 --
--- 'durationMinutes', 'getChannelSchedule_durationMinutes' - The schedule duration in minutes. The maximum duration is 4320 minutes
--- (three days).
---
 -- 'maxResults', 'getChannelSchedule_maxResults' - Upper bound on number of records to return. The maximum number of
 -- results is 100.
+--
+-- 'durationMinutes', 'getChannelSchedule_durationMinutes' - The schedule duration in minutes. The maximum duration is 4320 minutes
+-- (three days).
 --
 -- 'channelName', 'getChannelSchedule_channelName' - The identifier for the channel you are working on.
 newGetChannelSchedule ::
@@ -93,8 +93,8 @@ newGetChannelSchedule ::
 newGetChannelSchedule pChannelName_ =
   GetChannelSchedule'
     { nextToken = Prelude.Nothing,
-      durationMinutes = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      durationMinutes = Prelude.Nothing,
       channelName = pChannelName_
     }
 
@@ -103,15 +103,15 @@ newGetChannelSchedule pChannelName_ =
 getChannelSchedule_nextToken :: Lens.Lens' GetChannelSchedule (Prelude.Maybe Prelude.Text)
 getChannelSchedule_nextToken = Lens.lens (\GetChannelSchedule' {nextToken} -> nextToken) (\s@GetChannelSchedule' {} a -> s {nextToken = a} :: GetChannelSchedule)
 
--- | The schedule duration in minutes. The maximum duration is 4320 minutes
--- (three days).
-getChannelSchedule_durationMinutes :: Lens.Lens' GetChannelSchedule (Prelude.Maybe Prelude.Text)
-getChannelSchedule_durationMinutes = Lens.lens (\GetChannelSchedule' {durationMinutes} -> durationMinutes) (\s@GetChannelSchedule' {} a -> s {durationMinutes = a} :: GetChannelSchedule)
-
 -- | Upper bound on number of records to return. The maximum number of
 -- results is 100.
 getChannelSchedule_maxResults :: Lens.Lens' GetChannelSchedule (Prelude.Maybe Prelude.Natural)
 getChannelSchedule_maxResults = Lens.lens (\GetChannelSchedule' {maxResults} -> maxResults) (\s@GetChannelSchedule' {} a -> s {maxResults = a} :: GetChannelSchedule)
+
+-- | The schedule duration in minutes. The maximum duration is 4320 minutes
+-- (three days).
+getChannelSchedule_durationMinutes :: Lens.Lens' GetChannelSchedule (Prelude.Maybe Prelude.Text)
+getChannelSchedule_durationMinutes = Lens.lens (\GetChannelSchedule' {durationMinutes} -> durationMinutes) (\s@GetChannelSchedule' {} a -> s {durationMinutes = a} :: GetChannelSchedule)
 
 -- | The identifier for the channel you are working on.
 getChannelSchedule_channelName :: Lens.Lens' GetChannelSchedule Prelude.Text
@@ -156,15 +156,15 @@ instance Core.AWSRequest GetChannelSchedule where
 instance Prelude.Hashable GetChannelSchedule where
   hashWithSalt _salt GetChannelSchedule' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` durationMinutes
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` durationMinutes
       `Prelude.hashWithSalt` channelName
 
 instance Prelude.NFData GetChannelSchedule where
   rnf GetChannelSchedule' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf durationMinutes
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf durationMinutes
       `Prelude.seq` Prelude.rnf channelName
 
 instance Core.ToHeaders GetChannelSchedule where
@@ -187,8 +187,8 @@ instance Core.ToQuery GetChannelSchedule where
   toQuery GetChannelSchedule' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "durationMinutes" Core.=: durationMinutes,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "durationMinutes" Core.=: durationMinutes
       ]
 
 -- | /See:/ 'newGetChannelScheduleResponse' smart constructor.

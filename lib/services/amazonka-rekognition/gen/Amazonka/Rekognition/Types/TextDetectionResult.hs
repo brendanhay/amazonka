@@ -30,11 +30,11 @@ import Amazonka.Rekognition.Types.TextDetection
 --
 -- /See:/ 'newTextDetectionResult' smart constructor.
 data TextDetectionResult = TextDetectionResult'
-  { -- | Details about text detected in a video.
-    textDetection :: Prelude.Maybe TextDetection,
-    -- | The time, in milliseconds from the start of the video, that the text was
+  { -- | The time, in milliseconds from the start of the video, that the text was
     -- detected.
-    timestamp :: Prelude.Maybe Prelude.Integer
+    timestamp :: Prelude.Maybe Prelude.Integer,
+    -- | Details about text detected in a video.
+    textDetection :: Prelude.Maybe TextDetection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,26 @@ data TextDetectionResult = TextDetectionResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textDetection', 'textDetectionResult_textDetection' - Details about text detected in a video.
---
 -- 'timestamp', 'textDetectionResult_timestamp' - The time, in milliseconds from the start of the video, that the text was
 -- detected.
+--
+-- 'textDetection', 'textDetectionResult_textDetection' - Details about text detected in a video.
 newTextDetectionResult ::
   TextDetectionResult
 newTextDetectionResult =
   TextDetectionResult'
-    { textDetection =
-        Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { timestamp = Prelude.Nothing,
+      textDetection = Prelude.Nothing
     }
-
--- | Details about text detected in a video.
-textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Prelude.Maybe TextDetection)
-textDetectionResult_textDetection = Lens.lens (\TextDetectionResult' {textDetection} -> textDetection) (\s@TextDetectionResult' {} a -> s {textDetection = a} :: TextDetectionResult)
 
 -- | The time, in milliseconds from the start of the video, that the text was
 -- detected.
 textDetectionResult_timestamp :: Lens.Lens' TextDetectionResult (Prelude.Maybe Prelude.Integer)
 textDetectionResult_timestamp = Lens.lens (\TextDetectionResult' {timestamp} -> timestamp) (\s@TextDetectionResult' {} a -> s {timestamp = a} :: TextDetectionResult)
+
+-- | Details about text detected in a video.
+textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Prelude.Maybe TextDetection)
+textDetectionResult_textDetection = Lens.lens (\TextDetectionResult' {textDetection} -> textDetection) (\s@TextDetectionResult' {} a -> s {textDetection = a} :: TextDetectionResult)
 
 instance Core.FromJSON TextDetectionResult where
   parseJSON =
@@ -74,16 +73,16 @@ instance Core.FromJSON TextDetectionResult where
       "TextDetectionResult"
       ( \x ->
           TextDetectionResult'
-            Prelude.<$> (x Core..:? "TextDetection")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "TextDetection")
       )
 
 instance Prelude.Hashable TextDetectionResult where
   hashWithSalt _salt TextDetectionResult' {..} =
-    _salt `Prelude.hashWithSalt` textDetection
-      `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` textDetection
 
 instance Prelude.NFData TextDetectionResult where
   rnf TextDetectionResult' {..} =
-    Prelude.rnf textDetection
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf textDetection

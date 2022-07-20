@@ -30,16 +30,16 @@ module Amazonka.SecurityHub.GetEnabledStandards
 
     -- * Request Lenses
     getEnabledStandards_nextToken,
-    getEnabledStandards_standardsSubscriptionArns,
     getEnabledStandards_maxResults,
+    getEnabledStandards_standardsSubscriptionArns,
 
     -- * Destructuring the Response
     GetEnabledStandardsResponse (..),
     newGetEnabledStandardsResponse,
 
     -- * Response Lenses
-    getEnabledStandardsResponse_nextToken,
     getEnabledStandardsResponse_standardsSubscriptions,
+    getEnabledStandardsResponse_nextToken,
     getEnabledStandardsResponse_httpStatus,
   )
 where
@@ -61,11 +61,11 @@ data GetEnabledStandards = GetEnabledStandards'
     -- value of this parameter to the value returned from the previous
     -- response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The list of the standards subscription ARNs for the standards to
     -- retrieve.
-    standardsSubscriptionArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    standardsSubscriptionArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,17 +85,17 @@ data GetEnabledStandards = GetEnabledStandards'
 -- value of this parameter to the value returned from the previous
 -- response.
 --
+-- 'maxResults', 'getEnabledStandards_maxResults' - The maximum number of results to return in the response.
+--
 -- 'standardsSubscriptionArns', 'getEnabledStandards_standardsSubscriptionArns' - The list of the standards subscription ARNs for the standards to
 -- retrieve.
---
--- 'maxResults', 'getEnabledStandards_maxResults' - The maximum number of results to return in the response.
 newGetEnabledStandards ::
   GetEnabledStandards
 newGetEnabledStandards =
   GetEnabledStandards'
     { nextToken = Prelude.Nothing,
-      standardsSubscriptionArns = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      standardsSubscriptionArns = Prelude.Nothing
     }
 
 -- | The token that is required for pagination. On your first call to the
@@ -108,14 +108,14 @@ newGetEnabledStandards =
 getEnabledStandards_nextToken :: Lens.Lens' GetEnabledStandards (Prelude.Maybe Prelude.Text)
 getEnabledStandards_nextToken = Lens.lens (\GetEnabledStandards' {nextToken} -> nextToken) (\s@GetEnabledStandards' {} a -> s {nextToken = a} :: GetEnabledStandards)
 
+-- | The maximum number of results to return in the response.
+getEnabledStandards_maxResults :: Lens.Lens' GetEnabledStandards (Prelude.Maybe Prelude.Natural)
+getEnabledStandards_maxResults = Lens.lens (\GetEnabledStandards' {maxResults} -> maxResults) (\s@GetEnabledStandards' {} a -> s {maxResults = a} :: GetEnabledStandards)
+
 -- | The list of the standards subscription ARNs for the standards to
 -- retrieve.
 getEnabledStandards_standardsSubscriptionArns :: Lens.Lens' GetEnabledStandards (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getEnabledStandards_standardsSubscriptionArns = Lens.lens (\GetEnabledStandards' {standardsSubscriptionArns} -> standardsSubscriptionArns) (\s@GetEnabledStandards' {} a -> s {standardsSubscriptionArns = a} :: GetEnabledStandards) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return in the response.
-getEnabledStandards_maxResults :: Lens.Lens' GetEnabledStandards (Prelude.Maybe Prelude.Natural)
-getEnabledStandards_maxResults = Lens.lens (\GetEnabledStandards' {maxResults} -> maxResults) (\s@GetEnabledStandards' {} a -> s {maxResults = a} :: GetEnabledStandards)
 
 instance Core.AWSPager GetEnabledStandards where
   page rq rs
@@ -148,24 +148,24 @@ instance Core.AWSRequest GetEnabledStandards where
     Response.receiveJSON
       ( \s h x ->
           GetEnabledStandardsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "StandardsSubscriptions"
+            Prelude.<$> ( x Core..?> "StandardsSubscriptions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetEnabledStandards where
   hashWithSalt _salt GetEnabledStandards' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` standardsSubscriptionArns
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` standardsSubscriptionArns
 
 instance Prelude.NFData GetEnabledStandards where
   rnf GetEnabledStandards' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf standardsSubscriptionArns
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf standardsSubscriptionArns
 
 instance Core.ToHeaders GetEnabledStandards where
   toHeaders =
@@ -183,9 +183,9 @@ instance Core.ToJSON GetEnabledStandards where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("StandardsSubscriptionArns" Core..=)
-              Prelude.<$> standardsSubscriptionArns,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+              Prelude.<$> standardsSubscriptionArns
           ]
       )
 
@@ -197,11 +197,11 @@ instance Core.ToQuery GetEnabledStandards where
 
 -- | /See:/ 'newGetEnabledStandardsResponse' smart constructor.
 data GetEnabledStandardsResponse = GetEnabledStandardsResponse'
-  { -- | The pagination token to use to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of @StandardsSubscriptions@ objects that include information
+  { -- | The list of @StandardsSubscriptions@ objects that include information
     -- about the enabled standards.
     standardsSubscriptions :: Prelude.Maybe [StandardsSubscription],
+    -- | The pagination token to use to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,10 +215,10 @@ data GetEnabledStandardsResponse = GetEnabledStandardsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEnabledStandardsResponse_nextToken' - The pagination token to use to request the next page of results.
---
 -- 'standardsSubscriptions', 'getEnabledStandardsResponse_standardsSubscriptions' - The list of @StandardsSubscriptions@ objects that include information
 -- about the enabled standards.
+--
+-- 'nextToken', 'getEnabledStandardsResponse_nextToken' - The pagination token to use to request the next page of results.
 --
 -- 'httpStatus', 'getEnabledStandardsResponse_httpStatus' - The response's http status code.
 newGetEnabledStandardsResponse ::
@@ -227,20 +227,20 @@ newGetEnabledStandardsResponse ::
   GetEnabledStandardsResponse
 newGetEnabledStandardsResponse pHttpStatus_ =
   GetEnabledStandardsResponse'
-    { nextToken =
+    { standardsSubscriptions =
         Prelude.Nothing,
-      standardsSubscriptions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token to use to request the next page of results.
-getEnabledStandardsResponse_nextToken :: Lens.Lens' GetEnabledStandardsResponse (Prelude.Maybe Prelude.Text)
-getEnabledStandardsResponse_nextToken = Lens.lens (\GetEnabledStandardsResponse' {nextToken} -> nextToken) (\s@GetEnabledStandardsResponse' {} a -> s {nextToken = a} :: GetEnabledStandardsResponse)
 
 -- | The list of @StandardsSubscriptions@ objects that include information
 -- about the enabled standards.
 getEnabledStandardsResponse_standardsSubscriptions :: Lens.Lens' GetEnabledStandardsResponse (Prelude.Maybe [StandardsSubscription])
 getEnabledStandardsResponse_standardsSubscriptions = Lens.lens (\GetEnabledStandardsResponse' {standardsSubscriptions} -> standardsSubscriptions) (\s@GetEnabledStandardsResponse' {} a -> s {standardsSubscriptions = a} :: GetEnabledStandardsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token to use to request the next page of results.
+getEnabledStandardsResponse_nextToken :: Lens.Lens' GetEnabledStandardsResponse (Prelude.Maybe Prelude.Text)
+getEnabledStandardsResponse_nextToken = Lens.lens (\GetEnabledStandardsResponse' {nextToken} -> nextToken) (\s@GetEnabledStandardsResponse' {} a -> s {nextToken = a} :: GetEnabledStandardsResponse)
 
 -- | The response's http status code.
 getEnabledStandardsResponse_httpStatus :: Lens.Lens' GetEnabledStandardsResponse Prelude.Int
@@ -248,6 +248,6 @@ getEnabledStandardsResponse_httpStatus = Lens.lens (\GetEnabledStandardsResponse
 
 instance Prelude.NFData GetEnabledStandardsResponse where
   rnf GetEnabledStandardsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf standardsSubscriptions
+    Prelude.rnf standardsSubscriptions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

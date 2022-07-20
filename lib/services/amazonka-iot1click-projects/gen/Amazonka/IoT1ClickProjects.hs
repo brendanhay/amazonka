@@ -19,20 +19,20 @@ module Amazonka.IoT1ClickProjects
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ResourceConflictException
     _ResourceConflictException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -40,35 +40,11 @@ module Amazonka.IoT1ClickProjects
     -- * Operations
     -- $operations
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DisassociateDeviceFromPlacement
-    DisassociateDeviceFromPlacement (DisassociateDeviceFromPlacement'),
-    newDisassociateDeviceFromPlacement,
-    DisassociateDeviceFromPlacementResponse (DisassociateDeviceFromPlacementResponse'),
-    newDisassociateDeviceFromPlacementResponse,
+    -- ** AssociateDeviceWithPlacement
+    AssociateDeviceWithPlacement (AssociateDeviceWithPlacement'),
+    newAssociateDeviceWithPlacement,
+    AssociateDeviceWithPlacementResponse (AssociateDeviceWithPlacementResponse'),
+    newAssociateDeviceWithPlacementResponse,
 
     -- ** CreatePlacement
     CreatePlacement (CreatePlacement'),
@@ -76,29 +52,11 @@ module Amazonka.IoT1ClickProjects
     CreatePlacementResponse (CreatePlacementResponse'),
     newCreatePlacementResponse,
 
-    -- ** DescribeProject
-    DescribeProject (DescribeProject'),
-    newDescribeProject,
-    DescribeProjectResponse (DescribeProjectResponse'),
-    newDescribeProjectResponse,
-
-    -- ** GetDevicesInPlacement
-    GetDevicesInPlacement (GetDevicesInPlacement'),
-    newGetDevicesInPlacement,
-    GetDevicesInPlacementResponse (GetDevicesInPlacementResponse'),
-    newGetDevicesInPlacementResponse,
-
-    -- ** DescribePlacement
-    DescribePlacement (DescribePlacement'),
-    newDescribePlacement,
-    DescribePlacementResponse (DescribePlacementResponse'),
-    newDescribePlacementResponse,
-
-    -- ** AssociateDeviceWithPlacement
-    AssociateDeviceWithPlacement (AssociateDeviceWithPlacement'),
-    newAssociateDeviceWithPlacement,
-    AssociateDeviceWithPlacementResponse (AssociateDeviceWithPlacementResponse'),
-    newAssociateDeviceWithPlacementResponse,
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
     -- ** DeletePlacement
     DeletePlacement (DeletePlacement'),
@@ -106,17 +64,35 @@ module Amazonka.IoT1ClickProjects
     DeletePlacementResponse (DeletePlacementResponse'),
     newDeletePlacementResponse,
 
-    -- ** UpdatePlacement
-    UpdatePlacement (UpdatePlacement'),
-    newUpdatePlacement,
-    UpdatePlacementResponse (UpdatePlacementResponse'),
-    newUpdatePlacementResponse,
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DescribePlacement
+    DescribePlacement (DescribePlacement'),
+    newDescribePlacement,
+    DescribePlacementResponse (DescribePlacementResponse'),
+    newDescribePlacementResponse,
+
+    -- ** DescribeProject
+    DescribeProject (DescribeProject'),
+    newDescribeProject,
+    DescribeProjectResponse (DescribeProjectResponse'),
+    newDescribeProjectResponse,
+
+    -- ** DisassociateDeviceFromPlacement
+    DisassociateDeviceFromPlacement (DisassociateDeviceFromPlacement'),
+    newDisassociateDeviceFromPlacement,
+    DisassociateDeviceFromPlacementResponse (DisassociateDeviceFromPlacementResponse'),
+    newDisassociateDeviceFromPlacementResponse,
+
+    -- ** GetDevicesInPlacement
+    GetDevicesInPlacement (GetDevicesInPlacement'),
+    newGetDevicesInPlacement,
+    GetDevicesInPlacementResponse (GetDevicesInPlacementResponse'),
+    newGetDevicesInPlacementResponse,
 
     -- ** ListPlacements (Paginated)
     ListPlacements (ListPlacements'),
@@ -124,17 +100,41 @@ module Amazonka.IoT1ClickProjects
     ListPlacementsResponse (ListPlacementsResponse'),
     newListPlacementsResponse,
 
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
+    -- ** UpdatePlacement
+    UpdatePlacement (UpdatePlacement'),
+    newUpdatePlacement,
+    UpdatePlacementResponse (UpdatePlacementResponse'),
+    newUpdatePlacementResponse,
+
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
 
     -- * Types
 

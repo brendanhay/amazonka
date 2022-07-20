@@ -27,8 +27,8 @@ module Amazonka.Backup.StartRestoreJob
     newStartRestoreJob,
 
     -- * Request Lenses
-    startRestoreJob_idempotencyToken,
     startRestoreJob_resourceType,
+    startRestoreJob_idempotencyToken,
     startRestoreJob_recoveryPointArn,
     startRestoreJob_metadata,
     startRestoreJob_iamRoleArn,
@@ -52,12 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartRestoreJob' smart constructor.
 data StartRestoreJob = StartRestoreJob'
-  { -- | A customer-chosen string that you can use to distinguish between
-    -- otherwise identical calls to @StartRestoreJob@. Retrying a successful
-    -- request with the same idempotency token results in a success message
-    -- with no action taken.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | Starts a job to restore a recovery point for one of the following
+  { -- | Starts a job to restore a recovery point for one of the following
     -- resources:
     --
     -- -   @DynamoDB@ for Amazon DynamoDB
@@ -74,6 +69,11 @@ data StartRestoreJob = StartRestoreJob'
     --
     -- -   @Storage Gateway@ for Storage Gateway
     resourceType :: Prelude.Maybe Prelude.Text,
+    -- | A customer-chosen string that you can use to distinguish between
+    -- otherwise identical calls to @StartRestoreJob@. Retrying a successful
+    -- request with the same idempotency token results in a success message
+    -- with no action taken.
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | An ARN that uniquely identifies a recovery point; for example,
     -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
     recoveryPointArn :: Prelude.Text,
@@ -129,11 +129,6 @@ data StartRestoreJob = StartRestoreJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'idempotencyToken', 'startRestoreJob_idempotencyToken' - A customer-chosen string that you can use to distinguish between
--- otherwise identical calls to @StartRestoreJob@. Retrying a successful
--- request with the same idempotency token results in a success message
--- with no action taken.
---
 -- 'resourceType', 'startRestoreJob_resourceType' - Starts a job to restore a recovery point for one of the following
 -- resources:
 --
@@ -150,6 +145,11 @@ data StartRestoreJob = StartRestoreJob'
 -- -   @Aurora@ for Amazon Aurora
 --
 -- -   @Storage Gateway@ for Storage Gateway
+--
+-- 'idempotencyToken', 'startRestoreJob_idempotencyToken' - A customer-chosen string that you can use to distinguish between
+-- otherwise identical calls to @StartRestoreJob@. Retrying a successful
+-- request with the same idempotency token results in a success message
+-- with no action taken.
 --
 -- 'recoveryPointArn', 'startRestoreJob_recoveryPointArn' - An ARN that uniquely identifies a recovery point; for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
@@ -202,20 +202,12 @@ newStartRestoreJob ::
   StartRestoreJob
 newStartRestoreJob pRecoveryPointArn_ pIamRoleArn_ =
   StartRestoreJob'
-    { idempotencyToken =
-        Prelude.Nothing,
-      resourceType = Prelude.Nothing,
+    { resourceType = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
       recoveryPointArn = pRecoveryPointArn_,
       metadata = Prelude.mempty,
       iamRoleArn = pIamRoleArn_
     }
-
--- | A customer-chosen string that you can use to distinguish between
--- otherwise identical calls to @StartRestoreJob@. Retrying a successful
--- request with the same idempotency token results in a success message
--- with no action taken.
-startRestoreJob_idempotencyToken :: Lens.Lens' StartRestoreJob (Prelude.Maybe Prelude.Text)
-startRestoreJob_idempotencyToken = Lens.lens (\StartRestoreJob' {idempotencyToken} -> idempotencyToken) (\s@StartRestoreJob' {} a -> s {idempotencyToken = a} :: StartRestoreJob)
 
 -- | Starts a job to restore a recovery point for one of the following
 -- resources:
@@ -235,6 +227,13 @@ startRestoreJob_idempotencyToken = Lens.lens (\StartRestoreJob' {idempotencyToke
 -- -   @Storage Gateway@ for Storage Gateway
 startRestoreJob_resourceType :: Lens.Lens' StartRestoreJob (Prelude.Maybe Prelude.Text)
 startRestoreJob_resourceType = Lens.lens (\StartRestoreJob' {resourceType} -> resourceType) (\s@StartRestoreJob' {} a -> s {resourceType = a} :: StartRestoreJob)
+
+-- | A customer-chosen string that you can use to distinguish between
+-- otherwise identical calls to @StartRestoreJob@. Retrying a successful
+-- request with the same idempotency token results in a success message
+-- with no action taken.
+startRestoreJob_idempotencyToken :: Lens.Lens' StartRestoreJob (Prelude.Maybe Prelude.Text)
+startRestoreJob_idempotencyToken = Lens.lens (\StartRestoreJob' {idempotencyToken} -> idempotencyToken) (\s@StartRestoreJob' {} a -> s {idempotencyToken = a} :: StartRestoreJob)
 
 -- | An ARN that uniquely identifies a recovery point; for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
@@ -301,16 +300,16 @@ instance Core.AWSRequest StartRestoreJob where
 
 instance Prelude.Hashable StartRestoreJob where
   hashWithSalt _salt StartRestoreJob' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
-      `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` recoveryPointArn
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData StartRestoreJob where
   rnf StartRestoreJob' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf iamRoleArn
@@ -330,9 +329,9 @@ instance Core.ToJSON StartRestoreJob where
   toJSON StartRestoreJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IdempotencyToken" Core..=)
+          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
+            ("IdempotencyToken" Core..=)
               Prelude.<$> idempotencyToken,
-            ("ResourceType" Core..=) Prelude.<$> resourceType,
             Prelude.Just
               ("RecoveryPointArn" Core..= recoveryPointArn),
             Prelude.Just ("Metadata" Core..= metadata),

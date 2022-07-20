@@ -17,8 +17,8 @@ module Amazonka.DataSync.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
     _InternalException,
+    _InvalidRequestException,
 
     -- * AgentStatus
     AgentStatus (..),
@@ -101,9 +101,9 @@ module Amazonka.DataSync.Types
     -- * AgentListEntry
     AgentListEntry (..),
     newAgentListEntry,
+    agentListEntry_name,
     agentListEntry_status,
     agentListEntry_agentArn,
-    agentListEntry_name,
 
     -- * Ec2Config
     Ec2Config (..),
@@ -127,8 +127,8 @@ module Amazonka.DataSync.Types
     -- * LocationListEntry
     LocationListEntry (..),
     newLocationListEntry,
-    locationListEntry_locationUri,
     locationListEntry_locationArn,
+    locationListEntry_locationUri,
 
     -- * NfsMountOptions
     NfsMountOptions (..),
@@ -143,28 +143,28 @@ module Amazonka.DataSync.Types
     -- * Options
     Options (..),
     newOptions,
-    options_atime,
-    options_verifyMode,
-    options_taskQueueing,
-    options_logLevel,
-    options_posixPermissions,
-    options_mtime,
-    options_uid,
-    options_bytesPerSecond,
-    options_securityDescriptorCopyFlags,
     options_gid,
-    options_overwriteMode,
-    options_transferMode,
-    options_preserveDeletedFiles,
+    options_logLevel,
+    options_taskQueueing,
     options_preserveDevices,
+    options_overwriteMode,
+    options_mtime,
+    options_transferMode,
+    options_uid,
+    options_verifyMode,
+    options_preserveDeletedFiles,
+    options_atime,
+    options_posixPermissions,
+    options_securityDescriptorCopyFlags,
+    options_bytesPerSecond,
 
     -- * PrivateLinkConfig
     PrivateLinkConfig (..),
     newPrivateLinkConfig,
-    privateLinkConfig_securityGroupArns,
     privateLinkConfig_subnetArns,
     privateLinkConfig_privateLinkEndpoint,
     privateLinkConfig_vpcEndpointId,
+    privateLinkConfig_securityGroupArns,
 
     -- * S3Config
     S3Config (..),
@@ -191,14 +191,14 @@ module Amazonka.DataSync.Types
     -- * TaskExecutionResultDetail
     TaskExecutionResultDetail (..),
     newTaskExecutionResultDetail,
-    taskExecutionResultDetail_prepareDuration,
     taskExecutionResultDetail_prepareStatus,
-    taskExecutionResultDetail_verifyStatus,
-    taskExecutionResultDetail_verifyDuration,
     taskExecutionResultDetail_totalDuration,
     taskExecutionResultDetail_transferStatus,
-    taskExecutionResultDetail_errorCode,
+    taskExecutionResultDetail_verifyStatus,
     taskExecutionResultDetail_transferDuration,
+    taskExecutionResultDetail_prepareDuration,
+    taskExecutionResultDetail_errorCode,
+    taskExecutionResultDetail_verifyDuration,
     taskExecutionResultDetail_errorDetail,
 
     -- * TaskFilter
@@ -211,9 +211,9 @@ module Amazonka.DataSync.Types
     -- * TaskListEntry
     TaskListEntry (..),
     newTaskListEntry,
-    taskListEntry_status,
-    taskListEntry_taskArn,
     taskListEntry_name,
+    taskListEntry_taskArn,
+    taskListEntry_status,
 
     -- * TaskSchedule
     TaskSchedule (..),
@@ -295,35 +295,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -332,20 +305,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | This exception is thrown when the client submits a malformed request.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
 
 -- | This exception is thrown when an error occurs in the DataSync service.
 _InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -353,3 +346,10 @@ _InternalException =
   Core._MatchServiceError
     defaultService
     "InternalException"
+
+-- | This exception is thrown when the client submits a malformed request.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"

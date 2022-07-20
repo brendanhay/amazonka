@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMergeHunkDetail' smart constructor.
 data MergeHunkDetail = MergeHunkDetail'
-  { -- | The start position of the hunk in the merge result.
-    startLine :: Prelude.Maybe Prelude.Int,
-    -- | The end position of the hunk in the merge result.
+  { -- | The end position of the hunk in the merge result.
     endLine :: Prelude.Maybe Prelude.Int,
     -- | The base-64 encoded content of the hunk merged region that might contain
     -- a conflict.
-    hunkContent :: Prelude.Maybe Prelude.Text
+    hunkContent :: Prelude.Maybe Prelude.Text,
+    -- | The start position of the hunk in the merge result.
+    startLine :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,20 @@ data MergeHunkDetail = MergeHunkDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startLine', 'mergeHunkDetail_startLine' - The start position of the hunk in the merge result.
---
 -- 'endLine', 'mergeHunkDetail_endLine' - The end position of the hunk in the merge result.
 --
 -- 'hunkContent', 'mergeHunkDetail_hunkContent' - The base-64 encoded content of the hunk merged region that might contain
 -- a conflict.
+--
+-- 'startLine', 'mergeHunkDetail_startLine' - The start position of the hunk in the merge result.
 newMergeHunkDetail ::
   MergeHunkDetail
 newMergeHunkDetail =
   MergeHunkDetail'
-    { startLine = Prelude.Nothing,
-      endLine = Prelude.Nothing,
-      hunkContent = Prelude.Nothing
+    { endLine = Prelude.Nothing,
+      hunkContent = Prelude.Nothing,
+      startLine = Prelude.Nothing
     }
-
--- | The start position of the hunk in the merge result.
-mergeHunkDetail_startLine :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Int)
-mergeHunkDetail_startLine = Lens.lens (\MergeHunkDetail' {startLine} -> startLine) (\s@MergeHunkDetail' {} a -> s {startLine = a} :: MergeHunkDetail)
 
 -- | The end position of the hunk in the merge result.
 mergeHunkDetail_endLine :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Int)
@@ -74,25 +70,29 @@ mergeHunkDetail_endLine = Lens.lens (\MergeHunkDetail' {endLine} -> endLine) (\s
 mergeHunkDetail_hunkContent :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Text)
 mergeHunkDetail_hunkContent = Lens.lens (\MergeHunkDetail' {hunkContent} -> hunkContent) (\s@MergeHunkDetail' {} a -> s {hunkContent = a} :: MergeHunkDetail)
 
+-- | The start position of the hunk in the merge result.
+mergeHunkDetail_startLine :: Lens.Lens' MergeHunkDetail (Prelude.Maybe Prelude.Int)
+mergeHunkDetail_startLine = Lens.lens (\MergeHunkDetail' {startLine} -> startLine) (\s@MergeHunkDetail' {} a -> s {startLine = a} :: MergeHunkDetail)
+
 instance Core.FromJSON MergeHunkDetail where
   parseJSON =
     Core.withObject
       "MergeHunkDetail"
       ( \x ->
           MergeHunkDetail'
-            Prelude.<$> (x Core..:? "startLine")
-            Prelude.<*> (x Core..:? "endLine")
+            Prelude.<$> (x Core..:? "endLine")
             Prelude.<*> (x Core..:? "hunkContent")
+            Prelude.<*> (x Core..:? "startLine")
       )
 
 instance Prelude.Hashable MergeHunkDetail where
   hashWithSalt _salt MergeHunkDetail' {..} =
-    _salt `Prelude.hashWithSalt` startLine
-      `Prelude.hashWithSalt` endLine
+    _salt `Prelude.hashWithSalt` endLine
       `Prelude.hashWithSalt` hunkContent
+      `Prelude.hashWithSalt` startLine
 
 instance Prelude.NFData MergeHunkDetail where
   rnf MergeHunkDetail' {..} =
-    Prelude.rnf startLine
-      `Prelude.seq` Prelude.rnf endLine
+    Prelude.rnf endLine
       `Prelude.seq` Prelude.rnf hunkContent
+      `Prelude.seq` Prelude.rnf startLine

@@ -35,8 +35,8 @@ module Amazonka.Transcribe.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_resourceArn,
     listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_resourceArn,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -84,8 +84,8 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "Tags")
+            Prelude.<$> (x Core..?> "Tags")
+            Prelude.<*> (x Core..?> "ResourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,11 +127,11 @@ instance Core.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | Lists all tags associated with the given Amazon Resource Name (ARN).
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Lists all tags associated with the given transcription job, vocabulary,
+  { -- | Lists all tags associated with the given transcription job, vocabulary,
     -- or resource.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Lists all tags associated with the given Amazon Resource Name (ARN).
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,10 +145,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResourceResponse_resourceArn' - Lists all tags associated with the given Amazon Resource Name (ARN).
---
 -- 'tags', 'listTagsForResourceResponse_tags' - Lists all tags associated with the given transcription job, vocabulary,
 -- or resource.
+--
+-- 'resourceArn', 'listTagsForResourceResponse_resourceArn' - Lists all tags associated with the given Amazon Resource Name (ARN).
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -157,20 +157,20 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { resourceArn =
+    { tags =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Lists all tags associated with the given Amazon Resource Name (ARN).
-listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
-listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceResponse' {resourceArn} -> resourceArn) (\s@ListTagsForResourceResponse' {} a -> s {resourceArn = a} :: ListTagsForResourceResponse)
 
 -- | Lists all tags associated with the given transcription job, vocabulary,
 -- or resource.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Lists all tags associated with the given Amazon Resource Name (ARN).
+listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceResponse' {resourceArn} -> resourceArn) (\s@ListTagsForResourceResponse' {} a -> s {resourceArn = a} :: ListTagsForResourceResponse)
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
@@ -178,6 +178,6 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf httpStatus

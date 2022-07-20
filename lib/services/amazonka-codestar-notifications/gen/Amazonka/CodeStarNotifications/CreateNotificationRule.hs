@@ -29,9 +29,9 @@ module Amazonka.CodeStarNotifications.CreateNotificationRule
     newCreateNotificationRule,
 
     -- * Request Lenses
-    createNotificationRule_status,
-    createNotificationRule_clientRequestToken,
     createNotificationRule_tags,
+    createNotificationRule_clientRequestToken,
+    createNotificationRule_status,
     createNotificationRule_name,
     createNotificationRule_eventTypeIds,
     createNotificationRule_resource,
@@ -57,10 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNotificationRule' smart constructor.
 data CreateNotificationRule = CreateNotificationRule'
-  { -- | The status of the notification rule. The default value is ENABLED. If
-    -- the status is set to DISABLED, notifications aren\'t sent for the
-    -- notification rule.
-    status :: Prelude.Maybe NotificationRuleStatus,
+  { -- | A list of tags to apply to this notification rule. Key names cannot
+    -- start with \"aws\".
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, client-generated idempotency token that, when provided in a
     -- request, ensures the request cannot be repeated with a changed
     -- parameter. If a request with the same parameters is received and a token
@@ -70,9 +69,10 @@ data CreateNotificationRule = CreateNotificationRule'
     -- The AWS SDKs prepopulate client request tokens. If you are using an AWS
     -- SDK, an idempotency token is created for you.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to apply to this notification rule. Key names cannot
-    -- start with \"aws\".
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The status of the notification rule. The default value is ENABLED. If
+    -- the status is set to DISABLED, notifications aren\'t sent for the
+    -- notification rule.
+    status :: Prelude.Maybe NotificationRuleStatus,
     -- | The name for the notification rule. Notifictaion rule names must be
     -- unique in your AWS account.
     name :: Core.Sensitive Prelude.Text,
@@ -104,9 +104,8 @@ data CreateNotificationRule = CreateNotificationRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'createNotificationRule_status' - The status of the notification rule. The default value is ENABLED. If
--- the status is set to DISABLED, notifications aren\'t sent for the
--- notification rule.
+-- 'tags', 'createNotificationRule_tags' - A list of tags to apply to this notification rule. Key names cannot
+-- start with \"aws\".
 --
 -- 'clientRequestToken', 'createNotificationRule_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
@@ -117,8 +116,9 @@ data CreateNotificationRule = CreateNotificationRule'
 -- The AWS SDKs prepopulate client request tokens. If you are using an AWS
 -- SDK, an idempotency token is created for you.
 --
--- 'tags', 'createNotificationRule_tags' - A list of tags to apply to this notification rule. Key names cannot
--- start with \"aws\".
+-- 'status', 'createNotificationRule_status' - The status of the notification rule. The default value is ENABLED. If
+-- the status is set to DISABLED, notifications aren\'t sent for the
+-- notification rule.
 --
 -- 'name', 'createNotificationRule_name' - The name for the notification rule. Notifictaion rule names must be
 -- unique in your AWS account.
@@ -152,9 +152,9 @@ newCreateNotificationRule
   pResource_
   pDetailType_ =
     CreateNotificationRule'
-      { status = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        status = Prelude.Nothing,
         name = Core._Sensitive Lens.# pName_,
         eventTypeIds = Prelude.mempty,
         resource = pResource_,
@@ -162,11 +162,10 @@ newCreateNotificationRule
         detailType = pDetailType_
       }
 
--- | The status of the notification rule. The default value is ENABLED. If
--- the status is set to DISABLED, notifications aren\'t sent for the
--- notification rule.
-createNotificationRule_status :: Lens.Lens' CreateNotificationRule (Prelude.Maybe NotificationRuleStatus)
-createNotificationRule_status = Lens.lens (\CreateNotificationRule' {status} -> status) (\s@CreateNotificationRule' {} a -> s {status = a} :: CreateNotificationRule)
+-- | A list of tags to apply to this notification rule. Key names cannot
+-- start with \"aws\".
+createNotificationRule_tags :: Lens.Lens' CreateNotificationRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createNotificationRule_tags = Lens.lens (\CreateNotificationRule' {tags} -> tags) (\s@CreateNotificationRule' {} a -> s {tags = a} :: CreateNotificationRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
@@ -179,10 +178,11 @@ createNotificationRule_status = Lens.lens (\CreateNotificationRule' {status} -> 
 createNotificationRule_clientRequestToken :: Lens.Lens' CreateNotificationRule (Prelude.Maybe Prelude.Text)
 createNotificationRule_clientRequestToken = Lens.lens (\CreateNotificationRule' {clientRequestToken} -> clientRequestToken) (\s@CreateNotificationRule' {} a -> s {clientRequestToken = a} :: CreateNotificationRule)
 
--- | A list of tags to apply to this notification rule. Key names cannot
--- start with \"aws\".
-createNotificationRule_tags :: Lens.Lens' CreateNotificationRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNotificationRule_tags = Lens.lens (\CreateNotificationRule' {tags} -> tags) (\s@CreateNotificationRule' {} a -> s {tags = a} :: CreateNotificationRule) Prelude.. Lens.mapping Lens.coerced
+-- | The status of the notification rule. The default value is ENABLED. If
+-- the status is set to DISABLED, notifications aren\'t sent for the
+-- notification rule.
+createNotificationRule_status :: Lens.Lens' CreateNotificationRule (Prelude.Maybe NotificationRuleStatus)
+createNotificationRule_status = Lens.lens (\CreateNotificationRule' {status} -> status) (\s@CreateNotificationRule' {} a -> s {status = a} :: CreateNotificationRule)
 
 -- | The name for the notification rule. Notifictaion rule names must be
 -- unique in your AWS account.
@@ -229,9 +229,9 @@ instance Core.AWSRequest CreateNotificationRule where
 
 instance Prelude.Hashable CreateNotificationRule where
   hashWithSalt _salt CreateNotificationRule' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` eventTypeIds
       `Prelude.hashWithSalt` resource
@@ -240,9 +240,9 @@ instance Prelude.Hashable CreateNotificationRule where
 
 instance Prelude.NFData CreateNotificationRule where
   rnf CreateNotificationRule' {..} =
-    Prelude.rnf status
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf eventTypeIds
       `Prelude.seq` Prelude.rnf resource
@@ -264,10 +264,10 @@ instance Core.ToJSON CreateNotificationRule where
   toJSON CreateNotificationRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Status" Core..=) Prelude.<$> status,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("EventTypeIds" Core..= eventTypeIds),
             Prelude.Just ("Resource" Core..= resource),

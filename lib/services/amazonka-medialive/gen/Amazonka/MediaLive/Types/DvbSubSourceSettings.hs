@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDvbSubSourceSettings' smart constructor.
 data DvbSubSourceSettings = DvbSubSourceSettings'
-  { -- | If you will configure a WebVTT caption description that references this
-    -- caption selector, use this field to provide the language to consider
-    -- when translating the image-based source to text.
-    ocrLanguage :: Prelude.Maybe DvbSubOcrLanguage,
-    -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
+  { -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
     -- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed
     -- through, regardless of selectors.
-    pid :: Prelude.Maybe Prelude.Natural
+    pid :: Prelude.Maybe Prelude.Natural,
+    -- | If you will configure a WebVTT caption description that references this
+    -- caption selector, use this field to provide the language to consider
+    -- when translating the image-based source to text.
+    ocrLanguage :: Prelude.Maybe DvbSubOcrLanguage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,20 @@ data DvbSubSourceSettings = DvbSubSourceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ocrLanguage', 'dvbSubSourceSettings_ocrLanguage' - If you will configure a WebVTT caption description that references this
--- caption selector, use this field to provide the language to consider
--- when translating the image-based source to text.
---
 -- 'pid', 'dvbSubSourceSettings_pid' - When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
 -- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed
 -- through, regardless of selectors.
+--
+-- 'ocrLanguage', 'dvbSubSourceSettings_ocrLanguage' - If you will configure a WebVTT caption description that references this
+-- caption selector, use this field to provide the language to consider
+-- when translating the image-based source to text.
 newDvbSubSourceSettings ::
   DvbSubSourceSettings
 newDvbSubSourceSettings =
   DvbSubSourceSettings'
-    { ocrLanguage =
-        Prelude.Nothing,
-      pid = Prelude.Nothing
+    { pid = Prelude.Nothing,
+      ocrLanguage = Prelude.Nothing
     }
-
--- | If you will configure a WebVTT caption description that references this
--- caption selector, use this field to provide the language to consider
--- when translating the image-based source to text.
-dvbSubSourceSettings_ocrLanguage :: Lens.Lens' DvbSubSourceSettings (Prelude.Maybe DvbSubOcrLanguage)
-dvbSubSourceSettings_ocrLanguage = Lens.lens (\DvbSubSourceSettings' {ocrLanguage} -> ocrLanguage) (\s@DvbSubSourceSettings' {} a -> s {ocrLanguage = a} :: DvbSubSourceSettings)
 
 -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
 -- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed
@@ -75,31 +68,37 @@ dvbSubSourceSettings_ocrLanguage = Lens.lens (\DvbSubSourceSettings' {ocrLanguag
 dvbSubSourceSettings_pid :: Lens.Lens' DvbSubSourceSettings (Prelude.Maybe Prelude.Natural)
 dvbSubSourceSettings_pid = Lens.lens (\DvbSubSourceSettings' {pid} -> pid) (\s@DvbSubSourceSettings' {} a -> s {pid = a} :: DvbSubSourceSettings)
 
+-- | If you will configure a WebVTT caption description that references this
+-- caption selector, use this field to provide the language to consider
+-- when translating the image-based source to text.
+dvbSubSourceSettings_ocrLanguage :: Lens.Lens' DvbSubSourceSettings (Prelude.Maybe DvbSubOcrLanguage)
+dvbSubSourceSettings_ocrLanguage = Lens.lens (\DvbSubSourceSettings' {ocrLanguage} -> ocrLanguage) (\s@DvbSubSourceSettings' {} a -> s {ocrLanguage = a} :: DvbSubSourceSettings)
+
 instance Core.FromJSON DvbSubSourceSettings where
   parseJSON =
     Core.withObject
       "DvbSubSourceSettings"
       ( \x ->
           DvbSubSourceSettings'
-            Prelude.<$> (x Core..:? "ocrLanguage")
-            Prelude.<*> (x Core..:? "pid")
+            Prelude.<$> (x Core..:? "pid")
+            Prelude.<*> (x Core..:? "ocrLanguage")
       )
 
 instance Prelude.Hashable DvbSubSourceSettings where
   hashWithSalt _salt DvbSubSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` ocrLanguage
-      `Prelude.hashWithSalt` pid
+    _salt `Prelude.hashWithSalt` pid
+      `Prelude.hashWithSalt` ocrLanguage
 
 instance Prelude.NFData DvbSubSourceSettings where
   rnf DvbSubSourceSettings' {..} =
-    Prelude.rnf ocrLanguage
-      `Prelude.seq` Prelude.rnf pid
+    Prelude.rnf pid
+      `Prelude.seq` Prelude.rnf ocrLanguage
 
 instance Core.ToJSON DvbSubSourceSettings where
   toJSON DvbSubSourceSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ocrLanguage" Core..=) Prelude.<$> ocrLanguage,
-            ("pid" Core..=) Prelude.<$> pid
+          [ ("pid" Core..=) Prelude.<$> pid,
+            ("ocrLanguage" Core..=) Prelude.<$> ocrLanguage
           ]
       )

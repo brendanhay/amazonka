@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSslConfiguration' smart constructor.
 data SslConfiguration = SslConfiguration'
-  { -- | The private key; the contents of the certificate\'s domain.kex file.
+  { -- | Optional. Can be used to specify an intermediate certificate authority
+    -- key or client authentication.
+    chain :: Prelude.Maybe Prelude.Text,
+    -- | The private key; the contents of the certificate\'s domain.kex file.
     privateKey :: Prelude.Maybe Prelude.Text,
     -- | The contents of the certificate\'s domain.crt file.
-    certificate :: Prelude.Maybe Prelude.Text,
-    -- | Optional. Can be used to specify an intermediate certificate authority
-    -- key or client authentication.
-    chain :: Prelude.Maybe Prelude.Text
+    certificate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,25 @@ data SslConfiguration = SslConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'chain', 'sslConfiguration_chain' - Optional. Can be used to specify an intermediate certificate authority
+-- key or client authentication.
+--
 -- 'privateKey', 'sslConfiguration_privateKey' - The private key; the contents of the certificate\'s domain.kex file.
 --
 -- 'certificate', 'sslConfiguration_certificate' - The contents of the certificate\'s domain.crt file.
---
--- 'chain', 'sslConfiguration_chain' - Optional. Can be used to specify an intermediate certificate authority
--- key or client authentication.
 newSslConfiguration ::
   SslConfiguration
 newSslConfiguration =
   SslConfiguration'
-    { privateKey = Prelude.Nothing,
-      certificate = Prelude.Nothing,
-      chain = Prelude.Nothing
+    { chain = Prelude.Nothing,
+      privateKey = Prelude.Nothing,
+      certificate = Prelude.Nothing
     }
+
+-- | Optional. Can be used to specify an intermediate certificate authority
+-- key or client authentication.
+sslConfiguration_chain :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
+sslConfiguration_chain = Lens.lens (\SslConfiguration' {chain} -> chain) (\s@SslConfiguration' {} a -> s {chain = a} :: SslConfiguration)
 
 -- | The private key; the contents of the certificate\'s domain.kex file.
 sslConfiguration_privateKey :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
@@ -68,40 +73,35 @@ sslConfiguration_privateKey = Lens.lens (\SslConfiguration' {privateKey} -> priv
 sslConfiguration_certificate :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
 sslConfiguration_certificate = Lens.lens (\SslConfiguration' {certificate} -> certificate) (\s@SslConfiguration' {} a -> s {certificate = a} :: SslConfiguration)
 
--- | Optional. Can be used to specify an intermediate certificate authority
--- key or client authentication.
-sslConfiguration_chain :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
-sslConfiguration_chain = Lens.lens (\SslConfiguration' {chain} -> chain) (\s@SslConfiguration' {} a -> s {chain = a} :: SslConfiguration)
-
 instance Core.FromJSON SslConfiguration where
   parseJSON =
     Core.withObject
       "SslConfiguration"
       ( \x ->
           SslConfiguration'
-            Prelude.<$> (x Core..:? "PrivateKey")
+            Prelude.<$> (x Core..:? "Chain")
+            Prelude.<*> (x Core..:? "PrivateKey")
             Prelude.<*> (x Core..:? "Certificate")
-            Prelude.<*> (x Core..:? "Chain")
       )
 
 instance Prelude.Hashable SslConfiguration where
   hashWithSalt _salt SslConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` privateKey
+    _salt `Prelude.hashWithSalt` chain
+      `Prelude.hashWithSalt` privateKey
       `Prelude.hashWithSalt` certificate
-      `Prelude.hashWithSalt` chain
 
 instance Prelude.NFData SslConfiguration where
   rnf SslConfiguration' {..} =
-    Prelude.rnf privateKey
+    Prelude.rnf chain
+      `Prelude.seq` Prelude.rnf privateKey
       `Prelude.seq` Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf chain
 
 instance Core.ToJSON SslConfiguration where
   toJSON SslConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PrivateKey" Core..=) Prelude.<$> privateKey,
-            ("Certificate" Core..=) Prelude.<$> certificate,
-            ("Chain" Core..=) Prelude.<$> chain
+          [ ("Chain" Core..=) Prelude.<$> chain,
+            ("PrivateKey" Core..=) Prelude.<$> privateKey,
+            ("Certificate" Core..=) Prelude.<$> certificate
           ]
       )

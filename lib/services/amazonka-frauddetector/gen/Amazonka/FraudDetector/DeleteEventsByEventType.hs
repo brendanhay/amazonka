@@ -34,8 +34,8 @@ module Amazonka.FraudDetector.DeleteEventsByEventType
     newDeleteEventsByEventTypeResponse,
 
     -- * Response Lenses
-    deleteEventsByEventTypeResponse_eventTypeName,
     deleteEventsByEventTypeResponse_eventsDeletionStatus,
+    deleteEventsByEventTypeResponse_eventTypeName,
     deleteEventsByEventTypeResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest DeleteEventsByEventType where
     Response.receiveJSON
       ( \s h x ->
           DeleteEventsByEventTypeResponse'
-            Prelude.<$> (x Core..?> "eventTypeName")
-            Prelude.<*> (x Core..?> "eventsDeletionStatus")
+            Prelude.<$> (x Core..?> "eventsDeletionStatus")
+            Prelude.<*> (x Core..?> "eventTypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,10 +131,10 @@ instance Core.ToQuery DeleteEventsByEventType where
 
 -- | /See:/ 'newDeleteEventsByEventTypeResponse' smart constructor.
 data DeleteEventsByEventTypeResponse = DeleteEventsByEventTypeResponse'
-  { -- | Name of event type for which to delete the events.
-    eventTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the delete request.
+  { -- | The status of the delete request.
     eventsDeletionStatus :: Prelude.Maybe Prelude.Text,
+    -- | Name of event type for which to delete the events.
+    eventTypeName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,9 +148,9 @@ data DeleteEventsByEventTypeResponse = DeleteEventsByEventTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventTypeName', 'deleteEventsByEventTypeResponse_eventTypeName' - Name of event type for which to delete the events.
---
 -- 'eventsDeletionStatus', 'deleteEventsByEventTypeResponse_eventsDeletionStatus' - The status of the delete request.
+--
+-- 'eventTypeName', 'deleteEventsByEventTypeResponse_eventTypeName' - Name of event type for which to delete the events.
 --
 -- 'httpStatus', 'deleteEventsByEventTypeResponse_httpStatus' - The response's http status code.
 newDeleteEventsByEventTypeResponse ::
@@ -159,19 +159,19 @@ newDeleteEventsByEventTypeResponse ::
   DeleteEventsByEventTypeResponse
 newDeleteEventsByEventTypeResponse pHttpStatus_ =
   DeleteEventsByEventTypeResponse'
-    { eventTypeName =
+    { eventsDeletionStatus =
         Prelude.Nothing,
-      eventsDeletionStatus = Prelude.Nothing,
+      eventTypeName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Name of event type for which to delete the events.
-deleteEventsByEventTypeResponse_eventTypeName :: Lens.Lens' DeleteEventsByEventTypeResponse (Prelude.Maybe Prelude.Text)
-deleteEventsByEventTypeResponse_eventTypeName = Lens.lens (\DeleteEventsByEventTypeResponse' {eventTypeName} -> eventTypeName) (\s@DeleteEventsByEventTypeResponse' {} a -> s {eventTypeName = a} :: DeleteEventsByEventTypeResponse)
 
 -- | The status of the delete request.
 deleteEventsByEventTypeResponse_eventsDeletionStatus :: Lens.Lens' DeleteEventsByEventTypeResponse (Prelude.Maybe Prelude.Text)
 deleteEventsByEventTypeResponse_eventsDeletionStatus = Lens.lens (\DeleteEventsByEventTypeResponse' {eventsDeletionStatus} -> eventsDeletionStatus) (\s@DeleteEventsByEventTypeResponse' {} a -> s {eventsDeletionStatus = a} :: DeleteEventsByEventTypeResponse)
+
+-- | Name of event type for which to delete the events.
+deleteEventsByEventTypeResponse_eventTypeName :: Lens.Lens' DeleteEventsByEventTypeResponse (Prelude.Maybe Prelude.Text)
+deleteEventsByEventTypeResponse_eventTypeName = Lens.lens (\DeleteEventsByEventTypeResponse' {eventTypeName} -> eventTypeName) (\s@DeleteEventsByEventTypeResponse' {} a -> s {eventTypeName = a} :: DeleteEventsByEventTypeResponse)
 
 -- | The response's http status code.
 deleteEventsByEventTypeResponse_httpStatus :: Lens.Lens' DeleteEventsByEventTypeResponse Prelude.Int
@@ -182,6 +182,6 @@ instance
     DeleteEventsByEventTypeResponse
   where
   rnf DeleteEventsByEventTypeResponse' {..} =
-    Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf eventsDeletionStatus
+    Prelude.rnf eventsDeletionStatus
+      `Prelude.seq` Prelude.rnf eventTypeName
       `Prelude.seq` Prelude.rnf httpStatus

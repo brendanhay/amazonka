@@ -28,8 +28,8 @@ module Amazonka.Amplify.GenerateAccessLogs
     newGenerateAccessLogs,
 
     -- * Request Lenses
-    generateAccessLogs_startTime,
     generateAccessLogs_endTime,
+    generateAccessLogs_startTime,
     generateAccessLogs_domainName,
     generateAccessLogs_appId,
 
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGenerateAccessLogs' smart constructor.
 data GenerateAccessLogs = GenerateAccessLogs'
-  { -- | The time at which the logs should start. The time range specified is
-    -- inclusive of the start time.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The time at which the logs should end. The time range specified is
+  { -- | The time at which the logs should end. The time range specified is
     -- inclusive of the end time.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The time at which the logs should start. The time range specified is
+    -- inclusive of the start time.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the domain.
     domainName :: Prelude.Text,
     -- | The unique ID for an Amplify app.
@@ -75,11 +75,11 @@ data GenerateAccessLogs = GenerateAccessLogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'generateAccessLogs_startTime' - The time at which the logs should start. The time range specified is
--- inclusive of the start time.
---
 -- 'endTime', 'generateAccessLogs_endTime' - The time at which the logs should end. The time range specified is
 -- inclusive of the end time.
+--
+-- 'startTime', 'generateAccessLogs_startTime' - The time at which the logs should start. The time range specified is
+-- inclusive of the start time.
 --
 -- 'domainName', 'generateAccessLogs_domainName' - The name of the domain.
 --
@@ -92,21 +92,21 @@ newGenerateAccessLogs ::
   GenerateAccessLogs
 newGenerateAccessLogs pDomainName_ pAppId_ =
   GenerateAccessLogs'
-    { startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       domainName = pDomainName_,
       appId = pAppId_
     }
-
--- | The time at which the logs should start. The time range specified is
--- inclusive of the start time.
-generateAccessLogs_startTime :: Lens.Lens' GenerateAccessLogs (Prelude.Maybe Prelude.UTCTime)
-generateAccessLogs_startTime = Lens.lens (\GenerateAccessLogs' {startTime} -> startTime) (\s@GenerateAccessLogs' {} a -> s {startTime = a} :: GenerateAccessLogs) Prelude.. Lens.mapping Core._Time
 
 -- | The time at which the logs should end. The time range specified is
 -- inclusive of the end time.
 generateAccessLogs_endTime :: Lens.Lens' GenerateAccessLogs (Prelude.Maybe Prelude.UTCTime)
 generateAccessLogs_endTime = Lens.lens (\GenerateAccessLogs' {endTime} -> endTime) (\s@GenerateAccessLogs' {} a -> s {endTime = a} :: GenerateAccessLogs) Prelude.. Lens.mapping Core._Time
+
+-- | The time at which the logs should start. The time range specified is
+-- inclusive of the start time.
+generateAccessLogs_startTime :: Lens.Lens' GenerateAccessLogs (Prelude.Maybe Prelude.UTCTime)
+generateAccessLogs_startTime = Lens.lens (\GenerateAccessLogs' {startTime} -> startTime) (\s@GenerateAccessLogs' {} a -> s {startTime = a} :: GenerateAccessLogs) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the domain.
 generateAccessLogs_domainName :: Lens.Lens' GenerateAccessLogs Prelude.Text
@@ -131,15 +131,15 @@ instance Core.AWSRequest GenerateAccessLogs where
 
 instance Prelude.Hashable GenerateAccessLogs where
   hashWithSalt _salt GenerateAccessLogs' {..} =
-    _salt `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData GenerateAccessLogs where
   rnf GenerateAccessLogs' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf appId
 
@@ -158,8 +158,8 @@ instance Core.ToJSON GenerateAccessLogs where
   toJSON GenerateAccessLogs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("startTime" Core..=) Prelude.<$> startTime,
-            ("endTime" Core..=) Prelude.<$> endTime,
+          [ ("endTime" Core..=) Prelude.<$> endTime,
+            ("startTime" Core..=) Prelude.<$> startTime,
             Prelude.Just ("domainName" Core..= domainName)
           ]
       )

@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageRecord' smart constructor.
 data UsageRecord = UsageRecord'
-  { -- | The unique identifier for the Amazon Web Services account that the data
+  { -- | An array of objects that contains usage data and quotas for the account.
+    -- Each object contains the data for a specific usage metric and the
+    -- corresponding quota.
+    usage :: Prelude.Maybe [UsageByAccount],
+    -- | The unique identifier for the Amazon Web Services account that the data
     -- applies to.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the free
     -- trial started for the account.
-    freeTrialStartDate :: Prelude.Maybe Core.POSIX,
-    -- | An array of objects that contains usage data and quotas for the account.
-    -- Each object contains the data for a specific usage metric and the
-    -- corresponding quota.
-    usage :: Prelude.Maybe [UsageByAccount]
+    freeTrialStartDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,29 @@ data UsageRecord = UsageRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'usage', 'usageRecord_usage' - An array of objects that contains usage data and quotas for the account.
+-- Each object contains the data for a specific usage metric and the
+-- corresponding quota.
+--
 -- 'accountId', 'usageRecord_accountId' - The unique identifier for the Amazon Web Services account that the data
 -- applies to.
 --
 -- 'freeTrialStartDate', 'usageRecord_freeTrialStartDate' - The date and time, in UTC and extended ISO 8601 format, when the free
 -- trial started for the account.
---
--- 'usage', 'usageRecord_usage' - An array of objects that contains usage data and quotas for the account.
--- Each object contains the data for a specific usage metric and the
--- corresponding quota.
 newUsageRecord ::
   UsageRecord
 newUsageRecord =
   UsageRecord'
-    { accountId = Prelude.Nothing,
-      freeTrialStartDate = Prelude.Nothing,
-      usage = Prelude.Nothing
+    { usage = Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      freeTrialStartDate = Prelude.Nothing
     }
+
+-- | An array of objects that contains usage data and quotas for the account.
+-- Each object contains the data for a specific usage metric and the
+-- corresponding quota.
+usageRecord_usage :: Lens.Lens' UsageRecord (Prelude.Maybe [UsageByAccount])
+usageRecord_usage = Lens.lens (\UsageRecord' {usage} -> usage) (\s@UsageRecord' {} a -> s {usage = a} :: UsageRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier for the Amazon Web Services account that the data
 -- applies to.
@@ -77,31 +83,25 @@ usageRecord_accountId = Lens.lens (\UsageRecord' {accountId} -> accountId) (\s@U
 usageRecord_freeTrialStartDate :: Lens.Lens' UsageRecord (Prelude.Maybe Prelude.UTCTime)
 usageRecord_freeTrialStartDate = Lens.lens (\UsageRecord' {freeTrialStartDate} -> freeTrialStartDate) (\s@UsageRecord' {} a -> s {freeTrialStartDate = a} :: UsageRecord) Prelude.. Lens.mapping Core._Time
 
--- | An array of objects that contains usage data and quotas for the account.
--- Each object contains the data for a specific usage metric and the
--- corresponding quota.
-usageRecord_usage :: Lens.Lens' UsageRecord (Prelude.Maybe [UsageByAccount])
-usageRecord_usage = Lens.lens (\UsageRecord' {usage} -> usage) (\s@UsageRecord' {} a -> s {usage = a} :: UsageRecord) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON UsageRecord where
   parseJSON =
     Core.withObject
       "UsageRecord"
       ( \x ->
           UsageRecord'
-            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<$> (x Core..:? "usage" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "accountId")
             Prelude.<*> (x Core..:? "freeTrialStartDate")
-            Prelude.<*> (x Core..:? "usage" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UsageRecord where
   hashWithSalt _salt UsageRecord' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` usage
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` freeTrialStartDate
-      `Prelude.hashWithSalt` usage
 
 instance Prelude.NFData UsageRecord where
   rnf UsageRecord' {..} =
-    Prelude.rnf accountId
+    Prelude.rnf usage
+      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf freeTrialStartDate
-      `Prelude.seq` Prelude.rnf usage

@@ -32,8 +32,8 @@ module Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
     newDescribeRecommendationExportJobs,
 
     -- * Request Lenses
-    describeRecommendationExportJobs_filters,
     describeRecommendationExportJobs_nextToken,
+    describeRecommendationExportJobs_filters,
     describeRecommendationExportJobs_maxResults,
     describeRecommendationExportJobs_jobIds,
 
@@ -42,8 +42,8 @@ module Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
     newDescribeRecommendationExportJobsResponse,
 
     -- * Response Lenses
-    describeRecommendationExportJobsResponse_recommendationExportJobs,
     describeRecommendationExportJobsResponse_nextToken,
+    describeRecommendationExportJobsResponse_recommendationExportJobs,
     describeRecommendationExportJobsResponse_httpStatus,
   )
 where
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRecommendationExportJobs' smart constructor.
 data DescribeRecommendationExportJobs = DescribeRecommendationExportJobs'
-  { -- | An array of objects to specify a filter that returns a more specific
+  { -- | The token to advance to the next page of export jobs.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects to specify a filter that returns a more specific
     -- list of export jobs.
     filters :: Prelude.Maybe [JobFilter],
-    -- | The token to advance to the next page of export jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of export jobs to return with a single request.
     --
     -- To retrieve the remaining results, make another request with the
@@ -87,10 +87,10 @@ data DescribeRecommendationExportJobs = DescribeRecommendationExportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeRecommendationExportJobs_nextToken' - The token to advance to the next page of export jobs.
+--
 -- 'filters', 'describeRecommendationExportJobs_filters' - An array of objects to specify a filter that returns a more specific
 -- list of export jobs.
---
--- 'nextToken', 'describeRecommendationExportJobs_nextToken' - The token to advance to the next page of export jobs.
 --
 -- 'maxResults', 'describeRecommendationExportJobs_maxResults' - The maximum number of export jobs to return with a single request.
 --
@@ -109,21 +109,21 @@ newDescribeRecommendationExportJobs ::
   DescribeRecommendationExportJobs
 newDescribeRecommendationExportJobs =
   DescribeRecommendationExportJobs'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       jobIds = Prelude.Nothing
     }
+
+-- | The token to advance to the next page of export jobs.
+describeRecommendationExportJobs_nextToken :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Text)
+describeRecommendationExportJobs_nextToken = Lens.lens (\DescribeRecommendationExportJobs' {nextToken} -> nextToken) (\s@DescribeRecommendationExportJobs' {} a -> s {nextToken = a} :: DescribeRecommendationExportJobs)
 
 -- | An array of objects to specify a filter that returns a more specific
 -- list of export jobs.
 describeRecommendationExportJobs_filters :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe [JobFilter])
 describeRecommendationExportJobs_filters = Lens.lens (\DescribeRecommendationExportJobs' {filters} -> filters) (\s@DescribeRecommendationExportJobs' {} a -> s {filters = a} :: DescribeRecommendationExportJobs) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to advance to the next page of export jobs.
-describeRecommendationExportJobs_nextToken :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Text)
-describeRecommendationExportJobs_nextToken = Lens.lens (\DescribeRecommendationExportJobs' {nextToken} -> nextToken) (\s@DescribeRecommendationExportJobs' {} a -> s {nextToken = a} :: DescribeRecommendationExportJobs)
 
 -- | The maximum number of export jobs to return with a single request.
 --
@@ -155,10 +155,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeRecommendationExportJobsResponse'
-            Prelude.<$> ( x Core..?> "recommendationExportJobs"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "recommendationExportJobs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,8 +169,8 @@ instance
   hashWithSalt
     _salt
     DescribeRecommendationExportJobs' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` jobIds
 
@@ -179,8 +179,8 @@ instance
     DescribeRecommendationExportJobs
   where
   rnf DescribeRecommendationExportJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobIds
 
@@ -206,8 +206,8 @@ instance Core.ToJSON DescribeRecommendationExportJobs where
   toJSON DescribeRecommendationExportJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filters" Core..=) Prelude.<$> filters,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("jobIds" Core..=) Prelude.<$> jobIds
           ]
@@ -224,13 +224,13 @@ instance
 
 -- | /See:/ 'newDescribeRecommendationExportJobsResponse' smart constructor.
 data DescribeRecommendationExportJobsResponse = DescribeRecommendationExportJobsResponse'
-  { -- | An array of objects that describe recommendation export jobs.
-    recommendationExportJobs :: Prelude.Maybe [RecommendationExportJob],
-    -- | The token to use to advance to the next page of export jobs.
+  { -- | The token to use to advance to the next page of export jobs.
     --
     -- This value is null when there are no more pages of export jobs to
     -- return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that describe recommendation export jobs.
+    recommendationExportJobs :: Prelude.Maybe [RecommendationExportJob],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,12 +244,12 @@ data DescribeRecommendationExportJobsResponse = DescribeRecommendationExportJobs
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationExportJobs', 'describeRecommendationExportJobsResponse_recommendationExportJobs' - An array of objects that describe recommendation export jobs.
---
 -- 'nextToken', 'describeRecommendationExportJobsResponse_nextToken' - The token to use to advance to the next page of export jobs.
 --
 -- This value is null when there are no more pages of export jobs to
 -- return.
+--
+-- 'recommendationExportJobs', 'describeRecommendationExportJobsResponse_recommendationExportJobs' - An array of objects that describe recommendation export jobs.
 --
 -- 'httpStatus', 'describeRecommendationExportJobsResponse_httpStatus' - The response's http status code.
 newDescribeRecommendationExportJobsResponse ::
@@ -259,15 +259,12 @@ newDescribeRecommendationExportJobsResponse ::
 newDescribeRecommendationExportJobsResponse
   pHttpStatus_ =
     DescribeRecommendationExportJobsResponse'
-      { recommendationExportJobs =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        recommendationExportJobs =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | An array of objects that describe recommendation export jobs.
-describeRecommendationExportJobsResponse_recommendationExportJobs :: Lens.Lens' DescribeRecommendationExportJobsResponse (Prelude.Maybe [RecommendationExportJob])
-describeRecommendationExportJobsResponse_recommendationExportJobs = Lens.lens (\DescribeRecommendationExportJobsResponse' {recommendationExportJobs} -> recommendationExportJobs) (\s@DescribeRecommendationExportJobsResponse' {} a -> s {recommendationExportJobs = a} :: DescribeRecommendationExportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to advance to the next page of export jobs.
 --
@@ -275,6 +272,10 @@ describeRecommendationExportJobsResponse_recommendationExportJobs = Lens.lens (\
 -- return.
 describeRecommendationExportJobsResponse_nextToken :: Lens.Lens' DescribeRecommendationExportJobsResponse (Prelude.Maybe Prelude.Text)
 describeRecommendationExportJobsResponse_nextToken = Lens.lens (\DescribeRecommendationExportJobsResponse' {nextToken} -> nextToken) (\s@DescribeRecommendationExportJobsResponse' {} a -> s {nextToken = a} :: DescribeRecommendationExportJobsResponse)
+
+-- | An array of objects that describe recommendation export jobs.
+describeRecommendationExportJobsResponse_recommendationExportJobs :: Lens.Lens' DescribeRecommendationExportJobsResponse (Prelude.Maybe [RecommendationExportJob])
+describeRecommendationExportJobsResponse_recommendationExportJobs = Lens.lens (\DescribeRecommendationExportJobsResponse' {recommendationExportJobs} -> recommendationExportJobs) (\s@DescribeRecommendationExportJobsResponse' {} a -> s {recommendationExportJobs = a} :: DescribeRecommendationExportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRecommendationExportJobsResponse_httpStatus :: Lens.Lens' DescribeRecommendationExportJobsResponse Prelude.Int
@@ -285,6 +286,6 @@ instance
     DescribeRecommendationExportJobsResponse
   where
   rnf DescribeRecommendationExportJobsResponse' {..} =
-    Prelude.rnf recommendationExportJobs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recommendationExportJobs
       `Prelude.seq` Prelude.rnf httpStatus

@@ -41,8 +41,8 @@ module Amazonka.Config.StartRemediationExecution
     newStartRemediationExecutionResponse,
 
     -- * Response Lenses
-    startRemediationExecutionResponse_failureMessage,
     startRemediationExecutionResponse_failedItems,
+    startRemediationExecutionResponse_failureMessage,
     startRemediationExecutionResponse_httpStatus,
   )
 where
@@ -113,8 +113,8 @@ instance Core.AWSRequest StartRemediationExecution where
     Response.receiveJSON
       ( \s h x ->
           StartRemediationExecutionResponse'
-            Prelude.<$> (x Core..?> "FailureMessage")
-            Prelude.<*> (x Core..?> "FailedItems")
+            Prelude.<$> (x Core..?> "FailedItems")
+            Prelude.<*> (x Core..?> "FailureMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,12 +161,12 @@ instance Core.ToQuery StartRemediationExecution where
 
 -- | /See:/ 'newStartRemediationExecutionResponse' smart constructor.
 data StartRemediationExecutionResponse = StartRemediationExecutionResponse'
-  { -- | Returns a failure message. For example, the resource is already
-    -- compliant.
-    failureMessage :: Prelude.Maybe Prelude.Text,
-    -- | For resources that have failed to start execution, the API returns a
+  { -- | For resources that have failed to start execution, the API returns a
     -- resource key object.
     failedItems :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
+    -- | Returns a failure message. For example, the resource is already
+    -- compliant.
+    failureMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,11 +180,11 @@ data StartRemediationExecutionResponse = StartRemediationExecutionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureMessage', 'startRemediationExecutionResponse_failureMessage' - Returns a failure message. For example, the resource is already
--- compliant.
---
 -- 'failedItems', 'startRemediationExecutionResponse_failedItems' - For resources that have failed to start execution, the API returns a
 -- resource key object.
+--
+-- 'failureMessage', 'startRemediationExecutionResponse_failureMessage' - Returns a failure message. For example, the resource is already
+-- compliant.
 --
 -- 'httpStatus', 'startRemediationExecutionResponse_httpStatus' - The response's http status code.
 newStartRemediationExecutionResponse ::
@@ -193,21 +193,21 @@ newStartRemediationExecutionResponse ::
   StartRemediationExecutionResponse
 newStartRemediationExecutionResponse pHttpStatus_ =
   StartRemediationExecutionResponse'
-    { failureMessage =
+    { failedItems =
         Prelude.Nothing,
-      failedItems = Prelude.Nothing,
+      failureMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns a failure message. For example, the resource is already
--- compliant.
-startRemediationExecutionResponse_failureMessage :: Lens.Lens' StartRemediationExecutionResponse (Prelude.Maybe Prelude.Text)
-startRemediationExecutionResponse_failureMessage = Lens.lens (\StartRemediationExecutionResponse' {failureMessage} -> failureMessage) (\s@StartRemediationExecutionResponse' {} a -> s {failureMessage = a} :: StartRemediationExecutionResponse)
 
 -- | For resources that have failed to start execution, the API returns a
 -- resource key object.
 startRemediationExecutionResponse_failedItems :: Lens.Lens' StartRemediationExecutionResponse (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
 startRemediationExecutionResponse_failedItems = Lens.lens (\StartRemediationExecutionResponse' {failedItems} -> failedItems) (\s@StartRemediationExecutionResponse' {} a -> s {failedItems = a} :: StartRemediationExecutionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returns a failure message. For example, the resource is already
+-- compliant.
+startRemediationExecutionResponse_failureMessage :: Lens.Lens' StartRemediationExecutionResponse (Prelude.Maybe Prelude.Text)
+startRemediationExecutionResponse_failureMessage = Lens.lens (\StartRemediationExecutionResponse' {failureMessage} -> failureMessage) (\s@StartRemediationExecutionResponse' {} a -> s {failureMessage = a} :: StartRemediationExecutionResponse)
 
 -- | The response's http status code.
 startRemediationExecutionResponse_httpStatus :: Lens.Lens' StartRemediationExecutionResponse Prelude.Int
@@ -218,6 +218,6 @@ instance
     StartRemediationExecutionResponse
   where
   rnf StartRemediationExecutionResponse' {..} =
-    Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf failedItems
+      `Prelude.seq` Prelude.rnf failureMessage
       `Prelude.seq` Prelude.rnf httpStatus

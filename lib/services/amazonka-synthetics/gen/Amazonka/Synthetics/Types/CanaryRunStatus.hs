@@ -31,13 +31,13 @@ import Amazonka.Synthetics.Types.CanaryRunStateReasonCode
 data CanaryRunStatus = CanaryRunStatus'
   { -- | The current state of the run.
     state :: Prelude.Maybe CanaryRunState,
-    -- | If run of the canary failed, this field contains the reason for the
-    -- error.
-    stateReason :: Prelude.Maybe Prelude.Text,
     -- | If this value is @CANARY_FAILURE@, an exception occurred in the canary
     -- code. If this value is @EXECUTION_FAILURE@, an exception occurred in
     -- CloudWatch Synthetics.
-    stateReasonCode :: Prelude.Maybe CanaryRunStateReasonCode
+    stateReasonCode :: Prelude.Maybe CanaryRunStateReasonCode,
+    -- | If run of the canary failed, this field contains the reason for the
+    -- error.
+    stateReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,35 +51,35 @@ data CanaryRunStatus = CanaryRunStatus'
 --
 -- 'state', 'canaryRunStatus_state' - The current state of the run.
 --
--- 'stateReason', 'canaryRunStatus_stateReason' - If run of the canary failed, this field contains the reason for the
--- error.
---
 -- 'stateReasonCode', 'canaryRunStatus_stateReasonCode' - If this value is @CANARY_FAILURE@, an exception occurred in the canary
 -- code. If this value is @EXECUTION_FAILURE@, an exception occurred in
 -- CloudWatch Synthetics.
+--
+-- 'stateReason', 'canaryRunStatus_stateReason' - If run of the canary failed, this field contains the reason for the
+-- error.
 newCanaryRunStatus ::
   CanaryRunStatus
 newCanaryRunStatus =
   CanaryRunStatus'
     { state = Prelude.Nothing,
-      stateReason = Prelude.Nothing,
-      stateReasonCode = Prelude.Nothing
+      stateReasonCode = Prelude.Nothing,
+      stateReason = Prelude.Nothing
     }
 
 -- | The current state of the run.
 canaryRunStatus_state :: Lens.Lens' CanaryRunStatus (Prelude.Maybe CanaryRunState)
 canaryRunStatus_state = Lens.lens (\CanaryRunStatus' {state} -> state) (\s@CanaryRunStatus' {} a -> s {state = a} :: CanaryRunStatus)
 
--- | If run of the canary failed, this field contains the reason for the
--- error.
-canaryRunStatus_stateReason :: Lens.Lens' CanaryRunStatus (Prelude.Maybe Prelude.Text)
-canaryRunStatus_stateReason = Lens.lens (\CanaryRunStatus' {stateReason} -> stateReason) (\s@CanaryRunStatus' {} a -> s {stateReason = a} :: CanaryRunStatus)
-
 -- | If this value is @CANARY_FAILURE@, an exception occurred in the canary
 -- code. If this value is @EXECUTION_FAILURE@, an exception occurred in
 -- CloudWatch Synthetics.
 canaryRunStatus_stateReasonCode :: Lens.Lens' CanaryRunStatus (Prelude.Maybe CanaryRunStateReasonCode)
 canaryRunStatus_stateReasonCode = Lens.lens (\CanaryRunStatus' {stateReasonCode} -> stateReasonCode) (\s@CanaryRunStatus' {} a -> s {stateReasonCode = a} :: CanaryRunStatus)
+
+-- | If run of the canary failed, this field contains the reason for the
+-- error.
+canaryRunStatus_stateReason :: Lens.Lens' CanaryRunStatus (Prelude.Maybe Prelude.Text)
+canaryRunStatus_stateReason = Lens.lens (\CanaryRunStatus' {stateReason} -> stateReason) (\s@CanaryRunStatus' {} a -> s {stateReason = a} :: CanaryRunStatus)
 
 instance Core.FromJSON CanaryRunStatus where
   parseJSON =
@@ -88,18 +88,18 @@ instance Core.FromJSON CanaryRunStatus where
       ( \x ->
           CanaryRunStatus'
             Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "StateReason")
             Prelude.<*> (x Core..:? "StateReasonCode")
+            Prelude.<*> (x Core..:? "StateReason")
       )
 
 instance Prelude.Hashable CanaryRunStatus where
   hashWithSalt _salt CanaryRunStatus' {..} =
     _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` stateReason
       `Prelude.hashWithSalt` stateReasonCode
+      `Prelude.hashWithSalt` stateReason
 
 instance Prelude.NFData CanaryRunStatus where
   rnf CanaryRunStatus' {..} =
     Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateReason
       `Prelude.seq` Prelude.rnf stateReasonCode
+      `Prelude.seq` Prelude.rnf stateReason

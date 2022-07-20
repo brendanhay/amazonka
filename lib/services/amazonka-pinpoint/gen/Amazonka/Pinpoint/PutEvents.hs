@@ -123,13 +123,7 @@ instance Core.ToHeaders PutEvents where
       )
 
 instance Core.ToJSON PutEvents where
-  toJSON PutEvents' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EventsRequest" Core..= eventsRequest)
-          ]
-      )
+  toJSON PutEvents' {..} = Core.toJSON eventsRequest
 
 instance Core.ToPath PutEvents where
   toPath PutEvents' {..} =

@@ -32,8 +32,8 @@ module Amazonka.ELBV2.ModifyRule
     newModifyRule,
 
     -- * Request Lenses
-    modifyRule_actions,
     modifyRule_conditions,
+    modifyRule_actions,
     modifyRule_ruleArn,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyRule' smart constructor.
 data ModifyRule = ModifyRule'
-  { -- | The actions.
-    actions :: Prelude.Maybe [Action],
-    -- | The conditions.
+  { -- | The conditions.
     conditions :: Prelude.Maybe [RuleCondition],
+    -- | The actions.
+    actions :: Prelude.Maybe [Action],
     -- | The Amazon Resource Name (ARN) of the rule.
     ruleArn :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data ModifyRule = ModifyRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actions', 'modifyRule_actions' - The actions.
---
 -- 'conditions', 'modifyRule_conditions' - The conditions.
+--
+-- 'actions', 'modifyRule_actions' - The actions.
 --
 -- 'ruleArn', 'modifyRule_ruleArn' - The Amazon Resource Name (ARN) of the rule.
 newModifyRule ::
@@ -83,18 +83,18 @@ newModifyRule ::
   ModifyRule
 newModifyRule pRuleArn_ =
   ModifyRule'
-    { actions = Prelude.Nothing,
-      conditions = Prelude.Nothing,
+    { conditions = Prelude.Nothing,
+      actions = Prelude.Nothing,
       ruleArn = pRuleArn_
     }
-
--- | The actions.
-modifyRule_actions :: Lens.Lens' ModifyRule (Prelude.Maybe [Action])
-modifyRule_actions = Lens.lens (\ModifyRule' {actions} -> actions) (\s@ModifyRule' {} a -> s {actions = a} :: ModifyRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The conditions.
 modifyRule_conditions :: Lens.Lens' ModifyRule (Prelude.Maybe [RuleCondition])
 modifyRule_conditions = Lens.lens (\ModifyRule' {conditions} -> conditions) (\s@ModifyRule' {} a -> s {conditions = a} :: ModifyRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The actions.
+modifyRule_actions :: Lens.Lens' ModifyRule (Prelude.Maybe [Action])
+modifyRule_actions = Lens.lens (\ModifyRule' {actions} -> actions) (\s@ModifyRule' {} a -> s {actions = a} :: ModifyRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the rule.
 modifyRule_ruleArn :: Lens.Lens' ModifyRule Prelude.Text
@@ -116,14 +116,14 @@ instance Core.AWSRequest ModifyRule where
 
 instance Prelude.Hashable ModifyRule where
   hashWithSalt _salt ModifyRule' {..} =
-    _salt `Prelude.hashWithSalt` actions
-      `Prelude.hashWithSalt` conditions
+    _salt `Prelude.hashWithSalt` conditions
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` ruleArn
 
 instance Prelude.NFData ModifyRule where
   rnf ModifyRule' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf conditions
+    Prelude.rnf conditions
+      `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf ruleArn
 
 instance Core.ToHeaders ModifyRule where
@@ -139,12 +139,12 @@ instance Core.ToQuery ModifyRule where
           Core.=: ("ModifyRule" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "Actions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> actions),
         "Conditions"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> conditions),
+        "Actions"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> actions),
         "RuleArn" Core.=: ruleArn
       ]
 

@@ -29,68 +29,38 @@ module Amazonka.SSMIncidents
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** WaitForReplicationSetActive
-    newWaitForReplicationSetActive,
-
     -- ** WaitForReplicationSetDeleted
     newWaitForReplicationSetDeleted,
 
+    -- ** WaitForReplicationSetActive
+    newWaitForReplicationSetActive,
+
     -- * Operations
     -- $operations
-
-    -- ** DeleteReplicationSet
-    DeleteReplicationSet (DeleteReplicationSet'),
-    newDeleteReplicationSet,
-    DeleteReplicationSetResponse (DeleteReplicationSetResponse'),
-    newDeleteReplicationSetResponse,
-
-    -- ** UpdateReplicationSet
-    UpdateReplicationSet (UpdateReplicationSet'),
-    newUpdateReplicationSet,
-    UpdateReplicationSetResponse (UpdateReplicationSetResponse'),
-    newUpdateReplicationSetResponse,
-
-    -- ** ListReplicationSets (Paginated)
-    ListReplicationSets (ListReplicationSets'),
-    newListReplicationSets,
-    ListReplicationSetsResponse (ListReplicationSetsResponse'),
-    newListReplicationSetsResponse,
-
-    -- ** UpdateIncidentRecord
-    UpdateIncidentRecord (UpdateIncidentRecord'),
-    newUpdateIncidentRecord,
-    UpdateIncidentRecordResponse (UpdateIncidentRecordResponse'),
-    newUpdateIncidentRecordResponse,
-
-    -- ** DeleteIncidentRecord
-    DeleteIncidentRecord (DeleteIncidentRecord'),
-    newDeleteIncidentRecord,
-    DeleteIncidentRecordResponse (DeleteIncidentRecordResponse'),
-    newDeleteIncidentRecordResponse,
 
     -- ** CreateReplicationSet
     CreateReplicationSet (CreateReplicationSet'),
@@ -98,17 +68,47 @@ module Amazonka.SSMIncidents
     CreateReplicationSetResponse (CreateReplicationSetResponse'),
     newCreateReplicationSetResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateResponsePlan
+    CreateResponsePlan (CreateResponsePlan'),
+    newCreateResponsePlan,
+    CreateResponsePlanResponse (CreateResponsePlanResponse'),
+    newCreateResponsePlanResponse,
 
-    -- ** GetResourcePolicies (Paginated)
-    GetResourcePolicies (GetResourcePolicies'),
-    newGetResourcePolicies,
-    GetResourcePoliciesResponse (GetResourcePoliciesResponse'),
-    newGetResourcePoliciesResponse,
+    -- ** CreateTimelineEvent
+    CreateTimelineEvent (CreateTimelineEvent'),
+    newCreateTimelineEvent,
+    CreateTimelineEventResponse (CreateTimelineEventResponse'),
+    newCreateTimelineEventResponse,
+
+    -- ** DeleteIncidentRecord
+    DeleteIncidentRecord (DeleteIncidentRecord'),
+    newDeleteIncidentRecord,
+    DeleteIncidentRecordResponse (DeleteIncidentRecordResponse'),
+    newDeleteIncidentRecordResponse,
+
+    -- ** DeleteReplicationSet
+    DeleteReplicationSet (DeleteReplicationSet'),
+    newDeleteReplicationSet,
+    DeleteReplicationSetResponse (DeleteReplicationSetResponse'),
+    newDeleteReplicationSetResponse,
+
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
+
+    -- ** DeleteResponsePlan
+    DeleteResponsePlan (DeleteResponsePlan'),
+    newDeleteResponsePlan,
+    DeleteResponsePlanResponse (DeleteResponsePlanResponse'),
+    newDeleteResponsePlanResponse,
+
+    -- ** DeleteTimelineEvent
+    DeleteTimelineEvent (DeleteTimelineEvent'),
+    newDeleteTimelineEvent,
+    DeleteTimelineEventResponse (DeleteTimelineEventResponse'),
+    newDeleteTimelineEventResponse,
 
     -- ** GetIncidentRecord
     GetIncidentRecord (GetIncidentRecord'),
@@ -122,17 +122,11 @@ module Amazonka.SSMIncidents
     GetReplicationSetResponse (GetReplicationSetResponse'),
     newGetReplicationSetResponse,
 
-    -- ** ListRelatedItems (Paginated)
-    ListRelatedItems (ListRelatedItems'),
-    newListRelatedItems,
-    ListRelatedItemsResponse (ListRelatedItemsResponse'),
-    newListRelatedItemsResponse,
-
-    -- ** UpdateDeletionProtection
-    UpdateDeletionProtection (UpdateDeletionProtection'),
-    newUpdateDeletionProtection,
-    UpdateDeletionProtectionResponse (UpdateDeletionProtectionResponse'),
-    newUpdateDeletionProtectionResponse,
+    -- ** GetResourcePolicies (Paginated)
+    GetResourcePolicies (GetResourcePolicies'),
+    newGetResourcePolicies,
+    GetResourcePoliciesResponse (GetResourcePoliciesResponse'),
+    newGetResourcePoliciesResponse,
 
     -- ** GetResponsePlan
     GetResponsePlan (GetResponsePlan'),
@@ -140,11 +134,11 @@ module Amazonka.SSMIncidents
     GetResponsePlanResponse (GetResponsePlanResponse'),
     newGetResponsePlanResponse,
 
-    -- ** CreateResponsePlan
-    CreateResponsePlan (CreateResponsePlan'),
-    newCreateResponsePlan,
-    CreateResponsePlanResponse (CreateResponsePlanResponse'),
-    newCreateResponsePlanResponse,
+    -- ** GetTimelineEvent
+    GetTimelineEvent (GetTimelineEvent'),
+    newGetTimelineEvent,
+    GetTimelineEventResponse (GetTimelineEventResponse'),
+    newGetTimelineEventResponse,
 
     -- ** ListIncidentRecords (Paginated)
     ListIncidentRecords (ListIncidentRecords'),
@@ -152,65 +146,17 @@ module Amazonka.SSMIncidents
     ListIncidentRecordsResponse (ListIncidentRecordsResponse'),
     newListIncidentRecordsResponse,
 
-    -- ** UpdateRelatedItems
-    UpdateRelatedItems (UpdateRelatedItems'),
-    newUpdateRelatedItems,
-    UpdateRelatedItemsResponse (UpdateRelatedItemsResponse'),
-    newUpdateRelatedItemsResponse,
+    -- ** ListRelatedItems (Paginated)
+    ListRelatedItems (ListRelatedItems'),
+    newListRelatedItems,
+    ListRelatedItemsResponse (ListRelatedItemsResponse'),
+    newListRelatedItemsResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** PutResourcePolicy
-    PutResourcePolicy (PutResourcePolicy'),
-    newPutResourcePolicy,
-    PutResourcePolicyResponse (PutResourcePolicyResponse'),
-    newPutResourcePolicyResponse,
-
-    -- ** DeleteResourcePolicy
-    DeleteResourcePolicy (DeleteResourcePolicy'),
-    newDeleteResourcePolicy,
-    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
-    newDeleteResourcePolicyResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateTimelineEvent
-    CreateTimelineEvent (CreateTimelineEvent'),
-    newCreateTimelineEvent,
-    CreateTimelineEventResponse (CreateTimelineEventResponse'),
-    newCreateTimelineEventResponse,
-
-    -- ** ListTimelineEvents (Paginated)
-    ListTimelineEvents (ListTimelineEvents'),
-    newListTimelineEvents,
-    ListTimelineEventsResponse (ListTimelineEventsResponse'),
-    newListTimelineEventsResponse,
-
-    -- ** StartIncident
-    StartIncident (StartIncident'),
-    newStartIncident,
-    StartIncidentResponse (StartIncidentResponse'),
-    newStartIncidentResponse,
-
-    -- ** DeleteTimelineEvent
-    DeleteTimelineEvent (DeleteTimelineEvent'),
-    newDeleteTimelineEvent,
-    DeleteTimelineEventResponse (DeleteTimelineEventResponse'),
-    newDeleteTimelineEventResponse,
-
-    -- ** UpdateTimelineEvent
-    UpdateTimelineEvent (UpdateTimelineEvent'),
-    newUpdateTimelineEvent,
-    UpdateTimelineEventResponse (UpdateTimelineEventResponse'),
-    newUpdateTimelineEventResponse,
+    -- ** ListReplicationSets (Paginated)
+    ListReplicationSets (ListReplicationSets'),
+    newListReplicationSets,
+    ListReplicationSetsResponse (ListReplicationSetsResponse'),
+    newListReplicationSetsResponse,
 
     -- ** ListResponsePlans (Paginated)
     ListResponsePlans (ListResponsePlans'),
@@ -218,11 +164,65 @@ module Amazonka.SSMIncidents
     ListResponsePlansResponse (ListResponsePlansResponse'),
     newListResponsePlansResponse,
 
-    -- ** GetTimelineEvent
-    GetTimelineEvent (GetTimelineEvent'),
-    newGetTimelineEvent,
-    GetTimelineEventResponse (GetTimelineEventResponse'),
-    newGetTimelineEventResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListTimelineEvents (Paginated)
+    ListTimelineEvents (ListTimelineEvents'),
+    newListTimelineEvents,
+    ListTimelineEventsResponse (ListTimelineEventsResponse'),
+    newListTimelineEventsResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
+
+    -- ** StartIncident
+    StartIncident (StartIncident'),
+    newStartIncident,
+    StartIncidentResponse (StartIncidentResponse'),
+    newStartIncidentResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateDeletionProtection
+    UpdateDeletionProtection (UpdateDeletionProtection'),
+    newUpdateDeletionProtection,
+    UpdateDeletionProtectionResponse (UpdateDeletionProtectionResponse'),
+    newUpdateDeletionProtectionResponse,
+
+    -- ** UpdateIncidentRecord
+    UpdateIncidentRecord (UpdateIncidentRecord'),
+    newUpdateIncidentRecord,
+    UpdateIncidentRecordResponse (UpdateIncidentRecordResponse'),
+    newUpdateIncidentRecordResponse,
+
+    -- ** UpdateRelatedItems
+    UpdateRelatedItems (UpdateRelatedItems'),
+    newUpdateRelatedItems,
+    UpdateRelatedItemsResponse (UpdateRelatedItemsResponse'),
+    newUpdateRelatedItemsResponse,
+
+    -- ** UpdateReplicationSet
+    UpdateReplicationSet (UpdateReplicationSet'),
+    newUpdateReplicationSet,
+    UpdateReplicationSetResponse (UpdateReplicationSetResponse'),
+    newUpdateReplicationSetResponse,
 
     -- ** UpdateResponsePlan
     UpdateResponsePlan (UpdateResponsePlan'),
@@ -230,11 +230,11 @@ module Amazonka.SSMIncidents
     UpdateResponsePlanResponse (UpdateResponsePlanResponse'),
     newUpdateResponsePlanResponse,
 
-    -- ** DeleteResponsePlan
-    DeleteResponsePlan (DeleteResponsePlan'),
-    newDeleteResponsePlan,
-    DeleteResponsePlanResponse (DeleteResponsePlanResponse'),
-    newDeleteResponsePlanResponse,
+    -- ** UpdateTimelineEvent
+    UpdateTimelineEvent (UpdateTimelineEvent'),
+    newUpdateTimelineEvent,
+    UpdateTimelineEventResponse (UpdateTimelineEventResponse'),
+    newUpdateTimelineEventResponse,
 
     -- * Types
 

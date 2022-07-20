@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransition' smart constructor.
 data Transition = Transition'
-  { -- | The date and time that the program is scheduled to start, in epoch
-    -- milliseconds.
-    scheduledStartTimeMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the program that this program will be inserted next to, as
+  { -- | The name of the program that this program will be inserted next to, as
     -- defined by RelativePosition.
     relativeProgram :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the program is scheduled to start, in epoch
+    -- milliseconds.
+    scheduledStartTimeMillis :: Prelude.Maybe Prelude.Integer,
     -- | Defines when the program plays in the schedule. You can set the value to
     -- ABSOLUTE or RELATIVE.
     --
@@ -66,11 +66,11 @@ data Transition = Transition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduledStartTimeMillis', 'transition_scheduledStartTimeMillis' - The date and time that the program is scheduled to start, in epoch
--- milliseconds.
---
 -- 'relativeProgram', 'transition_relativeProgram' - The name of the program that this program will be inserted next to, as
 -- defined by RelativePosition.
+--
+-- 'scheduledStartTimeMillis', 'transition_scheduledStartTimeMillis' - The date and time that the program is scheduled to start, in epoch
+-- milliseconds.
 --
 -- 'type'', 'transition_type' - Defines when the program plays in the schedule. You can set the value to
 -- ABSOLUTE or RELATIVE.
@@ -100,22 +100,21 @@ newTransition ::
   Transition
 newTransition pType_ pRelativePosition_ =
   Transition'
-    { scheduledStartTimeMillis =
-        Prelude.Nothing,
-      relativeProgram = Prelude.Nothing,
+    { relativeProgram = Prelude.Nothing,
+      scheduledStartTimeMillis = Prelude.Nothing,
       type' = pType_,
       relativePosition = pRelativePosition_
     }
-
--- | The date and time that the program is scheduled to start, in epoch
--- milliseconds.
-transition_scheduledStartTimeMillis :: Lens.Lens' Transition (Prelude.Maybe Prelude.Integer)
-transition_scheduledStartTimeMillis = Lens.lens (\Transition' {scheduledStartTimeMillis} -> scheduledStartTimeMillis) (\s@Transition' {} a -> s {scheduledStartTimeMillis = a} :: Transition)
 
 -- | The name of the program that this program will be inserted next to, as
 -- defined by RelativePosition.
 transition_relativeProgram :: Lens.Lens' Transition (Prelude.Maybe Prelude.Text)
 transition_relativeProgram = Lens.lens (\Transition' {relativeProgram} -> relativeProgram) (\s@Transition' {} a -> s {relativeProgram = a} :: Transition)
+
+-- | The date and time that the program is scheduled to start, in epoch
+-- milliseconds.
+transition_scheduledStartTimeMillis :: Lens.Lens' Transition (Prelude.Maybe Prelude.Integer)
+transition_scheduledStartTimeMillis = Lens.lens (\Transition' {scheduledStartTimeMillis} -> scheduledStartTimeMillis) (\s@Transition' {} a -> s {scheduledStartTimeMillis = a} :: Transition)
 
 -- | Defines when the program plays in the schedule. You can set the value to
 -- ABSOLUTE or RELATIVE.
@@ -144,16 +143,15 @@ transition_relativePosition = Lens.lens (\Transition' {relativePosition} -> rela
 
 instance Prelude.Hashable Transition where
   hashWithSalt _salt Transition' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` relativeProgram
       `Prelude.hashWithSalt` scheduledStartTimeMillis
-      `Prelude.hashWithSalt` relativeProgram
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` relativePosition
 
 instance Prelude.NFData Transition where
   rnf Transition' {..} =
-    Prelude.rnf scheduledStartTimeMillis
-      `Prelude.seq` Prelude.rnf relativeProgram
+    Prelude.rnf relativeProgram
+      `Prelude.seq` Prelude.rnf scheduledStartTimeMillis
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf relativePosition
 
@@ -161,10 +159,10 @@ instance Core.ToJSON Transition where
   toJSON Transition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ScheduledStartTimeMillis" Core..=)
-              Prelude.<$> scheduledStartTimeMillis,
-            ("RelativeProgram" Core..=)
+          [ ("RelativeProgram" Core..=)
               Prelude.<$> relativeProgram,
+            ("ScheduledStartTimeMillis" Core..=)
+              Prelude.<$> scheduledStartTimeMillis,
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just
               ("RelativePosition" Core..= relativePosition)

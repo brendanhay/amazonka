@@ -15,28 +15,23 @@ module Amazonka.ChimeSDKIdentity.Lens
   ( -- * Operations
 
     -- ** CreateAppInstance
-    createAppInstance_metadata,
     createAppInstance_tags,
+    createAppInstance_metadata,
     createAppInstance_name,
     createAppInstance_clientRequestToken,
     createAppInstanceResponse_appInstanceArn,
     createAppInstanceResponse_httpStatus,
 
-    -- ** GetAppInstanceRetentionSettings
-    getAppInstanceRetentionSettings_appInstanceArn,
-    getAppInstanceRetentionSettingsResponse_appInstanceRetentionSettings,
-    getAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp,
-    getAppInstanceRetentionSettingsResponse_httpStatus,
-
-    -- ** DescribeAppInstanceAdmin
-    describeAppInstanceAdmin_appInstanceAdminArn,
-    describeAppInstanceAdmin_appInstanceArn,
-    describeAppInstanceAdminResponse_appInstanceAdmin,
-    describeAppInstanceAdminResponse_httpStatus,
+    -- ** CreateAppInstanceAdmin
+    createAppInstanceAdmin_appInstanceAdminArn,
+    createAppInstanceAdmin_appInstanceArn,
+    createAppInstanceAdminResponse_appInstanceArn,
+    createAppInstanceAdminResponse_appInstanceAdmin,
+    createAppInstanceAdminResponse_httpStatus,
 
     -- ** CreateAppInstanceUser
-    createAppInstanceUser_metadata,
     createAppInstanceUser_tags,
+    createAppInstanceUser_metadata,
     createAppInstanceUser_appInstanceArn,
     createAppInstanceUser_appInstanceUserId,
     createAppInstanceUser_name,
@@ -44,45 +39,46 @@ module Amazonka.ChimeSDKIdentity.Lens
     createAppInstanceUserResponse_appInstanceUserArn,
     createAppInstanceUserResponse_httpStatus,
 
-    -- ** PutAppInstanceRetentionSettings
-    putAppInstanceRetentionSettings_appInstanceArn,
-    putAppInstanceRetentionSettings_appInstanceRetentionSettings,
-    putAppInstanceRetentionSettingsResponse_appInstanceRetentionSettings,
-    putAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp,
-    putAppInstanceRetentionSettingsResponse_httpStatus,
+    -- ** DeleteAppInstance
+    deleteAppInstance_appInstanceArn,
 
-    -- ** CreateAppInstanceAdmin
-    createAppInstanceAdmin_appInstanceAdminArn,
-    createAppInstanceAdmin_appInstanceArn,
-    createAppInstanceAdminResponse_appInstanceAdmin,
-    createAppInstanceAdminResponse_appInstanceArn,
-    createAppInstanceAdminResponse_httpStatus,
+    -- ** DeleteAppInstanceAdmin
+    deleteAppInstanceAdmin_appInstanceAdminArn,
+    deleteAppInstanceAdmin_appInstanceArn,
 
-    -- ** ListAppInstanceAdmins
-    listAppInstanceAdmins_nextToken,
-    listAppInstanceAdmins_maxResults,
-    listAppInstanceAdmins_appInstanceArn,
-    listAppInstanceAdminsResponse_nextToken,
-    listAppInstanceAdminsResponse_appInstanceAdmins,
-    listAppInstanceAdminsResponse_appInstanceArn,
-    listAppInstanceAdminsResponse_httpStatus,
+    -- ** DeleteAppInstanceUser
+    deleteAppInstanceUser_appInstanceUserArn,
 
-    -- ** ListAppInstances
-    listAppInstances_nextToken,
-    listAppInstances_maxResults,
-    listAppInstancesResponse_appInstances,
-    listAppInstancesResponse_nextToken,
-    listAppInstancesResponse_httpStatus,
+    -- ** DescribeAppInstance
+    describeAppInstance_appInstanceArn,
+    describeAppInstanceResponse_appInstance,
+    describeAppInstanceResponse_httpStatus,
+
+    -- ** DescribeAppInstanceAdmin
+    describeAppInstanceAdmin_appInstanceAdminArn,
+    describeAppInstanceAdmin_appInstanceArn,
+    describeAppInstanceAdminResponse_appInstanceAdmin,
+    describeAppInstanceAdminResponse_httpStatus,
 
     -- ** DescribeAppInstanceUser
     describeAppInstanceUser_appInstanceUserArn,
     describeAppInstanceUserResponse_appInstanceUser,
     describeAppInstanceUserResponse_httpStatus,
 
-    -- ** DescribeAppInstance
-    describeAppInstance_appInstanceArn,
-    describeAppInstanceResponse_appInstance,
-    describeAppInstanceResponse_httpStatus,
+    -- ** GetAppInstanceRetentionSettings
+    getAppInstanceRetentionSettings_appInstanceArn,
+    getAppInstanceRetentionSettingsResponse_appInstanceRetentionSettings,
+    getAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp,
+    getAppInstanceRetentionSettingsResponse_httpStatus,
+
+    -- ** ListAppInstanceAdmins
+    listAppInstanceAdmins_nextToken,
+    listAppInstanceAdmins_maxResults,
+    listAppInstanceAdmins_appInstanceArn,
+    listAppInstanceAdminsResponse_nextToken,
+    listAppInstanceAdminsResponse_appInstanceArn,
+    listAppInstanceAdminsResponse_appInstanceAdmins,
+    listAppInstanceAdminsResponse_httpStatus,
 
     -- ** ListAppInstanceUsers
     listAppInstanceUsers_nextToken,
@@ -93,22 +89,19 @@ module Amazonka.ChimeSDKIdentity.Lens
     listAppInstanceUsersResponse_appInstanceArn,
     listAppInstanceUsersResponse_httpStatus,
 
-    -- ** DeleteAppInstanceUser
-    deleteAppInstanceUser_appInstanceUserArn,
+    -- ** ListAppInstances
+    listAppInstances_nextToken,
+    listAppInstances_maxResults,
+    listAppInstancesResponse_nextToken,
+    listAppInstancesResponse_appInstances,
+    listAppInstancesResponse_httpStatus,
 
-    -- ** UpdateAppInstanceUser
-    updateAppInstanceUser_appInstanceUserArn,
-    updateAppInstanceUser_name,
-    updateAppInstanceUser_metadata,
-    updateAppInstanceUserResponse_appInstanceUserArn,
-    updateAppInstanceUserResponse_httpStatus,
-
-    -- ** DeleteAppInstanceAdmin
-    deleteAppInstanceAdmin_appInstanceAdminArn,
-    deleteAppInstanceAdmin_appInstanceArn,
-
-    -- ** DeleteAppInstance
-    deleteAppInstance_appInstanceArn,
+    -- ** PutAppInstanceRetentionSettings
+    putAppInstanceRetentionSettings_appInstanceArn,
+    putAppInstanceRetentionSettings_appInstanceRetentionSettings,
+    putAppInstanceRetentionSettingsResponse_appInstanceRetentionSettings,
+    putAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp,
+    putAppInstanceRetentionSettingsResponse_httpStatus,
 
     -- ** UpdateAppInstance
     updateAppInstance_appInstanceArn,
@@ -117,19 +110,26 @@ module Amazonka.ChimeSDKIdentity.Lens
     updateAppInstanceResponse_appInstanceArn,
     updateAppInstanceResponse_httpStatus,
 
+    -- ** UpdateAppInstanceUser
+    updateAppInstanceUser_appInstanceUserArn,
+    updateAppInstanceUser_name,
+    updateAppInstanceUser_metadata,
+    updateAppInstanceUserResponse_appInstanceUserArn,
+    updateAppInstanceUserResponse_httpStatus,
+
     -- * Types
 
     -- ** AppInstance
+    appInstance_lastUpdatedTimestamp,
     appInstance_name,
     appInstance_metadata,
-    appInstance_appInstanceArn,
     appInstance_createdTimestamp,
-    appInstance_lastUpdatedTimestamp,
+    appInstance_appInstanceArn,
 
     -- ** AppInstanceAdmin
-    appInstanceAdmin_admin,
-    appInstanceAdmin_appInstanceArn,
     appInstanceAdmin_createdTimestamp,
+    appInstanceAdmin_appInstanceArn,
+    appInstanceAdmin_admin,
 
     -- ** AppInstanceAdminSummary
     appInstanceAdminSummary_admin,
@@ -143,23 +143,23 @@ module Amazonka.ChimeSDKIdentity.Lens
     appInstanceSummary_appInstanceArn,
 
     -- ** AppInstanceUser
-    appInstanceUser_appInstanceUserArn,
+    appInstanceUser_lastUpdatedTimestamp,
     appInstanceUser_name,
     appInstanceUser_metadata,
+    appInstanceUser_appInstanceUserArn,
     appInstanceUser_createdTimestamp,
-    appInstanceUser_lastUpdatedTimestamp,
 
     -- ** AppInstanceUserSummary
-    appInstanceUserSummary_appInstanceUserArn,
     appInstanceUserSummary_name,
     appInstanceUserSummary_metadata,
+    appInstanceUserSummary_appInstanceUserArn,
 
     -- ** ChannelRetentionSettings
     channelRetentionSettings_retentionDays,
 
     -- ** Identity
-    identity_arn,
     identity_name,
+    identity_arn,
 
     -- ** Tag
     tag_key,

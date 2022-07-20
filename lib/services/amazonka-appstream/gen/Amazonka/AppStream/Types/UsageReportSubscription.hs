@@ -29,12 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageReportSubscription' smart constructor.
 data UsageReportSubscription = UsageReportSubscription'
-  { -- | The time when the last usage report was generated.
-    lastGeneratedReportDate :: Prelude.Maybe Core.POSIX,
-    -- | The schedule for generating usage reports.
+  { -- | The schedule for generating usage reports.
     schedule :: Prelude.Maybe UsageReportSchedule,
-    -- | The errors that were returned if usage reports couldn\'t be generated.
-    subscriptionErrors :: Prelude.Maybe [LastReportGenerationExecutionError],
     -- | The Amazon S3 bucket where generated reports are stored.
     --
     -- If you enabled on-instance session scripts and Amazon S3 logging for
@@ -44,7 +40,11 @@ data UsageReportSubscription = UsageReportSubscription'
     -- the same bucket to store your usage reports. If you haven\'t already
     -- enabled on-instance session scripts, when you enable usage reports,
     -- AppStream 2.0 creates a new S3 bucket.
-    s3BucketName :: Prelude.Maybe Prelude.Text
+    s3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | The time when the last usage report was generated.
+    lastGeneratedReportDate :: Prelude.Maybe Core.POSIX,
+    -- | The errors that were returned if usage reports couldn\'t be generated.
+    subscriptionErrors :: Prelude.Maybe [LastReportGenerationExecutionError]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,11 +56,7 @@ data UsageReportSubscription = UsageReportSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastGeneratedReportDate', 'usageReportSubscription_lastGeneratedReportDate' - The time when the last usage report was generated.
---
 -- 'schedule', 'usageReportSubscription_schedule' - The schedule for generating usage reports.
---
--- 'subscriptionErrors', 'usageReportSubscription_subscriptionErrors' - The errors that were returned if usage reports couldn\'t be generated.
 --
 -- 's3BucketName', 'usageReportSubscription_s3BucketName' - The Amazon S3 bucket where generated reports are stored.
 --
@@ -71,28 +67,24 @@ data UsageReportSubscription = UsageReportSubscription'
 -- the same bucket to store your usage reports. If you haven\'t already
 -- enabled on-instance session scripts, when you enable usage reports,
 -- AppStream 2.0 creates a new S3 bucket.
+--
+-- 'lastGeneratedReportDate', 'usageReportSubscription_lastGeneratedReportDate' - The time when the last usage report was generated.
+--
+-- 'subscriptionErrors', 'usageReportSubscription_subscriptionErrors' - The errors that were returned if usage reports couldn\'t be generated.
 newUsageReportSubscription ::
   UsageReportSubscription
 newUsageReportSubscription =
   UsageReportSubscription'
-    { lastGeneratedReportDate =
+    { schedule =
         Prelude.Nothing,
-      schedule = Prelude.Nothing,
-      subscriptionErrors = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing
+      s3BucketName = Prelude.Nothing,
+      lastGeneratedReportDate = Prelude.Nothing,
+      subscriptionErrors = Prelude.Nothing
     }
-
--- | The time when the last usage report was generated.
-usageReportSubscription_lastGeneratedReportDate :: Lens.Lens' UsageReportSubscription (Prelude.Maybe Prelude.UTCTime)
-usageReportSubscription_lastGeneratedReportDate = Lens.lens (\UsageReportSubscription' {lastGeneratedReportDate} -> lastGeneratedReportDate) (\s@UsageReportSubscription' {} a -> s {lastGeneratedReportDate = a} :: UsageReportSubscription) Prelude.. Lens.mapping Core._Time
 
 -- | The schedule for generating usage reports.
 usageReportSubscription_schedule :: Lens.Lens' UsageReportSubscription (Prelude.Maybe UsageReportSchedule)
 usageReportSubscription_schedule = Lens.lens (\UsageReportSubscription' {schedule} -> schedule) (\s@UsageReportSubscription' {} a -> s {schedule = a} :: UsageReportSubscription)
-
--- | The errors that were returned if usage reports couldn\'t be generated.
-usageReportSubscription_subscriptionErrors :: Lens.Lens' UsageReportSubscription (Prelude.Maybe [LastReportGenerationExecutionError])
-usageReportSubscription_subscriptionErrors = Lens.lens (\UsageReportSubscription' {subscriptionErrors} -> subscriptionErrors) (\s@UsageReportSubscription' {} a -> s {subscriptionErrors = a} :: UsageReportSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 bucket where generated reports are stored.
 --
@@ -106,31 +98,38 @@ usageReportSubscription_subscriptionErrors = Lens.lens (\UsageReportSubscription
 usageReportSubscription_s3BucketName :: Lens.Lens' UsageReportSubscription (Prelude.Maybe Prelude.Text)
 usageReportSubscription_s3BucketName = Lens.lens (\UsageReportSubscription' {s3BucketName} -> s3BucketName) (\s@UsageReportSubscription' {} a -> s {s3BucketName = a} :: UsageReportSubscription)
 
+-- | The time when the last usage report was generated.
+usageReportSubscription_lastGeneratedReportDate :: Lens.Lens' UsageReportSubscription (Prelude.Maybe Prelude.UTCTime)
+usageReportSubscription_lastGeneratedReportDate = Lens.lens (\UsageReportSubscription' {lastGeneratedReportDate} -> lastGeneratedReportDate) (\s@UsageReportSubscription' {} a -> s {lastGeneratedReportDate = a} :: UsageReportSubscription) Prelude.. Lens.mapping Core._Time
+
+-- | The errors that were returned if usage reports couldn\'t be generated.
+usageReportSubscription_subscriptionErrors :: Lens.Lens' UsageReportSubscription (Prelude.Maybe [LastReportGenerationExecutionError])
+usageReportSubscription_subscriptionErrors = Lens.lens (\UsageReportSubscription' {subscriptionErrors} -> subscriptionErrors) (\s@UsageReportSubscription' {} a -> s {subscriptionErrors = a} :: UsageReportSubscription) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON UsageReportSubscription where
   parseJSON =
     Core.withObject
       "UsageReportSubscription"
       ( \x ->
           UsageReportSubscription'
-            Prelude.<$> (x Core..:? "LastGeneratedReportDate")
-            Prelude.<*> (x Core..:? "Schedule")
+            Prelude.<$> (x Core..:? "Schedule")
+            Prelude.<*> (x Core..:? "S3BucketName")
+            Prelude.<*> (x Core..:? "LastGeneratedReportDate")
             Prelude.<*> ( x Core..:? "SubscriptionErrors"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "S3BucketName")
       )
 
 instance Prelude.Hashable UsageReportSubscription where
   hashWithSalt _salt UsageReportSubscription' {..} =
-    _salt
-      `Prelude.hashWithSalt` lastGeneratedReportDate
-      `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` subscriptionErrors
+    _salt `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` lastGeneratedReportDate
+      `Prelude.hashWithSalt` subscriptionErrors
 
 instance Prelude.NFData UsageReportSubscription where
   rnf UsageReportSubscription' {..} =
-    Prelude.rnf lastGeneratedReportDate
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf subscriptionErrors
+    Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf lastGeneratedReportDate
+      `Prelude.seq` Prelude.rnf subscriptionErrors

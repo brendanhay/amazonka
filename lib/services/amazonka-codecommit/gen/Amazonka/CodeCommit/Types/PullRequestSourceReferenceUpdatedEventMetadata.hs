@@ -30,14 +30,14 @@ data PullRequestSourceReferenceUpdatedEventMetadata = PullRequestSourceReference
   { -- | The full commit ID of the commit in the source branch that was the tip
     -- of the branch at the time the pull request was updated.
     afterCommitId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository where the pull request was updated.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The full commit ID of the commit in the destination branch that was the
     -- tip of the branch at the time the pull request was updated.
     beforeCommitId :: Prelude.Maybe Prelude.Text,
     -- | The commit ID of the most recent commit that the source branch and the
     -- destination branch have in common.
-    mergeBase :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository where the pull request was updated.
-    repositoryName :: Prelude.Maybe Prelude.Text
+    mergeBase :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,34 @@ data PullRequestSourceReferenceUpdatedEventMetadata = PullRequestSourceReference
 -- 'afterCommitId', 'pullRequestSourceReferenceUpdatedEventMetadata_afterCommitId' - The full commit ID of the commit in the source branch that was the tip
 -- of the branch at the time the pull request was updated.
 --
+-- 'repositoryName', 'pullRequestSourceReferenceUpdatedEventMetadata_repositoryName' - The name of the repository where the pull request was updated.
+--
 -- 'beforeCommitId', 'pullRequestSourceReferenceUpdatedEventMetadata_beforeCommitId' - The full commit ID of the commit in the destination branch that was the
 -- tip of the branch at the time the pull request was updated.
 --
 -- 'mergeBase', 'pullRequestSourceReferenceUpdatedEventMetadata_mergeBase' - The commit ID of the most recent commit that the source branch and the
 -- destination branch have in common.
---
--- 'repositoryName', 'pullRequestSourceReferenceUpdatedEventMetadata_repositoryName' - The name of the repository where the pull request was updated.
 newPullRequestSourceReferenceUpdatedEventMetadata ::
   PullRequestSourceReferenceUpdatedEventMetadata
 newPullRequestSourceReferenceUpdatedEventMetadata =
   PullRequestSourceReferenceUpdatedEventMetadata'
     { afterCommitId =
         Prelude.Nothing,
+      repositoryName =
+        Prelude.Nothing,
       beforeCommitId =
         Prelude.Nothing,
-      mergeBase = Prelude.Nothing,
-      repositoryName =
-        Prelude.Nothing
+      mergeBase = Prelude.Nothing
     }
 
 -- | The full commit ID of the commit in the source branch that was the tip
 -- of the branch at the time the pull request was updated.
 pullRequestSourceReferenceUpdatedEventMetadata_afterCommitId :: Lens.Lens' PullRequestSourceReferenceUpdatedEventMetadata (Prelude.Maybe Prelude.Text)
 pullRequestSourceReferenceUpdatedEventMetadata_afterCommitId = Lens.lens (\PullRequestSourceReferenceUpdatedEventMetadata' {afterCommitId} -> afterCommitId) (\s@PullRequestSourceReferenceUpdatedEventMetadata' {} a -> s {afterCommitId = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
+
+-- | The name of the repository where the pull request was updated.
+pullRequestSourceReferenceUpdatedEventMetadata_repositoryName :: Lens.Lens' PullRequestSourceReferenceUpdatedEventMetadata (Prelude.Maybe Prelude.Text)
+pullRequestSourceReferenceUpdatedEventMetadata_repositoryName = Lens.lens (\PullRequestSourceReferenceUpdatedEventMetadata' {repositoryName} -> repositoryName) (\s@PullRequestSourceReferenceUpdatedEventMetadata' {} a -> s {repositoryName = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
 
 -- | The full commit ID of the commit in the destination branch that was the
 -- tip of the branch at the time the pull request was updated.
@@ -87,10 +91,6 @@ pullRequestSourceReferenceUpdatedEventMetadata_beforeCommitId = Lens.lens (\Pull
 pullRequestSourceReferenceUpdatedEventMetadata_mergeBase :: Lens.Lens' PullRequestSourceReferenceUpdatedEventMetadata (Prelude.Maybe Prelude.Text)
 pullRequestSourceReferenceUpdatedEventMetadata_mergeBase = Lens.lens (\PullRequestSourceReferenceUpdatedEventMetadata' {mergeBase} -> mergeBase) (\s@PullRequestSourceReferenceUpdatedEventMetadata' {} a -> s {mergeBase = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
 
--- | The name of the repository where the pull request was updated.
-pullRequestSourceReferenceUpdatedEventMetadata_repositoryName :: Lens.Lens' PullRequestSourceReferenceUpdatedEventMetadata (Prelude.Maybe Prelude.Text)
-pullRequestSourceReferenceUpdatedEventMetadata_repositoryName = Lens.lens (\PullRequestSourceReferenceUpdatedEventMetadata' {repositoryName} -> repositoryName) (\s@PullRequestSourceReferenceUpdatedEventMetadata' {} a -> s {repositoryName = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
-
 instance
   Core.FromJSON
     PullRequestSourceReferenceUpdatedEventMetadata
@@ -101,9 +101,9 @@ instance
       ( \x ->
           PullRequestSourceReferenceUpdatedEventMetadata'
             Prelude.<$> (x Core..:? "afterCommitId")
+              Prelude.<*> (x Core..:? "repositoryName")
               Prelude.<*> (x Core..:? "beforeCommitId")
               Prelude.<*> (x Core..:? "mergeBase")
-              Prelude.<*> (x Core..:? "repositoryName")
       )
 
 instance
@@ -114,9 +114,9 @@ instance
     _salt
     PullRequestSourceReferenceUpdatedEventMetadata' {..} =
       _salt `Prelude.hashWithSalt` afterCommitId
+        `Prelude.hashWithSalt` repositoryName
         `Prelude.hashWithSalt` beforeCommitId
         `Prelude.hashWithSalt` mergeBase
-        `Prelude.hashWithSalt` repositoryName
 
 instance
   Prelude.NFData
@@ -125,6 +125,6 @@ instance
   rnf
     PullRequestSourceReferenceUpdatedEventMetadata' {..} =
       Prelude.rnf afterCommitId
+        `Prelude.seq` Prelude.rnf repositoryName
         `Prelude.seq` Prelude.rnf beforeCommitId
         `Prelude.seq` Prelude.rnf mergeBase
-        `Prelude.seq` Prelude.rnf repositoryName

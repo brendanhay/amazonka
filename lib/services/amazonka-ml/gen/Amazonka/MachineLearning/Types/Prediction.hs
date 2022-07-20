@@ -40,12 +40,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrediction' smart constructor.
 data Prediction = Prediction'
-  { -- | The prediction value for @REGRESSION@ @MLModel@.
-    predictedValue :: Prelude.Maybe Prelude.Double,
+  { predictedScores :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
+    details :: Prelude.Maybe (Prelude.HashMap DetailsAttributes Prelude.Text),
     -- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@.
     predictedLabel :: Prelude.Maybe Prelude.Text,
-    predictedScores :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
-    details :: Prelude.Maybe (Prelude.HashMap DetailsAttributes Prelude.Text)
+    -- | The prediction value for @REGRESSION@ @MLModel@.
+    predictedValue :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,30 +57,22 @@ data Prediction = Prediction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'predictedValue', 'prediction_predictedValue' - The prediction value for @REGRESSION@ @MLModel@.
---
--- 'predictedLabel', 'prediction_predictedLabel' - The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@.
---
 -- 'predictedScores', 'prediction_predictedScores' - Undocumented member.
 --
 -- 'details', 'prediction_details' - Undocumented member.
+--
+-- 'predictedLabel', 'prediction_predictedLabel' - The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@.
+--
+-- 'predictedValue', 'prediction_predictedValue' - The prediction value for @REGRESSION@ @MLModel@.
 newPrediction ::
   Prediction
 newPrediction =
   Prediction'
-    { predictedValue = Prelude.Nothing,
+    { predictedScores = Prelude.Nothing,
+      details = Prelude.Nothing,
       predictedLabel = Prelude.Nothing,
-      predictedScores = Prelude.Nothing,
-      details = Prelude.Nothing
+      predictedValue = Prelude.Nothing
     }
-
--- | The prediction value for @REGRESSION@ @MLModel@.
-prediction_predictedValue :: Lens.Lens' Prediction (Prelude.Maybe Prelude.Double)
-prediction_predictedValue = Lens.lens (\Prediction' {predictedValue} -> predictedValue) (\s@Prediction' {} a -> s {predictedValue = a} :: Prediction)
-
--- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@.
-prediction_predictedLabel :: Lens.Lens' Prediction (Prelude.Maybe Prelude.Text)
-prediction_predictedLabel = Lens.lens (\Prediction' {predictedLabel} -> predictedLabel) (\s@Prediction' {} a -> s {predictedLabel = a} :: Prediction)
 
 -- | Undocumented member.
 prediction_predictedScores :: Lens.Lens' Prediction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
@@ -90,30 +82,38 @@ prediction_predictedScores = Lens.lens (\Prediction' {predictedScores} -> predic
 prediction_details :: Lens.Lens' Prediction (Prelude.Maybe (Prelude.HashMap DetailsAttributes Prelude.Text))
 prediction_details = Lens.lens (\Prediction' {details} -> details) (\s@Prediction' {} a -> s {details = a} :: Prediction) Prelude.. Lens.mapping Lens.coerced
 
+-- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@.
+prediction_predictedLabel :: Lens.Lens' Prediction (Prelude.Maybe Prelude.Text)
+prediction_predictedLabel = Lens.lens (\Prediction' {predictedLabel} -> predictedLabel) (\s@Prediction' {} a -> s {predictedLabel = a} :: Prediction)
+
+-- | The prediction value for @REGRESSION@ @MLModel@.
+prediction_predictedValue :: Lens.Lens' Prediction (Prelude.Maybe Prelude.Double)
+prediction_predictedValue = Lens.lens (\Prediction' {predictedValue} -> predictedValue) (\s@Prediction' {} a -> s {predictedValue = a} :: Prediction)
+
 instance Core.FromJSON Prediction where
   parseJSON =
     Core.withObject
       "Prediction"
       ( \x ->
           Prediction'
-            Prelude.<$> (x Core..:? "predictedValue")
-            Prelude.<*> (x Core..:? "predictedLabel")
-            Prelude.<*> ( x Core..:? "predictedScores"
+            Prelude.<$> ( x Core..:? "predictedScores"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "details" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "predictedLabel")
+            Prelude.<*> (x Core..:? "predictedValue")
       )
 
 instance Prelude.Hashable Prediction where
   hashWithSalt _salt Prediction' {..} =
-    _salt `Prelude.hashWithSalt` predictedValue
-      `Prelude.hashWithSalt` predictedLabel
-      `Prelude.hashWithSalt` predictedScores
+    _salt `Prelude.hashWithSalt` predictedScores
       `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` predictedLabel
+      `Prelude.hashWithSalt` predictedValue
 
 instance Prelude.NFData Prediction where
   rnf Prediction' {..} =
-    Prelude.rnf predictedValue
-      `Prelude.seq` Prelude.rnf predictedLabel
-      `Prelude.seq` Prelude.rnf predictedScores
+    Prelude.rnf predictedScores
       `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf predictedLabel
+      `Prelude.seq` Prelude.rnf predictedValue

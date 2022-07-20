@@ -39,9 +39,9 @@ module Amazonka.QuickSight.DescribeDataSetPermissions
 
     -- * Response Lenses
     describeDataSetPermissionsResponse_requestId,
+    describeDataSetPermissionsResponse_permissions,
     describeDataSetPermissionsResponse_dataSetArn,
     describeDataSetPermissionsResponse_dataSetId,
-    describeDataSetPermissionsResponse_permissions,
     describeDataSetPermissionsResponse_status,
   )
 where
@@ -109,9 +109,9 @@ instance Core.AWSRequest DescribeDataSetPermissions where
       ( \s h x ->
           DescribeDataSetPermissionsResponse'
             Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<*> (x Core..?> "Permissions")
             Prelude.<*> (x Core..?> "DataSetArn")
             Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "Permissions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,13 +153,13 @@ instance Core.ToQuery DescribeDataSetPermissions where
 data DescribeDataSetPermissionsResponse = DescribeDataSetPermissionsResponse'
   { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
+    -- | A list of resource permissions on the dataset.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
     -- | The Amazon Resource Name (ARN) of the dataset.
     dataSetArn :: Prelude.Maybe Prelude.Text,
     -- | The ID for the dataset that you want to create. This ID is unique per
     -- Amazon Web Services Region for each Amazon Web Services account.
     dataSetId :: Prelude.Maybe Prelude.Text,
-    -- | A list of resource permissions on the dataset.
-    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -175,12 +175,12 @@ data DescribeDataSetPermissionsResponse = DescribeDataSetPermissionsResponse'
 --
 -- 'requestId', 'describeDataSetPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
+-- 'permissions', 'describeDataSetPermissionsResponse_permissions' - A list of resource permissions on the dataset.
+--
 -- 'dataSetArn', 'describeDataSetPermissionsResponse_dataSetArn' - The Amazon Resource Name (ARN) of the dataset.
 --
 -- 'dataSetId', 'describeDataSetPermissionsResponse_dataSetId' - The ID for the dataset that you want to create. This ID is unique per
 -- Amazon Web Services Region for each Amazon Web Services account.
---
--- 'permissions', 'describeDataSetPermissionsResponse_permissions' - A list of resource permissions on the dataset.
 --
 -- 'status', 'describeDataSetPermissionsResponse_status' - The HTTP status of the request.
 newDescribeDataSetPermissionsResponse ::
@@ -191,15 +191,19 @@ newDescribeDataSetPermissionsResponse pStatus_ =
   DescribeDataSetPermissionsResponse'
     { requestId =
         Prelude.Nothing,
+      permissions = Prelude.Nothing,
       dataSetArn = Prelude.Nothing,
       dataSetId = Prelude.Nothing,
-      permissions = Prelude.Nothing,
       status = pStatus_
     }
 
 -- | The Amazon Web Services request ID for this operation.
 describeDataSetPermissionsResponse_requestId :: Lens.Lens' DescribeDataSetPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeDataSetPermissionsResponse_requestId = Lens.lens (\DescribeDataSetPermissionsResponse' {requestId} -> requestId) (\s@DescribeDataSetPermissionsResponse' {} a -> s {requestId = a} :: DescribeDataSetPermissionsResponse)
+
+-- | A list of resource permissions on the dataset.
+describeDataSetPermissionsResponse_permissions :: Lens.Lens' DescribeDataSetPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
+describeDataSetPermissionsResponse_permissions = Lens.lens (\DescribeDataSetPermissionsResponse' {permissions} -> permissions) (\s@DescribeDataSetPermissionsResponse' {} a -> s {permissions = a} :: DescribeDataSetPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the dataset.
 describeDataSetPermissionsResponse_dataSetArn :: Lens.Lens' DescribeDataSetPermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -209,10 +213,6 @@ describeDataSetPermissionsResponse_dataSetArn = Lens.lens (\DescribeDataSetPermi
 -- Amazon Web Services Region for each Amazon Web Services account.
 describeDataSetPermissionsResponse_dataSetId :: Lens.Lens' DescribeDataSetPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeDataSetPermissionsResponse_dataSetId = Lens.lens (\DescribeDataSetPermissionsResponse' {dataSetId} -> dataSetId) (\s@DescribeDataSetPermissionsResponse' {} a -> s {dataSetId = a} :: DescribeDataSetPermissionsResponse)
-
--- | A list of resource permissions on the dataset.
-describeDataSetPermissionsResponse_permissions :: Lens.Lens' DescribeDataSetPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
-describeDataSetPermissionsResponse_permissions = Lens.lens (\DescribeDataSetPermissionsResponse' {permissions} -> permissions) (\s@DescribeDataSetPermissionsResponse' {} a -> s {permissions = a} :: DescribeDataSetPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The HTTP status of the request.
 describeDataSetPermissionsResponse_status :: Lens.Lens' DescribeDataSetPermissionsResponse Prelude.Int
@@ -224,7 +224,7 @@ instance
   where
   rnf DescribeDataSetPermissionsResponse' {..} =
     Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf dataSetArn
       `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf status

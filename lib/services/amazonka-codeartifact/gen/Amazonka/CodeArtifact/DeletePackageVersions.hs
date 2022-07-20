@@ -35,8 +35,8 @@ module Amazonka.CodeArtifact.DeletePackageVersions
 
     -- * Request Lenses
     deletePackageVersions_expectedStatus,
-    deletePackageVersions_namespace,
     deletePackageVersions_domainOwner,
+    deletePackageVersions_namespace,
     deletePackageVersions_domain,
     deletePackageVersions_repository,
     deletePackageVersions_format,
@@ -75,6 +75,9 @@ data DeletePackageVersions = DeletePackageVersions'
     --
     -- -   @Disposed@
     expectedStatus :: Prelude.Maybe PackageVersionStatus,
+    -- | The 12-digit account number of the AWS account that owns the domain. It
+    -- does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
@@ -85,9 +88,6 @@ data DeletePackageVersions = DeletePackageVersions'
     -- -   A Python package does not contain a corresponding component, so
     --     Python packages do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the package to delete.
     domain :: Prelude.Text,
     -- | The name of the repository that contains the package versions to delete.
@@ -127,6 +127,9 @@ data DeletePackageVersions = DeletePackageVersions'
 --
 -- -   @Disposed@
 --
+-- 'domainOwner', 'deletePackageVersions_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+--
 -- 'namespace', 'deletePackageVersions_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
 --
@@ -136,9 +139,6 @@ data DeletePackageVersions = DeletePackageVersions'
 --
 -- -   A Python package does not contain a corresponding component, so
 --     Python packages do not have a namespace.
---
--- 'domainOwner', 'deletePackageVersions_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
 --
 -- 'domain', 'deletePackageVersions_domain' - The name of the domain that contains the package to delete.
 --
@@ -173,8 +173,8 @@ newDeletePackageVersions
     DeletePackageVersions'
       { expectedStatus =
           Prelude.Nothing,
-        namespace = Prelude.Nothing,
         domainOwner = Prelude.Nothing,
+        namespace = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         format = pFormat_,
@@ -196,6 +196,11 @@ newDeletePackageVersions
 deletePackageVersions_expectedStatus :: Lens.Lens' DeletePackageVersions (Prelude.Maybe PackageVersionStatus)
 deletePackageVersions_expectedStatus = Lens.lens (\DeletePackageVersions' {expectedStatus} -> expectedStatus) (\s@DeletePackageVersions' {} a -> s {expectedStatus = a} :: DeletePackageVersions)
 
+-- | The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+deletePackageVersions_domainOwner :: Lens.Lens' DeletePackageVersions (Prelude.Maybe Prelude.Text)
+deletePackageVersions_domainOwner = Lens.lens (\DeletePackageVersions' {domainOwner} -> domainOwner) (\s@DeletePackageVersions' {} a -> s {domainOwner = a} :: DeletePackageVersions)
+
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
 --
@@ -207,11 +212,6 @@ deletePackageVersions_expectedStatus = Lens.lens (\DeletePackageVersions' {expec
 --     Python packages do not have a namespace.
 deletePackageVersions_namespace :: Lens.Lens' DeletePackageVersions (Prelude.Maybe Prelude.Text)
 deletePackageVersions_namespace = Lens.lens (\DeletePackageVersions' {namespace} -> namespace) (\s@DeletePackageVersions' {} a -> s {namespace = a} :: DeletePackageVersions)
-
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
-deletePackageVersions_domainOwner :: Lens.Lens' DeletePackageVersions (Prelude.Maybe Prelude.Text)
-deletePackageVersions_domainOwner = Lens.lens (\DeletePackageVersions' {domainOwner} -> domainOwner) (\s@DeletePackageVersions' {} a -> s {domainOwner = a} :: DeletePackageVersions)
 
 -- | The name of the domain that contains the package to delete.
 deletePackageVersions_domain :: Lens.Lens' DeletePackageVersions Prelude.Text
@@ -258,8 +258,8 @@ instance Core.AWSRequest DeletePackageVersions where
 instance Prelude.Hashable DeletePackageVersions where
   hashWithSalt _salt DeletePackageVersions' {..} =
     _salt `Prelude.hashWithSalt` expectedStatus
-      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` format
@@ -269,8 +269,8 @@ instance Prelude.Hashable DeletePackageVersions where
 instance Prelude.NFData DeletePackageVersions where
   rnf DeletePackageVersions' {..} =
     Prelude.rnf expectedStatus
-      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
@@ -304,8 +304,8 @@ instance Core.ToPath DeletePackageVersions where
 instance Core.ToQuery DeletePackageVersions where
   toQuery DeletePackageVersions' {..} =
     Prelude.mconcat
-      [ "namespace" Core.=: namespace,
-        "domain-owner" Core.=: domainOwner,
+      [ "domain-owner" Core.=: domainOwner,
+        "namespace" Core.=: namespace,
         "domain" Core.=: domain,
         "repository" Core.=: repository,
         "format" Core.=: format,

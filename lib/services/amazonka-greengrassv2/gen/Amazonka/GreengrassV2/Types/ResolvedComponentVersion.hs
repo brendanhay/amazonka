@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResolvedComponentVersion' smart constructor.
 data ResolvedComponentVersion = ResolvedComponentVersion'
-  { -- | The
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
-    -- of the component version.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The version of the component.
+  { -- | The version of the component.
     componentVersion :: Prelude.Maybe Prelude.Text,
     -- | The recipe of the component version.
     recipe :: Prelude.Maybe Core.Base64,
     -- | The name of the component.
-    componentName :: Prelude.Maybe Prelude.Text
+    componentName :: Prelude.Maybe Prelude.Text,
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+    -- of the component version.
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,10 +49,6 @@ data ResolvedComponentVersion = ResolvedComponentVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'resolvedComponentVersion_arn' - The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
--- of the component version.
---
 -- 'componentVersion', 'resolvedComponentVersion_componentVersion' - The version of the component.
 --
 -- 'recipe', 'resolvedComponentVersion_recipe' - The recipe of the component version.--
@@ -62,21 +58,20 @@ data ResolvedComponentVersion = ResolvedComponentVersion'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'componentName', 'resolvedComponentVersion_componentName' - The name of the component.
+--
+-- 'arn', 'resolvedComponentVersion_arn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- of the component version.
 newResolvedComponentVersion ::
   ResolvedComponentVersion
 newResolvedComponentVersion =
   ResolvedComponentVersion'
-    { arn = Prelude.Nothing,
-      componentVersion = Prelude.Nothing,
+    { componentVersion =
+        Prelude.Nothing,
       recipe = Prelude.Nothing,
-      componentName = Prelude.Nothing
+      componentName = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
-
--- | The
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
--- of the component version.
-resolvedComponentVersion_arn :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.Text)
-resolvedComponentVersion_arn = Lens.lens (\ResolvedComponentVersion' {arn} -> arn) (\s@ResolvedComponentVersion' {} a -> s {arn = a} :: ResolvedComponentVersion)
 
 -- | The version of the component.
 resolvedComponentVersion_componentVersion :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.Text)
@@ -94,28 +89,34 @@ resolvedComponentVersion_recipe = Lens.lens (\ResolvedComponentVersion' {recipe}
 resolvedComponentVersion_componentName :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.Text)
 resolvedComponentVersion_componentName = Lens.lens (\ResolvedComponentVersion' {componentName} -> componentName) (\s@ResolvedComponentVersion' {} a -> s {componentName = a} :: ResolvedComponentVersion)
 
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- of the component version.
+resolvedComponentVersion_arn :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.Text)
+resolvedComponentVersion_arn = Lens.lens (\ResolvedComponentVersion' {arn} -> arn) (\s@ResolvedComponentVersion' {} a -> s {arn = a} :: ResolvedComponentVersion)
+
 instance Core.FromJSON ResolvedComponentVersion where
   parseJSON =
     Core.withObject
       "ResolvedComponentVersion"
       ( \x ->
           ResolvedComponentVersion'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "componentVersion")
+            Prelude.<$> (x Core..:? "componentVersion")
             Prelude.<*> (x Core..:? "recipe")
             Prelude.<*> (x Core..:? "componentName")
+            Prelude.<*> (x Core..:? "arn")
       )
 
 instance Prelude.Hashable ResolvedComponentVersion where
   hashWithSalt _salt ResolvedComponentVersion' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` componentVersion
+    _salt `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` recipe
       `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ResolvedComponentVersion where
   rnf ResolvedComponentVersion' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf componentVersion
+    Prelude.rnf componentVersion
       `Prelude.seq` Prelude.rnf recipe
       `Prelude.seq` Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf arn

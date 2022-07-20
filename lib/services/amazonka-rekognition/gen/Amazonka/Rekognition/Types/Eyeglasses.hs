@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEyeglasses' smart constructor.
 data Eyeglasses = Eyeglasses'
-  { -- | Boolean value that indicates whether the face is wearing eye glasses or
+  { -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | Boolean value that indicates whether the face is wearing eye glasses or
     -- not.
-    value :: Prelude.Maybe Prelude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double
+    value :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data Eyeglasses = Eyeglasses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'confidence', 'eyeglasses_confidence' - Level of confidence in the determination.
+--
 -- 'value', 'eyeglasses_value' - Boolean value that indicates whether the face is wearing eye glasses or
 -- not.
---
--- 'confidence', 'eyeglasses_confidence' - Level of confidence in the determination.
 newEyeglasses ::
   Eyeglasses
 newEyeglasses =
   Eyeglasses'
-    { value = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | Level of confidence in the determination.
+eyeglasses_confidence :: Lens.Lens' Eyeglasses (Prelude.Maybe Prelude.Double)
+eyeglasses_confidence = Lens.lens (\Eyeglasses' {confidence} -> confidence) (\s@Eyeglasses' {} a -> s {confidence = a} :: Eyeglasses)
 
 -- | Boolean value that indicates whether the face is wearing eye glasses or
 -- not.
 eyeglasses_value :: Lens.Lens' Eyeglasses (Prelude.Maybe Prelude.Bool)
 eyeglasses_value = Lens.lens (\Eyeglasses' {value} -> value) (\s@Eyeglasses' {} a -> s {value = a} :: Eyeglasses)
-
--- | Level of confidence in the determination.
-eyeglasses_confidence :: Lens.Lens' Eyeglasses (Prelude.Maybe Prelude.Double)
-eyeglasses_confidence = Lens.lens (\Eyeglasses' {confidence} -> confidence) (\s@Eyeglasses' {} a -> s {confidence = a} :: Eyeglasses)
 
 instance Core.FromJSON Eyeglasses where
   parseJSON =
@@ -71,16 +71,16 @@ instance Core.FromJSON Eyeglasses where
       "Eyeglasses"
       ( \x ->
           Eyeglasses'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Eyeglasses where
   hashWithSalt _salt Eyeglasses' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Eyeglasses where
   rnf Eyeglasses' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf value

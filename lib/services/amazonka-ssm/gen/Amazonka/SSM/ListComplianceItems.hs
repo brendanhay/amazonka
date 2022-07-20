@@ -32,11 +32,11 @@ module Amazonka.SSM.ListComplianceItems
     newListComplianceItems,
 
     -- * Request Lenses
-    listComplianceItems_resourceIds,
-    listComplianceItems_filters,
     listComplianceItems_nextToken,
-    listComplianceItems_maxResults,
+    listComplianceItems_filters,
     listComplianceItems_resourceTypes,
+    listComplianceItems_resourceIds,
+    listComplianceItems_maxResults,
 
     -- * Destructuring the Response
     ListComplianceItemsResponse (..),
@@ -58,22 +58,22 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListComplianceItems' smart constructor.
 data ListComplianceItems = ListComplianceItems'
-  { -- | The ID for the resources from which to get compliance information.
-    -- Currently, you can only specify one resource ID.
-    resourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more compliance filters. Use a filter to return a more specific
     -- list of results.
     filters :: Prelude.Maybe [ComplianceStringFilter],
-    -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The type of resource from which to get compliance information.
+    -- Currently, the only supported resource type is @ManagedInstance@.
+    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The ID for the resources from which to get compliance information.
+    -- Currently, you can only specify one resource ID.
+    resourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The type of resource from which to get compliance information.
-    -- Currently, the only supported resource type is @ManagedInstance@.
-    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,57 +85,57 @@ data ListComplianceItems = ListComplianceItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceIds', 'listComplianceItems_resourceIds' - The ID for the resources from which to get compliance information.
--- Currently, you can only specify one resource ID.
+-- 'nextToken', 'listComplianceItems_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
 --
 -- 'filters', 'listComplianceItems_filters' - One or more compliance filters. Use a filter to return a more specific
 -- list of results.
 --
--- 'nextToken', 'listComplianceItems_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
+-- 'resourceTypes', 'listComplianceItems_resourceTypes' - The type of resource from which to get compliance information.
+-- Currently, the only supported resource type is @ManagedInstance@.
+--
+-- 'resourceIds', 'listComplianceItems_resourceIds' - The ID for the resources from which to get compliance information.
+-- Currently, you can only specify one resource ID.
 --
 -- 'maxResults', 'listComplianceItems_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
---
--- 'resourceTypes', 'listComplianceItems_resourceTypes' - The type of resource from which to get compliance information.
--- Currently, the only supported resource type is @ManagedInstance@.
 newListComplianceItems ::
   ListComplianceItems
 newListComplianceItems =
   ListComplianceItems'
-    { resourceIds = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing
+      resourceTypes = Prelude.Nothing,
+      resourceIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The ID for the resources from which to get compliance information.
--- Currently, you can only specify one resource ID.
-listComplianceItems_resourceIds :: Lens.Lens' ListComplianceItems (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listComplianceItems_resourceIds = Lens.lens (\ListComplianceItems' {resourceIds} -> resourceIds) (\s@ListComplianceItems' {} a -> s {resourceIds = a} :: ListComplianceItems) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more compliance filters. Use a filter to return a more specific
--- list of results.
-listComplianceItems_filters :: Lens.Lens' ListComplianceItems (Prelude.Maybe [ComplianceStringFilter])
-listComplianceItems_filters = Lens.lens (\ListComplianceItems' {filters} -> filters) (\s@ListComplianceItems' {} a -> s {filters = a} :: ListComplianceItems) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
 listComplianceItems_nextToken :: Lens.Lens' ListComplianceItems (Prelude.Maybe Prelude.Text)
 listComplianceItems_nextToken = Lens.lens (\ListComplianceItems' {nextToken} -> nextToken) (\s@ListComplianceItems' {} a -> s {nextToken = a} :: ListComplianceItems)
 
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-listComplianceItems_maxResults :: Lens.Lens' ListComplianceItems (Prelude.Maybe Prelude.Natural)
-listComplianceItems_maxResults = Lens.lens (\ListComplianceItems' {maxResults} -> maxResults) (\s@ListComplianceItems' {} a -> s {maxResults = a} :: ListComplianceItems)
+-- | One or more compliance filters. Use a filter to return a more specific
+-- list of results.
+listComplianceItems_filters :: Lens.Lens' ListComplianceItems (Prelude.Maybe [ComplianceStringFilter])
+listComplianceItems_filters = Lens.lens (\ListComplianceItems' {filters} -> filters) (\s@ListComplianceItems' {} a -> s {filters = a} :: ListComplianceItems) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of resource from which to get compliance information.
 -- Currently, the only supported resource type is @ManagedInstance@.
 listComplianceItems_resourceTypes :: Lens.Lens' ListComplianceItems (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listComplianceItems_resourceTypes = Lens.lens (\ListComplianceItems' {resourceTypes} -> resourceTypes) (\s@ListComplianceItems' {} a -> s {resourceTypes = a} :: ListComplianceItems) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID for the resources from which to get compliance information.
+-- Currently, you can only specify one resource ID.
+listComplianceItems_resourceIds :: Lens.Lens' ListComplianceItems (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listComplianceItems_resourceIds = Lens.lens (\ListComplianceItems' {resourceIds} -> resourceIds) (\s@ListComplianceItems' {} a -> s {resourceIds = a} :: ListComplianceItems) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+listComplianceItems_maxResults :: Lens.Lens' ListComplianceItems (Prelude.Maybe Prelude.Natural)
+listComplianceItems_maxResults = Lens.lens (\ListComplianceItems' {maxResults} -> maxResults) (\s@ListComplianceItems' {} a -> s {maxResults = a} :: ListComplianceItems)
 
 instance Core.AWSPager ListComplianceItems where
   page rq rs
@@ -177,19 +177,19 @@ instance Core.AWSRequest ListComplianceItems where
 
 instance Prelude.Hashable ListComplianceItems where
   hashWithSalt _salt ListComplianceItems' {..} =
-    _salt `Prelude.hashWithSalt` resourceIds
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` resourceIds
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListComplianceItems where
   rnf ListComplianceItems' {..} =
-    Prelude.rnf resourceIds
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListComplianceItems where
   toHeaders =
@@ -210,11 +210,11 @@ instance Core.ToJSON ListComplianceItems where
   toJSON ListComplianceItems' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceIds" Core..=) Prelude.<$> resourceIds,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ResourceTypes" Core..=) Prelude.<$> resourceTypes
+            ("ResourceTypes" Core..=) Prelude.<$> resourceTypes,
+            ("ResourceIds" Core..=) Prelude.<$> resourceIds,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

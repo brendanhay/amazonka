@@ -14,34 +14,34 @@
 module Amazonka.SageMakerEdge.Lens
   ( -- * Operations
 
+    -- ** GetDeviceRegistration
+    getDeviceRegistration_deviceName,
+    getDeviceRegistration_deviceFleetName,
+    getDeviceRegistrationResponse_deviceRegistration,
+    getDeviceRegistrationResponse_cacheTTL,
+    getDeviceRegistrationResponse_httpStatus,
+
     -- ** SendHeartbeat
-    sendHeartbeat_agentMetrics,
     sendHeartbeat_models,
+    sendHeartbeat_agentMetrics,
     sendHeartbeat_agentVersion,
     sendHeartbeat_deviceName,
     sendHeartbeat_deviceFleetName,
 
-    -- ** GetDeviceRegistration
-    getDeviceRegistration_deviceName,
-    getDeviceRegistration_deviceFleetName,
-    getDeviceRegistrationResponse_cacheTTL,
-    getDeviceRegistrationResponse_deviceRegistration,
-    getDeviceRegistrationResponse_httpStatus,
-
     -- * Types
 
     -- ** EdgeMetric
-    edgeMetric_dimension,
-    edgeMetric_metricName,
-    edgeMetric_value,
     edgeMetric_timestamp,
+    edgeMetric_metricName,
+    edgeMetric_dimension,
+    edgeMetric_value,
 
     -- ** Model
-    model_modelName,
-    model_modelMetrics,
-    model_modelVersion,
-    model_latestInference,
     model_latestSampleTime,
+    model_modelVersion,
+    model_modelMetrics,
+    model_modelName,
+    model_latestInference,
   )
 where
 

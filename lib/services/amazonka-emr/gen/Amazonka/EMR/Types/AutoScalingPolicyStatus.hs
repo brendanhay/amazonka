@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingPolicyStatus' smart constructor.
 data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
-  { -- | Indicates the status of the automatic scaling policy.
-    state :: Prelude.Maybe AutoScalingPolicyState,
-    -- | The reason for a change in status.
-    stateChangeReason :: Prelude.Maybe AutoScalingPolicyStateChangeReason
+  { -- | The reason for a change in status.
+    stateChangeReason :: Prelude.Maybe AutoScalingPolicyStateChangeReason,
+    -- | Indicates the status of the automatic scaling policy.
+    state :: Prelude.Maybe AutoScalingPolicyState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,25 @@ data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'autoScalingPolicyStatus_state' - Indicates the status of the automatic scaling policy.
---
 -- 'stateChangeReason', 'autoScalingPolicyStatus_stateChangeReason' - The reason for a change in status.
+--
+-- 'state', 'autoScalingPolicyStatus_state' - Indicates the status of the automatic scaling policy.
 newAutoScalingPolicyStatus ::
   AutoScalingPolicyStatus
 newAutoScalingPolicyStatus =
   AutoScalingPolicyStatus'
-    { state = Prelude.Nothing,
-      stateChangeReason = Prelude.Nothing
+    { stateChangeReason =
+        Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | Indicates the status of the automatic scaling policy.
-autoScalingPolicyStatus_state :: Lens.Lens' AutoScalingPolicyStatus (Prelude.Maybe AutoScalingPolicyState)
-autoScalingPolicyStatus_state = Lens.lens (\AutoScalingPolicyStatus' {state} -> state) (\s@AutoScalingPolicyStatus' {} a -> s {state = a} :: AutoScalingPolicyStatus)
 
 -- | The reason for a change in status.
 autoScalingPolicyStatus_stateChangeReason :: Lens.Lens' AutoScalingPolicyStatus (Prelude.Maybe AutoScalingPolicyStateChangeReason)
 autoScalingPolicyStatus_stateChangeReason = Lens.lens (\AutoScalingPolicyStatus' {stateChangeReason} -> stateChangeReason) (\s@AutoScalingPolicyStatus' {} a -> s {stateChangeReason = a} :: AutoScalingPolicyStatus)
+
+-- | Indicates the status of the automatic scaling policy.
+autoScalingPolicyStatus_state :: Lens.Lens' AutoScalingPolicyStatus (Prelude.Maybe AutoScalingPolicyState)
+autoScalingPolicyStatus_state = Lens.lens (\AutoScalingPolicyStatus' {state} -> state) (\s@AutoScalingPolicyStatus' {} a -> s {state = a} :: AutoScalingPolicyStatus)
 
 instance Core.FromJSON AutoScalingPolicyStatus where
   parseJSON =
@@ -69,16 +70,16 @@ instance Core.FromJSON AutoScalingPolicyStatus where
       "AutoScalingPolicyStatus"
       ( \x ->
           AutoScalingPolicyStatus'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "StateChangeReason")
+            Prelude.<$> (x Core..:? "StateChangeReason")
+            Prelude.<*> (x Core..:? "State")
       )
 
 instance Prelude.Hashable AutoScalingPolicyStatus where
   hashWithSalt _salt AutoScalingPolicyStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` stateChangeReason
+    _salt `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AutoScalingPolicyStatus where
   rnf AutoScalingPolicyStatus' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf stateChangeReason
+    Prelude.rnf stateChangeReason
+      `Prelude.seq` Prelude.rnf state

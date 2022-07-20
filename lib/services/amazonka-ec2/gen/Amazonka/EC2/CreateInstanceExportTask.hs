@@ -32,8 +32,8 @@ module Amazonka.EC2.CreateInstanceExportTask
     newCreateInstanceExportTask,
 
     -- * Request Lenses
-    createInstanceExportTask_tagSpecifications,
     createInstanceExportTask_description,
+    createInstanceExportTask_tagSpecifications,
     createInstanceExportTask_exportToS3Task,
     createInstanceExportTask_instanceId,
     createInstanceExportTask_targetEnvironment,
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInstanceExportTask' smart constructor.
 data CreateInstanceExportTask = CreateInstanceExportTask'
-  { -- | The tags to apply to the export instance task during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | A description for the conversion task or the resource being exported.
+  { -- | A description for the conversion task or the resource being exported.
     -- The maximum length is 255 characters.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the export instance task during creation.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The format and location for an export instance task.
     exportToS3Task :: ExportToS3TaskSpecification,
     -- | The ID of the instance.
@@ -79,10 +79,10 @@ data CreateInstanceExportTask = CreateInstanceExportTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createInstanceExportTask_tagSpecifications' - The tags to apply to the export instance task during creation.
---
 -- 'description', 'createInstanceExportTask_description' - A description for the conversion task or the resource being exported.
 -- The maximum length is 255 characters.
+--
+-- 'tagSpecifications', 'createInstanceExportTask_tagSpecifications' - The tags to apply to the export instance task during creation.
 --
 -- 'exportToS3Task', 'createInstanceExportTask_exportToS3Task' - The format and location for an export instance task.
 --
@@ -102,22 +102,22 @@ newCreateInstanceExportTask
   pInstanceId_
   pTargetEnvironment_ =
     CreateInstanceExportTask'
-      { tagSpecifications =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
         exportToS3Task = pExportToS3Task_,
         instanceId = pInstanceId_,
         targetEnvironment = pTargetEnvironment_
       }
 
--- | The tags to apply to the export instance task during creation.
-createInstanceExportTask_tagSpecifications :: Lens.Lens' CreateInstanceExportTask (Prelude.Maybe [TagSpecification])
-createInstanceExportTask_tagSpecifications = Lens.lens (\CreateInstanceExportTask' {tagSpecifications} -> tagSpecifications) (\s@CreateInstanceExportTask' {} a -> s {tagSpecifications = a} :: CreateInstanceExportTask) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description for the conversion task or the resource being exported.
 -- The maximum length is 255 characters.
 createInstanceExportTask_description :: Lens.Lens' CreateInstanceExportTask (Prelude.Maybe Prelude.Text)
 createInstanceExportTask_description = Lens.lens (\CreateInstanceExportTask' {description} -> description) (\s@CreateInstanceExportTask' {} a -> s {description = a} :: CreateInstanceExportTask)
+
+-- | The tags to apply to the export instance task during creation.
+createInstanceExportTask_tagSpecifications :: Lens.Lens' CreateInstanceExportTask (Prelude.Maybe [TagSpecification])
+createInstanceExportTask_tagSpecifications = Lens.lens (\CreateInstanceExportTask' {tagSpecifications} -> tagSpecifications) (\s@CreateInstanceExportTask' {} a -> s {tagSpecifications = a} :: CreateInstanceExportTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The format and location for an export instance task.
 createInstanceExportTask_exportToS3Task :: Lens.Lens' CreateInstanceExportTask ExportToS3TaskSpecification
@@ -146,16 +146,16 @@ instance Core.AWSRequest CreateInstanceExportTask where
 
 instance Prelude.Hashable CreateInstanceExportTask where
   hashWithSalt _salt CreateInstanceExportTask' {..} =
-    _salt `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` exportToS3Task
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` targetEnvironment
 
 instance Prelude.NFData CreateInstanceExportTask where
   rnf CreateInstanceExportTask' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf exportToS3Task
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf targetEnvironment
@@ -173,11 +173,11 @@ instance Core.ToQuery CreateInstanceExportTask where
           Core.=: ("CreateInstanceExportTask" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Core.=: description,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Description" Core.=: description,
         "ExportToS3" Core.=: exportToS3Task,
         "InstanceId" Core.=: instanceId,
         "TargetEnvironment" Core.=: targetEnvironment

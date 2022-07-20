@@ -33,7 +33,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentDescription' smart constructor.
 data EnvironmentDescription = EnvironmentDescription'
-  { -- | The current operational status of the environment:
+  { -- | The name of the configuration template used to originally launch this
+    -- environment.
+    templateName :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the CNAME for this environment.
+    cname :: Prelude.Maybe Prelude.Text,
+    -- | The name of this environment.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | Returns the health status of the application running in your
+    -- environment. For more information, see
+    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+    healthStatus :: Prelude.Maybe EnvironmentHealthStatus,
+    -- | The current operational status of the environment:
     --
     -- -   @Launching@: Environment is in the process of initial deployment.
     --
@@ -47,11 +58,10 @@ data EnvironmentDescription = EnvironmentDescription'
     --
     -- -   @Terminated@: Environment is not running.
     status :: Prelude.Maybe EnvironmentStatus,
-    -- | The URL to the CNAME for this environment.
-    cname :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration template used to originally launch this
-    -- environment.
-    templateName :: Prelude.Maybe Prelude.Text,
+    -- | Describes this environment.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Describes the current tier of this environment.
+    tier :: Prelude.Maybe EnvironmentTier,
     -- | Indicates if there is an in-progress environment configuration update or
     -- application version deployment that you can cancel.
     --
@@ -63,12 +73,6 @@ data EnvironmentDescription = EnvironmentDescription'
     -- LoadBalancer. For single-instance environments, the IP address of the
     -- instance.
     endpointURL :: Prelude.Maybe Prelude.Text,
-    -- | The description of the AWS resources used by this environment.
-    resources :: Prelude.Maybe EnvironmentResourcesDescription,
-    -- | The last modified date for this environment.
-    dateUpdated :: Prelude.Maybe Core.ISO8601,
-    -- | The creation date for this environment.
-    dateCreated :: Prelude.Maybe Core.ISO8601,
     -- | Describes the health status of the environment. AWS Elastic Beanstalk
     -- indicates the failure levels for a running environment:
     --
@@ -87,36 +91,32 @@ data EnvironmentDescription = EnvironmentDescription'
     --
     -- Default: @Grey@
     health :: Prelude.Maybe EnvironmentHealth,
-    -- | The application version deployed in this environment.
-    versionLabel :: Prelude.Maybe Prelude.Text,
+    -- | The name of the @SolutionStack@ deployed with this environment.
+    solutionStackName :: Prelude.Maybe Prelude.Text,
+    -- | The last modified date for this environment.
+    dateUpdated :: Prelude.Maybe Core.ISO8601,
+    -- | The creation date for this environment.
+    dateCreated :: Prelude.Maybe Core.ISO8601,
+    -- | The environment\'s Amazon Resource Name (ARN), which can be used in
+    -- other API requests that require an ARN.
+    environmentArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of links to other environments in the same group.
+    environmentLinks :: Prelude.Maybe [EnvironmentLink],
+    -- | The description of the AWS resources used by this environment.
+    resources :: Prelude.Maybe EnvironmentResourcesDescription,
+    -- | The ARN of the platform version.
+    platformArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of this environment.
+    environmentId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the environment\'s operations role.
     -- For more information, see
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles>
     -- in the /AWS Elastic Beanstalk Developer Guide/.
     operationsRole :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the platform version.
-    platformArn :: Prelude.Maybe Prelude.Text,
-    -- | Describes the current tier of this environment.
-    tier :: Prelude.Maybe EnvironmentTier,
-    -- | The name of this environment.
-    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The application version deployed in this environment.
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | The name of the application associated with this environment.
-    applicationName :: Prelude.Maybe Prelude.Text,
-    -- | The environment\'s Amazon Resource Name (ARN), which can be used in
-    -- other API requests that require an ARN.
-    environmentArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the @SolutionStack@ deployed with this environment.
-    solutionStackName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of this environment.
-    environmentId :: Prelude.Maybe Prelude.Text,
-    -- | Returns the health status of the application running in your
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
-    healthStatus :: Prelude.Maybe EnvironmentHealthStatus,
-    -- | A list of links to other environments in the same group.
-    environmentLinks :: Prelude.Maybe [EnvironmentLink],
-    -- | Describes this environment.
-    description :: Prelude.Maybe Prelude.Text
+    applicationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -127,6 +127,17 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'templateName', 'environmentDescription_templateName' - The name of the configuration template used to originally launch this
+-- environment.
+--
+-- 'cname', 'environmentDescription_cname' - The URL to the CNAME for this environment.
+--
+-- 'environmentName', 'environmentDescription_environmentName' - The name of this environment.
+--
+-- 'healthStatus', 'environmentDescription_healthStatus' - Returns the health status of the application running in your
+-- environment. For more information, see
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
 --
 -- 'status', 'environmentDescription_status' - The current operational status of the environment:
 --
@@ -142,10 +153,9 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- -   @Terminated@: Environment is not running.
 --
--- 'cname', 'environmentDescription_cname' - The URL to the CNAME for this environment.
+-- 'description', 'environmentDescription_description' - Describes this environment.
 --
--- 'templateName', 'environmentDescription_templateName' - The name of the configuration template used to originally launch this
--- environment.
+-- 'tier', 'environmentDescription_tier' - Describes the current tier of this environment.
 --
 -- 'abortableOperationInProgress', 'environmentDescription_abortableOperationInProgress' - Indicates if there is an in-progress environment configuration update or
 -- application version deployment that you can cancel.
@@ -157,12 +167,6 @@ data EnvironmentDescription = EnvironmentDescription'
 -- 'endpointURL', 'environmentDescription_endpointURL' - For load-balanced, autoscaling environments, the URL to the
 -- LoadBalancer. For single-instance environments, the IP address of the
 -- instance.
---
--- 'resources', 'environmentDescription_resources' - The description of the AWS resources used by this environment.
---
--- 'dateUpdated', 'environmentDescription_dateUpdated' - The last modified date for this environment.
---
--- 'dateCreated', 'environmentDescription_dateCreated' - The creation date for this environment.
 --
 -- 'health', 'environmentDescription_health' - Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment:
@@ -182,61 +186,77 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- Default: @Grey@
 --
--- 'versionLabel', 'environmentDescription_versionLabel' - The application version deployed in this environment.
+-- 'solutionStackName', 'environmentDescription_solutionStackName' - The name of the @SolutionStack@ deployed with this environment.
+--
+-- 'dateUpdated', 'environmentDescription_dateUpdated' - The last modified date for this environment.
+--
+-- 'dateCreated', 'environmentDescription_dateCreated' - The creation date for this environment.
+--
+-- 'environmentArn', 'environmentDescription_environmentArn' - The environment\'s Amazon Resource Name (ARN), which can be used in
+-- other API requests that require an ARN.
+--
+-- 'environmentLinks', 'environmentDescription_environmentLinks' - A list of links to other environments in the same group.
+--
+-- 'resources', 'environmentDescription_resources' - The description of the AWS resources used by this environment.
+--
+-- 'platformArn', 'environmentDescription_platformArn' - The ARN of the platform version.
+--
+-- 'environmentId', 'environmentDescription_environmentId' - The ID of this environment.
 --
 -- 'operationsRole', 'environmentDescription_operationsRole' - The Amazon Resource Name (ARN) of the environment\'s operations role.
 -- For more information, see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles>
 -- in the /AWS Elastic Beanstalk Developer Guide/.
 --
--- 'platformArn', 'environmentDescription_platformArn' - The ARN of the platform version.
---
--- 'tier', 'environmentDescription_tier' - Describes the current tier of this environment.
---
--- 'environmentName', 'environmentDescription_environmentName' - The name of this environment.
+-- 'versionLabel', 'environmentDescription_versionLabel' - The application version deployed in this environment.
 --
 -- 'applicationName', 'environmentDescription_applicationName' - The name of the application associated with this environment.
---
--- 'environmentArn', 'environmentDescription_environmentArn' - The environment\'s Amazon Resource Name (ARN), which can be used in
--- other API requests that require an ARN.
---
--- 'solutionStackName', 'environmentDescription_solutionStackName' - The name of the @SolutionStack@ deployed with this environment.
---
--- 'environmentId', 'environmentDescription_environmentId' - The ID of this environment.
---
--- 'healthStatus', 'environmentDescription_healthStatus' - Returns the health status of the application running in your
--- environment. For more information, see
--- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
---
--- 'environmentLinks', 'environmentDescription_environmentLinks' - A list of links to other environments in the same group.
---
--- 'description', 'environmentDescription_description' - Describes this environment.
 newEnvironmentDescription ::
   EnvironmentDescription
 newEnvironmentDescription =
   EnvironmentDescription'
-    { status = Prelude.Nothing,
+    { templateName =
+        Prelude.Nothing,
       cname = Prelude.Nothing,
-      templateName = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
+      healthStatus = Prelude.Nothing,
+      status = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tier = Prelude.Nothing,
       abortableOperationInProgress = Prelude.Nothing,
       endpointURL = Prelude.Nothing,
-      resources = Prelude.Nothing,
+      health = Prelude.Nothing,
+      solutionStackName = Prelude.Nothing,
       dateUpdated = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
-      health = Prelude.Nothing,
-      versionLabel = Prelude.Nothing,
-      operationsRole = Prelude.Nothing,
-      platformArn = Prelude.Nothing,
-      tier = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
-      applicationName = Prelude.Nothing,
       environmentArn = Prelude.Nothing,
-      solutionStackName = Prelude.Nothing,
-      environmentId = Prelude.Nothing,
-      healthStatus = Prelude.Nothing,
       environmentLinks = Prelude.Nothing,
-      description = Prelude.Nothing
+      resources = Prelude.Nothing,
+      platformArn = Prelude.Nothing,
+      environmentId = Prelude.Nothing,
+      operationsRole = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
+      applicationName = Prelude.Nothing
     }
+
+-- | The name of the configuration template used to originally launch this
+-- environment.
+environmentDescription_templateName :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_templateName = Lens.lens (\EnvironmentDescription' {templateName} -> templateName) (\s@EnvironmentDescription' {} a -> s {templateName = a} :: EnvironmentDescription)
+
+-- | The URL to the CNAME for this environment.
+environmentDescription_cname :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_cname = Lens.lens (\EnvironmentDescription' {cname} -> cname) (\s@EnvironmentDescription' {} a -> s {cname = a} :: EnvironmentDescription)
+
+-- | The name of this environment.
+environmentDescription_environmentName :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_environmentName = Lens.lens (\EnvironmentDescription' {environmentName} -> environmentName) (\s@EnvironmentDescription' {} a -> s {environmentName = a} :: EnvironmentDescription)
+
+-- | Returns the health status of the application running in your
+-- environment. For more information, see
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+environmentDescription_healthStatus :: Lens.Lens' EnvironmentDescription (Prelude.Maybe EnvironmentHealthStatus)
+environmentDescription_healthStatus = Lens.lens (\EnvironmentDescription' {healthStatus} -> healthStatus) (\s@EnvironmentDescription' {} a -> s {healthStatus = a} :: EnvironmentDescription)
 
 -- | The current operational status of the environment:
 --
@@ -254,14 +274,13 @@ newEnvironmentDescription =
 environmentDescription_status :: Lens.Lens' EnvironmentDescription (Prelude.Maybe EnvironmentStatus)
 environmentDescription_status = Lens.lens (\EnvironmentDescription' {status} -> status) (\s@EnvironmentDescription' {} a -> s {status = a} :: EnvironmentDescription)
 
--- | The URL to the CNAME for this environment.
-environmentDescription_cname :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_cname = Lens.lens (\EnvironmentDescription' {cname} -> cname) (\s@EnvironmentDescription' {} a -> s {cname = a} :: EnvironmentDescription)
+-- | Describes this environment.
+environmentDescription_description :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_description = Lens.lens (\EnvironmentDescription' {description} -> description) (\s@EnvironmentDescription' {} a -> s {description = a} :: EnvironmentDescription)
 
--- | The name of the configuration template used to originally launch this
--- environment.
-environmentDescription_templateName :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_templateName = Lens.lens (\EnvironmentDescription' {templateName} -> templateName) (\s@EnvironmentDescription' {} a -> s {templateName = a} :: EnvironmentDescription)
+-- | Describes the current tier of this environment.
+environmentDescription_tier :: Lens.Lens' EnvironmentDescription (Prelude.Maybe EnvironmentTier)
+environmentDescription_tier = Lens.lens (\EnvironmentDescription' {tier} -> tier) (\s@EnvironmentDescription' {} a -> s {tier = a} :: EnvironmentDescription)
 
 -- | Indicates if there is an in-progress environment configuration update or
 -- application version deployment that you can cancel.
@@ -277,18 +296,6 @@ environmentDescription_abortableOperationInProgress = Lens.lens (\EnvironmentDes
 -- instance.
 environmentDescription_endpointURL :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
 environmentDescription_endpointURL = Lens.lens (\EnvironmentDescription' {endpointURL} -> endpointURL) (\s@EnvironmentDescription' {} a -> s {endpointURL = a} :: EnvironmentDescription)
-
--- | The description of the AWS resources used by this environment.
-environmentDescription_resources :: Lens.Lens' EnvironmentDescription (Prelude.Maybe EnvironmentResourcesDescription)
-environmentDescription_resources = Lens.lens (\EnvironmentDescription' {resources} -> resources) (\s@EnvironmentDescription' {} a -> s {resources = a} :: EnvironmentDescription)
-
--- | The last modified date for this environment.
-environmentDescription_dateUpdated :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.UTCTime)
-environmentDescription_dateUpdated = Lens.lens (\EnvironmentDescription' {dateUpdated} -> dateUpdated) (\s@EnvironmentDescription' {} a -> s {dateUpdated = a} :: EnvironmentDescription) Prelude.. Lens.mapping Core._Time
-
--- | The creation date for this environment.
-environmentDescription_dateCreated :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.UTCTime)
-environmentDescription_dateCreated = Lens.lens (\EnvironmentDescription' {dateCreated} -> dateCreated) (\s@EnvironmentDescription' {} a -> s {dateCreated = a} :: EnvironmentDescription) Prelude.. Lens.mapping Core._Time
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment:
@@ -310,9 +317,38 @@ environmentDescription_dateCreated = Lens.lens (\EnvironmentDescription' {dateCr
 environmentDescription_health :: Lens.Lens' EnvironmentDescription (Prelude.Maybe EnvironmentHealth)
 environmentDescription_health = Lens.lens (\EnvironmentDescription' {health} -> health) (\s@EnvironmentDescription' {} a -> s {health = a} :: EnvironmentDescription)
 
--- | The application version deployed in this environment.
-environmentDescription_versionLabel :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_versionLabel = Lens.lens (\EnvironmentDescription' {versionLabel} -> versionLabel) (\s@EnvironmentDescription' {} a -> s {versionLabel = a} :: EnvironmentDescription)
+-- | The name of the @SolutionStack@ deployed with this environment.
+environmentDescription_solutionStackName :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_solutionStackName = Lens.lens (\EnvironmentDescription' {solutionStackName} -> solutionStackName) (\s@EnvironmentDescription' {} a -> s {solutionStackName = a} :: EnvironmentDescription)
+
+-- | The last modified date for this environment.
+environmentDescription_dateUpdated :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.UTCTime)
+environmentDescription_dateUpdated = Lens.lens (\EnvironmentDescription' {dateUpdated} -> dateUpdated) (\s@EnvironmentDescription' {} a -> s {dateUpdated = a} :: EnvironmentDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The creation date for this environment.
+environmentDescription_dateCreated :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.UTCTime)
+environmentDescription_dateCreated = Lens.lens (\EnvironmentDescription' {dateCreated} -> dateCreated) (\s@EnvironmentDescription' {} a -> s {dateCreated = a} :: EnvironmentDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The environment\'s Amazon Resource Name (ARN), which can be used in
+-- other API requests that require an ARN.
+environmentDescription_environmentArn :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_environmentArn = Lens.lens (\EnvironmentDescription' {environmentArn} -> environmentArn) (\s@EnvironmentDescription' {} a -> s {environmentArn = a} :: EnvironmentDescription)
+
+-- | A list of links to other environments in the same group.
+environmentDescription_environmentLinks :: Lens.Lens' EnvironmentDescription (Prelude.Maybe [EnvironmentLink])
+environmentDescription_environmentLinks = Lens.lens (\EnvironmentDescription' {environmentLinks} -> environmentLinks) (\s@EnvironmentDescription' {} a -> s {environmentLinks = a} :: EnvironmentDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the AWS resources used by this environment.
+environmentDescription_resources :: Lens.Lens' EnvironmentDescription (Prelude.Maybe EnvironmentResourcesDescription)
+environmentDescription_resources = Lens.lens (\EnvironmentDescription' {resources} -> resources) (\s@EnvironmentDescription' {} a -> s {resources = a} :: EnvironmentDescription)
+
+-- | The ARN of the platform version.
+environmentDescription_platformArn :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_platformArn = Lens.lens (\EnvironmentDescription' {platformArn} -> platformArn) (\s@EnvironmentDescription' {} a -> s {platformArn = a} :: EnvironmentDescription)
+
+-- | The ID of this environment.
+environmentDescription_environmentId :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_environmentId = Lens.lens (\EnvironmentDescription' {environmentId} -> environmentId) (\s@EnvironmentDescription' {} a -> s {environmentId = a} :: EnvironmentDescription)
 
 -- | The Amazon Resource Name (ARN) of the environment\'s operations role.
 -- For more information, see
@@ -321,121 +357,86 @@ environmentDescription_versionLabel = Lens.lens (\EnvironmentDescription' {versi
 environmentDescription_operationsRole :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
 environmentDescription_operationsRole = Lens.lens (\EnvironmentDescription' {operationsRole} -> operationsRole) (\s@EnvironmentDescription' {} a -> s {operationsRole = a} :: EnvironmentDescription)
 
--- | The ARN of the platform version.
-environmentDescription_platformArn :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_platformArn = Lens.lens (\EnvironmentDescription' {platformArn} -> platformArn) (\s@EnvironmentDescription' {} a -> s {platformArn = a} :: EnvironmentDescription)
-
--- | Describes the current tier of this environment.
-environmentDescription_tier :: Lens.Lens' EnvironmentDescription (Prelude.Maybe EnvironmentTier)
-environmentDescription_tier = Lens.lens (\EnvironmentDescription' {tier} -> tier) (\s@EnvironmentDescription' {} a -> s {tier = a} :: EnvironmentDescription)
-
--- | The name of this environment.
-environmentDescription_environmentName :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_environmentName = Lens.lens (\EnvironmentDescription' {environmentName} -> environmentName) (\s@EnvironmentDescription' {} a -> s {environmentName = a} :: EnvironmentDescription)
+-- | The application version deployed in this environment.
+environmentDescription_versionLabel :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
+environmentDescription_versionLabel = Lens.lens (\EnvironmentDescription' {versionLabel} -> versionLabel) (\s@EnvironmentDescription' {} a -> s {versionLabel = a} :: EnvironmentDescription)
 
 -- | The name of the application associated with this environment.
 environmentDescription_applicationName :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
 environmentDescription_applicationName = Lens.lens (\EnvironmentDescription' {applicationName} -> applicationName) (\s@EnvironmentDescription' {} a -> s {applicationName = a} :: EnvironmentDescription)
 
--- | The environment\'s Amazon Resource Name (ARN), which can be used in
--- other API requests that require an ARN.
-environmentDescription_environmentArn :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_environmentArn = Lens.lens (\EnvironmentDescription' {environmentArn} -> environmentArn) (\s@EnvironmentDescription' {} a -> s {environmentArn = a} :: EnvironmentDescription)
-
--- | The name of the @SolutionStack@ deployed with this environment.
-environmentDescription_solutionStackName :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_solutionStackName = Lens.lens (\EnvironmentDescription' {solutionStackName} -> solutionStackName) (\s@EnvironmentDescription' {} a -> s {solutionStackName = a} :: EnvironmentDescription)
-
--- | The ID of this environment.
-environmentDescription_environmentId :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_environmentId = Lens.lens (\EnvironmentDescription' {environmentId} -> environmentId) (\s@EnvironmentDescription' {} a -> s {environmentId = a} :: EnvironmentDescription)
-
--- | Returns the health status of the application running in your
--- environment. For more information, see
--- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
-environmentDescription_healthStatus :: Lens.Lens' EnvironmentDescription (Prelude.Maybe EnvironmentHealthStatus)
-environmentDescription_healthStatus = Lens.lens (\EnvironmentDescription' {healthStatus} -> healthStatus) (\s@EnvironmentDescription' {} a -> s {healthStatus = a} :: EnvironmentDescription)
-
--- | A list of links to other environments in the same group.
-environmentDescription_environmentLinks :: Lens.Lens' EnvironmentDescription (Prelude.Maybe [EnvironmentLink])
-environmentDescription_environmentLinks = Lens.lens (\EnvironmentDescription' {environmentLinks} -> environmentLinks) (\s@EnvironmentDescription' {} a -> s {environmentLinks = a} :: EnvironmentDescription) Prelude.. Lens.mapping Lens.coerced
-
--- | Describes this environment.
-environmentDescription_description :: Lens.Lens' EnvironmentDescription (Prelude.Maybe Prelude.Text)
-environmentDescription_description = Lens.lens (\EnvironmentDescription' {description} -> description) (\s@EnvironmentDescription' {} a -> s {description = a} :: EnvironmentDescription)
-
 instance Core.FromXML EnvironmentDescription where
   parseXML x =
     EnvironmentDescription'
-      Prelude.<$> (x Core..@? "Status")
+      Prelude.<$> (x Core..@? "TemplateName")
       Prelude.<*> (x Core..@? "CNAME")
-      Prelude.<*> (x Core..@? "TemplateName")
+      Prelude.<*> (x Core..@? "EnvironmentName")
+      Prelude.<*> (x Core..@? "HealthStatus")
+      Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "Tier")
       Prelude.<*> (x Core..@? "AbortableOperationInProgress")
       Prelude.<*> (x Core..@? "EndpointURL")
-      Prelude.<*> (x Core..@? "Resources")
+      Prelude.<*> (x Core..@? "Health")
+      Prelude.<*> (x Core..@? "SolutionStackName")
       Prelude.<*> (x Core..@? "DateUpdated")
       Prelude.<*> (x Core..@? "DateCreated")
-      Prelude.<*> (x Core..@? "Health")
-      Prelude.<*> (x Core..@? "VersionLabel")
-      Prelude.<*> (x Core..@? "OperationsRole")
-      Prelude.<*> (x Core..@? "PlatformArn")
-      Prelude.<*> (x Core..@? "Tier")
-      Prelude.<*> (x Core..@? "EnvironmentName")
-      Prelude.<*> (x Core..@? "ApplicationName")
       Prelude.<*> (x Core..@? "EnvironmentArn")
-      Prelude.<*> (x Core..@? "SolutionStackName")
-      Prelude.<*> (x Core..@? "EnvironmentId")
-      Prelude.<*> (x Core..@? "HealthStatus")
       Prelude.<*> ( x Core..@? "EnvironmentLinks"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "Resources")
+      Prelude.<*> (x Core..@? "PlatformArn")
+      Prelude.<*> (x Core..@? "EnvironmentId")
+      Prelude.<*> (x Core..@? "OperationsRole")
+      Prelude.<*> (x Core..@? "VersionLabel")
+      Prelude.<*> (x Core..@? "ApplicationName")
 
 instance Prelude.Hashable EnvironmentDescription where
   hashWithSalt _salt EnvironmentDescription' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` cname
-      `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tier
       `Prelude.hashWithSalt` abortableOperationInProgress
       `Prelude.hashWithSalt` endpointURL
-      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` health
+      `Prelude.hashWithSalt` solutionStackName
       `Prelude.hashWithSalt` dateUpdated
       `Prelude.hashWithSalt` dateCreated
-      `Prelude.hashWithSalt` health
-      `Prelude.hashWithSalt` versionLabel
-      `Prelude.hashWithSalt` operationsRole
-      `Prelude.hashWithSalt` platformArn
-      `Prelude.hashWithSalt` tier
-      `Prelude.hashWithSalt` environmentName
-      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` environmentArn
-      `Prelude.hashWithSalt` solutionStackName
-      `Prelude.hashWithSalt` environmentId
-      `Prelude.hashWithSalt` healthStatus
       `Prelude.hashWithSalt` environmentLinks
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` operationsRole
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData EnvironmentDescription where
   rnf EnvironmentDescription' {..} =
-    Prelude.rnf status
+    Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf cname
-      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf abortableOperationInProgress
       `Prelude.seq` Prelude.rnf endpointURL
-      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf health
+      `Prelude.seq` Prelude.rnf solutionStackName
       `Prelude.seq` Prelude.rnf dateUpdated
       `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf versionLabel
-      `Prelude.seq` Prelude.rnf operationsRole
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf environmentArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf healthStatus
       `Prelude.seq` Prelude.rnf environmentLinks
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf operationsRole
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf applicationName

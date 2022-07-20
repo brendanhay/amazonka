@@ -32,12 +32,12 @@ data DestinationFieldProperties = DestinationFieldProperties'
   { -- | Specifies whether the field can be updated during an @UPDATE@ or
     -- @UPSERT@ write operation.
     isUpdatable :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies if the destination field can have a null value.
-    isNullable :: Prelude.Maybe Prelude.Bool,
     -- | A list of supported write operations. For each write operation listed,
     -- this field can be used in @idFieldNames@ when that write operation is
     -- present as a destination option.
     supportedWriteOperations :: Prelude.Maybe [WriteOperationType],
+    -- | Specifies if the destination field can have a null value.
+    isNullable :: Prelude.Maybe Prelude.Bool,
     -- | Specifies if the flow run can either insert new rows in the destination
     -- field if they do not already exist, or update them if they do.
     isUpsertable :: Prelude.Maybe Prelude.Bool,
@@ -57,11 +57,11 @@ data DestinationFieldProperties = DestinationFieldProperties'
 -- 'isUpdatable', 'destinationFieldProperties_isUpdatable' - Specifies whether the field can be updated during an @UPDATE@ or
 -- @UPSERT@ write operation.
 --
--- 'isNullable', 'destinationFieldProperties_isNullable' - Specifies if the destination field can have a null value.
---
 -- 'supportedWriteOperations', 'destinationFieldProperties_supportedWriteOperations' - A list of supported write operations. For each write operation listed,
 -- this field can be used in @idFieldNames@ when that write operation is
 -- present as a destination option.
+--
+-- 'isNullable', 'destinationFieldProperties_isNullable' - Specifies if the destination field can have a null value.
 --
 -- 'isUpsertable', 'destinationFieldProperties_isUpsertable' - Specifies if the flow run can either insert new rows in the destination
 -- field if they do not already exist, or update them if they do.
@@ -73,8 +73,8 @@ newDestinationFieldProperties =
   DestinationFieldProperties'
     { isUpdatable =
         Prelude.Nothing,
-      isNullable = Prelude.Nothing,
       supportedWriteOperations = Prelude.Nothing,
+      isNullable = Prelude.Nothing,
       isUpsertable = Prelude.Nothing,
       isCreatable = Prelude.Nothing
     }
@@ -84,15 +84,15 @@ newDestinationFieldProperties =
 destinationFieldProperties_isUpdatable :: Lens.Lens' DestinationFieldProperties (Prelude.Maybe Prelude.Bool)
 destinationFieldProperties_isUpdatable = Lens.lens (\DestinationFieldProperties' {isUpdatable} -> isUpdatable) (\s@DestinationFieldProperties' {} a -> s {isUpdatable = a} :: DestinationFieldProperties)
 
--- | Specifies if the destination field can have a null value.
-destinationFieldProperties_isNullable :: Lens.Lens' DestinationFieldProperties (Prelude.Maybe Prelude.Bool)
-destinationFieldProperties_isNullable = Lens.lens (\DestinationFieldProperties' {isNullable} -> isNullable) (\s@DestinationFieldProperties' {} a -> s {isNullable = a} :: DestinationFieldProperties)
-
 -- | A list of supported write operations. For each write operation listed,
 -- this field can be used in @idFieldNames@ when that write operation is
 -- present as a destination option.
 destinationFieldProperties_supportedWriteOperations :: Lens.Lens' DestinationFieldProperties (Prelude.Maybe [WriteOperationType])
 destinationFieldProperties_supportedWriteOperations = Lens.lens (\DestinationFieldProperties' {supportedWriteOperations} -> supportedWriteOperations) (\s@DestinationFieldProperties' {} a -> s {supportedWriteOperations = a} :: DestinationFieldProperties) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies if the destination field can have a null value.
+destinationFieldProperties_isNullable :: Lens.Lens' DestinationFieldProperties (Prelude.Maybe Prelude.Bool)
+destinationFieldProperties_isNullable = Lens.lens (\DestinationFieldProperties' {isNullable} -> isNullable) (\s@DestinationFieldProperties' {} a -> s {isNullable = a} :: DestinationFieldProperties)
 
 -- | Specifies if the flow run can either insert new rows in the destination
 -- field if they do not already exist, or update them if they do.
@@ -110,10 +110,10 @@ instance Core.FromJSON DestinationFieldProperties where
       ( \x ->
           DestinationFieldProperties'
             Prelude.<$> (x Core..:? "isUpdatable")
-            Prelude.<*> (x Core..:? "isNullable")
             Prelude.<*> ( x Core..:? "supportedWriteOperations"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "isNullable")
             Prelude.<*> (x Core..:? "isUpsertable")
             Prelude.<*> (x Core..:? "isCreatable")
       )
@@ -121,15 +121,15 @@ instance Core.FromJSON DestinationFieldProperties where
 instance Prelude.Hashable DestinationFieldProperties where
   hashWithSalt _salt DestinationFieldProperties' {..} =
     _salt `Prelude.hashWithSalt` isUpdatable
-      `Prelude.hashWithSalt` isNullable
       `Prelude.hashWithSalt` supportedWriteOperations
+      `Prelude.hashWithSalt` isNullable
       `Prelude.hashWithSalt` isUpsertable
       `Prelude.hashWithSalt` isCreatable
 
 instance Prelude.NFData DestinationFieldProperties where
   rnf DestinationFieldProperties' {..} =
     Prelude.rnf isUpdatable
-      `Prelude.seq` Prelude.rnf isNullable
       `Prelude.seq` Prelude.rnf supportedWriteOperations
+      `Prelude.seq` Prelude.rnf isNullable
       `Prelude.seq` Prelude.rnf isUpsertable
       `Prelude.seq` Prelude.rnf isCreatable

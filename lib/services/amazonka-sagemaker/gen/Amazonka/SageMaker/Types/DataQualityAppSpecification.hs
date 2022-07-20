@@ -27,8 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataQualityAppSpecification' smart constructor.
 data DataQualityAppSpecification = DataQualityAppSpecification'
-  { -- | The arguments to send to the container that the monitoring job runs.
-    containerArguments :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | The entrypoint for a container used to run a monitoring job.
+    containerEntrypoint :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | An Amazon S3 URI to a script that is called per row prior to running
     -- analysis. It can base64 decode the payload and convert it into a flatted
     -- json so that the built-in container can use the converted data.
@@ -37,8 +37,8 @@ data DataQualityAppSpecification = DataQualityAppSpecification'
     -- | Sets the environment variables in the container that the monitoring job
     -- runs.
     environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The entrypoint for a container used to run a monitoring job.
-    containerEntrypoint :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The arguments to send to the container that the monitoring job runs.
+    containerArguments :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | An Amazon S3 URI to a script that is called after analysis has been
     -- performed. Applicable only for the built-in (first party) containers.
     postAnalyticsProcessorSourceUri :: Prelude.Maybe Prelude.Text,
@@ -55,7 +55,7 @@ data DataQualityAppSpecification = DataQualityAppSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerArguments', 'dataQualityAppSpecification_containerArguments' - The arguments to send to the container that the monitoring job runs.
+-- 'containerEntrypoint', 'dataQualityAppSpecification_containerEntrypoint' - The entrypoint for a container used to run a monitoring job.
 --
 -- 'recordPreprocessorSourceUri', 'dataQualityAppSpecification_recordPreprocessorSourceUri' - An Amazon S3 URI to a script that is called per row prior to running
 -- analysis. It can base64 decode the payload and convert it into a flatted
@@ -65,7 +65,7 @@ data DataQualityAppSpecification = DataQualityAppSpecification'
 -- 'environment', 'dataQualityAppSpecification_environment' - Sets the environment variables in the container that the monitoring job
 -- runs.
 --
--- 'containerEntrypoint', 'dataQualityAppSpecification_containerEntrypoint' - The entrypoint for a container used to run a monitoring job.
+-- 'containerArguments', 'dataQualityAppSpecification_containerArguments' - The arguments to send to the container that the monitoring job runs.
 --
 -- 'postAnalyticsProcessorSourceUri', 'dataQualityAppSpecification_postAnalyticsProcessorSourceUri' - An Amazon S3 URI to a script that is called after analysis has been
 -- performed. Applicable only for the built-in (first party) containers.
@@ -77,19 +77,19 @@ newDataQualityAppSpecification ::
   DataQualityAppSpecification
 newDataQualityAppSpecification pImageUri_ =
   DataQualityAppSpecification'
-    { containerArguments =
+    { containerEntrypoint =
         Prelude.Nothing,
       recordPreprocessorSourceUri = Prelude.Nothing,
       environment = Prelude.Nothing,
-      containerEntrypoint = Prelude.Nothing,
+      containerArguments = Prelude.Nothing,
       postAnalyticsProcessorSourceUri =
         Prelude.Nothing,
       imageUri = pImageUri_
     }
 
--- | The arguments to send to the container that the monitoring job runs.
-dataQualityAppSpecification_containerArguments :: Lens.Lens' DataQualityAppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-dataQualityAppSpecification_containerArguments = Lens.lens (\DataQualityAppSpecification' {containerArguments} -> containerArguments) (\s@DataQualityAppSpecification' {} a -> s {containerArguments = a} :: DataQualityAppSpecification) Prelude.. Lens.mapping Lens.coerced
+-- | The entrypoint for a container used to run a monitoring job.
+dataQualityAppSpecification_containerEntrypoint :: Lens.Lens' DataQualityAppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+dataQualityAppSpecification_containerEntrypoint = Lens.lens (\DataQualityAppSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@DataQualityAppSpecification' {} a -> s {containerEntrypoint = a} :: DataQualityAppSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | An Amazon S3 URI to a script that is called per row prior to running
 -- analysis. It can base64 decode the payload and convert it into a flatted
@@ -103,9 +103,9 @@ dataQualityAppSpecification_recordPreprocessorSourceUri = Lens.lens (\DataQualit
 dataQualityAppSpecification_environment :: Lens.Lens' DataQualityAppSpecification (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 dataQualityAppSpecification_environment = Lens.lens (\DataQualityAppSpecification' {environment} -> environment) (\s@DataQualityAppSpecification' {} a -> s {environment = a} :: DataQualityAppSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | The entrypoint for a container used to run a monitoring job.
-dataQualityAppSpecification_containerEntrypoint :: Lens.Lens' DataQualityAppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-dataQualityAppSpecification_containerEntrypoint = Lens.lens (\DataQualityAppSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@DataQualityAppSpecification' {} a -> s {containerEntrypoint = a} :: DataQualityAppSpecification) Prelude.. Lens.mapping Lens.coerced
+-- | The arguments to send to the container that the monitoring job runs.
+dataQualityAppSpecification_containerArguments :: Lens.Lens' DataQualityAppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+dataQualityAppSpecification_containerArguments = Lens.lens (\DataQualityAppSpecification' {containerArguments} -> containerArguments) (\s@DataQualityAppSpecification' {} a -> s {containerArguments = a} :: DataQualityAppSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | An Amazon S3 URI to a script that is called after analysis has been
 -- performed. Applicable only for the built-in (first party) containers.
@@ -122,29 +122,29 @@ instance Core.FromJSON DataQualityAppSpecification where
       "DataQualityAppSpecification"
       ( \x ->
           DataQualityAppSpecification'
-            Prelude.<$> (x Core..:? "ContainerArguments")
+            Prelude.<$> (x Core..:? "ContainerEntrypoint")
             Prelude.<*> (x Core..:? "RecordPreprocessorSourceUri")
             Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ContainerEntrypoint")
+            Prelude.<*> (x Core..:? "ContainerArguments")
             Prelude.<*> (x Core..:? "PostAnalyticsProcessorSourceUri")
             Prelude.<*> (x Core..: "ImageUri")
       )
 
 instance Prelude.Hashable DataQualityAppSpecification where
   hashWithSalt _salt DataQualityAppSpecification' {..} =
-    _salt `Prelude.hashWithSalt` containerArguments
+    _salt `Prelude.hashWithSalt` containerEntrypoint
       `Prelude.hashWithSalt` recordPreprocessorSourceUri
       `Prelude.hashWithSalt` environment
-      `Prelude.hashWithSalt` containerEntrypoint
+      `Prelude.hashWithSalt` containerArguments
       `Prelude.hashWithSalt` postAnalyticsProcessorSourceUri
       `Prelude.hashWithSalt` imageUri
 
 instance Prelude.NFData DataQualityAppSpecification where
   rnf DataQualityAppSpecification' {..} =
-    Prelude.rnf containerArguments
+    Prelude.rnf containerEntrypoint
       `Prelude.seq` Prelude.rnf recordPreprocessorSourceUri
       `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf containerEntrypoint
+      `Prelude.seq` Prelude.rnf containerArguments
       `Prelude.seq` Prelude.rnf postAnalyticsProcessorSourceUri
       `Prelude.seq` Prelude.rnf imageUri
 
@@ -152,13 +152,13 @@ instance Core.ToJSON DataQualityAppSpecification where
   toJSON DataQualityAppSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ContainerArguments" Core..=)
-              Prelude.<$> containerArguments,
+          [ ("ContainerEntrypoint" Core..=)
+              Prelude.<$> containerEntrypoint,
             ("RecordPreprocessorSourceUri" Core..=)
               Prelude.<$> recordPreprocessorSourceUri,
             ("Environment" Core..=) Prelude.<$> environment,
-            ("ContainerEntrypoint" Core..=)
-              Prelude.<$> containerEntrypoint,
+            ("ContainerArguments" Core..=)
+              Prelude.<$> containerArguments,
             ("PostAnalyticsProcessorSourceUri" Core..=)
               Prelude.<$> postAnalyticsProcessorSourceUri,
             Prelude.Just ("ImageUri" Core..= imageUri)

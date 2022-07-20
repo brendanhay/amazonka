@@ -36,8 +36,8 @@ module Amazonka.XRay.GetSamplingTargets
 
     -- * Response Lenses
     getSamplingTargetsResponse_unprocessedStatistics,
-    getSamplingTargetsResponse_lastRuleModification,
     getSamplingTargetsResponse_samplingTargetDocuments,
+    getSamplingTargetsResponse_lastRuleModification,
     getSamplingTargetsResponse_httpStatus,
   )
 where
@@ -89,10 +89,10 @@ instance Core.AWSRequest GetSamplingTargets where
             Prelude.<$> ( x Core..?> "UnprocessedStatistics"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LastRuleModification")
             Prelude.<*> ( x Core..?> "SamplingTargetDocuments"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "LastRuleModification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,14 +131,14 @@ data GetSamplingTargetsResponse = GetSamplingTargetsResponse'
     -- <https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html SamplingStatisticsDocument>
     -- that X-Ray could not process.
     unprocessedStatistics :: Prelude.Maybe [UnprocessedStatistics],
+    -- | Updated rules that the service should use to sample requests.
+    samplingTargetDocuments :: Prelude.Maybe [SamplingTargetDocument],
     -- | The last time a user changed the sampling rule configuration. If the
     -- sampling rule configuration changed since the service last retrieved it,
     -- the service should call
     -- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules>
     -- to get the latest version.
     lastRuleModification :: Prelude.Maybe Core.POSIX,
-    -- | Updated rules that the service should use to sample requests.
-    samplingTargetDocuments :: Prelude.Maybe [SamplingTargetDocument],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,13 +156,13 @@ data GetSamplingTargetsResponse = GetSamplingTargetsResponse'
 -- <https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html SamplingStatisticsDocument>
 -- that X-Ray could not process.
 --
+-- 'samplingTargetDocuments', 'getSamplingTargetsResponse_samplingTargetDocuments' - Updated rules that the service should use to sample requests.
+--
 -- 'lastRuleModification', 'getSamplingTargetsResponse_lastRuleModification' - The last time a user changed the sampling rule configuration. If the
 -- sampling rule configuration changed since the service last retrieved it,
 -- the service should call
 -- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules>
 -- to get the latest version.
---
--- 'samplingTargetDocuments', 'getSamplingTargetsResponse_samplingTargetDocuments' - Updated rules that the service should use to sample requests.
 --
 -- 'httpStatus', 'getSamplingTargetsResponse_httpStatus' - The response's http status code.
 newGetSamplingTargetsResponse ::
@@ -173,8 +173,8 @@ newGetSamplingTargetsResponse pHttpStatus_ =
   GetSamplingTargetsResponse'
     { unprocessedStatistics =
         Prelude.Nothing,
-      lastRuleModification = Prelude.Nothing,
       samplingTargetDocuments = Prelude.Nothing,
+      lastRuleModification = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -184,6 +184,10 @@ newGetSamplingTargetsResponse pHttpStatus_ =
 getSamplingTargetsResponse_unprocessedStatistics :: Lens.Lens' GetSamplingTargetsResponse (Prelude.Maybe [UnprocessedStatistics])
 getSamplingTargetsResponse_unprocessedStatistics = Lens.lens (\GetSamplingTargetsResponse' {unprocessedStatistics} -> unprocessedStatistics) (\s@GetSamplingTargetsResponse' {} a -> s {unprocessedStatistics = a} :: GetSamplingTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Updated rules that the service should use to sample requests.
+getSamplingTargetsResponse_samplingTargetDocuments :: Lens.Lens' GetSamplingTargetsResponse (Prelude.Maybe [SamplingTargetDocument])
+getSamplingTargetsResponse_samplingTargetDocuments = Lens.lens (\GetSamplingTargetsResponse' {samplingTargetDocuments} -> samplingTargetDocuments) (\s@GetSamplingTargetsResponse' {} a -> s {samplingTargetDocuments = a} :: GetSamplingTargetsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The last time a user changed the sampling rule configuration. If the
 -- sampling rule configuration changed since the service last retrieved it,
 -- the service should call
@@ -192,10 +196,6 @@ getSamplingTargetsResponse_unprocessedStatistics = Lens.lens (\GetSamplingTarget
 getSamplingTargetsResponse_lastRuleModification :: Lens.Lens' GetSamplingTargetsResponse (Prelude.Maybe Prelude.UTCTime)
 getSamplingTargetsResponse_lastRuleModification = Lens.lens (\GetSamplingTargetsResponse' {lastRuleModification} -> lastRuleModification) (\s@GetSamplingTargetsResponse' {} a -> s {lastRuleModification = a} :: GetSamplingTargetsResponse) Prelude.. Lens.mapping Core._Time
 
--- | Updated rules that the service should use to sample requests.
-getSamplingTargetsResponse_samplingTargetDocuments :: Lens.Lens' GetSamplingTargetsResponse (Prelude.Maybe [SamplingTargetDocument])
-getSamplingTargetsResponse_samplingTargetDocuments = Lens.lens (\GetSamplingTargetsResponse' {samplingTargetDocuments} -> samplingTargetDocuments) (\s@GetSamplingTargetsResponse' {} a -> s {samplingTargetDocuments = a} :: GetSamplingTargetsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getSamplingTargetsResponse_httpStatus :: Lens.Lens' GetSamplingTargetsResponse Prelude.Int
 getSamplingTargetsResponse_httpStatus = Lens.lens (\GetSamplingTargetsResponse' {httpStatus} -> httpStatus) (\s@GetSamplingTargetsResponse' {} a -> s {httpStatus = a} :: GetSamplingTargetsResponse)
@@ -203,6 +203,6 @@ getSamplingTargetsResponse_httpStatus = Lens.lens (\GetSamplingTargetsResponse' 
 instance Prelude.NFData GetSamplingTargetsResponse where
   rnf GetSamplingTargetsResponse' {..} =
     Prelude.rnf unprocessedStatistics
-      `Prelude.seq` Prelude.rnf lastRuleModification
       `Prelude.seq` Prelude.rnf samplingTargetDocuments
+      `Prelude.seq` Prelude.rnf lastRuleModification
       `Prelude.seq` Prelude.rnf httpStatus

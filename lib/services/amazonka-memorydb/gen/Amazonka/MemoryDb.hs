@@ -25,98 +25,107 @@ module Amazonka.MemoryDb
     -- * Errors
     -- $errors
 
-    -- ** InvalidNodeStateFault
-    _InvalidNodeStateFault,
+    -- ** NodeQuotaForClusterExceededFault
+    _NodeQuotaForClusterExceededFault,
+
+    -- ** ClusterQuotaForCustomerExceededFault
+    _ClusterQuotaForCustomerExceededFault,
 
     -- ** SubnetQuotaExceededFault
     _SubnetQuotaExceededFault,
 
-    -- ** ACLNotFoundFault
-    _ACLNotFoundFault,
-
-    -- ** ParameterGroupNotFoundFault
-    _ParameterGroupNotFoundFault,
-
-    -- ** InvalidParameterGroupStateFault
-    _InvalidParameterGroupStateFault,
-
-    -- ** SubnetGroupInUseFault
-    _SubnetGroupInUseFault,
-
-    -- ** ParameterGroupAlreadyExistsFault
-    _ParameterGroupAlreadyExistsFault,
+    -- ** SnapshotQuotaExceededFault
+    _SnapshotQuotaExceededFault,
 
     -- ** InvalidSubnet
     _InvalidSubnet,
 
-    -- ** TagQuotaPerResourceExceeded
-    _TagQuotaPerResourceExceeded,
+    -- ** ServiceUpdateNotFoundFault
+    _ServiceUpdateNotFoundFault,
 
-    -- ** ACLAlreadyExistsFault
-    _ACLAlreadyExistsFault,
+    -- ** UserNotFoundFault
+    _UserNotFoundFault,
+
+    -- ** ACLNotFoundFault
+    _ACLNotFoundFault,
 
     -- ** ShardNotFoundFault
     _ShardNotFoundFault,
 
-    -- ** UserAlreadyExistsFault
-    _UserAlreadyExistsFault,
-
-    -- ** InvalidUserStateFault
-    _InvalidUserStateFault,
-
-    -- ** SnapshotNotFoundFault
-    _SnapshotNotFoundFault,
+    -- ** ClusterNotFoundFault
+    _ClusterNotFoundFault,
 
     -- ** InvalidSnapshotStateFault
     _InvalidSnapshotStateFault,
 
-    -- ** SnapshotAlreadyExistsFault
-    _SnapshotAlreadyExistsFault,
+    -- ** NoOperationFault
+    _NoOperationFault,
 
-    -- ** DefaultUserRequired
-    _DefaultUserRequired,
-
-    -- ** ClusterNotFoundFault
-    _ClusterNotFoundFault,
+    -- ** UserAlreadyExistsFault
+    _UserAlreadyExistsFault,
 
     -- ** TagNotFoundFault
     _TagNotFoundFault,
 
-    -- ** SnapshotQuotaExceededFault
-    _SnapshotQuotaExceededFault,
+    -- ** SubnetGroupInUseFault
+    _SubnetGroupInUseFault,
 
-    -- ** NodeQuotaForClusterExceededFault
-    _NodeQuotaForClusterExceededFault,
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
 
-    -- ** APICallRateForCustomerExceededFault
-    _APICallRateForCustomerExceededFault,
+    -- ** ACLAlreadyExistsFault
+    _ACLAlreadyExistsFault,
 
-    -- ** InvalidClusterStateFault
-    _InvalidClusterStateFault,
+    -- ** DefaultUserRequired
+    _DefaultUserRequired,
 
-    -- ** ACLQuotaExceededFault
-    _ACLQuotaExceededFault,
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** ParameterGroupAlreadyExistsFault
+    _ParameterGroupAlreadyExistsFault,
 
     -- ** ServiceLinkedRoleNotFoundFault
     _ServiceLinkedRoleNotFoundFault,
 
-    -- ** InvalidKMSKeyFault
-    _InvalidKMSKeyFault,
+    -- ** ShardsPerClusterQuotaExceededFault
+    _ShardsPerClusterQuotaExceededFault,
 
-    -- ** InsufficientClusterCapacityFault
-    _InsufficientClusterCapacityFault,
+    -- ** InvalidParameterGroupStateFault
+    _InvalidParameterGroupStateFault,
 
-    -- ** ParameterGroupQuotaExceededFault
-    _ParameterGroupQuotaExceededFault,
+    -- ** UserQuotaExceededFault
+    _UserQuotaExceededFault,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    -- ** DuplicateUserNameFault
+    _DuplicateUserNameFault,
+
+    -- ** ParameterGroupNotFoundFault
+    _ParameterGroupNotFoundFault,
+
+    -- ** InvalidACLStateFault
+    _InvalidACLStateFault,
+
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
+
+    -- ** InvalidARNFault
+    _InvalidARNFault,
+
+    -- ** SnapshotAlreadyExistsFault
+    _SnapshotAlreadyExistsFault,
+
+    -- ** InvalidNodeStateFault
+    _InvalidNodeStateFault,
 
     -- ** TestFailoverNotAvailableFault
     _TestFailoverNotAvailableFault,
 
-    -- ** SubnetNotAllowedFault
-    _SubnetNotAllowedFault,
+    -- ** NodeQuotaForCustomerExceededFault
+    _NodeQuotaForCustomerExceededFault,
+
+    -- ** SubnetGroupNotFoundFault
+    _SubnetGroupNotFoundFault,
 
     -- ** InvalidVPCNetworkStateFault
     _InvalidVPCNetworkStateFault,
@@ -124,53 +133,44 @@ module Amazonka.MemoryDb
     -- ** SubnetInUse
     _SubnetInUse,
 
-    -- ** ClusterQuotaForCustomerExceededFault
-    _ClusterQuotaForCustomerExceededFault,
+    -- ** InvalidUserStateFault
+    _InvalidUserStateFault,
 
-    -- ** InvalidACLStateFault
-    _InvalidACLStateFault,
+    -- ** SnapshotNotFoundFault
+    _SnapshotNotFoundFault,
 
-    -- ** ShardsPerClusterQuotaExceededFault
-    _ShardsPerClusterQuotaExceededFault,
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
 
-    -- ** ServiceUpdateNotFoundFault
-    _ServiceUpdateNotFoundFault,
-
-    -- ** SubnetGroupNotFoundFault
-    _SubnetGroupNotFoundFault,
+    -- ** InvalidKMSKeyFault
+    _InvalidKMSKeyFault,
 
     -- ** SubnetGroupAlreadyExistsFault
     _SubnetGroupAlreadyExistsFault,
 
-    -- ** UserNotFoundFault
-    _UserNotFoundFault,
+    -- ** ParameterGroupQuotaExceededFault
+    _ParameterGroupQuotaExceededFault,
 
-    -- ** NodeQuotaForCustomerExceededFault
-    _NodeQuotaForCustomerExceededFault,
+    -- ** InsufficientClusterCapacityFault
+    _InsufficientClusterCapacityFault,
 
-    -- ** SubnetGroupQuotaExceededFault
-    _SubnetGroupQuotaExceededFault,
+    -- ** ACLQuotaExceededFault
+    _ACLQuotaExceededFault,
 
-    -- ** DuplicateUserNameFault
-    _DuplicateUserNameFault,
-
-    -- ** ClusterAlreadyExistsFault
-    _ClusterAlreadyExistsFault,
-
-    -- ** UserQuotaExceededFault
-    _UserQuotaExceededFault,
-
-    -- ** InvalidARNFault
-    _InvalidARNFault,
-
-    -- ** NoOperationFault
-    _NoOperationFault,
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- ** InvalidCredentialsException
     _InvalidCredentialsException,
 
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
+    -- ** SubnetNotAllowedFault
+    _SubnetNotAllowedFault,
+
+    -- ** APICallRateForCustomerExceededFault
+    _APICallRateForCustomerExceededFault,
+
+    -- ** SubnetGroupQuotaExceededFault
+    _SubnetGroupQuotaExceededFault,
 
     -- * Waiters
     -- $waiters
@@ -178,83 +178,11 @@ module Amazonka.MemoryDb
     -- * Operations
     -- $operations
 
-    -- ** DescribeClusters
-    DescribeClusters (DescribeClusters'),
-    newDescribeClusters,
-    DescribeClustersResponse (DescribeClustersResponse'),
-    newDescribeClustersResponse,
-
     -- ** BatchUpdateCluster
     BatchUpdateCluster (BatchUpdateCluster'),
     newBatchUpdateCluster,
     BatchUpdateClusterResponse (BatchUpdateClusterResponse'),
     newBatchUpdateClusterResponse,
-
-    -- ** DescribeUsers
-    DescribeUsers (DescribeUsers'),
-    newDescribeUsers,
-    DescribeUsersResponse (DescribeUsersResponse'),
-    newDescribeUsersResponse,
-
-    -- ** DescribeParameters
-    DescribeParameters (DescribeParameters'),
-    newDescribeParameters,
-    DescribeParametersResponse (DescribeParametersResponse'),
-    newDescribeParametersResponse,
-
-    -- ** DeleteACL
-    DeleteACL (DeleteACL'),
-    newDeleteACL,
-    DeleteACLResponse (DeleteACLResponse'),
-    newDeleteACLResponse,
-
-    -- ** UpdateACL
-    UpdateACL (UpdateACL'),
-    newUpdateACL,
-    UpdateACLResponse (UpdateACLResponse'),
-    newUpdateACLResponse,
-
-    -- ** DescribeEvents
-    DescribeEvents (DescribeEvents'),
-    newDescribeEvents,
-    DescribeEventsResponse (DescribeEventsResponse'),
-    newDescribeEventsResponse,
-
-    -- ** DescribeEngineVersions
-    DescribeEngineVersions (DescribeEngineVersions'),
-    newDescribeEngineVersions,
-    DescribeEngineVersionsResponse (DescribeEngineVersionsResponse'),
-    newDescribeEngineVersionsResponse,
-
-    -- ** DescribeACLs
-    DescribeACLs (DescribeACLs'),
-    newDescribeACLs,
-    DescribeACLsResponse (DescribeACLsResponse'),
-    newDescribeACLsResponse,
-
-    -- ** CreateSubnetGroup
-    CreateSubnetGroup (CreateSubnetGroup'),
-    newCreateSubnetGroup,
-    CreateSubnetGroupResponse (CreateSubnetGroupResponse'),
-    newCreateSubnetGroupResponse,
-
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
-    -- ** UpdateCluster
-    UpdateCluster (UpdateCluster'),
-    newUpdateCluster,
-    UpdateClusterResponse (UpdateClusterResponse'),
-    newUpdateClusterResponse,
-
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
 
     -- ** CopySnapshot
     CopySnapshot (CopySnapshot'),
@@ -262,29 +190,17 @@ module Amazonka.MemoryDb
     CopySnapshotResponse (CopySnapshotResponse'),
     newCopySnapshotResponse,
 
-    -- ** DeleteParameterGroup
-    DeleteParameterGroup (DeleteParameterGroup'),
-    newDeleteParameterGroup,
-    DeleteParameterGroupResponse (DeleteParameterGroupResponse'),
-    newDeleteParameterGroupResponse,
+    -- ** CreateACL
+    CreateACL (CreateACL'),
+    newCreateACL,
+    CreateACLResponse (CreateACLResponse'),
+    newCreateACLResponse,
 
-    -- ** UpdateParameterGroup
-    UpdateParameterGroup (UpdateParameterGroup'),
-    newUpdateParameterGroup,
-    UpdateParameterGroupResponse (UpdateParameterGroupResponse'),
-    newUpdateParameterGroupResponse,
-
-    -- ** DescribeSubnetGroups
-    DescribeSubnetGroups (DescribeSubnetGroups'),
-    newDescribeSubnetGroups,
-    DescribeSubnetGroupsResponse (DescribeSubnetGroupsResponse'),
-    newDescribeSubnetGroupsResponse,
-
-    -- ** DescribeServiceUpdates
-    DescribeServiceUpdates (DescribeServiceUpdates'),
-    newDescribeServiceUpdates,
-    DescribeServiceUpdatesResponse (DescribeServiceUpdatesResponse'),
-    newDescribeServiceUpdatesResponse,
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
 
     -- ** CreateParameterGroup
     CreateParameterGroup (CreateParameterGroup'),
@@ -292,29 +208,17 @@ module Amazonka.MemoryDb
     CreateParameterGroupResponse (CreateParameterGroupResponse'),
     newCreateParameterGroupResponse,
 
-    -- ** DescribeSnapshots
-    DescribeSnapshots (DescribeSnapshots'),
-    newDescribeSnapshots,
-    DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
-    newDescribeSnapshotsResponse,
+    -- ** CreateSnapshot
+    CreateSnapshot (CreateSnapshot'),
+    newCreateSnapshot,
+    CreateSnapshotResponse (CreateSnapshotResponse'),
+    newCreateSnapshotResponse,
 
-    -- ** CreateACL
-    CreateACL (CreateACL'),
-    newCreateACL,
-    CreateACLResponse (CreateACLResponse'),
-    newCreateACLResponse,
-
-    -- ** UpdateSubnetGroup
-    UpdateSubnetGroup (UpdateSubnetGroup'),
-    newUpdateSubnetGroup,
-    UpdateSubnetGroupResponse (UpdateSubnetGroupResponse'),
-    newUpdateSubnetGroupResponse,
-
-    -- ** DeleteSubnetGroup
-    DeleteSubnetGroup (DeleteSubnetGroup'),
-    newDeleteSubnetGroup,
-    DeleteSubnetGroupResponse (DeleteSubnetGroupResponse'),
-    newDeleteSubnetGroupResponse,
+    -- ** CreateSubnetGroup
+    CreateSubnetGroup (CreateSubnetGroup'),
+    newCreateSubnetGroup,
+    CreateSubnetGroupResponse (CreateSubnetGroupResponse'),
+    newCreateSubnetGroupResponse,
 
     -- ** CreateUser
     CreateUser (CreateUser'),
@@ -322,23 +226,35 @@ module Amazonka.MemoryDb
     CreateUserResponse (CreateUserResponse'),
     newCreateUserResponse,
 
+    -- ** DeleteACL
+    DeleteACL (DeleteACL'),
+    newDeleteACL,
+    DeleteACLResponse (DeleteACLResponse'),
+    newDeleteACLResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
+
+    -- ** DeleteParameterGroup
+    DeleteParameterGroup (DeleteParameterGroup'),
+    newDeleteParameterGroup,
+    DeleteParameterGroupResponse (DeleteParameterGroupResponse'),
+    newDeleteParameterGroupResponse,
+
     -- ** DeleteSnapshot
     DeleteSnapshot (DeleteSnapshot'),
     newDeleteSnapshot,
     DeleteSnapshotResponse (DeleteSnapshotResponse'),
     newDeleteSnapshotResponse,
 
-    -- ** FailoverShard
-    FailoverShard (FailoverShard'),
-    newFailoverShard,
-    FailoverShardResponse (FailoverShardResponse'),
-    newFailoverShardResponse,
-
-    -- ** UpdateUser
-    UpdateUser (UpdateUser'),
-    newUpdateUser,
-    UpdateUserResponse (UpdateUserResponse'),
-    newUpdateUserResponse,
+    -- ** DeleteSubnetGroup
+    DeleteSubnetGroup (DeleteSubnetGroup'),
+    newDeleteSubnetGroup,
+    DeleteSubnetGroupResponse (DeleteSubnetGroupResponse'),
+    newDeleteSubnetGroupResponse,
 
     -- ** DeleteUser
     DeleteUser (DeleteUser'),
@@ -346,11 +262,29 @@ module Amazonka.MemoryDb
     DeleteUserResponse (DeleteUserResponse'),
     newDeleteUserResponse,
 
-    -- ** ListAllowedNodeTypeUpdates
-    ListAllowedNodeTypeUpdates (ListAllowedNodeTypeUpdates'),
-    newListAllowedNodeTypeUpdates,
-    ListAllowedNodeTypeUpdatesResponse (ListAllowedNodeTypeUpdatesResponse'),
-    newListAllowedNodeTypeUpdatesResponse,
+    -- ** DescribeACLs
+    DescribeACLs (DescribeACLs'),
+    newDescribeACLs,
+    DescribeACLsResponse (DescribeACLsResponse'),
+    newDescribeACLsResponse,
+
+    -- ** DescribeClusters
+    DescribeClusters (DescribeClusters'),
+    newDescribeClusters,
+    DescribeClustersResponse (DescribeClustersResponse'),
+    newDescribeClustersResponse,
+
+    -- ** DescribeEngineVersions
+    DescribeEngineVersions (DescribeEngineVersions'),
+    newDescribeEngineVersions,
+    DescribeEngineVersionsResponse (DescribeEngineVersionsResponse'),
+    newDescribeEngineVersionsResponse,
+
+    -- ** DescribeEvents
+    DescribeEvents (DescribeEvents'),
+    newDescribeEvents,
+    DescribeEventsResponse (DescribeEventsResponse'),
+    newDescribeEventsResponse,
 
     -- ** DescribeParameterGroups
     DescribeParameterGroups (DescribeParameterGroups'),
@@ -358,17 +292,47 @@ module Amazonka.MemoryDb
     DescribeParameterGroupsResponse (DescribeParameterGroupsResponse'),
     newDescribeParameterGroupsResponse,
 
-    -- ** CreateSnapshot
-    CreateSnapshot (CreateSnapshot'),
-    newCreateSnapshot,
-    CreateSnapshotResponse (CreateSnapshotResponse'),
-    newCreateSnapshotResponse,
+    -- ** DescribeParameters
+    DescribeParameters (DescribeParameters'),
+    newDescribeParameters,
+    DescribeParametersResponse (DescribeParametersResponse'),
+    newDescribeParametersResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DescribeServiceUpdates
+    DescribeServiceUpdates (DescribeServiceUpdates'),
+    newDescribeServiceUpdates,
+    DescribeServiceUpdatesResponse (DescribeServiceUpdatesResponse'),
+    newDescribeServiceUpdatesResponse,
+
+    -- ** DescribeSnapshots
+    DescribeSnapshots (DescribeSnapshots'),
+    newDescribeSnapshots,
+    DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
+    newDescribeSnapshotsResponse,
+
+    -- ** DescribeSubnetGroups
+    DescribeSubnetGroups (DescribeSubnetGroups'),
+    newDescribeSubnetGroups,
+    DescribeSubnetGroupsResponse (DescribeSubnetGroupsResponse'),
+    newDescribeSubnetGroupsResponse,
+
+    -- ** DescribeUsers
+    DescribeUsers (DescribeUsers'),
+    newDescribeUsers,
+    DescribeUsersResponse (DescribeUsersResponse'),
+    newDescribeUsersResponse,
+
+    -- ** FailoverShard
+    FailoverShard (FailoverShard'),
+    newFailoverShard,
+    FailoverShardResponse (FailoverShardResponse'),
+    newFailoverShardResponse,
+
+    -- ** ListAllowedNodeTypeUpdates
+    ListAllowedNodeTypeUpdates (ListAllowedNodeTypeUpdates'),
+    newListAllowedNodeTypeUpdates,
+    ListAllowedNodeTypeUpdatesResponse (ListAllowedNodeTypeUpdatesResponse'),
+    newListAllowedNodeTypeUpdatesResponse,
 
     -- ** ListTags
     ListTags (ListTags'),
@@ -382,11 +346,47 @@ module Amazonka.MemoryDb
     ResetParameterGroupResponse (ResetParameterGroupResponse'),
     newResetParameterGroupResponse,
 
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
+
+    -- ** UpdateACL
+    UpdateACL (UpdateACL'),
+    newUpdateACL,
+    UpdateACLResponse (UpdateACLResponse'),
+    newUpdateACLResponse,
+
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
+
+    -- ** UpdateParameterGroup
+    UpdateParameterGroup (UpdateParameterGroup'),
+    newUpdateParameterGroup,
+    UpdateParameterGroupResponse (UpdateParameterGroupResponse'),
+    newUpdateParameterGroupResponse,
+
+    -- ** UpdateSubnetGroup
+    UpdateSubnetGroup (UpdateSubnetGroup'),
+    newUpdateSubnetGroup,
+    UpdateSubnetGroupResponse (UpdateSubnetGroupResponse'),
+    newUpdateSubnetGroupResponse,
+
+    -- ** UpdateUser
+    UpdateUser (UpdateUser'),
+    newUpdateUser,
+    UpdateUserResponse (UpdateUserResponse'),
+    newUpdateUserResponse,
 
     -- * Types
 

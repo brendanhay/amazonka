@@ -36,8 +36,8 @@ module Amazonka.Comprehend.ListEndpoints
     newListEndpointsResponse,
 
     -- * Response Lenses
-    listEndpointsResponse_endpointPropertiesList,
     listEndpointsResponse_nextToken,
+    listEndpointsResponse_endpointPropertiesList,
     listEndpointsResponse_httpStatus,
   )
 where
@@ -112,10 +112,10 @@ instance Core.AWSRequest ListEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListEndpointsResponse'
-            Prelude.<$> ( x Core..?> "EndpointPropertiesList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "EndpointPropertiesList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,11 +164,11 @@ instance Core.ToQuery ListEndpoints where
 
 -- | /See:/ 'newListEndpointsResponse' smart constructor.
 data ListEndpointsResponse = ListEndpointsResponse'
-  { -- | Displays a list of endpoint properties being retrieved by the service in
+  { -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Displays a list of endpoint properties being retrieved by the service in
     -- response to the request.
     endpointPropertiesList :: Prelude.Maybe [EndpointProperties],
-    -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,10 +182,10 @@ data ListEndpointsResponse = ListEndpointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listEndpointsResponse_nextToken' - Identifies the next page of results to return.
+--
 -- 'endpointPropertiesList', 'listEndpointsResponse_endpointPropertiesList' - Displays a list of endpoint properties being retrieved by the service in
 -- response to the request.
---
--- 'nextToken', 'listEndpointsResponse_nextToken' - Identifies the next page of results to return.
 --
 -- 'httpStatus', 'listEndpointsResponse_httpStatus' - The response's http status code.
 newListEndpointsResponse ::
@@ -194,20 +194,19 @@ newListEndpointsResponse ::
   ListEndpointsResponse
 newListEndpointsResponse pHttpStatus_ =
   ListEndpointsResponse'
-    { endpointPropertiesList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      endpointPropertiesList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Identifies the next page of results to return.
+listEndpointsResponse_nextToken :: Lens.Lens' ListEndpointsResponse (Prelude.Maybe Prelude.Text)
+listEndpointsResponse_nextToken = Lens.lens (\ListEndpointsResponse' {nextToken} -> nextToken) (\s@ListEndpointsResponse' {} a -> s {nextToken = a} :: ListEndpointsResponse)
 
 -- | Displays a list of endpoint properties being retrieved by the service in
 -- response to the request.
 listEndpointsResponse_endpointPropertiesList :: Lens.Lens' ListEndpointsResponse (Prelude.Maybe [EndpointProperties])
 listEndpointsResponse_endpointPropertiesList = Lens.lens (\ListEndpointsResponse' {endpointPropertiesList} -> endpointPropertiesList) (\s@ListEndpointsResponse' {} a -> s {endpointPropertiesList = a} :: ListEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Identifies the next page of results to return.
-listEndpointsResponse_nextToken :: Lens.Lens' ListEndpointsResponse (Prelude.Maybe Prelude.Text)
-listEndpointsResponse_nextToken = Lens.lens (\ListEndpointsResponse' {nextToken} -> nextToken) (\s@ListEndpointsResponse' {} a -> s {nextToken = a} :: ListEndpointsResponse)
 
 -- | The response's http status code.
 listEndpointsResponse_httpStatus :: Lens.Lens' ListEndpointsResponse Prelude.Int
@@ -215,6 +214,6 @@ listEndpointsResponse_httpStatus = Lens.lens (\ListEndpointsResponse' {httpStatu
 
 instance Prelude.NFData ListEndpointsResponse where
   rnf ListEndpointsResponse' {..} =
-    Prelude.rnf endpointPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf endpointPropertiesList
       `Prelude.seq` Prelude.rnf httpStatus

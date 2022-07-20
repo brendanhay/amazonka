@@ -27,409 +27,235 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetDomainAssociation $
---             newGetDomainAssociation
---
---         , requestListArtifacts $
---             newListArtifacts
---
---         , requestStopJob $
---             newStopJob
---
---         , requestGetBackendEnvironment $
---             newGetBackendEnvironment
---
---         , requestCreateWebhook $
---             newCreateWebhook
---
---         , requestGetBranch $
---             newGetBranch
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestCreateDomainAssociation $
---             newCreateDomainAssociation
---
---         , requestGetWebhook $
---             newGetWebhook
---
---         , requestDeleteBranch $
---             newDeleteBranch
---
---         , requestUpdateBranch $
---             newUpdateBranch
+--         [ requestCreateApp $
+--             newCreateApp
 --
 --         , requestCreateBackendEnvironment $
 --             newCreateBackendEnvironment
 --
---         , requestCreateDeployment $
---             newCreateDeployment
---
 --         , requestCreateBranch $
 --             newCreateBranch
 --
---         , requestGenerateAccessLogs $
---             newGenerateAccessLogs
+--         , requestCreateDeployment $
+--             newCreateDeployment
 --
---         , requestListApps $
---             newListApps
+--         , requestCreateDomainAssociation $
+--             newCreateDomainAssociation
 --
---         , requestListBranches $
---             newListBranches
---
---         , requestDeleteBackendEnvironment $
---             newDeleteBackendEnvironment
+--         , requestCreateWebhook $
+--             newCreateWebhook
 --
 --         , requestDeleteApp $
 --             newDeleteApp
 --
---         , requestUpdateApp $
---             newUpdateApp
+--         , requestDeleteBackendEnvironment $
+--             newDeleteBackendEnvironment
 --
---         , requestGetArtifactUrl $
---             newGetArtifactUrl
---
---         , requestListJobs $
---             newListJobs
---
---         , requestDeleteJob $
---             newDeleteJob
---
---         , requestGetJob $
---             newGetJob
---
---         , requestStartJob $
---             newStartJob
---
---         , requestGetApp $
---             newGetApp
---
---         , requestUpdateWebhook $
---             newUpdateWebhook
---
---         , requestDeleteWebhook $
---             newDeleteWebhook
---
---         , requestListWebhooks $
---             newListWebhooks
---
---         , requestCreateApp $
---             newCreateApp
+--         , requestDeleteBranch $
+--             newDeleteBranch
 --
 --         , requestDeleteDomainAssociation $
 --             newDeleteDomainAssociation
 --
---         , requestUpdateDomainAssociation $
---             newUpdateDomainAssociation
+--         , requestDeleteJob $
+--             newDeleteJob
 --
---         , requestListDomainAssociations $
---             newListDomainAssociations
+--         , requestDeleteWebhook $
+--             newDeleteWebhook
 --
---         , requestTagResource $
---             newTagResource
+--         , requestGenerateAccessLogs $
+--             newGenerateAccessLogs
+--
+--         , requestGetApp $
+--             newGetApp
+--
+--         , requestGetArtifactUrl $
+--             newGetArtifactUrl
+--
+--         , requestGetBackendEnvironment $
+--             newGetBackendEnvironment
+--
+--         , requestGetBranch $
+--             newGetBranch
+--
+--         , requestGetDomainAssociation $
+--             newGetDomainAssociation
+--
+--         , requestGetJob $
+--             newGetJob
+--
+--         , requestGetWebhook $
+--             newGetWebhook
+--
+--         , requestListApps $
+--             newListApps
+--
+--         , requestListArtifacts $
+--             newListArtifacts
 --
 --         , requestListBackendEnvironments $
 --             newListBackendEnvironments
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestListBranches $
+--             newListBranches
+--
+--         , requestListDomainAssociations $
+--             newListDomainAssociations
+--
+--         , requestListJobs $
+--             newListJobs
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListWebhooks $
+--             newListWebhooks
 --
 --         , requestStartDeployment $
 --             newStartDeployment
 --
+--         , requestStartJob $
+--             newStartJob
+--
+--         , requestStopJob $
+--             newStopJob
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateApp $
+--             newUpdateApp
+--
+--         , requestUpdateBranch $
+--             newUpdateBranch
+--
+--         , requestUpdateDomainAssociation $
+--             newUpdateDomainAssociation
+--
+--         , requestUpdateWebhook $
+--             newUpdateWebhook
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseGetDomainAssociation $
---             newGetDomainAssociationResponse
---
---         , responseListArtifacts $
---             newListArtifactsResponse
---
---         , responseStopJob $
---             newStopJobResponse
---
---         , responseGetBackendEnvironment $
---             newGetBackendEnvironmentResponse
---
---         , responseCreateWebhook $
---             newCreateWebhookResponse
---
---         , responseGetBranch $
---             newGetBranchResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseCreateDomainAssociation $
---             newCreateDomainAssociationResponse
---
---         , responseGetWebhook $
---             newGetWebhookResponse
---
---         , responseDeleteBranch $
---             newDeleteBranchResponse
---
---         , responseUpdateBranch $
---             newUpdateBranchResponse
+--         [ responseCreateApp $
+--             newCreateAppResponse
 --
 --         , responseCreateBackendEnvironment $
 --             newCreateBackendEnvironmentResponse
 --
---         , responseCreateDeployment $
---             newCreateDeploymentResponse
---
 --         , responseCreateBranch $
 --             newCreateBranchResponse
 --
---         , responseGenerateAccessLogs $
---             newGenerateAccessLogsResponse
+--         , responseCreateDeployment $
+--             newCreateDeploymentResponse
 --
---         , responseListApps $
---             newListAppsResponse
+--         , responseCreateDomainAssociation $
+--             newCreateDomainAssociationResponse
 --
---         , responseListBranches $
---             newListBranchesResponse
---
---         , responseDeleteBackendEnvironment $
---             newDeleteBackendEnvironmentResponse
+--         , responseCreateWebhook $
+--             newCreateWebhookResponse
 --
 --         , responseDeleteApp $
 --             newDeleteAppResponse
 --
---         , responseUpdateApp $
---             newUpdateAppResponse
+--         , responseDeleteBackendEnvironment $
+--             newDeleteBackendEnvironmentResponse
 --
---         , responseGetArtifactUrl $
---             newGetArtifactUrlResponse
---
---         , responseListJobs $
---             newListJobsResponse
---
---         , responseDeleteJob $
---             newDeleteJobResponse
---
---         , responseGetJob $
---             newGetJobResponse
---
---         , responseStartJob $
---             newStartJobResponse
---
---         , responseGetApp $
---             newGetAppResponse
---
---         , responseUpdateWebhook $
---             newUpdateWebhookResponse
---
---         , responseDeleteWebhook $
---             newDeleteWebhookResponse
---
---         , responseListWebhooks $
---             newListWebhooksResponse
---
---         , responseCreateApp $
---             newCreateAppResponse
+--         , responseDeleteBranch $
+--             newDeleteBranchResponse
 --
 --         , responseDeleteDomainAssociation $
 --             newDeleteDomainAssociationResponse
 --
---         , responseUpdateDomainAssociation $
---             newUpdateDomainAssociationResponse
+--         , responseDeleteJob $
+--             newDeleteJobResponse
 --
---         , responseListDomainAssociations $
---             newListDomainAssociationsResponse
+--         , responseDeleteWebhook $
+--             newDeleteWebhookResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseGenerateAccessLogs $
+--             newGenerateAccessLogsResponse
+--
+--         , responseGetApp $
+--             newGetAppResponse
+--
+--         , responseGetArtifactUrl $
+--             newGetArtifactUrlResponse
+--
+--         , responseGetBackendEnvironment $
+--             newGetBackendEnvironmentResponse
+--
+--         , responseGetBranch $
+--             newGetBranchResponse
+--
+--         , responseGetDomainAssociation $
+--             newGetDomainAssociationResponse
+--
+--         , responseGetJob $
+--             newGetJobResponse
+--
+--         , responseGetWebhook $
+--             newGetWebhookResponse
+--
+--         , responseListApps $
+--             newListAppsResponse
+--
+--         , responseListArtifacts $
+--             newListArtifactsResponse
 --
 --         , responseListBackendEnvironments $
 --             newListBackendEnvironmentsResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseListBranches $
+--             newListBranchesResponse
+--
+--         , responseListDomainAssociations $
+--             newListDomainAssociationsResponse
+--
+--         , responseListJobs $
+--             newListJobsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListWebhooks $
+--             newListWebhooksResponse
 --
 --         , responseStartDeployment $
 --             newStartDeploymentResponse
+--
+--         , responseStartJob $
+--             newStartJobResponse
+--
+--         , responseStopJob $
+--             newStopJobResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateApp $
+--             newUpdateAppResponse
+--
+--         , responseUpdateBranch $
+--             newUpdateBranchResponse
+--
+--         , responseUpdateDomainAssociation $
+--             newUpdateDomainAssociationResponse
+--
+--         , responseUpdateWebhook $
+--             newUpdateWebhookResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetDomainAssociation :: GetDomainAssociation -> TestTree
-requestGetDomainAssociation =
-  req
-    "GetDomainAssociation"
-    "fixture/GetDomainAssociation.yaml"
-
-requestListArtifacts :: ListArtifacts -> TestTree
-requestListArtifacts =
-  req
-    "ListArtifacts"
-    "fixture/ListArtifacts.yaml"
-
-requestStopJob :: StopJob -> TestTree
-requestStopJob =
-  req
-    "StopJob"
-    "fixture/StopJob.yaml"
-
-requestGetBackendEnvironment :: GetBackendEnvironment -> TestTree
-requestGetBackendEnvironment =
-  req
-    "GetBackendEnvironment"
-    "fixture/GetBackendEnvironment.yaml"
-
-requestCreateWebhook :: CreateWebhook -> TestTree
-requestCreateWebhook =
-  req
-    "CreateWebhook"
-    "fixture/CreateWebhook.yaml"
-
-requestGetBranch :: GetBranch -> TestTree
-requestGetBranch =
-  req
-    "GetBranch"
-    "fixture/GetBranch.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestCreateDomainAssociation :: CreateDomainAssociation -> TestTree
-requestCreateDomainAssociation =
-  req
-    "CreateDomainAssociation"
-    "fixture/CreateDomainAssociation.yaml"
-
-requestGetWebhook :: GetWebhook -> TestTree
-requestGetWebhook =
-  req
-    "GetWebhook"
-    "fixture/GetWebhook.yaml"
-
-requestDeleteBranch :: DeleteBranch -> TestTree
-requestDeleteBranch =
-  req
-    "DeleteBranch"
-    "fixture/DeleteBranch.yaml"
-
-requestUpdateBranch :: UpdateBranch -> TestTree
-requestUpdateBranch =
-  req
-    "UpdateBranch"
-    "fixture/UpdateBranch.yaml"
-
-requestCreateBackendEnvironment :: CreateBackendEnvironment -> TestTree
-requestCreateBackendEnvironment =
-  req
-    "CreateBackendEnvironment"
-    "fixture/CreateBackendEnvironment.yaml"
-
-requestCreateDeployment :: CreateDeployment -> TestTree
-requestCreateDeployment =
-  req
-    "CreateDeployment"
-    "fixture/CreateDeployment.yaml"
-
-requestCreateBranch :: CreateBranch -> TestTree
-requestCreateBranch =
-  req
-    "CreateBranch"
-    "fixture/CreateBranch.yaml"
-
-requestGenerateAccessLogs :: GenerateAccessLogs -> TestTree
-requestGenerateAccessLogs =
-  req
-    "GenerateAccessLogs"
-    "fixture/GenerateAccessLogs.yaml"
-
-requestListApps :: ListApps -> TestTree
-requestListApps =
-  req
-    "ListApps"
-    "fixture/ListApps.yaml"
-
-requestListBranches :: ListBranches -> TestTree
-requestListBranches =
-  req
-    "ListBranches"
-    "fixture/ListBranches.yaml"
-
-requestDeleteBackendEnvironment :: DeleteBackendEnvironment -> TestTree
-requestDeleteBackendEnvironment =
-  req
-    "DeleteBackendEnvironment"
-    "fixture/DeleteBackendEnvironment.yaml"
-
-requestDeleteApp :: DeleteApp -> TestTree
-requestDeleteApp =
-  req
-    "DeleteApp"
-    "fixture/DeleteApp.yaml"
-
-requestUpdateApp :: UpdateApp -> TestTree
-requestUpdateApp =
-  req
-    "UpdateApp"
-    "fixture/UpdateApp.yaml"
-
-requestGetArtifactUrl :: GetArtifactUrl -> TestTree
-requestGetArtifactUrl =
-  req
-    "GetArtifactUrl"
-    "fixture/GetArtifactUrl.yaml"
-
-requestListJobs :: ListJobs -> TestTree
-requestListJobs =
-  req
-    "ListJobs"
-    "fixture/ListJobs.yaml"
-
-requestDeleteJob :: DeleteJob -> TestTree
-requestDeleteJob =
-  req
-    "DeleteJob"
-    "fixture/DeleteJob.yaml"
-
-requestGetJob :: GetJob -> TestTree
-requestGetJob =
-  req
-    "GetJob"
-    "fixture/GetJob.yaml"
-
-requestStartJob :: StartJob -> TestTree
-requestStartJob =
-  req
-    "StartJob"
-    "fixture/StartJob.yaml"
-
-requestGetApp :: GetApp -> TestTree
-requestGetApp =
-  req
-    "GetApp"
-    "fixture/GetApp.yaml"
-
-requestUpdateWebhook :: UpdateWebhook -> TestTree
-requestUpdateWebhook =
-  req
-    "UpdateWebhook"
-    "fixture/UpdateWebhook.yaml"
-
-requestDeleteWebhook :: DeleteWebhook -> TestTree
-requestDeleteWebhook =
-  req
-    "DeleteWebhook"
-    "fixture/DeleteWebhook.yaml"
-
-requestListWebhooks :: ListWebhooks -> TestTree
-requestListWebhooks =
-  req
-    "ListWebhooks"
-    "fixture/ListWebhooks.yaml"
 
 requestCreateApp :: CreateApp -> TestTree
 requestCreateApp =
@@ -437,29 +263,131 @@ requestCreateApp =
     "CreateApp"
     "fixture/CreateApp.yaml"
 
+requestCreateBackendEnvironment :: CreateBackendEnvironment -> TestTree
+requestCreateBackendEnvironment =
+  req
+    "CreateBackendEnvironment"
+    "fixture/CreateBackendEnvironment.yaml"
+
+requestCreateBranch :: CreateBranch -> TestTree
+requestCreateBranch =
+  req
+    "CreateBranch"
+    "fixture/CreateBranch.yaml"
+
+requestCreateDeployment :: CreateDeployment -> TestTree
+requestCreateDeployment =
+  req
+    "CreateDeployment"
+    "fixture/CreateDeployment.yaml"
+
+requestCreateDomainAssociation :: CreateDomainAssociation -> TestTree
+requestCreateDomainAssociation =
+  req
+    "CreateDomainAssociation"
+    "fixture/CreateDomainAssociation.yaml"
+
+requestCreateWebhook :: CreateWebhook -> TestTree
+requestCreateWebhook =
+  req
+    "CreateWebhook"
+    "fixture/CreateWebhook.yaml"
+
+requestDeleteApp :: DeleteApp -> TestTree
+requestDeleteApp =
+  req
+    "DeleteApp"
+    "fixture/DeleteApp.yaml"
+
+requestDeleteBackendEnvironment :: DeleteBackendEnvironment -> TestTree
+requestDeleteBackendEnvironment =
+  req
+    "DeleteBackendEnvironment"
+    "fixture/DeleteBackendEnvironment.yaml"
+
+requestDeleteBranch :: DeleteBranch -> TestTree
+requestDeleteBranch =
+  req
+    "DeleteBranch"
+    "fixture/DeleteBranch.yaml"
+
 requestDeleteDomainAssociation :: DeleteDomainAssociation -> TestTree
 requestDeleteDomainAssociation =
   req
     "DeleteDomainAssociation"
     "fixture/DeleteDomainAssociation.yaml"
 
-requestUpdateDomainAssociation :: UpdateDomainAssociation -> TestTree
-requestUpdateDomainAssociation =
+requestDeleteJob :: DeleteJob -> TestTree
+requestDeleteJob =
   req
-    "UpdateDomainAssociation"
-    "fixture/UpdateDomainAssociation.yaml"
+    "DeleteJob"
+    "fixture/DeleteJob.yaml"
 
-requestListDomainAssociations :: ListDomainAssociations -> TestTree
-requestListDomainAssociations =
+requestDeleteWebhook :: DeleteWebhook -> TestTree
+requestDeleteWebhook =
   req
-    "ListDomainAssociations"
-    "fixture/ListDomainAssociations.yaml"
+    "DeleteWebhook"
+    "fixture/DeleteWebhook.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestGenerateAccessLogs :: GenerateAccessLogs -> TestTree
+requestGenerateAccessLogs =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "GenerateAccessLogs"
+    "fixture/GenerateAccessLogs.yaml"
+
+requestGetApp :: GetApp -> TestTree
+requestGetApp =
+  req
+    "GetApp"
+    "fixture/GetApp.yaml"
+
+requestGetArtifactUrl :: GetArtifactUrl -> TestTree
+requestGetArtifactUrl =
+  req
+    "GetArtifactUrl"
+    "fixture/GetArtifactUrl.yaml"
+
+requestGetBackendEnvironment :: GetBackendEnvironment -> TestTree
+requestGetBackendEnvironment =
+  req
+    "GetBackendEnvironment"
+    "fixture/GetBackendEnvironment.yaml"
+
+requestGetBranch :: GetBranch -> TestTree
+requestGetBranch =
+  req
+    "GetBranch"
+    "fixture/GetBranch.yaml"
+
+requestGetDomainAssociation :: GetDomainAssociation -> TestTree
+requestGetDomainAssociation =
+  req
+    "GetDomainAssociation"
+    "fixture/GetDomainAssociation.yaml"
+
+requestGetJob :: GetJob -> TestTree
+requestGetJob =
+  req
+    "GetJob"
+    "fixture/GetJob.yaml"
+
+requestGetWebhook :: GetWebhook -> TestTree
+requestGetWebhook =
+  req
+    "GetWebhook"
+    "fixture/GetWebhook.yaml"
+
+requestListApps :: ListApps -> TestTree
+requestListApps =
+  req
+    "ListApps"
+    "fixture/ListApps.yaml"
+
+requestListArtifacts :: ListArtifacts -> TestTree
+requestListArtifacts =
+  req
+    "ListArtifacts"
+    "fixture/ListArtifacts.yaml"
 
 requestListBackendEnvironments :: ListBackendEnvironments -> TestTree
 requestListBackendEnvironments =
@@ -467,11 +395,35 @@ requestListBackendEnvironments =
     "ListBackendEnvironments"
     "fixture/ListBackendEnvironments.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestListBranches :: ListBranches -> TestTree
+requestListBranches =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "ListBranches"
+    "fixture/ListBranches.yaml"
+
+requestListDomainAssociations :: ListDomainAssociations -> TestTree
+requestListDomainAssociations =
+  req
+    "ListDomainAssociations"
+    "fixture/ListDomainAssociations.yaml"
+
+requestListJobs :: ListJobs -> TestTree
+requestListJobs =
+  req
+    "ListJobs"
+    "fixture/ListJobs.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListWebhooks :: ListWebhooks -> TestTree
+requestListWebhooks =
+  req
+    "ListWebhooks"
+    "fixture/ListWebhooks.yaml"
 
 requestStartDeployment :: StartDeployment -> TestTree
 requestStartDeployment =
@@ -479,239 +431,55 @@ requestStartDeployment =
     "StartDeployment"
     "fixture/StartDeployment.yaml"
 
+requestStartJob :: StartJob -> TestTree
+requestStartJob =
+  req
+    "StartJob"
+    "fixture/StartJob.yaml"
+
+requestStopJob :: StopJob -> TestTree
+requestStopJob =
+  req
+    "StopJob"
+    "fixture/StopJob.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateApp :: UpdateApp -> TestTree
+requestUpdateApp =
+  req
+    "UpdateApp"
+    "fixture/UpdateApp.yaml"
+
+requestUpdateBranch :: UpdateBranch -> TestTree
+requestUpdateBranch =
+  req
+    "UpdateBranch"
+    "fixture/UpdateBranch.yaml"
+
+requestUpdateDomainAssociation :: UpdateDomainAssociation -> TestTree
+requestUpdateDomainAssociation =
+  req
+    "UpdateDomainAssociation"
+    "fixture/UpdateDomainAssociation.yaml"
+
+requestUpdateWebhook :: UpdateWebhook -> TestTree
+requestUpdateWebhook =
+  req
+    "UpdateWebhook"
+    "fixture/UpdateWebhook.yaml"
+
 -- Responses
-
-responseGetDomainAssociation :: GetDomainAssociationResponse -> TestTree
-responseGetDomainAssociation =
-  res
-    "GetDomainAssociationResponse"
-    "fixture/GetDomainAssociationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDomainAssociation)
-
-responseListArtifacts :: ListArtifactsResponse -> TestTree
-responseListArtifacts =
-  res
-    "ListArtifactsResponse"
-    "fixture/ListArtifactsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListArtifacts)
-
-responseStopJob :: StopJobResponse -> TestTree
-responseStopJob =
-  res
-    "StopJobResponse"
-    "fixture/StopJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopJob)
-
-responseGetBackendEnvironment :: GetBackendEnvironmentResponse -> TestTree
-responseGetBackendEnvironment =
-  res
-    "GetBackendEnvironmentResponse"
-    "fixture/GetBackendEnvironmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetBackendEnvironment)
-
-responseCreateWebhook :: CreateWebhookResponse -> TestTree
-responseCreateWebhook =
-  res
-    "CreateWebhookResponse"
-    "fixture/CreateWebhookResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateWebhook)
-
-responseGetBranch :: GetBranchResponse -> TestTree
-responseGetBranch =
-  res
-    "GetBranchResponse"
-    "fixture/GetBranchResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetBranch)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseCreateDomainAssociation :: CreateDomainAssociationResponse -> TestTree
-responseCreateDomainAssociation =
-  res
-    "CreateDomainAssociationResponse"
-    "fixture/CreateDomainAssociationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDomainAssociation)
-
-responseGetWebhook :: GetWebhookResponse -> TestTree
-responseGetWebhook =
-  res
-    "GetWebhookResponse"
-    "fixture/GetWebhookResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetWebhook)
-
-responseDeleteBranch :: DeleteBranchResponse -> TestTree
-responseDeleteBranch =
-  res
-    "DeleteBranchResponse"
-    "fixture/DeleteBranchResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteBranch)
-
-responseUpdateBranch :: UpdateBranchResponse -> TestTree
-responseUpdateBranch =
-  res
-    "UpdateBranchResponse"
-    "fixture/UpdateBranchResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateBranch)
-
-responseCreateBackendEnvironment :: CreateBackendEnvironmentResponse -> TestTree
-responseCreateBackendEnvironment =
-  res
-    "CreateBackendEnvironmentResponse"
-    "fixture/CreateBackendEnvironmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateBackendEnvironment)
-
-responseCreateDeployment :: CreateDeploymentResponse -> TestTree
-responseCreateDeployment =
-  res
-    "CreateDeploymentResponse"
-    "fixture/CreateDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
-
-responseCreateBranch :: CreateBranchResponse -> TestTree
-responseCreateBranch =
-  res
-    "CreateBranchResponse"
-    "fixture/CreateBranchResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateBranch)
-
-responseGenerateAccessLogs :: GenerateAccessLogsResponse -> TestTree
-responseGenerateAccessLogs =
-  res
-    "GenerateAccessLogsResponse"
-    "fixture/GenerateAccessLogsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GenerateAccessLogs)
-
-responseListApps :: ListAppsResponse -> TestTree
-responseListApps =
-  res
-    "ListAppsResponse"
-    "fixture/ListAppsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListApps)
-
-responseListBranches :: ListBranchesResponse -> TestTree
-responseListBranches =
-  res
-    "ListBranchesResponse"
-    "fixture/ListBranchesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListBranches)
-
-responseDeleteBackendEnvironment :: DeleteBackendEnvironmentResponse -> TestTree
-responseDeleteBackendEnvironment =
-  res
-    "DeleteBackendEnvironmentResponse"
-    "fixture/DeleteBackendEnvironmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteBackendEnvironment)
-
-responseDeleteApp :: DeleteAppResponse -> TestTree
-responseDeleteApp =
-  res
-    "DeleteAppResponse"
-    "fixture/DeleteAppResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApp)
-
-responseUpdateApp :: UpdateAppResponse -> TestTree
-responseUpdateApp =
-  res
-    "UpdateAppResponse"
-    "fixture/UpdateAppResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateApp)
-
-responseGetArtifactUrl :: GetArtifactUrlResponse -> TestTree
-responseGetArtifactUrl =
-  res
-    "GetArtifactUrlResponse"
-    "fixture/GetArtifactUrlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetArtifactUrl)
-
-responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
-  res
-    "ListJobsResponse"
-    "fixture/ListJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListJobs)
-
-responseDeleteJob :: DeleteJobResponse -> TestTree
-responseDeleteJob =
-  res
-    "DeleteJobResponse"
-    "fixture/DeleteJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteJob)
-
-responseGetJob :: GetJobResponse -> TestTree
-responseGetJob =
-  res
-    "GetJobResponse"
-    "fixture/GetJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetJob)
-
-responseStartJob :: StartJobResponse -> TestTree
-responseStartJob =
-  res
-    "StartJobResponse"
-    "fixture/StartJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartJob)
-
-responseGetApp :: GetAppResponse -> TestTree
-responseGetApp =
-  res
-    "GetAppResponse"
-    "fixture/GetAppResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetApp)
-
-responseUpdateWebhook :: UpdateWebhookResponse -> TestTree
-responseUpdateWebhook =
-  res
-    "UpdateWebhookResponse"
-    "fixture/UpdateWebhookResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateWebhook)
-
-responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
-responseDeleteWebhook =
-  res
-    "DeleteWebhookResponse"
-    "fixture/DeleteWebhookResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteWebhook)
-
-responseListWebhooks :: ListWebhooksResponse -> TestTree
-responseListWebhooks =
-  res
-    "ListWebhooksResponse"
-    "fixture/ListWebhooksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListWebhooks)
 
 responseCreateApp :: CreateAppResponse -> TestTree
 responseCreateApp =
@@ -721,6 +489,70 @@ responseCreateApp =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateApp)
 
+responseCreateBackendEnvironment :: CreateBackendEnvironmentResponse -> TestTree
+responseCreateBackendEnvironment =
+  res
+    "CreateBackendEnvironmentResponse"
+    "fixture/CreateBackendEnvironmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBackendEnvironment)
+
+responseCreateBranch :: CreateBranchResponse -> TestTree
+responseCreateBranch =
+  res
+    "CreateBranchResponse"
+    "fixture/CreateBranchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBranch)
+
+responseCreateDeployment :: CreateDeploymentResponse -> TestTree
+responseCreateDeployment =
+  res
+    "CreateDeploymentResponse"
+    "fixture/CreateDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
+
+responseCreateDomainAssociation :: CreateDomainAssociationResponse -> TestTree
+responseCreateDomainAssociation =
+  res
+    "CreateDomainAssociationResponse"
+    "fixture/CreateDomainAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDomainAssociation)
+
+responseCreateWebhook :: CreateWebhookResponse -> TestTree
+responseCreateWebhook =
+  res
+    "CreateWebhookResponse"
+    "fixture/CreateWebhookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWebhook)
+
+responseDeleteApp :: DeleteAppResponse -> TestTree
+responseDeleteApp =
+  res
+    "DeleteAppResponse"
+    "fixture/DeleteAppResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApp)
+
+responseDeleteBackendEnvironment :: DeleteBackendEnvironmentResponse -> TestTree
+responseDeleteBackendEnvironment =
+  res
+    "DeleteBackendEnvironmentResponse"
+    "fixture/DeleteBackendEnvironmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackendEnvironment)
+
+responseDeleteBranch :: DeleteBranchResponse -> TestTree
+responseDeleteBranch =
+  res
+    "DeleteBranchResponse"
+    "fixture/DeleteBranchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBranch)
+
 responseDeleteDomainAssociation :: DeleteDomainAssociationResponse -> TestTree
 responseDeleteDomainAssociation =
   res
@@ -729,29 +561,101 @@ responseDeleteDomainAssociation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDomainAssociation)
 
-responseUpdateDomainAssociation :: UpdateDomainAssociationResponse -> TestTree
-responseUpdateDomainAssociation =
+responseDeleteJob :: DeleteJobResponse -> TestTree
+responseDeleteJob =
   res
-    "UpdateDomainAssociationResponse"
-    "fixture/UpdateDomainAssociationResponse.proto"
+    "DeleteJobResponse"
+    "fixture/DeleteJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDomainAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteJob)
 
-responseListDomainAssociations :: ListDomainAssociationsResponse -> TestTree
-responseListDomainAssociations =
+responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
+responseDeleteWebhook =
   res
-    "ListDomainAssociationsResponse"
-    "fixture/ListDomainAssociationsResponse.proto"
+    "DeleteWebhookResponse"
+    "fixture/DeleteWebhookResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDomainAssociations)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWebhook)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseGenerateAccessLogs :: GenerateAccessLogsResponse -> TestTree
+responseGenerateAccessLogs =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "GenerateAccessLogsResponse"
+    "fixture/GenerateAccessLogsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy GenerateAccessLogs)
+
+responseGetApp :: GetAppResponse -> TestTree
+responseGetApp =
+  res
+    "GetAppResponse"
+    "fixture/GetAppResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApp)
+
+responseGetArtifactUrl :: GetArtifactUrlResponse -> TestTree
+responseGetArtifactUrl =
+  res
+    "GetArtifactUrlResponse"
+    "fixture/GetArtifactUrlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetArtifactUrl)
+
+responseGetBackendEnvironment :: GetBackendEnvironmentResponse -> TestTree
+responseGetBackendEnvironment =
+  res
+    "GetBackendEnvironmentResponse"
+    "fixture/GetBackendEnvironmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBackendEnvironment)
+
+responseGetBranch :: GetBranchResponse -> TestTree
+responseGetBranch =
+  res
+    "GetBranchResponse"
+    "fixture/GetBranchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBranch)
+
+responseGetDomainAssociation :: GetDomainAssociationResponse -> TestTree
+responseGetDomainAssociation =
+  res
+    "GetDomainAssociationResponse"
+    "fixture/GetDomainAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDomainAssociation)
+
+responseGetJob :: GetJobResponse -> TestTree
+responseGetJob =
+  res
+    "GetJobResponse"
+    "fixture/GetJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetJob)
+
+responseGetWebhook :: GetWebhookResponse -> TestTree
+responseGetWebhook =
+  res
+    "GetWebhookResponse"
+    "fixture/GetWebhookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetWebhook)
+
+responseListApps :: ListAppsResponse -> TestTree
+responseListApps =
+  res
+    "ListAppsResponse"
+    "fixture/ListAppsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListApps)
+
+responseListArtifacts :: ListArtifactsResponse -> TestTree
+responseListArtifacts =
+  res
+    "ListArtifactsResponse"
+    "fixture/ListArtifactsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListArtifacts)
 
 responseListBackendEnvironments :: ListBackendEnvironmentsResponse -> TestTree
 responseListBackendEnvironments =
@@ -761,13 +665,45 @@ responseListBackendEnvironments =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListBackendEnvironments)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseListBranches :: ListBranchesResponse -> TestTree
+responseListBranches =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "ListBranchesResponse"
+    "fixture/ListBranchesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy ListBranches)
+
+responseListDomainAssociations :: ListDomainAssociationsResponse -> TestTree
+responseListDomainAssociations =
+  res
+    "ListDomainAssociationsResponse"
+    "fixture/ListDomainAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDomainAssociations)
+
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs =
+  res
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListWebhooks :: ListWebhooksResponse -> TestTree
+responseListWebhooks =
+  res
+    "ListWebhooksResponse"
+    "fixture/ListWebhooksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWebhooks)
 
 responseStartDeployment :: StartDeploymentResponse -> TestTree
 responseStartDeployment =
@@ -776,3 +712,67 @@ responseStartDeployment =
     "fixture/StartDeploymentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartDeployment)
+
+responseStartJob :: StartJobResponse -> TestTree
+responseStartJob =
+  res
+    "StartJobResponse"
+    "fixture/StartJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartJob)
+
+responseStopJob :: StopJobResponse -> TestTree
+responseStopJob =
+  res
+    "StopJobResponse"
+    "fixture/StopJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopJob)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateApp :: UpdateAppResponse -> TestTree
+responseUpdateApp =
+  res
+    "UpdateAppResponse"
+    "fixture/UpdateAppResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApp)
+
+responseUpdateBranch :: UpdateBranchResponse -> TestTree
+responseUpdateBranch =
+  res
+    "UpdateBranchResponse"
+    "fixture/UpdateBranchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBranch)
+
+responseUpdateDomainAssociation :: UpdateDomainAssociationResponse -> TestTree
+responseUpdateDomainAssociation =
+  res
+    "UpdateDomainAssociationResponse"
+    "fixture/UpdateDomainAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainAssociation)
+
+responseUpdateWebhook :: UpdateWebhookResponse -> TestTree
+responseUpdateWebhook =
+  res
+    "UpdateWebhookResponse"
+    "fixture/UpdateWebhookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateWebhook)

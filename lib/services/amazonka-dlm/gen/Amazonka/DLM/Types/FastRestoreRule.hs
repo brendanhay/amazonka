@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFastRestoreRule' smart constructor.
 data FastRestoreRule = FastRestoreRule'
-  { -- | The number of snapshots to be enabled with fast snapshot restore.
-    count :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of time to enable fast snapshot restore. The maximum is 100
+  { -- | The amount of time to enable fast snapshot restore. The maximum is 100
     -- years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
     interval :: Prelude.Maybe Prelude.Natural,
+    -- | The number of snapshots to be enabled with fast snapshot restore.
+    count :: Prelude.Maybe Prelude.Natural,
     -- | The unit of time for enabling fast snapshot restore.
     intervalUnit :: Prelude.Maybe RetentionIntervalUnitValues,
     -- | The Availability Zones in which to enable fast snapshot restore.
@@ -49,10 +49,10 @@ data FastRestoreRule = FastRestoreRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'count', 'fastRestoreRule_count' - The number of snapshots to be enabled with fast snapshot restore.
---
 -- 'interval', 'fastRestoreRule_interval' - The amount of time to enable fast snapshot restore. The maximum is 100
 -- years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+--
+-- 'count', 'fastRestoreRule_count' - The number of snapshots to be enabled with fast snapshot restore.
 --
 -- 'intervalUnit', 'fastRestoreRule_intervalUnit' - The unit of time for enabling fast snapshot restore.
 --
@@ -63,21 +63,21 @@ newFastRestoreRule ::
   FastRestoreRule
 newFastRestoreRule pAvailabilityZones_ =
   FastRestoreRule'
-    { count = Prelude.Nothing,
-      interval = Prelude.Nothing,
+    { interval = Prelude.Nothing,
+      count = Prelude.Nothing,
       intervalUnit = Prelude.Nothing,
       availabilityZones =
         Lens.coerced Lens.# pAvailabilityZones_
     }
 
--- | The number of snapshots to be enabled with fast snapshot restore.
-fastRestoreRule_count :: Lens.Lens' FastRestoreRule (Prelude.Maybe Prelude.Natural)
-fastRestoreRule_count = Lens.lens (\FastRestoreRule' {count} -> count) (\s@FastRestoreRule' {} a -> s {count = a} :: FastRestoreRule)
-
 -- | The amount of time to enable fast snapshot restore. The maximum is 100
 -- years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
 fastRestoreRule_interval :: Lens.Lens' FastRestoreRule (Prelude.Maybe Prelude.Natural)
 fastRestoreRule_interval = Lens.lens (\FastRestoreRule' {interval} -> interval) (\s@FastRestoreRule' {} a -> s {interval = a} :: FastRestoreRule)
+
+-- | The number of snapshots to be enabled with fast snapshot restore.
+fastRestoreRule_count :: Lens.Lens' FastRestoreRule (Prelude.Maybe Prelude.Natural)
+fastRestoreRule_count = Lens.lens (\FastRestoreRule' {count} -> count) (\s@FastRestoreRule' {} a -> s {count = a} :: FastRestoreRule)
 
 -- | The unit of time for enabling fast snapshot restore.
 fastRestoreRule_intervalUnit :: Lens.Lens' FastRestoreRule (Prelude.Maybe RetentionIntervalUnitValues)
@@ -93,23 +93,23 @@ instance Core.FromJSON FastRestoreRule where
       "FastRestoreRule"
       ( \x ->
           FastRestoreRule'
-            Prelude.<$> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Interval")
+            Prelude.<$> (x Core..:? "Interval")
+            Prelude.<*> (x Core..:? "Count")
             Prelude.<*> (x Core..:? "IntervalUnit")
             Prelude.<*> (x Core..: "AvailabilityZones")
       )
 
 instance Prelude.Hashable FastRestoreRule where
   hashWithSalt _salt FastRestoreRule' {..} =
-    _salt `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` interval
+    _salt `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` intervalUnit
       `Prelude.hashWithSalt` availabilityZones
 
 instance Prelude.NFData FastRestoreRule where
   rnf FastRestoreRule' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf interval
+    Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf intervalUnit
       `Prelude.seq` Prelude.rnf availabilityZones
 
@@ -117,8 +117,8 @@ instance Core.ToJSON FastRestoreRule where
   toJSON FastRestoreRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Count" Core..=) Prelude.<$> count,
-            ("Interval" Core..=) Prelude.<$> interval,
+          [ ("Interval" Core..=) Prelude.<$> interval,
+            ("Count" Core..=) Prelude.<$> count,
             ("IntervalUnit" Core..=) Prelude.<$> intervalUnit,
             Prelude.Just
               ("AvailabilityZones" Core..= availabilityZones)

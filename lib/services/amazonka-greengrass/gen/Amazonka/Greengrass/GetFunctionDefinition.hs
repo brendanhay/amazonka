@@ -35,14 +35,14 @@ module Amazonka.Greengrass.GetFunctionDefinition
     newGetFunctionDefinitionResponse,
 
     -- * Response Lenses
-    getFunctionDefinitionResponse_latestVersionArn,
-    getFunctionDefinitionResponse_arn,
-    getFunctionDefinitionResponse_name,
-    getFunctionDefinitionResponse_creationTimestamp,
-    getFunctionDefinitionResponse_id,
-    getFunctionDefinitionResponse_latestVersion,
     getFunctionDefinitionResponse_lastUpdatedTimestamp,
     getFunctionDefinitionResponse_tags,
+    getFunctionDefinitionResponse_name,
+    getFunctionDefinitionResponse_arn,
+    getFunctionDefinitionResponse_latestVersion,
+    getFunctionDefinitionResponse_id,
+    getFunctionDefinitionResponse_creationTimestamp,
+    getFunctionDefinitionResponse_latestVersionArn,
     getFunctionDefinitionResponse_httpStatus,
   )
 where
@@ -93,14 +93,14 @@ instance Core.AWSRequest GetFunctionDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionDefinitionResponse'
-            Prelude.<$> (x Core..?> "LatestVersionArn")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "LatestVersion")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
+            Prelude.<$> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "LatestVersion")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,24 +135,24 @@ instance Core.ToQuery GetFunctionDefinition where
 
 -- | /See:/ 'newGetFunctionDefinitionResponse' smart constructor.
 data GetFunctionDefinitionResponse = GetFunctionDefinitionResponse'
-  { -- | The ARN of the latest version associated with the definition.
-    latestVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the definition.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the definition was
-    -- created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the definition.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the definition was last
+  { -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
     -- | Tag(s) attached to the resource arn.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the definition.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the definition.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was
+    -- created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,23 +166,23 @@ data GetFunctionDefinitionResponse = GetFunctionDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latestVersionArn', 'getFunctionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
---
--- 'arn', 'getFunctionDefinitionResponse_arn' - The ARN of the definition.
---
--- 'name', 'getFunctionDefinitionResponse_name' - The name of the definition.
---
--- 'creationTimestamp', 'getFunctionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
--- created.
---
--- 'id', 'getFunctionDefinitionResponse_id' - The ID of the definition.
---
--- 'latestVersion', 'getFunctionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
---
 -- 'lastUpdatedTimestamp', 'getFunctionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 --
 -- 'tags', 'getFunctionDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
+-- 'name', 'getFunctionDefinitionResponse_name' - The name of the definition.
+--
+-- 'arn', 'getFunctionDefinitionResponse_arn' - The ARN of the definition.
+--
+-- 'latestVersion', 'getFunctionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
+--
+-- 'id', 'getFunctionDefinitionResponse_id' - The ID of the definition.
+--
+-- 'creationTimestamp', 'getFunctionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
+-- created.
+--
+-- 'latestVersionArn', 'getFunctionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
 --
 -- 'httpStatus', 'getFunctionDefinitionResponse_httpStatus' - The response's http status code.
 newGetFunctionDefinitionResponse ::
@@ -191,42 +191,17 @@ newGetFunctionDefinitionResponse ::
   GetFunctionDefinitionResponse
 newGetFunctionDefinitionResponse pHttpStatus_ =
   GetFunctionDefinitionResponse'
-    { latestVersionArn =
+    { lastUpdatedTimestamp =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      creationTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
+      id = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      latestVersionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the latest version associated with the definition.
-getFunctionDefinitionResponse_latestVersionArn :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getFunctionDefinitionResponse_latestVersionArn = Lens.lens (\GetFunctionDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@GetFunctionDefinitionResponse' {} a -> s {latestVersionArn = a} :: GetFunctionDefinitionResponse)
-
--- | The ARN of the definition.
-getFunctionDefinitionResponse_arn :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getFunctionDefinitionResponse_arn = Lens.lens (\GetFunctionDefinitionResponse' {arn} -> arn) (\s@GetFunctionDefinitionResponse' {} a -> s {arn = a} :: GetFunctionDefinitionResponse)
-
--- | The name of the definition.
-getFunctionDefinitionResponse_name :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getFunctionDefinitionResponse_name = Lens.lens (\GetFunctionDefinitionResponse' {name} -> name) (\s@GetFunctionDefinitionResponse' {} a -> s {name = a} :: GetFunctionDefinitionResponse)
-
--- | The time, in milliseconds since the epoch, when the definition was
--- created.
-getFunctionDefinitionResponse_creationTimestamp :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getFunctionDefinitionResponse_creationTimestamp = Lens.lens (\GetFunctionDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetFunctionDefinitionResponse' {} a -> s {creationTimestamp = a} :: GetFunctionDefinitionResponse)
-
--- | The ID of the definition.
-getFunctionDefinitionResponse_id :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getFunctionDefinitionResponse_id = Lens.lens (\GetFunctionDefinitionResponse' {id} -> id) (\s@GetFunctionDefinitionResponse' {} a -> s {id = a} :: GetFunctionDefinitionResponse)
-
--- | The ID of the latest version associated with the definition.
-getFunctionDefinitionResponse_latestVersion :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-getFunctionDefinitionResponse_latestVersion = Lens.lens (\GetFunctionDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetFunctionDefinitionResponse' {} a -> s {latestVersion = a} :: GetFunctionDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
@@ -237,18 +212,43 @@ getFunctionDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetFunctionDefi
 getFunctionDefinitionResponse_tags :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getFunctionDefinitionResponse_tags = Lens.lens (\GetFunctionDefinitionResponse' {tags} -> tags) (\s@GetFunctionDefinitionResponse' {} a -> s {tags = a} :: GetFunctionDefinitionResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the definition.
+getFunctionDefinitionResponse_name :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getFunctionDefinitionResponse_name = Lens.lens (\GetFunctionDefinitionResponse' {name} -> name) (\s@GetFunctionDefinitionResponse' {} a -> s {name = a} :: GetFunctionDefinitionResponse)
+
+-- | The ARN of the definition.
+getFunctionDefinitionResponse_arn :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getFunctionDefinitionResponse_arn = Lens.lens (\GetFunctionDefinitionResponse' {arn} -> arn) (\s@GetFunctionDefinitionResponse' {} a -> s {arn = a} :: GetFunctionDefinitionResponse)
+
+-- | The ID of the latest version associated with the definition.
+getFunctionDefinitionResponse_latestVersion :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getFunctionDefinitionResponse_latestVersion = Lens.lens (\GetFunctionDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetFunctionDefinitionResponse' {} a -> s {latestVersion = a} :: GetFunctionDefinitionResponse)
+
+-- | The ID of the definition.
+getFunctionDefinitionResponse_id :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getFunctionDefinitionResponse_id = Lens.lens (\GetFunctionDefinitionResponse' {id} -> id) (\s@GetFunctionDefinitionResponse' {} a -> s {id = a} :: GetFunctionDefinitionResponse)
+
+-- | The time, in milliseconds since the epoch, when the definition was
+-- created.
+getFunctionDefinitionResponse_creationTimestamp :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getFunctionDefinitionResponse_creationTimestamp = Lens.lens (\GetFunctionDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetFunctionDefinitionResponse' {} a -> s {creationTimestamp = a} :: GetFunctionDefinitionResponse)
+
+-- | The ARN of the latest version associated with the definition.
+getFunctionDefinitionResponse_latestVersionArn :: Lens.Lens' GetFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+getFunctionDefinitionResponse_latestVersionArn = Lens.lens (\GetFunctionDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@GetFunctionDefinitionResponse' {} a -> s {latestVersionArn = a} :: GetFunctionDefinitionResponse)
+
 -- | The response's http status code.
 getFunctionDefinitionResponse_httpStatus :: Lens.Lens' GetFunctionDefinitionResponse Prelude.Int
 getFunctionDefinitionResponse_httpStatus = Lens.lens (\GetFunctionDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetFunctionDefinitionResponse' {} a -> s {httpStatus = a} :: GetFunctionDefinitionResponse)
 
 instance Prelude.NFData GetFunctionDefinitionResponse where
   rnf GetFunctionDefinitionResponse' {..} =
-    Prelude.rnf latestVersionArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+    Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf latestVersionArn
       `Prelude.seq` Prelude.rnf httpStatus

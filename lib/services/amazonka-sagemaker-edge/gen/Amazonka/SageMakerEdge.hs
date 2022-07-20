@@ -29,17 +29,17 @@ module Amazonka.SageMakerEdge
     -- * Operations
     -- $operations
 
-    -- ** SendHeartbeat
-    SendHeartbeat (SendHeartbeat'),
-    newSendHeartbeat,
-    SendHeartbeatResponse (SendHeartbeatResponse'),
-    newSendHeartbeatResponse,
-
     -- ** GetDeviceRegistration
     GetDeviceRegistration (GetDeviceRegistration'),
     newGetDeviceRegistration,
     GetDeviceRegistrationResponse (GetDeviceRegistrationResponse'),
     newGetDeviceRegistrationResponse,
+
+    -- ** SendHeartbeat
+    SendHeartbeat (SendHeartbeat'),
+    newSendHeartbeat,
+    SendHeartbeatResponse (SendHeartbeatResponse'),
+    newSendHeartbeatResponse,
 
     -- * Types
 

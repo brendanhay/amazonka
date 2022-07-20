@@ -37,8 +37,8 @@ module Amazonka.Kafka.ListConfigurations
     newListConfigurationsResponse,
 
     -- * Response Lenses
-    listConfigurationsResponse_configurations,
     listConfigurationsResponse_nextToken,
+    listConfigurationsResponse_configurations,
     listConfigurationsResponse_httpStatus,
   )
 where
@@ -126,8 +126,8 @@ instance Core.AWSRequest ListConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationsResponse'
-            Prelude.<$> (x Core..?> "configurations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "configurations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,13 +164,13 @@ instance Core.ToQuery ListConfigurations where
 
 -- | /See:/ 'newListConfigurationsResponse' smart constructor.
 data ListConfigurationsResponse = ListConfigurationsResponse'
-  { -- | An array of MSK configurations.
-    configurations :: Prelude.Maybe [Configuration],
-    -- | The paginated results marker. When the result of a ListConfigurations
+  { -- | The paginated results marker. When the result of a ListConfigurations
     -- operation is truncated, the call returns NextToken in the response. To
     -- get another batch of configurations, provide this token in your next
     -- request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of MSK configurations.
+    configurations :: Prelude.Maybe [Configuration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,12 +184,12 @@ data ListConfigurationsResponse = ListConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurations', 'listConfigurationsResponse_configurations' - An array of MSK configurations.
---
 -- 'nextToken', 'listConfigurationsResponse_nextToken' - The paginated results marker. When the result of a ListConfigurations
 -- operation is truncated, the call returns NextToken in the response. To
 -- get another batch of configurations, provide this token in your next
 -- request.
+--
+-- 'configurations', 'listConfigurationsResponse_configurations' - An array of MSK configurations.
 --
 -- 'httpStatus', 'listConfigurationsResponse_httpStatus' - The response's http status code.
 newListConfigurationsResponse ::
@@ -198,15 +198,11 @@ newListConfigurationsResponse ::
   ListConfigurationsResponse
 newListConfigurationsResponse pHttpStatus_ =
   ListConfigurationsResponse'
-    { configurations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      configurations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of MSK configurations.
-listConfigurationsResponse_configurations :: Lens.Lens' ListConfigurationsResponse (Prelude.Maybe [Configuration])
-listConfigurationsResponse_configurations = Lens.lens (\ListConfigurationsResponse' {configurations} -> configurations) (\s@ListConfigurationsResponse' {} a -> s {configurations = a} :: ListConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The paginated results marker. When the result of a ListConfigurations
 -- operation is truncated, the call returns NextToken in the response. To
@@ -215,12 +211,16 @@ listConfigurationsResponse_configurations = Lens.lens (\ListConfigurationsRespon
 listConfigurationsResponse_nextToken :: Lens.Lens' ListConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listConfigurationsResponse_nextToken = Lens.lens (\ListConfigurationsResponse' {nextToken} -> nextToken) (\s@ListConfigurationsResponse' {} a -> s {nextToken = a} :: ListConfigurationsResponse)
 
+-- | An array of MSK configurations.
+listConfigurationsResponse_configurations :: Lens.Lens' ListConfigurationsResponse (Prelude.Maybe [Configuration])
+listConfigurationsResponse_configurations = Lens.lens (\ListConfigurationsResponse' {configurations} -> configurations) (\s@ListConfigurationsResponse' {} a -> s {configurations = a} :: ListConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listConfigurationsResponse_httpStatus :: Lens.Lens' ListConfigurationsResponse Prelude.Int
 listConfigurationsResponse_httpStatus = Lens.lens (\ListConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationsResponse' {} a -> s {httpStatus = a} :: ListConfigurationsResponse)
 
 instance Prelude.NFData ListConfigurationsResponse where
   rnf ListConfigurationsResponse' {..} =
-    Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf configurations
       `Prelude.seq` Prelude.rnf httpStatus

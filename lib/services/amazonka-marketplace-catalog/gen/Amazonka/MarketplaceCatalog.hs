@@ -26,8 +26,8 @@ module Amazonka.MarketplaceCatalog
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ResourceNotSupportedException
+    _ResourceNotSupportedException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
@@ -35,20 +35,20 @@ module Amazonka.MarketplaceCatalog
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
-
-    -- ** ResourceNotSupportedException
-    _ResourceNotSupportedException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
 
     -- * Waiters
     -- $waiters
@@ -56,29 +56,17 @@ module Amazonka.MarketplaceCatalog
     -- * Operations
     -- $operations
 
-    -- ** ListEntities
-    ListEntities (ListEntities'),
-    newListEntities,
-    ListEntitiesResponse (ListEntitiesResponse'),
-    newListEntitiesResponse,
-
-    -- ** ListChangeSets
-    ListChangeSets (ListChangeSets'),
-    newListChangeSets,
-    ListChangeSetsResponse (ListChangeSetsResponse'),
-    newListChangeSetsResponse,
-
-    -- ** StartChangeSet
-    StartChangeSet (StartChangeSet'),
-    newStartChangeSet,
-    StartChangeSetResponse (StartChangeSetResponse'),
-    newStartChangeSetResponse,
-
     -- ** CancelChangeSet
     CancelChangeSet (CancelChangeSet'),
     newCancelChangeSet,
     CancelChangeSetResponse (CancelChangeSetResponse'),
     newCancelChangeSetResponse,
+
+    -- ** DescribeChangeSet
+    DescribeChangeSet (DescribeChangeSet'),
+    newDescribeChangeSet,
+    DescribeChangeSetResponse (DescribeChangeSetResponse'),
+    newDescribeChangeSetResponse,
 
     -- ** DescribeEntity
     DescribeEntity (DescribeEntity'),
@@ -86,11 +74,23 @@ module Amazonka.MarketplaceCatalog
     DescribeEntityResponse (DescribeEntityResponse'),
     newDescribeEntityResponse,
 
-    -- ** DescribeChangeSet
-    DescribeChangeSet (DescribeChangeSet'),
-    newDescribeChangeSet,
-    DescribeChangeSetResponse (DescribeChangeSetResponse'),
-    newDescribeChangeSetResponse,
+    -- ** ListChangeSets
+    ListChangeSets (ListChangeSets'),
+    newListChangeSets,
+    ListChangeSetsResponse (ListChangeSetsResponse'),
+    newListChangeSetsResponse,
+
+    -- ** ListEntities
+    ListEntities (ListEntities'),
+    newListEntities,
+    ListEntitiesResponse (ListEntitiesResponse'),
+    newListEntitiesResponse,
+
+    -- ** StartChangeSet
+    StartChangeSet (StartChangeSet'),
+    newStartChangeSet,
+    StartChangeSetResponse (StartChangeSetResponse'),
+    newStartChangeSetResponse,
 
     -- * Types
 

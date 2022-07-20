@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelAssociatedWithFlowSummary' smart constructor.
 data ChannelAssociatedWithFlowSummary = ChannelAssociatedWithFlowSummary'
-  { -- | The mode of the channel.
-    mode :: Prelude.Maybe ChannelMode,
+  { -- | The name of the channel flow.
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The channel\'s metadata.
+    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s privacy setting.
     privacy :: Prelude.Maybe ChannelPrivacy,
-    -- | The name of the channel flow.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The channel\'s metadata.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    -- | The mode of the channel.
+    mode :: Prelude.Maybe ChannelMode
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -50,30 +50,34 @@ data ChannelAssociatedWithFlowSummary = ChannelAssociatedWithFlowSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mode', 'channelAssociatedWithFlowSummary_mode' - The mode of the channel.
+-- 'name', 'channelAssociatedWithFlowSummary_name' - The name of the channel flow.
+--
+-- 'metadata', 'channelAssociatedWithFlowSummary_metadata' - The channel\'s metadata.
 --
 -- 'channelArn', 'channelAssociatedWithFlowSummary_channelArn' - The ARN of the channel.
 --
 -- 'privacy', 'channelAssociatedWithFlowSummary_privacy' - The channel\'s privacy setting.
 --
--- 'name', 'channelAssociatedWithFlowSummary_name' - The name of the channel flow.
---
--- 'metadata', 'channelAssociatedWithFlowSummary_metadata' - The channel\'s metadata.
+-- 'mode', 'channelAssociatedWithFlowSummary_mode' - The mode of the channel.
 newChannelAssociatedWithFlowSummary ::
   ChannelAssociatedWithFlowSummary
 newChannelAssociatedWithFlowSummary =
   ChannelAssociatedWithFlowSummary'
-    { mode =
+    { name =
         Prelude.Nothing,
+      metadata = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       privacy = Prelude.Nothing,
-      name = Prelude.Nothing,
-      metadata = Prelude.Nothing
+      mode = Prelude.Nothing
     }
 
--- | The mode of the channel.
-channelAssociatedWithFlowSummary_mode :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe ChannelMode)
-channelAssociatedWithFlowSummary_mode = Lens.lens (\ChannelAssociatedWithFlowSummary' {mode} -> mode) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {mode = a} :: ChannelAssociatedWithFlowSummary)
+-- | The name of the channel flow.
+channelAssociatedWithFlowSummary_name :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe Prelude.Text)
+channelAssociatedWithFlowSummary_name = Lens.lens (\ChannelAssociatedWithFlowSummary' {name} -> name) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {name = a} :: ChannelAssociatedWithFlowSummary) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The channel\'s metadata.
+channelAssociatedWithFlowSummary_metadata :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe Prelude.Text)
+channelAssociatedWithFlowSummary_metadata = Lens.lens (\ChannelAssociatedWithFlowSummary' {metadata} -> metadata) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {metadata = a} :: ChannelAssociatedWithFlowSummary) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ARN of the channel.
 channelAssociatedWithFlowSummary_channelArn :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe Prelude.Text)
@@ -83,13 +87,9 @@ channelAssociatedWithFlowSummary_channelArn = Lens.lens (\ChannelAssociatedWithF
 channelAssociatedWithFlowSummary_privacy :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe ChannelPrivacy)
 channelAssociatedWithFlowSummary_privacy = Lens.lens (\ChannelAssociatedWithFlowSummary' {privacy} -> privacy) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {privacy = a} :: ChannelAssociatedWithFlowSummary)
 
--- | The name of the channel flow.
-channelAssociatedWithFlowSummary_name :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe Prelude.Text)
-channelAssociatedWithFlowSummary_name = Lens.lens (\ChannelAssociatedWithFlowSummary' {name} -> name) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {name = a} :: ChannelAssociatedWithFlowSummary) Prelude.. Lens.mapping Core._Sensitive
-
--- | The channel\'s metadata.
-channelAssociatedWithFlowSummary_metadata :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe Prelude.Text)
-channelAssociatedWithFlowSummary_metadata = Lens.lens (\ChannelAssociatedWithFlowSummary' {metadata} -> metadata) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {metadata = a} :: ChannelAssociatedWithFlowSummary) Prelude.. Lens.mapping Core._Sensitive
+-- | The mode of the channel.
+channelAssociatedWithFlowSummary_mode :: Lens.Lens' ChannelAssociatedWithFlowSummary (Prelude.Maybe ChannelMode)
+channelAssociatedWithFlowSummary_mode = Lens.lens (\ChannelAssociatedWithFlowSummary' {mode} -> mode) (\s@ChannelAssociatedWithFlowSummary' {} a -> s {mode = a} :: ChannelAssociatedWithFlowSummary)
 
 instance
   Core.FromJSON
@@ -100,11 +100,11 @@ instance
       "ChannelAssociatedWithFlowSummary"
       ( \x ->
           ChannelAssociatedWithFlowSummary'
-            Prelude.<$> (x Core..:? "Mode")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Metadata")
             Prelude.<*> (x Core..:? "ChannelArn")
             Prelude.<*> (x Core..:? "Privacy")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Metadata")
+            Prelude.<*> (x Core..:? "Mode")
       )
 
 instance
@@ -114,19 +114,19 @@ instance
   hashWithSalt
     _salt
     ChannelAssociatedWithFlowSummary' {..} =
-      _salt `Prelude.hashWithSalt` mode
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` metadata
         `Prelude.hashWithSalt` channelArn
         `Prelude.hashWithSalt` privacy
-        `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` metadata
+        `Prelude.hashWithSalt` mode
 
 instance
   Prelude.NFData
     ChannelAssociatedWithFlowSummary
   where
   rnf ChannelAssociatedWithFlowSummary' {..} =
-    Prelude.rnf mode
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf privacy
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf mode

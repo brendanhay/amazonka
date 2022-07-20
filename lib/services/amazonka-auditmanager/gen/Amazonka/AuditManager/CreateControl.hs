@@ -27,11 +27,11 @@ module Amazonka.AuditManager.CreateControl
     newCreateControl,
 
     -- * Request Lenses
-    createControl_testingInformation,
-    createControl_actionPlanInstructions,
-    createControl_actionPlanTitle,
-    createControl_description,
     createControl_tags,
+    createControl_actionPlanInstructions,
+    createControl_description,
+    createControl_actionPlanTitle,
+    createControl_testingInformation,
     createControl_name,
     createControl_controlMappingSources,
 
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateControl' smart constructor.
 data CreateControl = CreateControl'
-  { -- | The steps to follow to determine if the control has been satisfied.
-    testingInformation :: Prelude.Maybe Prelude.Text,
+  { -- | The tags associated with the control.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The recommended actions to carry out if the control is not fulfilled.
     actionPlanInstructions :: Prelude.Maybe Prelude.Text,
-    -- | The title of the action plan for remediating the control.
-    actionPlanTitle :: Prelude.Maybe Prelude.Text,
     -- | The description of the control.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with the control.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The title of the action plan for remediating the control.
+    actionPlanTitle :: Prelude.Maybe Prelude.Text,
+    -- | The steps to follow to determine if the control has been satisfied.
+    testingInformation :: Prelude.Maybe Prelude.Text,
     -- | The name of the control.
     name :: Prelude.Text,
     -- | The data mapping sources for the specified control.
@@ -79,15 +79,15 @@ data CreateControl = CreateControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'testingInformation', 'createControl_testingInformation' - The steps to follow to determine if the control has been satisfied.
+-- 'tags', 'createControl_tags' - The tags associated with the control.
 --
 -- 'actionPlanInstructions', 'createControl_actionPlanInstructions' - The recommended actions to carry out if the control is not fulfilled.
 --
--- 'actionPlanTitle', 'createControl_actionPlanTitle' - The title of the action plan for remediating the control.
---
 -- 'description', 'createControl_description' - The description of the control.
 --
--- 'tags', 'createControl_tags' - The tags associated with the control.
+-- 'actionPlanTitle', 'createControl_actionPlanTitle' - The title of the action plan for remediating the control.
+--
+-- 'testingInformation', 'createControl_testingInformation' - The steps to follow to determine if the control has been satisfied.
 --
 -- 'name', 'createControl_name' - The name of the control.
 --
@@ -100,36 +100,35 @@ newCreateControl ::
   CreateControl
 newCreateControl pName_ pControlMappingSources_ =
   CreateControl'
-    { testingInformation =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       actionPlanInstructions = Prelude.Nothing,
-      actionPlanTitle = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      actionPlanTitle = Prelude.Nothing,
+      testingInformation = Prelude.Nothing,
       name = pName_,
       controlMappingSources =
         Lens.coerced Lens.# pControlMappingSources_
     }
 
--- | The steps to follow to determine if the control has been satisfied.
-createControl_testingInformation :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
-createControl_testingInformation = Lens.lens (\CreateControl' {testingInformation} -> testingInformation) (\s@CreateControl' {} a -> s {testingInformation = a} :: CreateControl)
+-- | The tags associated with the control.
+createControl_tags :: Lens.Lens' CreateControl (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createControl_tags = Lens.lens (\CreateControl' {tags} -> tags) (\s@CreateControl' {} a -> s {tags = a} :: CreateControl) Prelude.. Lens.mapping Lens.coerced
 
 -- | The recommended actions to carry out if the control is not fulfilled.
 createControl_actionPlanInstructions :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
 createControl_actionPlanInstructions = Lens.lens (\CreateControl' {actionPlanInstructions} -> actionPlanInstructions) (\s@CreateControl' {} a -> s {actionPlanInstructions = a} :: CreateControl)
 
--- | The title of the action plan for remediating the control.
-createControl_actionPlanTitle :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
-createControl_actionPlanTitle = Lens.lens (\CreateControl' {actionPlanTitle} -> actionPlanTitle) (\s@CreateControl' {} a -> s {actionPlanTitle = a} :: CreateControl)
-
 -- | The description of the control.
 createControl_description :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
 createControl_description = Lens.lens (\CreateControl' {description} -> description) (\s@CreateControl' {} a -> s {description = a} :: CreateControl)
 
--- | The tags associated with the control.
-createControl_tags :: Lens.Lens' CreateControl (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createControl_tags = Lens.lens (\CreateControl' {tags} -> tags) (\s@CreateControl' {} a -> s {tags = a} :: CreateControl) Prelude.. Lens.mapping Lens.coerced
+-- | The title of the action plan for remediating the control.
+createControl_actionPlanTitle :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
+createControl_actionPlanTitle = Lens.lens (\CreateControl' {actionPlanTitle} -> actionPlanTitle) (\s@CreateControl' {} a -> s {actionPlanTitle = a} :: CreateControl)
+
+-- | The steps to follow to determine if the control has been satisfied.
+createControl_testingInformation :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
+createControl_testingInformation = Lens.lens (\CreateControl' {testingInformation} -> testingInformation) (\s@CreateControl' {} a -> s {testingInformation = a} :: CreateControl)
 
 -- | The name of the control.
 createControl_name :: Lens.Lens' CreateControl Prelude.Text
@@ -154,21 +153,21 @@ instance Core.AWSRequest CreateControl where
 
 instance Prelude.Hashable CreateControl where
   hashWithSalt _salt CreateControl' {..} =
-    _salt `Prelude.hashWithSalt` testingInformation
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` actionPlanInstructions
-      `Prelude.hashWithSalt` actionPlanTitle
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` actionPlanTitle
+      `Prelude.hashWithSalt` testingInformation
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` controlMappingSources
 
 instance Prelude.NFData CreateControl where
   rnf CreateControl' {..} =
-    Prelude.rnf testingInformation
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf actionPlanInstructions
-      `Prelude.seq` Prelude.rnf actionPlanTitle
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf actionPlanTitle
+      `Prelude.seq` Prelude.rnf testingInformation
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf controlMappingSources
 
@@ -187,14 +186,14 @@ instance Core.ToJSON CreateControl where
   toJSON CreateControl' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("testingInformation" Core..=)
-              Prelude.<$> testingInformation,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("actionPlanInstructions" Core..=)
               Prelude.<$> actionPlanInstructions,
+            ("description" Core..=) Prelude.<$> description,
             ("actionPlanTitle" Core..=)
               Prelude.<$> actionPlanTitle,
-            ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("testingInformation" Core..=)
+              Prelude.<$> testingInformation,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ( "controlMappingSources"

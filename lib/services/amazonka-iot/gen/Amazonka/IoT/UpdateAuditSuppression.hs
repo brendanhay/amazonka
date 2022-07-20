@@ -27,9 +27,9 @@ module Amazonka.IoT.UpdateAuditSuppression
     newUpdateAuditSuppression,
 
     -- * Request Lenses
+    updateAuditSuppression_description,
     updateAuditSuppression_expirationDate,
     updateAuditSuppression_suppressIndefinitely,
-    updateAuditSuppression_description,
     updateAuditSuppression_checkName,
     updateAuditSuppression_resourceIdentifier,
 
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAuditSuppression' smart constructor.
 data UpdateAuditSuppression = UpdateAuditSuppression'
-  { -- | The expiration date (epoch timestamp in seconds) that you want the
+  { -- | The description of the audit suppression.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The expiration date (epoch timestamp in seconds) that you want the
     -- suppression to adhere to.
     expirationDate :: Prelude.Maybe Core.POSIX,
     -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
-    -- | The description of the audit suppression.
-    description :: Prelude.Maybe Prelude.Text,
     checkName :: Prelude.Text,
     resourceIdentifier :: ResourceIdentifier
   }
@@ -71,12 +71,12 @@ data UpdateAuditSuppression = UpdateAuditSuppression'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateAuditSuppression_description' - The description of the audit suppression.
+--
 -- 'expirationDate', 'updateAuditSuppression_expirationDate' - The expiration date (epoch timestamp in seconds) that you want the
 -- suppression to adhere to.
 --
 -- 'suppressIndefinitely', 'updateAuditSuppression_suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
---
--- 'description', 'updateAuditSuppression_description' - The description of the audit suppression.
 --
 -- 'checkName', 'updateAuditSuppression_checkName' - Undocumented member.
 --
@@ -91,13 +91,17 @@ newUpdateAuditSuppression
   pCheckName_
   pResourceIdentifier_ =
     UpdateAuditSuppression'
-      { expirationDate =
+      { description =
           Prelude.Nothing,
+        expirationDate = Prelude.Nothing,
         suppressIndefinitely = Prelude.Nothing,
-        description = Prelude.Nothing,
         checkName = pCheckName_,
         resourceIdentifier = pResourceIdentifier_
       }
+
+-- | The description of the audit suppression.
+updateAuditSuppression_description :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.Text)
+updateAuditSuppression_description = Lens.lens (\UpdateAuditSuppression' {description} -> description) (\s@UpdateAuditSuppression' {} a -> s {description = a} :: UpdateAuditSuppression)
 
 -- | The expiration date (epoch timestamp in seconds) that you want the
 -- suppression to adhere to.
@@ -107,10 +111,6 @@ updateAuditSuppression_expirationDate = Lens.lens (\UpdateAuditSuppression' {exp
 -- | Indicates whether a suppression should exist indefinitely or not.
 updateAuditSuppression_suppressIndefinitely :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.Bool)
 updateAuditSuppression_suppressIndefinitely = Lens.lens (\UpdateAuditSuppression' {suppressIndefinitely} -> suppressIndefinitely) (\s@UpdateAuditSuppression' {} a -> s {suppressIndefinitely = a} :: UpdateAuditSuppression)
-
--- | The description of the audit suppression.
-updateAuditSuppression_description :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.Text)
-updateAuditSuppression_description = Lens.lens (\UpdateAuditSuppression' {description} -> description) (\s@UpdateAuditSuppression' {} a -> s {description = a} :: UpdateAuditSuppression)
 
 -- | Undocumented member.
 updateAuditSuppression_checkName :: Lens.Lens' UpdateAuditSuppression Prelude.Text
@@ -134,17 +134,17 @@ instance Core.AWSRequest UpdateAuditSuppression where
 
 instance Prelude.Hashable UpdateAuditSuppression where
   hashWithSalt _salt UpdateAuditSuppression' {..} =
-    _salt `Prelude.hashWithSalt` expirationDate
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` suppressIndefinitely
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` checkName
       `Prelude.hashWithSalt` resourceIdentifier
 
 instance Prelude.NFData UpdateAuditSuppression where
   rnf UpdateAuditSuppression' {..} =
-    Prelude.rnf expirationDate
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf expirationDate
       `Prelude.seq` Prelude.rnf suppressIndefinitely
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf checkName
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
@@ -155,11 +155,11 @@ instance Core.ToJSON UpdateAuditSuppression where
   toJSON UpdateAuditSuppression' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("expirationDate" Core..=)
+          [ ("description" Core..=) Prelude.<$> description,
+            ("expirationDate" Core..=)
               Prelude.<$> expirationDate,
             ("suppressIndefinitely" Core..=)
               Prelude.<$> suppressIndefinitely,
-            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("checkName" Core..= checkName),
             Prelude.Just
               ("resourceIdentifier" Core..= resourceIdentifier)

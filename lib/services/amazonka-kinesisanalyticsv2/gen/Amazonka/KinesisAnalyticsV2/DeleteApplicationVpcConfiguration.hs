@@ -27,8 +27,8 @@ module Amazonka.KinesisAnalyticsV2.DeleteApplicationVpcConfiguration
     newDeleteApplicationVpcConfiguration,
 
     -- * Request Lenses
-    deleteApplicationVpcConfiguration_currentApplicationVersionId,
     deleteApplicationVpcConfiguration_conditionalToken,
+    deleteApplicationVpcConfiguration_currentApplicationVersionId,
     deleteApplicationVpcConfiguration_applicationName,
     deleteApplicationVpcConfiguration_vpcConfigurationId,
 
@@ -52,19 +52,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteApplicationVpcConfiguration' smart constructor.
 data DeleteApplicationVpcConfiguration = DeleteApplicationVpcConfiguration'
-  { -- | The current application version ID. You must provide the
-    -- @CurrentApplicationVersionId@ or the @ConditionalToken@. You can
-    -- retrieve the application version ID using DescribeApplication. For
-    -- better concurrency support, use the @ConditionalToken@ parameter instead
-    -- of @CurrentApplicationVersionId@.
-    currentApplicationVersionId :: Prelude.Maybe Prelude.Natural,
-    -- | A value you use to implement strong concurrency for application updates.
+  { -- | A value you use to implement strong concurrency for application updates.
     -- You must provide the @CurrentApplicationVersionId@ or the
     -- @ConditionalToken@. You get the application\'s current
     -- @ConditionalToken@ using DescribeApplication. For better concurrency
     -- support, use the @ConditionalToken@ parameter instead of
     -- @CurrentApplicationVersionId@.
     conditionalToken :: Prelude.Maybe Prelude.Text,
+    -- | The current application version ID. You must provide the
+    -- @CurrentApplicationVersionId@ or the @ConditionalToken@. You can
+    -- retrieve the application version ID using DescribeApplication. For
+    -- better concurrency support, use the @ConditionalToken@ parameter instead
+    -- of @CurrentApplicationVersionId@.
+    currentApplicationVersionId :: Prelude.Maybe Prelude.Natural,
     -- | The name of an existing application.
     applicationName :: Prelude.Text,
     -- | The ID of the VPC configuration to delete.
@@ -80,18 +80,18 @@ data DeleteApplicationVpcConfiguration = DeleteApplicationVpcConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'currentApplicationVersionId', 'deleteApplicationVpcConfiguration_currentApplicationVersionId' - The current application version ID. You must provide the
--- @CurrentApplicationVersionId@ or the @ConditionalToken@. You can
--- retrieve the application version ID using DescribeApplication. For
--- better concurrency support, use the @ConditionalToken@ parameter instead
--- of @CurrentApplicationVersionId@.
---
 -- 'conditionalToken', 'deleteApplicationVpcConfiguration_conditionalToken' - A value you use to implement strong concurrency for application updates.
 -- You must provide the @CurrentApplicationVersionId@ or the
 -- @ConditionalToken@. You get the application\'s current
 -- @ConditionalToken@ using DescribeApplication. For better concurrency
 -- support, use the @ConditionalToken@ parameter instead of
 -- @CurrentApplicationVersionId@.
+--
+-- 'currentApplicationVersionId', 'deleteApplicationVpcConfiguration_currentApplicationVersionId' - The current application version ID. You must provide the
+-- @CurrentApplicationVersionId@ or the @ConditionalToken@. You can
+-- retrieve the application version ID using DescribeApplication. For
+-- better concurrency support, use the @ConditionalToken@ parameter instead
+-- of @CurrentApplicationVersionId@.
 --
 -- 'applicationName', 'deleteApplicationVpcConfiguration_applicationName' - The name of an existing application.
 --
@@ -106,21 +106,14 @@ newDeleteApplicationVpcConfiguration
   pApplicationName_
   pVpcConfigurationId_ =
     DeleteApplicationVpcConfiguration'
-      { currentApplicationVersionId =
+      { conditionalToken =
           Prelude.Nothing,
-        conditionalToken = Prelude.Nothing,
+        currentApplicationVersionId =
+          Prelude.Nothing,
         applicationName = pApplicationName_,
         vpcConfigurationId =
           pVpcConfigurationId_
       }
-
--- | The current application version ID. You must provide the
--- @CurrentApplicationVersionId@ or the @ConditionalToken@. You can
--- retrieve the application version ID using DescribeApplication. For
--- better concurrency support, use the @ConditionalToken@ parameter instead
--- of @CurrentApplicationVersionId@.
-deleteApplicationVpcConfiguration_currentApplicationVersionId :: Lens.Lens' DeleteApplicationVpcConfiguration (Prelude.Maybe Prelude.Natural)
-deleteApplicationVpcConfiguration_currentApplicationVersionId = Lens.lens (\DeleteApplicationVpcConfiguration' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@DeleteApplicationVpcConfiguration' {} a -> s {currentApplicationVersionId = a} :: DeleteApplicationVpcConfiguration)
 
 -- | A value you use to implement strong concurrency for application updates.
 -- You must provide the @CurrentApplicationVersionId@ or the
@@ -130,6 +123,14 @@ deleteApplicationVpcConfiguration_currentApplicationVersionId = Lens.lens (\Dele
 -- @CurrentApplicationVersionId@.
 deleteApplicationVpcConfiguration_conditionalToken :: Lens.Lens' DeleteApplicationVpcConfiguration (Prelude.Maybe Prelude.Text)
 deleteApplicationVpcConfiguration_conditionalToken = Lens.lens (\DeleteApplicationVpcConfiguration' {conditionalToken} -> conditionalToken) (\s@DeleteApplicationVpcConfiguration' {} a -> s {conditionalToken = a} :: DeleteApplicationVpcConfiguration)
+
+-- | The current application version ID. You must provide the
+-- @CurrentApplicationVersionId@ or the @ConditionalToken@. You can
+-- retrieve the application version ID using DescribeApplication. For
+-- better concurrency support, use the @ConditionalToken@ parameter instead
+-- of @CurrentApplicationVersionId@.
+deleteApplicationVpcConfiguration_currentApplicationVersionId :: Lens.Lens' DeleteApplicationVpcConfiguration (Prelude.Maybe Prelude.Natural)
+deleteApplicationVpcConfiguration_currentApplicationVersionId = Lens.lens (\DeleteApplicationVpcConfiguration' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@DeleteApplicationVpcConfiguration' {} a -> s {currentApplicationVersionId = a} :: DeleteApplicationVpcConfiguration)
 
 -- | The name of an existing application.
 deleteApplicationVpcConfiguration_applicationName :: Lens.Lens' DeleteApplicationVpcConfiguration Prelude.Text
@@ -163,9 +164,8 @@ instance
   hashWithSalt
     _salt
     DeleteApplicationVpcConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` conditionalToken
         `Prelude.hashWithSalt` currentApplicationVersionId
-        `Prelude.hashWithSalt` conditionalToken
         `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` vpcConfigurationId
 
@@ -174,8 +174,8 @@ instance
     DeleteApplicationVpcConfiguration
   where
   rnf DeleteApplicationVpcConfiguration' {..} =
-    Prelude.rnf currentApplicationVersionId
-      `Prelude.seq` Prelude.rnf conditionalToken
+    Prelude.rnf conditionalToken
+      `Prelude.seq` Prelude.rnf currentApplicationVersionId
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf vpcConfigurationId
 
@@ -204,10 +204,10 @@ instance
   toJSON DeleteApplicationVpcConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CurrentApplicationVersionId" Core..=)
-              Prelude.<$> currentApplicationVersionId,
-            ("ConditionalToken" Core..=)
+          [ ("ConditionalToken" Core..=)
               Prelude.<$> conditionalToken,
+            ("CurrentApplicationVersionId" Core..=)
+              Prelude.<$> currentApplicationVersionId,
             Prelude.Just
               ("ApplicationName" Core..= applicationName),
             Prelude.Just

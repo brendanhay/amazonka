@@ -28,11 +28,11 @@ import Amazonka.S3.Internal
 --
 -- /See:/ 'newCopyObjectResult' smart constructor.
 data CopyObjectResult = CopyObjectResult'
-  { -- | Returns the ETag of the new object. The ETag reflects only changes to
+  { -- | Creation date of the object.
+    lastModified :: Prelude.Maybe Core.ISO8601,
+    -- | Returns the ETag of the new object. The ETag reflects only changes to
     -- the contents of an object, not its metadata.
-    eTag :: Prelude.Maybe ETag,
-    -- | Creation date of the object.
-    lastModified :: Prelude.Maybe Core.ISO8601
+    eTag :: Prelude.Maybe ETag
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,39 +44,39 @@ data CopyObjectResult = CopyObjectResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastModified', 'copyObjectResult_lastModified' - Creation date of the object.
+--
 -- 'eTag', 'copyObjectResult_eTag' - Returns the ETag of the new object. The ETag reflects only changes to
 -- the contents of an object, not its metadata.
---
--- 'lastModified', 'copyObjectResult_lastModified' - Creation date of the object.
 newCopyObjectResult ::
   CopyObjectResult
 newCopyObjectResult =
   CopyObjectResult'
-    { eTag = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+    { lastModified = Prelude.Nothing,
+      eTag = Prelude.Nothing
     }
+
+-- | Creation date of the object.
+copyObjectResult_lastModified :: Lens.Lens' CopyObjectResult (Prelude.Maybe Prelude.UTCTime)
+copyObjectResult_lastModified = Lens.lens (\CopyObjectResult' {lastModified} -> lastModified) (\s@CopyObjectResult' {} a -> s {lastModified = a} :: CopyObjectResult) Prelude.. Lens.mapping Core._Time
 
 -- | Returns the ETag of the new object. The ETag reflects only changes to
 -- the contents of an object, not its metadata.
 copyObjectResult_eTag :: Lens.Lens' CopyObjectResult (Prelude.Maybe ETag)
 copyObjectResult_eTag = Lens.lens (\CopyObjectResult' {eTag} -> eTag) (\s@CopyObjectResult' {} a -> s {eTag = a} :: CopyObjectResult)
 
--- | Creation date of the object.
-copyObjectResult_lastModified :: Lens.Lens' CopyObjectResult (Prelude.Maybe Prelude.UTCTime)
-copyObjectResult_lastModified = Lens.lens (\CopyObjectResult' {lastModified} -> lastModified) (\s@CopyObjectResult' {} a -> s {lastModified = a} :: CopyObjectResult) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromXML CopyObjectResult where
   parseXML x =
     CopyObjectResult'
-      Prelude.<$> (x Core..@? "ETag")
-      Prelude.<*> (x Core..@? "LastModified")
+      Prelude.<$> (x Core..@? "LastModified")
+      Prelude.<*> (x Core..@? "ETag")
 
 instance Prelude.Hashable CopyObjectResult where
   hashWithSalt _salt CopyObjectResult' {..} =
-    _salt `Prelude.hashWithSalt` eTag
-      `Prelude.hashWithSalt` lastModified
+    _salt `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` eTag
 
 instance Prelude.NFData CopyObjectResult where
   rnf CopyObjectResult' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModified
+    Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf eTag

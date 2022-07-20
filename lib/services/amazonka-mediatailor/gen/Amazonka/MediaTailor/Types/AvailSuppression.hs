@@ -30,7 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAvailSuppression' smart constructor.
 data AvailSuppression = AvailSuppression'
-  { -- | A live edge offset time in HH:MM:SS. MediaTailor won\'t fill ad breaks
+  { -- | Sets the ad suppression mode. By default, ad suppression is off and all
+    -- ad breaks are filled with ads or slate. When Mode is set to
+    -- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
+    -- ad breaks on or behind the ad suppression Value time in the manifest
+    -- lookback window.
+    mode :: Prelude.Maybe Mode,
+    -- | A live edge offset time in HH:MM:SS. MediaTailor won\'t fill ad breaks
     -- on or behind this time in the manifest lookback window. If Value is set
     -- to 00:00:00, it is in sync with the live edge, and MediaTailor won\'t
     -- fill any ad breaks on or behind the live edge. If you set a Value time,
@@ -39,13 +45,7 @@ data AvailSuppression = AvailSuppression'
     -- MediaTailor will fill ad breaks that occur within 45 minutes behind the
     -- live edge, but won\'t fill ad breaks on or behind 45 minutes behind the
     -- live edge.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | Sets the ad suppression mode. By default, ad suppression is off and all
-    -- ad breaks are filled with ads or slate. When Mode is set to
-    -- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
-    -- ad breaks on or behind the ad suppression Value time in the manifest
-    -- lookback window.
-    mode :: Prelude.Maybe Mode
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,12 @@ data AvailSuppression = AvailSuppression'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'mode', 'availSuppression_mode' - Sets the ad suppression mode. By default, ad suppression is off and all
+-- ad breaks are filled with ads or slate. When Mode is set to
+-- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
+-- ad breaks on or behind the ad suppression Value time in the manifest
+-- lookback window.
+--
 -- 'value', 'availSuppression_value' - A live edge offset time in HH:MM:SS. MediaTailor won\'t fill ad breaks
 -- on or behind this time in the manifest lookback window. If Value is set
 -- to 00:00:00, it is in sync with the live edge, and MediaTailor won\'t
@@ -66,19 +72,21 @@ data AvailSuppression = AvailSuppression'
 -- MediaTailor will fill ad breaks that occur within 45 minutes behind the
 -- live edge, but won\'t fill ad breaks on or behind 45 minutes behind the
 -- live edge.
---
--- 'mode', 'availSuppression_mode' - Sets the ad suppression mode. By default, ad suppression is off and all
--- ad breaks are filled with ads or slate. When Mode is set to
--- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
--- ad breaks on or behind the ad suppression Value time in the manifest
--- lookback window.
 newAvailSuppression ::
   AvailSuppression
 newAvailSuppression =
   AvailSuppression'
-    { value = Prelude.Nothing,
-      mode = Prelude.Nothing
+    { mode = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | Sets the ad suppression mode. By default, ad suppression is off and all
+-- ad breaks are filled with ads or slate. When Mode is set to
+-- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
+-- ad breaks on or behind the ad suppression Value time in the manifest
+-- lookback window.
+availSuppression_mode :: Lens.Lens' AvailSuppression (Prelude.Maybe Mode)
+availSuppression_mode = Lens.lens (\AvailSuppression' {mode} -> mode) (\s@AvailSuppression' {} a -> s {mode = a} :: AvailSuppression)
 
 -- | A live edge offset time in HH:MM:SS. MediaTailor won\'t fill ad breaks
 -- on or behind this time in the manifest lookback window. If Value is set
@@ -92,37 +100,29 @@ newAvailSuppression =
 availSuppression_value :: Lens.Lens' AvailSuppression (Prelude.Maybe Prelude.Text)
 availSuppression_value = Lens.lens (\AvailSuppression' {value} -> value) (\s@AvailSuppression' {} a -> s {value = a} :: AvailSuppression)
 
--- | Sets the ad suppression mode. By default, ad suppression is off and all
--- ad breaks are filled with ads or slate. When Mode is set to
--- BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won\'t fill
--- ad breaks on or behind the ad suppression Value time in the manifest
--- lookback window.
-availSuppression_mode :: Lens.Lens' AvailSuppression (Prelude.Maybe Mode)
-availSuppression_mode = Lens.lens (\AvailSuppression' {mode} -> mode) (\s@AvailSuppression' {} a -> s {mode = a} :: AvailSuppression)
-
 instance Core.FromJSON AvailSuppression where
   parseJSON =
     Core.withObject
       "AvailSuppression"
       ( \x ->
           AvailSuppression'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Mode")
+            Prelude.<$> (x Core..:? "Mode") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable AvailSuppression where
   hashWithSalt _salt AvailSuppression' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` mode
+    _salt `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AvailSuppression where
   rnf AvailSuppression' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf mode `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON AvailSuppression where
   toJSON AvailSuppression' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Mode" Core..=) Prelude.<$> mode
+          [ ("Mode" Core..=) Prelude.<$> mode,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

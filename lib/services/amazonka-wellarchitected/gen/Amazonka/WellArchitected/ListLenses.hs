@@ -35,8 +35,8 @@ module Amazonka.WellArchitected.ListLenses
     newListLensesResponse,
 
     -- * Response Lenses
-    listLensesResponse_nextToken,
     listLensesResponse_lensSummaries,
+    listLensesResponse_nextToken,
     listLensesResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance Core.AWSRequest ListLenses where
     Response.receiveJSON
       ( \s h x ->
           ListLensesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "LensSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "LensSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,8 +131,8 @@ instance Core.ToQuery ListLenses where
 --
 -- /See:/ 'newListLensesResponse' smart constructor.
 data ListLensesResponse = ListLensesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    lensSummaries :: Prelude.Maybe [LensSummary],
+  { lensSummaries :: Prelude.Maybe [LensSummary],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,9 +146,9 @@ data ListLensesResponse = ListLensesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLensesResponse_nextToken' - Undocumented member.
---
 -- 'lensSummaries', 'listLensesResponse_lensSummaries' - Undocumented member.
+--
+-- 'nextToken', 'listLensesResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listLensesResponse_httpStatus' - The response's http status code.
 newListLensesResponse ::
@@ -157,18 +157,19 @@ newListLensesResponse ::
   ListLensesResponse
 newListLensesResponse pHttpStatus_ =
   ListLensesResponse'
-    { nextToken = Prelude.Nothing,
-      lensSummaries = Prelude.Nothing,
+    { lensSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listLensesResponse_nextToken :: Lens.Lens' ListLensesResponse (Prelude.Maybe Prelude.Text)
-listLensesResponse_nextToken = Lens.lens (\ListLensesResponse' {nextToken} -> nextToken) (\s@ListLensesResponse' {} a -> s {nextToken = a} :: ListLensesResponse)
-
--- | Undocumented member.
 listLensesResponse_lensSummaries :: Lens.Lens' ListLensesResponse (Prelude.Maybe [LensSummary])
 listLensesResponse_lensSummaries = Lens.lens (\ListLensesResponse' {lensSummaries} -> lensSummaries) (\s@ListLensesResponse' {} a -> s {lensSummaries = a} :: ListLensesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listLensesResponse_nextToken :: Lens.Lens' ListLensesResponse (Prelude.Maybe Prelude.Text)
+listLensesResponse_nextToken = Lens.lens (\ListLensesResponse' {nextToken} -> nextToken) (\s@ListLensesResponse' {} a -> s {nextToken = a} :: ListLensesResponse)
 
 -- | The response's http status code.
 listLensesResponse_httpStatus :: Lens.Lens' ListLensesResponse Prelude.Int
@@ -176,6 +177,6 @@ listLensesResponse_httpStatus = Lens.lens (\ListLensesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListLensesResponse where
   rnf ListLensesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lensSummaries
+    Prelude.rnf lensSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

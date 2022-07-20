@@ -31,8 +31,8 @@ module Amazonka.IoTThingsGraph.SearchSystemTemplates
     newSearchSystemTemplates,
 
     -- * Request Lenses
-    searchSystemTemplates_filters,
     searchSystemTemplates_nextToken,
+    searchSystemTemplates_filters,
     searchSystemTemplates_maxResults,
 
     -- * Destructuring the Response
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchSystemTemplates' smart constructor.
 data SearchSystemTemplates = SearchSystemTemplates'
-  { -- | An array of filters that limit the result set. The only valid filter is
-    -- @FLOW_TEMPLATE_ID@.
-    filters :: Prelude.Maybe [SystemTemplateFilter],
-    -- | The string that specifies the next page of results. Use this when
+  { -- | The string that specifies the next page of results. Use this when
     -- you\'re paginating results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of filters that limit the result set. The only valid filter is
+    -- @FLOW_TEMPLATE_ID@.
+    filters :: Prelude.Maybe [SystemTemplateFilter],
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -74,31 +74,31 @@ data SearchSystemTemplates = SearchSystemTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'searchSystemTemplates_filters' - An array of filters that limit the result set. The only valid filter is
--- @FLOW_TEMPLATE_ID@.
---
 -- 'nextToken', 'searchSystemTemplates_nextToken' - The string that specifies the next page of results. Use this when
 -- you\'re paginating results.
+--
+-- 'filters', 'searchSystemTemplates_filters' - An array of filters that limit the result set. The only valid filter is
+-- @FLOW_TEMPLATE_ID@.
 --
 -- 'maxResults', 'searchSystemTemplates_maxResults' - The maximum number of results to return in the response.
 newSearchSystemTemplates ::
   SearchSystemTemplates
 newSearchSystemTemplates =
   SearchSystemTemplates'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | An array of filters that limit the result set. The only valid filter is
--- @FLOW_TEMPLATE_ID@.
-searchSystemTemplates_filters :: Lens.Lens' SearchSystemTemplates (Prelude.Maybe [SystemTemplateFilter])
-searchSystemTemplates_filters = Lens.lens (\SearchSystemTemplates' {filters} -> filters) (\s@SearchSystemTemplates' {} a -> s {filters = a} :: SearchSystemTemplates) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string that specifies the next page of results. Use this when
 -- you\'re paginating results.
 searchSystemTemplates_nextToken :: Lens.Lens' SearchSystemTemplates (Prelude.Maybe Prelude.Text)
 searchSystemTemplates_nextToken = Lens.lens (\SearchSystemTemplates' {nextToken} -> nextToken) (\s@SearchSystemTemplates' {} a -> s {nextToken = a} :: SearchSystemTemplates)
+
+-- | An array of filters that limit the result set. The only valid filter is
+-- @FLOW_TEMPLATE_ID@.
+searchSystemTemplates_filters :: Lens.Lens' SearchSystemTemplates (Prelude.Maybe [SystemTemplateFilter])
+searchSystemTemplates_filters = Lens.lens (\SearchSystemTemplates' {filters} -> filters) (\s@SearchSystemTemplates' {} a -> s {filters = a} :: SearchSystemTemplates) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return in the response.
 searchSystemTemplates_maxResults :: Lens.Lens' SearchSystemTemplates (Prelude.Maybe Prelude.Natural)
@@ -142,14 +142,14 @@ instance Core.AWSRequest SearchSystemTemplates where
 
 instance Prelude.Hashable SearchSystemTemplates where
   hashWithSalt _salt SearchSystemTemplates' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData SearchSystemTemplates where
   rnf SearchSystemTemplates' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchSystemTemplates where
@@ -171,8 +171,8 @@ instance Core.ToJSON SearchSystemTemplates where
   toJSON SearchSystemTemplates' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filters" Core..=) Prelude.<$> filters,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

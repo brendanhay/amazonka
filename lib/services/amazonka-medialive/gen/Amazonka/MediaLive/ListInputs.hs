@@ -37,8 +37,8 @@ module Amazonka.MediaLive.ListInputs
     newListInputsResponse,
 
     -- * Response Lenses
-    listInputsResponse_inputs,
     listInputsResponse_nextToken,
+    listInputsResponse_inputs,
     listInputsResponse_httpStatus,
   )
 where
@@ -112,8 +112,8 @@ instance Core.AWSRequest ListInputs where
     Response.receiveJSON
       ( \s h x ->
           ListInputsResponse'
-            Prelude.<$> (x Core..?> "inputs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "inputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,8 +152,8 @@ instance Core.ToQuery ListInputs where
 --
 -- /See:/ 'newListInputsResponse' smart constructor.
 data ListInputsResponse = ListInputsResponse'
-  { inputs :: Prelude.Maybe [Input],
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    inputs :: Prelude.Maybe [Input],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,9 +167,9 @@ data ListInputsResponse = ListInputsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputs', 'listInputsResponse_inputs' - Undocumented member.
---
 -- 'nextToken', 'listInputsResponse_nextToken' - Undocumented member.
+--
+-- 'inputs', 'listInputsResponse_inputs' - Undocumented member.
 --
 -- 'httpStatus', 'listInputsResponse_httpStatus' - The response's http status code.
 newListInputsResponse ::
@@ -178,18 +178,18 @@ newListInputsResponse ::
   ListInputsResponse
 newListInputsResponse pHttpStatus_ =
   ListInputsResponse'
-    { inputs = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      inputs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listInputsResponse_inputs :: Lens.Lens' ListInputsResponse (Prelude.Maybe [Input])
-listInputsResponse_inputs = Lens.lens (\ListInputsResponse' {inputs} -> inputs) (\s@ListInputsResponse' {} a -> s {inputs = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 listInputsResponse_nextToken :: Lens.Lens' ListInputsResponse (Prelude.Maybe Prelude.Text)
 listInputsResponse_nextToken = Lens.lens (\ListInputsResponse' {nextToken} -> nextToken) (\s@ListInputsResponse' {} a -> s {nextToken = a} :: ListInputsResponse)
+
+-- | Undocumented member.
+listInputsResponse_inputs :: Lens.Lens' ListInputsResponse (Prelude.Maybe [Input])
+listInputsResponse_inputs = Lens.lens (\ListInputsResponse' {inputs} -> inputs) (\s@ListInputsResponse' {} a -> s {inputs = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInputsResponse_httpStatus :: Lens.Lens' ListInputsResponse Prelude.Int
@@ -197,6 +197,6 @@ listInputsResponse_httpStatus = Lens.lens (\ListInputsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListInputsResponse where
   rnf ListInputsResponse' {..} =
-    Prelude.rnf inputs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf httpStatus

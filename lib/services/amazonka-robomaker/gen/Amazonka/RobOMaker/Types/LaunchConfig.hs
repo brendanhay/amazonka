@@ -28,7 +28,11 @@ import Amazonka.RobOMaker.Types.PortForwardingConfig
 --
 -- /See:/ 'newLaunchConfig' smart constructor.
 data LaunchConfig = LaunchConfig'
-  { -- | If you\'ve specified @General@ as the value for your
+  { -- | The package name.
+    packageName :: Prelude.Maybe Prelude.Text,
+    -- | The launch file name.
+    launchFile :: Prelude.Maybe Prelude.Text,
+    -- | If you\'ve specified @General@ as the value for your
     -- @RobotSoftwareSuite@, you can use this field to specify a list of
     -- commands for your container image.
     --
@@ -36,20 +40,16 @@ data LaunchConfig = LaunchConfig'
     -- @SimulationSoftwareSuite@, you can use this field to specify a list of
     -- commands for your container image.
     command :: Prelude.Maybe [Prelude.Text],
-    -- | The package name.
-    packageName :: Prelude.Maybe Prelude.Text,
-    -- | The port forwarding configuration.
-    portForwardingConfig :: Prelude.Maybe PortForwardingConfig,
-    -- | The launch file name.
-    launchFile :: Prelude.Maybe Prelude.Text,
-    -- | The environment variables for the application launch.
-    environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Boolean indicating whether a streaming session will be configured for
     -- the application. If @True@, AWS RoboMaker will configure a connection so
     -- you can interact with your application as it is running in the
     -- simulation. You must configure and launch the component. It must have a
     -- graphical user interface.
-    streamUI :: Prelude.Maybe Prelude.Bool
+    streamUI :: Prelude.Maybe Prelude.Bool,
+    -- | The environment variables for the application launch.
+    environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The port forwarding configuration.
+    portForwardingConfig :: Prelude.Maybe PortForwardingConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,6 +61,10 @@ data LaunchConfig = LaunchConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'packageName', 'launchConfig_packageName' - The package name.
+--
+-- 'launchFile', 'launchConfig_launchFile' - The launch file name.
+--
 -- 'command', 'launchConfig_command' - If you\'ve specified @General@ as the value for your
 -- @RobotSoftwareSuite@, you can use this field to specify a list of
 -- commands for your container image.
@@ -69,30 +73,34 @@ data LaunchConfig = LaunchConfig'
 -- @SimulationSoftwareSuite@, you can use this field to specify a list of
 -- commands for your container image.
 --
--- 'packageName', 'launchConfig_packageName' - The package name.
---
--- 'portForwardingConfig', 'launchConfig_portForwardingConfig' - The port forwarding configuration.
---
--- 'launchFile', 'launchConfig_launchFile' - The launch file name.
---
--- 'environmentVariables', 'launchConfig_environmentVariables' - The environment variables for the application launch.
---
 -- 'streamUI', 'launchConfig_streamUI' - Boolean indicating whether a streaming session will be configured for
 -- the application. If @True@, AWS RoboMaker will configure a connection so
 -- you can interact with your application as it is running in the
 -- simulation. You must configure and launch the component. It must have a
 -- graphical user interface.
+--
+-- 'environmentVariables', 'launchConfig_environmentVariables' - The environment variables for the application launch.
+--
+-- 'portForwardingConfig', 'launchConfig_portForwardingConfig' - The port forwarding configuration.
 newLaunchConfig ::
   LaunchConfig
 newLaunchConfig =
   LaunchConfig'
-    { command = Prelude.Nothing,
-      packageName = Prelude.Nothing,
-      portForwardingConfig = Prelude.Nothing,
+    { packageName = Prelude.Nothing,
       launchFile = Prelude.Nothing,
+      command = Prelude.Nothing,
+      streamUI = Prelude.Nothing,
       environmentVariables = Prelude.Nothing,
-      streamUI = Prelude.Nothing
+      portForwardingConfig = Prelude.Nothing
     }
+
+-- | The package name.
+launchConfig_packageName :: Lens.Lens' LaunchConfig (Prelude.Maybe Prelude.Text)
+launchConfig_packageName = Lens.lens (\LaunchConfig' {packageName} -> packageName) (\s@LaunchConfig' {} a -> s {packageName = a} :: LaunchConfig)
+
+-- | The launch file name.
+launchConfig_launchFile :: Lens.Lens' LaunchConfig (Prelude.Maybe Prelude.Text)
+launchConfig_launchFile = Lens.lens (\LaunchConfig' {launchFile} -> launchFile) (\s@LaunchConfig' {} a -> s {launchFile = a} :: LaunchConfig)
 
 -- | If you\'ve specified @General@ as the value for your
 -- @RobotSoftwareSuite@, you can use this field to specify a list of
@@ -104,22 +112,6 @@ newLaunchConfig =
 launchConfig_command :: Lens.Lens' LaunchConfig (Prelude.Maybe [Prelude.Text])
 launchConfig_command = Lens.lens (\LaunchConfig' {command} -> command) (\s@LaunchConfig' {} a -> s {command = a} :: LaunchConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | The package name.
-launchConfig_packageName :: Lens.Lens' LaunchConfig (Prelude.Maybe Prelude.Text)
-launchConfig_packageName = Lens.lens (\LaunchConfig' {packageName} -> packageName) (\s@LaunchConfig' {} a -> s {packageName = a} :: LaunchConfig)
-
--- | The port forwarding configuration.
-launchConfig_portForwardingConfig :: Lens.Lens' LaunchConfig (Prelude.Maybe PortForwardingConfig)
-launchConfig_portForwardingConfig = Lens.lens (\LaunchConfig' {portForwardingConfig} -> portForwardingConfig) (\s@LaunchConfig' {} a -> s {portForwardingConfig = a} :: LaunchConfig)
-
--- | The launch file name.
-launchConfig_launchFile :: Lens.Lens' LaunchConfig (Prelude.Maybe Prelude.Text)
-launchConfig_launchFile = Lens.lens (\LaunchConfig' {launchFile} -> launchFile) (\s@LaunchConfig' {} a -> s {launchFile = a} :: LaunchConfig)
-
--- | The environment variables for the application launch.
-launchConfig_environmentVariables :: Lens.Lens' LaunchConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-launchConfig_environmentVariables = Lens.lens (\LaunchConfig' {environmentVariables} -> environmentVariables) (\s@LaunchConfig' {} a -> s {environmentVariables = a} :: LaunchConfig) Prelude.. Lens.mapping Lens.coerced
-
 -- | Boolean indicating whether a streaming session will be configured for
 -- the application. If @True@, AWS RoboMaker will configure a connection so
 -- you can interact with your application as it is running in the
@@ -128,51 +120,59 @@ launchConfig_environmentVariables = Lens.lens (\LaunchConfig' {environmentVariab
 launchConfig_streamUI :: Lens.Lens' LaunchConfig (Prelude.Maybe Prelude.Bool)
 launchConfig_streamUI = Lens.lens (\LaunchConfig' {streamUI} -> streamUI) (\s@LaunchConfig' {} a -> s {streamUI = a} :: LaunchConfig)
 
+-- | The environment variables for the application launch.
+launchConfig_environmentVariables :: Lens.Lens' LaunchConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+launchConfig_environmentVariables = Lens.lens (\LaunchConfig' {environmentVariables} -> environmentVariables) (\s@LaunchConfig' {} a -> s {environmentVariables = a} :: LaunchConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The port forwarding configuration.
+launchConfig_portForwardingConfig :: Lens.Lens' LaunchConfig (Prelude.Maybe PortForwardingConfig)
+launchConfig_portForwardingConfig = Lens.lens (\LaunchConfig' {portForwardingConfig} -> portForwardingConfig) (\s@LaunchConfig' {} a -> s {portForwardingConfig = a} :: LaunchConfig)
+
 instance Core.FromJSON LaunchConfig where
   parseJSON =
     Core.withObject
       "LaunchConfig"
       ( \x ->
           LaunchConfig'
-            Prelude.<$> (x Core..:? "command" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "packageName")
-            Prelude.<*> (x Core..:? "portForwardingConfig")
+            Prelude.<$> (x Core..:? "packageName")
             Prelude.<*> (x Core..:? "launchFile")
+            Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "streamUI")
             Prelude.<*> ( x Core..:? "environmentVariables"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "streamUI")
+            Prelude.<*> (x Core..:? "portForwardingConfig")
       )
 
 instance Prelude.Hashable LaunchConfig where
   hashWithSalt _salt LaunchConfig' {..} =
-    _salt `Prelude.hashWithSalt` command
-      `Prelude.hashWithSalt` packageName
-      `Prelude.hashWithSalt` portForwardingConfig
+    _salt `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` launchFile
-      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` streamUI
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` portForwardingConfig
 
 instance Prelude.NFData LaunchConfig where
   rnf LaunchConfig' {..} =
-    Prelude.rnf command
-      `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf portForwardingConfig
+    Prelude.rnf packageName
       `Prelude.seq` Prelude.rnf launchFile
-      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf command
       `Prelude.seq` Prelude.rnf streamUI
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf portForwardingConfig
 
 instance Core.ToJSON LaunchConfig where
   toJSON LaunchConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("command" Core..=) Prelude.<$> command,
-            ("packageName" Core..=) Prelude.<$> packageName,
-            ("portForwardingConfig" Core..=)
-              Prelude.<$> portForwardingConfig,
+          [ ("packageName" Core..=) Prelude.<$> packageName,
             ("launchFile" Core..=) Prelude.<$> launchFile,
+            ("command" Core..=) Prelude.<$> command,
+            ("streamUI" Core..=) Prelude.<$> streamUI,
             ("environmentVariables" Core..=)
               Prelude.<$> environmentVariables,
-            ("streamUI" Core..=) Prelude.<$> streamUI
+            ("portForwardingConfig" Core..=)
+              Prelude.<$> portForwardingConfig
           ]
       )

@@ -34,16 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContextEntry' smart constructor.
 data ContextEntry = ContextEntry'
-  { -- | The value (or values, if the condition context key supports multiple
-    -- values) to provide to the simulation when the key is referenced by a
-    -- @Condition@ element in an input policy.
-    contextKeyValues :: Prelude.Maybe [Prelude.Text],
-    -- | The full name of a condition context key, including the service prefix.
+  { -- | The full name of a condition context key, including the service prefix.
     -- For example, @aws:SourceIp@ or @s3:VersionId@.
     contextKeyName :: Prelude.Maybe Prelude.Text,
     -- | The data type of the value (or values) specified in the
     -- @ContextKeyValues@ parameter.
-    contextKeyType :: Prelude.Maybe ContextKeyTypeEnum
+    contextKeyType :: Prelude.Maybe ContextKeyTypeEnum,
+    -- | The value (or values, if the condition context key supports multiple
+    -- values) to provide to the simulation when the key is referenced by a
+    -- @Condition@ element in an input policy.
+    contextKeyValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,29 +55,23 @@ data ContextEntry = ContextEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contextKeyValues', 'contextEntry_contextKeyValues' - The value (or values, if the condition context key supports multiple
--- values) to provide to the simulation when the key is referenced by a
--- @Condition@ element in an input policy.
---
 -- 'contextKeyName', 'contextEntry_contextKeyName' - The full name of a condition context key, including the service prefix.
 -- For example, @aws:SourceIp@ or @s3:VersionId@.
 --
 -- 'contextKeyType', 'contextEntry_contextKeyType' - The data type of the value (or values) specified in the
 -- @ContextKeyValues@ parameter.
+--
+-- 'contextKeyValues', 'contextEntry_contextKeyValues' - The value (or values, if the condition context key supports multiple
+-- values) to provide to the simulation when the key is referenced by a
+-- @Condition@ element in an input policy.
 newContextEntry ::
   ContextEntry
 newContextEntry =
   ContextEntry'
-    { contextKeyValues = Prelude.Nothing,
-      contextKeyName = Prelude.Nothing,
-      contextKeyType = Prelude.Nothing
+    { contextKeyName = Prelude.Nothing,
+      contextKeyType = Prelude.Nothing,
+      contextKeyValues = Prelude.Nothing
     }
-
--- | The value (or values, if the condition context key supports multiple
--- values) to provide to the simulation when the key is referenced by a
--- @Condition@ element in an input policy.
-contextEntry_contextKeyValues :: Lens.Lens' ContextEntry (Prelude.Maybe [Prelude.Text])
-contextEntry_contextKeyValues = Lens.lens (\ContextEntry' {contextKeyValues} -> contextKeyValues) (\s@ContextEntry' {} a -> s {contextKeyValues = a} :: ContextEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The full name of a condition context key, including the service prefix.
 -- For example, @aws:SourceIp@ or @s3:VersionId@.
@@ -89,26 +83,32 @@ contextEntry_contextKeyName = Lens.lens (\ContextEntry' {contextKeyName} -> cont
 contextEntry_contextKeyType :: Lens.Lens' ContextEntry (Prelude.Maybe ContextKeyTypeEnum)
 contextEntry_contextKeyType = Lens.lens (\ContextEntry' {contextKeyType} -> contextKeyType) (\s@ContextEntry' {} a -> s {contextKeyType = a} :: ContextEntry)
 
+-- | The value (or values, if the condition context key supports multiple
+-- values) to provide to the simulation when the key is referenced by a
+-- @Condition@ element in an input policy.
+contextEntry_contextKeyValues :: Lens.Lens' ContextEntry (Prelude.Maybe [Prelude.Text])
+contextEntry_contextKeyValues = Lens.lens (\ContextEntry' {contextKeyValues} -> contextKeyValues) (\s@ContextEntry' {} a -> s {contextKeyValues = a} :: ContextEntry) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable ContextEntry where
   hashWithSalt _salt ContextEntry' {..} =
-    _salt `Prelude.hashWithSalt` contextKeyValues
-      `Prelude.hashWithSalt` contextKeyName
+    _salt `Prelude.hashWithSalt` contextKeyName
       `Prelude.hashWithSalt` contextKeyType
+      `Prelude.hashWithSalt` contextKeyValues
 
 instance Prelude.NFData ContextEntry where
   rnf ContextEntry' {..} =
-    Prelude.rnf contextKeyValues
-      `Prelude.seq` Prelude.rnf contextKeyName
+    Prelude.rnf contextKeyName
       `Prelude.seq` Prelude.rnf contextKeyType
+      `Prelude.seq` Prelude.rnf contextKeyValues
 
 instance Core.ToQuery ContextEntry where
   toQuery ContextEntry' {..} =
     Prelude.mconcat
-      [ "ContextKeyValues"
+      [ "ContextKeyName" Core.=: contextKeyName,
+        "ContextKeyType" Core.=: contextKeyType,
+        "ContextKeyValues"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> contextKeyValues
-            ),
-        "ContextKeyName" Core.=: contextKeyName,
-        "ContextKeyType" Core.=: contextKeyType
+            )
       ]

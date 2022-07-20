@@ -71,8 +71,8 @@ module Amazonka.MarketplaceMetering.RegisterUsage
     newRegisterUsageResponse,
 
     -- * Response Lenses
-    registerUsageResponse_signature,
     registerUsageResponse_publicKeyRotationTimestamp,
+    registerUsageResponse_signature,
     registerUsageResponse_httpStatus,
   )
 where
@@ -151,8 +151,8 @@ instance Core.AWSRequest RegisterUsage where
     Response.receiveJSON
       ( \s h x ->
           RegisterUsageResponse'
-            Prelude.<$> (x Core..?> "Signature")
-            Prelude.<*> (x Core..?> "PublicKeyRotationTimestamp")
+            Prelude.<$> (x Core..?> "PublicKeyRotationTimestamp")
+            Prelude.<*> (x Core..?> "Signature")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,10 +202,10 @@ instance Core.ToQuery RegisterUsage where
 
 -- | /See:/ 'newRegisterUsageResponse' smart constructor.
 data RegisterUsageResponse = RegisterUsageResponse'
-  { -- | JWT Token
-    signature :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Only included when public key version has expired
+  { -- | (Optional) Only included when public key version has expired
     publicKeyRotationTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | JWT Token
+    signature :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,9 +219,9 @@ data RegisterUsageResponse = RegisterUsageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signature', 'registerUsageResponse_signature' - JWT Token
---
 -- 'publicKeyRotationTimestamp', 'registerUsageResponse_publicKeyRotationTimestamp' - (Optional) Only included when public key version has expired
+--
+-- 'signature', 'registerUsageResponse_signature' - JWT Token
 --
 -- 'httpStatus', 'registerUsageResponse_httpStatus' - The response's http status code.
 newRegisterUsageResponse ::
@@ -230,18 +230,19 @@ newRegisterUsageResponse ::
   RegisterUsageResponse
 newRegisterUsageResponse pHttpStatus_ =
   RegisterUsageResponse'
-    { signature = Prelude.Nothing,
-      publicKeyRotationTimestamp = Prelude.Nothing,
+    { publicKeyRotationTimestamp =
+        Prelude.Nothing,
+      signature = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | JWT Token
-registerUsageResponse_signature :: Lens.Lens' RegisterUsageResponse (Prelude.Maybe Prelude.Text)
-registerUsageResponse_signature = Lens.lens (\RegisterUsageResponse' {signature} -> signature) (\s@RegisterUsageResponse' {} a -> s {signature = a} :: RegisterUsageResponse)
 
 -- | (Optional) Only included when public key version has expired
 registerUsageResponse_publicKeyRotationTimestamp :: Lens.Lens' RegisterUsageResponse (Prelude.Maybe Prelude.UTCTime)
 registerUsageResponse_publicKeyRotationTimestamp = Lens.lens (\RegisterUsageResponse' {publicKeyRotationTimestamp} -> publicKeyRotationTimestamp) (\s@RegisterUsageResponse' {} a -> s {publicKeyRotationTimestamp = a} :: RegisterUsageResponse) Prelude.. Lens.mapping Core._Time
+
+-- | JWT Token
+registerUsageResponse_signature :: Lens.Lens' RegisterUsageResponse (Prelude.Maybe Prelude.Text)
+registerUsageResponse_signature = Lens.lens (\RegisterUsageResponse' {signature} -> signature) (\s@RegisterUsageResponse' {} a -> s {signature = a} :: RegisterUsageResponse)
 
 -- | The response's http status code.
 registerUsageResponse_httpStatus :: Lens.Lens' RegisterUsageResponse Prelude.Int
@@ -249,6 +250,6 @@ registerUsageResponse_httpStatus = Lens.lens (\RegisterUsageResponse' {httpStatu
 
 instance Prelude.NFData RegisterUsageResponse where
   rnf RegisterUsageResponse' {..} =
-    Prelude.rnf signature
-      `Prelude.seq` Prelude.rnf publicKeyRotationTimestamp
+    Prelude.rnf publicKeyRotationTimestamp
+      `Prelude.seq` Prelude.rnf signature
       `Prelude.seq` Prelude.rnf httpStatus

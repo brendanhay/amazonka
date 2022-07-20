@@ -35,10 +35,10 @@ module Amazonka.ECR.PutImage
     newPutImage,
 
     -- * Request Lenses
+    putImage_imageTag,
     putImage_registryId,
     putImage_imageManifestMediaType,
     putImage_imageDigest,
-    putImage_imageTag,
     putImage_repositoryName,
     putImage_imageManifest,
 
@@ -61,7 +61,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutImage' smart constructor.
 data PutImage = PutImage'
-  { -- | The Amazon Web Services account ID associated with the registry that
+  { -- | The tag to associate with the image. This parameter is required for
+    -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
+    -- Initiative (OCI) formats.
+    imageTag :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account ID associated with the registry that
     -- contains the repository in which to put the image. If you do not specify
     -- a registry, the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
@@ -71,10 +75,6 @@ data PutImage = PutImage'
     imageManifestMediaType :: Prelude.Maybe Prelude.Text,
     -- | The image digest of the image manifest corresponding to the image.
     imageDigest :: Prelude.Maybe Prelude.Text,
-    -- | The tag to associate with the image. This parameter is required for
-    -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
-    -- Initiative (OCI) formats.
-    imageTag :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository in which to put the image.
     repositoryName :: Prelude.Text,
     -- | The image manifest corresponding to the image to be uploaded.
@@ -90,6 +90,10 @@ data PutImage = PutImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageTag', 'putImage_imageTag' - The tag to associate with the image. This parameter is required for
+-- images that use the Docker Image Manifest V2 Schema 2 or Open Container
+-- Initiative (OCI) formats.
+--
 -- 'registryId', 'putImage_registryId' - The Amazon Web Services account ID associated with the registry that
 -- contains the repository in which to put the image. If you do not specify
 -- a registry, the default registry is assumed.
@@ -99,10 +103,6 @@ data PutImage = PutImage'
 -- @imageManifestMediaType@ in the request.
 --
 -- 'imageDigest', 'putImage_imageDigest' - The image digest of the image manifest corresponding to the image.
---
--- 'imageTag', 'putImage_imageTag' - The tag to associate with the image. This parameter is required for
--- images that use the Docker Image Manifest V2 Schema 2 or Open Container
--- Initiative (OCI) formats.
 --
 -- 'repositoryName', 'putImage_repositoryName' - The name of the repository in which to put the image.
 --
@@ -115,13 +115,19 @@ newPutImage ::
   PutImage
 newPutImage pRepositoryName_ pImageManifest_ =
   PutImage'
-    { registryId = Prelude.Nothing,
+    { imageTag = Prelude.Nothing,
+      registryId = Prelude.Nothing,
       imageManifestMediaType = Prelude.Nothing,
       imageDigest = Prelude.Nothing,
-      imageTag = Prelude.Nothing,
       repositoryName = pRepositoryName_,
       imageManifest = pImageManifest_
     }
+
+-- | The tag to associate with the image. This parameter is required for
+-- images that use the Docker Image Manifest V2 Schema 2 or Open Container
+-- Initiative (OCI) formats.
+putImage_imageTag :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
+putImage_imageTag = Lens.lens (\PutImage' {imageTag} -> imageTag) (\s@PutImage' {} a -> s {imageTag = a} :: PutImage)
 
 -- | The Amazon Web Services account ID associated with the registry that
 -- contains the repository in which to put the image. If you do not specify
@@ -138,12 +144,6 @@ putImage_imageManifestMediaType = Lens.lens (\PutImage' {imageManifestMediaType}
 -- | The image digest of the image manifest corresponding to the image.
 putImage_imageDigest :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_imageDigest = Lens.lens (\PutImage' {imageDigest} -> imageDigest) (\s@PutImage' {} a -> s {imageDigest = a} :: PutImage)
-
--- | The tag to associate with the image. This parameter is required for
--- images that use the Docker Image Manifest V2 Schema 2 or Open Container
--- Initiative (OCI) formats.
-putImage_imageTag :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
-putImage_imageTag = Lens.lens (\PutImage' {imageTag} -> imageTag) (\s@PutImage' {} a -> s {imageTag = a} :: PutImage)
 
 -- | The name of the repository in which to put the image.
 putImage_repositoryName :: Lens.Lens' PutImage Prelude.Text
@@ -166,19 +166,19 @@ instance Core.AWSRequest PutImage where
 
 instance Prelude.Hashable PutImage where
   hashWithSalt _salt PutImage' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt `Prelude.hashWithSalt` imageTag
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` imageDigest
-      `Prelude.hashWithSalt` imageTag
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageManifest
 
 instance Prelude.NFData PutImage where
   rnf PutImage' {..} =
-    Prelude.rnf registryId
+    Prelude.rnf imageTag
+      `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf imageManifestMediaType
       `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf imageTag
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageManifest
 
@@ -201,11 +201,11 @@ instance Core.ToJSON PutImage where
   toJSON PutImage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
+          [ ("imageTag" Core..=) Prelude.<$> imageTag,
+            ("registryId" Core..=) Prelude.<$> registryId,
             ("imageManifestMediaType" Core..=)
               Prelude.<$> imageManifestMediaType,
             ("imageDigest" Core..=) Prelude.<$> imageDigest,
-            ("imageTag" Core..=) Prelude.<$> imageTag,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),
             Prelude.Just

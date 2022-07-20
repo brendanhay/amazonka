@@ -29,22 +29,22 @@ module Amazonka.SageMaker.ListContexts
     newListContexts,
 
     -- * Request Lenses
-    listContexts_createdAfter,
-    listContexts_nextToken,
     listContexts_sortOrder,
-    listContexts_contextType,
+    listContexts_nextToken,
     listContexts_sourceUri,
-    listContexts_maxResults,
     listContexts_createdBefore,
     listContexts_sortBy,
+    listContexts_maxResults,
+    listContexts_createdAfter,
+    listContexts_contextType,
 
     -- * Destructuring the Response
     ListContextsResponse (..),
     newListContextsResponse,
 
     -- * Response Lenses
-    listContextsResponse_contextSummaries,
     listContextsResponse_nextToken,
+    listContextsResponse_contextSummaries,
     listContextsResponse_httpStatus,
   )
 where
@@ -58,26 +58,26 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListContexts' smart constructor.
 data ListContexts = ListContexts'
-  { -- | A filter that returns only contexts created on or after the specified
-    -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+  { -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the previous call to @ListContexts@ didn\'t return the full set of
     -- contexts, the call returns a token for getting the next set of contexts.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter that returns only contexts of the specified type.
-    contextType :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only contexts with the specified source URI.
     sourceUri :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of contexts to return in the response. The default
-    -- value is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only contexts created on or before the specified
     -- time.
     createdBefore :: Prelude.Maybe Core.POSIX,
     -- | The property used to sort results. The default value is @CreationTime@.
-    sortBy :: Prelude.Maybe SortContextsBy
+    sortBy :: Prelude.Maybe SortContextsBy,
+    -- | The maximum number of contexts to return in the response. The default
+    -- value is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A filter that returns only contexts created on or after the specified
+    -- time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
+    -- | A filter that returns only contexts of the specified type.
+    contextType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,65 +89,51 @@ data ListContexts = ListContexts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listContexts_createdAfter' - A filter that returns only contexts created on or after the specified
--- time.
+-- 'sortOrder', 'listContexts_sortOrder' - The sort order. The default value is @Descending@.
 --
 -- 'nextToken', 'listContexts_nextToken' - If the previous call to @ListContexts@ didn\'t return the full set of
 -- contexts, the call returns a token for getting the next set of contexts.
 --
--- 'sortOrder', 'listContexts_sortOrder' - The sort order. The default value is @Descending@.
---
--- 'contextType', 'listContexts_contextType' - A filter that returns only contexts of the specified type.
---
 -- 'sourceUri', 'listContexts_sourceUri' - A filter that returns only contexts with the specified source URI.
---
--- 'maxResults', 'listContexts_maxResults' - The maximum number of contexts to return in the response. The default
--- value is 10.
 --
 -- 'createdBefore', 'listContexts_createdBefore' - A filter that returns only contexts created on or before the specified
 -- time.
 --
 -- 'sortBy', 'listContexts_sortBy' - The property used to sort results. The default value is @CreationTime@.
+--
+-- 'maxResults', 'listContexts_maxResults' - The maximum number of contexts to return in the response. The default
+-- value is 10.
+--
+-- 'createdAfter', 'listContexts_createdAfter' - A filter that returns only contexts created on or after the specified
+-- time.
+--
+-- 'contextType', 'listContexts_contextType' - A filter that returns only contexts of the specified type.
 newListContexts ::
   ListContexts
 newListContexts =
   ListContexts'
-    { createdAfter = Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      contextType = Prelude.Nothing,
       sourceUri = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
+      contextType = Prelude.Nothing
     }
 
--- | A filter that returns only contexts created on or after the specified
--- time.
-listContexts_createdAfter :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.UTCTime)
-listContexts_createdAfter = Lens.lens (\ListContexts' {createdAfter} -> createdAfter) (\s@ListContexts' {} a -> s {createdAfter = a} :: ListContexts) Prelude.. Lens.mapping Core._Time
+-- | The sort order. The default value is @Descending@.
+listContexts_sortOrder :: Lens.Lens' ListContexts (Prelude.Maybe SortOrder)
+listContexts_sortOrder = Lens.lens (\ListContexts' {sortOrder} -> sortOrder) (\s@ListContexts' {} a -> s {sortOrder = a} :: ListContexts)
 
 -- | If the previous call to @ListContexts@ didn\'t return the full set of
 -- contexts, the call returns a token for getting the next set of contexts.
 listContexts_nextToken :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Text)
 listContexts_nextToken = Lens.lens (\ListContexts' {nextToken} -> nextToken) (\s@ListContexts' {} a -> s {nextToken = a} :: ListContexts)
 
--- | The sort order. The default value is @Descending@.
-listContexts_sortOrder :: Lens.Lens' ListContexts (Prelude.Maybe SortOrder)
-listContexts_sortOrder = Lens.lens (\ListContexts' {sortOrder} -> sortOrder) (\s@ListContexts' {} a -> s {sortOrder = a} :: ListContexts)
-
--- | A filter that returns only contexts of the specified type.
-listContexts_contextType :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Text)
-listContexts_contextType = Lens.lens (\ListContexts' {contextType} -> contextType) (\s@ListContexts' {} a -> s {contextType = a} :: ListContexts)
-
 -- | A filter that returns only contexts with the specified source URI.
 listContexts_sourceUri :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Text)
 listContexts_sourceUri = Lens.lens (\ListContexts' {sourceUri} -> sourceUri) (\s@ListContexts' {} a -> s {sourceUri = a} :: ListContexts)
-
--- | The maximum number of contexts to return in the response. The default
--- value is 10.
-listContexts_maxResults :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Natural)
-listContexts_maxResults = Lens.lens (\ListContexts' {maxResults} -> maxResults) (\s@ListContexts' {} a -> s {maxResults = a} :: ListContexts)
 
 -- | A filter that returns only contexts created on or before the specified
 -- time.
@@ -157,6 +143,20 @@ listContexts_createdBefore = Lens.lens (\ListContexts' {createdBefore} -> create
 -- | The property used to sort results. The default value is @CreationTime@.
 listContexts_sortBy :: Lens.Lens' ListContexts (Prelude.Maybe SortContextsBy)
 listContexts_sortBy = Lens.lens (\ListContexts' {sortBy} -> sortBy) (\s@ListContexts' {} a -> s {sortBy = a} :: ListContexts)
+
+-- | The maximum number of contexts to return in the response. The default
+-- value is 10.
+listContexts_maxResults :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Natural)
+listContexts_maxResults = Lens.lens (\ListContexts' {maxResults} -> maxResults) (\s@ListContexts' {} a -> s {maxResults = a} :: ListContexts)
+
+-- | A filter that returns only contexts created on or after the specified
+-- time.
+listContexts_createdAfter :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.UTCTime)
+listContexts_createdAfter = Lens.lens (\ListContexts' {createdAfter} -> createdAfter) (\s@ListContexts' {} a -> s {createdAfter = a} :: ListContexts) Prelude.. Lens.mapping Core._Time
+
+-- | A filter that returns only contexts of the specified type.
+listContexts_contextType :: Lens.Lens' ListContexts (Prelude.Maybe Prelude.Text)
+listContexts_contextType = Lens.lens (\ListContexts' {contextType} -> contextType) (\s@ListContexts' {} a -> s {contextType = a} :: ListContexts)
 
 instance Core.AWSPager ListContexts where
   page rq rs
@@ -185,34 +185,34 @@ instance Core.AWSRequest ListContexts where
     Response.receiveJSON
       ( \s h x ->
           ListContextsResponse'
-            Prelude.<$> ( x Core..?> "ContextSummaries"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ContextSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListContexts where
   hashWithSalt _salt ListContexts' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` contextType
       `Prelude.hashWithSalt` sourceUri
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` contextType
 
 instance Prelude.NFData ListContexts where
   rnf ListContexts' {..} =
-    Prelude.rnf createdAfter
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf contextType
       `Prelude.seq` Prelude.rnf sourceUri
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf createdBefore
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf contextType
 
 instance Core.ToHeaders ListContexts where
   toHeaders =
@@ -231,14 +231,14 @@ instance Core.ToJSON ListContexts where
   toJSON ListContexts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("ContextType" Core..=) Prelude.<$> contextType,
             ("SourceUri" Core..=) Prelude.<$> sourceUri,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+            ("ContextType" Core..=) Prelude.<$> contextType
           ]
       )
 
@@ -250,10 +250,10 @@ instance Core.ToQuery ListContexts where
 
 -- | /See:/ 'newListContextsResponse' smart constructor.
 data ListContextsResponse = ListContextsResponse'
-  { -- | A list of contexts and their properties.
-    contextSummaries :: Prelude.Maybe [ContextSummary],
-    -- | A token for getting the next set of contexts, if there are any.
+  { -- | A token for getting the next set of contexts, if there are any.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of contexts and their properties.
+    contextSummaries :: Prelude.Maybe [ContextSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -267,9 +267,9 @@ data ListContextsResponse = ListContextsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contextSummaries', 'listContextsResponse_contextSummaries' - A list of contexts and their properties.
---
 -- 'nextToken', 'listContextsResponse_nextToken' - A token for getting the next set of contexts, if there are any.
+--
+-- 'contextSummaries', 'listContextsResponse_contextSummaries' - A list of contexts and their properties.
 --
 -- 'httpStatus', 'listContextsResponse_httpStatus' - The response's http status code.
 newListContextsResponse ::
@@ -278,19 +278,18 @@ newListContextsResponse ::
   ListContextsResponse
 newListContextsResponse pHttpStatus_ =
   ListContextsResponse'
-    { contextSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      contextSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of contexts and their properties.
-listContextsResponse_contextSummaries :: Lens.Lens' ListContextsResponse (Prelude.Maybe [ContextSummary])
-listContextsResponse_contextSummaries = Lens.lens (\ListContextsResponse' {contextSummaries} -> contextSummaries) (\s@ListContextsResponse' {} a -> s {contextSummaries = a} :: ListContextsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token for getting the next set of contexts, if there are any.
 listContextsResponse_nextToken :: Lens.Lens' ListContextsResponse (Prelude.Maybe Prelude.Text)
 listContextsResponse_nextToken = Lens.lens (\ListContextsResponse' {nextToken} -> nextToken) (\s@ListContextsResponse' {} a -> s {nextToken = a} :: ListContextsResponse)
+
+-- | A list of contexts and their properties.
+listContextsResponse_contextSummaries :: Lens.Lens' ListContextsResponse (Prelude.Maybe [ContextSummary])
+listContextsResponse_contextSummaries = Lens.lens (\ListContextsResponse' {contextSummaries} -> contextSummaries) (\s@ListContextsResponse' {} a -> s {contextSummaries = a} :: ListContextsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listContextsResponse_httpStatus :: Lens.Lens' ListContextsResponse Prelude.Int
@@ -298,6 +297,6 @@ listContextsResponse_httpStatus = Lens.lens (\ListContextsResponse' {httpStatus}
 
 instance Prelude.NFData ListContextsResponse where
   rnf ListContextsResponse' {..} =
-    Prelude.rnf contextSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf contextSummaries
       `Prelude.seq` Prelude.rnf httpStatus

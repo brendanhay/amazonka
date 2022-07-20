@@ -29,8 +29,8 @@ module Amazonka.CodeArtifact.DescribePackageVersion
     newDescribePackageVersion,
 
     -- * Request Lenses
-    describePackageVersion_namespace,
     describePackageVersion_domainOwner,
+    describePackageVersion_namespace,
     describePackageVersion_domain,
     describePackageVersion_repository,
     describePackageVersion_format,
@@ -56,7 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePackageVersion' smart constructor.
 data DescribePackageVersion = DescribePackageVersion'
-  { -- | The namespace of the package. The package component that specifies its
+  { -- | The 12-digit account number of the AWS account that owns the domain. It
+    -- does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
     -- -   The namespace of a Maven package is its @groupId@.
@@ -66,9 +69,6 @@ data DescribePackageVersion = DescribePackageVersion'
     -- -   A Python package does not contain a corresponding component, so
     --     Python packages do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
     -- package version.
     domain :: Prelude.Text,
@@ -98,6 +98,9 @@ data DescribePackageVersion = DescribePackageVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainOwner', 'describePackageVersion_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+--
 -- 'namespace', 'describePackageVersion_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
 --
@@ -107,9 +110,6 @@ data DescribePackageVersion = DescribePackageVersion'
 --
 -- -   A Python package does not contain a corresponding component, so
 --     Python packages do not have a namespace.
---
--- 'domainOwner', 'describePackageVersion_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
 --
 -- 'domain', 'describePackageVersion_domain' - The name of the domain that contains the repository that contains the
 -- package version.
@@ -147,15 +147,20 @@ newDescribePackageVersion
   pPackage_
   pPackageVersion_ =
     DescribePackageVersion'
-      { namespace =
+      { domainOwner =
           Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
+        namespace = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         format = pFormat_,
         package = pPackage_,
         packageVersion = pPackageVersion_
       }
+
+-- | The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+describePackageVersion_domainOwner :: Lens.Lens' DescribePackageVersion (Prelude.Maybe Prelude.Text)
+describePackageVersion_domainOwner = Lens.lens (\DescribePackageVersion' {domainOwner} -> domainOwner) (\s@DescribePackageVersion' {} a -> s {domainOwner = a} :: DescribePackageVersion)
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -168,11 +173,6 @@ newDescribePackageVersion
 --     Python packages do not have a namespace.
 describePackageVersion_namespace :: Lens.Lens' DescribePackageVersion (Prelude.Maybe Prelude.Text)
 describePackageVersion_namespace = Lens.lens (\DescribePackageVersion' {namespace} -> namespace) (\s@DescribePackageVersion' {} a -> s {namespace = a} :: DescribePackageVersion)
-
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
-describePackageVersion_domainOwner :: Lens.Lens' DescribePackageVersion (Prelude.Maybe Prelude.Text)
-describePackageVersion_domainOwner = Lens.lens (\DescribePackageVersion' {domainOwner} -> domainOwner) (\s@DescribePackageVersion' {} a -> s {domainOwner = a} :: DescribePackageVersion)
 
 -- | The name of the domain that contains the repository that contains the
 -- package version.
@@ -217,8 +217,8 @@ instance Core.AWSRequest DescribePackageVersion where
 
 instance Prelude.Hashable DescribePackageVersion where
   hashWithSalt _salt DescribePackageVersion' {..} =
-    _salt `Prelude.hashWithSalt` namespace
-      `Prelude.hashWithSalt` domainOwner
+    _salt `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` format
@@ -227,8 +227,8 @@ instance Prelude.Hashable DescribePackageVersion where
 
 instance Prelude.NFData DescribePackageVersion where
   rnf DescribePackageVersion' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf domainOwner
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
@@ -252,8 +252,8 @@ instance Core.ToPath DescribePackageVersion where
 instance Core.ToQuery DescribePackageVersion where
   toQuery DescribePackageVersion' {..} =
     Prelude.mconcat
-      [ "namespace" Core.=: namespace,
-        "domain-owner" Core.=: domainOwner,
+      [ "domain-owner" Core.=: domainOwner,
+        "namespace" Core.=: namespace,
         "domain" Core.=: domain,
         "repository" Core.=: repository,
         "format" Core.=: format,

@@ -31,28 +31,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParquetSerDe' smart constructor.
 data ParquetSerDe = ParquetSerDe'
-  { -- | Indicates the version of row format to output. The possible values are
-    -- @V1@ and @V2@. The default is @V1@.
-    writerVersion :: Prelude.Maybe ParquetWriterVersion,
-    -- | The compression code to use over data blocks. The possible values are
+  { -- | The compression code to use over data blocks. The possible values are
     -- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.
     -- Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the
     -- compression ratio is more important than speed.
     compression :: Prelude.Maybe ParquetCompression,
+    -- | The Hadoop Distributed File System (HDFS) block size. This is useful if
+    -- you intend to copy the data from Amazon S3 to HDFS before querying. The
+    -- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses
+    -- this value for padding calculations.
+    blockSizeBytes :: Prelude.Maybe Prelude.Natural,
     -- | The maximum amount of padding to apply. This is useful if you intend to
     -- copy the data from Amazon S3 to HDFS before querying. The default is 0.
     maxPaddingBytes :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates the version of row format to output. The possible values are
+    -- @V1@ and @V2@. The default is @V1@.
+    writerVersion :: Prelude.Maybe ParquetWriterVersion,
     -- | Indicates whether to enable dictionary compression.
     enableDictionaryCompression :: Prelude.Maybe Prelude.Bool,
     -- | The Parquet page size. Column chunks are divided into pages. A page is
     -- conceptually an indivisible unit (in terms of compression and encoding).
     -- The minimum value is 64 KiB and the default is 1 MiB.
-    pageSizeBytes :: Prelude.Maybe Prelude.Natural,
-    -- | The Hadoop Distributed File System (HDFS) block size. This is useful if
-    -- you intend to copy the data from Amazon S3 to HDFS before querying. The
-    -- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses
-    -- this value for padding calculations.
-    blockSizeBytes :: Prelude.Maybe Prelude.Natural
+    pageSizeBytes :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,43 +64,38 @@ data ParquetSerDe = ParquetSerDe'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'writerVersion', 'parquetSerDe_writerVersion' - Indicates the version of row format to output. The possible values are
--- @V1@ and @V2@. The default is @V1@.
---
 -- 'compression', 'parquetSerDe_compression' - The compression code to use over data blocks. The possible values are
 -- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.
 -- Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the
 -- compression ratio is more important than speed.
 --
+-- 'blockSizeBytes', 'parquetSerDe_blockSizeBytes' - The Hadoop Distributed File System (HDFS) block size. This is useful if
+-- you intend to copy the data from Amazon S3 to HDFS before querying. The
+-- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses
+-- this value for padding calculations.
+--
 -- 'maxPaddingBytes', 'parquetSerDe_maxPaddingBytes' - The maximum amount of padding to apply. This is useful if you intend to
 -- copy the data from Amazon S3 to HDFS before querying. The default is 0.
+--
+-- 'writerVersion', 'parquetSerDe_writerVersion' - Indicates the version of row format to output. The possible values are
+-- @V1@ and @V2@. The default is @V1@.
 --
 -- 'enableDictionaryCompression', 'parquetSerDe_enableDictionaryCompression' - Indicates whether to enable dictionary compression.
 --
 -- 'pageSizeBytes', 'parquetSerDe_pageSizeBytes' - The Parquet page size. Column chunks are divided into pages. A page is
 -- conceptually an indivisible unit (in terms of compression and encoding).
 -- The minimum value is 64 KiB and the default is 1 MiB.
---
--- 'blockSizeBytes', 'parquetSerDe_blockSizeBytes' - The Hadoop Distributed File System (HDFS) block size. This is useful if
--- you intend to copy the data from Amazon S3 to HDFS before querying. The
--- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses
--- this value for padding calculations.
 newParquetSerDe ::
   ParquetSerDe
 newParquetSerDe =
   ParquetSerDe'
-    { writerVersion = Prelude.Nothing,
-      compression = Prelude.Nothing,
+    { compression = Prelude.Nothing,
+      blockSizeBytes = Prelude.Nothing,
       maxPaddingBytes = Prelude.Nothing,
+      writerVersion = Prelude.Nothing,
       enableDictionaryCompression = Prelude.Nothing,
-      pageSizeBytes = Prelude.Nothing,
-      blockSizeBytes = Prelude.Nothing
+      pageSizeBytes = Prelude.Nothing
     }
-
--- | Indicates the version of row format to output. The possible values are
--- @V1@ and @V2@. The default is @V1@.
-parquetSerDe_writerVersion :: Lens.Lens' ParquetSerDe (Prelude.Maybe ParquetWriterVersion)
-parquetSerDe_writerVersion = Lens.lens (\ParquetSerDe' {writerVersion} -> writerVersion) (\s@ParquetSerDe' {} a -> s {writerVersion = a} :: ParquetSerDe)
 
 -- | The compression code to use over data blocks. The possible values are
 -- @UNCOMPRESSED@, @SNAPPY@, and @GZIP@, with the default being @SNAPPY@.
@@ -109,10 +104,22 @@ parquetSerDe_writerVersion = Lens.lens (\ParquetSerDe' {writerVersion} -> writer
 parquetSerDe_compression :: Lens.Lens' ParquetSerDe (Prelude.Maybe ParquetCompression)
 parquetSerDe_compression = Lens.lens (\ParquetSerDe' {compression} -> compression) (\s@ParquetSerDe' {} a -> s {compression = a} :: ParquetSerDe)
 
+-- | The Hadoop Distributed File System (HDFS) block size. This is useful if
+-- you intend to copy the data from Amazon S3 to HDFS before querying. The
+-- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses
+-- this value for padding calculations.
+parquetSerDe_blockSizeBytes :: Lens.Lens' ParquetSerDe (Prelude.Maybe Prelude.Natural)
+parquetSerDe_blockSizeBytes = Lens.lens (\ParquetSerDe' {blockSizeBytes} -> blockSizeBytes) (\s@ParquetSerDe' {} a -> s {blockSizeBytes = a} :: ParquetSerDe)
+
 -- | The maximum amount of padding to apply. This is useful if you intend to
 -- copy the data from Amazon S3 to HDFS before querying. The default is 0.
 parquetSerDe_maxPaddingBytes :: Lens.Lens' ParquetSerDe (Prelude.Maybe Prelude.Natural)
 parquetSerDe_maxPaddingBytes = Lens.lens (\ParquetSerDe' {maxPaddingBytes} -> maxPaddingBytes) (\s@ParquetSerDe' {} a -> s {maxPaddingBytes = a} :: ParquetSerDe)
+
+-- | Indicates the version of row format to output. The possible values are
+-- @V1@ and @V2@. The default is @V1@.
+parquetSerDe_writerVersion :: Lens.Lens' ParquetSerDe (Prelude.Maybe ParquetWriterVersion)
+parquetSerDe_writerVersion = Lens.lens (\ParquetSerDe' {writerVersion} -> writerVersion) (\s@ParquetSerDe' {} a -> s {writerVersion = a} :: ParquetSerDe)
 
 -- | Indicates whether to enable dictionary compression.
 parquetSerDe_enableDictionaryCompression :: Lens.Lens' ParquetSerDe (Prelude.Maybe Prelude.Bool)
@@ -124,57 +131,50 @@ parquetSerDe_enableDictionaryCompression = Lens.lens (\ParquetSerDe' {enableDict
 parquetSerDe_pageSizeBytes :: Lens.Lens' ParquetSerDe (Prelude.Maybe Prelude.Natural)
 parquetSerDe_pageSizeBytes = Lens.lens (\ParquetSerDe' {pageSizeBytes} -> pageSizeBytes) (\s@ParquetSerDe' {} a -> s {pageSizeBytes = a} :: ParquetSerDe)
 
--- | The Hadoop Distributed File System (HDFS) block size. This is useful if
--- you intend to copy the data from Amazon S3 to HDFS before querying. The
--- default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses
--- this value for padding calculations.
-parquetSerDe_blockSizeBytes :: Lens.Lens' ParquetSerDe (Prelude.Maybe Prelude.Natural)
-parquetSerDe_blockSizeBytes = Lens.lens (\ParquetSerDe' {blockSizeBytes} -> blockSizeBytes) (\s@ParquetSerDe' {} a -> s {blockSizeBytes = a} :: ParquetSerDe)
-
 instance Core.FromJSON ParquetSerDe where
   parseJSON =
     Core.withObject
       "ParquetSerDe"
       ( \x ->
           ParquetSerDe'
-            Prelude.<$> (x Core..:? "WriterVersion")
-            Prelude.<*> (x Core..:? "Compression")
+            Prelude.<$> (x Core..:? "Compression")
+            Prelude.<*> (x Core..:? "BlockSizeBytes")
             Prelude.<*> (x Core..:? "MaxPaddingBytes")
+            Prelude.<*> (x Core..:? "WriterVersion")
             Prelude.<*> (x Core..:? "EnableDictionaryCompression")
             Prelude.<*> (x Core..:? "PageSizeBytes")
-            Prelude.<*> (x Core..:? "BlockSizeBytes")
       )
 
 instance Prelude.Hashable ParquetSerDe where
   hashWithSalt _salt ParquetSerDe' {..} =
-    _salt `Prelude.hashWithSalt` writerVersion
-      `Prelude.hashWithSalt` compression
+    _salt `Prelude.hashWithSalt` compression
+      `Prelude.hashWithSalt` blockSizeBytes
       `Prelude.hashWithSalt` maxPaddingBytes
+      `Prelude.hashWithSalt` writerVersion
       `Prelude.hashWithSalt` enableDictionaryCompression
       `Prelude.hashWithSalt` pageSizeBytes
-      `Prelude.hashWithSalt` blockSizeBytes
 
 instance Prelude.NFData ParquetSerDe where
   rnf ParquetSerDe' {..} =
-    Prelude.rnf writerVersion
-      `Prelude.seq` Prelude.rnf compression
+    Prelude.rnf compression
+      `Prelude.seq` Prelude.rnf blockSizeBytes
       `Prelude.seq` Prelude.rnf maxPaddingBytes
+      `Prelude.seq` Prelude.rnf writerVersion
       `Prelude.seq` Prelude.rnf enableDictionaryCompression
       `Prelude.seq` Prelude.rnf pageSizeBytes
-      `Prelude.seq` Prelude.rnf blockSizeBytes
 
 instance Core.ToJSON ParquetSerDe where
   toJSON ParquetSerDe' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("WriterVersion" Core..=) Prelude.<$> writerVersion,
-            ("Compression" Core..=) Prelude.<$> compression,
+          [ ("Compression" Core..=) Prelude.<$> compression,
+            ("BlockSizeBytes" Core..=)
+              Prelude.<$> blockSizeBytes,
             ("MaxPaddingBytes" Core..=)
               Prelude.<$> maxPaddingBytes,
+            ("WriterVersion" Core..=) Prelude.<$> writerVersion,
             ("EnableDictionaryCompression" Core..=)
               Prelude.<$> enableDictionaryCompression,
-            ("PageSizeBytes" Core..=) Prelude.<$> pageSizeBytes,
-            ("BlockSizeBytes" Core..=)
-              Prelude.<$> blockSizeBytes
+            ("PageSizeBytes" Core..=) Prelude.<$> pageSizeBytes
           ]
       )

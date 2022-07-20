@@ -21,30 +21,81 @@ module Amazonka.OpsWorksCM.Lens
     associateNodeResponse_nodeAssociationStatusToken,
     associateNodeResponse_httpStatus,
 
-    -- ** UpdateServer
-    updateServer_disableAutomatedBackup,
-    updateServer_preferredMaintenanceWindow,
-    updateServer_preferredBackupWindow,
-    updateServer_backupRetentionCount,
-    updateServer_serverName,
-    updateServerResponse_server,
-    updateServerResponse_httpStatus,
+    -- ** CreateBackup
+    createBackup_tags,
+    createBackup_description,
+    createBackup_serverName,
+    createBackupResponse_backup,
+    createBackupResponse_httpStatus,
 
-    -- ** DeleteServer
-    deleteServer_serverName,
-    deleteServerResponse_httpStatus,
+    -- ** CreateServer
+    createServer_tags,
+    createServer_backupId,
+    createServer_preferredBackupWindow,
+    createServer_associatePublicIpAddress,
+    createServer_securityGroupIds,
+    createServer_engineModel,
+    createServer_engineAttributes,
+    createServer_keyPair,
+    createServer_backupRetentionCount,
+    createServer_customCertificate,
+    createServer_preferredMaintenanceWindow,
+    createServer_customPrivateKey,
+    createServer_subnetIds,
+    createServer_disableAutomatedBackup,
+    createServer_engineVersion,
+    createServer_customDomain,
+    createServer_engine,
+    createServer_serverName,
+    createServer_instanceProfileArn,
+    createServer_instanceType,
+    createServer_serviceRoleArn,
+    createServerResponse_server,
+    createServerResponse_httpStatus,
 
     -- ** DeleteBackup
     deleteBackup_backupId,
     deleteBackupResponse_httpStatus,
 
+    -- ** DeleteServer
+    deleteServer_serverName,
+    deleteServerResponse_httpStatus,
+
+    -- ** DescribeAccountAttributes
+    describeAccountAttributesResponse_attributes,
+    describeAccountAttributesResponse_httpStatus,
+
+    -- ** DescribeBackups
+    describeBackups_backupId,
+    describeBackups_nextToken,
+    describeBackups_serverName,
+    describeBackups_maxResults,
+    describeBackupsResponse_nextToken,
+    describeBackupsResponse_backups,
+    describeBackupsResponse_httpStatus,
+
     -- ** DescribeEvents
     describeEvents_nextToken,
     describeEvents_maxResults,
     describeEvents_serverName,
-    describeEventsResponse_serverEvents,
     describeEventsResponse_nextToken,
+    describeEventsResponse_serverEvents,
     describeEventsResponse_httpStatus,
+
+    -- ** DescribeNodeAssociationStatus
+    describeNodeAssociationStatus_nodeAssociationStatusToken,
+    describeNodeAssociationStatus_serverName,
+    describeNodeAssociationStatusResponse_engineAttributes,
+    describeNodeAssociationStatusResponse_httpStatus,
+    describeNodeAssociationStatusResponse_nodeAssociationStatus,
+
+    -- ** DescribeServers
+    describeServers_nextToken,
+    describeServers_serverName,
+    describeServers_maxResults,
+    describeServersResponse_servers,
+    describeServersResponse_nextToken,
+    describeServersResponse_httpStatus,
 
     -- ** DisassociateNode
     disassociateNode_engineAttributes,
@@ -53,67 +104,21 @@ module Amazonka.OpsWorksCM.Lens
     disassociateNodeResponse_nodeAssociationStatusToken,
     disassociateNodeResponse_httpStatus,
 
+    -- ** ExportServerEngineAttribute
+    exportServerEngineAttribute_inputAttributes,
+    exportServerEngineAttribute_exportAttributeName,
+    exportServerEngineAttribute_serverName,
+    exportServerEngineAttributeResponse_engineAttribute,
+    exportServerEngineAttributeResponse_serverName,
+    exportServerEngineAttributeResponse_httpStatus,
+
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_maxResults,
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_httpStatus,
-
-    -- ** CreateBackup
-    createBackup_description,
-    createBackup_tags,
-    createBackup_serverName,
-    createBackupResponse_backup,
-    createBackupResponse_httpStatus,
-
-    -- ** UpdateServerEngineAttributes
-    updateServerEngineAttributes_attributeValue,
-    updateServerEngineAttributes_serverName,
-    updateServerEngineAttributes_attributeName,
-    updateServerEngineAttributesResponse_server,
-    updateServerEngineAttributesResponse_httpStatus,
-
-    -- ** StartMaintenance
-    startMaintenance_engineAttributes,
-    startMaintenance_serverName,
-    startMaintenanceResponse_server,
-    startMaintenanceResponse_httpStatus,
-
-    -- ** DescribeBackups
-    describeBackups_serverName,
-    describeBackups_backupId,
-    describeBackups_nextToken,
-    describeBackups_maxResults,
-    describeBackupsResponse_backups,
-    describeBackupsResponse_nextToken,
-    describeBackupsResponse_httpStatus,
-
-    -- ** CreateServer
-    createServer_engineVersion,
-    createServer_disableAutomatedBackup,
-    createServer_securityGroupIds,
-    createServer_associatePublicIpAddress,
-    createServer_subnetIds,
-    createServer_keyPair,
-    createServer_backupId,
-    createServer_customDomain,
-    createServer_customPrivateKey,
-    createServer_engineModel,
-    createServer_engineAttributes,
-    createServer_preferredMaintenanceWindow,
-    createServer_preferredBackupWindow,
-    createServer_customCertificate,
-    createServer_tags,
-    createServer_backupRetentionCount,
-    createServer_engine,
-    createServer_serverName,
-    createServer_instanceProfileArn,
-    createServer_instanceType,
-    createServer_serviceRoleArn,
-    createServerResponse_server,
-    createServerResponse_httpStatus,
 
     -- ** RestoreServer
     restoreServer_keyPair,
@@ -123,111 +128,106 @@ module Amazonka.OpsWorksCM.Lens
     restoreServerResponse_server,
     restoreServerResponse_httpStatus,
 
-    -- ** DescribeNodeAssociationStatus
-    describeNodeAssociationStatus_nodeAssociationStatusToken,
-    describeNodeAssociationStatus_serverName,
-    describeNodeAssociationStatusResponse_engineAttributes,
-    describeNodeAssociationStatusResponse_httpStatus,
-    describeNodeAssociationStatusResponse_nodeAssociationStatus,
+    -- ** StartMaintenance
+    startMaintenance_engineAttributes,
+    startMaintenance_serverName,
+    startMaintenanceResponse_server,
+    startMaintenanceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** DescribeAccountAttributes
-    describeAccountAttributesResponse_attributes,
-    describeAccountAttributesResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DescribeServers
-    describeServers_serverName,
-    describeServers_nextToken,
-    describeServers_maxResults,
-    describeServersResponse_servers,
-    describeServersResponse_nextToken,
-    describeServersResponse_httpStatus,
+    -- ** UpdateServer
+    updateServer_preferredBackupWindow,
+    updateServer_backupRetentionCount,
+    updateServer_preferredMaintenanceWindow,
+    updateServer_disableAutomatedBackup,
+    updateServer_serverName,
+    updateServerResponse_server,
+    updateServerResponse_httpStatus,
 
-    -- ** ExportServerEngineAttribute
-    exportServerEngineAttribute_inputAttributes,
-    exportServerEngineAttribute_exportAttributeName,
-    exportServerEngineAttribute_serverName,
-    exportServerEngineAttributeResponse_serverName,
-    exportServerEngineAttributeResponse_engineAttribute,
-    exportServerEngineAttributeResponse_httpStatus,
+    -- ** UpdateServerEngineAttributes
+    updateServerEngineAttributes_attributeValue,
+    updateServerEngineAttributes_serverName,
+    updateServerEngineAttributes_attributeName,
+    updateServerEngineAttributesResponse_server,
+    updateServerEngineAttributesResponse_httpStatus,
 
     -- * Types
 
     -- ** AccountAttribute
+    accountAttribute_name,
     accountAttribute_used,
     accountAttribute_maximum,
-    accountAttribute_name,
 
     -- ** Backup
-    backup_engineVersion,
-    backup_serviceRoleArn,
-    backup_status,
-    backup_instanceProfileArn,
-    backup_securityGroupIds,
     backup_statusDescription,
-    backup_serverName,
-    backup_subnetIds,
-    backup_keyPair,
-    backup_createdAt,
     backup_backupId,
-    backup_engine,
-    backup_instanceType,
-    backup_engineModel,
-    backup_preferredMaintenanceWindow,
-    backup_userArn,
     backup_preferredBackupWindow,
-    backup_s3LogUrl,
-    backup_s3DataSize,
-    backup_backupArn,
     backup_s3DataUrl,
-    backup_description,
-    backup_backupType,
+    backup_serviceRoleArn,
+    backup_securityGroupIds,
+    backup_s3LogUrl,
+    backup_serverName,
+    backup_engineModel,
     backup_toolsVersion,
+    backup_instanceProfileArn,
+    backup_status,
+    backup_description,
+    backup_keyPair,
+    backup_instanceType,
+    backup_backupType,
+    backup_backupArn,
+    backup_userArn,
+    backup_s3DataSize,
+    backup_engine,
+    backup_preferredMaintenanceWindow,
+    backup_subnetIds,
+    backup_createdAt,
+    backup_engineVersion,
 
     -- ** EngineAttribute
-    engineAttribute_value,
     engineAttribute_name,
+    engineAttribute_value,
 
     -- ** Server
-    server_engineVersion,
-    server_serviceRoleArn,
-    server_disableAutomatedBackup,
-    server_status,
-    server_instanceProfileArn,
-    server_securityGroupIds,
-    server_associatePublicIpAddress,
-    server_serverName,
-    server_subnetIds,
-    server_keyPair,
-    server_createdAt,
-    server_serverArn,
-    server_customDomain,
-    server_engine,
     server_maintenanceStatus,
-    server_instanceType,
-    server_engineModel,
-    server_engineAttributes,
-    server_preferredMaintenanceWindow,
     server_preferredBackupWindow,
+    server_associatePublicIpAddress,
+    server_serviceRoleArn,
+    server_securityGroupIds,
+    server_serverName,
+    server_engineModel,
+    server_instanceProfileArn,
     server_statusReason,
-    server_endpoint,
+    server_engineAttributes,
+    server_status,
     server_cloudFormationStackArn,
+    server_keyPair,
     server_backupRetentionCount,
+    server_instanceType,
+    server_serverArn,
+    server_engine,
+    server_preferredMaintenanceWindow,
+    server_endpoint,
+    server_subnetIds,
+    server_createdAt,
+    server_disableAutomatedBackup,
+    server_engineVersion,
+    server_customDomain,
 
     -- ** ServerEvent
-    serverEvent_logUrl,
-    serverEvent_serverName,
-    serverEvent_createdAt,
     serverEvent_message,
+    serverEvent_serverName,
+    serverEvent_logUrl,
+    serverEvent_createdAt,
 
     -- ** Tag
     tag_key,

@@ -28,8 +28,8 @@ module Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
     newCreateAppInstanceUser,
 
     -- * Request Lenses
-    createAppInstanceUser_metadata,
     createAppInstanceUser_tags,
+    createAppInstanceUser_metadata,
     createAppInstanceUser_appInstanceArn,
     createAppInstanceUser_appInstanceUserId,
     createAppInstanceUser_name,
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAppInstanceUser' smart constructor.
 data CreateAppInstanceUser = CreateAppInstanceUser'
-  { -- | The request\'s metadata. Limited to a 1KB string in UTF-8.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Tags assigned to the @AppInstanceUser@.
+  { -- | Tags assigned to the @AppInstanceUser@.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The request\'s metadata. Limited to a 1KB string in UTF-8.
+    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ARN of the @AppInstance@ request.
     appInstanceArn :: Prelude.Text,
     -- | The user ID of the @AppInstance@.
@@ -77,9 +77,9 @@ data CreateAppInstanceUser = CreateAppInstanceUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadata', 'createAppInstanceUser_metadata' - The request\'s metadata. Limited to a 1KB string in UTF-8.
---
 -- 'tags', 'createAppInstanceUser_tags' - Tags assigned to the @AppInstanceUser@.
+--
+-- 'metadata', 'createAppInstanceUser_metadata' - The request\'s metadata. Limited to a 1KB string in UTF-8.
 --
 -- 'appInstanceArn', 'createAppInstanceUser_appInstanceArn' - The ARN of the @AppInstance@ request.
 --
@@ -104,8 +104,8 @@ newCreateAppInstanceUser
   pName_
   pClientRequestToken_ =
     CreateAppInstanceUser'
-      { metadata = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        metadata = Prelude.Nothing,
         appInstanceArn = pAppInstanceArn_,
         appInstanceUserId =
           Core._Sensitive Lens.# pAppInstanceUserId_,
@@ -114,13 +114,13 @@ newCreateAppInstanceUser
           Core._Sensitive Lens.# pClientRequestToken_
       }
 
--- | The request\'s metadata. Limited to a 1KB string in UTF-8.
-createAppInstanceUser_metadata :: Lens.Lens' CreateAppInstanceUser (Prelude.Maybe Prelude.Text)
-createAppInstanceUser_metadata = Lens.lens (\CreateAppInstanceUser' {metadata} -> metadata) (\s@CreateAppInstanceUser' {} a -> s {metadata = a} :: CreateAppInstanceUser) Prelude.. Lens.mapping Core._Sensitive
-
 -- | Tags assigned to the @AppInstanceUser@.
 createAppInstanceUser_tags :: Lens.Lens' CreateAppInstanceUser (Prelude.Maybe (Prelude.NonEmpty Tag))
 createAppInstanceUser_tags = Lens.lens (\CreateAppInstanceUser' {tags} -> tags) (\s@CreateAppInstanceUser' {} a -> s {tags = a} :: CreateAppInstanceUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | The request\'s metadata. Limited to a 1KB string in UTF-8.
+createAppInstanceUser_metadata :: Lens.Lens' CreateAppInstanceUser (Prelude.Maybe Prelude.Text)
+createAppInstanceUser_metadata = Lens.lens (\CreateAppInstanceUser' {metadata} -> metadata) (\s@CreateAppInstanceUser' {} a -> s {metadata = a} :: CreateAppInstanceUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ARN of the @AppInstance@ request.
 createAppInstanceUser_appInstanceArn :: Lens.Lens' CreateAppInstanceUser Prelude.Text
@@ -153,8 +153,8 @@ instance Core.AWSRequest CreateAppInstanceUser where
 
 instance Prelude.Hashable CreateAppInstanceUser where
   hashWithSalt _salt CreateAppInstanceUser' {..} =
-    _salt `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` appInstanceUserId
       `Prelude.hashWithSalt` name
@@ -162,8 +162,8 @@ instance Prelude.Hashable CreateAppInstanceUser where
 
 instance Prelude.NFData CreateAppInstanceUser where
   rnf CreateAppInstanceUser' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf appInstanceUserId
       `Prelude.seq` Prelude.rnf name
@@ -176,8 +176,8 @@ instance Core.ToJSON CreateAppInstanceUser where
   toJSON CreateAppInstanceUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Metadata" Core..=) Prelude.<$> metadata,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Metadata" Core..=) Prelude.<$> metadata,
             Prelude.Just
               ("AppInstanceArn" Core..= appInstanceArn),
             Prelude.Just

@@ -27,8 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProcessDetails' smart constructor.
 data ProcessDetails = ProcessDetails'
-  { -- | The path to the process executable.
-    path :: Prelude.Maybe Prelude.Text,
+  { -- | The parent process ID.
+    parentPid :: Prelude.Maybe Prelude.Int,
     -- | The name of the process.
     name :: Prelude.Maybe Prelude.Text,
     -- | The process ID.
@@ -40,8 +40,8 @@ data ProcessDetails = ProcessDetails'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     terminatedAt :: Prelude.Maybe Prelude.Text,
-    -- | The parent process ID.
-    parentPid :: Prelude.Maybe Prelude.Int,
+    -- | The path to the process executable.
+    path :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the process was launched.
     --
     -- Uses the @date-time@ format specified in
@@ -60,7 +60,7 @@ data ProcessDetails = ProcessDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'path', 'processDetails_path' - The path to the process executable.
+-- 'parentPid', 'processDetails_parentPid' - The parent process ID.
 --
 -- 'name', 'processDetails_name' - The name of the process.
 --
@@ -73,7 +73,7 @@ data ProcessDetails = ProcessDetails'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'parentPid', 'processDetails_parentPid' - The parent process ID.
+-- 'path', 'processDetails_path' - The path to the process executable.
 --
 -- 'launchedAt', 'processDetails_launchedAt' - Indicates when the process was launched.
 --
@@ -85,17 +85,17 @@ newProcessDetails ::
   ProcessDetails
 newProcessDetails =
   ProcessDetails'
-    { path = Prelude.Nothing,
+    { parentPid = Prelude.Nothing,
       name = Prelude.Nothing,
       pid = Prelude.Nothing,
       terminatedAt = Prelude.Nothing,
-      parentPid = Prelude.Nothing,
+      path = Prelude.Nothing,
       launchedAt = Prelude.Nothing
     }
 
--- | The path to the process executable.
-processDetails_path :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Text)
-processDetails_path = Lens.lens (\ProcessDetails' {path} -> path) (\s@ProcessDetails' {} a -> s {path = a} :: ProcessDetails)
+-- | The parent process ID.
+processDetails_parentPid :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Int)
+processDetails_parentPid = Lens.lens (\ProcessDetails' {parentPid} -> parentPid) (\s@ProcessDetails' {} a -> s {parentPid = a} :: ProcessDetails)
 
 -- | The name of the process.
 processDetails_name :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Text)
@@ -114,9 +114,9 @@ processDetails_pid = Lens.lens (\ProcessDetails' {pid} -> pid) (\s@ProcessDetail
 processDetails_terminatedAt :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Text)
 processDetails_terminatedAt = Lens.lens (\ProcessDetails' {terminatedAt} -> terminatedAt) (\s@ProcessDetails' {} a -> s {terminatedAt = a} :: ProcessDetails)
 
--- | The parent process ID.
-processDetails_parentPid :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Int)
-processDetails_parentPid = Lens.lens (\ProcessDetails' {parentPid} -> parentPid) (\s@ProcessDetails' {} a -> s {parentPid = a} :: ProcessDetails)
+-- | The path to the process executable.
+processDetails_path :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Text)
+processDetails_path = Lens.lens (\ProcessDetails' {path} -> path) (\s@ProcessDetails' {} a -> s {path = a} :: ProcessDetails)
 
 -- | Indicates when the process was launched.
 --
@@ -133,41 +133,41 @@ instance Core.FromJSON ProcessDetails where
       "ProcessDetails"
       ( \x ->
           ProcessDetails'
-            Prelude.<$> (x Core..:? "Path")
+            Prelude.<$> (x Core..:? "ParentPid")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Pid")
             Prelude.<*> (x Core..:? "TerminatedAt")
-            Prelude.<*> (x Core..:? "ParentPid")
+            Prelude.<*> (x Core..:? "Path")
             Prelude.<*> (x Core..:? "LaunchedAt")
       )
 
 instance Prelude.Hashable ProcessDetails where
   hashWithSalt _salt ProcessDetails' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` parentPid
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` pid
       `Prelude.hashWithSalt` terminatedAt
-      `Prelude.hashWithSalt` parentPid
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` launchedAt
 
 instance Prelude.NFData ProcessDetails where
   rnf ProcessDetails' {..} =
-    Prelude.rnf path
+    Prelude.rnf parentPid
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf pid
       `Prelude.seq` Prelude.rnf terminatedAt
-      `Prelude.seq` Prelude.rnf parentPid
+      `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf launchedAt
 
 instance Core.ToJSON ProcessDetails where
   toJSON ProcessDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Path" Core..=) Prelude.<$> path,
+          [ ("ParentPid" Core..=) Prelude.<$> parentPid,
             ("Name" Core..=) Prelude.<$> name,
             ("Pid" Core..=) Prelude.<$> pid,
             ("TerminatedAt" Core..=) Prelude.<$> terminatedAt,
-            ("ParentPid" Core..=) Prelude.<$> parentPid,
+            ("Path" Core..=) Prelude.<$> path,
             ("LaunchedAt" Core..=) Prelude.<$> launchedAt
           ]
       )

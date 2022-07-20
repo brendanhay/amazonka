@@ -38,13 +38,13 @@ module Amazonka.ElasticBeanstalk.DescribeEnvironmentHealth
     newDescribeEnvironmentHealthResponse,
 
     -- * Response Lenses
-    describeEnvironmentHealthResponse_status,
-    describeEnvironmentHealthResponse_causes,
-    describeEnvironmentHealthResponse_applicationMetrics,
-    describeEnvironmentHealthResponse_color,
-    describeEnvironmentHealthResponse_environmentName,
-    describeEnvironmentHealthResponse_healthStatus,
     describeEnvironmentHealthResponse_instancesHealth,
+    describeEnvironmentHealthResponse_environmentName,
+    describeEnvironmentHealthResponse_color,
+    describeEnvironmentHealthResponse_healthStatus,
+    describeEnvironmentHealthResponse_status,
+    describeEnvironmentHealthResponse_applicationMetrics,
+    describeEnvironmentHealthResponse_causes,
     describeEnvironmentHealthResponse_refreshedAt,
     describeEnvironmentHealthResponse_httpStatus,
   )
@@ -133,15 +133,15 @@ instance Core.AWSRequest DescribeEnvironmentHealth where
       "DescribeEnvironmentHealthResult"
       ( \s h x ->
           DescribeEnvironmentHealthResponse'
-            Prelude.<$> (x Core..@? "Status")
+            Prelude.<$> (x Core..@? "InstancesHealth")
+            Prelude.<*> (x Core..@? "EnvironmentName")
+            Prelude.<*> (x Core..@? "Color")
+            Prelude.<*> (x Core..@? "HealthStatus")
+            Prelude.<*> (x Core..@? "Status")
+            Prelude.<*> (x Core..@? "ApplicationMetrics")
             Prelude.<*> ( x Core..@? "Causes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "ApplicationMetrics")
-            Prelude.<*> (x Core..@? "Color")
-            Prelude.<*> (x Core..@? "EnvironmentName")
-            Prelude.<*> (x Core..@? "HealthStatus")
-            Prelude.<*> (x Core..@? "InstancesHealth")
             Prelude.<*> (x Core..@? "RefreshedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -184,26 +184,26 @@ instance Core.ToQuery DescribeEnvironmentHealth where
 --
 -- /See:/ 'newDescribeEnvironmentHealthResponse' smart constructor.
 data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
-  { -- | The environment\'s operational status. @Ready@, @Launching@, @Updating@,
-    -- @Terminating@, or @Terminated@.
-    status :: Prelude.Maybe EnvironmentHealth,
-    -- | Descriptions of the data that contributed to the environment\'s current
-    -- health status.
-    causes :: Prelude.Maybe [Prelude.Text],
-    -- | Application request metrics for the environment.
-    applicationMetrics :: Prelude.Maybe ApplicationMetrics,
+  { -- | Summary health information for the instances in the environment.
+    instancesHealth :: Prelude.Maybe InstanceHealthSummary,
+    -- | The environment\'s name.
+    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color>
     -- of the environment.
     color :: Prelude.Maybe Prelude.Text,
-    -- | The environment\'s name.
-    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status>
     -- of the environment. For example, @Ok@.
     healthStatus :: Prelude.Maybe Prelude.Text,
-    -- | Summary health information for the instances in the environment.
-    instancesHealth :: Prelude.Maybe InstanceHealthSummary,
+    -- | The environment\'s operational status. @Ready@, @Launching@, @Updating@,
+    -- @Terminating@, or @Terminated@.
+    status :: Prelude.Maybe EnvironmentHealth,
+    -- | Application request metrics for the environment.
+    applicationMetrics :: Prelude.Maybe ApplicationMetrics,
+    -- | Descriptions of the data that contributed to the environment\'s current
+    -- health status.
+    causes :: Prelude.Maybe [Prelude.Text],
     -- | The date and time that the health information was retrieved.
     refreshedAt :: Prelude.Maybe Core.ISO8601,
     -- | The response's http status code.
@@ -219,25 +219,25 @@ data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeEnvironmentHealthResponse_status' - The environment\'s operational status. @Ready@, @Launching@, @Updating@,
--- @Terminating@, or @Terminated@.
+-- 'instancesHealth', 'describeEnvironmentHealthResponse_instancesHealth' - Summary health information for the instances in the environment.
 --
--- 'causes', 'describeEnvironmentHealthResponse_causes' - Descriptions of the data that contributed to the environment\'s current
--- health status.
---
--- 'applicationMetrics', 'describeEnvironmentHealthResponse_applicationMetrics' - Application request metrics for the environment.
+-- 'environmentName', 'describeEnvironmentHealthResponse_environmentName' - The environment\'s name.
 --
 -- 'color', 'describeEnvironmentHealthResponse_color' - The
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color>
 -- of the environment.
 --
--- 'environmentName', 'describeEnvironmentHealthResponse_environmentName' - The environment\'s name.
---
 -- 'healthStatus', 'describeEnvironmentHealthResponse_healthStatus' - The
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status>
 -- of the environment. For example, @Ok@.
 --
--- 'instancesHealth', 'describeEnvironmentHealthResponse_instancesHealth' - Summary health information for the instances in the environment.
+-- 'status', 'describeEnvironmentHealthResponse_status' - The environment\'s operational status. @Ready@, @Launching@, @Updating@,
+-- @Terminating@, or @Terminated@.
+--
+-- 'applicationMetrics', 'describeEnvironmentHealthResponse_applicationMetrics' - Application request metrics for the environment.
+--
+-- 'causes', 'describeEnvironmentHealthResponse_causes' - Descriptions of the data that contributed to the environment\'s current
+-- health status.
 --
 -- 'refreshedAt', 'describeEnvironmentHealthResponse_refreshedAt' - The date and time that the health information was retrieved.
 --
@@ -248,31 +248,25 @@ newDescribeEnvironmentHealthResponse ::
   DescribeEnvironmentHealthResponse
 newDescribeEnvironmentHealthResponse pHttpStatus_ =
   DescribeEnvironmentHealthResponse'
-    { status =
+    { instancesHealth =
         Prelude.Nothing,
-      causes = Prelude.Nothing,
-      applicationMetrics = Prelude.Nothing,
-      color = Prelude.Nothing,
       environmentName = Prelude.Nothing,
+      color = Prelude.Nothing,
       healthStatus = Prelude.Nothing,
-      instancesHealth = Prelude.Nothing,
+      status = Prelude.Nothing,
+      applicationMetrics = Prelude.Nothing,
+      causes = Prelude.Nothing,
       refreshedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The environment\'s operational status. @Ready@, @Launching@, @Updating@,
--- @Terminating@, or @Terminated@.
-describeEnvironmentHealthResponse_status :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe EnvironmentHealth)
-describeEnvironmentHealthResponse_status = Lens.lens (\DescribeEnvironmentHealthResponse' {status} -> status) (\s@DescribeEnvironmentHealthResponse' {} a -> s {status = a} :: DescribeEnvironmentHealthResponse)
+-- | Summary health information for the instances in the environment.
+describeEnvironmentHealthResponse_instancesHealth :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe InstanceHealthSummary)
+describeEnvironmentHealthResponse_instancesHealth = Lens.lens (\DescribeEnvironmentHealthResponse' {instancesHealth} -> instancesHealth) (\s@DescribeEnvironmentHealthResponse' {} a -> s {instancesHealth = a} :: DescribeEnvironmentHealthResponse)
 
--- | Descriptions of the data that contributed to the environment\'s current
--- health status.
-describeEnvironmentHealthResponse_causes :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe [Prelude.Text])
-describeEnvironmentHealthResponse_causes = Lens.lens (\DescribeEnvironmentHealthResponse' {causes} -> causes) (\s@DescribeEnvironmentHealthResponse' {} a -> s {causes = a} :: DescribeEnvironmentHealthResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Application request metrics for the environment.
-describeEnvironmentHealthResponse_applicationMetrics :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe ApplicationMetrics)
-describeEnvironmentHealthResponse_applicationMetrics = Lens.lens (\DescribeEnvironmentHealthResponse' {applicationMetrics} -> applicationMetrics) (\s@DescribeEnvironmentHealthResponse' {} a -> s {applicationMetrics = a} :: DescribeEnvironmentHealthResponse)
+-- | The environment\'s name.
+describeEnvironmentHealthResponse_environmentName :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.Text)
+describeEnvironmentHealthResponse_environmentName = Lens.lens (\DescribeEnvironmentHealthResponse' {environmentName} -> environmentName) (\s@DescribeEnvironmentHealthResponse' {} a -> s {environmentName = a} :: DescribeEnvironmentHealthResponse)
 
 -- | The
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color>
@@ -280,19 +274,25 @@ describeEnvironmentHealthResponse_applicationMetrics = Lens.lens (\DescribeEnvir
 describeEnvironmentHealthResponse_color :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.Text)
 describeEnvironmentHealthResponse_color = Lens.lens (\DescribeEnvironmentHealthResponse' {color} -> color) (\s@DescribeEnvironmentHealthResponse' {} a -> s {color = a} :: DescribeEnvironmentHealthResponse)
 
--- | The environment\'s name.
-describeEnvironmentHealthResponse_environmentName :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.Text)
-describeEnvironmentHealthResponse_environmentName = Lens.lens (\DescribeEnvironmentHealthResponse' {environmentName} -> environmentName) (\s@DescribeEnvironmentHealthResponse' {} a -> s {environmentName = a} :: DescribeEnvironmentHealthResponse)
-
 -- | The
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status>
 -- of the environment. For example, @Ok@.
 describeEnvironmentHealthResponse_healthStatus :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.Text)
 describeEnvironmentHealthResponse_healthStatus = Lens.lens (\DescribeEnvironmentHealthResponse' {healthStatus} -> healthStatus) (\s@DescribeEnvironmentHealthResponse' {} a -> s {healthStatus = a} :: DescribeEnvironmentHealthResponse)
 
--- | Summary health information for the instances in the environment.
-describeEnvironmentHealthResponse_instancesHealth :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe InstanceHealthSummary)
-describeEnvironmentHealthResponse_instancesHealth = Lens.lens (\DescribeEnvironmentHealthResponse' {instancesHealth} -> instancesHealth) (\s@DescribeEnvironmentHealthResponse' {} a -> s {instancesHealth = a} :: DescribeEnvironmentHealthResponse)
+-- | The environment\'s operational status. @Ready@, @Launching@, @Updating@,
+-- @Terminating@, or @Terminated@.
+describeEnvironmentHealthResponse_status :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe EnvironmentHealth)
+describeEnvironmentHealthResponse_status = Lens.lens (\DescribeEnvironmentHealthResponse' {status} -> status) (\s@DescribeEnvironmentHealthResponse' {} a -> s {status = a} :: DescribeEnvironmentHealthResponse)
+
+-- | Application request metrics for the environment.
+describeEnvironmentHealthResponse_applicationMetrics :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe ApplicationMetrics)
+describeEnvironmentHealthResponse_applicationMetrics = Lens.lens (\DescribeEnvironmentHealthResponse' {applicationMetrics} -> applicationMetrics) (\s@DescribeEnvironmentHealthResponse' {} a -> s {applicationMetrics = a} :: DescribeEnvironmentHealthResponse)
+
+-- | Descriptions of the data that contributed to the environment\'s current
+-- health status.
+describeEnvironmentHealthResponse_causes :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe [Prelude.Text])
+describeEnvironmentHealthResponse_causes = Lens.lens (\DescribeEnvironmentHealthResponse' {causes} -> causes) (\s@DescribeEnvironmentHealthResponse' {} a -> s {causes = a} :: DescribeEnvironmentHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time that the health information was retrieved.
 describeEnvironmentHealthResponse_refreshedAt :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.UTCTime)
@@ -307,12 +307,12 @@ instance
     DescribeEnvironmentHealthResponse
   where
   rnf DescribeEnvironmentHealthResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf causes
-      `Prelude.seq` Prelude.rnf applicationMetrics
-      `Prelude.seq` Prelude.rnf color
+    Prelude.rnf instancesHealth
       `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf color
       `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf instancesHealth
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf applicationMetrics
+      `Prelude.seq` Prelude.rnf causes
       `Prelude.seq` Prelude.rnf refreshedAt
       `Prelude.seq` Prelude.rnf httpStatus

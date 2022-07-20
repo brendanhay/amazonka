@@ -32,10 +32,10 @@ import Amazonka.QuickSight.Types.SheetControlsOption
 data DashboardPublishOptions = DashboardPublishOptions'
   { -- | Ad hoc (one-time) filtering option.
     adHocFilteringOption :: Prelude.Maybe AdHocFilteringOption,
-    -- | Export to .csv option.
-    exportToCSVOption :: Prelude.Maybe ExportToCSVOption,
     -- | Sheet controls option.
-    sheetControlsOption :: Prelude.Maybe SheetControlsOption
+    sheetControlsOption :: Prelude.Maybe SheetControlsOption,
+    -- | Export to .csv option.
+    exportToCSVOption :: Prelude.Maybe ExportToCSVOption
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,42 +49,42 @@ data DashboardPublishOptions = DashboardPublishOptions'
 --
 -- 'adHocFilteringOption', 'dashboardPublishOptions_adHocFilteringOption' - Ad hoc (one-time) filtering option.
 --
--- 'exportToCSVOption', 'dashboardPublishOptions_exportToCSVOption' - Export to .csv option.
---
 -- 'sheetControlsOption', 'dashboardPublishOptions_sheetControlsOption' - Sheet controls option.
+--
+-- 'exportToCSVOption', 'dashboardPublishOptions_exportToCSVOption' - Export to .csv option.
 newDashboardPublishOptions ::
   DashboardPublishOptions
 newDashboardPublishOptions =
   DashboardPublishOptions'
     { adHocFilteringOption =
         Prelude.Nothing,
-      exportToCSVOption = Prelude.Nothing,
-      sheetControlsOption = Prelude.Nothing
+      sheetControlsOption = Prelude.Nothing,
+      exportToCSVOption = Prelude.Nothing
     }
 
 -- | Ad hoc (one-time) filtering option.
 dashboardPublishOptions_adHocFilteringOption :: Lens.Lens' DashboardPublishOptions (Prelude.Maybe AdHocFilteringOption)
 dashboardPublishOptions_adHocFilteringOption = Lens.lens (\DashboardPublishOptions' {adHocFilteringOption} -> adHocFilteringOption) (\s@DashboardPublishOptions' {} a -> s {adHocFilteringOption = a} :: DashboardPublishOptions)
 
--- | Export to .csv option.
-dashboardPublishOptions_exportToCSVOption :: Lens.Lens' DashboardPublishOptions (Prelude.Maybe ExportToCSVOption)
-dashboardPublishOptions_exportToCSVOption = Lens.lens (\DashboardPublishOptions' {exportToCSVOption} -> exportToCSVOption) (\s@DashboardPublishOptions' {} a -> s {exportToCSVOption = a} :: DashboardPublishOptions)
-
 -- | Sheet controls option.
 dashboardPublishOptions_sheetControlsOption :: Lens.Lens' DashboardPublishOptions (Prelude.Maybe SheetControlsOption)
 dashboardPublishOptions_sheetControlsOption = Lens.lens (\DashboardPublishOptions' {sheetControlsOption} -> sheetControlsOption) (\s@DashboardPublishOptions' {} a -> s {sheetControlsOption = a} :: DashboardPublishOptions)
 
+-- | Export to .csv option.
+dashboardPublishOptions_exportToCSVOption :: Lens.Lens' DashboardPublishOptions (Prelude.Maybe ExportToCSVOption)
+dashboardPublishOptions_exportToCSVOption = Lens.lens (\DashboardPublishOptions' {exportToCSVOption} -> exportToCSVOption) (\s@DashboardPublishOptions' {} a -> s {exportToCSVOption = a} :: DashboardPublishOptions)
+
 instance Prelude.Hashable DashboardPublishOptions where
   hashWithSalt _salt DashboardPublishOptions' {..} =
     _salt `Prelude.hashWithSalt` adHocFilteringOption
-      `Prelude.hashWithSalt` exportToCSVOption
       `Prelude.hashWithSalt` sheetControlsOption
+      `Prelude.hashWithSalt` exportToCSVOption
 
 instance Prelude.NFData DashboardPublishOptions where
   rnf DashboardPublishOptions' {..} =
     Prelude.rnf adHocFilteringOption
-      `Prelude.seq` Prelude.rnf exportToCSVOption
       `Prelude.seq` Prelude.rnf sheetControlsOption
+      `Prelude.seq` Prelude.rnf exportToCSVOption
 
 instance Core.ToJSON DashboardPublishOptions where
   toJSON DashboardPublishOptions' {..} =
@@ -92,9 +92,9 @@ instance Core.ToJSON DashboardPublishOptions where
       ( Prelude.catMaybes
           [ ("AdHocFilteringOption" Core..=)
               Prelude.<$> adHocFilteringOption,
-            ("ExportToCSVOption" Core..=)
-              Prelude.<$> exportToCSVOption,
             ("SheetControlsOption" Core..=)
-              Prelude.<$> sheetControlsOption
+              Prelude.<$> sheetControlsOption,
+            ("ExportToCSVOption" Core..=)
+              Prelude.<$> exportToCSVOption
           ]
       )

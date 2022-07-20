@@ -38,9 +38,9 @@ module Amazonka.KafkaConnect.CreateCustomPlugin
 
     -- * Response Lenses
     createCustomPluginResponse_name,
-    createCustomPluginResponse_customPluginArn,
-    createCustomPluginResponse_customPluginState,
     createCustomPluginResponse_revision,
+    createCustomPluginResponse_customPluginState,
+    createCustomPluginResponse_customPluginArn,
     createCustomPluginResponse_httpStatus,
   )
 where
@@ -122,9 +122,9 @@ instance Core.AWSRequest CreateCustomPlugin where
       ( \s h x ->
           CreateCustomPluginResponse'
             Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "customPluginArn")
-            Prelude.<*> (x Core..?> "customPluginState")
             Prelude.<*> (x Core..?> "revision")
+            Prelude.<*> (x Core..?> "customPluginState")
+            Prelude.<*> (x Core..?> "customPluginArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,13 +174,13 @@ instance Core.ToQuery CreateCustomPlugin where
 data CreateCustomPluginResponse = CreateCustomPluginResponse'
   { -- | The name of the custom plugin.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The revision of the custom plugin.
+    revision :: Prelude.Maybe Prelude.Integer,
+    -- | The state of the custom plugin.
+    customPluginState :: Prelude.Maybe CustomPluginState,
     -- | The Amazon Resource Name (ARN) that Amazon assigned to the custom
     -- plugin.
     customPluginArn :: Prelude.Maybe Prelude.Text,
-    -- | The state of the custom plugin.
-    customPluginState :: Prelude.Maybe CustomPluginState,
-    -- | The revision of the custom plugin.
-    revision :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,12 +196,12 @@ data CreateCustomPluginResponse = CreateCustomPluginResponse'
 --
 -- 'name', 'createCustomPluginResponse_name' - The name of the custom plugin.
 --
--- 'customPluginArn', 'createCustomPluginResponse_customPluginArn' - The Amazon Resource Name (ARN) that Amazon assigned to the custom
--- plugin.
+-- 'revision', 'createCustomPluginResponse_revision' - The revision of the custom plugin.
 --
 -- 'customPluginState', 'createCustomPluginResponse_customPluginState' - The state of the custom plugin.
 --
--- 'revision', 'createCustomPluginResponse_revision' - The revision of the custom plugin.
+-- 'customPluginArn', 'createCustomPluginResponse_customPluginArn' - The Amazon Resource Name (ARN) that Amazon assigned to the custom
+-- plugin.
 --
 -- 'httpStatus', 'createCustomPluginResponse_httpStatus' - The response's http status code.
 newCreateCustomPluginResponse ::
@@ -211,9 +211,9 @@ newCreateCustomPluginResponse ::
 newCreateCustomPluginResponse pHttpStatus_ =
   CreateCustomPluginResponse'
     { name = Prelude.Nothing,
-      customPluginArn = Prelude.Nothing,
-      customPluginState = Prelude.Nothing,
       revision = Prelude.Nothing,
+      customPluginState = Prelude.Nothing,
+      customPluginArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -221,18 +221,18 @@ newCreateCustomPluginResponse pHttpStatus_ =
 createCustomPluginResponse_name :: Lens.Lens' CreateCustomPluginResponse (Prelude.Maybe Prelude.Text)
 createCustomPluginResponse_name = Lens.lens (\CreateCustomPluginResponse' {name} -> name) (\s@CreateCustomPluginResponse' {} a -> s {name = a} :: CreateCustomPluginResponse)
 
--- | The Amazon Resource Name (ARN) that Amazon assigned to the custom
--- plugin.
-createCustomPluginResponse_customPluginArn :: Lens.Lens' CreateCustomPluginResponse (Prelude.Maybe Prelude.Text)
-createCustomPluginResponse_customPluginArn = Lens.lens (\CreateCustomPluginResponse' {customPluginArn} -> customPluginArn) (\s@CreateCustomPluginResponse' {} a -> s {customPluginArn = a} :: CreateCustomPluginResponse)
+-- | The revision of the custom plugin.
+createCustomPluginResponse_revision :: Lens.Lens' CreateCustomPluginResponse (Prelude.Maybe Prelude.Integer)
+createCustomPluginResponse_revision = Lens.lens (\CreateCustomPluginResponse' {revision} -> revision) (\s@CreateCustomPluginResponse' {} a -> s {revision = a} :: CreateCustomPluginResponse)
 
 -- | The state of the custom plugin.
 createCustomPluginResponse_customPluginState :: Lens.Lens' CreateCustomPluginResponse (Prelude.Maybe CustomPluginState)
 createCustomPluginResponse_customPluginState = Lens.lens (\CreateCustomPluginResponse' {customPluginState} -> customPluginState) (\s@CreateCustomPluginResponse' {} a -> s {customPluginState = a} :: CreateCustomPluginResponse)
 
--- | The revision of the custom plugin.
-createCustomPluginResponse_revision :: Lens.Lens' CreateCustomPluginResponse (Prelude.Maybe Prelude.Integer)
-createCustomPluginResponse_revision = Lens.lens (\CreateCustomPluginResponse' {revision} -> revision) (\s@CreateCustomPluginResponse' {} a -> s {revision = a} :: CreateCustomPluginResponse)
+-- | The Amazon Resource Name (ARN) that Amazon assigned to the custom
+-- plugin.
+createCustomPluginResponse_customPluginArn :: Lens.Lens' CreateCustomPluginResponse (Prelude.Maybe Prelude.Text)
+createCustomPluginResponse_customPluginArn = Lens.lens (\CreateCustomPluginResponse' {customPluginArn} -> customPluginArn) (\s@CreateCustomPluginResponse' {} a -> s {customPluginArn = a} :: CreateCustomPluginResponse)
 
 -- | The response's http status code.
 createCustomPluginResponse_httpStatus :: Lens.Lens' CreateCustomPluginResponse Prelude.Int
@@ -241,7 +241,7 @@ createCustomPluginResponse_httpStatus = Lens.lens (\CreateCustomPluginResponse' 
 instance Prelude.NFData CreateCustomPluginResponse where
   rnf CreateCustomPluginResponse' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf customPluginArn
-      `Prelude.seq` Prelude.rnf customPluginState
       `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf customPluginState
+      `Prelude.seq` Prelude.rnf customPluginArn
       `Prelude.seq` Prelude.rnf httpStatus

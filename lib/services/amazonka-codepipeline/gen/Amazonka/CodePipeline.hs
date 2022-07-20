@@ -158,104 +158,44 @@ module Amazonka.CodePipeline
     -- * Errors
     -- $errors
 
-    -- ** InvalidClientTokenException
-    _InvalidClientTokenException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** InvalidNonceException
-    _InvalidNonceException,
-
-    -- ** ActionNotFoundException
-    _ActionNotFoundException,
-
-    -- ** InvalidApprovalTokenException
-    _InvalidApprovalTokenException,
-
-    -- ** RequestFailedException
-    _RequestFailedException,
-
-    -- ** PipelineExecutionNotStoppableException
-    _PipelineExecutionNotStoppableException,
-
-    -- ** InvalidBlockerDeclarationException
-    _InvalidBlockerDeclarationException,
-
-    -- ** OutputVariablesSizeExceededException
-    _OutputVariablesSizeExceededException,
-
-    -- ** InvalidJobStateException
-    _InvalidJobStateException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** InvalidJobException
-    _InvalidJobException,
-
-    -- ** PipelineVersionNotFoundException
-    _PipelineVersionNotFoundException,
-
-    -- ** StageNotRetryableException
-    _StageNotRetryableException,
-
-    -- ** PipelineExecutionNotFoundException
-    _PipelineExecutionNotFoundException,
-
-    -- ** InvalidWebhookAuthenticationParametersException
-    _InvalidWebhookAuthenticationParametersException,
-
-    -- ** WebhookNotFoundException
-    _WebhookNotFoundException,
-
     -- ** InvalidTagsException
     _InvalidTagsException,
-
-    -- ** ActionTypeAlreadyExistsException
-    _ActionTypeAlreadyExistsException,
-
-    -- ** ActionTypeNotFoundException
-    _ActionTypeNotFoundException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** InvalidStageDeclarationException
-    _InvalidStageDeclarationException,
-
-    -- ** DuplicatedStopRequestException
-    _DuplicatedStopRequestException,
 
     -- ** InvalidWebhookFilterPatternException
     _InvalidWebhookFilterPatternException,
 
+    -- ** InvalidApprovalTokenException
+    _InvalidApprovalTokenException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
     -- ** InvalidActionDeclarationException
     _InvalidActionDeclarationException,
 
-    -- ** StageNotFoundException
-    _StageNotFoundException,
+    -- ** ActionNotFoundException
+    _ActionNotFoundException,
 
-    -- ** InvalidStructureException
-    _InvalidStructureException,
+    -- ** OutputVariablesSizeExceededException
+    _OutputVariablesSizeExceededException,
 
-    -- ** JobNotFoundException
-    _JobNotFoundException,
+    -- ** NotLatestPipelineExecutionException
+    _NotLatestPipelineExecutionException,
 
-    -- ** ApprovalAlreadyCompletedException
-    _ApprovalAlreadyCompletedException,
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
-    -- ** InvalidArnException
-    _InvalidArnException,
+    -- ** StageNotRetryableException
+    _StageNotRetryableException,
 
-    -- ** PipelineNameInUseException
-    _PipelineNameInUseException,
+    -- ** InvalidJobStateException
+    _InvalidJobStateException,
+
+    -- ** RequestFailedException
+    _RequestFailedException,
+
+    -- ** InvalidNonceException
+    _InvalidNonceException,
 
     -- ** PipelineNotFoundException
     _PipelineNotFoundException,
@@ -263,11 +203,71 @@ module Amazonka.CodePipeline
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** InvalidBlockerDeclarationException
+    _InvalidBlockerDeclarationException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** NotLatestPipelineExecutionException
-    _NotLatestPipelineExecutionException,
+    -- ** InvalidJobException
+    _InvalidJobException,
+
+    -- ** InvalidClientTokenException
+    _InvalidClientTokenException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** StageNotFoundException
+    _StageNotFoundException,
+
+    -- ** PipelineExecutionNotFoundException
+    _PipelineExecutionNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** PipelineVersionNotFoundException
+    _PipelineVersionNotFoundException,
+
+    -- ** PipelineNameInUseException
+    _PipelineNameInUseException,
+
+    -- ** InvalidStructureException
+    _InvalidStructureException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** InvalidStageDeclarationException
+    _InvalidStageDeclarationException,
+
+    -- ** WebhookNotFoundException
+    _WebhookNotFoundException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** PipelineExecutionNotStoppableException
+    _PipelineExecutionNotStoppableException,
+
+    -- ** ActionTypeNotFoundException
+    _ActionTypeNotFoundException,
+
+    -- ** DuplicatedStopRequestException
+    _DuplicatedStopRequestException,
+
+    -- ** ApprovalAlreadyCompletedException
+    _ApprovalAlreadyCompletedException,
+
+    -- ** InvalidWebhookAuthenticationParametersException
+    _InvalidWebhookAuthenticationParametersException,
+
+    -- ** JobNotFoundException
+    _JobNotFoundException,
+
+    -- ** ActionTypeAlreadyExistsException
+    _ActionTypeAlreadyExistsException,
 
     -- * Waiters
     -- $waiters
@@ -275,23 +275,11 @@ module Amazonka.CodePipeline
     -- * Operations
     -- $operations
 
-    -- ** GetPipeline
-    GetPipeline (GetPipeline'),
-    newGetPipeline,
-    GetPipelineResponse (GetPipelineResponse'),
-    newGetPipelineResponse,
-
-    -- ** PutJobFailureResult
-    PutJobFailureResult (PutJobFailureResult'),
-    newPutJobFailureResult,
-    PutJobFailureResultResponse (PutJobFailureResultResponse'),
-    newPutJobFailureResultResponse,
-
-    -- ** PutApprovalResult
-    PutApprovalResult (PutApprovalResult'),
-    newPutApprovalResult,
-    PutApprovalResultResponse (PutApprovalResultResponse'),
-    newPutApprovalResultResponse,
+    -- ** AcknowledgeJob
+    AcknowledgeJob (AcknowledgeJob'),
+    newAcknowledgeJob,
+    AcknowledgeJobResponse (AcknowledgeJobResponse'),
+    newAcknowledgeJobResponse,
 
     -- ** AcknowledgeThirdPartyJob
     AcknowledgeThirdPartyJob (AcknowledgeThirdPartyJob'),
@@ -299,95 +287,17 @@ module Amazonka.CodePipeline
     AcknowledgeThirdPartyJobResponse (AcknowledgeThirdPartyJobResponse'),
     newAcknowledgeThirdPartyJobResponse,
 
-    -- ** PutThirdPartyJobFailureResult
-    PutThirdPartyJobFailureResult (PutThirdPartyJobFailureResult'),
-    newPutThirdPartyJobFailureResult,
-    PutThirdPartyJobFailureResultResponse (PutThirdPartyJobFailureResultResponse'),
-    newPutThirdPartyJobFailureResultResponse,
+    -- ** CreateCustomActionType
+    CreateCustomActionType (CreateCustomActionType'),
+    newCreateCustomActionType,
+    CreateCustomActionTypeResponse (CreateCustomActionTypeResponse'),
+    newCreateCustomActionTypeResponse,
 
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** RegisterWebhookWithThirdParty
-    RegisterWebhookWithThirdParty (RegisterWebhookWithThirdParty'),
-    newRegisterWebhookWithThirdParty,
-    RegisterWebhookWithThirdPartyResponse (RegisterWebhookWithThirdPartyResponse'),
-    newRegisterWebhookWithThirdPartyResponse,
-
-    -- ** PollForThirdPartyJobs
-    PollForThirdPartyJobs (PollForThirdPartyJobs'),
-    newPollForThirdPartyJobs,
-    PollForThirdPartyJobsResponse (PollForThirdPartyJobsResponse'),
-    newPollForThirdPartyJobsResponse,
-
-    -- ** PollForJobs
-    PollForJobs (PollForJobs'),
-    newPollForJobs,
-    PollForJobsResponse (PollForJobsResponse'),
-    newPollForJobsResponse,
-
-    -- ** StartPipelineExecution
-    StartPipelineExecution (StartPipelineExecution'),
-    newStartPipelineExecution,
-    StartPipelineExecutionResponse (StartPipelineExecutionResponse'),
-    newStartPipelineExecutionResponse,
-
-    -- ** UpdatePipeline
-    UpdatePipeline (UpdatePipeline'),
-    newUpdatePipeline,
-    UpdatePipelineResponse (UpdatePipelineResponse'),
-    newUpdatePipelineResponse,
-
-    -- ** DeletePipeline
-    DeletePipeline (DeletePipeline'),
-    newDeletePipeline,
-    DeletePipelineResponse (DeletePipelineResponse'),
-    newDeletePipelineResponse,
-
-    -- ** GetPipelineState
-    GetPipelineState (GetPipelineState'),
-    newGetPipelineState,
-    GetPipelineStateResponse (GetPipelineStateResponse'),
-    newGetPipelineStateResponse,
-
-    -- ** GetJobDetails
-    GetJobDetails (GetJobDetails'),
-    newGetJobDetails,
-    GetJobDetailsResponse (GetJobDetailsResponse'),
-    newGetJobDetailsResponse,
-
-    -- ** ListPipelines (Paginated)
-    ListPipelines (ListPipelines'),
-    newListPipelines,
-    ListPipelinesResponse (ListPipelinesResponse'),
-    newListPipelinesResponse,
-
-    -- ** RetryStageExecution
-    RetryStageExecution (RetryStageExecution'),
-    newRetryStageExecution,
-    RetryStageExecutionResponse (RetryStageExecutionResponse'),
-    newRetryStageExecutionResponse,
-
-    -- ** GetPipelineExecution
-    GetPipelineExecution (GetPipelineExecution'),
-    newGetPipelineExecution,
-    GetPipelineExecutionResponse (GetPipelineExecutionResponse'),
-    newGetPipelineExecutionResponse,
-
-    -- ** PutJobSuccessResult
-    PutJobSuccessResult (PutJobSuccessResult'),
-    newPutJobSuccessResult,
-    PutJobSuccessResultResponse (PutJobSuccessResultResponse'),
-    newPutJobSuccessResultResponse,
-
-    -- ** DeregisterWebhookWithThirdParty
-    DeregisterWebhookWithThirdParty (DeregisterWebhookWithThirdParty'),
-    newDeregisterWebhookWithThirdParty,
-    DeregisterWebhookWithThirdPartyResponse (DeregisterWebhookWithThirdPartyResponse'),
-    newDeregisterWebhookWithThirdPartyResponse,
+    -- ** CreatePipeline
+    CreatePipeline (CreatePipeline'),
+    newCreatePipeline,
+    CreatePipelineResponse (CreatePipelineResponse'),
+    newCreatePipelineResponse,
 
     -- ** DeleteCustomActionType
     DeleteCustomActionType (DeleteCustomActionType'),
@@ -395,41 +305,11 @@ module Amazonka.CodePipeline
     DeleteCustomActionTypeResponse (DeleteCustomActionTypeResponse'),
     newDeleteCustomActionTypeResponse,
 
-    -- ** PutActionRevision
-    PutActionRevision (PutActionRevision'),
-    newPutActionRevision,
-    PutActionRevisionResponse (PutActionRevisionResponse'),
-    newPutActionRevisionResponse,
-
-    -- ** DisableStageTransition
-    DisableStageTransition (DisableStageTransition'),
-    newDisableStageTransition,
-    DisableStageTransitionResponse (DisableStageTransitionResponse'),
-    newDisableStageTransitionResponse,
-
-    -- ** UpdateActionType
-    UpdateActionType (UpdateActionType'),
-    newUpdateActionType,
-    UpdateActionTypeResponse (UpdateActionTypeResponse'),
-    newUpdateActionTypeResponse,
-
-    -- ** ListActionTypes (Paginated)
-    ListActionTypes (ListActionTypes'),
-    newListActionTypes,
-    ListActionTypesResponse (ListActionTypesResponse'),
-    newListActionTypesResponse,
-
-    -- ** AcknowledgeJob
-    AcknowledgeJob (AcknowledgeJob'),
-    newAcknowledgeJob,
-    AcknowledgeJobResponse (AcknowledgeJobResponse'),
-    newAcknowledgeJobResponse,
-
-    -- ** EnableStageTransition
-    EnableStageTransition (EnableStageTransition'),
-    newEnableStageTransition,
-    EnableStageTransitionResponse (EnableStageTransitionResponse'),
-    newEnableStageTransitionResponse,
+    -- ** DeletePipeline
+    DeletePipeline (DeletePipeline'),
+    newDeletePipeline,
+    DeletePipelineResponse (DeletePipelineResponse'),
+    newDeletePipelineResponse,
 
     -- ** DeleteWebhook
     DeleteWebhook (DeleteWebhook'),
@@ -437,17 +317,59 @@ module Amazonka.CodePipeline
     DeleteWebhookResponse (DeleteWebhookResponse'),
     newDeleteWebhookResponse,
 
-    -- ** PutWebhook
-    PutWebhook (PutWebhook'),
-    newPutWebhook,
-    PutWebhookResponse (PutWebhookResponse'),
-    newPutWebhookResponse,
+    -- ** DeregisterWebhookWithThirdParty
+    DeregisterWebhookWithThirdParty (DeregisterWebhookWithThirdParty'),
+    newDeregisterWebhookWithThirdParty,
+    DeregisterWebhookWithThirdPartyResponse (DeregisterWebhookWithThirdPartyResponse'),
+    newDeregisterWebhookWithThirdPartyResponse,
 
-    -- ** ListWebhooks (Paginated)
-    ListWebhooks (ListWebhooks'),
-    newListWebhooks,
-    ListWebhooksResponse (ListWebhooksResponse'),
-    newListWebhooksResponse,
+    -- ** DisableStageTransition
+    DisableStageTransition (DisableStageTransition'),
+    newDisableStageTransition,
+    DisableStageTransitionResponse (DisableStageTransitionResponse'),
+    newDisableStageTransitionResponse,
+
+    -- ** EnableStageTransition
+    EnableStageTransition (EnableStageTransition'),
+    newEnableStageTransition,
+    EnableStageTransitionResponse (EnableStageTransitionResponse'),
+    newEnableStageTransitionResponse,
+
+    -- ** GetActionType
+    GetActionType (GetActionType'),
+    newGetActionType,
+    GetActionTypeResponse (GetActionTypeResponse'),
+    newGetActionTypeResponse,
+
+    -- ** GetJobDetails
+    GetJobDetails (GetJobDetails'),
+    newGetJobDetails,
+    GetJobDetailsResponse (GetJobDetailsResponse'),
+    newGetJobDetailsResponse,
+
+    -- ** GetPipeline
+    GetPipeline (GetPipeline'),
+    newGetPipeline,
+    GetPipelineResponse (GetPipelineResponse'),
+    newGetPipelineResponse,
+
+    -- ** GetPipelineExecution
+    GetPipelineExecution (GetPipelineExecution'),
+    newGetPipelineExecution,
+    GetPipelineExecutionResponse (GetPipelineExecutionResponse'),
+    newGetPipelineExecutionResponse,
+
+    -- ** GetPipelineState
+    GetPipelineState (GetPipelineState'),
+    newGetPipelineState,
+    GetPipelineStateResponse (GetPipelineStateResponse'),
+    newGetPipelineStateResponse,
+
+    -- ** GetThirdPartyJobDetails
+    GetThirdPartyJobDetails (GetThirdPartyJobDetails'),
+    newGetThirdPartyJobDetails,
+    GetThirdPartyJobDetailsResponse (GetThirdPartyJobDetailsResponse'),
+    newGetThirdPartyJobDetailsResponse,
 
     -- ** ListActionExecutions (Paginated)
     ListActionExecutions (ListActionExecutions'),
@@ -455,11 +377,107 @@ module Amazonka.CodePipeline
     ListActionExecutionsResponse (ListActionExecutionsResponse'),
     newListActionExecutionsResponse,
 
-    -- ** GetActionType
-    GetActionType (GetActionType'),
-    newGetActionType,
-    GetActionTypeResponse (GetActionTypeResponse'),
-    newGetActionTypeResponse,
+    -- ** ListActionTypes (Paginated)
+    ListActionTypes (ListActionTypes'),
+    newListActionTypes,
+    ListActionTypesResponse (ListActionTypesResponse'),
+    newListActionTypesResponse,
+
+    -- ** ListPipelineExecutions (Paginated)
+    ListPipelineExecutions (ListPipelineExecutions'),
+    newListPipelineExecutions,
+    ListPipelineExecutionsResponse (ListPipelineExecutionsResponse'),
+    newListPipelineExecutionsResponse,
+
+    -- ** ListPipelines (Paginated)
+    ListPipelines (ListPipelines'),
+    newListPipelines,
+    ListPipelinesResponse (ListPipelinesResponse'),
+    newListPipelinesResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListWebhooks (Paginated)
+    ListWebhooks (ListWebhooks'),
+    newListWebhooks,
+    ListWebhooksResponse (ListWebhooksResponse'),
+    newListWebhooksResponse,
+
+    -- ** PollForJobs
+    PollForJobs (PollForJobs'),
+    newPollForJobs,
+    PollForJobsResponse (PollForJobsResponse'),
+    newPollForJobsResponse,
+
+    -- ** PollForThirdPartyJobs
+    PollForThirdPartyJobs (PollForThirdPartyJobs'),
+    newPollForThirdPartyJobs,
+    PollForThirdPartyJobsResponse (PollForThirdPartyJobsResponse'),
+    newPollForThirdPartyJobsResponse,
+
+    -- ** PutActionRevision
+    PutActionRevision (PutActionRevision'),
+    newPutActionRevision,
+    PutActionRevisionResponse (PutActionRevisionResponse'),
+    newPutActionRevisionResponse,
+
+    -- ** PutApprovalResult
+    PutApprovalResult (PutApprovalResult'),
+    newPutApprovalResult,
+    PutApprovalResultResponse (PutApprovalResultResponse'),
+    newPutApprovalResultResponse,
+
+    -- ** PutJobFailureResult
+    PutJobFailureResult (PutJobFailureResult'),
+    newPutJobFailureResult,
+    PutJobFailureResultResponse (PutJobFailureResultResponse'),
+    newPutJobFailureResultResponse,
+
+    -- ** PutJobSuccessResult
+    PutJobSuccessResult (PutJobSuccessResult'),
+    newPutJobSuccessResult,
+    PutJobSuccessResultResponse (PutJobSuccessResultResponse'),
+    newPutJobSuccessResultResponse,
+
+    -- ** PutThirdPartyJobFailureResult
+    PutThirdPartyJobFailureResult (PutThirdPartyJobFailureResult'),
+    newPutThirdPartyJobFailureResult,
+    PutThirdPartyJobFailureResultResponse (PutThirdPartyJobFailureResultResponse'),
+    newPutThirdPartyJobFailureResultResponse,
+
+    -- ** PutThirdPartyJobSuccessResult
+    PutThirdPartyJobSuccessResult (PutThirdPartyJobSuccessResult'),
+    newPutThirdPartyJobSuccessResult,
+    PutThirdPartyJobSuccessResultResponse (PutThirdPartyJobSuccessResultResponse'),
+    newPutThirdPartyJobSuccessResultResponse,
+
+    -- ** PutWebhook
+    PutWebhook (PutWebhook'),
+    newPutWebhook,
+    PutWebhookResponse (PutWebhookResponse'),
+    newPutWebhookResponse,
+
+    -- ** RegisterWebhookWithThirdParty
+    RegisterWebhookWithThirdParty (RegisterWebhookWithThirdParty'),
+    newRegisterWebhookWithThirdParty,
+    RegisterWebhookWithThirdPartyResponse (RegisterWebhookWithThirdPartyResponse'),
+    newRegisterWebhookWithThirdPartyResponse,
+
+    -- ** RetryStageExecution
+    RetryStageExecution (RetryStageExecution'),
+    newRetryStageExecution,
+    RetryStageExecutionResponse (RetryStageExecutionResponse'),
+    newRetryStageExecutionResponse,
+
+    -- ** StartPipelineExecution
+    StartPipelineExecution (StartPipelineExecution'),
+    newStartPipelineExecution,
+    StartPipelineExecutionResponse (StartPipelineExecutionResponse'),
+    newStartPipelineExecutionResponse,
 
     -- ** StopPipelineExecution
     StopPipelineExecution (StopPipelineExecution'),
@@ -479,35 +497,17 @@ module Amazonka.CodePipeline
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** CreatePipeline
-    CreatePipeline (CreatePipeline'),
-    newCreatePipeline,
-    CreatePipelineResponse (CreatePipelineResponse'),
-    newCreatePipelineResponse,
+    -- ** UpdateActionType
+    UpdateActionType (UpdateActionType'),
+    newUpdateActionType,
+    UpdateActionTypeResponse (UpdateActionTypeResponse'),
+    newUpdateActionTypeResponse,
 
-    -- ** GetThirdPartyJobDetails
-    GetThirdPartyJobDetails (GetThirdPartyJobDetails'),
-    newGetThirdPartyJobDetails,
-    GetThirdPartyJobDetailsResponse (GetThirdPartyJobDetailsResponse'),
-    newGetThirdPartyJobDetailsResponse,
-
-    -- ** PutThirdPartyJobSuccessResult
-    PutThirdPartyJobSuccessResult (PutThirdPartyJobSuccessResult'),
-    newPutThirdPartyJobSuccessResult,
-    PutThirdPartyJobSuccessResultResponse (PutThirdPartyJobSuccessResultResponse'),
-    newPutThirdPartyJobSuccessResultResponse,
-
-    -- ** CreateCustomActionType
-    CreateCustomActionType (CreateCustomActionType'),
-    newCreateCustomActionType,
-    CreateCustomActionTypeResponse (CreateCustomActionTypeResponse'),
-    newCreateCustomActionTypeResponse,
-
-    -- ** ListPipelineExecutions (Paginated)
-    ListPipelineExecutions (ListPipelineExecutions'),
-    newListPipelineExecutions,
-    ListPipelineExecutionsResponse (ListPipelineExecutionsResponse'),
-    newListPipelineExecutionsResponse,
+    -- ** UpdatePipeline
+    UpdatePipeline (UpdatePipeline'),
+    newUpdatePipeline,
+    UpdatePipelineResponse (UpdatePipelineResponse'),
+    newUpdatePipelineResponse,
 
     -- * Types
 

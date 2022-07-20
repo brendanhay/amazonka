@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProcessorInfo' smart constructor.
 data ProcessorInfo = ProcessorInfo'
-  { -- | The architectures supported by the instance type.
-    supportedArchitectures :: Prelude.Maybe [ArchitectureType],
-    -- | The speed of the processor, in GHz.
-    sustainedClockSpeedInGhz :: Prelude.Maybe Prelude.Double
+  { -- | The speed of the processor, in GHz.
+    sustainedClockSpeedInGhz :: Prelude.Maybe Prelude.Double,
+    -- | The architectures supported by the instance type.
+    supportedArchitectures :: Prelude.Maybe [ArchitectureType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,41 +44,42 @@ data ProcessorInfo = ProcessorInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'supportedArchitectures', 'processorInfo_supportedArchitectures' - The architectures supported by the instance type.
---
 -- 'sustainedClockSpeedInGhz', 'processorInfo_sustainedClockSpeedInGhz' - The speed of the processor, in GHz.
+--
+-- 'supportedArchitectures', 'processorInfo_supportedArchitectures' - The architectures supported by the instance type.
 newProcessorInfo ::
   ProcessorInfo
 newProcessorInfo =
   ProcessorInfo'
-    { supportedArchitectures =
+    { sustainedClockSpeedInGhz =
         Prelude.Nothing,
-      sustainedClockSpeedInGhz = Prelude.Nothing
+      supportedArchitectures = Prelude.Nothing
     }
-
--- | The architectures supported by the instance type.
-processorInfo_supportedArchitectures :: Lens.Lens' ProcessorInfo (Prelude.Maybe [ArchitectureType])
-processorInfo_supportedArchitectures = Lens.lens (\ProcessorInfo' {supportedArchitectures} -> supportedArchitectures) (\s@ProcessorInfo' {} a -> s {supportedArchitectures = a} :: ProcessorInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The speed of the processor, in GHz.
 processorInfo_sustainedClockSpeedInGhz :: Lens.Lens' ProcessorInfo (Prelude.Maybe Prelude.Double)
 processorInfo_sustainedClockSpeedInGhz = Lens.lens (\ProcessorInfo' {sustainedClockSpeedInGhz} -> sustainedClockSpeedInGhz) (\s@ProcessorInfo' {} a -> s {sustainedClockSpeedInGhz = a} :: ProcessorInfo)
 
+-- | The architectures supported by the instance type.
+processorInfo_supportedArchitectures :: Lens.Lens' ProcessorInfo (Prelude.Maybe [ArchitectureType])
+processorInfo_supportedArchitectures = Lens.lens (\ProcessorInfo' {supportedArchitectures} -> supportedArchitectures) (\s@ProcessorInfo' {} a -> s {supportedArchitectures = a} :: ProcessorInfo) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML ProcessorInfo where
   parseXML x =
     ProcessorInfo'
-      Prelude.<$> ( x Core..@? "supportedArchitectures"
+      Prelude.<$> (x Core..@? "sustainedClockSpeedInGhz")
+      Prelude.<*> ( x Core..@? "supportedArchitectures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "sustainedClockSpeedInGhz")
 
 instance Prelude.Hashable ProcessorInfo where
   hashWithSalt _salt ProcessorInfo' {..} =
-    _salt `Prelude.hashWithSalt` supportedArchitectures
+    _salt
       `Prelude.hashWithSalt` sustainedClockSpeedInGhz
+      `Prelude.hashWithSalt` supportedArchitectures
 
 instance Prelude.NFData ProcessorInfo where
   rnf ProcessorInfo' {..} =
-    Prelude.rnf supportedArchitectures
-      `Prelude.seq` Prelude.rnf sustainedClockSpeedInGhz
+    Prelude.rnf sustainedClockSpeedInGhz
+      `Prelude.seq` Prelude.rnf supportedArchitectures

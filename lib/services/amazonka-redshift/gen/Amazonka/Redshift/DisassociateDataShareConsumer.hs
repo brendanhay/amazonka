@@ -36,10 +36,10 @@ module Amazonka.Redshift.DisassociateDataShareConsumer
     newDataShare,
 
     -- * Response Lenses
-    dataShare_producerArn,
     dataShare_dataShareAssociations,
-    dataShare_dataShareArn,
+    dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
+    dataShare_dataShareArn,
   )
 where
 

@@ -32,15 +32,15 @@ import Amazonka.Rekognition.Types.ProtectiveEquipmentType
 --
 -- /See:/ 'newEquipmentDetection' smart constructor.
 data EquipmentDetection = EquipmentDetection'
-  { -- | A bounding box surrounding the item of detected PPE.
-    boundingBox :: Prelude.Maybe BoundingBox,
-    -- | Information about the body part covered by the detected PPE.
-    coversBodyPart :: Prelude.Maybe CoversBodyPart,
+  { -- | The type of detected PPE.
+    type' :: Prelude.Maybe ProtectiveEquipmentType,
     -- | The confidence that Amazon Rekognition has that the bounding box
     -- (@BoundingBox@) contains an item of PPE.
     confidence :: Prelude.Maybe Prelude.Double,
-    -- | The type of detected PPE.
-    type' :: Prelude.Maybe ProtectiveEquipmentType
+    -- | A bounding box surrounding the item of detected PPE.
+    boundingBox :: Prelude.Maybe BoundingBox,
+    -- | Information about the body part covered by the detected PPE.
+    coversBodyPart :: Prelude.Maybe CoversBodyPart
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,23 +52,32 @@ data EquipmentDetection = EquipmentDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'boundingBox', 'equipmentDetection_boundingBox' - A bounding box surrounding the item of detected PPE.
---
--- 'coversBodyPart', 'equipmentDetection_coversBodyPart' - Information about the body part covered by the detected PPE.
+-- 'type'', 'equipmentDetection_type' - The type of detected PPE.
 --
 -- 'confidence', 'equipmentDetection_confidence' - The confidence that Amazon Rekognition has that the bounding box
 -- (@BoundingBox@) contains an item of PPE.
 --
--- 'type'', 'equipmentDetection_type' - The type of detected PPE.
+-- 'boundingBox', 'equipmentDetection_boundingBox' - A bounding box surrounding the item of detected PPE.
+--
+-- 'coversBodyPart', 'equipmentDetection_coversBodyPart' - Information about the body part covered by the detected PPE.
 newEquipmentDetection ::
   EquipmentDetection
 newEquipmentDetection =
   EquipmentDetection'
-    { boundingBox = Prelude.Nothing,
-      coversBodyPart = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       confidence = Prelude.Nothing,
-      type' = Prelude.Nothing
+      boundingBox = Prelude.Nothing,
+      coversBodyPart = Prelude.Nothing
     }
+
+-- | The type of detected PPE.
+equipmentDetection_type :: Lens.Lens' EquipmentDetection (Prelude.Maybe ProtectiveEquipmentType)
+equipmentDetection_type = Lens.lens (\EquipmentDetection' {type'} -> type') (\s@EquipmentDetection' {} a -> s {type' = a} :: EquipmentDetection)
+
+-- | The confidence that Amazon Rekognition has that the bounding box
+-- (@BoundingBox@) contains an item of PPE.
+equipmentDetection_confidence :: Lens.Lens' EquipmentDetection (Prelude.Maybe Prelude.Double)
+equipmentDetection_confidence = Lens.lens (\EquipmentDetection' {confidence} -> confidence) (\s@EquipmentDetection' {} a -> s {confidence = a} :: EquipmentDetection)
 
 -- | A bounding box surrounding the item of detected PPE.
 equipmentDetection_boundingBox :: Lens.Lens' EquipmentDetection (Prelude.Maybe BoundingBox)
@@ -78,37 +87,28 @@ equipmentDetection_boundingBox = Lens.lens (\EquipmentDetection' {boundingBox} -
 equipmentDetection_coversBodyPart :: Lens.Lens' EquipmentDetection (Prelude.Maybe CoversBodyPart)
 equipmentDetection_coversBodyPart = Lens.lens (\EquipmentDetection' {coversBodyPart} -> coversBodyPart) (\s@EquipmentDetection' {} a -> s {coversBodyPart = a} :: EquipmentDetection)
 
--- | The confidence that Amazon Rekognition has that the bounding box
--- (@BoundingBox@) contains an item of PPE.
-equipmentDetection_confidence :: Lens.Lens' EquipmentDetection (Prelude.Maybe Prelude.Double)
-equipmentDetection_confidence = Lens.lens (\EquipmentDetection' {confidence} -> confidence) (\s@EquipmentDetection' {} a -> s {confidence = a} :: EquipmentDetection)
-
--- | The type of detected PPE.
-equipmentDetection_type :: Lens.Lens' EquipmentDetection (Prelude.Maybe ProtectiveEquipmentType)
-equipmentDetection_type = Lens.lens (\EquipmentDetection' {type'} -> type') (\s@EquipmentDetection' {} a -> s {type' = a} :: EquipmentDetection)
-
 instance Core.FromJSON EquipmentDetection where
   parseJSON =
     Core.withObject
       "EquipmentDetection"
       ( \x ->
           EquipmentDetection'
-            Prelude.<$> (x Core..:? "BoundingBox")
-            Prelude.<*> (x Core..:? "CoversBodyPart")
+            Prelude.<$> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<*> (x Core..:? "CoversBodyPart")
       )
 
 instance Prelude.Hashable EquipmentDetection where
   hashWithSalt _salt EquipmentDetection' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
-      `Prelude.hashWithSalt` coversBodyPart
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` coversBodyPart
 
 instance Prelude.NFData EquipmentDetection where
   rnf EquipmentDetection' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf coversBodyPart
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf coversBodyPart

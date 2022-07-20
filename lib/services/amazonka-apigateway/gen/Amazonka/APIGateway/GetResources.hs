@@ -29,9 +29,9 @@ module Amazonka.APIGateway.GetResources
     newGetResources,
 
     -- * Request Lenses
-    getResources_embed,
     getResources_limit,
     getResources_position,
+    getResources_embed,
     getResources_restApiId,
 
     -- * Destructuring the Response
@@ -56,7 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetResources' smart constructor.
 data GetResources = GetResources'
-  { -- | A query parameter used to retrieve the specified resources embedded in
+  { -- | The maximum number of returned results per page. The default value is 25
+    -- and the maximum value is 500.
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
+    -- | A query parameter used to retrieve the specified resources embedded in
     -- the returned Resources resource in the response. This @embed@ parameter
     -- value is a list of comma-separated strings. Currently, the request
     -- supports only retrieval of the embedded Method resources this way. The
@@ -64,11 +69,6 @@ data GetResources = GetResources'
     -- @\"methods\"@ string. For example,
     -- @GET \/restapis\/{restapi_id}\/resources?embed=methods@.
     embed :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of returned results per page. The default value is 25
-    -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
-    -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -82,6 +82,11 @@ data GetResources = GetResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'getResources_limit' - The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
+--
+-- 'position', 'getResources_position' - The current pagination position in the paged result set.
+--
 -- 'embed', 'getResources_embed' - A query parameter used to retrieve the specified resources embedded in
 -- the returned Resources resource in the response. This @embed@ parameter
 -- value is a list of comma-separated strings. Currently, the request
@@ -90,11 +95,6 @@ data GetResources = GetResources'
 -- @\"methods\"@ string. For example,
 -- @GET \/restapis\/{restapi_id}\/resources?embed=methods@.
 --
--- 'limit', 'getResources_limit' - The maximum number of returned results per page. The default value is 25
--- and the maximum value is 500.
---
--- 'position', 'getResources_position' - The current pagination position in the paged result set.
---
 -- 'restApiId', 'getResources_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetResources ::
   -- | 'restApiId'
@@ -102,11 +102,20 @@ newGetResources ::
   GetResources
 newGetResources pRestApiId_ =
   GetResources'
-    { embed = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
       position = Prelude.Nothing,
+      embed = Prelude.Nothing,
       restApiId = pRestApiId_
     }
+
+-- | The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
+getResources_limit :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Int)
+getResources_limit = Lens.lens (\GetResources' {limit} -> limit) (\s@GetResources' {} a -> s {limit = a} :: GetResources)
+
+-- | The current pagination position in the paged result set.
+getResources_position :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
+getResources_position = Lens.lens (\GetResources' {position} -> position) (\s@GetResources' {} a -> s {position = a} :: GetResources)
 
 -- | A query parameter used to retrieve the specified resources embedded in
 -- the returned Resources resource in the response. This @embed@ parameter
@@ -117,15 +126,6 @@ newGetResources pRestApiId_ =
 -- @GET \/restapis\/{restapi_id}\/resources?embed=methods@.
 getResources_embed :: Lens.Lens' GetResources (Prelude.Maybe [Prelude.Text])
 getResources_embed = Lens.lens (\GetResources' {embed} -> embed) (\s@GetResources' {} a -> s {embed = a} :: GetResources) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of returned results per page. The default value is 25
--- and the maximum value is 500.
-getResources_limit :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Int)
-getResources_limit = Lens.lens (\GetResources' {limit} -> limit) (\s@GetResources' {} a -> s {limit = a} :: GetResources)
-
--- | The current pagination position in the paged result set.
-getResources_position :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
-getResources_position = Lens.lens (\GetResources' {position} -> position) (\s@GetResources' {} a -> s {position = a} :: GetResources)
 
 -- | [Required] The string identifier of the associated RestApi.
 getResources_restApiId :: Lens.Lens' GetResources Prelude.Text
@@ -164,16 +164,16 @@ instance Core.AWSRequest GetResources where
 
 instance Prelude.Hashable GetResources where
   hashWithSalt _salt GetResources' {..} =
-    _salt `Prelude.hashWithSalt` embed
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` embed
       `Prelude.hashWithSalt` restApiId
 
 instance Prelude.NFData GetResources where
   rnf GetResources' {..} =
-    Prelude.rnf embed
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf embed
       `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders GetResources where
@@ -193,11 +193,11 @@ instance Core.ToPath GetResources where
 instance Core.ToQuery GetResources where
   toQuery GetResources' {..} =
     Prelude.mconcat
-      [ "embed"
+      [ "limit" Core.=: limit,
+        "position" Core.=: position,
+        "embed"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> embed),
-        "limit" Core.=: limit,
-        "position" Core.=: position
+            (Core.toQueryList "member" Prelude.<$> embed)
       ]
 
 -- | Represents a collection of Resource resources.

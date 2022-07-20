@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSetting' smart constructor.
 data Setting = Setting'
-  { -- | Whether the account setting is enabled or disabled for the specified
-    -- resource.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon ECS resource name.
+  { -- | The Amazon ECS resource name.
     name :: Prelude.Maybe SettingName,
     -- | The ARN of the principal, which can be an IAM user, IAM role, or the
     -- root user. If this field is omitted, the authenticated user is assumed.
-    principalArn :: Prelude.Maybe Prelude.Text
+    principalArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether the account setting is enabled or disabled for the specified
+    -- resource.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,21 @@ data Setting = Setting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'setting_value' - Whether the account setting is enabled or disabled for the specified
--- resource.
---
 -- 'name', 'setting_name' - The Amazon ECS resource name.
 --
 -- 'principalArn', 'setting_principalArn' - The ARN of the principal, which can be an IAM user, IAM role, or the
 -- root user. If this field is omitted, the authenticated user is assumed.
+--
+-- 'value', 'setting_value' - Whether the account setting is enabled or disabled for the specified
+-- resource.
 newSetting ::
   Setting
 newSetting =
   Setting'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing,
-      principalArn = Prelude.Nothing
+    { name = Prelude.Nothing,
+      principalArn = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | Whether the account setting is enabled or disabled for the specified
--- resource.
-setting_value :: Lens.Lens' Setting (Prelude.Maybe Prelude.Text)
-setting_value = Lens.lens (\Setting' {value} -> value) (\s@Setting' {} a -> s {value = a} :: Setting)
 
 -- | The Amazon ECS resource name.
 setting_name :: Lens.Lens' Setting (Prelude.Maybe SettingName)
@@ -77,25 +72,30 @@ setting_name = Lens.lens (\Setting' {name} -> name) (\s@Setting' {} a -> s {name
 setting_principalArn :: Lens.Lens' Setting (Prelude.Maybe Prelude.Text)
 setting_principalArn = Lens.lens (\Setting' {principalArn} -> principalArn) (\s@Setting' {} a -> s {principalArn = a} :: Setting)
 
+-- | Whether the account setting is enabled or disabled for the specified
+-- resource.
+setting_value :: Lens.Lens' Setting (Prelude.Maybe Prelude.Text)
+setting_value = Lens.lens (\Setting' {value} -> value) (\s@Setting' {} a -> s {value = a} :: Setting)
+
 instance Core.FromJSON Setting where
   parseJSON =
     Core.withObject
       "Setting"
       ( \x ->
           Setting'
-            Prelude.<$> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "principalArn")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable Setting where
   hashWithSalt _salt Setting' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` principalArn
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Setting where
   rnf Setting' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf principalArn
+      `Prelude.seq` Prelude.rnf value

@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutPartnerEventsResultEntry' smart constructor.
 data PutPartnerEventsResultEntry = PutPartnerEventsResultEntry'
-  { -- | The error code that indicates why the event submission failed.
-    errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The error message that explains why the event submission failed.
+  { -- | The error message that explains why the event submission failed.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the event.
-    eventId :: Prelude.Maybe Prelude.Text
+    eventId :: Prelude.Maybe Prelude.Text,
+    -- | The error code that indicates why the event submission failed.
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data PutPartnerEventsResultEntry = PutPartnerEventsResultEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'putPartnerEventsResultEntry_errorCode' - The error code that indicates why the event submission failed.
---
 -- 'errorMessage', 'putPartnerEventsResultEntry_errorMessage' - The error message that explains why the event submission failed.
 --
 -- 'eventId', 'putPartnerEventsResultEntry_eventId' - The ID of the event.
+--
+-- 'errorCode', 'putPartnerEventsResultEntry_errorCode' - The error code that indicates why the event submission failed.
 newPutPartnerEventsResultEntry ::
   PutPartnerEventsResultEntry
 newPutPartnerEventsResultEntry =
   PutPartnerEventsResultEntry'
-    { errorCode =
+    { errorMessage =
         Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      eventId = Prelude.Nothing
+      eventId = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
-
--- | The error code that indicates why the event submission failed.
-putPartnerEventsResultEntry_errorCode :: Lens.Lens' PutPartnerEventsResultEntry (Prelude.Maybe Prelude.Text)
-putPartnerEventsResultEntry_errorCode = Lens.lens (\PutPartnerEventsResultEntry' {errorCode} -> errorCode) (\s@PutPartnerEventsResultEntry' {} a -> s {errorCode = a} :: PutPartnerEventsResultEntry)
 
 -- | The error message that explains why the event submission failed.
 putPartnerEventsResultEntry_errorMessage :: Lens.Lens' PutPartnerEventsResultEntry (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ putPartnerEventsResultEntry_errorMessage = Lens.lens (\PutPartnerEventsResultEnt
 putPartnerEventsResultEntry_eventId :: Lens.Lens' PutPartnerEventsResultEntry (Prelude.Maybe Prelude.Text)
 putPartnerEventsResultEntry_eventId = Lens.lens (\PutPartnerEventsResultEntry' {eventId} -> eventId) (\s@PutPartnerEventsResultEntry' {} a -> s {eventId = a} :: PutPartnerEventsResultEntry)
 
+-- | The error code that indicates why the event submission failed.
+putPartnerEventsResultEntry_errorCode :: Lens.Lens' PutPartnerEventsResultEntry (Prelude.Maybe Prelude.Text)
+putPartnerEventsResultEntry_errorCode = Lens.lens (\PutPartnerEventsResultEntry' {errorCode} -> errorCode) (\s@PutPartnerEventsResultEntry' {} a -> s {errorCode = a} :: PutPartnerEventsResultEntry)
+
 instance Core.FromJSON PutPartnerEventsResultEntry where
   parseJSON =
     Core.withObject
       "PutPartnerEventsResultEntry"
       ( \x ->
           PutPartnerEventsResultEntry'
-            Prelude.<$> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "EventId")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PutPartnerEventsResultEntry where
   hashWithSalt _salt PutPartnerEventsResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData PutPartnerEventsResultEntry where
   rnf PutPartnerEventsResultEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf errorCode

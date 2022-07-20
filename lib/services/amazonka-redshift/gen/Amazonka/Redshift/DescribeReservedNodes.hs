@@ -29,8 +29,8 @@ module Amazonka.Redshift.DescribeReservedNodes
     newDescribeReservedNodes,
 
     -- * Request Lenses
-    describeReservedNodes_reservedNodeId,
     describeReservedNodes_marker,
+    describeReservedNodes_reservedNodeId,
     describeReservedNodes_maxRecords,
 
     -- * Destructuring the Response
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReservedNodes' smart constructor.
 data DescribeReservedNodes = DescribeReservedNodes'
-  { -- | Identifier for the node reservation.
-    reservedNodeId :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the starting point to return a set
+  { -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeReservedNodes request
     -- exceed the value specified in @MaxRecords@, Amazon Web Services returns
     -- a value in the @Marker@ field of the response. You can retrieve the next
     -- set of response records by providing the returned marker value in the
     -- @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Identifier for the node reservation.
+    reservedNodeId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -85,14 +85,14 @@ data DescribeReservedNodes = DescribeReservedNodes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservedNodeId', 'describeReservedNodes_reservedNodeId' - Identifier for the node reservation.
---
 -- 'marker', 'describeReservedNodes_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeReservedNodes request
 -- exceed the value specified in @MaxRecords@, Amazon Web Services returns
 -- a value in the @Marker@ field of the response. You can retrieve the next
 -- set of response records by providing the returned marker value in the
 -- @Marker@ parameter and retrying the request.
+--
+-- 'reservedNodeId', 'describeReservedNodes_reservedNodeId' - Identifier for the node reservation.
 --
 -- 'maxRecords', 'describeReservedNodes_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -107,15 +107,10 @@ newDescribeReservedNodes ::
   DescribeReservedNodes
 newDescribeReservedNodes =
   DescribeReservedNodes'
-    { reservedNodeId =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      reservedNodeId = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
-
--- | Identifier for the node reservation.
-describeReservedNodes_reservedNodeId :: Lens.Lens' DescribeReservedNodes (Prelude.Maybe Prelude.Text)
-describeReservedNodes_reservedNodeId = Lens.lens (\DescribeReservedNodes' {reservedNodeId} -> reservedNodeId) (\s@DescribeReservedNodes' {} a -> s {reservedNodeId = a} :: DescribeReservedNodes)
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeReservedNodes request
@@ -125,6 +120,10 @@ describeReservedNodes_reservedNodeId = Lens.lens (\DescribeReservedNodes' {reser
 -- @Marker@ parameter and retrying the request.
 describeReservedNodes_marker :: Lens.Lens' DescribeReservedNodes (Prelude.Maybe Prelude.Text)
 describeReservedNodes_marker = Lens.lens (\DescribeReservedNodes' {marker} -> marker) (\s@DescribeReservedNodes' {} a -> s {marker = a} :: DescribeReservedNodes)
+
+-- | Identifier for the node reservation.
+describeReservedNodes_reservedNodeId :: Lens.Lens' DescribeReservedNodes (Prelude.Maybe Prelude.Text)
+describeReservedNodes_reservedNodeId = Lens.lens (\DescribeReservedNodes' {reservedNodeId} -> reservedNodeId) (\s@DescribeReservedNodes' {} a -> s {reservedNodeId = a} :: DescribeReservedNodes)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -179,14 +178,14 @@ instance Core.AWSRequest DescribeReservedNodes where
 
 instance Prelude.Hashable DescribeReservedNodes where
   hashWithSalt _salt DescribeReservedNodes' {..} =
-    _salt `Prelude.hashWithSalt` reservedNodeId
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` reservedNodeId
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeReservedNodes where
   rnf DescribeReservedNodes' {..} =
-    Prelude.rnf reservedNodeId
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf reservedNodeId
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeReservedNodes where
@@ -202,8 +201,8 @@ instance Core.ToQuery DescribeReservedNodes where
           Core.=: ("DescribeReservedNodes" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ReservedNodeId" Core.=: reservedNodeId,
         "Marker" Core.=: marker,
+        "ReservedNodeId" Core.=: reservedNodeId,
         "MaxRecords" Core.=: maxRecords
       ]
 

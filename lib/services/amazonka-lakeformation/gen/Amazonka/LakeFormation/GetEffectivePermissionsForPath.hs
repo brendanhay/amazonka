@@ -30,9 +30,9 @@ module Amazonka.LakeFormation.GetEffectivePermissionsForPath
     newGetEffectivePermissionsForPath,
 
     -- * Request Lenses
-    getEffectivePermissionsForPath_catalogId,
     getEffectivePermissionsForPath_nextToken,
     getEffectivePermissionsForPath_maxResults,
+    getEffectivePermissionsForPath_catalogId,
     getEffectivePermissionsForPath_resourceArn,
 
     -- * Destructuring the Response
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEffectivePermissionsForPath' smart constructor.
 data GetEffectivePermissionsForPath = GetEffectivePermissionsForPath'
-  { -- | The identifier for the Data Catalog. By default, the account ID. The
-    -- Data Catalog is the persistent metadata store. It contains database
-    -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | A continuation token, if this is not the first call to retrieve this
+  { -- | A continuation token, if this is not the first call to retrieve this
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier for the Data Catalog. By default, the account ID. The
+    -- Data Catalog is the persistent metadata store. It contains database
+    -- definitions, table definitions, and other control information to manage
+    -- your AWS Lake Formation environment.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the resource for which you want to get
     -- permissions.
     resourceArn :: Prelude.Text
@@ -79,15 +79,15 @@ data GetEffectivePermissionsForPath = GetEffectivePermissionsForPath'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'getEffectivePermissionsForPath_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
--- Data Catalog is the persistent metadata store. It contains database
--- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
---
 -- 'nextToken', 'getEffectivePermissionsForPath_nextToken' - A continuation token, if this is not the first call to retrieve this
 -- list.
 --
 -- 'maxResults', 'getEffectivePermissionsForPath_maxResults' - The maximum number of results to return.
+--
+-- 'catalogId', 'getEffectivePermissionsForPath_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
+-- Data Catalog is the persistent metadata store. It contains database
+-- definitions, table definitions, and other control information to manage
+-- your AWS Lake Formation environment.
 --
 -- 'resourceArn', 'getEffectivePermissionsForPath_resourceArn' - The Amazon Resource Name (ARN) of the resource for which you want to get
 -- permissions.
@@ -97,19 +97,12 @@ newGetEffectivePermissionsForPath ::
   GetEffectivePermissionsForPath
 newGetEffectivePermissionsForPath pResourceArn_ =
   GetEffectivePermissionsForPath'
-    { catalogId =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
-
--- | The identifier for the Data Catalog. By default, the account ID. The
--- Data Catalog is the persistent metadata store. It contains database
--- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
-getEffectivePermissionsForPath_catalogId :: Lens.Lens' GetEffectivePermissionsForPath (Prelude.Maybe Prelude.Text)
-getEffectivePermissionsForPath_catalogId = Lens.lens (\GetEffectivePermissionsForPath' {catalogId} -> catalogId) (\s@GetEffectivePermissionsForPath' {} a -> s {catalogId = a} :: GetEffectivePermissionsForPath)
 
 -- | A continuation token, if this is not the first call to retrieve this
 -- list.
@@ -119,6 +112,13 @@ getEffectivePermissionsForPath_nextToken = Lens.lens (\GetEffectivePermissionsFo
 -- | The maximum number of results to return.
 getEffectivePermissionsForPath_maxResults :: Lens.Lens' GetEffectivePermissionsForPath (Prelude.Maybe Prelude.Natural)
 getEffectivePermissionsForPath_maxResults = Lens.lens (\GetEffectivePermissionsForPath' {maxResults} -> maxResults) (\s@GetEffectivePermissionsForPath' {} a -> s {maxResults = a} :: GetEffectivePermissionsForPath)
+
+-- | The identifier for the Data Catalog. By default, the account ID. The
+-- Data Catalog is the persistent metadata store. It contains database
+-- definitions, table definitions, and other control information to manage
+-- your AWS Lake Formation environment.
+getEffectivePermissionsForPath_catalogId :: Lens.Lens' GetEffectivePermissionsForPath (Prelude.Maybe Prelude.Text)
+getEffectivePermissionsForPath_catalogId = Lens.lens (\GetEffectivePermissionsForPath' {catalogId} -> catalogId) (\s@GetEffectivePermissionsForPath' {} a -> s {catalogId = a} :: GetEffectivePermissionsForPath)
 
 -- | The Amazon Resource Name (ARN) of the resource for which you want to get
 -- permissions.
@@ -149,9 +149,9 @@ instance
   hashWithSalt
     _salt
     GetEffectivePermissionsForPath' {..} =
-      _salt `Prelude.hashWithSalt` catalogId
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` resourceArn
 
 instance
@@ -159,9 +159,9 @@ instance
     GetEffectivePermissionsForPath
   where
   rnf GetEffectivePermissionsForPath' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance
@@ -186,9 +186,9 @@ instance Core.ToJSON GetEffectivePermissionsForPath where
   toJSON GetEffectivePermissionsForPath' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("ResourceArn" Core..= resourceArn)
           ]
       )

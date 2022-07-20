@@ -28,19 +28,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntityTypesEvaluationMetrics' smart constructor.
 data EntityTypesEvaluationMetrics = EntityTypesEvaluationMetrics'
-  { -- | A measure of how complete the recognizer results are for a specific
+  { -- | A measure of how accurate the recognizer results are for a specific
+    -- entity type in the test data. It is derived from the @Precision@ and
+    -- @Recall@ values. The @F1Score@ is the harmonic average of the two
+    -- scores. The highest score is 1, and the worst score is 0.
+    f1Score :: Prelude.Maybe Prelude.Double,
+    -- | A measure of how complete the recognizer results are for a specific
     -- entity type in the test data. High recall means that the recognizer
     -- returned most of the relevant results.
     recall :: Prelude.Maybe Prelude.Double,
     -- | A measure of the usefulness of the recognizer results for a specific
     -- entity type in the test data. High precision means that the recognizer
     -- returned substantially more relevant results than irrelevant ones.
-    precision :: Prelude.Maybe Prelude.Double,
-    -- | A measure of how accurate the recognizer results are for a specific
-    -- entity type in the test data. It is derived from the @Precision@ and
-    -- @Recall@ values. The @F1Score@ is the harmonic average of the two
-    -- scores. The highest score is 1, and the worst score is 0.
-    f1Score :: Prelude.Maybe Prelude.Double
+    precision :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,11 @@ data EntityTypesEvaluationMetrics = EntityTypesEvaluationMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'f1Score', 'entityTypesEvaluationMetrics_f1Score' - A measure of how accurate the recognizer results are for a specific
+-- entity type in the test data. It is derived from the @Precision@ and
+-- @Recall@ values. The @F1Score@ is the harmonic average of the two
+-- scores. The highest score is 1, and the worst score is 0.
+--
 -- 'recall', 'entityTypesEvaluationMetrics_recall' - A measure of how complete the recognizer results are for a specific
 -- entity type in the test data. High recall means that the recognizer
 -- returned most of the relevant results.
@@ -59,20 +64,22 @@ data EntityTypesEvaluationMetrics = EntityTypesEvaluationMetrics'
 -- 'precision', 'entityTypesEvaluationMetrics_precision' - A measure of the usefulness of the recognizer results for a specific
 -- entity type in the test data. High precision means that the recognizer
 -- returned substantially more relevant results than irrelevant ones.
---
--- 'f1Score', 'entityTypesEvaluationMetrics_f1Score' - A measure of how accurate the recognizer results are for a specific
--- entity type in the test data. It is derived from the @Precision@ and
--- @Recall@ values. The @F1Score@ is the harmonic average of the two
--- scores. The highest score is 1, and the worst score is 0.
 newEntityTypesEvaluationMetrics ::
   EntityTypesEvaluationMetrics
 newEntityTypesEvaluationMetrics =
   EntityTypesEvaluationMetrics'
-    { recall =
+    { f1Score =
         Prelude.Nothing,
-      precision = Prelude.Nothing,
-      f1Score = Prelude.Nothing
+      recall = Prelude.Nothing,
+      precision = Prelude.Nothing
     }
+
+-- | A measure of how accurate the recognizer results are for a specific
+-- entity type in the test data. It is derived from the @Precision@ and
+-- @Recall@ values. The @F1Score@ is the harmonic average of the two
+-- scores. The highest score is 1, and the worst score is 0.
+entityTypesEvaluationMetrics_f1Score :: Lens.Lens' EntityTypesEvaluationMetrics (Prelude.Maybe Prelude.Double)
+entityTypesEvaluationMetrics_f1Score = Lens.lens (\EntityTypesEvaluationMetrics' {f1Score} -> f1Score) (\s@EntityTypesEvaluationMetrics' {} a -> s {f1Score = a} :: EntityTypesEvaluationMetrics)
 
 -- | A measure of how complete the recognizer results are for a specific
 -- entity type in the test data. High recall means that the recognizer
@@ -86,22 +93,15 @@ entityTypesEvaluationMetrics_recall = Lens.lens (\EntityTypesEvaluationMetrics' 
 entityTypesEvaluationMetrics_precision :: Lens.Lens' EntityTypesEvaluationMetrics (Prelude.Maybe Prelude.Double)
 entityTypesEvaluationMetrics_precision = Lens.lens (\EntityTypesEvaluationMetrics' {precision} -> precision) (\s@EntityTypesEvaluationMetrics' {} a -> s {precision = a} :: EntityTypesEvaluationMetrics)
 
--- | A measure of how accurate the recognizer results are for a specific
--- entity type in the test data. It is derived from the @Precision@ and
--- @Recall@ values. The @F1Score@ is the harmonic average of the two
--- scores. The highest score is 1, and the worst score is 0.
-entityTypesEvaluationMetrics_f1Score :: Lens.Lens' EntityTypesEvaluationMetrics (Prelude.Maybe Prelude.Double)
-entityTypesEvaluationMetrics_f1Score = Lens.lens (\EntityTypesEvaluationMetrics' {f1Score} -> f1Score) (\s@EntityTypesEvaluationMetrics' {} a -> s {f1Score = a} :: EntityTypesEvaluationMetrics)
-
 instance Core.FromJSON EntityTypesEvaluationMetrics where
   parseJSON =
     Core.withObject
       "EntityTypesEvaluationMetrics"
       ( \x ->
           EntityTypesEvaluationMetrics'
-            Prelude.<$> (x Core..:? "Recall")
+            Prelude.<$> (x Core..:? "F1Score")
+            Prelude.<*> (x Core..:? "Recall")
             Prelude.<*> (x Core..:? "Precision")
-            Prelude.<*> (x Core..:? "F1Score")
       )
 
 instance
@@ -109,12 +109,12 @@ instance
     EntityTypesEvaluationMetrics
   where
   hashWithSalt _salt EntityTypesEvaluationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` recall
+    _salt `Prelude.hashWithSalt` f1Score
+      `Prelude.hashWithSalt` recall
       `Prelude.hashWithSalt` precision
-      `Prelude.hashWithSalt` f1Score
 
 instance Prelude.NFData EntityTypesEvaluationMetrics where
   rnf EntityTypesEvaluationMetrics' {..} =
-    Prelude.rnf recall
+    Prelude.rnf f1Score
+      `Prelude.seq` Prelude.rnf recall
       `Prelude.seq` Prelude.rnf precision
-      `Prelude.seq` Prelude.rnf f1Score

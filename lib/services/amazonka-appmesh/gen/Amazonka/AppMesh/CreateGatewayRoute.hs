@@ -34,9 +34,9 @@ module Amazonka.AppMesh.CreateGatewayRoute
     newCreateGatewayRoute,
 
     -- * Request Lenses
+    createGatewayRoute_tags,
     createGatewayRoute_clientToken,
     createGatewayRoute_meshOwner,
-    createGatewayRoute_tags,
     createGatewayRoute_gatewayRouteName,
     createGatewayRoute_meshName,
     createGatewayRoute_spec,
@@ -61,7 +61,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGatewayRoute' smart constructor.
 data CreateGatewayRoute = CreateGatewayRoute'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Optional metadata that you can apply to the gateway route to assist with
+    -- categorization and organization. Each tag consists of a key and an
+    -- optional value, both of which you define. Tag keys can have a maximum
+    -- character length of 128 characters, and tag values can have a maximum
+    -- length of 256 characters.
+    tags :: Prelude.Maybe [TagRef],
+    -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -71,12 +77,6 @@ data CreateGatewayRoute = CreateGatewayRoute'
     -- more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you can apply to the gateway route to assist with
-    -- categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you define. Tag keys can have a maximum
-    -- character length of 128 characters, and tag values can have a maximum
-    -- length of 256 characters.
-    tags :: Prelude.Maybe [TagRef],
     -- | The name to use for the gateway route.
     gatewayRouteName :: Prelude.Text,
     -- | The name of the service mesh to create the gateway route in.
@@ -98,6 +98,12 @@ data CreateGatewayRoute = CreateGatewayRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createGatewayRoute_tags' - Optional metadata that you can apply to the gateway route to assist with
+-- categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+--
 -- 'clientToken', 'createGatewayRoute_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
@@ -107,12 +113,6 @@ data CreateGatewayRoute = CreateGatewayRoute'
 -- your account before you can create the resource in the service mesh. For
 -- more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
---
--- 'tags', 'createGatewayRoute_tags' - Optional metadata that you can apply to the gateway route to assist with
--- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
 --
 -- 'gatewayRouteName', 'createGatewayRoute_gatewayRouteName' - The name to use for the gateway route.
 --
@@ -139,14 +139,22 @@ newCreateGatewayRoute
   pSpec_
   pVirtualGatewayName_ =
     CreateGatewayRoute'
-      { clientToken = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         meshOwner = Prelude.Nothing,
-        tags = Prelude.Nothing,
         gatewayRouteName = pGatewayRouteName_,
         meshName = pMeshName_,
         spec = pSpec_,
         virtualGatewayName = pVirtualGatewayName_
       }
+
+-- | Optional metadata that you can apply to the gateway route to assist with
+-- categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+createGatewayRoute_tags :: Lens.Lens' CreateGatewayRoute (Prelude.Maybe [TagRef])
+createGatewayRoute_tags = Lens.lens (\CreateGatewayRoute' {tags} -> tags) (\s@CreateGatewayRoute' {} a -> s {tags = a} :: CreateGatewayRoute) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
@@ -161,14 +169,6 @@ createGatewayRoute_clientToken = Lens.lens (\CreateGatewayRoute' {clientToken} -
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 createGatewayRoute_meshOwner :: Lens.Lens' CreateGatewayRoute (Prelude.Maybe Prelude.Text)
 createGatewayRoute_meshOwner = Lens.lens (\CreateGatewayRoute' {meshOwner} -> meshOwner) (\s@CreateGatewayRoute' {} a -> s {meshOwner = a} :: CreateGatewayRoute)
-
--- | Optional metadata that you can apply to the gateway route to assist with
--- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
-createGatewayRoute_tags :: Lens.Lens' CreateGatewayRoute (Prelude.Maybe [TagRef])
-createGatewayRoute_tags = Lens.lens (\CreateGatewayRoute' {tags} -> tags) (\s@CreateGatewayRoute' {} a -> s {tags = a} :: CreateGatewayRoute) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name to use for the gateway route.
 createGatewayRoute_gatewayRouteName :: Lens.Lens' CreateGatewayRoute Prelude.Text
@@ -203,9 +203,9 @@ instance Core.AWSRequest CreateGatewayRoute where
 
 instance Prelude.Hashable CreateGatewayRoute where
   hashWithSalt _salt CreateGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gatewayRouteName
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` spec
@@ -213,9 +213,9 @@ instance Prelude.Hashable CreateGatewayRoute where
 
 instance Prelude.NFData CreateGatewayRoute where
   rnf CreateGatewayRoute' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf gatewayRouteName
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf spec
@@ -236,8 +236,8 @@ instance Core.ToJSON CreateGatewayRoute where
   toJSON CreateGatewayRoute' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just
               ("gatewayRouteName" Core..= gatewayRouteName),
             Prelude.Just ("spec" Core..= spec)

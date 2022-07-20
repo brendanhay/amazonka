@@ -50,17 +50,17 @@ module Amazonka.MechanicalTurk.CreateHIT
     newCreateHIT,
 
     -- * Request Lenses
+    createHIT_hITLayoutParameters,
     createHIT_hITReviewPolicy,
-    createHIT_uniqueRequestToken,
-    createHIT_autoApprovalDelayInSeconds,
-    createHIT_requesterAnnotation,
     createHIT_maxAssignments,
     createHIT_keywords,
-    createHIT_hITLayoutId,
-    createHIT_hITLayoutParameters,
-    createHIT_qualificationRequirements,
     createHIT_question,
+    createHIT_autoApprovalDelayInSeconds,
+    createHIT_qualificationRequirements,
+    createHIT_uniqueRequestToken,
+    createHIT_hITLayoutId,
     createHIT_assignmentReviewPolicy,
+    createHIT_requesterAnnotation,
     createHIT_lifetimeInSeconds,
     createHIT_assignmentDurationInSeconds,
     createHIT_reward,
@@ -86,9 +86,38 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateHIT' smart constructor.
 data CreateHIT = CreateHIT'
-  { -- | The HIT-level Review Policy applies to the HIT. You can specify for
+  { -- | If the HITLayoutId is provided, any placeholder values must be filled in
+    -- with values using the HITLayoutParameter structure. For more
+    -- information, see HITLayout.
+    hITLayoutParameters :: Prelude.Maybe [HITLayoutParameter],
+    -- | The HIT-level Review Policy applies to the HIT. You can specify for
     -- Mechanical Turk to take various actions based on the policy.
     hITReviewPolicy :: Prelude.Maybe ReviewPolicy,
+    -- | The number of times the HIT can be accepted and completed before the HIT
+    -- becomes unavailable.
+    maxAssignments :: Prelude.Maybe Prelude.Int,
+    -- | One or more words or phrases that describe the HIT, separated by commas.
+    -- These words are used in searches to find HITs.
+    keywords :: Prelude.Maybe Prelude.Text,
+    -- | The data the person completing the HIT uses to produce the results.
+    --
+    -- Constraints: Must be a QuestionForm data structure, an ExternalQuestion
+    -- data structure, or an HTMLQuestion data structure. The XML question data
+    -- must not be larger than 64 kilobytes (65,535 bytes) in size, including
+    -- whitespace.
+    --
+    -- Either a Question parameter or a HITLayoutId parameter must be provided.
+    question :: Prelude.Maybe Prelude.Text,
+    -- | The number of seconds after an assignment for the HIT has been
+    -- submitted, after which the assignment is considered Approved
+    -- automatically unless the Requester explicitly rejects it.
+    autoApprovalDelayInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | Conditions that a Worker\'s Qualifications must meet in order to accept
+    -- the HIT. A HIT can have between zero and ten Qualification requirements.
+    -- All requirements must be met in order for a Worker to accept the HIT.
+    -- Additionally, other actions can be restricted using the @ActionsGuarded@
+    -- field on each @QualificationRequirement@ structure.
+    qualificationRequirements :: Prelude.Maybe [QualificationRequirement],
     -- | A unique identifier for this request which allows you to retry the call
     -- on error without creating duplicate HITs. This is useful in cases such
     -- as network timeouts where it is unclear whether or not the call
@@ -102,10 +131,17 @@ data CreateHIT = CreateHIT'
     -- UniqueRequestToken made after the 24 hour limit could create duplicate
     -- HITs.
     uniqueRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds after an assignment for the HIT has been
-    -- submitted, after which the assignment is considered Approved
-    -- automatically unless the Requester explicitly rejects it.
-    autoApprovalDelayInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The HITLayoutId allows you to use a pre-existing HIT design with
+    -- placeholder values and create an additional HIT by providing those
+    -- values as HITLayoutParameters.
+    --
+    -- Constraints: Either a Question parameter or a HITLayoutId parameter must
+    -- be provided.
+    hITLayoutId :: Prelude.Maybe Prelude.Text,
+    -- | The Assignment-level Review Policy applies to the assignments under the
+    -- HIT. You can specify for Mechanical Turk to take various actions based
+    -- on the policy.
+    assignmentReviewPolicy :: Prelude.Maybe ReviewPolicy,
     -- | An arbitrary data field. The RequesterAnnotation parameter lets your
     -- application attach arbitrary data to the HIT for tracking purposes. For
     -- example, this parameter could be an identifier internal to the
@@ -118,42 +154,6 @@ data CreateHIT = CreateHIT'
     -- The RequesterAnnotation parameter may be different for each HIT you
     -- submit. It does not affect how your HITs are grouped.
     requesterAnnotation :: Prelude.Maybe Prelude.Text,
-    -- | The number of times the HIT can be accepted and completed before the HIT
-    -- becomes unavailable.
-    maxAssignments :: Prelude.Maybe Prelude.Int,
-    -- | One or more words or phrases that describe the HIT, separated by commas.
-    -- These words are used in searches to find HITs.
-    keywords :: Prelude.Maybe Prelude.Text,
-    -- | The HITLayoutId allows you to use a pre-existing HIT design with
-    -- placeholder values and create an additional HIT by providing those
-    -- values as HITLayoutParameters.
-    --
-    -- Constraints: Either a Question parameter or a HITLayoutId parameter must
-    -- be provided.
-    hITLayoutId :: Prelude.Maybe Prelude.Text,
-    -- | If the HITLayoutId is provided, any placeholder values must be filled in
-    -- with values using the HITLayoutParameter structure. For more
-    -- information, see HITLayout.
-    hITLayoutParameters :: Prelude.Maybe [HITLayoutParameter],
-    -- | Conditions that a Worker\'s Qualifications must meet in order to accept
-    -- the HIT. A HIT can have between zero and ten Qualification requirements.
-    -- All requirements must be met in order for a Worker to accept the HIT.
-    -- Additionally, other actions can be restricted using the @ActionsGuarded@
-    -- field on each @QualificationRequirement@ structure.
-    qualificationRequirements :: Prelude.Maybe [QualificationRequirement],
-    -- | The data the person completing the HIT uses to produce the results.
-    --
-    -- Constraints: Must be a QuestionForm data structure, an ExternalQuestion
-    -- data structure, or an HTMLQuestion data structure. The XML question data
-    -- must not be larger than 64 kilobytes (65,535 bytes) in size, including
-    -- whitespace.
-    --
-    -- Either a Question parameter or a HITLayoutId parameter must be provided.
-    question :: Prelude.Maybe Prelude.Text,
-    -- | The Assignment-level Review Policy applies to the assignments under the
-    -- HIT. You can specify for Mechanical Turk to take various actions based
-    -- on the policy.
-    assignmentReviewPolicy :: Prelude.Maybe ReviewPolicy,
     -- | An amount of time, in seconds, after which the HIT is no longer
     -- available for users to accept. After the lifetime of the HIT elapses,
     -- the HIT no longer appears in HIT searches, even if not all of the
@@ -191,8 +191,37 @@ data CreateHIT = CreateHIT'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'hITLayoutParameters', 'createHIT_hITLayoutParameters' - If the HITLayoutId is provided, any placeholder values must be filled in
+-- with values using the HITLayoutParameter structure. For more
+-- information, see HITLayout.
+--
 -- 'hITReviewPolicy', 'createHIT_hITReviewPolicy' - The HIT-level Review Policy applies to the HIT. You can specify for
 -- Mechanical Turk to take various actions based on the policy.
+--
+-- 'maxAssignments', 'createHIT_maxAssignments' - The number of times the HIT can be accepted and completed before the HIT
+-- becomes unavailable.
+--
+-- 'keywords', 'createHIT_keywords' - One or more words or phrases that describe the HIT, separated by commas.
+-- These words are used in searches to find HITs.
+--
+-- 'question', 'createHIT_question' - The data the person completing the HIT uses to produce the results.
+--
+-- Constraints: Must be a QuestionForm data structure, an ExternalQuestion
+-- data structure, or an HTMLQuestion data structure. The XML question data
+-- must not be larger than 64 kilobytes (65,535 bytes) in size, including
+-- whitespace.
+--
+-- Either a Question parameter or a HITLayoutId parameter must be provided.
+--
+-- 'autoApprovalDelayInSeconds', 'createHIT_autoApprovalDelayInSeconds' - The number of seconds after an assignment for the HIT has been
+-- submitted, after which the assignment is considered Approved
+-- automatically unless the Requester explicitly rejects it.
+--
+-- 'qualificationRequirements', 'createHIT_qualificationRequirements' - Conditions that a Worker\'s Qualifications must meet in order to accept
+-- the HIT. A HIT can have between zero and ten Qualification requirements.
+-- All requirements must be met in order for a Worker to accept the HIT.
+-- Additionally, other actions can be restricted using the @ActionsGuarded@
+-- field on each @QualificationRequirement@ structure.
 --
 -- 'uniqueRequestToken', 'createHIT_uniqueRequestToken' - A unique identifier for this request which allows you to retry the call
 -- on error without creating duplicate HITs. This is useful in cases such
@@ -207,9 +236,16 @@ data CreateHIT = CreateHIT'
 -- UniqueRequestToken made after the 24 hour limit could create duplicate
 -- HITs.
 --
--- 'autoApprovalDelayInSeconds', 'createHIT_autoApprovalDelayInSeconds' - The number of seconds after an assignment for the HIT has been
--- submitted, after which the assignment is considered Approved
--- automatically unless the Requester explicitly rejects it.
+-- 'hITLayoutId', 'createHIT_hITLayoutId' - The HITLayoutId allows you to use a pre-existing HIT design with
+-- placeholder values and create an additional HIT by providing those
+-- values as HITLayoutParameters.
+--
+-- Constraints: Either a Question parameter or a HITLayoutId parameter must
+-- be provided.
+--
+-- 'assignmentReviewPolicy', 'createHIT_assignmentReviewPolicy' - The Assignment-level Review Policy applies to the assignments under the
+-- HIT. You can specify for Mechanical Turk to take various actions based
+-- on the policy.
 --
 -- 'requesterAnnotation', 'createHIT_requesterAnnotation' - An arbitrary data field. The RequesterAnnotation parameter lets your
 -- application attach arbitrary data to the HIT for tracking purposes. For
@@ -222,42 +258,6 @@ data CreateHIT = CreateHIT'
 --
 -- The RequesterAnnotation parameter may be different for each HIT you
 -- submit. It does not affect how your HITs are grouped.
---
--- 'maxAssignments', 'createHIT_maxAssignments' - The number of times the HIT can be accepted and completed before the HIT
--- becomes unavailable.
---
--- 'keywords', 'createHIT_keywords' - One or more words or phrases that describe the HIT, separated by commas.
--- These words are used in searches to find HITs.
---
--- 'hITLayoutId', 'createHIT_hITLayoutId' - The HITLayoutId allows you to use a pre-existing HIT design with
--- placeholder values and create an additional HIT by providing those
--- values as HITLayoutParameters.
---
--- Constraints: Either a Question parameter or a HITLayoutId parameter must
--- be provided.
---
--- 'hITLayoutParameters', 'createHIT_hITLayoutParameters' - If the HITLayoutId is provided, any placeholder values must be filled in
--- with values using the HITLayoutParameter structure. For more
--- information, see HITLayout.
---
--- 'qualificationRequirements', 'createHIT_qualificationRequirements' - Conditions that a Worker\'s Qualifications must meet in order to accept
--- the HIT. A HIT can have between zero and ten Qualification requirements.
--- All requirements must be met in order for a Worker to accept the HIT.
--- Additionally, other actions can be restricted using the @ActionsGuarded@
--- field on each @QualificationRequirement@ structure.
---
--- 'question', 'createHIT_question' - The data the person completing the HIT uses to produce the results.
---
--- Constraints: Must be a QuestionForm data structure, an ExternalQuestion
--- data structure, or an HTMLQuestion data structure. The XML question data
--- must not be larger than 64 kilobytes (65,535 bytes) in size, including
--- whitespace.
---
--- Either a Question parameter or a HITLayoutId parameter must be provided.
---
--- 'assignmentReviewPolicy', 'createHIT_assignmentReviewPolicy' - The Assignment-level Review Policy applies to the assignments under the
--- HIT. You can specify for Mechanical Turk to take various actions based
--- on the policy.
 --
 -- 'lifetimeInSeconds', 'createHIT_lifetimeInSeconds' - An amount of time, in seconds, after which the HIT is no longer
 -- available for users to accept. After the lifetime of the HIT elapses,
@@ -303,17 +303,17 @@ newCreateHIT
   pTitle_
   pDescription_ =
     CreateHIT'
-      { hITReviewPolicy = Prelude.Nothing,
-        uniqueRequestToken = Prelude.Nothing,
-        autoApprovalDelayInSeconds = Prelude.Nothing,
-        requesterAnnotation = Prelude.Nothing,
+      { hITLayoutParameters = Prelude.Nothing,
+        hITReviewPolicy = Prelude.Nothing,
         maxAssignments = Prelude.Nothing,
         keywords = Prelude.Nothing,
-        hITLayoutId = Prelude.Nothing,
-        hITLayoutParameters = Prelude.Nothing,
-        qualificationRequirements = Prelude.Nothing,
         question = Prelude.Nothing,
+        autoApprovalDelayInSeconds = Prelude.Nothing,
+        qualificationRequirements = Prelude.Nothing,
+        uniqueRequestToken = Prelude.Nothing,
+        hITLayoutId = Prelude.Nothing,
         assignmentReviewPolicy = Prelude.Nothing,
+        requesterAnnotation = Prelude.Nothing,
         lifetimeInSeconds = pLifetimeInSeconds_,
         assignmentDurationInSeconds =
           pAssignmentDurationInSeconds_,
@@ -322,10 +322,51 @@ newCreateHIT
         description = pDescription_
       }
 
+-- | If the HITLayoutId is provided, any placeholder values must be filled in
+-- with values using the HITLayoutParameter structure. For more
+-- information, see HITLayout.
+createHIT_hITLayoutParameters :: Lens.Lens' CreateHIT (Prelude.Maybe [HITLayoutParameter])
+createHIT_hITLayoutParameters = Lens.lens (\CreateHIT' {hITLayoutParameters} -> hITLayoutParameters) (\s@CreateHIT' {} a -> s {hITLayoutParameters = a} :: CreateHIT) Prelude.. Lens.mapping Lens.coerced
+
 -- | The HIT-level Review Policy applies to the HIT. You can specify for
 -- Mechanical Turk to take various actions based on the policy.
 createHIT_hITReviewPolicy :: Lens.Lens' CreateHIT (Prelude.Maybe ReviewPolicy)
 createHIT_hITReviewPolicy = Lens.lens (\CreateHIT' {hITReviewPolicy} -> hITReviewPolicy) (\s@CreateHIT' {} a -> s {hITReviewPolicy = a} :: CreateHIT)
+
+-- | The number of times the HIT can be accepted and completed before the HIT
+-- becomes unavailable.
+createHIT_maxAssignments :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Int)
+createHIT_maxAssignments = Lens.lens (\CreateHIT' {maxAssignments} -> maxAssignments) (\s@CreateHIT' {} a -> s {maxAssignments = a} :: CreateHIT)
+
+-- | One or more words or phrases that describe the HIT, separated by commas.
+-- These words are used in searches to find HITs.
+createHIT_keywords :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
+createHIT_keywords = Lens.lens (\CreateHIT' {keywords} -> keywords) (\s@CreateHIT' {} a -> s {keywords = a} :: CreateHIT)
+
+-- | The data the person completing the HIT uses to produce the results.
+--
+-- Constraints: Must be a QuestionForm data structure, an ExternalQuestion
+-- data structure, or an HTMLQuestion data structure. The XML question data
+-- must not be larger than 64 kilobytes (65,535 bytes) in size, including
+-- whitespace.
+--
+-- Either a Question parameter or a HITLayoutId parameter must be provided.
+createHIT_question :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
+createHIT_question = Lens.lens (\CreateHIT' {question} -> question) (\s@CreateHIT' {} a -> s {question = a} :: CreateHIT)
+
+-- | The number of seconds after an assignment for the HIT has been
+-- submitted, after which the assignment is considered Approved
+-- automatically unless the Requester explicitly rejects it.
+createHIT_autoApprovalDelayInSeconds :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Integer)
+createHIT_autoApprovalDelayInSeconds = Lens.lens (\CreateHIT' {autoApprovalDelayInSeconds} -> autoApprovalDelayInSeconds) (\s@CreateHIT' {} a -> s {autoApprovalDelayInSeconds = a} :: CreateHIT)
+
+-- | Conditions that a Worker\'s Qualifications must meet in order to accept
+-- the HIT. A HIT can have between zero and ten Qualification requirements.
+-- All requirements must be met in order for a Worker to accept the HIT.
+-- Additionally, other actions can be restricted using the @ActionsGuarded@
+-- field on each @QualificationRequirement@ structure.
+createHIT_qualificationRequirements :: Lens.Lens' CreateHIT (Prelude.Maybe [QualificationRequirement])
+createHIT_qualificationRequirements = Lens.lens (\CreateHIT' {qualificationRequirements} -> qualificationRequirements) (\s@CreateHIT' {} a -> s {qualificationRequirements = a} :: CreateHIT) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for this request which allows you to retry the call
 -- on error without creating duplicate HITs. This is useful in cases such
@@ -342,11 +383,20 @@ createHIT_hITReviewPolicy = Lens.lens (\CreateHIT' {hITReviewPolicy} -> hITRevie
 createHIT_uniqueRequestToken :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
 createHIT_uniqueRequestToken = Lens.lens (\CreateHIT' {uniqueRequestToken} -> uniqueRequestToken) (\s@CreateHIT' {} a -> s {uniqueRequestToken = a} :: CreateHIT)
 
--- | The number of seconds after an assignment for the HIT has been
--- submitted, after which the assignment is considered Approved
--- automatically unless the Requester explicitly rejects it.
-createHIT_autoApprovalDelayInSeconds :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Integer)
-createHIT_autoApprovalDelayInSeconds = Lens.lens (\CreateHIT' {autoApprovalDelayInSeconds} -> autoApprovalDelayInSeconds) (\s@CreateHIT' {} a -> s {autoApprovalDelayInSeconds = a} :: CreateHIT)
+-- | The HITLayoutId allows you to use a pre-existing HIT design with
+-- placeholder values and create an additional HIT by providing those
+-- values as HITLayoutParameters.
+--
+-- Constraints: Either a Question parameter or a HITLayoutId parameter must
+-- be provided.
+createHIT_hITLayoutId :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
+createHIT_hITLayoutId = Lens.lens (\CreateHIT' {hITLayoutId} -> hITLayoutId) (\s@CreateHIT' {} a -> s {hITLayoutId = a} :: CreateHIT)
+
+-- | The Assignment-level Review Policy applies to the assignments under the
+-- HIT. You can specify for Mechanical Turk to take various actions based
+-- on the policy.
+createHIT_assignmentReviewPolicy :: Lens.Lens' CreateHIT (Prelude.Maybe ReviewPolicy)
+createHIT_assignmentReviewPolicy = Lens.lens (\CreateHIT' {assignmentReviewPolicy} -> assignmentReviewPolicy) (\s@CreateHIT' {} a -> s {assignmentReviewPolicy = a} :: CreateHIT)
 
 -- | An arbitrary data field. The RequesterAnnotation parameter lets your
 -- application attach arbitrary data to the HIT for tracking purposes. For
@@ -361,56 +411,6 @@ createHIT_autoApprovalDelayInSeconds = Lens.lens (\CreateHIT' {autoApprovalDelay
 -- submit. It does not affect how your HITs are grouped.
 createHIT_requesterAnnotation :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
 createHIT_requesterAnnotation = Lens.lens (\CreateHIT' {requesterAnnotation} -> requesterAnnotation) (\s@CreateHIT' {} a -> s {requesterAnnotation = a} :: CreateHIT)
-
--- | The number of times the HIT can be accepted and completed before the HIT
--- becomes unavailable.
-createHIT_maxAssignments :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Int)
-createHIT_maxAssignments = Lens.lens (\CreateHIT' {maxAssignments} -> maxAssignments) (\s@CreateHIT' {} a -> s {maxAssignments = a} :: CreateHIT)
-
--- | One or more words or phrases that describe the HIT, separated by commas.
--- These words are used in searches to find HITs.
-createHIT_keywords :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
-createHIT_keywords = Lens.lens (\CreateHIT' {keywords} -> keywords) (\s@CreateHIT' {} a -> s {keywords = a} :: CreateHIT)
-
--- | The HITLayoutId allows you to use a pre-existing HIT design with
--- placeholder values and create an additional HIT by providing those
--- values as HITLayoutParameters.
---
--- Constraints: Either a Question parameter or a HITLayoutId parameter must
--- be provided.
-createHIT_hITLayoutId :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
-createHIT_hITLayoutId = Lens.lens (\CreateHIT' {hITLayoutId} -> hITLayoutId) (\s@CreateHIT' {} a -> s {hITLayoutId = a} :: CreateHIT)
-
--- | If the HITLayoutId is provided, any placeholder values must be filled in
--- with values using the HITLayoutParameter structure. For more
--- information, see HITLayout.
-createHIT_hITLayoutParameters :: Lens.Lens' CreateHIT (Prelude.Maybe [HITLayoutParameter])
-createHIT_hITLayoutParameters = Lens.lens (\CreateHIT' {hITLayoutParameters} -> hITLayoutParameters) (\s@CreateHIT' {} a -> s {hITLayoutParameters = a} :: CreateHIT) Prelude.. Lens.mapping Lens.coerced
-
--- | Conditions that a Worker\'s Qualifications must meet in order to accept
--- the HIT. A HIT can have between zero and ten Qualification requirements.
--- All requirements must be met in order for a Worker to accept the HIT.
--- Additionally, other actions can be restricted using the @ActionsGuarded@
--- field on each @QualificationRequirement@ structure.
-createHIT_qualificationRequirements :: Lens.Lens' CreateHIT (Prelude.Maybe [QualificationRequirement])
-createHIT_qualificationRequirements = Lens.lens (\CreateHIT' {qualificationRequirements} -> qualificationRequirements) (\s@CreateHIT' {} a -> s {qualificationRequirements = a} :: CreateHIT) Prelude.. Lens.mapping Lens.coerced
-
--- | The data the person completing the HIT uses to produce the results.
---
--- Constraints: Must be a QuestionForm data structure, an ExternalQuestion
--- data structure, or an HTMLQuestion data structure. The XML question data
--- must not be larger than 64 kilobytes (65,535 bytes) in size, including
--- whitespace.
---
--- Either a Question parameter or a HITLayoutId parameter must be provided.
-createHIT_question :: Lens.Lens' CreateHIT (Prelude.Maybe Prelude.Text)
-createHIT_question = Lens.lens (\CreateHIT' {question} -> question) (\s@CreateHIT' {} a -> s {question = a} :: CreateHIT)
-
--- | The Assignment-level Review Policy applies to the assignments under the
--- HIT. You can specify for Mechanical Turk to take various actions based
--- on the policy.
-createHIT_assignmentReviewPolicy :: Lens.Lens' CreateHIT (Prelude.Maybe ReviewPolicy)
-createHIT_assignmentReviewPolicy = Lens.lens (\CreateHIT' {assignmentReviewPolicy} -> assignmentReviewPolicy) (\s@CreateHIT' {} a -> s {assignmentReviewPolicy = a} :: CreateHIT)
 
 -- | An amount of time, in seconds, after which the HIT is no longer
 -- available for users to accept. After the lifetime of the HIT elapses,
@@ -461,17 +461,17 @@ instance Core.AWSRequest CreateHIT where
 
 instance Prelude.Hashable CreateHIT where
   hashWithSalt _salt CreateHIT' {..} =
-    _salt `Prelude.hashWithSalt` hITReviewPolicy
-      `Prelude.hashWithSalt` uniqueRequestToken
-      `Prelude.hashWithSalt` autoApprovalDelayInSeconds
-      `Prelude.hashWithSalt` requesterAnnotation
+    _salt `Prelude.hashWithSalt` hITLayoutParameters
+      `Prelude.hashWithSalt` hITReviewPolicy
       `Prelude.hashWithSalt` maxAssignments
       `Prelude.hashWithSalt` keywords
-      `Prelude.hashWithSalt` hITLayoutId
-      `Prelude.hashWithSalt` hITLayoutParameters
-      `Prelude.hashWithSalt` qualificationRequirements
       `Prelude.hashWithSalt` question
+      `Prelude.hashWithSalt` autoApprovalDelayInSeconds
+      `Prelude.hashWithSalt` qualificationRequirements
+      `Prelude.hashWithSalt` uniqueRequestToken
+      `Prelude.hashWithSalt` hITLayoutId
       `Prelude.hashWithSalt` assignmentReviewPolicy
+      `Prelude.hashWithSalt` requesterAnnotation
       `Prelude.hashWithSalt` lifetimeInSeconds
       `Prelude.hashWithSalt` assignmentDurationInSeconds
       `Prelude.hashWithSalt` reward
@@ -480,17 +480,17 @@ instance Prelude.Hashable CreateHIT where
 
 instance Prelude.NFData CreateHIT where
   rnf CreateHIT' {..} =
-    Prelude.rnf hITReviewPolicy
-      `Prelude.seq` Prelude.rnf uniqueRequestToken
-      `Prelude.seq` Prelude.rnf autoApprovalDelayInSeconds
-      `Prelude.seq` Prelude.rnf requesterAnnotation
+    Prelude.rnf hITLayoutParameters
+      `Prelude.seq` Prelude.rnf hITReviewPolicy
       `Prelude.seq` Prelude.rnf maxAssignments
       `Prelude.seq` Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf hITLayoutId
-      `Prelude.seq` Prelude.rnf hITLayoutParameters
-      `Prelude.seq` Prelude.rnf qualificationRequirements
       `Prelude.seq` Prelude.rnf question
+      `Prelude.seq` Prelude.rnf autoApprovalDelayInSeconds
+      `Prelude.seq` Prelude.rnf qualificationRequirements
+      `Prelude.seq` Prelude.rnf uniqueRequestToken
+      `Prelude.seq` Prelude.rnf hITLayoutId
       `Prelude.seq` Prelude.rnf assignmentReviewPolicy
+      `Prelude.seq` Prelude.rnf requesterAnnotation
       `Prelude.seq` Prelude.rnf lifetimeInSeconds
       `Prelude.seq` Prelude.rnf assignmentDurationInSeconds
       `Prelude.seq` Prelude.rnf reward
@@ -516,25 +516,25 @@ instance Core.ToJSON CreateHIT where
   toJSON CreateHIT' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("HITReviewPolicy" Core..=)
+          [ ("HITLayoutParameters" Core..=)
+              Prelude.<$> hITLayoutParameters,
+            ("HITReviewPolicy" Core..=)
               Prelude.<$> hITReviewPolicy,
-            ("UniqueRequestToken" Core..=)
-              Prelude.<$> uniqueRequestToken,
-            ("AutoApprovalDelayInSeconds" Core..=)
-              Prelude.<$> autoApprovalDelayInSeconds,
-            ("RequesterAnnotation" Core..=)
-              Prelude.<$> requesterAnnotation,
             ("MaxAssignments" Core..=)
               Prelude.<$> maxAssignments,
             ("Keywords" Core..=) Prelude.<$> keywords,
-            ("HITLayoutId" Core..=) Prelude.<$> hITLayoutId,
-            ("HITLayoutParameters" Core..=)
-              Prelude.<$> hITLayoutParameters,
+            ("Question" Core..=) Prelude.<$> question,
+            ("AutoApprovalDelayInSeconds" Core..=)
+              Prelude.<$> autoApprovalDelayInSeconds,
             ("QualificationRequirements" Core..=)
               Prelude.<$> qualificationRequirements,
-            ("Question" Core..=) Prelude.<$> question,
+            ("UniqueRequestToken" Core..=)
+              Prelude.<$> uniqueRequestToken,
+            ("HITLayoutId" Core..=) Prelude.<$> hITLayoutId,
             ("AssignmentReviewPolicy" Core..=)
               Prelude.<$> assignmentReviewPolicy,
+            ("RequesterAnnotation" Core..=)
+              Prelude.<$> requesterAnnotation,
             Prelude.Just
               ("LifetimeInSeconds" Core..= lifetimeInSeconds),
             Prelude.Just

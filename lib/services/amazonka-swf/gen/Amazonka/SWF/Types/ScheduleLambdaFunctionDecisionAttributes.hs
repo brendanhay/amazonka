@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduleLambdaFunctionDecisionAttributes' smart constructor.
 data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAttributes'
-  { -- | The data attached to the event that the decider can use in subsequent
-    -- workflow tasks. This data isn\'t sent to the Lambda task.
-    control :: Prelude.Maybe Prelude.Text,
-    -- | The optional input data to be supplied to the Lambda function.
+  { -- | The optional input data to be supplied to the Lambda function.
     input :: Prelude.Maybe Prelude.Text,
     -- | The timeout value, in seconds, after which the Lambda function is
     -- considered to be failed once it has started. This can be any integer
     -- from 1-300 (1s-5m). If no value is supplied, than a default value of
     -- 300s is assumed.
     startToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    -- | The data attached to the event that the decider can use in subsequent
+    -- workflow tasks. This data isn\'t sent to the Lambda task.
+    control :: Prelude.Maybe Prelude.Text,
     -- | A string that identifies the Lambda function execution in the event
     -- history.
     id :: Prelude.Text,
@@ -55,15 +55,15 @@ data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'control', 'scheduleLambdaFunctionDecisionAttributes_control' - The data attached to the event that the decider can use in subsequent
--- workflow tasks. This data isn\'t sent to the Lambda task.
---
 -- 'input', 'scheduleLambdaFunctionDecisionAttributes_input' - The optional input data to be supplied to the Lambda function.
 --
 -- 'startToCloseTimeout', 'scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout' - The timeout value, in seconds, after which the Lambda function is
 -- considered to be failed once it has started. This can be any integer
 -- from 1-300 (1s-5m). If no value is supplied, than a default value of
 -- 300s is assumed.
+--
+-- 'control', 'scheduleLambdaFunctionDecisionAttributes_control' - The data attached to the event that the decider can use in subsequent
+-- workflow tasks. This data isn\'t sent to the Lambda task.
 --
 -- 'id', 'scheduleLambdaFunctionDecisionAttributes_id' - A string that identifies the Lambda function execution in the event
 -- history.
@@ -79,19 +79,14 @@ newScheduleLambdaFunctionDecisionAttributes
   pId_
   pName_ =
     ScheduleLambdaFunctionDecisionAttributes'
-      { control =
+      { input =
           Prelude.Nothing,
-        input = Prelude.Nothing,
         startToCloseTimeout =
           Prelude.Nothing,
+        control = Prelude.Nothing,
         id = pId_,
         name = pName_
       }
-
--- | The data attached to the event that the decider can use in subsequent
--- workflow tasks. This data isn\'t sent to the Lambda task.
-scheduleLambdaFunctionDecisionAttributes_control :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleLambdaFunctionDecisionAttributes_control = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {control} -> control) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {control = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
 -- | The optional input data to be supplied to the Lambda function.
 scheduleLambdaFunctionDecisionAttributes_input :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
@@ -103,6 +98,11 @@ scheduleLambdaFunctionDecisionAttributes_input = Lens.lens (\ScheduleLambdaFunct
 -- 300s is assumed.
 scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
 scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {startToCloseTimeout = a} :: ScheduleLambdaFunctionDecisionAttributes)
+
+-- | The data attached to the event that the decider can use in subsequent
+-- workflow tasks. This data isn\'t sent to the Lambda task.
+scheduleLambdaFunctionDecisionAttributes_control :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleLambdaFunctionDecisionAttributes_control = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {control} -> control) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {control = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
 -- | A string that identifies the Lambda function execution in the event
 -- history.
@@ -120,9 +120,9 @@ instance
   hashWithSalt
     _salt
     ScheduleLambdaFunctionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
-        `Prelude.hashWithSalt` input
+      _salt `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` name
 
@@ -131,9 +131,9 @@ instance
     ScheduleLambdaFunctionDecisionAttributes
   where
   rnf ScheduleLambdaFunctionDecisionAttributes' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf input
       `Prelude.seq` Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf control
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name
 
@@ -144,10 +144,10 @@ instance
   toJSON ScheduleLambdaFunctionDecisionAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("control" Core..=) Prelude.<$> control,
-            ("input" Core..=) Prelude.<$> input,
+          [ ("input" Core..=) Prelude.<$> input,
             ("startToCloseTimeout" Core..=)
               Prelude.<$> startToCloseTimeout,
+            ("control" Core..=) Prelude.<$> control,
             Prelude.Just ("id" Core..= id),
             Prelude.Just ("name" Core..= name)
           ]

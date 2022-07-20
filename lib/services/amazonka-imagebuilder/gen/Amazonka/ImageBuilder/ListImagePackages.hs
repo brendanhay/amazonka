@@ -38,9 +38,9 @@ module Amazonka.ImageBuilder.ListImagePackages
     newListImagePackagesResponse,
 
     -- * Response Lenses
+    listImagePackagesResponse_nextToken,
     listImagePackagesResponse_requestId,
     listImagePackagesResponse_imagePackageList,
-    listImagePackagesResponse_nextToken,
     listImagePackagesResponse_httpStatus,
   )
 where
@@ -117,11 +117,11 @@ instance Core.AWSRequest ListImagePackages where
     Response.receiveJSON
       ( \s h x ->
           ListImagePackagesResponse'
-            Prelude.<$> (x Core..?> "requestId")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> ( x Core..?> "imagePackageList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,13 +169,13 @@ instance Core.ToQuery ListImagePackages where
 
 -- | /See:/ 'newListImagePackagesResponse' smart constructor.
 data ListImagePackagesResponse = ListImagePackagesResponse'
-  { -- | The request ID that uniquely identifies this request.
+  { -- | A token to specify where to start paginating. This is the NextToken from
+    -- a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The list of Image Packages returned in the response.
     imagePackageList :: Prelude.Maybe [ImagePackage],
-    -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,12 +189,12 @@ data ListImagePackagesResponse = ListImagePackagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listImagePackagesResponse_nextToken' - A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+--
 -- 'requestId', 'listImagePackagesResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'imagePackageList', 'listImagePackagesResponse_imagePackageList' - The list of Image Packages returned in the response.
---
--- 'nextToken', 'listImagePackagesResponse_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
 --
 -- 'httpStatus', 'listImagePackagesResponse_httpStatus' - The response's http status code.
 newListImagePackagesResponse ::
@@ -203,12 +203,17 @@ newListImagePackagesResponse ::
   ListImagePackagesResponse
 newListImagePackagesResponse pHttpStatus_ =
   ListImagePackagesResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
+      requestId = Prelude.Nothing,
       imagePackageList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+listImagePackagesResponse_nextToken :: Lens.Lens' ListImagePackagesResponse (Prelude.Maybe Prelude.Text)
+listImagePackagesResponse_nextToken = Lens.lens (\ListImagePackagesResponse' {nextToken} -> nextToken) (\s@ListImagePackagesResponse' {} a -> s {nextToken = a} :: ListImagePackagesResponse)
 
 -- | The request ID that uniquely identifies this request.
 listImagePackagesResponse_requestId :: Lens.Lens' ListImagePackagesResponse (Prelude.Maybe Prelude.Text)
@@ -218,18 +223,13 @@ listImagePackagesResponse_requestId = Lens.lens (\ListImagePackagesResponse' {re
 listImagePackagesResponse_imagePackageList :: Lens.Lens' ListImagePackagesResponse (Prelude.Maybe [ImagePackage])
 listImagePackagesResponse_imagePackageList = Lens.lens (\ListImagePackagesResponse' {imagePackageList} -> imagePackageList) (\s@ListImagePackagesResponse' {} a -> s {imagePackageList = a} :: ListImagePackagesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
-listImagePackagesResponse_nextToken :: Lens.Lens' ListImagePackagesResponse (Prelude.Maybe Prelude.Text)
-listImagePackagesResponse_nextToken = Lens.lens (\ListImagePackagesResponse' {nextToken} -> nextToken) (\s@ListImagePackagesResponse' {} a -> s {nextToken = a} :: ListImagePackagesResponse)
-
 -- | The response's http status code.
 listImagePackagesResponse_httpStatus :: Lens.Lens' ListImagePackagesResponse Prelude.Int
 listImagePackagesResponse_httpStatus = Lens.lens (\ListImagePackagesResponse' {httpStatus} -> httpStatus) (\s@ListImagePackagesResponse' {} a -> s {httpStatus = a} :: ListImagePackagesResponse)
 
 instance Prelude.NFData ListImagePackagesResponse where
   rnf ListImagePackagesResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imagePackageList
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

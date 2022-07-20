@@ -40,8 +40,8 @@ module Amazonka.CloudDirectory.ListPublishedSchemaArns
     newListPublishedSchemaArnsResponse,
 
     -- * Response Lenses
-    listPublishedSchemaArnsResponse_schemaArns,
     listPublishedSchemaArnsResponse_nextToken,
+    listPublishedSchemaArnsResponse_schemaArns,
     listPublishedSchemaArnsResponse_httpStatus,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest ListPublishedSchemaArns where
     Response.receiveJSON
       ( \s h x ->
           ListPublishedSchemaArnsResponse'
-            Prelude.<$> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,10 +173,10 @@ instance Core.ToQuery ListPublishedSchemaArns where
 
 -- | /See:/ 'newListPublishedSchemaArnsResponse' smart constructor.
 data ListPublishedSchemaArnsResponse = ListPublishedSchemaArnsResponse'
-  { -- | The ARNs of published schemas.
-    schemaArns :: Prelude.Maybe [Prelude.Text],
-    -- | The pagination token.
+  { -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs of published schemas.
+    schemaArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,9 +190,9 @@ data ListPublishedSchemaArnsResponse = ListPublishedSchemaArnsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaArns', 'listPublishedSchemaArnsResponse_schemaArns' - The ARNs of published schemas.
---
 -- 'nextToken', 'listPublishedSchemaArnsResponse_nextToken' - The pagination token.
+--
+-- 'schemaArns', 'listPublishedSchemaArnsResponse_schemaArns' - The ARNs of published schemas.
 --
 -- 'httpStatus', 'listPublishedSchemaArnsResponse_httpStatus' - The response's http status code.
 newListPublishedSchemaArnsResponse ::
@@ -201,19 +201,19 @@ newListPublishedSchemaArnsResponse ::
   ListPublishedSchemaArnsResponse
 newListPublishedSchemaArnsResponse pHttpStatus_ =
   ListPublishedSchemaArnsResponse'
-    { schemaArns =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      schemaArns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARNs of published schemas.
-listPublishedSchemaArnsResponse_schemaArns :: Lens.Lens' ListPublishedSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
-listPublishedSchemaArnsResponse_schemaArns = Lens.lens (\ListPublishedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListPublishedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListPublishedSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 listPublishedSchemaArnsResponse_nextToken :: Lens.Lens' ListPublishedSchemaArnsResponse (Prelude.Maybe Prelude.Text)
 listPublishedSchemaArnsResponse_nextToken = Lens.lens (\ListPublishedSchemaArnsResponse' {nextToken} -> nextToken) (\s@ListPublishedSchemaArnsResponse' {} a -> s {nextToken = a} :: ListPublishedSchemaArnsResponse)
+
+-- | The ARNs of published schemas.
+listPublishedSchemaArnsResponse_schemaArns :: Lens.Lens' ListPublishedSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
+listPublishedSchemaArnsResponse_schemaArns = Lens.lens (\ListPublishedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListPublishedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListPublishedSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPublishedSchemaArnsResponse_httpStatus :: Lens.Lens' ListPublishedSchemaArnsResponse Prelude.Int
@@ -224,6 +224,6 @@ instance
     ListPublishedSchemaArnsResponse
   where
   rnf ListPublishedSchemaArnsResponse' {..} =
-    Prelude.rnf schemaArns
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaArns
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyDetail' smart constructor.
 data PolicyDetail = PolicyDetail'
-  { -- | The policy document.
-    policyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The name of the policy.
-    policyName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the policy.
+    policyName :: Prelude.Maybe Prelude.Text,
+    -- | The policy document.
+    policyDocument :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,37 +45,37 @@ data PolicyDetail = PolicyDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyDocument', 'policyDetail_policyDocument' - The policy document.
---
 -- 'policyName', 'policyDetail_policyName' - The name of the policy.
+--
+-- 'policyDocument', 'policyDetail_policyDocument' - The policy document.
 newPolicyDetail ::
   PolicyDetail
 newPolicyDetail =
   PolicyDetail'
-    { policyDocument = Prelude.Nothing,
-      policyName = Prelude.Nothing
+    { policyName = Prelude.Nothing,
+      policyDocument = Prelude.Nothing
     }
-
--- | The policy document.
-policyDetail_policyDocument :: Lens.Lens' PolicyDetail (Prelude.Maybe Prelude.Text)
-policyDetail_policyDocument = Lens.lens (\PolicyDetail' {policyDocument} -> policyDocument) (\s@PolicyDetail' {} a -> s {policyDocument = a} :: PolicyDetail)
 
 -- | The name of the policy.
 policyDetail_policyName :: Lens.Lens' PolicyDetail (Prelude.Maybe Prelude.Text)
 policyDetail_policyName = Lens.lens (\PolicyDetail' {policyName} -> policyName) (\s@PolicyDetail' {} a -> s {policyName = a} :: PolicyDetail)
 
+-- | The policy document.
+policyDetail_policyDocument :: Lens.Lens' PolicyDetail (Prelude.Maybe Prelude.Text)
+policyDetail_policyDocument = Lens.lens (\PolicyDetail' {policyDocument} -> policyDocument) (\s@PolicyDetail' {} a -> s {policyDocument = a} :: PolicyDetail)
+
 instance Core.FromXML PolicyDetail where
   parseXML x =
     PolicyDetail'
-      Prelude.<$> (x Core..@? "PolicyDocument")
-      Prelude.<*> (x Core..@? "PolicyName")
+      Prelude.<$> (x Core..@? "PolicyName")
+      Prelude.<*> (x Core..@? "PolicyDocument")
 
 instance Prelude.Hashable PolicyDetail where
   hashWithSalt _salt PolicyDetail' {..} =
-    _salt `Prelude.hashWithSalt` policyDocument
-      `Prelude.hashWithSalt` policyName
+    _salt `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` policyDocument
 
 instance Prelude.NFData PolicyDetail where
   rnf PolicyDetail' {..} =
-    Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyName
+    Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyDocument

@@ -50,8 +50,8 @@ module Amazonka.Glue.RegisterSchemaVersion
 
     -- * Response Lenses
     registerSchemaVersionResponse_status,
-    registerSchemaVersionResponse_schemaVersionId,
     registerSchemaVersionResponse_versionNumber,
+    registerSchemaVersionResponse_schemaVersionId,
     registerSchemaVersionResponse_httpStatus,
   )
 where
@@ -142,8 +142,8 @@ instance Core.AWSRequest RegisterSchemaVersion where
       ( \s h x ->
           RegisterSchemaVersionResponse'
             Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "SchemaVersionId")
             Prelude.<*> (x Core..?> "VersionNumber")
+            Prelude.<*> (x Core..?> "SchemaVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,11 +192,11 @@ instance Core.ToQuery RegisterSchemaVersion where
 data RegisterSchemaVersionResponse = RegisterSchemaVersionResponse'
   { -- | The status of the schema version.
     status :: Prelude.Maybe SchemaVersionStatus,
-    -- | The unique ID that represents the version of this schema.
-    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | The version of this schema (for sync flow only, in case this is the
     -- first version).
     versionNumber :: Prelude.Maybe Prelude.Natural,
+    -- | The unique ID that represents the version of this schema.
+    schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,10 +212,10 @@ data RegisterSchemaVersionResponse = RegisterSchemaVersionResponse'
 --
 -- 'status', 'registerSchemaVersionResponse_status' - The status of the schema version.
 --
--- 'schemaVersionId', 'registerSchemaVersionResponse_schemaVersionId' - The unique ID that represents the version of this schema.
---
 -- 'versionNumber', 'registerSchemaVersionResponse_versionNumber' - The version of this schema (for sync flow only, in case this is the
 -- first version).
+--
+-- 'schemaVersionId', 'registerSchemaVersionResponse_schemaVersionId' - The unique ID that represents the version of this schema.
 --
 -- 'httpStatus', 'registerSchemaVersionResponse_httpStatus' - The response's http status code.
 newRegisterSchemaVersionResponse ::
@@ -226,8 +226,8 @@ newRegisterSchemaVersionResponse pHttpStatus_ =
   RegisterSchemaVersionResponse'
     { status =
         Prelude.Nothing,
-      schemaVersionId = Prelude.Nothing,
       versionNumber = Prelude.Nothing,
+      schemaVersionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -235,14 +235,14 @@ newRegisterSchemaVersionResponse pHttpStatus_ =
 registerSchemaVersionResponse_status :: Lens.Lens' RegisterSchemaVersionResponse (Prelude.Maybe SchemaVersionStatus)
 registerSchemaVersionResponse_status = Lens.lens (\RegisterSchemaVersionResponse' {status} -> status) (\s@RegisterSchemaVersionResponse' {} a -> s {status = a} :: RegisterSchemaVersionResponse)
 
--- | The unique ID that represents the version of this schema.
-registerSchemaVersionResponse_schemaVersionId :: Lens.Lens' RegisterSchemaVersionResponse (Prelude.Maybe Prelude.Text)
-registerSchemaVersionResponse_schemaVersionId = Lens.lens (\RegisterSchemaVersionResponse' {schemaVersionId} -> schemaVersionId) (\s@RegisterSchemaVersionResponse' {} a -> s {schemaVersionId = a} :: RegisterSchemaVersionResponse)
-
 -- | The version of this schema (for sync flow only, in case this is the
 -- first version).
 registerSchemaVersionResponse_versionNumber :: Lens.Lens' RegisterSchemaVersionResponse (Prelude.Maybe Prelude.Natural)
 registerSchemaVersionResponse_versionNumber = Lens.lens (\RegisterSchemaVersionResponse' {versionNumber} -> versionNumber) (\s@RegisterSchemaVersionResponse' {} a -> s {versionNumber = a} :: RegisterSchemaVersionResponse)
+
+-- | The unique ID that represents the version of this schema.
+registerSchemaVersionResponse_schemaVersionId :: Lens.Lens' RegisterSchemaVersionResponse (Prelude.Maybe Prelude.Text)
+registerSchemaVersionResponse_schemaVersionId = Lens.lens (\RegisterSchemaVersionResponse' {schemaVersionId} -> schemaVersionId) (\s@RegisterSchemaVersionResponse' {} a -> s {schemaVersionId = a} :: RegisterSchemaVersionResponse)
 
 -- | The response's http status code.
 registerSchemaVersionResponse_httpStatus :: Lens.Lens' RegisterSchemaVersionResponse Prelude.Int
@@ -251,6 +251,6 @@ registerSchemaVersionResponse_httpStatus = Lens.lens (\RegisterSchemaVersionResp
 instance Prelude.NFData RegisterSchemaVersionResponse where
   rnf RegisterSchemaVersionResponse' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf schemaVersionId
       `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf schemaVersionId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,11 +31,11 @@ module Amazonka.SageMaker.ListWorkteams
     newListWorkteams,
 
     -- * Request Lenses
-    listWorkteams_nameContains,
-    listWorkteams_nextToken,
     listWorkteams_sortOrder,
-    listWorkteams_maxResults,
+    listWorkteams_nextToken,
+    listWorkteams_nameContains,
     listWorkteams_sortBy,
+    listWorkteams_maxResults,
 
     -- * Destructuring the Response
     ListWorkteamsResponse (..),
@@ -57,19 +57,19 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListWorkteams' smart constructor.
 data ListWorkteams = ListWorkteams'
-  { -- | A string in the work team\'s name. This filter returns only work teams
-    -- whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
+  { -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListWorkteams@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of labeling
     -- jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The maximum number of work teams to return in each page of the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A string in the work team\'s name. This filter returns only work teams
+    -- whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The field to sort results by. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe ListWorkteamsSortByOptions
+    sortBy :: Prelude.Maybe ListWorkteamsSortByOptions,
+    -- | The maximum number of work teams to return in each page of the response.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,33 +81,32 @@ data ListWorkteams = ListWorkteams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nameContains', 'listWorkteams_nameContains' - A string in the work team\'s name. This filter returns only work teams
--- whose name contains the specified string.
+-- 'sortOrder', 'listWorkteams_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nextToken', 'listWorkteams_nextToken' - If the result of the previous @ListWorkteams@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of labeling
 -- jobs, use the token in the next request.
 --
--- 'sortOrder', 'listWorkteams_sortOrder' - The sort order for results. The default is @Ascending@.
---
--- 'maxResults', 'listWorkteams_maxResults' - The maximum number of work teams to return in each page of the response.
+-- 'nameContains', 'listWorkteams_nameContains' - A string in the work team\'s name. This filter returns only work teams
+-- whose name contains the specified string.
 --
 -- 'sortBy', 'listWorkteams_sortBy' - The field to sort results by. The default is @CreationTime@.
+--
+-- 'maxResults', 'listWorkteams_maxResults' - The maximum number of work teams to return in each page of the response.
 newListWorkteams ::
   ListWorkteams
 newListWorkteams =
   ListWorkteams'
-    { nameContains = Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      nameContains = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
--- | A string in the work team\'s name. This filter returns only work teams
--- whose name contains the specified string.
-listWorkteams_nameContains :: Lens.Lens' ListWorkteams (Prelude.Maybe Prelude.Text)
-listWorkteams_nameContains = Lens.lens (\ListWorkteams' {nameContains} -> nameContains) (\s@ListWorkteams' {} a -> s {nameContains = a} :: ListWorkteams)
+-- | The sort order for results. The default is @Ascending@.
+listWorkteams_sortOrder :: Lens.Lens' ListWorkteams (Prelude.Maybe SortOrder)
+listWorkteams_sortOrder = Lens.lens (\ListWorkteams' {sortOrder} -> sortOrder) (\s@ListWorkteams' {} a -> s {sortOrder = a} :: ListWorkteams)
 
 -- | If the result of the previous @ListWorkteams@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of labeling
@@ -115,17 +114,18 @@ listWorkteams_nameContains = Lens.lens (\ListWorkteams' {nameContains} -> nameCo
 listWorkteams_nextToken :: Lens.Lens' ListWorkteams (Prelude.Maybe Prelude.Text)
 listWorkteams_nextToken = Lens.lens (\ListWorkteams' {nextToken} -> nextToken) (\s@ListWorkteams' {} a -> s {nextToken = a} :: ListWorkteams)
 
--- | The sort order for results. The default is @Ascending@.
-listWorkteams_sortOrder :: Lens.Lens' ListWorkteams (Prelude.Maybe SortOrder)
-listWorkteams_sortOrder = Lens.lens (\ListWorkteams' {sortOrder} -> sortOrder) (\s@ListWorkteams' {} a -> s {sortOrder = a} :: ListWorkteams)
-
--- | The maximum number of work teams to return in each page of the response.
-listWorkteams_maxResults :: Lens.Lens' ListWorkteams (Prelude.Maybe Prelude.Natural)
-listWorkteams_maxResults = Lens.lens (\ListWorkteams' {maxResults} -> maxResults) (\s@ListWorkteams' {} a -> s {maxResults = a} :: ListWorkteams)
+-- | A string in the work team\'s name. This filter returns only work teams
+-- whose name contains the specified string.
+listWorkteams_nameContains :: Lens.Lens' ListWorkteams (Prelude.Maybe Prelude.Text)
+listWorkteams_nameContains = Lens.lens (\ListWorkteams' {nameContains} -> nameContains) (\s@ListWorkteams' {} a -> s {nameContains = a} :: ListWorkteams)
 
 -- | The field to sort results by. The default is @CreationTime@.
 listWorkteams_sortBy :: Lens.Lens' ListWorkteams (Prelude.Maybe ListWorkteamsSortByOptions)
 listWorkteams_sortBy = Lens.lens (\ListWorkteams' {sortBy} -> sortBy) (\s@ListWorkteams' {} a -> s {sortBy = a} :: ListWorkteams)
+
+-- | The maximum number of work teams to return in each page of the response.
+listWorkteams_maxResults :: Lens.Lens' ListWorkteams (Prelude.Maybe Prelude.Natural)
+listWorkteams_maxResults = Lens.lens (\ListWorkteams' {maxResults} -> maxResults) (\s@ListWorkteams' {} a -> s {maxResults = a} :: ListWorkteams)
 
 instance Core.AWSPager ListWorkteams where
   page rq rs
@@ -160,19 +160,19 @@ instance Core.AWSRequest ListWorkteams where
 
 instance Prelude.Hashable ListWorkteams where
   hashWithSalt _salt ListWorkteams' {..} =
-    _salt `Prelude.hashWithSalt` nameContains
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListWorkteams where
   rnf ListWorkteams' {..} =
-    Prelude.rnf nameContains
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorkteams where
   toHeaders =
@@ -191,11 +191,11 @@ instance Core.ToJSON ListWorkteams where
   toJSON ListWorkteams' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+            ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

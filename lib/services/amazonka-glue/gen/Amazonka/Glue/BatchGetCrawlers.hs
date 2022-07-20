@@ -38,8 +38,8 @@ module Amazonka.Glue.BatchGetCrawlers
     newBatchGetCrawlersResponse,
 
     -- * Response Lenses
-    batchGetCrawlersResponse_crawlersNotFound,
     batchGetCrawlersResponse_crawlers,
+    batchGetCrawlersResponse_crawlersNotFound,
     batchGetCrawlersResponse_httpStatus,
   )
 where
@@ -88,10 +88,10 @@ instance Core.AWSRequest BatchGetCrawlers where
     Response.receiveJSON
       ( \s h x ->
           BatchGetCrawlersResponse'
-            Prelude.<$> ( x Core..?> "CrawlersNotFound"
+            Prelude.<$> (x Core..?> "Crawlers" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "CrawlersNotFound"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Crawlers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,10 +130,10 @@ instance Core.ToQuery BatchGetCrawlers where
 
 -- | /See:/ 'newBatchGetCrawlersResponse' smart constructor.
 data BatchGetCrawlersResponse = BatchGetCrawlersResponse'
-  { -- | A list of names of crawlers that were not found.
-    crawlersNotFound :: Prelude.Maybe [Prelude.Text],
-    -- | A list of crawler definitions.
+  { -- | A list of crawler definitions.
     crawlers :: Prelude.Maybe [Crawler],
+    -- | A list of names of crawlers that were not found.
+    crawlersNotFound :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,9 +147,9 @@ data BatchGetCrawlersResponse = BatchGetCrawlersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'crawlersNotFound', 'batchGetCrawlersResponse_crawlersNotFound' - A list of names of crawlers that were not found.
---
 -- 'crawlers', 'batchGetCrawlersResponse_crawlers' - A list of crawler definitions.
+--
+-- 'crawlersNotFound', 'batchGetCrawlersResponse_crawlersNotFound' - A list of names of crawlers that were not found.
 --
 -- 'httpStatus', 'batchGetCrawlersResponse_httpStatus' - The response's http status code.
 newBatchGetCrawlersResponse ::
@@ -158,19 +158,19 @@ newBatchGetCrawlersResponse ::
   BatchGetCrawlersResponse
 newBatchGetCrawlersResponse pHttpStatus_ =
   BatchGetCrawlersResponse'
-    { crawlersNotFound =
+    { crawlers =
         Prelude.Nothing,
-      crawlers = Prelude.Nothing,
+      crawlersNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of names of crawlers that were not found.
-batchGetCrawlersResponse_crawlersNotFound :: Lens.Lens' BatchGetCrawlersResponse (Prelude.Maybe [Prelude.Text])
-batchGetCrawlersResponse_crawlersNotFound = Lens.lens (\BatchGetCrawlersResponse' {crawlersNotFound} -> crawlersNotFound) (\s@BatchGetCrawlersResponse' {} a -> s {crawlersNotFound = a} :: BatchGetCrawlersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of crawler definitions.
 batchGetCrawlersResponse_crawlers :: Lens.Lens' BatchGetCrawlersResponse (Prelude.Maybe [Crawler])
 batchGetCrawlersResponse_crawlers = Lens.lens (\BatchGetCrawlersResponse' {crawlers} -> crawlers) (\s@BatchGetCrawlersResponse' {} a -> s {crawlers = a} :: BatchGetCrawlersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of names of crawlers that were not found.
+batchGetCrawlersResponse_crawlersNotFound :: Lens.Lens' BatchGetCrawlersResponse (Prelude.Maybe [Prelude.Text])
+batchGetCrawlersResponse_crawlersNotFound = Lens.lens (\BatchGetCrawlersResponse' {crawlersNotFound} -> crawlersNotFound) (\s@BatchGetCrawlersResponse' {} a -> s {crawlersNotFound = a} :: BatchGetCrawlersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetCrawlersResponse_httpStatus :: Lens.Lens' BatchGetCrawlersResponse Prelude.Int
@@ -178,6 +178,6 @@ batchGetCrawlersResponse_httpStatus = Lens.lens (\BatchGetCrawlersResponse' {htt
 
 instance Prelude.NFData BatchGetCrawlersResponse where
   rnf BatchGetCrawlersResponse' {..} =
-    Prelude.rnf crawlersNotFound
-      `Prelude.seq` Prelude.rnf crawlers
+    Prelude.rnf crawlers
+      `Prelude.seq` Prelude.rnf crawlersNotFound
       `Prelude.seq` Prelude.rnf httpStatus

@@ -36,9 +36,9 @@ module Amazonka.APIGateway.UpdateDocumentationPart
     newDocumentationPart,
 
     -- * Response Lenses
-    documentationPart_location,
-    documentationPart_id,
     documentationPart_properties,
+    documentationPart_id,
+    documentationPart_location,
   )
 where
 

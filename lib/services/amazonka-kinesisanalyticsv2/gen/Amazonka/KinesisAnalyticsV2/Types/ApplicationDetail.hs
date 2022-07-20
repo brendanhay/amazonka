@@ -34,36 +34,36 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationDetail' smart constructor.
 data ApplicationDetail = ApplicationDetail'
-  { -- | The description of the application.
-    applicationDescription :: Prelude.Maybe Prelude.Text,
-    -- | A value you use to implement strong concurrency for application updates.
-    conditionalToken :: Prelude.Maybe Prelude.Text,
-    -- | Describes the application Amazon CloudWatch logging options.
-    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
-    -- | If you reverted the application using RollbackApplication, the
-    -- application version when @RollbackApplication@ was called.
-    applicationVersionRolledBackFrom :: Prelude.Maybe Prelude.Natural,
+  { -- | The current timestamp when the application was last updated.
+    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
     -- | To create a Kinesis Data Analytics Studio notebook, you must set the
     -- mode to @INTERACTIVE@. However, for a Kinesis Data Analytics for Apache
     -- Flink application, the mode is optional.
     applicationMode :: Prelude.Maybe ApplicationMode,
-    -- | Describes details about the application code and starting parameters for
-    -- a Kinesis Data Analytics application.
-    applicationConfigurationDescription :: Prelude.Maybe ApplicationConfigurationDescription,
-    -- | The version to which you want to roll back the application.
-    applicationVersionRolledBackTo :: Prelude.Maybe Prelude.Natural,
     -- | The current timestamp when the application was created.
     createTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The current timestamp when the application was last updated.
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | Specifies the IAM role that the application uses to access external
-    -- resources.
-    serviceExecutionRole :: Prelude.Maybe Prelude.Text,
+    -- | The details of the maintenance configuration for the application.
+    applicationMaintenanceConfigurationDescription :: Prelude.Maybe ApplicationMaintenanceConfigurationDescription,
+    -- | A value you use to implement strong concurrency for application updates.
+    conditionalToken :: Prelude.Maybe Prelude.Text,
+    -- | Describes the application Amazon CloudWatch logging options.
+    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
+    -- | The version to which you want to roll back the application.
+    applicationVersionRolledBackTo :: Prelude.Maybe Prelude.Natural,
     -- | The previous application version before the latest application update.
     -- RollbackApplication reverts the application to this version.
     applicationVersionUpdatedFrom :: Prelude.Maybe Prelude.Natural,
-    -- | The details of the maintenance configuration for the application.
-    applicationMaintenanceConfigurationDescription :: Prelude.Maybe ApplicationMaintenanceConfigurationDescription,
+    -- | Describes details about the application code and starting parameters for
+    -- a Kinesis Data Analytics application.
+    applicationConfigurationDescription :: Prelude.Maybe ApplicationConfigurationDescription,
+    -- | If you reverted the application using RollbackApplication, the
+    -- application version when @RollbackApplication@ was called.
+    applicationVersionRolledBackFrom :: Prelude.Maybe Prelude.Natural,
+    -- | The description of the application.
+    applicationDescription :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the IAM role that the application uses to access external
+    -- resources.
+    serviceExecutionRole :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the application.
     applicationARN :: Prelude.Text,
     -- | The name of the application.
@@ -87,35 +87,35 @@ data ApplicationDetail = ApplicationDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationDescription', 'applicationDetail_applicationDescription' - The description of the application.
---
--- 'conditionalToken', 'applicationDetail_conditionalToken' - A value you use to implement strong concurrency for application updates.
---
--- 'cloudWatchLoggingOptionDescriptions', 'applicationDetail_cloudWatchLoggingOptionDescriptions' - Describes the application Amazon CloudWatch logging options.
---
--- 'applicationVersionRolledBackFrom', 'applicationDetail_applicationVersionRolledBackFrom' - If you reverted the application using RollbackApplication, the
--- application version when @RollbackApplication@ was called.
+-- 'lastUpdateTimestamp', 'applicationDetail_lastUpdateTimestamp' - The current timestamp when the application was last updated.
 --
 -- 'applicationMode', 'applicationDetail_applicationMode' - To create a Kinesis Data Analytics Studio notebook, you must set the
 -- mode to @INTERACTIVE@. However, for a Kinesis Data Analytics for Apache
 -- Flink application, the mode is optional.
 --
--- 'applicationConfigurationDescription', 'applicationDetail_applicationConfigurationDescription' - Describes details about the application code and starting parameters for
--- a Kinesis Data Analytics application.
---
--- 'applicationVersionRolledBackTo', 'applicationDetail_applicationVersionRolledBackTo' - The version to which you want to roll back the application.
---
 -- 'createTimestamp', 'applicationDetail_createTimestamp' - The current timestamp when the application was created.
 --
--- 'lastUpdateTimestamp', 'applicationDetail_lastUpdateTimestamp' - The current timestamp when the application was last updated.
+-- 'applicationMaintenanceConfigurationDescription', 'applicationDetail_applicationMaintenanceConfigurationDescription' - The details of the maintenance configuration for the application.
 --
--- 'serviceExecutionRole', 'applicationDetail_serviceExecutionRole' - Specifies the IAM role that the application uses to access external
--- resources.
+-- 'conditionalToken', 'applicationDetail_conditionalToken' - A value you use to implement strong concurrency for application updates.
+--
+-- 'cloudWatchLoggingOptionDescriptions', 'applicationDetail_cloudWatchLoggingOptionDescriptions' - Describes the application Amazon CloudWatch logging options.
+--
+-- 'applicationVersionRolledBackTo', 'applicationDetail_applicationVersionRolledBackTo' - The version to which you want to roll back the application.
 --
 -- 'applicationVersionUpdatedFrom', 'applicationDetail_applicationVersionUpdatedFrom' - The previous application version before the latest application update.
 -- RollbackApplication reverts the application to this version.
 --
--- 'applicationMaintenanceConfigurationDescription', 'applicationDetail_applicationMaintenanceConfigurationDescription' - The details of the maintenance configuration for the application.
+-- 'applicationConfigurationDescription', 'applicationDetail_applicationConfigurationDescription' - Describes details about the application code and starting parameters for
+-- a Kinesis Data Analytics application.
+--
+-- 'applicationVersionRolledBackFrom', 'applicationDetail_applicationVersionRolledBackFrom' - If you reverted the application using RollbackApplication, the
+-- application version when @RollbackApplication@ was called.
+--
+-- 'applicationDescription', 'applicationDetail_applicationDescription' - The description of the application.
+--
+-- 'serviceExecutionRole', 'applicationDetail_serviceExecutionRole' - Specifies the IAM role that the application uses to access external
+-- resources.
 --
 -- 'applicationARN', 'applicationDetail_applicationARN' - The ARN of the application.
 --
@@ -147,22 +147,22 @@ newApplicationDetail
   pApplicationStatus_
   pApplicationVersionId_ =
     ApplicationDetail'
-      { applicationDescription =
+      { lastUpdateTimestamp =
+          Prelude.Nothing,
+        applicationMode = Prelude.Nothing,
+        createTimestamp = Prelude.Nothing,
+        applicationMaintenanceConfigurationDescription =
           Prelude.Nothing,
         conditionalToken = Prelude.Nothing,
         cloudWatchLoggingOptionDescriptions =
           Prelude.Nothing,
-        applicationVersionRolledBackFrom = Prelude.Nothing,
-        applicationMode = Prelude.Nothing,
+        applicationVersionRolledBackTo = Prelude.Nothing,
+        applicationVersionUpdatedFrom = Prelude.Nothing,
         applicationConfigurationDescription =
           Prelude.Nothing,
-        applicationVersionRolledBackTo = Prelude.Nothing,
-        createTimestamp = Prelude.Nothing,
-        lastUpdateTimestamp = Prelude.Nothing,
+        applicationVersionRolledBackFrom = Prelude.Nothing,
+        applicationDescription = Prelude.Nothing,
         serviceExecutionRole = Prelude.Nothing,
-        applicationVersionUpdatedFrom = Prelude.Nothing,
-        applicationMaintenanceConfigurationDescription =
-          Prelude.Nothing,
         applicationARN = pApplicationARN_,
         applicationName = pApplicationName_,
         runtimeEnvironment = pRuntimeEnvironment_,
@@ -170,9 +170,23 @@ newApplicationDetail
         applicationVersionId = pApplicationVersionId_
       }
 
--- | The description of the application.
-applicationDetail_applicationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
-applicationDetail_applicationDescription = Lens.lens (\ApplicationDetail' {applicationDescription} -> applicationDescription) (\s@ApplicationDetail' {} a -> s {applicationDescription = a} :: ApplicationDetail)
+-- | The current timestamp when the application was last updated.
+applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
+applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
+
+-- | To create a Kinesis Data Analytics Studio notebook, you must set the
+-- mode to @INTERACTIVE@. However, for a Kinesis Data Analytics for Apache
+-- Flink application, the mode is optional.
+applicationDetail_applicationMode :: Lens.Lens' ApplicationDetail (Prelude.Maybe ApplicationMode)
+applicationDetail_applicationMode = Lens.lens (\ApplicationDetail' {applicationMode} -> applicationMode) (\s@ApplicationDetail' {} a -> s {applicationMode = a} :: ApplicationDetail)
+
+-- | The current timestamp when the application was created.
+applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
+applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
+
+-- | The details of the maintenance configuration for the application.
+applicationDetail_applicationMaintenanceConfigurationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe ApplicationMaintenanceConfigurationDescription)
+applicationDetail_applicationMaintenanceConfigurationDescription = Lens.lens (\ApplicationDetail' {applicationMaintenanceConfigurationDescription} -> applicationMaintenanceConfigurationDescription) (\s@ApplicationDetail' {} a -> s {applicationMaintenanceConfigurationDescription = a} :: ApplicationDetail)
 
 -- | A value you use to implement strong concurrency for application updates.
 applicationDetail_conditionalToken :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
@@ -182,47 +196,33 @@ applicationDetail_conditionalToken = Lens.lens (\ApplicationDetail' {conditional
 applicationDetail_cloudWatchLoggingOptionDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [CloudWatchLoggingOptionDescription])
 applicationDetail_cloudWatchLoggingOptionDescriptions = Lens.lens (\ApplicationDetail' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@ApplicationDetail' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | If you reverted the application using RollbackApplication, the
--- application version when @RollbackApplication@ was called.
-applicationDetail_applicationVersionRolledBackFrom :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Natural)
-applicationDetail_applicationVersionRolledBackFrom = Lens.lens (\ApplicationDetail' {applicationVersionRolledBackFrom} -> applicationVersionRolledBackFrom) (\s@ApplicationDetail' {} a -> s {applicationVersionRolledBackFrom = a} :: ApplicationDetail)
-
--- | To create a Kinesis Data Analytics Studio notebook, you must set the
--- mode to @INTERACTIVE@. However, for a Kinesis Data Analytics for Apache
--- Flink application, the mode is optional.
-applicationDetail_applicationMode :: Lens.Lens' ApplicationDetail (Prelude.Maybe ApplicationMode)
-applicationDetail_applicationMode = Lens.lens (\ApplicationDetail' {applicationMode} -> applicationMode) (\s@ApplicationDetail' {} a -> s {applicationMode = a} :: ApplicationDetail)
-
--- | Describes details about the application code and starting parameters for
--- a Kinesis Data Analytics application.
-applicationDetail_applicationConfigurationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe ApplicationConfigurationDescription)
-applicationDetail_applicationConfigurationDescription = Lens.lens (\ApplicationDetail' {applicationConfigurationDescription} -> applicationConfigurationDescription) (\s@ApplicationDetail' {} a -> s {applicationConfigurationDescription = a} :: ApplicationDetail)
-
 -- | The version to which you want to roll back the application.
 applicationDetail_applicationVersionRolledBackTo :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Natural)
 applicationDetail_applicationVersionRolledBackTo = Lens.lens (\ApplicationDetail' {applicationVersionRolledBackTo} -> applicationVersionRolledBackTo) (\s@ApplicationDetail' {} a -> s {applicationVersionRolledBackTo = a} :: ApplicationDetail)
-
--- | The current timestamp when the application was created.
-applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
-applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
-
--- | The current timestamp when the application was last updated.
-applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
-applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
-
--- | Specifies the IAM role that the application uses to access external
--- resources.
-applicationDetail_serviceExecutionRole :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
-applicationDetail_serviceExecutionRole = Lens.lens (\ApplicationDetail' {serviceExecutionRole} -> serviceExecutionRole) (\s@ApplicationDetail' {} a -> s {serviceExecutionRole = a} :: ApplicationDetail)
 
 -- | The previous application version before the latest application update.
 -- RollbackApplication reverts the application to this version.
 applicationDetail_applicationVersionUpdatedFrom :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Natural)
 applicationDetail_applicationVersionUpdatedFrom = Lens.lens (\ApplicationDetail' {applicationVersionUpdatedFrom} -> applicationVersionUpdatedFrom) (\s@ApplicationDetail' {} a -> s {applicationVersionUpdatedFrom = a} :: ApplicationDetail)
 
--- | The details of the maintenance configuration for the application.
-applicationDetail_applicationMaintenanceConfigurationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe ApplicationMaintenanceConfigurationDescription)
-applicationDetail_applicationMaintenanceConfigurationDescription = Lens.lens (\ApplicationDetail' {applicationMaintenanceConfigurationDescription} -> applicationMaintenanceConfigurationDescription) (\s@ApplicationDetail' {} a -> s {applicationMaintenanceConfigurationDescription = a} :: ApplicationDetail)
+-- | Describes details about the application code and starting parameters for
+-- a Kinesis Data Analytics application.
+applicationDetail_applicationConfigurationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe ApplicationConfigurationDescription)
+applicationDetail_applicationConfigurationDescription = Lens.lens (\ApplicationDetail' {applicationConfigurationDescription} -> applicationConfigurationDescription) (\s@ApplicationDetail' {} a -> s {applicationConfigurationDescription = a} :: ApplicationDetail)
+
+-- | If you reverted the application using RollbackApplication, the
+-- application version when @RollbackApplication@ was called.
+applicationDetail_applicationVersionRolledBackFrom :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Natural)
+applicationDetail_applicationVersionRolledBackFrom = Lens.lens (\ApplicationDetail' {applicationVersionRolledBackFrom} -> applicationVersionRolledBackFrom) (\s@ApplicationDetail' {} a -> s {applicationVersionRolledBackFrom = a} :: ApplicationDetail)
+
+-- | The description of the application.
+applicationDetail_applicationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
+applicationDetail_applicationDescription = Lens.lens (\ApplicationDetail' {applicationDescription} -> applicationDescription) (\s@ApplicationDetail' {} a -> s {applicationDescription = a} :: ApplicationDetail)
+
+-- | Specifies the IAM role that the application uses to access external
+-- resources.
+applicationDetail_serviceExecutionRole :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
+applicationDetail_serviceExecutionRole = Lens.lens (\ApplicationDetail' {serviceExecutionRole} -> serviceExecutionRole) (\s@ApplicationDetail' {} a -> s {serviceExecutionRole = a} :: ApplicationDetail)
 
 -- | The ARN of the application.
 applicationDetail_applicationARN :: Lens.Lens' ApplicationDetail Prelude.Text
@@ -252,22 +252,22 @@ instance Core.FromJSON ApplicationDetail where
       "ApplicationDetail"
       ( \x ->
           ApplicationDetail'
-            Prelude.<$> (x Core..:? "ApplicationDescription")
+            Prelude.<$> (x Core..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Core..:? "ApplicationMode")
+            Prelude.<*> (x Core..:? "CreateTimestamp")
+            Prelude.<*> ( x
+                            Core..:? "ApplicationMaintenanceConfigurationDescription"
+                        )
             Prelude.<*> (x Core..:? "ConditionalToken")
             Prelude.<*> ( x Core..:? "CloudWatchLoggingOptionDescriptions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ApplicationVersionRolledBackFrom")
-            Prelude.<*> (x Core..:? "ApplicationMode")
-            Prelude.<*> (x Core..:? "ApplicationConfigurationDescription")
             Prelude.<*> (x Core..:? "ApplicationVersionRolledBackTo")
-            Prelude.<*> (x Core..:? "CreateTimestamp")
-            Prelude.<*> (x Core..:? "LastUpdateTimestamp")
-            Prelude.<*> (x Core..:? "ServiceExecutionRole")
             Prelude.<*> (x Core..:? "ApplicationVersionUpdatedFrom")
-            Prelude.<*> ( x
-                            Core..:? "ApplicationMaintenanceConfigurationDescription"
-                        )
+            Prelude.<*> (x Core..:? "ApplicationConfigurationDescription")
+            Prelude.<*> (x Core..:? "ApplicationVersionRolledBackFrom")
+            Prelude.<*> (x Core..:? "ApplicationDescription")
+            Prelude.<*> (x Core..:? "ServiceExecutionRole")
             Prelude.<*> (x Core..: "ApplicationARN")
             Prelude.<*> (x Core..: "ApplicationName")
             Prelude.<*> (x Core..: "RuntimeEnvironment")
@@ -277,18 +277,18 @@ instance Core.FromJSON ApplicationDetail where
 
 instance Prelude.Hashable ApplicationDetail where
   hashWithSalt _salt ApplicationDetail' {..} =
-    _salt `Prelude.hashWithSalt` applicationDescription
+    _salt `Prelude.hashWithSalt` lastUpdateTimestamp
+      `Prelude.hashWithSalt` applicationMode
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` applicationMaintenanceConfigurationDescription
       `Prelude.hashWithSalt` conditionalToken
       `Prelude.hashWithSalt` cloudWatchLoggingOptionDescriptions
-      `Prelude.hashWithSalt` applicationVersionRolledBackFrom
-      `Prelude.hashWithSalt` applicationMode
-      `Prelude.hashWithSalt` applicationConfigurationDescription
       `Prelude.hashWithSalt` applicationVersionRolledBackTo
-      `Prelude.hashWithSalt` createTimestamp
-      `Prelude.hashWithSalt` lastUpdateTimestamp
-      `Prelude.hashWithSalt` serviceExecutionRole
       `Prelude.hashWithSalt` applicationVersionUpdatedFrom
-      `Prelude.hashWithSalt` applicationMaintenanceConfigurationDescription
+      `Prelude.hashWithSalt` applicationConfigurationDescription
+      `Prelude.hashWithSalt` applicationVersionRolledBackFrom
+      `Prelude.hashWithSalt` applicationDescription
+      `Prelude.hashWithSalt` serviceExecutionRole
       `Prelude.hashWithSalt` applicationARN
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` runtimeEnvironment
@@ -297,19 +297,19 @@ instance Prelude.Hashable ApplicationDetail where
 
 instance Prelude.NFData ApplicationDetail where
   rnf ApplicationDetail' {..} =
-    Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf conditionalToken
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
-      `Prelude.seq` Prelude.rnf applicationVersionRolledBackFrom
+    Prelude.rnf lastUpdateTimestamp
       `Prelude.seq` Prelude.rnf applicationMode
-      `Prelude.seq` Prelude.rnf applicationConfigurationDescription
-      `Prelude.seq` Prelude.rnf applicationVersionRolledBackTo
       `Prelude.seq` Prelude.rnf createTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
-      `Prelude.seq` Prelude.rnf serviceExecutionRole
-      `Prelude.seq` Prelude.rnf applicationVersionUpdatedFrom
       `Prelude.seq` Prelude.rnf
         applicationMaintenanceConfigurationDescription
+      `Prelude.seq` Prelude.rnf conditionalToken
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
+      `Prelude.seq` Prelude.rnf applicationVersionRolledBackTo
+      `Prelude.seq` Prelude.rnf applicationVersionUpdatedFrom
+      `Prelude.seq` Prelude.rnf applicationConfigurationDescription
+      `Prelude.seq` Prelude.rnf applicationVersionRolledBackFrom
+      `Prelude.seq` Prelude.rnf applicationDescription
+      `Prelude.seq` Prelude.rnf serviceExecutionRole
       `Prelude.seq` Prelude.rnf applicationARN
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf runtimeEnvironment

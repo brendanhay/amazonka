@@ -30,16 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVideoDescription' smart constructor.
 data VideoDescription = VideoDescription'
-  { -- | Output video height, in pixels. Must be an even number. For most codecs,
-    -- you can leave this field and width blank in order to use the height and
-    -- width (resolution) from the source. Note, however, that leaving blank is
-    -- not recommended. For the Frame Capture codec, height and width are
-    -- required.
-    height :: Prelude.Maybe Prelude.Int,
+  { -- | Indicates how MediaLive will respond to the AFD values that might be in
+    -- the input video. If you do not know what AFD signaling is, or if your
+    -- downstream system has not given you guidance, choose PASSTHROUGH.
+    -- RESPOND: MediaLive clips the input video using a formula that uses the
+    -- AFD values (configured in afdSignaling ), the input display aspect
+    -- ratio, and the output display aspect ratio. MediaLive also includes the
+    -- AFD values in the output, unless the codec for this encode is
+    -- FRAME_CAPTURE. PASSTHROUGH: MediaLive ignores the AFD values and does
+    -- not clip the video. But MediaLive does include the values in the output.
+    -- NONE: MediaLive does not clip the input video and does not include the
+    -- AFD values in the output
+    respondToAfd :: Prelude.Maybe VideoDescriptionRespondToAfd,
     -- | Changes the strength of the anti-alias filter used for scaling. 0 is the
     -- softest setting, 100 is the sharpest. A setting of 50 is recommended for
     -- most content.
     sharpness :: Prelude.Maybe Prelude.Natural,
+    -- | Video codec settings.
+    codecSettings :: Prelude.Maybe VideoCodecSettings,
     -- | Output video width, in pixels. Must be an even number. For most codecs,
     -- you can leave this field and height blank in order to use the height and
     -- width (resolution) from the source. Note, however, that leaving blank is
@@ -52,20 +60,12 @@ data VideoDescription = VideoDescription'
     -- boxes or letter boxes) around the video to provide the specified output
     -- resolution.
     scalingBehavior :: Prelude.Maybe VideoDescriptionScalingBehavior,
-    -- | Indicates how MediaLive will respond to the AFD values that might be in
-    -- the input video. If you do not know what AFD signaling is, or if your
-    -- downstream system has not given you guidance, choose PASSTHROUGH.
-    -- RESPOND: MediaLive clips the input video using a formula that uses the
-    -- AFD values (configured in afdSignaling ), the input display aspect
-    -- ratio, and the output display aspect ratio. MediaLive also includes the
-    -- AFD values in the output, unless the codec for this encode is
-    -- FRAME_CAPTURE. PASSTHROUGH: MediaLive ignores the AFD values and does
-    -- not clip the video. But MediaLive does include the values in the output.
-    -- NONE: MediaLive does not clip the input video and does not include the
-    -- AFD values in the output
-    respondToAfd :: Prelude.Maybe VideoDescriptionRespondToAfd,
-    -- | Video codec settings.
-    codecSettings :: Prelude.Maybe VideoCodecSettings,
+    -- | Output video height, in pixels. Must be an even number. For most codecs,
+    -- you can leave this field and width blank in order to use the height and
+    -- width (resolution) from the source. Note, however, that leaving blank is
+    -- not recommended. For the Frame Capture codec, height and width are
+    -- required.
+    height :: Prelude.Maybe Prelude.Int,
     -- | The name of this VideoDescription. Outputs will use this name to
     -- uniquely identify this Description. Description names should be unique
     -- within this Live Event.
@@ -81,15 +81,23 @@ data VideoDescription = VideoDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'height', 'videoDescription_height' - Output video height, in pixels. Must be an even number. For most codecs,
--- you can leave this field and width blank in order to use the height and
--- width (resolution) from the source. Note, however, that leaving blank is
--- not recommended. For the Frame Capture codec, height and width are
--- required.
+-- 'respondToAfd', 'videoDescription_respondToAfd' - Indicates how MediaLive will respond to the AFD values that might be in
+-- the input video. If you do not know what AFD signaling is, or if your
+-- downstream system has not given you guidance, choose PASSTHROUGH.
+-- RESPOND: MediaLive clips the input video using a formula that uses the
+-- AFD values (configured in afdSignaling ), the input display aspect
+-- ratio, and the output display aspect ratio. MediaLive also includes the
+-- AFD values in the output, unless the codec for this encode is
+-- FRAME_CAPTURE. PASSTHROUGH: MediaLive ignores the AFD values and does
+-- not clip the video. But MediaLive does include the values in the output.
+-- NONE: MediaLive does not clip the input video and does not include the
+-- AFD values in the output
 --
 -- 'sharpness', 'videoDescription_sharpness' - Changes the strength of the anti-alias filter used for scaling. 0 is the
 -- softest setting, 100 is the sharpest. A setting of 50 is recommended for
 -- most content.
+--
+-- 'codecSettings', 'videoDescription_codecSettings' - Video codec settings.
 --
 -- 'width', 'videoDescription_width' - Output video width, in pixels. Must be an even number. For most codecs,
 -- you can leave this field and height blank in order to use the height and
@@ -103,19 +111,11 @@ data VideoDescription = VideoDescription'
 -- boxes or letter boxes) around the video to provide the specified output
 -- resolution.
 --
--- 'respondToAfd', 'videoDescription_respondToAfd' - Indicates how MediaLive will respond to the AFD values that might be in
--- the input video. If you do not know what AFD signaling is, or if your
--- downstream system has not given you guidance, choose PASSTHROUGH.
--- RESPOND: MediaLive clips the input video using a formula that uses the
--- AFD values (configured in afdSignaling ), the input display aspect
--- ratio, and the output display aspect ratio. MediaLive also includes the
--- AFD values in the output, unless the codec for this encode is
--- FRAME_CAPTURE. PASSTHROUGH: MediaLive ignores the AFD values and does
--- not clip the video. But MediaLive does include the values in the output.
--- NONE: MediaLive does not clip the input video and does not include the
--- AFD values in the output
---
--- 'codecSettings', 'videoDescription_codecSettings' - Video codec settings.
+-- 'height', 'videoDescription_height' - Output video height, in pixels. Must be an even number. For most codecs,
+-- you can leave this field and width blank in order to use the height and
+-- width (resolution) from the source. Note, however, that leaving blank is
+-- not recommended. For the Frame Capture codec, height and width are
+-- required.
 --
 -- 'name', 'videoDescription_name' - The name of this VideoDescription. Outputs will use this name to
 -- uniquely identify this Description. Description names should be unique
@@ -126,28 +126,38 @@ newVideoDescription ::
   VideoDescription
 newVideoDescription pName_ =
   VideoDescription'
-    { height = Prelude.Nothing,
+    { respondToAfd = Prelude.Nothing,
       sharpness = Prelude.Nothing,
+      codecSettings = Prelude.Nothing,
       width = Prelude.Nothing,
       scalingBehavior = Prelude.Nothing,
-      respondToAfd = Prelude.Nothing,
-      codecSettings = Prelude.Nothing,
+      height = Prelude.Nothing,
       name = pName_
     }
 
--- | Output video height, in pixels. Must be an even number. For most codecs,
--- you can leave this field and width blank in order to use the height and
--- width (resolution) from the source. Note, however, that leaving blank is
--- not recommended. For the Frame Capture codec, height and width are
--- required.
-videoDescription_height :: Lens.Lens' VideoDescription (Prelude.Maybe Prelude.Int)
-videoDescription_height = Lens.lens (\VideoDescription' {height} -> height) (\s@VideoDescription' {} a -> s {height = a} :: VideoDescription)
+-- | Indicates how MediaLive will respond to the AFD values that might be in
+-- the input video. If you do not know what AFD signaling is, or if your
+-- downstream system has not given you guidance, choose PASSTHROUGH.
+-- RESPOND: MediaLive clips the input video using a formula that uses the
+-- AFD values (configured in afdSignaling ), the input display aspect
+-- ratio, and the output display aspect ratio. MediaLive also includes the
+-- AFD values in the output, unless the codec for this encode is
+-- FRAME_CAPTURE. PASSTHROUGH: MediaLive ignores the AFD values and does
+-- not clip the video. But MediaLive does include the values in the output.
+-- NONE: MediaLive does not clip the input video and does not include the
+-- AFD values in the output
+videoDescription_respondToAfd :: Lens.Lens' VideoDescription (Prelude.Maybe VideoDescriptionRespondToAfd)
+videoDescription_respondToAfd = Lens.lens (\VideoDescription' {respondToAfd} -> respondToAfd) (\s@VideoDescription' {} a -> s {respondToAfd = a} :: VideoDescription)
 
 -- | Changes the strength of the anti-alias filter used for scaling. 0 is the
 -- softest setting, 100 is the sharpest. A setting of 50 is recommended for
 -- most content.
 videoDescription_sharpness :: Lens.Lens' VideoDescription (Prelude.Maybe Prelude.Natural)
 videoDescription_sharpness = Lens.lens (\VideoDescription' {sharpness} -> sharpness) (\s@VideoDescription' {} a -> s {sharpness = a} :: VideoDescription)
+
+-- | Video codec settings.
+videoDescription_codecSettings :: Lens.Lens' VideoDescription (Prelude.Maybe VideoCodecSettings)
+videoDescription_codecSettings = Lens.lens (\VideoDescription' {codecSettings} -> codecSettings) (\s@VideoDescription' {} a -> s {codecSettings = a} :: VideoDescription)
 
 -- | Output video width, in pixels. Must be an even number. For most codecs,
 -- you can leave this field and height blank in order to use the height and
@@ -165,23 +175,13 @@ videoDescription_width = Lens.lens (\VideoDescription' {width} -> width) (\s@Vid
 videoDescription_scalingBehavior :: Lens.Lens' VideoDescription (Prelude.Maybe VideoDescriptionScalingBehavior)
 videoDescription_scalingBehavior = Lens.lens (\VideoDescription' {scalingBehavior} -> scalingBehavior) (\s@VideoDescription' {} a -> s {scalingBehavior = a} :: VideoDescription)
 
--- | Indicates how MediaLive will respond to the AFD values that might be in
--- the input video. If you do not know what AFD signaling is, or if your
--- downstream system has not given you guidance, choose PASSTHROUGH.
--- RESPOND: MediaLive clips the input video using a formula that uses the
--- AFD values (configured in afdSignaling ), the input display aspect
--- ratio, and the output display aspect ratio. MediaLive also includes the
--- AFD values in the output, unless the codec for this encode is
--- FRAME_CAPTURE. PASSTHROUGH: MediaLive ignores the AFD values and does
--- not clip the video. But MediaLive does include the values in the output.
--- NONE: MediaLive does not clip the input video and does not include the
--- AFD values in the output
-videoDescription_respondToAfd :: Lens.Lens' VideoDescription (Prelude.Maybe VideoDescriptionRespondToAfd)
-videoDescription_respondToAfd = Lens.lens (\VideoDescription' {respondToAfd} -> respondToAfd) (\s@VideoDescription' {} a -> s {respondToAfd = a} :: VideoDescription)
-
--- | Video codec settings.
-videoDescription_codecSettings :: Lens.Lens' VideoDescription (Prelude.Maybe VideoCodecSettings)
-videoDescription_codecSettings = Lens.lens (\VideoDescription' {codecSettings} -> codecSettings) (\s@VideoDescription' {} a -> s {codecSettings = a} :: VideoDescription)
+-- | Output video height, in pixels. Must be an even number. For most codecs,
+-- you can leave this field and width blank in order to use the height and
+-- width (resolution) from the source. Note, however, that leaving blank is
+-- not recommended. For the Frame Capture codec, height and width are
+-- required.
+videoDescription_height :: Lens.Lens' VideoDescription (Prelude.Maybe Prelude.Int)
+videoDescription_height = Lens.lens (\VideoDescription' {height} -> height) (\s@VideoDescription' {} a -> s {height = a} :: VideoDescription)
 
 -- | The name of this VideoDescription. Outputs will use this name to
 -- uniquely identify this Description. Description names should be unique
@@ -195,46 +195,46 @@ instance Core.FromJSON VideoDescription where
       "VideoDescription"
       ( \x ->
           VideoDescription'
-            Prelude.<$> (x Core..:? "height")
+            Prelude.<$> (x Core..:? "respondToAfd")
             Prelude.<*> (x Core..:? "sharpness")
+            Prelude.<*> (x Core..:? "codecSettings")
             Prelude.<*> (x Core..:? "width")
             Prelude.<*> (x Core..:? "scalingBehavior")
-            Prelude.<*> (x Core..:? "respondToAfd")
-            Prelude.<*> (x Core..:? "codecSettings")
+            Prelude.<*> (x Core..:? "height")
             Prelude.<*> (x Core..: "name")
       )
 
 instance Prelude.Hashable VideoDescription where
   hashWithSalt _salt VideoDescription' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt `Prelude.hashWithSalt` respondToAfd
       `Prelude.hashWithSalt` sharpness
+      `Prelude.hashWithSalt` codecSettings
       `Prelude.hashWithSalt` width
       `Prelude.hashWithSalt` scalingBehavior
-      `Prelude.hashWithSalt` respondToAfd
-      `Prelude.hashWithSalt` codecSettings
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData VideoDescription where
   rnf VideoDescription' {..} =
-    Prelude.rnf height
+    Prelude.rnf respondToAfd
       `Prelude.seq` Prelude.rnf sharpness
+      `Prelude.seq` Prelude.rnf codecSettings
       `Prelude.seq` Prelude.rnf width
       `Prelude.seq` Prelude.rnf scalingBehavior
-      `Prelude.seq` Prelude.rnf respondToAfd
-      `Prelude.seq` Prelude.rnf codecSettings
+      `Prelude.seq` Prelude.rnf height
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON VideoDescription where
   toJSON VideoDescription' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("height" Core..=) Prelude.<$> height,
+          [ ("respondToAfd" Core..=) Prelude.<$> respondToAfd,
             ("sharpness" Core..=) Prelude.<$> sharpness,
+            ("codecSettings" Core..=) Prelude.<$> codecSettings,
             ("width" Core..=) Prelude.<$> width,
             ("scalingBehavior" Core..=)
               Prelude.<$> scalingBehavior,
-            ("respondToAfd" Core..=) Prelude.<$> respondToAfd,
-            ("codecSettings" Core..=) Prelude.<$> codecSettings,
+            ("height" Core..=) Prelude.<$> height,
             Prelude.Just ("name" Core..= name)
           ]
       )

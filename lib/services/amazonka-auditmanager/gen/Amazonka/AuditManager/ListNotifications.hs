@@ -35,8 +35,8 @@ module Amazonka.AuditManager.ListNotifications
     newListNotificationsResponse,
 
     -- * Response Lenses
-    listNotificationsResponse_nextToken,
     listNotificationsResponse_notifications,
+    listNotificationsResponse_nextToken,
     listNotificationsResponse_httpStatus,
   )
 where
@@ -96,8 +96,8 @@ instance Core.AWSRequest ListNotifications where
     Response.receiveJSON
       ( \s h x ->
           ListNotificationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "notifications" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "notifications" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,10 +134,10 @@ instance Core.ToQuery ListNotifications where
 
 -- | /See:/ 'newListNotificationsResponse' smart constructor.
 data ListNotificationsResponse = ListNotificationsResponse'
-  { -- | The pagination token used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The returned list of notifications.
+  { -- | The returned list of notifications.
     notifications :: Prelude.Maybe [Notification],
+    -- | The pagination token used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,9 +151,9 @@ data ListNotificationsResponse = ListNotificationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNotificationsResponse_nextToken' - The pagination token used to fetch the next set of results.
---
 -- 'notifications', 'listNotificationsResponse_notifications' - The returned list of notifications.
+--
+-- 'nextToken', 'listNotificationsResponse_nextToken' - The pagination token used to fetch the next set of results.
 --
 -- 'httpStatus', 'listNotificationsResponse_httpStatus' - The response's http status code.
 newListNotificationsResponse ::
@@ -162,19 +162,19 @@ newListNotificationsResponse ::
   ListNotificationsResponse
 newListNotificationsResponse pHttpStatus_ =
   ListNotificationsResponse'
-    { nextToken =
+    { notifications =
         Prelude.Nothing,
-      notifications = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token used to fetch the next set of results.
-listNotificationsResponse_nextToken :: Lens.Lens' ListNotificationsResponse (Prelude.Maybe Prelude.Text)
-listNotificationsResponse_nextToken = Lens.lens (\ListNotificationsResponse' {nextToken} -> nextToken) (\s@ListNotificationsResponse' {} a -> s {nextToken = a} :: ListNotificationsResponse)
 
 -- | The returned list of notifications.
 listNotificationsResponse_notifications :: Lens.Lens' ListNotificationsResponse (Prelude.Maybe [Notification])
 listNotificationsResponse_notifications = Lens.lens (\ListNotificationsResponse' {notifications} -> notifications) (\s@ListNotificationsResponse' {} a -> s {notifications = a} :: ListNotificationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token used to fetch the next set of results.
+listNotificationsResponse_nextToken :: Lens.Lens' ListNotificationsResponse (Prelude.Maybe Prelude.Text)
+listNotificationsResponse_nextToken = Lens.lens (\ListNotificationsResponse' {nextToken} -> nextToken) (\s@ListNotificationsResponse' {} a -> s {nextToken = a} :: ListNotificationsResponse)
 
 -- | The response's http status code.
 listNotificationsResponse_httpStatus :: Lens.Lens' ListNotificationsResponse Prelude.Int
@@ -182,6 +182,6 @@ listNotificationsResponse_httpStatus = Lens.lens (\ListNotificationsResponse' {h
 
 instance Prelude.NFData ListNotificationsResponse where
   rnf ListNotificationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf notifications
+    Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

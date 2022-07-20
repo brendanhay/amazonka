@@ -33,18 +33,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatastoreStorage' smart constructor.
 data DatastoreStorage = DatastoreStorage'
-  { -- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
-    -- can\'t change the choice of Amazon S3 storage after your data store is
-    -- created.
-    serviceManagedS3 :: Prelude.Maybe ServiceManagedDatastoreS3Storage,
-    -- | S3-customer-managed; When you choose customer-managed storage, the
+  { -- | S3-customer-managed; When you choose customer-managed storage, the
     -- @retentionPeriod@ parameter is ignored. You can\'t change the choice of
     -- Amazon S3 storage after your data store is created.
     customerManagedS3 :: Prelude.Maybe CustomerManagedDatastoreS3Storage,
     -- | Used to store data used by IoT SiteWise in an Amazon S3 bucket that you
     -- manage. You can\'t change the choice of Amazon S3 storage after your
     -- data store is created.
-    iotSiteWiseMultiLayerStorage :: Prelude.Maybe DatastoreIotSiteWiseMultiLayerStorage
+    iotSiteWiseMultiLayerStorage :: Prelude.Maybe DatastoreIotSiteWiseMultiLayerStorage,
+    -- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
+    -- can\'t change the choice of Amazon S3 storage after your data store is
+    -- created.
+    serviceManagedS3 :: Prelude.Maybe ServiceManagedDatastoreS3Storage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,10 +56,6 @@ data DatastoreStorage = DatastoreStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceManagedS3', 'datastoreStorage_serviceManagedS3' - Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
--- can\'t change the choice of Amazon S3 storage after your data store is
--- created.
---
 -- 'customerManagedS3', 'datastoreStorage_customerManagedS3' - S3-customer-managed; When you choose customer-managed storage, the
 -- @retentionPeriod@ parameter is ignored. You can\'t change the choice of
 -- Amazon S3 storage after your data store is created.
@@ -67,21 +63,19 @@ data DatastoreStorage = DatastoreStorage'
 -- 'iotSiteWiseMultiLayerStorage', 'datastoreStorage_iotSiteWiseMultiLayerStorage' - Used to store data used by IoT SiteWise in an Amazon S3 bucket that you
 -- manage. You can\'t change the choice of Amazon S3 storage after your
 -- data store is created.
+--
+-- 'serviceManagedS3', 'datastoreStorage_serviceManagedS3' - Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
+-- can\'t change the choice of Amazon S3 storage after your data store is
+-- created.
 newDatastoreStorage ::
   DatastoreStorage
 newDatastoreStorage =
   DatastoreStorage'
-    { serviceManagedS3 =
+    { customerManagedS3 =
         Prelude.Nothing,
-      customerManagedS3 = Prelude.Nothing,
-      iotSiteWiseMultiLayerStorage = Prelude.Nothing
+      iotSiteWiseMultiLayerStorage = Prelude.Nothing,
+      serviceManagedS3 = Prelude.Nothing
     }
-
--- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
--- can\'t change the choice of Amazon S3 storage after your data store is
--- created.
-datastoreStorage_serviceManagedS3 :: Lens.Lens' DatastoreStorage (Prelude.Maybe ServiceManagedDatastoreS3Storage)
-datastoreStorage_serviceManagedS3 = Lens.lens (\DatastoreStorage' {serviceManagedS3} -> serviceManagedS3) (\s@DatastoreStorage' {} a -> s {serviceManagedS3 = a} :: DatastoreStorage)
 
 -- | S3-customer-managed; When you choose customer-managed storage, the
 -- @retentionPeriod@ parameter is ignored. You can\'t change the choice of
@@ -95,38 +89,44 @@ datastoreStorage_customerManagedS3 = Lens.lens (\DatastoreStorage' {customerMana
 datastoreStorage_iotSiteWiseMultiLayerStorage :: Lens.Lens' DatastoreStorage (Prelude.Maybe DatastoreIotSiteWiseMultiLayerStorage)
 datastoreStorage_iotSiteWiseMultiLayerStorage = Lens.lens (\DatastoreStorage' {iotSiteWiseMultiLayerStorage} -> iotSiteWiseMultiLayerStorage) (\s@DatastoreStorage' {} a -> s {iotSiteWiseMultiLayerStorage = a} :: DatastoreStorage)
 
+-- | Used to store data in an Amazon S3 bucket managed by IoT Analytics. You
+-- can\'t change the choice of Amazon S3 storage after your data store is
+-- created.
+datastoreStorage_serviceManagedS3 :: Lens.Lens' DatastoreStorage (Prelude.Maybe ServiceManagedDatastoreS3Storage)
+datastoreStorage_serviceManagedS3 = Lens.lens (\DatastoreStorage' {serviceManagedS3} -> serviceManagedS3) (\s@DatastoreStorage' {} a -> s {serviceManagedS3 = a} :: DatastoreStorage)
+
 instance Core.FromJSON DatastoreStorage where
   parseJSON =
     Core.withObject
       "DatastoreStorage"
       ( \x ->
           DatastoreStorage'
-            Prelude.<$> (x Core..:? "serviceManagedS3")
-            Prelude.<*> (x Core..:? "customerManagedS3")
+            Prelude.<$> (x Core..:? "customerManagedS3")
             Prelude.<*> (x Core..:? "iotSiteWiseMultiLayerStorage")
+            Prelude.<*> (x Core..:? "serviceManagedS3")
       )
 
 instance Prelude.Hashable DatastoreStorage where
   hashWithSalt _salt DatastoreStorage' {..} =
-    _salt `Prelude.hashWithSalt` serviceManagedS3
-      `Prelude.hashWithSalt` customerManagedS3
+    _salt `Prelude.hashWithSalt` customerManagedS3
       `Prelude.hashWithSalt` iotSiteWiseMultiLayerStorage
+      `Prelude.hashWithSalt` serviceManagedS3
 
 instance Prelude.NFData DatastoreStorage where
   rnf DatastoreStorage' {..} =
-    Prelude.rnf serviceManagedS3
-      `Prelude.seq` Prelude.rnf customerManagedS3
+    Prelude.rnf customerManagedS3
       `Prelude.seq` Prelude.rnf iotSiteWiseMultiLayerStorage
+      `Prelude.seq` Prelude.rnf serviceManagedS3
 
 instance Core.ToJSON DatastoreStorage where
   toJSON DatastoreStorage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("serviceManagedS3" Core..=)
-              Prelude.<$> serviceManagedS3,
-            ("customerManagedS3" Core..=)
+          [ ("customerManagedS3" Core..=)
               Prelude.<$> customerManagedS3,
             ("iotSiteWiseMultiLayerStorage" Core..=)
-              Prelude.<$> iotSiteWiseMultiLayerStorage
+              Prelude.<$> iotSiteWiseMultiLayerStorage,
+            ("serviceManagedS3" Core..=)
+              Prelude.<$> serviceManagedS3
           ]
       )

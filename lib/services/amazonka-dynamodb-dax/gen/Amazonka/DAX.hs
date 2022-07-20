@@ -25,26 +25,20 @@ module Amazonka.DAX
     -- * Errors
     -- $errors
 
+    -- ** NodeQuotaForClusterExceededFault
+    _NodeQuotaForClusterExceededFault,
+
+    -- ** NodeNotFoundFault
+    _NodeNotFoundFault,
+
+    -- ** ClusterQuotaForCustomerExceededFault
+    _ClusterQuotaForCustomerExceededFault,
+
     -- ** SubnetQuotaExceededFault
     _SubnetQuotaExceededFault,
 
-    -- ** ParameterGroupNotFoundFault
-    _ParameterGroupNotFoundFault,
-
-    -- ** InvalidParameterGroupStateFault
-    _InvalidParameterGroupStateFault,
-
-    -- ** SubnetGroupInUseFault
-    _SubnetGroupInUseFault,
-
-    -- ** ParameterGroupAlreadyExistsFault
-    _ParameterGroupAlreadyExistsFault,
-
     -- ** InvalidSubnet
     _InvalidSubnet,
-
-    -- ** TagQuotaPerResourceExceeded
-    _TagQuotaPerResourceExceeded,
 
     -- ** ClusterNotFoundFault
     _ClusterNotFoundFault,
@@ -52,26 +46,41 @@ module Amazonka.DAX
     -- ** TagNotFoundFault
     _TagNotFoundFault,
 
-    -- ** NodeQuotaForClusterExceededFault
-    _NodeQuotaForClusterExceededFault,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
-    -- ** InvalidClusterStateFault
-    _InvalidClusterStateFault,
+    -- ** SubnetGroupInUseFault
+    _SubnetGroupInUseFault,
+
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** ParameterGroupAlreadyExistsFault
+    _ParameterGroupAlreadyExistsFault,
 
     -- ** ServiceLinkedRoleNotFoundFault
     _ServiceLinkedRoleNotFoundFault,
 
-    -- ** InsufficientClusterCapacityFault
-    _InsufficientClusterCapacityFault,
+    -- ** InvalidParameterGroupStateFault
+    _InvalidParameterGroupStateFault,
 
-    -- ** NodeNotFoundFault
-    _NodeNotFoundFault,
+    -- ** ParameterGroupNotFoundFault
+    _ParameterGroupNotFoundFault,
 
-    -- ** ParameterGroupQuotaExceededFault
-    _ParameterGroupQuotaExceededFault,
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    -- ** InvalidARNFault
+    _InvalidARNFault,
+
+    -- ** NodeQuotaForCustomerExceededFault
+    _NodeQuotaForCustomerExceededFault,
+
+    -- ** SubnetGroupNotFoundFault
+    _SubnetGroupNotFoundFault,
 
     -- ** InvalidVPCNetworkStateFault
     _InvalidVPCNetworkStateFault,
@@ -79,32 +88,23 @@ module Amazonka.DAX
     -- ** SubnetInUse
     _SubnetInUse,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ClusterQuotaForCustomerExceededFault
-    _ClusterQuotaForCustomerExceededFault,
-
-    -- ** SubnetGroupNotFoundFault
-    _SubnetGroupNotFoundFault,
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
 
     -- ** SubnetGroupAlreadyExistsFault
     _SubnetGroupAlreadyExistsFault,
 
-    -- ** NodeQuotaForCustomerExceededFault
-    _NodeQuotaForCustomerExceededFault,
+    -- ** ParameterGroupQuotaExceededFault
+    _ParameterGroupQuotaExceededFault,
+
+    -- ** InsufficientClusterCapacityFault
+    _InsufficientClusterCapacityFault,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- ** SubnetGroupQuotaExceededFault
     _SubnetGroupQuotaExceededFault,
-
-    -- ** ClusterAlreadyExistsFault
-    _ClusterAlreadyExistsFault,
-
-    -- ** InvalidARNFault
-    _InvalidARNFault,
-
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
 
     -- * Waiters
     -- $waiters
@@ -112,77 +112,11 @@ module Amazonka.DAX
     -- * Operations
     -- $operations
 
-    -- ** DescribeClusters (Paginated)
-    DescribeClusters (DescribeClusters'),
-    newDescribeClusters,
-    DescribeClustersResponse (DescribeClustersResponse'),
-    newDescribeClustersResponse,
-
-    -- ** DescribeParameters (Paginated)
-    DescribeParameters (DescribeParameters'),
-    newDescribeParameters,
-    DescribeParametersResponse (DescribeParametersResponse'),
-    newDescribeParametersResponse,
-
-    -- ** DescribeEvents (Paginated)
-    DescribeEvents (DescribeEvents'),
-    newDescribeEvents,
-    DescribeEventsResponse (DescribeEventsResponse'),
-    newDescribeEventsResponse,
-
-    -- ** IncreaseReplicationFactor
-    IncreaseReplicationFactor (IncreaseReplicationFactor'),
-    newIncreaseReplicationFactor,
-    IncreaseReplicationFactorResponse (IncreaseReplicationFactorResponse'),
-    newIncreaseReplicationFactorResponse,
-
-    -- ** CreateSubnetGroup
-    CreateSubnetGroup (CreateSubnetGroup'),
-    newCreateSubnetGroup,
-    CreateSubnetGroupResponse (CreateSubnetGroupResponse'),
-    newCreateSubnetGroupResponse,
-
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
-    -- ** UpdateCluster
-    UpdateCluster (UpdateCluster'),
-    newUpdateCluster,
-    UpdateClusterResponse (UpdateClusterResponse'),
-    newUpdateClusterResponse,
-
     -- ** CreateCluster
     CreateCluster (CreateCluster'),
     newCreateCluster,
     CreateClusterResponse (CreateClusterResponse'),
     newCreateClusterResponse,
-
-    -- ** DescribeDefaultParameters (Paginated)
-    DescribeDefaultParameters (DescribeDefaultParameters'),
-    newDescribeDefaultParameters,
-    DescribeDefaultParametersResponse (DescribeDefaultParametersResponse'),
-    newDescribeDefaultParametersResponse,
-
-    -- ** DeleteParameterGroup
-    DeleteParameterGroup (DeleteParameterGroup'),
-    newDeleteParameterGroup,
-    DeleteParameterGroupResponse (DeleteParameterGroupResponse'),
-    newDeleteParameterGroupResponse,
-
-    -- ** UpdateParameterGroup
-    UpdateParameterGroup (UpdateParameterGroup'),
-    newUpdateParameterGroup,
-    UpdateParameterGroupResponse (UpdateParameterGroupResponse'),
-    newUpdateParameterGroupResponse,
-
-    -- ** DescribeSubnetGroups (Paginated)
-    DescribeSubnetGroups (DescribeSubnetGroups'),
-    newDescribeSubnetGroups,
-    DescribeSubnetGroupsResponse (DescribeSubnetGroupsResponse'),
-    newDescribeSubnetGroupsResponse,
 
     -- ** CreateParameterGroup
     CreateParameterGroup (CreateParameterGroup'),
@@ -190,35 +124,11 @@ module Amazonka.DAX
     CreateParameterGroupResponse (CreateParameterGroupResponse'),
     newCreateParameterGroupResponse,
 
-    -- ** UpdateSubnetGroup
-    UpdateSubnetGroup (UpdateSubnetGroup'),
-    newUpdateSubnetGroup,
-    UpdateSubnetGroupResponse (UpdateSubnetGroupResponse'),
-    newUpdateSubnetGroupResponse,
-
-    -- ** DeleteSubnetGroup
-    DeleteSubnetGroup (DeleteSubnetGroup'),
-    newDeleteSubnetGroup,
-    DeleteSubnetGroupResponse (DeleteSubnetGroupResponse'),
-    newDeleteSubnetGroupResponse,
-
-    -- ** DescribeParameterGroups (Paginated)
-    DescribeParameterGroups (DescribeParameterGroups'),
-    newDescribeParameterGroups,
-    DescribeParameterGroupsResponse (DescribeParameterGroupsResponse'),
-    newDescribeParameterGroupsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListTags (Paginated)
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
+    -- ** CreateSubnetGroup
+    CreateSubnetGroup (CreateSubnetGroup'),
+    newCreateSubnetGroup,
+    CreateSubnetGroupResponse (CreateSubnetGroupResponse'),
+    newCreateSubnetGroupResponse,
 
     -- ** DecreaseReplicationFactor
     DecreaseReplicationFactor (DecreaseReplicationFactor'),
@@ -226,17 +136,107 @@ module Amazonka.DAX
     DecreaseReplicationFactorResponse (DecreaseReplicationFactorResponse'),
     newDecreaseReplicationFactorResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
+
+    -- ** DeleteParameterGroup
+    DeleteParameterGroup (DeleteParameterGroup'),
+    newDeleteParameterGroup,
+    DeleteParameterGroupResponse (DeleteParameterGroupResponse'),
+    newDeleteParameterGroupResponse,
+
+    -- ** DeleteSubnetGroup
+    DeleteSubnetGroup (DeleteSubnetGroup'),
+    newDeleteSubnetGroup,
+    DeleteSubnetGroupResponse (DeleteSubnetGroupResponse'),
+    newDeleteSubnetGroupResponse,
+
+    -- ** DescribeClusters (Paginated)
+    DescribeClusters (DescribeClusters'),
+    newDescribeClusters,
+    DescribeClustersResponse (DescribeClustersResponse'),
+    newDescribeClustersResponse,
+
+    -- ** DescribeDefaultParameters (Paginated)
+    DescribeDefaultParameters (DescribeDefaultParameters'),
+    newDescribeDefaultParameters,
+    DescribeDefaultParametersResponse (DescribeDefaultParametersResponse'),
+    newDescribeDefaultParametersResponse,
+
+    -- ** DescribeEvents (Paginated)
+    DescribeEvents (DescribeEvents'),
+    newDescribeEvents,
+    DescribeEventsResponse (DescribeEventsResponse'),
+    newDescribeEventsResponse,
+
+    -- ** DescribeParameterGroups (Paginated)
+    DescribeParameterGroups (DescribeParameterGroups'),
+    newDescribeParameterGroups,
+    DescribeParameterGroupsResponse (DescribeParameterGroupsResponse'),
+    newDescribeParameterGroupsResponse,
+
+    -- ** DescribeParameters (Paginated)
+    DescribeParameters (DescribeParameters'),
+    newDescribeParameters,
+    DescribeParametersResponse (DescribeParametersResponse'),
+    newDescribeParametersResponse,
+
+    -- ** DescribeSubnetGroups (Paginated)
+    DescribeSubnetGroups (DescribeSubnetGroups'),
+    newDescribeSubnetGroups,
+    DescribeSubnetGroupsResponse (DescribeSubnetGroupsResponse'),
+    newDescribeSubnetGroupsResponse,
+
+    -- ** IncreaseReplicationFactor
+    IncreaseReplicationFactor (IncreaseReplicationFactor'),
+    newIncreaseReplicationFactor,
+    IncreaseReplicationFactorResponse (IncreaseReplicationFactorResponse'),
+    newIncreaseReplicationFactorResponse,
+
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
 
     -- ** RebootNode
     RebootNode (RebootNode'),
     newRebootNode,
     RebootNodeResponse (RebootNodeResponse'),
     newRebootNodeResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
+
+    -- ** UpdateParameterGroup
+    UpdateParameterGroup (UpdateParameterGroup'),
+    newUpdateParameterGroup,
+    UpdateParameterGroupResponse (UpdateParameterGroupResponse'),
+    newUpdateParameterGroupResponse,
+
+    -- ** UpdateSubnetGroup
+    UpdateSubnetGroup (UpdateSubnetGroup'),
+    newUpdateSubnetGroup,
+    UpdateSubnetGroupResponse (UpdateSubnetGroupResponse'),
+    newUpdateSubnetGroupResponse,
 
     -- * Types
 

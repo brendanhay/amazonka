@@ -134,14 +134,7 @@ instance Core.ToHeaders CreateEmailTemplate where
 
 instance Core.ToJSON CreateEmailTemplate where
   toJSON CreateEmailTemplate' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "EmailTemplateRequest"
-                  Core..= emailTemplateRequest
-              )
-          ]
-      )
+    Core.toJSON emailTemplateRequest
 
 instance Core.ToPath CreateEmailTemplate where
   toPath CreateEmailTemplate' {..} =

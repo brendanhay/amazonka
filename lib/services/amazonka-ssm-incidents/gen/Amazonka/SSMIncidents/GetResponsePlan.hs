@@ -34,10 +34,10 @@ module Amazonka.SSMIncidents.GetResponsePlan
     newGetResponsePlanResponse,
 
     -- * Response Lenses
-    getResponsePlanResponse_actions,
-    getResponsePlanResponse_displayName,
     getResponsePlanResponse_chatChannel,
+    getResponsePlanResponse_displayName,
     getResponsePlanResponse_engagements,
+    getResponsePlanResponse_actions,
     getResponsePlanResponse_httpStatus,
     getResponsePlanResponse_arn,
     getResponsePlanResponse_incidentTemplate,
@@ -88,10 +88,10 @@ instance Core.AWSRequest GetResponsePlan where
     Response.receiveJSON
       ( \s h x ->
           GetResponsePlanResponse'
-            Prelude.<$> (x Core..?> "actions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "chatChannel")
             Prelude.<*> (x Core..?> "displayName")
-            Prelude.<*> (x Core..?> "chatChannel")
             Prelude.<*> (x Core..?> "engagements" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "actions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "arn")
             Prelude.<*> (x Core..:> "incidentTemplate")
@@ -125,16 +125,16 @@ instance Core.ToQuery GetResponsePlan where
 
 -- | /See:/ 'newGetResponsePlanResponse' smart constructor.
 data GetResponsePlanResponse = GetResponsePlanResponse'
-  { -- | The actions that this response plan takes at the beginning of the
-    -- incident.
-    actions :: Prelude.Maybe [Action],
+  { -- | The AWS Chatbot chat channel used for collaboration during an incident.
+    chatChannel :: Prelude.Maybe ChatChannel,
     -- | The long format name of the response plan. Can contain spaces.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Chatbot chat channel used for collaboration during an incident.
-    chatChannel :: Prelude.Maybe ChatChannel,
     -- | The contacts and escalation plans that the response plan engages during
     -- an incident.
     engagements :: Prelude.Maybe [Prelude.Text],
+    -- | The actions that this response plan takes at the beginning of the
+    -- incident.
+    actions :: Prelude.Maybe [Action],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ARN of the response plan.
@@ -154,15 +154,15 @@ data GetResponsePlanResponse = GetResponsePlanResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actions', 'getResponsePlanResponse_actions' - The actions that this response plan takes at the beginning of the
--- incident.
+-- 'chatChannel', 'getResponsePlanResponse_chatChannel' - The AWS Chatbot chat channel used for collaboration during an incident.
 --
 -- 'displayName', 'getResponsePlanResponse_displayName' - The long format name of the response plan. Can contain spaces.
 --
--- 'chatChannel', 'getResponsePlanResponse_chatChannel' - The AWS Chatbot chat channel used for collaboration during an incident.
---
 -- 'engagements', 'getResponsePlanResponse_engagements' - The contacts and escalation plans that the response plan engages during
 -- an incident.
+--
+-- 'actions', 'getResponsePlanResponse_actions' - The actions that this response plan takes at the beginning of the
+-- incident.
 --
 -- 'httpStatus', 'getResponsePlanResponse_httpStatus' - The response's http status code.
 --
@@ -187,33 +187,34 @@ newGetResponsePlanResponse
   pIncidentTemplate_
   pName_ =
     GetResponsePlanResponse'
-      { actions = Prelude.Nothing,
+      { chatChannel =
+          Prelude.Nothing,
         displayName = Prelude.Nothing,
-        chatChannel = Prelude.Nothing,
         engagements = Prelude.Nothing,
+        actions = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         arn = pArn_,
         incidentTemplate = pIncidentTemplate_,
         name = pName_
       }
 
--- | The actions that this response plan takes at the beginning of the
--- incident.
-getResponsePlanResponse_actions :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe [Action])
-getResponsePlanResponse_actions = Lens.lens (\GetResponsePlanResponse' {actions} -> actions) (\s@GetResponsePlanResponse' {} a -> s {actions = a} :: GetResponsePlanResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The AWS Chatbot chat channel used for collaboration during an incident.
+getResponsePlanResponse_chatChannel :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe ChatChannel)
+getResponsePlanResponse_chatChannel = Lens.lens (\GetResponsePlanResponse' {chatChannel} -> chatChannel) (\s@GetResponsePlanResponse' {} a -> s {chatChannel = a} :: GetResponsePlanResponse)
 
 -- | The long format name of the response plan. Can contain spaces.
 getResponsePlanResponse_displayName :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe Prelude.Text)
 getResponsePlanResponse_displayName = Lens.lens (\GetResponsePlanResponse' {displayName} -> displayName) (\s@GetResponsePlanResponse' {} a -> s {displayName = a} :: GetResponsePlanResponse)
 
--- | The AWS Chatbot chat channel used for collaboration during an incident.
-getResponsePlanResponse_chatChannel :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe ChatChannel)
-getResponsePlanResponse_chatChannel = Lens.lens (\GetResponsePlanResponse' {chatChannel} -> chatChannel) (\s@GetResponsePlanResponse' {} a -> s {chatChannel = a} :: GetResponsePlanResponse)
-
 -- | The contacts and escalation plans that the response plan engages during
 -- an incident.
 getResponsePlanResponse_engagements :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe [Prelude.Text])
 getResponsePlanResponse_engagements = Lens.lens (\GetResponsePlanResponse' {engagements} -> engagements) (\s@GetResponsePlanResponse' {} a -> s {engagements = a} :: GetResponsePlanResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The actions that this response plan takes at the beginning of the
+-- incident.
+getResponsePlanResponse_actions :: Lens.Lens' GetResponsePlanResponse (Prelude.Maybe [Action])
+getResponsePlanResponse_actions = Lens.lens (\GetResponsePlanResponse' {actions} -> actions) (\s@GetResponsePlanResponse' {} a -> s {actions = a} :: GetResponsePlanResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getResponsePlanResponse_httpStatus :: Lens.Lens' GetResponsePlanResponse Prelude.Int
@@ -233,10 +234,10 @@ getResponsePlanResponse_name = Lens.lens (\GetResponsePlanResponse' {name} -> na
 
 instance Prelude.NFData GetResponsePlanResponse where
   rnf GetResponsePlanResponse' {..} =
-    Prelude.rnf actions
+    Prelude.rnf chatChannel
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf chatChannel
       `Prelude.seq` Prelude.rnf engagements
+      `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf incidentTemplate

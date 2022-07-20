@@ -28,11 +28,11 @@ import Amazonka.Rekognition.Types.Geometry
 --
 -- /See:/ 'newCustomLabel' smart constructor.
 data CustomLabel = CustomLabel'
-  { -- | The confidence that the model has in the detection of the custom label.
+  { -- | The name of the custom label.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The confidence that the model has in the detection of the custom label.
     -- The range is 0-100. A higher value indicates a higher confidence.
     confidence :: Prelude.Maybe Prelude.Double,
-    -- | The name of the custom label.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The location of the detected object on the image that corresponds to the
     -- custom label. Includes an axis aligned coarse bounding box surrounding
     -- the object and a finer grain polygon for more accurate spatial
@@ -49,10 +49,10 @@ data CustomLabel = CustomLabel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'customLabel_name' - The name of the custom label.
+--
 -- 'confidence', 'customLabel_confidence' - The confidence that the model has in the detection of the custom label.
 -- The range is 0-100. A higher value indicates a higher confidence.
---
--- 'name', 'customLabel_name' - The name of the custom label.
 --
 -- 'geometry', 'customLabel_geometry' - The location of the detected object on the image that corresponds to the
 -- custom label. Includes an axis aligned coarse bounding box surrounding
@@ -62,19 +62,19 @@ newCustomLabel ::
   CustomLabel
 newCustomLabel =
   CustomLabel'
-    { confidence = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      confidence = Prelude.Nothing,
       geometry = Prelude.Nothing
     }
+
+-- | The name of the custom label.
+customLabel_name :: Lens.Lens' CustomLabel (Prelude.Maybe Prelude.Text)
+customLabel_name = Lens.lens (\CustomLabel' {name} -> name) (\s@CustomLabel' {} a -> s {name = a} :: CustomLabel)
 
 -- | The confidence that the model has in the detection of the custom label.
 -- The range is 0-100. A higher value indicates a higher confidence.
 customLabel_confidence :: Lens.Lens' CustomLabel (Prelude.Maybe Prelude.Double)
 customLabel_confidence = Lens.lens (\CustomLabel' {confidence} -> confidence) (\s@CustomLabel' {} a -> s {confidence = a} :: CustomLabel)
-
--- | The name of the custom label.
-customLabel_name :: Lens.Lens' CustomLabel (Prelude.Maybe Prelude.Text)
-customLabel_name = Lens.lens (\CustomLabel' {name} -> name) (\s@CustomLabel' {} a -> s {name = a} :: CustomLabel)
 
 -- | The location of the detected object on the image that corresponds to the
 -- custom label. Includes an axis aligned coarse bounding box surrounding
@@ -89,19 +89,19 @@ instance Core.FromJSON CustomLabel where
       "CustomLabel"
       ( \x ->
           CustomLabel'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Confidence")
             Prelude.<*> (x Core..:? "Geometry")
       )
 
 instance Prelude.Hashable CustomLabel where
   hashWithSalt _salt CustomLabel' {..} =
-    _salt `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` geometry
 
 instance Prelude.NFData CustomLabel where
   rnf CustomLabel' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf geometry

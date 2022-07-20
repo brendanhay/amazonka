@@ -34,13 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlayerLatencyPolicy' smart constructor.
 data PlayerLatencyPolicy = PlayerLatencyPolicy'
-  { -- | The length of time, in seconds, that the policy is enforced while
+  { -- | The maximum latency value that is allowed for any player, in
+    -- milliseconds. All policies must have a value set for this property.
+    maximumIndividualPlayerLatencyMilliseconds :: Prelude.Maybe Prelude.Natural,
+    -- | The length of time, in seconds, that the policy is enforced while
     -- placing a new game session. A null value for this property means that
     -- the policy is enforced until the queue times out.
-    policyDurationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum latency value that is allowed for any player, in
-    -- milliseconds. All policies must have a value set for this property.
-    maximumIndividualPlayerLatencyMilliseconds :: Prelude.Maybe Prelude.Natural
+    policyDurationSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,21 +52,25 @@ data PlayerLatencyPolicy = PlayerLatencyPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maximumIndividualPlayerLatencyMilliseconds', 'playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds' - The maximum latency value that is allowed for any player, in
+-- milliseconds. All policies must have a value set for this property.
+--
 -- 'policyDurationSeconds', 'playerLatencyPolicy_policyDurationSeconds' - The length of time, in seconds, that the policy is enforced while
 -- placing a new game session. A null value for this property means that
 -- the policy is enforced until the queue times out.
---
--- 'maximumIndividualPlayerLatencyMilliseconds', 'playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds' - The maximum latency value that is allowed for any player, in
--- milliseconds. All policies must have a value set for this property.
 newPlayerLatencyPolicy ::
   PlayerLatencyPolicy
 newPlayerLatencyPolicy =
   PlayerLatencyPolicy'
-    { policyDurationSeconds =
+    { maximumIndividualPlayerLatencyMilliseconds =
         Prelude.Nothing,
-      maximumIndividualPlayerLatencyMilliseconds =
-        Prelude.Nothing
+      policyDurationSeconds = Prelude.Nothing
     }
+
+-- | The maximum latency value that is allowed for any player, in
+-- milliseconds. All policies must have a value set for this property.
+playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds :: Lens.Lens' PlayerLatencyPolicy (Prelude.Maybe Prelude.Natural)
+playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds = Lens.lens (\PlayerLatencyPolicy' {maximumIndividualPlayerLatencyMilliseconds} -> maximumIndividualPlayerLatencyMilliseconds) (\s@PlayerLatencyPolicy' {} a -> s {maximumIndividualPlayerLatencyMilliseconds = a} :: PlayerLatencyPolicy)
 
 -- | The length of time, in seconds, that the policy is enforced while
 -- placing a new game session. A null value for this property means that
@@ -74,43 +78,39 @@ newPlayerLatencyPolicy =
 playerLatencyPolicy_policyDurationSeconds :: Lens.Lens' PlayerLatencyPolicy (Prelude.Maybe Prelude.Natural)
 playerLatencyPolicy_policyDurationSeconds = Lens.lens (\PlayerLatencyPolicy' {policyDurationSeconds} -> policyDurationSeconds) (\s@PlayerLatencyPolicy' {} a -> s {policyDurationSeconds = a} :: PlayerLatencyPolicy)
 
--- | The maximum latency value that is allowed for any player, in
--- milliseconds. All policies must have a value set for this property.
-playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds :: Lens.Lens' PlayerLatencyPolicy (Prelude.Maybe Prelude.Natural)
-playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds = Lens.lens (\PlayerLatencyPolicy' {maximumIndividualPlayerLatencyMilliseconds} -> maximumIndividualPlayerLatencyMilliseconds) (\s@PlayerLatencyPolicy' {} a -> s {maximumIndividualPlayerLatencyMilliseconds = a} :: PlayerLatencyPolicy)
-
 instance Core.FromJSON PlayerLatencyPolicy where
   parseJSON =
     Core.withObject
       "PlayerLatencyPolicy"
       ( \x ->
           PlayerLatencyPolicy'
-            Prelude.<$> (x Core..:? "PolicyDurationSeconds")
-            Prelude.<*> ( x
+            Prelude.<$> ( x
                             Core..:? "MaximumIndividualPlayerLatencyMilliseconds"
                         )
+            Prelude.<*> (x Core..:? "PolicyDurationSeconds")
       )
 
 instance Prelude.Hashable PlayerLatencyPolicy where
   hashWithSalt _salt PlayerLatencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyDurationSeconds
+    _salt
       `Prelude.hashWithSalt` maximumIndividualPlayerLatencyMilliseconds
+      `Prelude.hashWithSalt` policyDurationSeconds
 
 instance Prelude.NFData PlayerLatencyPolicy where
   rnf PlayerLatencyPolicy' {..} =
-    Prelude.rnf policyDurationSeconds
-      `Prelude.seq` Prelude.rnf
-        maximumIndividualPlayerLatencyMilliseconds
+    Prelude.rnf
+      maximumIndividualPlayerLatencyMilliseconds
+      `Prelude.seq` Prelude.rnf policyDurationSeconds
 
 instance Core.ToJSON PlayerLatencyPolicy where
   toJSON PlayerLatencyPolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PolicyDurationSeconds" Core..=)
-              Prelude.<$> policyDurationSeconds,
-            ( "MaximumIndividualPlayerLatencyMilliseconds"
+          [ ( "MaximumIndividualPlayerLatencyMilliseconds"
                 Core..=
             )
-              Prelude.<$> maximumIndividualPlayerLatencyMilliseconds
+              Prelude.<$> maximumIndividualPlayerLatencyMilliseconds,
+            ("PolicyDurationSeconds" Core..=)
+              Prelude.<$> policyDurationSeconds
           ]
       )

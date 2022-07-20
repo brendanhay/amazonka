@@ -52,9 +52,9 @@ module Amazonka.SageMaker.CreateExperiment
     newCreateExperiment,
 
     -- * Request Lenses
+    createExperiment_tags,
     createExperiment_displayName,
     createExperiment_description,
-    createExperiment_tags,
     createExperiment_experimentName,
 
     -- * Destructuring the Response
@@ -76,15 +76,15 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateExperiment' smart constructor.
 data CreateExperiment = CreateExperiment'
-  { -- | The name of the experiment as displayed. The name doesn\'t need to be
+  { -- | A list of tags to associate with the experiment. You can use Search API
+    -- to search on the tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name of the experiment as displayed. The name doesn\'t need to be
     -- unique. If you don\'t specify @DisplayName@, the value in
     -- @ExperimentName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The description of the experiment.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to associate with the experiment. You can use Search API
-    -- to search on the tags.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the experiment. The name must be unique in your Amazon Web
     -- Services account and is not case-sensitive.
     experimentName :: Prelude.Text
@@ -99,14 +99,14 @@ data CreateExperiment = CreateExperiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createExperiment_tags' - A list of tags to associate with the experiment. You can use Search API
+-- to search on the tags.
+--
 -- 'displayName', 'createExperiment_displayName' - The name of the experiment as displayed. The name doesn\'t need to be
 -- unique. If you don\'t specify @DisplayName@, the value in
 -- @ExperimentName@ is displayed.
 --
 -- 'description', 'createExperiment_description' - The description of the experiment.
---
--- 'tags', 'createExperiment_tags' - A list of tags to associate with the experiment. You can use Search API
--- to search on the tags.
 --
 -- 'experimentName', 'createExperiment_experimentName' - The name of the experiment. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -116,11 +116,16 @@ newCreateExperiment ::
   CreateExperiment
 newCreateExperiment pExperimentName_ =
   CreateExperiment'
-    { displayName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       experimentName = pExperimentName_
     }
+
+-- | A list of tags to associate with the experiment. You can use Search API
+-- to search on the tags.
+createExperiment_tags :: Lens.Lens' CreateExperiment (Prelude.Maybe [Tag])
+createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@CreateExperiment' {} a -> s {tags = a} :: CreateExperiment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the experiment as displayed. The name doesn\'t need to be
 -- unique. If you don\'t specify @DisplayName@, the value in
@@ -131,11 +136,6 @@ createExperiment_displayName = Lens.lens (\CreateExperiment' {displayName} -> di
 -- | The description of the experiment.
 createExperiment_description :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
 createExperiment_description = Lens.lens (\CreateExperiment' {description} -> description) (\s@CreateExperiment' {} a -> s {description = a} :: CreateExperiment)
-
--- | A list of tags to associate with the experiment. You can use Search API
--- to search on the tags.
-createExperiment_tags :: Lens.Lens' CreateExperiment (Prelude.Maybe [Tag])
-createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@CreateExperiment' {} a -> s {tags = a} :: CreateExperiment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the experiment. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -157,16 +157,16 @@ instance Core.AWSRequest CreateExperiment where
 
 instance Prelude.Hashable CreateExperiment where
   hashWithSalt _salt CreateExperiment' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` experimentName
 
 instance Prelude.NFData CreateExperiment where
   rnf CreateExperiment' {..} =
-    Prelude.rnf displayName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf experimentName
 
 instance Core.ToHeaders CreateExperiment where
@@ -186,9 +186,9 @@ instance Core.ToJSON CreateExperiment where
   toJSON CreateExperiment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Core..=) Prelude.<$> displayName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("ExperimentName" Core..= experimentName)
           ]

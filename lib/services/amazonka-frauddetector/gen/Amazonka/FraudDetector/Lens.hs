@@ -14,104 +14,25 @@
 module Amazonka.FraudDetector.Lens
   ( -- * Operations
 
-    -- ** CreateDetectorVersion
-    createDetectorVersion_ruleExecutionMode,
-    createDetectorVersion_modelVersions,
-    createDetectorVersion_externalModelEndpoints,
-    createDetectorVersion_description,
-    createDetectorVersion_tags,
-    createDetectorVersion_detectorId,
-    createDetectorVersion_rules,
-    createDetectorVersionResponse_status,
-    createDetectorVersionResponse_detectorVersionId,
-    createDetectorVersionResponse_detectorId,
-    createDetectorVersionResponse_httpStatus,
+    -- ** BatchCreateVariable
+    batchCreateVariable_tags,
+    batchCreateVariable_variableEntries,
+    batchCreateVariableResponse_errors,
+    batchCreateVariableResponse_httpStatus,
 
     -- ** BatchGetVariable
     batchGetVariable_names,
-    batchGetVariableResponse_variables,
     batchGetVariableResponse_errors,
+    batchGetVariableResponse_variables,
     batchGetVariableResponse_httpStatus,
 
-    -- ** UpdateModelVersion
-    updateModelVersion_externalEventsDetail,
-    updateModelVersion_ingestedEventsDetail,
-    updateModelVersion_tags,
-    updateModelVersion_modelId,
-    updateModelVersion_modelType,
-    updateModelVersion_majorVersionNumber,
-    updateModelVersionResponse_status,
-    updateModelVersionResponse_modelType,
-    updateModelVersionResponse_modelId,
-    updateModelVersionResponse_modelVersionNumber,
-    updateModelVersionResponse_httpStatus,
+    -- ** CancelBatchImportJob
+    cancelBatchImportJob_jobId,
+    cancelBatchImportJobResponse_httpStatus,
 
-    -- ** DeleteModelVersion
-    deleteModelVersion_modelId,
-    deleteModelVersion_modelType,
-    deleteModelVersion_modelVersionNumber,
-    deleteModelVersionResponse_httpStatus,
-
-    -- ** UpdateDetectorVersionMetadata
-    updateDetectorVersionMetadata_detectorId,
-    updateDetectorVersionMetadata_detectorVersionId,
-    updateDetectorVersionMetadata_description,
-    updateDetectorVersionMetadataResponse_httpStatus,
-
-    -- ** DeleteBatchImportJob
-    deleteBatchImportJob_jobId,
-    deleteBatchImportJobResponse_httpStatus,
-
-    -- ** DeleteRule
-    deleteRule_rule,
-    deleteRuleResponse_httpStatus,
-
-    -- ** PutLabel
-    putLabel_description,
-    putLabel_tags,
-    putLabel_name,
-    putLabelResponse_httpStatus,
-
-    -- ** GetExternalModels
-    getExternalModels_modelEndpoint,
-    getExternalModels_nextToken,
-    getExternalModels_maxResults,
-    getExternalModelsResponse_nextToken,
-    getExternalModelsResponse_externalModels,
-    getExternalModelsResponse_httpStatus,
-
-    -- ** GetDetectors
-    getDetectors_nextToken,
-    getDetectors_detectorId,
-    getDetectors_maxResults,
-    getDetectorsResponse_nextToken,
-    getDetectorsResponse_detectors,
-    getDetectorsResponse_httpStatus,
-
-    -- ** DeleteLabel
-    deleteLabel_name,
-    deleteLabelResponse_httpStatus,
-
-    -- ** DeleteVariable
-    deleteVariable_name,
-    deleteVariableResponse_httpStatus,
-
-    -- ** UpdateVariable
-    updateVariable_defaultValue,
-    updateVariable_variableType,
-    updateVariable_description,
-    updateVariable_name,
-    updateVariableResponse_httpStatus,
-
-    -- ** CreateVariable
-    createVariable_variableType,
-    createVariable_description,
-    createVariable_tags,
-    createVariable_name,
-    createVariable_dataType,
-    createVariable_dataSource,
-    createVariable_defaultValue,
-    createVariableResponse_httpStatus,
+    -- ** CancelBatchPredictionJob
+    cancelBatchPredictionJob_jobId,
+    cancelBatchPredictionJobResponse_httpStatus,
 
     -- ** CreateBatchImportJob
     createBatchImportJob_tags,
@@ -122,9 +43,55 @@ module Amazonka.FraudDetector.Lens
     createBatchImportJob_iamRoleArn,
     createBatchImportJobResponse_httpStatus,
 
+    -- ** CreateBatchPredictionJob
+    createBatchPredictionJob_tags,
+    createBatchPredictionJob_detectorVersion,
+    createBatchPredictionJob_jobId,
+    createBatchPredictionJob_inputPath,
+    createBatchPredictionJob_outputPath,
+    createBatchPredictionJob_eventTypeName,
+    createBatchPredictionJob_detectorName,
+    createBatchPredictionJob_iamRoleArn,
+    createBatchPredictionJobResponse_httpStatus,
+
+    -- ** CreateDetectorVersion
+    createDetectorVersion_tags,
+    createDetectorVersion_modelVersions,
+    createDetectorVersion_description,
+    createDetectorVersion_externalModelEndpoints,
+    createDetectorVersion_ruleExecutionMode,
+    createDetectorVersion_detectorId,
+    createDetectorVersion_rules,
+    createDetectorVersionResponse_detectorVersionId,
+    createDetectorVersionResponse_status,
+    createDetectorVersionResponse_detectorId,
+    createDetectorVersionResponse_httpStatus,
+
+    -- ** CreateModel
+    createModel_tags,
+    createModel_description,
+    createModel_modelId,
+    createModel_modelType,
+    createModel_eventTypeName,
+    createModelResponse_httpStatus,
+
+    -- ** CreateModelVersion
+    createModelVersion_tags,
+    createModelVersion_ingestedEventsDetail,
+    createModelVersion_externalEventsDetail,
+    createModelVersion_modelId,
+    createModelVersion_modelType,
+    createModelVersion_trainingDataSource,
+    createModelVersion_trainingDataSchema,
+    createModelVersionResponse_modelVersionNumber,
+    createModelVersionResponse_status,
+    createModelVersionResponse_modelType,
+    createModelVersionResponse_modelId,
+    createModelVersionResponse_httpStatus,
+
     -- ** CreateRule
-    createRule_description,
     createRule_tags,
+    createRule_description,
     createRule_ruleId,
     createRule_detectorId,
     createRule_expression,
@@ -133,32 +100,36 @@ module Amazonka.FraudDetector.Lens
     createRuleResponse_rule,
     createRuleResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_maxResults,
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** CreateVariable
+    createVariable_tags,
+    createVariable_variableType,
+    createVariable_description,
+    createVariable_name,
+    createVariable_dataType,
+    createVariable_dataSource,
+    createVariable_defaultValue,
+    createVariableResponse_httpStatus,
 
-    -- ** GetModels
-    getModels_modelType,
-    getModels_modelId,
-    getModels_nextToken,
-    getModels_maxResults,
-    getModelsResponse_models,
-    getModelsResponse_nextToken,
-    getModelsResponse_httpStatus,
+    -- ** DeleteBatchImportJob
+    deleteBatchImportJob_jobId,
+    deleteBatchImportJobResponse_httpStatus,
 
-    -- ** UpdateRuleVersion
-    updateRuleVersion_description,
-    updateRuleVersion_tags,
-    updateRuleVersion_rule,
-    updateRuleVersion_expression,
-    updateRuleVersion_language,
-    updateRuleVersion_outcomes,
-    updateRuleVersionResponse_rule,
-    updateRuleVersionResponse_httpStatus,
+    -- ** DeleteBatchPredictionJob
+    deleteBatchPredictionJob_jobId,
+    deleteBatchPredictionJobResponse_httpStatus,
+
+    -- ** DeleteDetector
+    deleteDetector_detectorId,
+    deleteDetectorResponse_httpStatus,
+
+    -- ** DeleteDetectorVersion
+    deleteDetectorVersion_detectorId,
+    deleteDetectorVersion_detectorVersionId,
+    deleteDetectorVersionResponse_httpStatus,
+
+    -- ** DeleteEntityType
+    deleteEntityType_name,
+    deleteEntityTypeResponse_httpStatus,
 
     -- ** DeleteEvent
     deleteEvent_deleteAuditHistory,
@@ -166,130 +137,126 @@ module Amazonka.FraudDetector.Lens
     deleteEvent_eventTypeName,
     deleteEventResponse_httpStatus,
 
-    -- ** CancelBatchPredictionJob
-    cancelBatchPredictionJob_jobId,
-    cancelBatchPredictionJobResponse_httpStatus,
+    -- ** DeleteEventType
+    deleteEventType_name,
+    deleteEventTypeResponse_httpStatus,
 
-    -- ** UpdateModelVersionStatus
-    updateModelVersionStatus_modelId,
-    updateModelVersionStatus_modelType,
-    updateModelVersionStatus_modelVersionNumber,
-    updateModelVersionStatus_status,
-    updateModelVersionStatusResponse_httpStatus,
-
-    -- ** GetBatchPredictionJobs
-    getBatchPredictionJobs_jobId,
-    getBatchPredictionJobs_nextToken,
-    getBatchPredictionJobs_maxResults,
-    getBatchPredictionJobsResponse_batchPredictions,
-    getBatchPredictionJobsResponse_nextToken,
-    getBatchPredictionJobsResponse_httpStatus,
-
-    -- ** CreateModel
-    createModel_description,
-    createModel_tags,
-    createModel_modelId,
-    createModel_modelType,
-    createModel_eventTypeName,
-    createModelResponse_httpStatus,
-
-    -- ** GetLabels
-    getLabels_nextToken,
-    getLabels_name,
-    getLabels_maxResults,
-    getLabelsResponse_nextToken,
-    getLabelsResponse_labels,
-    getLabelsResponse_httpStatus,
-
-    -- ** GetModelVersion
-    getModelVersion_modelId,
-    getModelVersion_modelType,
-    getModelVersion_modelVersionNumber,
-    getModelVersionResponse_status,
-    getModelVersionResponse_modelType,
-    getModelVersionResponse_modelId,
-    getModelVersionResponse_arn,
-    getModelVersionResponse_trainingDataSource,
-    getModelVersionResponse_externalEventsDetail,
-    getModelVersionResponse_ingestedEventsDetail,
-    getModelVersionResponse_modelVersionNumber,
-    getModelVersionResponse_trainingDataSchema,
-    getModelVersionResponse_httpStatus,
-
-    -- ** PutExternalModel
-    putExternalModel_tags,
-    putExternalModel_modelEndpoint,
-    putExternalModel_modelSource,
-    putExternalModel_invokeModelEndpointRoleArn,
-    putExternalModel_inputConfiguration,
-    putExternalModel_outputConfiguration,
-    putExternalModel_modelEndpointStatus,
-    putExternalModelResponse_httpStatus,
+    -- ** DeleteEventsByEventType
+    deleteEventsByEventType_eventTypeName,
+    deleteEventsByEventTypeResponse_eventsDeletionStatus,
+    deleteEventsByEventTypeResponse_eventTypeName,
+    deleteEventsByEventTypeResponse_httpStatus,
 
     -- ** DeleteExternalModel
     deleteExternalModel_modelEndpoint,
     deleteExternalModelResponse_httpStatus,
 
-    -- ** GetEntityTypes
-    getEntityTypes_nextToken,
-    getEntityTypes_name,
-    getEntityTypes_maxResults,
-    getEntityTypesResponse_entityTypes,
-    getEntityTypesResponse_nextToken,
-    getEntityTypesResponse_httpStatus,
+    -- ** DeleteLabel
+    deleteLabel_name,
+    deleteLabelResponse_httpStatus,
 
     -- ** DeleteModel
     deleteModel_modelId,
     deleteModel_modelType,
     deleteModelResponse_httpStatus,
 
-    -- ** UpdateModel
-    updateModel_description,
-    updateModel_modelId,
-    updateModel_modelType,
-    updateModelResponse_httpStatus,
+    -- ** DeleteModelVersion
+    deleteModelVersion_modelId,
+    deleteModelVersion_modelType,
+    deleteModelVersion_modelVersionNumber,
+    deleteModelVersionResponse_httpStatus,
 
-    -- ** CreateModelVersion
-    createModelVersion_externalEventsDetail,
-    createModelVersion_ingestedEventsDetail,
-    createModelVersion_tags,
-    createModelVersion_modelId,
-    createModelVersion_modelType,
-    createModelVersion_trainingDataSource,
-    createModelVersion_trainingDataSchema,
-    createModelVersionResponse_status,
-    createModelVersionResponse_modelType,
-    createModelVersionResponse_modelId,
-    createModelVersionResponse_modelVersionNumber,
-    createModelVersionResponse_httpStatus,
+    -- ** DeleteOutcome
+    deleteOutcome_name,
+    deleteOutcomeResponse_httpStatus,
 
-    -- ** DeleteEventsByEventType
-    deleteEventsByEventType_eventTypeName,
-    deleteEventsByEventTypeResponse_eventTypeName,
-    deleteEventsByEventTypeResponse_eventsDeletionStatus,
-    deleteEventsByEventTypeResponse_httpStatus,
+    -- ** DeleteRule
+    deleteRule_rule,
+    deleteRuleResponse_httpStatus,
 
-    -- ** PutKMSEncryptionKey
-    putKMSEncryptionKey_kmsEncryptionKeyArn,
-    putKMSEncryptionKeyResponse_httpStatus,
+    -- ** DeleteVariable
+    deleteVariable_name,
+    deleteVariableResponse_httpStatus,
 
     -- ** DescribeDetector
     describeDetector_nextToken,
     describeDetector_maxResults,
     describeDetector_detectorId,
-    describeDetectorResponse_detectorVersionSummaries,
-    describeDetectorResponse_arn,
     describeDetectorResponse_nextToken,
+    describeDetectorResponse_arn,
+    describeDetectorResponse_detectorVersionSummaries,
     describeDetectorResponse_detectorId,
     describeDetectorResponse_httpStatus,
 
-    -- ** GetOutcomes
-    getOutcomes_nextToken,
-    getOutcomes_name,
-    getOutcomes_maxResults,
-    getOutcomesResponse_outcomes,
-    getOutcomesResponse_nextToken,
-    getOutcomesResponse_httpStatus,
+    -- ** DescribeModelVersions
+    describeModelVersions_nextToken,
+    describeModelVersions_modelVersionNumber,
+    describeModelVersions_modelType,
+    describeModelVersions_maxResults,
+    describeModelVersions_modelId,
+    describeModelVersionsResponse_nextToken,
+    describeModelVersionsResponse_modelVersionDetails,
+    describeModelVersionsResponse_httpStatus,
+
+    -- ** GetBatchImportJobs
+    getBatchImportJobs_nextToken,
+    getBatchImportJobs_jobId,
+    getBatchImportJobs_maxResults,
+    getBatchImportJobsResponse_nextToken,
+    getBatchImportJobsResponse_batchImports,
+    getBatchImportJobsResponse_httpStatus,
+
+    -- ** GetBatchPredictionJobs
+    getBatchPredictionJobs_nextToken,
+    getBatchPredictionJobs_jobId,
+    getBatchPredictionJobs_maxResults,
+    getBatchPredictionJobsResponse_nextToken,
+    getBatchPredictionJobsResponse_batchPredictions,
+    getBatchPredictionJobsResponse_httpStatus,
+
+    -- ** GetDeleteEventsByEventTypeStatus
+    getDeleteEventsByEventTypeStatus_eventTypeName,
+    getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus,
+    getDeleteEventsByEventTypeStatusResponse_eventTypeName,
+    getDeleteEventsByEventTypeStatusResponse_httpStatus,
+
+    -- ** GetDetectorVersion
+    getDetectorVersion_detectorId,
+    getDetectorVersion_detectorVersionId,
+    getDetectorVersionResponse_createdTime,
+    getDetectorVersionResponse_detectorVersionId,
+    getDetectorVersionResponse_modelVersions,
+    getDetectorVersionResponse_rules,
+    getDetectorVersionResponse_arn,
+    getDetectorVersionResponse_status,
+    getDetectorVersionResponse_description,
+    getDetectorVersionResponse_lastUpdatedTime,
+    getDetectorVersionResponse_externalModelEndpoints,
+    getDetectorVersionResponse_ruleExecutionMode,
+    getDetectorVersionResponse_detectorId,
+    getDetectorVersionResponse_httpStatus,
+
+    -- ** GetDetectors
+    getDetectors_nextToken,
+    getDetectors_maxResults,
+    getDetectors_detectorId,
+    getDetectorsResponse_detectors,
+    getDetectorsResponse_nextToken,
+    getDetectorsResponse_httpStatus,
+
+    -- ** GetEntityTypes
+    getEntityTypes_name,
+    getEntityTypes_nextToken,
+    getEntityTypes_maxResults,
+    getEntityTypesResponse_nextToken,
+    getEntityTypesResponse_entityTypes,
+    getEntityTypesResponse_httpStatus,
+
+    -- ** GetEvent
+    getEvent_eventId,
+    getEvent_eventTypeName,
+    getEventResponse_event,
+    getEventResponse_httpStatus,
 
     -- ** GetEventPrediction
     getEventPrediction_detectorVersionId,
@@ -305,65 +272,140 @@ module Amazonka.FraudDetector.Lens
     getEventPredictionResponse_ruleResults,
     getEventPredictionResponse_httpStatus,
 
-    -- ** DeleteBatchPredictionJob
-    deleteBatchPredictionJob_jobId,
-    deleteBatchPredictionJobResponse_httpStatus,
+    -- ** GetEventTypes
+    getEventTypes_name,
+    getEventTypes_nextToken,
+    getEventTypes_maxResults,
+    getEventTypesResponse_nextToken,
+    getEventTypesResponse_eventTypes,
+    getEventTypesResponse_httpStatus,
 
-    -- ** GetEvent
-    getEvent_eventId,
-    getEvent_eventTypeName,
-    getEventResponse_event,
-    getEventResponse_httpStatus,
+    -- ** GetExternalModels
+    getExternalModels_nextToken,
+    getExternalModels_modelEndpoint,
+    getExternalModels_maxResults,
+    getExternalModelsResponse_nextToken,
+    getExternalModelsResponse_externalModels,
+    getExternalModelsResponse_httpStatus,
 
-    -- ** UpdateRuleMetadata
-    updateRuleMetadata_rule,
-    updateRuleMetadata_description,
-    updateRuleMetadataResponse_httpStatus,
+    -- ** GetKMSEncryptionKey
+    getKMSEncryptionKeyResponse_kmsKey,
+    getKMSEncryptionKeyResponse_httpStatus,
+
+    -- ** GetLabels
+    getLabels_name,
+    getLabels_nextToken,
+    getLabels_maxResults,
+    getLabelsResponse_nextToken,
+    getLabelsResponse_labels,
+    getLabelsResponse_httpStatus,
+
+    -- ** GetModelVersion
+    getModelVersion_modelId,
+    getModelVersion_modelType,
+    getModelVersion_modelVersionNumber,
+    getModelVersionResponse_ingestedEventsDetail,
+    getModelVersionResponse_modelVersionNumber,
+    getModelVersionResponse_arn,
+    getModelVersionResponse_status,
+    getModelVersionResponse_modelType,
+    getModelVersionResponse_trainingDataSchema,
+    getModelVersionResponse_externalEventsDetail,
+    getModelVersionResponse_trainingDataSource,
+    getModelVersionResponse_modelId,
+    getModelVersionResponse_httpStatus,
+
+    -- ** GetModels
+    getModels_nextToken,
+    getModels_modelType,
+    getModels_maxResults,
+    getModels_modelId,
+    getModelsResponse_nextToken,
+    getModelsResponse_models,
+    getModelsResponse_httpStatus,
+
+    -- ** GetOutcomes
+    getOutcomes_name,
+    getOutcomes_nextToken,
+    getOutcomes_maxResults,
+    getOutcomesResponse_nextToken,
+    getOutcomesResponse_outcomes,
+    getOutcomesResponse_httpStatus,
+
+    -- ** GetRules
+    getRules_ruleVersion,
+    getRules_nextToken,
+    getRules_ruleId,
+    getRules_maxResults,
+    getRules_detectorId,
+    getRulesResponse_ruleDetails,
+    getRulesResponse_nextToken,
+    getRulesResponse_httpStatus,
+
+    -- ** GetVariables
+    getVariables_name,
+    getVariables_nextToken,
+    getVariables_maxResults,
+    getVariablesResponse_nextToken,
+    getVariablesResponse_variables,
+    getVariablesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_maxResults,
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** PutDetector
+    putDetector_tags,
+    putDetector_description,
+    putDetector_detectorId,
+    putDetector_eventTypeName,
+    putDetectorResponse_httpStatus,
 
     -- ** PutEntityType
-    putEntityType_description,
     putEntityType_tags,
+    putEntityType_description,
     putEntityType_name,
     putEntityTypeResponse_httpStatus,
 
-    -- ** CreateBatchPredictionJob
-    createBatchPredictionJob_detectorVersion,
-    createBatchPredictionJob_tags,
-    createBatchPredictionJob_jobId,
-    createBatchPredictionJob_inputPath,
-    createBatchPredictionJob_outputPath,
-    createBatchPredictionJob_eventTypeName,
-    createBatchPredictionJob_detectorName,
-    createBatchPredictionJob_iamRoleArn,
-    createBatchPredictionJobResponse_httpStatus,
-
-    -- ** DeleteEntityType
-    deleteEntityType_name,
-    deleteEntityTypeResponse_httpStatus,
-
-    -- ** DeleteEventType
-    deleteEventType_name,
-    deleteEventTypeResponse_httpStatus,
-
     -- ** PutEventType
+    putEventType_tags,
+    putEventType_description,
     putEventType_labels,
     putEventType_eventIngestion,
-    putEventType_description,
-    putEventType_tags,
     putEventType_name,
     putEventType_eventVariables,
     putEventType_entityTypes,
     putEventTypeResponse_httpStatus,
 
-    -- ** UpdateDetectorVersionStatus
-    updateDetectorVersionStatus_detectorId,
-    updateDetectorVersionStatus_detectorVersionId,
-    updateDetectorVersionStatus_status,
-    updateDetectorVersionStatusResponse_httpStatus,
+    -- ** PutExternalModel
+    putExternalModel_tags,
+    putExternalModel_modelEndpoint,
+    putExternalModel_modelSource,
+    putExternalModel_invokeModelEndpointRoleArn,
+    putExternalModel_inputConfiguration,
+    putExternalModel_outputConfiguration,
+    putExternalModel_modelEndpointStatus,
+    putExternalModelResponse_httpStatus,
 
-    -- ** CancelBatchImportJob
-    cancelBatchImportJob_jobId,
-    cancelBatchImportJobResponse_httpStatus,
+    -- ** PutKMSEncryptionKey
+    putKMSEncryptionKey_kmsEncryptionKeyArn,
+    putKMSEncryptionKeyResponse_httpStatus,
+
+    -- ** PutLabel
+    putLabel_tags,
+    putLabel_description,
+    putLabel_name,
+    putLabelResponse_httpStatus,
+
+    -- ** PutOutcome
+    putOutcome_tags,
+    putOutcome_description,
+    putOutcome_name,
+    putOutcomeResponse_httpStatus,
 
     -- ** SendEvent
     sendEvent_labelTimestamp,
@@ -380,9 +422,32 @@ module Amazonka.FraudDetector.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** GetKMSEncryptionKey
-    getKMSEncryptionKeyResponse_kmsKey,
-    getKMSEncryptionKeyResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateDetectorVersion
+    updateDetectorVersion_modelVersions,
+    updateDetectorVersion_description,
+    updateDetectorVersion_ruleExecutionMode,
+    updateDetectorVersion_detectorId,
+    updateDetectorVersion_detectorVersionId,
+    updateDetectorVersion_externalModelEndpoints,
+    updateDetectorVersion_rules,
+    updateDetectorVersionResponse_httpStatus,
+
+    -- ** UpdateDetectorVersionMetadata
+    updateDetectorVersionMetadata_detectorId,
+    updateDetectorVersionMetadata_detectorVersionId,
+    updateDetectorVersionMetadata_description,
+    updateDetectorVersionMetadataResponse_httpStatus,
+
+    -- ** UpdateDetectorVersionStatus
+    updateDetectorVersionStatus_detectorId,
+    updateDetectorVersionStatus_detectorVersionId,
+    updateDetectorVersionStatus_status,
+    updateDetectorVersionStatusResponse_httpStatus,
 
     -- ** UpdateEventLabel
     updateEventLabel_eventId,
@@ -391,227 +456,162 @@ module Amazonka.FraudDetector.Lens
     updateEventLabel_labelTimestamp,
     updateEventLabelResponse_httpStatus,
 
-    -- ** GetBatchImportJobs
-    getBatchImportJobs_jobId,
-    getBatchImportJobs_nextToken,
-    getBatchImportJobs_maxResults,
-    getBatchImportJobsResponse_nextToken,
-    getBatchImportJobsResponse_batchImports,
-    getBatchImportJobsResponse_httpStatus,
+    -- ** UpdateModel
+    updateModel_description,
+    updateModel_modelId,
+    updateModel_modelType,
+    updateModelResponse_httpStatus,
 
-    -- ** GetDeleteEventsByEventTypeStatus
-    getDeleteEventsByEventTypeStatus_eventTypeName,
-    getDeleteEventsByEventTypeStatusResponse_eventTypeName,
-    getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus,
-    getDeleteEventsByEventTypeStatusResponse_httpStatus,
+    -- ** UpdateModelVersion
+    updateModelVersion_tags,
+    updateModelVersion_ingestedEventsDetail,
+    updateModelVersion_externalEventsDetail,
+    updateModelVersion_modelId,
+    updateModelVersion_modelType,
+    updateModelVersion_majorVersionNumber,
+    updateModelVersionResponse_modelVersionNumber,
+    updateModelVersionResponse_status,
+    updateModelVersionResponse_modelType,
+    updateModelVersionResponse_modelId,
+    updateModelVersionResponse_httpStatus,
 
-    -- ** DeleteOutcome
-    deleteOutcome_name,
-    deleteOutcomeResponse_httpStatus,
+    -- ** UpdateModelVersionStatus
+    updateModelVersionStatus_modelId,
+    updateModelVersionStatus_modelType,
+    updateModelVersionStatus_modelVersionNumber,
+    updateModelVersionStatus_status,
+    updateModelVersionStatusResponse_httpStatus,
 
-    -- ** GetRules
-    getRules_ruleVersion,
-    getRules_ruleId,
-    getRules_nextToken,
-    getRules_maxResults,
-    getRules_detectorId,
-    getRulesResponse_ruleDetails,
-    getRulesResponse_nextToken,
-    getRulesResponse_httpStatus,
+    -- ** UpdateRuleMetadata
+    updateRuleMetadata_rule,
+    updateRuleMetadata_description,
+    updateRuleMetadataResponse_httpStatus,
 
-    -- ** GetVariables
-    getVariables_nextToken,
-    getVariables_name,
-    getVariables_maxResults,
-    getVariablesResponse_variables,
-    getVariablesResponse_nextToken,
-    getVariablesResponse_httpStatus,
+    -- ** UpdateRuleVersion
+    updateRuleVersion_tags,
+    updateRuleVersion_description,
+    updateRuleVersion_rule,
+    updateRuleVersion_expression,
+    updateRuleVersion_language,
+    updateRuleVersion_outcomes,
+    updateRuleVersionResponse_rule,
+    updateRuleVersionResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** PutDetector
-    putDetector_description,
-    putDetector_tags,
-    putDetector_detectorId,
-    putDetector_eventTypeName,
-    putDetectorResponse_httpStatus,
-
-    -- ** PutOutcome
-    putOutcome_description,
-    putOutcome_tags,
-    putOutcome_name,
-    putOutcomeResponse_httpStatus,
-
-    -- ** DeleteDetector
-    deleteDetector_detectorId,
-    deleteDetectorResponse_httpStatus,
-
-    -- ** DescribeModelVersions
-    describeModelVersions_modelType,
-    describeModelVersions_modelId,
-    describeModelVersions_nextToken,
-    describeModelVersions_modelVersionNumber,
-    describeModelVersions_maxResults,
-    describeModelVersionsResponse_nextToken,
-    describeModelVersionsResponse_modelVersionDetails,
-    describeModelVersionsResponse_httpStatus,
-
-    -- ** BatchCreateVariable
-    batchCreateVariable_tags,
-    batchCreateVariable_variableEntries,
-    batchCreateVariableResponse_errors,
-    batchCreateVariableResponse_httpStatus,
-
-    -- ** GetDetectorVersion
-    getDetectorVersion_detectorId,
-    getDetectorVersion_detectorVersionId,
-    getDetectorVersionResponse_status,
-    getDetectorVersionResponse_ruleExecutionMode,
-    getDetectorVersionResponse_lastUpdatedTime,
-    getDetectorVersionResponse_arn,
-    getDetectorVersionResponse_rules,
-    getDetectorVersionResponse_detectorVersionId,
-    getDetectorVersionResponse_createdTime,
-    getDetectorVersionResponse_modelVersions,
-    getDetectorVersionResponse_detectorId,
-    getDetectorVersionResponse_externalModelEndpoints,
-    getDetectorVersionResponse_description,
-    getDetectorVersionResponse_httpStatus,
-
-    -- ** GetEventTypes
-    getEventTypes_nextToken,
-    getEventTypes_name,
-    getEventTypes_maxResults,
-    getEventTypesResponse_eventTypes,
-    getEventTypesResponse_nextToken,
-    getEventTypesResponse_httpStatus,
-
-    -- ** DeleteDetectorVersion
-    deleteDetectorVersion_detectorId,
-    deleteDetectorVersion_detectorVersionId,
-    deleteDetectorVersionResponse_httpStatus,
-
-    -- ** UpdateDetectorVersion
-    updateDetectorVersion_ruleExecutionMode,
-    updateDetectorVersion_modelVersions,
-    updateDetectorVersion_description,
-    updateDetectorVersion_detectorId,
-    updateDetectorVersion_detectorVersionId,
-    updateDetectorVersion_externalModelEndpoints,
-    updateDetectorVersion_rules,
-    updateDetectorVersionResponse_httpStatus,
+    -- ** UpdateVariable
+    updateVariable_variableType,
+    updateVariable_defaultValue,
+    updateVariable_description,
+    updateVariable_name,
+    updateVariableResponse_httpStatus,
 
     -- * Types
 
     -- ** BatchCreateVariableError
+    batchCreateVariableError_message,
     batchCreateVariableError_name,
     batchCreateVariableError_code,
-    batchCreateVariableError_message,
 
     -- ** BatchGetVariableError
+    batchGetVariableError_message,
     batchGetVariableError_name,
     batchGetVariableError_code,
-    batchGetVariableError_message,
 
     -- ** BatchImport
-    batchImport_failureReason,
-    batchImport_iamRoleArn,
-    batchImport_status,
-    batchImport_processedRecordsCount,
-    batchImport_totalRecordsCount,
-    batchImport_jobId,
+    batchImport_inputPath,
     batchImport_arn,
-    batchImport_startTime,
-    batchImport_eventTypeName,
+    batchImport_jobId,
+    batchImport_status,
     batchImport_completionTime,
     batchImport_outputPath,
-    batchImport_inputPath,
+    batchImport_iamRoleArn,
+    batchImport_totalRecordsCount,
+    batchImport_eventTypeName,
     batchImport_failedRecordsCount,
+    batchImport_processedRecordsCount,
+    batchImport_startTime,
+    batchImport_failureReason,
 
     -- ** BatchPrediction
-    batchPrediction_failureReason,
-    batchPrediction_iamRoleArn,
-    batchPrediction_status,
-    batchPrediction_processedRecordsCount,
-    batchPrediction_totalRecordsCount,
-    batchPrediction_lastHeartbeatTime,
-    batchPrediction_jobId,
+    batchPrediction_inputPath,
+    batchPrediction_detectorVersion,
     batchPrediction_arn,
-    batchPrediction_startTime,
-    batchPrediction_eventTypeName,
+    batchPrediction_jobId,
+    batchPrediction_detectorName,
+    batchPrediction_status,
     batchPrediction_completionTime,
     batchPrediction_outputPath,
-    batchPrediction_detectorName,
-    batchPrediction_detectorVersion,
-    batchPrediction_inputPath,
+    batchPrediction_iamRoleArn,
+    batchPrediction_lastHeartbeatTime,
+    batchPrediction_totalRecordsCount,
+    batchPrediction_eventTypeName,
+    batchPrediction_processedRecordsCount,
+    batchPrediction_startTime,
+    batchPrediction_failureReason,
 
     -- ** DataValidationMetrics
     dataValidationMetrics_fieldLevelMessages,
     dataValidationMetrics_fileLevelMessages,
 
     -- ** Detector
-    detector_lastUpdatedTime,
-    detector_arn,
     detector_createdTime,
+    detector_arn,
+    detector_description,
+    detector_lastUpdatedTime,
     detector_eventTypeName,
     detector_detectorId,
-    detector_description,
 
     -- ** DetectorVersionSummary
-    detectorVersionSummary_status,
-    detectorVersionSummary_lastUpdatedTime,
     detectorVersionSummary_detectorVersionId,
+    detectorVersionSummary_status,
     detectorVersionSummary_description,
+    detectorVersionSummary_lastUpdatedTime,
 
     -- ** Entity
     entity_entityType,
     entity_entityId,
 
     -- ** EntityType
-    entityType_lastUpdatedTime,
-    entityType_arn,
-    entityType_createdTime,
     entityType_name,
+    entityType_createdTime,
+    entityType_arn,
     entityType_description,
+    entityType_lastUpdatedTime,
 
     -- ** Event
-    event_eventTimestamp,
     event_entities,
     event_labelTimestamp,
-    event_eventTypeName,
-    event_eventVariables,
-    event_currentLabel,
+    event_eventTimestamp,
     event_eventId,
+    event_eventTypeName,
+    event_currentLabel,
+    event_eventVariables,
 
     -- ** EventType
-    eventType_lastUpdatedTime,
-    eventType_arn,
+    eventType_name,
     eventType_createdTime,
     eventType_entityTypes,
-    eventType_eventVariables,
-    eventType_name,
+    eventType_arn,
+    eventType_description,
+    eventType_lastUpdatedTime,
     eventType_ingestedEventStatistics,
     eventType_labels,
     eventType_eventIngestion,
-    eventType_description,
+    eventType_eventVariables,
 
     -- ** ExternalEventsDetail
     externalEventsDetail_dataLocation,
     externalEventsDetail_dataAccessRoleArn,
 
     -- ** ExternalModel
+    externalModel_outputConfiguration,
+    externalModel_createdTime,
+    externalModel_arn,
+    externalModel_inputConfiguration,
+    externalModel_modelEndpointStatus,
+    externalModel_lastUpdatedTime,
     externalModel_modelEndpoint,
     externalModel_modelSource,
-    externalModel_lastUpdatedTime,
-    externalModel_arn,
-    externalModel_createdTime,
-    externalModel_modelEndpointStatus,
-    externalModel_outputConfiguration,
     externalModel_invokeModelEndpointRoleArn,
-    externalModel_inputConfiguration,
 
     -- ** ExternalModelOutputs
     externalModelOutputs_externalModel,
@@ -622,22 +622,22 @@ module Amazonka.FraudDetector.Lens
     externalModelSummary_modelSource,
 
     -- ** FieldValidationMessage
-    fieldValidationMessage_identifier,
-    fieldValidationMessage_content,
+    fieldValidationMessage_type,
     fieldValidationMessage_fieldName,
     fieldValidationMessage_title,
-    fieldValidationMessage_type,
+    fieldValidationMessage_identifier,
+    fieldValidationMessage_content,
 
     -- ** FileValidationMessage
-    fileValidationMessage_content,
-    fileValidationMessage_title,
     fileValidationMessage_type,
+    fileValidationMessage_title,
+    fileValidationMessage_content,
 
     -- ** IngestedEventStatistics
     ingestedEventStatistics_eventDataSizeInBytes,
-    ingestedEventStatistics_mostRecentEvent,
     ingestedEventStatistics_lastUpdatedTime,
     ingestedEventStatistics_numberOfEvents,
+    ingestedEventStatistics_mostRecentEvent,
     ingestedEventStatistics_leastRecentEvent,
 
     -- ** IngestedEventsDetail
@@ -651,11 +651,11 @@ module Amazonka.FraudDetector.Lens
     kmsKey_kmsEncryptionKeyArn,
 
     -- ** Label
-    label_lastUpdatedTime,
-    label_arn,
-    label_createdTime,
     label_name,
+    label_createdTime,
+    label_arn,
     label_description,
+    label_lastUpdatedTime,
 
     -- ** LabelSchema
     labelSchema_unlabeledEventsTreatment,
@@ -667,29 +667,29 @@ module Amazonka.FraudDetector.Lens
     logOddsMetric_variableImportance,
 
     -- ** MetricDataPoint
-    metricDataPoint_precision,
-    metricDataPoint_fpr,
-    metricDataPoint_threshold,
     metricDataPoint_tpr,
+    metricDataPoint_fpr,
+    metricDataPoint_precision,
+    metricDataPoint_threshold,
 
     -- ** Model
-    model_modelType,
-    model_lastUpdatedTime,
-    model_modelId,
-    model_arn,
     model_createdTime,
-    model_eventTypeName,
+    model_arn,
     model_description,
+    model_lastUpdatedTime,
+    model_modelType,
+    model_modelId,
+    model_eventTypeName,
 
     -- ** ModelEndpointDataBlob
     modelEndpointDataBlob_byteBuffer,
     modelEndpointDataBlob_contentType,
 
     -- ** ModelInputConfiguration
-    modelInputConfiguration_format,
-    modelInputConfiguration_eventTypeName,
-    modelInputConfiguration_csvInputTemplate,
     modelInputConfiguration_jsonInputTemplate,
+    modelInputConfiguration_format,
+    modelInputConfiguration_csvInputTemplate,
+    modelInputConfiguration_eventTypeName,
     modelInputConfiguration_useEventVariables,
 
     -- ** ModelOutputConfiguration
@@ -708,25 +708,25 @@ module Amazonka.FraudDetector.Lens
     modelVersion_modelVersionNumber,
 
     -- ** ModelVersionDetail
-    modelVersionDetail_status,
-    modelVersionDetail_modelType,
-    modelVersionDetail_lastUpdatedTime,
-    modelVersionDetail_modelId,
-    modelVersionDetail_arn,
-    modelVersionDetail_trainingDataSource,
     modelVersionDetail_createdTime,
-    modelVersionDetail_externalEventsDetail,
     modelVersionDetail_ingestedEventsDetail,
     modelVersionDetail_modelVersionNumber,
-    modelVersionDetail_trainingResult,
+    modelVersionDetail_arn,
+    modelVersionDetail_status,
+    modelVersionDetail_lastUpdatedTime,
+    modelVersionDetail_modelType,
     modelVersionDetail_trainingDataSchema,
+    modelVersionDetail_trainingResult,
+    modelVersionDetail_externalEventsDetail,
+    modelVersionDetail_trainingDataSource,
+    modelVersionDetail_modelId,
 
     -- ** Outcome
-    outcome_lastUpdatedTime,
-    outcome_arn,
-    outcome_createdTime,
     outcome_name,
+    outcome_createdTime,
+    outcome_arn,
     outcome_description,
+    outcome_lastUpdatedTime,
 
     -- ** Rule
     rule_detectorId,
@@ -735,15 +735,15 @@ module Amazonka.FraudDetector.Lens
 
     -- ** RuleDetail
     ruleDetail_ruleVersion,
-    ruleDetail_lastUpdatedTime,
-    ruleDetail_arn,
     ruleDetail_createdTime,
     ruleDetail_ruleId,
+    ruleDetail_arn,
+    ruleDetail_description,
+    ruleDetail_lastUpdatedTime,
+    ruleDetail_expression,
     ruleDetail_outcomes,
     ruleDetail_detectorId,
-    ruleDetail_expression,
     ruleDetail_language,
-    ruleDetail_description,
 
     -- ** RuleResult
     ruleResult_ruleId,
@@ -758,32 +758,32 @@ module Amazonka.FraudDetector.Lens
     trainingDataSchema_labelSchema,
 
     -- ** TrainingMetrics
-    trainingMetrics_auc,
     trainingMetrics_metricDataPoints,
+    trainingMetrics_auc,
 
     -- ** TrainingResult
+    trainingResult_variableImportanceMetrics,
     trainingResult_dataValidationMetrics,
     trainingResult_trainingMetrics,
-    trainingResult_variableImportanceMetrics,
 
     -- ** Variable
-    variable_lastUpdatedTime,
-    variable_arn,
-    variable_createdTime,
     variable_name,
+    variable_createdTime,
+    variable_variableType,
+    variable_arn,
+    variable_defaultValue,
+    variable_description,
+    variable_lastUpdatedTime,
     variable_dataSource,
     variable_dataType,
-    variable_defaultValue,
-    variable_variableType,
-    variable_description,
 
     -- ** VariableEntry
     variableEntry_name,
+    variableEntry_variableType,
+    variableEntry_defaultValue,
+    variableEntry_description,
     variableEntry_dataSource,
     variableEntry_dataType,
-    variableEntry_defaultValue,
-    variableEntry_variableType,
-    variableEntry_description,
 
     -- ** VariableImportanceMetrics
     variableImportanceMetrics_logOddsMetrics,

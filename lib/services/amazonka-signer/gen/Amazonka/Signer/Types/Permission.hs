@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPermission' smart constructor.
 data Permission = Permission'
-  { -- | An AWS Signer action permitted as part of cross-account permissions.
-    action :: Prelude.Maybe Prelude.Text,
-    -- | The signing profile version that a permission applies to.
-    profileVersion :: Prelude.Maybe Prelude.Text,
-    -- | The AWS principal that has been granted a cross-account permission.
+  { -- | The AWS principal that has been granted a cross-account permission.
     principal :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a cross-account permission statement.
-    statementId :: Prelude.Maybe Prelude.Text
+    statementId :: Prelude.Maybe Prelude.Text,
+    -- | The signing profile version that a permission applies to.
+    profileVersion :: Prelude.Maybe Prelude.Text,
+    -- | An AWS Signer action permitted as part of cross-account permissions.
+    action :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,22 @@ data Permission = Permission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'action', 'permission_action' - An AWS Signer action permitted as part of cross-account permissions.
---
--- 'profileVersion', 'permission_profileVersion' - The signing profile version that a permission applies to.
---
 -- 'principal', 'permission_principal' - The AWS principal that has been granted a cross-account permission.
 --
 -- 'statementId', 'permission_statementId' - A unique identifier for a cross-account permission statement.
+--
+-- 'profileVersion', 'permission_profileVersion' - The signing profile version that a permission applies to.
+--
+-- 'action', 'permission_action' - An AWS Signer action permitted as part of cross-account permissions.
 newPermission ::
   Permission
 newPermission =
   Permission'
-    { action = Prelude.Nothing,
+    { principal = Prelude.Nothing,
+      statementId = Prelude.Nothing,
       profileVersion = Prelude.Nothing,
-      principal = Prelude.Nothing,
-      statementId = Prelude.Nothing
+      action = Prelude.Nothing
     }
-
--- | An AWS Signer action permitted as part of cross-account permissions.
-permission_action :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
-permission_action = Lens.lens (\Permission' {action} -> action) (\s@Permission' {} a -> s {action = a} :: Permission)
-
--- | The signing profile version that a permission applies to.
-permission_profileVersion :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
-permission_profileVersion = Lens.lens (\Permission' {profileVersion} -> profileVersion) (\s@Permission' {} a -> s {profileVersion = a} :: Permission)
 
 -- | The AWS principal that has been granted a cross-account permission.
 permission_principal :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
@@ -79,28 +71,36 @@ permission_principal = Lens.lens (\Permission' {principal} -> principal) (\s@Per
 permission_statementId :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_statementId = Lens.lens (\Permission' {statementId} -> statementId) (\s@Permission' {} a -> s {statementId = a} :: Permission)
 
+-- | The signing profile version that a permission applies to.
+permission_profileVersion :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_profileVersion = Lens.lens (\Permission' {profileVersion} -> profileVersion) (\s@Permission' {} a -> s {profileVersion = a} :: Permission)
+
+-- | An AWS Signer action permitted as part of cross-account permissions.
+permission_action :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_action = Lens.lens (\Permission' {action} -> action) (\s@Permission' {} a -> s {action = a} :: Permission)
+
 instance Core.FromJSON Permission where
   parseJSON =
     Core.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..:? "action")
-            Prelude.<*> (x Core..:? "profileVersion")
-            Prelude.<*> (x Core..:? "principal")
+            Prelude.<$> (x Core..:? "principal")
             Prelude.<*> (x Core..:? "statementId")
+            Prelude.<*> (x Core..:? "profileVersion")
+            Prelude.<*> (x Core..:? "action")
       )
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` profileVersion
-      `Prelude.hashWithSalt` principal
+    _salt `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` statementId
+      `Prelude.hashWithSalt` profileVersion
+      `Prelude.hashWithSalt` action
 
 instance Prelude.NFData Permission where
   rnf Permission' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf profileVersion
-      `Prelude.seq` Prelude.rnf principal
+    Prelude.rnf principal
       `Prelude.seq` Prelude.rnf statementId
+      `Prelude.seq` Prelude.rnf profileVersion
+      `Prelude.seq` Prelude.rnf action

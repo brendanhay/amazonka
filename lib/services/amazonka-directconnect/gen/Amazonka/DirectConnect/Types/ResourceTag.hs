@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
-  { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The tags.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag)
+  { -- | The tags.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ResourceTag = ResourceTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'resourceTag_resourceArn' - The Amazon Resource Name (ARN) of the resource.
---
 -- 'tags', 'resourceTag_tags' - The tags.
+--
+-- 'resourceArn', 'resourceTag_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newResourceTag ::
   ResourceTag
 newResourceTag =
   ResourceTag'
-    { resourceArn = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      resourceArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the resource.
-resourceTag_resourceArn :: Lens.Lens' ResourceTag (Prelude.Maybe Prelude.Text)
-resourceTag_resourceArn = Lens.lens (\ResourceTag' {resourceArn} -> resourceArn) (\s@ResourceTag' {} a -> s {resourceArn = a} :: ResourceTag)
 
 -- | The tags.
 resourceTag_tags :: Lens.Lens' ResourceTag (Prelude.Maybe (Prelude.NonEmpty Tag))
 resourceTag_tags = Lens.lens (\ResourceTag' {tags} -> tags) (\s@ResourceTag' {} a -> s {tags = a} :: ResourceTag) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the resource.
+resourceTag_resourceArn :: Lens.Lens' ResourceTag (Prelude.Maybe Prelude.Text)
+resourceTag_resourceArn = Lens.lens (\ResourceTag' {resourceArn} -> resourceArn) (\s@ResourceTag' {} a -> s {resourceArn = a} :: ResourceTag)
 
 instance Core.FromJSON ResourceTag where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON ResourceTag where
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Prelude.<$> (x Core..:? "resourceArn")
-            Prelude.<*> (x Core..:? "tags")
+            Prelude.<$> (x Core..:? "tags")
+            Prelude.<*> (x Core..:? "resourceArn")
       )
 
 instance Prelude.Hashable ResourceTag where
   hashWithSalt _salt ResourceTag' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ResourceTag where
   rnf ResourceTag' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceArn

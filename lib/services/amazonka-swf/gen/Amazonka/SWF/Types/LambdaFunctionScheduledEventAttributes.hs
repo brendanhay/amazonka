@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaFunctionScheduledEventAttributes' smart constructor.
 data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttributes'
-  { -- | Data attached to the event that the decider can use in subsequent
-    -- workflow tasks. This data isn\'t sent to the Lambda task.
-    control :: Prelude.Maybe Prelude.Text,
-    -- | The input provided to the Lambda task.
+  { -- | The input provided to the Lambda task.
     input :: Prelude.Maybe Prelude.Text,
     -- | The maximum amount of time a worker can take to process the Lambda task.
     startToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    -- | Data attached to the event that the decider can use in subsequent
+    -- workflow tasks. This data isn\'t sent to the Lambda task.
+    control :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the Lambda task.
     id :: Prelude.Text,
     -- | The name of the Lambda function.
@@ -55,12 +55,12 @@ data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttrib
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'control', 'lambdaFunctionScheduledEventAttributes_control' - Data attached to the event that the decider can use in subsequent
--- workflow tasks. This data isn\'t sent to the Lambda task.
---
 -- 'input', 'lambdaFunctionScheduledEventAttributes_input' - The input provided to the Lambda task.
 --
 -- 'startToCloseTimeout', 'lambdaFunctionScheduledEventAttributes_startToCloseTimeout' - The maximum amount of time a worker can take to process the Lambda task.
+--
+-- 'control', 'lambdaFunctionScheduledEventAttributes_control' - Data attached to the event that the decider can use in subsequent
+-- workflow tasks. This data isn\'t sent to the Lambda task.
 --
 -- 'id', 'lambdaFunctionScheduledEventAttributes_id' - The unique ID of the Lambda task.
 --
@@ -83,21 +83,16 @@ newLambdaFunctionScheduledEventAttributes
   pName_
   pDecisionTaskCompletedEventId_ =
     LambdaFunctionScheduledEventAttributes'
-      { control =
+      { input =
           Prelude.Nothing,
-        input = Prelude.Nothing,
         startToCloseTimeout =
           Prelude.Nothing,
+        control = Prelude.Nothing,
         id = pId_,
         name = pName_,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
-
--- | Data attached to the event that the decider can use in subsequent
--- workflow tasks. This data isn\'t sent to the Lambda task.
-lambdaFunctionScheduledEventAttributes_control :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
-lambdaFunctionScheduledEventAttributes_control = Lens.lens (\LambdaFunctionScheduledEventAttributes' {control} -> control) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {control = a} :: LambdaFunctionScheduledEventAttributes)
 
 -- | The input provided to the Lambda task.
 lambdaFunctionScheduledEventAttributes_input :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
@@ -106,6 +101,11 @@ lambdaFunctionScheduledEventAttributes_input = Lens.lens (\LambdaFunctionSchedul
 -- | The maximum amount of time a worker can take to process the Lambda task.
 lambdaFunctionScheduledEventAttributes_startToCloseTimeout :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
 lambdaFunctionScheduledEventAttributes_startToCloseTimeout = Lens.lens (\LambdaFunctionScheduledEventAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {startToCloseTimeout = a} :: LambdaFunctionScheduledEventAttributes)
+
+-- | Data attached to the event that the decider can use in subsequent
+-- workflow tasks. This data isn\'t sent to the Lambda task.
+lambdaFunctionScheduledEventAttributes_control :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+lambdaFunctionScheduledEventAttributes_control = Lens.lens (\LambdaFunctionScheduledEventAttributes' {control} -> control) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {control = a} :: LambdaFunctionScheduledEventAttributes)
 
 -- | The unique ID of the Lambda task.
 lambdaFunctionScheduledEventAttributes_id :: Lens.Lens' LambdaFunctionScheduledEventAttributes Prelude.Text
@@ -131,9 +131,9 @@ instance
       "LambdaFunctionScheduledEventAttributes"
       ( \x ->
           LambdaFunctionScheduledEventAttributes'
-            Prelude.<$> (x Core..:? "control")
-            Prelude.<*> (x Core..:? "input")
+            Prelude.<$> (x Core..:? "input")
             Prelude.<*> (x Core..:? "startToCloseTimeout")
+            Prelude.<*> (x Core..:? "control")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "name")
             Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
@@ -146,9 +146,9 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionScheduledEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
-        `Prelude.hashWithSalt` input
+      _salt `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` decisionTaskCompletedEventId
@@ -158,9 +158,9 @@ instance
     LambdaFunctionScheduledEventAttributes
   where
   rnf LambdaFunctionScheduledEventAttributes' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf input
       `Prelude.seq` Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf control
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf decisionTaskCompletedEventId

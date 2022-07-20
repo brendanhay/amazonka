@@ -40,9 +40,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAction' smart constructor.
 data Action = Action'
-  { -- | Publishes an MQTT message with the given topic to the AWS IoT message
-    -- broker.
-    iotTopicPublish :: Prelude.Maybe IotTopicPublishAction,
+  { -- | Information needed to set the timer.
+    setTimer :: Prelude.Maybe SetTimerAction,
+    -- | Sends information about the detector model instance and the event that
+    -- triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+    firehose :: Prelude.Maybe FirehoseAction,
+    -- | Information needed to reset the timer.
+    resetTimer :: Prelude.Maybe ResetTimerAction,
     -- | Writes to the DynamoDB table that you created. The default action
     -- payload contains all attribute-value pairs that have the information
     -- about the detector model instance and the event that triggered the
@@ -53,14 +57,6 @@ data Action = Action'
     -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions>
     -- in /AWS IoT Events Developer Guide/.
     dynamoDBv2 :: Prelude.Maybe DynamoDBv2Action,
-    -- | Information needed to reset the timer.
-    resetTimer :: Prelude.Maybe ResetTimerAction,
-    -- | Information needed to set the timer.
-    setTimer :: Prelude.Maybe SetTimerAction,
-    -- | Sends an Amazon SNS message.
-    sns :: Prelude.Maybe SNSTopicPublishAction,
-    -- | Information needed to clear the timer.
-    clearTimer :: Prelude.Maybe ClearTimerAction,
     -- | Writes to the DynamoDB table that you created. The default action
     -- payload contains all attribute-value pairs that have the information
     -- about the detector model instance and the event that triggered the
@@ -71,14 +67,8 @@ data Action = Action'
     -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions>
     -- in /AWS IoT Events Developer Guide/.
     dynamoDB :: Prelude.Maybe DynamoDBAction,
-    -- | Sends information about the detector model instance and the event that
-    -- triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-    firehose :: Prelude.Maybe FirehoseAction,
-    -- | Sends information about the detector model instance and the event that
-    -- triggered the action to an asset property in AWS IoT SiteWise .
-    iotSiteWise :: Prelude.Maybe IotSiteWiseAction,
-    -- | Sets a variable to a specified value.
-    setVariable :: Prelude.Maybe SetVariableAction,
+    -- | Information needed to clear the timer.
+    clearTimer :: Prelude.Maybe ClearTimerAction,
     -- | Calls a Lambda function, passing in information about the detector model
     -- instance and the event that triggered the action.
     lambda :: Prelude.Maybe LambdaAction,
@@ -87,7 +77,17 @@ data Action = Action'
     iotEvents :: Prelude.Maybe IotEventsAction,
     -- | Sends information about the detector model instance and the event that
     -- triggered the action to an Amazon SQS queue.
-    sqs :: Prelude.Maybe SqsAction
+    sqs :: Prelude.Maybe SqsAction,
+    -- | Sends information about the detector model instance and the event that
+    -- triggered the action to an asset property in AWS IoT SiteWise .
+    iotSiteWise :: Prelude.Maybe IotSiteWiseAction,
+    -- | Sets a variable to a specified value.
+    setVariable :: Prelude.Maybe SetVariableAction,
+    -- | Sends an Amazon SNS message.
+    sns :: Prelude.Maybe SNSTopicPublishAction,
+    -- | Publishes an MQTT message with the given topic to the AWS IoT message
+    -- broker.
+    iotTopicPublish :: Prelude.Maybe IotTopicPublishAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,8 +99,12 @@ data Action = Action'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iotTopicPublish', 'action_iotTopicPublish' - Publishes an MQTT message with the given topic to the AWS IoT message
--- broker.
+-- 'setTimer', 'action_setTimer' - Information needed to set the timer.
+--
+-- 'firehose', 'action_firehose' - Sends information about the detector model instance and the event that
+-- triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+--
+-- 'resetTimer', 'action_resetTimer' - Information needed to reset the timer.
 --
 -- 'dynamoDBv2', 'action_dynamoDBv2' - Writes to the DynamoDB table that you created. The default action
 -- payload contains all attribute-value pairs that have the information
@@ -112,14 +116,6 @@ data Action = Action'
 -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions>
 -- in /AWS IoT Events Developer Guide/.
 --
--- 'resetTimer', 'action_resetTimer' - Information needed to reset the timer.
---
--- 'setTimer', 'action_setTimer' - Information needed to set the timer.
---
--- 'sns', 'action_sns' - Sends an Amazon SNS message.
---
--- 'clearTimer', 'action_clearTimer' - Information needed to clear the timer.
---
 -- 'dynamoDB', 'action_dynamoDB' - Writes to the DynamoDB table that you created. The default action
 -- payload contains all attribute-value pairs that have the information
 -- about the detector model instance and the event that triggered the
@@ -130,13 +126,7 @@ data Action = Action'
 -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html Actions>
 -- in /AWS IoT Events Developer Guide/.
 --
--- 'firehose', 'action_firehose' - Sends information about the detector model instance and the event that
--- triggered the action to an Amazon Kinesis Data Firehose delivery stream.
---
--- 'iotSiteWise', 'action_iotSiteWise' - Sends information about the detector model instance and the event that
--- triggered the action to an asset property in AWS IoT SiteWise .
---
--- 'setVariable', 'action_setVariable' - Sets a variable to a specified value.
+-- 'clearTimer', 'action_clearTimer' - Information needed to clear the timer.
 --
 -- 'lambda', 'action_lambda' - Calls a Lambda function, passing in information about the detector model
 -- instance and the event that triggered the action.
@@ -146,29 +136,47 @@ data Action = Action'
 --
 -- 'sqs', 'action_sqs' - Sends information about the detector model instance and the event that
 -- triggered the action to an Amazon SQS queue.
+--
+-- 'iotSiteWise', 'action_iotSiteWise' - Sends information about the detector model instance and the event that
+-- triggered the action to an asset property in AWS IoT SiteWise .
+--
+-- 'setVariable', 'action_setVariable' - Sets a variable to a specified value.
+--
+-- 'sns', 'action_sns' - Sends an Amazon SNS message.
+--
+-- 'iotTopicPublish', 'action_iotTopicPublish' - Publishes an MQTT message with the given topic to the AWS IoT message
+-- broker.
 newAction ::
   Action
 newAction =
   Action'
-    { iotTopicPublish = Prelude.Nothing,
-      dynamoDBv2 = Prelude.Nothing,
-      resetTimer = Prelude.Nothing,
-      setTimer = Prelude.Nothing,
-      sns = Prelude.Nothing,
-      clearTimer = Prelude.Nothing,
-      dynamoDB = Prelude.Nothing,
+    { setTimer = Prelude.Nothing,
       firehose = Prelude.Nothing,
-      iotSiteWise = Prelude.Nothing,
-      setVariable = Prelude.Nothing,
+      resetTimer = Prelude.Nothing,
+      dynamoDBv2 = Prelude.Nothing,
+      dynamoDB = Prelude.Nothing,
+      clearTimer = Prelude.Nothing,
       lambda = Prelude.Nothing,
       iotEvents = Prelude.Nothing,
-      sqs = Prelude.Nothing
+      sqs = Prelude.Nothing,
+      iotSiteWise = Prelude.Nothing,
+      setVariable = Prelude.Nothing,
+      sns = Prelude.Nothing,
+      iotTopicPublish = Prelude.Nothing
     }
 
--- | Publishes an MQTT message with the given topic to the AWS IoT message
--- broker.
-action_iotTopicPublish :: Lens.Lens' Action (Prelude.Maybe IotTopicPublishAction)
-action_iotTopicPublish = Lens.lens (\Action' {iotTopicPublish} -> iotTopicPublish) (\s@Action' {} a -> s {iotTopicPublish = a} :: Action)
+-- | Information needed to set the timer.
+action_setTimer :: Lens.Lens' Action (Prelude.Maybe SetTimerAction)
+action_setTimer = Lens.lens (\Action' {setTimer} -> setTimer) (\s@Action' {} a -> s {setTimer = a} :: Action)
+
+-- | Sends information about the detector model instance and the event that
+-- triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+action_firehose :: Lens.Lens' Action (Prelude.Maybe FirehoseAction)
+action_firehose = Lens.lens (\Action' {firehose} -> firehose) (\s@Action' {} a -> s {firehose = a} :: Action)
+
+-- | Information needed to reset the timer.
+action_resetTimer :: Lens.Lens' Action (Prelude.Maybe ResetTimerAction)
+action_resetTimer = Lens.lens (\Action' {resetTimer} -> resetTimer) (\s@Action' {} a -> s {resetTimer = a} :: Action)
 
 -- | Writes to the DynamoDB table that you created. The default action
 -- payload contains all attribute-value pairs that have the information
@@ -182,22 +190,6 @@ action_iotTopicPublish = Lens.lens (\Action' {iotTopicPublish} -> iotTopicPublis
 action_dynamoDBv2 :: Lens.Lens' Action (Prelude.Maybe DynamoDBv2Action)
 action_dynamoDBv2 = Lens.lens (\Action' {dynamoDBv2} -> dynamoDBv2) (\s@Action' {} a -> s {dynamoDBv2 = a} :: Action)
 
--- | Information needed to reset the timer.
-action_resetTimer :: Lens.Lens' Action (Prelude.Maybe ResetTimerAction)
-action_resetTimer = Lens.lens (\Action' {resetTimer} -> resetTimer) (\s@Action' {} a -> s {resetTimer = a} :: Action)
-
--- | Information needed to set the timer.
-action_setTimer :: Lens.Lens' Action (Prelude.Maybe SetTimerAction)
-action_setTimer = Lens.lens (\Action' {setTimer} -> setTimer) (\s@Action' {} a -> s {setTimer = a} :: Action)
-
--- | Sends an Amazon SNS message.
-action_sns :: Lens.Lens' Action (Prelude.Maybe SNSTopicPublishAction)
-action_sns = Lens.lens (\Action' {sns} -> sns) (\s@Action' {} a -> s {sns = a} :: Action)
-
--- | Information needed to clear the timer.
-action_clearTimer :: Lens.Lens' Action (Prelude.Maybe ClearTimerAction)
-action_clearTimer = Lens.lens (\Action' {clearTimer} -> clearTimer) (\s@Action' {} a -> s {clearTimer = a} :: Action)
-
 -- | Writes to the DynamoDB table that you created. The default action
 -- payload contains all attribute-value pairs that have the information
 -- about the detector model instance and the event that triggered the
@@ -210,19 +202,9 @@ action_clearTimer = Lens.lens (\Action' {clearTimer} -> clearTimer) (\s@Action' 
 action_dynamoDB :: Lens.Lens' Action (Prelude.Maybe DynamoDBAction)
 action_dynamoDB = Lens.lens (\Action' {dynamoDB} -> dynamoDB) (\s@Action' {} a -> s {dynamoDB = a} :: Action)
 
--- | Sends information about the detector model instance and the event that
--- triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-action_firehose :: Lens.Lens' Action (Prelude.Maybe FirehoseAction)
-action_firehose = Lens.lens (\Action' {firehose} -> firehose) (\s@Action' {} a -> s {firehose = a} :: Action)
-
--- | Sends information about the detector model instance and the event that
--- triggered the action to an asset property in AWS IoT SiteWise .
-action_iotSiteWise :: Lens.Lens' Action (Prelude.Maybe IotSiteWiseAction)
-action_iotSiteWise = Lens.lens (\Action' {iotSiteWise} -> iotSiteWise) (\s@Action' {} a -> s {iotSiteWise = a} :: Action)
-
--- | Sets a variable to a specified value.
-action_setVariable :: Lens.Lens' Action (Prelude.Maybe SetVariableAction)
-action_setVariable = Lens.lens (\Action' {setVariable} -> setVariable) (\s@Action' {} a -> s {setVariable = a} :: Action)
+-- | Information needed to clear the timer.
+action_clearTimer :: Lens.Lens' Action (Prelude.Maybe ClearTimerAction)
+action_clearTimer = Lens.lens (\Action' {clearTimer} -> clearTimer) (\s@Action' {} a -> s {clearTimer = a} :: Action)
 
 -- | Calls a Lambda function, passing in information about the detector model
 -- instance and the event that triggered the action.
@@ -239,76 +221,94 @@ action_iotEvents = Lens.lens (\Action' {iotEvents} -> iotEvents) (\s@Action' {} 
 action_sqs :: Lens.Lens' Action (Prelude.Maybe SqsAction)
 action_sqs = Lens.lens (\Action' {sqs} -> sqs) (\s@Action' {} a -> s {sqs = a} :: Action)
 
+-- | Sends information about the detector model instance and the event that
+-- triggered the action to an asset property in AWS IoT SiteWise .
+action_iotSiteWise :: Lens.Lens' Action (Prelude.Maybe IotSiteWiseAction)
+action_iotSiteWise = Lens.lens (\Action' {iotSiteWise} -> iotSiteWise) (\s@Action' {} a -> s {iotSiteWise = a} :: Action)
+
+-- | Sets a variable to a specified value.
+action_setVariable :: Lens.Lens' Action (Prelude.Maybe SetVariableAction)
+action_setVariable = Lens.lens (\Action' {setVariable} -> setVariable) (\s@Action' {} a -> s {setVariable = a} :: Action)
+
+-- | Sends an Amazon SNS message.
+action_sns :: Lens.Lens' Action (Prelude.Maybe SNSTopicPublishAction)
+action_sns = Lens.lens (\Action' {sns} -> sns) (\s@Action' {} a -> s {sns = a} :: Action)
+
+-- | Publishes an MQTT message with the given topic to the AWS IoT message
+-- broker.
+action_iotTopicPublish :: Lens.Lens' Action (Prelude.Maybe IotTopicPublishAction)
+action_iotTopicPublish = Lens.lens (\Action' {iotTopicPublish} -> iotTopicPublish) (\s@Action' {} a -> s {iotTopicPublish = a} :: Action)
+
 instance Core.FromJSON Action where
   parseJSON =
     Core.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "iotTopicPublish")
-            Prelude.<*> (x Core..:? "dynamoDBv2")
-            Prelude.<*> (x Core..:? "resetTimer")
-            Prelude.<*> (x Core..:? "setTimer")
-            Prelude.<*> (x Core..:? "sns")
-            Prelude.<*> (x Core..:? "clearTimer")
-            Prelude.<*> (x Core..:? "dynamoDB")
+            Prelude.<$> (x Core..:? "setTimer")
             Prelude.<*> (x Core..:? "firehose")
-            Prelude.<*> (x Core..:? "iotSiteWise")
-            Prelude.<*> (x Core..:? "setVariable")
+            Prelude.<*> (x Core..:? "resetTimer")
+            Prelude.<*> (x Core..:? "dynamoDBv2")
+            Prelude.<*> (x Core..:? "dynamoDB")
+            Prelude.<*> (x Core..:? "clearTimer")
             Prelude.<*> (x Core..:? "lambda")
             Prelude.<*> (x Core..:? "iotEvents")
             Prelude.<*> (x Core..:? "sqs")
+            Prelude.<*> (x Core..:? "iotSiteWise")
+            Prelude.<*> (x Core..:? "setVariable")
+            Prelude.<*> (x Core..:? "sns")
+            Prelude.<*> (x Core..:? "iotTopicPublish")
       )
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` iotTopicPublish
-      `Prelude.hashWithSalt` dynamoDBv2
-      `Prelude.hashWithSalt` resetTimer
-      `Prelude.hashWithSalt` setTimer
-      `Prelude.hashWithSalt` sns
-      `Prelude.hashWithSalt` clearTimer
-      `Prelude.hashWithSalt` dynamoDB
+    _salt `Prelude.hashWithSalt` setTimer
       `Prelude.hashWithSalt` firehose
-      `Prelude.hashWithSalt` iotSiteWise
-      `Prelude.hashWithSalt` setVariable
+      `Prelude.hashWithSalt` resetTimer
+      `Prelude.hashWithSalt` dynamoDBv2
+      `Prelude.hashWithSalt` dynamoDB
+      `Prelude.hashWithSalt` clearTimer
       `Prelude.hashWithSalt` lambda
       `Prelude.hashWithSalt` iotEvents
       `Prelude.hashWithSalt` sqs
+      `Prelude.hashWithSalt` iotSiteWise
+      `Prelude.hashWithSalt` setVariable
+      `Prelude.hashWithSalt` sns
+      `Prelude.hashWithSalt` iotTopicPublish
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
-    Prelude.rnf iotTopicPublish
-      `Prelude.seq` Prelude.rnf dynamoDBv2
-      `Prelude.seq` Prelude.rnf resetTimer
-      `Prelude.seq` Prelude.rnf setTimer
-      `Prelude.seq` Prelude.rnf sns
-      `Prelude.seq` Prelude.rnf clearTimer
-      `Prelude.seq` Prelude.rnf dynamoDB
+    Prelude.rnf setTimer
       `Prelude.seq` Prelude.rnf firehose
-      `Prelude.seq` Prelude.rnf iotSiteWise
-      `Prelude.seq` Prelude.rnf setVariable
+      `Prelude.seq` Prelude.rnf resetTimer
+      `Prelude.seq` Prelude.rnf dynamoDBv2
+      `Prelude.seq` Prelude.rnf dynamoDB
+      `Prelude.seq` Prelude.rnf clearTimer
       `Prelude.seq` Prelude.rnf lambda
       `Prelude.seq` Prelude.rnf iotEvents
       `Prelude.seq` Prelude.rnf sqs
+      `Prelude.seq` Prelude.rnf iotSiteWise
+      `Prelude.seq` Prelude.rnf setVariable
+      `Prelude.seq` Prelude.rnf sns
+      `Prelude.seq` Prelude.rnf iotTopicPublish
 
 instance Core.ToJSON Action where
   toJSON Action' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("iotTopicPublish" Core..=)
-              Prelude.<$> iotTopicPublish,
-            ("dynamoDBv2" Core..=) Prelude.<$> dynamoDBv2,
-            ("resetTimer" Core..=) Prelude.<$> resetTimer,
-            ("setTimer" Core..=) Prelude.<$> setTimer,
-            ("sns" Core..=) Prelude.<$> sns,
-            ("clearTimer" Core..=) Prelude.<$> clearTimer,
-            ("dynamoDB" Core..=) Prelude.<$> dynamoDB,
+          [ ("setTimer" Core..=) Prelude.<$> setTimer,
             ("firehose" Core..=) Prelude.<$> firehose,
-            ("iotSiteWise" Core..=) Prelude.<$> iotSiteWise,
-            ("setVariable" Core..=) Prelude.<$> setVariable,
+            ("resetTimer" Core..=) Prelude.<$> resetTimer,
+            ("dynamoDBv2" Core..=) Prelude.<$> dynamoDBv2,
+            ("dynamoDB" Core..=) Prelude.<$> dynamoDB,
+            ("clearTimer" Core..=) Prelude.<$> clearTimer,
             ("lambda" Core..=) Prelude.<$> lambda,
             ("iotEvents" Core..=) Prelude.<$> iotEvents,
-            ("sqs" Core..=) Prelude.<$> sqs
+            ("sqs" Core..=) Prelude.<$> sqs,
+            ("iotSiteWise" Core..=) Prelude.<$> iotSiteWise,
+            ("setVariable" Core..=) Prelude.<$> setVariable,
+            ("sns" Core..=) Prelude.<$> sns,
+            ("iotTopicPublish" Core..=)
+              Prelude.<$> iotTopicPublish
           ]
       )

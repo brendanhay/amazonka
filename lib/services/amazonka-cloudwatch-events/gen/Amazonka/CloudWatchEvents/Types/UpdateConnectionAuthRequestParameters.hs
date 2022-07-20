@@ -37,12 +37,12 @@ data UpdateConnectionAuthRequestParameters = UpdateConnectionAuthRequestParamete
     -- | A @ConnectionHttpParameters@ object that contains the additional
     -- parameters to use for the connection.
     invocationHttpParameters :: Prelude.Maybe ConnectionHttpParameters,
-    -- | A @UpdateConnectionApiKeyAuthRequestParameters@ object that contains the
-    -- authorization parameters for API key authorization.
-    apiKeyAuthParameters :: Prelude.Maybe UpdateConnectionApiKeyAuthRequestParameters,
     -- | A @UpdateConnectionBasicAuthRequestParameters@ object that contains the
     -- authorization parameters for Basic authorization.
-    basicAuthParameters :: Prelude.Maybe UpdateConnectionBasicAuthRequestParameters
+    basicAuthParameters :: Prelude.Maybe UpdateConnectionBasicAuthRequestParameters,
+    -- | A @UpdateConnectionApiKeyAuthRequestParameters@ object that contains the
+    -- authorization parameters for API key authorization.
+    apiKeyAuthParameters :: Prelude.Maybe UpdateConnectionApiKeyAuthRequestParameters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,11 +60,11 @@ data UpdateConnectionAuthRequestParameters = UpdateConnectionAuthRequestParamete
 -- 'invocationHttpParameters', 'updateConnectionAuthRequestParameters_invocationHttpParameters' - A @ConnectionHttpParameters@ object that contains the additional
 -- parameters to use for the connection.
 --
--- 'apiKeyAuthParameters', 'updateConnectionAuthRequestParameters_apiKeyAuthParameters' - A @UpdateConnectionApiKeyAuthRequestParameters@ object that contains the
--- authorization parameters for API key authorization.
---
 -- 'basicAuthParameters', 'updateConnectionAuthRequestParameters_basicAuthParameters' - A @UpdateConnectionBasicAuthRequestParameters@ object that contains the
 -- authorization parameters for Basic authorization.
+--
+-- 'apiKeyAuthParameters', 'updateConnectionAuthRequestParameters_apiKeyAuthParameters' - A @UpdateConnectionApiKeyAuthRequestParameters@ object that contains the
+-- authorization parameters for API key authorization.
 newUpdateConnectionAuthRequestParameters ::
   UpdateConnectionAuthRequestParameters
 newUpdateConnectionAuthRequestParameters =
@@ -73,9 +73,9 @@ newUpdateConnectionAuthRequestParameters =
         Prelude.Nothing,
       invocationHttpParameters =
         Prelude.Nothing,
-      apiKeyAuthParameters =
-        Prelude.Nothing,
       basicAuthParameters =
+        Prelude.Nothing,
+      apiKeyAuthParameters =
         Prelude.Nothing
     }
 
@@ -89,15 +89,15 @@ updateConnectionAuthRequestParameters_oAuthParameters = Lens.lens (\UpdateConnec
 updateConnectionAuthRequestParameters_invocationHttpParameters :: Lens.Lens' UpdateConnectionAuthRequestParameters (Prelude.Maybe ConnectionHttpParameters)
 updateConnectionAuthRequestParameters_invocationHttpParameters = Lens.lens (\UpdateConnectionAuthRequestParameters' {invocationHttpParameters} -> invocationHttpParameters) (\s@UpdateConnectionAuthRequestParameters' {} a -> s {invocationHttpParameters = a} :: UpdateConnectionAuthRequestParameters)
 
--- | A @UpdateConnectionApiKeyAuthRequestParameters@ object that contains the
--- authorization parameters for API key authorization.
-updateConnectionAuthRequestParameters_apiKeyAuthParameters :: Lens.Lens' UpdateConnectionAuthRequestParameters (Prelude.Maybe UpdateConnectionApiKeyAuthRequestParameters)
-updateConnectionAuthRequestParameters_apiKeyAuthParameters = Lens.lens (\UpdateConnectionAuthRequestParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@UpdateConnectionAuthRequestParameters' {} a -> s {apiKeyAuthParameters = a} :: UpdateConnectionAuthRequestParameters)
-
 -- | A @UpdateConnectionBasicAuthRequestParameters@ object that contains the
 -- authorization parameters for Basic authorization.
 updateConnectionAuthRequestParameters_basicAuthParameters :: Lens.Lens' UpdateConnectionAuthRequestParameters (Prelude.Maybe UpdateConnectionBasicAuthRequestParameters)
 updateConnectionAuthRequestParameters_basicAuthParameters = Lens.lens (\UpdateConnectionAuthRequestParameters' {basicAuthParameters} -> basicAuthParameters) (\s@UpdateConnectionAuthRequestParameters' {} a -> s {basicAuthParameters = a} :: UpdateConnectionAuthRequestParameters)
+
+-- | A @UpdateConnectionApiKeyAuthRequestParameters@ object that contains the
+-- authorization parameters for API key authorization.
+updateConnectionAuthRequestParameters_apiKeyAuthParameters :: Lens.Lens' UpdateConnectionAuthRequestParameters (Prelude.Maybe UpdateConnectionApiKeyAuthRequestParameters)
+updateConnectionAuthRequestParameters_apiKeyAuthParameters = Lens.lens (\UpdateConnectionAuthRequestParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@UpdateConnectionAuthRequestParameters' {} a -> s {apiKeyAuthParameters = a} :: UpdateConnectionAuthRequestParameters)
 
 instance
   Prelude.Hashable
@@ -108,8 +108,8 @@ instance
     UpdateConnectionAuthRequestParameters' {..} =
       _salt `Prelude.hashWithSalt` oAuthParameters
         `Prelude.hashWithSalt` invocationHttpParameters
-        `Prelude.hashWithSalt` apiKeyAuthParameters
         `Prelude.hashWithSalt` basicAuthParameters
+        `Prelude.hashWithSalt` apiKeyAuthParameters
 
 instance
   Prelude.NFData
@@ -118,8 +118,8 @@ instance
   rnf UpdateConnectionAuthRequestParameters' {..} =
     Prelude.rnf oAuthParameters
       `Prelude.seq` Prelude.rnf invocationHttpParameters
-      `Prelude.seq` Prelude.rnf apiKeyAuthParameters
       `Prelude.seq` Prelude.rnf basicAuthParameters
+      `Prelude.seq` Prelude.rnf apiKeyAuthParameters
 
 instance
   Core.ToJSON
@@ -132,9 +132,9 @@ instance
               Prelude.<$> oAuthParameters,
             ("InvocationHttpParameters" Core..=)
               Prelude.<$> invocationHttpParameters,
-            ("ApiKeyAuthParameters" Core..=)
-              Prelude.<$> apiKeyAuthParameters,
             ("BasicAuthParameters" Core..=)
-              Prelude.<$> basicAuthParameters
+              Prelude.<$> basicAuthParameters,
+            ("ApiKeyAuthParameters" Core..=)
+              Prelude.<$> apiKeyAuthParameters
           ]
       )

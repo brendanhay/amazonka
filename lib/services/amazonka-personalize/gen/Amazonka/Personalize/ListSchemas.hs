@@ -39,8 +39,8 @@ module Amazonka.Personalize.ListSchemas
     newListSchemasResponse,
 
     -- * Response Lenses
-    listSchemasResponse_schemas,
     listSchemasResponse_nextToken,
+    listSchemasResponse_schemas,
     listSchemasResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest ListSchemas where
     Response.receiveJSON
       ( \s h x ->
           ListSchemasResponse'
-            Prelude.<$> (x Core..?> "schemas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,10 +164,10 @@ instance Core.ToQuery ListSchemas where
 
 -- | /See:/ 'newListSchemasResponse' smart constructor.
 data ListSchemasResponse = ListSchemasResponse'
-  { -- | A list of schemas.
-    schemas :: Prelude.Maybe [DatasetSchemaSummary],
-    -- | A token used to get the next set of schemas (if they exist).
+  { -- | A token used to get the next set of schemas (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of schemas.
+    schemas :: Prelude.Maybe [DatasetSchemaSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,9 +181,9 @@ data ListSchemasResponse = ListSchemasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemas', 'listSchemasResponse_schemas' - A list of schemas.
---
 -- 'nextToken', 'listSchemasResponse_nextToken' - A token used to get the next set of schemas (if they exist).
+--
+-- 'schemas', 'listSchemasResponse_schemas' - A list of schemas.
 --
 -- 'httpStatus', 'listSchemasResponse_httpStatus' - The response's http status code.
 newListSchemasResponse ::
@@ -192,18 +192,18 @@ newListSchemasResponse ::
   ListSchemasResponse
 newListSchemasResponse pHttpStatus_ =
   ListSchemasResponse'
-    { schemas = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      schemas = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of schemas.
-listSchemasResponse_schemas :: Lens.Lens' ListSchemasResponse (Prelude.Maybe [DatasetSchemaSummary])
-listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> schemas) (\s@ListSchemasResponse' {} a -> s {schemas = a} :: ListSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token used to get the next set of schemas (if they exist).
 listSchemasResponse_nextToken :: Lens.Lens' ListSchemasResponse (Prelude.Maybe Prelude.Text)
 listSchemasResponse_nextToken = Lens.lens (\ListSchemasResponse' {nextToken} -> nextToken) (\s@ListSchemasResponse' {} a -> s {nextToken = a} :: ListSchemasResponse)
+
+-- | A list of schemas.
+listSchemasResponse_schemas :: Lens.Lens' ListSchemasResponse (Prelude.Maybe [DatasetSchemaSummary])
+listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> schemas) (\s@ListSchemasResponse' {} a -> s {schemas = a} :: ListSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSchemasResponse_httpStatus :: Lens.Lens' ListSchemasResponse Prelude.Int
@@ -211,6 +211,6 @@ listSchemasResponse_httpStatus = Lens.lens (\ListSchemasResponse' {httpStatus} -
 
 instance Prelude.NFData ListSchemasResponse where
   rnf ListSchemasResponse' {..} =
-    Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemas
       `Prelude.seq` Prelude.rnf httpStatus

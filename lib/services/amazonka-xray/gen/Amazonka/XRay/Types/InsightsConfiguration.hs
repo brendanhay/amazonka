@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInsightsConfiguration' smart constructor.
 data InsightsConfiguration = InsightsConfiguration'
-  { -- | Set the NotificationsEnabled value to true to enable insights
+  { -- | Set the InsightsEnabled value to true to enable insights or false to
+    -- disable insights.
+    insightsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Set the NotificationsEnabled value to true to enable insights
     -- notifications. Notifications can only be enabled on a group with
     -- InsightsEnabled set to true.
-    notificationsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Set the InsightsEnabled value to true to enable insights or false to
-    -- disable insights.
-    insightsEnabled :: Prelude.Maybe Prelude.Bool
+    notificationsEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,25 @@ data InsightsConfiguration = InsightsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'insightsEnabled', 'insightsConfiguration_insightsEnabled' - Set the InsightsEnabled value to true to enable insights or false to
+-- disable insights.
+--
 -- 'notificationsEnabled', 'insightsConfiguration_notificationsEnabled' - Set the NotificationsEnabled value to true to enable insights
 -- notifications. Notifications can only be enabled on a group with
 -- InsightsEnabled set to true.
---
--- 'insightsEnabled', 'insightsConfiguration_insightsEnabled' - Set the InsightsEnabled value to true to enable insights or false to
--- disable insights.
 newInsightsConfiguration ::
   InsightsConfiguration
 newInsightsConfiguration =
   InsightsConfiguration'
-    { notificationsEnabled =
+    { insightsEnabled =
         Prelude.Nothing,
-      insightsEnabled = Prelude.Nothing
+      notificationsEnabled = Prelude.Nothing
     }
+
+-- | Set the InsightsEnabled value to true to enable insights or false to
+-- disable insights.
+insightsConfiguration_insightsEnabled :: Lens.Lens' InsightsConfiguration (Prelude.Maybe Prelude.Bool)
+insightsConfiguration_insightsEnabled = Lens.lens (\InsightsConfiguration' {insightsEnabled} -> insightsEnabled) (\s@InsightsConfiguration' {} a -> s {insightsEnabled = a} :: InsightsConfiguration)
 
 -- | Set the NotificationsEnabled value to true to enable insights
 -- notifications. Notifications can only be enabled on a group with
@@ -66,38 +71,33 @@ newInsightsConfiguration =
 insightsConfiguration_notificationsEnabled :: Lens.Lens' InsightsConfiguration (Prelude.Maybe Prelude.Bool)
 insightsConfiguration_notificationsEnabled = Lens.lens (\InsightsConfiguration' {notificationsEnabled} -> notificationsEnabled) (\s@InsightsConfiguration' {} a -> s {notificationsEnabled = a} :: InsightsConfiguration)
 
--- | Set the InsightsEnabled value to true to enable insights or false to
--- disable insights.
-insightsConfiguration_insightsEnabled :: Lens.Lens' InsightsConfiguration (Prelude.Maybe Prelude.Bool)
-insightsConfiguration_insightsEnabled = Lens.lens (\InsightsConfiguration' {insightsEnabled} -> insightsEnabled) (\s@InsightsConfiguration' {} a -> s {insightsEnabled = a} :: InsightsConfiguration)
-
 instance Core.FromJSON InsightsConfiguration where
   parseJSON =
     Core.withObject
       "InsightsConfiguration"
       ( \x ->
           InsightsConfiguration'
-            Prelude.<$> (x Core..:? "NotificationsEnabled")
-            Prelude.<*> (x Core..:? "InsightsEnabled")
+            Prelude.<$> (x Core..:? "InsightsEnabled")
+            Prelude.<*> (x Core..:? "NotificationsEnabled")
       )
 
 instance Prelude.Hashable InsightsConfiguration where
   hashWithSalt _salt InsightsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` notificationsEnabled
-      `Prelude.hashWithSalt` insightsEnabled
+    _salt `Prelude.hashWithSalt` insightsEnabled
+      `Prelude.hashWithSalt` notificationsEnabled
 
 instance Prelude.NFData InsightsConfiguration where
   rnf InsightsConfiguration' {..} =
-    Prelude.rnf notificationsEnabled
-      `Prelude.seq` Prelude.rnf insightsEnabled
+    Prelude.rnf insightsEnabled
+      `Prelude.seq` Prelude.rnf notificationsEnabled
 
 instance Core.ToJSON InsightsConfiguration where
   toJSON InsightsConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotificationsEnabled" Core..=)
-              Prelude.<$> notificationsEnabled,
-            ("InsightsEnabled" Core..=)
-              Prelude.<$> insightsEnabled
+          [ ("InsightsEnabled" Core..=)
+              Prelude.<$> insightsEnabled,
+            ("NotificationsEnabled" Core..=)
+              Prelude.<$> notificationsEnabled
           ]
       )

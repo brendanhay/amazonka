@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectorOAuthRequest' smart constructor.
 data ConnectorOAuthRequest = ConnectorOAuthRequest'
-  { -- | The URL to which the authentication server redirects the browser after
-    -- authorization has been granted.
-    redirectUri :: Prelude.Maybe Prelude.Text,
-    -- | The code provided by the connector when it has been authenticated via
+  { -- | The code provided by the connector when it has been authenticated via
     -- the connected app.
-    authCode :: Prelude.Maybe Prelude.Text
+    authCode :: Prelude.Maybe Prelude.Text,
+    -- | The URL to which the authentication server redirects the browser after
+    -- authorization has been granted.
+    redirectUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,45 +45,44 @@ data ConnectorOAuthRequest = ConnectorOAuthRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'redirectUri', 'connectorOAuthRequest_redirectUri' - The URL to which the authentication server redirects the browser after
--- authorization has been granted.
---
 -- 'authCode', 'connectorOAuthRequest_authCode' - The code provided by the connector when it has been authenticated via
 -- the connected app.
+--
+-- 'redirectUri', 'connectorOAuthRequest_redirectUri' - The URL to which the authentication server redirects the browser after
+-- authorization has been granted.
 newConnectorOAuthRequest ::
   ConnectorOAuthRequest
 newConnectorOAuthRequest =
   ConnectorOAuthRequest'
-    { redirectUri =
-        Prelude.Nothing,
-      authCode = Prelude.Nothing
+    { authCode = Prelude.Nothing,
+      redirectUri = Prelude.Nothing
     }
-
--- | The URL to which the authentication server redirects the browser after
--- authorization has been granted.
-connectorOAuthRequest_redirectUri :: Lens.Lens' ConnectorOAuthRequest (Prelude.Maybe Prelude.Text)
-connectorOAuthRequest_redirectUri = Lens.lens (\ConnectorOAuthRequest' {redirectUri} -> redirectUri) (\s@ConnectorOAuthRequest' {} a -> s {redirectUri = a} :: ConnectorOAuthRequest)
 
 -- | The code provided by the connector when it has been authenticated via
 -- the connected app.
 connectorOAuthRequest_authCode :: Lens.Lens' ConnectorOAuthRequest (Prelude.Maybe Prelude.Text)
 connectorOAuthRequest_authCode = Lens.lens (\ConnectorOAuthRequest' {authCode} -> authCode) (\s@ConnectorOAuthRequest' {} a -> s {authCode = a} :: ConnectorOAuthRequest)
 
+-- | The URL to which the authentication server redirects the browser after
+-- authorization has been granted.
+connectorOAuthRequest_redirectUri :: Lens.Lens' ConnectorOAuthRequest (Prelude.Maybe Prelude.Text)
+connectorOAuthRequest_redirectUri = Lens.lens (\ConnectorOAuthRequest' {redirectUri} -> redirectUri) (\s@ConnectorOAuthRequest' {} a -> s {redirectUri = a} :: ConnectorOAuthRequest)
+
 instance Prelude.Hashable ConnectorOAuthRequest where
   hashWithSalt _salt ConnectorOAuthRequest' {..} =
-    _salt `Prelude.hashWithSalt` redirectUri
-      `Prelude.hashWithSalt` authCode
+    _salt `Prelude.hashWithSalt` authCode
+      `Prelude.hashWithSalt` redirectUri
 
 instance Prelude.NFData ConnectorOAuthRequest where
   rnf ConnectorOAuthRequest' {..} =
-    Prelude.rnf redirectUri
-      `Prelude.seq` Prelude.rnf authCode
+    Prelude.rnf authCode
+      `Prelude.seq` Prelude.rnf redirectUri
 
 instance Core.ToJSON ConnectorOAuthRequest where
   toJSON ConnectorOAuthRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("redirectUri" Core..=) Prelude.<$> redirectUri,
-            ("authCode" Core..=) Prelude.<$> authCode
+          [ ("authCode" Core..=) Prelude.<$> authCode,
+            ("redirectUri" Core..=) Prelude.<$> redirectUri
           ]
       )

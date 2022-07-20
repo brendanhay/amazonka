@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElasticsearchDomainDomainEndpointOptions' smart constructor.
 data AwsElasticsearchDomainDomainEndpointOptions = AwsElasticsearchDomainDomainEndpointOptions'
-  { -- | Whether to require that all traffic to the domain arrive over HTTPS.
-    enforceHTTPS :: Prelude.Maybe Prelude.Bool,
-    -- | The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
+  { -- | The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
     -- domain.
     --
     -- Valid values:
@@ -38,7 +36,9 @@ data AwsElasticsearchDomainDomainEndpointOptions = AwsElasticsearchDomainDomainE
     -- -   @Policy-Min-TLS-1-0-2019-07@, which supports TLSv1.0 and higher
     --
     -- -   @Policy-Min-TLS-1-2-2019-07@, which only supports TLSv1.2
-    tLSSecurityPolicy :: Prelude.Maybe Prelude.Text
+    tLSSecurityPolicy :: Prelude.Maybe Prelude.Text,
+    -- | Whether to require that all traffic to the domain arrive over HTTPS.
+    enforceHTTPS :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,8 +50,6 @@ data AwsElasticsearchDomainDomainEndpointOptions = AwsElasticsearchDomainDomainE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enforceHTTPS', 'awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS' - Whether to require that all traffic to the domain arrive over HTTPS.
---
 -- 'tLSSecurityPolicy', 'awsElasticsearchDomainDomainEndpointOptions_tLSSecurityPolicy' - The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
 -- domain.
 --
@@ -60,19 +58,16 @@ data AwsElasticsearchDomainDomainEndpointOptions = AwsElasticsearchDomainDomainE
 -- -   @Policy-Min-TLS-1-0-2019-07@, which supports TLSv1.0 and higher
 --
 -- -   @Policy-Min-TLS-1-2-2019-07@, which only supports TLSv1.2
+--
+-- 'enforceHTTPS', 'awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS' - Whether to require that all traffic to the domain arrive over HTTPS.
 newAwsElasticsearchDomainDomainEndpointOptions ::
   AwsElasticsearchDomainDomainEndpointOptions
 newAwsElasticsearchDomainDomainEndpointOptions =
   AwsElasticsearchDomainDomainEndpointOptions'
-    { enforceHTTPS =
+    { tLSSecurityPolicy =
         Prelude.Nothing,
-      tLSSecurityPolicy =
-        Prelude.Nothing
+      enforceHTTPS = Prelude.Nothing
     }
-
--- | Whether to require that all traffic to the domain arrive over HTTPS.
-awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS :: Lens.Lens' AwsElasticsearchDomainDomainEndpointOptions (Prelude.Maybe Prelude.Bool)
-awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS = Lens.lens (\AwsElasticsearchDomainDomainEndpointOptions' {enforceHTTPS} -> enforceHTTPS) (\s@AwsElasticsearchDomainDomainEndpointOptions' {} a -> s {enforceHTTPS = a} :: AwsElasticsearchDomainDomainEndpointOptions)
 
 -- | The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
 -- domain.
@@ -85,6 +80,10 @@ awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS = Lens.lens (\AwsElasti
 awsElasticsearchDomainDomainEndpointOptions_tLSSecurityPolicy :: Lens.Lens' AwsElasticsearchDomainDomainEndpointOptions (Prelude.Maybe Prelude.Text)
 awsElasticsearchDomainDomainEndpointOptions_tLSSecurityPolicy = Lens.lens (\AwsElasticsearchDomainDomainEndpointOptions' {tLSSecurityPolicy} -> tLSSecurityPolicy) (\s@AwsElasticsearchDomainDomainEndpointOptions' {} a -> s {tLSSecurityPolicy = a} :: AwsElasticsearchDomainDomainEndpointOptions)
 
+-- | Whether to require that all traffic to the domain arrive over HTTPS.
+awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS :: Lens.Lens' AwsElasticsearchDomainDomainEndpointOptions (Prelude.Maybe Prelude.Bool)
+awsElasticsearchDomainDomainEndpointOptions_enforceHTTPS = Lens.lens (\AwsElasticsearchDomainDomainEndpointOptions' {enforceHTTPS} -> enforceHTTPS) (\s@AwsElasticsearchDomainDomainEndpointOptions' {} a -> s {enforceHTTPS = a} :: AwsElasticsearchDomainDomainEndpointOptions)
+
 instance
   Core.FromJSON
     AwsElasticsearchDomainDomainEndpointOptions
@@ -94,8 +93,8 @@ instance
       "AwsElasticsearchDomainDomainEndpointOptions"
       ( \x ->
           AwsElasticsearchDomainDomainEndpointOptions'
-            Prelude.<$> (x Core..:? "EnforceHTTPS")
-              Prelude.<*> (x Core..:? "TLSSecurityPolicy")
+            Prelude.<$> (x Core..:? "TLSSecurityPolicy")
+              Prelude.<*> (x Core..:? "EnforceHTTPS")
       )
 
 instance
@@ -105,16 +104,16 @@ instance
   hashWithSalt
     _salt
     AwsElasticsearchDomainDomainEndpointOptions' {..} =
-      _salt `Prelude.hashWithSalt` enforceHTTPS
-        `Prelude.hashWithSalt` tLSSecurityPolicy
+      _salt `Prelude.hashWithSalt` tLSSecurityPolicy
+        `Prelude.hashWithSalt` enforceHTTPS
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainDomainEndpointOptions
   where
   rnf AwsElasticsearchDomainDomainEndpointOptions' {..} =
-    Prelude.rnf enforceHTTPS
-      `Prelude.seq` Prelude.rnf tLSSecurityPolicy
+    Prelude.rnf tLSSecurityPolicy
+      `Prelude.seq` Prelude.rnf enforceHTTPS
 
 instance
   Core.ToJSON
@@ -124,8 +123,8 @@ instance
     AwsElasticsearchDomainDomainEndpointOptions' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("EnforceHTTPS" Core..=) Prelude.<$> enforceHTTPS,
-              ("TLSSecurityPolicy" Core..=)
-                Prelude.<$> tLSSecurityPolicy
+            [ ("TLSSecurityPolicy" Core..=)
+                Prelude.<$> tLSSecurityPolicy,
+              ("EnforceHTTPS" Core..=) Prelude.<$> enforceHTTPS
             ]
         )

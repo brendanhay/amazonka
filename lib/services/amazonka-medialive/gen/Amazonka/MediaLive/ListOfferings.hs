@@ -29,18 +29,18 @@ module Amazonka.MediaLive.ListOfferings
     newListOfferings,
 
     -- * Request Lenses
-    listOfferings_videoQuality,
-    listOfferings_maximumFramerate,
     listOfferings_resourceType,
-    listOfferings_channelConfiguration,
-    listOfferings_resolution,
-    listOfferings_codec,
     listOfferings_nextToken,
-    listOfferings_specialFeature,
+    listOfferings_channelConfiguration,
     listOfferings_channelClass,
-    listOfferings_maximumBitrate,
+    listOfferings_codec,
     listOfferings_duration,
     listOfferings_maxResults,
+    listOfferings_maximumFramerate,
+    listOfferings_videoQuality,
+    listOfferings_maximumBitrate,
+    listOfferings_specialFeature,
+    listOfferings_resolution,
 
     -- * Destructuring the Response
     ListOfferingsResponse (..),
@@ -64,30 +64,30 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListOfferings' smart constructor.
 data ListOfferings = ListOfferings'
-  { -- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
-    videoQuality :: Prelude.Maybe Prelude.Text,
-    -- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
-    maximumFramerate :: Prelude.Maybe Prelude.Text,
-    -- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
+  { -- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
     -- \'CHANNEL\'
     resourceType :: Prelude.Maybe Prelude.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filter to offerings that match the configuration of an existing channel,
     -- e.g. \'2345678\' (a channel ID)
     channelConfiguration :: Prelude.Maybe Prelude.Text,
-    -- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
-    resolution :: Prelude.Maybe Prelude.Text,
-    -- | Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'
-    codec :: Prelude.Maybe Prelude.Text,
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
-    specialFeature :: Prelude.Maybe Prelude.Text,
     -- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
     channelClass :: Prelude.Maybe Prelude.Text,
-    -- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
-    maximumBitrate :: Prelude.Maybe Prelude.Text,
+    -- | Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'
+    codec :: Prelude.Maybe Prelude.Text,
     -- | Filter by offering duration, e.g. \'12\'
     duration :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
+    maximumFramerate :: Prelude.Maybe Prelude.Text,
+    -- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
+    videoQuality :: Prelude.Maybe Prelude.Text,
+    -- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
+    maximumBitrate :: Prelude.Maybe Prelude.Text,
+    -- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
+    specialFeature :: Prelude.Maybe Prelude.Text,
+    -- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
+    resolution :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,90 +99,70 @@ data ListOfferings = ListOfferings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'videoQuality', 'listOfferings_videoQuality' - Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
---
--- 'maximumFramerate', 'listOfferings_maximumFramerate' - Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
---
 -- 'resourceType', 'listOfferings_resourceType' - Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
 -- \'CHANNEL\'
+--
+-- 'nextToken', 'listOfferings_nextToken' - Undocumented member.
 --
 -- 'channelConfiguration', 'listOfferings_channelConfiguration' - Filter to offerings that match the configuration of an existing channel,
 -- e.g. \'2345678\' (a channel ID)
 --
--- 'resolution', 'listOfferings_resolution' - Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
---
--- 'codec', 'listOfferings_codec' - Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'
---
--- 'nextToken', 'listOfferings_nextToken' - Undocumented member.
---
--- 'specialFeature', 'listOfferings_specialFeature' - Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
---
 -- 'channelClass', 'listOfferings_channelClass' - Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
 --
--- 'maximumBitrate', 'listOfferings_maximumBitrate' - Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
+-- 'codec', 'listOfferings_codec' - Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'
 --
 -- 'duration', 'listOfferings_duration' - Filter by offering duration, e.g. \'12\'
 --
 -- 'maxResults', 'listOfferings_maxResults' - Undocumented member.
+--
+-- 'maximumFramerate', 'listOfferings_maximumFramerate' - Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
+--
+-- 'videoQuality', 'listOfferings_videoQuality' - Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
+--
+-- 'maximumBitrate', 'listOfferings_maximumBitrate' - Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
+--
+-- 'specialFeature', 'listOfferings_specialFeature' - Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
+--
+-- 'resolution', 'listOfferings_resolution' - Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
 newListOfferings ::
   ListOfferings
 newListOfferings =
   ListOfferings'
-    { videoQuality = Prelude.Nothing,
-      maximumFramerate = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      channelConfiguration = Prelude.Nothing,
-      resolution = Prelude.Nothing,
-      codec = Prelude.Nothing,
+    { resourceType = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      specialFeature = Prelude.Nothing,
+      channelConfiguration = Prelude.Nothing,
       channelClass = Prelude.Nothing,
-      maximumBitrate = Prelude.Nothing,
+      codec = Prelude.Nothing,
       duration = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      maximumFramerate = Prelude.Nothing,
+      videoQuality = Prelude.Nothing,
+      maximumBitrate = Prelude.Nothing,
+      specialFeature = Prelude.Nothing,
+      resolution = Prelude.Nothing
     }
-
--- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
-listOfferings_videoQuality :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
-listOfferings_videoQuality = Lens.lens (\ListOfferings' {videoQuality} -> videoQuality) (\s@ListOfferings' {} a -> s {videoQuality = a} :: ListOfferings)
-
--- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
-listOfferings_maximumFramerate :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
-listOfferings_maximumFramerate = Lens.lens (\ListOfferings' {maximumFramerate} -> maximumFramerate) (\s@ListOfferings' {} a -> s {maximumFramerate = a} :: ListOfferings)
 
 -- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
 -- \'CHANNEL\'
 listOfferings_resourceType :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
 listOfferings_resourceType = Lens.lens (\ListOfferings' {resourceType} -> resourceType) (\s@ListOfferings' {} a -> s {resourceType = a} :: ListOfferings)
 
+-- | Undocumented member.
+listOfferings_nextToken :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
+listOfferings_nextToken = Lens.lens (\ListOfferings' {nextToken} -> nextToken) (\s@ListOfferings' {} a -> s {nextToken = a} :: ListOfferings)
+
 -- | Filter to offerings that match the configuration of an existing channel,
 -- e.g. \'2345678\' (a channel ID)
 listOfferings_channelConfiguration :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
 listOfferings_channelConfiguration = Lens.lens (\ListOfferings' {channelConfiguration} -> channelConfiguration) (\s@ListOfferings' {} a -> s {channelConfiguration = a} :: ListOfferings)
 
--- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
-listOfferings_resolution :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
-listOfferings_resolution = Lens.lens (\ListOfferings' {resolution} -> resolution) (\s@ListOfferings' {} a -> s {resolution = a} :: ListOfferings)
-
--- | Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'
-listOfferings_codec :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
-listOfferings_codec = Lens.lens (\ListOfferings' {codec} -> codec) (\s@ListOfferings' {} a -> s {codec = a} :: ListOfferings)
-
--- | Undocumented member.
-listOfferings_nextToken :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
-listOfferings_nextToken = Lens.lens (\ListOfferings' {nextToken} -> nextToken) (\s@ListOfferings' {} a -> s {nextToken = a} :: ListOfferings)
-
--- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
-listOfferings_specialFeature :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
-listOfferings_specialFeature = Lens.lens (\ListOfferings' {specialFeature} -> specialFeature) (\s@ListOfferings' {} a -> s {specialFeature = a} :: ListOfferings)
-
 -- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
 listOfferings_channelClass :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
 listOfferings_channelClass = Lens.lens (\ListOfferings' {channelClass} -> channelClass) (\s@ListOfferings' {} a -> s {channelClass = a} :: ListOfferings)
 
--- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
-listOfferings_maximumBitrate :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
-listOfferings_maximumBitrate = Lens.lens (\ListOfferings' {maximumBitrate} -> maximumBitrate) (\s@ListOfferings' {} a -> s {maximumBitrate = a} :: ListOfferings)
+-- | Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'
+listOfferings_codec :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
+listOfferings_codec = Lens.lens (\ListOfferings' {codec} -> codec) (\s@ListOfferings' {} a -> s {codec = a} :: ListOfferings)
 
 -- | Filter by offering duration, e.g. \'12\'
 listOfferings_duration :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
@@ -191,6 +171,26 @@ listOfferings_duration = Lens.lens (\ListOfferings' {duration} -> duration) (\s@
 -- | Undocumented member.
 listOfferings_maxResults :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Natural)
 listOfferings_maxResults = Lens.lens (\ListOfferings' {maxResults} -> maxResults) (\s@ListOfferings' {} a -> s {maxResults = a} :: ListOfferings)
+
+-- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
+listOfferings_maximumFramerate :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
+listOfferings_maximumFramerate = Lens.lens (\ListOfferings' {maximumFramerate} -> maximumFramerate) (\s@ListOfferings' {} a -> s {maximumFramerate = a} :: ListOfferings)
+
+-- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
+listOfferings_videoQuality :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
+listOfferings_videoQuality = Lens.lens (\ListOfferings' {videoQuality} -> videoQuality) (\s@ListOfferings' {} a -> s {videoQuality = a} :: ListOfferings)
+
+-- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
+listOfferings_maximumBitrate :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
+listOfferings_maximumBitrate = Lens.lens (\ListOfferings' {maximumBitrate} -> maximumBitrate) (\s@ListOfferings' {} a -> s {maximumBitrate = a} :: ListOfferings)
+
+-- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
+listOfferings_specialFeature :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
+listOfferings_specialFeature = Lens.lens (\ListOfferings' {specialFeature} -> specialFeature) (\s@ListOfferings' {} a -> s {specialFeature = a} :: ListOfferings)
+
+-- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
+listOfferings_resolution :: Lens.Lens' ListOfferings (Prelude.Maybe Prelude.Text)
+listOfferings_resolution = Lens.lens (\ListOfferings' {resolution} -> resolution) (\s@ListOfferings' {} a -> s {resolution = a} :: ListOfferings)
 
 instance Core.AWSPager ListOfferings where
   page rq rs
@@ -227,33 +227,33 @@ instance Core.AWSRequest ListOfferings where
 
 instance Prelude.Hashable ListOfferings where
   hashWithSalt _salt ListOfferings' {..} =
-    _salt `Prelude.hashWithSalt` videoQuality
-      `Prelude.hashWithSalt` maximumFramerate
-      `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` channelConfiguration
-      `Prelude.hashWithSalt` resolution
-      `Prelude.hashWithSalt` codec
+    _salt `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` specialFeature
+      `Prelude.hashWithSalt` channelConfiguration
       `Prelude.hashWithSalt` channelClass
-      `Prelude.hashWithSalt` maximumBitrate
+      `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` maximumFramerate
+      `Prelude.hashWithSalt` videoQuality
+      `Prelude.hashWithSalt` maximumBitrate
+      `Prelude.hashWithSalt` specialFeature
+      `Prelude.hashWithSalt` resolution
 
 instance Prelude.NFData ListOfferings where
   rnf ListOfferings' {..} =
-    Prelude.rnf videoQuality
-      `Prelude.seq` Prelude.rnf maximumFramerate
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf channelConfiguration
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf codec
+    Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf channelConfiguration
       `Prelude.seq` Prelude.rnf channelClass
-      `Prelude.seq` Prelude.rnf maximumBitrate
+      `Prelude.seq` Prelude.rnf codec
       `Prelude.seq` Prelude.rnf duration
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf maximumFramerate
+      `Prelude.seq` Prelude.rnf videoQuality
+      `Prelude.seq` Prelude.rnf maximumBitrate
+      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf resolution
 
 instance Core.ToHeaders ListOfferings where
   toHeaders =
@@ -272,18 +272,18 @@ instance Core.ToPath ListOfferings where
 instance Core.ToQuery ListOfferings where
   toQuery ListOfferings' {..} =
     Prelude.mconcat
-      [ "videoQuality" Core.=: videoQuality,
-        "maximumFramerate" Core.=: maximumFramerate,
-        "resourceType" Core.=: resourceType,
-        "channelConfiguration" Core.=: channelConfiguration,
-        "resolution" Core.=: resolution,
-        "codec" Core.=: codec,
+      [ "resourceType" Core.=: resourceType,
         "nextToken" Core.=: nextToken,
-        "specialFeature" Core.=: specialFeature,
+        "channelConfiguration" Core.=: channelConfiguration,
         "channelClass" Core.=: channelClass,
-        "maximumBitrate" Core.=: maximumBitrate,
+        "codec" Core.=: codec,
         "duration" Core.=: duration,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "maximumFramerate" Core.=: maximumFramerate,
+        "videoQuality" Core.=: videoQuality,
+        "maximumBitrate" Core.=: maximumBitrate,
+        "specialFeature" Core.=: specialFeature,
+        "resolution" Core.=: resolution
       ]
 
 -- | Placeholder documentation for ListOfferingsResponse

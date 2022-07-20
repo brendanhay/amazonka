@@ -27,26 +27,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdvancedFieldSelector' smart constructor.
 data AdvancedFieldSelector = AdvancedFieldSelector'
-  { -- | An operator that includes events that match the last few characters of
-    -- the event record field specified as the value of @Field@.
-    endsWith :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | An operator that excludes events that match the first few characters of
-    -- the event record field specified as the value of @Field@.
-    notStartsWith :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | An operator that excludes events that match the exact value of the event
+    -- record field specified as the value of @Field@.
+    notEquals :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | An operator that includes events that match the exact value of the event
     -- record field specified as the value of @Field@. This is the only valid
     -- operator that you can use with the @readOnly@, @eventCategory@, and
     -- @resources.type@ fields.
     equals :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | An operator that excludes events that match the exact value of the event
-    -- record field specified as the value of @Field@.
-    notEquals :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | An operator that excludes events that match the last few characters of
+    -- | An operator that includes events that match the last few characters of
     -- the event record field specified as the value of @Field@.
-    notEndsWith :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    endsWith :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | An operator that includes events that match the first few characters of
     -- the event record field specified as the value of @Field@.
     startsWith :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | An operator that excludes events that match the last few characters of
+    -- the event record field specified as the value of @Field@.
+    notEndsWith :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | An operator that excludes events that match the first few characters of
+    -- the event record field specified as the value of @Field@.
+    notStartsWith :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A field in an event record on which to filter events to be logged.
     -- Supported fields include @readOnly@, @eventCategory@, @eventSource@ (for
     -- management events), @eventName@, @resources.type@, and @resources.ARN@.
@@ -149,24 +149,24 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endsWith', 'advancedFieldSelector_endsWith' - An operator that includes events that match the last few characters of
--- the event record field specified as the value of @Field@.
---
--- 'notStartsWith', 'advancedFieldSelector_notStartsWith' - An operator that excludes events that match the first few characters of
--- the event record field specified as the value of @Field@.
+-- 'notEquals', 'advancedFieldSelector_notEquals' - An operator that excludes events that match the exact value of the event
+-- record field specified as the value of @Field@.
 --
 -- 'equals', 'advancedFieldSelector_equals' - An operator that includes events that match the exact value of the event
 -- record field specified as the value of @Field@. This is the only valid
 -- operator that you can use with the @readOnly@, @eventCategory@, and
 -- @resources.type@ fields.
 --
--- 'notEquals', 'advancedFieldSelector_notEquals' - An operator that excludes events that match the exact value of the event
--- record field specified as the value of @Field@.
+-- 'endsWith', 'advancedFieldSelector_endsWith' - An operator that includes events that match the last few characters of
+-- the event record field specified as the value of @Field@.
+--
+-- 'startsWith', 'advancedFieldSelector_startsWith' - An operator that includes events that match the first few characters of
+-- the event record field specified as the value of @Field@.
 --
 -- 'notEndsWith', 'advancedFieldSelector_notEndsWith' - An operator that excludes events that match the last few characters of
 -- the event record field specified as the value of @Field@.
 --
--- 'startsWith', 'advancedFieldSelector_startsWith' - An operator that includes events that match the first few characters of
+-- 'notStartsWith', 'advancedFieldSelector_notStartsWith' - An operator that excludes events that match the first few characters of
 -- the event record field specified as the value of @Field@.
 --
 -- 'field', 'advancedFieldSelector_field' - A field in an event record on which to filter events to be logged.
@@ -265,24 +265,19 @@ newAdvancedFieldSelector ::
   AdvancedFieldSelector
 newAdvancedFieldSelector pField_ =
   AdvancedFieldSelector'
-    { endsWith = Prelude.Nothing,
-      notStartsWith = Prelude.Nothing,
+    { notEquals = Prelude.Nothing,
       equals = Prelude.Nothing,
-      notEquals = Prelude.Nothing,
-      notEndsWith = Prelude.Nothing,
+      endsWith = Prelude.Nothing,
       startsWith = Prelude.Nothing,
+      notEndsWith = Prelude.Nothing,
+      notStartsWith = Prelude.Nothing,
       field = pField_
     }
 
--- | An operator that includes events that match the last few characters of
--- the event record field specified as the value of @Field@.
-advancedFieldSelector_endsWith :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-advancedFieldSelector_endsWith = Lens.lens (\AdvancedFieldSelector' {endsWith} -> endsWith) (\s@AdvancedFieldSelector' {} a -> s {endsWith = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
-
--- | An operator that excludes events that match the first few characters of
--- the event record field specified as the value of @Field@.
-advancedFieldSelector_notStartsWith :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notStartsWith} -> notStartsWith) (\s@AdvancedFieldSelector' {} a -> s {notStartsWith = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
+-- | An operator that excludes events that match the exact value of the event
+-- record field specified as the value of @Field@.
+advancedFieldSelector_notEquals :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+advancedFieldSelector_notEquals = Lens.lens (\AdvancedFieldSelector' {notEquals} -> notEquals) (\s@AdvancedFieldSelector' {} a -> s {notEquals = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
 
 -- | An operator that includes events that match the exact value of the event
 -- record field specified as the value of @Field@. This is the only valid
@@ -291,20 +286,25 @@ advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notSta
 advancedFieldSelector_equals :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 advancedFieldSelector_equals = Lens.lens (\AdvancedFieldSelector' {equals} -> equals) (\s@AdvancedFieldSelector' {} a -> s {equals = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
 
--- | An operator that excludes events that match the exact value of the event
--- record field specified as the value of @Field@.
-advancedFieldSelector_notEquals :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-advancedFieldSelector_notEquals = Lens.lens (\AdvancedFieldSelector' {notEquals} -> notEquals) (\s@AdvancedFieldSelector' {} a -> s {notEquals = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
+-- | An operator that includes events that match the last few characters of
+-- the event record field specified as the value of @Field@.
+advancedFieldSelector_endsWith :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+advancedFieldSelector_endsWith = Lens.lens (\AdvancedFieldSelector' {endsWith} -> endsWith) (\s@AdvancedFieldSelector' {} a -> s {endsWith = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
+
+-- | An operator that includes events that match the first few characters of
+-- the event record field specified as the value of @Field@.
+advancedFieldSelector_startsWith :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+advancedFieldSelector_startsWith = Lens.lens (\AdvancedFieldSelector' {startsWith} -> startsWith) (\s@AdvancedFieldSelector' {} a -> s {startsWith = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
 
 -- | An operator that excludes events that match the last few characters of
 -- the event record field specified as the value of @Field@.
 advancedFieldSelector_notEndsWith :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 advancedFieldSelector_notEndsWith = Lens.lens (\AdvancedFieldSelector' {notEndsWith} -> notEndsWith) (\s@AdvancedFieldSelector' {} a -> s {notEndsWith = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
 
--- | An operator that includes events that match the first few characters of
+-- | An operator that excludes events that match the first few characters of
 -- the event record field specified as the value of @Field@.
-advancedFieldSelector_startsWith :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-advancedFieldSelector_startsWith = Lens.lens (\AdvancedFieldSelector' {startsWith} -> startsWith) (\s@AdvancedFieldSelector' {} a -> s {startsWith = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
+advancedFieldSelector_notStartsWith :: Lens.Lens' AdvancedFieldSelector (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notStartsWith} -> notStartsWith) (\s@AdvancedFieldSelector' {} a -> s {notStartsWith = a} :: AdvancedFieldSelector) Prelude.. Lens.mapping Lens.coerced
 
 -- | A field in an event record on which to filter events to be logged.
 -- Supported fields include @readOnly@, @eventCategory@, @eventSource@ (for
@@ -405,45 +405,45 @@ instance Core.FromJSON AdvancedFieldSelector where
       "AdvancedFieldSelector"
       ( \x ->
           AdvancedFieldSelector'
-            Prelude.<$> (x Core..:? "EndsWith")
-            Prelude.<*> (x Core..:? "NotStartsWith")
+            Prelude.<$> (x Core..:? "NotEquals")
             Prelude.<*> (x Core..:? "Equals")
-            Prelude.<*> (x Core..:? "NotEquals")
-            Prelude.<*> (x Core..:? "NotEndsWith")
+            Prelude.<*> (x Core..:? "EndsWith")
             Prelude.<*> (x Core..:? "StartsWith")
+            Prelude.<*> (x Core..:? "NotEndsWith")
+            Prelude.<*> (x Core..:? "NotStartsWith")
             Prelude.<*> (x Core..: "Field")
       )
 
 instance Prelude.Hashable AdvancedFieldSelector where
   hashWithSalt _salt AdvancedFieldSelector' {..} =
-    _salt `Prelude.hashWithSalt` endsWith
-      `Prelude.hashWithSalt` notStartsWith
+    _salt `Prelude.hashWithSalt` notEquals
       `Prelude.hashWithSalt` equals
-      `Prelude.hashWithSalt` notEquals
-      `Prelude.hashWithSalt` notEndsWith
+      `Prelude.hashWithSalt` endsWith
       `Prelude.hashWithSalt` startsWith
+      `Prelude.hashWithSalt` notEndsWith
+      `Prelude.hashWithSalt` notStartsWith
       `Prelude.hashWithSalt` field
 
 instance Prelude.NFData AdvancedFieldSelector where
   rnf AdvancedFieldSelector' {..} =
-    Prelude.rnf endsWith
-      `Prelude.seq` Prelude.rnf notStartsWith
+    Prelude.rnf notEquals
       `Prelude.seq` Prelude.rnf equals
-      `Prelude.seq` Prelude.rnf notEquals
-      `Prelude.seq` Prelude.rnf notEndsWith
+      `Prelude.seq` Prelude.rnf endsWith
       `Prelude.seq` Prelude.rnf startsWith
+      `Prelude.seq` Prelude.rnf notEndsWith
+      `Prelude.seq` Prelude.rnf notStartsWith
       `Prelude.seq` Prelude.rnf field
 
 instance Core.ToJSON AdvancedFieldSelector where
   toJSON AdvancedFieldSelector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EndsWith" Core..=) Prelude.<$> endsWith,
-            ("NotStartsWith" Core..=) Prelude.<$> notStartsWith,
+          [ ("NotEquals" Core..=) Prelude.<$> notEquals,
             ("Equals" Core..=) Prelude.<$> equals,
-            ("NotEquals" Core..=) Prelude.<$> notEquals,
-            ("NotEndsWith" Core..=) Prelude.<$> notEndsWith,
+            ("EndsWith" Core..=) Prelude.<$> endsWith,
             ("StartsWith" Core..=) Prelude.<$> startsWith,
+            ("NotEndsWith" Core..=) Prelude.<$> notEndsWith,
+            ("NotStartsWith" Core..=) Prelude.<$> notStartsWith,
             Prelude.Just ("Field" Core..= field)
           ]
       )

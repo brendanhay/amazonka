@@ -29,14 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSnapshotTaskDetail' smart constructor.
 data SnapshotTaskDetail = SnapshotTaskDetail'
-  { -- | A brief status for the import snapshot task.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of completion for the import snapshot task.
+  { -- | The percentage of completion for the import snapshot task.
     progress :: Prelude.Maybe Prelude.Text,
     -- | The format of the disk image from which the snapshot is created.
     format :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 bucket for the disk image.
+    userBucket :: Prelude.Maybe UserBucketDetails,
+    -- | The snapshot ID of the disk being imported.
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The URL of the disk image from which the snapshot is created.
     url :: Prelude.Maybe Prelude.Text,
+    -- | A brief status for the import snapshot task.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The description of the snapshot.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the snapshot is encrypted.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The identifier for the KMS key that was used to create the encrypted
@@ -44,14 +50,8 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A detailed status message for the import snapshot task.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 bucket for the disk image.
-    userBucket :: Prelude.Maybe UserBucketDetails,
     -- | The size of the disk in the snapshot, in GiB.
-    diskImageSize :: Prelude.Maybe Prelude.Double,
-    -- | The description of the snapshot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The snapshot ID of the disk being imported.
-    snapshotId :: Prelude.Maybe Prelude.Text
+    diskImageSize :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,13 +63,19 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'snapshotTaskDetail_status' - A brief status for the import snapshot task.
---
 -- 'progress', 'snapshotTaskDetail_progress' - The percentage of completion for the import snapshot task.
 --
 -- 'format', 'snapshotTaskDetail_format' - The format of the disk image from which the snapshot is created.
 --
+-- 'userBucket', 'snapshotTaskDetail_userBucket' - The Amazon S3 bucket for the disk image.
+--
+-- 'snapshotId', 'snapshotTaskDetail_snapshotId' - The snapshot ID of the disk being imported.
+--
 -- 'url', 'snapshotTaskDetail_url' - The URL of the disk image from which the snapshot is created.
+--
+-- 'status', 'snapshotTaskDetail_status' - A brief status for the import snapshot task.
+--
+-- 'description', 'snapshotTaskDetail_description' - The description of the snapshot.
 --
 -- 'encrypted', 'snapshotTaskDetail_encrypted' - Indicates whether the snapshot is encrypted.
 --
@@ -78,33 +84,23 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
 --
 -- 'statusMessage', 'snapshotTaskDetail_statusMessage' - A detailed status message for the import snapshot task.
 --
--- 'userBucket', 'snapshotTaskDetail_userBucket' - The Amazon S3 bucket for the disk image.
---
 -- 'diskImageSize', 'snapshotTaskDetail_diskImageSize' - The size of the disk in the snapshot, in GiB.
---
--- 'description', 'snapshotTaskDetail_description' - The description of the snapshot.
---
--- 'snapshotId', 'snapshotTaskDetail_snapshotId' - The snapshot ID of the disk being imported.
 newSnapshotTaskDetail ::
   SnapshotTaskDetail
 newSnapshotTaskDetail =
   SnapshotTaskDetail'
-    { status = Prelude.Nothing,
-      progress = Prelude.Nothing,
+    { progress = Prelude.Nothing,
       format = Prelude.Nothing,
+      userBucket = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
       url = Prelude.Nothing,
+      status = Prelude.Nothing,
+      description = Prelude.Nothing,
       encrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
-      userBucket = Prelude.Nothing,
-      diskImageSize = Prelude.Nothing,
-      description = Prelude.Nothing,
-      snapshotId = Prelude.Nothing
+      diskImageSize = Prelude.Nothing
     }
-
--- | A brief status for the import snapshot task.
-snapshotTaskDetail_status :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
-snapshotTaskDetail_status = Lens.lens (\SnapshotTaskDetail' {status} -> status) (\s@SnapshotTaskDetail' {} a -> s {status = a} :: SnapshotTaskDetail)
 
 -- | The percentage of completion for the import snapshot task.
 snapshotTaskDetail_progress :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
@@ -114,9 +110,25 @@ snapshotTaskDetail_progress = Lens.lens (\SnapshotTaskDetail' {progress} -> prog
 snapshotTaskDetail_format :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
 snapshotTaskDetail_format = Lens.lens (\SnapshotTaskDetail' {format} -> format) (\s@SnapshotTaskDetail' {} a -> s {format = a} :: SnapshotTaskDetail)
 
+-- | The Amazon S3 bucket for the disk image.
+snapshotTaskDetail_userBucket :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe UserBucketDetails)
+snapshotTaskDetail_userBucket = Lens.lens (\SnapshotTaskDetail' {userBucket} -> userBucket) (\s@SnapshotTaskDetail' {} a -> s {userBucket = a} :: SnapshotTaskDetail)
+
+-- | The snapshot ID of the disk being imported.
+snapshotTaskDetail_snapshotId :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
+snapshotTaskDetail_snapshotId = Lens.lens (\SnapshotTaskDetail' {snapshotId} -> snapshotId) (\s@SnapshotTaskDetail' {} a -> s {snapshotId = a} :: SnapshotTaskDetail)
+
 -- | The URL of the disk image from which the snapshot is created.
 snapshotTaskDetail_url :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
 snapshotTaskDetail_url = Lens.lens (\SnapshotTaskDetail' {url} -> url) (\s@SnapshotTaskDetail' {} a -> s {url = a} :: SnapshotTaskDetail)
+
+-- | A brief status for the import snapshot task.
+snapshotTaskDetail_status :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
+snapshotTaskDetail_status = Lens.lens (\SnapshotTaskDetail' {status} -> status) (\s@SnapshotTaskDetail' {} a -> s {status = a} :: SnapshotTaskDetail)
+
+-- | The description of the snapshot.
+snapshotTaskDetail_description :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
+snapshotTaskDetail_description = Lens.lens (\SnapshotTaskDetail' {description} -> description) (\s@SnapshotTaskDetail' {} a -> s {description = a} :: SnapshotTaskDetail)
 
 -- | Indicates whether the snapshot is encrypted.
 snapshotTaskDetail_encrypted :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Bool)
@@ -131,61 +143,49 @@ snapshotTaskDetail_kmsKeyId = Lens.lens (\SnapshotTaskDetail' {kmsKeyId} -> kmsK
 snapshotTaskDetail_statusMessage :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
 snapshotTaskDetail_statusMessage = Lens.lens (\SnapshotTaskDetail' {statusMessage} -> statusMessage) (\s@SnapshotTaskDetail' {} a -> s {statusMessage = a} :: SnapshotTaskDetail)
 
--- | The Amazon S3 bucket for the disk image.
-snapshotTaskDetail_userBucket :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe UserBucketDetails)
-snapshotTaskDetail_userBucket = Lens.lens (\SnapshotTaskDetail' {userBucket} -> userBucket) (\s@SnapshotTaskDetail' {} a -> s {userBucket = a} :: SnapshotTaskDetail)
-
 -- | The size of the disk in the snapshot, in GiB.
 snapshotTaskDetail_diskImageSize :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Double)
 snapshotTaskDetail_diskImageSize = Lens.lens (\SnapshotTaskDetail' {diskImageSize} -> diskImageSize) (\s@SnapshotTaskDetail' {} a -> s {diskImageSize = a} :: SnapshotTaskDetail)
 
--- | The description of the snapshot.
-snapshotTaskDetail_description :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
-snapshotTaskDetail_description = Lens.lens (\SnapshotTaskDetail' {description} -> description) (\s@SnapshotTaskDetail' {} a -> s {description = a} :: SnapshotTaskDetail)
-
--- | The snapshot ID of the disk being imported.
-snapshotTaskDetail_snapshotId :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
-snapshotTaskDetail_snapshotId = Lens.lens (\SnapshotTaskDetail' {snapshotId} -> snapshotId) (\s@SnapshotTaskDetail' {} a -> s {snapshotId = a} :: SnapshotTaskDetail)
-
 instance Core.FromXML SnapshotTaskDetail where
   parseXML x =
     SnapshotTaskDetail'
-      Prelude.<$> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "progress")
+      Prelude.<$> (x Core..@? "progress")
       Prelude.<*> (x Core..@? "format")
+      Prelude.<*> (x Core..@? "userBucket")
+      Prelude.<*> (x Core..@? "snapshotId")
       Prelude.<*> (x Core..@? "url")
+      Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "encrypted")
       Prelude.<*> (x Core..@? "kmsKeyId")
       Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "userBucket")
       Prelude.<*> (x Core..@? "diskImageSize")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "snapshotId")
 
 instance Prelude.Hashable SnapshotTaskDetail where
   hashWithSalt _salt SnapshotTaskDetail' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` progress
+    _salt `Prelude.hashWithSalt` progress
       `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` userBucket
+      `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` userBucket
       `Prelude.hashWithSalt` diskImageSize
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` snapshotId
 
 instance Prelude.NFData SnapshotTaskDetail where
   rnf SnapshotTaskDetail' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf progress
+    Prelude.rnf progress
       `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf userBucket
+      `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf userBucket
       `Prelude.seq` Prelude.rnf diskImageSize
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf snapshotId

@@ -29,8 +29,8 @@ module Amazonka.DataSync.ListTasks
     newListTasks,
 
     -- * Request Lenses
-    listTasks_filters,
     listTasks_nextToken,
+    listTasks_filters,
     listTasks_maxResults,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTasks' smart constructor.
 data ListTasks = ListTasks'
-  { -- | You can use API filters to narrow down the list of resources returned by
+  { -- | An opaque string that indicates the position at which to begin the next
+    -- list of tasks.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | You can use API filters to narrow down the list of resources returned by
     -- @ListTasks@. For example, to retrieve all tasks on a specific source
     -- location, you can use @ListTasks@ with filter name @LocationId@ and
     -- @Operator Equals@ with the ARN for the location.
     filters :: Prelude.Maybe [TaskFilter],
-    -- | An opaque string that indicates the position at which to begin the next
-    -- list of tasks.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tasks to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -76,23 +76,28 @@ data ListTasks = ListTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listTasks_nextToken' - An opaque string that indicates the position at which to begin the next
+-- list of tasks.
+--
 -- 'filters', 'listTasks_filters' - You can use API filters to narrow down the list of resources returned by
 -- @ListTasks@. For example, to retrieve all tasks on a specific source
 -- location, you can use @ListTasks@ with filter name @LocationId@ and
 -- @Operator Equals@ with the ARN for the location.
---
--- 'nextToken', 'listTasks_nextToken' - An opaque string that indicates the position at which to begin the next
--- list of tasks.
 --
 -- 'maxResults', 'listTasks_maxResults' - The maximum number of tasks to return.
 newListTasks ::
   ListTasks
 newListTasks =
   ListTasks'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | An opaque string that indicates the position at which to begin the next
+-- list of tasks.
+listTasks_nextToken :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
+listTasks_nextToken = Lens.lens (\ListTasks' {nextToken} -> nextToken) (\s@ListTasks' {} a -> s {nextToken = a} :: ListTasks)
 
 -- | You can use API filters to narrow down the list of resources returned by
 -- @ListTasks@. For example, to retrieve all tasks on a specific source
@@ -100,11 +105,6 @@ newListTasks =
 -- @Operator Equals@ with the ARN for the location.
 listTasks_filters :: Lens.Lens' ListTasks (Prelude.Maybe [TaskFilter])
 listTasks_filters = Lens.lens (\ListTasks' {filters} -> filters) (\s@ListTasks' {} a -> s {filters = a} :: ListTasks) Prelude.. Lens.mapping Lens.coerced
-
--- | An opaque string that indicates the position at which to begin the next
--- list of tasks.
-listTasks_nextToken :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
-listTasks_nextToken = Lens.lens (\ListTasks' {nextToken} -> nextToken) (\s@ListTasks' {} a -> s {nextToken = a} :: ListTasks)
 
 -- | The maximum number of tasks to return.
 listTasks_maxResults :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Natural)
@@ -143,14 +143,14 @@ instance Core.AWSRequest ListTasks where
 
 instance Prelude.Hashable ListTasks where
   hashWithSalt _salt ListTasks' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListTasks where
   rnf ListTasks' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTasks where
@@ -170,8 +170,8 @@ instance Core.ToJSON ListTasks where
   toJSON ListTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

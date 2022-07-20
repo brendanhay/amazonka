@@ -70,8 +70,8 @@ module Amazonka.GameLift.DescribeFleetUtilization
 
     -- * Request Lenses
     describeFleetUtilization_nextToken,
-    describeFleetUtilization_limit,
     describeFleetUtilization_fleetIds,
+    describeFleetUtilization_limit,
 
     -- * Destructuring the Response
     DescribeFleetUtilizationResponse (..),
@@ -101,14 +101,14 @@ data DescribeFleetUtilization = DescribeFleetUtilization'
     -- This parameter is ignored when the request specifies one or a list of
     -- fleet IDs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return. Use this parameter with
-    -- @NextToken@ to get results as a set of sequential pages. This parameter
-    -- is ignored when the request specifies one or a list of fleet IDs.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for the fleet(s) to retrieve utilization data for.
     -- You can use either the fleet ID or ARN value. To retrieve attributes for
     -- all current fleets, do not include this parameter.
-    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The maximum number of results to return. Use this parameter with
+    -- @NextToken@ to get results as a set of sequential pages. This parameter
+    -- is ignored when the request specifies one or a list of fleet IDs.
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,21 +126,21 @@ data DescribeFleetUtilization = DescribeFleetUtilization'
 -- This parameter is ignored when the request specifies one or a list of
 -- fleet IDs.
 --
--- 'limit', 'describeFleetUtilization_limit' - The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages. This parameter
--- is ignored when the request specifies one or a list of fleet IDs.
---
 -- 'fleetIds', 'describeFleetUtilization_fleetIds' - A unique identifier for the fleet(s) to retrieve utilization data for.
 -- You can use either the fleet ID or ARN value. To retrieve attributes for
 -- all current fleets, do not include this parameter.
+--
+-- 'limit', 'describeFleetUtilization_limit' - The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages. This parameter
+-- is ignored when the request specifies one or a list of fleet IDs.
 newDescribeFleetUtilization ::
   DescribeFleetUtilization
 newDescribeFleetUtilization =
   DescribeFleetUtilization'
     { nextToken =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
-      fleetIds = Prelude.Nothing
+      fleetIds = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | A token that indicates the start of the next sequential page of results.
@@ -151,17 +151,17 @@ newDescribeFleetUtilization =
 describeFleetUtilization_nextToken :: Lens.Lens' DescribeFleetUtilization (Prelude.Maybe Prelude.Text)
 describeFleetUtilization_nextToken = Lens.lens (\DescribeFleetUtilization' {nextToken} -> nextToken) (\s@DescribeFleetUtilization' {} a -> s {nextToken = a} :: DescribeFleetUtilization)
 
--- | The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages. This parameter
--- is ignored when the request specifies one or a list of fleet IDs.
-describeFleetUtilization_limit :: Lens.Lens' DescribeFleetUtilization (Prelude.Maybe Prelude.Natural)
-describeFleetUtilization_limit = Lens.lens (\DescribeFleetUtilization' {limit} -> limit) (\s@DescribeFleetUtilization' {} a -> s {limit = a} :: DescribeFleetUtilization)
-
 -- | A unique identifier for the fleet(s) to retrieve utilization data for.
 -- You can use either the fleet ID or ARN value. To retrieve attributes for
 -- all current fleets, do not include this parameter.
 describeFleetUtilization_fleetIds :: Lens.Lens' DescribeFleetUtilization (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeFleetUtilization_fleetIds = Lens.lens (\DescribeFleetUtilization' {fleetIds} -> fleetIds) (\s@DescribeFleetUtilization' {} a -> s {fleetIds = a} :: DescribeFleetUtilization) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages. This parameter
+-- is ignored when the request specifies one or a list of fleet IDs.
+describeFleetUtilization_limit :: Lens.Lens' DescribeFleetUtilization (Prelude.Maybe Prelude.Natural)
+describeFleetUtilization_limit = Lens.lens (\DescribeFleetUtilization' {limit} -> limit) (\s@DescribeFleetUtilization' {} a -> s {limit = a} :: DescribeFleetUtilization)
 
 instance Core.AWSPager DescribeFleetUtilization where
   page rq rs
@@ -204,14 +204,14 @@ instance Core.AWSRequest DescribeFleetUtilization where
 instance Prelude.Hashable DescribeFleetUtilization where
   hashWithSalt _salt DescribeFleetUtilization' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` fleetIds
+      `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData DescribeFleetUtilization where
   rnf DescribeFleetUtilization' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf fleetIds
+      `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeFleetUtilization where
   toHeaders =
@@ -233,8 +233,8 @@ instance Core.ToJSON DescribeFleetUtilization where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("FleetIds" Core..=) Prelude.<$> fleetIds
+            ("FleetIds" Core..=) Prelude.<$> fleetIds,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 

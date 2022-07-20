@@ -35,12 +35,12 @@ module Amazonka.Redshift.DescribeLoggingStatus
     newLoggingStatus,
 
     -- * Response Lenses
-    loggingStatus_lastFailureTime,
     loggingStatus_lastSuccessfulDeliveryTime,
     loggingStatus_s3KeyPrefix,
-    loggingStatus_bucketName,
-    loggingStatus_loggingEnabled,
     loggingStatus_lastFailureMessage,
+    loggingStatus_loggingEnabled,
+    loggingStatus_bucketName,
+    loggingStatus_lastFailureTime,
   )
 where
 

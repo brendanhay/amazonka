@@ -62,9 +62,9 @@ module Amazonka.SESV2.CreateEmailIdentity
     newCreateEmailIdentity,
 
     -- * Request Lenses
+    createEmailIdentity_tags,
     createEmailIdentity_configurationSetName,
     createEmailIdentity_dkimSigningAttributes,
-    createEmailIdentity_tags,
     createEmailIdentity_emailIdentity,
 
     -- * Destructuring the Response
@@ -72,8 +72,8 @@ module Amazonka.SESV2.CreateEmailIdentity
     newCreateEmailIdentityResponse,
 
     -- * Response Lenses
-    createEmailIdentityResponse_dkimAttributes,
     createEmailIdentityResponse_verifiedForSendingStatus,
+    createEmailIdentityResponse_dkimAttributes,
     createEmailIdentityResponse_identityType,
     createEmailIdentityResponse_httpStatus,
   )
@@ -91,7 +91,10 @@ import Amazonka.SESV2.Types
 --
 -- /See:/ 'newCreateEmailIdentity' smart constructor.
 data CreateEmailIdentity = CreateEmailIdentity'
-  { -- | The configuration set to use by default when sending from this identity.
+  { -- | An array of objects that define the tags (keys and values) to associate
+    -- with the email identity.
+    tags :: Prelude.Maybe [Tag],
+    -- | The configuration set to use by default when sending from this identity.
     -- Note that any configuration set defined in the email sending request
     -- takes precedence.
     configurationSetName :: Prelude.Maybe Prelude.Text,
@@ -103,9 +106,6 @@ data CreateEmailIdentity = CreateEmailIdentity'
     -- You can only specify this object if the email identity is a domain, as
     -- opposed to an address.
     dkimSigningAttributes :: Prelude.Maybe DkimSigningAttributes,
-    -- | An array of objects that define the tags (keys and values) to associate
-    -- with the email identity.
-    tags :: Prelude.Maybe [Tag],
     -- | The email address or domain to verify.
     emailIdentity :: Prelude.Text
   }
@@ -119,6 +119,9 @@ data CreateEmailIdentity = CreateEmailIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createEmailIdentity_tags' - An array of objects that define the tags (keys and values) to associate
+-- with the email identity.
+--
 -- 'configurationSetName', 'createEmailIdentity_configurationSetName' - The configuration set to use by default when sending from this identity.
 -- Note that any configuration set defined in the email sending request
 -- takes precedence.
@@ -131,9 +134,6 @@ data CreateEmailIdentity = CreateEmailIdentity'
 -- You can only specify this object if the email identity is a domain, as
 -- opposed to an address.
 --
--- 'tags', 'createEmailIdentity_tags' - An array of objects that define the tags (keys and values) to associate
--- with the email identity.
---
 -- 'emailIdentity', 'createEmailIdentity_emailIdentity' - The email address or domain to verify.
 newCreateEmailIdentity ::
   -- | 'emailIdentity'
@@ -141,12 +141,16 @@ newCreateEmailIdentity ::
   CreateEmailIdentity
 newCreateEmailIdentity pEmailIdentity_ =
   CreateEmailIdentity'
-    { configurationSetName =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
       dkimSigningAttributes = Prelude.Nothing,
-      tags = Prelude.Nothing,
       emailIdentity = pEmailIdentity_
     }
+
+-- | An array of objects that define the tags (keys and values) to associate
+-- with the email identity.
+createEmailIdentity_tags :: Lens.Lens' CreateEmailIdentity (Prelude.Maybe [Tag])
+createEmailIdentity_tags = Lens.lens (\CreateEmailIdentity' {tags} -> tags) (\s@CreateEmailIdentity' {} a -> s {tags = a} :: CreateEmailIdentity) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration set to use by default when sending from this identity.
 -- Note that any configuration set defined in the email sending request
@@ -164,11 +168,6 @@ createEmailIdentity_configurationSetName = Lens.lens (\CreateEmailIdentity' {con
 createEmailIdentity_dkimSigningAttributes :: Lens.Lens' CreateEmailIdentity (Prelude.Maybe DkimSigningAttributes)
 createEmailIdentity_dkimSigningAttributes = Lens.lens (\CreateEmailIdentity' {dkimSigningAttributes} -> dkimSigningAttributes) (\s@CreateEmailIdentity' {} a -> s {dkimSigningAttributes = a} :: CreateEmailIdentity)
 
--- | An array of objects that define the tags (keys and values) to associate
--- with the email identity.
-createEmailIdentity_tags :: Lens.Lens' CreateEmailIdentity (Prelude.Maybe [Tag])
-createEmailIdentity_tags = Lens.lens (\CreateEmailIdentity' {tags} -> tags) (\s@CreateEmailIdentity' {} a -> s {tags = a} :: CreateEmailIdentity) Prelude.. Lens.mapping Lens.coerced
-
 -- | The email address or domain to verify.
 createEmailIdentity_emailIdentity :: Lens.Lens' CreateEmailIdentity Prelude.Text
 createEmailIdentity_emailIdentity = Lens.lens (\CreateEmailIdentity' {emailIdentity} -> emailIdentity) (\s@CreateEmailIdentity' {} a -> s {emailIdentity = a} :: CreateEmailIdentity)
@@ -182,24 +181,24 @@ instance Core.AWSRequest CreateEmailIdentity where
     Response.receiveJSON
       ( \s h x ->
           CreateEmailIdentityResponse'
-            Prelude.<$> (x Core..?> "DkimAttributes")
-            Prelude.<*> (x Core..?> "VerifiedForSendingStatus")
+            Prelude.<$> (x Core..?> "VerifiedForSendingStatus")
+            Prelude.<*> (x Core..?> "DkimAttributes")
             Prelude.<*> (x Core..?> "IdentityType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateEmailIdentity where
   hashWithSalt _salt CreateEmailIdentity' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` dkimSigningAttributes
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` emailIdentity
 
 instance Prelude.NFData CreateEmailIdentity where
   rnf CreateEmailIdentity' {..} =
-    Prelude.rnf configurationSetName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf dkimSigningAttributes
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf emailIdentity
 
 instance Core.ToHeaders CreateEmailIdentity where
@@ -217,11 +216,11 @@ instance Core.ToJSON CreateEmailIdentity where
   toJSON CreateEmailIdentity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConfigurationSetName" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ConfigurationSetName" Core..=)
               Prelude.<$> configurationSetName,
             ("DkimSigningAttributes" Core..=)
               Prelude.<$> dkimSigningAttributes,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("EmailIdentity" Core..= emailIdentity)
           ]
@@ -240,14 +239,14 @@ instance Core.ToQuery CreateEmailIdentity where
 --
 -- /See:/ 'newCreateEmailIdentityResponse' smart constructor.
 data CreateEmailIdentityResponse = CreateEmailIdentityResponse'
-  { -- | An object that contains information about the DKIM attributes for the
-    -- identity.
-    dkimAttributes :: Prelude.Maybe DkimAttributes,
-    -- | Specifies whether or not the identity is verified. You can only send
+  { -- | Specifies whether or not the identity is verified. You can only send
     -- email from verified email addresses or domains. For more information
     -- about verifying identities, see the
     -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
     verifiedForSendingStatus :: Prelude.Maybe Prelude.Bool,
+    -- | An object that contains information about the DKIM attributes for the
+    -- identity.
+    dkimAttributes :: Prelude.Maybe DkimAttributes,
     -- | The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
     -- supported.
     identityType :: Prelude.Maybe IdentityType,
@@ -264,13 +263,13 @@ data CreateEmailIdentityResponse = CreateEmailIdentityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dkimAttributes', 'createEmailIdentityResponse_dkimAttributes' - An object that contains information about the DKIM attributes for the
--- identity.
---
 -- 'verifiedForSendingStatus', 'createEmailIdentityResponse_verifiedForSendingStatus' - Specifies whether or not the identity is verified. You can only send
 -- email from verified email addresses or domains. For more information
 -- about verifying identities, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
+--
+-- 'dkimAttributes', 'createEmailIdentityResponse_dkimAttributes' - An object that contains information about the DKIM attributes for the
+-- identity.
 --
 -- 'identityType', 'createEmailIdentityResponse_identityType' - The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
 -- supported.
@@ -282,17 +281,12 @@ newCreateEmailIdentityResponse ::
   CreateEmailIdentityResponse
 newCreateEmailIdentityResponse pHttpStatus_ =
   CreateEmailIdentityResponse'
-    { dkimAttributes =
+    { verifiedForSendingStatus =
         Prelude.Nothing,
-      verifiedForSendingStatus = Prelude.Nothing,
+      dkimAttributes = Prelude.Nothing,
       identityType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An object that contains information about the DKIM attributes for the
--- identity.
-createEmailIdentityResponse_dkimAttributes :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe DkimAttributes)
-createEmailIdentityResponse_dkimAttributes = Lens.lens (\CreateEmailIdentityResponse' {dkimAttributes} -> dkimAttributes) (\s@CreateEmailIdentityResponse' {} a -> s {dkimAttributes = a} :: CreateEmailIdentityResponse)
 
 -- | Specifies whether or not the identity is verified. You can only send
 -- email from verified email addresses or domains. For more information
@@ -300,6 +294,11 @@ createEmailIdentityResponse_dkimAttributes = Lens.lens (\CreateEmailIdentityResp
 -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
 createEmailIdentityResponse_verifiedForSendingStatus :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe Prelude.Bool)
 createEmailIdentityResponse_verifiedForSendingStatus = Lens.lens (\CreateEmailIdentityResponse' {verifiedForSendingStatus} -> verifiedForSendingStatus) (\s@CreateEmailIdentityResponse' {} a -> s {verifiedForSendingStatus = a} :: CreateEmailIdentityResponse)
+
+-- | An object that contains information about the DKIM attributes for the
+-- identity.
+createEmailIdentityResponse_dkimAttributes :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe DkimAttributes)
+createEmailIdentityResponse_dkimAttributes = Lens.lens (\CreateEmailIdentityResponse' {dkimAttributes} -> dkimAttributes) (\s@CreateEmailIdentityResponse' {} a -> s {dkimAttributes = a} :: CreateEmailIdentityResponse)
 
 -- | The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
 -- supported.
@@ -312,7 +311,7 @@ createEmailIdentityResponse_httpStatus = Lens.lens (\CreateEmailIdentityResponse
 
 instance Prelude.NFData CreateEmailIdentityResponse where
   rnf CreateEmailIdentityResponse' {..} =
-    Prelude.rnf dkimAttributes
-      `Prelude.seq` Prelude.rnf verifiedForSendingStatus
+    Prelude.rnf verifiedForSendingStatus
+      `Prelude.seq` Prelude.rnf dkimAttributes
       `Prelude.seq` Prelude.rnf identityType
       `Prelude.seq` Prelude.rnf httpStatus

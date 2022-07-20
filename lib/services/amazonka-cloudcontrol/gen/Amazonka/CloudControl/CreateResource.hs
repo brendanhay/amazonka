@@ -36,8 +36,8 @@ module Amazonka.CloudControl.CreateResource
 
     -- * Request Lenses
     createResource_clientToken,
-    createResource_typeVersionId,
     createResource_roleArn,
+    createResource_typeVersionId,
     createResource_typeName,
     createResource_desiredState,
 
@@ -76,10 +76,6 @@ data CreateResource = CreateResource'
     -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency Ensuring resource operation requests are unique>
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | For private resource types, the type version to use in this resource
-    -- operation. If you do not specify a resource version, CloudFormation uses
-    -- the default version.
-    typeVersionId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
@@ -94,6 +90,10 @@ data CreateResource = CreateResource'
     -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | For private resource types, the type version to use in this resource
+    -- operation. If you do not specify a resource version, CloudFormation uses
+    -- the default version.
+    typeVersionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource type.
     typeName :: Prelude.Text,
     -- | Structured data format representing the desired state of the resource,
@@ -143,10 +143,6 @@ data CreateResource = CreateResource'
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency Ensuring resource operation requests are unique>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
--- 'typeVersionId', 'createResource_typeVersionId' - For private resource types, the type version to use in this resource
--- operation. If you do not specify a resource version, CloudFormation uses
--- the default version.
---
 -- 'roleArn', 'createResource_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
@@ -160,6 +156,10 @@ data CreateResource = CreateResource'
 -- For more information, see
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
+--
+-- 'typeVersionId', 'createResource_typeVersionId' - For private resource types, the type version to use in this resource
+-- operation. If you do not specify a resource version, CloudFormation uses
+-- the default version.
 --
 -- 'typeName', 'createResource_typeName' - The name of the resource type.
 --
@@ -191,8 +191,8 @@ newCreateResource ::
 newCreateResource pTypeName_ pDesiredState_ =
   CreateResource'
     { clientToken = Prelude.Nothing,
-      typeVersionId = Prelude.Nothing,
       roleArn = Prelude.Nothing,
+      typeVersionId = Prelude.Nothing,
       typeName = pTypeName_,
       desiredState = Core._Sensitive Lens.# pDesiredState_
     }
@@ -215,12 +215,6 @@ newCreateResource pTypeName_ pDesiredState_ =
 createResource_clientToken :: Lens.Lens' CreateResource (Prelude.Maybe Prelude.Text)
 createResource_clientToken = Lens.lens (\CreateResource' {clientToken} -> clientToken) (\s@CreateResource' {} a -> s {clientToken = a} :: CreateResource)
 
--- | For private resource types, the type version to use in this resource
--- operation. If you do not specify a resource version, CloudFormation uses
--- the default version.
-createResource_typeVersionId :: Lens.Lens' CreateResource (Prelude.Maybe Prelude.Text)
-createResource_typeVersionId = Lens.lens (\CreateResource' {typeVersionId} -> typeVersionId) (\s@CreateResource' {} a -> s {typeVersionId = a} :: CreateResource)
-
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
@@ -236,6 +230,12 @@ createResource_typeVersionId = Lens.lens (\CreateResource' {typeVersionId} -> ty
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 createResource_roleArn :: Lens.Lens' CreateResource (Prelude.Maybe Prelude.Text)
 createResource_roleArn = Lens.lens (\CreateResource' {roleArn} -> roleArn) (\s@CreateResource' {} a -> s {roleArn = a} :: CreateResource)
+
+-- | For private resource types, the type version to use in this resource
+-- operation. If you do not specify a resource version, CloudFormation uses
+-- the default version.
+createResource_typeVersionId :: Lens.Lens' CreateResource (Prelude.Maybe Prelude.Text)
+createResource_typeVersionId = Lens.lens (\CreateResource' {typeVersionId} -> typeVersionId) (\s@CreateResource' {} a -> s {typeVersionId = a} :: CreateResource)
 
 -- | The name of the resource type.
 createResource_typeName :: Lens.Lens' CreateResource Prelude.Text
@@ -279,16 +279,16 @@ instance Core.AWSRequest CreateResource where
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` typeVersionId
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` typeVersionId
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` desiredState
 
 instance Prelude.NFData CreateResource where
   rnf CreateResource' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf typeVersionId
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf typeVersionId
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf desiredState
 
@@ -312,8 +312,8 @@ instance Core.ToJSON CreateResource where
     Core.object
       ( Prelude.catMaybes
           [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
             ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
             Prelude.Just ("TypeName" Core..= typeName),
             Prelude.Just ("DesiredState" Core..= desiredState)
           ]

@@ -30,19 +30,6 @@ import qualified Amazonka.Prelude as Prelude
 data UserIdGroupPair = UserIdGroupPair'
   { -- | The ID of the VPC peering connection, if applicable.
     vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the VPC for the referenced security group, if applicable.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an Amazon Web Services account.
-    --
-    -- For a referenced security group in another VPC, the account ID of the
-    -- referenced security group is returned in the response. If the referenced
-    -- security group is deleted, this value is not returned.
-    --
-    -- [EC2-Classic] Required when adding or removing rules that reference a
-    -- security group in another Amazon Web Services account.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text,
     -- | The name of the security group. In a request, use this parameter for a
     -- security group in EC2-Classic or a default VPC only. For a security
     -- group in a nondefault VPC, use the security group ID.
@@ -57,7 +44,20 @@ data UserIdGroupPair = UserIdGroupPair'
     -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=;{}!$*
     description :: Prelude.Maybe Prelude.Text,
     -- | The status of a VPC peering connection, if applicable.
-    peeringStatus :: Prelude.Maybe Prelude.Text
+    peeringStatus :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an Amazon Web Services account.
+    --
+    -- For a referenced security group in another VPC, the account ID of the
+    -- referenced security group is returned in the response. If the referenced
+    -- security group is deleted, this value is not returned.
+    --
+    -- [EC2-Classic] Required when adding or removing rules that reference a
+    -- security group in another Amazon Web Services account.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the VPC for the referenced security group, if applicable.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the security group.
+    groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,19 +70,6 @@ data UserIdGroupPair = UserIdGroupPair'
 -- for backwards compatibility:
 --
 -- 'vpcPeeringConnectionId', 'userIdGroupPair_vpcPeeringConnectionId' - The ID of the VPC peering connection, if applicable.
---
--- 'vpcId', 'userIdGroupPair_vpcId' - The ID of the VPC for the referenced security group, if applicable.
---
--- 'userId', 'userIdGroupPair_userId' - The ID of an Amazon Web Services account.
---
--- For a referenced security group in another VPC, the account ID of the
--- referenced security group is returned in the response. If the referenced
--- security group is deleted, this value is not returned.
---
--- [EC2-Classic] Required when adding or removing rules that reference a
--- security group in another Amazon Web Services account.
---
--- 'groupId', 'userIdGroupPair_groupId' - The ID of the security group.
 --
 -- 'groupName', 'userIdGroupPair_groupName' - The name of the security group. In a request, use this parameter for a
 -- security group in EC2-Classic or a default VPC only. For a security
@@ -98,29 +85,8 @@ data UserIdGroupPair = UserIdGroupPair'
 -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=;{}!$*
 --
 -- 'peeringStatus', 'userIdGroupPair_peeringStatus' - The status of a VPC peering connection, if applicable.
-newUserIdGroupPair ::
-  UserIdGroupPair
-newUserIdGroupPair =
-  UserIdGroupPair'
-    { vpcPeeringConnectionId =
-        Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      userId = Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      peeringStatus = Prelude.Nothing
-    }
-
--- | The ID of the VPC peering connection, if applicable.
-userIdGroupPair_vpcPeeringConnectionId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
-userIdGroupPair_vpcPeeringConnectionId = Lens.lens (\UserIdGroupPair' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@UserIdGroupPair' {} a -> s {vpcPeeringConnectionId = a} :: UserIdGroupPair)
-
--- | The ID of the VPC for the referenced security group, if applicable.
-userIdGroupPair_vpcId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
-userIdGroupPair_vpcId = Lens.lens (\UserIdGroupPair' {vpcId} -> vpcId) (\s@UserIdGroupPair' {} a -> s {vpcId = a} :: UserIdGroupPair)
-
--- | The ID of an Amazon Web Services account.
+--
+-- 'userId', 'userIdGroupPair_userId' - The ID of an Amazon Web Services account.
 --
 -- For a referenced security group in another VPC, the account ID of the
 -- referenced security group is returned in the response. If the referenced
@@ -128,12 +94,27 @@ userIdGroupPair_vpcId = Lens.lens (\UserIdGroupPair' {vpcId} -> vpcId) (\s@UserI
 --
 -- [EC2-Classic] Required when adding or removing rules that reference a
 -- security group in another Amazon Web Services account.
-userIdGroupPair_userId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
-userIdGroupPair_userId = Lens.lens (\UserIdGroupPair' {userId} -> userId) (\s@UserIdGroupPair' {} a -> s {userId = a} :: UserIdGroupPair)
+--
+-- 'vpcId', 'userIdGroupPair_vpcId' - The ID of the VPC for the referenced security group, if applicable.
+--
+-- 'groupId', 'userIdGroupPair_groupId' - The ID of the security group.
+newUserIdGroupPair ::
+  UserIdGroupPair
+newUserIdGroupPair =
+  UserIdGroupPair'
+    { vpcPeeringConnectionId =
+        Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      peeringStatus = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      groupId = Prelude.Nothing
+    }
 
--- | The ID of the security group.
-userIdGroupPair_groupId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
-userIdGroupPair_groupId = Lens.lens (\UserIdGroupPair' {groupId} -> groupId) (\s@UserIdGroupPair' {} a -> s {groupId = a} :: UserIdGroupPair)
+-- | The ID of the VPC peering connection, if applicable.
+userIdGroupPair_vpcPeeringConnectionId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
+userIdGroupPair_vpcPeeringConnectionId = Lens.lens (\UserIdGroupPair' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@UserIdGroupPair' {} a -> s {vpcPeeringConnectionId = a} :: UserIdGroupPair)
 
 -- | The name of the security group. In a request, use this parameter for a
 -- security group in EC2-Classic or a default VPC only. For a security
@@ -156,46 +137,65 @@ userIdGroupPair_description = Lens.lens (\UserIdGroupPair' {description} -> desc
 userIdGroupPair_peeringStatus :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
 userIdGroupPair_peeringStatus = Lens.lens (\UserIdGroupPair' {peeringStatus} -> peeringStatus) (\s@UserIdGroupPair' {} a -> s {peeringStatus = a} :: UserIdGroupPair)
 
+-- | The ID of an Amazon Web Services account.
+--
+-- For a referenced security group in another VPC, the account ID of the
+-- referenced security group is returned in the response. If the referenced
+-- security group is deleted, this value is not returned.
+--
+-- [EC2-Classic] Required when adding or removing rules that reference a
+-- security group in another Amazon Web Services account.
+userIdGroupPair_userId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
+userIdGroupPair_userId = Lens.lens (\UserIdGroupPair' {userId} -> userId) (\s@UserIdGroupPair' {} a -> s {userId = a} :: UserIdGroupPair)
+
+-- | The ID of the VPC for the referenced security group, if applicable.
+userIdGroupPair_vpcId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
+userIdGroupPair_vpcId = Lens.lens (\UserIdGroupPair' {vpcId} -> vpcId) (\s@UserIdGroupPair' {} a -> s {vpcId = a} :: UserIdGroupPair)
+
+-- | The ID of the security group.
+userIdGroupPair_groupId :: Lens.Lens' UserIdGroupPair (Prelude.Maybe Prelude.Text)
+userIdGroupPair_groupId = Lens.lens (\UserIdGroupPair' {groupId} -> groupId) (\s@UserIdGroupPair' {} a -> s {groupId = a} :: UserIdGroupPair)
+
 instance Core.FromXML UserIdGroupPair where
   parseXML x =
     UserIdGroupPair'
       Prelude.<$> (x Core..@? "vpcPeeringConnectionId")
-      Prelude.<*> (x Core..@? "vpcId")
-      Prelude.<*> (x Core..@? "userId")
-      Prelude.<*> (x Core..@? "groupId")
       Prelude.<*> (x Core..@? "groupName")
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "peeringStatus")
+      Prelude.<*> (x Core..@? "userId")
+      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Core..@? "groupId")
 
 instance Prelude.Hashable UserIdGroupPair where
   hashWithSalt _salt UserIdGroupPair' {..} =
     _salt `Prelude.hashWithSalt` vpcPeeringConnectionId
-      `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` userId
-      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` peeringStatus
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData UserIdGroupPair where
   rnf UserIdGroupPair' {..} =
     Prelude.rnf vpcPeeringConnectionId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf peeringStatus
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToQuery UserIdGroupPair where
   toQuery UserIdGroupPair' {..} =
     Prelude.mconcat
       [ "VpcPeeringConnectionId"
           Core.=: vpcPeeringConnectionId,
-        "VpcId" Core.=: vpcId,
-        "UserId" Core.=: userId,
-        "GroupId" Core.=: groupId,
         "GroupName" Core.=: groupName,
         "Description" Core.=: description,
-        "PeeringStatus" Core.=: peeringStatus
+        "PeeringStatus" Core.=: peeringStatus,
+        "UserId" Core.=: userId,
+        "VpcId" Core.=: vpcId,
+        "GroupId" Core.=: groupId
       ]

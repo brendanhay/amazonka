@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAgentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
-  { -- | The agent\/connector ID.
+  { -- | A description of the operation performed.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The agent\/connector ID.
     agentId :: Prelude.Maybe Prelude.Text,
     -- | Information about the status of the @StartDataCollection@ and
     -- @StopDataCollection@ operations. The system has recorded the data
     -- collection operation. The agent\/connector receives this command the
     -- next time it polls for a new command.
-    operationSucceeded :: Prelude.Maybe Prelude.Bool,
-    -- | A description of the operation performed.
-    description :: Prelude.Maybe Prelude.Text
+    operationSucceeded :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,23 +50,27 @@ data AgentConfigurationStatus = AgentConfigurationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'agentConfigurationStatus_description' - A description of the operation performed.
+--
 -- 'agentId', 'agentConfigurationStatus_agentId' - The agent\/connector ID.
 --
 -- 'operationSucceeded', 'agentConfigurationStatus_operationSucceeded' - Information about the status of the @StartDataCollection@ and
 -- @StopDataCollection@ operations. The system has recorded the data
 -- collection operation. The agent\/connector receives this command the
 -- next time it polls for a new command.
---
--- 'description', 'agentConfigurationStatus_description' - A description of the operation performed.
 newAgentConfigurationStatus ::
   AgentConfigurationStatus
 newAgentConfigurationStatus =
   AgentConfigurationStatus'
-    { agentId =
+    { description =
         Prelude.Nothing,
-      operationSucceeded = Prelude.Nothing,
-      description = Prelude.Nothing
+      agentId = Prelude.Nothing,
+      operationSucceeded = Prelude.Nothing
     }
+
+-- | A description of the operation performed.
+agentConfigurationStatus_description :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
+agentConfigurationStatus_description = Lens.lens (\AgentConfigurationStatus' {description} -> description) (\s@AgentConfigurationStatus' {} a -> s {description = a} :: AgentConfigurationStatus)
 
 -- | The agent\/connector ID.
 agentConfigurationStatus_agentId :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
@@ -79,29 +83,25 @@ agentConfigurationStatus_agentId = Lens.lens (\AgentConfigurationStatus' {agentI
 agentConfigurationStatus_operationSucceeded :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Bool)
 agentConfigurationStatus_operationSucceeded = Lens.lens (\AgentConfigurationStatus' {operationSucceeded} -> operationSucceeded) (\s@AgentConfigurationStatus' {} a -> s {operationSucceeded = a} :: AgentConfigurationStatus)
 
--- | A description of the operation performed.
-agentConfigurationStatus_description :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
-agentConfigurationStatus_description = Lens.lens (\AgentConfigurationStatus' {description} -> description) (\s@AgentConfigurationStatus' {} a -> s {description = a} :: AgentConfigurationStatus)
-
 instance Core.FromJSON AgentConfigurationStatus where
   parseJSON =
     Core.withObject
       "AgentConfigurationStatus"
       ( \x ->
           AgentConfigurationStatus'
-            Prelude.<$> (x Core..:? "agentId")
+            Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "agentId")
             Prelude.<*> (x Core..:? "operationSucceeded")
-            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable AgentConfigurationStatus where
   hashWithSalt _salt AgentConfigurationStatus' {..} =
-    _salt `Prelude.hashWithSalt` agentId
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` agentId
       `Prelude.hashWithSalt` operationSucceeded
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData AgentConfigurationStatus where
   rnf AgentConfigurationStatus' {..} =
-    Prelude.rnf agentId
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf agentId
       `Prelude.seq` Prelude.rnf operationSucceeded
-      `Prelude.seq` Prelude.rnf description

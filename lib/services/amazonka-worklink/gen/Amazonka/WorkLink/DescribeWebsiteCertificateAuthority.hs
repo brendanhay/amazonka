@@ -36,8 +36,8 @@ module Amazonka.WorkLink.DescribeWebsiteCertificateAuthority
 
     -- * Response Lenses
     describeWebsiteCertificateAuthorityResponse_createdTime,
-    describeWebsiteCertificateAuthorityResponse_certificate,
     describeWebsiteCertificateAuthorityResponse_displayName,
+    describeWebsiteCertificateAuthorityResponse_certificate,
     describeWebsiteCertificateAuthorityResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance
       ( \s h x ->
           DescribeWebsiteCertificateAuthorityResponse'
             Prelude.<$> (x Core..?> "CreatedTime")
-              Prelude.<*> (x Core..?> "Certificate")
               Prelude.<*> (x Core..?> "DisplayName")
+              Prelude.<*> (x Core..?> "Certificate")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,10 +172,10 @@ instance
 data DescribeWebsiteCertificateAuthorityResponse = DescribeWebsiteCertificateAuthorityResponse'
   { -- | The time that the certificate authority was added.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The root certificate of the certificate authority.
-    certificate :: Prelude.Maybe Prelude.Text,
     -- | The certificate name to display.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | The root certificate of the certificate authority.
+    certificate :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,9 +191,9 @@ data DescribeWebsiteCertificateAuthorityResponse = DescribeWebsiteCertificateAut
 --
 -- 'createdTime', 'describeWebsiteCertificateAuthorityResponse_createdTime' - The time that the certificate authority was added.
 --
--- 'certificate', 'describeWebsiteCertificateAuthorityResponse_certificate' - The root certificate of the certificate authority.
---
 -- 'displayName', 'describeWebsiteCertificateAuthorityResponse_displayName' - The certificate name to display.
+--
+-- 'certificate', 'describeWebsiteCertificateAuthorityResponse_certificate' - The root certificate of the certificate authority.
 --
 -- 'httpStatus', 'describeWebsiteCertificateAuthorityResponse_httpStatus' - The response's http status code.
 newDescribeWebsiteCertificateAuthorityResponse ::
@@ -205,8 +205,8 @@ newDescribeWebsiteCertificateAuthorityResponse
     DescribeWebsiteCertificateAuthorityResponse'
       { createdTime =
           Prelude.Nothing,
-        certificate = Prelude.Nothing,
         displayName = Prelude.Nothing,
+        certificate = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -214,13 +214,13 @@ newDescribeWebsiteCertificateAuthorityResponse
 describeWebsiteCertificateAuthorityResponse_createdTime :: Lens.Lens' DescribeWebsiteCertificateAuthorityResponse (Prelude.Maybe Prelude.UTCTime)
 describeWebsiteCertificateAuthorityResponse_createdTime = Lens.lens (\DescribeWebsiteCertificateAuthorityResponse' {createdTime} -> createdTime) (\s@DescribeWebsiteCertificateAuthorityResponse' {} a -> s {createdTime = a} :: DescribeWebsiteCertificateAuthorityResponse) Prelude.. Lens.mapping Core._Time
 
--- | The root certificate of the certificate authority.
-describeWebsiteCertificateAuthorityResponse_certificate :: Lens.Lens' DescribeWebsiteCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
-describeWebsiteCertificateAuthorityResponse_certificate = Lens.lens (\DescribeWebsiteCertificateAuthorityResponse' {certificate} -> certificate) (\s@DescribeWebsiteCertificateAuthorityResponse' {} a -> s {certificate = a} :: DescribeWebsiteCertificateAuthorityResponse)
-
 -- | The certificate name to display.
 describeWebsiteCertificateAuthorityResponse_displayName :: Lens.Lens' DescribeWebsiteCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
 describeWebsiteCertificateAuthorityResponse_displayName = Lens.lens (\DescribeWebsiteCertificateAuthorityResponse' {displayName} -> displayName) (\s@DescribeWebsiteCertificateAuthorityResponse' {} a -> s {displayName = a} :: DescribeWebsiteCertificateAuthorityResponse)
+
+-- | The root certificate of the certificate authority.
+describeWebsiteCertificateAuthorityResponse_certificate :: Lens.Lens' DescribeWebsiteCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
+describeWebsiteCertificateAuthorityResponse_certificate = Lens.lens (\DescribeWebsiteCertificateAuthorityResponse' {certificate} -> certificate) (\s@DescribeWebsiteCertificateAuthorityResponse' {} a -> s {certificate = a} :: DescribeWebsiteCertificateAuthorityResponse)
 
 -- | The response's http status code.
 describeWebsiteCertificateAuthorityResponse_httpStatus :: Lens.Lens' DescribeWebsiteCertificateAuthorityResponse Prelude.Int
@@ -232,6 +232,6 @@ instance
   where
   rnf DescribeWebsiteCertificateAuthorityResponse' {..} =
     Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf httpStatus

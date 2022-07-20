@@ -30,10 +30,10 @@ module Amazonka.ServiceCatalog.GetProvisionedProductOutputs
 
     -- * Request Lenses
     getProvisionedProductOutputs_provisionedProductName,
-    getProvisionedProductOutputs_outputKeys,
-    getProvisionedProductOutputs_acceptLanguage,
     getProvisionedProductOutputs_pageToken,
     getProvisionedProductOutputs_pageSize,
+    getProvisionedProductOutputs_outputKeys,
+    getProvisionedProductOutputs_acceptLanguage,
     getProvisionedProductOutputs_provisionedProductId,
 
     -- * Destructuring the Response
@@ -58,6 +58,11 @@ import Amazonka.ServiceCatalog.Types
 data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
   { -- | The name of the provisioned product that you want the outputs from.
     provisionedProductName :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The list of keys that the API should return with their values. If none
     -- are provided, the API will return all outputs of the provisioned
     -- product.
@@ -70,11 +75,6 @@ data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the provisioned product that you want the outputs
     -- from.
     provisionedProductId :: Prelude.Maybe Prelude.Text
@@ -91,6 +91,11 @@ data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
 --
 -- 'provisionedProductName', 'getProvisionedProductOutputs_provisionedProductName' - The name of the provisioned product that you want the outputs from.
 --
+-- 'pageToken', 'getProvisionedProductOutputs_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'getProvisionedProductOutputs_pageSize' - The maximum number of items to return with this call.
+--
 -- 'outputKeys', 'getProvisionedProductOutputs_outputKeys' - The list of keys that the API should return with their values. If none
 -- are provided, the API will return all outputs of the provisioned
 -- product.
@@ -103,11 +108,6 @@ data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
 --
 -- -   @zh@ - Chinese
 --
--- 'pageToken', 'getProvisionedProductOutputs_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'getProvisionedProductOutputs_pageSize' - The maximum number of items to return with this call.
---
 -- 'provisionedProductId', 'getProvisionedProductOutputs_provisionedProductId' - The identifier of the provisioned product that you want the outputs
 -- from.
 newGetProvisionedProductOutputs ::
@@ -116,16 +116,25 @@ newGetProvisionedProductOutputs =
   GetProvisionedProductOutputs'
     { provisionedProductName =
         Prelude.Nothing,
-      outputKeys = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
       pageToken = Prelude.Nothing,
       pageSize = Prelude.Nothing,
+      outputKeys = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       provisionedProductId = Prelude.Nothing
     }
 
 -- | The name of the provisioned product that you want the outputs from.
 getProvisionedProductOutputs_provisionedProductName :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputs_provisionedProductName = Lens.lens (\GetProvisionedProductOutputs' {provisionedProductName} -> provisionedProductName) (\s@GetProvisionedProductOutputs' {} a -> s {provisionedProductName = a} :: GetProvisionedProductOutputs)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+getProvisionedProductOutputs_pageToken :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
+getProvisionedProductOutputs_pageToken = Lens.lens (\GetProvisionedProductOutputs' {pageToken} -> pageToken) (\s@GetProvisionedProductOutputs' {} a -> s {pageToken = a} :: GetProvisionedProductOutputs)
+
+-- | The maximum number of items to return with this call.
+getProvisionedProductOutputs_pageSize :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Natural)
+getProvisionedProductOutputs_pageSize = Lens.lens (\GetProvisionedProductOutputs' {pageSize} -> pageSize) (\s@GetProvisionedProductOutputs' {} a -> s {pageSize = a} :: GetProvisionedProductOutputs)
 
 -- | The list of keys that the API should return with their values. If none
 -- are provided, the API will return all outputs of the provisioned
@@ -142,15 +151,6 @@ getProvisionedProductOutputs_outputKeys = Lens.lens (\GetProvisionedProductOutpu
 -- -   @zh@ - Chinese
 getProvisionedProductOutputs_acceptLanguage :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
 getProvisionedProductOutputs_acceptLanguage = Lens.lens (\GetProvisionedProductOutputs' {acceptLanguage} -> acceptLanguage) (\s@GetProvisionedProductOutputs' {} a -> s {acceptLanguage = a} :: GetProvisionedProductOutputs)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-getProvisionedProductOutputs_pageToken :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Text)
-getProvisionedProductOutputs_pageToken = Lens.lens (\GetProvisionedProductOutputs' {pageToken} -> pageToken) (\s@GetProvisionedProductOutputs' {} a -> s {pageToken = a} :: GetProvisionedProductOutputs)
-
--- | The maximum number of items to return with this call.
-getProvisionedProductOutputs_pageSize :: Lens.Lens' GetProvisionedProductOutputs (Prelude.Maybe Prelude.Natural)
-getProvisionedProductOutputs_pageSize = Lens.lens (\GetProvisionedProductOutputs' {pageSize} -> pageSize) (\s@GetProvisionedProductOutputs' {} a -> s {pageSize = a} :: GetProvisionedProductOutputs)
 
 -- | The identifier of the provisioned product that you want the outputs
 -- from.
@@ -177,19 +177,19 @@ instance
   where
   hashWithSalt _salt GetProvisionedProductOutputs' {..} =
     _salt `Prelude.hashWithSalt` provisionedProductName
-      `Prelude.hashWithSalt` outputKeys
-      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` outputKeys
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` provisionedProductId
 
 instance Prelude.NFData GetProvisionedProductOutputs where
   rnf GetProvisionedProductOutputs' {..} =
     Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf outputKeys
-      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf outputKeys
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf provisionedProductId
 
 instance Core.ToHeaders GetProvisionedProductOutputs where
@@ -213,11 +213,11 @@ instance Core.ToJSON GetProvisionedProductOutputs where
       ( Prelude.catMaybes
           [ ("ProvisionedProductName" Core..=)
               Prelude.<$> provisionedProductName,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
             ("OutputKeys" Core..=) Prelude.<$> outputKeys,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
             ("ProvisionedProductId" Core..=)
               Prelude.<$> provisionedProductId
           ]

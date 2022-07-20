@@ -68,9 +68,9 @@ module Amazonka.SSM.DescribePatchProperties
     newDescribePatchProperties,
 
     -- * Request Lenses
-    describePatchProperties_patchSet,
     describePatchProperties_nextToken,
     describePatchProperties_maxResults,
+    describePatchProperties_patchSet,
     describePatchProperties_operatingSystem,
     describePatchProperties_property,
 
@@ -94,17 +94,17 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribePatchProperties' smart constructor.
 data DescribePatchProperties = DescribePatchProperties'
-  { -- | Indicates whether to list patches for the Windows operating system or
-    -- for applications released by Microsoft. Not applicable for the Linux or
-    -- macOS operating systems.
-    patchSet :: Prelude.Maybe PatchSet,
-    -- | The token for the next set of items to return. (You received this token
+  { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates whether to list patches for the Windows operating system or
+    -- for applications released by Microsoft. Not applicable for the Linux or
+    -- macOS operating systems.
+    patchSet :: Prelude.Maybe PatchSet,
     -- | The operating system type for which to list patches.
     operatingSystem :: OperatingSystem,
     -- | The patch property for which you want to view patch details.
@@ -120,16 +120,16 @@ data DescribePatchProperties = DescribePatchProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchSet', 'describePatchProperties_patchSet' - Indicates whether to list patches for the Windows operating system or
--- for applications released by Microsoft. Not applicable for the Linux or
--- macOS operating systems.
---
 -- 'nextToken', 'describePatchProperties_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
 -- 'maxResults', 'describePatchProperties_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'patchSet', 'describePatchProperties_patchSet' - Indicates whether to list patches for the Windows operating system or
+-- for applications released by Microsoft. Not applicable for the Linux or
+-- macOS operating systems.
 --
 -- 'operatingSystem', 'describePatchProperties_operatingSystem' - The operating system type for which to list patches.
 --
@@ -144,19 +144,13 @@ newDescribePatchProperties
   pOperatingSystem_
   pProperty_ =
     DescribePatchProperties'
-      { patchSet =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        patchSet = Prelude.Nothing,
         operatingSystem = pOperatingSystem_,
         property = pProperty_
       }
-
--- | Indicates whether to list patches for the Windows operating system or
--- for applications released by Microsoft. Not applicable for the Linux or
--- macOS operating systems.
-describePatchProperties_patchSet :: Lens.Lens' DescribePatchProperties (Prelude.Maybe PatchSet)
-describePatchProperties_patchSet = Lens.lens (\DescribePatchProperties' {patchSet} -> patchSet) (\s@DescribePatchProperties' {} a -> s {patchSet = a} :: DescribePatchProperties)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -168,6 +162,12 @@ describePatchProperties_nextToken = Lens.lens (\DescribePatchProperties' {nextTo
 -- next set of results.
 describePatchProperties_maxResults :: Lens.Lens' DescribePatchProperties (Prelude.Maybe Prelude.Natural)
 describePatchProperties_maxResults = Lens.lens (\DescribePatchProperties' {maxResults} -> maxResults) (\s@DescribePatchProperties' {} a -> s {maxResults = a} :: DescribePatchProperties)
+
+-- | Indicates whether to list patches for the Windows operating system or
+-- for applications released by Microsoft. Not applicable for the Linux or
+-- macOS operating systems.
+describePatchProperties_patchSet :: Lens.Lens' DescribePatchProperties (Prelude.Maybe PatchSet)
+describePatchProperties_patchSet = Lens.lens (\DescribePatchProperties' {patchSet} -> patchSet) (\s@DescribePatchProperties' {} a -> s {patchSet = a} :: DescribePatchProperties)
 
 -- | The operating system type for which to list patches.
 describePatchProperties_operatingSystem :: Lens.Lens' DescribePatchProperties OperatingSystem
@@ -215,17 +215,17 @@ instance Core.AWSRequest DescribePatchProperties where
 
 instance Prelude.Hashable DescribePatchProperties where
   hashWithSalt _salt DescribePatchProperties' {..} =
-    _salt `Prelude.hashWithSalt` patchSet
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` patchSet
       `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` property
 
 instance Prelude.NFData DescribePatchProperties where
   rnf DescribePatchProperties' {..} =
-    Prelude.rnf patchSet
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf patchSet
       `Prelude.seq` Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf property
 
@@ -248,9 +248,9 @@ instance Core.ToJSON DescribePatchProperties where
   toJSON DescribePatchProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PatchSet" Core..=) Prelude.<$> patchSet,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("PatchSet" Core..=) Prelude.<$> patchSet,
             Prelude.Just
               ("OperatingSystem" Core..= operatingSystem),
             Prelude.Just ("Property" Core..= property)

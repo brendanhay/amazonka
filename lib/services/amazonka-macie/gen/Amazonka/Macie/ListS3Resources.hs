@@ -34,9 +34,9 @@ module Amazonka.Macie.ListS3Resources
     newListS3Resources,
 
     -- * Request Lenses
-    listS3Resources_memberAccountId,
     listS3Resources_nextToken,
     listS3Resources_maxResults,
+    listS3Resources_memberAccountId,
 
     -- * Destructuring the Response
     ListS3ResourcesResponse (..),
@@ -58,17 +58,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListS3Resources' smart constructor.
 data ListS3Resources = ListS3Resources'
-  { -- | The Amazon Macie Classic member account ID whose associated S3 resources
-    -- you want to list.
-    memberAccountId :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter when paginating results. Set its value to null on
+  { -- | Use this parameter when paginating results. Set its value to null on
     -- your first call to the ListS3Resources action. Subsequent calls to the
     -- action fill nextToken in the request with the value of nextToken from
     -- the previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Use this parameter to indicate the maximum number of items that you want
     -- in the response. The default value is 250.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Macie Classic member account ID whose associated S3 resources
+    -- you want to list.
+    memberAccountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,9 +80,6 @@ data ListS3Resources = ListS3Resources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberAccountId', 'listS3Resources_memberAccountId' - The Amazon Macie Classic member account ID whose associated S3 resources
--- you want to list.
---
 -- 'nextToken', 'listS3Resources_nextToken' - Use this parameter when paginating results. Set its value to null on
 -- your first call to the ListS3Resources action. Subsequent calls to the
 -- action fill nextToken in the request with the value of nextToken from
@@ -90,19 +87,17 @@ data ListS3Resources = ListS3Resources'
 --
 -- 'maxResults', 'listS3Resources_maxResults' - Use this parameter to indicate the maximum number of items that you want
 -- in the response. The default value is 250.
+--
+-- 'memberAccountId', 'listS3Resources_memberAccountId' - The Amazon Macie Classic member account ID whose associated S3 resources
+-- you want to list.
 newListS3Resources ::
   ListS3Resources
 newListS3Resources =
   ListS3Resources'
-    { memberAccountId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      memberAccountId = Prelude.Nothing
     }
-
--- | The Amazon Macie Classic member account ID whose associated S3 resources
--- you want to list.
-listS3Resources_memberAccountId :: Lens.Lens' ListS3Resources (Prelude.Maybe Prelude.Text)
-listS3Resources_memberAccountId = Lens.lens (\ListS3Resources' {memberAccountId} -> memberAccountId) (\s@ListS3Resources' {} a -> s {memberAccountId = a} :: ListS3Resources)
 
 -- | Use this parameter when paginating results. Set its value to null on
 -- your first call to the ListS3Resources action. Subsequent calls to the
@@ -115,6 +110,11 @@ listS3Resources_nextToken = Lens.lens (\ListS3Resources' {nextToken} -> nextToke
 -- in the response. The default value is 250.
 listS3Resources_maxResults :: Lens.Lens' ListS3Resources (Prelude.Maybe Prelude.Int)
 listS3Resources_maxResults = Lens.lens (\ListS3Resources' {maxResults} -> maxResults) (\s@ListS3Resources' {} a -> s {maxResults = a} :: ListS3Resources)
+
+-- | The Amazon Macie Classic member account ID whose associated S3 resources
+-- you want to list.
+listS3Resources_memberAccountId :: Lens.Lens' ListS3Resources (Prelude.Maybe Prelude.Text)
+listS3Resources_memberAccountId = Lens.lens (\ListS3Resources' {memberAccountId} -> memberAccountId) (\s@ListS3Resources' {} a -> s {memberAccountId = a} :: ListS3Resources)
 
 instance Core.AWSPager ListS3Resources where
   page rq rs
@@ -154,15 +154,15 @@ instance Core.AWSRequest ListS3Resources where
 
 instance Prelude.Hashable ListS3Resources where
   hashWithSalt _salt ListS3Resources' {..} =
-    _salt `Prelude.hashWithSalt` memberAccountId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` memberAccountId
 
 instance Prelude.NFData ListS3Resources where
   rnf ListS3Resources' {..} =
-    Prelude.rnf memberAccountId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf memberAccountId
 
 instance Core.ToHeaders ListS3Resources where
   toHeaders =
@@ -183,10 +183,10 @@ instance Core.ToJSON ListS3Resources where
   toJSON ListS3Resources' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("memberAccountId" Core..=)
-              Prelude.<$> memberAccountId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("memberAccountId" Core..=)
+              Prelude.<$> memberAccountId
           ]
       )
 

@@ -38,15 +38,15 @@ module Amazonka.Batch.SubmitJob
     newSubmitJob,
 
     -- * Request Lenses
+    submitJob_tags,
+    submitJob_timeout,
+    submitJob_dependsOn,
     submitJob_nodeOverrides,
+    submitJob_retryStrategy,
+    submitJob_arrayProperties,
     submitJob_propagateTags,
     submitJob_containerOverrides,
-    submitJob_retryStrategy,
-    submitJob_dependsOn,
     submitJob_parameters,
-    submitJob_arrayProperties,
-    submitJob_timeout,
-    submitJob_tags,
     submitJob_jobName,
     submitJob_jobQueue,
     submitJob_jobDefinition,
@@ -74,12 +74,46 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newSubmitJob' smart constructor.
 data SubmitJob = SubmitJob'
-  { -- | A list of node overrides in JSON format that specify the node range to
+  { -- | The tags that you apply to the job request to help you categorize and
+    -- organize your resources. Each tag consists of a key and an optional
+    -- value. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in /Amazon Web Services General Reference/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The timeout configuration for this SubmitJob operation. You can specify
+    -- a timeout duration after which Batch terminates your jobs if they
+    -- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
+    -- retried. The minimum value for the timeout is 60 seconds. This
+    -- configuration overrides any timeout configuration specified in the job
+    -- definition. For array jobs, child jobs have the same timeout
+    -- configuration as the parent job. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    timeout :: Prelude.Maybe JobTimeout,
+    -- | A list of dependencies for the job. A job can depend upon a maximum of
+    -- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
+    -- specifying a job ID for array jobs so that each child array job
+    -- completes sequentially, starting at index 0. You can also specify an
+    -- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
+    -- each index child of this job must wait for the corresponding index child
+    -- of each dependency to complete before it can begin.
+    dependsOn :: Prelude.Maybe [JobDependency],
+    -- | A list of node overrides in JSON format that specify the node range to
     -- target and the container overrides for that node range.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources; use @containerOverrides@ instead.
     nodeOverrides :: Prelude.Maybe NodeOverrides,
+    -- | The retry strategy to use for failed jobs from this SubmitJob operation.
+    -- When a retry strategy is specified here, it overrides the retry strategy
+    -- defined in the job definition.
+    retryStrategy :: Prelude.Maybe RetryStrategy,
+    -- | The array properties for the submitted job, such as the size of the
+    -- array. The array size can be between 2 and 10,000. If you specify array
+    -- properties for a job, it becomes an array job. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
+    -- in the /Batch User Guide/.
+    arrayProperties :: Prelude.Maybe ArrayProperties,
     -- | Specifies whether to propagate the tags from the job or job definition
     -- to the corresponding Amazon ECS task. If no value is specified, the tags
     -- aren\'t propagated. Tags can only be propagated to the tasks during task
@@ -97,46 +131,12 @@ data SubmitJob = SubmitJob'
     -- on a container or add new environment variables to it with an
     -- @environment@ override.
     containerOverrides :: Prelude.Maybe ContainerOverrides,
-    -- | The retry strategy to use for failed jobs from this SubmitJob operation.
-    -- When a retry strategy is specified here, it overrides the retry strategy
-    -- defined in the job definition.
-    retryStrategy :: Prelude.Maybe RetryStrategy,
-    -- | A list of dependencies for the job. A job can depend upon a maximum of
-    -- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
-    -- specifying a job ID for array jobs so that each child array job
-    -- completes sequentially, starting at index 0. You can also specify an
-    -- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
-    -- each index child of this job must wait for the corresponding index child
-    -- of each dependency to complete before it can begin.
-    dependsOn :: Prelude.Maybe [JobDependency],
     -- | Additional parameters passed to the job that replace parameter
     -- substitution placeholders that are set in the job definition. Parameters
     -- are specified as a key and value pair mapping. Parameters in a
     -- @SubmitJob@ request override any corresponding parameter defaults from
     -- the job definition.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The array properties for the submitted job, such as the size of the
-    -- array. The array size can be between 2 and 10,000. If you specify array
-    -- properties for a job, it becomes an array job. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
-    -- in the /Batch User Guide/.
-    arrayProperties :: Prelude.Maybe ArrayProperties,
-    -- | The timeout configuration for this SubmitJob operation. You can specify
-    -- a timeout duration after which Batch terminates your jobs if they
-    -- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
-    -- retried. The minimum value for the timeout is 60 seconds. This
-    -- configuration overrides any timeout configuration specified in the job
-    -- definition. For array jobs, child jobs have the same timeout
-    -- configuration as the parent job. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
-    -- in the /Amazon Elastic Container Service Developer Guide/.
-    timeout :: Prelude.Maybe JobTimeout,
-    -- | The tags that you apply to the job request to help you categorize and
-    -- organize your resources. Each tag consists of a key and an optional
-    -- value. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
-    -- in /Amazon Web Services General Reference/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the job. The first character must be alphanumeric, and up to
     -- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
     -- are allowed.
@@ -160,11 +160,45 @@ data SubmitJob = SubmitJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'submitJob_tags' - The tags that you apply to the job request to help you categorize and
+-- organize your resources. Each tag consists of a key and an optional
+-- value. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
+--
+-- 'timeout', 'submitJob_timeout' - The timeout configuration for this SubmitJob operation. You can specify
+-- a timeout duration after which Batch terminates your jobs if they
+-- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
+-- retried. The minimum value for the timeout is 60 seconds. This
+-- configuration overrides any timeout configuration specified in the job
+-- definition. For array jobs, child jobs have the same timeout
+-- configuration as the parent job. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- 'dependsOn', 'submitJob_dependsOn' - A list of dependencies for the job. A job can depend upon a maximum of
+-- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
+-- specifying a job ID for array jobs so that each child array job
+-- completes sequentially, starting at index 0. You can also specify an
+-- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
+-- each index child of this job must wait for the corresponding index child
+-- of each dependency to complete before it can begin.
+--
 -- 'nodeOverrides', 'submitJob_nodeOverrides' - A list of node overrides in JSON format that specify the node range to
 -- target and the container overrides for that node range.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources; use @containerOverrides@ instead.
+--
+-- 'retryStrategy', 'submitJob_retryStrategy' - The retry strategy to use for failed jobs from this SubmitJob operation.
+-- When a retry strategy is specified here, it overrides the retry strategy
+-- defined in the job definition.
+--
+-- 'arrayProperties', 'submitJob_arrayProperties' - The array properties for the submitted job, such as the size of the
+-- array. The array size can be between 2 and 10,000. If you specify array
+-- properties for a job, it becomes an array job. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
+-- in the /Batch User Guide/.
 --
 -- 'propagateTags', 'submitJob_propagateTags' - Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -183,45 +217,11 @@ data SubmitJob = SubmitJob'
 -- on a container or add new environment variables to it with an
 -- @environment@ override.
 --
--- 'retryStrategy', 'submitJob_retryStrategy' - The retry strategy to use for failed jobs from this SubmitJob operation.
--- When a retry strategy is specified here, it overrides the retry strategy
--- defined in the job definition.
---
--- 'dependsOn', 'submitJob_dependsOn' - A list of dependencies for the job. A job can depend upon a maximum of
--- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
--- specifying a job ID for array jobs so that each child array job
--- completes sequentially, starting at index 0. You can also specify an
--- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
--- each index child of this job must wait for the corresponding index child
--- of each dependency to complete before it can begin.
---
 -- 'parameters', 'submitJob_parameters' - Additional parameters passed to the job that replace parameter
 -- substitution placeholders that are set in the job definition. Parameters
 -- are specified as a key and value pair mapping. Parameters in a
 -- @SubmitJob@ request override any corresponding parameter defaults from
 -- the job definition.
---
--- 'arrayProperties', 'submitJob_arrayProperties' - The array properties for the submitted job, such as the size of the
--- array. The array size can be between 2 and 10,000. If you specify array
--- properties for a job, it becomes an array job. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
--- in the /Batch User Guide/.
---
--- 'timeout', 'submitJob_timeout' - The timeout configuration for this SubmitJob operation. You can specify
--- a timeout duration after which Batch terminates your jobs if they
--- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
--- retried. The minimum value for the timeout is 60 seconds. This
--- configuration overrides any timeout configuration specified in the job
--- definition. For array jobs, child jobs have the same timeout
--- configuration as the parent job. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
--- in the /Amazon Elastic Container Service Developer Guide/.
---
--- 'tags', 'submitJob_tags' - The tags that you apply to the job request to help you categorize and
--- organize your resources. Each tag consists of a key and an optional
--- value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in /Amazon Web Services General Reference/.
 --
 -- 'jobName', 'submitJob_jobName' - The name of the job. The first character must be alphanumeric, and up to
 -- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
@@ -244,19 +244,49 @@ newSubmitJob ::
   SubmitJob
 newSubmitJob pJobName_ pJobQueue_ pJobDefinition_ =
   SubmitJob'
-    { nodeOverrides = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      dependsOn = Prelude.Nothing,
+      nodeOverrides = Prelude.Nothing,
+      retryStrategy = Prelude.Nothing,
+      arrayProperties = Prelude.Nothing,
       propagateTags = Prelude.Nothing,
       containerOverrides = Prelude.Nothing,
-      retryStrategy = Prelude.Nothing,
-      dependsOn = Prelude.Nothing,
       parameters = Prelude.Nothing,
-      arrayProperties = Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      tags = Prelude.Nothing,
       jobName = pJobName_,
       jobQueue = pJobQueue_,
       jobDefinition = pJobDefinition_
     }
+
+-- | The tags that you apply to the job request to help you categorize and
+-- organize your resources. Each tag consists of a key and an optional
+-- value. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
+submitJob_tags :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+submitJob_tags = Lens.lens (\SubmitJob' {tags} -> tags) (\s@SubmitJob' {} a -> s {tags = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The timeout configuration for this SubmitJob operation. You can specify
+-- a timeout duration after which Batch terminates your jobs if they
+-- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
+-- retried. The minimum value for the timeout is 60 seconds. This
+-- configuration overrides any timeout configuration specified in the job
+-- definition. For array jobs, child jobs have the same timeout
+-- configuration as the parent job. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+submitJob_timeout :: Lens.Lens' SubmitJob (Prelude.Maybe JobTimeout)
+submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' {} a -> s {timeout = a} :: SubmitJob)
+
+-- | A list of dependencies for the job. A job can depend upon a maximum of
+-- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
+-- specifying a job ID for array jobs so that each child array job
+-- completes sequentially, starting at index 0. You can also specify an
+-- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
+-- each index child of this job must wait for the corresponding index child
+-- of each dependency to complete before it can begin.
+submitJob_dependsOn :: Lens.Lens' SubmitJob (Prelude.Maybe [JobDependency])
+submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of node overrides in JSON format that specify the node range to
 -- target and the container overrides for that node range.
@@ -265,6 +295,20 @@ newSubmitJob pJobName_ pJobQueue_ pJobDefinition_ =
 -- resources; use @containerOverrides@ instead.
 submitJob_nodeOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe NodeOverrides)
 submitJob_nodeOverrides = Lens.lens (\SubmitJob' {nodeOverrides} -> nodeOverrides) (\s@SubmitJob' {} a -> s {nodeOverrides = a} :: SubmitJob)
+
+-- | The retry strategy to use for failed jobs from this SubmitJob operation.
+-- When a retry strategy is specified here, it overrides the retry strategy
+-- defined in the job definition.
+submitJob_retryStrategy :: Lens.Lens' SubmitJob (Prelude.Maybe RetryStrategy)
+submitJob_retryStrategy = Lens.lens (\SubmitJob' {retryStrategy} -> retryStrategy) (\s@SubmitJob' {} a -> s {retryStrategy = a} :: SubmitJob)
+
+-- | The array properties for the submitted job, such as the size of the
+-- array. The array size can be between 2 and 10,000. If you specify array
+-- properties for a job, it becomes an array job. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
+-- in the /Batch User Guide/.
+submitJob_arrayProperties :: Lens.Lens' SubmitJob (Prelude.Maybe ArrayProperties)
+submitJob_arrayProperties = Lens.lens (\SubmitJob' {arrayProperties} -> arrayProperties) (\s@SubmitJob' {} a -> s {arrayProperties = a} :: SubmitJob)
 
 -- | Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -287,22 +331,6 @@ submitJob_propagateTags = Lens.lens (\SubmitJob' {propagateTags} -> propagateTag
 submitJob_containerOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe ContainerOverrides)
 submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> containerOverrides) (\s@SubmitJob' {} a -> s {containerOverrides = a} :: SubmitJob)
 
--- | The retry strategy to use for failed jobs from this SubmitJob operation.
--- When a retry strategy is specified here, it overrides the retry strategy
--- defined in the job definition.
-submitJob_retryStrategy :: Lens.Lens' SubmitJob (Prelude.Maybe RetryStrategy)
-submitJob_retryStrategy = Lens.lens (\SubmitJob' {retryStrategy} -> retryStrategy) (\s@SubmitJob' {} a -> s {retryStrategy = a} :: SubmitJob)
-
--- | A list of dependencies for the job. A job can depend upon a maximum of
--- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
--- specifying a job ID for array jobs so that each child array job
--- completes sequentially, starting at index 0. You can also specify an
--- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
--- each index child of this job must wait for the corresponding index child
--- of each dependency to complete before it can begin.
-submitJob_dependsOn :: Lens.Lens' SubmitJob (Prelude.Maybe [JobDependency])
-submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
-
 -- | Additional parameters passed to the job that replace parameter
 -- substitution placeholders that are set in the job definition. Parameters
 -- are specified as a key and value pair mapping. Parameters in a
@@ -310,34 +338,6 @@ submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@Submi
 -- the job definition.
 submitJob_parameters :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 submitJob_parameters = Lens.lens (\SubmitJob' {parameters} -> parameters) (\s@SubmitJob' {} a -> s {parameters = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
-
--- | The array properties for the submitted job, such as the size of the
--- array. The array size can be between 2 and 10,000. If you specify array
--- properties for a job, it becomes an array job. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
--- in the /Batch User Guide/.
-submitJob_arrayProperties :: Lens.Lens' SubmitJob (Prelude.Maybe ArrayProperties)
-submitJob_arrayProperties = Lens.lens (\SubmitJob' {arrayProperties} -> arrayProperties) (\s@SubmitJob' {} a -> s {arrayProperties = a} :: SubmitJob)
-
--- | The timeout configuration for this SubmitJob operation. You can specify
--- a timeout duration after which Batch terminates your jobs if they
--- haven\'t finished. If a job is terminated due to a timeout, it isn\'t
--- retried. The minimum value for the timeout is 60 seconds. This
--- configuration overrides any timeout configuration specified in the job
--- definition. For array jobs, child jobs have the same timeout
--- configuration as the parent job. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
--- in the /Amazon Elastic Container Service Developer Guide/.
-submitJob_timeout :: Lens.Lens' SubmitJob (Prelude.Maybe JobTimeout)
-submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' {} a -> s {timeout = a} :: SubmitJob)
-
--- | The tags that you apply to the job request to help you categorize and
--- organize your resources. Each tag consists of a key and an optional
--- value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in /Amazon Web Services General Reference/.
-submitJob_tags :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-submitJob_tags = Lens.lens (\SubmitJob' {tags} -> tags) (\s@SubmitJob' {} a -> s {tags = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the job. The first character must be alphanumeric, and up to
 -- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
@@ -372,30 +372,30 @@ instance Core.AWSRequest SubmitJob where
 
 instance Prelude.Hashable SubmitJob where
   hashWithSalt _salt SubmitJob' {..} =
-    _salt `Prelude.hashWithSalt` nodeOverrides
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` dependsOn
+      `Prelude.hashWithSalt` nodeOverrides
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` arrayProperties
       `Prelude.hashWithSalt` propagateTags
       `Prelude.hashWithSalt` containerOverrides
-      `Prelude.hashWithSalt` retryStrategy
-      `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` arrayProperties
-      `Prelude.hashWithSalt` timeout
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobQueue
       `Prelude.hashWithSalt` jobDefinition
 
 instance Prelude.NFData SubmitJob where
   rnf SubmitJob' {..} =
-    Prelude.rnf nodeOverrides
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf dependsOn
+      `Prelude.seq` Prelude.rnf nodeOverrides
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf arrayProperties
       `Prelude.seq` Prelude.rnf propagateTags
       `Prelude.seq` Prelude.rnf containerOverrides
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf dependsOn
       `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf arrayProperties
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobQueue
       `Prelude.seq` Prelude.rnf jobDefinition
@@ -415,17 +415,17 @@ instance Core.ToJSON SubmitJob where
   toJSON SubmitJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nodeOverrides" Core..=) Prelude.<$> nodeOverrides,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("timeout" Core..=) Prelude.<$> timeout,
+            ("dependsOn" Core..=) Prelude.<$> dependsOn,
+            ("nodeOverrides" Core..=) Prelude.<$> nodeOverrides,
+            ("retryStrategy" Core..=) Prelude.<$> retryStrategy,
+            ("arrayProperties" Core..=)
+              Prelude.<$> arrayProperties,
             ("propagateTags" Core..=) Prelude.<$> propagateTags,
             ("containerOverrides" Core..=)
               Prelude.<$> containerOverrides,
-            ("retryStrategy" Core..=) Prelude.<$> retryStrategy,
-            ("dependsOn" Core..=) Prelude.<$> dependsOn,
             ("parameters" Core..=) Prelude.<$> parameters,
-            ("arrayProperties" Core..=)
-              Prelude.<$> arrayProperties,
-            ("timeout" Core..=) Prelude.<$> timeout,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("jobName" Core..= jobName),
             Prelude.Just ("jobQueue" Core..= jobQueue),
             Prelude.Just

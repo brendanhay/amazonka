@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data AwsElasticBeanstalkEnvironmentTier = AwsElasticBeanstalkEnvironmentTier'
   { -- | The name of the environment tier.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The version of the environment tier.
-    version :: Prelude.Maybe Prelude.Text,
     -- | The type of environment tier.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The version of the environment tier.
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,30 @@ data AwsElasticBeanstalkEnvironmentTier = AwsElasticBeanstalkEnvironmentTier'
 --
 -- 'name', 'awsElasticBeanstalkEnvironmentTier_name' - The name of the environment tier.
 --
--- 'version', 'awsElasticBeanstalkEnvironmentTier_version' - The version of the environment tier.
---
 -- 'type'', 'awsElasticBeanstalkEnvironmentTier_type' - The type of environment tier.
+--
+-- 'version', 'awsElasticBeanstalkEnvironmentTier_version' - The version of the environment tier.
 newAwsElasticBeanstalkEnvironmentTier ::
   AwsElasticBeanstalkEnvironmentTier
 newAwsElasticBeanstalkEnvironmentTier =
   AwsElasticBeanstalkEnvironmentTier'
     { name =
         Prelude.Nothing,
-      version = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | The name of the environment tier.
 awsElasticBeanstalkEnvironmentTier_name :: Lens.Lens' AwsElasticBeanstalkEnvironmentTier (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentTier_name = Lens.lens (\AwsElasticBeanstalkEnvironmentTier' {name} -> name) (\s@AwsElasticBeanstalkEnvironmentTier' {} a -> s {name = a} :: AwsElasticBeanstalkEnvironmentTier)
 
--- | The version of the environment tier.
-awsElasticBeanstalkEnvironmentTier_version :: Lens.Lens' AwsElasticBeanstalkEnvironmentTier (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentTier_version = Lens.lens (\AwsElasticBeanstalkEnvironmentTier' {version} -> version) (\s@AwsElasticBeanstalkEnvironmentTier' {} a -> s {version = a} :: AwsElasticBeanstalkEnvironmentTier)
-
 -- | The type of environment tier.
 awsElasticBeanstalkEnvironmentTier_type :: Lens.Lens' AwsElasticBeanstalkEnvironmentTier (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentTier_type = Lens.lens (\AwsElasticBeanstalkEnvironmentTier' {type'} -> type') (\s@AwsElasticBeanstalkEnvironmentTier' {} a -> s {type' = a} :: AwsElasticBeanstalkEnvironmentTier)
+
+-- | The version of the environment tier.
+awsElasticBeanstalkEnvironmentTier_version :: Lens.Lens' AwsElasticBeanstalkEnvironmentTier (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentTier_version = Lens.lens (\AwsElasticBeanstalkEnvironmentTier' {version} -> version) (\s@AwsElasticBeanstalkEnvironmentTier' {} a -> s {version = a} :: AwsElasticBeanstalkEnvironmentTier)
 
 instance
   Core.FromJSON
@@ -81,8 +81,8 @@ instance
       ( \x ->
           AwsElasticBeanstalkEnvironmentTier'
             Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Version")
       )
 
 instance
@@ -93,8 +93,8 @@ instance
     _salt
     AwsElasticBeanstalkEnvironmentTier' {..} =
       _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` version
         `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` version
 
 instance
   Prelude.NFData
@@ -102,8 +102,8 @@ instance
   where
   rnf AwsElasticBeanstalkEnvironmentTier' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf version
 
 instance
   Core.ToJSON
@@ -113,7 +113,7 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("Name" Core..=) Prelude.<$> name,
-            ("Version" Core..=) Prelude.<$> version,
-            ("Type" Core..=) Prelude.<$> type'
+            ("Type" Core..=) Prelude.<$> type',
+            ("Version" Core..=) Prelude.<$> version
           ]
       )

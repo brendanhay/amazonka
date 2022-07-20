@@ -29,12 +29,12 @@ module Amazonka.CodeCommit.BatchDescribeMergeConflicts
     newBatchDescribeMergeConflicts,
 
     -- * Request Lenses
-    batchDescribeMergeConflicts_filePaths,
-    batchDescribeMergeConflicts_conflictDetailLevel,
     batchDescribeMergeConflicts_nextToken,
-    batchDescribeMergeConflicts_maxConflictFiles,
+    batchDescribeMergeConflicts_filePaths,
     batchDescribeMergeConflicts_maxMergeHunks,
     batchDescribeMergeConflicts_conflictResolutionStrategy,
+    batchDescribeMergeConflicts_maxConflictFiles,
+    batchDescribeMergeConflicts_conflictDetailLevel,
     batchDescribeMergeConflicts_repositoryName,
     batchDescribeMergeConflicts_destinationCommitSpecifier,
     batchDescribeMergeConflicts_sourceCommitSpecifier,
@@ -64,20 +64,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDescribeMergeConflicts' smart constructor.
 data BatchDescribeMergeConflicts = BatchDescribeMergeConflicts'
-  { -- | The path of the target files used to describe the conflicts. If not
-    -- specified, the default is all conflict files.
-    filePaths :: Prelude.Maybe [Prelude.Text],
-    -- | The level of conflict detail to use. If unspecified, the default
-    -- FILE_LEVEL is used, which returns a not-mergeable result if the same
-    -- file has differences in both branches. If LINE_LEVEL is specified, a
-    -- conflict is considered not mergeable if the same file in both branches
-    -- has differences on the same line.
-    conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
-    -- | An enumeration token that, when provided in a request, returns the next
+  { -- | An enumeration token that, when provided in a request, returns the next
     -- batch of the results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of files to include in the output.
-    maxConflictFiles :: Prelude.Maybe Prelude.Int,
+    -- | The path of the target files used to describe the conflicts. If not
+    -- specified, the default is all conflict files.
+    filePaths :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of merge hunks to include in the output.
     maxMergeHunks :: Prelude.Maybe Prelude.Int,
     -- | Specifies which branch to use when resolving conflicts, or whether to
@@ -85,6 +77,14 @@ data BatchDescribeMergeConflicts = BatchDescribeMergeConflicts'
     -- NONE, which requires any conflicts to be resolved manually before the
     -- merge operation is successful.
     conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
+    -- | The maximum number of files to include in the output.
+    maxConflictFiles :: Prelude.Maybe Prelude.Int,
+    -- | The level of conflict detail to use. If unspecified, the default
+    -- FILE_LEVEL is used, which returns a not-mergeable result if the same
+    -- file has differences in both branches. If LINE_LEVEL is specified, a
+    -- conflict is considered not mergeable if the same file in both branches
+    -- has differences on the same line.
+    conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
     -- | The name of the repository that contains the merge conflicts you want to
     -- review.
     repositoryName :: Prelude.Text,
@@ -107,19 +107,11 @@ data BatchDescribeMergeConflicts = BatchDescribeMergeConflicts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filePaths', 'batchDescribeMergeConflicts_filePaths' - The path of the target files used to describe the conflicts. If not
--- specified, the default is all conflict files.
---
--- 'conflictDetailLevel', 'batchDescribeMergeConflicts_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
--- FILE_LEVEL is used, which returns a not-mergeable result if the same
--- file has differences in both branches. If LINE_LEVEL is specified, a
--- conflict is considered not mergeable if the same file in both branches
--- has differences on the same line.
---
 -- 'nextToken', 'batchDescribeMergeConflicts_nextToken' - An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
 --
--- 'maxConflictFiles', 'batchDescribeMergeConflicts_maxConflictFiles' - The maximum number of files to include in the output.
+-- 'filePaths', 'batchDescribeMergeConflicts_filePaths' - The path of the target files used to describe the conflicts. If not
+-- specified, the default is all conflict files.
 --
 -- 'maxMergeHunks', 'batchDescribeMergeConflicts_maxMergeHunks' - The maximum number of merge hunks to include in the output.
 --
@@ -127,6 +119,14 @@ data BatchDescribeMergeConflicts = BatchDescribeMergeConflicts'
 -- attempt automatically merging two versions of a file. The default is
 -- NONE, which requires any conflicts to be resolved manually before the
 -- merge operation is successful.
+--
+-- 'maxConflictFiles', 'batchDescribeMergeConflicts_maxConflictFiles' - The maximum number of files to include in the output.
+--
+-- 'conflictDetailLevel', 'batchDescribeMergeConflicts_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
+-- FILE_LEVEL is used, which returns a not-mergeable result if the same
+-- file has differences in both branches. If LINE_LEVEL is specified, a
+-- conflict is considered not mergeable if the same file in both branches
+-- has differences on the same line.
 --
 -- 'repositoryName', 'batchDescribeMergeConflicts_repositoryName' - The name of the repository that contains the merge conflicts you want to
 -- review.
@@ -154,13 +154,13 @@ newBatchDescribeMergeConflicts
   pSourceCommitSpecifier_
   pMergeOption_ =
     BatchDescribeMergeConflicts'
-      { filePaths =
+      { nextToken =
           Prelude.Nothing,
-        conflictDetailLevel = Prelude.Nothing,
-        nextToken = Prelude.Nothing,
-        maxConflictFiles = Prelude.Nothing,
+        filePaths = Prelude.Nothing,
         maxMergeHunks = Prelude.Nothing,
         conflictResolutionStrategy = Prelude.Nothing,
+        maxConflictFiles = Prelude.Nothing,
+        conflictDetailLevel = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         destinationCommitSpecifier =
           pDestinationCommitSpecifier_,
@@ -169,27 +169,15 @@ newBatchDescribeMergeConflicts
         mergeOption = pMergeOption_
       }
 
--- | The path of the target files used to describe the conflicts. If not
--- specified, the default is all conflict files.
-batchDescribeMergeConflicts_filePaths :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe [Prelude.Text])
-batchDescribeMergeConflicts_filePaths = Lens.lens (\BatchDescribeMergeConflicts' {filePaths} -> filePaths) (\s@BatchDescribeMergeConflicts' {} a -> s {filePaths = a} :: BatchDescribeMergeConflicts) Prelude.. Lens.mapping Lens.coerced
-
--- | The level of conflict detail to use. If unspecified, the default
--- FILE_LEVEL is used, which returns a not-mergeable result if the same
--- file has differences in both branches. If LINE_LEVEL is specified, a
--- conflict is considered not mergeable if the same file in both branches
--- has differences on the same line.
-batchDescribeMergeConflicts_conflictDetailLevel :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe ConflictDetailLevelTypeEnum)
-batchDescribeMergeConflicts_conflictDetailLevel = Lens.lens (\BatchDescribeMergeConflicts' {conflictDetailLevel} -> conflictDetailLevel) (\s@BatchDescribeMergeConflicts' {} a -> s {conflictDetailLevel = a} :: BatchDescribeMergeConflicts)
-
 -- | An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
 batchDescribeMergeConflicts_nextToken :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe Prelude.Text)
 batchDescribeMergeConflicts_nextToken = Lens.lens (\BatchDescribeMergeConflicts' {nextToken} -> nextToken) (\s@BatchDescribeMergeConflicts' {} a -> s {nextToken = a} :: BatchDescribeMergeConflicts)
 
--- | The maximum number of files to include in the output.
-batchDescribeMergeConflicts_maxConflictFiles :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe Prelude.Int)
-batchDescribeMergeConflicts_maxConflictFiles = Lens.lens (\BatchDescribeMergeConflicts' {maxConflictFiles} -> maxConflictFiles) (\s@BatchDescribeMergeConflicts' {} a -> s {maxConflictFiles = a} :: BatchDescribeMergeConflicts)
+-- | The path of the target files used to describe the conflicts. If not
+-- specified, the default is all conflict files.
+batchDescribeMergeConflicts_filePaths :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe [Prelude.Text])
+batchDescribeMergeConflicts_filePaths = Lens.lens (\BatchDescribeMergeConflicts' {filePaths} -> filePaths) (\s@BatchDescribeMergeConflicts' {} a -> s {filePaths = a} :: BatchDescribeMergeConflicts) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of merge hunks to include in the output.
 batchDescribeMergeConflicts_maxMergeHunks :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe Prelude.Int)
@@ -201,6 +189,18 @@ batchDescribeMergeConflicts_maxMergeHunks = Lens.lens (\BatchDescribeMergeConfli
 -- merge operation is successful.
 batchDescribeMergeConflicts_conflictResolutionStrategy :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
 batchDescribeMergeConflicts_conflictResolutionStrategy = Lens.lens (\BatchDescribeMergeConflicts' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@BatchDescribeMergeConflicts' {} a -> s {conflictResolutionStrategy = a} :: BatchDescribeMergeConflicts)
+
+-- | The maximum number of files to include in the output.
+batchDescribeMergeConflicts_maxConflictFiles :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe Prelude.Int)
+batchDescribeMergeConflicts_maxConflictFiles = Lens.lens (\BatchDescribeMergeConflicts' {maxConflictFiles} -> maxConflictFiles) (\s@BatchDescribeMergeConflicts' {} a -> s {maxConflictFiles = a} :: BatchDescribeMergeConflicts)
+
+-- | The level of conflict detail to use. If unspecified, the default
+-- FILE_LEVEL is used, which returns a not-mergeable result if the same
+-- file has differences in both branches. If LINE_LEVEL is specified, a
+-- conflict is considered not mergeable if the same file in both branches
+-- has differences on the same line.
+batchDescribeMergeConflicts_conflictDetailLevel :: Lens.Lens' BatchDescribeMergeConflicts (Prelude.Maybe ConflictDetailLevelTypeEnum)
+batchDescribeMergeConflicts_conflictDetailLevel = Lens.lens (\BatchDescribeMergeConflicts' {conflictDetailLevel} -> conflictDetailLevel) (\s@BatchDescribeMergeConflicts' {} a -> s {conflictDetailLevel = a} :: BatchDescribeMergeConflicts)
 
 -- | The name of the repository that contains the merge conflicts you want to
 -- review.
@@ -241,12 +241,12 @@ instance Core.AWSRequest BatchDescribeMergeConflicts where
 
 instance Prelude.Hashable BatchDescribeMergeConflicts where
   hashWithSalt _salt BatchDescribeMergeConflicts' {..} =
-    _salt `Prelude.hashWithSalt` filePaths
-      `Prelude.hashWithSalt` conflictDetailLevel
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxConflictFiles
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filePaths
       `Prelude.hashWithSalt` maxMergeHunks
       `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` maxConflictFiles
+      `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` destinationCommitSpecifier
       `Prelude.hashWithSalt` sourceCommitSpecifier
@@ -254,12 +254,12 @@ instance Prelude.Hashable BatchDescribeMergeConflicts where
 
 instance Prelude.NFData BatchDescribeMergeConflicts where
   rnf BatchDescribeMergeConflicts' {..} =
-    Prelude.rnf filePaths
-      `Prelude.seq` Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxConflictFiles
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filePaths
       `Prelude.seq` Prelude.rnf maxMergeHunks
       `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf maxConflictFiles
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf destinationCommitSpecifier
       `Prelude.seq` Prelude.rnf sourceCommitSpecifier
@@ -284,15 +284,15 @@ instance Core.ToJSON BatchDescribeMergeConflicts where
   toJSON BatchDescribeMergeConflicts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filePaths" Core..=) Prelude.<$> filePaths,
-            ("conflictDetailLevel" Core..=)
-              Prelude.<$> conflictDetailLevel,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxConflictFiles" Core..=)
-              Prelude.<$> maxConflictFiles,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filePaths" Core..=) Prelude.<$> filePaths,
             ("maxMergeHunks" Core..=) Prelude.<$> maxMergeHunks,
             ("conflictResolutionStrategy" Core..=)
               Prelude.<$> conflictResolutionStrategy,
+            ("maxConflictFiles" Core..=)
+              Prelude.<$> maxConflictFiles,
+            ("conflictDetailLevel" Core..=)
+              Prelude.<$> conflictDetailLevel,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),
             Prelude.Just

@@ -34,8 +34,8 @@ module Amazonka.CodeBuild.BatchGetProjects
     newBatchGetProjectsResponse,
 
     -- * Response Lenses
-    batchGetProjectsResponse_projectsNotFound,
     batchGetProjectsResponse_projects,
+    batchGetProjectsResponse_projectsNotFound,
     batchGetProjectsResponse_httpStatus,
   )
 where
@@ -92,8 +92,8 @@ instance Core.AWSRequest BatchGetProjects where
     Response.receiveJSON
       ( \s h x ->
           BatchGetProjectsResponse'
-            Prelude.<$> (x Core..?> "projectsNotFound")
-            Prelude.<*> (x Core..?> "projects" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "projects" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "projectsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,10 +134,10 @@ instance Core.ToQuery BatchGetProjects where
 
 -- | /See:/ 'newBatchGetProjectsResponse' smart constructor.
 data BatchGetProjectsResponse = BatchGetProjectsResponse'
-  { -- | The names of build projects for which information could not be found.
-    projectsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Information about the requested build projects.
+  { -- | Information about the requested build projects.
     projects :: Prelude.Maybe [Project],
+    -- | The names of build projects for which information could not be found.
+    projectsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,9 +151,9 @@ data BatchGetProjectsResponse = BatchGetProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projectsNotFound', 'batchGetProjectsResponse_projectsNotFound' - The names of build projects for which information could not be found.
---
 -- 'projects', 'batchGetProjectsResponse_projects' - Information about the requested build projects.
+--
+-- 'projectsNotFound', 'batchGetProjectsResponse_projectsNotFound' - The names of build projects for which information could not be found.
 --
 -- 'httpStatus', 'batchGetProjectsResponse_httpStatus' - The response's http status code.
 newBatchGetProjectsResponse ::
@@ -162,19 +162,19 @@ newBatchGetProjectsResponse ::
   BatchGetProjectsResponse
 newBatchGetProjectsResponse pHttpStatus_ =
   BatchGetProjectsResponse'
-    { projectsNotFound =
+    { projects =
         Prelude.Nothing,
-      projects = Prelude.Nothing,
+      projectsNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The names of build projects for which information could not be found.
-batchGetProjectsResponse_projectsNotFound :: Lens.Lens' BatchGetProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-batchGetProjectsResponse_projectsNotFound = Lens.lens (\BatchGetProjectsResponse' {projectsNotFound} -> projectsNotFound) (\s@BatchGetProjectsResponse' {} a -> s {projectsNotFound = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the requested build projects.
 batchGetProjectsResponse_projects :: Lens.Lens' BatchGetProjectsResponse (Prelude.Maybe [Project])
 batchGetProjectsResponse_projects = Lens.lens (\BatchGetProjectsResponse' {projects} -> projects) (\s@BatchGetProjectsResponse' {} a -> s {projects = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The names of build projects for which information could not be found.
+batchGetProjectsResponse_projectsNotFound :: Lens.Lens' BatchGetProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+batchGetProjectsResponse_projectsNotFound = Lens.lens (\BatchGetProjectsResponse' {projectsNotFound} -> projectsNotFound) (\s@BatchGetProjectsResponse' {} a -> s {projectsNotFound = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetProjectsResponse_httpStatus :: Lens.Lens' BatchGetProjectsResponse Prelude.Int
@@ -182,6 +182,6 @@ batchGetProjectsResponse_httpStatus = Lens.lens (\BatchGetProjectsResponse' {htt
 
 instance Prelude.NFData BatchGetProjectsResponse where
   rnf BatchGetProjectsResponse' {..} =
-    Prelude.rnf projectsNotFound
-      `Prelude.seq` Prelude.rnf projects
+    Prelude.rnf projects
+      `Prelude.seq` Prelude.rnf projectsNotFound
       `Prelude.seq` Prelude.rnf httpStatus

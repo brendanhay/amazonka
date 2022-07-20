@@ -27,15 +27,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUploadMetadata' smart constructor.
 data UploadMetadata = UploadMetadata'
-  { -- | The expiration time of the URL in ISO timestamp. It\'s specified in ISO
-    -- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-    -- 2019-11-08T02:41:28.172Z.
-    urlExpiry :: Prelude.Maybe Prelude.Text,
+  { -- | The pre-signed URL using which file would be downloaded from Amazon S3
+    -- by the API caller.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The headers to be provided while uploading the file to the URL.
     headersToInclude :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The pre-signed URL using which file would be downloaded from Amazon S3
-    -- by the API caller.
-    url :: Prelude.Maybe Prelude.Text
+    -- | The expiration time of the URL in ISO timestamp. It\'s specified in ISO
+    -- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+    -- 2019-11-08T02:41:28.172Z.
+    urlExpiry :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,22 +47,31 @@ data UploadMetadata = UploadMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'urlExpiry', 'uploadMetadata_urlExpiry' - The expiration time of the URL in ISO timestamp. It\'s specified in ISO
--- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
--- 2019-11-08T02:41:28.172Z.
+-- 'url', 'uploadMetadata_url' - The pre-signed URL using which file would be downloaded from Amazon S3
+-- by the API caller.
 --
 -- 'headersToInclude', 'uploadMetadata_headersToInclude' - The headers to be provided while uploading the file to the URL.
 --
--- 'url', 'uploadMetadata_url' - The pre-signed URL using which file would be downloaded from Amazon S3
--- by the API caller.
+-- 'urlExpiry', 'uploadMetadata_urlExpiry' - The expiration time of the URL in ISO timestamp. It\'s specified in ISO
+-- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+-- 2019-11-08T02:41:28.172Z.
 newUploadMetadata ::
   UploadMetadata
 newUploadMetadata =
   UploadMetadata'
-    { urlExpiry = Prelude.Nothing,
+    { url = Prelude.Nothing,
       headersToInclude = Prelude.Nothing,
-      url = Prelude.Nothing
+      urlExpiry = Prelude.Nothing
     }
+
+-- | The pre-signed URL using which file would be downloaded from Amazon S3
+-- by the API caller.
+uploadMetadata_url :: Lens.Lens' UploadMetadata (Prelude.Maybe Prelude.Text)
+uploadMetadata_url = Lens.lens (\UploadMetadata' {url} -> url) (\s@UploadMetadata' {} a -> s {url = a} :: UploadMetadata)
+
+-- | The headers to be provided while uploading the file to the URL.
+uploadMetadata_headersToInclude :: Lens.Lens' UploadMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+uploadMetadata_headersToInclude = Lens.lens (\UploadMetadata' {headersToInclude} -> headersToInclude) (\s@UploadMetadata' {} a -> s {headersToInclude = a} :: UploadMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The expiration time of the URL in ISO timestamp. It\'s specified in ISO
 -- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
@@ -70,36 +79,27 @@ newUploadMetadata =
 uploadMetadata_urlExpiry :: Lens.Lens' UploadMetadata (Prelude.Maybe Prelude.Text)
 uploadMetadata_urlExpiry = Lens.lens (\UploadMetadata' {urlExpiry} -> urlExpiry) (\s@UploadMetadata' {} a -> s {urlExpiry = a} :: UploadMetadata)
 
--- | The headers to be provided while uploading the file to the URL.
-uploadMetadata_headersToInclude :: Lens.Lens' UploadMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-uploadMetadata_headersToInclude = Lens.lens (\UploadMetadata' {headersToInclude} -> headersToInclude) (\s@UploadMetadata' {} a -> s {headersToInclude = a} :: UploadMetadata) Prelude.. Lens.mapping Lens.coerced
-
--- | The pre-signed URL using which file would be downloaded from Amazon S3
--- by the API caller.
-uploadMetadata_url :: Lens.Lens' UploadMetadata (Prelude.Maybe Prelude.Text)
-uploadMetadata_url = Lens.lens (\UploadMetadata' {url} -> url) (\s@UploadMetadata' {} a -> s {url = a} :: UploadMetadata)
-
 instance Core.FromJSON UploadMetadata where
   parseJSON =
     Core.withObject
       "UploadMetadata"
       ( \x ->
           UploadMetadata'
-            Prelude.<$> (x Core..:? "UrlExpiry")
+            Prelude.<$> (x Core..:? "Url")
             Prelude.<*> ( x Core..:? "HeadersToInclude"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Url")
+            Prelude.<*> (x Core..:? "UrlExpiry")
       )
 
 instance Prelude.Hashable UploadMetadata where
   hashWithSalt _salt UploadMetadata' {..} =
-    _salt `Prelude.hashWithSalt` urlExpiry
+    _salt `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` headersToInclude
-      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` urlExpiry
 
 instance Prelude.NFData UploadMetadata where
   rnf UploadMetadata' {..} =
-    Prelude.rnf urlExpiry
+    Prelude.rnf url
       `Prelude.seq` Prelude.rnf headersToInclude
-      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf urlExpiry

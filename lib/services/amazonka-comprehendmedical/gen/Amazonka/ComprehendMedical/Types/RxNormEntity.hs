@@ -37,36 +37,36 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRxNormEntity' smart constructor.
 data RxNormEntity = RxNormEntity'
-  { -- | The RxNorm concepts that the entity could refer to, along with a score
-    -- indicating the likelihood of the match.
-    rxNormConcepts :: Prelude.Maybe [RxNormConcept],
-    -- | The 0-based character offset in the input text that shows where the
+  { -- | The 0-based character offset in the input text that shows where the
     -- entity begins. The offset returns the UTF-8 code point in the string.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The segment of input text extracted from which the entity was detected.
-    text :: Prelude.Maybe Prelude.Text,
-    -- | The category of the entity. The recognized categories are @GENERIC@ or
-    -- @BRAND_NAME@.
-    category :: Prelude.Maybe RxNormEntityCategory,
+    -- | Describes the specific type of entity. For InferRxNorm, the recognized
+    -- entity type is @MEDICATION@.
+    type' :: Prelude.Maybe RxNormEntityType,
+    -- | The RxNorm concepts that the entity could refer to, along with a score
+    -- indicating the likelihood of the match.
+    rxNormConcepts :: Prelude.Maybe [RxNormConcept],
+    -- | Contextual information for the entity.
+    traits :: Prelude.Maybe [RxNormTrait],
     -- | The level of confidence that Amazon Comprehend Medical has in the
     -- accuracy of the detected entity.
     score :: Prelude.Maybe Prelude.Double,
-    -- | Contextual information for the entity.
-    traits :: Prelude.Maybe [RxNormTrait],
-    -- | The extracted attributes that relate to the entity. The attributes
-    -- recognized by InferRxNorm are @DOSAGE@, @DURATION@, @FORM@, @FREQUENCY@,
-    -- @RATE@, @ROUTE_OR_MODE@, and @STRENGTH@.
-    attributes :: Prelude.Maybe [RxNormAttribute],
-    -- | The 0-based character offset in the input text that shows where the
-    -- entity ends. The offset returns the UTF-8 code point in the string.
-    endOffset :: Prelude.Maybe Prelude.Int,
     -- | The numeric identifier for the entity. This is a monotonically
     -- increasing id unique within this response rather than a global unique
     -- identifier.
     id :: Prelude.Maybe Prelude.Int,
-    -- | Describes the specific type of entity. For InferRxNorm, the recognized
-    -- entity type is @MEDICATION@.
-    type' :: Prelude.Maybe RxNormEntityType
+    -- | The 0-based character offset in the input text that shows where the
+    -- entity ends. The offset returns the UTF-8 code point in the string.
+    endOffset :: Prelude.Maybe Prelude.Int,
+    -- | The category of the entity. The recognized categories are @GENERIC@ or
+    -- @BRAND_NAME@.
+    category :: Prelude.Maybe RxNormEntityCategory,
+    -- | The extracted attributes that relate to the entity. The attributes
+    -- recognized by InferRxNorm are @DOSAGE@, @DURATION@, @FORM@, @FREQUENCY@,
+    -- @RATE@, @ROUTE_OR_MODE@, and @STRENGTH@.
+    attributes :: Prelude.Maybe [RxNormAttribute],
+    -- | The segment of input text extracted from which the entity was detected.
+    text :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,89 +78,74 @@ data RxNormEntity = RxNormEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rxNormConcepts', 'rxNormEntity_rxNormConcepts' - The RxNorm concepts that the entity could refer to, along with a score
--- indicating the likelihood of the match.
---
 -- 'beginOffset', 'rxNormEntity_beginOffset' - The 0-based character offset in the input text that shows where the
 -- entity begins. The offset returns the UTF-8 code point in the string.
 --
--- 'text', 'rxNormEntity_text' - The segment of input text extracted from which the entity was detected.
+-- 'type'', 'rxNormEntity_type' - Describes the specific type of entity. For InferRxNorm, the recognized
+-- entity type is @MEDICATION@.
 --
--- 'category', 'rxNormEntity_category' - The category of the entity. The recognized categories are @GENERIC@ or
--- @BRAND_NAME@.
---
--- 'score', 'rxNormEntity_score' - The level of confidence that Amazon Comprehend Medical has in the
--- accuracy of the detected entity.
+-- 'rxNormConcepts', 'rxNormEntity_rxNormConcepts' - The RxNorm concepts that the entity could refer to, along with a score
+-- indicating the likelihood of the match.
 --
 -- 'traits', 'rxNormEntity_traits' - Contextual information for the entity.
 --
--- 'attributes', 'rxNormEntity_attributes' - The extracted attributes that relate to the entity. The attributes
--- recognized by InferRxNorm are @DOSAGE@, @DURATION@, @FORM@, @FREQUENCY@,
--- @RATE@, @ROUTE_OR_MODE@, and @STRENGTH@.
---
--- 'endOffset', 'rxNormEntity_endOffset' - The 0-based character offset in the input text that shows where the
--- entity ends. The offset returns the UTF-8 code point in the string.
+-- 'score', 'rxNormEntity_score' - The level of confidence that Amazon Comprehend Medical has in the
+-- accuracy of the detected entity.
 --
 -- 'id', 'rxNormEntity_id' - The numeric identifier for the entity. This is a monotonically
 -- increasing id unique within this response rather than a global unique
 -- identifier.
 --
--- 'type'', 'rxNormEntity_type' - Describes the specific type of entity. For InferRxNorm, the recognized
--- entity type is @MEDICATION@.
+-- 'endOffset', 'rxNormEntity_endOffset' - The 0-based character offset in the input text that shows where the
+-- entity ends. The offset returns the UTF-8 code point in the string.
+--
+-- 'category', 'rxNormEntity_category' - The category of the entity. The recognized categories are @GENERIC@ or
+-- @BRAND_NAME@.
+--
+-- 'attributes', 'rxNormEntity_attributes' - The extracted attributes that relate to the entity. The attributes
+-- recognized by InferRxNorm are @DOSAGE@, @DURATION@, @FORM@, @FREQUENCY@,
+-- @RATE@, @ROUTE_OR_MODE@, and @STRENGTH@.
+--
+-- 'text', 'rxNormEntity_text' - The segment of input text extracted from which the entity was detected.
 newRxNormEntity ::
   RxNormEntity
 newRxNormEntity =
   RxNormEntity'
-    { rxNormConcepts = Prelude.Nothing,
-      beginOffset = Prelude.Nothing,
-      text = Prelude.Nothing,
-      category = Prelude.Nothing,
-      score = Prelude.Nothing,
+    { beginOffset = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      rxNormConcepts = Prelude.Nothing,
       traits = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      endOffset = Prelude.Nothing,
+      score = Prelude.Nothing,
       id = Prelude.Nothing,
-      type' = Prelude.Nothing
+      endOffset = Prelude.Nothing,
+      category = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      text = Prelude.Nothing
     }
-
--- | The RxNorm concepts that the entity could refer to, along with a score
--- indicating the likelihood of the match.
-rxNormEntity_rxNormConcepts :: Lens.Lens' RxNormEntity (Prelude.Maybe [RxNormConcept])
-rxNormEntity_rxNormConcepts = Lens.lens (\RxNormEntity' {rxNormConcepts} -> rxNormConcepts) (\s@RxNormEntity' {} a -> s {rxNormConcepts = a} :: RxNormEntity) Prelude.. Lens.mapping Lens.coerced
 
 -- | The 0-based character offset in the input text that shows where the
 -- entity begins. The offset returns the UTF-8 code point in the string.
 rxNormEntity_beginOffset :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Int)
 rxNormEntity_beginOffset = Lens.lens (\RxNormEntity' {beginOffset} -> beginOffset) (\s@RxNormEntity' {} a -> s {beginOffset = a} :: RxNormEntity)
 
--- | The segment of input text extracted from which the entity was detected.
-rxNormEntity_text :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Text)
-rxNormEntity_text = Lens.lens (\RxNormEntity' {text} -> text) (\s@RxNormEntity' {} a -> s {text = a} :: RxNormEntity)
+-- | Describes the specific type of entity. For InferRxNorm, the recognized
+-- entity type is @MEDICATION@.
+rxNormEntity_type :: Lens.Lens' RxNormEntity (Prelude.Maybe RxNormEntityType)
+rxNormEntity_type = Lens.lens (\RxNormEntity' {type'} -> type') (\s@RxNormEntity' {} a -> s {type' = a} :: RxNormEntity)
 
--- | The category of the entity. The recognized categories are @GENERIC@ or
--- @BRAND_NAME@.
-rxNormEntity_category :: Lens.Lens' RxNormEntity (Prelude.Maybe RxNormEntityCategory)
-rxNormEntity_category = Lens.lens (\RxNormEntity' {category} -> category) (\s@RxNormEntity' {} a -> s {category = a} :: RxNormEntity)
-
--- | The level of confidence that Amazon Comprehend Medical has in the
--- accuracy of the detected entity.
-rxNormEntity_score :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Double)
-rxNormEntity_score = Lens.lens (\RxNormEntity' {score} -> score) (\s@RxNormEntity' {} a -> s {score = a} :: RxNormEntity)
+-- | The RxNorm concepts that the entity could refer to, along with a score
+-- indicating the likelihood of the match.
+rxNormEntity_rxNormConcepts :: Lens.Lens' RxNormEntity (Prelude.Maybe [RxNormConcept])
+rxNormEntity_rxNormConcepts = Lens.lens (\RxNormEntity' {rxNormConcepts} -> rxNormConcepts) (\s@RxNormEntity' {} a -> s {rxNormConcepts = a} :: RxNormEntity) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contextual information for the entity.
 rxNormEntity_traits :: Lens.Lens' RxNormEntity (Prelude.Maybe [RxNormTrait])
 rxNormEntity_traits = Lens.lens (\RxNormEntity' {traits} -> traits) (\s@RxNormEntity' {} a -> s {traits = a} :: RxNormEntity) Prelude.. Lens.mapping Lens.coerced
 
--- | The extracted attributes that relate to the entity. The attributes
--- recognized by InferRxNorm are @DOSAGE@, @DURATION@, @FORM@, @FREQUENCY@,
--- @RATE@, @ROUTE_OR_MODE@, and @STRENGTH@.
-rxNormEntity_attributes :: Lens.Lens' RxNormEntity (Prelude.Maybe [RxNormAttribute])
-rxNormEntity_attributes = Lens.lens (\RxNormEntity' {attributes} -> attributes) (\s@RxNormEntity' {} a -> s {attributes = a} :: RxNormEntity) Prelude.. Lens.mapping Lens.coerced
-
--- | The 0-based character offset in the input text that shows where the
--- entity ends. The offset returns the UTF-8 code point in the string.
-rxNormEntity_endOffset :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Int)
-rxNormEntity_endOffset = Lens.lens (\RxNormEntity' {endOffset} -> endOffset) (\s@RxNormEntity' {} a -> s {endOffset = a} :: RxNormEntity)
+-- | The level of confidence that Amazon Comprehend Medical has in the
+-- accuracy of the detected entity.
+rxNormEntity_score :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Double)
+rxNormEntity_score = Lens.lens (\RxNormEntity' {score} -> score) (\s@RxNormEntity' {} a -> s {score = a} :: RxNormEntity)
 
 -- | The numeric identifier for the entity. This is a monotonically
 -- increasing id unique within this response rather than a global unique
@@ -168,10 +153,25 @@ rxNormEntity_endOffset = Lens.lens (\RxNormEntity' {endOffset} -> endOffset) (\s
 rxNormEntity_id :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Int)
 rxNormEntity_id = Lens.lens (\RxNormEntity' {id} -> id) (\s@RxNormEntity' {} a -> s {id = a} :: RxNormEntity)
 
--- | Describes the specific type of entity. For InferRxNorm, the recognized
--- entity type is @MEDICATION@.
-rxNormEntity_type :: Lens.Lens' RxNormEntity (Prelude.Maybe RxNormEntityType)
-rxNormEntity_type = Lens.lens (\RxNormEntity' {type'} -> type') (\s@RxNormEntity' {} a -> s {type' = a} :: RxNormEntity)
+-- | The 0-based character offset in the input text that shows where the
+-- entity ends. The offset returns the UTF-8 code point in the string.
+rxNormEntity_endOffset :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Int)
+rxNormEntity_endOffset = Lens.lens (\RxNormEntity' {endOffset} -> endOffset) (\s@RxNormEntity' {} a -> s {endOffset = a} :: RxNormEntity)
+
+-- | The category of the entity. The recognized categories are @GENERIC@ or
+-- @BRAND_NAME@.
+rxNormEntity_category :: Lens.Lens' RxNormEntity (Prelude.Maybe RxNormEntityCategory)
+rxNormEntity_category = Lens.lens (\RxNormEntity' {category} -> category) (\s@RxNormEntity' {} a -> s {category = a} :: RxNormEntity)
+
+-- | The extracted attributes that relate to the entity. The attributes
+-- recognized by InferRxNorm are @DOSAGE@, @DURATION@, @FORM@, @FREQUENCY@,
+-- @RATE@, @ROUTE_OR_MODE@, and @STRENGTH@.
+rxNormEntity_attributes :: Lens.Lens' RxNormEntity (Prelude.Maybe [RxNormAttribute])
+rxNormEntity_attributes = Lens.lens (\RxNormEntity' {attributes} -> attributes) (\s@RxNormEntity' {} a -> s {attributes = a} :: RxNormEntity) Prelude.. Lens.mapping Lens.coerced
+
+-- | The segment of input text extracted from which the entity was detected.
+rxNormEntity_text :: Lens.Lens' RxNormEntity (Prelude.Maybe Prelude.Text)
+rxNormEntity_text = Lens.lens (\RxNormEntity' {text} -> text) (\s@RxNormEntity' {} a -> s {text = a} :: RxNormEntity)
 
 instance Core.FromJSON RxNormEntity where
   parseJSON =
@@ -179,40 +179,40 @@ instance Core.FromJSON RxNormEntity where
       "RxNormEntity"
       ( \x ->
           RxNormEntity'
-            Prelude.<$> (x Core..:? "RxNormConcepts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "Score")
-            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "BeginOffset")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "RxNormConcepts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Traits" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Score")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "EndOffset")
+            Prelude.<*> (x Core..:? "Category")
+            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Text")
       )
 
 instance Prelude.Hashable RxNormEntity where
   hashWithSalt _salt RxNormEntity' {..} =
-    _salt `Prelude.hashWithSalt` rxNormConcepts
-      `Prelude.hashWithSalt` beginOffset
-      `Prelude.hashWithSalt` text
-      `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` traits
-      `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` endOffset
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` rxNormConcepts
+      `Prelude.hashWithSalt` traits
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` text
 
 instance Prelude.NFData RxNormEntity where
   rnf RxNormEntity' {..} =
-    Prelude.rnf rxNormConcepts
-      `Prelude.seq` Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf beginOffset
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf rxNormConcepts
+      `Prelude.seq` Prelude.rnf traits
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf text

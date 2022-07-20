@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFlinkApplicationConfigurationUpdate' smart constructor.
 data FlinkApplicationConfigurationUpdate = FlinkApplicationConfigurationUpdate'
-  { -- | Describes updates to an application\'s checkpointing configuration.
-    -- Checkpointing is the process of persisting application state for fault
-    -- tolerance.
-    checkpointConfigurationUpdate :: Prelude.Maybe CheckpointConfigurationUpdate,
+  { -- | Describes updates to the configuration parameters for Amazon CloudWatch
+    -- logging for an application.
+    monitoringConfigurationUpdate :: Prelude.Maybe MonitoringConfigurationUpdate,
     -- | Describes updates to the parameters for how an application executes
     -- multiple tasks simultaneously.
     parallelismConfigurationUpdate :: Prelude.Maybe ParallelismConfigurationUpdate,
-    -- | Describes updates to the configuration parameters for Amazon CloudWatch
-    -- logging for an application.
-    monitoringConfigurationUpdate :: Prelude.Maybe MonitoringConfigurationUpdate
+    -- | Describes updates to an application\'s checkpointing configuration.
+    -- Checkpointing is the process of persisting application state for fault
+    -- tolerance.
+    checkpointConfigurationUpdate :: Prelude.Maybe CheckpointConfigurationUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,42 +52,42 @@ data FlinkApplicationConfigurationUpdate = FlinkApplicationConfigurationUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'checkpointConfigurationUpdate', 'flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate' - Describes updates to an application\'s checkpointing configuration.
--- Checkpointing is the process of persisting application state for fault
--- tolerance.
+-- 'monitoringConfigurationUpdate', 'flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate' - Describes updates to the configuration parameters for Amazon CloudWatch
+-- logging for an application.
 --
 -- 'parallelismConfigurationUpdate', 'flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate' - Describes updates to the parameters for how an application executes
 -- multiple tasks simultaneously.
 --
--- 'monitoringConfigurationUpdate', 'flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate' - Describes updates to the configuration parameters for Amazon CloudWatch
--- logging for an application.
+-- 'checkpointConfigurationUpdate', 'flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate' - Describes updates to an application\'s checkpointing configuration.
+-- Checkpointing is the process of persisting application state for fault
+-- tolerance.
 newFlinkApplicationConfigurationUpdate ::
   FlinkApplicationConfigurationUpdate
 newFlinkApplicationConfigurationUpdate =
   FlinkApplicationConfigurationUpdate'
-    { checkpointConfigurationUpdate =
+    { monitoringConfigurationUpdate =
         Prelude.Nothing,
       parallelismConfigurationUpdate =
         Prelude.Nothing,
-      monitoringConfigurationUpdate =
+      checkpointConfigurationUpdate =
         Prelude.Nothing
     }
 
--- | Describes updates to an application\'s checkpointing configuration.
--- Checkpointing is the process of persisting application state for fault
--- tolerance.
-flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate :: Lens.Lens' FlinkApplicationConfigurationUpdate (Prelude.Maybe CheckpointConfigurationUpdate)
-flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate = Lens.lens (\FlinkApplicationConfigurationUpdate' {checkpointConfigurationUpdate} -> checkpointConfigurationUpdate) (\s@FlinkApplicationConfigurationUpdate' {} a -> s {checkpointConfigurationUpdate = a} :: FlinkApplicationConfigurationUpdate)
+-- | Describes updates to the configuration parameters for Amazon CloudWatch
+-- logging for an application.
+flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate :: Lens.Lens' FlinkApplicationConfigurationUpdate (Prelude.Maybe MonitoringConfigurationUpdate)
+flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate = Lens.lens (\FlinkApplicationConfigurationUpdate' {monitoringConfigurationUpdate} -> monitoringConfigurationUpdate) (\s@FlinkApplicationConfigurationUpdate' {} a -> s {monitoringConfigurationUpdate = a} :: FlinkApplicationConfigurationUpdate)
 
 -- | Describes updates to the parameters for how an application executes
 -- multiple tasks simultaneously.
 flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate :: Lens.Lens' FlinkApplicationConfigurationUpdate (Prelude.Maybe ParallelismConfigurationUpdate)
 flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate = Lens.lens (\FlinkApplicationConfigurationUpdate' {parallelismConfigurationUpdate} -> parallelismConfigurationUpdate) (\s@FlinkApplicationConfigurationUpdate' {} a -> s {parallelismConfigurationUpdate = a} :: FlinkApplicationConfigurationUpdate)
 
--- | Describes updates to the configuration parameters for Amazon CloudWatch
--- logging for an application.
-flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate :: Lens.Lens' FlinkApplicationConfigurationUpdate (Prelude.Maybe MonitoringConfigurationUpdate)
-flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate = Lens.lens (\FlinkApplicationConfigurationUpdate' {monitoringConfigurationUpdate} -> monitoringConfigurationUpdate) (\s@FlinkApplicationConfigurationUpdate' {} a -> s {monitoringConfigurationUpdate = a} :: FlinkApplicationConfigurationUpdate)
+-- | Describes updates to an application\'s checkpointing configuration.
+-- Checkpointing is the process of persisting application state for fault
+-- tolerance.
+flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate :: Lens.Lens' FlinkApplicationConfigurationUpdate (Prelude.Maybe CheckpointConfigurationUpdate)
+flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate = Lens.lens (\FlinkApplicationConfigurationUpdate' {checkpointConfigurationUpdate} -> checkpointConfigurationUpdate) (\s@FlinkApplicationConfigurationUpdate' {} a -> s {checkpointConfigurationUpdate = a} :: FlinkApplicationConfigurationUpdate)
 
 instance
   Prelude.Hashable
@@ -97,18 +97,18 @@ instance
     _salt
     FlinkApplicationConfigurationUpdate' {..} =
       _salt
-        `Prelude.hashWithSalt` checkpointConfigurationUpdate
-        `Prelude.hashWithSalt` parallelismConfigurationUpdate
         `Prelude.hashWithSalt` monitoringConfigurationUpdate
+        `Prelude.hashWithSalt` parallelismConfigurationUpdate
+        `Prelude.hashWithSalt` checkpointConfigurationUpdate
 
 instance
   Prelude.NFData
     FlinkApplicationConfigurationUpdate
   where
   rnf FlinkApplicationConfigurationUpdate' {..} =
-    Prelude.rnf checkpointConfigurationUpdate
+    Prelude.rnf monitoringConfigurationUpdate
       `Prelude.seq` Prelude.rnf parallelismConfigurationUpdate
-      `Prelude.seq` Prelude.rnf monitoringConfigurationUpdate
+      `Prelude.seq` Prelude.rnf checkpointConfigurationUpdate
 
 instance
   Core.ToJSON
@@ -117,11 +117,11 @@ instance
   toJSON FlinkApplicationConfigurationUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CheckpointConfigurationUpdate" Core..=)
-              Prelude.<$> checkpointConfigurationUpdate,
+          [ ("MonitoringConfigurationUpdate" Core..=)
+              Prelude.<$> monitoringConfigurationUpdate,
             ("ParallelismConfigurationUpdate" Core..=)
               Prelude.<$> parallelismConfigurationUpdate,
-            ("MonitoringConfigurationUpdate" Core..=)
-              Prelude.<$> monitoringConfigurationUpdate
+            ("CheckpointConfigurationUpdate" Core..=)
+              Prelude.<$> checkpointConfigurationUpdate
           ]
       )

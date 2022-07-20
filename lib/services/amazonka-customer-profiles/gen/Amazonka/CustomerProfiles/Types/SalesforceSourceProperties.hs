@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceSourceProperties' smart constructor.
 data SalesforceSourceProperties = SalesforceSourceProperties'
-  { -- | The flag that enables dynamic fetching of new (recently added) fields in
+  { -- | Indicates whether Amazon AppFlow includes deleted files in the flow run.
+    includeDeletedRecords :: Prelude.Maybe Prelude.Bool,
+    -- | The flag that enables dynamic fetching of new (recently added) fields in
     -- the Salesforce objects while running a flow.
     enableDynamicFieldUpdate :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether Amazon AppFlow includes deleted files in the flow run.
-    includeDeletedRecords :: Prelude.Maybe Prelude.Bool,
     -- | The object specified in the Salesforce flow source.
     object' :: Prelude.Text
   }
@@ -46,10 +46,10 @@ data SalesforceSourceProperties = SalesforceSourceProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'includeDeletedRecords', 'salesforceSourceProperties_includeDeletedRecords' - Indicates whether Amazon AppFlow includes deleted files in the flow run.
+--
 -- 'enableDynamicFieldUpdate', 'salesforceSourceProperties_enableDynamicFieldUpdate' - The flag that enables dynamic fetching of new (recently added) fields in
 -- the Salesforce objects while running a flow.
---
--- 'includeDeletedRecords', 'salesforceSourceProperties_includeDeletedRecords' - Indicates whether Amazon AppFlow includes deleted files in the flow run.
 --
 -- 'object'', 'salesforceSourceProperties_object' - The object specified in the Salesforce flow source.
 newSalesforceSourceProperties ::
@@ -58,20 +58,20 @@ newSalesforceSourceProperties ::
   SalesforceSourceProperties
 newSalesforceSourceProperties pObject_ =
   SalesforceSourceProperties'
-    { enableDynamicFieldUpdate =
+    { includeDeletedRecords =
         Prelude.Nothing,
-      includeDeletedRecords = Prelude.Nothing,
+      enableDynamicFieldUpdate = Prelude.Nothing,
       object' = pObject_
     }
+
+-- | Indicates whether Amazon AppFlow includes deleted files in the flow run.
+salesforceSourceProperties_includeDeletedRecords :: Lens.Lens' SalesforceSourceProperties (Prelude.Maybe Prelude.Bool)
+salesforceSourceProperties_includeDeletedRecords = Lens.lens (\SalesforceSourceProperties' {includeDeletedRecords} -> includeDeletedRecords) (\s@SalesforceSourceProperties' {} a -> s {includeDeletedRecords = a} :: SalesforceSourceProperties)
 
 -- | The flag that enables dynamic fetching of new (recently added) fields in
 -- the Salesforce objects while running a flow.
 salesforceSourceProperties_enableDynamicFieldUpdate :: Lens.Lens' SalesforceSourceProperties (Prelude.Maybe Prelude.Bool)
 salesforceSourceProperties_enableDynamicFieldUpdate = Lens.lens (\SalesforceSourceProperties' {enableDynamicFieldUpdate} -> enableDynamicFieldUpdate) (\s@SalesforceSourceProperties' {} a -> s {enableDynamicFieldUpdate = a} :: SalesforceSourceProperties)
-
--- | Indicates whether Amazon AppFlow includes deleted files in the flow run.
-salesforceSourceProperties_includeDeletedRecords :: Lens.Lens' SalesforceSourceProperties (Prelude.Maybe Prelude.Bool)
-salesforceSourceProperties_includeDeletedRecords = Lens.lens (\SalesforceSourceProperties' {includeDeletedRecords} -> includeDeletedRecords) (\s@SalesforceSourceProperties' {} a -> s {includeDeletedRecords = a} :: SalesforceSourceProperties)
 
 -- | The object specified in the Salesforce flow source.
 salesforceSourceProperties_object :: Lens.Lens' SalesforceSourceProperties Prelude.Text
@@ -79,25 +79,24 @@ salesforceSourceProperties_object = Lens.lens (\SalesforceSourceProperties' {obj
 
 instance Prelude.Hashable SalesforceSourceProperties where
   hashWithSalt _salt SalesforceSourceProperties' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` includeDeletedRecords
       `Prelude.hashWithSalt` enableDynamicFieldUpdate
-      `Prelude.hashWithSalt` includeDeletedRecords
       `Prelude.hashWithSalt` object'
 
 instance Prelude.NFData SalesforceSourceProperties where
   rnf SalesforceSourceProperties' {..} =
-    Prelude.rnf enableDynamicFieldUpdate
-      `Prelude.seq` Prelude.rnf includeDeletedRecords
+    Prelude.rnf includeDeletedRecords
+      `Prelude.seq` Prelude.rnf enableDynamicFieldUpdate
       `Prelude.seq` Prelude.rnf object'
 
 instance Core.ToJSON SalesforceSourceProperties where
   toJSON SalesforceSourceProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EnableDynamicFieldUpdate" Core..=)
-              Prelude.<$> enableDynamicFieldUpdate,
-            ("IncludeDeletedRecords" Core..=)
+          [ ("IncludeDeletedRecords" Core..=)
               Prelude.<$> includeDeletedRecords,
+            ("EnableDynamicFieldUpdate" Core..=)
+              Prelude.<$> enableDynamicFieldUpdate,
             Prelude.Just ("Object" Core..= object')
           ]
       )

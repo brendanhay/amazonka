@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInsightHealth' smart constructor.
 data InsightHealth = InsightHealth'
-  { -- | The Meant Time to Recover (MTTR) for the insight.
-    meanTimeToRecoverInMilliseconds :: Prelude.Maybe Prelude.Integer,
-    -- | The number of open reactive insights.
+  { -- | The number of open reactive insights.
     openReactiveInsights :: Prelude.Maybe Prelude.Int,
+    -- | The Meant Time to Recover (MTTR) for the insight.
+    meanTimeToRecoverInMilliseconds :: Prelude.Maybe Prelude.Integer,
     -- | The number of open proactive insights.
     openProactiveInsights :: Prelude.Maybe Prelude.Int
   }
@@ -45,28 +45,28 @@ data InsightHealth = InsightHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'meanTimeToRecoverInMilliseconds', 'insightHealth_meanTimeToRecoverInMilliseconds' - The Meant Time to Recover (MTTR) for the insight.
---
 -- 'openReactiveInsights', 'insightHealth_openReactiveInsights' - The number of open reactive insights.
+--
+-- 'meanTimeToRecoverInMilliseconds', 'insightHealth_meanTimeToRecoverInMilliseconds' - The Meant Time to Recover (MTTR) for the insight.
 --
 -- 'openProactiveInsights', 'insightHealth_openProactiveInsights' - The number of open proactive insights.
 newInsightHealth ::
   InsightHealth
 newInsightHealth =
   InsightHealth'
-    { meanTimeToRecoverInMilliseconds =
+    { openReactiveInsights =
         Prelude.Nothing,
-      openReactiveInsights = Prelude.Nothing,
+      meanTimeToRecoverInMilliseconds = Prelude.Nothing,
       openProactiveInsights = Prelude.Nothing
     }
-
--- | The Meant Time to Recover (MTTR) for the insight.
-insightHealth_meanTimeToRecoverInMilliseconds :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Integer)
-insightHealth_meanTimeToRecoverInMilliseconds = Lens.lens (\InsightHealth' {meanTimeToRecoverInMilliseconds} -> meanTimeToRecoverInMilliseconds) (\s@InsightHealth' {} a -> s {meanTimeToRecoverInMilliseconds = a} :: InsightHealth)
 
 -- | The number of open reactive insights.
 insightHealth_openReactiveInsights :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Int)
 insightHealth_openReactiveInsights = Lens.lens (\InsightHealth' {openReactiveInsights} -> openReactiveInsights) (\s@InsightHealth' {} a -> s {openReactiveInsights = a} :: InsightHealth)
+
+-- | The Meant Time to Recover (MTTR) for the insight.
+insightHealth_meanTimeToRecoverInMilliseconds :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Integer)
+insightHealth_meanTimeToRecoverInMilliseconds = Lens.lens (\InsightHealth' {meanTimeToRecoverInMilliseconds} -> meanTimeToRecoverInMilliseconds) (\s@InsightHealth' {} a -> s {meanTimeToRecoverInMilliseconds = a} :: InsightHealth)
 
 -- | The number of open proactive insights.
 insightHealth_openProactiveInsights :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Int)
@@ -78,20 +78,19 @@ instance Core.FromJSON InsightHealth where
       "InsightHealth"
       ( \x ->
           InsightHealth'
-            Prelude.<$> (x Core..:? "MeanTimeToRecoverInMilliseconds")
-            Prelude.<*> (x Core..:? "OpenReactiveInsights")
+            Prelude.<$> (x Core..:? "OpenReactiveInsights")
+            Prelude.<*> (x Core..:? "MeanTimeToRecoverInMilliseconds")
             Prelude.<*> (x Core..:? "OpenProactiveInsights")
       )
 
 instance Prelude.Hashable InsightHealth where
   hashWithSalt _salt InsightHealth' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` openReactiveInsights
       `Prelude.hashWithSalt` meanTimeToRecoverInMilliseconds
-      `Prelude.hashWithSalt` openReactiveInsights
       `Prelude.hashWithSalt` openProactiveInsights
 
 instance Prelude.NFData InsightHealth where
   rnf InsightHealth' {..} =
-    Prelude.rnf meanTimeToRecoverInMilliseconds
-      `Prelude.seq` Prelude.rnf openReactiveInsights
+    Prelude.rnf openReactiveInsights
+      `Prelude.seq` Prelude.rnf meanTimeToRecoverInMilliseconds
       `Prelude.seq` Prelude.rnf openProactiveInsights

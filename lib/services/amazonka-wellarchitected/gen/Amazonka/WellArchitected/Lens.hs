@@ -14,45 +14,9 @@
 module Amazonka.WellArchitected.Lens
   ( -- * Operations
 
-    -- ** ListNotifications
-    listNotifications_nextToken,
-    listNotifications_workloadId,
-    listNotifications_maxResults,
-    listNotificationsResponse_notificationSummaries,
-    listNotificationsResponse_nextToken,
-    listNotificationsResponse_httpStatus,
-
-    -- ** GetLensVersionDifference
-    getLensVersionDifference_lensAlias,
-    getLensVersionDifference_baseLensVersion,
-    getLensVersionDifferenceResponse_lensAlias,
-    getLensVersionDifferenceResponse_latestLensVersion,
-    getLensVersionDifferenceResponse_baseLensVersion,
-    getLensVersionDifferenceResponse_versionDifferences,
-    getLensVersionDifferenceResponse_httpStatus,
-
-    -- ** ListLensReviewImprovements
-    listLensReviewImprovements_pillarId,
-    listLensReviewImprovements_milestoneNumber,
-    listLensReviewImprovements_nextToken,
-    listLensReviewImprovements_maxResults,
-    listLensReviewImprovements_workloadId,
-    listLensReviewImprovements_lensAlias,
-    listLensReviewImprovementsResponse_improvementSummaries,
-    listLensReviewImprovementsResponse_lensAlias,
-    listLensReviewImprovementsResponse_milestoneNumber,
-    listLensReviewImprovementsResponse_nextToken,
-    listLensReviewImprovementsResponse_workloadId,
-    listLensReviewImprovementsResponse_httpStatus,
-
-    -- ** ListMilestones
-    listMilestones_nextToken,
-    listMilestones_maxResults,
-    listMilestones_workloadId,
-    listMilestonesResponse_milestoneSummaries,
-    listMilestonesResponse_nextToken,
-    listMilestonesResponse_workloadId,
-    listMilestonesResponse_httpStatus,
+    -- ** AssociateLenses
+    associateLenses_workloadId,
+    associateLenses_lensAliases,
 
     -- ** CreateMilestone
     createMilestone_workloadId,
@@ -62,159 +26,16 @@ module Amazonka.WellArchitected.Lens
     createMilestoneResponse_workloadId,
     createMilestoneResponse_httpStatus,
 
-    -- ** GetAnswer
-    getAnswer_milestoneNumber,
-    getAnswer_workloadId,
-    getAnswer_lensAlias,
-    getAnswer_questionId,
-    getAnswerResponse_lensAlias,
-    getAnswerResponse_milestoneNumber,
-    getAnswerResponse_answer,
-    getAnswerResponse_workloadId,
-    getAnswerResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_workloadArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** UpdateAnswer
-    updateAnswer_isApplicable,
-    updateAnswer_selectedChoices,
-    updateAnswer_reason,
-    updateAnswer_notes,
-    updateAnswer_choiceUpdates,
-    updateAnswer_workloadId,
-    updateAnswer_lensAlias,
-    updateAnswer_questionId,
-    updateAnswerResponse_lensAlias,
-    updateAnswerResponse_answer,
-    updateAnswerResponse_workloadId,
-    updateAnswerResponse_httpStatus,
-
-    -- ** UpdateShareInvitation
-    updateShareInvitation_shareInvitationId,
-    updateShareInvitation_shareInvitationAction,
-    updateShareInvitationResponse_shareInvitation,
-    updateShareInvitationResponse_httpStatus,
-
-    -- ** ListAnswers
-    listAnswers_pillarId,
-    listAnswers_milestoneNumber,
-    listAnswers_nextToken,
-    listAnswers_maxResults,
-    listAnswers_workloadId,
-    listAnswers_lensAlias,
-    listAnswersResponse_lensAlias,
-    listAnswersResponse_milestoneNumber,
-    listAnswersResponse_nextToken,
-    listAnswersResponse_workloadId,
-    listAnswersResponse_answerSummaries,
-    listAnswersResponse_httpStatus,
-
-    -- ** DisassociateLenses
-    disassociateLenses_workloadId,
-    disassociateLenses_lensAliases,
-
-    -- ** GetMilestone
-    getMilestone_workloadId,
-    getMilestone_milestoneNumber,
-    getMilestoneResponse_milestone,
-    getMilestoneResponse_workloadId,
-    getMilestoneResponse_httpStatus,
-
-    -- ** ListLenses
-    listLenses_nextToken,
-    listLenses_maxResults,
-    listLensesResponse_nextToken,
-    listLensesResponse_lensSummaries,
-    listLensesResponse_httpStatus,
-
-    -- ** ListWorkloadShares
-    listWorkloadShares_sharedWithPrefix,
-    listWorkloadShares_nextToken,
-    listWorkloadShares_maxResults,
-    listWorkloadShares_workloadId,
-    listWorkloadSharesResponse_workloadShareSummaries,
-    listWorkloadSharesResponse_nextToken,
-    listWorkloadSharesResponse_workloadId,
-    listWorkloadSharesResponse_httpStatus,
-
-    -- ** UpdateWorkload
-    updateWorkload_isReviewOwnerUpdateAcknowledged,
-    updateWorkload_architecturalDesign,
-    updateWorkload_accountIds,
-    updateWorkload_industry,
-    updateWorkload_environment,
-    updateWorkload_awsRegions,
-    updateWorkload_improvementStatus,
-    updateWorkload_industryType,
-    updateWorkload_workloadName,
-    updateWorkload_notes,
-    updateWorkload_reviewOwner,
-    updateWorkload_description,
-    updateWorkload_pillarPriorities,
-    updateWorkload_nonAwsRegions,
-    updateWorkload_workloadId,
-    updateWorkloadResponse_workload,
-    updateWorkloadResponse_httpStatus,
-
-    -- ** DeleteWorkload
-    deleteWorkload_workloadId,
-    deleteWorkload_clientRequestToken,
-
-    -- ** ListLensReviews
-    listLensReviews_milestoneNumber,
-    listLensReviews_nextToken,
-    listLensReviews_maxResults,
-    listLensReviews_workloadId,
-    listLensReviewsResponse_milestoneNumber,
-    listLensReviewsResponse_nextToken,
-    listLensReviewsResponse_lensReviewSummaries,
-    listLensReviewsResponse_workloadId,
-    listLensReviewsResponse_httpStatus,
-
-    -- ** UpdateLensReview
-    updateLensReview_lensNotes,
-    updateLensReview_pillarNotes,
-    updateLensReview_workloadId,
-    updateLensReview_lensAlias,
-    updateLensReviewResponse_workloadId,
-    updateLensReviewResponse_lensReview,
-    updateLensReviewResponse_httpStatus,
-
-    -- ** ListShareInvitations
-    listShareInvitations_nextToken,
-    listShareInvitations_workloadNamePrefix,
-    listShareInvitations_maxResults,
-    listShareInvitationsResponse_shareInvitationSummaries,
-    listShareInvitationsResponse_nextToken,
-    listShareInvitationsResponse_httpStatus,
-
-    -- ** GetLensReview
-    getLensReview_milestoneNumber,
-    getLensReview_workloadId,
-    getLensReview_lensAlias,
-    getLensReviewResponse_milestoneNumber,
-    getLensReviewResponse_workloadId,
-    getLensReviewResponse_lensReview,
-    getLensReviewResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_workloadArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
     -- ** CreateWorkload
-    createWorkload_architecturalDesign,
+    createWorkload_tags,
     createWorkload_accountIds,
     createWorkload_industry,
     createWorkload_awsRegions,
-    createWorkload_industryType,
-    createWorkload_notes,
-    createWorkload_pillarPriorities,
     createWorkload_nonAwsRegions,
-    createWorkload_tags,
+    createWorkload_notes,
+    createWorkload_industryType,
+    createWorkload_architecturalDesign,
+    createWorkload_pillarPriorities,
     createWorkload_workloadName,
     createWorkload_description,
     createWorkload_environment,
@@ -225,10 +46,229 @@ module Amazonka.WellArchitected.Lens
     createWorkloadResponse_workloadId,
     createWorkloadResponse_httpStatus,
 
+    -- ** CreateWorkloadShare
+    createWorkloadShare_workloadId,
+    createWorkloadShare_sharedWith,
+    createWorkloadShare_permissionType,
+    createWorkloadShare_clientRequestToken,
+    createWorkloadShareResponse_shareId,
+    createWorkloadShareResponse_workloadId,
+    createWorkloadShareResponse_httpStatus,
+
+    -- ** DeleteWorkload
+    deleteWorkload_workloadId,
+    deleteWorkload_clientRequestToken,
+
     -- ** DeleteWorkloadShare
     deleteWorkloadShare_shareId,
     deleteWorkloadShare_workloadId,
     deleteWorkloadShare_clientRequestToken,
+
+    -- ** DisassociateLenses
+    disassociateLenses_workloadId,
+    disassociateLenses_lensAliases,
+
+    -- ** GetAnswer
+    getAnswer_milestoneNumber,
+    getAnswer_workloadId,
+    getAnswer_lensAlias,
+    getAnswer_questionId,
+    getAnswerResponse_lensAlias,
+    getAnswerResponse_answer,
+    getAnswerResponse_milestoneNumber,
+    getAnswerResponse_workloadId,
+    getAnswerResponse_httpStatus,
+
+    -- ** GetLensReview
+    getLensReview_milestoneNumber,
+    getLensReview_workloadId,
+    getLensReview_lensAlias,
+    getLensReviewResponse_lensReview,
+    getLensReviewResponse_milestoneNumber,
+    getLensReviewResponse_workloadId,
+    getLensReviewResponse_httpStatus,
+
+    -- ** GetLensReviewReport
+    getLensReviewReport_milestoneNumber,
+    getLensReviewReport_workloadId,
+    getLensReviewReport_lensAlias,
+    getLensReviewReportResponse_lensReviewReport,
+    getLensReviewReportResponse_milestoneNumber,
+    getLensReviewReportResponse_workloadId,
+    getLensReviewReportResponse_httpStatus,
+
+    -- ** GetLensVersionDifference
+    getLensVersionDifference_lensAlias,
+    getLensVersionDifference_baseLensVersion,
+    getLensVersionDifferenceResponse_lensAlias,
+    getLensVersionDifferenceResponse_baseLensVersion,
+    getLensVersionDifferenceResponse_versionDifferences,
+    getLensVersionDifferenceResponse_latestLensVersion,
+    getLensVersionDifferenceResponse_httpStatus,
+
+    -- ** GetMilestone
+    getMilestone_workloadId,
+    getMilestone_milestoneNumber,
+    getMilestoneResponse_milestone,
+    getMilestoneResponse_workloadId,
+    getMilestoneResponse_httpStatus,
+
+    -- ** GetWorkload
+    getWorkload_workloadId,
+    getWorkloadResponse_workload,
+    getWorkloadResponse_httpStatus,
+
+    -- ** ListAnswers
+    listAnswers_nextToken,
+    listAnswers_maxResults,
+    listAnswers_milestoneNumber,
+    listAnswers_pillarId,
+    listAnswers_workloadId,
+    listAnswers_lensAlias,
+    listAnswersResponse_answerSummaries,
+    listAnswersResponse_nextToken,
+    listAnswersResponse_lensAlias,
+    listAnswersResponse_milestoneNumber,
+    listAnswersResponse_workloadId,
+    listAnswersResponse_httpStatus,
+
+    -- ** ListLensReviewImprovements
+    listLensReviewImprovements_nextToken,
+    listLensReviewImprovements_maxResults,
+    listLensReviewImprovements_milestoneNumber,
+    listLensReviewImprovements_pillarId,
+    listLensReviewImprovements_workloadId,
+    listLensReviewImprovements_lensAlias,
+    listLensReviewImprovementsResponse_nextToken,
+    listLensReviewImprovementsResponse_lensAlias,
+    listLensReviewImprovementsResponse_improvementSummaries,
+    listLensReviewImprovementsResponse_milestoneNumber,
+    listLensReviewImprovementsResponse_workloadId,
+    listLensReviewImprovementsResponse_httpStatus,
+
+    -- ** ListLensReviews
+    listLensReviews_nextToken,
+    listLensReviews_maxResults,
+    listLensReviews_milestoneNumber,
+    listLensReviews_workloadId,
+    listLensReviewsResponse_nextToken,
+    listLensReviewsResponse_lensReviewSummaries,
+    listLensReviewsResponse_milestoneNumber,
+    listLensReviewsResponse_workloadId,
+    listLensReviewsResponse_httpStatus,
+
+    -- ** ListLenses
+    listLenses_nextToken,
+    listLenses_maxResults,
+    listLensesResponse_lensSummaries,
+    listLensesResponse_nextToken,
+    listLensesResponse_httpStatus,
+
+    -- ** ListMilestones
+    listMilestones_nextToken,
+    listMilestones_maxResults,
+    listMilestones_workloadId,
+    listMilestonesResponse_nextToken,
+    listMilestonesResponse_milestoneSummaries,
+    listMilestonesResponse_workloadId,
+    listMilestonesResponse_httpStatus,
+
+    -- ** ListNotifications
+    listNotifications_nextToken,
+    listNotifications_maxResults,
+    listNotifications_workloadId,
+    listNotificationsResponse_nextToken,
+    listNotificationsResponse_notificationSummaries,
+    listNotificationsResponse_httpStatus,
+
+    -- ** ListShareInvitations
+    listShareInvitations_nextToken,
+    listShareInvitations_workloadNamePrefix,
+    listShareInvitations_maxResults,
+    listShareInvitationsResponse_nextToken,
+    listShareInvitationsResponse_shareInvitationSummaries,
+    listShareInvitationsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_workloadArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListWorkloadShares
+    listWorkloadShares_nextToken,
+    listWorkloadShares_sharedWithPrefix,
+    listWorkloadShares_maxResults,
+    listWorkloadShares_workloadId,
+    listWorkloadSharesResponse_nextToken,
+    listWorkloadSharesResponse_workloadShareSummaries,
+    listWorkloadSharesResponse_workloadId,
+    listWorkloadSharesResponse_httpStatus,
+
+    -- ** ListWorkloads
+    listWorkloads_nextToken,
+    listWorkloads_workloadNamePrefix,
+    listWorkloads_maxResults,
+    listWorkloadsResponse_nextToken,
+    listWorkloadsResponse_workloadSummaries,
+    listWorkloadsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_workloadArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_workloadArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateAnswer
+    updateAnswer_selectedChoices,
+    updateAnswer_choiceUpdates,
+    updateAnswer_isApplicable,
+    updateAnswer_reason,
+    updateAnswer_notes,
+    updateAnswer_workloadId,
+    updateAnswer_lensAlias,
+    updateAnswer_questionId,
+    updateAnswerResponse_lensAlias,
+    updateAnswerResponse_answer,
+    updateAnswerResponse_workloadId,
+    updateAnswerResponse_httpStatus,
+
+    -- ** UpdateLensReview
+    updateLensReview_pillarNotes,
+    updateLensReview_lensNotes,
+    updateLensReview_workloadId,
+    updateLensReview_lensAlias,
+    updateLensReviewResponse_lensReview,
+    updateLensReviewResponse_workloadId,
+    updateLensReviewResponse_httpStatus,
+
+    -- ** UpdateShareInvitation
+    updateShareInvitation_shareInvitationId,
+    updateShareInvitation_shareInvitationAction,
+    updateShareInvitationResponse_shareInvitation,
+    updateShareInvitationResponse_httpStatus,
+
+    -- ** UpdateWorkload
+    updateWorkload_accountIds,
+    updateWorkload_environment,
+    updateWorkload_isReviewOwnerUpdateAcknowledged,
+    updateWorkload_industry,
+    updateWorkload_awsRegions,
+    updateWorkload_workloadName,
+    updateWorkload_reviewOwner,
+    updateWorkload_nonAwsRegions,
+    updateWorkload_description,
+    updateWorkload_notes,
+    updateWorkload_industryType,
+    updateWorkload_architecturalDesign,
+    updateWorkload_pillarPriorities,
+    updateWorkload_improvementStatus,
+    updateWorkload_workloadId,
+    updateWorkloadResponse_workload,
+    updateWorkloadResponse_httpStatus,
 
     -- ** UpdateWorkloadShare
     updateWorkloadShare_shareId,
@@ -238,95 +278,55 @@ module Amazonka.WellArchitected.Lens
     updateWorkloadShareResponse_workloadId,
     updateWorkloadShareResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_workloadArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** AssociateLenses
-    associateLenses_workloadId,
-    associateLenses_lensAliases,
-
-    -- ** ListWorkloads
-    listWorkloads_nextToken,
-    listWorkloads_workloadNamePrefix,
-    listWorkloads_maxResults,
-    listWorkloadsResponse_workloadSummaries,
-    listWorkloadsResponse_nextToken,
-    listWorkloadsResponse_httpStatus,
-
-    -- ** CreateWorkloadShare
-    createWorkloadShare_workloadId,
-    createWorkloadShare_sharedWith,
-    createWorkloadShare_permissionType,
-    createWorkloadShare_clientRequestToken,
-    createWorkloadShareResponse_workloadId,
-    createWorkloadShareResponse_shareId,
-    createWorkloadShareResponse_httpStatus,
-
-    -- ** GetLensReviewReport
-    getLensReviewReport_milestoneNumber,
-    getLensReviewReport_workloadId,
-    getLensReviewReport_lensAlias,
-    getLensReviewReportResponse_milestoneNumber,
-    getLensReviewReportResponse_workloadId,
-    getLensReviewReportResponse_lensReviewReport,
-    getLensReviewReportResponse_httpStatus,
-
     -- ** UpgradeLensReview
     upgradeLensReview_clientRequestToken,
     upgradeLensReview_workloadId,
     upgradeLensReview_lensAlias,
     upgradeLensReview_milestoneName,
 
-    -- ** GetWorkload
-    getWorkload_workloadId,
-    getWorkloadResponse_workload,
-    getWorkloadResponse_httpStatus,
-
     -- * Types
 
     -- ** Answer
-    answer_choiceAnswers,
-    answer_helpfulResourceUrl,
-    answer_isApplicable,
-    answer_pillarId,
-    answer_improvementPlanUrl,
-    answer_questionDescription,
-    answer_risk,
-    answer_questionTitle,
-    answer_selectedChoices,
-    answer_reason,
     answer_choices,
+    answer_selectedChoices,
+    answer_risk,
     answer_questionId,
+    answer_questionDescription,
+    answer_improvementPlanUrl,
+    answer_isApplicable,
+    answer_reason,
     answer_notes,
+    answer_questionTitle,
+    answer_helpfulResourceUrl,
+    answer_pillarId,
+    answer_choiceAnswers,
 
     -- ** AnswerSummary
-    answerSummary_isApplicable,
-    answerSummary_pillarId,
-    answerSummary_choiceAnswerSummaries,
-    answerSummary_risk,
-    answerSummary_questionTitle,
-    answerSummary_selectedChoices,
-    answerSummary_reason,
     answerSummary_choices,
+    answerSummary_selectedChoices,
+    answerSummary_risk,
+    answerSummary_choiceAnswerSummaries,
     answerSummary_questionId,
+    answerSummary_isApplicable,
+    answerSummary_reason,
+    answerSummary_questionTitle,
+    answerSummary_pillarId,
 
     -- ** Choice
-    choice_title,
     choice_description,
     choice_choiceId,
+    choice_title,
 
     -- ** ChoiceAnswer
     choiceAnswer_status,
+    choiceAnswer_choiceId,
     choiceAnswer_reason,
     choiceAnswer_notes,
-    choiceAnswer_choiceId,
 
     -- ** ChoiceAnswerSummary
     choiceAnswerSummary_status,
-    choiceAnswerSummary_reason,
     choiceAnswerSummary_choiceId,
+    choiceAnswerSummary_reason,
 
     -- ** ChoiceUpdate
     choiceUpdate_reason,
@@ -334,144 +334,144 @@ module Amazonka.WellArchitected.Lens
     choiceUpdate_status,
 
     -- ** ImprovementSummary
-    improvementSummary_pillarId,
-    improvementSummary_improvementPlanUrl,
     improvementSummary_risk,
-    improvementSummary_questionTitle,
     improvementSummary_questionId,
+    improvementSummary_improvementPlanUrl,
+    improvementSummary_questionTitle,
+    improvementSummary_pillarId,
 
     -- ** LensReview
-    lensReview_lensAlias,
-    lensReview_riskCounts,
-    lensReview_lensName,
     lensReview_nextToken,
-    lensReview_pillarReviewSummaries,
-    lensReview_updatedAt,
-    lensReview_lensStatus,
-    lensReview_notes,
+    lensReview_riskCounts,
+    lensReview_lensAlias,
     lensReview_lensVersion,
+    lensReview_lensName,
+    lensReview_pillarReviewSummaries,
+    lensReview_notes,
+    lensReview_lensStatus,
+    lensReview_updatedAt,
 
     -- ** LensReviewReport
     lensReviewReport_lensAlias,
     lensReviewReport_base64String,
 
     -- ** LensReviewSummary
-    lensReviewSummary_lensAlias,
     lensReviewSummary_riskCounts,
-    lensReviewSummary_lensName,
-    lensReviewSummary_updatedAt,
-    lensReviewSummary_lensStatus,
+    lensReviewSummary_lensAlias,
     lensReviewSummary_lensVersion,
+    lensReviewSummary_lensName,
+    lensReviewSummary_lensStatus,
+    lensReviewSummary_updatedAt,
 
     -- ** LensSummary
     lensSummary_lensAlias,
-    lensSummary_lensName,
     lensSummary_lensVersion,
     lensSummary_description,
+    lensSummary_lensName,
 
     -- ** LensUpgradeSummary
-    lensUpgradeSummary_lensAlias,
-    lensUpgradeSummary_latestLensVersion,
     lensUpgradeSummary_currentLensVersion,
-    lensUpgradeSummary_workloadId,
+    lensUpgradeSummary_lensAlias,
     lensUpgradeSummary_workloadName,
+    lensUpgradeSummary_latestLensVersion,
+    lensUpgradeSummary_workloadId,
 
     -- ** Milestone
-    milestone_workload,
-    milestone_milestoneNumber,
-    milestone_milestoneName,
     milestone_recordedAt,
+    milestone_milestoneName,
+    milestone_milestoneNumber,
+    milestone_workload,
 
     -- ** MilestoneSummary
-    milestoneSummary_milestoneNumber,
-    milestoneSummary_milestoneName,
     milestoneSummary_recordedAt,
+    milestoneSummary_milestoneName,
     milestoneSummary_workloadSummary,
+    milestoneSummary_milestoneNumber,
 
     -- ** NotificationSummary
-    notificationSummary_lensUpgradeSummary,
     notificationSummary_type,
+    notificationSummary_lensUpgradeSummary,
 
     -- ** PillarDifference
-    pillarDifference_pillarId,
-    pillarDifference_questionDifferences,
     pillarDifference_differenceStatus,
+    pillarDifference_questionDifferences,
+    pillarDifference_pillarId,
 
     -- ** PillarReviewSummary
-    pillarReviewSummary_pillarId,
-    pillarReviewSummary_pillarName,
     pillarReviewSummary_riskCounts,
     pillarReviewSummary_notes,
+    pillarReviewSummary_pillarId,
+    pillarReviewSummary_pillarName,
 
     -- ** QuestionDifference
-    questionDifference_questionTitle,
-    questionDifference_differenceStatus,
     questionDifference_questionId,
+    questionDifference_differenceStatus,
+    questionDifference_questionTitle,
 
     -- ** ShareInvitation
-    shareInvitation_workloadId,
     shareInvitation_shareInvitationId,
+    shareInvitation_workloadId,
 
     -- ** ShareInvitationSummary
-    shareInvitationSummary_sharedBy,
-    shareInvitationSummary_sharedWith,
     shareInvitationSummary_permissionType,
-    shareInvitationSummary_workloadId,
-    shareInvitationSummary_workloadName,
+    shareInvitationSummary_sharedWith,
     shareInvitationSummary_shareInvitationId,
+    shareInvitationSummary_workloadName,
+    shareInvitationSummary_sharedBy,
+    shareInvitationSummary_workloadId,
 
     -- ** VersionDifferences
     versionDifferences_pillarDifferences,
 
     -- ** Workload
-    workload_isReviewOwnerUpdateAcknowledged,
-    workload_architecturalDesign,
+    workload_tags,
     workload_accountIds,
-    workload_lenses,
-    workload_reviewRestrictionDate,
-    workload_industry,
     workload_environment,
     workload_riskCounts,
-    workload_awsRegions,
-    workload_owner,
-    workload_improvementStatus,
-    workload_workloadArn,
-    workload_industryType,
-    workload_workloadId,
-    workload_workloadName,
-    workload_updatedAt,
-    workload_notes,
-    workload_reviewOwner,
-    workload_description,
-    workload_pillarPriorities,
+    workload_isReviewOwnerUpdateAcknowledged,
+    workload_industry,
     workload_shareInvitationId,
+    workload_workloadArn,
+    workload_awsRegions,
+    workload_workloadName,
+    workload_reviewOwner,
+    workload_owner,
     workload_nonAwsRegions,
-    workload_tags,
+    workload_description,
+    workload_notes,
+    workload_industryType,
+    workload_architecturalDesign,
+    workload_pillarPriorities,
+    workload_improvementStatus,
+    workload_lenses,
+    workload_reviewRestrictionDate,
+    workload_updatedAt,
+    workload_workloadId,
 
     -- ** WorkloadShare
-    workloadShare_status,
-    workloadShare_sharedBy,
-    workloadShare_sharedWith,
     workloadShare_permissionType,
-    workloadShare_workloadId,
+    workloadShare_sharedWith,
     workloadShare_workloadName,
+    workloadShare_status,
     workloadShare_shareId,
+    workloadShare_sharedBy,
+    workloadShare_workloadId,
 
     -- ** WorkloadShareSummary
-    workloadShareSummary_status,
-    workloadShareSummary_sharedWith,
     workloadShareSummary_permissionType,
+    workloadShareSummary_sharedWith,
+    workloadShareSummary_status,
     workloadShareSummary_shareId,
 
     -- ** WorkloadSummary
-    workloadSummary_lenses,
     workloadSummary_riskCounts,
+    workloadSummary_workloadArn,
+    workloadSummary_workloadName,
     workloadSummary_owner,
     workloadSummary_improvementStatus,
-    workloadSummary_workloadArn,
-    workloadSummary_workloadId,
-    workloadSummary_workloadName,
+    workloadSummary_lenses,
     workloadSummary_updatedAt,
+    workloadSummary_workloadId,
   )
 where
 

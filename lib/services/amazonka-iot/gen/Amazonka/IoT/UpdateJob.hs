@@ -33,9 +33,9 @@ module Amazonka.IoT.UpdateJob
     -- * Request Lenses
     updateJob_jobExecutionsRolloutConfig,
     updateJob_abortConfig,
-    updateJob_namespaceId,
-    updateJob_presignedUrlConfig,
     updateJob_description,
+    updateJob_presignedUrlConfig,
+    updateJob_namespaceId,
     updateJob_timeoutConfig,
     updateJob_jobId,
 
@@ -58,6 +58,10 @@ data UpdateJob = UpdateJob'
     jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
     -- | Allows you to create criteria to abort a job.
     abortConfig :: Prelude.Maybe AbortConfig,
+    -- | A short text description of the job.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Configuration information for pre-signed S3 URLs.
+    presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, Amazon Web Services IoT
@@ -68,10 +72,6 @@ data UpdateJob = UpdateJob'
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
-    -- | Configuration information for pre-signed S3 URLs.
-    presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
-    -- | A short text description of the job.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the amount of time each device has to finish its execution of
     -- the job. The timer is started when the job execution status is set to
     -- @IN_PROGRESS@. If the job execution status is not set to another
@@ -95,6 +95,10 @@ data UpdateJob = UpdateJob'
 --
 -- 'abortConfig', 'updateJob_abortConfig' - Allows you to create criteria to abort a job.
 --
+-- 'description', 'updateJob_description' - A short text description of the job.
+--
+-- 'presignedUrlConfig', 'updateJob_presignedUrlConfig' - Configuration information for pre-signed S3 URLs.
+--
 -- 'namespaceId', 'updateJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, Amazon Web Services IoT
@@ -104,10 +108,6 @@ data UpdateJob = UpdateJob'
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
---
--- 'presignedUrlConfig', 'updateJob_presignedUrlConfig' - Configuration information for pre-signed S3 URLs.
---
--- 'description', 'updateJob_description' - A short text description of the job.
 --
 -- 'timeoutConfig', 'updateJob_timeoutConfig' - Specifies the amount of time each device has to finish its execution of
 -- the job. The timer is started when the job execution status is set to
@@ -125,9 +125,9 @@ newUpdateJob pJobId_ =
     { jobExecutionsRolloutConfig =
         Prelude.Nothing,
       abortConfig = Prelude.Nothing,
-      namespaceId = Prelude.Nothing,
-      presignedUrlConfig = Prelude.Nothing,
       description = Prelude.Nothing,
+      presignedUrlConfig = Prelude.Nothing,
+      namespaceId = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
       jobId = pJobId_
     }
@@ -140,6 +140,14 @@ updateJob_jobExecutionsRolloutConfig = Lens.lens (\UpdateJob' {jobExecutionsRoll
 updateJob_abortConfig :: Lens.Lens' UpdateJob (Prelude.Maybe AbortConfig)
 updateJob_abortConfig = Lens.lens (\UpdateJob' {abortConfig} -> abortConfig) (\s@UpdateJob' {} a -> s {abortConfig = a} :: UpdateJob)
 
+-- | A short text description of the job.
+updateJob_description :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
+updateJob_description = Lens.lens (\UpdateJob' {description} -> description) (\s@UpdateJob' {} a -> s {description = a} :: UpdateJob)
+
+-- | Configuration information for pre-signed S3 URLs.
+updateJob_presignedUrlConfig :: Lens.Lens' UpdateJob (Prelude.Maybe PresignedUrlConfig)
+updateJob_presignedUrlConfig = Lens.lens (\UpdateJob' {presignedUrlConfig} -> presignedUrlConfig) (\s@UpdateJob' {} a -> s {presignedUrlConfig = a} :: UpdateJob)
+
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, Amazon Web Services IoT
@@ -151,14 +159,6 @@ updateJob_abortConfig = Lens.lens (\UpdateJob' {abortConfig} -> abortConfig) (\s
 -- The @namespaceId@ feature is in public preview.
 updateJob_namespaceId :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_namespaceId = Lens.lens (\UpdateJob' {namespaceId} -> namespaceId) (\s@UpdateJob' {} a -> s {namespaceId = a} :: UpdateJob)
-
--- | Configuration information for pre-signed S3 URLs.
-updateJob_presignedUrlConfig :: Lens.Lens' UpdateJob (Prelude.Maybe PresignedUrlConfig)
-updateJob_presignedUrlConfig = Lens.lens (\UpdateJob' {presignedUrlConfig} -> presignedUrlConfig) (\s@UpdateJob' {} a -> s {presignedUrlConfig = a} :: UpdateJob)
-
--- | A short text description of the job.
-updateJob_description :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
-updateJob_description = Lens.lens (\UpdateJob' {description} -> description) (\s@UpdateJob' {} a -> s {description = a} :: UpdateJob)
 
 -- | Specifies the amount of time each device has to finish its execution of
 -- the job. The timer is started when the job execution status is set to
@@ -182,9 +182,9 @@ instance Prelude.Hashable UpdateJob where
     _salt
       `Prelude.hashWithSalt` jobExecutionsRolloutConfig
       `Prelude.hashWithSalt` abortConfig
-      `Prelude.hashWithSalt` namespaceId
-      `Prelude.hashWithSalt` presignedUrlConfig
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` presignedUrlConfig
+      `Prelude.hashWithSalt` namespaceId
       `Prelude.hashWithSalt` timeoutConfig
       `Prelude.hashWithSalt` jobId
 
@@ -192,9 +192,9 @@ instance Prelude.NFData UpdateJob where
   rnf UpdateJob' {..} =
     Prelude.rnf jobExecutionsRolloutConfig
       `Prelude.seq` Prelude.rnf abortConfig
-      `Prelude.seq` Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf presignedUrlConfig
+      `Prelude.seq` Prelude.rnf namespaceId
       `Prelude.seq` Prelude.rnf timeoutConfig
       `Prelude.seq` Prelude.rnf jobId
 
@@ -208,9 +208,9 @@ instance Core.ToJSON UpdateJob where
           [ ("jobExecutionsRolloutConfig" Core..=)
               Prelude.<$> jobExecutionsRolloutConfig,
             ("abortConfig" Core..=) Prelude.<$> abortConfig,
+            ("description" Core..=) Prelude.<$> description,
             ("presignedUrlConfig" Core..=)
               Prelude.<$> presignedUrlConfig,
-            ("description" Core..=) Prelude.<$> description,
             ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig
           ]
       )

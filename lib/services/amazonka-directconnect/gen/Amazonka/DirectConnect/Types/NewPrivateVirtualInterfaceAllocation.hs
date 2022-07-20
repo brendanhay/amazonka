@@ -30,20 +30,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNewPrivateVirtualInterfaceAllocation' smart constructor.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
-  { -- | The maximum transmission unit (MTU), in bytes. The supported values are
-    -- 1500 and 9001. The default value is 1500.
-    mtu :: Prelude.Maybe Prelude.Int,
-    -- | The IP address assigned to the customer interface.
-    customerAddress :: Prelude.Maybe Prelude.Text,
-    -- | The IP address assigned to the Amazon interface.
-    amazonAddress :: Prelude.Maybe Prelude.Text,
+  { -- | The tags associated with the private virtual interface.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The address family for the BGP peer.
     addressFamily :: Prelude.Maybe AddressFamily,
     -- | The authentication key for BGP configuration. This string has a minimum
     -- length of 6 characters and and a maximun lenth of 80 characters.
     authKey :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with the private virtual interface.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The IP address assigned to the customer interface.
+    customerAddress :: Prelude.Maybe Prelude.Text,
+    -- | The IP address assigned to the Amazon interface.
+    amazonAddress :: Prelude.Maybe Prelude.Text,
+    -- | The maximum transmission unit (MTU), in bytes. The supported values are
+    -- 1500 and 9001. The default value is 1500.
+    mtu :: Prelude.Maybe Prelude.Int,
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
@@ -66,19 +66,19 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mtu', 'newPrivateVirtualInterfaceAllocation_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
---
--- 'customerAddress', 'newPrivateVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.
---
--- 'amazonAddress', 'newPrivateVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.
+-- 'tags', 'newPrivateVirtualInterfaceAllocation_tags' - The tags associated with the private virtual interface.
 --
 -- 'addressFamily', 'newPrivateVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.
 --
 -- 'authKey', 'newPrivateVirtualInterfaceAllocation_authKey' - The authentication key for BGP configuration. This string has a minimum
 -- length of 6 characters and and a maximun lenth of 80 characters.
 --
--- 'tags', 'newPrivateVirtualInterfaceAllocation_tags' - The tags associated with the private virtual interface.
+-- 'customerAddress', 'newPrivateVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.
+--
+-- 'amazonAddress', 'newPrivateVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.
+--
+-- 'mtu', 'newPrivateVirtualInterfaceAllocation_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
+-- 1500 and 9001. The default value is 1500.
 --
 -- 'virtualInterfaceName', 'newPrivateVirtualInterfaceAllocation_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -103,31 +103,22 @@ newNewPrivateVirtualInterfaceAllocation
   pVlan_
   pAsn_ =
     NewPrivateVirtualInterfaceAllocation'
-      { mtu =
+      { tags =
           Prelude.Nothing,
-        customerAddress = Prelude.Nothing,
-        amazonAddress = Prelude.Nothing,
         addressFamily = Prelude.Nothing,
         authKey = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        customerAddress = Prelude.Nothing,
+        amazonAddress = Prelude.Nothing,
+        mtu = Prelude.Nothing,
         virtualInterfaceName =
           pVirtualInterfaceName_,
         vlan = pVlan_,
         asn = pAsn_
       }
 
--- | The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
-newPrivateVirtualInterfaceAllocation_mtu :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Int)
-newPrivateVirtualInterfaceAllocation_mtu = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {mtu} -> mtu) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {mtu = a} :: NewPrivateVirtualInterfaceAllocation)
-
--- | The IP address assigned to the customer interface.
-newPrivateVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
-newPrivateVirtualInterfaceAllocation_customerAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {customerAddress} -> customerAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {customerAddress = a} :: NewPrivateVirtualInterfaceAllocation)
-
--- | The IP address assigned to the Amazon interface.
-newPrivateVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
-newPrivateVirtualInterfaceAllocation_amazonAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {amazonAddress} -> amazonAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {amazonAddress = a} :: NewPrivateVirtualInterfaceAllocation)
+-- | The tags associated with the private virtual interface.
+newPrivateVirtualInterfaceAllocation_tags :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
+newPrivateVirtualInterfaceAllocation_tags = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPrivateVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The address family for the BGP peer.
 newPrivateVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe AddressFamily)
@@ -138,9 +129,18 @@ newPrivateVirtualInterfaceAllocation_addressFamily = Lens.lens (\NewPrivateVirtu
 newPrivateVirtualInterfaceAllocation_authKey :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterfaceAllocation_authKey = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {authKey} -> authKey) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {authKey = a} :: NewPrivateVirtualInterfaceAllocation)
 
--- | The tags associated with the private virtual interface.
-newPrivateVirtualInterfaceAllocation_tags :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
-newPrivateVirtualInterfaceAllocation_tags = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPrivateVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens.coerced
+-- | The IP address assigned to the customer interface.
+newPrivateVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
+newPrivateVirtualInterfaceAllocation_customerAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {customerAddress} -> customerAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {customerAddress = a} :: NewPrivateVirtualInterfaceAllocation)
+
+-- | The IP address assigned to the Amazon interface.
+newPrivateVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
+newPrivateVirtualInterfaceAllocation_amazonAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {amazonAddress} -> amazonAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {amazonAddress = a} :: NewPrivateVirtualInterfaceAllocation)
+
+-- | The maximum transmission unit (MTU), in bytes. The supported values are
+-- 1500 and 9001. The default value is 1500.
+newPrivateVirtualInterfaceAllocation_mtu :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Int)
+newPrivateVirtualInterfaceAllocation_mtu = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {mtu} -> mtu) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {mtu = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -166,12 +166,12 @@ instance
   hashWithSalt
     _salt
     NewPrivateVirtualInterfaceAllocation' {..} =
-      _salt `Prelude.hashWithSalt` mtu
-        `Prelude.hashWithSalt` customerAddress
-        `Prelude.hashWithSalt` amazonAddress
+      _salt `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` addressFamily
         `Prelude.hashWithSalt` authKey
-        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` customerAddress
+        `Prelude.hashWithSalt` amazonAddress
+        `Prelude.hashWithSalt` mtu
         `Prelude.hashWithSalt` virtualInterfaceName
         `Prelude.hashWithSalt` vlan
         `Prelude.hashWithSalt` asn
@@ -181,12 +181,12 @@ instance
     NewPrivateVirtualInterfaceAllocation
   where
   rnf NewPrivateVirtualInterfaceAllocation' {..} =
-    Prelude.rnf mtu
-      `Prelude.seq` Prelude.rnf customerAddress
-      `Prelude.seq` Prelude.rnf amazonAddress
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf addressFamily
       `Prelude.seq` Prelude.rnf authKey
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf customerAddress
+      `Prelude.seq` Prelude.rnf amazonAddress
+      `Prelude.seq` Prelude.rnf mtu
       `Prelude.seq` Prelude.rnf virtualInterfaceName
       `Prelude.seq` Prelude.rnf vlan
       `Prelude.seq` Prelude.rnf asn
@@ -198,13 +198,13 @@ instance
   toJSON NewPrivateVirtualInterfaceAllocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("mtu" Core..=) Prelude.<$> mtu,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
+            ("authKey" Core..=) Prelude.<$> authKey,
             ("customerAddress" Core..=)
               Prelude.<$> customerAddress,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
-            ("authKey" Core..=) Prelude.<$> authKey,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("mtu" Core..=) Prelude.<$> mtu,
             Prelude.Just
               ( "virtualInterfaceName"
                   Core..= virtualInterfaceName

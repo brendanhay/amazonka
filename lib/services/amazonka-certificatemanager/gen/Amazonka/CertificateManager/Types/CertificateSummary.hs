@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCertificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
-  { -- | Amazon Resource Name (ARN) of the certificate. This is of the form:
+  { -- | Fully qualified domain name (FQDN), such as www.example.com or
+    -- example.com, for the certificate.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Resource Name (ARN) of the certificate. This is of the form:
     --
     -- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | Fully qualified domain name (FQDN), such as www.example.com or
-    -- example.com, for the certificate.
-    domainName :: Prelude.Maybe Prelude.Text
+    certificateArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,27 @@ data CertificateSummary = CertificateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainName', 'certificateSummary_domainName' - Fully qualified domain name (FQDN), such as www.example.com or
+-- example.com, for the certificate.
+--
 -- 'certificateArn', 'certificateSummary_certificateArn' - Amazon Resource Name (ARN) of the certificate. This is of the form:
 --
 -- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
---
--- 'domainName', 'certificateSummary_domainName' - Fully qualified domain name (FQDN), such as www.example.com or
--- example.com, for the certificate.
 newCertificateSummary ::
   CertificateSummary
 newCertificateSummary =
   CertificateSummary'
-    { certificateArn =
-        Prelude.Nothing,
-      domainName = Prelude.Nothing
+    { domainName = Prelude.Nothing,
+      certificateArn = Prelude.Nothing
     }
+
+-- | Fully qualified domain name (FQDN), such as www.example.com or
+-- example.com, for the certificate.
+certificateSummary_domainName :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
+certificateSummary_domainName = Lens.lens (\CertificateSummary' {domainName} -> domainName) (\s@CertificateSummary' {} a -> s {domainName = a} :: CertificateSummary)
 
 -- | Amazon Resource Name (ARN) of the certificate. This is of the form:
 --
@@ -76,27 +80,22 @@ newCertificateSummary =
 certificateSummary_certificateArn :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
 certificateSummary_certificateArn = Lens.lens (\CertificateSummary' {certificateArn} -> certificateArn) (\s@CertificateSummary' {} a -> s {certificateArn = a} :: CertificateSummary)
 
--- | Fully qualified domain name (FQDN), such as www.example.com or
--- example.com, for the certificate.
-certificateSummary_domainName :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
-certificateSummary_domainName = Lens.lens (\CertificateSummary' {domainName} -> domainName) (\s@CertificateSummary' {} a -> s {domainName = a} :: CertificateSummary)
-
 instance Core.FromJSON CertificateSummary where
   parseJSON =
     Core.withObject
       "CertificateSummary"
       ( \x ->
           CertificateSummary'
-            Prelude.<$> (x Core..:? "CertificateArn")
-            Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<$> (x Core..:? "DomainName")
+            Prelude.<*> (x Core..:? "CertificateArn")
       )
 
 instance Prelude.Hashable CertificateSummary where
   hashWithSalt _salt CertificateSummary' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
-      `Prelude.hashWithSalt` domainName
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` certificateArn
 
 instance Prelude.NFData CertificateSummary where
   rnf CertificateSummary' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf certificateArn

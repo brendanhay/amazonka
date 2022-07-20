@@ -50,13 +50,13 @@ module Amazonka.QuickSight.GetDashboardEmbedUrl
     newGetDashboardEmbedUrl,
 
     -- * Request Lenses
-    getDashboardEmbedUrl_sessionLifetimeInMinutes,
-    getDashboardEmbedUrl_statePersistenceEnabled,
-    getDashboardEmbedUrl_namespace,
-    getDashboardEmbedUrl_additionalDashboardIds,
     getDashboardEmbedUrl_undoRedoDisabled,
-    getDashboardEmbedUrl_userArn,
+    getDashboardEmbedUrl_additionalDashboardIds,
     getDashboardEmbedUrl_resetDisabled,
+    getDashboardEmbedUrl_sessionLifetimeInMinutes,
+    getDashboardEmbedUrl_userArn,
+    getDashboardEmbedUrl_namespace,
+    getDashboardEmbedUrl_statePersistenceEnabled,
     getDashboardEmbedUrl_awsAccountId,
     getDashboardEmbedUrl_dashboardId,
     getDashboardEmbedUrl_identityType,
@@ -81,22 +81,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDashboardEmbedUrl' smart constructor.
 data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
-  { -- | How many minutes the session is valid. The session lifetime must be
-    -- 15-600 minutes.
-    sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | Adds persistence of state for the user session in an embedded dashboard.
-    -- Persistence applies to the sheet and the parameter settings. These are
-    -- control settings that the dashboard subscriber (Amazon QuickSight
-    -- reader) chooses while viewing the dashboard. If this is set to @TRUE@,
-    -- the settings are the same when the subscriber reopens the same dashboard
-    -- URL. The state is stored in Amazon QuickSight, not in a browser cookie.
-    -- If this is set to FALSE, the state of the user session is not persisted.
-    -- The default is @FALSE@.
-    statePersistenceEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon QuickSight namespace that contains the dashboard IDs in this
-    -- request. If you\'re not using a custom namespace, set
-    -- @Namespace = default@.
-    namespace :: Prelude.Maybe Prelude.Text,
+  { -- | Remove the undo\/redo button on the embedded dashboard. The default is
+    -- FALSE, which enables the undo\/redo button.
+    undoRedoDisabled :: Prelude.Maybe Prelude.Bool,
     -- | A list of one or more dashboard IDs that you want to add to a session
     -- that includes anonymous users. The @IdentityType@ parameter must be set
     -- to @ANONYMOUS@ for this to work, because other identity types
@@ -104,9 +91,12 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
     -- \"@--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS@\",
     -- the session can access all three dashboards.
     additionalDashboardIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Remove the undo\/redo button on the embedded dashboard. The default is
-    -- FALSE, which enables the undo\/redo button.
-    undoRedoDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | Remove the reset button on the embedded dashboard. The default is FALSE,
+    -- which enables the reset button.
+    resetDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | How many minutes the session is valid. The session lifetime must be
+    -- 15-600 minutes.
+    sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
     -- @QUICKSIGHT@ identity type. You can use this for any Amazon QuickSight
     -- users in your account (readers, authors, or admins) authenticated as one
@@ -122,9 +112,19 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
     -- Omit this parameter for users in the third group – IAMusers and IAM
     -- role-based sessions.
     userArn :: Prelude.Maybe Prelude.Text,
-    -- | Remove the reset button on the embedded dashboard. The default is FALSE,
-    -- which enables the reset button.
-    resetDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon QuickSight namespace that contains the dashboard IDs in this
+    -- request. If you\'re not using a custom namespace, set
+    -- @Namespace = default@.
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | Adds persistence of state for the user session in an embedded dashboard.
+    -- Persistence applies to the sheet and the parameter settings. These are
+    -- control settings that the dashboard subscriber (Amazon QuickSight
+    -- reader) chooses while viewing the dashboard. If this is set to @TRUE@,
+    -- the settings are the same when the subscriber reopens the same dashboard
+    -- URL. The state is stored in Amazon QuickSight, not in a browser cookie.
+    -- If this is set to FALSE, the state of the user session is not persisted.
+    -- The default is @FALSE@.
+    statePersistenceEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The ID for the Amazon Web Services account that contains the dashboard
     -- that you\'re embedding.
     awsAccountId :: Prelude.Text,
@@ -144,21 +144,8 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionLifetimeInMinutes', 'getDashboardEmbedUrl_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be
--- 15-600 minutes.
---
--- 'statePersistenceEnabled', 'getDashboardEmbedUrl_statePersistenceEnabled' - Adds persistence of state for the user session in an embedded dashboard.
--- Persistence applies to the sheet and the parameter settings. These are
--- control settings that the dashboard subscriber (Amazon QuickSight
--- reader) chooses while viewing the dashboard. If this is set to @TRUE@,
--- the settings are the same when the subscriber reopens the same dashboard
--- URL. The state is stored in Amazon QuickSight, not in a browser cookie.
--- If this is set to FALSE, the state of the user session is not persisted.
--- The default is @FALSE@.
---
--- 'namespace', 'getDashboardEmbedUrl_namespace' - The Amazon QuickSight namespace that contains the dashboard IDs in this
--- request. If you\'re not using a custom namespace, set
--- @Namespace = default@.
+-- 'undoRedoDisabled', 'getDashboardEmbedUrl_undoRedoDisabled' - Remove the undo\/redo button on the embedded dashboard. The default is
+-- FALSE, which enables the undo\/redo button.
 --
 -- 'additionalDashboardIds', 'getDashboardEmbedUrl_additionalDashboardIds' - A list of one or more dashboard IDs that you want to add to a session
 -- that includes anonymous users. The @IdentityType@ parameter must be set
@@ -167,8 +154,11 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
 -- \"@--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS@\",
 -- the session can access all three dashboards.
 --
--- 'undoRedoDisabled', 'getDashboardEmbedUrl_undoRedoDisabled' - Remove the undo\/redo button on the embedded dashboard. The default is
--- FALSE, which enables the undo\/redo button.
+-- 'resetDisabled', 'getDashboardEmbedUrl_resetDisabled' - Remove the reset button on the embedded dashboard. The default is FALSE,
+-- which enables the reset button.
+--
+-- 'sessionLifetimeInMinutes', 'getDashboardEmbedUrl_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be
+-- 15-600 minutes.
 --
 -- 'userArn', 'getDashboardEmbedUrl_userArn' - The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
 -- @QUICKSIGHT@ identity type. You can use this for any Amazon QuickSight
@@ -185,8 +175,18 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
 -- Omit this parameter for users in the third group – IAMusers and IAM
 -- role-based sessions.
 --
--- 'resetDisabled', 'getDashboardEmbedUrl_resetDisabled' - Remove the reset button on the embedded dashboard. The default is FALSE,
--- which enables the reset button.
+-- 'namespace', 'getDashboardEmbedUrl_namespace' - The Amazon QuickSight namespace that contains the dashboard IDs in this
+-- request. If you\'re not using a custom namespace, set
+-- @Namespace = default@.
+--
+-- 'statePersistenceEnabled', 'getDashboardEmbedUrl_statePersistenceEnabled' - Adds persistence of state for the user session in an embedded dashboard.
+-- Persistence applies to the sheet and the parameter settings. These are
+-- control settings that the dashboard subscriber (Amazon QuickSight
+-- reader) chooses while viewing the dashboard. If this is set to @TRUE@,
+-- the settings are the same when the subscriber reopens the same dashboard
+-- URL. The state is stored in Amazon QuickSight, not in a browser cookie.
+-- If this is set to FALSE, the state of the user session is not persisted.
+-- The default is @FALSE@.
 --
 -- 'awsAccountId', 'getDashboardEmbedUrl_awsAccountId' - The ID for the Amazon Web Services account that contains the dashboard
 -- that you\'re embedding.
@@ -208,40 +208,23 @@ newGetDashboardEmbedUrl
   pDashboardId_
   pIdentityType_ =
     GetDashboardEmbedUrl'
-      { sessionLifetimeInMinutes =
+      { undoRedoDisabled =
           Prelude.Nothing,
-        statePersistenceEnabled = Prelude.Nothing,
-        namespace = Prelude.Nothing,
         additionalDashboardIds = Prelude.Nothing,
-        undoRedoDisabled = Prelude.Nothing,
-        userArn = Prelude.Nothing,
         resetDisabled = Prelude.Nothing,
+        sessionLifetimeInMinutes = Prelude.Nothing,
+        userArn = Prelude.Nothing,
+        namespace = Prelude.Nothing,
+        statePersistenceEnabled = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         dashboardId = pDashboardId_,
         identityType = pIdentityType_
       }
 
--- | How many minutes the session is valid. The session lifetime must be
--- 15-600 minutes.
-getDashboardEmbedUrl_sessionLifetimeInMinutes :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Natural)
-getDashboardEmbedUrl_sessionLifetimeInMinutes = Lens.lens (\GetDashboardEmbedUrl' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GetDashboardEmbedUrl' {} a -> s {sessionLifetimeInMinutes = a} :: GetDashboardEmbedUrl)
-
--- | Adds persistence of state for the user session in an embedded dashboard.
--- Persistence applies to the sheet and the parameter settings. These are
--- control settings that the dashboard subscriber (Amazon QuickSight
--- reader) chooses while viewing the dashboard. If this is set to @TRUE@,
--- the settings are the same when the subscriber reopens the same dashboard
--- URL. The state is stored in Amazon QuickSight, not in a browser cookie.
--- If this is set to FALSE, the state of the user session is not persisted.
--- The default is @FALSE@.
-getDashboardEmbedUrl_statePersistenceEnabled :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Bool)
-getDashboardEmbedUrl_statePersistenceEnabled = Lens.lens (\GetDashboardEmbedUrl' {statePersistenceEnabled} -> statePersistenceEnabled) (\s@GetDashboardEmbedUrl' {} a -> s {statePersistenceEnabled = a} :: GetDashboardEmbedUrl)
-
--- | The Amazon QuickSight namespace that contains the dashboard IDs in this
--- request. If you\'re not using a custom namespace, set
--- @Namespace = default@.
-getDashboardEmbedUrl_namespace :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Text)
-getDashboardEmbedUrl_namespace = Lens.lens (\GetDashboardEmbedUrl' {namespace} -> namespace) (\s@GetDashboardEmbedUrl' {} a -> s {namespace = a} :: GetDashboardEmbedUrl)
+-- | Remove the undo\/redo button on the embedded dashboard. The default is
+-- FALSE, which enables the undo\/redo button.
+getDashboardEmbedUrl_undoRedoDisabled :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Bool)
+getDashboardEmbedUrl_undoRedoDisabled = Lens.lens (\GetDashboardEmbedUrl' {undoRedoDisabled} -> undoRedoDisabled) (\s@GetDashboardEmbedUrl' {} a -> s {undoRedoDisabled = a} :: GetDashboardEmbedUrl)
 
 -- | A list of one or more dashboard IDs that you want to add to a session
 -- that includes anonymous users. The @IdentityType@ parameter must be set
@@ -252,10 +235,15 @@ getDashboardEmbedUrl_namespace = Lens.lens (\GetDashboardEmbedUrl' {namespace} -
 getDashboardEmbedUrl_additionalDashboardIds :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getDashboardEmbedUrl_additionalDashboardIds = Lens.lens (\GetDashboardEmbedUrl' {additionalDashboardIds} -> additionalDashboardIds) (\s@GetDashboardEmbedUrl' {} a -> s {additionalDashboardIds = a} :: GetDashboardEmbedUrl) Prelude.. Lens.mapping Lens.coerced
 
--- | Remove the undo\/redo button on the embedded dashboard. The default is
--- FALSE, which enables the undo\/redo button.
-getDashboardEmbedUrl_undoRedoDisabled :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Bool)
-getDashboardEmbedUrl_undoRedoDisabled = Lens.lens (\GetDashboardEmbedUrl' {undoRedoDisabled} -> undoRedoDisabled) (\s@GetDashboardEmbedUrl' {} a -> s {undoRedoDisabled = a} :: GetDashboardEmbedUrl)
+-- | Remove the reset button on the embedded dashboard. The default is FALSE,
+-- which enables the reset button.
+getDashboardEmbedUrl_resetDisabled :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Bool)
+getDashboardEmbedUrl_resetDisabled = Lens.lens (\GetDashboardEmbedUrl' {resetDisabled} -> resetDisabled) (\s@GetDashboardEmbedUrl' {} a -> s {resetDisabled = a} :: GetDashboardEmbedUrl)
+
+-- | How many minutes the session is valid. The session lifetime must be
+-- 15-600 minutes.
+getDashboardEmbedUrl_sessionLifetimeInMinutes :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Natural)
+getDashboardEmbedUrl_sessionLifetimeInMinutes = Lens.lens (\GetDashboardEmbedUrl' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GetDashboardEmbedUrl' {} a -> s {sessionLifetimeInMinutes = a} :: GetDashboardEmbedUrl)
 
 -- | The Amazon QuickSight user\'s Amazon Resource Name (ARN), for use with
 -- @QUICKSIGHT@ identity type. You can use this for any Amazon QuickSight
@@ -274,10 +262,22 @@ getDashboardEmbedUrl_undoRedoDisabled = Lens.lens (\GetDashboardEmbedUrl' {undoR
 getDashboardEmbedUrl_userArn :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Text)
 getDashboardEmbedUrl_userArn = Lens.lens (\GetDashboardEmbedUrl' {userArn} -> userArn) (\s@GetDashboardEmbedUrl' {} a -> s {userArn = a} :: GetDashboardEmbedUrl)
 
--- | Remove the reset button on the embedded dashboard. The default is FALSE,
--- which enables the reset button.
-getDashboardEmbedUrl_resetDisabled :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Bool)
-getDashboardEmbedUrl_resetDisabled = Lens.lens (\GetDashboardEmbedUrl' {resetDisabled} -> resetDisabled) (\s@GetDashboardEmbedUrl' {} a -> s {resetDisabled = a} :: GetDashboardEmbedUrl)
+-- | The Amazon QuickSight namespace that contains the dashboard IDs in this
+-- request. If you\'re not using a custom namespace, set
+-- @Namespace = default@.
+getDashboardEmbedUrl_namespace :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Text)
+getDashboardEmbedUrl_namespace = Lens.lens (\GetDashboardEmbedUrl' {namespace} -> namespace) (\s@GetDashboardEmbedUrl' {} a -> s {namespace = a} :: GetDashboardEmbedUrl)
+
+-- | Adds persistence of state for the user session in an embedded dashboard.
+-- Persistence applies to the sheet and the parameter settings. These are
+-- control settings that the dashboard subscriber (Amazon QuickSight
+-- reader) chooses while viewing the dashboard. If this is set to @TRUE@,
+-- the settings are the same when the subscriber reopens the same dashboard
+-- URL. The state is stored in Amazon QuickSight, not in a browser cookie.
+-- If this is set to FALSE, the state of the user session is not persisted.
+-- The default is @FALSE@.
+getDashboardEmbedUrl_statePersistenceEnabled :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Bool)
+getDashboardEmbedUrl_statePersistenceEnabled = Lens.lens (\GetDashboardEmbedUrl' {statePersistenceEnabled} -> statePersistenceEnabled) (\s@GetDashboardEmbedUrl' {} a -> s {statePersistenceEnabled = a} :: GetDashboardEmbedUrl)
 
 -- | The ID for the Amazon Web Services account that contains the dashboard
 -- that you\'re embedding.
@@ -309,27 +309,26 @@ instance Core.AWSRequest GetDashboardEmbedUrl where
 
 instance Prelude.Hashable GetDashboardEmbedUrl where
   hashWithSalt _salt GetDashboardEmbedUrl' {..} =
-    _salt
-      `Prelude.hashWithSalt` sessionLifetimeInMinutes
-      `Prelude.hashWithSalt` statePersistenceEnabled
-      `Prelude.hashWithSalt` namespace
+    _salt `Prelude.hashWithSalt` undoRedoDisabled
       `Prelude.hashWithSalt` additionalDashboardIds
-      `Prelude.hashWithSalt` undoRedoDisabled
-      `Prelude.hashWithSalt` userArn
       `Prelude.hashWithSalt` resetDisabled
+      `Prelude.hashWithSalt` sessionLifetimeInMinutes
+      `Prelude.hashWithSalt` userArn
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` statePersistenceEnabled
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
       `Prelude.hashWithSalt` identityType
 
 instance Prelude.NFData GetDashboardEmbedUrl where
   rnf GetDashboardEmbedUrl' {..} =
-    Prelude.rnf sessionLifetimeInMinutes
-      `Prelude.seq` Prelude.rnf statePersistenceEnabled
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf undoRedoDisabled
       `Prelude.seq` Prelude.rnf additionalDashboardIds
-      `Prelude.seq` Prelude.rnf undoRedoDisabled
-      `Prelude.seq` Prelude.rnf userArn
       `Prelude.seq` Prelude.rnf resetDisabled
+      `Prelude.seq` Prelude.rnf sessionLifetimeInMinutes
+      `Prelude.seq` Prelude.rnf userArn
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf statePersistenceEnabled
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf identityType
@@ -358,18 +357,18 @@ instance Core.ToPath GetDashboardEmbedUrl where
 instance Core.ToQuery GetDashboardEmbedUrl where
   toQuery GetDashboardEmbedUrl' {..} =
     Prelude.mconcat
-      [ "session-lifetime" Core.=: sessionLifetimeInMinutes,
-        "state-persistence-enabled"
-          Core.=: statePersistenceEnabled,
-        "namespace" Core.=: namespace,
+      [ "undo-redo-disabled" Core.=: undoRedoDisabled,
         "additional-dashboard-ids"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> additionalDashboardIds
             ),
-        "undo-redo-disabled" Core.=: undoRedoDisabled,
-        "user-arn" Core.=: userArn,
         "reset-disabled" Core.=: resetDisabled,
+        "session-lifetime" Core.=: sessionLifetimeInMinutes,
+        "user-arn" Core.=: userArn,
+        "namespace" Core.=: namespace,
+        "state-persistence-enabled"
+          Core.=: statePersistenceEnabled,
         "creds-type" Core.=: identityType
       ]
 

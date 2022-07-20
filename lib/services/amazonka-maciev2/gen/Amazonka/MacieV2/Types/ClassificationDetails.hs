@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClassificationDetails' smart constructor.
 data ClassificationDetails = ClassificationDetails'
-  { -- | The path to the folder or file (in Amazon S3) that contains the
+  { -- | The unique identifier for the classification job that produced the
+    -- finding.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The path to the folder or file (in Amazon S3) that contains the
     -- corresponding sensitive data discovery result for the finding. If a
     -- finding applies to a large archive or compressed file, this value is the
     -- path to a folder. Otherwise, this value is the path to a file.
     detailedResultsLocation :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the classification job that produced the
-    -- finding.
-    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The status and other details of the finding.
+    result :: Prelude.Maybe ClassificationResult,
     -- | The Amazon Resource Name (ARN) of the classification job that produced
     -- the finding.
-    jobArn :: Prelude.Maybe Prelude.Text,
-    -- | The status and other details of the finding.
-    result :: Prelude.Maybe ClassificationResult
+    jobArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,28 +53,32 @@ data ClassificationDetails = ClassificationDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobId', 'classificationDetails_jobId' - The unique identifier for the classification job that produced the
+-- finding.
+--
 -- 'detailedResultsLocation', 'classificationDetails_detailedResultsLocation' - The path to the folder or file (in Amazon S3) that contains the
 -- corresponding sensitive data discovery result for the finding. If a
 -- finding applies to a large archive or compressed file, this value is the
 -- path to a folder. Otherwise, this value is the path to a file.
 --
--- 'jobId', 'classificationDetails_jobId' - The unique identifier for the classification job that produced the
--- finding.
+-- 'result', 'classificationDetails_result' - The status and other details of the finding.
 --
 -- 'jobArn', 'classificationDetails_jobArn' - The Amazon Resource Name (ARN) of the classification job that produced
 -- the finding.
---
--- 'result', 'classificationDetails_result' - The status and other details of the finding.
 newClassificationDetails ::
   ClassificationDetails
 newClassificationDetails =
   ClassificationDetails'
-    { detailedResultsLocation =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      jobArn = Prelude.Nothing,
-      result = Prelude.Nothing
+    { jobId = Prelude.Nothing,
+      detailedResultsLocation = Prelude.Nothing,
+      result = Prelude.Nothing,
+      jobArn = Prelude.Nothing
     }
+
+-- | The unique identifier for the classification job that produced the
+-- finding.
+classificationDetails_jobId :: Lens.Lens' ClassificationDetails (Prelude.Maybe Prelude.Text)
+classificationDetails_jobId = Lens.lens (\ClassificationDetails' {jobId} -> jobId) (\s@ClassificationDetails' {} a -> s {jobId = a} :: ClassificationDetails)
 
 -- | The path to the folder or file (in Amazon S3) that contains the
 -- corresponding sensitive data discovery result for the finding. If a
@@ -83,19 +87,14 @@ newClassificationDetails =
 classificationDetails_detailedResultsLocation :: Lens.Lens' ClassificationDetails (Prelude.Maybe Prelude.Text)
 classificationDetails_detailedResultsLocation = Lens.lens (\ClassificationDetails' {detailedResultsLocation} -> detailedResultsLocation) (\s@ClassificationDetails' {} a -> s {detailedResultsLocation = a} :: ClassificationDetails)
 
--- | The unique identifier for the classification job that produced the
--- finding.
-classificationDetails_jobId :: Lens.Lens' ClassificationDetails (Prelude.Maybe Prelude.Text)
-classificationDetails_jobId = Lens.lens (\ClassificationDetails' {jobId} -> jobId) (\s@ClassificationDetails' {} a -> s {jobId = a} :: ClassificationDetails)
+-- | The status and other details of the finding.
+classificationDetails_result :: Lens.Lens' ClassificationDetails (Prelude.Maybe ClassificationResult)
+classificationDetails_result = Lens.lens (\ClassificationDetails' {result} -> result) (\s@ClassificationDetails' {} a -> s {result = a} :: ClassificationDetails)
 
 -- | The Amazon Resource Name (ARN) of the classification job that produced
 -- the finding.
 classificationDetails_jobArn :: Lens.Lens' ClassificationDetails (Prelude.Maybe Prelude.Text)
 classificationDetails_jobArn = Lens.lens (\ClassificationDetails' {jobArn} -> jobArn) (\s@ClassificationDetails' {} a -> s {jobArn = a} :: ClassificationDetails)
-
--- | The status and other details of the finding.
-classificationDetails_result :: Lens.Lens' ClassificationDetails (Prelude.Maybe ClassificationResult)
-classificationDetails_result = Lens.lens (\ClassificationDetails' {result} -> result) (\s@ClassificationDetails' {} a -> s {result = a} :: ClassificationDetails)
 
 instance Core.FromJSON ClassificationDetails where
   parseJSON =
@@ -103,23 +102,22 @@ instance Core.FromJSON ClassificationDetails where
       "ClassificationDetails"
       ( \x ->
           ClassificationDetails'
-            Prelude.<$> (x Core..:? "detailedResultsLocation")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "jobArn")
+            Prelude.<$> (x Core..:? "jobId")
+            Prelude.<*> (x Core..:? "detailedResultsLocation")
             Prelude.<*> (x Core..:? "result")
+            Prelude.<*> (x Core..:? "jobArn")
       )
 
 instance Prelude.Hashable ClassificationDetails where
   hashWithSalt _salt ClassificationDetails' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` detailedResultsLocation
-      `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` jobArn
       `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` jobArn
 
 instance Prelude.NFData ClassificationDetails where
   rnf ClassificationDetails' {..} =
-    Prelude.rnf detailedResultsLocation
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobArn
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf detailedResultsLocation
       `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf jobArn

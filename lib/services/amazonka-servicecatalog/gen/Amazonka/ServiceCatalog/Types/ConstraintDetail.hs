@@ -33,8 +33,6 @@ data ConstraintDetail = ConstraintDetail'
     portfolioId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the constraint.
     constraintId :: Prelude.Maybe Prelude.Text,
-    -- | The owner of the constraint.
-    owner :: Prelude.Maybe Prelude.Text,
     -- | The type of constraint.
     --
     -- -   @LAUNCH@
@@ -45,12 +43,14 @@ data ConstraintDetail = ConstraintDetail'
     --
     -- -   @TEMPLATE@
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The description of the constraint.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the product the constraint applies to. Note that a
     -- constraint applies to a specific instance of a product within a certain
     -- portfolio.
-    productId :: Prelude.Maybe Prelude.Text
+    productId :: Prelude.Maybe Prelude.Text,
+    -- | The owner of the constraint.
+    owner :: Prelude.Maybe Prelude.Text,
+    -- | The description of the constraint.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,8 +68,6 @@ data ConstraintDetail = ConstraintDetail'
 --
 -- 'constraintId', 'constraintDetail_constraintId' - The identifier of the constraint.
 --
--- 'owner', 'constraintDetail_owner' - The owner of the constraint.
---
 -- 'type'', 'constraintDetail_type' - The type of constraint.
 --
 -- -   @LAUNCH@
@@ -80,21 +78,23 @@ data ConstraintDetail = ConstraintDetail'
 --
 -- -   @TEMPLATE@
 --
--- 'description', 'constraintDetail_description' - The description of the constraint.
---
 -- 'productId', 'constraintDetail_productId' - The identifier of the product the constraint applies to. Note that a
 -- constraint applies to a specific instance of a product within a certain
 -- portfolio.
+--
+-- 'owner', 'constraintDetail_owner' - The owner of the constraint.
+--
+-- 'description', 'constraintDetail_description' - The description of the constraint.
 newConstraintDetail ::
   ConstraintDetail
 newConstraintDetail =
   ConstraintDetail'
     { portfolioId = Prelude.Nothing,
       constraintId = Prelude.Nothing,
-      owner = Prelude.Nothing,
       type' = Prelude.Nothing,
-      description = Prelude.Nothing,
-      productId = Prelude.Nothing
+      productId = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The identifier of the portfolio the product resides in. The constraint
@@ -106,10 +106,6 @@ constraintDetail_portfolioId = Lens.lens (\ConstraintDetail' {portfolioId} -> po
 -- | The identifier of the constraint.
 constraintDetail_constraintId :: Lens.Lens' ConstraintDetail (Prelude.Maybe Prelude.Text)
 constraintDetail_constraintId = Lens.lens (\ConstraintDetail' {constraintId} -> constraintId) (\s@ConstraintDetail' {} a -> s {constraintId = a} :: ConstraintDetail)
-
--- | The owner of the constraint.
-constraintDetail_owner :: Lens.Lens' ConstraintDetail (Prelude.Maybe Prelude.Text)
-constraintDetail_owner = Lens.lens (\ConstraintDetail' {owner} -> owner) (\s@ConstraintDetail' {} a -> s {owner = a} :: ConstraintDetail)
 
 -- | The type of constraint.
 --
@@ -123,15 +119,19 @@ constraintDetail_owner = Lens.lens (\ConstraintDetail' {owner} -> owner) (\s@Con
 constraintDetail_type :: Lens.Lens' ConstraintDetail (Prelude.Maybe Prelude.Text)
 constraintDetail_type = Lens.lens (\ConstraintDetail' {type'} -> type') (\s@ConstraintDetail' {} a -> s {type' = a} :: ConstraintDetail)
 
--- | The description of the constraint.
-constraintDetail_description :: Lens.Lens' ConstraintDetail (Prelude.Maybe Prelude.Text)
-constraintDetail_description = Lens.lens (\ConstraintDetail' {description} -> description) (\s@ConstraintDetail' {} a -> s {description = a} :: ConstraintDetail)
-
 -- | The identifier of the product the constraint applies to. Note that a
 -- constraint applies to a specific instance of a product within a certain
 -- portfolio.
 constraintDetail_productId :: Lens.Lens' ConstraintDetail (Prelude.Maybe Prelude.Text)
 constraintDetail_productId = Lens.lens (\ConstraintDetail' {productId} -> productId) (\s@ConstraintDetail' {} a -> s {productId = a} :: ConstraintDetail)
+
+-- | The owner of the constraint.
+constraintDetail_owner :: Lens.Lens' ConstraintDetail (Prelude.Maybe Prelude.Text)
+constraintDetail_owner = Lens.lens (\ConstraintDetail' {owner} -> owner) (\s@ConstraintDetail' {} a -> s {owner = a} :: ConstraintDetail)
+
+-- | The description of the constraint.
+constraintDetail_description :: Lens.Lens' ConstraintDetail (Prelude.Maybe Prelude.Text)
+constraintDetail_description = Lens.lens (\ConstraintDetail' {description} -> description) (\s@ConstraintDetail' {} a -> s {description = a} :: ConstraintDetail)
 
 instance Core.FromJSON ConstraintDetail where
   parseJSON =
@@ -141,26 +141,26 @@ instance Core.FromJSON ConstraintDetail where
           ConstraintDetail'
             Prelude.<$> (x Core..:? "PortfolioId")
             Prelude.<*> (x Core..:? "ConstraintId")
-            Prelude.<*> (x Core..:? "Owner")
             Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "ProductId")
+            Prelude.<*> (x Core..:? "Owner")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable ConstraintDetail where
   hashWithSalt _salt ConstraintDetail' {..} =
     _salt `Prelude.hashWithSalt` portfolioId
       `Prelude.hashWithSalt` constraintId
-      `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` productId
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData ConstraintDetail where
   rnf ConstraintDetail' {..} =
     Prelude.rnf portfolioId
       `Prelude.seq` Prelude.rnf constraintId
-      `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf description

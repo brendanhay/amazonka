@@ -71,20 +71,20 @@ module Amazonka.GameLift.CreateBuild
     newCreateBuild,
 
     -- * Request Lenses
-    createBuild_storageLocation,
+    createBuild_tags,
     createBuild_operatingSystem,
     createBuild_name,
+    createBuild_storageLocation,
     createBuild_version,
-    createBuild_tags,
 
     -- * Destructuring the Response
     CreateBuildResponse (..),
     newCreateBuildResponse,
 
     -- * Response Lenses
-    createBuildResponse_storageLocation,
-    createBuildResponse_uploadCredentials,
     createBuildResponse_build,
+    createBuildResponse_uploadCredentials,
+    createBuildResponse_storageLocation,
     createBuildResponse_httpStatus,
   )
 where
@@ -100,13 +100,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateBuild' smart constructor.
 data CreateBuild = CreateBuild'
-  { -- | Information indicating where your game build files are stored. Use this
-    -- parameter only when creating a build with files stored in an Amazon S3
-    -- bucket that you own. The storage location must specify an Amazon S3
-    -- bucket name and key. The location must also specify a role ARN that you
-    -- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
-    -- bucket and your new build must be in the same Region.
-    storageLocation :: Prelude.Maybe S3Location,
+  { -- | A list of labels to assign to the new build resource. Tags are
+    -- developer-defined key-value pairs. Tagging AWS resources are useful for
+    -- resource management, access management and cost allocation. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
+    -- in the /AWS General Reference/. Once the resource is created, you can
+    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
+    -- and view tags. The maximum tag limit may be lower than stated. See the
+    -- AWS General Reference for actual tagging limits.
+    tags :: Prelude.Maybe [Tag],
     -- | The operating system that the game server binaries are built to run on.
     -- This value determines the type of fleet resources that you can use for
     -- this build. If your game build contains multiple executables, they all
@@ -117,20 +120,17 @@ data CreateBuild = CreateBuild'
     -- | A descriptive label that is associated with a build. Build names do not
     -- need to be unique. You can use UpdateBuild to change this value later.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Information indicating where your game build files are stored. Use this
+    -- parameter only when creating a build with files stored in an Amazon S3
+    -- bucket that you own. The storage location must specify an Amazon S3
+    -- bucket name and key. The location must also specify a role ARN that you
+    -- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
+    -- bucket and your new build must be in the same Region.
+    storageLocation :: Prelude.Maybe S3Location,
     -- | Version information that is associated with a build or script. Version
     -- strings do not need to be unique. You can use UpdateBuild to change this
     -- value later.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | A list of labels to assign to the new build resource. Tags are
-    -- developer-defined key-value pairs. Tagging AWS resources are useful for
-    -- resource management, access management and cost allocation. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in the /AWS General Reference/. Once the resource is created, you can
-    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
-    -- and view tags. The maximum tag limit may be lower than stated. See the
-    -- AWS General Reference for actual tagging limits.
-    tags :: Prelude.Maybe [Tag]
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,12 +142,15 @@ data CreateBuild = CreateBuild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageLocation', 'createBuild_storageLocation' - Information indicating where your game build files are stored. Use this
--- parameter only when creating a build with files stored in an Amazon S3
--- bucket that you own. The storage location must specify an Amazon S3
--- bucket name and key. The location must also specify a role ARN that you
--- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
--- bucket and your new build must be in the same Region.
+-- 'tags', 'createBuild_tags' - A list of labels to assign to the new build resource. Tags are
+-- developer-defined key-value pairs. Tagging AWS resources are useful for
+-- resource management, access management and cost allocation. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
+-- in the /AWS General Reference/. Once the resource is created, you can
+-- use TagResource, UntagResource, and ListTagsForResource to add, remove,
+-- and view tags. The maximum tag limit may be lower than stated. See the
+-- AWS General Reference for actual tagging limits.
 --
 -- 'operatingSystem', 'createBuild_operatingSystem' - The operating system that the game server binaries are built to run on.
 -- This value determines the type of fleet resources that you can use for
@@ -159,11 +162,28 @@ data CreateBuild = CreateBuild'
 -- 'name', 'createBuild_name' - A descriptive label that is associated with a build. Build names do not
 -- need to be unique. You can use UpdateBuild to change this value later.
 --
+-- 'storageLocation', 'createBuild_storageLocation' - Information indicating where your game build files are stored. Use this
+-- parameter only when creating a build with files stored in an Amazon S3
+-- bucket that you own. The storage location must specify an Amazon S3
+-- bucket name and key. The location must also specify a role ARN that you
+-- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
+-- bucket and your new build must be in the same Region.
+--
 -- 'version', 'createBuild_version' - Version information that is associated with a build or script. Version
 -- strings do not need to be unique. You can use UpdateBuild to change this
 -- value later.
---
--- 'tags', 'createBuild_tags' - A list of labels to assign to the new build resource. Tags are
+newCreateBuild ::
+  CreateBuild
+newCreateBuild =
+  CreateBuild'
+    { tags = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
+      name = Prelude.Nothing,
+      storageLocation = Prelude.Nothing,
+      version = Prelude.Nothing
+    }
+
+-- | A list of labels to assign to the new build resource. Tags are
 -- developer-defined key-value pairs. Tagging AWS resources are useful for
 -- resource management, access management and cost allocation. For more
 -- information, see
@@ -172,25 +192,8 @@ data CreateBuild = CreateBuild'
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
-newCreateBuild ::
-  CreateBuild
-newCreateBuild =
-  CreateBuild'
-    { storageLocation = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
-      name = Prelude.Nothing,
-      version = Prelude.Nothing,
-      tags = Prelude.Nothing
-    }
-
--- | Information indicating where your game build files are stored. Use this
--- parameter only when creating a build with files stored in an Amazon S3
--- bucket that you own. The storage location must specify an Amazon S3
--- bucket name and key. The location must also specify a role ARN that you
--- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
--- bucket and your new build must be in the same Region.
-createBuild_storageLocation :: Lens.Lens' CreateBuild (Prelude.Maybe S3Location)
-createBuild_storageLocation = Lens.lens (\CreateBuild' {storageLocation} -> storageLocation) (\s@CreateBuild' {} a -> s {storageLocation = a} :: CreateBuild)
+createBuild_tags :: Lens.Lens' CreateBuild (Prelude.Maybe [Tag])
+createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} a -> s {tags = a} :: CreateBuild) Prelude.. Lens.mapping Lens.coerced
 
 -- | The operating system that the game server binaries are built to run on.
 -- This value determines the type of fleet resources that you can use for
@@ -206,23 +209,20 @@ createBuild_operatingSystem = Lens.lens (\CreateBuild' {operatingSystem} -> oper
 createBuild_name :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
 createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} a -> s {name = a} :: CreateBuild)
 
+-- | Information indicating where your game build files are stored. Use this
+-- parameter only when creating a build with files stored in an Amazon S3
+-- bucket that you own. The storage location must specify an Amazon S3
+-- bucket name and key. The location must also specify a role ARN that you
+-- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
+-- bucket and your new build must be in the same Region.
+createBuild_storageLocation :: Lens.Lens' CreateBuild (Prelude.Maybe S3Location)
+createBuild_storageLocation = Lens.lens (\CreateBuild' {storageLocation} -> storageLocation) (\s@CreateBuild' {} a -> s {storageLocation = a} :: CreateBuild)
+
 -- | Version information that is associated with a build or script. Version
 -- strings do not need to be unique. You can use UpdateBuild to change this
 -- value later.
 createBuild_version :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
 createBuild_version = Lens.lens (\CreateBuild' {version} -> version) (\s@CreateBuild' {} a -> s {version = a} :: CreateBuild)
-
--- | A list of labels to assign to the new build resource. Tags are
--- developer-defined key-value pairs. Tagging AWS resources are useful for
--- resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
-createBuild_tags :: Lens.Lens' CreateBuild (Prelude.Maybe [Tag])
-createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} a -> s {tags = a} :: CreateBuild) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateBuild where
   type AWSResponse CreateBuild = CreateBuildResponse
@@ -231,27 +231,27 @@ instance Core.AWSRequest CreateBuild where
     Response.receiveJSON
       ( \s h x ->
           CreateBuildResponse'
-            Prelude.<$> (x Core..?> "StorageLocation")
+            Prelude.<$> (x Core..?> "Build")
             Prelude.<*> (x Core..?> "UploadCredentials")
-            Prelude.<*> (x Core..?> "Build")
+            Prelude.<*> (x Core..?> "StorageLocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateBuild where
   hashWithSalt _salt CreateBuild' {..} =
-    _salt `Prelude.hashWithSalt` storageLocation
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` storageLocation
       `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateBuild where
   rnf CreateBuild' {..} =
-    Prelude.rnf storageLocation
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf storageLocation
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders CreateBuild where
   toHeaders =
@@ -270,13 +270,13 @@ instance Core.ToJSON CreateBuild where
   toJSON CreateBuild' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StorageLocation" Core..=)
-              Prelude.<$> storageLocation,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("OperatingSystem" Core..=)
               Prelude.<$> operatingSystem,
             ("Name" Core..=) Prelude.<$> name,
-            ("Version" Core..=) Prelude.<$> version,
-            ("Tags" Core..=) Prelude.<$> tags
+            ("StorageLocation" Core..=)
+              Prelude.<$> storageLocation,
+            ("Version" Core..=) Prelude.<$> version
           ]
       )
 
@@ -290,18 +290,18 @@ instance Core.ToQuery CreateBuild where
 --
 -- /See:/ 'newCreateBuildResponse' smart constructor.
 data CreateBuildResponse = CreateBuildResponse'
-  { -- | Amazon S3 location for your game build file, including bucket name and
-    -- key.
-    storageLocation :: Prelude.Maybe S3Location,
+  { -- | The newly created build resource, including a unique build IDs and
+    -- status.
+    build :: Prelude.Maybe Build,
     -- | This element is returned only when the operation is called without a
     -- storage location. It contains credentials to use when you are uploading
     -- a build file to an Amazon S3 bucket that is owned by Amazon GameLift.
     -- Credentials have a limited life span. To refresh these credentials, call
     -- RequestUploadCredentials.
     uploadCredentials :: Prelude.Maybe (Core.Sensitive AwsCredentials),
-    -- | The newly created build resource, including a unique build IDs and
-    -- status.
-    build :: Prelude.Maybe Build,
+    -- | Amazon S3 location for your game build file, including bucket name and
+    -- key.
+    storageLocation :: Prelude.Maybe S3Location,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -315,8 +315,8 @@ data CreateBuildResponse = CreateBuildResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageLocation', 'createBuildResponse_storageLocation' - Amazon S3 location for your game build file, including bucket name and
--- key.
+-- 'build', 'createBuildResponse_build' - The newly created build resource, including a unique build IDs and
+-- status.
 --
 -- 'uploadCredentials', 'createBuildResponse_uploadCredentials' - This element is returned only when the operation is called without a
 -- storage location. It contains credentials to use when you are uploading
@@ -324,8 +324,8 @@ data CreateBuildResponse = CreateBuildResponse'
 -- Credentials have a limited life span. To refresh these credentials, call
 -- RequestUploadCredentials.
 --
--- 'build', 'createBuildResponse_build' - The newly created build resource, including a unique build IDs and
--- status.
+-- 'storageLocation', 'createBuildResponse_storageLocation' - Amazon S3 location for your game build file, including bucket name and
+-- key.
 --
 -- 'httpStatus', 'createBuildResponse_httpStatus' - The response's http status code.
 newCreateBuildResponse ::
@@ -334,17 +334,16 @@ newCreateBuildResponse ::
   CreateBuildResponse
 newCreateBuildResponse pHttpStatus_ =
   CreateBuildResponse'
-    { storageLocation =
-        Prelude.Nothing,
+    { build = Prelude.Nothing,
       uploadCredentials = Prelude.Nothing,
-      build = Prelude.Nothing,
+      storageLocation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Amazon S3 location for your game build file, including bucket name and
--- key.
-createBuildResponse_storageLocation :: Lens.Lens' CreateBuildResponse (Prelude.Maybe S3Location)
-createBuildResponse_storageLocation = Lens.lens (\CreateBuildResponse' {storageLocation} -> storageLocation) (\s@CreateBuildResponse' {} a -> s {storageLocation = a} :: CreateBuildResponse)
+-- | The newly created build resource, including a unique build IDs and
+-- status.
+createBuildResponse_build :: Lens.Lens' CreateBuildResponse (Prelude.Maybe Build)
+createBuildResponse_build = Lens.lens (\CreateBuildResponse' {build} -> build) (\s@CreateBuildResponse' {} a -> s {build = a} :: CreateBuildResponse)
 
 -- | This element is returned only when the operation is called without a
 -- storage location. It contains credentials to use when you are uploading
@@ -354,10 +353,10 @@ createBuildResponse_storageLocation = Lens.lens (\CreateBuildResponse' {storageL
 createBuildResponse_uploadCredentials :: Lens.Lens' CreateBuildResponse (Prelude.Maybe AwsCredentials)
 createBuildResponse_uploadCredentials = Lens.lens (\CreateBuildResponse' {uploadCredentials} -> uploadCredentials) (\s@CreateBuildResponse' {} a -> s {uploadCredentials = a} :: CreateBuildResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The newly created build resource, including a unique build IDs and
--- status.
-createBuildResponse_build :: Lens.Lens' CreateBuildResponse (Prelude.Maybe Build)
-createBuildResponse_build = Lens.lens (\CreateBuildResponse' {build} -> build) (\s@CreateBuildResponse' {} a -> s {build = a} :: CreateBuildResponse)
+-- | Amazon S3 location for your game build file, including bucket name and
+-- key.
+createBuildResponse_storageLocation :: Lens.Lens' CreateBuildResponse (Prelude.Maybe S3Location)
+createBuildResponse_storageLocation = Lens.lens (\CreateBuildResponse' {storageLocation} -> storageLocation) (\s@CreateBuildResponse' {} a -> s {storageLocation = a} :: CreateBuildResponse)
 
 -- | The response's http status code.
 createBuildResponse_httpStatus :: Lens.Lens' CreateBuildResponse Prelude.Int
@@ -365,7 +364,7 @@ createBuildResponse_httpStatus = Lens.lens (\CreateBuildResponse' {httpStatus} -
 
 instance Prelude.NFData CreateBuildResponse where
   rnf CreateBuildResponse' {..} =
-    Prelude.rnf storageLocation
+    Prelude.rnf build
       `Prelude.seq` Prelude.rnf uploadCredentials
-      `Prelude.seq` Prelude.rnf build
+      `Prelude.seq` Prelude.rnf storageLocation
       `Prelude.seq` Prelude.rnf httpStatus

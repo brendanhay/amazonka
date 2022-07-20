@@ -37,21 +37,21 @@ module Amazonka.IoTEvents.DescribeAlarmModel
     newDescribeAlarmModelResponse,
 
     -- * Response Lenses
-    describeAlarmModelResponse_creationTime,
-    describeAlarmModelResponse_status,
-    describeAlarmModelResponse_alarmRule,
     describeAlarmModelResponse_alarmModelName,
-    describeAlarmModelResponse_severity,
-    describeAlarmModelResponse_alarmNotification,
     describeAlarmModelResponse_key,
-    describeAlarmModelResponse_statusMessage,
-    describeAlarmModelResponse_alarmModelDescription,
+    describeAlarmModelResponse_severity,
+    describeAlarmModelResponse_roleArn,
+    describeAlarmModelResponse_alarmModelVersion,
     describeAlarmModelResponse_alarmEventActions,
     describeAlarmModelResponse_alarmCapabilities,
-    describeAlarmModelResponse_lastUpdateTime,
-    describeAlarmModelResponse_alarmModelVersion,
     describeAlarmModelResponse_alarmModelArn,
-    describeAlarmModelResponse_roleArn,
+    describeAlarmModelResponse_status,
+    describeAlarmModelResponse_alarmModelDescription,
+    describeAlarmModelResponse_creationTime,
+    describeAlarmModelResponse_lastUpdateTime,
+    describeAlarmModelResponse_statusMessage,
+    describeAlarmModelResponse_alarmNotification,
+    describeAlarmModelResponse_alarmRule,
     describeAlarmModelResponse_httpStatus,
   )
 where
@@ -111,21 +111,21 @@ instance Core.AWSRequest DescribeAlarmModel where
     Response.receiveJSON
       ( \s h x ->
           DescribeAlarmModelResponse'
-            Prelude.<$> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "alarmRule")
-            Prelude.<*> (x Core..?> "alarmModelName")
-            Prelude.<*> (x Core..?> "severity")
-            Prelude.<*> (x Core..?> "alarmNotification")
+            Prelude.<$> (x Core..?> "alarmModelName")
             Prelude.<*> (x Core..?> "key")
-            Prelude.<*> (x Core..?> "statusMessage")
-            Prelude.<*> (x Core..?> "alarmModelDescription")
+            Prelude.<*> (x Core..?> "severity")
+            Prelude.<*> (x Core..?> "roleArn")
+            Prelude.<*> (x Core..?> "alarmModelVersion")
             Prelude.<*> (x Core..?> "alarmEventActions")
             Prelude.<*> (x Core..?> "alarmCapabilities")
-            Prelude.<*> (x Core..?> "lastUpdateTime")
-            Prelude.<*> (x Core..?> "alarmModelVersion")
             Prelude.<*> (x Core..?> "alarmModelArn")
-            Prelude.<*> (x Core..?> "roleArn")
+            Prelude.<*> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "alarmModelDescription")
+            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<*> (x Core..?> "lastUpdateTime")
+            Prelude.<*> (x Core..?> "statusMessage")
+            Prelude.<*> (x Core..?> "alarmNotification")
+            Prelude.<*> (x Core..?> "alarmRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,8 +154,30 @@ instance Core.ToQuery DescribeAlarmModel where
 
 -- | /See:/ 'newDescribeAlarmModelResponse' smart constructor.
 data DescribeAlarmModelResponse = DescribeAlarmModelResponse'
-  { -- | The time the alarm model was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The name of the alarm model.
+    alarmModelName :: Prelude.Maybe Prelude.Text,
+    -- | An input attribute used as a key to create an alarm. AWS IoT Events
+    -- routes
+    -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html inputs>
+    -- associated with this key to the alarm.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | A non-negative integer that reflects the severity level of the alarm.
+    severity :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the IAM role that allows the alarm to perform actions and
+    -- access AWS resources. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /AWS General Reference/.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The version of the alarm model.
+    alarmModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about one or more alarm actions.
+    alarmEventActions :: Prelude.Maybe AlarmEventActions,
+    -- | Contains the configuration information of alarm state changes.
+    alarmCapabilities :: Prelude.Maybe AlarmCapabilities,
+    -- | The ARN of the alarm model. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /AWS General Reference/.
+    alarmModelArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the alarm model. The status can be one of the following
     -- values:
     --
@@ -172,40 +194,18 @@ data DescribeAlarmModelResponse = DescribeAlarmModelResponse'
     -- -   @FAILED@ - You couldn\'t create or update the alarm model. Check
     --     your alarm model information and try again.
     status :: Prelude.Maybe AlarmModelVersionStatus,
-    -- | Defines when your alarm is invoked.
-    alarmRule :: Prelude.Maybe AlarmRule,
-    -- | The name of the alarm model.
-    alarmModelName :: Prelude.Maybe Prelude.Text,
-    -- | A non-negative integer that reflects the severity level of the alarm.
-    severity :: Prelude.Maybe Prelude.Natural,
-    -- | Contains information about one or more notification actions.
-    alarmNotification :: Prelude.Maybe AlarmNotification,
-    -- | An input attribute used as a key to create an alarm. AWS IoT Events
-    -- routes
-    -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html inputs>
-    -- associated with this key to the alarm.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the status of the alarm model.
-    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The description of the alarm model.
     alarmModelDescription :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about one or more alarm actions.
-    alarmEventActions :: Prelude.Maybe AlarmEventActions,
-    -- | Contains the configuration information of alarm state changes.
-    alarmCapabilities :: Prelude.Maybe AlarmCapabilities,
+    -- | The time the alarm model was created, in the Unix epoch format.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The time the alarm model was last updated, in the Unix epoch format.
     lastUpdateTime :: Prelude.Maybe Core.POSIX,
-    -- | The version of the alarm model.
-    alarmModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the alarm model. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
-    alarmModelArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM role that allows the alarm to perform actions and
-    -- access AWS resources. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about the status of the alarm model.
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about one or more notification actions.
+    alarmNotification :: Prelude.Maybe AlarmNotification,
+    -- | Defines when your alarm is invoked.
+    alarmRule :: Prelude.Maybe AlarmRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,7 +219,29 @@ data DescribeAlarmModelResponse = DescribeAlarmModelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeAlarmModelResponse_creationTime' - The time the alarm model was created, in the Unix epoch format.
+-- 'alarmModelName', 'describeAlarmModelResponse_alarmModelName' - The name of the alarm model.
+--
+-- 'key', 'describeAlarmModelResponse_key' - An input attribute used as a key to create an alarm. AWS IoT Events
+-- routes
+-- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html inputs>
+-- associated with this key to the alarm.
+--
+-- 'severity', 'describeAlarmModelResponse_severity' - A non-negative integer that reflects the severity level of the alarm.
+--
+-- 'roleArn', 'describeAlarmModelResponse_roleArn' - The ARN of the IAM role that allows the alarm to perform actions and
+-- access AWS resources. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
+--
+-- 'alarmModelVersion', 'describeAlarmModelResponse_alarmModelVersion' - The version of the alarm model.
+--
+-- 'alarmEventActions', 'describeAlarmModelResponse_alarmEventActions' - Contains information about one or more alarm actions.
+--
+-- 'alarmCapabilities', 'describeAlarmModelResponse_alarmCapabilities' - Contains the configuration information of alarm state changes.
+--
+-- 'alarmModelArn', 'describeAlarmModelResponse_alarmModelArn' - The ARN of the alarm model. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
 --
 -- 'status', 'describeAlarmModelResponse_status' - The status of the alarm model. The status can be one of the following
 -- values:
@@ -237,39 +259,17 @@ data DescribeAlarmModelResponse = DescribeAlarmModelResponse'
 -- -   @FAILED@ - You couldn\'t create or update the alarm model. Check
 --     your alarm model information and try again.
 --
--- 'alarmRule', 'describeAlarmModelResponse_alarmRule' - Defines when your alarm is invoked.
---
--- 'alarmModelName', 'describeAlarmModelResponse_alarmModelName' - The name of the alarm model.
---
--- 'severity', 'describeAlarmModelResponse_severity' - A non-negative integer that reflects the severity level of the alarm.
---
--- 'alarmNotification', 'describeAlarmModelResponse_alarmNotification' - Contains information about one or more notification actions.
---
--- 'key', 'describeAlarmModelResponse_key' - An input attribute used as a key to create an alarm. AWS IoT Events
--- routes
--- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html inputs>
--- associated with this key to the alarm.
---
--- 'statusMessage', 'describeAlarmModelResponse_statusMessage' - Contains information about the status of the alarm model.
---
 -- 'alarmModelDescription', 'describeAlarmModelResponse_alarmModelDescription' - The description of the alarm model.
 --
--- 'alarmEventActions', 'describeAlarmModelResponse_alarmEventActions' - Contains information about one or more alarm actions.
---
--- 'alarmCapabilities', 'describeAlarmModelResponse_alarmCapabilities' - Contains the configuration information of alarm state changes.
+-- 'creationTime', 'describeAlarmModelResponse_creationTime' - The time the alarm model was created, in the Unix epoch format.
 --
 -- 'lastUpdateTime', 'describeAlarmModelResponse_lastUpdateTime' - The time the alarm model was last updated, in the Unix epoch format.
 --
--- 'alarmModelVersion', 'describeAlarmModelResponse_alarmModelVersion' - The version of the alarm model.
+-- 'statusMessage', 'describeAlarmModelResponse_statusMessage' - Contains information about the status of the alarm model.
 --
--- 'alarmModelArn', 'describeAlarmModelResponse_alarmModelArn' - The ARN of the alarm model. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- 'alarmNotification', 'describeAlarmModelResponse_alarmNotification' - Contains information about one or more notification actions.
 --
--- 'roleArn', 'describeAlarmModelResponse_roleArn' - The ARN of the IAM role that allows the alarm to perform actions and
--- access AWS resources. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- 'alarmRule', 'describeAlarmModelResponse_alarmRule' - Defines when your alarm is invoked.
 --
 -- 'httpStatus', 'describeAlarmModelResponse_httpStatus' - The response's http status code.
 newDescribeAlarmModelResponse ::
@@ -278,28 +278,64 @@ newDescribeAlarmModelResponse ::
   DescribeAlarmModelResponse
 newDescribeAlarmModelResponse pHttpStatus_ =
   DescribeAlarmModelResponse'
-    { creationTime =
+    { alarmModelName =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      alarmRule = Prelude.Nothing,
-      alarmModelName = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      alarmNotification = Prelude.Nothing,
       key = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      alarmModelDescription = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      alarmModelVersion = Prelude.Nothing,
       alarmEventActions = Prelude.Nothing,
       alarmCapabilities = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing,
-      alarmModelVersion = Prelude.Nothing,
       alarmModelArn = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      alarmModelDescription = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      alarmNotification = Prelude.Nothing,
+      alarmRule = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The time the alarm model was created, in the Unix epoch format.
-describeAlarmModelResponse_creationTime :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
-describeAlarmModelResponse_creationTime = Lens.lens (\DescribeAlarmModelResponse' {creationTime} -> creationTime) (\s@DescribeAlarmModelResponse' {} a -> s {creationTime = a} :: DescribeAlarmModelResponse) Prelude.. Lens.mapping Core._Time
+-- | The name of the alarm model.
+describeAlarmModelResponse_alarmModelName :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
+describeAlarmModelResponse_alarmModelName = Lens.lens (\DescribeAlarmModelResponse' {alarmModelName} -> alarmModelName) (\s@DescribeAlarmModelResponse' {} a -> s {alarmModelName = a} :: DescribeAlarmModelResponse)
+
+-- | An input attribute used as a key to create an alarm. AWS IoT Events
+-- routes
+-- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html inputs>
+-- associated with this key to the alarm.
+describeAlarmModelResponse_key :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
+describeAlarmModelResponse_key = Lens.lens (\DescribeAlarmModelResponse' {key} -> key) (\s@DescribeAlarmModelResponse' {} a -> s {key = a} :: DescribeAlarmModelResponse)
+
+-- | A non-negative integer that reflects the severity level of the alarm.
+describeAlarmModelResponse_severity :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Natural)
+describeAlarmModelResponse_severity = Lens.lens (\DescribeAlarmModelResponse' {severity} -> severity) (\s@DescribeAlarmModelResponse' {} a -> s {severity = a} :: DescribeAlarmModelResponse)
+
+-- | The ARN of the IAM role that allows the alarm to perform actions and
+-- access AWS resources. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
+describeAlarmModelResponse_roleArn :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
+describeAlarmModelResponse_roleArn = Lens.lens (\DescribeAlarmModelResponse' {roleArn} -> roleArn) (\s@DescribeAlarmModelResponse' {} a -> s {roleArn = a} :: DescribeAlarmModelResponse)
+
+-- | The version of the alarm model.
+describeAlarmModelResponse_alarmModelVersion :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
+describeAlarmModelResponse_alarmModelVersion = Lens.lens (\DescribeAlarmModelResponse' {alarmModelVersion} -> alarmModelVersion) (\s@DescribeAlarmModelResponse' {} a -> s {alarmModelVersion = a} :: DescribeAlarmModelResponse)
+
+-- | Contains information about one or more alarm actions.
+describeAlarmModelResponse_alarmEventActions :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmEventActions)
+describeAlarmModelResponse_alarmEventActions = Lens.lens (\DescribeAlarmModelResponse' {alarmEventActions} -> alarmEventActions) (\s@DescribeAlarmModelResponse' {} a -> s {alarmEventActions = a} :: DescribeAlarmModelResponse)
+
+-- | Contains the configuration information of alarm state changes.
+describeAlarmModelResponse_alarmCapabilities :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmCapabilities)
+describeAlarmModelResponse_alarmCapabilities = Lens.lens (\DescribeAlarmModelResponse' {alarmCapabilities} -> alarmCapabilities) (\s@DescribeAlarmModelResponse' {} a -> s {alarmCapabilities = a} :: DescribeAlarmModelResponse)
+
+-- | The ARN of the alarm model. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
+describeAlarmModelResponse_alarmModelArn :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
+describeAlarmModelResponse_alarmModelArn = Lens.lens (\DescribeAlarmModelResponse' {alarmModelArn} -> alarmModelArn) (\s@DescribeAlarmModelResponse' {} a -> s {alarmModelArn = a} :: DescribeAlarmModelResponse)
 
 -- | The status of the alarm model. The status can be one of the following
 -- values:
@@ -319,65 +355,29 @@ describeAlarmModelResponse_creationTime = Lens.lens (\DescribeAlarmModelResponse
 describeAlarmModelResponse_status :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmModelVersionStatus)
 describeAlarmModelResponse_status = Lens.lens (\DescribeAlarmModelResponse' {status} -> status) (\s@DescribeAlarmModelResponse' {} a -> s {status = a} :: DescribeAlarmModelResponse)
 
--- | Defines when your alarm is invoked.
-describeAlarmModelResponse_alarmRule :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmRule)
-describeAlarmModelResponse_alarmRule = Lens.lens (\DescribeAlarmModelResponse' {alarmRule} -> alarmRule) (\s@DescribeAlarmModelResponse' {} a -> s {alarmRule = a} :: DescribeAlarmModelResponse)
-
--- | The name of the alarm model.
-describeAlarmModelResponse_alarmModelName :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
-describeAlarmModelResponse_alarmModelName = Lens.lens (\DescribeAlarmModelResponse' {alarmModelName} -> alarmModelName) (\s@DescribeAlarmModelResponse' {} a -> s {alarmModelName = a} :: DescribeAlarmModelResponse)
-
--- | A non-negative integer that reflects the severity level of the alarm.
-describeAlarmModelResponse_severity :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Natural)
-describeAlarmModelResponse_severity = Lens.lens (\DescribeAlarmModelResponse' {severity} -> severity) (\s@DescribeAlarmModelResponse' {} a -> s {severity = a} :: DescribeAlarmModelResponse)
-
--- | Contains information about one or more notification actions.
-describeAlarmModelResponse_alarmNotification :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmNotification)
-describeAlarmModelResponse_alarmNotification = Lens.lens (\DescribeAlarmModelResponse' {alarmNotification} -> alarmNotification) (\s@DescribeAlarmModelResponse' {} a -> s {alarmNotification = a} :: DescribeAlarmModelResponse)
-
--- | An input attribute used as a key to create an alarm. AWS IoT Events
--- routes
--- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html inputs>
--- associated with this key to the alarm.
-describeAlarmModelResponse_key :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
-describeAlarmModelResponse_key = Lens.lens (\DescribeAlarmModelResponse' {key} -> key) (\s@DescribeAlarmModelResponse' {} a -> s {key = a} :: DescribeAlarmModelResponse)
-
--- | Contains information about the status of the alarm model.
-describeAlarmModelResponse_statusMessage :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
-describeAlarmModelResponse_statusMessage = Lens.lens (\DescribeAlarmModelResponse' {statusMessage} -> statusMessage) (\s@DescribeAlarmModelResponse' {} a -> s {statusMessage = a} :: DescribeAlarmModelResponse)
-
 -- | The description of the alarm model.
 describeAlarmModelResponse_alarmModelDescription :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
 describeAlarmModelResponse_alarmModelDescription = Lens.lens (\DescribeAlarmModelResponse' {alarmModelDescription} -> alarmModelDescription) (\s@DescribeAlarmModelResponse' {} a -> s {alarmModelDescription = a} :: DescribeAlarmModelResponse)
 
--- | Contains information about one or more alarm actions.
-describeAlarmModelResponse_alarmEventActions :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmEventActions)
-describeAlarmModelResponse_alarmEventActions = Lens.lens (\DescribeAlarmModelResponse' {alarmEventActions} -> alarmEventActions) (\s@DescribeAlarmModelResponse' {} a -> s {alarmEventActions = a} :: DescribeAlarmModelResponse)
-
--- | Contains the configuration information of alarm state changes.
-describeAlarmModelResponse_alarmCapabilities :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmCapabilities)
-describeAlarmModelResponse_alarmCapabilities = Lens.lens (\DescribeAlarmModelResponse' {alarmCapabilities} -> alarmCapabilities) (\s@DescribeAlarmModelResponse' {} a -> s {alarmCapabilities = a} :: DescribeAlarmModelResponse)
+-- | The time the alarm model was created, in the Unix epoch format.
+describeAlarmModelResponse_creationTime :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
+describeAlarmModelResponse_creationTime = Lens.lens (\DescribeAlarmModelResponse' {creationTime} -> creationTime) (\s@DescribeAlarmModelResponse' {} a -> s {creationTime = a} :: DescribeAlarmModelResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The time the alarm model was last updated, in the Unix epoch format.
 describeAlarmModelResponse_lastUpdateTime :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
 describeAlarmModelResponse_lastUpdateTime = Lens.lens (\DescribeAlarmModelResponse' {lastUpdateTime} -> lastUpdateTime) (\s@DescribeAlarmModelResponse' {} a -> s {lastUpdateTime = a} :: DescribeAlarmModelResponse) Prelude.. Lens.mapping Core._Time
 
--- | The version of the alarm model.
-describeAlarmModelResponse_alarmModelVersion :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
-describeAlarmModelResponse_alarmModelVersion = Lens.lens (\DescribeAlarmModelResponse' {alarmModelVersion} -> alarmModelVersion) (\s@DescribeAlarmModelResponse' {} a -> s {alarmModelVersion = a} :: DescribeAlarmModelResponse)
+-- | Contains information about the status of the alarm model.
+describeAlarmModelResponse_statusMessage :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
+describeAlarmModelResponse_statusMessage = Lens.lens (\DescribeAlarmModelResponse' {statusMessage} -> statusMessage) (\s@DescribeAlarmModelResponse' {} a -> s {statusMessage = a} :: DescribeAlarmModelResponse)
 
--- | The ARN of the alarm model. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
-describeAlarmModelResponse_alarmModelArn :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
-describeAlarmModelResponse_alarmModelArn = Lens.lens (\DescribeAlarmModelResponse' {alarmModelArn} -> alarmModelArn) (\s@DescribeAlarmModelResponse' {} a -> s {alarmModelArn = a} :: DescribeAlarmModelResponse)
+-- | Contains information about one or more notification actions.
+describeAlarmModelResponse_alarmNotification :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmNotification)
+describeAlarmModelResponse_alarmNotification = Lens.lens (\DescribeAlarmModelResponse' {alarmNotification} -> alarmNotification) (\s@DescribeAlarmModelResponse' {} a -> s {alarmNotification = a} :: DescribeAlarmModelResponse)
 
--- | The ARN of the IAM role that allows the alarm to perform actions and
--- access AWS resources. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
-describeAlarmModelResponse_roleArn :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe Prelude.Text)
-describeAlarmModelResponse_roleArn = Lens.lens (\DescribeAlarmModelResponse' {roleArn} -> roleArn) (\s@DescribeAlarmModelResponse' {} a -> s {roleArn = a} :: DescribeAlarmModelResponse)
+-- | Defines when your alarm is invoked.
+describeAlarmModelResponse_alarmRule :: Lens.Lens' DescribeAlarmModelResponse (Prelude.Maybe AlarmRule)
+describeAlarmModelResponse_alarmRule = Lens.lens (\DescribeAlarmModelResponse' {alarmRule} -> alarmRule) (\s@DescribeAlarmModelResponse' {} a -> s {alarmRule = a} :: DescribeAlarmModelResponse)
 
 -- | The response's http status code.
 describeAlarmModelResponse_httpStatus :: Lens.Lens' DescribeAlarmModelResponse Prelude.Int
@@ -385,19 +385,19 @@ describeAlarmModelResponse_httpStatus = Lens.lens (\DescribeAlarmModelResponse' 
 
 instance Prelude.NFData DescribeAlarmModelResponse where
   rnf DescribeAlarmModelResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf alarmRule
-      `Prelude.seq` Prelude.rnf alarmModelName
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf alarmNotification
+    Prelude.rnf alarmModelName
       `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf alarmModelDescription
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf alarmModelVersion
       `Prelude.seq` Prelude.rnf alarmEventActions
       `Prelude.seq` Prelude.rnf alarmCapabilities
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf alarmModelVersion
       `Prelude.seq` Prelude.rnf alarmModelArn
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf alarmModelDescription
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf alarmNotification
+      `Prelude.seq` Prelude.rnf alarmRule
       `Prelude.seq` Prelude.rnf httpStatus

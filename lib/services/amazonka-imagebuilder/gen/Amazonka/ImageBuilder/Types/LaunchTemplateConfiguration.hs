@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateConfiguration' smart constructor.
 data LaunchTemplateConfiguration = LaunchTemplateConfiguration'
-  { -- | Set the specified Amazon EC2 launch template as the default launch
+  { -- | The account ID that this configuration applies to.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | Set the specified Amazon EC2 launch template as the default launch
     -- template for the specified account.
     setDefaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | The account ID that this configuration applies to.
-    accountId :: Prelude.Maybe Prelude.Text,
     -- | Identifies the Amazon EC2 launch template to use.
     launchTemplateId :: Prelude.Text
   }
@@ -45,10 +45,10 @@ data LaunchTemplateConfiguration = LaunchTemplateConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'launchTemplateConfiguration_accountId' - The account ID that this configuration applies to.
+--
 -- 'setDefaultVersion', 'launchTemplateConfiguration_setDefaultVersion' - Set the specified Amazon EC2 launch template as the default launch
 -- template for the specified account.
---
--- 'accountId', 'launchTemplateConfiguration_accountId' - The account ID that this configuration applies to.
 --
 -- 'launchTemplateId', 'launchTemplateConfiguration_launchTemplateId' - Identifies the Amazon EC2 launch template to use.
 newLaunchTemplateConfiguration ::
@@ -57,20 +57,20 @@ newLaunchTemplateConfiguration ::
   LaunchTemplateConfiguration
 newLaunchTemplateConfiguration pLaunchTemplateId_ =
   LaunchTemplateConfiguration'
-    { setDefaultVersion =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing,
+      setDefaultVersion = Prelude.Nothing,
       launchTemplateId = pLaunchTemplateId_
     }
+
+-- | The account ID that this configuration applies to.
+launchTemplateConfiguration_accountId :: Lens.Lens' LaunchTemplateConfiguration (Prelude.Maybe Prelude.Text)
+launchTemplateConfiguration_accountId = Lens.lens (\LaunchTemplateConfiguration' {accountId} -> accountId) (\s@LaunchTemplateConfiguration' {} a -> s {accountId = a} :: LaunchTemplateConfiguration)
 
 -- | Set the specified Amazon EC2 launch template as the default launch
 -- template for the specified account.
 launchTemplateConfiguration_setDefaultVersion :: Lens.Lens' LaunchTemplateConfiguration (Prelude.Maybe Prelude.Bool)
 launchTemplateConfiguration_setDefaultVersion = Lens.lens (\LaunchTemplateConfiguration' {setDefaultVersion} -> setDefaultVersion) (\s@LaunchTemplateConfiguration' {} a -> s {setDefaultVersion = a} :: LaunchTemplateConfiguration)
-
--- | The account ID that this configuration applies to.
-launchTemplateConfiguration_accountId :: Lens.Lens' LaunchTemplateConfiguration (Prelude.Maybe Prelude.Text)
-launchTemplateConfiguration_accountId = Lens.lens (\LaunchTemplateConfiguration' {accountId} -> accountId) (\s@LaunchTemplateConfiguration' {} a -> s {accountId = a} :: LaunchTemplateConfiguration)
 
 -- | Identifies the Amazon EC2 launch template to use.
 launchTemplateConfiguration_launchTemplateId :: Lens.Lens' LaunchTemplateConfiguration Prelude.Text
@@ -82,30 +82,30 @@ instance Core.FromJSON LaunchTemplateConfiguration where
       "LaunchTemplateConfiguration"
       ( \x ->
           LaunchTemplateConfiguration'
-            Prelude.<$> (x Core..:? "setDefaultVersion")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<*> (x Core..:? "setDefaultVersion")
             Prelude.<*> (x Core..: "launchTemplateId")
       )
 
 instance Prelude.Hashable LaunchTemplateConfiguration where
   hashWithSalt _salt LaunchTemplateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` setDefaultVersion
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` setDefaultVersion
       `Prelude.hashWithSalt` launchTemplateId
 
 instance Prelude.NFData LaunchTemplateConfiguration where
   rnf LaunchTemplateConfiguration' {..} =
-    Prelude.rnf setDefaultVersion
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf setDefaultVersion
       `Prelude.seq` Prelude.rnf launchTemplateId
 
 instance Core.ToJSON LaunchTemplateConfiguration where
   toJSON LaunchTemplateConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("setDefaultVersion" Core..=)
+          [ ("accountId" Core..=) Prelude.<$> accountId,
+            ("setDefaultVersion" Core..=)
               Prelude.<$> setDefaultVersion,
-            ("accountId" Core..=) Prelude.<$> accountId,
             Prelude.Just
               ("launchTemplateId" Core..= launchTemplateId)
           ]

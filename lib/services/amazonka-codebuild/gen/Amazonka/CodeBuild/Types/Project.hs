@@ -40,37 +40,38 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProject' smart constructor.
 data Project = Project'
-  { -- | An array of @ProjectArtifacts@ objects.
-    secondaryArtifacts :: Prelude.Maybe [ProjectArtifacts],
-    -- | The ARN of the IAM role that enables CodeBuild to access the CloudWatch
-    -- Logs and Amazon S3 artifacts for the project\'s builds.
-    resourceAccessRole :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the build project.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the build output artifacts for the build project.
-    artifacts :: Prelude.Maybe ProjectArtifacts,
+  { -- | A list of tag key and value pairs associated with this build project.
+    --
+    -- These tags are available for use by Amazon Web Services services that
+    -- support CodeBuild build project tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | Information about a webhook that connects repository events to a build
+    -- project in CodeBuild.
+    webhook :: Prelude.Maybe Webhook,
+    -- | The name of the build project.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Information about the build environment for this build project.
     environment :: Prelude.Maybe ProjectEnvironment,
-    -- | When the build project was created, expressed in Unix time format.
-    created :: Prelude.Maybe Core.POSIX,
-    -- | The maximum number of concurrent builds that are allowed for this
-    -- project.
-    --
-    -- New builds are only started if the current number of builds is less than
-    -- or equal to this limit. If the current build count meets this limit, new
-    -- builds are throttled and are not run.
-    concurrentBuildLimit :: Prelude.Maybe Prelude.Int,
-    -- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
-    -- is specified at the build level, then they take over these
-    -- @secondarySourceVersions@ (at the project level).
-    secondarySourceVersions :: Prelude.Maybe [ProjectSourceVersion],
+    -- | An array of @ProjectSource@ objects.
+    secondarySources :: Prelude.Maybe [ProjectSource],
+    -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
+    -- project. A @ProjectFileSystemLocation@ object specifies the
+    -- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
+    -- file system created using Amazon Elastic File System.
+    fileSystemLocations :: Prelude.Maybe [ProjectFileSystemLocation],
+    -- | How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
+    -- before timing out any related build that did not get marked as
+    -- completed. The default is 60 minutes.
+    timeoutInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The number of minutes a build is allowed to be queued before it times
     -- out.
     queuedTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | Information about the cache for the build project.
-    cache :: Prelude.Maybe ProjectCache,
-    -- | An array of @ProjectSource@ objects.
-    secondarySources :: Prelude.Maybe [ProjectSource],
+    -- | Information about the VPC configuration that CodeBuild accesses.
+    vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | An array of @ProjectArtifacts@ objects.
+    secondaryArtifacts :: Prelude.Maybe [ProjectArtifacts],
+    -- | When the build project was created, expressed in Unix time format.
+    created :: Prelude.Maybe Core.POSIX,
     -- | A version of the build input to be built for this project. If not
     -- specified, the latest version is used. If specified, it must be one of:
     --
@@ -98,24 +99,40 @@ data Project = Project'
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
     -- in the /CodeBuild User Guide/.
     sourceVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the build project.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Information about the VPC configuration that CodeBuild accesses.
-    vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | Contains the project identifier used with the public build APIs.
-    publicProjectAlias :: Prelude.Maybe Prelude.Text,
-    -- | Information about the build input source code for this build project.
-    source :: Prelude.Maybe ProjectSource,
+    -- | The Amazon Resource Name (ARN) of the build project.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of concurrent builds that are allowed for this
+    -- project.
+    --
+    -- New builds are only started if the current number of builds is less than
+    -- or equal to this limit. If the current build count meets this limit, new
+    -- builds are throttled and are not run.
+    concurrentBuildLimit :: Prelude.Maybe Prelude.Int,
+    projectVisibility :: Prelude.Maybe ProjectVisibilityType,
+    -- | A description that makes the build project easy to identify.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Information about the cache for the build project.
+    cache :: Prelude.Maybe ProjectCache,
+    -- | The ARN of the IAM role that enables CodeBuild to interact with
+    -- dependent Amazon Web Services services on behalf of the Amazon Web
+    -- Services account.
+    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | Information about the build badge for the build project.
     badge :: Prelude.Maybe ProjectBadge,
+    -- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
+    -- is specified at the build level, then they take over these
+    -- @secondarySourceVersions@ (at the project level).
+    secondarySourceVersions :: Prelude.Maybe [ProjectSourceVersion],
+    -- | Information about the build input source code for this build project.
+    source :: Prelude.Maybe ProjectSource,
     -- | Information about logs for the build project. A project can create logs
     -- in CloudWatch Logs, an S3 bucket, or both.
     logsConfig :: Prelude.Maybe LogsConfig,
-    -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
-    -- project. A @ProjectFileSystemLocation@ object specifies the
-    -- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
-    -- file system created using Amazon Elastic File System.
-    fileSystemLocations :: Prelude.Maybe [ProjectFileSystemLocation],
+    -- | When the build project\'s settings were last modified, expressed in Unix
+    -- time format.
+    lastModified :: Prelude.Maybe Core.POSIX,
+    -- | Contains the project identifier used with the public build APIs.
+    publicProjectAlias :: Prelude.Maybe Prelude.Text,
     -- | A ProjectBuildBatchConfig object that defines the batch build options
     -- for the project.
     buildBatchConfig :: Prelude.Maybe ProjectBuildBatchConfig,
@@ -130,28 +147,11 @@ data Project = Project'
     -- If you don\'t specify a value, CodeBuild uses the managed CMK for Amazon
     -- Simple Storage Service (Amazon S3).
     encryptionKey :: Prelude.Maybe Prelude.Text,
-    -- | When the build project\'s settings were last modified, expressed in Unix
-    -- time format.
-    lastModified :: Prelude.Maybe Core.POSIX,
-    projectVisibility :: Prelude.Maybe ProjectVisibilityType,
-    -- | Information about a webhook that connects repository events to a build
-    -- project in CodeBuild.
-    webhook :: Prelude.Maybe Webhook,
-    -- | A description that makes the build project easy to identify.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM role that enables CodeBuild to interact with
-    -- dependent Amazon Web Services services on behalf of the Amazon Web
-    -- Services account.
-    serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | A list of tag key and value pairs associated with this build project.
-    --
-    -- These tags are available for use by Amazon Web Services services that
-    -- support CodeBuild build project tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
-    -- before timing out any related build that did not get marked as
-    -- completed. The default is 60 minutes.
-    timeoutInMinutes :: Prelude.Maybe Prelude.Natural
+    -- | Information about the build output artifacts for the build project.
+    artifacts :: Prelude.Maybe ProjectArtifacts,
+    -- | The ARN of the IAM role that enables CodeBuild to access the CloudWatch
+    -- Logs and Amazon S3 artifacts for the project\'s builds.
+    resourceAccessRole :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -163,36 +163,37 @@ data Project = Project'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secondaryArtifacts', 'project_secondaryArtifacts' - An array of @ProjectArtifacts@ objects.
+-- 'tags', 'project_tags' - A list of tag key and value pairs associated with this build project.
 --
--- 'resourceAccessRole', 'project_resourceAccessRole' - The ARN of the IAM role that enables CodeBuild to access the CloudWatch
--- Logs and Amazon S3 artifacts for the project\'s builds.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild build project tags.
 --
--- 'arn', 'project_arn' - The Amazon Resource Name (ARN) of the build project.
+-- 'webhook', 'project_webhook' - Information about a webhook that connects repository events to a build
+-- project in CodeBuild.
 --
--- 'artifacts', 'project_artifacts' - Information about the build output artifacts for the build project.
+-- 'name', 'project_name' - The name of the build project.
 --
 -- 'environment', 'project_environment' - Information about the build environment for this build project.
 --
--- 'created', 'project_created' - When the build project was created, expressed in Unix time format.
+-- 'secondarySources', 'project_secondarySources' - An array of @ProjectSource@ objects.
 --
--- 'concurrentBuildLimit', 'project_concurrentBuildLimit' - The maximum number of concurrent builds that are allowed for this
--- project.
+-- 'fileSystemLocations', 'project_fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
+-- project. A @ProjectFileSystemLocation@ object specifies the
+-- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
+-- file system created using Amazon Elastic File System.
 --
--- New builds are only started if the current number of builds is less than
--- or equal to this limit. If the current build count meets this limit, new
--- builds are throttled and are not run.
---
--- 'secondarySourceVersions', 'project_secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
--- is specified at the build level, then they take over these
--- @secondarySourceVersions@ (at the project level).
+-- 'timeoutInMinutes', 'project_timeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
+-- before timing out any related build that did not get marked as
+-- completed. The default is 60 minutes.
 --
 -- 'queuedTimeoutInMinutes', 'project_queuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times
 -- out.
 --
--- 'cache', 'project_cache' - Information about the cache for the build project.
+-- 'vpcConfig', 'project_vpcConfig' - Information about the VPC configuration that CodeBuild accesses.
 --
--- 'secondarySources', 'project_secondarySources' - An array of @ProjectSource@ objects.
+-- 'secondaryArtifacts', 'project_secondaryArtifacts' - An array of @ProjectArtifacts@ objects.
+--
+-- 'created', 'project_created' - When the build project was created, expressed in Unix time format.
 --
 -- 'sourceVersion', 'project_sourceVersion' - A version of the build input to be built for this project. If not
 -- specified, the latest version is used. If specified, it must be one of:
@@ -221,23 +222,40 @@ data Project = Project'
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
 -- in the /CodeBuild User Guide/.
 --
--- 'name', 'project_name' - The name of the build project.
+-- 'arn', 'project_arn' - The Amazon Resource Name (ARN) of the build project.
 --
--- 'vpcConfig', 'project_vpcConfig' - Information about the VPC configuration that CodeBuild accesses.
+-- 'concurrentBuildLimit', 'project_concurrentBuildLimit' - The maximum number of concurrent builds that are allowed for this
+-- project.
 --
--- 'publicProjectAlias', 'project_publicProjectAlias' - Contains the project identifier used with the public build APIs.
+-- New builds are only started if the current number of builds is less than
+-- or equal to this limit. If the current build count meets this limit, new
+-- builds are throttled and are not run.
 --
--- 'source', 'project_source' - Information about the build input source code for this build project.
+-- 'projectVisibility', 'project_projectVisibility' - Undocumented member.
+--
+-- 'description', 'project_description' - A description that makes the build project easy to identify.
+--
+-- 'cache', 'project_cache' - Information about the cache for the build project.
+--
+-- 'serviceRole', 'project_serviceRole' - The ARN of the IAM role that enables CodeBuild to interact with
+-- dependent Amazon Web Services services on behalf of the Amazon Web
+-- Services account.
 --
 -- 'badge', 'project_badge' - Information about the build badge for the build project.
+--
+-- 'secondarySourceVersions', 'project_secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
+-- is specified at the build level, then they take over these
+-- @secondarySourceVersions@ (at the project level).
+--
+-- 'source', 'project_source' - Information about the build input source code for this build project.
 --
 -- 'logsConfig', 'project_logsConfig' - Information about logs for the build project. A project can create logs
 -- in CloudWatch Logs, an S3 bucket, or both.
 --
--- 'fileSystemLocations', 'project_fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
--- project. A @ProjectFileSystemLocation@ object specifies the
--- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
--- file system created using Amazon Elastic File System.
+-- 'lastModified', 'project_lastModified' - When the build project\'s settings were last modified, expressed in Unix
+-- time format.
+--
+-- 'publicProjectAlias', 'project_publicProjectAlias' - Contains the project identifier used with the public build APIs.
 --
 -- 'buildBatchConfig', 'project_buildBatchConfig' - A ProjectBuildBatchConfig object that defines the batch build options
 -- for the project.
@@ -253,114 +271,97 @@ data Project = Project'
 -- If you don\'t specify a value, CodeBuild uses the managed CMK for Amazon
 -- Simple Storage Service (Amazon S3).
 --
--- 'lastModified', 'project_lastModified' - When the build project\'s settings were last modified, expressed in Unix
--- time format.
+-- 'artifacts', 'project_artifacts' - Information about the build output artifacts for the build project.
 --
--- 'projectVisibility', 'project_projectVisibility' - Undocumented member.
---
--- 'webhook', 'project_webhook' - Information about a webhook that connects repository events to a build
--- project in CodeBuild.
---
--- 'description', 'project_description' - A description that makes the build project easy to identify.
---
--- 'serviceRole', 'project_serviceRole' - The ARN of the IAM role that enables CodeBuild to interact with
--- dependent Amazon Web Services services on behalf of the Amazon Web
--- Services account.
---
--- 'tags', 'project_tags' - A list of tag key and value pairs associated with this build project.
---
--- These tags are available for use by Amazon Web Services services that
--- support CodeBuild build project tags.
---
--- 'timeoutInMinutes', 'project_timeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
--- before timing out any related build that did not get marked as
--- completed. The default is 60 minutes.
+-- 'resourceAccessRole', 'project_resourceAccessRole' - The ARN of the IAM role that enables CodeBuild to access the CloudWatch
+-- Logs and Amazon S3 artifacts for the project\'s builds.
 newProject ::
   Project
 newProject =
   Project'
-    { secondaryArtifacts = Prelude.Nothing,
-      resourceAccessRole = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      artifacts = Prelude.Nothing,
-      environment = Prelude.Nothing,
-      created = Prelude.Nothing,
-      concurrentBuildLimit = Prelude.Nothing,
-      secondarySourceVersions = Prelude.Nothing,
-      queuedTimeoutInMinutes = Prelude.Nothing,
-      cache = Prelude.Nothing,
-      secondarySources = Prelude.Nothing,
-      sourceVersion = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      webhook = Prelude.Nothing,
       name = Prelude.Nothing,
-      vpcConfig = Prelude.Nothing,
-      publicProjectAlias = Prelude.Nothing,
-      source = Prelude.Nothing,
-      badge = Prelude.Nothing,
-      logsConfig = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      secondarySources = Prelude.Nothing,
       fileSystemLocations = Prelude.Nothing,
+      timeoutInMinutes = Prelude.Nothing,
+      queuedTimeoutInMinutes = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
+      secondaryArtifacts = Prelude.Nothing,
+      created = Prelude.Nothing,
+      sourceVersion = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      concurrentBuildLimit = Prelude.Nothing,
+      projectVisibility = Prelude.Nothing,
+      description = Prelude.Nothing,
+      cache = Prelude.Nothing,
+      serviceRole = Prelude.Nothing,
+      badge = Prelude.Nothing,
+      secondarySourceVersions = Prelude.Nothing,
+      source = Prelude.Nothing,
+      logsConfig = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      publicProjectAlias = Prelude.Nothing,
       buildBatchConfig = Prelude.Nothing,
       encryptionKey = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
-      projectVisibility = Prelude.Nothing,
-      webhook = Prelude.Nothing,
-      description = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      timeoutInMinutes = Prelude.Nothing
+      artifacts = Prelude.Nothing,
+      resourceAccessRole = Prelude.Nothing
     }
 
--- | An array of @ProjectArtifacts@ objects.
-project_secondaryArtifacts :: Lens.Lens' Project (Prelude.Maybe [ProjectArtifacts])
-project_secondaryArtifacts = Lens.lens (\Project' {secondaryArtifacts} -> secondaryArtifacts) (\s@Project' {} a -> s {secondaryArtifacts = a} :: Project) Prelude.. Lens.mapping Lens.coerced
+-- | A list of tag key and value pairs associated with this build project.
+--
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild build project tags.
+project_tags :: Lens.Lens' Project (Prelude.Maybe [Tag])
+project_tags = Lens.lens (\Project' {tags} -> tags) (\s@Project' {} a -> s {tags = a} :: Project) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the IAM role that enables CodeBuild to access the CloudWatch
--- Logs and Amazon S3 artifacts for the project\'s builds.
-project_resourceAccessRole :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
-project_resourceAccessRole = Lens.lens (\Project' {resourceAccessRole} -> resourceAccessRole) (\s@Project' {} a -> s {resourceAccessRole = a} :: Project)
+-- | Information about a webhook that connects repository events to a build
+-- project in CodeBuild.
+project_webhook :: Lens.Lens' Project (Prelude.Maybe Webhook)
+project_webhook = Lens.lens (\Project' {webhook} -> webhook) (\s@Project' {} a -> s {webhook = a} :: Project)
 
--- | The Amazon Resource Name (ARN) of the build project.
-project_arn :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
-project_arn = Lens.lens (\Project' {arn} -> arn) (\s@Project' {} a -> s {arn = a} :: Project)
-
--- | Information about the build output artifacts for the build project.
-project_artifacts :: Lens.Lens' Project (Prelude.Maybe ProjectArtifacts)
-project_artifacts = Lens.lens (\Project' {artifacts} -> artifacts) (\s@Project' {} a -> s {artifacts = a} :: Project)
+-- | The name of the build project.
+project_name :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
+project_name = Lens.lens (\Project' {name} -> name) (\s@Project' {} a -> s {name = a} :: Project)
 
 -- | Information about the build environment for this build project.
 project_environment :: Lens.Lens' Project (Prelude.Maybe ProjectEnvironment)
 project_environment = Lens.lens (\Project' {environment} -> environment) (\s@Project' {} a -> s {environment = a} :: Project)
 
--- | When the build project was created, expressed in Unix time format.
-project_created :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_created = Lens.lens (\Project' {created} -> created) (\s@Project' {} a -> s {created = a} :: Project) Prelude.. Lens.mapping Core._Time
+-- | An array of @ProjectSource@ objects.
+project_secondarySources :: Lens.Lens' Project (Prelude.Maybe [ProjectSource])
+project_secondarySources = Lens.lens (\Project' {secondarySources} -> secondarySources) (\s@Project' {} a -> s {secondarySources = a} :: Project) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of concurrent builds that are allowed for this
--- project.
---
--- New builds are only started if the current number of builds is less than
--- or equal to this limit. If the current build count meets this limit, new
--- builds are throttled and are not run.
-project_concurrentBuildLimit :: Lens.Lens' Project (Prelude.Maybe Prelude.Int)
-project_concurrentBuildLimit = Lens.lens (\Project' {concurrentBuildLimit} -> concurrentBuildLimit) (\s@Project' {} a -> s {concurrentBuildLimit = a} :: Project)
+-- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
+-- project. A @ProjectFileSystemLocation@ object specifies the
+-- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
+-- file system created using Amazon Elastic File System.
+project_fileSystemLocations :: Lens.Lens' Project (Prelude.Maybe [ProjectFileSystemLocation])
+project_fileSystemLocations = Lens.lens (\Project' {fileSystemLocations} -> fileSystemLocations) (\s@Project' {} a -> s {fileSystemLocations = a} :: Project) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
--- is specified at the build level, then they take over these
--- @secondarySourceVersions@ (at the project level).
-project_secondarySourceVersions :: Lens.Lens' Project (Prelude.Maybe [ProjectSourceVersion])
-project_secondarySourceVersions = Lens.lens (\Project' {secondarySourceVersions} -> secondarySourceVersions) (\s@Project' {} a -> s {secondarySourceVersions = a} :: Project) Prelude.. Lens.mapping Lens.coerced
+-- | How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
+-- before timing out any related build that did not get marked as
+-- completed. The default is 60 minutes.
+project_timeoutInMinutes :: Lens.Lens' Project (Prelude.Maybe Prelude.Natural)
+project_timeoutInMinutes = Lens.lens (\Project' {timeoutInMinutes} -> timeoutInMinutes) (\s@Project' {} a -> s {timeoutInMinutes = a} :: Project)
 
 -- | The number of minutes a build is allowed to be queued before it times
 -- out.
 project_queuedTimeoutInMinutes :: Lens.Lens' Project (Prelude.Maybe Prelude.Natural)
 project_queuedTimeoutInMinutes = Lens.lens (\Project' {queuedTimeoutInMinutes} -> queuedTimeoutInMinutes) (\s@Project' {} a -> s {queuedTimeoutInMinutes = a} :: Project)
 
--- | Information about the cache for the build project.
-project_cache :: Lens.Lens' Project (Prelude.Maybe ProjectCache)
-project_cache = Lens.lens (\Project' {cache} -> cache) (\s@Project' {} a -> s {cache = a} :: Project)
+-- | Information about the VPC configuration that CodeBuild accesses.
+project_vpcConfig :: Lens.Lens' Project (Prelude.Maybe VpcConfig)
+project_vpcConfig = Lens.lens (\Project' {vpcConfig} -> vpcConfig) (\s@Project' {} a -> s {vpcConfig = a} :: Project)
 
--- | An array of @ProjectSource@ objects.
-project_secondarySources :: Lens.Lens' Project (Prelude.Maybe [ProjectSource])
-project_secondarySources = Lens.lens (\Project' {secondarySources} -> secondarySources) (\s@Project' {} a -> s {secondarySources = a} :: Project) Prelude.. Lens.mapping Lens.coerced
+-- | An array of @ProjectArtifacts@ objects.
+project_secondaryArtifacts :: Lens.Lens' Project (Prelude.Maybe [ProjectArtifacts])
+project_secondaryArtifacts = Lens.lens (\Project' {secondaryArtifacts} -> secondaryArtifacts) (\s@Project' {} a -> s {secondaryArtifacts = a} :: Project) Prelude.. Lens.mapping Lens.coerced
+
+-- | When the build project was created, expressed in Unix time format.
+project_created :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
+project_created = Lens.lens (\Project' {created} -> created) (\s@Project' {} a -> s {created = a} :: Project) Prelude.. Lens.mapping Core._Time
 
 -- | A version of the build input to be built for this project. If not
 -- specified, the latest version is used. If specified, it must be one of:
@@ -391,37 +392,64 @@ project_secondarySources = Lens.lens (\Project' {secondarySources} -> secondaryS
 project_sourceVersion :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
 project_sourceVersion = Lens.lens (\Project' {sourceVersion} -> sourceVersion) (\s@Project' {} a -> s {sourceVersion = a} :: Project)
 
--- | The name of the build project.
-project_name :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
-project_name = Lens.lens (\Project' {name} -> name) (\s@Project' {} a -> s {name = a} :: Project)
+-- | The Amazon Resource Name (ARN) of the build project.
+project_arn :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
+project_arn = Lens.lens (\Project' {arn} -> arn) (\s@Project' {} a -> s {arn = a} :: Project)
 
--- | Information about the VPC configuration that CodeBuild accesses.
-project_vpcConfig :: Lens.Lens' Project (Prelude.Maybe VpcConfig)
-project_vpcConfig = Lens.lens (\Project' {vpcConfig} -> vpcConfig) (\s@Project' {} a -> s {vpcConfig = a} :: Project)
+-- | The maximum number of concurrent builds that are allowed for this
+-- project.
+--
+-- New builds are only started if the current number of builds is less than
+-- or equal to this limit. If the current build count meets this limit, new
+-- builds are throttled and are not run.
+project_concurrentBuildLimit :: Lens.Lens' Project (Prelude.Maybe Prelude.Int)
+project_concurrentBuildLimit = Lens.lens (\Project' {concurrentBuildLimit} -> concurrentBuildLimit) (\s@Project' {} a -> s {concurrentBuildLimit = a} :: Project)
 
--- | Contains the project identifier used with the public build APIs.
-project_publicProjectAlias :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
-project_publicProjectAlias = Lens.lens (\Project' {publicProjectAlias} -> publicProjectAlias) (\s@Project' {} a -> s {publicProjectAlias = a} :: Project)
+-- | Undocumented member.
+project_projectVisibility :: Lens.Lens' Project (Prelude.Maybe ProjectVisibilityType)
+project_projectVisibility = Lens.lens (\Project' {projectVisibility} -> projectVisibility) (\s@Project' {} a -> s {projectVisibility = a} :: Project)
 
--- | Information about the build input source code for this build project.
-project_source :: Lens.Lens' Project (Prelude.Maybe ProjectSource)
-project_source = Lens.lens (\Project' {source} -> source) (\s@Project' {} a -> s {source = a} :: Project)
+-- | A description that makes the build project easy to identify.
+project_description :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
+project_description = Lens.lens (\Project' {description} -> description) (\s@Project' {} a -> s {description = a} :: Project)
+
+-- | Information about the cache for the build project.
+project_cache :: Lens.Lens' Project (Prelude.Maybe ProjectCache)
+project_cache = Lens.lens (\Project' {cache} -> cache) (\s@Project' {} a -> s {cache = a} :: Project)
+
+-- | The ARN of the IAM role that enables CodeBuild to interact with
+-- dependent Amazon Web Services services on behalf of the Amazon Web
+-- Services account.
+project_serviceRole :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
+project_serviceRole = Lens.lens (\Project' {serviceRole} -> serviceRole) (\s@Project' {} a -> s {serviceRole = a} :: Project)
 
 -- | Information about the build badge for the build project.
 project_badge :: Lens.Lens' Project (Prelude.Maybe ProjectBadge)
 project_badge = Lens.lens (\Project' {badge} -> badge) (\s@Project' {} a -> s {badge = a} :: Project)
+
+-- | An array of @ProjectSourceVersion@ objects. If @secondarySourceVersions@
+-- is specified at the build level, then they take over these
+-- @secondarySourceVersions@ (at the project level).
+project_secondarySourceVersions :: Lens.Lens' Project (Prelude.Maybe [ProjectSourceVersion])
+project_secondarySourceVersions = Lens.lens (\Project' {secondarySourceVersions} -> secondarySourceVersions) (\s@Project' {} a -> s {secondarySourceVersions = a} :: Project) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the build input source code for this build project.
+project_source :: Lens.Lens' Project (Prelude.Maybe ProjectSource)
+project_source = Lens.lens (\Project' {source} -> source) (\s@Project' {} a -> s {source = a} :: Project)
 
 -- | Information about logs for the build project. A project can create logs
 -- in CloudWatch Logs, an S3 bucket, or both.
 project_logsConfig :: Lens.Lens' Project (Prelude.Maybe LogsConfig)
 project_logsConfig = Lens.lens (\Project' {logsConfig} -> logsConfig) (\s@Project' {} a -> s {logsConfig = a} :: Project)
 
--- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
--- project. A @ProjectFileSystemLocation@ object specifies the
--- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
--- file system created using Amazon Elastic File System.
-project_fileSystemLocations :: Lens.Lens' Project (Prelude.Maybe [ProjectFileSystemLocation])
-project_fileSystemLocations = Lens.lens (\Project' {fileSystemLocations} -> fileSystemLocations) (\s@Project' {} a -> s {fileSystemLocations = a} :: Project) Prelude.. Lens.mapping Lens.coerced
+-- | When the build project\'s settings were last modified, expressed in Unix
+-- time format.
+project_lastModified :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
+project_lastModified = Lens.lens (\Project' {lastModified} -> lastModified) (\s@Project' {} a -> s {lastModified = a} :: Project) Prelude.. Lens.mapping Core._Time
+
+-- | Contains the project identifier used with the public build APIs.
+project_publicProjectAlias :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
+project_publicProjectAlias = Lens.lens (\Project' {publicProjectAlias} -> publicProjectAlias) (\s@Project' {} a -> s {publicProjectAlias = a} :: Project)
 
 -- | A ProjectBuildBatchConfig object that defines the batch build options
 -- for the project.
@@ -441,42 +469,14 @@ project_buildBatchConfig = Lens.lens (\Project' {buildBatchConfig} -> buildBatch
 project_encryptionKey :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
 project_encryptionKey = Lens.lens (\Project' {encryptionKey} -> encryptionKey) (\s@Project' {} a -> s {encryptionKey = a} :: Project)
 
--- | When the build project\'s settings were last modified, expressed in Unix
--- time format.
-project_lastModified :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_lastModified = Lens.lens (\Project' {lastModified} -> lastModified) (\s@Project' {} a -> s {lastModified = a} :: Project) Prelude.. Lens.mapping Core._Time
+-- | Information about the build output artifacts for the build project.
+project_artifacts :: Lens.Lens' Project (Prelude.Maybe ProjectArtifacts)
+project_artifacts = Lens.lens (\Project' {artifacts} -> artifacts) (\s@Project' {} a -> s {artifacts = a} :: Project)
 
--- | Undocumented member.
-project_projectVisibility :: Lens.Lens' Project (Prelude.Maybe ProjectVisibilityType)
-project_projectVisibility = Lens.lens (\Project' {projectVisibility} -> projectVisibility) (\s@Project' {} a -> s {projectVisibility = a} :: Project)
-
--- | Information about a webhook that connects repository events to a build
--- project in CodeBuild.
-project_webhook :: Lens.Lens' Project (Prelude.Maybe Webhook)
-project_webhook = Lens.lens (\Project' {webhook} -> webhook) (\s@Project' {} a -> s {webhook = a} :: Project)
-
--- | A description that makes the build project easy to identify.
-project_description :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
-project_description = Lens.lens (\Project' {description} -> description) (\s@Project' {} a -> s {description = a} :: Project)
-
--- | The ARN of the IAM role that enables CodeBuild to interact with
--- dependent Amazon Web Services services on behalf of the Amazon Web
--- Services account.
-project_serviceRole :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
-project_serviceRole = Lens.lens (\Project' {serviceRole} -> serviceRole) (\s@Project' {} a -> s {serviceRole = a} :: Project)
-
--- | A list of tag key and value pairs associated with this build project.
---
--- These tags are available for use by Amazon Web Services services that
--- support CodeBuild build project tags.
-project_tags :: Lens.Lens' Project (Prelude.Maybe [Tag])
-project_tags = Lens.lens (\Project' {tags} -> tags) (\s@Project' {} a -> s {tags = a} :: Project) Prelude.. Lens.mapping Lens.coerced
-
--- | How long, in minutes, from 5 to 480 (8 hours), for CodeBuild to wait
--- before timing out any related build that did not get marked as
--- completed. The default is 60 minutes.
-project_timeoutInMinutes :: Lens.Lens' Project (Prelude.Maybe Prelude.Natural)
-project_timeoutInMinutes = Lens.lens (\Project' {timeoutInMinutes} -> timeoutInMinutes) (\s@Project' {} a -> s {timeoutInMinutes = a} :: Project)
+-- | The ARN of the IAM role that enables CodeBuild to access the CloudWatch
+-- Logs and Amazon S3 artifacts for the project\'s builds.
+project_resourceAccessRole :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
+project_resourceAccessRole = Lens.lens (\Project' {resourceAccessRole} -> resourceAccessRole) (\s@Project' {} a -> s {resourceAccessRole = a} :: Project)
 
 instance Core.FromJSON Project where
   parseJSON =
@@ -484,106 +484,108 @@ instance Core.FromJSON Project where
       "Project"
       ( \x ->
           Project'
-            Prelude.<$> ( x Core..:? "secondaryArtifacts"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "resourceAccessRole")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "artifacts")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "webhook")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "environment")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "concurrentBuildLimit")
-            Prelude.<*> ( x Core..:? "secondarySourceVersions"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "queuedTimeoutInMinutes")
-            Prelude.<*> (x Core..:? "cache")
             Prelude.<*> ( x Core..:? "secondarySources"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "sourceVersion")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "vpcConfig")
-            Prelude.<*> (x Core..:? "publicProjectAlias")
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "badge")
-            Prelude.<*> (x Core..:? "logsConfig")
             Prelude.<*> ( x Core..:? "fileSystemLocations"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "timeoutInMinutes")
+            Prelude.<*> (x Core..:? "queuedTimeoutInMinutes")
+            Prelude.<*> (x Core..:? "vpcConfig")
+            Prelude.<*> ( x Core..:? "secondaryArtifacts"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "sourceVersion")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "concurrentBuildLimit")
+            Prelude.<*> (x Core..:? "projectVisibility")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "cache")
+            Prelude.<*> (x Core..:? "serviceRole")
+            Prelude.<*> (x Core..:? "badge")
+            Prelude.<*> ( x Core..:? "secondarySourceVersions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "source")
+            Prelude.<*> (x Core..:? "logsConfig")
+            Prelude.<*> (x Core..:? "lastModified")
+            Prelude.<*> (x Core..:? "publicProjectAlias")
             Prelude.<*> (x Core..:? "buildBatchConfig")
             Prelude.<*> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..:? "lastModified")
-            Prelude.<*> (x Core..:? "projectVisibility")
-            Prelude.<*> (x Core..:? "webhook")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "serviceRole")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timeoutInMinutes")
+            Prelude.<*> (x Core..:? "artifacts")
+            Prelude.<*> (x Core..:? "resourceAccessRole")
       )
 
 instance Prelude.Hashable Project where
   hashWithSalt _salt Project' {..} =
-    _salt `Prelude.hashWithSalt` secondaryArtifacts
-      `Prelude.hashWithSalt` resourceAccessRole
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` artifacts
-      `Prelude.hashWithSalt` environment
-      `Prelude.hashWithSalt` created
-      `Prelude.hashWithSalt` concurrentBuildLimit
-      `Prelude.hashWithSalt` secondarySourceVersions
-      `Prelude.hashWithSalt` queuedTimeoutInMinutes
-      `Prelude.hashWithSalt` cache
-      `Prelude.hashWithSalt` secondarySources
-      `Prelude.hashWithSalt` sourceVersion
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` webhook
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` publicProjectAlias
-      `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` badge
-      `Prelude.hashWithSalt` logsConfig
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` secondarySources
       `Prelude.hashWithSalt` fileSystemLocations
+      `Prelude.hashWithSalt` timeoutInMinutes
+      `Prelude.hashWithSalt` queuedTimeoutInMinutes
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` secondaryArtifacts
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` concurrentBuildLimit
+      `Prelude.hashWithSalt` projectVisibility
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` cache
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` badge
+      `Prelude.hashWithSalt` secondarySourceVersions
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` logsConfig
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` publicProjectAlias
       `Prelude.hashWithSalt` buildBatchConfig
       `Prelude.hashWithSalt` encryptionKey
-      `Prelude.hashWithSalt` lastModified
-      `Prelude.hashWithSalt` projectVisibility
-      `Prelude.hashWithSalt` webhook
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` serviceRole
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` timeoutInMinutes
+      `Prelude.hashWithSalt` artifacts
+      `Prelude.hashWithSalt` resourceAccessRole
 
 instance Prelude.NFData Project where
   rnf Project' {..} =
-    Prelude.rnf secondaryArtifacts
-      `Prelude.seq` Prelude.rnf resourceAccessRole
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf artifacts
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf concurrentBuildLimit
-      `Prelude.seq` Prelude.rnf secondarySourceVersions
-      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf cache
-      `Prelude.seq` Prelude.rnf secondarySources
-      `Prelude.seq` Prelude.rnf sourceVersion
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf webhook
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf publicProjectAlias
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf badge
-      `Prelude.seq` Prelude.rnf logsConfig
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf secondarySources
       `Prelude.seq` Prelude.rnf fileSystemLocations
-      `Prelude.seq` Prelude.rnf buildBatchConfig
-      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf timeoutInMinutes
+      `Prelude.seq` Prelude.rnf queuedTimeoutInMinutes
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf secondaryArtifacts
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf concurrentBuildLimit
+      `Prelude.seq` Prelude.rnf projectVisibility
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf cache
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf badge
+      `Prelude.seq` Prelude.rnf
+        secondarySourceVersions
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf logsConfig
       `Prelude.seq` Prelude.rnf lastModified
       `Prelude.seq` Prelude.rnf
-        projectVisibility
-      `Prelude.seq` Prelude.rnf webhook
+        publicProjectAlias
       `Prelude.seq` Prelude.rnf
-        description
+        buildBatchConfig
       `Prelude.seq` Prelude.rnf
-        serviceRole
-      `Prelude.seq` Prelude.rnf tags
+        encryptionKey
       `Prelude.seq` Prelude.rnf
-        timeoutInMinutes
+        artifacts
+      `Prelude.seq` Prelude.rnf
+        resourceAccessRole

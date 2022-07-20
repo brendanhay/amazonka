@@ -14,30 +14,180 @@
 module Amazonka.DataExchange.Lens
   ( -- * Operations
 
+    -- ** CancelJob
+    cancelJob_jobId,
+
+    -- ** CreateDataSet
+    createDataSet_tags,
+    createDataSet_assetType,
+    createDataSet_description,
+    createDataSet_name,
+    createDataSetResponse_tags,
+    createDataSetResponse_name,
+    createDataSetResponse_sourceId,
+    createDataSetResponse_originDetails,
+    createDataSetResponse_arn,
+    createDataSetResponse_id,
+    createDataSetResponse_assetType,
+    createDataSetResponse_description,
+    createDataSetResponse_origin,
+    createDataSetResponse_createdAt,
+    createDataSetResponse_updatedAt,
+    createDataSetResponse_httpStatus,
+
+    -- ** CreateEventAction
+    createEventAction_action,
+    createEventAction_event,
+    createEventActionResponse_arn,
+    createEventActionResponse_id,
+    createEventActionResponse_event,
+    createEventActionResponse_action,
+    createEventActionResponse_createdAt,
+    createEventActionResponse_updatedAt,
+    createEventActionResponse_httpStatus,
+
+    -- ** CreateJob
+    createJob_type,
+    createJob_details,
+    createJobResponse_type,
+    createJobResponse_arn,
+    createJobResponse_state,
+    createJobResponse_id,
+    createJobResponse_details,
+    createJobResponse_errors,
+    createJobResponse_createdAt,
+    createJobResponse_updatedAt,
+    createJobResponse_httpStatus,
+
+    -- ** CreateRevision
+    createRevision_tags,
+    createRevision_comment,
+    createRevision_dataSetId,
+    createRevisionResponse_tags,
+    createRevisionResponse_sourceId,
+    createRevisionResponse_arn,
+    createRevisionResponse_id,
+    createRevisionResponse_comment,
+    createRevisionResponse_finalized,
+    createRevisionResponse_dataSetId,
+    createRevisionResponse_createdAt,
+    createRevisionResponse_updatedAt,
+    createRevisionResponse_httpStatus,
+
+    -- ** DeleteAsset
+    deleteAsset_revisionId,
+    deleteAsset_assetId,
+    deleteAsset_dataSetId,
+
+    -- ** DeleteDataSet
+    deleteDataSet_dataSetId,
+
+    -- ** DeleteEventAction
+    deleteEventAction_eventActionId,
+
+    -- ** DeleteRevision
+    deleteRevision_revisionId,
+    deleteRevision_dataSetId,
+
+    -- ** GetAsset
+    getAsset_revisionId,
+    getAsset_assetId,
+    getAsset_dataSetId,
+    getAssetResponse_name,
+    getAssetResponse_sourceId,
+    getAssetResponse_assetDetails,
+    getAssetResponse_arn,
+    getAssetResponse_id,
+    getAssetResponse_assetType,
+    getAssetResponse_revisionId,
+    getAssetResponse_dataSetId,
+    getAssetResponse_createdAt,
+    getAssetResponse_updatedAt,
+    getAssetResponse_httpStatus,
+
+    -- ** GetDataSet
+    getDataSet_dataSetId,
+    getDataSetResponse_tags,
+    getDataSetResponse_name,
+    getDataSetResponse_sourceId,
+    getDataSetResponse_originDetails,
+    getDataSetResponse_arn,
+    getDataSetResponse_id,
+    getDataSetResponse_assetType,
+    getDataSetResponse_description,
+    getDataSetResponse_origin,
+    getDataSetResponse_createdAt,
+    getDataSetResponse_updatedAt,
+    getDataSetResponse_httpStatus,
+
     -- ** GetEventAction
     getEventAction_eventActionId,
-    getEventActionResponse_event,
     getEventActionResponse_arn,
-    getEventActionResponse_createdAt,
-    getEventActionResponse_action,
     getEventActionResponse_id,
+    getEventActionResponse_event,
+    getEventActionResponse_action,
+    getEventActionResponse_createdAt,
     getEventActionResponse_updatedAt,
     getEventActionResponse_httpStatus,
 
-    -- ** CreateRevision
-    createRevision_comment,
-    createRevision_tags,
-    createRevision_dataSetId,
-    createRevisionResponse_arn,
-    createRevisionResponse_createdAt,
-    createRevisionResponse_sourceId,
-    createRevisionResponse_finalized,
-    createRevisionResponse_dataSetId,
-    createRevisionResponse_id,
-    createRevisionResponse_updatedAt,
-    createRevisionResponse_comment,
-    createRevisionResponse_tags,
-    createRevisionResponse_httpStatus,
+    -- ** GetJob
+    getJob_jobId,
+    getJobResponse_type,
+    getJobResponse_arn,
+    getJobResponse_state,
+    getJobResponse_id,
+    getJobResponse_details,
+    getJobResponse_errors,
+    getJobResponse_createdAt,
+    getJobResponse_updatedAt,
+    getJobResponse_httpStatus,
+
+    -- ** GetRevision
+    getRevision_revisionId,
+    getRevision_dataSetId,
+    getRevisionResponse_tags,
+    getRevisionResponse_sourceId,
+    getRevisionResponse_arn,
+    getRevisionResponse_id,
+    getRevisionResponse_comment,
+    getRevisionResponse_finalized,
+    getRevisionResponse_dataSetId,
+    getRevisionResponse_createdAt,
+    getRevisionResponse_updatedAt,
+    getRevisionResponse_httpStatus,
+
+    -- ** ListDataSetRevisions
+    listDataSetRevisions_nextToken,
+    listDataSetRevisions_maxResults,
+    listDataSetRevisions_dataSetId,
+    listDataSetRevisionsResponse_nextToken,
+    listDataSetRevisionsResponse_revisions,
+    listDataSetRevisionsResponse_httpStatus,
+
+    -- ** ListDataSets
+    listDataSets_nextToken,
+    listDataSets_maxResults,
+    listDataSets_origin,
+    listDataSetsResponse_nextToken,
+    listDataSetsResponse_dataSets,
+    listDataSetsResponse_httpStatus,
+
+    -- ** ListEventActions
+    listEventActions_nextToken,
+    listEventActions_maxResults,
+    listEventActions_eventSourceId,
+    listEventActionsResponse_nextToken,
+    listEventActionsResponse_eventActions,
+    listEventActionsResponse_httpStatus,
+
+    -- ** ListJobs
+    listJobs_nextToken,
+    listJobs_maxResults,
+    listJobs_revisionId,
+    listJobs_dataSetId,
+    listJobsResponse_nextToken,
+    listJobsResponse_jobs,
+    listJobsResponse_httpStatus,
 
     -- ** ListRevisionAssets
     listRevisionAssets_nextToken,
@@ -48,175 +198,10 @@ module Amazonka.DataExchange.Lens
     listRevisionAssetsResponse_assets,
     listRevisionAssetsResponse_httpStatus,
 
-    -- ** DeleteRevision
-    deleteRevision_revisionId,
-    deleteRevision_dataSetId,
-
-    -- ** UpdateRevision
-    updateRevision_finalized,
-    updateRevision_comment,
-    updateRevision_revisionId,
-    updateRevision_dataSetId,
-    updateRevisionResponse_arn,
-    updateRevisionResponse_createdAt,
-    updateRevisionResponse_sourceId,
-    updateRevisionResponse_finalized,
-    updateRevisionResponse_dataSetId,
-    updateRevisionResponse_id,
-    updateRevisionResponse_updatedAt,
-    updateRevisionResponse_comment,
-    updateRevisionResponse_httpStatus,
-
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
-
-    -- ** GetRevision
-    getRevision_revisionId,
-    getRevision_dataSetId,
-    getRevisionResponse_arn,
-    getRevisionResponse_createdAt,
-    getRevisionResponse_sourceId,
-    getRevisionResponse_finalized,
-    getRevisionResponse_dataSetId,
-    getRevisionResponse_id,
-    getRevisionResponse_updatedAt,
-    getRevisionResponse_comment,
-    getRevisionResponse_tags,
-    getRevisionResponse_httpStatus,
-
-    -- ** DeleteDataSet
-    deleteDataSet_dataSetId,
-
-    -- ** UpdateDataSet
-    updateDataSet_name,
-    updateDataSet_description,
-    updateDataSet_dataSetId,
-    updateDataSetResponse_origin,
-    updateDataSetResponse_arn,
-    updateDataSetResponse_createdAt,
-    updateDataSetResponse_sourceId,
-    updateDataSetResponse_originDetails,
-    updateDataSetResponse_name,
-    updateDataSetResponse_id,
-    updateDataSetResponse_assetType,
-    updateDataSetResponse_updatedAt,
-    updateDataSetResponse_description,
-    updateDataSetResponse_httpStatus,
-
-    -- ** CreateJob
-    createJob_type,
-    createJob_details,
-    createJobResponse_state,
-    createJobResponse_arn,
-    createJobResponse_createdAt,
-    createJobResponse_details,
-    createJobResponse_id,
-    createJobResponse_type,
-    createJobResponse_updatedAt,
-    createJobResponse_errors,
-    createJobResponse_httpStatus,
-
-    -- ** ListEventActions
-    listEventActions_eventSourceId,
-    listEventActions_nextToken,
-    listEventActions_maxResults,
-    listEventActionsResponse_eventActions,
-    listEventActionsResponse_nextToken,
-    listEventActionsResponse_httpStatus,
-
-    -- ** GetAsset
-    getAsset_revisionId,
-    getAsset_assetId,
-    getAsset_dataSetId,
-    getAssetResponse_arn,
-    getAssetResponse_createdAt,
-    getAssetResponse_sourceId,
-    getAssetResponse_dataSetId,
-    getAssetResponse_name,
-    getAssetResponse_assetDetails,
-    getAssetResponse_id,
-    getAssetResponse_assetType,
-    getAssetResponse_updatedAt,
-    getAssetResponse_revisionId,
-    getAssetResponse_httpStatus,
-
-    -- ** ListJobs
-    listJobs_nextToken,
-    listJobs_dataSetId,
-    listJobs_maxResults,
-    listJobs_revisionId,
-    listJobsResponse_nextToken,
-    listJobsResponse_jobs,
-    listJobsResponse_httpStatus,
-
-    -- ** CreateDataSet
-    createDataSet_tags,
-    createDataSet_assetType,
-    createDataSet_description,
-    createDataSet_name,
-    createDataSetResponse_origin,
-    createDataSetResponse_arn,
-    createDataSetResponse_createdAt,
-    createDataSetResponse_sourceId,
-    createDataSetResponse_originDetails,
-    createDataSetResponse_name,
-    createDataSetResponse_id,
-    createDataSetResponse_assetType,
-    createDataSetResponse_updatedAt,
-    createDataSetResponse_description,
-    createDataSetResponse_tags,
-    createDataSetResponse_httpStatus,
-
-    -- ** DeleteAsset
-    deleteAsset_revisionId,
-    deleteAsset_assetId,
-    deleteAsset_dataSetId,
-
-    -- ** UpdateAsset
-    updateAsset_revisionId,
-    updateAsset_assetId,
-    updateAsset_dataSetId,
-    updateAsset_name,
-    updateAssetResponse_arn,
-    updateAssetResponse_createdAt,
-    updateAssetResponse_sourceId,
-    updateAssetResponse_dataSetId,
-    updateAssetResponse_name,
-    updateAssetResponse_assetDetails,
-    updateAssetResponse_id,
-    updateAssetResponse_assetType,
-    updateAssetResponse_updatedAt,
-    updateAssetResponse_revisionId,
-    updateAssetResponse_httpStatus,
-
-    -- ** GetJob
-    getJob_jobId,
-    getJobResponse_state,
-    getJobResponse_arn,
-    getJobResponse_createdAt,
-    getJobResponse_details,
-    getJobResponse_id,
-    getJobResponse_type,
-    getJobResponse_updatedAt,
-    getJobResponse_errors,
-    getJobResponse_httpStatus,
-
-    -- ** GetDataSet
-    getDataSet_dataSetId,
-    getDataSetResponse_origin,
-    getDataSetResponse_arn,
-    getDataSetResponse_createdAt,
-    getDataSetResponse_sourceId,
-    getDataSetResponse_originDetails,
-    getDataSetResponse_name,
-    getDataSetResponse_id,
-    getDataSetResponse_assetType,
-    getDataSetResponse_updatedAt,
-    getDataSetResponse_description,
-    getDataSetResponse_tags,
-    getDataSetResponse_httpStatus,
 
     -- ** StartJob
     startJob_jobId,
@@ -226,53 +211,68 @@ module Amazonka.DataExchange.Lens
     tagResource_resourceArn,
     tagResource_tags,
 
-    -- ** ListDataSetRevisions
-    listDataSetRevisions_nextToken,
-    listDataSetRevisions_maxResults,
-    listDataSetRevisions_dataSetId,
-    listDataSetRevisionsResponse_nextToken,
-    listDataSetRevisionsResponse_revisions,
-    listDataSetRevisionsResponse_httpStatus,
-
-    -- ** DeleteEventAction
-    deleteEventAction_eventActionId,
-
-    -- ** UpdateEventAction
-    updateEventAction_action,
-    updateEventAction_eventActionId,
-    updateEventActionResponse_event,
-    updateEventActionResponse_arn,
-    updateEventActionResponse_createdAt,
-    updateEventActionResponse_action,
-    updateEventActionResponse_id,
-    updateEventActionResponse_updatedAt,
-    updateEventActionResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_tagKeys,
     untagResource_resourceArn,
 
-    -- ** ListDataSets
-    listDataSets_origin,
-    listDataSets_nextToken,
-    listDataSets_maxResults,
-    listDataSetsResponse_nextToken,
-    listDataSetsResponse_dataSets,
-    listDataSetsResponse_httpStatus,
+    -- ** UpdateAsset
+    updateAsset_revisionId,
+    updateAsset_assetId,
+    updateAsset_dataSetId,
+    updateAsset_name,
+    updateAssetResponse_name,
+    updateAssetResponse_sourceId,
+    updateAssetResponse_assetDetails,
+    updateAssetResponse_arn,
+    updateAssetResponse_id,
+    updateAssetResponse_assetType,
+    updateAssetResponse_revisionId,
+    updateAssetResponse_dataSetId,
+    updateAssetResponse_createdAt,
+    updateAssetResponse_updatedAt,
+    updateAssetResponse_httpStatus,
 
-    -- ** CreateEventAction
-    createEventAction_action,
-    createEventAction_event,
-    createEventActionResponse_event,
-    createEventActionResponse_arn,
-    createEventActionResponse_createdAt,
-    createEventActionResponse_action,
-    createEventActionResponse_id,
-    createEventActionResponse_updatedAt,
-    createEventActionResponse_httpStatus,
+    -- ** UpdateDataSet
+    updateDataSet_name,
+    updateDataSet_description,
+    updateDataSet_dataSetId,
+    updateDataSetResponse_name,
+    updateDataSetResponse_sourceId,
+    updateDataSetResponse_originDetails,
+    updateDataSetResponse_arn,
+    updateDataSetResponse_id,
+    updateDataSetResponse_assetType,
+    updateDataSetResponse_description,
+    updateDataSetResponse_origin,
+    updateDataSetResponse_createdAt,
+    updateDataSetResponse_updatedAt,
+    updateDataSetResponse_httpStatus,
 
-    -- ** CancelJob
-    cancelJob_jobId,
+    -- ** UpdateEventAction
+    updateEventAction_action,
+    updateEventAction_eventActionId,
+    updateEventActionResponse_arn,
+    updateEventActionResponse_id,
+    updateEventActionResponse_event,
+    updateEventActionResponse_action,
+    updateEventActionResponse_createdAt,
+    updateEventActionResponse_updatedAt,
+    updateEventActionResponse_httpStatus,
+
+    -- ** UpdateRevision
+    updateRevision_comment,
+    updateRevision_finalized,
+    updateRevision_revisionId,
+    updateRevision_dataSetId,
+    updateRevisionResponse_sourceId,
+    updateRevisionResponse_arn,
+    updateRevisionResponse_id,
+    updateRevisionResponse_comment,
+    updateRevisionResponse_finalized,
+    updateRevisionResponse_dataSetId,
+    updateRevisionResponse_createdAt,
+    updateRevisionResponse_updatedAt,
+    updateRevisionResponse_httpStatus,
 
     -- * Types
 
@@ -325,8 +325,8 @@ module Amazonka.DataExchange.Lens
     dataSetEntry_name,
 
     -- ** Details
-    details_importAssetFromSignedUrlJobErrorDetails,
     details_importAssetsFromS3JobErrorDetails,
+    details_importAssetFromSignedUrlJobErrorDetails,
 
     -- ** Event
     event_revisionPublished,
@@ -345,8 +345,8 @@ module Amazonka.DataExchange.Lens
     exportAssetToSignedUrlRequestDetails_revisionId,
 
     -- ** ExportAssetToSignedUrlResponseDetails
-    exportAssetToSignedUrlResponseDetails_signedUrl,
     exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt,
+    exportAssetToSignedUrlResponseDetails_signedUrl,
     exportAssetToSignedUrlResponseDetails_dataSetId,
     exportAssetToSignedUrlResponseDetails_assetId,
     exportAssetToSignedUrlResponseDetails_revisionId,
@@ -369,8 +369,8 @@ module Amazonka.DataExchange.Lens
     exportRevisionsToS3RequestDetails_dataSetId,
 
     -- ** ExportRevisionsToS3ResponseDetails
-    exportRevisionsToS3ResponseDetails_encryption,
     exportRevisionsToS3ResponseDetails_eventActionArn,
+    exportRevisionsToS3ResponseDetails_encryption,
     exportRevisionsToS3ResponseDetails_revisionDestinations,
     exportRevisionsToS3ResponseDetails_dataSetId,
 
@@ -388,8 +388,8 @@ module Amazonka.DataExchange.Lens
     importAssetFromSignedUrlRequestDetails_revisionId,
 
     -- ** ImportAssetFromSignedUrlResponseDetails
-    importAssetFromSignedUrlResponseDetails_signedUrl,
     importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt,
+    importAssetFromSignedUrlResponseDetails_signedUrl,
     importAssetFromSignedUrlResponseDetails_md5Hash,
     importAssetFromSignedUrlResponseDetails_dataSetId,
     importAssetFromSignedUrlResponseDetails_assetName,
@@ -427,10 +427,10 @@ module Amazonka.DataExchange.Lens
 
     -- ** JobError
     jobError_resourceId,
-    jobError_limitName,
     jobError_resourceType,
-    jobError_details,
     jobError_limitValue,
+    jobError_limitName,
+    jobError_details,
     jobError_message,
     jobError_code,
 
@@ -444,20 +444,20 @@ module Amazonka.DataExchange.Lens
     redshiftDataShareAssetSourceEntry_dataShareArn,
 
     -- ** RequestDetails
-    requestDetails_exportAssetsToS3,
-    requestDetails_exportRevisionsToS3,
     requestDetails_importAssetFromSignedUrl,
     requestDetails_importAssetsFromRedshiftDataShares,
-    requestDetails_importAssetsFromS3,
     requestDetails_exportAssetToSignedUrl,
+    requestDetails_exportRevisionsToS3,
+    requestDetails_exportAssetsToS3,
+    requestDetails_importAssetsFromS3,
 
     -- ** ResponseDetails
-    responseDetails_exportAssetsToS3,
-    responseDetails_exportRevisionsToS3,
     responseDetails_importAssetFromSignedUrl,
     responseDetails_importAssetsFromRedshiftDataShares,
-    responseDetails_importAssetsFromS3,
     responseDetails_exportAssetToSignedUrl,
+    responseDetails_exportRevisionsToS3,
+    responseDetails_exportAssetsToS3,
+    responseDetails_importAssetsFromS3,
 
     -- ** RevisionDestinationEntry
     revisionDestinationEntry_keyPattern,
@@ -466,8 +466,8 @@ module Amazonka.DataExchange.Lens
 
     -- ** RevisionEntry
     revisionEntry_sourceId,
-    revisionEntry_finalized,
     revisionEntry_comment,
+    revisionEntry_finalized,
     revisionEntry_createdAt,
     revisionEntry_dataSetId,
     revisionEntry_id,

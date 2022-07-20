@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTestGridProject' smart constructor.
 data TestGridProject = TestGridProject'
-  { -- | The ARN for the project.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | When the project was created.
-    created :: Prelude.Maybe Core.POSIX,
-    -- | A human-readable name for the project.
+  { -- | A human-readable name for the project.
     name :: Prelude.Maybe Prelude.Text,
     -- | The VPC security groups and subnets that are attached to a project.
     vpcConfig :: Prelude.Maybe TestGridVpcConfig,
+    -- | When the project was created.
+    created :: Prelude.Maybe Core.POSIX,
+    -- | The ARN for the project.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description for the project.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -50,33 +50,25 @@ data TestGridProject = TestGridProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'testGridProject_arn' - The ARN for the project.
---
--- 'created', 'testGridProject_created' - When the project was created.
---
 -- 'name', 'testGridProject_name' - A human-readable name for the project.
 --
 -- 'vpcConfig', 'testGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
+--
+-- 'created', 'testGridProject_created' - When the project was created.
+--
+-- 'arn', 'testGridProject_arn' - The ARN for the project.
 --
 -- 'description', 'testGridProject_description' - A human-readable description for the project.
 newTestGridProject ::
   TestGridProject
 newTestGridProject =
   TestGridProject'
-    { arn = Prelude.Nothing,
-      created = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       vpcConfig = Prelude.Nothing,
+      created = Prelude.Nothing,
+      arn = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | The ARN for the project.
-testGridProject_arn :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
-testGridProject_arn = Lens.lens (\TestGridProject' {arn} -> arn) (\s@TestGridProject' {} a -> s {arn = a} :: TestGridProject)
-
--- | When the project was created.
-testGridProject_created :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.UTCTime)
-testGridProject_created = Lens.lens (\TestGridProject' {created} -> created) (\s@TestGridProject' {} a -> s {created = a} :: TestGridProject) Prelude.. Lens.mapping Core._Time
 
 -- | A human-readable name for the project.
 testGridProject_name :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
@@ -85,6 +77,14 @@ testGridProject_name = Lens.lens (\TestGridProject' {name} -> name) (\s@TestGrid
 -- | The VPC security groups and subnets that are attached to a project.
 testGridProject_vpcConfig :: Lens.Lens' TestGridProject (Prelude.Maybe TestGridVpcConfig)
 testGridProject_vpcConfig = Lens.lens (\TestGridProject' {vpcConfig} -> vpcConfig) (\s@TestGridProject' {} a -> s {vpcConfig = a} :: TestGridProject)
+
+-- | When the project was created.
+testGridProject_created :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.UTCTime)
+testGridProject_created = Lens.lens (\TestGridProject' {created} -> created) (\s@TestGridProject' {} a -> s {created = a} :: TestGridProject) Prelude.. Lens.mapping Core._Time
+
+-- | The ARN for the project.
+testGridProject_arn :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
+testGridProject_arn = Lens.lens (\TestGridProject' {arn} -> arn) (\s@TestGridProject' {} a -> s {arn = a} :: TestGridProject)
 
 -- | A human-readable description for the project.
 testGridProject_description :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
@@ -96,25 +96,25 @@ instance Core.FromJSON TestGridProject where
       "TestGridProject"
       ( \x ->
           TestGridProject'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "vpcConfig")
+            Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable TestGridProject where
   hashWithSalt _salt TestGridProject' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` created
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData TestGridProject where
   rnf TestGridProject' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description

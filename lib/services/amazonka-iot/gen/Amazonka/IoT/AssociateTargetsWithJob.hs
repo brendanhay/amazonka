@@ -40,8 +40,8 @@ module Amazonka.IoT.AssociateTargetsWithJob
     newAssociateTargetsWithJob,
 
     -- * Request Lenses
-    associateTargetsWithJob_namespaceId,
     associateTargetsWithJob_comment,
+    associateTargetsWithJob_namespaceId,
     associateTargetsWithJob_targets,
     associateTargetsWithJob_jobId,
 
@@ -51,8 +51,8 @@ module Amazonka.IoT.AssociateTargetsWithJob
 
     -- * Response Lenses
     associateTargetsWithJobResponse_jobId,
-    associateTargetsWithJobResponse_jobArn,
     associateTargetsWithJobResponse_description,
+    associateTargetsWithJobResponse_jobArn,
     associateTargetsWithJobResponse_httpStatus,
   )
 where
@@ -66,7 +66,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateTargetsWithJob' smart constructor.
 data AssociateTargetsWithJob = AssociateTargetsWithJob'
-  { -- | The namespace used to indicate that a job is a customer-managed job.
+  { -- | An optional comment string describing why the job was associated with
+    -- the targets.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, Amazon Web Services IoT
     -- Core sends jobs notifications to MQTT topics that contain the value in
@@ -76,9 +79,6 @@ data AssociateTargetsWithJob = AssociateTargetsWithJob'
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
-    -- | An optional comment string describing why the job was associated with
-    -- the targets.
-    comment :: Prelude.Maybe Prelude.Text,
     -- | A list of thing group ARNs that define the targets of the job.
     targets :: Prelude.NonEmpty Prelude.Text,
     -- | The unique identifier you assigned to this job when it was created.
@@ -94,6 +94,9 @@ data AssociateTargetsWithJob = AssociateTargetsWithJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'comment', 'associateTargetsWithJob_comment' - An optional comment string describing why the job was associated with
+-- the targets.
+--
 -- 'namespaceId', 'associateTargetsWithJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, Amazon Web Services IoT
@@ -103,9 +106,6 @@ data AssociateTargetsWithJob = AssociateTargetsWithJob'
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
---
--- 'comment', 'associateTargetsWithJob_comment' - An optional comment string describing why the job was associated with
--- the targets.
 --
 -- 'targets', 'associateTargetsWithJob_targets' - A list of thing group ARNs that define the targets of the job.
 --
@@ -118,12 +118,16 @@ newAssociateTargetsWithJob ::
   AssociateTargetsWithJob
 newAssociateTargetsWithJob pTargets_ pJobId_ =
   AssociateTargetsWithJob'
-    { namespaceId =
-        Prelude.Nothing,
-      comment = Prelude.Nothing,
+    { comment = Prelude.Nothing,
+      namespaceId = Prelude.Nothing,
       targets = Lens.coerced Lens.# pTargets_,
       jobId = pJobId_
     }
+
+-- | An optional comment string describing why the job was associated with
+-- the targets.
+associateTargetsWithJob_comment :: Lens.Lens' AssociateTargetsWithJob (Prelude.Maybe Prelude.Text)
+associateTargetsWithJob_comment = Lens.lens (\AssociateTargetsWithJob' {comment} -> comment) (\s@AssociateTargetsWithJob' {} a -> s {comment = a} :: AssociateTargetsWithJob)
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
@@ -136,11 +140,6 @@ newAssociateTargetsWithJob pTargets_ pJobId_ =
 -- The @namespaceId@ feature is in public preview.
 associateTargetsWithJob_namespaceId :: Lens.Lens' AssociateTargetsWithJob (Prelude.Maybe Prelude.Text)
 associateTargetsWithJob_namespaceId = Lens.lens (\AssociateTargetsWithJob' {namespaceId} -> namespaceId) (\s@AssociateTargetsWithJob' {} a -> s {namespaceId = a} :: AssociateTargetsWithJob)
-
--- | An optional comment string describing why the job was associated with
--- the targets.
-associateTargetsWithJob_comment :: Lens.Lens' AssociateTargetsWithJob (Prelude.Maybe Prelude.Text)
-associateTargetsWithJob_comment = Lens.lens (\AssociateTargetsWithJob' {comment} -> comment) (\s@AssociateTargetsWithJob' {} a -> s {comment = a} :: AssociateTargetsWithJob)
 
 -- | A list of thing group ARNs that define the targets of the job.
 associateTargetsWithJob_targets :: Lens.Lens' AssociateTargetsWithJob (Prelude.NonEmpty Prelude.Text)
@@ -160,22 +159,22 @@ instance Core.AWSRequest AssociateTargetsWithJob where
       ( \s h x ->
           AssociateTargetsWithJobResponse'
             Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "jobArn")
             Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "jobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable AssociateTargetsWithJob where
   hashWithSalt _salt AssociateTargetsWithJob' {..} =
-    _salt `Prelude.hashWithSalt` namespaceId
-      `Prelude.hashWithSalt` comment
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` namespaceId
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData AssociateTargetsWithJob where
   rnf AssociateTargetsWithJob' {..} =
-    Prelude.rnf namespaceId
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf namespaceId
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf jobId
 
@@ -204,10 +203,10 @@ instance Core.ToQuery AssociateTargetsWithJob where
 data AssociateTargetsWithJobResponse = AssociateTargetsWithJobResponse'
   { -- | The unique identifier you assigned to this job when it was created.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | An ARN identifying the job.
-    jobArn :: Prelude.Maybe Prelude.Text,
     -- | A short text description of the job.
     description :: Prelude.Maybe Prelude.Text,
+    -- | An ARN identifying the job.
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,9 +222,9 @@ data AssociateTargetsWithJobResponse = AssociateTargetsWithJobResponse'
 --
 -- 'jobId', 'associateTargetsWithJobResponse_jobId' - The unique identifier you assigned to this job when it was created.
 --
--- 'jobArn', 'associateTargetsWithJobResponse_jobArn' - An ARN identifying the job.
---
 -- 'description', 'associateTargetsWithJobResponse_description' - A short text description of the job.
+--
+-- 'jobArn', 'associateTargetsWithJobResponse_jobArn' - An ARN identifying the job.
 --
 -- 'httpStatus', 'associateTargetsWithJobResponse_httpStatus' - The response's http status code.
 newAssociateTargetsWithJobResponse ::
@@ -236,8 +235,8 @@ newAssociateTargetsWithJobResponse pHttpStatus_ =
   AssociateTargetsWithJobResponse'
     { jobId =
         Prelude.Nothing,
-      jobArn = Prelude.Nothing,
       description = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -245,13 +244,13 @@ newAssociateTargetsWithJobResponse pHttpStatus_ =
 associateTargetsWithJobResponse_jobId :: Lens.Lens' AssociateTargetsWithJobResponse (Prelude.Maybe Prelude.Text)
 associateTargetsWithJobResponse_jobId = Lens.lens (\AssociateTargetsWithJobResponse' {jobId} -> jobId) (\s@AssociateTargetsWithJobResponse' {} a -> s {jobId = a} :: AssociateTargetsWithJobResponse)
 
--- | An ARN identifying the job.
-associateTargetsWithJobResponse_jobArn :: Lens.Lens' AssociateTargetsWithJobResponse (Prelude.Maybe Prelude.Text)
-associateTargetsWithJobResponse_jobArn = Lens.lens (\AssociateTargetsWithJobResponse' {jobArn} -> jobArn) (\s@AssociateTargetsWithJobResponse' {} a -> s {jobArn = a} :: AssociateTargetsWithJobResponse)
-
 -- | A short text description of the job.
 associateTargetsWithJobResponse_description :: Lens.Lens' AssociateTargetsWithJobResponse (Prelude.Maybe Prelude.Text)
 associateTargetsWithJobResponse_description = Lens.lens (\AssociateTargetsWithJobResponse' {description} -> description) (\s@AssociateTargetsWithJobResponse' {} a -> s {description = a} :: AssociateTargetsWithJobResponse)
+
+-- | An ARN identifying the job.
+associateTargetsWithJobResponse_jobArn :: Lens.Lens' AssociateTargetsWithJobResponse (Prelude.Maybe Prelude.Text)
+associateTargetsWithJobResponse_jobArn = Lens.lens (\AssociateTargetsWithJobResponse' {jobArn} -> jobArn) (\s@AssociateTargetsWithJobResponse' {} a -> s {jobArn = a} :: AssociateTargetsWithJobResponse)
 
 -- | The response's http status code.
 associateTargetsWithJobResponse_httpStatus :: Lens.Lens' AssociateTargetsWithJobResponse Prelude.Int
@@ -263,6 +262,6 @@ instance
   where
   rnf AssociateTargetsWithJobResponse' {..} =
     Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf httpStatus

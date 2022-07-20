@@ -42,8 +42,8 @@ module Amazonka.EC2.ModifyInstanceCreditSpecification
     newModifyInstanceCreditSpecificationResponse,
 
     -- * Response Lenses
-    modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications,
     modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications,
+    modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications,
     modifyInstanceCreditSpecificationResponse_httpStatus,
   )
 where
@@ -130,12 +130,12 @@ instance
       ( \s h x ->
           ModifyInstanceCreditSpecificationResponse'
             Prelude.<$> ( x
-                            Core..@? "unsuccessfulInstanceCreditSpecificationSet"
+                            Core..@? "successfulInstanceCreditSpecificationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
               Prelude.<*> ( x
-                              Core..@? "successfulInstanceCreditSpecificationSet"
+                              Core..@? "unsuccessfulInstanceCreditSpecificationSet"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may (Core.parseXMLList "item")
                           )
@@ -196,11 +196,11 @@ instance
 -- | /See:/ 'newModifyInstanceCreditSpecificationResponse' smart constructor.
 data ModifyInstanceCreditSpecificationResponse = ModifyInstanceCreditSpecificationResponse'
   { -- | Information about the instances whose credit option for CPU usage was
-    -- not modified.
-    unsuccessfulInstanceCreditSpecifications :: Prelude.Maybe [UnsuccessfulInstanceCreditSpecificationItem],
-    -- | Information about the instances whose credit option for CPU usage was
     -- successfully modified.
     successfulInstanceCreditSpecifications :: Prelude.Maybe [SuccessfulInstanceCreditSpecificationItem],
+    -- | Information about the instances whose credit option for CPU usage was
+    -- not modified.
+    unsuccessfulInstanceCreditSpecifications :: Prelude.Maybe [UnsuccessfulInstanceCreditSpecificationItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,11 +214,11 @@ data ModifyInstanceCreditSpecificationResponse = ModifyInstanceCreditSpecificati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unsuccessfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was
--- not modified.
---
 -- 'successfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was
 -- successfully modified.
+--
+-- 'unsuccessfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was
+-- not modified.
 --
 -- 'httpStatus', 'modifyInstanceCreditSpecificationResponse_httpStatus' - The response's http status code.
 newModifyInstanceCreditSpecificationResponse ::
@@ -228,22 +228,22 @@ newModifyInstanceCreditSpecificationResponse ::
 newModifyInstanceCreditSpecificationResponse
   pHttpStatus_ =
     ModifyInstanceCreditSpecificationResponse'
-      { unsuccessfulInstanceCreditSpecifications =
+      { successfulInstanceCreditSpecifications =
           Prelude.Nothing,
-        successfulInstanceCreditSpecifications =
+        unsuccessfulInstanceCreditSpecifications =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the instances whose credit option for CPU usage was
--- not modified.
-modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Prelude.Maybe [UnsuccessfulInstanceCreditSpecificationItem])
-modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecificationResponse' {unsuccessfulInstanceCreditSpecifications} -> unsuccessfulInstanceCreditSpecifications) (\s@ModifyInstanceCreditSpecificationResponse' {} a -> s {unsuccessfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about the instances whose credit option for CPU usage was
 -- successfully modified.
 modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Prelude.Maybe [SuccessfulInstanceCreditSpecificationItem])
 modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecificationResponse' {successfulInstanceCreditSpecifications} -> successfulInstanceCreditSpecifications) (\s@ModifyInstanceCreditSpecificationResponse' {} a -> s {successfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the instances whose credit option for CPU usage was
+-- not modified.
+modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Prelude.Maybe [UnsuccessfulInstanceCreditSpecificationItem])
+modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecificationResponse' {unsuccessfulInstanceCreditSpecifications} -> unsuccessfulInstanceCreditSpecifications) (\s@ModifyInstanceCreditSpecificationResponse' {} a -> s {unsuccessfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 modifyInstanceCreditSpecificationResponse_httpStatus :: Lens.Lens' ModifyInstanceCreditSpecificationResponse Prelude.Int
@@ -254,7 +254,6 @@ instance
     ModifyInstanceCreditSpecificationResponse
   where
   rnf ModifyInstanceCreditSpecificationResponse' {..} =
-    Prelude.rnf
-      unsuccessfulInstanceCreditSpecifications
-      `Prelude.seq` Prelude.rnf successfulInstanceCreditSpecifications
+    Prelude.rnf successfulInstanceCreditSpecifications
+      `Prelude.seq` Prelude.rnf unsuccessfulInstanceCreditSpecifications
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFileValidationMessage' smart constructor.
 data FileValidationMessage = FileValidationMessage'
-  { -- | The message content.
-    content :: Prelude.Maybe Prelude.Text,
+  { -- | The message type.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The message title.
     title :: Prelude.Maybe Prelude.Text,
-    -- | The message type.
-    type' :: Prelude.Maybe Prelude.Text
+    -- | The message content.
+    content :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data FileValidationMessage = FileValidationMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'content', 'fileValidationMessage_content' - The message content.
+-- 'type'', 'fileValidationMessage_type' - The message type.
 --
 -- 'title', 'fileValidationMessage_title' - The message title.
 --
--- 'type'', 'fileValidationMessage_type' - The message type.
+-- 'content', 'fileValidationMessage_content' - The message content.
 newFileValidationMessage ::
   FileValidationMessage
 newFileValidationMessage =
   FileValidationMessage'
-    { content = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       title = Prelude.Nothing,
-      type' = Prelude.Nothing
+      content = Prelude.Nothing
     }
 
--- | The message content.
-fileValidationMessage_content :: Lens.Lens' FileValidationMessage (Prelude.Maybe Prelude.Text)
-fileValidationMessage_content = Lens.lens (\FileValidationMessage' {content} -> content) (\s@FileValidationMessage' {} a -> s {content = a} :: FileValidationMessage)
+-- | The message type.
+fileValidationMessage_type :: Lens.Lens' FileValidationMessage (Prelude.Maybe Prelude.Text)
+fileValidationMessage_type = Lens.lens (\FileValidationMessage' {type'} -> type') (\s@FileValidationMessage' {} a -> s {type' = a} :: FileValidationMessage)
 
 -- | The message title.
 fileValidationMessage_title :: Lens.Lens' FileValidationMessage (Prelude.Maybe Prelude.Text)
 fileValidationMessage_title = Lens.lens (\FileValidationMessage' {title} -> title) (\s@FileValidationMessage' {} a -> s {title = a} :: FileValidationMessage)
 
--- | The message type.
-fileValidationMessage_type :: Lens.Lens' FileValidationMessage (Prelude.Maybe Prelude.Text)
-fileValidationMessage_type = Lens.lens (\FileValidationMessage' {type'} -> type') (\s@FileValidationMessage' {} a -> s {type' = a} :: FileValidationMessage)
+-- | The message content.
+fileValidationMessage_content :: Lens.Lens' FileValidationMessage (Prelude.Maybe Prelude.Text)
+fileValidationMessage_content = Lens.lens (\FileValidationMessage' {content} -> content) (\s@FileValidationMessage' {} a -> s {content = a} :: FileValidationMessage)
 
 instance Core.FromJSON FileValidationMessage where
   parseJSON =
@@ -76,19 +76,19 @@ instance Core.FromJSON FileValidationMessage where
       "FileValidationMessage"
       ( \x ->
           FileValidationMessage'
-            Prelude.<$> (x Core..:? "content")
+            Prelude.<$> (x Core..:? "type")
             Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "content")
       )
 
 instance Prelude.Hashable FileValidationMessage where
   hashWithSalt _salt FileValidationMessage' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` title
-      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` content
 
 instance Prelude.NFData FileValidationMessage where
   rnf FileValidationMessage' {..} =
-    Prelude.rnf content
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf content

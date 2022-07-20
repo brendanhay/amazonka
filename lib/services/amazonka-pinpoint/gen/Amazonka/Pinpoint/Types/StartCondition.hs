@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStartCondition' smart constructor.
 data StartCondition = StartCondition'
-  { -- | The segment that\'s associated with the first activity in the journey.
+  { eventStartCondition :: Prelude.Maybe EventStartCondition,
+    -- | The segment that\'s associated with the first activity in the journey.
     -- This segment determines which users are participants in the journey.
     segmentStartCondition :: Prelude.Maybe SegmentCondition,
-    eventStartCondition :: Prelude.Maybe EventStartCondition,
     -- | The custom description of the condition.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -48,30 +48,30 @@ data StartCondition = StartCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventStartCondition', 'startCondition_eventStartCondition' - Undocumented member.
+--
 -- 'segmentStartCondition', 'startCondition_segmentStartCondition' - The segment that\'s associated with the first activity in the journey.
 -- This segment determines which users are participants in the journey.
---
--- 'eventStartCondition', 'startCondition_eventStartCondition' - Undocumented member.
 --
 -- 'description', 'startCondition_description' - The custom description of the condition.
 newStartCondition ::
   StartCondition
 newStartCondition =
   StartCondition'
-    { segmentStartCondition =
+    { eventStartCondition =
         Prelude.Nothing,
-      eventStartCondition = Prelude.Nothing,
+      segmentStartCondition = Prelude.Nothing,
       description = Prelude.Nothing
     }
+
+-- | Undocumented member.
+startCondition_eventStartCondition :: Lens.Lens' StartCondition (Prelude.Maybe EventStartCondition)
+startCondition_eventStartCondition = Lens.lens (\StartCondition' {eventStartCondition} -> eventStartCondition) (\s@StartCondition' {} a -> s {eventStartCondition = a} :: StartCondition)
 
 -- | The segment that\'s associated with the first activity in the journey.
 -- This segment determines which users are participants in the journey.
 startCondition_segmentStartCondition :: Lens.Lens' StartCondition (Prelude.Maybe SegmentCondition)
 startCondition_segmentStartCondition = Lens.lens (\StartCondition' {segmentStartCondition} -> segmentStartCondition) (\s@StartCondition' {} a -> s {segmentStartCondition = a} :: StartCondition)
-
--- | Undocumented member.
-startCondition_eventStartCondition :: Lens.Lens' StartCondition (Prelude.Maybe EventStartCondition)
-startCondition_eventStartCondition = Lens.lens (\StartCondition' {eventStartCondition} -> eventStartCondition) (\s@StartCondition' {} a -> s {eventStartCondition = a} :: StartCondition)
 
 -- | The custom description of the condition.
 startCondition_description :: Lens.Lens' StartCondition (Prelude.Maybe Prelude.Text)
@@ -83,31 +83,31 @@ instance Core.FromJSON StartCondition where
       "StartCondition"
       ( \x ->
           StartCondition'
-            Prelude.<$> (x Core..:? "SegmentStartCondition")
-            Prelude.<*> (x Core..:? "EventStartCondition")
+            Prelude.<$> (x Core..:? "EventStartCondition")
+            Prelude.<*> (x Core..:? "SegmentStartCondition")
             Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable StartCondition where
   hashWithSalt _salt StartCondition' {..} =
-    _salt `Prelude.hashWithSalt` segmentStartCondition
-      `Prelude.hashWithSalt` eventStartCondition
+    _salt `Prelude.hashWithSalt` eventStartCondition
+      `Prelude.hashWithSalt` segmentStartCondition
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData StartCondition where
   rnf StartCondition' {..} =
-    Prelude.rnf segmentStartCondition
-      `Prelude.seq` Prelude.rnf eventStartCondition
+    Prelude.rnf eventStartCondition
+      `Prelude.seq` Prelude.rnf segmentStartCondition
       `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON StartCondition where
   toJSON StartCondition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SegmentStartCondition" Core..=)
-              Prelude.<$> segmentStartCondition,
-            ("EventStartCondition" Core..=)
+          [ ("EventStartCondition" Core..=)
               Prelude.<$> eventStartCondition,
+            ("SegmentStartCondition" Core..=)
+              Prelude.<$> segmentStartCondition,
             ("Description" Core..=) Prelude.<$> description
           ]
       )

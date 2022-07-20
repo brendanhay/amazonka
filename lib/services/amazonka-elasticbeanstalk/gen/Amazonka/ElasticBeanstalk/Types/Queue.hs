@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueue' smart constructor.
 data Queue = Queue'
-  { -- | The URL of the queue.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The name of the queue.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the queue.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the queue.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,35 +42,35 @@ data Queue = Queue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'queue_url' - The URL of the queue.
---
 -- 'name', 'queue_name' - The name of the queue.
+--
+-- 'url', 'queue_url' - The URL of the queue.
 newQueue ::
   Queue
 newQueue =
   Queue'
-    { url = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      url = Prelude.Nothing
     }
-
--- | The URL of the queue.
-queue_url :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
-queue_url = Lens.lens (\Queue' {url} -> url) (\s@Queue' {} a -> s {url = a} :: Queue)
 
 -- | The name of the queue.
 queue_name :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
 queue_name = Lens.lens (\Queue' {name} -> name) (\s@Queue' {} a -> s {name = a} :: Queue)
 
+-- | The URL of the queue.
+queue_url :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
+queue_url = Lens.lens (\Queue' {url} -> url) (\s@Queue' {} a -> s {url = a} :: Queue)
+
 instance Core.FromXML Queue where
   parseXML x =
     Queue'
-      Prelude.<$> (x Core..@? "URL") Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "URL")
 
 instance Prelude.Hashable Queue where
   hashWithSalt _salt Queue' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Queue where
   rnf Queue' {..} =
-    Prelude.rnf url `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf url

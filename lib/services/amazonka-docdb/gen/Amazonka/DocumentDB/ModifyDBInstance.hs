@@ -29,13 +29,13 @@ module Amazonka.DocumentDB.ModifyDBInstance
     newModifyDBInstance,
 
     -- * Request Lenses
-    modifyDBInstance_autoMinorVersionUpgrade,
-    modifyDBInstance_newDBInstanceIdentifier,
     modifyDBInstance_dbInstanceClass,
     modifyDBInstance_promotionTier,
-    modifyDBInstance_preferredMaintenanceWindow,
-    modifyDBInstance_cACertificateIdentifier,
+    modifyDBInstance_autoMinorVersionUpgrade,
     modifyDBInstance_applyImmediately,
+    modifyDBInstance_cACertificateIdentifier,
+    modifyDBInstance_newDBInstanceIdentifier,
+    modifyDBInstance_preferredMaintenanceWindow,
     modifyDBInstance_dbInstanceIdentifier,
 
     -- * Destructuring the Response
@@ -59,26 +59,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newModifyDBInstance' smart constructor.
 data ModifyDBInstance = ModifyDBInstance'
-  { -- | This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
-    -- does not perform minor version upgrades regardless of the value set.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
-    -- | The new instance identifier for the instance when renaming an instance.
-    -- When you change the instance identifier, an instance reboot occurs
-    -- immediately if you set @Apply Immediately@ to @true@. It occurs during
-    -- the next maintenance window if you set @Apply Immediately@ to @false@.
-    -- This value is stored as a lowercase string.
-    --
-    -- Constraints:
-    --
-    -- -   Must contain from 1 to 63 letters, numbers, or hyphens.
-    --
-    -- -   The first character must be a letter.
-    --
-    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    --
-    -- Example: @mydbinstance@
-    newDBInstanceIdentifier' :: Prelude.Maybe Prelude.Text,
-    -- | The new compute and memory capacity of the instance; for example,
+  { -- | The new compute and memory capacity of the instance; for example,
     -- @db.r5.large@. Not all instance classes are available in all Regions.
     --
     -- If you modify the instance class, an outage occurs during the change.
@@ -95,6 +76,37 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Valid values: 0-15
     promotionTier :: Prelude.Maybe Prelude.Int,
+    -- | This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
+    -- does not perform minor version upgrades regardless of the value set.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the modifications in this request and any pending
+    -- modifications are asynchronously applied as soon as possible, regardless
+    -- of the @PreferredMaintenanceWindow@ setting for the instance.
+    --
+    -- If this parameter is set to @false@, changes to the instance are applied
+    -- during the next maintenance window. Some parameter changes can cause an
+    -- outage and are applied on the next reboot.
+    --
+    -- Default: @false@
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the certificate that needs to be associated with the instance.
+    cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The new instance identifier for the instance when renaming an instance.
+    -- When you change the instance identifier, an instance reboot occurs
+    -- immediately if you set @Apply Immediately@ to @true@. It occurs during
+    -- the next maintenance window if you set @Apply Immediately@ to @false@.
+    -- This value is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    -- -   Must contain from 1 to 63 letters, numbers, or hyphens.
+    --
+    -- -   The first character must be a letter.
+    --
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    -- Example: @mydbinstance@
+    newDBInstanceIdentifier' :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range (in UTC) during which system maintenance can
     -- occur, which might result in an outage. Changing this parameter doesn\'t
     -- result in an outage except in the following situation, and the change is
@@ -113,18 +125,6 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Constraints: Must be at least 30 minutes.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the certificate that needs to be associated with the instance.
-    cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the modifications in this request and any pending
-    -- modifications are asynchronously applied as soon as possible, regardless
-    -- of the @PreferredMaintenanceWindow@ setting for the instance.
-    --
-    -- If this parameter is set to @false@, changes to the instance are applied
-    -- during the next maintenance window. Some parameter changes can cause an
-    -- outage and are applied on the next reboot.
-    --
-    -- Default: @false@
-    applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | The instance identifier. This value is stored as a lowercase string.
     --
     -- Constraints:
@@ -142,25 +142,6 @@ data ModifyDBInstance = ModifyDBInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoMinorVersionUpgrade', 'modifyDBInstance_autoMinorVersionUpgrade' - This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
--- does not perform minor version upgrades regardless of the value set.
---
--- 'newDBInstanceIdentifier'', 'modifyDBInstance_newDBInstanceIdentifier' - The new instance identifier for the instance when renaming an instance.
--- When you change the instance identifier, an instance reboot occurs
--- immediately if you set @Apply Immediately@ to @true@. It occurs during
--- the next maintenance window if you set @Apply Immediately@ to @false@.
--- This value is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 letters, numbers, or hyphens.
---
--- -   The first character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: @mydbinstance@
---
 -- 'dbInstanceClass', 'modifyDBInstance_dbInstanceClass' - The new compute and memory capacity of the instance; for example,
 -- @db.r5.large@. Not all instance classes are available in all Regions.
 --
@@ -177,6 +158,37 @@ data ModifyDBInstance = ModifyDBInstance'
 -- Default: 1
 --
 -- Valid values: 0-15
+--
+-- 'autoMinorVersionUpgrade', 'modifyDBInstance_autoMinorVersionUpgrade' - This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
+-- does not perform minor version upgrades regardless of the value set.
+--
+-- 'applyImmediately', 'modifyDBInstance_applyImmediately' - Specifies whether the modifications in this request and any pending
+-- modifications are asynchronously applied as soon as possible, regardless
+-- of the @PreferredMaintenanceWindow@ setting for the instance.
+--
+-- If this parameter is set to @false@, changes to the instance are applied
+-- during the next maintenance window. Some parameter changes can cause an
+-- outage and are applied on the next reboot.
+--
+-- Default: @false@
+--
+-- 'cACertificateIdentifier', 'modifyDBInstance_cACertificateIdentifier' - Indicates the certificate that needs to be associated with the instance.
+--
+-- 'newDBInstanceIdentifier'', 'modifyDBInstance_newDBInstanceIdentifier' - The new instance identifier for the instance when renaming an instance.
+-- When you change the instance identifier, an instance reboot occurs
+-- immediately if you set @Apply Immediately@ to @true@. It occurs during
+-- the next maintenance window if you set @Apply Immediately@ to @false@.
+-- This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 letters, numbers, or hyphens.
+--
+-- -   The first character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- Example: @mydbinstance@
 --
 -- 'preferredMaintenanceWindow', 'modifyDBInstance_preferredMaintenanceWindow' - The weekly time range (in UTC) during which system maintenance can
 -- occur, which might result in an outage. Changing this parameter doesn\'t
@@ -196,18 +208,6 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- Constraints: Must be at least 30 minutes.
 --
--- 'cACertificateIdentifier', 'modifyDBInstance_cACertificateIdentifier' - Indicates the certificate that needs to be associated with the instance.
---
--- 'applyImmediately', 'modifyDBInstance_applyImmediately' - Specifies whether the modifications in this request and any pending
--- modifications are asynchronously applied as soon as possible, regardless
--- of the @PreferredMaintenanceWindow@ setting for the instance.
---
--- If this parameter is set to @false@, changes to the instance are applied
--- during the next maintenance window. Some parameter changes can cause an
--- outage and are applied on the next reboot.
---
--- Default: @false@
---
 -- 'dbInstanceIdentifier', 'modifyDBInstance_dbInstanceIdentifier' - The instance identifier. This value is stored as a lowercase string.
 --
 -- Constraints:
@@ -219,39 +219,16 @@ newModifyDBInstance ::
   ModifyDBInstance
 newModifyDBInstance pDBInstanceIdentifier_ =
   ModifyDBInstance'
-    { autoMinorVersionUpgrade =
+    { dbInstanceClass =
         Prelude.Nothing,
-      newDBInstanceIdentifier' = Prelude.Nothing,
-      dbInstanceClass = Prelude.Nothing,
       promotionTier = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
-      cACertificateIdentifier = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
       applyImmediately = Prelude.Nothing,
+      cACertificateIdentifier = Prelude.Nothing,
+      newDBInstanceIdentifier' = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
-
--- | This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
--- does not perform minor version upgrades regardless of the value set.
-modifyDBInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyDBInstance)
-
--- | The new instance identifier for the instance when renaming an instance.
--- When you change the instance identifier, an instance reboot occurs
--- immediately if you set @Apply Immediately@ to @true@. It occurs during
--- the next maintenance window if you set @Apply Immediately@ to @false@.
--- This value is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 letters, numbers, or hyphens.
---
--- -   The first character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: @mydbinstance@
-modifyDBInstance_newDBInstanceIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_newDBInstanceIdentifier = Lens.lens (\ModifyDBInstance' {newDBInstanceIdentifier'} -> newDBInstanceIdentifier') (\s@ModifyDBInstance' {} a -> s {newDBInstanceIdentifier' = a} :: ModifyDBInstance)
 
 -- | The new compute and memory capacity of the instance; for example,
 -- @db.r5.large@. Not all instance classes are available in all Regions.
@@ -274,6 +251,45 @@ modifyDBInstance_dbInstanceClass = Lens.lens (\ModifyDBInstance' {dbInstanceClas
 modifyDBInstance_promotionTier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_promotionTier = Lens.lens (\ModifyDBInstance' {promotionTier} -> promotionTier) (\s@ModifyDBInstance' {} a -> s {promotionTier = a} :: ModifyDBInstance)
 
+-- | This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB
+-- does not perform minor version upgrades regardless of the value set.
+modifyDBInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyDBInstance)
+
+-- | Specifies whether the modifications in this request and any pending
+-- modifications are asynchronously applied as soon as possible, regardless
+-- of the @PreferredMaintenanceWindow@ setting for the instance.
+--
+-- If this parameter is set to @false@, changes to the instance are applied
+-- during the next maintenance window. Some parameter changes can cause an
+-- outage and are applied on the next reboot.
+--
+-- Default: @false@
+modifyDBInstance_applyImmediately :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_applyImmediately = Lens.lens (\ModifyDBInstance' {applyImmediately} -> applyImmediately) (\s@ModifyDBInstance' {} a -> s {applyImmediately = a} :: ModifyDBInstance)
+
+-- | Indicates the certificate that needs to be associated with the instance.
+modifyDBInstance_cACertificateIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@ModifyDBInstance' {} a -> s {cACertificateIdentifier = a} :: ModifyDBInstance)
+
+-- | The new instance identifier for the instance when renaming an instance.
+-- When you change the instance identifier, an instance reboot occurs
+-- immediately if you set @Apply Immediately@ to @true@. It occurs during
+-- the next maintenance window if you set @Apply Immediately@ to @false@.
+-- This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 letters, numbers, or hyphens.
+--
+-- -   The first character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- Example: @mydbinstance@
+modifyDBInstance_newDBInstanceIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_newDBInstanceIdentifier = Lens.lens (\ModifyDBInstance' {newDBInstanceIdentifier'} -> newDBInstanceIdentifier') (\s@ModifyDBInstance' {} a -> s {newDBInstanceIdentifier' = a} :: ModifyDBInstance)
+
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur, which might result in an outage. Changing this parameter doesn\'t
 -- result in an outage except in the following situation, and the change is
@@ -293,22 +309,6 @@ modifyDBInstance_promotionTier = Lens.lens (\ModifyDBInstance' {promotionTier} -
 -- Constraints: Must be at least 30 minutes.
 modifyDBInstance_preferredMaintenanceWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_preferredMaintenanceWindow = Lens.lens (\ModifyDBInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBInstance' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBInstance)
-
--- | Indicates the certificate that needs to be associated with the instance.
-modifyDBInstance_cACertificateIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@ModifyDBInstance' {} a -> s {cACertificateIdentifier = a} :: ModifyDBInstance)
-
--- | Specifies whether the modifications in this request and any pending
--- modifications are asynchronously applied as soon as possible, regardless
--- of the @PreferredMaintenanceWindow@ setting for the instance.
---
--- If this parameter is set to @false@, changes to the instance are applied
--- during the next maintenance window. Some parameter changes can cause an
--- outage and are applied on the next reboot.
---
--- Default: @false@
-modifyDBInstance_applyImmediately :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_applyImmediately = Lens.lens (\ModifyDBInstance' {applyImmediately} -> applyImmediately) (\s@ModifyDBInstance' {} a -> s {applyImmediately = a} :: ModifyDBInstance)
 
 -- | The instance identifier. This value is stored as a lowercase string.
 --
@@ -334,25 +334,24 @@ instance Core.AWSRequest ModifyDBInstance where
 
 instance Prelude.Hashable ModifyDBInstance where
   hashWithSalt _salt ModifyDBInstance' {..} =
-    _salt
-      `Prelude.hashWithSalt` autoMinorVersionUpgrade
-      `Prelude.hashWithSalt` newDBInstanceIdentifier'
-      `Prelude.hashWithSalt` dbInstanceClass
+    _salt `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` promotionTier
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
-      `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` newDBInstanceIdentifier'
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` dbInstanceIdentifier
 
 instance Prelude.NFData ModifyDBInstance where
   rnf ModifyDBInstance' {..} =
-    Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf newDBInstanceIdentifier'
-      `Prelude.seq` Prelude.rnf dbInstanceClass
+    Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf promotionTier
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf newDBInstanceIdentifier'
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
 instance Core.ToHeaders ModifyDBInstance where
@@ -368,17 +367,17 @@ instance Core.ToQuery ModifyDBInstance where
           Core.=: ("ModifyDBInstance" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "NewDBInstanceIdentifier"
-          Core.=: newDBInstanceIdentifier',
         "DBInstanceClass" Core.=: dbInstanceClass,
         "PromotionTier" Core.=: promotionTier,
-        "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
+        "AutoMinorVersionUpgrade"
+          Core.=: autoMinorVersionUpgrade,
+        "ApplyImmediately" Core.=: applyImmediately,
         "CACertificateIdentifier"
           Core.=: cACertificateIdentifier,
-        "ApplyImmediately" Core.=: applyImmediately,
+        "NewDBInstanceIdentifier"
+          Core.=: newDBInstanceIdentifier',
+        "PreferredMaintenanceWindow"
+          Core.=: preferredMaintenanceWindow,
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 

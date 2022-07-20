@@ -51,32 +51,20 @@ module Amazonka.CloudWatchLogs
     -- * Errors
     -- $errors
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
 
     -- ** InvalidSequenceTokenException
     _InvalidSequenceTokenException,
 
-    -- ** UnrecognizedClientException
-    _UnrecognizedClientException,
-
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
     -- ** OperationAbortedException
     _OperationAbortedException,
 
-    -- ** MalformedQueryException
-    _MalformedQueryException,
-
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
-
-    -- ** DataAlreadyAcceptedException
-    _DataAlreadyAcceptedException,
-
-    -- ** InvalidOperationException
-    _InvalidOperationException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -84,41 +72,35 @@ module Amazonka.CloudWatchLogs
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** UnrecognizedClientException
+    _UnrecognizedClientException,
+
+    -- ** DataAlreadyAcceptedException
+    _DataAlreadyAcceptedException,
+
+    -- ** MalformedQueryException
+    _MalformedQueryException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** GetLogGroupFields
-    GetLogGroupFields (GetLogGroupFields'),
-    newGetLogGroupFields,
-    GetLogGroupFieldsResponse (GetLogGroupFieldsResponse'),
-    newGetLogGroupFieldsResponse,
+    -- ** AssociateKmsKey
+    AssociateKmsKey (AssociateKmsKey'),
+    newAssociateKmsKey,
+    AssociateKmsKeyResponse (AssociateKmsKeyResponse'),
+    newAssociateKmsKeyResponse,
 
-    -- ** GetLogRecord
-    GetLogRecord (GetLogRecord'),
-    newGetLogRecord,
-    GetLogRecordResponse (GetLogRecordResponse'),
-    newGetLogRecordResponse,
-
-    -- ** DescribeDestinations (Paginated)
-    DescribeDestinations (DescribeDestinations'),
-    newDescribeDestinations,
-    DescribeDestinationsResponse (DescribeDestinationsResponse'),
-    newDescribeDestinationsResponse,
-
-    -- ** UntagLogGroup
-    UntagLogGroup (UntagLogGroup'),
-    newUntagLogGroup,
-    UntagLogGroupResponse (UntagLogGroupResponse'),
-    newUntagLogGroupResponse,
-
-    -- ** StopQuery
-    StopQuery (StopQuery'),
-    newStopQuery,
-    StopQueryResponse (StopQueryResponse'),
-    newStopQueryResponse,
+    -- ** CancelExportTask
+    CancelExportTask (CancelExportTask'),
+    newCancelExportTask,
+    CancelExportTaskResponse (CancelExportTaskResponse'),
+    newCancelExportTaskResponse,
 
     -- ** CreateExportTask
     CreateExportTask (CreateExportTask'),
@@ -126,23 +108,77 @@ module Amazonka.CloudWatchLogs
     CreateExportTaskResponse (CreateExportTaskResponse'),
     newCreateExportTaskResponse,
 
-    -- ** PutDestination
-    PutDestination (PutDestination'),
-    newPutDestination,
-    PutDestinationResponse (PutDestinationResponse'),
-    newPutDestinationResponse,
+    -- ** CreateLogGroup
+    CreateLogGroup (CreateLogGroup'),
+    newCreateLogGroup,
+    CreateLogGroupResponse (CreateLogGroupResponse'),
+    newCreateLogGroupResponse,
 
-    -- ** DescribeSubscriptionFilters (Paginated)
-    DescribeSubscriptionFilters (DescribeSubscriptionFilters'),
-    newDescribeSubscriptionFilters,
-    DescribeSubscriptionFiltersResponse (DescribeSubscriptionFiltersResponse'),
-    newDescribeSubscriptionFiltersResponse,
+    -- ** CreateLogStream
+    CreateLogStream (CreateLogStream'),
+    newCreateLogStream,
+    CreateLogStreamResponse (CreateLogStreamResponse'),
+    newCreateLogStreamResponse,
 
-    -- ** GetLogEvents
-    GetLogEvents (GetLogEvents'),
-    newGetLogEvents,
-    GetLogEventsResponse (GetLogEventsResponse'),
-    newGetLogEventsResponse,
+    -- ** DeleteDestination
+    DeleteDestination (DeleteDestination'),
+    newDeleteDestination,
+    DeleteDestinationResponse (DeleteDestinationResponse'),
+    newDeleteDestinationResponse,
+
+    -- ** DeleteLogGroup
+    DeleteLogGroup (DeleteLogGroup'),
+    newDeleteLogGroup,
+    DeleteLogGroupResponse (DeleteLogGroupResponse'),
+    newDeleteLogGroupResponse,
+
+    -- ** DeleteLogStream
+    DeleteLogStream (DeleteLogStream'),
+    newDeleteLogStream,
+    DeleteLogStreamResponse (DeleteLogStreamResponse'),
+    newDeleteLogStreamResponse,
+
+    -- ** DeleteMetricFilter
+    DeleteMetricFilter (DeleteMetricFilter'),
+    newDeleteMetricFilter,
+    DeleteMetricFilterResponse (DeleteMetricFilterResponse'),
+    newDeleteMetricFilterResponse,
+
+    -- ** DeleteQueryDefinition
+    DeleteQueryDefinition (DeleteQueryDefinition'),
+    newDeleteQueryDefinition,
+    DeleteQueryDefinitionResponse (DeleteQueryDefinitionResponse'),
+    newDeleteQueryDefinitionResponse,
+
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
+
+    -- ** DeleteRetentionPolicy
+    DeleteRetentionPolicy (DeleteRetentionPolicy'),
+    newDeleteRetentionPolicy,
+    DeleteRetentionPolicyResponse (DeleteRetentionPolicyResponse'),
+    newDeleteRetentionPolicyResponse,
+
+    -- ** DeleteSubscriptionFilter
+    DeleteSubscriptionFilter (DeleteSubscriptionFilter'),
+    newDeleteSubscriptionFilter,
+    DeleteSubscriptionFilterResponse (DeleteSubscriptionFilterResponse'),
+    newDeleteSubscriptionFilterResponse,
+
+    -- ** DescribeDestinations (Paginated)
+    DescribeDestinations (DescribeDestinations'),
+    newDescribeDestinations,
+    DescribeDestinationsResponse (DescribeDestinationsResponse'),
+    newDescribeDestinationsResponse,
+
+    -- ** DescribeExportTasks (Paginated)
+    DescribeExportTasks (DescribeExportTasks'),
+    newDescribeExportTasks,
+    DescribeExportTasksResponse (DescribeExportTasksResponse'),
+    newDescribeExportTasksResponse,
 
     -- ** DescribeLogGroups (Paginated)
     DescribeLogGroups (DescribeLogGroups'),
@@ -150,11 +186,41 @@ module Amazonka.CloudWatchLogs
     DescribeLogGroupsResponse (DescribeLogGroupsResponse'),
     newDescribeLogGroupsResponse,
 
-    -- ** DeleteDestination
-    DeleteDestination (DeleteDestination'),
-    newDeleteDestination,
-    DeleteDestinationResponse (DeleteDestinationResponse'),
-    newDeleteDestinationResponse,
+    -- ** DescribeLogStreams (Paginated)
+    DescribeLogStreams (DescribeLogStreams'),
+    newDescribeLogStreams,
+    DescribeLogStreamsResponse (DescribeLogStreamsResponse'),
+    newDescribeLogStreamsResponse,
+
+    -- ** DescribeMetricFilters (Paginated)
+    DescribeMetricFilters (DescribeMetricFilters'),
+    newDescribeMetricFilters,
+    DescribeMetricFiltersResponse (DescribeMetricFiltersResponse'),
+    newDescribeMetricFiltersResponse,
+
+    -- ** DescribeQueries (Paginated)
+    DescribeQueries (DescribeQueries'),
+    newDescribeQueries,
+    DescribeQueriesResponse (DescribeQueriesResponse'),
+    newDescribeQueriesResponse,
+
+    -- ** DescribeQueryDefinitions
+    DescribeQueryDefinitions (DescribeQueryDefinitions'),
+    newDescribeQueryDefinitions,
+    DescribeQueryDefinitionsResponse (DescribeQueryDefinitionsResponse'),
+    newDescribeQueryDefinitionsResponse,
+
+    -- ** DescribeResourcePolicies (Paginated)
+    DescribeResourcePolicies (DescribeResourcePolicies'),
+    newDescribeResourcePolicies,
+    DescribeResourcePoliciesResponse (DescribeResourcePoliciesResponse'),
+    newDescribeResourcePoliciesResponse,
+
+    -- ** DescribeSubscriptionFilters (Paginated)
+    DescribeSubscriptionFilters (DescribeSubscriptionFilters'),
+    newDescribeSubscriptionFilters,
+    DescribeSubscriptionFiltersResponse (DescribeSubscriptionFiltersResponse'),
+    newDescribeSubscriptionFiltersResponse,
 
     -- ** DisassociateKmsKey
     DisassociateKmsKey (DisassociateKmsKey'),
@@ -168,11 +234,59 @@ module Amazonka.CloudWatchLogs
     FilterLogEventsResponse (FilterLogEventsResponse'),
     newFilterLogEventsResponse,
 
-    -- ** DeleteQueryDefinition
-    DeleteQueryDefinition (DeleteQueryDefinition'),
-    newDeleteQueryDefinition,
-    DeleteQueryDefinitionResponse (DeleteQueryDefinitionResponse'),
-    newDeleteQueryDefinitionResponse,
+    -- ** GetLogEvents
+    GetLogEvents (GetLogEvents'),
+    newGetLogEvents,
+    GetLogEventsResponse (GetLogEventsResponse'),
+    newGetLogEventsResponse,
+
+    -- ** GetLogGroupFields
+    GetLogGroupFields (GetLogGroupFields'),
+    newGetLogGroupFields,
+    GetLogGroupFieldsResponse (GetLogGroupFieldsResponse'),
+    newGetLogGroupFieldsResponse,
+
+    -- ** GetLogRecord
+    GetLogRecord (GetLogRecord'),
+    newGetLogRecord,
+    GetLogRecordResponse (GetLogRecordResponse'),
+    newGetLogRecordResponse,
+
+    -- ** GetQueryResults
+    GetQueryResults (GetQueryResults'),
+    newGetQueryResults,
+    GetQueryResultsResponse (GetQueryResultsResponse'),
+    newGetQueryResultsResponse,
+
+    -- ** ListTagsLogGroup
+    ListTagsLogGroup (ListTagsLogGroup'),
+    newListTagsLogGroup,
+    ListTagsLogGroupResponse (ListTagsLogGroupResponse'),
+    newListTagsLogGroupResponse,
+
+    -- ** PutDestination
+    PutDestination (PutDestination'),
+    newPutDestination,
+    PutDestinationResponse (PutDestinationResponse'),
+    newPutDestinationResponse,
+
+    -- ** PutDestinationPolicy
+    PutDestinationPolicy (PutDestinationPolicy'),
+    newPutDestinationPolicy,
+    PutDestinationPolicyResponse (PutDestinationPolicyResponse'),
+    newPutDestinationPolicyResponse,
+
+    -- ** PutLogEvents
+    PutLogEvents (PutLogEvents'),
+    newPutLogEvents,
+    PutLogEventsResponse (PutLogEventsResponse'),
+    newPutLogEventsResponse,
+
+    -- ** PutMetricFilter
+    PutMetricFilter (PutMetricFilter'),
+    newPutMetricFilter,
+    PutMetricFilterResponse (PutMetricFilterResponse'),
+    newPutMetricFilterResponse,
 
     -- ** PutQueryDefinition
     PutQueryDefinition (PutQueryDefinition'),
@@ -180,59 +294,17 @@ module Amazonka.CloudWatchLogs
     PutQueryDefinitionResponse (PutQueryDefinitionResponse'),
     newPutQueryDefinitionResponse,
 
-    -- ** TagLogGroup
-    TagLogGroup (TagLogGroup'),
-    newTagLogGroup,
-    TagLogGroupResponse (TagLogGroupResponse'),
-    newTagLogGroupResponse,
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
 
-    -- ** DescribeResourcePolicies (Paginated)
-    DescribeResourcePolicies (DescribeResourcePolicies'),
-    newDescribeResourcePolicies,
-    DescribeResourcePoliciesResponse (DescribeResourcePoliciesResponse'),
-    newDescribeResourcePoliciesResponse,
-
-    -- ** DescribeQueryDefinitions
-    DescribeQueryDefinitions (DescribeQueryDefinitions'),
-    newDescribeQueryDefinitions,
-    DescribeQueryDefinitionsResponse (DescribeQueryDefinitionsResponse'),
-    newDescribeQueryDefinitionsResponse,
-
-    -- ** DeleteLogStream
-    DeleteLogStream (DeleteLogStream'),
-    newDeleteLogStream,
-    DeleteLogStreamResponse (DeleteLogStreamResponse'),
-    newDeleteLogStreamResponse,
-
-    -- ** DescribeQueries (Paginated)
-    DescribeQueries (DescribeQueries'),
-    newDescribeQueries,
-    DescribeQueriesResponse (DescribeQueriesResponse'),
-    newDescribeQueriesResponse,
-
-    -- ** CreateLogStream
-    CreateLogStream (CreateLogStream'),
-    newCreateLogStream,
-    CreateLogStreamResponse (CreateLogStreamResponse'),
-    newCreateLogStreamResponse,
-
-    -- ** CreateLogGroup
-    CreateLogGroup (CreateLogGroup'),
-    newCreateLogGroup,
-    CreateLogGroupResponse (CreateLogGroupResponse'),
-    newCreateLogGroupResponse,
-
-    -- ** DescribeExportTasks (Paginated)
-    DescribeExportTasks (DescribeExportTasks'),
-    newDescribeExportTasks,
-    DescribeExportTasksResponse (DescribeExportTasksResponse'),
-    newDescribeExportTasksResponse,
-
-    -- ** CancelExportTask
-    CancelExportTask (CancelExportTask'),
-    newCancelExportTask,
-    CancelExportTaskResponse (CancelExportTaskResponse'),
-    newCancelExportTaskResponse,
+    -- ** PutRetentionPolicy
+    PutRetentionPolicy (PutRetentionPolicy'),
+    newPutRetentionPolicy,
+    PutRetentionPolicyResponse (PutRetentionPolicyResponse'),
+    newPutRetentionPolicyResponse,
 
     -- ** PutSubscriptionFilter
     PutSubscriptionFilter (PutSubscriptionFilter'),
@@ -246,29 +318,17 @@ module Amazonka.CloudWatchLogs
     StartQueryResponse (StartQueryResponse'),
     newStartQueryResponse,
 
-    -- ** DeleteLogGroup
-    DeleteLogGroup (DeleteLogGroup'),
-    newDeleteLogGroup,
-    DeleteLogGroupResponse (DeleteLogGroupResponse'),
-    newDeleteLogGroupResponse,
+    -- ** StopQuery
+    StopQuery (StopQuery'),
+    newStopQuery,
+    StopQueryResponse (StopQueryResponse'),
+    newStopQueryResponse,
 
-    -- ** DeleteSubscriptionFilter
-    DeleteSubscriptionFilter (DeleteSubscriptionFilter'),
-    newDeleteSubscriptionFilter,
-    DeleteSubscriptionFilterResponse (DeleteSubscriptionFilterResponse'),
-    newDeleteSubscriptionFilterResponse,
-
-    -- ** PutLogEvents
-    PutLogEvents (PutLogEvents'),
-    newPutLogEvents,
-    PutLogEventsResponse (PutLogEventsResponse'),
-    newPutLogEventsResponse,
-
-    -- ** DescribeMetricFilters (Paginated)
-    DescribeMetricFilters (DescribeMetricFilters'),
-    newDescribeMetricFilters,
-    DescribeMetricFiltersResponse (DescribeMetricFiltersResponse'),
-    newDescribeMetricFiltersResponse,
+    -- ** TagLogGroup
+    TagLogGroup (TagLogGroup'),
+    newTagLogGroup,
+    TagLogGroupResponse (TagLogGroupResponse'),
+    newTagLogGroupResponse,
 
     -- ** TestMetricFilter
     TestMetricFilter (TestMetricFilter'),
@@ -276,71 +336,11 @@ module Amazonka.CloudWatchLogs
     TestMetricFilterResponse (TestMetricFilterResponse'),
     newTestMetricFilterResponse,
 
-    -- ** PutDestinationPolicy
-    PutDestinationPolicy (PutDestinationPolicy'),
-    newPutDestinationPolicy,
-    PutDestinationPolicyResponse (PutDestinationPolicyResponse'),
-    newPutDestinationPolicyResponse,
-
-    -- ** PutMetricFilter
-    PutMetricFilter (PutMetricFilter'),
-    newPutMetricFilter,
-    PutMetricFilterResponse (PutMetricFilterResponse'),
-    newPutMetricFilterResponse,
-
-    -- ** DeleteRetentionPolicy
-    DeleteRetentionPolicy (DeleteRetentionPolicy'),
-    newDeleteRetentionPolicy,
-    DeleteRetentionPolicyResponse (DeleteRetentionPolicyResponse'),
-    newDeleteRetentionPolicyResponse,
-
-    -- ** DeleteMetricFilter
-    DeleteMetricFilter (DeleteMetricFilter'),
-    newDeleteMetricFilter,
-    DeleteMetricFilterResponse (DeleteMetricFilterResponse'),
-    newDeleteMetricFilterResponse,
-
-    -- ** PutRetentionPolicy
-    PutRetentionPolicy (PutRetentionPolicy'),
-    newPutRetentionPolicy,
-    PutRetentionPolicyResponse (PutRetentionPolicyResponse'),
-    newPutRetentionPolicyResponse,
-
-    -- ** ListTagsLogGroup
-    ListTagsLogGroup (ListTagsLogGroup'),
-    newListTagsLogGroup,
-    ListTagsLogGroupResponse (ListTagsLogGroupResponse'),
-    newListTagsLogGroupResponse,
-
-    -- ** PutResourcePolicy
-    PutResourcePolicy (PutResourcePolicy'),
-    newPutResourcePolicy,
-    PutResourcePolicyResponse (PutResourcePolicyResponse'),
-    newPutResourcePolicyResponse,
-
-    -- ** DeleteResourcePolicy
-    DeleteResourcePolicy (DeleteResourcePolicy'),
-    newDeleteResourcePolicy,
-    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
-    newDeleteResourcePolicyResponse,
-
-    -- ** AssociateKmsKey
-    AssociateKmsKey (AssociateKmsKey'),
-    newAssociateKmsKey,
-    AssociateKmsKeyResponse (AssociateKmsKeyResponse'),
-    newAssociateKmsKeyResponse,
-
-    -- ** GetQueryResults
-    GetQueryResults (GetQueryResults'),
-    newGetQueryResults,
-    GetQueryResultsResponse (GetQueryResultsResponse'),
-    newGetQueryResultsResponse,
-
-    -- ** DescribeLogStreams (Paginated)
-    DescribeLogStreams (DescribeLogStreams'),
-    newDescribeLogStreams,
-    DescribeLogStreamsResponse (DescribeLogStreamsResponse'),
-    newDescribeLogStreamsResponse,
+    -- ** UntagLogGroup
+    UntagLogGroup (UntagLogGroup'),
+    newUntagLogGroup,
+    UntagLogGroupResponse (UntagLogGroupResponse'),
+    newUntagLogGroupResponse,
 
     -- * Types
 

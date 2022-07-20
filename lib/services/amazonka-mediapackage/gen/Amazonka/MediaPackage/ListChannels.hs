@@ -37,8 +37,8 @@ module Amazonka.MediaPackage.ListChannels
     newListChannelsResponse,
 
     -- * Response Lenses
-    listChannelsResponse_channels,
     listChannelsResponse_nextToken,
+    listChannelsResponse_channels,
     listChannelsResponse_httpStatus,
   )
 where
@@ -112,8 +112,8 @@ instance Core.AWSRequest ListChannels where
     Response.receiveJSON
       ( \s h x ->
           ListChannelsResponse'
-            Prelude.<$> (x Core..?> "channels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "channels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,11 +150,11 @@ instance Core.ToQuery ListChannels where
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { -- | A list of Channel records.
-    channels :: Prelude.Maybe [Channel],
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of Channel records.
+    channels :: Prelude.Maybe [Channel],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,10 +168,10 @@ data ListChannelsResponse = ListChannelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channels', 'listChannelsResponse_channels' - A list of Channel records.
---
 -- 'nextToken', 'listChannelsResponse_nextToken' - A token that can be used to resume pagination from the end of the
 -- collection.
+--
+-- 'channels', 'listChannelsResponse_channels' - A list of Channel records.
 --
 -- 'httpStatus', 'listChannelsResponse_httpStatus' - The response's http status code.
 newListChannelsResponse ::
@@ -180,19 +180,19 @@ newListChannelsResponse ::
   ListChannelsResponse
 newListChannelsResponse pHttpStatus_ =
   ListChannelsResponse'
-    { channels = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      channels = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of Channel records.
-listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [Channel])
-listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 listChannelsResponse_nextToken :: Lens.Lens' ListChannelsResponse (Prelude.Maybe Prelude.Text)
 listChannelsResponse_nextToken = Lens.lens (\ListChannelsResponse' {nextToken} -> nextToken) (\s@ListChannelsResponse' {} a -> s {nextToken = a} :: ListChannelsResponse)
+
+-- | A list of Channel records.
+listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [Channel])
+listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listChannelsResponse_httpStatus :: Lens.Lens' ListChannelsResponse Prelude.Int
@@ -200,6 +200,6 @@ listChannelsResponse_httpStatus = Lens.lens (\ListChannelsResponse' {httpStatus}
 
 instance Prelude.NFData ListChannelsResponse where
   rnf ListChannelsResponse' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf channels
       `Prelude.seq` Prelude.rnf httpStatus

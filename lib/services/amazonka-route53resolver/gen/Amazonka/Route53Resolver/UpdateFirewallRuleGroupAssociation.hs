@@ -28,9 +28,9 @@ module Amazonka.Route53Resolver.UpdateFirewallRuleGroupAssociation
     newUpdateFirewallRuleGroupAssociation,
 
     -- * Request Lenses
+    updateFirewallRuleGroupAssociation_name,
     updateFirewallRuleGroupAssociation_mutationProtection,
     updateFirewallRuleGroupAssociation_priority,
-    updateFirewallRuleGroupAssociation_name,
     updateFirewallRuleGroupAssociation_firewallRuleGroupAssociationId,
 
     -- * Destructuring the Response
@@ -52,7 +52,9 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newUpdateFirewallRuleGroupAssociation' smart constructor.
 data UpdateFirewallRuleGroupAssociation = UpdateFirewallRuleGroupAssociation'
-  { -- | If enabled, this setting disallows modification or removal of the
+  { -- | The name of the rule group association.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | If enabled, this setting disallows modification or removal of the
     -- association, to help prevent against accidentally altering DNS firewall
     -- protections.
     mutationProtection :: Prelude.Maybe MutationProtectionStatus,
@@ -67,8 +69,6 @@ data UpdateFirewallRuleGroupAssociation = UpdateFirewallRuleGroupAssociation'
     -- so on. You can change the priority setting for a rule group association
     -- after you create it.
     priority :: Prelude.Maybe Prelude.Int,
-    -- | The name of the rule group association.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the FirewallRuleGroupAssociation.
     firewallRuleGroupAssociationId :: Prelude.Text
   }
@@ -81,6 +81,8 @@ data UpdateFirewallRuleGroupAssociation = UpdateFirewallRuleGroupAssociation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'name', 'updateFirewallRuleGroupAssociation_name' - The name of the rule group association.
 --
 -- 'mutationProtection', 'updateFirewallRuleGroupAssociation_mutationProtection' - If enabled, this setting disallows modification or removal of the
 -- association, to help prevent against accidentally altering DNS firewall
@@ -97,8 +99,6 @@ data UpdateFirewallRuleGroupAssociation = UpdateFirewallRuleGroupAssociation'
 -- so on. You can change the priority setting for a rule group association
 -- after you create it.
 --
--- 'name', 'updateFirewallRuleGroupAssociation_name' - The name of the rule group association.
---
 -- 'firewallRuleGroupAssociationId', 'updateFirewallRuleGroupAssociation_firewallRuleGroupAssociationId' - The identifier of the FirewallRuleGroupAssociation.
 newUpdateFirewallRuleGroupAssociation ::
   -- | 'firewallRuleGroupAssociationId'
@@ -107,13 +107,17 @@ newUpdateFirewallRuleGroupAssociation ::
 newUpdateFirewallRuleGroupAssociation
   pFirewallRuleGroupAssociationId_ =
     UpdateFirewallRuleGroupAssociation'
-      { mutationProtection =
+      { name =
           Prelude.Nothing,
+        mutationProtection = Prelude.Nothing,
         priority = Prelude.Nothing,
-        name = Prelude.Nothing,
         firewallRuleGroupAssociationId =
           pFirewallRuleGroupAssociationId_
       }
+
+-- | The name of the rule group association.
+updateFirewallRuleGroupAssociation_name :: Lens.Lens' UpdateFirewallRuleGroupAssociation (Prelude.Maybe Prelude.Text)
+updateFirewallRuleGroupAssociation_name = Lens.lens (\UpdateFirewallRuleGroupAssociation' {name} -> name) (\s@UpdateFirewallRuleGroupAssociation' {} a -> s {name = a} :: UpdateFirewallRuleGroupAssociation)
 
 -- | If enabled, this setting disallows modification or removal of the
 -- association, to help prevent against accidentally altering DNS firewall
@@ -133,10 +137,6 @@ updateFirewallRuleGroupAssociation_mutationProtection = Lens.lens (\UpdateFirewa
 -- after you create it.
 updateFirewallRuleGroupAssociation_priority :: Lens.Lens' UpdateFirewallRuleGroupAssociation (Prelude.Maybe Prelude.Int)
 updateFirewallRuleGroupAssociation_priority = Lens.lens (\UpdateFirewallRuleGroupAssociation' {priority} -> priority) (\s@UpdateFirewallRuleGroupAssociation' {} a -> s {priority = a} :: UpdateFirewallRuleGroupAssociation)
-
--- | The name of the rule group association.
-updateFirewallRuleGroupAssociation_name :: Lens.Lens' UpdateFirewallRuleGroupAssociation (Prelude.Maybe Prelude.Text)
-updateFirewallRuleGroupAssociation_name = Lens.lens (\UpdateFirewallRuleGroupAssociation' {name} -> name) (\s@UpdateFirewallRuleGroupAssociation' {} a -> s {name = a} :: UpdateFirewallRuleGroupAssociation)
 
 -- | The identifier of the FirewallRuleGroupAssociation.
 updateFirewallRuleGroupAssociation_firewallRuleGroupAssociationId :: Lens.Lens' UpdateFirewallRuleGroupAssociation Prelude.Text
@@ -165,9 +165,9 @@ instance
   hashWithSalt
     _salt
     UpdateFirewallRuleGroupAssociation' {..} =
-      _salt `Prelude.hashWithSalt` mutationProtection
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` mutationProtection
         `Prelude.hashWithSalt` priority
-        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` firewallRuleGroupAssociationId
 
 instance
@@ -175,9 +175,9 @@ instance
     UpdateFirewallRuleGroupAssociation
   where
   rnf UpdateFirewallRuleGroupAssociation' {..} =
-    Prelude.rnf mutationProtection
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf mutationProtection
       `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf firewallRuleGroupAssociationId
 
 instance
@@ -205,10 +205,10 @@ instance
   toJSON UpdateFirewallRuleGroupAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MutationProtection" Core..=)
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("MutationProtection" Core..=)
               Prelude.<$> mutationProtection,
             ("Priority" Core..=) Prelude.<$> priority,
-            ("Name" Core..=) Prelude.<$> name,
             Prelude.Just
               ( "FirewallRuleGroupAssociationId"
                   Core..= firewallRuleGroupAssociationId

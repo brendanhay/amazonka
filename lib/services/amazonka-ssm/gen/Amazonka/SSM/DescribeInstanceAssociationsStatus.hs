@@ -38,8 +38,8 @@ module Amazonka.SSM.DescribeInstanceAssociationsStatus
     newDescribeInstanceAssociationsStatusResponse,
 
     -- * Response Lenses
-    describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos,
     describeInstanceAssociationsStatusResponse_nextToken,
+    describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos,
     describeInstanceAssociationsStatusResponse_httpStatus,
   )
 where
@@ -145,10 +145,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceAssociationsStatusResponse'
-            Prelude.<$> ( x Core..?> "InstanceAssociationStatusInfos"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "InstanceAssociationStatusInfos"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,11 +217,11 @@ instance
 
 -- | /See:/ 'newDescribeInstanceAssociationsStatusResponse' smart constructor.
 data DescribeInstanceAssociationsStatusResponse = DescribeInstanceAssociationsStatusResponse'
-  { -- | Status information about the association.
-    instanceAssociationStatusInfos :: Prelude.Maybe [InstanceAssociationStatusInfo],
-    -- | The token to use when requesting the next set of items. If there are no
+  { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Status information about the association.
+    instanceAssociationStatusInfos :: Prelude.Maybe [InstanceAssociationStatusInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -235,10 +235,10 @@ data DescribeInstanceAssociationsStatusResponse = DescribeInstanceAssociationsSt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceAssociationStatusInfos', 'describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos' - Status information about the association.
---
 -- 'nextToken', 'describeInstanceAssociationsStatusResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
+--
+-- 'instanceAssociationStatusInfos', 'describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos' - Status information about the association.
 --
 -- 'httpStatus', 'describeInstanceAssociationsStatusResponse_httpStatus' - The response's http status code.
 newDescribeInstanceAssociationsStatusResponse ::
@@ -248,20 +248,21 @@ newDescribeInstanceAssociationsStatusResponse ::
 newDescribeInstanceAssociationsStatusResponse
   pHttpStatus_ =
     DescribeInstanceAssociationsStatusResponse'
-      { instanceAssociationStatusInfos =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        instanceAssociationStatusInfos =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Status information about the association.
-describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Prelude.Maybe [InstanceAssociationStatusInfo])
-describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos = Lens.lens (\DescribeInstanceAssociationsStatusResponse' {instanceAssociationStatusInfos} -> instanceAssociationStatusInfos) (\s@DescribeInstanceAssociationsStatusResponse' {} a -> s {instanceAssociationStatusInfos = a} :: DescribeInstanceAssociationsStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeInstanceAssociationsStatusResponse_nextToken :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Prelude.Maybe Prelude.Text)
 describeInstanceAssociationsStatusResponse_nextToken = Lens.lens (\DescribeInstanceAssociationsStatusResponse' {nextToken} -> nextToken) (\s@DescribeInstanceAssociationsStatusResponse' {} a -> s {nextToken = a} :: DescribeInstanceAssociationsStatusResponse)
+
+-- | Status information about the association.
+describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Prelude.Maybe [InstanceAssociationStatusInfo])
+describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos = Lens.lens (\DescribeInstanceAssociationsStatusResponse' {instanceAssociationStatusInfos} -> instanceAssociationStatusInfos) (\s@DescribeInstanceAssociationsStatusResponse' {} a -> s {instanceAssociationStatusInfos = a} :: DescribeInstanceAssociationsStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstanceAssociationsStatusResponse_httpStatus :: Lens.Lens' DescribeInstanceAssociationsStatusResponse Prelude.Int
@@ -272,6 +273,6 @@ instance
     DescribeInstanceAssociationsStatusResponse
   where
   rnf DescribeInstanceAssociationsStatusResponse' {..} =
-    Prelude.rnf instanceAssociationStatusInfos
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceAssociationStatusInfos
       `Prelude.seq` Prelude.rnf httpStatus

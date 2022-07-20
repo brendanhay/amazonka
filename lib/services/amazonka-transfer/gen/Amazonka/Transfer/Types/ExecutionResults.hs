@@ -29,11 +29,11 @@ import Amazonka.Transfer.Types.ExecutionStepResult
 --
 -- /See:/ 'newExecutionResults' smart constructor.
 data ExecutionResults = ExecutionResults'
-  { -- | Specifies the steps (actions) to take if errors are encountered during
+  { -- | Specifies the details for the steps that are in the specified workflow.
+    steps :: Prelude.Maybe (Prelude.NonEmpty ExecutionStepResult),
+    -- | Specifies the steps (actions) to take if errors are encountered during
     -- execution of the workflow.
-    onExceptionSteps :: Prelude.Maybe (Prelude.NonEmpty ExecutionStepResult),
-    -- | Specifies the details for the steps that are in the specified workflow.
-    steps :: Prelude.Maybe (Prelude.NonEmpty ExecutionStepResult)
+    onExceptionSteps :: Prelude.Maybe (Prelude.NonEmpty ExecutionStepResult)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,26 @@ data ExecutionResults = ExecutionResults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'steps', 'executionResults_steps' - Specifies the details for the steps that are in the specified workflow.
+--
 -- 'onExceptionSteps', 'executionResults_onExceptionSteps' - Specifies the steps (actions) to take if errors are encountered during
 -- execution of the workflow.
---
--- 'steps', 'executionResults_steps' - Specifies the details for the steps that are in the specified workflow.
 newExecutionResults ::
   ExecutionResults
 newExecutionResults =
   ExecutionResults'
-    { onExceptionSteps =
-        Prelude.Nothing,
-      steps = Prelude.Nothing
+    { steps = Prelude.Nothing,
+      onExceptionSteps = Prelude.Nothing
     }
+
+-- | Specifies the details for the steps that are in the specified workflow.
+executionResults_steps :: Lens.Lens' ExecutionResults (Prelude.Maybe (Prelude.NonEmpty ExecutionStepResult))
+executionResults_steps = Lens.lens (\ExecutionResults' {steps} -> steps) (\s@ExecutionResults' {} a -> s {steps = a} :: ExecutionResults) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the steps (actions) to take if errors are encountered during
 -- execution of the workflow.
 executionResults_onExceptionSteps :: Lens.Lens' ExecutionResults (Prelude.Maybe (Prelude.NonEmpty ExecutionStepResult))
 executionResults_onExceptionSteps = Lens.lens (\ExecutionResults' {onExceptionSteps} -> onExceptionSteps) (\s@ExecutionResults' {} a -> s {onExceptionSteps = a} :: ExecutionResults) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the details for the steps that are in the specified workflow.
-executionResults_steps :: Lens.Lens' ExecutionResults (Prelude.Maybe (Prelude.NonEmpty ExecutionStepResult))
-executionResults_steps = Lens.lens (\ExecutionResults' {steps} -> steps) (\s@ExecutionResults' {} a -> s {steps = a} :: ExecutionResults) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ExecutionResults where
   parseJSON =
@@ -73,16 +72,16 @@ instance Core.FromJSON ExecutionResults where
       "ExecutionResults"
       ( \x ->
           ExecutionResults'
-            Prelude.<$> (x Core..:? "OnExceptionSteps")
-            Prelude.<*> (x Core..:? "Steps")
+            Prelude.<$> (x Core..:? "Steps")
+            Prelude.<*> (x Core..:? "OnExceptionSteps")
       )
 
 instance Prelude.Hashable ExecutionResults where
   hashWithSalt _salt ExecutionResults' {..} =
-    _salt `Prelude.hashWithSalt` onExceptionSteps
-      `Prelude.hashWithSalt` steps
+    _salt `Prelude.hashWithSalt` steps
+      `Prelude.hashWithSalt` onExceptionSteps
 
 instance Prelude.NFData ExecutionResults where
   rnf ExecutionResults' {..} =
-    Prelude.rnf onExceptionSteps
-      `Prelude.seq` Prelude.rnf steps
+    Prelude.rnf steps
+      `Prelude.seq` Prelude.rnf onExceptionSteps

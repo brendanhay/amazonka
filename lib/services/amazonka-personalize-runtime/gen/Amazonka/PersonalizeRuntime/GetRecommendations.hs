@@ -36,11 +36,11 @@ module Amazonka.PersonalizeRuntime.GetRecommendations
     newGetRecommendations,
 
     -- * Request Lenses
-    getRecommendations_context,
-    getRecommendations_itemId,
-    getRecommendations_userId,
-    getRecommendations_numResults,
     getRecommendations_filterArn,
+    getRecommendations_numResults,
+    getRecommendations_context,
+    getRecommendations_userId,
+    getRecommendations_itemId,
     getRecommendations_filterValues,
     getRecommendations_campaignArn,
 
@@ -64,27 +64,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRecommendations' smart constructor.
 data GetRecommendations = GetRecommendations'
-  { -- | The contextual metadata to use when getting recommendations. Contextual
-    -- metadata includes any interaction information that might be relevant
-    -- when getting a user\'s recommendations, such as the user\'s current
-    -- location or device type.
-    context :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
-    -- | The item ID to provide recommendations for.
-    --
-    -- Required for @RELATED_ITEMS@ recipe type.
-    itemId :: Prelude.Maybe Prelude.Text,
-    -- | The user ID to provide recommendations for.
-    --
-    -- Required for @USER_PERSONALIZATION@ recipe type.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | The number of results to return. The default is 25. The maximum is 500.
-    numResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the filter to apply to the returned recommendations. For more
+  { -- | The ARN of the filter to apply to the returned recommendations. For more
     -- information, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
     --
     -- When using this parameter, be sure the filter resource is @ACTIVE@.
     filterArn :: Prelude.Maybe Prelude.Text,
+    -- | The number of results to return. The default is 25. The maximum is 500.
+    numResults :: Prelude.Maybe Prelude.Natural,
+    -- | The contextual metadata to use when getting recommendations. Contextual
+    -- metadata includes any interaction information that might be relevant
+    -- when getting a user\'s recommendations, such as the user\'s current
+    -- location or device type.
+    context :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
+    -- | The user ID to provide recommendations for.
+    --
+    -- Required for @USER_PERSONALIZATION@ recipe type.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The item ID to provide recommendations for.
+    --
+    -- Required for @RELATED_ITEMS@ recipe type.
+    itemId :: Prelude.Maybe Prelude.Text,
     -- | The values to use when filtering recommendations. For each placeholder
     -- parameter in your filter expression, provide the parameter name (in
     -- matching case) as a key and the filter value(s) as the corresponding
@@ -114,26 +114,26 @@ data GetRecommendations = GetRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'context', 'getRecommendations_context' - The contextual metadata to use when getting recommendations. Contextual
--- metadata includes any interaction information that might be relevant
--- when getting a user\'s recommendations, such as the user\'s current
--- location or device type.
---
--- 'itemId', 'getRecommendations_itemId' - The item ID to provide recommendations for.
---
--- Required for @RELATED_ITEMS@ recipe type.
---
--- 'userId', 'getRecommendations_userId' - The user ID to provide recommendations for.
---
--- Required for @USER_PERSONALIZATION@ recipe type.
---
--- 'numResults', 'getRecommendations_numResults' - The number of results to return. The default is 25. The maximum is 500.
---
 -- 'filterArn', 'getRecommendations_filterArn' - The ARN of the filter to apply to the returned recommendations. For more
 -- information, see
 -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
 --
 -- When using this parameter, be sure the filter resource is @ACTIVE@.
+--
+-- 'numResults', 'getRecommendations_numResults' - The number of results to return. The default is 25. The maximum is 500.
+--
+-- 'context', 'getRecommendations_context' - The contextual metadata to use when getting recommendations. Contextual
+-- metadata includes any interaction information that might be relevant
+-- when getting a user\'s recommendations, such as the user\'s current
+-- location or device type.
+--
+-- 'userId', 'getRecommendations_userId' - The user ID to provide recommendations for.
+--
+-- Required for @USER_PERSONALIZATION@ recipe type.
+--
+-- 'itemId', 'getRecommendations_itemId' - The item ID to provide recommendations for.
+--
+-- Required for @RELATED_ITEMS@ recipe type.
 --
 -- 'filterValues', 'getRecommendations_filterValues' - The values to use when filtering recommendations. For each placeholder
 -- parameter in your filter expression, provide the parameter name (in
@@ -158,37 +158,14 @@ newGetRecommendations ::
   GetRecommendations
 newGetRecommendations pCampaignArn_ =
   GetRecommendations'
-    { context = Prelude.Nothing,
-      itemId = Prelude.Nothing,
-      userId = Prelude.Nothing,
+    { filterArn = Prelude.Nothing,
       numResults = Prelude.Nothing,
-      filterArn = Prelude.Nothing,
+      context = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      itemId = Prelude.Nothing,
       filterValues = Prelude.Nothing,
       campaignArn = pCampaignArn_
     }
-
--- | The contextual metadata to use when getting recommendations. Contextual
--- metadata includes any interaction information that might be relevant
--- when getting a user\'s recommendations, such as the user\'s current
--- location or device type.
-getRecommendations_context :: Lens.Lens' GetRecommendations (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getRecommendations_context = Lens.lens (\GetRecommendations' {context} -> context) (\s@GetRecommendations' {} a -> s {context = a} :: GetRecommendations) Prelude.. Lens.mapping Lens.coerced
-
--- | The item ID to provide recommendations for.
---
--- Required for @RELATED_ITEMS@ recipe type.
-getRecommendations_itemId :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Text)
-getRecommendations_itemId = Lens.lens (\GetRecommendations' {itemId} -> itemId) (\s@GetRecommendations' {} a -> s {itemId = a} :: GetRecommendations)
-
--- | The user ID to provide recommendations for.
---
--- Required for @USER_PERSONALIZATION@ recipe type.
-getRecommendations_userId :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Text)
-getRecommendations_userId = Lens.lens (\GetRecommendations' {userId} -> userId) (\s@GetRecommendations' {} a -> s {userId = a} :: GetRecommendations)
-
--- | The number of results to return. The default is 25. The maximum is 500.
-getRecommendations_numResults :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Natural)
-getRecommendations_numResults = Lens.lens (\GetRecommendations' {numResults} -> numResults) (\s@GetRecommendations' {} a -> s {numResults = a} :: GetRecommendations)
 
 -- | The ARN of the filter to apply to the returned recommendations. For more
 -- information, see
@@ -197,6 +174,29 @@ getRecommendations_numResults = Lens.lens (\GetRecommendations' {numResults} -> 
 -- When using this parameter, be sure the filter resource is @ACTIVE@.
 getRecommendations_filterArn :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Text)
 getRecommendations_filterArn = Lens.lens (\GetRecommendations' {filterArn} -> filterArn) (\s@GetRecommendations' {} a -> s {filterArn = a} :: GetRecommendations)
+
+-- | The number of results to return. The default is 25. The maximum is 500.
+getRecommendations_numResults :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Natural)
+getRecommendations_numResults = Lens.lens (\GetRecommendations' {numResults} -> numResults) (\s@GetRecommendations' {} a -> s {numResults = a} :: GetRecommendations)
+
+-- | The contextual metadata to use when getting recommendations. Contextual
+-- metadata includes any interaction information that might be relevant
+-- when getting a user\'s recommendations, such as the user\'s current
+-- location or device type.
+getRecommendations_context :: Lens.Lens' GetRecommendations (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getRecommendations_context = Lens.lens (\GetRecommendations' {context} -> context) (\s@GetRecommendations' {} a -> s {context = a} :: GetRecommendations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The user ID to provide recommendations for.
+--
+-- Required for @USER_PERSONALIZATION@ recipe type.
+getRecommendations_userId :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Text)
+getRecommendations_userId = Lens.lens (\GetRecommendations' {userId} -> userId) (\s@GetRecommendations' {} a -> s {userId = a} :: GetRecommendations)
+
+-- | The item ID to provide recommendations for.
+--
+-- Required for @RELATED_ITEMS@ recipe type.
+getRecommendations_itemId :: Lens.Lens' GetRecommendations (Prelude.Maybe Prelude.Text)
+getRecommendations_itemId = Lens.lens (\GetRecommendations' {itemId} -> itemId) (\s@GetRecommendations' {} a -> s {itemId = a} :: GetRecommendations)
 
 -- | The values to use when filtering recommendations. For each placeholder
 -- parameter in your filter expression, provide the parameter name (in
@@ -236,21 +236,21 @@ instance Core.AWSRequest GetRecommendations where
 
 instance Prelude.Hashable GetRecommendations where
   hashWithSalt _salt GetRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` context
-      `Prelude.hashWithSalt` itemId
-      `Prelude.hashWithSalt` userId
+    _salt `Prelude.hashWithSalt` filterArn
       `Prelude.hashWithSalt` numResults
-      `Prelude.hashWithSalt` filterArn
+      `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` itemId
       `Prelude.hashWithSalt` filterValues
       `Prelude.hashWithSalt` campaignArn
 
 instance Prelude.NFData GetRecommendations where
   rnf GetRecommendations' {..} =
-    Prelude.rnf context
-      `Prelude.seq` Prelude.rnf itemId
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf filterArn
       `Prelude.seq` Prelude.rnf numResults
-      `Prelude.seq` Prelude.rnf filterArn
+      `Prelude.seq` Prelude.rnf context
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf itemId
       `Prelude.seq` Prelude.rnf filterValues
       `Prelude.seq` Prelude.rnf campaignArn
 
@@ -269,11 +269,11 @@ instance Core.ToJSON GetRecommendations where
   toJSON GetRecommendations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("context" Core..=) Prelude.<$> context,
-            ("itemId" Core..=) Prelude.<$> itemId,
-            ("userId" Core..=) Prelude.<$> userId,
+          [ ("filterArn" Core..=) Prelude.<$> filterArn,
             ("numResults" Core..=) Prelude.<$> numResults,
-            ("filterArn" Core..=) Prelude.<$> filterArn,
+            ("context" Core..=) Prelude.<$> context,
+            ("userId" Core..=) Prelude.<$> userId,
+            ("itemId" Core..=) Prelude.<$> itemId,
             ("filterValues" Core..=) Prelude.<$> filterValues,
             Prelude.Just ("campaignArn" Core..= campaignArn)
           ]

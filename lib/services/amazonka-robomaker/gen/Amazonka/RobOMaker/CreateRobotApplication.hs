@@ -27,9 +27,9 @@ module Amazonka.RobOMaker.CreateRobotApplication
     newCreateRobotApplication,
 
     -- * Request Lenses
-    createRobotApplication_environment,
-    createRobotApplication_sources,
     createRobotApplication_tags,
+    createRobotApplication_sources,
+    createRobotApplication_environment,
     createRobotApplication_name,
     createRobotApplication_robotSoftwareSuite,
 
@@ -38,15 +38,15 @@ module Amazonka.RobOMaker.CreateRobotApplication
     newCreateRobotApplicationResponse,
 
     -- * Response Lenses
+    createRobotApplicationResponse_tags,
+    createRobotApplicationResponse_name,
+    createRobotApplicationResponse_sources,
+    createRobotApplicationResponse_environment,
     createRobotApplicationResponse_lastUpdatedAt,
     createRobotApplicationResponse_arn,
-    createRobotApplicationResponse_environment,
-    createRobotApplicationResponse_sources,
-    createRobotApplicationResponse_name,
-    createRobotApplicationResponse_version,
     createRobotApplicationResponse_robotSoftwareSuite,
     createRobotApplicationResponse_revisionId,
-    createRobotApplicationResponse_tags,
+    createRobotApplicationResponse_version,
     createRobotApplicationResponse_httpStatus,
   )
 where
@@ -60,14 +60,14 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newCreateRobotApplication' smart constructor.
 data CreateRobotApplication = CreateRobotApplication'
-  { -- | The object that contains that URI of the Docker image that you use for
-    -- your robot application.
-    environment :: Prelude.Maybe Environment,
-    -- | The sources of the robot application.
-    sources :: Prelude.Maybe [SourceConfig],
-    -- | A map that contains tag keys and tag values that are attached to the
+  { -- | A map that contains tag keys and tag values that are attached to the
     -- robot application.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The sources of the robot application.
+    sources :: Prelude.Maybe [SourceConfig],
+    -- | The object that contains that URI of the Docker image that you use for
+    -- your robot application.
+    environment :: Prelude.Maybe Environment,
     -- | The name of the robot application.
     name :: Prelude.Text,
     -- | The robot software suite (ROS distribuition) used by the robot
@@ -84,13 +84,13 @@ data CreateRobotApplication = CreateRobotApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environment', 'createRobotApplication_environment' - The object that contains that URI of the Docker image that you use for
--- your robot application.
+-- 'tags', 'createRobotApplication_tags' - A map that contains tag keys and tag values that are attached to the
+-- robot application.
 --
 -- 'sources', 'createRobotApplication_sources' - The sources of the robot application.
 --
--- 'tags', 'createRobotApplication_tags' - A map that contains tag keys and tag values that are attached to the
--- robot application.
+-- 'environment', 'createRobotApplication_environment' - The object that contains that URI of the Docker image that you use for
+-- your robot application.
 --
 -- 'name', 'createRobotApplication_name' - The name of the robot application.
 --
@@ -104,27 +104,26 @@ newCreateRobotApplication ::
   CreateRobotApplication
 newCreateRobotApplication pName_ pRobotSoftwareSuite_ =
   CreateRobotApplication'
-    { environment =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       sources = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      environment = Prelude.Nothing,
       name = pName_,
       robotSoftwareSuite = pRobotSoftwareSuite_
     }
-
--- | The object that contains that URI of the Docker image that you use for
--- your robot application.
-createRobotApplication_environment :: Lens.Lens' CreateRobotApplication (Prelude.Maybe Environment)
-createRobotApplication_environment = Lens.lens (\CreateRobotApplication' {environment} -> environment) (\s@CreateRobotApplication' {} a -> s {environment = a} :: CreateRobotApplication)
-
--- | The sources of the robot application.
-createRobotApplication_sources :: Lens.Lens' CreateRobotApplication (Prelude.Maybe [SourceConfig])
-createRobotApplication_sources = Lens.lens (\CreateRobotApplication' {sources} -> sources) (\s@CreateRobotApplication' {} a -> s {sources = a} :: CreateRobotApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map that contains tag keys and tag values that are attached to the
 -- robot application.
 createRobotApplication_tags :: Lens.Lens' CreateRobotApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRobotApplication_tags = Lens.lens (\CreateRobotApplication' {tags} -> tags) (\s@CreateRobotApplication' {} a -> s {tags = a} :: CreateRobotApplication) Prelude.. Lens.mapping Lens.coerced
+
+-- | The sources of the robot application.
+createRobotApplication_sources :: Lens.Lens' CreateRobotApplication (Prelude.Maybe [SourceConfig])
+createRobotApplication_sources = Lens.lens (\CreateRobotApplication' {sources} -> sources) (\s@CreateRobotApplication' {} a -> s {sources = a} :: CreateRobotApplication) Prelude.. Lens.mapping Lens.coerced
+
+-- | The object that contains that URI of the Docker image that you use for
+-- your robot application.
+createRobotApplication_environment :: Lens.Lens' CreateRobotApplication (Prelude.Maybe Environment)
+createRobotApplication_environment = Lens.lens (\CreateRobotApplication' {environment} -> environment) (\s@CreateRobotApplication' {} a -> s {environment = a} :: CreateRobotApplication)
 
 -- | The name of the robot application.
 createRobotApplication_name :: Lens.Lens' CreateRobotApplication Prelude.Text
@@ -144,31 +143,31 @@ instance Core.AWSRequest CreateRobotApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateRobotApplicationResponse'
-            Prelude.<$> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "environment")
-            Prelude.<*> (x Core..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Core..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "environment")
+            Prelude.<*> (x Core..?> "lastUpdatedAt")
+            Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "robotSoftwareSuite")
             Prelude.<*> (x Core..?> "revisionId")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateRobotApplication where
   hashWithSalt _salt CreateRobotApplication' {..} =
-    _salt `Prelude.hashWithSalt` environment
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sources
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` robotSoftwareSuite
 
 instance Prelude.NFData CreateRobotApplication where
   rnf CreateRobotApplication' {..} =
-    Prelude.rnf environment
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
 
@@ -187,9 +186,9 @@ instance Core.ToJSON CreateRobotApplication where
   toJSON CreateRobotApplication' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("environment" Core..=) Prelude.<$> environment,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("sources" Core..=) Prelude.<$> sources,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("environment" Core..=) Prelude.<$> environment,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("robotSoftwareSuite" Core..= robotSoftwareSuite)
@@ -204,27 +203,27 @@ instance Core.ToQuery CreateRobotApplication where
 
 -- | /See:/ 'newCreateRobotApplicationResponse' smart constructor.
 data CreateRobotApplicationResponse = CreateRobotApplicationResponse'
-  { -- | The time, in milliseconds since the epoch, when the robot application
+  { -- | The list of all tags added to the robot application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the robot application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the robot application.
+    sources :: Prelude.Maybe [Source],
+    -- | An object that contains the Docker image URI used to a create your robot
+    -- application.
+    environment :: Prelude.Maybe Environment,
+    -- | The time, in milliseconds since the epoch, when the robot application
     -- was last updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the robot application.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains the Docker image URI used to a create your robot
-    -- application.
-    environment :: Prelude.Maybe Environment,
-    -- | The sources of the robot application.
-    sources :: Prelude.Maybe [Source],
-    -- | The name of the robot application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The version of the robot application.
-    version :: Prelude.Maybe Prelude.Text,
     -- | The robot software suite (ROS distribution) used by the robot
     -- application.
     robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
     -- | The revision id of the robot application.
     revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The list of all tags added to the robot application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The version of the robot application.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,26 +237,26 @@ data CreateRobotApplicationResponse = CreateRobotApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedAt', 'createRobotApplicationResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the robot application
--- was last updated.
+-- 'tags', 'createRobotApplicationResponse_tags' - The list of all tags added to the robot application.
 --
--- 'arn', 'createRobotApplicationResponse_arn' - The Amazon Resource Name (ARN) of the robot application.
+-- 'name', 'createRobotApplicationResponse_name' - The name of the robot application.
+--
+-- 'sources', 'createRobotApplicationResponse_sources' - The sources of the robot application.
 --
 -- 'environment', 'createRobotApplicationResponse_environment' - An object that contains the Docker image URI used to a create your robot
 -- application.
 --
--- 'sources', 'createRobotApplicationResponse_sources' - The sources of the robot application.
+-- 'lastUpdatedAt', 'createRobotApplicationResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the robot application
+-- was last updated.
 --
--- 'name', 'createRobotApplicationResponse_name' - The name of the robot application.
---
--- 'version', 'createRobotApplicationResponse_version' - The version of the robot application.
+-- 'arn', 'createRobotApplicationResponse_arn' - The Amazon Resource Name (ARN) of the robot application.
 --
 -- 'robotSoftwareSuite', 'createRobotApplicationResponse_robotSoftwareSuite' - The robot software suite (ROS distribution) used by the robot
 -- application.
 --
 -- 'revisionId', 'createRobotApplicationResponse_revisionId' - The revision id of the robot application.
 --
--- 'tags', 'createRobotApplicationResponse_tags' - The list of all tags added to the robot application.
+-- 'version', 'createRobotApplicationResponse_version' - The version of the robot application.
 --
 -- 'httpStatus', 'createRobotApplicationResponse_httpStatus' - The response's http status code.
 newCreateRobotApplicationResponse ::
@@ -266,18 +265,35 @@ newCreateRobotApplicationResponse ::
   CreateRobotApplicationResponse
 newCreateRobotApplicationResponse pHttpStatus_ =
   CreateRobotApplicationResponse'
-    { lastUpdatedAt =
+    { tags =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      environment = Prelude.Nothing,
-      sources = Prelude.Nothing,
       name = Prelude.Nothing,
-      version = Prelude.Nothing,
+      sources = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
       robotSoftwareSuite = Prelude.Nothing,
       revisionId = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of all tags added to the robot application.
+createRobotApplicationResponse_tags :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRobotApplicationResponse_tags = Lens.lens (\CreateRobotApplicationResponse' {tags} -> tags) (\s@CreateRobotApplicationResponse' {} a -> s {tags = a} :: CreateRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the robot application.
+createRobotApplicationResponse_name :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+createRobotApplicationResponse_name = Lens.lens (\CreateRobotApplicationResponse' {name} -> name) (\s@CreateRobotApplicationResponse' {} a -> s {name = a} :: CreateRobotApplicationResponse)
+
+-- | The sources of the robot application.
+createRobotApplicationResponse_sources :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe [Source])
+createRobotApplicationResponse_sources = Lens.lens (\CreateRobotApplicationResponse' {sources} -> sources) (\s@CreateRobotApplicationResponse' {} a -> s {sources = a} :: CreateRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that contains the Docker image URI used to a create your robot
+-- application.
+createRobotApplicationResponse_environment :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe Environment)
+createRobotApplicationResponse_environment = Lens.lens (\CreateRobotApplicationResponse' {environment} -> environment) (\s@CreateRobotApplicationResponse' {} a -> s {environment = a} :: CreateRobotApplicationResponse)
 
 -- | The time, in milliseconds since the epoch, when the robot application
 -- was last updated.
@@ -288,23 +304,6 @@ createRobotApplicationResponse_lastUpdatedAt = Lens.lens (\CreateRobotApplicatio
 createRobotApplicationResponse_arn :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
 createRobotApplicationResponse_arn = Lens.lens (\CreateRobotApplicationResponse' {arn} -> arn) (\s@CreateRobotApplicationResponse' {} a -> s {arn = a} :: CreateRobotApplicationResponse)
 
--- | An object that contains the Docker image URI used to a create your robot
--- application.
-createRobotApplicationResponse_environment :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe Environment)
-createRobotApplicationResponse_environment = Lens.lens (\CreateRobotApplicationResponse' {environment} -> environment) (\s@CreateRobotApplicationResponse' {} a -> s {environment = a} :: CreateRobotApplicationResponse)
-
--- | The sources of the robot application.
-createRobotApplicationResponse_sources :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe [Source])
-createRobotApplicationResponse_sources = Lens.lens (\CreateRobotApplicationResponse' {sources} -> sources) (\s@CreateRobotApplicationResponse' {} a -> s {sources = a} :: CreateRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the robot application.
-createRobotApplicationResponse_name :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-createRobotApplicationResponse_name = Lens.lens (\CreateRobotApplicationResponse' {name} -> name) (\s@CreateRobotApplicationResponse' {} a -> s {name = a} :: CreateRobotApplicationResponse)
-
--- | The version of the robot application.
-createRobotApplicationResponse_version :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-createRobotApplicationResponse_version = Lens.lens (\CreateRobotApplicationResponse' {version} -> version) (\s@CreateRobotApplicationResponse' {} a -> s {version = a} :: CreateRobotApplicationResponse)
-
 -- | The robot software suite (ROS distribution) used by the robot
 -- application.
 createRobotApplicationResponse_robotSoftwareSuite :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe RobotSoftwareSuite)
@@ -314,9 +313,9 @@ createRobotApplicationResponse_robotSoftwareSuite = Lens.lens (\CreateRobotAppli
 createRobotApplicationResponse_revisionId :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
 createRobotApplicationResponse_revisionId = Lens.lens (\CreateRobotApplicationResponse' {revisionId} -> revisionId) (\s@CreateRobotApplicationResponse' {} a -> s {revisionId = a} :: CreateRobotApplicationResponse)
 
--- | The list of all tags added to the robot application.
-createRobotApplicationResponse_tags :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRobotApplicationResponse_tags = Lens.lens (\CreateRobotApplicationResponse' {tags} -> tags) (\s@CreateRobotApplicationResponse' {} a -> s {tags = a} :: CreateRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The version of the robot application.
+createRobotApplicationResponse_version :: Lens.Lens' CreateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+createRobotApplicationResponse_version = Lens.lens (\CreateRobotApplicationResponse' {version} -> version) (\s@CreateRobotApplicationResponse' {} a -> s {version = a} :: CreateRobotApplicationResponse)
 
 -- | The response's http status code.
 createRobotApplicationResponse_httpStatus :: Lens.Lens' CreateRobotApplicationResponse Prelude.Int
@@ -327,13 +326,13 @@ instance
     CreateRobotApplicationResponse
   where
   rnf CreateRobotApplicationResponse' {..} =
-    Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
       `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

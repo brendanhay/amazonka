@@ -37,8 +37,8 @@ module Amazonka.AppIntegrationS.ListEventIntegrationAssociations
     newListEventIntegrationAssociationsResponse,
 
     -- * Response Lenses
-    listEventIntegrationAssociationsResponse_eventIntegrationAssociations,
     listEventIntegrationAssociationsResponse_nextToken,
+    listEventIntegrationAssociationsResponse_eventIntegrationAssociations,
     listEventIntegrationAssociationsResponse_httpStatus,
   )
 where
@@ -118,8 +118,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListEventIntegrationAssociationsResponse'
-            Prelude.<$> (x Core..?> "EventIntegrationAssociations")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "EventIntegrationAssociations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,11 +177,11 @@ instance
 
 -- | /See:/ 'newListEventIntegrationAssociationsResponse' smart constructor.
 data ListEventIntegrationAssociationsResponse = ListEventIntegrationAssociationsResponse'
-  { -- | The event integration associations.
-    eventIntegrationAssociations :: Prelude.Maybe (Prelude.NonEmpty EventIntegrationAssociation),
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The event integration associations.
+    eventIntegrationAssociations :: Prelude.Maybe (Prelude.NonEmpty EventIntegrationAssociation),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +195,10 @@ data ListEventIntegrationAssociationsResponse = ListEventIntegrationAssociations
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventIntegrationAssociations', 'listEventIntegrationAssociationsResponse_eventIntegrationAssociations' - The event integration associations.
---
 -- 'nextToken', 'listEventIntegrationAssociationsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'eventIntegrationAssociations', 'listEventIntegrationAssociationsResponse_eventIntegrationAssociations' - The event integration associations.
 --
 -- 'httpStatus', 'listEventIntegrationAssociationsResponse_httpStatus' - The response's http status code.
 newListEventIntegrationAssociationsResponse ::
@@ -208,20 +208,21 @@ newListEventIntegrationAssociationsResponse ::
 newListEventIntegrationAssociationsResponse
   pHttpStatus_ =
     ListEventIntegrationAssociationsResponse'
-      { eventIntegrationAssociations =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        eventIntegrationAssociations =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The event integration associations.
-listEventIntegrationAssociationsResponse_eventIntegrationAssociations :: Lens.Lens' ListEventIntegrationAssociationsResponse (Prelude.Maybe (Prelude.NonEmpty EventIntegrationAssociation))
-listEventIntegrationAssociationsResponse_eventIntegrationAssociations = Lens.lens (\ListEventIntegrationAssociationsResponse' {eventIntegrationAssociations} -> eventIntegrationAssociations) (\s@ListEventIntegrationAssociationsResponse' {} a -> s {eventIntegrationAssociations = a} :: ListEventIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listEventIntegrationAssociationsResponse_nextToken :: Lens.Lens' ListEventIntegrationAssociationsResponse (Prelude.Maybe Prelude.Text)
 listEventIntegrationAssociationsResponse_nextToken = Lens.lens (\ListEventIntegrationAssociationsResponse' {nextToken} -> nextToken) (\s@ListEventIntegrationAssociationsResponse' {} a -> s {nextToken = a} :: ListEventIntegrationAssociationsResponse)
+
+-- | The event integration associations.
+listEventIntegrationAssociationsResponse_eventIntegrationAssociations :: Lens.Lens' ListEventIntegrationAssociationsResponse (Prelude.Maybe (Prelude.NonEmpty EventIntegrationAssociation))
+listEventIntegrationAssociationsResponse_eventIntegrationAssociations = Lens.lens (\ListEventIntegrationAssociationsResponse' {eventIntegrationAssociations} -> eventIntegrationAssociations) (\s@ListEventIntegrationAssociationsResponse' {} a -> s {eventIntegrationAssociations = a} :: ListEventIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEventIntegrationAssociationsResponse_httpStatus :: Lens.Lens' ListEventIntegrationAssociationsResponse Prelude.Int
@@ -232,6 +233,6 @@ instance
     ListEventIntegrationAssociationsResponse
   where
   rnf ListEventIntegrationAssociationsResponse' {..} =
-    Prelude.rnf eventIntegrationAssociations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventIntegrationAssociations
       `Prelude.seq` Prelude.rnf httpStatus

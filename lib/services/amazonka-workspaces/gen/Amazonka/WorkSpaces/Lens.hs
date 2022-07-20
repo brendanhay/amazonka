@@ -20,148 +20,55 @@ module Amazonka.WorkSpaces.Lens
     associateConnectionAliasResponse_connectionIdentifier,
     associateConnectionAliasResponse_httpStatus,
 
-    -- ** DescribeAccount
-    describeAccountResponse_dedicatedTenancySupport,
-    describeAccountResponse_dedicatedTenancyManagementCidrRange,
-    describeAccountResponse_httpStatus,
-
-    -- ** RevokeIpRules
-    revokeIpRules_groupId,
-    revokeIpRules_userRules,
-    revokeIpRulesResponse_httpStatus,
-
-    -- ** DescribeWorkspaceImages
-    describeWorkspaceImages_imageIds,
-    describeWorkspaceImages_nextToken,
-    describeWorkspaceImages_imageType,
-    describeWorkspaceImages_maxResults,
-    describeWorkspaceImagesResponse_images,
-    describeWorkspaceImagesResponse_nextToken,
-    describeWorkspaceImagesResponse_httpStatus,
-
-    -- ** ModifyWorkspaceProperties
-    modifyWorkspaceProperties_workspaceId,
-    modifyWorkspaceProperties_workspaceProperties,
-    modifyWorkspacePropertiesResponse_httpStatus,
-
-    -- ** DeregisterWorkspaceDirectory
-    deregisterWorkspaceDirectory_directoryId,
-    deregisterWorkspaceDirectoryResponse_httpStatus,
-
-    -- ** MigrateWorkspace
-    migrateWorkspace_sourceWorkspaceId,
-    migrateWorkspace_bundleId,
-    migrateWorkspaceResponse_sourceWorkspaceId,
-    migrateWorkspaceResponse_targetWorkspaceId,
-    migrateWorkspaceResponse_httpStatus,
-
-    -- ** DescribeTags
-    describeTags_resourceId,
-    describeTagsResponse_tagList,
-    describeTagsResponse_httpStatus,
-
-    -- ** DescribeWorkspaceDirectories
-    describeWorkspaceDirectories_nextToken,
-    describeWorkspaceDirectories_directoryIds,
-    describeWorkspaceDirectories_limit,
-    describeWorkspaceDirectoriesResponse_directories,
-    describeWorkspaceDirectoriesResponse_nextToken,
-    describeWorkspaceDirectoriesResponse_httpStatus,
-
-    -- ** DisassociateIpGroups
-    disassociateIpGroups_directoryId,
-    disassociateIpGroups_groupIds,
-    disassociateIpGroupsResponse_httpStatus,
-
-    -- ** DescribeWorkspaceBundles
-    describeWorkspaceBundles_bundleIds,
-    describeWorkspaceBundles_owner,
-    describeWorkspaceBundles_nextToken,
-    describeWorkspaceBundlesResponse_bundles,
-    describeWorkspaceBundlesResponse_nextToken,
-    describeWorkspaceBundlesResponse_httpStatus,
+    -- ** AssociateIpGroups
+    associateIpGroups_directoryId,
+    associateIpGroups_groupIds,
+    associateIpGroupsResponse_httpStatus,
 
     -- ** AuthorizeIpRules
     authorizeIpRules_groupId,
     authorizeIpRules_userRules,
     authorizeIpRulesResponse_httpStatus,
 
-    -- ** DescribeWorkspaceImagePermissions
-    describeWorkspaceImagePermissions_nextToken,
-    describeWorkspaceImagePermissions_maxResults,
-    describeWorkspaceImagePermissions_imageId,
-    describeWorkspaceImagePermissionsResponse_imagePermissions,
-    describeWorkspaceImagePermissionsResponse_nextToken,
-    describeWorkspaceImagePermissionsResponse_imageId,
-    describeWorkspaceImagePermissionsResponse_httpStatus,
+    -- ** CopyWorkspaceImage
+    copyWorkspaceImage_tags,
+    copyWorkspaceImage_description,
+    copyWorkspaceImage_name,
+    copyWorkspaceImage_sourceImageId,
+    copyWorkspaceImage_sourceRegion,
+    copyWorkspaceImageResponse_imageId,
+    copyWorkspaceImageResponse_httpStatus,
 
-    -- ** RebuildWorkspaces
-    rebuildWorkspaces_rebuildWorkspaceRequests,
-    rebuildWorkspacesResponse_failedRequests,
-    rebuildWorkspacesResponse_httpStatus,
-
-    -- ** ImportWorkspaceImage
-    importWorkspaceImage_applications,
-    importWorkspaceImage_tags,
-    importWorkspaceImage_ec2ImageId,
-    importWorkspaceImage_ingestionProcess,
-    importWorkspaceImage_imageName,
-    importWorkspaceImage_imageDescription,
-    importWorkspaceImageResponse_imageId,
-    importWorkspaceImageResponse_httpStatus,
-
-    -- ** ModifyWorkspaceState
-    modifyWorkspaceState_workspaceId,
-    modifyWorkspaceState_workspaceState,
-    modifyWorkspaceStateResponse_httpStatus,
+    -- ** CreateConnectionAlias
+    createConnectionAlias_tags,
+    createConnectionAlias_connectionString,
+    createConnectionAliasResponse_aliasId,
+    createConnectionAliasResponse_httpStatus,
 
     -- ** CreateIpGroup
-    createIpGroup_groupDesc,
-    createIpGroup_userRules,
     createIpGroup_tags,
+    createIpGroup_userRules,
+    createIpGroup_groupDesc,
     createIpGroup_groupName,
     createIpGroupResponse_groupId,
     createIpGroupResponse_httpStatus,
-
-    -- ** DisassociateConnectionAlias
-    disassociateConnectionAlias_aliasId,
-    disassociateConnectionAliasResponse_httpStatus,
-
-    -- ** ModifyWorkspaceCreationProperties
-    modifyWorkspaceCreationProperties_resourceId,
-    modifyWorkspaceCreationProperties_workspaceCreationProperties,
-    modifyWorkspaceCreationPropertiesResponse_httpStatus,
-
-    -- ** RegisterWorkspaceDirectory
-    registerWorkspaceDirectory_subnetIds,
-    registerWorkspaceDirectory_enableSelfService,
-    registerWorkspaceDirectory_tenancy,
-    registerWorkspaceDirectory_tags,
-    registerWorkspaceDirectory_directoryId,
-    registerWorkspaceDirectory_enableWorkDocs,
-    registerWorkspaceDirectoryResponse_httpStatus,
-
-    -- ** RestoreWorkspace
-    restoreWorkspace_workspaceId,
-    restoreWorkspaceResponse_httpStatus,
-
-    -- ** DescribeConnectionAliasPermissions
-    describeConnectionAliasPermissions_nextToken,
-    describeConnectionAliasPermissions_maxResults,
-    describeConnectionAliasPermissions_aliasId,
-    describeConnectionAliasPermissionsResponse_aliasId,
-    describeConnectionAliasPermissionsResponse_nextToken,
-    describeConnectionAliasPermissionsResponse_connectionAliasPermissions,
-    describeConnectionAliasPermissionsResponse_httpStatus,
 
     -- ** CreateTags
     createTags_resourceId,
     createTags_tags,
     createTagsResponse_httpStatus,
 
+    -- ** CreateUpdatedWorkspaceImage
+    createUpdatedWorkspaceImage_tags,
+    createUpdatedWorkspaceImage_name,
+    createUpdatedWorkspaceImage_description,
+    createUpdatedWorkspaceImage_sourceImageId,
+    createUpdatedWorkspaceImageResponse_imageId,
+    createUpdatedWorkspaceImageResponse_httpStatus,
+
     -- ** CreateWorkspaceBundle
-    createWorkspaceBundle_rootStorage,
     createWorkspaceBundle_tags,
+    createWorkspaceBundle_rootStorage,
     createWorkspaceBundle_bundleName,
     createWorkspaceBundle_bundleDescription,
     createWorkspaceBundle_imageId,
@@ -170,80 +77,248 @@ module Amazonka.WorkSpaces.Lens
     createWorkspaceBundleResponse_workspaceBundle,
     createWorkspaceBundleResponse_httpStatus,
 
-    -- ** DeleteTags
-    deleteTags_resourceId,
-    deleteTags_tagKeys,
-    deleteTagsResponse_httpStatus,
-
-    -- ** ModifyWorkspaceAccessProperties
-    modifyWorkspaceAccessProperties_resourceId,
-    modifyWorkspaceAccessProperties_workspaceAccessProperties,
-    modifyWorkspaceAccessPropertiesResponse_httpStatus,
-
-    -- ** UpdateRulesOfIpGroup
-    updateRulesOfIpGroup_groupId,
-    updateRulesOfIpGroup_userRules,
-    updateRulesOfIpGroupResponse_httpStatus,
-
-    -- ** DeleteWorkspaceImage
-    deleteWorkspaceImage_imageId,
-    deleteWorkspaceImageResponse_httpStatus,
-
-    -- ** StopWorkspaces
-    stopWorkspaces_stopWorkspaceRequests,
-    stopWorkspacesResponse_failedRequests,
-    stopWorkspacesResponse_httpStatus,
-
-    -- ** AssociateIpGroups
-    associateIpGroups_directoryId,
-    associateIpGroups_groupIds,
-    associateIpGroupsResponse_httpStatus,
-
-    -- ** ModifySelfservicePermissions
-    modifySelfservicePermissions_resourceId,
-    modifySelfservicePermissions_selfservicePermissions,
-    modifySelfservicePermissionsResponse_httpStatus,
+    -- ** CreateWorkspaces
+    createWorkspaces_workspaces,
+    createWorkspacesResponse_failedRequests,
+    createWorkspacesResponse_pendingRequests,
+    createWorkspacesResponse_httpStatus,
 
     -- ** DeleteConnectionAlias
     deleteConnectionAlias_aliasId,
     deleteConnectionAliasResponse_httpStatus,
 
-    -- ** DescribeWorkspacesConnectionStatus
-    describeWorkspacesConnectionStatus_workspaceIds,
-    describeWorkspacesConnectionStatus_nextToken,
-    describeWorkspacesConnectionStatusResponse_nextToken,
-    describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus,
-    describeWorkspacesConnectionStatusResponse_httpStatus,
-
-    -- ** CreateConnectionAlias
-    createConnectionAlias_tags,
-    createConnectionAlias_connectionString,
-    createConnectionAliasResponse_aliasId,
-    createConnectionAliasResponse_httpStatus,
-
-    -- ** RebootWorkspaces
-    rebootWorkspaces_rebootWorkspaceRequests,
-    rebootWorkspacesResponse_failedRequests,
-    rebootWorkspacesResponse_httpStatus,
-
     -- ** DeleteIpGroup
     deleteIpGroup_groupId,
     deleteIpGroupResponse_httpStatus,
 
-    -- ** CopyWorkspaceImage
-    copyWorkspaceImage_description,
-    copyWorkspaceImage_tags,
-    copyWorkspaceImage_name,
-    copyWorkspaceImage_sourceImageId,
-    copyWorkspaceImage_sourceRegion,
-    copyWorkspaceImageResponse_imageId,
-    copyWorkspaceImageResponse_httpStatus,
+    -- ** DeleteTags
+    deleteTags_resourceId,
+    deleteTags_tagKeys,
+    deleteTagsResponse_httpStatus,
+
+    -- ** DeleteWorkspaceBundle
+    deleteWorkspaceBundle_bundleId,
+    deleteWorkspaceBundleResponse_httpStatus,
+
+    -- ** DeleteWorkspaceImage
+    deleteWorkspaceImage_imageId,
+    deleteWorkspaceImageResponse_httpStatus,
+
+    -- ** DeregisterWorkspaceDirectory
+    deregisterWorkspaceDirectory_directoryId,
+    deregisterWorkspaceDirectoryResponse_httpStatus,
+
+    -- ** DescribeAccount
+    describeAccountResponse_dedicatedTenancyManagementCidrRange,
+    describeAccountResponse_dedicatedTenancySupport,
+    describeAccountResponse_httpStatus,
+
+    -- ** DescribeAccountModifications
+    describeAccountModifications_nextToken,
+    describeAccountModificationsResponse_nextToken,
+    describeAccountModificationsResponse_accountModifications,
+    describeAccountModificationsResponse_httpStatus,
+
+    -- ** DescribeClientProperties
+    describeClientProperties_resourceIds,
+    describeClientPropertiesResponse_clientPropertiesList,
+    describeClientPropertiesResponse_httpStatus,
+
+    -- ** DescribeConnectionAliasPermissions
+    describeConnectionAliasPermissions_nextToken,
+    describeConnectionAliasPermissions_maxResults,
+    describeConnectionAliasPermissions_aliasId,
+    describeConnectionAliasPermissionsResponse_nextToken,
+    describeConnectionAliasPermissionsResponse_aliasId,
+    describeConnectionAliasPermissionsResponse_connectionAliasPermissions,
+    describeConnectionAliasPermissionsResponse_httpStatus,
+
+    -- ** DescribeConnectionAliases
+    describeConnectionAliases_resourceId,
+    describeConnectionAliases_nextToken,
+    describeConnectionAliases_aliasIds,
+    describeConnectionAliases_limit,
+    describeConnectionAliasesResponse_nextToken,
+    describeConnectionAliasesResponse_connectionAliases,
+    describeConnectionAliasesResponse_httpStatus,
+
+    -- ** DescribeIpGroups
+    describeIpGroups_nextToken,
+    describeIpGroups_maxResults,
+    describeIpGroups_groupIds,
+    describeIpGroupsResponse_nextToken,
+    describeIpGroupsResponse_result,
+    describeIpGroupsResponse_httpStatus,
+
+    -- ** DescribeTags
+    describeTags_resourceId,
+    describeTagsResponse_tagList,
+    describeTagsResponse_httpStatus,
+
+    -- ** DescribeWorkspaceBundles
+    describeWorkspaceBundles_nextToken,
+    describeWorkspaceBundles_bundleIds,
+    describeWorkspaceBundles_owner,
+    describeWorkspaceBundlesResponse_nextToken,
+    describeWorkspaceBundlesResponse_bundles,
+    describeWorkspaceBundlesResponse_httpStatus,
+
+    -- ** DescribeWorkspaceDirectories
+    describeWorkspaceDirectories_nextToken,
+    describeWorkspaceDirectories_directoryIds,
+    describeWorkspaceDirectories_limit,
+    describeWorkspaceDirectoriesResponse_nextToken,
+    describeWorkspaceDirectoriesResponse_directories,
+    describeWorkspaceDirectoriesResponse_httpStatus,
+
+    -- ** DescribeWorkspaceImagePermissions
+    describeWorkspaceImagePermissions_nextToken,
+    describeWorkspaceImagePermissions_maxResults,
+    describeWorkspaceImagePermissions_imageId,
+    describeWorkspaceImagePermissionsResponse_nextToken,
+    describeWorkspaceImagePermissionsResponse_imagePermissions,
+    describeWorkspaceImagePermissionsResponse_imageId,
+    describeWorkspaceImagePermissionsResponse_httpStatus,
+
+    -- ** DescribeWorkspaceImages
+    describeWorkspaceImages_nextToken,
+    describeWorkspaceImages_imageIds,
+    describeWorkspaceImages_imageType,
+    describeWorkspaceImages_maxResults,
+    describeWorkspaceImagesResponse_nextToken,
+    describeWorkspaceImagesResponse_images,
+    describeWorkspaceImagesResponse_httpStatus,
 
     -- ** DescribeWorkspaceSnapshots
     describeWorkspaceSnapshots_workspaceId,
     describeWorkspaceSnapshotsResponse_restoreSnapshots,
     describeWorkspaceSnapshotsResponse_rebuildSnapshots,
     describeWorkspaceSnapshotsResponse_httpStatus,
+
+    -- ** DescribeWorkspaces
+    describeWorkspaces_directoryId,
+    describeWorkspaces_nextToken,
+    describeWorkspaces_userName,
+    describeWorkspaces_limit,
+    describeWorkspaces_bundleId,
+    describeWorkspaces_workspaceIds,
+    describeWorkspacesResponse_nextToken,
+    describeWorkspacesResponse_workspaces,
+    describeWorkspacesResponse_httpStatus,
+
+    -- ** DescribeWorkspacesConnectionStatus
+    describeWorkspacesConnectionStatus_nextToken,
+    describeWorkspacesConnectionStatus_workspaceIds,
+    describeWorkspacesConnectionStatusResponse_nextToken,
+    describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus,
+    describeWorkspacesConnectionStatusResponse_httpStatus,
+
+    -- ** DisassociateConnectionAlias
+    disassociateConnectionAlias_aliasId,
+    disassociateConnectionAliasResponse_httpStatus,
+
+    -- ** DisassociateIpGroups
+    disassociateIpGroups_directoryId,
+    disassociateIpGroups_groupIds,
+    disassociateIpGroupsResponse_httpStatus,
+
+    -- ** ImportWorkspaceImage
+    importWorkspaceImage_tags,
+    importWorkspaceImage_applications,
+    importWorkspaceImage_ec2ImageId,
+    importWorkspaceImage_ingestionProcess,
+    importWorkspaceImage_imageName,
+    importWorkspaceImage_imageDescription,
+    importWorkspaceImageResponse_imageId,
+    importWorkspaceImageResponse_httpStatus,
+
+    -- ** ListAvailableManagementCidrRanges
+    listAvailableManagementCidrRanges_nextToken,
+    listAvailableManagementCidrRanges_maxResults,
+    listAvailableManagementCidrRanges_managementCidrRangeConstraint,
+    listAvailableManagementCidrRangesResponse_nextToken,
+    listAvailableManagementCidrRangesResponse_managementCidrRanges,
+    listAvailableManagementCidrRangesResponse_httpStatus,
+
+    -- ** MigrateWorkspace
+    migrateWorkspace_sourceWorkspaceId,
+    migrateWorkspace_bundleId,
+    migrateWorkspaceResponse_targetWorkspaceId,
+    migrateWorkspaceResponse_sourceWorkspaceId,
+    migrateWorkspaceResponse_httpStatus,
+
+    -- ** ModifyAccount
+    modifyAccount_dedicatedTenancyManagementCidrRange,
+    modifyAccount_dedicatedTenancySupport,
+    modifyAccountResponse_httpStatus,
+
+    -- ** ModifyClientProperties
+    modifyClientProperties_resourceId,
+    modifyClientProperties_clientProperties,
+    modifyClientPropertiesResponse_httpStatus,
+
+    -- ** ModifySelfservicePermissions
+    modifySelfservicePermissions_resourceId,
+    modifySelfservicePermissions_selfservicePermissions,
+    modifySelfservicePermissionsResponse_httpStatus,
+
+    -- ** ModifyWorkspaceAccessProperties
+    modifyWorkspaceAccessProperties_resourceId,
+    modifyWorkspaceAccessProperties_workspaceAccessProperties,
+    modifyWorkspaceAccessPropertiesResponse_httpStatus,
+
+    -- ** ModifyWorkspaceCreationProperties
+    modifyWorkspaceCreationProperties_resourceId,
+    modifyWorkspaceCreationProperties_workspaceCreationProperties,
+    modifyWorkspaceCreationPropertiesResponse_httpStatus,
+
+    -- ** ModifyWorkspaceProperties
+    modifyWorkspaceProperties_workspaceId,
+    modifyWorkspaceProperties_workspaceProperties,
+    modifyWorkspacePropertiesResponse_httpStatus,
+
+    -- ** ModifyWorkspaceState
+    modifyWorkspaceState_workspaceId,
+    modifyWorkspaceState_workspaceState,
+    modifyWorkspaceStateResponse_httpStatus,
+
+    -- ** RebootWorkspaces
+    rebootWorkspaces_rebootWorkspaceRequests,
+    rebootWorkspacesResponse_failedRequests,
+    rebootWorkspacesResponse_httpStatus,
+
+    -- ** RebuildWorkspaces
+    rebuildWorkspaces_rebuildWorkspaceRequests,
+    rebuildWorkspacesResponse_failedRequests,
+    rebuildWorkspacesResponse_httpStatus,
+
+    -- ** RegisterWorkspaceDirectory
+    registerWorkspaceDirectory_tags,
+    registerWorkspaceDirectory_subnetIds,
+    registerWorkspaceDirectory_tenancy,
+    registerWorkspaceDirectory_enableSelfService,
+    registerWorkspaceDirectory_directoryId,
+    registerWorkspaceDirectory_enableWorkDocs,
+    registerWorkspaceDirectoryResponse_httpStatus,
+
+    -- ** RestoreWorkspace
+    restoreWorkspace_workspaceId,
+    restoreWorkspaceResponse_httpStatus,
+
+    -- ** RevokeIpRules
+    revokeIpRules_groupId,
+    revokeIpRules_userRules,
+    revokeIpRulesResponse_httpStatus,
+
+    -- ** StartWorkspaces
+    startWorkspaces_startWorkspaceRequests,
+    startWorkspacesResponse_failedRequests,
+    startWorkspacesResponse_httpStatus,
+
+    -- ** StopWorkspaces
+    stopWorkspaces_stopWorkspaceRequests,
+    stopWorkspacesResponse_failedRequests,
+    stopWorkspacesResponse_httpStatus,
 
     -- ** TerminateWorkspaces
     terminateWorkspaces_terminateWorkspaceRequests,
@@ -255,46 +330,15 @@ module Amazonka.WorkSpaces.Lens
     updateConnectionAliasPermission_connectionAliasPermission,
     updateConnectionAliasPermissionResponse_httpStatus,
 
-    -- ** CreateWorkspaces
-    createWorkspaces_workspaces,
-    createWorkspacesResponse_failedRequests,
-    createWorkspacesResponse_pendingRequests,
-    createWorkspacesResponse_httpStatus,
-
-    -- ** DescribeClientProperties
-    describeClientProperties_resourceIds,
-    describeClientPropertiesResponse_clientPropertiesList,
-    describeClientPropertiesResponse_httpStatus,
-
-    -- ** ModifyClientProperties
-    modifyClientProperties_resourceId,
-    modifyClientProperties_clientProperties,
-    modifyClientPropertiesResponse_httpStatus,
-
-    -- ** DescribeIpGroups
-    describeIpGroups_groupIds,
-    describeIpGroups_nextToken,
-    describeIpGroups_maxResults,
-    describeIpGroupsResponse_result,
-    describeIpGroupsResponse_nextToken,
-    describeIpGroupsResponse_httpStatus,
-
-    -- ** DeleteWorkspaceBundle
-    deleteWorkspaceBundle_bundleId,
-    deleteWorkspaceBundleResponse_httpStatus,
+    -- ** UpdateRulesOfIpGroup
+    updateRulesOfIpGroup_groupId,
+    updateRulesOfIpGroup_userRules,
+    updateRulesOfIpGroupResponse_httpStatus,
 
     -- ** UpdateWorkspaceBundle
     updateWorkspaceBundle_bundleId,
     updateWorkspaceBundle_imageId,
     updateWorkspaceBundleResponse_httpStatus,
-
-    -- ** ListAvailableManagementCidrRanges
-    listAvailableManagementCidrRanges_nextToken,
-    listAvailableManagementCidrRanges_maxResults,
-    listAvailableManagementCidrRanges_managementCidrRangeConstraint,
-    listAvailableManagementCidrRangesResponse_managementCidrRanges,
-    listAvailableManagementCidrRangesResponse_nextToken,
-    listAvailableManagementCidrRangesResponse_httpStatus,
 
     -- ** UpdateWorkspaceImagePermission
     updateWorkspaceImagePermission_imageId,
@@ -302,59 +346,15 @@ module Amazonka.WorkSpaces.Lens
     updateWorkspaceImagePermission_sharedAccountId,
     updateWorkspaceImagePermissionResponse_httpStatus,
 
-    -- ** CreateUpdatedWorkspaceImage
-    createUpdatedWorkspaceImage_tags,
-    createUpdatedWorkspaceImage_name,
-    createUpdatedWorkspaceImage_description,
-    createUpdatedWorkspaceImage_sourceImageId,
-    createUpdatedWorkspaceImageResponse_imageId,
-    createUpdatedWorkspaceImageResponse_httpStatus,
-
-    -- ** DescribeWorkspaces
-    describeWorkspaces_directoryId,
-    describeWorkspaces_workspaceIds,
-    describeWorkspaces_userName,
-    describeWorkspaces_bundleId,
-    describeWorkspaces_nextToken,
-    describeWorkspaces_limit,
-    describeWorkspacesResponse_nextToken,
-    describeWorkspacesResponse_workspaces,
-    describeWorkspacesResponse_httpStatus,
-
-    -- ** DescribeConnectionAliases
-    describeConnectionAliases_resourceId,
-    describeConnectionAliases_aliasIds,
-    describeConnectionAliases_nextToken,
-    describeConnectionAliases_limit,
-    describeConnectionAliasesResponse_connectionAliases,
-    describeConnectionAliasesResponse_nextToken,
-    describeConnectionAliasesResponse_httpStatus,
-
-    -- ** StartWorkspaces
-    startWorkspaces_startWorkspaceRequests,
-    startWorkspacesResponse_failedRequests,
-    startWorkspacesResponse_httpStatus,
-
-    -- ** DescribeAccountModifications
-    describeAccountModifications_nextToken,
-    describeAccountModificationsResponse_accountModifications,
-    describeAccountModificationsResponse_nextToken,
-    describeAccountModificationsResponse_httpStatus,
-
-    -- ** ModifyAccount
-    modifyAccount_dedicatedTenancySupport,
-    modifyAccount_dedicatedTenancyManagementCidrRange,
-    modifyAccountResponse_httpStatus,
-
     -- * Types
 
     -- ** AccountModification
-    accountModification_startTime,
-    accountModification_dedicatedTenancySupport,
-    accountModification_modificationState,
-    accountModification_dedicatedTenancyManagementCidrRange,
-    accountModification_errorCode,
     accountModification_errorMessage,
+    accountModification_dedicatedTenancyManagementCidrRange,
+    accountModification_modificationState,
+    accountModification_dedicatedTenancySupport,
+    accountModification_errorCode,
+    accountModification_startTime,
 
     -- ** ClientProperties
     clientProperties_reconnectEnabled,
@@ -367,15 +367,15 @@ module Amazonka.WorkSpaces.Lens
     computeType_name,
 
     -- ** ConnectionAlias
-    connectionAlias_state,
-    connectionAlias_ownerAccountId,
-    connectionAlias_aliasId,
     connectionAlias_associations,
+    connectionAlias_aliasId,
+    connectionAlias_state,
     connectionAlias_connectionString,
+    connectionAlias_ownerAccountId,
 
     -- ** ConnectionAliasAssociation
-    connectionAliasAssociation_associatedAccountId,
     connectionAliasAssociation_resourceId,
+    connectionAliasAssociation_associatedAccountId,
     connectionAliasAssociation_associationStatus,
     connectionAliasAssociation_connectionIdentifier,
 
@@ -384,29 +384,29 @@ module Amazonka.WorkSpaces.Lens
     connectionAliasPermission_allowAssociation,
 
     -- ** DefaultWorkspaceCreationProperties
-    defaultWorkspaceCreationProperties_customSecurityGroupId,
     defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator,
-    defaultWorkspaceCreationProperties_enableWorkDocs,
-    defaultWorkspaceCreationProperties_enableMaintenanceMode,
     defaultWorkspaceCreationProperties_enableInternetAccess,
+    defaultWorkspaceCreationProperties_enableWorkDocs,
     defaultWorkspaceCreationProperties_defaultOu,
+    defaultWorkspaceCreationProperties_enableMaintenanceMode,
+    defaultWorkspaceCreationProperties_customSecurityGroupId,
 
     -- ** FailedCreateWorkspaceRequest
+    failedCreateWorkspaceRequest_errorMessage,
     failedCreateWorkspaceRequest_workspaceRequest,
     failedCreateWorkspaceRequest_errorCode,
-    failedCreateWorkspaceRequest_errorMessage,
 
     -- ** FailedWorkspaceChangeRequest
-    failedWorkspaceChangeRequest_errorCode,
-    failedWorkspaceChangeRequest_workspaceId,
     failedWorkspaceChangeRequest_errorMessage,
+    failedWorkspaceChangeRequest_workspaceId,
+    failedWorkspaceChangeRequest_errorCode,
 
     -- ** ImagePermission
     imagePermission_sharedAccountId,
 
     -- ** IpRuleItem
-    ipRuleItem_ruleDesc,
     ipRuleItem_ipRule,
+    ipRuleItem_ruleDesc,
 
     -- ** ModificationState
     modificationState_state,
@@ -425,11 +425,11 @@ module Amazonka.WorkSpaces.Lens
     rootStorage_capacity,
 
     -- ** SelfservicePermissions
-    selfservicePermissions_restartWorkspace,
+    selfservicePermissions_increaseVolumeSize,
+    selfservicePermissions_rebuildWorkspace,
     selfservicePermissions_changeComputeType,
     selfservicePermissions_switchRunningMode,
-    selfservicePermissions_rebuildWorkspace,
-    selfservicePermissions_increaseVolumeSize,
+    selfservicePermissions_restartWorkspace,
 
     -- ** Snapshot
     snapshot_snapshotTime,
@@ -455,111 +455,111 @@ module Amazonka.WorkSpaces.Lens
     userStorage_capacity,
 
     -- ** Workspace
+    workspace_workspaceProperties,
     workspace_directoryId,
-    workspace_state,
-    workspace_ipAddress,
-    workspace_modificationStates,
+    workspace_volumeEncryptionKey,
+    workspace_errorMessage,
     workspace_userName,
     workspace_subnetId,
-    workspace_bundleId,
-    workspace_workspaceProperties,
-    workspace_rootVolumeEncryptionEnabled,
-    workspace_errorCode,
-    workspace_volumeEncryptionKey,
     workspace_computerName,
+    workspace_state,
     workspace_workspaceId,
     workspace_userVolumeEncryptionEnabled,
-    workspace_errorMessage,
+    workspace_bundleId,
+    workspace_errorCode,
+    workspace_rootVolumeEncryptionEnabled,
+    workspace_modificationStates,
+    workspace_ipAddress,
 
     -- ** WorkspaceAccessProperties
-    workspaceAccessProperties_deviceTypeWindows,
-    workspaceAccessProperties_deviceTypeWeb,
     workspaceAccessProperties_deviceTypeAndroid,
     workspaceAccessProperties_deviceTypeLinux,
+    workspaceAccessProperties_deviceTypeWeb,
     workspaceAccessProperties_deviceTypeOsx,
     workspaceAccessProperties_deviceTypeChromeOs,
+    workspaceAccessProperties_deviceTypeWindows,
     workspaceAccessProperties_deviceTypeIos,
     workspaceAccessProperties_deviceTypeZeroClient,
 
     -- ** WorkspaceBundle
-    workspaceBundle_creationTime,
-    workspaceBundle_lastUpdatedTime,
-    workspaceBundle_bundleId,
-    workspaceBundle_owner,
-    workspaceBundle_rootStorage,
     workspaceBundle_name,
-    workspaceBundle_imageId,
+    workspaceBundle_rootStorage,
+    workspaceBundle_owner,
+    workspaceBundle_lastUpdatedTime,
+    workspaceBundle_description,
+    workspaceBundle_bundleId,
+    workspaceBundle_creationTime,
     workspaceBundle_computeType,
     workspaceBundle_userStorage,
-    workspaceBundle_description,
+    workspaceBundle_imageId,
 
     -- ** WorkspaceConnectionStatus
+    workspaceConnectionStatus_connectionState,
+    workspaceConnectionStatus_workspaceId,
     workspaceConnectionStatus_lastKnownUserConnectionTimestamp,
     workspaceConnectionStatus_connectionStateCheckTimestamp,
-    workspaceConnectionStatus_workspaceId,
-    workspaceConnectionStatus_connectionState,
 
     -- ** WorkspaceCreationProperties
-    workspaceCreationProperties_customSecurityGroupId,
     workspaceCreationProperties_userEnabledAsLocalAdministrator,
-    workspaceCreationProperties_enableWorkDocs,
-    workspaceCreationProperties_enableMaintenanceMode,
     workspaceCreationProperties_enableInternetAccess,
+    workspaceCreationProperties_enableWorkDocs,
     workspaceCreationProperties_defaultOu,
+    workspaceCreationProperties_enableMaintenanceMode,
+    workspaceCreationProperties_customSecurityGroupId,
 
     -- ** WorkspaceDirectory
-    workspaceDirectory_registrationCode,
-    workspaceDirectory_iamRoleId,
+    workspaceDirectory_alias,
+    workspaceDirectory_directoryName,
     workspaceDirectory_directoryId,
+    workspaceDirectory_workspaceSecurityGroupId,
+    workspaceDirectory_ipGroupIds,
+    workspaceDirectory_directoryType,
     workspaceDirectory_state,
     workspaceDirectory_customerUserName,
-    workspaceDirectory_subnetIds,
-    workspaceDirectory_ipGroupIds,
-    workspaceDirectory_alias,
-    workspaceDirectory_workspaceSecurityGroupId,
-    workspaceDirectory_directoryType,
-    workspaceDirectory_tenancy,
-    workspaceDirectory_workspaceCreationProperties,
     workspaceDirectory_dnsIpAddresses,
-    workspaceDirectory_workspaceAccessProperties,
-    workspaceDirectory_directoryName,
+    workspaceDirectory_iamRoleId,
+    workspaceDirectory_registrationCode,
+    workspaceDirectory_workspaceCreationProperties,
+    workspaceDirectory_subnetIds,
     workspaceDirectory_selfservicePermissions,
+    workspaceDirectory_workspaceAccessProperties,
+    workspaceDirectory_tenancy,
 
     -- ** WorkspaceImage
-    workspaceImage_state,
-    workspaceImage_ownerAccountId,
     workspaceImage_operatingSystem,
-    workspaceImage_created,
-    workspaceImage_requiredTenancy,
     workspaceImage_name,
-    workspaceImage_updates,
-    workspaceImage_imageId,
-    workspaceImage_errorCode,
     workspaceImage_errorMessage,
+    workspaceImage_created,
+    workspaceImage_state,
     workspaceImage_description,
+    workspaceImage_requiredTenancy,
+    workspaceImage_ownerAccountId,
+    workspaceImage_errorCode,
+    workspaceImage_imageId,
+    workspaceImage_updates,
 
     -- ** WorkspaceProperties
-    workspaceProperties_computeTypeName,
+    workspaceProperties_userVolumeSizeGib,
     workspaceProperties_runningMode,
+    workspaceProperties_computeTypeName,
     workspaceProperties_rootVolumeSizeGib,
     workspaceProperties_runningModeAutoStopTimeoutInMinutes,
-    workspaceProperties_userVolumeSizeGib,
 
     -- ** WorkspaceRequest
+    workspaceRequest_tags,
     workspaceRequest_workspaceProperties,
-    workspaceRequest_rootVolumeEncryptionEnabled,
     workspaceRequest_volumeEncryptionKey,
     workspaceRequest_userVolumeEncryptionEnabled,
-    workspaceRequest_tags,
+    workspaceRequest_rootVolumeEncryptionEnabled,
     workspaceRequest_directoryId,
     workspaceRequest_userName,
     workspaceRequest_bundleId,
 
     -- ** WorkspacesIpGroup
-    workspacesIpGroup_groupDesc,
     workspacesIpGroup_userRules,
-    workspacesIpGroup_groupId,
     workspacesIpGroup_groupName,
+    workspacesIpGroup_groupDesc,
+    workspacesIpGroup_groupId,
   )
 where
 

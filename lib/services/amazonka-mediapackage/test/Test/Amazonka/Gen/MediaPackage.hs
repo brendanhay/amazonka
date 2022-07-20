@@ -27,11 +27,29 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateHarvestJob $
+--         [ requestConfigureLogs $
+--             newConfigureLogs
+--
+--         , requestCreateChannel $
+--             newCreateChannel
+--
+--         , requestCreateHarvestJob $
 --             newCreateHarvestJob
 --
---         , requestConfigureLogs $
---             newConfigureLogs
+--         , requestCreateOriginEndpoint $
+--             newCreateOriginEndpoint
+--
+--         , requestDeleteChannel $
+--             newDeleteChannel
+--
+--         , requestDeleteOriginEndpoint $
+--             newDeleteOriginEndpoint
+--
+--         , requestDescribeChannel $
+--             newDescribeChannel
+--
+--         , requestDescribeHarvestJob $
+--             newDescribeHarvestJob
 --
 --         , requestDescribeOriginEndpoint $
 --             newDescribeOriginEndpoint
@@ -39,32 +57,17 @@ import Test.Tasty
 --         , requestListChannels $
 --             newListChannels
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDeleteChannel $
---             newDeleteChannel
---
---         , requestUpdateChannel $
---             newUpdateChannel
---
---         , requestDescribeHarvestJob $
---             newDescribeHarvestJob
---
---         , requestRotateIngestEndpointCredentials $
---             newRotateIngestEndpointCredentials
---
---         , requestCreateOriginEndpoint $
---             newCreateOriginEndpoint
+--         , requestListHarvestJobs $
+--             newListHarvestJobs
 --
 --         , requestListOriginEndpoints $
 --             newListOriginEndpoints
 --
---         , requestListHarvestJobs $
---             newListHarvestJobs
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
---         , requestCreateChannel $
---             newCreateChannel
+--         , requestRotateIngestEndpointCredentials $
+--             newRotateIngestEndpointCredentials
 --
 --         , requestTagResource $
 --             newTagResource
@@ -72,11 +75,8 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDescribeChannel $
---             newDescribeChannel
---
---         , requestDeleteOriginEndpoint $
---             newDeleteOriginEndpoint
+--         , requestUpdateChannel $
+--             newUpdateChannel
 --
 --         , requestUpdateOriginEndpoint $
 --             newUpdateOriginEndpoint
@@ -84,11 +84,29 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateHarvestJob $
+--         [ responseConfigureLogs $
+--             newConfigureLogsResponse
+--
+--         , responseCreateChannel $
+--             newCreateChannelResponse
+--
+--         , responseCreateHarvestJob $
 --             newCreateHarvestJobResponse
 --
---         , responseConfigureLogs $
---             newConfigureLogsResponse
+--         , responseCreateOriginEndpoint $
+--             newCreateOriginEndpointResponse
+--
+--         , responseDeleteChannel $
+--             newDeleteChannelResponse
+--
+--         , responseDeleteOriginEndpoint $
+--             newDeleteOriginEndpointResponse
+--
+--         , responseDescribeChannel $
+--             newDescribeChannelResponse
+--
+--         , responseDescribeHarvestJob $
+--             newDescribeHarvestJobResponse
 --
 --         , responseDescribeOriginEndpoint $
 --             newDescribeOriginEndpointResponse
@@ -96,32 +114,17 @@ import Test.Tasty
 --         , responseListChannels $
 --             newListChannelsResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDeleteChannel $
---             newDeleteChannelResponse
---
---         , responseUpdateChannel $
---             newUpdateChannelResponse
---
---         , responseDescribeHarvestJob $
---             newDescribeHarvestJobResponse
---
---         , responseRotateIngestEndpointCredentials $
---             newRotateIngestEndpointCredentialsResponse
---
---         , responseCreateOriginEndpoint $
---             newCreateOriginEndpointResponse
+--         , responseListHarvestJobs $
+--             newListHarvestJobsResponse
 --
 --         , responseListOriginEndpoints $
 --             newListOriginEndpointsResponse
 --
---         , responseListHarvestJobs $
---             newListHarvestJobsResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
---         , responseCreateChannel $
---             newCreateChannelResponse
+--         , responseRotateIngestEndpointCredentials $
+--             newRotateIngestEndpointCredentialsResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -129,11 +132,8 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeChannel $
---             newDescribeChannelResponse
---
---         , responseDeleteOriginEndpoint $
---             newDeleteOriginEndpointResponse
+--         , responseUpdateChannel $
+--             newUpdateChannelResponse
 --
 --         , responseUpdateOriginEndpoint $
 --             newUpdateOriginEndpointResponse
@@ -143,17 +143,53 @@ import Test.Tasty
 
 -- Requests
 
+requestConfigureLogs :: ConfigureLogs -> TestTree
+requestConfigureLogs =
+  req
+    "ConfigureLogs"
+    "fixture/ConfigureLogs.yaml"
+
+requestCreateChannel :: CreateChannel -> TestTree
+requestCreateChannel =
+  req
+    "CreateChannel"
+    "fixture/CreateChannel.yaml"
+
 requestCreateHarvestJob :: CreateHarvestJob -> TestTree
 requestCreateHarvestJob =
   req
     "CreateHarvestJob"
     "fixture/CreateHarvestJob.yaml"
 
-requestConfigureLogs :: ConfigureLogs -> TestTree
-requestConfigureLogs =
+requestCreateOriginEndpoint :: CreateOriginEndpoint -> TestTree
+requestCreateOriginEndpoint =
   req
-    "ConfigureLogs"
-    "fixture/ConfigureLogs.yaml"
+    "CreateOriginEndpoint"
+    "fixture/CreateOriginEndpoint.yaml"
+
+requestDeleteChannel :: DeleteChannel -> TestTree
+requestDeleteChannel =
+  req
+    "DeleteChannel"
+    "fixture/DeleteChannel.yaml"
+
+requestDeleteOriginEndpoint :: DeleteOriginEndpoint -> TestTree
+requestDeleteOriginEndpoint =
+  req
+    "DeleteOriginEndpoint"
+    "fixture/DeleteOriginEndpoint.yaml"
+
+requestDescribeChannel :: DescribeChannel -> TestTree
+requestDescribeChannel =
+  req
+    "DescribeChannel"
+    "fixture/DescribeChannel.yaml"
+
+requestDescribeHarvestJob :: DescribeHarvestJob -> TestTree
+requestDescribeHarvestJob =
+  req
+    "DescribeHarvestJob"
+    "fixture/DescribeHarvestJob.yaml"
 
 requestDescribeOriginEndpoint :: DescribeOriginEndpoint -> TestTree
 requestDescribeOriginEndpoint =
@@ -167,41 +203,11 @@ requestListChannels =
     "ListChannels"
     "fixture/ListChannels.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestListHarvestJobs :: ListHarvestJobs -> TestTree
+requestListHarvestJobs =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteChannel :: DeleteChannel -> TestTree
-requestDeleteChannel =
-  req
-    "DeleteChannel"
-    "fixture/DeleteChannel.yaml"
-
-requestUpdateChannel :: UpdateChannel -> TestTree
-requestUpdateChannel =
-  req
-    "UpdateChannel"
-    "fixture/UpdateChannel.yaml"
-
-requestDescribeHarvestJob :: DescribeHarvestJob -> TestTree
-requestDescribeHarvestJob =
-  req
-    "DescribeHarvestJob"
-    "fixture/DescribeHarvestJob.yaml"
-
-requestRotateIngestEndpointCredentials :: RotateIngestEndpointCredentials -> TestTree
-requestRotateIngestEndpointCredentials =
-  req
-    "RotateIngestEndpointCredentials"
-    "fixture/RotateIngestEndpointCredentials.yaml"
-
-requestCreateOriginEndpoint :: CreateOriginEndpoint -> TestTree
-requestCreateOriginEndpoint =
-  req
-    "CreateOriginEndpoint"
-    "fixture/CreateOriginEndpoint.yaml"
+    "ListHarvestJobs"
+    "fixture/ListHarvestJobs.yaml"
 
 requestListOriginEndpoints :: ListOriginEndpoints -> TestTree
 requestListOriginEndpoints =
@@ -209,17 +215,17 @@ requestListOriginEndpoints =
     "ListOriginEndpoints"
     "fixture/ListOriginEndpoints.yaml"
 
-requestListHarvestJobs :: ListHarvestJobs -> TestTree
-requestListHarvestJobs =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "ListHarvestJobs"
-    "fixture/ListHarvestJobs.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
-requestCreateChannel :: CreateChannel -> TestTree
-requestCreateChannel =
+requestRotateIngestEndpointCredentials :: RotateIngestEndpointCredentials -> TestTree
+requestRotateIngestEndpointCredentials =
   req
-    "CreateChannel"
-    "fixture/CreateChannel.yaml"
+    "RotateIngestEndpointCredentials"
+    "fixture/RotateIngestEndpointCredentials.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -233,17 +239,11 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDescribeChannel :: DescribeChannel -> TestTree
-requestDescribeChannel =
+requestUpdateChannel :: UpdateChannel -> TestTree
+requestUpdateChannel =
   req
-    "DescribeChannel"
-    "fixture/DescribeChannel.yaml"
-
-requestDeleteOriginEndpoint :: DeleteOriginEndpoint -> TestTree
-requestDeleteOriginEndpoint =
-  req
-    "DeleteOriginEndpoint"
-    "fixture/DeleteOriginEndpoint.yaml"
+    "UpdateChannel"
+    "fixture/UpdateChannel.yaml"
 
 requestUpdateOriginEndpoint :: UpdateOriginEndpoint -> TestTree
 requestUpdateOriginEndpoint =
@@ -253,6 +253,22 @@ requestUpdateOriginEndpoint =
 
 -- Responses
 
+responseConfigureLogs :: ConfigureLogsResponse -> TestTree
+responseConfigureLogs =
+  res
+    "ConfigureLogsResponse"
+    "fixture/ConfigureLogsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ConfigureLogs)
+
+responseCreateChannel :: CreateChannelResponse -> TestTree
+responseCreateChannel =
+  res
+    "CreateChannelResponse"
+    "fixture/CreateChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
+
 responseCreateHarvestJob :: CreateHarvestJobResponse -> TestTree
 responseCreateHarvestJob =
   res
@@ -261,13 +277,45 @@ responseCreateHarvestJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateHarvestJob)
 
-responseConfigureLogs :: ConfigureLogsResponse -> TestTree
-responseConfigureLogs =
+responseCreateOriginEndpoint :: CreateOriginEndpointResponse -> TestTree
+responseCreateOriginEndpoint =
   res
-    "ConfigureLogsResponse"
-    "fixture/ConfigureLogsResponse.proto"
+    "CreateOriginEndpointResponse"
+    "fixture/CreateOriginEndpointResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ConfigureLogs)
+    (Proxy.Proxy :: Proxy.Proxy CreateOriginEndpoint)
+
+responseDeleteChannel :: DeleteChannelResponse -> TestTree
+responseDeleteChannel =
+  res
+    "DeleteChannelResponse"
+    "fixture/DeleteChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
+
+responseDeleteOriginEndpoint :: DeleteOriginEndpointResponse -> TestTree
+responseDeleteOriginEndpoint =
+  res
+    "DeleteOriginEndpointResponse"
+    "fixture/DeleteOriginEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteOriginEndpoint)
+
+responseDescribeChannel :: DescribeChannelResponse -> TestTree
+responseDescribeChannel =
+  res
+    "DescribeChannelResponse"
+    "fixture/DescribeChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
+
+responseDescribeHarvestJob :: DescribeHarvestJobResponse -> TestTree
+responseDescribeHarvestJob =
+  res
+    "DescribeHarvestJobResponse"
+    "fixture/DescribeHarvestJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeHarvestJob)
 
 responseDescribeOriginEndpoint :: DescribeOriginEndpointResponse -> TestTree
 responseDescribeOriginEndpoint =
@@ -285,53 +333,13 @@ responseListChannels =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseListHarvestJobs :: ListHarvestJobsResponse -> TestTree
+responseListHarvestJobs =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "ListHarvestJobsResponse"
+    "fixture/ListHarvestJobsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteChannel :: DeleteChannelResponse -> TestTree
-responseDeleteChannel =
-  res
-    "DeleteChannelResponse"
-    "fixture/DeleteChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
-
-responseUpdateChannel :: UpdateChannelResponse -> TestTree
-responseUpdateChannel =
-  res
-    "UpdateChannelResponse"
-    "fixture/UpdateChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
-
-responseDescribeHarvestJob :: DescribeHarvestJobResponse -> TestTree
-responseDescribeHarvestJob =
-  res
-    "DescribeHarvestJobResponse"
-    "fixture/DescribeHarvestJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeHarvestJob)
-
-responseRotateIngestEndpointCredentials :: RotateIngestEndpointCredentialsResponse -> TestTree
-responseRotateIngestEndpointCredentials =
-  res
-    "RotateIngestEndpointCredentialsResponse"
-    "fixture/RotateIngestEndpointCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RotateIngestEndpointCredentials)
-
-responseCreateOriginEndpoint :: CreateOriginEndpointResponse -> TestTree
-responseCreateOriginEndpoint =
-  res
-    "CreateOriginEndpointResponse"
-    "fixture/CreateOriginEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateOriginEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy ListHarvestJobs)
 
 responseListOriginEndpoints :: ListOriginEndpointsResponse -> TestTree
 responseListOriginEndpoints =
@@ -341,21 +349,21 @@ responseListOriginEndpoints =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListOriginEndpoints)
 
-responseListHarvestJobs :: ListHarvestJobsResponse -> TestTree
-responseListHarvestJobs =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "ListHarvestJobsResponse"
-    "fixture/ListHarvestJobsResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListHarvestJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
-responseCreateChannel :: CreateChannelResponse -> TestTree
-responseCreateChannel =
+responseRotateIngestEndpointCredentials :: RotateIngestEndpointCredentialsResponse -> TestTree
+responseRotateIngestEndpointCredentials =
   res
-    "CreateChannelResponse"
-    "fixture/CreateChannelResponse.proto"
+    "RotateIngestEndpointCredentialsResponse"
+    "fixture/RotateIngestEndpointCredentialsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
+    (Proxy.Proxy :: Proxy.Proxy RotateIngestEndpointCredentials)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -373,21 +381,13 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDescribeChannel :: DescribeChannelResponse -> TestTree
-responseDescribeChannel =
+responseUpdateChannel :: UpdateChannelResponse -> TestTree
+responseUpdateChannel =
   res
-    "DescribeChannelResponse"
-    "fixture/DescribeChannelResponse.proto"
+    "UpdateChannelResponse"
+    "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
-
-responseDeleteOriginEndpoint :: DeleteOriginEndpointResponse -> TestTree
-responseDeleteOriginEndpoint =
-  res
-    "DeleteOriginEndpointResponse"
-    "fixture/DeleteOriginEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteOriginEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
 
 responseUpdateOriginEndpoint :: UpdateOriginEndpointResponse -> TestTree
 responseUpdateOriginEndpoint =

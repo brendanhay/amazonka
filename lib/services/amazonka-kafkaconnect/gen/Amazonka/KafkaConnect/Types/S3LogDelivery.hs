@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3LogDelivery' smart constructor.
 data S3LogDelivery = S3LogDelivery'
-  { -- | The S3 prefix that is the destination for log delivery.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket that is the destination for log delivery.
+  { -- | The name of the S3 bucket that is the destination for log delivery.
     bucket :: Prelude.Maybe Prelude.Text,
+    -- | The S3 prefix that is the destination for log delivery.
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether connector logs get sent to the specified Amazon S3
     -- destination.
     enabled :: Prelude.Bool
@@ -45,9 +45,9 @@ data S3LogDelivery = S3LogDelivery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'prefix', 's3LogDelivery_prefix' - The S3 prefix that is the destination for log delivery.
---
 -- 'bucket', 's3LogDelivery_bucket' - The name of the S3 bucket that is the destination for log delivery.
+--
+-- 'prefix', 's3LogDelivery_prefix' - The S3 prefix that is the destination for log delivery.
 --
 -- 'enabled', 's3LogDelivery_enabled' - Specifies whether connector logs get sent to the specified Amazon S3
 -- destination.
@@ -57,18 +57,18 @@ newS3LogDelivery ::
   S3LogDelivery
 newS3LogDelivery pEnabled_ =
   S3LogDelivery'
-    { prefix = Prelude.Nothing,
-      bucket = Prelude.Nothing,
+    { bucket = Prelude.Nothing,
+      prefix = Prelude.Nothing,
       enabled = pEnabled_
     }
-
--- | The S3 prefix that is the destination for log delivery.
-s3LogDelivery_prefix :: Lens.Lens' S3LogDelivery (Prelude.Maybe Prelude.Text)
-s3LogDelivery_prefix = Lens.lens (\S3LogDelivery' {prefix} -> prefix) (\s@S3LogDelivery' {} a -> s {prefix = a} :: S3LogDelivery)
 
 -- | The name of the S3 bucket that is the destination for log delivery.
 s3LogDelivery_bucket :: Lens.Lens' S3LogDelivery (Prelude.Maybe Prelude.Text)
 s3LogDelivery_bucket = Lens.lens (\S3LogDelivery' {bucket} -> bucket) (\s@S3LogDelivery' {} a -> s {bucket = a} :: S3LogDelivery)
+
+-- | The S3 prefix that is the destination for log delivery.
+s3LogDelivery_prefix :: Lens.Lens' S3LogDelivery (Prelude.Maybe Prelude.Text)
+s3LogDelivery_prefix = Lens.lens (\S3LogDelivery' {prefix} -> prefix) (\s@S3LogDelivery' {} a -> s {prefix = a} :: S3LogDelivery)
 
 -- | Specifies whether connector logs get sent to the specified Amazon S3
 -- destination.
@@ -77,22 +77,22 @@ s3LogDelivery_enabled = Lens.lens (\S3LogDelivery' {enabled} -> enabled) (\s@S3L
 
 instance Prelude.Hashable S3LogDelivery where
   hashWithSalt _salt S3LogDelivery' {..} =
-    _salt `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` bucket
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData S3LogDelivery where
   rnf S3LogDelivery' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToJSON S3LogDelivery where
   toJSON S3LogDelivery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("prefix" Core..=) Prelude.<$> prefix,
-            ("bucket" Core..=) Prelude.<$> bucket,
+          [ ("bucket" Core..=) Prelude.<$> bucket,
+            ("prefix" Core..=) Prelude.<$> prefix,
             Prelude.Just ("enabled" Core..= enabled)
           ]
       )

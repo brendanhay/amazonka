@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntitlement' smart constructor.
 data Entitlement = Entitlement'
-  { -- | Maximum entitlement count. Use if the unit is not None.
+  { -- | Indicates whether check-ins are allowed.
+    allowCheckIn :: Prelude.Maybe Prelude.Bool,
+    -- | Maximum entitlement count. Use if the unit is not None.
     maxCount :: Prelude.Maybe Prelude.Integer,
-    -- | Entitlement resource. Use only if the unit is None.
-    value :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether overages are allowed.
     overage :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether check-ins are allowed.
-    allowCheckIn :: Prelude.Maybe Prelude.Bool,
+    -- | Entitlement resource. Use only if the unit is None.
+    value :: Prelude.Maybe Prelude.Text,
     -- | Entitlement name.
     name :: Prelude.Text,
     -- | Entitlement unit.
@@ -51,13 +51,13 @@ data Entitlement = Entitlement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxCount', 'entitlement_maxCount' - Maximum entitlement count. Use if the unit is not None.
+-- 'allowCheckIn', 'entitlement_allowCheckIn' - Indicates whether check-ins are allowed.
 --
--- 'value', 'entitlement_value' - Entitlement resource. Use only if the unit is None.
+-- 'maxCount', 'entitlement_maxCount' - Maximum entitlement count. Use if the unit is not None.
 --
 -- 'overage', 'entitlement_overage' - Indicates whether overages are allowed.
 --
--- 'allowCheckIn', 'entitlement_allowCheckIn' - Indicates whether check-ins are allowed.
+-- 'value', 'entitlement_value' - Entitlement resource. Use only if the unit is None.
 --
 -- 'name', 'entitlement_name' - Entitlement name.
 --
@@ -70,29 +70,29 @@ newEntitlement ::
   Entitlement
 newEntitlement pName_ pUnit_ =
   Entitlement'
-    { maxCount = Prelude.Nothing,
-      value = Prelude.Nothing,
+    { allowCheckIn = Prelude.Nothing,
+      maxCount = Prelude.Nothing,
       overage = Prelude.Nothing,
-      allowCheckIn = Prelude.Nothing,
+      value = Prelude.Nothing,
       name = pName_,
       unit = pUnit_
     }
+
+-- | Indicates whether check-ins are allowed.
+entitlement_allowCheckIn :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Bool)
+entitlement_allowCheckIn = Lens.lens (\Entitlement' {allowCheckIn} -> allowCheckIn) (\s@Entitlement' {} a -> s {allowCheckIn = a} :: Entitlement)
 
 -- | Maximum entitlement count. Use if the unit is not None.
 entitlement_maxCount :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Integer)
 entitlement_maxCount = Lens.lens (\Entitlement' {maxCount} -> maxCount) (\s@Entitlement' {} a -> s {maxCount = a} :: Entitlement)
 
--- | Entitlement resource. Use only if the unit is None.
-entitlement_value :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
-entitlement_value = Lens.lens (\Entitlement' {value} -> value) (\s@Entitlement' {} a -> s {value = a} :: Entitlement)
-
 -- | Indicates whether overages are allowed.
 entitlement_overage :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Bool)
 entitlement_overage = Lens.lens (\Entitlement' {overage} -> overage) (\s@Entitlement' {} a -> s {overage = a} :: Entitlement)
 
--- | Indicates whether check-ins are allowed.
-entitlement_allowCheckIn :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Bool)
-entitlement_allowCheckIn = Lens.lens (\Entitlement' {allowCheckIn} -> allowCheckIn) (\s@Entitlement' {} a -> s {allowCheckIn = a} :: Entitlement)
+-- | Entitlement resource. Use only if the unit is None.
+entitlement_value :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
+entitlement_value = Lens.lens (\Entitlement' {value} -> value) (\s@Entitlement' {} a -> s {value = a} :: Entitlement)
 
 -- | Entitlement name.
 entitlement_name :: Lens.Lens' Entitlement Prelude.Text
@@ -108,29 +108,29 @@ instance Core.FromJSON Entitlement where
       "Entitlement"
       ( \x ->
           Entitlement'
-            Prelude.<$> (x Core..:? "MaxCount")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "AllowCheckIn")
+            Prelude.<*> (x Core..:? "MaxCount")
             Prelude.<*> (x Core..:? "Overage")
-            Prelude.<*> (x Core..:? "AllowCheckIn")
+            Prelude.<*> (x Core..:? "Value")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Unit")
       )
 
 instance Prelude.Hashable Entitlement where
   hashWithSalt _salt Entitlement' {..} =
-    _salt `Prelude.hashWithSalt` maxCount
-      `Prelude.hashWithSalt` value
+    _salt `Prelude.hashWithSalt` allowCheckIn
+      `Prelude.hashWithSalt` maxCount
       `Prelude.hashWithSalt` overage
-      `Prelude.hashWithSalt` allowCheckIn
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData Entitlement where
   rnf Entitlement' {..} =
-    Prelude.rnf maxCount
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf allowCheckIn
+      `Prelude.seq` Prelude.rnf maxCount
       `Prelude.seq` Prelude.rnf overage
-      `Prelude.seq` Prelude.rnf allowCheckIn
+      `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf unit
 
@@ -138,10 +138,10 @@ instance Core.ToJSON Entitlement where
   toJSON Entitlement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxCount" Core..=) Prelude.<$> maxCount,
-            ("Value" Core..=) Prelude.<$> value,
+          [ ("AllowCheckIn" Core..=) Prelude.<$> allowCheckIn,
+            ("MaxCount" Core..=) Prelude.<$> maxCount,
             ("Overage" Core..=) Prelude.<$> overage,
-            ("AllowCheckIn" Core..=) Prelude.<$> allowCheckIn,
+            ("Value" Core..=) Prelude.<$> value,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Unit" Core..= unit)
           ]

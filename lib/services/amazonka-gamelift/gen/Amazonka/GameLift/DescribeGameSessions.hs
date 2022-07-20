@@ -69,21 +69,21 @@ module Amazonka.GameLift.DescribeGameSessions
     newDescribeGameSessions,
 
     -- * Request Lenses
-    describeGameSessions_location,
     describeGameSessions_gameSessionId,
-    describeGameSessions_aliasId,
-    describeGameSessions_nextToken,
-    describeGameSessions_statusFilter,
-    describeGameSessions_limit,
     describeGameSessions_fleetId,
+    describeGameSessions_nextToken,
+    describeGameSessions_aliasId,
+    describeGameSessions_location,
+    describeGameSessions_limit,
+    describeGameSessions_statusFilter,
 
     -- * Destructuring the Response
     DescribeGameSessionsResponse (..),
     newDescribeGameSessionsResponse,
 
     -- * Response Lenses
-    describeGameSessionsResponse_gameSessions,
     describeGameSessionsResponse_nextToken,
+    describeGameSessionsResponse_gameSessions,
     describeGameSessionsResponse_httpStatus,
   )
 where
@@ -99,30 +99,30 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeGameSessions' smart constructor.
 data DescribeGameSessions = DescribeGameSessions'
-  { -- | A fleet location to get game session details for. You can specify a
-    -- fleet\'s home Region or a remote location. Use the AWS Region code
-    -- format, such as @us-west-2@.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the game session to retrieve.
+  { -- | A unique identifier for the game session to retrieve.
     gameSessionId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the alias associated with the fleet to retrieve
-    -- game sessions for. You can use either the alias ID or ARN value.
-    aliasId :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the fleet to retrieve game sessions for. You can
+    -- use either the fleet ID or ARN value.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the alias associated with the fleet to retrieve
+    -- game sessions for. You can use either the alias ID or ARN value.
+    aliasId :: Prelude.Maybe Prelude.Text,
+    -- | A fleet location to get game session details for. You can specify a
+    -- fleet\'s home Region or a remote location. Use the AWS Region code
+    -- format, such as @us-west-2@.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return. Use this parameter with
+    -- @NextToken@ to get results as a set of sequential pages.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Game session status to filter results on. You can filter on the
     -- following states: @ACTIVE@, @TERMINATED@, @ACTIVATING@, and
     -- @TERMINATING@. The last two are transitory and used for only very brief
     -- periods of time.
-    statusFilter :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return. Use this parameter with
-    -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier for the fleet to retrieve game sessions for. You can
-    -- use either the fleet ID or ARN value.
-    fleetId :: Prelude.Maybe Prelude.Text
+    statusFilter :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -134,56 +134,51 @@ data DescribeGameSessions = DescribeGameSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'describeGameSessions_location' - A fleet location to get game session details for. You can specify a
--- fleet\'s home Region or a remote location. Use the AWS Region code
--- format, such as @us-west-2@.
---
 -- 'gameSessionId', 'describeGameSessions_gameSessionId' - A unique identifier for the game session to retrieve.
 --
--- 'aliasId', 'describeGameSessions_aliasId' - A unique identifier for the alias associated with the fleet to retrieve
--- game sessions for. You can use either the alias ID or ARN value.
+-- 'fleetId', 'describeGameSessions_fleetId' - A unique identifier for the fleet to retrieve game sessions for. You can
+-- use either the fleet ID or ARN value.
 --
 -- 'nextToken', 'describeGameSessions_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
--- 'statusFilter', 'describeGameSessions_statusFilter' - Game session status to filter results on. You can filter on the
--- following states: @ACTIVE@, @TERMINATED@, @ACTIVATING@, and
--- @TERMINATING@. The last two are transitory and used for only very brief
--- periods of time.
+-- 'aliasId', 'describeGameSessions_aliasId' - A unique identifier for the alias associated with the fleet to retrieve
+-- game sessions for. You can use either the alias ID or ARN value.
+--
+-- 'location', 'describeGameSessions_location' - A fleet location to get game session details for. You can specify a
+-- fleet\'s home Region or a remote location. Use the AWS Region code
+-- format, such as @us-west-2@.
 --
 -- 'limit', 'describeGameSessions_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 --
--- 'fleetId', 'describeGameSessions_fleetId' - A unique identifier for the fleet to retrieve game sessions for. You can
--- use either the fleet ID or ARN value.
+-- 'statusFilter', 'describeGameSessions_statusFilter' - Game session status to filter results on. You can filter on the
+-- following states: @ACTIVE@, @TERMINATED@, @ACTIVATING@, and
+-- @TERMINATING@. The last two are transitory and used for only very brief
+-- periods of time.
 newDescribeGameSessions ::
   DescribeGameSessions
 newDescribeGameSessions =
   DescribeGameSessions'
-    { location = Prelude.Nothing,
-      gameSessionId = Prelude.Nothing,
-      aliasId = Prelude.Nothing,
+    { gameSessionId =
+        Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      statusFilter = Prelude.Nothing,
+      aliasId = Prelude.Nothing,
+      location = Prelude.Nothing,
       limit = Prelude.Nothing,
-      fleetId = Prelude.Nothing
+      statusFilter = Prelude.Nothing
     }
-
--- | A fleet location to get game session details for. You can specify a
--- fleet\'s home Region or a remote location. Use the AWS Region code
--- format, such as @us-west-2@.
-describeGameSessions_location :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
-describeGameSessions_location = Lens.lens (\DescribeGameSessions' {location} -> location) (\s@DescribeGameSessions' {} a -> s {location = a} :: DescribeGameSessions)
 
 -- | A unique identifier for the game session to retrieve.
 describeGameSessions_gameSessionId :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
 describeGameSessions_gameSessionId = Lens.lens (\DescribeGameSessions' {gameSessionId} -> gameSessionId) (\s@DescribeGameSessions' {} a -> s {gameSessionId = a} :: DescribeGameSessions)
 
--- | A unique identifier for the alias associated with the fleet to retrieve
--- game sessions for. You can use either the alias ID or ARN value.
-describeGameSessions_aliasId :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
-describeGameSessions_aliasId = Lens.lens (\DescribeGameSessions' {aliasId} -> aliasId) (\s@DescribeGameSessions' {} a -> s {aliasId = a} :: DescribeGameSessions)
+-- | A unique identifier for the fleet to retrieve game sessions for. You can
+-- use either the fleet ID or ARN value.
+describeGameSessions_fleetId :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
+describeGameSessions_fleetId = Lens.lens (\DescribeGameSessions' {fleetId} -> fleetId) (\s@DescribeGameSessions' {} a -> s {fleetId = a} :: DescribeGameSessions)
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
@@ -191,22 +186,28 @@ describeGameSessions_aliasId = Lens.lens (\DescribeGameSessions' {aliasId} -> al
 describeGameSessions_nextToken :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
 describeGameSessions_nextToken = Lens.lens (\DescribeGameSessions' {nextToken} -> nextToken) (\s@DescribeGameSessions' {} a -> s {nextToken = a} :: DescribeGameSessions)
 
--- | Game session status to filter results on. You can filter on the
--- following states: @ACTIVE@, @TERMINATED@, @ACTIVATING@, and
--- @TERMINATING@. The last two are transitory and used for only very brief
--- periods of time.
-describeGameSessions_statusFilter :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
-describeGameSessions_statusFilter = Lens.lens (\DescribeGameSessions' {statusFilter} -> statusFilter) (\s@DescribeGameSessions' {} a -> s {statusFilter = a} :: DescribeGameSessions)
+-- | A unique identifier for the alias associated with the fleet to retrieve
+-- game sessions for. You can use either the alias ID or ARN value.
+describeGameSessions_aliasId :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
+describeGameSessions_aliasId = Lens.lens (\DescribeGameSessions' {aliasId} -> aliasId) (\s@DescribeGameSessions' {} a -> s {aliasId = a} :: DescribeGameSessions)
+
+-- | A fleet location to get game session details for. You can specify a
+-- fleet\'s home Region or a remote location. Use the AWS Region code
+-- format, such as @us-west-2@.
+describeGameSessions_location :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
+describeGameSessions_location = Lens.lens (\DescribeGameSessions' {location} -> location) (\s@DescribeGameSessions' {} a -> s {location = a} :: DescribeGameSessions)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 describeGameSessions_limit :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Natural)
 describeGameSessions_limit = Lens.lens (\DescribeGameSessions' {limit} -> limit) (\s@DescribeGameSessions' {} a -> s {limit = a} :: DescribeGameSessions)
 
--- | A unique identifier for the fleet to retrieve game sessions for. You can
--- use either the fleet ID or ARN value.
-describeGameSessions_fleetId :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
-describeGameSessions_fleetId = Lens.lens (\DescribeGameSessions' {fleetId} -> fleetId) (\s@DescribeGameSessions' {} a -> s {fleetId = a} :: DescribeGameSessions)
+-- | Game session status to filter results on. You can filter on the
+-- following states: @ACTIVE@, @TERMINATED@, @ACTIVATING@, and
+-- @TERMINATING@. The last two are transitory and used for only very brief
+-- periods of time.
+describeGameSessions_statusFilter :: Lens.Lens' DescribeGameSessions (Prelude.Maybe Prelude.Text)
+describeGameSessions_statusFilter = Lens.lens (\DescribeGameSessions' {statusFilter} -> statusFilter) (\s@DescribeGameSessions' {} a -> s {statusFilter = a} :: DescribeGameSessions)
 
 instance Core.AWSPager DescribeGameSessions where
   page rq rs
@@ -239,30 +240,30 @@ instance Core.AWSRequest DescribeGameSessions where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameSessionsResponse'
-            Prelude.<$> (x Core..?> "GameSessions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "GameSessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeGameSessions where
   hashWithSalt _salt DescribeGameSessions' {..} =
-    _salt `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` gameSessionId
-      `Prelude.hashWithSalt` aliasId
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` statusFilter
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` gameSessionId
       `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` aliasId
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` statusFilter
 
 instance Prelude.NFData DescribeGameSessions where
   rnf DescribeGameSessions' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf gameSessionId
-      `Prelude.seq` Prelude.rnf aliasId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf statusFilter
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf gameSessionId
       `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf aliasId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf statusFilter
 
 instance Core.ToHeaders DescribeGameSessions where
   toHeaders =
@@ -283,13 +284,13 @@ instance Core.ToJSON DescribeGameSessions where
   toJSON DescribeGameSessions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Location" Core..=) Prelude.<$> location,
-            ("GameSessionId" Core..=) Prelude.<$> gameSessionId,
-            ("AliasId" Core..=) Prelude.<$> aliasId,
+          [ ("GameSessionId" Core..=) Prelude.<$> gameSessionId,
+            ("FleetId" Core..=) Prelude.<$> fleetId,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("StatusFilter" Core..=) Prelude.<$> statusFilter,
+            ("AliasId" Core..=) Prelude.<$> aliasId,
+            ("Location" Core..=) Prelude.<$> location,
             ("Limit" Core..=) Prelude.<$> limit,
-            ("FleetId" Core..=) Prelude.<$> fleetId
+            ("StatusFilter" Core..=) Prelude.<$> statusFilter
           ]
       )
 
@@ -303,13 +304,13 @@ instance Core.ToQuery DescribeGameSessions where
 --
 -- /See:/ 'newDescribeGameSessionsResponse' smart constructor.
 data DescribeGameSessionsResponse = DescribeGameSessionsResponse'
-  { -- | A collection of properties for each game session that matches the
-    -- request.
-    gameSessions :: Prelude.Maybe [GameSession],
-    -- | A token that indicates where to resume retrieving results on the next
+  { -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A collection of properties for each game session that matches the
+    -- request.
+    gameSessions :: Prelude.Maybe [GameSession],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -323,12 +324,12 @@ data DescribeGameSessionsResponse = DescribeGameSessionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameSessions', 'describeGameSessionsResponse_gameSessions' - A collection of properties for each game session that matches the
--- request.
---
 -- 'nextToken', 'describeGameSessionsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
+--
+-- 'gameSessions', 'describeGameSessionsResponse_gameSessions' - A collection of properties for each game session that matches the
+-- request.
 --
 -- 'httpStatus', 'describeGameSessionsResponse_httpStatus' - The response's http status code.
 newDescribeGameSessionsResponse ::
@@ -337,16 +338,11 @@ newDescribeGameSessionsResponse ::
   DescribeGameSessionsResponse
 newDescribeGameSessionsResponse pHttpStatus_ =
   DescribeGameSessionsResponse'
-    { gameSessions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      gameSessions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A collection of properties for each game session that matches the
--- request.
-describeGameSessionsResponse_gameSessions :: Lens.Lens' DescribeGameSessionsResponse (Prelude.Maybe [GameSession])
-describeGameSessionsResponse_gameSessions = Lens.lens (\DescribeGameSessionsResponse' {gameSessions} -> gameSessions) (\s@DescribeGameSessionsResponse' {} a -> s {gameSessions = a} :: DescribeGameSessionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
@@ -354,12 +350,17 @@ describeGameSessionsResponse_gameSessions = Lens.lens (\DescribeGameSessionsResp
 describeGameSessionsResponse_nextToken :: Lens.Lens' DescribeGameSessionsResponse (Prelude.Maybe Prelude.Text)
 describeGameSessionsResponse_nextToken = Lens.lens (\DescribeGameSessionsResponse' {nextToken} -> nextToken) (\s@DescribeGameSessionsResponse' {} a -> s {nextToken = a} :: DescribeGameSessionsResponse)
 
+-- | A collection of properties for each game session that matches the
+-- request.
+describeGameSessionsResponse_gameSessions :: Lens.Lens' DescribeGameSessionsResponse (Prelude.Maybe [GameSession])
+describeGameSessionsResponse_gameSessions = Lens.lens (\DescribeGameSessionsResponse' {gameSessions} -> gameSessions) (\s@DescribeGameSessionsResponse' {} a -> s {gameSessions = a} :: DescribeGameSessionsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeGameSessionsResponse_httpStatus :: Lens.Lens' DescribeGameSessionsResponse Prelude.Int
 describeGameSessionsResponse_httpStatus = Lens.lens (\DescribeGameSessionsResponse' {httpStatus} -> httpStatus) (\s@DescribeGameSessionsResponse' {} a -> s {httpStatus = a} :: DescribeGameSessionsResponse)
 
 instance Prelude.NFData DescribeGameSessionsResponse where
   rnf DescribeGameSessionsResponse' {..} =
-    Prelude.rnf gameSessions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf gameSessions
       `Prelude.seq` Prelude.rnf httpStatus

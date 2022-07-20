@@ -35,8 +35,8 @@ module Amazonka.RobOMaker.DeregisterRobot
     newDeregisterRobotResponse,
 
     -- * Response Lenses
-    deregisterRobotResponse_robot,
     deregisterRobotResponse_fleet,
+    deregisterRobotResponse_robot,
     deregisterRobotResponse_httpStatus,
   )
 where
@@ -94,8 +94,8 @@ instance Core.AWSRequest DeregisterRobot where
     Response.receiveJSON
       ( \s h x ->
           DeregisterRobotResponse'
-            Prelude.<$> (x Core..?> "robot")
-            Prelude.<*> (x Core..?> "fleet")
+            Prelude.<$> (x Core..?> "fleet")
+            Prelude.<*> (x Core..?> "robot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,10 +136,10 @@ instance Core.ToQuery DeregisterRobot where
 
 -- | /See:/ 'newDeregisterRobotResponse' smart constructor.
 data DeregisterRobotResponse = DeregisterRobotResponse'
-  { -- | The Amazon Resource Name (ARN) of the robot.
-    robot :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the fleet.
+  { -- | The Amazon Resource Name (ARN) of the fleet.
     fleet :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the robot.
+    robot :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,9 +153,9 @@ data DeregisterRobotResponse = DeregisterRobotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'robot', 'deregisterRobotResponse_robot' - The Amazon Resource Name (ARN) of the robot.
---
 -- 'fleet', 'deregisterRobotResponse_fleet' - The Amazon Resource Name (ARN) of the fleet.
+--
+-- 'robot', 'deregisterRobotResponse_robot' - The Amazon Resource Name (ARN) of the robot.
 --
 -- 'httpStatus', 'deregisterRobotResponse_httpStatus' - The response's http status code.
 newDeregisterRobotResponse ::
@@ -164,18 +164,18 @@ newDeregisterRobotResponse ::
   DeregisterRobotResponse
 newDeregisterRobotResponse pHttpStatus_ =
   DeregisterRobotResponse'
-    { robot = Prelude.Nothing,
-      fleet = Prelude.Nothing,
+    { fleet = Prelude.Nothing,
+      robot = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the robot.
-deregisterRobotResponse_robot :: Lens.Lens' DeregisterRobotResponse (Prelude.Maybe Prelude.Text)
-deregisterRobotResponse_robot = Lens.lens (\DeregisterRobotResponse' {robot} -> robot) (\s@DeregisterRobotResponse' {} a -> s {robot = a} :: DeregisterRobotResponse)
 
 -- | The Amazon Resource Name (ARN) of the fleet.
 deregisterRobotResponse_fleet :: Lens.Lens' DeregisterRobotResponse (Prelude.Maybe Prelude.Text)
 deregisterRobotResponse_fleet = Lens.lens (\DeregisterRobotResponse' {fleet} -> fleet) (\s@DeregisterRobotResponse' {} a -> s {fleet = a} :: DeregisterRobotResponse)
+
+-- | The Amazon Resource Name (ARN) of the robot.
+deregisterRobotResponse_robot :: Lens.Lens' DeregisterRobotResponse (Prelude.Maybe Prelude.Text)
+deregisterRobotResponse_robot = Lens.lens (\DeregisterRobotResponse' {robot} -> robot) (\s@DeregisterRobotResponse' {} a -> s {robot = a} :: DeregisterRobotResponse)
 
 -- | The response's http status code.
 deregisterRobotResponse_httpStatus :: Lens.Lens' DeregisterRobotResponse Prelude.Int
@@ -183,6 +183,6 @@ deregisterRobotResponse_httpStatus = Lens.lens (\DeregisterRobotResponse' {httpS
 
 instance Prelude.NFData DeregisterRobotResponse where
   rnf DeregisterRobotResponse' {..} =
-    Prelude.rnf robot
-      `Prelude.seq` Prelude.rnf fleet
+    Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf robot
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,11 +37,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newVirtualGatewayConnectionPool' smart constructor.
 data VirtualGatewayConnectionPool = VirtualGatewayConnectionPool'
   { -- | An object that represents a type of connection pool.
+    http :: Prelude.Maybe VirtualGatewayHttpConnectionPool,
+    -- | An object that represents a type of connection pool.
     http2 :: Prelude.Maybe VirtualGatewayHttp2ConnectionPool,
     -- | An object that represents a type of connection pool.
-    grpc :: Prelude.Maybe VirtualGatewayGrpcConnectionPool,
-    -- | An object that represents a type of connection pool.
-    http :: Prelude.Maybe VirtualGatewayHttpConnectionPool
+    grpc :: Prelude.Maybe VirtualGatewayGrpcConnectionPool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,20 +53,24 @@ data VirtualGatewayConnectionPool = VirtualGatewayConnectionPool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'http', 'virtualGatewayConnectionPool_http' - An object that represents a type of connection pool.
+--
 -- 'http2', 'virtualGatewayConnectionPool_http2' - An object that represents a type of connection pool.
 --
 -- 'grpc', 'virtualGatewayConnectionPool_grpc' - An object that represents a type of connection pool.
---
--- 'http', 'virtualGatewayConnectionPool_http' - An object that represents a type of connection pool.
 newVirtualGatewayConnectionPool ::
   VirtualGatewayConnectionPool
 newVirtualGatewayConnectionPool =
   VirtualGatewayConnectionPool'
-    { http2 =
+    { http =
         Prelude.Nothing,
-      grpc = Prelude.Nothing,
-      http = Prelude.Nothing
+      http2 = Prelude.Nothing,
+      grpc = Prelude.Nothing
     }
+
+-- | An object that represents a type of connection pool.
+virtualGatewayConnectionPool_http :: Lens.Lens' VirtualGatewayConnectionPool (Prelude.Maybe VirtualGatewayHttpConnectionPool)
+virtualGatewayConnectionPool_http = Lens.lens (\VirtualGatewayConnectionPool' {http} -> http) (\s@VirtualGatewayConnectionPool' {} a -> s {http = a} :: VirtualGatewayConnectionPool)
 
 -- | An object that represents a type of connection pool.
 virtualGatewayConnectionPool_http2 :: Lens.Lens' VirtualGatewayConnectionPool (Prelude.Maybe VirtualGatewayHttp2ConnectionPool)
@@ -76,19 +80,15 @@ virtualGatewayConnectionPool_http2 = Lens.lens (\VirtualGatewayConnectionPool' {
 virtualGatewayConnectionPool_grpc :: Lens.Lens' VirtualGatewayConnectionPool (Prelude.Maybe VirtualGatewayGrpcConnectionPool)
 virtualGatewayConnectionPool_grpc = Lens.lens (\VirtualGatewayConnectionPool' {grpc} -> grpc) (\s@VirtualGatewayConnectionPool' {} a -> s {grpc = a} :: VirtualGatewayConnectionPool)
 
--- | An object that represents a type of connection pool.
-virtualGatewayConnectionPool_http :: Lens.Lens' VirtualGatewayConnectionPool (Prelude.Maybe VirtualGatewayHttpConnectionPool)
-virtualGatewayConnectionPool_http = Lens.lens (\VirtualGatewayConnectionPool' {http} -> http) (\s@VirtualGatewayConnectionPool' {} a -> s {http = a} :: VirtualGatewayConnectionPool)
-
 instance Core.FromJSON VirtualGatewayConnectionPool where
   parseJSON =
     Core.withObject
       "VirtualGatewayConnectionPool"
       ( \x ->
           VirtualGatewayConnectionPool'
-            Prelude.<$> (x Core..:? "http2")
+            Prelude.<$> (x Core..:? "http")
+            Prelude.<*> (x Core..:? "http2")
             Prelude.<*> (x Core..:? "grpc")
-            Prelude.<*> (x Core..:? "http")
       )
 
 instance
@@ -96,22 +96,22 @@ instance
     VirtualGatewayConnectionPool
   where
   hashWithSalt _salt VirtualGatewayConnectionPool' {..} =
-    _salt `Prelude.hashWithSalt` http2
+    _salt `Prelude.hashWithSalt` http
+      `Prelude.hashWithSalt` http2
       `Prelude.hashWithSalt` grpc
-      `Prelude.hashWithSalt` http
 
 instance Prelude.NFData VirtualGatewayConnectionPool where
   rnf VirtualGatewayConnectionPool' {..} =
-    Prelude.rnf http2
+    Prelude.rnf http
+      `Prelude.seq` Prelude.rnf http2
       `Prelude.seq` Prelude.rnf grpc
-      `Prelude.seq` Prelude.rnf http
 
 instance Core.ToJSON VirtualGatewayConnectionPool where
   toJSON VirtualGatewayConnectionPool' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("http2" Core..=) Prelude.<$> http2,
-            ("grpc" Core..=) Prelude.<$> grpc,
-            ("http" Core..=) Prelude.<$> http
+          [ ("http" Core..=) Prelude.<$> http,
+            ("http2" Core..=) Prelude.<$> http2,
+            ("grpc" Core..=) Prelude.<$> grpc
           ]
       )

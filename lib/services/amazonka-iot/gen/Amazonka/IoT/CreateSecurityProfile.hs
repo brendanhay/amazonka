@@ -31,12 +31,12 @@ module Amazonka.IoT.CreateSecurityProfile
     newCreateSecurityProfile,
 
     -- * Request Lenses
-    createSecurityProfile_alertTargets,
-    createSecurityProfile_additionalMetricsToRetainV2,
-    createSecurityProfile_behaviors,
-    createSecurityProfile_additionalMetricsToRetain,
-    createSecurityProfile_securityProfileDescription,
     createSecurityProfile_tags,
+    createSecurityProfile_alertTargets,
+    createSecurityProfile_securityProfileDescription,
+    createSecurityProfile_additionalMetricsToRetainV2,
+    createSecurityProfile_additionalMetricsToRetain,
+    createSecurityProfile_behaviors,
     createSecurityProfile_securityProfileName,
 
     -- * Destructuring the Response
@@ -59,18 +59,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSecurityProfile' smart constructor.
 data CreateSecurityProfile = CreateSecurityProfile'
-  { -- | Specifies the destinations to which alerts are sent. (Alerts are always
+  { -- | Metadata that can be used to manage the security profile.
+    tags :: Prelude.Maybe [Tag],
+    -- | Specifies the destinations to which alerts are sent. (Alerts are always
     -- sent to the console.) Alerts are generated when a device (thing)
     -- violates a behavior.
     alertTargets :: Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget),
+    -- | A description of the security profile.
+    securityProfileDescription :: Prelude.Maybe Prelude.Text,
     -- | A list of metrics whose data is retained (stored). By default, data is
     -- retained for any metric used in the profile\'s @behaviors@, but it is
     -- also retained for any metric specified here. Can be used with custom
     -- metrics; cannot be used with dimensions.
     additionalMetricsToRetainV2 :: Prelude.Maybe [MetricToRetain],
-    -- | Specifies the behaviors that, when violated by a device (thing), cause
-    -- an alert.
-    behaviors :: Prelude.Maybe [Behavior],
     -- | /Please use CreateSecurityProfileRequest$additionalMetricsToRetainV2
     -- instead./
     --
@@ -79,10 +80,9 @@ data CreateSecurityProfile = CreateSecurityProfile'
     -- also retained for any metric specified here. Can be used with custom
     -- metrics; cannot be used with dimensions.
     additionalMetricsToRetain :: Prelude.Maybe [Prelude.Text],
-    -- | A description of the security profile.
-    securityProfileDescription :: Prelude.Maybe Prelude.Text,
-    -- | Metadata that can be used to manage the security profile.
-    tags :: Prelude.Maybe [Tag],
+    -- | Specifies the behaviors that, when violated by a device (thing), cause
+    -- an alert.
+    behaviors :: Prelude.Maybe [Behavior],
     -- | The name you are giving to the security profile.
     securityProfileName :: Prelude.Text
   }
@@ -96,17 +96,18 @@ data CreateSecurityProfile = CreateSecurityProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createSecurityProfile_tags' - Metadata that can be used to manage the security profile.
+--
 -- 'alertTargets', 'createSecurityProfile_alertTargets' - Specifies the destinations to which alerts are sent. (Alerts are always
 -- sent to the console.) Alerts are generated when a device (thing)
 -- violates a behavior.
+--
+-- 'securityProfileDescription', 'createSecurityProfile_securityProfileDescription' - A description of the security profile.
 --
 -- 'additionalMetricsToRetainV2', 'createSecurityProfile_additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is
 -- retained for any metric used in the profile\'s @behaviors@, but it is
 -- also retained for any metric specified here. Can be used with custom
 -- metrics; cannot be used with dimensions.
---
--- 'behaviors', 'createSecurityProfile_behaviors' - Specifies the behaviors that, when violated by a device (thing), cause
--- an alert.
 --
 -- 'additionalMetricsToRetain', 'createSecurityProfile_additionalMetricsToRetain' - /Please use CreateSecurityProfileRequest$additionalMetricsToRetainV2
 -- instead./
@@ -116,9 +117,8 @@ data CreateSecurityProfile = CreateSecurityProfile'
 -- also retained for any metric specified here. Can be used with custom
 -- metrics; cannot be used with dimensions.
 --
--- 'securityProfileDescription', 'createSecurityProfile_securityProfileDescription' - A description of the security profile.
---
--- 'tags', 'createSecurityProfile_tags' - Metadata that can be used to manage the security profile.
+-- 'behaviors', 'createSecurityProfile_behaviors' - Specifies the behaviors that, when violated by a device (thing), cause
+-- an alert.
 --
 -- 'securityProfileName', 'createSecurityProfile_securityProfileName' - The name you are giving to the security profile.
 newCreateSecurityProfile ::
@@ -127,15 +127,18 @@ newCreateSecurityProfile ::
   CreateSecurityProfile
 newCreateSecurityProfile pSecurityProfileName_ =
   CreateSecurityProfile'
-    { alertTargets =
-        Prelude.Nothing,
-      additionalMetricsToRetainV2 = Prelude.Nothing,
-      behaviors = Prelude.Nothing,
-      additionalMetricsToRetain = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      alertTargets = Prelude.Nothing,
       securityProfileDescription = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      additionalMetricsToRetainV2 = Prelude.Nothing,
+      additionalMetricsToRetain = Prelude.Nothing,
+      behaviors = Prelude.Nothing,
       securityProfileName = pSecurityProfileName_
     }
+
+-- | Metadata that can be used to manage the security profile.
+createSecurityProfile_tags :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Tag])
+createSecurityProfile_tags = Lens.lens (\CreateSecurityProfile' {tags} -> tags) (\s@CreateSecurityProfile' {} a -> s {tags = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the destinations to which alerts are sent. (Alerts are always
 -- sent to the console.) Alerts are generated when a device (thing)
@@ -143,17 +146,16 @@ newCreateSecurityProfile pSecurityProfileName_ =
 createSecurityProfile_alertTargets :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget))
 createSecurityProfile_alertTargets = Lens.lens (\CreateSecurityProfile' {alertTargets} -> alertTargets) (\s@CreateSecurityProfile' {} a -> s {alertTargets = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
+-- | A description of the security profile.
+createSecurityProfile_securityProfileDescription :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe Prelude.Text)
+createSecurityProfile_securityProfileDescription = Lens.lens (\CreateSecurityProfile' {securityProfileDescription} -> securityProfileDescription) (\s@CreateSecurityProfile' {} a -> s {securityProfileDescription = a} :: CreateSecurityProfile)
+
 -- | A list of metrics whose data is retained (stored). By default, data is
 -- retained for any metric used in the profile\'s @behaviors@, but it is
 -- also retained for any metric specified here. Can be used with custom
 -- metrics; cannot be used with dimensions.
 createSecurityProfile_additionalMetricsToRetainV2 :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [MetricToRetain])
 createSecurityProfile_additionalMetricsToRetainV2 = Lens.lens (\CreateSecurityProfile' {additionalMetricsToRetainV2} -> additionalMetricsToRetainV2) (\s@CreateSecurityProfile' {} a -> s {additionalMetricsToRetainV2 = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the behaviors that, when violated by a device (thing), cause
--- an alert.
-createSecurityProfile_behaviors :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Behavior])
-createSecurityProfile_behaviors = Lens.lens (\CreateSecurityProfile' {behaviors} -> behaviors) (\s@CreateSecurityProfile' {} a -> s {behaviors = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | /Please use CreateSecurityProfileRequest$additionalMetricsToRetainV2
 -- instead./
@@ -165,13 +167,10 @@ createSecurityProfile_behaviors = Lens.lens (\CreateSecurityProfile' {behaviors}
 createSecurityProfile_additionalMetricsToRetain :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Prelude.Text])
 createSecurityProfile_additionalMetricsToRetain = Lens.lens (\CreateSecurityProfile' {additionalMetricsToRetain} -> additionalMetricsToRetain) (\s@CreateSecurityProfile' {} a -> s {additionalMetricsToRetain = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | A description of the security profile.
-createSecurityProfile_securityProfileDescription :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe Prelude.Text)
-createSecurityProfile_securityProfileDescription = Lens.lens (\CreateSecurityProfile' {securityProfileDescription} -> securityProfileDescription) (\s@CreateSecurityProfile' {} a -> s {securityProfileDescription = a} :: CreateSecurityProfile)
-
--- | Metadata that can be used to manage the security profile.
-createSecurityProfile_tags :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Tag])
-createSecurityProfile_tags = Lens.lens (\CreateSecurityProfile' {tags} -> tags) (\s@CreateSecurityProfile' {} a -> s {tags = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies the behaviors that, when violated by a device (thing), cause
+-- an alert.
+createSecurityProfile_behaviors :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Behavior])
+createSecurityProfile_behaviors = Lens.lens (\CreateSecurityProfile' {behaviors} -> behaviors) (\s@CreateSecurityProfile' {} a -> s {behaviors = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name you are giving to the security profile.
 createSecurityProfile_securityProfileName :: Lens.Lens' CreateSecurityProfile Prelude.Text
@@ -193,22 +192,22 @@ instance Core.AWSRequest CreateSecurityProfile where
 
 instance Prelude.Hashable CreateSecurityProfile where
   hashWithSalt _salt CreateSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` alertTargets
-      `Prelude.hashWithSalt` additionalMetricsToRetainV2
-      `Prelude.hashWithSalt` behaviors
-      `Prelude.hashWithSalt` additionalMetricsToRetain
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` alertTargets
       `Prelude.hashWithSalt` securityProfileDescription
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` additionalMetricsToRetainV2
+      `Prelude.hashWithSalt` additionalMetricsToRetain
+      `Prelude.hashWithSalt` behaviors
       `Prelude.hashWithSalt` securityProfileName
 
 instance Prelude.NFData CreateSecurityProfile where
   rnf CreateSecurityProfile' {..} =
-    Prelude.rnf alertTargets
-      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
-      `Prelude.seq` Prelude.rnf behaviors
-      `Prelude.seq` Prelude.rnf additionalMetricsToRetain
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf alertTargets
       `Prelude.seq` Prelude.rnf securityProfileDescription
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
+      `Prelude.seq` Prelude.rnf additionalMetricsToRetain
+      `Prelude.seq` Prelude.rnf behaviors
       `Prelude.seq` Prelude.rnf securityProfileName
 
 instance Core.ToHeaders CreateSecurityProfile where
@@ -218,15 +217,15 @@ instance Core.ToJSON CreateSecurityProfile where
   toJSON CreateSecurityProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("alertTargets" Core..=) Prelude.<$> alertTargets,
-            ("additionalMetricsToRetainV2" Core..=)
-              Prelude.<$> additionalMetricsToRetainV2,
-            ("behaviors" Core..=) Prelude.<$> behaviors,
-            ("additionalMetricsToRetain" Core..=)
-              Prelude.<$> additionalMetricsToRetain,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("alertTargets" Core..=) Prelude.<$> alertTargets,
             ("securityProfileDescription" Core..=)
               Prelude.<$> securityProfileDescription,
-            ("tags" Core..=) Prelude.<$> tags
+            ("additionalMetricsToRetainV2" Core..=)
+              Prelude.<$> additionalMetricsToRetainV2,
+            ("additionalMetricsToRetain" Core..=)
+              Prelude.<$> additionalMetricsToRetain,
+            ("behaviors" Core..=) Prelude.<$> behaviors
           ]
       )
 

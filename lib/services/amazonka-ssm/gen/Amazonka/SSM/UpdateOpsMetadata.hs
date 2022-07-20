@@ -28,8 +28,8 @@ module Amazonka.SSM.UpdateOpsMetadata
     newUpdateOpsMetadata,
 
     -- * Request Lenses
-    updateOpsMetadata_metadataToUpdate,
     updateOpsMetadata_keysToDelete,
+    updateOpsMetadata_metadataToUpdate,
     updateOpsMetadata_opsMetadataArn,
 
     -- * Destructuring the Response
@@ -51,10 +51,10 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newUpdateOpsMetadata' smart constructor.
 data UpdateOpsMetadata = UpdateOpsMetadata'
-  { -- | Metadata to add to an OpsMetadata object.
-    metadataToUpdate :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue),
-    -- | The metadata keys to delete from the OpsMetadata object.
+  { -- | The metadata keys to delete from the OpsMetadata object.
     keysToDelete :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Metadata to add to an OpsMetadata object.
+    metadataToUpdate :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue),
     -- | The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.
     opsMetadataArn :: Prelude.Text
   }
@@ -68,9 +68,9 @@ data UpdateOpsMetadata = UpdateOpsMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadataToUpdate', 'updateOpsMetadata_metadataToUpdate' - Metadata to add to an OpsMetadata object.
---
 -- 'keysToDelete', 'updateOpsMetadata_keysToDelete' - The metadata keys to delete from the OpsMetadata object.
+--
+-- 'metadataToUpdate', 'updateOpsMetadata_metadataToUpdate' - Metadata to add to an OpsMetadata object.
 --
 -- 'opsMetadataArn', 'updateOpsMetadata_opsMetadataArn' - The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.
 newUpdateOpsMetadata ::
@@ -79,19 +79,18 @@ newUpdateOpsMetadata ::
   UpdateOpsMetadata
 newUpdateOpsMetadata pOpsMetadataArn_ =
   UpdateOpsMetadata'
-    { metadataToUpdate =
-        Prelude.Nothing,
-      keysToDelete = Prelude.Nothing,
+    { keysToDelete = Prelude.Nothing,
+      metadataToUpdate = Prelude.Nothing,
       opsMetadataArn = pOpsMetadataArn_
     }
-
--- | Metadata to add to an OpsMetadata object.
-updateOpsMetadata_metadataToUpdate :: Lens.Lens' UpdateOpsMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
-updateOpsMetadata_metadataToUpdate = Lens.lens (\UpdateOpsMetadata' {metadataToUpdate} -> metadataToUpdate) (\s@UpdateOpsMetadata' {} a -> s {metadataToUpdate = a} :: UpdateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata keys to delete from the OpsMetadata object.
 updateOpsMetadata_keysToDelete :: Lens.Lens' UpdateOpsMetadata (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateOpsMetadata_keysToDelete = Lens.lens (\UpdateOpsMetadata' {keysToDelete} -> keysToDelete) (\s@UpdateOpsMetadata' {} a -> s {keysToDelete = a} :: UpdateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
+
+-- | Metadata to add to an OpsMetadata object.
+updateOpsMetadata_metadataToUpdate :: Lens.Lens' UpdateOpsMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
+updateOpsMetadata_metadataToUpdate = Lens.lens (\UpdateOpsMetadata' {metadataToUpdate} -> metadataToUpdate) (\s@UpdateOpsMetadata' {} a -> s {metadataToUpdate = a} :: UpdateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.
 updateOpsMetadata_opsMetadataArn :: Lens.Lens' UpdateOpsMetadata Prelude.Text
@@ -112,14 +111,14 @@ instance Core.AWSRequest UpdateOpsMetadata where
 
 instance Prelude.Hashable UpdateOpsMetadata where
   hashWithSalt _salt UpdateOpsMetadata' {..} =
-    _salt `Prelude.hashWithSalt` metadataToUpdate
-      `Prelude.hashWithSalt` keysToDelete
+    _salt `Prelude.hashWithSalt` keysToDelete
+      `Prelude.hashWithSalt` metadataToUpdate
       `Prelude.hashWithSalt` opsMetadataArn
 
 instance Prelude.NFData UpdateOpsMetadata where
   rnf UpdateOpsMetadata' {..} =
-    Prelude.rnf metadataToUpdate
-      `Prelude.seq` Prelude.rnf keysToDelete
+    Prelude.rnf keysToDelete
+      `Prelude.seq` Prelude.rnf metadataToUpdate
       `Prelude.seq` Prelude.rnf opsMetadataArn
 
 instance Core.ToHeaders UpdateOpsMetadata where
@@ -141,9 +140,9 @@ instance Core.ToJSON UpdateOpsMetadata where
   toJSON UpdateOpsMetadata' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MetadataToUpdate" Core..=)
+          [ ("KeysToDelete" Core..=) Prelude.<$> keysToDelete,
+            ("MetadataToUpdate" Core..=)
               Prelude.<$> metadataToUpdate,
-            ("KeysToDelete" Core..=) Prelude.<$> keysToDelete,
             Prelude.Just
               ("OpsMetadataArn" Core..= opsMetadataArn)
           ]

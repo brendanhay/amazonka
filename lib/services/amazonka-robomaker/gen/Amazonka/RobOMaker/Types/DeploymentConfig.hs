@@ -28,17 +28,17 @@ import Amazonka.RobOMaker.Types.S3Object
 --
 -- /See:/ 'newDeploymentConfig' smart constructor.
 data DeploymentConfig = DeploymentConfig'
-  { -- | The percentage of robots receiving the deployment at the same time.
-    concurrentDeploymentPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | The download condition file.
-    downloadConditionFile :: Prelude.Maybe S3Object,
-    -- | The percentage of deployments that need to fail before stopping
-    -- deployment.
-    failureThresholdPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of time, in seconds, to wait for deployment to a single robot
+  { -- | The amount of time, in seconds, to wait for deployment to a single robot
     -- to complete. Choose a time between 1 minute and 7 days. The default is 5
     -- hours.
-    robotDeploymentTimeoutInSeconds :: Prelude.Maybe Prelude.Integer
+    robotDeploymentTimeoutInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The download condition file.
+    downloadConditionFile :: Prelude.Maybe S3Object,
+    -- | The percentage of robots receiving the deployment at the same time.
+    concurrentDeploymentPercentage :: Prelude.Maybe Prelude.Natural,
+    -- | The percentage of deployments that need to fail before stopping
+    -- deployment.
+    failureThresholdPercentage :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,39 +50,26 @@ data DeploymentConfig = DeploymentConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'concurrentDeploymentPercentage', 'deploymentConfig_concurrentDeploymentPercentage' - The percentage of robots receiving the deployment at the same time.
---
--- 'downloadConditionFile', 'deploymentConfig_downloadConditionFile' - The download condition file.
---
--- 'failureThresholdPercentage', 'deploymentConfig_failureThresholdPercentage' - The percentage of deployments that need to fail before stopping
--- deployment.
---
 -- 'robotDeploymentTimeoutInSeconds', 'deploymentConfig_robotDeploymentTimeoutInSeconds' - The amount of time, in seconds, to wait for deployment to a single robot
 -- to complete. Choose a time between 1 minute and 7 days. The default is 5
 -- hours.
+--
+-- 'downloadConditionFile', 'deploymentConfig_downloadConditionFile' - The download condition file.
+--
+-- 'concurrentDeploymentPercentage', 'deploymentConfig_concurrentDeploymentPercentage' - The percentage of robots receiving the deployment at the same time.
+--
+-- 'failureThresholdPercentage', 'deploymentConfig_failureThresholdPercentage' - The percentage of deployments that need to fail before stopping
+-- deployment.
 newDeploymentConfig ::
   DeploymentConfig
 newDeploymentConfig =
   DeploymentConfig'
-    { concurrentDeploymentPercentage =
+    { robotDeploymentTimeoutInSeconds =
         Prelude.Nothing,
       downloadConditionFile = Prelude.Nothing,
-      failureThresholdPercentage = Prelude.Nothing,
-      robotDeploymentTimeoutInSeconds = Prelude.Nothing
+      concurrentDeploymentPercentage = Prelude.Nothing,
+      failureThresholdPercentage = Prelude.Nothing
     }
-
--- | The percentage of robots receiving the deployment at the same time.
-deploymentConfig_concurrentDeploymentPercentage :: Lens.Lens' DeploymentConfig (Prelude.Maybe Prelude.Natural)
-deploymentConfig_concurrentDeploymentPercentage = Lens.lens (\DeploymentConfig' {concurrentDeploymentPercentage} -> concurrentDeploymentPercentage) (\s@DeploymentConfig' {} a -> s {concurrentDeploymentPercentage = a} :: DeploymentConfig)
-
--- | The download condition file.
-deploymentConfig_downloadConditionFile :: Lens.Lens' DeploymentConfig (Prelude.Maybe S3Object)
-deploymentConfig_downloadConditionFile = Lens.lens (\DeploymentConfig' {downloadConditionFile} -> downloadConditionFile) (\s@DeploymentConfig' {} a -> s {downloadConditionFile = a} :: DeploymentConfig)
-
--- | The percentage of deployments that need to fail before stopping
--- deployment.
-deploymentConfig_failureThresholdPercentage :: Lens.Lens' DeploymentConfig (Prelude.Maybe Prelude.Natural)
-deploymentConfig_failureThresholdPercentage = Lens.lens (\DeploymentConfig' {failureThresholdPercentage} -> failureThresholdPercentage) (\s@DeploymentConfig' {} a -> s {failureThresholdPercentage = a} :: DeploymentConfig)
 
 -- | The amount of time, in seconds, to wait for deployment to a single robot
 -- to complete. Choose a time between 1 minute and 7 days. The default is 5
@@ -90,44 +77,57 @@ deploymentConfig_failureThresholdPercentage = Lens.lens (\DeploymentConfig' {fai
 deploymentConfig_robotDeploymentTimeoutInSeconds :: Lens.Lens' DeploymentConfig (Prelude.Maybe Prelude.Integer)
 deploymentConfig_robotDeploymentTimeoutInSeconds = Lens.lens (\DeploymentConfig' {robotDeploymentTimeoutInSeconds} -> robotDeploymentTimeoutInSeconds) (\s@DeploymentConfig' {} a -> s {robotDeploymentTimeoutInSeconds = a} :: DeploymentConfig)
 
+-- | The download condition file.
+deploymentConfig_downloadConditionFile :: Lens.Lens' DeploymentConfig (Prelude.Maybe S3Object)
+deploymentConfig_downloadConditionFile = Lens.lens (\DeploymentConfig' {downloadConditionFile} -> downloadConditionFile) (\s@DeploymentConfig' {} a -> s {downloadConditionFile = a} :: DeploymentConfig)
+
+-- | The percentage of robots receiving the deployment at the same time.
+deploymentConfig_concurrentDeploymentPercentage :: Lens.Lens' DeploymentConfig (Prelude.Maybe Prelude.Natural)
+deploymentConfig_concurrentDeploymentPercentage = Lens.lens (\DeploymentConfig' {concurrentDeploymentPercentage} -> concurrentDeploymentPercentage) (\s@DeploymentConfig' {} a -> s {concurrentDeploymentPercentage = a} :: DeploymentConfig)
+
+-- | The percentage of deployments that need to fail before stopping
+-- deployment.
+deploymentConfig_failureThresholdPercentage :: Lens.Lens' DeploymentConfig (Prelude.Maybe Prelude.Natural)
+deploymentConfig_failureThresholdPercentage = Lens.lens (\DeploymentConfig' {failureThresholdPercentage} -> failureThresholdPercentage) (\s@DeploymentConfig' {} a -> s {failureThresholdPercentage = a} :: DeploymentConfig)
+
 instance Core.FromJSON DeploymentConfig where
   parseJSON =
     Core.withObject
       "DeploymentConfig"
       ( \x ->
           DeploymentConfig'
-            Prelude.<$> (x Core..:? "concurrentDeploymentPercentage")
+            Prelude.<$> (x Core..:? "robotDeploymentTimeoutInSeconds")
             Prelude.<*> (x Core..:? "downloadConditionFile")
+            Prelude.<*> (x Core..:? "concurrentDeploymentPercentage")
             Prelude.<*> (x Core..:? "failureThresholdPercentage")
-            Prelude.<*> (x Core..:? "robotDeploymentTimeoutInSeconds")
       )
 
 instance Prelude.Hashable DeploymentConfig where
   hashWithSalt _salt DeploymentConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` concurrentDeploymentPercentage
-      `Prelude.hashWithSalt` downloadConditionFile
-      `Prelude.hashWithSalt` failureThresholdPercentage
       `Prelude.hashWithSalt` robotDeploymentTimeoutInSeconds
+      `Prelude.hashWithSalt` downloadConditionFile
+      `Prelude.hashWithSalt` concurrentDeploymentPercentage
+      `Prelude.hashWithSalt` failureThresholdPercentage
 
 instance Prelude.NFData DeploymentConfig where
   rnf DeploymentConfig' {..} =
-    Prelude.rnf concurrentDeploymentPercentage
+    Prelude.rnf robotDeploymentTimeoutInSeconds
       `Prelude.seq` Prelude.rnf downloadConditionFile
+      `Prelude.seq` Prelude.rnf concurrentDeploymentPercentage
       `Prelude.seq` Prelude.rnf failureThresholdPercentage
-      `Prelude.seq` Prelude.rnf robotDeploymentTimeoutInSeconds
 
 instance Core.ToJSON DeploymentConfig where
   toJSON DeploymentConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("concurrentDeploymentPercentage" Core..=)
-              Prelude.<$> concurrentDeploymentPercentage,
+          [ ("robotDeploymentTimeoutInSeconds" Core..=)
+              Prelude.<$> robotDeploymentTimeoutInSeconds,
             ("downloadConditionFile" Core..=)
               Prelude.<$> downloadConditionFile,
+            ("concurrentDeploymentPercentage" Core..=)
+              Prelude.<$> concurrentDeploymentPercentage,
             ("failureThresholdPercentage" Core..=)
-              Prelude.<$> failureThresholdPercentage,
-            ("robotDeploymentTimeoutInSeconds" Core..=)
-              Prelude.<$> robotDeploymentTimeoutInSeconds
+              Prelude.<$> failureThresholdPercentage
           ]
       )

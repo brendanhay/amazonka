@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutput' smart constructor.
 data Output = Output'
-  { -- | The names of the CaptionDescriptions used as caption sources for this
+  { -- | The name of the VideoDescription used as the source for this output.
+    videoDescriptionName :: Prelude.Maybe Prelude.Text,
+    -- | The names of the CaptionDescriptions used as caption sources for this
     -- output.
     captionDescriptionNames :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the VideoDescription used as the source for this output.
-    videoDescriptionName :: Prelude.Maybe Prelude.Text,
     -- | The name used to identify an output.
     outputName :: Prelude.Maybe Prelude.Text,
     -- | The names of the AudioDescriptions used as audio sources for this
@@ -51,10 +51,10 @@ data Output = Output'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'videoDescriptionName', 'output_videoDescriptionName' - The name of the VideoDescription used as the source for this output.
+--
 -- 'captionDescriptionNames', 'output_captionDescriptionNames' - The names of the CaptionDescriptions used as caption sources for this
 -- output.
---
--- 'videoDescriptionName', 'output_videoDescriptionName' - The name of the VideoDescription used as the source for this output.
 --
 -- 'outputName', 'output_outputName' - The name used to identify an output.
 --
@@ -68,21 +68,21 @@ newOutput ::
   Output
 newOutput pOutputSettings_ =
   Output'
-    { captionDescriptionNames = Prelude.Nothing,
-      videoDescriptionName = Prelude.Nothing,
+    { videoDescriptionName = Prelude.Nothing,
+      captionDescriptionNames = Prelude.Nothing,
       outputName = Prelude.Nothing,
       audioDescriptionNames = Prelude.Nothing,
       outputSettings = pOutputSettings_
     }
 
+-- | The name of the VideoDescription used as the source for this output.
+output_videoDescriptionName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
+output_videoDescriptionName = Lens.lens (\Output' {videoDescriptionName} -> videoDescriptionName) (\s@Output' {} a -> s {videoDescriptionName = a} :: Output)
+
 -- | The names of the CaptionDescriptions used as caption sources for this
 -- output.
 output_captionDescriptionNames :: Lens.Lens' Output (Prelude.Maybe [Prelude.Text])
 output_captionDescriptionNames = Lens.lens (\Output' {captionDescriptionNames} -> captionDescriptionNames) (\s@Output' {} a -> s {captionDescriptionNames = a} :: Output) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the VideoDescription used as the source for this output.
-output_videoDescriptionName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
-output_videoDescriptionName = Lens.lens (\Output' {videoDescriptionName} -> videoDescriptionName) (\s@Output' {} a -> s {videoDescriptionName = a} :: Output)
 
 -- | The name used to identify an output.
 output_outputName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
@@ -103,10 +103,10 @@ instance Core.FromJSON Output where
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> ( x Core..:? "captionDescriptionNames"
+            Prelude.<$> (x Core..:? "videoDescriptionName")
+            Prelude.<*> ( x Core..:? "captionDescriptionNames"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "videoDescriptionName")
             Prelude.<*> (x Core..:? "outputName")
             Prelude.<*> ( x Core..:? "audioDescriptionNames"
                             Core..!= Prelude.mempty
@@ -116,17 +116,16 @@ instance Core.FromJSON Output where
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` videoDescriptionName
       `Prelude.hashWithSalt` captionDescriptionNames
-      `Prelude.hashWithSalt` videoDescriptionName
       `Prelude.hashWithSalt` outputName
       `Prelude.hashWithSalt` audioDescriptionNames
       `Prelude.hashWithSalt` outputSettings
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf captionDescriptionNames
-      `Prelude.seq` Prelude.rnf videoDescriptionName
+    Prelude.rnf videoDescriptionName
+      `Prelude.seq` Prelude.rnf captionDescriptionNames
       `Prelude.seq` Prelude.rnf outputName
       `Prelude.seq` Prelude.rnf audioDescriptionNames
       `Prelude.seq` Prelude.rnf outputSettings
@@ -135,10 +134,10 @@ instance Core.ToJSON Output where
   toJSON Output' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("captionDescriptionNames" Core..=)
-              Prelude.<$> captionDescriptionNames,
-            ("videoDescriptionName" Core..=)
+          [ ("videoDescriptionName" Core..=)
               Prelude.<$> videoDescriptionName,
+            ("captionDescriptionNames" Core..=)
+              Prelude.<$> captionDescriptionNames,
             ("outputName" Core..=) Prelude.<$> outputName,
             ("audioDescriptionNames" Core..=)
               Prelude.<$> audioDescriptionNames,

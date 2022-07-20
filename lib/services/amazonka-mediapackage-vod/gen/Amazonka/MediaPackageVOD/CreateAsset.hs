@@ -40,14 +40,14 @@ module Amazonka.MediaPackageVOD.CreateAsset
 
     -- * Response Lenses
     createAssetResponse_resourceId,
-    createAssetResponse_arn,
-    createAssetResponse_createdAt,
-    createAssetResponse_packagingGroupId,
-    createAssetResponse_sourceArn,
-    createAssetResponse_sourceRoleArn,
-    createAssetResponse_id,
-    createAssetResponse_egressEndpoints,
     createAssetResponse_tags,
+    createAssetResponse_sourceRoleArn,
+    createAssetResponse_sourceArn,
+    createAssetResponse_packagingGroupId,
+    createAssetResponse_arn,
+    createAssetResponse_id,
+    createAssetResponse_createdAt,
+    createAssetResponse_egressEndpoints,
     createAssetResponse_httpStatus,
   )
 where
@@ -152,16 +152,16 @@ instance Core.AWSRequest CreateAsset where
       ( \s h x ->
           CreateAssetResponse'
             Prelude.<$> (x Core..?> "resourceId")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "packagingGroupId")
-            Prelude.<*> (x Core..?> "sourceArn")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "sourceRoleArn")
+            Prelude.<*> (x Core..?> "sourceArn")
+            Prelude.<*> (x Core..?> "packagingGroupId")
+            Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> ( x Core..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,21 +219,21 @@ instance Core.ToQuery CreateAsset where
 data CreateAssetResponse = CreateAssetResponse'
   { -- | The resource ID to include in SPEKE key requests.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Asset.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time the Asset was initially submitted for Ingest.
-    createdAt :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the PackagingGroup for the Asset.
-    packagingGroupId :: Prelude.Maybe Prelude.Text,
-    -- | ARN of the source object in S3.
-    sourceArn :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The IAM role_arn used to access the source S3 bucket.
     sourceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | ARN of the source object in S3.
+    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the PackagingGroup for the Asset.
+    packagingGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Asset.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the Asset.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The time the Asset was initially submitted for Ingest.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The list of egress endpoints available for the Asset.
     egressEndpoints :: Prelude.Maybe [EgressEndpoint],
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -249,21 +249,21 @@ data CreateAssetResponse = CreateAssetResponse'
 --
 -- 'resourceId', 'createAssetResponse_resourceId' - The resource ID to include in SPEKE key requests.
 --
--- 'arn', 'createAssetResponse_arn' - The ARN of the Asset.
---
--- 'createdAt', 'createAssetResponse_createdAt' - The time the Asset was initially submitted for Ingest.
---
--- 'packagingGroupId', 'createAssetResponse_packagingGroupId' - The ID of the PackagingGroup for the Asset.
---
--- 'sourceArn', 'createAssetResponse_sourceArn' - ARN of the source object in S3.
+-- 'tags', 'createAssetResponse_tags' - Undocumented member.
 --
 -- 'sourceRoleArn', 'createAssetResponse_sourceRoleArn' - The IAM role_arn used to access the source S3 bucket.
 --
+-- 'sourceArn', 'createAssetResponse_sourceArn' - ARN of the source object in S3.
+--
+-- 'packagingGroupId', 'createAssetResponse_packagingGroupId' - The ID of the PackagingGroup for the Asset.
+--
+-- 'arn', 'createAssetResponse_arn' - The ARN of the Asset.
+--
 -- 'id', 'createAssetResponse_id' - The unique identifier for the Asset.
 --
--- 'egressEndpoints', 'createAssetResponse_egressEndpoints' - The list of egress endpoints available for the Asset.
+-- 'createdAt', 'createAssetResponse_createdAt' - The time the Asset was initially submitted for Ingest.
 --
--- 'tags', 'createAssetResponse_tags' - Undocumented member.
+-- 'egressEndpoints', 'createAssetResponse_egressEndpoints' - The list of egress endpoints available for the Asset.
 --
 -- 'httpStatus', 'createAssetResponse_httpStatus' - The response's http status code.
 newCreateAssetResponse ::
@@ -273,14 +273,14 @@ newCreateAssetResponse ::
 newCreateAssetResponse pHttpStatus_ =
   CreateAssetResponse'
     { resourceId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      packagingGroupId = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      sourceRoleArn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      egressEndpoints = Prelude.Nothing,
       tags = Prelude.Nothing,
+      sourceRoleArn = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      packagingGroupId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      egressEndpoints = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -288,37 +288,37 @@ newCreateAssetResponse pHttpStatus_ =
 createAssetResponse_resourceId :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
 createAssetResponse_resourceId = Lens.lens (\CreateAssetResponse' {resourceId} -> resourceId) (\s@CreateAssetResponse' {} a -> s {resourceId = a} :: CreateAssetResponse)
 
--- | The ARN of the Asset.
-createAssetResponse_arn :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
-createAssetResponse_arn = Lens.lens (\CreateAssetResponse' {arn} -> arn) (\s@CreateAssetResponse' {} a -> s {arn = a} :: CreateAssetResponse)
-
--- | The time the Asset was initially submitted for Ingest.
-createAssetResponse_createdAt :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
-createAssetResponse_createdAt = Lens.lens (\CreateAssetResponse' {createdAt} -> createdAt) (\s@CreateAssetResponse' {} a -> s {createdAt = a} :: CreateAssetResponse)
-
--- | The ID of the PackagingGroup for the Asset.
-createAssetResponse_packagingGroupId :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
-createAssetResponse_packagingGroupId = Lens.lens (\CreateAssetResponse' {packagingGroupId} -> packagingGroupId) (\s@CreateAssetResponse' {} a -> s {packagingGroupId = a} :: CreateAssetResponse)
-
--- | ARN of the source object in S3.
-createAssetResponse_sourceArn :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
-createAssetResponse_sourceArn = Lens.lens (\CreateAssetResponse' {sourceArn} -> sourceArn) (\s@CreateAssetResponse' {} a -> s {sourceArn = a} :: CreateAssetResponse)
+-- | Undocumented member.
+createAssetResponse_tags :: Lens.Lens' CreateAssetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAssetResponse_tags = Lens.lens (\CreateAssetResponse' {tags} -> tags) (\s@CreateAssetResponse' {} a -> s {tags = a} :: CreateAssetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IAM role_arn used to access the source S3 bucket.
 createAssetResponse_sourceRoleArn :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
 createAssetResponse_sourceRoleArn = Lens.lens (\CreateAssetResponse' {sourceRoleArn} -> sourceRoleArn) (\s@CreateAssetResponse' {} a -> s {sourceRoleArn = a} :: CreateAssetResponse)
 
+-- | ARN of the source object in S3.
+createAssetResponse_sourceArn :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
+createAssetResponse_sourceArn = Lens.lens (\CreateAssetResponse' {sourceArn} -> sourceArn) (\s@CreateAssetResponse' {} a -> s {sourceArn = a} :: CreateAssetResponse)
+
+-- | The ID of the PackagingGroup for the Asset.
+createAssetResponse_packagingGroupId :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
+createAssetResponse_packagingGroupId = Lens.lens (\CreateAssetResponse' {packagingGroupId} -> packagingGroupId) (\s@CreateAssetResponse' {} a -> s {packagingGroupId = a} :: CreateAssetResponse)
+
+-- | The ARN of the Asset.
+createAssetResponse_arn :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
+createAssetResponse_arn = Lens.lens (\CreateAssetResponse' {arn} -> arn) (\s@CreateAssetResponse' {} a -> s {arn = a} :: CreateAssetResponse)
+
 -- | The unique identifier for the Asset.
 createAssetResponse_id :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
 createAssetResponse_id = Lens.lens (\CreateAssetResponse' {id} -> id) (\s@CreateAssetResponse' {} a -> s {id = a} :: CreateAssetResponse)
 
+-- | The time the Asset was initially submitted for Ingest.
+createAssetResponse_createdAt :: Lens.Lens' CreateAssetResponse (Prelude.Maybe Prelude.Text)
+createAssetResponse_createdAt = Lens.lens (\CreateAssetResponse' {createdAt} -> createdAt) (\s@CreateAssetResponse' {} a -> s {createdAt = a} :: CreateAssetResponse)
+
 -- | The list of egress endpoints available for the Asset.
 createAssetResponse_egressEndpoints :: Lens.Lens' CreateAssetResponse (Prelude.Maybe [EgressEndpoint])
 createAssetResponse_egressEndpoints = Lens.lens (\CreateAssetResponse' {egressEndpoints} -> egressEndpoints) (\s@CreateAssetResponse' {} a -> s {egressEndpoints = a} :: CreateAssetResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-createAssetResponse_tags :: Lens.Lens' CreateAssetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAssetResponse_tags = Lens.lens (\CreateAssetResponse' {tags} -> tags) (\s@CreateAssetResponse' {} a -> s {tags = a} :: CreateAssetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createAssetResponse_httpStatus :: Lens.Lens' CreateAssetResponse Prelude.Int
@@ -327,12 +327,12 @@ createAssetResponse_httpStatus = Lens.lens (\CreateAssetResponse' {httpStatus} -
 instance Prelude.NFData CreateAssetResponse where
   rnf CreateAssetResponse' {..} =
     Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf packagingGroupId
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceRoleArn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf egressEndpoints
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sourceRoleArn
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf egressEndpoints
       `Prelude.seq` Prelude.rnf httpStatus

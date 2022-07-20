@@ -36,8 +36,8 @@ module Amazonka.CloudDirectory.GetSchemaAsJson
     newGetSchemaAsJsonResponse,
 
     -- * Response Lenses
-    getSchemaAsJsonResponse_document,
     getSchemaAsJsonResponse_name,
+    getSchemaAsJsonResponse_document,
     getSchemaAsJsonResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest GetSchemaAsJson where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaAsJsonResponse'
-            Prelude.<$> (x Core..?> "Document")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Document")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,10 +115,10 @@ instance Core.ToQuery GetSchemaAsJson where
 
 -- | /See:/ 'newGetSchemaAsJsonResponse' smart constructor.
 data GetSchemaAsJsonResponse = GetSchemaAsJsonResponse'
-  { -- | The JSON representation of the schema document.
-    document :: Prelude.Maybe Prelude.Text,
-    -- | The name of the retrieved schema.
+  { -- | The name of the retrieved schema.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The JSON representation of the schema document.
+    document :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -132,9 +132,9 @@ data GetSchemaAsJsonResponse = GetSchemaAsJsonResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'document', 'getSchemaAsJsonResponse_document' - The JSON representation of the schema document.
---
 -- 'name', 'getSchemaAsJsonResponse_name' - The name of the retrieved schema.
+--
+-- 'document', 'getSchemaAsJsonResponse_document' - The JSON representation of the schema document.
 --
 -- 'httpStatus', 'getSchemaAsJsonResponse_httpStatus' - The response's http status code.
 newGetSchemaAsJsonResponse ::
@@ -143,19 +143,18 @@ newGetSchemaAsJsonResponse ::
   GetSchemaAsJsonResponse
 newGetSchemaAsJsonResponse pHttpStatus_ =
   GetSchemaAsJsonResponse'
-    { document =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      document = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The JSON representation of the schema document.
-getSchemaAsJsonResponse_document :: Lens.Lens' GetSchemaAsJsonResponse (Prelude.Maybe Prelude.Text)
-getSchemaAsJsonResponse_document = Lens.lens (\GetSchemaAsJsonResponse' {document} -> document) (\s@GetSchemaAsJsonResponse' {} a -> s {document = a} :: GetSchemaAsJsonResponse)
 
 -- | The name of the retrieved schema.
 getSchemaAsJsonResponse_name :: Lens.Lens' GetSchemaAsJsonResponse (Prelude.Maybe Prelude.Text)
 getSchemaAsJsonResponse_name = Lens.lens (\GetSchemaAsJsonResponse' {name} -> name) (\s@GetSchemaAsJsonResponse' {} a -> s {name = a} :: GetSchemaAsJsonResponse)
+
+-- | The JSON representation of the schema document.
+getSchemaAsJsonResponse_document :: Lens.Lens' GetSchemaAsJsonResponse (Prelude.Maybe Prelude.Text)
+getSchemaAsJsonResponse_document = Lens.lens (\GetSchemaAsJsonResponse' {document} -> document) (\s@GetSchemaAsJsonResponse' {} a -> s {document = a} :: GetSchemaAsJsonResponse)
 
 -- | The response's http status code.
 getSchemaAsJsonResponse_httpStatus :: Lens.Lens' GetSchemaAsJsonResponse Prelude.Int
@@ -163,6 +162,6 @@ getSchemaAsJsonResponse_httpStatus = Lens.lens (\GetSchemaAsJsonResponse' {httpS
 
 instance Prelude.NFData GetSchemaAsJsonResponse where
   rnf GetSchemaAsJsonResponse' {..} =
-    Prelude.rnf document
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf httpStatus

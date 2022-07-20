@@ -32,16 +32,16 @@ import Amazonka.SageMaker.Types.NotebookOutputOption
 --
 -- /See:/ 'newSharingSettings' smart constructor.
 data SharingSettings = SharingSettings'
-  { -- | When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
-    -- Management Service (KMS) encryption key ID used to encrypt the notebook
-    -- cell output in the Amazon S3 bucket.
-    s3KmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to
+  { -- | When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to
     -- store the shared notebook snapshots.
     s3OutputPath :: Prelude.Maybe Prelude.Text,
     -- | Whether to include the notebook cell output when sharing the notebook.
     -- The default is @Disabled@.
-    notebookOutputOption :: Prelude.Maybe NotebookOutputOption
+    notebookOutputOption :: Prelude.Maybe NotebookOutputOption,
+    -- | When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
+    -- Management Service (KMS) encryption key ID used to encrypt the notebook
+    -- cell output in the Amazon S3 bucket.
+    s3KmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,29 +53,23 @@ data SharingSettings = SharingSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3KmsKeyId', 'sharingSettings_s3KmsKeyId' - When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
--- Management Service (KMS) encryption key ID used to encrypt the notebook
--- cell output in the Amazon S3 bucket.
---
 -- 's3OutputPath', 'sharingSettings_s3OutputPath' - When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to
 -- store the shared notebook snapshots.
 --
 -- 'notebookOutputOption', 'sharingSettings_notebookOutputOption' - Whether to include the notebook cell output when sharing the notebook.
 -- The default is @Disabled@.
+--
+-- 's3KmsKeyId', 'sharingSettings_s3KmsKeyId' - When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
+-- Management Service (KMS) encryption key ID used to encrypt the notebook
+-- cell output in the Amazon S3 bucket.
 newSharingSettings ::
   SharingSettings
 newSharingSettings =
   SharingSettings'
-    { s3KmsKeyId = Prelude.Nothing,
-      s3OutputPath = Prelude.Nothing,
-      notebookOutputOption = Prelude.Nothing
+    { s3OutputPath = Prelude.Nothing,
+      notebookOutputOption = Prelude.Nothing,
+      s3KmsKeyId = Prelude.Nothing
     }
-
--- | When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
--- Management Service (KMS) encryption key ID used to encrypt the notebook
--- cell output in the Amazon S3 bucket.
-sharingSettings_s3KmsKeyId :: Lens.Lens' SharingSettings (Prelude.Maybe Prelude.Text)
-sharingSettings_s3KmsKeyId = Lens.lens (\SharingSettings' {s3KmsKeyId} -> s3KmsKeyId) (\s@SharingSettings' {} a -> s {s3KmsKeyId = a} :: SharingSettings)
 
 -- | When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to
 -- store the shared notebook snapshots.
@@ -87,36 +81,42 @@ sharingSettings_s3OutputPath = Lens.lens (\SharingSettings' {s3OutputPath} -> s3
 sharingSettings_notebookOutputOption :: Lens.Lens' SharingSettings (Prelude.Maybe NotebookOutputOption)
 sharingSettings_notebookOutputOption = Lens.lens (\SharingSettings' {notebookOutputOption} -> notebookOutputOption) (\s@SharingSettings' {} a -> s {notebookOutputOption = a} :: SharingSettings)
 
+-- | When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key
+-- Management Service (KMS) encryption key ID used to encrypt the notebook
+-- cell output in the Amazon S3 bucket.
+sharingSettings_s3KmsKeyId :: Lens.Lens' SharingSettings (Prelude.Maybe Prelude.Text)
+sharingSettings_s3KmsKeyId = Lens.lens (\SharingSettings' {s3KmsKeyId} -> s3KmsKeyId) (\s@SharingSettings' {} a -> s {s3KmsKeyId = a} :: SharingSettings)
+
 instance Core.FromJSON SharingSettings where
   parseJSON =
     Core.withObject
       "SharingSettings"
       ( \x ->
           SharingSettings'
-            Prelude.<$> (x Core..:? "S3KmsKeyId")
-            Prelude.<*> (x Core..:? "S3OutputPath")
+            Prelude.<$> (x Core..:? "S3OutputPath")
             Prelude.<*> (x Core..:? "NotebookOutputOption")
+            Prelude.<*> (x Core..:? "S3KmsKeyId")
       )
 
 instance Prelude.Hashable SharingSettings where
   hashWithSalt _salt SharingSettings' {..} =
-    _salt `Prelude.hashWithSalt` s3KmsKeyId
-      `Prelude.hashWithSalt` s3OutputPath
+    _salt `Prelude.hashWithSalt` s3OutputPath
       `Prelude.hashWithSalt` notebookOutputOption
+      `Prelude.hashWithSalt` s3KmsKeyId
 
 instance Prelude.NFData SharingSettings where
   rnf SharingSettings' {..} =
-    Prelude.rnf s3KmsKeyId
-      `Prelude.seq` Prelude.rnf s3OutputPath
+    Prelude.rnf s3OutputPath
       `Prelude.seq` Prelude.rnf notebookOutputOption
+      `Prelude.seq` Prelude.rnf s3KmsKeyId
 
 instance Core.ToJSON SharingSettings where
   toJSON SharingSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3KmsKeyId" Core..=) Prelude.<$> s3KmsKeyId,
-            ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
+          [ ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
             ("NotebookOutputOption" Core..=)
-              Prelude.<$> notebookOutputOption
+              Prelude.<$> notebookOutputOption,
+            ("S3KmsKeyId" Core..=) Prelude.<$> s3KmsKeyId
           ]
       )

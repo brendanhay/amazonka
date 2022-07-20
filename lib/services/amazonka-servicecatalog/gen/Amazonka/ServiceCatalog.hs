@@ -25,29 +25,29 @@ module Amazonka.ServiceCatalog
     -- * Errors
     -- $errors
 
-    -- ** InvalidParametersException
-    _InvalidParametersException,
-
-    -- ** DuplicateResourceException
-    _DuplicateResourceException,
-
-    -- ** OperationNotSupportedException
-    _OperationNotSupportedException,
-
     -- ** TagOptionNotMigratedException
     _TagOptionNotMigratedException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** InvalidStateException
     _InvalidStateException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** DuplicateResourceException
+    _DuplicateResourceException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** InvalidParametersException
+    _InvalidParametersException,
+
+    -- ** OperationNotSupportedException
+    _OperationNotSupportedException,
 
     -- * Waiters
     -- $waiters
@@ -55,443 +55,17 @@ module Amazonka.ServiceCatalog
     -- * Operations
     -- $operations
 
-    -- ** ImportAsProvisionedProduct
-    ImportAsProvisionedProduct (ImportAsProvisionedProduct'),
-    newImportAsProvisionedProduct,
-    ImportAsProvisionedProductResponse (ImportAsProvisionedProductResponse'),
-    newImportAsProvisionedProductResponse,
-
-    -- ** DeleteConstraint
-    DeleteConstraint (DeleteConstraint'),
-    newDeleteConstraint,
-    DeleteConstraintResponse (DeleteConstraintResponse'),
-    newDeleteConstraintResponse,
-
-    -- ** UpdateConstraint
-    UpdateConstraint (UpdateConstraint'),
-    newUpdateConstraint,
-    UpdateConstraintResponse (UpdateConstraintResponse'),
-    newUpdateConstraintResponse,
-
-    -- ** CreateProvisionedProductPlan
-    CreateProvisionedProductPlan (CreateProvisionedProductPlan'),
-    newCreateProvisionedProductPlan,
-    CreateProvisionedProductPlanResponse (CreateProvisionedProductPlanResponse'),
-    newCreateProvisionedProductPlanResponse,
-
-    -- ** ExecuteProvisionedProductServiceAction
-    ExecuteProvisionedProductServiceAction (ExecuteProvisionedProductServiceAction'),
-    newExecuteProvisionedProductServiceAction,
-    ExecuteProvisionedProductServiceActionResponse (ExecuteProvisionedProductServiceActionResponse'),
-    newExecuteProvisionedProductServiceActionResponse,
-
-    -- ** CreateProduct
-    CreateProduct (CreateProduct'),
-    newCreateProduct,
-    CreateProductResponse (CreateProductResponse'),
-    newCreateProductResponse,
-
-    -- ** DescribeCopyProductStatus
-    DescribeCopyProductStatus (DescribeCopyProductStatus'),
-    newDescribeCopyProductStatus,
-    DescribeCopyProductStatusResponse (DescribeCopyProductStatusResponse'),
-    newDescribeCopyProductStatusResponse,
-
-    -- ** CreateServiceAction
-    CreateServiceAction (CreateServiceAction'),
-    newCreateServiceAction,
-    CreateServiceActionResponse (CreateServiceActionResponse'),
-    newCreateServiceActionResponse,
-
-    -- ** TerminateProvisionedProduct
-    TerminateProvisionedProduct (TerminateProvisionedProduct'),
-    newTerminateProvisionedProduct,
-    TerminateProvisionedProductResponse (TerminateProvisionedProductResponse'),
-    newTerminateProvisionedProductResponse,
-
-    -- ** UpdateProvisionedProduct
-    UpdateProvisionedProduct (UpdateProvisionedProduct'),
-    newUpdateProvisionedProduct,
-    UpdateProvisionedProductResponse (UpdateProvisionedProductResponse'),
-    newUpdateProvisionedProductResponse,
-
-    -- ** DescribeProvisioningArtifact
-    DescribeProvisioningArtifact (DescribeProvisioningArtifact'),
-    newDescribeProvisioningArtifact,
-    DescribeProvisioningArtifactResponse (DescribeProvisioningArtifactResponse'),
-    newDescribeProvisioningArtifactResponse,
-
-    -- ** AssociateServiceActionWithProvisioningArtifact
-    AssociateServiceActionWithProvisioningArtifact (AssociateServiceActionWithProvisioningArtifact'),
-    newAssociateServiceActionWithProvisioningArtifact,
-    AssociateServiceActionWithProvisioningArtifactResponse (AssociateServiceActionWithProvisioningArtifactResponse'),
-    newAssociateServiceActionWithProvisioningArtifactResponse,
-
-    -- ** ListRecordHistory (Paginated)
-    ListRecordHistory (ListRecordHistory'),
-    newListRecordHistory,
-    ListRecordHistoryResponse (ListRecordHistoryResponse'),
-    newListRecordHistoryResponse,
-
-    -- ** DescribeProvisionedProductPlan
-    DescribeProvisionedProductPlan (DescribeProvisionedProductPlan'),
-    newDescribeProvisionedProductPlan,
-    DescribeProvisionedProductPlanResponse (DescribeProvisionedProductPlanResponse'),
-    newDescribeProvisionedProductPlanResponse,
-
-    -- ** AssociateTagOptionWithResource
-    AssociateTagOptionWithResource (AssociateTagOptionWithResource'),
-    newAssociateTagOptionWithResource,
-    AssociateTagOptionWithResourceResponse (AssociateTagOptionWithResourceResponse'),
-    newAssociateTagOptionWithResourceResponse,
-
-    -- ** CreateTagOption
-    CreateTagOption (CreateTagOption'),
-    newCreateTagOption,
-    CreateTagOptionResponse (CreateTagOptionResponse'),
-    newCreateTagOptionResponse,
-
-    -- ** ListBudgetsForResource
-    ListBudgetsForResource (ListBudgetsForResource'),
-    newListBudgetsForResource,
-    ListBudgetsForResourceResponse (ListBudgetsForResourceResponse'),
-    newListBudgetsForResourceResponse,
-
-    -- ** DisassociateProductFromPortfolio
-    DisassociateProductFromPortfolio (DisassociateProductFromPortfolio'),
-    newDisassociateProductFromPortfolio,
-    DisassociateProductFromPortfolioResponse (DisassociateProductFromPortfolioResponse'),
-    newDisassociateProductFromPortfolioResponse,
-
-    -- ** ListConstraintsForPortfolio (Paginated)
-    ListConstraintsForPortfolio (ListConstraintsForPortfolio'),
-    newListConstraintsForPortfolio,
-    ListConstraintsForPortfolioResponse (ListConstraintsForPortfolioResponse'),
-    newListConstraintsForPortfolioResponse,
-
-    -- ** DescribeRecord
-    DescribeRecord (DescribeRecord'),
-    newDescribeRecord,
-    DescribeRecordResponse (DescribeRecordResponse'),
-    newDescribeRecordResponse,
-
-    -- ** EnableAWSOrganizationsAccess
-    EnableAWSOrganizationsAccess (EnableAWSOrganizationsAccess'),
-    newEnableAWSOrganizationsAccess,
-    EnableAWSOrganizationsAccessResponse (EnableAWSOrganizationsAccessResponse'),
-    newEnableAWSOrganizationsAccessResponse,
-
-    -- ** DescribeConstraint
-    DescribeConstraint (DescribeConstraint'),
-    newDescribeConstraint,
-    DescribeConstraintResponse (DescribeConstraintResponse'),
-    newDescribeConstraintResponse,
-
-    -- ** CreateProvisioningArtifact
-    CreateProvisioningArtifact (CreateProvisioningArtifact'),
-    newCreateProvisioningArtifact,
-    CreateProvisioningArtifactResponse (CreateProvisioningArtifactResponse'),
-    newCreateProvisioningArtifactResponse,
-
-    -- ** ListPortfolios (Paginated)
-    ListPortfolios (ListPortfolios'),
-    newListPortfolios,
-    ListPortfoliosResponse (ListPortfoliosResponse'),
-    newListPortfoliosResponse,
-
-    -- ** DisassociateBudgetFromResource
-    DisassociateBudgetFromResource (DisassociateBudgetFromResource'),
-    newDisassociateBudgetFromResource,
-    DisassociateBudgetFromResourceResponse (DisassociateBudgetFromResourceResponse'),
-    newDisassociateBudgetFromResourceResponse,
-
-    -- ** DescribeProductView
-    DescribeProductView (DescribeProductView'),
-    newDescribeProductView,
-    DescribeProductViewResponse (DescribeProductViewResponse'),
-    newDescribeProductViewResponse,
-
-    -- ** CreatePortfolioShare
-    CreatePortfolioShare (CreatePortfolioShare'),
-    newCreatePortfolioShare,
-    CreatePortfolioShareResponse (CreatePortfolioShareResponse'),
-    newCreatePortfolioShareResponse,
-
-    -- ** ListProvisioningArtifacts
-    ListProvisioningArtifacts (ListProvisioningArtifacts'),
-    newListProvisioningArtifacts,
-    ListProvisioningArtifactsResponse (ListProvisioningArtifactsResponse'),
-    newListProvisioningArtifactsResponse,
-
-    -- ** ListServiceActionsForProvisioningArtifact (Paginated)
-    ListServiceActionsForProvisioningArtifact (ListServiceActionsForProvisioningArtifact'),
-    newListServiceActionsForProvisioningArtifact,
-    ListServiceActionsForProvisioningArtifactResponse (ListServiceActionsForProvisioningArtifactResponse'),
-    newListServiceActionsForProvisioningArtifactResponse,
-
-    -- ** SearchProducts
-    SearchProducts (SearchProducts'),
-    newSearchProducts,
-    SearchProductsResponse (SearchProductsResponse'),
-    newSearchProductsResponse,
-
-    -- ** DescribeServiceActionExecutionParameters
-    DescribeServiceActionExecutionParameters (DescribeServiceActionExecutionParameters'),
-    newDescribeServiceActionExecutionParameters,
-    DescribeServiceActionExecutionParametersResponse (DescribeServiceActionExecutionParametersResponse'),
-    newDescribeServiceActionExecutionParametersResponse,
-
-    -- ** SearchProvisionedProducts
-    SearchProvisionedProducts (SearchProvisionedProducts'),
-    newSearchProvisionedProducts,
-    SearchProvisionedProductsResponse (SearchProvisionedProductsResponse'),
-    newSearchProvisionedProductsResponse,
-
-    -- ** ListStackInstancesForProvisionedProduct
-    ListStackInstancesForProvisionedProduct (ListStackInstancesForProvisionedProduct'),
-    newListStackInstancesForProvisionedProduct,
-    ListStackInstancesForProvisionedProductResponse (ListStackInstancesForProvisionedProductResponse'),
-    newListStackInstancesForProvisionedProductResponse,
-
-    -- ** DescribeServiceAction
-    DescribeServiceAction (DescribeServiceAction'),
-    newDescribeServiceAction,
-    DescribeServiceActionResponse (DescribeServiceActionResponse'),
-    newDescribeServiceActionResponse,
-
-    -- ** DescribeProduct
-    DescribeProduct (DescribeProduct'),
-    newDescribeProduct,
-    DescribeProductResponse (DescribeProductResponse'),
-    newDescribeProductResponse,
-
-    -- ** DeleteProvisionedProductPlan
-    DeleteProvisionedProductPlan (DeleteProvisionedProductPlan'),
-    newDeleteProvisionedProductPlan,
-    DeleteProvisionedProductPlanResponse (DeleteProvisionedProductPlanResponse'),
-    newDeleteProvisionedProductPlanResponse,
-
-    -- ** GetProvisionedProductOutputs
-    GetProvisionedProductOutputs (GetProvisionedProductOutputs'),
-    newGetProvisionedProductOutputs,
-    GetProvisionedProductOutputsResponse (GetProvisionedProductOutputsResponse'),
-    newGetProvisionedProductOutputsResponse,
-
-    -- ** CreateConstraint
-    CreateConstraint (CreateConstraint'),
-    newCreateConstraint,
-    CreateConstraintResponse (CreateConstraintResponse'),
-    newCreateConstraintResponse,
-
-    -- ** ListProvisionedProductPlans (Paginated)
-    ListProvisionedProductPlans (ListProvisionedProductPlans'),
-    newListProvisionedProductPlans,
-    ListProvisionedProductPlansResponse (ListProvisionedProductPlansResponse'),
-    newListProvisionedProductPlansResponse,
-
-    -- ** ListPortfolioAccess
-    ListPortfolioAccess (ListPortfolioAccess'),
-    newListPortfolioAccess,
-    ListPortfolioAccessResponse (ListPortfolioAccessResponse'),
-    newListPortfolioAccessResponse,
-
-    -- ** BatchDisassociateServiceActionFromProvisioningArtifact
-    BatchDisassociateServiceActionFromProvisioningArtifact (BatchDisassociateServiceActionFromProvisioningArtifact'),
-    newBatchDisassociateServiceActionFromProvisioningArtifact,
-    BatchDisassociateServiceActionFromProvisioningArtifactResponse (BatchDisassociateServiceActionFromProvisioningArtifactResponse'),
-    newBatchDisassociateServiceActionFromProvisioningArtifactResponse,
-
-    -- ** DisassociatePrincipalFromPortfolio
-    DisassociatePrincipalFromPortfolio (DisassociatePrincipalFromPortfolio'),
-    newDisassociatePrincipalFromPortfolio,
-    DisassociatePrincipalFromPortfolioResponse (DisassociatePrincipalFromPortfolioResponse'),
-    newDisassociatePrincipalFromPortfolioResponse,
-
-    -- ** DescribeTagOption
-    DescribeTagOption (DescribeTagOption'),
-    newDescribeTagOption,
-    DescribeTagOptionResponse (DescribeTagOptionResponse'),
-    newDescribeTagOptionResponse,
-
-    -- ** DisassociateTagOptionFromResource
-    DisassociateTagOptionFromResource (DisassociateTagOptionFromResource'),
-    newDisassociateTagOptionFromResource,
-    DisassociateTagOptionFromResourceResponse (DisassociateTagOptionFromResourceResponse'),
-    newDisassociateTagOptionFromResourceResponse,
-
-    -- ** DescribePortfolio
-    DescribePortfolio (DescribePortfolio'),
-    newDescribePortfolio,
-    DescribePortfolioResponse (DescribePortfolioResponse'),
-    newDescribePortfolioResponse,
-
-    -- ** AssociateProductWithPortfolio
-    AssociateProductWithPortfolio (AssociateProductWithPortfolio'),
-    newAssociateProductWithPortfolio,
-    AssociateProductWithPortfolioResponse (AssociateProductWithPortfolioResponse'),
-    newAssociateProductWithPortfolioResponse,
-
-    -- ** ListAcceptedPortfolioShares (Paginated)
-    ListAcceptedPortfolioShares (ListAcceptedPortfolioShares'),
-    newListAcceptedPortfolioShares,
-    ListAcceptedPortfolioSharesResponse (ListAcceptedPortfolioSharesResponse'),
-    newListAcceptedPortfolioSharesResponse,
-
-    -- ** ExecuteProvisionedProductPlan
-    ExecuteProvisionedProductPlan (ExecuteProvisionedProductPlan'),
-    newExecuteProvisionedProductPlan,
-    ExecuteProvisionedProductPlanResponse (ExecuteProvisionedProductPlanResponse'),
-    newExecuteProvisionedProductPlanResponse,
-
     -- ** AcceptPortfolioShare
     AcceptPortfolioShare (AcceptPortfolioShare'),
     newAcceptPortfolioShare,
     AcceptPortfolioShareResponse (AcceptPortfolioShareResponse'),
     newAcceptPortfolioShareResponse,
 
-    -- ** ScanProvisionedProducts (Paginated)
-    ScanProvisionedProducts (ScanProvisionedProducts'),
-    newScanProvisionedProducts,
-    ScanProvisionedProductsResponse (ScanProvisionedProductsResponse'),
-    newScanProvisionedProductsResponse,
-
-    -- ** ListOrganizationPortfolioAccess (Paginated)
-    ListOrganizationPortfolioAccess (ListOrganizationPortfolioAccess'),
-    newListOrganizationPortfolioAccess,
-    ListOrganizationPortfolioAccessResponse (ListOrganizationPortfolioAccessResponse'),
-    newListOrganizationPortfolioAccessResponse,
-
-    -- ** ListPrincipalsForPortfolio (Paginated)
-    ListPrincipalsForPortfolio (ListPrincipalsForPortfolio'),
-    newListPrincipalsForPortfolio,
-    ListPrincipalsForPortfolioResponse (ListPrincipalsForPortfolioResponse'),
-    newListPrincipalsForPortfolioResponse,
-
-    -- ** DeleteProduct
-    DeleteProduct (DeleteProduct'),
-    newDeleteProduct,
-    DeleteProductResponse (DeleteProductResponse'),
-    newDeleteProductResponse,
-
-    -- ** UpdateProduct
-    UpdateProduct (UpdateProduct'),
-    newUpdateProduct,
-    UpdateProductResponse (UpdateProductResponse'),
-    newUpdateProductResponse,
-
-    -- ** ListServiceActions (Paginated)
-    ListServiceActions (ListServiceActions'),
-    newListServiceActions,
-    ListServiceActionsResponse (ListServiceActionsResponse'),
-    newListServiceActionsResponse,
-
-    -- ** ProvisionProduct
-    ProvisionProduct (ProvisionProduct'),
-    newProvisionProduct,
-    ProvisionProductResponse (ProvisionProductResponse'),
-    newProvisionProductResponse,
-
-    -- ** DeleteServiceAction
-    DeleteServiceAction (DeleteServiceAction'),
-    newDeleteServiceAction,
-    DeleteServiceActionResponse (DeleteServiceActionResponse'),
-    newDeleteServiceActionResponse,
-
-    -- ** UpdateServiceAction
-    UpdateServiceAction (UpdateServiceAction'),
-    newUpdateServiceAction,
-    UpdateServiceActionResponse (UpdateServiceActionResponse'),
-    newUpdateServiceActionResponse,
-
-    -- ** DisableAWSOrganizationsAccess
-    DisableAWSOrganizationsAccess (DisableAWSOrganizationsAccess'),
-    newDisableAWSOrganizationsAccess,
-    DisableAWSOrganizationsAccessResponse (DisableAWSOrganizationsAccessResponse'),
-    newDisableAWSOrganizationsAccessResponse,
-
-    -- ** RejectPortfolioShare
-    RejectPortfolioShare (RejectPortfolioShare'),
-    newRejectPortfolioShare,
-    RejectPortfolioShareResponse (RejectPortfolioShareResponse'),
-    newRejectPortfolioShareResponse,
-
-    -- ** DisassociateServiceActionFromProvisioningArtifact
-    DisassociateServiceActionFromProvisioningArtifact (DisassociateServiceActionFromProvisioningArtifact'),
-    newDisassociateServiceActionFromProvisioningArtifact,
-    DisassociateServiceActionFromProvisioningArtifactResponse (DisassociateServiceActionFromProvisioningArtifactResponse'),
-    newDisassociateServiceActionFromProvisioningArtifactResponse,
-
-    -- ** DeleteTagOption
-    DeleteTagOption (DeleteTagOption'),
-    newDeleteTagOption,
-    DeleteTagOptionResponse (DeleteTagOptionResponse'),
-    newDeleteTagOptionResponse,
-
-    -- ** UpdateTagOption
-    UpdateTagOption (UpdateTagOption'),
-    newUpdateTagOption,
-    UpdateTagOptionResponse (UpdateTagOptionResponse'),
-    newUpdateTagOptionResponse,
-
-    -- ** ListTagOptions (Paginated)
-    ListTagOptions (ListTagOptions'),
-    newListTagOptions,
-    ListTagOptionsResponse (ListTagOptionsResponse'),
-    newListTagOptionsResponse,
-
-    -- ** UpdateProvisionedProductProperties
-    UpdateProvisionedProductProperties (UpdateProvisionedProductProperties'),
-    newUpdateProvisionedProductProperties,
-    UpdateProvisionedProductPropertiesResponse (UpdateProvisionedProductPropertiesResponse'),
-    newUpdateProvisionedProductPropertiesResponse,
-
-    -- ** SearchProductsAsAdmin (Paginated)
-    SearchProductsAsAdmin (SearchProductsAsAdmin'),
-    newSearchProductsAsAdmin,
-    SearchProductsAsAdminResponse (SearchProductsAsAdminResponse'),
-    newSearchProductsAsAdminResponse,
-
-    -- ** DeletePortfolio
-    DeletePortfolio (DeletePortfolio'),
-    newDeletePortfolio,
-    DeletePortfolioResponse (DeletePortfolioResponse'),
-    newDeletePortfolioResponse,
-
-    -- ** UpdatePortfolio
-    UpdatePortfolio (UpdatePortfolio'),
-    newUpdatePortfolio,
-    UpdatePortfolioResponse (UpdatePortfolioResponse'),
-    newUpdatePortfolioResponse,
-
-    -- ** ListPortfoliosForProduct (Paginated)
-    ListPortfoliosForProduct (ListPortfoliosForProduct'),
-    newListPortfoliosForProduct,
-    ListPortfoliosForProductResponse (ListPortfoliosForProductResponse'),
-    newListPortfoliosForProductResponse,
-
-    -- ** GetAWSOrganizationsAccessStatus
-    GetAWSOrganizationsAccessStatus (GetAWSOrganizationsAccessStatus'),
-    newGetAWSOrganizationsAccessStatus,
-    GetAWSOrganizationsAccessStatusResponse (GetAWSOrganizationsAccessStatusResponse'),
-    newGetAWSOrganizationsAccessStatusResponse,
-
-    -- ** DescribeProductAsAdmin
-    DescribeProductAsAdmin (DescribeProductAsAdmin'),
-    newDescribeProductAsAdmin,
-    DescribeProductAsAdminResponse (DescribeProductAsAdminResponse'),
-    newDescribeProductAsAdminResponse,
-
-    -- ** BatchAssociateServiceActionWithProvisioningArtifact
-    BatchAssociateServiceActionWithProvisioningArtifact (BatchAssociateServiceActionWithProvisioningArtifact'),
-    newBatchAssociateServiceActionWithProvisioningArtifact,
-    BatchAssociateServiceActionWithProvisioningArtifactResponse (BatchAssociateServiceActionWithProvisioningArtifactResponse'),
-    newBatchAssociateServiceActionWithProvisioningArtifactResponse,
-
-    -- ** DescribeProvisioningParameters
-    DescribeProvisioningParameters (DescribeProvisioningParameters'),
-    newDescribeProvisioningParameters,
-    DescribeProvisioningParametersResponse (DescribeProvisioningParametersResponse'),
-    newDescribeProvisioningParametersResponse,
+    -- ** AssociateBudgetWithResource
+    AssociateBudgetWithResource (AssociateBudgetWithResource'),
+    newAssociateBudgetWithResource,
+    AssociateBudgetWithResourceResponse (AssociateBudgetWithResourceResponse'),
+    newAssociateBudgetWithResourceResponse,
 
     -- ** AssociatePrincipalWithPortfolio
     AssociatePrincipalWithPortfolio (AssociatePrincipalWithPortfolio'),
@@ -499,11 +73,35 @@ module Amazonka.ServiceCatalog
     AssociatePrincipalWithPortfolioResponse (AssociatePrincipalWithPortfolioResponse'),
     newAssociatePrincipalWithPortfolioResponse,
 
-    -- ** DescribeProvisionedProduct
-    DescribeProvisionedProduct (DescribeProvisionedProduct'),
-    newDescribeProvisionedProduct,
-    DescribeProvisionedProductResponse (DescribeProvisionedProductResponse'),
-    newDescribeProvisionedProductResponse,
+    -- ** AssociateProductWithPortfolio
+    AssociateProductWithPortfolio (AssociateProductWithPortfolio'),
+    newAssociateProductWithPortfolio,
+    AssociateProductWithPortfolioResponse (AssociateProductWithPortfolioResponse'),
+    newAssociateProductWithPortfolioResponse,
+
+    -- ** AssociateServiceActionWithProvisioningArtifact
+    AssociateServiceActionWithProvisioningArtifact (AssociateServiceActionWithProvisioningArtifact'),
+    newAssociateServiceActionWithProvisioningArtifact,
+    AssociateServiceActionWithProvisioningArtifactResponse (AssociateServiceActionWithProvisioningArtifactResponse'),
+    newAssociateServiceActionWithProvisioningArtifactResponse,
+
+    -- ** AssociateTagOptionWithResource
+    AssociateTagOptionWithResource (AssociateTagOptionWithResource'),
+    newAssociateTagOptionWithResource,
+    AssociateTagOptionWithResourceResponse (AssociateTagOptionWithResourceResponse'),
+    newAssociateTagOptionWithResourceResponse,
+
+    -- ** BatchAssociateServiceActionWithProvisioningArtifact
+    BatchAssociateServiceActionWithProvisioningArtifact (BatchAssociateServiceActionWithProvisioningArtifact'),
+    newBatchAssociateServiceActionWithProvisioningArtifact,
+    BatchAssociateServiceActionWithProvisioningArtifactResponse (BatchAssociateServiceActionWithProvisioningArtifactResponse'),
+    newBatchAssociateServiceActionWithProvisioningArtifactResponse,
+
+    -- ** BatchDisassociateServiceActionFromProvisioningArtifact
+    BatchDisassociateServiceActionFromProvisioningArtifact (BatchDisassociateServiceActionFromProvisioningArtifact'),
+    newBatchDisassociateServiceActionFromProvisioningArtifact,
+    BatchDisassociateServiceActionFromProvisioningArtifactResponse (BatchDisassociateServiceActionFromProvisioningArtifactResponse'),
+    newBatchDisassociateServiceActionFromProvisioningArtifactResponse,
 
     -- ** CopyProduct
     CopyProduct (CopyProduct'),
@@ -511,41 +109,11 @@ module Amazonka.ServiceCatalog
     CopyProductResponse (CopyProductResponse'),
     newCopyProductResponse,
 
-    -- ** DescribePortfolioShareStatus
-    DescribePortfolioShareStatus (DescribePortfolioShareStatus'),
-    newDescribePortfolioShareStatus,
-    DescribePortfolioShareStatusResponse (DescribePortfolioShareStatusResponse'),
-    newDescribePortfolioShareStatusResponse,
-
-    -- ** UpdateProvisioningArtifact
-    UpdateProvisioningArtifact (UpdateProvisioningArtifact'),
-    newUpdateProvisioningArtifact,
-    UpdateProvisioningArtifactResponse (UpdateProvisioningArtifactResponse'),
-    newUpdateProvisioningArtifactResponse,
-
-    -- ** DeletePortfolioShare
-    DeletePortfolioShare (DeletePortfolioShare'),
-    newDeletePortfolioShare,
-    DeletePortfolioShareResponse (DeletePortfolioShareResponse'),
-    newDeletePortfolioShareResponse,
-
-    -- ** DeleteProvisioningArtifact
-    DeleteProvisioningArtifact (DeleteProvisioningArtifact'),
-    newDeleteProvisioningArtifact,
-    DeleteProvisioningArtifactResponse (DeleteProvisioningArtifactResponse'),
-    newDeleteProvisioningArtifactResponse,
-
-    -- ** UpdatePortfolioShare
-    UpdatePortfolioShare (UpdatePortfolioShare'),
-    newUpdatePortfolioShare,
-    UpdatePortfolioShareResponse (UpdatePortfolioShareResponse'),
-    newUpdatePortfolioShareResponse,
-
-    -- ** ListProvisioningArtifactsForServiceAction (Paginated)
-    ListProvisioningArtifactsForServiceAction (ListProvisioningArtifactsForServiceAction'),
-    newListProvisioningArtifactsForServiceAction,
-    ListProvisioningArtifactsForServiceActionResponse (ListProvisioningArtifactsForServiceActionResponse'),
-    newListProvisioningArtifactsForServiceActionResponse,
+    -- ** CreateConstraint
+    CreateConstraint (CreateConstraint'),
+    newCreateConstraint,
+    CreateConstraintResponse (CreateConstraintResponse'),
+    newCreateConstraintResponse,
 
     -- ** CreatePortfolio
     CreatePortfolio (CreatePortfolio'),
@@ -553,11 +121,113 @@ module Amazonka.ServiceCatalog
     CreatePortfolioResponse (CreatePortfolioResponse'),
     newCreatePortfolioResponse,
 
-    -- ** ListLaunchPaths (Paginated)
-    ListLaunchPaths (ListLaunchPaths'),
-    newListLaunchPaths,
-    ListLaunchPathsResponse (ListLaunchPathsResponse'),
-    newListLaunchPathsResponse,
+    -- ** CreatePortfolioShare
+    CreatePortfolioShare (CreatePortfolioShare'),
+    newCreatePortfolioShare,
+    CreatePortfolioShareResponse (CreatePortfolioShareResponse'),
+    newCreatePortfolioShareResponse,
+
+    -- ** CreateProduct
+    CreateProduct (CreateProduct'),
+    newCreateProduct,
+    CreateProductResponse (CreateProductResponse'),
+    newCreateProductResponse,
+
+    -- ** CreateProvisionedProductPlan
+    CreateProvisionedProductPlan (CreateProvisionedProductPlan'),
+    newCreateProvisionedProductPlan,
+    CreateProvisionedProductPlanResponse (CreateProvisionedProductPlanResponse'),
+    newCreateProvisionedProductPlanResponse,
+
+    -- ** CreateProvisioningArtifact
+    CreateProvisioningArtifact (CreateProvisioningArtifact'),
+    newCreateProvisioningArtifact,
+    CreateProvisioningArtifactResponse (CreateProvisioningArtifactResponse'),
+    newCreateProvisioningArtifactResponse,
+
+    -- ** CreateServiceAction
+    CreateServiceAction (CreateServiceAction'),
+    newCreateServiceAction,
+    CreateServiceActionResponse (CreateServiceActionResponse'),
+    newCreateServiceActionResponse,
+
+    -- ** CreateTagOption
+    CreateTagOption (CreateTagOption'),
+    newCreateTagOption,
+    CreateTagOptionResponse (CreateTagOptionResponse'),
+    newCreateTagOptionResponse,
+
+    -- ** DeleteConstraint
+    DeleteConstraint (DeleteConstraint'),
+    newDeleteConstraint,
+    DeleteConstraintResponse (DeleteConstraintResponse'),
+    newDeleteConstraintResponse,
+
+    -- ** DeletePortfolio
+    DeletePortfolio (DeletePortfolio'),
+    newDeletePortfolio,
+    DeletePortfolioResponse (DeletePortfolioResponse'),
+    newDeletePortfolioResponse,
+
+    -- ** DeletePortfolioShare
+    DeletePortfolioShare (DeletePortfolioShare'),
+    newDeletePortfolioShare,
+    DeletePortfolioShareResponse (DeletePortfolioShareResponse'),
+    newDeletePortfolioShareResponse,
+
+    -- ** DeleteProduct
+    DeleteProduct (DeleteProduct'),
+    newDeleteProduct,
+    DeleteProductResponse (DeleteProductResponse'),
+    newDeleteProductResponse,
+
+    -- ** DeleteProvisionedProductPlan
+    DeleteProvisionedProductPlan (DeleteProvisionedProductPlan'),
+    newDeleteProvisionedProductPlan,
+    DeleteProvisionedProductPlanResponse (DeleteProvisionedProductPlanResponse'),
+    newDeleteProvisionedProductPlanResponse,
+
+    -- ** DeleteProvisioningArtifact
+    DeleteProvisioningArtifact (DeleteProvisioningArtifact'),
+    newDeleteProvisioningArtifact,
+    DeleteProvisioningArtifactResponse (DeleteProvisioningArtifactResponse'),
+    newDeleteProvisioningArtifactResponse,
+
+    -- ** DeleteServiceAction
+    DeleteServiceAction (DeleteServiceAction'),
+    newDeleteServiceAction,
+    DeleteServiceActionResponse (DeleteServiceActionResponse'),
+    newDeleteServiceActionResponse,
+
+    -- ** DeleteTagOption
+    DeleteTagOption (DeleteTagOption'),
+    newDeleteTagOption,
+    DeleteTagOptionResponse (DeleteTagOptionResponse'),
+    newDeleteTagOptionResponse,
+
+    -- ** DescribeConstraint
+    DescribeConstraint (DescribeConstraint'),
+    newDescribeConstraint,
+    DescribeConstraintResponse (DescribeConstraintResponse'),
+    newDescribeConstraintResponse,
+
+    -- ** DescribeCopyProductStatus
+    DescribeCopyProductStatus (DescribeCopyProductStatus'),
+    newDescribeCopyProductStatus,
+    DescribeCopyProductStatusResponse (DescribeCopyProductStatusResponse'),
+    newDescribeCopyProductStatusResponse,
+
+    -- ** DescribePortfolio
+    DescribePortfolio (DescribePortfolio'),
+    newDescribePortfolio,
+    DescribePortfolioResponse (DescribePortfolioResponse'),
+    newDescribePortfolioResponse,
+
+    -- ** DescribePortfolioShareStatus
+    DescribePortfolioShareStatus (DescribePortfolioShareStatus'),
+    newDescribePortfolioShareStatus,
+    DescribePortfolioShareStatusResponse (DescribePortfolioShareStatusResponse'),
+    newDescribePortfolioShareStatusResponse,
 
     -- ** DescribePortfolioShares
     DescribePortfolioShares (DescribePortfolioShares'),
@@ -565,17 +235,347 @@ module Amazonka.ServiceCatalog
     DescribePortfolioSharesResponse (DescribePortfolioSharesResponse'),
     newDescribePortfolioSharesResponse,
 
+    -- ** DescribeProduct
+    DescribeProduct (DescribeProduct'),
+    newDescribeProduct,
+    DescribeProductResponse (DescribeProductResponse'),
+    newDescribeProductResponse,
+
+    -- ** DescribeProductAsAdmin
+    DescribeProductAsAdmin (DescribeProductAsAdmin'),
+    newDescribeProductAsAdmin,
+    DescribeProductAsAdminResponse (DescribeProductAsAdminResponse'),
+    newDescribeProductAsAdminResponse,
+
+    -- ** DescribeProductView
+    DescribeProductView (DescribeProductView'),
+    newDescribeProductView,
+    DescribeProductViewResponse (DescribeProductViewResponse'),
+    newDescribeProductViewResponse,
+
+    -- ** DescribeProvisionedProduct
+    DescribeProvisionedProduct (DescribeProvisionedProduct'),
+    newDescribeProvisionedProduct,
+    DescribeProvisionedProductResponse (DescribeProvisionedProductResponse'),
+    newDescribeProvisionedProductResponse,
+
+    -- ** DescribeProvisionedProductPlan
+    DescribeProvisionedProductPlan (DescribeProvisionedProductPlan'),
+    newDescribeProvisionedProductPlan,
+    DescribeProvisionedProductPlanResponse (DescribeProvisionedProductPlanResponse'),
+    newDescribeProvisionedProductPlanResponse,
+
+    -- ** DescribeProvisioningArtifact
+    DescribeProvisioningArtifact (DescribeProvisioningArtifact'),
+    newDescribeProvisioningArtifact,
+    DescribeProvisioningArtifactResponse (DescribeProvisioningArtifactResponse'),
+    newDescribeProvisioningArtifactResponse,
+
+    -- ** DescribeProvisioningParameters
+    DescribeProvisioningParameters (DescribeProvisioningParameters'),
+    newDescribeProvisioningParameters,
+    DescribeProvisioningParametersResponse (DescribeProvisioningParametersResponse'),
+    newDescribeProvisioningParametersResponse,
+
+    -- ** DescribeRecord
+    DescribeRecord (DescribeRecord'),
+    newDescribeRecord,
+    DescribeRecordResponse (DescribeRecordResponse'),
+    newDescribeRecordResponse,
+
+    -- ** DescribeServiceAction
+    DescribeServiceAction (DescribeServiceAction'),
+    newDescribeServiceAction,
+    DescribeServiceActionResponse (DescribeServiceActionResponse'),
+    newDescribeServiceActionResponse,
+
+    -- ** DescribeServiceActionExecutionParameters
+    DescribeServiceActionExecutionParameters (DescribeServiceActionExecutionParameters'),
+    newDescribeServiceActionExecutionParameters,
+    DescribeServiceActionExecutionParametersResponse (DescribeServiceActionExecutionParametersResponse'),
+    newDescribeServiceActionExecutionParametersResponse,
+
+    -- ** DescribeTagOption
+    DescribeTagOption (DescribeTagOption'),
+    newDescribeTagOption,
+    DescribeTagOptionResponse (DescribeTagOptionResponse'),
+    newDescribeTagOptionResponse,
+
+    -- ** DisableAWSOrganizationsAccess
+    DisableAWSOrganizationsAccess (DisableAWSOrganizationsAccess'),
+    newDisableAWSOrganizationsAccess,
+    DisableAWSOrganizationsAccessResponse (DisableAWSOrganizationsAccessResponse'),
+    newDisableAWSOrganizationsAccessResponse,
+
+    -- ** DisassociateBudgetFromResource
+    DisassociateBudgetFromResource (DisassociateBudgetFromResource'),
+    newDisassociateBudgetFromResource,
+    DisassociateBudgetFromResourceResponse (DisassociateBudgetFromResourceResponse'),
+    newDisassociateBudgetFromResourceResponse,
+
+    -- ** DisassociatePrincipalFromPortfolio
+    DisassociatePrincipalFromPortfolio (DisassociatePrincipalFromPortfolio'),
+    newDisassociatePrincipalFromPortfolio,
+    DisassociatePrincipalFromPortfolioResponse (DisassociatePrincipalFromPortfolioResponse'),
+    newDisassociatePrincipalFromPortfolioResponse,
+
+    -- ** DisassociateProductFromPortfolio
+    DisassociateProductFromPortfolio (DisassociateProductFromPortfolio'),
+    newDisassociateProductFromPortfolio,
+    DisassociateProductFromPortfolioResponse (DisassociateProductFromPortfolioResponse'),
+    newDisassociateProductFromPortfolioResponse,
+
+    -- ** DisassociateServiceActionFromProvisioningArtifact
+    DisassociateServiceActionFromProvisioningArtifact (DisassociateServiceActionFromProvisioningArtifact'),
+    newDisassociateServiceActionFromProvisioningArtifact,
+    DisassociateServiceActionFromProvisioningArtifactResponse (DisassociateServiceActionFromProvisioningArtifactResponse'),
+    newDisassociateServiceActionFromProvisioningArtifactResponse,
+
+    -- ** DisassociateTagOptionFromResource
+    DisassociateTagOptionFromResource (DisassociateTagOptionFromResource'),
+    newDisassociateTagOptionFromResource,
+    DisassociateTagOptionFromResourceResponse (DisassociateTagOptionFromResourceResponse'),
+    newDisassociateTagOptionFromResourceResponse,
+
+    -- ** EnableAWSOrganizationsAccess
+    EnableAWSOrganizationsAccess (EnableAWSOrganizationsAccess'),
+    newEnableAWSOrganizationsAccess,
+    EnableAWSOrganizationsAccessResponse (EnableAWSOrganizationsAccessResponse'),
+    newEnableAWSOrganizationsAccessResponse,
+
+    -- ** ExecuteProvisionedProductPlan
+    ExecuteProvisionedProductPlan (ExecuteProvisionedProductPlan'),
+    newExecuteProvisionedProductPlan,
+    ExecuteProvisionedProductPlanResponse (ExecuteProvisionedProductPlanResponse'),
+    newExecuteProvisionedProductPlanResponse,
+
+    -- ** ExecuteProvisionedProductServiceAction
+    ExecuteProvisionedProductServiceAction (ExecuteProvisionedProductServiceAction'),
+    newExecuteProvisionedProductServiceAction,
+    ExecuteProvisionedProductServiceActionResponse (ExecuteProvisionedProductServiceActionResponse'),
+    newExecuteProvisionedProductServiceActionResponse,
+
+    -- ** GetAWSOrganizationsAccessStatus
+    GetAWSOrganizationsAccessStatus (GetAWSOrganizationsAccessStatus'),
+    newGetAWSOrganizationsAccessStatus,
+    GetAWSOrganizationsAccessStatusResponse (GetAWSOrganizationsAccessStatusResponse'),
+    newGetAWSOrganizationsAccessStatusResponse,
+
+    -- ** GetProvisionedProductOutputs
+    GetProvisionedProductOutputs (GetProvisionedProductOutputs'),
+    newGetProvisionedProductOutputs,
+    GetProvisionedProductOutputsResponse (GetProvisionedProductOutputsResponse'),
+    newGetProvisionedProductOutputsResponse,
+
+    -- ** ImportAsProvisionedProduct
+    ImportAsProvisionedProduct (ImportAsProvisionedProduct'),
+    newImportAsProvisionedProduct,
+    ImportAsProvisionedProductResponse (ImportAsProvisionedProductResponse'),
+    newImportAsProvisionedProductResponse,
+
+    -- ** ListAcceptedPortfolioShares (Paginated)
+    ListAcceptedPortfolioShares (ListAcceptedPortfolioShares'),
+    newListAcceptedPortfolioShares,
+    ListAcceptedPortfolioSharesResponse (ListAcceptedPortfolioSharesResponse'),
+    newListAcceptedPortfolioSharesResponse,
+
+    -- ** ListBudgetsForResource
+    ListBudgetsForResource (ListBudgetsForResource'),
+    newListBudgetsForResource,
+    ListBudgetsForResourceResponse (ListBudgetsForResourceResponse'),
+    newListBudgetsForResourceResponse,
+
+    -- ** ListConstraintsForPortfolio (Paginated)
+    ListConstraintsForPortfolio (ListConstraintsForPortfolio'),
+    newListConstraintsForPortfolio,
+    ListConstraintsForPortfolioResponse (ListConstraintsForPortfolioResponse'),
+    newListConstraintsForPortfolioResponse,
+
+    -- ** ListLaunchPaths (Paginated)
+    ListLaunchPaths (ListLaunchPaths'),
+    newListLaunchPaths,
+    ListLaunchPathsResponse (ListLaunchPathsResponse'),
+    newListLaunchPathsResponse,
+
+    -- ** ListOrganizationPortfolioAccess (Paginated)
+    ListOrganizationPortfolioAccess (ListOrganizationPortfolioAccess'),
+    newListOrganizationPortfolioAccess,
+    ListOrganizationPortfolioAccessResponse (ListOrganizationPortfolioAccessResponse'),
+    newListOrganizationPortfolioAccessResponse,
+
+    -- ** ListPortfolioAccess
+    ListPortfolioAccess (ListPortfolioAccess'),
+    newListPortfolioAccess,
+    ListPortfolioAccessResponse (ListPortfolioAccessResponse'),
+    newListPortfolioAccessResponse,
+
+    -- ** ListPortfolios (Paginated)
+    ListPortfolios (ListPortfolios'),
+    newListPortfolios,
+    ListPortfoliosResponse (ListPortfoliosResponse'),
+    newListPortfoliosResponse,
+
+    -- ** ListPortfoliosForProduct (Paginated)
+    ListPortfoliosForProduct (ListPortfoliosForProduct'),
+    newListPortfoliosForProduct,
+    ListPortfoliosForProductResponse (ListPortfoliosForProductResponse'),
+    newListPortfoliosForProductResponse,
+
+    -- ** ListPrincipalsForPortfolio (Paginated)
+    ListPrincipalsForPortfolio (ListPrincipalsForPortfolio'),
+    newListPrincipalsForPortfolio,
+    ListPrincipalsForPortfolioResponse (ListPrincipalsForPortfolioResponse'),
+    newListPrincipalsForPortfolioResponse,
+
+    -- ** ListProvisionedProductPlans (Paginated)
+    ListProvisionedProductPlans (ListProvisionedProductPlans'),
+    newListProvisionedProductPlans,
+    ListProvisionedProductPlansResponse (ListProvisionedProductPlansResponse'),
+    newListProvisionedProductPlansResponse,
+
+    -- ** ListProvisioningArtifacts
+    ListProvisioningArtifacts (ListProvisioningArtifacts'),
+    newListProvisioningArtifacts,
+    ListProvisioningArtifactsResponse (ListProvisioningArtifactsResponse'),
+    newListProvisioningArtifactsResponse,
+
+    -- ** ListProvisioningArtifactsForServiceAction (Paginated)
+    ListProvisioningArtifactsForServiceAction (ListProvisioningArtifactsForServiceAction'),
+    newListProvisioningArtifactsForServiceAction,
+    ListProvisioningArtifactsForServiceActionResponse (ListProvisioningArtifactsForServiceActionResponse'),
+    newListProvisioningArtifactsForServiceActionResponse,
+
+    -- ** ListRecordHistory (Paginated)
+    ListRecordHistory (ListRecordHistory'),
+    newListRecordHistory,
+    ListRecordHistoryResponse (ListRecordHistoryResponse'),
+    newListRecordHistoryResponse,
+
     -- ** ListResourcesForTagOption (Paginated)
     ListResourcesForTagOption (ListResourcesForTagOption'),
     newListResourcesForTagOption,
     ListResourcesForTagOptionResponse (ListResourcesForTagOptionResponse'),
     newListResourcesForTagOptionResponse,
 
-    -- ** AssociateBudgetWithResource
-    AssociateBudgetWithResource (AssociateBudgetWithResource'),
-    newAssociateBudgetWithResource,
-    AssociateBudgetWithResourceResponse (AssociateBudgetWithResourceResponse'),
-    newAssociateBudgetWithResourceResponse,
+    -- ** ListServiceActions (Paginated)
+    ListServiceActions (ListServiceActions'),
+    newListServiceActions,
+    ListServiceActionsResponse (ListServiceActionsResponse'),
+    newListServiceActionsResponse,
+
+    -- ** ListServiceActionsForProvisioningArtifact (Paginated)
+    ListServiceActionsForProvisioningArtifact (ListServiceActionsForProvisioningArtifact'),
+    newListServiceActionsForProvisioningArtifact,
+    ListServiceActionsForProvisioningArtifactResponse (ListServiceActionsForProvisioningArtifactResponse'),
+    newListServiceActionsForProvisioningArtifactResponse,
+
+    -- ** ListStackInstancesForProvisionedProduct
+    ListStackInstancesForProvisionedProduct (ListStackInstancesForProvisionedProduct'),
+    newListStackInstancesForProvisionedProduct,
+    ListStackInstancesForProvisionedProductResponse (ListStackInstancesForProvisionedProductResponse'),
+    newListStackInstancesForProvisionedProductResponse,
+
+    -- ** ListTagOptions (Paginated)
+    ListTagOptions (ListTagOptions'),
+    newListTagOptions,
+    ListTagOptionsResponse (ListTagOptionsResponse'),
+    newListTagOptionsResponse,
+
+    -- ** ProvisionProduct
+    ProvisionProduct (ProvisionProduct'),
+    newProvisionProduct,
+    ProvisionProductResponse (ProvisionProductResponse'),
+    newProvisionProductResponse,
+
+    -- ** RejectPortfolioShare
+    RejectPortfolioShare (RejectPortfolioShare'),
+    newRejectPortfolioShare,
+    RejectPortfolioShareResponse (RejectPortfolioShareResponse'),
+    newRejectPortfolioShareResponse,
+
+    -- ** ScanProvisionedProducts (Paginated)
+    ScanProvisionedProducts (ScanProvisionedProducts'),
+    newScanProvisionedProducts,
+    ScanProvisionedProductsResponse (ScanProvisionedProductsResponse'),
+    newScanProvisionedProductsResponse,
+
+    -- ** SearchProducts
+    SearchProducts (SearchProducts'),
+    newSearchProducts,
+    SearchProductsResponse (SearchProductsResponse'),
+    newSearchProductsResponse,
+
+    -- ** SearchProductsAsAdmin (Paginated)
+    SearchProductsAsAdmin (SearchProductsAsAdmin'),
+    newSearchProductsAsAdmin,
+    SearchProductsAsAdminResponse (SearchProductsAsAdminResponse'),
+    newSearchProductsAsAdminResponse,
+
+    -- ** SearchProvisionedProducts
+    SearchProvisionedProducts (SearchProvisionedProducts'),
+    newSearchProvisionedProducts,
+    SearchProvisionedProductsResponse (SearchProvisionedProductsResponse'),
+    newSearchProvisionedProductsResponse,
+
+    -- ** TerminateProvisionedProduct
+    TerminateProvisionedProduct (TerminateProvisionedProduct'),
+    newTerminateProvisionedProduct,
+    TerminateProvisionedProductResponse (TerminateProvisionedProductResponse'),
+    newTerminateProvisionedProductResponse,
+
+    -- ** UpdateConstraint
+    UpdateConstraint (UpdateConstraint'),
+    newUpdateConstraint,
+    UpdateConstraintResponse (UpdateConstraintResponse'),
+    newUpdateConstraintResponse,
+
+    -- ** UpdatePortfolio
+    UpdatePortfolio (UpdatePortfolio'),
+    newUpdatePortfolio,
+    UpdatePortfolioResponse (UpdatePortfolioResponse'),
+    newUpdatePortfolioResponse,
+
+    -- ** UpdatePortfolioShare
+    UpdatePortfolioShare (UpdatePortfolioShare'),
+    newUpdatePortfolioShare,
+    UpdatePortfolioShareResponse (UpdatePortfolioShareResponse'),
+    newUpdatePortfolioShareResponse,
+
+    -- ** UpdateProduct
+    UpdateProduct (UpdateProduct'),
+    newUpdateProduct,
+    UpdateProductResponse (UpdateProductResponse'),
+    newUpdateProductResponse,
+
+    -- ** UpdateProvisionedProduct
+    UpdateProvisionedProduct (UpdateProvisionedProduct'),
+    newUpdateProvisionedProduct,
+    UpdateProvisionedProductResponse (UpdateProvisionedProductResponse'),
+    newUpdateProvisionedProductResponse,
+
+    -- ** UpdateProvisionedProductProperties
+    UpdateProvisionedProductProperties (UpdateProvisionedProductProperties'),
+    newUpdateProvisionedProductProperties,
+    UpdateProvisionedProductPropertiesResponse (UpdateProvisionedProductPropertiesResponse'),
+    newUpdateProvisionedProductPropertiesResponse,
+
+    -- ** UpdateProvisioningArtifact
+    UpdateProvisioningArtifact (UpdateProvisioningArtifact'),
+    newUpdateProvisioningArtifact,
+    UpdateProvisioningArtifactResponse (UpdateProvisioningArtifactResponse'),
+    newUpdateProvisioningArtifactResponse,
+
+    -- ** UpdateServiceAction
+    UpdateServiceAction (UpdateServiceAction'),
+    newUpdateServiceAction,
+    UpdateServiceActionResponse (UpdateServiceActionResponse'),
+    newUpdateServiceActionResponse,
+
+    -- ** UpdateTagOption
+    UpdateTagOption (UpdateTagOption'),
+    newUpdateTagOption,
+    UpdateTagOptionResponse (UpdateTagOptionResponse'),
+    newUpdateTagOptionResponse,
 
     -- * Types
 

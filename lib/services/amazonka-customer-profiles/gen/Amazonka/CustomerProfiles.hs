@@ -38,14 +38,14 @@ module Amazonka.CustomerProfiles
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** BadRequestException
     _BadRequestException,
@@ -56,77 +56,11 @@ module Amazonka.CustomerProfiles
     -- * Operations
     -- $operations
 
-    -- ** DeleteProfileObjectType
-    DeleteProfileObjectType (DeleteProfileObjectType'),
-    newDeleteProfileObjectType,
-    DeleteProfileObjectTypeResponse (DeleteProfileObjectTypeResponse'),
-    newDeleteProfileObjectTypeResponse,
-
-    -- ** ListIntegrations
-    ListIntegrations (ListIntegrations'),
-    newListIntegrations,
-    ListIntegrationsResponse (ListIntegrationsResponse'),
-    newListIntegrationsResponse,
-
-    -- ** PutProfileObjectType
-    PutProfileObjectType (PutProfileObjectType'),
-    newPutProfileObjectType,
-    PutProfileObjectTypeResponse (PutProfileObjectTypeResponse'),
-    newPutProfileObjectTypeResponse,
-
-    -- ** ListProfileObjects
-    ListProfileObjects (ListProfileObjects'),
-    newListProfileObjects,
-    ListProfileObjectsResponse (ListProfileObjectsResponse'),
-    newListProfileObjectsResponse,
-
-    -- ** ListProfileObjectTypeTemplates
-    ListProfileObjectTypeTemplates (ListProfileObjectTypeTemplates'),
-    newListProfileObjectTypeTemplates,
-    ListProfileObjectTypeTemplatesResponse (ListProfileObjectTypeTemplatesResponse'),
-    newListProfileObjectTypeTemplatesResponse,
-
-    -- ** DeleteProfile
-    DeleteProfile (DeleteProfile'),
-    newDeleteProfile,
-    DeleteProfileResponse (DeleteProfileResponse'),
-    newDeleteProfileResponse,
-
-    -- ** UpdateProfile
-    UpdateProfile (UpdateProfile'),
-    newUpdateProfile,
-    UpdateProfileResponse (UpdateProfileResponse'),
-    newUpdateProfileResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** AddProfileKey
     AddProfileKey (AddProfileKey'),
     newAddProfileKey,
     AddProfileKeyResponse (AddProfileKeyResponse'),
     newAddProfileKeyResponse,
-
-    -- ** GetProfileObjectTypeTemplate
-    GetProfileObjectTypeTemplate (GetProfileObjectTypeTemplate'),
-    newGetProfileObjectTypeTemplate,
-    GetProfileObjectTypeTemplateResponse (GetProfileObjectTypeTemplateResponse'),
-    newGetProfileObjectTypeTemplateResponse,
-
-    -- ** GetIntegration
-    GetIntegration (GetIntegration'),
-    newGetIntegration,
-    GetIntegrationResponse (GetIntegrationResponse'),
-    newGetIntegrationResponse,
-
-    -- ** GetDomain
-    GetDomain (GetDomain'),
-    newGetDomain,
-    GetDomainResponse (GetDomainResponse'),
-    newGetDomainResponse,
 
     -- ** CreateDomain
     CreateDomain (CreateDomain'),
@@ -134,89 +68,11 @@ module Amazonka.CustomerProfiles
     CreateDomainResponse (CreateDomainResponse'),
     newCreateDomainResponse,
 
-    -- ** DeleteIntegration
-    DeleteIntegration (DeleteIntegration'),
-    newDeleteIntegration,
-    DeleteIntegrationResponse (DeleteIntegrationResponse'),
-    newDeleteIntegrationResponse,
-
     -- ** CreateProfile
     CreateProfile (CreateProfile'),
     newCreateProfile,
     CreateProfileResponse (CreateProfileResponse'),
     newCreateProfileResponse,
-
-    -- ** PutProfileObject
-    PutProfileObject (PutProfileObject'),
-    newPutProfileObject,
-    PutProfileObjectResponse (PutProfileObjectResponse'),
-    newPutProfileObjectResponse,
-
-    -- ** PutIntegration
-    PutIntegration (PutIntegration'),
-    newPutIntegration,
-    PutIntegrationResponse (PutIntegrationResponse'),
-    newPutIntegrationResponse,
-
-    -- ** DeleteProfileObject
-    DeleteProfileObject (DeleteProfileObject'),
-    newDeleteProfileObject,
-    DeleteProfileObjectResponse (DeleteProfileObjectResponse'),
-    newDeleteProfileObjectResponse,
-
-    -- ** ListProfileObjectTypes
-    ListProfileObjectTypes (ListProfileObjectTypes'),
-    newListProfileObjectTypes,
-    ListProfileObjectTypesResponse (ListProfileObjectTypesResponse'),
-    newListProfileObjectTypesResponse,
-
-    -- ** DeleteProfileKey
-    DeleteProfileKey (DeleteProfileKey'),
-    newDeleteProfileKey,
-    DeleteProfileKeyResponse (DeleteProfileKeyResponse'),
-    newDeleteProfileKeyResponse,
-
-    -- ** GetProfileObjectType
-    GetProfileObjectType (GetProfileObjectType'),
-    newGetProfileObjectType,
-    GetProfileObjectTypeResponse (GetProfileObjectTypeResponse'),
-    newGetProfileObjectTypeResponse,
-
-    -- ** MergeProfiles
-    MergeProfiles (MergeProfiles'),
-    newMergeProfiles,
-    MergeProfilesResponse (MergeProfilesResponse'),
-    newMergeProfilesResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetMatches
-    GetMatches (GetMatches'),
-    newGetMatches,
-    GetMatchesResponse (GetMatchesResponse'),
-    newGetMatchesResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** SearchProfiles
-    SearchProfiles (SearchProfiles'),
-    newSearchProfiles,
-    SearchProfilesResponse (SearchProfilesResponse'),
-    newSearchProfilesResponse,
-
-    -- ** ListAccountIntegrations
-    ListAccountIntegrations (ListAccountIntegrations'),
-    newListAccountIntegrations,
-    ListAccountIntegrationsResponse (ListAccountIntegrationsResponse'),
-    newListAccountIntegrationsResponse,
 
     -- ** DeleteDomain
     DeleteDomain (DeleteDomain'),
@@ -224,17 +80,161 @@ module Amazonka.CustomerProfiles
     DeleteDomainResponse (DeleteDomainResponse'),
     newDeleteDomainResponse,
 
-    -- ** UpdateDomain
-    UpdateDomain (UpdateDomain'),
-    newUpdateDomain,
-    UpdateDomainResponse (UpdateDomainResponse'),
-    newUpdateDomainResponse,
+    -- ** DeleteIntegration
+    DeleteIntegration (DeleteIntegration'),
+    newDeleteIntegration,
+    DeleteIntegrationResponse (DeleteIntegrationResponse'),
+    newDeleteIntegrationResponse,
+
+    -- ** DeleteProfile
+    DeleteProfile (DeleteProfile'),
+    newDeleteProfile,
+    DeleteProfileResponse (DeleteProfileResponse'),
+    newDeleteProfileResponse,
+
+    -- ** DeleteProfileKey
+    DeleteProfileKey (DeleteProfileKey'),
+    newDeleteProfileKey,
+    DeleteProfileKeyResponse (DeleteProfileKeyResponse'),
+    newDeleteProfileKeyResponse,
+
+    -- ** DeleteProfileObject
+    DeleteProfileObject (DeleteProfileObject'),
+    newDeleteProfileObject,
+    DeleteProfileObjectResponse (DeleteProfileObjectResponse'),
+    newDeleteProfileObjectResponse,
+
+    -- ** DeleteProfileObjectType
+    DeleteProfileObjectType (DeleteProfileObjectType'),
+    newDeleteProfileObjectType,
+    DeleteProfileObjectTypeResponse (DeleteProfileObjectTypeResponse'),
+    newDeleteProfileObjectTypeResponse,
+
+    -- ** GetDomain
+    GetDomain (GetDomain'),
+    newGetDomain,
+    GetDomainResponse (GetDomainResponse'),
+    newGetDomainResponse,
+
+    -- ** GetIntegration
+    GetIntegration (GetIntegration'),
+    newGetIntegration,
+    GetIntegrationResponse (GetIntegrationResponse'),
+    newGetIntegrationResponse,
+
+    -- ** GetMatches
+    GetMatches (GetMatches'),
+    newGetMatches,
+    GetMatchesResponse (GetMatchesResponse'),
+    newGetMatchesResponse,
+
+    -- ** GetProfileObjectType
+    GetProfileObjectType (GetProfileObjectType'),
+    newGetProfileObjectType,
+    GetProfileObjectTypeResponse (GetProfileObjectTypeResponse'),
+    newGetProfileObjectTypeResponse,
+
+    -- ** GetProfileObjectTypeTemplate
+    GetProfileObjectTypeTemplate (GetProfileObjectTypeTemplate'),
+    newGetProfileObjectTypeTemplate,
+    GetProfileObjectTypeTemplateResponse (GetProfileObjectTypeTemplateResponse'),
+    newGetProfileObjectTypeTemplateResponse,
+
+    -- ** ListAccountIntegrations
+    ListAccountIntegrations (ListAccountIntegrations'),
+    newListAccountIntegrations,
+    ListAccountIntegrationsResponse (ListAccountIntegrationsResponse'),
+    newListAccountIntegrationsResponse,
 
     -- ** ListDomains
     ListDomains (ListDomains'),
     newListDomains,
     ListDomainsResponse (ListDomainsResponse'),
     newListDomainsResponse,
+
+    -- ** ListIntegrations
+    ListIntegrations (ListIntegrations'),
+    newListIntegrations,
+    ListIntegrationsResponse (ListIntegrationsResponse'),
+    newListIntegrationsResponse,
+
+    -- ** ListProfileObjectTypeTemplates
+    ListProfileObjectTypeTemplates (ListProfileObjectTypeTemplates'),
+    newListProfileObjectTypeTemplates,
+    ListProfileObjectTypeTemplatesResponse (ListProfileObjectTypeTemplatesResponse'),
+    newListProfileObjectTypeTemplatesResponse,
+
+    -- ** ListProfileObjectTypes
+    ListProfileObjectTypes (ListProfileObjectTypes'),
+    newListProfileObjectTypes,
+    ListProfileObjectTypesResponse (ListProfileObjectTypesResponse'),
+    newListProfileObjectTypesResponse,
+
+    -- ** ListProfileObjects
+    ListProfileObjects (ListProfileObjects'),
+    newListProfileObjects,
+    ListProfileObjectsResponse (ListProfileObjectsResponse'),
+    newListProfileObjectsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** MergeProfiles
+    MergeProfiles (MergeProfiles'),
+    newMergeProfiles,
+    MergeProfilesResponse (MergeProfilesResponse'),
+    newMergeProfilesResponse,
+
+    -- ** PutIntegration
+    PutIntegration (PutIntegration'),
+    newPutIntegration,
+    PutIntegrationResponse (PutIntegrationResponse'),
+    newPutIntegrationResponse,
+
+    -- ** PutProfileObject
+    PutProfileObject (PutProfileObject'),
+    newPutProfileObject,
+    PutProfileObjectResponse (PutProfileObjectResponse'),
+    newPutProfileObjectResponse,
+
+    -- ** PutProfileObjectType
+    PutProfileObjectType (PutProfileObjectType'),
+    newPutProfileObjectType,
+    PutProfileObjectTypeResponse (PutProfileObjectTypeResponse'),
+    newPutProfileObjectTypeResponse,
+
+    -- ** SearchProfiles
+    SearchProfiles (SearchProfiles'),
+    newSearchProfiles,
+    SearchProfilesResponse (SearchProfilesResponse'),
+    newSearchProfilesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateDomain
+    UpdateDomain (UpdateDomain'),
+    newUpdateDomain,
+    UpdateDomainResponse (UpdateDomainResponse'),
+    newUpdateDomainResponse,
+
+    -- ** UpdateProfile
+    UpdateProfile (UpdateProfile'),
+    newUpdateProfile,
+    UpdateProfileResponse (UpdateProfileResponse'),
+    newUpdateProfileResponse,
 
     -- * Types
 

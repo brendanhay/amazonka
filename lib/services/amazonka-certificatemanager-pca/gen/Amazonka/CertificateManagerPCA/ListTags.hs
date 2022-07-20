@@ -45,8 +45,8 @@ module Amazonka.CertificateManagerPCA.ListTags
     newListTagsResponse,
 
     -- * Response Lenses
-    listTagsResponse_nextToken,
     listTagsResponse_tags,
+    listTagsResponse_nextToken,
     listTagsResponse_httpStatus,
   )
 where
@@ -162,8 +162,8 @@ instance Core.AWSRequest ListTags where
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Tags")
+            Prelude.<$> (x Core..?> "Tags")
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,11 +213,11 @@ instance Core.ToQuery ListTags where
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { -- | When the list is truncated, this value is present and should be used for
+  { -- | The tags associated with your private CA.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | When the list is truncated, this value is present and should be used for
     -- the __NextToken__ parameter in a subsequent pagination request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with your private CA.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,10 +231,10 @@ data ListTagsResponse = ListTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listTagsResponse_tags' - The tags associated with your private CA.
+--
 -- 'nextToken', 'listTagsResponse_nextToken' - When the list is truncated, this value is present and should be used for
 -- the __NextToken__ parameter in a subsequent pagination request.
---
--- 'tags', 'listTagsResponse_tags' - The tags associated with your private CA.
 --
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
@@ -243,19 +243,19 @@ newListTagsResponse ::
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The tags associated with your private CA.
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When the list is truncated, this value is present and should be used for
 -- the __NextToken__ parameter in a subsequent pagination request.
 listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
-
--- | The tags associated with your private CA.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
@@ -263,6 +263,6 @@ listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListTagsResponse where
   rnf ListTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

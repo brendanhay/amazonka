@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3SourceConfig' smart constructor.
 data S3SourceConfig = S3SourceConfig'
-  { -- | A list of templated paths to the source files.
+  { -- | Contains information about a source file\'s formatting.
+    fileFormatDescriptor :: Prelude.Maybe FileFormatDescriptor,
+    -- | A list of templated paths to the source files.
     templatedPathList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of paths to the historical data files.
     historicalDataPathList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Contains information about a source file\'s formatting.
-    fileFormatDescriptor :: Prelude.Maybe FileFormatDescriptor,
     -- | The ARN of an IAM role that has read and write access permissions to the
     -- source S3 bucket.
     roleArn :: Prelude.Text
@@ -49,11 +49,11 @@ data S3SourceConfig = S3SourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fileFormatDescriptor', 's3SourceConfig_fileFormatDescriptor' - Contains information about a source file\'s formatting.
+--
 -- 'templatedPathList', 's3SourceConfig_templatedPathList' - A list of templated paths to the source files.
 --
 -- 'historicalDataPathList', 's3SourceConfig_historicalDataPathList' - A list of paths to the historical data files.
---
--- 'fileFormatDescriptor', 's3SourceConfig_fileFormatDescriptor' - Contains information about a source file\'s formatting.
 --
 -- 'roleArn', 's3SourceConfig_roleArn' - The ARN of an IAM role that has read and write access permissions to the
 -- source S3 bucket.
@@ -63,12 +63,16 @@ newS3SourceConfig ::
   S3SourceConfig
 newS3SourceConfig pRoleArn_ =
   S3SourceConfig'
-    { templatedPathList =
+    { fileFormatDescriptor =
         Prelude.Nothing,
+      templatedPathList = Prelude.Nothing,
       historicalDataPathList = Prelude.Nothing,
-      fileFormatDescriptor = Prelude.Nothing,
       roleArn = pRoleArn_
     }
+
+-- | Contains information about a source file\'s formatting.
+s3SourceConfig_fileFormatDescriptor :: Lens.Lens' S3SourceConfig (Prelude.Maybe FileFormatDescriptor)
+s3SourceConfig_fileFormatDescriptor = Lens.lens (\S3SourceConfig' {fileFormatDescriptor} -> fileFormatDescriptor) (\s@S3SourceConfig' {} a -> s {fileFormatDescriptor = a} :: S3SourceConfig)
 
 -- | A list of templated paths to the source files.
 s3SourceConfig_templatedPathList :: Lens.Lens' S3SourceConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -77,10 +81,6 @@ s3SourceConfig_templatedPathList = Lens.lens (\S3SourceConfig' {templatedPathLis
 -- | A list of paths to the historical data files.
 s3SourceConfig_historicalDataPathList :: Lens.Lens' S3SourceConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 s3SourceConfig_historicalDataPathList = Lens.lens (\S3SourceConfig' {historicalDataPathList} -> historicalDataPathList) (\s@S3SourceConfig' {} a -> s {historicalDataPathList = a} :: S3SourceConfig) Prelude.. Lens.mapping Lens.coerced
-
--- | Contains information about a source file\'s formatting.
-s3SourceConfig_fileFormatDescriptor :: Lens.Lens' S3SourceConfig (Prelude.Maybe FileFormatDescriptor)
-s3SourceConfig_fileFormatDescriptor = Lens.lens (\S3SourceConfig' {fileFormatDescriptor} -> fileFormatDescriptor) (\s@S3SourceConfig' {} a -> s {fileFormatDescriptor = a} :: S3SourceConfig)
 
 -- | The ARN of an IAM role that has read and write access permissions to the
 -- source S3 bucket.
@@ -93,36 +93,36 @@ instance Core.FromJSON S3SourceConfig where
       "S3SourceConfig"
       ( \x ->
           S3SourceConfig'
-            Prelude.<$> (x Core..:? "TemplatedPathList")
+            Prelude.<$> (x Core..:? "FileFormatDescriptor")
+            Prelude.<*> (x Core..:? "TemplatedPathList")
             Prelude.<*> (x Core..:? "HistoricalDataPathList")
-            Prelude.<*> (x Core..:? "FileFormatDescriptor")
             Prelude.<*> (x Core..: "RoleArn")
       )
 
 instance Prelude.Hashable S3SourceConfig where
   hashWithSalt _salt S3SourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` templatedPathList
+    _salt `Prelude.hashWithSalt` fileFormatDescriptor
+      `Prelude.hashWithSalt` templatedPathList
       `Prelude.hashWithSalt` historicalDataPathList
-      `Prelude.hashWithSalt` fileFormatDescriptor
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData S3SourceConfig where
   rnf S3SourceConfig' {..} =
-    Prelude.rnf templatedPathList
+    Prelude.rnf fileFormatDescriptor
+      `Prelude.seq` Prelude.rnf templatedPathList
       `Prelude.seq` Prelude.rnf historicalDataPathList
-      `Prelude.seq` Prelude.rnf fileFormatDescriptor
       `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON S3SourceConfig where
   toJSON S3SourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TemplatedPathList" Core..=)
+          [ ("FileFormatDescriptor" Core..=)
+              Prelude.<$> fileFormatDescriptor,
+            ("TemplatedPathList" Core..=)
               Prelude.<$> templatedPathList,
             ("HistoricalDataPathList" Core..=)
               Prelude.<$> historicalDataPathList,
-            ("FileFormatDescriptor" Core..=)
-              Prelude.<$> fileFormatDescriptor,
             Prelude.Just ("RoleArn" Core..= roleArn)
           ]
       )

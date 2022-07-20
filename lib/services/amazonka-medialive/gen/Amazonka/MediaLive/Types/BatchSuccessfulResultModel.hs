@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchSuccessfulResultModel' smart constructor.
 data BatchSuccessfulResultModel = BatchSuccessfulResultModel'
-  { -- | Current state of the resource
-    state :: Prelude.Maybe Prelude.Text,
-    -- | ARN of the resource
+  { -- | ARN of the resource
     arn :: Prelude.Maybe Prelude.Text,
+    -- | Current state of the resource
+    state :: Prelude.Maybe Prelude.Text,
     -- | ID of the resource
     id :: Prelude.Maybe Prelude.Text
   }
@@ -44,28 +44,27 @@ data BatchSuccessfulResultModel = BatchSuccessfulResultModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'batchSuccessfulResultModel_state' - Current state of the resource
---
 -- 'arn', 'batchSuccessfulResultModel_arn' - ARN of the resource
+--
+-- 'state', 'batchSuccessfulResultModel_state' - Current state of the resource
 --
 -- 'id', 'batchSuccessfulResultModel_id' - ID of the resource
 newBatchSuccessfulResultModel ::
   BatchSuccessfulResultModel
 newBatchSuccessfulResultModel =
   BatchSuccessfulResultModel'
-    { state =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      state = Prelude.Nothing,
       id = Prelude.Nothing
     }
-
--- | Current state of the resource
-batchSuccessfulResultModel_state :: Lens.Lens' BatchSuccessfulResultModel (Prelude.Maybe Prelude.Text)
-batchSuccessfulResultModel_state = Lens.lens (\BatchSuccessfulResultModel' {state} -> state) (\s@BatchSuccessfulResultModel' {} a -> s {state = a} :: BatchSuccessfulResultModel)
 
 -- | ARN of the resource
 batchSuccessfulResultModel_arn :: Lens.Lens' BatchSuccessfulResultModel (Prelude.Maybe Prelude.Text)
 batchSuccessfulResultModel_arn = Lens.lens (\BatchSuccessfulResultModel' {arn} -> arn) (\s@BatchSuccessfulResultModel' {} a -> s {arn = a} :: BatchSuccessfulResultModel)
+
+-- | Current state of the resource
+batchSuccessfulResultModel_state :: Lens.Lens' BatchSuccessfulResultModel (Prelude.Maybe Prelude.Text)
+batchSuccessfulResultModel_state = Lens.lens (\BatchSuccessfulResultModel' {state} -> state) (\s@BatchSuccessfulResultModel' {} a -> s {state = a} :: BatchSuccessfulResultModel)
 
 -- | ID of the resource
 batchSuccessfulResultModel_id :: Lens.Lens' BatchSuccessfulResultModel (Prelude.Maybe Prelude.Text)
@@ -77,19 +76,19 @@ instance Core.FromJSON BatchSuccessfulResultModel where
       "BatchSuccessfulResultModel"
       ( \x ->
           BatchSuccessfulResultModel'
-            Prelude.<$> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "id")
       )
 
 instance Prelude.Hashable BatchSuccessfulResultModel where
   hashWithSalt _salt BatchSuccessfulResultModel' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData BatchSuccessfulResultModel where
   rnf BatchSuccessfulResultModel' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf id

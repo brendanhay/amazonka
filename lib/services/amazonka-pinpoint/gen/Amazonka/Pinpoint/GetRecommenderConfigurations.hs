@@ -28,8 +28,8 @@ module Amazonka.Pinpoint.GetRecommenderConfigurations
     newGetRecommenderConfigurations,
 
     -- * Request Lenses
-    getRecommenderConfigurations_token,
     getRecommenderConfigurations_pageSize,
+    getRecommenderConfigurations_token,
 
     -- * Destructuring the Response
     GetRecommenderConfigurationsResponse (..),
@@ -50,13 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRecommenderConfigurations' smart constructor.
 data GetRecommenderConfigurations = GetRecommenderConfigurations'
-  { -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of a paginated
+  { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text
+    pageSize :: Prelude.Maybe Prelude.Text,
+    -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,31 +68,31 @@ data GetRecommenderConfigurations = GetRecommenderConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'token', 'getRecommenderConfigurations_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
---
 -- 'pageSize', 'getRecommenderConfigurations_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
+--
+-- 'token', 'getRecommenderConfigurations_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
 newGetRecommenderConfigurations ::
   GetRecommenderConfigurations
 newGetRecommenderConfigurations =
   GetRecommenderConfigurations'
-    { token =
+    { pageSize =
         Prelude.Nothing,
-      pageSize = Prelude.Nothing
+      token = Prelude.Nothing
     }
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getRecommenderConfigurations_token :: Lens.Lens' GetRecommenderConfigurations (Prelude.Maybe Prelude.Text)
-getRecommenderConfigurations_token = Lens.lens (\GetRecommenderConfigurations' {token} -> token) (\s@GetRecommenderConfigurations' {} a -> s {token = a} :: GetRecommenderConfigurations)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getRecommenderConfigurations_pageSize :: Lens.Lens' GetRecommenderConfigurations (Prelude.Maybe Prelude.Text)
 getRecommenderConfigurations_pageSize = Lens.lens (\GetRecommenderConfigurations' {pageSize} -> pageSize) (\s@GetRecommenderConfigurations' {} a -> s {pageSize = a} :: GetRecommenderConfigurations)
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getRecommenderConfigurations_token :: Lens.Lens' GetRecommenderConfigurations (Prelude.Maybe Prelude.Text)
+getRecommenderConfigurations_token = Lens.lens (\GetRecommenderConfigurations' {token} -> token) (\s@GetRecommenderConfigurations' {} a -> s {token = a} :: GetRecommenderConfigurations)
 
 instance Core.AWSRequest GetRecommenderConfigurations where
   type
@@ -112,13 +112,13 @@ instance
     GetRecommenderConfigurations
   where
   hashWithSalt _salt GetRecommenderConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` token
-      `Prelude.hashWithSalt` pageSize
+    _salt `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` token
 
 instance Prelude.NFData GetRecommenderConfigurations where
   rnf GetRecommenderConfigurations' {..} =
-    Prelude.rnf token
-      `Prelude.seq` Prelude.rnf pageSize
+    Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf token
 
 instance Core.ToHeaders GetRecommenderConfigurations where
   toHeaders =
@@ -137,7 +137,7 @@ instance Core.ToPath GetRecommenderConfigurations where
 instance Core.ToQuery GetRecommenderConfigurations where
   toQuery GetRecommenderConfigurations' {..} =
     Prelude.mconcat
-      ["token" Core.=: token, "page-size" Core.=: pageSize]
+      ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetRecommenderConfigurationsResponse' smart constructor.
 data GetRecommenderConfigurationsResponse = GetRecommenderConfigurationsResponse'

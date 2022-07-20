@@ -14,6 +14,60 @@
 module Amazonka.Grafana.Lens
   ( -- * Operations
 
+    -- ** AssociateLicense
+    associateLicense_licenseType,
+    associateLicense_workspaceId,
+    associateLicenseResponse_httpStatus,
+    associateLicenseResponse_workspace,
+
+    -- ** CreateWorkspace
+    createWorkspace_clientToken,
+    createWorkspace_organizationRoleName,
+    createWorkspace_workspaceOrganizationalUnits,
+    createWorkspace_stackSetName,
+    createWorkspace_workspaceRoleArn,
+    createWorkspace_workspaceNotificationDestinations,
+    createWorkspace_workspaceDataSources,
+    createWorkspace_workspaceName,
+    createWorkspace_workspaceDescription,
+    createWorkspace_accountAccessType,
+    createWorkspace_authenticationProviders,
+    createWorkspace_permissionType,
+    createWorkspaceResponse_httpStatus,
+    createWorkspaceResponse_workspace,
+
+    -- ** DeleteWorkspace
+    deleteWorkspace_workspaceId,
+    deleteWorkspaceResponse_httpStatus,
+    deleteWorkspaceResponse_workspace,
+
+    -- ** DescribeWorkspace
+    describeWorkspace_workspaceId,
+    describeWorkspaceResponse_httpStatus,
+    describeWorkspaceResponse_workspace,
+
+    -- ** DescribeWorkspaceAuthentication
+    describeWorkspaceAuthentication_workspaceId,
+    describeWorkspaceAuthenticationResponse_httpStatus,
+    describeWorkspaceAuthenticationResponse_authentication,
+
+    -- ** DisassociateLicense
+    disassociateLicense_licenseType,
+    disassociateLicense_workspaceId,
+    disassociateLicenseResponse_httpStatus,
+    disassociateLicenseResponse_workspace,
+
+    -- ** ListPermissions
+    listPermissions_nextToken,
+    listPermissions_userType,
+    listPermissions_maxResults,
+    listPermissions_userId,
+    listPermissions_groupId,
+    listPermissions_workspaceId,
+    listPermissionsResponse_nextToken,
+    listPermissionsResponse_httpStatus,
+    listPermissionsResponse_permissions,
+
     -- ** ListWorkspaces
     listWorkspaces_nextToken,
     listWorkspaces_maxResults,
@@ -21,22 +75,23 @@ module Amazonka.Grafana.Lens
     listWorkspacesResponse_httpStatus,
     listWorkspacesResponse_workspaces,
 
-    -- ** DeleteWorkspace
-    deleteWorkspace_workspaceId,
-    deleteWorkspaceResponse_httpStatus,
-    deleteWorkspaceResponse_workspace,
+    -- ** UpdatePermissions
+    updatePermissions_updateInstructionBatch,
+    updatePermissions_workspaceId,
+    updatePermissionsResponse_httpStatus,
+    updatePermissionsResponse_errors,
 
     -- ** UpdateWorkspace
-    updateWorkspace_workspaceRoleArn,
-    updateWorkspace_workspaceDataSources,
     updateWorkspace_permissionType,
+    updateWorkspace_organizationRoleName,
+    updateWorkspace_workspaceOrganizationalUnits,
+    updateWorkspace_stackSetName,
+    updateWorkspace_workspaceRoleArn,
     updateWorkspace_workspaceNotificationDestinations,
+    updateWorkspace_workspaceDataSources,
     updateWorkspace_workspaceName,
     updateWorkspace_accountAccessType,
-    updateWorkspace_organizationRoleName,
     updateWorkspace_workspaceDescription,
-    updateWorkspace_stackSetName,
-    updateWorkspace_workspaceOrganizationalUnits,
     updateWorkspace_workspaceId,
     updateWorkspaceResponse_httpStatus,
     updateWorkspaceResponse_workspace,
@@ -48,70 +103,15 @@ module Amazonka.Grafana.Lens
     updateWorkspaceAuthenticationResponse_httpStatus,
     updateWorkspaceAuthenticationResponse_authentication,
 
-    -- ** DescribeWorkspaceAuthentication
-    describeWorkspaceAuthentication_workspaceId,
-    describeWorkspaceAuthenticationResponse_httpStatus,
-    describeWorkspaceAuthenticationResponse_authentication,
-
-    -- ** DescribeWorkspace
-    describeWorkspace_workspaceId,
-    describeWorkspaceResponse_httpStatus,
-    describeWorkspaceResponse_workspace,
-
-    -- ** AssociateLicense
-    associateLicense_licenseType,
-    associateLicense_workspaceId,
-    associateLicenseResponse_httpStatus,
-    associateLicenseResponse_workspace,
-
-    -- ** ListPermissions
-    listPermissions_userId,
-    listPermissions_nextToken,
-    listPermissions_groupId,
-    listPermissions_maxResults,
-    listPermissions_userType,
-    listPermissions_workspaceId,
-    listPermissionsResponse_nextToken,
-    listPermissionsResponse_httpStatus,
-    listPermissionsResponse_permissions,
-
-    -- ** UpdatePermissions
-    updatePermissions_updateInstructionBatch,
-    updatePermissions_workspaceId,
-    updatePermissionsResponse_httpStatus,
-    updatePermissionsResponse_errors,
-
-    -- ** DisassociateLicense
-    disassociateLicense_licenseType,
-    disassociateLicense_workspaceId,
-    disassociateLicenseResponse_httpStatus,
-    disassociateLicenseResponse_workspace,
-
-    -- ** CreateWorkspace
-    createWorkspace_workspaceRoleArn,
-    createWorkspace_clientToken,
-    createWorkspace_workspaceDataSources,
-    createWorkspace_workspaceNotificationDestinations,
-    createWorkspace_workspaceName,
-    createWorkspace_organizationRoleName,
-    createWorkspace_workspaceDescription,
-    createWorkspace_stackSetName,
-    createWorkspace_workspaceOrganizationalUnits,
-    createWorkspace_accountAccessType,
-    createWorkspace_authenticationProviders,
-    createWorkspace_permissionType,
-    createWorkspaceResponse_httpStatus,
-    createWorkspaceResponse_workspace,
-
     -- * Types
 
     -- ** AssertionAttributes
+    assertionAttributes_name,
     assertionAttributes_email,
-    assertionAttributes_groups,
+    assertionAttributes_login,
     assertionAttributes_org,
     assertionAttributes_role,
-    assertionAttributes_name,
-    assertionAttributes_login,
+    assertionAttributes_groups,
 
     -- ** AuthenticationDescription
     authenticationDescription_awsSso,
@@ -143,9 +143,9 @@ module Amazonka.Grafana.Lens
 
     -- ** SamlConfiguration
     samlConfiguration_loginValidityDuration,
-    samlConfiguration_assertionAttributes,
     samlConfiguration_allowedOrganizations,
     samlConfiguration_roleValues,
+    samlConfiguration_assertionAttributes,
     samlConfiguration_idpMetadata,
 
     -- ** UpdateError
@@ -163,19 +163,19 @@ module Amazonka.Grafana.Lens
     user_type,
 
     -- ** WorkspaceDescription
-    workspaceDescription_workspaceRoleArn,
-    workspaceDescription_freeTrialExpiration,
-    workspaceDescription_licenseType,
     workspaceDescription_permissionType,
     workspaceDescription_name,
+    workspaceDescription_organizationRoleName,
+    workspaceDescription_freeTrialConsumed,
+    workspaceDescription_licenseType,
+    workspaceDescription_licenseExpiration,
+    workspaceDescription_stackSetName,
+    workspaceDescription_freeTrialExpiration,
+    workspaceDescription_workspaceRoleArn,
+    workspaceDescription_description,
+    workspaceDescription_organizationalUnits,
     workspaceDescription_notificationDestinations,
     workspaceDescription_accountAccessType,
-    workspaceDescription_licenseExpiration,
-    workspaceDescription_organizationRoleName,
-    workspaceDescription_stackSetName,
-    workspaceDescription_organizationalUnits,
-    workspaceDescription_description,
-    workspaceDescription_freeTrialConsumed,
     workspaceDescription_authentication,
     workspaceDescription_created,
     workspaceDescription_dataSources,
@@ -187,8 +187,8 @@ module Amazonka.Grafana.Lens
 
     -- ** WorkspaceSummary
     workspaceSummary_name,
-    workspaceSummary_notificationDestinations,
     workspaceSummary_description,
+    workspaceSummary_notificationDestinations,
     workspaceSummary_authentication,
     workspaceSummary_created,
     workspaceSummary_endpoint,

@@ -40,8 +40,8 @@ module Amazonka.Forecast.CreateDatasetGroup
     newCreateDatasetGroup,
 
     -- * Request Lenses
-    createDatasetGroup_datasetArns,
     createDatasetGroup_tags,
+    createDatasetGroup_datasetArns,
     createDatasetGroup_datasetGroupName,
     createDatasetGroup_domain,
 
@@ -64,10 +64,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatasetGroup' smart constructor.
 data CreateDatasetGroup = CreateDatasetGroup'
-  { -- | An array of Amazon Resource Names (ARNs) of the datasets that you want
-    -- to include in the dataset group.
-    datasetArns :: Prelude.Maybe [Prelude.Text],
-    -- | The optional metadata that you apply to the dataset group to help you
+  { -- | The optional metadata that you apply to the dataset group to help you
     -- categorize and organize them. Each tag consists of a key and an optional
     -- value, both of which you define.
     --
@@ -98,6 +95,9 @@ data CreateDatasetGroup = CreateDatasetGroup'
     --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
     --     count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
+    -- | An array of Amazon Resource Names (ARNs) of the datasets that you want
+    -- to include in the dataset group.
+    datasetArns :: Prelude.Maybe [Prelude.Text],
     -- | A name for the dataset group.
     datasetGroupName :: Prelude.Text,
     -- | The domain associated with the dataset group. When you add a dataset to
@@ -121,9 +121,6 @@ data CreateDatasetGroup = CreateDatasetGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'datasetArns', 'createDatasetGroup_datasetArns' - An array of Amazon Resource Names (ARNs) of the datasets that you want
--- to include in the dataset group.
 --
 -- 'tags', 'createDatasetGroup_tags' - The optional metadata that you apply to the dataset group to help you
 -- categorize and organize them. Each tag consists of a key and an optional
@@ -156,6 +153,9 @@ data CreateDatasetGroup = CreateDatasetGroup'
 --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
 --     count against your tags per resource limit.
 --
+-- 'datasetArns', 'createDatasetGroup_datasetArns' - An array of Amazon Resource Names (ARNs) of the datasets that you want
+-- to include in the dataset group.
+--
 -- 'datasetGroupName', 'createDatasetGroup_datasetGroupName' - A name for the dataset group.
 --
 -- 'domain', 'createDatasetGroup_domain' - The domain associated with the dataset group. When you add a dataset to
@@ -176,16 +176,11 @@ newCreateDatasetGroup ::
   CreateDatasetGroup
 newCreateDatasetGroup pDatasetGroupName_ pDomain_ =
   CreateDatasetGroup'
-    { datasetArns = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      datasetArns = Prelude.Nothing,
       datasetGroupName = pDatasetGroupName_,
       domain = pDomain_
     }
-
--- | An array of Amazon Resource Names (ARNs) of the datasets that you want
--- to include in the dataset group.
-createDatasetGroup_datasetArns :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe [Prelude.Text])
-createDatasetGroup_datasetArns = Lens.lens (\CreateDatasetGroup' {datasetArns} -> datasetArns) (\s@CreateDatasetGroup' {} a -> s {datasetArns = a} :: CreateDatasetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The optional metadata that you apply to the dataset group to help you
 -- categorize and organize them. Each tag consists of a key and an optional
@@ -220,6 +215,11 @@ createDatasetGroup_datasetArns = Lens.lens (\CreateDatasetGroup' {datasetArns} -
 createDatasetGroup_tags :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe [Tag])
 createDatasetGroup_tags = Lens.lens (\CreateDatasetGroup' {tags} -> tags) (\s@CreateDatasetGroup' {} a -> s {tags = a} :: CreateDatasetGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | An array of Amazon Resource Names (ARNs) of the datasets that you want
+-- to include in the dataset group.
+createDatasetGroup_datasetArns :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe [Prelude.Text])
+createDatasetGroup_datasetArns = Lens.lens (\CreateDatasetGroup' {datasetArns} -> datasetArns) (\s@CreateDatasetGroup' {} a -> s {datasetArns = a} :: CreateDatasetGroup) Prelude.. Lens.mapping Lens.coerced
+
 -- | A name for the dataset group.
 createDatasetGroup_datasetGroupName :: Lens.Lens' CreateDatasetGroup Prelude.Text
 createDatasetGroup_datasetGroupName = Lens.lens (\CreateDatasetGroup' {datasetGroupName} -> datasetGroupName) (\s@CreateDatasetGroup' {} a -> s {datasetGroupName = a} :: CreateDatasetGroup)
@@ -252,15 +252,15 @@ instance Core.AWSRequest CreateDatasetGroup where
 
 instance Prelude.Hashable CreateDatasetGroup where
   hashWithSalt _salt CreateDatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` datasetArns
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` datasetArns
       `Prelude.hashWithSalt` datasetGroupName
       `Prelude.hashWithSalt` domain
 
 instance Prelude.NFData CreateDatasetGroup where
   rnf CreateDatasetGroup' {..} =
-    Prelude.rnf datasetArns
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf datasetArns
       `Prelude.seq` Prelude.rnf datasetGroupName
       `Prelude.seq` Prelude.rnf domain
 
@@ -283,8 +283,8 @@ instance Core.ToJSON CreateDatasetGroup where
   toJSON CreateDatasetGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DatasetArns" Core..=) Prelude.<$> datasetArns,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DatasetArns" Core..=) Prelude.<$> datasetArns,
             Prelude.Just
               ("DatasetGroupName" Core..= datasetGroupName),
             Prelude.Just ("Domain" Core..= domain)

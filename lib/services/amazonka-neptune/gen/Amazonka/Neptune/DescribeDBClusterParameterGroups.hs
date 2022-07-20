@@ -32,8 +32,8 @@ module Amazonka.Neptune.DescribeDBClusterParameterGroups
     newDescribeDBClusterParameterGroups,
 
     -- * Request Lenses
-    describeDBClusterParameterGroups_filters,
     describeDBClusterParameterGroups_marker,
+    describeDBClusterParameterGroups_filters,
     describeDBClusterParameterGroups_maxRecords,
     describeDBClusterParameterGroups_dbClusterParameterGroupName,
 
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDBClusterParameterGroups' smart constructor.
 data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
-  { -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous
+  { -- | An optional pagination token provided by a previous
     -- @DescribeDBClusterParameterGroups@ request. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is not currently supported.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -91,12 +91,12 @@ data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeDBClusterParameterGroups_filters' - This parameter is not currently supported.
---
 -- 'marker', 'describeDBClusterParameterGroups_marker' - An optional pagination token provided by a previous
 -- @DescribeDBClusterParameterGroups@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
+--
+-- 'filters', 'describeDBClusterParameterGroups_filters' - This parameter is not currently supported.
 --
 -- 'maxRecords', 'describeDBClusterParameterGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -117,17 +117,13 @@ newDescribeDBClusterParameterGroups ::
   DescribeDBClusterParameterGroups
 newDescribeDBClusterParameterGroups =
   DescribeDBClusterParameterGroups'
-    { filters =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       dbClusterParameterGroupName =
         Prelude.Nothing
     }
-
--- | This parameter is not currently supported.
-describeDBClusterParameterGroups_filters :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe [Filter])
-describeDBClusterParameterGroups_filters = Lens.lens (\DescribeDBClusterParameterGroups' {filters} -> filters) (\s@DescribeDBClusterParameterGroups' {} a -> s {filters = a} :: DescribeDBClusterParameterGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBClusterParameterGroups@ request. If this parameter is
@@ -135,6 +131,10 @@ describeDBClusterParameterGroups_filters = Lens.lens (\DescribeDBClusterParamete
 -- the value specified by @MaxRecords@.
 describeDBClusterParameterGroups_marker :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe Prelude.Text)
 describeDBClusterParameterGroups_marker = Lens.lens (\DescribeDBClusterParameterGroups' {marker} -> marker) (\s@DescribeDBClusterParameterGroups' {} a -> s {marker = a} :: DescribeDBClusterParameterGroups)
+
+-- | This parameter is not currently supported.
+describeDBClusterParameterGroups_filters :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe [Filter])
+describeDBClusterParameterGroups_filters = Lens.lens (\DescribeDBClusterParameterGroups' {filters} -> filters) (\s@DescribeDBClusterParameterGroups' {} a -> s {filters = a} :: DescribeDBClusterParameterGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -210,8 +210,8 @@ instance
   hashWithSalt
     _salt
     DescribeDBClusterParameterGroups' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` marker
+      _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` dbClusterParameterGroupName
 
@@ -220,8 +220,8 @@ instance
     DescribeDBClusterParameterGroups
   where
   rnf DescribeDBClusterParameterGroups' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
 
@@ -246,10 +246,10 @@ instance
                   ),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Core.=: marker,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
         "DBClusterParameterGroupName"
           Core.=: dbClusterParameterGroupName

@@ -63,10 +63,10 @@ module Amazonka.KMS.ListGrants
     newListGrants,
 
     -- * Request Lenses
-    listGrants_grantId,
     listGrants_granteePrincipal,
     listGrants_marker,
     listGrants_limit,
+    listGrants_grantId,
     listGrants_keyId,
 
     -- * Destructuring the Response
@@ -89,10 +89,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGrants' smart constructor.
 data ListGrants = ListGrants'
-  { -- | Returns only the grant with the specified grant ID. The grant ID
-    -- uniquely identifies the grant.
-    grantId :: Prelude.Maybe Prelude.Text,
-    -- | Returns only grants where the specified principal is the grantee
+  { -- | Returns only grants where the specified principal is the grantee
     -- principal for the grant.
     granteePrincipal :: Prelude.Maybe Prelude.Text,
     -- | Use this parameter in a subsequent request after you receive a response
@@ -106,6 +103,9 @@ data ListGrants = ListGrants'
     -- This value is optional. If you include a value, it must be between 1 and
     -- 100, inclusive. If you do not include a value, it defaults to 50.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | Returns only the grant with the specified grant ID. The grant ID
+    -- uniquely identifies the grant.
+    grantId :: Prelude.Maybe Prelude.Text,
     -- | Returns only grants for the specified KMS key. This parameter is
     -- required.
     --
@@ -133,9 +133,6 @@ data ListGrants = ListGrants'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grantId', 'listGrants_grantId' - Returns only the grant with the specified grant ID. The grant ID
--- uniquely identifies the grant.
---
 -- 'granteePrincipal', 'listGrants_granteePrincipal' - Returns only grants where the specified principal is the grantee
 -- principal for the grant.
 --
@@ -149,6 +146,9 @@ data ListGrants = ListGrants'
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
+--
+-- 'grantId', 'listGrants_grantId' - Returns only the grant with the specified grant ID. The grant ID
+-- uniquely identifies the grant.
 --
 -- 'keyId', 'listGrants_keyId' - Returns only grants for the specified KMS key. This parameter is
 -- required.
@@ -171,17 +171,12 @@ newListGrants ::
   ListGrants
 newListGrants pKeyId_ =
   ListGrants'
-    { grantId = Prelude.Nothing,
-      granteePrincipal = Prelude.Nothing,
+    { granteePrincipal = Prelude.Nothing,
       marker = Prelude.Nothing,
       limit = Prelude.Nothing,
+      grantId = Prelude.Nothing,
       keyId = pKeyId_
     }
-
--- | Returns only the grant with the specified grant ID. The grant ID
--- uniquely identifies the grant.
-listGrants_grantId :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Text)
-listGrants_grantId = Lens.lens (\ListGrants' {grantId} -> grantId) (\s@ListGrants' {} a -> s {grantId = a} :: ListGrants)
 
 -- | Returns only grants where the specified principal is the grantee
 -- principal for the grant.
@@ -202,6 +197,11 @@ listGrants_marker = Lens.lens (\ListGrants' {marker} -> marker) (\s@ListGrants' 
 -- 100, inclusive. If you do not include a value, it defaults to 50.
 listGrants_limit :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Natural)
 listGrants_limit = Lens.lens (\ListGrants' {limit} -> limit) (\s@ListGrants' {} a -> s {limit = a} :: ListGrants)
+
+-- | Returns only the grant with the specified grant ID. The grant ID
+-- uniquely identifies the grant.
+listGrants_grantId :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Text)
+listGrants_grantId = Lens.lens (\ListGrants' {grantId} -> grantId) (\s@ListGrants' {} a -> s {grantId = a} :: ListGrants)
 
 -- | Returns only grants for the specified KMS key. This parameter is
 -- required.
@@ -249,18 +249,18 @@ instance Core.AWSRequest ListGrants where
 
 instance Prelude.Hashable ListGrants where
   hashWithSalt _salt ListGrants' {..} =
-    _salt `Prelude.hashWithSalt` grantId
-      `Prelude.hashWithSalt` granteePrincipal
+    _salt `Prelude.hashWithSalt` granteePrincipal
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` grantId
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData ListGrants where
   rnf ListGrants' {..} =
-    Prelude.rnf grantId
-      `Prelude.seq` Prelude.rnf granteePrincipal
+    Prelude.rnf granteePrincipal
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf grantId
       `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders ListGrants where
@@ -280,11 +280,11 @@ instance Core.ToJSON ListGrants where
   toJSON ListGrants' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrantId" Core..=) Prelude.<$> grantId,
-            ("GranteePrincipal" Core..=)
+          [ ("GranteePrincipal" Core..=)
               Prelude.<$> granteePrincipal,
             ("Marker" Core..=) Prelude.<$> marker,
             ("Limit" Core..=) Prelude.<$> limit,
+            ("GrantId" Core..=) Prelude.<$> grantId,
             Prelude.Just ("KeyId" Core..= keyId)
           ]
       )

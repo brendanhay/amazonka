@@ -27,8 +27,8 @@ module Amazonka.APIGateway.GetExport
     newGetExport,
 
     -- * Request Lenses
-    getExport_parameters,
     getExport_accepts,
+    getExport_parameters,
     getExport_restApiId,
     getExport_stageName,
     getExport_exportType,
@@ -56,7 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetExport' smart constructor.
 data GetExport = GetExport'
-  { -- | A key-value map of query string parameters that specify properties of
+  { -- | The content-type of the export, for example @application\/json@.
+    -- Currently @application\/json@ and @application\/yaml@ are supported for
+    -- @exportType@ of@oas30@ and @swagger@. This should be specified in the
+    -- @Accept@ header for direct API requests.
+    accepts :: Prelude.Maybe Prelude.Text,
+    -- | A key-value map of query string parameters that specify properties of
     -- the export, depending on the requested @exportType@. For @exportType@
     -- @oas30@ and @swagger@, any combination of the following parameters are
     -- supported: @extensions=\'integrations\'@ or @extensions=\'apigateway\'@
@@ -65,11 +70,6 @@ data GetExport = GetExport'
     -- x-amazon-apigateway-authorizer extensions. @postman@ will export the API
     -- with Postman extensions, allowing for import to the Postman tool
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The content-type of the export, for example @application\/json@.
-    -- Currently @application\/json@ and @application\/yaml@ are supported for
-    -- @exportType@ of@oas30@ and @swagger@. This should be specified in the
-    -- @Accept@ header for direct API requests.
-    accepts :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] The name of the Stage that will be exported.
@@ -88,6 +88,11 @@ data GetExport = GetExport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accepts', 'getExport_accepts' - The content-type of the export, for example @application\/json@.
+-- Currently @application\/json@ and @application\/yaml@ are supported for
+-- @exportType@ of@oas30@ and @swagger@. This should be specified in the
+-- @Accept@ header for direct API requests.
+--
 -- 'parameters', 'getExport_parameters' - A key-value map of query string parameters that specify properties of
 -- the export, depending on the requested @exportType@. For @exportType@
 -- @oas30@ and @swagger@, any combination of the following parameters are
@@ -96,11 +101,6 @@ data GetExport = GetExport'
 -- @extensions=\'authorizers\'@ will export the API with
 -- x-amazon-apigateway-authorizer extensions. @postman@ will export the API
 -- with Postman extensions, allowing for import to the Postman tool
---
--- 'accepts', 'getExport_accepts' - The content-type of the export, for example @application\/json@.
--- Currently @application\/json@ and @application\/yaml@ are supported for
--- @exportType@ of@oas30@ and @swagger@. This should be specified in the
--- @Accept@ header for direct API requests.
 --
 -- 'restApiId', 'getExport_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -118,12 +118,19 @@ newGetExport ::
   GetExport
 newGetExport pRestApiId_ pStageName_ pExportType_ =
   GetExport'
-    { parameters = Prelude.Nothing,
-      accepts = Prelude.Nothing,
+    { accepts = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       restApiId = pRestApiId_,
       stageName = pStageName_,
       exportType = pExportType_
     }
+
+-- | The content-type of the export, for example @application\/json@.
+-- Currently @application\/json@ and @application\/yaml@ are supported for
+-- @exportType@ of@oas30@ and @swagger@. This should be specified in the
+-- @Accept@ header for direct API requests.
+getExport_accepts :: Lens.Lens' GetExport (Prelude.Maybe Prelude.Text)
+getExport_accepts = Lens.lens (\GetExport' {accepts} -> accepts) (\s@GetExport' {} a -> s {accepts = a} :: GetExport)
 
 -- | A key-value map of query string parameters that specify properties of
 -- the export, depending on the requested @exportType@. For @exportType@
@@ -135,13 +142,6 @@ newGetExport pRestApiId_ pStageName_ pExportType_ =
 -- with Postman extensions, allowing for import to the Postman tool
 getExport_parameters :: Lens.Lens' GetExport (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getExport_parameters = Lens.lens (\GetExport' {parameters} -> parameters) (\s@GetExport' {} a -> s {parameters = a} :: GetExport) Prelude.. Lens.mapping Lens.coerced
-
--- | The content-type of the export, for example @application\/json@.
--- Currently @application\/json@ and @application\/yaml@ are supported for
--- @exportType@ of@oas30@ and @swagger@. This should be specified in the
--- @Accept@ header for direct API requests.
-getExport_accepts :: Lens.Lens' GetExport (Prelude.Maybe Prelude.Text)
-getExport_accepts = Lens.lens (\GetExport' {accepts} -> accepts) (\s@GetExport' {} a -> s {accepts = a} :: GetExport)
 
 -- | [Required] The string identifier of the associated RestApi.
 getExport_restApiId :: Lens.Lens' GetExport Prelude.Text
@@ -171,16 +171,16 @@ instance Core.AWSRequest GetExport where
 
 instance Prelude.Hashable GetExport where
   hashWithSalt _salt GetExport' {..} =
-    _salt `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` accepts
+    _salt `Prelude.hashWithSalt` accepts
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` exportType
 
 instance Prelude.NFData GetExport where
   rnf GetExport' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf accepts
+    Prelude.rnf accepts
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf exportType

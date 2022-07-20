@@ -60,8 +60,8 @@ module Amazonka.IAM.CreateSAMLProvider
     newCreateSAMLProviderResponse,
 
     -- * Response Lenses
-    createSAMLProviderResponse_sAMLProviderArn,
     createSAMLProviderResponse_tags,
+    createSAMLProviderResponse_sAMLProviderArn,
     createSAMLProviderResponse_httpStatus,
   )
 where
@@ -198,10 +198,10 @@ instance Core.AWSRequest CreateSAMLProvider where
       "CreateSAMLProviderResult"
       ( \s h x ->
           CreateSAMLProviderResponse'
-            Prelude.<$> (x Core..@? "SAMLProviderArn")
-            Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "SAMLProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -241,14 +241,14 @@ instance Core.ToQuery CreateSAMLProvider where
 --
 -- /See:/ 'newCreateSAMLProviderResponse' smart constructor.
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
-  { -- | The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.
-    sAMLProviderArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags that are attached to the new IAM SAML provider. The
+  { -- | A list of tags that are attached to the new IAM SAML provider. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.
+    sAMLProviderArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,13 +262,13 @@ data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sAMLProviderArn', 'createSAMLProviderResponse_sAMLProviderArn' - The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.
---
 -- 'tags', 'createSAMLProviderResponse_tags' - A list of tags that are attached to the new IAM SAML provider. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- 'sAMLProviderArn', 'createSAMLProviderResponse_sAMLProviderArn' - The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.
 --
 -- 'httpStatus', 'createSAMLProviderResponse_httpStatus' - The response's http status code.
 newCreateSAMLProviderResponse ::
@@ -277,15 +277,10 @@ newCreateSAMLProviderResponse ::
   CreateSAMLProviderResponse
 newCreateSAMLProviderResponse pHttpStatus_ =
   CreateSAMLProviderResponse'
-    { sAMLProviderArn =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      sAMLProviderArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.
-createSAMLProviderResponse_sAMLProviderArn :: Lens.Lens' CreateSAMLProviderResponse (Prelude.Maybe Prelude.Text)
-createSAMLProviderResponse_sAMLProviderArn = Lens.lens (\CreateSAMLProviderResponse' {sAMLProviderArn} -> sAMLProviderArn) (\s@CreateSAMLProviderResponse' {} a -> s {sAMLProviderArn = a} :: CreateSAMLProviderResponse)
 
 -- | A list of tags that are attached to the new IAM SAML provider. The
 -- returned list of tags is sorted by tag key. For more information about
@@ -295,12 +290,16 @@ createSAMLProviderResponse_sAMLProviderArn = Lens.lens (\CreateSAMLProviderRespo
 createSAMLProviderResponse_tags :: Lens.Lens' CreateSAMLProviderResponse (Prelude.Maybe [Tag])
 createSAMLProviderResponse_tags = Lens.lens (\CreateSAMLProviderResponse' {tags} -> tags) (\s@CreateSAMLProviderResponse' {} a -> s {tags = a} :: CreateSAMLProviderResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.
+createSAMLProviderResponse_sAMLProviderArn :: Lens.Lens' CreateSAMLProviderResponse (Prelude.Maybe Prelude.Text)
+createSAMLProviderResponse_sAMLProviderArn = Lens.lens (\CreateSAMLProviderResponse' {sAMLProviderArn} -> sAMLProviderArn) (\s@CreateSAMLProviderResponse' {} a -> s {sAMLProviderArn = a} :: CreateSAMLProviderResponse)
+
 -- | The response's http status code.
 createSAMLProviderResponse_httpStatus :: Lens.Lens' CreateSAMLProviderResponse Prelude.Int
 createSAMLProviderResponse_httpStatus = Lens.lens (\CreateSAMLProviderResponse' {httpStatus} -> httpStatus) (\s@CreateSAMLProviderResponse' {} a -> s {httpStatus = a} :: CreateSAMLProviderResponse)
 
 instance Prelude.NFData CreateSAMLProviderResponse where
   rnf CreateSAMLProviderResponse' {..} =
-    Prelude.rnf sAMLProviderArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sAMLProviderArn
       `Prelude.seq` Prelude.rnf httpStatus

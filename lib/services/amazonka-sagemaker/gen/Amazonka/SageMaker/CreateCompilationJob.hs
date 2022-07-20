@@ -55,8 +55,8 @@ module Amazonka.SageMaker.CreateCompilationJob
     newCreateCompilationJob,
 
     -- * Request Lenses
-    createCompilationJob_vpcConfig,
     createCompilationJob_tags,
+    createCompilationJob_vpcConfig,
     createCompilationJob_compilationJobName,
     createCompilationJob_roleArn,
     createCompilationJob_inputConfig,
@@ -82,16 +82,16 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateCompilationJob' smart constructor.
 data CreateCompilationJob = CreateCompilationJob'
-  { -- | A VpcConfig object that specifies the VPC that you want your compilation
-    -- job to connect to. Control access to your models by configuring the VPC.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
-    vpcConfig :: Prelude.Maybe NeoVpcConfig,
-    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
     -- Web Services resources in different ways, for example, by purpose,
     -- owner, or environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
+    -- | A VpcConfig object that specifies the VPC that you want your compilation
+    -- job to connect to. Control access to your models by configuring the VPC.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
+    vpcConfig :: Prelude.Maybe NeoVpcConfig,
     -- | A name for the model compilation job. The name must be unique within the
     -- Amazon Web Services Region and within your Amazon Web Services account.
     compilationJobName :: Prelude.Text,
@@ -135,15 +135,15 @@ data CreateCompilationJob = CreateCompilationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'createCompilationJob_vpcConfig' - A VpcConfig object that specifies the VPC that you want your compilation
--- job to connect to. Control access to your models by configuring the VPC.
--- For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
---
 -- 'tags', 'createCompilationJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+--
+-- 'vpcConfig', 'createCompilationJob_vpcConfig' - A VpcConfig object that specifies the VPC that you want your compilation
+-- job to connect to. Control access to your models by configuring the VPC.
+-- For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
 --
 -- 'compilationJobName', 'createCompilationJob_compilationJobName' - A name for the model compilation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.
@@ -195,8 +195,8 @@ newCreateCompilationJob
   pOutputConfig_
   pStoppingCondition_ =
     CreateCompilationJob'
-      { vpcConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        vpcConfig = Prelude.Nothing,
         compilationJobName = pCompilationJobName_,
         roleArn = pRoleArn_,
         inputConfig = pInputConfig_,
@@ -204,19 +204,19 @@ newCreateCompilationJob
         stoppingCondition = pStoppingCondition_
       }
 
--- | A VpcConfig object that specifies the VPC that you want your compilation
--- job to connect to. Control access to your models by configuring the VPC.
--- For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
-createCompilationJob_vpcConfig :: Lens.Lens' CreateCompilationJob (Prelude.Maybe NeoVpcConfig)
-createCompilationJob_vpcConfig = Lens.lens (\CreateCompilationJob' {vpcConfig} -> vpcConfig) (\s@CreateCompilationJob' {} a -> s {vpcConfig = a} :: CreateCompilationJob)
-
 -- | An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createCompilationJob_tags :: Lens.Lens' CreateCompilationJob (Prelude.Maybe [Tag])
 createCompilationJob_tags = Lens.lens (\CreateCompilationJob' {tags} -> tags) (\s@CreateCompilationJob' {} a -> s {tags = a} :: CreateCompilationJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | A VpcConfig object that specifies the VPC that you want your compilation
+-- job to connect to. Control access to your models by configuring the VPC.
+-- For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
+createCompilationJob_vpcConfig :: Lens.Lens' CreateCompilationJob (Prelude.Maybe NeoVpcConfig)
+createCompilationJob_vpcConfig = Lens.lens (\CreateCompilationJob' {vpcConfig} -> vpcConfig) (\s@CreateCompilationJob' {} a -> s {vpcConfig = a} :: CreateCompilationJob)
 
 -- | A name for the model compilation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.
@@ -275,8 +275,8 @@ instance Core.AWSRequest CreateCompilationJob where
 
 instance Prelude.Hashable CreateCompilationJob where
   hashWithSalt _salt CreateCompilationJob' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` compilationJobName
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` inputConfig
@@ -285,8 +285,8 @@ instance Prelude.Hashable CreateCompilationJob where
 
 instance Prelude.NFData CreateCompilationJob where
   rnf CreateCompilationJob' {..} =
-    Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf compilationJobName
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf inputConfig
@@ -312,8 +312,8 @@ instance Core.ToJSON CreateCompilationJob where
   toJSON CreateCompilationJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             Prelude.Just
               ("CompilationJobName" Core..= compilationJobName),
             Prelude.Just ("RoleArn" Core..= roleArn),

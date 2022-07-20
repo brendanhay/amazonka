@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOptionGroupMembership' smart constructor.
 data OptionGroupMembership = OptionGroupMembership'
-  { -- | The status of the DB instance\'s option group membership. Valid values
+  { -- | The name of the option group that the instance belongs to.
+    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the DB instance\'s option group membership. Valid values
     -- are: @in-sync@, @pending-apply@, @pending-removal@,
     -- @pending-maintenance-apply@, @pending-maintenance-removal@, @applying@,
     -- @removing@, and @failed@.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the option group that the instance belongs to.
-    optionGroupName :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,24 @@ data OptionGroupMembership = OptionGroupMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'optionGroupName', 'optionGroupMembership_optionGroupName' - The name of the option group that the instance belongs to.
+--
 -- 'status', 'optionGroupMembership_status' - The status of the DB instance\'s option group membership. Valid values
 -- are: @in-sync@, @pending-apply@, @pending-removal@,
 -- @pending-maintenance-apply@, @pending-maintenance-removal@, @applying@,
 -- @removing@, and @failed@.
---
--- 'optionGroupName', 'optionGroupMembership_optionGroupName' - The name of the option group that the instance belongs to.
 newOptionGroupMembership ::
   OptionGroupMembership
 newOptionGroupMembership =
   OptionGroupMembership'
-    { status = Prelude.Nothing,
-      optionGroupName = Prelude.Nothing
+    { optionGroupName =
+        Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The name of the option group that the instance belongs to.
+optionGroupMembership_optionGroupName :: Lens.Lens' OptionGroupMembership (Prelude.Maybe Prelude.Text)
+optionGroupMembership_optionGroupName = Lens.lens (\OptionGroupMembership' {optionGroupName} -> optionGroupName) (\s@OptionGroupMembership' {} a -> s {optionGroupName = a} :: OptionGroupMembership)
 
 -- | The status of the DB instance\'s option group membership. Valid values
 -- are: @in-sync@, @pending-apply@, @pending-removal@,
@@ -67,22 +72,18 @@ newOptionGroupMembership =
 optionGroupMembership_status :: Lens.Lens' OptionGroupMembership (Prelude.Maybe Prelude.Text)
 optionGroupMembership_status = Lens.lens (\OptionGroupMembership' {status} -> status) (\s@OptionGroupMembership' {} a -> s {status = a} :: OptionGroupMembership)
 
--- | The name of the option group that the instance belongs to.
-optionGroupMembership_optionGroupName :: Lens.Lens' OptionGroupMembership (Prelude.Maybe Prelude.Text)
-optionGroupMembership_optionGroupName = Lens.lens (\OptionGroupMembership' {optionGroupName} -> optionGroupName) (\s@OptionGroupMembership' {} a -> s {optionGroupName = a} :: OptionGroupMembership)
-
 instance Core.FromXML OptionGroupMembership where
   parseXML x =
     OptionGroupMembership'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "OptionGroupName")
+      Prelude.<$> (x Core..@? "OptionGroupName")
+      Prelude.<*> (x Core..@? "Status")
 
 instance Prelude.Hashable OptionGroupMembership where
   hashWithSalt _salt OptionGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` optionGroupName
+    _salt `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData OptionGroupMembership where
   rnf OptionGroupMembership' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf optionGroupName
+    Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf status

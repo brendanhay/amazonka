@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAliasConfiguration' smart constructor.
 data AliasConfiguration = AliasConfiguration'
-  { -- | The
+  { -- | The name of the alias.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration>
     -- of the alias.
     routingConfig :: Prelude.Maybe AliasRoutingConfiguration,
-    -- | The name of the alias.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The function version that the alias invokes.
     functionVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the alias.
@@ -54,11 +54,11 @@ data AliasConfiguration = AliasConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'aliasConfiguration_name' - The name of the alias.
+--
 -- 'routingConfig', 'aliasConfiguration_routingConfig' - The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration>
 -- of the alias.
---
--- 'name', 'aliasConfiguration_name' - The name of the alias.
 --
 -- 'functionVersion', 'aliasConfiguration_functionVersion' - The function version that the alias invokes.
 --
@@ -71,24 +71,23 @@ newAliasConfiguration ::
   AliasConfiguration
 newAliasConfiguration =
   AliasConfiguration'
-    { routingConfig =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      routingConfig = Prelude.Nothing,
       functionVersion = Prelude.Nothing,
       aliasArn = Prelude.Nothing,
       description = Prelude.Nothing,
       revisionId = Prelude.Nothing
     }
 
+-- | The name of the alias.
+aliasConfiguration_name :: Lens.Lens' AliasConfiguration (Prelude.Maybe Prelude.Text)
+aliasConfiguration_name = Lens.lens (\AliasConfiguration' {name} -> name) (\s@AliasConfiguration' {} a -> s {name = a} :: AliasConfiguration)
+
 -- | The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration>
 -- of the alias.
 aliasConfiguration_routingConfig :: Lens.Lens' AliasConfiguration (Prelude.Maybe AliasRoutingConfiguration)
 aliasConfiguration_routingConfig = Lens.lens (\AliasConfiguration' {routingConfig} -> routingConfig) (\s@AliasConfiguration' {} a -> s {routingConfig = a} :: AliasConfiguration)
-
--- | The name of the alias.
-aliasConfiguration_name :: Lens.Lens' AliasConfiguration (Prelude.Maybe Prelude.Text)
-aliasConfiguration_name = Lens.lens (\AliasConfiguration' {name} -> name) (\s@AliasConfiguration' {} a -> s {name = a} :: AliasConfiguration)
 
 -- | The function version that the alias invokes.
 aliasConfiguration_functionVersion :: Lens.Lens' AliasConfiguration (Prelude.Maybe Prelude.Text)
@@ -112,8 +111,8 @@ instance Core.FromJSON AliasConfiguration where
       "AliasConfiguration"
       ( \x ->
           AliasConfiguration'
-            Prelude.<$> (x Core..:? "RoutingConfig")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "RoutingConfig")
             Prelude.<*> (x Core..:? "FunctionVersion")
             Prelude.<*> (x Core..:? "AliasArn")
             Prelude.<*> (x Core..:? "Description")
@@ -122,8 +121,8 @@ instance Core.FromJSON AliasConfiguration where
 
 instance Prelude.Hashable AliasConfiguration where
   hashWithSalt _salt AliasConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` routingConfig
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` routingConfig
       `Prelude.hashWithSalt` functionVersion
       `Prelude.hashWithSalt` aliasArn
       `Prelude.hashWithSalt` description
@@ -131,8 +130,8 @@ instance Prelude.Hashable AliasConfiguration where
 
 instance Prelude.NFData AliasConfiguration where
   rnf AliasConfiguration' {..} =
-    Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf routingConfig
       `Prelude.seq` Prelude.rnf functionVersion
       `Prelude.seq` Prelude.rnf aliasArn
       `Prelude.seq` Prelude.rnf description

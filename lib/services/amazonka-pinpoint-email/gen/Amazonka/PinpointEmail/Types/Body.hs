@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBody' smart constructor.
 data Body = Body'
   { -- | An object that represents the version of the message that is displayed
-    -- in email clients that don\'t support HTML, or clients where the
-    -- recipient has disabled HTML rendering.
-    text :: Prelude.Maybe Content,
-    -- | An object that represents the version of the message that is displayed
     -- in email clients that support HTML. HTML messages can include formatted
     -- text, hyperlinks, images, and more.
-    html :: Prelude.Maybe Content
+    html :: Prelude.Maybe Content,
+    -- | An object that represents the version of the message that is displayed
+    -- in email clients that don\'t support HTML, or clients where the
+    -- recipient has disabled HTML rendering.
+    text :: Prelude.Maybe Content
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,20 @@ data Body = Body'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'text', 'body_text' - An object that represents the version of the message that is displayed
--- in email clients that don\'t support HTML, or clients where the
--- recipient has disabled HTML rendering.
---
 -- 'html', 'body_html' - An object that represents the version of the message that is displayed
 -- in email clients that support HTML. HTML messages can include formatted
 -- text, hyperlinks, images, and more.
+--
+-- 'text', 'body_text' - An object that represents the version of the message that is displayed
+-- in email clients that don\'t support HTML, or clients where the
+-- recipient has disabled HTML rendering.
 newBody ::
   Body
 newBody =
   Body'
-    { text = Prelude.Nothing,
-      html = Prelude.Nothing
+    { html = Prelude.Nothing,
+      text = Prelude.Nothing
     }
-
--- | An object that represents the version of the message that is displayed
--- in email clients that don\'t support HTML, or clients where the
--- recipient has disabled HTML rendering.
-body_text :: Lens.Lens' Body (Prelude.Maybe Content)
-body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: Body)
 
 -- | An object that represents the version of the message that is displayed
 -- in email clients that support HTML. HTML messages can include formatted
@@ -74,20 +68,26 @@ body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: 
 body_html :: Lens.Lens' Body (Prelude.Maybe Content)
 body_html = Lens.lens (\Body' {html} -> html) (\s@Body' {} a -> s {html = a} :: Body)
 
+-- | An object that represents the version of the message that is displayed
+-- in email clients that don\'t support HTML, or clients where the
+-- recipient has disabled HTML rendering.
+body_text :: Lens.Lens' Body (Prelude.Maybe Content)
+body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: Body)
+
 instance Prelude.Hashable Body where
   hashWithSalt _salt Body' {..} =
-    _salt `Prelude.hashWithSalt` text
-      `Prelude.hashWithSalt` html
+    _salt `Prelude.hashWithSalt` html
+      `Prelude.hashWithSalt` text
 
 instance Prelude.NFData Body where
   rnf Body' {..} =
-    Prelude.rnf text `Prelude.seq` Prelude.rnf html
+    Prelude.rnf html `Prelude.seq` Prelude.rnf text
 
 instance Core.ToJSON Body where
   toJSON Body' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Text" Core..=) Prelude.<$> text,
-            ("Html" Core..=) Prelude.<$> html
+          [ ("Html" Core..=) Prelude.<$> html,
+            ("Text" Core..=) Prelude.<$> text
           ]
       )

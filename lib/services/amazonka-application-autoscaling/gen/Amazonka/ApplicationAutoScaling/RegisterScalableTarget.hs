@@ -58,10 +58,10 @@ module Amazonka.ApplicationAutoScaling.RegisterScalableTarget
     newRegisterScalableTarget,
 
     -- * Request Lenses
+    registerScalableTarget_roleARN,
     registerScalableTarget_suspendedState,
     registerScalableTarget_maxCapacity,
     registerScalableTarget_minCapacity,
-    registerScalableTarget_roleARN,
     registerScalableTarget_serviceNamespace,
     registerScalableTarget_resourceId,
     registerScalableTarget_scalableDimension,
@@ -84,7 +84,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterScalableTarget' smart constructor.
 data RegisterScalableTarget = RegisterScalableTarget'
-  { -- | An embedded object that contains attributes and attribute values that
+  { -- | This parameter is required for services that do not support
+    -- service-linked roles (such as Amazon EMR), and it must specify the ARN
+    -- of an IAM role that allows Application Auto Scaling to modify the
+    -- scalable target on your behalf.
+    --
+    -- If the service supports service-linked roles, Application Auto Scaling
+    -- uses a service-linked role, which it creates if it does not yet exist.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
+    roleARN :: Prelude.Maybe Prelude.Text,
+    -- | An embedded object that contains attributes and attribute values that
     -- are used to suspend and resume automatic scaling. Setting the value of
     -- an attribute to @true@ suspends the specified scaling activities.
     -- Setting it to @false@ (default) resumes the specified scaling
@@ -131,16 +141,6 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- clusters, EMR clusters, and custom resources. For all other resources,
     -- the minimum value allowed is 1.
     minCapacity :: Prelude.Maybe Prelude.Int,
-    -- | This parameter is required for services that do not support
-    -- service-linked roles (such as Amazon EMR), and it must specify the ARN
-    -- of an IAM role that allows Application Auto Scaling to modify the
-    -- scalable target on your behalf.
-    --
-    -- If the service supports service-linked roles, Application Auto Scaling
-    -- uses a service-linked role, which it creates if it does not yet exist.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
-    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -290,6 +290,16 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleARN', 'registerScalableTarget_roleARN' - This parameter is required for services that do not support
+-- service-linked roles (such as Amazon EMR), and it must specify the ARN
+-- of an IAM role that allows Application Auto Scaling to modify the
+-- scalable target on your behalf.
+--
+-- If the service supports service-linked roles, Application Auto Scaling
+-- uses a service-linked role, which it creates if it does not yet exist.
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
+--
 -- 'suspendedState', 'registerScalableTarget_suspendedState' - An embedded object that contains attributes and attribute values that
 -- are used to suspend and resume automatic scaling. Setting the value of
 -- an attribute to @true@ suspends the specified scaling activities.
@@ -336,16 +346,6 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
 -- clusters, EMR clusters, and custom resources. For all other resources,
 -- the minimum value allowed is 1.
---
--- 'roleARN', 'registerScalableTarget_roleARN' - This parameter is required for services that do not support
--- service-linked roles (such as Amazon EMR), and it must specify the ARN
--- of an IAM role that allows Application Auto Scaling to modify the
--- scalable target on your behalf.
---
--- If the service supports service-linked roles, Application Auto Scaling
--- uses a service-linked role, which it creates if it does not yet exist.
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
 --
 -- 'serviceNamespace', 'registerScalableTarget_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -497,15 +497,26 @@ newRegisterScalableTarget
   pResourceId_
   pScalableDimension_ =
     RegisterScalableTarget'
-      { suspendedState =
-          Prelude.Nothing,
+      { roleARN = Prelude.Nothing,
+        suspendedState = Prelude.Nothing,
         maxCapacity = Prelude.Nothing,
         minCapacity = Prelude.Nothing,
-        roleARN = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_
       }
+
+-- | This parameter is required for services that do not support
+-- service-linked roles (such as Amazon EMR), and it must specify the ARN
+-- of an IAM role that allows Application Auto Scaling to modify the
+-- scalable target on your behalf.
+--
+-- If the service supports service-linked roles, Application Auto Scaling
+-- uses a service-linked role, which it creates if it does not yet exist.
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
+registerScalableTarget_roleARN :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Text)
+registerScalableTarget_roleARN = Lens.lens (\RegisterScalableTarget' {roleARN} -> roleARN) (\s@RegisterScalableTarget' {} a -> s {roleARN = a} :: RegisterScalableTarget)
 
 -- | An embedded object that contains attributes and attribute values that
 -- are used to suspend and resume automatic scaling. Setting the value of
@@ -559,18 +570,6 @@ registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCap
 -- the minimum value allowed is 1.
 registerScalableTarget_minCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
 registerScalableTarget_minCapacity = Lens.lens (\RegisterScalableTarget' {minCapacity} -> minCapacity) (\s@RegisterScalableTarget' {} a -> s {minCapacity = a} :: RegisterScalableTarget)
-
--- | This parameter is required for services that do not support
--- service-linked roles (such as Amazon EMR), and it must specify the ARN
--- of an IAM role that allows Application Auto Scaling to modify the
--- scalable target on your behalf.
---
--- If the service supports service-linked roles, Application Auto Scaling
--- uses a service-linked role, which it creates if it does not yet exist.
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
-registerScalableTarget_roleARN :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Text)
-registerScalableTarget_roleARN = Lens.lens (\RegisterScalableTarget' {roleARN} -> roleARN) (\s@RegisterScalableTarget' {} a -> s {roleARN = a} :: RegisterScalableTarget)
 
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -730,20 +729,20 @@ instance Core.AWSRequest RegisterScalableTarget where
 
 instance Prelude.Hashable RegisterScalableTarget where
   hashWithSalt _salt RegisterScalableTarget' {..} =
-    _salt `Prelude.hashWithSalt` suspendedState
+    _salt `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` suspendedState
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
-      `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
 
 instance Prelude.NFData RegisterScalableTarget where
   rnf RegisterScalableTarget' {..} =
-    Prelude.rnf suspendedState
+    Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf suspendedState
       `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf minCapacity
-      `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf serviceNamespace
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
@@ -767,11 +766,11 @@ instance Core.ToJSON RegisterScalableTarget where
   toJSON RegisterScalableTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SuspendedState" Core..=)
+          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
+            ("SuspendedState" Core..=)
               Prelude.<$> suspendedState,
             ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
             ("MinCapacity" Core..=) Prelude.<$> minCapacity,
-            ("RoleARN" Core..=) Prelude.<$> roleARN,
             Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace),
             Prelude.Just ("ResourceId" Core..= resourceId),

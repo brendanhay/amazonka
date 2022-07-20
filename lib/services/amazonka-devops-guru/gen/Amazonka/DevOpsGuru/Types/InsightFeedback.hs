@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInsightFeedback' smart constructor.
 data InsightFeedback = InsightFeedback'
-  { -- | The insight feedback ID.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The feedback provided by the customer.
-    feedback :: Prelude.Maybe InsightFeedbackOption
+  { -- | The feedback provided by the customer.
+    feedback :: Prelude.Maybe InsightFeedbackOption,
+    -- | The insight feedback ID.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data InsightFeedback = InsightFeedback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'insightFeedback_id' - The insight feedback ID.
---
 -- 'feedback', 'insightFeedback_feedback' - The feedback provided by the customer.
+--
+-- 'id', 'insightFeedback_id' - The insight feedback ID.
 newInsightFeedback ::
   InsightFeedback
 newInsightFeedback =
   InsightFeedback'
-    { id = Prelude.Nothing,
-      feedback = Prelude.Nothing
+    { feedback = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The insight feedback ID.
-insightFeedback_id :: Lens.Lens' InsightFeedback (Prelude.Maybe Prelude.Text)
-insightFeedback_id = Lens.lens (\InsightFeedback' {id} -> id) (\s@InsightFeedback' {} a -> s {id = a} :: InsightFeedback)
 
 -- | The feedback provided by the customer.
 insightFeedback_feedback :: Lens.Lens' InsightFeedback (Prelude.Maybe InsightFeedbackOption)
 insightFeedback_feedback = Lens.lens (\InsightFeedback' {feedback} -> feedback) (\s@InsightFeedback' {} a -> s {feedback = a} :: InsightFeedback)
+
+-- | The insight feedback ID.
+insightFeedback_id :: Lens.Lens' InsightFeedback (Prelude.Maybe Prelude.Text)
+insightFeedback_id = Lens.lens (\InsightFeedback' {id} -> id) (\s@InsightFeedback' {} a -> s {id = a} :: InsightFeedback)
 
 instance Core.FromJSON InsightFeedback where
   parseJSON =
@@ -68,24 +68,24 @@ instance Core.FromJSON InsightFeedback where
       "InsightFeedback"
       ( \x ->
           InsightFeedback'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Feedback")
+            Prelude.<$> (x Core..:? "Feedback")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable InsightFeedback where
   hashWithSalt _salt InsightFeedback' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` feedback
+    _salt `Prelude.hashWithSalt` feedback
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData InsightFeedback where
   rnf InsightFeedback' {..} =
-    Prelude.rnf id `Prelude.seq` Prelude.rnf feedback
+    Prelude.rnf feedback `Prelude.seq` Prelude.rnf id
 
 instance Core.ToJSON InsightFeedback where
   toJSON InsightFeedback' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Id" Core..=) Prelude.<$> id,
-            ("Feedback" Core..=) Prelude.<$> feedback
+          [ ("Feedback" Core..=) Prelude.<$> feedback,
+            ("Id" Core..=) Prelude.<$> id
           ]
       )

@@ -29,8 +29,8 @@ module Amazonka.Discovery.DescribeImportTasks
     newDescribeImportTasks,
 
     -- * Request Lenses
-    describeImportTasks_filters,
     describeImportTasks_nextToken,
+    describeImportTasks_filters,
     describeImportTasks_maxResults,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImportTasks' smart constructor.
 data DescribeImportTasks = DescribeImportTasks'
-  { -- | An array of name-value pairs that you provide to filter the results for
+  { -- | The token to request a specific page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of name-value pairs that you provide to filter the results for
     -- the @DescribeImportTask@ request to a specific subset of results.
     -- Currently, wildcard values aren\'t supported for filters.
     filters :: Prelude.Maybe [ImportTaskFilter],
-    -- | The token to request a specific page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that you want this request to return, up
     -- to 100.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -73,11 +73,11 @@ data DescribeImportTasks = DescribeImportTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeImportTasks_nextToken' - The token to request a specific page of results.
+--
 -- 'filters', 'describeImportTasks_filters' - An array of name-value pairs that you provide to filter the results for
 -- the @DescribeImportTask@ request to a specific subset of results.
 -- Currently, wildcard values aren\'t supported for filters.
---
--- 'nextToken', 'describeImportTasks_nextToken' - The token to request a specific page of results.
 --
 -- 'maxResults', 'describeImportTasks_maxResults' - The maximum number of results that you want this request to return, up
 -- to 100.
@@ -85,20 +85,20 @@ newDescribeImportTasks ::
   DescribeImportTasks
 newDescribeImportTasks =
   DescribeImportTasks'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token to request a specific page of results.
+describeImportTasks_nextToken :: Lens.Lens' DescribeImportTasks (Prelude.Maybe Prelude.Text)
+describeImportTasks_nextToken = Lens.lens (\DescribeImportTasks' {nextToken} -> nextToken) (\s@DescribeImportTasks' {} a -> s {nextToken = a} :: DescribeImportTasks)
 
 -- | An array of name-value pairs that you provide to filter the results for
 -- the @DescribeImportTask@ request to a specific subset of results.
 -- Currently, wildcard values aren\'t supported for filters.
 describeImportTasks_filters :: Lens.Lens' DescribeImportTasks (Prelude.Maybe [ImportTaskFilter])
 describeImportTasks_filters = Lens.lens (\DescribeImportTasks' {filters} -> filters) (\s@DescribeImportTasks' {} a -> s {filters = a} :: DescribeImportTasks) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to request a specific page of results.
-describeImportTasks_nextToken :: Lens.Lens' DescribeImportTasks (Prelude.Maybe Prelude.Text)
-describeImportTasks_nextToken = Lens.lens (\DescribeImportTasks' {nextToken} -> nextToken) (\s@DescribeImportTasks' {} a -> s {nextToken = a} :: DescribeImportTasks)
 
 -- | The maximum number of results that you want this request to return, up
 -- to 100.
@@ -121,14 +121,14 @@ instance Core.AWSRequest DescribeImportTasks where
 
 instance Prelude.Hashable DescribeImportTasks where
   hashWithSalt _salt DescribeImportTasks' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeImportTasks where
   rnf DescribeImportTasks' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeImportTasks where
@@ -150,8 +150,8 @@ instance Core.ToJSON DescribeImportTasks where
   toJSON DescribeImportTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filters" Core..=) Prelude.<$> filters,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

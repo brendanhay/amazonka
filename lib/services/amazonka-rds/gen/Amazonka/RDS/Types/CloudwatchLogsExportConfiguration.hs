@@ -42,10 +42,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudwatchLogsExportConfiguration' smart constructor.
 data CloudwatchLogsExportConfiguration = CloudwatchLogsExportConfiguration'
-  { -- | The list of log types to disable.
-    disableLogTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The list of log types to enable.
-    enableLogTypes :: Prelude.Maybe [Prelude.Text]
+  { -- | The list of log types to enable.
+    enableLogTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The list of log types to disable.
+    disableLogTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,25 +57,25 @@ data CloudwatchLogsExportConfiguration = CloudwatchLogsExportConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disableLogTypes', 'cloudwatchLogsExportConfiguration_disableLogTypes' - The list of log types to disable.
---
 -- 'enableLogTypes', 'cloudwatchLogsExportConfiguration_enableLogTypes' - The list of log types to enable.
+--
+-- 'disableLogTypes', 'cloudwatchLogsExportConfiguration_disableLogTypes' - The list of log types to disable.
 newCloudwatchLogsExportConfiguration ::
   CloudwatchLogsExportConfiguration
 newCloudwatchLogsExportConfiguration =
   CloudwatchLogsExportConfiguration'
-    { disableLogTypes =
+    { enableLogTypes =
         Prelude.Nothing,
-      enableLogTypes = Prelude.Nothing
+      disableLogTypes = Prelude.Nothing
     }
-
--- | The list of log types to disable.
-cloudwatchLogsExportConfiguration_disableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Prelude.Maybe [Prelude.Text])
-cloudwatchLogsExportConfiguration_disableLogTypes = Lens.lens (\CloudwatchLogsExportConfiguration' {disableLogTypes} -> disableLogTypes) (\s@CloudwatchLogsExportConfiguration' {} a -> s {disableLogTypes = a} :: CloudwatchLogsExportConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of log types to enable.
 cloudwatchLogsExportConfiguration_enableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Prelude.Maybe [Prelude.Text])
 cloudwatchLogsExportConfiguration_enableLogTypes = Lens.lens (\CloudwatchLogsExportConfiguration' {enableLogTypes} -> enableLogTypes) (\s@CloudwatchLogsExportConfiguration' {} a -> s {enableLogTypes = a} :: CloudwatchLogsExportConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of log types to disable.
+cloudwatchLogsExportConfiguration_disableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Prelude.Maybe [Prelude.Text])
+cloudwatchLogsExportConfiguration_disableLogTypes = Lens.lens (\CloudwatchLogsExportConfiguration' {disableLogTypes} -> disableLogTypes) (\s@CloudwatchLogsExportConfiguration' {} a -> s {disableLogTypes = a} :: CloudwatchLogsExportConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -84,16 +84,16 @@ instance
   hashWithSalt
     _salt
     CloudwatchLogsExportConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` disableLogTypes
-        `Prelude.hashWithSalt` enableLogTypes
+      _salt `Prelude.hashWithSalt` enableLogTypes
+        `Prelude.hashWithSalt` disableLogTypes
 
 instance
   Prelude.NFData
     CloudwatchLogsExportConfiguration
   where
   rnf CloudwatchLogsExportConfiguration' {..} =
-    Prelude.rnf disableLogTypes
-      `Prelude.seq` Prelude.rnf enableLogTypes
+    Prelude.rnf enableLogTypes
+      `Prelude.seq` Prelude.rnf disableLogTypes
 
 instance
   Core.ToQuery
@@ -101,14 +101,14 @@ instance
   where
   toQuery CloudwatchLogsExportConfiguration' {..} =
     Prelude.mconcat
-      [ "DisableLogTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> disableLogTypes
-            ),
-        "EnableLogTypes"
+      [ "EnableLogTypes"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> enableLogTypes
+            ),
+        "DisableLogTypes"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> disableLogTypes
             )
       ]

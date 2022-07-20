@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConsumptionConfiguration' smart constructor.
 data ConsumptionConfiguration = ConsumptionConfiguration'
-  { -- | Details about a borrow configuration.
+  { -- | Renewal frequency.
+    renewType :: Prelude.Maybe RenewType,
+    -- | Details about a borrow configuration.
     borrowConfiguration :: Prelude.Maybe BorrowConfiguration,
     -- | Details about a provisional configuration.
-    provisionalConfiguration :: Prelude.Maybe ProvisionalConfiguration,
-    -- | Renewal frequency.
-    renewType :: Prelude.Maybe RenewType
+    provisionalConfiguration :: Prelude.Maybe ProvisionalConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data ConsumptionConfiguration = ConsumptionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'renewType', 'consumptionConfiguration_renewType' - Renewal frequency.
+--
 -- 'borrowConfiguration', 'consumptionConfiguration_borrowConfiguration' - Details about a borrow configuration.
 --
 -- 'provisionalConfiguration', 'consumptionConfiguration_provisionalConfiguration' - Details about a provisional configuration.
---
--- 'renewType', 'consumptionConfiguration_renewType' - Renewal frequency.
 newConsumptionConfiguration ::
   ConsumptionConfiguration
 newConsumptionConfiguration =
   ConsumptionConfiguration'
-    { borrowConfiguration =
+    { renewType =
         Prelude.Nothing,
-      provisionalConfiguration = Prelude.Nothing,
-      renewType = Prelude.Nothing
+      borrowConfiguration = Prelude.Nothing,
+      provisionalConfiguration = Prelude.Nothing
     }
+
+-- | Renewal frequency.
+consumptionConfiguration_renewType :: Lens.Lens' ConsumptionConfiguration (Prelude.Maybe RenewType)
+consumptionConfiguration_renewType = Lens.lens (\ConsumptionConfiguration' {renewType} -> renewType) (\s@ConsumptionConfiguration' {} a -> s {renewType = a} :: ConsumptionConfiguration)
 
 -- | Details about a borrow configuration.
 consumptionConfiguration_borrowConfiguration :: Lens.Lens' ConsumptionConfiguration (Prelude.Maybe BorrowConfiguration)
@@ -70,41 +74,37 @@ consumptionConfiguration_borrowConfiguration = Lens.lens (\ConsumptionConfigurat
 consumptionConfiguration_provisionalConfiguration :: Lens.Lens' ConsumptionConfiguration (Prelude.Maybe ProvisionalConfiguration)
 consumptionConfiguration_provisionalConfiguration = Lens.lens (\ConsumptionConfiguration' {provisionalConfiguration} -> provisionalConfiguration) (\s@ConsumptionConfiguration' {} a -> s {provisionalConfiguration = a} :: ConsumptionConfiguration)
 
--- | Renewal frequency.
-consumptionConfiguration_renewType :: Lens.Lens' ConsumptionConfiguration (Prelude.Maybe RenewType)
-consumptionConfiguration_renewType = Lens.lens (\ConsumptionConfiguration' {renewType} -> renewType) (\s@ConsumptionConfiguration' {} a -> s {renewType = a} :: ConsumptionConfiguration)
-
 instance Core.FromJSON ConsumptionConfiguration where
   parseJSON =
     Core.withObject
       "ConsumptionConfiguration"
       ( \x ->
           ConsumptionConfiguration'
-            Prelude.<$> (x Core..:? "BorrowConfiguration")
+            Prelude.<$> (x Core..:? "RenewType")
+            Prelude.<*> (x Core..:? "BorrowConfiguration")
             Prelude.<*> (x Core..:? "ProvisionalConfiguration")
-            Prelude.<*> (x Core..:? "RenewType")
       )
 
 instance Prelude.Hashable ConsumptionConfiguration where
   hashWithSalt _salt ConsumptionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` borrowConfiguration
+    _salt `Prelude.hashWithSalt` renewType
+      `Prelude.hashWithSalt` borrowConfiguration
       `Prelude.hashWithSalt` provisionalConfiguration
-      `Prelude.hashWithSalt` renewType
 
 instance Prelude.NFData ConsumptionConfiguration where
   rnf ConsumptionConfiguration' {..} =
-    Prelude.rnf borrowConfiguration
+    Prelude.rnf renewType
+      `Prelude.seq` Prelude.rnf borrowConfiguration
       `Prelude.seq` Prelude.rnf provisionalConfiguration
-      `Prelude.seq` Prelude.rnf renewType
 
 instance Core.ToJSON ConsumptionConfiguration where
   toJSON ConsumptionConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BorrowConfiguration" Core..=)
+          [ ("RenewType" Core..=) Prelude.<$> renewType,
+            ("BorrowConfiguration" Core..=)
               Prelude.<$> borrowConfiguration,
             ("ProvisionalConfiguration" Core..=)
-              Prelude.<$> provisionalConfiguration,
-            ("RenewType" Core..=) Prelude.<$> renewType
+              Prelude.<$> provisionalConfiguration
           ]
       )

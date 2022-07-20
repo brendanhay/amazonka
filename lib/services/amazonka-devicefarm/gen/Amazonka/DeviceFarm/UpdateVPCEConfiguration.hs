@@ -30,8 +30,8 @@ module Amazonka.DeviceFarm.UpdateVPCEConfiguration
     -- * Request Lenses
     updateVPCEConfiguration_vpceServiceName,
     updateVPCEConfiguration_vpceConfigurationName,
-    updateVPCEConfiguration_serviceDnsName,
     updateVPCEConfiguration_vpceConfigurationDescription,
+    updateVPCEConfiguration_serviceDnsName,
     updateVPCEConfiguration_arn,
 
     -- * Destructuring the Response
@@ -59,12 +59,12 @@ data UpdateVPCEConfiguration = UpdateVPCEConfiguration'
     -- | The friendly name you give to your VPC endpoint configuration to manage
     -- your configurations more easily.
     vpceConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | The DNS (domain) name used to connect to your private service in your
-    -- VPC. The DNS name must not already be in use on the internet.
-    serviceDnsName :: Prelude.Maybe Prelude.Text,
     -- | An optional description that provides details about your VPC endpoint
     -- configuration.
     vpceConfigurationDescription :: Prelude.Maybe Prelude.Text,
+    -- | The DNS (domain) name used to connect to your private service in your
+    -- VPC. The DNS name must not already be in use on the internet.
+    serviceDnsName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you
     -- want to update.
     arn :: Prelude.Text
@@ -85,11 +85,11 @@ data UpdateVPCEConfiguration = UpdateVPCEConfiguration'
 -- 'vpceConfigurationName', 'updateVPCEConfiguration_vpceConfigurationName' - The friendly name you give to your VPC endpoint configuration to manage
 -- your configurations more easily.
 --
--- 'serviceDnsName', 'updateVPCEConfiguration_serviceDnsName' - The DNS (domain) name used to connect to your private service in your
--- VPC. The DNS name must not already be in use on the internet.
---
 -- 'vpceConfigurationDescription', 'updateVPCEConfiguration_vpceConfigurationDescription' - An optional description that provides details about your VPC endpoint
 -- configuration.
+--
+-- 'serviceDnsName', 'updateVPCEConfiguration_serviceDnsName' - The DNS (domain) name used to connect to your private service in your
+-- VPC. The DNS name must not already be in use on the internet.
 --
 -- 'arn', 'updateVPCEConfiguration_arn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration you
 -- want to update.
@@ -102,8 +102,8 @@ newUpdateVPCEConfiguration pArn_ =
     { vpceServiceName =
         Prelude.Nothing,
       vpceConfigurationName = Prelude.Nothing,
-      serviceDnsName = Prelude.Nothing,
       vpceConfigurationDescription = Prelude.Nothing,
+      serviceDnsName = Prelude.Nothing,
       arn = pArn_
     }
 
@@ -117,15 +117,15 @@ updateVPCEConfiguration_vpceServiceName = Lens.lens (\UpdateVPCEConfiguration' {
 updateVPCEConfiguration_vpceConfigurationName :: Lens.Lens' UpdateVPCEConfiguration (Prelude.Maybe Prelude.Text)
 updateVPCEConfiguration_vpceConfigurationName = Lens.lens (\UpdateVPCEConfiguration' {vpceConfigurationName} -> vpceConfigurationName) (\s@UpdateVPCEConfiguration' {} a -> s {vpceConfigurationName = a} :: UpdateVPCEConfiguration)
 
--- | The DNS (domain) name used to connect to your private service in your
--- VPC. The DNS name must not already be in use on the internet.
-updateVPCEConfiguration_serviceDnsName :: Lens.Lens' UpdateVPCEConfiguration (Prelude.Maybe Prelude.Text)
-updateVPCEConfiguration_serviceDnsName = Lens.lens (\UpdateVPCEConfiguration' {serviceDnsName} -> serviceDnsName) (\s@UpdateVPCEConfiguration' {} a -> s {serviceDnsName = a} :: UpdateVPCEConfiguration)
-
 -- | An optional description that provides details about your VPC endpoint
 -- configuration.
 updateVPCEConfiguration_vpceConfigurationDescription :: Lens.Lens' UpdateVPCEConfiguration (Prelude.Maybe Prelude.Text)
 updateVPCEConfiguration_vpceConfigurationDescription = Lens.lens (\UpdateVPCEConfiguration' {vpceConfigurationDescription} -> vpceConfigurationDescription) (\s@UpdateVPCEConfiguration' {} a -> s {vpceConfigurationDescription = a} :: UpdateVPCEConfiguration)
+
+-- | The DNS (domain) name used to connect to your private service in your
+-- VPC. The DNS name must not already be in use on the internet.
+updateVPCEConfiguration_serviceDnsName :: Lens.Lens' UpdateVPCEConfiguration (Prelude.Maybe Prelude.Text)
+updateVPCEConfiguration_serviceDnsName = Lens.lens (\UpdateVPCEConfiguration' {serviceDnsName} -> serviceDnsName) (\s@UpdateVPCEConfiguration' {} a -> s {serviceDnsName = a} :: UpdateVPCEConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you
 -- want to update.
@@ -149,16 +149,16 @@ instance Prelude.Hashable UpdateVPCEConfiguration where
   hashWithSalt _salt UpdateVPCEConfiguration' {..} =
     _salt `Prelude.hashWithSalt` vpceServiceName
       `Prelude.hashWithSalt` vpceConfigurationName
-      `Prelude.hashWithSalt` serviceDnsName
       `Prelude.hashWithSalt` vpceConfigurationDescription
+      `Prelude.hashWithSalt` serviceDnsName
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateVPCEConfiguration where
   rnf UpdateVPCEConfiguration' {..} =
     Prelude.rnf vpceServiceName
       `Prelude.seq` Prelude.rnf vpceConfigurationName
-      `Prelude.seq` Prelude.rnf serviceDnsName
       `Prelude.seq` Prelude.rnf vpceConfigurationDescription
+      `Prelude.seq` Prelude.rnf serviceDnsName
       `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateVPCEConfiguration where
@@ -184,10 +184,10 @@ instance Core.ToJSON UpdateVPCEConfiguration where
               Prelude.<$> vpceServiceName,
             ("vpceConfigurationName" Core..=)
               Prelude.<$> vpceConfigurationName,
-            ("serviceDnsName" Core..=)
-              Prelude.<$> serviceDnsName,
             ("vpceConfigurationDescription" Core..=)
               Prelude.<$> vpceConfigurationDescription,
+            ("serviceDnsName" Core..=)
+              Prelude.<$> serviceDnsName,
             Prelude.Just ("arn" Core..= arn)
           ]
       )

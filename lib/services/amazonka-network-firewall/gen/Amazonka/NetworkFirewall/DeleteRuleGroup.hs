@@ -27,9 +27,9 @@ module Amazonka.NetworkFirewall.DeleteRuleGroup
     newDeleteRuleGroup,
 
     -- * Request Lenses
-    deleteRuleGroup_ruleGroupArn,
-    deleteRuleGroup_type,
     deleteRuleGroup_ruleGroupName,
+    deleteRuleGroup_type,
+    deleteRuleGroup_ruleGroupArn,
 
     -- * Destructuring the Response
     DeleteRuleGroupResponse (..),
@@ -50,10 +50,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRuleGroup' smart constructor.
 data DeleteRuleGroup = DeleteRuleGroup'
-  { -- | The Amazon Resource Name (ARN) of the rule group.
+  { -- | The descriptive name of the rule group. You can\'t change the name of a
+    -- rule group after you create it.
     --
     -- You must specify the ARN or the name, and you can specify both.
-    ruleGroupArn :: Prelude.Maybe Prelude.Text,
+    ruleGroupName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the rule group is stateless or stateful. If the rule
     -- group is stateless, it contains stateless rules. If it is stateful, it
     -- contains stateful rules.
@@ -61,11 +62,10 @@ data DeleteRuleGroup = DeleteRuleGroup'
     -- This setting is required for requests that do not include the
     -- @RuleGroupARN@.
     type' :: Prelude.Maybe RuleGroupType,
-    -- | The descriptive name of the rule group. You can\'t change the name of a
-    -- rule group after you create it.
+    -- | The Amazon Resource Name (ARN) of the rule group.
     --
     -- You must specify the ARN or the name, and you can specify both.
-    ruleGroupName :: Prelude.Maybe Prelude.Text
+    ruleGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +77,8 @@ data DeleteRuleGroup = DeleteRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleGroupArn', 'deleteRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
+-- 'ruleGroupName', 'deleteRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
+-- rule group after you create it.
 --
 -- You must specify the ARN or the name, and you can specify both.
 --
@@ -88,24 +89,24 @@ data DeleteRuleGroup = DeleteRuleGroup'
 -- This setting is required for requests that do not include the
 -- @RuleGroupARN@.
 --
--- 'ruleGroupName', 'deleteRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
--- rule group after you create it.
+-- 'ruleGroupArn', 'deleteRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
 --
 -- You must specify the ARN or the name, and you can specify both.
 newDeleteRuleGroup ::
   DeleteRuleGroup
 newDeleteRuleGroup =
   DeleteRuleGroup'
-    { ruleGroupArn = Prelude.Nothing,
+    { ruleGroupName = Prelude.Nothing,
       type' = Prelude.Nothing,
-      ruleGroupName = Prelude.Nothing
+      ruleGroupArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the rule group.
+-- | The descriptive name of the rule group. You can\'t change the name of a
+-- rule group after you create it.
 --
 -- You must specify the ARN or the name, and you can specify both.
-deleteRuleGroup_ruleGroupArn :: Lens.Lens' DeleteRuleGroup (Prelude.Maybe Prelude.Text)
-deleteRuleGroup_ruleGroupArn = Lens.lens (\DeleteRuleGroup' {ruleGroupArn} -> ruleGroupArn) (\s@DeleteRuleGroup' {} a -> s {ruleGroupArn = a} :: DeleteRuleGroup)
+deleteRuleGroup_ruleGroupName :: Lens.Lens' DeleteRuleGroup (Prelude.Maybe Prelude.Text)
+deleteRuleGroup_ruleGroupName = Lens.lens (\DeleteRuleGroup' {ruleGroupName} -> ruleGroupName) (\s@DeleteRuleGroup' {} a -> s {ruleGroupName = a} :: DeleteRuleGroup)
 
 -- | Indicates whether the rule group is stateless or stateful. If the rule
 -- group is stateless, it contains stateless rules. If it is stateful, it
@@ -116,12 +117,11 @@ deleteRuleGroup_ruleGroupArn = Lens.lens (\DeleteRuleGroup' {ruleGroupArn} -> ru
 deleteRuleGroup_type :: Lens.Lens' DeleteRuleGroup (Prelude.Maybe RuleGroupType)
 deleteRuleGroup_type = Lens.lens (\DeleteRuleGroup' {type'} -> type') (\s@DeleteRuleGroup' {} a -> s {type' = a} :: DeleteRuleGroup)
 
--- | The descriptive name of the rule group. You can\'t change the name of a
--- rule group after you create it.
+-- | The Amazon Resource Name (ARN) of the rule group.
 --
 -- You must specify the ARN or the name, and you can specify both.
-deleteRuleGroup_ruleGroupName :: Lens.Lens' DeleteRuleGroup (Prelude.Maybe Prelude.Text)
-deleteRuleGroup_ruleGroupName = Lens.lens (\DeleteRuleGroup' {ruleGroupName} -> ruleGroupName) (\s@DeleteRuleGroup' {} a -> s {ruleGroupName = a} :: DeleteRuleGroup)
+deleteRuleGroup_ruleGroupArn :: Lens.Lens' DeleteRuleGroup (Prelude.Maybe Prelude.Text)
+deleteRuleGroup_ruleGroupArn = Lens.lens (\DeleteRuleGroup' {ruleGroupArn} -> ruleGroupArn) (\s@DeleteRuleGroup' {} a -> s {ruleGroupArn = a} :: DeleteRuleGroup)
 
 instance Core.AWSRequest DeleteRuleGroup where
   type
@@ -138,15 +138,15 @@ instance Core.AWSRequest DeleteRuleGroup where
 
 instance Prelude.Hashable DeleteRuleGroup where
   hashWithSalt _salt DeleteRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` ruleGroupArn
+    _salt `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` ruleGroupName
+      `Prelude.hashWithSalt` ruleGroupArn
 
 instance Prelude.NFData DeleteRuleGroup where
   rnf DeleteRuleGroup' {..} =
-    Prelude.rnf ruleGroupArn
+    Prelude.rnf ruleGroupName
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf ruleGroupName
+      `Prelude.seq` Prelude.rnf ruleGroupArn
 
 instance Core.ToHeaders DeleteRuleGroup where
   toHeaders =
@@ -167,9 +167,9 @@ instance Core.ToJSON DeleteRuleGroup where
   toJSON DeleteRuleGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn,
+          [ ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName,
             ("Type" Core..=) Prelude.<$> type',
-            ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName
+            ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn
           ]
       )
 

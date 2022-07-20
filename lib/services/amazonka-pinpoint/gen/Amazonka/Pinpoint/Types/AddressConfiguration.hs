@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAddressConfiguration' smart constructor.
 data AddressConfiguration = AddressConfiguration'
-  { -- | A map of the message variables to merge with the variables specified by
-    -- properties of the DefaultMessage object. The variables specified in this
-    -- map take precedence over all other variables.
-    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The message title to use instead of the default message title. This
-    -- value overrides the default message title.
-    titleOverride :: Prelude.Maybe Prelude.Text,
-    -- | An object that maps custom attributes to attributes for the address and
+  { -- | An object that maps custom attributes to attributes for the address and
     -- is attached to the message. Attribute names are case sensitive.
     --
     -- For a push notification, this payload is added to the data.pinpoint
     -- object. For an email or text message, this payload is added to
     -- email\/SMS delivery receipt event attributes.
     context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A map of the message variables to merge with the variables specified by
+    -- properties of the DefaultMessage object. The variables specified in this
+    -- map take precedence over all other variables.
+    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The message title to use instead of the default message title. This
+    -- value overrides the default message title.
+    titleOverride :: Prelude.Maybe Prelude.Text,
     -- | The raw, JSON-formatted string to use as the payload for the message. If
     -- specified, this value overrides all other values for the message.
     rawContent :: Prelude.Maybe Prelude.Text,
@@ -62,19 +62,19 @@ data AddressConfiguration = AddressConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'substitutions', 'addressConfiguration_substitutions' - A map of the message variables to merge with the variables specified by
--- properties of the DefaultMessage object. The variables specified in this
--- map take precedence over all other variables.
---
--- 'titleOverride', 'addressConfiguration_titleOverride' - The message title to use instead of the default message title. This
--- value overrides the default message title.
---
 -- 'context', 'addressConfiguration_context' - An object that maps custom attributes to attributes for the address and
 -- is attached to the message. Attribute names are case sensitive.
 --
 -- For a push notification, this payload is added to the data.pinpoint
 -- object. For an email or text message, this payload is added to
 -- email\/SMS delivery receipt event attributes.
+--
+-- 'substitutions', 'addressConfiguration_substitutions' - A map of the message variables to merge with the variables specified by
+-- properties of the DefaultMessage object. The variables specified in this
+-- map take precedence over all other variables.
+--
+-- 'titleOverride', 'addressConfiguration_titleOverride' - The message title to use instead of the default message title. This
+-- value overrides the default message title.
 --
 -- 'rawContent', 'addressConfiguration_rawContent' - The raw, JSON-formatted string to use as the payload for the message. If
 -- specified, this value overrides all other values for the message.
@@ -87,14 +87,22 @@ newAddressConfiguration ::
   AddressConfiguration
 newAddressConfiguration =
   AddressConfiguration'
-    { substitutions =
-        Prelude.Nothing,
+    { context = Prelude.Nothing,
+      substitutions = Prelude.Nothing,
       titleOverride = Prelude.Nothing,
-      context = Prelude.Nothing,
       rawContent = Prelude.Nothing,
       bodyOverride = Prelude.Nothing,
       channelType = Prelude.Nothing
     }
+
+-- | An object that maps custom attributes to attributes for the address and
+-- is attached to the message. Attribute names are case sensitive.
+--
+-- For a push notification, this payload is added to the data.pinpoint
+-- object. For an email or text message, this payload is added to
+-- email\/SMS delivery receipt event attributes.
+addressConfiguration_context :: Lens.Lens' AddressConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+addressConfiguration_context = Lens.lens (\AddressConfiguration' {context} -> context) (\s@AddressConfiguration' {} a -> s {context = a} :: AddressConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of the message variables to merge with the variables specified by
 -- properties of the DefaultMessage object. The variables specified in this
@@ -106,15 +114,6 @@ addressConfiguration_substitutions = Lens.lens (\AddressConfiguration' {substitu
 -- value overrides the default message title.
 addressConfiguration_titleOverride :: Lens.Lens' AddressConfiguration (Prelude.Maybe Prelude.Text)
 addressConfiguration_titleOverride = Lens.lens (\AddressConfiguration' {titleOverride} -> titleOverride) (\s@AddressConfiguration' {} a -> s {titleOverride = a} :: AddressConfiguration)
-
--- | An object that maps custom attributes to attributes for the address and
--- is attached to the message. Attribute names are case sensitive.
---
--- For a push notification, this payload is added to the data.pinpoint
--- object. For an email or text message, this payload is added to
--- email\/SMS delivery receipt event attributes.
-addressConfiguration_context :: Lens.Lens' AddressConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-addressConfiguration_context = Lens.lens (\AddressConfiguration' {context} -> context) (\s@AddressConfiguration' {} a -> s {context = a} :: AddressConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The raw, JSON-formatted string to use as the payload for the message. If
 -- specified, this value overrides all other values for the message.
@@ -132,18 +131,18 @@ addressConfiguration_channelType = Lens.lens (\AddressConfiguration' {channelTyp
 
 instance Prelude.Hashable AddressConfiguration where
   hashWithSalt _salt AddressConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` substitutions
+    _salt `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` substitutions
       `Prelude.hashWithSalt` titleOverride
-      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` rawContent
       `Prelude.hashWithSalt` bodyOverride
       `Prelude.hashWithSalt` channelType
 
 instance Prelude.NFData AddressConfiguration where
   rnf AddressConfiguration' {..} =
-    Prelude.rnf substitutions
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf substitutions
       `Prelude.seq` Prelude.rnf titleOverride
-      `Prelude.seq` Prelude.rnf context
       `Prelude.seq` Prelude.rnf rawContent
       `Prelude.seq` Prelude.rnf bodyOverride
       `Prelude.seq` Prelude.rnf channelType
@@ -152,9 +151,9 @@ instance Core.ToJSON AddressConfiguration where
   toJSON AddressConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Substitutions" Core..=) Prelude.<$> substitutions,
+          [ ("Context" Core..=) Prelude.<$> context,
+            ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("TitleOverride" Core..=) Prelude.<$> titleOverride,
-            ("Context" Core..=) Prelude.<$> context,
             ("RawContent" Core..=) Prelude.<$> rawContent,
             ("BodyOverride" Core..=) Prelude.<$> bodyOverride,
             ("ChannelType" Core..=) Prelude.<$> channelType

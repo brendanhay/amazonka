@@ -32,8 +32,8 @@ module Amazonka.Chime.GetGlobalSettings
     newGetGlobalSettingsResponse,
 
     -- * Response Lenses
-    getGlobalSettingsResponse_businessCalling,
     getGlobalSettingsResponse_voiceConnector,
+    getGlobalSettingsResponse_businessCalling,
     getGlobalSettingsResponse_httpStatus,
   )
 where
@@ -68,8 +68,8 @@ instance Core.AWSRequest GetGlobalSettings where
     Response.receiveJSON
       ( \s h x ->
           GetGlobalSettingsResponse'
-            Prelude.<$> (x Core..?> "BusinessCalling")
-            Prelude.<*> (x Core..?> "VoiceConnector")
+            Prelude.<$> (x Core..?> "VoiceConnector")
+            Prelude.<*> (x Core..?> "BusinessCalling")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,10 +91,10 @@ instance Core.ToQuery GetGlobalSettings where
 
 -- | /See:/ 'newGetGlobalSettingsResponse' smart constructor.
 data GetGlobalSettingsResponse = GetGlobalSettingsResponse'
-  { -- | The Amazon Chime Business Calling settings.
-    businessCalling :: Prelude.Maybe BusinessCallingSettings,
-    -- | The Amazon Chime Voice Connector settings.
+  { -- | The Amazon Chime Voice Connector settings.
     voiceConnector :: Prelude.Maybe VoiceConnectorSettings,
+    -- | The Amazon Chime Business Calling settings.
+    businessCalling :: Prelude.Maybe BusinessCallingSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -108,9 +108,9 @@ data GetGlobalSettingsResponse = GetGlobalSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'businessCalling', 'getGlobalSettingsResponse_businessCalling' - The Amazon Chime Business Calling settings.
---
 -- 'voiceConnector', 'getGlobalSettingsResponse_voiceConnector' - The Amazon Chime Voice Connector settings.
+--
+-- 'businessCalling', 'getGlobalSettingsResponse_businessCalling' - The Amazon Chime Business Calling settings.
 --
 -- 'httpStatus', 'getGlobalSettingsResponse_httpStatus' - The response's http status code.
 newGetGlobalSettingsResponse ::
@@ -119,19 +119,19 @@ newGetGlobalSettingsResponse ::
   GetGlobalSettingsResponse
 newGetGlobalSettingsResponse pHttpStatus_ =
   GetGlobalSettingsResponse'
-    { businessCalling =
+    { voiceConnector =
         Prelude.Nothing,
-      voiceConnector = Prelude.Nothing,
+      businessCalling = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Chime Business Calling settings.
-getGlobalSettingsResponse_businessCalling :: Lens.Lens' GetGlobalSettingsResponse (Prelude.Maybe BusinessCallingSettings)
-getGlobalSettingsResponse_businessCalling = Lens.lens (\GetGlobalSettingsResponse' {businessCalling} -> businessCalling) (\s@GetGlobalSettingsResponse' {} a -> s {businessCalling = a} :: GetGlobalSettingsResponse)
 
 -- | The Amazon Chime Voice Connector settings.
 getGlobalSettingsResponse_voiceConnector :: Lens.Lens' GetGlobalSettingsResponse (Prelude.Maybe VoiceConnectorSettings)
 getGlobalSettingsResponse_voiceConnector = Lens.lens (\GetGlobalSettingsResponse' {voiceConnector} -> voiceConnector) (\s@GetGlobalSettingsResponse' {} a -> s {voiceConnector = a} :: GetGlobalSettingsResponse)
+
+-- | The Amazon Chime Business Calling settings.
+getGlobalSettingsResponse_businessCalling :: Lens.Lens' GetGlobalSettingsResponse (Prelude.Maybe BusinessCallingSettings)
+getGlobalSettingsResponse_businessCalling = Lens.lens (\GetGlobalSettingsResponse' {businessCalling} -> businessCalling) (\s@GetGlobalSettingsResponse' {} a -> s {businessCalling = a} :: GetGlobalSettingsResponse)
 
 -- | The response's http status code.
 getGlobalSettingsResponse_httpStatus :: Lens.Lens' GetGlobalSettingsResponse Prelude.Int
@@ -139,6 +139,6 @@ getGlobalSettingsResponse_httpStatus = Lens.lens (\GetGlobalSettingsResponse' {h
 
 instance Prelude.NFData GetGlobalSettingsResponse where
   rnf GetGlobalSettingsResponse' {..} =
-    Prelude.rnf businessCalling
-      `Prelude.seq` Prelude.rnf voiceConnector
+    Prelude.rnf voiceConnector
+      `Prelude.seq` Prelude.rnf businessCalling
       `Prelude.seq` Prelude.rnf httpStatus

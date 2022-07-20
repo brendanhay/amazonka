@@ -31,10 +31,10 @@ data AwsSnsTopicDetails = AwsSnsTopicDetails'
   { -- | The ID of an Amazon Web Services managed key for Amazon SNS or a
     -- customer managed key.
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the topic.
-    topicName :: Prelude.Maybe Prelude.Text,
     -- | The subscription\'s owner.
     owner :: Prelude.Maybe Prelude.Text,
+    -- | The name of the topic.
+    topicName :: Prelude.Maybe Prelude.Text,
     -- | Subscription is an embedded property that describes the subscription
     -- endpoints of an SNS topic.
     subscription :: Prelude.Maybe [AwsSnsTopicSubscription]
@@ -52,9 +52,9 @@ data AwsSnsTopicDetails = AwsSnsTopicDetails'
 -- 'kmsMasterKeyId', 'awsSnsTopicDetails_kmsMasterKeyId' - The ID of an Amazon Web Services managed key for Amazon SNS or a
 -- customer managed key.
 --
--- 'topicName', 'awsSnsTopicDetails_topicName' - The name of the topic.
---
 -- 'owner', 'awsSnsTopicDetails_owner' - The subscription\'s owner.
+--
+-- 'topicName', 'awsSnsTopicDetails_topicName' - The name of the topic.
 --
 -- 'subscription', 'awsSnsTopicDetails_subscription' - Subscription is an embedded property that describes the subscription
 -- endpoints of an SNS topic.
@@ -64,8 +64,8 @@ newAwsSnsTopicDetails =
   AwsSnsTopicDetails'
     { kmsMasterKeyId =
         Prelude.Nothing,
-      topicName = Prelude.Nothing,
       owner = Prelude.Nothing,
+      topicName = Prelude.Nothing,
       subscription = Prelude.Nothing
     }
 
@@ -74,13 +74,13 @@ newAwsSnsTopicDetails =
 awsSnsTopicDetails_kmsMasterKeyId :: Lens.Lens' AwsSnsTopicDetails (Prelude.Maybe Prelude.Text)
 awsSnsTopicDetails_kmsMasterKeyId = Lens.lens (\AwsSnsTopicDetails' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@AwsSnsTopicDetails' {} a -> s {kmsMasterKeyId = a} :: AwsSnsTopicDetails)
 
--- | The name of the topic.
-awsSnsTopicDetails_topicName :: Lens.Lens' AwsSnsTopicDetails (Prelude.Maybe Prelude.Text)
-awsSnsTopicDetails_topicName = Lens.lens (\AwsSnsTopicDetails' {topicName} -> topicName) (\s@AwsSnsTopicDetails' {} a -> s {topicName = a} :: AwsSnsTopicDetails)
-
 -- | The subscription\'s owner.
 awsSnsTopicDetails_owner :: Lens.Lens' AwsSnsTopicDetails (Prelude.Maybe Prelude.Text)
 awsSnsTopicDetails_owner = Lens.lens (\AwsSnsTopicDetails' {owner} -> owner) (\s@AwsSnsTopicDetails' {} a -> s {owner = a} :: AwsSnsTopicDetails)
+
+-- | The name of the topic.
+awsSnsTopicDetails_topicName :: Lens.Lens' AwsSnsTopicDetails (Prelude.Maybe Prelude.Text)
+awsSnsTopicDetails_topicName = Lens.lens (\AwsSnsTopicDetails' {topicName} -> topicName) (\s@AwsSnsTopicDetails' {} a -> s {topicName = a} :: AwsSnsTopicDetails)
 
 -- | Subscription is an embedded property that describes the subscription
 -- endpoints of an SNS topic.
@@ -94,23 +94,23 @@ instance Core.FromJSON AwsSnsTopicDetails where
       ( \x ->
           AwsSnsTopicDetails'
             Prelude.<$> (x Core..:? "KmsMasterKeyId")
-            Prelude.<*> (x Core..:? "TopicName")
             Prelude.<*> (x Core..:? "Owner")
+            Prelude.<*> (x Core..:? "TopicName")
             Prelude.<*> (x Core..:? "Subscription" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsSnsTopicDetails where
   hashWithSalt _salt AwsSnsTopicDetails' {..} =
     _salt `Prelude.hashWithSalt` kmsMasterKeyId
-      `Prelude.hashWithSalt` topicName
       `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` topicName
       `Prelude.hashWithSalt` subscription
 
 instance Prelude.NFData AwsSnsTopicDetails where
   rnf AwsSnsTopicDetails' {..} =
     Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf topicName
       `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf topicName
       `Prelude.seq` Prelude.rnf subscription
 
 instance Core.ToJSON AwsSnsTopicDetails where
@@ -119,8 +119,8 @@ instance Core.ToJSON AwsSnsTopicDetails where
       ( Prelude.catMaybes
           [ ("KmsMasterKeyId" Core..=)
               Prelude.<$> kmsMasterKeyId,
-            ("TopicName" Core..=) Prelude.<$> topicName,
             ("Owner" Core..=) Prelude.<$> owner,
+            ("TopicName" Core..=) Prelude.<$> topicName,
             ("Subscription" Core..=) Prelude.<$> subscription
           ]
       )

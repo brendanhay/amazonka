@@ -38,11 +38,11 @@ module Amazonka.EBS.ListSnapshotBlocks
     newListSnapshotBlocksResponse,
 
     -- * Response Lenses
-    listSnapshotBlocksResponse_blockSize,
-    listSnapshotBlocksResponse_blocks,
+    listSnapshotBlocksResponse_nextToken,
     listSnapshotBlocksResponse_expiryTime,
     listSnapshotBlocksResponse_volumeSize,
-    listSnapshotBlocksResponse_nextToken,
+    listSnapshotBlocksResponse_blockSize,
+    listSnapshotBlocksResponse_blocks,
     listSnapshotBlocksResponse_httpStatus,
   )
 where
@@ -125,11 +125,11 @@ instance Core.AWSRequest ListSnapshotBlocks where
     Response.receiveJSON
       ( \s h x ->
           ListSnapshotBlocksResponse'
-            Prelude.<$> (x Core..?> "BlockSize")
-            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "ExpiryTime")
             Prelude.<*> (x Core..?> "VolumeSize")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "BlockSize")
+            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,17 +173,17 @@ instance Core.ToQuery ListSnapshotBlocks where
 
 -- | /See:/ 'newListSnapshotBlocksResponse' smart constructor.
 data ListSnapshotBlocksResponse = ListSnapshotBlocksResponse'
-  { -- | The size of the blocks in the snapshot, in bytes.
-    blockSize :: Prelude.Maybe Prelude.Int,
-    -- | An array of objects containing information about the blocks.
-    blocks :: Prelude.Maybe (Core.Sensitive [Block]),
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time when the @BlockToken@ expires.
     expiryTime :: Prelude.Maybe Core.POSIX,
     -- | The size of the volume in GB.
     volumeSize :: Prelude.Maybe Prelude.Natural,
-    -- | The token to use to retrieve the next page of results. This value is
-    -- null when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The size of the blocks in the snapshot, in bytes.
+    blockSize :: Prelude.Maybe Prelude.Int,
+    -- | An array of objects containing information about the blocks.
+    blocks :: Prelude.Maybe (Core.Sensitive [Block]),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,16 +197,16 @@ data ListSnapshotBlocksResponse = ListSnapshotBlocksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blockSize', 'listSnapshotBlocksResponse_blockSize' - The size of the blocks in the snapshot, in bytes.
---
--- 'blocks', 'listSnapshotBlocksResponse_blocks' - An array of objects containing information about the blocks.
+-- 'nextToken', 'listSnapshotBlocksResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'expiryTime', 'listSnapshotBlocksResponse_expiryTime' - The time when the @BlockToken@ expires.
 --
 -- 'volumeSize', 'listSnapshotBlocksResponse_volumeSize' - The size of the volume in GB.
 --
--- 'nextToken', 'listSnapshotBlocksResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- null when there are no more results to return.
+-- 'blockSize', 'listSnapshotBlocksResponse_blockSize' - The size of the blocks in the snapshot, in bytes.
+--
+-- 'blocks', 'listSnapshotBlocksResponse_blocks' - An array of objects containing information about the blocks.
 --
 -- 'httpStatus', 'listSnapshotBlocksResponse_httpStatus' - The response's http status code.
 newListSnapshotBlocksResponse ::
@@ -215,22 +215,19 @@ newListSnapshotBlocksResponse ::
   ListSnapshotBlocksResponse
 newListSnapshotBlocksResponse pHttpStatus_ =
   ListSnapshotBlocksResponse'
-    { blockSize =
+    { nextToken =
         Prelude.Nothing,
-      blocks = Prelude.Nothing,
       expiryTime = Prelude.Nothing,
       volumeSize = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      blockSize = Prelude.Nothing,
+      blocks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The size of the blocks in the snapshot, in bytes.
-listSnapshotBlocksResponse_blockSize :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe Prelude.Int)
-listSnapshotBlocksResponse_blockSize = Lens.lens (\ListSnapshotBlocksResponse' {blockSize} -> blockSize) (\s@ListSnapshotBlocksResponse' {} a -> s {blockSize = a} :: ListSnapshotBlocksResponse)
-
--- | An array of objects containing information about the blocks.
-listSnapshotBlocksResponse_blocks :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe [Block])
-listSnapshotBlocksResponse_blocks = Lens.lens (\ListSnapshotBlocksResponse' {blocks} -> blocks) (\s@ListSnapshotBlocksResponse' {} a -> s {blocks = a} :: ListSnapshotBlocksResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
+listSnapshotBlocksResponse_nextToken :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe Prelude.Text)
+listSnapshotBlocksResponse_nextToken = Lens.lens (\ListSnapshotBlocksResponse' {nextToken} -> nextToken) (\s@ListSnapshotBlocksResponse' {} a -> s {nextToken = a} :: ListSnapshotBlocksResponse)
 
 -- | The time when the @BlockToken@ expires.
 listSnapshotBlocksResponse_expiryTime :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe Prelude.UTCTime)
@@ -240,10 +237,13 @@ listSnapshotBlocksResponse_expiryTime = Lens.lens (\ListSnapshotBlocksResponse' 
 listSnapshotBlocksResponse_volumeSize :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe Prelude.Natural)
 listSnapshotBlocksResponse_volumeSize = Lens.lens (\ListSnapshotBlocksResponse' {volumeSize} -> volumeSize) (\s@ListSnapshotBlocksResponse' {} a -> s {volumeSize = a} :: ListSnapshotBlocksResponse)
 
--- | The token to use to retrieve the next page of results. This value is
--- null when there are no more results to return.
-listSnapshotBlocksResponse_nextToken :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe Prelude.Text)
-listSnapshotBlocksResponse_nextToken = Lens.lens (\ListSnapshotBlocksResponse' {nextToken} -> nextToken) (\s@ListSnapshotBlocksResponse' {} a -> s {nextToken = a} :: ListSnapshotBlocksResponse)
+-- | The size of the blocks in the snapshot, in bytes.
+listSnapshotBlocksResponse_blockSize :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe Prelude.Int)
+listSnapshotBlocksResponse_blockSize = Lens.lens (\ListSnapshotBlocksResponse' {blockSize} -> blockSize) (\s@ListSnapshotBlocksResponse' {} a -> s {blockSize = a} :: ListSnapshotBlocksResponse)
+
+-- | An array of objects containing information about the blocks.
+listSnapshotBlocksResponse_blocks :: Lens.Lens' ListSnapshotBlocksResponse (Prelude.Maybe [Block])
+listSnapshotBlocksResponse_blocks = Lens.lens (\ListSnapshotBlocksResponse' {blocks} -> blocks) (\s@ListSnapshotBlocksResponse' {} a -> s {blocks = a} :: ListSnapshotBlocksResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 listSnapshotBlocksResponse_httpStatus :: Lens.Lens' ListSnapshotBlocksResponse Prelude.Int
@@ -251,9 +251,9 @@ listSnapshotBlocksResponse_httpStatus = Lens.lens (\ListSnapshotBlocksResponse' 
 
 instance Prelude.NFData ListSnapshotBlocksResponse where
   rnf ListSnapshotBlocksResponse' {..} =
-    Prelude.rnf blockSize
-      `Prelude.seq` Prelude.rnf blocks
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf expiryTime
       `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf blockSize
+      `Prelude.seq` Prelude.rnf blocks
       `Prelude.seq` Prelude.rnf httpStatus

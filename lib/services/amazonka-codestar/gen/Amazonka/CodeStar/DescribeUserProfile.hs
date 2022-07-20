@@ -35,9 +35,9 @@ module Amazonka.CodeStar.DescribeUserProfile
     newDescribeUserProfileResponse,
 
     -- * Response Lenses
+    describeUserProfileResponse_displayName,
     describeUserProfileResponse_sshPublicKey,
     describeUserProfileResponse_emailAddress,
-    describeUserProfileResponse_displayName,
     describeUserProfileResponse_httpStatus,
     describeUserProfileResponse_userArn,
     describeUserProfileResponse_createdTimestamp,
@@ -88,9 +88,9 @@ instance Core.AWSRequest DescribeUserProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserProfileResponse'
-            Prelude.<$> (x Core..?> "sshPublicKey")
+            Prelude.<$> (x Core..?> "displayName")
+            Prelude.<*> (x Core..?> "sshPublicKey")
             Prelude.<*> (x Core..?> "emailAddress")
-            Prelude.<*> (x Core..?> "displayName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "userArn")
             Prelude.<*> (x Core..:> "createdTimestamp")
@@ -134,15 +134,7 @@ instance Core.ToQuery DescribeUserProfile where
 
 -- | /See:/ 'newDescribeUserProfileResponse' smart constructor.
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
-  { -- | The SSH public key associated with the user. This SSH public key is
-    -- associated with the user profile, and can be used in conjunction with
-    -- the associated private key for access to project resources, such as
-    -- Amazon EC2 instances, if a project owner grants remote access to those
-    -- resources.
-    sshPublicKey :: Prelude.Maybe Prelude.Text,
-    -- | The email address for the user. Optional.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The display name shown for the user in AWS CodeStar projects. For
+  { -- | The display name shown for the user in AWS CodeStar projects. For
     -- example, this could be set to both first and last name (\"Mary Major\")
     -- or a single name (\"Mary\"). The display name is also used to generate
     -- the initial icon associated with the user in AWS CodeStar projects. If
@@ -153,6 +145,14 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
     -- Major\") would generate an initial icon using the first character and
     -- the first character after the space (\"MJ\", not \"MM\").
     displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The SSH public key associated with the user. This SSH public key is
+    -- associated with the user profile, and can be used in conjunction with
+    -- the associated private key for access to project resources, such as
+    -- Amazon EC2 instances, if a project owner grants remote access to those
+    -- resources.
+    sshPublicKey :: Prelude.Maybe Prelude.Text,
+    -- | The email address for the user. Optional.
+    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the user.
@@ -174,14 +174,6 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sshPublicKey', 'describeUserProfileResponse_sshPublicKey' - The SSH public key associated with the user. This SSH public key is
--- associated with the user profile, and can be used in conjunction with
--- the associated private key for access to project resources, such as
--- Amazon EC2 instances, if a project owner grants remote access to those
--- resources.
---
--- 'emailAddress', 'describeUserProfileResponse_emailAddress' - The email address for the user. Optional.
---
 -- 'displayName', 'describeUserProfileResponse_displayName' - The display name shown for the user in AWS CodeStar projects. For
 -- example, this could be set to both first and last name (\"Mary Major\")
 -- or a single name (\"Mary\"). The display name is also used to generate
@@ -192,6 +184,14 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
 -- a display name with more than one space (for example \"Mary Jane
 -- Major\") would generate an initial icon using the first character and
 -- the first character after the space (\"MJ\", not \"MM\").
+--
+-- 'sshPublicKey', 'describeUserProfileResponse_sshPublicKey' - The SSH public key associated with the user. This SSH public key is
+-- associated with the user profile, and can be used in conjunction with
+-- the associated private key for access to project resources, such as
+-- Amazon EC2 instances, if a project owner grants remote access to those
+-- resources.
+--
+-- 'emailAddress', 'describeUserProfileResponse_emailAddress' - The email address for the user. Optional.
 --
 -- 'httpStatus', 'describeUserProfileResponse_httpStatus' - The response's http status code.
 --
@@ -218,10 +218,10 @@ newDescribeUserProfileResponse
   pCreatedTimestamp_
   pLastModifiedTimestamp_ =
     DescribeUserProfileResponse'
-      { sshPublicKey =
+      { displayName =
           Prelude.Nothing,
+        sshPublicKey = Prelude.Nothing,
         emailAddress = Prelude.Nothing,
-        displayName = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         userArn = pUserArn_,
         createdTimestamp =
@@ -229,18 +229,6 @@ newDescribeUserProfileResponse
         lastModifiedTimestamp =
           Core._Time Lens.# pLastModifiedTimestamp_
       }
-
--- | The SSH public key associated with the user. This SSH public key is
--- associated with the user profile, and can be used in conjunction with
--- the associated private key for access to project resources, such as
--- Amazon EC2 instances, if a project owner grants remote access to those
--- resources.
-describeUserProfileResponse_sshPublicKey :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_sshPublicKey = Lens.lens (\DescribeUserProfileResponse' {sshPublicKey} -> sshPublicKey) (\s@DescribeUserProfileResponse' {} a -> s {sshPublicKey = a} :: DescribeUserProfileResponse)
-
--- | The email address for the user. Optional.
-describeUserProfileResponse_emailAddress :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_emailAddress = Lens.lens (\DescribeUserProfileResponse' {emailAddress} -> emailAddress) (\s@DescribeUserProfileResponse' {} a -> s {emailAddress = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The display name shown for the user in AWS CodeStar projects. For
 -- example, this could be set to both first and last name (\"Mary Major\")
@@ -254,6 +242,18 @@ describeUserProfileResponse_emailAddress = Lens.lens (\DescribeUserProfileRespon
 -- the first character after the space (\"MJ\", not \"MM\").
 describeUserProfileResponse_displayName :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_displayName = Lens.lens (\DescribeUserProfileResponse' {displayName} -> displayName) (\s@DescribeUserProfileResponse' {} a -> s {displayName = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The SSH public key associated with the user. This SSH public key is
+-- associated with the user profile, and can be used in conjunction with
+-- the associated private key for access to project resources, such as
+-- Amazon EC2 instances, if a project owner grants remote access to those
+-- resources.
+describeUserProfileResponse_sshPublicKey :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
+describeUserProfileResponse_sshPublicKey = Lens.lens (\DescribeUserProfileResponse' {sshPublicKey} -> sshPublicKey) (\s@DescribeUserProfileResponse' {} a -> s {sshPublicKey = a} :: DescribeUserProfileResponse)
+
+-- | The email address for the user. Optional.
+describeUserProfileResponse_emailAddress :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
+describeUserProfileResponse_emailAddress = Lens.lens (\DescribeUserProfileResponse' {emailAddress} -> emailAddress) (\s@DescribeUserProfileResponse' {} a -> s {emailAddress = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
 describeUserProfileResponse_httpStatus :: Lens.Lens' DescribeUserProfileResponse Prelude.Int
@@ -275,9 +275,9 @@ describeUserProfileResponse_lastModifiedTimestamp = Lens.lens (\DescribeUserProf
 
 instance Prelude.NFData DescribeUserProfileResponse where
   rnf DescribeUserProfileResponse' {..} =
-    Prelude.rnf sshPublicKey
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf sshPublicKey
       `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf userArn
       `Prelude.seq` Prelude.rnf createdTimestamp

@@ -36,9 +36,9 @@ module Amazonka.OpsWorks.DescribeElasticIps
     newDescribeElasticIps,
 
     -- * Request Lenses
-    describeElasticIps_instanceId,
-    describeElasticIps_ips,
     describeElasticIps_stackId,
+    describeElasticIps_ips,
+    describeElasticIps_instanceId,
 
     -- * Destructuring the Response
     DescribeElasticIpsResponse (..),
@@ -59,19 +59,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeElasticIps' smart constructor.
 data DescribeElasticIps = DescribeElasticIps'
-  { -- | The instance ID. If you include this parameter, @DescribeElasticIps@
-    -- returns a description of the Elastic IP addresses associated with the
-    -- specified instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+  { -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
+    -- a description of the Elastic IP addresses that are registered with the
+    -- specified stack.
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | An array of Elastic IP addresses to be described. If you include this
     -- parameter, @DescribeElasticIps@ returns a description of the specified
     -- Elastic IP addresses. Otherwise, it returns a description of every
     -- Elastic IP address.
     ips :: Prelude.Maybe [Prelude.Text],
-    -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
-    -- a description of the Elastic IP addresses that are registered with the
-    -- specified stack.
-    stackId :: Prelude.Maybe Prelude.Text
+    -- | The instance ID. If you include this parameter, @DescribeElasticIps@
+    -- returns a description of the Elastic IP addresses associated with the
+    -- specified instance.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,32 +83,32 @@ data DescribeElasticIps = DescribeElasticIps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeElasticIps_instanceId' - The instance ID. If you include this parameter, @DescribeElasticIps@
--- returns a description of the Elastic IP addresses associated with the
--- specified instance.
+-- 'stackId', 'describeElasticIps_stackId' - A stack ID. If you include this parameter, @DescribeElasticIps@ returns
+-- a description of the Elastic IP addresses that are registered with the
+-- specified stack.
 --
 -- 'ips', 'describeElasticIps_ips' - An array of Elastic IP addresses to be described. If you include this
 -- parameter, @DescribeElasticIps@ returns a description of the specified
 -- Elastic IP addresses. Otherwise, it returns a description of every
 -- Elastic IP address.
 --
--- 'stackId', 'describeElasticIps_stackId' - A stack ID. If you include this parameter, @DescribeElasticIps@ returns
--- a description of the Elastic IP addresses that are registered with the
--- specified stack.
+-- 'instanceId', 'describeElasticIps_instanceId' - The instance ID. If you include this parameter, @DescribeElasticIps@
+-- returns a description of the Elastic IP addresses associated with the
+-- specified instance.
 newDescribeElasticIps ::
   DescribeElasticIps
 newDescribeElasticIps =
   DescribeElasticIps'
-    { instanceId = Prelude.Nothing,
+    { stackId = Prelude.Nothing,
       ips = Prelude.Nothing,
-      stackId = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
 
--- | The instance ID. If you include this parameter, @DescribeElasticIps@
--- returns a description of the Elastic IP addresses associated with the
--- specified instance.
-describeElasticIps_instanceId :: Lens.Lens' DescribeElasticIps (Prelude.Maybe Prelude.Text)
-describeElasticIps_instanceId = Lens.lens (\DescribeElasticIps' {instanceId} -> instanceId) (\s@DescribeElasticIps' {} a -> s {instanceId = a} :: DescribeElasticIps)
+-- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
+-- a description of the Elastic IP addresses that are registered with the
+-- specified stack.
+describeElasticIps_stackId :: Lens.Lens' DescribeElasticIps (Prelude.Maybe Prelude.Text)
+describeElasticIps_stackId = Lens.lens (\DescribeElasticIps' {stackId} -> stackId) (\s@DescribeElasticIps' {} a -> s {stackId = a} :: DescribeElasticIps)
 
 -- | An array of Elastic IP addresses to be described. If you include this
 -- parameter, @DescribeElasticIps@ returns a description of the specified
@@ -117,11 +117,11 @@ describeElasticIps_instanceId = Lens.lens (\DescribeElasticIps' {instanceId} -> 
 describeElasticIps_ips :: Lens.Lens' DescribeElasticIps (Prelude.Maybe [Prelude.Text])
 describeElasticIps_ips = Lens.lens (\DescribeElasticIps' {ips} -> ips) (\s@DescribeElasticIps' {} a -> s {ips = a} :: DescribeElasticIps) Prelude.. Lens.mapping Lens.coerced
 
--- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
--- a description of the Elastic IP addresses that are registered with the
--- specified stack.
-describeElasticIps_stackId :: Lens.Lens' DescribeElasticIps (Prelude.Maybe Prelude.Text)
-describeElasticIps_stackId = Lens.lens (\DescribeElasticIps' {stackId} -> stackId) (\s@DescribeElasticIps' {} a -> s {stackId = a} :: DescribeElasticIps)
+-- | The instance ID. If you include this parameter, @DescribeElasticIps@
+-- returns a description of the Elastic IP addresses associated with the
+-- specified instance.
+describeElasticIps_instanceId :: Lens.Lens' DescribeElasticIps (Prelude.Maybe Prelude.Text)
+describeElasticIps_instanceId = Lens.lens (\DescribeElasticIps' {instanceId} -> instanceId) (\s@DescribeElasticIps' {} a -> s {instanceId = a} :: DescribeElasticIps)
 
 instance Core.AWSRequest DescribeElasticIps where
   type
@@ -138,15 +138,15 @@ instance Core.AWSRequest DescribeElasticIps where
 
 instance Prelude.Hashable DescribeElasticIps where
   hashWithSalt _salt DescribeElasticIps' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` ips
-      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DescribeElasticIps where
   rnf DescribeElasticIps' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf ips
-      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders DescribeElasticIps where
   toHeaders =
@@ -167,9 +167,9 @@ instance Core.ToJSON DescribeElasticIps where
   toJSON DescribeElasticIps' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+          [ ("StackId" Core..=) Prelude.<$> stackId,
             ("Ips" Core..=) Prelude.<$> ips,
-            ("StackId" Core..=) Prelude.<$> stackId
+            ("InstanceId" Core..=) Prelude.<$> instanceId
           ]
       )
 

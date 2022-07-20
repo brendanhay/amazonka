@@ -27,11 +27,11 @@ module Amazonka.LookoutEquipment.UpdateInferenceScheduler
     newUpdateInferenceScheduler,
 
     -- * Request Lenses
-    updateInferenceScheduler_dataUploadFrequency,
+    updateInferenceScheduler_roleArn,
     updateInferenceScheduler_dataDelayOffsetInMinutes,
     updateInferenceScheduler_dataOutputConfiguration,
+    updateInferenceScheduler_dataUploadFrequency,
     updateInferenceScheduler_dataInputConfiguration,
-    updateInferenceScheduler_roleArn,
     updateInferenceScheduler_inferenceSchedulerName,
 
     -- * Destructuring the Response
@@ -49,14 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateInferenceScheduler' smart constructor.
 data UpdateInferenceScheduler = UpdateInferenceScheduler'
-  { -- | How often data is uploaded to the source S3 bucket for the input data.
-    -- The value chosen is the length of time between data uploads. For
-    -- instance, if you select 5 minutes, Amazon Lookout for Equipment will
-    -- upload the real-time data to the source bucket once every 5 minutes.
-    -- This frequency also determines how often Amazon Lookout for Equipment
-    -- starts a scheduled inference on your data. In this example, it starts
-    -- once every 5 minutes.
-    dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
+  { -- | The Amazon Resource Name (ARN) of a role with permission to access the
+    -- data source for the inference scheduler.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A period of time (in minutes) by which inference on the data is delayed
     -- after the data starts. For instance, if you select an offset delay time
     -- of five minutes, inference will not begin on the data until the first
@@ -70,12 +65,17 @@ data UpdateInferenceScheduler = UpdateInferenceScheduler'
     -- | Specifies information for the output results from the inference
     -- scheduler, including the output S3 location.
     dataOutputConfiguration :: Prelude.Maybe InferenceOutputConfiguration,
+    -- | How often data is uploaded to the source S3 bucket for the input data.
+    -- The value chosen is the length of time between data uploads. For
+    -- instance, if you select 5 minutes, Amazon Lookout for Equipment will
+    -- upload the real-time data to the source bucket once every 5 minutes.
+    -- This frequency also determines how often Amazon Lookout for Equipment
+    -- starts a scheduled inference on your data. In this example, it starts
+    -- once every 5 minutes.
+    dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
     -- | Specifies information for the input data for the inference scheduler,
     -- including delimiter, format, and dataset location.
     dataInputConfiguration :: Prelude.Maybe InferenceInputConfiguration,
-    -- | The Amazon Resource Name (ARN) of a role with permission to access the
-    -- data source for the inference scheduler.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the inference scheduler to be updated.
     inferenceSchedulerName :: Prelude.Text
   }
@@ -89,13 +89,8 @@ data UpdateInferenceScheduler = UpdateInferenceScheduler'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataUploadFrequency', 'updateInferenceScheduler_dataUploadFrequency' - How often data is uploaded to the source S3 bucket for the input data.
--- The value chosen is the length of time between data uploads. For
--- instance, if you select 5 minutes, Amazon Lookout for Equipment will
--- upload the real-time data to the source bucket once every 5 minutes.
--- This frequency also determines how often Amazon Lookout for Equipment
--- starts a scheduled inference on your data. In this example, it starts
--- once every 5 minutes.
+-- 'roleArn', 'updateInferenceScheduler_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the
+-- data source for the inference scheduler.
 --
 -- 'dataDelayOffsetInMinutes', 'updateInferenceScheduler_dataDelayOffsetInMinutes' - A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if you select an offset delay time
@@ -110,11 +105,16 @@ data UpdateInferenceScheduler = UpdateInferenceScheduler'
 -- 'dataOutputConfiguration', 'updateInferenceScheduler_dataOutputConfiguration' - Specifies information for the output results from the inference
 -- scheduler, including the output S3 location.
 --
+-- 'dataUploadFrequency', 'updateInferenceScheduler_dataUploadFrequency' - How often data is uploaded to the source S3 bucket for the input data.
+-- The value chosen is the length of time between data uploads. For
+-- instance, if you select 5 minutes, Amazon Lookout for Equipment will
+-- upload the real-time data to the source bucket once every 5 minutes.
+-- This frequency also determines how often Amazon Lookout for Equipment
+-- starts a scheduled inference on your data. In this example, it starts
+-- once every 5 minutes.
+--
 -- 'dataInputConfiguration', 'updateInferenceScheduler_dataInputConfiguration' - Specifies information for the input data for the inference scheduler,
 -- including delimiter, format, and dataset location.
---
--- 'roleArn', 'updateInferenceScheduler_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the
--- data source for the inference scheduler.
 --
 -- 'inferenceSchedulerName', 'updateInferenceScheduler_inferenceSchedulerName' - The name of the inference scheduler to be updated.
 newUpdateInferenceScheduler ::
@@ -123,24 +123,19 @@ newUpdateInferenceScheduler ::
   UpdateInferenceScheduler
 newUpdateInferenceScheduler pInferenceSchedulerName_ =
   UpdateInferenceScheduler'
-    { dataUploadFrequency =
+    { roleArn =
         Prelude.Nothing,
       dataDelayOffsetInMinutes = Prelude.Nothing,
       dataOutputConfiguration = Prelude.Nothing,
+      dataUploadFrequency = Prelude.Nothing,
       dataInputConfiguration = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
       inferenceSchedulerName = pInferenceSchedulerName_
     }
 
--- | How often data is uploaded to the source S3 bucket for the input data.
--- The value chosen is the length of time between data uploads. For
--- instance, if you select 5 minutes, Amazon Lookout for Equipment will
--- upload the real-time data to the source bucket once every 5 minutes.
--- This frequency also determines how often Amazon Lookout for Equipment
--- starts a scheduled inference on your data. In this example, it starts
--- once every 5 minutes.
-updateInferenceScheduler_dataUploadFrequency :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe DataUploadFrequency)
-updateInferenceScheduler_dataUploadFrequency = Lens.lens (\UpdateInferenceScheduler' {dataUploadFrequency} -> dataUploadFrequency) (\s@UpdateInferenceScheduler' {} a -> s {dataUploadFrequency = a} :: UpdateInferenceScheduler)
+-- | The Amazon Resource Name (ARN) of a role with permission to access the
+-- data source for the inference scheduler.
+updateInferenceScheduler_roleArn :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe Prelude.Text)
+updateInferenceScheduler_roleArn = Lens.lens (\UpdateInferenceScheduler' {roleArn} -> roleArn) (\s@UpdateInferenceScheduler' {} a -> s {roleArn = a} :: UpdateInferenceScheduler)
 
 -- | A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if you select an offset delay time
@@ -159,15 +154,20 @@ updateInferenceScheduler_dataDelayOffsetInMinutes = Lens.lens (\UpdateInferenceS
 updateInferenceScheduler_dataOutputConfiguration :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe InferenceOutputConfiguration)
 updateInferenceScheduler_dataOutputConfiguration = Lens.lens (\UpdateInferenceScheduler' {dataOutputConfiguration} -> dataOutputConfiguration) (\s@UpdateInferenceScheduler' {} a -> s {dataOutputConfiguration = a} :: UpdateInferenceScheduler)
 
+-- | How often data is uploaded to the source S3 bucket for the input data.
+-- The value chosen is the length of time between data uploads. For
+-- instance, if you select 5 minutes, Amazon Lookout for Equipment will
+-- upload the real-time data to the source bucket once every 5 minutes.
+-- This frequency also determines how often Amazon Lookout for Equipment
+-- starts a scheduled inference on your data. In this example, it starts
+-- once every 5 minutes.
+updateInferenceScheduler_dataUploadFrequency :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe DataUploadFrequency)
+updateInferenceScheduler_dataUploadFrequency = Lens.lens (\UpdateInferenceScheduler' {dataUploadFrequency} -> dataUploadFrequency) (\s@UpdateInferenceScheduler' {} a -> s {dataUploadFrequency = a} :: UpdateInferenceScheduler)
+
 -- | Specifies information for the input data for the inference scheduler,
 -- including delimiter, format, and dataset location.
 updateInferenceScheduler_dataInputConfiguration :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe InferenceInputConfiguration)
 updateInferenceScheduler_dataInputConfiguration = Lens.lens (\UpdateInferenceScheduler' {dataInputConfiguration} -> dataInputConfiguration) (\s@UpdateInferenceScheduler' {} a -> s {dataInputConfiguration = a} :: UpdateInferenceScheduler)
-
--- | The Amazon Resource Name (ARN) of a role with permission to access the
--- data source for the inference scheduler.
-updateInferenceScheduler_roleArn :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe Prelude.Text)
-updateInferenceScheduler_roleArn = Lens.lens (\UpdateInferenceScheduler' {roleArn} -> roleArn) (\s@UpdateInferenceScheduler' {} a -> s {roleArn = a} :: UpdateInferenceScheduler)
 
 -- | The name of the inference scheduler to be updated.
 updateInferenceScheduler_inferenceSchedulerName :: Lens.Lens' UpdateInferenceScheduler Prelude.Text
@@ -184,20 +184,20 @@ instance Core.AWSRequest UpdateInferenceScheduler where
 
 instance Prelude.Hashable UpdateInferenceScheduler where
   hashWithSalt _salt UpdateInferenceScheduler' {..} =
-    _salt `Prelude.hashWithSalt` dataUploadFrequency
+    _salt `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` dataDelayOffsetInMinutes
       `Prelude.hashWithSalt` dataOutputConfiguration
+      `Prelude.hashWithSalt` dataUploadFrequency
       `Prelude.hashWithSalt` dataInputConfiguration
-      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` inferenceSchedulerName
 
 instance Prelude.NFData UpdateInferenceScheduler where
   rnf UpdateInferenceScheduler' {..} =
-    Prelude.rnf dataUploadFrequency
+    Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
       `Prelude.seq` Prelude.rnf dataOutputConfiguration
+      `Prelude.seq` Prelude.rnf dataUploadFrequency
       `Prelude.seq` Prelude.rnf dataInputConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf inferenceSchedulerName
 
 instance Core.ToHeaders UpdateInferenceScheduler where
@@ -219,15 +219,15 @@ instance Core.ToJSON UpdateInferenceScheduler where
   toJSON UpdateInferenceScheduler' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataUploadFrequency" Core..=)
-              Prelude.<$> dataUploadFrequency,
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("DataDelayOffsetInMinutes" Core..=)
               Prelude.<$> dataDelayOffsetInMinutes,
             ("DataOutputConfiguration" Core..=)
               Prelude.<$> dataOutputConfiguration,
+            ("DataUploadFrequency" Core..=)
+              Prelude.<$> dataUploadFrequency,
             ("DataInputConfiguration" Core..=)
               Prelude.<$> dataInputConfiguration,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
             Prelude.Just
               ( "InferenceSchedulerName"
                   Core..= inferenceSchedulerName

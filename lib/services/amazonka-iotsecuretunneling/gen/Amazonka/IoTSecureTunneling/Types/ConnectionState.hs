@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectionState' smart constructor.
 data ConnectionState = ConnectionState'
-  { -- | The connection status of the tunnel. Valid values are @CONNECTED@ and
+  { -- | The last time the connection status was updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The connection status of the tunnel. Valid values are @CONNECTED@ and
     -- @DISCONNECTED@.
-    status :: Prelude.Maybe ConnectionStatus,
-    -- | The last time the connection status was updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX
+    status :: Prelude.Maybe ConnectionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data ConnectionState = ConnectionState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastUpdatedAt', 'connectionState_lastUpdatedAt' - The last time the connection status was updated.
+--
 -- 'status', 'connectionState_status' - The connection status of the tunnel. Valid values are @CONNECTED@ and
 -- @DISCONNECTED@.
---
--- 'lastUpdatedAt', 'connectionState_lastUpdatedAt' - The last time the connection status was updated.
 newConnectionState ::
   ConnectionState
 newConnectionState =
   ConnectionState'
-    { status = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing
+    { lastUpdatedAt = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The last time the connection status was updated.
+connectionState_lastUpdatedAt :: Lens.Lens' ConnectionState (Prelude.Maybe Prelude.UTCTime)
+connectionState_lastUpdatedAt = Lens.lens (\ConnectionState' {lastUpdatedAt} -> lastUpdatedAt) (\s@ConnectionState' {} a -> s {lastUpdatedAt = a} :: ConnectionState) Prelude.. Lens.mapping Core._Time
 
 -- | The connection status of the tunnel. Valid values are @CONNECTED@ and
 -- @DISCONNECTED@.
 connectionState_status :: Lens.Lens' ConnectionState (Prelude.Maybe ConnectionStatus)
 connectionState_status = Lens.lens (\ConnectionState' {status} -> status) (\s@ConnectionState' {} a -> s {status = a} :: ConnectionState)
-
--- | The last time the connection status was updated.
-connectionState_lastUpdatedAt :: Lens.Lens' ConnectionState (Prelude.Maybe Prelude.UTCTime)
-connectionState_lastUpdatedAt = Lens.lens (\ConnectionState' {lastUpdatedAt} -> lastUpdatedAt) (\s@ConnectionState' {} a -> s {lastUpdatedAt = a} :: ConnectionState) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ConnectionState where
   parseJSON =
@@ -71,16 +71,16 @@ instance Core.FromJSON ConnectionState where
       "ConnectionState"
       ( \x ->
           ConnectionState'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<$> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> (x Core..:? "status")
       )
 
 instance Prelude.Hashable ConnectionState where
   hashWithSalt _salt ConnectionState' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastUpdatedAt
+    _salt `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ConnectionState where
   rnf ConnectionState' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf status

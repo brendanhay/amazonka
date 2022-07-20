@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrpcRouteMetadataMatchMethod' smart constructor.
 data GrpcRouteMetadataMatchMethod = GrpcRouteMetadataMatchMethod'
-  { -- | The value sent by the client must end with the specified characters.
-    suffix :: Prelude.Maybe Prelude.Text,
+  { -- | The value sent by the client must match the specified value exactly.
+    exact :: Prelude.Maybe Prelude.Text,
     -- | The value sent by the client must include the specified characters.
     regex :: Prelude.Maybe Prelude.Text,
-    -- | The value sent by the client must begin with the specified characters.
-    prefix :: Prelude.Maybe Prelude.Text,
     -- | An object that represents the range of values to match on.
     range :: Prelude.Maybe MatchRange,
-    -- | The value sent by the client must match the specified value exactly.
-    exact :: Prelude.Maybe Prelude.Text
+    -- | The value sent by the client must begin with the specified characters.
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | The value sent by the client must end with the specified characters.
+    suffix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,46 +50,46 @@ data GrpcRouteMetadataMatchMethod = GrpcRouteMetadataMatchMethod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suffix', 'grpcRouteMetadataMatchMethod_suffix' - The value sent by the client must end with the specified characters.
+-- 'exact', 'grpcRouteMetadataMatchMethod_exact' - The value sent by the client must match the specified value exactly.
 --
 -- 'regex', 'grpcRouteMetadataMatchMethod_regex' - The value sent by the client must include the specified characters.
 --
--- 'prefix', 'grpcRouteMetadataMatchMethod_prefix' - The value sent by the client must begin with the specified characters.
---
 -- 'range', 'grpcRouteMetadataMatchMethod_range' - An object that represents the range of values to match on.
 --
--- 'exact', 'grpcRouteMetadataMatchMethod_exact' - The value sent by the client must match the specified value exactly.
+-- 'prefix', 'grpcRouteMetadataMatchMethod_prefix' - The value sent by the client must begin with the specified characters.
+--
+-- 'suffix', 'grpcRouteMetadataMatchMethod_suffix' - The value sent by the client must end with the specified characters.
 newGrpcRouteMetadataMatchMethod ::
   GrpcRouteMetadataMatchMethod
 newGrpcRouteMetadataMatchMethod =
   GrpcRouteMetadataMatchMethod'
-    { suffix =
+    { exact =
         Prelude.Nothing,
       regex = Prelude.Nothing,
-      prefix = Prelude.Nothing,
       range = Prelude.Nothing,
-      exact = Prelude.Nothing
+      prefix = Prelude.Nothing,
+      suffix = Prelude.Nothing
     }
 
--- | The value sent by the client must end with the specified characters.
-grpcRouteMetadataMatchMethod_suffix :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
-grpcRouteMetadataMatchMethod_suffix = Lens.lens (\GrpcRouteMetadataMatchMethod' {suffix} -> suffix) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {suffix = a} :: GrpcRouteMetadataMatchMethod)
+-- | The value sent by the client must match the specified value exactly.
+grpcRouteMetadataMatchMethod_exact :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
+grpcRouteMetadataMatchMethod_exact = Lens.lens (\GrpcRouteMetadataMatchMethod' {exact} -> exact) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {exact = a} :: GrpcRouteMetadataMatchMethod)
 
 -- | The value sent by the client must include the specified characters.
 grpcRouteMetadataMatchMethod_regex :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
 grpcRouteMetadataMatchMethod_regex = Lens.lens (\GrpcRouteMetadataMatchMethod' {regex} -> regex) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {regex = a} :: GrpcRouteMetadataMatchMethod)
 
--- | The value sent by the client must begin with the specified characters.
-grpcRouteMetadataMatchMethod_prefix :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
-grpcRouteMetadataMatchMethod_prefix = Lens.lens (\GrpcRouteMetadataMatchMethod' {prefix} -> prefix) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {prefix = a} :: GrpcRouteMetadataMatchMethod)
-
 -- | An object that represents the range of values to match on.
 grpcRouteMetadataMatchMethod_range :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe MatchRange)
 grpcRouteMetadataMatchMethod_range = Lens.lens (\GrpcRouteMetadataMatchMethod' {range} -> range) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {range = a} :: GrpcRouteMetadataMatchMethod)
 
--- | The value sent by the client must match the specified value exactly.
-grpcRouteMetadataMatchMethod_exact :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
-grpcRouteMetadataMatchMethod_exact = Lens.lens (\GrpcRouteMetadataMatchMethod' {exact} -> exact) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {exact = a} :: GrpcRouteMetadataMatchMethod)
+-- | The value sent by the client must begin with the specified characters.
+grpcRouteMetadataMatchMethod_prefix :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
+grpcRouteMetadataMatchMethod_prefix = Lens.lens (\GrpcRouteMetadataMatchMethod' {prefix} -> prefix) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {prefix = a} :: GrpcRouteMetadataMatchMethod)
+
+-- | The value sent by the client must end with the specified characters.
+grpcRouteMetadataMatchMethod_suffix :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
+grpcRouteMetadataMatchMethod_suffix = Lens.lens (\GrpcRouteMetadataMatchMethod' {suffix} -> suffix) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {suffix = a} :: GrpcRouteMetadataMatchMethod)
 
 instance Core.FromJSON GrpcRouteMetadataMatchMethod where
   parseJSON =
@@ -97,11 +97,11 @@ instance Core.FromJSON GrpcRouteMetadataMatchMethod where
       "GrpcRouteMetadataMatchMethod"
       ( \x ->
           GrpcRouteMetadataMatchMethod'
-            Prelude.<$> (x Core..:? "suffix")
+            Prelude.<$> (x Core..:? "exact")
             Prelude.<*> (x Core..:? "regex")
-            Prelude.<*> (x Core..:? "prefix")
             Prelude.<*> (x Core..:? "range")
-            Prelude.<*> (x Core..:? "exact")
+            Prelude.<*> (x Core..:? "prefix")
+            Prelude.<*> (x Core..:? "suffix")
       )
 
 instance
@@ -109,28 +109,28 @@ instance
     GrpcRouteMetadataMatchMethod
   where
   hashWithSalt _salt GrpcRouteMetadataMatchMethod' {..} =
-    _salt `Prelude.hashWithSalt` suffix
+    _salt `Prelude.hashWithSalt` exact
       `Prelude.hashWithSalt` regex
-      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` range
-      `Prelude.hashWithSalt` exact
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` suffix
 
 instance Prelude.NFData GrpcRouteMetadataMatchMethod where
   rnf GrpcRouteMetadataMatchMethod' {..} =
-    Prelude.rnf suffix
+    Prelude.rnf exact
       `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf range
-      `Prelude.seq` Prelude.rnf exact
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf suffix
 
 instance Core.ToJSON GrpcRouteMetadataMatchMethod where
   toJSON GrpcRouteMetadataMatchMethod' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("suffix" Core..=) Prelude.<$> suffix,
+          [ ("exact" Core..=) Prelude.<$> exact,
             ("regex" Core..=) Prelude.<$> regex,
-            ("prefix" Core..=) Prelude.<$> prefix,
             ("range" Core..=) Prelude.<$> range,
-            ("exact" Core..=) Prelude.<$> exact
+            ("prefix" Core..=) Prelude.<$> prefix,
+            ("suffix" Core..=) Prelude.<$> suffix
           ]
       )

@@ -68,11 +68,11 @@ module Amazonka.AWSHealth
     -- * Errors
     -- $errors
 
-    -- ** InvalidPaginationToken
-    _InvalidPaginationToken,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
+
+    -- ** InvalidPaginationToken
+    _InvalidPaginationToken,
 
     -- ** UnsupportedLocale
     _UnsupportedLocale,
@@ -83,17 +83,53 @@ module Amazonka.AWSHealth
     -- * Operations
     -- $operations
 
-    -- ** EnableHealthServiceAccessForOrganization
-    EnableHealthServiceAccessForOrganization (EnableHealthServiceAccessForOrganization'),
-    newEnableHealthServiceAccessForOrganization,
-    EnableHealthServiceAccessForOrganizationResponse (EnableHealthServiceAccessForOrganizationResponse'),
-    newEnableHealthServiceAccessForOrganizationResponse,
+    -- ** DescribeAffectedAccountsForOrganization (Paginated)
+    DescribeAffectedAccountsForOrganization (DescribeAffectedAccountsForOrganization'),
+    newDescribeAffectedAccountsForOrganization,
+    DescribeAffectedAccountsForOrganizationResponse (DescribeAffectedAccountsForOrganizationResponse'),
+    newDescribeAffectedAccountsForOrganizationResponse,
+
+    -- ** DescribeAffectedEntities (Paginated)
+    DescribeAffectedEntities (DescribeAffectedEntities'),
+    newDescribeAffectedEntities,
+    DescribeAffectedEntitiesResponse (DescribeAffectedEntitiesResponse'),
+    newDescribeAffectedEntitiesResponse,
+
+    -- ** DescribeAffectedEntitiesForOrganization (Paginated)
+    DescribeAffectedEntitiesForOrganization (DescribeAffectedEntitiesForOrganization'),
+    newDescribeAffectedEntitiesForOrganization,
+    DescribeAffectedEntitiesForOrganizationResponse (DescribeAffectedEntitiesForOrganizationResponse'),
+    newDescribeAffectedEntitiesForOrganizationResponse,
 
     -- ** DescribeEntityAggregates
     DescribeEntityAggregates (DescribeEntityAggregates'),
     newDescribeEntityAggregates,
     DescribeEntityAggregatesResponse (DescribeEntityAggregatesResponse'),
     newDescribeEntityAggregatesResponse,
+
+    -- ** DescribeEventAggregates (Paginated)
+    DescribeEventAggregates (DescribeEventAggregates'),
+    newDescribeEventAggregates,
+    DescribeEventAggregatesResponse (DescribeEventAggregatesResponse'),
+    newDescribeEventAggregatesResponse,
+
+    -- ** DescribeEventDetails
+    DescribeEventDetails (DescribeEventDetails'),
+    newDescribeEventDetails,
+    DescribeEventDetailsResponse (DescribeEventDetailsResponse'),
+    newDescribeEventDetailsResponse,
+
+    -- ** DescribeEventDetailsForOrganization
+    DescribeEventDetailsForOrganization (DescribeEventDetailsForOrganization'),
+    newDescribeEventDetailsForOrganization,
+    DescribeEventDetailsForOrganizationResponse (DescribeEventDetailsForOrganizationResponse'),
+    newDescribeEventDetailsForOrganizationResponse,
+
+    -- ** DescribeEventTypes (Paginated)
+    DescribeEventTypes (DescribeEventTypes'),
+    newDescribeEventTypes,
+    DescribeEventTypesResponse (DescribeEventTypesResponse'),
+    newDescribeEventTypesResponse,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
@@ -107,59 +143,23 @@ module Amazonka.AWSHealth
     DescribeEventsForOrganizationResponse (DescribeEventsForOrganizationResponse'),
     newDescribeEventsForOrganizationResponse,
 
-    -- ** DescribeAffectedAccountsForOrganization (Paginated)
-    DescribeAffectedAccountsForOrganization (DescribeAffectedAccountsForOrganization'),
-    newDescribeAffectedAccountsForOrganization,
-    DescribeAffectedAccountsForOrganizationResponse (DescribeAffectedAccountsForOrganizationResponse'),
-    newDescribeAffectedAccountsForOrganizationResponse,
-
-    -- ** DescribeEventDetails
-    DescribeEventDetails (DescribeEventDetails'),
-    newDescribeEventDetails,
-    DescribeEventDetailsResponse (DescribeEventDetailsResponse'),
-    newDescribeEventDetailsResponse,
-
-    -- ** DescribeEventAggregates (Paginated)
-    DescribeEventAggregates (DescribeEventAggregates'),
-    newDescribeEventAggregates,
-    DescribeEventAggregatesResponse (DescribeEventAggregatesResponse'),
-    newDescribeEventAggregatesResponse,
-
-    -- ** DescribeAffectedEntities (Paginated)
-    DescribeAffectedEntities (DescribeAffectedEntities'),
-    newDescribeAffectedEntities,
-    DescribeAffectedEntitiesResponse (DescribeAffectedEntitiesResponse'),
-    newDescribeAffectedEntitiesResponse,
-
-    -- ** DescribeEventTypes (Paginated)
-    DescribeEventTypes (DescribeEventTypes'),
-    newDescribeEventTypes,
-    DescribeEventTypesResponse (DescribeEventTypesResponse'),
-    newDescribeEventTypesResponse,
-
-    -- ** DescribeAffectedEntitiesForOrganization (Paginated)
-    DescribeAffectedEntitiesForOrganization (DescribeAffectedEntitiesForOrganization'),
-    newDescribeAffectedEntitiesForOrganization,
-    DescribeAffectedEntitiesForOrganizationResponse (DescribeAffectedEntitiesForOrganizationResponse'),
-    newDescribeAffectedEntitiesForOrganizationResponse,
-
     -- ** DescribeHealthServiceStatusForOrganization
     DescribeHealthServiceStatusForOrganization (DescribeHealthServiceStatusForOrganization'),
     newDescribeHealthServiceStatusForOrganization,
     DescribeHealthServiceStatusForOrganizationResponse (DescribeHealthServiceStatusForOrganizationResponse'),
     newDescribeHealthServiceStatusForOrganizationResponse,
 
-    -- ** DescribeEventDetailsForOrganization
-    DescribeEventDetailsForOrganization (DescribeEventDetailsForOrganization'),
-    newDescribeEventDetailsForOrganization,
-    DescribeEventDetailsForOrganizationResponse (DescribeEventDetailsForOrganizationResponse'),
-    newDescribeEventDetailsForOrganizationResponse,
-
     -- ** DisableHealthServiceAccessForOrganization
     DisableHealthServiceAccessForOrganization (DisableHealthServiceAccessForOrganization'),
     newDisableHealthServiceAccessForOrganization,
     DisableHealthServiceAccessForOrganizationResponse (DisableHealthServiceAccessForOrganizationResponse'),
     newDisableHealthServiceAccessForOrganizationResponse,
+
+    -- ** EnableHealthServiceAccessForOrganization
+    EnableHealthServiceAccessForOrganization (EnableHealthServiceAccessForOrganization'),
+    newEnableHealthServiceAccessForOrganization,
+    EnableHealthServiceAccessForOrganizationResponse (EnableHealthServiceAccessForOrganizationResponse'),
+    newEnableHealthServiceAccessForOrganizationResponse,
 
     -- * Types
 

@@ -14,39 +14,48 @@
 module Amazonka.VoiceId.Lens
   ( -- * Operations
 
+    -- ** CreateDomain
+    createDomain_tags,
+    createDomain_clientToken,
+    createDomain_description,
+    createDomain_name,
+    createDomain_serverSideEncryptionConfiguration,
+    createDomainResponse_domain,
+    createDomainResponse_httpStatus,
+
+    -- ** DeleteDomain
+    deleteDomain_domainId,
+
+    -- ** DeleteFraudster
+    deleteFraudster_domainId,
+    deleteFraudster_fraudsterId,
+
+    -- ** DeleteSpeaker
+    deleteSpeaker_domainId,
+    deleteSpeaker_speakerId,
+
+    -- ** DescribeDomain
+    describeDomain_domainId,
+    describeDomainResponse_domain,
+    describeDomainResponse_httpStatus,
+
+    -- ** DescribeFraudster
+    describeFraudster_domainId,
+    describeFraudster_fraudsterId,
+    describeFraudsterResponse_fraudster,
+    describeFraudsterResponse_httpStatus,
+
     -- ** DescribeFraudsterRegistrationJob
     describeFraudsterRegistrationJob_domainId,
     describeFraudsterRegistrationJob_jobId,
     describeFraudsterRegistrationJobResponse_job,
     describeFraudsterRegistrationJobResponse_httpStatus,
 
-    -- ** DeleteSpeaker
-    deleteSpeaker_domainId,
-    deleteSpeaker_speakerId,
-
-    -- ** ListSpeakers
-    listSpeakers_nextToken,
-    listSpeakers_maxResults,
-    listSpeakers_domainId,
-    listSpeakersResponse_speakerSummaries,
-    listSpeakersResponse_nextToken,
-    listSpeakersResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** EvaluateSession
-    evaluateSession_domainId,
-    evaluateSession_sessionNameOrId,
-    evaluateSessionResponse_fraudDetectionResult,
-    evaluateSessionResponse_streamingStatus,
-    evaluateSessionResponse_authenticationResult,
-    evaluateSessionResponse_domainId,
-    evaluateSessionResponse_sessionId,
-    evaluateSessionResponse_sessionName,
-    evaluateSessionResponse_httpStatus,
+    -- ** DescribeSpeaker
+    describeSpeaker_domainId,
+    describeSpeaker_speakerId,
+    describeSpeakerResponse_speaker,
+    describeSpeakerResponse_httpStatus,
 
     -- ** DescribeSpeakerEnrollmentJob
     describeSpeakerEnrollmentJob_domainId,
@@ -54,9 +63,23 @@ module Amazonka.VoiceId.Lens
     describeSpeakerEnrollmentJobResponse_job,
     describeSpeakerEnrollmentJobResponse_httpStatus,
 
-    -- ** DeleteFraudster
-    deleteFraudster_domainId,
-    deleteFraudster_fraudsterId,
+    -- ** EvaluateSession
+    evaluateSession_domainId,
+    evaluateSession_sessionNameOrId,
+    evaluateSessionResponse_authenticationResult,
+    evaluateSessionResponse_fraudDetectionResult,
+    evaluateSessionResponse_streamingStatus,
+    evaluateSessionResponse_sessionId,
+    evaluateSessionResponse_domainId,
+    evaluateSessionResponse_sessionName,
+    evaluateSessionResponse_httpStatus,
+
+    -- ** ListDomains
+    listDomains_nextToken,
+    listDomains_maxResults,
+    listDomainsResponse_nextToken,
+    listDomainsResponse_domainSummaries,
+    listDomainsResponse_httpStatus,
 
     -- ** ListFraudsterRegistrationJobs
     listFraudsterRegistrationJobs_nextToken,
@@ -67,12 +90,6 @@ module Amazonka.VoiceId.Lens
     listFraudsterRegistrationJobsResponse_jobSummaries,
     listFraudsterRegistrationJobsResponse_httpStatus,
 
-    -- ** DescribeFraudster
-    describeFraudster_domainId,
-    describeFraudster_fraudsterId,
-    describeFraudsterResponse_fraudster,
-    describeFraudsterResponse_httpStatus,
-
     -- ** ListSpeakerEnrollmentJobs
     listSpeakerEnrollmentJobs_nextToken,
     listSpeakerEnrollmentJobs_jobStatus,
@@ -82,51 +99,18 @@ module Amazonka.VoiceId.Lens
     listSpeakerEnrollmentJobsResponse_jobSummaries,
     listSpeakerEnrollmentJobsResponse_httpStatus,
 
-    -- ** CreateDomain
-    createDomain_clientToken,
-    createDomain_description,
-    createDomain_tags,
-    createDomain_name,
-    createDomain_serverSideEncryptionConfiguration,
-    createDomainResponse_domain,
-    createDomainResponse_httpStatus,
+    -- ** ListSpeakers
+    listSpeakers_nextToken,
+    listSpeakers_maxResults,
+    listSpeakers_domainId,
+    listSpeakersResponse_nextToken,
+    listSpeakersResponse_speakerSummaries,
+    listSpeakersResponse_httpStatus,
 
-    -- ** StartFraudsterRegistrationJob
-    startFraudsterRegistrationJob_clientToken,
-    startFraudsterRegistrationJob_jobName,
-    startFraudsterRegistrationJob_registrationConfig,
-    startFraudsterRegistrationJob_dataAccessRoleArn,
-    startFraudsterRegistrationJob_domainId,
-    startFraudsterRegistrationJob_inputDataConfig,
-    startFraudsterRegistrationJob_outputDataConfig,
-    startFraudsterRegistrationJobResponse_job,
-    startFraudsterRegistrationJobResponse_httpStatus,
-
-    -- ** DescribeDomain
-    describeDomain_domainId,
-    describeDomainResponse_domain,
-    describeDomainResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** StartSpeakerEnrollmentJob
-    startSpeakerEnrollmentJob_clientToken,
-    startSpeakerEnrollmentJob_jobName,
-    startSpeakerEnrollmentJob_enrollmentConfig,
-    startSpeakerEnrollmentJob_dataAccessRoleArn,
-    startSpeakerEnrollmentJob_domainId,
-    startSpeakerEnrollmentJob_inputDataConfig,
-    startSpeakerEnrollmentJob_outputDataConfig,
-    startSpeakerEnrollmentJobResponse_job,
-    startSpeakerEnrollmentJobResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** OptOutSpeaker
     optOutSpeaker_domainId,
@@ -134,14 +118,37 @@ module Amazonka.VoiceId.Lens
     optOutSpeakerResponse_speaker,
     optOutSpeakerResponse_httpStatus,
 
-    -- ** DescribeSpeaker
-    describeSpeaker_domainId,
-    describeSpeaker_speakerId,
-    describeSpeakerResponse_speaker,
-    describeSpeakerResponse_httpStatus,
+    -- ** StartFraudsterRegistrationJob
+    startFraudsterRegistrationJob_clientToken,
+    startFraudsterRegistrationJob_registrationConfig,
+    startFraudsterRegistrationJob_jobName,
+    startFraudsterRegistrationJob_dataAccessRoleArn,
+    startFraudsterRegistrationJob_domainId,
+    startFraudsterRegistrationJob_inputDataConfig,
+    startFraudsterRegistrationJob_outputDataConfig,
+    startFraudsterRegistrationJobResponse_job,
+    startFraudsterRegistrationJobResponse_httpStatus,
 
-    -- ** DeleteDomain
-    deleteDomain_domainId,
+    -- ** StartSpeakerEnrollmentJob
+    startSpeakerEnrollmentJob_enrollmentConfig,
+    startSpeakerEnrollmentJob_clientToken,
+    startSpeakerEnrollmentJob_jobName,
+    startSpeakerEnrollmentJob_dataAccessRoleArn,
+    startSpeakerEnrollmentJob_domainId,
+    startSpeakerEnrollmentJob_inputDataConfig,
+    startSpeakerEnrollmentJob_outputDataConfig,
+    startSpeakerEnrollmentJobResponse_job,
+    startSpeakerEnrollmentJobResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** UpdateDomain
     updateDomain_description,
@@ -151,55 +158,48 @@ module Amazonka.VoiceId.Lens
     updateDomainResponse_domain,
     updateDomainResponse_httpStatus,
 
-    -- ** ListDomains
-    listDomains_nextToken,
-    listDomains_maxResults,
-    listDomainsResponse_nextToken,
-    listDomainsResponse_domainSummaries,
-    listDomainsResponse_httpStatus,
-
     -- * Types
 
     -- ** AuthenticationConfiguration
     authenticationConfiguration_acceptanceThreshold,
 
     -- ** AuthenticationResult
-    authenticationResult_customerSpeakerId,
-    authenticationResult_score,
-    authenticationResult_authenticationResultId,
-    authenticationResult_decision,
-    authenticationResult_configuration,
-    authenticationResult_audioAggregationStartedAt,
-    authenticationResult_generatedSpeakerId,
     authenticationResult_audioAggregationEndedAt,
+    authenticationResult_authenticationResultId,
+    authenticationResult_score,
+    authenticationResult_configuration,
+    authenticationResult_decision,
+    authenticationResult_customerSpeakerId,
+    authenticationResult_generatedSpeakerId,
+    authenticationResult_audioAggregationStartedAt,
 
     -- ** Domain
-    domain_domainStatus,
-    domain_arn,
-    domain_createdAt,
     domain_name,
-    domain_domainId,
-    domain_updatedAt,
-    domain_description,
     domain_serverSideEncryptionConfiguration,
+    domain_arn,
+    domain_description,
+    domain_domainStatus,
+    domain_domainId,
+    domain_createdAt,
+    domain_updatedAt,
 
     -- ** DomainSummary
-    domainSummary_domainStatus,
-    domainSummary_arn,
-    domainSummary_createdAt,
     domainSummary_name,
-    domainSummary_domainId,
-    domainSummary_updatedAt,
-    domainSummary_description,
     domainSummary_serverSideEncryptionConfiguration,
+    domainSummary_arn,
+    domainSummary_description,
+    domainSummary_domainStatus,
+    domainSummary_domainId,
+    domainSummary_createdAt,
+    domainSummary_updatedAt,
 
     -- ** EnrollmentConfig
     enrollmentConfig_fraudDetectionConfig,
     enrollmentConfig_existingEnrollmentAction,
 
     -- ** EnrollmentJobFraudDetectionConfig
-    enrollmentJobFraudDetectionConfig_riskThreshold,
     enrollmentJobFraudDetectionConfig_fraudDetectionAction,
+    enrollmentJobFraudDetectionConfig_riskThreshold,
 
     -- ** FailureDetails
     failureDetails_message,
@@ -209,45 +209,45 @@ module Amazonka.VoiceId.Lens
     fraudDetectionConfiguration_riskThreshold,
 
     -- ** FraudDetectionResult
-    fraudDetectionResult_reasons,
-    fraudDetectionResult_riskDetails,
-    fraudDetectionResult_fraudDetectionResultId,
-    fraudDetectionResult_decision,
-    fraudDetectionResult_configuration,
-    fraudDetectionResult_audioAggregationStartedAt,
     fraudDetectionResult_audioAggregationEndedAt,
+    fraudDetectionResult_fraudDetectionResultId,
+    fraudDetectionResult_riskDetails,
+    fraudDetectionResult_configuration,
+    fraudDetectionResult_decision,
+    fraudDetectionResult_audioAggregationStartedAt,
+    fraudDetectionResult_reasons,
 
     -- ** FraudRiskDetails
     fraudRiskDetails_knownFraudsterRisk,
 
     -- ** Fraudster
-    fraudster_createdAt,
     fraudster_generatedFraudsterId,
     fraudster_domainId,
+    fraudster_createdAt,
 
     -- ** FraudsterRegistrationJob
-    fraudsterRegistrationJob_failureDetails,
-    fraudsterRegistrationJob_jobId,
-    fraudsterRegistrationJob_createdAt,
-    fraudsterRegistrationJob_jobName,
-    fraudsterRegistrationJob_endedAt,
-    fraudsterRegistrationJob_inputDataConfig,
-    fraudsterRegistrationJob_jobProgress,
     fraudsterRegistrationJob_outputDataConfig,
-    fraudsterRegistrationJob_dataAccessRoleArn,
-    fraudsterRegistrationJob_domainId,
     fraudsterRegistrationJob_jobStatus,
     fraudsterRegistrationJob_registrationConfig,
+    fraudsterRegistrationJob_jobName,
+    fraudsterRegistrationJob_endedAt,
+    fraudsterRegistrationJob_jobId,
+    fraudsterRegistrationJob_dataAccessRoleArn,
+    fraudsterRegistrationJob_failureDetails,
+    fraudsterRegistrationJob_domainId,
+    fraudsterRegistrationJob_jobProgress,
+    fraudsterRegistrationJob_inputDataConfig,
+    fraudsterRegistrationJob_createdAt,
 
     -- ** FraudsterRegistrationJobSummary
-    fraudsterRegistrationJobSummary_failureDetails,
-    fraudsterRegistrationJobSummary_jobId,
-    fraudsterRegistrationJobSummary_createdAt,
+    fraudsterRegistrationJobSummary_jobStatus,
     fraudsterRegistrationJobSummary_jobName,
     fraudsterRegistrationJobSummary_endedAt,
-    fraudsterRegistrationJobSummary_jobProgress,
+    fraudsterRegistrationJobSummary_jobId,
+    fraudsterRegistrationJobSummary_failureDetails,
     fraudsterRegistrationJobSummary_domainId,
-    fraudsterRegistrationJobSummary_jobStatus,
+    fraudsterRegistrationJobSummary_jobProgress,
+    fraudsterRegistrationJobSummary_createdAt,
 
     -- ** InputDataConfig
     inputDataConfig_s3Uri,
@@ -273,42 +273,42 @@ module Amazonka.VoiceId.Lens
     -- ** Speaker
     speaker_status,
     speaker_customerSpeakerId,
-    speaker_createdAt,
-    speaker_domainId,
-    speaker_updatedAt,
     speaker_generatedSpeakerId,
+    speaker_domainId,
+    speaker_createdAt,
+    speaker_updatedAt,
 
     -- ** SpeakerEnrollmentJob
-    speakerEnrollmentJob_failureDetails,
-    speakerEnrollmentJob_jobId,
-    speakerEnrollmentJob_createdAt,
+    speakerEnrollmentJob_outputDataConfig,
+    speakerEnrollmentJob_enrollmentConfig,
+    speakerEnrollmentJob_jobStatus,
     speakerEnrollmentJob_jobName,
     speakerEnrollmentJob_endedAt,
-    speakerEnrollmentJob_enrollmentConfig,
-    speakerEnrollmentJob_inputDataConfig,
-    speakerEnrollmentJob_jobProgress,
-    speakerEnrollmentJob_outputDataConfig,
+    speakerEnrollmentJob_jobId,
     speakerEnrollmentJob_dataAccessRoleArn,
+    speakerEnrollmentJob_failureDetails,
     speakerEnrollmentJob_domainId,
-    speakerEnrollmentJob_jobStatus,
+    speakerEnrollmentJob_jobProgress,
+    speakerEnrollmentJob_inputDataConfig,
+    speakerEnrollmentJob_createdAt,
 
     -- ** SpeakerEnrollmentJobSummary
-    speakerEnrollmentJobSummary_failureDetails,
-    speakerEnrollmentJobSummary_jobId,
-    speakerEnrollmentJobSummary_createdAt,
+    speakerEnrollmentJobSummary_jobStatus,
     speakerEnrollmentJobSummary_jobName,
     speakerEnrollmentJobSummary_endedAt,
-    speakerEnrollmentJobSummary_jobProgress,
+    speakerEnrollmentJobSummary_jobId,
+    speakerEnrollmentJobSummary_failureDetails,
     speakerEnrollmentJobSummary_domainId,
-    speakerEnrollmentJobSummary_jobStatus,
+    speakerEnrollmentJobSummary_jobProgress,
+    speakerEnrollmentJobSummary_createdAt,
 
     -- ** SpeakerSummary
     speakerSummary_status,
     speakerSummary_customerSpeakerId,
-    speakerSummary_createdAt,
-    speakerSummary_domainId,
-    speakerSummary_updatedAt,
     speakerSummary_generatedSpeakerId,
+    speakerSummary_domainId,
+    speakerSummary_createdAt,
+    speakerSummary_updatedAt,
 
     -- ** Tag
     tag_key,

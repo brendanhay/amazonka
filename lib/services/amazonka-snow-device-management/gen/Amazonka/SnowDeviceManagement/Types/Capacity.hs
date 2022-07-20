@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCapacity' smart constructor.
 data Capacity = Capacity'
-  { -- | The amount of capacity used on the device.
-    used :: Prelude.Maybe Prelude.Integer,
+  { -- | The amount of capacity available for use on the device.
+    available :: Prelude.Maybe Prelude.Integer,
     -- | The name of the type of capacity, such as memory.
     name :: Prelude.Maybe Prelude.Text,
     -- | The total capacity on the device.
     total :: Prelude.Maybe Prelude.Integer,
+    -- | The amount of capacity used on the device.
+    used :: Prelude.Maybe Prelude.Integer,
     -- | The unit of measure for the type of capacity.
-    unit :: Prelude.Maybe Prelude.Text,
-    -- | The amount of capacity available for use on the device.
-    available :: Prelude.Maybe Prelude.Integer
+    unit :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data Capacity = Capacity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'used', 'capacity_used' - The amount of capacity used on the device.
+-- 'available', 'capacity_available' - The amount of capacity available for use on the device.
 --
 -- 'name', 'capacity_name' - The name of the type of capacity, such as memory.
 --
 -- 'total', 'capacity_total' - The total capacity on the device.
 --
--- 'unit', 'capacity_unit' - The unit of measure for the type of capacity.
+-- 'used', 'capacity_used' - The amount of capacity used on the device.
 --
--- 'available', 'capacity_available' - The amount of capacity available for use on the device.
+-- 'unit', 'capacity_unit' - The unit of measure for the type of capacity.
 newCapacity ::
   Capacity
 newCapacity =
   Capacity'
-    { used = Prelude.Nothing,
+    { available = Prelude.Nothing,
       name = Prelude.Nothing,
       total = Prelude.Nothing,
-      unit = Prelude.Nothing,
-      available = Prelude.Nothing
+      used = Prelude.Nothing,
+      unit = Prelude.Nothing
     }
 
--- | The amount of capacity used on the device.
-capacity_used :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Integer)
-capacity_used = Lens.lens (\Capacity' {used} -> used) (\s@Capacity' {} a -> s {used = a} :: Capacity)
+-- | The amount of capacity available for use on the device.
+capacity_available :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Integer)
+capacity_available = Lens.lens (\Capacity' {available} -> available) (\s@Capacity' {} a -> s {available = a} :: Capacity)
 
 -- | The name of the type of capacity, such as memory.
 capacity_name :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Text)
@@ -80,13 +80,13 @@ capacity_name = Lens.lens (\Capacity' {name} -> name) (\s@Capacity' {} a -> s {n
 capacity_total :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Integer)
 capacity_total = Lens.lens (\Capacity' {total} -> total) (\s@Capacity' {} a -> s {total = a} :: Capacity)
 
+-- | The amount of capacity used on the device.
+capacity_used :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Integer)
+capacity_used = Lens.lens (\Capacity' {used} -> used) (\s@Capacity' {} a -> s {used = a} :: Capacity)
+
 -- | The unit of measure for the type of capacity.
 capacity_unit :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Text)
 capacity_unit = Lens.lens (\Capacity' {unit} -> unit) (\s@Capacity' {} a -> s {unit = a} :: Capacity)
-
--- | The amount of capacity available for use on the device.
-capacity_available :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Integer)
-capacity_available = Lens.lens (\Capacity' {available} -> available) (\s@Capacity' {} a -> s {available = a} :: Capacity)
 
 instance Core.FromJSON Capacity where
   parseJSON =
@@ -94,25 +94,25 @@ instance Core.FromJSON Capacity where
       "Capacity"
       ( \x ->
           Capacity'
-            Prelude.<$> (x Core..:? "used")
+            Prelude.<$> (x Core..:? "available")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "total")
+            Prelude.<*> (x Core..:? "used")
             Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> (x Core..:? "available")
       )
 
 instance Prelude.Hashable Capacity where
   hashWithSalt _salt Capacity' {..} =
-    _salt `Prelude.hashWithSalt` used
+    _salt `Prelude.hashWithSalt` available
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` used
       `Prelude.hashWithSalt` unit
-      `Prelude.hashWithSalt` available
 
 instance Prelude.NFData Capacity where
   rnf Capacity' {..} =
-    Prelude.rnf used
+    Prelude.rnf available
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf used
       `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf available

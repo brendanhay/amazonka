@@ -47,8 +47,8 @@ module Amazonka.Lambda.AddLayerVersionPermission
     newAddLayerVersionPermissionResponse,
 
     -- * Response Lenses
-    addLayerVersionPermissionResponse_statement,
     addLayerVersionPermissionResponse_revisionId,
+    addLayerVersionPermissionResponse_statement,
     addLayerVersionPermissionResponse_httpStatus,
   )
 where
@@ -193,8 +193,8 @@ instance Core.AWSRequest AddLayerVersionPermission where
     Response.receiveJSON
       ( \s h x ->
           AddLayerVersionPermissionResponse'
-            Prelude.<$> (x Core..?> "Statement")
-            Prelude.<*> (x Core..?> "RevisionId")
+            Prelude.<$> (x Core..?> "RevisionId")
+            Prelude.<*> (x Core..?> "Statement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -249,10 +249,10 @@ instance Core.ToQuery AddLayerVersionPermission where
 
 -- | /See:/ 'newAddLayerVersionPermissionResponse' smart constructor.
 data AddLayerVersionPermissionResponse = AddLayerVersionPermissionResponse'
-  { -- | The permission statement.
-    statement :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the current revision of the policy.
+  { -- | A unique identifier for the current revision of the policy.
     revisionId :: Prelude.Maybe Prelude.Text,
+    -- | The permission statement.
+    statement :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,9 +266,9 @@ data AddLayerVersionPermissionResponse = AddLayerVersionPermissionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statement', 'addLayerVersionPermissionResponse_statement' - The permission statement.
---
 -- 'revisionId', 'addLayerVersionPermissionResponse_revisionId' - A unique identifier for the current revision of the policy.
+--
+-- 'statement', 'addLayerVersionPermissionResponse_statement' - The permission statement.
 --
 -- 'httpStatus', 'addLayerVersionPermissionResponse_httpStatus' - The response's http status code.
 newAddLayerVersionPermissionResponse ::
@@ -277,19 +277,19 @@ newAddLayerVersionPermissionResponse ::
   AddLayerVersionPermissionResponse
 newAddLayerVersionPermissionResponse pHttpStatus_ =
   AddLayerVersionPermissionResponse'
-    { statement =
+    { revisionId =
         Prelude.Nothing,
-      revisionId = Prelude.Nothing,
+      statement = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The permission statement.
-addLayerVersionPermissionResponse_statement :: Lens.Lens' AddLayerVersionPermissionResponse (Prelude.Maybe Prelude.Text)
-addLayerVersionPermissionResponse_statement = Lens.lens (\AddLayerVersionPermissionResponse' {statement} -> statement) (\s@AddLayerVersionPermissionResponse' {} a -> s {statement = a} :: AddLayerVersionPermissionResponse)
 
 -- | A unique identifier for the current revision of the policy.
 addLayerVersionPermissionResponse_revisionId :: Lens.Lens' AddLayerVersionPermissionResponse (Prelude.Maybe Prelude.Text)
 addLayerVersionPermissionResponse_revisionId = Lens.lens (\AddLayerVersionPermissionResponse' {revisionId} -> revisionId) (\s@AddLayerVersionPermissionResponse' {} a -> s {revisionId = a} :: AddLayerVersionPermissionResponse)
+
+-- | The permission statement.
+addLayerVersionPermissionResponse_statement :: Lens.Lens' AddLayerVersionPermissionResponse (Prelude.Maybe Prelude.Text)
+addLayerVersionPermissionResponse_statement = Lens.lens (\AddLayerVersionPermissionResponse' {statement} -> statement) (\s@AddLayerVersionPermissionResponse' {} a -> s {statement = a} :: AddLayerVersionPermissionResponse)
 
 -- | The response's http status code.
 addLayerVersionPermissionResponse_httpStatus :: Lens.Lens' AddLayerVersionPermissionResponse Prelude.Int
@@ -300,6 +300,6 @@ instance
     AddLayerVersionPermissionResponse
   where
   rnf AddLayerVersionPermissionResponse' {..} =
-    Prelude.rnf statement
-      `Prelude.seq` Prelude.rnf revisionId
+    Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf statement
       `Prelude.seq` Prelude.rnf httpStatus

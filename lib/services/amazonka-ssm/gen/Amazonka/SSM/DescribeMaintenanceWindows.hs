@@ -29,8 +29,8 @@ module Amazonka.SSM.DescribeMaintenanceWindows
     newDescribeMaintenanceWindows,
 
     -- * Request Lenses
-    describeMaintenanceWindows_filters,
     describeMaintenanceWindows_nextToken,
+    describeMaintenanceWindows_filters,
     describeMaintenanceWindows_maxResults,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.SSM.DescribeMaintenanceWindows
     newDescribeMaintenanceWindowsResponse,
 
     -- * Response Lenses
-    describeMaintenanceWindowsResponse_windowIdentities,
     describeMaintenanceWindowsResponse_nextToken,
+    describeMaintenanceWindowsResponse_windowIdentities,
     describeMaintenanceWindowsResponse_httpStatus,
   )
 where
@@ -53,13 +53,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindows' smart constructor.
 data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
-  { -- | Optional filters used to narrow down the scope of the returned
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional filters used to narrow down the scope of the returned
     -- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For
     -- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.
     filters :: Prelude.Maybe [MaintenanceWindowFilter],
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -75,12 +75,12 @@ data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeMaintenanceWindows_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'filters', 'describeMaintenanceWindows_filters' - Optional filters used to narrow down the scope of the returned
 -- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For
 -- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.
---
--- 'nextToken', 'describeMaintenanceWindows_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
 --
 -- 'maxResults', 'describeMaintenanceWindows_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -89,22 +89,22 @@ newDescribeMaintenanceWindows ::
   DescribeMaintenanceWindows
 newDescribeMaintenanceWindows =
   DescribeMaintenanceWindows'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindows_nextToken :: Lens.Lens' DescribeMaintenanceWindows (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindows_nextToken = Lens.lens (\DescribeMaintenanceWindows' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindows' {} a -> s {nextToken = a} :: DescribeMaintenanceWindows)
 
 -- | Optional filters used to narrow down the scope of the returned
 -- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For
 -- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.
 describeMaintenanceWindows_filters :: Lens.Lens' DescribeMaintenanceWindows (Prelude.Maybe [MaintenanceWindowFilter])
 describeMaintenanceWindows_filters = Lens.lens (\DescribeMaintenanceWindows' {filters} -> filters) (\s@DescribeMaintenanceWindows' {} a -> s {filters = a} :: DescribeMaintenanceWindows) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeMaintenanceWindows_nextToken :: Lens.Lens' DescribeMaintenanceWindows (Prelude.Maybe Prelude.Text)
-describeMaintenanceWindows_nextToken = Lens.lens (\DescribeMaintenanceWindows' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindows' {} a -> s {nextToken = a} :: DescribeMaintenanceWindows)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -143,23 +143,23 @@ instance Core.AWSRequest DescribeMaintenanceWindows where
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowsResponse'
-            Prelude.<$> ( x Core..?> "WindowIdentities"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "WindowIdentities"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeMaintenanceWindows where
   hashWithSalt _salt DescribeMaintenanceWindows' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeMaintenanceWindows where
   rnf DescribeMaintenanceWindows' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeMaintenanceWindows where
@@ -181,8 +181,8 @@ instance Core.ToJSON DescribeMaintenanceWindows where
   toJSON DescribeMaintenanceWindows' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -195,11 +195,11 @@ instance Core.ToQuery DescribeMaintenanceWindows where
 
 -- | /See:/ 'newDescribeMaintenanceWindowsResponse' smart constructor.
 data DescribeMaintenanceWindowsResponse = DescribeMaintenanceWindowsResponse'
-  { -- | Information about the maintenance windows.
-    windowIdentities :: Prelude.Maybe [MaintenanceWindowIdentity],
-    -- | The token to use when requesting the next set of items. If there are no
+  { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the maintenance windows.
+    windowIdentities :: Prelude.Maybe [MaintenanceWindowIdentity],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,10 +213,10 @@ data DescribeMaintenanceWindowsResponse = DescribeMaintenanceWindowsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windowIdentities', 'describeMaintenanceWindowsResponse_windowIdentities' - Information about the maintenance windows.
---
 -- 'nextToken', 'describeMaintenanceWindowsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
+--
+-- 'windowIdentities', 'describeMaintenanceWindowsResponse_windowIdentities' - Information about the maintenance windows.
 --
 -- 'httpStatus', 'describeMaintenanceWindowsResponse_httpStatus' - The response's http status code.
 newDescribeMaintenanceWindowsResponse ::
@@ -225,20 +225,20 @@ newDescribeMaintenanceWindowsResponse ::
   DescribeMaintenanceWindowsResponse
 newDescribeMaintenanceWindowsResponse pHttpStatus_ =
   DescribeMaintenanceWindowsResponse'
-    { windowIdentities =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      windowIdentities = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the maintenance windows.
-describeMaintenanceWindowsResponse_windowIdentities :: Lens.Lens' DescribeMaintenanceWindowsResponse (Prelude.Maybe [MaintenanceWindowIdentity])
-describeMaintenanceWindowsResponse_windowIdentities = Lens.lens (\DescribeMaintenanceWindowsResponse' {windowIdentities} -> windowIdentities) (\s@DescribeMaintenanceWindowsResponse' {} a -> s {windowIdentities = a} :: DescribeMaintenanceWindowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeMaintenanceWindowsResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowsResponse (Prelude.Maybe Prelude.Text)
 describeMaintenanceWindowsResponse_nextToken = Lens.lens (\DescribeMaintenanceWindowsResponse' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowsResponse' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowsResponse)
+
+-- | Information about the maintenance windows.
+describeMaintenanceWindowsResponse_windowIdentities :: Lens.Lens' DescribeMaintenanceWindowsResponse (Prelude.Maybe [MaintenanceWindowIdentity])
+describeMaintenanceWindowsResponse_windowIdentities = Lens.lens (\DescribeMaintenanceWindowsResponse' {windowIdentities} -> windowIdentities) (\s@DescribeMaintenanceWindowsResponse' {} a -> s {windowIdentities = a} :: DescribeMaintenanceWindowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMaintenanceWindowsResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowsResponse Prelude.Int
@@ -249,6 +249,6 @@ instance
     DescribeMaintenanceWindowsResponse
   where
   rnf DescribeMaintenanceWindowsResponse' {..} =
-    Prelude.rnf windowIdentities
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf windowIdentities
       `Prelude.seq` Prelude.rnf httpStatus

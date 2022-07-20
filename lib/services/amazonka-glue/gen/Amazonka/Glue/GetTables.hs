@@ -30,10 +30,10 @@ module Amazonka.Glue.GetTables
     newGetTables,
 
     -- * Request Lenses
-    getTables_catalogId,
     getTables_nextToken,
     getTables_expression,
     getTables_maxResults,
+    getTables_catalogId,
     getTables_databaseName,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.Glue.GetTables
     newGetTablesResponse,
 
     -- * Response Lenses
-    getTablesResponse_tableList,
     getTablesResponse_nextToken,
+    getTablesResponse_tableList,
     getTablesResponse_httpStatus,
   )
 where
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTables' smart constructor.
 data GetTables = GetTables'
-  { -- | The ID of the Data Catalog where the tables reside. If none is provided,
-    -- the Amazon Web Services account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | A continuation token, included if this is a continuation call.
+  { -- | A continuation token, included if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A regular expression pattern. If present, only those tables whose names
     -- match the pattern are returned.
     expression :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tables to return in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog where the tables reside. If none is provided,
+    -- the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The database in the catalog whose tables to list. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text
@@ -80,15 +80,15 @@ data GetTables = GetTables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'getTables_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
--- the Amazon Web Services account ID is used by default.
---
 -- 'nextToken', 'getTables_nextToken' - A continuation token, included if this is a continuation call.
 --
 -- 'expression', 'getTables_expression' - A regular expression pattern. If present, only those tables whose names
 -- match the pattern are returned.
 --
 -- 'maxResults', 'getTables_maxResults' - The maximum number of tables to return in a single response.
+--
+-- 'catalogId', 'getTables_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'getTables_databaseName' - The database in the catalog whose tables to list. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -98,17 +98,12 @@ newGetTables ::
   GetTables
 newGetTables pDatabaseName_ =
   GetTables'
-    { catalogId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       expression = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_
     }
-
--- | The ID of the Data Catalog where the tables reside. If none is provided,
--- the Amazon Web Services account ID is used by default.
-getTables_catalogId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
-getTables_catalogId = Lens.lens (\GetTables' {catalogId} -> catalogId) (\s@GetTables' {} a -> s {catalogId = a} :: GetTables)
 
 -- | A continuation token, included if this is a continuation call.
 getTables_nextToken :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
@@ -122,6 +117,11 @@ getTables_expression = Lens.lens (\GetTables' {expression} -> expression) (\s@Ge
 -- | The maximum number of tables to return in a single response.
 getTables_maxResults :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Natural)
 getTables_maxResults = Lens.lens (\GetTables' {maxResults} -> maxResults) (\s@GetTables' {} a -> s {maxResults = a} :: GetTables)
+
+-- | The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+getTables_catalogId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
+getTables_catalogId = Lens.lens (\GetTables' {catalogId} -> catalogId) (\s@GetTables' {} a -> s {catalogId = a} :: GetTables)
 
 -- | The database in the catalog whose tables to list. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -154,25 +154,25 @@ instance Core.AWSRequest GetTables where
     Response.receiveJSON
       ( \s h x ->
           GetTablesResponse'
-            Prelude.<$> (x Core..?> "TableList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetTables where
   hashWithSalt _salt GetTables' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData GetTables where
   rnf GetTables' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders GetTables where
@@ -192,10 +192,10 @@ instance Core.ToJSON GetTables where
   toJSON GetTables' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Expression" Core..=) Prelude.<$> expression,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("DatabaseName" Core..= databaseName)
           ]
       )
@@ -208,11 +208,11 @@ instance Core.ToQuery GetTables where
 
 -- | /See:/ 'newGetTablesResponse' smart constructor.
 data GetTablesResponse = GetTablesResponse'
-  { -- | A list of the requested @Table@ objects.
-    tableList :: Prelude.Maybe [Table],
-    -- | A continuation token, present if the current list segment is not the
+  { -- | A continuation token, present if the current list segment is not the
     -- last.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the requested @Table@ objects.
+    tableList :: Prelude.Maybe [Table],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,10 +226,10 @@ data GetTablesResponse = GetTablesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableList', 'getTablesResponse_tableList' - A list of the requested @Table@ objects.
---
 -- 'nextToken', 'getTablesResponse_nextToken' - A continuation token, present if the current list segment is not the
 -- last.
+--
+-- 'tableList', 'getTablesResponse_tableList' - A list of the requested @Table@ objects.
 --
 -- 'httpStatus', 'getTablesResponse_httpStatus' - The response's http status code.
 newGetTablesResponse ::
@@ -238,19 +238,19 @@ newGetTablesResponse ::
   GetTablesResponse
 newGetTablesResponse pHttpStatus_ =
   GetTablesResponse'
-    { tableList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      tableList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the requested @Table@ objects.
-getTablesResponse_tableList :: Lens.Lens' GetTablesResponse (Prelude.Maybe [Table])
-getTablesResponse_tableList = Lens.lens (\GetTablesResponse' {tableList} -> tableList) (\s@GetTablesResponse' {} a -> s {tableList = a} :: GetTablesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, present if the current list segment is not the
 -- last.
 getTablesResponse_nextToken :: Lens.Lens' GetTablesResponse (Prelude.Maybe Prelude.Text)
 getTablesResponse_nextToken = Lens.lens (\GetTablesResponse' {nextToken} -> nextToken) (\s@GetTablesResponse' {} a -> s {nextToken = a} :: GetTablesResponse)
+
+-- | A list of the requested @Table@ objects.
+getTablesResponse_tableList :: Lens.Lens' GetTablesResponse (Prelude.Maybe [Table])
+getTablesResponse_tableList = Lens.lens (\GetTablesResponse' {tableList} -> tableList) (\s@GetTablesResponse' {} a -> s {tableList = a} :: GetTablesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTablesResponse_httpStatus :: Lens.Lens' GetTablesResponse Prelude.Int
@@ -258,6 +258,6 @@ getTablesResponse_httpStatus = Lens.lens (\GetTablesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetTablesResponse where
   rnf GetTablesResponse' {..} =
-    Prelude.rnf tableList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tableList
       `Prelude.seq` Prelude.rnf httpStatus

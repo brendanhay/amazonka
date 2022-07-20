@@ -29,16 +29,14 @@ import Amazonka.SSM.Types.Target
 --
 -- /See:/ 'newMaintenanceWindowTarget' smart constructor.
 data MaintenanceWindowTarget = MaintenanceWindowTarget'
-  { -- | The type of target that is being registered with the maintenance window.
-    resourceType :: Prelude.Maybe MaintenanceWindowResourceType,
-    -- | A user-provided value that will be included in any Amazon CloudWatch
-    -- Events events that are raised while running tasks for these targets in
-    -- this maintenance window.
-    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the target.
+  { -- | The ID of the target.
     windowTargetId :: Prelude.Maybe Prelude.Text,
+    -- | The type of target that is being registered with the maintenance window.
+    resourceType :: Prelude.Maybe MaintenanceWindowResourceType,
     -- | The name for the maintenance window target.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the maintenance window to register the target with.
+    windowId :: Prelude.Maybe Prelude.Text,
     -- | The targets, either instances or tags.
     --
     -- Specify instances using the following format:
@@ -51,8 +49,10 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
     targets :: Prelude.Maybe [Target],
     -- | A description for the target.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the maintenance window to register the target with.
-    windowId :: Prelude.Maybe Prelude.Text
+    -- | A user-provided value that will be included in any Amazon CloudWatch
+    -- Events events that are raised while running tasks for these targets in
+    -- this maintenance window.
+    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -64,15 +64,13 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'maintenanceWindowTarget_resourceType' - The type of target that is being registered with the maintenance window.
---
--- 'ownerInformation', 'maintenanceWindowTarget_ownerInformation' - A user-provided value that will be included in any Amazon CloudWatch
--- Events events that are raised while running tasks for these targets in
--- this maintenance window.
---
 -- 'windowTargetId', 'maintenanceWindowTarget_windowTargetId' - The ID of the target.
 --
+-- 'resourceType', 'maintenanceWindowTarget_resourceType' - The type of target that is being registered with the maintenance window.
+--
 -- 'name', 'maintenanceWindowTarget_name' - The name for the maintenance window target.
+--
+-- 'windowId', 'maintenanceWindowTarget_windowId' - The ID of the maintenance window to register the target with.
 --
 -- 'targets', 'maintenanceWindowTarget_targets' - The targets, either instances or tags.
 --
@@ -86,38 +84,38 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
 --
 -- 'description', 'maintenanceWindowTarget_description' - A description for the target.
 --
--- 'windowId', 'maintenanceWindowTarget_windowId' - The ID of the maintenance window to register the target with.
+-- 'ownerInformation', 'maintenanceWindowTarget_ownerInformation' - A user-provided value that will be included in any Amazon CloudWatch
+-- Events events that are raised while running tasks for these targets in
+-- this maintenance window.
 newMaintenanceWindowTarget ::
   MaintenanceWindowTarget
 newMaintenanceWindowTarget =
   MaintenanceWindowTarget'
-    { resourceType =
+    { windowTargetId =
         Prelude.Nothing,
-      ownerInformation = Prelude.Nothing,
-      windowTargetId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
+      windowId = Prelude.Nothing,
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
-      windowId = Prelude.Nothing
+      ownerInformation = Prelude.Nothing
     }
-
--- | The type of target that is being registered with the maintenance window.
-maintenanceWindowTarget_resourceType :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe MaintenanceWindowResourceType)
-maintenanceWindowTarget_resourceType = Lens.lens (\MaintenanceWindowTarget' {resourceType} -> resourceType) (\s@MaintenanceWindowTarget' {} a -> s {resourceType = a} :: MaintenanceWindowTarget)
-
--- | A user-provided value that will be included in any Amazon CloudWatch
--- Events events that are raised while running tasks for these targets in
--- this maintenance window.
-maintenanceWindowTarget_ownerInformation :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
-maintenanceWindowTarget_ownerInformation = Lens.lens (\MaintenanceWindowTarget' {ownerInformation} -> ownerInformation) (\s@MaintenanceWindowTarget' {} a -> s {ownerInformation = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the target.
 maintenanceWindowTarget_windowTargetId :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 maintenanceWindowTarget_windowTargetId = Lens.lens (\MaintenanceWindowTarget' {windowTargetId} -> windowTargetId) (\s@MaintenanceWindowTarget' {} a -> s {windowTargetId = a} :: MaintenanceWindowTarget)
 
+-- | The type of target that is being registered with the maintenance window.
+maintenanceWindowTarget_resourceType :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe MaintenanceWindowResourceType)
+maintenanceWindowTarget_resourceType = Lens.lens (\MaintenanceWindowTarget' {resourceType} -> resourceType) (\s@MaintenanceWindowTarget' {} a -> s {resourceType = a} :: MaintenanceWindowTarget)
+
 -- | The name for the maintenance window target.
 maintenanceWindowTarget_name :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 maintenanceWindowTarget_name = Lens.lens (\MaintenanceWindowTarget' {name} -> name) (\s@MaintenanceWindowTarget' {} a -> s {name = a} :: MaintenanceWindowTarget)
+
+-- | The ID of the maintenance window to register the target with.
+maintenanceWindowTarget_windowId :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
+maintenanceWindowTarget_windowId = Lens.lens (\MaintenanceWindowTarget' {windowId} -> windowId) (\s@MaintenanceWindowTarget' {} a -> s {windowId = a} :: MaintenanceWindowTarget)
 
 -- | The targets, either instances or tags.
 --
@@ -135,9 +133,11 @@ maintenanceWindowTarget_targets = Lens.lens (\MaintenanceWindowTarget' {targets}
 maintenanceWindowTarget_description :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 maintenanceWindowTarget_description = Lens.lens (\MaintenanceWindowTarget' {description} -> description) (\s@MaintenanceWindowTarget' {} a -> s {description = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
 
--- | The ID of the maintenance window to register the target with.
-maintenanceWindowTarget_windowId :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
-maintenanceWindowTarget_windowId = Lens.lens (\MaintenanceWindowTarget' {windowId} -> windowId) (\s@MaintenanceWindowTarget' {} a -> s {windowId = a} :: MaintenanceWindowTarget)
+-- | A user-provided value that will be included in any Amazon CloudWatch
+-- Events events that are raised while running tasks for these targets in
+-- this maintenance window.
+maintenanceWindowTarget_ownerInformation :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
+maintenanceWindowTarget_ownerInformation = Lens.lens (\MaintenanceWindowTarget' {ownerInformation} -> ownerInformation) (\s@MaintenanceWindowTarget' {} a -> s {ownerInformation = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON MaintenanceWindowTarget where
   parseJSON =
@@ -145,31 +145,31 @@ instance Core.FromJSON MaintenanceWindowTarget where
       "MaintenanceWindowTarget"
       ( \x ->
           MaintenanceWindowTarget'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "OwnerInformation")
-            Prelude.<*> (x Core..:? "WindowTargetId")
+            Prelude.<$> (x Core..:? "WindowTargetId")
+            Prelude.<*> (x Core..:? "ResourceType")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "WindowId")
             Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "WindowId")
+            Prelude.<*> (x Core..:? "OwnerInformation")
       )
 
 instance Prelude.Hashable MaintenanceWindowTarget where
   hashWithSalt _salt MaintenanceWindowTarget' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` ownerInformation
-      `Prelude.hashWithSalt` windowTargetId
+    _salt `Prelude.hashWithSalt` windowTargetId
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` windowId
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` windowId
+      `Prelude.hashWithSalt` ownerInformation
 
 instance Prelude.NFData MaintenanceWindowTarget where
   rnf MaintenanceWindowTarget' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf ownerInformation
-      `Prelude.seq` Prelude.rnf windowTargetId
+    Prelude.rnf windowTargetId
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf windowId
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf ownerInformation

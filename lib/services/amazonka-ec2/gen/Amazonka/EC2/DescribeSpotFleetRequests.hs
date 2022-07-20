@@ -32,10 +32,10 @@ module Amazonka.EC2.DescribeSpotFleetRequests
     newDescribeSpotFleetRequests,
 
     -- * Request Lenses
-    describeSpotFleetRequests_spotFleetRequestIds,
     describeSpotFleetRequests_nextToken,
     describeSpotFleetRequests_dryRun,
     describeSpotFleetRequests_maxResults,
+    describeSpotFleetRequests_spotFleetRequestIds,
 
     -- * Destructuring the Response
     DescribeSpotFleetRequestsResponse (..),
@@ -59,9 +59,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeSpotFleetRequests' smart constructor.
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
-  { -- | The IDs of the Spot Fleet requests.
-    spotFleetRequestIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next set of results.
+  { -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -72,7 +70,9 @@ data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The IDs of the Spot Fleet requests.
+    spotFleetRequestIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,8 +83,6 @@ data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'spotFleetRequestIds', 'describeSpotFleetRequests_spotFleetRequestIds' - The IDs of the Spot Fleet requests.
 --
 -- 'nextToken', 'describeSpotFleetRequests_nextToken' - The token for the next set of results.
 --
@@ -97,20 +95,18 @@ data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'spotFleetRequestIds', 'describeSpotFleetRequests_spotFleetRequestIds' - The IDs of the Spot Fleet requests.
 newDescribeSpotFleetRequests ::
   DescribeSpotFleetRequests
 newDescribeSpotFleetRequests =
   DescribeSpotFleetRequests'
-    { spotFleetRequestIds =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      spotFleetRequestIds = Prelude.Nothing
     }
-
--- | The IDs of the Spot Fleet requests.
-describeSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe [Prelude.Text])
-describeSpotFleetRequests_spotFleetRequestIds = Lens.lens (\DescribeSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@DescribeSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: DescribeSpotFleetRequests) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results.
 describeSpotFleetRequests_nextToken :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Text)
@@ -129,6 +125,10 @@ describeSpotFleetRequests_dryRun = Lens.lens (\DescribeSpotFleetRequests' {dryRu
 -- value.
 describeSpotFleetRequests_maxResults :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Int)
 describeSpotFleetRequests_maxResults = Lens.lens (\DescribeSpotFleetRequests' {maxResults} -> maxResults) (\s@DescribeSpotFleetRequests' {} a -> s {maxResults = a} :: DescribeSpotFleetRequests)
+
+-- | The IDs of the Spot Fleet requests.
+describeSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe [Prelude.Text])
+describeSpotFleetRequests_spotFleetRequestIds = Lens.lens (\DescribeSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@DescribeSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: DescribeSpotFleetRequests) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeSpotFleetRequests where
   page rq rs
@@ -171,17 +171,17 @@ instance Core.AWSRequest DescribeSpotFleetRequests where
 
 instance Prelude.Hashable DescribeSpotFleetRequests where
   hashWithSalt _salt DescribeSpotFleetRequests' {..} =
-    _salt `Prelude.hashWithSalt` spotFleetRequestIds
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` spotFleetRequestIds
 
 instance Prelude.NFData DescribeSpotFleetRequests where
   rnf DescribeSpotFleetRequests' {..} =
-    Prelude.rnf spotFleetRequestIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf spotFleetRequestIds
 
 instance Core.ToHeaders DescribeSpotFleetRequests where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,13 +196,13 @@ instance Core.ToQuery DescribeSpotFleetRequests where
           Core.=: ("DescribeSpotFleetRequests" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "SpotFleetRequestId"
               Prelude.<$> spotFleetRequestIds
-          ),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          )
       ]
 
 -- | Contains the output of DescribeSpotFleetRequests.

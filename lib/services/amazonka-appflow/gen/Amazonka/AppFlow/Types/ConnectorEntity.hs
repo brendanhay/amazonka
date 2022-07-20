@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectorEntity' smart constructor.
 data ConnectorEntity = ConnectorEntity'
-  { -- | Specifies whether the connector entity is a parent or a category and has
+  { -- | The label applied to the connector entity.
+    label :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the connector entity is a parent or a category and has
     -- more entities nested underneath it. If another call is made with
     -- @entitiesPath = \"the_current_entity_name_with_hasNestedEntities_true\"@,
     -- then it returns the nested entities underneath it. This provides a way
     -- to retrieve all supported entities in a recursive fashion.
     hasNestedEntities :: Prelude.Maybe Prelude.Bool,
-    -- | The label applied to the connector entity.
-    label :: Prelude.Maybe Prelude.Text,
     -- | The name of the connector entity.
     name :: Prelude.Text
   }
@@ -50,13 +50,13 @@ data ConnectorEntity = ConnectorEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'label', 'connectorEntity_label' - The label applied to the connector entity.
+--
 -- 'hasNestedEntities', 'connectorEntity_hasNestedEntities' - Specifies whether the connector entity is a parent or a category and has
 -- more entities nested underneath it. If another call is made with
 -- @entitiesPath = \"the_current_entity_name_with_hasNestedEntities_true\"@,
 -- then it returns the nested entities underneath it. This provides a way
 -- to retrieve all supported entities in a recursive fashion.
---
--- 'label', 'connectorEntity_label' - The label applied to the connector entity.
 --
 -- 'name', 'connectorEntity_name' - The name of the connector entity.
 newConnectorEntity ::
@@ -65,11 +65,14 @@ newConnectorEntity ::
   ConnectorEntity
 newConnectorEntity pName_ =
   ConnectorEntity'
-    { hasNestedEntities =
-        Prelude.Nothing,
-      label = Prelude.Nothing,
+    { label = Prelude.Nothing,
+      hasNestedEntities = Prelude.Nothing,
       name = pName_
     }
+
+-- | The label applied to the connector entity.
+connectorEntity_label :: Lens.Lens' ConnectorEntity (Prelude.Maybe Prelude.Text)
+connectorEntity_label = Lens.lens (\ConnectorEntity' {label} -> label) (\s@ConnectorEntity' {} a -> s {label = a} :: ConnectorEntity)
 
 -- | Specifies whether the connector entity is a parent or a category and has
 -- more entities nested underneath it. If another call is made with
@@ -78,10 +81,6 @@ newConnectorEntity pName_ =
 -- to retrieve all supported entities in a recursive fashion.
 connectorEntity_hasNestedEntities :: Lens.Lens' ConnectorEntity (Prelude.Maybe Prelude.Bool)
 connectorEntity_hasNestedEntities = Lens.lens (\ConnectorEntity' {hasNestedEntities} -> hasNestedEntities) (\s@ConnectorEntity' {} a -> s {hasNestedEntities = a} :: ConnectorEntity)
-
--- | The label applied to the connector entity.
-connectorEntity_label :: Lens.Lens' ConnectorEntity (Prelude.Maybe Prelude.Text)
-connectorEntity_label = Lens.lens (\ConnectorEntity' {label} -> label) (\s@ConnectorEntity' {} a -> s {label = a} :: ConnectorEntity)
 
 -- | The name of the connector entity.
 connectorEntity_name :: Lens.Lens' ConnectorEntity Prelude.Text
@@ -93,19 +92,19 @@ instance Core.FromJSON ConnectorEntity where
       "ConnectorEntity"
       ( \x ->
           ConnectorEntity'
-            Prelude.<$> (x Core..:? "hasNestedEntities")
-            Prelude.<*> (x Core..:? "label")
+            Prelude.<$> (x Core..:? "label")
+            Prelude.<*> (x Core..:? "hasNestedEntities")
             Prelude.<*> (x Core..: "name")
       )
 
 instance Prelude.Hashable ConnectorEntity where
   hashWithSalt _salt ConnectorEntity' {..} =
-    _salt `Prelude.hashWithSalt` hasNestedEntities
-      `Prelude.hashWithSalt` label
+    _salt `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` hasNestedEntities
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ConnectorEntity where
   rnf ConnectorEntity' {..} =
-    Prelude.rnf hasNestedEntities
-      `Prelude.seq` Prelude.rnf label
+    Prelude.rnf label
+      `Prelude.seq` Prelude.rnf hasNestedEntities
       `Prelude.seq` Prelude.rnf name

@@ -17,17 +17,17 @@ module Amazonka.Snowball.Types
     defaultService,
 
     -- * Errors
-    _InvalidResourceException,
+    _InvalidAddressException,
     _UnsupportedAddressException,
-    _ReturnShippingLabelAlreadyExistsException,
-    _KMSRequestFailedException,
+    _InvalidResourceException,
     _InvalidJobStateException,
     _InvalidInputCombinationException,
-    _ConflictException,
-    _Ec2RequestFailedException,
     _InvalidNextTokenException,
-    _InvalidAddressException,
+    _ConflictException,
+    _KMSRequestFailedException,
+    _Ec2RequestFailedException,
     _ClusterLimitExceededException,
+    _ReturnShippingLabelAlreadyExistsException,
 
     -- * ClusterState
     ClusterState (..),
@@ -71,60 +71,60 @@ module Amazonka.Snowball.Types
     -- * Address
     Address (..),
     newAddress,
-    address_isRestricted,
-    address_street3,
-    address_landmark,
-    address_postalCode,
-    address_country,
     address_stateOrProvince,
+    address_street1,
+    address_isRestricted,
+    address_name,
+    address_postalCode,
+    address_company,
+    address_street3,
+    address_country,
+    address_prefectureOrDistrict,
+    address_city,
+    address_landmark,
+    address_phoneNumber,
     address_street2,
     address_addressId,
-    address_city,
-    address_phoneNumber,
-    address_company,
-    address_name,
-    address_prefectureOrDistrict,
-    address_street1,
 
     -- * ClusterListEntry
     ClusterListEntry (..),
     newClusterListEntry,
-    clusterListEntry_clusterState,
-    clusterListEntry_clusterId,
     clusterListEntry_creationDate,
     clusterListEntry_description,
+    clusterListEntry_clusterState,
+    clusterListEntry_clusterId,
 
     -- * ClusterMetadata
     ClusterMetadata (..),
     newClusterMetadata,
-    clusterMetadata_jobType,
+    clusterMetadata_roleARN,
+    clusterMetadata_creationDate,
+    clusterMetadata_forwardingAddressId,
+    clusterMetadata_description,
     clusterMetadata_kmsKeyARN,
     clusterMetadata_clusterState,
     clusterMetadata_notification,
-    clusterMetadata_forwardingAddressId,
+    clusterMetadata_clusterId,
+    clusterMetadata_taxDocuments,
+    clusterMetadata_resources,
     clusterMetadata_addressId,
     clusterMetadata_snowballType,
+    clusterMetadata_jobType,
     clusterMetadata_shippingOption,
-    clusterMetadata_resources,
     clusterMetadata_onDeviceServiceConfiguration,
-    clusterMetadata_clusterId,
-    clusterMetadata_creationDate,
-    clusterMetadata_description,
-    clusterMetadata_taxDocuments,
-    clusterMetadata_roleARN,
 
     -- * CompatibleImage
     CompatibleImage (..),
     newCompatibleImage,
-    compatibleImage_name,
     compatibleImage_amiId,
+    compatibleImage_name,
 
     -- * DataTransfer
     DataTransfer (..),
     newDataTransfer,
-    dataTransfer_totalObjects,
-    dataTransfer_totalBytes,
     dataTransfer_objectsTransferred,
+    dataTransfer_totalBytes,
+    dataTransfer_totalObjects,
     dataTransfer_bytesTransferred,
 
     -- * DeviceConfiguration
@@ -151,59 +151,59 @@ module Amazonka.Snowball.Types
     -- * JobListEntry
     JobListEntry (..),
     newJobListEntry,
-    jobListEntry_jobType,
-    jobListEntry_jobId,
-    jobListEntry_jobState,
-    jobListEntry_snowballType,
     jobListEntry_creationDate,
+    jobListEntry_jobId,
     jobListEntry_description,
     jobListEntry_isMaster,
+    jobListEntry_jobState,
+    jobListEntry_snowballType,
+    jobListEntry_jobType,
 
     -- * JobLogs
     JobLogs (..),
     newJobLogs,
+    jobLogs_jobSuccessLogURI,
     jobLogs_jobFailureLogURI,
     jobLogs_jobCompletionReportURI,
-    jobLogs_jobSuccessLogURI,
 
     -- * JobMetadata
     JobMetadata (..),
     newJobMetadata,
-    jobMetadata_jobType,
-    jobMetadata_kmsKeyARN,
-    jobMetadata_remoteManagement,
-    jobMetadata_jobId,
-    jobMetadata_jobLogInfo,
-    jobMetadata_notification,
-    jobMetadata_jobState,
-    jobMetadata_forwardingAddressId,
     jobMetadata_shippingDetails,
+    jobMetadata_roleARN,
+    jobMetadata_deviceConfiguration,
+    jobMetadata_creationDate,
+    jobMetadata_jobId,
+    jobMetadata_forwardingAddressId,
+    jobMetadata_description,
+    jobMetadata_kmsKeyARN,
+    jobMetadata_longTermPricingId,
+    jobMetadata_notification,
+    jobMetadata_dataTransferProgress,
+    jobMetadata_remoteManagement,
+    jobMetadata_clusterId,
+    jobMetadata_jobState,
+    jobMetadata_taxDocuments,
+    jobMetadata_resources,
+    jobMetadata_snowballCapacityPreference,
     jobMetadata_addressId,
     jobMetadata_snowballType,
-    jobMetadata_dataTransferProgress,
-    jobMetadata_longTermPricingId,
-    jobMetadata_resources,
+    jobMetadata_jobType,
+    jobMetadata_jobLogInfo,
     jobMetadata_onDeviceServiceConfiguration,
-    jobMetadata_clusterId,
-    jobMetadata_creationDate,
-    jobMetadata_deviceConfiguration,
-    jobMetadata_description,
-    jobMetadata_taxDocuments,
-    jobMetadata_roleARN,
-    jobMetadata_snowballCapacityPreference,
 
     -- * JobResource
     JobResource (..),
     newJobResource,
     jobResource_ec2AmiResources,
-    jobResource_lambdaResources,
     jobResource_s3Resources,
+    jobResource_lambdaResources,
 
     -- * KeyRange
     KeyRange (..),
     newKeyRange,
-    keyRange_endMarker,
     keyRange_beginMarker,
+    keyRange_endMarker,
 
     -- * LambdaResource
     LambdaResource (..),
@@ -214,29 +214,29 @@ module Amazonka.Snowball.Types
     -- * LongTermPricingListEntry
     LongTermPricingListEntry (..),
     newLongTermPricingListEntry,
-    longTermPricingListEntry_longTermPricingType,
-    longTermPricingListEntry_longTermPricingStartDate,
-    longTermPricingListEntry_snowballType,
-    longTermPricingListEntry_longTermPricingId,
+    longTermPricingListEntry_longTermPricingStatus,
     longTermPricingListEntry_longTermPricingEndDate,
     longTermPricingListEntry_currentActiveJob,
+    longTermPricingListEntry_longTermPricingType,
     longTermPricingListEntry_isLongTermPricingAutoRenew,
-    longTermPricingListEntry_longTermPricingStatus,
-    longTermPricingListEntry_jobIds,
+    longTermPricingListEntry_longTermPricingId,
     longTermPricingListEntry_replacementJob,
+    longTermPricingListEntry_longTermPricingStartDate,
+    longTermPricingListEntry_snowballType,
+    longTermPricingListEntry_jobIds,
 
     -- * NFSOnDeviceServiceConfiguration
     NFSOnDeviceServiceConfiguration (..),
     newNFSOnDeviceServiceConfiguration,
-    nFSOnDeviceServiceConfiguration_storageLimit,
     nFSOnDeviceServiceConfiguration_storageUnit,
+    nFSOnDeviceServiceConfiguration_storageLimit,
 
     -- * Notification
     Notification (..),
     newNotification,
-    notification_notifyAll,
-    notification_snsTopicARN,
     notification_jobStatesToNotify,
+    notification_snsTopicARN,
+    notification_notifyAll,
 
     -- * OnDeviceServiceConfiguration
     OnDeviceServiceConfiguration (..),
@@ -246,9 +246,9 @@ module Amazonka.Snowball.Types
     -- * S3Resource
     S3Resource (..),
     newS3Resource,
-    s3Resource_keyRange,
-    s3Resource_bucketArn,
     s3Resource_targetOnDeviceServices,
+    s3Resource_bucketArn,
+    s3Resource_keyRange,
 
     -- * Shipment
     Shipment (..),
@@ -259,8 +259,8 @@ module Amazonka.Snowball.Types
     -- * ShippingDetails
     ShippingDetails (..),
     newShippingDetails,
-    shippingDetails_shippingOption,
     shippingDetails_outboundShipment,
+    shippingDetails_shippingOption,
     shippingDetails_inboundShipment,
 
     -- * SnowconeDeviceConfiguration
@@ -355,35 +355,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -392,21 +365,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified resource can\'t be found. Check the information you
--- provided in your last request, and try again.
-_InvalidResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResourceException =
+-- | The address provided was invalid. Check the address with your region\'s
+-- carrier, and try again.
+_InvalidAddressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAddressException =
   Core._MatchServiceError
     defaultService
-    "InvalidResourceException"
+    "InvalidAddressException"
 
 -- | The address is either outside the serviceable area for your region, or
 -- an error occurred. Check the address with your region\'s carrier and try
@@ -417,22 +417,13 @@ _UnsupportedAddressException =
     defaultService
     "UnsupportedAddressException"
 
--- | You get this exception if you call @CreateReturnShippingLabel@ and a
--- valid return shipping label already exists. In this case, use
--- @DescribeReturnShippingLabel@ to get the url.
-_ReturnShippingLabelAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReturnShippingLabelAlreadyExistsException =
+-- | The specified resource can\'t be found. Check the information you
+-- provided in your last request, and try again.
+_InvalidResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceException =
   Core._MatchServiceError
     defaultService
-    "ReturnShippingLabelAlreadyExistsException"
-
--- | The provided AWS Key Management Service key lacks the permissions to
--- perform the specified CreateJob or UpdateJob action.
-_KMSRequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSRequestFailedException =
-  Core._MatchServiceError
-    defaultService
-    "KMSRequestFailedException"
+    "InvalidResourceException"
 
 -- | The action can\'t be performed because the job\'s current state doesn\'t
 -- allow that action to be performed.
@@ -451,22 +442,6 @@ _InvalidInputCombinationException =
     defaultService
     "InvalidInputCombinationException"
 
--- | You get this exception when you call @CreateReturnShippingLabel@ more
--- than once when other requests are not completed.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
--- | Your IAM user lacks the necessary Amazon EC2 permissions to perform the
--- attempted action.
-_Ec2RequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_Ec2RequestFailedException =
-  Core._MatchServiceError
-    defaultService
-    "Ec2RequestFailedException"
-
 -- | The @NextToken@ string was altered unexpectedly, and the operation has
 -- stopped. Run the operation without changing the @NextToken@ string, and
 -- try again.
@@ -476,13 +451,29 @@ _InvalidNextTokenException =
     defaultService
     "InvalidNextTokenException"
 
--- | The address provided was invalid. Check the address with your region\'s
--- carrier, and try again.
-_InvalidAddressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAddressException =
+-- | You get this exception when you call @CreateReturnShippingLabel@ more
+-- than once when other requests are not completed.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "InvalidAddressException"
+    "ConflictException"
+
+-- | The provided AWS Key Management Service key lacks the permissions to
+-- perform the specified CreateJob or UpdateJob action.
+_KMSRequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSRequestFailedException =
+  Core._MatchServiceError
+    defaultService
+    "KMSRequestFailedException"
+
+-- | Your IAM user lacks the necessary Amazon EC2 permissions to perform the
+-- attempted action.
+_Ec2RequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_Ec2RequestFailedException =
+  Core._MatchServiceError
+    defaultService
+    "Ec2RequestFailedException"
 
 -- | Job creation failed. Currently, clusters support five nodes. If you have
 -- fewer than five nodes for your cluster and you have more nodes to create
@@ -493,3 +484,12 @@ _ClusterLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ClusterLimitExceededException"
+
+-- | You get this exception if you call @CreateReturnShippingLabel@ and a
+-- valid return shipping label already exists. In this case, use
+-- @DescribeReturnShippingLabel@ to get the url.
+_ReturnShippingLabelAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReturnShippingLabelAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ReturnShippingLabelAlreadyExistsException"

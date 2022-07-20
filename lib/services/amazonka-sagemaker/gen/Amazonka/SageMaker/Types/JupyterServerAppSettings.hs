@@ -28,12 +28,12 @@ import Amazonka.SageMaker.Types.ResourceSpec
 --
 -- /See:/ 'newJupyterServerAppSettings' smart constructor.
 data JupyterServerAppSettings = JupyterServerAppSettings'
-  { -- | The default instance type and the Amazon Resource Name (ARN) of the
-    -- default SageMaker image used by the JupyterServer app.
-    defaultResourceSpec :: Prelude.Maybe ResourceSpec,
-    -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
+  { -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
     -- to the JupyterServerApp.
-    lifecycleConfigArns :: Prelude.Maybe [Prelude.Text]
+    lifecycleConfigArns :: Prelude.Maybe [Prelude.Text],
+    -- | The default instance type and the Amazon Resource Name (ARN) of the
+    -- default SageMaker image used by the JupyterServer app.
+    defaultResourceSpec :: Prelude.Maybe ResourceSpec
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data JupyterServerAppSettings = JupyterServerAppSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultResourceSpec', 'jupyterServerAppSettings_defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the
--- default SageMaker image used by the JupyterServer app.
---
 -- 'lifecycleConfigArns', 'jupyterServerAppSettings_lifecycleConfigArns' - The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
 -- to the JupyterServerApp.
+--
+-- 'defaultResourceSpec', 'jupyterServerAppSettings_defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the
+-- default SageMaker image used by the JupyterServer app.
 newJupyterServerAppSettings ::
   JupyterServerAppSettings
 newJupyterServerAppSettings =
   JupyterServerAppSettings'
-    { defaultResourceSpec =
+    { lifecycleConfigArns =
         Prelude.Nothing,
-      lifecycleConfigArns = Prelude.Nothing
+      defaultResourceSpec = Prelude.Nothing
     }
-
--- | The default instance type and the Amazon Resource Name (ARN) of the
--- default SageMaker image used by the JupyterServer app.
-jupyterServerAppSettings_defaultResourceSpec :: Lens.Lens' JupyterServerAppSettings (Prelude.Maybe ResourceSpec)
-jupyterServerAppSettings_defaultResourceSpec = Lens.lens (\JupyterServerAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@JupyterServerAppSettings' {} a -> s {defaultResourceSpec = a} :: JupyterServerAppSettings)
 
 -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
 -- to the JupyterServerApp.
 jupyterServerAppSettings_lifecycleConfigArns :: Lens.Lens' JupyterServerAppSettings (Prelude.Maybe [Prelude.Text])
 jupyterServerAppSettings_lifecycleConfigArns = Lens.lens (\JupyterServerAppSettings' {lifecycleConfigArns} -> lifecycleConfigArns) (\s@JupyterServerAppSettings' {} a -> s {lifecycleConfigArns = a} :: JupyterServerAppSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The default instance type and the Amazon Resource Name (ARN) of the
+-- default SageMaker image used by the JupyterServer app.
+jupyterServerAppSettings_defaultResourceSpec :: Lens.Lens' JupyterServerAppSettings (Prelude.Maybe ResourceSpec)
+jupyterServerAppSettings_defaultResourceSpec = Lens.lens (\JupyterServerAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@JupyterServerAppSettings' {} a -> s {defaultResourceSpec = a} :: JupyterServerAppSettings)
 
 instance Core.FromJSON JupyterServerAppSettings where
   parseJSON =
@@ -75,29 +75,29 @@ instance Core.FromJSON JupyterServerAppSettings where
       "JupyterServerAppSettings"
       ( \x ->
           JupyterServerAppSettings'
-            Prelude.<$> (x Core..:? "DefaultResourceSpec")
-            Prelude.<*> ( x Core..:? "LifecycleConfigArns"
+            Prelude.<$> ( x Core..:? "LifecycleConfigArns"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "DefaultResourceSpec")
       )
 
 instance Prelude.Hashable JupyterServerAppSettings where
   hashWithSalt _salt JupyterServerAppSettings' {..} =
-    _salt `Prelude.hashWithSalt` defaultResourceSpec
-      `Prelude.hashWithSalt` lifecycleConfigArns
+    _salt `Prelude.hashWithSalt` lifecycleConfigArns
+      `Prelude.hashWithSalt` defaultResourceSpec
 
 instance Prelude.NFData JupyterServerAppSettings where
   rnf JupyterServerAppSettings' {..} =
-    Prelude.rnf defaultResourceSpec
-      `Prelude.seq` Prelude.rnf lifecycleConfigArns
+    Prelude.rnf lifecycleConfigArns
+      `Prelude.seq` Prelude.rnf defaultResourceSpec
 
 instance Core.ToJSON JupyterServerAppSettings where
   toJSON JupyterServerAppSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultResourceSpec" Core..=)
-              Prelude.<$> defaultResourceSpec,
-            ("LifecycleConfigArns" Core..=)
-              Prelude.<$> lifecycleConfigArns
+          [ ("LifecycleConfigArns" Core..=)
+              Prelude.<$> lifecycleConfigArns,
+            ("DefaultResourceSpec" Core..=)
+              Prelude.<$> defaultResourceSpec
           ]
       )

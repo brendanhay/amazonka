@@ -32,8 +32,8 @@ module Amazonka.Config.GetComplianceDetailsByConfigRule
     newGetComplianceDetailsByConfigRule,
 
     -- * Request Lenses
-    getComplianceDetailsByConfigRule_complianceTypes,
     getComplianceDetailsByConfigRule_nextToken,
+    getComplianceDetailsByConfigRule_complianceTypes,
     getComplianceDetailsByConfigRule_limit,
     getComplianceDetailsByConfigRule_configRuleName,
 
@@ -59,14 +59,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetComplianceDetailsByConfigRule' smart constructor.
 data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
-  { -- | Filters the results by compliance.
+  { -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
     -- @NOT_APPLICABLE@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
-    -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
     -- specify 0, Config uses the default.
@@ -84,13 +84,13 @@ data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getComplianceDetailsByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+--
 -- 'complianceTypes', 'getComplianceDetailsByConfigRule_complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @NOT_APPLICABLE@.
---
--- 'nextToken', 'getComplianceDetailsByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
 --
 -- 'limit', 'getComplianceDetailsByConfigRule_limit' - The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
@@ -103,12 +103,17 @@ newGetComplianceDetailsByConfigRule ::
   GetComplianceDetailsByConfigRule
 newGetComplianceDetailsByConfigRule pConfigRuleName_ =
   GetComplianceDetailsByConfigRule'
-    { complianceTypes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      complianceTypes = Prelude.Nothing,
       limit = Prelude.Nothing,
       configRuleName = pConfigRuleName_
     }
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+getComplianceDetailsByConfigRule_nextToken :: Lens.Lens' GetComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Text)
+getComplianceDetailsByConfigRule_nextToken = Lens.lens (\GetComplianceDetailsByConfigRule' {nextToken} -> nextToken) (\s@GetComplianceDetailsByConfigRule' {} a -> s {nextToken = a} :: GetComplianceDetailsByConfigRule)
 
 -- | Filters the results by compliance.
 --
@@ -116,11 +121,6 @@ newGetComplianceDetailsByConfigRule pConfigRuleName_ =
 -- @NOT_APPLICABLE@.
 getComplianceDetailsByConfigRule_complianceTypes :: Lens.Lens' GetComplianceDetailsByConfigRule (Prelude.Maybe [ComplianceType])
 getComplianceDetailsByConfigRule_complianceTypes = Lens.lens (\GetComplianceDetailsByConfigRule' {complianceTypes} -> complianceTypes) (\s@GetComplianceDetailsByConfigRule' {} a -> s {complianceTypes = a} :: GetComplianceDetailsByConfigRule) Prelude.. Lens.mapping Lens.coerced
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-getComplianceDetailsByConfigRule_nextToken :: Lens.Lens' GetComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Text)
-getComplianceDetailsByConfigRule_nextToken = Lens.lens (\GetComplianceDetailsByConfigRule' {nextToken} -> nextToken) (\s@GetComplianceDetailsByConfigRule' {} a -> s {nextToken = a} :: GetComplianceDetailsByConfigRule)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
@@ -183,8 +183,8 @@ instance
   hashWithSalt
     _salt
     GetComplianceDetailsByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` complianceTypes
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` complianceTypes
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` configRuleName
 
@@ -193,8 +193,8 @@ instance
     GetComplianceDetailsByConfigRule
   where
   rnf GetComplianceDetailsByConfigRule' {..} =
-    Prelude.rnf complianceTypes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf complianceTypes
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf configRuleName
 
@@ -220,9 +220,9 @@ instance Core.ToJSON GetComplianceDetailsByConfigRule where
   toJSON GetComplianceDetailsByConfigRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ComplianceTypes" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ComplianceTypes" Core..=)
               Prelude.<$> complianceTypes,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ("ConfigRuleName" Core..= configRuleName)

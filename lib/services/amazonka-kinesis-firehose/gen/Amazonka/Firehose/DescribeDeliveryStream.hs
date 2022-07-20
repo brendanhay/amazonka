@@ -37,8 +37,8 @@ module Amazonka.Firehose.DescribeDeliveryStream
     newDescribeDeliveryStream,
 
     -- * Request Lenses
-    describeDeliveryStream_exclusiveStartDestinationId,
     describeDeliveryStream_limit,
+    describeDeliveryStream_exclusiveStartDestinationId,
     describeDeliveryStream_deliveryStreamName,
 
     -- * Destructuring the Response
@@ -60,13 +60,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
-  { -- | The ID of the destination to start returning the destination
+  { -- | The limit on the number of destinations to return. You can have one
+    -- destination per delivery stream.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the destination to start returning the destination
     -- information. Kinesis Data Firehose supports one destination per delivery
     -- stream.
     exclusiveStartDestinationId :: Prelude.Maybe Prelude.Text,
-    -- | The limit on the number of destinations to return. You can have one
-    -- destination per delivery stream.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the delivery stream.
     deliveryStreamName :: Prelude.Text
   }
@@ -80,12 +80,12 @@ data DescribeDeliveryStream = DescribeDeliveryStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'describeDeliveryStream_limit' - The limit on the number of destinations to return. You can have one
+-- destination per delivery stream.
+--
 -- 'exclusiveStartDestinationId', 'describeDeliveryStream_exclusiveStartDestinationId' - The ID of the destination to start returning the destination
 -- information. Kinesis Data Firehose supports one destination per delivery
 -- stream.
---
--- 'limit', 'describeDeliveryStream_limit' - The limit on the number of destinations to return. You can have one
--- destination per delivery stream.
 --
 -- 'deliveryStreamName', 'describeDeliveryStream_deliveryStreamName' - The name of the delivery stream.
 newDescribeDeliveryStream ::
@@ -94,22 +94,21 @@ newDescribeDeliveryStream ::
   DescribeDeliveryStream
 newDescribeDeliveryStream pDeliveryStreamName_ =
   DescribeDeliveryStream'
-    { exclusiveStartDestinationId =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      exclusiveStartDestinationId = Prelude.Nothing,
       deliveryStreamName = pDeliveryStreamName_
     }
+
+-- | The limit on the number of destinations to return. You can have one
+-- destination per delivery stream.
+describeDeliveryStream_limit :: Lens.Lens' DescribeDeliveryStream (Prelude.Maybe Prelude.Natural)
+describeDeliveryStream_limit = Lens.lens (\DescribeDeliveryStream' {limit} -> limit) (\s@DescribeDeliveryStream' {} a -> s {limit = a} :: DescribeDeliveryStream)
 
 -- | The ID of the destination to start returning the destination
 -- information. Kinesis Data Firehose supports one destination per delivery
 -- stream.
 describeDeliveryStream_exclusiveStartDestinationId :: Lens.Lens' DescribeDeliveryStream (Prelude.Maybe Prelude.Text)
 describeDeliveryStream_exclusiveStartDestinationId = Lens.lens (\DescribeDeliveryStream' {exclusiveStartDestinationId} -> exclusiveStartDestinationId) (\s@DescribeDeliveryStream' {} a -> s {exclusiveStartDestinationId = a} :: DescribeDeliveryStream)
-
--- | The limit on the number of destinations to return. You can have one
--- destination per delivery stream.
-describeDeliveryStream_limit :: Lens.Lens' DescribeDeliveryStream (Prelude.Maybe Prelude.Natural)
-describeDeliveryStream_limit = Lens.lens (\DescribeDeliveryStream' {limit} -> limit) (\s@DescribeDeliveryStream' {} a -> s {limit = a} :: DescribeDeliveryStream)
 
 -- | The name of the delivery stream.
 describeDeliveryStream_deliveryStreamName :: Lens.Lens' DescribeDeliveryStream Prelude.Text
@@ -130,15 +129,14 @@ instance Core.AWSRequest DescribeDeliveryStream where
 
 instance Prelude.Hashable DescribeDeliveryStream where
   hashWithSalt _salt DescribeDeliveryStream' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` exclusiveStartDestinationId
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` deliveryStreamName
 
 instance Prelude.NFData DescribeDeliveryStream where
   rnf DescribeDeliveryStream' {..} =
-    Prelude.rnf exclusiveStartDestinationId
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf exclusiveStartDestinationId
       `Prelude.seq` Prelude.rnf deliveryStreamName
 
 instance Core.ToHeaders DescribeDeliveryStream where
@@ -160,9 +158,9 @@ instance Core.ToJSON DescribeDeliveryStream where
   toJSON DescribeDeliveryStream' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExclusiveStartDestinationId" Core..=)
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("ExclusiveStartDestinationId" Core..=)
               Prelude.<$> exclusiveStartDestinationId,
-            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName)
           ]

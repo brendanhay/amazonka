@@ -36,8 +36,8 @@ module Amazonka.MachineLearning.DescribeTags
 
     -- * Response Lenses
     describeTagsResponse_resourceId,
-    describeTagsResponse_resourceType,
     describeTagsResponse_tags,
+    describeTagsResponse_resourceType,
     describeTagsResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest DescribeTags where
       ( \s h x ->
           DescribeTagsResponse'
             Prelude.<$> (x Core..?> "ResourceId")
-            Prelude.<*> (x Core..?> "ResourceType")
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ResourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,10 +148,10 @@ instance Core.ToQuery DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse'
   { -- | The ID of the tagged ML object.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the tagged ML object.
-    resourceType :: Prelude.Maybe TaggableResourceType,
     -- | A list of tags associated with the ML object.
     tags :: Prelude.Maybe [Tag],
+    -- | The type of the tagged ML object.
+    resourceType :: Prelude.Maybe TaggableResourceType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,9 +167,9 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- 'resourceId', 'describeTagsResponse_resourceId' - The ID of the tagged ML object.
 --
--- 'resourceType', 'describeTagsResponse_resourceType' - The type of the tagged ML object.
---
 -- 'tags', 'describeTagsResponse_tags' - A list of tags associated with the ML object.
+--
+-- 'resourceType', 'describeTagsResponse_resourceType' - The type of the tagged ML object.
 --
 -- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
 newDescribeTagsResponse ::
@@ -179,8 +179,8 @@ newDescribeTagsResponse ::
 newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
     { resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
       tags = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -188,13 +188,13 @@ newDescribeTagsResponse pHttpStatus_ =
 describeTagsResponse_resourceId :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe Prelude.Text)
 describeTagsResponse_resourceId = Lens.lens (\DescribeTagsResponse' {resourceId} -> resourceId) (\s@DescribeTagsResponse' {} a -> s {resourceId = a} :: DescribeTagsResponse)
 
--- | The type of the tagged ML object.
-describeTagsResponse_resourceType :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe TaggableResourceType)
-describeTagsResponse_resourceType = Lens.lens (\DescribeTagsResponse' {resourceType} -> resourceType) (\s@DescribeTagsResponse' {} a -> s {resourceType = a} :: DescribeTagsResponse)
-
 -- | A list of tags associated with the ML object.
 describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [Tag])
 describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of the tagged ML object.
+describeTagsResponse_resourceType :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe TaggableResourceType)
+describeTagsResponse_resourceType = Lens.lens (\DescribeTagsResponse' {resourceType} -> resourceType) (\s@DescribeTagsResponse' {} a -> s {resourceType = a} :: DescribeTagsResponse)
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
@@ -203,6 +203,6 @@ describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus}
 instance Prelude.NFData DescribeTagsResponse where
   rnf DescribeTagsResponse' {..} =
     Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf httpStatus

@@ -26,23 +26,23 @@ module Amazonka.ConnectParticipant
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** InternalServerException
-    _InternalServerException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -50,11 +50,17 @@ module Amazonka.ConnectParticipant
     -- * Operations
     -- $operations
 
-    -- ** SendMessage
-    SendMessage (SendMessage'),
-    newSendMessage,
-    SendMessageResponse (SendMessageResponse'),
-    newSendMessageResponse,
+    -- ** CompleteAttachmentUpload
+    CompleteAttachmentUpload (CompleteAttachmentUpload'),
+    newCompleteAttachmentUpload,
+    CompleteAttachmentUploadResponse (CompleteAttachmentUploadResponse'),
+    newCompleteAttachmentUploadResponse,
+
+    -- ** CreateParticipantConnection
+    CreateParticipantConnection (CreateParticipantConnection'),
+    newCreateParticipantConnection,
+    CreateParticipantConnectionResponse (CreateParticipantConnectionResponse'),
+    newCreateParticipantConnectionResponse,
 
     -- ** DisconnectParticipant
     DisconnectParticipant (DisconnectParticipant'),
@@ -62,29 +68,11 @@ module Amazonka.ConnectParticipant
     DisconnectParticipantResponse (DisconnectParticipantResponse'),
     newDisconnectParticipantResponse,
 
-    -- ** CompleteAttachmentUpload
-    CompleteAttachmentUpload (CompleteAttachmentUpload'),
-    newCompleteAttachmentUpload,
-    CompleteAttachmentUploadResponse (CompleteAttachmentUploadResponse'),
-    newCompleteAttachmentUploadResponse,
-
     -- ** GetAttachment
     GetAttachment (GetAttachment'),
     newGetAttachment,
     GetAttachmentResponse (GetAttachmentResponse'),
     newGetAttachmentResponse,
-
-    -- ** StartAttachmentUpload
-    StartAttachmentUpload (StartAttachmentUpload'),
-    newStartAttachmentUpload,
-    StartAttachmentUploadResponse (StartAttachmentUploadResponse'),
-    newStartAttachmentUploadResponse,
-
-    -- ** CreateParticipantConnection
-    CreateParticipantConnection (CreateParticipantConnection'),
-    newCreateParticipantConnection,
-    CreateParticipantConnectionResponse (CreateParticipantConnectionResponse'),
-    newCreateParticipantConnectionResponse,
 
     -- ** GetTranscript
     GetTranscript (GetTranscript'),
@@ -97,6 +85,18 @@ module Amazonka.ConnectParticipant
     newSendEvent,
     SendEventResponse (SendEventResponse'),
     newSendEventResponse,
+
+    -- ** SendMessage
+    SendMessage (SendMessage'),
+    newSendMessage,
+    SendMessageResponse (SendMessageResponse'),
+    newSendMessageResponse,
+
+    -- ** StartAttachmentUpload
+    StartAttachmentUpload (StartAttachmentUpload'),
+    newStartAttachmentUpload,
+    StartAttachmentUploadResponse (StartAttachmentUploadResponse'),
+    newStartAttachmentUploadResponse,
 
     -- * Types
 

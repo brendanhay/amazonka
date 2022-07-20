@@ -32,9 +32,9 @@ module Amazonka.NetworkFirewall.CreateFirewallPolicy
     newCreateFirewallPolicy,
 
     -- * Request Lenses
+    createFirewallPolicy_tags,
     createFirewallPolicy_description,
     createFirewallPolicy_dryRun,
-    createFirewallPolicy_tags,
     createFirewallPolicy_firewallPolicyName,
     createFirewallPolicy_firewallPolicy,
 
@@ -58,7 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFirewallPolicy' smart constructor.
 data CreateFirewallPolicy = CreateFirewallPolicy'
-  { -- | A description of the firewall policy.
+  { -- | The key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | A description of the firewall policy.
     description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether you want Network Firewall to just check the validity
     -- of the request, rather than run the request.
@@ -74,8 +76,6 @@ data CreateFirewallPolicy = CreateFirewallPolicy'
     -- If set to @FALSE@, Network Firewall makes the requested changes to your
     -- resources.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The descriptive name of the firewall policy. You can\'t change the name
     -- of a firewall policy after you create it.
     firewallPolicyName :: Prelude.Text,
@@ -91,6 +91,8 @@ data CreateFirewallPolicy = CreateFirewallPolicy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createFirewallPolicy_tags' - The key:value pairs to associate with the resource.
 --
 -- 'description', 'createFirewallPolicy_description' - A description of the firewall policy.
 --
@@ -108,8 +110,6 @@ data CreateFirewallPolicy = CreateFirewallPolicy'
 -- If set to @FALSE@, Network Firewall makes the requested changes to your
 -- resources.
 --
--- 'tags', 'createFirewallPolicy_tags' - The key:value pairs to associate with the resource.
---
 -- 'firewallPolicyName', 'createFirewallPolicy_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
 --
@@ -124,13 +124,16 @@ newCreateFirewallPolicy
   pFirewallPolicyName_
   pFirewallPolicy_ =
     CreateFirewallPolicy'
-      { description =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         dryRun = Prelude.Nothing,
-        tags = Prelude.Nothing,
         firewallPolicyName = pFirewallPolicyName_,
         firewallPolicy = pFirewallPolicy_
       }
+
+-- | The key:value pairs to associate with the resource.
+createFirewallPolicy_tags :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe (Prelude.NonEmpty Tag))
+createFirewallPolicy_tags = Lens.lens (\CreateFirewallPolicy' {tags} -> tags) (\s@CreateFirewallPolicy' {} a -> s {tags = a} :: CreateFirewallPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the firewall policy.
 createFirewallPolicy_description :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe Prelude.Text)
@@ -151,10 +154,6 @@ createFirewallPolicy_description = Lens.lens (\CreateFirewallPolicy' {descriptio
 -- resources.
 createFirewallPolicy_dryRun :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe Prelude.Bool)
 createFirewallPolicy_dryRun = Lens.lens (\CreateFirewallPolicy' {dryRun} -> dryRun) (\s@CreateFirewallPolicy' {} a -> s {dryRun = a} :: CreateFirewallPolicy)
-
--- | The key:value pairs to associate with the resource.
-createFirewallPolicy_tags :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe (Prelude.NonEmpty Tag))
-createFirewallPolicy_tags = Lens.lens (\CreateFirewallPolicy' {tags} -> tags) (\s@CreateFirewallPolicy' {} a -> s {tags = a} :: CreateFirewallPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
@@ -181,17 +180,17 @@ instance Core.AWSRequest CreateFirewallPolicy where
 
 instance Prelude.Hashable CreateFirewallPolicy where
   hashWithSalt _salt CreateFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` firewallPolicyName
       `Prelude.hashWithSalt` firewallPolicy
 
 instance Prelude.NFData CreateFirewallPolicy where
   rnf CreateFirewallPolicy' {..} =
-    Prelude.rnf description
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf firewallPolicyName
       `Prelude.seq` Prelude.rnf firewallPolicy
 
@@ -214,9 +213,9 @@ instance Core.ToJSON CreateFirewallPolicy where
   toJSON CreateFirewallPolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("FirewallPolicyName" Core..= firewallPolicyName),
             Prelude.Just

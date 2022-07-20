@@ -43,8 +43,8 @@ module Amazonka.GameLift.ListBuilds
     newListBuilds,
 
     -- * Request Lenses
-    listBuilds_status,
     listBuilds_nextToken,
+    listBuilds_status,
     listBuilds_limit,
 
     -- * Destructuring the Response
@@ -52,8 +52,8 @@ module Amazonka.GameLift.ListBuilds
     newListBuildsResponse,
 
     -- * Response Lenses
-    listBuildsResponse_builds,
     listBuildsResponse_nextToken,
+    listBuildsResponse_builds,
     listBuildsResponse_httpStatus,
   )
 where
@@ -69,7 +69,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-  { -- | Build status to filter results by. To retrieve all builds, leave this
+  { -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Build status to filter results by. To retrieve all builds, leave this
     -- parameter empty.
     --
     -- Possible build statuses include the following:
@@ -85,10 +89,6 @@ data ListBuilds = ListBuilds'
     -- -   __FAILED__ -- The game build upload failed. You cannot create new
     --     fleets for this build.
     status :: Prelude.Maybe BuildStatus,
-    -- | A token that indicates the start of the next sequential page of results.
-    -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural
@@ -102,6 +102,10 @@ data ListBuilds = ListBuilds'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listBuilds_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
 --
 -- 'status', 'listBuilds_status' - Build status to filter results by. To retrieve all builds, leave this
 -- parameter empty.
@@ -119,20 +123,22 @@ data ListBuilds = ListBuilds'
 -- -   __FAILED__ -- The game build upload failed. You cannot create new
 --     fleets for this build.
 --
--- 'nextToken', 'listBuilds_nextToken' - A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
---
 -- 'limit', 'listBuilds_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 newListBuilds ::
   ListBuilds
 newListBuilds =
   ListBuilds'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
       limit = Prelude.Nothing
     }
+
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+listBuilds_nextToken :: Lens.Lens' ListBuilds (Prelude.Maybe Prelude.Text)
+listBuilds_nextToken = Lens.lens (\ListBuilds' {nextToken} -> nextToken) (\s@ListBuilds' {} a -> s {nextToken = a} :: ListBuilds)
 
 -- | Build status to filter results by. To retrieve all builds, leave this
 -- parameter empty.
@@ -151,12 +157,6 @@ newListBuilds =
 --     fleets for this build.
 listBuilds_status :: Lens.Lens' ListBuilds (Prelude.Maybe BuildStatus)
 listBuilds_status = Lens.lens (\ListBuilds' {status} -> status) (\s@ListBuilds' {} a -> s {status = a} :: ListBuilds)
-
--- | A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
-listBuilds_nextToken :: Lens.Lens' ListBuilds (Prelude.Maybe Prelude.Text)
-listBuilds_nextToken = Lens.lens (\ListBuilds' {nextToken} -> nextToken) (\s@ListBuilds' {} a -> s {nextToken = a} :: ListBuilds)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -189,21 +189,21 @@ instance Core.AWSRequest ListBuilds where
     Response.receiveJSON
       ( \s h x ->
           ListBuildsResponse'
-            Prelude.<$> (x Core..?> "Builds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Builds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBuilds where
   hashWithSalt _salt ListBuilds' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData ListBuilds where
   rnf ListBuilds' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders ListBuilds where
@@ -223,8 +223,8 @@ instance Core.ToJSON ListBuilds where
   toJSON ListBuilds' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Status" Core..=) Prelude.<$> status,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -239,12 +239,12 @@ instance Core.ToQuery ListBuilds where
 --
 -- /See:/ 'newListBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-  { -- | A collection of build resources that match the request.
-    builds :: Prelude.Maybe [Build],
-    -- | A token that indicates where to resume retrieving results on the next
+  { -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A collection of build resources that match the request.
+    builds :: Prelude.Maybe [Build],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -258,11 +258,11 @@ data ListBuildsResponse = ListBuildsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'builds', 'listBuildsResponse_builds' - A collection of build resources that match the request.
---
 -- 'nextToken', 'listBuildsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
+--
+-- 'builds', 'listBuildsResponse_builds' - A collection of build resources that match the request.
 --
 -- 'httpStatus', 'listBuildsResponse_httpStatus' - The response's http status code.
 newListBuildsResponse ::
@@ -271,14 +271,10 @@ newListBuildsResponse ::
   ListBuildsResponse
 newListBuildsResponse pHttpStatus_ =
   ListBuildsResponse'
-    { builds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      builds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A collection of build resources that match the request.
-listBuildsResponse_builds :: Lens.Lens' ListBuildsResponse (Prelude.Maybe [Build])
-listBuildsResponse_builds = Lens.lens (\ListBuildsResponse' {builds} -> builds) (\s@ListBuildsResponse' {} a -> s {builds = a} :: ListBuildsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
@@ -286,12 +282,16 @@ listBuildsResponse_builds = Lens.lens (\ListBuildsResponse' {builds} -> builds) 
 listBuildsResponse_nextToken :: Lens.Lens' ListBuildsResponse (Prelude.Maybe Prelude.Text)
 listBuildsResponse_nextToken = Lens.lens (\ListBuildsResponse' {nextToken} -> nextToken) (\s@ListBuildsResponse' {} a -> s {nextToken = a} :: ListBuildsResponse)
 
+-- | A collection of build resources that match the request.
+listBuildsResponse_builds :: Lens.Lens' ListBuildsResponse (Prelude.Maybe [Build])
+listBuildsResponse_builds = Lens.lens (\ListBuildsResponse' {builds} -> builds) (\s@ListBuildsResponse' {} a -> s {builds = a} :: ListBuildsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listBuildsResponse_httpStatus :: Lens.Lens' ListBuildsResponse Prelude.Int
 listBuildsResponse_httpStatus = Lens.lens (\ListBuildsResponse' {httpStatus} -> httpStatus) (\s@ListBuildsResponse' {} a -> s {httpStatus = a} :: ListBuildsResponse)
 
 instance Prelude.NFData ListBuildsResponse where
   rnf ListBuildsResponse' {..} =
-    Prelude.rnf builds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf builds
       `Prelude.seq` Prelude.rnf httpStatus

@@ -17,23 +17,23 @@ module Amazonka.KinesisVideoMedia
     -- * Errors
     -- $errors
 
-    -- ** ConnectionLimitExceededException
-    _ConnectionLimitExceededException,
-
     -- ** InvalidArgumentException
     _InvalidArgumentException,
-
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
 
     -- ** ClientLimitExceededException
     _ClientLimitExceededException,
 
-    -- ** InvalidEndpointException
-    _InvalidEndpointException,
+    -- ** ConnectionLimitExceededException
+    _ConnectionLimitExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** InvalidEndpointException
+    _InvalidEndpointException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
 
     -- * Waiters
     -- $waiters

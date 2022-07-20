@@ -33,15 +33,15 @@ data AwsEcsClusterDetails = AwsEcsClusterDetails'
   { -- | The setting to use to create the cluster. Specifically used to configure
     -- whether to enable CloudWatch Container Insights for the cluster.
     clusterSettings :: Prelude.Maybe [AwsEcsClusterClusterSettingsDetails],
-    -- | The default capacity provider strategy for the cluster. The default
-    -- capacity provider strategy is used when services or tasks are run
-    -- without a specified launch type or capacity provider strategy.
-    defaultCapacityProviderStrategy :: Prelude.Maybe [AwsEcsClusterDefaultCapacityProviderStrategyDetails],
     -- | The run command configuration for the cluster.
     configuration :: Prelude.Maybe AwsEcsClusterConfigurationDetails,
     -- | The short name of one or more capacity providers to associate with the
     -- cluster.
-    capacityProviders :: Prelude.Maybe [Prelude.Text]
+    capacityProviders :: Prelude.Maybe [Prelude.Text],
+    -- | The default capacity provider strategy for the cluster. The default
+    -- capacity provider strategy is used when services or tasks are run
+    -- without a specified launch type or capacity provider strategy.
+    defaultCapacityProviderStrategy :: Prelude.Maybe [AwsEcsClusterDefaultCapacityProviderStrategyDetails]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,35 +56,29 @@ data AwsEcsClusterDetails = AwsEcsClusterDetails'
 -- 'clusterSettings', 'awsEcsClusterDetails_clusterSettings' - The setting to use to create the cluster. Specifically used to configure
 -- whether to enable CloudWatch Container Insights for the cluster.
 --
--- 'defaultCapacityProviderStrategy', 'awsEcsClusterDetails_defaultCapacityProviderStrategy' - The default capacity provider strategy for the cluster. The default
--- capacity provider strategy is used when services or tasks are run
--- without a specified launch type or capacity provider strategy.
---
 -- 'configuration', 'awsEcsClusterDetails_configuration' - The run command configuration for the cluster.
 --
 -- 'capacityProviders', 'awsEcsClusterDetails_capacityProviders' - The short name of one or more capacity providers to associate with the
 -- cluster.
+--
+-- 'defaultCapacityProviderStrategy', 'awsEcsClusterDetails_defaultCapacityProviderStrategy' - The default capacity provider strategy for the cluster. The default
+-- capacity provider strategy is used when services or tasks are run
+-- without a specified launch type or capacity provider strategy.
 newAwsEcsClusterDetails ::
   AwsEcsClusterDetails
 newAwsEcsClusterDetails =
   AwsEcsClusterDetails'
     { clusterSettings =
         Prelude.Nothing,
-      defaultCapacityProviderStrategy = Prelude.Nothing,
       configuration = Prelude.Nothing,
-      capacityProviders = Prelude.Nothing
+      capacityProviders = Prelude.Nothing,
+      defaultCapacityProviderStrategy = Prelude.Nothing
     }
 
 -- | The setting to use to create the cluster. Specifically used to configure
 -- whether to enable CloudWatch Container Insights for the cluster.
 awsEcsClusterDetails_clusterSettings :: Lens.Lens' AwsEcsClusterDetails (Prelude.Maybe [AwsEcsClusterClusterSettingsDetails])
 awsEcsClusterDetails_clusterSettings = Lens.lens (\AwsEcsClusterDetails' {clusterSettings} -> clusterSettings) (\s@AwsEcsClusterDetails' {} a -> s {clusterSettings = a} :: AwsEcsClusterDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The default capacity provider strategy for the cluster. The default
--- capacity provider strategy is used when services or tasks are run
--- without a specified launch type or capacity provider strategy.
-awsEcsClusterDetails_defaultCapacityProviderStrategy :: Lens.Lens' AwsEcsClusterDetails (Prelude.Maybe [AwsEcsClusterDefaultCapacityProviderStrategyDetails])
-awsEcsClusterDetails_defaultCapacityProviderStrategy = Lens.lens (\AwsEcsClusterDetails' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@AwsEcsClusterDetails' {} a -> s {defaultCapacityProviderStrategy = a} :: AwsEcsClusterDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The run command configuration for the cluster.
 awsEcsClusterDetails_configuration :: Lens.Lens' AwsEcsClusterDetails (Prelude.Maybe AwsEcsClusterConfigurationDetails)
@@ -95,6 +89,12 @@ awsEcsClusterDetails_configuration = Lens.lens (\AwsEcsClusterDetails' {configur
 awsEcsClusterDetails_capacityProviders :: Lens.Lens' AwsEcsClusterDetails (Prelude.Maybe [Prelude.Text])
 awsEcsClusterDetails_capacityProviders = Lens.lens (\AwsEcsClusterDetails' {capacityProviders} -> capacityProviders) (\s@AwsEcsClusterDetails' {} a -> s {capacityProviders = a} :: AwsEcsClusterDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | The default capacity provider strategy for the cluster. The default
+-- capacity provider strategy is used when services or tasks are run
+-- without a specified launch type or capacity provider strategy.
+awsEcsClusterDetails_defaultCapacityProviderStrategy :: Lens.Lens' AwsEcsClusterDetails (Prelude.Maybe [AwsEcsClusterDefaultCapacityProviderStrategyDetails])
+awsEcsClusterDetails_defaultCapacityProviderStrategy = Lens.lens (\AwsEcsClusterDetails' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@AwsEcsClusterDetails' {} a -> s {defaultCapacityProviderStrategy = a} :: AwsEcsClusterDetails) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON AwsEcsClusterDetails where
   parseJSON =
     Core.withObject
@@ -104,11 +104,11 @@ instance Core.FromJSON AwsEcsClusterDetails where
             Prelude.<$> ( x Core..:? "ClusterSettings"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "DefaultCapacityProviderStrategy"
-                            Core..!= Prelude.mempty
-                        )
             Prelude.<*> (x Core..:? "Configuration")
             Prelude.<*> ( x Core..:? "CapacityProviders"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "DefaultCapacityProviderStrategy"
                             Core..!= Prelude.mempty
                         )
       )
@@ -116,16 +116,16 @@ instance Core.FromJSON AwsEcsClusterDetails where
 instance Prelude.Hashable AwsEcsClusterDetails where
   hashWithSalt _salt AwsEcsClusterDetails' {..} =
     _salt `Prelude.hashWithSalt` clusterSettings
-      `Prelude.hashWithSalt` defaultCapacityProviderStrategy
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` capacityProviders
+      `Prelude.hashWithSalt` defaultCapacityProviderStrategy
 
 instance Prelude.NFData AwsEcsClusterDetails where
   rnf AwsEcsClusterDetails' {..} =
     Prelude.rnf clusterSettings
-      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf capacityProviders
+      `Prelude.seq` Prelude.rnf defaultCapacityProviderStrategy
 
 instance Core.ToJSON AwsEcsClusterDetails where
   toJSON AwsEcsClusterDetails' {..} =
@@ -133,10 +133,10 @@ instance Core.ToJSON AwsEcsClusterDetails where
       ( Prelude.catMaybes
           [ ("ClusterSettings" Core..=)
               Prelude.<$> clusterSettings,
-            ("DefaultCapacityProviderStrategy" Core..=)
-              Prelude.<$> defaultCapacityProviderStrategy,
             ("Configuration" Core..=) Prelude.<$> configuration,
             ("CapacityProviders" Core..=)
-              Prelude.<$> capacityProviders
+              Prelude.<$> capacityProviders,
+            ("DefaultCapacityProviderStrategy" Core..=)
+              Prelude.<$> defaultCapacityProviderStrategy
           ]
       )

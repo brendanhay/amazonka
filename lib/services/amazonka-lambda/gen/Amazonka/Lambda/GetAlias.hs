@@ -36,8 +36,8 @@ module Amazonka.Lambda.GetAlias
     newAliasConfiguration,
 
     -- * Response Lenses
-    aliasConfiguration_routingConfig,
     aliasConfiguration_name,
+    aliasConfiguration_routingConfig,
     aliasConfiguration_functionVersion,
     aliasConfiguration_aliasArn,
     aliasConfiguration_description,

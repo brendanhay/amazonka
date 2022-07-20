@@ -134,12 +134,7 @@ instance Core.ToHeaders CreateSmsTemplate where
 
 instance Core.ToJSON CreateSmsTemplate where
   toJSON CreateSmsTemplate' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("SMSTemplateRequest" Core..= sMSTemplateRequest)
-          ]
-      )
+    Core.toJSON sMSTemplateRequest
 
 instance Core.ToPath CreateSmsTemplate where
   toPath CreateSmsTemplate' {..} =

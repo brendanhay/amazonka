@@ -17,12 +17,12 @@ module Amazonka.SnowDeviceManagement.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * AttachmentStatus
     AttachmentStatus (..),
@@ -48,17 +48,17 @@ module Amazonka.SnowDeviceManagement.Types
     -- * Capacity
     Capacity (..),
     newCapacity,
-    capacity_used,
+    capacity_available,
     capacity_name,
     capacity_total,
+    capacity_used,
     capacity_unit,
-    capacity_available,
 
     -- * Command
     Command (..),
     newCommand,
-    command_unlock,
     command_reboot,
+    command_unlock,
 
     -- * CpuOptions
     CpuOptions (..),
@@ -69,43 +69,43 @@ module Amazonka.SnowDeviceManagement.Types
     -- * DeviceSummary
     DeviceSummary (..),
     newDeviceSummary,
-    deviceSummary_associatedWithJob,
-    deviceSummary_managedDeviceId,
-    deviceSummary_managedDeviceArn,
     deviceSummary_tags,
+    deviceSummary_associatedWithJob,
+    deviceSummary_managedDeviceArn,
+    deviceSummary_managedDeviceId,
 
     -- * EbsInstanceBlockDevice
     EbsInstanceBlockDevice (..),
     newEbsInstanceBlockDevice,
     ebsInstanceBlockDevice_deleteOnTermination,
     ebsInstanceBlockDevice_status,
-    ebsInstanceBlockDevice_volumeId,
     ebsInstanceBlockDevice_attachTime,
+    ebsInstanceBlockDevice_volumeId,
 
     -- * ExecutionSummary
     ExecutionSummary (..),
     newExecutionSummary,
-    executionSummary_executionId,
-    executionSummary_state,
     executionSummary_taskId,
+    executionSummary_state,
+    executionSummary_executionId,
     executionSummary_managedDeviceId,
 
     -- * Instance
     Instance (..),
     newInstance,
-    instance_instanceId,
-    instance_state,
-    instance_securityGroups,
-    instance_createdAt,
-    instance_cpuOptions,
-    instance_rootDeviceName,
-    instance_instanceType,
-    instance_imageId,
-    instance_privateIpAddress,
-    instance_updatedAt,
     instance_blockDeviceMappings,
-    instance_publicIpAddress,
     instance_amiLaunchIndex,
+    instance_state,
+    instance_instanceType,
+    instance_instanceId,
+    instance_publicIpAddress,
+    instance_securityGroups,
+    instance_privateIpAddress,
+    instance_cpuOptions,
+    instance_createdAt,
+    instance_imageId,
+    instance_updatedAt,
+    instance_rootDeviceName,
 
     -- * InstanceBlockDeviceMapping
     InstanceBlockDeviceMapping (..),
@@ -128,13 +128,13 @@ module Amazonka.SnowDeviceManagement.Types
     -- * PhysicalNetworkInterface
     PhysicalNetworkInterface (..),
     newPhysicalNetworkInterface,
-    physicalNetworkInterface_ipAddress,
-    physicalNetworkInterface_macAddress,
     physicalNetworkInterface_ipAddressAssignment,
-    physicalNetworkInterface_defaultGateway,
-    physicalNetworkInterface_physicalNetworkInterfaceId,
     physicalNetworkInterface_netmask,
     physicalNetworkInterface_physicalConnectorType,
+    physicalNetworkInterface_macAddress,
+    physicalNetworkInterface_defaultGateway,
+    physicalNetworkInterface_physicalNetworkInterfaceId,
+    physicalNetworkInterface_ipAddress,
 
     -- * Reboot
     Reboot (..),
@@ -150,22 +150,22 @@ module Amazonka.SnowDeviceManagement.Types
     -- * SecurityGroupIdentifier
     SecurityGroupIdentifier (..),
     newSecurityGroupIdentifier,
-    securityGroupIdentifier_groupId,
     securityGroupIdentifier_groupName,
+    securityGroupIdentifier_groupId,
 
     -- * SoftwareInformation
     SoftwareInformation (..),
     newSoftwareInformation,
+    softwareInformation_installingVersion,
     softwareInformation_installedVersion,
     softwareInformation_installState,
-    softwareInformation_installingVersion,
 
     -- * TaskSummary
     TaskSummary (..),
     newTaskSummary,
-    taskSummary_state,
-    taskSummary_taskArn,
     taskSummary_tags,
+    taskSummary_taskArn,
+    taskSummary_state,
     taskSummary_taskId,
 
     -- * Unlock
@@ -231,35 +231,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -268,22 +241,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input fails to satisfy the constraints specified by an Amazon Web
--- Services service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | You don\'t have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -293,6 +284,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | An unexpected error occurred while processing the request.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
 -- | The request would cause a service quota to be exceeded.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceQuotaExceededException =
@@ -300,6 +299,14 @@ _ServiceQuotaExceededException =
     defaultService
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
+
+-- | The request references a resource that doesn\'t exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -309,18 +316,11 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | An unexpected error occurred while processing the request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The input fails to satisfy the constraints specified by an Amazon Web
+-- Services service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The request references a resource that doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

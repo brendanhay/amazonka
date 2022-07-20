@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data ApprovalRuleEventMetadata = ApprovalRuleEventMetadata'
   { -- | The name of the approval rule.
     approvalRuleName :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated ID of the approval rule.
-    approvalRuleId :: Prelude.Maybe Prelude.Text,
     -- | The content of the approval rule.
-    approvalRuleContent :: Prelude.Maybe Prelude.Text
+    approvalRuleContent :: Prelude.Maybe Prelude.Text,
+    -- | The system-generated ID of the approval rule.
+    approvalRuleId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,30 @@ data ApprovalRuleEventMetadata = ApprovalRuleEventMetadata'
 --
 -- 'approvalRuleName', 'approvalRuleEventMetadata_approvalRuleName' - The name of the approval rule.
 --
--- 'approvalRuleId', 'approvalRuleEventMetadata_approvalRuleId' - The system-generated ID of the approval rule.
---
 -- 'approvalRuleContent', 'approvalRuleEventMetadata_approvalRuleContent' - The content of the approval rule.
+--
+-- 'approvalRuleId', 'approvalRuleEventMetadata_approvalRuleId' - The system-generated ID of the approval rule.
 newApprovalRuleEventMetadata ::
   ApprovalRuleEventMetadata
 newApprovalRuleEventMetadata =
   ApprovalRuleEventMetadata'
     { approvalRuleName =
         Prelude.Nothing,
-      approvalRuleId = Prelude.Nothing,
-      approvalRuleContent = Prelude.Nothing
+      approvalRuleContent = Prelude.Nothing,
+      approvalRuleId = Prelude.Nothing
     }
 
 -- | The name of the approval rule.
 approvalRuleEventMetadata_approvalRuleName :: Lens.Lens' ApprovalRuleEventMetadata (Prelude.Maybe Prelude.Text)
 approvalRuleEventMetadata_approvalRuleName = Lens.lens (\ApprovalRuleEventMetadata' {approvalRuleName} -> approvalRuleName) (\s@ApprovalRuleEventMetadata' {} a -> s {approvalRuleName = a} :: ApprovalRuleEventMetadata)
 
--- | The system-generated ID of the approval rule.
-approvalRuleEventMetadata_approvalRuleId :: Lens.Lens' ApprovalRuleEventMetadata (Prelude.Maybe Prelude.Text)
-approvalRuleEventMetadata_approvalRuleId = Lens.lens (\ApprovalRuleEventMetadata' {approvalRuleId} -> approvalRuleId) (\s@ApprovalRuleEventMetadata' {} a -> s {approvalRuleId = a} :: ApprovalRuleEventMetadata)
-
 -- | The content of the approval rule.
 approvalRuleEventMetadata_approvalRuleContent :: Lens.Lens' ApprovalRuleEventMetadata (Prelude.Maybe Prelude.Text)
 approvalRuleEventMetadata_approvalRuleContent = Lens.lens (\ApprovalRuleEventMetadata' {approvalRuleContent} -> approvalRuleContent) (\s@ApprovalRuleEventMetadata' {} a -> s {approvalRuleContent = a} :: ApprovalRuleEventMetadata)
+
+-- | The system-generated ID of the approval rule.
+approvalRuleEventMetadata_approvalRuleId :: Lens.Lens' ApprovalRuleEventMetadata (Prelude.Maybe Prelude.Text)
+approvalRuleEventMetadata_approvalRuleId = Lens.lens (\ApprovalRuleEventMetadata' {approvalRuleId} -> approvalRuleId) (\s@ApprovalRuleEventMetadata' {} a -> s {approvalRuleId = a} :: ApprovalRuleEventMetadata)
 
 instance Core.FromJSON ApprovalRuleEventMetadata where
   parseJSON =
@@ -78,18 +78,18 @@ instance Core.FromJSON ApprovalRuleEventMetadata where
       ( \x ->
           ApprovalRuleEventMetadata'
             Prelude.<$> (x Core..:? "approvalRuleName")
-            Prelude.<*> (x Core..:? "approvalRuleId")
             Prelude.<*> (x Core..:? "approvalRuleContent")
+            Prelude.<*> (x Core..:? "approvalRuleId")
       )
 
 instance Prelude.Hashable ApprovalRuleEventMetadata where
   hashWithSalt _salt ApprovalRuleEventMetadata' {..} =
     _salt `Prelude.hashWithSalt` approvalRuleName
-      `Prelude.hashWithSalt` approvalRuleId
       `Prelude.hashWithSalt` approvalRuleContent
+      `Prelude.hashWithSalt` approvalRuleId
 
 instance Prelude.NFData ApprovalRuleEventMetadata where
   rnf ApprovalRuleEventMetadata' {..} =
     Prelude.rnf approvalRuleName
-      `Prelude.seq` Prelude.rnf approvalRuleId
       `Prelude.seq` Prelude.rnf approvalRuleContent
+      `Prelude.seq` Prelude.rnf approvalRuleId

@@ -31,13 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDashPackage' smart constructor.
 data DashPackage = DashPackage'
-  { -- | When includeEncoderConfigurationInSegments is set to true, MediaPackage
-    -- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter
-    -- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment
-    -- instead of in the init fragment. This lets you use different
-    -- SPS\/PPS\/VPS settings for your assets during content playback.
-    includeEncoderConfigurationInSegments :: Prelude.Maybe Prelude.Bool,
-    -- | Determines the type of SegmentTemplate included in the Media
+  { -- | Determines the type of SegmentTemplate included in the Media
     -- Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full
     -- timeline is presented in each SegmentTemplate, with $Number$ media URLs.
     -- When set to TIME_WITH_TIMELINE, a full timeline is presented in each
@@ -48,13 +42,19 @@ data DashPackage = DashPackage'
     -- | Duration (in seconds) of each segment. Actual segments will be rounded
     -- to the nearest multiple of the source segment duration.
     segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
-    encryption :: Prelude.Maybe DashEncryption,
     -- | A list of triggers that controls when the outgoing Dynamic Adaptive
     -- Streaming over HTTP (DASH) Media Presentation Description (MPD) will be
     -- partitioned into multiple periods. If empty, the content will not be
     -- partitioned into more than one period. If the list contains \"ADS\", new
     -- periods will be created where the Asset contains SCTE-35 ad markers.
     periodTriggers :: Prelude.Maybe [PeriodTriggersElement],
+    encryption :: Prelude.Maybe DashEncryption,
+    -- | When includeEncoderConfigurationInSegments is set to true, MediaPackage
+    -- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter
+    -- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment
+    -- instead of in the init fragment. This lets you use different
+    -- SPS\/PPS\/VPS settings for your assets during content playback.
+    includeEncoderConfigurationInSegments :: Prelude.Maybe Prelude.Bool,
     -- | A list of DASH manifest configurations.
     dashManifests :: [DashManifest]
   }
@@ -68,12 +68,6 @@ data DashPackage = DashPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeEncoderConfigurationInSegments', 'dashPackage_includeEncoderConfigurationInSegments' - When includeEncoderConfigurationInSegments is set to true, MediaPackage
--- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter
--- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment
--- instead of in the init fragment. This lets you use different
--- SPS\/PPS\/VPS settings for your assets during content playback.
---
 -- 'segmentTemplateFormat', 'dashPackage_segmentTemplateFormat' - Determines the type of SegmentTemplate included in the Media
 -- Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full
 -- timeline is presented in each SegmentTemplate, with $Number$ media URLs.
@@ -85,35 +79,34 @@ data DashPackage = DashPackage'
 -- 'segmentDurationSeconds', 'dashPackage_segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded
 -- to the nearest multiple of the source segment duration.
 --
--- 'encryption', 'dashPackage_encryption' - Undocumented member.
---
 -- 'periodTriggers', 'dashPackage_periodTriggers' - A list of triggers that controls when the outgoing Dynamic Adaptive
 -- Streaming over HTTP (DASH) Media Presentation Description (MPD) will be
 -- partitioned into multiple periods. If empty, the content will not be
 -- partitioned into more than one period. If the list contains \"ADS\", new
 -- periods will be created where the Asset contains SCTE-35 ad markers.
 --
+-- 'encryption', 'dashPackage_encryption' - Undocumented member.
+--
+-- 'includeEncoderConfigurationInSegments', 'dashPackage_includeEncoderConfigurationInSegments' - When includeEncoderConfigurationInSegments is set to true, MediaPackage
+-- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter
+-- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment
+-- instead of in the init fragment. This lets you use different
+-- SPS\/PPS\/VPS settings for your assets during content playback.
+--
 -- 'dashManifests', 'dashPackage_dashManifests' - A list of DASH manifest configurations.
 newDashPackage ::
   DashPackage
 newDashPackage =
   DashPackage'
-    { includeEncoderConfigurationInSegments =
+    { segmentTemplateFormat =
         Prelude.Nothing,
-      segmentTemplateFormat = Prelude.Nothing,
       segmentDurationSeconds = Prelude.Nothing,
-      encryption = Prelude.Nothing,
       periodTriggers = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      includeEncoderConfigurationInSegments =
+        Prelude.Nothing,
       dashManifests = Prelude.mempty
     }
-
--- | When includeEncoderConfigurationInSegments is set to true, MediaPackage
--- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter
--- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment
--- instead of in the init fragment. This lets you use different
--- SPS\/PPS\/VPS settings for your assets during content playback.
-dashPackage_includeEncoderConfigurationInSegments :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Bool)
-dashPackage_includeEncoderConfigurationInSegments = Lens.lens (\DashPackage' {includeEncoderConfigurationInSegments} -> includeEncoderConfigurationInSegments) (\s@DashPackage' {} a -> s {includeEncoderConfigurationInSegments = a} :: DashPackage)
 
 -- | Determines the type of SegmentTemplate included in the Media
 -- Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full
@@ -130,10 +123,6 @@ dashPackage_segmentTemplateFormat = Lens.lens (\DashPackage' {segmentTemplateFor
 dashPackage_segmentDurationSeconds :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Int)
 dashPackage_segmentDurationSeconds = Lens.lens (\DashPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@DashPackage' {} a -> s {segmentDurationSeconds = a} :: DashPackage)
 
--- | Undocumented member.
-dashPackage_encryption :: Lens.Lens' DashPackage (Prelude.Maybe DashEncryption)
-dashPackage_encryption = Lens.lens (\DashPackage' {encryption} -> encryption) (\s@DashPackage' {} a -> s {encryption = a} :: DashPackage)
-
 -- | A list of triggers that controls when the outgoing Dynamic Adaptive
 -- Streaming over HTTP (DASH) Media Presentation Description (MPD) will be
 -- partitioned into multiple periods. If empty, the content will not be
@@ -141,6 +130,18 @@ dashPackage_encryption = Lens.lens (\DashPackage' {encryption} -> encryption) (\
 -- periods will be created where the Asset contains SCTE-35 ad markers.
 dashPackage_periodTriggers :: Lens.Lens' DashPackage (Prelude.Maybe [PeriodTriggersElement])
 dashPackage_periodTriggers = Lens.lens (\DashPackage' {periodTriggers} -> periodTriggers) (\s@DashPackage' {} a -> s {periodTriggers = a} :: DashPackage) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+dashPackage_encryption :: Lens.Lens' DashPackage (Prelude.Maybe DashEncryption)
+dashPackage_encryption = Lens.lens (\DashPackage' {encryption} -> encryption) (\s@DashPackage' {} a -> s {encryption = a} :: DashPackage)
+
+-- | When includeEncoderConfigurationInSegments is set to true, MediaPackage
+-- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter
+-- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment
+-- instead of in the init fragment. This lets you use different
+-- SPS\/PPS\/VPS settings for your assets during content playback.
+dashPackage_includeEncoderConfigurationInSegments :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Bool)
+dashPackage_includeEncoderConfigurationInSegments = Lens.lens (\DashPackage' {includeEncoderConfigurationInSegments} -> includeEncoderConfigurationInSegments) (\s@DashPackage' {} a -> s {includeEncoderConfigurationInSegments = a} :: DashPackage)
 
 -- | A list of DASH manifest configurations.
 dashPackage_dashManifests :: Lens.Lens' DashPackage [DashManifest]
@@ -152,46 +153,45 @@ instance Core.FromJSON DashPackage where
       "DashPackage"
       ( \x ->
           DashPackage'
-            Prelude.<$> (x Core..:? "includeEncoderConfigurationInSegments")
-            Prelude.<*> (x Core..:? "segmentTemplateFormat")
+            Prelude.<$> (x Core..:? "segmentTemplateFormat")
             Prelude.<*> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "encryption")
             Prelude.<*> (x Core..:? "periodTriggers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "encryption")
+            Prelude.<*> (x Core..:? "includeEncoderConfigurationInSegments")
             Prelude.<*> (x Core..:? "dashManifests" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DashPackage where
   hashWithSalt _salt DashPackage' {..} =
-    _salt
-      `Prelude.hashWithSalt` includeEncoderConfigurationInSegments
-      `Prelude.hashWithSalt` segmentTemplateFormat
+    _salt `Prelude.hashWithSalt` segmentTemplateFormat
       `Prelude.hashWithSalt` segmentDurationSeconds
-      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` periodTriggers
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` includeEncoderConfigurationInSegments
       `Prelude.hashWithSalt` dashManifests
 
 instance Prelude.NFData DashPackage where
   rnf DashPackage' {..} =
-    Prelude.rnf includeEncoderConfigurationInSegments
-      `Prelude.seq` Prelude.rnf segmentTemplateFormat
+    Prelude.rnf segmentTemplateFormat
       `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf periodTriggers
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf includeEncoderConfigurationInSegments
       `Prelude.seq` Prelude.rnf dashManifests
 
 instance Core.ToJSON DashPackage where
   toJSON DashPackage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("includeEncoderConfigurationInSegments" Core..=)
-              Prelude.<$> includeEncoderConfigurationInSegments,
-            ("segmentTemplateFormat" Core..=)
+          [ ("segmentTemplateFormat" Core..=)
               Prelude.<$> segmentTemplateFormat,
             ("segmentDurationSeconds" Core..=)
               Prelude.<$> segmentDurationSeconds,
-            ("encryption" Core..=) Prelude.<$> encryption,
             ("periodTriggers" Core..=)
               Prelude.<$> periodTriggers,
+            ("encryption" Core..=) Prelude.<$> encryption,
+            ("includeEncoderConfigurationInSegments" Core..=)
+              Prelude.<$> includeEncoderConfigurationInSegments,
             Prelude.Just
               ("dashManifests" Core..= dashManifests)
           ]

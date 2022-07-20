@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDifference' smart constructor.
 data Difference = Difference'
-  { -- | Information about an @afterBlob@ data type object, including the ID, the
+  { -- | Whether the change type of the difference is an addition (A), deletion
+    -- (D), or modification (M).
+    changeType :: Prelude.Maybe ChangeTypeEnum,
+    -- | Information about an @afterBlob@ data type object, including the ID, the
     -- file mode permission code, and the path.
     afterBlob :: Prelude.Maybe BlobMetadata,
     -- | Information about a @beforeBlob@ data type object, including the ID, the
     -- file mode permission code, and the path.
-    beforeBlob :: Prelude.Maybe BlobMetadata,
-    -- | Whether the change type of the difference is an addition (A), deletion
-    -- (D), or modification (M).
-    changeType :: Prelude.Maybe ChangeTypeEnum
+    beforeBlob :: Prelude.Maybe BlobMetadata
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,27 @@ data Difference = Difference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'changeType', 'difference_changeType' - Whether the change type of the difference is an addition (A), deletion
+-- (D), or modification (M).
+--
 -- 'afterBlob', 'difference_afterBlob' - Information about an @afterBlob@ data type object, including the ID, the
 -- file mode permission code, and the path.
 --
 -- 'beforeBlob', 'difference_beforeBlob' - Information about a @beforeBlob@ data type object, including the ID, the
 -- file mode permission code, and the path.
---
--- 'changeType', 'difference_changeType' - Whether the change type of the difference is an addition (A), deletion
--- (D), or modification (M).
 newDifference ::
   Difference
 newDifference =
   Difference'
-    { afterBlob = Prelude.Nothing,
-      beforeBlob = Prelude.Nothing,
-      changeType = Prelude.Nothing
+    { changeType = Prelude.Nothing,
+      afterBlob = Prelude.Nothing,
+      beforeBlob = Prelude.Nothing
     }
+
+-- | Whether the change type of the difference is an addition (A), deletion
+-- (D), or modification (M).
+difference_changeType :: Lens.Lens' Difference (Prelude.Maybe ChangeTypeEnum)
+difference_changeType = Lens.lens (\Difference' {changeType} -> changeType) (\s@Difference' {} a -> s {changeType = a} :: Difference)
 
 -- | Information about an @afterBlob@ data type object, including the ID, the
 -- file mode permission code, and the path.
@@ -76,30 +81,25 @@ difference_afterBlob = Lens.lens (\Difference' {afterBlob} -> afterBlob) (\s@Dif
 difference_beforeBlob :: Lens.Lens' Difference (Prelude.Maybe BlobMetadata)
 difference_beforeBlob = Lens.lens (\Difference' {beforeBlob} -> beforeBlob) (\s@Difference' {} a -> s {beforeBlob = a} :: Difference)
 
--- | Whether the change type of the difference is an addition (A), deletion
--- (D), or modification (M).
-difference_changeType :: Lens.Lens' Difference (Prelude.Maybe ChangeTypeEnum)
-difference_changeType = Lens.lens (\Difference' {changeType} -> changeType) (\s@Difference' {} a -> s {changeType = a} :: Difference)
-
 instance Core.FromJSON Difference where
   parseJSON =
     Core.withObject
       "Difference"
       ( \x ->
           Difference'
-            Prelude.<$> (x Core..:? "afterBlob")
+            Prelude.<$> (x Core..:? "changeType")
+            Prelude.<*> (x Core..:? "afterBlob")
             Prelude.<*> (x Core..:? "beforeBlob")
-            Prelude.<*> (x Core..:? "changeType")
       )
 
 instance Prelude.Hashable Difference where
   hashWithSalt _salt Difference' {..} =
-    _salt `Prelude.hashWithSalt` afterBlob
+    _salt `Prelude.hashWithSalt` changeType
+      `Prelude.hashWithSalt` afterBlob
       `Prelude.hashWithSalt` beforeBlob
-      `Prelude.hashWithSalt` changeType
 
 instance Prelude.NFData Difference where
   rnf Difference' {..} =
-    Prelude.rnf afterBlob
+    Prelude.rnf changeType
+      `Prelude.seq` Prelude.rnf afterBlob
       `Prelude.seq` Prelude.rnf beforeBlob
-      `Prelude.seq` Prelude.rnf changeType

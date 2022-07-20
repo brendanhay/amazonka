@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeStatusDetails' smart constructor.
 data VolumeStatusDetails = VolumeStatusDetails'
-  { -- | The intended status of the volume status.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the volume status.
-    name :: Prelude.Maybe VolumeStatusName
+  { -- | The name of the volume status.
+    name :: Prelude.Maybe VolumeStatusName,
+    -- | The intended status of the volume status.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,35 +44,35 @@ data VolumeStatusDetails = VolumeStatusDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'volumeStatusDetails_status' - The intended status of the volume status.
---
 -- 'name', 'volumeStatusDetails_name' - The name of the volume status.
+--
+-- 'status', 'volumeStatusDetails_status' - The intended status of the volume status.
 newVolumeStatusDetails ::
   VolumeStatusDetails
 newVolumeStatusDetails =
   VolumeStatusDetails'
-    { status = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The intended status of the volume status.
-volumeStatusDetails_status :: Lens.Lens' VolumeStatusDetails (Prelude.Maybe Prelude.Text)
-volumeStatusDetails_status = Lens.lens (\VolumeStatusDetails' {status} -> status) (\s@VolumeStatusDetails' {} a -> s {status = a} :: VolumeStatusDetails)
 
 -- | The name of the volume status.
 volumeStatusDetails_name :: Lens.Lens' VolumeStatusDetails (Prelude.Maybe VolumeStatusName)
 volumeStatusDetails_name = Lens.lens (\VolumeStatusDetails' {name} -> name) (\s@VolumeStatusDetails' {} a -> s {name = a} :: VolumeStatusDetails)
 
+-- | The intended status of the volume status.
+volumeStatusDetails_status :: Lens.Lens' VolumeStatusDetails (Prelude.Maybe Prelude.Text)
+volumeStatusDetails_status = Lens.lens (\VolumeStatusDetails' {status} -> status) (\s@VolumeStatusDetails' {} a -> s {status = a} :: VolumeStatusDetails)
+
 instance Core.FromXML VolumeStatusDetails where
   parseXML x =
     VolumeStatusDetails'
-      Prelude.<$> (x Core..@? "status") Prelude.<*> (x Core..@? "name")
+      Prelude.<$> (x Core..@? "name") Prelude.<*> (x Core..@? "status")
 
 instance Prelude.Hashable VolumeStatusDetails where
   hashWithSalt _salt VolumeStatusDetails' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData VolumeStatusDetails where
   rnf VolumeStatusDetails' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf status

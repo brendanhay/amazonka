@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpointMessageResult' smart constructor.
 data EndpointMessageResult = EndpointMessageResult'
-  { -- | The endpoint address that the message was delivered to.
-    address :: Prelude.Maybe Prelude.Text,
-    -- | The status message for delivering the message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | For push notifications that are sent through the GCM channel, specifies
+  { -- | For push notifications that are sent through the GCM channel, specifies
     -- whether the endpoint\'s device registration token was updated as part of
     -- delivering the message.
     updatedToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the message that was sent.
     messageId :: Prelude.Maybe Prelude.Text,
+    -- | The endpoint address that the message was delivered to.
+    address :: Prelude.Maybe Prelude.Text,
+    -- | The status message for delivering the message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The delivery status of the message. Possible values are:
     --
     -- -   DUPLICATE - The endpoint address is a duplicate of another endpoint
@@ -77,15 +77,15 @@ data EndpointMessageResult = EndpointMessageResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'address', 'endpointMessageResult_address' - The endpoint address that the message was delivered to.
---
--- 'statusMessage', 'endpointMessageResult_statusMessage' - The status message for delivering the message.
---
 -- 'updatedToken', 'endpointMessageResult_updatedToken' - For push notifications that are sent through the GCM channel, specifies
 -- whether the endpoint\'s device registration token was updated as part of
 -- delivering the message.
 --
 -- 'messageId', 'endpointMessageResult_messageId' - The unique identifier for the message that was sent.
+--
+-- 'address', 'endpointMessageResult_address' - The endpoint address that the message was delivered to.
+--
+-- 'statusMessage', 'endpointMessageResult_statusMessage' - The status message for delivering the message.
 --
 -- 'deliveryStatus', 'endpointMessageResult_deliveryStatus' - The delivery status of the message. Possible values are:
 --
@@ -123,21 +123,14 @@ newEndpointMessageResult
   pDeliveryStatus_
   pStatusCode_ =
     EndpointMessageResult'
-      { address = Prelude.Nothing,
-        statusMessage = Prelude.Nothing,
-        updatedToken = Prelude.Nothing,
+      { updatedToken =
+          Prelude.Nothing,
         messageId = Prelude.Nothing,
+        address = Prelude.Nothing,
+        statusMessage = Prelude.Nothing,
         deliveryStatus = pDeliveryStatus_,
         statusCode = pStatusCode_
       }
-
--- | The endpoint address that the message was delivered to.
-endpointMessageResult_address :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
-endpointMessageResult_address = Lens.lens (\EndpointMessageResult' {address} -> address) (\s@EndpointMessageResult' {} a -> s {address = a} :: EndpointMessageResult)
-
--- | The status message for delivering the message.
-endpointMessageResult_statusMessage :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
-endpointMessageResult_statusMessage = Lens.lens (\EndpointMessageResult' {statusMessage} -> statusMessage) (\s@EndpointMessageResult' {} a -> s {statusMessage = a} :: EndpointMessageResult)
 
 -- | For push notifications that are sent through the GCM channel, specifies
 -- whether the endpoint\'s device registration token was updated as part of
@@ -148,6 +141,14 @@ endpointMessageResult_updatedToken = Lens.lens (\EndpointMessageResult' {updated
 -- | The unique identifier for the message that was sent.
 endpointMessageResult_messageId :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
 endpointMessageResult_messageId = Lens.lens (\EndpointMessageResult' {messageId} -> messageId) (\s@EndpointMessageResult' {} a -> s {messageId = a} :: EndpointMessageResult)
+
+-- | The endpoint address that the message was delivered to.
+endpointMessageResult_address :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
+endpointMessageResult_address = Lens.lens (\EndpointMessageResult' {address} -> address) (\s@EndpointMessageResult' {} a -> s {address = a} :: EndpointMessageResult)
+
+-- | The status message for delivering the message.
+endpointMessageResult_statusMessage :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
+endpointMessageResult_statusMessage = Lens.lens (\EndpointMessageResult' {statusMessage} -> statusMessage) (\s@EndpointMessageResult' {} a -> s {statusMessage = a} :: EndpointMessageResult)
 
 -- | The delivery status of the message. Possible values are:
 --
@@ -186,28 +187,28 @@ instance Core.FromJSON EndpointMessageResult where
       "EndpointMessageResult"
       ( \x ->
           EndpointMessageResult'
-            Prelude.<$> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "UpdatedToken")
+            Prelude.<$> (x Core..:? "UpdatedToken")
             Prelude.<*> (x Core..:? "MessageId")
+            Prelude.<*> (x Core..:? "Address")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..: "DeliveryStatus")
             Prelude.<*> (x Core..: "StatusCode")
       )
 
 instance Prelude.Hashable EndpointMessageResult where
   hashWithSalt _salt EndpointMessageResult' {..} =
-    _salt `Prelude.hashWithSalt` address
-      `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` updatedToken
+    _salt `Prelude.hashWithSalt` updatedToken
       `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` deliveryStatus
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData EndpointMessageResult where
   rnf EndpointMessageResult' {..} =
-    Prelude.rnf address
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf updatedToken
+    Prelude.rnf updatedToken
       `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf deliveryStatus
       `Prelude.seq` Prelude.rnf statusCode

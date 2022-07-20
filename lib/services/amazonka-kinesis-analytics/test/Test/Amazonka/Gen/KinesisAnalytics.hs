@@ -27,229 +27,133 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAddApplicationOutput $
---             newAddApplicationOutput
---
---         , requestDiscoverInputSchema $
---             newDiscoverInputSchema
---
---         , requestDescribeApplication $
---             newDescribeApplication
---
---         , requestStartApplication $
---             newStartApplication
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDeleteApplicationReferenceDataSource $
---             newDeleteApplicationReferenceDataSource
---
---         , requestDeleteApplication $
---             newDeleteApplication
---
---         , requestUpdateApplication $
---             newUpdateApplication
---
---         , requestDeleteApplicationCloudWatchLoggingOption $
---             newDeleteApplicationCloudWatchLoggingOption
---
---         , requestAddApplicationInputProcessingConfiguration $
---             newAddApplicationInputProcessingConfiguration
---
---         , requestCreateApplication $
---             newCreateApplication
---
---         , requestDeleteApplicationOutput $
---             newDeleteApplicationOutput
---
---         , requestStopApplication $
---             newStopApplication
---
---         , requestAddApplicationReferenceDataSource $
---             newAddApplicationReferenceDataSource
+--         [ requestAddApplicationCloudWatchLoggingOption $
+--             newAddApplicationCloudWatchLoggingOption
 --
 --         , requestAddApplicationInput $
 --             newAddApplicationInput
 --
---         , requestTagResource $
---             newTagResource
+--         , requestAddApplicationInputProcessingConfiguration $
+--             newAddApplicationInputProcessingConfiguration
 --
---         , requestAddApplicationCloudWatchLoggingOption $
---             newAddApplicationCloudWatchLoggingOption
+--         , requestAddApplicationOutput $
+--             newAddApplicationOutput
 --
---         , requestListApplications $
---             newListApplications
+--         , requestAddApplicationReferenceDataSource $
+--             newAddApplicationReferenceDataSource
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestCreateApplication $
+--             newCreateApplication
+--
+--         , requestDeleteApplication $
+--             newDeleteApplication
+--
+--         , requestDeleteApplicationCloudWatchLoggingOption $
+--             newDeleteApplicationCloudWatchLoggingOption
 --
 --         , requestDeleteApplicationInputProcessingConfiguration $
 --             newDeleteApplicationInputProcessingConfiguration
 --
+--         , requestDeleteApplicationOutput $
+--             newDeleteApplicationOutput
+--
+--         , requestDeleteApplicationReferenceDataSource $
+--             newDeleteApplicationReferenceDataSource
+--
+--         , requestDescribeApplication $
+--             newDescribeApplication
+--
+--         , requestDiscoverInputSchema $
+--             newDiscoverInputSchema
+--
+--         , requestListApplications $
+--             newListApplications
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestStartApplication $
+--             newStartApplication
+--
+--         , requestStopApplication $
+--             newStopApplication
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateApplication $
+--             newUpdateApplication
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseAddApplicationOutput $
---             newAddApplicationOutputResponse
---
---         , responseDiscoverInputSchema $
---             newDiscoverInputSchemaResponse
---
---         , responseDescribeApplication $
---             newDescribeApplicationResponse
---
---         , responseStartApplication $
---             newStartApplicationResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDeleteApplicationReferenceDataSource $
---             newDeleteApplicationReferenceDataSourceResponse
---
---         , responseDeleteApplication $
---             newDeleteApplicationResponse
---
---         , responseUpdateApplication $
---             newUpdateApplicationResponse
---
---         , responseDeleteApplicationCloudWatchLoggingOption $
---             newDeleteApplicationCloudWatchLoggingOptionResponse
---
---         , responseAddApplicationInputProcessingConfiguration $
---             newAddApplicationInputProcessingConfigurationResponse
---
---         , responseCreateApplication $
---             newCreateApplicationResponse
---
---         , responseDeleteApplicationOutput $
---             newDeleteApplicationOutputResponse
---
---         , responseStopApplication $
---             newStopApplicationResponse
---
---         , responseAddApplicationReferenceDataSource $
---             newAddApplicationReferenceDataSourceResponse
+--         [ responseAddApplicationCloudWatchLoggingOption $
+--             newAddApplicationCloudWatchLoggingOptionResponse
 --
 --         , responseAddApplicationInput $
 --             newAddApplicationInputResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseAddApplicationInputProcessingConfiguration $
+--             newAddApplicationInputProcessingConfigurationResponse
 --
---         , responseAddApplicationCloudWatchLoggingOption $
---             newAddApplicationCloudWatchLoggingOptionResponse
+--         , responseAddApplicationOutput $
+--             newAddApplicationOutputResponse
+--
+--         , responseAddApplicationReferenceDataSource $
+--             newAddApplicationReferenceDataSourceResponse
+--
+--         , responseCreateApplication $
+--             newCreateApplicationResponse
+--
+--         , responseDeleteApplication $
+--             newDeleteApplicationResponse
+--
+--         , responseDeleteApplicationCloudWatchLoggingOption $
+--             newDeleteApplicationCloudWatchLoggingOptionResponse
+--
+--         , responseDeleteApplicationInputProcessingConfiguration $
+--             newDeleteApplicationInputProcessingConfigurationResponse
+--
+--         , responseDeleteApplicationOutput $
+--             newDeleteApplicationOutputResponse
+--
+--         , responseDeleteApplicationReferenceDataSource $
+--             newDeleteApplicationReferenceDataSourceResponse
+--
+--         , responseDescribeApplication $
+--             newDescribeApplicationResponse
+--
+--         , responseDiscoverInputSchema $
+--             newDiscoverInputSchemaResponse
 --
 --         , responseListApplications $
 --             newListApplicationsResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseStartApplication $
+--             newStartApplicationResponse
+--
+--         , responseStopApplication $
+--             newStopApplicationResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDeleteApplicationInputProcessingConfiguration $
---             newDeleteApplicationInputProcessingConfigurationResponse
+--         , responseUpdateApplication $
+--             newUpdateApplicationResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestAddApplicationOutput :: AddApplicationOutput -> TestTree
-requestAddApplicationOutput =
-  req
-    "AddApplicationOutput"
-    "fixture/AddApplicationOutput.yaml"
-
-requestDiscoverInputSchema :: DiscoverInputSchema -> TestTree
-requestDiscoverInputSchema =
-  req
-    "DiscoverInputSchema"
-    "fixture/DiscoverInputSchema.yaml"
-
-requestDescribeApplication :: DescribeApplication -> TestTree
-requestDescribeApplication =
-  req
-    "DescribeApplication"
-    "fixture/DescribeApplication.yaml"
-
-requestStartApplication :: StartApplication -> TestTree
-requestStartApplication =
-  req
-    "StartApplication"
-    "fixture/StartApplication.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSource -> TestTree
-requestDeleteApplicationReferenceDataSource =
-  req
-    "DeleteApplicationReferenceDataSource"
-    "fixture/DeleteApplicationReferenceDataSource.yaml"
-
-requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication =
-  req
-    "DeleteApplication"
-    "fixture/DeleteApplication.yaml"
-
-requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication =
-  req
-    "UpdateApplication"
-    "fixture/UpdateApplication.yaml"
-
-requestDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOption -> TestTree
-requestDeleteApplicationCloudWatchLoggingOption =
-  req
-    "DeleteApplicationCloudWatchLoggingOption"
-    "fixture/DeleteApplicationCloudWatchLoggingOption.yaml"
-
-requestAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfiguration -> TestTree
-requestAddApplicationInputProcessingConfiguration =
-  req
-    "AddApplicationInputProcessingConfiguration"
-    "fixture/AddApplicationInputProcessingConfiguration.yaml"
-
-requestCreateApplication :: CreateApplication -> TestTree
-requestCreateApplication =
-  req
-    "CreateApplication"
-    "fixture/CreateApplication.yaml"
-
-requestDeleteApplicationOutput :: DeleteApplicationOutput -> TestTree
-requestDeleteApplicationOutput =
-  req
-    "DeleteApplicationOutput"
-    "fixture/DeleteApplicationOutput.yaml"
-
-requestStopApplication :: StopApplication -> TestTree
-requestStopApplication =
-  req
-    "StopApplication"
-    "fixture/StopApplication.yaml"
-
-requestAddApplicationReferenceDataSource :: AddApplicationReferenceDataSource -> TestTree
-requestAddApplicationReferenceDataSource =
-  req
-    "AddApplicationReferenceDataSource"
-    "fixture/AddApplicationReferenceDataSource.yaml"
-
-requestAddApplicationInput :: AddApplicationInput -> TestTree
-requestAddApplicationInput =
-  req
-    "AddApplicationInput"
-    "fixture/AddApplicationInput.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
 
 requestAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOption -> TestTree
 requestAddApplicationCloudWatchLoggingOption =
@@ -257,17 +161,47 @@ requestAddApplicationCloudWatchLoggingOption =
     "AddApplicationCloudWatchLoggingOption"
     "fixture/AddApplicationCloudWatchLoggingOption.yaml"
 
-requestListApplications :: ListApplications -> TestTree
-requestListApplications =
+requestAddApplicationInput :: AddApplicationInput -> TestTree
+requestAddApplicationInput =
   req
-    "ListApplications"
-    "fixture/ListApplications.yaml"
+    "AddApplicationInput"
+    "fixture/AddApplicationInput.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfiguration -> TestTree
+requestAddApplicationInputProcessingConfiguration =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "AddApplicationInputProcessingConfiguration"
+    "fixture/AddApplicationInputProcessingConfiguration.yaml"
+
+requestAddApplicationOutput :: AddApplicationOutput -> TestTree
+requestAddApplicationOutput =
+  req
+    "AddApplicationOutput"
+    "fixture/AddApplicationOutput.yaml"
+
+requestAddApplicationReferenceDataSource :: AddApplicationReferenceDataSource -> TestTree
+requestAddApplicationReferenceDataSource =
+  req
+    "AddApplicationReferenceDataSource"
+    "fixture/AddApplicationReferenceDataSource.yaml"
+
+requestCreateApplication :: CreateApplication -> TestTree
+requestCreateApplication =
+  req
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
+
+requestDeleteApplication :: DeleteApplication -> TestTree
+requestDeleteApplication =
+  req
+    "DeleteApplication"
+    "fixture/DeleteApplication.yaml"
+
+requestDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOption -> TestTree
+requestDeleteApplicationCloudWatchLoggingOption =
+  req
+    "DeleteApplicationCloudWatchLoggingOption"
+    "fixture/DeleteApplicationCloudWatchLoggingOption.yaml"
 
 requestDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfiguration -> TestTree
 requestDeleteApplicationInputProcessingConfiguration =
@@ -275,135 +209,73 @@ requestDeleteApplicationInputProcessingConfiguration =
     "DeleteApplicationInputProcessingConfiguration"
     "fixture/DeleteApplicationInputProcessingConfiguration.yaml"
 
+requestDeleteApplicationOutput :: DeleteApplicationOutput -> TestTree
+requestDeleteApplicationOutput =
+  req
+    "DeleteApplicationOutput"
+    "fixture/DeleteApplicationOutput.yaml"
+
+requestDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSource -> TestTree
+requestDeleteApplicationReferenceDataSource =
+  req
+    "DeleteApplicationReferenceDataSource"
+    "fixture/DeleteApplicationReferenceDataSource.yaml"
+
+requestDescribeApplication :: DescribeApplication -> TestTree
+requestDescribeApplication =
+  req
+    "DescribeApplication"
+    "fixture/DescribeApplication.yaml"
+
+requestDiscoverInputSchema :: DiscoverInputSchema -> TestTree
+requestDiscoverInputSchema =
+  req
+    "DiscoverInputSchema"
+    "fixture/DiscoverInputSchema.yaml"
+
+requestListApplications :: ListApplications -> TestTree
+requestListApplications =
+  req
+    "ListApplications"
+    "fixture/ListApplications.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestStartApplication :: StartApplication -> TestTree
+requestStartApplication =
+  req
+    "StartApplication"
+    "fixture/StartApplication.yaml"
+
+requestStopApplication :: StopApplication -> TestTree
+requestStopApplication =
+  req
+    "StopApplication"
+    "fixture/StopApplication.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication =
+  req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
+
 -- Responses
-
-responseAddApplicationOutput :: AddApplicationOutputResponse -> TestTree
-responseAddApplicationOutput =
-  res
-    "AddApplicationOutputResponse"
-    "fixture/AddApplicationOutputResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddApplicationOutput)
-
-responseDiscoverInputSchema :: DiscoverInputSchemaResponse -> TestTree
-responseDiscoverInputSchema =
-  res
-    "DiscoverInputSchemaResponse"
-    "fixture/DiscoverInputSchemaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DiscoverInputSchema)
-
-responseDescribeApplication :: DescribeApplicationResponse -> TestTree
-responseDescribeApplication =
-  res
-    "DescribeApplicationResponse"
-    "fixture/DescribeApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeApplication)
-
-responseStartApplication :: StartApplicationResponse -> TestTree
-responseStartApplication =
-  res
-    "StartApplicationResponse"
-    "fixture/StartApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartApplication)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSourceResponse -> TestTree
-responseDeleteApplicationReferenceDataSource =
-  res
-    "DeleteApplicationReferenceDataSourceResponse"
-    "fixture/DeleteApplicationReferenceDataSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationReferenceDataSource)
-
-responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication =
-  res
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
-
-responseUpdateApplication :: UpdateApplicationResponse -> TestTree
-responseUpdateApplication =
-  res
-    "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
-
-responseDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOptionResponse -> TestTree
-responseDeleteApplicationCloudWatchLoggingOption =
-  res
-    "DeleteApplicationCloudWatchLoggingOptionResponse"
-    "fixture/DeleteApplicationCloudWatchLoggingOptionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationCloudWatchLoggingOption)
-
-responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
-responseAddApplicationInputProcessingConfiguration =
-  res
-    "AddApplicationInputProcessingConfigurationResponse"
-    "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddApplicationInputProcessingConfiguration)
-
-responseCreateApplication :: CreateApplicationResponse -> TestTree
-responseCreateApplication =
-  res
-    "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
-
-responseDeleteApplicationOutput :: DeleteApplicationOutputResponse -> TestTree
-responseDeleteApplicationOutput =
-  res
-    "DeleteApplicationOutputResponse"
-    "fixture/DeleteApplicationOutputResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationOutput)
-
-responseStopApplication :: StopApplicationResponse -> TestTree
-responseStopApplication =
-  res
-    "StopApplicationResponse"
-    "fixture/StopApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopApplication)
-
-responseAddApplicationReferenceDataSource :: AddApplicationReferenceDataSourceResponse -> TestTree
-responseAddApplicationReferenceDataSource =
-  res
-    "AddApplicationReferenceDataSourceResponse"
-    "fixture/AddApplicationReferenceDataSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddApplicationReferenceDataSource)
-
-responseAddApplicationInput :: AddApplicationInputResponse -> TestTree
-responseAddApplicationInput =
-  res
-    "AddApplicationInputResponse"
-    "fixture/AddApplicationInputResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddApplicationInput)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOptionResponse -> TestTree
 responseAddApplicationCloudWatchLoggingOption =
@@ -413,6 +285,102 @@ responseAddApplicationCloudWatchLoggingOption =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddApplicationCloudWatchLoggingOption)
 
+responseAddApplicationInput :: AddApplicationInputResponse -> TestTree
+responseAddApplicationInput =
+  res
+    "AddApplicationInputResponse"
+    "fixture/AddApplicationInputResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationInput)
+
+responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
+responseAddApplicationInputProcessingConfiguration =
+  res
+    "AddApplicationInputProcessingConfigurationResponse"
+    "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationInputProcessingConfiguration)
+
+responseAddApplicationOutput :: AddApplicationOutputResponse -> TestTree
+responseAddApplicationOutput =
+  res
+    "AddApplicationOutputResponse"
+    "fixture/AddApplicationOutputResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationOutput)
+
+responseAddApplicationReferenceDataSource :: AddApplicationReferenceDataSourceResponse -> TestTree
+responseAddApplicationReferenceDataSource =
+  res
+    "AddApplicationReferenceDataSourceResponse"
+    "fixture/AddApplicationReferenceDataSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddApplicationReferenceDataSource)
+
+responseCreateApplication :: CreateApplicationResponse -> TestTree
+responseCreateApplication =
+  res
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
+
+responseDeleteApplication :: DeleteApplicationResponse -> TestTree
+responseDeleteApplication =
+  res
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
+
+responseDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOptionResponse -> TestTree
+responseDeleteApplicationCloudWatchLoggingOption =
+  res
+    "DeleteApplicationCloudWatchLoggingOptionResponse"
+    "fixture/DeleteApplicationCloudWatchLoggingOptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationCloudWatchLoggingOption)
+
+responseDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfigurationResponse -> TestTree
+responseDeleteApplicationInputProcessingConfiguration =
+  res
+    "DeleteApplicationInputProcessingConfigurationResponse"
+    "fixture/DeleteApplicationInputProcessingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationInputProcessingConfiguration)
+
+responseDeleteApplicationOutput :: DeleteApplicationOutputResponse -> TestTree
+responseDeleteApplicationOutput =
+  res
+    "DeleteApplicationOutputResponse"
+    "fixture/DeleteApplicationOutputResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationOutput)
+
+responseDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSourceResponse -> TestTree
+responseDeleteApplicationReferenceDataSource =
+  res
+    "DeleteApplicationReferenceDataSourceResponse"
+    "fixture/DeleteApplicationReferenceDataSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationReferenceDataSource)
+
+responseDescribeApplication :: DescribeApplicationResponse -> TestTree
+responseDescribeApplication =
+  res
+    "DescribeApplicationResponse"
+    "fixture/DescribeApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplication)
+
+responseDiscoverInputSchema :: DiscoverInputSchemaResponse -> TestTree
+responseDiscoverInputSchema =
+  res
+    "DiscoverInputSchemaResponse"
+    "fixture/DiscoverInputSchemaResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DiscoverInputSchema)
+
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
   res
@@ -420,6 +388,38 @@ responseListApplications =
     "fixture/ListApplicationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListApplications)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseStartApplication :: StartApplicationResponse -> TestTree
+responseStartApplication =
+  res
+    "StartApplicationResponse"
+    "fixture/StartApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartApplication)
+
+responseStopApplication :: StopApplicationResponse -> TestTree
+responseStopApplication =
+  res
+    "StopApplicationResponse"
+    "fixture/StopApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopApplication)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -429,10 +429,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfigurationResponse -> TestTree
-responseDeleteApplicationInputProcessingConfiguration =
+responseUpdateApplication :: UpdateApplicationResponse -> TestTree
+responseUpdateApplication =
   res
-    "DeleteApplicationInputProcessingConfigurationResponse"
-    "fixture/DeleteApplicationInputProcessingConfigurationResponse.proto"
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplicationInputProcessingConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)

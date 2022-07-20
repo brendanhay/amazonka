@@ -27,41 +27,47 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreatePackagingGroup $
---             newCreatePackagingGroup
---
---         , requestConfigureLogs $
+--         [ requestConfigureLogs $
 --             newConfigureLogs
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDescribePackagingGroup $
---             newDescribePackagingGroup
---
---         , requestDescribeAsset $
---             newDescribeAsset
---
---         , requestDeletePackagingConfiguration $
---             newDeletePackagingConfiguration
---
---         , requestListPackagingGroups $
---             newListPackagingGroups
---
---         , requestDeleteAsset $
---             newDeleteAsset
---
---         , requestUpdatePackagingGroup $
---             newUpdatePackagingGroup
---
---         , requestDeletePackagingGroup $
---             newDeletePackagingGroup
 --
 --         , requestCreateAsset $
 --             newCreateAsset
 --
+--         , requestCreatePackagingConfiguration $
+--             newCreatePackagingConfiguration
+--
+--         , requestCreatePackagingGroup $
+--             newCreatePackagingGroup
+--
+--         , requestDeleteAsset $
+--             newDeleteAsset
+--
+--         , requestDeletePackagingConfiguration $
+--             newDeletePackagingConfiguration
+--
+--         , requestDeletePackagingGroup $
+--             newDeletePackagingGroup
+--
+--         , requestDescribeAsset $
+--             newDescribeAsset
+--
 --         , requestDescribePackagingConfiguration $
 --             newDescribePackagingConfiguration
+--
+--         , requestDescribePackagingGroup $
+--             newDescribePackagingGroup
+--
+--         , requestListAssets $
+--             newListAssets
+--
+--         , requestListPackagingConfigurations $
+--             newListPackagingConfigurations
+--
+--         , requestListPackagingGroups $
+--             newListPackagingGroups
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestTagResource $
 --             newTagResource
@@ -69,53 +75,53 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestCreatePackagingConfiguration $
---             newCreatePackagingConfiguration
---
---         , requestListPackagingConfigurations $
---             newListPackagingConfigurations
---
---         , requestListAssets $
---             newListAssets
+--         , requestUpdatePackagingGroup $
+--             newUpdatePackagingGroup
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreatePackagingGroup $
---             newCreatePackagingGroupResponse
---
---         , responseConfigureLogs $
+--         [ responseConfigureLogs $
 --             newConfigureLogsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDescribePackagingGroup $
---             newDescribePackagingGroupResponse
---
---         , responseDescribeAsset $
---             newDescribeAssetResponse
---
---         , responseDeletePackagingConfiguration $
---             newDeletePackagingConfigurationResponse
---
---         , responseListPackagingGroups $
---             newListPackagingGroupsResponse
---
---         , responseDeleteAsset $
---             newDeleteAssetResponse
---
---         , responseUpdatePackagingGroup $
---             newUpdatePackagingGroupResponse
---
---         , responseDeletePackagingGroup $
---             newDeletePackagingGroupResponse
 --
 --         , responseCreateAsset $
 --             newCreateAssetResponse
 --
+--         , responseCreatePackagingConfiguration $
+--             newCreatePackagingConfigurationResponse
+--
+--         , responseCreatePackagingGroup $
+--             newCreatePackagingGroupResponse
+--
+--         , responseDeleteAsset $
+--             newDeleteAssetResponse
+--
+--         , responseDeletePackagingConfiguration $
+--             newDeletePackagingConfigurationResponse
+--
+--         , responseDeletePackagingGroup $
+--             newDeletePackagingGroupResponse
+--
+--         , responseDescribeAsset $
+--             newDescribeAssetResponse
+--
 --         , responseDescribePackagingConfiguration $
 --             newDescribePackagingConfigurationResponse
+--
+--         , responseDescribePackagingGroup $
+--             newDescribePackagingGroupResponse
+--
+--         , responseListAssets $
+--             newListAssetsResponse
+--
+--         , responseListPackagingConfigurations $
+--             newListPackagingConfigurationsResponse
+--
+--         , responseListPackagingGroups $
+--             newListPackagingGroupsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -123,25 +129,13 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseCreatePackagingConfiguration $
---             newCreatePackagingConfigurationResponse
---
---         , responseListPackagingConfigurations $
---             newListPackagingConfigurationsResponse
---
---         , responseListAssets $
---             newListAssetsResponse
+--         , responseUpdatePackagingGroup $
+--             newUpdatePackagingGroupResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestCreatePackagingGroup :: CreatePackagingGroup -> TestTree
-requestCreatePackagingGroup =
-  req
-    "CreatePackagingGroup"
-    "fixture/CreatePackagingGroup.yaml"
 
 requestConfigureLogs :: ConfigureLogs -> TestTree
 requestConfigureLogs =
@@ -149,35 +143,23 @@ requestConfigureLogs =
     "ConfigureLogs"
     "fixture/ConfigureLogs.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestCreateAsset :: CreateAsset -> TestTree
+requestCreateAsset =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "CreateAsset"
+    "fixture/CreateAsset.yaml"
 
-requestDescribePackagingGroup :: DescribePackagingGroup -> TestTree
-requestDescribePackagingGroup =
+requestCreatePackagingConfiguration :: CreatePackagingConfiguration -> TestTree
+requestCreatePackagingConfiguration =
   req
-    "DescribePackagingGroup"
-    "fixture/DescribePackagingGroup.yaml"
+    "CreatePackagingConfiguration"
+    "fixture/CreatePackagingConfiguration.yaml"
 
-requestDescribeAsset :: DescribeAsset -> TestTree
-requestDescribeAsset =
+requestCreatePackagingGroup :: CreatePackagingGroup -> TestTree
+requestCreatePackagingGroup =
   req
-    "DescribeAsset"
-    "fixture/DescribeAsset.yaml"
-
-requestDeletePackagingConfiguration :: DeletePackagingConfiguration -> TestTree
-requestDeletePackagingConfiguration =
-  req
-    "DeletePackagingConfiguration"
-    "fixture/DeletePackagingConfiguration.yaml"
-
-requestListPackagingGroups :: ListPackagingGroups -> TestTree
-requestListPackagingGroups =
-  req
-    "ListPackagingGroups"
-    "fixture/ListPackagingGroups.yaml"
+    "CreatePackagingGroup"
+    "fixture/CreatePackagingGroup.yaml"
 
 requestDeleteAsset :: DeleteAsset -> TestTree
 requestDeleteAsset =
@@ -185,11 +167,11 @@ requestDeleteAsset =
     "DeleteAsset"
     "fixture/DeleteAsset.yaml"
 
-requestUpdatePackagingGroup :: UpdatePackagingGroup -> TestTree
-requestUpdatePackagingGroup =
+requestDeletePackagingConfiguration :: DeletePackagingConfiguration -> TestTree
+requestDeletePackagingConfiguration =
   req
-    "UpdatePackagingGroup"
-    "fixture/UpdatePackagingGroup.yaml"
+    "DeletePackagingConfiguration"
+    "fixture/DeletePackagingConfiguration.yaml"
 
 requestDeletePackagingGroup :: DeletePackagingGroup -> TestTree
 requestDeletePackagingGroup =
@@ -197,17 +179,47 @@ requestDeletePackagingGroup =
     "DeletePackagingGroup"
     "fixture/DeletePackagingGroup.yaml"
 
-requestCreateAsset :: CreateAsset -> TestTree
-requestCreateAsset =
+requestDescribeAsset :: DescribeAsset -> TestTree
+requestDescribeAsset =
   req
-    "CreateAsset"
-    "fixture/CreateAsset.yaml"
+    "DescribeAsset"
+    "fixture/DescribeAsset.yaml"
 
 requestDescribePackagingConfiguration :: DescribePackagingConfiguration -> TestTree
 requestDescribePackagingConfiguration =
   req
     "DescribePackagingConfiguration"
     "fixture/DescribePackagingConfiguration.yaml"
+
+requestDescribePackagingGroup :: DescribePackagingGroup -> TestTree
+requestDescribePackagingGroup =
+  req
+    "DescribePackagingGroup"
+    "fixture/DescribePackagingGroup.yaml"
+
+requestListAssets :: ListAssets -> TestTree
+requestListAssets =
+  req
+    "ListAssets"
+    "fixture/ListAssets.yaml"
+
+requestListPackagingConfigurations :: ListPackagingConfigurations -> TestTree
+requestListPackagingConfigurations =
+  req
+    "ListPackagingConfigurations"
+    "fixture/ListPackagingConfigurations.yaml"
+
+requestListPackagingGroups :: ListPackagingGroups -> TestTree
+requestListPackagingGroups =
+  req
+    "ListPackagingGroups"
+    "fixture/ListPackagingGroups.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -221,33 +233,13 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestCreatePackagingConfiguration :: CreatePackagingConfiguration -> TestTree
-requestCreatePackagingConfiguration =
+requestUpdatePackagingGroup :: UpdatePackagingGroup -> TestTree
+requestUpdatePackagingGroup =
   req
-    "CreatePackagingConfiguration"
-    "fixture/CreatePackagingConfiguration.yaml"
-
-requestListPackagingConfigurations :: ListPackagingConfigurations -> TestTree
-requestListPackagingConfigurations =
-  req
-    "ListPackagingConfigurations"
-    "fixture/ListPackagingConfigurations.yaml"
-
-requestListAssets :: ListAssets -> TestTree
-requestListAssets =
-  req
-    "ListAssets"
-    "fixture/ListAssets.yaml"
+    "UpdatePackagingGroup"
+    "fixture/UpdatePackagingGroup.yaml"
 
 -- Responses
-
-responseCreatePackagingGroup :: CreatePackagingGroupResponse -> TestTree
-responseCreatePackagingGroup =
-  res
-    "CreatePackagingGroupResponse"
-    "fixture/CreatePackagingGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePackagingGroup)
 
 responseConfigureLogs :: ConfigureLogsResponse -> TestTree
 responseConfigureLogs =
@@ -257,45 +249,29 @@ responseConfigureLogs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ConfigureLogs)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseCreateAsset :: CreateAssetResponse -> TestTree
+responseCreateAsset =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "CreateAssetResponse"
+    "fixture/CreateAssetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateAsset)
 
-responseDescribePackagingGroup :: DescribePackagingGroupResponse -> TestTree
-responseDescribePackagingGroup =
+responseCreatePackagingConfiguration :: CreatePackagingConfigurationResponse -> TestTree
+responseCreatePackagingConfiguration =
   res
-    "DescribePackagingGroupResponse"
-    "fixture/DescribePackagingGroupResponse.proto"
+    "CreatePackagingConfigurationResponse"
+    "fixture/CreatePackagingConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePackagingGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreatePackagingConfiguration)
 
-responseDescribeAsset :: DescribeAssetResponse -> TestTree
-responseDescribeAsset =
+responseCreatePackagingGroup :: CreatePackagingGroupResponse -> TestTree
+responseCreatePackagingGroup =
   res
-    "DescribeAssetResponse"
-    "fixture/DescribeAssetResponse.proto"
+    "CreatePackagingGroupResponse"
+    "fixture/CreatePackagingGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAsset)
-
-responseDeletePackagingConfiguration :: DeletePackagingConfigurationResponse -> TestTree
-responseDeletePackagingConfiguration =
-  res
-    "DeletePackagingConfigurationResponse"
-    "fixture/DeletePackagingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePackagingConfiguration)
-
-responseListPackagingGroups :: ListPackagingGroupsResponse -> TestTree
-responseListPackagingGroups =
-  res
-    "ListPackagingGroupsResponse"
-    "fixture/ListPackagingGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPackagingGroups)
+    (Proxy.Proxy :: Proxy.Proxy CreatePackagingGroup)
 
 responseDeleteAsset :: DeleteAssetResponse -> TestTree
 responseDeleteAsset =
@@ -305,13 +281,13 @@ responseDeleteAsset =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAsset)
 
-responseUpdatePackagingGroup :: UpdatePackagingGroupResponse -> TestTree
-responseUpdatePackagingGroup =
+responseDeletePackagingConfiguration :: DeletePackagingConfigurationResponse -> TestTree
+responseDeletePackagingConfiguration =
   res
-    "UpdatePackagingGroupResponse"
-    "fixture/UpdatePackagingGroupResponse.proto"
+    "DeletePackagingConfigurationResponse"
+    "fixture/DeletePackagingConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePackagingGroup)
+    (Proxy.Proxy :: Proxy.Proxy DeletePackagingConfiguration)
 
 responseDeletePackagingGroup :: DeletePackagingGroupResponse -> TestTree
 responseDeletePackagingGroup =
@@ -321,13 +297,13 @@ responseDeletePackagingGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePackagingGroup)
 
-responseCreateAsset :: CreateAssetResponse -> TestTree
-responseCreateAsset =
+responseDescribeAsset :: DescribeAssetResponse -> TestTree
+responseDescribeAsset =
   res
-    "CreateAssetResponse"
-    "fixture/CreateAssetResponse.proto"
+    "DescribeAssetResponse"
+    "fixture/DescribeAssetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAsset)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAsset)
 
 responseDescribePackagingConfiguration :: DescribePackagingConfigurationResponse -> TestTree
 responseDescribePackagingConfiguration =
@@ -336,6 +312,46 @@ responseDescribePackagingConfiguration =
     "fixture/DescribePackagingConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePackagingConfiguration)
+
+responseDescribePackagingGroup :: DescribePackagingGroupResponse -> TestTree
+responseDescribePackagingGroup =
+  res
+    "DescribePackagingGroupResponse"
+    "fixture/DescribePackagingGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePackagingGroup)
+
+responseListAssets :: ListAssetsResponse -> TestTree
+responseListAssets =
+  res
+    "ListAssetsResponse"
+    "fixture/ListAssetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssets)
+
+responseListPackagingConfigurations :: ListPackagingConfigurationsResponse -> TestTree
+responseListPackagingConfigurations =
+  res
+    "ListPackagingConfigurationsResponse"
+    "fixture/ListPackagingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackagingConfigurations)
+
+responseListPackagingGroups :: ListPackagingGroupsResponse -> TestTree
+responseListPackagingGroups =
+  res
+    "ListPackagingGroupsResponse"
+    "fixture/ListPackagingGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackagingGroups)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -353,26 +369,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseCreatePackagingConfiguration :: CreatePackagingConfigurationResponse -> TestTree
-responseCreatePackagingConfiguration =
+responseUpdatePackagingGroup :: UpdatePackagingGroupResponse -> TestTree
+responseUpdatePackagingGroup =
   res
-    "CreatePackagingConfigurationResponse"
-    "fixture/CreatePackagingConfigurationResponse.proto"
+    "UpdatePackagingGroupResponse"
+    "fixture/UpdatePackagingGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePackagingConfiguration)
-
-responseListPackagingConfigurations :: ListPackagingConfigurationsResponse -> TestTree
-responseListPackagingConfigurations =
-  res
-    "ListPackagingConfigurationsResponse"
-    "fixture/ListPackagingConfigurationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPackagingConfigurations)
-
-responseListAssets :: ListAssetsResponse -> TestTree
-responseListAssets =
-  res
-    "ListAssetsResponse"
-    "fixture/ListAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssets)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackagingGroup)

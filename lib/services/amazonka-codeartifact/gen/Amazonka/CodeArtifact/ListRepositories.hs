@@ -33,8 +33,8 @@ module Amazonka.CodeArtifact.ListRepositories
     newListRepositories,
 
     -- * Request Lenses
-    listRepositories_repositoryPrefix,
     listRepositories_nextToken,
+    listRepositories_repositoryPrefix,
     listRepositories_maxResults,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.CodeArtifact.ListRepositories
     newListRepositoriesResponse,
 
     -- * Response Lenses
-    listRepositoriesResponse_repositories,
     listRepositoriesResponse_nextToken,
+    listRepositoriesResponse_repositories,
     listRepositoriesResponse_httpStatus,
   )
 where
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRepositories' smart constructor.
 data ListRepositories = ListRepositories'
-  { -- | A prefix used to filter returned repositories. Only repositories with
-    -- names that start with @repositoryPrefix@ are returned.
-    repositoryPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results. Use the value returned in the
+  { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A prefix used to filter returned repositories. Only repositories with
+    -- names that start with @repositoryPrefix@ are returned.
+    repositoryPrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -77,34 +77,33 @@ data ListRepositories = ListRepositories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repositoryPrefix', 'listRepositories_repositoryPrefix' - A prefix used to filter returned repositories. Only repositories with
--- names that start with @repositoryPrefix@ are returned.
---
 -- 'nextToken', 'listRepositories_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
+--
+-- 'repositoryPrefix', 'listRepositories_repositoryPrefix' - A prefix used to filter returned repositories. Only repositories with
+-- names that start with @repositoryPrefix@ are returned.
 --
 -- 'maxResults', 'listRepositories_maxResults' - The maximum number of results to return per page.
 newListRepositories ::
   ListRepositories
 newListRepositories =
   ListRepositories'
-    { repositoryPrefix =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      repositoryPrefix = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | A prefix used to filter returned repositories. Only repositories with
--- names that start with @repositoryPrefix@ are returned.
-listRepositories_repositoryPrefix :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Text)
-listRepositories_repositoryPrefix = Lens.lens (\ListRepositories' {repositoryPrefix} -> repositoryPrefix) (\s@ListRepositories' {} a -> s {repositoryPrefix = a} :: ListRepositories)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listRepositories_nextToken :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Text)
 listRepositories_nextToken = Lens.lens (\ListRepositories' {nextToken} -> nextToken) (\s@ListRepositories' {} a -> s {nextToken = a} :: ListRepositories)
+
+-- | A prefix used to filter returned repositories. Only repositories with
+-- names that start with @repositoryPrefix@ are returned.
+listRepositories_repositoryPrefix :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Text)
+listRepositories_repositoryPrefix = Lens.lens (\ListRepositories' {repositoryPrefix} -> repositoryPrefix) (\s@ListRepositories' {} a -> s {repositoryPrefix = a} :: ListRepositories)
 
 -- | The maximum number of results to return per page.
 listRepositories_maxResults :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Natural)
@@ -141,21 +140,21 @@ instance Core.AWSRequest ListRepositories where
     Response.receiveJSON
       ( \s h x ->
           ListRepositoriesResponse'
-            Prelude.<$> (x Core..?> "repositories" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "repositories" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRepositories where
   hashWithSalt _salt ListRepositories' {..} =
-    _salt `Prelude.hashWithSalt` repositoryPrefix
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` repositoryPrefix
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListRepositories where
   rnf ListRepositories' {..} =
-    Prelude.rnf repositoryPrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf repositoryPrefix
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRepositories where
@@ -178,20 +177,20 @@ instance Core.ToPath ListRepositories where
 instance Core.ToQuery ListRepositories where
   toQuery ListRepositories' {..} =
     Prelude.mconcat
-      [ "repository-prefix" Core.=: repositoryPrefix,
-        "next-token" Core.=: nextToken,
+      [ "next-token" Core.=: nextToken,
+        "repository-prefix" Core.=: repositoryPrefix,
         "max-results" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
-  { -- | The returned list of
+  { -- | If there are additional results, this is the token for the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The returned list of
     -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html RepositorySummary>
     -- objects.
     repositories :: Prelude.Maybe [RepositorySummary],
-    -- | If there are additional results, this is the token for the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,12 +204,12 @@ data ListRepositoriesResponse = ListRepositoriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listRepositoriesResponse_nextToken' - If there are additional results, this is the token for the next set of
+-- results.
+--
 -- 'repositories', 'listRepositoriesResponse_repositories' - The returned list of
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html RepositorySummary>
 -- objects.
---
--- 'nextToken', 'listRepositoriesResponse_nextToken' - If there are additional results, this is the token for the next set of
--- results.
 --
 -- 'httpStatus', 'listRepositoriesResponse_httpStatus' - The response's http status code.
 newListRepositoriesResponse ::
@@ -219,11 +218,16 @@ newListRepositoriesResponse ::
   ListRepositoriesResponse
 newListRepositoriesResponse pHttpStatus_ =
   ListRepositoriesResponse'
-    { repositories =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      repositories = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If there are additional results, this is the token for the next set of
+-- results.
+listRepositoriesResponse_nextToken :: Lens.Lens' ListRepositoriesResponse (Prelude.Maybe Prelude.Text)
+listRepositoriesResponse_nextToken = Lens.lens (\ListRepositoriesResponse' {nextToken} -> nextToken) (\s@ListRepositoriesResponse' {} a -> s {nextToken = a} :: ListRepositoriesResponse)
 
 -- | The returned list of
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html RepositorySummary>
@@ -231,17 +235,12 @@ newListRepositoriesResponse pHttpStatus_ =
 listRepositoriesResponse_repositories :: Lens.Lens' ListRepositoriesResponse (Prelude.Maybe [RepositorySummary])
 listRepositoriesResponse_repositories = Lens.lens (\ListRepositoriesResponse' {repositories} -> repositories) (\s@ListRepositoriesResponse' {} a -> s {repositories = a} :: ListRepositoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | If there are additional results, this is the token for the next set of
--- results.
-listRepositoriesResponse_nextToken :: Lens.Lens' ListRepositoriesResponse (Prelude.Maybe Prelude.Text)
-listRepositoriesResponse_nextToken = Lens.lens (\ListRepositoriesResponse' {nextToken} -> nextToken) (\s@ListRepositoriesResponse' {} a -> s {nextToken = a} :: ListRepositoriesResponse)
-
 -- | The response's http status code.
 listRepositoriesResponse_httpStatus :: Lens.Lens' ListRepositoriesResponse Prelude.Int
 listRepositoriesResponse_httpStatus = Lens.lens (\ListRepositoriesResponse' {httpStatus} -> httpStatus) (\s@ListRepositoriesResponse' {} a -> s {httpStatus = a} :: ListRepositoriesResponse)
 
 instance Prelude.NFData ListRepositoriesResponse where
   rnf ListRepositoriesResponse' {..} =
-    Prelude.rnf repositories
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf repositories
       `Prelude.seq` Prelude.rnf httpStatus

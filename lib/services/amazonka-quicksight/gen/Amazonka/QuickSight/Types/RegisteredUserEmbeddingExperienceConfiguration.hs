@@ -38,6 +38,11 @@ data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExp
   { -- | The configuration details for providing a dashboard embedding
     -- experience.
     dashboard :: Prelude.Maybe RegisteredUserDashboardEmbeddingConfiguration,
+    -- | The configuration details for embedding the Q search bar.
+    --
+    -- For more information about embedding the Q search bar, see
+    -- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
+    qSearchBar :: Prelude.Maybe RegisteredUserQSearchBarEmbeddingConfiguration,
     -- | The configuration details for providing an Amazon QuickSight console
     -- embedding experience. This can be used along with custom permissions to
     -- restrict access to certain features. For more information, see
@@ -61,12 +66,7 @@ data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExp
     -- For more information about the high-level steps for embedding and for an
     -- interactive demo of the ways you can customize embedding, visit the
     -- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html Amazon QuickSight Developer Portal>.
-    quickSightConsole :: Prelude.Maybe RegisteredUserQuickSightConsoleEmbeddingConfiguration,
-    -- | The configuration details for embedding the Q search bar.
-    --
-    -- For more information about embedding the Q search bar, see
-    -- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
-    qSearchBar :: Prelude.Maybe RegisteredUserQSearchBarEmbeddingConfiguration
+    quickSightConsole :: Prelude.Maybe RegisteredUserQuickSightConsoleEmbeddingConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,11 @@ data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExp
 --
 -- 'dashboard', 'registeredUserEmbeddingExperienceConfiguration_dashboard' - The configuration details for providing a dashboard embedding
 -- experience.
+--
+-- 'qSearchBar', 'registeredUserEmbeddingExperienceConfiguration_qSearchBar' - The configuration details for embedding the Q search bar.
+--
+-- For more information about embedding the Q search bar, see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
 --
 -- 'quickSightConsole', 'registeredUserEmbeddingExperienceConfiguration_quickSightConsole' - The configuration details for providing an Amazon QuickSight console
 -- embedding experience. This can be used along with custom permissions to
@@ -104,20 +109,15 @@ data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExp
 -- For more information about the high-level steps for embedding and for an
 -- interactive demo of the ways you can customize embedding, visit the
 -- <https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html Amazon QuickSight Developer Portal>.
---
--- 'qSearchBar', 'registeredUserEmbeddingExperienceConfiguration_qSearchBar' - The configuration details for embedding the Q search bar.
---
--- For more information about embedding the Q search bar, see
--- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
 newRegisteredUserEmbeddingExperienceConfiguration ::
   RegisteredUserEmbeddingExperienceConfiguration
 newRegisteredUserEmbeddingExperienceConfiguration =
   RegisteredUserEmbeddingExperienceConfiguration'
     { dashboard =
         Prelude.Nothing,
-      quickSightConsole =
-        Prelude.Nothing,
       qSearchBar =
+        Prelude.Nothing,
+      quickSightConsole =
         Prelude.Nothing
     }
 
@@ -125,6 +125,13 @@ newRegisteredUserEmbeddingExperienceConfiguration =
 -- experience.
 registeredUserEmbeddingExperienceConfiguration_dashboard :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserDashboardEmbeddingConfiguration)
 registeredUserEmbeddingExperienceConfiguration_dashboard = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {dashboard} -> dashboard) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {dashboard = a} :: RegisteredUserEmbeddingExperienceConfiguration)
+
+-- | The configuration details for embedding the Q search bar.
+--
+-- For more information about embedding the Q search bar, see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
+registeredUserEmbeddingExperienceConfiguration_qSearchBar :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserQSearchBarEmbeddingConfiguration)
+registeredUserEmbeddingExperienceConfiguration_qSearchBar = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {qSearchBar} -> qSearchBar) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {qSearchBar = a} :: RegisteredUserEmbeddingExperienceConfiguration)
 
 -- | The configuration details for providing an Amazon QuickSight console
 -- embedding experience. This can be used along with custom permissions to
@@ -152,13 +159,6 @@ registeredUserEmbeddingExperienceConfiguration_dashboard = Lens.lens (\Registere
 registeredUserEmbeddingExperienceConfiguration_quickSightConsole :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserQuickSightConsoleEmbeddingConfiguration)
 registeredUserEmbeddingExperienceConfiguration_quickSightConsole = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {quickSightConsole} -> quickSightConsole) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {quickSightConsole = a} :: RegisteredUserEmbeddingExperienceConfiguration)
 
--- | The configuration details for embedding the Q search bar.
---
--- For more information about embedding the Q search bar, see
--- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
-registeredUserEmbeddingExperienceConfiguration_qSearchBar :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserQSearchBarEmbeddingConfiguration)
-registeredUserEmbeddingExperienceConfiguration_qSearchBar = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {qSearchBar} -> qSearchBar) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {qSearchBar = a} :: RegisteredUserEmbeddingExperienceConfiguration)
-
 instance
   Prelude.Hashable
     RegisteredUserEmbeddingExperienceConfiguration
@@ -167,8 +167,8 @@ instance
     _salt
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
       _salt `Prelude.hashWithSalt` dashboard
-        `Prelude.hashWithSalt` quickSightConsole
         `Prelude.hashWithSalt` qSearchBar
+        `Prelude.hashWithSalt` quickSightConsole
 
 instance
   Prelude.NFData
@@ -177,8 +177,8 @@ instance
   rnf
     RegisteredUserEmbeddingExperienceConfiguration' {..} =
       Prelude.rnf dashboard
-        `Prelude.seq` Prelude.rnf quickSightConsole
         `Prelude.seq` Prelude.rnf qSearchBar
+        `Prelude.seq` Prelude.rnf quickSightConsole
 
 instance
   Core.ToJSON
@@ -189,8 +189,8 @@ instance
       Core.object
         ( Prelude.catMaybes
             [ ("Dashboard" Core..=) Prelude.<$> dashboard,
+              ("QSearchBar" Core..=) Prelude.<$> qSearchBar,
               ("QuickSightConsole" Core..=)
-                Prelude.<$> quickSightConsole,
-              ("QSearchBar" Core..=) Prelude.<$> qSearchBar
+                Prelude.<$> quickSightConsole
             ]
         )

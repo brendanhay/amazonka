@@ -29,10 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingThresholds' smart constructor.
 data AutoScalingThresholds = AutoScalingThresholds'
-  { -- | The number of instances to add or remove when the load exceeds a
-    -- threshold.
-    instanceCount :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time (in minutes) after a scaling event occurs that AWS
+  { -- | The amount of time (in minutes) after a scaling event occurs that AWS
     -- OpsWorks Stacks should ignore metrics and suppress additional scaling
     -- events. For example, AWS OpsWorks Stacks adds new instances following an
     -- upscaling event but the instances won\'t start reducing the load until
@@ -42,13 +39,6 @@ data AutoScalingThresholds = AutoScalingThresholds'
     -- Stacks to suppress scaling events long enough to get the new instances
     -- online.
     ignoreMetricsTime :: Prelude.Maybe Prelude.Natural,
-    -- | The load threshold. A value of -1 disables the threshold. For more
-    -- information about how load is computed, see
-    -- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
-    loadThreshold :: Prelude.Maybe Prelude.Double,
-    -- | The amount of time, in minutes, that the load must exceed a threshold
-    -- before more instances are added or removed.
-    thresholdsWaitTime :: Prelude.Maybe Prelude.Natural,
     -- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This
     -- parameter takes a list of up to five alarm names, which are case
     -- sensitive and must be in the same region as the stack.
@@ -62,6 +52,16 @@ data AutoScalingThresholds = AutoScalingThresholds'
     -- | The memory utilization threshold, as a percent of the available memory.
     -- A value of -1 disables the threshold.
     memoryThreshold :: Prelude.Maybe Prelude.Double,
+    -- | The number of instances to add or remove when the load exceeds a
+    -- threshold.
+    instanceCount :: Prelude.Maybe Prelude.Int,
+    -- | The load threshold. A value of -1 disables the threshold. For more
+    -- information about how load is computed, see
+    -- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
+    loadThreshold :: Prelude.Maybe Prelude.Double,
+    -- | The amount of time, in minutes, that the load must exceed a threshold
+    -- before more instances are added or removed.
+    thresholdsWaitTime :: Prelude.Maybe Prelude.Natural,
     -- | The CPU utilization threshold, as a percent of the available CPU. A
     -- value of -1 disables the threshold.
     cpuThreshold :: Prelude.Maybe Prelude.Double
@@ -76,9 +76,6 @@ data AutoScalingThresholds = AutoScalingThresholds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceCount', 'autoScalingThresholds_instanceCount' - The number of instances to add or remove when the load exceeds a
--- threshold.
---
 -- 'ignoreMetricsTime', 'autoScalingThresholds_ignoreMetricsTime' - The amount of time (in minutes) after a scaling event occurs that AWS
 -- OpsWorks Stacks should ignore metrics and suppress additional scaling
 -- events. For example, AWS OpsWorks Stacks adds new instances following an
@@ -88,13 +85,6 @@ data AutoScalingThresholds = AutoScalingThresholds'
 -- several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks
 -- Stacks to suppress scaling events long enough to get the new instances
 -- online.
---
--- 'loadThreshold', 'autoScalingThresholds_loadThreshold' - The load threshold. A value of -1 disables the threshold. For more
--- information about how load is computed, see
--- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
---
--- 'thresholdsWaitTime', 'autoScalingThresholds_thresholdsWaitTime' - The amount of time, in minutes, that the load must exceed a threshold
--- before more instances are added or removed.
 --
 -- 'alarms', 'autoScalingThresholds_alarms' - Custom Cloudwatch auto scaling alarms, to be used as thresholds. This
 -- parameter takes a list of up to five alarm names, which are case
@@ -109,26 +99,31 @@ data AutoScalingThresholds = AutoScalingThresholds'
 -- 'memoryThreshold', 'autoScalingThresholds_memoryThreshold' - The memory utilization threshold, as a percent of the available memory.
 -- A value of -1 disables the threshold.
 --
+-- 'instanceCount', 'autoScalingThresholds_instanceCount' - The number of instances to add or remove when the load exceeds a
+-- threshold.
+--
+-- 'loadThreshold', 'autoScalingThresholds_loadThreshold' - The load threshold. A value of -1 disables the threshold. For more
+-- information about how load is computed, see
+-- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
+--
+-- 'thresholdsWaitTime', 'autoScalingThresholds_thresholdsWaitTime' - The amount of time, in minutes, that the load must exceed a threshold
+-- before more instances are added or removed.
+--
 -- 'cpuThreshold', 'autoScalingThresholds_cpuThreshold' - The CPU utilization threshold, as a percent of the available CPU. A
 -- value of -1 disables the threshold.
 newAutoScalingThresholds ::
   AutoScalingThresholds
 newAutoScalingThresholds =
   AutoScalingThresholds'
-    { instanceCount =
+    { ignoreMetricsTime =
         Prelude.Nothing,
-      ignoreMetricsTime = Prelude.Nothing,
-      loadThreshold = Prelude.Nothing,
-      thresholdsWaitTime = Prelude.Nothing,
       alarms = Prelude.Nothing,
       memoryThreshold = Prelude.Nothing,
+      instanceCount = Prelude.Nothing,
+      loadThreshold = Prelude.Nothing,
+      thresholdsWaitTime = Prelude.Nothing,
       cpuThreshold = Prelude.Nothing
     }
-
--- | The number of instances to add or remove when the load exceeds a
--- threshold.
-autoScalingThresholds_instanceCount :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Int)
-autoScalingThresholds_instanceCount = Lens.lens (\AutoScalingThresholds' {instanceCount} -> instanceCount) (\s@AutoScalingThresholds' {} a -> s {instanceCount = a} :: AutoScalingThresholds)
 
 -- | The amount of time (in minutes) after a scaling event occurs that AWS
 -- OpsWorks Stacks should ignore metrics and suppress additional scaling
@@ -141,17 +136,6 @@ autoScalingThresholds_instanceCount = Lens.lens (\AutoScalingThresholds' {instan
 -- online.
 autoScalingThresholds_ignoreMetricsTime :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Natural)
 autoScalingThresholds_ignoreMetricsTime = Lens.lens (\AutoScalingThresholds' {ignoreMetricsTime} -> ignoreMetricsTime) (\s@AutoScalingThresholds' {} a -> s {ignoreMetricsTime = a} :: AutoScalingThresholds)
-
--- | The load threshold. A value of -1 disables the threshold. For more
--- information about how load is computed, see
--- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
-autoScalingThresholds_loadThreshold :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Double)
-autoScalingThresholds_loadThreshold = Lens.lens (\AutoScalingThresholds' {loadThreshold} -> loadThreshold) (\s@AutoScalingThresholds' {} a -> s {loadThreshold = a} :: AutoScalingThresholds)
-
--- | The amount of time, in minutes, that the load must exceed a threshold
--- before more instances are added or removed.
-autoScalingThresholds_thresholdsWaitTime :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Natural)
-autoScalingThresholds_thresholdsWaitTime = Lens.lens (\AutoScalingThresholds' {thresholdsWaitTime} -> thresholdsWaitTime) (\s@AutoScalingThresholds' {} a -> s {thresholdsWaitTime = a} :: AutoScalingThresholds)
 
 -- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This
 -- parameter takes a list of up to five alarm names, which are case
@@ -170,6 +154,22 @@ autoScalingThresholds_alarms = Lens.lens (\AutoScalingThresholds' {alarms} -> al
 autoScalingThresholds_memoryThreshold :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Double)
 autoScalingThresholds_memoryThreshold = Lens.lens (\AutoScalingThresholds' {memoryThreshold} -> memoryThreshold) (\s@AutoScalingThresholds' {} a -> s {memoryThreshold = a} :: AutoScalingThresholds)
 
+-- | The number of instances to add or remove when the load exceeds a
+-- threshold.
+autoScalingThresholds_instanceCount :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Int)
+autoScalingThresholds_instanceCount = Lens.lens (\AutoScalingThresholds' {instanceCount} -> instanceCount) (\s@AutoScalingThresholds' {} a -> s {instanceCount = a} :: AutoScalingThresholds)
+
+-- | The load threshold. A value of -1 disables the threshold. For more
+-- information about how load is computed, see
+-- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
+autoScalingThresholds_loadThreshold :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Double)
+autoScalingThresholds_loadThreshold = Lens.lens (\AutoScalingThresholds' {loadThreshold} -> loadThreshold) (\s@AutoScalingThresholds' {} a -> s {loadThreshold = a} :: AutoScalingThresholds)
+
+-- | The amount of time, in minutes, that the load must exceed a threshold
+-- before more instances are added or removed.
+autoScalingThresholds_thresholdsWaitTime :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Natural)
+autoScalingThresholds_thresholdsWaitTime = Lens.lens (\AutoScalingThresholds' {thresholdsWaitTime} -> thresholdsWaitTime) (\s@AutoScalingThresholds' {} a -> s {thresholdsWaitTime = a} :: AutoScalingThresholds)
+
 -- | The CPU utilization threshold, as a percent of the available CPU. A
 -- value of -1 disables the threshold.
 autoScalingThresholds_cpuThreshold :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Double)
@@ -181,48 +181,48 @@ instance Core.FromJSON AutoScalingThresholds where
       "AutoScalingThresholds"
       ( \x ->
           AutoScalingThresholds'
-            Prelude.<$> (x Core..:? "InstanceCount")
-            Prelude.<*> (x Core..:? "IgnoreMetricsTime")
-            Prelude.<*> (x Core..:? "LoadThreshold")
-            Prelude.<*> (x Core..:? "ThresholdsWaitTime")
+            Prelude.<$> (x Core..:? "IgnoreMetricsTime")
             Prelude.<*> (x Core..:? "Alarms" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "MemoryThreshold")
+            Prelude.<*> (x Core..:? "InstanceCount")
+            Prelude.<*> (x Core..:? "LoadThreshold")
+            Prelude.<*> (x Core..:? "ThresholdsWaitTime")
             Prelude.<*> (x Core..:? "CpuThreshold")
       )
 
 instance Prelude.Hashable AutoScalingThresholds where
   hashWithSalt _salt AutoScalingThresholds' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
-      `Prelude.hashWithSalt` ignoreMetricsTime
-      `Prelude.hashWithSalt` loadThreshold
-      `Prelude.hashWithSalt` thresholdsWaitTime
+    _salt `Prelude.hashWithSalt` ignoreMetricsTime
       `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` memoryThreshold
+      `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` loadThreshold
+      `Prelude.hashWithSalt` thresholdsWaitTime
       `Prelude.hashWithSalt` cpuThreshold
 
 instance Prelude.NFData AutoScalingThresholds where
   rnf AutoScalingThresholds' {..} =
-    Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf ignoreMetricsTime
-      `Prelude.seq` Prelude.rnf loadThreshold
-      `Prelude.seq` Prelude.rnf thresholdsWaitTime
+    Prelude.rnf ignoreMetricsTime
       `Prelude.seq` Prelude.rnf alarms
       `Prelude.seq` Prelude.rnf memoryThreshold
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf loadThreshold
+      `Prelude.seq` Prelude.rnf thresholdsWaitTime
       `Prelude.seq` Prelude.rnf cpuThreshold
 
 instance Core.ToJSON AutoScalingThresholds where
   toJSON AutoScalingThresholds' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceCount" Core..=) Prelude.<$> instanceCount,
-            ("IgnoreMetricsTime" Core..=)
+          [ ("IgnoreMetricsTime" Core..=)
               Prelude.<$> ignoreMetricsTime,
-            ("LoadThreshold" Core..=) Prelude.<$> loadThreshold,
-            ("ThresholdsWaitTime" Core..=)
-              Prelude.<$> thresholdsWaitTime,
             ("Alarms" Core..=) Prelude.<$> alarms,
             ("MemoryThreshold" Core..=)
               Prelude.<$> memoryThreshold,
+            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
+            ("LoadThreshold" Core..=) Prelude.<$> loadThreshold,
+            ("ThresholdsWaitTime" Core..=)
+              Prelude.<$> thresholdsWaitTime,
             ("CpuThreshold" Core..=) Prelude.<$> cpuThreshold
           ]
       )

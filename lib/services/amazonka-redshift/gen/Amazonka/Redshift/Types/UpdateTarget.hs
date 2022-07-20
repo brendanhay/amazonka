@@ -29,12 +29,12 @@ import Amazonka.Redshift.Types.SupportedOperation
 --
 -- /See:/ 'newUpdateTarget' smart constructor.
 data UpdateTarget = UpdateTarget'
-  { -- | The cluster version for the new maintenance track.
-    databaseVersion :: Prelude.Maybe Prelude.Text,
+  { -- | A list of operations supported by the maintenance track.
+    supportedOperations :: Prelude.Maybe [SupportedOperation],
     -- | The name of the new maintenance track.
     maintenanceTrackName :: Prelude.Maybe Prelude.Text,
-    -- | A list of operations supported by the maintenance track.
-    supportedOperations :: Prelude.Maybe [SupportedOperation]
+    -- | The cluster version for the new maintenance track.
+    databaseVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,50 +46,51 @@ data UpdateTarget = UpdateTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'databaseVersion', 'updateTarget_databaseVersion' - The cluster version for the new maintenance track.
+-- 'supportedOperations', 'updateTarget_supportedOperations' - A list of operations supported by the maintenance track.
 --
 -- 'maintenanceTrackName', 'updateTarget_maintenanceTrackName' - The name of the new maintenance track.
 --
--- 'supportedOperations', 'updateTarget_supportedOperations' - A list of operations supported by the maintenance track.
+-- 'databaseVersion', 'updateTarget_databaseVersion' - The cluster version for the new maintenance track.
 newUpdateTarget ::
   UpdateTarget
 newUpdateTarget =
   UpdateTarget'
-    { databaseVersion = Prelude.Nothing,
+    { supportedOperations =
+        Prelude.Nothing,
       maintenanceTrackName = Prelude.Nothing,
-      supportedOperations = Prelude.Nothing
+      databaseVersion = Prelude.Nothing
     }
-
--- | The cluster version for the new maintenance track.
-updateTarget_databaseVersion :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
-updateTarget_databaseVersion = Lens.lens (\UpdateTarget' {databaseVersion} -> databaseVersion) (\s@UpdateTarget' {} a -> s {databaseVersion = a} :: UpdateTarget)
-
--- | The name of the new maintenance track.
-updateTarget_maintenanceTrackName :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
-updateTarget_maintenanceTrackName = Lens.lens (\UpdateTarget' {maintenanceTrackName} -> maintenanceTrackName) (\s@UpdateTarget' {} a -> s {maintenanceTrackName = a} :: UpdateTarget)
 
 -- | A list of operations supported by the maintenance track.
 updateTarget_supportedOperations :: Lens.Lens' UpdateTarget (Prelude.Maybe [SupportedOperation])
 updateTarget_supportedOperations = Lens.lens (\UpdateTarget' {supportedOperations} -> supportedOperations) (\s@UpdateTarget' {} a -> s {supportedOperations = a} :: UpdateTarget) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the new maintenance track.
+updateTarget_maintenanceTrackName :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
+updateTarget_maintenanceTrackName = Lens.lens (\UpdateTarget' {maintenanceTrackName} -> maintenanceTrackName) (\s@UpdateTarget' {} a -> s {maintenanceTrackName = a} :: UpdateTarget)
+
+-- | The cluster version for the new maintenance track.
+updateTarget_databaseVersion :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
+updateTarget_databaseVersion = Lens.lens (\UpdateTarget' {databaseVersion} -> databaseVersion) (\s@UpdateTarget' {} a -> s {databaseVersion = a} :: UpdateTarget)
+
 instance Core.FromXML UpdateTarget where
   parseXML x =
     UpdateTarget'
-      Prelude.<$> (x Core..@? "DatabaseVersion")
-      Prelude.<*> (x Core..@? "MaintenanceTrackName")
-      Prelude.<*> ( x Core..@? "SupportedOperations"
+      Prelude.<$> ( x Core..@? "SupportedOperations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "SupportedOperation")
                   )
+      Prelude.<*> (x Core..@? "MaintenanceTrackName")
+      Prelude.<*> (x Core..@? "DatabaseVersion")
 
 instance Prelude.Hashable UpdateTarget where
   hashWithSalt _salt UpdateTarget' {..} =
-    _salt `Prelude.hashWithSalt` databaseVersion
+    _salt `Prelude.hashWithSalt` supportedOperations
       `Prelude.hashWithSalt` maintenanceTrackName
-      `Prelude.hashWithSalt` supportedOperations
+      `Prelude.hashWithSalt` databaseVersion
 
 instance Prelude.NFData UpdateTarget where
   rnf UpdateTarget' {..} =
-    Prelude.rnf databaseVersion
+    Prelude.rnf supportedOperations
       `Prelude.seq` Prelude.rnf maintenanceTrackName
-      `Prelude.seq` Prelude.rnf supportedOperations
+      `Prelude.seq` Prelude.rnf databaseVersion

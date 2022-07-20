@@ -35,7 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEmailContent' smart constructor.
 data EmailContent = EmailContent'
-  { -- | The raw email message. The message has to meet the following criteria:
+  { -- | The simple email message. The message consists of a subject and a
+    -- message body.
+    simple :: Prelude.Maybe Message,
+    -- | The raw email message. The message has to meet the following criteria:
     --
     -- -   The message has to contain a header and a body, separated by one
     --     blank line.
@@ -58,9 +61,6 @@ data EmailContent = EmailContent'
     --     1,000 characters. This restriction is defined in
     --     <https://tools.ietf.org/html/rfc5321 RFC 5321>.
     raw :: Prelude.Maybe RawMessage,
-    -- | The simple email message. The message consists of a subject and a
-    -- message body.
-    simple :: Prelude.Maybe Message,
     -- | The template to use for the email message.
     template :: Prelude.Maybe Template
   }
@@ -73,6 +73,9 @@ data EmailContent = EmailContent'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'simple', 'emailContent_simple' - The simple email message. The message consists of a subject and a
+-- message body.
 --
 -- 'raw', 'emailContent_raw' - The raw email message. The message has to meet the following criteria:
 --
@@ -97,18 +100,20 @@ data EmailContent = EmailContent'
 --     1,000 characters. This restriction is defined in
 --     <https://tools.ietf.org/html/rfc5321 RFC 5321>.
 --
--- 'simple', 'emailContent_simple' - The simple email message. The message consists of a subject and a
--- message body.
---
 -- 'template', 'emailContent_template' - The template to use for the email message.
 newEmailContent ::
   EmailContent
 newEmailContent =
   EmailContent'
-    { raw = Prelude.Nothing,
-      simple = Prelude.Nothing,
+    { simple = Prelude.Nothing,
+      raw = Prelude.Nothing,
       template = Prelude.Nothing
     }
+
+-- | The simple email message. The message consists of a subject and a
+-- message body.
+emailContent_simple :: Lens.Lens' EmailContent (Prelude.Maybe Message)
+emailContent_simple = Lens.lens (\EmailContent' {simple} -> simple) (\s@EmailContent' {} a -> s {simple = a} :: EmailContent)
 
 -- | The raw email message. The message has to meet the following criteria:
 --
@@ -135,33 +140,28 @@ newEmailContent =
 emailContent_raw :: Lens.Lens' EmailContent (Prelude.Maybe RawMessage)
 emailContent_raw = Lens.lens (\EmailContent' {raw} -> raw) (\s@EmailContent' {} a -> s {raw = a} :: EmailContent)
 
--- | The simple email message. The message consists of a subject and a
--- message body.
-emailContent_simple :: Lens.Lens' EmailContent (Prelude.Maybe Message)
-emailContent_simple = Lens.lens (\EmailContent' {simple} -> simple) (\s@EmailContent' {} a -> s {simple = a} :: EmailContent)
-
 -- | The template to use for the email message.
 emailContent_template :: Lens.Lens' EmailContent (Prelude.Maybe Template)
 emailContent_template = Lens.lens (\EmailContent' {template} -> template) (\s@EmailContent' {} a -> s {template = a} :: EmailContent)
 
 instance Prelude.Hashable EmailContent where
   hashWithSalt _salt EmailContent' {..} =
-    _salt `Prelude.hashWithSalt` raw
-      `Prelude.hashWithSalt` simple
+    _salt `Prelude.hashWithSalt` simple
+      `Prelude.hashWithSalt` raw
       `Prelude.hashWithSalt` template
 
 instance Prelude.NFData EmailContent where
   rnf EmailContent' {..} =
-    Prelude.rnf raw
-      `Prelude.seq` Prelude.rnf simple
+    Prelude.rnf simple
+      `Prelude.seq` Prelude.rnf raw
       `Prelude.seq` Prelude.rnf template
 
 instance Core.ToJSON EmailContent where
   toJSON EmailContent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Raw" Core..=) Prelude.<$> raw,
-            ("Simple" Core..=) Prelude.<$> simple,
+          [ ("Simple" Core..=) Prelude.<$> simple,
+            ("Raw" Core..=) Prelude.<$> raw,
             ("Template" Core..=) Prelude.<$> template
           ]
       )

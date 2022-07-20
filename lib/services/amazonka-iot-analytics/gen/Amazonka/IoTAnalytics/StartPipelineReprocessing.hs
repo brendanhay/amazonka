@@ -27,9 +27,9 @@ module Amazonka.IoTAnalytics.StartPipelineReprocessing
     newStartPipelineReprocessing,
 
     -- * Request Lenses
-    startPipelineReprocessing_startTime,
     startPipelineReprocessing_endTime,
     startPipelineReprocessing_channelMessages,
+    startPipelineReprocessing_startTime,
     startPipelineReprocessing_pipelineName,
 
     -- * Destructuring the Response
@@ -51,12 +51,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartPipelineReprocessing' smart constructor.
 data StartPipelineReprocessing = StartPipelineReprocessing'
-  { -- | The start time (inclusive) of raw message data that is reprocessed.
-    --
-    -- If you specify a value for the @startTime@ parameter, you must not use
-    -- the @channelMessages@ object.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The end time (exclusive) of raw message data that is reprocessed.
+  { -- | The end time (exclusive) of raw message data that is reprocessed.
     --
     -- If you specify a value for the @endTime@ parameter, you must not use the
     -- @channelMessages@ object.
@@ -67,6 +62,11 @@ data StartPipelineReprocessing = StartPipelineReprocessing'
     -- If you use the @channelMessages@ object, you must not specify a value
     -- for @startTime@ and @endTime@.
     channelMessages :: Prelude.Maybe ChannelMessages,
+    -- | The start time (inclusive) of raw message data that is reprocessed.
+    --
+    -- If you specify a value for the @startTime@ parameter, you must not use
+    -- the @channelMessages@ object.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the pipeline on which to start reprocessing.
     pipelineName :: Prelude.Text
   }
@@ -80,11 +80,6 @@ data StartPipelineReprocessing = StartPipelineReprocessing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'startPipelineReprocessing_startTime' - The start time (inclusive) of raw message data that is reprocessed.
---
--- If you specify a value for the @startTime@ parameter, you must not use
--- the @channelMessages@ object.
---
 -- 'endTime', 'startPipelineReprocessing_endTime' - The end time (exclusive) of raw message data that is reprocessed.
 --
 -- If you specify a value for the @endTime@ parameter, you must not use the
@@ -96,6 +91,11 @@ data StartPipelineReprocessing = StartPipelineReprocessing'
 -- If you use the @channelMessages@ object, you must not specify a value
 -- for @startTime@ and @endTime@.
 --
+-- 'startTime', 'startPipelineReprocessing_startTime' - The start time (inclusive) of raw message data that is reprocessed.
+--
+-- If you specify a value for the @startTime@ parameter, you must not use
+-- the @channelMessages@ object.
+--
 -- 'pipelineName', 'startPipelineReprocessing_pipelineName' - The name of the pipeline on which to start reprocessing.
 newStartPipelineReprocessing ::
   -- | 'pipelineName'
@@ -103,19 +103,12 @@ newStartPipelineReprocessing ::
   StartPipelineReprocessing
 newStartPipelineReprocessing pPipelineName_ =
   StartPipelineReprocessing'
-    { startTime =
+    { endTime =
         Prelude.Nothing,
-      endTime = Prelude.Nothing,
       channelMessages = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       pipelineName = pPipelineName_
     }
-
--- | The start time (inclusive) of raw message data that is reprocessed.
---
--- If you specify a value for the @startTime@ parameter, you must not use
--- the @channelMessages@ object.
-startPipelineReprocessing_startTime :: Lens.Lens' StartPipelineReprocessing (Prelude.Maybe Prelude.UTCTime)
-startPipelineReprocessing_startTime = Lens.lens (\StartPipelineReprocessing' {startTime} -> startTime) (\s@StartPipelineReprocessing' {} a -> s {startTime = a} :: StartPipelineReprocessing) Prelude.. Lens.mapping Core._Time
 
 -- | The end time (exclusive) of raw message data that is reprocessed.
 --
@@ -131,6 +124,13 @@ startPipelineReprocessing_endTime = Lens.lens (\StartPipelineReprocessing' {endT
 -- for @startTime@ and @endTime@.
 startPipelineReprocessing_channelMessages :: Lens.Lens' StartPipelineReprocessing (Prelude.Maybe ChannelMessages)
 startPipelineReprocessing_channelMessages = Lens.lens (\StartPipelineReprocessing' {channelMessages} -> channelMessages) (\s@StartPipelineReprocessing' {} a -> s {channelMessages = a} :: StartPipelineReprocessing)
+
+-- | The start time (inclusive) of raw message data that is reprocessed.
+--
+-- If you specify a value for the @startTime@ parameter, you must not use
+-- the @channelMessages@ object.
+startPipelineReprocessing_startTime :: Lens.Lens' StartPipelineReprocessing (Prelude.Maybe Prelude.UTCTime)
+startPipelineReprocessing_startTime = Lens.lens (\StartPipelineReprocessing' {startTime} -> startTime) (\s@StartPipelineReprocessing' {} a -> s {startTime = a} :: StartPipelineReprocessing) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the pipeline on which to start reprocessing.
 startPipelineReprocessing_pipelineName :: Lens.Lens' StartPipelineReprocessing Prelude.Text
@@ -151,16 +151,16 @@ instance Core.AWSRequest StartPipelineReprocessing where
 
 instance Prelude.Hashable StartPipelineReprocessing where
   hashWithSalt _salt StartPipelineReprocessing' {..} =
-    _salt `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` channelMessages
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` pipelineName
 
 instance Prelude.NFData StartPipelineReprocessing where
   rnf StartPipelineReprocessing' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf channelMessages
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf pipelineName
 
 instance Core.ToHeaders StartPipelineReprocessing where
@@ -170,10 +170,10 @@ instance Core.ToJSON StartPipelineReprocessing where
   toJSON StartPipelineReprocessing' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("startTime" Core..=) Prelude.<$> startTime,
-            ("endTime" Core..=) Prelude.<$> endTime,
+          [ ("endTime" Core..=) Prelude.<$> endTime,
             ("channelMessages" Core..=)
-              Prelude.<$> channelMessages
+              Prelude.<$> channelMessages,
+            ("startTime" Core..=) Prelude.<$> startTime
           ]
       )
 

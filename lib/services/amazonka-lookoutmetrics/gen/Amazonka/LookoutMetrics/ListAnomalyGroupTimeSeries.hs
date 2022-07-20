@@ -38,11 +38,11 @@ module Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries
     newListAnomalyGroupTimeSeriesResponse,
 
     -- * Response Lenses
-    listAnomalyGroupTimeSeriesResponse_timeSeriesList,
-    listAnomalyGroupTimeSeriesResponse_timestampList,
-    listAnomalyGroupTimeSeriesResponse_metricName,
-    listAnomalyGroupTimeSeriesResponse_anomalyGroupId,
     listAnomalyGroupTimeSeriesResponse_nextToken,
+    listAnomalyGroupTimeSeriesResponse_timeSeriesList,
+    listAnomalyGroupTimeSeriesResponse_anomalyGroupId,
+    listAnomalyGroupTimeSeriesResponse_metricName,
+    listAnomalyGroupTimeSeriesResponse_timestampList,
     listAnomalyGroupTimeSeriesResponse_httpStatus,
   )
 where
@@ -139,11 +139,11 @@ instance Core.AWSRequest ListAnomalyGroupTimeSeries where
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyGroupTimeSeriesResponse'
-            Prelude.<$> (x Core..?> "TimeSeriesList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "TimestampList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "MetricName")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "TimeSeriesList" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "AnomalyGroupId")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "MetricName")
+            Prelude.<*> (x Core..?> "TimestampList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,16 +196,16 @@ instance Core.ToQuery ListAnomalyGroupTimeSeries where
 
 -- | /See:/ 'newListAnomalyGroupTimeSeriesResponse' smart constructor.
 data ListAnomalyGroupTimeSeriesResponse = ListAnomalyGroupTimeSeriesResponse'
-  { -- | A list of anomalous metrics.
+  { -- | The pagination token that\'s included if more results are available.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of anomalous metrics.
     timeSeriesList :: Prelude.Maybe [TimeSeries],
-    -- | Timestamps for the anomalous metrics.
-    timestampList :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the measure field.
-    metricName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the anomaly group.
     anomalyGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The pagination token that\'s included if more results are available.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the measure field.
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | Timestamps for the anomalous metrics.
+    timestampList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,15 +219,15 @@ data ListAnomalyGroupTimeSeriesResponse = ListAnomalyGroupTimeSeriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listAnomalyGroupTimeSeriesResponse_nextToken' - The pagination token that\'s included if more results are available.
+--
 -- 'timeSeriesList', 'listAnomalyGroupTimeSeriesResponse_timeSeriesList' - A list of anomalous metrics.
---
--- 'timestampList', 'listAnomalyGroupTimeSeriesResponse_timestampList' - Timestamps for the anomalous metrics.
---
--- 'metricName', 'listAnomalyGroupTimeSeriesResponse_metricName' - The name of the measure field.
 --
 -- 'anomalyGroupId', 'listAnomalyGroupTimeSeriesResponse_anomalyGroupId' - The ID of the anomaly group.
 --
--- 'nextToken', 'listAnomalyGroupTimeSeriesResponse_nextToken' - The pagination token that\'s included if more results are available.
+-- 'metricName', 'listAnomalyGroupTimeSeriesResponse_metricName' - The name of the measure field.
+--
+-- 'timestampList', 'listAnomalyGroupTimeSeriesResponse_timestampList' - Timestamps for the anomalous metrics.
 --
 -- 'httpStatus', 'listAnomalyGroupTimeSeriesResponse_httpStatus' - The response's http status code.
 newListAnomalyGroupTimeSeriesResponse ::
@@ -236,34 +236,34 @@ newListAnomalyGroupTimeSeriesResponse ::
   ListAnomalyGroupTimeSeriesResponse
 newListAnomalyGroupTimeSeriesResponse pHttpStatus_ =
   ListAnomalyGroupTimeSeriesResponse'
-    { timeSeriesList =
+    { nextToken =
         Prelude.Nothing,
-      timestampList = Prelude.Nothing,
-      metricName = Prelude.Nothing,
+      timeSeriesList = Prelude.Nothing,
       anomalyGroupId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      metricName = Prelude.Nothing,
+      timestampList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The pagination token that\'s included if more results are available.
+listAnomalyGroupTimeSeriesResponse_nextToken :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse (Prelude.Maybe Prelude.Text)
+listAnomalyGroupTimeSeriesResponse_nextToken = Lens.lens (\ListAnomalyGroupTimeSeriesResponse' {nextToken} -> nextToken) (\s@ListAnomalyGroupTimeSeriesResponse' {} a -> s {nextToken = a} :: ListAnomalyGroupTimeSeriesResponse)
 
 -- | A list of anomalous metrics.
 listAnomalyGroupTimeSeriesResponse_timeSeriesList :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse (Prelude.Maybe [TimeSeries])
 listAnomalyGroupTimeSeriesResponse_timeSeriesList = Lens.lens (\ListAnomalyGroupTimeSeriesResponse' {timeSeriesList} -> timeSeriesList) (\s@ListAnomalyGroupTimeSeriesResponse' {} a -> s {timeSeriesList = a} :: ListAnomalyGroupTimeSeriesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Timestamps for the anomalous metrics.
-listAnomalyGroupTimeSeriesResponse_timestampList :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse (Prelude.Maybe [Prelude.Text])
-listAnomalyGroupTimeSeriesResponse_timestampList = Lens.lens (\ListAnomalyGroupTimeSeriesResponse' {timestampList} -> timestampList) (\s@ListAnomalyGroupTimeSeriesResponse' {} a -> s {timestampList = a} :: ListAnomalyGroupTimeSeriesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the anomaly group.
+listAnomalyGroupTimeSeriesResponse_anomalyGroupId :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse (Prelude.Maybe Prelude.Text)
+listAnomalyGroupTimeSeriesResponse_anomalyGroupId = Lens.lens (\ListAnomalyGroupTimeSeriesResponse' {anomalyGroupId} -> anomalyGroupId) (\s@ListAnomalyGroupTimeSeriesResponse' {} a -> s {anomalyGroupId = a} :: ListAnomalyGroupTimeSeriesResponse)
 
 -- | The name of the measure field.
 listAnomalyGroupTimeSeriesResponse_metricName :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse (Prelude.Maybe Prelude.Text)
 listAnomalyGroupTimeSeriesResponse_metricName = Lens.lens (\ListAnomalyGroupTimeSeriesResponse' {metricName} -> metricName) (\s@ListAnomalyGroupTimeSeriesResponse' {} a -> s {metricName = a} :: ListAnomalyGroupTimeSeriesResponse)
 
--- | The ID of the anomaly group.
-listAnomalyGroupTimeSeriesResponse_anomalyGroupId :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse (Prelude.Maybe Prelude.Text)
-listAnomalyGroupTimeSeriesResponse_anomalyGroupId = Lens.lens (\ListAnomalyGroupTimeSeriesResponse' {anomalyGroupId} -> anomalyGroupId) (\s@ListAnomalyGroupTimeSeriesResponse' {} a -> s {anomalyGroupId = a} :: ListAnomalyGroupTimeSeriesResponse)
-
--- | The pagination token that\'s included if more results are available.
-listAnomalyGroupTimeSeriesResponse_nextToken :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse (Prelude.Maybe Prelude.Text)
-listAnomalyGroupTimeSeriesResponse_nextToken = Lens.lens (\ListAnomalyGroupTimeSeriesResponse' {nextToken} -> nextToken) (\s@ListAnomalyGroupTimeSeriesResponse' {} a -> s {nextToken = a} :: ListAnomalyGroupTimeSeriesResponse)
+-- | Timestamps for the anomalous metrics.
+listAnomalyGroupTimeSeriesResponse_timestampList :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse (Prelude.Maybe [Prelude.Text])
+listAnomalyGroupTimeSeriesResponse_timestampList = Lens.lens (\ListAnomalyGroupTimeSeriesResponse' {timestampList} -> timestampList) (\s@ListAnomalyGroupTimeSeriesResponse' {} a -> s {timestampList = a} :: ListAnomalyGroupTimeSeriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAnomalyGroupTimeSeriesResponse_httpStatus :: Lens.Lens' ListAnomalyGroupTimeSeriesResponse Prelude.Int
@@ -274,9 +274,9 @@ instance
     ListAnomalyGroupTimeSeriesResponse
   where
   rnf ListAnomalyGroupTimeSeriesResponse' {..} =
-    Prelude.rnf timeSeriesList
-      `Prelude.seq` Prelude.rnf timestampList
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf timeSeriesList
       `Prelude.seq` Prelude.rnf anomalyGroupId
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf timestampList
       `Prelude.seq` Prelude.rnf httpStatus

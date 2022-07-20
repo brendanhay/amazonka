@@ -27,8 +27,8 @@ module Amazonka.APIGateway.PutMethodResponse
     newPutMethodResponse,
 
     -- * Request Lenses
-    putMethodResponse_responseModels,
     putMethodResponse_responseParameters,
+    putMethodResponse_responseModels,
     putMethodResponse_restApiId,
     putMethodResponse_resourceId,
     putMethodResponse_httpMethod,
@@ -39,9 +39,9 @@ module Amazonka.APIGateway.PutMethodResponse
     newMethodResponse,
 
     -- * Response Lenses
-    methodResponse_responseModels,
-    methodResponse_statusCode,
     methodResponse_responseParameters,
+    methodResponse_statusCode,
+    methodResponse_responseModels,
   )
 where
 
@@ -56,11 +56,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutMethodResponse' smart constructor.
 data PutMethodResponse = PutMethodResponse'
-  { -- | Specifies the Model resources used for the response\'s content type.
-    -- Response models are represented as a key\/value map, with a content type
-    -- as the key and a Model name as the value.
-    responseModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A key-value map specifying required or optional response parameters that
+  { -- | A key-value map specifying required or optional response parameters that
     -- API Gateway can send back to the caller. A key defines a method response
     -- header name and the associated value is a Boolean flag indicating
     -- whether the method response parameter is required or not. The method
@@ -74,6 +70,10 @@ data PutMethodResponse = PutMethodResponse'
     -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
     -- is a valid JSON expression without the @$@ prefix.)
     responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool),
+    -- | Specifies the Model resources used for the response\'s content type.
+    -- Response models are represented as a key\/value map, with a content type
+    -- as the key and a Model name as the value.
+    responseModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] The Resource identifier for the Method resource.
@@ -93,10 +93,6 @@ data PutMethodResponse = PutMethodResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'responseModels', 'putMethodResponse_responseModels' - Specifies the Model resources used for the response\'s content type.
--- Response models are represented as a key\/value map, with a content type
--- as the key and a Model name as the value.
---
 -- 'responseParameters', 'putMethodResponse_responseParameters' - A key-value map specifying required or optional response parameters that
 -- API Gateway can send back to the caller. A key defines a method response
 -- header name and the associated value is a Boolean flag indicating
@@ -110,6 +106,10 @@ data PutMethodResponse = PutMethodResponse'
 -- or a JSON expression from the back-end response payload in the form of
 -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
 -- is a valid JSON expression without the @$@ prefix.)
+--
+-- 'responseModels', 'putMethodResponse_responseModels' - Specifies the Model resources used for the response\'s content type.
+-- Response models are represented as a key\/value map, with a content type
+-- as the key and a Model name as the value.
 --
 -- 'restApiId', 'putMethodResponse_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -134,20 +134,14 @@ newPutMethodResponse
   pHttpMethod_
   pStatusCode_ =
     PutMethodResponse'
-      { responseModels =
+      { responseParameters =
           Prelude.Nothing,
-        responseParameters = Prelude.Nothing,
+        responseModels = Prelude.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
         statusCode = pStatusCode_
       }
-
--- | Specifies the Model resources used for the response\'s content type.
--- Response models are represented as a key\/value map, with a content type
--- as the key and a Model name as the value.
-putMethodResponse_responseModels :: Lens.Lens' PutMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModels} -> responseModels) (\s@PutMethodResponse' {} a -> s {responseModels = a} :: PutMethodResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A key-value map specifying required or optional response parameters that
 -- API Gateway can send back to the caller. A key defines a method response
@@ -164,6 +158,12 @@ putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModel
 -- is a valid JSON expression without the @$@ prefix.)
 putMethodResponse_responseParameters :: Lens.Lens' PutMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool))
 putMethodResponse_responseParameters = Lens.lens (\PutMethodResponse' {responseParameters} -> responseParameters) (\s@PutMethodResponse' {} a -> s {responseParameters = a} :: PutMethodResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the Model resources used for the response\'s content type.
+-- Response models are represented as a key\/value map, with a content type
+-- as the key and a Model name as the value.
+putMethodResponse_responseModels :: Lens.Lens' PutMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModels} -> responseModels) (\s@PutMethodResponse' {} a -> s {responseModels = a} :: PutMethodResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 putMethodResponse_restApiId :: Lens.Lens' PutMethodResponse Prelude.Text
@@ -190,8 +190,8 @@ instance Core.AWSRequest PutMethodResponse where
 
 instance Prelude.Hashable PutMethodResponse where
   hashWithSalt _salt PutMethodResponse' {..} =
-    _salt `Prelude.hashWithSalt` responseModels
-      `Prelude.hashWithSalt` responseParameters
+    _salt `Prelude.hashWithSalt` responseParameters
+      `Prelude.hashWithSalt` responseModels
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` httpMethod
@@ -199,8 +199,8 @@ instance Prelude.Hashable PutMethodResponse where
 
 instance Prelude.NFData PutMethodResponse where
   rnf PutMethodResponse' {..} =
-    Prelude.rnf responseModels
-      `Prelude.seq` Prelude.rnf responseParameters
+    Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf responseModels
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf httpMethod
@@ -219,10 +219,10 @@ instance Core.ToJSON PutMethodResponse where
   toJSON PutMethodResponse' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("responseModels" Core..=)
-              Prelude.<$> responseModels,
-            ("responseParameters" Core..=)
-              Prelude.<$> responseParameters
+          [ ("responseParameters" Core..=)
+              Prelude.<$> responseParameters,
+            ("responseModels" Core..=)
+              Prelude.<$> responseModels
           ]
       )
 

@@ -27,11 +27,11 @@ module Amazonka.DeviceFarm.UpdateInstanceProfile
     newUpdateInstanceProfile,
 
     -- * Request Lenses
-    updateInstanceProfile_rebootAfterUse,
     updateInstanceProfile_name,
-    updateInstanceProfile_packageCleanup,
     updateInstanceProfile_excludeAppPackagesFromCleanup,
     updateInstanceProfile_description,
+    updateInstanceProfile_packageCleanup,
+    updateInstanceProfile_rebootAfterUse,
     updateInstanceProfile_arn,
 
     -- * Destructuring the Response
@@ -53,14 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateInstanceProfile' smart constructor.
 data UpdateInstanceProfile = UpdateInstanceProfile'
-  { -- | The updated choice for whether you want to reboot the device after use.
-    -- The default value is @true@.
-    rebootAfterUse :: Prelude.Maybe Prelude.Bool,
-    -- | The updated name for your instance profile.
+  { -- | The updated name for your instance profile.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The updated choice for whether you want to specify package cleanup. The
-    -- default value is @false@ for private devices.
-    packageCleanup :: Prelude.Maybe Prelude.Bool,
     -- | An array of strings that specifies the list of app packages that should
     -- not be cleaned up from the device after a test run is over.
     --
@@ -69,6 +63,12 @@ data UpdateInstanceProfile = UpdateInstanceProfile'
     excludeAppPackagesFromCleanup :: Prelude.Maybe [Prelude.Text],
     -- | The updated description for your instance profile.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The updated choice for whether you want to specify package cleanup. The
+    -- default value is @false@ for private devices.
+    packageCleanup :: Prelude.Maybe Prelude.Bool,
+    -- | The updated choice for whether you want to reboot the device after use.
+    -- The default value is @true@.
+    rebootAfterUse :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the instance profile.
     arn :: Prelude.Text
   }
@@ -82,13 +82,7 @@ data UpdateInstanceProfile = UpdateInstanceProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rebootAfterUse', 'updateInstanceProfile_rebootAfterUse' - The updated choice for whether you want to reboot the device after use.
--- The default value is @true@.
---
 -- 'name', 'updateInstanceProfile_name' - The updated name for your instance profile.
---
--- 'packageCleanup', 'updateInstanceProfile_packageCleanup' - The updated choice for whether you want to specify package cleanup. The
--- default value is @false@ for private devices.
 --
 -- 'excludeAppPackagesFromCleanup', 'updateInstanceProfile_excludeAppPackagesFromCleanup' - An array of strings that specifies the list of app packages that should
 -- not be cleaned up from the device after a test run is over.
@@ -98,6 +92,12 @@ data UpdateInstanceProfile = UpdateInstanceProfile'
 --
 -- 'description', 'updateInstanceProfile_description' - The updated description for your instance profile.
 --
+-- 'packageCleanup', 'updateInstanceProfile_packageCleanup' - The updated choice for whether you want to specify package cleanup. The
+-- default value is @false@ for private devices.
+--
+-- 'rebootAfterUse', 'updateInstanceProfile_rebootAfterUse' - The updated choice for whether you want to reboot the device after use.
+-- The default value is @true@.
+--
 -- 'arn', 'updateInstanceProfile_arn' - The Amazon Resource Name (ARN) of the instance profile.
 newUpdateInstanceProfile ::
   -- | 'arn'
@@ -105,28 +105,17 @@ newUpdateInstanceProfile ::
   UpdateInstanceProfile
 newUpdateInstanceProfile pArn_ =
   UpdateInstanceProfile'
-    { rebootAfterUse =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      packageCleanup = Prelude.Nothing,
+    { name = Prelude.Nothing,
       excludeAppPackagesFromCleanup = Prelude.Nothing,
       description = Prelude.Nothing,
+      packageCleanup = Prelude.Nothing,
+      rebootAfterUse = Prelude.Nothing,
       arn = pArn_
     }
-
--- | The updated choice for whether you want to reboot the device after use.
--- The default value is @true@.
-updateInstanceProfile_rebootAfterUse :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Bool)
-updateInstanceProfile_rebootAfterUse = Lens.lens (\UpdateInstanceProfile' {rebootAfterUse} -> rebootAfterUse) (\s@UpdateInstanceProfile' {} a -> s {rebootAfterUse = a} :: UpdateInstanceProfile)
 
 -- | The updated name for your instance profile.
 updateInstanceProfile_name :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Text)
 updateInstanceProfile_name = Lens.lens (\UpdateInstanceProfile' {name} -> name) (\s@UpdateInstanceProfile' {} a -> s {name = a} :: UpdateInstanceProfile)
-
--- | The updated choice for whether you want to specify package cleanup. The
--- default value is @false@ for private devices.
-updateInstanceProfile_packageCleanup :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Bool)
-updateInstanceProfile_packageCleanup = Lens.lens (\UpdateInstanceProfile' {packageCleanup} -> packageCleanup) (\s@UpdateInstanceProfile' {} a -> s {packageCleanup = a} :: UpdateInstanceProfile)
 
 -- | An array of strings that specifies the list of app packages that should
 -- not be cleaned up from the device after a test run is over.
@@ -139,6 +128,16 @@ updateInstanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\UpdateInstance
 -- | The updated description for your instance profile.
 updateInstanceProfile_description :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Text)
 updateInstanceProfile_description = Lens.lens (\UpdateInstanceProfile' {description} -> description) (\s@UpdateInstanceProfile' {} a -> s {description = a} :: UpdateInstanceProfile)
+
+-- | The updated choice for whether you want to specify package cleanup. The
+-- default value is @false@ for private devices.
+updateInstanceProfile_packageCleanup :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Bool)
+updateInstanceProfile_packageCleanup = Lens.lens (\UpdateInstanceProfile' {packageCleanup} -> packageCleanup) (\s@UpdateInstanceProfile' {} a -> s {packageCleanup = a} :: UpdateInstanceProfile)
+
+-- | The updated choice for whether you want to reboot the device after use.
+-- The default value is @true@.
+updateInstanceProfile_rebootAfterUse :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Bool)
+updateInstanceProfile_rebootAfterUse = Lens.lens (\UpdateInstanceProfile' {rebootAfterUse} -> rebootAfterUse) (\s@UpdateInstanceProfile' {} a -> s {rebootAfterUse = a} :: UpdateInstanceProfile)
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
 updateInstanceProfile_arn :: Lens.Lens' UpdateInstanceProfile Prelude.Text
@@ -159,20 +158,20 @@ instance Core.AWSRequest UpdateInstanceProfile where
 
 instance Prelude.Hashable UpdateInstanceProfile where
   hashWithSalt _salt UpdateInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` rebootAfterUse
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` packageCleanup
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` packageCleanup
+      `Prelude.hashWithSalt` rebootAfterUse
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateInstanceProfile where
   rnf UpdateInstanceProfile' {..} =
-    Prelude.rnf rebootAfterUse
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf packageCleanup
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf excludeAppPackagesFromCleanup
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf packageCleanup
+      `Prelude.seq` Prelude.rnf rebootAfterUse
       `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateInstanceProfile where
@@ -194,14 +193,14 @@ instance Core.ToJSON UpdateInstanceProfile where
   toJSON UpdateInstanceProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rebootAfterUse" Core..=)
-              Prelude.<$> rebootAfterUse,
-            ("name" Core..=) Prelude.<$> name,
-            ("packageCleanup" Core..=)
-              Prelude.<$> packageCleanup,
+          [ ("name" Core..=) Prelude.<$> name,
             ("excludeAppPackagesFromCleanup" Core..=)
               Prelude.<$> excludeAppPackagesFromCleanup,
             ("description" Core..=) Prelude.<$> description,
+            ("packageCleanup" Core..=)
+              Prelude.<$> packageCleanup,
+            ("rebootAfterUse" Core..=)
+              Prelude.<$> rebootAfterUse,
             Prelude.Just ("arn" Core..= arn)
           ]
       )

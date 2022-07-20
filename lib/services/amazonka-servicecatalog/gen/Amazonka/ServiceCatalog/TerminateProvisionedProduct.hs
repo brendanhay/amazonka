@@ -32,10 +32,10 @@ module Amazonka.ServiceCatalog.TerminateProvisionedProduct
     newTerminateProvisionedProduct,
 
     -- * Request Lenses
-    terminateProvisionedProduct_provisionedProductName,
-    terminateProvisionedProduct_retainPhysicalResources,
-    terminateProvisionedProduct_acceptLanguage,
     terminateProvisionedProduct_ignoreErrors,
+    terminateProvisionedProduct_provisionedProductName,
+    terminateProvisionedProduct_acceptLanguage,
+    terminateProvisionedProduct_retainPhysicalResources,
     terminateProvisionedProduct_provisionedProductId,
     terminateProvisionedProduct_terminateToken,
 
@@ -58,15 +58,12 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newTerminateProvisionedProduct' smart constructor.
 data TerminateProvisionedProduct = TerminateProvisionedProduct'
-  { -- | The name of the provisioned product. You cannot specify both
+  { -- | If set to true, AWS Service Catalog stops managing the specified
+    -- provisioned product even if it cannot delete the underlying resources.
+    ignoreErrors :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the provisioned product. You cannot specify both
     -- @ProvisionedProductName@ and @ProvisionedProductId@.
     provisionedProductName :: Prelude.Maybe Prelude.Text,
-    -- | When this boolean parameter is set to true, the
-    -- @TerminateProvisionedProduct@ API deletes the Service Catalog
-    -- provisioned product. However, it does not remove the CloudFormation
-    -- stack, stack set, or the underlying resources of the deleted provisioned
-    -- product. The default value is false.
-    retainPhysicalResources :: Prelude.Maybe Prelude.Bool,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -75,9 +72,12 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | If set to true, AWS Service Catalog stops managing the specified
-    -- provisioned product even if it cannot delete the underlying resources.
-    ignoreErrors :: Prelude.Maybe Prelude.Bool,
+    -- | When this boolean parameter is set to true, the
+    -- @TerminateProvisionedProduct@ API deletes the Service Catalog
+    -- provisioned product. However, it does not remove the CloudFormation
+    -- stack, stack set, or the underlying resources of the deleted provisioned
+    -- product. The default value is false.
+    retainPhysicalResources :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the provisioned product. You cannot specify both
     -- @ProvisionedProductName@ and @ProvisionedProductId@.
     provisionedProductId :: Prelude.Maybe Prelude.Text,
@@ -97,14 +97,11 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ignoreErrors', 'terminateProvisionedProduct_ignoreErrors' - If set to true, AWS Service Catalog stops managing the specified
+-- provisioned product even if it cannot delete the underlying resources.
+--
 -- 'provisionedProductName', 'terminateProvisionedProduct_provisionedProductName' - The name of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
---
--- 'retainPhysicalResources', 'terminateProvisionedProduct_retainPhysicalResources' - When this boolean parameter is set to true, the
--- @TerminateProvisionedProduct@ API deletes the Service Catalog
--- provisioned product. However, it does not remove the CloudFormation
--- stack, stack set, or the underlying resources of the deleted provisioned
--- product. The default value is false.
 --
 -- 'acceptLanguage', 'terminateProvisionedProduct_acceptLanguage' - The language code.
 --
@@ -114,8 +111,11 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 --
 -- -   @zh@ - Chinese
 --
--- 'ignoreErrors', 'terminateProvisionedProduct_ignoreErrors' - If set to true, AWS Service Catalog stops managing the specified
--- provisioned product even if it cannot delete the underlying resources.
+-- 'retainPhysicalResources', 'terminateProvisionedProduct_retainPhysicalResources' - When this boolean parameter is set to true, the
+-- @TerminateProvisionedProduct@ API deletes the Service Catalog
+-- provisioned product. However, it does not remove the CloudFormation
+-- stack, stack set, or the underlying resources of the deleted provisioned
+-- product. The default value is false.
 --
 -- 'provisionedProductId', 'terminateProvisionedProduct_provisionedProductId' - The identifier of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
@@ -130,27 +130,24 @@ newTerminateProvisionedProduct ::
   TerminateProvisionedProduct
 newTerminateProvisionedProduct pTerminateToken_ =
   TerminateProvisionedProduct'
-    { provisionedProductName =
+    { ignoreErrors =
         Prelude.Nothing,
-      retainPhysicalResources = Prelude.Nothing,
+      provisionedProductName = Prelude.Nothing,
       acceptLanguage = Prelude.Nothing,
-      ignoreErrors = Prelude.Nothing,
+      retainPhysicalResources = Prelude.Nothing,
       provisionedProductId = Prelude.Nothing,
       terminateToken = pTerminateToken_
     }
+
+-- | If set to true, AWS Service Catalog stops managing the specified
+-- provisioned product even if it cannot delete the underlying resources.
+terminateProvisionedProduct_ignoreErrors :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
+terminateProvisionedProduct_ignoreErrors = Lens.lens (\TerminateProvisionedProduct' {ignoreErrors} -> ignoreErrors) (\s@TerminateProvisionedProduct' {} a -> s {ignoreErrors = a} :: TerminateProvisionedProduct)
 
 -- | The name of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
 terminateProvisionedProduct_provisionedProductName :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
 terminateProvisionedProduct_provisionedProductName = Lens.lens (\TerminateProvisionedProduct' {provisionedProductName} -> provisionedProductName) (\s@TerminateProvisionedProduct' {} a -> s {provisionedProductName = a} :: TerminateProvisionedProduct)
-
--- | When this boolean parameter is set to true, the
--- @TerminateProvisionedProduct@ API deletes the Service Catalog
--- provisioned product. However, it does not remove the CloudFormation
--- stack, stack set, or the underlying resources of the deleted provisioned
--- product. The default value is false.
-terminateProvisionedProduct_retainPhysicalResources :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
-terminateProvisionedProduct_retainPhysicalResources = Lens.lens (\TerminateProvisionedProduct' {retainPhysicalResources} -> retainPhysicalResources) (\s@TerminateProvisionedProduct' {} a -> s {retainPhysicalResources = a} :: TerminateProvisionedProduct)
 
 -- | The language code.
 --
@@ -162,10 +159,13 @@ terminateProvisionedProduct_retainPhysicalResources = Lens.lens (\TerminateProvi
 terminateProvisionedProduct_acceptLanguage :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Text)
 terminateProvisionedProduct_acceptLanguage = Lens.lens (\TerminateProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@TerminateProvisionedProduct' {} a -> s {acceptLanguage = a} :: TerminateProvisionedProduct)
 
--- | If set to true, AWS Service Catalog stops managing the specified
--- provisioned product even if it cannot delete the underlying resources.
-terminateProvisionedProduct_ignoreErrors :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
-terminateProvisionedProduct_ignoreErrors = Lens.lens (\TerminateProvisionedProduct' {ignoreErrors} -> ignoreErrors) (\s@TerminateProvisionedProduct' {} a -> s {ignoreErrors = a} :: TerminateProvisionedProduct)
+-- | When this boolean parameter is set to true, the
+-- @TerminateProvisionedProduct@ API deletes the Service Catalog
+-- provisioned product. However, it does not remove the CloudFormation
+-- stack, stack set, or the underlying resources of the deleted provisioned
+-- product. The default value is false.
+terminateProvisionedProduct_retainPhysicalResources :: Lens.Lens' TerminateProvisionedProduct (Prelude.Maybe Prelude.Bool)
+terminateProvisionedProduct_retainPhysicalResources = Lens.lens (\TerminateProvisionedProduct' {retainPhysicalResources} -> retainPhysicalResources) (\s@TerminateProvisionedProduct' {} a -> s {retainPhysicalResources = a} :: TerminateProvisionedProduct)
 
 -- | The identifier of the provisioned product. You cannot specify both
 -- @ProvisionedProductName@ and @ProvisionedProductId@.
@@ -194,19 +194,19 @@ instance Core.AWSRequest TerminateProvisionedProduct where
 
 instance Prelude.Hashable TerminateProvisionedProduct where
   hashWithSalt _salt TerminateProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` provisionedProductName
-      `Prelude.hashWithSalt` retainPhysicalResources
+    _salt `Prelude.hashWithSalt` ignoreErrors
+      `Prelude.hashWithSalt` provisionedProductName
       `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` ignoreErrors
+      `Prelude.hashWithSalt` retainPhysicalResources
       `Prelude.hashWithSalt` provisionedProductId
       `Prelude.hashWithSalt` terminateToken
 
 instance Prelude.NFData TerminateProvisionedProduct where
   rnf TerminateProvisionedProduct' {..} =
-    Prelude.rnf provisionedProductName
-      `Prelude.seq` Prelude.rnf retainPhysicalResources
+    Prelude.rnf ignoreErrors
+      `Prelude.seq` Prelude.rnf provisionedProductName
       `Prelude.seq` Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf ignoreErrors
+      `Prelude.seq` Prelude.rnf retainPhysicalResources
       `Prelude.seq` Prelude.rnf provisionedProductId
       `Prelude.seq` Prelude.rnf terminateToken
 
@@ -229,13 +229,13 @@ instance Core.ToJSON TerminateProvisionedProduct where
   toJSON TerminateProvisionedProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProvisionedProductName" Core..=)
+          [ ("IgnoreErrors" Core..=) Prelude.<$> ignoreErrors,
+            ("ProvisionedProductName" Core..=)
               Prelude.<$> provisionedProductName,
-            ("RetainPhysicalResources" Core..=)
-              Prelude.<$> retainPhysicalResources,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("IgnoreErrors" Core..=) Prelude.<$> ignoreErrors,
+            ("RetainPhysicalResources" Core..=)
+              Prelude.<$> retainPhysicalResources,
             ("ProvisionedProductId" Core..=)
               Prelude.<$> provisionedProductId,
             Prelude.Just

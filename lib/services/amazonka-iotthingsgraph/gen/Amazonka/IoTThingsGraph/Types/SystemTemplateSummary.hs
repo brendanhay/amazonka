@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSystemTemplateSummary' smart constructor.
 data SystemTemplateSummary = SystemTemplateSummary'
-  { -- | The ARN of the system.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date when the system was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The revision number of the system.
+  { -- | The revision number of the system.
     revisionNumber :: Prelude.Maybe Prelude.Integer,
+    -- | The ARN of the system.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the system.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The date when the system was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,39 @@ data SystemTemplateSummary = SystemTemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'systemTemplateSummary_arn' - The ARN of the system.
---
--- 'createdAt', 'systemTemplateSummary_createdAt' - The date when the system was created.
---
 -- 'revisionNumber', 'systemTemplateSummary_revisionNumber' - The revision number of the system.
 --
+-- 'arn', 'systemTemplateSummary_arn' - The ARN of the system.
+--
 -- 'id', 'systemTemplateSummary_id' - The ID of the system.
+--
+-- 'createdAt', 'systemTemplateSummary_createdAt' - The date when the system was created.
 newSystemTemplateSummary ::
   SystemTemplateSummary
 newSystemTemplateSummary =
   SystemTemplateSummary'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      revisionNumber = Prelude.Nothing,
-      id = Prelude.Nothing
+    { revisionNumber =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
-
--- | The ARN of the system.
-systemTemplateSummary_arn :: Lens.Lens' SystemTemplateSummary (Prelude.Maybe Prelude.Text)
-systemTemplateSummary_arn = Lens.lens (\SystemTemplateSummary' {arn} -> arn) (\s@SystemTemplateSummary' {} a -> s {arn = a} :: SystemTemplateSummary)
-
--- | The date when the system was created.
-systemTemplateSummary_createdAt :: Lens.Lens' SystemTemplateSummary (Prelude.Maybe Prelude.UTCTime)
-systemTemplateSummary_createdAt = Lens.lens (\SystemTemplateSummary' {createdAt} -> createdAt) (\s@SystemTemplateSummary' {} a -> s {createdAt = a} :: SystemTemplateSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The revision number of the system.
 systemTemplateSummary_revisionNumber :: Lens.Lens' SystemTemplateSummary (Prelude.Maybe Prelude.Integer)
 systemTemplateSummary_revisionNumber = Lens.lens (\SystemTemplateSummary' {revisionNumber} -> revisionNumber) (\s@SystemTemplateSummary' {} a -> s {revisionNumber = a} :: SystemTemplateSummary)
 
+-- | The ARN of the system.
+systemTemplateSummary_arn :: Lens.Lens' SystemTemplateSummary (Prelude.Maybe Prelude.Text)
+systemTemplateSummary_arn = Lens.lens (\SystemTemplateSummary' {arn} -> arn) (\s@SystemTemplateSummary' {} a -> s {arn = a} :: SystemTemplateSummary)
+
 -- | The ID of the system.
 systemTemplateSummary_id :: Lens.Lens' SystemTemplateSummary (Prelude.Maybe Prelude.Text)
 systemTemplateSummary_id = Lens.lens (\SystemTemplateSummary' {id} -> id) (\s@SystemTemplateSummary' {} a -> s {id = a} :: SystemTemplateSummary)
+
+-- | The date when the system was created.
+systemTemplateSummary_createdAt :: Lens.Lens' SystemTemplateSummary (Prelude.Maybe Prelude.UTCTime)
+systemTemplateSummary_createdAt = Lens.lens (\SystemTemplateSummary' {createdAt} -> createdAt) (\s@SystemTemplateSummary' {} a -> s {createdAt = a} :: SystemTemplateSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON SystemTemplateSummary where
   parseJSON =
@@ -85,22 +86,22 @@ instance Core.FromJSON SystemTemplateSummary where
       "SystemTemplateSummary"
       ( \x ->
           SystemTemplateSummary'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "revisionNumber")
+            Prelude.<$> (x Core..:? "revisionNumber")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable SystemTemplateSummary where
   hashWithSalt _salt SystemTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` revisionNumber
+    _salt `Prelude.hashWithSalt` revisionNumber
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData SystemTemplateSummary where
   rnf SystemTemplateSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf revisionNumber
+    Prelude.rnf revisionNumber
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt

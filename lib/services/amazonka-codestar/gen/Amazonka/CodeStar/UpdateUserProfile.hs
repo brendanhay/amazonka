@@ -29,9 +29,9 @@ module Amazonka.CodeStar.UpdateUserProfile
     newUpdateUserProfile,
 
     -- * Request Lenses
+    updateUserProfile_displayName,
     updateUserProfile_sshPublicKey,
     updateUserProfile_emailAddress,
-    updateUserProfile_displayName,
     updateUserProfile_userArn,
 
     -- * Destructuring the Response
@@ -40,10 +40,10 @@ module Amazonka.CodeStar.UpdateUserProfile
 
     -- * Response Lenses
     updateUserProfileResponse_lastModifiedTimestamp,
+    updateUserProfileResponse_createdTimestamp,
+    updateUserProfileResponse_displayName,
     updateUserProfileResponse_sshPublicKey,
     updateUserProfileResponse_emailAddress,
-    updateUserProfileResponse_displayName,
-    updateUserProfileResponse_createdTimestamp,
     updateUserProfileResponse_httpStatus,
     updateUserProfileResponse_userArn,
   )
@@ -58,7 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { -- | The SSH public key associated with the user in AWS CodeStar. If a
+  { -- | The name that is displayed as the friendly name for the user in AWS
+    -- CodeStar.
+    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The SSH public key associated with the user in AWS CodeStar. If a
     -- project owner allows the user remote access to project resources, this
     -- public key will be used along with the user\'s private key for SSH
     -- access.
@@ -66,9 +69,6 @@ data UpdateUserProfile = UpdateUserProfile'
     -- | The email address that is displayed as part of the user\'s profile in
     -- AWS CodeStar.
     emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name that is displayed as the friendly name for the user in AWS
-    -- CodeStar.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name that will be displayed as the friendly name for the user in AWS
     -- CodeStar.
     userArn :: Prelude.Text
@@ -83,6 +83,9 @@ data UpdateUserProfile = UpdateUserProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'displayName', 'updateUserProfile_displayName' - The name that is displayed as the friendly name for the user in AWS
+-- CodeStar.
+--
 -- 'sshPublicKey', 'updateUserProfile_sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. If a
 -- project owner allows the user remote access to project resources, this
 -- public key will be used along with the user\'s private key for SSH
@@ -90,9 +93,6 @@ data UpdateUserProfile = UpdateUserProfile'
 --
 -- 'emailAddress', 'updateUserProfile_emailAddress' - The email address that is displayed as part of the user\'s profile in
 -- AWS CodeStar.
---
--- 'displayName', 'updateUserProfile_displayName' - The name that is displayed as the friendly name for the user in AWS
--- CodeStar.
 --
 -- 'userArn', 'updateUserProfile_userArn' - The name that will be displayed as the friendly name for the user in AWS
 -- CodeStar.
@@ -102,11 +102,16 @@ newUpdateUserProfile ::
   UpdateUserProfile
 newUpdateUserProfile pUserArn_ =
   UpdateUserProfile'
-    { sshPublicKey = Prelude.Nothing,
+    { displayName = Prelude.Nothing,
+      sshPublicKey = Prelude.Nothing,
       emailAddress = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       userArn = pUserArn_
     }
+
+-- | The name that is displayed as the friendly name for the user in AWS
+-- CodeStar.
+updateUserProfile_displayName :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
+updateUserProfile_displayName = Lens.lens (\UpdateUserProfile' {displayName} -> displayName) (\s@UpdateUserProfile' {} a -> s {displayName = a} :: UpdateUserProfile) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 -- project owner allows the user remote access to project resources, this
@@ -119,11 +124,6 @@ updateUserProfile_sshPublicKey = Lens.lens (\UpdateUserProfile' {sshPublicKey} -
 -- AWS CodeStar.
 updateUserProfile_emailAddress :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
 updateUserProfile_emailAddress = Lens.lens (\UpdateUserProfile' {emailAddress} -> emailAddress) (\s@UpdateUserProfile' {} a -> s {emailAddress = a} :: UpdateUserProfile) Prelude.. Lens.mapping Core._Sensitive
-
--- | The name that is displayed as the friendly name for the user in AWS
--- CodeStar.
-updateUserProfile_displayName :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
-updateUserProfile_displayName = Lens.lens (\UpdateUserProfile' {displayName} -> displayName) (\s@UpdateUserProfile' {} a -> s {displayName = a} :: UpdateUserProfile) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name that will be displayed as the friendly name for the user in AWS
 -- CodeStar.
@@ -140,26 +140,26 @@ instance Core.AWSRequest UpdateUserProfile where
       ( \s h x ->
           UpdateUserProfileResponse'
             Prelude.<$> (x Core..?> "lastModifiedTimestamp")
+            Prelude.<*> (x Core..?> "createdTimestamp")
+            Prelude.<*> (x Core..?> "displayName")
             Prelude.<*> (x Core..?> "sshPublicKey")
             Prelude.<*> (x Core..?> "emailAddress")
-            Prelude.<*> (x Core..?> "displayName")
-            Prelude.<*> (x Core..?> "createdTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "userArn")
       )
 
 instance Prelude.Hashable UpdateUserProfile where
   hashWithSalt _salt UpdateUserProfile' {..} =
-    _salt `Prelude.hashWithSalt` sshPublicKey
+    _salt `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` sshPublicKey
       `Prelude.hashWithSalt` emailAddress
-      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` userArn
 
 instance Prelude.NFData UpdateUserProfile where
   rnf UpdateUserProfile' {..} =
-    Prelude.rnf sshPublicKey
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf sshPublicKey
       `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf userArn
 
 instance Core.ToHeaders UpdateUserProfile where
@@ -181,9 +181,9 @@ instance Core.ToJSON UpdateUserProfile where
   toJSON UpdateUserProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sshPublicKey" Core..=) Prelude.<$> sshPublicKey,
+          [ ("displayName" Core..=) Prelude.<$> displayName,
+            ("sshPublicKey" Core..=) Prelude.<$> sshPublicKey,
             ("emailAddress" Core..=) Prelude.<$> emailAddress,
-            ("displayName" Core..=) Prelude.<$> displayName,
             Prelude.Just ("userArn" Core..= userArn)
           ]
       )
@@ -198,6 +198,11 @@ instance Core.ToQuery UpdateUserProfile where
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
   { -- | The date the user profile was last modified, in timestamp format.
     lastModifiedTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The date the user profile was created, in timestamp format.
+    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The name that is displayed as the friendly name for the user in AWS
+    -- CodeStar.
+    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The SSH public key associated with the user in AWS CodeStar. This is the
     -- public portion of the public\/private keypair the user can use to access
     -- project resources if a project owner allows the user remote access to
@@ -206,11 +211,6 @@ data UpdateUserProfileResponse = UpdateUserProfileResponse'
     -- | The email address that is displayed as part of the user\'s profile in
     -- AWS CodeStar.
     emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name that is displayed as the friendly name for the user in AWS
-    -- CodeStar.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The date the user profile was created, in timestamp format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the user in IAM.
@@ -228,6 +228,11 @@ data UpdateUserProfileResponse = UpdateUserProfileResponse'
 --
 -- 'lastModifiedTimestamp', 'updateUserProfileResponse_lastModifiedTimestamp' - The date the user profile was last modified, in timestamp format.
 --
+-- 'createdTimestamp', 'updateUserProfileResponse_createdTimestamp' - The date the user profile was created, in timestamp format.
+--
+-- 'displayName', 'updateUserProfileResponse_displayName' - The name that is displayed as the friendly name for the user in AWS
+-- CodeStar.
+--
 -- 'sshPublicKey', 'updateUserProfileResponse_sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. This is the
 -- public portion of the public\/private keypair the user can use to access
 -- project resources if a project owner allows the user remote access to
@@ -235,11 +240,6 @@ data UpdateUserProfileResponse = UpdateUserProfileResponse'
 --
 -- 'emailAddress', 'updateUserProfileResponse_emailAddress' - The email address that is displayed as part of the user\'s profile in
 -- AWS CodeStar.
---
--- 'displayName', 'updateUserProfileResponse_displayName' - The name that is displayed as the friendly name for the user in AWS
--- CodeStar.
---
--- 'createdTimestamp', 'updateUserProfileResponse_createdTimestamp' - The date the user profile was created, in timestamp format.
 --
 -- 'httpStatus', 'updateUserProfileResponse_httpStatus' - The response's http status code.
 --
@@ -254,10 +254,10 @@ newUpdateUserProfileResponse pHttpStatus_ pUserArn_ =
   UpdateUserProfileResponse'
     { lastModifiedTimestamp =
         Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       sshPublicKey = Prelude.Nothing,
       emailAddress = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       userArn = pUserArn_
     }
@@ -265,6 +265,15 @@ newUpdateUserProfileResponse pHttpStatus_ pUserArn_ =
 -- | The date the user profile was last modified, in timestamp format.
 updateUserProfileResponse_lastModifiedTimestamp :: Lens.Lens' UpdateUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
 updateUserProfileResponse_lastModifiedTimestamp = Lens.lens (\UpdateUserProfileResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@UpdateUserProfileResponse' {} a -> s {lastModifiedTimestamp = a} :: UpdateUserProfileResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The date the user profile was created, in timestamp format.
+updateUserProfileResponse_createdTimestamp :: Lens.Lens' UpdateUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
+updateUserProfileResponse_createdTimestamp = Lens.lens (\UpdateUserProfileResponse' {createdTimestamp} -> createdTimestamp) (\s@UpdateUserProfileResponse' {} a -> s {createdTimestamp = a} :: UpdateUserProfileResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name that is displayed as the friendly name for the user in AWS
+-- CodeStar.
+updateUserProfileResponse_displayName :: Lens.Lens' UpdateUserProfileResponse (Prelude.Maybe Prelude.Text)
+updateUserProfileResponse_displayName = Lens.lens (\UpdateUserProfileResponse' {displayName} -> displayName) (\s@UpdateUserProfileResponse' {} a -> s {displayName = a} :: UpdateUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The SSH public key associated with the user in AWS CodeStar. This is the
 -- public portion of the public\/private keypair the user can use to access
@@ -278,15 +287,6 @@ updateUserProfileResponse_sshPublicKey = Lens.lens (\UpdateUserProfileResponse' 
 updateUserProfileResponse_emailAddress :: Lens.Lens' UpdateUserProfileResponse (Prelude.Maybe Prelude.Text)
 updateUserProfileResponse_emailAddress = Lens.lens (\UpdateUserProfileResponse' {emailAddress} -> emailAddress) (\s@UpdateUserProfileResponse' {} a -> s {emailAddress = a} :: UpdateUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The name that is displayed as the friendly name for the user in AWS
--- CodeStar.
-updateUserProfileResponse_displayName :: Lens.Lens' UpdateUserProfileResponse (Prelude.Maybe Prelude.Text)
-updateUserProfileResponse_displayName = Lens.lens (\UpdateUserProfileResponse' {displayName} -> displayName) (\s@UpdateUserProfileResponse' {} a -> s {displayName = a} :: UpdateUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
-
--- | The date the user profile was created, in timestamp format.
-updateUserProfileResponse_createdTimestamp :: Lens.Lens' UpdateUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
-updateUserProfileResponse_createdTimestamp = Lens.lens (\UpdateUserProfileResponse' {createdTimestamp} -> createdTimestamp) (\s@UpdateUserProfileResponse' {} a -> s {createdTimestamp = a} :: UpdateUserProfileResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The response's http status code.
 updateUserProfileResponse_httpStatus :: Lens.Lens' UpdateUserProfileResponse Prelude.Int
 updateUserProfileResponse_httpStatus = Lens.lens (\UpdateUserProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateUserProfileResponse' {} a -> s {httpStatus = a} :: UpdateUserProfileResponse)
@@ -298,9 +298,9 @@ updateUserProfileResponse_userArn = Lens.lens (\UpdateUserProfileResponse' {user
 instance Prelude.NFData UpdateUserProfileResponse where
   rnf UpdateUserProfileResponse' {..} =
     Prelude.rnf lastModifiedTimestamp
+      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf sshPublicKey
       `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf userArn

@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLocalSecondaryIndexInfo' smart constructor.
 data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
-  { -- | The complete key schema for a local secondary index, which consists of
+  { -- | Represents the name of the local secondary index.
+    indexName :: Prelude.Maybe Prelude.Text,
+    -- | The complete key schema for a local secondary index, which consists of
     -- one or more pairs of attribute names and key types:
     --
     -- -   @HASH@ - partition key
@@ -51,9 +53,7 @@ data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
     -- | Represents attributes that are copied (projected) from the table into
     -- the global secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
-    projection :: Prelude.Maybe Projection,
-    -- | Represents the name of the local secondary index.
-    indexName :: Prelude.Maybe Prelude.Text
+    projection :: Prelude.Maybe Projection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +64,8 @@ data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'indexName', 'localSecondaryIndexInfo_indexName' - Represents the name of the local secondary index.
 --
 -- 'keySchema', 'localSecondaryIndexInfo_keySchema' - The complete key schema for a local secondary index, which consists of
 -- one or more pairs of attribute names and key types:
@@ -85,17 +87,19 @@ data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
 -- 'projection', 'localSecondaryIndexInfo_projection' - Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key
 -- attributes and index key attributes, which are automatically projected.
---
--- 'indexName', 'localSecondaryIndexInfo_indexName' - Represents the name of the local secondary index.
 newLocalSecondaryIndexInfo ::
   LocalSecondaryIndexInfo
 newLocalSecondaryIndexInfo =
   LocalSecondaryIndexInfo'
-    { keySchema =
+    { indexName =
         Prelude.Nothing,
-      projection = Prelude.Nothing,
-      indexName = Prelude.Nothing
+      keySchema = Prelude.Nothing,
+      projection = Prelude.Nothing
     }
+
+-- | Represents the name of the local secondary index.
+localSecondaryIndexInfo_indexName :: Lens.Lens' LocalSecondaryIndexInfo (Prelude.Maybe Prelude.Text)
+localSecondaryIndexInfo_indexName = Lens.lens (\LocalSecondaryIndexInfo' {indexName} -> indexName) (\s@LocalSecondaryIndexInfo' {} a -> s {indexName = a} :: LocalSecondaryIndexInfo)
 
 -- | The complete key schema for a local secondary index, which consists of
 -- one or more pairs of attribute names and key types:
@@ -122,29 +126,25 @@ localSecondaryIndexInfo_keySchema = Lens.lens (\LocalSecondaryIndexInfo' {keySch
 localSecondaryIndexInfo_projection :: Lens.Lens' LocalSecondaryIndexInfo (Prelude.Maybe Projection)
 localSecondaryIndexInfo_projection = Lens.lens (\LocalSecondaryIndexInfo' {projection} -> projection) (\s@LocalSecondaryIndexInfo' {} a -> s {projection = a} :: LocalSecondaryIndexInfo)
 
--- | Represents the name of the local secondary index.
-localSecondaryIndexInfo_indexName :: Lens.Lens' LocalSecondaryIndexInfo (Prelude.Maybe Prelude.Text)
-localSecondaryIndexInfo_indexName = Lens.lens (\LocalSecondaryIndexInfo' {indexName} -> indexName) (\s@LocalSecondaryIndexInfo' {} a -> s {indexName = a} :: LocalSecondaryIndexInfo)
-
 instance Core.FromJSON LocalSecondaryIndexInfo where
   parseJSON =
     Core.withObject
       "LocalSecondaryIndexInfo"
       ( \x ->
           LocalSecondaryIndexInfo'
-            Prelude.<$> (x Core..:? "KeySchema")
+            Prelude.<$> (x Core..:? "IndexName")
+            Prelude.<*> (x Core..:? "KeySchema")
             Prelude.<*> (x Core..:? "Projection")
-            Prelude.<*> (x Core..:? "IndexName")
       )
 
 instance Prelude.Hashable LocalSecondaryIndexInfo where
   hashWithSalt _salt LocalSecondaryIndexInfo' {..} =
-    _salt `Prelude.hashWithSalt` keySchema
+    _salt `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` keySchema
       `Prelude.hashWithSalt` projection
-      `Prelude.hashWithSalt` indexName
 
 instance Prelude.NFData LocalSecondaryIndexInfo where
   rnf LocalSecondaryIndexInfo' {..} =
-    Prelude.rnf keySchema
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf keySchema
       `Prelude.seq` Prelude.rnf projection
-      `Prelude.seq` Prelude.rnf indexName

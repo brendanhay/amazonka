@@ -41,9 +41,9 @@ module Amazonka.EC2.DescribeInstanceEventWindows
     newDescribeInstanceEventWindows,
 
     -- * Request Lenses
-    describeInstanceEventWindows_instanceEventWindowIds,
-    describeInstanceEventWindows_filters,
     describeInstanceEventWindows_nextToken,
+    describeInstanceEventWindows_filters,
+    describeInstanceEventWindows_instanceEventWindowIds,
     describeInstanceEventWindows_dryRun,
     describeInstanceEventWindows_maxResults,
 
@@ -52,8 +52,8 @@ module Amazonka.EC2.DescribeInstanceEventWindows
     newDescribeInstanceEventWindowsResponse,
 
     -- * Response Lenses
-    describeInstanceEventWindowsResponse_instanceEventWindows,
     describeInstanceEventWindowsResponse_nextToken,
+    describeInstanceEventWindowsResponse_instanceEventWindows,
     describeInstanceEventWindowsResponse_httpStatus,
   )
 where
@@ -69,8 +69,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeInstanceEventWindows' smart constructor.
 data DescribeInstanceEventWindows = DescribeInstanceEventWindows'
-  { -- | The IDs of the event windows.
-    instanceEventWindowIds :: Prelude.Maybe [Prelude.Text],
+  { -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more filters.
     --
     -- -   @dedicated-host-id@ - The event windows associated with the
@@ -105,8 +105,8 @@ data DescribeInstanceEventWindows = DescribeInstanceEventWindows'
     --     this filter to find all event windows that have a tag with a
     --     specific value, regardless of the tag key.
     filters :: Prelude.Maybe [Filter],
-    -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the event windows.
+    instanceEventWindowIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -128,7 +128,7 @@ data DescribeInstanceEventWindows = DescribeInstanceEventWindows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceEventWindowIds', 'describeInstanceEventWindows_instanceEventWindowIds' - The IDs of the event windows.
+-- 'nextToken', 'describeInstanceEventWindows_nextToken' - The token to request the next page of results.
 --
 -- 'filters', 'describeInstanceEventWindows_filters' - One or more filters.
 --
@@ -164,7 +164,7 @@ data DescribeInstanceEventWindows = DescribeInstanceEventWindows'
 --     this filter to find all event windows that have a tag with a
 --     specific value, regardless of the tag key.
 --
--- 'nextToken', 'describeInstanceEventWindows_nextToken' - The token to request the next page of results.
+-- 'instanceEventWindowIds', 'describeInstanceEventWindows_instanceEventWindowIds' - The IDs of the event windows.
 --
 -- 'dryRun', 'describeInstanceEventWindows_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -179,17 +179,17 @@ newDescribeInstanceEventWindows ::
   DescribeInstanceEventWindows
 newDescribeInstanceEventWindows =
   DescribeInstanceEventWindows'
-    { instanceEventWindowIds =
+    { nextToken =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      instanceEventWindowIds = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | The IDs of the event windows.
-describeInstanceEventWindows_instanceEventWindowIds :: Lens.Lens' DescribeInstanceEventWindows (Prelude.Maybe [Prelude.Text])
-describeInstanceEventWindows_instanceEventWindowIds = Lens.lens (\DescribeInstanceEventWindows' {instanceEventWindowIds} -> instanceEventWindowIds) (\s@DescribeInstanceEventWindows' {} a -> s {instanceEventWindowIds = a} :: DescribeInstanceEventWindows) Prelude.. Lens.mapping Lens.coerced
+-- | The token to request the next page of results.
+describeInstanceEventWindows_nextToken :: Lens.Lens' DescribeInstanceEventWindows (Prelude.Maybe Prelude.Text)
+describeInstanceEventWindows_nextToken = Lens.lens (\DescribeInstanceEventWindows' {nextToken} -> nextToken) (\s@DescribeInstanceEventWindows' {} a -> s {nextToken = a} :: DescribeInstanceEventWindows)
 
 -- | One or more filters.
 --
@@ -227,9 +227,9 @@ describeInstanceEventWindows_instanceEventWindowIds = Lens.lens (\DescribeInstan
 describeInstanceEventWindows_filters :: Lens.Lens' DescribeInstanceEventWindows (Prelude.Maybe [Filter])
 describeInstanceEventWindows_filters = Lens.lens (\DescribeInstanceEventWindows' {filters} -> filters) (\s@DescribeInstanceEventWindows' {} a -> s {filters = a} :: DescribeInstanceEventWindows) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to request the next page of results.
-describeInstanceEventWindows_nextToken :: Lens.Lens' DescribeInstanceEventWindows (Prelude.Maybe Prelude.Text)
-describeInstanceEventWindows_nextToken = Lens.lens (\DescribeInstanceEventWindows' {nextToken} -> nextToken) (\s@DescribeInstanceEventWindows' {} a -> s {nextToken = a} :: DescribeInstanceEventWindows)
+-- | The IDs of the event windows.
+describeInstanceEventWindows_instanceEventWindowIds :: Lens.Lens' DescribeInstanceEventWindows (Prelude.Maybe [Prelude.Text])
+describeInstanceEventWindows_instanceEventWindowIds = Lens.lens (\DescribeInstanceEventWindows' {instanceEventWindowIds} -> instanceEventWindowIds) (\s@DescribeInstanceEventWindows' {} a -> s {instanceEventWindowIds = a} :: DescribeInstanceEventWindows) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -276,11 +276,11 @@ instance Core.AWSRequest DescribeInstanceEventWindows where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceEventWindowsResponse'
-            Prelude.<$> ( x Core..@? "instanceEventWindowSet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "instanceEventWindowSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -289,17 +289,17 @@ instance
     DescribeInstanceEventWindows
   where
   hashWithSalt _salt DescribeInstanceEventWindows' {..} =
-    _salt `Prelude.hashWithSalt` instanceEventWindowIds
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` instanceEventWindowIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeInstanceEventWindows where
   rnf DescribeInstanceEventWindows' {..} =
-    Prelude.rnf instanceEventWindowIds
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceEventWindowIds
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -318,24 +318,24 @@ instance Core.ToQuery DescribeInstanceEventWindows where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           ( Core.toQueryList "InstanceEventWindowId"
               Prelude.<$> instanceEventWindowIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeInstanceEventWindowsResponse' smart constructor.
 data DescribeInstanceEventWindowsResponse = DescribeInstanceEventWindowsResponse'
-  { -- | Information about the event windows.
-    instanceEventWindows :: Prelude.Maybe [InstanceEventWindow],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the event windows.
+    instanceEventWindows :: Prelude.Maybe [InstanceEventWindow],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -349,10 +349,10 @@ data DescribeInstanceEventWindowsResponse = DescribeInstanceEventWindowsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceEventWindows', 'describeInstanceEventWindowsResponse_instanceEventWindows' - Information about the event windows.
---
 -- 'nextToken', 'describeInstanceEventWindowsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'instanceEventWindows', 'describeInstanceEventWindowsResponse_instanceEventWindows' - Information about the event windows.
 --
 -- 'httpStatus', 'describeInstanceEventWindowsResponse_httpStatus' - The response's http status code.
 newDescribeInstanceEventWindowsResponse ::
@@ -361,20 +361,21 @@ newDescribeInstanceEventWindowsResponse ::
   DescribeInstanceEventWindowsResponse
 newDescribeInstanceEventWindowsResponse pHttpStatus_ =
   DescribeInstanceEventWindowsResponse'
-    { instanceEventWindows =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      instanceEventWindows =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the event windows.
-describeInstanceEventWindowsResponse_instanceEventWindows :: Lens.Lens' DescribeInstanceEventWindowsResponse (Prelude.Maybe [InstanceEventWindow])
-describeInstanceEventWindowsResponse_instanceEventWindows = Lens.lens (\DescribeInstanceEventWindowsResponse' {instanceEventWindows} -> instanceEventWindows) (\s@DescribeInstanceEventWindowsResponse' {} a -> s {instanceEventWindows = a} :: DescribeInstanceEventWindowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeInstanceEventWindowsResponse_nextToken :: Lens.Lens' DescribeInstanceEventWindowsResponse (Prelude.Maybe Prelude.Text)
 describeInstanceEventWindowsResponse_nextToken = Lens.lens (\DescribeInstanceEventWindowsResponse' {nextToken} -> nextToken) (\s@DescribeInstanceEventWindowsResponse' {} a -> s {nextToken = a} :: DescribeInstanceEventWindowsResponse)
+
+-- | Information about the event windows.
+describeInstanceEventWindowsResponse_instanceEventWindows :: Lens.Lens' DescribeInstanceEventWindowsResponse (Prelude.Maybe [InstanceEventWindow])
+describeInstanceEventWindowsResponse_instanceEventWindows = Lens.lens (\DescribeInstanceEventWindowsResponse' {instanceEventWindows} -> instanceEventWindows) (\s@DescribeInstanceEventWindowsResponse' {} a -> s {instanceEventWindows = a} :: DescribeInstanceEventWindowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstanceEventWindowsResponse_httpStatus :: Lens.Lens' DescribeInstanceEventWindowsResponse Prelude.Int
@@ -385,6 +386,6 @@ instance
     DescribeInstanceEventWindowsResponse
   where
   rnf DescribeInstanceEventWindowsResponse' {..} =
-    Prelude.rnf instanceEventWindows
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceEventWindows
       `Prelude.seq` Prelude.rnf httpStatus

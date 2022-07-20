@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroundStationData' smart constructor.
 data GroundStationData = GroundStationData'
-  { -- | UUID of a ground station.
-    groundStationId :: Prelude.Maybe Prelude.Text,
-    -- | Name of a ground station.
+  { -- | Name of a ground station.
     groundStationName :: Prelude.Maybe Prelude.Text,
     -- | Ground station Region.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Prelude.Maybe Prelude.Text,
+    -- | UUID of a ground station.
+    groundStationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data GroundStationData = GroundStationData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groundStationId', 'groundStationData_groundStationId' - UUID of a ground station.
---
 -- 'groundStationName', 'groundStationData_groundStationName' - Name of a ground station.
 --
 -- 'region', 'groundStationData_region' - Ground station Region.
+--
+-- 'groundStationId', 'groundStationData_groundStationId' - UUID of a ground station.
 newGroundStationData ::
   GroundStationData
 newGroundStationData =
   GroundStationData'
-    { groundStationId =
+    { groundStationName =
         Prelude.Nothing,
-      groundStationName = Prelude.Nothing,
-      region = Prelude.Nothing
+      region = Prelude.Nothing,
+      groundStationId = Prelude.Nothing
     }
-
--- | UUID of a ground station.
-groundStationData_groundStationId :: Lens.Lens' GroundStationData (Prelude.Maybe Prelude.Text)
-groundStationData_groundStationId = Lens.lens (\GroundStationData' {groundStationId} -> groundStationId) (\s@GroundStationData' {} a -> s {groundStationId = a} :: GroundStationData)
 
 -- | Name of a ground station.
 groundStationData_groundStationName :: Lens.Lens' GroundStationData (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ groundStationData_groundStationName = Lens.lens (\GroundStationData' {groundStat
 groundStationData_region :: Lens.Lens' GroundStationData (Prelude.Maybe Prelude.Text)
 groundStationData_region = Lens.lens (\GroundStationData' {region} -> region) (\s@GroundStationData' {} a -> s {region = a} :: GroundStationData)
 
+-- | UUID of a ground station.
+groundStationData_groundStationId :: Lens.Lens' GroundStationData (Prelude.Maybe Prelude.Text)
+groundStationData_groundStationId = Lens.lens (\GroundStationData' {groundStationId} -> groundStationId) (\s@GroundStationData' {} a -> s {groundStationId = a} :: GroundStationData)
+
 instance Core.FromJSON GroundStationData where
   parseJSON =
     Core.withObject
       "GroundStationData"
       ( \x ->
           GroundStationData'
-            Prelude.<$> (x Core..:? "groundStationId")
-            Prelude.<*> (x Core..:? "groundStationName")
+            Prelude.<$> (x Core..:? "groundStationName")
             Prelude.<*> (x Core..:? "region")
+            Prelude.<*> (x Core..:? "groundStationId")
       )
 
 instance Prelude.Hashable GroundStationData where
   hashWithSalt _salt GroundStationData' {..} =
-    _salt `Prelude.hashWithSalt` groundStationId
-      `Prelude.hashWithSalt` groundStationName
+    _salt `Prelude.hashWithSalt` groundStationName
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` groundStationId
 
 instance Prelude.NFData GroundStationData where
   rnf GroundStationData' {..} =
-    Prelude.rnf groundStationId
-      `Prelude.seq` Prelude.rnf groundStationName
+    Prelude.rnf groundStationName
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf groundStationId

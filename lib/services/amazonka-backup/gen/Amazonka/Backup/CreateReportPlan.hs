@@ -44,9 +44,9 @@ module Amazonka.Backup.CreateReportPlan
     newCreateReportPlanResponse,
 
     -- * Response Lenses
-    createReportPlanResponse_creationTime,
-    createReportPlanResponse_reportPlanName,
     createReportPlanResponse_reportPlanArn,
+    createReportPlanResponse_reportPlanName,
+    createReportPlanResponse_creationTime,
     createReportPlanResponse_httpStatus,
   )
 where
@@ -197,9 +197,9 @@ instance Core.AWSRequest CreateReportPlan where
     Response.receiveJSON
       ( \s h x ->
           CreateReportPlanResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "ReportPlanArn")
             Prelude.<*> (x Core..?> "ReportPlanName")
-            Prelude.<*> (x Core..?> "ReportPlanArn")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,16 +261,16 @@ instance Core.ToQuery CreateReportPlan where
 
 -- | /See:/ 'newCreateReportPlanResponse' smart constructor.
 data CreateReportPlanResponse = CreateReportPlanResponse'
-  { -- | The date and time a backup vault is created, in Unix format and
+  { -- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+    -- format of the ARN depends on the resource type.
+    reportPlanArn :: Prelude.Maybe Prelude.Text,
+    -- | The unique name of the report plan.
+    reportPlanName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time a backup vault is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The unique name of the report plan.
-    reportPlanName :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
-    -- format of the ARN depends on the resource type.
-    reportPlanArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -284,15 +284,15 @@ data CreateReportPlanResponse = CreateReportPlanResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reportPlanArn', 'createReportPlanResponse_reportPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+-- format of the ARN depends on the resource type.
+--
+-- 'reportPlanName', 'createReportPlanResponse_reportPlanName' - The unique name of the report plan.
+--
 -- 'creationTime', 'createReportPlanResponse_creationTime' - The date and time a backup vault is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
---
--- 'reportPlanName', 'createReportPlanResponse_reportPlanName' - The unique name of the report plan.
---
--- 'reportPlanArn', 'createReportPlanResponse_reportPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The
--- format of the ARN depends on the resource type.
 --
 -- 'httpStatus', 'createReportPlanResponse_httpStatus' - The response's http status code.
 newCreateReportPlanResponse ::
@@ -301,12 +301,21 @@ newCreateReportPlanResponse ::
   CreateReportPlanResponse
 newCreateReportPlanResponse pHttpStatus_ =
   CreateReportPlanResponse'
-    { creationTime =
+    { reportPlanArn =
         Prelude.Nothing,
       reportPlanName = Prelude.Nothing,
-      reportPlanArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+-- format of the ARN depends on the resource type.
+createReportPlanResponse_reportPlanArn :: Lens.Lens' CreateReportPlanResponse (Prelude.Maybe Prelude.Text)
+createReportPlanResponse_reportPlanArn = Lens.lens (\CreateReportPlanResponse' {reportPlanArn} -> reportPlanArn) (\s@CreateReportPlanResponse' {} a -> s {reportPlanArn = a} :: CreateReportPlanResponse)
+
+-- | The unique name of the report plan.
+createReportPlanResponse_reportPlanName :: Lens.Lens' CreateReportPlanResponse (Prelude.Maybe Prelude.Text)
+createReportPlanResponse_reportPlanName = Lens.lens (\CreateReportPlanResponse' {reportPlanName} -> reportPlanName) (\s@CreateReportPlanResponse' {} a -> s {reportPlanName = a} :: CreateReportPlanResponse)
 
 -- | The date and time a backup vault is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
@@ -315,22 +324,13 @@ newCreateReportPlanResponse pHttpStatus_ =
 createReportPlanResponse_creationTime :: Lens.Lens' CreateReportPlanResponse (Prelude.Maybe Prelude.UTCTime)
 createReportPlanResponse_creationTime = Lens.lens (\CreateReportPlanResponse' {creationTime} -> creationTime) (\s@CreateReportPlanResponse' {} a -> s {creationTime = a} :: CreateReportPlanResponse) Prelude.. Lens.mapping Core._Time
 
--- | The unique name of the report plan.
-createReportPlanResponse_reportPlanName :: Lens.Lens' CreateReportPlanResponse (Prelude.Maybe Prelude.Text)
-createReportPlanResponse_reportPlanName = Lens.lens (\CreateReportPlanResponse' {reportPlanName} -> reportPlanName) (\s@CreateReportPlanResponse' {} a -> s {reportPlanName = a} :: CreateReportPlanResponse)
-
--- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
--- format of the ARN depends on the resource type.
-createReportPlanResponse_reportPlanArn :: Lens.Lens' CreateReportPlanResponse (Prelude.Maybe Prelude.Text)
-createReportPlanResponse_reportPlanArn = Lens.lens (\CreateReportPlanResponse' {reportPlanArn} -> reportPlanArn) (\s@CreateReportPlanResponse' {} a -> s {reportPlanArn = a} :: CreateReportPlanResponse)
-
 -- | The response's http status code.
 createReportPlanResponse_httpStatus :: Lens.Lens' CreateReportPlanResponse Prelude.Int
 createReportPlanResponse_httpStatus = Lens.lens (\CreateReportPlanResponse' {httpStatus} -> httpStatus) (\s@CreateReportPlanResponse' {} a -> s {httpStatus = a} :: CreateReportPlanResponse)
 
 instance Prelude.NFData CreateReportPlanResponse where
   rnf CreateReportPlanResponse' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf reportPlanArn
       `Prelude.seq` Prelude.rnf reportPlanName
-      `Prelude.seq` Prelude.rnf reportPlanArn
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,8 +30,8 @@ module Amazonka.EC2.DescribeVpcEndpointServicePermissions
     newDescribeVpcEndpointServicePermissions,
 
     -- * Request Lenses
-    describeVpcEndpointServicePermissions_filters,
     describeVpcEndpointServicePermissions_nextToken,
+    describeVpcEndpointServicePermissions_filters,
     describeVpcEndpointServicePermissions_dryRun,
     describeVpcEndpointServicePermissions_maxResults,
     describeVpcEndpointServicePermissions_serviceId,
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVpcEndpointServicePermissions' smart constructor.
 data DescribeVpcEndpointServicePermissions = DescribeVpcEndpointServicePermissions'
-  { -- | One or more filters.
+  { -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @principal@ - The ARN of the principal.
     --
     -- -   @principal-type@ - The principal type (@All@ | @Service@ |
     --     @OrganizationUnit@ | @Account@ | @User@ | @Role@).
     filters :: Prelude.Maybe [Filter],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -89,14 +89,14 @@ data DescribeVpcEndpointServicePermissions = DescribeVpcEndpointServicePermissio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeVpcEndpointServicePermissions_nextToken' - The token to retrieve the next page of results.
+--
 -- 'filters', 'describeVpcEndpointServicePermissions_filters' - One or more filters.
 --
 -- -   @principal@ - The ARN of the principal.
 --
 -- -   @principal-type@ - The principal type (@All@ | @Service@ |
 --     @OrganizationUnit@ | @Account@ | @User@ | @Role@).
---
--- 'nextToken', 'describeVpcEndpointServicePermissions_nextToken' - The token to retrieve the next page of results.
 --
 -- 'dryRun', 'describeVpcEndpointServicePermissions_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -116,13 +116,17 @@ newDescribeVpcEndpointServicePermissions ::
   DescribeVpcEndpointServicePermissions
 newDescribeVpcEndpointServicePermissions pServiceId_ =
   DescribeVpcEndpointServicePermissions'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       serviceId = pServiceId_
     }
+
+-- | The token to retrieve the next page of results.
+describeVpcEndpointServicePermissions_nextToken :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Text)
+describeVpcEndpointServicePermissions_nextToken = Lens.lens (\DescribeVpcEndpointServicePermissions' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {nextToken = a} :: DescribeVpcEndpointServicePermissions)
 
 -- | One or more filters.
 --
@@ -132,10 +136,6 @@ newDescribeVpcEndpointServicePermissions pServiceId_ =
 --     @OrganizationUnit@ | @Account@ | @User@ | @Role@).
 describeVpcEndpointServicePermissions_filters :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe [Filter])
 describeVpcEndpointServicePermissions_filters = Lens.lens (\DescribeVpcEndpointServicePermissions' {filters} -> filters) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {filters = a} :: DescribeVpcEndpointServicePermissions) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to retrieve the next page of results.
-describeVpcEndpointServicePermissions_nextToken :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Text)
-describeVpcEndpointServicePermissions_nextToken = Lens.lens (\DescribeVpcEndpointServicePermissions' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {nextToken = a} :: DescribeVpcEndpointServicePermissions)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -209,8 +209,8 @@ instance
   hashWithSalt
     _salt
     DescribeVpcEndpointServicePermissions' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` serviceId
@@ -220,8 +220,8 @@ instance
     DescribeVpcEndpointServicePermissions
   where
   rnf DescribeVpcEndpointServicePermissions' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceId
@@ -250,9 +250,9 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "ServiceId" Core.=: serviceId

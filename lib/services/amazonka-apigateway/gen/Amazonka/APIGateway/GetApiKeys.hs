@@ -29,11 +29,11 @@ module Amazonka.APIGateway.GetApiKeys
     newGetApiKeys,
 
     -- * Request Lenses
-    getApiKeys_includeValues,
     getApiKeys_customerId,
-    getApiKeys_nameQuery,
     getApiKeys_limit,
+    getApiKeys_nameQuery,
     getApiKeys_position,
+    getApiKeys_includeValues,
 
     -- * Destructuring the Response
     GetApiKeysResponse (..),
@@ -58,19 +58,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetApiKeys' smart constructor.
 data GetApiKeys = GetApiKeys'
-  { -- | A boolean flag to specify whether (@true@) or not (@false@) the result
-    -- contains key values.
-    includeValues :: Prelude.Maybe Prelude.Bool,
-    -- | The identifier of a customer in AWS Marketplace or an external system,
+  { -- | The identifier of a customer in AWS Marketplace or an external system,
     -- such as a developer portal.
     customerId :: Prelude.Maybe Prelude.Text,
-    -- | The name of queried API keys.
-    nameQuery :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The name of queried API keys.
+    nameQuery :: Prelude.Maybe Prelude.Text,
     -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text
+    position :: Prelude.Maybe Prelude.Text,
+    -- | A boolean flag to specify whether (@true@) or not (@false@) the result
+    -- contains key values.
+    includeValues :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,51 +82,51 @@ data GetApiKeys = GetApiKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeValues', 'getApiKeys_includeValues' - A boolean flag to specify whether (@true@) or not (@false@) the result
--- contains key values.
---
 -- 'customerId', 'getApiKeys_customerId' - The identifier of a customer in AWS Marketplace or an external system,
 -- such as a developer portal.
---
--- 'nameQuery', 'getApiKeys_nameQuery' - The name of queried API keys.
 --
 -- 'limit', 'getApiKeys_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 --
+-- 'nameQuery', 'getApiKeys_nameQuery' - The name of queried API keys.
+--
 -- 'position', 'getApiKeys_position' - The current pagination position in the paged result set.
+--
+-- 'includeValues', 'getApiKeys_includeValues' - A boolean flag to specify whether (@true@) or not (@false@) the result
+-- contains key values.
 newGetApiKeys ::
   GetApiKeys
 newGetApiKeys =
   GetApiKeys'
-    { includeValues = Prelude.Nothing,
-      customerId = Prelude.Nothing,
-      nameQuery = Prelude.Nothing,
+    { customerId = Prelude.Nothing,
       limit = Prelude.Nothing,
-      position = Prelude.Nothing
+      nameQuery = Prelude.Nothing,
+      position = Prelude.Nothing,
+      includeValues = Prelude.Nothing
     }
-
--- | A boolean flag to specify whether (@true@) or not (@false@) the result
--- contains key values.
-getApiKeys_includeValues :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Bool)
-getApiKeys_includeValues = Lens.lens (\GetApiKeys' {includeValues} -> includeValues) (\s@GetApiKeys' {} a -> s {includeValues = a} :: GetApiKeys)
 
 -- | The identifier of a customer in AWS Marketplace or an external system,
 -- such as a developer portal.
 getApiKeys_customerId :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
 getApiKeys_customerId = Lens.lens (\GetApiKeys' {customerId} -> customerId) (\s@GetApiKeys' {} a -> s {customerId = a} :: GetApiKeys)
 
--- | The name of queried API keys.
-getApiKeys_nameQuery :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
-getApiKeys_nameQuery = Lens.lens (\GetApiKeys' {nameQuery} -> nameQuery) (\s@GetApiKeys' {} a -> s {nameQuery = a} :: GetApiKeys)
-
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getApiKeys_limit :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Int)
 getApiKeys_limit = Lens.lens (\GetApiKeys' {limit} -> limit) (\s@GetApiKeys' {} a -> s {limit = a} :: GetApiKeys)
 
+-- | The name of queried API keys.
+getApiKeys_nameQuery :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
+getApiKeys_nameQuery = Lens.lens (\GetApiKeys' {nameQuery} -> nameQuery) (\s@GetApiKeys' {} a -> s {nameQuery = a} :: GetApiKeys)
+
 -- | The current pagination position in the paged result set.
 getApiKeys_position :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
 getApiKeys_position = Lens.lens (\GetApiKeys' {position} -> position) (\s@GetApiKeys' {} a -> s {position = a} :: GetApiKeys)
+
+-- | A boolean flag to specify whether (@true@) or not (@false@) the result
+-- contains key values.
+getApiKeys_includeValues :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Bool)
+getApiKeys_includeValues = Lens.lens (\GetApiKeys' {includeValues} -> includeValues) (\s@GetApiKeys' {} a -> s {includeValues = a} :: GetApiKeys)
 
 instance Core.AWSPager GetApiKeys where
   page rq rs
@@ -162,19 +162,19 @@ instance Core.AWSRequest GetApiKeys where
 
 instance Prelude.Hashable GetApiKeys where
   hashWithSalt _salt GetApiKeys' {..} =
-    _salt `Prelude.hashWithSalt` includeValues
-      `Prelude.hashWithSalt` customerId
-      `Prelude.hashWithSalt` nameQuery
+    _salt `Prelude.hashWithSalt` customerId
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nameQuery
       `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` includeValues
 
 instance Prelude.NFData GetApiKeys where
   rnf GetApiKeys' {..} =
-    Prelude.rnf includeValues
-      `Prelude.seq` Prelude.rnf customerId
-      `Prelude.seq` Prelude.rnf nameQuery
+    Prelude.rnf customerId
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nameQuery
       `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf includeValues
 
 instance Core.ToHeaders GetApiKeys where
   toHeaders =
@@ -191,11 +191,11 @@ instance Core.ToPath GetApiKeys where
 instance Core.ToQuery GetApiKeys where
   toQuery GetApiKeys' {..} =
     Prelude.mconcat
-      [ "includeValues" Core.=: includeValues,
-        "customerId" Core.=: customerId,
-        "name" Core.=: nameQuery,
+      [ "customerId" Core.=: customerId,
         "limit" Core.=: limit,
-        "position" Core.=: position
+        "name" Core.=: nameQuery,
+        "position" Core.=: position,
+        "includeValues" Core.=: includeValues
       ]
 
 -- | Represents a collection of API keys as represented by an ApiKeys

@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateCreateMessageBody' smart constructor.
 data TemplateCreateMessageBody = TemplateCreateMessageBody'
-  { -- | The unique identifier for the request to create the message template.
+  { -- | The message that\'s returned from the API for the request to create the
+    -- message template.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the request to create the message template.
     requestID :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the message template that was created.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The message that\'s returned from the API for the request to create the
-    -- message template.
-    message :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,21 +45,26 @@ data TemplateCreateMessageBody = TemplateCreateMessageBody'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'templateCreateMessageBody_message' - The message that\'s returned from the API for the request to create the
+-- message template.
+--
 -- 'requestID', 'templateCreateMessageBody_requestID' - The unique identifier for the request to create the message template.
 --
 -- 'arn', 'templateCreateMessageBody_arn' - The Amazon Resource Name (ARN) of the message template that was created.
---
--- 'message', 'templateCreateMessageBody_message' - The message that\'s returned from the API for the request to create the
--- message template.
 newTemplateCreateMessageBody ::
   TemplateCreateMessageBody
 newTemplateCreateMessageBody =
   TemplateCreateMessageBody'
-    { requestID =
+    { message =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      message = Prelude.Nothing
+      requestID = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
+
+-- | The message that\'s returned from the API for the request to create the
+-- message template.
+templateCreateMessageBody_message :: Lens.Lens' TemplateCreateMessageBody (Prelude.Maybe Prelude.Text)
+templateCreateMessageBody_message = Lens.lens (\TemplateCreateMessageBody' {message} -> message) (\s@TemplateCreateMessageBody' {} a -> s {message = a} :: TemplateCreateMessageBody)
 
 -- | The unique identifier for the request to create the message template.
 templateCreateMessageBody_requestID :: Lens.Lens' TemplateCreateMessageBody (Prelude.Maybe Prelude.Text)
@@ -69,30 +74,25 @@ templateCreateMessageBody_requestID = Lens.lens (\TemplateCreateMessageBody' {re
 templateCreateMessageBody_arn :: Lens.Lens' TemplateCreateMessageBody (Prelude.Maybe Prelude.Text)
 templateCreateMessageBody_arn = Lens.lens (\TemplateCreateMessageBody' {arn} -> arn) (\s@TemplateCreateMessageBody' {} a -> s {arn = a} :: TemplateCreateMessageBody)
 
--- | The message that\'s returned from the API for the request to create the
--- message template.
-templateCreateMessageBody_message :: Lens.Lens' TemplateCreateMessageBody (Prelude.Maybe Prelude.Text)
-templateCreateMessageBody_message = Lens.lens (\TemplateCreateMessageBody' {message} -> message) (\s@TemplateCreateMessageBody' {} a -> s {message = a} :: TemplateCreateMessageBody)
-
 instance Core.FromJSON TemplateCreateMessageBody where
   parseJSON =
     Core.withObject
       "TemplateCreateMessageBody"
       ( \x ->
           TemplateCreateMessageBody'
-            Prelude.<$> (x Core..:? "RequestID")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "RequestID")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable TemplateCreateMessageBody where
   hashWithSalt _salt TemplateCreateMessageBody' {..} =
-    _salt `Prelude.hashWithSalt` requestID
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` requestID
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData TemplateCreateMessageBody where
   rnf TemplateCreateMessageBody' {..} =
-    Prelude.rnf requestID
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf requestID
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf message

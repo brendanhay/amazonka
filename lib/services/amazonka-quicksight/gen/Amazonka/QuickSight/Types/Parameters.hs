@@ -31,10 +31,10 @@ import Amazonka.QuickSight.Types.StringParameter
 --
 -- /See:/ 'newParameters' smart constructor.
 data Parameters = Parameters'
-  { -- | The parameters that have a data type of date-time.
-    dateTimeParameters :: Prelude.Maybe [DateTimeParameter],
-    -- | The parameters that have a data type of decimal.
+  { -- | The parameters that have a data type of decimal.
     decimalParameters :: Prelude.Maybe [DecimalParameter],
+    -- | The parameters that have a data type of date-time.
+    dateTimeParameters :: Prelude.Maybe [DateTimeParameter],
     -- | The parameters that have a data type of integer.
     integerParameters :: Prelude.Maybe [IntegerParameter],
     -- | The parameters that have a data type of string.
@@ -50,9 +50,9 @@ data Parameters = Parameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dateTimeParameters', 'parameters_dateTimeParameters' - The parameters that have a data type of date-time.
---
 -- 'decimalParameters', 'parameters_decimalParameters' - The parameters that have a data type of decimal.
+--
+-- 'dateTimeParameters', 'parameters_dateTimeParameters' - The parameters that have a data type of date-time.
 --
 -- 'integerParameters', 'parameters_integerParameters' - The parameters that have a data type of integer.
 --
@@ -61,19 +61,19 @@ newParameters ::
   Parameters
 newParameters =
   Parameters'
-    { dateTimeParameters = Prelude.Nothing,
-      decimalParameters = Prelude.Nothing,
+    { decimalParameters = Prelude.Nothing,
+      dateTimeParameters = Prelude.Nothing,
       integerParameters = Prelude.Nothing,
       stringParameters = Prelude.Nothing
     }
 
--- | The parameters that have a data type of date-time.
-parameters_dateTimeParameters :: Lens.Lens' Parameters (Prelude.Maybe [DateTimeParameter])
-parameters_dateTimeParameters = Lens.lens (\Parameters' {dateTimeParameters} -> dateTimeParameters) (\s@Parameters' {} a -> s {dateTimeParameters = a} :: Parameters) Prelude.. Lens.mapping Lens.coerced
-
 -- | The parameters that have a data type of decimal.
 parameters_decimalParameters :: Lens.Lens' Parameters (Prelude.Maybe [DecimalParameter])
 parameters_decimalParameters = Lens.lens (\Parameters' {decimalParameters} -> decimalParameters) (\s@Parameters' {} a -> s {decimalParameters = a} :: Parameters) Prelude.. Lens.mapping Lens.coerced
+
+-- | The parameters that have a data type of date-time.
+parameters_dateTimeParameters :: Lens.Lens' Parameters (Prelude.Maybe [DateTimeParameter])
+parameters_dateTimeParameters = Lens.lens (\Parameters' {dateTimeParameters} -> dateTimeParameters) (\s@Parameters' {} a -> s {dateTimeParameters = a} :: Parameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The parameters that have a data type of integer.
 parameters_integerParameters :: Lens.Lens' Parameters (Prelude.Maybe [IntegerParameter])
@@ -85,15 +85,15 @@ parameters_stringParameters = Lens.lens (\Parameters' {stringParameters} -> stri
 
 instance Prelude.Hashable Parameters where
   hashWithSalt _salt Parameters' {..} =
-    _salt `Prelude.hashWithSalt` dateTimeParameters
-      `Prelude.hashWithSalt` decimalParameters
+    _salt `Prelude.hashWithSalt` decimalParameters
+      `Prelude.hashWithSalt` dateTimeParameters
       `Prelude.hashWithSalt` integerParameters
       `Prelude.hashWithSalt` stringParameters
 
 instance Prelude.NFData Parameters where
   rnf Parameters' {..} =
-    Prelude.rnf dateTimeParameters
-      `Prelude.seq` Prelude.rnf decimalParameters
+    Prelude.rnf decimalParameters
+      `Prelude.seq` Prelude.rnf dateTimeParameters
       `Prelude.seq` Prelude.rnf integerParameters
       `Prelude.seq` Prelude.rnf stringParameters
 
@@ -101,10 +101,10 @@ instance Core.ToJSON Parameters where
   toJSON Parameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DateTimeParameters" Core..=)
-              Prelude.<$> dateTimeParameters,
-            ("DecimalParameters" Core..=)
+          [ ("DecimalParameters" Core..=)
               Prelude.<$> decimalParameters,
+            ("DateTimeParameters" Core..=)
+              Prelude.<$> dateTimeParameters,
             ("IntegerParameters" Core..=)
               Prelude.<$> integerParameters,
             ("StringParameters" Core..=)

@@ -34,8 +34,8 @@ module Amazonka.Redshift.BatchDeleteClusterSnapshots
     newBatchDeleteClusterSnapshotsResponse,
 
     -- * Response Lenses
-    batchDeleteClusterSnapshotsResponse_resources,
     batchDeleteClusterSnapshotsResponse_errors,
+    batchDeleteClusterSnapshotsResponse_resources,
     batchDeleteClusterSnapshotsResponse_httpStatus,
   )
 where
@@ -85,11 +85,11 @@ instance Core.AWSRequest BatchDeleteClusterSnapshots where
       "BatchDeleteClusterSnapshotsResult"
       ( \s h x ->
           BatchDeleteClusterSnapshotsResponse'
-            Prelude.<$> ( x Core..@? "Resources" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "String")
-                        )
-            Prelude.<*> ( x Core..@? "Errors" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Errors" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "SnapshotErrorMessage")
+                        )
+            Prelude.<*> ( x Core..@? "Resources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "String")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -125,10 +125,10 @@ instance Core.ToQuery BatchDeleteClusterSnapshots where
 
 -- | /See:/ 'newBatchDeleteClusterSnapshotsResponse' smart constructor.
 data BatchDeleteClusterSnapshotsResponse = BatchDeleteClusterSnapshotsResponse'
-  { -- | A list of the snapshot identifiers that were deleted.
-    resources :: Prelude.Maybe [Prelude.Text],
-    -- | A list of any errors returned.
+  { -- | A list of any errors returned.
     errors :: Prelude.Maybe [SnapshotErrorMessage],
+    -- | A list of the snapshot identifiers that were deleted.
+    resources :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -142,9 +142,9 @@ data BatchDeleteClusterSnapshotsResponse = BatchDeleteClusterSnapshotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'batchDeleteClusterSnapshotsResponse_resources' - A list of the snapshot identifiers that were deleted.
---
 -- 'errors', 'batchDeleteClusterSnapshotsResponse_errors' - A list of any errors returned.
+--
+-- 'resources', 'batchDeleteClusterSnapshotsResponse_resources' - A list of the snapshot identifiers that were deleted.
 --
 -- 'httpStatus', 'batchDeleteClusterSnapshotsResponse_httpStatus' - The response's http status code.
 newBatchDeleteClusterSnapshotsResponse ::
@@ -153,19 +153,19 @@ newBatchDeleteClusterSnapshotsResponse ::
   BatchDeleteClusterSnapshotsResponse
 newBatchDeleteClusterSnapshotsResponse pHttpStatus_ =
   BatchDeleteClusterSnapshotsResponse'
-    { resources =
+    { errors =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
+      resources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the snapshot identifiers that were deleted.
-batchDeleteClusterSnapshotsResponse_resources :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Prelude.Maybe [Prelude.Text])
-batchDeleteClusterSnapshotsResponse_resources = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {resources} -> resources) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {resources = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of any errors returned.
 batchDeleteClusterSnapshotsResponse_errors :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Prelude.Maybe [SnapshotErrorMessage])
 batchDeleteClusterSnapshotsResponse_errors = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {errors} -> errors) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {errors = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the snapshot identifiers that were deleted.
+batchDeleteClusterSnapshotsResponse_resources :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Prelude.Maybe [Prelude.Text])
+batchDeleteClusterSnapshotsResponse_resources = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {resources} -> resources) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {resources = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeleteClusterSnapshotsResponse_httpStatus :: Lens.Lens' BatchDeleteClusterSnapshotsResponse Prelude.Int
@@ -176,6 +176,6 @@ instance
     BatchDeleteClusterSnapshotsResponse
   where
   rnf BatchDeleteClusterSnapshotsResponse' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

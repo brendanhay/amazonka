@@ -36,9 +36,9 @@ module Amazonka.EC2.DescribeReservedInstancesModifications
     newDescribeReservedInstancesModifications,
 
     -- * Request Lenses
-    describeReservedInstancesModifications_filters,
     describeReservedInstancesModifications_reservedInstancesModificationIds,
     describeReservedInstancesModifications_nextToken,
+    describeReservedInstancesModifications_filters,
 
     -- * Destructuring the Response
     DescribeReservedInstancesModificationsResponse (..),
@@ -62,7 +62,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReservedInstancesModifications' smart constructor.
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
-  { -- | One or more filters.
+  { -- | IDs for the submitted modification request.
+    reservedInstancesModificationIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @client-token@ - The idempotency token for the modification request.
     --
@@ -99,11 +103,7 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     --
     -- -   @update-date@ - The time when the modification request was last
     --     updated.
-    filters :: Prelude.Maybe [Filter],
-    -- | IDs for the submitted modification request.
-    reservedInstancesModificationIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text
+    filters :: Prelude.Maybe [Filter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,6 +114,10 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'reservedInstancesModificationIds', 'describeReservedInstancesModifications_reservedInstancesModificationIds' - IDs for the submitted modification request.
+--
+-- 'nextToken', 'describeReservedInstancesModifications_nextToken' - The token to retrieve the next page of results.
 --
 -- 'filters', 'describeReservedInstancesModifications_filters' - One or more filters.
 --
@@ -152,20 +156,23 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 --
 -- -   @update-date@ - The time when the modification request was last
 --     updated.
---
--- 'reservedInstancesModificationIds', 'describeReservedInstancesModifications_reservedInstancesModificationIds' - IDs for the submitted modification request.
---
--- 'nextToken', 'describeReservedInstancesModifications_nextToken' - The token to retrieve the next page of results.
 newDescribeReservedInstancesModifications ::
   DescribeReservedInstancesModifications
 newDescribeReservedInstancesModifications =
   DescribeReservedInstancesModifications'
-    { filters =
+    { reservedInstancesModificationIds =
         Prelude.Nothing,
-      reservedInstancesModificationIds =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
+
+-- | IDs for the submitted modification request.
+describeReservedInstancesModifications_reservedInstancesModificationIds :: Lens.Lens' DescribeReservedInstancesModifications (Prelude.Maybe [Prelude.Text])
+describeReservedInstancesModifications_reservedInstancesModificationIds = Lens.lens (\DescribeReservedInstancesModifications' {reservedInstancesModificationIds} -> reservedInstancesModificationIds) (\s@DescribeReservedInstancesModifications' {} a -> s {reservedInstancesModificationIds = a} :: DescribeReservedInstancesModifications) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next page of results.
+describeReservedInstancesModifications_nextToken :: Lens.Lens' DescribeReservedInstancesModifications (Prelude.Maybe Prelude.Text)
+describeReservedInstancesModifications_nextToken = Lens.lens (\DescribeReservedInstancesModifications' {nextToken} -> nextToken) (\s@DescribeReservedInstancesModifications' {} a -> s {nextToken = a} :: DescribeReservedInstancesModifications)
 
 -- | One or more filters.
 --
@@ -206,14 +213,6 @@ newDescribeReservedInstancesModifications =
 --     updated.
 describeReservedInstancesModifications_filters :: Lens.Lens' DescribeReservedInstancesModifications (Prelude.Maybe [Filter])
 describeReservedInstancesModifications_filters = Lens.lens (\DescribeReservedInstancesModifications' {filters} -> filters) (\s@DescribeReservedInstancesModifications' {} a -> s {filters = a} :: DescribeReservedInstancesModifications) Prelude.. Lens.mapping Lens.coerced
-
--- | IDs for the submitted modification request.
-describeReservedInstancesModifications_reservedInstancesModificationIds :: Lens.Lens' DescribeReservedInstancesModifications (Prelude.Maybe [Prelude.Text])
-describeReservedInstancesModifications_reservedInstancesModificationIds = Lens.lens (\DescribeReservedInstancesModifications' {reservedInstancesModificationIds} -> reservedInstancesModificationIds) (\s@DescribeReservedInstancesModifications' {} a -> s {reservedInstancesModificationIds = a} :: DescribeReservedInstancesModifications) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to retrieve the next page of results.
-describeReservedInstancesModifications_nextToken :: Lens.Lens' DescribeReservedInstancesModifications (Prelude.Maybe Prelude.Text)
-describeReservedInstancesModifications_nextToken = Lens.lens (\DescribeReservedInstancesModifications' {nextToken} -> nextToken) (\s@DescribeReservedInstancesModifications' {} a -> s {nextToken = a} :: DescribeReservedInstancesModifications)
 
 instance
   Core.AWSPager
@@ -268,18 +267,19 @@ instance
   hashWithSalt
     _salt
     DescribeReservedInstancesModifications' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
         `Prelude.hashWithSalt` reservedInstancesModificationIds
         `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
 
 instance
   Prelude.NFData
     DescribeReservedInstancesModifications
   where
   rnf DescribeReservedInstancesModifications' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf reservedInstancesModificationIds
+    Prelude.rnf reservedInstancesModificationIds
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
 
 instance
   Core.ToHeaders
@@ -306,12 +306,12 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
           ( Core.toQueryList "ReservedInstancesModificationId"
               Prelude.<$> reservedInstancesModificationIds
           ),
-        "NextToken" Core.=: nextToken
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | Contains the output of DescribeReservedInstancesModifications.

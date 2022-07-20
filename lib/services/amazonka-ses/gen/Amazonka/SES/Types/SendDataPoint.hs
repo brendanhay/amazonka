@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSendDataPoint' smart constructor.
 data SendDataPoint = SendDataPoint'
-  { -- | Number of emails rejected by Amazon SES.
-    rejects :: Prelude.Maybe Prelude.Integer,
-    -- | Number of unwanted emails that were rejected by recipients.
-    complaints :: Prelude.Maybe Prelude.Integer,
-    -- | Number of emails that have been sent.
+  { -- | Number of emails that have been sent.
     deliveryAttempts :: Prelude.Maybe Prelude.Integer,
+    -- | Number of emails rejected by Amazon SES.
+    rejects :: Prelude.Maybe Prelude.Integer,
+    -- | Time of the data point.
+    timestamp :: Prelude.Maybe Core.ISO8601,
     -- | Number of emails that have bounced.
     bounces :: Prelude.Maybe Prelude.Integer,
-    -- | Time of the data point.
-    timestamp :: Prelude.Maybe Core.ISO8601
+    -- | Number of unwanted emails that were rejected by recipients.
+    complaints :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,67 +49,67 @@ data SendDataPoint = SendDataPoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deliveryAttempts', 'sendDataPoint_deliveryAttempts' - Number of emails that have been sent.
+--
 -- 'rejects', 'sendDataPoint_rejects' - Number of emails rejected by Amazon SES.
 --
--- 'complaints', 'sendDataPoint_complaints' - Number of unwanted emails that were rejected by recipients.
---
--- 'deliveryAttempts', 'sendDataPoint_deliveryAttempts' - Number of emails that have been sent.
+-- 'timestamp', 'sendDataPoint_timestamp' - Time of the data point.
 --
 -- 'bounces', 'sendDataPoint_bounces' - Number of emails that have bounced.
 --
--- 'timestamp', 'sendDataPoint_timestamp' - Time of the data point.
+-- 'complaints', 'sendDataPoint_complaints' - Number of unwanted emails that were rejected by recipients.
 newSendDataPoint ::
   SendDataPoint
 newSendDataPoint =
   SendDataPoint'
-    { rejects = Prelude.Nothing,
-      complaints = Prelude.Nothing,
-      deliveryAttempts = Prelude.Nothing,
+    { deliveryAttempts = Prelude.Nothing,
+      rejects = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       bounces = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+      complaints = Prelude.Nothing
     }
-
--- | Number of emails rejected by Amazon SES.
-sendDataPoint_rejects :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
-sendDataPoint_rejects = Lens.lens (\SendDataPoint' {rejects} -> rejects) (\s@SendDataPoint' {} a -> s {rejects = a} :: SendDataPoint)
-
--- | Number of unwanted emails that were rejected by recipients.
-sendDataPoint_complaints :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
-sendDataPoint_complaints = Lens.lens (\SendDataPoint' {complaints} -> complaints) (\s@SendDataPoint' {} a -> s {complaints = a} :: SendDataPoint)
 
 -- | Number of emails that have been sent.
 sendDataPoint_deliveryAttempts :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
 sendDataPoint_deliveryAttempts = Lens.lens (\SendDataPoint' {deliveryAttempts} -> deliveryAttempts) (\s@SendDataPoint' {} a -> s {deliveryAttempts = a} :: SendDataPoint)
 
--- | Number of emails that have bounced.
-sendDataPoint_bounces :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
-sendDataPoint_bounces = Lens.lens (\SendDataPoint' {bounces} -> bounces) (\s@SendDataPoint' {} a -> s {bounces = a} :: SendDataPoint)
+-- | Number of emails rejected by Amazon SES.
+sendDataPoint_rejects :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
+sendDataPoint_rejects = Lens.lens (\SendDataPoint' {rejects} -> rejects) (\s@SendDataPoint' {} a -> s {rejects = a} :: SendDataPoint)
 
 -- | Time of the data point.
 sendDataPoint_timestamp :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.UTCTime)
 sendDataPoint_timestamp = Lens.lens (\SendDataPoint' {timestamp} -> timestamp) (\s@SendDataPoint' {} a -> s {timestamp = a} :: SendDataPoint) Prelude.. Lens.mapping Core._Time
 
+-- | Number of emails that have bounced.
+sendDataPoint_bounces :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
+sendDataPoint_bounces = Lens.lens (\SendDataPoint' {bounces} -> bounces) (\s@SendDataPoint' {} a -> s {bounces = a} :: SendDataPoint)
+
+-- | Number of unwanted emails that were rejected by recipients.
+sendDataPoint_complaints :: Lens.Lens' SendDataPoint (Prelude.Maybe Prelude.Integer)
+sendDataPoint_complaints = Lens.lens (\SendDataPoint' {complaints} -> complaints) (\s@SendDataPoint' {} a -> s {complaints = a} :: SendDataPoint)
+
 instance Core.FromXML SendDataPoint where
   parseXML x =
     SendDataPoint'
-      Prelude.<$> (x Core..@? "Rejects")
-      Prelude.<*> (x Core..@? "Complaints")
-      Prelude.<*> (x Core..@? "DeliveryAttempts")
-      Prelude.<*> (x Core..@? "Bounces")
+      Prelude.<$> (x Core..@? "DeliveryAttempts")
+      Prelude.<*> (x Core..@? "Rejects")
       Prelude.<*> (x Core..@? "Timestamp")
+      Prelude.<*> (x Core..@? "Bounces")
+      Prelude.<*> (x Core..@? "Complaints")
 
 instance Prelude.Hashable SendDataPoint where
   hashWithSalt _salt SendDataPoint' {..} =
-    _salt `Prelude.hashWithSalt` rejects
-      `Prelude.hashWithSalt` complaints
-      `Prelude.hashWithSalt` deliveryAttempts
-      `Prelude.hashWithSalt` bounces
+    _salt `Prelude.hashWithSalt` deliveryAttempts
+      `Prelude.hashWithSalt` rejects
       `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` bounces
+      `Prelude.hashWithSalt` complaints
 
 instance Prelude.NFData SendDataPoint where
   rnf SendDataPoint' {..} =
-    Prelude.rnf rejects
-      `Prelude.seq` Prelude.rnf complaints
-      `Prelude.seq` Prelude.rnf deliveryAttempts
-      `Prelude.seq` Prelude.rnf bounces
+    Prelude.rnf deliveryAttempts
+      `Prelude.seq` Prelude.rnf rejects
       `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf bounces
+      `Prelude.seq` Prelude.rnf complaints

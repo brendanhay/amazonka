@@ -27,8 +27,8 @@ module Amazonka.DataExchange.CreateRevision
     newCreateRevision,
 
     -- * Request Lenses
-    createRevision_comment,
     createRevision_tags,
+    createRevision_comment,
     createRevision_dataSetId,
 
     -- * Destructuring the Response
@@ -36,15 +36,15 @@ module Amazonka.DataExchange.CreateRevision
     newCreateRevisionResponse,
 
     -- * Response Lenses
-    createRevisionResponse_arn,
-    createRevisionResponse_createdAt,
+    createRevisionResponse_tags,
     createRevisionResponse_sourceId,
+    createRevisionResponse_arn,
+    createRevisionResponse_id,
+    createRevisionResponse_comment,
     createRevisionResponse_finalized,
     createRevisionResponse_dataSetId,
-    createRevisionResponse_id,
+    createRevisionResponse_createdAt,
     createRevisionResponse_updatedAt,
-    createRevisionResponse_comment,
-    createRevisionResponse_tags,
     createRevisionResponse_httpStatus,
   )
 where
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateRevision' smart constructor.
 data CreateRevision = CreateRevision'
-  { -- | An optional comment about the revision.
-    comment :: Prelude.Maybe Prelude.Text,
-    -- | A revision tag is an optional label that you can assign to a revision
+  { -- | A revision tag is an optional label that you can assign to a revision
     -- when you create it. Each tag consists of a key and an optional value,
     -- both of which you define. When you use tagging, you can also use
     -- tag-based access control in IAM policies to control access to these data
     -- sets and revisions.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional comment about the revision.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for a data set.
     dataSetId :: Prelude.Text
   }
@@ -81,13 +81,13 @@ data CreateRevision = CreateRevision'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'createRevision_comment' - An optional comment about the revision.
---
 -- 'tags', 'createRevision_tags' - A revision tag is an optional label that you can assign to a revision
 -- when you create it. Each tag consists of a key and an optional value,
 -- both of which you define. When you use tagging, you can also use
 -- tag-based access control in IAM policies to control access to these data
 -- sets and revisions.
+--
+-- 'comment', 'createRevision_comment' - An optional comment about the revision.
 --
 -- 'dataSetId', 'createRevision_dataSetId' - The unique identifier for a data set.
 newCreateRevision ::
@@ -96,14 +96,10 @@ newCreateRevision ::
   CreateRevision
 newCreateRevision pDataSetId_ =
   CreateRevision'
-    { comment = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      comment = Prelude.Nothing,
       dataSetId = pDataSetId_
     }
-
--- | An optional comment about the revision.
-createRevision_comment :: Lens.Lens' CreateRevision (Prelude.Maybe Prelude.Text)
-createRevision_comment = Lens.lens (\CreateRevision' {comment} -> comment) (\s@CreateRevision' {} a -> s {comment = a} :: CreateRevision)
 
 -- | A revision tag is an optional label that you can assign to a revision
 -- when you create it. Each tag consists of a key and an optional value,
@@ -112,6 +108,10 @@ createRevision_comment = Lens.lens (\CreateRevision' {comment} -> comment) (\s@C
 -- sets and revisions.
 createRevision_tags :: Lens.Lens' CreateRevision (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRevision_tags = Lens.lens (\CreateRevision' {tags} -> tags) (\s@CreateRevision' {} a -> s {tags = a} :: CreateRevision) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional comment about the revision.
+createRevision_comment :: Lens.Lens' CreateRevision (Prelude.Maybe Prelude.Text)
+createRevision_comment = Lens.lens (\CreateRevision' {comment} -> comment) (\s@CreateRevision' {} a -> s {comment = a} :: CreateRevision)
 
 -- | The unique identifier for a data set.
 createRevision_dataSetId :: Lens.Lens' CreateRevision Prelude.Text
@@ -126,28 +126,28 @@ instance Core.AWSRequest CreateRevision where
     Response.receiveJSON
       ( \s h x ->
           CreateRevisionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "SourceId")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Comment")
             Prelude.<*> (x Core..?> "Finalized")
             Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (x Core..?> "UpdatedAt")
-            Prelude.<*> (x Core..?> "Comment")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateRevision where
   hashWithSalt _salt CreateRevision' {..} =
-    _salt `Prelude.hashWithSalt` comment
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` dataSetId
 
 instance Prelude.NFData CreateRevision where
   rnf CreateRevision' {..} =
-    Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf dataSetId
 
 instance Core.ToHeaders CreateRevision where
@@ -165,8 +165,8 @@ instance Core.ToJSON CreateRevision where
   toJSON CreateRevision' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Comment" Core..=) Prelude.<$> comment,
-            ("Tags" Core..=) Prelude.<$> tags
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Comment" Core..=) Prelude.<$> comment
           ]
       )
 
@@ -180,14 +180,18 @@ instance Core.ToQuery CreateRevision where
 
 -- | /See:/ 'newCreateRevisionResponse' smart constructor.
 data CreateRevisionResponse = CreateRevisionResponse'
-  { -- | The ARN for the revision.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the revision was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The tags for the revision.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The revision ID of the owned revision corresponding to the entitled
     -- revision being viewed. This parameter is returned when a revision owner
     -- is viewing the entitled copy of its owned revision.
     sourceId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the revision.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the revision.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | An optional comment about the revision.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | To publish a revision to a data set in a product, the revision must
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- your changes to the assets in the revision are complete. After it\'s in
@@ -200,15 +204,11 @@ data CreateRevisionResponse = CreateRevisionResponse'
     finalized :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier for the data set associated with this revision.
     dataSetId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the revision.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the revision was created, in ISO 8601 format.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
     updatedAt :: Prelude.Maybe Core.POSIX,
-    -- | An optional comment about the revision.
-    comment :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the revision.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,13 +222,17 @@ data CreateRevisionResponse = CreateRevisionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'createRevisionResponse_arn' - The ARN for the revision.
---
--- 'createdAt', 'createRevisionResponse_createdAt' - The date and time that the revision was created, in ISO 8601 format.
+-- 'tags', 'createRevisionResponse_tags' - The tags for the revision.
 --
 -- 'sourceId', 'createRevisionResponse_sourceId' - The revision ID of the owned revision corresponding to the entitled
 -- revision being viewed. This parameter is returned when a revision owner
 -- is viewing the entitled copy of its owned revision.
+--
+-- 'arn', 'createRevisionResponse_arn' - The ARN for the revision.
+--
+-- 'id', 'createRevisionResponse_id' - The unique identifier for the revision.
+--
+-- 'comment', 'createRevisionResponse_comment' - An optional comment about the revision.
 --
 -- 'finalized', 'createRevisionResponse_finalized' - To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
@@ -242,14 +246,10 @@ data CreateRevisionResponse = CreateRevisionResponse'
 --
 -- 'dataSetId', 'createRevisionResponse_dataSetId' - The unique identifier for the data set associated with this revision.
 --
--- 'id', 'createRevisionResponse_id' - The unique identifier for the revision.
+-- 'createdAt', 'createRevisionResponse_createdAt' - The date and time that the revision was created, in ISO 8601 format.
 --
 -- 'updatedAt', 'createRevisionResponse_updatedAt' - The date and time that the revision was last updated, in ISO 8601
 -- format.
---
--- 'comment', 'createRevisionResponse_comment' - An optional comment about the revision.
---
--- 'tags', 'createRevisionResponse_tags' - The tags for the revision.
 --
 -- 'httpStatus', 'createRevisionResponse_httpStatus' - The response's http status code.
 newCreateRevisionResponse ::
@@ -258,31 +258,39 @@ newCreateRevisionResponse ::
   CreateRevisionResponse
 newCreateRevisionResponse pHttpStatus_ =
   CreateRevisionResponse'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       sourceId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      comment = Prelude.Nothing,
       finalized = Prelude.Nothing,
       dataSetId = Prelude.Nothing,
-      id = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
-      comment = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN for the revision.
-createRevisionResponse_arn :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.Text)
-createRevisionResponse_arn = Lens.lens (\CreateRevisionResponse' {arn} -> arn) (\s@CreateRevisionResponse' {} a -> s {arn = a} :: CreateRevisionResponse)
-
--- | The date and time that the revision was created, in ISO 8601 format.
-createRevisionResponse_createdAt :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-createRevisionResponse_createdAt = Lens.lens (\CreateRevisionResponse' {createdAt} -> createdAt) (\s@CreateRevisionResponse' {} a -> s {createdAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Core._Time
+-- | The tags for the revision.
+createRevisionResponse_tags :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRevisionResponse_tags = Lens.lens (\CreateRevisionResponse' {tags} -> tags) (\s@CreateRevisionResponse' {} a -> s {tags = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The revision ID of the owned revision corresponding to the entitled
 -- revision being viewed. This parameter is returned when a revision owner
 -- is viewing the entitled copy of its owned revision.
 createRevisionResponse_sourceId :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.Text)
 createRevisionResponse_sourceId = Lens.lens (\CreateRevisionResponse' {sourceId} -> sourceId) (\s@CreateRevisionResponse' {} a -> s {sourceId = a} :: CreateRevisionResponse)
+
+-- | The ARN for the revision.
+createRevisionResponse_arn :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.Text)
+createRevisionResponse_arn = Lens.lens (\CreateRevisionResponse' {arn} -> arn) (\s@CreateRevisionResponse' {} a -> s {arn = a} :: CreateRevisionResponse)
+
+-- | The unique identifier for the revision.
+createRevisionResponse_id :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.Text)
+createRevisionResponse_id = Lens.lens (\CreateRevisionResponse' {id} -> id) (\s@CreateRevisionResponse' {} a -> s {id = a} :: CreateRevisionResponse)
+
+-- | An optional comment about the revision.
+createRevisionResponse_comment :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.Text)
+createRevisionResponse_comment = Lens.lens (\CreateRevisionResponse' {comment} -> comment) (\s@CreateRevisionResponse' {} a -> s {comment = a} :: CreateRevisionResponse)
 
 -- | To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
@@ -300,22 +308,14 @@ createRevisionResponse_finalized = Lens.lens (\CreateRevisionResponse' {finalize
 createRevisionResponse_dataSetId :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.Text)
 createRevisionResponse_dataSetId = Lens.lens (\CreateRevisionResponse' {dataSetId} -> dataSetId) (\s@CreateRevisionResponse' {} a -> s {dataSetId = a} :: CreateRevisionResponse)
 
--- | The unique identifier for the revision.
-createRevisionResponse_id :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.Text)
-createRevisionResponse_id = Lens.lens (\CreateRevisionResponse' {id} -> id) (\s@CreateRevisionResponse' {} a -> s {id = a} :: CreateRevisionResponse)
+-- | The date and time that the revision was created, in ISO 8601 format.
+createRevisionResponse_createdAt :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
+createRevisionResponse_createdAt = Lens.lens (\CreateRevisionResponse' {createdAt} -> createdAt) (\s@CreateRevisionResponse' {} a -> s {createdAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time that the revision was last updated, in ISO 8601
 -- format.
 createRevisionResponse_updatedAt :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
 createRevisionResponse_updatedAt = Lens.lens (\CreateRevisionResponse' {updatedAt} -> updatedAt) (\s@CreateRevisionResponse' {} a -> s {updatedAt = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Core._Time
-
--- | An optional comment about the revision.
-createRevisionResponse_comment :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe Prelude.Text)
-createRevisionResponse_comment = Lens.lens (\CreateRevisionResponse' {comment} -> comment) (\s@CreateRevisionResponse' {} a -> s {comment = a} :: CreateRevisionResponse)
-
--- | The tags for the revision.
-createRevisionResponse_tags :: Lens.Lens' CreateRevisionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRevisionResponse_tags = Lens.lens (\CreateRevisionResponse' {tags} -> tags) (\s@CreateRevisionResponse' {} a -> s {tags = a} :: CreateRevisionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createRevisionResponse_httpStatus :: Lens.Lens' CreateRevisionResponse Prelude.Int
@@ -323,13 +323,13 @@ createRevisionResponse_httpStatus = Lens.lens (\CreateRevisionResponse' {httpSta
 
 instance Prelude.NFData CreateRevisionResponse where
   rnf CreateRevisionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf finalized
       `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

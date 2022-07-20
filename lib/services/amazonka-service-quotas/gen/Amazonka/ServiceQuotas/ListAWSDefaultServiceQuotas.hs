@@ -39,8 +39,8 @@ module Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas
     newListAWSDefaultServiceQuotasResponse,
 
     -- * Response Lenses
-    listAWSDefaultServiceQuotasResponse_nextToken,
     listAWSDefaultServiceQuotasResponse_quotas,
+    listAWSDefaultServiceQuotasResponse_nextToken,
     listAWSDefaultServiceQuotasResponse_httpStatus,
   )
 where
@@ -137,8 +137,8 @@ instance Core.AWSRequest ListAWSDefaultServiceQuotas where
     Response.receiveJSON
       ( \s h x ->
           ListAWSDefaultServiceQuotasResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Quotas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Quotas" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,11 +187,11 @@ instance Core.ToQuery ListAWSDefaultServiceQuotas where
 
 -- | /See:/ 'newListAWSDefaultServiceQuotasResponse' smart constructor.
 data ListAWSDefaultServiceQuotasResponse = ListAWSDefaultServiceQuotasResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the quotas.
+    quotas :: Prelude.Maybe [ServiceQuota],
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the quotas.
-    quotas :: Prelude.Maybe [ServiceQuota],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,10 +205,10 @@ data ListAWSDefaultServiceQuotasResponse = ListAWSDefaultServiceQuotasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'quotas', 'listAWSDefaultServiceQuotasResponse_quotas' - Information about the quotas.
+--
 -- 'nextToken', 'listAWSDefaultServiceQuotasResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
---
--- 'quotas', 'listAWSDefaultServiceQuotasResponse_quotas' - Information about the quotas.
 --
 -- 'httpStatus', 'listAWSDefaultServiceQuotasResponse_httpStatus' - The response's http status code.
 newListAWSDefaultServiceQuotasResponse ::
@@ -217,20 +217,20 @@ newListAWSDefaultServiceQuotasResponse ::
   ListAWSDefaultServiceQuotasResponse
 newListAWSDefaultServiceQuotasResponse pHttpStatus_ =
   ListAWSDefaultServiceQuotasResponse'
-    { nextToken =
+    { quotas =
         Prelude.Nothing,
-      quotas = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the quotas.
+listAWSDefaultServiceQuotasResponse_quotas :: Lens.Lens' ListAWSDefaultServiceQuotasResponse (Prelude.Maybe [ServiceQuota])
+listAWSDefaultServiceQuotasResponse_quotas = Lens.lens (\ListAWSDefaultServiceQuotasResponse' {quotas} -> quotas) (\s@ListAWSDefaultServiceQuotasResponse' {} a -> s {quotas = a} :: ListAWSDefaultServiceQuotasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 listAWSDefaultServiceQuotasResponse_nextToken :: Lens.Lens' ListAWSDefaultServiceQuotasResponse (Prelude.Maybe Prelude.Text)
 listAWSDefaultServiceQuotasResponse_nextToken = Lens.lens (\ListAWSDefaultServiceQuotasResponse' {nextToken} -> nextToken) (\s@ListAWSDefaultServiceQuotasResponse' {} a -> s {nextToken = a} :: ListAWSDefaultServiceQuotasResponse)
-
--- | Information about the quotas.
-listAWSDefaultServiceQuotasResponse_quotas :: Lens.Lens' ListAWSDefaultServiceQuotasResponse (Prelude.Maybe [ServiceQuota])
-listAWSDefaultServiceQuotasResponse_quotas = Lens.lens (\ListAWSDefaultServiceQuotasResponse' {quotas} -> quotas) (\s@ListAWSDefaultServiceQuotasResponse' {} a -> s {quotas = a} :: ListAWSDefaultServiceQuotasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAWSDefaultServiceQuotasResponse_httpStatus :: Lens.Lens' ListAWSDefaultServiceQuotasResponse Prelude.Int
@@ -241,6 +241,6 @@ instance
     ListAWSDefaultServiceQuotasResponse
   where
   rnf ListAWSDefaultServiceQuotasResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf quotas
+    Prelude.rnf quotas
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

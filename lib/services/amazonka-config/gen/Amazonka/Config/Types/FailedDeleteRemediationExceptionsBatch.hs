@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailedDeleteRemediationExceptionsBatch' smart constructor.
 data FailedDeleteRemediationExceptionsBatch = FailedDeleteRemediationExceptionsBatch'
-  { -- | Returns a failure message for delete remediation exception. For example,
+  { -- | Returns remediation exception resource key object of the failed items.
+    failedItems :: Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey),
+    -- | Returns a failure message for delete remediation exception. For example,
     -- Config creates an exception due to an internal error.
-    failureMessage :: Prelude.Maybe Prelude.Text,
-    -- | Returns remediation exception resource key object of the failed items.
-    failedItems :: Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey)
+    failureMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data FailedDeleteRemediationExceptionsBatch = FailedDeleteRemediationExceptionsB
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'failedItems', 'failedDeleteRemediationExceptionsBatch_failedItems' - Returns remediation exception resource key object of the failed items.
+--
 -- 'failureMessage', 'failedDeleteRemediationExceptionsBatch_failureMessage' - Returns a failure message for delete remediation exception. For example,
 -- Config creates an exception due to an internal error.
---
--- 'failedItems', 'failedDeleteRemediationExceptionsBatch_failedItems' - Returns remediation exception resource key object of the failed items.
 newFailedDeleteRemediationExceptionsBatch ::
   FailedDeleteRemediationExceptionsBatch
 newFailedDeleteRemediationExceptionsBatch =
   FailedDeleteRemediationExceptionsBatch'
-    { failureMessage =
+    { failedItems =
         Prelude.Nothing,
-      failedItems = Prelude.Nothing
+      failureMessage = Prelude.Nothing
     }
+
+-- | Returns remediation exception resource key object of the failed items.
+failedDeleteRemediationExceptionsBatch_failedItems :: Lens.Lens' FailedDeleteRemediationExceptionsBatch (Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey))
+failedDeleteRemediationExceptionsBatch_failedItems = Lens.lens (\FailedDeleteRemediationExceptionsBatch' {failedItems} -> failedItems) (\s@FailedDeleteRemediationExceptionsBatch' {} a -> s {failedItems = a} :: FailedDeleteRemediationExceptionsBatch) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns a failure message for delete remediation exception. For example,
 -- Config creates an exception due to an internal error.
 failedDeleteRemediationExceptionsBatch_failureMessage :: Lens.Lens' FailedDeleteRemediationExceptionsBatch (Prelude.Maybe Prelude.Text)
 failedDeleteRemediationExceptionsBatch_failureMessage = Lens.lens (\FailedDeleteRemediationExceptionsBatch' {failureMessage} -> failureMessage) (\s@FailedDeleteRemediationExceptionsBatch' {} a -> s {failureMessage = a} :: FailedDeleteRemediationExceptionsBatch)
-
--- | Returns remediation exception resource key object of the failed items.
-failedDeleteRemediationExceptionsBatch_failedItems :: Lens.Lens' FailedDeleteRemediationExceptionsBatch (Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey))
-failedDeleteRemediationExceptionsBatch_failedItems = Lens.lens (\FailedDeleteRemediationExceptionsBatch' {failedItems} -> failedItems) (\s@FailedDeleteRemediationExceptionsBatch' {} a -> s {failedItems = a} :: FailedDeleteRemediationExceptionsBatch) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -76,8 +76,8 @@ instance
       "FailedDeleteRemediationExceptionsBatch"
       ( \x ->
           FailedDeleteRemediationExceptionsBatch'
-            Prelude.<$> (x Core..:? "FailureMessage")
-            Prelude.<*> (x Core..:? "FailedItems")
+            Prelude.<$> (x Core..:? "FailedItems")
+            Prelude.<*> (x Core..:? "FailureMessage")
       )
 
 instance
@@ -87,13 +87,13 @@ instance
   hashWithSalt
     _salt
     FailedDeleteRemediationExceptionsBatch' {..} =
-      _salt `Prelude.hashWithSalt` failureMessage
-        `Prelude.hashWithSalt` failedItems
+      _salt `Prelude.hashWithSalt` failedItems
+        `Prelude.hashWithSalt` failureMessage
 
 instance
   Prelude.NFData
     FailedDeleteRemediationExceptionsBatch
   where
   rnf FailedDeleteRemediationExceptionsBatch' {..} =
-    Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf failedItems
+    Prelude.rnf failedItems
+      `Prelude.seq` Prelude.rnf failureMessage

@@ -29,15 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJourneySMSMessage' smart constructor.
 data JourneySMSMessage = JourneySMSMessage'
-  { -- | The long code to send the SMS message from. This value should be one of
-    -- the dedicated long codes that\'s assigned to your AWS account. Although
-    -- it isn\'t required, we recommend that you specify the long code using an
-    -- E.164 format to ensure prompt and accurate delivery of the message. For
-    -- example, +12065550100.
-    originationNumber :: Prelude.Maybe Prelude.Text,
-    -- | The template ID received from the regulatory body for sending SMS in
-    -- your country.
-    templateId :: Prelude.Maybe Prelude.Text,
+  { -- | The entity ID or Principal Entity (PE) id received from the regulatory
+    -- body for sending SMS in your country.
+    entityId :: Prelude.Maybe Prelude.Text,
     -- | The SMS message type. Valid values are TRANSACTIONAL (for messages that
     -- are critical or time-sensitive, such as a one-time passwords) and
     -- PROMOTIONAL (for messsages that aren\'t critical or time-sensitive, such
@@ -49,9 +43,15 @@ data JourneySMSMessage = JourneySMSMessage'
     -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html Supported Countries and Regions>
     -- in the Amazon Pinpoint User Guide.
     senderId :: Prelude.Maybe Prelude.Text,
-    -- | The entity ID or Principal Entity (PE) id received from the regulatory
-    -- body for sending SMS in your country.
-    entityId :: Prelude.Maybe Prelude.Text
+    -- | The template ID received from the regulatory body for sending SMS in
+    -- your country.
+    templateId :: Prelude.Maybe Prelude.Text,
+    -- | The long code to send the SMS message from. This value should be one of
+    -- the dedicated long codes that\'s assigned to your AWS account. Although
+    -- it isn\'t required, we recommend that you specify the long code using an
+    -- E.164 format to ensure prompt and accurate delivery of the message. For
+    -- example, +12065550100.
+    originationNumber :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,14 +63,8 @@ data JourneySMSMessage = JourneySMSMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originationNumber', 'journeySMSMessage_originationNumber' - The long code to send the SMS message from. This value should be one of
--- the dedicated long codes that\'s assigned to your AWS account. Although
--- it isn\'t required, we recommend that you specify the long code using an
--- E.164 format to ensure prompt and accurate delivery of the message. For
--- example, +12065550100.
---
--- 'templateId', 'journeySMSMessage_templateId' - The template ID received from the regulatory body for sending SMS in
--- your country.
+-- 'entityId', 'journeySMSMessage_entityId' - The entity ID or Principal Entity (PE) id received from the regulatory
+-- body for sending SMS in your country.
 --
 -- 'messageType', 'journeySMSMessage_messageType' - The SMS message type. Valid values are TRANSACTIONAL (for messages that
 -- are critical or time-sensitive, such as a one-time passwords) and
@@ -83,32 +77,29 @@ data JourneySMSMessage = JourneySMSMessage'
 -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html Supported Countries and Regions>
 -- in the Amazon Pinpoint User Guide.
 --
--- 'entityId', 'journeySMSMessage_entityId' - The entity ID or Principal Entity (PE) id received from the regulatory
--- body for sending SMS in your country.
-newJourneySMSMessage ::
-  JourneySMSMessage
-newJourneySMSMessage =
-  JourneySMSMessage'
-    { originationNumber =
-        Prelude.Nothing,
-      templateId = Prelude.Nothing,
-      messageType = Prelude.Nothing,
-      senderId = Prelude.Nothing,
-      entityId = Prelude.Nothing
-    }
-
--- | The long code to send the SMS message from. This value should be one of
+-- 'templateId', 'journeySMSMessage_templateId' - The template ID received from the regulatory body for sending SMS in
+-- your country.
+--
+-- 'originationNumber', 'journeySMSMessage_originationNumber' - The long code to send the SMS message from. This value should be one of
 -- the dedicated long codes that\'s assigned to your AWS account. Although
 -- it isn\'t required, we recommend that you specify the long code using an
 -- E.164 format to ensure prompt and accurate delivery of the message. For
 -- example, +12065550100.
-journeySMSMessage_originationNumber :: Lens.Lens' JourneySMSMessage (Prelude.Maybe Prelude.Text)
-journeySMSMessage_originationNumber = Lens.lens (\JourneySMSMessage' {originationNumber} -> originationNumber) (\s@JourneySMSMessage' {} a -> s {originationNumber = a} :: JourneySMSMessage)
+newJourneySMSMessage ::
+  JourneySMSMessage
+newJourneySMSMessage =
+  JourneySMSMessage'
+    { entityId = Prelude.Nothing,
+      messageType = Prelude.Nothing,
+      senderId = Prelude.Nothing,
+      templateId = Prelude.Nothing,
+      originationNumber = Prelude.Nothing
+    }
 
--- | The template ID received from the regulatory body for sending SMS in
--- your country.
-journeySMSMessage_templateId :: Lens.Lens' JourneySMSMessage (Prelude.Maybe Prelude.Text)
-journeySMSMessage_templateId = Lens.lens (\JourneySMSMessage' {templateId} -> templateId) (\s@JourneySMSMessage' {} a -> s {templateId = a} :: JourneySMSMessage)
+-- | The entity ID or Principal Entity (PE) id received from the regulatory
+-- body for sending SMS in your country.
+journeySMSMessage_entityId :: Lens.Lens' JourneySMSMessage (Prelude.Maybe Prelude.Text)
+journeySMSMessage_entityId = Lens.lens (\JourneySMSMessage' {entityId} -> entityId) (\s@JourneySMSMessage' {} a -> s {entityId = a} :: JourneySMSMessage)
 
 -- | The SMS message type. Valid values are TRANSACTIONAL (for messages that
 -- are critical or time-sensitive, such as a one-time passwords) and
@@ -125,10 +116,18 @@ journeySMSMessage_messageType = Lens.lens (\JourneySMSMessage' {messageType} -> 
 journeySMSMessage_senderId :: Lens.Lens' JourneySMSMessage (Prelude.Maybe Prelude.Text)
 journeySMSMessage_senderId = Lens.lens (\JourneySMSMessage' {senderId} -> senderId) (\s@JourneySMSMessage' {} a -> s {senderId = a} :: JourneySMSMessage)
 
--- | The entity ID or Principal Entity (PE) id received from the regulatory
--- body for sending SMS in your country.
-journeySMSMessage_entityId :: Lens.Lens' JourneySMSMessage (Prelude.Maybe Prelude.Text)
-journeySMSMessage_entityId = Lens.lens (\JourneySMSMessage' {entityId} -> entityId) (\s@JourneySMSMessage' {} a -> s {entityId = a} :: JourneySMSMessage)
+-- | The template ID received from the regulatory body for sending SMS in
+-- your country.
+journeySMSMessage_templateId :: Lens.Lens' JourneySMSMessage (Prelude.Maybe Prelude.Text)
+journeySMSMessage_templateId = Lens.lens (\JourneySMSMessage' {templateId} -> templateId) (\s@JourneySMSMessage' {} a -> s {templateId = a} :: JourneySMSMessage)
+
+-- | The long code to send the SMS message from. This value should be one of
+-- the dedicated long codes that\'s assigned to your AWS account. Although
+-- it isn\'t required, we recommend that you specify the long code using an
+-- E.164 format to ensure prompt and accurate delivery of the message. For
+-- example, +12065550100.
+journeySMSMessage_originationNumber :: Lens.Lens' JourneySMSMessage (Prelude.Maybe Prelude.Text)
+journeySMSMessage_originationNumber = Lens.lens (\JourneySMSMessage' {originationNumber} -> originationNumber) (\s@JourneySMSMessage' {} a -> s {originationNumber = a} :: JourneySMSMessage)
 
 instance Core.FromJSON JourneySMSMessage where
   parseJSON =
@@ -136,38 +135,38 @@ instance Core.FromJSON JourneySMSMessage where
       "JourneySMSMessage"
       ( \x ->
           JourneySMSMessage'
-            Prelude.<$> (x Core..:? "OriginationNumber")
-            Prelude.<*> (x Core..:? "TemplateId")
+            Prelude.<$> (x Core..:? "EntityId")
             Prelude.<*> (x Core..:? "MessageType")
             Prelude.<*> (x Core..:? "SenderId")
-            Prelude.<*> (x Core..:? "EntityId")
+            Prelude.<*> (x Core..:? "TemplateId")
+            Prelude.<*> (x Core..:? "OriginationNumber")
       )
 
 instance Prelude.Hashable JourneySMSMessage where
   hashWithSalt _salt JourneySMSMessage' {..} =
-    _salt `Prelude.hashWithSalt` originationNumber
-      `Prelude.hashWithSalt` templateId
+    _salt `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` senderId
-      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` originationNumber
 
 instance Prelude.NFData JourneySMSMessage where
   rnf JourneySMSMessage' {..} =
-    Prelude.rnf originationNumber
-      `Prelude.seq` Prelude.rnf templateId
+    Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf messageType
       `Prelude.seq` Prelude.rnf senderId
-      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf originationNumber
 
 instance Core.ToJSON JourneySMSMessage where
   toJSON JourneySMSMessage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OriginationNumber" Core..=)
-              Prelude.<$> originationNumber,
-            ("TemplateId" Core..=) Prelude.<$> templateId,
+          [ ("EntityId" Core..=) Prelude.<$> entityId,
             ("MessageType" Core..=) Prelude.<$> messageType,
             ("SenderId" Core..=) Prelude.<$> senderId,
-            ("EntityId" Core..=) Prelude.<$> entityId
+            ("TemplateId" Core..=) Prelude.<$> templateId,
+            ("OriginationNumber" Core..=)
+              Prelude.<$> originationNumber
           ]
       )

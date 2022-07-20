@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeBasedCanary' smart constructor.
 data TimeBasedCanary = TimeBasedCanary'
-  { -- | The number of minutes between the first and second traffic shifts of a
+  { -- | The percentage of traffic to shift in the first increment of a
     -- @TimeBasedCanary@ deployment.
-    canaryInterval :: Prelude.Maybe Prelude.Int,
-    -- | The percentage of traffic to shift in the first increment of a
+    canaryPercentage :: Prelude.Maybe Prelude.Int,
+    -- | The number of minutes between the first and second traffic shifts of a
     -- @TimeBasedCanary@ deployment.
-    canaryPercentage :: Prelude.Maybe Prelude.Int
+    canaryInterval :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,29 @@ data TimeBasedCanary = TimeBasedCanary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'canaryInterval', 'timeBasedCanary_canaryInterval' - The number of minutes between the first and second traffic shifts of a
+-- 'canaryPercentage', 'timeBasedCanary_canaryPercentage' - The percentage of traffic to shift in the first increment of a
 -- @TimeBasedCanary@ deployment.
 --
--- 'canaryPercentage', 'timeBasedCanary_canaryPercentage' - The percentage of traffic to shift in the first increment of a
+-- 'canaryInterval', 'timeBasedCanary_canaryInterval' - The number of minutes between the first and second traffic shifts of a
 -- @TimeBasedCanary@ deployment.
 newTimeBasedCanary ::
   TimeBasedCanary
 newTimeBasedCanary =
   TimeBasedCanary'
-    { canaryInterval = Prelude.Nothing,
-      canaryPercentage = Prelude.Nothing
+    { canaryPercentage =
+        Prelude.Nothing,
+      canaryInterval = Prelude.Nothing
     }
-
--- | The number of minutes between the first and second traffic shifts of a
--- @TimeBasedCanary@ deployment.
-timeBasedCanary_canaryInterval :: Lens.Lens' TimeBasedCanary (Prelude.Maybe Prelude.Int)
-timeBasedCanary_canaryInterval = Lens.lens (\TimeBasedCanary' {canaryInterval} -> canaryInterval) (\s@TimeBasedCanary' {} a -> s {canaryInterval = a} :: TimeBasedCanary)
 
 -- | The percentage of traffic to shift in the first increment of a
 -- @TimeBasedCanary@ deployment.
 timeBasedCanary_canaryPercentage :: Lens.Lens' TimeBasedCanary (Prelude.Maybe Prelude.Int)
 timeBasedCanary_canaryPercentage = Lens.lens (\TimeBasedCanary' {canaryPercentage} -> canaryPercentage) (\s@TimeBasedCanary' {} a -> s {canaryPercentage = a} :: TimeBasedCanary)
+
+-- | The number of minutes between the first and second traffic shifts of a
+-- @TimeBasedCanary@ deployment.
+timeBasedCanary_canaryInterval :: Lens.Lens' TimeBasedCanary (Prelude.Maybe Prelude.Int)
+timeBasedCanary_canaryInterval = Lens.lens (\TimeBasedCanary' {canaryInterval} -> canaryInterval) (\s@TimeBasedCanary' {} a -> s {canaryInterval = a} :: TimeBasedCanary)
 
 instance Core.FromJSON TimeBasedCanary where
   parseJSON =
@@ -76,27 +77,27 @@ instance Core.FromJSON TimeBasedCanary where
       "TimeBasedCanary"
       ( \x ->
           TimeBasedCanary'
-            Prelude.<$> (x Core..:? "canaryInterval")
-            Prelude.<*> (x Core..:? "canaryPercentage")
+            Prelude.<$> (x Core..:? "canaryPercentage")
+            Prelude.<*> (x Core..:? "canaryInterval")
       )
 
 instance Prelude.Hashable TimeBasedCanary where
   hashWithSalt _salt TimeBasedCanary' {..} =
-    _salt `Prelude.hashWithSalt` canaryInterval
-      `Prelude.hashWithSalt` canaryPercentage
+    _salt `Prelude.hashWithSalt` canaryPercentage
+      `Prelude.hashWithSalt` canaryInterval
 
 instance Prelude.NFData TimeBasedCanary where
   rnf TimeBasedCanary' {..} =
-    Prelude.rnf canaryInterval
-      `Prelude.seq` Prelude.rnf canaryPercentage
+    Prelude.rnf canaryPercentage
+      `Prelude.seq` Prelude.rnf canaryInterval
 
 instance Core.ToJSON TimeBasedCanary where
   toJSON TimeBasedCanary' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("canaryInterval" Core..=)
-              Prelude.<$> canaryInterval,
-            ("canaryPercentage" Core..=)
-              Prelude.<$> canaryPercentage
+          [ ("canaryPercentage" Core..=)
+              Prelude.<$> canaryPercentage,
+            ("canaryInterval" Core..=)
+              Prelude.<$> canaryInterval
           ]
       )

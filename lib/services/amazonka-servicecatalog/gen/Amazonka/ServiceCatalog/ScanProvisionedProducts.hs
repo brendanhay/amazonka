@@ -31,10 +31,10 @@ module Amazonka.ServiceCatalog.ScanProvisionedProducts
     newScanProvisionedProducts,
 
     -- * Request Lenses
-    scanProvisionedProducts_acceptLanguage,
     scanProvisionedProducts_accessLevelFilter,
     scanProvisionedProducts_pageToken,
     scanProvisionedProducts_pageSize,
+    scanProvisionedProducts_acceptLanguage,
 
     -- * Destructuring the Response
     ScanProvisionedProductsResponse (..),
@@ -56,21 +56,21 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newScanProvisionedProducts' smart constructor.
 data ScanProvisionedProducts = ScanProvisionedProducts'
-  { -- | The language code.
+  { -- | The access level to use to obtain results. The default is @User@.
+    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The access level to use to obtain results. The default is @User@.
-    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +82,13 @@ data ScanProvisionedProducts = ScanProvisionedProducts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accessLevelFilter', 'scanProvisionedProducts_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
+--
+-- 'pageToken', 'scanProvisionedProducts_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'scanProvisionedProducts_pageSize' - The maximum number of items to return with this call.
+--
 -- 'acceptLanguage', 'scanProvisionedProducts_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -89,33 +96,16 @@ data ScanProvisionedProducts = ScanProvisionedProducts'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'accessLevelFilter', 'scanProvisionedProducts_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
---
--- 'pageToken', 'scanProvisionedProducts_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'scanProvisionedProducts_pageSize' - The maximum number of items to return with this call.
 newScanProvisionedProducts ::
   ScanProvisionedProducts
 newScanProvisionedProducts =
   ScanProvisionedProducts'
-    { acceptLanguage =
+    { accessLevelFilter =
         Prelude.Nothing,
-      accessLevelFilter = Prelude.Nothing,
       pageToken = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+      pageSize = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
-
--- | The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
-scanProvisionedProducts_acceptLanguage :: Lens.Lens' ScanProvisionedProducts (Prelude.Maybe Prelude.Text)
-scanProvisionedProducts_acceptLanguage = Lens.lens (\ScanProvisionedProducts' {acceptLanguage} -> acceptLanguage) (\s@ScanProvisionedProducts' {} a -> s {acceptLanguage = a} :: ScanProvisionedProducts)
 
 -- | The access level to use to obtain results. The default is @User@.
 scanProvisionedProducts_accessLevelFilter :: Lens.Lens' ScanProvisionedProducts (Prelude.Maybe AccessLevelFilter)
@@ -129,6 +119,16 @@ scanProvisionedProducts_pageToken = Lens.lens (\ScanProvisionedProducts' {pageTo
 -- | The maximum number of items to return with this call.
 scanProvisionedProducts_pageSize :: Lens.Lens' ScanProvisionedProducts (Prelude.Maybe Prelude.Natural)
 scanProvisionedProducts_pageSize = Lens.lens (\ScanProvisionedProducts' {pageSize} -> pageSize) (\s@ScanProvisionedProducts' {} a -> s {pageSize = a} :: ScanProvisionedProducts)
+
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+scanProvisionedProducts_acceptLanguage :: Lens.Lens' ScanProvisionedProducts (Prelude.Maybe Prelude.Text)
+scanProvisionedProducts_acceptLanguage = Lens.lens (\ScanProvisionedProducts' {acceptLanguage} -> acceptLanguage) (\s@ScanProvisionedProducts' {} a -> s {acceptLanguage = a} :: ScanProvisionedProducts)
 
 instance Core.AWSPager ScanProvisionedProducts where
   page rq rs
@@ -170,17 +170,17 @@ instance Core.AWSRequest ScanProvisionedProducts where
 
 instance Prelude.Hashable ScanProvisionedProducts where
   hashWithSalt _salt ScanProvisionedProducts' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` accessLevelFilter
+    _salt `Prelude.hashWithSalt` accessLevelFilter
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` acceptLanguage
 
 instance Prelude.NFData ScanProvisionedProducts where
   rnf ScanProvisionedProducts' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf accessLevelFilter
+    Prelude.rnf accessLevelFilter
       `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders ScanProvisionedProducts where
   toHeaders =
@@ -201,12 +201,12 @@ instance Core.ToJSON ScanProvisionedProducts where
   toJSON ScanProvisionedProducts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("AccessLevelFilter" Core..=)
+          [ ("AccessLevelFilter" Core..=)
               Prelude.<$> accessLevelFilter,
             ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize
+            ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 

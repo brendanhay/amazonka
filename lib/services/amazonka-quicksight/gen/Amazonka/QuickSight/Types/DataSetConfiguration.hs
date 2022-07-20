@@ -29,10 +29,10 @@ import Amazonka.QuickSight.Types.DataSetSchema
 --
 -- /See:/ 'newDataSetConfiguration' smart constructor.
 data DataSetConfiguration = DataSetConfiguration'
-  { -- | A structure containing the list of column group schemas.
-    columnGroupSchemaList :: Prelude.Maybe [ColumnGroupSchema],
-    -- | Dataset schema.
+  { -- | Dataset schema.
     dataSetSchema :: Prelude.Maybe DataSetSchema,
+    -- | A structure containing the list of column group schemas.
+    columnGroupSchemaList :: Prelude.Maybe [ColumnGroupSchema],
     -- | Placeholder.
     placeholder :: Prelude.Maybe Prelude.Text
   }
@@ -46,28 +46,28 @@ data DataSetConfiguration = DataSetConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'columnGroupSchemaList', 'dataSetConfiguration_columnGroupSchemaList' - A structure containing the list of column group schemas.
---
 -- 'dataSetSchema', 'dataSetConfiguration_dataSetSchema' - Dataset schema.
+--
+-- 'columnGroupSchemaList', 'dataSetConfiguration_columnGroupSchemaList' - A structure containing the list of column group schemas.
 --
 -- 'placeholder', 'dataSetConfiguration_placeholder' - Placeholder.
 newDataSetConfiguration ::
   DataSetConfiguration
 newDataSetConfiguration =
   DataSetConfiguration'
-    { columnGroupSchemaList =
+    { dataSetSchema =
         Prelude.Nothing,
-      dataSetSchema = Prelude.Nothing,
+      columnGroupSchemaList = Prelude.Nothing,
       placeholder = Prelude.Nothing
     }
-
--- | A structure containing the list of column group schemas.
-dataSetConfiguration_columnGroupSchemaList :: Lens.Lens' DataSetConfiguration (Prelude.Maybe [ColumnGroupSchema])
-dataSetConfiguration_columnGroupSchemaList = Lens.lens (\DataSetConfiguration' {columnGroupSchemaList} -> columnGroupSchemaList) (\s@DataSetConfiguration' {} a -> s {columnGroupSchemaList = a} :: DataSetConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Dataset schema.
 dataSetConfiguration_dataSetSchema :: Lens.Lens' DataSetConfiguration (Prelude.Maybe DataSetSchema)
 dataSetConfiguration_dataSetSchema = Lens.lens (\DataSetConfiguration' {dataSetSchema} -> dataSetSchema) (\s@DataSetConfiguration' {} a -> s {dataSetSchema = a} :: DataSetConfiguration)
+
+-- | A structure containing the list of column group schemas.
+dataSetConfiguration_columnGroupSchemaList :: Lens.Lens' DataSetConfiguration (Prelude.Maybe [ColumnGroupSchema])
+dataSetConfiguration_columnGroupSchemaList = Lens.lens (\DataSetConfiguration' {columnGroupSchemaList} -> columnGroupSchemaList) (\s@DataSetConfiguration' {} a -> s {columnGroupSchemaList = a} :: DataSetConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Placeholder.
 dataSetConfiguration_placeholder :: Lens.Lens' DataSetConfiguration (Prelude.Maybe Prelude.Text)
@@ -79,21 +79,21 @@ instance Core.FromJSON DataSetConfiguration where
       "DataSetConfiguration"
       ( \x ->
           DataSetConfiguration'
-            Prelude.<$> ( x Core..:? "ColumnGroupSchemaList"
+            Prelude.<$> (x Core..:? "DataSetSchema")
+            Prelude.<*> ( x Core..:? "ColumnGroupSchemaList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DataSetSchema")
             Prelude.<*> (x Core..:? "Placeholder")
       )
 
 instance Prelude.Hashable DataSetConfiguration where
   hashWithSalt _salt DataSetConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` columnGroupSchemaList
-      `Prelude.hashWithSalt` dataSetSchema
+    _salt `Prelude.hashWithSalt` dataSetSchema
+      `Prelude.hashWithSalt` columnGroupSchemaList
       `Prelude.hashWithSalt` placeholder
 
 instance Prelude.NFData DataSetConfiguration where
   rnf DataSetConfiguration' {..} =
-    Prelude.rnf columnGroupSchemaList
-      `Prelude.seq` Prelude.rnf dataSetSchema
+    Prelude.rnf dataSetSchema
+      `Prelude.seq` Prelude.rnf columnGroupSchemaList
       `Prelude.seq` Prelude.rnf placeholder

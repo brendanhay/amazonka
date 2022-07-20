@@ -34,12 +34,12 @@ module Amazonka.SSM.GetMaintenanceWindowExecution
     newGetMaintenanceWindowExecutionResponse,
 
     -- * Response Lenses
-    getMaintenanceWindowExecutionResponse_status,
-    getMaintenanceWindowExecutionResponse_startTime,
     getMaintenanceWindowExecutionResponse_windowExecutionId,
     getMaintenanceWindowExecutionResponse_statusDetails,
+    getMaintenanceWindowExecutionResponse_status,
     getMaintenanceWindowExecutionResponse_endTime,
     getMaintenanceWindowExecutionResponse_taskIds,
+    getMaintenanceWindowExecutionResponse_startTime,
     getMaintenanceWindowExecutionResponse_httpStatus,
   )
 where
@@ -93,12 +93,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowExecutionResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "StartTime")
-            Prelude.<*> (x Core..?> "WindowExecutionId")
+            Prelude.<$> (x Core..?> "WindowExecutionId")
             Prelude.<*> (x Core..?> "StatusDetails")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "EndTime")
             Prelude.<*> (x Core..?> "TaskIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,18 +145,18 @@ instance Core.ToQuery GetMaintenanceWindowExecution where
 
 -- | /See:/ 'newGetMaintenanceWindowExecutionResponse' smart constructor.
 data GetMaintenanceWindowExecutionResponse = GetMaintenanceWindowExecutionResponse'
-  { -- | The status of the maintenance window execution.
-    status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
-    -- | The time the maintenance window started running.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the maintenance window execution.
+  { -- | The ID of the maintenance window execution.
     windowExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The details explaining the status. Not available for all status values.
     statusDetails :: Prelude.Maybe Prelude.Text,
+    -- | The status of the maintenance window execution.
+    status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
     -- | The time the maintenance window finished running.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the task executions from the maintenance window execution.
     taskIds :: Prelude.Maybe [Prelude.Text],
+    -- | The time the maintenance window started running.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,17 +170,17 @@ data GetMaintenanceWindowExecutionResponse = GetMaintenanceWindowExecutionRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getMaintenanceWindowExecutionResponse_status' - The status of the maintenance window execution.
---
--- 'startTime', 'getMaintenanceWindowExecutionResponse_startTime' - The time the maintenance window started running.
---
 -- 'windowExecutionId', 'getMaintenanceWindowExecutionResponse_windowExecutionId' - The ID of the maintenance window execution.
 --
 -- 'statusDetails', 'getMaintenanceWindowExecutionResponse_statusDetails' - The details explaining the status. Not available for all status values.
 --
+-- 'status', 'getMaintenanceWindowExecutionResponse_status' - The status of the maintenance window execution.
+--
 -- 'endTime', 'getMaintenanceWindowExecutionResponse_endTime' - The time the maintenance window finished running.
 --
 -- 'taskIds', 'getMaintenanceWindowExecutionResponse_taskIds' - The ID of the task executions from the maintenance window execution.
+--
+-- 'startTime', 'getMaintenanceWindowExecutionResponse_startTime' - The time the maintenance window started running.
 --
 -- 'httpStatus', 'getMaintenanceWindowExecutionResponse_httpStatus' - The response's http status code.
 newGetMaintenanceWindowExecutionResponse ::
@@ -189,23 +189,15 @@ newGetMaintenanceWindowExecutionResponse ::
   GetMaintenanceWindowExecutionResponse
 newGetMaintenanceWindowExecutionResponse pHttpStatus_ =
   GetMaintenanceWindowExecutionResponse'
-    { status =
+    { windowExecutionId =
         Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      windowExecutionId = Prelude.Nothing,
       statusDetails = Prelude.Nothing,
+      status = Prelude.Nothing,
       endTime = Prelude.Nothing,
       taskIds = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the maintenance window execution.
-getMaintenanceWindowExecutionResponse_status :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe MaintenanceWindowExecutionStatus)
-getMaintenanceWindowExecutionResponse_status = Lens.lens (\GetMaintenanceWindowExecutionResponse' {status} -> status) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {status = a} :: GetMaintenanceWindowExecutionResponse)
-
--- | The time the maintenance window started running.
-getMaintenanceWindowExecutionResponse_startTime :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-getMaintenanceWindowExecutionResponse_startTime = Lens.lens (\GetMaintenanceWindowExecutionResponse' {startTime} -> startTime) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {startTime = a} :: GetMaintenanceWindowExecutionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the maintenance window execution.
 getMaintenanceWindowExecutionResponse_windowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.Text)
@@ -215,6 +207,10 @@ getMaintenanceWindowExecutionResponse_windowExecutionId = Lens.lens (\GetMainten
 getMaintenanceWindowExecutionResponse_statusDetails :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionResponse_statusDetails = Lens.lens (\GetMaintenanceWindowExecutionResponse' {statusDetails} -> statusDetails) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {statusDetails = a} :: GetMaintenanceWindowExecutionResponse)
 
+-- | The status of the maintenance window execution.
+getMaintenanceWindowExecutionResponse_status :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe MaintenanceWindowExecutionStatus)
+getMaintenanceWindowExecutionResponse_status = Lens.lens (\GetMaintenanceWindowExecutionResponse' {status} -> status) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {status = a} :: GetMaintenanceWindowExecutionResponse)
+
 -- | The time the maintenance window finished running.
 getMaintenanceWindowExecutionResponse_endTime :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.UTCTime)
 getMaintenanceWindowExecutionResponse_endTime = Lens.lens (\GetMaintenanceWindowExecutionResponse' {endTime} -> endTime) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {endTime = a} :: GetMaintenanceWindowExecutionResponse) Prelude.. Lens.mapping Core._Time
@@ -222,6 +218,10 @@ getMaintenanceWindowExecutionResponse_endTime = Lens.lens (\GetMaintenanceWindow
 -- | The ID of the task executions from the maintenance window execution.
 getMaintenanceWindowExecutionResponse_taskIds :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe [Prelude.Text])
 getMaintenanceWindowExecutionResponse_taskIds = Lens.lens (\GetMaintenanceWindowExecutionResponse' {taskIds} -> taskIds) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {taskIds = a} :: GetMaintenanceWindowExecutionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time the maintenance window started running.
+getMaintenanceWindowExecutionResponse_startTime :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.UTCTime)
+getMaintenanceWindowExecutionResponse_startTime = Lens.lens (\GetMaintenanceWindowExecutionResponse' {startTime} -> startTime) (\s@GetMaintenanceWindowExecutionResponse' {} a -> s {startTime = a} :: GetMaintenanceWindowExecutionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 getMaintenanceWindowExecutionResponse_httpStatus :: Lens.Lens' GetMaintenanceWindowExecutionResponse Prelude.Int
@@ -232,10 +232,10 @@ instance
     GetMaintenanceWindowExecutionResponse
   where
   rnf GetMaintenanceWindowExecutionResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf windowExecutionId
+    Prelude.rnf windowExecutionId
       `Prelude.seq` Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf taskIds
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf httpStatus

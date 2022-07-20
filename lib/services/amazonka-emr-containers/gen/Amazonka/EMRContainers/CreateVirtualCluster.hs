@@ -42,8 +42,8 @@ module Amazonka.EMRContainers.CreateVirtualCluster
     newCreateVirtualClusterResponse,
 
     -- * Response Lenses
-    createVirtualClusterResponse_arn,
     createVirtualClusterResponse_name,
+    createVirtualClusterResponse_arn,
     createVirtualClusterResponse_id,
     createVirtualClusterResponse_httpStatus,
   )
@@ -128,8 +128,8 @@ instance Core.AWSRequest CreateVirtualCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateVirtualClusterResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "name")
+            Prelude.<$> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -179,10 +179,10 @@ instance Core.ToQuery CreateVirtualCluster where
 
 -- | /See:/ 'newCreateVirtualClusterResponse' smart constructor.
 data CreateVirtualClusterResponse = CreateVirtualClusterResponse'
-  { -- | This output contains the ARN of virtual cluster.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | This output contains the name of the virtual cluster.
+  { -- | This output contains the name of the virtual cluster.
     name :: Prelude.Maybe Prelude.Text,
+    -- | This output contains the ARN of virtual cluster.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | This output contains the virtual cluster ID.
     id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -198,9 +198,9 @@ data CreateVirtualClusterResponse = CreateVirtualClusterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'createVirtualClusterResponse_arn' - This output contains the ARN of virtual cluster.
---
 -- 'name', 'createVirtualClusterResponse_name' - This output contains the name of the virtual cluster.
+--
+-- 'arn', 'createVirtualClusterResponse_arn' - This output contains the ARN of virtual cluster.
 --
 -- 'id', 'createVirtualClusterResponse_id' - This output contains the virtual cluster ID.
 --
@@ -211,20 +211,20 @@ newCreateVirtualClusterResponse ::
   CreateVirtualClusterResponse
 newCreateVirtualClusterResponse pHttpStatus_ =
   CreateVirtualClusterResponse'
-    { arn =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | This output contains the ARN of virtual cluster.
-createVirtualClusterResponse_arn :: Lens.Lens' CreateVirtualClusterResponse (Prelude.Maybe Prelude.Text)
-createVirtualClusterResponse_arn = Lens.lens (\CreateVirtualClusterResponse' {arn} -> arn) (\s@CreateVirtualClusterResponse' {} a -> s {arn = a} :: CreateVirtualClusterResponse)
-
 -- | This output contains the name of the virtual cluster.
 createVirtualClusterResponse_name :: Lens.Lens' CreateVirtualClusterResponse (Prelude.Maybe Prelude.Text)
 createVirtualClusterResponse_name = Lens.lens (\CreateVirtualClusterResponse' {name} -> name) (\s@CreateVirtualClusterResponse' {} a -> s {name = a} :: CreateVirtualClusterResponse)
+
+-- | This output contains the ARN of virtual cluster.
+createVirtualClusterResponse_arn :: Lens.Lens' CreateVirtualClusterResponse (Prelude.Maybe Prelude.Text)
+createVirtualClusterResponse_arn = Lens.lens (\CreateVirtualClusterResponse' {arn} -> arn) (\s@CreateVirtualClusterResponse' {} a -> s {arn = a} :: CreateVirtualClusterResponse)
 
 -- | This output contains the virtual cluster ID.
 createVirtualClusterResponse_id :: Lens.Lens' CreateVirtualClusterResponse (Prelude.Maybe Prelude.Text)
@@ -236,7 +236,7 @@ createVirtualClusterResponse_httpStatus = Lens.lens (\CreateVirtualClusterRespon
 
 instance Prelude.NFData CreateVirtualClusterResponse where
   rnf CreateVirtualClusterResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf httpStatus

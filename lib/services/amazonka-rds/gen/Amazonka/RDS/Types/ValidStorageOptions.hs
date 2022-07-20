@@ -34,17 +34,17 @@ data ValidStorageOptions = ValidStorageOptions'
   { -- | The valid range of storage in gibibytes (GiB). For example, 100 to
     -- 16384.
     storageSize :: Prelude.Maybe [Range],
-    -- | The valid range of provisioned IOPS. For example, 1000-20000.
-    provisionedIops :: Prelude.Maybe [Range],
     -- | The valid range of Provisioned IOPS to gibibytes of storage multiplier.
     -- For example, 3-10, which means that provisioned IOPS can be between 3
     -- and 10 times storage.
     iopsToStorageRatio :: Prelude.Maybe [DoubleRange],
+    -- | The valid range of provisioned IOPS. For example, 1000-20000.
+    provisionedIops :: Prelude.Maybe [Range],
+    -- | The valid storage types for your DB instance. For example, gp2, io1.
+    storageType :: Prelude.Maybe Prelude.Text,
     -- | Whether or not Amazon RDS can automatically scale storage for DB
     -- instances that use the new instance class.
-    supportsStorageAutoscaling :: Prelude.Maybe Prelude.Bool,
-    -- | The valid storage types for your DB instance. For example, gp2, io1.
-    storageType :: Prelude.Maybe Prelude.Text
+    supportsStorageAutoscaling :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,25 +59,25 @@ data ValidStorageOptions = ValidStorageOptions'
 -- 'storageSize', 'validStorageOptions_storageSize' - The valid range of storage in gibibytes (GiB). For example, 100 to
 -- 16384.
 --
--- 'provisionedIops', 'validStorageOptions_provisionedIops' - The valid range of provisioned IOPS. For example, 1000-20000.
---
 -- 'iopsToStorageRatio', 'validStorageOptions_iopsToStorageRatio' - The valid range of Provisioned IOPS to gibibytes of storage multiplier.
 -- For example, 3-10, which means that provisioned IOPS can be between 3
 -- and 10 times storage.
 --
--- 'supportsStorageAutoscaling', 'validStorageOptions_supportsStorageAutoscaling' - Whether or not Amazon RDS can automatically scale storage for DB
--- instances that use the new instance class.
+-- 'provisionedIops', 'validStorageOptions_provisionedIops' - The valid range of provisioned IOPS. For example, 1000-20000.
 --
 -- 'storageType', 'validStorageOptions_storageType' - The valid storage types for your DB instance. For example, gp2, io1.
+--
+-- 'supportsStorageAutoscaling', 'validStorageOptions_supportsStorageAutoscaling' - Whether or not Amazon RDS can automatically scale storage for DB
+-- instances that use the new instance class.
 newValidStorageOptions ::
   ValidStorageOptions
 newValidStorageOptions =
   ValidStorageOptions'
     { storageSize = Prelude.Nothing,
-      provisionedIops = Prelude.Nothing,
       iopsToStorageRatio = Prelude.Nothing,
-      supportsStorageAutoscaling = Prelude.Nothing,
-      storageType = Prelude.Nothing
+      provisionedIops = Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      supportsStorageAutoscaling = Prelude.Nothing
     }
 
 -- | The valid range of storage in gibibytes (GiB). For example, 100 to
@@ -85,24 +85,24 @@ newValidStorageOptions =
 validStorageOptions_storageSize :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [Range])
 validStorageOptions_storageSize = Lens.lens (\ValidStorageOptions' {storageSize} -> storageSize) (\s@ValidStorageOptions' {} a -> s {storageSize = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens.coerced
 
--- | The valid range of provisioned IOPS. For example, 1000-20000.
-validStorageOptions_provisionedIops :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [Range])
-validStorageOptions_provisionedIops = Lens.lens (\ValidStorageOptions' {provisionedIops} -> provisionedIops) (\s@ValidStorageOptions' {} a -> s {provisionedIops = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens.coerced
-
 -- | The valid range of Provisioned IOPS to gibibytes of storage multiplier.
 -- For example, 3-10, which means that provisioned IOPS can be between 3
 -- and 10 times storage.
 validStorageOptions_iopsToStorageRatio :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [DoubleRange])
 validStorageOptions_iopsToStorageRatio = Lens.lens (\ValidStorageOptions' {iopsToStorageRatio} -> iopsToStorageRatio) (\s@ValidStorageOptions' {} a -> s {iopsToStorageRatio = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether or not Amazon RDS can automatically scale storage for DB
--- instances that use the new instance class.
-validStorageOptions_supportsStorageAutoscaling :: Lens.Lens' ValidStorageOptions (Prelude.Maybe Prelude.Bool)
-validStorageOptions_supportsStorageAutoscaling = Lens.lens (\ValidStorageOptions' {supportsStorageAutoscaling} -> supportsStorageAutoscaling) (\s@ValidStorageOptions' {} a -> s {supportsStorageAutoscaling = a} :: ValidStorageOptions)
+-- | The valid range of provisioned IOPS. For example, 1000-20000.
+validStorageOptions_provisionedIops :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [Range])
+validStorageOptions_provisionedIops = Lens.lens (\ValidStorageOptions' {provisionedIops} -> provisionedIops) (\s@ValidStorageOptions' {} a -> s {provisionedIops = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The valid storage types for your DB instance. For example, gp2, io1.
 validStorageOptions_storageType :: Lens.Lens' ValidStorageOptions (Prelude.Maybe Prelude.Text)
 validStorageOptions_storageType = Lens.lens (\ValidStorageOptions' {storageType} -> storageType) (\s@ValidStorageOptions' {} a -> s {storageType = a} :: ValidStorageOptions)
+
+-- | Whether or not Amazon RDS can automatically scale storage for DB
+-- instances that use the new instance class.
+validStorageOptions_supportsStorageAutoscaling :: Lens.Lens' ValidStorageOptions (Prelude.Maybe Prelude.Bool)
+validStorageOptions_supportsStorageAutoscaling = Lens.lens (\ValidStorageOptions' {supportsStorageAutoscaling} -> supportsStorageAutoscaling) (\s@ValidStorageOptions' {} a -> s {supportsStorageAutoscaling = a} :: ValidStorageOptions)
 
 instance Core.FromXML ValidStorageOptions where
   parseXML x =
@@ -110,28 +110,28 @@ instance Core.FromXML ValidStorageOptions where
       Prelude.<$> ( x Core..@? "StorageSize" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Range")
                   )
-      Prelude.<*> ( x Core..@? "ProvisionedIops" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "Range")
-                  )
       Prelude.<*> ( x Core..@? "IopsToStorageRatio"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "DoubleRange")
                   )
-      Prelude.<*> (x Core..@? "SupportsStorageAutoscaling")
+      Prelude.<*> ( x Core..@? "ProvisionedIops" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "Range")
+                  )
       Prelude.<*> (x Core..@? "StorageType")
+      Prelude.<*> (x Core..@? "SupportsStorageAutoscaling")
 
 instance Prelude.Hashable ValidStorageOptions where
   hashWithSalt _salt ValidStorageOptions' {..} =
     _salt `Prelude.hashWithSalt` storageSize
-      `Prelude.hashWithSalt` provisionedIops
       `Prelude.hashWithSalt` iopsToStorageRatio
-      `Prelude.hashWithSalt` supportsStorageAutoscaling
+      `Prelude.hashWithSalt` provisionedIops
       `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` supportsStorageAutoscaling
 
 instance Prelude.NFData ValidStorageOptions where
   rnf ValidStorageOptions' {..} =
     Prelude.rnf storageSize
-      `Prelude.seq` Prelude.rnf provisionedIops
       `Prelude.seq` Prelude.rnf iopsToStorageRatio
-      `Prelude.seq` Prelude.rnf supportsStorageAutoscaling
+      `Prelude.seq` Prelude.rnf provisionedIops
       `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf supportsStorageAutoscaling

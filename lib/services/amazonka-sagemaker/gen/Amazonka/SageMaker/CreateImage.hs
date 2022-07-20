@@ -30,9 +30,9 @@ module Amazonka.SageMaker.CreateImage
     newCreateImage,
 
     -- * Request Lenses
+    createImage_tags,
     createImage_displayName,
     createImage_description,
-    createImage_tags,
     createImage_imageName,
     createImage_roleArn,
 
@@ -55,13 +55,13 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateImage' smart constructor.
 data CreateImage = CreateImage'
-  { -- | The display name of the image. If not provided, @ImageName@ is
+  { -- | A list of tags to apply to the image.
+    tags :: Prelude.Maybe [Tag],
+    -- | The display name of the image. If not provided, @ImageName@ is
     -- displayed.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The description of the image.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to apply to the image.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the image. Must be unique to your account.
     imageName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
@@ -78,12 +78,12 @@ data CreateImage = CreateImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createImage_tags' - A list of tags to apply to the image.
+--
 -- 'displayName', 'createImage_displayName' - The display name of the image. If not provided, @ImageName@ is
 -- displayed.
 --
 -- 'description', 'createImage_description' - The description of the image.
---
--- 'tags', 'createImage_tags' - A list of tags to apply to the image.
 --
 -- 'imageName', 'createImage_imageName' - The name of the image. Must be unique to your account.
 --
@@ -97,12 +97,16 @@ newCreateImage ::
   CreateImage
 newCreateImage pImageName_ pRoleArn_ =
   CreateImage'
-    { displayName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       imageName = pImageName_,
       roleArn = pRoleArn_
     }
+
+-- | A list of tags to apply to the image.
+createImage_tags :: Lens.Lens' CreateImage (Prelude.Maybe [Tag])
+createImage_tags = Lens.lens (\CreateImage' {tags} -> tags) (\s@CreateImage' {} a -> s {tags = a} :: CreateImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The display name of the image. If not provided, @ImageName@ is
 -- displayed.
@@ -112,10 +116,6 @@ createImage_displayName = Lens.lens (\CreateImage' {displayName} -> displayName)
 -- | The description of the image.
 createImage_description :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Text)
 createImage_description = Lens.lens (\CreateImage' {description} -> description) (\s@CreateImage' {} a -> s {description = a} :: CreateImage)
-
--- | A list of tags to apply to the image.
-createImage_tags :: Lens.Lens' CreateImage (Prelude.Maybe [Tag])
-createImage_tags = Lens.lens (\CreateImage' {tags} -> tags) (\s@CreateImage' {} a -> s {tags = a} :: CreateImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the image. Must be unique to your account.
 createImage_imageName :: Lens.Lens' CreateImage Prelude.Text
@@ -139,17 +139,17 @@ instance Core.AWSRequest CreateImage where
 
 instance Prelude.Hashable CreateImage where
   hashWithSalt _salt CreateImage' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` imageName
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CreateImage where
   rnf CreateImage' {..} =
-    Prelude.rnf displayName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf imageName
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -170,9 +170,9 @@ instance Core.ToJSON CreateImage where
   toJSON CreateImage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Core..=) Prelude.<$> displayName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ImageName" Core..= imageName),
             Prelude.Just ("RoleArn" Core..= roleArn)
           ]

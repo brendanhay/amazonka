@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMember' smart constructor.
 data Member = Member'
-  { -- | The member name.
-    fullName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The member email address.
-    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The member ID (user ID or bot ID).
+  { -- | The member ID (user ID or bot ID).
     memberId :: Prelude.Maybe Prelude.Text,
     -- | The member type.
     memberType :: Prelude.Maybe MemberType,
+    -- | The member email address.
+    email :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Chime account ID.
-    accountId :: Prelude.Maybe Prelude.Text
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The member name.
+    fullName :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -50,33 +50,25 @@ data Member = Member'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fullName', 'member_fullName' - The member name.
---
--- 'email', 'member_email' - The member email address.
---
 -- 'memberId', 'member_memberId' - The member ID (user ID or bot ID).
 --
 -- 'memberType', 'member_memberType' - The member type.
 --
+-- 'email', 'member_email' - The member email address.
+--
 -- 'accountId', 'member_accountId' - The Amazon Chime account ID.
+--
+-- 'fullName', 'member_fullName' - The member name.
 newMember ::
   Member
 newMember =
   Member'
-    { fullName = Prelude.Nothing,
-      email = Prelude.Nothing,
-      memberId = Prelude.Nothing,
+    { memberId = Prelude.Nothing,
       memberType = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      email = Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      fullName = Prelude.Nothing
     }
-
--- | The member name.
-member_fullName :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
-member_fullName = Lens.lens (\Member' {fullName} -> fullName) (\s@Member' {} a -> s {fullName = a} :: Member) Prelude.. Lens.mapping Core._Sensitive
-
--- | The member email address.
-member_email :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
-member_email = Lens.lens (\Member' {email} -> email) (\s@Member' {} a -> s {email = a} :: Member) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The member ID (user ID or bot ID).
 member_memberId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
@@ -86,9 +78,17 @@ member_memberId = Lens.lens (\Member' {memberId} -> memberId) (\s@Member' {} a -
 member_memberType :: Lens.Lens' Member (Prelude.Maybe MemberType)
 member_memberType = Lens.lens (\Member' {memberType} -> memberType) (\s@Member' {} a -> s {memberType = a} :: Member)
 
+-- | The member email address.
+member_email :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_email = Lens.lens (\Member' {email} -> email) (\s@Member' {} a -> s {email = a} :: Member) Prelude.. Lens.mapping Core._Sensitive
+
 -- | The Amazon Chime account ID.
 member_accountId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_accountId = Lens.lens (\Member' {accountId} -> accountId) (\s@Member' {} a -> s {accountId = a} :: Member)
+
+-- | The member name.
+member_fullName :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_fullName = Lens.lens (\Member' {fullName} -> fullName) (\s@Member' {} a -> s {fullName = a} :: Member) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON Member where
   parseJSON =
@@ -96,25 +96,25 @@ instance Core.FromJSON Member where
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Core..:? "FullName")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "MemberId")
+            Prelude.<$> (x Core..:? "MemberId")
             Prelude.<*> (x Core..:? "MemberType")
+            Prelude.<*> (x Core..:? "Email")
             Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "FullName")
       )
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt `Prelude.hashWithSalt` fullName
-      `Prelude.hashWithSalt` email
-      `Prelude.hashWithSalt` memberId
+    _salt `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` memberType
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` fullName
 
 instance Prelude.NFData Member where
   rnf Member' {..} =
-    Prelude.rnf fullName
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf memberType
+      `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf fullName

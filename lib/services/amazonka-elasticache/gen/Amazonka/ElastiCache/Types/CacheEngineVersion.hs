@@ -27,8 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCacheEngineVersion' smart constructor.
 data CacheEngineVersion = CacheEngineVersion'
-  { -- | The version number of the cache engine.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+  { -- | The description of the cache engine version.
+    cacheEngineVersionDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the cache engine.
+    engine :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache parameter group family associated with this cache
     -- engine.
     --
@@ -38,10 +40,8 @@ data CacheEngineVersion = CacheEngineVersion'
     cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | The description of the cache engine.
     cacheEngineDescription :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cache engine.
-    engine :: Prelude.Maybe Prelude.Text,
-    -- | The description of the cache engine version.
-    cacheEngineVersionDescription :: Prelude.Maybe Prelude.Text
+    -- | The version number of the cache engine.
+    engineVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,7 +53,9 @@ data CacheEngineVersion = CacheEngineVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'cacheEngineVersion_engineVersion' - The version number of the cache engine.
+-- 'cacheEngineVersionDescription', 'cacheEngineVersion_cacheEngineVersionDescription' - The description of the cache engine version.
+--
+-- 'engine', 'cacheEngineVersion_engine' - The name of the cache engine.
 --
 -- 'cacheParameterGroupFamily', 'cacheEngineVersion_cacheParameterGroupFamily' - The name of the cache parameter group family associated with this cache
 -- engine.
@@ -64,24 +66,26 @@ data CacheEngineVersion = CacheEngineVersion'
 --
 -- 'cacheEngineDescription', 'cacheEngineVersion_cacheEngineDescription' - The description of the cache engine.
 --
--- 'engine', 'cacheEngineVersion_engine' - The name of the cache engine.
---
--- 'cacheEngineVersionDescription', 'cacheEngineVersion_cacheEngineVersionDescription' - The description of the cache engine version.
+-- 'engineVersion', 'cacheEngineVersion_engineVersion' - The version number of the cache engine.
 newCacheEngineVersion ::
   CacheEngineVersion
 newCacheEngineVersion =
   CacheEngineVersion'
-    { engineVersion =
+    { cacheEngineVersionDescription =
         Prelude.Nothing,
+      engine = Prelude.Nothing,
       cacheParameterGroupFamily = Prelude.Nothing,
       cacheEngineDescription = Prelude.Nothing,
-      engine = Prelude.Nothing,
-      cacheEngineVersionDescription = Prelude.Nothing
+      engineVersion = Prelude.Nothing
     }
 
--- | The version number of the cache engine.
-cacheEngineVersion_engineVersion :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
-cacheEngineVersion_engineVersion = Lens.lens (\CacheEngineVersion' {engineVersion} -> engineVersion) (\s@CacheEngineVersion' {} a -> s {engineVersion = a} :: CacheEngineVersion)
+-- | The description of the cache engine version.
+cacheEngineVersion_cacheEngineVersionDescription :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
+cacheEngineVersion_cacheEngineVersionDescription = Lens.lens (\CacheEngineVersion' {cacheEngineVersionDescription} -> cacheEngineVersionDescription) (\s@CacheEngineVersion' {} a -> s {cacheEngineVersionDescription = a} :: CacheEngineVersion)
+
+-- | The name of the cache engine.
+cacheEngineVersion_engine :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
+cacheEngineVersion_engine = Lens.lens (\CacheEngineVersion' {engine} -> engine) (\s@CacheEngineVersion' {} a -> s {engine = a} :: CacheEngineVersion)
 
 -- | The name of the cache parameter group family associated with this cache
 -- engine.
@@ -96,35 +100,32 @@ cacheEngineVersion_cacheParameterGroupFamily = Lens.lens (\CacheEngineVersion' {
 cacheEngineVersion_cacheEngineDescription :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
 cacheEngineVersion_cacheEngineDescription = Lens.lens (\CacheEngineVersion' {cacheEngineDescription} -> cacheEngineDescription) (\s@CacheEngineVersion' {} a -> s {cacheEngineDescription = a} :: CacheEngineVersion)
 
--- | The name of the cache engine.
-cacheEngineVersion_engine :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
-cacheEngineVersion_engine = Lens.lens (\CacheEngineVersion' {engine} -> engine) (\s@CacheEngineVersion' {} a -> s {engine = a} :: CacheEngineVersion)
-
--- | The description of the cache engine version.
-cacheEngineVersion_cacheEngineVersionDescription :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
-cacheEngineVersion_cacheEngineVersionDescription = Lens.lens (\CacheEngineVersion' {cacheEngineVersionDescription} -> cacheEngineVersionDescription) (\s@CacheEngineVersion' {} a -> s {cacheEngineVersionDescription = a} :: CacheEngineVersion)
+-- | The version number of the cache engine.
+cacheEngineVersion_engineVersion :: Lens.Lens' CacheEngineVersion (Prelude.Maybe Prelude.Text)
+cacheEngineVersion_engineVersion = Lens.lens (\CacheEngineVersion' {engineVersion} -> engineVersion) (\s@CacheEngineVersion' {} a -> s {engineVersion = a} :: CacheEngineVersion)
 
 instance Core.FromXML CacheEngineVersion where
   parseXML x =
     CacheEngineVersion'
-      Prelude.<$> (x Core..@? "EngineVersion")
+      Prelude.<$> (x Core..@? "CacheEngineVersionDescription")
+      Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "CacheParameterGroupFamily")
       Prelude.<*> (x Core..@? "CacheEngineDescription")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "CacheEngineVersionDescription")
+      Prelude.<*> (x Core..@? "EngineVersion")
 
 instance Prelude.Hashable CacheEngineVersion where
   hashWithSalt _salt CacheEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
+    _salt
+      `Prelude.hashWithSalt` cacheEngineVersionDescription
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` cacheParameterGroupFamily
       `Prelude.hashWithSalt` cacheEngineDescription
-      `Prelude.hashWithSalt` engine
-      `Prelude.hashWithSalt` cacheEngineVersionDescription
+      `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData CacheEngineVersion where
   rnf CacheEngineVersion' {..} =
-    Prelude.rnf engineVersion
+    Prelude.rnf cacheEngineVersionDescription
+      `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
       `Prelude.seq` Prelude.rnf cacheEngineDescription
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf cacheEngineVersionDescription
+      `Prelude.seq` Prelude.rnf engineVersion

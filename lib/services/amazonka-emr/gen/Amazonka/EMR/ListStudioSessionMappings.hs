@@ -31,8 +31,8 @@ module Amazonka.EMR.ListStudioSessionMappings
 
     -- * Request Lenses
     listStudioSessionMappings_studioId,
-    listStudioSessionMappings_identityType,
     listStudioSessionMappings_marker,
+    listStudioSessionMappings_identityType,
 
     -- * Destructuring the Response
     ListStudioSessionMappingsResponse (..),
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 data ListStudioSessionMappings = ListStudioSessionMappings'
   { -- | The ID of the Amazon EMR Studio.
     studioId :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token that indicates the set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to return session mappings for users or groups. If not
     -- specified, the results include session mapping details for both users
     -- and groups.
-    identityType :: Prelude.Maybe IdentityType,
-    -- | The pagination token that indicates the set of results to retrieve.
-    marker :: Prelude.Maybe Prelude.Text
+    identityType :: Prelude.Maybe IdentityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,34 +75,34 @@ data ListStudioSessionMappings = ListStudioSessionMappings'
 --
 -- 'studioId', 'listStudioSessionMappings_studioId' - The ID of the Amazon EMR Studio.
 --
+-- 'marker', 'listStudioSessionMappings_marker' - The pagination token that indicates the set of results to retrieve.
+--
 -- 'identityType', 'listStudioSessionMappings_identityType' - Specifies whether to return session mappings for users or groups. If not
 -- specified, the results include session mapping details for both users
 -- and groups.
---
--- 'marker', 'listStudioSessionMappings_marker' - The pagination token that indicates the set of results to retrieve.
 newListStudioSessionMappings ::
   ListStudioSessionMappings
 newListStudioSessionMappings =
   ListStudioSessionMappings'
     { studioId =
         Prelude.Nothing,
-      identityType = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      identityType = Prelude.Nothing
     }
 
 -- | The ID of the Amazon EMR Studio.
 listStudioSessionMappings_studioId :: Lens.Lens' ListStudioSessionMappings (Prelude.Maybe Prelude.Text)
 listStudioSessionMappings_studioId = Lens.lens (\ListStudioSessionMappings' {studioId} -> studioId) (\s@ListStudioSessionMappings' {} a -> s {studioId = a} :: ListStudioSessionMappings)
 
+-- | The pagination token that indicates the set of results to retrieve.
+listStudioSessionMappings_marker :: Lens.Lens' ListStudioSessionMappings (Prelude.Maybe Prelude.Text)
+listStudioSessionMappings_marker = Lens.lens (\ListStudioSessionMappings' {marker} -> marker) (\s@ListStudioSessionMappings' {} a -> s {marker = a} :: ListStudioSessionMappings)
+
 -- | Specifies whether to return session mappings for users or groups. If not
 -- specified, the results include session mapping details for both users
 -- and groups.
 listStudioSessionMappings_identityType :: Lens.Lens' ListStudioSessionMappings (Prelude.Maybe IdentityType)
 listStudioSessionMappings_identityType = Lens.lens (\ListStudioSessionMappings' {identityType} -> identityType) (\s@ListStudioSessionMappings' {} a -> s {identityType = a} :: ListStudioSessionMappings)
-
--- | The pagination token that indicates the set of results to retrieve.
-listStudioSessionMappings_marker :: Lens.Lens' ListStudioSessionMappings (Prelude.Maybe Prelude.Text)
-listStudioSessionMappings_marker = Lens.lens (\ListStudioSessionMappings' {marker} -> marker) (\s@ListStudioSessionMappings' {} a -> s {marker = a} :: ListStudioSessionMappings)
 
 instance Core.AWSPager ListStudioSessionMappings where
   page rq rs
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListStudioSessionMappings where
 instance Prelude.Hashable ListStudioSessionMappings where
   hashWithSalt _salt ListStudioSessionMappings' {..} =
     _salt `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` identityType
       `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` identityType
 
 instance Prelude.NFData ListStudioSessionMappings where
   rnf ListStudioSessionMappings' {..} =
     Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf identityType
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf identityType
 
 instance Core.ToHeaders ListStudioSessionMappings where
   toHeaders =
@@ -174,8 +174,8 @@ instance Core.ToJSON ListStudioSessionMappings where
     Core.object
       ( Prelude.catMaybes
           [ ("StudioId" Core..=) Prelude.<$> studioId,
-            ("IdentityType" Core..=) Prelude.<$> identityType,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("IdentityType" Core..=) Prelude.<$> identityType
           ]
       )
 

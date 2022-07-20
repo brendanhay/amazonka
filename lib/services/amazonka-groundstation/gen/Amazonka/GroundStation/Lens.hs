@@ -14,49 +14,170 @@
 module Amazonka.GroundStation.Lens
   ( -- * Operations
 
+    -- ** CancelContact
+    cancelContact_contactId,
+    contactIdResponse_contactId,
+
+    -- ** CreateConfig
+    createConfig_tags,
+    createConfig_configData,
+    createConfig_name,
+    configIdResponse_configId,
+    configIdResponse_configType,
+    configIdResponse_configArn,
+
+    -- ** CreateDataflowEndpointGroup
+    createDataflowEndpointGroup_tags,
+    createDataflowEndpointGroup_endpointDetails,
+    dataflowEndpointGroupIdResponse_dataflowEndpointGroupId,
+
+    -- ** CreateMissionProfile
+    createMissionProfile_tags,
+    createMissionProfile_contactPrePassDurationSeconds,
+    createMissionProfile_contactPostPassDurationSeconds,
+    createMissionProfile_dataflowEdges,
+    createMissionProfile_minimumViableContactDurationSeconds,
+    createMissionProfile_name,
+    createMissionProfile_trackingConfigArn,
+    missionProfileIdResponse_missionProfileId,
+
+    -- ** DeleteConfig
+    deleteConfig_configId,
+    deleteConfig_configType,
+    configIdResponse_configId,
+    configIdResponse_configType,
+    configIdResponse_configArn,
+
     -- ** DeleteDataflowEndpointGroup
     deleteDataflowEndpointGroup_dataflowEndpointGroupId,
     dataflowEndpointGroupIdResponse_dataflowEndpointGroupId,
 
+    -- ** DeleteMissionProfile
+    deleteMissionProfile_missionProfileId,
+    missionProfileIdResponse_missionProfileId,
+
+    -- ** DescribeContact
+    describeContact_contactId,
+    describeContactResponse_tags,
+    describeContactResponse_missionProfileArn,
+    describeContactResponse_dataflowList,
+    describeContactResponse_contactId,
+    describeContactResponse_errorMessage,
+    describeContactResponse_postPassEndTime,
+    describeContactResponse_satelliteArn,
+    describeContactResponse_contactStatus,
+    describeContactResponse_endTime,
+    describeContactResponse_region,
+    describeContactResponse_prePassStartTime,
+    describeContactResponse_groundStation,
+    describeContactResponse_startTime,
+    describeContactResponse_maximumElevation,
+    describeContactResponse_httpStatus,
+
+    -- ** GetConfig
+    getConfig_configId,
+    getConfig_configType,
+    getConfigResponse_tags,
+    getConfigResponse_configType,
+    getConfigResponse_httpStatus,
+    getConfigResponse_configArn,
+    getConfigResponse_configData,
+    getConfigResponse_configId,
+    getConfigResponse_name,
+
+    -- ** GetDataflowEndpointGroup
+    getDataflowEndpointGroup_dataflowEndpointGroupId,
+    getDataflowEndpointGroupResponse_tags,
+    getDataflowEndpointGroupResponse_dataflowEndpointGroupArn,
+    getDataflowEndpointGroupResponse_endpointsDetails,
+    getDataflowEndpointGroupResponse_dataflowEndpointGroupId,
+    getDataflowEndpointGroupResponse_httpStatus,
+
+    -- ** GetMinuteUsage
+    getMinuteUsage_month,
+    getMinuteUsage_year,
+    getMinuteUsageResponse_upcomingMinutesScheduled,
+    getMinuteUsageResponse_totalScheduledMinutes,
+    getMinuteUsageResponse_estimatedMinutesRemaining,
+    getMinuteUsageResponse_totalReservedMinuteAllocation,
+    getMinuteUsageResponse_isReservedMinutesCustomer,
+    getMinuteUsageResponse_httpStatus,
+
+    -- ** GetMissionProfile
+    getMissionProfile_missionProfileId,
+    getMissionProfileResponse_tags,
+    getMissionProfileResponse_missionProfileArn,
+    getMissionProfileResponse_name,
+    getMissionProfileResponse_minimumViableContactDurationSeconds,
+    getMissionProfileResponse_contactPrePassDurationSeconds,
+    getMissionProfileResponse_dataflowEdges,
+    getMissionProfileResponse_contactPostPassDurationSeconds,
+    getMissionProfileResponse_missionProfileId,
+    getMissionProfileResponse_region,
+    getMissionProfileResponse_trackingConfigArn,
+    getMissionProfileResponse_httpStatus,
+
+    -- ** GetSatellite
+    getSatellite_satelliteId,
+    getSatelliteResponse_satelliteArn,
+    getSatelliteResponse_satelliteId,
+    getSatelliteResponse_noradSatelliteID,
+    getSatelliteResponse_groundStations,
+    getSatelliteResponse_httpStatus,
+
+    -- ** ListConfigs
+    listConfigs_nextToken,
+    listConfigs_maxResults,
+    listConfigsResponse_nextToken,
+    listConfigsResponse_configList,
+    listConfigsResponse_httpStatus,
+
+    -- ** ListContacts
+    listContacts_missionProfileArn,
+    listContacts_nextToken,
+    listContacts_satelliteArn,
+    listContacts_maxResults,
+    listContacts_groundStation,
+    listContacts_endTime,
+    listContacts_startTime,
+    listContacts_statusList,
+    listContactsResponse_nextToken,
+    listContactsResponse_contactList,
+    listContactsResponse_httpStatus,
+
+    -- ** ListDataflowEndpointGroups
+    listDataflowEndpointGroups_nextToken,
+    listDataflowEndpointGroups_maxResults,
+    listDataflowEndpointGroupsResponse_nextToken,
+    listDataflowEndpointGroupsResponse_dataflowEndpointGroupList,
+    listDataflowEndpointGroupsResponse_httpStatus,
+
+    -- ** ListGroundStations
+    listGroundStations_nextToken,
+    listGroundStations_maxResults,
+    listGroundStations_satelliteId,
+    listGroundStationsResponse_nextToken,
+    listGroundStationsResponse_groundStationList,
+    listGroundStationsResponse_httpStatus,
+
+    -- ** ListMissionProfiles
+    listMissionProfiles_nextToken,
+    listMissionProfiles_maxResults,
+    listMissionProfilesResponse_nextToken,
+    listMissionProfilesResponse_missionProfileList,
+    listMissionProfilesResponse_httpStatus,
+
     -- ** ListSatellites
     listSatellites_nextToken,
     listSatellites_maxResults,
-    listSatellitesResponse_satellites,
     listSatellitesResponse_nextToken,
+    listSatellitesResponse_satellites,
     listSatellitesResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
-
-    -- ** GetMinuteUsage
-    getMinuteUsage_month,
-    getMinuteUsage_year,
-    getMinuteUsageResponse_isReservedMinutesCustomer,
-    getMinuteUsageResponse_upcomingMinutesScheduled,
-    getMinuteUsageResponse_totalScheduledMinutes,
-    getMinuteUsageResponse_totalReservedMinuteAllocation,
-    getMinuteUsageResponse_estimatedMinutesRemaining,
-    getMinuteUsageResponse_httpStatus,
-
-    -- ** DescribeContact
-    describeContact_contactId,
-    describeContactResponse_contactStatus,
-    describeContactResponse_missionProfileArn,
-    describeContactResponse_startTime,
-    describeContactResponse_dataflowList,
-    describeContactResponse_satelliteArn,
-    describeContactResponse_maximumElevation,
-    describeContactResponse_groundStation,
-    describeContactResponse_endTime,
-    describeContactResponse_contactId,
-    describeContactResponse_region,
-    describeContactResponse_postPassEndTime,
-    describeContactResponse_prePassStartTime,
-    describeContactResponse_errorMessage,
-    describeContactResponse_tags,
-    describeContactResponse_httpStatus,
 
     -- ** ReserveContact
     reserveContact_tags,
@@ -67,155 +188,34 @@ module Amazonka.GroundStation.Lens
     reserveContact_startTime,
     contactIdResponse_contactId,
 
-    -- ** CreateMissionProfile
-    createMissionProfile_contactPrePassDurationSeconds,
-    createMissionProfile_contactPostPassDurationSeconds,
-    createMissionProfile_tags,
-    createMissionProfile_dataflowEdges,
-    createMissionProfile_minimumViableContactDurationSeconds,
-    createMissionProfile_name,
-    createMissionProfile_trackingConfigArn,
-    missionProfileIdResponse_missionProfileId,
-
-    -- ** ListGroundStations
-    listGroundStations_satelliteId,
-    listGroundStations_nextToken,
-    listGroundStations_maxResults,
-    listGroundStationsResponse_nextToken,
-    listGroundStationsResponse_groundStationList,
-    listGroundStationsResponse_httpStatus,
-
-    -- ** CreateConfig
-    createConfig_tags,
-    createConfig_configData,
-    createConfig_name,
-    configIdResponse_configArn,
-    configIdResponse_configId,
-    configIdResponse_configType,
-
-    -- ** ListMissionProfiles
-    listMissionProfiles_nextToken,
-    listMissionProfiles_maxResults,
-    listMissionProfilesResponse_nextToken,
-    listMissionProfilesResponse_missionProfileList,
-    listMissionProfilesResponse_httpStatus,
-
-    -- ** GetMissionProfile
-    getMissionProfile_missionProfileId,
-    getMissionProfileResponse_missionProfileId,
-    getMissionProfileResponse_missionProfileArn,
-    getMissionProfileResponse_trackingConfigArn,
-    getMissionProfileResponse_contactPrePassDurationSeconds,
-    getMissionProfileResponse_contactPostPassDurationSeconds,
-    getMissionProfileResponse_name,
-    getMissionProfileResponse_dataflowEdges,
-    getMissionProfileResponse_region,
-    getMissionProfileResponse_minimumViableContactDurationSeconds,
-    getMissionProfileResponse_tags,
-    getMissionProfileResponse_httpStatus,
-
-    -- ** GetConfig
-    getConfig_configId,
-    getConfig_configType,
-    getConfigResponse_configType,
-    getConfigResponse_tags,
-    getConfigResponse_httpStatus,
-    getConfigResponse_configArn,
-    getConfigResponse_configData,
-    getConfigResponse_configId,
-    getConfigResponse_name,
-
-    -- ** ListDataflowEndpointGroups
-    listDataflowEndpointGroups_nextToken,
-    listDataflowEndpointGroups_maxResults,
-    listDataflowEndpointGroupsResponse_dataflowEndpointGroupList,
-    listDataflowEndpointGroupsResponse_nextToken,
-    listDataflowEndpointGroupsResponse_httpStatus,
-
-    -- ** CreateDataflowEndpointGroup
-    createDataflowEndpointGroup_tags,
-    createDataflowEndpointGroup_endpointDetails,
-    dataflowEndpointGroupIdResponse_dataflowEndpointGroupId,
-
-    -- ** GetSatellite
-    getSatellite_satelliteId,
-    getSatelliteResponse_satelliteId,
-    getSatelliteResponse_satelliteArn,
-    getSatelliteResponse_groundStations,
-    getSatelliteResponse_noradSatelliteID,
-    getSatelliteResponse_httpStatus,
-
-    -- ** GetDataflowEndpointGroup
-    getDataflowEndpointGroup_dataflowEndpointGroupId,
-    getDataflowEndpointGroupResponse_endpointsDetails,
-    getDataflowEndpointGroupResponse_dataflowEndpointGroupArn,
-    getDataflowEndpointGroupResponse_dataflowEndpointGroupId,
-    getDataflowEndpointGroupResponse_tags,
-    getDataflowEndpointGroupResponse_httpStatus,
-
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
-
-    -- ** ListConfigs
-    listConfigs_nextToken,
-    listConfigs_maxResults,
-    listConfigsResponse_configList,
-    listConfigsResponse_nextToken,
-    listConfigsResponse_httpStatus,
-
-    -- ** UpdateConfig
-    updateConfig_configData,
-    updateConfig_configId,
-    updateConfig_configType,
-    updateConfig_name,
-    configIdResponse_configArn,
-    configIdResponse_configId,
-    configIdResponse_configType,
-
-    -- ** DeleteConfig
-    deleteConfig_configId,
-    deleteConfig_configType,
-    configIdResponse_configArn,
-    configIdResponse_configId,
-    configIdResponse_configType,
 
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateConfig
+    updateConfig_configData,
+    updateConfig_configId,
+    updateConfig_configType,
+    updateConfig_name,
+    configIdResponse_configId,
+    configIdResponse_configType,
+    configIdResponse_configArn,
+
     -- ** UpdateMissionProfile
-    updateMissionProfile_trackingConfigArn,
-    updateMissionProfile_contactPrePassDurationSeconds,
-    updateMissionProfile_contactPostPassDurationSeconds,
     updateMissionProfile_name,
-    updateMissionProfile_dataflowEdges,
     updateMissionProfile_minimumViableContactDurationSeconds,
+    updateMissionProfile_contactPrePassDurationSeconds,
+    updateMissionProfile_dataflowEdges,
+    updateMissionProfile_contactPostPassDurationSeconds,
+    updateMissionProfile_trackingConfigArn,
     updateMissionProfile_missionProfileId,
     missionProfileIdResponse_missionProfileId,
-
-    -- ** DeleteMissionProfile
-    deleteMissionProfile_missionProfileId,
-    missionProfileIdResponse_missionProfileId,
-
-    -- ** CancelContact
-    cancelContact_contactId,
-    contactIdResponse_contactId,
-
-    -- ** ListContacts
-    listContacts_missionProfileArn,
-    listContacts_satelliteArn,
-    listContacts_nextToken,
-    listContacts_groundStation,
-    listContacts_maxResults,
-    listContacts_endTime,
-    listContacts_startTime,
-    listContacts_statusList,
-    listContactsResponse_contactList,
-    listContactsResponse_nextToken,
-    listContactsResponse_httpStatus,
 
     -- * Types
 
@@ -236,58 +236,58 @@ module Amazonka.GroundStation.Lens
     antennaUplinkConfig_targetEirp,
 
     -- ** ConfigDetails
-    configDetails_antennaDemodDecodeDetails,
-    configDetails_s3RecordingDetails,
     configDetails_endpointDetails,
+    configDetails_s3RecordingDetails,
+    configDetails_antennaDemodDecodeDetails,
 
     -- ** ConfigIdResponse
-    configIdResponse_configArn,
     configIdResponse_configId,
     configIdResponse_configType,
+    configIdResponse_configArn,
 
     -- ** ConfigListItem
-    configListItem_configArn,
     configListItem_name,
     configListItem_configId,
     configListItem_configType,
+    configListItem_configArn,
 
     -- ** ConfigTypeData
-    configTypeData_antennaDownlinkDemodDecodeConfig,
-    configTypeData_antennaDownlinkConfig,
-    configTypeData_antennaUplinkConfig,
-    configTypeData_uplinkEchoConfig,
-    configTypeData_s3RecordingConfig,
     configTypeData_trackingConfig,
     configTypeData_dataflowEndpointConfig,
+    configTypeData_uplinkEchoConfig,
+    configTypeData_antennaDownlinkConfig,
+    configTypeData_antennaDownlinkDemodDecodeConfig,
+    configTypeData_antennaUplinkConfig,
+    configTypeData_s3RecordingConfig,
 
     -- ** ContactData
-    contactData_contactStatus,
-    contactData_missionProfileArn,
-    contactData_startTime,
-    contactData_satelliteArn,
-    contactData_maximumElevation,
-    contactData_groundStation,
-    contactData_endTime,
-    contactData_contactId,
-    contactData_region,
-    contactData_postPassEndTime,
-    contactData_prePassStartTime,
-    contactData_errorMessage,
     contactData_tags,
+    contactData_missionProfileArn,
+    contactData_contactId,
+    contactData_errorMessage,
+    contactData_postPassEndTime,
+    contactData_satelliteArn,
+    contactData_contactStatus,
+    contactData_endTime,
+    contactData_region,
+    contactData_prePassStartTime,
+    contactData_groundStation,
+    contactData_startTime,
+    contactData_maximumElevation,
 
     -- ** ContactIdResponse
     contactIdResponse_contactId,
 
     -- ** DataflowDetail
     dataflowDetail_destination,
-    dataflowDetail_source,
     dataflowDetail_errorMessage,
+    dataflowDetail_source,
 
     -- ** DataflowEndpoint
-    dataflowEndpoint_mtu,
+    dataflowEndpoint_name,
     dataflowEndpoint_status,
     dataflowEndpoint_address,
-    dataflowEndpoint_name,
+    dataflowEndpoint_mtu,
 
     -- ** DataflowEndpointConfig
     dataflowEndpointConfig_dataflowEndpointRegion,
@@ -309,8 +309,8 @@ module Amazonka.GroundStation.Lens
     -- ** Destination
     destination_dataflowDestinationRegion,
     destination_configId,
-    destination_configType,
     destination_configDetails,
+    destination_configType,
 
     -- ** Eirp
     eirp_units,
@@ -321,8 +321,8 @@ module Amazonka.GroundStation.Lens
     elevation_value,
 
     -- ** EndpointDetails
-    endpointDetails_securityDetails,
     endpointDetails_endpoint,
+    endpointDetails_securityDetails,
 
     -- ** Frequency
     frequency_units,
@@ -333,17 +333,17 @@ module Amazonka.GroundStation.Lens
     frequencyBandwidth_value,
 
     -- ** GroundStationData
-    groundStationData_groundStationId,
     groundStationData_groundStationName,
     groundStationData_region,
+    groundStationData_groundStationId,
 
     -- ** MissionProfileIdResponse
     missionProfileIdResponse_missionProfileId,
 
     -- ** MissionProfileListItem
-    missionProfileListItem_missionProfileId,
     missionProfileListItem_missionProfileArn,
     missionProfileListItem_name,
+    missionProfileListItem_missionProfileId,
     missionProfileListItem_region,
 
     -- ** S3RecordingConfig
@@ -356,10 +356,10 @@ module Amazonka.GroundStation.Lens
     s3RecordingDetails_bucketArn,
 
     -- ** SatelliteListItem
-    satelliteListItem_satelliteId,
     satelliteListItem_satelliteArn,
-    satelliteListItem_groundStations,
+    satelliteListItem_satelliteId,
     satelliteListItem_noradSatelliteID,
+    satelliteListItem_groundStations,
 
     -- ** SecurityDetails
     securityDetails_roleArn,
@@ -373,8 +373,8 @@ module Amazonka.GroundStation.Lens
     -- ** Source
     source_dataflowSourceRegion,
     source_configId,
-    source_configType,
     source_configDetails,
+    source_configType,
 
     -- ** SpectrumConfig
     spectrumConfig_polarization,

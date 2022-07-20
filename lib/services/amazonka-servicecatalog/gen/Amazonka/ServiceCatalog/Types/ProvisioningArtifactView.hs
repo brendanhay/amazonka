@@ -30,11 +30,11 @@ import Amazonka.ServiceCatalog.Types.ProvisioningArtifact
 --
 -- /See:/ 'newProvisioningArtifactView' smart constructor.
 data ProvisioningArtifactView = ProvisioningArtifactView'
-  { -- | Summary information about a product view.
-    productViewSummary :: Prelude.Maybe ProductViewSummary,
-    -- | Information about a provisioning artifact. A provisioning artifact is
+  { -- | Information about a provisioning artifact. A provisioning artifact is
     -- also known as a product version.
-    provisioningArtifact :: Prelude.Maybe ProvisioningArtifact
+    provisioningArtifact :: Prelude.Maybe ProvisioningArtifact,
+    -- | Summary information about a product view.
+    productViewSummary :: Prelude.Maybe ProductViewSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data ProvisioningArtifactView = ProvisioningArtifactView'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productViewSummary', 'provisioningArtifactView_productViewSummary' - Summary information about a product view.
---
 -- 'provisioningArtifact', 'provisioningArtifactView_provisioningArtifact' - Information about a provisioning artifact. A provisioning artifact is
 -- also known as a product version.
+--
+-- 'productViewSummary', 'provisioningArtifactView_productViewSummary' - Summary information about a product view.
 newProvisioningArtifactView ::
   ProvisioningArtifactView
 newProvisioningArtifactView =
   ProvisioningArtifactView'
-    { productViewSummary =
+    { provisioningArtifact =
         Prelude.Nothing,
-      provisioningArtifact = Prelude.Nothing
+      productViewSummary = Prelude.Nothing
     }
-
--- | Summary information about a product view.
-provisioningArtifactView_productViewSummary :: Lens.Lens' ProvisioningArtifactView (Prelude.Maybe ProductViewSummary)
-provisioningArtifactView_productViewSummary = Lens.lens (\ProvisioningArtifactView' {productViewSummary} -> productViewSummary) (\s@ProvisioningArtifactView' {} a -> s {productViewSummary = a} :: ProvisioningArtifactView)
 
 -- | Information about a provisioning artifact. A provisioning artifact is
 -- also known as a product version.
 provisioningArtifactView_provisioningArtifact :: Lens.Lens' ProvisioningArtifactView (Prelude.Maybe ProvisioningArtifact)
 provisioningArtifactView_provisioningArtifact = Lens.lens (\ProvisioningArtifactView' {provisioningArtifact} -> provisioningArtifact) (\s@ProvisioningArtifactView' {} a -> s {provisioningArtifact = a} :: ProvisioningArtifactView)
+
+-- | Summary information about a product view.
+provisioningArtifactView_productViewSummary :: Lens.Lens' ProvisioningArtifactView (Prelude.Maybe ProductViewSummary)
+provisioningArtifactView_productViewSummary = Lens.lens (\ProvisioningArtifactView' {productViewSummary} -> productViewSummary) (\s@ProvisioningArtifactView' {} a -> s {productViewSummary = a} :: ProvisioningArtifactView)
 
 instance Core.FromJSON ProvisioningArtifactView where
   parseJSON =
@@ -74,16 +74,16 @@ instance Core.FromJSON ProvisioningArtifactView where
       "ProvisioningArtifactView"
       ( \x ->
           ProvisioningArtifactView'
-            Prelude.<$> (x Core..:? "ProductViewSummary")
-            Prelude.<*> (x Core..:? "ProvisioningArtifact")
+            Prelude.<$> (x Core..:? "ProvisioningArtifact")
+            Prelude.<*> (x Core..:? "ProductViewSummary")
       )
 
 instance Prelude.Hashable ProvisioningArtifactView where
   hashWithSalt _salt ProvisioningArtifactView' {..} =
-    _salt `Prelude.hashWithSalt` productViewSummary
-      `Prelude.hashWithSalt` provisioningArtifact
+    _salt `Prelude.hashWithSalt` provisioningArtifact
+      `Prelude.hashWithSalt` productViewSummary
 
 instance Prelude.NFData ProvisioningArtifactView where
   rnf ProvisioningArtifactView' {..} =
-    Prelude.rnf productViewSummary
-      `Prelude.seq` Prelude.rnf provisioningArtifact
+    Prelude.rnf provisioningArtifact
+      `Prelude.seq` Prelude.rnf productViewSummary

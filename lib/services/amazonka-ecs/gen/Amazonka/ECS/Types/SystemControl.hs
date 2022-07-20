@@ -48,10 +48,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSystemControl' smart constructor.
 data SystemControl = SystemControl'
-  { -- | The value for the namespaced kernel parameter specified in @namespace@.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The namespaced kernel parameter for which to set a @value@.
-    namespace :: Prelude.Maybe Prelude.Text
+  { -- | The namespaced kernel parameter for which to set a @value@.
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | The value for the namespaced kernel parameter specified in @namespace@.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,24 +63,24 @@ data SystemControl = SystemControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'systemControl_value' - The value for the namespaced kernel parameter specified in @namespace@.
---
 -- 'namespace', 'systemControl_namespace' - The namespaced kernel parameter for which to set a @value@.
+--
+-- 'value', 'systemControl_value' - The value for the namespaced kernel parameter specified in @namespace@.
 newSystemControl ::
   SystemControl
 newSystemControl =
   SystemControl'
-    { value = Prelude.Nothing,
-      namespace = Prelude.Nothing
+    { namespace = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value for the namespaced kernel parameter specified in @namespace@.
-systemControl_value :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
-systemControl_value = Lens.lens (\SystemControl' {value} -> value) (\s@SystemControl' {} a -> s {value = a} :: SystemControl)
 
 -- | The namespaced kernel parameter for which to set a @value@.
 systemControl_namespace :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
 systemControl_namespace = Lens.lens (\SystemControl' {namespace} -> namespace) (\s@SystemControl' {} a -> s {namespace = a} :: SystemControl)
+
+-- | The value for the namespaced kernel parameter specified in @namespace@.
+systemControl_value :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
+systemControl_value = Lens.lens (\SystemControl' {value} -> value) (\s@SystemControl' {} a -> s {value = a} :: SystemControl)
 
 instance Core.FromJSON SystemControl where
   parseJSON =
@@ -88,25 +88,25 @@ instance Core.FromJSON SystemControl where
       "SystemControl"
       ( \x ->
           SystemControl'
-            Prelude.<$> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "namespace")
+            Prelude.<$> (x Core..:? "namespace")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable SystemControl where
   hashWithSalt _salt SystemControl' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` namespace
+    _salt `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SystemControl where
   rnf SystemControl' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SystemControl where
   toJSON SystemControl' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("namespace" Core..=) Prelude.<$> namespace
+          [ ("namespace" Core..=) Prelude.<$> namespace,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

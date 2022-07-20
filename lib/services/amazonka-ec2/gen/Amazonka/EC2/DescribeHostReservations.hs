@@ -31,8 +31,8 @@ module Amazonka.EC2.DescribeHostReservations
 
     -- * Request Lenses
     describeHostReservations_nextToken,
-    describeHostReservations_hostReservationIdSet,
     describeHostReservations_filter,
+    describeHostReservations_hostReservationIdSet,
     describeHostReservations_maxResults,
 
     -- * Destructuring the Response
@@ -57,8 +57,6 @@ import qualified Amazonka.Response as Response
 data DescribeHostReservations = DescribeHostReservations'
   { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The host reservation IDs.
-    hostReservationIdSet :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @instance-family@ - The instance family (for example, @m4@).
@@ -79,6 +77,8 @@ data DescribeHostReservations = DescribeHostReservations'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filter' :: Prelude.Maybe [Filter],
+    -- | The host reservation IDs.
+    hostReservationIdSet :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
@@ -96,8 +96,6 @@ data DescribeHostReservations = DescribeHostReservations'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'describeHostReservations_nextToken' - The token to use to retrieve the next page of results.
---
--- 'hostReservationIdSet', 'describeHostReservations_hostReservationIdSet' - The host reservation IDs.
 --
 -- 'filter'', 'describeHostReservations_filter' - The filters.
 --
@@ -119,6 +117,8 @@ data DescribeHostReservations = DescribeHostReservations'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
+-- 'hostReservationIdSet', 'describeHostReservations_hostReservationIdSet' - The host reservation IDs.
+--
 -- 'maxResults', 'describeHostReservations_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
@@ -129,18 +129,14 @@ newDescribeHostReservations =
   DescribeHostReservations'
     { nextToken =
         Prelude.Nothing,
-      hostReservationIdSet = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      hostReservationIdSet = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
 -- | The token to use to retrieve the next page of results.
 describeHostReservations_nextToken :: Lens.Lens' DescribeHostReservations (Prelude.Maybe Prelude.Text)
 describeHostReservations_nextToken = Lens.lens (\DescribeHostReservations' {nextToken} -> nextToken) (\s@DescribeHostReservations' {} a -> s {nextToken = a} :: DescribeHostReservations)
-
--- | The host reservation IDs.
-describeHostReservations_hostReservationIdSet :: Lens.Lens' DescribeHostReservations (Prelude.Maybe [Prelude.Text])
-describeHostReservations_hostReservationIdSet = Lens.lens (\DescribeHostReservations' {hostReservationIdSet} -> hostReservationIdSet) (\s@DescribeHostReservations' {} a -> s {hostReservationIdSet = a} :: DescribeHostReservations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters.
 --
@@ -163,6 +159,10 @@ describeHostReservations_hostReservationIdSet = Lens.lens (\DescribeHostReservat
 --     regardless of the tag value.
 describeHostReservations_filter :: Lens.Lens' DescribeHostReservations (Prelude.Maybe [Filter])
 describeHostReservations_filter = Lens.lens (\DescribeHostReservations' {filter'} -> filter') (\s@DescribeHostReservations' {} a -> s {filter' = a} :: DescribeHostReservations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The host reservation IDs.
+describeHostReservations_hostReservationIdSet :: Lens.Lens' DescribeHostReservations (Prelude.Maybe [Prelude.Text])
+describeHostReservations_hostReservationIdSet = Lens.lens (\DescribeHostReservations' {hostReservationIdSet} -> hostReservationIdSet) (\s@DescribeHostReservations' {} a -> s {hostReservationIdSet = a} :: DescribeHostReservations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
@@ -213,15 +213,15 @@ instance Core.AWSRequest DescribeHostReservations where
 instance Prelude.Hashable DescribeHostReservations where
   hashWithSalt _salt DescribeHostReservations' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` hostReservationIdSet
       `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` hostReservationIdSet
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeHostReservations where
   rnf DescribeHostReservations' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf hostReservationIdSet
       `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf hostReservationIdSet
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeHostReservations where
@@ -239,11 +239,11 @@ instance Core.ToQuery DescribeHostReservations where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filter'),
+        Core.toQuery
           ( Core.toQueryList "HostReservationIdSet"
               Prelude.<$> hostReservationIdSet
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filter'),
         "MaxResults" Core.=: maxResults
       ]
 

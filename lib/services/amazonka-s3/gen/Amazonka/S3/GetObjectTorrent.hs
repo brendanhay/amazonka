@@ -42,8 +42,8 @@ module Amazonka.S3.GetObjectTorrent
     newGetObjectTorrent,
 
     -- * Request Lenses
-    getObjectTorrent_requestPayer,
     getObjectTorrent_expectedBucketOwner,
+    getObjectTorrent_requestPayer,
     getObjectTorrent_bucket,
     getObjectTorrent_key,
 
@@ -67,11 +67,11 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newGetObjectTorrent' smart constructor.
 data GetObjectTorrent = GetObjectTorrent'
-  { requestPayer :: Prelude.Maybe RequestPayer,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The name of the bucket containing the object for which to get the
     -- torrent files.
     bucket :: BucketName,
@@ -88,11 +88,11 @@ data GetObjectTorrent = GetObjectTorrent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestPayer', 'getObjectTorrent_requestPayer' - Undocumented member.
---
 -- 'expectedBucketOwner', 'getObjectTorrent_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'requestPayer', 'getObjectTorrent_requestPayer' - Undocumented member.
 --
 -- 'bucket', 'getObjectTorrent_bucket' - The name of the bucket containing the object for which to get the
 -- torrent files.
@@ -106,21 +106,22 @@ newGetObjectTorrent ::
   GetObjectTorrent
 newGetObjectTorrent pBucket_ pKey_ =
   GetObjectTorrent'
-    { requestPayer = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
+    { expectedBucketOwner =
+        Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
-
--- | Undocumented member.
-getObjectTorrent_requestPayer :: Lens.Lens' GetObjectTorrent (Prelude.Maybe RequestPayer)
-getObjectTorrent_requestPayer = Lens.lens (\GetObjectTorrent' {requestPayer} -> requestPayer) (\s@GetObjectTorrent' {} a -> s {requestPayer = a} :: GetObjectTorrent)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getObjectTorrent_expectedBucketOwner :: Lens.Lens' GetObjectTorrent (Prelude.Maybe Prelude.Text)
 getObjectTorrent_expectedBucketOwner = Lens.lens (\GetObjectTorrent' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectTorrent' {} a -> s {expectedBucketOwner = a} :: GetObjectTorrent)
+
+-- | Undocumented member.
+getObjectTorrent_requestPayer :: Lens.Lens' GetObjectTorrent (Prelude.Maybe RequestPayer)
+getObjectTorrent_requestPayer = Lens.lens (\GetObjectTorrent' {requestPayer} -> requestPayer) (\s@GetObjectTorrent' {} a -> s {requestPayer = a} :: GetObjectTorrent)
 
 -- | The name of the bucket containing the object for which to get the
 -- torrent files.
@@ -149,24 +150,24 @@ instance Core.AWSRequest GetObjectTorrent where
 
 instance Prelude.Hashable GetObjectTorrent where
   hashWithSalt _salt GetObjectTorrent' {..} =
-    _salt `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` expectedBucketOwner
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData GetObjectTorrent where
   rnf GetObjectTorrent' {..} =
-    Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetObjectTorrent where
   toHeaders GetObjectTorrent' {..} =
     Prelude.mconcat
-      [ "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
 instance Core.ToPath GetObjectTorrent where

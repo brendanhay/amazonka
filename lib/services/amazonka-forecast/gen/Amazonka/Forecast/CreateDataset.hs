@@ -54,9 +54,9 @@ module Amazonka.Forecast.CreateDataset
     newCreateDataset,
 
     -- * Request Lenses
-    createDataset_dataFrequency,
-    createDataset_encryptionConfig,
     createDataset_tags,
+    createDataset_encryptionConfig,
+    createDataset_dataFrequency,
     createDataset_datasetName,
     createDataset_domain,
     createDataset_datasetType,
@@ -81,18 +81,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataset' smart constructor.
 data CreateDataset = CreateDataset'
-  { -- | The frequency of data collection. This parameter is required for
-    -- RELATED_TIME_SERIES datasets.
-    --
-    -- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
-    -- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
-    -- minutes), and 1min (1 minute). For example, \"D\" indicates every day
-    -- and \"15min\" indicates every 15 minutes.
-    dataFrequency :: Prelude.Maybe Prelude.Text,
-    -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
-    -- Management (IAM) role that Amazon Forecast can assume to access the key.
-    encryptionConfig :: Prelude.Maybe EncryptionConfig,
-    -- | The optional metadata that you apply to the dataset to help you
+  { -- | The optional metadata that you apply to the dataset to help you
     -- categorize and organize them. Each tag consists of a key and an optional
     -- value, both of which you define.
     --
@@ -123,6 +112,17 @@ data CreateDataset = CreateDataset'
     --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
     --     count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
+    -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+    -- Management (IAM) role that Amazon Forecast can assume to access the key.
+    encryptionConfig :: Prelude.Maybe EncryptionConfig,
+    -- | The frequency of data collection. This parameter is required for
+    -- RELATED_TIME_SERIES datasets.
+    --
+    -- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
+    -- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
+    -- minutes), and 1min (1 minute). For example, \"D\" indicates every day
+    -- and \"15min\" indicates every 15 minutes.
+    dataFrequency :: Prelude.Maybe Prelude.Text,
     -- | A name for the dataset.
     datasetName :: Prelude.Text,
     -- | The domain associated with the dataset. When you add a dataset to a
@@ -155,17 +155,6 @@ data CreateDataset = CreateDataset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataFrequency', 'createDataset_dataFrequency' - The frequency of data collection. This parameter is required for
--- RELATED_TIME_SERIES datasets.
---
--- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
--- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
--- minutes), and 1min (1 minute). For example, \"D\" indicates every day
--- and \"15min\" indicates every 15 minutes.
---
--- 'encryptionConfig', 'createDataset_encryptionConfig' - An AWS Key Management Service (KMS) key and the AWS Identity and Access
--- Management (IAM) role that Amazon Forecast can assume to access the key.
---
 -- 'tags', 'createDataset_tags' - The optional metadata that you apply to the dataset to help you
 -- categorize and organize them. Each tag consists of a key and an optional
 -- value, both of which you define.
@@ -196,6 +185,17 @@ data CreateDataset = CreateDataset'
 --     then Forecast considers it to be a user tag and will count against
 --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
 --     count against your tags per resource limit.
+--
+-- 'encryptionConfig', 'createDataset_encryptionConfig' - An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- Management (IAM) role that Amazon Forecast can assume to access the key.
+--
+-- 'dataFrequency', 'createDataset_dataFrequency' - The frequency of data collection. This parameter is required for
+-- RELATED_TIME_SERIES datasets.
+--
+-- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
+-- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
+-- minutes), and 1min (1 minute). For example, \"D\" indicates every day
+-- and \"15min\" indicates every 15 minutes.
 --
 -- 'datasetName', 'createDataset_datasetName' - A name for the dataset.
 --
@@ -233,29 +233,14 @@ newCreateDataset
   pDatasetType_
   pSchema_ =
     CreateDataset'
-      { dataFrequency = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         encryptionConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        dataFrequency = Prelude.Nothing,
         datasetName = pDatasetName_,
         domain = pDomain_,
         datasetType = pDatasetType_,
         schema = pSchema_
       }
-
--- | The frequency of data collection. This parameter is required for
--- RELATED_TIME_SERIES datasets.
---
--- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
--- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
--- minutes), and 1min (1 minute). For example, \"D\" indicates every day
--- and \"15min\" indicates every 15 minutes.
-createDataset_dataFrequency :: Lens.Lens' CreateDataset (Prelude.Maybe Prelude.Text)
-createDataset_dataFrequency = Lens.lens (\CreateDataset' {dataFrequency} -> dataFrequency) (\s@CreateDataset' {} a -> s {dataFrequency = a} :: CreateDataset)
-
--- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
--- Management (IAM) role that Amazon Forecast can assume to access the key.
-createDataset_encryptionConfig :: Lens.Lens' CreateDataset (Prelude.Maybe EncryptionConfig)
-createDataset_encryptionConfig = Lens.lens (\CreateDataset' {encryptionConfig} -> encryptionConfig) (\s@CreateDataset' {} a -> s {encryptionConfig = a} :: CreateDataset)
 
 -- | The optional metadata that you apply to the dataset to help you
 -- categorize and organize them. Each tag consists of a key and an optional
@@ -289,6 +274,21 @@ createDataset_encryptionConfig = Lens.lens (\CreateDataset' {encryptionConfig} -
 --     count against your tags per resource limit.
 createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe [Tag])
 createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
+
+-- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- Management (IAM) role that Amazon Forecast can assume to access the key.
+createDataset_encryptionConfig :: Lens.Lens' CreateDataset (Prelude.Maybe EncryptionConfig)
+createDataset_encryptionConfig = Lens.lens (\CreateDataset' {encryptionConfig} -> encryptionConfig) (\s@CreateDataset' {} a -> s {encryptionConfig = a} :: CreateDataset)
+
+-- | The frequency of data collection. This parameter is required for
+-- RELATED_TIME_SERIES datasets.
+--
+-- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
+-- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
+-- minutes), and 1min (1 minute). For example, \"D\" indicates every day
+-- and \"15min\" indicates every 15 minutes.
+createDataset_dataFrequency :: Lens.Lens' CreateDataset (Prelude.Maybe Prelude.Text)
+createDataset_dataFrequency = Lens.lens (\CreateDataset' {dataFrequency} -> dataFrequency) (\s@CreateDataset' {} a -> s {dataFrequency = a} :: CreateDataset)
 
 -- | A name for the dataset.
 createDataset_datasetName :: Lens.Lens' CreateDataset Prelude.Text
@@ -334,9 +334,9 @@ instance Core.AWSRequest CreateDataset where
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` dataFrequency
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` encryptionConfig
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dataFrequency
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` datasetType
@@ -344,9 +344,9 @@ instance Prelude.Hashable CreateDataset where
 
 instance Prelude.NFData CreateDataset where
   rnf CreateDataset' {..} =
-    Prelude.rnf dataFrequency
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataFrequency
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf datasetType
@@ -371,10 +371,10 @@ instance Core.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataFrequency" Core..=) Prelude.<$> dataFrequency,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("EncryptionConfig" Core..=)
               Prelude.<$> encryptionConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("DataFrequency" Core..=) Prelude.<$> dataFrequency,
             Prelude.Just ("DatasetName" Core..= datasetName),
             Prelude.Just ("Domain" Core..= domain),
             Prelude.Just ("DatasetType" Core..= datasetType),

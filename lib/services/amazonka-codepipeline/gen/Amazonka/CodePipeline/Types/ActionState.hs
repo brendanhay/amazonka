@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionState' smart constructor.
 data ActionState = ActionState'
-  { -- | A URL link for more information about the revision, such as a commit
-    -- details page.
-    revisionUrl :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the action.
+    actionName :: Prelude.Maybe Prelude.Text,
     -- | A URL link for more information about the state of the action, such as a
     -- deployment group details page.
     entityUrl :: Prelude.Maybe Prelude.Text,
-    -- | The name of the action.
-    actionName :: Prelude.Maybe Prelude.Text,
+    -- | A URL link for more information about the revision, such as a commit
+    -- details page.
+    revisionUrl :: Prelude.Maybe Prelude.Text,
     -- | Represents information about the version (or revision) of an action.
     currentRevision :: Prelude.Maybe ActionRevision,
     -- | Represents information about the run of an action.
@@ -52,13 +52,13 @@ data ActionState = ActionState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionUrl', 'actionState_revisionUrl' - A URL link for more information about the revision, such as a commit
--- details page.
+-- 'actionName', 'actionState_actionName' - The name of the action.
 --
 -- 'entityUrl', 'actionState_entityUrl' - A URL link for more information about the state of the action, such as a
 -- deployment group details page.
 --
--- 'actionName', 'actionState_actionName' - The name of the action.
+-- 'revisionUrl', 'actionState_revisionUrl' - A URL link for more information about the revision, such as a commit
+-- details page.
 --
 -- 'currentRevision', 'actionState_currentRevision' - Represents information about the version (or revision) of an action.
 --
@@ -67,26 +67,26 @@ newActionState ::
   ActionState
 newActionState =
   ActionState'
-    { revisionUrl = Prelude.Nothing,
+    { actionName = Prelude.Nothing,
       entityUrl = Prelude.Nothing,
-      actionName = Prelude.Nothing,
+      revisionUrl = Prelude.Nothing,
       currentRevision = Prelude.Nothing,
       latestExecution = Prelude.Nothing
     }
 
--- | A URL link for more information about the revision, such as a commit
--- details page.
-actionState_revisionUrl :: Lens.Lens' ActionState (Prelude.Maybe Prelude.Text)
-actionState_revisionUrl = Lens.lens (\ActionState' {revisionUrl} -> revisionUrl) (\s@ActionState' {} a -> s {revisionUrl = a} :: ActionState)
+-- | The name of the action.
+actionState_actionName :: Lens.Lens' ActionState (Prelude.Maybe Prelude.Text)
+actionState_actionName = Lens.lens (\ActionState' {actionName} -> actionName) (\s@ActionState' {} a -> s {actionName = a} :: ActionState)
 
 -- | A URL link for more information about the state of the action, such as a
 -- deployment group details page.
 actionState_entityUrl :: Lens.Lens' ActionState (Prelude.Maybe Prelude.Text)
 actionState_entityUrl = Lens.lens (\ActionState' {entityUrl} -> entityUrl) (\s@ActionState' {} a -> s {entityUrl = a} :: ActionState)
 
--- | The name of the action.
-actionState_actionName :: Lens.Lens' ActionState (Prelude.Maybe Prelude.Text)
-actionState_actionName = Lens.lens (\ActionState' {actionName} -> actionName) (\s@ActionState' {} a -> s {actionName = a} :: ActionState)
+-- | A URL link for more information about the revision, such as a commit
+-- details page.
+actionState_revisionUrl :: Lens.Lens' ActionState (Prelude.Maybe Prelude.Text)
+actionState_revisionUrl = Lens.lens (\ActionState' {revisionUrl} -> revisionUrl) (\s@ActionState' {} a -> s {revisionUrl = a} :: ActionState)
 
 -- | Represents information about the version (or revision) of an action.
 actionState_currentRevision :: Lens.Lens' ActionState (Prelude.Maybe ActionRevision)
@@ -102,25 +102,25 @@ instance Core.FromJSON ActionState where
       "ActionState"
       ( \x ->
           ActionState'
-            Prelude.<$> (x Core..:? "revisionUrl")
+            Prelude.<$> (x Core..:? "actionName")
             Prelude.<*> (x Core..:? "entityUrl")
-            Prelude.<*> (x Core..:? "actionName")
+            Prelude.<*> (x Core..:? "revisionUrl")
             Prelude.<*> (x Core..:? "currentRevision")
             Prelude.<*> (x Core..:? "latestExecution")
       )
 
 instance Prelude.Hashable ActionState where
   hashWithSalt _salt ActionState' {..} =
-    _salt `Prelude.hashWithSalt` revisionUrl
+    _salt `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` entityUrl
-      `Prelude.hashWithSalt` actionName
+      `Prelude.hashWithSalt` revisionUrl
       `Prelude.hashWithSalt` currentRevision
       `Prelude.hashWithSalt` latestExecution
 
 instance Prelude.NFData ActionState where
   rnf ActionState' {..} =
-    Prelude.rnf revisionUrl
+    Prelude.rnf actionName
       `Prelude.seq` Prelude.rnf entityUrl
-      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf revisionUrl
       `Prelude.seq` Prelude.rnf currentRevision
       `Prelude.seq` Prelude.rnf latestExecution

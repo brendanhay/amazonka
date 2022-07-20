@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data WebsiteCaSummary = WebsiteCaSummary'
   { -- | The time when the CA was added.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | A unique identifier for the CA.
-    websiteCaId :: Prelude.Maybe Prelude.Text,
     -- | The name to display.
-    displayName :: Prelude.Maybe Prelude.Text
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the CA.
+    websiteCaId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data WebsiteCaSummary = WebsiteCaSummary'
 --
 -- 'createdTime', 'websiteCaSummary_createdTime' - The time when the CA was added.
 --
--- 'websiteCaId', 'websiteCaSummary_websiteCaId' - A unique identifier for the CA.
---
 -- 'displayName', 'websiteCaSummary_displayName' - The name to display.
+--
+-- 'websiteCaId', 'websiteCaSummary_websiteCaId' - A unique identifier for the CA.
 newWebsiteCaSummary ::
   WebsiteCaSummary
 newWebsiteCaSummary =
   WebsiteCaSummary'
     { createdTime = Prelude.Nothing,
-      websiteCaId = Prelude.Nothing,
-      displayName = Prelude.Nothing
+      displayName = Prelude.Nothing,
+      websiteCaId = Prelude.Nothing
     }
 
 -- | The time when the CA was added.
 websiteCaSummary_createdTime :: Lens.Lens' WebsiteCaSummary (Prelude.Maybe Prelude.UTCTime)
 websiteCaSummary_createdTime = Lens.lens (\WebsiteCaSummary' {createdTime} -> createdTime) (\s@WebsiteCaSummary' {} a -> s {createdTime = a} :: WebsiteCaSummary) Prelude.. Lens.mapping Core._Time
 
--- | A unique identifier for the CA.
-websiteCaSummary_websiteCaId :: Lens.Lens' WebsiteCaSummary (Prelude.Maybe Prelude.Text)
-websiteCaSummary_websiteCaId = Lens.lens (\WebsiteCaSummary' {websiteCaId} -> websiteCaId) (\s@WebsiteCaSummary' {} a -> s {websiteCaId = a} :: WebsiteCaSummary)
-
 -- | The name to display.
 websiteCaSummary_displayName :: Lens.Lens' WebsiteCaSummary (Prelude.Maybe Prelude.Text)
 websiteCaSummary_displayName = Lens.lens (\WebsiteCaSummary' {displayName} -> displayName) (\s@WebsiteCaSummary' {} a -> s {displayName = a} :: WebsiteCaSummary)
+
+-- | A unique identifier for the CA.
+websiteCaSummary_websiteCaId :: Lens.Lens' WebsiteCaSummary (Prelude.Maybe Prelude.Text)
+websiteCaSummary_websiteCaId = Lens.lens (\WebsiteCaSummary' {websiteCaId} -> websiteCaId) (\s@WebsiteCaSummary' {} a -> s {websiteCaId = a} :: WebsiteCaSummary)
 
 instance Core.FromJSON WebsiteCaSummary where
   parseJSON =
@@ -77,18 +77,18 @@ instance Core.FromJSON WebsiteCaSummary where
       ( \x ->
           WebsiteCaSummary'
             Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "WebsiteCaId")
             Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "WebsiteCaId")
       )
 
 instance Prelude.Hashable WebsiteCaSummary where
   hashWithSalt _salt WebsiteCaSummary' {..} =
     _salt `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` websiteCaId
       `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` websiteCaId
 
 instance Prelude.NFData WebsiteCaSummary where
   rnf WebsiteCaSummary' {..} =
     Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf websiteCaId
       `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf websiteCaId

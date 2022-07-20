@@ -29,8 +29,8 @@ module Amazonka.Schemas.ListSchemas
     newListSchemas,
 
     -- * Request Lenses
-    listSchemas_schemaNamePrefix,
     listSchemas_nextToken,
+    listSchemas_schemaNamePrefix,
     listSchemas_limit,
     listSchemas_registryName,
 
@@ -39,8 +39,8 @@ module Amazonka.Schemas.ListSchemas
     newListSchemasResponse,
 
     -- * Response Lenses
-    listSchemasResponse_schemas,
     listSchemasResponse_nextToken,
+    listSchemasResponse_schemas,
     listSchemasResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import Amazonka.Schemas.Types
 
 -- | /See:/ 'newListSchemas' smart constructor.
 data ListSchemas = ListSchemas'
-  { -- | Specifying this limits the results to only those schema names that start
-    -- with the specified prefix.
-    schemaNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | The token that specifies the next page of results to return. To request
+  { -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifying this limits the results to only those schema names that start
+    -- with the specified prefix.
+    schemaNamePrefix :: Prelude.Maybe Prelude.Text,
     limit :: Prelude.Maybe Prelude.Int,
     -- | The name of the registry.
     registryName :: Prelude.Text
@@ -75,12 +75,12 @@ data ListSchemas = ListSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaNamePrefix', 'listSchemas_schemaNamePrefix' - Specifying this limits the results to only those schema names that start
--- with the specified prefix.
---
 -- 'nextToken', 'listSchemas_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
+--
+-- 'schemaNamePrefix', 'listSchemas_schemaNamePrefix' - Specifying this limits the results to only those schema names that start
+-- with the specified prefix.
 --
 -- 'limit', 'listSchemas_limit' - Undocumented member.
 --
@@ -91,22 +91,22 @@ newListSchemas ::
   ListSchemas
 newListSchemas pRegistryName_ =
   ListSchemas'
-    { schemaNamePrefix = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      schemaNamePrefix = Prelude.Nothing,
       limit = Prelude.Nothing,
       registryName = pRegistryName_
     }
-
--- | Specifying this limits the results to only those schema names that start
--- with the specified prefix.
-listSchemas_schemaNamePrefix :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_schemaNamePrefix = Lens.lens (\ListSchemas' {schemaNamePrefix} -> schemaNamePrefix) (\s@ListSchemas' {} a -> s {schemaNamePrefix = a} :: ListSchemas)
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
 listSchemas_nextToken :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@ListSchemas' {} a -> s {nextToken = a} :: ListSchemas)
+
+-- | Specifying this limits the results to only those schema names that start
+-- with the specified prefix.
+listSchemas_schemaNamePrefix :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_schemaNamePrefix = Lens.lens (\ListSchemas' {schemaNamePrefix} -> schemaNamePrefix) (\s@ListSchemas' {} a -> s {schemaNamePrefix = a} :: ListSchemas)
 
 -- | Undocumented member.
 listSchemas_limit :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Int)
@@ -142,22 +142,22 @@ instance Core.AWSRequest ListSchemas where
     Response.receiveJSON
       ( \s h x ->
           ListSchemasResponse'
-            Prelude.<$> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
-    _salt `Prelude.hashWithSalt` schemaNamePrefix
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` schemaNamePrefix
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` registryName
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
-    Prelude.rnf schemaNamePrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaNamePrefix
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf registryName
 
@@ -183,19 +183,19 @@ instance Core.ToPath ListSchemas where
 instance Core.ToQuery ListSchemas where
   toQuery ListSchemas' {..} =
     Prelude.mconcat
-      [ "schemaNamePrefix" Core.=: schemaNamePrefix,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "schemaNamePrefix" Core.=: schemaNamePrefix,
         "limit" Core.=: limit
       ]
 
 -- | /See:/ 'newListSchemasResponse' smart constructor.
 data ListSchemasResponse = ListSchemasResponse'
-  { -- | An array of schema summaries.
-    schemas :: Prelude.Maybe [SchemaSummary],
-    -- | The token that specifies the next page of results to return. To request
+  { -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of schema summaries.
+    schemas :: Prelude.Maybe [SchemaSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,11 +209,11 @@ data ListSchemasResponse = ListSchemasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemas', 'listSchemasResponse_schemas' - An array of schema summaries.
---
 -- 'nextToken', 'listSchemasResponse_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
+--
+-- 'schemas', 'listSchemasResponse_schemas' - An array of schema summaries.
 --
 -- 'httpStatus', 'listSchemasResponse_httpStatus' - The response's http status code.
 newListSchemasResponse ::
@@ -222,14 +222,10 @@ newListSchemasResponse ::
   ListSchemasResponse
 newListSchemasResponse pHttpStatus_ =
   ListSchemasResponse'
-    { schemas = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      schemas = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of schema summaries.
-listSchemasResponse_schemas :: Lens.Lens' ListSchemasResponse (Prelude.Maybe [SchemaSummary])
-listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> schemas) (\s@ListSchemasResponse' {} a -> s {schemas = a} :: ListSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
@@ -237,12 +233,16 @@ listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> sche
 listSchemasResponse_nextToken :: Lens.Lens' ListSchemasResponse (Prelude.Maybe Prelude.Text)
 listSchemasResponse_nextToken = Lens.lens (\ListSchemasResponse' {nextToken} -> nextToken) (\s@ListSchemasResponse' {} a -> s {nextToken = a} :: ListSchemasResponse)
 
+-- | An array of schema summaries.
+listSchemasResponse_schemas :: Lens.Lens' ListSchemasResponse (Prelude.Maybe [SchemaSummary])
+listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> schemas) (\s@ListSchemasResponse' {} a -> s {schemas = a} :: ListSchemasResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listSchemasResponse_httpStatus :: Lens.Lens' ListSchemasResponse Prelude.Int
 listSchemasResponse_httpStatus = Lens.lens (\ListSchemasResponse' {httpStatus} -> httpStatus) (\s@ListSchemasResponse' {} a -> s {httpStatus = a} :: ListSchemasResponse)
 
 instance Prelude.NFData ListSchemasResponse where
   rnf ListSchemasResponse' {..} =
-    Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemas
       `Prelude.seq` Prelude.rnf httpStatus

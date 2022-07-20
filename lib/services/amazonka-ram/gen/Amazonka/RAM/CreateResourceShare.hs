@@ -35,12 +35,12 @@ module Amazonka.RAM.CreateResourceShare
     newCreateResourceShare,
 
     -- * Request Lenses
+    createResourceShare_tags,
     createResourceShare_clientToken,
-    createResourceShare_allowExternalPrincipals,
+    createResourceShare_permissionArns,
     createResourceShare_principals,
     createResourceShare_resourceArns,
-    createResourceShare_permissionArns,
-    createResourceShare_tags,
+    createResourceShare_allowExternalPrincipals,
     createResourceShare_name,
 
     -- * Destructuring the Response
@@ -63,12 +63,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateResourceShare' smart constructor.
 data CreateResourceShare = CreateResourceShare'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | One or more tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether principals outside your organization in Organizations
-    -- can be associated with a resource share.
-    allowExternalPrincipals :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Names (ARNs) of the permissions to associate with
+    -- the resource share. If you do not specify an ARN for the permission, RAM
+    -- automatically attaches the default version of the permission for each
+    -- resource type. Only one permission can be associated with each resource
+    -- type in a resource share.
+    permissionArns :: Prelude.Maybe [Prelude.Text],
     -- | The principals to associate with the resource share. The possible values
     -- are:
     --
@@ -89,14 +94,9 @@ data CreateResourceShare = CreateResourceShare'
     principals :: Prelude.Maybe [Prelude.Text],
     -- | The ARNs of the resources to associate with the resource share.
     resourceArns :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Names (ARNs) of the permissions to associate with
-    -- the resource share. If you do not specify an ARN for the permission, RAM
-    -- automatically attaches the default version of the permission for each
-    -- resource type. Only one permission can be associated with each resource
-    -- type in a resource share.
-    permissionArns :: Prelude.Maybe [Prelude.Text],
-    -- | One or more tags.
-    tags :: Prelude.Maybe [Tag],
+    -- | Indicates whether principals outside your organization in Organizations
+    -- can be associated with a resource share.
+    allowExternalPrincipals :: Prelude.Maybe Prelude.Bool,
     -- | The name of the resource share.
     name :: Prelude.Text
   }
@@ -110,11 +110,16 @@ data CreateResourceShare = CreateResourceShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createResourceShare_tags' - One or more tags.
+--
 -- 'clientToken', 'createResourceShare_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'allowExternalPrincipals', 'createResourceShare_allowExternalPrincipals' - Indicates whether principals outside your organization in Organizations
--- can be associated with a resource share.
+-- 'permissionArns', 'createResourceShare_permissionArns' - The Amazon Resource Names (ARNs) of the permissions to associate with
+-- the resource share. If you do not specify an ARN for the permission, RAM
+-- automatically attaches the default version of the permission for each
+-- resource type. Only one permission can be associated with each resource
+-- type in a resource share.
 --
 -- 'principals', 'createResourceShare_principals' - The principals to associate with the resource share. The possible values
 -- are:
@@ -136,13 +141,8 @@ data CreateResourceShare = CreateResourceShare'
 --
 -- 'resourceArns', 'createResourceShare_resourceArns' - The ARNs of the resources to associate with the resource share.
 --
--- 'permissionArns', 'createResourceShare_permissionArns' - The Amazon Resource Names (ARNs) of the permissions to associate with
--- the resource share. If you do not specify an ARN for the permission, RAM
--- automatically attaches the default version of the permission for each
--- resource type. Only one permission can be associated with each resource
--- type in a resource share.
---
--- 'tags', 'createResourceShare_tags' - One or more tags.
+-- 'allowExternalPrincipals', 'createResourceShare_allowExternalPrincipals' - Indicates whether principals outside your organization in Organizations
+-- can be associated with a resource share.
 --
 -- 'name', 'createResourceShare_name' - The name of the resource share.
 newCreateResourceShare ::
@@ -151,24 +151,31 @@ newCreateResourceShare ::
   CreateResourceShare
 newCreateResourceShare pName_ =
   CreateResourceShare'
-    { clientToken = Prelude.Nothing,
-      allowExternalPrincipals = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      permissionArns = Prelude.Nothing,
       principals = Prelude.Nothing,
       resourceArns = Prelude.Nothing,
-      permissionArns = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      allowExternalPrincipals = Prelude.Nothing,
       name = pName_
     }
+
+-- | One or more tags.
+createResourceShare_tags :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Tag])
+createResourceShare_tags = Lens.lens (\CreateResourceShare' {tags} -> tags) (\s@CreateResourceShare' {} a -> s {tags = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createResourceShare_clientToken :: Lens.Lens' CreateResourceShare (Prelude.Maybe Prelude.Text)
 createResourceShare_clientToken = Lens.lens (\CreateResourceShare' {clientToken} -> clientToken) (\s@CreateResourceShare' {} a -> s {clientToken = a} :: CreateResourceShare)
 
--- | Indicates whether principals outside your organization in Organizations
--- can be associated with a resource share.
-createResourceShare_allowExternalPrincipals :: Lens.Lens' CreateResourceShare (Prelude.Maybe Prelude.Bool)
-createResourceShare_allowExternalPrincipals = Lens.lens (\CreateResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@CreateResourceShare' {} a -> s {allowExternalPrincipals = a} :: CreateResourceShare)
+-- | The Amazon Resource Names (ARNs) of the permissions to associate with
+-- the resource share. If you do not specify an ARN for the permission, RAM
+-- automatically attaches the default version of the permission for each
+-- resource type. Only one permission can be associated with each resource
+-- type in a resource share.
+createResourceShare_permissionArns :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Prelude.Text])
+createResourceShare_permissionArns = Lens.lens (\CreateResourceShare' {permissionArns} -> permissionArns) (\s@CreateResourceShare' {} a -> s {permissionArns = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | The principals to associate with the resource share. The possible values
 -- are:
@@ -194,17 +201,10 @@ createResourceShare_principals = Lens.lens (\CreateResourceShare' {principals} -
 createResourceShare_resourceArns :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Prelude.Text])
 createResourceShare_resourceArns = Lens.lens (\CreateResourceShare' {resourceArns} -> resourceArns) (\s@CreateResourceShare' {} a -> s {resourceArns = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Names (ARNs) of the permissions to associate with
--- the resource share. If you do not specify an ARN for the permission, RAM
--- automatically attaches the default version of the permission for each
--- resource type. Only one permission can be associated with each resource
--- type in a resource share.
-createResourceShare_permissionArns :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Prelude.Text])
-createResourceShare_permissionArns = Lens.lens (\CreateResourceShare' {permissionArns} -> permissionArns) (\s@CreateResourceShare' {} a -> s {permissionArns = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more tags.
-createResourceShare_tags :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Tag])
-createResourceShare_tags = Lens.lens (\CreateResourceShare' {tags} -> tags) (\s@CreateResourceShare' {} a -> s {tags = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
+-- | Indicates whether principals outside your organization in Organizations
+-- can be associated with a resource share.
+createResourceShare_allowExternalPrincipals :: Lens.Lens' CreateResourceShare (Prelude.Maybe Prelude.Bool)
+createResourceShare_allowExternalPrincipals = Lens.lens (\CreateResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@CreateResourceShare' {} a -> s {allowExternalPrincipals = a} :: CreateResourceShare)
 
 -- | The name of the resource share.
 createResourceShare_name :: Lens.Lens' CreateResourceShare Prelude.Text
@@ -226,22 +226,22 @@ instance Core.AWSRequest CreateResourceShare where
 
 instance Prelude.Hashable CreateResourceShare where
   hashWithSalt _salt CreateResourceShare' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` allowExternalPrincipals
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` permissionArns
       `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` resourceArns
-      `Prelude.hashWithSalt` permissionArns
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` allowExternalPrincipals
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateResourceShare where
   rnf CreateResourceShare' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf allowExternalPrincipals
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf permissionArns
       `Prelude.seq` Prelude.rnf principals
       `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf permissionArns
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf allowExternalPrincipals
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateResourceShare where
@@ -259,14 +259,14 @@ instance Core.ToJSON CreateResourceShare where
   toJSON CreateResourceShare' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("allowExternalPrincipals" Core..=)
-              Prelude.<$> allowExternalPrincipals,
-            ("principals" Core..=) Prelude.<$> principals,
-            ("resourceArns" Core..=) Prelude.<$> resourceArns,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             ("permissionArns" Core..=)
               Prelude.<$> permissionArns,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("principals" Core..=) Prelude.<$> principals,
+            ("resourceArns" Core..=) Prelude.<$> resourceArns,
+            ("allowExternalPrincipals" Core..=)
+              Prelude.<$> allowExternalPrincipals,
             Prelude.Just ("name" Core..= name)
           ]
       )

@@ -30,11 +30,11 @@ module Amazonka.EC2.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociati
     newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
 
     -- * Request Lenses
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_filters,
-    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds,
     describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_filters,
     describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_dryRun,
     describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_maxResults,
+    describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds,
 
     -- * Destructuring the Response
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse (..),
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' smart constructor.
 data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations'
-  { -- | One or more filters.
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
     --
@@ -71,10 +73,6 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
     --
     -- -   @state@ - The state of the association.
     filters :: Prelude.Maybe [Filter],
-    -- | The IDs of the associations.
-    localGatewayRouteTableVirtualInterfaceGroupAssociationIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -83,7 +81,9 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The IDs of the associations.
+    localGatewayRouteTableVirtualInterfaceGroupAssociationIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,6 +94,8 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_filters' - One or more filters.
 --
@@ -110,10 +112,6 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
 --
 -- -   @state@ - The state of the association.
 --
--- 'localGatewayRouteTableVirtualInterfaceGroupAssociationIds', 'describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds' - The IDs of the associations.
---
--- 'nextToken', 'describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken' - The token for the next page of results.
---
 -- 'dryRun', 'describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -122,21 +120,27 @@ data DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = DescribeL
 -- 'maxResults', 'describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'localGatewayRouteTableVirtualInterfaceGroupAssociationIds', 'describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds' - The IDs of the associations.
 newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations ::
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
 newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations =
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      localGatewayRouteTableVirtualInterfaceGroupAssociationIds =
-        Prelude.Nothing,
-      nextToken =
+      filters =
         Prelude.Nothing,
       dryRun =
         Prelude.Nothing,
       maxResults =
+        Prelude.Nothing,
+      localGatewayRouteTableVirtualInterfaceGroupAssociationIds =
         Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken :: Lens.Lens' DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Prelude.Maybe Prelude.Text)
+describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken = Lens.lens (\DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {nextToken} -> nextToken) (\s@DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {} a -> s {nextToken = a} :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
 
 -- | One or more filters.
 --
@@ -155,14 +159,6 @@ newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations =
 describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_filters :: Lens.Lens' DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Prelude.Maybe [Filter])
 describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_filters = Lens.lens (\DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {filters} -> filters) (\s@DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {} a -> s {filters = a} :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations) Prelude.. Lens.mapping Lens.coerced
 
--- | The IDs of the associations.
-describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds :: Lens.Lens' DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Prelude.Maybe [Prelude.Text])
-describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds = Lens.lens (\DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {localGatewayRouteTableVirtualInterfaceGroupAssociationIds} -> localGatewayRouteTableVirtualInterfaceGroupAssociationIds) (\s@DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {} a -> s {localGatewayRouteTableVirtualInterfaceGroupAssociationIds = a} :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken :: Lens.Lens' DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Prelude.Maybe Prelude.Text)
-describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_nextToken = Lens.lens (\DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {nextToken} -> nextToken) (\s@DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {} a -> s {nextToken = a} :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -175,6 +171,10 @@ describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_dryRun = Lens.le
 -- value.
 describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_maxResults :: Lens.Lens' DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Prelude.Maybe Prelude.Natural)
 describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_maxResults = Lens.lens (\DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {maxResults} -> maxResults) (\s@DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {} a -> s {maxResults = a} :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
+
+-- | The IDs of the associations.
+describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds :: Lens.Lens' DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Prelude.Maybe [Prelude.Text])
+describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations_localGatewayRouteTableVirtualInterfaceGroupAssociationIds = Lens.lens (\DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {localGatewayRouteTableVirtualInterfaceGroupAssociationIds} -> localGatewayRouteTableVirtualInterfaceGroupAssociationIds) (\s@DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {} a -> s {localGatewayRouteTableVirtualInterfaceGroupAssociationIds = a} :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -230,11 +230,11 @@ instance
   hashWithSalt
     _salt
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` localGatewayRouteTableVirtualInterfaceGroupAssociationIds
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` localGatewayRouteTableVirtualInterfaceGroupAssociationIds
 
 instance
   Prelude.NFData
@@ -242,12 +242,12 @@ instance
   where
   rnf
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations' {..} =
-      Prelude.rnf filters
-        `Prelude.seq` Prelude.rnf
-          localGatewayRouteTableVirtualInterfaceGroupAssociationIds
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf filters
         `Prelude.seq` Prelude.rnf dryRun
         `Prelude.seq` Prelude.rnf maxResults
+        `Prelude.seq` Prelude.rnf
+          localGatewayRouteTableVirtualInterfaceGroupAssociationIds
 
 instance
   Core.ToHeaders
@@ -274,16 +274,16 @@ instance
                     ),
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
+          "NextToken" Core.=: nextToken,
           Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
+          "DryRun" Core.=: dryRun,
+          "MaxResults" Core.=: maxResults,
           Core.toQuery
             ( Core.toQueryList
                 "LocalGatewayRouteTableVirtualInterfaceGroupAssociationId"
                 Prelude.<$> localGatewayRouteTableVirtualInterfaceGroupAssociationIds
-            ),
-          "NextToken" Core.=: nextToken,
-          "DryRun" Core.=: dryRun,
-          "MaxResults" Core.=: maxResults
+            )
         ]
 
 -- | /See:/ 'newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse' smart constructor.

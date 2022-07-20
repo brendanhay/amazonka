@@ -42,9 +42,9 @@ module Amazonka.SSM.DescribeParameters
     newDescribeParameters,
 
     -- * Request Lenses
-    describeParameters_parameterFilters,
-    describeParameters_filters,
     describeParameters_nextToken,
+    describeParameters_filters,
+    describeParameters_parameterFilters,
     describeParameters_maxResults,
 
     -- * Destructuring the Response
@@ -67,13 +67,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-  { -- | Filters to limit the request results.
-    parameterFilters :: Prelude.Maybe [ParameterStringFilter],
-    -- | This data type is deprecated. Instead, use @ParameterFilters@.
-    filters :: Prelude.Maybe [ParametersFilter],
-    -- | The token for the next set of items to return. (You received this token
+  { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | This data type is deprecated. Instead, use @ParameterFilters@.
+    filters :: Prelude.Maybe [ParametersFilter],
+    -- | Filters to limit the request results.
+    parameterFilters :: Prelude.Maybe [ParameterStringFilter],
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -89,12 +89,12 @@ data DescribeParameters = DescribeParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterFilters', 'describeParameters_parameterFilters' - Filters to limit the request results.
+-- 'nextToken', 'describeParameters_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'filters', 'describeParameters_filters' - This data type is deprecated. Instead, use @ParameterFilters@.
 --
--- 'nextToken', 'describeParameters_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- 'parameterFilters', 'describeParameters_parameterFilters' - Filters to limit the request results.
 --
 -- 'maxResults', 'describeParameters_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -103,25 +103,24 @@ newDescribeParameters ::
   DescribeParameters
 newDescribeParameters =
   DescribeParameters'
-    { parameterFilters =
-        Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      parameterFilters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Filters to limit the request results.
-describeParameters_parameterFilters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParameterStringFilter])
-describeParameters_parameterFilters = Lens.lens (\DescribeParameters' {parameterFilters} -> parameterFilters) (\s@DescribeParameters' {} a -> s {parameterFilters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens.coerced
-
--- | This data type is deprecated. Instead, use @ParameterFilters@.
-describeParameters_filters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParametersFilter])
-describeParameters_filters = Lens.lens (\DescribeParameters' {filters} -> filters) (\s@DescribeParameters' {} a -> s {filters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 describeParameters_nextToken :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
 describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> nextToken) (\s@DescribeParameters' {} a -> s {nextToken = a} :: DescribeParameters)
+
+-- | This data type is deprecated. Instead, use @ParameterFilters@.
+describeParameters_filters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParametersFilter])
+describeParameters_filters = Lens.lens (\DescribeParameters' {filters} -> filters) (\s@DescribeParameters' {} a -> s {filters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens.coerced
+
+-- | Filters to limit the request results.
+describeParameters_parameterFilters :: Lens.Lens' DescribeParameters (Prelude.Maybe [ParameterStringFilter])
+describeParameters_parameterFilters = Lens.lens (\DescribeParameters' {parameterFilters} -> parameterFilters) (\s@DescribeParameters' {} a -> s {parameterFilters = a} :: DescribeParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -167,16 +166,16 @@ instance Core.AWSRequest DescribeParameters where
 
 instance Prelude.Hashable DescribeParameters where
   hashWithSalt _salt DescribeParameters' {..} =
-    _salt `Prelude.hashWithSalt` parameterFilters
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` parameterFilters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeParameters where
   rnf DescribeParameters' {..} =
-    Prelude.rnf parameterFilters
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf parameterFilters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeParameters where
@@ -198,10 +197,10 @@ instance Core.ToJSON DescribeParameters where
   toJSON DescribeParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParameterFilters" Core..=)
-              Prelude.<$> parameterFilters,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ParameterFilters" Core..=)
+              Prelude.<$> parameterFilters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

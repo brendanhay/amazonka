@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkAccessConfiguration' smart constructor.
 data NetworkAccessConfiguration = NetworkAccessConfiguration'
-  { -- | The resource identifier of the elastic network interface that is
+  { -- | The private IP address of the elastic network interface that is attached
+    -- to instances in your VPC.
+    eniPrivateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The resource identifier of the elastic network interface that is
     -- attached to instances in your VPC. All network interfaces have the
     -- eni-xxxxxxxx resource identifier.
-    eniId :: Prelude.Maybe Prelude.Text,
-    -- | The private IP address of the elastic network interface that is attached
-    -- to instances in your VPC.
-    eniPrivateIpAddress :: Prelude.Maybe Prelude.Text
+    eniId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,25 @@ data NetworkAccessConfiguration = NetworkAccessConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eniPrivateIpAddress', 'networkAccessConfiguration_eniPrivateIpAddress' - The private IP address of the elastic network interface that is attached
+-- to instances in your VPC.
+--
 -- 'eniId', 'networkAccessConfiguration_eniId' - The resource identifier of the elastic network interface that is
 -- attached to instances in your VPC. All network interfaces have the
 -- eni-xxxxxxxx resource identifier.
---
--- 'eniPrivateIpAddress', 'networkAccessConfiguration_eniPrivateIpAddress' - The private IP address of the elastic network interface that is attached
--- to instances in your VPC.
 newNetworkAccessConfiguration ::
   NetworkAccessConfiguration
 newNetworkAccessConfiguration =
   NetworkAccessConfiguration'
-    { eniId =
+    { eniPrivateIpAddress =
         Prelude.Nothing,
-      eniPrivateIpAddress = Prelude.Nothing
+      eniId = Prelude.Nothing
     }
+
+-- | The private IP address of the elastic network interface that is attached
+-- to instances in your VPC.
+networkAccessConfiguration_eniPrivateIpAddress :: Lens.Lens' NetworkAccessConfiguration (Prelude.Maybe Prelude.Text)
+networkAccessConfiguration_eniPrivateIpAddress = Lens.lens (\NetworkAccessConfiguration' {eniPrivateIpAddress} -> eniPrivateIpAddress) (\s@NetworkAccessConfiguration' {} a -> s {eniPrivateIpAddress = a} :: NetworkAccessConfiguration)
 
 -- | The resource identifier of the elastic network interface that is
 -- attached to instances in your VPC. All network interfaces have the
@@ -66,27 +71,22 @@ newNetworkAccessConfiguration =
 networkAccessConfiguration_eniId :: Lens.Lens' NetworkAccessConfiguration (Prelude.Maybe Prelude.Text)
 networkAccessConfiguration_eniId = Lens.lens (\NetworkAccessConfiguration' {eniId} -> eniId) (\s@NetworkAccessConfiguration' {} a -> s {eniId = a} :: NetworkAccessConfiguration)
 
--- | The private IP address of the elastic network interface that is attached
--- to instances in your VPC.
-networkAccessConfiguration_eniPrivateIpAddress :: Lens.Lens' NetworkAccessConfiguration (Prelude.Maybe Prelude.Text)
-networkAccessConfiguration_eniPrivateIpAddress = Lens.lens (\NetworkAccessConfiguration' {eniPrivateIpAddress} -> eniPrivateIpAddress) (\s@NetworkAccessConfiguration' {} a -> s {eniPrivateIpAddress = a} :: NetworkAccessConfiguration)
-
 instance Core.FromJSON NetworkAccessConfiguration where
   parseJSON =
     Core.withObject
       "NetworkAccessConfiguration"
       ( \x ->
           NetworkAccessConfiguration'
-            Prelude.<$> (x Core..:? "EniId")
-            Prelude.<*> (x Core..:? "EniPrivateIpAddress")
+            Prelude.<$> (x Core..:? "EniPrivateIpAddress")
+            Prelude.<*> (x Core..:? "EniId")
       )
 
 instance Prelude.Hashable NetworkAccessConfiguration where
   hashWithSalt _salt NetworkAccessConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` eniId
-      `Prelude.hashWithSalt` eniPrivateIpAddress
+    _salt `Prelude.hashWithSalt` eniPrivateIpAddress
+      `Prelude.hashWithSalt` eniId
 
 instance Prelude.NFData NetworkAccessConfiguration where
   rnf NetworkAccessConfiguration' {..} =
-    Prelude.rnf eniId
-      `Prelude.seq` Prelude.rnf eniPrivateIpAddress
+    Prelude.rnf eniPrivateIpAddress
+      `Prelude.seq` Prelude.rnf eniId

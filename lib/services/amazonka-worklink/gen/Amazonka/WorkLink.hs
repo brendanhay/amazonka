@@ -27,17 +27,8 @@ module Amazonka.WorkLink
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
 
     -- ** UnauthorizedException
     _UnauthorizedException,
@@ -45,29 +36,20 @@ module Amazonka.WorkLink
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** UpdateDomainMetadata
-    UpdateDomainMetadata (UpdateDomainMetadata'),
-    newUpdateDomainMetadata,
-    UpdateDomainMetadataResponse (UpdateDomainMetadataResponse'),
-    newUpdateDomainMetadataResponse,
-
-    -- ** SignOutUser
-    SignOutUser (SignOutUser'),
-    newSignOutUser,
-    SignOutUserResponse (SignOutUserResponse'),
-    newSignOutUserResponse,
-
-    -- ** RestoreDomainAccess
-    RestoreDomainAccess (RestoreDomainAccess'),
-    newRestoreDomainAccess,
-    RestoreDomainAccessResponse (RestoreDomainAccessResponse'),
-    newRestoreDomainAccessResponse,
 
     -- ** AssociateDomain
     AssociateDomain (AssociateDomain'),
@@ -75,107 +57,17 @@ module Amazonka.WorkLink
     AssociateDomainResponse (AssociateDomainResponse'),
     newAssociateDomainResponse,
 
-    -- ** DeleteFleet
-    DeleteFleet (DeleteFleet'),
-    newDeleteFleet,
-    DeleteFleetResponse (DeleteFleetResponse'),
-    newDeleteFleetResponse,
-
-    -- ** DisassociateDomain
-    DisassociateDomain (DisassociateDomain'),
-    newDisassociateDomain,
-    DisassociateDomainResponse (DisassociateDomainResponse'),
-    newDisassociateDomainResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** AssociateWebsiteAuthorizationProvider
     AssociateWebsiteAuthorizationProvider (AssociateWebsiteAuthorizationProvider'),
     newAssociateWebsiteAuthorizationProvider,
     AssociateWebsiteAuthorizationProviderResponse (AssociateWebsiteAuthorizationProviderResponse'),
     newAssociateWebsiteAuthorizationProviderResponse,
 
-    -- ** DescribeDevicePolicyConfiguration
-    DescribeDevicePolicyConfiguration (DescribeDevicePolicyConfiguration'),
-    newDescribeDevicePolicyConfiguration,
-    DescribeDevicePolicyConfigurationResponse (DescribeDevicePolicyConfigurationResponse'),
-    newDescribeDevicePolicyConfigurationResponse,
-
-    -- ** ListWebsiteAuthorizationProviders
-    ListWebsiteAuthorizationProviders (ListWebsiteAuthorizationProviders'),
-    newListWebsiteAuthorizationProviders,
-    ListWebsiteAuthorizationProvidersResponse (ListWebsiteAuthorizationProvidersResponse'),
-    newListWebsiteAuthorizationProvidersResponse,
-
-    -- ** DisassociateWebsiteAuthorizationProvider
-    DisassociateWebsiteAuthorizationProvider (DisassociateWebsiteAuthorizationProvider'),
-    newDisassociateWebsiteAuthorizationProvider,
-    DisassociateWebsiteAuthorizationProviderResponse (DisassociateWebsiteAuthorizationProviderResponse'),
-    newDisassociateWebsiteAuthorizationProviderResponse,
-
-    -- ** ListWebsiteCertificateAuthorities
-    ListWebsiteCertificateAuthorities (ListWebsiteCertificateAuthorities'),
-    newListWebsiteCertificateAuthorities,
-    ListWebsiteCertificateAuthoritiesResponse (ListWebsiteCertificateAuthoritiesResponse'),
-    newListWebsiteCertificateAuthoritiesResponse,
-
-    -- ** UpdateIdentityProviderConfiguration
-    UpdateIdentityProviderConfiguration (UpdateIdentityProviderConfiguration'),
-    newUpdateIdentityProviderConfiguration,
-    UpdateIdentityProviderConfigurationResponse (UpdateIdentityProviderConfigurationResponse'),
-    newUpdateIdentityProviderConfigurationResponse,
-
-    -- ** DescribeFleetMetadata
-    DescribeFleetMetadata (DescribeFleetMetadata'),
-    newDescribeFleetMetadata,
-    DescribeFleetMetadataResponse (DescribeFleetMetadataResponse'),
-    newDescribeFleetMetadataResponse,
-
-    -- ** UpdateDevicePolicyConfiguration
-    UpdateDevicePolicyConfiguration (UpdateDevicePolicyConfiguration'),
-    newUpdateDevicePolicyConfiguration,
-    UpdateDevicePolicyConfigurationResponse (UpdateDevicePolicyConfigurationResponse'),
-    newUpdateDevicePolicyConfigurationResponse,
-
-    -- ** DescribeCompanyNetworkConfiguration
-    DescribeCompanyNetworkConfiguration (DescribeCompanyNetworkConfiguration'),
-    newDescribeCompanyNetworkConfiguration,
-    DescribeCompanyNetworkConfigurationResponse (DescribeCompanyNetworkConfigurationResponse'),
-    newDescribeCompanyNetworkConfigurationResponse,
-
-    -- ** DescribeAuditStreamConfiguration
-    DescribeAuditStreamConfiguration (DescribeAuditStreamConfiguration'),
-    newDescribeAuditStreamConfiguration,
-    DescribeAuditStreamConfigurationResponse (DescribeAuditStreamConfigurationResponse'),
-    newDescribeAuditStreamConfigurationResponse,
-
-    -- ** RevokeDomainAccess
-    RevokeDomainAccess (RevokeDomainAccess'),
-    newRevokeDomainAccess,
-    RevokeDomainAccessResponse (RevokeDomainAccessResponse'),
-    newRevokeDomainAccessResponse,
-
-    -- ** ListFleets
-    ListFleets (ListFleets'),
-    newListFleets,
-    ListFleetsResponse (ListFleetsResponse'),
-    newListFleetsResponse,
-
-    -- ** UpdateFleetMetadata
-    UpdateFleetMetadata (UpdateFleetMetadata'),
-    newUpdateFleetMetadata,
-    UpdateFleetMetadataResponse (UpdateFleetMetadataResponse'),
-    newUpdateFleetMetadataResponse,
-
-    -- ** DescribeIdentityProviderConfiguration
-    DescribeIdentityProviderConfiguration (DescribeIdentityProviderConfiguration'),
-    newDescribeIdentityProviderConfiguration,
-    DescribeIdentityProviderConfigurationResponse (DescribeIdentityProviderConfigurationResponse'),
-    newDescribeIdentityProviderConfigurationResponse,
+    -- ** AssociateWebsiteCertificateAuthority
+    AssociateWebsiteCertificateAuthority (AssociateWebsiteCertificateAuthority'),
+    newAssociateWebsiteCertificateAuthority,
+    AssociateWebsiteCertificateAuthorityResponse (AssociateWebsiteCertificateAuthorityResponse'),
+    newAssociateWebsiteCertificateAuthorityResponse,
 
     -- ** CreateFleet
     CreateFleet (CreateFleet'),
@@ -183,23 +75,23 @@ module Amazonka.WorkLink
     CreateFleetResponse (CreateFleetResponse'),
     newCreateFleetResponse,
 
-    -- ** DescribeWebsiteCertificateAuthority
-    DescribeWebsiteCertificateAuthority (DescribeWebsiteCertificateAuthority'),
-    newDescribeWebsiteCertificateAuthority,
-    DescribeWebsiteCertificateAuthorityResponse (DescribeWebsiteCertificateAuthorityResponse'),
-    newDescribeWebsiteCertificateAuthorityResponse,
+    -- ** DeleteFleet
+    DeleteFleet (DeleteFleet'),
+    newDeleteFleet,
+    DeleteFleetResponse (DeleteFleetResponse'),
+    newDeleteFleetResponse,
 
-    -- ** DescribeDomain
-    DescribeDomain (DescribeDomain'),
-    newDescribeDomain,
-    DescribeDomainResponse (DescribeDomainResponse'),
-    newDescribeDomainResponse,
+    -- ** DescribeAuditStreamConfiguration
+    DescribeAuditStreamConfiguration (DescribeAuditStreamConfiguration'),
+    newDescribeAuditStreamConfiguration,
+    DescribeAuditStreamConfigurationResponse (DescribeAuditStreamConfigurationResponse'),
+    newDescribeAuditStreamConfigurationResponse,
 
-    -- ** DisassociateWebsiteCertificateAuthority
-    DisassociateWebsiteCertificateAuthority (DisassociateWebsiteCertificateAuthority'),
-    newDisassociateWebsiteCertificateAuthority,
-    DisassociateWebsiteCertificateAuthorityResponse (DisassociateWebsiteCertificateAuthorityResponse'),
-    newDisassociateWebsiteCertificateAuthorityResponse,
+    -- ** DescribeCompanyNetworkConfiguration
+    DescribeCompanyNetworkConfiguration (DescribeCompanyNetworkConfiguration'),
+    newDescribeCompanyNetworkConfiguration,
+    DescribeCompanyNetworkConfigurationResponse (DescribeCompanyNetworkConfigurationResponse'),
+    newDescribeCompanyNetworkConfigurationResponse,
 
     -- ** DescribeDevice
     DescribeDevice (DescribeDevice'),
@@ -207,17 +99,107 @@ module Amazonka.WorkLink
     DescribeDeviceResponse (DescribeDeviceResponse'),
     newDescribeDeviceResponse,
 
-    -- ** UpdateAuditStreamConfiguration
-    UpdateAuditStreamConfiguration (UpdateAuditStreamConfiguration'),
-    newUpdateAuditStreamConfiguration,
-    UpdateAuditStreamConfigurationResponse (UpdateAuditStreamConfigurationResponse'),
-    newUpdateAuditStreamConfigurationResponse,
+    -- ** DescribeDevicePolicyConfiguration
+    DescribeDevicePolicyConfiguration (DescribeDevicePolicyConfiguration'),
+    newDescribeDevicePolicyConfiguration,
+    DescribeDevicePolicyConfigurationResponse (DescribeDevicePolicyConfigurationResponse'),
+    newDescribeDevicePolicyConfigurationResponse,
 
-    -- ** UpdateCompanyNetworkConfiguration
-    UpdateCompanyNetworkConfiguration (UpdateCompanyNetworkConfiguration'),
-    newUpdateCompanyNetworkConfiguration,
-    UpdateCompanyNetworkConfigurationResponse (UpdateCompanyNetworkConfigurationResponse'),
-    newUpdateCompanyNetworkConfigurationResponse,
+    -- ** DescribeDomain
+    DescribeDomain (DescribeDomain'),
+    newDescribeDomain,
+    DescribeDomainResponse (DescribeDomainResponse'),
+    newDescribeDomainResponse,
+
+    -- ** DescribeFleetMetadata
+    DescribeFleetMetadata (DescribeFleetMetadata'),
+    newDescribeFleetMetadata,
+    DescribeFleetMetadataResponse (DescribeFleetMetadataResponse'),
+    newDescribeFleetMetadataResponse,
+
+    -- ** DescribeIdentityProviderConfiguration
+    DescribeIdentityProviderConfiguration (DescribeIdentityProviderConfiguration'),
+    newDescribeIdentityProviderConfiguration,
+    DescribeIdentityProviderConfigurationResponse (DescribeIdentityProviderConfigurationResponse'),
+    newDescribeIdentityProviderConfigurationResponse,
+
+    -- ** DescribeWebsiteCertificateAuthority
+    DescribeWebsiteCertificateAuthority (DescribeWebsiteCertificateAuthority'),
+    newDescribeWebsiteCertificateAuthority,
+    DescribeWebsiteCertificateAuthorityResponse (DescribeWebsiteCertificateAuthorityResponse'),
+    newDescribeWebsiteCertificateAuthorityResponse,
+
+    -- ** DisassociateDomain
+    DisassociateDomain (DisassociateDomain'),
+    newDisassociateDomain,
+    DisassociateDomainResponse (DisassociateDomainResponse'),
+    newDisassociateDomainResponse,
+
+    -- ** DisassociateWebsiteAuthorizationProvider
+    DisassociateWebsiteAuthorizationProvider (DisassociateWebsiteAuthorizationProvider'),
+    newDisassociateWebsiteAuthorizationProvider,
+    DisassociateWebsiteAuthorizationProviderResponse (DisassociateWebsiteAuthorizationProviderResponse'),
+    newDisassociateWebsiteAuthorizationProviderResponse,
+
+    -- ** DisassociateWebsiteCertificateAuthority
+    DisassociateWebsiteCertificateAuthority (DisassociateWebsiteCertificateAuthority'),
+    newDisassociateWebsiteCertificateAuthority,
+    DisassociateWebsiteCertificateAuthorityResponse (DisassociateWebsiteCertificateAuthorityResponse'),
+    newDisassociateWebsiteCertificateAuthorityResponse,
+
+    -- ** ListDevices
+    ListDevices (ListDevices'),
+    newListDevices,
+    ListDevicesResponse (ListDevicesResponse'),
+    newListDevicesResponse,
+
+    -- ** ListDomains
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
+
+    -- ** ListFleets
+    ListFleets (ListFleets'),
+    newListFleets,
+    ListFleetsResponse (ListFleetsResponse'),
+    newListFleetsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListWebsiteAuthorizationProviders
+    ListWebsiteAuthorizationProviders (ListWebsiteAuthorizationProviders'),
+    newListWebsiteAuthorizationProviders,
+    ListWebsiteAuthorizationProvidersResponse (ListWebsiteAuthorizationProvidersResponse'),
+    newListWebsiteAuthorizationProvidersResponse,
+
+    -- ** ListWebsiteCertificateAuthorities
+    ListWebsiteCertificateAuthorities (ListWebsiteCertificateAuthorities'),
+    newListWebsiteCertificateAuthorities,
+    ListWebsiteCertificateAuthoritiesResponse (ListWebsiteCertificateAuthoritiesResponse'),
+    newListWebsiteCertificateAuthoritiesResponse,
+
+    -- ** RestoreDomainAccess
+    RestoreDomainAccess (RestoreDomainAccess'),
+    newRestoreDomainAccess,
+    RestoreDomainAccessResponse (RestoreDomainAccessResponse'),
+    newRestoreDomainAccessResponse,
+
+    -- ** RevokeDomainAccess
+    RevokeDomainAccess (RevokeDomainAccess'),
+    newRevokeDomainAccess,
+    RevokeDomainAccessResponse (RevokeDomainAccessResponse'),
+    newRevokeDomainAccessResponse,
+
+    -- ** SignOutUser
+    SignOutUser (SignOutUser'),
+    newSignOutUser,
+    SignOutUserResponse (SignOutUserResponse'),
+    newSignOutUserResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -231,23 +213,41 @@ module Amazonka.WorkLink
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** AssociateWebsiteCertificateAuthority
-    AssociateWebsiteCertificateAuthority (AssociateWebsiteCertificateAuthority'),
-    newAssociateWebsiteCertificateAuthority,
-    AssociateWebsiteCertificateAuthorityResponse (AssociateWebsiteCertificateAuthorityResponse'),
-    newAssociateWebsiteCertificateAuthorityResponse,
+    -- ** UpdateAuditStreamConfiguration
+    UpdateAuditStreamConfiguration (UpdateAuditStreamConfiguration'),
+    newUpdateAuditStreamConfiguration,
+    UpdateAuditStreamConfigurationResponse (UpdateAuditStreamConfigurationResponse'),
+    newUpdateAuditStreamConfigurationResponse,
 
-    -- ** ListDomains
-    ListDomains (ListDomains'),
-    newListDomains,
-    ListDomainsResponse (ListDomainsResponse'),
-    newListDomainsResponse,
+    -- ** UpdateCompanyNetworkConfiguration
+    UpdateCompanyNetworkConfiguration (UpdateCompanyNetworkConfiguration'),
+    newUpdateCompanyNetworkConfiguration,
+    UpdateCompanyNetworkConfigurationResponse (UpdateCompanyNetworkConfigurationResponse'),
+    newUpdateCompanyNetworkConfigurationResponse,
 
-    -- ** ListDevices
-    ListDevices (ListDevices'),
-    newListDevices,
-    ListDevicesResponse (ListDevicesResponse'),
-    newListDevicesResponse,
+    -- ** UpdateDevicePolicyConfiguration
+    UpdateDevicePolicyConfiguration (UpdateDevicePolicyConfiguration'),
+    newUpdateDevicePolicyConfiguration,
+    UpdateDevicePolicyConfigurationResponse (UpdateDevicePolicyConfigurationResponse'),
+    newUpdateDevicePolicyConfigurationResponse,
+
+    -- ** UpdateDomainMetadata
+    UpdateDomainMetadata (UpdateDomainMetadata'),
+    newUpdateDomainMetadata,
+    UpdateDomainMetadataResponse (UpdateDomainMetadataResponse'),
+    newUpdateDomainMetadataResponse,
+
+    -- ** UpdateFleetMetadata
+    UpdateFleetMetadata (UpdateFleetMetadata'),
+    newUpdateFleetMetadata,
+    UpdateFleetMetadataResponse (UpdateFleetMetadataResponse'),
+    newUpdateFleetMetadataResponse,
+
+    -- ** UpdateIdentityProviderConfiguration
+    UpdateIdentityProviderConfiguration (UpdateIdentityProviderConfiguration'),
+    newUpdateIdentityProviderConfiguration,
+    UpdateIdentityProviderConfigurationResponse (UpdateIdentityProviderConfigurationResponse'),
+    newUpdateIdentityProviderConfigurationResponse,
 
     -- * Types
 

@@ -38,8 +38,8 @@ module Amazonka.DirectoryService.ListIpRoutes
     newListIpRoutesResponse,
 
     -- * Response Lenses
-    listIpRoutesResponse_ipRoutesInfo,
     listIpRoutesResponse_nextToken,
+    listIpRoutesResponse_ipRoutesInfo,
     listIpRoutesResponse_httpStatus,
   )
 where
@@ -134,8 +134,8 @@ instance Core.AWSRequest ListIpRoutes where
     Response.receiveJSON
       ( \s h x ->
           ListIpRoutesResponse'
-            Prelude.<$> (x Core..?> "IpRoutesInfo" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "IpRoutesInfo" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,12 +184,12 @@ instance Core.ToQuery ListIpRoutes where
 
 -- | /See:/ 'newListIpRoutesResponse' smart constructor.
 data ListIpRoutesResponse = ListIpRoutesResponse'
-  { -- | A list of IpRoutes.
-    ipRoutesInfo :: Prelude.Maybe [IpRouteInfo],
-    -- | If not null, more results are available. Pass this value for the
+  { -- | If not null, more results are available. Pass this value for the
     -- /NextToken/ parameter in a subsequent call to ListIpRoutes to retrieve
     -- the next set of items.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of IpRoutes.
+    ipRoutesInfo :: Prelude.Maybe [IpRouteInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,11 +203,11 @@ data ListIpRoutesResponse = ListIpRoutesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipRoutesInfo', 'listIpRoutesResponse_ipRoutesInfo' - A list of IpRoutes.
---
 -- 'nextToken', 'listIpRoutesResponse_nextToken' - If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to ListIpRoutes to retrieve
 -- the next set of items.
+--
+-- 'ipRoutesInfo', 'listIpRoutesResponse_ipRoutesInfo' - A list of IpRoutes.
 --
 -- 'httpStatus', 'listIpRoutesResponse_httpStatus' - The response's http status code.
 newListIpRoutesResponse ::
@@ -216,15 +216,10 @@ newListIpRoutesResponse ::
   ListIpRoutesResponse
 newListIpRoutesResponse pHttpStatus_ =
   ListIpRoutesResponse'
-    { ipRoutesInfo =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      ipRoutesInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of IpRoutes.
-listIpRoutesResponse_ipRoutesInfo :: Lens.Lens' ListIpRoutesResponse (Prelude.Maybe [IpRouteInfo])
-listIpRoutesResponse_ipRoutesInfo = Lens.lens (\ListIpRoutesResponse' {ipRoutesInfo} -> ipRoutesInfo) (\s@ListIpRoutesResponse' {} a -> s {ipRoutesInfo = a} :: ListIpRoutesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to ListIpRoutes to retrieve
@@ -232,12 +227,16 @@ listIpRoutesResponse_ipRoutesInfo = Lens.lens (\ListIpRoutesResponse' {ipRoutesI
 listIpRoutesResponse_nextToken :: Lens.Lens' ListIpRoutesResponse (Prelude.Maybe Prelude.Text)
 listIpRoutesResponse_nextToken = Lens.lens (\ListIpRoutesResponse' {nextToken} -> nextToken) (\s@ListIpRoutesResponse' {} a -> s {nextToken = a} :: ListIpRoutesResponse)
 
+-- | A list of IpRoutes.
+listIpRoutesResponse_ipRoutesInfo :: Lens.Lens' ListIpRoutesResponse (Prelude.Maybe [IpRouteInfo])
+listIpRoutesResponse_ipRoutesInfo = Lens.lens (\ListIpRoutesResponse' {ipRoutesInfo} -> ipRoutesInfo) (\s@ListIpRoutesResponse' {} a -> s {ipRoutesInfo = a} :: ListIpRoutesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listIpRoutesResponse_httpStatus :: Lens.Lens' ListIpRoutesResponse Prelude.Int
 listIpRoutesResponse_httpStatus = Lens.lens (\ListIpRoutesResponse' {httpStatus} -> httpStatus) (\s@ListIpRoutesResponse' {} a -> s {httpStatus = a} :: ListIpRoutesResponse)
 
 instance Prelude.NFData ListIpRoutesResponse where
   rnf ListIpRoutesResponse' {..} =
-    Prelude.rnf ipRoutesInfo
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ipRoutesInfo
       `Prelude.seq` Prelude.rnf httpStatus

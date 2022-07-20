@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newArchiveGroupSettings' smart constructor.
 data ArchiveGroupSettings = ArchiveGroupSettings'
-  { -- | Number of seconds to write to archive file before closing and starting a
+  { -- | Parameters that control interactions with the CDN.
+    archiveCdnSettings :: Prelude.Maybe ArchiveCdnSettings,
+    -- | Number of seconds to write to archive file before closing and starting a
     -- new one.
     rolloverInterval :: Prelude.Maybe Prelude.Natural,
-    -- | Parameters that control interactions with the CDN.
-    archiveCdnSettings :: Prelude.Maybe ArchiveCdnSettings,
     -- | A directory and base filename where archive files should be written.
     destination :: OutputLocationRef
   }
@@ -47,10 +47,10 @@ data ArchiveGroupSettings = ArchiveGroupSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'archiveCdnSettings', 'archiveGroupSettings_archiveCdnSettings' - Parameters that control interactions with the CDN.
+--
 -- 'rolloverInterval', 'archiveGroupSettings_rolloverInterval' - Number of seconds to write to archive file before closing and starting a
 -- new one.
---
--- 'archiveCdnSettings', 'archiveGroupSettings_archiveCdnSettings' - Parameters that control interactions with the CDN.
 --
 -- 'destination', 'archiveGroupSettings_destination' - A directory and base filename where archive files should be written.
 newArchiveGroupSettings ::
@@ -59,20 +59,20 @@ newArchiveGroupSettings ::
   ArchiveGroupSettings
 newArchiveGroupSettings pDestination_ =
   ArchiveGroupSettings'
-    { rolloverInterval =
+    { archiveCdnSettings =
         Prelude.Nothing,
-      archiveCdnSettings = Prelude.Nothing,
+      rolloverInterval = Prelude.Nothing,
       destination = pDestination_
     }
+
+-- | Parameters that control interactions with the CDN.
+archiveGroupSettings_archiveCdnSettings :: Lens.Lens' ArchiveGroupSettings (Prelude.Maybe ArchiveCdnSettings)
+archiveGroupSettings_archiveCdnSettings = Lens.lens (\ArchiveGroupSettings' {archiveCdnSettings} -> archiveCdnSettings) (\s@ArchiveGroupSettings' {} a -> s {archiveCdnSettings = a} :: ArchiveGroupSettings)
 
 -- | Number of seconds to write to archive file before closing and starting a
 -- new one.
 archiveGroupSettings_rolloverInterval :: Lens.Lens' ArchiveGroupSettings (Prelude.Maybe Prelude.Natural)
 archiveGroupSettings_rolloverInterval = Lens.lens (\ArchiveGroupSettings' {rolloverInterval} -> rolloverInterval) (\s@ArchiveGroupSettings' {} a -> s {rolloverInterval = a} :: ArchiveGroupSettings)
-
--- | Parameters that control interactions with the CDN.
-archiveGroupSettings_archiveCdnSettings :: Lens.Lens' ArchiveGroupSettings (Prelude.Maybe ArchiveCdnSettings)
-archiveGroupSettings_archiveCdnSettings = Lens.lens (\ArchiveGroupSettings' {archiveCdnSettings} -> archiveCdnSettings) (\s@ArchiveGroupSettings' {} a -> s {archiveCdnSettings = a} :: ArchiveGroupSettings)
 
 -- | A directory and base filename where archive files should be written.
 archiveGroupSettings_destination :: Lens.Lens' ArchiveGroupSettings OutputLocationRef
@@ -84,31 +84,31 @@ instance Core.FromJSON ArchiveGroupSettings where
       "ArchiveGroupSettings"
       ( \x ->
           ArchiveGroupSettings'
-            Prelude.<$> (x Core..:? "rolloverInterval")
-            Prelude.<*> (x Core..:? "archiveCdnSettings")
+            Prelude.<$> (x Core..:? "archiveCdnSettings")
+            Prelude.<*> (x Core..:? "rolloverInterval")
             Prelude.<*> (x Core..: "destination")
       )
 
 instance Prelude.Hashable ArchiveGroupSettings where
   hashWithSalt _salt ArchiveGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` rolloverInterval
-      `Prelude.hashWithSalt` archiveCdnSettings
+    _salt `Prelude.hashWithSalt` archiveCdnSettings
+      `Prelude.hashWithSalt` rolloverInterval
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData ArchiveGroupSettings where
   rnf ArchiveGroupSettings' {..} =
-    Prelude.rnf rolloverInterval
-      `Prelude.seq` Prelude.rnf archiveCdnSettings
+    Prelude.rnf archiveCdnSettings
+      `Prelude.seq` Prelude.rnf rolloverInterval
       `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToJSON ArchiveGroupSettings where
   toJSON ArchiveGroupSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rolloverInterval" Core..=)
-              Prelude.<$> rolloverInterval,
-            ("archiveCdnSettings" Core..=)
+          [ ("archiveCdnSettings" Core..=)
               Prelude.<$> archiveCdnSettings,
+            ("rolloverInterval" Core..=)
+              Prelude.<$> rolloverInterval,
             Prelude.Just ("destination" Core..= destination)
           ]
       )

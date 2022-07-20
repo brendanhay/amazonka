@@ -31,10 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSendUsersMessageRequest' smart constructor.
 data SendUsersMessageRequest = SendUsersMessageRequest'
-  { -- | The unique identifier for tracing the message. This identifier is
-    -- visible to message recipients.
-    traceId :: Prelude.Maybe Prelude.Text,
-    -- | A map of custom attribute-value pairs. For a push notification, Amazon
+  { -- | A map of custom attribute-value pairs. For a push notification, Amazon
     -- Pinpoint adds these attributes to the data.pinpoint object in the body
     -- of the notification payload. Amazon Pinpoint also provides these
     -- attributes in the events that it generates for users-messages
@@ -42,6 +39,9 @@ data SendUsersMessageRequest = SendUsersMessageRequest'
     context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The message template to use for the message.
     templateConfiguration :: Prelude.Maybe TemplateConfiguration,
+    -- | The unique identifier for tracing the message. This identifier is
+    -- visible to message recipients.
+    traceId :: Prelude.Maybe Prelude.Text,
     -- | The settings and content for the default message and any default
     -- messages that you defined for specific channels.
     messageConfiguration :: DirectMessageConfiguration,
@@ -63,9 +63,6 @@ data SendUsersMessageRequest = SendUsersMessageRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'traceId', 'sendUsersMessageRequest_traceId' - The unique identifier for tracing the message. This identifier is
--- visible to message recipients.
---
 -- 'context', 'sendUsersMessageRequest_context' - A map of custom attribute-value pairs. For a push notification, Amazon
 -- Pinpoint adds these attributes to the data.pinpoint object in the body
 -- of the notification payload. Amazon Pinpoint also provides these
@@ -73,6 +70,9 @@ data SendUsersMessageRequest = SendUsersMessageRequest'
 -- deliveries.
 --
 -- 'templateConfiguration', 'sendUsersMessageRequest_templateConfiguration' - The message template to use for the message.
+--
+-- 'traceId', 'sendUsersMessageRequest_traceId' - The unique identifier for tracing the message. This identifier is
+-- visible to message recipients.
 --
 -- 'messageConfiguration', 'sendUsersMessageRequest_messageConfiguration' - The settings and content for the default message and any default
 -- messages that you defined for specific channels.
@@ -89,17 +89,12 @@ newSendUsersMessageRequest ::
   SendUsersMessageRequest
 newSendUsersMessageRequest pMessageConfiguration_ =
   SendUsersMessageRequest'
-    { traceId = Prelude.Nothing,
-      context = Prelude.Nothing,
+    { context = Prelude.Nothing,
       templateConfiguration = Prelude.Nothing,
+      traceId = Prelude.Nothing,
       messageConfiguration = pMessageConfiguration_,
       users = Prelude.mempty
     }
-
--- | The unique identifier for tracing the message. This identifier is
--- visible to message recipients.
-sendUsersMessageRequest_traceId :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe Prelude.Text)
-sendUsersMessageRequest_traceId = Lens.lens (\SendUsersMessageRequest' {traceId} -> traceId) (\s@SendUsersMessageRequest' {} a -> s {traceId = a} :: SendUsersMessageRequest)
 
 -- | A map of custom attribute-value pairs. For a push notification, Amazon
 -- Pinpoint adds these attributes to the data.pinpoint object in the body
@@ -112,6 +107,11 @@ sendUsersMessageRequest_context = Lens.lens (\SendUsersMessageRequest' {context}
 -- | The message template to use for the message.
 sendUsersMessageRequest_templateConfiguration :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe TemplateConfiguration)
 sendUsersMessageRequest_templateConfiguration = Lens.lens (\SendUsersMessageRequest' {templateConfiguration} -> templateConfiguration) (\s@SendUsersMessageRequest' {} a -> s {templateConfiguration = a} :: SendUsersMessageRequest)
+
+-- | The unique identifier for tracing the message. This identifier is
+-- visible to message recipients.
+sendUsersMessageRequest_traceId :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe Prelude.Text)
+sendUsersMessageRequest_traceId = Lens.lens (\SendUsersMessageRequest' {traceId} -> traceId) (\s@SendUsersMessageRequest' {} a -> s {traceId = a} :: SendUsersMessageRequest)
 
 -- | The settings and content for the default message and any default
 -- messages that you defined for specific channels.
@@ -129,17 +129,17 @@ sendUsersMessageRequest_users = Lens.lens (\SendUsersMessageRequest' {users} -> 
 
 instance Prelude.Hashable SendUsersMessageRequest where
   hashWithSalt _salt SendUsersMessageRequest' {..} =
-    _salt `Prelude.hashWithSalt` traceId
-      `Prelude.hashWithSalt` context
+    _salt `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` templateConfiguration
+      `Prelude.hashWithSalt` traceId
       `Prelude.hashWithSalt` messageConfiguration
       `Prelude.hashWithSalt` users
 
 instance Prelude.NFData SendUsersMessageRequest where
   rnf SendUsersMessageRequest' {..} =
-    Prelude.rnf traceId
-      `Prelude.seq` Prelude.rnf context
+    Prelude.rnf context
       `Prelude.seq` Prelude.rnf templateConfiguration
+      `Prelude.seq` Prelude.rnf traceId
       `Prelude.seq` Prelude.rnf messageConfiguration
       `Prelude.seq` Prelude.rnf users
 
@@ -147,10 +147,10 @@ instance Core.ToJSON SendUsersMessageRequest where
   toJSON SendUsersMessageRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TraceId" Core..=) Prelude.<$> traceId,
-            ("Context" Core..=) Prelude.<$> context,
+          [ ("Context" Core..=) Prelude.<$> context,
             ("TemplateConfiguration" Core..=)
               Prelude.<$> templateConfiguration,
+            ("TraceId" Core..=) Prelude.<$> traceId,
             Prelude.Just
               ( "MessageConfiguration"
                   Core..= messageConfiguration

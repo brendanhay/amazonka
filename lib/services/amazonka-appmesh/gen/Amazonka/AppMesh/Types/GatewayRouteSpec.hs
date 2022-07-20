@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGatewayRouteSpec' smart constructor.
 data GatewayRouteSpec = GatewayRouteSpec'
-  { -- | The ordering of the gateway routes spec.
-    priority :: Prelude.Maybe Prelude.Natural,
+  { -- | An object that represents the specification of an HTTP gateway route.
+    httpRoute :: Prelude.Maybe HttpGatewayRoute,
     -- | An object that represents the specification of an HTTP\/2 gateway route.
     http2Route :: Prelude.Maybe HttpGatewayRoute,
     -- | An object that represents the specification of a gRPC gateway route.
     grpcRoute :: Prelude.Maybe GrpcGatewayRoute,
-    -- | An object that represents the specification of an HTTP gateway route.
-    httpRoute :: Prelude.Maybe HttpGatewayRoute
+    -- | The ordering of the gateway routes spec.
+    priority :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,26 @@ data GatewayRouteSpec = GatewayRouteSpec'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'priority', 'gatewayRouteSpec_priority' - The ordering of the gateway routes spec.
+-- 'httpRoute', 'gatewayRouteSpec_httpRoute' - An object that represents the specification of an HTTP gateway route.
 --
 -- 'http2Route', 'gatewayRouteSpec_http2Route' - An object that represents the specification of an HTTP\/2 gateway route.
 --
 -- 'grpcRoute', 'gatewayRouteSpec_grpcRoute' - An object that represents the specification of a gRPC gateway route.
 --
--- 'httpRoute', 'gatewayRouteSpec_httpRoute' - An object that represents the specification of an HTTP gateway route.
+-- 'priority', 'gatewayRouteSpec_priority' - The ordering of the gateway routes spec.
 newGatewayRouteSpec ::
   GatewayRouteSpec
 newGatewayRouteSpec =
   GatewayRouteSpec'
-    { priority = Prelude.Nothing,
+    { httpRoute = Prelude.Nothing,
       http2Route = Prelude.Nothing,
       grpcRoute = Prelude.Nothing,
-      httpRoute = Prelude.Nothing
+      priority = Prelude.Nothing
     }
 
--- | The ordering of the gateway routes spec.
-gatewayRouteSpec_priority :: Lens.Lens' GatewayRouteSpec (Prelude.Maybe Prelude.Natural)
-gatewayRouteSpec_priority = Lens.lens (\GatewayRouteSpec' {priority} -> priority) (\s@GatewayRouteSpec' {} a -> s {priority = a} :: GatewayRouteSpec)
+-- | An object that represents the specification of an HTTP gateway route.
+gatewayRouteSpec_httpRoute :: Lens.Lens' GatewayRouteSpec (Prelude.Maybe HttpGatewayRoute)
+gatewayRouteSpec_httpRoute = Lens.lens (\GatewayRouteSpec' {httpRoute} -> httpRoute) (\s@GatewayRouteSpec' {} a -> s {httpRoute = a} :: GatewayRouteSpec)
 
 -- | An object that represents the specification of an HTTP\/2 gateway route.
 gatewayRouteSpec_http2Route :: Lens.Lens' GatewayRouteSpec (Prelude.Maybe HttpGatewayRoute)
@@ -78,9 +78,9 @@ gatewayRouteSpec_http2Route = Lens.lens (\GatewayRouteSpec' {http2Route} -> http
 gatewayRouteSpec_grpcRoute :: Lens.Lens' GatewayRouteSpec (Prelude.Maybe GrpcGatewayRoute)
 gatewayRouteSpec_grpcRoute = Lens.lens (\GatewayRouteSpec' {grpcRoute} -> grpcRoute) (\s@GatewayRouteSpec' {} a -> s {grpcRoute = a} :: GatewayRouteSpec)
 
--- | An object that represents the specification of an HTTP gateway route.
-gatewayRouteSpec_httpRoute :: Lens.Lens' GatewayRouteSpec (Prelude.Maybe HttpGatewayRoute)
-gatewayRouteSpec_httpRoute = Lens.lens (\GatewayRouteSpec' {httpRoute} -> httpRoute) (\s@GatewayRouteSpec' {} a -> s {httpRoute = a} :: GatewayRouteSpec)
+-- | The ordering of the gateway routes spec.
+gatewayRouteSpec_priority :: Lens.Lens' GatewayRouteSpec (Prelude.Maybe Prelude.Natural)
+gatewayRouteSpec_priority = Lens.lens (\GatewayRouteSpec' {priority} -> priority) (\s@GatewayRouteSpec' {} a -> s {priority = a} :: GatewayRouteSpec)
 
 instance Core.FromJSON GatewayRouteSpec where
   parseJSON =
@@ -88,33 +88,33 @@ instance Core.FromJSON GatewayRouteSpec where
       "GatewayRouteSpec"
       ( \x ->
           GatewayRouteSpec'
-            Prelude.<$> (x Core..:? "priority")
+            Prelude.<$> (x Core..:? "httpRoute")
             Prelude.<*> (x Core..:? "http2Route")
             Prelude.<*> (x Core..:? "grpcRoute")
-            Prelude.<*> (x Core..:? "httpRoute")
+            Prelude.<*> (x Core..:? "priority")
       )
 
 instance Prelude.Hashable GatewayRouteSpec where
   hashWithSalt _salt GatewayRouteSpec' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt `Prelude.hashWithSalt` httpRoute
       `Prelude.hashWithSalt` http2Route
       `Prelude.hashWithSalt` grpcRoute
-      `Prelude.hashWithSalt` httpRoute
+      `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData GatewayRouteSpec where
   rnf GatewayRouteSpec' {..} =
-    Prelude.rnf priority
+    Prelude.rnf httpRoute
       `Prelude.seq` Prelude.rnf http2Route
       `Prelude.seq` Prelude.rnf grpcRoute
-      `Prelude.seq` Prelude.rnf httpRoute
+      `Prelude.seq` Prelude.rnf priority
 
 instance Core.ToJSON GatewayRouteSpec where
   toJSON GatewayRouteSpec' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("priority" Core..=) Prelude.<$> priority,
+          [ ("httpRoute" Core..=) Prelude.<$> httpRoute,
             ("http2Route" Core..=) Prelude.<$> http2Route,
             ("grpcRoute" Core..=) Prelude.<$> grpcRoute,
-            ("httpRoute" Core..=) Prelude.<$> httpRoute
+            ("priority" Core..=) Prelude.<$> priority
           ]
       )

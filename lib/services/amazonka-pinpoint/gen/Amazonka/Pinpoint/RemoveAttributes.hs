@@ -179,14 +179,7 @@ instance Core.ToHeaders RemoveAttributes where
 
 instance Core.ToJSON RemoveAttributes where
   toJSON RemoveAttributes' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "UpdateAttributesRequest"
-                  Core..= updateAttributesRequest
-              )
-          ]
-      )
+    Core.toJSON updateAttributesRequest
 
 instance Core.ToPath RemoveAttributes where
   toPath RemoveAttributes' {..} =

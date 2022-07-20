@@ -40,8 +40,8 @@ module Amazonka.CodeBuild.CreateWebhook
 
     -- * Request Lenses
     createWebhook_branchFilter,
-    createWebhook_filterGroups,
     createWebhook_buildType,
+    createWebhook_filterGroups,
     createWebhook_projectName,
 
     -- * Destructuring the Response
@@ -70,6 +70,8 @@ data CreateWebhook = CreateWebhook'
     --
     -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
     branchFilter :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the type of build this webhook will trigger.
+    buildType :: Prelude.Maybe WebhookBuildType,
     -- | An array of arrays of @WebhookFilter@ objects used to determine which
     -- webhooks are triggered. At least one @WebhookFilter@ in the array must
     -- specify @EVENT@ as its @type@.
@@ -78,8 +80,6 @@ data CreateWebhook = CreateWebhook'
     -- @filterGroups@ array must pass. For a filter group to pass, each of its
     -- filters must pass.
     filterGroups :: Prelude.Maybe [[WebhookFilter]],
-    -- | Specifies the type of build this webhook will trigger.
-    buildType :: Prelude.Maybe WebhookBuildType,
     -- | The name of the CodeBuild project.
     projectName :: Prelude.Text
   }
@@ -100,6 +100,8 @@ data CreateWebhook = CreateWebhook'
 --
 -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
 --
+-- 'buildType', 'createWebhook_buildType' - Specifies the type of build this webhook will trigger.
+--
 -- 'filterGroups', 'createWebhook_filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which
 -- webhooks are triggered. At least one @WebhookFilter@ in the array must
 -- specify @EVENT@ as its @type@.
@@ -107,8 +109,6 @@ data CreateWebhook = CreateWebhook'
 -- For a build to be triggered, at least one filter group in the
 -- @filterGroups@ array must pass. For a filter group to pass, each of its
 -- filters must pass.
---
--- 'buildType', 'createWebhook_buildType' - Specifies the type of build this webhook will trigger.
 --
 -- 'projectName', 'createWebhook_projectName' - The name of the CodeBuild project.
 newCreateWebhook ::
@@ -118,8 +118,8 @@ newCreateWebhook ::
 newCreateWebhook pProjectName_ =
   CreateWebhook'
     { branchFilter = Prelude.Nothing,
-      filterGroups = Prelude.Nothing,
       buildType = Prelude.Nothing,
+      filterGroups = Prelude.Nothing,
       projectName = pProjectName_
     }
 
@@ -132,6 +132,10 @@ newCreateWebhook pProjectName_ =
 createWebhook_branchFilter :: Lens.Lens' CreateWebhook (Prelude.Maybe Prelude.Text)
 createWebhook_branchFilter = Lens.lens (\CreateWebhook' {branchFilter} -> branchFilter) (\s@CreateWebhook' {} a -> s {branchFilter = a} :: CreateWebhook)
 
+-- | Specifies the type of build this webhook will trigger.
+createWebhook_buildType :: Lens.Lens' CreateWebhook (Prelude.Maybe WebhookBuildType)
+createWebhook_buildType = Lens.lens (\CreateWebhook' {buildType} -> buildType) (\s@CreateWebhook' {} a -> s {buildType = a} :: CreateWebhook)
+
 -- | An array of arrays of @WebhookFilter@ objects used to determine which
 -- webhooks are triggered. At least one @WebhookFilter@ in the array must
 -- specify @EVENT@ as its @type@.
@@ -141,10 +145,6 @@ createWebhook_branchFilter = Lens.lens (\CreateWebhook' {branchFilter} -> branch
 -- filters must pass.
 createWebhook_filterGroups :: Lens.Lens' CreateWebhook (Prelude.Maybe [[WebhookFilter]])
 createWebhook_filterGroups = Lens.lens (\CreateWebhook' {filterGroups} -> filterGroups) (\s@CreateWebhook' {} a -> s {filterGroups = a} :: CreateWebhook) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the type of build this webhook will trigger.
-createWebhook_buildType :: Lens.Lens' CreateWebhook (Prelude.Maybe WebhookBuildType)
-createWebhook_buildType = Lens.lens (\CreateWebhook' {buildType} -> buildType) (\s@CreateWebhook' {} a -> s {buildType = a} :: CreateWebhook)
 
 -- | The name of the CodeBuild project.
 createWebhook_projectName :: Lens.Lens' CreateWebhook Prelude.Text
@@ -166,15 +166,15 @@ instance Core.AWSRequest CreateWebhook where
 instance Prelude.Hashable CreateWebhook where
   hashWithSalt _salt CreateWebhook' {..} =
     _salt `Prelude.hashWithSalt` branchFilter
-      `Prelude.hashWithSalt` filterGroups
       `Prelude.hashWithSalt` buildType
+      `Prelude.hashWithSalt` filterGroups
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData CreateWebhook where
   rnf CreateWebhook' {..} =
     Prelude.rnf branchFilter
-      `Prelude.seq` Prelude.rnf filterGroups
       `Prelude.seq` Prelude.rnf buildType
+      `Prelude.seq` Prelude.rnf filterGroups
       `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders CreateWebhook where
@@ -197,8 +197,8 @@ instance Core.ToJSON CreateWebhook where
     Core.object
       ( Prelude.catMaybes
           [ ("branchFilter" Core..=) Prelude.<$> branchFilter,
-            ("filterGroups" Core..=) Prelude.<$> filterGroups,
             ("buildType" Core..=) Prelude.<$> buildType,
+            ("filterGroups" Core..=) Prelude.<$> filterGroups,
             Prelude.Just ("projectName" Core..= projectName)
           ]
       )

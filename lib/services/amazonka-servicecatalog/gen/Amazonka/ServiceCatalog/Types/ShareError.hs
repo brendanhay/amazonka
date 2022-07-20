@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newShareError' smart constructor.
 data ShareError = ShareError'
-  { -- | List of accounts impacted by the error.
+  { -- | Information about the error.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | List of accounts impacted by the error.
     accounts :: Prelude.Maybe [Prelude.Text],
     -- | Error type that happened when processing the operation.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | Information about the error.
-    message :: Prelude.Maybe Prelude.Text
+    error :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,19 +44,23 @@ data ShareError = ShareError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'shareError_message' - Information about the error.
+--
 -- 'accounts', 'shareError_accounts' - List of accounts impacted by the error.
 --
 -- 'error', 'shareError_error' - Error type that happened when processing the operation.
---
--- 'message', 'shareError_message' - Information about the error.
 newShareError ::
   ShareError
 newShareError =
   ShareError'
-    { accounts = Prelude.Nothing,
-      error = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      accounts = Prelude.Nothing,
+      error = Prelude.Nothing
     }
+
+-- | Information about the error.
+shareError_message :: Lens.Lens' ShareError (Prelude.Maybe Prelude.Text)
+shareError_message = Lens.lens (\ShareError' {message} -> message) (\s@ShareError' {} a -> s {message = a} :: ShareError)
 
 -- | List of accounts impacted by the error.
 shareError_accounts :: Lens.Lens' ShareError (Prelude.Maybe [Prelude.Text])
@@ -66,29 +70,25 @@ shareError_accounts = Lens.lens (\ShareError' {accounts} -> accounts) (\s@ShareE
 shareError_error :: Lens.Lens' ShareError (Prelude.Maybe Prelude.Text)
 shareError_error = Lens.lens (\ShareError' {error} -> error) (\s@ShareError' {} a -> s {error = a} :: ShareError)
 
--- | Information about the error.
-shareError_message :: Lens.Lens' ShareError (Prelude.Maybe Prelude.Text)
-shareError_message = Lens.lens (\ShareError' {message} -> message) (\s@ShareError' {} a -> s {message = a} :: ShareError)
-
 instance Core.FromJSON ShareError where
   parseJSON =
     Core.withObject
       "ShareError"
       ( \x ->
           ShareError'
-            Prelude.<$> (x Core..:? "Accounts" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Accounts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable ShareError where
   hashWithSalt _salt ShareError' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ShareError where
   rnf ShareError' {..} =
-    Prelude.rnf accounts
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf accounts
       `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf message

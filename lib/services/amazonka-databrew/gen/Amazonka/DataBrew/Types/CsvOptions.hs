@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCsvOptions' smart constructor.
 data CsvOptions = CsvOptions'
-  { -- | A variable that specifies whether the first row in the file is parsed as
-    -- the header. If this value is false, column names are auto-generated.
-    headerRow :: Prelude.Maybe Prelude.Bool,
-    -- | A single character that specifies the delimiter being used in the CSV
+  { -- | A single character that specifies the delimiter being used in the CSV
     -- file.
-    delimiter :: Prelude.Maybe Prelude.Text
+    delimiter :: Prelude.Maybe Prelude.Text,
+    -- | A variable that specifies whether the first row in the file is parsed as
+    -- the header. If this value is false, column names are auto-generated.
+    headerRow :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,28 @@ data CsvOptions = CsvOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'headerRow', 'csvOptions_headerRow' - A variable that specifies whether the first row in the file is parsed as
--- the header. If this value is false, column names are auto-generated.
---
 -- 'delimiter', 'csvOptions_delimiter' - A single character that specifies the delimiter being used in the CSV
 -- file.
+--
+-- 'headerRow', 'csvOptions_headerRow' - A variable that specifies whether the first row in the file is parsed as
+-- the header. If this value is false, column names are auto-generated.
 newCsvOptions ::
   CsvOptions
 newCsvOptions =
   CsvOptions'
-    { headerRow = Prelude.Nothing,
-      delimiter = Prelude.Nothing
+    { delimiter = Prelude.Nothing,
+      headerRow = Prelude.Nothing
     }
-
--- | A variable that specifies whether the first row in the file is parsed as
--- the header. If this value is false, column names are auto-generated.
-csvOptions_headerRow :: Lens.Lens' CsvOptions (Prelude.Maybe Prelude.Bool)
-csvOptions_headerRow = Lens.lens (\CsvOptions' {headerRow} -> headerRow) (\s@CsvOptions' {} a -> s {headerRow = a} :: CsvOptions)
 
 -- | A single character that specifies the delimiter being used in the CSV
 -- file.
 csvOptions_delimiter :: Lens.Lens' CsvOptions (Prelude.Maybe Prelude.Text)
 csvOptions_delimiter = Lens.lens (\CsvOptions' {delimiter} -> delimiter) (\s@CsvOptions' {} a -> s {delimiter = a} :: CsvOptions)
+
+-- | A variable that specifies whether the first row in the file is parsed as
+-- the header. If this value is false, column names are auto-generated.
+csvOptions_headerRow :: Lens.Lens' CsvOptions (Prelude.Maybe Prelude.Bool)
+csvOptions_headerRow = Lens.lens (\CsvOptions' {headerRow} -> headerRow) (\s@CsvOptions' {} a -> s {headerRow = a} :: CsvOptions)
 
 instance Core.FromJSON CsvOptions where
   parseJSON =
@@ -74,25 +74,25 @@ instance Core.FromJSON CsvOptions where
       "CsvOptions"
       ( \x ->
           CsvOptions'
-            Prelude.<$> (x Core..:? "HeaderRow")
-            Prelude.<*> (x Core..:? "Delimiter")
+            Prelude.<$> (x Core..:? "Delimiter")
+            Prelude.<*> (x Core..:? "HeaderRow")
       )
 
 instance Prelude.Hashable CsvOptions where
   hashWithSalt _salt CsvOptions' {..} =
-    _salt `Prelude.hashWithSalt` headerRow
-      `Prelude.hashWithSalt` delimiter
+    _salt `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` headerRow
 
 instance Prelude.NFData CsvOptions where
   rnf CsvOptions' {..} =
-    Prelude.rnf headerRow
-      `Prelude.seq` Prelude.rnf delimiter
+    Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf headerRow
 
 instance Core.ToJSON CsvOptions where
   toJSON CsvOptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("HeaderRow" Core..=) Prelude.<$> headerRow,
-            ("Delimiter" Core..=) Prelude.<$> delimiter
+          [ ("Delimiter" Core..=) Prelude.<$> delimiter,
+            ("HeaderRow" Core..=) Prelude.<$> headerRow
           ]
       )

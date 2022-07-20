@@ -40,8 +40,8 @@ module Amazonka.Support.AddCommunicationToCase
     newAddCommunicationToCase,
 
     -- * Request Lenses
-    addCommunicationToCase_caseId,
     addCommunicationToCase_ccEmailAddresses,
+    addCommunicationToCase_caseId,
     addCommunicationToCase_attachmentSetId,
     addCommunicationToCase_communicationBody,
 
@@ -64,13 +64,13 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newAddCommunicationToCase' smart constructor.
 data AddCommunicationToCase = AddCommunicationToCase'
-  { -- | The support case ID requested or returned in the call. The case ID is an
+  { -- | The email addresses in the CC line of an email to be added to the
+    -- support case.
+    ccEmailAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | The support case ID requested or returned in the call. The case ID is an
     -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Maybe Prelude.Text,
-    -- | The email addresses in the CC line of an email to be added to the
-    -- support case.
-    ccEmailAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The ID of a set of one or more attachments for the communication to add
     -- to the case. Create the set by calling AddAttachmentsToSet
     attachmentSetId :: Prelude.Maybe Prelude.Text,
@@ -87,12 +87,12 @@ data AddCommunicationToCase = AddCommunicationToCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ccEmailAddresses', 'addCommunicationToCase_ccEmailAddresses' - The email addresses in the CC line of an email to be added to the
+-- support case.
+--
 -- 'caseId', 'addCommunicationToCase_caseId' - The support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
---
--- 'ccEmailAddresses', 'addCommunicationToCase_ccEmailAddresses' - The email addresses in the CC line of an email to be added to the
--- support case.
 --
 -- 'attachmentSetId', 'addCommunicationToCase_attachmentSetId' - The ID of a set of one or more attachments for the communication to add
 -- to the case. Create the set by calling AddAttachmentsToSet
@@ -104,22 +104,23 @@ newAddCommunicationToCase ::
   AddCommunicationToCase
 newAddCommunicationToCase pCommunicationBody_ =
   AddCommunicationToCase'
-    { caseId = Prelude.Nothing,
-      ccEmailAddresses = Prelude.Nothing,
+    { ccEmailAddresses =
+        Prelude.Nothing,
+      caseId = Prelude.Nothing,
       attachmentSetId = Prelude.Nothing,
       communicationBody = pCommunicationBody_
     }
+
+-- | The email addresses in the CC line of an email to be added to the
+-- support case.
+addCommunicationToCase_ccEmailAddresses :: Lens.Lens' AddCommunicationToCase (Prelude.Maybe [Prelude.Text])
+addCommunicationToCase_ccEmailAddresses = Lens.lens (\AddCommunicationToCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@AddCommunicationToCase' {} a -> s {ccEmailAddresses = a} :: AddCommunicationToCase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 addCommunicationToCase_caseId :: Lens.Lens' AddCommunicationToCase (Prelude.Maybe Prelude.Text)
 addCommunicationToCase_caseId = Lens.lens (\AddCommunicationToCase' {caseId} -> caseId) (\s@AddCommunicationToCase' {} a -> s {caseId = a} :: AddCommunicationToCase)
-
--- | The email addresses in the CC line of an email to be added to the
--- support case.
-addCommunicationToCase_ccEmailAddresses :: Lens.Lens' AddCommunicationToCase (Prelude.Maybe [Prelude.Text])
-addCommunicationToCase_ccEmailAddresses = Lens.lens (\AddCommunicationToCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@AddCommunicationToCase' {} a -> s {ccEmailAddresses = a} :: AddCommunicationToCase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of a set of one or more attachments for the communication to add
 -- to the case. Create the set by calling AddAttachmentsToSet
@@ -145,15 +146,15 @@ instance Core.AWSRequest AddCommunicationToCase where
 
 instance Prelude.Hashable AddCommunicationToCase where
   hashWithSalt _salt AddCommunicationToCase' {..} =
-    _salt `Prelude.hashWithSalt` caseId
-      `Prelude.hashWithSalt` ccEmailAddresses
+    _salt `Prelude.hashWithSalt` ccEmailAddresses
+      `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` attachmentSetId
       `Prelude.hashWithSalt` communicationBody
 
 instance Prelude.NFData AddCommunicationToCase where
   rnf AddCommunicationToCase' {..} =
-    Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf ccEmailAddresses
+    Prelude.rnf ccEmailAddresses
+      `Prelude.seq` Prelude.rnf caseId
       `Prelude.seq` Prelude.rnf attachmentSetId
       `Prelude.seq` Prelude.rnf communicationBody
 
@@ -176,9 +177,9 @@ instance Core.ToJSON AddCommunicationToCase where
   toJSON AddCommunicationToCase' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("caseId" Core..=) Prelude.<$> caseId,
-            ("ccEmailAddresses" Core..=)
+          [ ("ccEmailAddresses" Core..=)
               Prelude.<$> ccEmailAddresses,
+            ("caseId" Core..=) Prelude.<$> caseId,
             ("attachmentSetId" Core..=)
               Prelude.<$> attachmentSetId,
             Prelude.Just

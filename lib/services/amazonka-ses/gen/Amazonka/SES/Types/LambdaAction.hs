@@ -39,7 +39,13 @@ import Amazonka.SES.Types.InvocationType
 --
 -- /See:/ 'newLambdaAction' smart constructor.
 data LambdaAction = LambdaAction'
-  { -- | The invocation type of the AWS Lambda function. An invocation type of
+  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
+    -- the Lambda action is taken. An example of an Amazon SNS topic ARN is
+    -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
+    -- Amazon SNS topics, see the
+    -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+    topicArn :: Prelude.Maybe Prelude.Text,
+    -- | The invocation type of the AWS Lambda function. An invocation type of
     -- @RequestResponse@ means that the execution of the function will
     -- immediately result in a response, and a value of @Event@ means that the
     -- function will be invoked asynchronously. The default value is @Event@.
@@ -51,12 +57,6 @@ data LambdaAction = LambdaAction'
     -- when you want to make a mail flow decision, such as whether to stop the
     -- receipt rule or the receipt rule set.
     invocationType :: Prelude.Maybe InvocationType,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
-    -- the Lambda action is taken. An example of an Amazon SNS topic ARN is
-    -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
-    -- Amazon SNS topics, see the
-    -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-    topicArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of
     -- an AWS Lambda function ARN is
     -- @arn:aws:lambda:us-west-2:account-id:function:MyFunction@. For more
@@ -74,6 +74,12 @@ data LambdaAction = LambdaAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'topicArn', 'lambdaAction_topicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
+-- the Lambda action is taken. An example of an Amazon SNS topic ARN is
+-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
+-- Amazon SNS topics, see the
+-- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+--
 -- 'invocationType', 'lambdaAction_invocationType' - The invocation type of the AWS Lambda function. An invocation type of
 -- @RequestResponse@ means that the execution of the function will
 -- immediately result in a response, and a value of @Event@ means that the
@@ -86,12 +92,6 @@ data LambdaAction = LambdaAction'
 -- when you want to make a mail flow decision, such as whether to stop the
 -- receipt rule or the receipt rule set.
 --
--- 'topicArn', 'lambdaAction_topicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
--- the Lambda action is taken. An example of an Amazon SNS topic ARN is
--- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
--- Amazon SNS topics, see the
--- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
---
 -- 'functionArn', 'lambdaAction_functionArn' - The Amazon Resource Name (ARN) of the AWS Lambda function. An example of
 -- an AWS Lambda function ARN is
 -- @arn:aws:lambda:us-west-2:account-id:function:MyFunction@. For more
@@ -103,10 +103,18 @@ newLambdaAction ::
   LambdaAction
 newLambdaAction pFunctionArn_ =
   LambdaAction'
-    { invocationType = Prelude.Nothing,
-      topicArn = Prelude.Nothing,
+    { topicArn = Prelude.Nothing,
+      invocationType = Prelude.Nothing,
       functionArn = pFunctionArn_
     }
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
+-- the Lambda action is taken. An example of an Amazon SNS topic ARN is
+-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
+-- Amazon SNS topics, see the
+-- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+lambdaAction_topicArn :: Lens.Lens' LambdaAction (Prelude.Maybe Prelude.Text)
+lambdaAction_topicArn = Lens.lens (\LambdaAction' {topicArn} -> topicArn) (\s@LambdaAction' {} a -> s {topicArn = a} :: LambdaAction)
 
 -- | The invocation type of the AWS Lambda function. An invocation type of
 -- @RequestResponse@ means that the execution of the function will
@@ -122,14 +130,6 @@ newLambdaAction pFunctionArn_ =
 lambdaAction_invocationType :: Lens.Lens' LambdaAction (Prelude.Maybe InvocationType)
 lambdaAction_invocationType = Lens.lens (\LambdaAction' {invocationType} -> invocationType) (\s@LambdaAction' {} a -> s {invocationType = a} :: LambdaAction)
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
--- the Lambda action is taken. An example of an Amazon SNS topic ARN is
--- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
--- Amazon SNS topics, see the
--- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-lambdaAction_topicArn :: Lens.Lens' LambdaAction (Prelude.Maybe Prelude.Text)
-lambdaAction_topicArn = Lens.lens (\LambdaAction' {topicArn} -> topicArn) (\s@LambdaAction' {} a -> s {topicArn = a} :: LambdaAction)
-
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of
 -- an AWS Lambda function ARN is
 -- @arn:aws:lambda:us-west-2:account-id:function:MyFunction@. For more
@@ -141,26 +141,26 @@ lambdaAction_functionArn = Lens.lens (\LambdaAction' {functionArn} -> functionAr
 instance Core.FromXML LambdaAction where
   parseXML x =
     LambdaAction'
-      Prelude.<$> (x Core..@? "InvocationType")
-      Prelude.<*> (x Core..@? "TopicArn")
+      Prelude.<$> (x Core..@? "TopicArn")
+      Prelude.<*> (x Core..@? "InvocationType")
       Prelude.<*> (x Core..@ "FunctionArn")
 
 instance Prelude.Hashable LambdaAction where
   hashWithSalt _salt LambdaAction' {..} =
-    _salt `Prelude.hashWithSalt` invocationType
-      `Prelude.hashWithSalt` topicArn
+    _salt `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` invocationType
       `Prelude.hashWithSalt` functionArn
 
 instance Prelude.NFData LambdaAction where
   rnf LambdaAction' {..} =
-    Prelude.rnf invocationType
-      `Prelude.seq` Prelude.rnf topicArn
+    Prelude.rnf topicArn
+      `Prelude.seq` Prelude.rnf invocationType
       `Prelude.seq` Prelude.rnf functionArn
 
 instance Core.ToQuery LambdaAction where
   toQuery LambdaAction' {..} =
     Prelude.mconcat
-      [ "InvocationType" Core.=: invocationType,
-        "TopicArn" Core.=: topicArn,
+      [ "TopicArn" Core.=: topicArn,
+        "InvocationType" Core.=: invocationType,
         "FunctionArn" Core.=: functionArn
       ]

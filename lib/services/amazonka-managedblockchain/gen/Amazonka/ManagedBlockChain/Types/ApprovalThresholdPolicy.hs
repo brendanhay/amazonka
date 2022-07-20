@@ -34,7 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApprovalThresholdPolicy' smart constructor.
 data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
-  { -- | The percentage of votes among all members that must be @YES@ for a
+  { -- | The duration from the time that a proposal is created until it expires.
+    -- If members cast neither the required number of @YES@ votes to approve
+    -- the proposal nor the number of @NO@ votes required to reject it before
+    -- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
+    -- are not carried out.
+    proposalDurationInHours :: Prelude.Maybe Prelude.Natural,
+    -- | The percentage of votes among all members that must be @YES@ for a
     -- proposal to be approved. For example, a @ThresholdPercentage@ value of
     -- @50@ indicates 50%. The @ThresholdComparator@ determines the precise
     -- comparison. If a @ThresholdPercentage@ value of @50@ is specified on a
@@ -45,13 +51,7 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
     -- | Determines whether the vote percentage must be greater than the
     -- @ThresholdPercentage@ or must be greater than or equal to the
     -- @ThreholdPercentage@ to be approved.
-    thresholdComparator :: Prelude.Maybe ThresholdComparator,
-    -- | The duration from the time that a proposal is created until it expires.
-    -- If members cast neither the required number of @YES@ votes to approve
-    -- the proposal nor the number of @NO@ votes required to reject it before
-    -- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
-    -- are not carried out.
-    proposalDurationInHours :: Prelude.Maybe Prelude.Natural
+    thresholdComparator :: Prelude.Maybe ThresholdComparator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,12 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'proposalDurationInHours', 'approvalThresholdPolicy_proposalDurationInHours' - The duration from the time that a proposal is created until it expires.
+-- If members cast neither the required number of @YES@ votes to approve
+-- the proposal nor the number of @NO@ votes required to reject it before
+-- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
+-- are not carried out.
 --
 -- 'thresholdPercentage', 'approvalThresholdPolicy_thresholdPercentage' - The percentage of votes among all members that must be @YES@ for a
 -- proposal to be approved. For example, a @ThresholdPercentage@ value of
@@ -74,21 +80,23 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
 -- 'thresholdComparator', 'approvalThresholdPolicy_thresholdComparator' - Determines whether the vote percentage must be greater than the
 -- @ThresholdPercentage@ or must be greater than or equal to the
 -- @ThreholdPercentage@ to be approved.
---
--- 'proposalDurationInHours', 'approvalThresholdPolicy_proposalDurationInHours' - The duration from the time that a proposal is created until it expires.
--- If members cast neither the required number of @YES@ votes to approve
--- the proposal nor the number of @NO@ votes required to reject it before
--- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
--- are not carried out.
 newApprovalThresholdPolicy ::
   ApprovalThresholdPolicy
 newApprovalThresholdPolicy =
   ApprovalThresholdPolicy'
-    { thresholdPercentage =
+    { proposalDurationInHours =
         Prelude.Nothing,
-      thresholdComparator = Prelude.Nothing,
-      proposalDurationInHours = Prelude.Nothing
+      thresholdPercentage = Prelude.Nothing,
+      thresholdComparator = Prelude.Nothing
     }
+
+-- | The duration from the time that a proposal is created until it expires.
+-- If members cast neither the required number of @YES@ votes to approve
+-- the proposal nor the number of @NO@ votes required to reject it before
+-- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
+-- are not carried out.
+approvalThresholdPolicy_proposalDurationInHours :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe Prelude.Natural)
+approvalThresholdPolicy_proposalDurationInHours = Lens.lens (\ApprovalThresholdPolicy' {proposalDurationInHours} -> proposalDurationInHours) (\s@ApprovalThresholdPolicy' {} a -> s {proposalDurationInHours = a} :: ApprovalThresholdPolicy)
 
 -- | The percentage of votes among all members that must be @YES@ for a
 -- proposal to be approved. For example, a @ThresholdPercentage@ value of
@@ -106,46 +114,39 @@ approvalThresholdPolicy_thresholdPercentage = Lens.lens (\ApprovalThresholdPolic
 approvalThresholdPolicy_thresholdComparator :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe ThresholdComparator)
 approvalThresholdPolicy_thresholdComparator = Lens.lens (\ApprovalThresholdPolicy' {thresholdComparator} -> thresholdComparator) (\s@ApprovalThresholdPolicy' {} a -> s {thresholdComparator = a} :: ApprovalThresholdPolicy)
 
--- | The duration from the time that a proposal is created until it expires.
--- If members cast neither the required number of @YES@ votes to approve
--- the proposal nor the number of @NO@ votes required to reject it before
--- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
--- are not carried out.
-approvalThresholdPolicy_proposalDurationInHours :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe Prelude.Natural)
-approvalThresholdPolicy_proposalDurationInHours = Lens.lens (\ApprovalThresholdPolicy' {proposalDurationInHours} -> proposalDurationInHours) (\s@ApprovalThresholdPolicy' {} a -> s {proposalDurationInHours = a} :: ApprovalThresholdPolicy)
-
 instance Core.FromJSON ApprovalThresholdPolicy where
   parseJSON =
     Core.withObject
       "ApprovalThresholdPolicy"
       ( \x ->
           ApprovalThresholdPolicy'
-            Prelude.<$> (x Core..:? "ThresholdPercentage")
+            Prelude.<$> (x Core..:? "ProposalDurationInHours")
+            Prelude.<*> (x Core..:? "ThresholdPercentage")
             Prelude.<*> (x Core..:? "ThresholdComparator")
-            Prelude.<*> (x Core..:? "ProposalDurationInHours")
       )
 
 instance Prelude.Hashable ApprovalThresholdPolicy where
   hashWithSalt _salt ApprovalThresholdPolicy' {..} =
-    _salt `Prelude.hashWithSalt` thresholdPercentage
-      `Prelude.hashWithSalt` thresholdComparator
+    _salt
       `Prelude.hashWithSalt` proposalDurationInHours
+      `Prelude.hashWithSalt` thresholdPercentage
+      `Prelude.hashWithSalt` thresholdComparator
 
 instance Prelude.NFData ApprovalThresholdPolicy where
   rnf ApprovalThresholdPolicy' {..} =
-    Prelude.rnf thresholdPercentage
+    Prelude.rnf proposalDurationInHours
+      `Prelude.seq` Prelude.rnf thresholdPercentage
       `Prelude.seq` Prelude.rnf thresholdComparator
-      `Prelude.seq` Prelude.rnf proposalDurationInHours
 
 instance Core.ToJSON ApprovalThresholdPolicy where
   toJSON ApprovalThresholdPolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ThresholdPercentage" Core..=)
+          [ ("ProposalDurationInHours" Core..=)
+              Prelude.<$> proposalDurationInHours,
+            ("ThresholdPercentage" Core..=)
               Prelude.<$> thresholdPercentage,
             ("ThresholdComparator" Core..=)
-              Prelude.<$> thresholdComparator,
-            ("ProposalDurationInHours" Core..=)
-              Prelude.<$> proposalDurationInHours
+              Prelude.<$> thresholdComparator
           ]
       )

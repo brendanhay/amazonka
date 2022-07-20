@@ -27,8 +27,8 @@ module Amazonka.XRay.DeleteSamplingRule
     newDeleteSamplingRule,
 
     -- * Request Lenses
-    deleteSamplingRule_ruleName,
     deleteSamplingRule_ruleARN,
+    deleteSamplingRule_ruleName,
 
     -- * Destructuring the Response
     DeleteSamplingRuleResponse (..),
@@ -49,12 +49,12 @@ import Amazonka.XRay.Types
 
 -- | /See:/ 'newDeleteSamplingRule' smart constructor.
 data DeleteSamplingRule = DeleteSamplingRule'
-  { -- | The name of the sampling rule. Specify a rule by either name or ARN, but
+  { -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but
     -- not both.
-    ruleName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but
+    ruleARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the sampling rule. Specify a rule by either name or ARN, but
     -- not both.
-    ruleARN :: Prelude.Maybe Prelude.Text
+    ruleName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,28 +66,28 @@ data DeleteSamplingRule = DeleteSamplingRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleName', 'deleteSamplingRule_ruleName' - The name of the sampling rule. Specify a rule by either name or ARN, but
+-- 'ruleARN', 'deleteSamplingRule_ruleARN' - The ARN of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
 --
--- 'ruleARN', 'deleteSamplingRule_ruleARN' - The ARN of the sampling rule. Specify a rule by either name or ARN, but
+-- 'ruleName', 'deleteSamplingRule_ruleName' - The name of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
 newDeleteSamplingRule ::
   DeleteSamplingRule
 newDeleteSamplingRule =
   DeleteSamplingRule'
-    { ruleName = Prelude.Nothing,
-      ruleARN = Prelude.Nothing
+    { ruleARN = Prelude.Nothing,
+      ruleName = Prelude.Nothing
     }
-
--- | The name of the sampling rule. Specify a rule by either name or ARN, but
--- not both.
-deleteSamplingRule_ruleName :: Lens.Lens' DeleteSamplingRule (Prelude.Maybe Prelude.Text)
-deleteSamplingRule_ruleName = Lens.lens (\DeleteSamplingRule' {ruleName} -> ruleName) (\s@DeleteSamplingRule' {} a -> s {ruleName = a} :: DeleteSamplingRule)
 
 -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
 deleteSamplingRule_ruleARN :: Lens.Lens' DeleteSamplingRule (Prelude.Maybe Prelude.Text)
 deleteSamplingRule_ruleARN = Lens.lens (\DeleteSamplingRule' {ruleARN} -> ruleARN) (\s@DeleteSamplingRule' {} a -> s {ruleARN = a} :: DeleteSamplingRule)
+
+-- | The name of the sampling rule. Specify a rule by either name or ARN, but
+-- not both.
+deleteSamplingRule_ruleName :: Lens.Lens' DeleteSamplingRule (Prelude.Maybe Prelude.Text)
+deleteSamplingRule_ruleName = Lens.lens (\DeleteSamplingRule' {ruleName} -> ruleName) (\s@DeleteSamplingRule' {} a -> s {ruleName = a} :: DeleteSamplingRule)
 
 instance Core.AWSRequest DeleteSamplingRule where
   type
@@ -104,13 +104,13 @@ instance Core.AWSRequest DeleteSamplingRule where
 
 instance Prelude.Hashable DeleteSamplingRule where
   hashWithSalt _salt DeleteSamplingRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleName
-      `Prelude.hashWithSalt` ruleARN
+    _salt `Prelude.hashWithSalt` ruleARN
+      `Prelude.hashWithSalt` ruleName
 
 instance Prelude.NFData DeleteSamplingRule where
   rnf DeleteSamplingRule' {..} =
-    Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf ruleARN
+    Prelude.rnf ruleARN
+      `Prelude.seq` Prelude.rnf ruleName
 
 instance Core.ToHeaders DeleteSamplingRule where
   toHeaders = Prelude.const Prelude.mempty
@@ -119,8 +119,8 @@ instance Core.ToJSON DeleteSamplingRule where
   toJSON DeleteSamplingRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RuleName" Core..=) Prelude.<$> ruleName,
-            ("RuleARN" Core..=) Prelude.<$> ruleARN
+          [ ("RuleARN" Core..=) Prelude.<$> ruleARN,
+            ("RuleName" Core..=) Prelude.<$> ruleName
           ]
       )
 

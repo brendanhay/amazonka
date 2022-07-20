@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnableFastSnapshotRestoreStateError' smart constructor.
 data EnableFastSnapshotRestoreStateError = EnableFastSnapshotRestoreStateError'
-  { -- | The error code.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The error message.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The error message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data EnableFastSnapshotRestoreStateError = EnableFastSnapshotRestoreStateError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'enableFastSnapshotRestoreStateError_code' - The error code.
---
 -- 'message', 'enableFastSnapshotRestoreStateError_message' - The error message.
+--
+-- 'code', 'enableFastSnapshotRestoreStateError_code' - The error code.
 newEnableFastSnapshotRestoreStateError ::
   EnableFastSnapshotRestoreStateError
 newEnableFastSnapshotRestoreStateError =
   EnableFastSnapshotRestoreStateError'
-    { code =
+    { message =
         Prelude.Nothing,
-      message = Prelude.Nothing
+      code = Prelude.Nothing
     }
-
--- | The error code.
-enableFastSnapshotRestoreStateError_code :: Lens.Lens' EnableFastSnapshotRestoreStateError (Prelude.Maybe Prelude.Text)
-enableFastSnapshotRestoreStateError_code = Lens.lens (\EnableFastSnapshotRestoreStateError' {code} -> code) (\s@EnableFastSnapshotRestoreStateError' {} a -> s {code = a} :: EnableFastSnapshotRestoreStateError)
 
 -- | The error message.
 enableFastSnapshotRestoreStateError_message :: Lens.Lens' EnableFastSnapshotRestoreStateError (Prelude.Maybe Prelude.Text)
 enableFastSnapshotRestoreStateError_message = Lens.lens (\EnableFastSnapshotRestoreStateError' {message} -> message) (\s@EnableFastSnapshotRestoreStateError' {} a -> s {message = a} :: EnableFastSnapshotRestoreStateError)
+
+-- | The error code.
+enableFastSnapshotRestoreStateError_code :: Lens.Lens' EnableFastSnapshotRestoreStateError (Prelude.Maybe Prelude.Text)
+enableFastSnapshotRestoreStateError_code = Lens.lens (\EnableFastSnapshotRestoreStateError' {code} -> code) (\s@EnableFastSnapshotRestoreStateError' {} a -> s {code = a} :: EnableFastSnapshotRestoreStateError)
 
 instance
   Core.FromXML
@@ -69,8 +69,8 @@ instance
   where
   parseXML x =
     EnableFastSnapshotRestoreStateError'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance
   Prelude.Hashable
@@ -79,12 +79,12 @@ instance
   hashWithSalt
     _salt
     EnableFastSnapshotRestoreStateError' {..} =
-      _salt `Prelude.hashWithSalt` code
-        `Prelude.hashWithSalt` message
+      _salt `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
     EnableFastSnapshotRestoreStateError
   where
   rnf EnableFastSnapshotRestoreStateError' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

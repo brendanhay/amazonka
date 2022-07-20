@@ -34,6 +34,8 @@ data Resource = Resource'
     pathPart :: Prelude.Maybe Prelude.Text,
     -- | The full path for this resource.
     path :: Prelude.Maybe Prelude.Text,
+    -- | The parent resource\'s identifier.
+    parentId :: Prelude.Maybe Prelude.Text,
     -- | The resource\'s identifier.
     id :: Prelude.Maybe Prelude.Text,
     -- | Gets an API resource\'s method of a given HTTP verb.
@@ -58,9 +60,7 @@ data Resource = Resource'
     -- If the @OPTIONS@ is enabled on the resource, you can follow the example
     -- here to get that method. Just replace the @GET@ of the last path segment
     -- in the request URL with @OPTIONS@.
-    resourceMethods :: Prelude.Maybe (Prelude.HashMap Prelude.Text Method),
-    -- | The parent resource\'s identifier.
-    parentId :: Prelude.Maybe Prelude.Text
+    resourceMethods :: Prelude.Maybe (Prelude.HashMap Prelude.Text Method)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,6 +75,8 @@ data Resource = Resource'
 -- 'pathPart', 'resource_pathPart' - The last path segment for this resource.
 --
 -- 'path', 'resource_path' - The full path for this resource.
+--
+-- 'parentId', 'resource_parentId' - The parent resource\'s identifier.
 --
 -- 'id', 'resource_id' - The resource\'s identifier.
 --
@@ -100,17 +102,15 @@ data Resource = Resource'
 -- If the @OPTIONS@ is enabled on the resource, you can follow the example
 -- here to get that method. Just replace the @GET@ of the last path segment
 -- in the request URL with @OPTIONS@.
---
--- 'parentId', 'resource_parentId' - The parent resource\'s identifier.
 newResource ::
   Resource
 newResource =
   Resource'
     { pathPart = Prelude.Nothing,
       path = Prelude.Nothing,
+      parentId = Prelude.Nothing,
       id = Prelude.Nothing,
-      resourceMethods = Prelude.Nothing,
-      parentId = Prelude.Nothing
+      resourceMethods = Prelude.Nothing
     }
 
 -- | The last path segment for this resource.
@@ -120,6 +120,10 @@ resource_pathPart = Lens.lens (\Resource' {pathPart} -> pathPart) (\s@Resource' 
 -- | The full path for this resource.
 resource_path :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_path = Lens.lens (\Resource' {path} -> path) (\s@Resource' {} a -> s {path = a} :: Resource)
+
+-- | The parent resource\'s identifier.
+resource_parentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_parentId = Lens.lens (\Resource' {parentId} -> parentId) (\s@Resource' {} a -> s {parentId = a} :: Resource)
 
 -- | The resource\'s identifier.
 resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
@@ -150,10 +154,6 @@ resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a}
 resource_resourceMethods :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Method))
 resource_resourceMethods = Lens.lens (\Resource' {resourceMethods} -> resourceMethods) (\s@Resource' {} a -> s {resourceMethods = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
--- | The parent resource\'s identifier.
-resource_parentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_parentId = Lens.lens (\Resource' {parentId} -> parentId) (\s@Resource' {} a -> s {parentId = a} :: Resource)
-
 instance Core.FromJSON Resource where
   parseJSON =
     Core.withObject
@@ -162,25 +162,25 @@ instance Core.FromJSON Resource where
           Resource'
             Prelude.<$> (x Core..:? "pathPart")
             Prelude.<*> (x Core..:? "path")
+            Prelude.<*> (x Core..:? "parentId")
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> ( x Core..:? "resourceMethods"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "parentId")
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
     _salt `Prelude.hashWithSalt` pathPart
       `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` parentId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` resourceMethods
-      `Prelude.hashWithSalt` parentId
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
     Prelude.rnf pathPart
       `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf parentId
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf resourceMethods
-      `Prelude.seq` Prelude.rnf parentId

@@ -41,8 +41,8 @@ module Amazonka.SSOAdmin.ListAccountAssignments
     newListAccountAssignmentsResponse,
 
     -- * Response Lenses
-    listAccountAssignmentsResponse_accountAssignments,
     listAccountAssignmentsResponse_nextToken,
+    listAccountAssignmentsResponse_accountAssignments,
     listAccountAssignmentsResponse_httpStatus,
   )
 where
@@ -173,10 +173,10 @@ instance Core.AWSRequest ListAccountAssignments where
     Response.receiveJSON
       ( \s h x ->
           ListAccountAssignmentsResponse'
-            Prelude.<$> ( x Core..?> "AccountAssignments"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "AccountAssignments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,12 +232,12 @@ instance Core.ToQuery ListAccountAssignments where
 
 -- | /See:/ 'newListAccountAssignmentsResponse' smart constructor.
 data ListAccountAssignmentsResponse = ListAccountAssignmentsResponse'
-  { -- | The list of assignments that match the input Amazon Web Services account
-    -- and permission set.
-    accountAssignments :: Prelude.Maybe [AccountAssignment],
-    -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of assignments that match the input Amazon Web Services account
+    -- and permission set.
+    accountAssignments :: Prelude.Maybe [AccountAssignment],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -251,11 +251,11 @@ data ListAccountAssignmentsResponse = ListAccountAssignmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountAssignments', 'listAccountAssignmentsResponse_accountAssignments' - The list of assignments that match the input Amazon Web Services account
--- and permission set.
---
 -- 'nextToken', 'listAccountAssignmentsResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
+--
+-- 'accountAssignments', 'listAccountAssignmentsResponse_accountAssignments' - The list of assignments that match the input Amazon Web Services account
+-- and permission set.
 --
 -- 'httpStatus', 'listAccountAssignmentsResponse_httpStatus' - The response's http status code.
 newListAccountAssignmentsResponse ::
@@ -264,21 +264,21 @@ newListAccountAssignmentsResponse ::
   ListAccountAssignmentsResponse
 newListAccountAssignmentsResponse pHttpStatus_ =
   ListAccountAssignmentsResponse'
-    { accountAssignments =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      accountAssignments = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of assignments that match the input Amazon Web Services account
--- and permission set.
-listAccountAssignmentsResponse_accountAssignments :: Lens.Lens' ListAccountAssignmentsResponse (Prelude.Maybe [AccountAssignment])
-listAccountAssignmentsResponse_accountAssignments = Lens.lens (\ListAccountAssignmentsResponse' {accountAssignments} -> accountAssignments) (\s@ListAccountAssignmentsResponse' {} a -> s {accountAssignments = a} :: ListAccountAssignmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listAccountAssignmentsResponse_nextToken :: Lens.Lens' ListAccountAssignmentsResponse (Prelude.Maybe Prelude.Text)
 listAccountAssignmentsResponse_nextToken = Lens.lens (\ListAccountAssignmentsResponse' {nextToken} -> nextToken) (\s@ListAccountAssignmentsResponse' {} a -> s {nextToken = a} :: ListAccountAssignmentsResponse)
+
+-- | The list of assignments that match the input Amazon Web Services account
+-- and permission set.
+listAccountAssignmentsResponse_accountAssignments :: Lens.Lens' ListAccountAssignmentsResponse (Prelude.Maybe [AccountAssignment])
+listAccountAssignmentsResponse_accountAssignments = Lens.lens (\ListAccountAssignmentsResponse' {accountAssignments} -> accountAssignments) (\s@ListAccountAssignmentsResponse' {} a -> s {accountAssignments = a} :: ListAccountAssignmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAccountAssignmentsResponse_httpStatus :: Lens.Lens' ListAccountAssignmentsResponse Prelude.Int
@@ -289,6 +289,6 @@ instance
     ListAccountAssignmentsResponse
   where
   rnf ListAccountAssignmentsResponse' {..} =
-    Prelude.rnf accountAssignments
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accountAssignments
       `Prelude.seq` Prelude.rnf httpStatus

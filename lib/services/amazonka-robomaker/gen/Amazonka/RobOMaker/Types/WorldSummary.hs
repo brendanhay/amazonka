@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 data WorldSummary = WorldSummary'
   { -- | The Amazon Resource Name (ARN) of the world.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (arn) of the world generation job.
+    generationJob :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the world was created.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (arn) of the world template.
-    template :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (arn) of the world generation job.
-    generationJob :: Prelude.Maybe Prelude.Text
+    template :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,28 @@ data WorldSummary = WorldSummary'
 --
 -- 'arn', 'worldSummary_arn' - The Amazon Resource Name (ARN) of the world.
 --
+-- 'generationJob', 'worldSummary_generationJob' - The Amazon Resource Name (arn) of the world generation job.
+--
 -- 'createdAt', 'worldSummary_createdAt' - The time, in milliseconds since the epoch, when the world was created.
 --
 -- 'template', 'worldSummary_template' - The Amazon Resource Name (arn) of the world template.
---
--- 'generationJob', 'worldSummary_generationJob' - The Amazon Resource Name (arn) of the world generation job.
 newWorldSummary ::
   WorldSummary
 newWorldSummary =
   WorldSummary'
     { arn = Prelude.Nothing,
+      generationJob = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      template = Prelude.Nothing,
-      generationJob = Prelude.Nothing
+      template = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the world.
 worldSummary_arn :: Lens.Lens' WorldSummary (Prelude.Maybe Prelude.Text)
 worldSummary_arn = Lens.lens (\WorldSummary' {arn} -> arn) (\s@WorldSummary' {} a -> s {arn = a} :: WorldSummary)
+
+-- | The Amazon Resource Name (arn) of the world generation job.
+worldSummary_generationJob :: Lens.Lens' WorldSummary (Prelude.Maybe Prelude.Text)
+worldSummary_generationJob = Lens.lens (\WorldSummary' {generationJob} -> generationJob) (\s@WorldSummary' {} a -> s {generationJob = a} :: WorldSummary)
 
 -- | The time, in milliseconds since the epoch, when the world was created.
 worldSummary_createdAt :: Lens.Lens' WorldSummary (Prelude.Maybe Prelude.UTCTime)
@@ -75,10 +79,6 @@ worldSummary_createdAt = Lens.lens (\WorldSummary' {createdAt} -> createdAt) (\s
 worldSummary_template :: Lens.Lens' WorldSummary (Prelude.Maybe Prelude.Text)
 worldSummary_template = Lens.lens (\WorldSummary' {template} -> template) (\s@WorldSummary' {} a -> s {template = a} :: WorldSummary)
 
--- | The Amazon Resource Name (arn) of the world generation job.
-worldSummary_generationJob :: Lens.Lens' WorldSummary (Prelude.Maybe Prelude.Text)
-worldSummary_generationJob = Lens.lens (\WorldSummary' {generationJob} -> generationJob) (\s@WorldSummary' {} a -> s {generationJob = a} :: WorldSummary)
-
 instance Core.FromJSON WorldSummary where
   parseJSON =
     Core.withObject
@@ -86,21 +86,21 @@ instance Core.FromJSON WorldSummary where
       ( \x ->
           WorldSummary'
             Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "generationJob")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "template")
-            Prelude.<*> (x Core..:? "generationJob")
       )
 
 instance Prelude.Hashable WorldSummary where
   hashWithSalt _salt WorldSummary' {..} =
     _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` generationJob
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` template
-      `Prelude.hashWithSalt` generationJob
 
 instance Prelude.NFData WorldSummary where
   rnf WorldSummary' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf generationJob
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf template
-      `Prelude.seq` Prelude.rnf generationJob

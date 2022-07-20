@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpsolverS3OutputFormatConfig' smart constructor.
 data UpsolverS3OutputFormatConfig = UpsolverS3OutputFormatConfig'
-  { -- | Indicates the file type that Amazon AppFlow places in the Upsolver
+  { aggregationConfig :: Prelude.Maybe AggregationConfig,
+    -- | Indicates the file type that Amazon AppFlow places in the Upsolver
     -- Amazon S3 bucket.
     fileType :: Prelude.Maybe FileType,
-    aggregationConfig :: Prelude.Maybe AggregationConfig,
     prefixConfig :: PrefixConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,10 +47,10 @@ data UpsolverS3OutputFormatConfig = UpsolverS3OutputFormatConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aggregationConfig', 'upsolverS3OutputFormatConfig_aggregationConfig' - Undocumented member.
+--
 -- 'fileType', 'upsolverS3OutputFormatConfig_fileType' - Indicates the file type that Amazon AppFlow places in the Upsolver
 -- Amazon S3 bucket.
---
--- 'aggregationConfig', 'upsolverS3OutputFormatConfig_aggregationConfig' - Undocumented member.
 --
 -- 'prefixConfig', 'upsolverS3OutputFormatConfig_prefixConfig' - Undocumented member.
 newUpsolverS3OutputFormatConfig ::
@@ -59,20 +59,20 @@ newUpsolverS3OutputFormatConfig ::
   UpsolverS3OutputFormatConfig
 newUpsolverS3OutputFormatConfig pPrefixConfig_ =
   UpsolverS3OutputFormatConfig'
-    { fileType =
+    { aggregationConfig =
         Prelude.Nothing,
-      aggregationConfig = Prelude.Nothing,
+      fileType = Prelude.Nothing,
       prefixConfig = pPrefixConfig_
     }
+
+-- | Undocumented member.
+upsolverS3OutputFormatConfig_aggregationConfig :: Lens.Lens' UpsolverS3OutputFormatConfig (Prelude.Maybe AggregationConfig)
+upsolverS3OutputFormatConfig_aggregationConfig = Lens.lens (\UpsolverS3OutputFormatConfig' {aggregationConfig} -> aggregationConfig) (\s@UpsolverS3OutputFormatConfig' {} a -> s {aggregationConfig = a} :: UpsolverS3OutputFormatConfig)
 
 -- | Indicates the file type that Amazon AppFlow places in the Upsolver
 -- Amazon S3 bucket.
 upsolverS3OutputFormatConfig_fileType :: Lens.Lens' UpsolverS3OutputFormatConfig (Prelude.Maybe FileType)
 upsolverS3OutputFormatConfig_fileType = Lens.lens (\UpsolverS3OutputFormatConfig' {fileType} -> fileType) (\s@UpsolverS3OutputFormatConfig' {} a -> s {fileType = a} :: UpsolverS3OutputFormatConfig)
-
--- | Undocumented member.
-upsolverS3OutputFormatConfig_aggregationConfig :: Lens.Lens' UpsolverS3OutputFormatConfig (Prelude.Maybe AggregationConfig)
-upsolverS3OutputFormatConfig_aggregationConfig = Lens.lens (\UpsolverS3OutputFormatConfig' {aggregationConfig} -> aggregationConfig) (\s@UpsolverS3OutputFormatConfig' {} a -> s {aggregationConfig = a} :: UpsolverS3OutputFormatConfig)
 
 -- | Undocumented member.
 upsolverS3OutputFormatConfig_prefixConfig :: Lens.Lens' UpsolverS3OutputFormatConfig PrefixConfig
@@ -84,8 +84,8 @@ instance Core.FromJSON UpsolverS3OutputFormatConfig where
       "UpsolverS3OutputFormatConfig"
       ( \x ->
           UpsolverS3OutputFormatConfig'
-            Prelude.<$> (x Core..:? "fileType")
-            Prelude.<*> (x Core..:? "aggregationConfig")
+            Prelude.<$> (x Core..:? "aggregationConfig")
+            Prelude.<*> (x Core..:? "fileType")
             Prelude.<*> (x Core..: "prefixConfig")
       )
 
@@ -94,23 +94,23 @@ instance
     UpsolverS3OutputFormatConfig
   where
   hashWithSalt _salt UpsolverS3OutputFormatConfig' {..} =
-    _salt `Prelude.hashWithSalt` fileType
-      `Prelude.hashWithSalt` aggregationConfig
+    _salt `Prelude.hashWithSalt` aggregationConfig
+      `Prelude.hashWithSalt` fileType
       `Prelude.hashWithSalt` prefixConfig
 
 instance Prelude.NFData UpsolverS3OutputFormatConfig where
   rnf UpsolverS3OutputFormatConfig' {..} =
-    Prelude.rnf fileType
-      `Prelude.seq` Prelude.rnf aggregationConfig
+    Prelude.rnf aggregationConfig
+      `Prelude.seq` Prelude.rnf fileType
       `Prelude.seq` Prelude.rnf prefixConfig
 
 instance Core.ToJSON UpsolverS3OutputFormatConfig where
   toJSON UpsolverS3OutputFormatConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("fileType" Core..=) Prelude.<$> fileType,
-            ("aggregationConfig" Core..=)
+          [ ("aggregationConfig" Core..=)
               Prelude.<$> aggregationConfig,
+            ("fileType" Core..=) Prelude.<$> fileType,
             Prelude.Just ("prefixConfig" Core..= prefixConfig)
           ]
       )

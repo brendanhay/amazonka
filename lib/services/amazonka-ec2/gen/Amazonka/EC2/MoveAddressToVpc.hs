@@ -42,8 +42,8 @@ module Amazonka.EC2.MoveAddressToVpc
     newMoveAddressToVpcResponse,
 
     -- * Response Lenses
-    moveAddressToVpcResponse_status,
     moveAddressToVpcResponse_allocationId,
+    moveAddressToVpcResponse_status,
     moveAddressToVpcResponse_httpStatus,
   )
 where
@@ -111,8 +111,8 @@ instance Core.AWSRequest MoveAddressToVpc where
     Response.receiveXML
       ( \s h x ->
           MoveAddressToVpcResponse'
-            Prelude.<$> (x Core..@? "status")
-            Prelude.<*> (x Core..@? "allocationId")
+            Prelude.<$> (x Core..@? "allocationId")
+            Prelude.<*> (x Core..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,10 +145,10 @@ instance Core.ToQuery MoveAddressToVpc where
 
 -- | /See:/ 'newMoveAddressToVpcResponse' smart constructor.
 data MoveAddressToVpcResponse = MoveAddressToVpcResponse'
-  { -- | The status of the move of the IP address.
-    status :: Prelude.Maybe AddressStatus,
-    -- | The allocation ID for the Elastic IP address.
+  { -- | The allocation ID for the Elastic IP address.
     allocationId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the move of the IP address.
+    status :: Prelude.Maybe AddressStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,9 +162,9 @@ data MoveAddressToVpcResponse = MoveAddressToVpcResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'moveAddressToVpcResponse_status' - The status of the move of the IP address.
---
 -- 'allocationId', 'moveAddressToVpcResponse_allocationId' - The allocation ID for the Elastic IP address.
+--
+-- 'status', 'moveAddressToVpcResponse_status' - The status of the move of the IP address.
 --
 -- 'httpStatus', 'moveAddressToVpcResponse_httpStatus' - The response's http status code.
 newMoveAddressToVpcResponse ::
@@ -173,18 +173,19 @@ newMoveAddressToVpcResponse ::
   MoveAddressToVpcResponse
 newMoveAddressToVpcResponse pHttpStatus_ =
   MoveAddressToVpcResponse'
-    { status = Prelude.Nothing,
-      allocationId = Prelude.Nothing,
+    { allocationId =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the move of the IP address.
-moveAddressToVpcResponse_status :: Lens.Lens' MoveAddressToVpcResponse (Prelude.Maybe AddressStatus)
-moveAddressToVpcResponse_status = Lens.lens (\MoveAddressToVpcResponse' {status} -> status) (\s@MoveAddressToVpcResponse' {} a -> s {status = a} :: MoveAddressToVpcResponse)
 
 -- | The allocation ID for the Elastic IP address.
 moveAddressToVpcResponse_allocationId :: Lens.Lens' MoveAddressToVpcResponse (Prelude.Maybe Prelude.Text)
 moveAddressToVpcResponse_allocationId = Lens.lens (\MoveAddressToVpcResponse' {allocationId} -> allocationId) (\s@MoveAddressToVpcResponse' {} a -> s {allocationId = a} :: MoveAddressToVpcResponse)
+
+-- | The status of the move of the IP address.
+moveAddressToVpcResponse_status :: Lens.Lens' MoveAddressToVpcResponse (Prelude.Maybe AddressStatus)
+moveAddressToVpcResponse_status = Lens.lens (\MoveAddressToVpcResponse' {status} -> status) (\s@MoveAddressToVpcResponse' {} a -> s {status = a} :: MoveAddressToVpcResponse)
 
 -- | The response's http status code.
 moveAddressToVpcResponse_httpStatus :: Lens.Lens' MoveAddressToVpcResponse Prelude.Int
@@ -192,6 +193,6 @@ moveAddressToVpcResponse_httpStatus = Lens.lens (\MoveAddressToVpcResponse' {htt
 
 instance Prelude.NFData MoveAddressToVpcResponse where
   rnf MoveAddressToVpcResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf allocationId
+    Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

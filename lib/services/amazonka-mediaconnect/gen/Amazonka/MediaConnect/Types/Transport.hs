@@ -32,29 +32,29 @@ data Transport = Transport'
   { -- | The maximum latency in milliseconds. This parameter applies only to
     -- RIST-based and Zixi-based streams.
     maxLatency :: Prelude.Maybe Prelude.Int,
+    -- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
+    -- streams.
+    smoothingLatency :: Prelude.Maybe Prelude.Int,
     -- | The size of the buffer (in milliseconds) to use to sync incoming source
     -- data.
     maxSyncBuffer :: Prelude.Maybe Prelude.Int,
+    -- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+    maxBitrate :: Prelude.Maybe Prelude.Int,
     -- | The range of IP addresses that should be allowed to initiate output
     -- requests to this flow. These IP addresses should be in the form of a
     -- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
     cidrAllowList :: Prelude.Maybe [Prelude.Text],
-    -- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
-    -- streams.
-    smoothingLatency :: Prelude.Maybe Prelude.Int,
+    -- | The stream ID that you want to use for this transport. This parameter
+    -- applies only to Zixi-based streams.
+    streamId :: Prelude.Maybe Prelude.Text,
+    -- | The remote ID for the Zixi-pull stream.
+    remoteId :: Prelude.Maybe Prelude.Text,
     -- | The minimum latency in milliseconds for SRT-based streams. In streams
     -- that use the SRT protocol, this value that you set on your MediaConnect
     -- source or output represents the minimal potential latency of that
     -- connection. The latency of the stream is set to the highest number
     -- between the sender’s minimum latency and the receiver’s minimum latency.
     minLatency :: Prelude.Maybe Prelude.Int,
-    -- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
-    maxBitrate :: Prelude.Maybe Prelude.Int,
-    -- | The stream ID that you want to use for this transport. This parameter
-    -- applies only to Zixi-based streams.
-    streamId :: Prelude.Maybe Prelude.Text,
-    -- | The remote ID for the Zixi-pull stream.
-    remoteId :: Prelude.Maybe Prelude.Text,
     -- | The protocol that is used by the source or output.
     protocol :: Protocol
   }
@@ -71,28 +71,28 @@ data Transport = Transport'
 -- 'maxLatency', 'transport_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
 -- RIST-based and Zixi-based streams.
 --
+-- 'smoothingLatency', 'transport_smoothingLatency' - The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
+-- streams.
+--
 -- 'maxSyncBuffer', 'transport_maxSyncBuffer' - The size of the buffer (in milliseconds) to use to sync incoming source
 -- data.
+--
+-- 'maxBitrate', 'transport_maxBitrate' - The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
 --
 -- 'cidrAllowList', 'transport_cidrAllowList' - The range of IP addresses that should be allowed to initiate output
 -- requests to this flow. These IP addresses should be in the form of a
 -- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
 --
--- 'smoothingLatency', 'transport_smoothingLatency' - The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
--- streams.
+-- 'streamId', 'transport_streamId' - The stream ID that you want to use for this transport. This parameter
+-- applies only to Zixi-based streams.
+--
+-- 'remoteId', 'transport_remoteId' - The remote ID for the Zixi-pull stream.
 --
 -- 'minLatency', 'transport_minLatency' - The minimum latency in milliseconds for SRT-based streams. In streams
 -- that use the SRT protocol, this value that you set on your MediaConnect
 -- source or output represents the minimal potential latency of that
 -- connection. The latency of the stream is set to the highest number
 -- between the sender’s minimum latency and the receiver’s minimum latency.
---
--- 'maxBitrate', 'transport_maxBitrate' - The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
---
--- 'streamId', 'transport_streamId' - The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
---
--- 'remoteId', 'transport_remoteId' - The remote ID for the Zixi-pull stream.
 --
 -- 'protocol', 'transport_protocol' - The protocol that is used by the source or output.
 newTransport ::
@@ -102,13 +102,13 @@ newTransport ::
 newTransport pProtocol_ =
   Transport'
     { maxLatency = Prelude.Nothing,
-      maxSyncBuffer = Prelude.Nothing,
-      cidrAllowList = Prelude.Nothing,
       smoothingLatency = Prelude.Nothing,
-      minLatency = Prelude.Nothing,
+      maxSyncBuffer = Prelude.Nothing,
       maxBitrate = Prelude.Nothing,
+      cidrAllowList = Prelude.Nothing,
       streamId = Prelude.Nothing,
       remoteId = Prelude.Nothing,
+      minLatency = Prelude.Nothing,
       protocol = pProtocol_
     }
 
@@ -117,33 +117,25 @@ newTransport pProtocol_ =
 transport_maxLatency :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
 transport_maxLatency = Lens.lens (\Transport' {maxLatency} -> maxLatency) (\s@Transport' {} a -> s {maxLatency = a} :: Transport)
 
+-- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
+-- streams.
+transport_smoothingLatency :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
+transport_smoothingLatency = Lens.lens (\Transport' {smoothingLatency} -> smoothingLatency) (\s@Transport' {} a -> s {smoothingLatency = a} :: Transport)
+
 -- | The size of the buffer (in milliseconds) to use to sync incoming source
 -- data.
 transport_maxSyncBuffer :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
 transport_maxSyncBuffer = Lens.lens (\Transport' {maxSyncBuffer} -> maxSyncBuffer) (\s@Transport' {} a -> s {maxSyncBuffer = a} :: Transport)
+
+-- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+transport_maxBitrate :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
+transport_maxBitrate = Lens.lens (\Transport' {maxBitrate} -> maxBitrate) (\s@Transport' {} a -> s {maxBitrate = a} :: Transport)
 
 -- | The range of IP addresses that should be allowed to initiate output
 -- requests to this flow. These IP addresses should be in the form of a
 -- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
 transport_cidrAllowList :: Lens.Lens' Transport (Prelude.Maybe [Prelude.Text])
 transport_cidrAllowList = Lens.lens (\Transport' {cidrAllowList} -> cidrAllowList) (\s@Transport' {} a -> s {cidrAllowList = a} :: Transport) Prelude.. Lens.mapping Lens.coerced
-
--- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
--- streams.
-transport_smoothingLatency :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
-transport_smoothingLatency = Lens.lens (\Transport' {smoothingLatency} -> smoothingLatency) (\s@Transport' {} a -> s {smoothingLatency = a} :: Transport)
-
--- | The minimum latency in milliseconds for SRT-based streams. In streams
--- that use the SRT protocol, this value that you set on your MediaConnect
--- source or output represents the minimal potential latency of that
--- connection. The latency of the stream is set to the highest number
--- between the sender’s minimum latency and the receiver’s minimum latency.
-transport_minLatency :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
-transport_minLatency = Lens.lens (\Transport' {minLatency} -> minLatency) (\s@Transport' {} a -> s {minLatency = a} :: Transport)
-
--- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
-transport_maxBitrate :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
-transport_maxBitrate = Lens.lens (\Transport' {maxBitrate} -> maxBitrate) (\s@Transport' {} a -> s {maxBitrate = a} :: Transport)
 
 -- | The stream ID that you want to use for this transport. This parameter
 -- applies only to Zixi-based streams.
@@ -153,6 +145,14 @@ transport_streamId = Lens.lens (\Transport' {streamId} -> streamId) (\s@Transpor
 -- | The remote ID for the Zixi-pull stream.
 transport_remoteId :: Lens.Lens' Transport (Prelude.Maybe Prelude.Text)
 transport_remoteId = Lens.lens (\Transport' {remoteId} -> remoteId) (\s@Transport' {} a -> s {remoteId = a} :: Transport)
+
+-- | The minimum latency in milliseconds for SRT-based streams. In streams
+-- that use the SRT protocol, this value that you set on your MediaConnect
+-- source or output represents the minimal potential latency of that
+-- connection. The latency of the stream is set to the highest number
+-- between the sender’s minimum latency and the receiver’s minimum latency.
+transport_minLatency :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
+transport_minLatency = Lens.lens (\Transport' {minLatency} -> minLatency) (\s@Transport' {} a -> s {minLatency = a} :: Transport)
 
 -- | The protocol that is used by the source or output.
 transport_protocol :: Lens.Lens' Transport Protocol
@@ -165,36 +165,36 @@ instance Core.FromJSON Transport where
       ( \x ->
           Transport'
             Prelude.<$> (x Core..:? "maxLatency")
-            Prelude.<*> (x Core..:? "maxSyncBuffer")
-            Prelude.<*> (x Core..:? "cidrAllowList" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "smoothingLatency")
-            Prelude.<*> (x Core..:? "minLatency")
+            Prelude.<*> (x Core..:? "maxSyncBuffer")
             Prelude.<*> (x Core..:? "maxBitrate")
+            Prelude.<*> (x Core..:? "cidrAllowList" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "streamId")
             Prelude.<*> (x Core..:? "remoteId")
+            Prelude.<*> (x Core..:? "minLatency")
             Prelude.<*> (x Core..: "protocol")
       )
 
 instance Prelude.Hashable Transport where
   hashWithSalt _salt Transport' {..} =
     _salt `Prelude.hashWithSalt` maxLatency
-      `Prelude.hashWithSalt` maxSyncBuffer
-      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` smoothingLatency
-      `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` maxSyncBuffer
       `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` remoteId
+      `Prelude.hashWithSalt` minLatency
       `Prelude.hashWithSalt` protocol
 
 instance Prelude.NFData Transport where
   rnf Transport' {..} =
     Prelude.rnf maxLatency
-      `Prelude.seq` Prelude.rnf maxSyncBuffer
-      `Prelude.seq` Prelude.rnf cidrAllowList
       `Prelude.seq` Prelude.rnf smoothingLatency
-      `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf maxSyncBuffer
       `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf cidrAllowList
       `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf remoteId
+      `Prelude.seq` Prelude.rnf minLatency
       `Prelude.seq` Prelude.rnf protocol

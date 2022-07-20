@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data ThemeAlias = ThemeAlias'
   { -- | The Amazon Resource Name (ARN) of the theme alias.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the theme alias.
-    themeVersionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The display name of the theme alias.
-    aliasName :: Prelude.Maybe Prelude.Text
+    aliasName :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the theme alias.
+    themeVersionNumber :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data ThemeAlias = ThemeAlias'
 --
 -- 'arn', 'themeAlias_arn' - The Amazon Resource Name (ARN) of the theme alias.
 --
--- 'themeVersionNumber', 'themeAlias_themeVersionNumber' - The version number of the theme alias.
---
 -- 'aliasName', 'themeAlias_aliasName' - The display name of the theme alias.
+--
+-- 'themeVersionNumber', 'themeAlias_themeVersionNumber' - The version number of the theme alias.
 newThemeAlias ::
   ThemeAlias
 newThemeAlias =
   ThemeAlias'
     { arn = Prelude.Nothing,
-      themeVersionNumber = Prelude.Nothing,
-      aliasName = Prelude.Nothing
+      aliasName = Prelude.Nothing,
+      themeVersionNumber = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the theme alias.
 themeAlias_arn :: Lens.Lens' ThemeAlias (Prelude.Maybe Prelude.Text)
 themeAlias_arn = Lens.lens (\ThemeAlias' {arn} -> arn) (\s@ThemeAlias' {} a -> s {arn = a} :: ThemeAlias)
 
--- | The version number of the theme alias.
-themeAlias_themeVersionNumber :: Lens.Lens' ThemeAlias (Prelude.Maybe Prelude.Natural)
-themeAlias_themeVersionNumber = Lens.lens (\ThemeAlias' {themeVersionNumber} -> themeVersionNumber) (\s@ThemeAlias' {} a -> s {themeVersionNumber = a} :: ThemeAlias)
-
 -- | The display name of the theme alias.
 themeAlias_aliasName :: Lens.Lens' ThemeAlias (Prelude.Maybe Prelude.Text)
 themeAlias_aliasName = Lens.lens (\ThemeAlias' {aliasName} -> aliasName) (\s@ThemeAlias' {} a -> s {aliasName = a} :: ThemeAlias)
+
+-- | The version number of the theme alias.
+themeAlias_themeVersionNumber :: Lens.Lens' ThemeAlias (Prelude.Maybe Prelude.Natural)
+themeAlias_themeVersionNumber = Lens.lens (\ThemeAlias' {themeVersionNumber} -> themeVersionNumber) (\s@ThemeAlias' {} a -> s {themeVersionNumber = a} :: ThemeAlias)
 
 instance Core.FromJSON ThemeAlias where
   parseJSON =
@@ -77,18 +77,18 @@ instance Core.FromJSON ThemeAlias where
       ( \x ->
           ThemeAlias'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "ThemeVersionNumber")
             Prelude.<*> (x Core..:? "AliasName")
+            Prelude.<*> (x Core..:? "ThemeVersionNumber")
       )
 
 instance Prelude.Hashable ThemeAlias where
   hashWithSalt _salt ThemeAlias' {..} =
     _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` themeVersionNumber
       `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` themeVersionNumber
 
 instance Prelude.NFData ThemeAlias where
   rnf ThemeAlias' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf themeVersionNumber
       `Prelude.seq` Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf themeVersionNumber

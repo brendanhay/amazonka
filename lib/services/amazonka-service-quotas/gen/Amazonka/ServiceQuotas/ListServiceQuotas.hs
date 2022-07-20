@@ -40,8 +40,8 @@ module Amazonka.ServiceQuotas.ListServiceQuotas
     newListServiceQuotasResponse,
 
     -- * Response Lenses
-    listServiceQuotasResponse_nextToken,
     listServiceQuotasResponse_quotas,
+    listServiceQuotasResponse_nextToken,
     listServiceQuotasResponse_httpStatus,
   )
 where
@@ -137,8 +137,8 @@ instance Core.AWSRequest ListServiceQuotas where
     Response.receiveJSON
       ( \s h x ->
           ListServiceQuotasResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Quotas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Quotas" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,11 +187,11 @@ instance Core.ToQuery ListServiceQuotas where
 
 -- | /See:/ 'newListServiceQuotasResponse' smart constructor.
 data ListServiceQuotasResponse = ListServiceQuotasResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the quotas.
+    quotas :: Prelude.Maybe [ServiceQuota],
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the quotas.
-    quotas :: Prelude.Maybe [ServiceQuota],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,10 +205,10 @@ data ListServiceQuotasResponse = ListServiceQuotasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'quotas', 'listServiceQuotasResponse_quotas' - Information about the quotas.
+--
 -- 'nextToken', 'listServiceQuotasResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
---
--- 'quotas', 'listServiceQuotasResponse_quotas' - Information about the quotas.
 --
 -- 'httpStatus', 'listServiceQuotasResponse_httpStatus' - The response's http status code.
 newListServiceQuotasResponse ::
@@ -217,20 +217,20 @@ newListServiceQuotasResponse ::
   ListServiceQuotasResponse
 newListServiceQuotasResponse pHttpStatus_ =
   ListServiceQuotasResponse'
-    { nextToken =
+    { quotas =
         Prelude.Nothing,
-      quotas = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the quotas.
+listServiceQuotasResponse_quotas :: Lens.Lens' ListServiceQuotasResponse (Prelude.Maybe [ServiceQuota])
+listServiceQuotasResponse_quotas = Lens.lens (\ListServiceQuotasResponse' {quotas} -> quotas) (\s@ListServiceQuotasResponse' {} a -> s {quotas = a} :: ListServiceQuotasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 listServiceQuotasResponse_nextToken :: Lens.Lens' ListServiceQuotasResponse (Prelude.Maybe Prelude.Text)
 listServiceQuotasResponse_nextToken = Lens.lens (\ListServiceQuotasResponse' {nextToken} -> nextToken) (\s@ListServiceQuotasResponse' {} a -> s {nextToken = a} :: ListServiceQuotasResponse)
-
--- | Information about the quotas.
-listServiceQuotasResponse_quotas :: Lens.Lens' ListServiceQuotasResponse (Prelude.Maybe [ServiceQuota])
-listServiceQuotasResponse_quotas = Lens.lens (\ListServiceQuotasResponse' {quotas} -> quotas) (\s@ListServiceQuotasResponse' {} a -> s {quotas = a} :: ListServiceQuotasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listServiceQuotasResponse_httpStatus :: Lens.Lens' ListServiceQuotasResponse Prelude.Int
@@ -238,6 +238,6 @@ listServiceQuotasResponse_httpStatus = Lens.lens (\ListServiceQuotasResponse' {h
 
 instance Prelude.NFData ListServiceQuotasResponse where
   rnf ListServiceQuotasResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf quotas
+    Prelude.rnf quotas
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

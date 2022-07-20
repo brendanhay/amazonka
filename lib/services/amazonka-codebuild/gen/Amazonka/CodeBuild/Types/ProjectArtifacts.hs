@@ -31,52 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectArtifacts' smart constructor.
 data ProjectArtifacts = ProjectArtifacts'
-  { -- | The type of build output artifact to create:
-    --
-    -- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
-    --     if specified. This is because CodePipeline manages its build output
-    --     artifacts instead of CodeBuild.
-    --
-    -- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
-    --     specified, because no build output is produced.
-    --
-    -- -   If @type@ is set to @S3@, valid values include:
-    --
-    --     -   @NONE@: CodeBuild creates in the output bucket a folder that
-    --         contains the build output. This is the default if @packaging@ is
-    --         not specified.
-    --
-    --     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that
-    --         contains the build output.
-    packaging :: Prelude.Maybe ArtifactPackaging,
-    -- | Along with @namespaceType@ and @name@, the pattern that CodeBuild uses
-    -- to name and store the output artifact:
-    --
-    -- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
-    --     if specified. This is because CodePipeline manages its build output
-    --     names instead of CodeBuild.
-    --
-    -- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
-    --     specified, because no build output is produced.
-    --
-    -- -   If @type@ is set to @S3@, this is the path to the output artifact.
-    --     If @path@ is not specified, @path@ is not used.
-    --
-    -- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
-    -- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is
-    -- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.
-    path :: Prelude.Maybe Prelude.Text,
-    -- | Information about the build output artifact location:
-    --
-    -- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
-    --     if specified. This is because CodePipeline manages its build output
-    --     locations instead of CodeBuild.
-    --
-    -- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
-    --     specified, because no build output is produced.
-    --
-    -- -   If @type@ is set to @S3@, this is the name of the output bucket.
-    location :: Prelude.Maybe Prelude.Text,
+  { -- | Set to true if you do not want your output artifacts encrypted. This
+    -- option is valid only if your artifacts type is Amazon S3. If this is set
+    -- with another artifacts type, an invalidInputException is thrown.
+    encryptionDisabled :: Prelude.Maybe Prelude.Bool,
     -- | Along with @path@ and @namespaceType@, the pattern that CodeBuild uses
     -- to name and store the output artifact:
     --
@@ -105,18 +63,60 @@ data ProjectArtifacts = ProjectArtifacts'
     --     @BUILD_ID@, and @name@ is set to \"@\/@\", the output artifact is
     --     stored in @MyArtifacts\/\<build-ID>@.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Set to true if you do not want your output artifacts encrypted. This
-    -- option is valid only if your artifacts type is Amazon S3. If this is set
-    -- with another artifacts type, an invalidInputException is thrown.
-    encryptionDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | Along with @namespaceType@ and @name@, the pattern that CodeBuild uses
+    -- to name and store the output artifact:
+    --
+    -- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+    --     if specified. This is because CodePipeline manages its build output
+    --     names instead of CodeBuild.
+    --
+    -- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+    --     specified, because no build output is produced.
+    --
+    -- -   If @type@ is set to @S3@, this is the path to the output artifact.
+    --     If @path@ is not specified, @path@ is not used.
+    --
+    -- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
+    -- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is
+    -- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | An identifier for this artifact definition.
+    artifactIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The type of build output artifact to create:
+    --
+    -- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+    --     if specified. This is because CodePipeline manages its build output
+    --     artifacts instead of CodeBuild.
+    --
+    -- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+    --     specified, because no build output is produced.
+    --
+    -- -   If @type@ is set to @S3@, valid values include:
+    --
+    --     -   @NONE@: CodeBuild creates in the output bucket a folder that
+    --         contains the build output. This is the default if @packaging@ is
+    --         not specified.
+    --
+    --     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that
+    --         contains the build output.
+    packaging :: Prelude.Maybe ArtifactPackaging,
+    -- | Information about the build output artifact location:
+    --
+    -- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+    --     if specified. This is because CodePipeline manages its build output
+    --     locations instead of CodeBuild.
+    --
+    -- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+    --     specified, because no build output is produced.
+    --
+    -- -   If @type@ is set to @S3@, this is the name of the output bucket.
+    location :: Prelude.Maybe Prelude.Text,
     -- | If this flag is set, a name specified in the buildspec file overrides
     -- the artifact name. The name specified in a buildspec file is calculated
     -- at build time and uses the Shell Command Language. For example, you can
     -- append a date and time to your artifact name so that it is always
     -- unique.
     overrideArtifactName :: Prelude.Maybe Prelude.Bool,
-    -- | An identifier for this artifact definition.
-    artifactIdentifier :: Prelude.Maybe Prelude.Text,
     bucketOwnerAccess :: Prelude.Maybe BucketOwnerAccess,
     -- | Along with @path@ and @name@, the pattern that CodeBuild uses to
     -- determine the name and location to store the output artifact:
@@ -162,51 +162,9 @@ data ProjectArtifacts = ProjectArtifacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packaging', 'projectArtifacts_packaging' - The type of build output artifact to create:
---
--- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
---     if specified. This is because CodePipeline manages its build output
---     artifacts instead of CodeBuild.
---
--- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
---     specified, because no build output is produced.
---
--- -   If @type@ is set to @S3@, valid values include:
---
---     -   @NONE@: CodeBuild creates in the output bucket a folder that
---         contains the build output. This is the default if @packaging@ is
---         not specified.
---
---     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that
---         contains the build output.
---
--- 'path', 'projectArtifacts_path' - Along with @namespaceType@ and @name@, the pattern that CodeBuild uses
--- to name and store the output artifact:
---
--- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
---     if specified. This is because CodePipeline manages its build output
---     names instead of CodeBuild.
---
--- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
---     specified, because no build output is produced.
---
--- -   If @type@ is set to @S3@, this is the path to the output artifact.
---     If @path@ is not specified, @path@ is not used.
---
--- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
--- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is
--- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.
---
--- 'location', 'projectArtifacts_location' - Information about the build output artifact location:
---
--- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
---     if specified. This is because CodePipeline manages its build output
---     locations instead of CodeBuild.
---
--- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
---     specified, because no build output is produced.
---
--- -   If @type@ is set to @S3@, this is the name of the output bucket.
+-- 'encryptionDisabled', 'projectArtifacts_encryptionDisabled' - Set to true if you do not want your output artifacts encrypted. This
+-- option is valid only if your artifacts type is Amazon S3. If this is set
+-- with another artifacts type, an invalidInputException is thrown.
 --
 -- 'name', 'projectArtifacts_name' - Along with @path@ and @namespaceType@, the pattern that CodeBuild uses
 -- to name and store the output artifact:
@@ -236,17 +194,59 @@ data ProjectArtifacts = ProjectArtifacts'
 --     @BUILD_ID@, and @name@ is set to \"@\/@\", the output artifact is
 --     stored in @MyArtifacts\/\<build-ID>@.
 --
--- 'encryptionDisabled', 'projectArtifacts_encryptionDisabled' - Set to true if you do not want your output artifacts encrypted. This
--- option is valid only if your artifacts type is Amazon S3. If this is set
--- with another artifacts type, an invalidInputException is thrown.
+-- 'path', 'projectArtifacts_path' - Along with @namespaceType@ and @name@, the pattern that CodeBuild uses
+-- to name and store the output artifact:
+--
+-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+--     if specified. This is because CodePipeline manages its build output
+--     names instead of CodeBuild.
+--
+-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+--     specified, because no build output is produced.
+--
+-- -   If @type@ is set to @S3@, this is the path to the output artifact.
+--     If @path@ is not specified, @path@ is not used.
+--
+-- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
+-- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is
+-- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.
+--
+-- 'artifactIdentifier', 'projectArtifacts_artifactIdentifier' - An identifier for this artifact definition.
+--
+-- 'packaging', 'projectArtifacts_packaging' - The type of build output artifact to create:
+--
+-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+--     if specified. This is because CodePipeline manages its build output
+--     artifacts instead of CodeBuild.
+--
+-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+--     specified, because no build output is produced.
+--
+-- -   If @type@ is set to @S3@, valid values include:
+--
+--     -   @NONE@: CodeBuild creates in the output bucket a folder that
+--         contains the build output. This is the default if @packaging@ is
+--         not specified.
+--
+--     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that
+--         contains the build output.
+--
+-- 'location', 'projectArtifacts_location' - Information about the build output artifact location:
+--
+-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+--     if specified. This is because CodePipeline manages its build output
+--     locations instead of CodeBuild.
+--
+-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+--     specified, because no build output is produced.
+--
+-- -   If @type@ is set to @S3@, this is the name of the output bucket.
 --
 -- 'overrideArtifactName', 'projectArtifacts_overrideArtifactName' - If this flag is set, a name specified in the buildspec file overrides
 -- the artifact name. The name specified in a buildspec file is calculated
 -- at build time and uses the Shell Command Language. For example, you can
 -- append a date and time to your artifact name so that it is always
 -- unique.
---
--- 'artifactIdentifier', 'projectArtifacts_artifactIdentifier' - An identifier for this artifact definition.
 --
 -- 'bucketOwnerAccess', 'projectArtifacts_bucketOwnerAccess' - Undocumented member.
 --
@@ -288,69 +288,24 @@ newProjectArtifacts ::
   ProjectArtifacts
 newProjectArtifacts pType_ =
   ProjectArtifacts'
-    { packaging = Prelude.Nothing,
-      path = Prelude.Nothing,
-      location = Prelude.Nothing,
+    { encryptionDisabled =
+        Prelude.Nothing,
       name = Prelude.Nothing,
-      encryptionDisabled = Prelude.Nothing,
-      overrideArtifactName = Prelude.Nothing,
+      path = Prelude.Nothing,
       artifactIdentifier = Prelude.Nothing,
+      packaging = Prelude.Nothing,
+      location = Prelude.Nothing,
+      overrideArtifactName = Prelude.Nothing,
       bucketOwnerAccess = Prelude.Nothing,
       namespaceType = Prelude.Nothing,
       type' = pType_
     }
 
--- | The type of build output artifact to create:
---
--- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
---     if specified. This is because CodePipeline manages its build output
---     artifacts instead of CodeBuild.
---
--- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
---     specified, because no build output is produced.
---
--- -   If @type@ is set to @S3@, valid values include:
---
---     -   @NONE@: CodeBuild creates in the output bucket a folder that
---         contains the build output. This is the default if @packaging@ is
---         not specified.
---
---     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that
---         contains the build output.
-projectArtifacts_packaging :: Lens.Lens' ProjectArtifacts (Prelude.Maybe ArtifactPackaging)
-projectArtifacts_packaging = Lens.lens (\ProjectArtifacts' {packaging} -> packaging) (\s@ProjectArtifacts' {} a -> s {packaging = a} :: ProjectArtifacts)
-
--- | Along with @namespaceType@ and @name@, the pattern that CodeBuild uses
--- to name and store the output artifact:
---
--- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
---     if specified. This is because CodePipeline manages its build output
---     names instead of CodeBuild.
---
--- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
---     specified, because no build output is produced.
---
--- -   If @type@ is set to @S3@, this is the path to the output artifact.
---     If @path@ is not specified, @path@ is not used.
---
--- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
--- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is
--- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.
-projectArtifacts_path :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
-projectArtifacts_path = Lens.lens (\ProjectArtifacts' {path} -> path) (\s@ProjectArtifacts' {} a -> s {path = a} :: ProjectArtifacts)
-
--- | Information about the build output artifact location:
---
--- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
---     if specified. This is because CodePipeline manages its build output
---     locations instead of CodeBuild.
---
--- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
---     specified, because no build output is produced.
---
--- -   If @type@ is set to @S3@, this is the name of the output bucket.
-projectArtifacts_location :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
-projectArtifacts_location = Lens.lens (\ProjectArtifacts' {location} -> location) (\s@ProjectArtifacts' {} a -> s {location = a} :: ProjectArtifacts)
+-- | Set to true if you do not want your output artifacts encrypted. This
+-- option is valid only if your artifacts type is Amazon S3. If this is set
+-- with another artifacts type, an invalidInputException is thrown.
+projectArtifacts_encryptionDisabled :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Bool)
+projectArtifacts_encryptionDisabled = Lens.lens (\ProjectArtifacts' {encryptionDisabled} -> encryptionDisabled) (\s@ProjectArtifacts' {} a -> s {encryptionDisabled = a} :: ProjectArtifacts)
 
 -- | Along with @path@ and @namespaceType@, the pattern that CodeBuild uses
 -- to name and store the output artifact:
@@ -382,11 +337,61 @@ projectArtifacts_location = Lens.lens (\ProjectArtifacts' {location} -> location
 projectArtifacts_name :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
 projectArtifacts_name = Lens.lens (\ProjectArtifacts' {name} -> name) (\s@ProjectArtifacts' {} a -> s {name = a} :: ProjectArtifacts)
 
--- | Set to true if you do not want your output artifacts encrypted. This
--- option is valid only if your artifacts type is Amazon S3. If this is set
--- with another artifacts type, an invalidInputException is thrown.
-projectArtifacts_encryptionDisabled :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Bool)
-projectArtifacts_encryptionDisabled = Lens.lens (\ProjectArtifacts' {encryptionDisabled} -> encryptionDisabled) (\s@ProjectArtifacts' {} a -> s {encryptionDisabled = a} :: ProjectArtifacts)
+-- | Along with @namespaceType@ and @name@, the pattern that CodeBuild uses
+-- to name and store the output artifact:
+--
+-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+--     if specified. This is because CodePipeline manages its build output
+--     names instead of CodeBuild.
+--
+-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+--     specified, because no build output is produced.
+--
+-- -   If @type@ is set to @S3@, this is the path to the output artifact.
+--     If @path@ is not specified, @path@ is not used.
+--
+-- For example, if @path@ is set to @MyArtifacts@, @namespaceType@ is set
+-- to @NONE@, and @name@ is set to @MyArtifact.zip@, the output artifact is
+-- stored in the output bucket at @MyArtifacts\/MyArtifact.zip@.
+projectArtifacts_path :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
+projectArtifacts_path = Lens.lens (\ProjectArtifacts' {path} -> path) (\s@ProjectArtifacts' {} a -> s {path = a} :: ProjectArtifacts)
+
+-- | An identifier for this artifact definition.
+projectArtifacts_artifactIdentifier :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
+projectArtifacts_artifactIdentifier = Lens.lens (\ProjectArtifacts' {artifactIdentifier} -> artifactIdentifier) (\s@ProjectArtifacts' {} a -> s {artifactIdentifier = a} :: ProjectArtifacts)
+
+-- | The type of build output artifact to create:
+--
+-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+--     if specified. This is because CodePipeline manages its build output
+--     artifacts instead of CodeBuild.
+--
+-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+--     specified, because no build output is produced.
+--
+-- -   If @type@ is set to @S3@, valid values include:
+--
+--     -   @NONE@: CodeBuild creates in the output bucket a folder that
+--         contains the build output. This is the default if @packaging@ is
+--         not specified.
+--
+--     -   @ZIP@: CodeBuild creates in the output bucket a ZIP file that
+--         contains the build output.
+projectArtifacts_packaging :: Lens.Lens' ProjectArtifacts (Prelude.Maybe ArtifactPackaging)
+projectArtifacts_packaging = Lens.lens (\ProjectArtifacts' {packaging} -> packaging) (\s@ProjectArtifacts' {} a -> s {packaging = a} :: ProjectArtifacts)
+
+-- | Information about the build output artifact location:
+--
+-- -   If @type@ is set to @CODEPIPELINE@, CodePipeline ignores this value
+--     if specified. This is because CodePipeline manages its build output
+--     locations instead of CodeBuild.
+--
+-- -   If @type@ is set to @NO_ARTIFACTS@, this value is ignored if
+--     specified, because no build output is produced.
+--
+-- -   If @type@ is set to @S3@, this is the name of the output bucket.
+projectArtifacts_location :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
+projectArtifacts_location = Lens.lens (\ProjectArtifacts' {location} -> location) (\s@ProjectArtifacts' {} a -> s {location = a} :: ProjectArtifacts)
 
 -- | If this flag is set, a name specified in the buildspec file overrides
 -- the artifact name. The name specified in a buildspec file is calculated
@@ -395,10 +400,6 @@ projectArtifacts_encryptionDisabled = Lens.lens (\ProjectArtifacts' {encryptionD
 -- unique.
 projectArtifacts_overrideArtifactName :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Bool)
 projectArtifacts_overrideArtifactName = Lens.lens (\ProjectArtifacts' {overrideArtifactName} -> overrideArtifactName) (\s@ProjectArtifacts' {} a -> s {overrideArtifactName = a} :: ProjectArtifacts)
-
--- | An identifier for this artifact definition.
-projectArtifacts_artifactIdentifier :: Lens.Lens' ProjectArtifacts (Prelude.Maybe Prelude.Text)
-projectArtifacts_artifactIdentifier = Lens.lens (\ProjectArtifacts' {artifactIdentifier} -> artifactIdentifier) (\s@ProjectArtifacts' {} a -> s {artifactIdentifier = a} :: ProjectArtifacts)
 
 -- | Undocumented member.
 projectArtifacts_bucketOwnerAccess :: Lens.Lens' ProjectArtifacts (Prelude.Maybe BucketOwnerAccess)
@@ -447,13 +448,13 @@ instance Core.FromJSON ProjectArtifacts where
       "ProjectArtifacts"
       ( \x ->
           ProjectArtifacts'
-            Prelude.<$> (x Core..:? "packaging")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "location")
+            Prelude.<$> (x Core..:? "encryptionDisabled")
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "encryptionDisabled")
-            Prelude.<*> (x Core..:? "overrideArtifactName")
+            Prelude.<*> (x Core..:? "path")
             Prelude.<*> (x Core..:? "artifactIdentifier")
+            Prelude.<*> (x Core..:? "packaging")
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "overrideArtifactName")
             Prelude.<*> (x Core..:? "bucketOwnerAccess")
             Prelude.<*> (x Core..:? "namespaceType")
             Prelude.<*> (x Core..: "type")
@@ -461,26 +462,26 @@ instance Core.FromJSON ProjectArtifacts where
 
 instance Prelude.Hashable ProjectArtifacts where
   hashWithSalt _salt ProjectArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` packaging
-      `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` location
+    _salt `Prelude.hashWithSalt` encryptionDisabled
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` encryptionDisabled
-      `Prelude.hashWithSalt` overrideArtifactName
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` artifactIdentifier
+      `Prelude.hashWithSalt` packaging
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` overrideArtifactName
       `Prelude.hashWithSalt` bucketOwnerAccess
       `Prelude.hashWithSalt` namespaceType
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ProjectArtifacts where
   rnf ProjectArtifacts' {..} =
-    Prelude.rnf packaging
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf encryptionDisabled
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf encryptionDisabled
-      `Prelude.seq` Prelude.rnf overrideArtifactName
+      `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf artifactIdentifier
+      `Prelude.seq` Prelude.rnf packaging
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf overrideArtifactName
       `Prelude.seq` Prelude.rnf bucketOwnerAccess
       `Prelude.seq` Prelude.rnf namespaceType
       `Prelude.seq` Prelude.rnf type'
@@ -489,16 +490,16 @@ instance Core.ToJSON ProjectArtifacts where
   toJSON ProjectArtifacts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("packaging" Core..=) Prelude.<$> packaging,
-            ("path" Core..=) Prelude.<$> path,
-            ("location" Core..=) Prelude.<$> location,
-            ("name" Core..=) Prelude.<$> name,
-            ("encryptionDisabled" Core..=)
+          [ ("encryptionDisabled" Core..=)
               Prelude.<$> encryptionDisabled,
-            ("overrideArtifactName" Core..=)
-              Prelude.<$> overrideArtifactName,
+            ("name" Core..=) Prelude.<$> name,
+            ("path" Core..=) Prelude.<$> path,
             ("artifactIdentifier" Core..=)
               Prelude.<$> artifactIdentifier,
+            ("packaging" Core..=) Prelude.<$> packaging,
+            ("location" Core..=) Prelude.<$> location,
+            ("overrideArtifactName" Core..=)
+              Prelude.<$> overrideArtifactName,
             ("bucketOwnerAccess" Core..=)
               Prelude.<$> bucketOwnerAccess,
             ("namespaceType" Core..=) Prelude.<$> namespaceType,

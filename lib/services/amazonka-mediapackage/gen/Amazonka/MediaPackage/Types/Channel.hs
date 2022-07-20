@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
-    hlsIngest :: Prelude.Maybe HlsIngest,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
@@ -39,7 +39,7 @@ data Channel = Channel'
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    hlsIngest :: Prelude.Maybe HlsIngest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,9 +51,9 @@ data Channel = Channel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ingressAccessLogs', 'channel_ingressAccessLogs' - Undocumented member.
+-- 'tags', 'channel_tags' - Undocumented member.
 --
--- 'hlsIngest', 'channel_hlsIngest' - Undocumented member.
+-- 'ingressAccessLogs', 'channel_ingressAccessLogs' - Undocumented member.
 --
 -- 'arn', 'channel_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
@@ -63,27 +63,27 @@ data Channel = Channel'
 --
 -- 'egressAccessLogs', 'channel_egressAccessLogs' - Undocumented member.
 --
--- 'tags', 'channel_tags' - Undocumented member.
+-- 'hlsIngest', 'channel_hlsIngest' - Undocumented member.
 newChannel ::
   Channel
 newChannel =
   Channel'
-    { ingressAccessLogs = Prelude.Nothing,
-      hlsIngest = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      ingressAccessLogs = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
-      tags = Prelude.Nothing
+      hlsIngest = Prelude.Nothing
     }
+
+-- | Undocumented member.
+channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 channel_ingressAccessLogs :: Lens.Lens' Channel (Prelude.Maybe IngressAccessLogs)
 channel_ingressAccessLogs = Lens.lens (\Channel' {ingressAccessLogs} -> ingressAccessLogs) (\s@Channel' {} a -> s {ingressAccessLogs = a} :: Channel)
-
--- | Undocumented member.
-channel_hlsIngest :: Lens.Lens' Channel (Prelude.Maybe HlsIngest)
-channel_hlsIngest = Lens.lens (\Channel' {hlsIngest} -> hlsIngest) (\s@Channel' {} a -> s {hlsIngest = a} :: Channel)
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 channel_arn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
@@ -102,8 +102,8 @@ channel_egressAccessLogs :: Lens.Lens' Channel (Prelude.Maybe EgressAccessLogs)
 channel_egressAccessLogs = Lens.lens (\Channel' {egressAccessLogs} -> egressAccessLogs) (\s@Channel' {} a -> s {egressAccessLogs = a} :: Channel)
 
 -- | Undocumented member.
-channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
+channel_hlsIngest :: Lens.Lens' Channel (Prelude.Maybe HlsIngest)
+channel_hlsIngest = Lens.lens (\Channel' {hlsIngest} -> hlsIngest) (\s@Channel' {} a -> s {hlsIngest = a} :: Channel)
 
 instance Core.FromJSON Channel where
   parseJSON =
@@ -111,31 +111,31 @@ instance Core.FromJSON Channel where
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "ingressAccessLogs")
-            Prelude.<*> (x Core..:? "hlsIngest")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ingressAccessLogs")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "egressAccessLogs")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "hlsIngest")
       )
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` ingressAccessLogs
-      `Prelude.hashWithSalt` hlsIngest
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` ingressAccessLogs
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` egressAccessLogs
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` hlsIngest
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf ingressAccessLogs
-      `Prelude.seq` Prelude.rnf hlsIngest
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ingressAccessLogs
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hlsIngest

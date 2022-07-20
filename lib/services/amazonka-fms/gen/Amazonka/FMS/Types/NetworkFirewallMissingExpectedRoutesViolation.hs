@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkFirewallMissingExpectedRoutesViolation' smart constructor.
 data NetworkFirewallMissingExpectedRoutesViolation = NetworkFirewallMissingExpectedRoutesViolation'
-  { -- | The expected routes.
+  { -- | The target of the violation.
+    violationTarget :: Prelude.Maybe Prelude.Text,
+    -- | The expected routes.
     expectedRoutes :: Prelude.Maybe [ExpectedRoute],
     -- | Information about the VPC ID.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The target of the violation.
-    violationTarget :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,21 +45,25 @@ data NetworkFirewallMissingExpectedRoutesViolation = NetworkFirewallMissingExpec
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'violationTarget', 'networkFirewallMissingExpectedRoutesViolation_violationTarget' - The target of the violation.
+--
 -- 'expectedRoutes', 'networkFirewallMissingExpectedRoutesViolation_expectedRoutes' - The expected routes.
 --
 -- 'vpcId', 'networkFirewallMissingExpectedRoutesViolation_vpcId' - Information about the VPC ID.
---
--- 'violationTarget', 'networkFirewallMissingExpectedRoutesViolation_violationTarget' - The target of the violation.
 newNetworkFirewallMissingExpectedRoutesViolation ::
   NetworkFirewallMissingExpectedRoutesViolation
 newNetworkFirewallMissingExpectedRoutesViolation =
   NetworkFirewallMissingExpectedRoutesViolation'
-    { expectedRoutes =
+    { violationTarget =
         Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      violationTarget =
-        Prelude.Nothing
+      expectedRoutes =
+        Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
+
+-- | The target of the violation.
+networkFirewallMissingExpectedRoutesViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingExpectedRoutesViolation (Prelude.Maybe Prelude.Text)
+networkFirewallMissingExpectedRoutesViolation_violationTarget = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {violationTarget = a} :: NetworkFirewallMissingExpectedRoutesViolation)
 
 -- | The expected routes.
 networkFirewallMissingExpectedRoutesViolation_expectedRoutes :: Lens.Lens' NetworkFirewallMissingExpectedRoutesViolation (Prelude.Maybe [ExpectedRoute])
@@ -68,10 +72,6 @@ networkFirewallMissingExpectedRoutesViolation_expectedRoutes = Lens.lens (\Netwo
 -- | Information about the VPC ID.
 networkFirewallMissingExpectedRoutesViolation_vpcId :: Lens.Lens' NetworkFirewallMissingExpectedRoutesViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRoutesViolation_vpcId = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {vpcId} -> vpcId) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {vpcId = a} :: NetworkFirewallMissingExpectedRoutesViolation)
-
--- | The target of the violation.
-networkFirewallMissingExpectedRoutesViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingExpectedRoutesViolation (Prelude.Maybe Prelude.Text)
-networkFirewallMissingExpectedRoutesViolation_violationTarget = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {violationTarget = a} :: NetworkFirewallMissingExpectedRoutesViolation)
 
 instance
   Core.FromJSON
@@ -82,9 +82,9 @@ instance
       "NetworkFirewallMissingExpectedRoutesViolation"
       ( \x ->
           NetworkFirewallMissingExpectedRoutesViolation'
-            Prelude.<$> (x Core..:? "ExpectedRoutes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "ViolationTarget")
+              Prelude.<*> (x Core..:? "ExpectedRoutes" Core..!= Prelude.mempty)
               Prelude.<*> (x Core..:? "VpcId")
-              Prelude.<*> (x Core..:? "ViolationTarget")
       )
 
 instance
@@ -94,9 +94,9 @@ instance
   hashWithSalt
     _salt
     NetworkFirewallMissingExpectedRoutesViolation' {..} =
-      _salt `Prelude.hashWithSalt` expectedRoutes
+      _salt `Prelude.hashWithSalt` violationTarget
+        `Prelude.hashWithSalt` expectedRoutes
         `Prelude.hashWithSalt` vpcId
-        `Prelude.hashWithSalt` violationTarget
 
 instance
   Prelude.NFData
@@ -104,6 +104,6 @@ instance
   where
   rnf
     NetworkFirewallMissingExpectedRoutesViolation' {..} =
-      Prelude.rnf expectedRoutes
+      Prelude.rnf violationTarget
+        `Prelude.seq` Prelude.rnf expectedRoutes
         `Prelude.seq` Prelude.rnf vpcId
-        `Prelude.seq` Prelude.rnf violationTarget

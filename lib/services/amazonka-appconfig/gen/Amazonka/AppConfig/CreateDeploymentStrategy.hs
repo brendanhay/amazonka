@@ -31,10 +31,10 @@ module Amazonka.AppConfig.CreateDeploymentStrategy
     newCreateDeploymentStrategy,
 
     -- * Request Lenses
-    createDeploymentStrategy_finalBakeTimeInMinutes,
-    createDeploymentStrategy_description,
-    createDeploymentStrategy_growthType,
     createDeploymentStrategy_tags,
+    createDeploymentStrategy_growthType,
+    createDeploymentStrategy_description,
+    createDeploymentStrategy_finalBakeTimeInMinutes,
     createDeploymentStrategy_name,
     createDeploymentStrategy_deploymentDurationInMinutes,
     createDeploymentStrategy_growthFactor,
@@ -45,14 +45,14 @@ module Amazonka.AppConfig.CreateDeploymentStrategy
     newDeploymentStrategy,
 
     -- * Response Lenses
-    deploymentStrategy_growthFactor,
-    deploymentStrategy_replicateTo,
     deploymentStrategy_name,
-    deploymentStrategy_id,
-    deploymentStrategy_deploymentDurationInMinutes,
-    deploymentStrategy_finalBakeTimeInMinutes,
-    deploymentStrategy_description,
     deploymentStrategy_growthType,
+    deploymentStrategy_deploymentDurationInMinutes,
+    deploymentStrategy_id,
+    deploymentStrategy_description,
+    deploymentStrategy_finalBakeTimeInMinutes,
+    deploymentStrategy_replicateTo,
+    deploymentStrategy_growthFactor,
   )
 where
 
@@ -65,12 +65,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDeploymentStrategy' smart constructor.
 data CreateDeploymentStrategy = CreateDeploymentStrategy'
-  { -- | The amount of time AppConfig monitors for alarms before considering the
-    -- deployment to be complete and no longer eligible for automatic roll
-    -- back.
-    finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | A description of the deployment strategy.
-    description :: Prelude.Maybe Prelude.Text,
+  { -- | Metadata to assign to the deployment strategy. Tags help organize and
+    -- categorize your AppConfig resources. Each tag consists of a key and an
+    -- optional value, both of which you define.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The algorithm used to define how percentage grows over time. AWS
     -- AppConfig supports the following growth types:
     --
@@ -99,10 +97,12 @@ data CreateDeploymentStrategy = CreateDeploymentStrategy'
     -- targets, 4% of the targets, 8% of the targets, and continues until the
     -- configuration has been deployed to all targets.
     growthType :: Prelude.Maybe GrowthType,
-    -- | Metadata to assign to the deployment strategy. Tags help organize and
-    -- categorize your AppConfig resources. Each tag consists of a key and an
-    -- optional value, both of which you define.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description of the deployment strategy.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time AppConfig monitors for alarms before considering the
+    -- deployment to be complete and no longer eligible for automatic roll
+    -- back.
+    finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | A name for the deployment strategy.
     name :: Prelude.Text,
     -- | Total amount of time for a deployment to last.
@@ -123,11 +123,9 @@ data CreateDeploymentStrategy = CreateDeploymentStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'finalBakeTimeInMinutes', 'createDeploymentStrategy_finalBakeTimeInMinutes' - The amount of time AppConfig monitors for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
---
--- 'description', 'createDeploymentStrategy_description' - A description of the deployment strategy.
+-- 'tags', 'createDeploymentStrategy_tags' - Metadata to assign to the deployment strategy. Tags help organize and
+-- categorize your AppConfig resources. Each tag consists of a key and an
+-- optional value, both of which you define.
 --
 -- 'growthType', 'createDeploymentStrategy_growthType' - The algorithm used to define how percentage grows over time. AWS
 -- AppConfig supports the following growth types:
@@ -157,9 +155,11 @@ data CreateDeploymentStrategy = CreateDeploymentStrategy'
 -- targets, 4% of the targets, 8% of the targets, and continues until the
 -- configuration has been deployed to all targets.
 --
--- 'tags', 'createDeploymentStrategy_tags' - Metadata to assign to the deployment strategy. Tags help organize and
--- categorize your AppConfig resources. Each tag consists of a key and an
--- optional value, both of which you define.
+-- 'description', 'createDeploymentStrategy_description' - A description of the deployment strategy.
+--
+-- 'finalBakeTimeInMinutes', 'createDeploymentStrategy_finalBakeTimeInMinutes' - The amount of time AppConfig monitors for alarms before considering the
+-- deployment to be complete and no longer eligible for automatic roll
+-- back.
 --
 -- 'name', 'createDeploymentStrategy_name' - A name for the deployment strategy.
 --
@@ -185,11 +185,10 @@ newCreateDeploymentStrategy
   pGrowthFactor_
   pReplicateTo_ =
     CreateDeploymentStrategy'
-      { finalBakeTimeInMinutes =
-          Prelude.Nothing,
-        description = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         growthType = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        description = Prelude.Nothing,
+        finalBakeTimeInMinutes = Prelude.Nothing,
         name = pName_,
         deploymentDurationInMinutes =
           pDeploymentDurationInMinutes_,
@@ -197,15 +196,11 @@ newCreateDeploymentStrategy
         replicateTo = pReplicateTo_
       }
 
--- | The amount of time AppConfig monitors for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
-createDeploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
-createDeploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\CreateDeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@CreateDeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: CreateDeploymentStrategy)
-
--- | A description of the deployment strategy.
-createDeploymentStrategy_description :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe Prelude.Text)
-createDeploymentStrategy_description = Lens.lens (\CreateDeploymentStrategy' {description} -> description) (\s@CreateDeploymentStrategy' {} a -> s {description = a} :: CreateDeploymentStrategy)
+-- | Metadata to assign to the deployment strategy. Tags help organize and
+-- categorize your AppConfig resources. Each tag consists of a key and an
+-- optional value, both of which you define.
+createDeploymentStrategy_tags :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDeploymentStrategy_tags = Lens.lens (\CreateDeploymentStrategy' {tags} -> tags) (\s@CreateDeploymentStrategy' {} a -> s {tags = a} :: CreateDeploymentStrategy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The algorithm used to define how percentage grows over time. AWS
 -- AppConfig supports the following growth types:
@@ -237,11 +232,15 @@ createDeploymentStrategy_description = Lens.lens (\CreateDeploymentStrategy' {de
 createDeploymentStrategy_growthType :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe GrowthType)
 createDeploymentStrategy_growthType = Lens.lens (\CreateDeploymentStrategy' {growthType} -> growthType) (\s@CreateDeploymentStrategy' {} a -> s {growthType = a} :: CreateDeploymentStrategy)
 
--- | Metadata to assign to the deployment strategy. Tags help organize and
--- categorize your AppConfig resources. Each tag consists of a key and an
--- optional value, both of which you define.
-createDeploymentStrategy_tags :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDeploymentStrategy_tags = Lens.lens (\CreateDeploymentStrategy' {tags} -> tags) (\s@CreateDeploymentStrategy' {} a -> s {tags = a} :: CreateDeploymentStrategy) Prelude.. Lens.mapping Lens.coerced
+-- | A description of the deployment strategy.
+createDeploymentStrategy_description :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe Prelude.Text)
+createDeploymentStrategy_description = Lens.lens (\CreateDeploymentStrategy' {description} -> description) (\s@CreateDeploymentStrategy' {} a -> s {description = a} :: CreateDeploymentStrategy)
+
+-- | The amount of time AppConfig monitors for alarms before considering the
+-- deployment to be complete and no longer eligible for automatic roll
+-- back.
+createDeploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
+createDeploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\CreateDeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@CreateDeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: CreateDeploymentStrategy)
 
 -- | A name for the deployment strategy.
 createDeploymentStrategy_name :: Lens.Lens' CreateDeploymentStrategy Prelude.Text
@@ -271,10 +270,10 @@ instance Core.AWSRequest CreateDeploymentStrategy where
 
 instance Prelude.Hashable CreateDeploymentStrategy where
   hashWithSalt _salt CreateDeploymentStrategy' {..} =
-    _salt `Prelude.hashWithSalt` finalBakeTimeInMinutes
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` growthType
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` finalBakeTimeInMinutes
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` deploymentDurationInMinutes
       `Prelude.hashWithSalt` growthFactor
@@ -282,10 +281,10 @@ instance Prelude.Hashable CreateDeploymentStrategy where
 
 instance Prelude.NFData CreateDeploymentStrategy where
   rnf CreateDeploymentStrategy' {..} =
-    Prelude.rnf finalBakeTimeInMinutes
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
       `Prelude.seq` Prelude.rnf growthFactor
@@ -306,11 +305,11 @@ instance Core.ToJSON CreateDeploymentStrategy where
   toJSON CreateDeploymentStrategy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FinalBakeTimeInMinutes" Core..=)
-              Prelude.<$> finalBakeTimeInMinutes,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("GrowthType" Core..=) Prelude.<$> growthType,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            ("FinalBakeTimeInMinutes" Core..=)
+              Prelude.<$> finalBakeTimeInMinutes,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ( "DeploymentDurationInMinutes"

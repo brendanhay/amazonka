@@ -27,13 +27,13 @@ module Amazonka.LookoutMetrics.CreateMetricSet
     newCreateMetricSet,
 
     -- * Request Lenses
-    createMetricSet_dimensionList,
-    createMetricSet_offset,
+    createMetricSet_tags,
     createMetricSet_timestampColumn,
-    createMetricSet_metricSetFrequency,
     createMetricSet_metricSetDescription,
     createMetricSet_timezone,
-    createMetricSet_tags,
+    createMetricSet_offset,
+    createMetricSet_dimensionList,
+    createMetricSet_metricSetFrequency,
     createMetricSet_anomalyDetectorArn,
     createMetricSet_metricSetName,
     createMetricSet_metricList,
@@ -58,25 +58,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMetricSet' smart constructor.
 data CreateMetricSet = CreateMetricSet'
-  { -- | A list of the fields you want to treat as dimensions.
-    dimensionList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | After an interval ends, the amount of seconds that the detector waits
-    -- before importing data. Offset is only supported for S3 and Redshift
-    -- datasources.
-    offset :: Prelude.Maybe Prelude.Natural,
+  { -- | A list of
+    -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>
+    -- to apply to the dataset.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Contains information about the column used for tracking time in your
     -- source data.
     timestampColumn :: Prelude.Maybe TimestampColumn,
-    -- | The frequency with which the source data will be analyzed for anomalies.
-    metricSetFrequency :: Prelude.Maybe Frequency,
     -- | A description of the dataset you are creating.
     metricSetDescription :: Prelude.Maybe Prelude.Text,
     -- | The time zone in which your source data was recorded.
     timezone :: Prelude.Maybe Prelude.Text,
-    -- | A list of
-    -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>
-    -- to apply to the dataset.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | After an interval ends, the amount of seconds that the detector waits
+    -- before importing data. Offset is only supported for S3 and Redshift
+    -- datasources.
+    offset :: Prelude.Maybe Prelude.Natural,
+    -- | A list of the fields you want to treat as dimensions.
+    dimensionList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The frequency with which the source data will be analyzed for anomalies.
+    metricSetFrequency :: Prelude.Maybe Frequency,
     -- | The ARN of the anomaly detector that will use the dataset.
     anomalyDetectorArn :: Prelude.Text,
     -- | The name of the dataset.
@@ -96,24 +96,24 @@ data CreateMetricSet = CreateMetricSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dimensionList', 'createMetricSet_dimensionList' - A list of the fields you want to treat as dimensions.
---
--- 'offset', 'createMetricSet_offset' - After an interval ends, the amount of seconds that the detector waits
--- before importing data. Offset is only supported for S3 and Redshift
--- datasources.
+-- 'tags', 'createMetricSet_tags' - A list of
+-- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>
+-- to apply to the dataset.
 --
 -- 'timestampColumn', 'createMetricSet_timestampColumn' - Contains information about the column used for tracking time in your
 -- source data.
---
--- 'metricSetFrequency', 'createMetricSet_metricSetFrequency' - The frequency with which the source data will be analyzed for anomalies.
 --
 -- 'metricSetDescription', 'createMetricSet_metricSetDescription' - A description of the dataset you are creating.
 --
 -- 'timezone', 'createMetricSet_timezone' - The time zone in which your source data was recorded.
 --
--- 'tags', 'createMetricSet_tags' - A list of
--- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>
--- to apply to the dataset.
+-- 'offset', 'createMetricSet_offset' - After an interval ends, the amount of seconds that the detector waits
+-- before importing data. Offset is only supported for S3 and Redshift
+-- datasources.
+--
+-- 'dimensionList', 'createMetricSet_dimensionList' - A list of the fields you want to treat as dimensions.
+--
+-- 'metricSetFrequency', 'createMetricSet_metricSetFrequency' - The frequency with which the source data will be analyzed for anomalies.
 --
 -- 'anomalyDetectorArn', 'createMetricSet_anomalyDetectorArn' - The ARN of the anomaly detector that will use the dataset.
 --
@@ -138,37 +138,29 @@ newCreateMetricSet
   pMetricList_
   pMetricSource_ =
     CreateMetricSet'
-      { dimensionList = Prelude.Nothing,
-        offset = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         timestampColumn = Prelude.Nothing,
-        metricSetFrequency = Prelude.Nothing,
         metricSetDescription = Prelude.Nothing,
         timezone = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        offset = Prelude.Nothing,
+        dimensionList = Prelude.Nothing,
+        metricSetFrequency = Prelude.Nothing,
         anomalyDetectorArn = pAnomalyDetectorArn_,
         metricSetName = pMetricSetName_,
         metricList = Lens.coerced Lens.# pMetricList_,
         metricSource = pMetricSource_
       }
 
--- | A list of the fields you want to treat as dimensions.
-createMetricSet_dimensionList :: Lens.Lens' CreateMetricSet (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createMetricSet_dimensionList = Lens.lens (\CreateMetricSet' {dimensionList} -> dimensionList) (\s@CreateMetricSet' {} a -> s {dimensionList = a} :: CreateMetricSet) Prelude.. Lens.mapping Lens.coerced
-
--- | After an interval ends, the amount of seconds that the detector waits
--- before importing data. Offset is only supported for S3 and Redshift
--- datasources.
-createMetricSet_offset :: Lens.Lens' CreateMetricSet (Prelude.Maybe Prelude.Natural)
-createMetricSet_offset = Lens.lens (\CreateMetricSet' {offset} -> offset) (\s@CreateMetricSet' {} a -> s {offset = a} :: CreateMetricSet)
+-- | A list of
+-- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>
+-- to apply to the dataset.
+createMetricSet_tags :: Lens.Lens' CreateMetricSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createMetricSet_tags = Lens.lens (\CreateMetricSet' {tags} -> tags) (\s@CreateMetricSet' {} a -> s {tags = a} :: CreateMetricSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains information about the column used for tracking time in your
 -- source data.
 createMetricSet_timestampColumn :: Lens.Lens' CreateMetricSet (Prelude.Maybe TimestampColumn)
 createMetricSet_timestampColumn = Lens.lens (\CreateMetricSet' {timestampColumn} -> timestampColumn) (\s@CreateMetricSet' {} a -> s {timestampColumn = a} :: CreateMetricSet)
-
--- | The frequency with which the source data will be analyzed for anomalies.
-createMetricSet_metricSetFrequency :: Lens.Lens' CreateMetricSet (Prelude.Maybe Frequency)
-createMetricSet_metricSetFrequency = Lens.lens (\CreateMetricSet' {metricSetFrequency} -> metricSetFrequency) (\s@CreateMetricSet' {} a -> s {metricSetFrequency = a} :: CreateMetricSet)
 
 -- | A description of the dataset you are creating.
 createMetricSet_metricSetDescription :: Lens.Lens' CreateMetricSet (Prelude.Maybe Prelude.Text)
@@ -178,11 +170,19 @@ createMetricSet_metricSetDescription = Lens.lens (\CreateMetricSet' {metricSetDe
 createMetricSet_timezone :: Lens.Lens' CreateMetricSet (Prelude.Maybe Prelude.Text)
 createMetricSet_timezone = Lens.lens (\CreateMetricSet' {timezone} -> timezone) (\s@CreateMetricSet' {} a -> s {timezone = a} :: CreateMetricSet)
 
--- | A list of
--- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>
--- to apply to the dataset.
-createMetricSet_tags :: Lens.Lens' CreateMetricSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createMetricSet_tags = Lens.lens (\CreateMetricSet' {tags} -> tags) (\s@CreateMetricSet' {} a -> s {tags = a} :: CreateMetricSet) Prelude.. Lens.mapping Lens.coerced
+-- | After an interval ends, the amount of seconds that the detector waits
+-- before importing data. Offset is only supported for S3 and Redshift
+-- datasources.
+createMetricSet_offset :: Lens.Lens' CreateMetricSet (Prelude.Maybe Prelude.Natural)
+createMetricSet_offset = Lens.lens (\CreateMetricSet' {offset} -> offset) (\s@CreateMetricSet' {} a -> s {offset = a} :: CreateMetricSet)
+
+-- | A list of the fields you want to treat as dimensions.
+createMetricSet_dimensionList :: Lens.Lens' CreateMetricSet (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createMetricSet_dimensionList = Lens.lens (\CreateMetricSet' {dimensionList} -> dimensionList) (\s@CreateMetricSet' {} a -> s {dimensionList = a} :: CreateMetricSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The frequency with which the source data will be analyzed for anomalies.
+createMetricSet_metricSetFrequency :: Lens.Lens' CreateMetricSet (Prelude.Maybe Frequency)
+createMetricSet_metricSetFrequency = Lens.lens (\CreateMetricSet' {metricSetFrequency} -> metricSetFrequency) (\s@CreateMetricSet' {} a -> s {metricSetFrequency = a} :: CreateMetricSet)
 
 -- | The ARN of the anomaly detector that will use the dataset.
 createMetricSet_anomalyDetectorArn :: Lens.Lens' CreateMetricSet Prelude.Text
@@ -215,13 +215,13 @@ instance Core.AWSRequest CreateMetricSet where
 
 instance Prelude.Hashable CreateMetricSet where
   hashWithSalt _salt CreateMetricSet' {..} =
-    _salt `Prelude.hashWithSalt` dimensionList
-      `Prelude.hashWithSalt` offset
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timestampColumn
-      `Prelude.hashWithSalt` metricSetFrequency
       `Prelude.hashWithSalt` metricSetDescription
       `Prelude.hashWithSalt` timezone
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` offset
+      `Prelude.hashWithSalt` dimensionList
+      `Prelude.hashWithSalt` metricSetFrequency
       `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` metricSetName
       `Prelude.hashWithSalt` metricList
@@ -229,13 +229,13 @@ instance Prelude.Hashable CreateMetricSet where
 
 instance Prelude.NFData CreateMetricSet where
   rnf CreateMetricSet' {..} =
-    Prelude.rnf dimensionList
-      `Prelude.seq` Prelude.rnf offset
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timestampColumn
-      `Prelude.seq` Prelude.rnf metricSetFrequency
       `Prelude.seq` Prelude.rnf metricSetDescription
       `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf offset
+      `Prelude.seq` Prelude.rnf dimensionList
+      `Prelude.seq` Prelude.rnf metricSetFrequency
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf metricSetName
       `Prelude.seq` Prelude.rnf metricList
@@ -256,16 +256,16 @@ instance Core.ToJSON CreateMetricSet where
   toJSON CreateMetricSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DimensionList" Core..=) Prelude.<$> dimensionList,
-            ("Offset" Core..=) Prelude.<$> offset,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("TimestampColumn" Core..=)
               Prelude.<$> timestampColumn,
-            ("MetricSetFrequency" Core..=)
-              Prelude.<$> metricSetFrequency,
             ("MetricSetDescription" Core..=)
               Prelude.<$> metricSetDescription,
             ("Timezone" Core..=) Prelude.<$> timezone,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Offset" Core..=) Prelude.<$> offset,
+            ("DimensionList" Core..=) Prelude.<$> dimensionList,
+            ("MetricSetFrequency" Core..=)
+              Prelude.<$> metricSetFrequency,
             Prelude.Just
               ("AnomalyDetectorArn" Core..= anomalyDetectorArn),
             Prelude.Just ("MetricSetName" Core..= metricSetName),

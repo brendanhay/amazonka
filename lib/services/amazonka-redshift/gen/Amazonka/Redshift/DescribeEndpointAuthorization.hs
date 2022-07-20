@@ -30,8 +30,8 @@ module Amazonka.Redshift.DescribeEndpointAuthorization
 
     -- * Request Lenses
     describeEndpointAuthorization_clusterIdentifier,
-    describeEndpointAuthorization_account,
     describeEndpointAuthorization_marker,
+    describeEndpointAuthorization_account,
     describeEndpointAuthorization_maxRecords,
     describeEndpointAuthorization_grantee,
 
@@ -40,8 +40,8 @@ module Amazonka.Redshift.DescribeEndpointAuthorization
     newDescribeEndpointAuthorizationResponse,
 
     -- * Response Lenses
-    describeEndpointAuthorizationResponse_endpointAuthorizationList,
     describeEndpointAuthorizationResponse_marker,
+    describeEndpointAuthorizationResponse_endpointAuthorizationList,
     describeEndpointAuthorizationResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 data DescribeEndpointAuthorization = DescribeEndpointAuthorization'
   { -- | The cluster identifier of the cluster to access.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The AAmazon Web Services account ID of either the cluster owner
-    -- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
-    -- value is of the grantor.
-    account :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous
     -- @DescribeEndpointAuthorization@ request. If this parameter is specified,
     -- the response includes only records beyond the marker, up to the value
     -- specified by the @MaxRecords@ parameter.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The AAmazon Web Services account ID of either the cluster owner
+    -- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
+    -- value is of the grantor.
+    account :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a @Marker@ is included in the response so that the remaining
@@ -89,14 +89,14 @@ data DescribeEndpointAuthorization = DescribeEndpointAuthorization'
 --
 -- 'clusterIdentifier', 'describeEndpointAuthorization_clusterIdentifier' - The cluster identifier of the cluster to access.
 --
--- 'account', 'describeEndpointAuthorization_account' - The AAmazon Web Services account ID of either the cluster owner
--- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
--- value is of the grantor.
---
 -- 'marker', 'describeEndpointAuthorization_marker' - An optional pagination token provided by a previous
 -- @DescribeEndpointAuthorization@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
+--
+-- 'account', 'describeEndpointAuthorization_account' - The AAmazon Web Services account ID of either the cluster owner
+-- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
+-- value is of the grantor.
 --
 -- 'maxRecords', 'describeEndpointAuthorization_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -113,8 +113,8 @@ newDescribeEndpointAuthorization =
   DescribeEndpointAuthorization'
     { clusterIdentifier =
         Prelude.Nothing,
-      account = Prelude.Nothing,
       marker = Prelude.Nothing,
+      account = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       grantee = Prelude.Nothing
     }
@@ -123,18 +123,18 @@ newDescribeEndpointAuthorization =
 describeEndpointAuthorization_clusterIdentifier :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
 describeEndpointAuthorization_clusterIdentifier = Lens.lens (\DescribeEndpointAuthorization' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeEndpointAuthorization' {} a -> s {clusterIdentifier = a} :: DescribeEndpointAuthorization)
 
--- | The AAmazon Web Services account ID of either the cluster owner
--- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
--- value is of the grantor.
-describeEndpointAuthorization_account :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
-describeEndpointAuthorization_account = Lens.lens (\DescribeEndpointAuthorization' {account} -> account) (\s@DescribeEndpointAuthorization' {} a -> s {account = a} :: DescribeEndpointAuthorization)
-
 -- | An optional pagination token provided by a previous
 -- @DescribeEndpointAuthorization@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
 describeEndpointAuthorization_marker :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
 describeEndpointAuthorization_marker = Lens.lens (\DescribeEndpointAuthorization' {marker} -> marker) (\s@DescribeEndpointAuthorization' {} a -> s {marker = a} :: DescribeEndpointAuthorization)
+
+-- | The AAmazon Web Services account ID of either the cluster owner
+-- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
+-- value is of the grantor.
+describeEndpointAuthorization_account :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
+describeEndpointAuthorization_account = Lens.lens (\DescribeEndpointAuthorization' {account} -> account) (\s@DescribeEndpointAuthorization' {} a -> s {account = a} :: DescribeEndpointAuthorization)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -185,11 +185,11 @@ instance
       "DescribeEndpointAuthorizationResult"
       ( \s h x ->
           DescribeEndpointAuthorizationResponse'
-            Prelude.<$> ( x Core..@? "EndpointAuthorizationList"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "EndpointAuthorizationList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,16 +199,16 @@ instance
   where
   hashWithSalt _salt DescribeEndpointAuthorization' {..} =
     _salt `Prelude.hashWithSalt` clusterIdentifier
-      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` grantee
 
 instance Prelude.NFData DescribeEndpointAuthorization where
   rnf DescribeEndpointAuthorization' {..} =
     Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf account
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf account
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf grantee
 
@@ -228,21 +228,21 @@ instance Core.ToQuery DescribeEndpointAuthorization where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Core.=: clusterIdentifier,
-        "Account" Core.=: account,
         "Marker" Core.=: marker,
+        "Account" Core.=: account,
         "MaxRecords" Core.=: maxRecords,
         "Grantee" Core.=: grantee
       ]
 
 -- | /See:/ 'newDescribeEndpointAuthorizationResponse' smart constructor.
 data DescribeEndpointAuthorizationResponse = DescribeEndpointAuthorizationResponse'
-  { -- | The authorizations to an endpoint.
-    endpointAuthorizationList :: Prelude.Maybe [EndpointAuthorization],
-    -- | An optional pagination token provided by a previous
+  { -- | An optional pagination token provided by a previous
     -- @DescribeEndpointAuthorization@ request. If this parameter is specified,
     -- the response includes only records beyond the marker, up to the value
     -- specified by the @MaxRecords@ parameter.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The authorizations to an endpoint.
+    endpointAuthorizationList :: Prelude.Maybe [EndpointAuthorization],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -256,12 +256,12 @@ data DescribeEndpointAuthorizationResponse = DescribeEndpointAuthorizationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointAuthorizationList', 'describeEndpointAuthorizationResponse_endpointAuthorizationList' - The authorizations to an endpoint.
---
 -- 'marker', 'describeEndpointAuthorizationResponse_marker' - An optional pagination token provided by a previous
 -- @DescribeEndpointAuthorization@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
+--
+-- 'endpointAuthorizationList', 'describeEndpointAuthorizationResponse_endpointAuthorizationList' - The authorizations to an endpoint.
 --
 -- 'httpStatus', 'describeEndpointAuthorizationResponse_httpStatus' - The response's http status code.
 newDescribeEndpointAuthorizationResponse ::
@@ -270,15 +270,12 @@ newDescribeEndpointAuthorizationResponse ::
   DescribeEndpointAuthorizationResponse
 newDescribeEndpointAuthorizationResponse pHttpStatus_ =
   DescribeEndpointAuthorizationResponse'
-    { endpointAuthorizationList =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      endpointAuthorizationList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The authorizations to an endpoint.
-describeEndpointAuthorizationResponse_endpointAuthorizationList :: Lens.Lens' DescribeEndpointAuthorizationResponse (Prelude.Maybe [EndpointAuthorization])
-describeEndpointAuthorizationResponse_endpointAuthorizationList = Lens.lens (\DescribeEndpointAuthorizationResponse' {endpointAuthorizationList} -> endpointAuthorizationList) (\s@DescribeEndpointAuthorizationResponse' {} a -> s {endpointAuthorizationList = a} :: DescribeEndpointAuthorizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeEndpointAuthorization@ request. If this parameter is specified,
@@ -286,6 +283,10 @@ describeEndpointAuthorizationResponse_endpointAuthorizationList = Lens.lens (\De
 -- specified by the @MaxRecords@ parameter.
 describeEndpointAuthorizationResponse_marker :: Lens.Lens' DescribeEndpointAuthorizationResponse (Prelude.Maybe Prelude.Text)
 describeEndpointAuthorizationResponse_marker = Lens.lens (\DescribeEndpointAuthorizationResponse' {marker} -> marker) (\s@DescribeEndpointAuthorizationResponse' {} a -> s {marker = a} :: DescribeEndpointAuthorizationResponse)
+
+-- | The authorizations to an endpoint.
+describeEndpointAuthorizationResponse_endpointAuthorizationList :: Lens.Lens' DescribeEndpointAuthorizationResponse (Prelude.Maybe [EndpointAuthorization])
+describeEndpointAuthorizationResponse_endpointAuthorizationList = Lens.lens (\DescribeEndpointAuthorizationResponse' {endpointAuthorizationList} -> endpointAuthorizationList) (\s@DescribeEndpointAuthorizationResponse' {} a -> s {endpointAuthorizationList = a} :: DescribeEndpointAuthorizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEndpointAuthorizationResponse_httpStatus :: Lens.Lens' DescribeEndpointAuthorizationResponse Prelude.Int
@@ -296,6 +297,6 @@ instance
     DescribeEndpointAuthorizationResponse
   where
   rnf DescribeEndpointAuthorizationResponse' {..} =
-    Prelude.rnf endpointAuthorizationList
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf endpointAuthorizationList
       `Prelude.seq` Prelude.rnf httpStatus

@@ -46,8 +46,8 @@ module Amazonka.Chime.CreateChannelBan
     newCreateChannelBanResponse,
 
     -- * Response Lenses
-    createChannelBanResponse_channelArn,
     createChannelBanResponse_member,
+    createChannelBanResponse_channelArn,
     createChannelBanResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest CreateChannelBan where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelBanResponse'
-            Prelude.<$> (x Core..?> "ChannelArn")
-            Prelude.<*> (x Core..?> "Member")
+            Prelude.<$> (x Core..?> "Member")
+            Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,10 +156,10 @@ instance Core.ToQuery CreateChannelBan where
 
 -- | /See:/ 'newCreateChannelBanResponse' smart constructor.
 data CreateChannelBanResponse = CreateChannelBanResponse'
-  { -- | The ARN of the response to the ban request.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The @ChannelArn@ and @BannedIdentity@ of the member in the ban response.
+  { -- | The @ChannelArn@ and @BannedIdentity@ of the member in the ban response.
     member :: Prelude.Maybe Identity,
+    -- | The ARN of the response to the ban request.
+    channelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +173,9 @@ data CreateChannelBanResponse = CreateChannelBanResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelArn', 'createChannelBanResponse_channelArn' - The ARN of the response to the ban request.
---
 -- 'member', 'createChannelBanResponse_member' - The @ChannelArn@ and @BannedIdentity@ of the member in the ban response.
+--
+-- 'channelArn', 'createChannelBanResponse_channelArn' - The ARN of the response to the ban request.
 --
 -- 'httpStatus', 'createChannelBanResponse_httpStatus' - The response's http status code.
 newCreateChannelBanResponse ::
@@ -184,19 +184,18 @@ newCreateChannelBanResponse ::
   CreateChannelBanResponse
 newCreateChannelBanResponse pHttpStatus_ =
   CreateChannelBanResponse'
-    { channelArn =
-        Prelude.Nothing,
-      member = Prelude.Nothing,
+    { member = Prelude.Nothing,
+      channelArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the response to the ban request.
-createChannelBanResponse_channelArn :: Lens.Lens' CreateChannelBanResponse (Prelude.Maybe Prelude.Text)
-createChannelBanResponse_channelArn = Lens.lens (\CreateChannelBanResponse' {channelArn} -> channelArn) (\s@CreateChannelBanResponse' {} a -> s {channelArn = a} :: CreateChannelBanResponse)
 
 -- | The @ChannelArn@ and @BannedIdentity@ of the member in the ban response.
 createChannelBanResponse_member :: Lens.Lens' CreateChannelBanResponse (Prelude.Maybe Identity)
 createChannelBanResponse_member = Lens.lens (\CreateChannelBanResponse' {member} -> member) (\s@CreateChannelBanResponse' {} a -> s {member = a} :: CreateChannelBanResponse)
+
+-- | The ARN of the response to the ban request.
+createChannelBanResponse_channelArn :: Lens.Lens' CreateChannelBanResponse (Prelude.Maybe Prelude.Text)
+createChannelBanResponse_channelArn = Lens.lens (\CreateChannelBanResponse' {channelArn} -> channelArn) (\s@CreateChannelBanResponse' {} a -> s {channelArn = a} :: CreateChannelBanResponse)
 
 -- | The response's http status code.
 createChannelBanResponse_httpStatus :: Lens.Lens' CreateChannelBanResponse Prelude.Int
@@ -204,6 +203,6 @@ createChannelBanResponse_httpStatus = Lens.lens (\CreateChannelBanResponse' {htt
 
 instance Prelude.NFData CreateChannelBanResponse where
   rnf CreateChannelBanResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf member
+    Prelude.rnf member
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf httpStatus

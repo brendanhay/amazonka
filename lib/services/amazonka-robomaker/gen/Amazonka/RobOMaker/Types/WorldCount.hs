@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorldCount' smart constructor.
 data WorldCount = WorldCount'
-  { -- | The number of unique interiors per floorplan.
-    interiorCountPerFloorplan :: Prelude.Maybe Prelude.Int,
-    -- | The number of unique floorplans.
-    floorplanCount :: Prelude.Maybe Prelude.Int
+  { -- | The number of unique floorplans.
+    floorplanCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of unique interiors per floorplan.
+    interiorCountPerFloorplan :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,24 @@ data WorldCount = WorldCount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'interiorCountPerFloorplan', 'worldCount_interiorCountPerFloorplan' - The number of unique interiors per floorplan.
---
 -- 'floorplanCount', 'worldCount_floorplanCount' - The number of unique floorplans.
+--
+-- 'interiorCountPerFloorplan', 'worldCount_interiorCountPerFloorplan' - The number of unique interiors per floorplan.
 newWorldCount ::
   WorldCount
 newWorldCount =
   WorldCount'
-    { interiorCountPerFloorplan =
-        Prelude.Nothing,
-      floorplanCount = Prelude.Nothing
+    { floorplanCount = Prelude.Nothing,
+      interiorCountPerFloorplan = Prelude.Nothing
     }
-
--- | The number of unique interiors per floorplan.
-worldCount_interiorCountPerFloorplan :: Lens.Lens' WorldCount (Prelude.Maybe Prelude.Int)
-worldCount_interiorCountPerFloorplan = Lens.lens (\WorldCount' {interiorCountPerFloorplan} -> interiorCountPerFloorplan) (\s@WorldCount' {} a -> s {interiorCountPerFloorplan = a} :: WorldCount)
 
 -- | The number of unique floorplans.
 worldCount_floorplanCount :: Lens.Lens' WorldCount (Prelude.Maybe Prelude.Int)
 worldCount_floorplanCount = Lens.lens (\WorldCount' {floorplanCount} -> floorplanCount) (\s@WorldCount' {} a -> s {floorplanCount = a} :: WorldCount)
+
+-- | The number of unique interiors per floorplan.
+worldCount_interiorCountPerFloorplan :: Lens.Lens' WorldCount (Prelude.Maybe Prelude.Int)
+worldCount_interiorCountPerFloorplan = Lens.lens (\WorldCount' {interiorCountPerFloorplan} -> interiorCountPerFloorplan) (\s@WorldCount' {} a -> s {interiorCountPerFloorplan = a} :: WorldCount)
 
 instance Core.FromJSON WorldCount where
   parseJSON =
@@ -75,28 +74,27 @@ instance Core.FromJSON WorldCount where
       "WorldCount"
       ( \x ->
           WorldCount'
-            Prelude.<$> (x Core..:? "interiorCountPerFloorplan")
-            Prelude.<*> (x Core..:? "floorplanCount")
+            Prelude.<$> (x Core..:? "floorplanCount")
+            Prelude.<*> (x Core..:? "interiorCountPerFloorplan")
       )
 
 instance Prelude.Hashable WorldCount where
   hashWithSalt _salt WorldCount' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` floorplanCount
       `Prelude.hashWithSalt` interiorCountPerFloorplan
-      `Prelude.hashWithSalt` floorplanCount
 
 instance Prelude.NFData WorldCount where
   rnf WorldCount' {..} =
-    Prelude.rnf interiorCountPerFloorplan
-      `Prelude.seq` Prelude.rnf floorplanCount
+    Prelude.rnf floorplanCount
+      `Prelude.seq` Prelude.rnf interiorCountPerFloorplan
 
 instance Core.ToJSON WorldCount where
   toJSON WorldCount' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("interiorCountPerFloorplan" Core..=)
-              Prelude.<$> interiorCountPerFloorplan,
-            ("floorplanCount" Core..=)
-              Prelude.<$> floorplanCount
+          [ ("floorplanCount" Core..=)
+              Prelude.<$> floorplanCount,
+            ("interiorCountPerFloorplan" Core..=)
+              Prelude.<$> interiorCountPerFloorplan
           ]
       )

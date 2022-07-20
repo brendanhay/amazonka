@@ -33,10 +33,10 @@ module Amazonka.StorageGateway.UpdateGatewayInformation
     newUpdateGatewayInformation,
 
     -- * Request Lenses
-    updateGatewayInformation_gatewayCapacity,
-    updateGatewayInformation_gatewayName,
-    updateGatewayInformation_gatewayTimezone,
     updateGatewayInformation_cloudWatchLogGroupARN,
+    updateGatewayInformation_gatewayName,
+    updateGatewayInformation_gatewayCapacity,
+    updateGatewayInformation_gatewayTimezone,
     updateGatewayInformation_gatewayARN,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.StorageGateway.UpdateGatewayInformation
     newUpdateGatewayInformationResponse,
 
     -- * Response Lenses
-    updateGatewayInformationResponse_gatewayARN,
     updateGatewayInformationResponse_gatewayName,
+    updateGatewayInformationResponse_gatewayARN,
     updateGatewayInformationResponse_httpStatus,
   )
 where
@@ -59,17 +59,17 @@ import Amazonka.StorageGateway.Types
 
 -- | /See:/ 'newUpdateGatewayInformation' smart constructor.
 data UpdateGatewayInformation = UpdateGatewayInformation'
-  { -- | Specifies the size of the gateway\'s metadata cache.
-    gatewayCapacity :: Prelude.Maybe GatewayCapacity,
-    gatewayName :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates the time zone of the gateway.
-    gatewayTimezone :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
+  { -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
     -- you want to use to monitor and log events in the gateway.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
     cloudWatchLogGroupARN :: Prelude.Maybe Prelude.Text,
+    gatewayName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the size of the gateway\'s metadata cache.
+    gatewayCapacity :: Prelude.Maybe GatewayCapacity,
+    -- | A value that indicates the time zone of the gateway.
+    gatewayTimezone :: Prelude.Maybe Prelude.Text,
     gatewayARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,17 +82,17 @@ data UpdateGatewayInformation = UpdateGatewayInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatewayCapacity', 'updateGatewayInformation_gatewayCapacity' - Specifies the size of the gateway\'s metadata cache.
---
--- 'gatewayName', 'updateGatewayInformation_gatewayName' - Undocumented member.
---
--- 'gatewayTimezone', 'updateGatewayInformation_gatewayTimezone' - A value that indicates the time zone of the gateway.
---
 -- 'cloudWatchLogGroupARN', 'updateGatewayInformation_cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
 -- you want to use to monitor and log events in the gateway.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
+--
+-- 'gatewayName', 'updateGatewayInformation_gatewayName' - Undocumented member.
+--
+-- 'gatewayCapacity', 'updateGatewayInformation_gatewayCapacity' - Specifies the size of the gateway\'s metadata cache.
+--
+-- 'gatewayTimezone', 'updateGatewayInformation_gatewayTimezone' - A value that indicates the time zone of the gateway.
 --
 -- 'gatewayARN', 'updateGatewayInformation_gatewayARN' - Undocumented member.
 newUpdateGatewayInformation ::
@@ -101,25 +101,13 @@ newUpdateGatewayInformation ::
   UpdateGatewayInformation
 newUpdateGatewayInformation pGatewayARN_ =
   UpdateGatewayInformation'
-    { gatewayCapacity =
+    { cloudWatchLogGroupARN =
         Prelude.Nothing,
       gatewayName = Prelude.Nothing,
+      gatewayCapacity = Prelude.Nothing,
       gatewayTimezone = Prelude.Nothing,
-      cloudWatchLogGroupARN = Prelude.Nothing,
       gatewayARN = pGatewayARN_
     }
-
--- | Specifies the size of the gateway\'s metadata cache.
-updateGatewayInformation_gatewayCapacity :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe GatewayCapacity)
-updateGatewayInformation_gatewayCapacity = Lens.lens (\UpdateGatewayInformation' {gatewayCapacity} -> gatewayCapacity) (\s@UpdateGatewayInformation' {} a -> s {gatewayCapacity = a} :: UpdateGatewayInformation)
-
--- | Undocumented member.
-updateGatewayInformation_gatewayName :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
-updateGatewayInformation_gatewayName = Lens.lens (\UpdateGatewayInformation' {gatewayName} -> gatewayName) (\s@UpdateGatewayInformation' {} a -> s {gatewayName = a} :: UpdateGatewayInformation)
-
--- | A value that indicates the time zone of the gateway.
-updateGatewayInformation_gatewayTimezone :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
-updateGatewayInformation_gatewayTimezone = Lens.lens (\UpdateGatewayInformation' {gatewayTimezone} -> gatewayTimezone) (\s@UpdateGatewayInformation' {} a -> s {gatewayTimezone = a} :: UpdateGatewayInformation)
 
 -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
 -- you want to use to monitor and log events in the gateway.
@@ -128,6 +116,18 @@ updateGatewayInformation_gatewayTimezone = Lens.lens (\UpdateGatewayInformation'
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
 updateGatewayInformation_cloudWatchLogGroupARN :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
 updateGatewayInformation_cloudWatchLogGroupARN = Lens.lens (\UpdateGatewayInformation' {cloudWatchLogGroupARN} -> cloudWatchLogGroupARN) (\s@UpdateGatewayInformation' {} a -> s {cloudWatchLogGroupARN = a} :: UpdateGatewayInformation)
+
+-- | Undocumented member.
+updateGatewayInformation_gatewayName :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
+updateGatewayInformation_gatewayName = Lens.lens (\UpdateGatewayInformation' {gatewayName} -> gatewayName) (\s@UpdateGatewayInformation' {} a -> s {gatewayName = a} :: UpdateGatewayInformation)
+
+-- | Specifies the size of the gateway\'s metadata cache.
+updateGatewayInformation_gatewayCapacity :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe GatewayCapacity)
+updateGatewayInformation_gatewayCapacity = Lens.lens (\UpdateGatewayInformation' {gatewayCapacity} -> gatewayCapacity) (\s@UpdateGatewayInformation' {} a -> s {gatewayCapacity = a} :: UpdateGatewayInformation)
+
+-- | A value that indicates the time zone of the gateway.
+updateGatewayInformation_gatewayTimezone :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
+updateGatewayInformation_gatewayTimezone = Lens.lens (\UpdateGatewayInformation' {gatewayTimezone} -> gatewayTimezone) (\s@UpdateGatewayInformation' {} a -> s {gatewayTimezone = a} :: UpdateGatewayInformation)
 
 -- | Undocumented member.
 updateGatewayInformation_gatewayARN :: Lens.Lens' UpdateGatewayInformation Prelude.Text
@@ -142,25 +142,25 @@ instance Core.AWSRequest UpdateGatewayInformation where
     Response.receiveJSON
       ( \s h x ->
           UpdateGatewayInformationResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "GatewayName")
+            Prelude.<$> (x Core..?> "GatewayName")
+            Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateGatewayInformation where
   hashWithSalt _salt UpdateGatewayInformation' {..} =
-    _salt `Prelude.hashWithSalt` gatewayCapacity
+    _salt `Prelude.hashWithSalt` cloudWatchLogGroupARN
       `Prelude.hashWithSalt` gatewayName
+      `Prelude.hashWithSalt` gatewayCapacity
       `Prelude.hashWithSalt` gatewayTimezone
-      `Prelude.hashWithSalt` cloudWatchLogGroupARN
       `Prelude.hashWithSalt` gatewayARN
 
 instance Prelude.NFData UpdateGatewayInformation where
   rnf UpdateGatewayInformation' {..} =
-    Prelude.rnf gatewayCapacity
+    Prelude.rnf cloudWatchLogGroupARN
       `Prelude.seq` Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf gatewayCapacity
       `Prelude.seq` Prelude.rnf gatewayTimezone
-      `Prelude.seq` Prelude.rnf cloudWatchLogGroupARN
       `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Core.ToHeaders UpdateGatewayInformation where
@@ -182,13 +182,13 @@ instance Core.ToJSON UpdateGatewayInformation where
   toJSON UpdateGatewayInformation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GatewayCapacity" Core..=)
-              Prelude.<$> gatewayCapacity,
+          [ ("CloudWatchLogGroupARN" Core..=)
+              Prelude.<$> cloudWatchLogGroupARN,
             ("GatewayName" Core..=) Prelude.<$> gatewayName,
+            ("GatewayCapacity" Core..=)
+              Prelude.<$> gatewayCapacity,
             ("GatewayTimezone" Core..=)
               Prelude.<$> gatewayTimezone,
-            ("CloudWatchLogGroupARN" Core..=)
-              Prelude.<$> cloudWatchLogGroupARN,
             Prelude.Just ("GatewayARN" Core..= gatewayARN)
           ]
       )
@@ -204,9 +204,9 @@ instance Core.ToQuery UpdateGatewayInformation where
 --
 -- /See:/ 'newUpdateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | The name you configured for your gateway.
+  { -- | The name you configured for your gateway.
     gatewayName :: Prelude.Maybe Prelude.Text,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,9 +220,9 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatewayARN', 'updateGatewayInformationResponse_gatewayARN' - Undocumented member.
---
 -- 'gatewayName', 'updateGatewayInformationResponse_gatewayName' - The name you configured for your gateway.
+--
+-- 'gatewayARN', 'updateGatewayInformationResponse_gatewayARN' - Undocumented member.
 --
 -- 'httpStatus', 'updateGatewayInformationResponse_httpStatus' - The response's http status code.
 newUpdateGatewayInformationResponse ::
@@ -231,19 +231,19 @@ newUpdateGatewayInformationResponse ::
   UpdateGatewayInformationResponse
 newUpdateGatewayInformationResponse pHttpStatus_ =
   UpdateGatewayInformationResponse'
-    { gatewayARN =
+    { gatewayName =
         Prelude.Nothing,
-      gatewayName = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-updateGatewayInformationResponse_gatewayARN :: Lens.Lens' UpdateGatewayInformationResponse (Prelude.Maybe Prelude.Text)
-updateGatewayInformationResponse_gatewayARN = Lens.lens (\UpdateGatewayInformationResponse' {gatewayARN} -> gatewayARN) (\s@UpdateGatewayInformationResponse' {} a -> s {gatewayARN = a} :: UpdateGatewayInformationResponse)
 
 -- | The name you configured for your gateway.
 updateGatewayInformationResponse_gatewayName :: Lens.Lens' UpdateGatewayInformationResponse (Prelude.Maybe Prelude.Text)
 updateGatewayInformationResponse_gatewayName = Lens.lens (\UpdateGatewayInformationResponse' {gatewayName} -> gatewayName) (\s@UpdateGatewayInformationResponse' {} a -> s {gatewayName = a} :: UpdateGatewayInformationResponse)
+
+-- | Undocumented member.
+updateGatewayInformationResponse_gatewayARN :: Lens.Lens' UpdateGatewayInformationResponse (Prelude.Maybe Prelude.Text)
+updateGatewayInformationResponse_gatewayARN = Lens.lens (\UpdateGatewayInformationResponse' {gatewayARN} -> gatewayARN) (\s@UpdateGatewayInformationResponse' {} a -> s {gatewayARN = a} :: UpdateGatewayInformationResponse)
 
 -- | The response's http status code.
 updateGatewayInformationResponse_httpStatus :: Lens.Lens' UpdateGatewayInformationResponse Prelude.Int
@@ -254,6 +254,6 @@ instance
     UpdateGatewayInformationResponse
   where
   rnf UpdateGatewayInformationResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf gatewayName
+    Prelude.rnf gatewayName
+      `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf httpStatus

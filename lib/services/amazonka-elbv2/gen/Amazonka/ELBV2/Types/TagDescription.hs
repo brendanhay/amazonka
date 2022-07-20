@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the tags.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag)
+  { -- | Information about the tags.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,39 +43,39 @@ data TagDescription = TagDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagDescription_resourceArn' - The Amazon Resource Name (ARN) of the resource.
---
 -- 'tags', 'tagDescription_tags' - Information about the tags.
+--
+-- 'resourceArn', 'tagDescription_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newTagDescription ::
   TagDescription
 newTagDescription =
   TagDescription'
-    { resourceArn = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      resourceArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the resource.
-tagDescription_resourceArn :: Lens.Lens' TagDescription (Prelude.Maybe Prelude.Text)
-tagDescription_resourceArn = Lens.lens (\TagDescription' {resourceArn} -> resourceArn) (\s@TagDescription' {} a -> s {resourceArn = a} :: TagDescription)
 
 -- | Information about the tags.
 tagDescription_tags :: Lens.Lens' TagDescription (Prelude.Maybe (Prelude.NonEmpty Tag))
 tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescription' {} a -> s {tags = a} :: TagDescription) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of the resource.
+tagDescription_resourceArn :: Lens.Lens' TagDescription (Prelude.Maybe Prelude.Text)
+tagDescription_resourceArn = Lens.lens (\TagDescription' {resourceArn} -> resourceArn) (\s@TagDescription' {} a -> s {resourceArn = a} :: TagDescription)
+
 instance Core.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Prelude.<$> (x Core..@? "ResourceArn")
-      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList1 "member")
                   )
+      Prelude.<*> (x Core..@? "ResourceArn")
 
 instance Prelude.Hashable TagDescription where
   hashWithSalt _salt TagDescription' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData TagDescription where
   rnf TagDescription' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceArn

@@ -38,9 +38,9 @@ module Amazonka.APIGateway.CreateResource
     -- * Response Lenses
     resource_pathPart,
     resource_path,
+    resource_parentId,
     resource_id,
     resource_resourceMethods,
-    resource_parentId,
   )
 where
 

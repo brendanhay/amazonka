@@ -14,54 +14,20 @@
 module Amazonka.Cloud9.Lens
   ( -- * Operations
 
-    -- ** ListEnvironments
-    listEnvironments_nextToken,
-    listEnvironments_maxResults,
-    listEnvironmentsResponse_environmentIds,
-    listEnvironmentsResponse_nextToken,
-    listEnvironmentsResponse_httpStatus,
-
-    -- ** UpdateEnvironment
-    updateEnvironment_managedCredentialsAction,
-    updateEnvironment_name,
-    updateEnvironment_description,
-    updateEnvironment_environmentId,
-    updateEnvironmentResponse_httpStatus,
-
-    -- ** DeleteEnvironment
-    deleteEnvironment_environmentId,
-    deleteEnvironmentResponse_httpStatus,
-
-    -- ** DescribeEnvironmentStatus
-    describeEnvironmentStatus_environmentId,
-    describeEnvironmentStatusResponse_httpStatus,
-    describeEnvironmentStatusResponse_status,
-    describeEnvironmentStatusResponse_message,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
     -- ** CreateEnvironmentEC2
     createEnvironmentEC2_automaticStopTimeMinutes,
-    createEnvironmentEC2_subnetId,
-    createEnvironmentEC2_ownerArn,
-    createEnvironmentEC2_imageId,
+    createEnvironmentEC2_tags,
     createEnvironmentEC2_clientRequestToken,
     createEnvironmentEC2_connectionType,
+    createEnvironmentEC2_subnetId,
     createEnvironmentEC2_description,
     createEnvironmentEC2_dryRun,
-    createEnvironmentEC2_tags,
+    createEnvironmentEC2_ownerArn,
+    createEnvironmentEC2_imageId,
     createEnvironmentEC2_name,
     createEnvironmentEC2_instanceType,
     createEnvironmentEC2Response_environmentId,
     createEnvironmentEC2Response_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
 
     -- ** CreateEnvironmentMembership
     createEnvironmentMembership_environmentId,
@@ -70,20 +36,64 @@ module Amazonka.Cloud9.Lens
     createEnvironmentMembershipResponse_httpStatus,
     createEnvironmentMembershipResponse_membership,
 
+    -- ** DeleteEnvironment
+    deleteEnvironment_environmentId,
+    deleteEnvironmentResponse_httpStatus,
+
+    -- ** DeleteEnvironmentMembership
+    deleteEnvironmentMembership_environmentId,
+    deleteEnvironmentMembership_userArn,
+    deleteEnvironmentMembershipResponse_httpStatus,
+
+    -- ** DescribeEnvironmentMemberships
+    describeEnvironmentMemberships_nextToken,
+    describeEnvironmentMemberships_permissions,
+    describeEnvironmentMemberships_maxResults,
+    describeEnvironmentMemberships_userArn,
+    describeEnvironmentMemberships_environmentId,
+    describeEnvironmentMembershipsResponse_nextToken,
+    describeEnvironmentMembershipsResponse_memberships,
+    describeEnvironmentMembershipsResponse_httpStatus,
+
+    -- ** DescribeEnvironmentStatus
+    describeEnvironmentStatus_environmentId,
+    describeEnvironmentStatusResponse_httpStatus,
+    describeEnvironmentStatusResponse_status,
+    describeEnvironmentStatusResponse_message,
+
     -- ** DescribeEnvironments
     describeEnvironments_environmentIds,
     describeEnvironmentsResponse_environments,
     describeEnvironmentsResponse_httpStatus,
+
+    -- ** ListEnvironments
+    listEnvironments_nextToken,
+    listEnvironments_maxResults,
+    listEnvironmentsResponse_nextToken,
+    listEnvironmentsResponse_environmentIds,
+    listEnvironmentsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceARN,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DeleteEnvironmentMembership
-    deleteEnvironmentMembership_environmentId,
-    deleteEnvironmentMembership_userArn,
-    deleteEnvironmentMembershipResponse_httpStatus,
+    -- ** UpdateEnvironment
+    updateEnvironment_name,
+    updateEnvironment_description,
+    updateEnvironment_managedCredentialsAction,
+    updateEnvironment_environmentId,
+    updateEnvironmentResponse_httpStatus,
 
     -- ** UpdateEnvironmentMembership
     updateEnvironmentMembership_environmentId,
@@ -92,33 +102,23 @@ module Amazonka.Cloud9.Lens
     updateEnvironmentMembershipResponse_membership,
     updateEnvironmentMembershipResponse_httpStatus,
 
-    -- ** DescribeEnvironmentMemberships
-    describeEnvironmentMemberships_userArn,
-    describeEnvironmentMemberships_nextToken,
-    describeEnvironmentMemberships_permissions,
-    describeEnvironmentMemberships_environmentId,
-    describeEnvironmentMemberships_maxResults,
-    describeEnvironmentMembershipsResponse_nextToken,
-    describeEnvironmentMembershipsResponse_memberships,
-    describeEnvironmentMembershipsResponse_httpStatus,
-
     -- * Types
 
     -- ** Environment
-    environment_lifecycle,
     environment_name,
-    environment_id,
+    environment_lifecycle,
     environment_connectionType,
-    environment_description,
     environment_managedCredentialsStatus,
+    environment_description,
+    environment_id,
     environment_type,
     environment_arn,
     environment_ownerArn,
 
     -- ** EnvironmentLifecycle
     environmentLifecycle_status,
-    environmentLifecycle_failureResource,
     environmentLifecycle_reason,
+    environmentLifecycle_failureResource,
 
     -- ** EnvironmentMember
     environmentMember_lastAccess,

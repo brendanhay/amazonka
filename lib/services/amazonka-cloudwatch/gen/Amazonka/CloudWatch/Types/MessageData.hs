@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessageData' smart constructor.
 data MessageData = MessageData'
-  { -- | The message text.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The error code or status code associated with the message.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | The error code or status code associated with the message.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The message text.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,35 +49,35 @@ data MessageData = MessageData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'messageData_value' - The message text.
---
 -- 'code', 'messageData_code' - The error code or status code associated with the message.
+--
+-- 'value', 'messageData_value' - The message text.
 newMessageData ::
   MessageData
 newMessageData =
   MessageData'
-    { value = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The message text.
-messageData_value :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
-messageData_value = Lens.lens (\MessageData' {value} -> value) (\s@MessageData' {} a -> s {value = a} :: MessageData)
 
 -- | The error code or status code associated with the message.
 messageData_code :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
 messageData_code = Lens.lens (\MessageData' {code} -> code) (\s@MessageData' {} a -> s {code = a} :: MessageData)
 
+-- | The message text.
+messageData_value :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
+messageData_value = Lens.lens (\MessageData' {value} -> value) (\s@MessageData' {} a -> s {value = a} :: MessageData)
+
 instance Core.FromXML MessageData where
   parseXML x =
     MessageData'
-      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Code")
+      Prelude.<$> (x Core..@? "Code") Prelude.<*> (x Core..@? "Value")
 
 instance Prelude.Hashable MessageData where
   hashWithSalt _salt MessageData' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MessageData where
   rnf MessageData' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf value

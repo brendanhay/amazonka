@@ -35,23 +35,23 @@ module Amazonka.DataBrew.DescribeJobRun
     newDescribeJobRunResponse,
 
     -- * Response Lenses
-    describeJobRunResponse_completedOn,
-    describeJobRunResponse_state,
-    describeJobRunResponse_dataCatalogOutputs,
-    describeJobRunResponse_startedOn,
-    describeJobRunResponse_recipeReference,
-    describeJobRunResponse_profileConfiguration,
+    describeJobRunResponse_jobSample,
     describeJobRunResponse_databaseOutputs,
-    describeJobRunResponse_logGroupName,
-    describeJobRunResponse_outputs,
-    describeJobRunResponse_runId,
+    describeJobRunResponse_startedOn,
+    describeJobRunResponse_errorMessage,
+    describeJobRunResponse_attempt,
+    describeJobRunResponse_dataCatalogOutputs,
+    describeJobRunResponse_datasetName,
+    describeJobRunResponse_state,
     describeJobRunResponse_executionTime,
     describeJobRunResponse_logSubscription,
+    describeJobRunResponse_completedOn,
     describeJobRunResponse_startedBy,
-    describeJobRunResponse_datasetName,
-    describeJobRunResponse_attempt,
-    describeJobRunResponse_errorMessage,
-    describeJobRunResponse_jobSample,
+    describeJobRunResponse_recipeReference,
+    describeJobRunResponse_outputs,
+    describeJobRunResponse_profileConfiguration,
+    describeJobRunResponse_runId,
+    describeJobRunResponse_logGroupName,
     describeJobRunResponse_httpStatus,
     describeJobRunResponse_jobName,
   )
@@ -110,23 +110,23 @@ instance Core.AWSRequest DescribeJobRun where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobRunResponse'
-            Prelude.<$> (x Core..?> "CompletedOn")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "DataCatalogOutputs")
-            Prelude.<*> (x Core..?> "StartedOn")
-            Prelude.<*> (x Core..?> "RecipeReference")
-            Prelude.<*> (x Core..?> "ProfileConfiguration")
+            Prelude.<$> (x Core..?> "JobSample")
             Prelude.<*> (x Core..?> "DatabaseOutputs")
-            Prelude.<*> (x Core..?> "LogGroupName")
-            Prelude.<*> (x Core..?> "Outputs")
-            Prelude.<*> (x Core..?> "RunId")
+            Prelude.<*> (x Core..?> "StartedOn")
+            Prelude.<*> (x Core..?> "ErrorMessage")
+            Prelude.<*> (x Core..?> "Attempt")
+            Prelude.<*> (x Core..?> "DataCatalogOutputs")
+            Prelude.<*> (x Core..?> "DatasetName")
+            Prelude.<*> (x Core..?> "State")
             Prelude.<*> (x Core..?> "ExecutionTime")
             Prelude.<*> (x Core..?> "LogSubscription")
+            Prelude.<*> (x Core..?> "CompletedOn")
             Prelude.<*> (x Core..?> "StartedBy")
-            Prelude.<*> (x Core..?> "DatasetName")
-            Prelude.<*> (x Core..?> "Attempt")
-            Prelude.<*> (x Core..?> "ErrorMessage")
-            Prelude.<*> (x Core..?> "JobSample")
+            Prelude.<*> (x Core..?> "RecipeReference")
+            Prelude.<*> (x Core..?> "Outputs")
+            Prelude.<*> (x Core..?> "ProfileConfiguration")
+            Prelude.<*> (x Core..?> "RunId")
+            Prelude.<*> (x Core..?> "LogGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "JobName")
       )
@@ -165,49 +165,49 @@ instance Core.ToQuery DescribeJobRun where
 
 -- | /See:/ 'newDescribeJobRunResponse' smart constructor.
 data DescribeJobRunResponse = DescribeJobRunResponse'
-  { -- | The date and time when the job completed processing.
-    completedOn :: Prelude.Maybe Core.POSIX,
-    -- | The current state of the job run entity itself.
-    state :: Prelude.Maybe JobRunState,
-    -- | One or more artifacts that represent the Glue Data Catalog output from
-    -- running the job.
-    dataCatalogOutputs :: Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput),
-    -- | The date and time when the job run began.
-    startedOn :: Prelude.Maybe Core.POSIX,
-    recipeReference :: Prelude.Maybe RecipeReference,
-    -- | Configuration for profile jobs. Used to select columns, do evaluations,
-    -- and override default parameters of evaluations. When configuration is
-    -- null, the profile job will run with default settings.
-    profileConfiguration :: Prelude.Maybe ProfileConfiguration,
+  { -- | Sample configuration for profile jobs only. Determines the number of
+    -- rows on which the profile job will be executed. If a JobSample value is
+    -- not provided, the default value will be used. The default value is
+    -- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+    jobSample :: Prelude.Maybe JobSample,
     -- | Represents a list of JDBC database output objects which defines the
     -- output destination for a DataBrew recipe job to write into.
     databaseOutputs :: Prelude.Maybe (Prelude.NonEmpty DatabaseOutput),
-    -- | The name of an Amazon CloudWatch log group, where the job writes
-    -- diagnostic messages when it runs.
-    logGroupName :: Prelude.Maybe Prelude.Text,
-    -- | One or more output artifacts from a job run.
-    outputs :: Prelude.Maybe (Prelude.NonEmpty Output),
-    -- | The unique identifier of the job run.
-    runId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the job run began.
+    startedOn :: Prelude.Maybe Core.POSIX,
+    -- | A message indicating an error (if any) that was encountered when the job
+    -- ran.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The number of times that DataBrew has attempted to run the job.
+    attempt :: Prelude.Maybe Prelude.Int,
+    -- | One or more artifacts that represent the Glue Data Catalog output from
+    -- running the job.
+    dataCatalogOutputs :: Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput),
+    -- | The name of the dataset for the job to process.
+    datasetName :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the job run entity itself.
+    state :: Prelude.Maybe JobRunState,
     -- | The amount of time, in seconds, during which the job run consumed
     -- resources.
     executionTime :: Prelude.Maybe Prelude.Int,
     -- | The current status of Amazon CloudWatch logging for the job run.
     logSubscription :: Prelude.Maybe LogSubscription,
+    -- | The date and time when the job completed processing.
+    completedOn :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who started the job run.
     startedBy :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset for the job to process.
-    datasetName :: Prelude.Maybe Prelude.Text,
-    -- | The number of times that DataBrew has attempted to run the job.
-    attempt :: Prelude.Maybe Prelude.Int,
-    -- | A message indicating an error (if any) that was encountered when the job
-    -- ran.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | Sample configuration for profile jobs only. Determines the number of
-    -- rows on which the profile job will be executed. If a JobSample value is
-    -- not provided, the default value will be used. The default value is
-    -- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
-    jobSample :: Prelude.Maybe JobSample,
+    recipeReference :: Prelude.Maybe RecipeReference,
+    -- | One or more output artifacts from a job run.
+    outputs :: Prelude.Maybe (Prelude.NonEmpty Output),
+    -- | Configuration for profile jobs. Used to select columns, do evaluations,
+    -- and override default parameters of evaluations. When configuration is
+    -- null, the profile job will run with default settings.
+    profileConfiguration :: Prelude.Maybe ProfileConfiguration,
+    -- | The unique identifier of the job run.
+    runId :: Prelude.Maybe Prelude.Text,
+    -- | The name of an Amazon CloudWatch log group, where the job writes
+    -- diagnostic messages when it runs.
+    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the job being processed during this run.
@@ -223,49 +223,49 @@ data DescribeJobRunResponse = DescribeJobRunResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'completedOn', 'describeJobRunResponse_completedOn' - The date and time when the job completed processing.
---
--- 'state', 'describeJobRunResponse_state' - The current state of the job run entity itself.
---
--- 'dataCatalogOutputs', 'describeJobRunResponse_dataCatalogOutputs' - One or more artifacts that represent the Glue Data Catalog output from
--- running the job.
---
--- 'startedOn', 'describeJobRunResponse_startedOn' - The date and time when the job run began.
---
--- 'recipeReference', 'describeJobRunResponse_recipeReference' - Undocumented member.
---
--- 'profileConfiguration', 'describeJobRunResponse_profileConfiguration' - Configuration for profile jobs. Used to select columns, do evaluations,
--- and override default parameters of evaluations. When configuration is
--- null, the profile job will run with default settings.
+-- 'jobSample', 'describeJobRunResponse_jobSample' - Sample configuration for profile jobs only. Determines the number of
+-- rows on which the profile job will be executed. If a JobSample value is
+-- not provided, the default value will be used. The default value is
+-- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
 --
 -- 'databaseOutputs', 'describeJobRunResponse_databaseOutputs' - Represents a list of JDBC database output objects which defines the
 -- output destination for a DataBrew recipe job to write into.
 --
--- 'logGroupName', 'describeJobRunResponse_logGroupName' - The name of an Amazon CloudWatch log group, where the job writes
--- diagnostic messages when it runs.
+-- 'startedOn', 'describeJobRunResponse_startedOn' - The date and time when the job run began.
 --
--- 'outputs', 'describeJobRunResponse_outputs' - One or more output artifacts from a job run.
+-- 'errorMessage', 'describeJobRunResponse_errorMessage' - A message indicating an error (if any) that was encountered when the job
+-- ran.
 --
--- 'runId', 'describeJobRunResponse_runId' - The unique identifier of the job run.
+-- 'attempt', 'describeJobRunResponse_attempt' - The number of times that DataBrew has attempted to run the job.
+--
+-- 'dataCatalogOutputs', 'describeJobRunResponse_dataCatalogOutputs' - One or more artifacts that represent the Glue Data Catalog output from
+-- running the job.
+--
+-- 'datasetName', 'describeJobRunResponse_datasetName' - The name of the dataset for the job to process.
+--
+-- 'state', 'describeJobRunResponse_state' - The current state of the job run entity itself.
 --
 -- 'executionTime', 'describeJobRunResponse_executionTime' - The amount of time, in seconds, during which the job run consumed
 -- resources.
 --
 -- 'logSubscription', 'describeJobRunResponse_logSubscription' - The current status of Amazon CloudWatch logging for the job run.
 --
+-- 'completedOn', 'describeJobRunResponse_completedOn' - The date and time when the job completed processing.
+--
 -- 'startedBy', 'describeJobRunResponse_startedBy' - The Amazon Resource Name (ARN) of the user who started the job run.
 --
--- 'datasetName', 'describeJobRunResponse_datasetName' - The name of the dataset for the job to process.
+-- 'recipeReference', 'describeJobRunResponse_recipeReference' - Undocumented member.
 --
--- 'attempt', 'describeJobRunResponse_attempt' - The number of times that DataBrew has attempted to run the job.
+-- 'outputs', 'describeJobRunResponse_outputs' - One or more output artifacts from a job run.
 --
--- 'errorMessage', 'describeJobRunResponse_errorMessage' - A message indicating an error (if any) that was encountered when the job
--- ran.
+-- 'profileConfiguration', 'describeJobRunResponse_profileConfiguration' - Configuration for profile jobs. Used to select columns, do evaluations,
+-- and override default parameters of evaluations. When configuration is
+-- null, the profile job will run with default settings.
 --
--- 'jobSample', 'describeJobRunResponse_jobSample' - Sample configuration for profile jobs only. Determines the number of
--- rows on which the profile job will be executed. If a JobSample value is
--- not provided, the default value will be used. The default value is
--- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+-- 'runId', 'describeJobRunResponse_runId' - The unique identifier of the job run.
+--
+-- 'logGroupName', 'describeJobRunResponse_logGroupName' - The name of an Amazon CloudWatch log group, where the job writes
+-- diagnostic messages when it runs.
 --
 -- 'httpStatus', 'describeJobRunResponse_httpStatus' - The response's http status code.
 --
@@ -278,72 +278,65 @@ newDescribeJobRunResponse ::
   DescribeJobRunResponse
 newDescribeJobRunResponse pHttpStatus_ pJobName_ =
   DescribeJobRunResponse'
-    { completedOn =
+    { jobSample =
         Prelude.Nothing,
-      state = Prelude.Nothing,
-      dataCatalogOutputs = Prelude.Nothing,
-      startedOn = Prelude.Nothing,
-      recipeReference = Prelude.Nothing,
-      profileConfiguration = Prelude.Nothing,
       databaseOutputs = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
-      outputs = Prelude.Nothing,
-      runId = Prelude.Nothing,
+      startedOn = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      attempt = Prelude.Nothing,
+      dataCatalogOutputs = Prelude.Nothing,
+      datasetName = Prelude.Nothing,
+      state = Prelude.Nothing,
       executionTime = Prelude.Nothing,
       logSubscription = Prelude.Nothing,
+      completedOn = Prelude.Nothing,
       startedBy = Prelude.Nothing,
-      datasetName = Prelude.Nothing,
-      attempt = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      jobSample = Prelude.Nothing,
+      recipeReference = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      profileConfiguration = Prelude.Nothing,
+      runId = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       jobName = pJobName_
     }
 
--- | The date and time when the job completed processing.
-describeJobRunResponse_completedOn :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.UTCTime)
-describeJobRunResponse_completedOn = Lens.lens (\DescribeJobRunResponse' {completedOn} -> completedOn) (\s@DescribeJobRunResponse' {} a -> s {completedOn = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Core._Time
-
--- | The current state of the job run entity itself.
-describeJobRunResponse_state :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe JobRunState)
-describeJobRunResponse_state = Lens.lens (\DescribeJobRunResponse' {state} -> state) (\s@DescribeJobRunResponse' {} a -> s {state = a} :: DescribeJobRunResponse)
-
--- | One or more artifacts that represent the Glue Data Catalog output from
--- running the job.
-describeJobRunResponse_dataCatalogOutputs :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput))
-describeJobRunResponse_dataCatalogOutputs = Lens.lens (\DescribeJobRunResponse' {dataCatalogOutputs} -> dataCatalogOutputs) (\s@DescribeJobRunResponse' {} a -> s {dataCatalogOutputs = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The date and time when the job run began.
-describeJobRunResponse_startedOn :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.UTCTime)
-describeJobRunResponse_startedOn = Lens.lens (\DescribeJobRunResponse' {startedOn} -> startedOn) (\s@DescribeJobRunResponse' {} a -> s {startedOn = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Core._Time
-
--- | Undocumented member.
-describeJobRunResponse_recipeReference :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe RecipeReference)
-describeJobRunResponse_recipeReference = Lens.lens (\DescribeJobRunResponse' {recipeReference} -> recipeReference) (\s@DescribeJobRunResponse' {} a -> s {recipeReference = a} :: DescribeJobRunResponse)
-
--- | Configuration for profile jobs. Used to select columns, do evaluations,
--- and override default parameters of evaluations. When configuration is
--- null, the profile job will run with default settings.
-describeJobRunResponse_profileConfiguration :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe ProfileConfiguration)
-describeJobRunResponse_profileConfiguration = Lens.lens (\DescribeJobRunResponse' {profileConfiguration} -> profileConfiguration) (\s@DescribeJobRunResponse' {} a -> s {profileConfiguration = a} :: DescribeJobRunResponse)
+-- | Sample configuration for profile jobs only. Determines the number of
+-- rows on which the profile job will be executed. If a JobSample value is
+-- not provided, the default value will be used. The default value is
+-- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+describeJobRunResponse_jobSample :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe JobSample)
+describeJobRunResponse_jobSample = Lens.lens (\DescribeJobRunResponse' {jobSample} -> jobSample) (\s@DescribeJobRunResponse' {} a -> s {jobSample = a} :: DescribeJobRunResponse)
 
 -- | Represents a list of JDBC database output objects which defines the
 -- output destination for a DataBrew recipe job to write into.
 describeJobRunResponse_databaseOutputs :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe (Prelude.NonEmpty DatabaseOutput))
 describeJobRunResponse_databaseOutputs = Lens.lens (\DescribeJobRunResponse' {databaseOutputs} -> databaseOutputs) (\s@DescribeJobRunResponse' {} a -> s {databaseOutputs = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of an Amazon CloudWatch log group, where the job writes
--- diagnostic messages when it runs.
-describeJobRunResponse_logGroupName :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
-describeJobRunResponse_logGroupName = Lens.lens (\DescribeJobRunResponse' {logGroupName} -> logGroupName) (\s@DescribeJobRunResponse' {} a -> s {logGroupName = a} :: DescribeJobRunResponse)
+-- | The date and time when the job run began.
+describeJobRunResponse_startedOn :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.UTCTime)
+describeJobRunResponse_startedOn = Lens.lens (\DescribeJobRunResponse' {startedOn} -> startedOn) (\s@DescribeJobRunResponse' {} a -> s {startedOn = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Core._Time
 
--- | One or more output artifacts from a job run.
-describeJobRunResponse_outputs :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe (Prelude.NonEmpty Output))
-describeJobRunResponse_outputs = Lens.lens (\DescribeJobRunResponse' {outputs} -> outputs) (\s@DescribeJobRunResponse' {} a -> s {outputs = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A message indicating an error (if any) that was encountered when the job
+-- ran.
+describeJobRunResponse_errorMessage :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
+describeJobRunResponse_errorMessage = Lens.lens (\DescribeJobRunResponse' {errorMessage} -> errorMessage) (\s@DescribeJobRunResponse' {} a -> s {errorMessage = a} :: DescribeJobRunResponse)
 
--- | The unique identifier of the job run.
-describeJobRunResponse_runId :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
-describeJobRunResponse_runId = Lens.lens (\DescribeJobRunResponse' {runId} -> runId) (\s@DescribeJobRunResponse' {} a -> s {runId = a} :: DescribeJobRunResponse)
+-- | The number of times that DataBrew has attempted to run the job.
+describeJobRunResponse_attempt :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Int)
+describeJobRunResponse_attempt = Lens.lens (\DescribeJobRunResponse' {attempt} -> attempt) (\s@DescribeJobRunResponse' {} a -> s {attempt = a} :: DescribeJobRunResponse)
+
+-- | One or more artifacts that represent the Glue Data Catalog output from
+-- running the job.
+describeJobRunResponse_dataCatalogOutputs :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput))
+describeJobRunResponse_dataCatalogOutputs = Lens.lens (\DescribeJobRunResponse' {dataCatalogOutputs} -> dataCatalogOutputs) (\s@DescribeJobRunResponse' {} a -> s {dataCatalogOutputs = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the dataset for the job to process.
+describeJobRunResponse_datasetName :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
+describeJobRunResponse_datasetName = Lens.lens (\DescribeJobRunResponse' {datasetName} -> datasetName) (\s@DescribeJobRunResponse' {} a -> s {datasetName = a} :: DescribeJobRunResponse)
+
+-- | The current state of the job run entity itself.
+describeJobRunResponse_state :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe JobRunState)
+describeJobRunResponse_state = Lens.lens (\DescribeJobRunResponse' {state} -> state) (\s@DescribeJobRunResponse' {} a -> s {state = a} :: DescribeJobRunResponse)
 
 -- | The amount of time, in seconds, during which the job run consumed
 -- resources.
@@ -354,29 +347,36 @@ describeJobRunResponse_executionTime = Lens.lens (\DescribeJobRunResponse' {exec
 describeJobRunResponse_logSubscription :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe LogSubscription)
 describeJobRunResponse_logSubscription = Lens.lens (\DescribeJobRunResponse' {logSubscription} -> logSubscription) (\s@DescribeJobRunResponse' {} a -> s {logSubscription = a} :: DescribeJobRunResponse)
 
+-- | The date and time when the job completed processing.
+describeJobRunResponse_completedOn :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.UTCTime)
+describeJobRunResponse_completedOn = Lens.lens (\DescribeJobRunResponse' {completedOn} -> completedOn) (\s@DescribeJobRunResponse' {} a -> s {completedOn = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The Amazon Resource Name (ARN) of the user who started the job run.
 describeJobRunResponse_startedBy :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
 describeJobRunResponse_startedBy = Lens.lens (\DescribeJobRunResponse' {startedBy} -> startedBy) (\s@DescribeJobRunResponse' {} a -> s {startedBy = a} :: DescribeJobRunResponse)
 
--- | The name of the dataset for the job to process.
-describeJobRunResponse_datasetName :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
-describeJobRunResponse_datasetName = Lens.lens (\DescribeJobRunResponse' {datasetName} -> datasetName) (\s@DescribeJobRunResponse' {} a -> s {datasetName = a} :: DescribeJobRunResponse)
+-- | Undocumented member.
+describeJobRunResponse_recipeReference :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe RecipeReference)
+describeJobRunResponse_recipeReference = Lens.lens (\DescribeJobRunResponse' {recipeReference} -> recipeReference) (\s@DescribeJobRunResponse' {} a -> s {recipeReference = a} :: DescribeJobRunResponse)
 
--- | The number of times that DataBrew has attempted to run the job.
-describeJobRunResponse_attempt :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Int)
-describeJobRunResponse_attempt = Lens.lens (\DescribeJobRunResponse' {attempt} -> attempt) (\s@DescribeJobRunResponse' {} a -> s {attempt = a} :: DescribeJobRunResponse)
+-- | One or more output artifacts from a job run.
+describeJobRunResponse_outputs :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe (Prelude.NonEmpty Output))
+describeJobRunResponse_outputs = Lens.lens (\DescribeJobRunResponse' {outputs} -> outputs) (\s@DescribeJobRunResponse' {} a -> s {outputs = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A message indicating an error (if any) that was encountered when the job
--- ran.
-describeJobRunResponse_errorMessage :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
-describeJobRunResponse_errorMessage = Lens.lens (\DescribeJobRunResponse' {errorMessage} -> errorMessage) (\s@DescribeJobRunResponse' {} a -> s {errorMessage = a} :: DescribeJobRunResponse)
+-- | Configuration for profile jobs. Used to select columns, do evaluations,
+-- and override default parameters of evaluations. When configuration is
+-- null, the profile job will run with default settings.
+describeJobRunResponse_profileConfiguration :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe ProfileConfiguration)
+describeJobRunResponse_profileConfiguration = Lens.lens (\DescribeJobRunResponse' {profileConfiguration} -> profileConfiguration) (\s@DescribeJobRunResponse' {} a -> s {profileConfiguration = a} :: DescribeJobRunResponse)
 
--- | Sample configuration for profile jobs only. Determines the number of
--- rows on which the profile job will be executed. If a JobSample value is
--- not provided, the default value will be used. The default value is
--- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
-describeJobRunResponse_jobSample :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe JobSample)
-describeJobRunResponse_jobSample = Lens.lens (\DescribeJobRunResponse' {jobSample} -> jobSample) (\s@DescribeJobRunResponse' {} a -> s {jobSample = a} :: DescribeJobRunResponse)
+-- | The unique identifier of the job run.
+describeJobRunResponse_runId :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
+describeJobRunResponse_runId = Lens.lens (\DescribeJobRunResponse' {runId} -> runId) (\s@DescribeJobRunResponse' {} a -> s {runId = a} :: DescribeJobRunResponse)
+
+-- | The name of an Amazon CloudWatch log group, where the job writes
+-- diagnostic messages when it runs.
+describeJobRunResponse_logGroupName :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
+describeJobRunResponse_logGroupName = Lens.lens (\DescribeJobRunResponse' {logGroupName} -> logGroupName) (\s@DescribeJobRunResponse' {} a -> s {logGroupName = a} :: DescribeJobRunResponse)
 
 -- | The response's http status code.
 describeJobRunResponse_httpStatus :: Lens.Lens' DescribeJobRunResponse Prelude.Int
@@ -388,22 +388,22 @@ describeJobRunResponse_jobName = Lens.lens (\DescribeJobRunResponse' {jobName} -
 
 instance Prelude.NFData DescribeJobRunResponse where
   rnf DescribeJobRunResponse' {..} =
-    Prelude.rnf completedOn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf dataCatalogOutputs
-      `Prelude.seq` Prelude.rnf startedOn
-      `Prelude.seq` Prelude.rnf recipeReference
-      `Prelude.seq` Prelude.rnf profileConfiguration
+    Prelude.rnf jobSample
       `Prelude.seq` Prelude.rnf databaseOutputs
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf startedOn
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf attempt
+      `Prelude.seq` Prelude.rnf dataCatalogOutputs
+      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf executionTime
       `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf completedOn
       `Prelude.seq` Prelude.rnf startedBy
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf attempt
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf jobSample
+      `Prelude.seq` Prelude.rnf recipeReference
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf profileConfiguration
+      `Prelude.seq` Prelude.rnf runId
+      `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobName

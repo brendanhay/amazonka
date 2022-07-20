@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServerEvent' smart constructor.
 data ServerEvent = ServerEvent'
-  { -- | The Amazon S3 URL of the event\'s log file.
-    logUrl :: Prelude.Maybe Prelude.Text,
+  { -- | A human-readable informational or status message.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The name of the server on or for which the event occurred.
     serverName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 URL of the event\'s log file.
+    logUrl :: Prelude.Maybe Prelude.Text,
     -- | The time when the event occurred.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | A human-readable informational or status message.
-    message :: Prelude.Maybe Prelude.Text
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data ServerEvent = ServerEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logUrl', 'serverEvent_logUrl' - The Amazon S3 URL of the event\'s log file.
+-- 'message', 'serverEvent_message' - A human-readable informational or status message.
 --
 -- 'serverName', 'serverEvent_serverName' - The name of the server on or for which the event occurred.
 --
--- 'createdAt', 'serverEvent_createdAt' - The time when the event occurred.
+-- 'logUrl', 'serverEvent_logUrl' - The Amazon S3 URL of the event\'s log file.
 --
--- 'message', 'serverEvent_message' - A human-readable informational or status message.
+-- 'createdAt', 'serverEvent_createdAt' - The time when the event occurred.
 newServerEvent ::
   ServerEvent
 newServerEvent =
   ServerEvent'
-    { logUrl = Prelude.Nothing,
+    { message = Prelude.Nothing,
       serverName = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      message = Prelude.Nothing
+      logUrl = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
 
--- | The Amazon S3 URL of the event\'s log file.
-serverEvent_logUrl :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.Text)
-serverEvent_logUrl = Lens.lens (\ServerEvent' {logUrl} -> logUrl) (\s@ServerEvent' {} a -> s {logUrl = a} :: ServerEvent)
+-- | A human-readable informational or status message.
+serverEvent_message :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.Text)
+serverEvent_message = Lens.lens (\ServerEvent' {message} -> message) (\s@ServerEvent' {} a -> s {message = a} :: ServerEvent)
 
 -- | The name of the server on or for which the event occurred.
 serverEvent_serverName :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.Text)
 serverEvent_serverName = Lens.lens (\ServerEvent' {serverName} -> serverName) (\s@ServerEvent' {} a -> s {serverName = a} :: ServerEvent)
 
+-- | The Amazon S3 URL of the event\'s log file.
+serverEvent_logUrl :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.Text)
+serverEvent_logUrl = Lens.lens (\ServerEvent' {logUrl} -> logUrl) (\s@ServerEvent' {} a -> s {logUrl = a} :: ServerEvent)
+
 -- | The time when the event occurred.
 serverEvent_createdAt :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.UTCTime)
 serverEvent_createdAt = Lens.lens (\ServerEvent' {createdAt} -> createdAt) (\s@ServerEvent' {} a -> s {createdAt = a} :: ServerEvent) Prelude.. Lens.mapping Core._Time
-
--- | A human-readable informational or status message.
-serverEvent_message :: Lens.Lens' ServerEvent (Prelude.Maybe Prelude.Text)
-serverEvent_message = Lens.lens (\ServerEvent' {message} -> message) (\s@ServerEvent' {} a -> s {message = a} :: ServerEvent)
 
 instance Core.FromJSON ServerEvent where
   parseJSON =
@@ -86,22 +86,22 @@ instance Core.FromJSON ServerEvent where
       "ServerEvent"
       ( \x ->
           ServerEvent'
-            Prelude.<$> (x Core..:? "LogUrl")
+            Prelude.<$> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "ServerName")
+            Prelude.<*> (x Core..:? "LogUrl")
             Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable ServerEvent where
   hashWithSalt _salt ServerEvent' {..} =
-    _salt `Prelude.hashWithSalt` logUrl
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` logUrl
       `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ServerEvent where
   rnf ServerEvent' {..} =
-    Prelude.rnf logUrl
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf logUrl
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf message

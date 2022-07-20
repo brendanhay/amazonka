@@ -14,12 +14,16 @@
 module Amazonka.RDSData.Lens
   ( -- * Operations
 
-    -- ** RollbackTransaction
-    rollbackTransaction_resourceArn,
-    rollbackTransaction_secretArn,
-    rollbackTransaction_transactionId,
-    rollbackTransactionResponse_transactionStatus,
-    rollbackTransactionResponse_httpStatus,
+    -- ** BatchExecuteStatement
+    batchExecuteStatement_parameterSets,
+    batchExecuteStatement_database,
+    batchExecuteStatement_transactionId,
+    batchExecuteStatement_schema,
+    batchExecuteStatement_resourceArn,
+    batchExecuteStatement_secretArn,
+    batchExecuteStatement_sql,
+    batchExecuteStatementResponse_updateResults,
+    batchExecuteStatementResponse_httpStatus,
 
     -- ** BeginTransaction
     beginTransaction_database,
@@ -29,34 +33,6 @@ module Amazonka.RDSData.Lens
     beginTransactionResponse_transactionId,
     beginTransactionResponse_httpStatus,
 
-    -- ** BatchExecuteStatement
-    batchExecuteStatement_database,
-    batchExecuteStatement_parameterSets,
-    batchExecuteStatement_transactionId,
-    batchExecuteStatement_schema,
-    batchExecuteStatement_resourceArn,
-    batchExecuteStatement_secretArn,
-    batchExecuteStatement_sql,
-    batchExecuteStatementResponse_updateResults,
-    batchExecuteStatementResponse_httpStatus,
-
-    -- ** ExecuteStatement
-    executeStatement_database,
-    executeStatement_transactionId,
-    executeStatement_schema,
-    executeStatement_parameters,
-    executeStatement_includeResultMetadata,
-    executeStatement_resultSetOptions,
-    executeStatement_continueAfterTimeout,
-    executeStatement_resourceArn,
-    executeStatement_secretArn,
-    executeStatement_sql,
-    executeStatementResponse_records,
-    executeStatementResponse_columnMetadata,
-    executeStatementResponse_generatedFields,
-    executeStatementResponse_numberOfRecordsUpdated,
-    executeStatementResponse_httpStatus,
-
     -- ** CommitTransaction
     commitTransaction_resourceArn,
     commitTransaction_secretArn,
@@ -64,47 +40,71 @@ module Amazonka.RDSData.Lens
     commitTransactionResponse_transactionStatus,
     commitTransactionResponse_httpStatus,
 
+    -- ** ExecuteStatement
+    executeStatement_continueAfterTimeout,
+    executeStatement_database,
+    executeStatement_resultSetOptions,
+    executeStatement_includeResultMetadata,
+    executeStatement_transactionId,
+    executeStatement_schema,
+    executeStatement_parameters,
+    executeStatement_resourceArn,
+    executeStatement_secretArn,
+    executeStatement_sql,
+    executeStatementResponse_records,
+    executeStatementResponse_columnMetadata,
+    executeStatementResponse_numberOfRecordsUpdated,
+    executeStatementResponse_generatedFields,
+    executeStatementResponse_httpStatus,
+
+    -- ** RollbackTransaction
+    rollbackTransaction_resourceArn,
+    rollbackTransaction_secretArn,
+    rollbackTransaction_transactionId,
+    rollbackTransactionResponse_transactionStatus,
+    rollbackTransactionResponse_httpStatus,
+
     -- * Types
 
     -- ** ArrayValue
+    arrayValue_stringValues,
+    arrayValue_booleanValues,
     arrayValue_longValues,
     arrayValue_doubleValues,
-    arrayValue_stringValues,
     arrayValue_arrayValues,
-    arrayValue_booleanValues,
 
     -- ** ColumnMetadata
-    columnMetadata_typeName,
-    columnMetadata_isCaseSensitive,
-    columnMetadata_isCurrency,
-    columnMetadata_scale,
-    columnMetadata_precision,
-    columnMetadata_schemaName,
-    columnMetadata_isAutoIncrement,
-    columnMetadata_name,
-    columnMetadata_arrayBaseColumnType,
-    columnMetadata_type,
-    columnMetadata_isSigned,
-    columnMetadata_label,
-    columnMetadata_nullable,
     columnMetadata_tableName,
+    columnMetadata_name,
+    columnMetadata_type,
+    columnMetadata_label,
+    columnMetadata_schemaName,
+    columnMetadata_nullable,
+    columnMetadata_isCaseSensitive,
+    columnMetadata_typeName,
+    columnMetadata_arrayBaseColumnType,
+    columnMetadata_precision,
+    columnMetadata_scale,
+    columnMetadata_isAutoIncrement,
+    columnMetadata_isCurrency,
+    columnMetadata_isSigned,
 
     -- ** Field
     field_doubleValue,
+    field_booleanValue,
+    field_isNull,
     field_stringValue,
     field_longValue,
-    field_booleanValue,
-    field_arrayValue,
     field_blobValue,
-    field_isNull,
+    field_arrayValue,
 
     -- ** ResultSetOptions
     resultSetOptions_decimalReturnType,
 
     -- ** SqlParameter
-    sqlParameter_value,
     sqlParameter_name,
     sqlParameter_typeHint,
+    sqlParameter_value,
 
     -- ** UpdateResult
     updateResult_generatedFields,

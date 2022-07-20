@@ -17,12 +17,12 @@ module Amazonka.DataBrew.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ValidationException,
 
     -- * CompressionFormat
     CompressionFormat (..),
@@ -72,8 +72,8 @@ module Amazonka.DataBrew.Types
     -- * ColumnSelector
     ColumnSelector (..),
     newColumnSelector,
-    columnSelector_regex,
     columnSelector_name,
+    columnSelector_regex,
 
     -- * ColumnStatisticsConfiguration
     ColumnStatisticsConfiguration (..),
@@ -91,8 +91,8 @@ module Amazonka.DataBrew.Types
     -- * CsvOptions
     CsvOptions (..),
     newCsvOptions,
-    csvOptions_headerRow,
     csvOptions_delimiter,
+    csvOptions_headerRow,
 
     -- * CsvOutputOptions
     CsvOutputOptions (..),
@@ -110,10 +110,10 @@ module Amazonka.DataBrew.Types
     -- * DataCatalogOutput
     DataCatalogOutput (..),
     newDataCatalogOutput,
-    dataCatalogOutput_databaseOptions,
     dataCatalogOutput_s3Options,
-    dataCatalogOutput_catalogId,
+    dataCatalogOutput_databaseOptions,
     dataCatalogOutput_overwrite,
+    dataCatalogOutput_catalogId,
     dataCatalogOutput_databaseName,
     dataCatalogOutput_tableName,
 
@@ -140,34 +140,34 @@ module Amazonka.DataBrew.Types
     -- * Dataset
     Dataset (..),
     newDataset,
-    dataset_lastModifiedDate,
+    dataset_tags,
     dataset_pathOptions,
+    dataset_lastModifiedDate,
+    dataset_format,
+    dataset_accountId,
+    dataset_source,
     dataset_createDate,
     dataset_formatOptions,
-    dataset_format,
-    dataset_createdBy,
-    dataset_accountId,
-    dataset_resourceArn,
-    dataset_source,
     dataset_lastModifiedBy,
-    dataset_tags,
+    dataset_resourceArn,
+    dataset_createdBy,
     dataset_name,
     dataset_input,
 
     -- * DatasetParameter
     DatasetParameter (..),
     newDatasetParameter,
-    datasetParameter_createColumn,
-    datasetParameter_filter,
     datasetParameter_datetimeOptions,
+    datasetParameter_filter,
+    datasetParameter_createColumn,
     datasetParameter_name,
     datasetParameter_type,
 
     -- * DatetimeOptions
     DatetimeOptions (..),
     newDatetimeOptions,
-    datetimeOptions_timezoneOffset,
     datetimeOptions_localeCode,
+    datetimeOptions_timezoneOffset,
     datetimeOptions_format,
 
     -- * ExcelOptions
@@ -193,64 +193,64 @@ module Amazonka.DataBrew.Types
     -- * FormatOptions
     FormatOptions (..),
     newFormatOptions,
+    formatOptions_excel,
     formatOptions_json,
     formatOptions_csv,
-    formatOptions_excel,
 
     -- * Input
     Input (..),
     newInput,
-    input_dataCatalogInputDefinition,
     input_s3InputDefinition,
+    input_dataCatalogInputDefinition,
     input_databaseInputDefinition,
 
     -- * Job
     Job (..),
     newJob,
-    job_dataCatalogOutputs,
-    job_lastModifiedDate,
-    job_createDate,
-    job_recipeReference,
-    job_createdBy,
-    job_databaseOutputs,
-    job_accountId,
-    job_encryptionMode,
-    job_outputs,
-    job_resourceArn,
-    job_logSubscription,
-    job_projectName,
-    job_maxRetries,
-    job_datasetName,
-    job_encryptionKeyArn,
-    job_maxCapacity,
-    job_lastModifiedBy,
-    job_type,
-    job_timeout,
     job_tags,
-    job_roleArn,
+    job_encryptionKeyArn,
     job_jobSample,
+    job_timeout,
+    job_type,
+    job_roleArn,
+    job_databaseOutputs,
+    job_lastModifiedDate,
+    job_dataCatalogOutputs,
+    job_datasetName,
+    job_logSubscription,
+    job_maxRetries,
+    job_recipeReference,
+    job_accountId,
+    job_outputs,
+    job_createDate,
+    job_lastModifiedBy,
+    job_resourceArn,
+    job_projectName,
+    job_createdBy,
+    job_maxCapacity,
+    job_encryptionMode,
     job_name,
 
     -- * JobRun
     JobRun (..),
     newJobRun,
-    jobRun_completedOn,
-    jobRun_state,
+    jobRun_jobSample,
+    jobRun_databaseOutputs,
+    jobRun_startedOn,
+    jobRun_errorMessage,
+    jobRun_attempt,
     jobRun_dataCatalogOutputs,
     jobRun_jobName,
-    jobRun_startedOn,
-    jobRun_recipeReference,
-    jobRun_databaseOutputs,
-    jobRun_logGroupName,
-    jobRun_outputs,
-    jobRun_runId,
+    jobRun_datasetName,
+    jobRun_state,
     jobRun_executionTime,
     jobRun_logSubscription,
+    jobRun_completedOn,
     jobRun_startedBy,
-    jobRun_datasetName,
-    jobRun_attempt,
-    jobRun_errorMessage,
-    jobRun_jobSample,
+    jobRun_recipeReference,
+    jobRun_outputs,
+    jobRun_runId,
+    jobRun_logGroupName,
 
     -- * JobSample
     JobSample (..),
@@ -266,11 +266,11 @@ module Amazonka.DataBrew.Types
     -- * Output
     Output (..),
     newOutput,
+    output_format,
+    output_overwrite,
     output_partitionColumns,
     output_formatOptions,
-    output_format,
     output_compressionFormat,
-    output_overwrite,
     output_location,
 
     -- * OutputFormatOptions
@@ -282,49 +282,49 @@ module Amazonka.DataBrew.Types
     PathOptions (..),
     newPathOptions,
     pathOptions_lastModifiedDateCondition,
-    pathOptions_parameters,
     pathOptions_filesLimit,
+    pathOptions_parameters,
 
     -- * ProfileConfiguration
     ProfileConfiguration (..),
     newProfileConfiguration,
-    profileConfiguration_datasetStatisticsConfiguration,
     profileConfiguration_columnStatisticsConfigurations,
+    profileConfiguration_datasetStatisticsConfiguration,
     profileConfiguration_profileColumns,
 
     -- * Project
     Project (..),
     newProject,
-    project_lastModifiedDate,
-    project_openDate,
-    project_createDate,
-    project_createdBy,
-    project_accountId,
-    project_resourceArn,
-    project_datasetName,
-    project_lastModifiedBy,
-    project_sample,
-    project_openedBy,
     project_tags,
+    project_openedBy,
     project_roleArn,
+    project_lastModifiedDate,
+    project_datasetName,
+    project_accountId,
+    project_createDate,
+    project_openDate,
+    project_lastModifiedBy,
+    project_resourceArn,
+    project_createdBy,
+    project_sample,
     project_name,
     project_recipeName,
 
     -- * Recipe
     Recipe (..),
     newRecipe,
-    recipe_lastModifiedDate,
-    recipe_createDate,
-    recipe_publishedBy,
-    recipe_createdBy,
-    recipe_steps,
-    recipe_publishedDate,
-    recipe_resourceArn,
-    recipe_recipeVersion,
-    recipe_projectName,
-    recipe_lastModifiedBy,
-    recipe_description,
     recipe_tags,
+    recipe_publishedBy,
+    recipe_lastModifiedDate,
+    recipe_steps,
+    recipe_description,
+    recipe_createDate,
+    recipe_publishedDate,
+    recipe_lastModifiedBy,
+    recipe_resourceArn,
+    recipe_projectName,
+    recipe_createdBy,
+    recipe_recipeVersion,
     recipe_name,
 
     -- * RecipeAction
@@ -348,9 +348,9 @@ module Amazonka.DataBrew.Types
     -- * RecipeVersionErrorDetail
     RecipeVersionErrorDetail (..),
     newRecipeVersionErrorDetail,
-    recipeVersionErrorDetail_recipeVersion,
-    recipeVersionErrorDetail_errorCode,
     recipeVersionErrorDetail_errorMessage,
+    recipeVersionErrorDetail_errorCode,
+    recipeVersionErrorDetail_recipeVersion,
 
     -- * S3Location
     S3Location (..),
@@ -372,15 +372,15 @@ module Amazonka.DataBrew.Types
     -- * Schedule
     Schedule (..),
     newSchedule,
-    schedule_lastModifiedDate,
-    schedule_createDate,
-    schedule_createdBy,
-    schedule_accountId,
-    schedule_resourceArn,
-    schedule_cronExpression,
-    schedule_lastModifiedBy,
-    schedule_jobNames,
     schedule_tags,
+    schedule_lastModifiedDate,
+    schedule_accountId,
+    schedule_createDate,
+    schedule_lastModifiedBy,
+    schedule_resourceArn,
+    schedule_jobNames,
+    schedule_cronExpression,
+    schedule_createdBy,
     schedule_name,
 
     -- * StatisticOverride
@@ -392,14 +392,14 @@ module Amazonka.DataBrew.Types
     -- * StatisticsConfiguration
     StatisticsConfiguration (..),
     newStatisticsConfiguration,
-    statisticsConfiguration_overrides,
     statisticsConfiguration_includedStatistics,
+    statisticsConfiguration_overrides,
 
     -- * ViewFrame
     ViewFrame (..),
     newViewFrame,
-    viewFrame_hiddenColumns,
     viewFrame_columnRange,
+    viewFrame_hiddenColumns,
     viewFrame_startColumnIndex,
   )
 where
@@ -488,35 +488,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -525,21 +498,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input parameters for this request failed validation.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | Access to the specified resource was denied.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -549,13 +541,13 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | Updating or deleting a resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | An internal service failure occurred.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | A service quota is exceeded.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -565,14 +557,6 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | An internal service failure occurred.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
 -- | One or more resources can\'t be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -580,3 +564,19 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | Updating or deleting a resource can cause an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The input parameters for this request failed validation.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

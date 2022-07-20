@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIncompatibilityMessage' smart constructor.
 data IncompatibilityMessage = IncompatibilityMessage'
-  { -- | The type of incompatibility.
+  { -- | A message about the incompatibility.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The type of incompatibility.
     --
     -- Allowed values include:
     --
@@ -43,9 +45,7 @@ data IncompatibilityMessage = IncompatibilityMessage'
     -- -   REMOTE_ACCESS_ENABLED
     --
     -- -   APPIUM_VERSION
-    type' :: Prelude.Maybe DeviceAttribute,
-    -- | A message about the incompatibility.
-    message :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe DeviceAttribute
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,8 @@ data IncompatibilityMessage = IncompatibilityMessage'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'message', 'incompatibilityMessage_message' - A message about the incompatibility.
 --
 -- 'type'', 'incompatibilityMessage_type' - The type of incompatibility.
 --
@@ -72,15 +74,17 @@ data IncompatibilityMessage = IncompatibilityMessage'
 -- -   REMOTE_ACCESS_ENABLED
 --
 -- -   APPIUM_VERSION
---
--- 'message', 'incompatibilityMessage_message' - A message about the incompatibility.
 newIncompatibilityMessage ::
   IncompatibilityMessage
 newIncompatibilityMessage =
   IncompatibilityMessage'
-    { type' = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | A message about the incompatibility.
+incompatibilityMessage_message :: Lens.Lens' IncompatibilityMessage (Prelude.Maybe Prelude.Text)
+incompatibilityMessage_message = Lens.lens (\IncompatibilityMessage' {message} -> message) (\s@IncompatibilityMessage' {} a -> s {message = a} :: IncompatibilityMessage)
 
 -- | The type of incompatibility.
 --
@@ -100,25 +104,21 @@ newIncompatibilityMessage =
 incompatibilityMessage_type :: Lens.Lens' IncompatibilityMessage (Prelude.Maybe DeviceAttribute)
 incompatibilityMessage_type = Lens.lens (\IncompatibilityMessage' {type'} -> type') (\s@IncompatibilityMessage' {} a -> s {type' = a} :: IncompatibilityMessage)
 
--- | A message about the incompatibility.
-incompatibilityMessage_message :: Lens.Lens' IncompatibilityMessage (Prelude.Maybe Prelude.Text)
-incompatibilityMessage_message = Lens.lens (\IncompatibilityMessage' {message} -> message) (\s@IncompatibilityMessage' {} a -> s {message = a} :: IncompatibilityMessage)
-
 instance Core.FromJSON IncompatibilityMessage where
   parseJSON =
     Core.withObject
       "IncompatibilityMessage"
       ( \x ->
           IncompatibilityMessage'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "message")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "type")
       )
 
 instance Prelude.Hashable IncompatibilityMessage where
   hashWithSalt _salt IncompatibilityMessage' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData IncompatibilityMessage where
   rnf IncompatibilityMessage' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf type'

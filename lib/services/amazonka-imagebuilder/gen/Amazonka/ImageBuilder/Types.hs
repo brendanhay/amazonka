@@ -17,23 +17,23 @@ module Amazonka.ImageBuilder.Types
     defaultService,
 
     -- * Errors
-    _InvalidParameterException,
-    _InvalidRequestException,
     _ResourceAlreadyExistsException,
-    _CallRateLimitExceededException,
-    _ForbiddenException,
-    _InvalidParameterValueException,
-    _InvalidVersionNumberException,
-    _ServiceQuotaExceededException,
-    _ServiceException,
-    _ResourceDependencyException,
-    _ServiceUnavailableException,
-    _IdempotentParameterMismatchException,
     _ClientException,
+    _ResourceDependencyException,
+    _ServiceQuotaExceededException,
+    _InvalidVersionNumberException,
+    _InvalidPaginationTokenException,
+    _ServiceUnavailableException,
     _ResourceNotFoundException,
     _InvalidParameterCombinationException,
-    _InvalidPaginationTokenException,
+    _CallRateLimitExceededException,
     _ResourceInUseException,
+    _ForbiddenException,
+    _ServiceException,
+    _InvalidRequestException,
+    _InvalidParameterValueException,
+    _IdempotentParameterMismatchException,
+    _InvalidParameterException,
 
     -- * ComponentFormat
     ComponentFormat (..),
@@ -74,48 +74,48 @@ module Amazonka.ImageBuilder.Types
     -- * AdditionalInstanceConfiguration
     AdditionalInstanceConfiguration (..),
     newAdditionalInstanceConfiguration,
-    additionalInstanceConfiguration_systemsManagerAgent,
     additionalInstanceConfiguration_userDataOverride,
+    additionalInstanceConfiguration_systemsManagerAgent,
 
     -- * Ami
     Ami (..),
     newAmi,
-    ami_image,
-    ami_state,
-    ami_accountId,
     ami_name,
-    ami_region,
+    ami_state,
     ami_description,
+    ami_region,
+    ami_accountId,
+    ami_image,
 
     -- * AmiDistributionConfiguration
     AmiDistributionConfiguration (..),
     newAmiDistributionConfiguration,
     amiDistributionConfiguration_launchPermission,
+    amiDistributionConfiguration_name,
+    amiDistributionConfiguration_description,
     amiDistributionConfiguration_targetAccountIds,
     amiDistributionConfiguration_amiTags,
-    amiDistributionConfiguration_name,
     amiDistributionConfiguration_kmsKeyId,
-    amiDistributionConfiguration_description,
 
     -- * Component
     Component (..),
     newComponent,
-    component_state,
-    component_platform,
+    component_tags,
+    component_name,
+    component_type,
+    component_changeDescription,
     component_arn,
+    component_state,
+    component_owner,
+    component_description,
+    component_platform,
+    component_encrypted,
+    component_kmsKeyId,
+    component_dateCreated,
     component_data,
     component_supportedOsVersions,
-    component_encrypted,
-    component_owner,
-    component_dateCreated,
-    component_name,
-    component_kmsKeyId,
     component_version,
     component_parameters,
-    component_changeDescription,
-    component_type,
-    component_description,
-    component_tags,
 
     -- * ComponentConfiguration
     ComponentConfiguration (..),
@@ -146,37 +146,37 @@ module Amazonka.ImageBuilder.Types
     -- * ComponentSummary
     ComponentSummary (..),
     newComponentSummary,
-    componentSummary_state,
-    componentSummary_platform,
-    componentSummary_arn,
-    componentSummary_supportedOsVersions,
-    componentSummary_owner,
-    componentSummary_dateCreated,
-    componentSummary_name,
-    componentSummary_version,
-    componentSummary_changeDescription,
-    componentSummary_type,
-    componentSummary_description,
     componentSummary_tags,
+    componentSummary_name,
+    componentSummary_type,
+    componentSummary_changeDescription,
+    componentSummary_arn,
+    componentSummary_state,
+    componentSummary_owner,
+    componentSummary_description,
+    componentSummary_platform,
+    componentSummary_dateCreated,
+    componentSummary_supportedOsVersions,
+    componentSummary_version,
 
     -- * ComponentVersion
     ComponentVersion (..),
     newComponentVersion,
-    componentVersion_platform,
-    componentVersion_arn,
-    componentVersion_supportedOsVersions,
-    componentVersion_owner,
-    componentVersion_dateCreated,
     componentVersion_name,
-    componentVersion_version,
     componentVersion_type,
+    componentVersion_arn,
+    componentVersion_owner,
     componentVersion_description,
+    componentVersion_platform,
+    componentVersion_dateCreated,
+    componentVersion_supportedOsVersions,
+    componentVersion_version,
 
     -- * Container
     Container (..),
     newContainer,
-    container_imageUris,
     container_region,
+    container_imageUris,
 
     -- * ContainerDistributionConfiguration
     ContainerDistributionConfiguration (..),
@@ -188,107 +188,107 @@ module Amazonka.ImageBuilder.Types
     -- * ContainerRecipe
     ContainerRecipe (..),
     newContainerRecipe,
-    containerRecipe_components,
-    containerRecipe_containerType,
-    containerRecipe_platform,
-    containerRecipe_dockerfileTemplateData,
-    containerRecipe_arn,
-    containerRecipe_workingDirectory,
-    containerRecipe_parentImage,
-    containerRecipe_encrypted,
-    containerRecipe_owner,
-    containerRecipe_dateCreated,
-    containerRecipe_name,
-    containerRecipe_kmsKeyId,
-    containerRecipe_version,
-    containerRecipe_targetRepository,
-    containerRecipe_description,
     containerRecipe_tags,
+    containerRecipe_name,
+    containerRecipe_targetRepository,
+    containerRecipe_containerType,
     containerRecipe_instanceConfiguration,
+    containerRecipe_parentImage,
+    containerRecipe_arn,
+    containerRecipe_owner,
+    containerRecipe_description,
+    containerRecipe_platform,
+    containerRecipe_components,
+    containerRecipe_encrypted,
+    containerRecipe_kmsKeyId,
+    containerRecipe_dateCreated,
+    containerRecipe_dockerfileTemplateData,
+    containerRecipe_version,
+    containerRecipe_workingDirectory,
 
     -- * ContainerRecipeSummary
     ContainerRecipeSummary (..),
     newContainerRecipeSummary,
-    containerRecipeSummary_containerType,
-    containerRecipeSummary_platform,
-    containerRecipeSummary_arn,
-    containerRecipeSummary_parentImage,
-    containerRecipeSummary_owner,
-    containerRecipeSummary_dateCreated,
-    containerRecipeSummary_name,
     containerRecipeSummary_tags,
+    containerRecipeSummary_name,
+    containerRecipeSummary_containerType,
+    containerRecipeSummary_parentImage,
+    containerRecipeSummary_arn,
+    containerRecipeSummary_owner,
+    containerRecipeSummary_platform,
+    containerRecipeSummary_dateCreated,
 
     -- * Distribution
     Distribution (..),
     newDistribution,
     distribution_amiDistributionConfiguration,
-    distribution_launchTemplateConfigurations,
     distribution_licenseConfigurationArns,
+    distribution_launchTemplateConfigurations,
     distribution_containerDistributionConfiguration,
     distribution_region,
 
     -- * DistributionConfiguration
     DistributionConfiguration (..),
     newDistributionConfiguration,
+    distributionConfiguration_tags,
+    distributionConfiguration_name,
     distributionConfiguration_arn,
+    distributionConfiguration_description,
     distributionConfiguration_dateUpdated,
     distributionConfiguration_dateCreated,
-    distributionConfiguration_name,
-    distributionConfiguration_description,
     distributionConfiguration_distributions,
-    distributionConfiguration_tags,
     distributionConfiguration_timeoutMinutes,
 
     -- * DistributionConfigurationSummary
     DistributionConfigurationSummary (..),
     newDistributionConfigurationSummary,
-    distributionConfigurationSummary_arn,
+    distributionConfigurationSummary_tags,
+    distributionConfigurationSummary_name,
     distributionConfigurationSummary_regions,
+    distributionConfigurationSummary_arn,
+    distributionConfigurationSummary_description,
     distributionConfigurationSummary_dateUpdated,
     distributionConfigurationSummary_dateCreated,
-    distributionConfigurationSummary_name,
-    distributionConfigurationSummary_description,
-    distributionConfigurationSummary_tags,
 
     -- * EbsInstanceBlockDeviceSpecification
     EbsInstanceBlockDeviceSpecification (..),
     newEbsInstanceBlockDeviceSpecification,
     ebsInstanceBlockDeviceSpecification_deleteOnTermination,
-    ebsInstanceBlockDeviceSpecification_throughput,
+    ebsInstanceBlockDeviceSpecification_snapshotId,
+    ebsInstanceBlockDeviceSpecification_volumeType,
     ebsInstanceBlockDeviceSpecification_volumeSize,
-    ebsInstanceBlockDeviceSpecification_iops,
     ebsInstanceBlockDeviceSpecification_encrypted,
     ebsInstanceBlockDeviceSpecification_kmsKeyId,
-    ebsInstanceBlockDeviceSpecification_volumeType,
-    ebsInstanceBlockDeviceSpecification_snapshotId,
+    ebsInstanceBlockDeviceSpecification_throughput,
+    ebsInstanceBlockDeviceSpecification_iops,
 
     -- * Filter
     Filter (..),
     newFilter,
-    filter_values,
     filter_name,
+    filter_values,
 
     -- * Image
     Image (..),
     newImage,
-    image_imageRecipe,
-    image_state,
-    image_platform,
-    image_imageTestsConfiguration,
-    image_arn,
     image_enhancedImageMetadataEnabled,
-    image_dateCreated,
-    image_containerRecipe,
+    image_tags,
     image_name,
+    image_type,
+    image_imageTestsConfiguration,
+    image_sourcePipelineArn,
+    image_arn,
+    image_state,
+    image_osVersion,
+    image_containerRecipe,
+    image_platform,
+    image_distributionConfiguration,
+    image_imageRecipe,
+    image_outputResources,
+    image_sourcePipelineName,
+    image_dateCreated,
     image_infrastructureConfiguration,
     image_version,
-    image_distributionConfiguration,
-    image_sourcePipelineArn,
-    image_type,
-    image_sourcePipelineName,
-    image_outputResources,
-    image_osVersion,
-    image_tags,
 
     -- * ImagePackage
     ImagePackage (..),
@@ -299,52 +299,52 @@ module Amazonka.ImageBuilder.Types
     -- * ImagePipeline
     ImagePipeline (..),
     newImagePipeline,
-    imagePipeline_status,
-    imagePipeline_dateLastRun,
-    imagePipeline_platform,
-    imagePipeline_infrastructureConfigurationArn,
-    imagePipeline_containerRecipeArn,
-    imagePipeline_imageTestsConfiguration,
-    imagePipeline_dateNextRun,
-    imagePipeline_arn,
-    imagePipeline_schedule,
     imagePipeline_enhancedImageMetadataEnabled,
+    imagePipeline_schedule,
+    imagePipeline_tags,
+    imagePipeline_name,
+    imagePipeline_imageTestsConfiguration,
+    imagePipeline_arn,
+    imagePipeline_imageRecipeArn,
+    imagePipeline_status,
+    imagePipeline_description,
+    imagePipeline_platform,
+    imagePipeline_containerRecipeArn,
+    imagePipeline_dateLastRun,
+    imagePipeline_dateNextRun,
+    imagePipeline_infrastructureConfigurationArn,
     imagePipeline_dateUpdated,
     imagePipeline_dateCreated,
-    imagePipeline_name,
     imagePipeline_distributionConfigurationArn,
-    imagePipeline_imageRecipeArn,
-    imagePipeline_description,
-    imagePipeline_tags,
 
     -- * ImageRecipe
     ImageRecipe (..),
     newImageRecipe,
-    imageRecipe_components,
-    imageRecipe_platform,
-    imageRecipe_arn,
-    imageRecipe_additionalInstanceConfiguration,
-    imageRecipe_workingDirectory,
-    imageRecipe_parentImage,
-    imageRecipe_owner,
-    imageRecipe_dateCreated,
-    imageRecipe_name,
-    imageRecipe_version,
-    imageRecipe_type,
-    imageRecipe_blockDeviceMappings,
-    imageRecipe_description,
     imageRecipe_tags,
+    imageRecipe_name,
+    imageRecipe_type,
+    imageRecipe_parentImage,
+    imageRecipe_blockDeviceMappings,
+    imageRecipe_arn,
+    imageRecipe_owner,
+    imageRecipe_description,
+    imageRecipe_platform,
+    imageRecipe_additionalInstanceConfiguration,
+    imageRecipe_components,
+    imageRecipe_dateCreated,
+    imageRecipe_version,
+    imageRecipe_workingDirectory,
 
     -- * ImageRecipeSummary
     ImageRecipeSummary (..),
     newImageRecipeSummary,
-    imageRecipeSummary_platform,
-    imageRecipeSummary_arn,
-    imageRecipeSummary_parentImage,
-    imageRecipeSummary_owner,
-    imageRecipeSummary_dateCreated,
-    imageRecipeSummary_name,
     imageRecipeSummary_tags,
+    imageRecipeSummary_name,
+    imageRecipeSummary_parentImage,
+    imageRecipeSummary_arn,
+    imageRecipeSummary_owner,
+    imageRecipeSummary_platform,
+    imageRecipeSummary_dateCreated,
 
     -- * ImageState
     ImageState (..),
@@ -355,82 +355,82 @@ module Amazonka.ImageBuilder.Types
     -- * ImageSummary
     ImageSummary (..),
     newImageSummary,
-    imageSummary_state,
-    imageSummary_platform,
-    imageSummary_arn,
-    imageSummary_owner,
-    imageSummary_dateCreated,
-    imageSummary_name,
-    imageSummary_version,
-    imageSummary_type,
-    imageSummary_outputResources,
-    imageSummary_osVersion,
     imageSummary_tags,
+    imageSummary_name,
+    imageSummary_type,
+    imageSummary_arn,
+    imageSummary_state,
+    imageSummary_osVersion,
+    imageSummary_owner,
+    imageSummary_platform,
+    imageSummary_outputResources,
+    imageSummary_dateCreated,
+    imageSummary_version,
 
     -- * ImageTestsConfiguration
     ImageTestsConfiguration (..),
     newImageTestsConfiguration,
-    imageTestsConfiguration_timeoutMinutes,
     imageTestsConfiguration_imageTestsEnabled,
+    imageTestsConfiguration_timeoutMinutes,
 
     -- * ImageVersion
     ImageVersion (..),
     newImageVersion,
-    imageVersion_platform,
-    imageVersion_arn,
-    imageVersion_owner,
-    imageVersion_dateCreated,
     imageVersion_name,
-    imageVersion_version,
     imageVersion_type,
+    imageVersion_arn,
     imageVersion_osVersion,
+    imageVersion_owner,
+    imageVersion_platform,
+    imageVersion_dateCreated,
+    imageVersion_version,
 
     -- * InfrastructureConfiguration
     InfrastructureConfiguration (..),
     newInfrastructureConfiguration,
-    infrastructureConfiguration_securityGroupIds,
-    infrastructureConfiguration_snsTopicArn,
-    infrastructureConfiguration_instanceTypes,
-    infrastructureConfiguration_arn,
-    infrastructureConfiguration_keyPair,
-    infrastructureConfiguration_resourceTags,
-    infrastructureConfiguration_subnetId,
-    infrastructureConfiguration_dateUpdated,
-    infrastructureConfiguration_dateCreated,
-    infrastructureConfiguration_instanceMetadataOptions,
+    infrastructureConfiguration_tags,
     infrastructureConfiguration_name,
     infrastructureConfiguration_instanceProfileName,
-    infrastructureConfiguration_logging,
+    infrastructureConfiguration_instanceTypes,
+    infrastructureConfiguration_securityGroupIds,
+    infrastructureConfiguration_subnetId,
+    infrastructureConfiguration_arn,
     infrastructureConfiguration_description,
-    infrastructureConfiguration_tags,
+    infrastructureConfiguration_resourceTags,
+    infrastructureConfiguration_keyPair,
+    infrastructureConfiguration_logging,
+    infrastructureConfiguration_snsTopicArn,
+    infrastructureConfiguration_instanceMetadataOptions,
+    infrastructureConfiguration_dateUpdated,
+    infrastructureConfiguration_dateCreated,
     infrastructureConfiguration_terminateInstanceOnFailure,
 
     -- * InfrastructureConfigurationSummary
     InfrastructureConfigurationSummary (..),
     newInfrastructureConfigurationSummary,
+    infrastructureConfigurationSummary_tags,
+    infrastructureConfigurationSummary_name,
+    infrastructureConfigurationSummary_instanceProfileName,
     infrastructureConfigurationSummary_instanceTypes,
     infrastructureConfigurationSummary_arn,
+    infrastructureConfigurationSummary_description,
     infrastructureConfigurationSummary_resourceTags,
     infrastructureConfigurationSummary_dateUpdated,
     infrastructureConfigurationSummary_dateCreated,
-    infrastructureConfigurationSummary_name,
-    infrastructureConfigurationSummary_instanceProfileName,
-    infrastructureConfigurationSummary_description,
-    infrastructureConfigurationSummary_tags,
 
     -- * InstanceBlockDeviceMapping
     InstanceBlockDeviceMapping (..),
     newInstanceBlockDeviceMapping,
-    instanceBlockDeviceMapping_virtualName,
-    instanceBlockDeviceMapping_noDevice,
     instanceBlockDeviceMapping_ebs,
     instanceBlockDeviceMapping_deviceName,
+    instanceBlockDeviceMapping_noDevice,
+    instanceBlockDeviceMapping_virtualName,
 
     -- * InstanceConfiguration
     InstanceConfiguration (..),
     newInstanceConfiguration,
-    instanceConfiguration_image,
     instanceConfiguration_blockDeviceMappings,
+    instanceConfiguration_image,
 
     -- * InstanceMetadataOptions
     InstanceMetadataOptions (..),
@@ -441,14 +441,14 @@ module Amazonka.ImageBuilder.Types
     -- * LaunchPermissionConfiguration
     LaunchPermissionConfiguration (..),
     newLaunchPermissionConfiguration,
-    launchPermissionConfiguration_userIds,
     launchPermissionConfiguration_userGroups,
+    launchPermissionConfiguration_userIds,
 
     -- * LaunchTemplateConfiguration
     LaunchTemplateConfiguration (..),
     newLaunchTemplateConfiguration,
-    launchTemplateConfiguration_setDefaultVersion,
     launchTemplateConfiguration_accountId,
+    launchTemplateConfiguration_setDefaultVersion,
     launchTemplateConfiguration_launchTemplateId,
 
     -- * Logging
@@ -471,9 +471,9 @@ module Amazonka.ImageBuilder.Types
     -- * Schedule
     Schedule (..),
     newSchedule,
+    schedule_timezone,
     schedule_scheduleExpression,
     schedule_pipelineExecutionStartCondition,
-    schedule_timezone,
 
     -- * SystemsManagerAgent
     SystemsManagerAgent (..),
@@ -572,35 +572,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -609,31 +582,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The specified parameter is invalid. Review the available parameters for
--- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
-    Prelude.. Core.hasStatus 400
-
--- | You have made a request for an action that is not supported by the
--- service.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | The resource that you are trying to create already exists.
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -641,85 +623,6 @@ _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
-    Prelude.. Core.hasStatus 400
-
--- | You have exceeded the permitted request rate for the specific operation.
-_CallRateLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CallRateLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "CallRateLimitExceededException"
-    Prelude.. Core.hasStatus 429
-
--- | You are not authorized to perform the requested operation.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | The value that you provided for the specified parameter is invalid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterValueException"
-    Prelude.. Core.hasStatus 400
-
--- | Your version number is out of bounds or does not follow the required
--- syntax.
-_InvalidVersionNumberException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidVersionNumberException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidVersionNumberException"
-    Prelude.. Core.hasStatus 400
-
--- | You have exceeded the number of permitted resources or operations for
--- this service. For service quotas, see
--- <https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder EC2 Image Builder endpoints and quotas>.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | This exception is thrown when the service encounters an unrecoverable
--- exception.
-_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceException"
-    Prelude.. Core.hasStatus 500
-
--- | You have attempted to mutate or delete a resource with a dependency that
--- prohibits this action. See the error message for more details.
-_ResourceDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceDependencyException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceDependencyException"
-    Prelude.. Core.hasStatus 400
-
--- | The service is unable to process your request at this time.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | You have specified a client token for an operation using parameter
--- values that differ from a previous request that used the same client
--- token.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IdempotentParameterMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "IdempotentParameterMismatchException"
     Prelude.. Core.hasStatus 400
 
 -- | These errors are usually caused by a client action, such as using an
@@ -732,6 +635,50 @@ _ClientException =
     defaultService
     "ClientException"
     Prelude.. Core.hasStatus 400
+
+-- | You have attempted to mutate or delete a resource with a dependency that
+-- prohibits this action. See the error message for more details.
+_ResourceDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDependencyException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceDependencyException"
+    Prelude.. Core.hasStatus 400
+
+-- | You have exceeded the number of permitted resources or operations for
+-- this service. For service quotas, see
+-- <https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder EC2 Image Builder endpoints and quotas>.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
+-- | Your version number is out of bounds or does not follow the required
+-- syntax.
+_InvalidVersionNumberException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidVersionNumberException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidVersionNumberException"
+    Prelude.. Core.hasStatus 400
+
+-- | You have provided an invalid pagination token in your request.
+_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPaginationTokenException"
+    Prelude.. Core.hasStatus 400
+
+-- | The service is unable to process your request at this time.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
 -- | At least one of the resources referenced by your request does not exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -750,13 +697,13 @@ _InvalidParameterCombinationException =
     "InvalidParameterCombinationException"
     Prelude.. Core.hasStatus 400
 
--- | You have provided an invalid pagination token in your request.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPaginationTokenException =
+-- | You have exceeded the permitted request rate for the specific operation.
+_CallRateLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CallRateLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidPaginationTokenException"
-    Prelude.. Core.hasStatus 400
+    "CallRateLimitExceededException"
+    Prelude.. Core.hasStatus 429
 
 -- | The resource that you are trying to operate on is currently in use.
 -- Review the message details and retry later.
@@ -765,4 +712,57 @@ _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
+    Prelude.. Core.hasStatus 400
+
+-- | You are not authorized to perform the requested operation.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
+
+-- | This exception is thrown when the service encounters an unrecoverable
+-- exception.
+_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceException"
+    Prelude.. Core.hasStatus 500
+
+-- | You have made a request for an action that is not supported by the
+-- service.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | The value that you provided for the specified parameter is invalid.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterValueException"
+    Prelude.. Core.hasStatus 400
+
+-- | You have specified a client token for an operation using parameter
+-- values that differ from a previous request that used the same client
+-- token.
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "IdempotentParameterMismatchException"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified parameter is invalid. Review the available parameters for
+-- the API request.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
     Prelude.. Core.hasStatus 400

@@ -34,12 +34,12 @@ data EntitlementValue = EntitlementValue'
     -- | The DoubleValue field will be populated with a double value when the
     -- entitlement is a double type. Otherwise, the field will not be set.
     doubleValue :: Prelude.Maybe Prelude.Double,
-    -- | The StringValue field will be populated with a string value when the
-    -- entitlement is a string type. Otherwise, the field will not be set.
-    stringValue :: Prelude.Maybe Prelude.Text,
     -- | The BooleanValue field will be populated with a boolean value when the
     -- entitlement is a boolean type. Otherwise, the field will not be set.
-    booleanValue :: Prelude.Maybe Prelude.Bool
+    booleanValue :: Prelude.Maybe Prelude.Bool,
+    -- | The StringValue field will be populated with a string value when the
+    -- entitlement is a string type. Otherwise, the field will not be set.
+    stringValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,19 +57,19 @@ data EntitlementValue = EntitlementValue'
 -- 'doubleValue', 'entitlementValue_doubleValue' - The DoubleValue field will be populated with a double value when the
 -- entitlement is a double type. Otherwise, the field will not be set.
 --
--- 'stringValue', 'entitlementValue_stringValue' - The StringValue field will be populated with a string value when the
--- entitlement is a string type. Otherwise, the field will not be set.
---
 -- 'booleanValue', 'entitlementValue_booleanValue' - The BooleanValue field will be populated with a boolean value when the
 -- entitlement is a boolean type. Otherwise, the field will not be set.
+--
+-- 'stringValue', 'entitlementValue_stringValue' - The StringValue field will be populated with a string value when the
+-- entitlement is a string type. Otherwise, the field will not be set.
 newEntitlementValue ::
   EntitlementValue
 newEntitlementValue =
   EntitlementValue'
     { integerValue = Prelude.Nothing,
       doubleValue = Prelude.Nothing,
-      stringValue = Prelude.Nothing,
-      booleanValue = Prelude.Nothing
+      booleanValue = Prelude.Nothing,
+      stringValue = Prelude.Nothing
     }
 
 -- | The IntegerValue field will be populated with an integer value when the
@@ -82,15 +82,15 @@ entitlementValue_integerValue = Lens.lens (\EntitlementValue' {integerValue} -> 
 entitlementValue_doubleValue :: Lens.Lens' EntitlementValue (Prelude.Maybe Prelude.Double)
 entitlementValue_doubleValue = Lens.lens (\EntitlementValue' {doubleValue} -> doubleValue) (\s@EntitlementValue' {} a -> s {doubleValue = a} :: EntitlementValue)
 
--- | The StringValue field will be populated with a string value when the
--- entitlement is a string type. Otherwise, the field will not be set.
-entitlementValue_stringValue :: Lens.Lens' EntitlementValue (Prelude.Maybe Prelude.Text)
-entitlementValue_stringValue = Lens.lens (\EntitlementValue' {stringValue} -> stringValue) (\s@EntitlementValue' {} a -> s {stringValue = a} :: EntitlementValue)
-
 -- | The BooleanValue field will be populated with a boolean value when the
 -- entitlement is a boolean type. Otherwise, the field will not be set.
 entitlementValue_booleanValue :: Lens.Lens' EntitlementValue (Prelude.Maybe Prelude.Bool)
 entitlementValue_booleanValue = Lens.lens (\EntitlementValue' {booleanValue} -> booleanValue) (\s@EntitlementValue' {} a -> s {booleanValue = a} :: EntitlementValue)
+
+-- | The StringValue field will be populated with a string value when the
+-- entitlement is a string type. Otherwise, the field will not be set.
+entitlementValue_stringValue :: Lens.Lens' EntitlementValue (Prelude.Maybe Prelude.Text)
+entitlementValue_stringValue = Lens.lens (\EntitlementValue' {stringValue} -> stringValue) (\s@EntitlementValue' {} a -> s {stringValue = a} :: EntitlementValue)
 
 instance Core.FromJSON EntitlementValue where
   parseJSON =
@@ -100,20 +100,20 @@ instance Core.FromJSON EntitlementValue where
           EntitlementValue'
             Prelude.<$> (x Core..:? "IntegerValue")
             Prelude.<*> (x Core..:? "DoubleValue")
-            Prelude.<*> (x Core..:? "StringValue")
             Prelude.<*> (x Core..:? "BooleanValue")
+            Prelude.<*> (x Core..:? "StringValue")
       )
 
 instance Prelude.Hashable EntitlementValue where
   hashWithSalt _salt EntitlementValue' {..} =
     _salt `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` doubleValue
-      `Prelude.hashWithSalt` stringValue
       `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData EntitlementValue where
   rnf EntitlementValue' {..} =
     Prelude.rnf integerValue
       `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf stringValue
       `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf stringValue

@@ -29,8 +29,8 @@ module Amazonka.SESV2.CreateContact
 
     -- * Request Lenses
     createContact_unsubscribeAll,
-    createContact_attributesData,
     createContact_topicPreferences,
+    createContact_attributesData,
     createContact_contactListName,
     createContact_emailAddress,
 
@@ -55,10 +55,10 @@ data CreateContact = CreateContact'
   { -- | A boolean value status noting if the contact is unsubscribed from all
     -- contact list topics.
     unsubscribeAll :: Prelude.Maybe Prelude.Bool,
-    -- | The attribute data attached to a contact.
-    attributesData :: Prelude.Maybe Prelude.Text,
     -- | The contact\'s preferences for being opted-in to or opted-out of topics.
     topicPreferences :: Prelude.Maybe [TopicPreference],
+    -- | The attribute data attached to a contact.
+    attributesData :: Prelude.Maybe Prelude.Text,
     -- | The name of the contact list to which the contact should be added.
     contactListName :: Prelude.Text,
     -- | The contact\'s email address.
@@ -77,9 +77,9 @@ data CreateContact = CreateContact'
 -- 'unsubscribeAll', 'createContact_unsubscribeAll' - A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
 --
--- 'attributesData', 'createContact_attributesData' - The attribute data attached to a contact.
---
 -- 'topicPreferences', 'createContact_topicPreferences' - The contact\'s preferences for being opted-in to or opted-out of topics.
+--
+-- 'attributesData', 'createContact_attributesData' - The attribute data attached to a contact.
 --
 -- 'contactListName', 'createContact_contactListName' - The name of the contact list to which the contact should be added.
 --
@@ -93,8 +93,8 @@ newCreateContact ::
 newCreateContact pContactListName_ pEmailAddress_ =
   CreateContact'
     { unsubscribeAll = Prelude.Nothing,
-      attributesData = Prelude.Nothing,
       topicPreferences = Prelude.Nothing,
+      attributesData = Prelude.Nothing,
       contactListName = pContactListName_,
       emailAddress = pEmailAddress_
     }
@@ -104,13 +104,13 @@ newCreateContact pContactListName_ pEmailAddress_ =
 createContact_unsubscribeAll :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Bool)
 createContact_unsubscribeAll = Lens.lens (\CreateContact' {unsubscribeAll} -> unsubscribeAll) (\s@CreateContact' {} a -> s {unsubscribeAll = a} :: CreateContact)
 
--- | The attribute data attached to a contact.
-createContact_attributesData :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
-createContact_attributesData = Lens.lens (\CreateContact' {attributesData} -> attributesData) (\s@CreateContact' {} a -> s {attributesData = a} :: CreateContact)
-
 -- | The contact\'s preferences for being opted-in to or opted-out of topics.
 createContact_topicPreferences :: Lens.Lens' CreateContact (Prelude.Maybe [TopicPreference])
 createContact_topicPreferences = Lens.lens (\CreateContact' {topicPreferences} -> topicPreferences) (\s@CreateContact' {} a -> s {topicPreferences = a} :: CreateContact) Prelude.. Lens.mapping Lens.coerced
+
+-- | The attribute data attached to a contact.
+createContact_attributesData :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_attributesData = Lens.lens (\CreateContact' {attributesData} -> attributesData) (\s@CreateContact' {} a -> s {attributesData = a} :: CreateContact)
 
 -- | The name of the contact list to which the contact should be added.
 createContact_contactListName :: Lens.Lens' CreateContact Prelude.Text
@@ -135,16 +135,16 @@ instance Core.AWSRequest CreateContact where
 instance Prelude.Hashable CreateContact where
   hashWithSalt _salt CreateContact' {..} =
     _salt `Prelude.hashWithSalt` unsubscribeAll
-      `Prelude.hashWithSalt` attributesData
       `Prelude.hashWithSalt` topicPreferences
+      `Prelude.hashWithSalt` attributesData
       `Prelude.hashWithSalt` contactListName
       `Prelude.hashWithSalt` emailAddress
 
 instance Prelude.NFData CreateContact where
   rnf CreateContact' {..} =
     Prelude.rnf unsubscribeAll
-      `Prelude.seq` Prelude.rnf attributesData
       `Prelude.seq` Prelude.rnf topicPreferences
+      `Prelude.seq` Prelude.rnf attributesData
       `Prelude.seq` Prelude.rnf contactListName
       `Prelude.seq` Prelude.rnf emailAddress
 
@@ -165,10 +165,10 @@ instance Core.ToJSON CreateContact where
       ( Prelude.catMaybes
           [ ("UnsubscribeAll" Core..=)
               Prelude.<$> unsubscribeAll,
-            ("AttributesData" Core..=)
-              Prelude.<$> attributesData,
             ("TopicPreferences" Core..=)
               Prelude.<$> topicPreferences,
+            ("AttributesData" Core..=)
+              Prelude.<$> attributesData,
             Prelude.Just ("EmailAddress" Core..= emailAddress)
           ]
       )

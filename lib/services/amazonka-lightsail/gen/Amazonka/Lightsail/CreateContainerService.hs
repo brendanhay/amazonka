@@ -32,9 +32,9 @@ module Amazonka.Lightsail.CreateContainerService
     newCreateContainerService,
 
     -- * Request Lenses
-    createContainerService_publicDomainNames,
     createContainerService_tags,
     createContainerService_deployment,
+    createContainerService_publicDomainNames,
     createContainerService_serviceName,
     createContainerService_power,
     createContainerService_scale,
@@ -58,7 +58,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateContainerService' smart constructor.
 data CreateContainerService = CreateContainerService'
-  { -- | The public domain names to use with the container service, such as
+  { -- | The tag keys and optional values to add to the certificate during
+    -- create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    --
+    -- For more information about tags in Lightsail, see the
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+    tags :: Prelude.Maybe [Tag],
+    -- | An object that describes a deployment for the container service.
+    --
+    -- A deployment specifies the containers that will be launched on the
+    -- container service and their settings, such as the ports to open, the
+    -- environment variables to apply, and the launch command to run. It also
+    -- specifies the container that will serve as the public endpoint of the
+    -- deployment and its settings, such as the HTTP or HTTPS port to use, and
+    -- the health check configuration.
+    deployment :: Prelude.Maybe ContainerServiceDeploymentRequest,
+    -- | The public domain names to use with the container service, such as
     -- @example.com@ and @www.example.com@.
     --
     -- You can specify up to four public domain names for a container service.
@@ -77,23 +94,6 @@ data CreateContainerService = CreateContainerService'
     -- You can specify public domain names using a string to array map as shown
     -- in the example later on this page.
     publicDomainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The tag keys and optional values to add to the certificate during
-    -- create.
-    --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    --
-    -- For more information about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
-    tags :: Prelude.Maybe [Tag],
-    -- | An object that describes a deployment for the container service.
-    --
-    -- A deployment specifies the containers that will be launched on the
-    -- container service and their settings, such as the ports to open, the
-    -- environment variables to apply, and the launch command to run. It also
-    -- specifies the container that will serve as the public endpoint of the
-    -- deployment and its settings, such as the HTTP or HTTPS port to use, and
-    -- the health check configuration.
-    deployment :: Prelude.Maybe ContainerServiceDeploymentRequest,
     -- | The name for the container service.
     --
     -- The name that you specify for your container service will make up part
@@ -147,6 +147,23 @@ data CreateContainerService = CreateContainerService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the certificate during
+-- create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- For more information about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+--
+-- 'deployment', 'createContainerService_deployment' - An object that describes a deployment for the container service.
+--
+-- A deployment specifies the containers that will be launched on the
+-- container service and their settings, such as the ports to open, the
+-- environment variables to apply, and the launch command to run. It also
+-- specifies the container that will serve as the public endpoint of the
+-- deployment and its settings, such as the HTTP or HTTPS port to use, and
+-- the health check configuration.
+--
 -- 'publicDomainNames', 'createContainerService_publicDomainNames' - The public domain names to use with the container service, such as
 -- @example.com@ and @www.example.com@.
 --
@@ -165,23 +182,6 @@ data CreateContainerService = CreateContainerService'
 --
 -- You can specify public domain names using a string to array map as shown
 -- in the example later on this page.
---
--- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the certificate during
--- create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
---
--- For more information about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
---
--- 'deployment', 'createContainerService_deployment' - An object that describes a deployment for the container service.
---
--- A deployment specifies the containers that will be launched on the
--- container service and their settings, such as the ports to open, the
--- environment variables to apply, and the launch command to run. It also
--- specifies the container that will serve as the public endpoint of the
--- deployment and its settings, such as the HTTP or HTTPS port to use, and
--- the health check configuration.
 --
 -- 'serviceName', 'createContainerService_serviceName' - The name for the container service.
 --
@@ -237,35 +237,13 @@ newCreateContainerService
   pPower_
   pScale_ =
     CreateContainerService'
-      { publicDomainNames =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         deployment = Prelude.Nothing,
+        publicDomainNames = Prelude.Nothing,
         serviceName = pServiceName_,
         power = pPower_,
         scale = pScale_
       }
-
--- | The public domain names to use with the container service, such as
--- @example.com@ and @www.example.com@.
---
--- You can specify up to four public domain names for a container service.
--- The domain names that you specify are used when you create a deployment
--- with a container configured as the public endpoint of your container
--- service.
---
--- If you don\'t specify public domain names, then you can use the default
--- domain of the container service.
---
--- You must create and validate an SSL\/TLS certificate before you can use
--- public domain names with your container service. Use the
--- @CreateCertificate@ action to create a certificate for the public domain
--- names you want to use with your container service.
---
--- You can specify public domain names using a string to array map as shown
--- in the example later on this page.
-createContainerService_publicDomainNames :: Lens.Lens' CreateContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-createContainerService_publicDomainNames = Lens.lens (\CreateContainerService' {publicDomainNames} -> publicDomainNames) (\s@CreateContainerService' {} a -> s {publicDomainNames = a} :: CreateContainerService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tag keys and optional values to add to the certificate during
 -- create.
@@ -287,6 +265,27 @@ createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags
 -- the health check configuration.
 createContainerService_deployment :: Lens.Lens' CreateContainerService (Prelude.Maybe ContainerServiceDeploymentRequest)
 createContainerService_deployment = Lens.lens (\CreateContainerService' {deployment} -> deployment) (\s@CreateContainerService' {} a -> s {deployment = a} :: CreateContainerService)
+
+-- | The public domain names to use with the container service, such as
+-- @example.com@ and @www.example.com@.
+--
+-- You can specify up to four public domain names for a container service.
+-- The domain names that you specify are used when you create a deployment
+-- with a container configured as the public endpoint of your container
+-- service.
+--
+-- If you don\'t specify public domain names, then you can use the default
+-- domain of the container service.
+--
+-- You must create and validate an SSL\/TLS certificate before you can use
+-- public domain names with your container service. Use the
+-- @CreateCertificate@ action to create a certificate for the public domain
+-- names you want to use with your container service.
+--
+-- You can specify public domain names using a string to array map as shown
+-- in the example later on this page.
+createContainerService_publicDomainNames :: Lens.Lens' CreateContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+createContainerService_publicDomainNames = Lens.lens (\CreateContainerService' {publicDomainNames} -> publicDomainNames) (\s@CreateContainerService' {} a -> s {publicDomainNames = a} :: CreateContainerService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the container service.
 --
@@ -351,18 +350,18 @@ instance Core.AWSRequest CreateContainerService where
 
 instance Prelude.Hashable CreateContainerService where
   hashWithSalt _salt CreateContainerService' {..} =
-    _salt `Prelude.hashWithSalt` publicDomainNames
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` deployment
+      `Prelude.hashWithSalt` publicDomainNames
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` power
       `Prelude.hashWithSalt` scale
 
 instance Prelude.NFData CreateContainerService where
   rnf CreateContainerService' {..} =
-    Prelude.rnf publicDomainNames
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf deployment
+      `Prelude.seq` Prelude.rnf publicDomainNames
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf power
       `Prelude.seq` Prelude.rnf scale
@@ -386,10 +385,10 @@ instance Core.ToJSON CreateContainerService where
   toJSON CreateContainerService' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("publicDomainNames" Core..=)
-              Prelude.<$> publicDomainNames,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("deployment" Core..=) Prelude.<$> deployment,
+            ("publicDomainNames" Core..=)
+              Prelude.<$> publicDomainNames,
             Prelude.Just ("serviceName" Core..= serviceName),
             Prelude.Just ("power" Core..= power),
             Prelude.Just ("scale" Core..= scale)

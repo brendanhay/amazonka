@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceJob' smart constructor.
 data DeviceJob = DeviceJob'
-  { -- | The job\'s ID.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | When the job was created.
+  { -- | When the job was created.
     createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the target device.
+    deviceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the target device
     deviceName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the target device.
-    deviceId :: Prelude.Maybe Prelude.Text
+    -- | The job\'s ID.
+    jobId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,38 @@ data DeviceJob = DeviceJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'deviceJob_jobId' - The job\'s ID.
---
 -- 'createdTime', 'deviceJob_createdTime' - When the job was created.
+--
+-- 'deviceId', 'deviceJob_deviceId' - The ID of the target device.
 --
 -- 'deviceName', 'deviceJob_deviceName' - The name of the target device
 --
--- 'deviceId', 'deviceJob_deviceId' - The ID of the target device.
+-- 'jobId', 'deviceJob_jobId' - The job\'s ID.
 newDeviceJob ::
   DeviceJob
 newDeviceJob =
   DeviceJob'
-    { jobId = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
+      deviceId = Prelude.Nothing,
       deviceName = Prelude.Nothing,
-      deviceId = Prelude.Nothing
+      jobId = Prelude.Nothing
     }
-
--- | The job\'s ID.
-deviceJob_jobId :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.Text)
-deviceJob_jobId = Lens.lens (\DeviceJob' {jobId} -> jobId) (\s@DeviceJob' {} a -> s {jobId = a} :: DeviceJob)
 
 -- | When the job was created.
 deviceJob_createdTime :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.UTCTime)
 deviceJob_createdTime = Lens.lens (\DeviceJob' {createdTime} -> createdTime) (\s@DeviceJob' {} a -> s {createdTime = a} :: DeviceJob) Prelude.. Lens.mapping Core._Time
 
+-- | The ID of the target device.
+deviceJob_deviceId :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.Text)
+deviceJob_deviceId = Lens.lens (\DeviceJob' {deviceId} -> deviceId) (\s@DeviceJob' {} a -> s {deviceId = a} :: DeviceJob)
+
 -- | The name of the target device
 deviceJob_deviceName :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.Text)
 deviceJob_deviceName = Lens.lens (\DeviceJob' {deviceName} -> deviceName) (\s@DeviceJob' {} a -> s {deviceName = a} :: DeviceJob)
 
--- | The ID of the target device.
-deviceJob_deviceId :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.Text)
-deviceJob_deviceId = Lens.lens (\DeviceJob' {deviceId} -> deviceId) (\s@DeviceJob' {} a -> s {deviceId = a} :: DeviceJob)
+-- | The job\'s ID.
+deviceJob_jobId :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.Text)
+deviceJob_jobId = Lens.lens (\DeviceJob' {jobId} -> jobId) (\s@DeviceJob' {} a -> s {jobId = a} :: DeviceJob)
 
 instance Core.FromJSON DeviceJob where
   parseJSON =
@@ -85,22 +85,22 @@ instance Core.FromJSON DeviceJob where
       "DeviceJob"
       ( \x ->
           DeviceJob'
-            Prelude.<$> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "DeviceName")
+            Prelude.<$> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "DeviceId")
+            Prelude.<*> (x Core..:? "DeviceName")
+            Prelude.<*> (x Core..:? "JobId")
       )
 
 instance Prelude.Hashable DeviceJob where
   hashWithSalt _salt DeviceJob' {..} =
-    _salt `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` deviceName
+    _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData DeviceJob where
   rnf DeviceJob' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf jobId

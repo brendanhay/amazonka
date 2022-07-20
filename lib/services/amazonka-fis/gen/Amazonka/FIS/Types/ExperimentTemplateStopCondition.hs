@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentTemplateStopCondition' smart constructor.
 data ExperimentTemplateStopCondition = ExperimentTemplateStopCondition'
-  { -- | The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The source for the stop condition.
-    source :: Prelude.Maybe Prelude.Text
+  { -- | The source for the stop condition.
+    source :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ExperimentTemplateStopCondition = ExperimentTemplateStopCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'experimentTemplateStopCondition_value' - The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.
---
 -- 'source', 'experimentTemplateStopCondition_source' - The source for the stop condition.
+--
+-- 'value', 'experimentTemplateStopCondition_value' - The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.
 newExperimentTemplateStopCondition ::
   ExperimentTemplateStopCondition
 newExperimentTemplateStopCondition =
   ExperimentTemplateStopCondition'
-    { value =
+    { source =
         Prelude.Nothing,
-      source = Prelude.Nothing
+      value = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.
-experimentTemplateStopCondition_value :: Lens.Lens' ExperimentTemplateStopCondition (Prelude.Maybe Prelude.Text)
-experimentTemplateStopCondition_value = Lens.lens (\ExperimentTemplateStopCondition' {value} -> value) (\s@ExperimentTemplateStopCondition' {} a -> s {value = a} :: ExperimentTemplateStopCondition)
 
 -- | The source for the stop condition.
 experimentTemplateStopCondition_source :: Lens.Lens' ExperimentTemplateStopCondition (Prelude.Maybe Prelude.Text)
 experimentTemplateStopCondition_source = Lens.lens (\ExperimentTemplateStopCondition' {source} -> source) (\s@ExperimentTemplateStopCondition' {} a -> s {source = a} :: ExperimentTemplateStopCondition)
+
+-- | The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.
+experimentTemplateStopCondition_value :: Lens.Lens' ExperimentTemplateStopCondition (Prelude.Maybe Prelude.Text)
+experimentTemplateStopCondition_value = Lens.lens (\ExperimentTemplateStopCondition' {value} -> value) (\s@ExperimentTemplateStopCondition' {} a -> s {value = a} :: ExperimentTemplateStopCondition)
 
 instance
   Core.FromJSON
@@ -71,8 +71,8 @@ instance
       "ExperimentTemplateStopCondition"
       ( \x ->
           ExperimentTemplateStopCondition'
-            Prelude.<$> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "source")
+            Prelude.<$> (x Core..:? "source")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance
@@ -82,12 +82,12 @@ instance
   hashWithSalt
     _salt
     ExperimentTemplateStopCondition' {..} =
-      _salt `Prelude.hashWithSalt` value
-        `Prelude.hashWithSalt` source
+      _salt `Prelude.hashWithSalt` source
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     ExperimentTemplateStopCondition
   where
   rnf ExperimentTemplateStopCondition' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf source
+    Prelude.rnf source `Prelude.seq` Prelude.rnf value

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEyeOpen' smart constructor.
 data EyeOpen = EyeOpen'
-  { -- | Boolean value that indicates whether the eyes on the face are open.
-    value :: Prelude.Maybe Prelude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double
+  { -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | Boolean value that indicates whether the eyes on the face are open.
+    value :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data EyeOpen = EyeOpen'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'eyeOpen_value' - Boolean value that indicates whether the eyes on the face are open.
---
 -- 'confidence', 'eyeOpen_confidence' - Level of confidence in the determination.
+--
+-- 'value', 'eyeOpen_value' - Boolean value that indicates whether the eyes on the face are open.
 newEyeOpen ::
   EyeOpen
 newEyeOpen =
   EyeOpen'
-    { value = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | Boolean value that indicates whether the eyes on the face are open.
-eyeOpen_value :: Lens.Lens' EyeOpen (Prelude.Maybe Prelude.Bool)
-eyeOpen_value = Lens.lens (\EyeOpen' {value} -> value) (\s@EyeOpen' {} a -> s {value = a} :: EyeOpen)
 
 -- | Level of confidence in the determination.
 eyeOpen_confidence :: Lens.Lens' EyeOpen (Prelude.Maybe Prelude.Double)
 eyeOpen_confidence = Lens.lens (\EyeOpen' {confidence} -> confidence) (\s@EyeOpen' {} a -> s {confidence = a} :: EyeOpen)
+
+-- | Boolean value that indicates whether the eyes on the face are open.
+eyeOpen_value :: Lens.Lens' EyeOpen (Prelude.Maybe Prelude.Bool)
+eyeOpen_value = Lens.lens (\EyeOpen' {value} -> value) (\s@EyeOpen' {} a -> s {value = a} :: EyeOpen)
 
 instance Core.FromJSON EyeOpen where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON EyeOpen where
       "EyeOpen"
       ( \x ->
           EyeOpen'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable EyeOpen where
   hashWithSalt _salt EyeOpen' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EyeOpen where
   rnf EyeOpen' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf value

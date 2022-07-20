@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReactionForComment' smart constructor.
 data ReactionForComment = ReactionForComment'
-  { -- | The Amazon Resource Names (ARNs) of users who have provided reactions to
-    -- the comment.
-    reactionUsers :: Prelude.Maybe [Prelude.Text],
-    -- | A numerical count of users who reacted with the specified emoji whose
+  { -- | A numerical count of users who reacted with the specified emoji whose
     -- identities have been subsequently deleted from IAM. While these IAM
     -- users or roles no longer exist, the reactions might still appear in
     -- total reaction counts.
     reactionsFromDeletedUsersCount :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Names (ARNs) of users who have provided reactions to
+    -- the comment.
+    reactionUsers :: Prelude.Maybe [Prelude.Text],
     -- | The reaction for a specified comment.
     reaction :: Prelude.Maybe ReactionValueFormats
   }
@@ -49,29 +49,24 @@ data ReactionForComment = ReactionForComment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reactionUsers', 'reactionForComment_reactionUsers' - The Amazon Resource Names (ARNs) of users who have provided reactions to
--- the comment.
---
 -- 'reactionsFromDeletedUsersCount', 'reactionForComment_reactionsFromDeletedUsersCount' - A numerical count of users who reacted with the specified emoji whose
 -- identities have been subsequently deleted from IAM. While these IAM
 -- users or roles no longer exist, the reactions might still appear in
 -- total reaction counts.
+--
+-- 'reactionUsers', 'reactionForComment_reactionUsers' - The Amazon Resource Names (ARNs) of users who have provided reactions to
+-- the comment.
 --
 -- 'reaction', 'reactionForComment_reaction' - The reaction for a specified comment.
 newReactionForComment ::
   ReactionForComment
 newReactionForComment =
   ReactionForComment'
-    { reactionUsers =
+    { reactionsFromDeletedUsersCount =
         Prelude.Nothing,
-      reactionsFromDeletedUsersCount = Prelude.Nothing,
+      reactionUsers = Prelude.Nothing,
       reaction = Prelude.Nothing
     }
-
--- | The Amazon Resource Names (ARNs) of users who have provided reactions to
--- the comment.
-reactionForComment_reactionUsers :: Lens.Lens' ReactionForComment (Prelude.Maybe [Prelude.Text])
-reactionForComment_reactionUsers = Lens.lens (\ReactionForComment' {reactionUsers} -> reactionUsers) (\s@ReactionForComment' {} a -> s {reactionUsers = a} :: ReactionForComment) Prelude.. Lens.mapping Lens.coerced
 
 -- | A numerical count of users who reacted with the specified emoji whose
 -- identities have been subsequently deleted from IAM. While these IAM
@@ -79,6 +74,11 @@ reactionForComment_reactionUsers = Lens.lens (\ReactionForComment' {reactionUser
 -- total reaction counts.
 reactionForComment_reactionsFromDeletedUsersCount :: Lens.Lens' ReactionForComment (Prelude.Maybe Prelude.Int)
 reactionForComment_reactionsFromDeletedUsersCount = Lens.lens (\ReactionForComment' {reactionsFromDeletedUsersCount} -> reactionsFromDeletedUsersCount) (\s@ReactionForComment' {} a -> s {reactionsFromDeletedUsersCount = a} :: ReactionForComment)
+
+-- | The Amazon Resource Names (ARNs) of users who have provided reactions to
+-- the comment.
+reactionForComment_reactionUsers :: Lens.Lens' ReactionForComment (Prelude.Maybe [Prelude.Text])
+reactionForComment_reactionUsers = Lens.lens (\ReactionForComment' {reactionUsers} -> reactionUsers) (\s@ReactionForComment' {} a -> s {reactionUsers = a} :: ReactionForComment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The reaction for a specified comment.
 reactionForComment_reaction :: Lens.Lens' ReactionForComment (Prelude.Maybe ReactionValueFormats)
@@ -90,19 +90,20 @@ instance Core.FromJSON ReactionForComment where
       "ReactionForComment"
       ( \x ->
           ReactionForComment'
-            Prelude.<$> (x Core..:? "reactionUsers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "reactionsFromDeletedUsersCount")
+            Prelude.<$> (x Core..:? "reactionsFromDeletedUsersCount")
+            Prelude.<*> (x Core..:? "reactionUsers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "reaction")
       )
 
 instance Prelude.Hashable ReactionForComment where
   hashWithSalt _salt ReactionForComment' {..} =
-    _salt `Prelude.hashWithSalt` reactionUsers
+    _salt
       `Prelude.hashWithSalt` reactionsFromDeletedUsersCount
+      `Prelude.hashWithSalt` reactionUsers
       `Prelude.hashWithSalt` reaction
 
 instance Prelude.NFData ReactionForComment where
   rnf ReactionForComment' {..} =
-    Prelude.rnf reactionUsers
-      `Prelude.seq` Prelude.rnf reactionsFromDeletedUsersCount
+    Prelude.rnf reactionsFromDeletedUsersCount
+      `Prelude.seq` Prelude.rnf reactionUsers
       `Prelude.seq` Prelude.rnf reaction

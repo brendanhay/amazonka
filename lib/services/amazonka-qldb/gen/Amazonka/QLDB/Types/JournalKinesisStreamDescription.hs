@@ -32,23 +32,23 @@ import Amazonka.QLDB.Types.StreamStatus
 --
 -- /See:/ 'newJournalKinesisStreamDescription' smart constructor.
 data JournalKinesisStreamDescription = JournalKinesisStreamDescription'
-  { -- | The date and time, in epoch time format, when the QLDB journal stream
-    -- was created. (Epoch time format is the number of seconds elapsed since
-    -- 12:00:00 AM January 1, 1970 UTC.)
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The inclusive start date and time from which to start streaming journal
-    -- data.
-    inclusiveStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The error message that describes the reason that a stream has a status
+  { -- | The error message that describes the reason that a stream has a status
     -- of @IMPAIRED@ or @FAILED@. This is not applicable to streams that have
     -- other status values.
     errorCause :: Prelude.Maybe ErrorCause,
+    -- | The inclusive start date and time from which to start streaming journal
+    -- data.
+    inclusiveStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The exclusive date and time that specifies when the stream ends. If this
     -- parameter is undefined, the stream runs indefinitely until you cancel
     -- it.
     exclusiveEndTime :: Prelude.Maybe Core.POSIX,
+    -- | The date and time, in epoch time format, when the QLDB journal stream
+    -- was created. (Epoch time format is the number of seconds elapsed since
+    -- 12:00:00 AM January 1, 1970 UTC.)
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the ledger.
     ledgerName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
@@ -76,22 +76,22 @@ data JournalKinesisStreamDescription = JournalKinesisStreamDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'journalKinesisStreamDescription_creationTime' - The date and time, in epoch time format, when the QLDB journal stream
--- was created. (Epoch time format is the number of seconds elapsed since
--- 12:00:00 AM January 1, 1970 UTC.)
---
--- 'arn', 'journalKinesisStreamDescription_arn' - The Amazon Resource Name (ARN) of the QLDB journal stream.
---
--- 'inclusiveStartTime', 'journalKinesisStreamDescription_inclusiveStartTime' - The inclusive start date and time from which to start streaming journal
--- data.
---
 -- 'errorCause', 'journalKinesisStreamDescription_errorCause' - The error message that describes the reason that a stream has a status
 -- of @IMPAIRED@ or @FAILED@. This is not applicable to streams that have
 -- other status values.
 --
+-- 'inclusiveStartTime', 'journalKinesisStreamDescription_inclusiveStartTime' - The inclusive start date and time from which to start streaming journal
+-- data.
+--
+-- 'arn', 'journalKinesisStreamDescription_arn' - The Amazon Resource Name (ARN) of the QLDB journal stream.
+--
 -- 'exclusiveEndTime', 'journalKinesisStreamDescription_exclusiveEndTime' - The exclusive date and time that specifies when the stream ends. If this
 -- parameter is undefined, the stream runs indefinitely until you cancel
 -- it.
+--
+-- 'creationTime', 'journalKinesisStreamDescription_creationTime' - The date and time, in epoch time format, when the QLDB journal stream
+-- was created. (Epoch time format is the number of seconds elapsed since
+-- 12:00:00 AM January 1, 1970 UTC.)
 --
 -- 'ledgerName', 'journalKinesisStreamDescription_ledgerName' - The name of the ledger.
 --
@@ -130,12 +130,12 @@ newJournalKinesisStreamDescription
   pKinesisConfiguration_
   pStreamName_ =
     JournalKinesisStreamDescription'
-      { creationTime =
+      { errorCause =
           Prelude.Nothing,
-        arn = Prelude.Nothing,
         inclusiveStartTime = Prelude.Nothing,
-        errorCause = Prelude.Nothing,
+        arn = Prelude.Nothing,
         exclusiveEndTime = Prelude.Nothing,
+        creationTime = Prelude.Nothing,
         ledgerName = pLedgerName_,
         roleArn = pRoleArn_,
         streamId = pStreamId_,
@@ -145,32 +145,32 @@ newJournalKinesisStreamDescription
         streamName = pStreamName_
       }
 
--- | The date and time, in epoch time format, when the QLDB journal stream
--- was created. (Epoch time format is the number of seconds elapsed since
--- 12:00:00 AM January 1, 1970 UTC.)
-journalKinesisStreamDescription_creationTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
-journalKinesisStreamDescription_creationTime = Lens.lens (\JournalKinesisStreamDescription' {creationTime} -> creationTime) (\s@JournalKinesisStreamDescription' {} a -> s {creationTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Name (ARN) of the QLDB journal stream.
-journalKinesisStreamDescription_arn :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.Text)
-journalKinesisStreamDescription_arn = Lens.lens (\JournalKinesisStreamDescription' {arn} -> arn) (\s@JournalKinesisStreamDescription' {} a -> s {arn = a} :: JournalKinesisStreamDescription)
-
--- | The inclusive start date and time from which to start streaming journal
--- data.
-journalKinesisStreamDescription_inclusiveStartTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
-journalKinesisStreamDescription_inclusiveStartTime = Lens.lens (\JournalKinesisStreamDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalKinesisStreamDescription' {} a -> s {inclusiveStartTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
-
 -- | The error message that describes the reason that a stream has a status
 -- of @IMPAIRED@ or @FAILED@. This is not applicable to streams that have
 -- other status values.
 journalKinesisStreamDescription_errorCause :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe ErrorCause)
 journalKinesisStreamDescription_errorCause = Lens.lens (\JournalKinesisStreamDescription' {errorCause} -> errorCause) (\s@JournalKinesisStreamDescription' {} a -> s {errorCause = a} :: JournalKinesisStreamDescription)
 
+-- | The inclusive start date and time from which to start streaming journal
+-- data.
+journalKinesisStreamDescription_inclusiveStartTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
+journalKinesisStreamDescription_inclusiveStartTime = Lens.lens (\JournalKinesisStreamDescription' {inclusiveStartTime} -> inclusiveStartTime) (\s@JournalKinesisStreamDescription' {} a -> s {inclusiveStartTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the QLDB journal stream.
+journalKinesisStreamDescription_arn :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.Text)
+journalKinesisStreamDescription_arn = Lens.lens (\JournalKinesisStreamDescription' {arn} -> arn) (\s@JournalKinesisStreamDescription' {} a -> s {arn = a} :: JournalKinesisStreamDescription)
+
 -- | The exclusive date and time that specifies when the stream ends. If this
 -- parameter is undefined, the stream runs indefinitely until you cancel
 -- it.
 journalKinesisStreamDescription_exclusiveEndTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
 journalKinesisStreamDescription_exclusiveEndTime = Lens.lens (\JournalKinesisStreamDescription' {exclusiveEndTime} -> exclusiveEndTime) (\s@JournalKinesisStreamDescription' {} a -> s {exclusiveEndTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time, in epoch time format, when the QLDB journal stream
+-- was created. (Epoch time format is the number of seconds elapsed since
+-- 12:00:00 AM January 1, 1970 UTC.)
+journalKinesisStreamDescription_creationTime :: Lens.Lens' JournalKinesisStreamDescription (Prelude.Maybe Prelude.UTCTime)
+journalKinesisStreamDescription_creationTime = Lens.lens (\JournalKinesisStreamDescription' {creationTime} -> creationTime) (\s@JournalKinesisStreamDescription' {} a -> s {creationTime = a} :: JournalKinesisStreamDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the ledger.
 journalKinesisStreamDescription_ledgerName :: Lens.Lens' JournalKinesisStreamDescription Prelude.Text
@@ -209,11 +209,11 @@ instance
       "JournalKinesisStreamDescription"
       ( \x ->
           JournalKinesisStreamDescription'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Core..:? "ErrorCause")
             Prelude.<*> (x Core..:? "InclusiveStartTime")
-            Prelude.<*> (x Core..:? "ErrorCause")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "ExclusiveEndTime")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..: "LedgerName")
             Prelude.<*> (x Core..: "RoleArn")
             Prelude.<*> (x Core..: "StreamId")
@@ -229,11 +229,11 @@ instance
   hashWithSalt
     _salt
     JournalKinesisStreamDescription' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
-        `Prelude.hashWithSalt` arn
+      _salt `Prelude.hashWithSalt` errorCause
         `Prelude.hashWithSalt` inclusiveStartTime
-        `Prelude.hashWithSalt` errorCause
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` exclusiveEndTime
+        `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` ledgerName
         `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` streamId
@@ -246,11 +246,11 @@ instance
     JournalKinesisStreamDescription
   where
   rnf JournalKinesisStreamDescription' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf errorCause
       `Prelude.seq` Prelude.rnf inclusiveStartTime
-      `Prelude.seq` Prelude.rnf errorCause
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf exclusiveEndTime
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf ledgerName
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf streamId

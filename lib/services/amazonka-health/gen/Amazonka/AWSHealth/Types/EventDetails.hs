@@ -35,12 +35,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventDetails' smart constructor.
 data EventDetails = EventDetails'
-  { -- | Summary information about the event.
+  { -- | Additional metadata about the event.
+    eventMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Summary information about the event.
     event :: Prelude.Maybe Event,
     -- | The most recent description of the event.
-    eventDescription :: Prelude.Maybe EventDescription,
-    -- | Additional metadata about the event.
-    eventMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    eventDescription :: Prelude.Maybe EventDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,19 +52,23 @@ data EventDetails = EventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventMetadata', 'eventDetails_eventMetadata' - Additional metadata about the event.
+--
 -- 'event', 'eventDetails_event' - Summary information about the event.
 --
 -- 'eventDescription', 'eventDetails_eventDescription' - The most recent description of the event.
---
--- 'eventMetadata', 'eventDetails_eventMetadata' - Additional metadata about the event.
 newEventDetails ::
   EventDetails
 newEventDetails =
   EventDetails'
-    { event = Prelude.Nothing,
-      eventDescription = Prelude.Nothing,
-      eventMetadata = Prelude.Nothing
+    { eventMetadata = Prelude.Nothing,
+      event = Prelude.Nothing,
+      eventDescription = Prelude.Nothing
     }
+
+-- | Additional metadata about the event.
+eventDetails_eventMetadata :: Lens.Lens' EventDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+eventDetails_eventMetadata = Lens.lens (\EventDetails' {eventMetadata} -> eventMetadata) (\s@EventDetails' {} a -> s {eventMetadata = a} :: EventDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Summary information about the event.
 eventDetails_event :: Lens.Lens' EventDetails (Prelude.Maybe Event)
@@ -74,29 +78,25 @@ eventDetails_event = Lens.lens (\EventDetails' {event} -> event) (\s@EventDetail
 eventDetails_eventDescription :: Lens.Lens' EventDetails (Prelude.Maybe EventDescription)
 eventDetails_eventDescription = Lens.lens (\EventDetails' {eventDescription} -> eventDescription) (\s@EventDetails' {} a -> s {eventDescription = a} :: EventDetails)
 
--- | Additional metadata about the event.
-eventDetails_eventMetadata :: Lens.Lens' EventDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-eventDetails_eventMetadata = Lens.lens (\EventDetails' {eventMetadata} -> eventMetadata) (\s@EventDetails' {} a -> s {eventMetadata = a} :: EventDetails) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON EventDetails where
   parseJSON =
     Core.withObject
       "EventDetails"
       ( \x ->
           EventDetails'
-            Prelude.<$> (x Core..:? "event")
+            Prelude.<$> (x Core..:? "eventMetadata" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "event")
             Prelude.<*> (x Core..:? "eventDescription")
-            Prelude.<*> (x Core..:? "eventMetadata" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EventDetails where
   hashWithSalt _salt EventDetails' {..} =
-    _salt `Prelude.hashWithSalt` event
+    _salt `Prelude.hashWithSalt` eventMetadata
+      `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` eventDescription
-      `Prelude.hashWithSalt` eventMetadata
 
 instance Prelude.NFData EventDetails where
   rnf EventDetails' {..} =
-    Prelude.rnf event
+    Prelude.rnf eventMetadata
+      `Prelude.seq` Prelude.rnf event
       `Prelude.seq` Prelude.rnf eventDescription
-      `Prelude.seq` Prelude.rnf eventMetadata

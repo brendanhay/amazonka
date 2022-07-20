@@ -14,12 +14,69 @@
 module Amazonka.Firehose.Lens
   ( -- * Operations
 
+    -- ** CreateDeliveryStream
+    createDeliveryStream_tags,
+    createDeliveryStream_s3DestinationConfiguration,
+    createDeliveryStream_httpEndpointDestinationConfiguration,
+    createDeliveryStream_deliveryStreamType,
+    createDeliveryStream_splunkDestinationConfiguration,
+    createDeliveryStream_elasticsearchDestinationConfiguration,
+    createDeliveryStream_redshiftDestinationConfiguration,
+    createDeliveryStream_deliveryStreamEncryptionConfigurationInput,
+    createDeliveryStream_extendedS3DestinationConfiguration,
+    createDeliveryStream_kinesisStreamSourceConfiguration,
+    createDeliveryStream_amazonopensearchserviceDestinationConfiguration,
+    createDeliveryStream_deliveryStreamName,
+    createDeliveryStreamResponse_deliveryStreamARN,
+    createDeliveryStreamResponse_httpStatus,
+
+    -- ** DeleteDeliveryStream
+    deleteDeliveryStream_allowForceDelete,
+    deleteDeliveryStream_deliveryStreamName,
+    deleteDeliveryStreamResponse_httpStatus,
+
+    -- ** DescribeDeliveryStream
+    describeDeliveryStream_limit,
+    describeDeliveryStream_exclusiveStartDestinationId,
+    describeDeliveryStream_deliveryStreamName,
+    describeDeliveryStreamResponse_httpStatus,
+    describeDeliveryStreamResponse_deliveryStreamDescription,
+
+    -- ** ListDeliveryStreams
+    listDeliveryStreams_deliveryStreamType,
+    listDeliveryStreams_limit,
+    listDeliveryStreams_exclusiveStartDeliveryStreamName,
+    listDeliveryStreamsResponse_httpStatus,
+    listDeliveryStreamsResponse_deliveryStreamNames,
+    listDeliveryStreamsResponse_hasMoreDeliveryStreams,
+
+    -- ** ListTagsForDeliveryStream
+    listTagsForDeliveryStream_limit,
+    listTagsForDeliveryStream_exclusiveStartTagKey,
+    listTagsForDeliveryStream_deliveryStreamName,
+    listTagsForDeliveryStreamResponse_httpStatus,
+    listTagsForDeliveryStreamResponse_tags,
+    listTagsForDeliveryStreamResponse_hasMoreTags,
+
     -- ** PutRecord
     putRecord_deliveryStreamName,
     putRecord_record,
     putRecordResponse_encrypted,
     putRecordResponse_httpStatus,
     putRecordResponse_recordId,
+
+    -- ** PutRecordBatch
+    putRecordBatch_deliveryStreamName,
+    putRecordBatch_records,
+    putRecordBatchResponse_encrypted,
+    putRecordBatchResponse_httpStatus,
+    putRecordBatchResponse_failedPutCount,
+    putRecordBatchResponse_requestResponses,
+
+    -- ** StartDeliveryStreamEncryption
+    startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput,
+    startDeliveryStreamEncryption_deliveryStreamName,
+    startDeliveryStreamEncryptionResponse_httpStatus,
 
     -- ** StopDeliveryStreamEncryption
     stopDeliveryStreamEncryption_deliveryStreamName,
@@ -30,80 +87,23 @@ module Amazonka.Firehose.Lens
     tagDeliveryStream_tags,
     tagDeliveryStreamResponse_httpStatus,
 
-    -- ** UpdateDestination
-    updateDestination_amazonopensearchserviceDestinationUpdate,
-    updateDestination_splunkDestinationUpdate,
-    updateDestination_s3DestinationUpdate,
-    updateDestination_redshiftDestinationUpdate,
-    updateDestination_elasticsearchDestinationUpdate,
-    updateDestination_extendedS3DestinationUpdate,
-    updateDestination_httpEndpointDestinationUpdate,
-    updateDestination_deliveryStreamName,
-    updateDestination_currentDeliveryStreamVersionId,
-    updateDestination_destinationId,
-    updateDestinationResponse_httpStatus,
-
-    -- ** PutRecordBatch
-    putRecordBatch_deliveryStreamName,
-    putRecordBatch_records,
-    putRecordBatchResponse_encrypted,
-    putRecordBatchResponse_httpStatus,
-    putRecordBatchResponse_failedPutCount,
-    putRecordBatchResponse_requestResponses,
-
     -- ** UntagDeliveryStream
     untagDeliveryStream_deliveryStreamName,
     untagDeliveryStream_tagKeys,
     untagDeliveryStreamResponse_httpStatus,
 
-    -- ** CreateDeliveryStream
-    createDeliveryStream_s3DestinationConfiguration,
-    createDeliveryStream_redshiftDestinationConfiguration,
-    createDeliveryStream_elasticsearchDestinationConfiguration,
-    createDeliveryStream_extendedS3DestinationConfiguration,
-    createDeliveryStream_kinesisStreamSourceConfiguration,
-    createDeliveryStream_httpEndpointDestinationConfiguration,
-    createDeliveryStream_amazonopensearchserviceDestinationConfiguration,
-    createDeliveryStream_deliveryStreamType,
-    createDeliveryStream_splunkDestinationConfiguration,
-    createDeliveryStream_tags,
-    createDeliveryStream_deliveryStreamEncryptionConfigurationInput,
-    createDeliveryStream_deliveryStreamName,
-    createDeliveryStreamResponse_deliveryStreamARN,
-    createDeliveryStreamResponse_httpStatus,
-
-    -- ** StartDeliveryStreamEncryption
-    startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput,
-    startDeliveryStreamEncryption_deliveryStreamName,
-    startDeliveryStreamEncryptionResponse_httpStatus,
-
-    -- ** DescribeDeliveryStream
-    describeDeliveryStream_exclusiveStartDestinationId,
-    describeDeliveryStream_limit,
-    describeDeliveryStream_deliveryStreamName,
-    describeDeliveryStreamResponse_httpStatus,
-    describeDeliveryStreamResponse_deliveryStreamDescription,
-
-    -- ** ListTagsForDeliveryStream
-    listTagsForDeliveryStream_limit,
-    listTagsForDeliveryStream_exclusiveStartTagKey,
-    listTagsForDeliveryStream_deliveryStreamName,
-    listTagsForDeliveryStreamResponse_httpStatus,
-    listTagsForDeliveryStreamResponse_tags,
-    listTagsForDeliveryStreamResponse_hasMoreTags,
-
-    -- ** ListDeliveryStreams
-    listDeliveryStreams_limit,
-    listDeliveryStreams_deliveryStreamType,
-    listDeliveryStreams_exclusiveStartDeliveryStreamName,
-    listDeliveryStreamsResponse_httpStatus,
-    listDeliveryStreamsResponse_deliveryStreamNames,
-    listDeliveryStreamsResponse_hasMoreDeliveryStreams,
-
-    -- ** DeleteDeliveryStream
-    deleteDeliveryStream_allowForceDelete,
-    deleteDeliveryStream_deliveryStreamName,
-    deleteDeliveryStreamResponse_httpStatus,
+    -- ** UpdateDestination
+    updateDestination_amazonopensearchserviceDestinationUpdate,
+    updateDestination_splunkDestinationUpdate,
+    updateDestination_extendedS3DestinationUpdate,
+    updateDestination_s3DestinationUpdate,
+    updateDestination_elasticsearchDestinationUpdate,
+    updateDestination_httpEndpointDestinationUpdate,
+    updateDestination_redshiftDestinationUpdate,
+    updateDestination_deliveryStreamName,
+    updateDestination_currentDeliveryStreamVersionId,
+    updateDestination_destinationId,
+    updateDestinationResponse_httpStatus,
 
     -- * Types
 
@@ -112,47 +112,47 @@ module Amazonka.Firehose.Lens
     amazonopensearchserviceBufferingHints_intervalInSeconds,
 
     -- ** AmazonopensearchserviceDestinationConfiguration
-    amazonopensearchserviceDestinationConfiguration_indexRotationPeriod,
-    amazonopensearchserviceDestinationConfiguration_typeName,
-    amazonopensearchserviceDestinationConfiguration_s3BackupMode,
-    amazonopensearchserviceDestinationConfiguration_domainARN,
-    amazonopensearchserviceDestinationConfiguration_cloudWatchLoggingOptions,
     amazonopensearchserviceDestinationConfiguration_vpcConfiguration,
-    amazonopensearchserviceDestinationConfiguration_bufferingHints,
-    amazonopensearchserviceDestinationConfiguration_retryOptions,
     amazonopensearchserviceDestinationConfiguration_processingConfiguration,
+    amazonopensearchserviceDestinationConfiguration_bufferingHints,
     amazonopensearchserviceDestinationConfiguration_clusterEndpoint,
+    amazonopensearchserviceDestinationConfiguration_domainARN,
+    amazonopensearchserviceDestinationConfiguration_typeName,
+    amazonopensearchserviceDestinationConfiguration_cloudWatchLoggingOptions,
+    amazonopensearchserviceDestinationConfiguration_s3BackupMode,
+    amazonopensearchserviceDestinationConfiguration_indexRotationPeriod,
+    amazonopensearchserviceDestinationConfiguration_retryOptions,
     amazonopensearchserviceDestinationConfiguration_roleARN,
     amazonopensearchserviceDestinationConfiguration_indexName,
     amazonopensearchserviceDestinationConfiguration_s3Configuration,
 
     -- ** AmazonopensearchserviceDestinationDescription
-    amazonopensearchserviceDestinationDescription_indexRotationPeriod,
-    amazonopensearchserviceDestinationDescription_typeName,
-    amazonopensearchserviceDestinationDescription_s3BackupMode,
-    amazonopensearchserviceDestinationDescription_domainARN,
-    amazonopensearchserviceDestinationDescription_vpcConfigurationDescription,
-    amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions,
-    amazonopensearchserviceDestinationDescription_s3DestinationDescription,
-    amazonopensearchserviceDestinationDescription_bufferingHints,
-    amazonopensearchserviceDestinationDescription_retryOptions,
     amazonopensearchserviceDestinationDescription_processingConfiguration,
     amazonopensearchserviceDestinationDescription_roleARN,
+    amazonopensearchserviceDestinationDescription_bufferingHints,
     amazonopensearchserviceDestinationDescription_clusterEndpoint,
+    amazonopensearchserviceDestinationDescription_domainARN,
+    amazonopensearchserviceDestinationDescription_typeName,
     amazonopensearchserviceDestinationDescription_indexName,
+    amazonopensearchserviceDestinationDescription_cloudWatchLoggingOptions,
+    amazonopensearchserviceDestinationDescription_s3BackupMode,
+    amazonopensearchserviceDestinationDescription_vpcConfigurationDescription,
+    amazonopensearchserviceDestinationDescription_indexRotationPeriod,
+    amazonopensearchserviceDestinationDescription_retryOptions,
+    amazonopensearchserviceDestinationDescription_s3DestinationDescription,
 
     -- ** AmazonopensearchserviceDestinationUpdate
-    amazonopensearchserviceDestinationUpdate_indexRotationPeriod,
-    amazonopensearchserviceDestinationUpdate_typeName,
-    amazonopensearchserviceDestinationUpdate_domainARN,
-    amazonopensearchserviceDestinationUpdate_cloudWatchLoggingOptions,
-    amazonopensearchserviceDestinationUpdate_s3Update,
-    amazonopensearchserviceDestinationUpdate_bufferingHints,
-    amazonopensearchserviceDestinationUpdate_retryOptions,
     amazonopensearchserviceDestinationUpdate_processingConfiguration,
     amazonopensearchserviceDestinationUpdate_roleARN,
+    amazonopensearchserviceDestinationUpdate_s3Update,
+    amazonopensearchserviceDestinationUpdate_bufferingHints,
     amazonopensearchserviceDestinationUpdate_clusterEndpoint,
+    amazonopensearchserviceDestinationUpdate_domainARN,
+    amazonopensearchserviceDestinationUpdate_typeName,
     amazonopensearchserviceDestinationUpdate_indexName,
+    amazonopensearchserviceDestinationUpdate_cloudWatchLoggingOptions,
+    amazonopensearchserviceDestinationUpdate_indexRotationPeriod,
+    amazonopensearchserviceDestinationUpdate_retryOptions,
 
     -- ** AmazonopensearchserviceRetryOptions
     amazonopensearchserviceRetryOptions_durationInSeconds,
@@ -163,26 +163,26 @@ module Amazonka.Firehose.Lens
 
     -- ** CloudWatchLoggingOptions
     cloudWatchLoggingOptions_enabled,
-    cloudWatchLoggingOptions_logGroupName,
     cloudWatchLoggingOptions_logStreamName,
+    cloudWatchLoggingOptions_logGroupName,
 
     -- ** CopyCommand
-    copyCommand_copyOptions,
     copyCommand_dataTableColumns,
+    copyCommand_copyOptions,
     copyCommand_dataTableName,
 
     -- ** DataFormatConversionConfiguration
-    dataFormatConversionConfiguration_outputFormatConfiguration,
+    dataFormatConversionConfiguration_inputFormatConfiguration,
     dataFormatConversionConfiguration_enabled,
     dataFormatConversionConfiguration_schemaConfiguration,
-    dataFormatConversionConfiguration_inputFormatConfiguration,
+    dataFormatConversionConfiguration_outputFormatConfiguration,
 
     -- ** DeliveryStreamDescription
     deliveryStreamDescription_failureDescription,
+    deliveryStreamDescription_lastUpdateTimestamp,
     deliveryStreamDescription_deliveryStreamEncryptionConfiguration,
     deliveryStreamDescription_createTimestamp,
     deliveryStreamDescription_source,
-    deliveryStreamDescription_lastUpdateTimestamp,
     deliveryStreamDescription_deliveryStreamName,
     deliveryStreamDescription_deliveryStreamARN,
     deliveryStreamDescription_deliveryStreamStatus,
@@ -192,27 +192,27 @@ module Amazonka.Firehose.Lens
     deliveryStreamDescription_hasMoreDestinations,
 
     -- ** DeliveryStreamEncryptionConfiguration
-    deliveryStreamEncryptionConfiguration_status,
-    deliveryStreamEncryptionConfiguration_keyType,
-    deliveryStreamEncryptionConfiguration_keyARN,
     deliveryStreamEncryptionConfiguration_failureDescription,
+    deliveryStreamEncryptionConfiguration_keyType,
+    deliveryStreamEncryptionConfiguration_status,
+    deliveryStreamEncryptionConfiguration_keyARN,
 
     -- ** DeliveryStreamEncryptionConfigurationInput
     deliveryStreamEncryptionConfigurationInput_keyARN,
     deliveryStreamEncryptionConfigurationInput_keyType,
 
     -- ** Deserializer
-    deserializer_openXJsonSerDe,
     deserializer_hiveJsonSerDe,
+    deserializer_openXJsonSerDe,
 
     -- ** DestinationDescription
+    destinationDescription_extendedS3DestinationDescription,
+    destinationDescription_redshiftDestinationDescription,
+    destinationDescription_elasticsearchDestinationDescription,
+    destinationDescription_httpEndpointDestinationDescription,
     destinationDescription_splunkDestinationDescription,
     destinationDescription_amazonopensearchserviceDestinationDescription,
-    destinationDescription_httpEndpointDestinationDescription,
     destinationDescription_s3DestinationDescription,
-    destinationDescription_extendedS3DestinationDescription,
-    destinationDescription_elasticsearchDestinationDescription,
-    destinationDescription_redshiftDestinationDescription,
     destinationDescription_destinationId,
 
     -- ** DynamicPartitioningConfiguration
@@ -224,47 +224,47 @@ module Amazonka.Firehose.Lens
     elasticsearchBufferingHints_intervalInSeconds,
 
     -- ** ElasticsearchDestinationConfiguration
-    elasticsearchDestinationConfiguration_indexRotationPeriod,
-    elasticsearchDestinationConfiguration_typeName,
-    elasticsearchDestinationConfiguration_s3BackupMode,
-    elasticsearchDestinationConfiguration_domainARN,
-    elasticsearchDestinationConfiguration_cloudWatchLoggingOptions,
     elasticsearchDestinationConfiguration_vpcConfiguration,
-    elasticsearchDestinationConfiguration_bufferingHints,
-    elasticsearchDestinationConfiguration_retryOptions,
     elasticsearchDestinationConfiguration_processingConfiguration,
+    elasticsearchDestinationConfiguration_bufferingHints,
     elasticsearchDestinationConfiguration_clusterEndpoint,
+    elasticsearchDestinationConfiguration_domainARN,
+    elasticsearchDestinationConfiguration_typeName,
+    elasticsearchDestinationConfiguration_cloudWatchLoggingOptions,
+    elasticsearchDestinationConfiguration_s3BackupMode,
+    elasticsearchDestinationConfiguration_indexRotationPeriod,
+    elasticsearchDestinationConfiguration_retryOptions,
     elasticsearchDestinationConfiguration_roleARN,
     elasticsearchDestinationConfiguration_indexName,
     elasticsearchDestinationConfiguration_s3Configuration,
 
     -- ** ElasticsearchDestinationDescription
-    elasticsearchDestinationDescription_indexRotationPeriod,
-    elasticsearchDestinationDescription_typeName,
-    elasticsearchDestinationDescription_s3BackupMode,
-    elasticsearchDestinationDescription_domainARN,
-    elasticsearchDestinationDescription_vpcConfigurationDescription,
-    elasticsearchDestinationDescription_cloudWatchLoggingOptions,
-    elasticsearchDestinationDescription_s3DestinationDescription,
-    elasticsearchDestinationDescription_bufferingHints,
-    elasticsearchDestinationDescription_retryOptions,
     elasticsearchDestinationDescription_processingConfiguration,
     elasticsearchDestinationDescription_roleARN,
+    elasticsearchDestinationDescription_bufferingHints,
     elasticsearchDestinationDescription_clusterEndpoint,
+    elasticsearchDestinationDescription_domainARN,
+    elasticsearchDestinationDescription_typeName,
     elasticsearchDestinationDescription_indexName,
+    elasticsearchDestinationDescription_cloudWatchLoggingOptions,
+    elasticsearchDestinationDescription_s3BackupMode,
+    elasticsearchDestinationDescription_vpcConfigurationDescription,
+    elasticsearchDestinationDescription_indexRotationPeriod,
+    elasticsearchDestinationDescription_retryOptions,
+    elasticsearchDestinationDescription_s3DestinationDescription,
 
     -- ** ElasticsearchDestinationUpdate
-    elasticsearchDestinationUpdate_indexRotationPeriod,
-    elasticsearchDestinationUpdate_typeName,
-    elasticsearchDestinationUpdate_domainARN,
-    elasticsearchDestinationUpdate_cloudWatchLoggingOptions,
-    elasticsearchDestinationUpdate_s3Update,
-    elasticsearchDestinationUpdate_bufferingHints,
-    elasticsearchDestinationUpdate_retryOptions,
     elasticsearchDestinationUpdate_processingConfiguration,
     elasticsearchDestinationUpdate_roleARN,
+    elasticsearchDestinationUpdate_s3Update,
+    elasticsearchDestinationUpdate_bufferingHints,
     elasticsearchDestinationUpdate_clusterEndpoint,
+    elasticsearchDestinationUpdate_domainARN,
+    elasticsearchDestinationUpdate_typeName,
     elasticsearchDestinationUpdate_indexName,
+    elasticsearchDestinationUpdate_cloudWatchLoggingOptions,
+    elasticsearchDestinationUpdate_indexRotationPeriod,
+    elasticsearchDestinationUpdate_retryOptions,
 
     -- ** ElasticsearchRetryOptions
     elasticsearchRetryOptions_durationInSeconds,
@@ -274,29 +274,29 @@ module Amazonka.Firehose.Lens
     encryptionConfiguration_kmsEncryptionConfig,
 
     -- ** ExtendedS3DestinationConfiguration
-    extendedS3DestinationConfiguration_s3BackupMode,
-    extendedS3DestinationConfiguration_prefix,
-    extendedS3DestinationConfiguration_cloudWatchLoggingOptions,
     extendedS3DestinationConfiguration_s3BackupConfiguration,
-    extendedS3DestinationConfiguration_errorOutputPrefix,
-    extendedS3DestinationConfiguration_encryptionConfiguration,
-    extendedS3DestinationConfiguration_dynamicPartitioningConfiguration,
-    extendedS3DestinationConfiguration_compressionFormat,
+    extendedS3DestinationConfiguration_processingConfiguration,
     extendedS3DestinationConfiguration_bufferingHints,
     extendedS3DestinationConfiguration_dataFormatConversionConfiguration,
-    extendedS3DestinationConfiguration_processingConfiguration,
+    extendedS3DestinationConfiguration_cloudWatchLoggingOptions,
+    extendedS3DestinationConfiguration_s3BackupMode,
+    extendedS3DestinationConfiguration_encryptionConfiguration,
+    extendedS3DestinationConfiguration_prefix,
+    extendedS3DestinationConfiguration_compressionFormat,
+    extendedS3DestinationConfiguration_dynamicPartitioningConfiguration,
+    extendedS3DestinationConfiguration_errorOutputPrefix,
     extendedS3DestinationConfiguration_roleARN,
     extendedS3DestinationConfiguration_bucketARN,
 
     -- ** ExtendedS3DestinationDescription
-    extendedS3DestinationDescription_s3BackupMode,
-    extendedS3DestinationDescription_s3BackupDescription,
-    extendedS3DestinationDescription_prefix,
-    extendedS3DestinationDescription_cloudWatchLoggingOptions,
-    extendedS3DestinationDescription_errorOutputPrefix,
-    extendedS3DestinationDescription_dynamicPartitioningConfiguration,
-    extendedS3DestinationDescription_dataFormatConversionConfiguration,
     extendedS3DestinationDescription_processingConfiguration,
+    extendedS3DestinationDescription_dataFormatConversionConfiguration,
+    extendedS3DestinationDescription_s3BackupDescription,
+    extendedS3DestinationDescription_cloudWatchLoggingOptions,
+    extendedS3DestinationDescription_s3BackupMode,
+    extendedS3DestinationDescription_prefix,
+    extendedS3DestinationDescription_dynamicPartitioningConfiguration,
+    extendedS3DestinationDescription_errorOutputPrefix,
     extendedS3DestinationDescription_roleARN,
     extendedS3DestinationDescription_bucketARN,
     extendedS3DestinationDescription_bufferingHints,
@@ -304,19 +304,19 @@ module Amazonka.Firehose.Lens
     extendedS3DestinationDescription_encryptionConfiguration,
 
     -- ** ExtendedS3DestinationUpdate
-    extendedS3DestinationUpdate_s3BackupMode,
-    extendedS3DestinationUpdate_prefix,
-    extendedS3DestinationUpdate_cloudWatchLoggingOptions,
-    extendedS3DestinationUpdate_errorOutputPrefix,
-    extendedS3DestinationUpdate_s3BackupUpdate,
-    extendedS3DestinationUpdate_encryptionConfiguration,
-    extendedS3DestinationUpdate_dynamicPartitioningConfiguration,
-    extendedS3DestinationUpdate_compressionFormat,
-    extendedS3DestinationUpdate_bufferingHints,
-    extendedS3DestinationUpdate_dataFormatConversionConfiguration,
-    extendedS3DestinationUpdate_bucketARN,
     extendedS3DestinationUpdate_processingConfiguration,
     extendedS3DestinationUpdate_roleARN,
+    extendedS3DestinationUpdate_bufferingHints,
+    extendedS3DestinationUpdate_dataFormatConversionConfiguration,
+    extendedS3DestinationUpdate_s3BackupUpdate,
+    extendedS3DestinationUpdate_cloudWatchLoggingOptions,
+    extendedS3DestinationUpdate_bucketARN,
+    extendedS3DestinationUpdate_s3BackupMode,
+    extendedS3DestinationUpdate_encryptionConfiguration,
+    extendedS3DestinationUpdate_prefix,
+    extendedS3DestinationUpdate_compressionFormat,
+    extendedS3DestinationUpdate_dynamicPartitioningConfiguration,
+    extendedS3DestinationUpdate_errorOutputPrefix,
 
     -- ** FailureDescription
     failureDescription_type,
@@ -339,41 +339,41 @@ module Amazonka.Firehose.Lens
     httpEndpointConfiguration_url,
 
     -- ** HttpEndpointDescription
-    httpEndpointDescription_url,
     httpEndpointDescription_name,
+    httpEndpointDescription_url,
 
     -- ** HttpEndpointDestinationConfiguration
-    httpEndpointDestinationConfiguration_s3BackupMode,
-    httpEndpointDestinationConfiguration_cloudWatchLoggingOptions,
-    httpEndpointDestinationConfiguration_bufferingHints,
-    httpEndpointDestinationConfiguration_retryOptions,
-    httpEndpointDestinationConfiguration_processingConfiguration,
     httpEndpointDestinationConfiguration_requestConfiguration,
+    httpEndpointDestinationConfiguration_processingConfiguration,
     httpEndpointDestinationConfiguration_roleARN,
+    httpEndpointDestinationConfiguration_bufferingHints,
+    httpEndpointDestinationConfiguration_cloudWatchLoggingOptions,
+    httpEndpointDestinationConfiguration_s3BackupMode,
+    httpEndpointDestinationConfiguration_retryOptions,
     httpEndpointDestinationConfiguration_endpointConfiguration,
     httpEndpointDestinationConfiguration_s3Configuration,
 
     -- ** HttpEndpointDestinationDescription
-    httpEndpointDestinationDescription_s3BackupMode,
-    httpEndpointDestinationDescription_cloudWatchLoggingOptions,
-    httpEndpointDestinationDescription_s3DestinationDescription,
-    httpEndpointDestinationDescription_bufferingHints,
-    httpEndpointDestinationDescription_retryOptions,
-    httpEndpointDestinationDescription_endpointConfiguration,
-    httpEndpointDestinationDescription_processingConfiguration,
     httpEndpointDestinationDescription_requestConfiguration,
+    httpEndpointDestinationDescription_processingConfiguration,
     httpEndpointDestinationDescription_roleARN,
+    httpEndpointDestinationDescription_bufferingHints,
+    httpEndpointDestinationDescription_cloudWatchLoggingOptions,
+    httpEndpointDestinationDescription_s3BackupMode,
+    httpEndpointDestinationDescription_endpointConfiguration,
+    httpEndpointDestinationDescription_retryOptions,
+    httpEndpointDestinationDescription_s3DestinationDescription,
 
     -- ** HttpEndpointDestinationUpdate
-    httpEndpointDestinationUpdate_s3BackupMode,
-    httpEndpointDestinationUpdate_cloudWatchLoggingOptions,
+    httpEndpointDestinationUpdate_requestConfiguration,
+    httpEndpointDestinationUpdate_processingConfiguration,
+    httpEndpointDestinationUpdate_roleARN,
     httpEndpointDestinationUpdate_s3Update,
     httpEndpointDestinationUpdate_bufferingHints,
-    httpEndpointDestinationUpdate_retryOptions,
+    httpEndpointDestinationUpdate_cloudWatchLoggingOptions,
+    httpEndpointDestinationUpdate_s3BackupMode,
     httpEndpointDestinationUpdate_endpointConfiguration,
-    httpEndpointDestinationUpdate_processingConfiguration,
-    httpEndpointDestinationUpdate_requestConfiguration,
-    httpEndpointDestinationUpdate_roleARN,
+    httpEndpointDestinationUpdate_retryOptions,
 
     -- ** HttpEndpointRequestConfiguration
     httpEndpointRequestConfiguration_commonAttributes,
@@ -393,41 +393,41 @@ module Amazonka.Firehose.Lens
     kinesisStreamSourceConfiguration_roleARN,
 
     -- ** KinesisStreamSourceDescription
-    kinesisStreamSourceDescription_deliveryStartTimestamp,
-    kinesisStreamSourceDescription_kinesisStreamARN,
     kinesisStreamSourceDescription_roleARN,
+    kinesisStreamSourceDescription_kinesisStreamARN,
+    kinesisStreamSourceDescription_deliveryStartTimestamp,
 
     -- ** OpenXJsonSerDe
-    openXJsonSerDe_columnToJsonKeyMappings,
     openXJsonSerDe_caseInsensitive,
     openXJsonSerDe_convertDotsInJsonKeysToUnderscores,
+    openXJsonSerDe_columnToJsonKeyMappings,
 
     -- ** OrcSerDe
-    orcSerDe_bloomFilterFalsePositiveProbability,
-    orcSerDe_dictionaryKeyThreshold,
-    orcSerDe_enablePadding,
-    orcSerDe_compression,
-    orcSerDe_bloomFilterColumns,
-    orcSerDe_rowIndexStride,
     orcSerDe_formatVersion,
+    orcSerDe_compression,
     orcSerDe_blockSizeBytes,
-    orcSerDe_stripeSizeBytes,
+    orcSerDe_bloomFilterFalsePositiveProbability,
+    orcSerDe_rowIndexStride,
+    orcSerDe_enablePadding,
+    orcSerDe_bloomFilterColumns,
     orcSerDe_paddingTolerance,
+    orcSerDe_dictionaryKeyThreshold,
+    orcSerDe_stripeSizeBytes,
 
     -- ** OutputFormatConfiguration
     outputFormatConfiguration_serializer,
 
     -- ** ParquetSerDe
-    parquetSerDe_writerVersion,
     parquetSerDe_compression,
+    parquetSerDe_blockSizeBytes,
     parquetSerDe_maxPaddingBytes,
+    parquetSerDe_writerVersion,
     parquetSerDe_enableDictionaryCompression,
     parquetSerDe_pageSizeBytes,
-    parquetSerDe_blockSizeBytes,
 
     -- ** ProcessingConfiguration
-    processingConfiguration_enabled,
     processingConfiguration_processors,
+    processingConfiguration_enabled,
 
     -- ** Processor
     processor_parameters,
@@ -438,19 +438,19 @@ module Amazonka.Firehose.Lens
     processorParameter_parameterValue,
 
     -- ** PutRecordBatchResponseEntry
+    putRecordBatchResponseEntry_errorMessage,
     putRecordBatchResponseEntry_recordId,
     putRecordBatchResponseEntry_errorCode,
-    putRecordBatchResponseEntry_errorMessage,
 
     -- ** Record
     record_data,
 
     -- ** RedshiftDestinationConfiguration
-    redshiftDestinationConfiguration_s3BackupMode,
-    redshiftDestinationConfiguration_cloudWatchLoggingOptions,
     redshiftDestinationConfiguration_s3BackupConfiguration,
-    redshiftDestinationConfiguration_retryOptions,
     redshiftDestinationConfiguration_processingConfiguration,
+    redshiftDestinationConfiguration_cloudWatchLoggingOptions,
+    redshiftDestinationConfiguration_s3BackupMode,
+    redshiftDestinationConfiguration_retryOptions,
     redshiftDestinationConfiguration_roleARN,
     redshiftDestinationConfiguration_clusterJDBCURL,
     redshiftDestinationConfiguration_copyCommand,
@@ -459,11 +459,11 @@ module Amazonka.Firehose.Lens
     redshiftDestinationConfiguration_s3Configuration,
 
     -- ** RedshiftDestinationDescription
-    redshiftDestinationDescription_s3BackupMode,
+    redshiftDestinationDescription_processingConfiguration,
     redshiftDestinationDescription_s3BackupDescription,
     redshiftDestinationDescription_cloudWatchLoggingOptions,
+    redshiftDestinationDescription_s3BackupMode,
     redshiftDestinationDescription_retryOptions,
-    redshiftDestinationDescription_processingConfiguration,
     redshiftDestinationDescription_roleARN,
     redshiftDestinationDescription_clusterJDBCURL,
     redshiftDestinationDescription_copyCommand,
@@ -471,17 +471,17 @@ module Amazonka.Firehose.Lens
     redshiftDestinationDescription_s3DestinationDescription,
 
     -- ** RedshiftDestinationUpdate
-    redshiftDestinationUpdate_s3BackupMode,
-    redshiftDestinationUpdate_cloudWatchLoggingOptions,
-    redshiftDestinationUpdate_username,
+    redshiftDestinationUpdate_processingConfiguration,
+    redshiftDestinationUpdate_roleARN,
     redshiftDestinationUpdate_s3Update,
     redshiftDestinationUpdate_password,
-    redshiftDestinationUpdate_s3BackupUpdate,
+    redshiftDestinationUpdate_username,
     redshiftDestinationUpdate_copyCommand,
-    redshiftDestinationUpdate_retryOptions,
-    redshiftDestinationUpdate_processingConfiguration,
+    redshiftDestinationUpdate_s3BackupUpdate,
+    redshiftDestinationUpdate_cloudWatchLoggingOptions,
+    redshiftDestinationUpdate_s3BackupMode,
     redshiftDestinationUpdate_clusterJDBCURL,
-    redshiftDestinationUpdate_roleARN,
+    redshiftDestinationUpdate_retryOptions,
 
     -- ** RedshiftRetryOptions
     redshiftRetryOptions_durationInSeconds,
@@ -490,18 +490,18 @@ module Amazonka.Firehose.Lens
     retryOptions_durationInSeconds,
 
     -- ** S3DestinationConfiguration
-    s3DestinationConfiguration_prefix,
-    s3DestinationConfiguration_cloudWatchLoggingOptions,
-    s3DestinationConfiguration_errorOutputPrefix,
-    s3DestinationConfiguration_encryptionConfiguration,
-    s3DestinationConfiguration_compressionFormat,
     s3DestinationConfiguration_bufferingHints,
+    s3DestinationConfiguration_cloudWatchLoggingOptions,
+    s3DestinationConfiguration_encryptionConfiguration,
+    s3DestinationConfiguration_prefix,
+    s3DestinationConfiguration_compressionFormat,
+    s3DestinationConfiguration_errorOutputPrefix,
     s3DestinationConfiguration_roleARN,
     s3DestinationConfiguration_bucketARN,
 
     -- ** S3DestinationDescription
-    s3DestinationDescription_prefix,
     s3DestinationDescription_cloudWatchLoggingOptions,
+    s3DestinationDescription_prefix,
     s3DestinationDescription_errorOutputPrefix,
     s3DestinationDescription_roleARN,
     s3DestinationDescription_bucketARN,
@@ -510,62 +510,62 @@ module Amazonka.Firehose.Lens
     s3DestinationDescription_encryptionConfiguration,
 
     -- ** S3DestinationUpdate
-    s3DestinationUpdate_prefix,
-    s3DestinationUpdate_cloudWatchLoggingOptions,
-    s3DestinationUpdate_errorOutputPrefix,
-    s3DestinationUpdate_encryptionConfiguration,
-    s3DestinationUpdate_compressionFormat,
-    s3DestinationUpdate_bufferingHints,
-    s3DestinationUpdate_bucketARN,
     s3DestinationUpdate_roleARN,
+    s3DestinationUpdate_bufferingHints,
+    s3DestinationUpdate_cloudWatchLoggingOptions,
+    s3DestinationUpdate_bucketARN,
+    s3DestinationUpdate_encryptionConfiguration,
+    s3DestinationUpdate_prefix,
+    s3DestinationUpdate_compressionFormat,
+    s3DestinationUpdate_errorOutputPrefix,
 
     -- ** SchemaConfiguration
-    schemaConfiguration_versionId,
-    schemaConfiguration_catalogId,
-    schemaConfiguration_databaseName,
-    schemaConfiguration_region,
     schemaConfiguration_tableName,
     schemaConfiguration_roleARN,
+    schemaConfiguration_databaseName,
+    schemaConfiguration_region,
+    schemaConfiguration_catalogId,
+    schemaConfiguration_versionId,
 
     -- ** Serializer
-    serializer_orcSerDe,
     serializer_parquetSerDe,
+    serializer_orcSerDe,
 
     -- ** SourceDescription
     sourceDescription_kinesisStreamSourceDescription,
 
     -- ** SplunkDestinationConfiguration
-    splunkDestinationConfiguration_s3BackupMode,
-    splunkDestinationConfiguration_cloudWatchLoggingOptions,
-    splunkDestinationConfiguration_hECAcknowledgmentTimeoutInSeconds,
-    splunkDestinationConfiguration_retryOptions,
     splunkDestinationConfiguration_processingConfiguration,
+    splunkDestinationConfiguration_cloudWatchLoggingOptions,
+    splunkDestinationConfiguration_s3BackupMode,
+    splunkDestinationConfiguration_retryOptions,
+    splunkDestinationConfiguration_hECAcknowledgmentTimeoutInSeconds,
     splunkDestinationConfiguration_hECEndpoint,
     splunkDestinationConfiguration_hECEndpointType,
     splunkDestinationConfiguration_hECToken,
     splunkDestinationConfiguration_s3Configuration,
 
     -- ** SplunkDestinationDescription
-    splunkDestinationDescription_s3BackupMode,
     splunkDestinationDescription_hECToken,
+    splunkDestinationDescription_processingConfiguration,
     splunkDestinationDescription_hECEndpointType,
+    splunkDestinationDescription_hECEndpoint,
     splunkDestinationDescription_cloudWatchLoggingOptions,
+    splunkDestinationDescription_s3BackupMode,
+    splunkDestinationDescription_retryOptions,
     splunkDestinationDescription_hECAcknowledgmentTimeoutInSeconds,
     splunkDestinationDescription_s3DestinationDescription,
-    splunkDestinationDescription_hECEndpoint,
-    splunkDestinationDescription_retryOptions,
-    splunkDestinationDescription_processingConfiguration,
 
     -- ** SplunkDestinationUpdate
-    splunkDestinationUpdate_s3BackupMode,
     splunkDestinationUpdate_hECToken,
-    splunkDestinationUpdate_hECEndpointType,
-    splunkDestinationUpdate_cloudWatchLoggingOptions,
-    splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds,
-    splunkDestinationUpdate_s3Update,
-    splunkDestinationUpdate_hECEndpoint,
-    splunkDestinationUpdate_retryOptions,
     splunkDestinationUpdate_processingConfiguration,
+    splunkDestinationUpdate_s3Update,
+    splunkDestinationUpdate_hECEndpointType,
+    splunkDestinationUpdate_hECEndpoint,
+    splunkDestinationUpdate_cloudWatchLoggingOptions,
+    splunkDestinationUpdate_s3BackupMode,
+    splunkDestinationUpdate_retryOptions,
+    splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds,
 
     -- ** SplunkRetryOptions
     splunkRetryOptions_durationInSeconds,

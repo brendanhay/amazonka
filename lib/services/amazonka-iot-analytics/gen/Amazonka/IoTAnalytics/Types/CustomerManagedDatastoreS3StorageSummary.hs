@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomerManagedDatastoreS3StorageSummary' smart constructor.
 data CustomerManagedDatastoreS3StorageSummary = CustomerManagedDatastoreS3StorageSummary'
-  { -- | The name of the Amazon S3 bucket where your data is stored.
+  { -- | The ARN of the role that grants IoT Analytics permission to interact
+    -- with your Amazon S3 resources.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon S3 bucket where your data is stored.
     bucket :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The prefix used to create the keys of the data store data
     -- objects. Each object in an Amazon S3 bucket has a key that is its unique
     -- identifier in the bucket. Each object in a bucket has exactly one key.
     -- The prefix must end with a forward slash (\/).
-    keyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the role that grants IoT Analytics permission to interact
-    -- with your Amazon S3 resources.
-    roleArn :: Prelude.Maybe Prelude.Text
+    keyPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,29 @@ data CustomerManagedDatastoreS3StorageSummary = CustomerManagedDatastoreS3Storag
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleArn', 'customerManagedDatastoreS3StorageSummary_roleArn' - The ARN of the role that grants IoT Analytics permission to interact
+-- with your Amazon S3 resources.
+--
 -- 'bucket', 'customerManagedDatastoreS3StorageSummary_bucket' - The name of the Amazon S3 bucket where your data is stored.
 --
 -- 'keyPrefix', 'customerManagedDatastoreS3StorageSummary_keyPrefix' - (Optional) The prefix used to create the keys of the data store data
 -- objects. Each object in an Amazon S3 bucket has a key that is its unique
 -- identifier in the bucket. Each object in a bucket has exactly one key.
 -- The prefix must end with a forward slash (\/).
---
--- 'roleArn', 'customerManagedDatastoreS3StorageSummary_roleArn' - The ARN of the role that grants IoT Analytics permission to interact
--- with your Amazon S3 resources.
 newCustomerManagedDatastoreS3StorageSummary ::
   CustomerManagedDatastoreS3StorageSummary
 newCustomerManagedDatastoreS3StorageSummary =
   CustomerManagedDatastoreS3StorageSummary'
-    { bucket =
+    { roleArn =
         Prelude.Nothing,
-      keyPrefix = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+      bucket = Prelude.Nothing,
+      keyPrefix = Prelude.Nothing
     }
+
+-- | The ARN of the role that grants IoT Analytics permission to interact
+-- with your Amazon S3 resources.
+customerManagedDatastoreS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
+customerManagedDatastoreS3StorageSummary_roleArn = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {roleArn} -> roleArn) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {roleArn = a} :: CustomerManagedDatastoreS3StorageSummary)
 
 -- | The name of the Amazon S3 bucket where your data is stored.
 customerManagedDatastoreS3StorageSummary_bucket :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
@@ -78,11 +83,6 @@ customerManagedDatastoreS3StorageSummary_bucket = Lens.lens (\CustomerManagedDat
 customerManagedDatastoreS3StorageSummary_keyPrefix :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedDatastoreS3StorageSummary_keyPrefix = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {keyPrefix} -> keyPrefix) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {keyPrefix = a} :: CustomerManagedDatastoreS3StorageSummary)
 
--- | The ARN of the role that grants IoT Analytics permission to interact
--- with your Amazon S3 resources.
-customerManagedDatastoreS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
-customerManagedDatastoreS3StorageSummary_roleArn = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {roleArn} -> roleArn) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {roleArn = a} :: CustomerManagedDatastoreS3StorageSummary)
-
 instance
   Core.FromJSON
     CustomerManagedDatastoreS3StorageSummary
@@ -92,9 +92,9 @@ instance
       "CustomerManagedDatastoreS3StorageSummary"
       ( \x ->
           CustomerManagedDatastoreS3StorageSummary'
-            Prelude.<$> (x Core..:? "bucket")
+            Prelude.<$> (x Core..:? "roleArn")
+            Prelude.<*> (x Core..:? "bucket")
             Prelude.<*> (x Core..:? "keyPrefix")
-            Prelude.<*> (x Core..:? "roleArn")
       )
 
 instance
@@ -104,15 +104,15 @@ instance
   hashWithSalt
     _salt
     CustomerManagedDatastoreS3StorageSummary' {..} =
-      _salt `Prelude.hashWithSalt` bucket
+      _salt `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` keyPrefix
-        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     CustomerManagedDatastoreS3StorageSummary
   where
   rnf CustomerManagedDatastoreS3StorageSummary' {..} =
-    Prelude.rnf bucket
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf keyPrefix
-      `Prelude.seq` Prelude.rnf roleArn

@@ -28,12 +28,12 @@ import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFi
 --
 -- /See:/ 'newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' smart constructor.
 data AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails'
-  { -- | A tag that is assigned to matching objects.
+  { -- | The type of filter value.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | A tag that is assigned to matching objects.
     tag :: Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails,
     -- | Prefix text for matching objects.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | The type of filter value.
-    type' :: Prelude.Maybe Prelude.Text
+    prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,22 +45,26 @@ data AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails 
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type' - The type of filter value.
+--
 -- 'tag', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_tag' - A tag that is assigned to matching objects.
 --
 -- 'prefix', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_prefix' - Prefix text for matching objects.
---
--- 'type'', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type' - The type of filter value.
 newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails ::
   AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
 newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails =
   AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails'
-    { tag =
+    { type' =
+        Prelude.Nothing,
+      tag =
         Prelude.Nothing,
       prefix =
-        Prelude.Nothing,
-      type' =
         Prelude.Nothing
     }
+
+-- | The type of filter value.
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails (Prelude.Maybe Prelude.Text)
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {type'} -> type') (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {} a -> s {type' = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails)
 
 -- | A tag that is assigned to matching objects.
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_tag :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails (Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails)
@@ -69,10 +73,6 @@ awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_tag =
 -- | Prefix text for matching objects.
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_prefix :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_prefix = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {prefix} -> prefix) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {} a -> s {prefix = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails)
-
--- | The type of filter value.
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails (Prelude.Maybe Prelude.Text)
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {type'} -> type') (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {} a -> s {type' = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails)
 
 instance
   Core.FromJSON
@@ -83,8 +83,8 @@ instance
       "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails'
-            Prelude.<$> (x Core..:? "Tag") Prelude.<*> (x Core..:? "Prefix")
-              Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Tag")
+              Prelude.<*> (x Core..:? "Prefix")
       )
 
 instance
@@ -94,9 +94,9 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {..} =
-      _salt `Prelude.hashWithSalt` tag
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` tag
         `Prelude.hashWithSalt` prefix
-        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
@@ -104,9 +104,9 @@ instance
   where
   rnf
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {..} =
-      Prelude.rnf tag
+      Prelude.rnf type'
+        `Prelude.seq` Prelude.rnf tag
         `Prelude.seq` Prelude.rnf prefix
-        `Prelude.seq` Prelude.rnf type'
 
 instance
   Core.ToJSON
@@ -116,8 +116,8 @@ instance
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Tag" Core..=) Prelude.<$> tag,
-              ("Prefix" Core..=) Prelude.<$> prefix,
-              ("Type" Core..=) Prelude.<$> type'
+            [ ("Type" Core..=) Prelude.<$> type',
+              ("Tag" Core..=) Prelude.<$> tag,
+              ("Prefix" Core..=) Prelude.<$> prefix
             ]
         )

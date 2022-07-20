@@ -28,9 +28,9 @@ module Amazonka.AppRunner.ListConnections
     newListConnections,
 
     -- * Request Lenses
-    listConnections_connectionName,
     listConnections_nextToken,
     listConnections_maxResults,
+    listConnections_connectionName,
 
     -- * Destructuring the Response
     ListConnectionsResponse (..),
@@ -52,10 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListConnections' smart constructor.
 data ListConnections = ListConnections'
-  { -- | If specified, only this connection is returned. If not specified, the
-    -- result isn\'t filtered by name.
-    connectionName :: Prelude.Maybe Prelude.Text,
-    -- | A token from a previous result page. Used for a paginated request. The
+  { -- | A token from a previous result page. Used for a paginated request. The
     -- request retrieves the next result page. All other parameter values must
     -- be identical to the ones specified in the initial request.
     --
@@ -67,7 +64,10 @@ data ListConnections = ListConnections'
     --
     -- If you don\'t specify @MaxResults@, the request retrieves all available
     -- results in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If specified, only this connection is returned. If not specified, the
+    -- result isn\'t filtered by name.
+    connectionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,9 +78,6 @@ data ListConnections = ListConnections'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'connectionName', 'listConnections_connectionName' - If specified, only this connection is returned. If not specified, the
--- result isn\'t filtered by name.
 --
 -- 'nextToken', 'listConnections_nextToken' - A token from a previous result page. Used for a paginated request. The
 -- request retrieves the next result page. All other parameter values must
@@ -94,19 +91,17 @@ data ListConnections = ListConnections'
 --
 -- If you don\'t specify @MaxResults@, the request retrieves all available
 -- results in a single response.
+--
+-- 'connectionName', 'listConnections_connectionName' - If specified, only this connection is returned. If not specified, the
+-- result isn\'t filtered by name.
 newListConnections ::
   ListConnections
 newListConnections =
   ListConnections'
-    { connectionName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      connectionName = Prelude.Nothing
     }
-
--- | If specified, only this connection is returned. If not specified, the
--- result isn\'t filtered by name.
-listConnections_connectionName :: Lens.Lens' ListConnections (Prelude.Maybe Prelude.Text)
-listConnections_connectionName = Lens.lens (\ListConnections' {connectionName} -> connectionName) (\s@ListConnections' {} a -> s {connectionName = a} :: ListConnections)
 
 -- | A token from a previous result page. Used for a paginated request. The
 -- request retrieves the next result page. All other parameter values must
@@ -124,6 +119,11 @@ listConnections_nextToken = Lens.lens (\ListConnections' {nextToken} -> nextToke
 -- results in a single response.
 listConnections_maxResults :: Lens.Lens' ListConnections (Prelude.Maybe Prelude.Natural)
 listConnections_maxResults = Lens.lens (\ListConnections' {maxResults} -> maxResults) (\s@ListConnections' {} a -> s {maxResults = a} :: ListConnections)
+
+-- | If specified, only this connection is returned. If not specified, the
+-- result isn\'t filtered by name.
+listConnections_connectionName :: Lens.Lens' ListConnections (Prelude.Maybe Prelude.Text)
+listConnections_connectionName = Lens.lens (\ListConnections' {connectionName} -> connectionName) (\s@ListConnections' {} a -> s {connectionName = a} :: ListConnections)
 
 instance Core.AWSRequest ListConnections where
   type
@@ -143,15 +143,15 @@ instance Core.AWSRequest ListConnections where
 
 instance Prelude.Hashable ListConnections where
   hashWithSalt _salt ListConnections' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` connectionName
 
 instance Prelude.NFData ListConnections where
   rnf ListConnections' {..} =
-    Prelude.rnf connectionName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf connectionName
 
 instance Core.ToHeaders ListConnections where
   toHeaders =
@@ -170,10 +170,10 @@ instance Core.ToJSON ListConnections where
   toJSON ListConnections' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConnectionName" Core..=)
-              Prelude.<$> connectionName,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ConnectionName" Core..=)
+              Prelude.<$> connectionName
           ]
       )
 

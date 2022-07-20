@@ -79,21 +79,21 @@ module Amazonka.Greengrass.Types
     -- * BulkDeploymentResult
     BulkDeploymentResult (..),
     newBulkDeploymentResult,
-    bulkDeploymentResult_deploymentId,
-    bulkDeploymentResult_deploymentArn,
-    bulkDeploymentResult_createdAt,
-    bulkDeploymentResult_deploymentType,
-    bulkDeploymentResult_errorDetails,
-    bulkDeploymentResult_groupArn,
     bulkDeploymentResult_deploymentStatus,
     bulkDeploymentResult_errorMessage,
+    bulkDeploymentResult_deploymentId,
+    bulkDeploymentResult_errorDetails,
+    bulkDeploymentResult_deploymentType,
+    bulkDeploymentResult_deploymentArn,
+    bulkDeploymentResult_groupArn,
+    bulkDeploymentResult_createdAt,
 
     -- * ConnectivityInfo
     ConnectivityInfo (..),
     newConnectivityInfo,
     connectivityInfo_portNumber,
-    connectivityInfo_id,
     connectivityInfo_metadata,
+    connectivityInfo_id,
     connectivityInfo_hostAddress,
 
     -- * Connector
@@ -124,23 +124,23 @@ module Amazonka.Greengrass.Types
     -- * DefinitionInformation
     DefinitionInformation (..),
     newDefinitionInformation,
-    definitionInformation_latestVersionArn,
-    definitionInformation_arn,
-    definitionInformation_name,
-    definitionInformation_creationTimestamp,
-    definitionInformation_id,
     definitionInformation_tags,
-    definitionInformation_latestVersion,
     definitionInformation_lastUpdatedTimestamp,
+    definitionInformation_name,
+    definitionInformation_arn,
+    definitionInformation_latestVersion,
+    definitionInformation_id,
+    definitionInformation_creationTimestamp,
+    definitionInformation_latestVersionArn,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
     deployment_deploymentId,
-    deployment_deploymentArn,
-    deployment_createdAt,
     deployment_deploymentType,
+    deployment_deploymentArn,
     deployment_groupArn,
+    deployment_createdAt,
 
     -- * Device
     Device (..),
@@ -171,21 +171,21 @@ module Amazonka.Greengrass.Types
     -- * FunctionConfiguration
     FunctionConfiguration (..),
     newFunctionConfiguration,
+    functionConfiguration_timeout,
     functionConfiguration_memorySize,
     functionConfiguration_execArgs,
     functionConfiguration_environment,
     functionConfiguration_executable,
     functionConfiguration_pinned,
     functionConfiguration_encodingType,
-    functionConfiguration_timeout,
 
     -- * FunctionConfigurationEnvironment
     FunctionConfigurationEnvironment (..),
     newFunctionConfigurationEnvironment,
-    functionConfigurationEnvironment_variables,
-    functionConfigurationEnvironment_execution,
     functionConfigurationEnvironment_resourceAccessPolicies,
+    functionConfigurationEnvironment_execution,
     functionConfigurationEnvironment_accessSysfs,
+    functionConfigurationEnvironment_variables,
 
     -- * FunctionDefaultConfig
     FunctionDefaultConfig (..),
@@ -195,26 +195,26 @@ module Amazonka.Greengrass.Types
     -- * FunctionDefaultExecutionConfig
     FunctionDefaultExecutionConfig (..),
     newFunctionDefaultExecutionConfig,
-    functionDefaultExecutionConfig_runAs,
     functionDefaultExecutionConfig_isolationMode,
+    functionDefaultExecutionConfig_runAs,
 
     -- * FunctionDefinitionVersion
     FunctionDefinitionVersion (..),
     newFunctionDefinitionVersion,
-    functionDefinitionVersion_defaultConfig,
     functionDefinitionVersion_functions,
+    functionDefinitionVersion_defaultConfig,
 
     -- * FunctionExecutionConfig
     FunctionExecutionConfig (..),
     newFunctionExecutionConfig,
-    functionExecutionConfig_runAs,
     functionExecutionConfig_isolationMode,
+    functionExecutionConfig_runAs,
 
     -- * FunctionRunAsConfig
     FunctionRunAsConfig (..),
     newFunctionRunAsConfig,
-    functionRunAsConfig_uid,
     functionRunAsConfig_gid,
+    functionRunAsConfig_uid,
 
     -- * GreengrassLogger
     GreengrassLogger (..),
@@ -234,13 +234,13 @@ module Amazonka.Greengrass.Types
     -- * GroupInformation
     GroupInformation (..),
     newGroupInformation,
-    groupInformation_latestVersionArn,
-    groupInformation_arn,
-    groupInformation_name,
-    groupInformation_creationTimestamp,
-    groupInformation_id,
-    groupInformation_latestVersion,
     groupInformation_lastUpdatedTimestamp,
+    groupInformation_name,
+    groupInformation_arn,
+    groupInformation_latestVersion,
+    groupInformation_id,
+    groupInformation_creationTimestamp,
+    groupInformation_latestVersionArn,
 
     -- * GroupOwnerSetting
     GroupOwnerSetting (..),
@@ -252,12 +252,12 @@ module Amazonka.Greengrass.Types
     GroupVersion (..),
     newGroupVersion,
     groupVersion_resourceDefinitionVersionArn,
+    groupVersion_functionDefinitionVersionArn,
     groupVersion_subscriptionDefinitionVersionArn,
+    groupVersion_connectorDefinitionVersionArn,
+    groupVersion_loggerDefinitionVersionArn,
     groupVersion_coreDefinitionVersionArn,
     groupVersion_deviceDefinitionVersionArn,
-    groupVersion_functionDefinitionVersionArn,
-    groupVersion_loggerDefinitionVersionArn,
-    groupVersion_connectorDefinitionVersionArn,
 
     -- * LocalDeviceResourceData
     LocalDeviceResourceData (..),
@@ -268,8 +268,8 @@ module Amazonka.Greengrass.Types
     -- * LocalVolumeResourceData
     LocalVolumeResourceData (..),
     newLocalVolumeResourceData,
-    localVolumeResourceData_groupOwnerSetting,
     localVolumeResourceData_destinationPath,
+    localVolumeResourceData_groupOwnerSetting,
     localVolumeResourceData_sourcePath,
 
     -- * LoggerDefinitionVersion
@@ -293,11 +293,11 @@ module Amazonka.Greengrass.Types
     -- * ResourceDataContainer
     ResourceDataContainer (..),
     newResourceDataContainer,
+    resourceDataContainer_localVolumeResourceData,
+    resourceDataContainer_secretsManagerSecretResourceData,
     resourceDataContainer_s3MachineLearningModelResourceData,
     resourceDataContainer_sageMakerMachineLearningModelResourceData,
-    resourceDataContainer_localVolumeResourceData,
     resourceDataContainer_localDeviceResourceData,
-    resourceDataContainer_secretsManagerSecretResourceData,
 
     -- * ResourceDefinitionVersion
     ResourceDefinitionVersion (..),
@@ -318,16 +318,16 @@ module Amazonka.Greengrass.Types
     -- * S3MachineLearningModelResourceData
     S3MachineLearningModelResourceData (..),
     newS3MachineLearningModelResourceData,
-    s3MachineLearningModelResourceData_ownerSetting,
     s3MachineLearningModelResourceData_destinationPath,
+    s3MachineLearningModelResourceData_ownerSetting,
     s3MachineLearningModelResourceData_s3Uri,
 
     -- * SageMakerMachineLearningModelResourceData
     SageMakerMachineLearningModelResourceData (..),
     newSageMakerMachineLearningModelResourceData,
-    sageMakerMachineLearningModelResourceData_ownerSetting,
-    sageMakerMachineLearningModelResourceData_sageMakerJobArn,
     sageMakerMachineLearningModelResourceData_destinationPath,
+    sageMakerMachineLearningModelResourceData_sageMakerJobArn,
+    sageMakerMachineLearningModelResourceData_ownerSetting,
 
     -- * SecretsManagerSecretResourceData
     SecretsManagerSecretResourceData (..),
@@ -363,9 +363,9 @@ module Amazonka.Greengrass.Types
     VersionInformation (..),
     newVersionInformation,
     versionInformation_arn,
+    versionInformation_id,
     versionInformation_creationTimestamp,
     versionInformation_version,
-    versionInformation_id,
   )
 where
 
@@ -457,35 +457,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -494,12 +467,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | General error information.

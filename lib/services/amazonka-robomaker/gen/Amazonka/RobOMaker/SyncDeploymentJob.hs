@@ -36,14 +36,14 @@ module Amazonka.RobOMaker.SyncDeploymentJob
     newSyncDeploymentJobResponse,
 
     -- * Response Lenses
-    syncDeploymentJobResponse_failureReason,
-    syncDeploymentJobResponse_status,
     syncDeploymentJobResponse_deploymentApplicationConfigs,
-    syncDeploymentJobResponse_arn,
-    syncDeploymentJobResponse_createdAt,
     syncDeploymentJobResponse_failureCode,
-    syncDeploymentJobResponse_deploymentConfig,
     syncDeploymentJobResponse_fleet,
+    syncDeploymentJobResponse_arn,
+    syncDeploymentJobResponse_status,
+    syncDeploymentJobResponse_deploymentConfig,
+    syncDeploymentJobResponse_createdAt,
+    syncDeploymentJobResponse_failureReason,
     syncDeploymentJobResponse_httpStatus,
   )
 where
@@ -108,14 +108,14 @@ instance Core.AWSRequest SyncDeploymentJob where
     Response.receiveJSON
       ( \s h x ->
           SyncDeploymentJobResponse'
-            Prelude.<$> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "deploymentApplicationConfigs")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<$> (x Core..?> "deploymentApplicationConfigs")
             Prelude.<*> (x Core..?> "failureCode")
-            Prelude.<*> (x Core..?> "deploymentConfig")
             Prelude.<*> (x Core..?> "fleet")
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "deploymentConfig")
+            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,16 +158,8 @@ instance Core.ToQuery SyncDeploymentJob where
 
 -- | /See:/ 'newSyncDeploymentJobResponse' smart constructor.
 data SyncDeploymentJobResponse = SyncDeploymentJobResponse'
-  { -- | The failure reason if the job fails.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The status of the synchronization job.
-    status :: Prelude.Maybe DeploymentStatus,
-    -- | Information about the deployment application configurations.
+  { -- | Information about the deployment application configurations.
     deploymentApplicationConfigs :: Prelude.Maybe (Prelude.NonEmpty DeploymentApplicationConfig),
-    -- | The Amazon Resource Name (ARN) of the synchronization request.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the fleet was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The failure code if the job fails:
     --
     -- [InternalServiceError]
@@ -217,10 +209,18 @@ data SyncDeploymentJobResponse = SyncDeploymentJobResponse'
     --     Etag for SimulationApplication does not match value during version
     --     creation.
     failureCode :: Prelude.Maybe DeploymentJobErrorCode,
-    -- | Information about the deployment configuration.
-    deploymentConfig :: Prelude.Maybe DeploymentConfig,
     -- | The Amazon Resource Name (ARN) of the fleet.
     fleet :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the synchronization request.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the synchronization job.
+    status :: Prelude.Maybe DeploymentStatus,
+    -- | Information about the deployment configuration.
+    deploymentConfig :: Prelude.Maybe DeploymentConfig,
+    -- | The time, in milliseconds since the epoch, when the fleet was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The failure reason if the job fails.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,15 +234,7 @@ data SyncDeploymentJobResponse = SyncDeploymentJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'syncDeploymentJobResponse_failureReason' - The failure reason if the job fails.
---
--- 'status', 'syncDeploymentJobResponse_status' - The status of the synchronization job.
---
 -- 'deploymentApplicationConfigs', 'syncDeploymentJobResponse_deploymentApplicationConfigs' - Information about the deployment application configurations.
---
--- 'arn', 'syncDeploymentJobResponse_arn' - The Amazon Resource Name (ARN) of the synchronization request.
---
--- 'createdAt', 'syncDeploymentJobResponse_createdAt' - The time, in milliseconds since the epoch, when the fleet was created.
 --
 -- 'failureCode', 'syncDeploymentJobResponse_failureCode' - The failure code if the job fails:
 --
@@ -293,9 +285,17 @@ data SyncDeploymentJobResponse = SyncDeploymentJobResponse'
 --     Etag for SimulationApplication does not match value during version
 --     creation.
 --
+-- 'fleet', 'syncDeploymentJobResponse_fleet' - The Amazon Resource Name (ARN) of the fleet.
+--
+-- 'arn', 'syncDeploymentJobResponse_arn' - The Amazon Resource Name (ARN) of the synchronization request.
+--
+-- 'status', 'syncDeploymentJobResponse_status' - The status of the synchronization job.
+--
 -- 'deploymentConfig', 'syncDeploymentJobResponse_deploymentConfig' - Information about the deployment configuration.
 --
--- 'fleet', 'syncDeploymentJobResponse_fleet' - The Amazon Resource Name (ARN) of the fleet.
+-- 'createdAt', 'syncDeploymentJobResponse_createdAt' - The time, in milliseconds since the epoch, when the fleet was created.
+--
+-- 'failureReason', 'syncDeploymentJobResponse_failureReason' - The failure reason if the job fails.
 --
 -- 'httpStatus', 'syncDeploymentJobResponse_httpStatus' - The response's http status code.
 newSyncDeploymentJobResponse ::
@@ -304,37 +304,21 @@ newSyncDeploymentJobResponse ::
   SyncDeploymentJobResponse
 newSyncDeploymentJobResponse pHttpStatus_ =
   SyncDeploymentJobResponse'
-    { failureReason =
+    { deploymentApplicationConfigs =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      deploymentApplicationConfigs = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       failureCode = Prelude.Nothing,
-      deploymentConfig = Prelude.Nothing,
       fleet = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      deploymentConfig = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The failure reason if the job fails.
-syncDeploymentJobResponse_failureReason :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe Prelude.Text)
-syncDeploymentJobResponse_failureReason = Lens.lens (\SyncDeploymentJobResponse' {failureReason} -> failureReason) (\s@SyncDeploymentJobResponse' {} a -> s {failureReason = a} :: SyncDeploymentJobResponse)
-
--- | The status of the synchronization job.
-syncDeploymentJobResponse_status :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe DeploymentStatus)
-syncDeploymentJobResponse_status = Lens.lens (\SyncDeploymentJobResponse' {status} -> status) (\s@SyncDeploymentJobResponse' {} a -> s {status = a} :: SyncDeploymentJobResponse)
 
 -- | Information about the deployment application configurations.
 syncDeploymentJobResponse_deploymentApplicationConfigs :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe (Prelude.NonEmpty DeploymentApplicationConfig))
 syncDeploymentJobResponse_deploymentApplicationConfigs = Lens.lens (\SyncDeploymentJobResponse' {deploymentApplicationConfigs} -> deploymentApplicationConfigs) (\s@SyncDeploymentJobResponse' {} a -> s {deploymentApplicationConfigs = a} :: SyncDeploymentJobResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the synchronization request.
-syncDeploymentJobResponse_arn :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe Prelude.Text)
-syncDeploymentJobResponse_arn = Lens.lens (\SyncDeploymentJobResponse' {arn} -> arn) (\s@SyncDeploymentJobResponse' {} a -> s {arn = a} :: SyncDeploymentJobResponse)
-
--- | The time, in milliseconds since the epoch, when the fleet was created.
-syncDeploymentJobResponse_createdAt :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe Prelude.UTCTime)
-syncDeploymentJobResponse_createdAt = Lens.lens (\SyncDeploymentJobResponse' {createdAt} -> createdAt) (\s@SyncDeploymentJobResponse' {} a -> s {createdAt = a} :: SyncDeploymentJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The failure code if the job fails:
 --
@@ -387,13 +371,29 @@ syncDeploymentJobResponse_createdAt = Lens.lens (\SyncDeploymentJobResponse' {cr
 syncDeploymentJobResponse_failureCode :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe DeploymentJobErrorCode)
 syncDeploymentJobResponse_failureCode = Lens.lens (\SyncDeploymentJobResponse' {failureCode} -> failureCode) (\s@SyncDeploymentJobResponse' {} a -> s {failureCode = a} :: SyncDeploymentJobResponse)
 
+-- | The Amazon Resource Name (ARN) of the fleet.
+syncDeploymentJobResponse_fleet :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe Prelude.Text)
+syncDeploymentJobResponse_fleet = Lens.lens (\SyncDeploymentJobResponse' {fleet} -> fleet) (\s@SyncDeploymentJobResponse' {} a -> s {fleet = a} :: SyncDeploymentJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the synchronization request.
+syncDeploymentJobResponse_arn :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe Prelude.Text)
+syncDeploymentJobResponse_arn = Lens.lens (\SyncDeploymentJobResponse' {arn} -> arn) (\s@SyncDeploymentJobResponse' {} a -> s {arn = a} :: SyncDeploymentJobResponse)
+
+-- | The status of the synchronization job.
+syncDeploymentJobResponse_status :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe DeploymentStatus)
+syncDeploymentJobResponse_status = Lens.lens (\SyncDeploymentJobResponse' {status} -> status) (\s@SyncDeploymentJobResponse' {} a -> s {status = a} :: SyncDeploymentJobResponse)
+
 -- | Information about the deployment configuration.
 syncDeploymentJobResponse_deploymentConfig :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe DeploymentConfig)
 syncDeploymentJobResponse_deploymentConfig = Lens.lens (\SyncDeploymentJobResponse' {deploymentConfig} -> deploymentConfig) (\s@SyncDeploymentJobResponse' {} a -> s {deploymentConfig = a} :: SyncDeploymentJobResponse)
 
--- | The Amazon Resource Name (ARN) of the fleet.
-syncDeploymentJobResponse_fleet :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe Prelude.Text)
-syncDeploymentJobResponse_fleet = Lens.lens (\SyncDeploymentJobResponse' {fleet} -> fleet) (\s@SyncDeploymentJobResponse' {} a -> s {fleet = a} :: SyncDeploymentJobResponse)
+-- | The time, in milliseconds since the epoch, when the fleet was created.
+syncDeploymentJobResponse_createdAt :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe Prelude.UTCTime)
+syncDeploymentJobResponse_createdAt = Lens.lens (\SyncDeploymentJobResponse' {createdAt} -> createdAt) (\s@SyncDeploymentJobResponse' {} a -> s {createdAt = a} :: SyncDeploymentJobResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The failure reason if the job fails.
+syncDeploymentJobResponse_failureReason :: Lens.Lens' SyncDeploymentJobResponse (Prelude.Maybe Prelude.Text)
+syncDeploymentJobResponse_failureReason = Lens.lens (\SyncDeploymentJobResponse' {failureReason} -> failureReason) (\s@SyncDeploymentJobResponse' {} a -> s {failureReason = a} :: SyncDeploymentJobResponse)
 
 -- | The response's http status code.
 syncDeploymentJobResponse_httpStatus :: Lens.Lens' SyncDeploymentJobResponse Prelude.Int
@@ -401,12 +401,12 @@ syncDeploymentJobResponse_httpStatus = Lens.lens (\SyncDeploymentJobResponse' {h
 
 instance Prelude.NFData SyncDeploymentJobResponse where
   rnf SyncDeploymentJobResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf deploymentApplicationConfigs
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf deploymentApplicationConfigs
       `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf deploymentConfig
       `Prelude.seq` Prelude.rnf fleet
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus

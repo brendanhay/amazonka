@@ -28,9 +28,9 @@ module Amazonka.AlexaBusiness.SearchContacts
     newSearchContacts,
 
     -- * Request Lenses
-    searchContacts_filters,
     searchContacts_sortCriteria,
     searchContacts_nextToken,
+    searchContacts_filters,
     searchContacts_maxResults,
 
     -- * Destructuring the Response
@@ -54,11 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchContacts' smart constructor.
 data SearchContacts = SearchContacts'
-  { -- | The filters to use to list a specified set of address books. The
-    -- supported filter keys are DisplayName, FirstName, LastName, and
-    -- AddressBookArns.
-    filters :: Prelude.Maybe [Filter],
-    -- | The sort order to use in listing the specified set of contacts. The
+  { -- | The sort order to use in listing the specified set of contacts. The
     -- supported sort keys are DisplayName, FirstName, and LastName.
     sortCriteria :: Prelude.Maybe [Sort],
     -- | An optional token returned from a prior request. Use this token for
@@ -66,6 +62,10 @@ data SearchContacts = SearchContacts'
     -- the response only includes results beyond the token, up to the value
     -- specified by MaxResults.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The filters to use to list a specified set of address books. The
+    -- supported filter keys are DisplayName, FirstName, LastName, and
+    -- AddressBookArns.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
@@ -81,10 +81,6 @@ data SearchContacts = SearchContacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'searchContacts_filters' - The filters to use to list a specified set of address books. The
--- supported filter keys are DisplayName, FirstName, LastName, and
--- AddressBookArns.
---
 -- 'sortCriteria', 'searchContacts_sortCriteria' - The sort order to use in listing the specified set of contacts. The
 -- supported sort keys are DisplayName, FirstName, and LastName.
 --
@@ -93,6 +89,10 @@ data SearchContacts = SearchContacts'
 -- the response only includes results beyond the token, up to the value
 -- specified by MaxResults.
 --
+-- 'filters', 'searchContacts_filters' - The filters to use to list a specified set of address books. The
+-- supported filter keys are DisplayName, FirstName, LastName, and
+-- AddressBookArns.
+--
 -- 'maxResults', 'searchContacts_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
@@ -100,17 +100,11 @@ newSearchContacts ::
   SearchContacts
 newSearchContacts =
   SearchContacts'
-    { filters = Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
+    { sortCriteria = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The filters to use to list a specified set of address books. The
--- supported filter keys are DisplayName, FirstName, LastName, and
--- AddressBookArns.
-searchContacts_filters :: Lens.Lens' SearchContacts (Prelude.Maybe [Filter])
-searchContacts_filters = Lens.lens (\SearchContacts' {filters} -> filters) (\s@SearchContacts' {} a -> s {filters = a} :: SearchContacts) Prelude.. Lens.mapping Lens.coerced
 
 -- | The sort order to use in listing the specified set of contacts. The
 -- supported sort keys are DisplayName, FirstName, and LastName.
@@ -123,6 +117,12 @@ searchContacts_sortCriteria = Lens.lens (\SearchContacts' {sortCriteria} -> sort
 -- specified by MaxResults.
 searchContacts_nextToken :: Lens.Lens' SearchContacts (Prelude.Maybe Prelude.Text)
 searchContacts_nextToken = Lens.lens (\SearchContacts' {nextToken} -> nextToken) (\s@SearchContacts' {} a -> s {nextToken = a} :: SearchContacts)
+
+-- | The filters to use to list a specified set of address books. The
+-- supported filter keys are DisplayName, FirstName, LastName, and
+-- AddressBookArns.
+searchContacts_filters :: Lens.Lens' SearchContacts (Prelude.Maybe [Filter])
+searchContacts_filters = Lens.lens (\SearchContacts' {filters} -> filters) (\s@SearchContacts' {} a -> s {filters = a} :: SearchContacts) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified MaxResults value, a token is included
@@ -147,16 +147,16 @@ instance Core.AWSRequest SearchContacts where
 
 instance Prelude.Hashable SearchContacts where
   hashWithSalt _salt SearchContacts' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortCriteria
+    _salt `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData SearchContacts where
   rnf SearchContacts' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchContacts where
@@ -178,9 +178,9 @@ instance Core.ToJSON SearchContacts where
   toJSON SearchContacts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
+          [ ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

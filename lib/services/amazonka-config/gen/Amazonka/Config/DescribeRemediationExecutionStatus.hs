@@ -34,8 +34,8 @@ module Amazonka.Config.DescribeRemediationExecutionStatus
 
     -- * Request Lenses
     describeRemediationExecutionStatus_nextToken,
-    describeRemediationExecutionStatus_limit,
     describeRemediationExecutionStatus_resourceKeys,
+    describeRemediationExecutionStatus_limit,
     describeRemediationExecutionStatus_configRuleName,
 
     -- * Destructuring the Response
@@ -61,12 +61,12 @@ data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of RemediationExecutionStatuses returned on each
-    -- page. The default is maximum. If you specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | A list of resource keys to be processed with the current request. Each
     -- element in the list consists of the resource type and resource ID.
     resourceKeys :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
+    -- | The maximum number of RemediationExecutionStatuses returned on each
+    -- page. The default is maximum. If you specify 0, Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | A list of Config rule names.
     configRuleName :: Prelude.Text
   }
@@ -83,11 +83,11 @@ data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
 -- 'nextToken', 'describeRemediationExecutionStatus_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
--- 'limit', 'describeRemediationExecutionStatus_limit' - The maximum number of RemediationExecutionStatuses returned on each
--- page. The default is maximum. If you specify 0, Config uses the default.
---
 -- 'resourceKeys', 'describeRemediationExecutionStatus_resourceKeys' - A list of resource keys to be processed with the current request. Each
 -- element in the list consists of the resource type and resource ID.
+--
+-- 'limit', 'describeRemediationExecutionStatus_limit' - The maximum number of RemediationExecutionStatuses returned on each
+-- page. The default is maximum. If you specify 0, Config uses the default.
 --
 -- 'configRuleName', 'describeRemediationExecutionStatus_configRuleName' - A list of Config rule names.
 newDescribeRemediationExecutionStatus ::
@@ -99,8 +99,8 @@ newDescribeRemediationExecutionStatus
     DescribeRemediationExecutionStatus'
       { nextToken =
           Prelude.Nothing,
-        limit = Prelude.Nothing,
         resourceKeys = Prelude.Nothing,
+        limit = Prelude.Nothing,
         configRuleName = pConfigRuleName_
       }
 
@@ -109,15 +109,15 @@ newDescribeRemediationExecutionStatus
 describeRemediationExecutionStatus_nextToken :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe Prelude.Text)
 describeRemediationExecutionStatus_nextToken = Lens.lens (\DescribeRemediationExecutionStatus' {nextToken} -> nextToken) (\s@DescribeRemediationExecutionStatus' {} a -> s {nextToken = a} :: DescribeRemediationExecutionStatus)
 
--- | The maximum number of RemediationExecutionStatuses returned on each
--- page. The default is maximum. If you specify 0, Config uses the default.
-describeRemediationExecutionStatus_limit :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe Prelude.Natural)
-describeRemediationExecutionStatus_limit = Lens.lens (\DescribeRemediationExecutionStatus' {limit} -> limit) (\s@DescribeRemediationExecutionStatus' {} a -> s {limit = a} :: DescribeRemediationExecutionStatus)
-
 -- | A list of resource keys to be processed with the current request. Each
 -- element in the list consists of the resource type and resource ID.
 describeRemediationExecutionStatus_resourceKeys :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
 describeRemediationExecutionStatus_resourceKeys = Lens.lens (\DescribeRemediationExecutionStatus' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExecutionStatus' {} a -> s {resourceKeys = a} :: DescribeRemediationExecutionStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of RemediationExecutionStatuses returned on each
+-- page. The default is maximum. If you specify 0, Config uses the default.
+describeRemediationExecutionStatus_limit :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe Prelude.Natural)
+describeRemediationExecutionStatus_limit = Lens.lens (\DescribeRemediationExecutionStatus' {limit} -> limit) (\s@DescribeRemediationExecutionStatus' {} a -> s {limit = a} :: DescribeRemediationExecutionStatus)
 
 -- | A list of Config rule names.
 describeRemediationExecutionStatus_configRuleName :: Lens.Lens' DescribeRemediationExecutionStatus Prelude.Text
@@ -175,8 +175,8 @@ instance
     _salt
     DescribeRemediationExecutionStatus' {..} =
       _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` resourceKeys
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` configRuleName
 
 instance
@@ -185,8 +185,8 @@ instance
   where
   rnf DescribeRemediationExecutionStatus' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf resourceKeys
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf configRuleName
 
 instance
@@ -215,8 +215,8 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
             ("ResourceKeys" Core..=) Prelude.<$> resourceKeys,
+            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ("ConfigRuleName" Core..= configRuleName)
           ]

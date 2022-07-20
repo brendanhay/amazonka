@@ -64,8 +64,8 @@ module Amazonka.CloudFormation.DetectStackSetDrift
     newDetectStackSetDrift,
 
     -- * Request Lenses
-    detectStackSetDrift_callAs,
     detectStackSetDrift_operationPreferences,
+    detectStackSetDrift_callAs,
     detectStackSetDrift_operationId,
     detectStackSetDrift_stackSetName,
 
@@ -88,7 +88,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectStackSetDrift' smart constructor.
 data DetectStackSetDrift = DetectStackSetDrift'
-  { -- | [Service-managed permissions] Specifies whether you are acting as an
+  { operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
     --
@@ -105,7 +106,6 @@ data DetectStackSetDrift = DetectStackSetDrift'
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
-    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | /The ID of the stack set operation./
     operationId :: Prelude.Maybe Prelude.Text,
     -- | The name of the stack set on which to perform the drift detection
@@ -121,6 +121,8 @@ data DetectStackSetDrift = DetectStackSetDrift'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'operationPreferences', 'detectStackSetDrift_operationPreferences' - Undocumented member.
 --
 -- 'callAs', 'detectStackSetDrift_callAs' - [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -139,8 +141,6 @@ data DetectStackSetDrift = DetectStackSetDrift'
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /CloudFormation User Guide/.
 --
--- 'operationPreferences', 'detectStackSetDrift_operationPreferences' - Undocumented member.
---
 -- 'operationId', 'detectStackSetDrift_operationId' - /The ID of the stack set operation./
 --
 -- 'stackSetName', 'detectStackSetDrift_stackSetName' - The name of the stack set on which to perform the drift detection
@@ -151,11 +151,16 @@ newDetectStackSetDrift ::
   DetectStackSetDrift
 newDetectStackSetDrift pStackSetName_ =
   DetectStackSetDrift'
-    { callAs = Prelude.Nothing,
-      operationPreferences = Prelude.Nothing,
+    { operationPreferences =
+        Prelude.Nothing,
+      callAs = Prelude.Nothing,
       operationId = Prelude.Nothing,
       stackSetName = pStackSetName_
     }
+
+-- | Undocumented member.
+detectStackSetDrift_operationPreferences :: Lens.Lens' DetectStackSetDrift (Prelude.Maybe StackSetOperationPreferences)
+detectStackSetDrift_operationPreferences = Lens.lens (\DetectStackSetDrift' {operationPreferences} -> operationPreferences) (\s@DetectStackSetDrift' {} a -> s {operationPreferences = a} :: DetectStackSetDrift)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -175,10 +180,6 @@ newDetectStackSetDrift pStackSetName_ =
 --     in the /CloudFormation User Guide/.
 detectStackSetDrift_callAs :: Lens.Lens' DetectStackSetDrift (Prelude.Maybe CallAs)
 detectStackSetDrift_callAs = Lens.lens (\DetectStackSetDrift' {callAs} -> callAs) (\s@DetectStackSetDrift' {} a -> s {callAs = a} :: DetectStackSetDrift)
-
--- | Undocumented member.
-detectStackSetDrift_operationPreferences :: Lens.Lens' DetectStackSetDrift (Prelude.Maybe StackSetOperationPreferences)
-detectStackSetDrift_operationPreferences = Lens.lens (\DetectStackSetDrift' {operationPreferences} -> operationPreferences) (\s@DetectStackSetDrift' {} a -> s {operationPreferences = a} :: DetectStackSetDrift)
 
 -- | /The ID of the stack set operation./
 detectStackSetDrift_operationId :: Lens.Lens' DetectStackSetDrift (Prelude.Maybe Prelude.Text)
@@ -205,15 +206,15 @@ instance Core.AWSRequest DetectStackSetDrift where
 
 instance Prelude.Hashable DetectStackSetDrift where
   hashWithSalt _salt DetectStackSetDrift' {..} =
-    _salt `Prelude.hashWithSalt` callAs
-      `Prelude.hashWithSalt` operationPreferences
+    _salt `Prelude.hashWithSalt` operationPreferences
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` operationId
       `Prelude.hashWithSalt` stackSetName
 
 instance Prelude.NFData DetectStackSetDrift where
   rnf DetectStackSetDrift' {..} =
-    Prelude.rnf callAs
-      `Prelude.seq` Prelude.rnf operationPreferences
+    Prelude.rnf operationPreferences
+      `Prelude.seq` Prelude.rnf callAs
       `Prelude.seq` Prelude.rnf operationId
       `Prelude.seq` Prelude.rnf stackSetName
 
@@ -230,8 +231,8 @@ instance Core.ToQuery DetectStackSetDrift where
           Core.=: ("DetectStackSetDrift" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Core.=: callAs,
         "OperationPreferences" Core.=: operationPreferences,
+        "CallAs" Core.=: callAs,
         "OperationId" Core.=: operationId,
         "StackSetName" Core.=: stackSetName
       ]

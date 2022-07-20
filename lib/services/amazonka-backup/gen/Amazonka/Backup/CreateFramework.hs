@@ -31,8 +31,8 @@ module Amazonka.Backup.CreateFramework
     newCreateFramework,
 
     -- * Request Lenses
-    createFramework_idempotencyToken,
     createFramework_frameworkDescription,
+    createFramework_idempotencyToken,
     createFramework_frameworkTags,
     createFramework_frameworkName,
     createFramework_frameworkControls,
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFramework' smart constructor.
 data CreateFramework = CreateFramework'
-  { -- | A customer-chosen string that you can use to distinguish between
+  { -- | An optional description of the framework with a maximum of 1,024
+    -- characters.
+    frameworkDescription :: Prelude.Maybe Prelude.Text,
+    -- | A customer-chosen string that you can use to distinguish between
     -- otherwise identical calls to @CreateFrameworkInput@. Retrying a
     -- successful request with the same idempotency token results in a success
     -- message with no action taken.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional description of the framework with a maximum of 1,024
-    -- characters.
-    frameworkDescription :: Prelude.Maybe Prelude.Text,
     -- | Metadata that you can assign to help organize the frameworks that you
     -- create. Each tag is a key-value pair.
     frameworkTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -86,13 +86,13 @@ data CreateFramework = CreateFramework'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'frameworkDescription', 'createFramework_frameworkDescription' - An optional description of the framework with a maximum of 1,024
+-- characters.
+--
 -- 'idempotencyToken', 'createFramework_idempotencyToken' - A customer-chosen string that you can use to distinguish between
 -- otherwise identical calls to @CreateFrameworkInput@. Retrying a
 -- successful request with the same idempotency token results in a success
 -- message with no action taken.
---
--- 'frameworkDescription', 'createFramework_frameworkDescription' - An optional description of the framework with a maximum of 1,024
--- characters.
 --
 -- 'frameworkTags', 'createFramework_frameworkTags' - Metadata that you can assign to help organize the frameworks that you
 -- create. Each tag is a key-value pair.
@@ -109,13 +109,18 @@ newCreateFramework ::
   CreateFramework
 newCreateFramework pFrameworkName_ =
   CreateFramework'
-    { idempotencyToken =
+    { frameworkDescription =
         Prelude.Nothing,
-      frameworkDescription = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
       frameworkTags = Prelude.Nothing,
       frameworkName = pFrameworkName_,
       frameworkControls = Prelude.mempty
     }
+
+-- | An optional description of the framework with a maximum of 1,024
+-- characters.
+createFramework_frameworkDescription :: Lens.Lens' CreateFramework (Prelude.Maybe Prelude.Text)
+createFramework_frameworkDescription = Lens.lens (\CreateFramework' {frameworkDescription} -> frameworkDescription) (\s@CreateFramework' {} a -> s {frameworkDescription = a} :: CreateFramework)
 
 -- | A customer-chosen string that you can use to distinguish between
 -- otherwise identical calls to @CreateFrameworkInput@. Retrying a
@@ -123,11 +128,6 @@ newCreateFramework pFrameworkName_ =
 -- message with no action taken.
 createFramework_idempotencyToken :: Lens.Lens' CreateFramework (Prelude.Maybe Prelude.Text)
 createFramework_idempotencyToken = Lens.lens (\CreateFramework' {idempotencyToken} -> idempotencyToken) (\s@CreateFramework' {} a -> s {idempotencyToken = a} :: CreateFramework)
-
--- | An optional description of the framework with a maximum of 1,024
--- characters.
-createFramework_frameworkDescription :: Lens.Lens' CreateFramework (Prelude.Maybe Prelude.Text)
-createFramework_frameworkDescription = Lens.lens (\CreateFramework' {frameworkDescription} -> frameworkDescription) (\s@CreateFramework' {} a -> s {frameworkDescription = a} :: CreateFramework)
 
 -- | Metadata that you can assign to help organize the frameworks that you
 -- create. Each tag is a key-value pair.
@@ -161,16 +161,16 @@ instance Core.AWSRequest CreateFramework where
 
 instance Prelude.Hashable CreateFramework where
   hashWithSalt _salt CreateFramework' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
-      `Prelude.hashWithSalt` frameworkDescription
+    _salt `Prelude.hashWithSalt` frameworkDescription
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` frameworkTags
       `Prelude.hashWithSalt` frameworkName
       `Prelude.hashWithSalt` frameworkControls
 
 instance Prelude.NFData CreateFramework where
   rnf CreateFramework' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf frameworkDescription
+    Prelude.rnf frameworkDescription
+      `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf frameworkTags
       `Prelude.seq` Prelude.rnf frameworkName
       `Prelude.seq` Prelude.rnf frameworkControls
@@ -190,10 +190,10 @@ instance Core.ToJSON CreateFramework where
   toJSON CreateFramework' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IdempotencyToken" Core..=)
-              Prelude.<$> idempotencyToken,
-            ("FrameworkDescription" Core..=)
+          [ ("FrameworkDescription" Core..=)
               Prelude.<$> frameworkDescription,
+            ("IdempotencyToken" Core..=)
+              Prelude.<$> idempotencyToken,
             ("FrameworkTags" Core..=) Prelude.<$> frameworkTags,
             Prelude.Just ("FrameworkName" Core..= frameworkName),
             Prelude.Just

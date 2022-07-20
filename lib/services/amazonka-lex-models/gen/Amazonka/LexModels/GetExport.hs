@@ -37,12 +37,12 @@ module Amazonka.LexModels.GetExport
     newGetExportResponse,
 
     -- * Response Lenses
-    getExportResponse_failureReason,
     getExportResponse_resourceType,
-    getExportResponse_exportStatus,
-    getExportResponse_url,
-    getExportResponse_exportType,
     getExportResponse_name,
+    getExportResponse_exportType,
+    getExportResponse_url,
+    getExportResponse_exportStatus,
+    getExportResponse_failureReason,
     getExportResponse_version,
     getExportResponse_httpStatus,
   )
@@ -128,12 +128,12 @@ instance Core.AWSRequest GetExport where
     Response.receiveJSON
       ( \s h x ->
           GetExportResponse'
-            Prelude.<$> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "resourceType")
-            Prelude.<*> (x Core..?> "exportStatus")
-            Prelude.<*> (x Core..?> "url")
-            Prelude.<*> (x Core..?> "exportType")
+            Prelude.<$> (x Core..?> "resourceType")
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "exportType")
+            Prelude.<*> (x Core..?> "url")
+            Prelude.<*> (x Core..?> "exportStatus")
+            Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -177,11 +177,17 @@ instance Core.ToQuery GetExport where
 
 -- | /See:/ 'newGetExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-  { -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
-    -- to export the resource.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The type of the exported resource.
+  { -- | The type of the exported resource.
     resourceType :: Prelude.Maybe ResourceType,
+    -- | The name of the bot being exported.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The format of the exported data.
+    exportType :: Prelude.Maybe ExportType,
+    -- | An S3 pre-signed URL that provides the location of the exported
+    -- resource. The exported resource is a ZIP archive that contains the
+    -- exported resource in JSON format. The structure of the archive may
+    -- change. Your code should not rely on the archive structure.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The status of the export.
     --
     -- -   @IN_PROGRESS@ - The export is in progress.
@@ -190,15 +196,9 @@ data GetExportResponse = GetExportResponse'
     --
     -- -   @FAILED@ - The export could not be completed.
     exportStatus :: Prelude.Maybe ExportStatus,
-    -- | An S3 pre-signed URL that provides the location of the exported
-    -- resource. The exported resource is a ZIP archive that contains the
-    -- exported resource in JSON format. The structure of the archive may
-    -- change. Your code should not rely on the archive structure.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The format of the exported data.
-    exportType :: Prelude.Maybe ExportType,
-    -- | The name of the bot being exported.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+    -- to export the resource.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The version of the bot being exported.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -214,10 +214,16 @@ data GetExportResponse = GetExportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'getExportResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
--- to export the resource.
---
 -- 'resourceType', 'getExportResponse_resourceType' - The type of the exported resource.
+--
+-- 'name', 'getExportResponse_name' - The name of the bot being exported.
+--
+-- 'exportType', 'getExportResponse_exportType' - The format of the exported data.
+--
+-- 'url', 'getExportResponse_url' - An S3 pre-signed URL that provides the location of the exported
+-- resource. The exported resource is a ZIP archive that contains the
+-- exported resource in JSON format. The structure of the archive may
+-- change. Your code should not rely on the archive structure.
 --
 -- 'exportStatus', 'getExportResponse_exportStatus' - The status of the export.
 --
@@ -227,14 +233,8 @@ data GetExportResponse = GetExportResponse'
 --
 -- -   @FAILED@ - The export could not be completed.
 --
--- 'url', 'getExportResponse_url' - An S3 pre-signed URL that provides the location of the exported
--- resource. The exported resource is a ZIP archive that contains the
--- exported resource in JSON format. The structure of the archive may
--- change. Your code should not rely on the archive structure.
---
--- 'exportType', 'getExportResponse_exportType' - The format of the exported data.
---
--- 'name', 'getExportResponse_name' - The name of the bot being exported.
+-- 'failureReason', 'getExportResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+-- to export the resource.
 --
 -- 'version', 'getExportResponse_version' - The version of the bot being exported.
 --
@@ -245,24 +245,34 @@ newGetExportResponse ::
   GetExportResponse
 newGetExportResponse pHttpStatus_ =
   GetExportResponse'
-    { failureReason = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      exportStatus = Prelude.Nothing,
-      url = Prelude.Nothing,
-      exportType = Prelude.Nothing,
+    { resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
+      exportType = Prelude.Nothing,
+      url = Prelude.Nothing,
+      exportStatus = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
--- to export the resource.
-getExportResponse_failureReason :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
-getExportResponse_failureReason = Lens.lens (\GetExportResponse' {failureReason} -> failureReason) (\s@GetExportResponse' {} a -> s {failureReason = a} :: GetExportResponse)
-
 -- | The type of the exported resource.
 getExportResponse_resourceType :: Lens.Lens' GetExportResponse (Prelude.Maybe ResourceType)
 getExportResponse_resourceType = Lens.lens (\GetExportResponse' {resourceType} -> resourceType) (\s@GetExportResponse' {} a -> s {resourceType = a} :: GetExportResponse)
+
+-- | The name of the bot being exported.
+getExportResponse_name :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
+getExportResponse_name = Lens.lens (\GetExportResponse' {name} -> name) (\s@GetExportResponse' {} a -> s {name = a} :: GetExportResponse)
+
+-- | The format of the exported data.
+getExportResponse_exportType :: Lens.Lens' GetExportResponse (Prelude.Maybe ExportType)
+getExportResponse_exportType = Lens.lens (\GetExportResponse' {exportType} -> exportType) (\s@GetExportResponse' {} a -> s {exportType = a} :: GetExportResponse)
+
+-- | An S3 pre-signed URL that provides the location of the exported
+-- resource. The exported resource is a ZIP archive that contains the
+-- exported resource in JSON format. The structure of the archive may
+-- change. Your code should not rely on the archive structure.
+getExportResponse_url :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
+getExportResponse_url = Lens.lens (\GetExportResponse' {url} -> url) (\s@GetExportResponse' {} a -> s {url = a} :: GetExportResponse)
 
 -- | The status of the export.
 --
@@ -274,20 +284,10 @@ getExportResponse_resourceType = Lens.lens (\GetExportResponse' {resourceType} -
 getExportResponse_exportStatus :: Lens.Lens' GetExportResponse (Prelude.Maybe ExportStatus)
 getExportResponse_exportStatus = Lens.lens (\GetExportResponse' {exportStatus} -> exportStatus) (\s@GetExportResponse' {} a -> s {exportStatus = a} :: GetExportResponse)
 
--- | An S3 pre-signed URL that provides the location of the exported
--- resource. The exported resource is a ZIP archive that contains the
--- exported resource in JSON format. The structure of the archive may
--- change. Your code should not rely on the archive structure.
-getExportResponse_url :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
-getExportResponse_url = Lens.lens (\GetExportResponse' {url} -> url) (\s@GetExportResponse' {} a -> s {url = a} :: GetExportResponse)
-
--- | The format of the exported data.
-getExportResponse_exportType :: Lens.Lens' GetExportResponse (Prelude.Maybe ExportType)
-getExportResponse_exportType = Lens.lens (\GetExportResponse' {exportType} -> exportType) (\s@GetExportResponse' {} a -> s {exportType = a} :: GetExportResponse)
-
--- | The name of the bot being exported.
-getExportResponse_name :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
-getExportResponse_name = Lens.lens (\GetExportResponse' {name} -> name) (\s@GetExportResponse' {} a -> s {name = a} :: GetExportResponse)
+-- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+-- to export the resource.
+getExportResponse_failureReason :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
+getExportResponse_failureReason = Lens.lens (\GetExportResponse' {failureReason} -> failureReason) (\s@GetExportResponse' {} a -> s {failureReason = a} :: GetExportResponse)
 
 -- | The version of the bot being exported.
 getExportResponse_version :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
@@ -299,11 +299,11 @@ getExportResponse_httpStatus = Lens.lens (\GetExportResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetExportResponse where
   rnf GetExportResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf exportType
+    Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf exportType
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf exportStatus
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

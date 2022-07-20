@@ -29,12 +29,12 @@ import Amazonka.Transfer.Types.OverwriteExisting
 --
 -- /See:/ 'newCopyStepDetails' smart constructor.
 data CopyStepDetails = CopyStepDetails'
-  { destinationFileLocation :: Prelude.Maybe InputFileLocation,
+  { -- | The name of the step, used as an identifier.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A flag that indicates whether or not to overwrite an existing file of
     -- the same name. The default is @FALSE@.
     overwriteExisting :: Prelude.Maybe OverwriteExisting,
-    -- | The name of the step, used as an identifier.
-    name :: Prelude.Maybe Prelude.Text
+    destinationFileLocation :: Prelude.Maybe InputFileLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,34 +46,33 @@ data CopyStepDetails = CopyStepDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationFileLocation', 'copyStepDetails_destinationFileLocation' - Undocumented member.
+-- 'name', 'copyStepDetails_name' - The name of the step, used as an identifier.
 --
 -- 'overwriteExisting', 'copyStepDetails_overwriteExisting' - A flag that indicates whether or not to overwrite an existing file of
 -- the same name. The default is @FALSE@.
 --
--- 'name', 'copyStepDetails_name' - The name of the step, used as an identifier.
+-- 'destinationFileLocation', 'copyStepDetails_destinationFileLocation' - Undocumented member.
 newCopyStepDetails ::
   CopyStepDetails
 newCopyStepDetails =
   CopyStepDetails'
-    { destinationFileLocation =
-        Prelude.Nothing,
+    { name = Prelude.Nothing,
       overwriteExisting = Prelude.Nothing,
-      name = Prelude.Nothing
+      destinationFileLocation = Prelude.Nothing
     }
 
--- | Undocumented member.
-copyStepDetails_destinationFileLocation :: Lens.Lens' CopyStepDetails (Prelude.Maybe InputFileLocation)
-copyStepDetails_destinationFileLocation = Lens.lens (\CopyStepDetails' {destinationFileLocation} -> destinationFileLocation) (\s@CopyStepDetails' {} a -> s {destinationFileLocation = a} :: CopyStepDetails)
+-- | The name of the step, used as an identifier.
+copyStepDetails_name :: Lens.Lens' CopyStepDetails (Prelude.Maybe Prelude.Text)
+copyStepDetails_name = Lens.lens (\CopyStepDetails' {name} -> name) (\s@CopyStepDetails' {} a -> s {name = a} :: CopyStepDetails)
 
 -- | A flag that indicates whether or not to overwrite an existing file of
 -- the same name. The default is @FALSE@.
 copyStepDetails_overwriteExisting :: Lens.Lens' CopyStepDetails (Prelude.Maybe OverwriteExisting)
 copyStepDetails_overwriteExisting = Lens.lens (\CopyStepDetails' {overwriteExisting} -> overwriteExisting) (\s@CopyStepDetails' {} a -> s {overwriteExisting = a} :: CopyStepDetails)
 
--- | The name of the step, used as an identifier.
-copyStepDetails_name :: Lens.Lens' CopyStepDetails (Prelude.Maybe Prelude.Text)
-copyStepDetails_name = Lens.lens (\CopyStepDetails' {name} -> name) (\s@CopyStepDetails' {} a -> s {name = a} :: CopyStepDetails)
+-- | Undocumented member.
+copyStepDetails_destinationFileLocation :: Lens.Lens' CopyStepDetails (Prelude.Maybe InputFileLocation)
+copyStepDetails_destinationFileLocation = Lens.lens (\CopyStepDetails' {destinationFileLocation} -> destinationFileLocation) (\s@CopyStepDetails' {} a -> s {destinationFileLocation = a} :: CopyStepDetails)
 
 instance Core.FromJSON CopyStepDetails where
   parseJSON =
@@ -81,32 +80,31 @@ instance Core.FromJSON CopyStepDetails where
       "CopyStepDetails"
       ( \x ->
           CopyStepDetails'
-            Prelude.<$> (x Core..:? "DestinationFileLocation")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "OverwriteExisting")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "DestinationFileLocation")
       )
 
 instance Prelude.Hashable CopyStepDetails where
   hashWithSalt _salt CopyStepDetails' {..} =
-    _salt
-      `Prelude.hashWithSalt` destinationFileLocation
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` overwriteExisting
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` destinationFileLocation
 
 instance Prelude.NFData CopyStepDetails where
   rnf CopyStepDetails' {..} =
-    Prelude.rnf destinationFileLocation
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf overwriteExisting
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf destinationFileLocation
 
 instance Core.ToJSON CopyStepDetails where
   toJSON CopyStepDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DestinationFileLocation" Core..=)
-              Prelude.<$> destinationFileLocation,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("OverwriteExisting" Core..=)
               Prelude.<$> overwriteExisting,
-            ("Name" Core..=) Prelude.<$> name
+            ("DestinationFileLocation" Core..=)
+              Prelude.<$> destinationFileLocation
           ]
       )

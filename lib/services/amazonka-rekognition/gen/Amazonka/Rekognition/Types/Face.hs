@@ -29,15 +29,15 @@ import Amazonka.Rekognition.Types.BoundingBox
 --
 -- /See:/ 'newFace' smart constructor.
 data Face = Face'
-  { -- | Unique identifier that Amazon Rekognition assigns to the face.
+  { -- | Confidence level that the bounding box contains a face (and not a
+    -- different object such as a tree).
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | Unique identifier that Amazon Rekognition assigns to the face.
     faceId :: Prelude.Maybe Prelude.Text,
     -- | Bounding box of the face.
     boundingBox :: Prelude.Maybe BoundingBox,
     -- | Identifier that you assign to all the faces in the input image.
     externalImageId :: Prelude.Maybe Prelude.Text,
-    -- | Confidence level that the bounding box contains a face (and not a
-    -- different object such as a tree).
-    confidence :: Prelude.Maybe Prelude.Double,
     -- | Unique identifier that Amazon Rekognition assigns to the input image.
     imageId :: Prelude.Maybe Prelude.Text
   }
@@ -51,26 +51,31 @@ data Face = Face'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'confidence', 'face_confidence' - Confidence level that the bounding box contains a face (and not a
+-- different object such as a tree).
+--
 -- 'faceId', 'face_faceId' - Unique identifier that Amazon Rekognition assigns to the face.
 --
 -- 'boundingBox', 'face_boundingBox' - Bounding box of the face.
 --
 -- 'externalImageId', 'face_externalImageId' - Identifier that you assign to all the faces in the input image.
 --
--- 'confidence', 'face_confidence' - Confidence level that the bounding box contains a face (and not a
--- different object such as a tree).
---
 -- 'imageId', 'face_imageId' - Unique identifier that Amazon Rekognition assigns to the input image.
 newFace ::
   Face
 newFace =
   Face'
-    { faceId = Prelude.Nothing,
+    { confidence = Prelude.Nothing,
+      faceId = Prelude.Nothing,
       boundingBox = Prelude.Nothing,
       externalImageId = Prelude.Nothing,
-      confidence = Prelude.Nothing,
       imageId = Prelude.Nothing
     }
+
+-- | Confidence level that the bounding box contains a face (and not a
+-- different object such as a tree).
+face_confidence :: Lens.Lens' Face (Prelude.Maybe Prelude.Double)
+face_confidence = Lens.lens (\Face' {confidence} -> confidence) (\s@Face' {} a -> s {confidence = a} :: Face)
 
 -- | Unique identifier that Amazon Rekognition assigns to the face.
 face_faceId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
@@ -84,11 +89,6 @@ face_boundingBox = Lens.lens (\Face' {boundingBox} -> boundingBox) (\s@Face' {} 
 face_externalImageId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
 face_externalImageId = Lens.lens (\Face' {externalImageId} -> externalImageId) (\s@Face' {} a -> s {externalImageId = a} :: Face)
 
--- | Confidence level that the bounding box contains a face (and not a
--- different object such as a tree).
-face_confidence :: Lens.Lens' Face (Prelude.Maybe Prelude.Double)
-face_confidence = Lens.lens (\Face' {confidence} -> confidence) (\s@Face' {} a -> s {confidence = a} :: Face)
-
 -- | Unique identifier that Amazon Rekognition assigns to the input image.
 face_imageId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
 face_imageId = Lens.lens (\Face' {imageId} -> imageId) (\s@Face' {} a -> s {imageId = a} :: Face)
@@ -99,25 +99,25 @@ instance Core.FromJSON Face where
       "Face"
       ( \x ->
           Face'
-            Prelude.<$> (x Core..:? "FaceId")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "FaceId")
             Prelude.<*> (x Core..:? "BoundingBox")
             Prelude.<*> (x Core..:? "ExternalImageId")
-            Prelude.<*> (x Core..:? "Confidence")
             Prelude.<*> (x Core..:? "ImageId")
       )
 
 instance Prelude.Hashable Face where
   hashWithSalt _salt Face' {..} =
-    _salt `Prelude.hashWithSalt` faceId
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` faceId
       `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` externalImageId
-      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData Face where
   rnf Face' {..} =
-    Prelude.rnf faceId
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf faceId
       `Prelude.seq` Prelude.rnf boundingBox
       `Prelude.seq` Prelude.rnf externalImageId
-      `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf imageId

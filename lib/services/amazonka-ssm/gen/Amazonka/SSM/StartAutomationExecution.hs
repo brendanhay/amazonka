@@ -27,17 +27,17 @@ module Amazonka.SSM.StartAutomationExecution
     newStartAutomationExecution,
 
     -- * Request Lenses
-    startAutomationExecution_targetParameterName,
-    startAutomationExecution_targetLocations,
-    startAutomationExecution_clientToken,
-    startAutomationExecution_mode,
-    startAutomationExecution_targetMaps,
-    startAutomationExecution_maxErrors,
-    startAutomationExecution_targets,
-    startAutomationExecution_parameters,
-    startAutomationExecution_documentVersion,
     startAutomationExecution_tags,
+    startAutomationExecution_clientToken,
+    startAutomationExecution_targetLocations,
+    startAutomationExecution_targetParameterName,
+    startAutomationExecution_targetMaps,
+    startAutomationExecution_targets,
     startAutomationExecution_maxConcurrency,
+    startAutomationExecution_mode,
+    startAutomationExecution_maxErrors,
+    startAutomationExecution_documentVersion,
+    startAutomationExecution_parameters,
     startAutomationExecution_documentName,
 
     -- * Destructuring the Response
@@ -59,9 +59,23 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newStartAutomationExecution' smart constructor.
 data StartAutomationExecution = StartAutomationExecution'
-  { -- | The name of the parameter used as the target resource for the
-    -- rate-controlled execution. Required if you specify targets.
-    targetParameterName :: Prelude.Maybe Prelude.Text,
+  { -- | Optional metadata that you assign to a resource. You can specify a
+    -- maximum of five tags for an automation. Tags enable you to categorize a
+    -- resource in different ways, such as by purpose, owner, or environment.
+    -- For example, you might want to tag an automation to identify an
+    -- environment or operating system. In this case, you could specify the
+    -- following key-value pairs:
+    --
+    -- -   @Key=environment,Value=test@
+    --
+    -- -   @Key=OS,Value=Windows@
+    --
+    -- To add tags to an existing patch baseline, use the AddTagsToResource
+    -- operation.
+    tags :: Prelude.Maybe [Tag],
+    -- | User-provided idempotency token. The token must be unique, is case
+    -- insensitive, enforces the UUID format, and can\'t be reused.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A location is a combination of Amazon Web Services Regions and\/or
     -- Amazon Web Services accounts where you want to run the automation. Use
     -- this operation to start an automation in multiple Amazon Web Services
@@ -70,15 +84,22 @@ data StartAutomationExecution = StartAutomationExecution'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services accounts>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
-    -- | User-provided idempotency token. The token must be unique, is case
-    -- insensitive, enforces the UUID format, and can\'t be reused.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The execution mode of the automation. Valid modes include the following:
-    -- Auto and Interactive. The default mode is Auto.
-    mode :: Prelude.Maybe ExecutionMode,
+    -- | The name of the parameter used as the target resource for the
+    -- rate-controlled execution. Required if you specify targets.
+    targetParameterName :: Prelude.Maybe Prelude.Text,
     -- | A key-value mapping of document parameters to target resources. Both
     -- Targets and TargetMaps can\'t be specified together.
     targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
+    -- | A key-value mapping to target resources. Required if you specify
+    -- TargetParameterName.
+    targets :: Prelude.Maybe [Target],
+    -- | The maximum number of targets allowed to run this task in parallel. You
+    -- can specify a number, such as 10, or a percentage, such as 10%. The
+    -- default value is @10@.
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    -- | The execution mode of the automation. Valid modes include the following:
+    -- Auto and Interactive. The default mode is Auto.
+    mode :: Prelude.Maybe ExecutionMode,
     -- | The number of errors that are allowed before the system stops running
     -- the automation on additional targets. You can specify either an absolute
     -- number of errors, for example 10, or a percentage of the target set, for
@@ -95,32 +116,11 @@ data StartAutomationExecution = StartAutomationExecution'
     -- failed executions, set max-concurrency to 1 so the executions proceed
     -- one at a time.
     maxErrors :: Prelude.Maybe Prelude.Text,
-    -- | A key-value mapping to target resources. Required if you specify
-    -- TargetParameterName.
-    targets :: Prelude.Maybe [Target],
+    -- | The version of the Automation runbook to use for this execution.
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | A key-value map of execution parameters, which match the declared
     -- parameters in the Automation runbook.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The version of the Automation runbook to use for this execution.
-    documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you assign to a resource. You can specify a
-    -- maximum of five tags for an automation. Tags enable you to categorize a
-    -- resource in different ways, such as by purpose, owner, or environment.
-    -- For example, you might want to tag an automation to identify an
-    -- environment or operating system. In this case, you could specify the
-    -- following key-value pairs:
-    --
-    -- -   @Key=environment,Value=test@
-    --
-    -- -   @Key=OS,Value=Windows@
-    --
-    -- To add tags to an existing patch baseline, use the AddTagsToResource
-    -- operation.
-    tags :: Prelude.Maybe [Tag],
-    -- | The maximum number of targets allowed to run this task in parallel. You
-    -- can specify a number, such as 10, or a percentage, such as 10%. The
-    -- default value is @10@.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | The name of the SSM document to run. This can be a public document or a
     -- custom document. To run a shared document belonging to another account,
     -- specify the document ARN. For more information about how to use shared
@@ -139,8 +139,22 @@ data StartAutomationExecution = StartAutomationExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetParameterName', 'startAutomationExecution_targetParameterName' - The name of the parameter used as the target resource for the
--- rate-controlled execution. Required if you specify targets.
+-- 'tags', 'startAutomationExecution_tags' - Optional metadata that you assign to a resource. You can specify a
+-- maximum of five tags for an automation. Tags enable you to categorize a
+-- resource in different ways, such as by purpose, owner, or environment.
+-- For example, you might want to tag an automation to identify an
+-- environment or operating system. In this case, you could specify the
+-- following key-value pairs:
+--
+-- -   @Key=environment,Value=test@
+--
+-- -   @Key=OS,Value=Windows@
+--
+-- To add tags to an existing patch baseline, use the AddTagsToResource
+-- operation.
+--
+-- 'clientToken', 'startAutomationExecution_clientToken' - User-provided idempotency token. The token must be unique, is case
+-- insensitive, enforces the UUID format, and can\'t be reused.
 --
 -- 'targetLocations', 'startAutomationExecution_targetLocations' - A location is a combination of Amazon Web Services Regions and\/or
 -- Amazon Web Services accounts where you want to run the automation. Use
@@ -150,14 +164,21 @@ data StartAutomationExecution = StartAutomationExecution'
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services accounts>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- 'clientToken', 'startAutomationExecution_clientToken' - User-provided idempotency token. The token must be unique, is case
--- insensitive, enforces the UUID format, and can\'t be reused.
---
--- 'mode', 'startAutomationExecution_mode' - The execution mode of the automation. Valid modes include the following:
--- Auto and Interactive. The default mode is Auto.
+-- 'targetParameterName', 'startAutomationExecution_targetParameterName' - The name of the parameter used as the target resource for the
+-- rate-controlled execution. Required if you specify targets.
 --
 -- 'targetMaps', 'startAutomationExecution_targetMaps' - A key-value mapping of document parameters to target resources. Both
 -- Targets and TargetMaps can\'t be specified together.
+--
+-- 'targets', 'startAutomationExecution_targets' - A key-value mapping to target resources. Required if you specify
+-- TargetParameterName.
+--
+-- 'maxConcurrency', 'startAutomationExecution_maxConcurrency' - The maximum number of targets allowed to run this task in parallel. You
+-- can specify a number, such as 10, or a percentage, such as 10%. The
+-- default value is @10@.
+--
+-- 'mode', 'startAutomationExecution_mode' - The execution mode of the automation. Valid modes include the following:
+-- Auto and Interactive. The default mode is Auto.
 --
 -- 'maxErrors', 'startAutomationExecution_maxErrors' - The number of errors that are allowed before the system stops running
 -- the automation on additional targets. You can specify either an absolute
@@ -175,31 +196,10 @@ data StartAutomationExecution = StartAutomationExecution'
 -- failed executions, set max-concurrency to 1 so the executions proceed
 -- one at a time.
 --
--- 'targets', 'startAutomationExecution_targets' - A key-value mapping to target resources. Required if you specify
--- TargetParameterName.
+-- 'documentVersion', 'startAutomationExecution_documentVersion' - The version of the Automation runbook to use for this execution.
 --
 -- 'parameters', 'startAutomationExecution_parameters' - A key-value map of execution parameters, which match the declared
 -- parameters in the Automation runbook.
---
--- 'documentVersion', 'startAutomationExecution_documentVersion' - The version of the Automation runbook to use for this execution.
---
--- 'tags', 'startAutomationExecution_tags' - Optional metadata that you assign to a resource. You can specify a
--- maximum of five tags for an automation. Tags enable you to categorize a
--- resource in different ways, such as by purpose, owner, or environment.
--- For example, you might want to tag an automation to identify an
--- environment or operating system. In this case, you could specify the
--- following key-value pairs:
---
--- -   @Key=environment,Value=test@
---
--- -   @Key=OS,Value=Windows@
---
--- To add tags to an existing patch baseline, use the AddTagsToResource
--- operation.
---
--- 'maxConcurrency', 'startAutomationExecution_maxConcurrency' - The maximum number of targets allowed to run this task in parallel. You
--- can specify a number, such as 10, or a percentage, such as 10%. The
--- default value is @10@.
 --
 -- 'documentName', 'startAutomationExecution_documentName' - The name of the SSM document to run. This can be a public document or a
 -- custom document. To run a shared document belonging to another account,
@@ -213,25 +213,40 @@ newStartAutomationExecution ::
   StartAutomationExecution
 newStartAutomationExecution pDocumentName_ =
   StartAutomationExecution'
-    { targetParameterName =
-        Prelude.Nothing,
-      targetLocations = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      mode = Prelude.Nothing,
+      targetLocations = Prelude.Nothing,
+      targetParameterName = Prelude.Nothing,
       targetMaps = Prelude.Nothing,
-      maxErrors = Prelude.Nothing,
       targets = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      maxErrors = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       documentName = pDocumentName_
     }
 
--- | The name of the parameter used as the target resource for the
--- rate-controlled execution. Required if you specify targets.
-startAutomationExecution_targetParameterName :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
-startAutomationExecution_targetParameterName = Lens.lens (\StartAutomationExecution' {targetParameterName} -> targetParameterName) (\s@StartAutomationExecution' {} a -> s {targetParameterName = a} :: StartAutomationExecution)
+-- | Optional metadata that you assign to a resource. You can specify a
+-- maximum of five tags for an automation. Tags enable you to categorize a
+-- resource in different ways, such as by purpose, owner, or environment.
+-- For example, you might want to tag an automation to identify an
+-- environment or operating system. In this case, you could specify the
+-- following key-value pairs:
+--
+-- -   @Key=environment,Value=test@
+--
+-- -   @Key=OS,Value=Windows@
+--
+-- To add tags to an existing patch baseline, use the AddTagsToResource
+-- operation.
+startAutomationExecution_tags :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Tag])
+startAutomationExecution_tags = Lens.lens (\StartAutomationExecution' {tags} -> tags) (\s@StartAutomationExecution' {} a -> s {tags = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | User-provided idempotency token. The token must be unique, is case
+-- insensitive, enforces the UUID format, and can\'t be reused.
+startAutomationExecution_clientToken :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_clientToken = Lens.lens (\StartAutomationExecution' {clientToken} -> clientToken) (\s@StartAutomationExecution' {} a -> s {clientToken = a} :: StartAutomationExecution)
 
 -- | A location is a combination of Amazon Web Services Regions and\/or
 -- Amazon Web Services accounts where you want to run the automation. Use
@@ -243,20 +258,31 @@ startAutomationExecution_targetParameterName = Lens.lens (\StartAutomationExecut
 startAutomationExecution_targetLocations :: Lens.Lens' StartAutomationExecution (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
 startAutomationExecution_targetLocations = Lens.lens (\StartAutomationExecution' {targetLocations} -> targetLocations) (\s@StartAutomationExecution' {} a -> s {targetLocations = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced
 
--- | User-provided idempotency token. The token must be unique, is case
--- insensitive, enforces the UUID format, and can\'t be reused.
-startAutomationExecution_clientToken :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
-startAutomationExecution_clientToken = Lens.lens (\StartAutomationExecution' {clientToken} -> clientToken) (\s@StartAutomationExecution' {} a -> s {clientToken = a} :: StartAutomationExecution)
-
--- | The execution mode of the automation. Valid modes include the following:
--- Auto and Interactive. The default mode is Auto.
-startAutomationExecution_mode :: Lens.Lens' StartAutomationExecution (Prelude.Maybe ExecutionMode)
-startAutomationExecution_mode = Lens.lens (\StartAutomationExecution' {mode} -> mode) (\s@StartAutomationExecution' {} a -> s {mode = a} :: StartAutomationExecution)
+-- | The name of the parameter used as the target resource for the
+-- rate-controlled execution. Required if you specify targets.
+startAutomationExecution_targetParameterName :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_targetParameterName = Lens.lens (\StartAutomationExecution' {targetParameterName} -> targetParameterName) (\s@StartAutomationExecution' {} a -> s {targetParameterName = a} :: StartAutomationExecution)
 
 -- | A key-value mapping of document parameters to target resources. Both
 -- Targets and TargetMaps can\'t be specified together.
 startAutomationExecution_targetMaps :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
 startAutomationExecution_targetMaps = Lens.lens (\StartAutomationExecution' {targetMaps} -> targetMaps) (\s@StartAutomationExecution' {} a -> s {targetMaps = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | A key-value mapping to target resources. Required if you specify
+-- TargetParameterName.
+startAutomationExecution_targets :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Target])
+startAutomationExecution_targets = Lens.lens (\StartAutomationExecution' {targets} -> targets) (\s@StartAutomationExecution' {} a -> s {targets = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of targets allowed to run this task in parallel. You
+-- can specify a number, such as 10, or a percentage, such as 10%. The
+-- default value is @10@.
+startAutomationExecution_maxConcurrency :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_maxConcurrency = Lens.lens (\StartAutomationExecution' {maxConcurrency} -> maxConcurrency) (\s@StartAutomationExecution' {} a -> s {maxConcurrency = a} :: StartAutomationExecution)
+
+-- | The execution mode of the automation. Valid modes include the following:
+-- Auto and Interactive. The default mode is Auto.
+startAutomationExecution_mode :: Lens.Lens' StartAutomationExecution (Prelude.Maybe ExecutionMode)
+startAutomationExecution_mode = Lens.lens (\StartAutomationExecution' {mode} -> mode) (\s@StartAutomationExecution' {} a -> s {mode = a} :: StartAutomationExecution)
 
 -- | The number of errors that are allowed before the system stops running
 -- the automation on additional targets. You can specify either an absolute
@@ -276,41 +302,14 @@ startAutomationExecution_targetMaps = Lens.lens (\StartAutomationExecution' {tar
 startAutomationExecution_maxErrors :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
 startAutomationExecution_maxErrors = Lens.lens (\StartAutomationExecution' {maxErrors} -> maxErrors) (\s@StartAutomationExecution' {} a -> s {maxErrors = a} :: StartAutomationExecution)
 
--- | A key-value mapping to target resources. Required if you specify
--- TargetParameterName.
-startAutomationExecution_targets :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Target])
-startAutomationExecution_targets = Lens.lens (\StartAutomationExecution' {targets} -> targets) (\s@StartAutomationExecution' {} a -> s {targets = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced
+-- | The version of the Automation runbook to use for this execution.
+startAutomationExecution_documentVersion :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_documentVersion = Lens.lens (\StartAutomationExecution' {documentVersion} -> documentVersion) (\s@StartAutomationExecution' {} a -> s {documentVersion = a} :: StartAutomationExecution)
 
 -- | A key-value map of execution parameters, which match the declared
 -- parameters in the Automation runbook.
 startAutomationExecution_parameters :: Lens.Lens' StartAutomationExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 startAutomationExecution_parameters = Lens.lens (\StartAutomationExecution' {parameters} -> parameters) (\s@StartAutomationExecution' {} a -> s {parameters = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced
-
--- | The version of the Automation runbook to use for this execution.
-startAutomationExecution_documentVersion :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
-startAutomationExecution_documentVersion = Lens.lens (\StartAutomationExecution' {documentVersion} -> documentVersion) (\s@StartAutomationExecution' {} a -> s {documentVersion = a} :: StartAutomationExecution)
-
--- | Optional metadata that you assign to a resource. You can specify a
--- maximum of five tags for an automation. Tags enable you to categorize a
--- resource in different ways, such as by purpose, owner, or environment.
--- For example, you might want to tag an automation to identify an
--- environment or operating system. In this case, you could specify the
--- following key-value pairs:
---
--- -   @Key=environment,Value=test@
---
--- -   @Key=OS,Value=Windows@
---
--- To add tags to an existing patch baseline, use the AddTagsToResource
--- operation.
-startAutomationExecution_tags :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Tag])
-startAutomationExecution_tags = Lens.lens (\StartAutomationExecution' {tags} -> tags) (\s@StartAutomationExecution' {} a -> s {tags = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of targets allowed to run this task in parallel. You
--- can specify a number, such as 10, or a percentage, such as 10%. The
--- default value is @10@.
-startAutomationExecution_maxConcurrency :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
-startAutomationExecution_maxConcurrency = Lens.lens (\StartAutomationExecution' {maxConcurrency} -> maxConcurrency) (\s@StartAutomationExecution' {} a -> s {maxConcurrency = a} :: StartAutomationExecution)
 
 -- | The name of the SSM document to run. This can be a public document or a
 -- custom document. To run a shared document belonging to another account,
@@ -336,32 +335,32 @@ instance Core.AWSRequest StartAutomationExecution where
 
 instance Prelude.Hashable StartAutomationExecution where
   hashWithSalt _salt StartAutomationExecution' {..} =
-    _salt `Prelude.hashWithSalt` targetParameterName
-      `Prelude.hashWithSalt` targetLocations
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` targetLocations
+      `Prelude.hashWithSalt` targetParameterName
       `Prelude.hashWithSalt` targetMaps
-      `Prelude.hashWithSalt` maxErrors
       `Prelude.hashWithSalt` targets
-      `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` documentVersion
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` maxErrors
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` documentName
 
 instance Prelude.NFData StartAutomationExecution where
   rnf StartAutomationExecution' {..} =
-    Prelude.rnf targetParameterName
-      `Prelude.seq` Prelude.rnf targetLocations
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf targetLocations
+      `Prelude.seq` Prelude.rnf targetParameterName
       `Prelude.seq` Prelude.rnf targetMaps
-      `Prelude.seq` Prelude.rnf maxErrors
       `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf documentName
 
 instance Core.ToHeaders StartAutomationExecution where
@@ -383,21 +382,21 @@ instance Core.ToJSON StartAutomationExecution where
   toJSON StartAutomationExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TargetParameterName" Core..=)
-              Prelude.<$> targetParameterName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
             ("TargetLocations" Core..=)
               Prelude.<$> targetLocations,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Mode" Core..=) Prelude.<$> mode,
+            ("TargetParameterName" Core..=)
+              Prelude.<$> targetParameterName,
             ("TargetMaps" Core..=) Prelude.<$> targetMaps,
-            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
             ("Targets" Core..=) Prelude.<$> targets,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            ("DocumentVersion" Core..=)
-              Prelude.<$> documentVersion,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
+            ("Mode" Core..=) Prelude.<$> mode,
+            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("DocumentName" Core..= documentName)
           ]
       )

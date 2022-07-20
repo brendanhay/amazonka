@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newS3BucketCriteriaForJob' smart constructor.
 data S3BucketCriteriaForJob = S3BucketCriteriaForJob'
   { -- | The property- and tag-based conditions that determine which buckets to
-    -- include in the job.
-    includes :: Prelude.Maybe CriteriaBlockForJob,
-    -- | The property- and tag-based conditions that determine which buckets to
     -- exclude from the job.
-    excludes :: Prelude.Maybe CriteriaBlockForJob
+    excludes :: Prelude.Maybe CriteriaBlockForJob,
+    -- | The property- and tag-based conditions that determine which buckets to
+    -- include in the job.
+    includes :: Prelude.Maybe CriteriaBlockForJob
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,28 @@ data S3BucketCriteriaForJob = S3BucketCriteriaForJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includes', 's3BucketCriteriaForJob_includes' - The property- and tag-based conditions that determine which buckets to
--- include in the job.
---
 -- 'excludes', 's3BucketCriteriaForJob_excludes' - The property- and tag-based conditions that determine which buckets to
 -- exclude from the job.
+--
+-- 'includes', 's3BucketCriteriaForJob_includes' - The property- and tag-based conditions that determine which buckets to
+-- include in the job.
 newS3BucketCriteriaForJob ::
   S3BucketCriteriaForJob
 newS3BucketCriteriaForJob =
   S3BucketCriteriaForJob'
-    { includes = Prelude.Nothing,
-      excludes = Prelude.Nothing
+    { excludes = Prelude.Nothing,
+      includes = Prelude.Nothing
     }
-
--- | The property- and tag-based conditions that determine which buckets to
--- include in the job.
-s3BucketCriteriaForJob_includes :: Lens.Lens' S3BucketCriteriaForJob (Prelude.Maybe CriteriaBlockForJob)
-s3BucketCriteriaForJob_includes = Lens.lens (\S3BucketCriteriaForJob' {includes} -> includes) (\s@S3BucketCriteriaForJob' {} a -> s {includes = a} :: S3BucketCriteriaForJob)
 
 -- | The property- and tag-based conditions that determine which buckets to
 -- exclude from the job.
 s3BucketCriteriaForJob_excludes :: Lens.Lens' S3BucketCriteriaForJob (Prelude.Maybe CriteriaBlockForJob)
 s3BucketCriteriaForJob_excludes = Lens.lens (\S3BucketCriteriaForJob' {excludes} -> excludes) (\s@S3BucketCriteriaForJob' {} a -> s {excludes = a} :: S3BucketCriteriaForJob)
+
+-- | The property- and tag-based conditions that determine which buckets to
+-- include in the job.
+s3BucketCriteriaForJob_includes :: Lens.Lens' S3BucketCriteriaForJob (Prelude.Maybe CriteriaBlockForJob)
+s3BucketCriteriaForJob_includes = Lens.lens (\S3BucketCriteriaForJob' {includes} -> includes) (\s@S3BucketCriteriaForJob' {} a -> s {includes = a} :: S3BucketCriteriaForJob)
 
 instance Core.FromJSON S3BucketCriteriaForJob where
   parseJSON =
@@ -76,25 +76,25 @@ instance Core.FromJSON S3BucketCriteriaForJob where
       "S3BucketCriteriaForJob"
       ( \x ->
           S3BucketCriteriaForJob'
-            Prelude.<$> (x Core..:? "includes")
-            Prelude.<*> (x Core..:? "excludes")
+            Prelude.<$> (x Core..:? "excludes")
+            Prelude.<*> (x Core..:? "includes")
       )
 
 instance Prelude.Hashable S3BucketCriteriaForJob where
   hashWithSalt _salt S3BucketCriteriaForJob' {..} =
-    _salt `Prelude.hashWithSalt` includes
-      `Prelude.hashWithSalt` excludes
+    _salt `Prelude.hashWithSalt` excludes
+      `Prelude.hashWithSalt` includes
 
 instance Prelude.NFData S3BucketCriteriaForJob where
   rnf S3BucketCriteriaForJob' {..} =
-    Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf excludes
+    Prelude.rnf excludes
+      `Prelude.seq` Prelude.rnf includes
 
 instance Core.ToJSON S3BucketCriteriaForJob where
   toJSON S3BucketCriteriaForJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("includes" Core..=) Prelude.<$> includes,
-            ("excludes" Core..=) Prelude.<$> excludes
+          [ ("excludes" Core..=) Prelude.<$> excludes,
+            ("includes" Core..=) Prelude.<$> includes
           ]
       )

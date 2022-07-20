@@ -30,8 +30,8 @@ module Amazonka.CognitoIdentityProvider.VerifySoftwareToken
 
     -- * Request Lenses
     verifySoftwareToken_accessToken,
-    verifySoftwareToken_friendlyDeviceName,
     verifySoftwareToken_session,
+    verifySoftwareToken_friendlyDeviceName,
     verifySoftwareToken_userCode,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.CognitoIdentityProvider.VerifySoftwareToken
     newVerifySoftwareTokenResponse,
 
     -- * Response Lenses
-    verifySoftwareTokenResponse_status,
     verifySoftwareTokenResponse_session,
+    verifySoftwareTokenResponse_status,
     verifySoftwareTokenResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 data VerifySoftwareToken = VerifySoftwareToken'
   { -- | The access token.
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The friendly device name.
-    friendlyDeviceName :: Prelude.Maybe Prelude.Text,
     -- | The session which should be passed both ways in challenge-response calls
     -- to the service.
     session :: Prelude.Maybe Prelude.Text,
+    -- | The friendly device name.
+    friendlyDeviceName :: Prelude.Maybe Prelude.Text,
     -- | The one time password computed using the secret code returned by
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken\">.
     userCode :: Prelude.Text
@@ -77,10 +77,10 @@ data VerifySoftwareToken = VerifySoftwareToken'
 --
 -- 'accessToken', 'verifySoftwareToken_accessToken' - The access token.
 --
--- 'friendlyDeviceName', 'verifySoftwareToken_friendlyDeviceName' - The friendly device name.
---
 -- 'session', 'verifySoftwareToken_session' - The session which should be passed both ways in challenge-response calls
 -- to the service.
+--
+-- 'friendlyDeviceName', 'verifySoftwareToken_friendlyDeviceName' - The friendly device name.
 --
 -- 'userCode', 'verifySoftwareToken_userCode' - The one time password computed using the secret code returned by
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken\">.
@@ -91,8 +91,8 @@ newVerifySoftwareToken ::
 newVerifySoftwareToken pUserCode_ =
   VerifySoftwareToken'
     { accessToken = Prelude.Nothing,
-      friendlyDeviceName = Prelude.Nothing,
       session = Prelude.Nothing,
+      friendlyDeviceName = Prelude.Nothing,
       userCode = pUserCode_
     }
 
@@ -100,14 +100,14 @@ newVerifySoftwareToken pUserCode_ =
 verifySoftwareToken_accessToken :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
 verifySoftwareToken_accessToken = Lens.lens (\VerifySoftwareToken' {accessToken} -> accessToken) (\s@VerifySoftwareToken' {} a -> s {accessToken = a} :: VerifySoftwareToken) Prelude.. Lens.mapping Core._Sensitive
 
--- | The friendly device name.
-verifySoftwareToken_friendlyDeviceName :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
-verifySoftwareToken_friendlyDeviceName = Lens.lens (\VerifySoftwareToken' {friendlyDeviceName} -> friendlyDeviceName) (\s@VerifySoftwareToken' {} a -> s {friendlyDeviceName = a} :: VerifySoftwareToken)
-
 -- | The session which should be passed both ways in challenge-response calls
 -- to the service.
 verifySoftwareToken_session :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
 verifySoftwareToken_session = Lens.lens (\VerifySoftwareToken' {session} -> session) (\s@VerifySoftwareToken' {} a -> s {session = a} :: VerifySoftwareToken)
+
+-- | The friendly device name.
+verifySoftwareToken_friendlyDeviceName :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
+verifySoftwareToken_friendlyDeviceName = Lens.lens (\VerifySoftwareToken' {friendlyDeviceName} -> friendlyDeviceName) (\s@VerifySoftwareToken' {} a -> s {friendlyDeviceName = a} :: VerifySoftwareToken)
 
 -- | The one time password computed using the secret code returned by
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken\">.
@@ -123,23 +123,23 @@ instance Core.AWSRequest VerifySoftwareToken where
     Response.receiveJSON
       ( \s h x ->
           VerifySoftwareTokenResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Session")
+            Prelude.<$> (x Core..?> "Session")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable VerifySoftwareToken where
   hashWithSalt _salt VerifySoftwareToken' {..} =
     _salt `Prelude.hashWithSalt` accessToken
-      `Prelude.hashWithSalt` friendlyDeviceName
       `Prelude.hashWithSalt` session
+      `Prelude.hashWithSalt` friendlyDeviceName
       `Prelude.hashWithSalt` userCode
 
 instance Prelude.NFData VerifySoftwareToken where
   rnf VerifySoftwareToken' {..} =
     Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf friendlyDeviceName
       `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf friendlyDeviceName
       `Prelude.seq` Prelude.rnf userCode
 
 instance Core.ToHeaders VerifySoftwareToken where
@@ -162,9 +162,9 @@ instance Core.ToJSON VerifySoftwareToken where
     Core.object
       ( Prelude.catMaybes
           [ ("AccessToken" Core..=) Prelude.<$> accessToken,
+            ("Session" Core..=) Prelude.<$> session,
             ("FriendlyDeviceName" Core..=)
               Prelude.<$> friendlyDeviceName,
-            ("Session" Core..=) Prelude.<$> session,
             Prelude.Just ("UserCode" Core..= userCode)
           ]
       )
@@ -177,11 +177,11 @@ instance Core.ToQuery VerifySoftwareToken where
 
 -- | /See:/ 'newVerifySoftwareTokenResponse' smart constructor.
 data VerifySoftwareTokenResponse = VerifySoftwareTokenResponse'
-  { -- | The status of the verify software token.
-    status :: Prelude.Maybe VerifySoftwareTokenResponseType,
-    -- | The session which should be passed both ways in challenge-response calls
+  { -- | The session which should be passed both ways in challenge-response calls
     -- to the service.
     session :: Prelude.Maybe Prelude.Text,
+    -- | The status of the verify software token.
+    status :: Prelude.Maybe VerifySoftwareTokenResponseType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +195,10 @@ data VerifySoftwareTokenResponse = VerifySoftwareTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'verifySoftwareTokenResponse_status' - The status of the verify software token.
---
 -- 'session', 'verifySoftwareTokenResponse_session' - The session which should be passed both ways in challenge-response calls
 -- to the service.
+--
+-- 'status', 'verifySoftwareTokenResponse_status' - The status of the verify software token.
 --
 -- 'httpStatus', 'verifySoftwareTokenResponse_httpStatus' - The response's http status code.
 newVerifySoftwareTokenResponse ::
@@ -207,20 +207,20 @@ newVerifySoftwareTokenResponse ::
   VerifySoftwareTokenResponse
 newVerifySoftwareTokenResponse pHttpStatus_ =
   VerifySoftwareTokenResponse'
-    { status =
+    { session =
         Prelude.Nothing,
-      session = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the verify software token.
-verifySoftwareTokenResponse_status :: Lens.Lens' VerifySoftwareTokenResponse (Prelude.Maybe VerifySoftwareTokenResponseType)
-verifySoftwareTokenResponse_status = Lens.lens (\VerifySoftwareTokenResponse' {status} -> status) (\s@VerifySoftwareTokenResponse' {} a -> s {status = a} :: VerifySoftwareTokenResponse)
 
 -- | The session which should be passed both ways in challenge-response calls
 -- to the service.
 verifySoftwareTokenResponse_session :: Lens.Lens' VerifySoftwareTokenResponse (Prelude.Maybe Prelude.Text)
 verifySoftwareTokenResponse_session = Lens.lens (\VerifySoftwareTokenResponse' {session} -> session) (\s@VerifySoftwareTokenResponse' {} a -> s {session = a} :: VerifySoftwareTokenResponse)
+
+-- | The status of the verify software token.
+verifySoftwareTokenResponse_status :: Lens.Lens' VerifySoftwareTokenResponse (Prelude.Maybe VerifySoftwareTokenResponseType)
+verifySoftwareTokenResponse_status = Lens.lens (\VerifySoftwareTokenResponse' {status} -> status) (\s@VerifySoftwareTokenResponse' {} a -> s {status = a} :: VerifySoftwareTokenResponse)
 
 -- | The response's http status code.
 verifySoftwareTokenResponse_httpStatus :: Lens.Lens' VerifySoftwareTokenResponse Prelude.Int
@@ -228,6 +228,6 @@ verifySoftwareTokenResponse_httpStatus = Lens.lens (\VerifySoftwareTokenResponse
 
 instance Prelude.NFData VerifySoftwareTokenResponse where
   rnf VerifySoftwareTokenResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf session
+    Prelude.rnf session
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

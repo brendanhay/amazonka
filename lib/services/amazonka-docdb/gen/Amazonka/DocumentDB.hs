@@ -19,110 +19,77 @@ module Amazonka.DocumentDB
     -- * Errors
     -- $errors
 
-    -- ** InvalidDBParameterGroupStateFault
-    _InvalidDBParameterGroupStateFault,
-
-    -- ** SourceNotFoundFault
-    _SourceNotFoundFault,
-
-    -- ** CertificateNotFoundFault
-    _CertificateNotFoundFault,
-
-    -- ** DBClusterSnapshotAlreadyExistsFault
-    _DBClusterSnapshotAlreadyExistsFault,
-
-    -- ** DBParameterGroupAlreadyExistsFault
-    _DBParameterGroupAlreadyExistsFault,
-
-    -- ** DBParameterGroupQuotaExceededFault
-    _DBParameterGroupQuotaExceededFault,
-
-    -- ** InsufficientDBClusterCapacityFault
-    _InsufficientDBClusterCapacityFault,
-
-    -- ** SubscriptionCategoryNotFoundFault
-    _SubscriptionCategoryNotFoundFault,
-
-    -- ** SubscriptionNotFoundFault
-    _SubscriptionNotFoundFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
-
-    -- ** SharedSnapshotQuotaExceededFault
-    _SharedSnapshotQuotaExceededFault,
-
-    -- ** DBSubnetQuotaExceededFault
-    _DBSubnetQuotaExceededFault,
-
-    -- ** GlobalClusterAlreadyExistsFault
-    _GlobalClusterAlreadyExistsFault,
-
-    -- ** DBClusterNotFoundFault
-    _DBClusterNotFoundFault,
-
-    -- ** DBClusterAlreadyExistsFault
-    _DBClusterAlreadyExistsFault,
-
-    -- ** StorageTypeNotSupportedFault
-    _StorageTypeNotSupportedFault,
-
-    -- ** SNSTopicArnNotFoundFault
-    _SNSTopicArnNotFoundFault,
-
-    -- ** InvalidEventSubscriptionStateFault
-    _InvalidEventSubscriptionStateFault,
-
-    -- ** KMSKeyNotAccessibleFault
-    _KMSKeyNotAccessibleFault,
-
-    -- ** DBSnapshotNotFoundFault
-    _DBSnapshotNotFoundFault,
-
-    -- ** DBClusterParameterGroupNotFoundFault
-    _DBClusterParameterGroupNotFoundFault,
-
-    -- ** DBClusterQuotaExceededFault
-    _DBClusterQuotaExceededFault,
-
-    -- ** SnapshotQuotaExceededFault
-    _SnapshotQuotaExceededFault,
-
-    -- ** DBSubnetGroupAlreadyExistsFault
-    _DBSubnetGroupAlreadyExistsFault,
-
-    -- ** SNSNoAuthorizationFault
-    _SNSNoAuthorizationFault,
-
-    -- ** DBSecurityGroupNotFoundFault
-    _DBSecurityGroupNotFoundFault,
-
-    -- ** InstanceQuotaExceededFault
-    _InstanceQuotaExceededFault,
-
-    -- ** DBParameterGroupNotFoundFault
-    _DBParameterGroupNotFoundFault,
-
-    -- ** InvalidDBSubnetStateFault
-    _InvalidDBSubnetStateFault,
-
-    -- ** DBClusterSnapshotNotFoundFault
-    _DBClusterSnapshotNotFoundFault,
-
-    -- ** SNSInvalidTopicFault
-    _SNSInvalidTopicFault,
-
     -- ** InsufficientDBInstanceCapacityFault
     _InsufficientDBInstanceCapacityFault,
 
     -- ** InvalidDBClusterSnapshotStateFault
     _InvalidDBClusterSnapshotStateFault,
 
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** InvalidDBSecurityGroupStateFault
+    _InvalidDBSecurityGroupStateFault,
+
+    -- ** InvalidDBParameterGroupStateFault
+    _InvalidDBParameterGroupStateFault,
+
+    -- ** SnapshotQuotaExceededFault
+    _SnapshotQuotaExceededFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** DBClusterAlreadyExistsFault
+    _DBClusterAlreadyExistsFault,
+
+    -- ** DBParameterGroupNotFoundFault
+    _DBParameterGroupNotFoundFault,
+
     -- ** SubscriptionAlreadyExistFault
     _SubscriptionAlreadyExistFault,
 
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
+    -- ** DBInstanceAlreadyExistsFault
+    _DBInstanceAlreadyExistsFault,
+
+    -- ** InvalidDBSubnetGroupStateFault
+    _InvalidDBSubnetGroupStateFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** DBParameterGroupQuotaExceededFault
+    _DBParameterGroupQuotaExceededFault,
+
+    -- ** SubscriptionNotFoundFault
+    _SubscriptionNotFoundFault,
+
+    -- ** DBSnapshotNotFoundFault
+    _DBSnapshotNotFoundFault,
+
+    -- ** InvalidDBSubnetStateFault
+    _InvalidDBSubnetStateFault,
+
+    -- ** DBUpgradeDependencyFailureFault
+    _DBUpgradeDependencyFailureFault,
+
+    -- ** DBSubnetGroupAlreadyExistsFault
+    _DBSubnetGroupAlreadyExistsFault,
+
+    -- ** DBInstanceNotFoundFault
+    _DBInstanceNotFoundFault,
+
+    -- ** InstanceQuotaExceededFault
+    _InstanceQuotaExceededFault,
+
+    -- ** InvalidDBClusterStateFault
+    _InvalidDBClusterStateFault,
+
+    -- ** InvalidDBInstanceStateFault
+    _InvalidDBInstanceStateFault,
+
+    -- ** GlobalClusterNotFoundFault
+    _GlobalClusterNotFoundFault,
 
     -- ** AuthorizationNotFoundFault
     _AuthorizationNotFoundFault,
@@ -130,65 +97,98 @@ module Amazonka.DocumentDB
     -- ** DBSubnetGroupQuotaExceededFault
     _DBSubnetGroupQuotaExceededFault,
 
-    -- ** InvalidGlobalClusterStateFault
-    _InvalidGlobalClusterStateFault,
-
-    -- ** EventSubscriptionQuotaExceededFault
-    _EventSubscriptionQuotaExceededFault,
-
     -- ** InsufficientStorageClusterCapacityFault
     _InsufficientStorageClusterCapacityFault,
 
-    -- ** InvalidDBClusterStateFault
-    _InvalidDBClusterStateFault,
+    -- ** SubscriptionCategoryNotFoundFault
+    _SubscriptionCategoryNotFoundFault,
 
-    -- ** GlobalClusterNotFoundFault
-    _GlobalClusterNotFoundFault,
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
 
-    -- ** DBInstanceAlreadyExistsFault
-    _DBInstanceAlreadyExistsFault,
+    -- ** KMSKeyNotAccessibleFault
+    _KMSKeyNotAccessibleFault,
 
-    -- ** InvalidRestoreFault
-    _InvalidRestoreFault,
-
-    -- ** InvalidDBSecurityGroupStateFault
-    _InvalidDBSecurityGroupStateFault,
-
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
-
-    -- ** DBSubnetGroupNotFoundFault
-    _DBSubnetGroupNotFoundFault,
-
-    -- ** DBUpgradeDependencyFailureFault
-    _DBUpgradeDependencyFailureFault,
-
-    -- ** InvalidDBInstanceStateFault
-    _InvalidDBInstanceStateFault,
-
-    -- ** DBSnapshotAlreadyExistsFault
-    _DBSnapshotAlreadyExistsFault,
-
-    -- ** DBInstanceNotFoundFault
-    _DBInstanceNotFoundFault,
-
-    -- ** StorageQuotaExceededFault
-    _StorageQuotaExceededFault,
-
-    -- ** InvalidDBSnapshotStateFault
-    _InvalidDBSnapshotStateFault,
-
-    -- ** InvalidDBSubnetGroupStateFault
-    _InvalidDBSubnetGroupStateFault,
-
-    -- ** GlobalClusterQuotaExceededFault
-    _GlobalClusterQuotaExceededFault,
+    -- ** SNSTopicArnNotFoundFault
+    _SNSTopicArnNotFoundFault,
 
     -- ** DBSubnetGroupDoesNotCoverEnoughAZs
     _DBSubnetGroupDoesNotCoverEnoughAZs,
 
-    -- ** SubnetAlreadyInUse
-    _SubnetAlreadyInUse,
+    -- ** GlobalClusterQuotaExceededFault
+    _GlobalClusterQuotaExceededFault,
+
+    -- ** StorageTypeNotSupportedFault
+    _StorageTypeNotSupportedFault,
+
+    -- ** CertificateNotFoundFault
+    _CertificateNotFoundFault,
+
+    -- ** EventSubscriptionQuotaExceededFault
+    _EventSubscriptionQuotaExceededFault,
+
+    -- ** DBSnapshotAlreadyExistsFault
+    _DBSnapshotAlreadyExistsFault,
+
+    -- ** InvalidRestoreFault
+    _InvalidRestoreFault,
+
+    -- ** DBClusterQuotaExceededFault
+    _DBClusterQuotaExceededFault,
+
+    -- ** DBClusterParameterGroupNotFoundFault
+    _DBClusterParameterGroupNotFoundFault,
+
+    -- ** DBSubnetQuotaExceededFault
+    _DBSubnetQuotaExceededFault,
+
+    -- ** GlobalClusterAlreadyExistsFault
+    _GlobalClusterAlreadyExistsFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** InsufficientDBClusterCapacityFault
+    _InsufficientDBClusterCapacityFault,
+
+    -- ** SourceNotFoundFault
+    _SourceNotFoundFault,
+
+    -- ** DBClusterSnapshotAlreadyExistsFault
+    _DBClusterSnapshotAlreadyExistsFault,
+
+    -- ** DBParameterGroupAlreadyExistsFault
+    _DBParameterGroupAlreadyExistsFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** DBClusterNotFoundFault
+    _DBClusterNotFoundFault,
+
+    -- ** InvalidGlobalClusterStateFault
+    _InvalidGlobalClusterStateFault,
+
+    -- ** InvalidEventSubscriptionStateFault
+    _InvalidEventSubscriptionStateFault,
+
+    -- ** StorageQuotaExceededFault
+    _StorageQuotaExceededFault,
+
+    -- ** DBSubnetGroupNotFoundFault
+    _DBSubnetGroupNotFoundFault,
+
+    -- ** DBSecurityGroupNotFoundFault
+    _DBSecurityGroupNotFoundFault,
+
+    -- ** SharedSnapshotQuotaExceededFault
+    _SharedSnapshotQuotaExceededFault,
+
+    -- ** DBClusterSnapshotNotFoundFault
+    _DBClusterSnapshotNotFoundFault,
+
+    -- ** InvalidDBSnapshotStateFault
+    _InvalidDBSnapshotStateFault,
 
     -- * Waiters
     -- $waiters
@@ -202,167 +202,11 @@ module Amazonka.DocumentDB
     -- * Operations
     -- $operations
 
-    -- ** StartDBCluster
-    StartDBCluster (StartDBCluster'),
-    newStartDBCluster,
-    StartDBClusterResponse (StartDBClusterResponse'),
-    newStartDBClusterResponse,
-
-    -- ** DescribeDBClusterParameterGroups (Paginated)
-    DescribeDBClusterParameterGroups (DescribeDBClusterParameterGroups'),
-    newDescribeDBClusterParameterGroups,
-    DescribeDBClusterParameterGroupsResponse (DescribeDBClusterParameterGroupsResponse'),
-    newDescribeDBClusterParameterGroupsResponse,
-
-    -- ** DescribeDBEngineVersions (Paginated)
-    DescribeDBEngineVersions (DescribeDBEngineVersions'),
-    newDescribeDBEngineVersions,
-    DescribeDBEngineVersionsResponse (DescribeDBEngineVersionsResponse'),
-    newDescribeDBEngineVersionsResponse,
-
     -- ** AddSourceIdentifierToSubscription
     AddSourceIdentifierToSubscription (AddSourceIdentifierToSubscription'),
     newAddSourceIdentifierToSubscription,
     AddSourceIdentifierToSubscriptionResponse (AddSourceIdentifierToSubscriptionResponse'),
     newAddSourceIdentifierToSubscriptionResponse,
-
-    -- ** ModifyDBInstance
-    ModifyDBInstance (ModifyDBInstance'),
-    newModifyDBInstance,
-    ModifyDBInstanceResponse (ModifyDBInstanceResponse'),
-    newModifyDBInstanceResponse,
-
-    -- ** ModifyEventSubscription
-    ModifyEventSubscription (ModifyEventSubscription'),
-    newModifyEventSubscription,
-    ModifyEventSubscriptionResponse (ModifyEventSubscriptionResponse'),
-    newModifyEventSubscriptionResponse,
-
-    -- ** ResetDBClusterParameterGroup
-    ResetDBClusterParameterGroup (ResetDBClusterParameterGroup'),
-    newResetDBClusterParameterGroup,
-    DBClusterParameterGroupNameMessage (DBClusterParameterGroupNameMessage'),
-    newDBClusterParameterGroupNameMessage,
-
-    -- ** DescribeEvents (Paginated)
-    DescribeEvents (DescribeEvents'),
-    newDescribeEvents,
-    DescribeEventsResponse (DescribeEventsResponse'),
-    newDescribeEventsResponse,
-
-    -- ** DescribeDBClusters (Paginated)
-    DescribeDBClusters (DescribeDBClusters'),
-    newDescribeDBClusters,
-    DescribeDBClustersResponse (DescribeDBClustersResponse'),
-    newDescribeDBClustersResponse,
-
-    -- ** ModifyDBSubnetGroup
-    ModifyDBSubnetGroup (ModifyDBSubnetGroup'),
-    newModifyDBSubnetGroup,
-    ModifyDBSubnetGroupResponse (ModifyDBSubnetGroupResponse'),
-    newModifyDBSubnetGroupResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DeleteDBCluster
-    DeleteDBCluster (DeleteDBCluster'),
-    newDeleteDBCluster,
-    DeleteDBClusterResponse (DeleteDBClusterResponse'),
-    newDeleteDBClusterResponse,
-
-    -- ** RemoveSourceIdentifierFromSubscription
-    RemoveSourceIdentifierFromSubscription (RemoveSourceIdentifierFromSubscription'),
-    newRemoveSourceIdentifierFromSubscription,
-    RemoveSourceIdentifierFromSubscriptionResponse (RemoveSourceIdentifierFromSubscriptionResponse'),
-    newRemoveSourceIdentifierFromSubscriptionResponse,
-
-    -- ** DescribeEngineDefaultClusterParameters
-    DescribeEngineDefaultClusterParameters (DescribeEngineDefaultClusterParameters'),
-    newDescribeEngineDefaultClusterParameters,
-    DescribeEngineDefaultClusterParametersResponse (DescribeEngineDefaultClusterParametersResponse'),
-    newDescribeEngineDefaultClusterParametersResponse,
-
-    -- ** DeleteGlobalCluster
-    DeleteGlobalCluster (DeleteGlobalCluster'),
-    newDeleteGlobalCluster,
-    DeleteGlobalClusterResponse (DeleteGlobalClusterResponse'),
-    newDeleteGlobalClusterResponse,
-
-    -- ** RemoveTagsFromResource
-    RemoveTagsFromResource (RemoveTagsFromResource'),
-    newRemoveTagsFromResource,
-    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
-    newRemoveTagsFromResourceResponse,
-
-    -- ** CreateEventSubscription
-    CreateEventSubscription (CreateEventSubscription'),
-    newCreateEventSubscription,
-    CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
-    newCreateEventSubscriptionResponse,
-
-    -- ** CreateDBInstance
-    CreateDBInstance (CreateDBInstance'),
-    newCreateDBInstance,
-    CreateDBInstanceResponse (CreateDBInstanceResponse'),
-    newCreateDBInstanceResponse,
-
-    -- ** DeleteDBClusterParameterGroup
-    DeleteDBClusterParameterGroup (DeleteDBClusterParameterGroup'),
-    newDeleteDBClusterParameterGroup,
-    DeleteDBClusterParameterGroupResponse (DeleteDBClusterParameterGroupResponse'),
-    newDeleteDBClusterParameterGroupResponse,
-
-    -- ** DescribeCertificates (Paginated)
-    DescribeCertificates (DescribeCertificates'),
-    newDescribeCertificates,
-    DescribeCertificatesResponse (DescribeCertificatesResponse'),
-    newDescribeCertificatesResponse,
-
-    -- ** RestoreDBClusterFromSnapshot
-    RestoreDBClusterFromSnapshot (RestoreDBClusterFromSnapshot'),
-    newRestoreDBClusterFromSnapshot,
-    RestoreDBClusterFromSnapshotResponse (RestoreDBClusterFromSnapshotResponse'),
-    newRestoreDBClusterFromSnapshotResponse,
-
-    -- ** DescribeOrderableDBInstanceOptions (Paginated)
-    DescribeOrderableDBInstanceOptions (DescribeOrderableDBInstanceOptions'),
-    newDescribeOrderableDBInstanceOptions,
-    DescribeOrderableDBInstanceOptionsResponse (DescribeOrderableDBInstanceOptionsResponse'),
-    newDescribeOrderableDBInstanceOptionsResponse,
-
-    -- ** CreateDBClusterParameterGroup
-    CreateDBClusterParameterGroup (CreateDBClusterParameterGroup'),
-    newCreateDBClusterParameterGroup,
-    CreateDBClusterParameterGroupResponse (CreateDBClusterParameterGroupResponse'),
-    newCreateDBClusterParameterGroupResponse,
-
-    -- ** DeleteEventSubscription
-    DeleteEventSubscription (DeleteEventSubscription'),
-    newDeleteEventSubscription,
-    DeleteEventSubscriptionResponse (DeleteEventSubscriptionResponse'),
-    newDeleteEventSubscriptionResponse,
-
-    -- ** RemoveFromGlobalCluster
-    RemoveFromGlobalCluster (RemoveFromGlobalCluster'),
-    newRemoveFromGlobalCluster,
-    RemoveFromGlobalClusterResponse (RemoveFromGlobalClusterResponse'),
-    newRemoveFromGlobalClusterResponse,
-
-    -- ** DeleteDBClusterSnapshot
-    DeleteDBClusterSnapshot (DeleteDBClusterSnapshot'),
-    newDeleteDBClusterSnapshot,
-    DeleteDBClusterSnapshotResponse (DeleteDBClusterSnapshotResponse'),
-    newDeleteDBClusterSnapshotResponse,
-
-    -- ** DescribeEventSubscriptions (Paginated)
-    DescribeEventSubscriptions (DescribeEventSubscriptions'),
-    newDescribeEventSubscriptions,
-    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
-    newDescribeEventSubscriptionsResponse,
 
     -- ** AddTagsToResource
     AddTagsToResource (AddTagsToResource'),
@@ -370,35 +214,11 @@ module Amazonka.DocumentDB
     AddTagsToResourceResponse (AddTagsToResourceResponse'),
     newAddTagsToResourceResponse,
 
-    -- ** CreateDBClusterSnapshot
-    CreateDBClusterSnapshot (CreateDBClusterSnapshot'),
-    newCreateDBClusterSnapshot,
-    CreateDBClusterSnapshotResponse (CreateDBClusterSnapshotResponse'),
-    newCreateDBClusterSnapshotResponse,
-
-    -- ** DescribeDBSubnetGroups (Paginated)
-    DescribeDBSubnetGroups (DescribeDBSubnetGroups'),
-    newDescribeDBSubnetGroups,
-    DescribeDBSubnetGroupsResponse (DescribeDBSubnetGroupsResponse'),
-    newDescribeDBSubnetGroupsResponse,
-
-    -- ** StopDBCluster
-    StopDBCluster (StopDBCluster'),
-    newStopDBCluster,
-    StopDBClusterResponse (StopDBClusterResponse'),
-    newStopDBClusterResponse,
-
-    -- ** ModifyDBClusterSnapshotAttribute
-    ModifyDBClusterSnapshotAttribute (ModifyDBClusterSnapshotAttribute'),
-    newModifyDBClusterSnapshotAttribute,
-    ModifyDBClusterSnapshotAttributeResponse (ModifyDBClusterSnapshotAttributeResponse'),
-    newModifyDBClusterSnapshotAttributeResponse,
-
-    -- ** ModifyDBCluster
-    ModifyDBCluster (ModifyDBCluster'),
-    newModifyDBCluster,
-    ModifyDBClusterResponse (ModifyDBClusterResponse'),
-    newModifyDBClusterResponse,
+    -- ** ApplyPendingMaintenanceAction
+    ApplyPendingMaintenanceAction (ApplyPendingMaintenanceAction'),
+    newApplyPendingMaintenanceAction,
+    ApplyPendingMaintenanceActionResponse (ApplyPendingMaintenanceActionResponse'),
+    newApplyPendingMaintenanceActionResponse,
 
     -- ** CopyDBClusterParameterGroup
     CopyDBClusterParameterGroup (CopyDBClusterParameterGroup'),
@@ -406,47 +226,11 @@ module Amazonka.DocumentDB
     CopyDBClusterParameterGroupResponse (CopyDBClusterParameterGroupResponse'),
     newCopyDBClusterParameterGroupResponse,
 
-    -- ** DescribeEventCategories
-    DescribeEventCategories (DescribeEventCategories'),
-    newDescribeEventCategories,
-    DescribeEventCategoriesResponse (DescribeEventCategoriesResponse'),
-    newDescribeEventCategoriesResponse,
-
-    -- ** DescribeGlobalClusters (Paginated)
-    DescribeGlobalClusters (DescribeGlobalClusters'),
-    newDescribeGlobalClusters,
-    DescribeGlobalClustersResponse (DescribeGlobalClustersResponse'),
-    newDescribeGlobalClustersResponse,
-
-    -- ** ModifyDBClusterParameterGroup
-    ModifyDBClusterParameterGroup (ModifyDBClusterParameterGroup'),
-    newModifyDBClusterParameterGroup,
-    DBClusterParameterGroupNameMessage (DBClusterParameterGroupNameMessage'),
-    newDBClusterParameterGroupNameMessage,
-
-    -- ** DescribeDBClusterSnapshotAttributes
-    DescribeDBClusterSnapshotAttributes (DescribeDBClusterSnapshotAttributes'),
-    newDescribeDBClusterSnapshotAttributes,
-    DescribeDBClusterSnapshotAttributesResponse (DescribeDBClusterSnapshotAttributesResponse'),
-    newDescribeDBClusterSnapshotAttributesResponse,
-
-    -- ** DescribePendingMaintenanceActions (Paginated)
-    DescribePendingMaintenanceActions (DescribePendingMaintenanceActions'),
-    newDescribePendingMaintenanceActions,
-    DescribePendingMaintenanceActionsResponse (DescribePendingMaintenanceActionsResponse'),
-    newDescribePendingMaintenanceActionsResponse,
-
     -- ** CopyDBClusterSnapshot
     CopyDBClusterSnapshot (CopyDBClusterSnapshot'),
     newCopyDBClusterSnapshot,
     CopyDBClusterSnapshotResponse (CopyDBClusterSnapshotResponse'),
     newCopyDBClusterSnapshotResponse,
-
-    -- ** CreateGlobalCluster
-    CreateGlobalCluster (CreateGlobalCluster'),
-    newCreateGlobalCluster,
-    CreateGlobalClusterResponse (CreateGlobalClusterResponse'),
-    newCreateGlobalClusterResponse,
 
     -- ** CreateDBCluster
     CreateDBCluster (CreateDBCluster'),
@@ -454,41 +238,23 @@ module Amazonka.DocumentDB
     CreateDBClusterResponse (CreateDBClusterResponse'),
     newCreateDBClusterResponse,
 
-    -- ** FailoverDBCluster
-    FailoverDBCluster (FailoverDBCluster'),
-    newFailoverDBCluster,
-    FailoverDBClusterResponse (FailoverDBClusterResponse'),
-    newFailoverDBClusterResponse,
+    -- ** CreateDBClusterParameterGroup
+    CreateDBClusterParameterGroup (CreateDBClusterParameterGroup'),
+    newCreateDBClusterParameterGroup,
+    CreateDBClusterParameterGroupResponse (CreateDBClusterParameterGroupResponse'),
+    newCreateDBClusterParameterGroupResponse,
 
-    -- ** ApplyPendingMaintenanceAction
-    ApplyPendingMaintenanceAction (ApplyPendingMaintenanceAction'),
-    newApplyPendingMaintenanceAction,
-    ApplyPendingMaintenanceActionResponse (ApplyPendingMaintenanceActionResponse'),
-    newApplyPendingMaintenanceActionResponse,
+    -- ** CreateDBClusterSnapshot
+    CreateDBClusterSnapshot (CreateDBClusterSnapshot'),
+    newCreateDBClusterSnapshot,
+    CreateDBClusterSnapshotResponse (CreateDBClusterSnapshotResponse'),
+    newCreateDBClusterSnapshotResponse,
 
-    -- ** DescribeDBClusterParameters (Paginated)
-    DescribeDBClusterParameters (DescribeDBClusterParameters'),
-    newDescribeDBClusterParameters,
-    DescribeDBClusterParametersResponse (DescribeDBClusterParametersResponse'),
-    newDescribeDBClusterParametersResponse,
-
-    -- ** DeleteDBSubnetGroup
-    DeleteDBSubnetGroup (DeleteDBSubnetGroup'),
-    newDeleteDBSubnetGroup,
-    DeleteDBSubnetGroupResponse (DeleteDBSubnetGroupResponse'),
-    newDeleteDBSubnetGroupResponse,
-
-    -- ** DescribeDBClusterSnapshots (Paginated)
-    DescribeDBClusterSnapshots (DescribeDBClusterSnapshots'),
-    newDescribeDBClusterSnapshots,
-    DescribeDBClusterSnapshotsResponse (DescribeDBClusterSnapshotsResponse'),
-    newDescribeDBClusterSnapshotsResponse,
-
-    -- ** RebootDBInstance
-    RebootDBInstance (RebootDBInstance'),
-    newRebootDBInstance,
-    RebootDBInstanceResponse (RebootDBInstanceResponse'),
-    newRebootDBInstanceResponse,
+    -- ** CreateDBInstance
+    CreateDBInstance (CreateDBInstance'),
+    newCreateDBInstance,
+    CreateDBInstanceResponse (CreateDBInstanceResponse'),
+    newCreateDBInstanceResponse,
 
     -- ** CreateDBSubnetGroup
     CreateDBSubnetGroup (CreateDBSubnetGroup'),
@@ -496,11 +262,203 @@ module Amazonka.DocumentDB
     CreateDBSubnetGroupResponse (CreateDBSubnetGroupResponse'),
     newCreateDBSubnetGroupResponse,
 
+    -- ** CreateEventSubscription
+    CreateEventSubscription (CreateEventSubscription'),
+    newCreateEventSubscription,
+    CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
+    newCreateEventSubscriptionResponse,
+
+    -- ** CreateGlobalCluster
+    CreateGlobalCluster (CreateGlobalCluster'),
+    newCreateGlobalCluster,
+    CreateGlobalClusterResponse (CreateGlobalClusterResponse'),
+    newCreateGlobalClusterResponse,
+
+    -- ** DeleteDBCluster
+    DeleteDBCluster (DeleteDBCluster'),
+    newDeleteDBCluster,
+    DeleteDBClusterResponse (DeleteDBClusterResponse'),
+    newDeleteDBClusterResponse,
+
+    -- ** DeleteDBClusterParameterGroup
+    DeleteDBClusterParameterGroup (DeleteDBClusterParameterGroup'),
+    newDeleteDBClusterParameterGroup,
+    DeleteDBClusterParameterGroupResponse (DeleteDBClusterParameterGroupResponse'),
+    newDeleteDBClusterParameterGroupResponse,
+
+    -- ** DeleteDBClusterSnapshot
+    DeleteDBClusterSnapshot (DeleteDBClusterSnapshot'),
+    newDeleteDBClusterSnapshot,
+    DeleteDBClusterSnapshotResponse (DeleteDBClusterSnapshotResponse'),
+    newDeleteDBClusterSnapshotResponse,
+
     -- ** DeleteDBInstance
     DeleteDBInstance (DeleteDBInstance'),
     newDeleteDBInstance,
     DeleteDBInstanceResponse (DeleteDBInstanceResponse'),
     newDeleteDBInstanceResponse,
+
+    -- ** DeleteDBSubnetGroup
+    DeleteDBSubnetGroup (DeleteDBSubnetGroup'),
+    newDeleteDBSubnetGroup,
+    DeleteDBSubnetGroupResponse (DeleteDBSubnetGroupResponse'),
+    newDeleteDBSubnetGroupResponse,
+
+    -- ** DeleteEventSubscription
+    DeleteEventSubscription (DeleteEventSubscription'),
+    newDeleteEventSubscription,
+    DeleteEventSubscriptionResponse (DeleteEventSubscriptionResponse'),
+    newDeleteEventSubscriptionResponse,
+
+    -- ** DeleteGlobalCluster
+    DeleteGlobalCluster (DeleteGlobalCluster'),
+    newDeleteGlobalCluster,
+    DeleteGlobalClusterResponse (DeleteGlobalClusterResponse'),
+    newDeleteGlobalClusterResponse,
+
+    -- ** DescribeCertificates (Paginated)
+    DescribeCertificates (DescribeCertificates'),
+    newDescribeCertificates,
+    DescribeCertificatesResponse (DescribeCertificatesResponse'),
+    newDescribeCertificatesResponse,
+
+    -- ** DescribeDBClusterParameterGroups (Paginated)
+    DescribeDBClusterParameterGroups (DescribeDBClusterParameterGroups'),
+    newDescribeDBClusterParameterGroups,
+    DescribeDBClusterParameterGroupsResponse (DescribeDBClusterParameterGroupsResponse'),
+    newDescribeDBClusterParameterGroupsResponse,
+
+    -- ** DescribeDBClusterParameters (Paginated)
+    DescribeDBClusterParameters (DescribeDBClusterParameters'),
+    newDescribeDBClusterParameters,
+    DescribeDBClusterParametersResponse (DescribeDBClusterParametersResponse'),
+    newDescribeDBClusterParametersResponse,
+
+    -- ** DescribeDBClusterSnapshotAttributes
+    DescribeDBClusterSnapshotAttributes (DescribeDBClusterSnapshotAttributes'),
+    newDescribeDBClusterSnapshotAttributes,
+    DescribeDBClusterSnapshotAttributesResponse (DescribeDBClusterSnapshotAttributesResponse'),
+    newDescribeDBClusterSnapshotAttributesResponse,
+
+    -- ** DescribeDBClusterSnapshots (Paginated)
+    DescribeDBClusterSnapshots (DescribeDBClusterSnapshots'),
+    newDescribeDBClusterSnapshots,
+    DescribeDBClusterSnapshotsResponse (DescribeDBClusterSnapshotsResponse'),
+    newDescribeDBClusterSnapshotsResponse,
+
+    -- ** DescribeDBClusters (Paginated)
+    DescribeDBClusters (DescribeDBClusters'),
+    newDescribeDBClusters,
+    DescribeDBClustersResponse (DescribeDBClustersResponse'),
+    newDescribeDBClustersResponse,
+
+    -- ** DescribeDBEngineVersions (Paginated)
+    DescribeDBEngineVersions (DescribeDBEngineVersions'),
+    newDescribeDBEngineVersions,
+    DescribeDBEngineVersionsResponse (DescribeDBEngineVersionsResponse'),
+    newDescribeDBEngineVersionsResponse,
+
+    -- ** DescribeDBInstances (Paginated)
+    DescribeDBInstances (DescribeDBInstances'),
+    newDescribeDBInstances,
+    DescribeDBInstancesResponse (DescribeDBInstancesResponse'),
+    newDescribeDBInstancesResponse,
+
+    -- ** DescribeDBSubnetGroups (Paginated)
+    DescribeDBSubnetGroups (DescribeDBSubnetGroups'),
+    newDescribeDBSubnetGroups,
+    DescribeDBSubnetGroupsResponse (DescribeDBSubnetGroupsResponse'),
+    newDescribeDBSubnetGroupsResponse,
+
+    -- ** DescribeEngineDefaultClusterParameters
+    DescribeEngineDefaultClusterParameters (DescribeEngineDefaultClusterParameters'),
+    newDescribeEngineDefaultClusterParameters,
+    DescribeEngineDefaultClusterParametersResponse (DescribeEngineDefaultClusterParametersResponse'),
+    newDescribeEngineDefaultClusterParametersResponse,
+
+    -- ** DescribeEventCategories
+    DescribeEventCategories (DescribeEventCategories'),
+    newDescribeEventCategories,
+    DescribeEventCategoriesResponse (DescribeEventCategoriesResponse'),
+    newDescribeEventCategoriesResponse,
+
+    -- ** DescribeEventSubscriptions (Paginated)
+    DescribeEventSubscriptions (DescribeEventSubscriptions'),
+    newDescribeEventSubscriptions,
+    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
+    newDescribeEventSubscriptionsResponse,
+
+    -- ** DescribeEvents (Paginated)
+    DescribeEvents (DescribeEvents'),
+    newDescribeEvents,
+    DescribeEventsResponse (DescribeEventsResponse'),
+    newDescribeEventsResponse,
+
+    -- ** DescribeGlobalClusters (Paginated)
+    DescribeGlobalClusters (DescribeGlobalClusters'),
+    newDescribeGlobalClusters,
+    DescribeGlobalClustersResponse (DescribeGlobalClustersResponse'),
+    newDescribeGlobalClustersResponse,
+
+    -- ** DescribeOrderableDBInstanceOptions (Paginated)
+    DescribeOrderableDBInstanceOptions (DescribeOrderableDBInstanceOptions'),
+    newDescribeOrderableDBInstanceOptions,
+    DescribeOrderableDBInstanceOptionsResponse (DescribeOrderableDBInstanceOptionsResponse'),
+    newDescribeOrderableDBInstanceOptionsResponse,
+
+    -- ** DescribePendingMaintenanceActions (Paginated)
+    DescribePendingMaintenanceActions (DescribePendingMaintenanceActions'),
+    newDescribePendingMaintenanceActions,
+    DescribePendingMaintenanceActionsResponse (DescribePendingMaintenanceActionsResponse'),
+    newDescribePendingMaintenanceActionsResponse,
+
+    -- ** FailoverDBCluster
+    FailoverDBCluster (FailoverDBCluster'),
+    newFailoverDBCluster,
+    FailoverDBClusterResponse (FailoverDBClusterResponse'),
+    newFailoverDBClusterResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ModifyDBCluster
+    ModifyDBCluster (ModifyDBCluster'),
+    newModifyDBCluster,
+    ModifyDBClusterResponse (ModifyDBClusterResponse'),
+    newModifyDBClusterResponse,
+
+    -- ** ModifyDBClusterParameterGroup
+    ModifyDBClusterParameterGroup (ModifyDBClusterParameterGroup'),
+    newModifyDBClusterParameterGroup,
+    DBClusterParameterGroupNameMessage (DBClusterParameterGroupNameMessage'),
+    newDBClusterParameterGroupNameMessage,
+
+    -- ** ModifyDBClusterSnapshotAttribute
+    ModifyDBClusterSnapshotAttribute (ModifyDBClusterSnapshotAttribute'),
+    newModifyDBClusterSnapshotAttribute,
+    ModifyDBClusterSnapshotAttributeResponse (ModifyDBClusterSnapshotAttributeResponse'),
+    newModifyDBClusterSnapshotAttributeResponse,
+
+    -- ** ModifyDBInstance
+    ModifyDBInstance (ModifyDBInstance'),
+    newModifyDBInstance,
+    ModifyDBInstanceResponse (ModifyDBInstanceResponse'),
+    newModifyDBInstanceResponse,
+
+    -- ** ModifyDBSubnetGroup
+    ModifyDBSubnetGroup (ModifyDBSubnetGroup'),
+    newModifyDBSubnetGroup,
+    ModifyDBSubnetGroupResponse (ModifyDBSubnetGroupResponse'),
+    newModifyDBSubnetGroupResponse,
+
+    -- ** ModifyEventSubscription
+    ModifyEventSubscription (ModifyEventSubscription'),
+    newModifyEventSubscription,
+    ModifyEventSubscriptionResponse (ModifyEventSubscriptionResponse'),
+    newModifyEventSubscriptionResponse,
 
     -- ** ModifyGlobalCluster
     ModifyGlobalCluster (ModifyGlobalCluster'),
@@ -508,17 +466,59 @@ module Amazonka.DocumentDB
     ModifyGlobalClusterResponse (ModifyGlobalClusterResponse'),
     newModifyGlobalClusterResponse,
 
+    -- ** RebootDBInstance
+    RebootDBInstance (RebootDBInstance'),
+    newRebootDBInstance,
+    RebootDBInstanceResponse (RebootDBInstanceResponse'),
+    newRebootDBInstanceResponse,
+
+    -- ** RemoveFromGlobalCluster
+    RemoveFromGlobalCluster (RemoveFromGlobalCluster'),
+    newRemoveFromGlobalCluster,
+    RemoveFromGlobalClusterResponse (RemoveFromGlobalClusterResponse'),
+    newRemoveFromGlobalClusterResponse,
+
+    -- ** RemoveSourceIdentifierFromSubscription
+    RemoveSourceIdentifierFromSubscription (RemoveSourceIdentifierFromSubscription'),
+    newRemoveSourceIdentifierFromSubscription,
+    RemoveSourceIdentifierFromSubscriptionResponse (RemoveSourceIdentifierFromSubscriptionResponse'),
+    newRemoveSourceIdentifierFromSubscriptionResponse,
+
+    -- ** RemoveTagsFromResource
+    RemoveTagsFromResource (RemoveTagsFromResource'),
+    newRemoveTagsFromResource,
+    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
+    newRemoveTagsFromResourceResponse,
+
+    -- ** ResetDBClusterParameterGroup
+    ResetDBClusterParameterGroup (ResetDBClusterParameterGroup'),
+    newResetDBClusterParameterGroup,
+    DBClusterParameterGroupNameMessage (DBClusterParameterGroupNameMessage'),
+    newDBClusterParameterGroupNameMessage,
+
+    -- ** RestoreDBClusterFromSnapshot
+    RestoreDBClusterFromSnapshot (RestoreDBClusterFromSnapshot'),
+    newRestoreDBClusterFromSnapshot,
+    RestoreDBClusterFromSnapshotResponse (RestoreDBClusterFromSnapshotResponse'),
+    newRestoreDBClusterFromSnapshotResponse,
+
     -- ** RestoreDBClusterToPointInTime
     RestoreDBClusterToPointInTime (RestoreDBClusterToPointInTime'),
     newRestoreDBClusterToPointInTime,
     RestoreDBClusterToPointInTimeResponse (RestoreDBClusterToPointInTimeResponse'),
     newRestoreDBClusterToPointInTimeResponse,
 
-    -- ** DescribeDBInstances (Paginated)
-    DescribeDBInstances (DescribeDBInstances'),
-    newDescribeDBInstances,
-    DescribeDBInstancesResponse (DescribeDBInstancesResponse'),
-    newDescribeDBInstancesResponse,
+    -- ** StartDBCluster
+    StartDBCluster (StartDBCluster'),
+    newStartDBCluster,
+    StartDBClusterResponse (StartDBClusterResponse'),
+    newStartDBClusterResponse,
+
+    -- ** StopDBCluster
+    StopDBCluster (StopDBCluster'),
+    newStopDBCluster,
+    StopDBClusterResponse (StopDBClusterResponse'),
+    newStopDBClusterResponse,
 
     -- * Types
 

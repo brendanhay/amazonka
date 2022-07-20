@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCurrentMetricData' smart constructor.
 data CurrentMetricData = CurrentMetricData'
-  { -- | The value of the metric.
-    value :: Prelude.Maybe Prelude.Double,
-    -- | Information about the metric.
-    metric :: Prelude.Maybe CurrentMetric
+  { -- | Information about the metric.
+    metric :: Prelude.Maybe CurrentMetric,
+    -- | The value of the metric.
+    value :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data CurrentMetricData = CurrentMetricData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'currentMetricData_value' - The value of the metric.
---
 -- 'metric', 'currentMetricData_metric' - Information about the metric.
+--
+-- 'value', 'currentMetricData_value' - The value of the metric.
 newCurrentMetricData ::
   CurrentMetricData
 newCurrentMetricData =
   CurrentMetricData'
-    { value = Prelude.Nothing,
-      metric = Prelude.Nothing
+    { metric = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the metric.
-currentMetricData_value :: Lens.Lens' CurrentMetricData (Prelude.Maybe Prelude.Double)
-currentMetricData_value = Lens.lens (\CurrentMetricData' {value} -> value) (\s@CurrentMetricData' {} a -> s {value = a} :: CurrentMetricData)
 
 -- | Information about the metric.
 currentMetricData_metric :: Lens.Lens' CurrentMetricData (Prelude.Maybe CurrentMetric)
 currentMetricData_metric = Lens.lens (\CurrentMetricData' {metric} -> metric) (\s@CurrentMetricData' {} a -> s {metric = a} :: CurrentMetricData)
+
+-- | The value of the metric.
+currentMetricData_value :: Lens.Lens' CurrentMetricData (Prelude.Maybe Prelude.Double)
+currentMetricData_value = Lens.lens (\CurrentMetricData' {value} -> value) (\s@CurrentMetricData' {} a -> s {value = a} :: CurrentMetricData)
 
 instance Core.FromJSON CurrentMetricData where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON CurrentMetricData where
       "CurrentMetricData"
       ( \x ->
           CurrentMetricData'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Metric")
+            Prelude.<$> (x Core..:? "Metric")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable CurrentMetricData where
   hashWithSalt _salt CurrentMetricData' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` metric
+    _salt `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CurrentMetricData where
   rnf CurrentMetricData' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf metric
+    Prelude.rnf metric `Prelude.seq` Prelude.rnf value

@@ -54,9 +54,9 @@ module Amazonka.Lightsail.CreateDiskSnapshot
     newCreateDiskSnapshot,
 
     -- * Request Lenses
-    createDiskSnapshot_diskName,
-    createDiskSnapshot_instanceName,
     createDiskSnapshot_tags,
+    createDiskSnapshot_instanceName,
+    createDiskSnapshot_diskName,
     createDiskSnapshot_diskSnapshotName,
 
     -- * Destructuring the Response
@@ -78,12 +78,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDiskSnapshot' smart constructor.
 data CreateDiskSnapshot = CreateDiskSnapshot'
-  { -- | The unique name of the source disk (e.g., @Disk-Virginia-1@).
+  { -- | The tag keys and optional values to add to the resource during create.
     --
-    -- This parameter cannot be defined together with the @instance name@
-    -- parameter. The @disk name@ and @instance name@ parameters are mutually
-    -- exclusive.
-    diskName :: Prelude.Maybe Prelude.Text,
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
     -- | The unique name of the source instance (e.g.,
     -- @Amazon_Linux-512MB-Virginia-1@). When this is defined, a snapshot of
     -- the instance\'s system volume is created.
@@ -92,10 +90,12 @@ data CreateDiskSnapshot = CreateDiskSnapshot'
     -- parameter. The @instance name@ and @disk name@ parameters are mutually
     -- exclusive.
     instanceName :: Prelude.Maybe Prelude.Text,
-    -- | The tag keys and optional values to add to the resource during create.
+    -- | The unique name of the source disk (e.g., @Disk-Virginia-1@).
     --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    -- This parameter cannot be defined together with the @instance name@
+    -- parameter. The @disk name@ and @instance name@ parameters are mutually
+    -- exclusive.
+    diskName :: Prelude.Maybe Prelude.Text,
     -- | The name of the destination disk snapshot (e.g., @my-disk-snapshot@)
     -- based on the source disk.
     diskSnapshotName :: Prelude.Text
@@ -110,11 +110,9 @@ data CreateDiskSnapshot = CreateDiskSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'diskName', 'createDiskSnapshot_diskName' - The unique name of the source disk (e.g., @Disk-Virginia-1@).
+-- 'tags', 'createDiskSnapshot_tags' - The tag keys and optional values to add to the resource during create.
 --
--- This parameter cannot be defined together with the @instance name@
--- parameter. The @disk name@ and @instance name@ parameters are mutually
--- exclusive.
+-- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'instanceName', 'createDiskSnapshot_instanceName' - The unique name of the source instance (e.g.,
 -- @Amazon_Linux-512MB-Virginia-1@). When this is defined, a snapshot of
@@ -124,9 +122,11 @@ data CreateDiskSnapshot = CreateDiskSnapshot'
 -- parameter. The @instance name@ and @disk name@ parameters are mutually
 -- exclusive.
 --
--- 'tags', 'createDiskSnapshot_tags' - The tag keys and optional values to add to the resource during create.
+-- 'diskName', 'createDiskSnapshot_diskName' - The unique name of the source disk (e.g., @Disk-Virginia-1@).
 --
--- Use the @TagResource@ action to tag a resource after it\'s created.
+-- This parameter cannot be defined together with the @instance name@
+-- parameter. The @disk name@ and @instance name@ parameters are mutually
+-- exclusive.
 --
 -- 'diskSnapshotName', 'createDiskSnapshot_diskSnapshotName' - The name of the destination disk snapshot (e.g., @my-disk-snapshot@)
 -- based on the source disk.
@@ -136,19 +136,17 @@ newCreateDiskSnapshot ::
   CreateDiskSnapshot
 newCreateDiskSnapshot pDiskSnapshotName_ =
   CreateDiskSnapshot'
-    { diskName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       instanceName = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      diskName = Prelude.Nothing,
       diskSnapshotName = pDiskSnapshotName_
     }
 
--- | The unique name of the source disk (e.g., @Disk-Virginia-1@).
+-- | The tag keys and optional values to add to the resource during create.
 --
--- This parameter cannot be defined together with the @instance name@
--- parameter. The @disk name@ and @instance name@ parameters are mutually
--- exclusive.
-createDiskSnapshot_diskName :: Lens.Lens' CreateDiskSnapshot (Prelude.Maybe Prelude.Text)
-createDiskSnapshot_diskName = Lens.lens (\CreateDiskSnapshot' {diskName} -> diskName) (\s@CreateDiskSnapshot' {} a -> s {diskName = a} :: CreateDiskSnapshot)
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createDiskSnapshot_tags :: Lens.Lens' CreateDiskSnapshot (Prelude.Maybe [Tag])
+createDiskSnapshot_tags = Lens.lens (\CreateDiskSnapshot' {tags} -> tags) (\s@CreateDiskSnapshot' {} a -> s {tags = a} :: CreateDiskSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique name of the source instance (e.g.,
 -- @Amazon_Linux-512MB-Virginia-1@). When this is defined, a snapshot of
@@ -160,11 +158,13 @@ createDiskSnapshot_diskName = Lens.lens (\CreateDiskSnapshot' {diskName} -> disk
 createDiskSnapshot_instanceName :: Lens.Lens' CreateDiskSnapshot (Prelude.Maybe Prelude.Text)
 createDiskSnapshot_instanceName = Lens.lens (\CreateDiskSnapshot' {instanceName} -> instanceName) (\s@CreateDiskSnapshot' {} a -> s {instanceName = a} :: CreateDiskSnapshot)
 
--- | The tag keys and optional values to add to the resource during create.
+-- | The unique name of the source disk (e.g., @Disk-Virginia-1@).
 --
--- Use the @TagResource@ action to tag a resource after it\'s created.
-createDiskSnapshot_tags :: Lens.Lens' CreateDiskSnapshot (Prelude.Maybe [Tag])
-createDiskSnapshot_tags = Lens.lens (\CreateDiskSnapshot' {tags} -> tags) (\s@CreateDiskSnapshot' {} a -> s {tags = a} :: CreateDiskSnapshot) Prelude.. Lens.mapping Lens.coerced
+-- This parameter cannot be defined together with the @instance name@
+-- parameter. The @disk name@ and @instance name@ parameters are mutually
+-- exclusive.
+createDiskSnapshot_diskName :: Lens.Lens' CreateDiskSnapshot (Prelude.Maybe Prelude.Text)
+createDiskSnapshot_diskName = Lens.lens (\CreateDiskSnapshot' {diskName} -> diskName) (\s@CreateDiskSnapshot' {} a -> s {diskName = a} :: CreateDiskSnapshot)
 
 -- | The name of the destination disk snapshot (e.g., @my-disk-snapshot@)
 -- based on the source disk.
@@ -186,16 +186,16 @@ instance Core.AWSRequest CreateDiskSnapshot where
 
 instance Prelude.Hashable CreateDiskSnapshot where
   hashWithSalt _salt CreateDiskSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` diskName
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` diskName
       `Prelude.hashWithSalt` diskSnapshotName
 
 instance Prelude.NFData CreateDiskSnapshot where
   rnf CreateDiskSnapshot' {..} =
-    Prelude.rnf diskName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf diskName
       `Prelude.seq` Prelude.rnf diskSnapshotName
 
 instance Core.ToHeaders CreateDiskSnapshot where
@@ -217,9 +217,9 @@ instance Core.ToJSON CreateDiskSnapshot where
   toJSON CreateDiskSnapshot' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("diskName" Core..=) Prelude.<$> diskName,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("instanceName" Core..=) Prelude.<$> instanceName,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("diskName" Core..=) Prelude.<$> diskName,
             Prelude.Just
               ("diskSnapshotName" Core..= diskSnapshotName)
           ]

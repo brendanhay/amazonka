@@ -154,14 +154,7 @@ instance Core.ToHeaders UpdateTemplateActiveVersion where
 
 instance Core.ToJSON UpdateTemplateActiveVersion where
   toJSON UpdateTemplateActiveVersion' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "TemplateActiveVersionRequest"
-                  Core..= templateActiveVersionRequest
-              )
-          ]
-      )
+    Core.toJSON templateActiveVersionRequest
 
 instance Core.ToPath UpdateTemplateActiveVersion where
   toPath UpdateTemplateActiveVersion' {..} =

@@ -33,14 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMatchAttributes' smart constructor.
 data MatchAttributes = MatchAttributes'
-  { -- | The protocols to inspect for, specified using each protocol\'s assigned
-    -- internet protocol number (IANA). If not specified, this matches with any
-    -- protocol.
-    protocols :: Prelude.Maybe [Prelude.Natural],
-    -- | The TCP flags and masks to inspect for. If not specified, this matches
-    -- with any settings. This setting is only used for protocol 6 (TCP).
-    tCPFlags :: Prelude.Maybe [TCPFlagField],
-    -- | The destination ports to inspect for. If not specified, this matches
+  { -- | The destination ports to inspect for. If not specified, this matches
     -- with any destination port. This setting is only used for protocols 6
     -- (TCP) and 17 (UDP).
     --
@@ -50,6 +43,13 @@ data MatchAttributes = MatchAttributes'
     -- | The source IP addresses and address ranges to inspect for, in CIDR
     -- notation. If not specified, this matches with any source address.
     sources :: Prelude.Maybe [Address],
+    -- | The TCP flags and masks to inspect for. If not specified, this matches
+    -- with any settings. This setting is only used for protocol 6 (TCP).
+    tCPFlags :: Prelude.Maybe [TCPFlagField],
+    -- | The protocols to inspect for, specified using each protocol\'s assigned
+    -- internet protocol number (IANA). If not specified, this matches with any
+    -- protocol.
+    protocols :: Prelude.Maybe [Prelude.Natural],
     -- | The source ports to inspect for. If not specified, this matches with any
     -- source port. This setting is only used for protocols 6 (TCP) and 17
     -- (UDP).
@@ -71,13 +71,6 @@ data MatchAttributes = MatchAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'protocols', 'matchAttributes_protocols' - The protocols to inspect for, specified using each protocol\'s assigned
--- internet protocol number (IANA). If not specified, this matches with any
--- protocol.
---
--- 'tCPFlags', 'matchAttributes_tCPFlags' - The TCP flags and masks to inspect for. If not specified, this matches
--- with any settings. This setting is only used for protocol 6 (TCP).
---
 -- 'destinationPorts', 'matchAttributes_destinationPorts' - The destination ports to inspect for. If not specified, this matches
 -- with any destination port. This setting is only used for protocols 6
 -- (TCP) and 17 (UDP).
@@ -87,6 +80,13 @@ data MatchAttributes = MatchAttributes'
 --
 -- 'sources', 'matchAttributes_sources' - The source IP addresses and address ranges to inspect for, in CIDR
 -- notation. If not specified, this matches with any source address.
+--
+-- 'tCPFlags', 'matchAttributes_tCPFlags' - The TCP flags and masks to inspect for. If not specified, this matches
+-- with any settings. This setting is only used for protocol 6 (TCP).
+--
+-- 'protocols', 'matchAttributes_protocols' - The protocols to inspect for, specified using each protocol\'s assigned
+-- internet protocol number (IANA). If not specified, this matches with any
+-- protocol.
 --
 -- 'sourcePorts', 'matchAttributes_sourcePorts' - The source ports to inspect for. If not specified, this matches with any
 -- source port. This setting is only used for protocols 6 (TCP) and 17
@@ -101,24 +101,14 @@ newMatchAttributes ::
   MatchAttributes
 newMatchAttributes =
   MatchAttributes'
-    { protocols = Prelude.Nothing,
-      tCPFlags = Prelude.Nothing,
-      destinationPorts = Prelude.Nothing,
+    { destinationPorts =
+        Prelude.Nothing,
       sources = Prelude.Nothing,
+      tCPFlags = Prelude.Nothing,
+      protocols = Prelude.Nothing,
       sourcePorts = Prelude.Nothing,
       destinations = Prelude.Nothing
     }
-
--- | The protocols to inspect for, specified using each protocol\'s assigned
--- internet protocol number (IANA). If not specified, this matches with any
--- protocol.
-matchAttributes_protocols :: Lens.Lens' MatchAttributes (Prelude.Maybe [Prelude.Natural])
-matchAttributes_protocols = Lens.lens (\MatchAttributes' {protocols} -> protocols) (\s@MatchAttributes' {} a -> s {protocols = a} :: MatchAttributes) Prelude.. Lens.mapping Lens.coerced
-
--- | The TCP flags and masks to inspect for. If not specified, this matches
--- with any settings. This setting is only used for protocol 6 (TCP).
-matchAttributes_tCPFlags :: Lens.Lens' MatchAttributes (Prelude.Maybe [TCPFlagField])
-matchAttributes_tCPFlags = Lens.lens (\MatchAttributes' {tCPFlags} -> tCPFlags) (\s@MatchAttributes' {} a -> s {tCPFlags = a} :: MatchAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The destination ports to inspect for. If not specified, this matches
 -- with any destination port. This setting is only used for protocols 6
@@ -133,6 +123,17 @@ matchAttributes_destinationPorts = Lens.lens (\MatchAttributes' {destinationPort
 -- notation. If not specified, this matches with any source address.
 matchAttributes_sources :: Lens.Lens' MatchAttributes (Prelude.Maybe [Address])
 matchAttributes_sources = Lens.lens (\MatchAttributes' {sources} -> sources) (\s@MatchAttributes' {} a -> s {sources = a} :: MatchAttributes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The TCP flags and masks to inspect for. If not specified, this matches
+-- with any settings. This setting is only used for protocol 6 (TCP).
+matchAttributes_tCPFlags :: Lens.Lens' MatchAttributes (Prelude.Maybe [TCPFlagField])
+matchAttributes_tCPFlags = Lens.lens (\MatchAttributes' {tCPFlags} -> tCPFlags) (\s@MatchAttributes' {} a -> s {tCPFlags = a} :: MatchAttributes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The protocols to inspect for, specified using each protocol\'s assigned
+-- internet protocol number (IANA). If not specified, this matches with any
+-- protocol.
+matchAttributes_protocols :: Lens.Lens' MatchAttributes (Prelude.Maybe [Prelude.Natural])
+matchAttributes_protocols = Lens.lens (\MatchAttributes' {protocols} -> protocols) (\s@MatchAttributes' {} a -> s {protocols = a} :: MatchAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The source ports to inspect for. If not specified, this matches with any
 -- source port. This setting is only used for protocols 6 (TCP) and 17
@@ -154,31 +155,31 @@ instance Core.FromJSON MatchAttributes where
       "MatchAttributes"
       ( \x ->
           MatchAttributes'
-            Prelude.<$> (x Core..:? "Protocols" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TCPFlags" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "DestinationPorts"
+            Prelude.<$> ( x Core..:? "DestinationPorts"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "Sources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TCPFlags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Protocols" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SourcePorts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Destinations" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MatchAttributes where
   hashWithSalt _salt MatchAttributes' {..} =
-    _salt `Prelude.hashWithSalt` protocols
-      `Prelude.hashWithSalt` tCPFlags
-      `Prelude.hashWithSalt` destinationPorts
+    _salt `Prelude.hashWithSalt` destinationPorts
       `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` tCPFlags
+      `Prelude.hashWithSalt` protocols
       `Prelude.hashWithSalt` sourcePorts
       `Prelude.hashWithSalt` destinations
 
 instance Prelude.NFData MatchAttributes where
   rnf MatchAttributes' {..} =
-    Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf tCPFlags
-      `Prelude.seq` Prelude.rnf destinationPorts
+    Prelude.rnf destinationPorts
       `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf tCPFlags
+      `Prelude.seq` Prelude.rnf protocols
       `Prelude.seq` Prelude.rnf sourcePorts
       `Prelude.seq` Prelude.rnf destinations
 
@@ -186,11 +187,11 @@ instance Core.ToJSON MatchAttributes where
   toJSON MatchAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Protocols" Core..=) Prelude.<$> protocols,
-            ("TCPFlags" Core..=) Prelude.<$> tCPFlags,
-            ("DestinationPorts" Core..=)
+          [ ("DestinationPorts" Core..=)
               Prelude.<$> destinationPorts,
             ("Sources" Core..=) Prelude.<$> sources,
+            ("TCPFlags" Core..=) Prelude.<$> tCPFlags,
+            ("Protocols" Core..=) Prelude.<$> protocols,
             ("SourcePorts" Core..=) Prelude.<$> sourcePorts,
             ("Destinations" Core..=) Prelude.<$> destinations
           ]

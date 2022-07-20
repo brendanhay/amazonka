@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkerConfigurationRevisionSummary' smart constructor.
 data WorkerConfigurationRevisionSummary = WorkerConfigurationRevisionSummary'
-  { -- | The time that a worker configuration revision was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The revision of a worker configuration.
+  { -- | The revision of a worker configuration.
     revision :: Prelude.Maybe Prelude.Integer,
     -- | The description of a worker configuration revision.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The time that a worker configuration revision was created.
+    creationTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data WorkerConfigurationRevisionSummary = WorkerConfigurationRevisionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'workerConfigurationRevisionSummary_creationTime' - The time that a worker configuration revision was created.
---
 -- 'revision', 'workerConfigurationRevisionSummary_revision' - The revision of a worker configuration.
 --
 -- 'description', 'workerConfigurationRevisionSummary_description' - The description of a worker configuration revision.
+--
+-- 'creationTime', 'workerConfigurationRevisionSummary_creationTime' - The time that a worker configuration revision was created.
 newWorkerConfigurationRevisionSummary ::
   WorkerConfigurationRevisionSummary
 newWorkerConfigurationRevisionSummary =
   WorkerConfigurationRevisionSummary'
-    { creationTime =
+    { revision =
         Prelude.Nothing,
-      revision = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      creationTime = Prelude.Nothing
     }
-
--- | The time that a worker configuration revision was created.
-workerConfigurationRevisionSummary_creationTime :: Lens.Lens' WorkerConfigurationRevisionSummary (Prelude.Maybe Prelude.UTCTime)
-workerConfigurationRevisionSummary_creationTime = Lens.lens (\WorkerConfigurationRevisionSummary' {creationTime} -> creationTime) (\s@WorkerConfigurationRevisionSummary' {} a -> s {creationTime = a} :: WorkerConfigurationRevisionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The revision of a worker configuration.
 workerConfigurationRevisionSummary_revision :: Lens.Lens' WorkerConfigurationRevisionSummary (Prelude.Maybe Prelude.Integer)
@@ -70,6 +66,10 @@ workerConfigurationRevisionSummary_revision = Lens.lens (\WorkerConfigurationRev
 -- | The description of a worker configuration revision.
 workerConfigurationRevisionSummary_description :: Lens.Lens' WorkerConfigurationRevisionSummary (Prelude.Maybe Prelude.Text)
 workerConfigurationRevisionSummary_description = Lens.lens (\WorkerConfigurationRevisionSummary' {description} -> description) (\s@WorkerConfigurationRevisionSummary' {} a -> s {description = a} :: WorkerConfigurationRevisionSummary)
+
+-- | The time that a worker configuration revision was created.
+workerConfigurationRevisionSummary_creationTime :: Lens.Lens' WorkerConfigurationRevisionSummary (Prelude.Maybe Prelude.UTCTime)
+workerConfigurationRevisionSummary_creationTime = Lens.lens (\WorkerConfigurationRevisionSummary' {creationTime} -> creationTime) (\s@WorkerConfigurationRevisionSummary' {} a -> s {creationTime = a} :: WorkerConfigurationRevisionSummary) Prelude.. Lens.mapping Core._Time
 
 instance
   Core.FromJSON
@@ -80,9 +80,9 @@ instance
       "WorkerConfigurationRevisionSummary"
       ( \x ->
           WorkerConfigurationRevisionSummary'
-            Prelude.<$> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "revision")
+            Prelude.<$> (x Core..:? "revision")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "creationTime")
       )
 
 instance
@@ -92,15 +92,15 @@ instance
   hashWithSalt
     _salt
     WorkerConfigurationRevisionSummary' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
-        `Prelude.hashWithSalt` revision
+      _salt `Prelude.hashWithSalt` revision
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` creationTime
 
 instance
   Prelude.NFData
     WorkerConfigurationRevisionSummary
   where
   rnf WorkerConfigurationRevisionSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf revision
+    Prelude.rnf revision
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationTime

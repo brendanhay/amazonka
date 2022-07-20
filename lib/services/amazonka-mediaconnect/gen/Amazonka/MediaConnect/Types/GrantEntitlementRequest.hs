@@ -29,13 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrantEntitlementRequest' smart constructor.
 data GrantEntitlementRequest = GrantEntitlementRequest'
-  { -- | Percentage from 0-100 of the data transfer cost to be billed to the
-    -- subscriber.
-    dataTransferSubscriberFeePercent :: Prelude.Maybe Prelude.Int,
-    -- | The type of encryption that will be used on the output that is
-    -- associated with this entitlement.
-    encryption :: Prelude.Maybe Encryption,
-    -- | The name of the entitlement. This value must be unique within the
+  { -- | The name of the entitlement. This value must be unique within the
     -- current flow.
     name :: Prelude.Maybe Prelude.Text,
     -- | An indication of whether the new entitlement should be enabled or
@@ -47,6 +41,12 @@ data GrantEntitlementRequest = GrantEntitlementRequest'
     -- AWS Elemental MediaConnect console and will not be seen by the
     -- subscriber or end user.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The type of encryption that will be used on the output that is
+    -- associated with this entitlement.
+    encryption :: Prelude.Maybe Encryption,
+    -- | Percentage from 0-100 of the data transfer cost to be billed to the
+    -- subscriber.
+    dataTransferSubscriberFeePercent :: Prelude.Maybe Prelude.Int,
     -- | The AWS account IDs that you want to share your content with. The
     -- receiving accounts (subscribers) will be allowed to create their own
     -- flows using your content as the source.
@@ -62,12 +62,6 @@ data GrantEntitlementRequest = GrantEntitlementRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataTransferSubscriberFeePercent', 'grantEntitlementRequest_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the
--- subscriber.
---
--- 'encryption', 'grantEntitlementRequest_encryption' - The type of encryption that will be used on the output that is
--- associated with this entitlement.
---
 -- 'name', 'grantEntitlementRequest_name' - The name of the entitlement. This value must be unique within the
 -- current flow.
 --
@@ -80,6 +74,12 @@ data GrantEntitlementRequest = GrantEntitlementRequest'
 -- AWS Elemental MediaConnect console and will not be seen by the
 -- subscriber or end user.
 --
+-- 'encryption', 'grantEntitlementRequest_encryption' - The type of encryption that will be used on the output that is
+-- associated with this entitlement.
+--
+-- 'dataTransferSubscriberFeePercent', 'grantEntitlementRequest_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the
+-- subscriber.
+--
 -- 'subscribers', 'grantEntitlementRequest_subscribers' - The AWS account IDs that you want to share your content with. The
 -- receiving accounts (subscribers) will be allowed to create their own
 -- flows using your content as the source.
@@ -87,24 +87,13 @@ newGrantEntitlementRequest ::
   GrantEntitlementRequest
 newGrantEntitlementRequest =
   GrantEntitlementRequest'
-    { dataTransferSubscriberFeePercent =
-        Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       entitlementStatus = Prelude.Nothing,
       description = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      dataTransferSubscriberFeePercent = Prelude.Nothing,
       subscribers = Prelude.mempty
     }
-
--- | Percentage from 0-100 of the data transfer cost to be billed to the
--- subscriber.
-grantEntitlementRequest_dataTransferSubscriberFeePercent :: Lens.Lens' GrantEntitlementRequest (Prelude.Maybe Prelude.Int)
-grantEntitlementRequest_dataTransferSubscriberFeePercent = Lens.lens (\GrantEntitlementRequest' {dataTransferSubscriberFeePercent} -> dataTransferSubscriberFeePercent) (\s@GrantEntitlementRequest' {} a -> s {dataTransferSubscriberFeePercent = a} :: GrantEntitlementRequest)
-
--- | The type of encryption that will be used on the output that is
--- associated with this entitlement.
-grantEntitlementRequest_encryption :: Lens.Lens' GrantEntitlementRequest (Prelude.Maybe Encryption)
-grantEntitlementRequest_encryption = Lens.lens (\GrantEntitlementRequest' {encryption} -> encryption) (\s@GrantEntitlementRequest' {} a -> s {encryption = a} :: GrantEntitlementRequest)
 
 -- | The name of the entitlement. This value must be unique within the
 -- current flow.
@@ -124,6 +113,16 @@ grantEntitlementRequest_entitlementStatus = Lens.lens (\GrantEntitlementRequest'
 grantEntitlementRequest_description :: Lens.Lens' GrantEntitlementRequest (Prelude.Maybe Prelude.Text)
 grantEntitlementRequest_description = Lens.lens (\GrantEntitlementRequest' {description} -> description) (\s@GrantEntitlementRequest' {} a -> s {description = a} :: GrantEntitlementRequest)
 
+-- | The type of encryption that will be used on the output that is
+-- associated with this entitlement.
+grantEntitlementRequest_encryption :: Lens.Lens' GrantEntitlementRequest (Prelude.Maybe Encryption)
+grantEntitlementRequest_encryption = Lens.lens (\GrantEntitlementRequest' {encryption} -> encryption) (\s@GrantEntitlementRequest' {} a -> s {encryption = a} :: GrantEntitlementRequest)
+
+-- | Percentage from 0-100 of the data transfer cost to be billed to the
+-- subscriber.
+grantEntitlementRequest_dataTransferSubscriberFeePercent :: Lens.Lens' GrantEntitlementRequest (Prelude.Maybe Prelude.Int)
+grantEntitlementRequest_dataTransferSubscriberFeePercent = Lens.lens (\GrantEntitlementRequest' {dataTransferSubscriberFeePercent} -> dataTransferSubscriberFeePercent) (\s@GrantEntitlementRequest' {} a -> s {dataTransferSubscriberFeePercent = a} :: GrantEntitlementRequest)
+
 -- | The AWS account IDs that you want to share your content with. The
 -- receiving accounts (subscribers) will be allowed to create their own
 -- flows using your content as the source.
@@ -132,34 +131,33 @@ grantEntitlementRequest_subscribers = Lens.lens (\GrantEntitlementRequest' {subs
 
 instance Prelude.Hashable GrantEntitlementRequest where
   hashWithSalt _salt GrantEntitlementRequest' {..} =
-    _salt
-      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
-      `Prelude.hashWithSalt` encryption
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` entitlementStatus
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
       `Prelude.hashWithSalt` subscribers
 
 instance Prelude.NFData GrantEntitlementRequest where
   rnf GrantEntitlementRequest' {..} =
-    Prelude.rnf dataTransferSubscriberFeePercent
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf entitlementStatus
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf dataTransferSubscriberFeePercent
       `Prelude.seq` Prelude.rnf subscribers
 
 instance Core.ToJSON GrantEntitlementRequest where
   toJSON GrantEntitlementRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("dataTransferSubscriberFeePercent" Core..=)
-              Prelude.<$> dataTransferSubscriberFeePercent,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
             ("entitlementStatus" Core..=)
               Prelude.<$> entitlementStatus,
             ("description" Core..=) Prelude.<$> description,
+            ("encryption" Core..=) Prelude.<$> encryption,
+            ("dataTransferSubscriberFeePercent" Core..=)
+              Prelude.<$> dataTransferSubscriberFeePercent,
             Prelude.Just ("subscribers" Core..= subscribers)
           ]
       )

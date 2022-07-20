@@ -31,10 +31,10 @@ import Amazonka.Transfer.Types.S3Tag
 --
 -- /See:/ 'newTagStepDetails' smart constructor.
 data TagStepDetails = TagStepDetails'
-  { -- | The name of the step, used as an identifier.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Array that contains from 1 to 10 key\/value pairs.
-    tags :: Prelude.Maybe (Prelude.NonEmpty S3Tag)
+  { -- | Array that contains from 1 to 10 key\/value pairs.
+    tags :: Prelude.Maybe (Prelude.NonEmpty S3Tag),
+    -- | The name of the step, used as an identifier.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data TagStepDetails = TagStepDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'tagStepDetails_name' - The name of the step, used as an identifier.
---
 -- 'tags', 'tagStepDetails_tags' - Array that contains from 1 to 10 key\/value pairs.
+--
+-- 'name', 'tagStepDetails_name' - The name of the step, used as an identifier.
 newTagStepDetails ::
   TagStepDetails
 newTagStepDetails =
   TagStepDetails'
-    { name = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the step, used as an identifier.
-tagStepDetails_name :: Lens.Lens' TagStepDetails (Prelude.Maybe Prelude.Text)
-tagStepDetails_name = Lens.lens (\TagStepDetails' {name} -> name) (\s@TagStepDetails' {} a -> s {name = a} :: TagStepDetails)
 
 -- | Array that contains from 1 to 10 key\/value pairs.
 tagStepDetails_tags :: Lens.Lens' TagStepDetails (Prelude.Maybe (Prelude.NonEmpty S3Tag))
 tagStepDetails_tags = Lens.lens (\TagStepDetails' {tags} -> tags) (\s@TagStepDetails' {} a -> s {tags = a} :: TagStepDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the step, used as an identifier.
+tagStepDetails_name :: Lens.Lens' TagStepDetails (Prelude.Maybe Prelude.Text)
+tagStepDetails_name = Lens.lens (\TagStepDetails' {name} -> name) (\s@TagStepDetails' {} a -> s {name = a} :: TagStepDetails)
 
 instance Core.FromJSON TagStepDetails where
   parseJSON =
@@ -71,23 +71,23 @@ instance Core.FromJSON TagStepDetails where
       "TagStepDetails"
       ( \x ->
           TagStepDetails'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Tags")
+            Prelude.<$> (x Core..:? "Tags") Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable TagStepDetails where
   hashWithSalt _salt TagStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TagStepDetails where
   rnf TagStepDetails' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON TagStepDetails where
   toJSON TagStepDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Tags" Core..=) Prelude.<$> tags
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

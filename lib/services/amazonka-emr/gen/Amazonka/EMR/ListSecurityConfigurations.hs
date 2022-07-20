@@ -40,8 +40,8 @@ module Amazonka.EMR.ListSecurityConfigurations
     newListSecurityConfigurationsResponse,
 
     -- * Response Lenses
-    listSecurityConfigurationsResponse_securityConfigurations,
     listSecurityConfigurationsResponse_marker,
+    listSecurityConfigurationsResponse_securityConfigurations,
     listSecurityConfigurationsResponse_httpStatus,
   )
 where
@@ -112,10 +112,10 @@ instance Core.AWSRequest ListSecurityConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListSecurityConfigurationsResponse'
-            Prelude.<$> ( x Core..?> "SecurityConfigurations"
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> ( x Core..?> "SecurityConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,12 +157,12 @@ instance Core.ToQuery ListSecurityConfigurations where
 
 -- | /See:/ 'newListSecurityConfigurationsResponse' smart constructor.
 data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
-  { -- | The creation date and time, and name, of each security configuration.
-    securityConfigurations :: Prelude.Maybe [SecurityConfigurationSummary],
-    -- | A pagination token that indicates the next set of results to retrieve.
+  { -- | A pagination token that indicates the next set of results to retrieve.
     -- Include the marker in the next ListSecurityConfiguration call to
     -- retrieve the next page of results, if required.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The creation date and time, and name, of each security configuration.
+    securityConfigurations :: Prelude.Maybe [SecurityConfigurationSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,11 +176,11 @@ data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityConfigurations', 'listSecurityConfigurationsResponse_securityConfigurations' - The creation date and time, and name, of each security configuration.
---
 -- 'marker', 'listSecurityConfigurationsResponse_marker' - A pagination token that indicates the next set of results to retrieve.
 -- Include the marker in the next ListSecurityConfiguration call to
 -- retrieve the next page of results, if required.
+--
+-- 'securityConfigurations', 'listSecurityConfigurationsResponse_securityConfigurations' - The creation date and time, and name, of each security configuration.
 --
 -- 'httpStatus', 'listSecurityConfigurationsResponse_httpStatus' - The response's http status code.
 newListSecurityConfigurationsResponse ::
@@ -189,21 +189,22 @@ newListSecurityConfigurationsResponse ::
   ListSecurityConfigurationsResponse
 newListSecurityConfigurationsResponse pHttpStatus_ =
   ListSecurityConfigurationsResponse'
-    { securityConfigurations =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      securityConfigurations =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The creation date and time, and name, of each security configuration.
-listSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Prelude.Maybe [SecurityConfigurationSummary])
-listSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\ListSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@ListSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that indicates the next set of results to retrieve.
 -- Include the marker in the next ListSecurityConfiguration call to
 -- retrieve the next page of results, if required.
 listSecurityConfigurationsResponse_marker :: Lens.Lens' ListSecurityConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listSecurityConfigurationsResponse_marker = Lens.lens (\ListSecurityConfigurationsResponse' {marker} -> marker) (\s@ListSecurityConfigurationsResponse' {} a -> s {marker = a} :: ListSecurityConfigurationsResponse)
+
+-- | The creation date and time, and name, of each security configuration.
+listSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Prelude.Maybe [SecurityConfigurationSummary])
+listSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\ListSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@ListSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSecurityConfigurationsResponse_httpStatus :: Lens.Lens' ListSecurityConfigurationsResponse Prelude.Int
@@ -214,6 +215,6 @@ instance
     ListSecurityConfigurationsResponse
   where
   rnf ListSecurityConfigurationsResponse' {..} =
-    Prelude.rnf securityConfigurations
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf securityConfigurations
       `Prelude.seq` Prelude.rnf httpStatus

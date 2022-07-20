@@ -38,8 +38,8 @@ module Amazonka.EC2.AttachNetworkInterface
     newAttachNetworkInterfaceResponse,
 
     -- * Response Lenses
-    attachNetworkInterfaceResponse_attachmentId,
     attachNetworkInterfaceResponse_networkCardIndex,
+    attachNetworkInterfaceResponse_attachmentId,
     attachNetworkInterfaceResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance Core.AWSRequest AttachNetworkInterface where
     Response.receiveXML
       ( \s h x ->
           AttachNetworkInterfaceResponse'
-            Prelude.<$> (x Core..@? "attachmentId")
-            Prelude.<*> (x Core..@? "networkCardIndex")
+            Prelude.<$> (x Core..@? "networkCardIndex")
+            Prelude.<*> (x Core..@? "attachmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,10 +195,10 @@ instance Core.ToQuery AttachNetworkInterface where
 --
 -- /See:/ 'newAttachNetworkInterfaceResponse' smart constructor.
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
-  { -- | The ID of the network interface attachment.
-    attachmentId :: Prelude.Maybe Prelude.Text,
-    -- | The index of the network card.
+  { -- | The index of the network card.
     networkCardIndex :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the network interface attachment.
+    attachmentId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,9 +212,9 @@ data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attachmentId', 'attachNetworkInterfaceResponse_attachmentId' - The ID of the network interface attachment.
---
 -- 'networkCardIndex', 'attachNetworkInterfaceResponse_networkCardIndex' - The index of the network card.
+--
+-- 'attachmentId', 'attachNetworkInterfaceResponse_attachmentId' - The ID of the network interface attachment.
 --
 -- 'httpStatus', 'attachNetworkInterfaceResponse_httpStatus' - The response's http status code.
 newAttachNetworkInterfaceResponse ::
@@ -223,19 +223,19 @@ newAttachNetworkInterfaceResponse ::
   AttachNetworkInterfaceResponse
 newAttachNetworkInterfaceResponse pHttpStatus_ =
   AttachNetworkInterfaceResponse'
-    { attachmentId =
+    { networkCardIndex =
         Prelude.Nothing,
-      networkCardIndex = Prelude.Nothing,
+      attachmentId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the network interface attachment.
-attachNetworkInterfaceResponse_attachmentId :: Lens.Lens' AttachNetworkInterfaceResponse (Prelude.Maybe Prelude.Text)
-attachNetworkInterfaceResponse_attachmentId = Lens.lens (\AttachNetworkInterfaceResponse' {attachmentId} -> attachmentId) (\s@AttachNetworkInterfaceResponse' {} a -> s {attachmentId = a} :: AttachNetworkInterfaceResponse)
 
 -- | The index of the network card.
 attachNetworkInterfaceResponse_networkCardIndex :: Lens.Lens' AttachNetworkInterfaceResponse (Prelude.Maybe Prelude.Int)
 attachNetworkInterfaceResponse_networkCardIndex = Lens.lens (\AttachNetworkInterfaceResponse' {networkCardIndex} -> networkCardIndex) (\s@AttachNetworkInterfaceResponse' {} a -> s {networkCardIndex = a} :: AttachNetworkInterfaceResponse)
+
+-- | The ID of the network interface attachment.
+attachNetworkInterfaceResponse_attachmentId :: Lens.Lens' AttachNetworkInterfaceResponse (Prelude.Maybe Prelude.Text)
+attachNetworkInterfaceResponse_attachmentId = Lens.lens (\AttachNetworkInterfaceResponse' {attachmentId} -> attachmentId) (\s@AttachNetworkInterfaceResponse' {} a -> s {attachmentId = a} :: AttachNetworkInterfaceResponse)
 
 -- | The response's http status code.
 attachNetworkInterfaceResponse_httpStatus :: Lens.Lens' AttachNetworkInterfaceResponse Prelude.Int
@@ -246,6 +246,6 @@ instance
     AttachNetworkInterfaceResponse
   where
   rnf AttachNetworkInterfaceResponse' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf networkCardIndex
+    Prelude.rnf networkCardIndex
+      `Prelude.seq` Prelude.rnf attachmentId
       `Prelude.seq` Prelude.rnf httpStatus

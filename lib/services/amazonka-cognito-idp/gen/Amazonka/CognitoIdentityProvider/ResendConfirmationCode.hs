@@ -48,10 +48,10 @@ module Amazonka.CognitoIdentityProvider.ResendConfirmationCode
     newResendConfirmationCode,
 
     -- * Request Lenses
-    resendConfirmationCode_clientMetadata,
     resendConfirmationCode_analyticsMetadata,
-    resendConfirmationCode_userContextData,
+    resendConfirmationCode_clientMetadata,
     resendConfirmationCode_secretHash,
+    resendConfirmationCode_userContextData,
     resendConfirmationCode_clientId,
     resendConfirmationCode_username,
 
@@ -76,7 +76,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newResendConfirmationCode' smart constructor.
 data ResendConfirmationCode = ResendConfirmationCode'
-  { -- | A map of custom key-value pairs that you can provide as input for any
+  { -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @ResendConfirmationCode@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
     -- You create custom workflows by assigning Lambda functions to user pool
@@ -107,17 +110,14 @@ data ResendConfirmationCode = ResendConfirmationCode'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @ResendConfirmationCode@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
-    -- | Contextual data such as the user\'s device fingerprint, IP address, or
-    -- location used for evaluating the risk of an unexpected event by Amazon
-    -- Cognito advanced security.
-    userContextData :: Prelude.Maybe UserContextDataType,
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
     secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Contextual data such as the user\'s device fingerprint, IP address, or
+    -- location used for evaluating the risk of an unexpected event by Amazon
+    -- Cognito advanced security.
+    userContextData :: Prelude.Maybe UserContextDataType,
     -- | The ID of the client associated with the user pool.
     clientId :: Core.Sensitive Prelude.Text,
     -- | The user name of the user to whom you wish to resend a confirmation
@@ -133,6 +133,9 @@ data ResendConfirmationCode = ResendConfirmationCode'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'analyticsMetadata', 'resendConfirmationCode_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ResendConfirmationCode@ calls.
 --
 -- 'clientMetadata', 'resendConfirmationCode_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -165,16 +168,13 @@ data ResendConfirmationCode = ResendConfirmationCode'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
--- 'analyticsMetadata', 'resendConfirmationCode_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ResendConfirmationCode@ calls.
+-- 'secretHash', 'resendConfirmationCode_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
+-- secret key of a user pool client and username plus the client ID in the
+-- message.
 --
 -- 'userContextData', 'resendConfirmationCode_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
---
--- 'secretHash', 'resendConfirmationCode_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
 --
 -- 'clientId', 'resendConfirmationCode_clientId' - The ID of the client associated with the user pool.
 --
@@ -188,14 +188,19 @@ newResendConfirmationCode ::
   ResendConfirmationCode
 newResendConfirmationCode pClientId_ pUsername_ =
   ResendConfirmationCode'
-    { clientMetadata =
+    { analyticsMetadata =
         Prelude.Nothing,
-      analyticsMetadata = Prelude.Nothing,
-      userContextData = Prelude.Nothing,
+      clientMetadata = Prelude.Nothing,
       secretHash = Prelude.Nothing,
+      userContextData = Prelude.Nothing,
       clientId = Core._Sensitive Lens.# pClientId_,
       username = Core._Sensitive Lens.# pUsername_
     }
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ResendConfirmationCode@ calls.
+resendConfirmationCode_analyticsMetadata :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe AnalyticsMetadataType)
+resendConfirmationCode_analyticsMetadata = Lens.lens (\ResendConfirmationCode' {analyticsMetadata} -> analyticsMetadata) (\s@ResendConfirmationCode' {} a -> s {analyticsMetadata = a} :: ResendConfirmationCode)
 
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -230,22 +235,17 @@ newResendConfirmationCode pClientId_ pUsername_ =
 resendConfirmationCode_clientMetadata :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 resendConfirmationCode_clientMetadata = Lens.lens (\ResendConfirmationCode' {clientMetadata} -> clientMetadata) (\s@ResendConfirmationCode' {} a -> s {clientMetadata = a} :: ResendConfirmationCode) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ResendConfirmationCode@ calls.
-resendConfirmationCode_analyticsMetadata :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe AnalyticsMetadataType)
-resendConfirmationCode_analyticsMetadata = Lens.lens (\ResendConfirmationCode' {analyticsMetadata} -> analyticsMetadata) (\s@ResendConfirmationCode' {} a -> s {analyticsMetadata = a} :: ResendConfirmationCode)
+-- | A keyed-hash message authentication code (HMAC) calculated using the
+-- secret key of a user pool client and username plus the client ID in the
+-- message.
+resendConfirmationCode_secretHash :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe Prelude.Text)
+resendConfirmationCode_secretHash = Lens.lens (\ResendConfirmationCode' {secretHash} -> secretHash) (\s@ResendConfirmationCode' {} a -> s {secretHash = a} :: ResendConfirmationCode) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
 resendConfirmationCode_userContextData :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe UserContextDataType)
 resendConfirmationCode_userContextData = Lens.lens (\ResendConfirmationCode' {userContextData} -> userContextData) (\s@ResendConfirmationCode' {} a -> s {userContextData = a} :: ResendConfirmationCode)
-
--- | A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
-resendConfirmationCode_secretHash :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe Prelude.Text)
-resendConfirmationCode_secretHash = Lens.lens (\ResendConfirmationCode' {secretHash} -> secretHash) (\s@ResendConfirmationCode' {} a -> s {secretHash = a} :: ResendConfirmationCode) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the client associated with the user pool.
 resendConfirmationCode_clientId :: Lens.Lens' ResendConfirmationCode Prelude.Text
@@ -271,19 +271,19 @@ instance Core.AWSRequest ResendConfirmationCode where
 
 instance Prelude.Hashable ResendConfirmationCode where
   hashWithSalt _salt ResendConfirmationCode' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
-      `Prelude.hashWithSalt` analyticsMetadata
-      `Prelude.hashWithSalt` userContextData
+    _salt `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` secretHash
+      `Prelude.hashWithSalt` userContextData
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData ResendConfirmationCode where
   rnf ResendConfirmationCode' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf userContextData
+    Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf clientMetadata
       `Prelude.seq` Prelude.rnf secretHash
+      `Prelude.seq` Prelude.rnf userContextData
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf username
 
@@ -306,13 +306,13 @@ instance Core.ToJSON ResendConfirmationCode where
   toJSON ResendConfirmationCode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
-              Prelude.<$> clientMetadata,
-            ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Core..=)
               Prelude.<$> analyticsMetadata,
+            ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            ("SecretHash" Core..=) Prelude.<$> secretHash,
             ("UserContextData" Core..=)
               Prelude.<$> userContextData,
-            ("SecretHash" Core..=) Prelude.<$> secretHash,
             Prelude.Just ("ClientId" Core..= clientId),
             Prelude.Just ("Username" Core..= username)
           ]

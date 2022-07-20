@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModelClientConfig' smart constructor.
 data ModelClientConfig = ModelClientConfig'
-  { -- | The timeout value in seconds for an invocation request.
-    invocationsTimeoutInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of retries when invocation requests are failing.
-    invocationsMaxRetries :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of retries when invocation requests are failing.
+    invocationsMaxRetries :: Prelude.Maybe Prelude.Natural,
+    -- | The timeout value in seconds for an invocation request.
+    invocationsTimeoutInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ModelClientConfig = ModelClientConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'invocationsTimeoutInSeconds', 'modelClientConfig_invocationsTimeoutInSeconds' - The timeout value in seconds for an invocation request.
---
 -- 'invocationsMaxRetries', 'modelClientConfig_invocationsMaxRetries' - The maximum number of retries when invocation requests are failing.
+--
+-- 'invocationsTimeoutInSeconds', 'modelClientConfig_invocationsTimeoutInSeconds' - The timeout value in seconds for an invocation request.
 newModelClientConfig ::
   ModelClientConfig
 newModelClientConfig =
   ModelClientConfig'
-    { invocationsTimeoutInSeconds =
+    { invocationsMaxRetries =
         Prelude.Nothing,
-      invocationsMaxRetries = Prelude.Nothing
+      invocationsTimeoutInSeconds = Prelude.Nothing
     }
-
--- | The timeout value in seconds for an invocation request.
-modelClientConfig_invocationsTimeoutInSeconds :: Lens.Lens' ModelClientConfig (Prelude.Maybe Prelude.Natural)
-modelClientConfig_invocationsTimeoutInSeconds = Lens.lens (\ModelClientConfig' {invocationsTimeoutInSeconds} -> invocationsTimeoutInSeconds) (\s@ModelClientConfig' {} a -> s {invocationsTimeoutInSeconds = a} :: ModelClientConfig)
 
 -- | The maximum number of retries when invocation requests are failing.
 modelClientConfig_invocationsMaxRetries :: Lens.Lens' ModelClientConfig (Prelude.Maybe Prelude.Natural)
 modelClientConfig_invocationsMaxRetries = Lens.lens (\ModelClientConfig' {invocationsMaxRetries} -> invocationsMaxRetries) (\s@ModelClientConfig' {} a -> s {invocationsMaxRetries = a} :: ModelClientConfig)
+
+-- | The timeout value in seconds for an invocation request.
+modelClientConfig_invocationsTimeoutInSeconds :: Lens.Lens' ModelClientConfig (Prelude.Maybe Prelude.Natural)
+modelClientConfig_invocationsTimeoutInSeconds = Lens.lens (\ModelClientConfig' {invocationsTimeoutInSeconds} -> invocationsTimeoutInSeconds) (\s@ModelClientConfig' {} a -> s {invocationsTimeoutInSeconds = a} :: ModelClientConfig)
 
 instance Core.FromJSON ModelClientConfig where
   parseJSON =
@@ -69,28 +69,27 @@ instance Core.FromJSON ModelClientConfig where
       "ModelClientConfig"
       ( \x ->
           ModelClientConfig'
-            Prelude.<$> (x Core..:? "InvocationsTimeoutInSeconds")
-            Prelude.<*> (x Core..:? "InvocationsMaxRetries")
+            Prelude.<$> (x Core..:? "InvocationsMaxRetries")
+            Prelude.<*> (x Core..:? "InvocationsTimeoutInSeconds")
       )
 
 instance Prelude.Hashable ModelClientConfig where
   hashWithSalt _salt ModelClientConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` invocationsMaxRetries
       `Prelude.hashWithSalt` invocationsTimeoutInSeconds
-      `Prelude.hashWithSalt` invocationsMaxRetries
 
 instance Prelude.NFData ModelClientConfig where
   rnf ModelClientConfig' {..} =
-    Prelude.rnf invocationsTimeoutInSeconds
-      `Prelude.seq` Prelude.rnf invocationsMaxRetries
+    Prelude.rnf invocationsMaxRetries
+      `Prelude.seq` Prelude.rnf invocationsTimeoutInSeconds
 
 instance Core.ToJSON ModelClientConfig where
   toJSON ModelClientConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InvocationsTimeoutInSeconds" Core..=)
-              Prelude.<$> invocationsTimeoutInSeconds,
-            ("InvocationsMaxRetries" Core..=)
-              Prelude.<$> invocationsMaxRetries
+          [ ("InvocationsMaxRetries" Core..=)
+              Prelude.<$> invocationsMaxRetries,
+            ("InvocationsTimeoutInSeconds" Core..=)
+              Prelude.<$> invocationsTimeoutInSeconds
           ]
       )

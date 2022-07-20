@@ -31,8 +31,8 @@ module Amazonka.EC2.DescribeClientVpnConnections
     newDescribeClientVpnConnections,
 
     -- * Request Lenses
-    describeClientVpnConnections_filters,
     describeClientVpnConnections_nextToken,
+    describeClientVpnConnections_filters,
     describeClientVpnConnections_dryRun,
     describeClientVpnConnections_maxResults,
     describeClientVpnConnections_clientVpnEndpointId,
@@ -42,8 +42,8 @@ module Amazonka.EC2.DescribeClientVpnConnections
     newDescribeClientVpnConnectionsResponse,
 
     -- * Response Lenses
-    describeClientVpnConnectionsResponse_connections,
     describeClientVpnConnectionsResponse_nextToken,
+    describeClientVpnConnectionsResponse_connections,
     describeClientVpnConnectionsResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClientVpnConnections' smart constructor.
 data DescribeClientVpnConnections = DescribeClientVpnConnections'
-  { -- | One or more filters. Filter names and values are case-sensitive.
+  { -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @connection-id@ - The ID of the connection.
     --
     -- -   @username@ - For Active Directory client authentication, the user
     --     name of the client who established the client connection.
     filters :: Prelude.Maybe [Filter],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -88,14 +88,14 @@ data DescribeClientVpnConnections = DescribeClientVpnConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeClientVpnConnections_nextToken' - The token to retrieve the next page of results.
+--
 -- 'filters', 'describeClientVpnConnections_filters' - One or more filters. Filter names and values are case-sensitive.
 --
 -- -   @connection-id@ - The ID of the connection.
 --
 -- -   @username@ - For Active Directory client authentication, the user
 --     name of the client who established the client connection.
---
--- 'nextToken', 'describeClientVpnConnections_nextToken' - The token to retrieve the next page of results.
 --
 -- 'dryRun', 'describeClientVpnConnections_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -113,13 +113,17 @@ newDescribeClientVpnConnections ::
   DescribeClientVpnConnections
 newDescribeClientVpnConnections pClientVpnEndpointId_ =
   DescribeClientVpnConnections'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       clientVpnEndpointId = pClientVpnEndpointId_
     }
+
+-- | The token to retrieve the next page of results.
+describeClientVpnConnections_nextToken :: Lens.Lens' DescribeClientVpnConnections (Prelude.Maybe Prelude.Text)
+describeClientVpnConnections_nextToken = Lens.lens (\DescribeClientVpnConnections' {nextToken} -> nextToken) (\s@DescribeClientVpnConnections' {} a -> s {nextToken = a} :: DescribeClientVpnConnections)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -129,10 +133,6 @@ newDescribeClientVpnConnections pClientVpnEndpointId_ =
 --     name of the client who established the client connection.
 describeClientVpnConnections_filters :: Lens.Lens' DescribeClientVpnConnections (Prelude.Maybe [Filter])
 describeClientVpnConnections_filters = Lens.lens (\DescribeClientVpnConnections' {filters} -> filters) (\s@DescribeClientVpnConnections' {} a -> s {filters = a} :: DescribeClientVpnConnections) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to retrieve the next page of results.
-describeClientVpnConnections_nextToken :: Lens.Lens' DescribeClientVpnConnections (Prelude.Maybe Prelude.Text)
-describeClientVpnConnections_nextToken = Lens.lens (\DescribeClientVpnConnections' {nextToken} -> nextToken) (\s@DescribeClientVpnConnections' {} a -> s {nextToken = a} :: DescribeClientVpnConnections)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -182,10 +182,10 @@ instance Core.AWSRequest DescribeClientVpnConnections where
     Response.receiveXML
       ( \s h x ->
           DescribeClientVpnConnectionsResponse'
-            Prelude.<$> ( x Core..@? "connections" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "connections" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,16 +194,16 @@ instance
     DescribeClientVpnConnections
   where
   hashWithSalt _salt DescribeClientVpnConnections' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` clientVpnEndpointId
 
 instance Prelude.NFData DescribeClientVpnConnections where
   rnf DescribeClientVpnConnections' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
@@ -223,9 +223,9 @@ instance Core.ToQuery DescribeClientVpnConnections where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId
@@ -233,11 +233,11 @@ instance Core.ToQuery DescribeClientVpnConnections where
 
 -- | /See:/ 'newDescribeClientVpnConnectionsResponse' smart constructor.
 data DescribeClientVpnConnectionsResponse = DescribeClientVpnConnectionsResponse'
-  { -- | Information about the active and terminated client connections.
-    connections :: Prelude.Maybe [ClientVpnConnection],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the active and terminated client connections.
+    connections :: Prelude.Maybe [ClientVpnConnection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -251,10 +251,10 @@ data DescribeClientVpnConnectionsResponse = DescribeClientVpnConnectionsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connections', 'describeClientVpnConnectionsResponse_connections' - Information about the active and terminated client connections.
---
 -- 'nextToken', 'describeClientVpnConnectionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'connections', 'describeClientVpnConnectionsResponse_connections' - Information about the active and terminated client connections.
 --
 -- 'httpStatus', 'describeClientVpnConnectionsResponse_httpStatus' - The response's http status code.
 newDescribeClientVpnConnectionsResponse ::
@@ -263,20 +263,20 @@ newDescribeClientVpnConnectionsResponse ::
   DescribeClientVpnConnectionsResponse
 newDescribeClientVpnConnectionsResponse pHttpStatus_ =
   DescribeClientVpnConnectionsResponse'
-    { connections =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      connections = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the active and terminated client connections.
-describeClientVpnConnectionsResponse_connections :: Lens.Lens' DescribeClientVpnConnectionsResponse (Prelude.Maybe [ClientVpnConnection])
-describeClientVpnConnectionsResponse_connections = Lens.lens (\DescribeClientVpnConnectionsResponse' {connections} -> connections) (\s@DescribeClientVpnConnectionsResponse' {} a -> s {connections = a} :: DescribeClientVpnConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeClientVpnConnectionsResponse_nextToken :: Lens.Lens' DescribeClientVpnConnectionsResponse (Prelude.Maybe Prelude.Text)
 describeClientVpnConnectionsResponse_nextToken = Lens.lens (\DescribeClientVpnConnectionsResponse' {nextToken} -> nextToken) (\s@DescribeClientVpnConnectionsResponse' {} a -> s {nextToken = a} :: DescribeClientVpnConnectionsResponse)
+
+-- | Information about the active and terminated client connections.
+describeClientVpnConnectionsResponse_connections :: Lens.Lens' DescribeClientVpnConnectionsResponse (Prelude.Maybe [ClientVpnConnection])
+describeClientVpnConnectionsResponse_connections = Lens.lens (\DescribeClientVpnConnectionsResponse' {connections} -> connections) (\s@DescribeClientVpnConnectionsResponse' {} a -> s {connections = a} :: DescribeClientVpnConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeClientVpnConnectionsResponse_httpStatus :: Lens.Lens' DescribeClientVpnConnectionsResponse Prelude.Int
@@ -287,6 +287,6 @@ instance
     DescribeClientVpnConnectionsResponse
   where
   rnf DescribeClientVpnConnectionsResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connections
       `Prelude.seq` Prelude.rnf httpStatus

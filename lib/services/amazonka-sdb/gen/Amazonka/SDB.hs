@@ -35,17 +35,38 @@ module Amazonka.SDB
     -- * Errors
     -- $errors
 
-    -- ** InvalidNumberValueTests
-    _InvalidNumberValueTests,
+    -- ** InvalidNumberPredicates
+    _InvalidNumberPredicates,
+
+    -- ** NumberSubmittedAttributesExceeded
+    _NumberSubmittedAttributesExceeded,
 
     -- ** NoSuchDomain
     _NoSuchDomain,
 
+    -- ** NumberDomainsExceeded
+    _NumberDomainsExceeded,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** MissingParameter
+    _MissingParameter,
+
+    -- ** NumberItemAttributesExceeded
+    _NumberItemAttributesExceeded,
+
+    -- ** TooManyRequestedAttributes
+    _TooManyRequestedAttributes,
+
+    -- ** InvalidParameterValue
+    _InvalidParameterValue,
+
+    -- ** NumberDomainBytesExceeded
+    _NumberDomainBytesExceeded,
+
     -- ** NumberSubmittedItemsExceeded
     _NumberSubmittedItemsExceeded,
-
-    -- ** AttributeDoesNotExist
-    _AttributeDoesNotExist,
 
     -- ** NumberDomainAttributesExceeded
     _NumberDomainAttributesExceeded,
@@ -53,35 +74,14 @@ module Amazonka.SDB
     -- ** DuplicateItemName
     _DuplicateItemName,
 
-    -- ** MissingParameter
-    _MissingParameter,
-
-    -- ** InvalidNextToken
-    _InvalidNextToken,
-
-    -- ** InvalidParameterValue
-    _InvalidParameterValue,
-
-    -- ** NumberItemAttributesExceeded
-    _NumberItemAttributesExceeded,
+    -- ** AttributeDoesNotExist
+    _AttributeDoesNotExist,
 
     -- ** RequestTimeout
     _RequestTimeout,
 
-    -- ** TooManyRequestedAttributes
-    _TooManyRequestedAttributes,
-
-    -- ** InvalidNumberPredicates
-    _InvalidNumberPredicates,
-
-    -- ** NumberDomainsExceeded
-    _NumberDomainsExceeded,
-
-    -- ** NumberSubmittedAttributesExceeded
-    _NumberSubmittedAttributesExceeded,
-
-    -- ** NumberDomainBytesExceeded
-    _NumberDomainBytesExceeded,
+    -- ** InvalidNumberValueTests
+    _InvalidNumberValueTests,
 
     -- ** InvalidQueryExpression
     _InvalidQueryExpression,
@@ -104,29 +104,11 @@ module Amazonka.SDB
     BatchPutAttributesResponse (BatchPutAttributesResponse'),
     newBatchPutAttributesResponse,
 
-    -- ** GetAttributes
-    GetAttributes (GetAttributes'),
-    newGetAttributes,
-    GetAttributesResponse (GetAttributesResponse'),
-    newGetAttributesResponse,
-
     -- ** CreateDomain
     CreateDomain (CreateDomain'),
     newCreateDomain,
     CreateDomainResponse (CreateDomainResponse'),
     newCreateDomainResponse,
-
-    -- ** DomainMetadata
-    DomainMetadata (DomainMetadata'),
-    newDomainMetadata,
-    DomainMetadataResponse (DomainMetadataResponse'),
-    newDomainMetadataResponse,
-
-    -- ** Select (Paginated)
-    Select (Select'),
-    newSelect,
-    SelectResponse (SelectResponse'),
-    newSelectResponse,
 
     -- ** DeleteAttributes
     DeleteAttributes (DeleteAttributes'),
@@ -134,23 +116,41 @@ module Amazonka.SDB
     DeleteAttributesResponse (DeleteAttributesResponse'),
     newDeleteAttributesResponse,
 
-    -- ** PutAttributes
-    PutAttributes (PutAttributes'),
-    newPutAttributes,
-    PutAttributesResponse (PutAttributesResponse'),
-    newPutAttributesResponse,
-
     -- ** DeleteDomain
     DeleteDomain (DeleteDomain'),
     newDeleteDomain,
     DeleteDomainResponse (DeleteDomainResponse'),
     newDeleteDomainResponse,
 
+    -- ** DomainMetadata
+    DomainMetadata (DomainMetadata'),
+    newDomainMetadata,
+    DomainMetadataResponse (DomainMetadataResponse'),
+    newDomainMetadataResponse,
+
+    -- ** GetAttributes
+    GetAttributes (GetAttributes'),
+    newGetAttributes,
+    GetAttributesResponse (GetAttributesResponse'),
+    newGetAttributesResponse,
+
     -- ** ListDomains (Paginated)
     ListDomains (ListDomains'),
     newListDomains,
     ListDomainsResponse (ListDomainsResponse'),
     newListDomainsResponse,
+
+    -- ** PutAttributes
+    PutAttributes (PutAttributes'),
+    newPutAttributes,
+    PutAttributesResponse (PutAttributesResponse'),
+    newPutAttributesResponse,
+
+    -- ** Select (Paginated)
+    Select (Select'),
+    newSelect,
+    SelectResponse (SelectResponse'),
+    newSelectResponse,
 
     -- * Types
 

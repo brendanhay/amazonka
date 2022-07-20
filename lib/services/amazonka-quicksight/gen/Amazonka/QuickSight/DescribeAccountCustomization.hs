@@ -91,11 +91,11 @@ module Amazonka.QuickSight.DescribeAccountCustomization
     newDescribeAccountCustomizationResponse,
 
     -- * Response Lenses
+    describeAccountCustomizationResponse_awsAccountId,
     describeAccountCustomizationResponse_requestId,
-    describeAccountCustomizationResponse_accountCustomization,
     describeAccountCustomizationResponse_arn,
     describeAccountCustomizationResponse_namespace,
-    describeAccountCustomizationResponse_awsAccountId,
+    describeAccountCustomizationResponse_accountCustomization,
     describeAccountCustomizationResponse_status,
   )
 where
@@ -185,11 +185,11 @@ instance Core.AWSRequest DescribeAccountCustomization where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountCustomizationResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "AccountCustomization")
+            Prelude.<$> (x Core..?> "AwsAccountId")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Namespace")
-            Prelude.<*> (x Core..?> "AwsAccountId")
+            Prelude.<*> (x Core..?> "AccountCustomization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,18 +236,18 @@ instance Core.ToQuery DescribeAccountCustomization where
 
 -- | /See:/ 'newDescribeAccountCustomizationResponse' smart constructor.
 data DescribeAccountCustomizationResponse = DescribeAccountCustomizationResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | The ID for the Amazon Web Services account that you\'re describing.
+    awsAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon QuickSight customizations that exist in the current Amazon
-    -- Web Services Region.
-    accountCustomization :: Prelude.Maybe AccountCustomization,
     -- | The Amazon Resource Name (ARN) of the customization that\'s associated
     -- with this Amazon Web Services account.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon QuickSight namespace that you\'re describing.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the Amazon Web Services account that you\'re describing.
-    awsAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon QuickSight customizations that exist in the current Amazon
+    -- Web Services Region.
+    accountCustomization :: Prelude.Maybe AccountCustomization,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -261,17 +261,17 @@ data DescribeAccountCustomizationResponse = DescribeAccountCustomizationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeAccountCustomizationResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'awsAccountId', 'describeAccountCustomizationResponse_awsAccountId' - The ID for the Amazon Web Services account that you\'re describing.
 --
--- 'accountCustomization', 'describeAccountCustomizationResponse_accountCustomization' - The Amazon QuickSight customizations that exist in the current Amazon
--- Web Services Region.
+-- 'requestId', 'describeAccountCustomizationResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'arn', 'describeAccountCustomizationResponse_arn' - The Amazon Resource Name (ARN) of the customization that\'s associated
 -- with this Amazon Web Services account.
 --
 -- 'namespace', 'describeAccountCustomizationResponse_namespace' - The Amazon QuickSight namespace that you\'re describing.
 --
--- 'awsAccountId', 'describeAccountCustomizationResponse_awsAccountId' - The ID for the Amazon Web Services account that you\'re describing.
+-- 'accountCustomization', 'describeAccountCustomizationResponse_accountCustomization' - The Amazon QuickSight customizations that exist in the current Amazon
+-- Web Services Region.
 --
 -- 'status', 'describeAccountCustomizationResponse_status' - The HTTP status of the request.
 newDescribeAccountCustomizationResponse ::
@@ -280,24 +280,23 @@ newDescribeAccountCustomizationResponse ::
   DescribeAccountCustomizationResponse
 newDescribeAccountCustomizationResponse pStatus_ =
   DescribeAccountCustomizationResponse'
-    { requestId =
+    { awsAccountId =
         Prelude.Nothing,
-      accountCustomization =
-        Prelude.Nothing,
+      requestId = Prelude.Nothing,
       arn = Prelude.Nothing,
       namespace = Prelude.Nothing,
-      awsAccountId = Prelude.Nothing,
+      accountCustomization =
+        Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The ID for the Amazon Web Services account that you\'re describing.
+describeAccountCustomizationResponse_awsAccountId :: Lens.Lens' DescribeAccountCustomizationResponse (Prelude.Maybe Prelude.Text)
+describeAccountCustomizationResponse_awsAccountId = Lens.lens (\DescribeAccountCustomizationResponse' {awsAccountId} -> awsAccountId) (\s@DescribeAccountCustomizationResponse' {} a -> s {awsAccountId = a} :: DescribeAccountCustomizationResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 describeAccountCustomizationResponse_requestId :: Lens.Lens' DescribeAccountCustomizationResponse (Prelude.Maybe Prelude.Text)
 describeAccountCustomizationResponse_requestId = Lens.lens (\DescribeAccountCustomizationResponse' {requestId} -> requestId) (\s@DescribeAccountCustomizationResponse' {} a -> s {requestId = a} :: DescribeAccountCustomizationResponse)
-
--- | The Amazon QuickSight customizations that exist in the current Amazon
--- Web Services Region.
-describeAccountCustomizationResponse_accountCustomization :: Lens.Lens' DescribeAccountCustomizationResponse (Prelude.Maybe AccountCustomization)
-describeAccountCustomizationResponse_accountCustomization = Lens.lens (\DescribeAccountCustomizationResponse' {accountCustomization} -> accountCustomization) (\s@DescribeAccountCustomizationResponse' {} a -> s {accountCustomization = a} :: DescribeAccountCustomizationResponse)
 
 -- | The Amazon Resource Name (ARN) of the customization that\'s associated
 -- with this Amazon Web Services account.
@@ -308,9 +307,10 @@ describeAccountCustomizationResponse_arn = Lens.lens (\DescribeAccountCustomizat
 describeAccountCustomizationResponse_namespace :: Lens.Lens' DescribeAccountCustomizationResponse (Prelude.Maybe Prelude.Text)
 describeAccountCustomizationResponse_namespace = Lens.lens (\DescribeAccountCustomizationResponse' {namespace} -> namespace) (\s@DescribeAccountCustomizationResponse' {} a -> s {namespace = a} :: DescribeAccountCustomizationResponse)
 
--- | The ID for the Amazon Web Services account that you\'re describing.
-describeAccountCustomizationResponse_awsAccountId :: Lens.Lens' DescribeAccountCustomizationResponse (Prelude.Maybe Prelude.Text)
-describeAccountCustomizationResponse_awsAccountId = Lens.lens (\DescribeAccountCustomizationResponse' {awsAccountId} -> awsAccountId) (\s@DescribeAccountCustomizationResponse' {} a -> s {awsAccountId = a} :: DescribeAccountCustomizationResponse)
+-- | The Amazon QuickSight customizations that exist in the current Amazon
+-- Web Services Region.
+describeAccountCustomizationResponse_accountCustomization :: Lens.Lens' DescribeAccountCustomizationResponse (Prelude.Maybe AccountCustomization)
+describeAccountCustomizationResponse_accountCustomization = Lens.lens (\DescribeAccountCustomizationResponse' {accountCustomization} -> accountCustomization) (\s@DescribeAccountCustomizationResponse' {} a -> s {accountCustomization = a} :: DescribeAccountCustomizationResponse)
 
 -- | The HTTP status of the request.
 describeAccountCustomizationResponse_status :: Lens.Lens' DescribeAccountCustomizationResponse Prelude.Int
@@ -321,9 +321,9 @@ instance
     DescribeAccountCustomizationResponse
   where
   rnf DescribeAccountCustomizationResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf accountCustomization
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf accountCustomization
       `Prelude.seq` Prelude.rnf status

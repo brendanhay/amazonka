@@ -14,36 +14,16 @@
 module Amazonka.EMRContainers.Lens
   ( -- * Operations
 
-    -- ** ListManagedEndpoints
-    listManagedEndpoints_states,
-    listManagedEndpoints_createdAfter,
-    listManagedEndpoints_types,
-    listManagedEndpoints_nextToken,
-    listManagedEndpoints_maxResults,
-    listManagedEndpoints_createdBefore,
-    listManagedEndpoints_virtualClusterId,
-    listManagedEndpointsResponse_nextToken,
-    listManagedEndpointsResponse_endpoints,
-    listManagedEndpointsResponse_httpStatus,
-
-    -- ** CreateVirtualCluster
-    createVirtualCluster_tags,
-    createVirtualCluster_name,
-    createVirtualCluster_containerProvider,
-    createVirtualCluster_clientToken,
-    createVirtualClusterResponse_arn,
-    createVirtualClusterResponse_name,
-    createVirtualClusterResponse_id,
-    createVirtualClusterResponse_httpStatus,
-
-    -- ** DeleteVirtualCluster
-    deleteVirtualCluster_id,
-    deleteVirtualClusterResponse_id,
-    deleteVirtualClusterResponse_httpStatus,
+    -- ** CancelJobRun
+    cancelJobRun_id,
+    cancelJobRun_virtualClusterId,
+    cancelJobRunResponse_id,
+    cancelJobRunResponse_virtualClusterId,
+    cancelJobRunResponse_httpStatus,
 
     -- ** CreateManagedEndpoint
-    createManagedEndpoint_configurationOverrides,
     createManagedEndpoint_tags,
+    createManagedEndpoint_configurationOverrides,
     createManagedEndpoint_name,
     createManagedEndpoint_virtualClusterId,
     createManagedEndpoint_type,
@@ -51,23 +31,21 @@ module Amazonka.EMRContainers.Lens
     createManagedEndpoint_executionRoleArn,
     createManagedEndpoint_certificateArn,
     createManagedEndpoint_clientToken,
-    createManagedEndpointResponse_arn,
     createManagedEndpointResponse_name,
+    createManagedEndpointResponse_arn,
     createManagedEndpointResponse_id,
     createManagedEndpointResponse_virtualClusterId,
     createManagedEndpointResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** CancelJobRun
-    cancelJobRun_id,
-    cancelJobRun_virtualClusterId,
-    cancelJobRunResponse_id,
-    cancelJobRunResponse_virtualClusterId,
-    cancelJobRunResponse_httpStatus,
+    -- ** CreateVirtualCluster
+    createVirtualCluster_tags,
+    createVirtualCluster_name,
+    createVirtualCluster_containerProvider,
+    createVirtualCluster_clientToken,
+    createVirtualClusterResponse_name,
+    createVirtualClusterResponse_arn,
+    createVirtualClusterResponse_id,
+    createVirtualClusterResponse_httpStatus,
 
     -- ** DeleteManagedEndpoint
     deleteManagedEndpoint_id,
@@ -76,40 +54,10 @@ module Amazonka.EMRContainers.Lens
     deleteManagedEndpointResponse_virtualClusterId,
     deleteManagedEndpointResponse_httpStatus,
 
-    -- ** ListJobRuns
-    listJobRuns_states,
-    listJobRuns_createdAfter,
-    listJobRuns_nextToken,
-    listJobRuns_name,
-    listJobRuns_maxResults,
-    listJobRuns_createdBefore,
-    listJobRuns_virtualClusterId,
-    listJobRunsResponse_nextToken,
-    listJobRunsResponse_jobRuns,
-    listJobRunsResponse_httpStatus,
-
-    -- ** ListVirtualClusters
-    listVirtualClusters_states,
-    listVirtualClusters_createdAfter,
-    listVirtualClusters_containerProviderType,
-    listVirtualClusters_nextToken,
-    listVirtualClusters_containerProviderId,
-    listVirtualClusters_maxResults,
-    listVirtualClusters_createdBefore,
-    listVirtualClustersResponse_nextToken,
-    listVirtualClustersResponse_virtualClusters,
-    listVirtualClustersResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DescribeManagedEndpoint
-    describeManagedEndpoint_id,
-    describeManagedEndpoint_virtualClusterId,
-    describeManagedEndpointResponse_endpoint,
-    describeManagedEndpointResponse_httpStatus,
+    -- ** DeleteVirtualCluster
+    deleteVirtualCluster_id,
+    deleteVirtualClusterResponse_id,
+    deleteVirtualClusterResponse_httpStatus,
 
     -- ** DescribeJobRun
     describeJobRun_id,
@@ -117,30 +65,82 @@ module Amazonka.EMRContainers.Lens
     describeJobRunResponse_jobRun,
     describeJobRunResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** DescribeManagedEndpoint
+    describeManagedEndpoint_id,
+    describeManagedEndpoint_virtualClusterId,
+    describeManagedEndpointResponse_endpoint,
+    describeManagedEndpointResponse_httpStatus,
 
     -- ** DescribeVirtualCluster
     describeVirtualCluster_id,
     describeVirtualClusterResponse_virtualCluster,
     describeVirtualClusterResponse_httpStatus,
 
+    -- ** ListJobRuns
+    listJobRuns_name,
+    listJobRuns_nextToken,
+    listJobRuns_createdBefore,
+    listJobRuns_maxResults,
+    listJobRuns_createdAfter,
+    listJobRuns_states,
+    listJobRuns_virtualClusterId,
+    listJobRunsResponse_nextToken,
+    listJobRunsResponse_jobRuns,
+    listJobRunsResponse_httpStatus,
+
+    -- ** ListManagedEndpoints
+    listManagedEndpoints_nextToken,
+    listManagedEndpoints_createdBefore,
+    listManagedEndpoints_types,
+    listManagedEndpoints_maxResults,
+    listManagedEndpoints_createdAfter,
+    listManagedEndpoints_states,
+    listManagedEndpoints_virtualClusterId,
+    listManagedEndpointsResponse_nextToken,
+    listManagedEndpointsResponse_endpoints,
+    listManagedEndpointsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListVirtualClusters
+    listVirtualClusters_nextToken,
+    listVirtualClusters_createdBefore,
+    listVirtualClusters_containerProviderType,
+    listVirtualClusters_maxResults,
+    listVirtualClusters_containerProviderId,
+    listVirtualClusters_createdAfter,
+    listVirtualClusters_states,
+    listVirtualClustersResponse_nextToken,
+    listVirtualClustersResponse_virtualClusters,
+    listVirtualClustersResponse_httpStatus,
+
     -- ** StartJobRun
-    startJobRun_configurationOverrides,
-    startJobRun_name,
     startJobRun_tags,
+    startJobRun_name,
+    startJobRun_configurationOverrides,
     startJobRun_virtualClusterId,
     startJobRun_clientToken,
     startJobRun_executionRoleArn,
     startJobRun_releaseLabel,
     startJobRun_jobDriver,
-    startJobRunResponse_arn,
     startJobRunResponse_name,
+    startJobRunResponse_arn,
     startJobRunResponse_id,
     startJobRunResponse_virtualClusterId,
     startJobRunResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- * Types
 
@@ -149,13 +149,13 @@ module Amazonka.EMRContainers.Lens
     cloudWatchMonitoringConfiguration_logGroupName,
 
     -- ** Configuration
-    configuration_configurations,
     configuration_properties,
+    configuration_configurations,
     configuration_classification,
 
     -- ** ConfigurationOverrides
-    configurationOverrides_monitoringConfiguration,
     configurationOverrides_applicationConfiguration,
+    configurationOverrides_monitoringConfiguration,
 
     -- ** ContainerInfo
     containerInfo_eksInfo,
@@ -169,44 +169,44 @@ module Amazonka.EMRContainers.Lens
     eksInfo_namespace,
 
     -- ** Endpoint
-    endpoint_failureReason,
-    endpoint_state,
-    endpoint_arn,
-    endpoint_createdAt,
-    endpoint_subnetIds,
-    endpoint_stateDetails,
-    endpoint_certificateArn,
-    endpoint_executionRoleArn,
-    endpoint_securityGroup,
-    endpoint_configurationOverrides,
-    endpoint_name,
-    endpoint_releaseLabel,
-    endpoint_id,
-    endpoint_type,
-    endpoint_serverUrl,
-    endpoint_virtualClusterId,
     endpoint_tags,
+    endpoint_name,
+    endpoint_type,
+    endpoint_stateDetails,
+    endpoint_securityGroup,
+    endpoint_releaseLabel,
+    endpoint_arn,
+    endpoint_state,
+    endpoint_serverUrl,
+    endpoint_id,
+    endpoint_certificateArn,
+    endpoint_configurationOverrides,
+    endpoint_virtualClusterId,
+    endpoint_executionRoleArn,
+    endpoint_subnetIds,
+    endpoint_createdAt,
+    endpoint_failureReason,
 
     -- ** JobDriver
     jobDriver_sparkSubmitJobDriver,
 
     -- ** JobRun
-    jobRun_failureReason,
-    jobRun_state,
-    jobRun_clientToken,
-    jobRun_arn,
-    jobRun_createdAt,
-    jobRun_stateDetails,
-    jobRun_createdBy,
-    jobRun_executionRoleArn,
-    jobRun_jobDriver,
-    jobRun_configurationOverrides,
-    jobRun_finishedAt,
-    jobRun_name,
-    jobRun_releaseLabel,
-    jobRun_id,
-    jobRun_virtualClusterId,
     jobRun_tags,
+    jobRun_name,
+    jobRun_clientToken,
+    jobRun_stateDetails,
+    jobRun_finishedAt,
+    jobRun_jobDriver,
+    jobRun_releaseLabel,
+    jobRun_arn,
+    jobRun_state,
+    jobRun_id,
+    jobRun_configurationOverrides,
+    jobRun_virtualClusterId,
+    jobRun_executionRoleArn,
+    jobRun_createdBy,
+    jobRun_createdAt,
+    jobRun_failureReason,
 
     -- ** MonitoringConfiguration
     monitoringConfiguration_persistentAppUI,
@@ -217,18 +217,18 @@ module Amazonka.EMRContainers.Lens
     s3MonitoringConfiguration_logUri,
 
     -- ** SparkSubmitJobDriver
-    sparkSubmitJobDriver_sparkSubmitParameters,
     sparkSubmitJobDriver_entryPointArguments,
+    sparkSubmitJobDriver_sparkSubmitParameters,
     sparkSubmitJobDriver_entryPoint,
 
     -- ** VirtualCluster
-    virtualCluster_state,
-    virtualCluster_arn,
-    virtualCluster_createdAt,
-    virtualCluster_name,
-    virtualCluster_id,
-    virtualCluster_containerProvider,
     virtualCluster_tags,
+    virtualCluster_name,
+    virtualCluster_containerProvider,
+    virtualCluster_arn,
+    virtualCluster_state,
+    virtualCluster_id,
+    virtualCluster_createdAt,
   )
 where
 

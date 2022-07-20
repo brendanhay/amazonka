@@ -29,8 +29,8 @@ module Amazonka.SnowDeviceManagement.ListExecutions
     newListExecutions,
 
     -- * Request Lenses
-    listExecutions_state,
     listExecutions_nextToken,
+    listExecutions_state,
     listExecutions_maxResults,
     listExecutions_taskId,
 
@@ -54,10 +54,10 @@ import Amazonka.SnowDeviceManagement.Types
 
 -- | /See:/ 'newListExecutions' smart constructor.
 data ListExecutions = ListExecutions'
-  { -- | A structure used to filter the tasks by their current state.
-    state :: Prelude.Maybe ExecutionState,
-    -- | A pagination token to continue to the next page of tasks.
+  { -- | A pagination token to continue to the next page of tasks.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A structure used to filter the tasks by their current state.
+    state :: Prelude.Maybe ExecutionState,
     -- | The maximum number of tasks to list per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the task.
@@ -73,9 +73,9 @@ data ListExecutions = ListExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'listExecutions_state' - A structure used to filter the tasks by their current state.
---
 -- 'nextToken', 'listExecutions_nextToken' - A pagination token to continue to the next page of tasks.
+--
+-- 'state', 'listExecutions_state' - A structure used to filter the tasks by their current state.
 --
 -- 'maxResults', 'listExecutions_maxResults' - The maximum number of tasks to list per page.
 --
@@ -86,19 +86,19 @@ newListExecutions ::
   ListExecutions
 newListExecutions pTaskId_ =
   ListExecutions'
-    { state = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      state = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       taskId = pTaskId_
     }
 
--- | A structure used to filter the tasks by their current state.
-listExecutions_state :: Lens.Lens' ListExecutions (Prelude.Maybe ExecutionState)
-listExecutions_state = Lens.lens (\ListExecutions' {state} -> state) (\s@ListExecutions' {} a -> s {state = a} :: ListExecutions)
-
 -- | A pagination token to continue to the next page of tasks.
 listExecutions_nextToken :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Text)
 listExecutions_nextToken = Lens.lens (\ListExecutions' {nextToken} -> nextToken) (\s@ListExecutions' {} a -> s {nextToken = a} :: ListExecutions)
+
+-- | A structure used to filter the tasks by their current state.
+listExecutions_state :: Lens.Lens' ListExecutions (Prelude.Maybe ExecutionState)
+listExecutions_state = Lens.lens (\ListExecutions' {state} -> state) (\s@ListExecutions' {} a -> s {state = a} :: ListExecutions)
 
 -- | The maximum number of tasks to list per page.
 listExecutions_maxResults :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Natural)
@@ -145,15 +145,15 @@ instance Core.AWSRequest ListExecutions where
 
 instance Prelude.Hashable ListExecutions where
   hashWithSalt _salt ListExecutions' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData ListExecutions where
   rnf ListExecutions' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf taskId
 
@@ -174,8 +174,8 @@ instance Core.ToPath ListExecutions where
 instance Core.ToQuery ListExecutions where
   toQuery ListExecutions' {..} =
     Prelude.mconcat
-      [ "state" Core.=: state,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "state" Core.=: state,
         "maxResults" Core.=: maxResults,
         "taskId" Core.=: taskId
       ]

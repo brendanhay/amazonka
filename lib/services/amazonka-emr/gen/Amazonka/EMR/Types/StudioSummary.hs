@@ -30,22 +30,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStudioSummary' smart constructor.
 data StudioSummary = StudioSummary'
-  { -- | The time when the Amazon EMR Studio was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the Amazon EMR Studio.
+  { -- | The ID of the Amazon EMR Studio.
     studioId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the
-    -- Amazon EMR Studio.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon EMR Studio.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique access URL of the Amazon EMR Studio.
     url :: Prelude.Maybe Prelude.Text,
+    -- | The detailed description of the Amazon EMR Studio.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the Studio authenticates users using IAM or Amazon Web
     -- Services SSO.
     authMode :: Prelude.Maybe AuthMode,
-    -- | The name of the Amazon EMR Studio.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The detailed description of the Amazon EMR Studio.
-    description :: Prelude.Maybe Prelude.Text
+    -- | The time when the Amazon EMR Studio was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the
+    -- Amazon EMR Studio.
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,63 +57,63 @@ data StudioSummary = StudioSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'studioSummary_creationTime' - The time when the Amazon EMR Studio was created.
---
 -- 'studioId', 'studioSummary_studioId' - The ID of the Amazon EMR Studio.
 --
--- 'vpcId', 'studioSummary_vpcId' - The ID of the Virtual Private Cloud (Amazon VPC) associated with the
--- Amazon EMR Studio.
+-- 'name', 'studioSummary_name' - The name of the Amazon EMR Studio.
 --
 -- 'url', 'studioSummary_url' - The unique access URL of the Amazon EMR Studio.
+--
+-- 'description', 'studioSummary_description' - The detailed description of the Amazon EMR Studio.
 --
 -- 'authMode', 'studioSummary_authMode' - Specifies whether the Studio authenticates users using IAM or Amazon Web
 -- Services SSO.
 --
--- 'name', 'studioSummary_name' - The name of the Amazon EMR Studio.
+-- 'creationTime', 'studioSummary_creationTime' - The time when the Amazon EMR Studio was created.
 --
--- 'description', 'studioSummary_description' - The detailed description of the Amazon EMR Studio.
+-- 'vpcId', 'studioSummary_vpcId' - The ID of the Virtual Private Cloud (Amazon VPC) associated with the
+-- Amazon EMR Studio.
 newStudioSummary ::
   StudioSummary
 newStudioSummary =
   StudioSummary'
-    { creationTime = Prelude.Nothing,
-      studioId = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      url = Prelude.Nothing,
-      authMode = Prelude.Nothing,
+    { studioId = Prelude.Nothing,
       name = Prelude.Nothing,
-      description = Prelude.Nothing
+      url = Prelude.Nothing,
+      description = Prelude.Nothing,
+      authMode = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
-
--- | The time when the Amazon EMR Studio was created.
-studioSummary_creationTime :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.UTCTime)
-studioSummary_creationTime = Lens.lens (\StudioSummary' {creationTime} -> creationTime) (\s@StudioSummary' {} a -> s {creationTime = a} :: StudioSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the Amazon EMR Studio.
 studioSummary_studioId :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
 studioSummary_studioId = Lens.lens (\StudioSummary' {studioId} -> studioId) (\s@StudioSummary' {} a -> s {studioId = a} :: StudioSummary)
 
--- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the
--- Amazon EMR Studio.
-studioSummary_vpcId :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
-studioSummary_vpcId = Lens.lens (\StudioSummary' {vpcId} -> vpcId) (\s@StudioSummary' {} a -> s {vpcId = a} :: StudioSummary)
+-- | The name of the Amazon EMR Studio.
+studioSummary_name :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
+studioSummary_name = Lens.lens (\StudioSummary' {name} -> name) (\s@StudioSummary' {} a -> s {name = a} :: StudioSummary)
 
 -- | The unique access URL of the Amazon EMR Studio.
 studioSummary_url :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
 studioSummary_url = Lens.lens (\StudioSummary' {url} -> url) (\s@StudioSummary' {} a -> s {url = a} :: StudioSummary)
+
+-- | The detailed description of the Amazon EMR Studio.
+studioSummary_description :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
+studioSummary_description = Lens.lens (\StudioSummary' {description} -> description) (\s@StudioSummary' {} a -> s {description = a} :: StudioSummary)
 
 -- | Specifies whether the Studio authenticates users using IAM or Amazon Web
 -- Services SSO.
 studioSummary_authMode :: Lens.Lens' StudioSummary (Prelude.Maybe AuthMode)
 studioSummary_authMode = Lens.lens (\StudioSummary' {authMode} -> authMode) (\s@StudioSummary' {} a -> s {authMode = a} :: StudioSummary)
 
--- | The name of the Amazon EMR Studio.
-studioSummary_name :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
-studioSummary_name = Lens.lens (\StudioSummary' {name} -> name) (\s@StudioSummary' {} a -> s {name = a} :: StudioSummary)
+-- | The time when the Amazon EMR Studio was created.
+studioSummary_creationTime :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.UTCTime)
+studioSummary_creationTime = Lens.lens (\StudioSummary' {creationTime} -> creationTime) (\s@StudioSummary' {} a -> s {creationTime = a} :: StudioSummary) Prelude.. Lens.mapping Core._Time
 
--- | The detailed description of the Amazon EMR Studio.
-studioSummary_description :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
-studioSummary_description = Lens.lens (\StudioSummary' {description} -> description) (\s@StudioSummary' {} a -> s {description = a} :: StudioSummary)
+-- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the
+-- Amazon EMR Studio.
+studioSummary_vpcId :: Lens.Lens' StudioSummary (Prelude.Maybe Prelude.Text)
+studioSummary_vpcId = Lens.lens (\StudioSummary' {vpcId} -> vpcId) (\s@StudioSummary' {} a -> s {vpcId = a} :: StudioSummary)
 
 instance Core.FromJSON StudioSummary where
   parseJSON =
@@ -121,31 +121,31 @@ instance Core.FromJSON StudioSummary where
       "StudioSummary"
       ( \x ->
           StudioSummary'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StudioId")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "AuthMode")
+            Prelude.<$> (x Core..:? "StudioId")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Url")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "AuthMode")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "VpcId")
       )
 
 instance Prelude.Hashable StudioSummary where
   hashWithSalt _salt StudioSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` authMode
+    _salt `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` authMode
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData StudioSummary where
   rnf StudioSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf authMode
+    Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf authMode
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf vpcId

@@ -28,10 +28,10 @@ import Amazonka.QuickSight.Types.AnalysisErrorType
 --
 -- /See:/ 'newAnalysisError' smart constructor.
 data AnalysisError = AnalysisError'
-  { -- | The type of the analysis error.
-    type' :: Prelude.Maybe AnalysisErrorType,
-    -- | The message associated with the analysis error.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The message associated with the analysis error.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The type of the analysis error.
+    type' :: Prelude.Maybe AnalysisErrorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data AnalysisError = AnalysisError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'analysisError_type' - The type of the analysis error.
---
 -- 'message', 'analysisError_message' - The message associated with the analysis error.
+--
+-- 'type'', 'analysisError_type' - The type of the analysis error.
 newAnalysisError ::
   AnalysisError
 newAnalysisError =
   AnalysisError'
-    { type' = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of the analysis error.
-analysisError_type :: Lens.Lens' AnalysisError (Prelude.Maybe AnalysisErrorType)
-analysisError_type = Lens.lens (\AnalysisError' {type'} -> type') (\s@AnalysisError' {} a -> s {type' = a} :: AnalysisError)
 
 -- | The message associated with the analysis error.
 analysisError_message :: Lens.Lens' AnalysisError (Prelude.Maybe Prelude.Text)
 analysisError_message = Lens.lens (\AnalysisError' {message} -> message) (\s@AnalysisError' {} a -> s {message = a} :: AnalysisError)
+
+-- | The type of the analysis error.
+analysisError_type :: Lens.Lens' AnalysisError (Prelude.Maybe AnalysisErrorType)
+analysisError_type = Lens.lens (\AnalysisError' {type'} -> type') (\s@AnalysisError' {} a -> s {type' = a} :: AnalysisError)
 
 instance Core.FromJSON AnalysisError where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON AnalysisError where
       "AnalysisError"
       ( \x ->
           AnalysisError'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable AnalysisError where
   hashWithSalt _salt AnalysisError' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AnalysisError where
   rnf AnalysisError' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf type'

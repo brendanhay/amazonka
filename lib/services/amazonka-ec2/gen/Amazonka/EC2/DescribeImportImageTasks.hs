@@ -30,9 +30,9 @@ module Amazonka.EC2.DescribeImportImageTasks
     newDescribeImportImageTasks,
 
     -- * Request Lenses
-    describeImportImageTasks_filters,
-    describeImportImageTasks_importTaskIds,
     describeImportImageTasks_nextToken,
+    describeImportImageTasks_importTaskIds,
+    describeImportImageTasks_filters,
     describeImportImageTasks_dryRun,
     describeImportImageTasks_maxResults,
 
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImportImageTasks' smart constructor.
 data DescribeImportImageTasks = DescribeImportImageTasks'
-  { -- | Filter tasks using the @task-state@ filter and one of the following
-    -- values: @active@, @completed@, @deleting@, or @deleted@.
-    filters :: Prelude.Maybe [Filter],
+  { -- | A token that indicates the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the import image tasks.
     importTaskIds :: Prelude.Maybe [Prelude.Text],
-    -- | A token that indicates the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filter tasks using the @task-state@ filter and one of the following
+    -- values: @active@, @completed@, @deleting@, or @deleted@.
+    filters :: Prelude.Maybe [Filter],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -81,12 +81,12 @@ data DescribeImportImageTasks = DescribeImportImageTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeImportImageTasks_filters' - Filter tasks using the @task-state@ filter and one of the following
--- values: @active@, @completed@, @deleting@, or @deleted@.
+-- 'nextToken', 'describeImportImageTasks_nextToken' - A token that indicates the next page of results.
 --
 -- 'importTaskIds', 'describeImportImageTasks_importTaskIds' - The IDs of the import image tasks.
 --
--- 'nextToken', 'describeImportImageTasks_nextToken' - A token that indicates the next page of results.
+-- 'filters', 'describeImportImageTasks_filters' - Filter tasks using the @task-state@ filter and one of the following
+-- values: @active@, @completed@, @deleting@, or @deleted@.
 --
 -- 'dryRun', 'describeImportImageTasks_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -98,26 +98,26 @@ newDescribeImportImageTasks ::
   DescribeImportImageTasks
 newDescribeImportImageTasks =
   DescribeImportImageTasks'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
       importTaskIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | Filter tasks using the @task-state@ filter and one of the following
--- values: @active@, @completed@, @deleting@, or @deleted@.
-describeImportImageTasks_filters :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe [Filter])
-describeImportImageTasks_filters = Lens.lens (\DescribeImportImageTasks' {filters} -> filters) (\s@DescribeImportImageTasks' {} a -> s {filters = a} :: DescribeImportImageTasks) Prelude.. Lens.mapping Lens.coerced
+-- | A token that indicates the next page of results.
+describeImportImageTasks_nextToken :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Text)
+describeImportImageTasks_nextToken = Lens.lens (\DescribeImportImageTasks' {nextToken} -> nextToken) (\s@DescribeImportImageTasks' {} a -> s {nextToken = a} :: DescribeImportImageTasks)
 
 -- | The IDs of the import image tasks.
 describeImportImageTasks_importTaskIds :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe [Prelude.Text])
 describeImportImageTasks_importTaskIds = Lens.lens (\DescribeImportImageTasks' {importTaskIds} -> importTaskIds) (\s@DescribeImportImageTasks' {} a -> s {importTaskIds = a} :: DescribeImportImageTasks) Prelude.. Lens.mapping Lens.coerced
 
--- | A token that indicates the next page of results.
-describeImportImageTasks_nextToken :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Text)
-describeImportImageTasks_nextToken = Lens.lens (\DescribeImportImageTasks' {nextToken} -> nextToken) (\s@DescribeImportImageTasks' {} a -> s {nextToken = a} :: DescribeImportImageTasks)
+-- | Filter tasks using the @task-state@ filter and one of the following
+-- values: @active@, @completed@, @deleting@, or @deleted@.
+describeImportImageTasks_filters :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe [Filter])
+describeImportImageTasks_filters = Lens.lens (\DescribeImportImageTasks' {filters} -> filters) (\s@DescribeImportImageTasks' {} a -> s {filters = a} :: DescribeImportImageTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -171,17 +171,17 @@ instance Core.AWSRequest DescribeImportImageTasks where
 
 instance Prelude.Hashable DescribeImportImageTasks where
   hashWithSalt _salt DescribeImportImageTasks' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` importTaskIds
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeImportImageTasks where
   rnf DescribeImportImageTasks' {..} =
-    Prelude.rnf filters
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf importTaskIds
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -198,13 +198,13 @@ instance Core.ToQuery DescribeImportImageTasks where
           Core.=: ("DescribeImportImageTasks" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "Filters" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           ( Core.toQueryList "ImportTaskId"
               Prelude.<$> importTaskIds
           ),
-        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filters" Prelude.<$> filters),
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]

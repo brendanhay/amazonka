@@ -44,8 +44,8 @@ module Amazonka.SES.ListReceiptRuleSets
     newListReceiptRuleSetsResponse,
 
     -- * Response Lenses
-    listReceiptRuleSetsResponse_ruleSets,
     listReceiptRuleSetsResponse_nextToken,
+    listReceiptRuleSetsResponse_ruleSets,
     listReceiptRuleSetsResponse_httpStatus,
   )
 where
@@ -122,10 +122,10 @@ instance Core.AWSRequest ListReceiptRuleSets where
       "ListReceiptRuleSetsResult"
       ( \s h x ->
           ListReceiptRuleSetsResponse'
-            Prelude.<$> ( x Core..@? "RuleSets" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "RuleSets" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,14 +156,14 @@ instance Core.ToQuery ListReceiptRuleSets where
 --
 -- /See:/ 'newListReceiptRuleSetsResponse' smart constructor.
 data ListReceiptRuleSetsResponse = ListReceiptRuleSetsResponse'
-  { -- | The metadata for the currently active receipt rule set. The metadata
-    -- consists of the rule set name and the timestamp of when the rule set was
-    -- created.
-    ruleSets :: Prelude.Maybe [ReceiptRuleSetMetadata],
-    -- | A token indicating that there are additional receipt rule sets available
+  { -- | A token indicating that there are additional receipt rule sets available
     -- to be listed. Pass this token to successive calls of
     -- @ListReceiptRuleSets@ to retrieve up to 100 receipt rule sets at a time.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The metadata for the currently active receipt rule set. The metadata
+    -- consists of the rule set name and the timestamp of when the rule set was
+    -- created.
+    ruleSets :: Prelude.Maybe [ReceiptRuleSetMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,13 +177,13 @@ data ListReceiptRuleSetsResponse = ListReceiptRuleSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleSets', 'listReceiptRuleSetsResponse_ruleSets' - The metadata for the currently active receipt rule set. The metadata
--- consists of the rule set name and the timestamp of when the rule set was
--- created.
---
 -- 'nextToken', 'listReceiptRuleSetsResponse_nextToken' - A token indicating that there are additional receipt rule sets available
 -- to be listed. Pass this token to successive calls of
 -- @ListReceiptRuleSets@ to retrieve up to 100 receipt rule sets at a time.
+--
+-- 'ruleSets', 'listReceiptRuleSetsResponse_ruleSets' - The metadata for the currently active receipt rule set. The metadata
+-- consists of the rule set name and the timestamp of when the rule set was
+-- created.
 --
 -- 'httpStatus', 'listReceiptRuleSetsResponse_httpStatus' - The response's http status code.
 newListReceiptRuleSetsResponse ::
@@ -192,17 +192,11 @@ newListReceiptRuleSetsResponse ::
   ListReceiptRuleSetsResponse
 newListReceiptRuleSetsResponse pHttpStatus_ =
   ListReceiptRuleSetsResponse'
-    { ruleSets =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      ruleSets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The metadata for the currently active receipt rule set. The metadata
--- consists of the rule set name and the timestamp of when the rule set was
--- created.
-listReceiptRuleSetsResponse_ruleSets :: Lens.Lens' ListReceiptRuleSetsResponse (Prelude.Maybe [ReceiptRuleSetMetadata])
-listReceiptRuleSetsResponse_ruleSets = Lens.lens (\ListReceiptRuleSetsResponse' {ruleSets} -> ruleSets) (\s@ListReceiptRuleSetsResponse' {} a -> s {ruleSets = a} :: ListReceiptRuleSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token indicating that there are additional receipt rule sets available
 -- to be listed. Pass this token to successive calls of
@@ -210,12 +204,18 @@ listReceiptRuleSetsResponse_ruleSets = Lens.lens (\ListReceiptRuleSetsResponse' 
 listReceiptRuleSetsResponse_nextToken :: Lens.Lens' ListReceiptRuleSetsResponse (Prelude.Maybe Prelude.Text)
 listReceiptRuleSetsResponse_nextToken = Lens.lens (\ListReceiptRuleSetsResponse' {nextToken} -> nextToken) (\s@ListReceiptRuleSetsResponse' {} a -> s {nextToken = a} :: ListReceiptRuleSetsResponse)
 
+-- | The metadata for the currently active receipt rule set. The metadata
+-- consists of the rule set name and the timestamp of when the rule set was
+-- created.
+listReceiptRuleSetsResponse_ruleSets :: Lens.Lens' ListReceiptRuleSetsResponse (Prelude.Maybe [ReceiptRuleSetMetadata])
+listReceiptRuleSetsResponse_ruleSets = Lens.lens (\ListReceiptRuleSetsResponse' {ruleSets} -> ruleSets) (\s@ListReceiptRuleSetsResponse' {} a -> s {ruleSets = a} :: ListReceiptRuleSetsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listReceiptRuleSetsResponse_httpStatus :: Lens.Lens' ListReceiptRuleSetsResponse Prelude.Int
 listReceiptRuleSetsResponse_httpStatus = Lens.lens (\ListReceiptRuleSetsResponse' {httpStatus} -> httpStatus) (\s@ListReceiptRuleSetsResponse' {} a -> s {httpStatus = a} :: ListReceiptRuleSetsResponse)
 
 instance Prelude.NFData ListReceiptRuleSetsResponse where
   rnf ListReceiptRuleSetsResponse' {..} =
-    Prelude.rnf ruleSets
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ruleSets
       `Prelude.seq` Prelude.rnf httpStatus

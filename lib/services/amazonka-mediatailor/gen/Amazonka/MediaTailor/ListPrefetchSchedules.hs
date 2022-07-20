@@ -30,8 +30,8 @@ module Amazonka.MediaTailor.ListPrefetchSchedules
 
     -- * Request Lenses
     listPrefetchSchedules_nextToken,
-    listPrefetchSchedules_maxResults,
     listPrefetchSchedules_streamId,
+    listPrefetchSchedules_maxResults,
     listPrefetchSchedules_playbackConfigurationName,
 
     -- * Destructuring the Response
@@ -67,14 +67,14 @@ data ListPrefetchSchedules = ListPrefetchSchedules'
     -- If the previous response didn\'t include a NextToken element, there are
     -- no more prefetch schedules to get.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional filtering parameter whereby MediaTailor filters the prefetch
+    -- schedules to include only specific streams.
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of prefetch schedules that you want MediaTailor to
     -- return in response to the current request. If the playback configuration
     -- has more than MaxResults prefetch schedules, use the value of NextToken
     -- in the response to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | An optional filtering parameter whereby MediaTailor filters the prefetch
-    -- schedules to include only specific streams.
-    streamId :: Prelude.Maybe Prelude.Text,
     -- | The name of the playback configuration.
     playbackConfigurationName :: Prelude.Text
   }
@@ -101,13 +101,13 @@ data ListPrefetchSchedules = ListPrefetchSchedules'
 -- If the previous response didn\'t include a NextToken element, there are
 -- no more prefetch schedules to get.
 --
+-- 'streamId', 'listPrefetchSchedules_streamId' - An optional filtering parameter whereby MediaTailor filters the prefetch
+-- schedules to include only specific streams.
+--
 -- 'maxResults', 'listPrefetchSchedules_maxResults' - The maximum number of prefetch schedules that you want MediaTailor to
 -- return in response to the current request. If the playback configuration
 -- has more than MaxResults prefetch schedules, use the value of NextToken
 -- in the response to get the next page of results.
---
--- 'streamId', 'listPrefetchSchedules_streamId' - An optional filtering parameter whereby MediaTailor filters the prefetch
--- schedules to include only specific streams.
 --
 -- 'playbackConfigurationName', 'listPrefetchSchedules_playbackConfigurationName' - The name of the playback configuration.
 newListPrefetchSchedules ::
@@ -117,8 +117,8 @@ newListPrefetchSchedules ::
 newListPrefetchSchedules pPlaybackConfigurationName_ =
   ListPrefetchSchedules'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       streamId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       playbackConfigurationName =
         pPlaybackConfigurationName_
     }
@@ -138,17 +138,17 @@ newListPrefetchSchedules pPlaybackConfigurationName_ =
 listPrefetchSchedules_nextToken :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Text)
 listPrefetchSchedules_nextToken = Lens.lens (\ListPrefetchSchedules' {nextToken} -> nextToken) (\s@ListPrefetchSchedules' {} a -> s {nextToken = a} :: ListPrefetchSchedules)
 
+-- | An optional filtering parameter whereby MediaTailor filters the prefetch
+-- schedules to include only specific streams.
+listPrefetchSchedules_streamId :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Text)
+listPrefetchSchedules_streamId = Lens.lens (\ListPrefetchSchedules' {streamId} -> streamId) (\s@ListPrefetchSchedules' {} a -> s {streamId = a} :: ListPrefetchSchedules)
+
 -- | The maximum number of prefetch schedules that you want MediaTailor to
 -- return in response to the current request. If the playback configuration
 -- has more than MaxResults prefetch schedules, use the value of NextToken
 -- in the response to get the next page of results.
 listPrefetchSchedules_maxResults :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Natural)
 listPrefetchSchedules_maxResults = Lens.lens (\ListPrefetchSchedules' {maxResults} -> maxResults) (\s@ListPrefetchSchedules' {} a -> s {maxResults = a} :: ListPrefetchSchedules)
-
--- | An optional filtering parameter whereby MediaTailor filters the prefetch
--- schedules to include only specific streams.
-listPrefetchSchedules_streamId :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Text)
-listPrefetchSchedules_streamId = Lens.lens (\ListPrefetchSchedules' {streamId} -> streamId) (\s@ListPrefetchSchedules' {} a -> s {streamId = a} :: ListPrefetchSchedules)
 
 -- | The name of the playback configuration.
 listPrefetchSchedules_playbackConfigurationName :: Lens.Lens' ListPrefetchSchedules Prelude.Text
@@ -193,15 +193,15 @@ instance Core.AWSRequest ListPrefetchSchedules where
 instance Prelude.Hashable ListPrefetchSchedules where
   hashWithSalt _salt ListPrefetchSchedules' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` playbackConfigurationName
 
 instance Prelude.NFData ListPrefetchSchedules where
   rnf ListPrefetchSchedules' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf playbackConfigurationName
 
 instance Core.ToHeaders ListPrefetchSchedules where
@@ -220,8 +220,8 @@ instance Core.ToJSON ListPrefetchSchedules where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StreamId" Core..=) Prelude.<$> streamId
+            ("StreamId" Core..=) Prelude.<$> streamId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

@@ -30,26 +30,26 @@ module Amazonka.Grafana
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -57,17 +57,59 @@ module Amazonka.Grafana
     -- * Operations
     -- $operations
 
-    -- ** ListWorkspaces (Paginated)
-    ListWorkspaces (ListWorkspaces'),
-    newListWorkspaces,
-    ListWorkspacesResponse (ListWorkspacesResponse'),
-    newListWorkspacesResponse,
+    -- ** AssociateLicense
+    AssociateLicense (AssociateLicense'),
+    newAssociateLicense,
+    AssociateLicenseResponse (AssociateLicenseResponse'),
+    newAssociateLicenseResponse,
+
+    -- ** CreateWorkspace
+    CreateWorkspace (CreateWorkspace'),
+    newCreateWorkspace,
+    CreateWorkspaceResponse (CreateWorkspaceResponse'),
+    newCreateWorkspaceResponse,
 
     -- ** DeleteWorkspace
     DeleteWorkspace (DeleteWorkspace'),
     newDeleteWorkspace,
     DeleteWorkspaceResponse (DeleteWorkspaceResponse'),
     newDeleteWorkspaceResponse,
+
+    -- ** DescribeWorkspace
+    DescribeWorkspace (DescribeWorkspace'),
+    newDescribeWorkspace,
+    DescribeWorkspaceResponse (DescribeWorkspaceResponse'),
+    newDescribeWorkspaceResponse,
+
+    -- ** DescribeWorkspaceAuthentication
+    DescribeWorkspaceAuthentication (DescribeWorkspaceAuthentication'),
+    newDescribeWorkspaceAuthentication,
+    DescribeWorkspaceAuthenticationResponse (DescribeWorkspaceAuthenticationResponse'),
+    newDescribeWorkspaceAuthenticationResponse,
+
+    -- ** DisassociateLicense
+    DisassociateLicense (DisassociateLicense'),
+    newDisassociateLicense,
+    DisassociateLicenseResponse (DisassociateLicenseResponse'),
+    newDisassociateLicenseResponse,
+
+    -- ** ListPermissions (Paginated)
+    ListPermissions (ListPermissions'),
+    newListPermissions,
+    ListPermissionsResponse (ListPermissionsResponse'),
+    newListPermissionsResponse,
+
+    -- ** ListWorkspaces (Paginated)
+    ListWorkspaces (ListWorkspaces'),
+    newListWorkspaces,
+    ListWorkspacesResponse (ListWorkspacesResponse'),
+    newListWorkspacesResponse,
+
+    -- ** UpdatePermissions
+    UpdatePermissions (UpdatePermissions'),
+    newUpdatePermissions,
+    UpdatePermissionsResponse (UpdatePermissionsResponse'),
+    newUpdatePermissionsResponse,
 
     -- ** UpdateWorkspace
     UpdateWorkspace (UpdateWorkspace'),
@@ -80,48 +122,6 @@ module Amazonka.Grafana
     newUpdateWorkspaceAuthentication,
     UpdateWorkspaceAuthenticationResponse (UpdateWorkspaceAuthenticationResponse'),
     newUpdateWorkspaceAuthenticationResponse,
-
-    -- ** DescribeWorkspaceAuthentication
-    DescribeWorkspaceAuthentication (DescribeWorkspaceAuthentication'),
-    newDescribeWorkspaceAuthentication,
-    DescribeWorkspaceAuthenticationResponse (DescribeWorkspaceAuthenticationResponse'),
-    newDescribeWorkspaceAuthenticationResponse,
-
-    -- ** DescribeWorkspace
-    DescribeWorkspace (DescribeWorkspace'),
-    newDescribeWorkspace,
-    DescribeWorkspaceResponse (DescribeWorkspaceResponse'),
-    newDescribeWorkspaceResponse,
-
-    -- ** AssociateLicense
-    AssociateLicense (AssociateLicense'),
-    newAssociateLicense,
-    AssociateLicenseResponse (AssociateLicenseResponse'),
-    newAssociateLicenseResponse,
-
-    -- ** ListPermissions (Paginated)
-    ListPermissions (ListPermissions'),
-    newListPermissions,
-    ListPermissionsResponse (ListPermissionsResponse'),
-    newListPermissionsResponse,
-
-    -- ** UpdatePermissions
-    UpdatePermissions (UpdatePermissions'),
-    newUpdatePermissions,
-    UpdatePermissionsResponse (UpdatePermissionsResponse'),
-    newUpdatePermissionsResponse,
-
-    -- ** DisassociateLicense
-    DisassociateLicense (DisassociateLicense'),
-    newDisassociateLicense,
-    DisassociateLicenseResponse (DisassociateLicenseResponse'),
-    newDisassociateLicenseResponse,
-
-    -- ** CreateWorkspace
-    CreateWorkspace (CreateWorkspace'),
-    newCreateWorkspace,
-    CreateWorkspaceResponse (CreateWorkspaceResponse'),
-    newCreateWorkspaceResponse,
 
     -- * Types
 

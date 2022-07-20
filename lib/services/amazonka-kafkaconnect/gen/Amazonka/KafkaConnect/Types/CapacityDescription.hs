@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCapacityDescription' smart constructor.
 data CapacityDescription = CapacityDescription'
-  { -- | Describes the connector\'s auto scaling capacity.
-    autoScaling :: Prelude.Maybe AutoScalingDescription,
-    -- | Describes a connector\'s provisioned capacity.
-    provisionedCapacity :: Prelude.Maybe ProvisionedCapacityDescription
+  { -- | Describes a connector\'s provisioned capacity.
+    provisionedCapacity :: Prelude.Maybe ProvisionedCapacityDescription,
+    -- | Describes the connector\'s auto scaling capacity.
+    autoScaling :: Prelude.Maybe AutoScalingDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,25 @@ data CapacityDescription = CapacityDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoScaling', 'capacityDescription_autoScaling' - Describes the connector\'s auto scaling capacity.
---
 -- 'provisionedCapacity', 'capacityDescription_provisionedCapacity' - Describes a connector\'s provisioned capacity.
+--
+-- 'autoScaling', 'capacityDescription_autoScaling' - Describes the connector\'s auto scaling capacity.
 newCapacityDescription ::
   CapacityDescription
 newCapacityDescription =
   CapacityDescription'
-    { autoScaling = Prelude.Nothing,
-      provisionedCapacity = Prelude.Nothing
+    { provisionedCapacity =
+        Prelude.Nothing,
+      autoScaling = Prelude.Nothing
     }
-
--- | Describes the connector\'s auto scaling capacity.
-capacityDescription_autoScaling :: Lens.Lens' CapacityDescription (Prelude.Maybe AutoScalingDescription)
-capacityDescription_autoScaling = Lens.lens (\CapacityDescription' {autoScaling} -> autoScaling) (\s@CapacityDescription' {} a -> s {autoScaling = a} :: CapacityDescription)
 
 -- | Describes a connector\'s provisioned capacity.
 capacityDescription_provisionedCapacity :: Lens.Lens' CapacityDescription (Prelude.Maybe ProvisionedCapacityDescription)
 capacityDescription_provisionedCapacity = Lens.lens (\CapacityDescription' {provisionedCapacity} -> provisionedCapacity) (\s@CapacityDescription' {} a -> s {provisionedCapacity = a} :: CapacityDescription)
+
+-- | Describes the connector\'s auto scaling capacity.
+capacityDescription_autoScaling :: Lens.Lens' CapacityDescription (Prelude.Maybe AutoScalingDescription)
+capacityDescription_autoScaling = Lens.lens (\CapacityDescription' {autoScaling} -> autoScaling) (\s@CapacityDescription' {} a -> s {autoScaling = a} :: CapacityDescription)
 
 instance Core.FromJSON CapacityDescription where
   parseJSON =
@@ -69,16 +70,16 @@ instance Core.FromJSON CapacityDescription where
       "CapacityDescription"
       ( \x ->
           CapacityDescription'
-            Prelude.<$> (x Core..:? "autoScaling")
-            Prelude.<*> (x Core..:? "provisionedCapacity")
+            Prelude.<$> (x Core..:? "provisionedCapacity")
+            Prelude.<*> (x Core..:? "autoScaling")
       )
 
 instance Prelude.Hashable CapacityDescription where
   hashWithSalt _salt CapacityDescription' {..} =
-    _salt `Prelude.hashWithSalt` autoScaling
-      `Prelude.hashWithSalt` provisionedCapacity
+    _salt `Prelude.hashWithSalt` provisionedCapacity
+      `Prelude.hashWithSalt` autoScaling
 
 instance Prelude.NFData CapacityDescription where
   rnf CapacityDescription' {..} =
-    Prelude.rnf autoScaling
-      `Prelude.seq` Prelude.rnf provisionedCapacity
+    Prelude.rnf provisionedCapacity
+      `Prelude.seq` Prelude.rnf autoScaling

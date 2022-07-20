@@ -27,8 +27,8 @@ module Amazonka.EC2.CreateTransitGatewayRouteTable
     newCreateTransitGatewayRouteTable,
 
     -- * Request Lenses
-    createTransitGatewayRouteTable_tagSpecifications,
     createTransitGatewayRouteTable_dryRun,
+    createTransitGatewayRouteTable_tagSpecifications,
     createTransitGatewayRouteTable_transitGatewayId,
 
     -- * Destructuring the Response
@@ -50,13 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayRouteTable' smart constructor.
 data CreateTransitGatewayRouteTable = CreateTransitGatewayRouteTable'
-  { -- | The tags to apply to the transit gateway route table.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to apply to the transit gateway route table.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the transit gateway.
     transitGatewayId :: Prelude.Text
   }
@@ -70,12 +70,12 @@ data CreateTransitGatewayRouteTable = CreateTransitGatewayRouteTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createTransitGatewayRouteTable_tagSpecifications' - The tags to apply to the transit gateway route table.
---
 -- 'dryRun', 'createTransitGatewayRouteTable_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createTransitGatewayRouteTable_tagSpecifications' - The tags to apply to the transit gateway route table.
 --
 -- 'transitGatewayId', 'createTransitGatewayRouteTable_transitGatewayId' - The ID of the transit gateway.
 newCreateTransitGatewayRouteTable ::
@@ -84,15 +84,11 @@ newCreateTransitGatewayRouteTable ::
   CreateTransitGatewayRouteTable
 newCreateTransitGatewayRouteTable pTransitGatewayId_ =
   CreateTransitGatewayRouteTable'
-    { tagSpecifications =
+    { dryRun =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       transitGatewayId = pTransitGatewayId_
     }
-
--- | The tags to apply to the transit gateway route table.
-createTransitGatewayRouteTable_tagSpecifications :: Lens.Lens' CreateTransitGatewayRouteTable (Prelude.Maybe [TagSpecification])
-createTransitGatewayRouteTable_tagSpecifications = Lens.lens (\CreateTransitGatewayRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayRouteTable' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayRouteTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -100,6 +96,10 @@ createTransitGatewayRouteTable_tagSpecifications = Lens.lens (\CreateTransitGate
 -- Otherwise, it is @UnauthorizedOperation@.
 createTransitGatewayRouteTable_dryRun :: Lens.Lens' CreateTransitGatewayRouteTable (Prelude.Maybe Prelude.Bool)
 createTransitGatewayRouteTable_dryRun = Lens.lens (\CreateTransitGatewayRouteTable' {dryRun} -> dryRun) (\s@CreateTransitGatewayRouteTable' {} a -> s {dryRun = a} :: CreateTransitGatewayRouteTable)
+
+-- | The tags to apply to the transit gateway route table.
+createTransitGatewayRouteTable_tagSpecifications :: Lens.Lens' CreateTransitGatewayRouteTable (Prelude.Maybe [TagSpecification])
+createTransitGatewayRouteTable_tagSpecifications = Lens.lens (\CreateTransitGatewayRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayRouteTable' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayRouteTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the transit gateway.
 createTransitGatewayRouteTable_transitGatewayId :: Lens.Lens' CreateTransitGatewayRouteTable Prelude.Text
@@ -128,8 +128,8 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayRouteTable' {..} =
-      _salt `Prelude.hashWithSalt` tagSpecifications
-        `Prelude.hashWithSalt` dryRun
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` transitGatewayId
 
 instance
@@ -137,8 +137,8 @@ instance
     CreateTransitGatewayRouteTable
   where
   rnf CreateTransitGatewayRouteTable' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf transitGatewayId
 
 instance
@@ -159,11 +159,11 @@ instance Core.ToQuery CreateTransitGatewayRouteTable where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecifications"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "TransitGatewayId" Core.=: transitGatewayId
       ]
 

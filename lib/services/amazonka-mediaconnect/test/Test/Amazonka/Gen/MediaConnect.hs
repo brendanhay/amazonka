@@ -27,74 +27,77 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestRemoveFlowVpcInterface $
---             newRemoveFlowVpcInterface
---
---         , requestRemoveFlowMediaStream $
---             newRemoveFlowMediaStream
---
---         , requestUpdateFlowOutput $
---             newUpdateFlowOutput
+--         [ requestAddFlowMediaStreams $
+--             newAddFlowMediaStreams
 --
 --         , requestAddFlowOutputs $
 --             newAddFlowOutputs
 --
---         , requestStartFlow $
---             newStartFlow
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --         , requestAddFlowSources $
 --             newAddFlowSources
---
---         , requestDescribeReservation $
---             newDescribeReservation
---
---         , requestAddFlowMediaStreams $
---             newAddFlowMediaStreams
---
---         , requestRemoveFlowOutput $
---             newRemoveFlowOutput
---
---         , requestRevokeFlowEntitlement $
---             newRevokeFlowEntitlement
---
---         , requestCreateFlow $
---             newCreateFlow
---
---         , requestRemoveFlowSource $
---             newRemoveFlowSource
---
---         , requestDescribeFlow $
---             newDescribeFlow
---
---         , requestUpdateFlowEntitlement $
---             newUpdateFlowEntitlement
---
---         , requestStopFlow $
---             newStopFlow
---
---         , requestDescribeOffering $
---             newDescribeOffering
 --
 --         , requestAddFlowVpcInterfaces $
 --             newAddFlowVpcInterfaces
 --
+--         , requestCreateFlow $
+--             newCreateFlow
+--
+--         , requestDeleteFlow $
+--             newDeleteFlow
+--
+--         , requestDescribeFlow $
+--             newDescribeFlow
+--
+--         , requestDescribeOffering $
+--             newDescribeOffering
+--
+--         , requestDescribeReservation $
+--             newDescribeReservation
+--
+--         , requestGrantFlowEntitlements $
+--             newGrantFlowEntitlements
+--
 --         , requestListEntitlements $
 --             newListEntitlements
---
---         , requestTagResource $
---             newTagResource
 --
 --         , requestListFlows $
 --             newListFlows
 --
+--         , requestListOfferings $
+--             newListOfferings
+--
+--         , requestListReservations $
+--             newListReservations
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestPurchaseOffering $
 --             newPurchaseOffering
 --
---         , requestUpdateFlowMediaStream $
---             newUpdateFlowMediaStream
+--         , requestRemoveFlowMediaStream $
+--             newRemoveFlowMediaStream
+--
+--         , requestRemoveFlowOutput $
+--             newRemoveFlowOutput
+--
+--         , requestRemoveFlowSource $
+--             newRemoveFlowSource
+--
+--         , requestRemoveFlowVpcInterface $
+--             newRemoveFlowVpcInterface
+--
+--         , requestRevokeFlowEntitlement $
+--             newRevokeFlowEntitlement
+--
+--         , requestStartFlow $
+--             newStartFlow
+--
+--         , requestStopFlow $
+--             newStopFlow
+--
+--         , requestTagResource $
+--             newTagResource
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -102,92 +105,92 @@ import Test.Tasty
 --         , requestUpdateFlow $
 --             newUpdateFlow
 --
---         , requestDeleteFlow $
---             newDeleteFlow
+--         , requestUpdateFlowEntitlement $
+--             newUpdateFlowEntitlement
+--
+--         , requestUpdateFlowMediaStream $
+--             newUpdateFlowMediaStream
+--
+--         , requestUpdateFlowOutput $
+--             newUpdateFlowOutput
 --
 --         , requestUpdateFlowSource $
 --             newUpdateFlowSource
 --
---         , requestGrantFlowEntitlements $
---             newGrantFlowEntitlements
---
---         , requestListReservations $
---             newListReservations
---
---         , requestListOfferings $
---             newListOfferings
---
 --           ]
 
 --     , testGroup "response"
---         [ responseRemoveFlowVpcInterface $
---             newRemoveFlowVpcInterfaceResponse
---
---         , responseRemoveFlowMediaStream $
---             newRemoveFlowMediaStreamResponse
---
---         , responseUpdateFlowOutput $
---             newUpdateFlowOutputResponse
+--         [ responseAddFlowMediaStreams $
+--             newAddFlowMediaStreamsResponse
 --
 --         , responseAddFlowOutputs $
 --             newAddFlowOutputsResponse
 --
---         , responseStartFlow $
---             newStartFlowResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --         , responseAddFlowSources $
 --             newAddFlowSourcesResponse
---
---         , responseDescribeReservation $
---             newDescribeReservationResponse
---
---         , responseAddFlowMediaStreams $
---             newAddFlowMediaStreamsResponse
---
---         , responseRemoveFlowOutput $
---             newRemoveFlowOutputResponse
---
---         , responseRevokeFlowEntitlement $
---             newRevokeFlowEntitlementResponse
---
---         , responseCreateFlow $
---             newCreateFlowResponse
---
---         , responseRemoveFlowSource $
---             newRemoveFlowSourceResponse
---
---         , responseDescribeFlow $
---             newDescribeFlowResponse
---
---         , responseUpdateFlowEntitlement $
---             newUpdateFlowEntitlementResponse
---
---         , responseStopFlow $
---             newStopFlowResponse
---
---         , responseDescribeOffering $
---             newDescribeOfferingResponse
 --
 --         , responseAddFlowVpcInterfaces $
 --             newAddFlowVpcInterfacesResponse
 --
+--         , responseCreateFlow $
+--             newCreateFlowResponse
+--
+--         , responseDeleteFlow $
+--             newDeleteFlowResponse
+--
+--         , responseDescribeFlow $
+--             newDescribeFlowResponse
+--
+--         , responseDescribeOffering $
+--             newDescribeOfferingResponse
+--
+--         , responseDescribeReservation $
+--             newDescribeReservationResponse
+--
+--         , responseGrantFlowEntitlements $
+--             newGrantFlowEntitlementsResponse
+--
 --         , responseListEntitlements $
 --             newListEntitlementsResponse
---
---         , responseTagResource $
---             newTagResourceResponse
 --
 --         , responseListFlows $
 --             newListFlowsResponse
 --
+--         , responseListOfferings $
+--             newListOfferingsResponse
+--
+--         , responseListReservations $
+--             newListReservationsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responsePurchaseOffering $
 --             newPurchaseOfferingResponse
 --
---         , responseUpdateFlowMediaStream $
---             newUpdateFlowMediaStreamResponse
+--         , responseRemoveFlowMediaStream $
+--             newRemoveFlowMediaStreamResponse
+--
+--         , responseRemoveFlowOutput $
+--             newRemoveFlowOutputResponse
+--
+--         , responseRemoveFlowSource $
+--             newRemoveFlowSourceResponse
+--
+--         , responseRemoveFlowVpcInterface $
+--             newRemoveFlowVpcInterfaceResponse
+--
+--         , responseRevokeFlowEntitlement $
+--             newRevokeFlowEntitlementResponse
+--
+--         , responseStartFlow $
+--             newStartFlowResponse
+--
+--         , responseStopFlow $
+--             newStopFlowResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -195,73 +198,22 @@ import Test.Tasty
 --         , responseUpdateFlow $
 --             newUpdateFlowResponse
 --
---         , responseDeleteFlow $
---             newDeleteFlowResponse
+--         , responseUpdateFlowEntitlement $
+--             newUpdateFlowEntitlementResponse
+--
+--         , responseUpdateFlowMediaStream $
+--             newUpdateFlowMediaStreamResponse
+--
+--         , responseUpdateFlowOutput $
+--             newUpdateFlowOutputResponse
 --
 --         , responseUpdateFlowSource $
 --             newUpdateFlowSourceResponse
---
---         , responseGrantFlowEntitlements $
---             newGrantFlowEntitlementsResponse
---
---         , responseListReservations $
---             newListReservationsResponse
---
---         , responseListOfferings $
---             newListOfferingsResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestRemoveFlowVpcInterface :: RemoveFlowVpcInterface -> TestTree
-requestRemoveFlowVpcInterface =
-  req
-    "RemoveFlowVpcInterface"
-    "fixture/RemoveFlowVpcInterface.yaml"
-
-requestRemoveFlowMediaStream :: RemoveFlowMediaStream -> TestTree
-requestRemoveFlowMediaStream =
-  req
-    "RemoveFlowMediaStream"
-    "fixture/RemoveFlowMediaStream.yaml"
-
-requestUpdateFlowOutput :: UpdateFlowOutput -> TestTree
-requestUpdateFlowOutput =
-  req
-    "UpdateFlowOutput"
-    "fixture/UpdateFlowOutput.yaml"
-
-requestAddFlowOutputs :: AddFlowOutputs -> TestTree
-requestAddFlowOutputs =
-  req
-    "AddFlowOutputs"
-    "fixture/AddFlowOutputs.yaml"
-
-requestStartFlow :: StartFlow -> TestTree
-requestStartFlow =
-  req
-    "StartFlow"
-    "fixture/StartFlow.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestAddFlowSources :: AddFlowSources -> TestTree
-requestAddFlowSources =
-  req
-    "AddFlowSources"
-    "fixture/AddFlowSources.yaml"
-
-requestDescribeReservation :: DescribeReservation -> TestTree
-requestDescribeReservation =
-  req
-    "DescribeReservation"
-    "fixture/DescribeReservation.yaml"
 
 requestAddFlowMediaStreams :: AddFlowMediaStreams -> TestTree
 requestAddFlowMediaStreams =
@@ -269,53 +221,17 @@ requestAddFlowMediaStreams =
     "AddFlowMediaStreams"
     "fixture/AddFlowMediaStreams.yaml"
 
-requestRemoveFlowOutput :: RemoveFlowOutput -> TestTree
-requestRemoveFlowOutput =
+requestAddFlowOutputs :: AddFlowOutputs -> TestTree
+requestAddFlowOutputs =
   req
-    "RemoveFlowOutput"
-    "fixture/RemoveFlowOutput.yaml"
+    "AddFlowOutputs"
+    "fixture/AddFlowOutputs.yaml"
 
-requestRevokeFlowEntitlement :: RevokeFlowEntitlement -> TestTree
-requestRevokeFlowEntitlement =
+requestAddFlowSources :: AddFlowSources -> TestTree
+requestAddFlowSources =
   req
-    "RevokeFlowEntitlement"
-    "fixture/RevokeFlowEntitlement.yaml"
-
-requestCreateFlow :: CreateFlow -> TestTree
-requestCreateFlow =
-  req
-    "CreateFlow"
-    "fixture/CreateFlow.yaml"
-
-requestRemoveFlowSource :: RemoveFlowSource -> TestTree
-requestRemoveFlowSource =
-  req
-    "RemoveFlowSource"
-    "fixture/RemoveFlowSource.yaml"
-
-requestDescribeFlow :: DescribeFlow -> TestTree
-requestDescribeFlow =
-  req
-    "DescribeFlow"
-    "fixture/DescribeFlow.yaml"
-
-requestUpdateFlowEntitlement :: UpdateFlowEntitlement -> TestTree
-requestUpdateFlowEntitlement =
-  req
-    "UpdateFlowEntitlement"
-    "fixture/UpdateFlowEntitlement.yaml"
-
-requestStopFlow :: StopFlow -> TestTree
-requestStopFlow =
-  req
-    "StopFlow"
-    "fixture/StopFlow.yaml"
-
-requestDescribeOffering :: DescribeOffering -> TestTree
-requestDescribeOffering =
-  req
-    "DescribeOffering"
-    "fixture/DescribeOffering.yaml"
+    "AddFlowSources"
+    "fixture/AddFlowSources.yaml"
 
 requestAddFlowVpcInterfaces :: AddFlowVpcInterfaces -> TestTree
 requestAddFlowVpcInterfaces =
@@ -323,17 +239,47 @@ requestAddFlowVpcInterfaces =
     "AddFlowVpcInterfaces"
     "fixture/AddFlowVpcInterfaces.yaml"
 
+requestCreateFlow :: CreateFlow -> TestTree
+requestCreateFlow =
+  req
+    "CreateFlow"
+    "fixture/CreateFlow.yaml"
+
+requestDeleteFlow :: DeleteFlow -> TestTree
+requestDeleteFlow =
+  req
+    "DeleteFlow"
+    "fixture/DeleteFlow.yaml"
+
+requestDescribeFlow :: DescribeFlow -> TestTree
+requestDescribeFlow =
+  req
+    "DescribeFlow"
+    "fixture/DescribeFlow.yaml"
+
+requestDescribeOffering :: DescribeOffering -> TestTree
+requestDescribeOffering =
+  req
+    "DescribeOffering"
+    "fixture/DescribeOffering.yaml"
+
+requestDescribeReservation :: DescribeReservation -> TestTree
+requestDescribeReservation =
+  req
+    "DescribeReservation"
+    "fixture/DescribeReservation.yaml"
+
+requestGrantFlowEntitlements :: GrantFlowEntitlements -> TestTree
+requestGrantFlowEntitlements =
+  req
+    "GrantFlowEntitlements"
+    "fixture/GrantFlowEntitlements.yaml"
+
 requestListEntitlements :: ListEntitlements -> TestTree
 requestListEntitlements =
   req
     "ListEntitlements"
     "fixture/ListEntitlements.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
 
 requestListFlows :: ListFlows -> TestTree
 requestListFlows =
@@ -341,17 +287,77 @@ requestListFlows =
     "ListFlows"
     "fixture/ListFlows.yaml"
 
+requestListOfferings :: ListOfferings -> TestTree
+requestListOfferings =
+  req
+    "ListOfferings"
+    "fixture/ListOfferings.yaml"
+
+requestListReservations :: ListReservations -> TestTree
+requestListReservations =
+  req
+    "ListReservations"
+    "fixture/ListReservations.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestPurchaseOffering :: PurchaseOffering -> TestTree
 requestPurchaseOffering =
   req
     "PurchaseOffering"
     "fixture/PurchaseOffering.yaml"
 
-requestUpdateFlowMediaStream :: UpdateFlowMediaStream -> TestTree
-requestUpdateFlowMediaStream =
+requestRemoveFlowMediaStream :: RemoveFlowMediaStream -> TestTree
+requestRemoveFlowMediaStream =
   req
-    "UpdateFlowMediaStream"
-    "fixture/UpdateFlowMediaStream.yaml"
+    "RemoveFlowMediaStream"
+    "fixture/RemoveFlowMediaStream.yaml"
+
+requestRemoveFlowOutput :: RemoveFlowOutput -> TestTree
+requestRemoveFlowOutput =
+  req
+    "RemoveFlowOutput"
+    "fixture/RemoveFlowOutput.yaml"
+
+requestRemoveFlowSource :: RemoveFlowSource -> TestTree
+requestRemoveFlowSource =
+  req
+    "RemoveFlowSource"
+    "fixture/RemoveFlowSource.yaml"
+
+requestRemoveFlowVpcInterface :: RemoveFlowVpcInterface -> TestTree
+requestRemoveFlowVpcInterface =
+  req
+    "RemoveFlowVpcInterface"
+    "fixture/RemoveFlowVpcInterface.yaml"
+
+requestRevokeFlowEntitlement :: RevokeFlowEntitlement -> TestTree
+requestRevokeFlowEntitlement =
+  req
+    "RevokeFlowEntitlement"
+    "fixture/RevokeFlowEntitlement.yaml"
+
+requestStartFlow :: StartFlow -> TestTree
+requestStartFlow =
+  req
+    "StartFlow"
+    "fixture/StartFlow.yaml"
+
+requestStopFlow :: StopFlow -> TestTree
+requestStopFlow =
+  req
+    "StopFlow"
+    "fixture/StopFlow.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -365,11 +371,23 @@ requestUpdateFlow =
     "UpdateFlow"
     "fixture/UpdateFlow.yaml"
 
-requestDeleteFlow :: DeleteFlow -> TestTree
-requestDeleteFlow =
+requestUpdateFlowEntitlement :: UpdateFlowEntitlement -> TestTree
+requestUpdateFlowEntitlement =
   req
-    "DeleteFlow"
-    "fixture/DeleteFlow.yaml"
+    "UpdateFlowEntitlement"
+    "fixture/UpdateFlowEntitlement.yaml"
+
+requestUpdateFlowMediaStream :: UpdateFlowMediaStream -> TestTree
+requestUpdateFlowMediaStream =
+  req
+    "UpdateFlowMediaStream"
+    "fixture/UpdateFlowMediaStream.yaml"
+
+requestUpdateFlowOutput :: UpdateFlowOutput -> TestTree
+requestUpdateFlowOutput =
+  req
+    "UpdateFlowOutput"
+    "fixture/UpdateFlowOutput.yaml"
 
 requestUpdateFlowSource :: UpdateFlowSource -> TestTree
 requestUpdateFlowSource =
@@ -377,89 +395,7 @@ requestUpdateFlowSource =
     "UpdateFlowSource"
     "fixture/UpdateFlowSource.yaml"
 
-requestGrantFlowEntitlements :: GrantFlowEntitlements -> TestTree
-requestGrantFlowEntitlements =
-  req
-    "GrantFlowEntitlements"
-    "fixture/GrantFlowEntitlements.yaml"
-
-requestListReservations :: ListReservations -> TestTree
-requestListReservations =
-  req
-    "ListReservations"
-    "fixture/ListReservations.yaml"
-
-requestListOfferings :: ListOfferings -> TestTree
-requestListOfferings =
-  req
-    "ListOfferings"
-    "fixture/ListOfferings.yaml"
-
 -- Responses
-
-responseRemoveFlowVpcInterface :: RemoveFlowVpcInterfaceResponse -> TestTree
-responseRemoveFlowVpcInterface =
-  res
-    "RemoveFlowVpcInterfaceResponse"
-    "fixture/RemoveFlowVpcInterfaceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveFlowVpcInterface)
-
-responseRemoveFlowMediaStream :: RemoveFlowMediaStreamResponse -> TestTree
-responseRemoveFlowMediaStream =
-  res
-    "RemoveFlowMediaStreamResponse"
-    "fixture/RemoveFlowMediaStreamResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveFlowMediaStream)
-
-responseUpdateFlowOutput :: UpdateFlowOutputResponse -> TestTree
-responseUpdateFlowOutput =
-  res
-    "UpdateFlowOutputResponse"
-    "fixture/UpdateFlowOutputResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFlowOutput)
-
-responseAddFlowOutputs :: AddFlowOutputsResponse -> TestTree
-responseAddFlowOutputs =
-  res
-    "AddFlowOutputsResponse"
-    "fixture/AddFlowOutputsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddFlowOutputs)
-
-responseStartFlow :: StartFlowResponse -> TestTree
-responseStartFlow =
-  res
-    "StartFlowResponse"
-    "fixture/StartFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartFlow)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseAddFlowSources :: AddFlowSourcesResponse -> TestTree
-responseAddFlowSources =
-  res
-    "AddFlowSourcesResponse"
-    "fixture/AddFlowSourcesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddFlowSources)
-
-responseDescribeReservation :: DescribeReservationResponse -> TestTree
-responseDescribeReservation =
-  res
-    "DescribeReservationResponse"
-    "fixture/DescribeReservationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeReservation)
 
 responseAddFlowMediaStreams :: AddFlowMediaStreamsResponse -> TestTree
 responseAddFlowMediaStreams =
@@ -469,69 +405,21 @@ responseAddFlowMediaStreams =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddFlowMediaStreams)
 
-responseRemoveFlowOutput :: RemoveFlowOutputResponse -> TestTree
-responseRemoveFlowOutput =
+responseAddFlowOutputs :: AddFlowOutputsResponse -> TestTree
+responseAddFlowOutputs =
   res
-    "RemoveFlowOutputResponse"
-    "fixture/RemoveFlowOutputResponse.proto"
+    "AddFlowOutputsResponse"
+    "fixture/AddFlowOutputsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveFlowOutput)
+    (Proxy.Proxy :: Proxy.Proxy AddFlowOutputs)
 
-responseRevokeFlowEntitlement :: RevokeFlowEntitlementResponse -> TestTree
-responseRevokeFlowEntitlement =
+responseAddFlowSources :: AddFlowSourcesResponse -> TestTree
+responseAddFlowSources =
   res
-    "RevokeFlowEntitlementResponse"
-    "fixture/RevokeFlowEntitlementResponse.proto"
+    "AddFlowSourcesResponse"
+    "fixture/AddFlowSourcesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RevokeFlowEntitlement)
-
-responseCreateFlow :: CreateFlowResponse -> TestTree
-responseCreateFlow =
-  res
-    "CreateFlowResponse"
-    "fixture/CreateFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFlow)
-
-responseRemoveFlowSource :: RemoveFlowSourceResponse -> TestTree
-responseRemoveFlowSource =
-  res
-    "RemoveFlowSourceResponse"
-    "fixture/RemoveFlowSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveFlowSource)
-
-responseDescribeFlow :: DescribeFlowResponse -> TestTree
-responseDescribeFlow =
-  res
-    "DescribeFlowResponse"
-    "fixture/DescribeFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFlow)
-
-responseUpdateFlowEntitlement :: UpdateFlowEntitlementResponse -> TestTree
-responseUpdateFlowEntitlement =
-  res
-    "UpdateFlowEntitlementResponse"
-    "fixture/UpdateFlowEntitlementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFlowEntitlement)
-
-responseStopFlow :: StopFlowResponse -> TestTree
-responseStopFlow =
-  res
-    "StopFlowResponse"
-    "fixture/StopFlowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopFlow)
-
-responseDescribeOffering :: DescribeOfferingResponse -> TestTree
-responseDescribeOffering =
-  res
-    "DescribeOfferingResponse"
-    "fixture/DescribeOfferingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeOffering)
+    (Proxy.Proxy :: Proxy.Proxy AddFlowSources)
 
 responseAddFlowVpcInterfaces :: AddFlowVpcInterfacesResponse -> TestTree
 responseAddFlowVpcInterfaces =
@@ -541,6 +429,54 @@ responseAddFlowVpcInterfaces =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddFlowVpcInterfaces)
 
+responseCreateFlow :: CreateFlowResponse -> TestTree
+responseCreateFlow =
+  res
+    "CreateFlowResponse"
+    "fixture/CreateFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateFlow)
+
+responseDeleteFlow :: DeleteFlowResponse -> TestTree
+responseDeleteFlow =
+  res
+    "DeleteFlowResponse"
+    "fixture/DeleteFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFlow)
+
+responseDescribeFlow :: DescribeFlowResponse -> TestTree
+responseDescribeFlow =
+  res
+    "DescribeFlowResponse"
+    "fixture/DescribeFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlow)
+
+responseDescribeOffering :: DescribeOfferingResponse -> TestTree
+responseDescribeOffering =
+  res
+    "DescribeOfferingResponse"
+    "fixture/DescribeOfferingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOffering)
+
+responseDescribeReservation :: DescribeReservationResponse -> TestTree
+responseDescribeReservation =
+  res
+    "DescribeReservationResponse"
+    "fixture/DescribeReservationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservation)
+
+responseGrantFlowEntitlements :: GrantFlowEntitlementsResponse -> TestTree
+responseGrantFlowEntitlements =
+  res
+    "GrantFlowEntitlementsResponse"
+    "fixture/GrantFlowEntitlementsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GrantFlowEntitlements)
+
 responseListEntitlements :: ListEntitlementsResponse -> TestTree
 responseListEntitlements =
   res
@@ -548,14 +484,6 @@ responseListEntitlements =
     "fixture/ListEntitlementsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEntitlements)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseListFlows :: ListFlowsResponse -> TestTree
 responseListFlows =
@@ -565,6 +493,30 @@ responseListFlows =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFlows)
 
+responseListOfferings :: ListOfferingsResponse -> TestTree
+responseListOfferings =
+  res
+    "ListOfferingsResponse"
+    "fixture/ListOfferingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOfferings)
+
+responseListReservations :: ListReservationsResponse -> TestTree
+responseListReservations =
+  res
+    "ListReservationsResponse"
+    "fixture/ListReservationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReservations)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
 responsePurchaseOffering =
   res
@@ -573,13 +525,69 @@ responsePurchaseOffering =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PurchaseOffering)
 
-responseUpdateFlowMediaStream :: UpdateFlowMediaStreamResponse -> TestTree
-responseUpdateFlowMediaStream =
+responseRemoveFlowMediaStream :: RemoveFlowMediaStreamResponse -> TestTree
+responseRemoveFlowMediaStream =
   res
-    "UpdateFlowMediaStreamResponse"
-    "fixture/UpdateFlowMediaStreamResponse.proto"
+    "RemoveFlowMediaStreamResponse"
+    "fixture/RemoveFlowMediaStreamResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFlowMediaStream)
+    (Proxy.Proxy :: Proxy.Proxy RemoveFlowMediaStream)
+
+responseRemoveFlowOutput :: RemoveFlowOutputResponse -> TestTree
+responseRemoveFlowOutput =
+  res
+    "RemoveFlowOutputResponse"
+    "fixture/RemoveFlowOutputResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveFlowOutput)
+
+responseRemoveFlowSource :: RemoveFlowSourceResponse -> TestTree
+responseRemoveFlowSource =
+  res
+    "RemoveFlowSourceResponse"
+    "fixture/RemoveFlowSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveFlowSource)
+
+responseRemoveFlowVpcInterface :: RemoveFlowVpcInterfaceResponse -> TestTree
+responseRemoveFlowVpcInterface =
+  res
+    "RemoveFlowVpcInterfaceResponse"
+    "fixture/RemoveFlowVpcInterfaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveFlowVpcInterface)
+
+responseRevokeFlowEntitlement :: RevokeFlowEntitlementResponse -> TestTree
+responseRevokeFlowEntitlement =
+  res
+    "RevokeFlowEntitlementResponse"
+    "fixture/RevokeFlowEntitlementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RevokeFlowEntitlement)
+
+responseStartFlow :: StartFlowResponse -> TestTree
+responseStartFlow =
+  res
+    "StartFlowResponse"
+    "fixture/StartFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartFlow)
+
+responseStopFlow :: StopFlowResponse -> TestTree
+responseStopFlow =
+  res
+    "StopFlowResponse"
+    "fixture/StopFlowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopFlow)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -597,13 +605,29 @@ responseUpdateFlow =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFlow)
 
-responseDeleteFlow :: DeleteFlowResponse -> TestTree
-responseDeleteFlow =
+responseUpdateFlowEntitlement :: UpdateFlowEntitlementResponse -> TestTree
+responseUpdateFlowEntitlement =
   res
-    "DeleteFlowResponse"
-    "fixture/DeleteFlowResponse.proto"
+    "UpdateFlowEntitlementResponse"
+    "fixture/UpdateFlowEntitlementResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFlow)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowEntitlement)
+
+responseUpdateFlowMediaStream :: UpdateFlowMediaStreamResponse -> TestTree
+responseUpdateFlowMediaStream =
+  res
+    "UpdateFlowMediaStreamResponse"
+    "fixture/UpdateFlowMediaStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowMediaStream)
+
+responseUpdateFlowOutput :: UpdateFlowOutputResponse -> TestTree
+responseUpdateFlowOutput =
+  res
+    "UpdateFlowOutputResponse"
+    "fixture/UpdateFlowOutputResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowOutput)
 
 responseUpdateFlowSource :: UpdateFlowSourceResponse -> TestTree
 responseUpdateFlowSource =
@@ -612,27 +636,3 @@ responseUpdateFlowSource =
     "fixture/UpdateFlowSourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFlowSource)
-
-responseGrantFlowEntitlements :: GrantFlowEntitlementsResponse -> TestTree
-responseGrantFlowEntitlements =
-  res
-    "GrantFlowEntitlementsResponse"
-    "fixture/GrantFlowEntitlementsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GrantFlowEntitlements)
-
-responseListReservations :: ListReservationsResponse -> TestTree
-responseListReservations =
-  res
-    "ListReservationsResponse"
-    "fixture/ListReservationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReservations)
-
-responseListOfferings :: ListOfferingsResponse -> TestTree
-responseListOfferings =
-  res
-    "ListOfferingsResponse"
-    "fixture/ListOfferingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListOfferings)

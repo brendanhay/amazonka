@@ -29,8 +29,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPredictorSummary' smart constructor.
 data PredictorSummary = PredictorSummary'
-  { -- | When the model training task was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The last time the resource was modified. The timestamp depends on the
+    -- status of the job:
+    --
+    -- -   @CREATE_PENDING@ - The @CreationTime@.
+    --
+    -- -   @CREATE_IN_PROGRESS@ - The current timestamp.
+    --
+    -- -   @CREATE_STOPPING@ - The current timestamp.
+    --
+    -- -   @CREATE_STOPPED@ - When the job stopped.
+    --
+    -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
+    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    -- | If an error occurred, an informational message about the error.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The name of the predictor.
+    predictorName :: Prelude.Maybe Prelude.Text,
     -- | The status of the predictor. States include:
     --
     -- -   @ACTIVE@
@@ -46,26 +61,11 @@ data PredictorSummary = PredictorSummary'
     status :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the predictor.
     predictorArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the predictor.
-    predictorName :: Prelude.Maybe Prelude.Text,
+    -- | When the model training task was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the dataset group that contains the
     -- data used to train the predictor.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | If an error occurred, an informational message about the error.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The last time the resource was modified. The timestamp depends on the
-    -- status of the job:
-    --
-    -- -   @CREATE_PENDING@ - The @CreationTime@.
-    --
-    -- -   @CREATE_IN_PROGRESS@ - The current timestamp.
-    --
-    -- -   @CREATE_STOPPING@ - The current timestamp.
-    --
-    -- -   @CREATE_STOPPED@ - When the job stopped.
-    --
-    -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX
+    datasetGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,7 +77,22 @@ data PredictorSummary = PredictorSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'predictorSummary_creationTime' - When the model training task was created.
+-- 'lastModificationTime', 'predictorSummary_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
+-- status of the job:
+--
+-- -   @CREATE_PENDING@ - The @CreationTime@.
+--
+-- -   @CREATE_IN_PROGRESS@ - The current timestamp.
+--
+-- -   @CREATE_STOPPING@ - The current timestamp.
+--
+-- -   @CREATE_STOPPED@ - When the job stopped.
+--
+-- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
+--
+-- 'message', 'predictorSummary_message' - If an error occurred, an informational message about the error.
+--
+-- 'predictorName', 'predictorSummary_predictorName' - The name of the predictor.
 --
 -- 'status', 'predictorSummary_status' - The status of the predictor. States include:
 --
@@ -94,14 +109,25 @@ data PredictorSummary = PredictorSummary'
 --
 -- 'predictorArn', 'predictorSummary_predictorArn' - The ARN of the predictor.
 --
--- 'predictorName', 'predictorSummary_predictorName' - The name of the predictor.
+-- 'creationTime', 'predictorSummary_creationTime' - When the model training task was created.
 --
 -- 'datasetGroupArn', 'predictorSummary_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group that contains the
 -- data used to train the predictor.
---
--- 'message', 'predictorSummary_message' - If an error occurred, an informational message about the error.
---
--- 'lastModificationTime', 'predictorSummary_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
+newPredictorSummary ::
+  PredictorSummary
+newPredictorSummary =
+  PredictorSummary'
+    { lastModificationTime =
+        Prelude.Nothing,
+      message = Prelude.Nothing,
+      predictorName = Prelude.Nothing,
+      status = Prelude.Nothing,
+      predictorArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      datasetGroupArn = Prelude.Nothing
+    }
+
+-- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
 --
 -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -113,22 +139,16 @@ data PredictorSummary = PredictorSummary'
 -- -   @CREATE_STOPPED@ - When the job stopped.
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-newPredictorSummary ::
-  PredictorSummary
-newPredictorSummary =
-  PredictorSummary'
-    { creationTime = Prelude.Nothing,
-      status = Prelude.Nothing,
-      predictorArn = Prelude.Nothing,
-      predictorName = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing,
-      message = Prelude.Nothing,
-      lastModificationTime = Prelude.Nothing
-    }
+predictorSummary_lastModificationTime :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.UTCTime)
+predictorSummary_lastModificationTime = Lens.lens (\PredictorSummary' {lastModificationTime} -> lastModificationTime) (\s@PredictorSummary' {} a -> s {lastModificationTime = a} :: PredictorSummary) Prelude.. Lens.mapping Core._Time
 
--- | When the model training task was created.
-predictorSummary_creationTime :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.UTCTime)
-predictorSummary_creationTime = Lens.lens (\PredictorSummary' {creationTime} -> creationTime) (\s@PredictorSummary' {} a -> s {creationTime = a} :: PredictorSummary) Prelude.. Lens.mapping Core._Time
+-- | If an error occurred, an informational message about the error.
+predictorSummary_message :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
+predictorSummary_message = Lens.lens (\PredictorSummary' {message} -> message) (\s@PredictorSummary' {} a -> s {message = a} :: PredictorSummary)
+
+-- | The name of the predictor.
+predictorSummary_predictorName :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
+predictorSummary_predictorName = Lens.lens (\PredictorSummary' {predictorName} -> predictorName) (\s@PredictorSummary' {} a -> s {predictorName = a} :: PredictorSummary)
 
 -- | The status of the predictor. States include:
 --
@@ -149,33 +169,14 @@ predictorSummary_status = Lens.lens (\PredictorSummary' {status} -> status) (\s@
 predictorSummary_predictorArn :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
 predictorSummary_predictorArn = Lens.lens (\PredictorSummary' {predictorArn} -> predictorArn) (\s@PredictorSummary' {} a -> s {predictorArn = a} :: PredictorSummary)
 
--- | The name of the predictor.
-predictorSummary_predictorName :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
-predictorSummary_predictorName = Lens.lens (\PredictorSummary' {predictorName} -> predictorName) (\s@PredictorSummary' {} a -> s {predictorName = a} :: PredictorSummary)
+-- | When the model training task was created.
+predictorSummary_creationTime :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.UTCTime)
+predictorSummary_creationTime = Lens.lens (\PredictorSummary' {creationTime} -> creationTime) (\s@PredictorSummary' {} a -> s {creationTime = a} :: PredictorSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the dataset group that contains the
 -- data used to train the predictor.
 predictorSummary_datasetGroupArn :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
 predictorSummary_datasetGroupArn = Lens.lens (\PredictorSummary' {datasetGroupArn} -> datasetGroupArn) (\s@PredictorSummary' {} a -> s {datasetGroupArn = a} :: PredictorSummary)
-
--- | If an error occurred, an informational message about the error.
-predictorSummary_message :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.Text)
-predictorSummary_message = Lens.lens (\PredictorSummary' {message} -> message) (\s@PredictorSummary' {} a -> s {message = a} :: PredictorSummary)
-
--- | The last time the resource was modified. The timestamp depends on the
--- status of the job:
---
--- -   @CREATE_PENDING@ - The @CreationTime@.
---
--- -   @CREATE_IN_PROGRESS@ - The current timestamp.
---
--- -   @CREATE_STOPPING@ - The current timestamp.
---
--- -   @CREATE_STOPPED@ - When the job stopped.
---
--- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-predictorSummary_lastModificationTime :: Lens.Lens' PredictorSummary (Prelude.Maybe Prelude.UTCTime)
-predictorSummary_lastModificationTime = Lens.lens (\PredictorSummary' {lastModificationTime} -> lastModificationTime) (\s@PredictorSummary' {} a -> s {lastModificationTime = a} :: PredictorSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON PredictorSummary where
   parseJSON =
@@ -183,31 +184,31 @@ instance Core.FromJSON PredictorSummary where
       "PredictorSummary"
       ( \x ->
           PredictorSummary'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "LastModificationTime")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "PredictorName")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "PredictorArn")
-            Prelude.<*> (x Core..:? "PredictorName")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "DatasetGroupArn")
-            Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "LastModificationTime")
       )
 
 instance Prelude.Hashable PredictorSummary where
   hashWithSalt _salt PredictorSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` lastModificationTime
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` predictorName
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` predictorArn
-      `Prelude.hashWithSalt` predictorName
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` datasetGroupArn
-      `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` lastModificationTime
 
 instance Prelude.NFData PredictorSummary where
   rnf PredictorSummary' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf predictorName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf predictorArn
-      `Prelude.seq` Prelude.rnf predictorName
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf lastModificationTime

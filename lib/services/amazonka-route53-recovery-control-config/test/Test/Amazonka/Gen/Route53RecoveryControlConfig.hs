@@ -27,193 +27,133 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeControlPanel $
---             newDescribeControlPanel
---
---         , requestCreateRoutingControl $
---             newCreateRoutingControl
---
---         , requestDescribeCluster $
---             newDescribeCluster
---
---         , requestDeleteRoutingControl $
---             newDeleteRoutingControl
---
---         , requestUpdateRoutingControl $
---             newUpdateRoutingControl
+--         [ requestCreateCluster $
+--             newCreateCluster
 --
 --         , requestCreateControlPanel $
 --             newCreateControlPanel
 --
---         , requestUpdateControlPanel $
---             newUpdateControlPanel
---
---         , requestDeleteControlPanel $
---             newDeleteControlPanel
---
---         , requestDeleteCluster $
---             newDeleteCluster
+--         , requestCreateRoutingControl $
+--             newCreateRoutingControl
 --
 --         , requestCreateSafetyRule $
 --             newCreateSafetyRule
 --
---         , requestCreateCluster $
---             newCreateCluster
+--         , requestDeleteCluster $
+--             newDeleteCluster
 --
---         , requestListAssociatedRoute53HealthChecks $
---             newListAssociatedRoute53HealthChecks
+--         , requestDeleteControlPanel $
+--             newDeleteControlPanel
 --
---         , requestDescribeSafetyRule $
---             newDescribeSafetyRule
---
---         , requestListRoutingControls $
---             newListRoutingControls
---
---         , requestListControlPanels $
---             newListControlPanels
---
---         , requestUpdateSafetyRule $
---             newUpdateSafetyRule
+--         , requestDeleteRoutingControl $
+--             newDeleteRoutingControl
 --
 --         , requestDeleteSafetyRule $
 --             newDeleteSafetyRule
 --
---         , requestListClusters $
---             newListClusters
+--         , requestDescribeCluster $
+--             newDescribeCluster
 --
---         , requestListSafetyRules $
---             newListSafetyRules
+--         , requestDescribeControlPanel $
+--             newDescribeControlPanel
 --
 --         , requestDescribeRoutingControl $
 --             newDescribeRoutingControl
 --
+--         , requestDescribeSafetyRule $
+--             newDescribeSafetyRule
+--
+--         , requestListAssociatedRoute53HealthChecks $
+--             newListAssociatedRoute53HealthChecks
+--
+--         , requestListClusters $
+--             newListClusters
+--
+--         , requestListControlPanels $
+--             newListControlPanels
+--
+--         , requestListRoutingControls $
+--             newListRoutingControls
+--
+--         , requestListSafetyRules $
+--             newListSafetyRules
+--
+--         , requestUpdateControlPanel $
+--             newUpdateControlPanel
+--
+--         , requestUpdateRoutingControl $
+--             newUpdateRoutingControl
+--
+--         , requestUpdateSafetyRule $
+--             newUpdateSafetyRule
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeControlPanel $
---             newDescribeControlPanelResponse
---
---         , responseCreateRoutingControl $
---             newCreateRoutingControlResponse
---
---         , responseDescribeCluster $
---             newDescribeClusterResponse
---
---         , responseDeleteRoutingControl $
---             newDeleteRoutingControlResponse
---
---         , responseUpdateRoutingControl $
---             newUpdateRoutingControlResponse
+--         [ responseCreateCluster $
+--             newCreateClusterResponse
 --
 --         , responseCreateControlPanel $
 --             newCreateControlPanelResponse
 --
---         , responseUpdateControlPanel $
---             newUpdateControlPanelResponse
---
---         , responseDeleteControlPanel $
---             newDeleteControlPanelResponse
---
---         , responseDeleteCluster $
---             newDeleteClusterResponse
+--         , responseCreateRoutingControl $
+--             newCreateRoutingControlResponse
 --
 --         , responseCreateSafetyRule $
 --             newCreateSafetyRuleResponse
 --
---         , responseCreateCluster $
---             newCreateClusterResponse
+--         , responseDeleteCluster $
+--             newDeleteClusterResponse
 --
---         , responseListAssociatedRoute53HealthChecks $
---             newListAssociatedRoute53HealthChecksResponse
+--         , responseDeleteControlPanel $
+--             newDeleteControlPanelResponse
 --
---         , responseDescribeSafetyRule $
---             newDescribeSafetyRuleResponse
---
---         , responseListRoutingControls $
---             newListRoutingControlsResponse
---
---         , responseListControlPanels $
---             newListControlPanelsResponse
---
---         , responseUpdateSafetyRule $
---             newUpdateSafetyRuleResponse
+--         , responseDeleteRoutingControl $
+--             newDeleteRoutingControlResponse
 --
 --         , responseDeleteSafetyRule $
 --             newDeleteSafetyRuleResponse
 --
+--         , responseDescribeCluster $
+--             newDescribeClusterResponse
+--
+--         , responseDescribeControlPanel $
+--             newDescribeControlPanelResponse
+--
+--         , responseDescribeRoutingControl $
+--             newDescribeRoutingControlResponse
+--
+--         , responseDescribeSafetyRule $
+--             newDescribeSafetyRuleResponse
+--
+--         , responseListAssociatedRoute53HealthChecks $
+--             newListAssociatedRoute53HealthChecksResponse
+--
 --         , responseListClusters $
 --             newListClustersResponse
+--
+--         , responseListControlPanels $
+--             newListControlPanelsResponse
+--
+--         , responseListRoutingControls $
+--             newListRoutingControlsResponse
 --
 --         , responseListSafetyRules $
 --             newListSafetyRulesResponse
 --
---         , responseDescribeRoutingControl $
---             newDescribeRoutingControlResponse
+--         , responseUpdateControlPanel $
+--             newUpdateControlPanelResponse
+--
+--         , responseUpdateRoutingControl $
+--             newUpdateRoutingControlResponse
+--
+--         , responseUpdateSafetyRule $
+--             newUpdateSafetyRuleResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDescribeControlPanel :: DescribeControlPanel -> TestTree
-requestDescribeControlPanel =
-  req
-    "DescribeControlPanel"
-    "fixture/DescribeControlPanel.yaml"
-
-requestCreateRoutingControl :: CreateRoutingControl -> TestTree
-requestCreateRoutingControl =
-  req
-    "CreateRoutingControl"
-    "fixture/CreateRoutingControl.yaml"
-
-requestDescribeCluster :: DescribeCluster -> TestTree
-requestDescribeCluster =
-  req
-    "DescribeCluster"
-    "fixture/DescribeCluster.yaml"
-
-requestDeleteRoutingControl :: DeleteRoutingControl -> TestTree
-requestDeleteRoutingControl =
-  req
-    "DeleteRoutingControl"
-    "fixture/DeleteRoutingControl.yaml"
-
-requestUpdateRoutingControl :: UpdateRoutingControl -> TestTree
-requestUpdateRoutingControl =
-  req
-    "UpdateRoutingControl"
-    "fixture/UpdateRoutingControl.yaml"
-
-requestCreateControlPanel :: CreateControlPanel -> TestTree
-requestCreateControlPanel =
-  req
-    "CreateControlPanel"
-    "fixture/CreateControlPanel.yaml"
-
-requestUpdateControlPanel :: UpdateControlPanel -> TestTree
-requestUpdateControlPanel =
-  req
-    "UpdateControlPanel"
-    "fixture/UpdateControlPanel.yaml"
-
-requestDeleteControlPanel :: DeleteControlPanel -> TestTree
-requestDeleteControlPanel =
-  req
-    "DeleteControlPanel"
-    "fixture/DeleteControlPanel.yaml"
-
-requestDeleteCluster :: DeleteCluster -> TestTree
-requestDeleteCluster =
-  req
-    "DeleteCluster"
-    "fixture/DeleteCluster.yaml"
-
-requestCreateSafetyRule :: CreateSafetyRule -> TestTree
-requestCreateSafetyRule =
-  req
-    "CreateSafetyRule"
-    "fixture/CreateSafetyRule.yaml"
 
 requestCreateCluster :: CreateCluster -> TestTree
 requestCreateCluster =
@@ -221,35 +161,41 @@ requestCreateCluster =
     "CreateCluster"
     "fixture/CreateCluster.yaml"
 
-requestListAssociatedRoute53HealthChecks :: ListAssociatedRoute53HealthChecks -> TestTree
-requestListAssociatedRoute53HealthChecks =
+requestCreateControlPanel :: CreateControlPanel -> TestTree
+requestCreateControlPanel =
   req
-    "ListAssociatedRoute53HealthChecks"
-    "fixture/ListAssociatedRoute53HealthChecks.yaml"
+    "CreateControlPanel"
+    "fixture/CreateControlPanel.yaml"
 
-requestDescribeSafetyRule :: DescribeSafetyRule -> TestTree
-requestDescribeSafetyRule =
+requestCreateRoutingControl :: CreateRoutingControl -> TestTree
+requestCreateRoutingControl =
   req
-    "DescribeSafetyRule"
-    "fixture/DescribeSafetyRule.yaml"
+    "CreateRoutingControl"
+    "fixture/CreateRoutingControl.yaml"
 
-requestListRoutingControls :: ListRoutingControls -> TestTree
-requestListRoutingControls =
+requestCreateSafetyRule :: CreateSafetyRule -> TestTree
+requestCreateSafetyRule =
   req
-    "ListRoutingControls"
-    "fixture/ListRoutingControls.yaml"
+    "CreateSafetyRule"
+    "fixture/CreateSafetyRule.yaml"
 
-requestListControlPanels :: ListControlPanels -> TestTree
-requestListControlPanels =
+requestDeleteCluster :: DeleteCluster -> TestTree
+requestDeleteCluster =
   req
-    "ListControlPanels"
-    "fixture/ListControlPanels.yaml"
+    "DeleteCluster"
+    "fixture/DeleteCluster.yaml"
 
-requestUpdateSafetyRule :: UpdateSafetyRule -> TestTree
-requestUpdateSafetyRule =
+requestDeleteControlPanel :: DeleteControlPanel -> TestTree
+requestDeleteControlPanel =
   req
-    "UpdateSafetyRule"
-    "fixture/UpdateSafetyRule.yaml"
+    "DeleteControlPanel"
+    "fixture/DeleteControlPanel.yaml"
+
+requestDeleteRoutingControl :: DeleteRoutingControl -> TestTree
+requestDeleteRoutingControl =
+  req
+    "DeleteRoutingControl"
+    "fixture/DeleteRoutingControl.yaml"
 
 requestDeleteSafetyRule :: DeleteSafetyRule -> TestTree
 requestDeleteSafetyRule =
@@ -257,17 +203,17 @@ requestDeleteSafetyRule =
     "DeleteSafetyRule"
     "fixture/DeleteSafetyRule.yaml"
 
-requestListClusters :: ListClusters -> TestTree
-requestListClusters =
+requestDescribeCluster :: DescribeCluster -> TestTree
+requestDescribeCluster =
   req
-    "ListClusters"
-    "fixture/ListClusters.yaml"
+    "DescribeCluster"
+    "fixture/DescribeCluster.yaml"
 
-requestListSafetyRules :: ListSafetyRules -> TestTree
-requestListSafetyRules =
+requestDescribeControlPanel :: DescribeControlPanel -> TestTree
+requestDescribeControlPanel =
   req
-    "ListSafetyRules"
-    "fixture/ListSafetyRules.yaml"
+    "DescribeControlPanel"
+    "fixture/DescribeControlPanel.yaml"
 
 requestDescribeRoutingControl :: DescribeRoutingControl -> TestTree
 requestDescribeRoutingControl =
@@ -275,87 +221,61 @@ requestDescribeRoutingControl =
     "DescribeRoutingControl"
     "fixture/DescribeRoutingControl.yaml"
 
+requestDescribeSafetyRule :: DescribeSafetyRule -> TestTree
+requestDescribeSafetyRule =
+  req
+    "DescribeSafetyRule"
+    "fixture/DescribeSafetyRule.yaml"
+
+requestListAssociatedRoute53HealthChecks :: ListAssociatedRoute53HealthChecks -> TestTree
+requestListAssociatedRoute53HealthChecks =
+  req
+    "ListAssociatedRoute53HealthChecks"
+    "fixture/ListAssociatedRoute53HealthChecks.yaml"
+
+requestListClusters :: ListClusters -> TestTree
+requestListClusters =
+  req
+    "ListClusters"
+    "fixture/ListClusters.yaml"
+
+requestListControlPanels :: ListControlPanels -> TestTree
+requestListControlPanels =
+  req
+    "ListControlPanels"
+    "fixture/ListControlPanels.yaml"
+
+requestListRoutingControls :: ListRoutingControls -> TestTree
+requestListRoutingControls =
+  req
+    "ListRoutingControls"
+    "fixture/ListRoutingControls.yaml"
+
+requestListSafetyRules :: ListSafetyRules -> TestTree
+requestListSafetyRules =
+  req
+    "ListSafetyRules"
+    "fixture/ListSafetyRules.yaml"
+
+requestUpdateControlPanel :: UpdateControlPanel -> TestTree
+requestUpdateControlPanel =
+  req
+    "UpdateControlPanel"
+    "fixture/UpdateControlPanel.yaml"
+
+requestUpdateRoutingControl :: UpdateRoutingControl -> TestTree
+requestUpdateRoutingControl =
+  req
+    "UpdateRoutingControl"
+    "fixture/UpdateRoutingControl.yaml"
+
+requestUpdateSafetyRule :: UpdateSafetyRule -> TestTree
+requestUpdateSafetyRule =
+  req
+    "UpdateSafetyRule"
+    "fixture/UpdateSafetyRule.yaml"
+
 -- Responses
-
-responseDescribeControlPanel :: DescribeControlPanelResponse -> TestTree
-responseDescribeControlPanel =
-  res
-    "DescribeControlPanelResponse"
-    "fixture/DescribeControlPanelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeControlPanel)
-
-responseCreateRoutingControl :: CreateRoutingControlResponse -> TestTree
-responseCreateRoutingControl =
-  res
-    "CreateRoutingControlResponse"
-    "fixture/CreateRoutingControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRoutingControl)
-
-responseDescribeCluster :: DescribeClusterResponse -> TestTree
-responseDescribeCluster =
-  res
-    "DescribeClusterResponse"
-    "fixture/DescribeClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
-
-responseDeleteRoutingControl :: DeleteRoutingControlResponse -> TestTree
-responseDeleteRoutingControl =
-  res
-    "DeleteRoutingControlResponse"
-    "fixture/DeleteRoutingControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRoutingControl)
-
-responseUpdateRoutingControl :: UpdateRoutingControlResponse -> TestTree
-responseUpdateRoutingControl =
-  res
-    "UpdateRoutingControlResponse"
-    "fixture/UpdateRoutingControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingControl)
-
-responseCreateControlPanel :: CreateControlPanelResponse -> TestTree
-responseCreateControlPanel =
-  res
-    "CreateControlPanelResponse"
-    "fixture/CreateControlPanelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateControlPanel)
-
-responseUpdateControlPanel :: UpdateControlPanelResponse -> TestTree
-responseUpdateControlPanel =
-  res
-    "UpdateControlPanelResponse"
-    "fixture/UpdateControlPanelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateControlPanel)
-
-responseDeleteControlPanel :: DeleteControlPanelResponse -> TestTree
-responseDeleteControlPanel =
-  res
-    "DeleteControlPanelResponse"
-    "fixture/DeleteControlPanelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteControlPanel)
-
-responseDeleteCluster :: DeleteClusterResponse -> TestTree
-responseDeleteCluster =
-  res
-    "DeleteClusterResponse"
-    "fixture/DeleteClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
-
-responseCreateSafetyRule :: CreateSafetyRuleResponse -> TestTree
-responseCreateSafetyRule =
-  res
-    "CreateSafetyRuleResponse"
-    "fixture/CreateSafetyRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSafetyRule)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -365,45 +285,53 @@ responseCreateCluster =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
-responseListAssociatedRoute53HealthChecks :: ListAssociatedRoute53HealthChecksResponse -> TestTree
-responseListAssociatedRoute53HealthChecks =
+responseCreateControlPanel :: CreateControlPanelResponse -> TestTree
+responseCreateControlPanel =
   res
-    "ListAssociatedRoute53HealthChecksResponse"
-    "fixture/ListAssociatedRoute53HealthChecksResponse.proto"
+    "CreateControlPanelResponse"
+    "fixture/CreateControlPanelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssociatedRoute53HealthChecks)
+    (Proxy.Proxy :: Proxy.Proxy CreateControlPanel)
 
-responseDescribeSafetyRule :: DescribeSafetyRuleResponse -> TestTree
-responseDescribeSafetyRule =
+responseCreateRoutingControl :: CreateRoutingControlResponse -> TestTree
+responseCreateRoutingControl =
   res
-    "DescribeSafetyRuleResponse"
-    "fixture/DescribeSafetyRuleResponse.proto"
+    "CreateRoutingControlResponse"
+    "fixture/CreateRoutingControlResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSafetyRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoutingControl)
 
-responseListRoutingControls :: ListRoutingControlsResponse -> TestTree
-responseListRoutingControls =
+responseCreateSafetyRule :: CreateSafetyRuleResponse -> TestTree
+responseCreateSafetyRule =
   res
-    "ListRoutingControlsResponse"
-    "fixture/ListRoutingControlsResponse.proto"
+    "CreateSafetyRuleResponse"
+    "fixture/CreateSafetyRuleResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRoutingControls)
+    (Proxy.Proxy :: Proxy.Proxy CreateSafetyRule)
 
-responseListControlPanels :: ListControlPanelsResponse -> TestTree
-responseListControlPanels =
+responseDeleteCluster :: DeleteClusterResponse -> TestTree
+responseDeleteCluster =
   res
-    "ListControlPanelsResponse"
-    "fixture/ListControlPanelsResponse.proto"
+    "DeleteClusterResponse"
+    "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListControlPanels)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
-responseUpdateSafetyRule :: UpdateSafetyRuleResponse -> TestTree
-responseUpdateSafetyRule =
+responseDeleteControlPanel :: DeleteControlPanelResponse -> TestTree
+responseDeleteControlPanel =
   res
-    "UpdateSafetyRuleResponse"
-    "fixture/UpdateSafetyRuleResponse.proto"
+    "DeleteControlPanelResponse"
+    "fixture/DeleteControlPanelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSafetyRule)
+    (Proxy.Proxy :: Proxy.Proxy DeleteControlPanel)
+
+responseDeleteRoutingControl :: DeleteRoutingControlResponse -> TestTree
+responseDeleteRoutingControl =
+  res
+    "DeleteRoutingControlResponse"
+    "fixture/DeleteRoutingControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoutingControl)
 
 responseDeleteSafetyRule :: DeleteSafetyRuleResponse -> TestTree
 responseDeleteSafetyRule =
@@ -413,6 +341,46 @@ responseDeleteSafetyRule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSafetyRule)
 
+responseDescribeCluster :: DescribeClusterResponse -> TestTree
+responseDescribeCluster =
+  res
+    "DescribeClusterResponse"
+    "fixture/DescribeClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
+
+responseDescribeControlPanel :: DescribeControlPanelResponse -> TestTree
+responseDescribeControlPanel =
+  res
+    "DescribeControlPanelResponse"
+    "fixture/DescribeControlPanelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeControlPanel)
+
+responseDescribeRoutingControl :: DescribeRoutingControlResponse -> TestTree
+responseDescribeRoutingControl =
+  res
+    "DescribeRoutingControlResponse"
+    "fixture/DescribeRoutingControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRoutingControl)
+
+responseDescribeSafetyRule :: DescribeSafetyRuleResponse -> TestTree
+responseDescribeSafetyRule =
+  res
+    "DescribeSafetyRuleResponse"
+    "fixture/DescribeSafetyRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSafetyRule)
+
+responseListAssociatedRoute53HealthChecks :: ListAssociatedRoute53HealthChecksResponse -> TestTree
+responseListAssociatedRoute53HealthChecks =
+  res
+    "ListAssociatedRoute53HealthChecksResponse"
+    "fixture/ListAssociatedRoute53HealthChecksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssociatedRoute53HealthChecks)
+
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters =
   res
@@ -420,6 +388,22 @@ responseListClusters =
     "fixture/ListClustersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListClusters)
+
+responseListControlPanels :: ListControlPanelsResponse -> TestTree
+responseListControlPanels =
+  res
+    "ListControlPanelsResponse"
+    "fixture/ListControlPanelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListControlPanels)
+
+responseListRoutingControls :: ListRoutingControlsResponse -> TestTree
+responseListRoutingControls =
+  res
+    "ListRoutingControlsResponse"
+    "fixture/ListRoutingControlsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRoutingControls)
 
 responseListSafetyRules :: ListSafetyRulesResponse -> TestTree
 responseListSafetyRules =
@@ -429,10 +413,26 @@ responseListSafetyRules =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSafetyRules)
 
-responseDescribeRoutingControl :: DescribeRoutingControlResponse -> TestTree
-responseDescribeRoutingControl =
+responseUpdateControlPanel :: UpdateControlPanelResponse -> TestTree
+responseUpdateControlPanel =
   res
-    "DescribeRoutingControlResponse"
-    "fixture/DescribeRoutingControlResponse.proto"
+    "UpdateControlPanelResponse"
+    "fixture/UpdateControlPanelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRoutingControl)
+    (Proxy.Proxy :: Proxy.Proxy UpdateControlPanel)
+
+responseUpdateRoutingControl :: UpdateRoutingControlResponse -> TestTree
+responseUpdateRoutingControl =
+  res
+    "UpdateRoutingControlResponse"
+    "fixture/UpdateRoutingControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoutingControl)
+
+responseUpdateSafetyRule :: UpdateSafetyRuleResponse -> TestTree
+responseUpdateSafetyRule =
+  res
+    "UpdateSafetyRuleResponse"
+    "fixture/UpdateSafetyRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSafetyRule)

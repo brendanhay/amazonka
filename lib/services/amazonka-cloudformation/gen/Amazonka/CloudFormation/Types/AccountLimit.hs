@@ -40,12 +40,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountLimit' smart constructor.
 data AccountLimit = AccountLimit'
-  { -- | The value that is associated with the account limit name.
-    value :: Prelude.Maybe Prelude.Int,
-    -- | The name of the account limit.
+  { -- | The name of the account limit.
     --
     -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The value that is associated with the account limit name.
+    value :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,22 +57,18 @@ data AccountLimit = AccountLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'accountLimit_value' - The value that is associated with the account limit name.
---
 -- 'name', 'accountLimit_name' - The name of the account limit.
 --
 -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
+--
+-- 'value', 'accountLimit_value' - The value that is associated with the account limit name.
 newAccountLimit ::
   AccountLimit
 newAccountLimit =
   AccountLimit'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value that is associated with the account limit name.
-accountLimit_value :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Int)
-accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimit' {} a -> s {value = a} :: AccountLimit)
 
 -- | The name of the account limit.
 --
@@ -80,16 +76,20 @@ accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimi
 accountLimit_name :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Text)
 accountLimit_name = Lens.lens (\AccountLimit' {name} -> name) (\s@AccountLimit' {} a -> s {name = a} :: AccountLimit)
 
+-- | The value that is associated with the account limit name.
+accountLimit_value :: Lens.Lens' AccountLimit (Prelude.Maybe Prelude.Int)
+accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimit' {} a -> s {value = a} :: AccountLimit)
+
 instance Core.FromXML AccountLimit where
   parseXML x =
     AccountLimit'
-      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "Value")
 
 instance Prelude.Hashable AccountLimit where
   hashWithSalt _salt AccountLimit' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AccountLimit where
   rnf AccountLimit' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value

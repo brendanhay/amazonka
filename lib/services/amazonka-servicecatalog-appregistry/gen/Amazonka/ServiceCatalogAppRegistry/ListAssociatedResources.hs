@@ -39,8 +39,8 @@ module Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
     newListAssociatedResourcesResponse,
 
     -- * Response Lenses
-    listAssociatedResourcesResponse_resources,
     listAssociatedResourcesResponse_nextToken,
+    listAssociatedResourcesResponse_resources,
     listAssociatedResourcesResponse_httpStatus,
   )
 where
@@ -137,8 +137,8 @@ instance Core.AWSRequest ListAssociatedResources where
     Response.receiveJSON
       ( \s h x ->
           ListAssociatedResourcesResponse'
-            Prelude.<$> (x Core..?> "resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,11 +182,11 @@ instance Core.ToQuery ListAssociatedResources where
 
 -- | /See:/ 'newListAssociatedResourcesResponse' smart constructor.
 data ListAssociatedResourcesResponse = ListAssociatedResourcesResponse'
-  { -- | Information about the resources.
-    resources :: Prelude.Maybe [ResourceInfo],
-    -- | The token to use to get the next page of results after a previous API
+  { -- | The token to use to get the next page of results after a previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the resources.
+    resources :: Prelude.Maybe [ResourceInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,10 +200,10 @@ data ListAssociatedResourcesResponse = ListAssociatedResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'listAssociatedResourcesResponse_resources' - Information about the resources.
---
 -- 'nextToken', 'listAssociatedResourcesResponse_nextToken' - The token to use to get the next page of results after a previous API
 -- call.
+--
+-- 'resources', 'listAssociatedResourcesResponse_resources' - Information about the resources.
 --
 -- 'httpStatus', 'listAssociatedResourcesResponse_httpStatus' - The response's http status code.
 newListAssociatedResourcesResponse ::
@@ -212,20 +212,20 @@ newListAssociatedResourcesResponse ::
   ListAssociatedResourcesResponse
 newListAssociatedResourcesResponse pHttpStatus_ =
   ListAssociatedResourcesResponse'
-    { resources =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the resources.
-listAssociatedResourcesResponse_resources :: Lens.Lens' ListAssociatedResourcesResponse (Prelude.Maybe [ResourceInfo])
-listAssociatedResourcesResponse_resources = Lens.lens (\ListAssociatedResourcesResponse' {resources} -> resources) (\s@ListAssociatedResourcesResponse' {} a -> s {resources = a} :: ListAssociatedResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next page of results after a previous API
 -- call.
 listAssociatedResourcesResponse_nextToken :: Lens.Lens' ListAssociatedResourcesResponse (Prelude.Maybe Prelude.Text)
 listAssociatedResourcesResponse_nextToken = Lens.lens (\ListAssociatedResourcesResponse' {nextToken} -> nextToken) (\s@ListAssociatedResourcesResponse' {} a -> s {nextToken = a} :: ListAssociatedResourcesResponse)
+
+-- | Information about the resources.
+listAssociatedResourcesResponse_resources :: Lens.Lens' ListAssociatedResourcesResponse (Prelude.Maybe [ResourceInfo])
+listAssociatedResourcesResponse_resources = Lens.lens (\ListAssociatedResourcesResponse' {resources} -> resources) (\s@ListAssociatedResourcesResponse' {} a -> s {resources = a} :: ListAssociatedResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAssociatedResourcesResponse_httpStatus :: Lens.Lens' ListAssociatedResourcesResponse Prelude.Int
@@ -236,6 +236,6 @@ instance
     ListAssociatedResourcesResponse
   where
   rnf ListAssociatedResourcesResponse' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,9 +29,9 @@ module Amazonka.GroundStation.ListGroundStations
     newListGroundStations,
 
     -- * Request Lenses
-    listGroundStations_satelliteId,
     listGroundStations_nextToken,
     listGroundStations_maxResults,
+    listGroundStations_satelliteId,
 
     -- * Destructuring the Response
     ListGroundStationsResponse (..),
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListGroundStations' smart constructor.
 data ListGroundStations = ListGroundStations'
-  { -- | Satellite ID to retrieve on-boarded ground stations.
-    satelliteId :: Prelude.Maybe Prelude.Text,
-    -- | Next token that can be supplied in the next call to get the next page of
+  { -- | Next token that can be supplied in the next call to get the next page of
     -- ground stations.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of ground stations returned.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Satellite ID to retrieve on-boarded ground stations.
+    satelliteId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,24 +73,20 @@ data ListGroundStations = ListGroundStations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'satelliteId', 'listGroundStations_satelliteId' - Satellite ID to retrieve on-boarded ground stations.
---
 -- 'nextToken', 'listGroundStations_nextToken' - Next token that can be supplied in the next call to get the next page of
 -- ground stations.
 --
 -- 'maxResults', 'listGroundStations_maxResults' - Maximum number of ground stations returned.
+--
+-- 'satelliteId', 'listGroundStations_satelliteId' - Satellite ID to retrieve on-boarded ground stations.
 newListGroundStations ::
   ListGroundStations
 newListGroundStations =
   ListGroundStations'
-    { satelliteId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      satelliteId = Prelude.Nothing
     }
-
--- | Satellite ID to retrieve on-boarded ground stations.
-listGroundStations_satelliteId :: Lens.Lens' ListGroundStations (Prelude.Maybe Prelude.Text)
-listGroundStations_satelliteId = Lens.lens (\ListGroundStations' {satelliteId} -> satelliteId) (\s@ListGroundStations' {} a -> s {satelliteId = a} :: ListGroundStations)
 
 -- | Next token that can be supplied in the next call to get the next page of
 -- ground stations.
@@ -100,6 +96,10 @@ listGroundStations_nextToken = Lens.lens (\ListGroundStations' {nextToken} -> ne
 -- | Maximum number of ground stations returned.
 listGroundStations_maxResults :: Lens.Lens' ListGroundStations (Prelude.Maybe Prelude.Int)
 listGroundStations_maxResults = Lens.lens (\ListGroundStations' {maxResults} -> maxResults) (\s@ListGroundStations' {} a -> s {maxResults = a} :: ListGroundStations)
+
+-- | Satellite ID to retrieve on-boarded ground stations.
+listGroundStations_satelliteId :: Lens.Lens' ListGroundStations (Prelude.Maybe Prelude.Text)
+listGroundStations_satelliteId = Lens.lens (\ListGroundStations' {satelliteId} -> satelliteId) (\s@ListGroundStations' {} a -> s {satelliteId = a} :: ListGroundStations)
 
 instance Core.AWSPager ListGroundStations where
   page rq rs
@@ -141,15 +141,15 @@ instance Core.AWSRequest ListGroundStations where
 
 instance Prelude.Hashable ListGroundStations where
   hashWithSalt _salt ListGroundStations' {..} =
-    _salt `Prelude.hashWithSalt` satelliteId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` satelliteId
 
 instance Prelude.NFData ListGroundStations where
   rnf ListGroundStations' {..} =
-    Prelude.rnf satelliteId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf satelliteId
 
 instance Core.ToHeaders ListGroundStations where
   toHeaders =
@@ -168,9 +168,9 @@ instance Core.ToPath ListGroundStations where
 instance Core.ToQuery ListGroundStations where
   toQuery ListGroundStations' {..} =
     Prelude.mconcat
-      [ "satelliteId" Core.=: satelliteId,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
+        "satelliteId" Core.=: satelliteId
       ]
 
 -- |

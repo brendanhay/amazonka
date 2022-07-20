@@ -36,8 +36,8 @@ module Amazonka.Backup.GetRecoveryPointRestoreMetadata
     newGetRecoveryPointRestoreMetadataResponse,
 
     -- * Response Lenses
-    getRecoveryPointRestoreMetadataResponse_backupVaultArn,
     getRecoveryPointRestoreMetadataResponse_recoveryPointArn,
+    getRecoveryPointRestoreMetadataResponse_backupVaultArn,
     getRecoveryPointRestoreMetadataResponse_restoreMetadata,
     getRecoveryPointRestoreMetadataResponse_httpStatus,
   )
@@ -120,8 +120,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRecoveryPointRestoreMetadataResponse'
-            Prelude.<$> (x Core..?> "BackupVaultArn")
-            Prelude.<*> (x Core..?> "RecoveryPointArn")
+            Prelude.<$> (x Core..?> "RecoveryPointArn")
+            Prelude.<*> (x Core..?> "BackupVaultArn")
             Prelude.<*> ( x Core..?> "RestoreMetadata"
                             Core..!@ Prelude.mempty
                         )
@@ -175,12 +175,12 @@ instance Core.ToQuery GetRecoveryPointRestoreMetadata where
 
 -- | /See:/ 'newGetRecoveryPointRestoreMetadataResponse' smart constructor.
 data GetRecoveryPointRestoreMetadataResponse = GetRecoveryPointRestoreMetadataResponse'
-  { -- | An ARN that uniquely identifies a backup vault; for example,
-    -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-    backupVaultArn :: Prelude.Maybe Prelude.Text,
-    -- | An ARN that uniquely identifies a recovery point; for example,
+  { -- | An ARN that uniquely identifies a recovery point; for example,
     -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
     recoveryPointArn :: Prelude.Maybe Prelude.Text,
+    -- | An ARN that uniquely identifies a backup vault; for example,
+    -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+    backupVaultArn :: Prelude.Maybe Prelude.Text,
     -- | The set of metadata key-value pairs that describe the original
     -- configuration of the backed-up resource. These values vary depending on
     -- the service that is being restored.
@@ -198,11 +198,11 @@ data GetRecoveryPointRestoreMetadataResponse = GetRecoveryPointRestoreMetadataRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupVaultArn', 'getRecoveryPointRestoreMetadataResponse_backupVaultArn' - An ARN that uniquely identifies a backup vault; for example,
--- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
---
 -- 'recoveryPointArn', 'getRecoveryPointRestoreMetadataResponse_recoveryPointArn' - An ARN that uniquely identifies a recovery point; for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
+--
+-- 'backupVaultArn', 'getRecoveryPointRestoreMetadataResponse_backupVaultArn' - An ARN that uniquely identifies a backup vault; for example,
+-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
 --
 -- 'restoreMetadata', 'getRecoveryPointRestoreMetadataResponse_restoreMetadata' - The set of metadata key-value pairs that describe the original
 -- configuration of the backed-up resource. These values vary depending on
@@ -216,22 +216,22 @@ newGetRecoveryPointRestoreMetadataResponse ::
 newGetRecoveryPointRestoreMetadataResponse
   pHttpStatus_ =
     GetRecoveryPointRestoreMetadataResponse'
-      { backupVaultArn =
+      { recoveryPointArn =
           Prelude.Nothing,
-        recoveryPointArn = Prelude.Nothing,
+        backupVaultArn = Prelude.Nothing,
         restoreMetadata = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | An ARN that uniquely identifies a backup vault; for example,
--- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-getRecoveryPointRestoreMetadataResponse_backupVaultArn :: Lens.Lens' GetRecoveryPointRestoreMetadataResponse (Prelude.Maybe Prelude.Text)
-getRecoveryPointRestoreMetadataResponse_backupVaultArn = Lens.lens (\GetRecoveryPointRestoreMetadataResponse' {backupVaultArn} -> backupVaultArn) (\s@GetRecoveryPointRestoreMetadataResponse' {} a -> s {backupVaultArn = a} :: GetRecoveryPointRestoreMetadataResponse)
 
 -- | An ARN that uniquely identifies a recovery point; for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
 getRecoveryPointRestoreMetadataResponse_recoveryPointArn :: Lens.Lens' GetRecoveryPointRestoreMetadataResponse (Prelude.Maybe Prelude.Text)
 getRecoveryPointRestoreMetadataResponse_recoveryPointArn = Lens.lens (\GetRecoveryPointRestoreMetadataResponse' {recoveryPointArn} -> recoveryPointArn) (\s@GetRecoveryPointRestoreMetadataResponse' {} a -> s {recoveryPointArn = a} :: GetRecoveryPointRestoreMetadataResponse)
+
+-- | An ARN that uniquely identifies a backup vault; for example,
+-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+getRecoveryPointRestoreMetadataResponse_backupVaultArn :: Lens.Lens' GetRecoveryPointRestoreMetadataResponse (Prelude.Maybe Prelude.Text)
+getRecoveryPointRestoreMetadataResponse_backupVaultArn = Lens.lens (\GetRecoveryPointRestoreMetadataResponse' {backupVaultArn} -> backupVaultArn) (\s@GetRecoveryPointRestoreMetadataResponse' {} a -> s {backupVaultArn = a} :: GetRecoveryPointRestoreMetadataResponse)
 
 -- | The set of metadata key-value pairs that describe the original
 -- configuration of the backed-up resource. These values vary depending on
@@ -248,7 +248,7 @@ instance
     GetRecoveryPointRestoreMetadataResponse
   where
   rnf GetRecoveryPointRestoreMetadataResponse' {..} =
-    Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf recoveryPointArn
+    Prelude.rnf recoveryPointArn
+      `Prelude.seq` Prelude.rnf backupVaultArn
       `Prelude.seq` Prelude.rnf restoreMetadata
       `Prelude.seq` Prelude.rnf httpStatus

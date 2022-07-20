@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaStreamOutputConfigurationRequest' smart constructor.
 data MediaStreamOutputConfigurationRequest = MediaStreamOutputConfigurationRequest'
-  { -- | The transport parameters that you want to associate with the media
-    -- stream.
-    destinationConfigurations :: Prelude.Maybe [DestinationConfigurationRequest],
-    -- | A collection of parameters that determine how MediaConnect will convert
+  { -- | A collection of parameters that determine how MediaConnect will convert
     -- the content. These fields only apply to outputs on flows that have a CDI
     -- source.
     encodingParameters :: Prelude.Maybe EncodingParametersRequest,
+    -- | The transport parameters that you want to associate with the media
+    -- stream.
+    destinationConfigurations :: Prelude.Maybe [DestinationConfigurationRequest],
     -- | The name of the media stream that is associated with the output.
     mediaStreamName :: Prelude.Text,
     -- | The format that will be used to encode the data. For ancillary data
@@ -56,12 +56,12 @@ data MediaStreamOutputConfigurationRequest = MediaStreamOutputConfigurationReque
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationConfigurations', 'mediaStreamOutputConfigurationRequest_destinationConfigurations' - The transport parameters that you want to associate with the media
--- stream.
---
 -- 'encodingParameters', 'mediaStreamOutputConfigurationRequest_encodingParameters' - A collection of parameters that determine how MediaConnect will convert
 -- the content. These fields only apply to outputs on flows that have a CDI
 -- source.
+--
+-- 'destinationConfigurations', 'mediaStreamOutputConfigurationRequest_destinationConfigurations' - The transport parameters that you want to associate with the media
+-- stream.
 --
 -- 'mediaStreamName', 'mediaStreamOutputConfigurationRequest_mediaStreamName' - The name of the media stream that is associated with the output.
 --
@@ -79,23 +79,24 @@ newMediaStreamOutputConfigurationRequest
   pMediaStreamName_
   pEncodingName_ =
     MediaStreamOutputConfigurationRequest'
-      { destinationConfigurations =
+      { encodingParameters =
           Prelude.Nothing,
-        encodingParameters = Prelude.Nothing,
+        destinationConfigurations =
+          Prelude.Nothing,
         mediaStreamName = pMediaStreamName_,
         encodingName = pEncodingName_
       }
-
--- | The transport parameters that you want to associate with the media
--- stream.
-mediaStreamOutputConfigurationRequest_destinationConfigurations :: Lens.Lens' MediaStreamOutputConfigurationRequest (Prelude.Maybe [DestinationConfigurationRequest])
-mediaStreamOutputConfigurationRequest_destinationConfigurations = Lens.lens (\MediaStreamOutputConfigurationRequest' {destinationConfigurations} -> destinationConfigurations) (\s@MediaStreamOutputConfigurationRequest' {} a -> s {destinationConfigurations = a} :: MediaStreamOutputConfigurationRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | A collection of parameters that determine how MediaConnect will convert
 -- the content. These fields only apply to outputs on flows that have a CDI
 -- source.
 mediaStreamOutputConfigurationRequest_encodingParameters :: Lens.Lens' MediaStreamOutputConfigurationRequest (Prelude.Maybe EncodingParametersRequest)
 mediaStreamOutputConfigurationRequest_encodingParameters = Lens.lens (\MediaStreamOutputConfigurationRequest' {encodingParameters} -> encodingParameters) (\s@MediaStreamOutputConfigurationRequest' {} a -> s {encodingParameters = a} :: MediaStreamOutputConfigurationRequest)
+
+-- | The transport parameters that you want to associate with the media
+-- stream.
+mediaStreamOutputConfigurationRequest_destinationConfigurations :: Lens.Lens' MediaStreamOutputConfigurationRequest (Prelude.Maybe [DestinationConfigurationRequest])
+mediaStreamOutputConfigurationRequest_destinationConfigurations = Lens.lens (\MediaStreamOutputConfigurationRequest' {destinationConfigurations} -> destinationConfigurations) (\s@MediaStreamOutputConfigurationRequest' {} a -> s {destinationConfigurations = a} :: MediaStreamOutputConfigurationRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the media stream that is associated with the output.
 mediaStreamOutputConfigurationRequest_mediaStreamName :: Lens.Lens' MediaStreamOutputConfigurationRequest Prelude.Text
@@ -115,9 +116,8 @@ instance
   hashWithSalt
     _salt
     MediaStreamOutputConfigurationRequest' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` encodingParameters
         `Prelude.hashWithSalt` destinationConfigurations
-        `Prelude.hashWithSalt` encodingParameters
         `Prelude.hashWithSalt` mediaStreamName
         `Prelude.hashWithSalt` encodingName
 
@@ -126,8 +126,8 @@ instance
     MediaStreamOutputConfigurationRequest
   where
   rnf MediaStreamOutputConfigurationRequest' {..} =
-    Prelude.rnf destinationConfigurations
-      `Prelude.seq` Prelude.rnf encodingParameters
+    Prelude.rnf encodingParameters
+      `Prelude.seq` Prelude.rnf destinationConfigurations
       `Prelude.seq` Prelude.rnf mediaStreamName
       `Prelude.seq` Prelude.rnf encodingName
 
@@ -138,10 +138,10 @@ instance
   toJSON MediaStreamOutputConfigurationRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("destinationConfigurations" Core..=)
-              Prelude.<$> destinationConfigurations,
-            ("encodingParameters" Core..=)
+          [ ("encodingParameters" Core..=)
               Prelude.<$> encodingParameters,
+            ("destinationConfigurations" Core..=)
+              Prelude.<$> destinationConfigurations,
             Prelude.Just
               ("mediaStreamName" Core..= mediaStreamName),
             Prelude.Just ("encodingName" Core..= encodingName)

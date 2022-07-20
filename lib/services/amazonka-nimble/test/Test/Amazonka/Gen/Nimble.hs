@@ -27,367 +27,283 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutLaunchProfileMembers $
---             newPutLaunchProfileMembers
---
---         , requestCreateStudio $
---             newCreateStudio
---
---         , requestUpdateLaunchProfileMember $
---             newUpdateLaunchProfileMember
---
---         , requestDeleteLaunchProfileMember $
---             newDeleteLaunchProfileMember
---
---         , requestListLaunchProfiles $
---             newListLaunchProfiles
+--         [ requestAcceptEulas $
+--             newAcceptEulas
 --
 --         , requestCreateLaunchProfile $
 --             newCreateLaunchProfile
 --
---         , requestListStreamingImages $
---             newListStreamingImages
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestStartStudioSSOConfigurationRepair $
---             newStartStudioSSOConfigurationRepair
---
---         , requestGetLaunchProfileInitialization $
---             newGetLaunchProfileInitialization
---
---         , requestGetLaunchProfile $
---             newGetLaunchProfile
---
---         , requestCreateStudioComponent $
---             newCreateStudioComponent
---
---         , requestGetEula $
---             newGetEula
---
---         , requestListStudioComponents $
---             newListStudioComponents
---
---         , requestAcceptEulas $
---             newAcceptEulas
+--         , requestCreateStreamingImage $
+--             newCreateStreamingImage
 --
 --         , requestCreateStreamingSession $
 --             newCreateStreamingSession
 --
---         , requestDeleteStudioComponent $
---             newDeleteStudioComponent
+--         , requestCreateStreamingSessionStream $
+--             newCreateStreamingSessionStream
 --
---         , requestUpdateStudioComponent $
---             newUpdateStudioComponent
+--         , requestCreateStudio $
+--             newCreateStudio
 --
---         , requestGetStudioMember $
---             newGetStudioMember
---
---         , requestDeleteStudio $
---             newDeleteStudio
---
---         , requestUpdateStudio $
---             newUpdateStudio
---
---         , requestListStudios $
---             newListStudios
---
---         , requestGetStudioComponent $
---             newGetStudioComponent
---
---         , requestListEulas $
---             newListEulas
---
---         , requestGetStreamingSession $
---             newGetStreamingSession
---
---         , requestListLaunchProfileMembers $
---             newListLaunchProfileMembers
+--         , requestCreateStudioComponent $
+--             newCreateStudioComponent
 --
 --         , requestDeleteLaunchProfile $
 --             newDeleteLaunchProfile
 --
---         , requestUpdateLaunchProfile $
---             newUpdateLaunchProfile
---
---         , requestCreateStreamingImage $
---             newCreateStreamingImage
---
---         , requestCreateStreamingSessionStream $
---             newCreateStreamingSessionStream
---
---         , requestGetLaunchProfileDetails $
---             newGetLaunchProfileDetails
---
---         , requestPutStudioMembers $
---             newPutStudioMembers
+--         , requestDeleteLaunchProfileMember $
+--             newDeleteLaunchProfileMember
 --
 --         , requestDeleteStreamingImage $
 --             newDeleteStreamingImage
 --
---         , requestUpdateStreamingImage $
---             newUpdateStreamingImage
---
---         , requestGetStreamingImage $
---             newGetStreamingImage
---
---         , requestListEulaAcceptances $
---             newListEulaAcceptances
---
---         , requestGetStreamingSessionStream $
---             newGetStreamingSessionStream
---
---         , requestTagResource $
---             newTagResource
---
---         , requestGetLaunchProfileMember $
---             newGetLaunchProfileMember
---
 --         , requestDeleteStreamingSession $
 --             newDeleteStreamingSession
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDeleteStudio $
+--             newDeleteStudio
 --
---         , requestListStreamingSessions $
---             newListStreamingSessions
---
---         , requestGetStudio $
---             newGetStudio
---
---         , requestListStudioMembers $
---             newListStudioMembers
+--         , requestDeleteStudioComponent $
+--             newDeleteStudioComponent
 --
 --         , requestDeleteStudioMember $
 --             newDeleteStudioMember
 --
+--         , requestGetEula $
+--             newGetEula
+--
+--         , requestGetLaunchProfile $
+--             newGetLaunchProfile
+--
+--         , requestGetLaunchProfileDetails $
+--             newGetLaunchProfileDetails
+--
+--         , requestGetLaunchProfileInitialization $
+--             newGetLaunchProfileInitialization
+--
+--         , requestGetLaunchProfileMember $
+--             newGetLaunchProfileMember
+--
+--         , requestGetStreamingImage $
+--             newGetStreamingImage
+--
+--         , requestGetStreamingSession $
+--             newGetStreamingSession
+--
+--         , requestGetStreamingSessionStream $
+--             newGetStreamingSessionStream
+--
+--         , requestGetStudio $
+--             newGetStudio
+--
+--         , requestGetStudioComponent $
+--             newGetStudioComponent
+--
+--         , requestGetStudioMember $
+--             newGetStudioMember
+--
+--         , requestListEulaAcceptances $
+--             newListEulaAcceptances
+--
+--         , requestListEulas $
+--             newListEulas
+--
+--         , requestListLaunchProfileMembers $
+--             newListLaunchProfileMembers
+--
+--         , requestListLaunchProfiles $
+--             newListLaunchProfiles
+--
+--         , requestListStreamingImages $
+--             newListStreamingImages
+--
+--         , requestListStreamingSessions $
+--             newListStreamingSessions
+--
+--         , requestListStudioComponents $
+--             newListStudioComponents
+--
+--         , requestListStudioMembers $
+--             newListStudioMembers
+--
+--         , requestListStudios $
+--             newListStudios
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutLaunchProfileMembers $
+--             newPutLaunchProfileMembers
+--
+--         , requestPutStudioMembers $
+--             newPutStudioMembers
+--
+--         , requestStartStudioSSOConfigurationRepair $
+--             newStartStudioSSOConfigurationRepair
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateLaunchProfile $
+--             newUpdateLaunchProfile
+--
+--         , requestUpdateLaunchProfileMember $
+--             newUpdateLaunchProfileMember
+--
+--         , requestUpdateStreamingImage $
+--             newUpdateStreamingImage
+--
+--         , requestUpdateStudio $
+--             newUpdateStudio
+--
+--         , requestUpdateStudioComponent $
+--             newUpdateStudioComponent
+--
 --           ]
 
 --     , testGroup "response"
---         [ responsePutLaunchProfileMembers $
---             newPutLaunchProfileMembersResponse
---
---         , responseCreateStudio $
---             newCreateStudioResponse
---
---         , responseUpdateLaunchProfileMember $
---             newUpdateLaunchProfileMemberResponse
---
---         , responseDeleteLaunchProfileMember $
---             newDeleteLaunchProfileMemberResponse
---
---         , responseListLaunchProfiles $
---             newListLaunchProfilesResponse
+--         [ responseAcceptEulas $
+--             newAcceptEulasResponse
 --
 --         , responseCreateLaunchProfile $
 --             newCreateLaunchProfileResponse
 --
---         , responseListStreamingImages $
---             newListStreamingImagesResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseStartStudioSSOConfigurationRepair $
---             newStartStudioSSOConfigurationRepairResponse
---
---         , responseGetLaunchProfileInitialization $
---             newGetLaunchProfileInitializationResponse
---
---         , responseGetLaunchProfile $
---             newGetLaunchProfileResponse
---
---         , responseCreateStudioComponent $
---             newCreateStudioComponentResponse
---
---         , responseGetEula $
---             newGetEulaResponse
---
---         , responseListStudioComponents $
---             newListStudioComponentsResponse
---
---         , responseAcceptEulas $
---             newAcceptEulasResponse
+--         , responseCreateStreamingImage $
+--             newCreateStreamingImageResponse
 --
 --         , responseCreateStreamingSession $
 --             newCreateStreamingSessionResponse
 --
---         , responseDeleteStudioComponent $
---             newDeleteStudioComponentResponse
+--         , responseCreateStreamingSessionStream $
+--             newCreateStreamingSessionStreamResponse
 --
---         , responseUpdateStudioComponent $
---             newUpdateStudioComponentResponse
+--         , responseCreateStudio $
+--             newCreateStudioResponse
 --
---         , responseGetStudioMember $
---             newGetStudioMemberResponse
---
---         , responseDeleteStudio $
---             newDeleteStudioResponse
---
---         , responseUpdateStudio $
---             newUpdateStudioResponse
---
---         , responseListStudios $
---             newListStudiosResponse
---
---         , responseGetStudioComponent $
---             newGetStudioComponentResponse
---
---         , responseListEulas $
---             newListEulasResponse
---
---         , responseGetStreamingSession $
---             newGetStreamingSessionResponse
---
---         , responseListLaunchProfileMembers $
---             newListLaunchProfileMembersResponse
+--         , responseCreateStudioComponent $
+--             newCreateStudioComponentResponse
 --
 --         , responseDeleteLaunchProfile $
 --             newDeleteLaunchProfileResponse
 --
---         , responseUpdateLaunchProfile $
---             newUpdateLaunchProfileResponse
---
---         , responseCreateStreamingImage $
---             newCreateStreamingImageResponse
---
---         , responseCreateStreamingSessionStream $
---             newCreateStreamingSessionStreamResponse
---
---         , responseGetLaunchProfileDetails $
---             newGetLaunchProfileDetailsResponse
---
---         , responsePutStudioMembers $
---             newPutStudioMembersResponse
+--         , responseDeleteLaunchProfileMember $
+--             newDeleteLaunchProfileMemberResponse
 --
 --         , responseDeleteStreamingImage $
 --             newDeleteStreamingImageResponse
 --
---         , responseUpdateStreamingImage $
---             newUpdateStreamingImageResponse
+--         , responseDeleteStreamingSession $
+--             newDeleteStreamingSessionResponse
 --
---         , responseGetStreamingImage $
---             newGetStreamingImageResponse
+--         , responseDeleteStudio $
+--             newDeleteStudioResponse
 --
---         , responseListEulaAcceptances $
---             newListEulaAcceptancesResponse
+--         , responseDeleteStudioComponent $
+--             newDeleteStudioComponentResponse
 --
---         , responseGetStreamingSessionStream $
---             newGetStreamingSessionStreamResponse
+--         , responseDeleteStudioMember $
+--             newDeleteStudioMemberResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseGetEula $
+--             newGetEulaResponse
+--
+--         , responseGetLaunchProfile $
+--             newGetLaunchProfileResponse
+--
+--         , responseGetLaunchProfileDetails $
+--             newGetLaunchProfileDetailsResponse
+--
+--         , responseGetLaunchProfileInitialization $
+--             newGetLaunchProfileInitializationResponse
 --
 --         , responseGetLaunchProfileMember $
 --             newGetLaunchProfileMemberResponse
 --
---         , responseDeleteStreamingSession $
---             newDeleteStreamingSessionResponse
+--         , responseGetStreamingImage $
+--             newGetStreamingImageResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseGetStreamingSession $
+--             newGetStreamingSessionResponse
 --
---         , responseListStreamingSessions $
---             newListStreamingSessionsResponse
+--         , responseGetStreamingSessionStream $
+--             newGetStreamingSessionStreamResponse
 --
 --         , responseGetStudio $
 --             newGetStudioResponse
 --
+--         , responseGetStudioComponent $
+--             newGetStudioComponentResponse
+--
+--         , responseGetStudioMember $
+--             newGetStudioMemberResponse
+--
+--         , responseListEulaAcceptances $
+--             newListEulaAcceptancesResponse
+--
+--         , responseListEulas $
+--             newListEulasResponse
+--
+--         , responseListLaunchProfileMembers $
+--             newListLaunchProfileMembersResponse
+--
+--         , responseListLaunchProfiles $
+--             newListLaunchProfilesResponse
+--
+--         , responseListStreamingImages $
+--             newListStreamingImagesResponse
+--
+--         , responseListStreamingSessions $
+--             newListStreamingSessionsResponse
+--
+--         , responseListStudioComponents $
+--             newListStudioComponentsResponse
+--
 --         , responseListStudioMembers $
 --             newListStudioMembersResponse
 --
---         , responseDeleteStudioMember $
---             newDeleteStudioMemberResponse
+--         , responseListStudios $
+--             newListStudiosResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutLaunchProfileMembers $
+--             newPutLaunchProfileMembersResponse
+--
+--         , responsePutStudioMembers $
+--             newPutStudioMembersResponse
+--
+--         , responseStartStudioSSOConfigurationRepair $
+--             newStartStudioSSOConfigurationRepairResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateLaunchProfile $
+--             newUpdateLaunchProfileResponse
+--
+--         , responseUpdateLaunchProfileMember $
+--             newUpdateLaunchProfileMemberResponse
+--
+--         , responseUpdateStreamingImage $
+--             newUpdateStreamingImageResponse
+--
+--         , responseUpdateStudio $
+--             newUpdateStudioResponse
+--
+--         , responseUpdateStudioComponent $
+--             newUpdateStudioComponentResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestPutLaunchProfileMembers :: PutLaunchProfileMembers -> TestTree
-requestPutLaunchProfileMembers =
-  req
-    "PutLaunchProfileMembers"
-    "fixture/PutLaunchProfileMembers.yaml"
-
-requestCreateStudio :: CreateStudio -> TestTree
-requestCreateStudio =
-  req
-    "CreateStudio"
-    "fixture/CreateStudio.yaml"
-
-requestUpdateLaunchProfileMember :: UpdateLaunchProfileMember -> TestTree
-requestUpdateLaunchProfileMember =
-  req
-    "UpdateLaunchProfileMember"
-    "fixture/UpdateLaunchProfileMember.yaml"
-
-requestDeleteLaunchProfileMember :: DeleteLaunchProfileMember -> TestTree
-requestDeleteLaunchProfileMember =
-  req
-    "DeleteLaunchProfileMember"
-    "fixture/DeleteLaunchProfileMember.yaml"
-
-requestListLaunchProfiles :: ListLaunchProfiles -> TestTree
-requestListLaunchProfiles =
-  req
-    "ListLaunchProfiles"
-    "fixture/ListLaunchProfiles.yaml"
-
-requestCreateLaunchProfile :: CreateLaunchProfile -> TestTree
-requestCreateLaunchProfile =
-  req
-    "CreateLaunchProfile"
-    "fixture/CreateLaunchProfile.yaml"
-
-requestListStreamingImages :: ListStreamingImages -> TestTree
-requestListStreamingImages =
-  req
-    "ListStreamingImages"
-    "fixture/ListStreamingImages.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestStartStudioSSOConfigurationRepair :: StartStudioSSOConfigurationRepair -> TestTree
-requestStartStudioSSOConfigurationRepair =
-  req
-    "StartStudioSSOConfigurationRepair"
-    "fixture/StartStudioSSOConfigurationRepair.yaml"
-
-requestGetLaunchProfileInitialization :: GetLaunchProfileInitialization -> TestTree
-requestGetLaunchProfileInitialization =
-  req
-    "GetLaunchProfileInitialization"
-    "fixture/GetLaunchProfileInitialization.yaml"
-
-requestGetLaunchProfile :: GetLaunchProfile -> TestTree
-requestGetLaunchProfile =
-  req
-    "GetLaunchProfile"
-    "fixture/GetLaunchProfile.yaml"
-
-requestCreateStudioComponent :: CreateStudioComponent -> TestTree
-requestCreateStudioComponent =
-  req
-    "CreateStudioComponent"
-    "fixture/CreateStudioComponent.yaml"
-
-requestGetEula :: GetEula -> TestTree
-requestGetEula =
-  req
-    "GetEula"
-    "fixture/GetEula.yaml"
-
-requestListStudioComponents :: ListStudioComponents -> TestTree
-requestListStudioComponents =
-  req
-    "ListStudioComponents"
-    "fixture/ListStudioComponents.yaml"
 
 requestAcceptEulas :: AcceptEulas -> TestTree
 requestAcceptEulas =
@@ -395,83 +311,11 @@ requestAcceptEulas =
     "AcceptEulas"
     "fixture/AcceptEulas.yaml"
 
-requestCreateStreamingSession :: CreateStreamingSession -> TestTree
-requestCreateStreamingSession =
+requestCreateLaunchProfile :: CreateLaunchProfile -> TestTree
+requestCreateLaunchProfile =
   req
-    "CreateStreamingSession"
-    "fixture/CreateStreamingSession.yaml"
-
-requestDeleteStudioComponent :: DeleteStudioComponent -> TestTree
-requestDeleteStudioComponent =
-  req
-    "DeleteStudioComponent"
-    "fixture/DeleteStudioComponent.yaml"
-
-requestUpdateStudioComponent :: UpdateStudioComponent -> TestTree
-requestUpdateStudioComponent =
-  req
-    "UpdateStudioComponent"
-    "fixture/UpdateStudioComponent.yaml"
-
-requestGetStudioMember :: GetStudioMember -> TestTree
-requestGetStudioMember =
-  req
-    "GetStudioMember"
-    "fixture/GetStudioMember.yaml"
-
-requestDeleteStudio :: DeleteStudio -> TestTree
-requestDeleteStudio =
-  req
-    "DeleteStudio"
-    "fixture/DeleteStudio.yaml"
-
-requestUpdateStudio :: UpdateStudio -> TestTree
-requestUpdateStudio =
-  req
-    "UpdateStudio"
-    "fixture/UpdateStudio.yaml"
-
-requestListStudios :: ListStudios -> TestTree
-requestListStudios =
-  req
-    "ListStudios"
-    "fixture/ListStudios.yaml"
-
-requestGetStudioComponent :: GetStudioComponent -> TestTree
-requestGetStudioComponent =
-  req
-    "GetStudioComponent"
-    "fixture/GetStudioComponent.yaml"
-
-requestListEulas :: ListEulas -> TestTree
-requestListEulas =
-  req
-    "ListEulas"
-    "fixture/ListEulas.yaml"
-
-requestGetStreamingSession :: GetStreamingSession -> TestTree
-requestGetStreamingSession =
-  req
-    "GetStreamingSession"
-    "fixture/GetStreamingSession.yaml"
-
-requestListLaunchProfileMembers :: ListLaunchProfileMembers -> TestTree
-requestListLaunchProfileMembers =
-  req
-    "ListLaunchProfileMembers"
-    "fixture/ListLaunchProfileMembers.yaml"
-
-requestDeleteLaunchProfile :: DeleteLaunchProfile -> TestTree
-requestDeleteLaunchProfile =
-  req
-    "DeleteLaunchProfile"
-    "fixture/DeleteLaunchProfile.yaml"
-
-requestUpdateLaunchProfile :: UpdateLaunchProfile -> TestTree
-requestUpdateLaunchProfile =
-  req
-    "UpdateLaunchProfile"
-    "fixture/UpdateLaunchProfile.yaml"
+    "CreateLaunchProfile"
+    "fixture/CreateLaunchProfile.yaml"
 
 requestCreateStreamingImage :: CreateStreamingImage -> TestTree
 requestCreateStreamingImage =
@@ -479,23 +323,41 @@ requestCreateStreamingImage =
     "CreateStreamingImage"
     "fixture/CreateStreamingImage.yaml"
 
+requestCreateStreamingSession :: CreateStreamingSession -> TestTree
+requestCreateStreamingSession =
+  req
+    "CreateStreamingSession"
+    "fixture/CreateStreamingSession.yaml"
+
 requestCreateStreamingSessionStream :: CreateStreamingSessionStream -> TestTree
 requestCreateStreamingSessionStream =
   req
     "CreateStreamingSessionStream"
     "fixture/CreateStreamingSessionStream.yaml"
 
-requestGetLaunchProfileDetails :: GetLaunchProfileDetails -> TestTree
-requestGetLaunchProfileDetails =
+requestCreateStudio :: CreateStudio -> TestTree
+requestCreateStudio =
   req
-    "GetLaunchProfileDetails"
-    "fixture/GetLaunchProfileDetails.yaml"
+    "CreateStudio"
+    "fixture/CreateStudio.yaml"
 
-requestPutStudioMembers :: PutStudioMembers -> TestTree
-requestPutStudioMembers =
+requestCreateStudioComponent :: CreateStudioComponent -> TestTree
+requestCreateStudioComponent =
   req
-    "PutStudioMembers"
-    "fixture/PutStudioMembers.yaml"
+    "CreateStudioComponent"
+    "fixture/CreateStudioComponent.yaml"
+
+requestDeleteLaunchProfile :: DeleteLaunchProfile -> TestTree
+requestDeleteLaunchProfile =
+  req
+    "DeleteLaunchProfile"
+    "fixture/DeleteLaunchProfile.yaml"
+
+requestDeleteLaunchProfileMember :: DeleteLaunchProfileMember -> TestTree
+requestDeleteLaunchProfileMember =
+  req
+    "DeleteLaunchProfileMember"
+    "fixture/DeleteLaunchProfileMember.yaml"
 
 requestDeleteStreamingImage :: DeleteStreamingImage -> TestTree
 requestDeleteStreamingImage =
@@ -503,71 +365,23 @@ requestDeleteStreamingImage =
     "DeleteStreamingImage"
     "fixture/DeleteStreamingImage.yaml"
 
-requestUpdateStreamingImage :: UpdateStreamingImage -> TestTree
-requestUpdateStreamingImage =
-  req
-    "UpdateStreamingImage"
-    "fixture/UpdateStreamingImage.yaml"
-
-requestGetStreamingImage :: GetStreamingImage -> TestTree
-requestGetStreamingImage =
-  req
-    "GetStreamingImage"
-    "fixture/GetStreamingImage.yaml"
-
-requestListEulaAcceptances :: ListEulaAcceptances -> TestTree
-requestListEulaAcceptances =
-  req
-    "ListEulaAcceptances"
-    "fixture/ListEulaAcceptances.yaml"
-
-requestGetStreamingSessionStream :: GetStreamingSessionStream -> TestTree
-requestGetStreamingSessionStream =
-  req
-    "GetStreamingSessionStream"
-    "fixture/GetStreamingSessionStream.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestGetLaunchProfileMember :: GetLaunchProfileMember -> TestTree
-requestGetLaunchProfileMember =
-  req
-    "GetLaunchProfileMember"
-    "fixture/GetLaunchProfileMember.yaml"
-
 requestDeleteStreamingSession :: DeleteStreamingSession -> TestTree
 requestDeleteStreamingSession =
   req
     "DeleteStreamingSession"
     "fixture/DeleteStreamingSession.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteStudio :: DeleteStudio -> TestTree
+requestDeleteStudio =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DeleteStudio"
+    "fixture/DeleteStudio.yaml"
 
-requestListStreamingSessions :: ListStreamingSessions -> TestTree
-requestListStreamingSessions =
+requestDeleteStudioComponent :: DeleteStudioComponent -> TestTree
+requestDeleteStudioComponent =
   req
-    "ListStreamingSessions"
-    "fixture/ListStreamingSessions.yaml"
-
-requestGetStudio :: GetStudio -> TestTree
-requestGetStudio =
-  req
-    "GetStudio"
-    "fixture/GetStudio.yaml"
-
-requestListStudioMembers :: ListStudioMembers -> TestTree
-requestListStudioMembers =
-  req
-    "ListStudioMembers"
-    "fixture/ListStudioMembers.yaml"
+    "DeleteStudioComponent"
+    "fixture/DeleteStudioComponent.yaml"
 
 requestDeleteStudioMember :: DeleteStudioMember -> TestTree
 requestDeleteStudioMember =
@@ -575,119 +389,193 @@ requestDeleteStudioMember =
     "DeleteStudioMember"
     "fixture/DeleteStudioMember.yaml"
 
+requestGetEula :: GetEula -> TestTree
+requestGetEula =
+  req
+    "GetEula"
+    "fixture/GetEula.yaml"
+
+requestGetLaunchProfile :: GetLaunchProfile -> TestTree
+requestGetLaunchProfile =
+  req
+    "GetLaunchProfile"
+    "fixture/GetLaunchProfile.yaml"
+
+requestGetLaunchProfileDetails :: GetLaunchProfileDetails -> TestTree
+requestGetLaunchProfileDetails =
+  req
+    "GetLaunchProfileDetails"
+    "fixture/GetLaunchProfileDetails.yaml"
+
+requestGetLaunchProfileInitialization :: GetLaunchProfileInitialization -> TestTree
+requestGetLaunchProfileInitialization =
+  req
+    "GetLaunchProfileInitialization"
+    "fixture/GetLaunchProfileInitialization.yaml"
+
+requestGetLaunchProfileMember :: GetLaunchProfileMember -> TestTree
+requestGetLaunchProfileMember =
+  req
+    "GetLaunchProfileMember"
+    "fixture/GetLaunchProfileMember.yaml"
+
+requestGetStreamingImage :: GetStreamingImage -> TestTree
+requestGetStreamingImage =
+  req
+    "GetStreamingImage"
+    "fixture/GetStreamingImage.yaml"
+
+requestGetStreamingSession :: GetStreamingSession -> TestTree
+requestGetStreamingSession =
+  req
+    "GetStreamingSession"
+    "fixture/GetStreamingSession.yaml"
+
+requestGetStreamingSessionStream :: GetStreamingSessionStream -> TestTree
+requestGetStreamingSessionStream =
+  req
+    "GetStreamingSessionStream"
+    "fixture/GetStreamingSessionStream.yaml"
+
+requestGetStudio :: GetStudio -> TestTree
+requestGetStudio =
+  req
+    "GetStudio"
+    "fixture/GetStudio.yaml"
+
+requestGetStudioComponent :: GetStudioComponent -> TestTree
+requestGetStudioComponent =
+  req
+    "GetStudioComponent"
+    "fixture/GetStudioComponent.yaml"
+
+requestGetStudioMember :: GetStudioMember -> TestTree
+requestGetStudioMember =
+  req
+    "GetStudioMember"
+    "fixture/GetStudioMember.yaml"
+
+requestListEulaAcceptances :: ListEulaAcceptances -> TestTree
+requestListEulaAcceptances =
+  req
+    "ListEulaAcceptances"
+    "fixture/ListEulaAcceptances.yaml"
+
+requestListEulas :: ListEulas -> TestTree
+requestListEulas =
+  req
+    "ListEulas"
+    "fixture/ListEulas.yaml"
+
+requestListLaunchProfileMembers :: ListLaunchProfileMembers -> TestTree
+requestListLaunchProfileMembers =
+  req
+    "ListLaunchProfileMembers"
+    "fixture/ListLaunchProfileMembers.yaml"
+
+requestListLaunchProfiles :: ListLaunchProfiles -> TestTree
+requestListLaunchProfiles =
+  req
+    "ListLaunchProfiles"
+    "fixture/ListLaunchProfiles.yaml"
+
+requestListStreamingImages :: ListStreamingImages -> TestTree
+requestListStreamingImages =
+  req
+    "ListStreamingImages"
+    "fixture/ListStreamingImages.yaml"
+
+requestListStreamingSessions :: ListStreamingSessions -> TestTree
+requestListStreamingSessions =
+  req
+    "ListStreamingSessions"
+    "fixture/ListStreamingSessions.yaml"
+
+requestListStudioComponents :: ListStudioComponents -> TestTree
+requestListStudioComponents =
+  req
+    "ListStudioComponents"
+    "fixture/ListStudioComponents.yaml"
+
+requestListStudioMembers :: ListStudioMembers -> TestTree
+requestListStudioMembers =
+  req
+    "ListStudioMembers"
+    "fixture/ListStudioMembers.yaml"
+
+requestListStudios :: ListStudios -> TestTree
+requestListStudios =
+  req
+    "ListStudios"
+    "fixture/ListStudios.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutLaunchProfileMembers :: PutLaunchProfileMembers -> TestTree
+requestPutLaunchProfileMembers =
+  req
+    "PutLaunchProfileMembers"
+    "fixture/PutLaunchProfileMembers.yaml"
+
+requestPutStudioMembers :: PutStudioMembers -> TestTree
+requestPutStudioMembers =
+  req
+    "PutStudioMembers"
+    "fixture/PutStudioMembers.yaml"
+
+requestStartStudioSSOConfigurationRepair :: StartStudioSSOConfigurationRepair -> TestTree
+requestStartStudioSSOConfigurationRepair =
+  req
+    "StartStudioSSOConfigurationRepair"
+    "fixture/StartStudioSSOConfigurationRepair.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateLaunchProfile :: UpdateLaunchProfile -> TestTree
+requestUpdateLaunchProfile =
+  req
+    "UpdateLaunchProfile"
+    "fixture/UpdateLaunchProfile.yaml"
+
+requestUpdateLaunchProfileMember :: UpdateLaunchProfileMember -> TestTree
+requestUpdateLaunchProfileMember =
+  req
+    "UpdateLaunchProfileMember"
+    "fixture/UpdateLaunchProfileMember.yaml"
+
+requestUpdateStreamingImage :: UpdateStreamingImage -> TestTree
+requestUpdateStreamingImage =
+  req
+    "UpdateStreamingImage"
+    "fixture/UpdateStreamingImage.yaml"
+
+requestUpdateStudio :: UpdateStudio -> TestTree
+requestUpdateStudio =
+  req
+    "UpdateStudio"
+    "fixture/UpdateStudio.yaml"
+
+requestUpdateStudioComponent :: UpdateStudioComponent -> TestTree
+requestUpdateStudioComponent =
+  req
+    "UpdateStudioComponent"
+    "fixture/UpdateStudioComponent.yaml"
+
 -- Responses
-
-responsePutLaunchProfileMembers :: PutLaunchProfileMembersResponse -> TestTree
-responsePutLaunchProfileMembers =
-  res
-    "PutLaunchProfileMembersResponse"
-    "fixture/PutLaunchProfileMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutLaunchProfileMembers)
-
-responseCreateStudio :: CreateStudioResponse -> TestTree
-responseCreateStudio =
-  res
-    "CreateStudioResponse"
-    "fixture/CreateStudioResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateStudio)
-
-responseUpdateLaunchProfileMember :: UpdateLaunchProfileMemberResponse -> TestTree
-responseUpdateLaunchProfileMember =
-  res
-    "UpdateLaunchProfileMemberResponse"
-    "fixture/UpdateLaunchProfileMemberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchProfileMember)
-
-responseDeleteLaunchProfileMember :: DeleteLaunchProfileMemberResponse -> TestTree
-responseDeleteLaunchProfileMember =
-  res
-    "DeleteLaunchProfileMemberResponse"
-    "fixture/DeleteLaunchProfileMemberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchProfileMember)
-
-responseListLaunchProfiles :: ListLaunchProfilesResponse -> TestTree
-responseListLaunchProfiles =
-  res
-    "ListLaunchProfilesResponse"
-    "fixture/ListLaunchProfilesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLaunchProfiles)
-
-responseCreateLaunchProfile :: CreateLaunchProfileResponse -> TestTree
-responseCreateLaunchProfile =
-  res
-    "CreateLaunchProfileResponse"
-    "fixture/CreateLaunchProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLaunchProfile)
-
-responseListStreamingImages :: ListStreamingImagesResponse -> TestTree
-responseListStreamingImages =
-  res
-    "ListStreamingImagesResponse"
-    "fixture/ListStreamingImagesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStreamingImages)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseStartStudioSSOConfigurationRepair :: StartStudioSSOConfigurationRepairResponse -> TestTree
-responseStartStudioSSOConfigurationRepair =
-  res
-    "StartStudioSSOConfigurationRepairResponse"
-    "fixture/StartStudioSSOConfigurationRepairResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartStudioSSOConfigurationRepair)
-
-responseGetLaunchProfileInitialization :: GetLaunchProfileInitializationResponse -> TestTree
-responseGetLaunchProfileInitialization =
-  res
-    "GetLaunchProfileInitializationResponse"
-    "fixture/GetLaunchProfileInitializationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfileInitialization)
-
-responseGetLaunchProfile :: GetLaunchProfileResponse -> TestTree
-responseGetLaunchProfile =
-  res
-    "GetLaunchProfileResponse"
-    "fixture/GetLaunchProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfile)
-
-responseCreateStudioComponent :: CreateStudioComponentResponse -> TestTree
-responseCreateStudioComponent =
-  res
-    "CreateStudioComponentResponse"
-    "fixture/CreateStudioComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateStudioComponent)
-
-responseGetEula :: GetEulaResponse -> TestTree
-responseGetEula =
-  res
-    "GetEulaResponse"
-    "fixture/GetEulaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEula)
-
-responseListStudioComponents :: ListStudioComponentsResponse -> TestTree
-responseListStudioComponents =
-  res
-    "ListStudioComponentsResponse"
-    "fixture/ListStudioComponentsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStudioComponents)
 
 responseAcceptEulas :: AcceptEulasResponse -> TestTree
 responseAcceptEulas =
@@ -697,109 +585,13 @@ responseAcceptEulas =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptEulas)
 
-responseCreateStreamingSession :: CreateStreamingSessionResponse -> TestTree
-responseCreateStreamingSession =
+responseCreateLaunchProfile :: CreateLaunchProfileResponse -> TestTree
+responseCreateLaunchProfile =
   res
-    "CreateStreamingSessionResponse"
-    "fixture/CreateStreamingSessionResponse.proto"
+    "CreateLaunchProfileResponse"
+    "fixture/CreateLaunchProfileResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateStreamingSession)
-
-responseDeleteStudioComponent :: DeleteStudioComponentResponse -> TestTree
-responseDeleteStudioComponent =
-  res
-    "DeleteStudioComponentResponse"
-    "fixture/DeleteStudioComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteStudioComponent)
-
-responseUpdateStudioComponent :: UpdateStudioComponentResponse -> TestTree
-responseUpdateStudioComponent =
-  res
-    "UpdateStudioComponentResponse"
-    "fixture/UpdateStudioComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateStudioComponent)
-
-responseGetStudioMember :: GetStudioMemberResponse -> TestTree
-responseGetStudioMember =
-  res
-    "GetStudioMemberResponse"
-    "fixture/GetStudioMemberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStudioMember)
-
-responseDeleteStudio :: DeleteStudioResponse -> TestTree
-responseDeleteStudio =
-  res
-    "DeleteStudioResponse"
-    "fixture/DeleteStudioResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteStudio)
-
-responseUpdateStudio :: UpdateStudioResponse -> TestTree
-responseUpdateStudio =
-  res
-    "UpdateStudioResponse"
-    "fixture/UpdateStudioResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateStudio)
-
-responseListStudios :: ListStudiosResponse -> TestTree
-responseListStudios =
-  res
-    "ListStudiosResponse"
-    "fixture/ListStudiosResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStudios)
-
-responseGetStudioComponent :: GetStudioComponentResponse -> TestTree
-responseGetStudioComponent =
-  res
-    "GetStudioComponentResponse"
-    "fixture/GetStudioComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStudioComponent)
-
-responseListEulas :: ListEulasResponse -> TestTree
-responseListEulas =
-  res
-    "ListEulasResponse"
-    "fixture/ListEulasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEulas)
-
-responseGetStreamingSession :: GetStreamingSessionResponse -> TestTree
-responseGetStreamingSession =
-  res
-    "GetStreamingSessionResponse"
-    "fixture/GetStreamingSessionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStreamingSession)
-
-responseListLaunchProfileMembers :: ListLaunchProfileMembersResponse -> TestTree
-responseListLaunchProfileMembers =
-  res
-    "ListLaunchProfileMembersResponse"
-    "fixture/ListLaunchProfileMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLaunchProfileMembers)
-
-responseDeleteLaunchProfile :: DeleteLaunchProfileResponse -> TestTree
-responseDeleteLaunchProfile =
-  res
-    "DeleteLaunchProfileResponse"
-    "fixture/DeleteLaunchProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchProfile)
-
-responseUpdateLaunchProfile :: UpdateLaunchProfileResponse -> TestTree
-responseUpdateLaunchProfile =
-  res
-    "UpdateLaunchProfileResponse"
-    "fixture/UpdateLaunchProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchProfile)
+    (Proxy.Proxy :: Proxy.Proxy CreateLaunchProfile)
 
 responseCreateStreamingImage :: CreateStreamingImageResponse -> TestTree
 responseCreateStreamingImage =
@@ -809,6 +601,14 @@ responseCreateStreamingImage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateStreamingImage)
 
+responseCreateStreamingSession :: CreateStreamingSessionResponse -> TestTree
+responseCreateStreamingSession =
+  res
+    "CreateStreamingSessionResponse"
+    "fixture/CreateStreamingSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateStreamingSession)
+
 responseCreateStreamingSessionStream :: CreateStreamingSessionStreamResponse -> TestTree
 responseCreateStreamingSessionStream =
   res
@@ -817,21 +617,37 @@ responseCreateStreamingSessionStream =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateStreamingSessionStream)
 
-responseGetLaunchProfileDetails :: GetLaunchProfileDetailsResponse -> TestTree
-responseGetLaunchProfileDetails =
+responseCreateStudio :: CreateStudioResponse -> TestTree
+responseCreateStudio =
   res
-    "GetLaunchProfileDetailsResponse"
-    "fixture/GetLaunchProfileDetailsResponse.proto"
+    "CreateStudioResponse"
+    "fixture/CreateStudioResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfileDetails)
+    (Proxy.Proxy :: Proxy.Proxy CreateStudio)
 
-responsePutStudioMembers :: PutStudioMembersResponse -> TestTree
-responsePutStudioMembers =
+responseCreateStudioComponent :: CreateStudioComponentResponse -> TestTree
+responseCreateStudioComponent =
   res
-    "PutStudioMembersResponse"
-    "fixture/PutStudioMembersResponse.proto"
+    "CreateStudioComponentResponse"
+    "fixture/CreateStudioComponentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutStudioMembers)
+    (Proxy.Proxy :: Proxy.Proxy CreateStudioComponent)
+
+responseDeleteLaunchProfile :: DeleteLaunchProfileResponse -> TestTree
+responseDeleteLaunchProfile =
+  res
+    "DeleteLaunchProfileResponse"
+    "fixture/DeleteLaunchProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchProfile)
+
+responseDeleteLaunchProfileMember :: DeleteLaunchProfileMemberResponse -> TestTree
+responseDeleteLaunchProfileMember =
+  res
+    "DeleteLaunchProfileMemberResponse"
+    "fixture/DeleteLaunchProfileMemberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchProfileMember)
 
 responseDeleteStreamingImage :: DeleteStreamingImageResponse -> TestTree
 responseDeleteStreamingImage =
@@ -841,45 +657,69 @@ responseDeleteStreamingImage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteStreamingImage)
 
-responseUpdateStreamingImage :: UpdateStreamingImageResponse -> TestTree
-responseUpdateStreamingImage =
+responseDeleteStreamingSession :: DeleteStreamingSessionResponse -> TestTree
+responseDeleteStreamingSession =
   res
-    "UpdateStreamingImageResponse"
-    "fixture/UpdateStreamingImageResponse.proto"
+    "DeleteStreamingSessionResponse"
+    "fixture/DeleteStreamingSessionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateStreamingImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStreamingSession)
 
-responseGetStreamingImage :: GetStreamingImageResponse -> TestTree
-responseGetStreamingImage =
+responseDeleteStudio :: DeleteStudioResponse -> TestTree
+responseDeleteStudio =
   res
-    "GetStreamingImageResponse"
-    "fixture/GetStreamingImageResponse.proto"
+    "DeleteStudioResponse"
+    "fixture/DeleteStudioResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStreamingImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudio)
 
-responseListEulaAcceptances :: ListEulaAcceptancesResponse -> TestTree
-responseListEulaAcceptances =
+responseDeleteStudioComponent :: DeleteStudioComponentResponse -> TestTree
+responseDeleteStudioComponent =
   res
-    "ListEulaAcceptancesResponse"
-    "fixture/ListEulaAcceptancesResponse.proto"
+    "DeleteStudioComponentResponse"
+    "fixture/DeleteStudioComponentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEulaAcceptances)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudioComponent)
 
-responseGetStreamingSessionStream :: GetStreamingSessionStreamResponse -> TestTree
-responseGetStreamingSessionStream =
+responseDeleteStudioMember :: DeleteStudioMemberResponse -> TestTree
+responseDeleteStudioMember =
   res
-    "GetStreamingSessionStreamResponse"
-    "fixture/GetStreamingSessionStreamResponse.proto"
+    "DeleteStudioMemberResponse"
+    "fixture/DeleteStudioMemberResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStreamingSessionStream)
+    (Proxy.Proxy :: Proxy.Proxy DeleteStudioMember)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseGetEula :: GetEulaResponse -> TestTree
+responseGetEula =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "GetEulaResponse"
+    "fixture/GetEulaResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy GetEula)
+
+responseGetLaunchProfile :: GetLaunchProfileResponse -> TestTree
+responseGetLaunchProfile =
+  res
+    "GetLaunchProfileResponse"
+    "fixture/GetLaunchProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfile)
+
+responseGetLaunchProfileDetails :: GetLaunchProfileDetailsResponse -> TestTree
+responseGetLaunchProfileDetails =
+  res
+    "GetLaunchProfileDetailsResponse"
+    "fixture/GetLaunchProfileDetailsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfileDetails)
+
+responseGetLaunchProfileInitialization :: GetLaunchProfileInitializationResponse -> TestTree
+responseGetLaunchProfileInitialization =
+  res
+    "GetLaunchProfileInitializationResponse"
+    "fixture/GetLaunchProfileInitializationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLaunchProfileInitialization)
 
 responseGetLaunchProfileMember :: GetLaunchProfileMemberResponse -> TestTree
 responseGetLaunchProfileMember =
@@ -889,29 +729,29 @@ responseGetLaunchProfileMember =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLaunchProfileMember)
 
-responseDeleteStreamingSession :: DeleteStreamingSessionResponse -> TestTree
-responseDeleteStreamingSession =
+responseGetStreamingImage :: GetStreamingImageResponse -> TestTree
+responseGetStreamingImage =
   res
-    "DeleteStreamingSessionResponse"
-    "fixture/DeleteStreamingSessionResponse.proto"
+    "GetStreamingImageResponse"
+    "fixture/GetStreamingImageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteStreamingSession)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingImage)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseGetStreamingSession :: GetStreamingSessionResponse -> TestTree
+responseGetStreamingSession =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "GetStreamingSessionResponse"
+    "fixture/GetStreamingSessionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingSession)
 
-responseListStreamingSessions :: ListStreamingSessionsResponse -> TestTree
-responseListStreamingSessions =
+responseGetStreamingSessionStream :: GetStreamingSessionStreamResponse -> TestTree
+responseGetStreamingSessionStream =
   res
-    "ListStreamingSessionsResponse"
-    "fixture/ListStreamingSessionsResponse.proto"
+    "GetStreamingSessionStreamResponse"
+    "fixture/GetStreamingSessionStreamResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStreamingSessions)
+    (Proxy.Proxy :: Proxy.Proxy GetStreamingSessionStream)
 
 responseGetStudio :: GetStudioResponse -> TestTree
 responseGetStudio =
@@ -921,6 +761,78 @@ responseGetStudio =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetStudio)
 
+responseGetStudioComponent :: GetStudioComponentResponse -> TestTree
+responseGetStudioComponent =
+  res
+    "GetStudioComponentResponse"
+    "fixture/GetStudioComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStudioComponent)
+
+responseGetStudioMember :: GetStudioMemberResponse -> TestTree
+responseGetStudioMember =
+  res
+    "GetStudioMemberResponse"
+    "fixture/GetStudioMemberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStudioMember)
+
+responseListEulaAcceptances :: ListEulaAcceptancesResponse -> TestTree
+responseListEulaAcceptances =
+  res
+    "ListEulaAcceptancesResponse"
+    "fixture/ListEulaAcceptancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEulaAcceptances)
+
+responseListEulas :: ListEulasResponse -> TestTree
+responseListEulas =
+  res
+    "ListEulasResponse"
+    "fixture/ListEulasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEulas)
+
+responseListLaunchProfileMembers :: ListLaunchProfileMembersResponse -> TestTree
+responseListLaunchProfileMembers =
+  res
+    "ListLaunchProfileMembersResponse"
+    "fixture/ListLaunchProfileMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLaunchProfileMembers)
+
+responseListLaunchProfiles :: ListLaunchProfilesResponse -> TestTree
+responseListLaunchProfiles =
+  res
+    "ListLaunchProfilesResponse"
+    "fixture/ListLaunchProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLaunchProfiles)
+
+responseListStreamingImages :: ListStreamingImagesResponse -> TestTree
+responseListStreamingImages =
+  res
+    "ListStreamingImagesResponse"
+    "fixture/ListStreamingImagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStreamingImages)
+
+responseListStreamingSessions :: ListStreamingSessionsResponse -> TestTree
+responseListStreamingSessions =
+  res
+    "ListStreamingSessionsResponse"
+    "fixture/ListStreamingSessionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStreamingSessions)
+
+responseListStudioComponents :: ListStudioComponentsResponse -> TestTree
+responseListStudioComponents =
+  res
+    "ListStudioComponentsResponse"
+    "fixture/ListStudioComponentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStudioComponents)
+
 responseListStudioMembers :: ListStudioMembersResponse -> TestTree
 responseListStudioMembers =
   res
@@ -929,10 +841,98 @@ responseListStudioMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListStudioMembers)
 
-responseDeleteStudioMember :: DeleteStudioMemberResponse -> TestTree
-responseDeleteStudioMember =
+responseListStudios :: ListStudiosResponse -> TestTree
+responseListStudios =
   res
-    "DeleteStudioMemberResponse"
-    "fixture/DeleteStudioMemberResponse.proto"
+    "ListStudiosResponse"
+    "fixture/ListStudiosResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteStudioMember)
+    (Proxy.Proxy :: Proxy.Proxy ListStudios)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutLaunchProfileMembers :: PutLaunchProfileMembersResponse -> TestTree
+responsePutLaunchProfileMembers =
+  res
+    "PutLaunchProfileMembersResponse"
+    "fixture/PutLaunchProfileMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutLaunchProfileMembers)
+
+responsePutStudioMembers :: PutStudioMembersResponse -> TestTree
+responsePutStudioMembers =
+  res
+    "PutStudioMembersResponse"
+    "fixture/PutStudioMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutStudioMembers)
+
+responseStartStudioSSOConfigurationRepair :: StartStudioSSOConfigurationRepairResponse -> TestTree
+responseStartStudioSSOConfigurationRepair =
+  res
+    "StartStudioSSOConfigurationRepairResponse"
+    "fixture/StartStudioSSOConfigurationRepairResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartStudioSSOConfigurationRepair)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateLaunchProfile :: UpdateLaunchProfileResponse -> TestTree
+responseUpdateLaunchProfile =
+  res
+    "UpdateLaunchProfileResponse"
+    "fixture/UpdateLaunchProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchProfile)
+
+responseUpdateLaunchProfileMember :: UpdateLaunchProfileMemberResponse -> TestTree
+responseUpdateLaunchProfileMember =
+  res
+    "UpdateLaunchProfileMemberResponse"
+    "fixture/UpdateLaunchProfileMemberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchProfileMember)
+
+responseUpdateStreamingImage :: UpdateStreamingImageResponse -> TestTree
+responseUpdateStreamingImage =
+  res
+    "UpdateStreamingImageResponse"
+    "fixture/UpdateStreamingImageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStreamingImage)
+
+responseUpdateStudio :: UpdateStudioResponse -> TestTree
+responseUpdateStudio =
+  res
+    "UpdateStudioResponse"
+    "fixture/UpdateStudioResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStudio)
+
+responseUpdateStudioComponent :: UpdateStudioComponentResponse -> TestTree
+responseUpdateStudioComponent =
+  res
+    "UpdateStudioComponentResponse"
+    "fixture/UpdateStudioComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStudioComponent)

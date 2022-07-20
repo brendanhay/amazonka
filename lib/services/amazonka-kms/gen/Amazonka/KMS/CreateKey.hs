@@ -150,16 +150,16 @@ module Amazonka.KMS.CreateKey
     newCreateKey,
 
     -- * Request Lenses
-    createKey_origin,
-    createKey_keySpec,
+    createKey_tags,
+    createKey_policy,
+    createKey_customKeyStoreId,
     createKey_customerMasterKeySpec,
     createKey_keyUsage,
-    createKey_bypassPolicyLockoutSafetyCheck,
-    createKey_policy,
     createKey_description,
-    createKey_customKeyStoreId,
-    createKey_tags,
     createKey_multiRegion,
+    createKey_keySpec,
+    createKey_bypassPolicyLockoutSafetyCheck,
+    createKey_origin,
 
     -- * Destructuring the Response
     CreateKeyResponse (..),
@@ -180,24 +180,148 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateKey' smart constructor.
 data CreateKey = CreateKey'
-  { -- | The source of the key material for the KMS key. You cannot change the
-    -- origin after you create the KMS key. The default is @AWS_KMS@, which
-    -- means that KMS creates the key material.
+  { -- | Assigns one or more tags to the KMS key. Use this parameter to tag the
+    -- KMS key when it is created. To tag an existing KMS key, use the
+    -- TagResource operation.
     --
-    -- To create a KMS key with no key material (for imported key material),
-    -- set the value to @EXTERNAL@. For more information about importing key
-    -- material into KMS, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
-    -- in the /Key Management Service Developer Guide/. This value is valid
-    -- only for symmetric KMS keys.
+    -- Tagging or untagging a KMS key can allow or deny permission to the KMS
+    -- key. For details, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+    -- in the /Key Management Service Developer Guide/.
     --
-    -- To create a KMS key in an KMS
+    -- To use this parameter, you must have
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
+    -- permission in an IAM policy.
+    --
+    -- Each tag consists of a tag key and a tag value. Both the tag key and the
+    -- tag value are required, but the tag value can be an empty (null) string.
+    -- You cannot have more than one tag on a KMS key with the same tag key. If
+    -- you specify an existing tag key with a different tag value, KMS replaces
+    -- the current tag value with the specified one.
+    --
+    -- When you add tags to an Amazon Web Services resource, Amazon Web
+    -- Services generates a cost allocation report with usage and costs
+    -- aggregated by tags. Tags can also be used to control access to a KMS
+    -- key. For details, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
+    tags :: Prelude.Maybe [Tag],
+    -- | The key policy to attach to the KMS key.
+    --
+    -- If you provide a key policy, it must meet the following criteria:
+    --
+    -- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
+    --     policy must allow the principal that is making the @CreateKey@
+    --     request to make a subsequent PutKeyPolicy request on the KMS key.
+    --     This reduces the risk that the KMS key becomes unmanageable. For
+    --     more information, refer to the scenario in the
+    --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
+    --     section of the //Key Management Service Developer Guide// .
+    --
+    -- -   Each statement in the key policy must contain one or more
+    --     principals. The principals in the key policy must exist and be
+    --     visible to KMS. When you create a new Amazon Web Services principal
+    --     (for example, an IAM user or role), you might need to enforce a
+    --     delay before including the new principal in a key policy because the
+    --     new principal might not be immediately visible to KMS. For more
+    --     information, see
+    --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
+    --     in the /Amazon Web Services Identity and Access Management User
+    --     Guide/.
+    --
+    -- If you do not provide a key policy, KMS attaches a default key policy to
+    -- the KMS key. For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy>
+    -- in the /Key Management Service Developer Guide/.
+    --
+    -- The key policy size quota is 32 kilobytes (32768 bytes).
+    --
+    -- For help writing and formatting a JSON policy document, see the
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
+    -- in the //Identity and Access Management User Guide// .
+    policy :: Prelude.Maybe Prelude.Text,
+    -- | Creates the KMS key in the specified
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
-    -- and create its key material in the associated CloudHSM cluster, set this
-    -- value to @AWS_CLOUDHSM@. You must also use the @CustomKeyStoreId@
-    -- parameter to identify the custom key store. This value is valid only for
-    -- symmetric KMS keys.
-    origin :: Prelude.Maybe OriginType,
+    -- and the key material in its associated CloudHSM cluster. To create a KMS
+    -- key in a custom key store, you must also specify the @Origin@ parameter
+    -- with a value of @AWS_CLOUDHSM@. The CloudHSM cluster that is associated
+    -- with the custom key store must have at least two active HSMs, each in a
+    -- different Availability Zone in the Region.
+    --
+    -- This parameter is valid only for symmetric KMS keys and regional KMS
+    -- keys. You cannot create an asymmetric KMS key or a multi-Region key in a
+    -- custom key store.
+    --
+    -- To find the ID of a custom key store, use the DescribeCustomKeyStores
+    -- operation.
+    --
+    -- The response includes the custom key store ID and the ID of the CloudHSM
+    -- cluster.
+    --
+    -- This operation is part of the
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
+    -- feature in KMS, which combines the convenience and extensive integration
+    -- of KMS with the isolation and control of a single-tenant key store.
+    customKeyStoreId :: Prelude.Maybe Prelude.Text,
+    -- | Instead, use the @KeySpec@ parameter.
+    --
+    -- The @KeySpec@ and @CustomerMasterKeySpec@ parameters work the same way.
+    -- Only the names differ. We recommend that you use @KeySpec@ parameter in
+    -- your code. However, to avoid breaking changes, KMS will support both
+    -- parameters.
+    customerMasterKeySpec :: Prelude.Maybe CustomerMasterKeySpec,
+    -- | Determines the
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
+    -- for which you can use the KMS key. The default value is
+    -- @ENCRYPT_DECRYPT@. This parameter is required only for asymmetric KMS
+    -- keys. You can\'t change the @KeyUsage@ value after the KMS key is
+    -- created.
+    --
+    -- Select only one valid value.
+    --
+    -- -   For symmetric KMS keys, omit the parameter or specify
+    --     @ENCRYPT_DECRYPT@.
+    --
+    -- -   For asymmetric KMS keys with RSA key material, specify
+    --     @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@.
+    --
+    -- -   For asymmetric KMS keys with ECC key material, specify
+    --     @SIGN_VERIFY@.
+    keyUsage :: Prelude.Maybe KeyUsageType,
+    -- | A description of the KMS key.
+    --
+    -- Use a description that helps you decide whether the KMS key is
+    -- appropriate for a task. The default value is an empty string (no
+    -- description).
+    --
+    -- To set or change the description after the key is created, use
+    -- UpdateKeyDescription.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Creates a multi-Region primary key that you can replicate into other
+    -- Amazon Web Services Regions. You cannot change this value after you
+    -- create the KMS key.
+    --
+    -- For a multi-Region key, set this parameter to @True@. For a
+    -- single-Region KMS key, omit this parameter or set it to @False@. The
+    -- default value is @False@.
+    --
+    -- This operation supports /multi-Region keys/, an KMS feature that lets
+    -- you create multiple interoperable KMS keys in different Amazon Web
+    -- Services Regions. Because these KMS keys have the same key ID, key
+    -- material, and other metadata, you can use them interchangeably to
+    -- encrypt data in one Amazon Web Services Region and decrypt it in a
+    -- different Amazon Web Services Region without re-encrypting the data or
+    -- making a cross-Region call. For more information about multi-Region
+    -- keys, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+    -- in the /Key Management Service Developer Guide/.
+    --
+    -- This value creates a /primary key/, not a replica. To create a /replica
+    -- key/, use the ReplicateKey operation.
+    --
+    -- You can create a symmetric or asymmetric multi-Region key, and you can
+    -- create a multi-Region key with imported key material. However, you
+    -- cannot create a multi-Region key in a custom key store.
+    multiRegion :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the type of KMS key to create. The default value,
     -- @SYMMETRIC_DEFAULT@, creates a KMS key with a 256-bit symmetric key for
     -- encryption and decryption. For help choosing a key spec for your KMS
@@ -250,31 +374,6 @@ data CreateKey = CreateKey'
     --     -   @ECC_SECG_P256K1@ (secp256k1), commonly used for
     --         cryptocurrencies.
     keySpec :: Prelude.Maybe KeySpec,
-    -- | Instead, use the @KeySpec@ parameter.
-    --
-    -- The @KeySpec@ and @CustomerMasterKeySpec@ parameters work the same way.
-    -- Only the names differ. We recommend that you use @KeySpec@ parameter in
-    -- your code. However, to avoid breaking changes, KMS will support both
-    -- parameters.
-    customerMasterKeySpec :: Prelude.Maybe CustomerMasterKeySpec,
-    -- | Determines the
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
-    -- for which you can use the KMS key. The default value is
-    -- @ENCRYPT_DECRYPT@. This parameter is required only for asymmetric KMS
-    -- keys. You can\'t change the @KeyUsage@ value after the KMS key is
-    -- created.
-    --
-    -- Select only one valid value.
-    --
-    -- -   For symmetric KMS keys, omit the parameter or specify
-    --     @ENCRYPT_DECRYPT@.
-    --
-    -- -   For asymmetric KMS keys with RSA key material, specify
-    --     @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@.
-    --
-    -- -   For asymmetric KMS keys with ECC key material, specify
-    --     @SIGN_VERIFY@.
-    keyUsage :: Prelude.Maybe KeyUsageType,
     -- | A flag to indicate whether to bypass the key policy lockout safety
     -- check.
     --
@@ -291,123 +390,24 @@ data CreateKey = CreateKey'
     --
     -- The default value is false.
     bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
-    -- | The key policy to attach to the KMS key.
+    -- | The source of the key material for the KMS key. You cannot change the
+    -- origin after you create the KMS key. The default is @AWS_KMS@, which
+    -- means that KMS creates the key material.
     --
-    -- If you provide a key policy, it must meet the following criteria:
+    -- To create a KMS key with no key material (for imported key material),
+    -- set the value to @EXTERNAL@. For more information about importing key
+    -- material into KMS, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
+    -- in the /Key Management Service Developer Guide/. This value is valid
+    -- only for symmetric KMS keys.
     --
-    -- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
-    --     policy must allow the principal that is making the @CreateKey@
-    --     request to make a subsequent PutKeyPolicy request on the KMS key.
-    --     This reduces the risk that the KMS key becomes unmanageable. For
-    --     more information, refer to the scenario in the
-    --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
-    --     section of the //Key Management Service Developer Guide// .
-    --
-    -- -   Each statement in the key policy must contain one or more
-    --     principals. The principals in the key policy must exist and be
-    --     visible to KMS. When you create a new Amazon Web Services principal
-    --     (for example, an IAM user or role), you might need to enforce a
-    --     delay before including the new principal in a key policy because the
-    --     new principal might not be immediately visible to KMS. For more
-    --     information, see
-    --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
-    --     in the /Amazon Web Services Identity and Access Management User
-    --     Guide/.
-    --
-    -- If you do not provide a key policy, KMS attaches a default key policy to
-    -- the KMS key. For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy>
-    -- in the /Key Management Service Developer Guide/.
-    --
-    -- The key policy size quota is 32 kilobytes (32768 bytes).
-    --
-    -- For help writing and formatting a JSON policy document, see the
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
-    -- in the //Identity and Access Management User Guide// .
-    policy :: Prelude.Maybe Prelude.Text,
-    -- | A description of the KMS key.
-    --
-    -- Use a description that helps you decide whether the KMS key is
-    -- appropriate for a task. The default value is an empty string (no
-    -- description).
-    --
-    -- To set or change the description after the key is created, use
-    -- UpdateKeyDescription.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Creates the KMS key in the specified
+    -- To create a KMS key in an KMS
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
-    -- and the key material in its associated CloudHSM cluster. To create a KMS
-    -- key in a custom key store, you must also specify the @Origin@ parameter
-    -- with a value of @AWS_CLOUDHSM@. The CloudHSM cluster that is associated
-    -- with the custom key store must have at least two active HSMs, each in a
-    -- different Availability Zone in the Region.
-    --
-    -- This parameter is valid only for symmetric KMS keys and regional KMS
-    -- keys. You cannot create an asymmetric KMS key or a multi-Region key in a
-    -- custom key store.
-    --
-    -- To find the ID of a custom key store, use the DescribeCustomKeyStores
-    -- operation.
-    --
-    -- The response includes the custom key store ID and the ID of the CloudHSM
-    -- cluster.
-    --
-    -- This operation is part of the
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
-    -- feature in KMS, which combines the convenience and extensive integration
-    -- of KMS with the isolation and control of a single-tenant key store.
-    customKeyStoreId :: Prelude.Maybe Prelude.Text,
-    -- | Assigns one or more tags to the KMS key. Use this parameter to tag the
-    -- KMS key when it is created. To tag an existing KMS key, use the
-    -- TagResource operation.
-    --
-    -- Tagging or untagging a KMS key can allow or deny permission to the KMS
-    -- key. For details, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
-    -- in the /Key Management Service Developer Guide/.
-    --
-    -- To use this parameter, you must have
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
-    -- permission in an IAM policy.
-    --
-    -- Each tag consists of a tag key and a tag value. Both the tag key and the
-    -- tag value are required, but the tag value can be an empty (null) string.
-    -- You cannot have more than one tag on a KMS key with the same tag key. If
-    -- you specify an existing tag key with a different tag value, KMS replaces
-    -- the current tag value with the specified one.
-    --
-    -- When you add tags to an Amazon Web Services resource, Amazon Web
-    -- Services generates a cost allocation report with usage and costs
-    -- aggregated by tags. Tags can also be used to control access to a KMS
-    -- key. For details, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
-    tags :: Prelude.Maybe [Tag],
-    -- | Creates a multi-Region primary key that you can replicate into other
-    -- Amazon Web Services Regions. You cannot change this value after you
-    -- create the KMS key.
-    --
-    -- For a multi-Region key, set this parameter to @True@. For a
-    -- single-Region KMS key, omit this parameter or set it to @False@. The
-    -- default value is @False@.
-    --
-    -- This operation supports /multi-Region keys/, an KMS feature that lets
-    -- you create multiple interoperable KMS keys in different Amazon Web
-    -- Services Regions. Because these KMS keys have the same key ID, key
-    -- material, and other metadata, you can use them interchangeably to
-    -- encrypt data in one Amazon Web Services Region and decrypt it in a
-    -- different Amazon Web Services Region without re-encrypting the data or
-    -- making a cross-Region call. For more information about multi-Region
-    -- keys, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
-    -- in the /Key Management Service Developer Guide/.
-    --
-    -- This value creates a /primary key/, not a replica. To create a /replica
-    -- key/, use the ReplicateKey operation.
-    --
-    -- You can create a symmetric or asymmetric multi-Region key, and you can
-    -- create a multi-Region key with imported key material. However, you
-    -- cannot create a multi-Region key in a custom key store.
-    multiRegion :: Prelude.Maybe Prelude.Bool
+    -- and create its key material in the associated CloudHSM cluster, set this
+    -- value to @AWS_CLOUDHSM@. You must also use the @CustomKeyStoreId@
+    -- parameter to identify the custom key store. This value is valid only for
+    -- symmetric KMS keys.
+    origin :: Prelude.Maybe OriginType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -419,23 +419,147 @@ data CreateKey = CreateKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'origin', 'createKey_origin' - The source of the key material for the KMS key. You cannot change the
--- origin after you create the KMS key. The default is @AWS_KMS@, which
--- means that KMS creates the key material.
+-- 'tags', 'createKey_tags' - Assigns one or more tags to the KMS key. Use this parameter to tag the
+-- KMS key when it is created. To tag an existing KMS key, use the
+-- TagResource operation.
 --
--- To create a KMS key with no key material (for imported key material),
--- set the value to @EXTERNAL@. For more information about importing key
--- material into KMS, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
--- in the /Key Management Service Developer Guide/. This value is valid
--- only for symmetric KMS keys.
+-- Tagging or untagging a KMS key can allow or deny permission to the KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- in the /Key Management Service Developer Guide/.
 --
--- To create a KMS key in an KMS
+-- To use this parameter, you must have
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
+-- permission in an IAM policy.
+--
+-- Each tag consists of a tag key and a tag value. Both the tag key and the
+-- tag value are required, but the tag value can be an empty (null) string.
+-- You cannot have more than one tag on a KMS key with the same tag key. If
+-- you specify an existing tag key with a different tag value, KMS replaces
+-- the current tag value with the specified one.
+--
+-- When you add tags to an Amazon Web Services resource, Amazon Web
+-- Services generates a cost allocation report with usage and costs
+-- aggregated by tags. Tags can also be used to control access to a KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
+--
+-- 'policy', 'createKey_policy' - The key policy to attach to the KMS key.
+--
+-- If you provide a key policy, it must meet the following criteria:
+--
+-- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
+--     policy must allow the principal that is making the @CreateKey@
+--     request to make a subsequent PutKeyPolicy request on the KMS key.
+--     This reduces the risk that the KMS key becomes unmanageable. For
+--     more information, refer to the scenario in the
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
+--     section of the //Key Management Service Developer Guide// .
+--
+-- -   Each statement in the key policy must contain one or more
+--     principals. The principals in the key policy must exist and be
+--     visible to KMS. When you create a new Amazon Web Services principal
+--     (for example, an IAM user or role), you might need to enforce a
+--     delay before including the new principal in a key policy because the
+--     new principal might not be immediately visible to KMS. For more
+--     information, see
+--     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
+--     in the /Amazon Web Services Identity and Access Management User
+--     Guide/.
+--
+-- If you do not provide a key policy, KMS attaches a default key policy to
+-- the KMS key. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy>
+-- in the /Key Management Service Developer Guide/.
+--
+-- The key policy size quota is 32 kilobytes (32768 bytes).
+--
+-- For help writing and formatting a JSON policy document, see the
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
+-- in the //Identity and Access Management User Guide// .
+--
+-- 'customKeyStoreId', 'createKey_customKeyStoreId' - Creates the KMS key in the specified
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
--- and create its key material in the associated CloudHSM cluster, set this
--- value to @AWS_CLOUDHSM@. You must also use the @CustomKeyStoreId@
--- parameter to identify the custom key store. This value is valid only for
--- symmetric KMS keys.
+-- and the key material in its associated CloudHSM cluster. To create a KMS
+-- key in a custom key store, you must also specify the @Origin@ parameter
+-- with a value of @AWS_CLOUDHSM@. The CloudHSM cluster that is associated
+-- with the custom key store must have at least two active HSMs, each in a
+-- different Availability Zone in the Region.
+--
+-- This parameter is valid only for symmetric KMS keys and regional KMS
+-- keys. You cannot create an asymmetric KMS key or a multi-Region key in a
+-- custom key store.
+--
+-- To find the ID of a custom key store, use the DescribeCustomKeyStores
+-- operation.
+--
+-- The response includes the custom key store ID and the ID of the CloudHSM
+-- cluster.
+--
+-- This operation is part of the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
+-- feature in KMS, which combines the convenience and extensive integration
+-- of KMS with the isolation and control of a single-tenant key store.
+--
+-- 'customerMasterKeySpec', 'createKey_customerMasterKeySpec' - Instead, use the @KeySpec@ parameter.
+--
+-- The @KeySpec@ and @CustomerMasterKeySpec@ parameters work the same way.
+-- Only the names differ. We recommend that you use @KeySpec@ parameter in
+-- your code. However, to avoid breaking changes, KMS will support both
+-- parameters.
+--
+-- 'keyUsage', 'createKey_keyUsage' - Determines the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
+-- for which you can use the KMS key. The default value is
+-- @ENCRYPT_DECRYPT@. This parameter is required only for asymmetric KMS
+-- keys. You can\'t change the @KeyUsage@ value after the KMS key is
+-- created.
+--
+-- Select only one valid value.
+--
+-- -   For symmetric KMS keys, omit the parameter or specify
+--     @ENCRYPT_DECRYPT@.
+--
+-- -   For asymmetric KMS keys with RSA key material, specify
+--     @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@.
+--
+-- -   For asymmetric KMS keys with ECC key material, specify
+--     @SIGN_VERIFY@.
+--
+-- 'description', 'createKey_description' - A description of the KMS key.
+--
+-- Use a description that helps you decide whether the KMS key is
+-- appropriate for a task. The default value is an empty string (no
+-- description).
+--
+-- To set or change the description after the key is created, use
+-- UpdateKeyDescription.
+--
+-- 'multiRegion', 'createKey_multiRegion' - Creates a multi-Region primary key that you can replicate into other
+-- Amazon Web Services Regions. You cannot change this value after you
+-- create the KMS key.
+--
+-- For a multi-Region key, set this parameter to @True@. For a
+-- single-Region KMS key, omit this parameter or set it to @False@. The
+-- default value is @False@.
+--
+-- This operation supports /multi-Region keys/, an KMS feature that lets
+-- you create multiple interoperable KMS keys in different Amazon Web
+-- Services Regions. Because these KMS keys have the same key ID, key
+-- material, and other metadata, you can use them interchangeably to
+-- encrypt data in one Amazon Web Services Region and decrypt it in a
+-- different Amazon Web Services Region without re-encrypting the data or
+-- making a cross-Region call. For more information about multi-Region
+-- keys, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+-- in the /Key Management Service Developer Guide/.
+--
+-- This value creates a /primary key/, not a replica. To create a /replica
+-- key/, use the ReplicateKey operation.
+--
+-- You can create a symmetric or asymmetric multi-Region key, and you can
+-- create a multi-Region key with imported key material. However, you
+-- cannot create a multi-Region key in a custom key store.
 --
 -- 'keySpec', 'createKey_keySpec' - Specifies the type of KMS key to create. The default value,
 -- @SYMMETRIC_DEFAULT@, creates a KMS key with a 256-bit symmetric key for
@@ -489,31 +613,6 @@ data CreateKey = CreateKey'
 --     -   @ECC_SECG_P256K1@ (secp256k1), commonly used for
 --         cryptocurrencies.
 --
--- 'customerMasterKeySpec', 'createKey_customerMasterKeySpec' - Instead, use the @KeySpec@ parameter.
---
--- The @KeySpec@ and @CustomerMasterKeySpec@ parameters work the same way.
--- Only the names differ. We recommend that you use @KeySpec@ parameter in
--- your code. However, to avoid breaking changes, KMS will support both
--- parameters.
---
--- 'keyUsage', 'createKey_keyUsage' - Determines the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
--- for which you can use the KMS key. The default value is
--- @ENCRYPT_DECRYPT@. This parameter is required only for asymmetric KMS
--- keys. You can\'t change the @KeyUsage@ value after the KMS key is
--- created.
---
--- Select only one valid value.
---
--- -   For symmetric KMS keys, omit the parameter or specify
---     @ENCRYPT_DECRYPT@.
---
--- -   For asymmetric KMS keys with RSA key material, specify
---     @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@.
---
--- -   For asymmetric KMS keys with ECC key material, specify
---     @SIGN_VERIFY@.
---
 -- 'bypassPolicyLockoutSafetyCheck', 'createKey_bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety
 -- check.
 --
@@ -530,7 +629,67 @@ data CreateKey = CreateKey'
 --
 -- The default value is false.
 --
--- 'policy', 'createKey_policy' - The key policy to attach to the KMS key.
+-- 'origin', 'createKey_origin' - The source of the key material for the KMS key. You cannot change the
+-- origin after you create the KMS key. The default is @AWS_KMS@, which
+-- means that KMS creates the key material.
+--
+-- To create a KMS key with no key material (for imported key material),
+-- set the value to @EXTERNAL@. For more information about importing key
+-- material into KMS, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
+-- in the /Key Management Service Developer Guide/. This value is valid
+-- only for symmetric KMS keys.
+--
+-- To create a KMS key in an KMS
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
+-- and create its key material in the associated CloudHSM cluster, set this
+-- value to @AWS_CLOUDHSM@. You must also use the @CustomKeyStoreId@
+-- parameter to identify the custom key store. This value is valid only for
+-- symmetric KMS keys.
+newCreateKey ::
+  CreateKey
+newCreateKey =
+  CreateKey'
+    { tags = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      customKeyStoreId = Prelude.Nothing,
+      customerMasterKeySpec = Prelude.Nothing,
+      keyUsage = Prelude.Nothing,
+      description = Prelude.Nothing,
+      multiRegion = Prelude.Nothing,
+      keySpec = Prelude.Nothing,
+      bypassPolicyLockoutSafetyCheck = Prelude.Nothing,
+      origin = Prelude.Nothing
+    }
+
+-- | Assigns one or more tags to the KMS key. Use this parameter to tag the
+-- KMS key when it is created. To tag an existing KMS key, use the
+-- TagResource operation.
+--
+-- Tagging or untagging a KMS key can allow or deny permission to the KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- in the /Key Management Service Developer Guide/.
+--
+-- To use this parameter, you must have
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
+-- permission in an IAM policy.
+--
+-- Each tag consists of a tag key and a tag value. Both the tag key and the
+-- tag value are required, but the tag value can be an empty (null) string.
+-- You cannot have more than one tag on a KMS key with the same tag key. If
+-- you specify an existing tag key with a different tag value, KMS replaces
+-- the current tag value with the specified one.
+--
+-- When you add tags to an Amazon Web Services resource, Amazon Web
+-- Services generates a cost allocation report with usage and costs
+-- aggregated by tags. Tags can also be used to control access to a KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
+createKey_tags :: Lens.Lens' CreateKey (Prelude.Maybe [Tag])
+createKey_tags = Lens.lens (\CreateKey' {tags} -> tags) (\s@CreateKey' {} a -> s {tags = a} :: CreateKey) Prelude.. Lens.mapping Lens.coerced
+
+-- | The key policy to attach to the KMS key.
 --
 -- If you provide a key policy, it must meet the following criteria:
 --
@@ -563,17 +722,10 @@ data CreateKey = CreateKey'
 -- For help writing and formatting a JSON policy document, see the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
 -- in the //Identity and Access Management User Guide// .
---
--- 'description', 'createKey_description' - A description of the KMS key.
---
--- Use a description that helps you decide whether the KMS key is
--- appropriate for a task. The default value is an empty string (no
--- description).
---
--- To set or change the description after the key is created, use
--- UpdateKeyDescription.
---
--- 'customKeyStoreId', 'createKey_customKeyStoreId' - Creates the KMS key in the specified
+createKey_policy :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
+createKey_policy = Lens.lens (\CreateKey' {policy} -> policy) (\s@CreateKey' {} a -> s {policy = a} :: CreateKey)
+
+-- | Creates the KMS key in the specified
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
 -- and the key material in its associated CloudHSM cluster. To create a KMS
 -- key in a custom key store, you must also specify the @Origin@ parameter
@@ -595,33 +747,50 @@ data CreateKey = CreateKey'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
 -- feature in KMS, which combines the convenience and extensive integration
 -- of KMS with the isolation and control of a single-tenant key store.
+createKey_customKeyStoreId :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
+createKey_customKeyStoreId = Lens.lens (\CreateKey' {customKeyStoreId} -> customKeyStoreId) (\s@CreateKey' {} a -> s {customKeyStoreId = a} :: CreateKey)
+
+-- | Instead, use the @KeySpec@ parameter.
 --
--- 'tags', 'createKey_tags' - Assigns one or more tags to the KMS key. Use this parameter to tag the
--- KMS key when it is created. To tag an existing KMS key, use the
--- TagResource operation.
+-- The @KeySpec@ and @CustomerMasterKeySpec@ parameters work the same way.
+-- Only the names differ. We recommend that you use @KeySpec@ parameter in
+-- your code. However, to avoid breaking changes, KMS will support both
+-- parameters.
+createKey_customerMasterKeySpec :: Lens.Lens' CreateKey (Prelude.Maybe CustomerMasterKeySpec)
+createKey_customerMasterKeySpec = Lens.lens (\CreateKey' {customerMasterKeySpec} -> customerMasterKeySpec) (\s@CreateKey' {} a -> s {customerMasterKeySpec = a} :: CreateKey)
+
+-- | Determines the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
+-- for which you can use the KMS key. The default value is
+-- @ENCRYPT_DECRYPT@. This parameter is required only for asymmetric KMS
+-- keys. You can\'t change the @KeyUsage@ value after the KMS key is
+-- created.
 --
--- Tagging or untagging a KMS key can allow or deny permission to the KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
--- in the /Key Management Service Developer Guide/.
+-- Select only one valid value.
 --
--- To use this parameter, you must have
--- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
--- permission in an IAM policy.
+-- -   For symmetric KMS keys, omit the parameter or specify
+--     @ENCRYPT_DECRYPT@.
 --
--- Each tag consists of a tag key and a tag value. Both the tag key and the
--- tag value are required, but the tag value can be an empty (null) string.
--- You cannot have more than one tag on a KMS key with the same tag key. If
--- you specify an existing tag key with a different tag value, KMS replaces
--- the current tag value with the specified one.
+-- -   For asymmetric KMS keys with RSA key material, specify
+--     @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@.
 --
--- When you add tags to an Amazon Web Services resource, Amazon Web
--- Services generates a cost allocation report with usage and costs
--- aggregated by tags. Tags can also be used to control access to a KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
+-- -   For asymmetric KMS keys with ECC key material, specify
+--     @SIGN_VERIFY@.
+createKey_keyUsage :: Lens.Lens' CreateKey (Prelude.Maybe KeyUsageType)
+createKey_keyUsage = Lens.lens (\CreateKey' {keyUsage} -> keyUsage) (\s@CreateKey' {} a -> s {keyUsage = a} :: CreateKey)
+
+-- | A description of the KMS key.
 --
--- 'multiRegion', 'createKey_multiRegion' - Creates a multi-Region primary key that you can replicate into other
+-- Use a description that helps you decide whether the KMS key is
+-- appropriate for a task. The default value is an empty string (no
+-- description).
+--
+-- To set or change the description after the key is created, use
+-- UpdateKeyDescription.
+createKey_description :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
+createKey_description = Lens.lens (\CreateKey' {description} -> description) (\s@CreateKey' {} a -> s {description = a} :: CreateKey)
+
+-- | Creates a multi-Region primary key that you can replicate into other
 -- Amazon Web Services Regions. You cannot change this value after you
 -- create the KMS key.
 --
@@ -646,41 +815,8 @@ data CreateKey = CreateKey'
 -- You can create a symmetric or asymmetric multi-Region key, and you can
 -- create a multi-Region key with imported key material. However, you
 -- cannot create a multi-Region key in a custom key store.
-newCreateKey ::
-  CreateKey
-newCreateKey =
-  CreateKey'
-    { origin = Prelude.Nothing,
-      keySpec = Prelude.Nothing,
-      customerMasterKeySpec = Prelude.Nothing,
-      keyUsage = Prelude.Nothing,
-      bypassPolicyLockoutSafetyCheck = Prelude.Nothing,
-      policy = Prelude.Nothing,
-      description = Prelude.Nothing,
-      customKeyStoreId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      multiRegion = Prelude.Nothing
-    }
-
--- | The source of the key material for the KMS key. You cannot change the
--- origin after you create the KMS key. The default is @AWS_KMS@, which
--- means that KMS creates the key material.
---
--- To create a KMS key with no key material (for imported key material),
--- set the value to @EXTERNAL@. For more information about importing key
--- material into KMS, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
--- in the /Key Management Service Developer Guide/. This value is valid
--- only for symmetric KMS keys.
---
--- To create a KMS key in an KMS
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
--- and create its key material in the associated CloudHSM cluster, set this
--- value to @AWS_CLOUDHSM@. You must also use the @CustomKeyStoreId@
--- parameter to identify the custom key store. This value is valid only for
--- symmetric KMS keys.
-createKey_origin :: Lens.Lens' CreateKey (Prelude.Maybe OriginType)
-createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} a -> s {origin = a} :: CreateKey)
+createKey_multiRegion :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Bool)
+createKey_multiRegion = Lens.lens (\CreateKey' {multiRegion} -> multiRegion) (\s@CreateKey' {} a -> s {multiRegion = a} :: CreateKey)
 
 -- | Specifies the type of KMS key to create. The default value,
 -- @SYMMETRIC_DEFAULT@, creates a KMS key with a 256-bit symmetric key for
@@ -736,35 +872,6 @@ createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} 
 createKey_keySpec :: Lens.Lens' CreateKey (Prelude.Maybe KeySpec)
 createKey_keySpec = Lens.lens (\CreateKey' {keySpec} -> keySpec) (\s@CreateKey' {} a -> s {keySpec = a} :: CreateKey)
 
--- | Instead, use the @KeySpec@ parameter.
---
--- The @KeySpec@ and @CustomerMasterKeySpec@ parameters work the same way.
--- Only the names differ. We recommend that you use @KeySpec@ parameter in
--- your code. However, to avoid breaking changes, KMS will support both
--- parameters.
-createKey_customerMasterKeySpec :: Lens.Lens' CreateKey (Prelude.Maybe CustomerMasterKeySpec)
-createKey_customerMasterKeySpec = Lens.lens (\CreateKey' {customerMasterKeySpec} -> customerMasterKeySpec) (\s@CreateKey' {} a -> s {customerMasterKeySpec = a} :: CreateKey)
-
--- | Determines the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
--- for which you can use the KMS key. The default value is
--- @ENCRYPT_DECRYPT@. This parameter is required only for asymmetric KMS
--- keys. You can\'t change the @KeyUsage@ value after the KMS key is
--- created.
---
--- Select only one valid value.
---
--- -   For symmetric KMS keys, omit the parameter or specify
---     @ENCRYPT_DECRYPT@.
---
--- -   For asymmetric KMS keys with RSA key material, specify
---     @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@.
---
--- -   For asymmetric KMS keys with ECC key material, specify
---     @SIGN_VERIFY@.
-createKey_keyUsage :: Lens.Lens' CreateKey (Prelude.Maybe KeyUsageType)
-createKey_keyUsage = Lens.lens (\CreateKey' {keyUsage} -> keyUsage) (\s@CreateKey' {} a -> s {keyUsage = a} :: CreateKey)
-
 -- | A flag to indicate whether to bypass the key policy lockout safety
 -- check.
 --
@@ -783,132 +890,25 @@ createKey_keyUsage = Lens.lens (\CreateKey' {keyUsage} -> keyUsage) (\s@CreateKe
 createKey_bypassPolicyLockoutSafetyCheck :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Bool)
 createKey_bypassPolicyLockoutSafetyCheck = Lens.lens (\CreateKey' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@CreateKey' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: CreateKey)
 
--- | The key policy to attach to the KMS key.
+-- | The source of the key material for the KMS key. You cannot change the
+-- origin after you create the KMS key. The default is @AWS_KMS@, which
+-- means that KMS creates the key material.
 --
--- If you provide a key policy, it must meet the following criteria:
+-- To create a KMS key with no key material (for imported key material),
+-- set the value to @EXTERNAL@. For more information about importing key
+-- material into KMS, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
+-- in the /Key Management Service Developer Guide/. This value is valid
+-- only for symmetric KMS keys.
 --
--- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
---     policy must allow the principal that is making the @CreateKey@
---     request to make a subsequent PutKeyPolicy request on the KMS key.
---     This reduces the risk that the KMS key becomes unmanageable. For
---     more information, refer to the scenario in the
---     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
---     section of the //Key Management Service Developer Guide// .
---
--- -   Each statement in the key policy must contain one or more
---     principals. The principals in the key policy must exist and be
---     visible to KMS. When you create a new Amazon Web Services principal
---     (for example, an IAM user or role), you might need to enforce a
---     delay before including the new principal in a key policy because the
---     new principal might not be immediately visible to KMS. For more
---     information, see
---     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
---     in the /Amazon Web Services Identity and Access Management User
---     Guide/.
---
--- If you do not provide a key policy, KMS attaches a default key policy to
--- the KMS key. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy>
--- in the /Key Management Service Developer Guide/.
---
--- The key policy size quota is 32 kilobytes (32768 bytes).
---
--- For help writing and formatting a JSON policy document, see the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
--- in the //Identity and Access Management User Guide// .
-createKey_policy :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
-createKey_policy = Lens.lens (\CreateKey' {policy} -> policy) (\s@CreateKey' {} a -> s {policy = a} :: CreateKey)
-
--- | A description of the KMS key.
---
--- Use a description that helps you decide whether the KMS key is
--- appropriate for a task. The default value is an empty string (no
--- description).
---
--- To set or change the description after the key is created, use
--- UpdateKeyDescription.
-createKey_description :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
-createKey_description = Lens.lens (\CreateKey' {description} -> description) (\s@CreateKey' {} a -> s {description = a} :: CreateKey)
-
--- | Creates the KMS key in the specified
+-- To create a KMS key in an KMS
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
--- and the key material in its associated CloudHSM cluster. To create a KMS
--- key in a custom key store, you must also specify the @Origin@ parameter
--- with a value of @AWS_CLOUDHSM@. The CloudHSM cluster that is associated
--- with the custom key store must have at least two active HSMs, each in a
--- different Availability Zone in the Region.
---
--- This parameter is valid only for symmetric KMS keys and regional KMS
--- keys. You cannot create an asymmetric KMS key or a multi-Region key in a
--- custom key store.
---
--- To find the ID of a custom key store, use the DescribeCustomKeyStores
--- operation.
---
--- The response includes the custom key store ID and the ID of the CloudHSM
--- cluster.
---
--- This operation is part of the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
--- feature in KMS, which combines the convenience and extensive integration
--- of KMS with the isolation and control of a single-tenant key store.
-createKey_customKeyStoreId :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
-createKey_customKeyStoreId = Lens.lens (\CreateKey' {customKeyStoreId} -> customKeyStoreId) (\s@CreateKey' {} a -> s {customKeyStoreId = a} :: CreateKey)
-
--- | Assigns one or more tags to the KMS key. Use this parameter to tag the
--- KMS key when it is created. To tag an existing KMS key, use the
--- TagResource operation.
---
--- Tagging or untagging a KMS key can allow or deny permission to the KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
--- in the /Key Management Service Developer Guide/.
---
--- To use this parameter, you must have
--- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
--- permission in an IAM policy.
---
--- Each tag consists of a tag key and a tag value. Both the tag key and the
--- tag value are required, but the tag value can be an empty (null) string.
--- You cannot have more than one tag on a KMS key with the same tag key. If
--- you specify an existing tag key with a different tag value, KMS replaces
--- the current tag value with the specified one.
---
--- When you add tags to an Amazon Web Services resource, Amazon Web
--- Services generates a cost allocation report with usage and costs
--- aggregated by tags. Tags can also be used to control access to a KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
-createKey_tags :: Lens.Lens' CreateKey (Prelude.Maybe [Tag])
-createKey_tags = Lens.lens (\CreateKey' {tags} -> tags) (\s@CreateKey' {} a -> s {tags = a} :: CreateKey) Prelude.. Lens.mapping Lens.coerced
-
--- | Creates a multi-Region primary key that you can replicate into other
--- Amazon Web Services Regions. You cannot change this value after you
--- create the KMS key.
---
--- For a multi-Region key, set this parameter to @True@. For a
--- single-Region KMS key, omit this parameter or set it to @False@. The
--- default value is @False@.
---
--- This operation supports /multi-Region keys/, an KMS feature that lets
--- you create multiple interoperable KMS keys in different Amazon Web
--- Services Regions. Because these KMS keys have the same key ID, key
--- material, and other metadata, you can use them interchangeably to
--- encrypt data in one Amazon Web Services Region and decrypt it in a
--- different Amazon Web Services Region without re-encrypting the data or
--- making a cross-Region call. For more information about multi-Region
--- keys, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
--- in the /Key Management Service Developer Guide/.
---
--- This value creates a /primary key/, not a replica. To create a /replica
--- key/, use the ReplicateKey operation.
---
--- You can create a symmetric or asymmetric multi-Region key, and you can
--- create a multi-Region key with imported key material. However, you
--- cannot create a multi-Region key in a custom key store.
-createKey_multiRegion :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Bool)
-createKey_multiRegion = Lens.lens (\CreateKey' {multiRegion} -> multiRegion) (\s@CreateKey' {} a -> s {multiRegion = a} :: CreateKey)
+-- and create its key material in the associated CloudHSM cluster, set this
+-- value to @AWS_CLOUDHSM@. You must also use the @CustomKeyStoreId@
+-- parameter to identify the custom key store. This value is valid only for
+-- symmetric KMS keys.
+createKey_origin :: Lens.Lens' CreateKey (Prelude.Maybe OriginType)
+createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} a -> s {origin = a} :: CreateKey)
 
 instance Core.AWSRequest CreateKey where
   type AWSResponse CreateKey = CreateKeyResponse
@@ -923,29 +923,29 @@ instance Core.AWSRequest CreateKey where
 
 instance Prelude.Hashable CreateKey where
   hashWithSalt _salt CreateKey' {..} =
-    _salt `Prelude.hashWithSalt` origin
-      `Prelude.hashWithSalt` keySpec
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` customKeyStoreId
       `Prelude.hashWithSalt` customerMasterKeySpec
       `Prelude.hashWithSalt` keyUsage
-      `Prelude.hashWithSalt` bypassPolicyLockoutSafetyCheck
-      `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` customKeyStoreId
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` multiRegion
+      `Prelude.hashWithSalt` keySpec
+      `Prelude.hashWithSalt` bypassPolicyLockoutSafetyCheck
+      `Prelude.hashWithSalt` origin
 
 instance Prelude.NFData CreateKey where
   rnf CreateKey' {..} =
-    Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf keySpec
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf customKeyStoreId
       `Prelude.seq` Prelude.rnf customerMasterKeySpec
       `Prelude.seq` Prelude.rnf keyUsage
-      `Prelude.seq` Prelude.rnf bypassPolicyLockoutSafetyCheck
-      `Prelude.seq` Prelude.rnf policy
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf customKeyStoreId
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf multiRegion
+      `Prelude.seq` Prelude.rnf keySpec
+      `Prelude.seq` Prelude.rnf bypassPolicyLockoutSafetyCheck
+      `Prelude.seq` Prelude.rnf origin
 
 instance Core.ToHeaders CreateKey where
   toHeaders =
@@ -964,19 +964,19 @@ instance Core.ToJSON CreateKey where
   toJSON CreateKey' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Origin" Core..=) Prelude.<$> origin,
-            ("KeySpec" Core..=) Prelude.<$> keySpec,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Policy" Core..=) Prelude.<$> policy,
+            ("CustomKeyStoreId" Core..=)
+              Prelude.<$> customKeyStoreId,
             ("CustomerMasterKeySpec" Core..=)
               Prelude.<$> customerMasterKeySpec,
             ("KeyUsage" Core..=) Prelude.<$> keyUsage,
+            ("Description" Core..=) Prelude.<$> description,
+            ("MultiRegion" Core..=) Prelude.<$> multiRegion,
+            ("KeySpec" Core..=) Prelude.<$> keySpec,
             ("BypassPolicyLockoutSafetyCheck" Core..=)
               Prelude.<$> bypassPolicyLockoutSafetyCheck,
-            ("Policy" Core..=) Prelude.<$> policy,
-            ("Description" Core..=) Prelude.<$> description,
-            ("CustomKeyStoreId" Core..=)
-              Prelude.<$> customKeyStoreId,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("MultiRegion" Core..=) Prelude.<$> multiRegion
+            ("Origin" Core..=) Prelude.<$> origin
           ]
       )
 

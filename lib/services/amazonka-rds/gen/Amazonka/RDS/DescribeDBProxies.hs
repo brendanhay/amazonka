@@ -29,8 +29,8 @@ module Amazonka.RDS.DescribeDBProxies
     newDescribeDBProxies,
 
     -- * Request Lenses
-    describeDBProxies_filters,
     describeDBProxies_marker,
+    describeDBProxies_filters,
     describeDBProxies_maxRecords,
     describeDBProxies_dbProxyName,
 
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDBProxies' smart constructor.
 data DescribeDBProxies = DescribeDBProxies'
-  { -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
+  { -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is not currently supported.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -84,11 +84,11 @@ data DescribeDBProxies = DescribeDBProxies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeDBProxies_filters' - This parameter is not currently supported.
---
 -- 'marker', 'describeDBProxies_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
+--
+-- 'filters', 'describeDBProxies_filters' - This parameter is not currently supported.
 --
 -- 'maxRecords', 'describeDBProxies_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -106,21 +106,21 @@ newDescribeDBProxies ::
   DescribeDBProxies
 newDescribeDBProxies =
   DescribeDBProxies'
-    { filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       dbProxyName = Prelude.Nothing
     }
-
--- | This parameter is not currently supported.
-describeDBProxies_filters :: Lens.Lens' DescribeDBProxies (Prelude.Maybe [Filter])
-describeDBProxies_filters = Lens.lens (\DescribeDBProxies' {filters} -> filters) (\s@DescribeDBProxies' {} a -> s {filters = a} :: DescribeDBProxies) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describeDBProxies_marker :: Lens.Lens' DescribeDBProxies (Prelude.Maybe Prelude.Text)
 describeDBProxies_marker = Lens.lens (\DescribeDBProxies' {marker} -> marker) (\s@DescribeDBProxies' {} a -> s {marker = a} :: DescribeDBProxies)
+
+-- | This parameter is not currently supported.
+describeDBProxies_filters :: Lens.Lens' DescribeDBProxies (Prelude.Maybe [Filter])
+describeDBProxies_filters = Lens.lens (\DescribeDBProxies' {filters} -> filters) (\s@DescribeDBProxies' {} a -> s {filters = a} :: DescribeDBProxies) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -179,15 +179,15 @@ instance Core.AWSRequest DescribeDBProxies where
 
 instance Prelude.Hashable DescribeDBProxies where
   hashWithSalt _salt DescribeDBProxies' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` dbProxyName
 
 instance Prelude.NFData DescribeDBProxies where
   rnf DescribeDBProxies' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbProxyName
 
@@ -204,10 +204,10 @@ instance Core.ToQuery DescribeDBProxies where
           Core.=: ("DescribeDBProxies" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Core.=: marker,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
         "DBProxyName" Core.=: dbProxyName
       ]

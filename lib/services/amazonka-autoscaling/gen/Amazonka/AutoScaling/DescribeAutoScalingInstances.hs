@@ -31,8 +31,8 @@ module Amazonka.AutoScaling.DescribeAutoScalingInstances
 
     -- * Request Lenses
     describeAutoScalingInstances_nextToken,
-    describeAutoScalingInstances_instanceIds,
     describeAutoScalingInstances_maxRecords,
+    describeAutoScalingInstances_instanceIds,
 
     -- * Destructuring the Response
     DescribeAutoScalingInstancesResponse (..),
@@ -57,15 +57,15 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call. The default value
+    -- is @50@ and the maximum value is @50@.
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The IDs of the instances. If you omit this parameter, all Auto Scaling
     -- instances are described. If you specify an ID that does not exist, it is
     -- ignored with no error.
     --
     -- Array Members: Maximum number of 50 items.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of items to return with this call. The default value
-    -- is @50@ and the maximum value is @50@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    instanceIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,28 +80,33 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
 -- 'nextToken', 'describeAutoScalingInstances_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
+-- 'maxRecords', 'describeAutoScalingInstances_maxRecords' - The maximum number of items to return with this call. The default value
+-- is @50@ and the maximum value is @50@.
+--
 -- 'instanceIds', 'describeAutoScalingInstances_instanceIds' - The IDs of the instances. If you omit this parameter, all Auto Scaling
 -- instances are described. If you specify an ID that does not exist, it is
 -- ignored with no error.
 --
 -- Array Members: Maximum number of 50 items.
---
--- 'maxRecords', 'describeAutoScalingInstances_maxRecords' - The maximum number of items to return with this call. The default value
--- is @50@ and the maximum value is @50@.
 newDescribeAutoScalingInstances ::
   DescribeAutoScalingInstances
 newDescribeAutoScalingInstances =
   DescribeAutoScalingInstances'
     { nextToken =
         Prelude.Nothing,
-      instanceIds = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      instanceIds = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 describeAutoScalingInstances_nextToken :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe Prelude.Text)
 describeAutoScalingInstances_nextToken = Lens.lens (\DescribeAutoScalingInstances' {nextToken} -> nextToken) (\s@DescribeAutoScalingInstances' {} a -> s {nextToken = a} :: DescribeAutoScalingInstances)
+
+-- | The maximum number of items to return with this call. The default value
+-- is @50@ and the maximum value is @50@.
+describeAutoScalingInstances_maxRecords :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe Prelude.Int)
+describeAutoScalingInstances_maxRecords = Lens.lens (\DescribeAutoScalingInstances' {maxRecords} -> maxRecords) (\s@DescribeAutoScalingInstances' {} a -> s {maxRecords = a} :: DescribeAutoScalingInstances)
 
 -- | The IDs of the instances. If you omit this parameter, all Auto Scaling
 -- instances are described. If you specify an ID that does not exist, it is
@@ -110,11 +115,6 @@ describeAutoScalingInstances_nextToken = Lens.lens (\DescribeAutoScalingInstance
 -- Array Members: Maximum number of 50 items.
 describeAutoScalingInstances_instanceIds :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe [Prelude.Text])
 describeAutoScalingInstances_instanceIds = Lens.lens (\DescribeAutoScalingInstances' {instanceIds} -> instanceIds) (\s@DescribeAutoScalingInstances' {} a -> s {instanceIds = a} :: DescribeAutoScalingInstances) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of items to return with this call. The default value
--- is @50@ and the maximum value is @50@.
-describeAutoScalingInstances_maxRecords :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe Prelude.Int)
-describeAutoScalingInstances_maxRecords = Lens.lens (\DescribeAutoScalingInstances' {maxRecords} -> maxRecords) (\s@DescribeAutoScalingInstances' {} a -> s {maxRecords = a} :: DescribeAutoScalingInstances)
 
 instance Core.AWSPager DescribeAutoScalingInstances where
   page rq rs
@@ -162,14 +162,14 @@ instance
   where
   hashWithSalt _salt DescribeAutoScalingInstances' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` instanceIds
 
 instance Prelude.NFData DescribeAutoScalingInstances where
   rnf DescribeAutoScalingInstances' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance Core.ToHeaders DescribeAutoScalingInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -187,10 +187,10 @@ instance Core.ToQuery DescribeAutoScalingInstances where
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
+        "MaxRecords" Core.=: maxRecords,
         "InstanceIds"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> instanceIds),
-        "MaxRecords" Core.=: maxRecords
+            (Core.toQueryList "member" Prelude.<$> instanceIds)
       ]
 
 -- | /See:/ 'newDescribeAutoScalingInstancesResponse' smart constructor.

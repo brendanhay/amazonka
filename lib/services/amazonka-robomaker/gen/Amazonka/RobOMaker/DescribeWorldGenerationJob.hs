@@ -34,17 +34,17 @@ module Amazonka.RobOMaker.DescribeWorldGenerationJob
     newDescribeWorldGenerationJobResponse,
 
     -- * Response Lenses
-    describeWorldGenerationJobResponse_failureReason,
-    describeWorldGenerationJobResponse_status,
-    describeWorldGenerationJobResponse_arn,
-    describeWorldGenerationJobResponse_createdAt,
-    describeWorldGenerationJobResponse_failureCode,
-    describeWorldGenerationJobResponse_worldCount,
-    describeWorldGenerationJobResponse_finishedWorldsSummary,
-    describeWorldGenerationJobResponse_template,
-    describeWorldGenerationJobResponse_worldTags,
-    describeWorldGenerationJobResponse_clientRequestToken,
     describeWorldGenerationJobResponse_tags,
+    describeWorldGenerationJobResponse_worldCount,
+    describeWorldGenerationJobResponse_worldTags,
+    describeWorldGenerationJobResponse_failureCode,
+    describeWorldGenerationJobResponse_clientRequestToken,
+    describeWorldGenerationJobResponse_arn,
+    describeWorldGenerationJobResponse_status,
+    describeWorldGenerationJobResponse_finishedWorldsSummary,
+    describeWorldGenerationJobResponse_createdAt,
+    describeWorldGenerationJobResponse_failureReason,
+    describeWorldGenerationJobResponse_template,
     describeWorldGenerationJobResponse_httpStatus,
   )
 where
@@ -92,17 +92,17 @@ instance Core.AWSRequest DescribeWorldGenerationJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorldGenerationJobResponse'
-            Prelude.<$> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "failureCode")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "worldCount")
-            Prelude.<*> (x Core..?> "finishedWorldsSummary")
-            Prelude.<*> (x Core..?> "template")
             Prelude.<*> (x Core..?> "worldTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failureCode")
             Prelude.<*> (x Core..?> "clientRequestToken")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "finishedWorldsSummary")
+            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<*> (x Core..?> "failureReason")
+            Prelude.<*> (x Core..?> "template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,8 +139,38 @@ instance Core.ToQuery DescribeWorldGenerationJob where
 
 -- | /See:/ 'newDescribeWorldGenerationJobResponse' smart constructor.
 data DescribeWorldGenerationJobResponse = DescribeWorldGenerationJobResponse'
-  { -- | The reason why the world generation job failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+  { -- | A map that contains tag keys and tag values that are attached to the
+    -- world generation job.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Information about the world count.
+    worldCount :: Prelude.Maybe WorldCount,
+    -- | A map that contains tag keys and tag values that are attached to the
+    -- generated worlds.
+    worldTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The failure code of the world generation job if it failed:
+    --
+    -- [InternalServiceError]
+    --     Internal service error.
+    --
+    -- [LimitExceeded]
+    --     The requested resource exceeds the maximum number allowed, or the
+    --     number of concurrent stream requests exceeds the maximum number
+    --     allowed.
+    --
+    -- [ResourceNotFound]
+    --     The specified resource could not be found.
+    --
+    -- [RequestThrottled]
+    --     The request was throttled.
+    --
+    -- [InvalidInput]
+    --     An input parameter in the request is not valid.
+    failureCode :: Prelude.Maybe WorldGenerationJobErrorCode,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the world generation job.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the world generation job:
     --
     -- [Pending]
@@ -165,45 +195,15 @@ data DescribeWorldGenerationJobResponse = DescribeWorldGenerationJobResponse'
     -- [Canceling]
     --     The world generation job is being cancelled.
     status :: Prelude.Maybe WorldGenerationJobStatus,
-    -- | The Amazon Resource Name (ARN) of the world generation job.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | Summary information about finished worlds.
+    finishedWorldsSummary :: Prelude.Maybe FinishedWorldsSummary,
     -- | The time, in milliseconds since the epoch, when the world generation job
     -- was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The failure code of the world generation job if it failed:
-    --
-    -- [InternalServiceError]
-    --     Internal service error.
-    --
-    -- [LimitExceeded]
-    --     The requested resource exceeds the maximum number allowed, or the
-    --     number of concurrent stream requests exceeds the maximum number
-    --     allowed.
-    --
-    -- [ResourceNotFound]
-    --     The specified resource could not be found.
-    --
-    -- [RequestThrottled]
-    --     The request was throttled.
-    --
-    -- [InvalidInput]
-    --     An input parameter in the request is not valid.
-    failureCode :: Prelude.Maybe WorldGenerationJobErrorCode,
-    -- | Information about the world count.
-    worldCount :: Prelude.Maybe WorldCount,
-    -- | Summary information about finished worlds.
-    finishedWorldsSummary :: Prelude.Maybe FinishedWorldsSummary,
+    -- | The reason why the world generation job failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (arn) of the world template.
     template :: Prelude.Maybe Prelude.Text,
-    -- | A map that contains tag keys and tag values that are attached to the
-    -- generated worlds.
-    worldTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | A map that contains tag keys and tag values that are attached to the
-    -- world generation job.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,7 +217,37 @@ data DescribeWorldGenerationJobResponse = DescribeWorldGenerationJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'describeWorldGenerationJobResponse_failureReason' - The reason why the world generation job failed.
+-- 'tags', 'describeWorldGenerationJobResponse_tags' - A map that contains tag keys and tag values that are attached to the
+-- world generation job.
+--
+-- 'worldCount', 'describeWorldGenerationJobResponse_worldCount' - Information about the world count.
+--
+-- 'worldTags', 'describeWorldGenerationJobResponse_worldTags' - A map that contains tag keys and tag values that are attached to the
+-- generated worlds.
+--
+-- 'failureCode', 'describeWorldGenerationJobResponse_failureCode' - The failure code of the world generation job if it failed:
+--
+-- [InternalServiceError]
+--     Internal service error.
+--
+-- [LimitExceeded]
+--     The requested resource exceeds the maximum number allowed, or the
+--     number of concurrent stream requests exceeds the maximum number
+--     allowed.
+--
+-- [ResourceNotFound]
+--     The specified resource could not be found.
+--
+-- [RequestThrottled]
+--     The request was throttled.
+--
+-- [InvalidInput]
+--     An input parameter in the request is not valid.
+--
+-- 'clientRequestToken', 'describeWorldGenerationJobResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+--
+-- 'arn', 'describeWorldGenerationJobResponse_arn' - The Amazon Resource Name (ARN) of the world generation job.
 --
 -- 'status', 'describeWorldGenerationJobResponse_status' - The status of the world generation job:
 --
@@ -243,12 +273,52 @@ data DescribeWorldGenerationJobResponse = DescribeWorldGenerationJobResponse'
 -- [Canceling]
 --     The world generation job is being cancelled.
 --
--- 'arn', 'describeWorldGenerationJobResponse_arn' - The Amazon Resource Name (ARN) of the world generation job.
+-- 'finishedWorldsSummary', 'describeWorldGenerationJobResponse_finishedWorldsSummary' - Summary information about finished worlds.
 --
 -- 'createdAt', 'describeWorldGenerationJobResponse_createdAt' - The time, in milliseconds since the epoch, when the world generation job
 -- was created.
 --
--- 'failureCode', 'describeWorldGenerationJobResponse_failureCode' - The failure code of the world generation job if it failed:
+-- 'failureReason', 'describeWorldGenerationJobResponse_failureReason' - The reason why the world generation job failed.
+--
+-- 'template', 'describeWorldGenerationJobResponse_template' - The Amazon Resource Name (arn) of the world template.
+--
+-- 'httpStatus', 'describeWorldGenerationJobResponse_httpStatus' - The response's http status code.
+newDescribeWorldGenerationJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeWorldGenerationJobResponse
+newDescribeWorldGenerationJobResponse pHttpStatus_ =
+  DescribeWorldGenerationJobResponse'
+    { tags =
+        Prelude.Nothing,
+      worldCount = Prelude.Nothing,
+      worldTags = Prelude.Nothing,
+      failureCode = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      finishedWorldsSummary = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      template = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A map that contains tag keys and tag values that are attached to the
+-- world generation job.
+describeWorldGenerationJobResponse_tags :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeWorldGenerationJobResponse_tags = Lens.lens (\DescribeWorldGenerationJobResponse' {tags} -> tags) (\s@DescribeWorldGenerationJobResponse' {} a -> s {tags = a} :: DescribeWorldGenerationJobResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the world count.
+describeWorldGenerationJobResponse_worldCount :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe WorldCount)
+describeWorldGenerationJobResponse_worldCount = Lens.lens (\DescribeWorldGenerationJobResponse' {worldCount} -> worldCount) (\s@DescribeWorldGenerationJobResponse' {} a -> s {worldCount = a} :: DescribeWorldGenerationJobResponse)
+
+-- | A map that contains tag keys and tag values that are attached to the
+-- generated worlds.
+describeWorldGenerationJobResponse_worldTags :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeWorldGenerationJobResponse_worldTags = Lens.lens (\DescribeWorldGenerationJobResponse' {worldTags} -> worldTags) (\s@DescribeWorldGenerationJobResponse' {} a -> s {worldTags = a} :: DescribeWorldGenerationJobResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The failure code of the world generation job if it failed:
 --
 -- [InternalServiceError]
 --     Internal service error.
@@ -266,47 +336,17 @@ data DescribeWorldGenerationJobResponse = DescribeWorldGenerationJobResponse'
 --
 -- [InvalidInput]
 --     An input parameter in the request is not valid.
---
--- 'worldCount', 'describeWorldGenerationJobResponse_worldCount' - Information about the world count.
---
--- 'finishedWorldsSummary', 'describeWorldGenerationJobResponse_finishedWorldsSummary' - Summary information about finished worlds.
---
--- 'template', 'describeWorldGenerationJobResponse_template' - The Amazon Resource Name (arn) of the world template.
---
--- 'worldTags', 'describeWorldGenerationJobResponse_worldTags' - A map that contains tag keys and tag values that are attached to the
--- generated worlds.
---
--- 'clientRequestToken', 'describeWorldGenerationJobResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
---
--- 'tags', 'describeWorldGenerationJobResponse_tags' - A map that contains tag keys and tag values that are attached to the
--- world generation job.
---
--- 'httpStatus', 'describeWorldGenerationJobResponse_httpStatus' - The response's http status code.
-newDescribeWorldGenerationJobResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  DescribeWorldGenerationJobResponse
-newDescribeWorldGenerationJobResponse pHttpStatus_ =
-  DescribeWorldGenerationJobResponse'
-    { failureReason =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      failureCode = Prelude.Nothing,
-      worldCount = Prelude.Nothing,
-      finishedWorldsSummary = Prelude.Nothing,
-      template = Prelude.Nothing,
-      worldTags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
+describeWorldGenerationJobResponse_failureCode :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe WorldGenerationJobErrorCode)
+describeWorldGenerationJobResponse_failureCode = Lens.lens (\DescribeWorldGenerationJobResponse' {failureCode} -> failureCode) (\s@DescribeWorldGenerationJobResponse' {} a -> s {failureCode = a} :: DescribeWorldGenerationJobResponse)
 
--- | The reason why the world generation job failed.
-describeWorldGenerationJobResponse_failureReason :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
-describeWorldGenerationJobResponse_failureReason = Lens.lens (\DescribeWorldGenerationJobResponse' {failureReason} -> failureReason) (\s@DescribeWorldGenerationJobResponse' {} a -> s {failureReason = a} :: DescribeWorldGenerationJobResponse)
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+describeWorldGenerationJobResponse_clientRequestToken :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
+describeWorldGenerationJobResponse_clientRequestToken = Lens.lens (\DescribeWorldGenerationJobResponse' {clientRequestToken} -> clientRequestToken) (\s@DescribeWorldGenerationJobResponse' {} a -> s {clientRequestToken = a} :: DescribeWorldGenerationJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the world generation job.
+describeWorldGenerationJobResponse_arn :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
+describeWorldGenerationJobResponse_arn = Lens.lens (\DescribeWorldGenerationJobResponse' {arn} -> arn) (\s@DescribeWorldGenerationJobResponse' {} a -> s {arn = a} :: DescribeWorldGenerationJobResponse)
 
 -- | The status of the world generation job:
 --
@@ -334,62 +374,22 @@ describeWorldGenerationJobResponse_failureReason = Lens.lens (\DescribeWorldGene
 describeWorldGenerationJobResponse_status :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe WorldGenerationJobStatus)
 describeWorldGenerationJobResponse_status = Lens.lens (\DescribeWorldGenerationJobResponse' {status} -> status) (\s@DescribeWorldGenerationJobResponse' {} a -> s {status = a} :: DescribeWorldGenerationJobResponse)
 
--- | The Amazon Resource Name (ARN) of the world generation job.
-describeWorldGenerationJobResponse_arn :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
-describeWorldGenerationJobResponse_arn = Lens.lens (\DescribeWorldGenerationJobResponse' {arn} -> arn) (\s@DescribeWorldGenerationJobResponse' {} a -> s {arn = a} :: DescribeWorldGenerationJobResponse)
+-- | Summary information about finished worlds.
+describeWorldGenerationJobResponse_finishedWorldsSummary :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe FinishedWorldsSummary)
+describeWorldGenerationJobResponse_finishedWorldsSummary = Lens.lens (\DescribeWorldGenerationJobResponse' {finishedWorldsSummary} -> finishedWorldsSummary) (\s@DescribeWorldGenerationJobResponse' {} a -> s {finishedWorldsSummary = a} :: DescribeWorldGenerationJobResponse)
 
 -- | The time, in milliseconds since the epoch, when the world generation job
 -- was created.
 describeWorldGenerationJobResponse_createdAt :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeWorldGenerationJobResponse_createdAt = Lens.lens (\DescribeWorldGenerationJobResponse' {createdAt} -> createdAt) (\s@DescribeWorldGenerationJobResponse' {} a -> s {createdAt = a} :: DescribeWorldGenerationJobResponse) Prelude.. Lens.mapping Core._Time
 
--- | The failure code of the world generation job if it failed:
---
--- [InternalServiceError]
---     Internal service error.
---
--- [LimitExceeded]
---     The requested resource exceeds the maximum number allowed, or the
---     number of concurrent stream requests exceeds the maximum number
---     allowed.
---
--- [ResourceNotFound]
---     The specified resource could not be found.
---
--- [RequestThrottled]
---     The request was throttled.
---
--- [InvalidInput]
---     An input parameter in the request is not valid.
-describeWorldGenerationJobResponse_failureCode :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe WorldGenerationJobErrorCode)
-describeWorldGenerationJobResponse_failureCode = Lens.lens (\DescribeWorldGenerationJobResponse' {failureCode} -> failureCode) (\s@DescribeWorldGenerationJobResponse' {} a -> s {failureCode = a} :: DescribeWorldGenerationJobResponse)
-
--- | Information about the world count.
-describeWorldGenerationJobResponse_worldCount :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe WorldCount)
-describeWorldGenerationJobResponse_worldCount = Lens.lens (\DescribeWorldGenerationJobResponse' {worldCount} -> worldCount) (\s@DescribeWorldGenerationJobResponse' {} a -> s {worldCount = a} :: DescribeWorldGenerationJobResponse)
-
--- | Summary information about finished worlds.
-describeWorldGenerationJobResponse_finishedWorldsSummary :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe FinishedWorldsSummary)
-describeWorldGenerationJobResponse_finishedWorldsSummary = Lens.lens (\DescribeWorldGenerationJobResponse' {finishedWorldsSummary} -> finishedWorldsSummary) (\s@DescribeWorldGenerationJobResponse' {} a -> s {finishedWorldsSummary = a} :: DescribeWorldGenerationJobResponse)
+-- | The reason why the world generation job failed.
+describeWorldGenerationJobResponse_failureReason :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
+describeWorldGenerationJobResponse_failureReason = Lens.lens (\DescribeWorldGenerationJobResponse' {failureReason} -> failureReason) (\s@DescribeWorldGenerationJobResponse' {} a -> s {failureReason = a} :: DescribeWorldGenerationJobResponse)
 
 -- | The Amazon Resource Name (arn) of the world template.
 describeWorldGenerationJobResponse_template :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
 describeWorldGenerationJobResponse_template = Lens.lens (\DescribeWorldGenerationJobResponse' {template} -> template) (\s@DescribeWorldGenerationJobResponse' {} a -> s {template = a} :: DescribeWorldGenerationJobResponse)
-
--- | A map that contains tag keys and tag values that are attached to the
--- generated worlds.
-describeWorldGenerationJobResponse_worldTags :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeWorldGenerationJobResponse_worldTags = Lens.lens (\DescribeWorldGenerationJobResponse' {worldTags} -> worldTags) (\s@DescribeWorldGenerationJobResponse' {} a -> s {worldTags = a} :: DescribeWorldGenerationJobResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-describeWorldGenerationJobResponse_clientRequestToken :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
-describeWorldGenerationJobResponse_clientRequestToken = Lens.lens (\DescribeWorldGenerationJobResponse' {clientRequestToken} -> clientRequestToken) (\s@DescribeWorldGenerationJobResponse' {} a -> s {clientRequestToken = a} :: DescribeWorldGenerationJobResponse)
-
--- | A map that contains tag keys and tag values that are attached to the
--- world generation job.
-describeWorldGenerationJobResponse_tags :: Lens.Lens' DescribeWorldGenerationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeWorldGenerationJobResponse_tags = Lens.lens (\DescribeWorldGenerationJobResponse' {tags} -> tags) (\s@DescribeWorldGenerationJobResponse' {} a -> s {tags = a} :: DescribeWorldGenerationJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeWorldGenerationJobResponse_httpStatus :: Lens.Lens' DescribeWorldGenerationJobResponse Prelude.Int
@@ -400,15 +400,15 @@ instance
     DescribeWorldGenerationJobResponse
   where
   rnf DescribeWorldGenerationJobResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf failureCode
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf worldCount
-      `Prelude.seq` Prelude.rnf finishedWorldsSummary
-      `Prelude.seq` Prelude.rnf template
       `Prelude.seq` Prelude.rnf worldTags
+      `Prelude.seq` Prelude.rnf failureCode
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf finishedWorldsSummary
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf template
       `Prelude.seq` Prelude.rnf httpStatus

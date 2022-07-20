@@ -50,8 +50,8 @@ module Amazonka.EC2.DescribeReservedInstancesListings
     newDescribeReservedInstancesListings,
 
     -- * Request Lenses
-    describeReservedInstancesListings_filters,
     describeReservedInstancesListings_reservedInstancesId,
+    describeReservedInstancesListings_filters,
     describeReservedInstancesListings_reservedInstancesListingId,
 
     -- * Destructuring the Response
@@ -75,7 +75,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReservedInstancesListings' smart constructor.
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
-  { -- | One or more filters.
+  { -- | One or more Reserved Instance IDs.
+    reservedInstancesId :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @reserved-instances-id@ - The ID of the Reserved Instances.
     --
@@ -87,8 +89,6 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
     --
     -- -   @status-message@ - The reason for the status.
     filters :: Prelude.Maybe [Filter],
-    -- | One or more Reserved Instance IDs.
-    reservedInstancesId :: Prelude.Maybe Prelude.Text,
     -- | One or more Reserved Instance listing IDs.
     reservedInstancesListingId :: Prelude.Maybe Prelude.Text
   }
@@ -102,6 +102,8 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reservedInstancesId', 'describeReservedInstancesListings_reservedInstancesId' - One or more Reserved Instance IDs.
+--
 -- 'filters', 'describeReservedInstancesListings_filters' - One or more filters.
 --
 -- -   @reserved-instances-id@ - The ID of the Reserved Instances.
@@ -114,19 +116,21 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
 --
 -- -   @status-message@ - The reason for the status.
 --
--- 'reservedInstancesId', 'describeReservedInstancesListings_reservedInstancesId' - One or more Reserved Instance IDs.
---
 -- 'reservedInstancesListingId', 'describeReservedInstancesListings_reservedInstancesListingId' - One or more Reserved Instance listing IDs.
 newDescribeReservedInstancesListings ::
   DescribeReservedInstancesListings
 newDescribeReservedInstancesListings =
   DescribeReservedInstancesListings'
-    { filters =
+    { reservedInstancesId =
         Prelude.Nothing,
-      reservedInstancesId = Prelude.Nothing,
+      filters = Prelude.Nothing,
       reservedInstancesListingId =
         Prelude.Nothing
     }
+
+-- | One or more Reserved Instance IDs.
+describeReservedInstancesListings_reservedInstancesId :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe Prelude.Text)
+describeReservedInstancesListings_reservedInstancesId = Lens.lens (\DescribeReservedInstancesListings' {reservedInstancesId} -> reservedInstancesId) (\s@DescribeReservedInstancesListings' {} a -> s {reservedInstancesId = a} :: DescribeReservedInstancesListings)
 
 -- | One or more filters.
 --
@@ -141,10 +145,6 @@ newDescribeReservedInstancesListings =
 -- -   @status-message@ - The reason for the status.
 describeReservedInstancesListings_filters :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe [Filter])
 describeReservedInstancesListings_filters = Lens.lens (\DescribeReservedInstancesListings' {filters} -> filters) (\s@DescribeReservedInstancesListings' {} a -> s {filters = a} :: DescribeReservedInstancesListings) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more Reserved Instance IDs.
-describeReservedInstancesListings_reservedInstancesId :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe Prelude.Text)
-describeReservedInstancesListings_reservedInstancesId = Lens.lens (\DescribeReservedInstancesListings' {reservedInstancesId} -> reservedInstancesId) (\s@DescribeReservedInstancesListings' {} a -> s {reservedInstancesId = a} :: DescribeReservedInstancesListings)
 
 -- | One or more Reserved Instance listing IDs.
 describeReservedInstancesListings_reservedInstancesListingId :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe Prelude.Text)
@@ -176,8 +176,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedInstancesListings' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` reservedInstancesId
+      _salt `Prelude.hashWithSalt` reservedInstancesId
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` reservedInstancesListingId
 
 instance
@@ -185,8 +185,8 @@ instance
     DescribeReservedInstancesListings
   where
   rnf DescribeReservedInstancesListings' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf reservedInstancesId
+    Prelude.rnf reservedInstancesId
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf reservedInstancesListingId
 
 instance
@@ -213,9 +213,9 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ReservedInstancesId" Core.=: reservedInstancesId,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "ReservedInstancesId" Core.=: reservedInstancesId,
         "ReservedInstancesListingId"
           Core.=: reservedInstancesListingId
       ]

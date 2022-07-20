@@ -29,9 +29,9 @@ module Amazonka.Glue.UpdateClassifier
     newUpdateClassifier,
 
     -- * Request Lenses
-    updateClassifier_grokClassifier,
-    updateClassifier_xMLClassifier,
     updateClassifier_csvClassifier,
+    updateClassifier_xMLClassifier,
+    updateClassifier_grokClassifier,
     updateClassifier_jsonClassifier,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateClassifier' smart constructor.
 data UpdateClassifier = UpdateClassifier'
-  { -- | A @GrokClassifier@ object with updated fields.
-    grokClassifier :: Prelude.Maybe UpdateGrokClassifierRequest,
+  { -- | A @CsvClassifier@ object with updated fields.
+    csvClassifier :: Prelude.Maybe UpdateCsvClassifierRequest,
     -- | An @XMLClassifier@ object with updated fields.
     xMLClassifier :: Prelude.Maybe UpdateXMLClassifierRequest,
-    -- | A @CsvClassifier@ object with updated fields.
-    csvClassifier :: Prelude.Maybe UpdateCsvClassifierRequest,
+    -- | A @GrokClassifier@ object with updated fields.
+    grokClassifier :: Prelude.Maybe UpdateGrokClassifierRequest,
     -- | A @JsonClassifier@ object with updated fields.
     jsonClassifier :: Prelude.Maybe UpdateJsonClassifierRequest
   }
@@ -71,34 +71,34 @@ data UpdateClassifier = UpdateClassifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grokClassifier', 'updateClassifier_grokClassifier' - A @GrokClassifier@ object with updated fields.
+-- 'csvClassifier', 'updateClassifier_csvClassifier' - A @CsvClassifier@ object with updated fields.
 --
 -- 'xMLClassifier', 'updateClassifier_xMLClassifier' - An @XMLClassifier@ object with updated fields.
 --
--- 'csvClassifier', 'updateClassifier_csvClassifier' - A @CsvClassifier@ object with updated fields.
+-- 'grokClassifier', 'updateClassifier_grokClassifier' - A @GrokClassifier@ object with updated fields.
 --
 -- 'jsonClassifier', 'updateClassifier_jsonClassifier' - A @JsonClassifier@ object with updated fields.
 newUpdateClassifier ::
   UpdateClassifier
 newUpdateClassifier =
   UpdateClassifier'
-    { grokClassifier = Prelude.Nothing,
+    { csvClassifier = Prelude.Nothing,
       xMLClassifier = Prelude.Nothing,
-      csvClassifier = Prelude.Nothing,
+      grokClassifier = Prelude.Nothing,
       jsonClassifier = Prelude.Nothing
     }
 
--- | A @GrokClassifier@ object with updated fields.
-updateClassifier_grokClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateGrokClassifierRequest)
-updateClassifier_grokClassifier = Lens.lens (\UpdateClassifier' {grokClassifier} -> grokClassifier) (\s@UpdateClassifier' {} a -> s {grokClassifier = a} :: UpdateClassifier)
+-- | A @CsvClassifier@ object with updated fields.
+updateClassifier_csvClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateCsvClassifierRequest)
+updateClassifier_csvClassifier = Lens.lens (\UpdateClassifier' {csvClassifier} -> csvClassifier) (\s@UpdateClassifier' {} a -> s {csvClassifier = a} :: UpdateClassifier)
 
 -- | An @XMLClassifier@ object with updated fields.
 updateClassifier_xMLClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateXMLClassifierRequest)
 updateClassifier_xMLClassifier = Lens.lens (\UpdateClassifier' {xMLClassifier} -> xMLClassifier) (\s@UpdateClassifier' {} a -> s {xMLClassifier = a} :: UpdateClassifier)
 
--- | A @CsvClassifier@ object with updated fields.
-updateClassifier_csvClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateCsvClassifierRequest)
-updateClassifier_csvClassifier = Lens.lens (\UpdateClassifier' {csvClassifier} -> csvClassifier) (\s@UpdateClassifier' {} a -> s {csvClassifier = a} :: UpdateClassifier)
+-- | A @GrokClassifier@ object with updated fields.
+updateClassifier_grokClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateGrokClassifierRequest)
+updateClassifier_grokClassifier = Lens.lens (\UpdateClassifier' {grokClassifier} -> grokClassifier) (\s@UpdateClassifier' {} a -> s {grokClassifier = a} :: UpdateClassifier)
 
 -- | A @JsonClassifier@ object with updated fields.
 updateClassifier_jsonClassifier :: Lens.Lens' UpdateClassifier (Prelude.Maybe UpdateJsonClassifierRequest)
@@ -118,16 +118,16 @@ instance Core.AWSRequest UpdateClassifier where
 
 instance Prelude.Hashable UpdateClassifier where
   hashWithSalt _salt UpdateClassifier' {..} =
-    _salt `Prelude.hashWithSalt` grokClassifier
+    _salt `Prelude.hashWithSalt` csvClassifier
       `Prelude.hashWithSalt` xMLClassifier
-      `Prelude.hashWithSalt` csvClassifier
+      `Prelude.hashWithSalt` grokClassifier
       `Prelude.hashWithSalt` jsonClassifier
 
 instance Prelude.NFData UpdateClassifier where
   rnf UpdateClassifier' {..} =
-    Prelude.rnf grokClassifier
+    Prelude.rnf csvClassifier
       `Prelude.seq` Prelude.rnf xMLClassifier
-      `Prelude.seq` Prelude.rnf csvClassifier
+      `Prelude.seq` Prelude.rnf grokClassifier
       `Prelude.seq` Prelude.rnf jsonClassifier
 
 instance Core.ToHeaders UpdateClassifier where
@@ -147,10 +147,10 @@ instance Core.ToJSON UpdateClassifier where
   toJSON UpdateClassifier' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrokClassifier" Core..=)
-              Prelude.<$> grokClassifier,
+          [ ("CsvClassifier" Core..=) Prelude.<$> csvClassifier,
             ("XMLClassifier" Core..=) Prelude.<$> xMLClassifier,
-            ("CsvClassifier" Core..=) Prelude.<$> csvClassifier,
+            ("GrokClassifier" Core..=)
+              Prelude.<$> grokClassifier,
             ("JsonClassifier" Core..=)
               Prelude.<$> jsonClassifier
           ]

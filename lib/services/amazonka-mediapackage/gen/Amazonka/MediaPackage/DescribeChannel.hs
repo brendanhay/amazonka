@@ -34,13 +34,13 @@ module Amazonka.MediaPackage.DescribeChannel
     newDescribeChannelResponse,
 
     -- * Response Lenses
+    describeChannelResponse_tags,
     describeChannelResponse_ingressAccessLogs,
-    describeChannelResponse_hlsIngest,
     describeChannelResponse_arn,
     describeChannelResponse_id,
     describeChannelResponse_description,
     describeChannelResponse_egressAccessLogs,
-    describeChannelResponse_tags,
+    describeChannelResponse_hlsIngest,
     describeChannelResponse_httpStatus,
   )
 where
@@ -87,13 +87,13 @@ instance Core.AWSRequest DescribeChannel where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelResponse'
-            Prelude.<$> (x Core..?> "ingressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ingressAccessLogs")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,8 +124,8 @@ instance Core.ToQuery DescribeChannel where
 
 -- | /See:/ 'newDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
-    hlsIngest :: Prelude.Maybe HlsIngest,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
@@ -133,7 +133,7 @@ data DescribeChannelResponse = DescribeChannelResponse'
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,9 +147,9 @@ data DescribeChannelResponse = DescribeChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ingressAccessLogs', 'describeChannelResponse_ingressAccessLogs' - Undocumented member.
+-- 'tags', 'describeChannelResponse_tags' - Undocumented member.
 --
--- 'hlsIngest', 'describeChannelResponse_hlsIngest' - Undocumented member.
+-- 'ingressAccessLogs', 'describeChannelResponse_ingressAccessLogs' - Undocumented member.
 --
 -- 'arn', 'describeChannelResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
@@ -159,7 +159,7 @@ data DescribeChannelResponse = DescribeChannelResponse'
 --
 -- 'egressAccessLogs', 'describeChannelResponse_egressAccessLogs' - Undocumented member.
 --
--- 'tags', 'describeChannelResponse_tags' - Undocumented member.
+-- 'hlsIngest', 'describeChannelResponse_hlsIngest' - Undocumented member.
 --
 -- 'httpStatus', 'describeChannelResponse_httpStatus' - The response's http status code.
 newDescribeChannelResponse ::
@@ -168,24 +168,23 @@ newDescribeChannelResponse ::
   DescribeChannelResponse
 newDescribeChannelResponse pHttpStatus_ =
   DescribeChannelResponse'
-    { ingressAccessLogs =
-        Prelude.Nothing,
-      hlsIngest = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      ingressAccessLogs = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      hlsIngest = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeChannelResponse_ingressAccessLogs :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe IngressAccessLogs)
-describeChannelResponse_ingressAccessLogs = Lens.lens (\DescribeChannelResponse' {ingressAccessLogs} -> ingressAccessLogs) (\s@DescribeChannelResponse' {} a -> s {ingressAccessLogs = a} :: DescribeChannelResponse)
+describeChannelResponse_tags :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> tags) (\s@DescribeChannelResponse' {} a -> s {tags = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-describeChannelResponse_hlsIngest :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe HlsIngest)
-describeChannelResponse_hlsIngest = Lens.lens (\DescribeChannelResponse' {hlsIngest} -> hlsIngest) (\s@DescribeChannelResponse' {} a -> s {hlsIngest = a} :: DescribeChannelResponse)
+describeChannelResponse_ingressAccessLogs :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe IngressAccessLogs)
+describeChannelResponse_ingressAccessLogs = Lens.lens (\DescribeChannelResponse' {ingressAccessLogs} -> ingressAccessLogs) (\s@DescribeChannelResponse' {} a -> s {ingressAccessLogs = a} :: DescribeChannelResponse)
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 describeChannelResponse_arn :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
@@ -204,8 +203,8 @@ describeChannelResponse_egressAccessLogs :: Lens.Lens' DescribeChannelResponse (
 describeChannelResponse_egressAccessLogs = Lens.lens (\DescribeChannelResponse' {egressAccessLogs} -> egressAccessLogs) (\s@DescribeChannelResponse' {} a -> s {egressAccessLogs = a} :: DescribeChannelResponse)
 
 -- | Undocumented member.
-describeChannelResponse_tags :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeChannelResponse_tags = Lens.lens (\DescribeChannelResponse' {tags} -> tags) (\s@DescribeChannelResponse' {} a -> s {tags = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Lens.coerced
+describeChannelResponse_hlsIngest :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe HlsIngest)
+describeChannelResponse_hlsIngest = Lens.lens (\DescribeChannelResponse' {hlsIngest} -> hlsIngest) (\s@DescribeChannelResponse' {} a -> s {hlsIngest = a} :: DescribeChannelResponse)
 
 -- | The response's http status code.
 describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int
@@ -213,11 +212,11 @@ describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpS
 
 instance Prelude.NFData DescribeChannelResponse where
   rnf DescribeChannelResponse' {..} =
-    Prelude.rnf ingressAccessLogs
-      `Prelude.seq` Prelude.rnf hlsIngest
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ingressAccessLogs
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hlsIngest
       `Prelude.seq` Prelude.rnf httpStatus

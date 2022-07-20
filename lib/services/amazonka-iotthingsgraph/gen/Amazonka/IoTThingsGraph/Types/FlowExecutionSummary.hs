@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFlowExecutionSummary' smart constructor.
 data FlowExecutionSummary = FlowExecutionSummary'
-  { -- | The current status of the flow execution.
-    status :: Prelude.Maybe FlowExecutionStatus,
-    -- | The ID of the flow.
+  { -- | The ID of the flow.
     flowTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the flow execution summary was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the flow execution.
-    flowExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the system instance that contains the flow.
     systemInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the flow execution.
+    status :: Prelude.Maybe FlowExecutionStatus,
+    -- | The ID of the flow execution.
+    flowExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the flow execution summary was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The date and time when the flow execution summary was last updated.
     updatedAt :: Prelude.Maybe Core.POSIX
   }
@@ -51,48 +51,49 @@ data FlowExecutionSummary = FlowExecutionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'flowExecutionSummary_status' - The current status of the flow execution.
---
 -- 'flowTemplateId', 'flowExecutionSummary_flowTemplateId' - The ID of the flow.
 --
--- 'createdAt', 'flowExecutionSummary_createdAt' - The date and time when the flow execution summary was created.
+-- 'systemInstanceId', 'flowExecutionSummary_systemInstanceId' - The ID of the system instance that contains the flow.
+--
+-- 'status', 'flowExecutionSummary_status' - The current status of the flow execution.
 --
 -- 'flowExecutionId', 'flowExecutionSummary_flowExecutionId' - The ID of the flow execution.
 --
--- 'systemInstanceId', 'flowExecutionSummary_systemInstanceId' - The ID of the system instance that contains the flow.
+-- 'createdAt', 'flowExecutionSummary_createdAt' - The date and time when the flow execution summary was created.
 --
 -- 'updatedAt', 'flowExecutionSummary_updatedAt' - The date and time when the flow execution summary was last updated.
 newFlowExecutionSummary ::
   FlowExecutionSummary
 newFlowExecutionSummary =
   FlowExecutionSummary'
-    { status = Prelude.Nothing,
-      flowTemplateId = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      flowExecutionId = Prelude.Nothing,
+    { flowTemplateId =
+        Prelude.Nothing,
       systemInstanceId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      flowExecutionId = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
-
--- | The current status of the flow execution.
-flowExecutionSummary_status :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe FlowExecutionStatus)
-flowExecutionSummary_status = Lens.lens (\FlowExecutionSummary' {status} -> status) (\s@FlowExecutionSummary' {} a -> s {status = a} :: FlowExecutionSummary)
 
 -- | The ID of the flow.
 flowExecutionSummary_flowTemplateId :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe Prelude.Text)
 flowExecutionSummary_flowTemplateId = Lens.lens (\FlowExecutionSummary' {flowTemplateId} -> flowTemplateId) (\s@FlowExecutionSummary' {} a -> s {flowTemplateId = a} :: FlowExecutionSummary)
 
--- | The date and time when the flow execution summary was created.
-flowExecutionSummary_createdAt :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-flowExecutionSummary_createdAt = Lens.lens (\FlowExecutionSummary' {createdAt} -> createdAt) (\s@FlowExecutionSummary' {} a -> s {createdAt = a} :: FlowExecutionSummary) Prelude.. Lens.mapping Core._Time
+-- | The ID of the system instance that contains the flow.
+flowExecutionSummary_systemInstanceId :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe Prelude.Text)
+flowExecutionSummary_systemInstanceId = Lens.lens (\FlowExecutionSummary' {systemInstanceId} -> systemInstanceId) (\s@FlowExecutionSummary' {} a -> s {systemInstanceId = a} :: FlowExecutionSummary)
+
+-- | The current status of the flow execution.
+flowExecutionSummary_status :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe FlowExecutionStatus)
+flowExecutionSummary_status = Lens.lens (\FlowExecutionSummary' {status} -> status) (\s@FlowExecutionSummary' {} a -> s {status = a} :: FlowExecutionSummary)
 
 -- | The ID of the flow execution.
 flowExecutionSummary_flowExecutionId :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe Prelude.Text)
 flowExecutionSummary_flowExecutionId = Lens.lens (\FlowExecutionSummary' {flowExecutionId} -> flowExecutionId) (\s@FlowExecutionSummary' {} a -> s {flowExecutionId = a} :: FlowExecutionSummary)
 
--- | The ID of the system instance that contains the flow.
-flowExecutionSummary_systemInstanceId :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe Prelude.Text)
-flowExecutionSummary_systemInstanceId = Lens.lens (\FlowExecutionSummary' {systemInstanceId} -> systemInstanceId) (\s@FlowExecutionSummary' {} a -> s {systemInstanceId = a} :: FlowExecutionSummary)
+-- | The date and time when the flow execution summary was created.
+flowExecutionSummary_createdAt :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+flowExecutionSummary_createdAt = Lens.lens (\FlowExecutionSummary' {createdAt} -> createdAt) (\s@FlowExecutionSummary' {} a -> s {createdAt = a} :: FlowExecutionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time when the flow execution summary was last updated.
 flowExecutionSummary_updatedAt :: Lens.Lens' FlowExecutionSummary (Prelude.Maybe Prelude.UTCTime)
@@ -104,28 +105,28 @@ instance Core.FromJSON FlowExecutionSummary where
       "FlowExecutionSummary"
       ( \x ->
           FlowExecutionSummary'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "flowTemplateId")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "flowExecutionId")
+            Prelude.<$> (x Core..:? "flowTemplateId")
             Prelude.<*> (x Core..:? "systemInstanceId")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "flowExecutionId")
+            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "updatedAt")
       )
 
 instance Prelude.Hashable FlowExecutionSummary where
   hashWithSalt _salt FlowExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` flowTemplateId
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` flowExecutionId
+    _salt `Prelude.hashWithSalt` flowTemplateId
       `Prelude.hashWithSalt` systemInstanceId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` flowExecutionId
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData FlowExecutionSummary where
   rnf FlowExecutionSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf flowTemplateId
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf flowExecutionId
+    Prelude.rnf flowTemplateId
       `Prelude.seq` Prelude.rnf systemInstanceId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf flowExecutionId
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt

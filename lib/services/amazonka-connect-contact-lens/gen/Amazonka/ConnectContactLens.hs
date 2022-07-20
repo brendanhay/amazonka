@@ -31,8 +31,8 @@ module Amazonka.ConnectContactLens
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -40,8 +40,8 @@ module Amazonka.ConnectContactLens
     -- ** InternalServiceException
     _InternalServiceException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters

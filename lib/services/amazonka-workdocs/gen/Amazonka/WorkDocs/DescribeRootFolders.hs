@@ -47,8 +47,8 @@ module Amazonka.WorkDocs.DescribeRootFolders
     newDescribeRootFoldersResponse,
 
     -- * Response Lenses
-    describeRootFoldersResponse_folders,
     describeRootFoldersResponse_marker,
+    describeRootFoldersResponse_folders,
     describeRootFoldersResponse_httpStatus,
   )
 where
@@ -142,8 +142,8 @@ instance Core.AWSRequest DescribeRootFolders where
     Response.receiveJSON
       ( \s h x ->
           DescribeRootFoldersResponse'
-            Prelude.<$> (x Core..?> "Folders" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Folders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,10 +177,10 @@ instance Core.ToQuery DescribeRootFolders where
 
 -- | /See:/ 'newDescribeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
-  { -- | The user\'s special folders.
-    folders :: Prelude.Maybe [FolderMetadata],
-    -- | The marker for the next set of results.
+  { -- | The marker for the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The user\'s special folders.
+    folders :: Prelude.Maybe [FolderMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,9 +194,9 @@ data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'folders', 'describeRootFoldersResponse_folders' - The user\'s special folders.
---
 -- 'marker', 'describeRootFoldersResponse_marker' - The marker for the next set of results.
+--
+-- 'folders', 'describeRootFoldersResponse_folders' - The user\'s special folders.
 --
 -- 'httpStatus', 'describeRootFoldersResponse_httpStatus' - The response's http status code.
 newDescribeRootFoldersResponse ::
@@ -205,19 +205,19 @@ newDescribeRootFoldersResponse ::
   DescribeRootFoldersResponse
 newDescribeRootFoldersResponse pHttpStatus_ =
   DescribeRootFoldersResponse'
-    { folders =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      folders = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The user\'s special folders.
-describeRootFoldersResponse_folders :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe [FolderMetadata])
-describeRootFoldersResponse_folders = Lens.lens (\DescribeRootFoldersResponse' {folders} -> folders) (\s@DescribeRootFoldersResponse' {} a -> s {folders = a} :: DescribeRootFoldersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker for the next set of results.
 describeRootFoldersResponse_marker :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe Prelude.Text)
 describeRootFoldersResponse_marker = Lens.lens (\DescribeRootFoldersResponse' {marker} -> marker) (\s@DescribeRootFoldersResponse' {} a -> s {marker = a} :: DescribeRootFoldersResponse)
+
+-- | The user\'s special folders.
+describeRootFoldersResponse_folders :: Lens.Lens' DescribeRootFoldersResponse (Prelude.Maybe [FolderMetadata])
+describeRootFoldersResponse_folders = Lens.lens (\DescribeRootFoldersResponse' {folders} -> folders) (\s@DescribeRootFoldersResponse' {} a -> s {folders = a} :: DescribeRootFoldersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRootFoldersResponse_httpStatus :: Lens.Lens' DescribeRootFoldersResponse Prelude.Int
@@ -225,6 +225,6 @@ describeRootFoldersResponse_httpStatus = Lens.lens (\DescribeRootFoldersResponse
 
 instance Prelude.NFData DescribeRootFoldersResponse where
   rnf DescribeRootFoldersResponse' {..} =
-    Prelude.rnf folders
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf folders
       `Prelude.seq` Prelude.rnf httpStatus

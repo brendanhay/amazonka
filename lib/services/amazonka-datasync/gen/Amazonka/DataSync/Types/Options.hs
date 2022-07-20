@@ -51,24 +51,99 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOptions' smart constructor.
 data Options = Options'
-  { -- | A file metadata value that shows the last time a file was accessed (that
-    -- is, when the file was read or written to). If you set @Atime@ to
-    -- BEST_EFFORT, DataSync attempts to preserve the original @Atime@
-    -- attribute on all source files (that is, the version before the PREPARING
-    -- phase). However, @Atime@\'s behavior is not fully standard across
-    -- platforms, so DataSync can only do this on a best-effort basis.
+  { -- | The POSIX group ID (GID) of the file\'s owners. This option should only
+    -- be set for NFS, EFS, and S3 locations. For more information about what
+    -- metadata is copied by DataSync, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
     --
-    -- Default value: BEST_EFFORT.
+    -- Default value: INT_VALUE. This preserves the integer value of the ID.
     --
-    -- BEST_EFFORT: Attempt to preserve the per-file @Atime@ value
+    -- INT_VALUE: Preserve the integer value of user ID (UID) and GID
     -- (recommended).
     --
-    -- NONE: Ignore @Atime@.
+    -- NONE: Ignore UID and GID.
+    gid :: Prelude.Maybe Gid,
+    -- | A value that determines the type of logs that DataSync publishes to a
+    -- log stream in the Amazon CloudWatch log group that you provide. For more
+    -- information about providing a log group for DataSync, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn CloudWatchLogGroupArn>.
+    -- If set to @OFF@, no logs are published. @BASIC@ publishes logs on errors
+    -- for individual files transferred, and @TRANSFER@ publishes logs for
+    -- every file or object that is transferred and integrity checked.
+    logLevel :: Prelude.Maybe LogLevel,
+    -- | A value that determines whether tasks should be queued before executing
+    -- the tasks. If set to @ENABLED@, the tasks will be queued. The default is
+    -- @ENABLED@.
     --
-    -- If @Atime@ is set to BEST_EFFORT, @Mtime@ must be set to PRESERVE.
+    -- If you use the same agent to run multiple tasks, you can enable the
+    -- tasks to run in series. For more information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution Queueing task executions>.
+    taskQueueing :: Prelude.Maybe TaskQueueing,
+    -- | A value that determines whether DataSync should preserve the metadata of
+    -- block and character devices in the source file system, and re-create the
+    -- files with that device name and metadata on the destination. DataSync
+    -- does not copy the contents of such devices, only the name and metadata.
     --
-    -- If @Atime@ is set to NONE, @Mtime@ must also be NONE.
-    atime :: Prelude.Maybe Atime,
+    -- DataSync can\'t sync the actual contents of such devices, because they
+    -- are nonterminal and don\'t return an end-of-file (EOF) marker.
+    --
+    -- Default value: NONE.
+    --
+    -- NONE: Ignore special devices (recommended).
+    --
+    -- PRESERVE: Preserve character and block device metadata. This option
+    -- isn\'t currently supported for Amazon EFS.
+    preserveDevices :: Prelude.Maybe PreserveDevices,
+    -- | A value that determines whether files at the destination should be
+    -- overwritten or preserved when copying files. If set to @NEVER@ a
+    -- destination file will not be replaced by a source file, even if the
+    -- destination file differs from the source file. If you modify files in
+    -- the destination and you sync the files, you can use this value to
+    -- protect against overwriting those changes.
+    --
+    -- Some storage classes have specific behaviors that can affect your S3
+    -- storage cost. For detailed information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
+    -- in the /DataSync User Guide/.
+    overwriteMode :: Prelude.Maybe OverwriteMode,
+    -- | A value that indicates the last time that a file was modified (that is,
+    -- a file was written to) before the PREPARING phase. This option is
+    -- required for cases when you need to run the same task more than one
+    -- time.
+    --
+    -- Default value: PRESERVE.
+    --
+    -- PRESERVE: Preserve original @Mtime@ (recommended)
+    --
+    -- NONE: Ignore @Mtime@.
+    --
+    -- If @Mtime@ is set to PRESERVE, @Atime@ must be set to BEST_EFFORT.
+    --
+    -- If @Mtime@ is set to NONE, @Atime@ must also be set to NONE.
+    mtime :: Prelude.Maybe Mtime,
+    -- | A value that determines whether DataSync transfers only the data and
+    -- metadata that differ between the source and the destination location, or
+    -- whether DataSync transfers all the content from the source, without
+    -- comparing to the destination location.
+    --
+    -- CHANGED: DataSync copies only data or metadata that is new or different
+    -- content from the source location to the destination location.
+    --
+    -- ALL: DataSync copies all source location content to the destination,
+    -- without comparing to existing content on the destination.
+    transferMode :: Prelude.Maybe TransferMode,
+    -- | The POSIX user ID (UID) of the file\'s owner. This option should only be
+    -- set for NFS, EFS, and S3 locations. To learn more about what metadata is
+    -- copied by DataSync, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
+    --
+    -- Default value: INT_VALUE. This preserves the integer value of the ID.
+    --
+    -- INT_VALUE: Preserve the integer value of UID and group ID (GID)
+    -- (recommended).
+    --
+    -- NONE: Ignore UID and GID.
+    uid :: Prelude.Maybe Uid,
     -- | A value that determines whether a data integrity verification should be
     -- performed at the end of a task execution after all data and metadata
     -- have been transferred. For more information, see
@@ -88,22 +163,38 @@ data Options = Options'
     -- all data transmissions are integrity-checked with checksum verification
     -- during the transfer.
     verifyMode :: Prelude.Maybe VerifyMode,
-    -- | A value that determines whether tasks should be queued before executing
-    -- the tasks. If set to @ENABLED@, the tasks will be queued. The default is
-    -- @ENABLED@.
+    -- | A value that specifies whether files in the destination that don\'t
+    -- exist in the source file system should be preserved. This option can
+    -- affect your storage cost. If your task deletes objects, you might incur
+    -- minimum storage duration charges for certain storage classes. For
+    -- detailed information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
+    -- in the /DataSync User Guide/.
     --
-    -- If you use the same agent to run multiple tasks, you can enable the
-    -- tasks to run in series. For more information, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution Queueing task executions>.
-    taskQueueing :: Prelude.Maybe TaskQueueing,
-    -- | A value that determines the type of logs that DataSync publishes to a
-    -- log stream in the Amazon CloudWatch log group that you provide. For more
-    -- information about providing a log group for DataSync, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn CloudWatchLogGroupArn>.
-    -- If set to @OFF@, no logs are published. @BASIC@ publishes logs on errors
-    -- for individual files transferred, and @TRANSFER@ publishes logs for
-    -- every file or object that is transferred and integrity checked.
-    logLevel :: Prelude.Maybe LogLevel,
+    -- Default value: PRESERVE.
+    --
+    -- PRESERVE: Ignore such destination files (recommended).
+    --
+    -- REMOVE: Delete destination files that aren’t present in the source.
+    preserveDeletedFiles :: Prelude.Maybe PreserveDeletedFiles,
+    -- | A file metadata value that shows the last time a file was accessed (that
+    -- is, when the file was read or written to). If you set @Atime@ to
+    -- BEST_EFFORT, DataSync attempts to preserve the original @Atime@
+    -- attribute on all source files (that is, the version before the PREPARING
+    -- phase). However, @Atime@\'s behavior is not fully standard across
+    -- platforms, so DataSync can only do this on a best-effort basis.
+    --
+    -- Default value: BEST_EFFORT.
+    --
+    -- BEST_EFFORT: Attempt to preserve the per-file @Atime@ value
+    -- (recommended).
+    --
+    -- NONE: Ignore @Atime@.
+    --
+    -- If @Atime@ is set to BEST_EFFORT, @Mtime@ must be set to PRESERVE.
+    --
+    -- If @Atime@ is set to NONE, @Mtime@ must also be NONE.
+    atime :: Prelude.Maybe Atime,
     -- | A value that determines which users or groups can access a file for a
     -- specific purpose such as reading, writing, or execution of the file.
     -- This option should only be set for NFS, EFS, and S3 locations. For more
@@ -118,37 +209,6 @@ data Options = Options'
     --
     -- DataSync can preserve extant permissions of a source location.
     posixPermissions :: Prelude.Maybe PosixPermissions,
-    -- | A value that indicates the last time that a file was modified (that is,
-    -- a file was written to) before the PREPARING phase. This option is
-    -- required for cases when you need to run the same task more than one
-    -- time.
-    --
-    -- Default value: PRESERVE.
-    --
-    -- PRESERVE: Preserve original @Mtime@ (recommended)
-    --
-    -- NONE: Ignore @Mtime@.
-    --
-    -- If @Mtime@ is set to PRESERVE, @Atime@ must be set to BEST_EFFORT.
-    --
-    -- If @Mtime@ is set to NONE, @Atime@ must also be set to NONE.
-    mtime :: Prelude.Maybe Mtime,
-    -- | The POSIX user ID (UID) of the file\'s owner. This option should only be
-    -- set for NFS, EFS, and S3 locations. To learn more about what metadata is
-    -- copied by DataSync, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
-    --
-    -- Default value: INT_VALUE. This preserves the integer value of the ID.
-    --
-    -- INT_VALUE: Preserve the integer value of UID and group ID (GID)
-    -- (recommended).
-    --
-    -- NONE: Ignore UID and GID.
-    uid :: Prelude.Maybe Uid,
-    -- | A value that limits the bandwidth used by DataSync. For example, if you
-    -- want DataSync to use a maximum of 1 MB, set this value to @1048576@
-    -- (@=1024*1024@).
-    bytesPerSecond :: Prelude.Maybe Prelude.Integer,
     -- | A value that determines which components of the SMB security descriptor
     -- are copied from source to destination objects.
     --
@@ -193,70 +253,10 @@ data Options = Options'
     -- accessing the destination location. DACLs and SACLs are set based on the
     -- destination server’s configuration.
     securityDescriptorCopyFlags :: Prelude.Maybe SmbSecurityDescriptorCopyFlags,
-    -- | The POSIX group ID (GID) of the file\'s owners. This option should only
-    -- be set for NFS, EFS, and S3 locations. For more information about what
-    -- metadata is copied by DataSync, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
-    --
-    -- Default value: INT_VALUE. This preserves the integer value of the ID.
-    --
-    -- INT_VALUE: Preserve the integer value of user ID (UID) and GID
-    -- (recommended).
-    --
-    -- NONE: Ignore UID and GID.
-    gid :: Prelude.Maybe Gid,
-    -- | A value that determines whether files at the destination should be
-    -- overwritten or preserved when copying files. If set to @NEVER@ a
-    -- destination file will not be replaced by a source file, even if the
-    -- destination file differs from the source file. If you modify files in
-    -- the destination and you sync the files, you can use this value to
-    -- protect against overwriting those changes.
-    --
-    -- Some storage classes have specific behaviors that can affect your S3
-    -- storage cost. For detailed information, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
-    -- in the /DataSync User Guide/.
-    overwriteMode :: Prelude.Maybe OverwriteMode,
-    -- | A value that determines whether DataSync transfers only the data and
-    -- metadata that differ between the source and the destination location, or
-    -- whether DataSync transfers all the content from the source, without
-    -- comparing to the destination location.
-    --
-    -- CHANGED: DataSync copies only data or metadata that is new or different
-    -- content from the source location to the destination location.
-    --
-    -- ALL: DataSync copies all source location content to the destination,
-    -- without comparing to existing content on the destination.
-    transferMode :: Prelude.Maybe TransferMode,
-    -- | A value that specifies whether files in the destination that don\'t
-    -- exist in the source file system should be preserved. This option can
-    -- affect your storage cost. If your task deletes objects, you might incur
-    -- minimum storage duration charges for certain storage classes. For
-    -- detailed information, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
-    -- in the /DataSync User Guide/.
-    --
-    -- Default value: PRESERVE.
-    --
-    -- PRESERVE: Ignore such destination files (recommended).
-    --
-    -- REMOVE: Delete destination files that aren’t present in the source.
-    preserveDeletedFiles :: Prelude.Maybe PreserveDeletedFiles,
-    -- | A value that determines whether DataSync should preserve the metadata of
-    -- block and character devices in the source file system, and re-create the
-    -- files with that device name and metadata on the destination. DataSync
-    -- does not copy the contents of such devices, only the name and metadata.
-    --
-    -- DataSync can\'t sync the actual contents of such devices, because they
-    -- are nonterminal and don\'t return an end-of-file (EOF) marker.
-    --
-    -- Default value: NONE.
-    --
-    -- NONE: Ignore special devices (recommended).
-    --
-    -- PRESERVE: Preserve character and block device metadata. This option
-    -- isn\'t currently supported for Amazon EFS.
-    preserveDevices :: Prelude.Maybe PreserveDevices
+    -- | A value that limits the bandwidth used by DataSync. For example, if you
+    -- want DataSync to use a maximum of 1 MB, set this value to @1048576@
+    -- (@=1024*1024@).
+    bytesPerSecond :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -268,23 +268,98 @@ data Options = Options'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'atime', 'options_atime' - A file metadata value that shows the last time a file was accessed (that
--- is, when the file was read or written to). If you set @Atime@ to
--- BEST_EFFORT, DataSync attempts to preserve the original @Atime@
--- attribute on all source files (that is, the version before the PREPARING
--- phase). However, @Atime@\'s behavior is not fully standard across
--- platforms, so DataSync can only do this on a best-effort basis.
+-- 'gid', 'options_gid' - The POSIX group ID (GID) of the file\'s owners. This option should only
+-- be set for NFS, EFS, and S3 locations. For more information about what
+-- metadata is copied by DataSync, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
 --
--- Default value: BEST_EFFORT.
+-- Default value: INT_VALUE. This preserves the integer value of the ID.
 --
--- BEST_EFFORT: Attempt to preserve the per-file @Atime@ value
+-- INT_VALUE: Preserve the integer value of user ID (UID) and GID
 -- (recommended).
 --
--- NONE: Ignore @Atime@.
+-- NONE: Ignore UID and GID.
 --
--- If @Atime@ is set to BEST_EFFORT, @Mtime@ must be set to PRESERVE.
+-- 'logLevel', 'options_logLevel' - A value that determines the type of logs that DataSync publishes to a
+-- log stream in the Amazon CloudWatch log group that you provide. For more
+-- information about providing a log group for DataSync, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn CloudWatchLogGroupArn>.
+-- If set to @OFF@, no logs are published. @BASIC@ publishes logs on errors
+-- for individual files transferred, and @TRANSFER@ publishes logs for
+-- every file or object that is transferred and integrity checked.
 --
--- If @Atime@ is set to NONE, @Mtime@ must also be NONE.
+-- 'taskQueueing', 'options_taskQueueing' - A value that determines whether tasks should be queued before executing
+-- the tasks. If set to @ENABLED@, the tasks will be queued. The default is
+-- @ENABLED@.
+--
+-- If you use the same agent to run multiple tasks, you can enable the
+-- tasks to run in series. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution Queueing task executions>.
+--
+-- 'preserveDevices', 'options_preserveDevices' - A value that determines whether DataSync should preserve the metadata of
+-- block and character devices in the source file system, and re-create the
+-- files with that device name and metadata on the destination. DataSync
+-- does not copy the contents of such devices, only the name and metadata.
+--
+-- DataSync can\'t sync the actual contents of such devices, because they
+-- are nonterminal and don\'t return an end-of-file (EOF) marker.
+--
+-- Default value: NONE.
+--
+-- NONE: Ignore special devices (recommended).
+--
+-- PRESERVE: Preserve character and block device metadata. This option
+-- isn\'t currently supported for Amazon EFS.
+--
+-- 'overwriteMode', 'options_overwriteMode' - A value that determines whether files at the destination should be
+-- overwritten or preserved when copying files. If set to @NEVER@ a
+-- destination file will not be replaced by a source file, even if the
+-- destination file differs from the source file. If you modify files in
+-- the destination and you sync the files, you can use this value to
+-- protect against overwriting those changes.
+--
+-- Some storage classes have specific behaviors that can affect your S3
+-- storage cost. For detailed information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
+-- in the /DataSync User Guide/.
+--
+-- 'mtime', 'options_mtime' - A value that indicates the last time that a file was modified (that is,
+-- a file was written to) before the PREPARING phase. This option is
+-- required for cases when you need to run the same task more than one
+-- time.
+--
+-- Default value: PRESERVE.
+--
+-- PRESERVE: Preserve original @Mtime@ (recommended)
+--
+-- NONE: Ignore @Mtime@.
+--
+-- If @Mtime@ is set to PRESERVE, @Atime@ must be set to BEST_EFFORT.
+--
+-- If @Mtime@ is set to NONE, @Atime@ must also be set to NONE.
+--
+-- 'transferMode', 'options_transferMode' - A value that determines whether DataSync transfers only the data and
+-- metadata that differ between the source and the destination location, or
+-- whether DataSync transfers all the content from the source, without
+-- comparing to the destination location.
+--
+-- CHANGED: DataSync copies only data or metadata that is new or different
+-- content from the source location to the destination location.
+--
+-- ALL: DataSync copies all source location content to the destination,
+-- without comparing to existing content on the destination.
+--
+-- 'uid', 'options_uid' - The POSIX user ID (UID) of the file\'s owner. This option should only be
+-- set for NFS, EFS, and S3 locations. To learn more about what metadata is
+-- copied by DataSync, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
+--
+-- Default value: INT_VALUE. This preserves the integer value of the ID.
+--
+-- INT_VALUE: Preserve the integer value of UID and group ID (GID)
+-- (recommended).
+--
+-- NONE: Ignore UID and GID.
 --
 -- 'verifyMode', 'options_verifyMode' - A value that determines whether a data integrity verification should be
 -- performed at the end of a task execution after all data and metadata
@@ -305,21 +380,37 @@ data Options = Options'
 -- all data transmissions are integrity-checked with checksum verification
 -- during the transfer.
 --
--- 'taskQueueing', 'options_taskQueueing' - A value that determines whether tasks should be queued before executing
--- the tasks. If set to @ENABLED@, the tasks will be queued. The default is
--- @ENABLED@.
+-- 'preserveDeletedFiles', 'options_preserveDeletedFiles' - A value that specifies whether files in the destination that don\'t
+-- exist in the source file system should be preserved. This option can
+-- affect your storage cost. If your task deletes objects, you might incur
+-- minimum storage duration charges for certain storage classes. For
+-- detailed information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
+-- in the /DataSync User Guide/.
 --
--- If you use the same agent to run multiple tasks, you can enable the
--- tasks to run in series. For more information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution Queueing task executions>.
+-- Default value: PRESERVE.
 --
--- 'logLevel', 'options_logLevel' - A value that determines the type of logs that DataSync publishes to a
--- log stream in the Amazon CloudWatch log group that you provide. For more
--- information about providing a log group for DataSync, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn CloudWatchLogGroupArn>.
--- If set to @OFF@, no logs are published. @BASIC@ publishes logs on errors
--- for individual files transferred, and @TRANSFER@ publishes logs for
--- every file or object that is transferred and integrity checked.
+-- PRESERVE: Ignore such destination files (recommended).
+--
+-- REMOVE: Delete destination files that aren’t present in the source.
+--
+-- 'atime', 'options_atime' - A file metadata value that shows the last time a file was accessed (that
+-- is, when the file was read or written to). If you set @Atime@ to
+-- BEST_EFFORT, DataSync attempts to preserve the original @Atime@
+-- attribute on all source files (that is, the version before the PREPARING
+-- phase). However, @Atime@\'s behavior is not fully standard across
+-- platforms, so DataSync can only do this on a best-effort basis.
+--
+-- Default value: BEST_EFFORT.
+--
+-- BEST_EFFORT: Attempt to preserve the per-file @Atime@ value
+-- (recommended).
+--
+-- NONE: Ignore @Atime@.
+--
+-- If @Atime@ is set to BEST_EFFORT, @Mtime@ must be set to PRESERVE.
+--
+-- If @Atime@ is set to NONE, @Mtime@ must also be NONE.
 --
 -- 'posixPermissions', 'options_posixPermissions' - A value that determines which users or groups can access a file for a
 -- specific purpose such as reading, writing, or execution of the file.
@@ -334,37 +425,6 @@ data Options = Options'
 -- NONE: Ignore permissions.
 --
 -- DataSync can preserve extant permissions of a source location.
---
--- 'mtime', 'options_mtime' - A value that indicates the last time that a file was modified (that is,
--- a file was written to) before the PREPARING phase. This option is
--- required for cases when you need to run the same task more than one
--- time.
---
--- Default value: PRESERVE.
---
--- PRESERVE: Preserve original @Mtime@ (recommended)
---
--- NONE: Ignore @Mtime@.
---
--- If @Mtime@ is set to PRESERVE, @Atime@ must be set to BEST_EFFORT.
---
--- If @Mtime@ is set to NONE, @Atime@ must also be set to NONE.
---
--- 'uid', 'options_uid' - The POSIX user ID (UID) of the file\'s owner. This option should only be
--- set for NFS, EFS, and S3 locations. To learn more about what metadata is
--- copied by DataSync, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
---
--- Default value: INT_VALUE. This preserves the integer value of the ID.
---
--- INT_VALUE: Preserve the integer value of UID and group ID (GID)
--- (recommended).
---
--- NONE: Ignore UID and GID.
---
--- 'bytesPerSecond', 'options_bytesPerSecond' - A value that limits the bandwidth used by DataSync. For example, if you
--- want DataSync to use a maximum of 1 MB, set this value to @1048576@
--- (@=1024*1024@).
 --
 -- 'securityDescriptorCopyFlags', 'options_securityDescriptorCopyFlags' - A value that determines which components of the SMB security descriptor
 -- are copied from source to destination objects.
@@ -410,7 +470,30 @@ data Options = Options'
 -- accessing the destination location. DACLs and SACLs are set based on the
 -- destination server’s configuration.
 --
--- 'gid', 'options_gid' - The POSIX group ID (GID) of the file\'s owners. This option should only
+-- 'bytesPerSecond', 'options_bytesPerSecond' - A value that limits the bandwidth used by DataSync. For example, if you
+-- want DataSync to use a maximum of 1 MB, set this value to @1048576@
+-- (@=1024*1024@).
+newOptions ::
+  Options
+newOptions =
+  Options'
+    { gid = Prelude.Nothing,
+      logLevel = Prelude.Nothing,
+      taskQueueing = Prelude.Nothing,
+      preserveDevices = Prelude.Nothing,
+      overwriteMode = Prelude.Nothing,
+      mtime = Prelude.Nothing,
+      transferMode = Prelude.Nothing,
+      uid = Prelude.Nothing,
+      verifyMode = Prelude.Nothing,
+      preserveDeletedFiles = Prelude.Nothing,
+      atime = Prelude.Nothing,
+      posixPermissions = Prelude.Nothing,
+      securityDescriptorCopyFlags = Prelude.Nothing,
+      bytesPerSecond = Prelude.Nothing
+    }
+
+-- | The POSIX group ID (GID) of the file\'s owners. This option should only
 -- be set for NFS, EFS, and S3 locations. For more information about what
 -- metadata is copied by DataSync, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
@@ -421,45 +504,30 @@ data Options = Options'
 -- (recommended).
 --
 -- NONE: Ignore UID and GID.
+options_gid :: Lens.Lens' Options (Prelude.Maybe Gid)
+options_gid = Lens.lens (\Options' {gid} -> gid) (\s@Options' {} a -> s {gid = a} :: Options)
+
+-- | A value that determines the type of logs that DataSync publishes to a
+-- log stream in the Amazon CloudWatch log group that you provide. For more
+-- information about providing a log group for DataSync, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn CloudWatchLogGroupArn>.
+-- If set to @OFF@, no logs are published. @BASIC@ publishes logs on errors
+-- for individual files transferred, and @TRANSFER@ publishes logs for
+-- every file or object that is transferred and integrity checked.
+options_logLevel :: Lens.Lens' Options (Prelude.Maybe LogLevel)
+options_logLevel = Lens.lens (\Options' {logLevel} -> logLevel) (\s@Options' {} a -> s {logLevel = a} :: Options)
+
+-- | A value that determines whether tasks should be queued before executing
+-- the tasks. If set to @ENABLED@, the tasks will be queued. The default is
+-- @ENABLED@.
 --
--- 'overwriteMode', 'options_overwriteMode' - A value that determines whether files at the destination should be
--- overwritten or preserved when copying files. If set to @NEVER@ a
--- destination file will not be replaced by a source file, even if the
--- destination file differs from the source file. If you modify files in
--- the destination and you sync the files, you can use this value to
--- protect against overwriting those changes.
---
--- Some storage classes have specific behaviors that can affect your S3
--- storage cost. For detailed information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
--- in the /DataSync User Guide/.
---
--- 'transferMode', 'options_transferMode' - A value that determines whether DataSync transfers only the data and
--- metadata that differ between the source and the destination location, or
--- whether DataSync transfers all the content from the source, without
--- comparing to the destination location.
---
--- CHANGED: DataSync copies only data or metadata that is new or different
--- content from the source location to the destination location.
---
--- ALL: DataSync copies all source location content to the destination,
--- without comparing to existing content on the destination.
---
--- 'preserveDeletedFiles', 'options_preserveDeletedFiles' - A value that specifies whether files in the destination that don\'t
--- exist in the source file system should be preserved. This option can
--- affect your storage cost. If your task deletes objects, you might incur
--- minimum storage duration charges for certain storage classes. For
--- detailed information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
--- in the /DataSync User Guide/.
---
--- Default value: PRESERVE.
---
--- PRESERVE: Ignore such destination files (recommended).
---
--- REMOVE: Delete destination files that aren’t present in the source.
---
--- 'preserveDevices', 'options_preserveDevices' - A value that determines whether DataSync should preserve the metadata of
+-- If you use the same agent to run multiple tasks, you can enable the
+-- tasks to run in series. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution Queueing task executions>.
+options_taskQueueing :: Lens.Lens' Options (Prelude.Maybe TaskQueueing)
+options_taskQueueing = Lens.lens (\Options' {taskQueueing} -> taskQueueing) (\s@Options' {} a -> s {taskQueueing = a} :: Options)
+
+-- | A value that determines whether DataSync should preserve the metadata of
 -- block and character devices in the source file system, and re-create the
 -- files with that device name and metadata on the destination. DataSync
 -- does not copy the contents of such devices, only the name and metadata.
@@ -473,45 +541,66 @@ data Options = Options'
 --
 -- PRESERVE: Preserve character and block device metadata. This option
 -- isn\'t currently supported for Amazon EFS.
-newOptions ::
-  Options
-newOptions =
-  Options'
-    { atime = Prelude.Nothing,
-      verifyMode = Prelude.Nothing,
-      taskQueueing = Prelude.Nothing,
-      logLevel = Prelude.Nothing,
-      posixPermissions = Prelude.Nothing,
-      mtime = Prelude.Nothing,
-      uid = Prelude.Nothing,
-      bytesPerSecond = Prelude.Nothing,
-      securityDescriptorCopyFlags = Prelude.Nothing,
-      gid = Prelude.Nothing,
-      overwriteMode = Prelude.Nothing,
-      transferMode = Prelude.Nothing,
-      preserveDeletedFiles = Prelude.Nothing,
-      preserveDevices = Prelude.Nothing
-    }
+options_preserveDevices :: Lens.Lens' Options (Prelude.Maybe PreserveDevices)
+options_preserveDevices = Lens.lens (\Options' {preserveDevices} -> preserveDevices) (\s@Options' {} a -> s {preserveDevices = a} :: Options)
 
--- | A file metadata value that shows the last time a file was accessed (that
--- is, when the file was read or written to). If you set @Atime@ to
--- BEST_EFFORT, DataSync attempts to preserve the original @Atime@
--- attribute on all source files (that is, the version before the PREPARING
--- phase). However, @Atime@\'s behavior is not fully standard across
--- platforms, so DataSync can only do this on a best-effort basis.
+-- | A value that determines whether files at the destination should be
+-- overwritten or preserved when copying files. If set to @NEVER@ a
+-- destination file will not be replaced by a source file, even if the
+-- destination file differs from the source file. If you modify files in
+-- the destination and you sync the files, you can use this value to
+-- protect against overwriting those changes.
 --
--- Default value: BEST_EFFORT.
+-- Some storage classes have specific behaviors that can affect your S3
+-- storage cost. For detailed information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
+-- in the /DataSync User Guide/.
+options_overwriteMode :: Lens.Lens' Options (Prelude.Maybe OverwriteMode)
+options_overwriteMode = Lens.lens (\Options' {overwriteMode} -> overwriteMode) (\s@Options' {} a -> s {overwriteMode = a} :: Options)
+
+-- | A value that indicates the last time that a file was modified (that is,
+-- a file was written to) before the PREPARING phase. This option is
+-- required for cases when you need to run the same task more than one
+-- time.
 --
--- BEST_EFFORT: Attempt to preserve the per-file @Atime@ value
+-- Default value: PRESERVE.
+--
+-- PRESERVE: Preserve original @Mtime@ (recommended)
+--
+-- NONE: Ignore @Mtime@.
+--
+-- If @Mtime@ is set to PRESERVE, @Atime@ must be set to BEST_EFFORT.
+--
+-- If @Mtime@ is set to NONE, @Atime@ must also be set to NONE.
+options_mtime :: Lens.Lens' Options (Prelude.Maybe Mtime)
+options_mtime = Lens.lens (\Options' {mtime} -> mtime) (\s@Options' {} a -> s {mtime = a} :: Options)
+
+-- | A value that determines whether DataSync transfers only the data and
+-- metadata that differ between the source and the destination location, or
+-- whether DataSync transfers all the content from the source, without
+-- comparing to the destination location.
+--
+-- CHANGED: DataSync copies only data or metadata that is new or different
+-- content from the source location to the destination location.
+--
+-- ALL: DataSync copies all source location content to the destination,
+-- without comparing to existing content on the destination.
+options_transferMode :: Lens.Lens' Options (Prelude.Maybe TransferMode)
+options_transferMode = Lens.lens (\Options' {transferMode} -> transferMode) (\s@Options' {} a -> s {transferMode = a} :: Options)
+
+-- | The POSIX user ID (UID) of the file\'s owner. This option should only be
+-- set for NFS, EFS, and S3 locations. To learn more about what metadata is
+-- copied by DataSync, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
+--
+-- Default value: INT_VALUE. This preserves the integer value of the ID.
+--
+-- INT_VALUE: Preserve the integer value of UID and group ID (GID)
 -- (recommended).
 --
--- NONE: Ignore @Atime@.
---
--- If @Atime@ is set to BEST_EFFORT, @Mtime@ must be set to PRESERVE.
---
--- If @Atime@ is set to NONE, @Mtime@ must also be NONE.
-options_atime :: Lens.Lens' Options (Prelude.Maybe Atime)
-options_atime = Lens.lens (\Options' {atime} -> atime) (\s@Options' {} a -> s {atime = a} :: Options)
+-- NONE: Ignore UID and GID.
+options_uid :: Lens.Lens' Options (Prelude.Maybe Uid)
+options_uid = Lens.lens (\Options' {uid} -> uid) (\s@Options' {} a -> s {uid = a} :: Options)
 
 -- | A value that determines whether a data integrity verification should be
 -- performed at the end of a task execution after all data and metadata
@@ -534,25 +623,41 @@ options_atime = Lens.lens (\Options' {atime} -> atime) (\s@Options' {} a -> s {a
 options_verifyMode :: Lens.Lens' Options (Prelude.Maybe VerifyMode)
 options_verifyMode = Lens.lens (\Options' {verifyMode} -> verifyMode) (\s@Options' {} a -> s {verifyMode = a} :: Options)
 
--- | A value that determines whether tasks should be queued before executing
--- the tasks. If set to @ENABLED@, the tasks will be queued. The default is
--- @ENABLED@.
+-- | A value that specifies whether files in the destination that don\'t
+-- exist in the source file system should be preserved. This option can
+-- affect your storage cost. If your task deletes objects, you might incur
+-- minimum storage duration charges for certain storage classes. For
+-- detailed information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
+-- in the /DataSync User Guide/.
 --
--- If you use the same agent to run multiple tasks, you can enable the
--- tasks to run in series. For more information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution Queueing task executions>.
-options_taskQueueing :: Lens.Lens' Options (Prelude.Maybe TaskQueueing)
-options_taskQueueing = Lens.lens (\Options' {taskQueueing} -> taskQueueing) (\s@Options' {} a -> s {taskQueueing = a} :: Options)
+-- Default value: PRESERVE.
+--
+-- PRESERVE: Ignore such destination files (recommended).
+--
+-- REMOVE: Delete destination files that aren’t present in the source.
+options_preserveDeletedFiles :: Lens.Lens' Options (Prelude.Maybe PreserveDeletedFiles)
+options_preserveDeletedFiles = Lens.lens (\Options' {preserveDeletedFiles} -> preserveDeletedFiles) (\s@Options' {} a -> s {preserveDeletedFiles = a} :: Options)
 
--- | A value that determines the type of logs that DataSync publishes to a
--- log stream in the Amazon CloudWatch log group that you provide. For more
--- information about providing a log group for DataSync, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn CloudWatchLogGroupArn>.
--- If set to @OFF@, no logs are published. @BASIC@ publishes logs on errors
--- for individual files transferred, and @TRANSFER@ publishes logs for
--- every file or object that is transferred and integrity checked.
-options_logLevel :: Lens.Lens' Options (Prelude.Maybe LogLevel)
-options_logLevel = Lens.lens (\Options' {logLevel} -> logLevel) (\s@Options' {} a -> s {logLevel = a} :: Options)
+-- | A file metadata value that shows the last time a file was accessed (that
+-- is, when the file was read or written to). If you set @Atime@ to
+-- BEST_EFFORT, DataSync attempts to preserve the original @Atime@
+-- attribute on all source files (that is, the version before the PREPARING
+-- phase). However, @Atime@\'s behavior is not fully standard across
+-- platforms, so DataSync can only do this on a best-effort basis.
+--
+-- Default value: BEST_EFFORT.
+--
+-- BEST_EFFORT: Attempt to preserve the per-file @Atime@ value
+-- (recommended).
+--
+-- NONE: Ignore @Atime@.
+--
+-- If @Atime@ is set to BEST_EFFORT, @Mtime@ must be set to PRESERVE.
+--
+-- If @Atime@ is set to NONE, @Mtime@ must also be NONE.
+options_atime :: Lens.Lens' Options (Prelude.Maybe Atime)
+options_atime = Lens.lens (\Options' {atime} -> atime) (\s@Options' {} a -> s {atime = a} :: Options)
 
 -- | A value that determines which users or groups can access a file for a
 -- specific purpose such as reading, writing, or execution of the file.
@@ -569,43 +674,6 @@ options_logLevel = Lens.lens (\Options' {logLevel} -> logLevel) (\s@Options' {} 
 -- DataSync can preserve extant permissions of a source location.
 options_posixPermissions :: Lens.Lens' Options (Prelude.Maybe PosixPermissions)
 options_posixPermissions = Lens.lens (\Options' {posixPermissions} -> posixPermissions) (\s@Options' {} a -> s {posixPermissions = a} :: Options)
-
--- | A value that indicates the last time that a file was modified (that is,
--- a file was written to) before the PREPARING phase. This option is
--- required for cases when you need to run the same task more than one
--- time.
---
--- Default value: PRESERVE.
---
--- PRESERVE: Preserve original @Mtime@ (recommended)
---
--- NONE: Ignore @Mtime@.
---
--- If @Mtime@ is set to PRESERVE, @Atime@ must be set to BEST_EFFORT.
---
--- If @Mtime@ is set to NONE, @Atime@ must also be set to NONE.
-options_mtime :: Lens.Lens' Options (Prelude.Maybe Mtime)
-options_mtime = Lens.lens (\Options' {mtime} -> mtime) (\s@Options' {} a -> s {mtime = a} :: Options)
-
--- | The POSIX user ID (UID) of the file\'s owner. This option should only be
--- set for NFS, EFS, and S3 locations. To learn more about what metadata is
--- copied by DataSync, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
---
--- Default value: INT_VALUE. This preserves the integer value of the ID.
---
--- INT_VALUE: Preserve the integer value of UID and group ID (GID)
--- (recommended).
---
--- NONE: Ignore UID and GID.
-options_uid :: Lens.Lens' Options (Prelude.Maybe Uid)
-options_uid = Lens.lens (\Options' {uid} -> uid) (\s@Options' {} a -> s {uid = a} :: Options)
-
--- | A value that limits the bandwidth used by DataSync. For example, if you
--- want DataSync to use a maximum of 1 MB, set this value to @1048576@
--- (@=1024*1024@).
-options_bytesPerSecond :: Lens.Lens' Options (Prelude.Maybe Prelude.Integer)
-options_bytesPerSecond = Lens.lens (\Options' {bytesPerSecond} -> bytesPerSecond) (\s@Options' {} a -> s {bytesPerSecond = a} :: Options)
 
 -- | A value that determines which components of the SMB security descriptor
 -- are copied from source to destination objects.
@@ -653,79 +721,11 @@ options_bytesPerSecond = Lens.lens (\Options' {bytesPerSecond} -> bytesPerSecond
 options_securityDescriptorCopyFlags :: Lens.Lens' Options (Prelude.Maybe SmbSecurityDescriptorCopyFlags)
 options_securityDescriptorCopyFlags = Lens.lens (\Options' {securityDescriptorCopyFlags} -> securityDescriptorCopyFlags) (\s@Options' {} a -> s {securityDescriptorCopyFlags = a} :: Options)
 
--- | The POSIX group ID (GID) of the file\'s owners. This option should only
--- be set for NFS, EFS, and S3 locations. For more information about what
--- metadata is copied by DataSync, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied Metadata Copied by DataSync>.
---
--- Default value: INT_VALUE. This preserves the integer value of the ID.
---
--- INT_VALUE: Preserve the integer value of user ID (UID) and GID
--- (recommended).
---
--- NONE: Ignore UID and GID.
-options_gid :: Lens.Lens' Options (Prelude.Maybe Gid)
-options_gid = Lens.lens (\Options' {gid} -> gid) (\s@Options' {} a -> s {gid = a} :: Options)
-
--- | A value that determines whether files at the destination should be
--- overwritten or preserved when copying files. If set to @NEVER@ a
--- destination file will not be replaced by a source file, even if the
--- destination file differs from the source file. If you modify files in
--- the destination and you sync the files, you can use this value to
--- protect against overwriting those changes.
---
--- Some storage classes have specific behaviors that can affect your S3
--- storage cost. For detailed information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
--- in the /DataSync User Guide/.
-options_overwriteMode :: Lens.Lens' Options (Prelude.Maybe OverwriteMode)
-options_overwriteMode = Lens.lens (\Options' {overwriteMode} -> overwriteMode) (\s@Options' {} a -> s {overwriteMode = a} :: Options)
-
--- | A value that determines whether DataSync transfers only the data and
--- metadata that differ between the source and the destination location, or
--- whether DataSync transfers all the content from the source, without
--- comparing to the destination location.
---
--- CHANGED: DataSync copies only data or metadata that is new or different
--- content from the source location to the destination location.
---
--- ALL: DataSync copies all source location content to the destination,
--- without comparing to existing content on the destination.
-options_transferMode :: Lens.Lens' Options (Prelude.Maybe TransferMode)
-options_transferMode = Lens.lens (\Options' {transferMode} -> transferMode) (\s@Options' {} a -> s {transferMode = a} :: Options)
-
--- | A value that specifies whether files in the destination that don\'t
--- exist in the source file system should be preserved. This option can
--- affect your storage cost. If your task deletes objects, you might incur
--- minimum storage duration charges for certain storage classes. For
--- detailed information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
--- in the /DataSync User Guide/.
---
--- Default value: PRESERVE.
---
--- PRESERVE: Ignore such destination files (recommended).
---
--- REMOVE: Delete destination files that aren’t present in the source.
-options_preserveDeletedFiles :: Lens.Lens' Options (Prelude.Maybe PreserveDeletedFiles)
-options_preserveDeletedFiles = Lens.lens (\Options' {preserveDeletedFiles} -> preserveDeletedFiles) (\s@Options' {} a -> s {preserveDeletedFiles = a} :: Options)
-
--- | A value that determines whether DataSync should preserve the metadata of
--- block and character devices in the source file system, and re-create the
--- files with that device name and metadata on the destination. DataSync
--- does not copy the contents of such devices, only the name and metadata.
---
--- DataSync can\'t sync the actual contents of such devices, because they
--- are nonterminal and don\'t return an end-of-file (EOF) marker.
---
--- Default value: NONE.
---
--- NONE: Ignore special devices (recommended).
---
--- PRESERVE: Preserve character and block device metadata. This option
--- isn\'t currently supported for Amazon EFS.
-options_preserveDevices :: Lens.Lens' Options (Prelude.Maybe PreserveDevices)
-options_preserveDevices = Lens.lens (\Options' {preserveDevices} -> preserveDevices) (\s@Options' {} a -> s {preserveDevices = a} :: Options)
+-- | A value that limits the bandwidth used by DataSync. For example, if you
+-- want DataSync to use a maximum of 1 MB, set this value to @1048576@
+-- (@=1024*1024@).
+options_bytesPerSecond :: Lens.Lens' Options (Prelude.Maybe Prelude.Integer)
+options_bytesPerSecond = Lens.lens (\Options' {bytesPerSecond} -> bytesPerSecond) (\s@Options' {} a -> s {bytesPerSecond = a} :: Options)
 
 instance Core.FromJSON Options where
   parseJSON =
@@ -733,78 +733,78 @@ instance Core.FromJSON Options where
       "Options"
       ( \x ->
           Options'
-            Prelude.<$> (x Core..:? "Atime")
-            Prelude.<*> (x Core..:? "VerifyMode")
-            Prelude.<*> (x Core..:? "TaskQueueing")
+            Prelude.<$> (x Core..:? "Gid")
             Prelude.<*> (x Core..:? "LogLevel")
-            Prelude.<*> (x Core..:? "PosixPermissions")
-            Prelude.<*> (x Core..:? "Mtime")
-            Prelude.<*> (x Core..:? "Uid")
-            Prelude.<*> (x Core..:? "BytesPerSecond")
-            Prelude.<*> (x Core..:? "SecurityDescriptorCopyFlags")
-            Prelude.<*> (x Core..:? "Gid")
-            Prelude.<*> (x Core..:? "OverwriteMode")
-            Prelude.<*> (x Core..:? "TransferMode")
-            Prelude.<*> (x Core..:? "PreserveDeletedFiles")
+            Prelude.<*> (x Core..:? "TaskQueueing")
             Prelude.<*> (x Core..:? "PreserveDevices")
+            Prelude.<*> (x Core..:? "OverwriteMode")
+            Prelude.<*> (x Core..:? "Mtime")
+            Prelude.<*> (x Core..:? "TransferMode")
+            Prelude.<*> (x Core..:? "Uid")
+            Prelude.<*> (x Core..:? "VerifyMode")
+            Prelude.<*> (x Core..:? "PreserveDeletedFiles")
+            Prelude.<*> (x Core..:? "Atime")
+            Prelude.<*> (x Core..:? "PosixPermissions")
+            Prelude.<*> (x Core..:? "SecurityDescriptorCopyFlags")
+            Prelude.<*> (x Core..:? "BytesPerSecond")
       )
 
 instance Prelude.Hashable Options where
   hashWithSalt _salt Options' {..} =
-    _salt `Prelude.hashWithSalt` atime
-      `Prelude.hashWithSalt` verifyMode
-      `Prelude.hashWithSalt` taskQueueing
+    _salt `Prelude.hashWithSalt` gid
       `Prelude.hashWithSalt` logLevel
-      `Prelude.hashWithSalt` posixPermissions
-      `Prelude.hashWithSalt` mtime
-      `Prelude.hashWithSalt` uid
-      `Prelude.hashWithSalt` bytesPerSecond
-      `Prelude.hashWithSalt` securityDescriptorCopyFlags
-      `Prelude.hashWithSalt` gid
-      `Prelude.hashWithSalt` overwriteMode
-      `Prelude.hashWithSalt` transferMode
-      `Prelude.hashWithSalt` preserveDeletedFiles
+      `Prelude.hashWithSalt` taskQueueing
       `Prelude.hashWithSalt` preserveDevices
+      `Prelude.hashWithSalt` overwriteMode
+      `Prelude.hashWithSalt` mtime
+      `Prelude.hashWithSalt` transferMode
+      `Prelude.hashWithSalt` uid
+      `Prelude.hashWithSalt` verifyMode
+      `Prelude.hashWithSalt` preserveDeletedFiles
+      `Prelude.hashWithSalt` atime
+      `Prelude.hashWithSalt` posixPermissions
+      `Prelude.hashWithSalt` securityDescriptorCopyFlags
+      `Prelude.hashWithSalt` bytesPerSecond
 
 instance Prelude.NFData Options where
   rnf Options' {..} =
-    Prelude.rnf atime
-      `Prelude.seq` Prelude.rnf verifyMode
-      `Prelude.seq` Prelude.rnf taskQueueing
+    Prelude.rnf gid
       `Prelude.seq` Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf posixPermissions
-      `Prelude.seq` Prelude.rnf mtime
-      `Prelude.seq` Prelude.rnf uid
-      `Prelude.seq` Prelude.rnf bytesPerSecond
-      `Prelude.seq` Prelude.rnf securityDescriptorCopyFlags
-      `Prelude.seq` Prelude.rnf gid
-      `Prelude.seq` Prelude.rnf overwriteMode
-      `Prelude.seq` Prelude.rnf transferMode
-      `Prelude.seq` Prelude.rnf preserveDeletedFiles
+      `Prelude.seq` Prelude.rnf taskQueueing
       `Prelude.seq` Prelude.rnf preserveDevices
+      `Prelude.seq` Prelude.rnf overwriteMode
+      `Prelude.seq` Prelude.rnf mtime
+      `Prelude.seq` Prelude.rnf transferMode
+      `Prelude.seq` Prelude.rnf uid
+      `Prelude.seq` Prelude.rnf verifyMode
+      `Prelude.seq` Prelude.rnf preserveDeletedFiles
+      `Prelude.seq` Prelude.rnf atime
+      `Prelude.seq` Prelude.rnf posixPermissions
+      `Prelude.seq` Prelude.rnf securityDescriptorCopyFlags
+      `Prelude.seq` Prelude.rnf bytesPerSecond
 
 instance Core.ToJSON Options where
   toJSON Options' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Atime" Core..=) Prelude.<$> atime,
-            ("VerifyMode" Core..=) Prelude.<$> verifyMode,
-            ("TaskQueueing" Core..=) Prelude.<$> taskQueueing,
+          [ ("Gid" Core..=) Prelude.<$> gid,
             ("LogLevel" Core..=) Prelude.<$> logLevel,
-            ("PosixPermissions" Core..=)
-              Prelude.<$> posixPermissions,
-            ("Mtime" Core..=) Prelude.<$> mtime,
-            ("Uid" Core..=) Prelude.<$> uid,
-            ("BytesPerSecond" Core..=)
-              Prelude.<$> bytesPerSecond,
-            ("SecurityDescriptorCopyFlags" Core..=)
-              Prelude.<$> securityDescriptorCopyFlags,
-            ("Gid" Core..=) Prelude.<$> gid,
+            ("TaskQueueing" Core..=) Prelude.<$> taskQueueing,
+            ("PreserveDevices" Core..=)
+              Prelude.<$> preserveDevices,
             ("OverwriteMode" Core..=) Prelude.<$> overwriteMode,
+            ("Mtime" Core..=) Prelude.<$> mtime,
             ("TransferMode" Core..=) Prelude.<$> transferMode,
+            ("Uid" Core..=) Prelude.<$> uid,
+            ("VerifyMode" Core..=) Prelude.<$> verifyMode,
             ("PreserveDeletedFiles" Core..=)
               Prelude.<$> preserveDeletedFiles,
-            ("PreserveDevices" Core..=)
-              Prelude.<$> preserveDevices
+            ("Atime" Core..=) Prelude.<$> atime,
+            ("PosixPermissions" Core..=)
+              Prelude.<$> posixPermissions,
+            ("SecurityDescriptorCopyFlags" Core..=)
+              Prelude.<$> securityDescriptorCopyFlags,
+            ("BytesPerSecond" Core..=)
+              Prelude.<$> bytesPerSecond
           ]
       )

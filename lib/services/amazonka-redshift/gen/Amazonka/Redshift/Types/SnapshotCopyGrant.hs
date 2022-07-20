@@ -35,13 +35,13 @@ import Amazonka.Redshift.Types.Tag
 --
 -- /See:/ 'newSnapshotCopyGrant' smart constructor.
 data SnapshotCopyGrant = SnapshotCopyGrant'
-  { -- | The unique identifier of the customer master key (CMK) in Amazon Web
-    -- Services KMS to which Amazon Redshift is granted permission.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+  { -- | A list of tag instances.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the snapshot copy grant.
     snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
-    -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag]
+    -- | The unique identifier of the customer master key (CMK) in Amazon Web
+    -- Services KMS to which Amazon Redshift is granted permission.
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,51 +53,51 @@ data SnapshotCopyGrant = SnapshotCopyGrant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'snapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) in Amazon Web
--- Services KMS to which Amazon Redshift is granted permission.
+-- 'tags', 'snapshotCopyGrant_tags' - A list of tag instances.
 --
 -- 'snapshotCopyGrantName', 'snapshotCopyGrant_snapshotCopyGrantName' - The name of the snapshot copy grant.
 --
--- 'tags', 'snapshotCopyGrant_tags' - A list of tag instances.
+-- 'kmsKeyId', 'snapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) in Amazon Web
+-- Services KMS to which Amazon Redshift is granted permission.
 newSnapshotCopyGrant ::
   SnapshotCopyGrant
 newSnapshotCopyGrant =
   SnapshotCopyGrant'
-    { kmsKeyId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       snapshotCopyGrantName = Prelude.Nothing,
-      tags = Prelude.Nothing
+      kmsKeyId = Prelude.Nothing
     }
+
+-- | A list of tag instances.
+snapshotCopyGrant_tags :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe [Tag])
+snapshotCopyGrant_tags = Lens.lens (\SnapshotCopyGrant' {tags} -> tags) (\s@SnapshotCopyGrant' {} a -> s {tags = a} :: SnapshotCopyGrant) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the snapshot copy grant.
+snapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe Prelude.Text)
+snapshotCopyGrant_snapshotCopyGrantName = Lens.lens (\SnapshotCopyGrant' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@SnapshotCopyGrant' {} a -> s {snapshotCopyGrantName = a} :: SnapshotCopyGrant)
 
 -- | The unique identifier of the customer master key (CMK) in Amazon Web
 -- Services KMS to which Amazon Redshift is granted permission.
 snapshotCopyGrant_kmsKeyId :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe Prelude.Text)
 snapshotCopyGrant_kmsKeyId = Lens.lens (\SnapshotCopyGrant' {kmsKeyId} -> kmsKeyId) (\s@SnapshotCopyGrant' {} a -> s {kmsKeyId = a} :: SnapshotCopyGrant)
 
--- | The name of the snapshot copy grant.
-snapshotCopyGrant_snapshotCopyGrantName :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe Prelude.Text)
-snapshotCopyGrant_snapshotCopyGrantName = Lens.lens (\SnapshotCopyGrant' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@SnapshotCopyGrant' {} a -> s {snapshotCopyGrantName = a} :: SnapshotCopyGrant)
-
--- | A list of tag instances.
-snapshotCopyGrant_tags :: Lens.Lens' SnapshotCopyGrant (Prelude.Maybe [Tag])
-snapshotCopyGrant_tags = Lens.lens (\SnapshotCopyGrant' {tags} -> tags) (\s@SnapshotCopyGrant' {} a -> s {tags = a} :: SnapshotCopyGrant) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromXML SnapshotCopyGrant where
   parseXML x =
     SnapshotCopyGrant'
-      Prelude.<$> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "SnapshotCopyGrantName")
-      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
+      Prelude.<*> (x Core..@? "SnapshotCopyGrantName")
+      Prelude.<*> (x Core..@? "KmsKeyId")
 
 instance Prelude.Hashable SnapshotCopyGrant where
   hashWithSalt _salt SnapshotCopyGrant' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` snapshotCopyGrantName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData SnapshotCopyGrant where
   rnf SnapshotCopyGrant' {..} =
-    Prelude.rnf kmsKeyId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf snapshotCopyGrantName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId

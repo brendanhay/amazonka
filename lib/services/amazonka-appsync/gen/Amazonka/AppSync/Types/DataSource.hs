@@ -34,23 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSource' smart constructor.
 data DataSource = DataSource'
-  { -- | The Identity and Access Management service role ARN for the data source.
-    -- The system assumes this role when accessing the data source.
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Relational database settings.
-    relationalDatabaseConfig :: Prelude.Maybe RelationalDatabaseDataSourceConfig,
+  { -- | The name of the data source.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The data source ARN.
     dataSourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Amazon DynamoDB settings.
-    dynamodbConfig :: Prelude.Maybe DynamodbDataSourceConfig,
-    -- | The name of the data source.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | HTTP endpoint settings.
-    httpConfig :: Prelude.Maybe HttpDataSourceConfig,
-    -- | Amazon OpenSearch Service settings.
-    openSearchServiceConfig :: Prelude.Maybe OpenSearchServiceDataSourceConfig,
-    -- | Amazon Web Services Lambda settings.
-    lambdaConfig :: Prelude.Maybe LambdaDataSourceConfig,
     -- | The type of the data source.
     --
     -- -   __AWS_LAMBDA__: The data source is an Amazon Web Services Lambda
@@ -73,10 +60,23 @@ data DataSource = DataSource'
     --
     -- -   __RELATIONAL_DATABASE__: The data source is a relational database.
     type' :: Prelude.Maybe DataSourceType,
+    -- | Relational database settings.
+    relationalDatabaseConfig :: Prelude.Maybe RelationalDatabaseDataSourceConfig,
+    -- | The Identity and Access Management service role ARN for the data source.
+    -- The system assumes this role when accessing the data source.
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Amazon OpenSearch Service settings.
+    openSearchServiceConfig :: Prelude.Maybe OpenSearchServiceDataSourceConfig,
     -- | The description of the data source.
     description :: Prelude.Maybe Prelude.Text,
     -- | Amazon OpenSearch Service settings.
-    elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig
+    elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
+    -- | Amazon Web Services Lambda settings.
+    lambdaConfig :: Prelude.Maybe LambdaDataSourceConfig,
+    -- | Amazon DynamoDB settings.
+    dynamodbConfig :: Prelude.Maybe DynamodbDataSourceConfig,
+    -- | HTTP endpoint settings.
+    httpConfig :: Prelude.Maybe HttpDataSourceConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,22 +88,9 @@ data DataSource = DataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceRoleArn', 'dataSource_serviceRoleArn' - The Identity and Access Management service role ARN for the data source.
--- The system assumes this role when accessing the data source.
---
--- 'relationalDatabaseConfig', 'dataSource_relationalDatabaseConfig' - Relational database settings.
---
--- 'dataSourceArn', 'dataSource_dataSourceArn' - The data source ARN.
---
--- 'dynamodbConfig', 'dataSource_dynamodbConfig' - Amazon DynamoDB settings.
---
 -- 'name', 'dataSource_name' - The name of the data source.
 --
--- 'httpConfig', 'dataSource_httpConfig' - HTTP endpoint settings.
---
--- 'openSearchServiceConfig', 'dataSource_openSearchServiceConfig' - Amazon OpenSearch Service settings.
---
--- 'lambdaConfig', 'dataSource_lambdaConfig' - Amazon Web Services Lambda settings.
+-- 'dataSourceArn', 'dataSource_dataSourceArn' - The data source ARN.
 --
 -- 'type'', 'dataSource_type' - The type of the data source.
 --
@@ -127,58 +114,46 @@ data DataSource = DataSource'
 --
 -- -   __RELATIONAL_DATABASE__: The data source is a relational database.
 --
+-- 'relationalDatabaseConfig', 'dataSource_relationalDatabaseConfig' - Relational database settings.
+--
+-- 'serviceRoleArn', 'dataSource_serviceRoleArn' - The Identity and Access Management service role ARN for the data source.
+-- The system assumes this role when accessing the data source.
+--
+-- 'openSearchServiceConfig', 'dataSource_openSearchServiceConfig' - Amazon OpenSearch Service settings.
+--
 -- 'description', 'dataSource_description' - The description of the data source.
 --
 -- 'elasticsearchConfig', 'dataSource_elasticsearchConfig' - Amazon OpenSearch Service settings.
+--
+-- 'lambdaConfig', 'dataSource_lambdaConfig' - Amazon Web Services Lambda settings.
+--
+-- 'dynamodbConfig', 'dataSource_dynamodbConfig' - Amazon DynamoDB settings.
+--
+-- 'httpConfig', 'dataSource_httpConfig' - HTTP endpoint settings.
 newDataSource ::
   DataSource
 newDataSource =
   DataSource'
-    { serviceRoleArn = Prelude.Nothing,
-      relationalDatabaseConfig = Prelude.Nothing,
+    { name = Prelude.Nothing,
       dataSourceArn = Prelude.Nothing,
-      dynamodbConfig = Prelude.Nothing,
-      name = Prelude.Nothing,
-      httpConfig = Prelude.Nothing,
-      openSearchServiceConfig = Prelude.Nothing,
-      lambdaConfig = Prelude.Nothing,
       type' = Prelude.Nothing,
+      relationalDatabaseConfig = Prelude.Nothing,
+      serviceRoleArn = Prelude.Nothing,
+      openSearchServiceConfig = Prelude.Nothing,
       description = Prelude.Nothing,
-      elasticsearchConfig = Prelude.Nothing
+      elasticsearchConfig = Prelude.Nothing,
+      lambdaConfig = Prelude.Nothing,
+      dynamodbConfig = Prelude.Nothing,
+      httpConfig = Prelude.Nothing
     }
-
--- | The Identity and Access Management service role ARN for the data source.
--- The system assumes this role when accessing the data source.
-dataSource_serviceRoleArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
-dataSource_serviceRoleArn = Lens.lens (\DataSource' {serviceRoleArn} -> serviceRoleArn) (\s@DataSource' {} a -> s {serviceRoleArn = a} :: DataSource)
-
--- | Relational database settings.
-dataSource_relationalDatabaseConfig :: Lens.Lens' DataSource (Prelude.Maybe RelationalDatabaseDataSourceConfig)
-dataSource_relationalDatabaseConfig = Lens.lens (\DataSource' {relationalDatabaseConfig} -> relationalDatabaseConfig) (\s@DataSource' {} a -> s {relationalDatabaseConfig = a} :: DataSource)
-
--- | The data source ARN.
-dataSource_dataSourceArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
-dataSource_dataSourceArn = Lens.lens (\DataSource' {dataSourceArn} -> dataSourceArn) (\s@DataSource' {} a -> s {dataSourceArn = a} :: DataSource)
-
--- | Amazon DynamoDB settings.
-dataSource_dynamodbConfig :: Lens.Lens' DataSource (Prelude.Maybe DynamodbDataSourceConfig)
-dataSource_dynamodbConfig = Lens.lens (\DataSource' {dynamodbConfig} -> dynamodbConfig) (\s@DataSource' {} a -> s {dynamodbConfig = a} :: DataSource)
 
 -- | The name of the data source.
 dataSource_name :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_name = Lens.lens (\DataSource' {name} -> name) (\s@DataSource' {} a -> s {name = a} :: DataSource)
 
--- | HTTP endpoint settings.
-dataSource_httpConfig :: Lens.Lens' DataSource (Prelude.Maybe HttpDataSourceConfig)
-dataSource_httpConfig = Lens.lens (\DataSource' {httpConfig} -> httpConfig) (\s@DataSource' {} a -> s {httpConfig = a} :: DataSource)
-
--- | Amazon OpenSearch Service settings.
-dataSource_openSearchServiceConfig :: Lens.Lens' DataSource (Prelude.Maybe OpenSearchServiceDataSourceConfig)
-dataSource_openSearchServiceConfig = Lens.lens (\DataSource' {openSearchServiceConfig} -> openSearchServiceConfig) (\s@DataSource' {} a -> s {openSearchServiceConfig = a} :: DataSource)
-
--- | Amazon Web Services Lambda settings.
-dataSource_lambdaConfig :: Lens.Lens' DataSource (Prelude.Maybe LambdaDataSourceConfig)
-dataSource_lambdaConfig = Lens.lens (\DataSource' {lambdaConfig} -> lambdaConfig) (\s@DataSource' {} a -> s {lambdaConfig = a} :: DataSource)
+-- | The data source ARN.
+dataSource_dataSourceArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
+dataSource_dataSourceArn = Lens.lens (\DataSource' {dataSourceArn} -> dataSourceArn) (\s@DataSource' {} a -> s {dataSourceArn = a} :: DataSource)
 
 -- | The type of the data source.
 --
@@ -204,6 +179,19 @@ dataSource_lambdaConfig = Lens.lens (\DataSource' {lambdaConfig} -> lambdaConfig
 dataSource_type :: Lens.Lens' DataSource (Prelude.Maybe DataSourceType)
 dataSource_type = Lens.lens (\DataSource' {type'} -> type') (\s@DataSource' {} a -> s {type' = a} :: DataSource)
 
+-- | Relational database settings.
+dataSource_relationalDatabaseConfig :: Lens.Lens' DataSource (Prelude.Maybe RelationalDatabaseDataSourceConfig)
+dataSource_relationalDatabaseConfig = Lens.lens (\DataSource' {relationalDatabaseConfig} -> relationalDatabaseConfig) (\s@DataSource' {} a -> s {relationalDatabaseConfig = a} :: DataSource)
+
+-- | The Identity and Access Management service role ARN for the data source.
+-- The system assumes this role when accessing the data source.
+dataSource_serviceRoleArn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
+dataSource_serviceRoleArn = Lens.lens (\DataSource' {serviceRoleArn} -> serviceRoleArn) (\s@DataSource' {} a -> s {serviceRoleArn = a} :: DataSource)
+
+-- | Amazon OpenSearch Service settings.
+dataSource_openSearchServiceConfig :: Lens.Lens' DataSource (Prelude.Maybe OpenSearchServiceDataSourceConfig)
+dataSource_openSearchServiceConfig = Lens.lens (\DataSource' {openSearchServiceConfig} -> openSearchServiceConfig) (\s@DataSource' {} a -> s {openSearchServiceConfig = a} :: DataSource)
+
 -- | The description of the data source.
 dataSource_description :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_description = Lens.lens (\DataSource' {description} -> description) (\s@DataSource' {} a -> s {description = a} :: DataSource)
@@ -212,49 +200,61 @@ dataSource_description = Lens.lens (\DataSource' {description} -> description) (
 dataSource_elasticsearchConfig :: Lens.Lens' DataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 dataSource_elasticsearchConfig = Lens.lens (\DataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@DataSource' {} a -> s {elasticsearchConfig = a} :: DataSource)
 
+-- | Amazon Web Services Lambda settings.
+dataSource_lambdaConfig :: Lens.Lens' DataSource (Prelude.Maybe LambdaDataSourceConfig)
+dataSource_lambdaConfig = Lens.lens (\DataSource' {lambdaConfig} -> lambdaConfig) (\s@DataSource' {} a -> s {lambdaConfig = a} :: DataSource)
+
+-- | Amazon DynamoDB settings.
+dataSource_dynamodbConfig :: Lens.Lens' DataSource (Prelude.Maybe DynamodbDataSourceConfig)
+dataSource_dynamodbConfig = Lens.lens (\DataSource' {dynamodbConfig} -> dynamodbConfig) (\s@DataSource' {} a -> s {dynamodbConfig = a} :: DataSource)
+
+-- | HTTP endpoint settings.
+dataSource_httpConfig :: Lens.Lens' DataSource (Prelude.Maybe HttpDataSourceConfig)
+dataSource_httpConfig = Lens.lens (\DataSource' {httpConfig} -> httpConfig) (\s@DataSource' {} a -> s {httpConfig = a} :: DataSource)
+
 instance Core.FromJSON DataSource where
   parseJSON =
     Core.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "serviceRoleArn")
-            Prelude.<*> (x Core..:? "relationalDatabaseConfig")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "dataSourceArn")
-            Prelude.<*> (x Core..:? "dynamodbConfig")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "httpConfig")
-            Prelude.<*> (x Core..:? "openSearchServiceConfig")
-            Prelude.<*> (x Core..:? "lambdaConfig")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "relationalDatabaseConfig")
+            Prelude.<*> (x Core..:? "serviceRoleArn")
+            Prelude.<*> (x Core..:? "openSearchServiceConfig")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "elasticsearchConfig")
+            Prelude.<*> (x Core..:? "lambdaConfig")
+            Prelude.<*> (x Core..:? "dynamodbConfig")
+            Prelude.<*> (x Core..:? "httpConfig")
       )
 
 instance Prelude.Hashable DataSource where
   hashWithSalt _salt DataSource' {..} =
-    _salt `Prelude.hashWithSalt` serviceRoleArn
-      `Prelude.hashWithSalt` relationalDatabaseConfig
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` dataSourceArn
-      `Prelude.hashWithSalt` dynamodbConfig
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` httpConfig
-      `Prelude.hashWithSalt` openSearchServiceConfig
-      `Prelude.hashWithSalt` lambdaConfig
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` relationalDatabaseConfig
+      `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` openSearchServiceConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` elasticsearchConfig
+      `Prelude.hashWithSalt` lambdaConfig
+      `Prelude.hashWithSalt` dynamodbConfig
+      `Prelude.hashWithSalt` httpConfig
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf relationalDatabaseConfig
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf dataSourceArn
-      `Prelude.seq` Prelude.rnf dynamodbConfig
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf httpConfig
-      `Prelude.seq` Prelude.rnf openSearchServiceConfig
-      `Prelude.seq` Prelude.rnf lambdaConfig
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf relationalDatabaseConfig
+      `Prelude.seq` Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf openSearchServiceConfig
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf elasticsearchConfig
+      `Prelude.seq` Prelude.rnf lambdaConfig
+      `Prelude.seq` Prelude.rnf dynamodbConfig
+      `Prelude.seq` Prelude.rnf httpConfig

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceSecretVerifierConfigType' smart constructor.
 data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
-  { -- | The password verifier.
-    passwordVerifier :: Prelude.Maybe Prelude.Text,
-    -- | The salt.
-    salt :: Prelude.Maybe Prelude.Text
+  { -- | The salt.
+    salt :: Prelude.Maybe Prelude.Text,
+    -- | The password verifier.
+    passwordVerifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'passwordVerifier', 'deviceSecretVerifierConfigType_passwordVerifier' - The password verifier.
---
 -- 'salt', 'deviceSecretVerifierConfigType_salt' - The salt.
+--
+-- 'passwordVerifier', 'deviceSecretVerifierConfigType_passwordVerifier' - The password verifier.
 newDeviceSecretVerifierConfigType ::
   DeviceSecretVerifierConfigType
 newDeviceSecretVerifierConfigType =
   DeviceSecretVerifierConfigType'
-    { passwordVerifier =
+    { salt =
         Prelude.Nothing,
-      salt = Prelude.Nothing
+      passwordVerifier = Prelude.Nothing
     }
-
--- | The password verifier.
-deviceSecretVerifierConfigType_passwordVerifier :: Lens.Lens' DeviceSecretVerifierConfigType (Prelude.Maybe Prelude.Text)
-deviceSecretVerifierConfigType_passwordVerifier = Lens.lens (\DeviceSecretVerifierConfigType' {passwordVerifier} -> passwordVerifier) (\s@DeviceSecretVerifierConfigType' {} a -> s {passwordVerifier = a} :: DeviceSecretVerifierConfigType)
 
 -- | The salt.
 deviceSecretVerifierConfigType_salt :: Lens.Lens' DeviceSecretVerifierConfigType (Prelude.Maybe Prelude.Text)
 deviceSecretVerifierConfigType_salt = Lens.lens (\DeviceSecretVerifierConfigType' {salt} -> salt) (\s@DeviceSecretVerifierConfigType' {} a -> s {salt = a} :: DeviceSecretVerifierConfigType)
+
+-- | The password verifier.
+deviceSecretVerifierConfigType_passwordVerifier :: Lens.Lens' DeviceSecretVerifierConfigType (Prelude.Maybe Prelude.Text)
+deviceSecretVerifierConfigType_passwordVerifier = Lens.lens (\DeviceSecretVerifierConfigType' {passwordVerifier} -> passwordVerifier) (\s@DeviceSecretVerifierConfigType' {} a -> s {passwordVerifier = a} :: DeviceSecretVerifierConfigType)
 
 instance
   Prelude.Hashable
@@ -69,23 +69,23 @@ instance
   hashWithSalt
     _salt
     DeviceSecretVerifierConfigType' {..} =
-      _salt `Prelude.hashWithSalt` passwordVerifier
-        `Prelude.hashWithSalt` salt
+      _salt `Prelude.hashWithSalt` salt
+        `Prelude.hashWithSalt` passwordVerifier
 
 instance
   Prelude.NFData
     DeviceSecretVerifierConfigType
   where
   rnf DeviceSecretVerifierConfigType' {..} =
-    Prelude.rnf passwordVerifier
-      `Prelude.seq` Prelude.rnf salt
+    Prelude.rnf salt
+      `Prelude.seq` Prelude.rnf passwordVerifier
 
 instance Core.ToJSON DeviceSecretVerifierConfigType where
   toJSON DeviceSecretVerifierConfigType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PasswordVerifier" Core..=)
-              Prelude.<$> passwordVerifier,
-            ("Salt" Core..=) Prelude.<$> salt
+          [ ("Salt" Core..=) Prelude.<$> salt,
+            ("PasswordVerifier" Core..=)
+              Prelude.<$> passwordVerifier
           ]
       )

@@ -48,26 +48,26 @@ module Amazonka.CognitoIdentityProvider.CreateUserPool
     newCreateUserPool,
 
     -- * Request Lenses
-    createUserPool_userPoolTags,
+    createUserPool_emailConfiguration,
+    createUserPool_adminCreateUserConfig,
     createUserPool_verificationMessageTemplate,
+    createUserPool_aliasAttributes,
+    createUserPool_deviceConfiguration,
+    createUserPool_mfaConfiguration,
+    createUserPool_usernameConfiguration,
+    createUserPool_autoVerifiedAttributes,
+    createUserPool_smsConfiguration,
+    createUserPool_policies,
+    createUserPool_smsVerificationMessage,
+    createUserPool_emailVerificationSubject,
+    createUserPool_accountRecoverySetting,
+    createUserPool_schema,
+    createUserPool_userPoolTags,
     createUserPool_emailVerificationMessage,
     createUserPool_smsAuthenticationMessage,
-    createUserPool_userPoolAddOns,
-    createUserPool_emailVerificationSubject,
     createUserPool_usernameAttributes,
-    createUserPool_aliasAttributes,
-    createUserPool_schema,
-    createUserPool_accountRecoverySetting,
-    createUserPool_emailConfiguration,
-    createUserPool_smsVerificationMessage,
-    createUserPool_mfaConfiguration,
     createUserPool_lambdaConfig,
-    createUserPool_smsConfiguration,
-    createUserPool_adminCreateUserConfig,
-    createUserPool_deviceConfiguration,
-    createUserPool_autoVerifiedAttributes,
-    createUserPool_policies,
-    createUserPool_usernameConfiguration,
+    createUserPool_userPoolAddOns,
     createUserPool_poolName,
 
     -- * Destructuring the Response
@@ -91,37 +91,41 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateUserPool' smart constructor.
 data CreateUserPool = CreateUserPool'
-  { -- | The tag keys and values to assign to the user pool. A tag is a label
-    -- that you can use to categorize and manage user pools in different ways,
-    -- such as by purpose, owner, environment, or other criteria.
-    userPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The email configuration.
+    emailConfiguration :: Prelude.Maybe EmailConfigurationType,
+    -- | The configuration for @AdminCreateUser@ requests.
+    adminCreateUserConfig :: Prelude.Maybe AdminCreateUserConfigType,
     -- | The template for the verification message that the user sees when the
     -- app requests permission to access the user\'s information.
     verificationMessageTemplate :: Prelude.Maybe VerificationMessageTemplateType,
-    -- | A string representing the email verification message.
-    -- EmailVerificationMessage is allowed only if
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
-    -- is DEVELOPER.
-    emailVerificationMessage :: Prelude.Maybe Prelude.Text,
-    -- | A string representing the SMS authentication message.
-    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
-    -- | Used to enable advanced security risk detection. Set the key
-    -- @AdvancedSecurityMode@ to the value \"AUDIT\".
-    userPoolAddOns :: Prelude.Maybe UserPoolAddOnsType,
+    -- | Attributes supported as an alias for this user pool. Possible values:
+    -- __phone_number__, __email__, or __preferred_username__.
+    aliasAttributes :: Prelude.Maybe [AliasAttributeType],
+    -- | The device configuration.
+    deviceConfiguration :: Prelude.Maybe DeviceConfigurationType,
+    -- | Specifies MFA configuration details.
+    mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
+    -- | You can choose to set case sensitivity on the username input for the
+    -- selected sign-in option. For example, when this is set to @False@, users
+    -- will be able to sign in using either \"username\" or \"Username\". This
+    -- configuration is immutable once it has been set. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
+    usernameConfiguration :: Prelude.Maybe UsernameConfigurationType,
+    -- | The attributes to be auto-verified. Possible values: __email__,
+    -- __phone_number__.
+    autoVerifiedAttributes :: Prelude.Maybe [VerifiedAttributeType],
+    -- | The SMS configuration.
+    smsConfiguration :: Prelude.Maybe SmsConfigurationType,
+    -- | The policies associated with the new user pool.
+    policies :: Prelude.Maybe UserPoolPolicyType,
+    -- | A string representing the SMS verification message.
+    smsVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | A string representing the email verification subject.
     -- EmailVerificationSubject is allowed only if
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
     -- is DEVELOPER.
     emailVerificationSubject :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether email addresses or phone numbers can be specified as
-    -- usernames when a user signs up.
-    usernameAttributes :: Prelude.Maybe [UsernameAttributeType],
-    -- | Attributes supported as an alias for this user pool. Possible values:
-    -- __phone_number__, __email__, or __preferred_username__.
-    aliasAttributes :: Prelude.Maybe [AliasAttributeType],
-    -- | An array of schema attributes for the new user pool. These attributes
-    -- can be standard or custom attributes.
-    schema :: Prelude.Maybe (Prelude.NonEmpty SchemaAttributeType),
     -- | Use this setting to define which verified available method a user can
     -- use to recover their password when they call @ForgotPassword@. It allows
     -- you to define a preferred method when a user has more than one method
@@ -130,12 +134,23 @@ data CreateUserPool = CreateUserPool'
     -- of this setting, Cognito uses the legacy behavior to determine the
     -- recovery method where SMS is preferred over email.
     accountRecoverySetting :: Prelude.Maybe AccountRecoverySettingType,
-    -- | The email configuration.
-    emailConfiguration :: Prelude.Maybe EmailConfigurationType,
-    -- | A string representing the SMS verification message.
-    smsVerificationMessage :: Prelude.Maybe Prelude.Text,
-    -- | Specifies MFA configuration details.
-    mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
+    -- | An array of schema attributes for the new user pool. These attributes
+    -- can be standard or custom attributes.
+    schema :: Prelude.Maybe (Prelude.NonEmpty SchemaAttributeType),
+    -- | The tag keys and values to assign to the user pool. A tag is a label
+    -- that you can use to categorize and manage user pools in different ways,
+    -- such as by purpose, owner, environment, or other criteria.
+    userPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A string representing the email verification message.
+    -- EmailVerificationMessage is allowed only if
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+    -- is DEVELOPER.
+    emailVerificationMessage :: Prelude.Maybe Prelude.Text,
+    -- | A string representing the SMS authentication message.
+    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether email addresses or phone numbers can be specified as
+    -- usernames when a user signs up.
+    usernameAttributes :: Prelude.Maybe [UsernameAttributeType],
     -- | The Lambda trigger configuration information for the new user pool.
     --
     -- In a push model, event sources (such as Amazon S3 and custom
@@ -151,24 +166,9 @@ data CreateUserPool = CreateUserPool'
     -- <https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html add-permission>
     -- .
     lambdaConfig :: Prelude.Maybe LambdaConfigType,
-    -- | The SMS configuration.
-    smsConfiguration :: Prelude.Maybe SmsConfigurationType,
-    -- | The configuration for @AdminCreateUser@ requests.
-    adminCreateUserConfig :: Prelude.Maybe AdminCreateUserConfigType,
-    -- | The device configuration.
-    deviceConfiguration :: Prelude.Maybe DeviceConfigurationType,
-    -- | The attributes to be auto-verified. Possible values: __email__,
-    -- __phone_number__.
-    autoVerifiedAttributes :: Prelude.Maybe [VerifiedAttributeType],
-    -- | The policies associated with the new user pool.
-    policies :: Prelude.Maybe UserPoolPolicyType,
-    -- | You can choose to set case sensitivity on the username input for the
-    -- selected sign-in option. For example, when this is set to @False@, users
-    -- will be able to sign in using either \"username\" or \"Username\". This
-    -- configuration is immutable once it has been set. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
-    usernameConfiguration :: Prelude.Maybe UsernameConfigurationType,
+    -- | Used to enable advanced security risk detection. Set the key
+    -- @AdvancedSecurityMode@ to the value \"AUDIT\".
+    userPoolAddOns :: Prelude.Maybe UserPoolAddOnsType,
     -- | A string used to name the user pool.
     poolName :: Prelude.Text
   }
@@ -182,36 +182,40 @@ data CreateUserPool = CreateUserPool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userPoolTags', 'createUserPool_userPoolTags' - The tag keys and values to assign to the user pool. A tag is a label
--- that you can use to categorize and manage user pools in different ways,
--- such as by purpose, owner, environment, or other criteria.
+-- 'emailConfiguration', 'createUserPool_emailConfiguration' - The email configuration.
+--
+-- 'adminCreateUserConfig', 'createUserPool_adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
 --
 -- 'verificationMessageTemplate', 'createUserPool_verificationMessageTemplate' - The template for the verification message that the user sees when the
 -- app requests permission to access the user\'s information.
 --
--- 'emailVerificationMessage', 'createUserPool_emailVerificationMessage' - A string representing the email verification message.
--- EmailVerificationMessage is allowed only if
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is DEVELOPER.
+-- 'aliasAttributes', 'createUserPool_aliasAttributes' - Attributes supported as an alias for this user pool. Possible values:
+-- __phone_number__, __email__, or __preferred_username__.
 --
--- 'smsAuthenticationMessage', 'createUserPool_smsAuthenticationMessage' - A string representing the SMS authentication message.
+-- 'deviceConfiguration', 'createUserPool_deviceConfiguration' - The device configuration.
 --
--- 'userPoolAddOns', 'createUserPool_userPoolAddOns' - Used to enable advanced security risk detection. Set the key
--- @AdvancedSecurityMode@ to the value \"AUDIT\".
+-- 'mfaConfiguration', 'createUserPool_mfaConfiguration' - Specifies MFA configuration details.
+--
+-- 'usernameConfiguration', 'createUserPool_usernameConfiguration' - You can choose to set case sensitivity on the username input for the
+-- selected sign-in option. For example, when this is set to @False@, users
+-- will be able to sign in using either \"username\" or \"Username\". This
+-- configuration is immutable once it has been set. For more information,
+-- see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
+--
+-- 'autoVerifiedAttributes', 'createUserPool_autoVerifiedAttributes' - The attributes to be auto-verified. Possible values: __email__,
+-- __phone_number__.
+--
+-- 'smsConfiguration', 'createUserPool_smsConfiguration' - The SMS configuration.
+--
+-- 'policies', 'createUserPool_policies' - The policies associated with the new user pool.
+--
+-- 'smsVerificationMessage', 'createUserPool_smsVerificationMessage' - A string representing the SMS verification message.
 --
 -- 'emailVerificationSubject', 'createUserPool_emailVerificationSubject' - A string representing the email verification subject.
 -- EmailVerificationSubject is allowed only if
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
 -- is DEVELOPER.
---
--- 'usernameAttributes', 'createUserPool_usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as
--- usernames when a user signs up.
---
--- 'aliasAttributes', 'createUserPool_aliasAttributes' - Attributes supported as an alias for this user pool. Possible values:
--- __phone_number__, __email__, or __preferred_username__.
---
--- 'schema', 'createUserPool_schema' - An array of schema attributes for the new user pool. These attributes
--- can be standard or custom attributes.
 --
 -- 'accountRecoverySetting', 'createUserPool_accountRecoverySetting' - Use this setting to define which verified available method a user can
 -- use to recover their password when they call @ForgotPassword@. It allows
@@ -221,11 +225,22 @@ data CreateUserPool = CreateUserPool'
 -- of this setting, Cognito uses the legacy behavior to determine the
 -- recovery method where SMS is preferred over email.
 --
--- 'emailConfiguration', 'createUserPool_emailConfiguration' - The email configuration.
+-- 'schema', 'createUserPool_schema' - An array of schema attributes for the new user pool. These attributes
+-- can be standard or custom attributes.
 --
--- 'smsVerificationMessage', 'createUserPool_smsVerificationMessage' - A string representing the SMS verification message.
+-- 'userPoolTags', 'createUserPool_userPoolTags' - The tag keys and values to assign to the user pool. A tag is a label
+-- that you can use to categorize and manage user pools in different ways,
+-- such as by purpose, owner, environment, or other criteria.
 --
--- 'mfaConfiguration', 'createUserPool_mfaConfiguration' - Specifies MFA configuration details.
+-- 'emailVerificationMessage', 'createUserPool_emailVerificationMessage' - A string representing the email verification message.
+-- EmailVerificationMessage is allowed only if
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is DEVELOPER.
+--
+-- 'smsAuthenticationMessage', 'createUserPool_smsAuthenticationMessage' - A string representing the SMS authentication message.
+--
+-- 'usernameAttributes', 'createUserPool_usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as
+-- usernames when a user signs up.
 --
 -- 'lambdaConfig', 'createUserPool_lambdaConfig' - The Lambda trigger configuration information for the new user pool.
 --
@@ -242,23 +257,8 @@ data CreateUserPool = CreateUserPool'
 -- <https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html add-permission>
 -- .
 --
--- 'smsConfiguration', 'createUserPool_smsConfiguration' - The SMS configuration.
---
--- 'adminCreateUserConfig', 'createUserPool_adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
---
--- 'deviceConfiguration', 'createUserPool_deviceConfiguration' - The device configuration.
---
--- 'autoVerifiedAttributes', 'createUserPool_autoVerifiedAttributes' - The attributes to be auto-verified. Possible values: __email__,
--- __phone_number__.
---
--- 'policies', 'createUserPool_policies' - The policies associated with the new user pool.
---
--- 'usernameConfiguration', 'createUserPool_usernameConfiguration' - You can choose to set case sensitivity on the username input for the
--- selected sign-in option. For example, when this is set to @False@, users
--- will be able to sign in using either \"username\" or \"Username\". This
--- configuration is immutable once it has been set. For more information,
--- see
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
+-- 'userPoolAddOns', 'createUserPool_userPoolAddOns' - Used to enable advanced security risk detection. Set the key
+-- @AdvancedSecurityMode@ to the value \"AUDIT\".
 --
 -- 'poolName', 'createUserPool_poolName' - A string used to name the user pool.
 newCreateUserPool ::
@@ -267,39 +267,109 @@ newCreateUserPool ::
   CreateUserPool
 newCreateUserPool pPoolName_ =
   CreateUserPool'
-    { userPoolTags = Prelude.Nothing,
+    { emailConfiguration =
+        Prelude.Nothing,
+      adminCreateUserConfig = Prelude.Nothing,
       verificationMessageTemplate = Prelude.Nothing,
+      aliasAttributes = Prelude.Nothing,
+      deviceConfiguration = Prelude.Nothing,
+      mfaConfiguration = Prelude.Nothing,
+      usernameConfiguration = Prelude.Nothing,
+      autoVerifiedAttributes = Prelude.Nothing,
+      smsConfiguration = Prelude.Nothing,
+      policies = Prelude.Nothing,
+      smsVerificationMessage = Prelude.Nothing,
+      emailVerificationSubject = Prelude.Nothing,
+      accountRecoverySetting = Prelude.Nothing,
+      schema = Prelude.Nothing,
+      userPoolTags = Prelude.Nothing,
       emailVerificationMessage = Prelude.Nothing,
       smsAuthenticationMessage = Prelude.Nothing,
-      userPoolAddOns = Prelude.Nothing,
-      emailVerificationSubject = Prelude.Nothing,
       usernameAttributes = Prelude.Nothing,
-      aliasAttributes = Prelude.Nothing,
-      schema = Prelude.Nothing,
-      accountRecoverySetting = Prelude.Nothing,
-      emailConfiguration = Prelude.Nothing,
-      smsVerificationMessage = Prelude.Nothing,
-      mfaConfiguration = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
-      smsConfiguration = Prelude.Nothing,
-      adminCreateUserConfig = Prelude.Nothing,
-      deviceConfiguration = Prelude.Nothing,
-      autoVerifiedAttributes = Prelude.Nothing,
-      policies = Prelude.Nothing,
-      usernameConfiguration = Prelude.Nothing,
+      userPoolAddOns = Prelude.Nothing,
       poolName = pPoolName_
     }
+
+-- | The email configuration.
+createUserPool_emailConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe EmailConfigurationType)
+createUserPool_emailConfiguration = Lens.lens (\CreateUserPool' {emailConfiguration} -> emailConfiguration) (\s@CreateUserPool' {} a -> s {emailConfiguration = a} :: CreateUserPool)
+
+-- | The configuration for @AdminCreateUser@ requests.
+createUserPool_adminCreateUserConfig :: Lens.Lens' CreateUserPool (Prelude.Maybe AdminCreateUserConfigType)
+createUserPool_adminCreateUserConfig = Lens.lens (\CreateUserPool' {adminCreateUserConfig} -> adminCreateUserConfig) (\s@CreateUserPool' {} a -> s {adminCreateUserConfig = a} :: CreateUserPool)
+
+-- | The template for the verification message that the user sees when the
+-- app requests permission to access the user\'s information.
+createUserPool_verificationMessageTemplate :: Lens.Lens' CreateUserPool (Prelude.Maybe VerificationMessageTemplateType)
+createUserPool_verificationMessageTemplate = Lens.lens (\CreateUserPool' {verificationMessageTemplate} -> verificationMessageTemplate) (\s@CreateUserPool' {} a -> s {verificationMessageTemplate = a} :: CreateUserPool)
+
+-- | Attributes supported as an alias for this user pool. Possible values:
+-- __phone_number__, __email__, or __preferred_username__.
+createUserPool_aliasAttributes :: Lens.Lens' CreateUserPool (Prelude.Maybe [AliasAttributeType])
+createUserPool_aliasAttributes = Lens.lens (\CreateUserPool' {aliasAttributes} -> aliasAttributes) (\s@CreateUserPool' {} a -> s {aliasAttributes = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
+
+-- | The device configuration.
+createUserPool_deviceConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe DeviceConfigurationType)
+createUserPool_deviceConfiguration = Lens.lens (\CreateUserPool' {deviceConfiguration} -> deviceConfiguration) (\s@CreateUserPool' {} a -> s {deviceConfiguration = a} :: CreateUserPool)
+
+-- | Specifies MFA configuration details.
+createUserPool_mfaConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe UserPoolMfaType)
+createUserPool_mfaConfiguration = Lens.lens (\CreateUserPool' {mfaConfiguration} -> mfaConfiguration) (\s@CreateUserPool' {} a -> s {mfaConfiguration = a} :: CreateUserPool)
+
+-- | You can choose to set case sensitivity on the username input for the
+-- selected sign-in option. For example, when this is set to @False@, users
+-- will be able to sign in using either \"username\" or \"Username\". This
+-- configuration is immutable once it has been set. For more information,
+-- see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
+createUserPool_usernameConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe UsernameConfigurationType)
+createUserPool_usernameConfiguration = Lens.lens (\CreateUserPool' {usernameConfiguration} -> usernameConfiguration) (\s@CreateUserPool' {} a -> s {usernameConfiguration = a} :: CreateUserPool)
+
+-- | The attributes to be auto-verified. Possible values: __email__,
+-- __phone_number__.
+createUserPool_autoVerifiedAttributes :: Lens.Lens' CreateUserPool (Prelude.Maybe [VerifiedAttributeType])
+createUserPool_autoVerifiedAttributes = Lens.lens (\CreateUserPool' {autoVerifiedAttributes} -> autoVerifiedAttributes) (\s@CreateUserPool' {} a -> s {autoVerifiedAttributes = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
+
+-- | The SMS configuration.
+createUserPool_smsConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe SmsConfigurationType)
+createUserPool_smsConfiguration = Lens.lens (\CreateUserPool' {smsConfiguration} -> smsConfiguration) (\s@CreateUserPool' {} a -> s {smsConfiguration = a} :: CreateUserPool)
+
+-- | The policies associated with the new user pool.
+createUserPool_policies :: Lens.Lens' CreateUserPool (Prelude.Maybe UserPoolPolicyType)
+createUserPool_policies = Lens.lens (\CreateUserPool' {policies} -> policies) (\s@CreateUserPool' {} a -> s {policies = a} :: CreateUserPool)
+
+-- | A string representing the SMS verification message.
+createUserPool_smsVerificationMessage :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
+createUserPool_smsVerificationMessage = Lens.lens (\CreateUserPool' {smsVerificationMessage} -> smsVerificationMessage) (\s@CreateUserPool' {} a -> s {smsVerificationMessage = a} :: CreateUserPool)
+
+-- | A string representing the email verification subject.
+-- EmailVerificationSubject is allowed only if
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is DEVELOPER.
+createUserPool_emailVerificationSubject :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
+createUserPool_emailVerificationSubject = Lens.lens (\CreateUserPool' {emailVerificationSubject} -> emailVerificationSubject) (\s@CreateUserPool' {} a -> s {emailVerificationSubject = a} :: CreateUserPool)
+
+-- | Use this setting to define which verified available method a user can
+-- use to recover their password when they call @ForgotPassword@. It allows
+-- you to define a preferred method when a user has more than one method
+-- available. With this setting, SMS does not qualify for a valid password
+-- recovery mechanism if the user also has SMS MFA enabled. In the absence
+-- of this setting, Cognito uses the legacy behavior to determine the
+-- recovery method where SMS is preferred over email.
+createUserPool_accountRecoverySetting :: Lens.Lens' CreateUserPool (Prelude.Maybe AccountRecoverySettingType)
+createUserPool_accountRecoverySetting = Lens.lens (\CreateUserPool' {accountRecoverySetting} -> accountRecoverySetting) (\s@CreateUserPool' {} a -> s {accountRecoverySetting = a} :: CreateUserPool)
+
+-- | An array of schema attributes for the new user pool. These attributes
+-- can be standard or custom attributes.
+createUserPool_schema :: Lens.Lens' CreateUserPool (Prelude.Maybe (Prelude.NonEmpty SchemaAttributeType))
+createUserPool_schema = Lens.lens (\CreateUserPool' {schema} -> schema) (\s@CreateUserPool' {} a -> s {schema = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tag keys and values to assign to the user pool. A tag is a label
 -- that you can use to categorize and manage user pools in different ways,
 -- such as by purpose, owner, environment, or other criteria.
 createUserPool_userPoolTags :: Lens.Lens' CreateUserPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createUserPool_userPoolTags = Lens.lens (\CreateUserPool' {userPoolTags} -> userPoolTags) (\s@CreateUserPool' {} a -> s {userPoolTags = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
-
--- | The template for the verification message that the user sees when the
--- app requests permission to access the user\'s information.
-createUserPool_verificationMessageTemplate :: Lens.Lens' CreateUserPool (Prelude.Maybe VerificationMessageTemplateType)
-createUserPool_verificationMessageTemplate = Lens.lens (\CreateUserPool' {verificationMessageTemplate} -> verificationMessageTemplate) (\s@CreateUserPool' {} a -> s {verificationMessageTemplate = a} :: CreateUserPool)
 
 -- | A string representing the email verification message.
 -- EmailVerificationMessage is allowed only if
@@ -312,54 +382,10 @@ createUserPool_emailVerificationMessage = Lens.lens (\CreateUserPool' {emailVeri
 createUserPool_smsAuthenticationMessage :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
 createUserPool_smsAuthenticationMessage = Lens.lens (\CreateUserPool' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@CreateUserPool' {} a -> s {smsAuthenticationMessage = a} :: CreateUserPool)
 
--- | Used to enable advanced security risk detection. Set the key
--- @AdvancedSecurityMode@ to the value \"AUDIT\".
-createUserPool_userPoolAddOns :: Lens.Lens' CreateUserPool (Prelude.Maybe UserPoolAddOnsType)
-createUserPool_userPoolAddOns = Lens.lens (\CreateUserPool' {userPoolAddOns} -> userPoolAddOns) (\s@CreateUserPool' {} a -> s {userPoolAddOns = a} :: CreateUserPool)
-
--- | A string representing the email verification subject.
--- EmailVerificationSubject is allowed only if
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is DEVELOPER.
-createUserPool_emailVerificationSubject :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
-createUserPool_emailVerificationSubject = Lens.lens (\CreateUserPool' {emailVerificationSubject} -> emailVerificationSubject) (\s@CreateUserPool' {} a -> s {emailVerificationSubject = a} :: CreateUserPool)
-
 -- | Specifies whether email addresses or phone numbers can be specified as
 -- usernames when a user signs up.
 createUserPool_usernameAttributes :: Lens.Lens' CreateUserPool (Prelude.Maybe [UsernameAttributeType])
 createUserPool_usernameAttributes = Lens.lens (\CreateUserPool' {usernameAttributes} -> usernameAttributes) (\s@CreateUserPool' {} a -> s {usernameAttributes = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
-
--- | Attributes supported as an alias for this user pool. Possible values:
--- __phone_number__, __email__, or __preferred_username__.
-createUserPool_aliasAttributes :: Lens.Lens' CreateUserPool (Prelude.Maybe [AliasAttributeType])
-createUserPool_aliasAttributes = Lens.lens (\CreateUserPool' {aliasAttributes} -> aliasAttributes) (\s@CreateUserPool' {} a -> s {aliasAttributes = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of schema attributes for the new user pool. These attributes
--- can be standard or custom attributes.
-createUserPool_schema :: Lens.Lens' CreateUserPool (Prelude.Maybe (Prelude.NonEmpty SchemaAttributeType))
-createUserPool_schema = Lens.lens (\CreateUserPool' {schema} -> schema) (\s@CreateUserPool' {} a -> s {schema = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
-
--- | Use this setting to define which verified available method a user can
--- use to recover their password when they call @ForgotPassword@. It allows
--- you to define a preferred method when a user has more than one method
--- available. With this setting, SMS does not qualify for a valid password
--- recovery mechanism if the user also has SMS MFA enabled. In the absence
--- of this setting, Cognito uses the legacy behavior to determine the
--- recovery method where SMS is preferred over email.
-createUserPool_accountRecoverySetting :: Lens.Lens' CreateUserPool (Prelude.Maybe AccountRecoverySettingType)
-createUserPool_accountRecoverySetting = Lens.lens (\CreateUserPool' {accountRecoverySetting} -> accountRecoverySetting) (\s@CreateUserPool' {} a -> s {accountRecoverySetting = a} :: CreateUserPool)
-
--- | The email configuration.
-createUserPool_emailConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe EmailConfigurationType)
-createUserPool_emailConfiguration = Lens.lens (\CreateUserPool' {emailConfiguration} -> emailConfiguration) (\s@CreateUserPool' {} a -> s {emailConfiguration = a} :: CreateUserPool)
-
--- | A string representing the SMS verification message.
-createUserPool_smsVerificationMessage :: Lens.Lens' CreateUserPool (Prelude.Maybe Prelude.Text)
-createUserPool_smsVerificationMessage = Lens.lens (\CreateUserPool' {smsVerificationMessage} -> smsVerificationMessage) (\s@CreateUserPool' {} a -> s {smsVerificationMessage = a} :: CreateUserPool)
-
--- | Specifies MFA configuration details.
-createUserPool_mfaConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe UserPoolMfaType)
-createUserPool_mfaConfiguration = Lens.lens (\CreateUserPool' {mfaConfiguration} -> mfaConfiguration) (\s@CreateUserPool' {} a -> s {mfaConfiguration = a} :: CreateUserPool)
 
 -- | The Lambda trigger configuration information for the new user pool.
 --
@@ -378,35 +404,10 @@ createUserPool_mfaConfiguration = Lens.lens (\CreateUserPool' {mfaConfiguration}
 createUserPool_lambdaConfig :: Lens.Lens' CreateUserPool (Prelude.Maybe LambdaConfigType)
 createUserPool_lambdaConfig = Lens.lens (\CreateUserPool' {lambdaConfig} -> lambdaConfig) (\s@CreateUserPool' {} a -> s {lambdaConfig = a} :: CreateUserPool)
 
--- | The SMS configuration.
-createUserPool_smsConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe SmsConfigurationType)
-createUserPool_smsConfiguration = Lens.lens (\CreateUserPool' {smsConfiguration} -> smsConfiguration) (\s@CreateUserPool' {} a -> s {smsConfiguration = a} :: CreateUserPool)
-
--- | The configuration for @AdminCreateUser@ requests.
-createUserPool_adminCreateUserConfig :: Lens.Lens' CreateUserPool (Prelude.Maybe AdminCreateUserConfigType)
-createUserPool_adminCreateUserConfig = Lens.lens (\CreateUserPool' {adminCreateUserConfig} -> adminCreateUserConfig) (\s@CreateUserPool' {} a -> s {adminCreateUserConfig = a} :: CreateUserPool)
-
--- | The device configuration.
-createUserPool_deviceConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe DeviceConfigurationType)
-createUserPool_deviceConfiguration = Lens.lens (\CreateUserPool' {deviceConfiguration} -> deviceConfiguration) (\s@CreateUserPool' {} a -> s {deviceConfiguration = a} :: CreateUserPool)
-
--- | The attributes to be auto-verified. Possible values: __email__,
--- __phone_number__.
-createUserPool_autoVerifiedAttributes :: Lens.Lens' CreateUserPool (Prelude.Maybe [VerifiedAttributeType])
-createUserPool_autoVerifiedAttributes = Lens.lens (\CreateUserPool' {autoVerifiedAttributes} -> autoVerifiedAttributes) (\s@CreateUserPool' {} a -> s {autoVerifiedAttributes = a} :: CreateUserPool) Prelude.. Lens.mapping Lens.coerced
-
--- | The policies associated with the new user pool.
-createUserPool_policies :: Lens.Lens' CreateUserPool (Prelude.Maybe UserPoolPolicyType)
-createUserPool_policies = Lens.lens (\CreateUserPool' {policies} -> policies) (\s@CreateUserPool' {} a -> s {policies = a} :: CreateUserPool)
-
--- | You can choose to set case sensitivity on the username input for the
--- selected sign-in option. For example, when this is set to @False@, users
--- will be able to sign in using either \"username\" or \"Username\". This
--- configuration is immutable once it has been set. For more information,
--- see
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
-createUserPool_usernameConfiguration :: Lens.Lens' CreateUserPool (Prelude.Maybe UsernameConfigurationType)
-createUserPool_usernameConfiguration = Lens.lens (\CreateUserPool' {usernameConfiguration} -> usernameConfiguration) (\s@CreateUserPool' {} a -> s {usernameConfiguration = a} :: CreateUserPool)
+-- | Used to enable advanced security risk detection. Set the key
+-- @AdvancedSecurityMode@ to the value \"AUDIT\".
+createUserPool_userPoolAddOns :: Lens.Lens' CreateUserPool (Prelude.Maybe UserPoolAddOnsType)
+createUserPool_userPoolAddOns = Lens.lens (\CreateUserPool' {userPoolAddOns} -> userPoolAddOns) (\s@CreateUserPool' {} a -> s {userPoolAddOns = a} :: CreateUserPool)
 
 -- | A string used to name the user pool.
 createUserPool_poolName :: Lens.Lens' CreateUserPool Prelude.Text
@@ -427,51 +428,50 @@ instance Core.AWSRequest CreateUserPool where
 
 instance Prelude.Hashable CreateUserPool where
   hashWithSalt _salt CreateUserPool' {..} =
-    _salt `Prelude.hashWithSalt` userPoolTags
+    _salt `Prelude.hashWithSalt` emailConfiguration
+      `Prelude.hashWithSalt` adminCreateUserConfig
       `Prelude.hashWithSalt` verificationMessageTemplate
+      `Prelude.hashWithSalt` aliasAttributes
+      `Prelude.hashWithSalt` deviceConfiguration
+      `Prelude.hashWithSalt` mfaConfiguration
+      `Prelude.hashWithSalt` usernameConfiguration
+      `Prelude.hashWithSalt` autoVerifiedAttributes
+      `Prelude.hashWithSalt` smsConfiguration
+      `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` smsVerificationMessage
+      `Prelude.hashWithSalt` emailVerificationSubject
+      `Prelude.hashWithSalt` accountRecoverySetting
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` userPoolTags
       `Prelude.hashWithSalt` emailVerificationMessage
       `Prelude.hashWithSalt` smsAuthenticationMessage
-      `Prelude.hashWithSalt` userPoolAddOns
-      `Prelude.hashWithSalt` emailVerificationSubject
       `Prelude.hashWithSalt` usernameAttributes
-      `Prelude.hashWithSalt` aliasAttributes
-      `Prelude.hashWithSalt` schema
-      `Prelude.hashWithSalt` accountRecoverySetting
-      `Prelude.hashWithSalt` emailConfiguration
-      `Prelude.hashWithSalt` smsVerificationMessage
-      `Prelude.hashWithSalt` mfaConfiguration
       `Prelude.hashWithSalt` lambdaConfig
-      `Prelude.hashWithSalt` smsConfiguration
-      `Prelude.hashWithSalt` adminCreateUserConfig
-      `Prelude.hashWithSalt` deviceConfiguration
-      `Prelude.hashWithSalt` autoVerifiedAttributes
-      `Prelude.hashWithSalt` policies
-      `Prelude.hashWithSalt` usernameConfiguration
+      `Prelude.hashWithSalt` userPoolAddOns
       `Prelude.hashWithSalt` poolName
 
 instance Prelude.NFData CreateUserPool where
   rnf CreateUserPool' {..} =
-    Prelude.rnf userPoolTags
+    Prelude.rnf emailConfiguration
+      `Prelude.seq` Prelude.rnf adminCreateUserConfig
       `Prelude.seq` Prelude.rnf verificationMessageTemplate
+      `Prelude.seq` Prelude.rnf aliasAttributes
+      `Prelude.seq` Prelude.rnf deviceConfiguration
+      `Prelude.seq` Prelude.rnf mfaConfiguration
+      `Prelude.seq` Prelude.rnf usernameConfiguration
+      `Prelude.seq` Prelude.rnf autoVerifiedAttributes
+      `Prelude.seq` Prelude.rnf smsConfiguration
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf smsVerificationMessage
+      `Prelude.seq` Prelude.rnf emailVerificationSubject
+      `Prelude.seq` Prelude.rnf accountRecoverySetting
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf userPoolTags
       `Prelude.seq` Prelude.rnf emailVerificationMessage
       `Prelude.seq` Prelude.rnf smsAuthenticationMessage
-      `Prelude.seq` Prelude.rnf userPoolAddOns
-      `Prelude.seq` Prelude.rnf emailVerificationSubject
       `Prelude.seq` Prelude.rnf usernameAttributes
-      `Prelude.seq` Prelude.rnf aliasAttributes
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf accountRecoverySetting
-      `Prelude.seq` Prelude.rnf emailConfiguration
-      `Prelude.seq` Prelude.rnf smsVerificationMessage
-      `Prelude.seq` Prelude.rnf mfaConfiguration
       `Prelude.seq` Prelude.rnf lambdaConfig
-      `Prelude.seq` Prelude.rnf smsConfiguration
-      `Prelude.seq` Prelude.rnf adminCreateUserConfig
-      `Prelude.seq` Prelude.rnf deviceConfiguration
-      `Prelude.seq` Prelude.rnf autoVerifiedAttributes
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf
-        usernameConfiguration
+      `Prelude.seq` Prelude.rnf userPoolAddOns
       `Prelude.seq` Prelude.rnf poolName
 
 instance Core.ToHeaders CreateUserPool where
@@ -493,42 +493,42 @@ instance Core.ToJSON CreateUserPool where
   toJSON CreateUserPool' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserPoolTags" Core..=) Prelude.<$> userPoolTags,
+          [ ("EmailConfiguration" Core..=)
+              Prelude.<$> emailConfiguration,
+            ("AdminCreateUserConfig" Core..=)
+              Prelude.<$> adminCreateUserConfig,
             ("VerificationMessageTemplate" Core..=)
               Prelude.<$> verificationMessageTemplate,
+            ("AliasAttributes" Core..=)
+              Prelude.<$> aliasAttributes,
+            ("DeviceConfiguration" Core..=)
+              Prelude.<$> deviceConfiguration,
+            ("MfaConfiguration" Core..=)
+              Prelude.<$> mfaConfiguration,
+            ("UsernameConfiguration" Core..=)
+              Prelude.<$> usernameConfiguration,
+            ("AutoVerifiedAttributes" Core..=)
+              Prelude.<$> autoVerifiedAttributes,
+            ("SmsConfiguration" Core..=)
+              Prelude.<$> smsConfiguration,
+            ("Policies" Core..=) Prelude.<$> policies,
+            ("SmsVerificationMessage" Core..=)
+              Prelude.<$> smsVerificationMessage,
+            ("EmailVerificationSubject" Core..=)
+              Prelude.<$> emailVerificationSubject,
+            ("AccountRecoverySetting" Core..=)
+              Prelude.<$> accountRecoverySetting,
+            ("Schema" Core..=) Prelude.<$> schema,
+            ("UserPoolTags" Core..=) Prelude.<$> userPoolTags,
             ("EmailVerificationMessage" Core..=)
               Prelude.<$> emailVerificationMessage,
             ("SmsAuthenticationMessage" Core..=)
               Prelude.<$> smsAuthenticationMessage,
-            ("UserPoolAddOns" Core..=)
-              Prelude.<$> userPoolAddOns,
-            ("EmailVerificationSubject" Core..=)
-              Prelude.<$> emailVerificationSubject,
             ("UsernameAttributes" Core..=)
               Prelude.<$> usernameAttributes,
-            ("AliasAttributes" Core..=)
-              Prelude.<$> aliasAttributes,
-            ("Schema" Core..=) Prelude.<$> schema,
-            ("AccountRecoverySetting" Core..=)
-              Prelude.<$> accountRecoverySetting,
-            ("EmailConfiguration" Core..=)
-              Prelude.<$> emailConfiguration,
-            ("SmsVerificationMessage" Core..=)
-              Prelude.<$> smsVerificationMessage,
-            ("MfaConfiguration" Core..=)
-              Prelude.<$> mfaConfiguration,
             ("LambdaConfig" Core..=) Prelude.<$> lambdaConfig,
-            ("SmsConfiguration" Core..=)
-              Prelude.<$> smsConfiguration,
-            ("AdminCreateUserConfig" Core..=)
-              Prelude.<$> adminCreateUserConfig,
-            ("DeviceConfiguration" Core..=)
-              Prelude.<$> deviceConfiguration,
-            ("AutoVerifiedAttributes" Core..=)
-              Prelude.<$> autoVerifiedAttributes,
-            ("Policies" Core..=) Prelude.<$> policies,
-            ("UsernameConfiguration" Core..=)
-              Prelude.<$> usernameConfiguration,
+            ("UserPoolAddOns" Core..=)
+              Prelude.<$> userPoolAddOns,
             Prelude.Just ("PoolName" Core..= poolName)
           ]
       )

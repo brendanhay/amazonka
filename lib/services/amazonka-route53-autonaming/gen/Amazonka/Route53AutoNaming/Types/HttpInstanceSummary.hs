@@ -31,23 +31,23 @@ import Amazonka.Route53AutoNaming.Types.HealthStatus
 --
 -- /See:/ 'newHttpInstanceSummary' smart constructor.
 data HttpInstanceSummary = HttpInstanceSummary'
-  { -- | The ID of an instance that matches the values that you specified in the
-    -- request.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | @@ @@ @@
+  { -- | @@ @@ @@
     --
     -- The @HttpName@ name of the namespace. It\'s found in the
     -- @HttpProperties@ member of the @Properties@ member of the namespace.
     namespaceName :: Prelude.Maybe Prelude.Text,
+    -- | If you configured health checking in the service, the current health
+    -- status of the service instance.
+    healthStatus :: Prelude.Maybe HealthStatus,
+    -- | The ID of an instance that matches the values that you specified in the
+    -- request.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | If you included any attributes when you registered the instance, the
     -- values of those attributes.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the service that you specified when you registered the
     -- instance.
-    serviceName :: Prelude.Maybe Prelude.Text,
-    -- | If you configured health checking in the service, the current health
-    -- status of the service instance.
-    healthStatus :: Prelude.Maybe HealthStatus
+    serviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,37 +59,33 @@ data HttpInstanceSummary = HttpInstanceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'httpInstanceSummary_instanceId' - The ID of an instance that matches the values that you specified in the
--- request.
---
 -- 'namespaceName', 'httpInstanceSummary_namespaceName' - @@ @@ @@
 --
 -- The @HttpName@ name of the namespace. It\'s found in the
 -- @HttpProperties@ member of the @Properties@ member of the namespace.
+--
+-- 'healthStatus', 'httpInstanceSummary_healthStatus' - If you configured health checking in the service, the current health
+-- status of the service instance.
+--
+-- 'instanceId', 'httpInstanceSummary_instanceId' - The ID of an instance that matches the values that you specified in the
+-- request.
 --
 -- 'attributes', 'httpInstanceSummary_attributes' - If you included any attributes when you registered the instance, the
 -- values of those attributes.
 --
 -- 'serviceName', 'httpInstanceSummary_serviceName' - The name of the service that you specified when you registered the
 -- instance.
---
--- 'healthStatus', 'httpInstanceSummary_healthStatus' - If you configured health checking in the service, the current health
--- status of the service instance.
 newHttpInstanceSummary ::
   HttpInstanceSummary
 newHttpInstanceSummary =
   HttpInstanceSummary'
-    { instanceId = Prelude.Nothing,
-      namespaceName = Prelude.Nothing,
+    { namespaceName =
+        Prelude.Nothing,
+      healthStatus = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
-      healthStatus = Prelude.Nothing
+      serviceName = Prelude.Nothing
     }
-
--- | The ID of an instance that matches the values that you specified in the
--- request.
-httpInstanceSummary_instanceId :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
-httpInstanceSummary_instanceId = Lens.lens (\HttpInstanceSummary' {instanceId} -> instanceId) (\s@HttpInstanceSummary' {} a -> s {instanceId = a} :: HttpInstanceSummary)
 
 -- | @@ @@ @@
 --
@@ -97,6 +93,16 @@ httpInstanceSummary_instanceId = Lens.lens (\HttpInstanceSummary' {instanceId} -
 -- @HttpProperties@ member of the @Properties@ member of the namespace.
 httpInstanceSummary_namespaceName :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
 httpInstanceSummary_namespaceName = Lens.lens (\HttpInstanceSummary' {namespaceName} -> namespaceName) (\s@HttpInstanceSummary' {} a -> s {namespaceName = a} :: HttpInstanceSummary)
+
+-- | If you configured health checking in the service, the current health
+-- status of the service instance.
+httpInstanceSummary_healthStatus :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe HealthStatus)
+httpInstanceSummary_healthStatus = Lens.lens (\HttpInstanceSummary' {healthStatus} -> healthStatus) (\s@HttpInstanceSummary' {} a -> s {healthStatus = a} :: HttpInstanceSummary)
+
+-- | The ID of an instance that matches the values that you specified in the
+-- request.
+httpInstanceSummary_instanceId :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
+httpInstanceSummary_instanceId = Lens.lens (\HttpInstanceSummary' {instanceId} -> instanceId) (\s@HttpInstanceSummary' {} a -> s {instanceId = a} :: HttpInstanceSummary)
 
 -- | If you included any attributes when you registered the instance, the
 -- values of those attributes.
@@ -108,36 +114,31 @@ httpInstanceSummary_attributes = Lens.lens (\HttpInstanceSummary' {attributes} -
 httpInstanceSummary_serviceName :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
 httpInstanceSummary_serviceName = Lens.lens (\HttpInstanceSummary' {serviceName} -> serviceName) (\s@HttpInstanceSummary' {} a -> s {serviceName = a} :: HttpInstanceSummary)
 
--- | If you configured health checking in the service, the current health
--- status of the service instance.
-httpInstanceSummary_healthStatus :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe HealthStatus)
-httpInstanceSummary_healthStatus = Lens.lens (\HttpInstanceSummary' {healthStatus} -> healthStatus) (\s@HttpInstanceSummary' {} a -> s {healthStatus = a} :: HttpInstanceSummary)
-
 instance Core.FromJSON HttpInstanceSummary where
   parseJSON =
     Core.withObject
       "HttpInstanceSummary"
       ( \x ->
           HttpInstanceSummary'
-            Prelude.<$> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "NamespaceName")
+            Prelude.<$> (x Core..:? "NamespaceName")
+            Prelude.<*> (x Core..:? "HealthStatus")
+            Prelude.<*> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ServiceName")
-            Prelude.<*> (x Core..:? "HealthStatus")
       )
 
 instance Prelude.Hashable HttpInstanceSummary where
   hashWithSalt _salt HttpInstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` namespaceName
+    _salt `Prelude.hashWithSalt` namespaceName
+      `Prelude.hashWithSalt` healthStatus
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` serviceName
-      `Prelude.hashWithSalt` healthStatus
 
 instance Prelude.NFData HttpInstanceSummary where
   rnf HttpInstanceSummary' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf namespaceName
+    Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf healthStatus
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf healthStatus

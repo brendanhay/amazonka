@@ -33,8 +33,8 @@ module Amazonka.Config.DescribeConfigurationAggregators
 
     -- * Request Lenses
     describeConfigurationAggregators_nextToken,
-    describeConfigurationAggregators_limit,
     describeConfigurationAggregators_configurationAggregatorNames,
+    describeConfigurationAggregators_limit,
 
     -- * Destructuring the Response
     DescribeConfigurationAggregatorsResponse (..),
@@ -59,11 +59,11 @@ data DescribeConfigurationAggregators = DescribeConfigurationAggregators'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration aggregators.
+    configurationAggregatorNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of configuration aggregators returned on each page.
     -- The default is maximum. If you specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the configuration aggregators.
-    configurationAggregatorNames :: Prelude.Maybe [Prelude.Text]
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,19 +78,19 @@ data DescribeConfigurationAggregators = DescribeConfigurationAggregators'
 -- 'nextToken', 'describeConfigurationAggregators_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
+-- 'configurationAggregatorNames', 'describeConfigurationAggregators_configurationAggregatorNames' - The name of the configuration aggregators.
+--
 -- 'limit', 'describeConfigurationAggregators_limit' - The maximum number of configuration aggregators returned on each page.
 -- The default is maximum. If you specify 0, Config uses the default.
---
--- 'configurationAggregatorNames', 'describeConfigurationAggregators_configurationAggregatorNames' - The name of the configuration aggregators.
 newDescribeConfigurationAggregators ::
   DescribeConfigurationAggregators
 newDescribeConfigurationAggregators =
   DescribeConfigurationAggregators'
     { nextToken =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
       configurationAggregatorNames =
-        Prelude.Nothing
+        Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
@@ -98,14 +98,14 @@ newDescribeConfigurationAggregators =
 describeConfigurationAggregators_nextToken :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe Prelude.Text)
 describeConfigurationAggregators_nextToken = Lens.lens (\DescribeConfigurationAggregators' {nextToken} -> nextToken) (\s@DescribeConfigurationAggregators' {} a -> s {nextToken = a} :: DescribeConfigurationAggregators)
 
+-- | The name of the configuration aggregators.
+describeConfigurationAggregators_configurationAggregatorNames :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe [Prelude.Text])
+describeConfigurationAggregators_configurationAggregatorNames = Lens.lens (\DescribeConfigurationAggregators' {configurationAggregatorNames} -> configurationAggregatorNames) (\s@DescribeConfigurationAggregators' {} a -> s {configurationAggregatorNames = a} :: DescribeConfigurationAggregators) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of configuration aggregators returned on each page.
 -- The default is maximum. If you specify 0, Config uses the default.
 describeConfigurationAggregators_limit :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe Prelude.Natural)
 describeConfigurationAggregators_limit = Lens.lens (\DescribeConfigurationAggregators' {limit} -> limit) (\s@DescribeConfigurationAggregators' {} a -> s {limit = a} :: DescribeConfigurationAggregators)
-
--- | The name of the configuration aggregators.
-describeConfigurationAggregators_configurationAggregatorNames :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe [Prelude.Text])
-describeConfigurationAggregators_configurationAggregatorNames = Lens.lens (\DescribeConfigurationAggregators' {configurationAggregatorNames} -> configurationAggregatorNames) (\s@DescribeConfigurationAggregators' {} a -> s {configurationAggregatorNames = a} :: DescribeConfigurationAggregators) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -159,8 +159,8 @@ instance
     _salt
     DescribeConfigurationAggregators' {..} =
       _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` configurationAggregatorNames
+        `Prelude.hashWithSalt` limit
 
 instance
   Prelude.NFData
@@ -168,8 +168,8 @@ instance
   where
   rnf DescribeConfigurationAggregators' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf configurationAggregatorNames
+      `Prelude.seq` Prelude.rnf limit
 
 instance
   Core.ToHeaders
@@ -194,9 +194,9 @@ instance Core.ToJSON DescribeConfigurationAggregators where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
             ("ConfigurationAggregatorNames" Core..=)
-              Prelude.<$> configurationAggregatorNames
+              Prelude.<$> configurationAggregatorNames,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 

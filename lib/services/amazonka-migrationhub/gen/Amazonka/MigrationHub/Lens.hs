@@ -14,6 +14,13 @@
 module Amazonka.MigrationHub.Lens
   ( -- * Operations
 
+    -- ** AssociateCreatedArtifact
+    associateCreatedArtifact_dryRun,
+    associateCreatedArtifact_progressUpdateStream,
+    associateCreatedArtifact_migrationTaskName,
+    associateCreatedArtifact_createdArtifact,
+    associateCreatedArtifactResponse_httpStatus,
+
     -- ** AssociateDiscoveredResource
     associateDiscoveredResource_dryRun,
     associateDiscoveredResource_progressUpdateStream,
@@ -26,12 +33,49 @@ module Amazonka.MigrationHub.Lens
     createProgressUpdateStream_progressUpdateStreamName,
     createProgressUpdateStreamResponse_httpStatus,
 
+    -- ** DeleteProgressUpdateStream
+    deleteProgressUpdateStream_dryRun,
+    deleteProgressUpdateStream_progressUpdateStreamName,
+    deleteProgressUpdateStreamResponse_httpStatus,
+
+    -- ** DescribeApplicationState
+    describeApplicationState_applicationId,
+    describeApplicationStateResponse_lastUpdatedTime,
+    describeApplicationStateResponse_applicationStatus,
+    describeApplicationStateResponse_httpStatus,
+
+    -- ** DescribeMigrationTask
+    describeMigrationTask_progressUpdateStream,
+    describeMigrationTask_migrationTaskName,
+    describeMigrationTaskResponse_migrationTask,
+    describeMigrationTaskResponse_httpStatus,
+
+    -- ** DisassociateCreatedArtifact
+    disassociateCreatedArtifact_dryRun,
+    disassociateCreatedArtifact_progressUpdateStream,
+    disassociateCreatedArtifact_migrationTaskName,
+    disassociateCreatedArtifact_createdArtifactName,
+    disassociateCreatedArtifactResponse_httpStatus,
+
+    -- ** DisassociateDiscoveredResource
+    disassociateDiscoveredResource_dryRun,
+    disassociateDiscoveredResource_progressUpdateStream,
+    disassociateDiscoveredResource_migrationTaskName,
+    disassociateDiscoveredResource_configurationId,
+    disassociateDiscoveredResourceResponse_httpStatus,
+
+    -- ** ImportMigrationTask
+    importMigrationTask_dryRun,
+    importMigrationTask_progressUpdateStream,
+    importMigrationTask_migrationTaskName,
+    importMigrationTaskResponse_httpStatus,
+
     -- ** ListApplicationStates
     listApplicationStates_nextToken,
     listApplicationStates_applicationIds,
     listApplicationStates_maxResults,
-    listApplicationStatesResponse_applicationStateList,
     listApplicationStatesResponse_nextToken,
+    listApplicationStatesResponse_applicationStateList,
     listApplicationStatesResponse_httpStatus,
 
     -- ** ListCreatedArtifacts
@@ -43,12 +87,29 @@ module Amazonka.MigrationHub.Lens
     listCreatedArtifactsResponse_createdArtifactList,
     listCreatedArtifactsResponse_httpStatus,
 
-    -- ** DisassociateDiscoveredResource
-    disassociateDiscoveredResource_dryRun,
-    disassociateDiscoveredResource_progressUpdateStream,
-    disassociateDiscoveredResource_migrationTaskName,
-    disassociateDiscoveredResource_configurationId,
-    disassociateDiscoveredResourceResponse_httpStatus,
+    -- ** ListDiscoveredResources
+    listDiscoveredResources_nextToken,
+    listDiscoveredResources_maxResults,
+    listDiscoveredResources_progressUpdateStream,
+    listDiscoveredResources_migrationTaskName,
+    listDiscoveredResourcesResponse_nextToken,
+    listDiscoveredResourcesResponse_discoveredResourceList,
+    listDiscoveredResourcesResponse_httpStatus,
+
+    -- ** ListMigrationTasks
+    listMigrationTasks_nextToken,
+    listMigrationTasks_resourceName,
+    listMigrationTasks_maxResults,
+    listMigrationTasksResponse_nextToken,
+    listMigrationTasksResponse_migrationTaskSummaryList,
+    listMigrationTasksResponse_httpStatus,
+
+    -- ** ListProgressUpdateStreams
+    listProgressUpdateStreams_nextToken,
+    listProgressUpdateStreams_maxResults,
+    listProgressUpdateStreamsResponse_nextToken,
+    listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList,
+    listProgressUpdateStreamsResponse_httpStatus,
 
     -- ** NotifyApplicationState
     notifyApplicationState_updateDateTime,
@@ -56,51 +117,6 @@ module Amazonka.MigrationHub.Lens
     notifyApplicationState_applicationId,
     notifyApplicationState_status,
     notifyApplicationStateResponse_httpStatus,
-
-    -- ** DeleteProgressUpdateStream
-    deleteProgressUpdateStream_dryRun,
-    deleteProgressUpdateStream_progressUpdateStreamName,
-    deleteProgressUpdateStreamResponse_httpStatus,
-
-    -- ** ListProgressUpdateStreams
-    listProgressUpdateStreams_nextToken,
-    listProgressUpdateStreams_maxResults,
-    listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList,
-    listProgressUpdateStreamsResponse_nextToken,
-    listProgressUpdateStreamsResponse_httpStatus,
-
-    -- ** DisassociateCreatedArtifact
-    disassociateCreatedArtifact_dryRun,
-    disassociateCreatedArtifact_progressUpdateStream,
-    disassociateCreatedArtifact_migrationTaskName,
-    disassociateCreatedArtifact_createdArtifactName,
-    disassociateCreatedArtifactResponse_httpStatus,
-
-    -- ** ImportMigrationTask
-    importMigrationTask_dryRun,
-    importMigrationTask_progressUpdateStream,
-    importMigrationTask_migrationTaskName,
-    importMigrationTaskResponse_httpStatus,
-
-    -- ** DescribeMigrationTask
-    describeMigrationTask_progressUpdateStream,
-    describeMigrationTask_migrationTaskName,
-    describeMigrationTaskResponse_migrationTask,
-    describeMigrationTaskResponse_httpStatus,
-
-    -- ** PutResourceAttributes
-    putResourceAttributes_dryRun,
-    putResourceAttributes_progressUpdateStream,
-    putResourceAttributes_migrationTaskName,
-    putResourceAttributes_resourceAttributeList,
-    putResourceAttributesResponse_httpStatus,
-
-    -- ** AssociateCreatedArtifact
-    associateCreatedArtifact_dryRun,
-    associateCreatedArtifact_progressUpdateStream,
-    associateCreatedArtifact_migrationTaskName,
-    associateCreatedArtifact_createdArtifact,
-    associateCreatedArtifactResponse_httpStatus,
 
     -- ** NotifyMigrationTaskState
     notifyMigrationTaskState_dryRun,
@@ -111,35 +127,19 @@ module Amazonka.MigrationHub.Lens
     notifyMigrationTaskState_nextUpdateSeconds,
     notifyMigrationTaskStateResponse_httpStatus,
 
-    -- ** DescribeApplicationState
-    describeApplicationState_applicationId,
-    describeApplicationStateResponse_lastUpdatedTime,
-    describeApplicationStateResponse_applicationStatus,
-    describeApplicationStateResponse_httpStatus,
-
-    -- ** ListMigrationTasks
-    listMigrationTasks_resourceName,
-    listMigrationTasks_nextToken,
-    listMigrationTasks_maxResults,
-    listMigrationTasksResponse_migrationTaskSummaryList,
-    listMigrationTasksResponse_nextToken,
-    listMigrationTasksResponse_httpStatus,
-
-    -- ** ListDiscoveredResources
-    listDiscoveredResources_nextToken,
-    listDiscoveredResources_maxResults,
-    listDiscoveredResources_progressUpdateStream,
-    listDiscoveredResources_migrationTaskName,
-    listDiscoveredResourcesResponse_discoveredResourceList,
-    listDiscoveredResourcesResponse_nextToken,
-    listDiscoveredResourcesResponse_httpStatus,
+    -- ** PutResourceAttributes
+    putResourceAttributes_dryRun,
+    putResourceAttributes_progressUpdateStream,
+    putResourceAttributes_migrationTaskName,
+    putResourceAttributes_resourceAttributeList,
+    putResourceAttributesResponse_httpStatus,
 
     -- * Types
 
     -- ** ApplicationState
     applicationState_lastUpdatedTime,
-    applicationState_applicationId,
     applicationState_applicationStatus,
+    applicationState_applicationId,
 
     -- ** CreatedArtifact
     createdArtifact_description,
@@ -151,18 +151,18 @@ module Amazonka.MigrationHub.Lens
 
     -- ** MigrationTask
     migrationTask_updateDateTime,
-    migrationTask_resourceAttributeList,
     migrationTask_task,
-    migrationTask_progressUpdateStream,
     migrationTask_migrationTaskName,
+    migrationTask_progressUpdateStream,
+    migrationTask_resourceAttributeList,
 
     -- ** MigrationTaskSummary
-    migrationTaskSummary_status,
     migrationTaskSummary_updateDateTime,
-    migrationTaskSummary_progressPercent,
-    migrationTaskSummary_statusDetail,
-    migrationTaskSummary_progressUpdateStream,
     migrationTaskSummary_migrationTaskName,
+    migrationTaskSummary_statusDetail,
+    migrationTaskSummary_status,
+    migrationTaskSummary_progressUpdateStream,
+    migrationTaskSummary_progressPercent,
 
     -- ** ProgressUpdateStreamSummary
     progressUpdateStreamSummary_progressUpdateStreamName,
@@ -172,8 +172,8 @@ module Amazonka.MigrationHub.Lens
     resourceAttribute_value,
 
     -- ** Task
-    task_progressPercent,
     task_statusDetail,
+    task_progressPercent,
     task_status,
   )
 where

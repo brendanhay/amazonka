@@ -41,9 +41,9 @@ module Amazonka.IAM.ListAttachedRolePolicies
     newListAttachedRolePolicies,
 
     -- * Request Lenses
-    listAttachedRolePolicies_pathPrefix,
     listAttachedRolePolicies_marker,
     listAttachedRolePolicies_maxItems,
+    listAttachedRolePolicies_pathPrefix,
     listAttachedRolePolicies_roleName,
 
     -- * Destructuring the Response
@@ -51,9 +51,9 @@ module Amazonka.IAM.ListAttachedRolePolicies
     newListAttachedRolePoliciesResponse,
 
     -- * Response Lenses
-    listAttachedRolePoliciesResponse_attachedPolicies,
     listAttachedRolePoliciesResponse_marker,
     listAttachedRolePoliciesResponse_isTruncated,
+    listAttachedRolePoliciesResponse_attachedPolicies,
     listAttachedRolePoliciesResponse_httpStatus,
   )
 where
@@ -67,19 +67,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAttachedRolePolicies' smart constructor.
 data ListAttachedRolePolicies = ListAttachedRolePolicies'
-  { -- | The path prefix for filtering the results. This parameter is optional.
-    -- If it is not included, it defaults to a slash (\/), listing all
-    -- policies.
-    --
-    -- This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of either a forward slash (\/) by itself or a string that
-    -- must begin and end with forward slashes. In addition, it can contain any
-    -- ASCII character from the ! (@\\u0021@) through the DEL character
-    -- (@\\u007F@), including most punctuation characters, digits, and upper
-    -- and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
@@ -94,6 +82,18 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The path prefix for filtering the results. This parameter is optional.
+    -- If it is not included, it defaults to a slash (\/), listing all
+    -- policies.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name (friendly name, not ARN) of the role to list attached policies
     -- for.
     --
@@ -113,18 +113,6 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pathPrefix', 'listAttachedRolePolicies_pathPrefix' - The path prefix for filtering the results. This parameter is optional.
--- If it is not included, it defaults to a slash (\/), listing all
--- policies.
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
---
 -- 'marker', 'listAttachedRolePolicies_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
@@ -140,6 +128,18 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
 --
+-- 'pathPrefix', 'listAttachedRolePolicies_pathPrefix' - The path prefix for filtering the results. This parameter is optional.
+-- If it is not included, it defaults to a slash (\/), listing all
+-- policies.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+--
 -- 'roleName', 'listAttachedRolePolicies_roleName' - The name (friendly name, not ARN) of the role to list attached policies
 -- for.
 --
@@ -153,26 +153,11 @@ newListAttachedRolePolicies ::
   ListAttachedRolePolicies
 newListAttachedRolePolicies pRoleName_ =
   ListAttachedRolePolicies'
-    { pathPrefix =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing,
       roleName = pRoleName_
     }
-
--- | The path prefix for filtering the results. This parameter is optional.
--- If it is not included, it defaults to a slash (\/), listing all
--- policies.
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
-listAttachedRolePolicies_pathPrefix :: Lens.Lens' ListAttachedRolePolicies (Prelude.Maybe Prelude.Text)
-listAttachedRolePolicies_pathPrefix = Lens.lens (\ListAttachedRolePolicies' {pathPrefix} -> pathPrefix) (\s@ListAttachedRolePolicies' {} a -> s {pathPrefix = a} :: ListAttachedRolePolicies)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -192,6 +177,20 @@ listAttachedRolePolicies_marker = Lens.lens (\ListAttachedRolePolicies' {marker}
 -- subsequent call that tells the service where to continue from.
 listAttachedRolePolicies_maxItems :: Lens.Lens' ListAttachedRolePolicies (Prelude.Maybe Prelude.Natural)
 listAttachedRolePolicies_maxItems = Lens.lens (\ListAttachedRolePolicies' {maxItems} -> maxItems) (\s@ListAttachedRolePolicies' {} a -> s {maxItems = a} :: ListAttachedRolePolicies)
+
+-- | The path prefix for filtering the results. This parameter is optional.
+-- If it is not included, it defaults to a slash (\/), listing all
+-- policies.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+listAttachedRolePolicies_pathPrefix :: Lens.Lens' ListAttachedRolePolicies (Prelude.Maybe Prelude.Text)
+listAttachedRolePolicies_pathPrefix = Lens.lens (\ListAttachedRolePolicies' {pathPrefix} -> pathPrefix) (\s@ListAttachedRolePolicies' {} a -> s {pathPrefix = a} :: ListAttachedRolePolicies)
 
 -- | The name (friendly name, not ARN) of the role to list attached policies
 -- for.
@@ -235,27 +234,27 @@ instance Core.AWSRequest ListAttachedRolePolicies where
       "ListAttachedRolePoliciesResult"
       ( \s h x ->
           ListAttachedRolePoliciesResponse'
-            Prelude.<$> ( x Core..@? "AttachedPolicies"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<*> ( x Core..@? "AttachedPolicies"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAttachedRolePolicies where
   hashWithSalt _salt ListAttachedRolePolicies' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefix
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` pathPrefix
       `Prelude.hashWithSalt` roleName
 
 instance Prelude.NFData ListAttachedRolePolicies where
   rnf ListAttachedRolePolicies' {..} =
-    Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf pathPrefix
       `Prelude.seq` Prelude.rnf roleName
 
 instance Core.ToHeaders ListAttachedRolePolicies where
@@ -271,9 +270,9 @@ instance Core.ToQuery ListAttachedRolePolicies where
           Core.=: ("ListAttachedRolePolicies" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Core.=: pathPrefix,
         "Marker" Core.=: marker,
         "MaxItems" Core.=: maxItems,
+        "PathPrefix" Core.=: pathPrefix,
         "RoleName" Core.=: roleName
       ]
 
@@ -281,9 +280,7 @@ instance Core.ToQuery ListAttachedRolePolicies where
 --
 -- /See:/ 'newListAttachedRolePoliciesResponse' smart constructor.
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
-  { -- | A list of the attached policies.
-    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
@@ -295,6 +292,8 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | A list of the attached policies.
+    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -308,8 +307,6 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attachedPolicies', 'listAttachedRolePoliciesResponse_attachedPolicies' - A list of the attached policies.
---
 -- 'marker', 'listAttachedRolePoliciesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
@@ -322,6 +319,8 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
 --
+-- 'attachedPolicies', 'listAttachedRolePoliciesResponse_attachedPolicies' - A list of the attached policies.
+--
 -- 'httpStatus', 'listAttachedRolePoliciesResponse_httpStatus' - The response's http status code.
 newListAttachedRolePoliciesResponse ::
   -- | 'httpStatus'
@@ -329,16 +328,12 @@ newListAttachedRolePoliciesResponse ::
   ListAttachedRolePoliciesResponse
 newListAttachedRolePoliciesResponse pHttpStatus_ =
   ListAttachedRolePoliciesResponse'
-    { attachedPolicies =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
       isTruncated = Prelude.Nothing,
+      attachedPolicies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the attached policies.
-listAttachedRolePoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedRolePoliciesResponse (Prelude.Maybe [AttachedPolicy])
-listAttachedRolePoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedRolePoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedRolePoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedRolePoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -356,6 +351,10 @@ listAttachedRolePoliciesResponse_marker = Lens.lens (\ListAttachedRolePoliciesRe
 listAttachedRolePoliciesResponse_isTruncated :: Lens.Lens' ListAttachedRolePoliciesResponse (Prelude.Maybe Prelude.Bool)
 listAttachedRolePoliciesResponse_isTruncated = Lens.lens (\ListAttachedRolePoliciesResponse' {isTruncated} -> isTruncated) (\s@ListAttachedRolePoliciesResponse' {} a -> s {isTruncated = a} :: ListAttachedRolePoliciesResponse)
 
+-- | A list of the attached policies.
+listAttachedRolePoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedRolePoliciesResponse (Prelude.Maybe [AttachedPolicy])
+listAttachedRolePoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedRolePoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedRolePoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedRolePoliciesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listAttachedRolePoliciesResponse_httpStatus :: Lens.Lens' ListAttachedRolePoliciesResponse Prelude.Int
 listAttachedRolePoliciesResponse_httpStatus = Lens.lens (\ListAttachedRolePoliciesResponse' {httpStatus} -> httpStatus) (\s@ListAttachedRolePoliciesResponse' {} a -> s {httpStatus = a} :: ListAttachedRolePoliciesResponse)
@@ -365,7 +364,7 @@ instance
     ListAttachedRolePoliciesResponse
   where
   rnf ListAttachedRolePoliciesResponse' {..} =
-    Prelude.rnf attachedPolicies
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf attachedPolicies
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,8 +37,8 @@ module Amazonka.Mobile.ListProjects
     newListProjectsResponse,
 
     -- * Response Lenses
-    listProjectsResponse_nextToken,
     listProjectsResponse_projects,
+    listProjectsResponse_nextToken,
     listProjectsResponse_httpStatus,
   )
 where
@@ -120,8 +120,8 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "projects" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "projects" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,8 +160,8 @@ instance Core.ToQuery ListProjects where
 --
 -- /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    projects :: Prelude.Maybe [ProjectSummary],
+  { projects :: Prelude.Maybe [ProjectSummary],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data ListProjectsResponse = ListProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProjectsResponse_nextToken' - Undocumented member.
---
 -- 'projects', 'listProjectsResponse_projects' - Undocumented member.
+--
+-- 'nextToken', 'listProjectsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
 newListProjectsResponse ::
@@ -186,18 +186,18 @@ newListProjectsResponse ::
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { nextToken = Prelude.Nothing,
-      projects = Prelude.Nothing,
+    { projects = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
-listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
-
--- | Undocumented member.
 listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectSummary])
 listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
+listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
 
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
@@ -205,6 +205,6 @@ listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus}
 
 instance Prelude.NFData ListProjectsResponse where
   rnf ListProjectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projects
+    Prelude.rnf projects
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

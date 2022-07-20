@@ -38,27 +38,27 @@ module Amazonka.MachineLearning.GetMLModel
     newGetMLModelResponse,
 
     -- * Response Lenses
-    getMLModelResponse_status,
-    getMLModelResponse_lastUpdatedAt,
-    getMLModelResponse_trainingParameters,
+    getMLModelResponse_message,
+    getMLModelResponse_name,
+    getMLModelResponse_trainingDataSourceId,
     getMLModelResponse_scoreThresholdLastUpdatedAt,
-    getMLModelResponse_createdAt,
-    getMLModelResponse_computeTime,
+    getMLModelResponse_lastUpdatedAt,
+    getMLModelResponse_finishedAt,
     getMLModelResponse_recipe,
-    getMLModelResponse_inputDataLocationS3,
     getMLModelResponse_mLModelId,
+    getMLModelResponse_scoreThreshold,
+    getMLModelResponse_endpointInfo,
+    getMLModelResponse_status,
+    getMLModelResponse_mLModelType,
+    getMLModelResponse_startedAt,
+    getMLModelResponse_logUri,
+    getMLModelResponse_computeTime,
     getMLModelResponse_sizeInBytes,
     getMLModelResponse_schema,
-    getMLModelResponse_startedAt,
-    getMLModelResponse_scoreThreshold,
-    getMLModelResponse_finishedAt,
+    getMLModelResponse_createdAt,
+    getMLModelResponse_inputDataLocationS3,
     getMLModelResponse_createdByIamUser,
-    getMLModelResponse_name,
-    getMLModelResponse_logUri,
-    getMLModelResponse_endpointInfo,
-    getMLModelResponse_trainingDataSourceId,
-    getMLModelResponse_message,
-    getMLModelResponse_mLModelType,
+    getMLModelResponse_trainingParameters,
     getMLModelResponse_httpStatus,
   )
 where
@@ -127,29 +127,29 @@ instance Core.AWSRequest GetMLModel where
     Response.receiveJSON
       ( \s h x ->
           GetMLModelResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "Message")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "TrainingDataSourceId")
+            Prelude.<*> (x Core..?> "ScoreThresholdLastUpdatedAt")
             Prelude.<*> (x Core..?> "LastUpdatedAt")
+            Prelude.<*> (x Core..?> "FinishedAt")
+            Prelude.<*> (x Core..?> "Recipe")
+            Prelude.<*> (x Core..?> "MLModelId")
+            Prelude.<*> (x Core..?> "ScoreThreshold")
+            Prelude.<*> (x Core..?> "EndpointInfo")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "MLModelType")
+            Prelude.<*> (x Core..?> "StartedAt")
+            Prelude.<*> (x Core..?> "LogUri")
+            Prelude.<*> (x Core..?> "ComputeTime")
+            Prelude.<*> (x Core..?> "SizeInBytes")
+            Prelude.<*> (x Core..?> "Schema")
+            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<*> (x Core..?> "InputDataLocationS3")
+            Prelude.<*> (x Core..?> "CreatedByIamUser")
             Prelude.<*> ( x Core..?> "TrainingParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ScoreThresholdLastUpdatedAt")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "ComputeTime")
-            Prelude.<*> (x Core..?> "Recipe")
-            Prelude.<*> (x Core..?> "InputDataLocationS3")
-            Prelude.<*> (x Core..?> "MLModelId")
-            Prelude.<*> (x Core..?> "SizeInBytes")
-            Prelude.<*> (x Core..?> "Schema")
-            Prelude.<*> (x Core..?> "StartedAt")
-            Prelude.<*> (x Core..?> "ScoreThreshold")
-            Prelude.<*> (x Core..?> "FinishedAt")
-            Prelude.<*> (x Core..?> "CreatedByIamUser")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LogUri")
-            Prelude.<*> (x Core..?> "EndpointInfo")
-            Prelude.<*> (x Core..?> "TrainingDataSourceId")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "MLModelType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,7 +198,41 @@ instance Core.ToQuery GetMLModel where
 --
 -- /See:/ 'newGetMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
-  { -- | The current status of the @MLModel@. This element can have one of the
+  { -- | A description of the most recent details about accessing the @MLModel@.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | A user-supplied name or description of the @MLModel@.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the training @DataSource@.
+    trainingDataSourceId :: Prelude.Maybe Prelude.Text,
+    -- | The time of the most recent edit to the @ScoreThreshold@. The time is
+    -- expressed in epoch time.
+    scoreThresholdLastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The time of the most recent edit to the @MLModel@. The time is expressed
+    -- in epoch time.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
+    -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+    -- @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
+    finishedAt :: Prelude.Maybe Core.POSIX,
+    -- | The recipe to use when training the @MLModel@. The @Recipe@ provides
+    -- detailed information about the observation data to use during training,
+    -- and manipulations to perform on the observation data during training.
+    --
+    -- __Note:__ This parameter is provided as part of the verbose format.
+    recipe :: Prelude.Maybe Prelude.Text,
+    -- | The MLModel ID, which is same as the @MLModelId@ in the request.
+    mLModelId :: Prelude.Maybe Prelude.Text,
+    -- | The scoring threshold is used in binary classification @MLModel@ models.
+    -- It marks the boundary between a positive prediction and a negative
+    -- prediction.
+    --
+    -- Output values greater than or equal to the threshold receive a positive
+    -- result from the MLModel, such as @true@. Output values less than the
+    -- threshold receive a negative response from the MLModel, such as @false@.
+    scoreThreshold :: Prelude.Maybe Prelude.Double,
+    -- | The current endpoint of the @MLModel@
+    endpointInfo :: Prelude.Maybe RealtimeEndpointInfo,
+    -- | The current status of the @MLModel@. This element can have one of the
     -- following values:
     --
     -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
@@ -213,9 +247,44 @@ data GetMLModelResponse = GetMLModelResponse'
     --
     -- -   @DELETED@ - The @MLModel@ is marked as deleted. It isn\'t usable.
     status :: Prelude.Maybe EntityStatus,
-    -- | The time of the most recent edit to the @MLModel@. The time is expressed
-    -- in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | Identifies the @MLModel@ category. The following are the available
+    -- types:
+    --
+    -- -   REGRESSION -- Produces a numeric result. For example, \"What price
+    --     should a house be listed at?\"
+    --
+    -- -   BINARY -- Produces one of two possible results. For example, \"Is
+    --     this an e-commerce website?\"
+    --
+    -- -   MULTICLASS -- Produces one of several possible results. For example,
+    --     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
+    mLModelType :: Prelude.Maybe MLModelType,
+    -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
+    -- @INPROGRESS@. @StartedAt@ isn\'t available if the @MLModel@ is in the
+    -- @PENDING@ state.
+    startedAt :: Prelude.Maybe Core.POSIX,
+    -- | A link to the file that contains logs of the @CreateMLModel@ operation.
+    logUri :: Prelude.Maybe Prelude.Text,
+    -- | The approximate CPU time in milliseconds that Amazon Machine Learning
+    -- spent processing the @MLModel@, normalized and scaled on computation
+    -- resources. @ComputeTime@ is only available if the @MLModel@ is in the
+    -- @COMPLETED@ state.
+    computeTime :: Prelude.Maybe Prelude.Integer,
+    sizeInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The schema used by all of the data files referenced by the @DataSource@.
+    --
+    -- __Note:__ This parameter is provided as part of the verbose format.
+    schema :: Prelude.Maybe Prelude.Text,
+    -- | The time that the @MLModel@ was created. The time is expressed in epoch
+    -- time.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The location of the data file or directory in Amazon Simple Storage
+    -- Service (Amazon S3).
+    inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
+    -- | The AWS user account from which the @MLModel@ was created. The account
+    -- type can be either an AWS root account or an AWS Identity and Access
+    -- Management (IAM) user account.
+    createdByIamUser :: Prelude.Maybe Prelude.Text,
     -- | A list of the training parameters in the @MLModel@. The list is
     -- implemented as a map of key-value pairs.
     --
@@ -258,75 +327,6 @@ data GetMLModelResponse = GetMLModelResponse'
     --     default is to not use L2 normalization. This parameter can\'t be
     --     used when @L1@ is specified. Use this parameter sparingly.
     trainingParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The time of the most recent edit to the @ScoreThreshold@. The time is
-    -- expressed in epoch time.
-    scoreThresholdLastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The time that the @MLModel@ was created. The time is expressed in epoch
-    -- time.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The approximate CPU time in milliseconds that Amazon Machine Learning
-    -- spent processing the @MLModel@, normalized and scaled on computation
-    -- resources. @ComputeTime@ is only available if the @MLModel@ is in the
-    -- @COMPLETED@ state.
-    computeTime :: Prelude.Maybe Prelude.Integer,
-    -- | The recipe to use when training the @MLModel@. The @Recipe@ provides
-    -- detailed information about the observation data to use during training,
-    -- and manipulations to perform on the observation data during training.
-    --
-    -- __Note:__ This parameter is provided as part of the verbose format.
-    recipe :: Prelude.Maybe Prelude.Text,
-    -- | The location of the data file or directory in Amazon Simple Storage
-    -- Service (Amazon S3).
-    inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
-    -- | The MLModel ID, which is same as the @MLModelId@ in the request.
-    mLModelId :: Prelude.Maybe Prelude.Text,
-    sizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The schema used by all of the data files referenced by the @DataSource@.
-    --
-    -- __Note:__ This parameter is provided as part of the verbose format.
-    schema :: Prelude.Maybe Prelude.Text,
-    -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
-    -- @INPROGRESS@. @StartedAt@ isn\'t available if the @MLModel@ is in the
-    -- @PENDING@ state.
-    startedAt :: Prelude.Maybe Core.POSIX,
-    -- | The scoring threshold is used in binary classification @MLModel@ models.
-    -- It marks the boundary between a positive prediction and a negative
-    -- prediction.
-    --
-    -- Output values greater than or equal to the threshold receive a positive
-    -- result from the MLModel, such as @true@. Output values less than the
-    -- threshold receive a negative response from the MLModel, such as @false@.
-    scoreThreshold :: Prelude.Maybe Prelude.Double,
-    -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
-    -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
-    -- @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
-    finishedAt :: Prelude.Maybe Core.POSIX,
-    -- | The AWS user account from which the @MLModel@ was created. The account
-    -- type can be either an AWS root account or an AWS Identity and Access
-    -- Management (IAM) user account.
-    createdByIamUser :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name or description of the @MLModel@.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A link to the file that contains logs of the @CreateMLModel@ operation.
-    logUri :: Prelude.Maybe Prelude.Text,
-    -- | The current endpoint of the @MLModel@
-    endpointInfo :: Prelude.Maybe RealtimeEndpointInfo,
-    -- | The ID of the training @DataSource@.
-    trainingDataSourceId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the most recent details about accessing the @MLModel@.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the @MLModel@ category. The following are the available
-    -- types:
-    --
-    -- -   REGRESSION -- Produces a numeric result. For example, \"What price
-    --     should a house be listed at?\"
-    --
-    -- -   BINARY -- Produces one of two possible results. For example, \"Is
-    --     this an e-commerce website?\"
-    --
-    -- -   MULTICLASS -- Produces one of several possible results. For example,
-    --     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
-    mLModelType :: Prelude.Maybe MLModelType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -339,6 +339,40 @@ data GetMLModelResponse = GetMLModelResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'message', 'getMLModelResponse_message' - A description of the most recent details about accessing the @MLModel@.
+--
+-- 'name', 'getMLModelResponse_name' - A user-supplied name or description of the @MLModel@.
+--
+-- 'trainingDataSourceId', 'getMLModelResponse_trainingDataSourceId' - The ID of the training @DataSource@.
+--
+-- 'scoreThresholdLastUpdatedAt', 'getMLModelResponse_scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@. The time is
+-- expressed in epoch time.
+--
+-- 'lastUpdatedAt', 'getMLModelResponse_lastUpdatedAt' - The time of the most recent edit to the @MLModel@. The time is expressed
+-- in epoch time.
+--
+-- 'finishedAt', 'getMLModelResponse_finishedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as
+-- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+-- @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
+--
+-- 'recipe', 'getMLModelResponse_recipe' - The recipe to use when training the @MLModel@. The @Recipe@ provides
+-- detailed information about the observation data to use during training,
+-- and manipulations to perform on the observation data during training.
+--
+-- __Note:__ This parameter is provided as part of the verbose format.
+--
+-- 'mLModelId', 'getMLModelResponse_mLModelId' - The MLModel ID, which is same as the @MLModelId@ in the request.
+--
+-- 'scoreThreshold', 'getMLModelResponse_scoreThreshold' - The scoring threshold is used in binary classification @MLModel@ models.
+-- It marks the boundary between a positive prediction and a negative
+-- prediction.
+--
+-- Output values greater than or equal to the threshold receive a positive
+-- result from the MLModel, such as @true@. Output values less than the
+-- threshold receive a negative response from the MLModel, such as @false@.
+--
+-- 'endpointInfo', 'getMLModelResponse_endpointInfo' - The current endpoint of the @MLModel@
 --
 -- 'status', 'getMLModelResponse_status' - The current status of the @MLModel@. This element can have one of the
 -- following values:
@@ -355,8 +389,44 @@ data GetMLModelResponse = GetMLModelResponse'
 --
 -- -   @DELETED@ - The @MLModel@ is marked as deleted. It isn\'t usable.
 --
--- 'lastUpdatedAt', 'getMLModelResponse_lastUpdatedAt' - The time of the most recent edit to the @MLModel@. The time is expressed
--- in epoch time.
+-- 'mLModelType', 'getMLModelResponse_mLModelType' - Identifies the @MLModel@ category. The following are the available
+-- types:
+--
+-- -   REGRESSION -- Produces a numeric result. For example, \"What price
+--     should a house be listed at?\"
+--
+-- -   BINARY -- Produces one of two possible results. For example, \"Is
+--     this an e-commerce website?\"
+--
+-- -   MULTICLASS -- Produces one of several possible results. For example,
+--     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
+--
+-- 'startedAt', 'getMLModelResponse_startedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as
+-- @INPROGRESS@. @StartedAt@ isn\'t available if the @MLModel@ is in the
+-- @PENDING@ state.
+--
+-- 'logUri', 'getMLModelResponse_logUri' - A link to the file that contains logs of the @CreateMLModel@ operation.
+--
+-- 'computeTime', 'getMLModelResponse_computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning
+-- spent processing the @MLModel@, normalized and scaled on computation
+-- resources. @ComputeTime@ is only available if the @MLModel@ is in the
+-- @COMPLETED@ state.
+--
+-- 'sizeInBytes', 'getMLModelResponse_sizeInBytes' - Undocumented member.
+--
+-- 'schema', 'getMLModelResponse_schema' - The schema used by all of the data files referenced by the @DataSource@.
+--
+-- __Note:__ This parameter is provided as part of the verbose format.
+--
+-- 'createdAt', 'getMLModelResponse_createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch
+-- time.
+--
+-- 'inputDataLocationS3', 'getMLModelResponse_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage
+-- Service (Amazon S3).
+--
+-- 'createdByIamUser', 'getMLModelResponse_createdByIamUser' - The AWS user account from which the @MLModel@ was created. The account
+-- type can be either an AWS root account or an AWS Identity and Access
+-- Management (IAM) user account.
 --
 -- 'trainingParameters', 'getMLModelResponse_trainingParameters' - A list of the training parameters in the @MLModel@. The list is
 -- implemented as a map of key-value pairs.
@@ -400,76 +470,6 @@ data GetMLModelResponse = GetMLModelResponse'
 --     default is to not use L2 normalization. This parameter can\'t be
 --     used when @L1@ is specified. Use this parameter sparingly.
 --
--- 'scoreThresholdLastUpdatedAt', 'getMLModelResponse_scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@. The time is
--- expressed in epoch time.
---
--- 'createdAt', 'getMLModelResponse_createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch
--- time.
---
--- 'computeTime', 'getMLModelResponse_computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning
--- spent processing the @MLModel@, normalized and scaled on computation
--- resources. @ComputeTime@ is only available if the @MLModel@ is in the
--- @COMPLETED@ state.
---
--- 'recipe', 'getMLModelResponse_recipe' - The recipe to use when training the @MLModel@. The @Recipe@ provides
--- detailed information about the observation data to use during training,
--- and manipulations to perform on the observation data during training.
---
--- __Note:__ This parameter is provided as part of the verbose format.
---
--- 'inputDataLocationS3', 'getMLModelResponse_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage
--- Service (Amazon S3).
---
--- 'mLModelId', 'getMLModelResponse_mLModelId' - The MLModel ID, which is same as the @MLModelId@ in the request.
---
--- 'sizeInBytes', 'getMLModelResponse_sizeInBytes' - Undocumented member.
---
--- 'schema', 'getMLModelResponse_schema' - The schema used by all of the data files referenced by the @DataSource@.
---
--- __Note:__ This parameter is provided as part of the verbose format.
---
--- 'startedAt', 'getMLModelResponse_startedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as
--- @INPROGRESS@. @StartedAt@ isn\'t available if the @MLModel@ is in the
--- @PENDING@ state.
---
--- 'scoreThreshold', 'getMLModelResponse_scoreThreshold' - The scoring threshold is used in binary classification @MLModel@ models.
--- It marks the boundary between a positive prediction and a negative
--- prediction.
---
--- Output values greater than or equal to the threshold receive a positive
--- result from the MLModel, such as @true@. Output values less than the
--- threshold receive a negative response from the MLModel, such as @false@.
---
--- 'finishedAt', 'getMLModelResponse_finishedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as
--- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
--- @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
---
--- 'createdByIamUser', 'getMLModelResponse_createdByIamUser' - The AWS user account from which the @MLModel@ was created. The account
--- type can be either an AWS root account or an AWS Identity and Access
--- Management (IAM) user account.
---
--- 'name', 'getMLModelResponse_name' - A user-supplied name or description of the @MLModel@.
---
--- 'logUri', 'getMLModelResponse_logUri' - A link to the file that contains logs of the @CreateMLModel@ operation.
---
--- 'endpointInfo', 'getMLModelResponse_endpointInfo' - The current endpoint of the @MLModel@
---
--- 'trainingDataSourceId', 'getMLModelResponse_trainingDataSourceId' - The ID of the training @DataSource@.
---
--- 'message', 'getMLModelResponse_message' - A description of the most recent details about accessing the @MLModel@.
---
--- 'mLModelType', 'getMLModelResponse_mLModelType' - Identifies the @MLModel@ category. The following are the available
--- types:
---
--- -   REGRESSION -- Produces a numeric result. For example, \"What price
---     should a house be listed at?\"
---
--- -   BINARY -- Produces one of two possible results. For example, \"Is
---     this an e-commerce website?\"
---
--- -   MULTICLASS -- Produces one of several possible results. For example,
---     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
---
 -- 'httpStatus', 'getMLModelResponse_httpStatus' - The response's http status code.
 newGetMLModelResponse ::
   -- | 'httpStatus'
@@ -477,29 +477,83 @@ newGetMLModelResponse ::
   GetMLModelResponse
 newGetMLModelResponse pHttpStatus_ =
   GetMLModelResponse'
-    { status = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      trainingParameters = Prelude.Nothing,
+    { message = Prelude.Nothing,
+      name = Prelude.Nothing,
+      trainingDataSourceId = Prelude.Nothing,
       scoreThresholdLastUpdatedAt = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      computeTime = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      finishedAt = Prelude.Nothing,
       recipe = Prelude.Nothing,
-      inputDataLocationS3 = Prelude.Nothing,
       mLModelId = Prelude.Nothing,
+      scoreThreshold = Prelude.Nothing,
+      endpointInfo = Prelude.Nothing,
+      status = Prelude.Nothing,
+      mLModelType = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      logUri = Prelude.Nothing,
+      computeTime = Prelude.Nothing,
       sizeInBytes = Prelude.Nothing,
       schema = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
-      scoreThreshold = Prelude.Nothing,
-      finishedAt = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      inputDataLocationS3 = Prelude.Nothing,
       createdByIamUser = Prelude.Nothing,
-      name = Prelude.Nothing,
-      logUri = Prelude.Nothing,
-      endpointInfo = Prelude.Nothing,
-      trainingDataSourceId = Prelude.Nothing,
-      message = Prelude.Nothing,
-      mLModelType = Prelude.Nothing,
+      trainingParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A description of the most recent details about accessing the @MLModel@.
+getMLModelResponse_message :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_message = Lens.lens (\GetMLModelResponse' {message} -> message) (\s@GetMLModelResponse' {} a -> s {message = a} :: GetMLModelResponse)
+
+-- | A user-supplied name or description of the @MLModel@.
+getMLModelResponse_name :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_name = Lens.lens (\GetMLModelResponse' {name} -> name) (\s@GetMLModelResponse' {} a -> s {name = a} :: GetMLModelResponse)
+
+-- | The ID of the training @DataSource@.
+getMLModelResponse_trainingDataSourceId :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_trainingDataSourceId = Lens.lens (\GetMLModelResponse' {trainingDataSourceId} -> trainingDataSourceId) (\s@GetMLModelResponse' {} a -> s {trainingDataSourceId = a} :: GetMLModelResponse)
+
+-- | The time of the most recent edit to the @ScoreThreshold@. The time is
+-- expressed in epoch time.
+getMLModelResponse_scoreThresholdLastUpdatedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
+getMLModelResponse_scoreThresholdLastUpdatedAt = Lens.lens (\GetMLModelResponse' {scoreThresholdLastUpdatedAt} -> scoreThresholdLastUpdatedAt) (\s@GetMLModelResponse' {} a -> s {scoreThresholdLastUpdatedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The time of the most recent edit to the @MLModel@. The time is expressed
+-- in epoch time.
+getMLModelResponse_lastUpdatedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
+getMLModelResponse_lastUpdatedAt = Lens.lens (\GetMLModelResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetMLModelResponse' {} a -> s {lastUpdatedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
+-- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+-- @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
+getMLModelResponse_finishedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
+getMLModelResponse_finishedAt = Lens.lens (\GetMLModelResponse' {finishedAt} -> finishedAt) (\s@GetMLModelResponse' {} a -> s {finishedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The recipe to use when training the @MLModel@. The @Recipe@ provides
+-- detailed information about the observation data to use during training,
+-- and manipulations to perform on the observation data during training.
+--
+-- __Note:__ This parameter is provided as part of the verbose format.
+getMLModelResponse_recipe :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_recipe = Lens.lens (\GetMLModelResponse' {recipe} -> recipe) (\s@GetMLModelResponse' {} a -> s {recipe = a} :: GetMLModelResponse)
+
+-- | The MLModel ID, which is same as the @MLModelId@ in the request.
+getMLModelResponse_mLModelId :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_mLModelId = Lens.lens (\GetMLModelResponse' {mLModelId} -> mLModelId) (\s@GetMLModelResponse' {} a -> s {mLModelId = a} :: GetMLModelResponse)
+
+-- | The scoring threshold is used in binary classification @MLModel@ models.
+-- It marks the boundary between a positive prediction and a negative
+-- prediction.
+--
+-- Output values greater than or equal to the threshold receive a positive
+-- result from the MLModel, such as @true@. Output values less than the
+-- threshold receive a negative response from the MLModel, such as @false@.
+getMLModelResponse_scoreThreshold :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Double)
+getMLModelResponse_scoreThreshold = Lens.lens (\GetMLModelResponse' {scoreThreshold} -> scoreThreshold) (\s@GetMLModelResponse' {} a -> s {scoreThreshold = a} :: GetMLModelResponse)
+
+-- | The current endpoint of the @MLModel@
+getMLModelResponse_endpointInfo :: Lens.Lens' GetMLModelResponse (Prelude.Maybe RealtimeEndpointInfo)
+getMLModelResponse_endpointInfo = Lens.lens (\GetMLModelResponse' {endpointInfo} -> endpointInfo) (\s@GetMLModelResponse' {} a -> s {endpointInfo = a} :: GetMLModelResponse)
 
 -- | The current status of the @MLModel@. This element can have one of the
 -- following values:
@@ -518,10 +572,62 @@ newGetMLModelResponse pHttpStatus_ =
 getMLModelResponse_status :: Lens.Lens' GetMLModelResponse (Prelude.Maybe EntityStatus)
 getMLModelResponse_status = Lens.lens (\GetMLModelResponse' {status} -> status) (\s@GetMLModelResponse' {} a -> s {status = a} :: GetMLModelResponse)
 
--- | The time of the most recent edit to the @MLModel@. The time is expressed
--- in epoch time.
-getMLModelResponse_lastUpdatedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_lastUpdatedAt = Lens.lens (\GetMLModelResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetMLModelResponse' {} a -> s {lastUpdatedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+-- | Identifies the @MLModel@ category. The following are the available
+-- types:
+--
+-- -   REGRESSION -- Produces a numeric result. For example, \"What price
+--     should a house be listed at?\"
+--
+-- -   BINARY -- Produces one of two possible results. For example, \"Is
+--     this an e-commerce website?\"
+--
+-- -   MULTICLASS -- Produces one of several possible results. For example,
+--     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
+getMLModelResponse_mLModelType :: Lens.Lens' GetMLModelResponse (Prelude.Maybe MLModelType)
+getMLModelResponse_mLModelType = Lens.lens (\GetMLModelResponse' {mLModelType} -> mLModelType) (\s@GetMLModelResponse' {} a -> s {mLModelType = a} :: GetMLModelResponse)
+
+-- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
+-- @INPROGRESS@. @StartedAt@ isn\'t available if the @MLModel@ is in the
+-- @PENDING@ state.
+getMLModelResponse_startedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
+getMLModelResponse_startedAt = Lens.lens (\GetMLModelResponse' {startedAt} -> startedAt) (\s@GetMLModelResponse' {} a -> s {startedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A link to the file that contains logs of the @CreateMLModel@ operation.
+getMLModelResponse_logUri :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_logUri = Lens.lens (\GetMLModelResponse' {logUri} -> logUri) (\s@GetMLModelResponse' {} a -> s {logUri = a} :: GetMLModelResponse)
+
+-- | The approximate CPU time in milliseconds that Amazon Machine Learning
+-- spent processing the @MLModel@, normalized and scaled on computation
+-- resources. @ComputeTime@ is only available if the @MLModel@ is in the
+-- @COMPLETED@ state.
+getMLModelResponse_computeTime :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Integer)
+getMLModelResponse_computeTime = Lens.lens (\GetMLModelResponse' {computeTime} -> computeTime) (\s@GetMLModelResponse' {} a -> s {computeTime = a} :: GetMLModelResponse)
+
+-- | Undocumented member.
+getMLModelResponse_sizeInBytes :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Integer)
+getMLModelResponse_sizeInBytes = Lens.lens (\GetMLModelResponse' {sizeInBytes} -> sizeInBytes) (\s@GetMLModelResponse' {} a -> s {sizeInBytes = a} :: GetMLModelResponse)
+
+-- | The schema used by all of the data files referenced by the @DataSource@.
+--
+-- __Note:__ This parameter is provided as part of the verbose format.
+getMLModelResponse_schema :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_schema = Lens.lens (\GetMLModelResponse' {schema} -> schema) (\s@GetMLModelResponse' {} a -> s {schema = a} :: GetMLModelResponse)
+
+-- | The time that the @MLModel@ was created. The time is expressed in epoch
+-- time.
+getMLModelResponse_createdAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
+getMLModelResponse_createdAt = Lens.lens (\GetMLModelResponse' {createdAt} -> createdAt) (\s@GetMLModelResponse' {} a -> s {createdAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The location of the data file or directory in Amazon Simple Storage
+-- Service (Amazon S3).
+getMLModelResponse_inputDataLocationS3 :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_inputDataLocationS3 = Lens.lens (\GetMLModelResponse' {inputDataLocationS3} -> inputDataLocationS3) (\s@GetMLModelResponse' {} a -> s {inputDataLocationS3 = a} :: GetMLModelResponse)
+
+-- | The AWS user account from which the @MLModel@ was created. The account
+-- type can be either an AWS root account or an AWS Identity and Access
+-- Management (IAM) user account.
+getMLModelResponse_createdByIamUser :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
+getMLModelResponse_createdByIamUser = Lens.lens (\GetMLModelResponse' {createdByIamUser} -> createdByIamUser) (\s@GetMLModelResponse' {} a -> s {createdByIamUser = a} :: GetMLModelResponse)
 
 -- | A list of the training parameters in the @MLModel@. The list is
 -- implemented as a map of key-value pairs.
@@ -567,137 +673,32 @@ getMLModelResponse_lastUpdatedAt = Lens.lens (\GetMLModelResponse' {lastUpdatedA
 getMLModelResponse_trainingParameters :: Lens.Lens' GetMLModelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getMLModelResponse_trainingParameters = Lens.lens (\GetMLModelResponse' {trainingParameters} -> trainingParameters) (\s@GetMLModelResponse' {} a -> s {trainingParameters = a} :: GetMLModelResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The time of the most recent edit to the @ScoreThreshold@. The time is
--- expressed in epoch time.
-getMLModelResponse_scoreThresholdLastUpdatedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_scoreThresholdLastUpdatedAt = Lens.lens (\GetMLModelResponse' {scoreThresholdLastUpdatedAt} -> scoreThresholdLastUpdatedAt) (\s@GetMLModelResponse' {} a -> s {scoreThresholdLastUpdatedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
-
--- | The time that the @MLModel@ was created. The time is expressed in epoch
--- time.
-getMLModelResponse_createdAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_createdAt = Lens.lens (\GetMLModelResponse' {createdAt} -> createdAt) (\s@GetMLModelResponse' {} a -> s {createdAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
-
--- | The approximate CPU time in milliseconds that Amazon Machine Learning
--- spent processing the @MLModel@, normalized and scaled on computation
--- resources. @ComputeTime@ is only available if the @MLModel@ is in the
--- @COMPLETED@ state.
-getMLModelResponse_computeTime :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Integer)
-getMLModelResponse_computeTime = Lens.lens (\GetMLModelResponse' {computeTime} -> computeTime) (\s@GetMLModelResponse' {} a -> s {computeTime = a} :: GetMLModelResponse)
-
--- | The recipe to use when training the @MLModel@. The @Recipe@ provides
--- detailed information about the observation data to use during training,
--- and manipulations to perform on the observation data during training.
---
--- __Note:__ This parameter is provided as part of the verbose format.
-getMLModelResponse_recipe :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_recipe = Lens.lens (\GetMLModelResponse' {recipe} -> recipe) (\s@GetMLModelResponse' {} a -> s {recipe = a} :: GetMLModelResponse)
-
--- | The location of the data file or directory in Amazon Simple Storage
--- Service (Amazon S3).
-getMLModelResponse_inputDataLocationS3 :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_inputDataLocationS3 = Lens.lens (\GetMLModelResponse' {inputDataLocationS3} -> inputDataLocationS3) (\s@GetMLModelResponse' {} a -> s {inputDataLocationS3 = a} :: GetMLModelResponse)
-
--- | The MLModel ID, which is same as the @MLModelId@ in the request.
-getMLModelResponse_mLModelId :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_mLModelId = Lens.lens (\GetMLModelResponse' {mLModelId} -> mLModelId) (\s@GetMLModelResponse' {} a -> s {mLModelId = a} :: GetMLModelResponse)
-
--- | Undocumented member.
-getMLModelResponse_sizeInBytes :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Integer)
-getMLModelResponse_sizeInBytes = Lens.lens (\GetMLModelResponse' {sizeInBytes} -> sizeInBytes) (\s@GetMLModelResponse' {} a -> s {sizeInBytes = a} :: GetMLModelResponse)
-
--- | The schema used by all of the data files referenced by the @DataSource@.
---
--- __Note:__ This parameter is provided as part of the verbose format.
-getMLModelResponse_schema :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_schema = Lens.lens (\GetMLModelResponse' {schema} -> schema) (\s@GetMLModelResponse' {} a -> s {schema = a} :: GetMLModelResponse)
-
--- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
--- @INPROGRESS@. @StartedAt@ isn\'t available if the @MLModel@ is in the
--- @PENDING@ state.
-getMLModelResponse_startedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_startedAt = Lens.lens (\GetMLModelResponse' {startedAt} -> startedAt) (\s@GetMLModelResponse' {} a -> s {startedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
-
--- | The scoring threshold is used in binary classification @MLModel@ models.
--- It marks the boundary between a positive prediction and a negative
--- prediction.
---
--- Output values greater than or equal to the threshold receive a positive
--- result from the MLModel, such as @true@. Output values less than the
--- threshold receive a negative response from the MLModel, such as @false@.
-getMLModelResponse_scoreThreshold :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Double)
-getMLModelResponse_scoreThreshold = Lens.lens (\GetMLModelResponse' {scoreThreshold} -> scoreThreshold) (\s@GetMLModelResponse' {} a -> s {scoreThreshold = a} :: GetMLModelResponse)
-
--- | The epoch time when Amazon Machine Learning marked the @MLModel@ as
--- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
--- @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
-getMLModelResponse_finishedAt :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.UTCTime)
-getMLModelResponse_finishedAt = Lens.lens (\GetMLModelResponse' {finishedAt} -> finishedAt) (\s@GetMLModelResponse' {} a -> s {finishedAt = a} :: GetMLModelResponse) Prelude.. Lens.mapping Core._Time
-
--- | The AWS user account from which the @MLModel@ was created. The account
--- type can be either an AWS root account or an AWS Identity and Access
--- Management (IAM) user account.
-getMLModelResponse_createdByIamUser :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_createdByIamUser = Lens.lens (\GetMLModelResponse' {createdByIamUser} -> createdByIamUser) (\s@GetMLModelResponse' {} a -> s {createdByIamUser = a} :: GetMLModelResponse)
-
--- | A user-supplied name or description of the @MLModel@.
-getMLModelResponse_name :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_name = Lens.lens (\GetMLModelResponse' {name} -> name) (\s@GetMLModelResponse' {} a -> s {name = a} :: GetMLModelResponse)
-
--- | A link to the file that contains logs of the @CreateMLModel@ operation.
-getMLModelResponse_logUri :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_logUri = Lens.lens (\GetMLModelResponse' {logUri} -> logUri) (\s@GetMLModelResponse' {} a -> s {logUri = a} :: GetMLModelResponse)
-
--- | The current endpoint of the @MLModel@
-getMLModelResponse_endpointInfo :: Lens.Lens' GetMLModelResponse (Prelude.Maybe RealtimeEndpointInfo)
-getMLModelResponse_endpointInfo = Lens.lens (\GetMLModelResponse' {endpointInfo} -> endpointInfo) (\s@GetMLModelResponse' {} a -> s {endpointInfo = a} :: GetMLModelResponse)
-
--- | The ID of the training @DataSource@.
-getMLModelResponse_trainingDataSourceId :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_trainingDataSourceId = Lens.lens (\GetMLModelResponse' {trainingDataSourceId} -> trainingDataSourceId) (\s@GetMLModelResponse' {} a -> s {trainingDataSourceId = a} :: GetMLModelResponse)
-
--- | A description of the most recent details about accessing the @MLModel@.
-getMLModelResponse_message :: Lens.Lens' GetMLModelResponse (Prelude.Maybe Prelude.Text)
-getMLModelResponse_message = Lens.lens (\GetMLModelResponse' {message} -> message) (\s@GetMLModelResponse' {} a -> s {message = a} :: GetMLModelResponse)
-
--- | Identifies the @MLModel@ category. The following are the available
--- types:
---
--- -   REGRESSION -- Produces a numeric result. For example, \"What price
---     should a house be listed at?\"
---
--- -   BINARY -- Produces one of two possible results. For example, \"Is
---     this an e-commerce website?\"
---
--- -   MULTICLASS -- Produces one of several possible results. For example,
---     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
-getMLModelResponse_mLModelType :: Lens.Lens' GetMLModelResponse (Prelude.Maybe MLModelType)
-getMLModelResponse_mLModelType = Lens.lens (\GetMLModelResponse' {mLModelType} -> mLModelType) (\s@GetMLModelResponse' {} a -> s {mLModelType = a} :: GetMLModelResponse)
-
 -- | The response's http status code.
 getMLModelResponse_httpStatus :: Lens.Lens' GetMLModelResponse Prelude.Int
 getMLModelResponse_httpStatus = Lens.lens (\GetMLModelResponse' {httpStatus} -> httpStatus) (\s@GetMLModelResponse' {} a -> s {httpStatus = a} :: GetMLModelResponse)
 
 instance Prelude.NFData GetMLModelResponse where
   rnf GetMLModelResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf trainingParameters
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf trainingDataSourceId
       `Prelude.seq` Prelude.rnf scoreThresholdLastUpdatedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf computeTime
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf finishedAt
       `Prelude.seq` Prelude.rnf recipe
-      `Prelude.seq` Prelude.rnf inputDataLocationS3
       `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf scoreThreshold
+      `Prelude.seq` Prelude.rnf endpointInfo
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf mLModelType
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf logUri
+      `Prelude.seq` Prelude.rnf computeTime
       `Prelude.seq` Prelude.rnf sizeInBytes
       `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf scoreThreshold
-      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf inputDataLocationS3
       `Prelude.seq` Prelude.rnf createdByIamUser
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf logUri
-      `Prelude.seq` Prelude.rnf endpointInfo
-      `Prelude.seq` Prelude.rnf trainingDataSourceId
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf mLModelType
+      `Prelude.seq` Prelude.rnf
+        trainingParameters
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,9 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomRoutingEndpointGroup' smart constructor.
 data CustomRoutingEndpointGroup = CustomRoutingEndpointGroup'
-  { -- | The Amazon Resource Name (ARN) of the endpoint group.
-    endpointGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Region where the endpoint group is located.
+  { -- | The AWS Region where the endpoint group is located.
     endpointGroupRegion :: Prelude.Maybe Prelude.Text,
     -- | For a custom routing accelerator, describes the endpoints (virtual
     -- private cloud subnets) in an endpoint group to accept client traffic on.
@@ -40,7 +38,9 @@ data CustomRoutingEndpointGroup = CustomRoutingEndpointGroup'
     -- | For a custom routing accelerator, describes the port range and protocol
     -- for all endpoints (virtual private cloud subnets) in an endpoint group
     -- to accept client traffic on.
-    destinationDescriptions :: Prelude.Maybe [CustomRoutingDestinationDescription]
+    destinationDescriptions :: Prelude.Maybe [CustomRoutingDestinationDescription],
+    -- | The Amazon Resource Name (ARN) of the endpoint group.
+    endpointGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,8 +52,6 @@ data CustomRoutingEndpointGroup = CustomRoutingEndpointGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointGroupArn', 'customRoutingEndpointGroup_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group.
---
 -- 'endpointGroupRegion', 'customRoutingEndpointGroup_endpointGroupRegion' - The AWS Region where the endpoint group is located.
 --
 -- 'endpointDescriptions', 'customRoutingEndpointGroup_endpointDescriptions' - For a custom routing accelerator, describes the endpoints (virtual
@@ -62,20 +60,18 @@ data CustomRoutingEndpointGroup = CustomRoutingEndpointGroup'
 -- 'destinationDescriptions', 'customRoutingEndpointGroup_destinationDescriptions' - For a custom routing accelerator, describes the port range and protocol
 -- for all endpoints (virtual private cloud subnets) in an endpoint group
 -- to accept client traffic on.
+--
+-- 'endpointGroupArn', 'customRoutingEndpointGroup_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group.
 newCustomRoutingEndpointGroup ::
   CustomRoutingEndpointGroup
 newCustomRoutingEndpointGroup =
   CustomRoutingEndpointGroup'
-    { endpointGroupArn =
+    { endpointGroupRegion =
         Prelude.Nothing,
-      endpointGroupRegion = Prelude.Nothing,
       endpointDescriptions = Prelude.Nothing,
-      destinationDescriptions = Prelude.Nothing
+      destinationDescriptions = Prelude.Nothing,
+      endpointGroupArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the endpoint group.
-customRoutingEndpointGroup_endpointGroupArn :: Lens.Lens' CustomRoutingEndpointGroup (Prelude.Maybe Prelude.Text)
-customRoutingEndpointGroup_endpointGroupArn = Lens.lens (\CustomRoutingEndpointGroup' {endpointGroupArn} -> endpointGroupArn) (\s@CustomRoutingEndpointGroup' {} a -> s {endpointGroupArn = a} :: CustomRoutingEndpointGroup)
 
 -- | The AWS Region where the endpoint group is located.
 customRoutingEndpointGroup_endpointGroupRegion :: Lens.Lens' CustomRoutingEndpointGroup (Prelude.Maybe Prelude.Text)
@@ -92,32 +88,36 @@ customRoutingEndpointGroup_endpointDescriptions = Lens.lens (\CustomRoutingEndpo
 customRoutingEndpointGroup_destinationDescriptions :: Lens.Lens' CustomRoutingEndpointGroup (Prelude.Maybe [CustomRoutingDestinationDescription])
 customRoutingEndpointGroup_destinationDescriptions = Lens.lens (\CustomRoutingEndpointGroup' {destinationDescriptions} -> destinationDescriptions) (\s@CustomRoutingEndpointGroup' {} a -> s {destinationDescriptions = a} :: CustomRoutingEndpointGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of the endpoint group.
+customRoutingEndpointGroup_endpointGroupArn :: Lens.Lens' CustomRoutingEndpointGroup (Prelude.Maybe Prelude.Text)
+customRoutingEndpointGroup_endpointGroupArn = Lens.lens (\CustomRoutingEndpointGroup' {endpointGroupArn} -> endpointGroupArn) (\s@CustomRoutingEndpointGroup' {} a -> s {endpointGroupArn = a} :: CustomRoutingEndpointGroup)
+
 instance Core.FromJSON CustomRoutingEndpointGroup where
   parseJSON =
     Core.withObject
       "CustomRoutingEndpointGroup"
       ( \x ->
           CustomRoutingEndpointGroup'
-            Prelude.<$> (x Core..:? "EndpointGroupArn")
-            Prelude.<*> (x Core..:? "EndpointGroupRegion")
+            Prelude.<$> (x Core..:? "EndpointGroupRegion")
             Prelude.<*> ( x Core..:? "EndpointDescriptions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "DestinationDescriptions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "EndpointGroupArn")
       )
 
 instance Prelude.Hashable CustomRoutingEndpointGroup where
   hashWithSalt _salt CustomRoutingEndpointGroup' {..} =
-    _salt `Prelude.hashWithSalt` endpointGroupArn
-      `Prelude.hashWithSalt` endpointGroupRegion
+    _salt `Prelude.hashWithSalt` endpointGroupRegion
       `Prelude.hashWithSalt` endpointDescriptions
       `Prelude.hashWithSalt` destinationDescriptions
+      `Prelude.hashWithSalt` endpointGroupArn
 
 instance Prelude.NFData CustomRoutingEndpointGroup where
   rnf CustomRoutingEndpointGroup' {..} =
-    Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf endpointGroupRegion
+    Prelude.rnf endpointGroupRegion
       `Prelude.seq` Prelude.rnf endpointDescriptions
       `Prelude.seq` Prelude.rnf destinationDescriptions
+      `Prelude.seq` Prelude.rnf endpointGroupArn

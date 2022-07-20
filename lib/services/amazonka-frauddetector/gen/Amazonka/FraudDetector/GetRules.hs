@@ -37,8 +37,8 @@ module Amazonka.FraudDetector.GetRules
 
     -- * Request Lenses
     getRules_ruleVersion,
-    getRules_ruleId,
     getRules_nextToken,
+    getRules_ruleId,
     getRules_maxResults,
     getRules_detectorId,
 
@@ -64,10 +64,10 @@ import qualified Amazonka.Response as Response
 data GetRules = GetRules'
   { -- | The rule version.
     ruleVersion :: Prelude.Maybe Prelude.Text,
-    -- | The rule ID.
-    ruleId :: Prelude.Maybe Prelude.Text,
     -- | The next page token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The rule ID.
+    ruleId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of rules to return for the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The detector ID.
@@ -85,9 +85,9 @@ data GetRules = GetRules'
 --
 -- 'ruleVersion', 'getRules_ruleVersion' - The rule version.
 --
--- 'ruleId', 'getRules_ruleId' - The rule ID.
---
 -- 'nextToken', 'getRules_nextToken' - The next page token.
+--
+-- 'ruleId', 'getRules_ruleId' - The rule ID.
 --
 -- 'maxResults', 'getRules_maxResults' - The maximum number of rules to return for the request.
 --
@@ -99,8 +99,8 @@ newGetRules ::
 newGetRules pDetectorId_ =
   GetRules'
     { ruleVersion = Prelude.Nothing,
-      ruleId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      ruleId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       detectorId = pDetectorId_
     }
@@ -109,13 +109,13 @@ newGetRules pDetectorId_ =
 getRules_ruleVersion :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Text)
 getRules_ruleVersion = Lens.lens (\GetRules' {ruleVersion} -> ruleVersion) (\s@GetRules' {} a -> s {ruleVersion = a} :: GetRules)
 
--- | The rule ID.
-getRules_ruleId :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Text)
-getRules_ruleId = Lens.lens (\GetRules' {ruleId} -> ruleId) (\s@GetRules' {} a -> s {ruleId = a} :: GetRules)
-
 -- | The next page token.
 getRules_nextToken :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Text)
 getRules_nextToken = Lens.lens (\GetRules' {nextToken} -> nextToken) (\s@GetRules' {} a -> s {nextToken = a} :: GetRules)
+
+-- | The rule ID.
+getRules_ruleId :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Text)
+getRules_ruleId = Lens.lens (\GetRules' {ruleId} -> ruleId) (\s@GetRules' {} a -> s {ruleId = a} :: GetRules)
 
 -- | The maximum number of rules to return for the request.
 getRules_maxResults :: Lens.Lens' GetRules (Prelude.Maybe Prelude.Natural)
@@ -140,16 +140,16 @@ instance Core.AWSRequest GetRules where
 instance Prelude.Hashable GetRules where
   hashWithSalt _salt GetRules' {..} =
     _salt `Prelude.hashWithSalt` ruleVersion
-      `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData GetRules where
   rnf GetRules' {..} =
     Prelude.rnf ruleVersion
-      `Prelude.seq` Prelude.rnf ruleId
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ruleId
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf detectorId
 
@@ -173,8 +173,8 @@ instance Core.ToJSON GetRules where
     Core.object
       ( Prelude.catMaybes
           [ ("ruleVersion" Core..=) Prelude.<$> ruleVersion,
-            ("ruleId" Core..=) Prelude.<$> ruleId,
             ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("ruleId" Core..=) Prelude.<$> ruleId,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("detectorId" Core..= detectorId)
           ]

@@ -33,12 +33,12 @@ data ConfigurationRecorder = ConfigurationRecorder'
     -- name \"default\" when creating the configuration recorder. You cannot
     -- change the assigned name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the types of Amazon Web Services resources for which Config
-    -- records configuration changes.
-    recordingGroup :: Prelude.Maybe RecordingGroup,
     -- | Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
     -- Web Services resources associated with the account.
-    roleARN :: Prelude.Maybe Prelude.Text
+    roleARN :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the types of Amazon Web Services resources for which Config
+    -- records configuration changes.
+    recordingGroup :: Prelude.Maybe RecordingGroup
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,18 +54,18 @@ data ConfigurationRecorder = ConfigurationRecorder'
 -- name \"default\" when creating the configuration recorder. You cannot
 -- change the assigned name.
 --
--- 'recordingGroup', 'configurationRecorder_recordingGroup' - Specifies the types of Amazon Web Services resources for which Config
--- records configuration changes.
---
 -- 'roleARN', 'configurationRecorder_roleARN' - Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
 -- Web Services resources associated with the account.
+--
+-- 'recordingGroup', 'configurationRecorder_recordingGroup' - Specifies the types of Amazon Web Services resources for which Config
+-- records configuration changes.
 newConfigurationRecorder ::
   ConfigurationRecorder
 newConfigurationRecorder =
   ConfigurationRecorder'
     { name = Prelude.Nothing,
-      recordingGroup = Prelude.Nothing,
-      roleARN = Prelude.Nothing
+      roleARN = Prelude.Nothing,
+      recordingGroup = Prelude.Nothing
     }
 
 -- | The name of the recorder. By default, Config automatically assigns the
@@ -74,15 +74,15 @@ newConfigurationRecorder =
 configurationRecorder_name :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe Prelude.Text)
 configurationRecorder_name = Lens.lens (\ConfigurationRecorder' {name} -> name) (\s@ConfigurationRecorder' {} a -> s {name = a} :: ConfigurationRecorder)
 
--- | Specifies the types of Amazon Web Services resources for which Config
--- records configuration changes.
-configurationRecorder_recordingGroup :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe RecordingGroup)
-configurationRecorder_recordingGroup = Lens.lens (\ConfigurationRecorder' {recordingGroup} -> recordingGroup) (\s@ConfigurationRecorder' {} a -> s {recordingGroup = a} :: ConfigurationRecorder)
-
 -- | Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
 -- Web Services resources associated with the account.
 configurationRecorder_roleARN :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe Prelude.Text)
 configurationRecorder_roleARN = Lens.lens (\ConfigurationRecorder' {roleARN} -> roleARN) (\s@ConfigurationRecorder' {} a -> s {roleARN = a} :: ConfigurationRecorder)
+
+-- | Specifies the types of Amazon Web Services resources for which Config
+-- records configuration changes.
+configurationRecorder_recordingGroup :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe RecordingGroup)
+configurationRecorder_recordingGroup = Lens.lens (\ConfigurationRecorder' {recordingGroup} -> recordingGroup) (\s@ConfigurationRecorder' {} a -> s {recordingGroup = a} :: ConfigurationRecorder)
 
 instance Core.FromJSON ConfigurationRecorder where
   parseJSON =
@@ -91,29 +91,29 @@ instance Core.FromJSON ConfigurationRecorder where
       ( \x ->
           ConfigurationRecorder'
             Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "recordingGroup")
             Prelude.<*> (x Core..:? "roleARN")
+            Prelude.<*> (x Core..:? "recordingGroup")
       )
 
 instance Prelude.Hashable ConfigurationRecorder where
   hashWithSalt _salt ConfigurationRecorder' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` recordingGroup
       `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` recordingGroup
 
 instance Prelude.NFData ConfigurationRecorder where
   rnf ConfigurationRecorder' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingGroup
       `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf recordingGroup
 
 instance Core.ToJSON ConfigurationRecorder where
   toJSON ConfigurationRecorder' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
+            ("roleARN" Core..=) Prelude.<$> roleARN,
             ("recordingGroup" Core..=)
-              Prelude.<$> recordingGroup,
-            ("roleARN" Core..=) Prelude.<$> roleARN
+              Prelude.<$> recordingGroup
           ]
       )

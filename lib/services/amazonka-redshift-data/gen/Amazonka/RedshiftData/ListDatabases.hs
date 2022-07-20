@@ -40,10 +40,10 @@ module Amazonka.RedshiftData.ListDatabases
     newListDatabases,
 
     -- * Request Lenses
-    listDatabases_dbUser,
     listDatabases_nextToken,
-    listDatabases_secretArn,
     listDatabases_maxResults,
+    listDatabases_secretArn,
+    listDatabases_dbUser,
     listDatabases_clusterIdentifier,
     listDatabases_database,
 
@@ -67,23 +67,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDatabases' smart constructor.
 data ListDatabases = ListDatabases'
-  { -- | The database user name. This parameter is required when authenticating
-    -- using temporary credentials.
-    dbUser :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates the starting point for the next set of response
+  { -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- NextToken value in the next NextToken parameter and retrying the
     -- command. If the NextToken field is empty, all response records have been
     -- retrieved for the request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or ARN of the secret that enables access to the database. This
-    -- parameter is required when authenticating using Secrets Manager.
-    secretArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of databases to return in the response. If more
     -- databases exist than fit in one response, then @NextToken@ is returned
     -- to page through the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name or ARN of the secret that enables access to the database. This
+    -- parameter is required when authenticating using Secrets Manager.
+    secretArn :: Prelude.Maybe Prelude.Text,
+    -- | The database user name. This parameter is required when authenticating
+    -- using temporary credentials.
+    dbUser :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier. This parameter is required when authenticating
     -- using either Secrets Manager or temporary credentials.
     clusterIdentifier :: Prelude.Text,
@@ -101,9 +101,6 @@ data ListDatabases = ListDatabases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbUser', 'listDatabases_dbUser' - The database user name. This parameter is required when authenticating
--- using temporary credentials.
---
 -- 'nextToken', 'listDatabases_nextToken' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
@@ -111,12 +108,15 @@ data ListDatabases = ListDatabases'
 -- command. If the NextToken field is empty, all response records have been
 -- retrieved for the request.
 --
--- 'secretArn', 'listDatabases_secretArn' - The name or ARN of the secret that enables access to the database. This
--- parameter is required when authenticating using Secrets Manager.
---
 -- 'maxResults', 'listDatabases_maxResults' - The maximum number of databases to return in the response. If more
 -- databases exist than fit in one response, then @NextToken@ is returned
 -- to page through the results.
+--
+-- 'secretArn', 'listDatabases_secretArn' - The name or ARN of the secret that enables access to the database. This
+-- parameter is required when authenticating using Secrets Manager.
+--
+-- 'dbUser', 'listDatabases_dbUser' - The database user name. This parameter is required when authenticating
+-- using temporary credentials.
 --
 -- 'clusterIdentifier', 'listDatabases_clusterIdentifier' - The cluster identifier. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -131,18 +131,13 @@ newListDatabases ::
   ListDatabases
 newListDatabases pClusterIdentifier_ pDatabase_ =
   ListDatabases'
-    { dbUser = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      secretArn = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
+      dbUser = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_,
       database = pDatabase_
     }
-
--- | The database user name. This parameter is required when authenticating
--- using temporary credentials.
-listDatabases_dbUser :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
-listDatabases_dbUser = Lens.lens (\ListDatabases' {dbUser} -> dbUser) (\s@ListDatabases' {} a -> s {dbUser = a} :: ListDatabases)
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -153,16 +148,21 @@ listDatabases_dbUser = Lens.lens (\ListDatabases' {dbUser} -> dbUser) (\s@ListDa
 listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
 
--- | The name or ARN of the secret that enables access to the database. This
--- parameter is required when authenticating using Secrets Manager.
-listDatabases_secretArn :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
-listDatabases_secretArn = Lens.lens (\ListDatabases' {secretArn} -> secretArn) (\s@ListDatabases' {} a -> s {secretArn = a} :: ListDatabases)
-
 -- | The maximum number of databases to return in the response. If more
 -- databases exist than fit in one response, then @NextToken@ is returned
 -- to page through the results.
 listDatabases_maxResults :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Natural)
 listDatabases_maxResults = Lens.lens (\ListDatabases' {maxResults} -> maxResults) (\s@ListDatabases' {} a -> s {maxResults = a} :: ListDatabases)
+
+-- | The name or ARN of the secret that enables access to the database. This
+-- parameter is required when authenticating using Secrets Manager.
+listDatabases_secretArn :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
+listDatabases_secretArn = Lens.lens (\ListDatabases' {secretArn} -> secretArn) (\s@ListDatabases' {} a -> s {secretArn = a} :: ListDatabases)
+
+-- | The database user name. This parameter is required when authenticating
+-- using temporary credentials.
+listDatabases_dbUser :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
+listDatabases_dbUser = Lens.lens (\ListDatabases' {dbUser} -> dbUser) (\s@ListDatabases' {} a -> s {dbUser = a} :: ListDatabases)
 
 -- | The cluster identifier. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -209,19 +209,19 @@ instance Core.AWSRequest ListDatabases where
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =
-    _salt `Prelude.hashWithSalt` dbUser
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` secretArn
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData ListDatabases where
   rnf ListDatabases' {..} =
-    Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf secretArn
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf database
 
@@ -242,10 +242,10 @@ instance Core.ToJSON ListDatabases where
   toJSON ListDatabases' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DbUser" Core..=) Prelude.<$> dbUser,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SecretArn" Core..=) Prelude.<$> secretArn,
+            ("DbUser" Core..=) Prelude.<$> dbUser,
             Prelude.Just
               ("ClusterIdentifier" Core..= clusterIdentifier),
             Prelude.Just ("Database" Core..= database)

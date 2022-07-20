@@ -35,8 +35,8 @@ module Amazonka.PinpointEmail.CreateDeliverabilityTestReport
     newCreateDeliverabilityTestReport,
 
     -- * Request Lenses
-    createDeliverabilityTestReport_reportName,
     createDeliverabilityTestReport_tags,
+    createDeliverabilityTestReport_reportName,
     createDeliverabilityTestReport_fromEmailAddress,
     createDeliverabilityTestReport_content,
 
@@ -70,12 +70,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDeliverabilityTestReport' smart constructor.
 data CreateDeliverabilityTestReport = CreateDeliverabilityTestReport'
-  { -- | A unique name that helps you to identify the predictive inbox placement
-    -- test when you retrieve the results.
-    reportName :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that define the tags (keys and values) that you want
+  { -- | An array of objects that define the tags (keys and values) that you want
     -- to associate with the predictive inbox placement test.
     tags :: Prelude.Maybe [Tag],
+    -- | A unique name that helps you to identify the predictive inbox placement
+    -- test when you retrieve the results.
+    reportName :: Prelude.Maybe Prelude.Text,
     -- | The email address that the predictive inbox placement test email was
     -- sent from.
     fromEmailAddress :: Prelude.Text,
@@ -93,11 +93,11 @@ data CreateDeliverabilityTestReport = CreateDeliverabilityTestReport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reportName', 'createDeliverabilityTestReport_reportName' - A unique name that helps you to identify the predictive inbox placement
--- test when you retrieve the results.
---
 -- 'tags', 'createDeliverabilityTestReport_tags' - An array of objects that define the tags (keys and values) that you want
 -- to associate with the predictive inbox placement test.
+--
+-- 'reportName', 'createDeliverabilityTestReport_reportName' - A unique name that helps you to identify the predictive inbox placement
+-- test when you retrieve the results.
 --
 -- 'fromEmailAddress', 'createDeliverabilityTestReport_fromEmailAddress' - The email address that the predictive inbox placement test email was
 -- sent from.
@@ -114,22 +114,22 @@ newCreateDeliverabilityTestReport
   pFromEmailAddress_
   pContent_ =
     CreateDeliverabilityTestReport'
-      { reportName =
+      { tags =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
+        reportName = Prelude.Nothing,
         fromEmailAddress = pFromEmailAddress_,
         content = pContent_
       }
-
--- | A unique name that helps you to identify the predictive inbox placement
--- test when you retrieve the results.
-createDeliverabilityTestReport_reportName :: Lens.Lens' CreateDeliverabilityTestReport (Prelude.Maybe Prelude.Text)
-createDeliverabilityTestReport_reportName = Lens.lens (\CreateDeliverabilityTestReport' {reportName} -> reportName) (\s@CreateDeliverabilityTestReport' {} a -> s {reportName = a} :: CreateDeliverabilityTestReport)
 
 -- | An array of objects that define the tags (keys and values) that you want
 -- to associate with the predictive inbox placement test.
 createDeliverabilityTestReport_tags :: Lens.Lens' CreateDeliverabilityTestReport (Prelude.Maybe [Tag])
 createDeliverabilityTestReport_tags = Lens.lens (\CreateDeliverabilityTestReport' {tags} -> tags) (\s@CreateDeliverabilityTestReport' {} a -> s {tags = a} :: CreateDeliverabilityTestReport) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique name that helps you to identify the predictive inbox placement
+-- test when you retrieve the results.
+createDeliverabilityTestReport_reportName :: Lens.Lens' CreateDeliverabilityTestReport (Prelude.Maybe Prelude.Text)
+createDeliverabilityTestReport_reportName = Lens.lens (\CreateDeliverabilityTestReport' {reportName} -> reportName) (\s@CreateDeliverabilityTestReport' {} a -> s {reportName = a} :: CreateDeliverabilityTestReport)
 
 -- | The email address that the predictive inbox placement test email was
 -- sent from.
@@ -165,8 +165,8 @@ instance
   hashWithSalt
     _salt
     CreateDeliverabilityTestReport' {..} =
-      _salt `Prelude.hashWithSalt` reportName
-        `Prelude.hashWithSalt` tags
+      _salt `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` reportName
         `Prelude.hashWithSalt` fromEmailAddress
         `Prelude.hashWithSalt` content
 
@@ -175,8 +175,8 @@ instance
     CreateDeliverabilityTestReport
   where
   rnf CreateDeliverabilityTestReport' {..} =
-    Prelude.rnf reportName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf reportName
       `Prelude.seq` Prelude.rnf fromEmailAddress
       `Prelude.seq` Prelude.rnf content
 
@@ -198,8 +198,8 @@ instance Core.ToJSON CreateDeliverabilityTestReport where
   toJSON CreateDeliverabilityTestReport' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReportName" Core..=) Prelude.<$> reportName,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ReportName" Core..=) Prelude.<$> reportName,
             Prelude.Just
               ("FromEmailAddress" Core..= fromEmailAddress),
             Prelude.Just ("Content" Core..= content)

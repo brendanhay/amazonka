@@ -40,17 +40,17 @@ module Amazonka.Organizations.ListCreateAccountStatus
     newListCreateAccountStatus,
 
     -- * Request Lenses
-    listCreateAccountStatus_states,
     listCreateAccountStatus_nextToken,
     listCreateAccountStatus_maxResults,
+    listCreateAccountStatus_states,
 
     -- * Destructuring the Response
     ListCreateAccountStatusResponse (..),
     newListCreateAccountStatusResponse,
 
     -- * Response Lenses
-    listCreateAccountStatusResponse_createAccountStatuses,
     listCreateAccountStatusResponse_nextToken,
+    listCreateAccountStatusResponse_createAccountStatuses,
     listCreateAccountStatusResponse_httpStatus,
   )
 where
@@ -64,11 +64,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCreateAccountStatus' smart constructor.
 data ListCreateAccountStatus = ListCreateAccountStatus'
-  { -- | A list of one or more states that you want included in the response. If
-    -- this parameter isn\'t present, all requests are included in the
-    -- response.
-    states :: Prelude.Maybe [CreateAccountState],
-    -- | The parameter for receiving additional results if you receive a
+  { -- | The parameter for receiving additional results if you receive a
     -- @NextToken@ response in a previous request. A @NextToken@ response
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
@@ -84,7 +80,11 @@ data ListCreateAccountStatus = ListCreateAccountStatus'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A list of one or more states that you want included in the response. If
+    -- this parameter isn\'t present, all requests are included in the
+    -- response.
+    states :: Prelude.Maybe [CreateAccountState]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,10 +95,6 @@ data ListCreateAccountStatus = ListCreateAccountStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'states', 'listCreateAccountStatus_states' - A list of one or more states that you want included in the response. If
--- this parameter isn\'t present, all requests are included in the
--- response.
 --
 -- 'nextToken', 'listCreateAccountStatus_nextToken' - The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
@@ -116,20 +112,19 @@ data ListCreateAccountStatus = ListCreateAccountStatus'
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
+--
+-- 'states', 'listCreateAccountStatus_states' - A list of one or more states that you want included in the response. If
+-- this parameter isn\'t present, all requests are included in the
+-- response.
 newListCreateAccountStatus ::
   ListCreateAccountStatus
 newListCreateAccountStatus =
   ListCreateAccountStatus'
-    { states = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      states = Prelude.Nothing
     }
-
--- | A list of one or more states that you want included in the response. If
--- this parameter isn\'t present, all requests are included in the
--- response.
-listCreateAccountStatus_states :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe [CreateAccountState])
-listCreateAccountStatus_states = Lens.lens (\ListCreateAccountStatus' {states} -> states) (\s@ListCreateAccountStatus' {} a -> s {states = a} :: ListCreateAccountStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
@@ -151,6 +146,12 @@ listCreateAccountStatus_nextToken = Lens.lens (\ListCreateAccountStatus' {nextTo
 -- results.
 listCreateAccountStatus_maxResults :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe Prelude.Natural)
 listCreateAccountStatus_maxResults = Lens.lens (\ListCreateAccountStatus' {maxResults} -> maxResults) (\s@ListCreateAccountStatus' {} a -> s {maxResults = a} :: ListCreateAccountStatus)
+
+-- | A list of one or more states that you want included in the response. If
+-- this parameter isn\'t present, all requests are included in the
+-- response.
+listCreateAccountStatus_states :: Lens.Lens' ListCreateAccountStatus (Prelude.Maybe [CreateAccountState])
+listCreateAccountStatus_states = Lens.lens (\ListCreateAccountStatus' {states} -> states) (\s@ListCreateAccountStatus' {} a -> s {states = a} :: ListCreateAccountStatus) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListCreateAccountStatus where
   page rq rs
@@ -183,24 +184,24 @@ instance Core.AWSRequest ListCreateAccountStatus where
     Response.receiveJSON
       ( \s h x ->
           ListCreateAccountStatusResponse'
-            Prelude.<$> ( x Core..?> "CreateAccountStatuses"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "CreateAccountStatuses"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCreateAccountStatus where
   hashWithSalt _salt ListCreateAccountStatus' {..} =
-    _salt `Prelude.hashWithSalt` states
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` states
 
 instance Prelude.NFData ListCreateAccountStatus where
   rnf ListCreateAccountStatus' {..} =
-    Prelude.rnf states
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf states
 
 instance Core.ToHeaders ListCreateAccountStatus where
   toHeaders =
@@ -221,9 +222,9 @@ instance Core.ToJSON ListCreateAccountStatus where
   toJSON ListCreateAccountStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("States" Core..=) Prelude.<$> states,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("States" Core..=) Prelude.<$> states
           ]
       )
 
@@ -235,16 +236,16 @@ instance Core.ToQuery ListCreateAccountStatus where
 
 -- | /See:/ 'newListCreateAccountStatusResponse' smart constructor.
 data ListCreateAccountStatusResponse = ListCreateAccountStatusResponse'
-  { -- | A list of objects with details about the requests. Certain elements,
-    -- such as the accountId number, are present in the output only after the
-    -- account has been successfully created.
-    createAccountStatuses :: Prelude.Maybe [CreateAccountStatus],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of objects with details about the requests. Certain elements,
+    -- such as the accountId number, are present in the output only after the
+    -- account has been successfully created.
+    createAccountStatuses :: Prelude.Maybe [CreateAccountStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -258,15 +259,15 @@ data ListCreateAccountStatusResponse = ListCreateAccountStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createAccountStatuses', 'listCreateAccountStatusResponse_createAccountStatuses' - A list of objects with details about the requests. Certain elements,
--- such as the accountId number, are present in the output only after the
--- account has been successfully created.
---
 -- 'nextToken', 'listCreateAccountStatusResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
+--
+-- 'createAccountStatuses', 'listCreateAccountStatusResponse_createAccountStatuses' - A list of objects with details about the requests. Certain elements,
+-- such as the accountId number, are present in the output only after the
+-- account has been successfully created.
 --
 -- 'httpStatus', 'listCreateAccountStatusResponse_httpStatus' - The response's http status code.
 newListCreateAccountStatusResponse ::
@@ -275,17 +276,11 @@ newListCreateAccountStatusResponse ::
   ListCreateAccountStatusResponse
 newListCreateAccountStatusResponse pHttpStatus_ =
   ListCreateAccountStatusResponse'
-    { createAccountStatuses =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      createAccountStatuses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of objects with details about the requests. Certain elements,
--- such as the accountId number, are present in the output only after the
--- account has been successfully created.
-listCreateAccountStatusResponse_createAccountStatuses :: Lens.Lens' ListCreateAccountStatusResponse (Prelude.Maybe [CreateAccountStatus])
-listCreateAccountStatusResponse_createAccountStatuses = Lens.lens (\ListCreateAccountStatusResponse' {createAccountStatuses} -> createAccountStatuses) (\s@ListCreateAccountStatusResponse' {} a -> s {createAccountStatuses = a} :: ListCreateAccountStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -294,6 +289,12 @@ listCreateAccountStatusResponse_createAccountStatuses = Lens.lens (\ListCreateAc
 -- element comes back as @null@.
 listCreateAccountStatusResponse_nextToken :: Lens.Lens' ListCreateAccountStatusResponse (Prelude.Maybe Prelude.Text)
 listCreateAccountStatusResponse_nextToken = Lens.lens (\ListCreateAccountStatusResponse' {nextToken} -> nextToken) (\s@ListCreateAccountStatusResponse' {} a -> s {nextToken = a} :: ListCreateAccountStatusResponse)
+
+-- | A list of objects with details about the requests. Certain elements,
+-- such as the accountId number, are present in the output only after the
+-- account has been successfully created.
+listCreateAccountStatusResponse_createAccountStatuses :: Lens.Lens' ListCreateAccountStatusResponse (Prelude.Maybe [CreateAccountStatus])
+listCreateAccountStatusResponse_createAccountStatuses = Lens.lens (\ListCreateAccountStatusResponse' {createAccountStatuses} -> createAccountStatuses) (\s@ListCreateAccountStatusResponse' {} a -> s {createAccountStatuses = a} :: ListCreateAccountStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCreateAccountStatusResponse_httpStatus :: Lens.Lens' ListCreateAccountStatusResponse Prelude.Int
@@ -304,6 +305,6 @@ instance
     ListCreateAccountStatusResponse
   where
   rnf ListCreateAccountStatusResponse' {..} =
-    Prelude.rnf createAccountStatuses
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf createAccountStatuses
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,8 +34,8 @@ module Amazonka.QuickSight.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_requestId,
     listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_requestId,
     listTagsForResourceResponse_status,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Tags")
+            Prelude.<$> (x Core..?> "Tags")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,11 +120,11 @@ instance Core.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | Contains a map of the key-value pairs for the resource tag or tags
+  { -- | Contains a map of the key-value pairs for the resource tag or tags
     -- assigned to the resource.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -138,10 +138,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listTagsForResourceResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'tags', 'listTagsForResourceResponse_tags' - Contains a map of the key-value pairs for the resource tag or tags
 -- assigned to the resource.
+--
+-- 'requestId', 'listTagsForResourceResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'listTagsForResourceResponse_status' - The HTTP status of the request.
 newListTagsForResourceResponse ::
@@ -150,20 +150,20 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pStatus_ =
   ListTagsForResourceResponse'
-    { requestId =
+    { tags =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-listTagsForResourceResponse_requestId :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
-listTagsForResourceResponse_requestId = Lens.lens (\ListTagsForResourceResponse' {requestId} -> requestId) (\s@ListTagsForResourceResponse' {} a -> s {requestId = a} :: ListTagsForResourceResponse)
 
 -- | Contains a map of the key-value pairs for the resource tag or tags
 -- assigned to the resource.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Web Services request ID for this operation.
+listTagsForResourceResponse_requestId :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_requestId = Lens.lens (\ListTagsForResourceResponse' {requestId} -> requestId) (\s@ListTagsForResourceResponse' {} a -> s {requestId = a} :: ListTagsForResourceResponse)
 
 -- | The HTTP status of the request.
 listTagsForResourceResponse_status :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
@@ -171,6 +171,6 @@ listTagsForResourceResponse_status = Lens.lens (\ListTagsForResourceResponse' {s
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

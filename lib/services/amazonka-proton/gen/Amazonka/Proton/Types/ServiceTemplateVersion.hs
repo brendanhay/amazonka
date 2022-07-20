@@ -29,14 +29,14 @@ import Amazonka.Proton.Types.TemplateVersionStatus
 --
 -- /See:/ 'newServiceTemplateVersion' smart constructor.
 data ServiceTemplateVersion = ServiceTemplateVersion'
-  { -- | The schema of the version of a service template.
+  { -- | A description of the version of a service template.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the recommended minor version of the service template.
+    recommendedMinorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The schema of the version of a service template.
     schema :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A service template version status message.
     statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the recommended minor version of the service template.
-    recommendedMinorVersion :: Prelude.Maybe Prelude.Text,
-    -- | A description of the version of a service template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the version of a service template.
     arn :: Prelude.Text,
     -- | An array of compatible environment template names for the major version
@@ -66,13 +66,13 @@ data ServiceTemplateVersion = ServiceTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schema', 'serviceTemplateVersion_schema' - The schema of the version of a service template.
---
--- 'statusMessage', 'serviceTemplateVersion_statusMessage' - A service template version status message.
+-- 'description', 'serviceTemplateVersion_description' - A description of the version of a service template.
 --
 -- 'recommendedMinorVersion', 'serviceTemplateVersion_recommendedMinorVersion' - The ID of the recommended minor version of the service template.
 --
--- 'description', 'serviceTemplateVersion_description' - A description of the version of a service template.
+-- 'schema', 'serviceTemplateVersion_schema' - The schema of the version of a service template.
+--
+-- 'statusMessage', 'serviceTemplateVersion_statusMessage' - A service template version status message.
 --
 -- 'arn', 'serviceTemplateVersion_arn' - The Amazon Resource Name (ARN) of the version of a service template.
 --
@@ -116,10 +116,11 @@ newServiceTemplateVersion
   pStatus_
   pTemplateName_ =
     ServiceTemplateVersion'
-      { schema = Prelude.Nothing,
-        statusMessage = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
         recommendedMinorVersion = Prelude.Nothing,
-        description = Prelude.Nothing,
+        schema = Prelude.Nothing,
+        statusMessage = Prelude.Nothing,
         arn = pArn_,
         compatibleEnvironmentTemplates = Prelude.mempty,
         createdAt = Core._Time Lens.# pCreatedAt_,
@@ -130,6 +131,14 @@ newServiceTemplateVersion
         templateName = pTemplateName_
       }
 
+-- | A description of the version of a service template.
+serviceTemplateVersion_description :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
+serviceTemplateVersion_description = Lens.lens (\ServiceTemplateVersion' {description} -> description) (\s@ServiceTemplateVersion' {} a -> s {description = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID of the recommended minor version of the service template.
+serviceTemplateVersion_recommendedMinorVersion :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
+serviceTemplateVersion_recommendedMinorVersion = Lens.lens (\ServiceTemplateVersion' {recommendedMinorVersion} -> recommendedMinorVersion) (\s@ServiceTemplateVersion' {} a -> s {recommendedMinorVersion = a} :: ServiceTemplateVersion)
+
 -- | The schema of the version of a service template.
 serviceTemplateVersion_schema :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
 serviceTemplateVersion_schema = Lens.lens (\ServiceTemplateVersion' {schema} -> schema) (\s@ServiceTemplateVersion' {} a -> s {schema = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
@@ -137,14 +146,6 @@ serviceTemplateVersion_schema = Lens.lens (\ServiceTemplateVersion' {schema} -> 
 -- | A service template version status message.
 serviceTemplateVersion_statusMessage :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
 serviceTemplateVersion_statusMessage = Lens.lens (\ServiceTemplateVersion' {statusMessage} -> statusMessage) (\s@ServiceTemplateVersion' {} a -> s {statusMessage = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
-
--- | The ID of the recommended minor version of the service template.
-serviceTemplateVersion_recommendedMinorVersion :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-serviceTemplateVersion_recommendedMinorVersion = Lens.lens (\ServiceTemplateVersion' {recommendedMinorVersion} -> recommendedMinorVersion) (\s@ServiceTemplateVersion' {} a -> s {recommendedMinorVersion = a} :: ServiceTemplateVersion)
-
--- | A description of the version of a service template.
-serviceTemplateVersion_description :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-serviceTemplateVersion_description = Lens.lens (\ServiceTemplateVersion' {description} -> description) (\s@ServiceTemplateVersion' {} a -> s {description = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the version of a service template.
 serviceTemplateVersion_arn :: Lens.Lens' ServiceTemplateVersion Prelude.Text
@@ -186,10 +187,10 @@ instance Core.FromJSON ServiceTemplateVersion where
       "ServiceTemplateVersion"
       ( \x ->
           ServiceTemplateVersion'
-            Prelude.<$> (x Core..:? "schema")
-            Prelude.<*> (x Core..:? "statusMessage")
+            Prelude.<$> (x Core..:? "description")
             Prelude.<*> (x Core..:? "recommendedMinorVersion")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "schema")
+            Prelude.<*> (x Core..:? "statusMessage")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> ( x Core..:? "compatibleEnvironmentTemplates"
                             Core..!= Prelude.mempty
@@ -204,10 +205,10 @@ instance Core.FromJSON ServiceTemplateVersion where
 
 instance Prelude.Hashable ServiceTemplateVersion where
   hashWithSalt _salt ServiceTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` schema
-      `Prelude.hashWithSalt` statusMessage
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` recommendedMinorVersion
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` compatibleEnvironmentTemplates
       `Prelude.hashWithSalt` createdAt
@@ -219,10 +220,10 @@ instance Prelude.Hashable ServiceTemplateVersion where
 
 instance Prelude.NFData ServiceTemplateVersion where
   rnf ServiceTemplateVersion' {..} =
-    Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf recommendedMinorVersion
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
       `Prelude.seq` Prelude.rnf createdAt

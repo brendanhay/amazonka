@@ -30,7 +30,22 @@ import Amazonka.Transcribe.Types.VocabularyFilterMethod
 --
 -- /See:/ 'newCallAnalyticsJobSettings' smart constructor.
 data CallAnalyticsJobSettings = CallAnalyticsJobSettings'
-  { contentRedaction :: Prelude.Maybe ContentRedaction,
+  { -- | Set to mask to remove filtered text from the transcript and replace it
+    -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
+    -- remove filtered text from the transcript without using placeholder text.
+    -- Set to @tag@ to mark the word in the transcription output that matches
+    -- the vocabulary filter. When you set the filter method to @tag@, the
+    -- words matching your vocabulary filter are not masked or removed.
+    vocabularyFilterMethod :: Prelude.Maybe VocabularyFilterMethod,
+    -- | The name of a vocabulary to use when processing the call analytics job.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
+    -- | The structure used to describe a custom language model.
+    languageModelName :: Prelude.Maybe Prelude.Text,
+    contentRedaction :: Prelude.Maybe ContentRedaction,
+    -- | The name of the vocabulary filter to use when running a call analytics
+    -- job. The filter that you specify must have the same language code as the
+    -- analytics job.
+    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
     -- | When you run a call analytics job, you can specify the language spoken
     -- in the audio, or you can have Amazon Transcribe identify the language
     -- for you.
@@ -43,22 +58,7 @@ data CallAnalyticsJobSettings = CallAnalyticsJobSettings'
     -- in the audio. Refer to
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features>
     -- for additional information.
-    languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode),
-    -- | The name of a vocabulary to use when processing the call analytics job.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The structure used to describe a custom language model.
-    languageModelName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the vocabulary filter to use when running a call analytics
-    -- job. The filter that you specify must have the same language code as the
-    -- analytics job.
-    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
-    -- | Set to mask to remove filtered text from the transcript and replace it
-    -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
-    -- remove filtered text from the transcript without using placeholder text.
-    -- Set to @tag@ to mark the word in the transcription output that matches
-    -- the vocabulary filter. When you set the filter method to @tag@, the
-    -- words matching your vocabulary filter are not masked or removed.
-    vocabularyFilterMethod :: Prelude.Maybe VocabularyFilterMethod
+    languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,7 +70,22 @@ data CallAnalyticsJobSettings = CallAnalyticsJobSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vocabularyFilterMethod', 'callAnalyticsJobSettings_vocabularyFilterMethod' - Set to mask to remove filtered text from the transcript and replace it
+-- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
+-- remove filtered text from the transcript without using placeholder text.
+-- Set to @tag@ to mark the word in the transcription output that matches
+-- the vocabulary filter. When you set the filter method to @tag@, the
+-- words matching your vocabulary filter are not masked or removed.
+--
+-- 'vocabularyName', 'callAnalyticsJobSettings_vocabularyName' - The name of a vocabulary to use when processing the call analytics job.
+--
+-- 'languageModelName', 'callAnalyticsJobSettings_languageModelName' - The structure used to describe a custom language model.
+--
 -- 'contentRedaction', 'callAnalyticsJobSettings_contentRedaction' - Undocumented member.
+--
+-- 'vocabularyFilterName', 'callAnalyticsJobSettings_vocabularyFilterName' - The name of the vocabulary filter to use when running a call analytics
+-- job. The filter that you specify must have the same language code as the
+-- analytics job.
 --
 -- 'languageOptions', 'callAnalyticsJobSettings_languageOptions' - When you run a call analytics job, you can specify the language spoken
 -- in the audio, or you can have Amazon Transcribe identify the language
@@ -84,37 +99,45 @@ data CallAnalyticsJobSettings = CallAnalyticsJobSettings'
 -- in the audio. Refer to
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features>
 -- for additional information.
---
--- 'vocabularyName', 'callAnalyticsJobSettings_vocabularyName' - The name of a vocabulary to use when processing the call analytics job.
---
--- 'languageModelName', 'callAnalyticsJobSettings_languageModelName' - The structure used to describe a custom language model.
---
--- 'vocabularyFilterName', 'callAnalyticsJobSettings_vocabularyFilterName' - The name of the vocabulary filter to use when running a call analytics
--- job. The filter that you specify must have the same language code as the
--- analytics job.
---
--- 'vocabularyFilterMethod', 'callAnalyticsJobSettings_vocabularyFilterMethod' - Set to mask to remove filtered text from the transcript and replace it
+newCallAnalyticsJobSettings ::
+  CallAnalyticsJobSettings
+newCallAnalyticsJobSettings =
+  CallAnalyticsJobSettings'
+    { vocabularyFilterMethod =
+        Prelude.Nothing,
+      vocabularyName = Prelude.Nothing,
+      languageModelName = Prelude.Nothing,
+      contentRedaction = Prelude.Nothing,
+      vocabularyFilterName = Prelude.Nothing,
+      languageOptions = Prelude.Nothing
+    }
+
+-- | Set to mask to remove filtered text from the transcript and replace it
 -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
 -- remove filtered text from the transcript without using placeholder text.
 -- Set to @tag@ to mark the word in the transcription output that matches
 -- the vocabulary filter. When you set the filter method to @tag@, the
 -- words matching your vocabulary filter are not masked or removed.
-newCallAnalyticsJobSettings ::
-  CallAnalyticsJobSettings
-newCallAnalyticsJobSettings =
-  CallAnalyticsJobSettings'
-    { contentRedaction =
-        Prelude.Nothing,
-      languageOptions = Prelude.Nothing,
-      vocabularyName = Prelude.Nothing,
-      languageModelName = Prelude.Nothing,
-      vocabularyFilterName = Prelude.Nothing,
-      vocabularyFilterMethod = Prelude.Nothing
-    }
+callAnalyticsJobSettings_vocabularyFilterMethod :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe VocabularyFilterMethod)
+callAnalyticsJobSettings_vocabularyFilterMethod = Lens.lens (\CallAnalyticsJobSettings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyFilterMethod = a} :: CallAnalyticsJobSettings)
+
+-- | The name of a vocabulary to use when processing the call analytics job.
+callAnalyticsJobSettings_vocabularyName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
+callAnalyticsJobSettings_vocabularyName = Lens.lens (\CallAnalyticsJobSettings' {vocabularyName} -> vocabularyName) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyName = a} :: CallAnalyticsJobSettings)
+
+-- | The structure used to describe a custom language model.
+callAnalyticsJobSettings_languageModelName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
+callAnalyticsJobSettings_languageModelName = Lens.lens (\CallAnalyticsJobSettings' {languageModelName} -> languageModelName) (\s@CallAnalyticsJobSettings' {} a -> s {languageModelName = a} :: CallAnalyticsJobSettings)
 
 -- | Undocumented member.
 callAnalyticsJobSettings_contentRedaction :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe ContentRedaction)
 callAnalyticsJobSettings_contentRedaction = Lens.lens (\CallAnalyticsJobSettings' {contentRedaction} -> contentRedaction) (\s@CallAnalyticsJobSettings' {} a -> s {contentRedaction = a} :: CallAnalyticsJobSettings)
+
+-- | The name of the vocabulary filter to use when running a call analytics
+-- job. The filter that you specify must have the same language code as the
+-- analytics job.
+callAnalyticsJobSettings_vocabularyFilterName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
+callAnalyticsJobSettings_vocabularyFilterName = Lens.lens (\CallAnalyticsJobSettings' {vocabularyFilterName} -> vocabularyFilterName) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyFilterName = a} :: CallAnalyticsJobSettings)
 
 -- | When you run a call analytics job, you can specify the language spoken
 -- in the audio, or you can have Amazon Transcribe identify the language
@@ -131,76 +154,53 @@ callAnalyticsJobSettings_contentRedaction = Lens.lens (\CallAnalyticsJobSettings
 callAnalyticsJobSettings_languageOptions :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
 callAnalyticsJobSettings_languageOptions = Lens.lens (\CallAnalyticsJobSettings' {languageOptions} -> languageOptions) (\s@CallAnalyticsJobSettings' {} a -> s {languageOptions = a} :: CallAnalyticsJobSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of a vocabulary to use when processing the call analytics job.
-callAnalyticsJobSettings_vocabularyName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
-callAnalyticsJobSettings_vocabularyName = Lens.lens (\CallAnalyticsJobSettings' {vocabularyName} -> vocabularyName) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyName = a} :: CallAnalyticsJobSettings)
-
--- | The structure used to describe a custom language model.
-callAnalyticsJobSettings_languageModelName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
-callAnalyticsJobSettings_languageModelName = Lens.lens (\CallAnalyticsJobSettings' {languageModelName} -> languageModelName) (\s@CallAnalyticsJobSettings' {} a -> s {languageModelName = a} :: CallAnalyticsJobSettings)
-
--- | The name of the vocabulary filter to use when running a call analytics
--- job. The filter that you specify must have the same language code as the
--- analytics job.
-callAnalyticsJobSettings_vocabularyFilterName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
-callAnalyticsJobSettings_vocabularyFilterName = Lens.lens (\CallAnalyticsJobSettings' {vocabularyFilterName} -> vocabularyFilterName) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyFilterName = a} :: CallAnalyticsJobSettings)
-
--- | Set to mask to remove filtered text from the transcript and replace it
--- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
--- remove filtered text from the transcript without using placeholder text.
--- Set to @tag@ to mark the word in the transcription output that matches
--- the vocabulary filter. When you set the filter method to @tag@, the
--- words matching your vocabulary filter are not masked or removed.
-callAnalyticsJobSettings_vocabularyFilterMethod :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe VocabularyFilterMethod)
-callAnalyticsJobSettings_vocabularyFilterMethod = Lens.lens (\CallAnalyticsJobSettings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyFilterMethod = a} :: CallAnalyticsJobSettings)
-
 instance Core.FromJSON CallAnalyticsJobSettings where
   parseJSON =
     Core.withObject
       "CallAnalyticsJobSettings"
       ( \x ->
           CallAnalyticsJobSettings'
-            Prelude.<$> (x Core..:? "ContentRedaction")
-            Prelude.<*> (x Core..:? "LanguageOptions")
+            Prelude.<$> (x Core..:? "VocabularyFilterMethod")
             Prelude.<*> (x Core..:? "VocabularyName")
             Prelude.<*> (x Core..:? "LanguageModelName")
+            Prelude.<*> (x Core..:? "ContentRedaction")
             Prelude.<*> (x Core..:? "VocabularyFilterName")
-            Prelude.<*> (x Core..:? "VocabularyFilterMethod")
+            Prelude.<*> (x Core..:? "LanguageOptions")
       )
 
 instance Prelude.Hashable CallAnalyticsJobSettings where
   hashWithSalt _salt CallAnalyticsJobSettings' {..} =
-    _salt `Prelude.hashWithSalt` contentRedaction
-      `Prelude.hashWithSalt` languageOptions
+    _salt `Prelude.hashWithSalt` vocabularyFilterMethod
       `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` languageModelName
+      `Prelude.hashWithSalt` contentRedaction
       `Prelude.hashWithSalt` vocabularyFilterName
-      `Prelude.hashWithSalt` vocabularyFilterMethod
+      `Prelude.hashWithSalt` languageOptions
 
 instance Prelude.NFData CallAnalyticsJobSettings where
   rnf CallAnalyticsJobSettings' {..} =
-    Prelude.rnf contentRedaction
-      `Prelude.seq` Prelude.rnf languageOptions
+    Prelude.rnf vocabularyFilterMethod
       `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf languageModelName
+      `Prelude.seq` Prelude.rnf contentRedaction
       `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
+      `Prelude.seq` Prelude.rnf languageOptions
 
 instance Core.ToJSON CallAnalyticsJobSettings where
   toJSON CallAnalyticsJobSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ContentRedaction" Core..=)
-              Prelude.<$> contentRedaction,
-            ("LanguageOptions" Core..=)
-              Prelude.<$> languageOptions,
+          [ ("VocabularyFilterMethod" Core..=)
+              Prelude.<$> vocabularyFilterMethod,
             ("VocabularyName" Core..=)
               Prelude.<$> vocabularyName,
             ("LanguageModelName" Core..=)
               Prelude.<$> languageModelName,
+            ("ContentRedaction" Core..=)
+              Prelude.<$> contentRedaction,
             ("VocabularyFilterName" Core..=)
               Prelude.<$> vocabularyFilterName,
-            ("VocabularyFilterMethod" Core..=)
-              Prelude.<$> vocabularyFilterMethod
+            ("LanguageOptions" Core..=)
+              Prelude.<$> languageOptions
           ]
       )

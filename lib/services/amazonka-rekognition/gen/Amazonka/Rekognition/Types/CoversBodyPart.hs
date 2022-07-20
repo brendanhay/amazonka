@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoversBodyPart' smart constructor.
 data CoversBodyPart = CoversBodyPart'
-  { -- | True if the PPE covers the corresponding body part, otherwise false.
-    value :: Prelude.Maybe Prelude.Bool,
-    -- | The confidence that Amazon Rekognition has in the value of @Value@.
-    confidence :: Prelude.Maybe Prelude.Double
+  { -- | The confidence that Amazon Rekognition has in the value of @Value@.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | True if the PPE covers the corresponding body part, otherwise false.
+    value :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data CoversBodyPart = CoversBodyPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'coversBodyPart_value' - True if the PPE covers the corresponding body part, otherwise false.
---
 -- 'confidence', 'coversBodyPart_confidence' - The confidence that Amazon Rekognition has in the value of @Value@.
+--
+-- 'value', 'coversBodyPart_value' - True if the PPE covers the corresponding body part, otherwise false.
 newCoversBodyPart ::
   CoversBodyPart
 newCoversBodyPart =
   CoversBodyPart'
-    { value = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | True if the PPE covers the corresponding body part, otherwise false.
-coversBodyPart_value :: Lens.Lens' CoversBodyPart (Prelude.Maybe Prelude.Bool)
-coversBodyPart_value = Lens.lens (\CoversBodyPart' {value} -> value) (\s@CoversBodyPart' {} a -> s {value = a} :: CoversBodyPart)
 
 -- | The confidence that Amazon Rekognition has in the value of @Value@.
 coversBodyPart_confidence :: Lens.Lens' CoversBodyPart (Prelude.Maybe Prelude.Double)
 coversBodyPart_confidence = Lens.lens (\CoversBodyPart' {confidence} -> confidence) (\s@CoversBodyPart' {} a -> s {confidence = a} :: CoversBodyPart)
+
+-- | True if the PPE covers the corresponding body part, otherwise false.
+coversBodyPart_value :: Lens.Lens' CoversBodyPart (Prelude.Maybe Prelude.Bool)
+coversBodyPart_value = Lens.lens (\CoversBodyPart' {value} -> value) (\s@CoversBodyPart' {} a -> s {value = a} :: CoversBodyPart)
 
 instance Core.FromJSON CoversBodyPart where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON CoversBodyPart where
       "CoversBodyPart"
       ( \x ->
           CoversBodyPart'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable CoversBodyPart where
   hashWithSalt _salt CoversBodyPart' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CoversBodyPart where
   rnf CoversBodyPart' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf value

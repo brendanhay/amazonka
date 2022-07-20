@@ -30,9 +30,9 @@ module Amazonka.EKS.ListUpdates
     newListUpdates,
 
     -- * Request Lenses
-    listUpdates_addonName,
     listUpdates_nextToken,
     listUpdates_nodegroupName,
+    listUpdates_addonName,
     listUpdates_maxResults,
     listUpdates_name,
 
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUpdates' smart constructor.
 data ListUpdates = ListUpdates'
-  { -- | The names of the installed add-ons that have available updates.
-    addonName :: Prelude.Maybe Prelude.Text,
-    -- | The @nextToken@ value returned from a previous paginated @ListUpdates@
+  { -- | The @nextToken@ value returned from a previous paginated @ListUpdates@
     -- request where @maxResults@ was used and the results exceeded the value
     -- of that parameter. Pagination continues from the end of the previous
     -- results that returned the @nextToken@ value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EKS managed node group to list updates for.
     nodegroupName :: Prelude.Maybe Prelude.Text,
+    -- | The names of the installed add-ons that have available updates.
+    addonName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of update results returned by @ListUpdates@ in
     -- paginated output. When you use this parameter, @ListUpdates@ returns
     -- only @maxResults@ results in a single page along with a @nextToken@
@@ -87,14 +87,14 @@ data ListUpdates = ListUpdates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addonName', 'listUpdates_addonName' - The names of the installed add-ons that have available updates.
---
 -- 'nextToken', 'listUpdates_nextToken' - The @nextToken@ value returned from a previous paginated @ListUpdates@
 -- request where @maxResults@ was used and the results exceeded the value
 -- of that parameter. Pagination continues from the end of the previous
 -- results that returned the @nextToken@ value.
 --
 -- 'nodegroupName', 'listUpdates_nodegroupName' - The name of the Amazon EKS managed node group to list updates for.
+--
+-- 'addonName', 'listUpdates_addonName' - The names of the installed add-ons that have available updates.
 --
 -- 'maxResults', 'listUpdates_maxResults' - The maximum number of update results returned by @ListUpdates@ in
 -- paginated output. When you use this parameter, @ListUpdates@ returns
@@ -112,16 +112,12 @@ newListUpdates ::
   ListUpdates
 newListUpdates pName_ =
   ListUpdates'
-    { addonName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       nodegroupName = Prelude.Nothing,
+      addonName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       name = pName_
     }
-
--- | The names of the installed add-ons that have available updates.
-listUpdates_addonName :: Lens.Lens' ListUpdates (Prelude.Maybe Prelude.Text)
-listUpdates_addonName = Lens.lens (\ListUpdates' {addonName} -> addonName) (\s@ListUpdates' {} a -> s {addonName = a} :: ListUpdates)
 
 -- | The @nextToken@ value returned from a previous paginated @ListUpdates@
 -- request where @maxResults@ was used and the results exceeded the value
@@ -133,6 +129,10 @@ listUpdates_nextToken = Lens.lens (\ListUpdates' {nextToken} -> nextToken) (\s@L
 -- | The name of the Amazon EKS managed node group to list updates for.
 listUpdates_nodegroupName :: Lens.Lens' ListUpdates (Prelude.Maybe Prelude.Text)
 listUpdates_nodegroupName = Lens.lens (\ListUpdates' {nodegroupName} -> nodegroupName) (\s@ListUpdates' {} a -> s {nodegroupName = a} :: ListUpdates)
+
+-- | The names of the installed add-ons that have available updates.
+listUpdates_addonName :: Lens.Lens' ListUpdates (Prelude.Maybe Prelude.Text)
+listUpdates_addonName = Lens.lens (\ListUpdates' {addonName} -> addonName) (\s@ListUpdates' {} a -> s {addonName = a} :: ListUpdates)
 
 -- | The maximum number of update results returned by @ListUpdates@ in
 -- paginated output. When you use this parameter, @ListUpdates@ returns
@@ -182,17 +182,17 @@ instance Core.AWSRequest ListUpdates where
 
 instance Prelude.Hashable ListUpdates where
   hashWithSalt _salt ListUpdates' {..} =
-    _salt `Prelude.hashWithSalt` addonName
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` addonName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ListUpdates where
   rnf ListUpdates' {..} =
-    Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf nodegroupName
+      `Prelude.seq` Prelude.rnf addonName
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
 
@@ -215,9 +215,9 @@ instance Core.ToPath ListUpdates where
 instance Core.ToQuery ListUpdates where
   toQuery ListUpdates' {..} =
     Prelude.mconcat
-      [ "addonName" Core.=: addonName,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
         "nodegroupName" Core.=: nodegroupName,
+        "addonName" Core.=: addonName,
         "maxResults" Core.=: maxResults
       ]
 

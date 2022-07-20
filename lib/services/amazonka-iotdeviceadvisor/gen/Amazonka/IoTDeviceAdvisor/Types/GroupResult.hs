@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data GroupResult = GroupResult'
   { -- | Tests under Group Result.
     tests :: Prelude.Maybe [TestCaseRun],
-    -- | Group result Id.
-    groupId :: Prelude.Maybe Prelude.Text,
     -- | Group Result Name.
-    groupName :: Prelude.Maybe Prelude.Text
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | Group result Id.
+    groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data GroupResult = GroupResult'
 --
 -- 'tests', 'groupResult_tests' - Tests under Group Result.
 --
--- 'groupId', 'groupResult_groupId' - Group result Id.
---
 -- 'groupName', 'groupResult_groupName' - Group Result Name.
+--
+-- 'groupId', 'groupResult_groupId' - Group result Id.
 newGroupResult ::
   GroupResult
 newGroupResult =
   GroupResult'
     { tests = Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      groupName = Prelude.Nothing
+      groupName = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
 
 -- | Tests under Group Result.
 groupResult_tests :: Lens.Lens' GroupResult (Prelude.Maybe [TestCaseRun])
 groupResult_tests = Lens.lens (\GroupResult' {tests} -> tests) (\s@GroupResult' {} a -> s {tests = a} :: GroupResult) Prelude.. Lens.mapping Lens.coerced
 
--- | Group result Id.
-groupResult_groupId :: Lens.Lens' GroupResult (Prelude.Maybe Prelude.Text)
-groupResult_groupId = Lens.lens (\GroupResult' {groupId} -> groupId) (\s@GroupResult' {} a -> s {groupId = a} :: GroupResult)
-
 -- | Group Result Name.
 groupResult_groupName :: Lens.Lens' GroupResult (Prelude.Maybe Prelude.Text)
 groupResult_groupName = Lens.lens (\GroupResult' {groupName} -> groupName) (\s@GroupResult' {} a -> s {groupName = a} :: GroupResult)
+
+-- | Group result Id.
+groupResult_groupId :: Lens.Lens' GroupResult (Prelude.Maybe Prelude.Text)
+groupResult_groupId = Lens.lens (\GroupResult' {groupId} -> groupId) (\s@GroupResult' {} a -> s {groupId = a} :: GroupResult)
 
 instance Core.FromJSON GroupResult where
   parseJSON =
@@ -78,18 +78,18 @@ instance Core.FromJSON GroupResult where
       ( \x ->
           GroupResult'
             Prelude.<$> (x Core..:? "tests" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "groupId")
             Prelude.<*> (x Core..:? "groupName")
+            Prelude.<*> (x Core..:? "groupId")
       )
 
 instance Prelude.Hashable GroupResult where
   hashWithSalt _salt GroupResult' {..} =
     _salt `Prelude.hashWithSalt` tests
-      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData GroupResult where
   rnf GroupResult' {..} =
     Prelude.rnf tests
-      `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupId

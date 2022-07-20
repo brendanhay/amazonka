@@ -29,8 +29,8 @@ module Amazonka.WorkSpaces.DescribeWorkspacesConnectionStatus
     newDescribeWorkspacesConnectionStatus,
 
     -- * Request Lenses
-    describeWorkspacesConnectionStatus_workspaceIds,
     describeWorkspacesConnectionStatus_nextToken,
+    describeWorkspacesConnectionStatus_workspaceIds,
 
     -- * Destructuring the Response
     DescribeWorkspacesConnectionStatusResponse (..),
@@ -52,11 +52,11 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeWorkspacesConnectionStatus' smart constructor.
 data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
-  { -- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
-    workspaceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | If you received a @NextToken@ from a previous call that was paginated,
+  { -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
+    workspaceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,27 +68,27 @@ data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workspaceIds', 'describeWorkspacesConnectionStatus_workspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
---
 -- 'nextToken', 'describeWorkspacesConnectionStatus_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
+--
+-- 'workspaceIds', 'describeWorkspacesConnectionStatus_workspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
 newDescribeWorkspacesConnectionStatus ::
   DescribeWorkspacesConnectionStatus
 newDescribeWorkspacesConnectionStatus =
   DescribeWorkspacesConnectionStatus'
-    { workspaceIds =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      workspaceIds = Prelude.Nothing
     }
-
--- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
-describeWorkspacesConnectionStatus_workspaceIds :: Lens.Lens' DescribeWorkspacesConnectionStatus (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeWorkspacesConnectionStatus_workspaceIds = Lens.lens (\DescribeWorkspacesConnectionStatus' {workspaceIds} -> workspaceIds) (\s@DescribeWorkspacesConnectionStatus' {} a -> s {workspaceIds = a} :: DescribeWorkspacesConnectionStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
 describeWorkspacesConnectionStatus_nextToken :: Lens.Lens' DescribeWorkspacesConnectionStatus (Prelude.Maybe Prelude.Text)
 describeWorkspacesConnectionStatus_nextToken = Lens.lens (\DescribeWorkspacesConnectionStatus' {nextToken} -> nextToken) (\s@DescribeWorkspacesConnectionStatus' {} a -> s {nextToken = a} :: DescribeWorkspacesConnectionStatus)
+
+-- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
+describeWorkspacesConnectionStatus_workspaceIds :: Lens.Lens' DescribeWorkspacesConnectionStatus (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeWorkspacesConnectionStatus_workspaceIds = Lens.lens (\DescribeWorkspacesConnectionStatus' {workspaceIds} -> workspaceIds) (\s@DescribeWorkspacesConnectionStatus' {} a -> s {workspaceIds = a} :: DescribeWorkspacesConnectionStatus) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -141,16 +141,16 @@ instance
   hashWithSalt
     _salt
     DescribeWorkspacesConnectionStatus' {..} =
-      _salt `Prelude.hashWithSalt` workspaceIds
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` workspaceIds
 
 instance
   Prelude.NFData
     DescribeWorkspacesConnectionStatus
   where
   rnf DescribeWorkspacesConnectionStatus' {..} =
-    Prelude.rnf workspaceIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workspaceIds
 
 instance
   Core.ToHeaders
@@ -177,8 +177,8 @@ instance
   toJSON DescribeWorkspacesConnectionStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("WorkspaceIds" Core..=) Prelude.<$> workspaceIds,
-            ("NextToken" Core..=) Prelude.<$> nextToken
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("WorkspaceIds" Core..=) Prelude.<$> workspaceIds
           ]
       )
 

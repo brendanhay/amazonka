@@ -28,25 +28,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' smart constructor.
 data AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails = AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'
-  { -- | The epoch time when the deployment window closes for required updates.
+  { -- | Whether the service software update is optional.
+    optionalDeployment :: Prelude.Maybe Prelude.Bool,
+    -- | The most recent version of the service software.
+    newVersion' :: Prelude.Maybe Prelude.Text,
+    -- | Whether a service software update is available for the domain.
+    updateAvailable :: Prelude.Maybe Prelude.Bool,
+    -- | Whether a request to update the domain can be canceled.
+    cancellable :: Prelude.Maybe Prelude.Bool,
+    -- | The status of the service software update.
+    updateStatus :: Prelude.Maybe Prelude.Text,
+    -- | The epoch time when the deployment window closes for required updates.
     -- After this time, OpenSearch Service schedules the software upgrade
     -- automatically.
     automatedUpdateDate :: Prelude.Maybe Prelude.Text,
-    -- | The version of the service software that is currently installed on the
-    -- domain.
-    currentVersion :: Prelude.Maybe Prelude.Text,
-    -- | Whether the service software update is optional.
-    optionalDeployment :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the service software update.
-    updateStatus :: Prelude.Maybe Prelude.Text,
-    -- | Whether a request to update the domain can be canceled.
-    cancellable :: Prelude.Maybe Prelude.Bool,
-    -- | Whether a service software update is available for the domain.
-    updateAvailable :: Prelude.Maybe Prelude.Bool,
     -- | A more detailed description of the service software status.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The most recent version of the service software.
-    newVersion' :: Prelude.Maybe Prelude.Text
+    -- | The version of the service software that is currently installed on the
+    -- domain.
+    currentVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,45 +58,65 @@ data AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails = AwsOpenSearchServ
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'optionalDeployment', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment' - Whether the service software update is optional.
+--
+-- 'newVersion'', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion' - The most recent version of the service software.
+--
+-- 'updateAvailable', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable' - Whether a service software update is available for the domain.
+--
+-- 'cancellable', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable' - Whether a request to update the domain can be canceled.
+--
+-- 'updateStatus', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus' - The status of the service software update.
+--
 -- 'automatedUpdateDate', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate' - The epoch time when the deployment window closes for required updates.
 -- After this time, OpenSearch Service schedules the software upgrade
 -- automatically.
 --
--- 'currentVersion', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion' - The version of the service software that is currently installed on the
--- domain.
---
--- 'optionalDeployment', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment' - Whether the service software update is optional.
---
--- 'updateStatus', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus' - The status of the service software update.
---
--- 'cancellable', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable' - Whether a request to update the domain can be canceled.
---
--- 'updateAvailable', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable' - Whether a service software update is available for the domain.
---
 -- 'description', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description' - A more detailed description of the service software status.
 --
--- 'newVersion'', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion' - The most recent version of the service software.
+-- 'currentVersion', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion' - The version of the service software that is currently installed on the
+-- domain.
 newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails ::
   AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
 newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails =
   AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'
-    { automatedUpdateDate =
+    { optionalDeployment =
         Prelude.Nothing,
-      currentVersion =
-        Prelude.Nothing,
-      optionalDeployment =
-        Prelude.Nothing,
-      updateStatus =
-        Prelude.Nothing,
-      cancellable =
+      newVersion' =
         Prelude.Nothing,
       updateAvailable =
         Prelude.Nothing,
+      cancellable =
+        Prelude.Nothing,
+      updateStatus =
+        Prelude.Nothing,
+      automatedUpdateDate =
+        Prelude.Nothing,
       description =
         Prelude.Nothing,
-      newVersion' =
+      currentVersion =
         Prelude.Nothing
     }
+
+-- | Whether the service software update is optional.
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Bool)
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {optionalDeployment} -> optionalDeployment) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {optionalDeployment = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+
+-- | The most recent version of the service software.
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {newVersion'} -> newVersion') (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {newVersion' = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+
+-- | Whether a service software update is available for the domain.
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Bool)
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {updateAvailable} -> updateAvailable) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {updateAvailable = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+
+-- | Whether a request to update the domain can be canceled.
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Bool)
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {cancellable} -> cancellable) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {cancellable = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+
+-- | The status of the service software update.
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {updateStatus} -> updateStatus) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {updateStatus = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
 
 -- | The epoch time when the deployment window closes for required updates.
 -- After this time, OpenSearch Service schedules the software upgrade
@@ -104,34 +124,14 @@ newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails =
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {automatedUpdateDate} -> automatedUpdateDate) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {automatedUpdateDate = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
 
--- | The version of the service software that is currently installed on the
--- domain.
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {currentVersion} -> currentVersion) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {currentVersion = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
-
--- | Whether the service software update is optional.
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Bool)
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_optionalDeployment = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {optionalDeployment} -> optionalDeployment) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {optionalDeployment = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
-
--- | The status of the service software update.
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {updateStatus} -> updateStatus) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {updateStatus = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
-
--- | Whether a request to update the domain can be canceled.
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Bool)
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {cancellable} -> cancellable) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {cancellable = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
-
--- | Whether a service software update is available for the domain.
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Bool)
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {updateAvailable} -> updateAvailable) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {updateAvailable = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
-
 -- | A more detailed description of the service software status.
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_description = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {description} -> description) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {description = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
 
--- | The most recent version of the service software.
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
-awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_newVersion = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {newVersion'} -> newVersion') (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {newVersion' = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
+-- | The version of the service software that is currently installed on the
+-- domain.
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
+awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {currentVersion} -> currentVersion) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {currentVersion = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
 
 instance
   Core.FromJSON
@@ -142,14 +142,14 @@ instance
       "AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'
-            Prelude.<$> (x Core..:? "AutomatedUpdateDate")
-              Prelude.<*> (x Core..:? "CurrentVersion")
-              Prelude.<*> (x Core..:? "OptionalDeployment")
-              Prelude.<*> (x Core..:? "UpdateStatus")
-              Prelude.<*> (x Core..:? "Cancellable")
-              Prelude.<*> (x Core..:? "UpdateAvailable")
-              Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "OptionalDeployment")
               Prelude.<*> (x Core..:? "NewVersion")
+              Prelude.<*> (x Core..:? "UpdateAvailable")
+              Prelude.<*> (x Core..:? "Cancellable")
+              Prelude.<*> (x Core..:? "UpdateStatus")
+              Prelude.<*> (x Core..:? "AutomatedUpdateDate")
+              Prelude.<*> (x Core..:? "Description")
+              Prelude.<*> (x Core..:? "CurrentVersion")
       )
 
 instance
@@ -159,14 +159,14 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` automatedUpdateDate
-        `Prelude.hashWithSalt` currentVersion
-        `Prelude.hashWithSalt` optionalDeployment
-        `Prelude.hashWithSalt` updateStatus
-        `Prelude.hashWithSalt` cancellable
-        `Prelude.hashWithSalt` updateAvailable
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` optionalDeployment
         `Prelude.hashWithSalt` newVersion'
+        `Prelude.hashWithSalt` updateAvailable
+        `Prelude.hashWithSalt` cancellable
+        `Prelude.hashWithSalt` updateStatus
+        `Prelude.hashWithSalt` automatedUpdateDate
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` currentVersion
 
 instance
   Prelude.NFData
@@ -174,14 +174,14 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {..} =
-      Prelude.rnf automatedUpdateDate
-        `Prelude.seq` Prelude.rnf currentVersion
-        `Prelude.seq` Prelude.rnf optionalDeployment
-        `Prelude.seq` Prelude.rnf updateStatus
-        `Prelude.seq` Prelude.rnf cancellable
-        `Prelude.seq` Prelude.rnf updateAvailable
-        `Prelude.seq` Prelude.rnf description
+      Prelude.rnf optionalDeployment
         `Prelude.seq` Prelude.rnf newVersion'
+        `Prelude.seq` Prelude.rnf updateAvailable
+        `Prelude.seq` Prelude.rnf cancellable
+        `Prelude.seq` Prelude.rnf updateStatus
+        `Prelude.seq` Prelude.rnf automatedUpdateDate
+        `Prelude.seq` Prelude.rnf description
+        `Prelude.seq` Prelude.rnf currentVersion
 
 instance
   Core.ToJSON
@@ -191,17 +191,17 @@ instance
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("AutomatedUpdateDate" Core..=)
-                Prelude.<$> automatedUpdateDate,
-              ("CurrentVersion" Core..=)
-                Prelude.<$> currentVersion,
-              ("OptionalDeployment" Core..=)
+            [ ("OptionalDeployment" Core..=)
                 Prelude.<$> optionalDeployment,
-              ("UpdateStatus" Core..=) Prelude.<$> updateStatus,
-              ("Cancellable" Core..=) Prelude.<$> cancellable,
+              ("NewVersion" Core..=) Prelude.<$> newVersion',
               ("UpdateAvailable" Core..=)
                 Prelude.<$> updateAvailable,
+              ("Cancellable" Core..=) Prelude.<$> cancellable,
+              ("UpdateStatus" Core..=) Prelude.<$> updateStatus,
+              ("AutomatedUpdateDate" Core..=)
+                Prelude.<$> automatedUpdateDate,
               ("Description" Core..=) Prelude.<$> description,
-              ("NewVersion" Core..=) Prelude.<$> newVersion'
+              ("CurrentVersion" Core..=)
+                Prelude.<$> currentVersion
             ]
         )

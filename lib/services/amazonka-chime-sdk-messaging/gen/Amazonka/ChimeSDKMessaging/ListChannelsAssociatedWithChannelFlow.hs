@@ -38,8 +38,8 @@ module Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
     newListChannelsAssociatedWithChannelFlowResponse,
 
     -- * Response Lenses
-    listChannelsAssociatedWithChannelFlowResponse_channels,
     listChannelsAssociatedWithChannelFlowResponse_nextToken,
+    listChannelsAssociatedWithChannelFlowResponse_channels,
     listChannelsAssociatedWithChannelFlowResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListChannelsAssociatedWithChannelFlowResponse'
-            Prelude.<$> (x Core..?> "Channels" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (x Core..?> "Channels" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,11 +167,11 @@ instance
 
 -- | /See:/ 'newListChannelsAssociatedWithChannelFlowResponse' smart constructor.
 data ListChannelsAssociatedWithChannelFlowResponse = ListChannelsAssociatedWithChannelFlowResponse'
-  { -- | The information about each channel.
-    channels :: Prelude.Maybe [ChannelAssociatedWithFlowSummary],
-    -- | The token passed by previous API calls until all requested channels are
+  { -- | The token passed by previous API calls until all requested channels are
     -- returned.
     nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The information about each channel.
+    channels :: Prelude.Maybe [ChannelAssociatedWithFlowSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,10 +185,10 @@ data ListChannelsAssociatedWithChannelFlowResponse = ListChannelsAssociatedWithC
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channels', 'listChannelsAssociatedWithChannelFlowResponse_channels' - The information about each channel.
---
 -- 'nextToken', 'listChannelsAssociatedWithChannelFlowResponse_nextToken' - The token passed by previous API calls until all requested channels are
 -- returned.
+--
+-- 'channels', 'listChannelsAssociatedWithChannelFlowResponse_channels' - The information about each channel.
 --
 -- 'httpStatus', 'listChannelsAssociatedWithChannelFlowResponse_httpStatus' - The response's http status code.
 newListChannelsAssociatedWithChannelFlowResponse ::
@@ -198,20 +198,20 @@ newListChannelsAssociatedWithChannelFlowResponse ::
 newListChannelsAssociatedWithChannelFlowResponse
   pHttpStatus_ =
     ListChannelsAssociatedWithChannelFlowResponse'
-      { channels =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        channels = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The information about each channel.
-listChannelsAssociatedWithChannelFlowResponse_channels :: Lens.Lens' ListChannelsAssociatedWithChannelFlowResponse (Prelude.Maybe [ChannelAssociatedWithFlowSummary])
-listChannelsAssociatedWithChannelFlowResponse_channels = Lens.lens (\ListChannelsAssociatedWithChannelFlowResponse' {channels} -> channels) (\s@ListChannelsAssociatedWithChannelFlowResponse' {} a -> s {channels = a} :: ListChannelsAssociatedWithChannelFlowResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token passed by previous API calls until all requested channels are
 -- returned.
 listChannelsAssociatedWithChannelFlowResponse_nextToken :: Lens.Lens' ListChannelsAssociatedWithChannelFlowResponse (Prelude.Maybe Prelude.Text)
 listChannelsAssociatedWithChannelFlowResponse_nextToken = Lens.lens (\ListChannelsAssociatedWithChannelFlowResponse' {nextToken} -> nextToken) (\s@ListChannelsAssociatedWithChannelFlowResponse' {} a -> s {nextToken = a} :: ListChannelsAssociatedWithChannelFlowResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The information about each channel.
+listChannelsAssociatedWithChannelFlowResponse_channels :: Lens.Lens' ListChannelsAssociatedWithChannelFlowResponse (Prelude.Maybe [ChannelAssociatedWithFlowSummary])
+listChannelsAssociatedWithChannelFlowResponse_channels = Lens.lens (\ListChannelsAssociatedWithChannelFlowResponse' {channels} -> channels) (\s@ListChannelsAssociatedWithChannelFlowResponse' {} a -> s {channels = a} :: ListChannelsAssociatedWithChannelFlowResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listChannelsAssociatedWithChannelFlowResponse_httpStatus :: Lens.Lens' ListChannelsAssociatedWithChannelFlowResponse Prelude.Int
@@ -223,6 +223,6 @@ instance
   where
   rnf
     ListChannelsAssociatedWithChannelFlowResponse' {..} =
-      Prelude.rnf channels
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf channels
         `Prelude.seq` Prelude.rnf httpStatus

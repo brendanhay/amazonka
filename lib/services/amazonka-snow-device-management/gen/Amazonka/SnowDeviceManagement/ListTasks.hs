@@ -29,8 +29,8 @@ module Amazonka.SnowDeviceManagement.ListTasks
     newListTasks,
 
     -- * Request Lenses
-    listTasks_state,
     listTasks_nextToken,
+    listTasks_state,
     listTasks_maxResults,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import Amazonka.SnowDeviceManagement.Types
 
 -- | /See:/ 'newListTasks' smart constructor.
 data ListTasks = ListTasks'
-  { -- | A structure used to filter the list of tasks.
-    state :: Prelude.Maybe TaskState,
-    -- | A pagination token to continue to the next page of tasks.
+  { -- | A pagination token to continue to the next page of tasks.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A structure used to filter the list of tasks.
+    state :: Prelude.Maybe TaskState,
     -- | The maximum number of tasks per page.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -70,27 +70,27 @@ data ListTasks = ListTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'listTasks_state' - A structure used to filter the list of tasks.
---
 -- 'nextToken', 'listTasks_nextToken' - A pagination token to continue to the next page of tasks.
+--
+-- 'state', 'listTasks_state' - A structure used to filter the list of tasks.
 --
 -- 'maxResults', 'listTasks_maxResults' - The maximum number of tasks per page.
 newListTasks ::
   ListTasks
 newListTasks =
   ListTasks'
-    { state = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      state = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | A structure used to filter the list of tasks.
-listTasks_state :: Lens.Lens' ListTasks (Prelude.Maybe TaskState)
-listTasks_state = Lens.lens (\ListTasks' {state} -> state) (\s@ListTasks' {} a -> s {state = a} :: ListTasks)
 
 -- | A pagination token to continue to the next page of tasks.
 listTasks_nextToken :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
 listTasks_nextToken = Lens.lens (\ListTasks' {nextToken} -> nextToken) (\s@ListTasks' {} a -> s {nextToken = a} :: ListTasks)
+
+-- | A structure used to filter the list of tasks.
+listTasks_state :: Lens.Lens' ListTasks (Prelude.Maybe TaskState)
+listTasks_state = Lens.lens (\ListTasks' {state} -> state) (\s@ListTasks' {} a -> s {state = a} :: ListTasks)
 
 -- | The maximum number of tasks per page.
 listTasks_maxResults :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Natural)
@@ -129,14 +129,14 @@ instance Core.AWSRequest ListTasks where
 
 instance Prelude.Hashable ListTasks where
   hashWithSalt _salt ListTasks' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListTasks where
   rnf ListTasks' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTasks where
@@ -156,8 +156,8 @@ instance Core.ToPath ListTasks where
 instance Core.ToQuery ListTasks where
   toQuery ListTasks' {..} =
     Prelude.mconcat
-      [ "state" Core.=: state,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "state" Core.=: state,
         "maxResults" Core.=: maxResults
       ]
 

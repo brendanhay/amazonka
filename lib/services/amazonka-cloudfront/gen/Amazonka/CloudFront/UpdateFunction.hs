@@ -44,8 +44,8 @@ module Amazonka.CloudFront.UpdateFunction
     newUpdateFunctionResponse,
 
     -- * Response Lenses
-    updateFunctionResponse_eTag,
     updateFunctionResponse_functionSummary,
+    updateFunctionResponse_eTag,
     updateFunctionResponse_httpStatus,
   )
 where
@@ -154,8 +154,8 @@ instance Core.AWSRequest UpdateFunction where
     Response.receiveXML
       ( \s h x ->
           UpdateFunctionResponse'
-            Prelude.<$> (h Core..#? "ETtag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETtag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,12 +199,12 @@ instance Core.ToXML UpdateFunction where
 
 -- | /See:/ 'newUpdateFunctionResponse' smart constructor.
 data UpdateFunctionResponse = UpdateFunctionResponse'
-  { -- | The version identifier for the current version of the CloudFront
-    -- function.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | Contains configuration information and metadata about a CloudFront
+  { -- | Contains configuration information and metadata about a CloudFront
     -- function.
     functionSummary :: Prelude.Maybe FunctionSummary,
+    -- | The version identifier for the current version of the CloudFront
+    -- function.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,10 +218,10 @@ data UpdateFunctionResponse = UpdateFunctionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'updateFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
+-- 'functionSummary', 'updateFunctionResponse_functionSummary' - Contains configuration information and metadata about a CloudFront
 -- function.
 --
--- 'functionSummary', 'updateFunctionResponse_functionSummary' - Contains configuration information and metadata about a CloudFront
+-- 'eTag', 'updateFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
 -- function.
 --
 -- 'httpStatus', 'updateFunctionResponse_httpStatus' - The response's http status code.
@@ -231,20 +231,21 @@ newUpdateFunctionResponse ::
   UpdateFunctionResponse
 newUpdateFunctionResponse pHttpStatus_ =
   UpdateFunctionResponse'
-    { eTag = Prelude.Nothing,
-      functionSummary = Prelude.Nothing,
+    { functionSummary =
+        Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The version identifier for the current version of the CloudFront
--- function.
-updateFunctionResponse_eTag :: Lens.Lens' UpdateFunctionResponse (Prelude.Maybe Prelude.Text)
-updateFunctionResponse_eTag = Lens.lens (\UpdateFunctionResponse' {eTag} -> eTag) (\s@UpdateFunctionResponse' {} a -> s {eTag = a} :: UpdateFunctionResponse)
 
 -- | Contains configuration information and metadata about a CloudFront
 -- function.
 updateFunctionResponse_functionSummary :: Lens.Lens' UpdateFunctionResponse (Prelude.Maybe FunctionSummary)
 updateFunctionResponse_functionSummary = Lens.lens (\UpdateFunctionResponse' {functionSummary} -> functionSummary) (\s@UpdateFunctionResponse' {} a -> s {functionSummary = a} :: UpdateFunctionResponse)
+
+-- | The version identifier for the current version of the CloudFront
+-- function.
+updateFunctionResponse_eTag :: Lens.Lens' UpdateFunctionResponse (Prelude.Maybe Prelude.Text)
+updateFunctionResponse_eTag = Lens.lens (\UpdateFunctionResponse' {eTag} -> eTag) (\s@UpdateFunctionResponse' {} a -> s {eTag = a} :: UpdateFunctionResponse)
 
 -- | The response's http status code.
 updateFunctionResponse_httpStatus :: Lens.Lens' UpdateFunctionResponse Prelude.Int
@@ -252,6 +253,6 @@ updateFunctionResponse_httpStatus = Lens.lens (\UpdateFunctionResponse' {httpSta
 
 instance Prelude.NFData UpdateFunctionResponse where
   rnf UpdateFunctionResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf functionSummary
+    Prelude.rnf functionSummary
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

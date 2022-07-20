@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsS3BucketWebsiteConfigurationRoutingRuleCondition' smart constructor.
 data AwsS3BucketWebsiteConfigurationRoutingRuleCondition = AwsS3BucketWebsiteConfigurationRoutingRuleCondition'
-  { -- | Indicates to redirect the request if the key prefix matches this value.
-    keyPrefixEquals :: Prelude.Maybe Prelude.Text,
-    -- | Indicates to redirect the request if the HTTP error code matches this
+  { -- | Indicates to redirect the request if the HTTP error code matches this
     -- value.
-    httpErrorCodeReturnedEquals :: Prelude.Maybe Prelude.Text
+    httpErrorCodeReturnedEquals :: Prelude.Maybe Prelude.Text,
+    -- | Indicates to redirect the request if the key prefix matches this value.
+    keyPrefixEquals :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,28 +43,28 @@ data AwsS3BucketWebsiteConfigurationRoutingRuleCondition = AwsS3BucketWebsiteCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPrefixEquals', 'awsS3BucketWebsiteConfigurationRoutingRuleCondition_keyPrefixEquals' - Indicates to redirect the request if the key prefix matches this value.
---
 -- 'httpErrorCodeReturnedEquals', 'awsS3BucketWebsiteConfigurationRoutingRuleCondition_httpErrorCodeReturnedEquals' - Indicates to redirect the request if the HTTP error code matches this
 -- value.
+--
+-- 'keyPrefixEquals', 'awsS3BucketWebsiteConfigurationRoutingRuleCondition_keyPrefixEquals' - Indicates to redirect the request if the key prefix matches this value.
 newAwsS3BucketWebsiteConfigurationRoutingRuleCondition ::
   AwsS3BucketWebsiteConfigurationRoutingRuleCondition
 newAwsS3BucketWebsiteConfigurationRoutingRuleCondition =
   AwsS3BucketWebsiteConfigurationRoutingRuleCondition'
-    { keyPrefixEquals =
+    { httpErrorCodeReturnedEquals =
         Prelude.Nothing,
-      httpErrorCodeReturnedEquals =
+      keyPrefixEquals =
         Prelude.Nothing
     }
-
--- | Indicates to redirect the request if the key prefix matches this value.
-awsS3BucketWebsiteConfigurationRoutingRuleCondition_keyPrefixEquals :: Lens.Lens' AwsS3BucketWebsiteConfigurationRoutingRuleCondition (Prelude.Maybe Prelude.Text)
-awsS3BucketWebsiteConfigurationRoutingRuleCondition_keyPrefixEquals = Lens.lens (\AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {keyPrefixEquals} -> keyPrefixEquals) (\s@AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {} a -> s {keyPrefixEquals = a} :: AwsS3BucketWebsiteConfigurationRoutingRuleCondition)
 
 -- | Indicates to redirect the request if the HTTP error code matches this
 -- value.
 awsS3BucketWebsiteConfigurationRoutingRuleCondition_httpErrorCodeReturnedEquals :: Lens.Lens' AwsS3BucketWebsiteConfigurationRoutingRuleCondition (Prelude.Maybe Prelude.Text)
 awsS3BucketWebsiteConfigurationRoutingRuleCondition_httpErrorCodeReturnedEquals = Lens.lens (\AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {httpErrorCodeReturnedEquals} -> httpErrorCodeReturnedEquals) (\s@AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {} a -> s {httpErrorCodeReturnedEquals = a} :: AwsS3BucketWebsiteConfigurationRoutingRuleCondition)
+
+-- | Indicates to redirect the request if the key prefix matches this value.
+awsS3BucketWebsiteConfigurationRoutingRuleCondition_keyPrefixEquals :: Lens.Lens' AwsS3BucketWebsiteConfigurationRoutingRuleCondition (Prelude.Maybe Prelude.Text)
+awsS3BucketWebsiteConfigurationRoutingRuleCondition_keyPrefixEquals = Lens.lens (\AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {keyPrefixEquals} -> keyPrefixEquals) (\s@AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {} a -> s {keyPrefixEquals = a} :: AwsS3BucketWebsiteConfigurationRoutingRuleCondition)
 
 instance
   Core.FromJSON
@@ -75,8 +75,8 @@ instance
       "AwsS3BucketWebsiteConfigurationRoutingRuleCondition"
       ( \x ->
           AwsS3BucketWebsiteConfigurationRoutingRuleCondition'
-            Prelude.<$> (x Core..:? "KeyPrefixEquals")
-              Prelude.<*> (x Core..:? "HttpErrorCodeReturnedEquals")
+            Prelude.<$> (x Core..:? "HttpErrorCodeReturnedEquals")
+              Prelude.<*> (x Core..:? "KeyPrefixEquals")
       )
 
 instance
@@ -86,8 +86,9 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {..} =
-      _salt `Prelude.hashWithSalt` keyPrefixEquals
+      _salt
         `Prelude.hashWithSalt` httpErrorCodeReturnedEquals
+        `Prelude.hashWithSalt` keyPrefixEquals
 
 instance
   Prelude.NFData
@@ -95,8 +96,8 @@ instance
   where
   rnf
     AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {..} =
-      Prelude.rnf keyPrefixEquals
-        `Prelude.seq` Prelude.rnf httpErrorCodeReturnedEquals
+      Prelude.rnf httpErrorCodeReturnedEquals
+        `Prelude.seq` Prelude.rnf keyPrefixEquals
 
 instance
   Core.ToJSON
@@ -106,9 +107,9 @@ instance
     AwsS3BucketWebsiteConfigurationRoutingRuleCondition' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("KeyPrefixEquals" Core..=)
-                Prelude.<$> keyPrefixEquals,
-              ("HttpErrorCodeReturnedEquals" Core..=)
-                Prelude.<$> httpErrorCodeReturnedEquals
+            [ ("HttpErrorCodeReturnedEquals" Core..=)
+                Prelude.<$> httpErrorCodeReturnedEquals,
+              ("KeyPrefixEquals" Core..=)
+                Prelude.<$> keyPrefixEquals
             ]
         )

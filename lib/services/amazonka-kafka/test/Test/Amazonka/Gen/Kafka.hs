@@ -27,92 +27,56 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateConfiguration $
---             newCreateConfiguration
---
---         , requestDescribeCluster $
---             newDescribeCluster
---
---         , requestRebootBroker $
---             newRebootBroker
---
---         , requestListConfigurationRevisions $
---             newListConfigurationRevisions
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListKafkaVersions $
---             newListKafkaVersions
---
---         , requestUpdateMonitoring $
---             newUpdateMonitoring
---
---         , requestBatchAssociateScramSecret $
+--         [ requestBatchAssociateScramSecret $
 --             newBatchAssociateScramSecret
---
---         , requestUpdateBrokerStorage $
---             newUpdateBrokerStorage
---
---         , requestDeleteCluster $
---             newDeleteCluster
---
---         , requestUpdateClusterConfiguration $
---             newUpdateClusterConfiguration
---
---         , requestCreateCluster $
---             newCreateCluster
---
---         , requestUpdateBrokerCount $
---             newUpdateBrokerCount
---
---         , requestListConfigurations $
---             newListConfigurations
---
---         , requestGetBootstrapBrokers $
---             newGetBootstrapBrokers
---
---         , requestUpdateClusterKafkaVersion $
---             newUpdateClusterKafkaVersion
---
---         , requestUpdateSecurity $
---             newUpdateSecurity
---
---         , requestGetCompatibleKafkaVersions $
---             newGetCompatibleKafkaVersions
---
---         , requestDescribeClusterOperation $
---             newDescribeClusterOperation
---
---         , requestUpdateBrokerType $
---             newUpdateBrokerType
---
---         , requestDescribeConfiguration $
---             newDescribeConfiguration
---
---         , requestTagResource $
---             newTagResource
---
---         , requestListClusters $
---             newListClusters
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestListClusterOperations $
---             newListClusterOperations
 --
 --         , requestBatchDisassociateScramSecret $
 --             newBatchDisassociateScramSecret
 --
---         , requestDescribeConfigurationRevision $
---             newDescribeConfigurationRevision
+--         , requestCreateCluster $
+--             newCreateCluster
+--
+--         , requestCreateConfiguration $
+--             newCreateConfiguration
+--
+--         , requestDeleteCluster $
+--             newDeleteCluster
 --
 --         , requestDeleteConfiguration $
 --             newDeleteConfiguration
 --
---         , requestUpdateConfiguration $
---             newUpdateConfiguration
+--         , requestDescribeCluster $
+--             newDescribeCluster
+--
+--         , requestDescribeClusterOperation $
+--             newDescribeClusterOperation
+--
+--         , requestDescribeConfiguration $
+--             newDescribeConfiguration
+--
+--         , requestDescribeConfigurationRevision $
+--             newDescribeConfigurationRevision
+--
+--         , requestGetBootstrapBrokers $
+--             newGetBootstrapBrokers
+--
+--         , requestGetCompatibleKafkaVersions $
+--             newGetCompatibleKafkaVersions
+--
+--         , requestListClusterOperations $
+--             newListClusterOperations
+--
+--         , requestListClusters $
+--             newListClusters
+--
+--         , requestListConfigurationRevisions $
+--             newListConfigurationRevisions
+--
+--         , requestListConfigurations $
+--             newListConfigurations
+--
+--         , requestListKafkaVersions $
+--             newListKafkaVersions
 --
 --         , requestListNodes $
 --             newListNodes
@@ -120,95 +84,95 @@ import Test.Tasty
 --         , requestListScramSecrets $
 --             newListScramSecrets
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestRebootBroker $
+--             newRebootBroker
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateBrokerCount $
+--             newUpdateBrokerCount
+--
+--         , requestUpdateBrokerStorage $
+--             newUpdateBrokerStorage
+--
+--         , requestUpdateBrokerType $
+--             newUpdateBrokerType
+--
+--         , requestUpdateClusterConfiguration $
+--             newUpdateClusterConfiguration
+--
+--         , requestUpdateClusterKafkaVersion $
+--             newUpdateClusterKafkaVersion
+--
+--         , requestUpdateConfiguration $
+--             newUpdateConfiguration
+--
+--         , requestUpdateMonitoring $
+--             newUpdateMonitoring
+--
+--         , requestUpdateSecurity $
+--             newUpdateSecurity
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateConfiguration $
---             newCreateConfigurationResponse
---
---         , responseDescribeCluster $
---             newDescribeClusterResponse
---
---         , responseRebootBroker $
---             newRebootBrokerResponse
---
---         , responseListConfigurationRevisions $
---             newListConfigurationRevisionsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListKafkaVersions $
---             newListKafkaVersionsResponse
---
---         , responseUpdateMonitoring $
---             newUpdateMonitoringResponse
---
---         , responseBatchAssociateScramSecret $
+--         [ responseBatchAssociateScramSecret $
 --             newBatchAssociateScramSecretResponse
---
---         , responseUpdateBrokerStorage $
---             newUpdateBrokerStorageResponse
---
---         , responseDeleteCluster $
---             newDeleteClusterResponse
---
---         , responseUpdateClusterConfiguration $
---             newUpdateClusterConfigurationResponse
---
---         , responseCreateCluster $
---             newCreateClusterResponse
---
---         , responseUpdateBrokerCount $
---             newUpdateBrokerCountResponse
---
---         , responseListConfigurations $
---             newListConfigurationsResponse
---
---         , responseGetBootstrapBrokers $
---             newGetBootstrapBrokersResponse
---
---         , responseUpdateClusterKafkaVersion $
---             newUpdateClusterKafkaVersionResponse
---
---         , responseUpdateSecurity $
---             newUpdateSecurityResponse
---
---         , responseGetCompatibleKafkaVersions $
---             newGetCompatibleKafkaVersionsResponse
---
---         , responseDescribeClusterOperation $
---             newDescribeClusterOperationResponse
---
---         , responseUpdateBrokerType $
---             newUpdateBrokerTypeResponse
---
---         , responseDescribeConfiguration $
---             newDescribeConfigurationResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseListClusters $
---             newListClustersResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseListClusterOperations $
---             newListClusterOperationsResponse
 --
 --         , responseBatchDisassociateScramSecret $
 --             newBatchDisassociateScramSecretResponse
 --
---         , responseDescribeConfigurationRevision $
---             newDescribeConfigurationRevisionResponse
+--         , responseCreateCluster $
+--             newCreateClusterResponse
+--
+--         , responseCreateConfiguration $
+--             newCreateConfigurationResponse
+--
+--         , responseDeleteCluster $
+--             newDeleteClusterResponse
 --
 --         , responseDeleteConfiguration $
 --             newDeleteConfigurationResponse
 --
---         , responseUpdateConfiguration $
---             newUpdateConfigurationResponse
+--         , responseDescribeCluster $
+--             newDescribeClusterResponse
+--
+--         , responseDescribeClusterOperation $
+--             newDescribeClusterOperationResponse
+--
+--         , responseDescribeConfiguration $
+--             newDescribeConfigurationResponse
+--
+--         , responseDescribeConfigurationRevision $
+--             newDescribeConfigurationRevisionResponse
+--
+--         , responseGetBootstrapBrokers $
+--             newGetBootstrapBrokersResponse
+--
+--         , responseGetCompatibleKafkaVersions $
+--             newGetCompatibleKafkaVersionsResponse
+--
+--         , responseListClusterOperations $
+--             newListClusterOperationsResponse
+--
+--         , responseListClusters $
+--             newListClustersResponse
+--
+--         , responseListConfigurationRevisions $
+--             newListConfigurationRevisionsResponse
+--
+--         , responseListConfigurations $
+--             newListConfigurationsResponse
+--
+--         , responseListKafkaVersions $
+--             newListKafkaVersionsResponse
 --
 --         , responseListNodes $
 --             newListNodesResponse
@@ -216,52 +180,46 @@ import Test.Tasty
 --         , responseListScramSecrets $
 --             newListScramSecretsResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseRebootBroker $
+--             newRebootBrokerResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateBrokerCount $
+--             newUpdateBrokerCountResponse
+--
+--         , responseUpdateBrokerStorage $
+--             newUpdateBrokerStorageResponse
+--
+--         , responseUpdateBrokerType $
+--             newUpdateBrokerTypeResponse
+--
+--         , responseUpdateClusterConfiguration $
+--             newUpdateClusterConfigurationResponse
+--
+--         , responseUpdateClusterKafkaVersion $
+--             newUpdateClusterKafkaVersionResponse
+--
+--         , responseUpdateConfiguration $
+--             newUpdateConfigurationResponse
+--
+--         , responseUpdateMonitoring $
+--             newUpdateMonitoringResponse
+--
+--         , responseUpdateSecurity $
+--             newUpdateSecurityResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestCreateConfiguration :: CreateConfiguration -> TestTree
-requestCreateConfiguration =
-  req
-    "CreateConfiguration"
-    "fixture/CreateConfiguration.yaml"
-
-requestDescribeCluster :: DescribeCluster -> TestTree
-requestDescribeCluster =
-  req
-    "DescribeCluster"
-    "fixture/DescribeCluster.yaml"
-
-requestRebootBroker :: RebootBroker -> TestTree
-requestRebootBroker =
-  req
-    "RebootBroker"
-    "fixture/RebootBroker.yaml"
-
-requestListConfigurationRevisions :: ListConfigurationRevisions -> TestTree
-requestListConfigurationRevisions =
-  req
-    "ListConfigurationRevisions"
-    "fixture/ListConfigurationRevisions.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListKafkaVersions :: ListKafkaVersions -> TestTree
-requestListKafkaVersions =
-  req
-    "ListKafkaVersions"
-    "fixture/ListKafkaVersions.yaml"
-
-requestUpdateMonitoring :: UpdateMonitoring -> TestTree
-requestUpdateMonitoring =
-  req
-    "UpdateMonitoring"
-    "fixture/UpdateMonitoring.yaml"
 
 requestBatchAssociateScramSecret :: BatchAssociateScramSecret -> TestTree
 requestBatchAssociateScramSecret =
@@ -269,23 +227,11 @@ requestBatchAssociateScramSecret =
     "BatchAssociateScramSecret"
     "fixture/BatchAssociateScramSecret.yaml"
 
-requestUpdateBrokerStorage :: UpdateBrokerStorage -> TestTree
-requestUpdateBrokerStorage =
+requestBatchDisassociateScramSecret :: BatchDisassociateScramSecret -> TestTree
+requestBatchDisassociateScramSecret =
   req
-    "UpdateBrokerStorage"
-    "fixture/UpdateBrokerStorage.yaml"
-
-requestDeleteCluster :: DeleteCluster -> TestTree
-requestDeleteCluster =
-  req
-    "DeleteCluster"
-    "fixture/DeleteCluster.yaml"
-
-requestUpdateClusterConfiguration :: UpdateClusterConfiguration -> TestTree
-requestUpdateClusterConfiguration =
-  req
-    "UpdateClusterConfiguration"
-    "fixture/UpdateClusterConfiguration.yaml"
+    "BatchDisassociateScramSecret"
+    "fixture/BatchDisassociateScramSecret.yaml"
 
 requestCreateCluster :: CreateCluster -> TestTree
 requestCreateCluster =
@@ -293,95 +239,17 @@ requestCreateCluster =
     "CreateCluster"
     "fixture/CreateCluster.yaml"
 
-requestUpdateBrokerCount :: UpdateBrokerCount -> TestTree
-requestUpdateBrokerCount =
+requestCreateConfiguration :: CreateConfiguration -> TestTree
+requestCreateConfiguration =
   req
-    "UpdateBrokerCount"
-    "fixture/UpdateBrokerCount.yaml"
+    "CreateConfiguration"
+    "fixture/CreateConfiguration.yaml"
 
-requestListConfigurations :: ListConfigurations -> TestTree
-requestListConfigurations =
+requestDeleteCluster :: DeleteCluster -> TestTree
+requestDeleteCluster =
   req
-    "ListConfigurations"
-    "fixture/ListConfigurations.yaml"
-
-requestGetBootstrapBrokers :: GetBootstrapBrokers -> TestTree
-requestGetBootstrapBrokers =
-  req
-    "GetBootstrapBrokers"
-    "fixture/GetBootstrapBrokers.yaml"
-
-requestUpdateClusterKafkaVersion :: UpdateClusterKafkaVersion -> TestTree
-requestUpdateClusterKafkaVersion =
-  req
-    "UpdateClusterKafkaVersion"
-    "fixture/UpdateClusterKafkaVersion.yaml"
-
-requestUpdateSecurity :: UpdateSecurity -> TestTree
-requestUpdateSecurity =
-  req
-    "UpdateSecurity"
-    "fixture/UpdateSecurity.yaml"
-
-requestGetCompatibleKafkaVersions :: GetCompatibleKafkaVersions -> TestTree
-requestGetCompatibleKafkaVersions =
-  req
-    "GetCompatibleKafkaVersions"
-    "fixture/GetCompatibleKafkaVersions.yaml"
-
-requestDescribeClusterOperation :: DescribeClusterOperation -> TestTree
-requestDescribeClusterOperation =
-  req
-    "DescribeClusterOperation"
-    "fixture/DescribeClusterOperation.yaml"
-
-requestUpdateBrokerType :: UpdateBrokerType -> TestTree
-requestUpdateBrokerType =
-  req
-    "UpdateBrokerType"
-    "fixture/UpdateBrokerType.yaml"
-
-requestDescribeConfiguration :: DescribeConfiguration -> TestTree
-requestDescribeConfiguration =
-  req
-    "DescribeConfiguration"
-    "fixture/DescribeConfiguration.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestListClusters :: ListClusters -> TestTree
-requestListClusters =
-  req
-    "ListClusters"
-    "fixture/ListClusters.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestListClusterOperations :: ListClusterOperations -> TestTree
-requestListClusterOperations =
-  req
-    "ListClusterOperations"
-    "fixture/ListClusterOperations.yaml"
-
-requestBatchDisassociateScramSecret :: BatchDisassociateScramSecret -> TestTree
-requestBatchDisassociateScramSecret =
-  req
-    "BatchDisassociateScramSecret"
-    "fixture/BatchDisassociateScramSecret.yaml"
-
-requestDescribeConfigurationRevision :: DescribeConfigurationRevision -> TestTree
-requestDescribeConfigurationRevision =
-  req
-    "DescribeConfigurationRevision"
-    "fixture/DescribeConfigurationRevision.yaml"
+    "DeleteCluster"
+    "fixture/DeleteCluster.yaml"
 
 requestDeleteConfiguration :: DeleteConfiguration -> TestTree
 requestDeleteConfiguration =
@@ -389,11 +257,71 @@ requestDeleteConfiguration =
     "DeleteConfiguration"
     "fixture/DeleteConfiguration.yaml"
 
-requestUpdateConfiguration :: UpdateConfiguration -> TestTree
-requestUpdateConfiguration =
+requestDescribeCluster :: DescribeCluster -> TestTree
+requestDescribeCluster =
   req
-    "UpdateConfiguration"
-    "fixture/UpdateConfiguration.yaml"
+    "DescribeCluster"
+    "fixture/DescribeCluster.yaml"
+
+requestDescribeClusterOperation :: DescribeClusterOperation -> TestTree
+requestDescribeClusterOperation =
+  req
+    "DescribeClusterOperation"
+    "fixture/DescribeClusterOperation.yaml"
+
+requestDescribeConfiguration :: DescribeConfiguration -> TestTree
+requestDescribeConfiguration =
+  req
+    "DescribeConfiguration"
+    "fixture/DescribeConfiguration.yaml"
+
+requestDescribeConfigurationRevision :: DescribeConfigurationRevision -> TestTree
+requestDescribeConfigurationRevision =
+  req
+    "DescribeConfigurationRevision"
+    "fixture/DescribeConfigurationRevision.yaml"
+
+requestGetBootstrapBrokers :: GetBootstrapBrokers -> TestTree
+requestGetBootstrapBrokers =
+  req
+    "GetBootstrapBrokers"
+    "fixture/GetBootstrapBrokers.yaml"
+
+requestGetCompatibleKafkaVersions :: GetCompatibleKafkaVersions -> TestTree
+requestGetCompatibleKafkaVersions =
+  req
+    "GetCompatibleKafkaVersions"
+    "fixture/GetCompatibleKafkaVersions.yaml"
+
+requestListClusterOperations :: ListClusterOperations -> TestTree
+requestListClusterOperations =
+  req
+    "ListClusterOperations"
+    "fixture/ListClusterOperations.yaml"
+
+requestListClusters :: ListClusters -> TestTree
+requestListClusters =
+  req
+    "ListClusters"
+    "fixture/ListClusters.yaml"
+
+requestListConfigurationRevisions :: ListConfigurationRevisions -> TestTree
+requestListConfigurationRevisions =
+  req
+    "ListConfigurationRevisions"
+    "fixture/ListConfigurationRevisions.yaml"
+
+requestListConfigurations :: ListConfigurations -> TestTree
+requestListConfigurations =
+  req
+    "ListConfigurations"
+    "fixture/ListConfigurations.yaml"
+
+requestListKafkaVersions :: ListKafkaVersions -> TestTree
+requestListKafkaVersions =
+  req
+    "ListKafkaVersions"
+    "fixture/ListKafkaVersions.yaml"
 
 requestListNodes :: ListNodes -> TestTree
 requestListNodes =
@@ -407,63 +335,79 @@ requestListScramSecrets =
     "ListScramSecrets"
     "fixture/ListScramSecrets.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestRebootBroker :: RebootBroker -> TestTree
+requestRebootBroker =
+  req
+    "RebootBroker"
+    "fixture/RebootBroker.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateBrokerCount :: UpdateBrokerCount -> TestTree
+requestUpdateBrokerCount =
+  req
+    "UpdateBrokerCount"
+    "fixture/UpdateBrokerCount.yaml"
+
+requestUpdateBrokerStorage :: UpdateBrokerStorage -> TestTree
+requestUpdateBrokerStorage =
+  req
+    "UpdateBrokerStorage"
+    "fixture/UpdateBrokerStorage.yaml"
+
+requestUpdateBrokerType :: UpdateBrokerType -> TestTree
+requestUpdateBrokerType =
+  req
+    "UpdateBrokerType"
+    "fixture/UpdateBrokerType.yaml"
+
+requestUpdateClusterConfiguration :: UpdateClusterConfiguration -> TestTree
+requestUpdateClusterConfiguration =
+  req
+    "UpdateClusterConfiguration"
+    "fixture/UpdateClusterConfiguration.yaml"
+
+requestUpdateClusterKafkaVersion :: UpdateClusterKafkaVersion -> TestTree
+requestUpdateClusterKafkaVersion =
+  req
+    "UpdateClusterKafkaVersion"
+    "fixture/UpdateClusterKafkaVersion.yaml"
+
+requestUpdateConfiguration :: UpdateConfiguration -> TestTree
+requestUpdateConfiguration =
+  req
+    "UpdateConfiguration"
+    "fixture/UpdateConfiguration.yaml"
+
+requestUpdateMonitoring :: UpdateMonitoring -> TestTree
+requestUpdateMonitoring =
+  req
+    "UpdateMonitoring"
+    "fixture/UpdateMonitoring.yaml"
+
+requestUpdateSecurity :: UpdateSecurity -> TestTree
+requestUpdateSecurity =
+  req
+    "UpdateSecurity"
+    "fixture/UpdateSecurity.yaml"
+
 -- Responses
-
-responseCreateConfiguration :: CreateConfigurationResponse -> TestTree
-responseCreateConfiguration =
-  res
-    "CreateConfigurationResponse"
-    "fixture/CreateConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateConfiguration)
-
-responseDescribeCluster :: DescribeClusterResponse -> TestTree
-responseDescribeCluster =
-  res
-    "DescribeClusterResponse"
-    "fixture/DescribeClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
-
-responseRebootBroker :: RebootBrokerResponse -> TestTree
-responseRebootBroker =
-  res
-    "RebootBrokerResponse"
-    "fixture/RebootBrokerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RebootBroker)
-
-responseListConfigurationRevisions :: ListConfigurationRevisionsResponse -> TestTree
-responseListConfigurationRevisions =
-  res
-    "ListConfigurationRevisionsResponse"
-    "fixture/ListConfigurationRevisionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListConfigurationRevisions)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListKafkaVersions :: ListKafkaVersionsResponse -> TestTree
-responseListKafkaVersions =
-  res
-    "ListKafkaVersionsResponse"
-    "fixture/ListKafkaVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListKafkaVersions)
-
-responseUpdateMonitoring :: UpdateMonitoringResponse -> TestTree
-responseUpdateMonitoring =
-  res
-    "UpdateMonitoringResponse"
-    "fixture/UpdateMonitoringResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateMonitoring)
 
 responseBatchAssociateScramSecret :: BatchAssociateScramSecretResponse -> TestTree
 responseBatchAssociateScramSecret =
@@ -473,29 +417,13 @@ responseBatchAssociateScramSecret =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchAssociateScramSecret)
 
-responseUpdateBrokerStorage :: UpdateBrokerStorageResponse -> TestTree
-responseUpdateBrokerStorage =
+responseBatchDisassociateScramSecret :: BatchDisassociateScramSecretResponse -> TestTree
+responseBatchDisassociateScramSecret =
   res
-    "UpdateBrokerStorageResponse"
-    "fixture/UpdateBrokerStorageResponse.proto"
+    "BatchDisassociateScramSecretResponse"
+    "fixture/BatchDisassociateScramSecretResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerStorage)
-
-responseDeleteCluster :: DeleteClusterResponse -> TestTree
-responseDeleteCluster =
-  res
-    "DeleteClusterResponse"
-    "fixture/DeleteClusterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
-
-responseUpdateClusterConfiguration :: UpdateClusterConfigurationResponse -> TestTree
-responseUpdateClusterConfiguration =
-  res
-    "UpdateClusterConfigurationResponse"
-    "fixture/UpdateClusterConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateClusterConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateScramSecret)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster =
@@ -505,125 +433,21 @@ responseCreateCluster =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCluster)
 
-responseUpdateBrokerCount :: UpdateBrokerCountResponse -> TestTree
-responseUpdateBrokerCount =
+responseCreateConfiguration :: CreateConfigurationResponse -> TestTree
+responseCreateConfiguration =
   res
-    "UpdateBrokerCountResponse"
-    "fixture/UpdateBrokerCountResponse.proto"
+    "CreateConfigurationResponse"
+    "fixture/CreateConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerCount)
+    (Proxy.Proxy :: Proxy.Proxy CreateConfiguration)
 
-responseListConfigurations :: ListConfigurationsResponse -> TestTree
-responseListConfigurations =
+responseDeleteCluster :: DeleteClusterResponse -> TestTree
+responseDeleteCluster =
   res
-    "ListConfigurationsResponse"
-    "fixture/ListConfigurationsResponse.proto"
+    "DeleteClusterResponse"
+    "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListConfigurations)
-
-responseGetBootstrapBrokers :: GetBootstrapBrokersResponse -> TestTree
-responseGetBootstrapBrokers =
-  res
-    "GetBootstrapBrokersResponse"
-    "fixture/GetBootstrapBrokersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetBootstrapBrokers)
-
-responseUpdateClusterKafkaVersion :: UpdateClusterKafkaVersionResponse -> TestTree
-responseUpdateClusterKafkaVersion =
-  res
-    "UpdateClusterKafkaVersionResponse"
-    "fixture/UpdateClusterKafkaVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateClusterKafkaVersion)
-
-responseUpdateSecurity :: UpdateSecurityResponse -> TestTree
-responseUpdateSecurity =
-  res
-    "UpdateSecurityResponse"
-    "fixture/UpdateSecurityResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSecurity)
-
-responseGetCompatibleKafkaVersions :: GetCompatibleKafkaVersionsResponse -> TestTree
-responseGetCompatibleKafkaVersions =
-  res
-    "GetCompatibleKafkaVersionsResponse"
-    "fixture/GetCompatibleKafkaVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCompatibleKafkaVersions)
-
-responseDescribeClusterOperation :: DescribeClusterOperationResponse -> TestTree
-responseDescribeClusterOperation =
-  res
-    "DescribeClusterOperationResponse"
-    "fixture/DescribeClusterOperationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeClusterOperation)
-
-responseUpdateBrokerType :: UpdateBrokerTypeResponse -> TestTree
-responseUpdateBrokerType =
-  res
-    "UpdateBrokerTypeResponse"
-    "fixture/UpdateBrokerTypeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerType)
-
-responseDescribeConfiguration :: DescribeConfigurationResponse -> TestTree
-responseDescribeConfiguration =
-  res
-    "DescribeConfigurationResponse"
-    "fixture/DescribeConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeConfiguration)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseListClusters :: ListClustersResponse -> TestTree
-responseListClusters =
-  res
-    "ListClustersResponse"
-    "fixture/ListClustersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListClusters)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseListClusterOperations :: ListClusterOperationsResponse -> TestTree
-responseListClusterOperations =
-  res
-    "ListClusterOperationsResponse"
-    "fixture/ListClusterOperationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListClusterOperations)
-
-responseBatchDisassociateScramSecret :: BatchDisassociateScramSecretResponse -> TestTree
-responseBatchDisassociateScramSecret =
-  res
-    "BatchDisassociateScramSecretResponse"
-    "fixture/BatchDisassociateScramSecretResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateScramSecret)
-
-responseDescribeConfigurationRevision :: DescribeConfigurationRevisionResponse -> TestTree
-responseDescribeConfigurationRevision =
-  res
-    "DescribeConfigurationRevisionResponse"
-    "fixture/DescribeConfigurationRevisionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationRevision)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
 responseDeleteConfiguration :: DeleteConfigurationResponse -> TestTree
 responseDeleteConfiguration =
@@ -633,13 +457,93 @@ responseDeleteConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteConfiguration)
 
-responseUpdateConfiguration :: UpdateConfigurationResponse -> TestTree
-responseUpdateConfiguration =
+responseDescribeCluster :: DescribeClusterResponse -> TestTree
+responseDescribeCluster =
   res
-    "UpdateConfigurationResponse"
-    "fixture/UpdateConfigurationResponse.proto"
+    "DescribeClusterResponse"
+    "fixture/DescribeClusterResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCluster)
+
+responseDescribeClusterOperation :: DescribeClusterOperationResponse -> TestTree
+responseDescribeClusterOperation =
+  res
+    "DescribeClusterOperationResponse"
+    "fixture/DescribeClusterOperationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterOperation)
+
+responseDescribeConfiguration :: DescribeConfigurationResponse -> TestTree
+responseDescribeConfiguration =
+  res
+    "DescribeConfigurationResponse"
+    "fixture/DescribeConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfiguration)
+
+responseDescribeConfigurationRevision :: DescribeConfigurationRevisionResponse -> TestTree
+responseDescribeConfigurationRevision =
+  res
+    "DescribeConfigurationRevisionResponse"
+    "fixture/DescribeConfigurationRevisionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationRevision)
+
+responseGetBootstrapBrokers :: GetBootstrapBrokersResponse -> TestTree
+responseGetBootstrapBrokers =
+  res
+    "GetBootstrapBrokersResponse"
+    "fixture/GetBootstrapBrokersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBootstrapBrokers)
+
+responseGetCompatibleKafkaVersions :: GetCompatibleKafkaVersionsResponse -> TestTree
+responseGetCompatibleKafkaVersions =
+  res
+    "GetCompatibleKafkaVersionsResponse"
+    "fixture/GetCompatibleKafkaVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCompatibleKafkaVersions)
+
+responseListClusterOperations :: ListClusterOperationsResponse -> TestTree
+responseListClusterOperations =
+  res
+    "ListClusterOperationsResponse"
+    "fixture/ListClusterOperationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListClusterOperations)
+
+responseListClusters :: ListClustersResponse -> TestTree
+responseListClusters =
+  res
+    "ListClustersResponse"
+    "fixture/ListClustersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListClusters)
+
+responseListConfigurationRevisions :: ListConfigurationRevisionsResponse -> TestTree
+responseListConfigurationRevisions =
+  res
+    "ListConfigurationRevisionsResponse"
+    "fixture/ListConfigurationRevisionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationRevisions)
+
+responseListConfigurations :: ListConfigurationsResponse -> TestTree
+responseListConfigurations =
+  res
+    "ListConfigurationsResponse"
+    "fixture/ListConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurations)
+
+responseListKafkaVersions :: ListKafkaVersionsResponse -> TestTree
+responseListKafkaVersions =
+  res
+    "ListKafkaVersionsResponse"
+    "fixture/ListKafkaVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListKafkaVersions)
 
 responseListNodes :: ListNodesResponse -> TestTree
 responseListNodes =
@@ -656,3 +560,99 @@ responseListScramSecrets =
     "fixture/ListScramSecretsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListScramSecrets)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseRebootBroker :: RebootBrokerResponse -> TestTree
+responseRebootBroker =
+  res
+    "RebootBrokerResponse"
+    "fixture/RebootBrokerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RebootBroker)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateBrokerCount :: UpdateBrokerCountResponse -> TestTree
+responseUpdateBrokerCount =
+  res
+    "UpdateBrokerCountResponse"
+    "fixture/UpdateBrokerCountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerCount)
+
+responseUpdateBrokerStorage :: UpdateBrokerStorageResponse -> TestTree
+responseUpdateBrokerStorage =
+  res
+    "UpdateBrokerStorageResponse"
+    "fixture/UpdateBrokerStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerStorage)
+
+responseUpdateBrokerType :: UpdateBrokerTypeResponse -> TestTree
+responseUpdateBrokerType =
+  res
+    "UpdateBrokerTypeResponse"
+    "fixture/UpdateBrokerTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBrokerType)
+
+responseUpdateClusterConfiguration :: UpdateClusterConfigurationResponse -> TestTree
+responseUpdateClusterConfiguration =
+  res
+    "UpdateClusterConfigurationResponse"
+    "fixture/UpdateClusterConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateClusterConfiguration)
+
+responseUpdateClusterKafkaVersion :: UpdateClusterKafkaVersionResponse -> TestTree
+responseUpdateClusterKafkaVersion =
+  res
+    "UpdateClusterKafkaVersionResponse"
+    "fixture/UpdateClusterKafkaVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateClusterKafkaVersion)
+
+responseUpdateConfiguration :: UpdateConfigurationResponse -> TestTree
+responseUpdateConfiguration =
+  res
+    "UpdateConfigurationResponse"
+    "fixture/UpdateConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateConfiguration)
+
+responseUpdateMonitoring :: UpdateMonitoringResponse -> TestTree
+responseUpdateMonitoring =
+  res
+    "UpdateMonitoringResponse"
+    "fixture/UpdateMonitoringResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMonitoring)
+
+responseUpdateSecurity :: UpdateSecurityResponse -> TestTree
+responseUpdateSecurity =
+  res
+    "UpdateSecurityResponse"
+    "fixture/UpdateSecurityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSecurity)

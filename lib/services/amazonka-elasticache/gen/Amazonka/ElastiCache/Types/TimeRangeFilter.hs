@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeRangeFilter' smart constructor.
 data TimeRangeFilter = TimeRangeFilter'
-  { -- | The start time of the time range filter
-    startTime :: Prelude.Maybe Core.ISO8601,
-    -- | The end time of the time range filter
-    endTime :: Prelude.Maybe Core.ISO8601
+  { -- | The end time of the time range filter
+    endTime :: Prelude.Maybe Core.ISO8601,
+    -- | The start time of the time range filter
+    startTime :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,38 +43,38 @@ data TimeRangeFilter = TimeRangeFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'timeRangeFilter_startTime' - The start time of the time range filter
---
 -- 'endTime', 'timeRangeFilter_endTime' - The end time of the time range filter
+--
+-- 'startTime', 'timeRangeFilter_startTime' - The start time of the time range filter
 newTimeRangeFilter ::
   TimeRangeFilter
 newTimeRangeFilter =
   TimeRangeFilter'
-    { startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing
+    { endTime = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
-
--- | The start time of the time range filter
-timeRangeFilter_startTime :: Lens.Lens' TimeRangeFilter (Prelude.Maybe Prelude.UTCTime)
-timeRangeFilter_startTime = Lens.lens (\TimeRangeFilter' {startTime} -> startTime) (\s@TimeRangeFilter' {} a -> s {startTime = a} :: TimeRangeFilter) Prelude.. Lens.mapping Core._Time
 
 -- | The end time of the time range filter
 timeRangeFilter_endTime :: Lens.Lens' TimeRangeFilter (Prelude.Maybe Prelude.UTCTime)
 timeRangeFilter_endTime = Lens.lens (\TimeRangeFilter' {endTime} -> endTime) (\s@TimeRangeFilter' {} a -> s {endTime = a} :: TimeRangeFilter) Prelude.. Lens.mapping Core._Time
 
+-- | The start time of the time range filter
+timeRangeFilter_startTime :: Lens.Lens' TimeRangeFilter (Prelude.Maybe Prelude.UTCTime)
+timeRangeFilter_startTime = Lens.lens (\TimeRangeFilter' {startTime} -> startTime) (\s@TimeRangeFilter' {} a -> s {startTime = a} :: TimeRangeFilter) Prelude.. Lens.mapping Core._Time
+
 instance Prelude.Hashable TimeRangeFilter where
   hashWithSalt _salt TimeRangeFilter' {..} =
-    _salt `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TimeRangeFilter where
   rnf TimeRangeFilter' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
 
 instance Core.ToQuery TimeRangeFilter where
   toQuery TimeRangeFilter' {..} =
     Prelude.mconcat
-      [ "StartTime" Core.=: startTime,
-        "EndTime" Core.=: endTime
+      [ "EndTime" Core.=: endTime,
+        "StartTime" Core.=: startTime
       ]

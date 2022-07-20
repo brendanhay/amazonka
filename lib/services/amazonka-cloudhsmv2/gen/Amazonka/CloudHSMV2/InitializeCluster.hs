@@ -40,8 +40,8 @@ module Amazonka.CloudHSMV2.InitializeCluster
     newInitializeClusterResponse,
 
     -- * Response Lenses
-    initializeClusterResponse_stateMessage,
     initializeClusterResponse_state,
+    initializeClusterResponse_stateMessage,
     initializeClusterResponse_httpStatus,
   )
 where
@@ -137,8 +137,8 @@ instance Core.AWSRequest InitializeCluster where
     Response.receiveJSON
       ( \s h x ->
           InitializeClusterResponse'
-            Prelude.<$> (x Core..?> "StateMessage")
-            Prelude.<*> (x Core..?> "State")
+            Prelude.<$> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "StateMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,10 +187,10 @@ instance Core.ToQuery InitializeCluster where
 
 -- | /See:/ 'newInitializeClusterResponse' smart constructor.
 data InitializeClusterResponse = InitializeClusterResponse'
-  { -- | A description of the cluster\'s state.
-    stateMessage :: Prelude.Maybe Prelude.Text,
-    -- | The cluster\'s state.
+  { -- | The cluster\'s state.
     state :: Prelude.Maybe ClusterState,
+    -- | A description of the cluster\'s state.
+    stateMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,9 +204,9 @@ data InitializeClusterResponse = InitializeClusterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stateMessage', 'initializeClusterResponse_stateMessage' - A description of the cluster\'s state.
---
 -- 'state', 'initializeClusterResponse_state' - The cluster\'s state.
+--
+-- 'stateMessage', 'initializeClusterResponse_stateMessage' - A description of the cluster\'s state.
 --
 -- 'httpStatus', 'initializeClusterResponse_httpStatus' - The response's http status code.
 newInitializeClusterResponse ::
@@ -215,19 +215,18 @@ newInitializeClusterResponse ::
   InitializeClusterResponse
 newInitializeClusterResponse pHttpStatus_ =
   InitializeClusterResponse'
-    { stateMessage =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
+    { state = Prelude.Nothing,
+      stateMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A description of the cluster\'s state.
-initializeClusterResponse_stateMessage :: Lens.Lens' InitializeClusterResponse (Prelude.Maybe Prelude.Text)
-initializeClusterResponse_stateMessage = Lens.lens (\InitializeClusterResponse' {stateMessage} -> stateMessage) (\s@InitializeClusterResponse' {} a -> s {stateMessage = a} :: InitializeClusterResponse)
 
 -- | The cluster\'s state.
 initializeClusterResponse_state :: Lens.Lens' InitializeClusterResponse (Prelude.Maybe ClusterState)
 initializeClusterResponse_state = Lens.lens (\InitializeClusterResponse' {state} -> state) (\s@InitializeClusterResponse' {} a -> s {state = a} :: InitializeClusterResponse)
+
+-- | A description of the cluster\'s state.
+initializeClusterResponse_stateMessage :: Lens.Lens' InitializeClusterResponse (Prelude.Maybe Prelude.Text)
+initializeClusterResponse_stateMessage = Lens.lens (\InitializeClusterResponse' {stateMessage} -> stateMessage) (\s@InitializeClusterResponse' {} a -> s {stateMessage = a} :: InitializeClusterResponse)
 
 -- | The response's http status code.
 initializeClusterResponse_httpStatus :: Lens.Lens' InitializeClusterResponse Prelude.Int
@@ -235,6 +234,6 @@ initializeClusterResponse_httpStatus = Lens.lens (\InitializeClusterResponse' {h
 
 instance Prelude.NFData InitializeClusterResponse where
   rnf InitializeClusterResponse' {..} =
-    Prelude.rnf stateMessage
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf stateMessage
       `Prelude.seq` Prelude.rnf httpStatus

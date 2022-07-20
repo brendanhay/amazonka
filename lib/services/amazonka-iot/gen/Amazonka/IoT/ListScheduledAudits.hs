@@ -41,8 +41,8 @@ module Amazonka.IoT.ListScheduledAudits
     newListScheduledAuditsResponse,
 
     -- * Response Lenses
-    listScheduledAuditsResponse_scheduledAudits,
     listScheduledAuditsResponse_nextToken,
+    listScheduledAuditsResponse_scheduledAudits,
     listScheduledAuditsResponse_httpStatus,
   )
 where
@@ -121,10 +121,10 @@ instance Core.AWSRequest ListScheduledAudits where
     Response.receiveJSON
       ( \s h x ->
           ListScheduledAuditsResponse'
-            Prelude.<$> ( x Core..?> "scheduledAudits"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "scheduledAudits"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,11 +153,11 @@ instance Core.ToQuery ListScheduledAudits where
 
 -- | /See:/ 'newListScheduledAuditsResponse' smart constructor.
 data ListScheduledAuditsResponse = ListScheduledAuditsResponse'
-  { -- | The list of scheduled audits.
-    scheduledAudits :: Prelude.Maybe [ScheduledAuditMetadata],
-    -- | A token that can be used to retrieve the next set of results, or @null@
+  { -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of scheduled audits.
+    scheduledAudits :: Prelude.Maybe [ScheduledAuditMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,10 +171,10 @@ data ListScheduledAuditsResponse = ListScheduledAuditsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduledAudits', 'listScheduledAuditsResponse_scheduledAudits' - The list of scheduled audits.
---
 -- 'nextToken', 'listScheduledAuditsResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
+--
+-- 'scheduledAudits', 'listScheduledAuditsResponse_scheduledAudits' - The list of scheduled audits.
 --
 -- 'httpStatus', 'listScheduledAuditsResponse_httpStatus' - The response's http status code.
 newListScheduledAuditsResponse ::
@@ -183,20 +183,20 @@ newListScheduledAuditsResponse ::
   ListScheduledAuditsResponse
 newListScheduledAuditsResponse pHttpStatus_ =
   ListScheduledAuditsResponse'
-    { scheduledAudits =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      scheduledAudits = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of scheduled audits.
-listScheduledAuditsResponse_scheduledAudits :: Lens.Lens' ListScheduledAuditsResponse (Prelude.Maybe [ScheduledAuditMetadata])
-listScheduledAuditsResponse_scheduledAudits = Lens.lens (\ListScheduledAuditsResponse' {scheduledAudits} -> scheduledAudits) (\s@ListScheduledAuditsResponse' {} a -> s {scheduledAudits = a} :: ListScheduledAuditsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
 listScheduledAuditsResponse_nextToken :: Lens.Lens' ListScheduledAuditsResponse (Prelude.Maybe Prelude.Text)
 listScheduledAuditsResponse_nextToken = Lens.lens (\ListScheduledAuditsResponse' {nextToken} -> nextToken) (\s@ListScheduledAuditsResponse' {} a -> s {nextToken = a} :: ListScheduledAuditsResponse)
+
+-- | The list of scheduled audits.
+listScheduledAuditsResponse_scheduledAudits :: Lens.Lens' ListScheduledAuditsResponse (Prelude.Maybe [ScheduledAuditMetadata])
+listScheduledAuditsResponse_scheduledAudits = Lens.lens (\ListScheduledAuditsResponse' {scheduledAudits} -> scheduledAudits) (\s@ListScheduledAuditsResponse' {} a -> s {scheduledAudits = a} :: ListScheduledAuditsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listScheduledAuditsResponse_httpStatus :: Lens.Lens' ListScheduledAuditsResponse Prelude.Int
@@ -204,6 +204,6 @@ listScheduledAuditsResponse_httpStatus = Lens.lens (\ListScheduledAuditsResponse
 
 instance Prelude.NFData ListScheduledAuditsResponse where
   rnf ListScheduledAuditsResponse' {..} =
-    Prelude.rnf scheduledAudits
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf scheduledAudits
       `Prelude.seq` Prelude.rnf httpStatus

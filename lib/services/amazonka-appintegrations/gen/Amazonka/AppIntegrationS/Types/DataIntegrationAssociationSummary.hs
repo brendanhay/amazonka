@@ -30,10 +30,10 @@ data DataIntegrationAssociationSummary = DataIntegrationAssociationSummary'
   { -- | The identifier for teh client that is associated with the
     -- DataIntegration association.
     clientId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the DataIntegration association.
-    dataIntegrationAssociationArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN)of the DataIntegration.
-    dataIntegrationArn :: Prelude.Maybe Prelude.Text
+    dataIntegrationArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the DataIntegration association.
+    dataIntegrationAssociationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,18 +48,18 @@ data DataIntegrationAssociationSummary = DataIntegrationAssociationSummary'
 -- 'clientId', 'dataIntegrationAssociationSummary_clientId' - The identifier for teh client that is associated with the
 -- DataIntegration association.
 --
--- 'dataIntegrationAssociationArn', 'dataIntegrationAssociationSummary_dataIntegrationAssociationArn' - The Amazon Resource Name (ARN) of the DataIntegration association.
---
 -- 'dataIntegrationArn', 'dataIntegrationAssociationSummary_dataIntegrationArn' - The Amazon Resource Name (ARN)of the DataIntegration.
+--
+-- 'dataIntegrationAssociationArn', 'dataIntegrationAssociationSummary_dataIntegrationAssociationArn' - The Amazon Resource Name (ARN) of the DataIntegration association.
 newDataIntegrationAssociationSummary ::
   DataIntegrationAssociationSummary
 newDataIntegrationAssociationSummary =
   DataIntegrationAssociationSummary'
     { clientId =
         Prelude.Nothing,
+      dataIntegrationArn = Prelude.Nothing,
       dataIntegrationAssociationArn =
-        Prelude.Nothing,
-      dataIntegrationArn = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | The identifier for teh client that is associated with the
@@ -67,13 +67,13 @@ newDataIntegrationAssociationSummary =
 dataIntegrationAssociationSummary_clientId :: Lens.Lens' DataIntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
 dataIntegrationAssociationSummary_clientId = Lens.lens (\DataIntegrationAssociationSummary' {clientId} -> clientId) (\s@DataIntegrationAssociationSummary' {} a -> s {clientId = a} :: DataIntegrationAssociationSummary)
 
--- | The Amazon Resource Name (ARN) of the DataIntegration association.
-dataIntegrationAssociationSummary_dataIntegrationAssociationArn :: Lens.Lens' DataIntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
-dataIntegrationAssociationSummary_dataIntegrationAssociationArn = Lens.lens (\DataIntegrationAssociationSummary' {dataIntegrationAssociationArn} -> dataIntegrationAssociationArn) (\s@DataIntegrationAssociationSummary' {} a -> s {dataIntegrationAssociationArn = a} :: DataIntegrationAssociationSummary)
-
 -- | The Amazon Resource Name (ARN)of the DataIntegration.
 dataIntegrationAssociationSummary_dataIntegrationArn :: Lens.Lens' DataIntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
 dataIntegrationAssociationSummary_dataIntegrationArn = Lens.lens (\DataIntegrationAssociationSummary' {dataIntegrationArn} -> dataIntegrationArn) (\s@DataIntegrationAssociationSummary' {} a -> s {dataIntegrationArn = a} :: DataIntegrationAssociationSummary)
+
+-- | The Amazon Resource Name (ARN) of the DataIntegration association.
+dataIntegrationAssociationSummary_dataIntegrationAssociationArn :: Lens.Lens' DataIntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
+dataIntegrationAssociationSummary_dataIntegrationAssociationArn = Lens.lens (\DataIntegrationAssociationSummary' {dataIntegrationAssociationArn} -> dataIntegrationAssociationArn) (\s@DataIntegrationAssociationSummary' {} a -> s {dataIntegrationAssociationArn = a} :: DataIntegrationAssociationSummary)
 
 instance
   Core.FromJSON
@@ -85,8 +85,8 @@ instance
       ( \x ->
           DataIntegrationAssociationSummary'
             Prelude.<$> (x Core..:? "ClientId")
-            Prelude.<*> (x Core..:? "DataIntegrationAssociationArn")
             Prelude.<*> (x Core..:? "DataIntegrationArn")
+            Prelude.<*> (x Core..:? "DataIntegrationAssociationArn")
       )
 
 instance
@@ -97,8 +97,8 @@ instance
     _salt
     DataIntegrationAssociationSummary' {..} =
       _salt `Prelude.hashWithSalt` clientId
-        `Prelude.hashWithSalt` dataIntegrationAssociationArn
         `Prelude.hashWithSalt` dataIntegrationArn
+        `Prelude.hashWithSalt` dataIntegrationAssociationArn
 
 instance
   Prelude.NFData
@@ -106,5 +106,5 @@ instance
   where
   rnf DataIntegrationAssociationSummary' {..} =
     Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf dataIntegrationAssociationArn
       `Prelude.seq` Prelude.rnf dataIntegrationArn
+      `Prelude.seq` Prelude.rnf dataIntegrationAssociationArn

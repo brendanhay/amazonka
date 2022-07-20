@@ -28,9 +28,9 @@ module Amazonka.RDS.RegisterDBProxyTargets
     newRegisterDBProxyTargets,
 
     -- * Request Lenses
-    registerDBProxyTargets_dbClusterIdentifiers,
     registerDBProxyTargets_dbInstanceIdentifiers,
     registerDBProxyTargets_targetGroupName,
+    registerDBProxyTargets_dbClusterIdentifiers,
     registerDBProxyTargets_dbProxyName,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterDBProxyTargets' smart constructor.
 data RegisterDBProxyTargets = RegisterDBProxyTargets'
-  { -- | One or more DB cluster identifiers.
-    dbClusterIdentifiers :: Prelude.Maybe [Prelude.Text],
-    -- | One or more DB instance identifiers.
+  { -- | One or more DB instance identifiers.
     dbInstanceIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the @DBProxyTargetGroup@.
     targetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | One or more DB cluster identifiers.
+    dbClusterIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the @DBProxy@ that is associated with the
     -- @DBProxyTargetGroup@.
     dbProxyName :: Prelude.Text
@@ -72,11 +72,11 @@ data RegisterDBProxyTargets = RegisterDBProxyTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbClusterIdentifiers', 'registerDBProxyTargets_dbClusterIdentifiers' - One or more DB cluster identifiers.
---
 -- 'dbInstanceIdentifiers', 'registerDBProxyTargets_dbInstanceIdentifiers' - One or more DB instance identifiers.
 --
 -- 'targetGroupName', 'registerDBProxyTargets_targetGroupName' - The identifier of the @DBProxyTargetGroup@.
+--
+-- 'dbClusterIdentifiers', 'registerDBProxyTargets_dbClusterIdentifiers' - One or more DB cluster identifiers.
 --
 -- 'dbProxyName', 'registerDBProxyTargets_dbProxyName' - The identifier of the @DBProxy@ that is associated with the
 -- @DBProxyTargetGroup@.
@@ -86,16 +86,12 @@ newRegisterDBProxyTargets ::
   RegisterDBProxyTargets
 newRegisterDBProxyTargets pDBProxyName_ =
   RegisterDBProxyTargets'
-    { dbClusterIdentifiers =
+    { dbInstanceIdentifiers =
         Prelude.Nothing,
-      dbInstanceIdentifiers = Prelude.Nothing,
       targetGroupName = Prelude.Nothing,
+      dbClusterIdentifiers = Prelude.Nothing,
       dbProxyName = pDBProxyName_
     }
-
--- | One or more DB cluster identifiers.
-registerDBProxyTargets_dbClusterIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
-registerDBProxyTargets_dbClusterIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: RegisterDBProxyTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more DB instance identifiers.
 registerDBProxyTargets_dbInstanceIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
@@ -104,6 +100,10 @@ registerDBProxyTargets_dbInstanceIdentifiers = Lens.lens (\RegisterDBProxyTarget
 -- | The identifier of the @DBProxyTargetGroup@.
 registerDBProxyTargets_targetGroupName :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe Prelude.Text)
 registerDBProxyTargets_targetGroupName = Lens.lens (\RegisterDBProxyTargets' {targetGroupName} -> targetGroupName) (\s@RegisterDBProxyTargets' {} a -> s {targetGroupName = a} :: RegisterDBProxyTargets)
+
+-- | One or more DB cluster identifiers.
+registerDBProxyTargets_dbClusterIdentifiers :: Lens.Lens' RegisterDBProxyTargets (Prelude.Maybe [Prelude.Text])
+registerDBProxyTargets_dbClusterIdentifiers = Lens.lens (\RegisterDBProxyTargets' {dbClusterIdentifiers} -> dbClusterIdentifiers) (\s@RegisterDBProxyTargets' {} a -> s {dbClusterIdentifiers = a} :: RegisterDBProxyTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the @DBProxy@ that is associated with the
 -- @DBProxyTargetGroup@.
@@ -128,16 +128,16 @@ instance Core.AWSRequest RegisterDBProxyTargets where
 
 instance Prelude.Hashable RegisterDBProxyTargets where
   hashWithSalt _salt RegisterDBProxyTargets' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifiers
-      `Prelude.hashWithSalt` dbInstanceIdentifiers
+    _salt `Prelude.hashWithSalt` dbInstanceIdentifiers
       `Prelude.hashWithSalt` targetGroupName
+      `Prelude.hashWithSalt` dbClusterIdentifiers
       `Prelude.hashWithSalt` dbProxyName
 
 instance Prelude.NFData RegisterDBProxyTargets where
   rnf RegisterDBProxyTargets' {..} =
-    Prelude.rnf dbClusterIdentifiers
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifiers
+    Prelude.rnf dbInstanceIdentifiers
       `Prelude.seq` Prelude.rnf targetGroupName
+      `Prelude.seq` Prelude.rnf dbClusterIdentifiers
       `Prelude.seq` Prelude.rnf dbProxyName
 
 instance Core.ToHeaders RegisterDBProxyTargets where
@@ -153,17 +153,17 @@ instance Core.ToQuery RegisterDBProxyTargets where
           Core.=: ("RegisterDBProxyTargets" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBClusterIdentifiers"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> dbClusterIdentifiers
-            ),
         "DBInstanceIdentifiers"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> dbInstanceIdentifiers
             ),
         "TargetGroupName" Core.=: targetGroupName,
+        "DBClusterIdentifiers"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> dbClusterIdentifiers
+            ),
         "DBProxyName" Core.=: dbProxyName
       ]
 

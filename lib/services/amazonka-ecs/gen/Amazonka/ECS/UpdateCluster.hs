@@ -27,8 +27,8 @@ module Amazonka.ECS.UpdateCluster
     newUpdateCluster,
 
     -- * Request Lenses
-    updateCluster_settings,
     updateCluster_configuration,
+    updateCluster_settings,
     updateCluster_cluster,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-  { -- | The cluster settings for your cluster.
-    settings :: Prelude.Maybe [ClusterSetting],
-    -- | The execute command configuration for the cluster.
+  { -- | The execute command configuration for the cluster.
     configuration :: Prelude.Maybe ClusterConfiguration,
+    -- | The cluster settings for your cluster.
+    settings :: Prelude.Maybe [ClusterSetting],
     -- | The name of the cluster to modify the settings for.
     cluster :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data UpdateCluster = UpdateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'settings', 'updateCluster_settings' - The cluster settings for your cluster.
---
 -- 'configuration', 'updateCluster_configuration' - The execute command configuration for the cluster.
+--
+-- 'settings', 'updateCluster_settings' - The cluster settings for your cluster.
 --
 -- 'cluster', 'updateCluster_cluster' - The name of the cluster to modify the settings for.
 newUpdateCluster ::
@@ -78,18 +78,18 @@ newUpdateCluster ::
   UpdateCluster
 newUpdateCluster pCluster_ =
   UpdateCluster'
-    { settings = Prelude.Nothing,
-      configuration = Prelude.Nothing,
+    { configuration = Prelude.Nothing,
+      settings = Prelude.Nothing,
       cluster = pCluster_
     }
-
--- | The cluster settings for your cluster.
-updateCluster_settings :: Lens.Lens' UpdateCluster (Prelude.Maybe [ClusterSetting])
-updateCluster_settings = Lens.lens (\UpdateCluster' {settings} -> settings) (\s@UpdateCluster' {} a -> s {settings = a} :: UpdateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The execute command configuration for the cluster.
 updateCluster_configuration :: Lens.Lens' UpdateCluster (Prelude.Maybe ClusterConfiguration)
 updateCluster_configuration = Lens.lens (\UpdateCluster' {configuration} -> configuration) (\s@UpdateCluster' {} a -> s {configuration = a} :: UpdateCluster)
+
+-- | The cluster settings for your cluster.
+updateCluster_settings :: Lens.Lens' UpdateCluster (Prelude.Maybe [ClusterSetting])
+updateCluster_settings = Lens.lens (\UpdateCluster' {settings} -> settings) (\s@UpdateCluster' {} a -> s {settings = a} :: UpdateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster to modify the settings for.
 updateCluster_cluster :: Lens.Lens' UpdateCluster Prelude.Text
@@ -110,14 +110,14 @@ instance Core.AWSRequest UpdateCluster where
 
 instance Prelude.Hashable UpdateCluster where
   hashWithSalt _salt UpdateCluster' {..} =
-    _salt `Prelude.hashWithSalt` settings
-      `Prelude.hashWithSalt` configuration
+    _salt `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` cluster
 
 instance Prelude.NFData UpdateCluster where
   rnf UpdateCluster' {..} =
-    Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf cluster
 
 instance Core.ToHeaders UpdateCluster where
@@ -139,8 +139,8 @@ instance Core.ToJSON UpdateCluster where
   toJSON UpdateCluster' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("settings" Core..=) Prelude.<$> settings,
-            ("configuration" Core..=) Prelude.<$> configuration,
+          [ ("configuration" Core..=) Prelude.<$> configuration,
+            ("settings" Core..=) Prelude.<$> settings,
             Prelude.Just ("cluster" Core..= cluster)
           ]
       )

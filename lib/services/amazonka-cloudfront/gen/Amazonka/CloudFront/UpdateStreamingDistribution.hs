@@ -36,8 +36,8 @@ module Amazonka.CloudFront.UpdateStreamingDistribution
     newUpdateStreamingDistributionResponse,
 
     -- * Response Lenses
-    updateStreamingDistributionResponse_eTag,
     updateStreamingDistributionResponse_streamingDistribution,
+    updateStreamingDistributionResponse_eTag,
     updateStreamingDistributionResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance Core.AWSRequest UpdateStreamingDistribution where
     Response.receiveXML
       ( \s h x ->
           UpdateStreamingDistributionResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,10 +158,10 @@ instance Core.ToQuery UpdateStreamingDistribution where
 --
 -- /See:/ 'newUpdateStreamingDistributionResponse' smart constructor.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
-  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The streaming distribution\'s information.
+  { -- | The streaming distribution\'s information.
     streamingDistribution :: Prelude.Maybe StreamingDistribution,
+    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'updateStreamingDistributionResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
---
 -- 'streamingDistribution', 'updateStreamingDistributionResponse_streamingDistribution' - The streaming distribution\'s information.
+--
+-- 'eTag', 'updateStreamingDistributionResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
 --
 -- 'httpStatus', 'updateStreamingDistributionResponse_httpStatus' - The response's http status code.
 newUpdateStreamingDistributionResponse ::
@@ -186,20 +186,19 @@ newUpdateStreamingDistributionResponse ::
   UpdateStreamingDistributionResponse
 newUpdateStreamingDistributionResponse pHttpStatus_ =
   UpdateStreamingDistributionResponse'
-    { eTag =
+    { streamingDistribution =
         Prelude.Nothing,
-      streamingDistribution =
-        Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-updateStreamingDistributionResponse_eTag :: Lens.Lens' UpdateStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
-updateStreamingDistributionResponse_eTag = Lens.lens (\UpdateStreamingDistributionResponse' {eTag} -> eTag) (\s@UpdateStreamingDistributionResponse' {} a -> s {eTag = a} :: UpdateStreamingDistributionResponse)
 
 -- | The streaming distribution\'s information.
 updateStreamingDistributionResponse_streamingDistribution :: Lens.Lens' UpdateStreamingDistributionResponse (Prelude.Maybe StreamingDistribution)
 updateStreamingDistributionResponse_streamingDistribution = Lens.lens (\UpdateStreamingDistributionResponse' {streamingDistribution} -> streamingDistribution) (\s@UpdateStreamingDistributionResponse' {} a -> s {streamingDistribution = a} :: UpdateStreamingDistributionResponse)
+
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+updateStreamingDistributionResponse_eTag :: Lens.Lens' UpdateStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
+updateStreamingDistributionResponse_eTag = Lens.lens (\UpdateStreamingDistributionResponse' {eTag} -> eTag) (\s@UpdateStreamingDistributionResponse' {} a -> s {eTag = a} :: UpdateStreamingDistributionResponse)
 
 -- | The response's http status code.
 updateStreamingDistributionResponse_httpStatus :: Lens.Lens' UpdateStreamingDistributionResponse Prelude.Int
@@ -210,6 +209,6 @@ instance
     UpdateStreamingDistributionResponse
   where
   rnf UpdateStreamingDistributionResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf streamingDistribution
+    Prelude.rnf streamingDistribution
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

@@ -62,8 +62,8 @@ module Amazonka.Signer.StartSigningJob
     newStartSigningJobResponse,
 
     -- * Response Lenses
-    startSigningJobResponse_jobId,
     startSigningJobResponse_jobOwner,
+    startSigningJobResponse_jobId,
     startSigningJobResponse_httpStatus,
   )
 where
@@ -168,8 +168,8 @@ instance Core.AWSRequest StartSigningJob where
     Response.receiveJSON
       ( \s h x ->
           StartSigningJobResponse'
-            Prelude.<$> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "jobOwner")
+            Prelude.<$> (x Core..?> "jobOwner")
+            Prelude.<*> (x Core..?> "jobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,10 +221,10 @@ instance Core.ToQuery StartSigningJob where
 
 -- | /See:/ 'newStartSigningJobResponse' smart constructor.
 data StartSigningJobResponse = StartSigningJobResponse'
-  { -- | The ID of your signing job.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID of the signing job owner.
+  { -- | The AWS account ID of the signing job owner.
     jobOwner :: Prelude.Maybe Prelude.Text,
+    -- | The ID of your signing job.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,9 +238,9 @@ data StartSigningJobResponse = StartSigningJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'startSigningJobResponse_jobId' - The ID of your signing job.
---
 -- 'jobOwner', 'startSigningJobResponse_jobOwner' - The AWS account ID of the signing job owner.
+--
+-- 'jobId', 'startSigningJobResponse_jobId' - The ID of your signing job.
 --
 -- 'httpStatus', 'startSigningJobResponse_httpStatus' - The response's http status code.
 newStartSigningJobResponse ::
@@ -249,18 +249,19 @@ newStartSigningJobResponse ::
   StartSigningJobResponse
 newStartSigningJobResponse pHttpStatus_ =
   StartSigningJobResponse'
-    { jobId = Prelude.Nothing,
-      jobOwner = Prelude.Nothing,
+    { jobOwner =
+        Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of your signing job.
-startSigningJobResponse_jobId :: Lens.Lens' StartSigningJobResponse (Prelude.Maybe Prelude.Text)
-startSigningJobResponse_jobId = Lens.lens (\StartSigningJobResponse' {jobId} -> jobId) (\s@StartSigningJobResponse' {} a -> s {jobId = a} :: StartSigningJobResponse)
 
 -- | The AWS account ID of the signing job owner.
 startSigningJobResponse_jobOwner :: Lens.Lens' StartSigningJobResponse (Prelude.Maybe Prelude.Text)
 startSigningJobResponse_jobOwner = Lens.lens (\StartSigningJobResponse' {jobOwner} -> jobOwner) (\s@StartSigningJobResponse' {} a -> s {jobOwner = a} :: StartSigningJobResponse)
+
+-- | The ID of your signing job.
+startSigningJobResponse_jobId :: Lens.Lens' StartSigningJobResponse (Prelude.Maybe Prelude.Text)
+startSigningJobResponse_jobId = Lens.lens (\StartSigningJobResponse' {jobId} -> jobId) (\s@StartSigningJobResponse' {} a -> s {jobId = a} :: StartSigningJobResponse)
 
 -- | The response's http status code.
 startSigningJobResponse_httpStatus :: Lens.Lens' StartSigningJobResponse Prelude.Int
@@ -268,6 +269,6 @@ startSigningJobResponse_httpStatus = Lens.lens (\StartSigningJobResponse' {httpS
 
 instance Prelude.NFData StartSigningJobResponse where
   rnf StartSigningJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobOwner
+    Prelude.rnf jobOwner
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf httpStatus

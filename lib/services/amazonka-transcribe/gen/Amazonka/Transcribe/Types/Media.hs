@@ -27,7 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMedia' smart constructor.
 data Media = Media'
-  { -- | The S3 object location of the input media file. The URI must be in the
+  { -- | The S3 object location for your redacted output media file. This is only
+    -- supported for call analytics jobs.
+    redactedMediaFileUri :: Prelude.Maybe Prelude.Text,
+    -- | The S3 object location of the input media file. The URI must be in the
     -- same region as the API endpoint that you are calling. The general form
     -- is:
     --
@@ -36,10 +39,7 @@ data Media = Media'
     -- For more information about S3 object names, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
     -- in the /Amazon S3 Developer Guide/.
-    mediaFileUri :: Prelude.Maybe Prelude.Text,
-    -- | The S3 object location for your redacted output media file. This is only
-    -- supported for call analytics jobs.
-    redactedMediaFileUri :: Prelude.Maybe Prelude.Text
+    mediaFileUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,6 +51,9 @@ data Media = Media'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'redactedMediaFileUri', 'media_redactedMediaFileUri' - The S3 object location for your redacted output media file. This is only
+-- supported for call analytics jobs.
+--
 -- 'mediaFileUri', 'media_mediaFileUri' - The S3 object location of the input media file. The URI must be in the
 -- same region as the API endpoint that you are calling. The general form
 -- is:
@@ -60,16 +63,18 @@ data Media = Media'
 -- For more information about S3 object names, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
 -- in the /Amazon S3 Developer Guide/.
---
--- 'redactedMediaFileUri', 'media_redactedMediaFileUri' - The S3 object location for your redacted output media file. This is only
--- supported for call analytics jobs.
 newMedia ::
   Media
 newMedia =
   Media'
-    { mediaFileUri = Prelude.Nothing,
-      redactedMediaFileUri = Prelude.Nothing
+    { redactedMediaFileUri = Prelude.Nothing,
+      mediaFileUri = Prelude.Nothing
     }
+
+-- | The S3 object location for your redacted output media file. This is only
+-- supported for call analytics jobs.
+media_redactedMediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
+media_redactedMediaFileUri = Lens.lens (\Media' {redactedMediaFileUri} -> redactedMediaFileUri) (\s@Media' {} a -> s {redactedMediaFileUri = a} :: Media)
 
 -- | The S3 object location of the input media file. The URI must be in the
 -- same region as the API endpoint that you are calling. The general form
@@ -83,37 +88,32 @@ newMedia =
 media_mediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
 media_mediaFileUri = Lens.lens (\Media' {mediaFileUri} -> mediaFileUri) (\s@Media' {} a -> s {mediaFileUri = a} :: Media)
 
--- | The S3 object location for your redacted output media file. This is only
--- supported for call analytics jobs.
-media_redactedMediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
-media_redactedMediaFileUri = Lens.lens (\Media' {redactedMediaFileUri} -> redactedMediaFileUri) (\s@Media' {} a -> s {redactedMediaFileUri = a} :: Media)
-
 instance Core.FromJSON Media where
   parseJSON =
     Core.withObject
       "Media"
       ( \x ->
           Media'
-            Prelude.<$> (x Core..:? "MediaFileUri")
-            Prelude.<*> (x Core..:? "RedactedMediaFileUri")
+            Prelude.<$> (x Core..:? "RedactedMediaFileUri")
+            Prelude.<*> (x Core..:? "MediaFileUri")
       )
 
 instance Prelude.Hashable Media where
   hashWithSalt _salt Media' {..} =
-    _salt `Prelude.hashWithSalt` mediaFileUri
-      `Prelude.hashWithSalt` redactedMediaFileUri
+    _salt `Prelude.hashWithSalt` redactedMediaFileUri
+      `Prelude.hashWithSalt` mediaFileUri
 
 instance Prelude.NFData Media where
   rnf Media' {..} =
-    Prelude.rnf mediaFileUri
-      `Prelude.seq` Prelude.rnf redactedMediaFileUri
+    Prelude.rnf redactedMediaFileUri
+      `Prelude.seq` Prelude.rnf mediaFileUri
 
 instance Core.ToJSON Media where
   toJSON Media' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MediaFileUri" Core..=) Prelude.<$> mediaFileUri,
-            ("RedactedMediaFileUri" Core..=)
-              Prelude.<$> redactedMediaFileUri
+          [ ("RedactedMediaFileUri" Core..=)
+              Prelude.<$> redactedMediaFileUri,
+            ("MediaFileUri" Core..=) Prelude.<$> mediaFileUri
           ]
       )

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Maybe Prelude.Text,
-    -- | The tags.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag)
+  { -- | The tags.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The name of the load balancer.
+    loadBalancerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,39 +44,39 @@ data TagDescription = TagDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loadBalancerName', 'tagDescription_loadBalancerName' - The name of the load balancer.
---
 -- 'tags', 'tagDescription_tags' - The tags.
+--
+-- 'loadBalancerName', 'tagDescription_loadBalancerName' - The name of the load balancer.
 newTagDescription ::
   TagDescription
 newTagDescription =
   TagDescription'
-    { loadBalancerName = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      loadBalancerName = Prelude.Nothing
     }
-
--- | The name of the load balancer.
-tagDescription_loadBalancerName :: Lens.Lens' TagDescription (Prelude.Maybe Prelude.Text)
-tagDescription_loadBalancerName = Lens.lens (\TagDescription' {loadBalancerName} -> loadBalancerName) (\s@TagDescription' {} a -> s {loadBalancerName = a} :: TagDescription)
 
 -- | The tags.
 tagDescription_tags :: Lens.Lens' TagDescription (Prelude.Maybe (Prelude.NonEmpty Tag))
 tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescription' {} a -> s {tags = a} :: TagDescription) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the load balancer.
+tagDescription_loadBalancerName :: Lens.Lens' TagDescription (Prelude.Maybe Prelude.Text)
+tagDescription_loadBalancerName = Lens.lens (\TagDescription' {loadBalancerName} -> loadBalancerName) (\s@TagDescription' {} a -> s {loadBalancerName = a} :: TagDescription)
+
 instance Core.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Prelude.<$> (x Core..@? "LoadBalancerName")
-      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList1 "member")
                   )
+      Prelude.<*> (x Core..@? "LoadBalancerName")
 
 instance Prelude.Hashable TagDescription where
   hashWithSalt _salt TagDescription' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loadBalancerName
 
 instance Prelude.NFData TagDescription where
   rnf TagDescription' {..} =
-    Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loadBalancerName

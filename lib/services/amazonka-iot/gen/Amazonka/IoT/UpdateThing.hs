@@ -31,10 +31,10 @@ module Amazonka.IoT.UpdateThing
     newUpdateThing,
 
     -- * Request Lenses
-    updateThing_removeThingType,
     updateThing_thingTypeName,
-    updateThing_expectedVersion,
+    updateThing_removeThingType,
     updateThing_attributePayload,
+    updateThing_expectedVersion,
     updateThing_thingName,
 
     -- * Destructuring the Response
@@ -57,16 +57,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateThing' smart constructor.
 data UpdateThing = UpdateThing'
-  { -- | Remove a thing type association. If __true__, the association is
+  { -- | The name of the thing type.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
+    -- | Remove a thing type association. If __true__, the association is
     -- removed.
     removeThingType :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the thing type.
-    thingTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The expected version of the thing record in the registry. If the version
-    -- of the record in the registry does not match the expected version
-    -- specified in the request, the @UpdateThing@ request is rejected with a
-    -- @VersionConflictException@.
-    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | A list of thing attributes, a JSON string containing name-value pairs.
     -- For example:
     --
@@ -74,6 +69,11 @@ data UpdateThing = UpdateThing'
     --
     -- This data is used to add new attributes or update existing attributes.
     attributePayload :: Prelude.Maybe AttributePayload,
+    -- | The expected version of the thing record in the registry. If the version
+    -- of the record in the registry does not match the expected version
+    -- specified in the request, the @UpdateThing@ request is rejected with a
+    -- @VersionConflictException@.
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the thing to update.
     --
     -- You can\'t change a thing\'s name. To change a thing\'s name, you must
@@ -90,15 +90,10 @@ data UpdateThing = UpdateThing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeThingType', 'updateThing_removeThingType' - Remove a thing type association. If __true__, the association is
--- removed.
---
 -- 'thingTypeName', 'updateThing_thingTypeName' - The name of the thing type.
 --
--- 'expectedVersion', 'updateThing_expectedVersion' - The expected version of the thing record in the registry. If the version
--- of the record in the registry does not match the expected version
--- specified in the request, the @UpdateThing@ request is rejected with a
--- @VersionConflictException@.
+-- 'removeThingType', 'updateThing_removeThingType' - Remove a thing type association. If __true__, the association is
+-- removed.
 --
 -- 'attributePayload', 'updateThing_attributePayload' - A list of thing attributes, a JSON string containing name-value pairs.
 -- For example:
@@ -106,6 +101,11 @@ data UpdateThing = UpdateThing'
 -- @{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}}@
 --
 -- This data is used to add new attributes or update existing attributes.
+--
+-- 'expectedVersion', 'updateThing_expectedVersion' - The expected version of the thing record in the registry. If the version
+-- of the record in the registry does not match the expected version
+-- specified in the request, the @UpdateThing@ request is rejected with a
+-- @VersionConflictException@.
 --
 -- 'thingName', 'updateThing_thingName' - The name of the thing to update.
 --
@@ -117,28 +117,21 @@ newUpdateThing ::
   UpdateThing
 newUpdateThing pThingName_ =
   UpdateThing'
-    { removeThingType = Prelude.Nothing,
-      thingTypeName = Prelude.Nothing,
-      expectedVersion = Prelude.Nothing,
+    { thingTypeName = Prelude.Nothing,
+      removeThingType = Prelude.Nothing,
       attributePayload = Prelude.Nothing,
+      expectedVersion = Prelude.Nothing,
       thingName = pThingName_
     }
-
--- | Remove a thing type association. If __true__, the association is
--- removed.
-updateThing_removeThingType :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Bool)
-updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> removeThingType) (\s@UpdateThing' {} a -> s {removeThingType = a} :: UpdateThing)
 
 -- | The name of the thing type.
 updateThing_thingTypeName :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Text)
 updateThing_thingTypeName = Lens.lens (\UpdateThing' {thingTypeName} -> thingTypeName) (\s@UpdateThing' {} a -> s {thingTypeName = a} :: UpdateThing)
 
--- | The expected version of the thing record in the registry. If the version
--- of the record in the registry does not match the expected version
--- specified in the request, the @UpdateThing@ request is rejected with a
--- @VersionConflictException@.
-updateThing_expectedVersion :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Integer)
-updateThing_expectedVersion = Lens.lens (\UpdateThing' {expectedVersion} -> expectedVersion) (\s@UpdateThing' {} a -> s {expectedVersion = a} :: UpdateThing)
+-- | Remove a thing type association. If __true__, the association is
+-- removed.
+updateThing_removeThingType :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Bool)
+updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> removeThingType) (\s@UpdateThing' {} a -> s {removeThingType = a} :: UpdateThing)
 
 -- | A list of thing attributes, a JSON string containing name-value pairs.
 -- For example:
@@ -148,6 +141,13 @@ updateThing_expectedVersion = Lens.lens (\UpdateThing' {expectedVersion} -> expe
 -- This data is used to add new attributes or update existing attributes.
 updateThing_attributePayload :: Lens.Lens' UpdateThing (Prelude.Maybe AttributePayload)
 updateThing_attributePayload = Lens.lens (\UpdateThing' {attributePayload} -> attributePayload) (\s@UpdateThing' {} a -> s {attributePayload = a} :: UpdateThing)
+
+-- | The expected version of the thing record in the registry. If the version
+-- of the record in the registry does not match the expected version
+-- specified in the request, the @UpdateThing@ request is rejected with a
+-- @VersionConflictException@.
+updateThing_expectedVersion :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Integer)
+updateThing_expectedVersion = Lens.lens (\UpdateThing' {expectedVersion} -> expectedVersion) (\s@UpdateThing' {} a -> s {expectedVersion = a} :: UpdateThing)
 
 -- | The name of the thing to update.
 --
@@ -168,18 +168,18 @@ instance Core.AWSRequest UpdateThing where
 
 instance Prelude.Hashable UpdateThing where
   hashWithSalt _salt UpdateThing' {..} =
-    _salt `Prelude.hashWithSalt` removeThingType
-      `Prelude.hashWithSalt` thingTypeName
-      `Prelude.hashWithSalt` expectedVersion
+    _salt `Prelude.hashWithSalt` thingTypeName
+      `Prelude.hashWithSalt` removeThingType
       `Prelude.hashWithSalt` attributePayload
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData UpdateThing where
   rnf UpdateThing' {..} =
-    Prelude.rnf removeThingType
-      `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf expectedVersion
+    Prelude.rnf thingTypeName
+      `Prelude.seq` Prelude.rnf removeThingType
       `Prelude.seq` Prelude.rnf attributePayload
+      `Prelude.seq` Prelude.rnf expectedVersion
       `Prelude.seq` Prelude.rnf thingName
 
 instance Core.ToHeaders UpdateThing where
@@ -189,13 +189,13 @@ instance Core.ToJSON UpdateThing where
   toJSON UpdateThing' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("removeThingType" Core..=)
+          [ ("thingTypeName" Core..=) Prelude.<$> thingTypeName,
+            ("removeThingType" Core..=)
               Prelude.<$> removeThingType,
-            ("thingTypeName" Core..=) Prelude.<$> thingTypeName,
-            ("expectedVersion" Core..=)
-              Prelude.<$> expectedVersion,
             ("attributePayload" Core..=)
-              Prelude.<$> attributePayload
+              Prelude.<$> attributePayload,
+            ("expectedVersion" Core..=)
+              Prelude.<$> expectedVersion
           ]
       )
 

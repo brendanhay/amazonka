@@ -30,8 +30,8 @@ module Amazonka.CodeDeploy.RegisterOnPremisesInstance
     newRegisterOnPremisesInstance,
 
     -- * Request Lenses
-    registerOnPremisesInstance_iamUserArn,
     registerOnPremisesInstance_iamSessionArn,
+    registerOnPremisesInstance_iamUserArn,
     registerOnPremisesInstance_instanceName,
 
     -- * Destructuring the Response
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRegisterOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
-  { -- | The ARN of the IAM user to associate with the on-premises instance.
-    iamUserArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM session to associate with the on-premises instance.
+  { -- | The ARN of the IAM session to associate with the on-premises instance.
     iamSessionArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM user to associate with the on-premises instance.
+    iamUserArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the on-premises instance to register.
     instanceName :: Prelude.Text
   }
@@ -68,9 +68,9 @@ data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iamUserArn', 'registerOnPremisesInstance_iamUserArn' - The ARN of the IAM user to associate with the on-premises instance.
---
 -- 'iamSessionArn', 'registerOnPremisesInstance_iamSessionArn' - The ARN of the IAM session to associate with the on-premises instance.
+--
+-- 'iamUserArn', 'registerOnPremisesInstance_iamUserArn' - The ARN of the IAM user to associate with the on-premises instance.
 --
 -- 'instanceName', 'registerOnPremisesInstance_instanceName' - The name of the on-premises instance to register.
 newRegisterOnPremisesInstance ::
@@ -79,19 +79,19 @@ newRegisterOnPremisesInstance ::
   RegisterOnPremisesInstance
 newRegisterOnPremisesInstance pInstanceName_ =
   RegisterOnPremisesInstance'
-    { iamUserArn =
+    { iamSessionArn =
         Prelude.Nothing,
-      iamSessionArn = Prelude.Nothing,
+      iamUserArn = Prelude.Nothing,
       instanceName = pInstanceName_
     }
-
--- | The ARN of the IAM user to associate with the on-premises instance.
-registerOnPremisesInstance_iamUserArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
-registerOnPremisesInstance_iamUserArn = Lens.lens (\RegisterOnPremisesInstance' {iamUserArn} -> iamUserArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamUserArn = a} :: RegisterOnPremisesInstance)
 
 -- | The ARN of the IAM session to associate with the on-premises instance.
 registerOnPremisesInstance_iamSessionArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
 registerOnPremisesInstance_iamSessionArn = Lens.lens (\RegisterOnPremisesInstance' {iamSessionArn} -> iamSessionArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamSessionArn = a} :: RegisterOnPremisesInstance)
+
+-- | The ARN of the IAM user to associate with the on-premises instance.
+registerOnPremisesInstance_iamUserArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
+registerOnPremisesInstance_iamUserArn = Lens.lens (\RegisterOnPremisesInstance' {iamUserArn} -> iamUserArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamUserArn = a} :: RegisterOnPremisesInstance)
 
 -- | The name of the on-premises instance to register.
 registerOnPremisesInstance_instanceName :: Lens.Lens' RegisterOnPremisesInstance Prelude.Text
@@ -108,14 +108,14 @@ instance Core.AWSRequest RegisterOnPremisesInstance where
 
 instance Prelude.Hashable RegisterOnPremisesInstance where
   hashWithSalt _salt RegisterOnPremisesInstance' {..} =
-    _salt `Prelude.hashWithSalt` iamUserArn
-      `Prelude.hashWithSalt` iamSessionArn
+    _salt `Prelude.hashWithSalt` iamSessionArn
+      `Prelude.hashWithSalt` iamUserArn
       `Prelude.hashWithSalt` instanceName
 
 instance Prelude.NFData RegisterOnPremisesInstance where
   rnf RegisterOnPremisesInstance' {..} =
-    Prelude.rnf iamUserArn
-      `Prelude.seq` Prelude.rnf iamSessionArn
+    Prelude.rnf iamSessionArn
+      `Prelude.seq` Prelude.rnf iamUserArn
       `Prelude.seq` Prelude.rnf instanceName
 
 instance Core.ToHeaders RegisterOnPremisesInstance where
@@ -137,8 +137,8 @@ instance Core.ToJSON RegisterOnPremisesInstance where
   toJSON RegisterOnPremisesInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("iamUserArn" Core..=) Prelude.<$> iamUserArn,
-            ("iamSessionArn" Core..=) Prelude.<$> iamSessionArn,
+          [ ("iamSessionArn" Core..=) Prelude.<$> iamSessionArn,
+            ("iamUserArn" Core..=) Prelude.<$> iamUserArn,
             Prelude.Just ("instanceName" Core..= instanceName)
           ]
       )

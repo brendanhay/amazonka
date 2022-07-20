@@ -17,10 +17,10 @@ module Amazonka.IoTDeviceAdvisor.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
-    _ConflictException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ValidationException,
 
     -- * Status
     Status (..),
@@ -31,66 +31,66 @@ module Amazonka.IoTDeviceAdvisor.Types
     -- * DeviceUnderTest
     DeviceUnderTest (..),
     newDeviceUnderTest,
-    deviceUnderTest_certificateArn,
     deviceUnderTest_thingArn,
+    deviceUnderTest_certificateArn,
 
     -- * GroupResult
     GroupResult (..),
     newGroupResult,
     groupResult_tests,
-    groupResult_groupId,
     groupResult_groupName,
+    groupResult_groupId,
 
     -- * SuiteDefinitionConfiguration
     SuiteDefinitionConfiguration (..),
     newSuiteDefinitionConfiguration,
+    suiteDefinitionConfiguration_rootGroup,
+    suiteDefinitionConfiguration_devices,
     suiteDefinitionConfiguration_suiteDefinitionName,
     suiteDefinitionConfiguration_intendedForQualification,
     suiteDefinitionConfiguration_devicePermissionRoleArn,
-    suiteDefinitionConfiguration_devices,
-    suiteDefinitionConfiguration_rootGroup,
 
     -- * SuiteDefinitionInformation
     SuiteDefinitionInformation (..),
     newSuiteDefinitionInformation,
-    suiteDefinitionInformation_createdAt,
-    suiteDefinitionInformation_defaultDevices,
-    suiteDefinitionInformation_suiteDefinitionId,
     suiteDefinitionInformation_suiteDefinitionName,
+    suiteDefinitionInformation_defaultDevices,
     suiteDefinitionInformation_intendedForQualification,
+    suiteDefinitionInformation_suiteDefinitionId,
+    suiteDefinitionInformation_createdAt,
 
     -- * SuiteRunConfiguration
     SuiteRunConfiguration (..),
     newSuiteRunConfiguration,
-    suiteRunConfiguration_primaryDevice,
     suiteRunConfiguration_selectedTestList,
+    suiteRunConfiguration_primaryDevice,
 
     -- * SuiteRunInformation
     SuiteRunInformation (..),
     newSuiteRunInformation,
+    suiteRunInformation_failed,
+    suiteRunInformation_endAt,
     suiteRunInformation_status,
-    suiteRunInformation_createdAt,
+    suiteRunInformation_suiteDefinitionName,
+    suiteRunInformation_startedAt,
+    suiteRunInformation_suiteDefinitionVersion,
     suiteRunInformation_passed,
     suiteRunInformation_suiteDefinitionId,
-    suiteRunInformation_suiteDefinitionVersion,
-    suiteRunInformation_startedAt,
-    suiteRunInformation_suiteDefinitionName,
-    suiteRunInformation_endAt,
+    suiteRunInformation_createdAt,
     suiteRunInformation_suiteRunId,
-    suiteRunInformation_failed,
 
     -- * TestCaseRun
     TestCaseRun (..),
     newTestCaseRun,
-    testCaseRun_status,
-    testCaseRun_logUrl,
-    testCaseRun_startTime,
-    testCaseRun_testCaseRunId,
-    testCaseRun_warnings,
-    testCaseRun_endTime,
     testCaseRun_testCaseDefinitionId,
+    testCaseRun_logUrl,
+    testCaseRun_status,
+    testCaseRun_endTime,
     testCaseRun_failure,
     testCaseRun_testCaseDefinitionName,
+    testCaseRun_warnings,
+    testCaseRun_testCaseRunId,
+    testCaseRun_startTime,
 
     -- * TestResult
     TestResult (..),
@@ -141,35 +141,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -178,29 +151,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Sends invalid request exception.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | Sends Conflict Exception.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 400
 
 -- | Sends Internal Failure Exception.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -217,3 +201,19 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | Sends Conflict Exception.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 400
+
+-- | Sends invalid request exception.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

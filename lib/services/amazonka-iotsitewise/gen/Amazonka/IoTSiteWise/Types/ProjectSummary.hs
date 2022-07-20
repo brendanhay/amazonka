@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
-  { -- | The date the project was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Core.POSIX,
-    -- | The date the project was created, in Unix epoch time.
+  { -- | The date the project was created, in Unix epoch time.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The date the project was last updated, in Unix epoch time.
+    lastUpdateDate :: Prelude.Maybe Core.POSIX,
     -- | The project\'s description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the project.
@@ -48,9 +48,9 @@ data ProjectSummary = ProjectSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdateDate', 'projectSummary_lastUpdateDate' - The date the project was last updated, in Unix epoch time.
---
 -- 'creationDate', 'projectSummary_creationDate' - The date the project was created, in Unix epoch time.
+--
+-- 'lastUpdateDate', 'projectSummary_lastUpdateDate' - The date the project was last updated, in Unix epoch time.
 --
 -- 'description', 'projectSummary_description' - The project\'s description.
 --
@@ -65,20 +65,20 @@ newProjectSummary ::
   ProjectSummary
 newProjectSummary pId_ pName_ =
   ProjectSummary'
-    { lastUpdateDate = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+    { creationDate = Prelude.Nothing,
+      lastUpdateDate = Prelude.Nothing,
       description = Prelude.Nothing,
       id = pId_,
       name = pName_
     }
 
--- | The date the project was last updated, in Unix epoch time.
-projectSummary_lastUpdateDate :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.UTCTime)
-projectSummary_lastUpdateDate = Lens.lens (\ProjectSummary' {lastUpdateDate} -> lastUpdateDate) (\s@ProjectSummary' {} a -> s {lastUpdateDate = a} :: ProjectSummary) Prelude.. Lens.mapping Core._Time
-
 -- | The date the project was created, in Unix epoch time.
 projectSummary_creationDate :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.UTCTime)
 projectSummary_creationDate = Lens.lens (\ProjectSummary' {creationDate} -> creationDate) (\s@ProjectSummary' {} a -> s {creationDate = a} :: ProjectSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The date the project was last updated, in Unix epoch time.
+projectSummary_lastUpdateDate :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.UTCTime)
+projectSummary_lastUpdateDate = Lens.lens (\ProjectSummary' {lastUpdateDate} -> lastUpdateDate) (\s@ProjectSummary' {} a -> s {lastUpdateDate = a} :: ProjectSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The project\'s description.
 projectSummary_description :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
@@ -98,8 +98,8 @@ instance Core.FromJSON ProjectSummary where
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "lastUpdateDate")
-            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<$> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "lastUpdateDate")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "name")
@@ -107,16 +107,16 @@ instance Core.FromJSON ProjectSummary where
 
 instance Prelude.Hashable ProjectSummary where
   hashWithSalt _salt ProjectSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdateDate
-      `Prelude.hashWithSalt` creationDate
+    _salt `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastUpdateDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ProjectSummary where
   rnf ProjectSummary' {..} =
-    Prelude.rnf lastUpdateDate
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastUpdateDate
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name

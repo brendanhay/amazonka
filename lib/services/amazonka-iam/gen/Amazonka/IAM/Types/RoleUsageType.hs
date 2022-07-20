@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRoleUsageType' smart constructor.
 data RoleUsageType = RoleUsageType'
-  { -- | The name of the resource that is using the service-linked role.
-    resources :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the Region where the service-linked role is being used.
-    region :: Prelude.Maybe Prelude.Text
+  { -- | The name of the Region where the service-linked role is being used.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource that is using the service-linked role.
+    resources :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,39 +46,39 @@ data RoleUsageType = RoleUsageType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'roleUsageType_resources' - The name of the resource that is using the service-linked role.
---
 -- 'region', 'roleUsageType_region' - The name of the Region where the service-linked role is being used.
+--
+-- 'resources', 'roleUsageType_resources' - The name of the resource that is using the service-linked role.
 newRoleUsageType ::
   RoleUsageType
 newRoleUsageType =
   RoleUsageType'
-    { resources = Prelude.Nothing,
-      region = Prelude.Nothing
+    { region = Prelude.Nothing,
+      resources = Prelude.Nothing
     }
-
--- | The name of the resource that is using the service-linked role.
-roleUsageType_resources :: Lens.Lens' RoleUsageType (Prelude.Maybe [Prelude.Text])
-roleUsageType_resources = Lens.lens (\RoleUsageType' {resources} -> resources) (\s@RoleUsageType' {} a -> s {resources = a} :: RoleUsageType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Region where the service-linked role is being used.
 roleUsageType_region :: Lens.Lens' RoleUsageType (Prelude.Maybe Prelude.Text)
 roleUsageType_region = Lens.lens (\RoleUsageType' {region} -> region) (\s@RoleUsageType' {} a -> s {region = a} :: RoleUsageType)
 
+-- | The name of the resource that is using the service-linked role.
+roleUsageType_resources :: Lens.Lens' RoleUsageType (Prelude.Maybe [Prelude.Text])
+roleUsageType_resources = Lens.lens (\RoleUsageType' {resources} -> resources) (\s@RoleUsageType' {} a -> s {resources = a} :: RoleUsageType) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML RoleUsageType where
   parseXML x =
     RoleUsageType'
-      Prelude.<$> ( x Core..@? "Resources" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "Region")
+      Prelude.<*> ( x Core..@? "Resources" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Region")
 
 instance Prelude.Hashable RoleUsageType where
   hashWithSalt _salt RoleUsageType' {..} =
-    _salt `Prelude.hashWithSalt` resources
-      `Prelude.hashWithSalt` region
+    _salt `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData RoleUsageType where
   rnf RoleUsageType' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf region
+      `Prelude.seq` Prelude.rnf resources

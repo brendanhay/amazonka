@@ -36,8 +36,8 @@ module Amazonka.ImageBuilder.CancelImageCreation
     newCancelImageCreationResponse,
 
     -- * Response Lenses
-    cancelImageCreationResponse_requestId,
     cancelImageCreationResponse_clientToken,
+    cancelImageCreationResponse_requestId,
     cancelImageCreationResponse_imageBuildVersionArn,
     cancelImageCreationResponse_httpStatus,
   )
@@ -105,8 +105,8 @@ instance Core.AWSRequest CancelImageCreation where
     Response.receiveJSON
       ( \s h x ->
           CancelImageCreationResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "clientToken")
+            Prelude.<$> (x Core..?> "clientToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (x Core..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -152,10 +152,10 @@ instance Core.ToQuery CancelImageCreation where
 
 -- | /See:/ 'newCancelImageCreationResponse' smart constructor.
 data CancelImageCreationResponse = CancelImageCreationResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token used to make this request idempotent.
+  { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image whose creation has been
     -- cancelled.
     imageBuildVersionArn :: Prelude.Maybe Prelude.Text,
@@ -172,9 +172,9 @@ data CancelImageCreationResponse = CancelImageCreationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'cancelImageCreationResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'clientToken', 'cancelImageCreationResponse_clientToken' - The idempotency token used to make this request idempotent.
+--
+-- 'requestId', 'cancelImageCreationResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'imageBuildVersionArn', 'cancelImageCreationResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image whose creation has been
 -- cancelled.
@@ -186,20 +186,20 @@ newCancelImageCreationResponse ::
   CancelImageCreationResponse
 newCancelImageCreationResponse pHttpStatus_ =
   CancelImageCreationResponse'
-    { requestId =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       imageBuildVersionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The request ID that uniquely identifies this request.
-cancelImageCreationResponse_requestId :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
-cancelImageCreationResponse_requestId = Lens.lens (\CancelImageCreationResponse' {requestId} -> requestId) (\s@CancelImageCreationResponse' {} a -> s {requestId = a} :: CancelImageCreationResponse)
-
 -- | The idempotency token used to make this request idempotent.
 cancelImageCreationResponse_clientToken :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
 cancelImageCreationResponse_clientToken = Lens.lens (\CancelImageCreationResponse' {clientToken} -> clientToken) (\s@CancelImageCreationResponse' {} a -> s {clientToken = a} :: CancelImageCreationResponse)
+
+-- | The request ID that uniquely identifies this request.
+cancelImageCreationResponse_requestId :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
+cancelImageCreationResponse_requestId = Lens.lens (\CancelImageCreationResponse' {requestId} -> requestId) (\s@CancelImageCreationResponse' {} a -> s {requestId = a} :: CancelImageCreationResponse)
 
 -- | The Amazon Resource Name (ARN) of the image whose creation has been
 -- cancelled.
@@ -212,7 +212,7 @@ cancelImageCreationResponse_httpStatus = Lens.lens (\CancelImageCreationResponse
 
 instance Prelude.NFData CancelImageCreationResponse where
   rnf CancelImageCreationResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imageBuildVersionArn
       `Prelude.seq` Prelude.rnf httpStatus

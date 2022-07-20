@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentLabel' smart constructor.
 data DocumentLabel = DocumentLabel'
-  { -- | The confidence score that Amazon Comprehend has this label correctly
+  { -- | The name of the label.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The confidence score that Amazon Comprehend has this label correctly
     -- attributed.
-    score :: Prelude.Maybe Prelude.Double,
-    -- | The name of the label.
-    name :: Prelude.Maybe Prelude.Text
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data DocumentLabel = DocumentLabel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'documentLabel_name' - The name of the label.
+--
 -- 'score', 'documentLabel_score' - The confidence score that Amazon Comprehend has this label correctly
 -- attributed.
---
--- 'name', 'documentLabel_name' - The name of the label.
 newDocumentLabel ::
   DocumentLabel
 newDocumentLabel =
   DocumentLabel'
-    { score = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      score = Prelude.Nothing
     }
+
+-- | The name of the label.
+documentLabel_name :: Lens.Lens' DocumentLabel (Prelude.Maybe Prelude.Text)
+documentLabel_name = Lens.lens (\DocumentLabel' {name} -> name) (\s@DocumentLabel' {} a -> s {name = a} :: DocumentLabel)
 
 -- | The confidence score that Amazon Comprehend has this label correctly
 -- attributed.
 documentLabel_score :: Lens.Lens' DocumentLabel (Prelude.Maybe Prelude.Double)
 documentLabel_score = Lens.lens (\DocumentLabel' {score} -> score) (\s@DocumentLabel' {} a -> s {score = a} :: DocumentLabel)
-
--- | The name of the label.
-documentLabel_name :: Lens.Lens' DocumentLabel (Prelude.Maybe Prelude.Text)
-documentLabel_name = Lens.lens (\DocumentLabel' {name} -> name) (\s@DocumentLabel' {} a -> s {name = a} :: DocumentLabel)
 
 instance Core.FromJSON DocumentLabel where
   parseJSON =
@@ -71,14 +71,14 @@ instance Core.FromJSON DocumentLabel where
       "DocumentLabel"
       ( \x ->
           DocumentLabel'
-            Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
       )
 
 instance Prelude.Hashable DocumentLabel where
   hashWithSalt _salt DocumentLabel' {..} =
-    _salt `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData DocumentLabel where
   rnf DocumentLabel' {..} =
-    Prelude.rnf score `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf score

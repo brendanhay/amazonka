@@ -35,7 +35,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
-  { -- | The value of the filter.
+  { -- | The name of the filter.
+    --
+    -- Specify @Finding@ to return recommendations with a specific finding
+    -- classification (for example, @Underprovisioned@).
+    --
+    -- Specify @RecommendationSourceType@ to return recommendations of a
+    -- specific resource type (for example, @Ec2Instance@).
+    --
+    -- Specify @FindingReasonCodes@ to return recommendations with a specific
+    -- finding reason code (for example, @CPUUnderprovisioned@).
+    name :: Prelude.Maybe FilterName,
+    -- | The value of the filter.
     --
     -- The valid values for this parameter are as follows, depending on what
     -- you specify for the @name@ parameter and the resource type that you wish
@@ -128,18 +139,7 @@ data Filter = Filter'
     --         throughput configuration doesn\'t meet the performance
     --         requirements of your workload and there is an alternative
     --         instance type that provides better disk throughput performance.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the filter.
-    --
-    -- Specify @Finding@ to return recommendations with a specific finding
-    -- classification (for example, @Underprovisioned@).
-    --
-    -- Specify @RecommendationSourceType@ to return recommendations of a
-    -- specific resource type (for example, @Ec2Instance@).
-    --
-    -- Specify @FindingReasonCodes@ to return recommendations with a specific
-    -- finding reason code (for example, @CPUUnderprovisioned@).
-    name :: Prelude.Maybe FilterName
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -150,6 +150,17 @@ data Filter = Filter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'name', 'filter_name' - The name of the filter.
+--
+-- Specify @Finding@ to return recommendations with a specific finding
+-- classification (for example, @Underprovisioned@).
+--
+-- Specify @RecommendationSourceType@ to return recommendations of a
+-- specific resource type (for example, @Ec2Instance@).
+--
+-- Specify @FindingReasonCodes@ to return recommendations with a specific
+-- finding reason code (for example, @CPUUnderprovisioned@).
 --
 -- 'values', 'filter_values' - The value of the filter.
 --
@@ -244,8 +255,15 @@ data Filter = Filter'
 --         throughput configuration doesn\'t meet the performance
 --         requirements of your workload and there is an alternative
 --         instance type that provides better disk throughput performance.
---
--- 'name', 'filter_name' - The name of the filter.
+newFilter ::
+  Filter
+newFilter =
+  Filter'
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
+    }
+
+-- | The name of the filter.
 --
 -- Specify @Finding@ to return recommendations with a specific finding
 -- classification (for example, @Underprovisioned@).
@@ -255,13 +273,8 @@ data Filter = Filter'
 --
 -- Specify @FindingReasonCodes@ to return recommendations with a specific
 -- finding reason code (for example, @CPUUnderprovisioned@).
-newFilter ::
-  Filter
-newFilter =
-  Filter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
-    }
+filter_name :: Lens.Lens' Filter (Prelude.Maybe FilterName)
+filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
 -- | The value of the filter.
 --
@@ -359,33 +372,20 @@ newFilter =
 filter_values :: Lens.Lens' Filter (Prelude.Maybe [Prelude.Text])
 filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the filter.
---
--- Specify @Finding@ to return recommendations with a specific finding
--- classification (for example, @Underprovisioned@).
---
--- Specify @RecommendationSourceType@ to return recommendations of a
--- specific resource type (for example, @Ec2Instance@).
---
--- Specify @FindingReasonCodes@ to return recommendations with a specific
--- finding reason code (for example, @CPUUnderprovisioned@).
-filter_name :: Lens.Lens' Filter (Prelude.Maybe FilterName)
-filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
-
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

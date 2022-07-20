@@ -52,6 +52,18 @@ data ProvisioningPreferences = ProvisioningPreferences'
     -- If no values are specified, the default value is all regions from the
     -- @STACKSET@ constraint.
     stackSetRegions :: Prelude.Maybe [Prelude.Text],
+    -- | The number of accounts, per region, for which this operation can fail
+    -- before AWS Service Catalog stops the operation in that region. If the
+    -- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
+    -- the operation in any subsequent regions.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    --
+    -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+    -- @StackSetFailureTolerancePercentage@, but not both.
+    --
+    -- The default value is @0@ if no value is specified.
+    stackSetFailureToleranceCount :: Prelude.Maybe Prelude.Natural,
     -- | The maximum percentage of accounts in which to perform this operation at
     -- one time.
     --
@@ -69,31 +81,6 @@ data ProvisioningPreferences = ProvisioningPreferences'
     -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
     -- @StackSetMaxConcurrentPercentage@, but not both.
     stackSetMaxConcurrencyPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | The number of accounts, per region, for which this operation can fail
-    -- before AWS Service Catalog stops the operation in that region. If the
-    -- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
-    -- the operation in any subsequent regions.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    --
-    -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
-    -- @StackSetFailureTolerancePercentage@, but not both.
-    --
-    -- The default value is @0@ if no value is specified.
-    stackSetFailureToleranceCount :: Prelude.Maybe Prelude.Natural,
-    -- | The percentage of accounts, per region, for which this stack operation
-    -- can fail before AWS Service Catalog stops the operation in that region.
-    -- If the operation is stopped in a region, AWS Service Catalog doesn\'t
-    -- attempt the operation in any subsequent regions.
-    --
-    -- When calculating the number of accounts based on the specified
-    -- percentage, AWS Service Catalog rounds down to the next whole number.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    --
-    -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
-    -- @StackSetFailureTolerancePercentage@, but not both.
-    stackSetFailureTolerancePercentage :: Prelude.Maybe Prelude.Natural,
     -- | One or more AWS accounts where the provisioned product will be
     -- available.
     --
@@ -119,7 +106,20 @@ data ProvisioningPreferences = ProvisioningPreferences'
     --
     -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
     -- @StackSetMaxConcurrentPercentage@, but not both.
-    stackSetMaxConcurrencyCount :: Prelude.Maybe Prelude.Natural
+    stackSetMaxConcurrencyCount :: Prelude.Maybe Prelude.Natural,
+    -- | The percentage of accounts, per region, for which this stack operation
+    -- can fail before AWS Service Catalog stops the operation in that region.
+    -- If the operation is stopped in a region, AWS Service Catalog doesn\'t
+    -- attempt the operation in any subsequent regions.
+    --
+    -- When calculating the number of accounts based on the specified
+    -- percentage, AWS Service Catalog rounds down to the next whole number.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    --
+    -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+    -- @StackSetFailureTolerancePercentage@, but not both.
+    stackSetFailureTolerancePercentage :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,6 +142,18 @@ data ProvisioningPreferences = ProvisioningPreferences'
 -- If no values are specified, the default value is all regions from the
 -- @STACKSET@ constraint.
 --
+-- 'stackSetFailureToleranceCount', 'provisioningPreferences_stackSetFailureToleranceCount' - The number of accounts, per region, for which this operation can fail
+-- before AWS Service Catalog stops the operation in that region. If the
+-- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
+-- the operation in any subsequent regions.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+-- @StackSetFailureTolerancePercentage@, but not both.
+--
+-- The default value is @0@ if no value is specified.
+--
 -- 'stackSetMaxConcurrencyPercentage', 'provisioningPreferences_stackSetMaxConcurrencyPercentage' - The maximum percentage of accounts in which to perform this operation at
 -- one time.
 --
@@ -158,31 +170,6 @@ data ProvisioningPreferences = ProvisioningPreferences'
 --
 -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
 -- @StackSetMaxConcurrentPercentage@, but not both.
---
--- 'stackSetFailureToleranceCount', 'provisioningPreferences_stackSetFailureToleranceCount' - The number of accounts, per region, for which this operation can fail
--- before AWS Service Catalog stops the operation in that region. If the
--- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
--- the operation in any subsequent regions.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetFailureToleranceCount@ or
--- @StackSetFailureTolerancePercentage@, but not both.
---
--- The default value is @0@ if no value is specified.
---
--- 'stackSetFailureTolerancePercentage', 'provisioningPreferences_stackSetFailureTolerancePercentage' - The percentage of accounts, per region, for which this stack operation
--- can fail before AWS Service Catalog stops the operation in that region.
--- If the operation is stopped in a region, AWS Service Catalog doesn\'t
--- attempt the operation in any subsequent regions.
---
--- When calculating the number of accounts based on the specified
--- percentage, AWS Service Catalog rounds down to the next whole number.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetFailureToleranceCount@ or
--- @StackSetFailureTolerancePercentage@, but not both.
 --
 -- 'stackSetAccounts', 'provisioningPreferences_stackSetAccounts' - One or more AWS accounts where the provisioned product will be
 -- available.
@@ -209,18 +196,31 @@ data ProvisioningPreferences = ProvisioningPreferences'
 --
 -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
 -- @StackSetMaxConcurrentPercentage@, but not both.
+--
+-- 'stackSetFailureTolerancePercentage', 'provisioningPreferences_stackSetFailureTolerancePercentage' - The percentage of accounts, per region, for which this stack operation
+-- can fail before AWS Service Catalog stops the operation in that region.
+-- If the operation is stopped in a region, AWS Service Catalog doesn\'t
+-- attempt the operation in any subsequent regions.
+--
+-- When calculating the number of accounts based on the specified
+-- percentage, AWS Service Catalog rounds down to the next whole number.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+-- @StackSetFailureTolerancePercentage@, but not both.
 newProvisioningPreferences ::
   ProvisioningPreferences
 newProvisioningPreferences =
   ProvisioningPreferences'
     { stackSetRegions =
         Prelude.Nothing,
-      stackSetMaxConcurrencyPercentage = Prelude.Nothing,
       stackSetFailureToleranceCount = Prelude.Nothing,
-      stackSetFailureTolerancePercentage =
-        Prelude.Nothing,
+      stackSetMaxConcurrencyPercentage = Prelude.Nothing,
       stackSetAccounts = Prelude.Nothing,
-      stackSetMaxConcurrencyCount = Prelude.Nothing
+      stackSetMaxConcurrencyCount = Prelude.Nothing,
+      stackSetFailureTolerancePercentage =
+        Prelude.Nothing
     }
 
 -- | One or more AWS Regions where the provisioned product will be available.
@@ -235,6 +235,20 @@ newProvisioningPreferences =
 -- @STACKSET@ constraint.
 provisioningPreferences_stackSetRegions :: Lens.Lens' ProvisioningPreferences (Prelude.Maybe [Prelude.Text])
 provisioningPreferences_stackSetRegions = Lens.lens (\ProvisioningPreferences' {stackSetRegions} -> stackSetRegions) (\s@ProvisioningPreferences' {} a -> s {stackSetRegions = a} :: ProvisioningPreferences) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of accounts, per region, for which this operation can fail
+-- before AWS Service Catalog stops the operation in that region. If the
+-- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
+-- the operation in any subsequent regions.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+-- @StackSetFailureTolerancePercentage@, but not both.
+--
+-- The default value is @0@ if no value is specified.
+provisioningPreferences_stackSetFailureToleranceCount :: Lens.Lens' ProvisioningPreferences (Prelude.Maybe Prelude.Natural)
+provisioningPreferences_stackSetFailureToleranceCount = Lens.lens (\ProvisioningPreferences' {stackSetFailureToleranceCount} -> stackSetFailureToleranceCount) (\s@ProvisioningPreferences' {} a -> s {stackSetFailureToleranceCount = a} :: ProvisioningPreferences)
 
 -- | The maximum percentage of accounts in which to perform this operation at
 -- one time.
@@ -254,35 +268,6 @@ provisioningPreferences_stackSetRegions = Lens.lens (\ProvisioningPreferences' {
 -- @StackSetMaxConcurrentPercentage@, but not both.
 provisioningPreferences_stackSetMaxConcurrencyPercentage :: Lens.Lens' ProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 provisioningPreferences_stackSetMaxConcurrencyPercentage = Lens.lens (\ProvisioningPreferences' {stackSetMaxConcurrencyPercentage} -> stackSetMaxConcurrencyPercentage) (\s@ProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyPercentage = a} :: ProvisioningPreferences)
-
--- | The number of accounts, per region, for which this operation can fail
--- before AWS Service Catalog stops the operation in that region. If the
--- operation is stopped in a region, AWS Service Catalog doesn\'t attempt
--- the operation in any subsequent regions.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetFailureToleranceCount@ or
--- @StackSetFailureTolerancePercentage@, but not both.
---
--- The default value is @0@ if no value is specified.
-provisioningPreferences_stackSetFailureToleranceCount :: Lens.Lens' ProvisioningPreferences (Prelude.Maybe Prelude.Natural)
-provisioningPreferences_stackSetFailureToleranceCount = Lens.lens (\ProvisioningPreferences' {stackSetFailureToleranceCount} -> stackSetFailureToleranceCount) (\s@ProvisioningPreferences' {} a -> s {stackSetFailureToleranceCount = a} :: ProvisioningPreferences)
-
--- | The percentage of accounts, per region, for which this stack operation
--- can fail before AWS Service Catalog stops the operation in that region.
--- If the operation is stopped in a region, AWS Service Catalog doesn\'t
--- attempt the operation in any subsequent regions.
---
--- When calculating the number of accounts based on the specified
--- percentage, AWS Service Catalog rounds down to the next whole number.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetFailureToleranceCount@ or
--- @StackSetFailureTolerancePercentage@, but not both.
-provisioningPreferences_stackSetFailureTolerancePercentage :: Lens.Lens' ProvisioningPreferences (Prelude.Maybe Prelude.Natural)
-provisioningPreferences_stackSetFailureTolerancePercentage = Lens.lens (\ProvisioningPreferences' {stackSetFailureTolerancePercentage} -> stackSetFailureTolerancePercentage) (\s@ProvisioningPreferences' {} a -> s {stackSetFailureTolerancePercentage = a} :: ProvisioningPreferences)
 
 -- | One or more AWS accounts where the provisioned product will be
 -- available.
@@ -314,23 +299,38 @@ provisioningPreferences_stackSetAccounts = Lens.lens (\ProvisioningPreferences' 
 provisioningPreferences_stackSetMaxConcurrencyCount :: Lens.Lens' ProvisioningPreferences (Prelude.Maybe Prelude.Natural)
 provisioningPreferences_stackSetMaxConcurrencyCount = Lens.lens (\ProvisioningPreferences' {stackSetMaxConcurrencyCount} -> stackSetMaxConcurrencyCount) (\s@ProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyCount = a} :: ProvisioningPreferences)
 
+-- | The percentage of accounts, per region, for which this stack operation
+-- can fail before AWS Service Catalog stops the operation in that region.
+-- If the operation is stopped in a region, AWS Service Catalog doesn\'t
+-- attempt the operation in any subsequent regions.
+--
+-- When calculating the number of accounts based on the specified
+-- percentage, AWS Service Catalog rounds down to the next whole number.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+-- @StackSetFailureTolerancePercentage@, but not both.
+provisioningPreferences_stackSetFailureTolerancePercentage :: Lens.Lens' ProvisioningPreferences (Prelude.Maybe Prelude.Natural)
+provisioningPreferences_stackSetFailureTolerancePercentage = Lens.lens (\ProvisioningPreferences' {stackSetFailureTolerancePercentage} -> stackSetFailureTolerancePercentage) (\s@ProvisioningPreferences' {} a -> s {stackSetFailureTolerancePercentage = a} :: ProvisioningPreferences)
+
 instance Prelude.Hashable ProvisioningPreferences where
   hashWithSalt _salt ProvisioningPreferences' {..} =
     _salt `Prelude.hashWithSalt` stackSetRegions
-      `Prelude.hashWithSalt` stackSetMaxConcurrencyPercentage
       `Prelude.hashWithSalt` stackSetFailureToleranceCount
-      `Prelude.hashWithSalt` stackSetFailureTolerancePercentage
+      `Prelude.hashWithSalt` stackSetMaxConcurrencyPercentage
       `Prelude.hashWithSalt` stackSetAccounts
       `Prelude.hashWithSalt` stackSetMaxConcurrencyCount
+      `Prelude.hashWithSalt` stackSetFailureTolerancePercentage
 
 instance Prelude.NFData ProvisioningPreferences where
   rnf ProvisioningPreferences' {..} =
     Prelude.rnf stackSetRegions
-      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyPercentage
       `Prelude.seq` Prelude.rnf stackSetFailureToleranceCount
-      `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
+      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyPercentage
       `Prelude.seq` Prelude.rnf stackSetAccounts
       `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
+      `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
 
 instance Core.ToJSON ProvisioningPreferences where
   toJSON ProvisioningPreferences' {..} =
@@ -338,15 +338,15 @@ instance Core.ToJSON ProvisioningPreferences where
       ( Prelude.catMaybes
           [ ("StackSetRegions" Core..=)
               Prelude.<$> stackSetRegions,
-            ("StackSetMaxConcurrencyPercentage" Core..=)
-              Prelude.<$> stackSetMaxConcurrencyPercentage,
             ("StackSetFailureToleranceCount" Core..=)
               Prelude.<$> stackSetFailureToleranceCount,
-            ("StackSetFailureTolerancePercentage" Core..=)
-              Prelude.<$> stackSetFailureTolerancePercentage,
+            ("StackSetMaxConcurrencyPercentage" Core..=)
+              Prelude.<$> stackSetMaxConcurrencyPercentage,
             ("StackSetAccounts" Core..=)
               Prelude.<$> stackSetAccounts,
             ("StackSetMaxConcurrencyCount" Core..=)
-              Prelude.<$> stackSetMaxConcurrencyCount
+              Prelude.<$> stackSetMaxConcurrencyCount,
+            ("StackSetFailureTolerancePercentage" Core..=)
+              Prelude.<$> stackSetFailureTolerancePercentage
           ]
       )

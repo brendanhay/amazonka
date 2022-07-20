@@ -30,29 +30,23 @@ module Amazonka.LexRuntime
     -- * Errors
     -- $errors
 
-    -- ** NotAcceptableException
-    _NotAcceptableException,
-
-    -- ** DependencyFailedException
-    _DependencyFailedException,
-
     -- ** UnsupportedMediaTypeException
     _UnsupportedMediaTypeException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** RequestTimeoutException
-    _RequestTimeoutException,
+    -- ** DependencyFailedException
+    _DependencyFailedException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** LoopDetectedException
     _LoopDetectedException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** BadGatewayException
     _BadGatewayException,
@@ -60,8 +54,14 @@ module Amazonka.LexRuntime
     -- ** BadRequestException
     _BadRequestException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** RequestTimeoutException
+    _RequestTimeoutException,
+
+    -- ** NotAcceptableException
+    _NotAcceptableException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -69,23 +69,17 @@ module Amazonka.LexRuntime
     -- * Operations
     -- $operations
 
-    -- ** PutSession
-    PutSession (PutSession'),
-    newPutSession,
-    PutSessionResponse (PutSessionResponse'),
-    newPutSessionResponse,
-
     -- ** DeleteSession
     DeleteSession (DeleteSession'),
     newDeleteSession,
     DeleteSessionResponse (DeleteSessionResponse'),
     newDeleteSessionResponse,
 
-    -- ** PostText
-    PostText (PostText'),
-    newPostText,
-    PostTextResponse (PostTextResponse'),
-    newPostTextResponse,
+    -- ** GetSession
+    GetSession (GetSession'),
+    newGetSession,
+    GetSessionResponse (GetSessionResponse'),
+    newGetSessionResponse,
 
     -- ** PostContent
     PostContent (PostContent'),
@@ -93,11 +87,17 @@ module Amazonka.LexRuntime
     PostContentResponse (PostContentResponse'),
     newPostContentResponse,
 
-    -- ** GetSession
-    GetSession (GetSession'),
-    newGetSession,
-    GetSessionResponse (GetSessionResponse'),
-    newGetSessionResponse,
+    -- ** PostText
+    PostText (PostText'),
+    newPostText,
+    PostTextResponse (PostTextResponse'),
+    newPostTextResponse,
+
+    -- ** PutSession
+    PutSession (PutSession'),
+    newPutSession,
+    PutSessionResponse (PutSessionResponse'),
+    newPutSessionResponse,
 
     -- * Types
 

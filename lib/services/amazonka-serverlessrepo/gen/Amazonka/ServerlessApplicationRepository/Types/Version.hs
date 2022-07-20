@@ -29,14 +29,14 @@ import Amazonka.ServerlessApplicationRepository.Types.ParameterDefinition
 --
 -- /See:/ 'newVersion' smart constructor.
 data Version = Version'
-  { -- | A link to a public repository for the source code of your application,
-    -- for example the URL of a specific GitHub commit.
-    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
-    -- | A link to the S3 object that contains the ZIP archive of the source code
+  { -- | A link to the S3 object that contains the ZIP archive of the source code
     -- for this version of your application.
     --
     -- Maximum size 50 MB
     sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to a public repository for the source code of your application,
+    -- for example the URL of a specific GitHub commit.
+    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
     -- | A link to the packaged AWS SAM template of your application.
     templateUrl :: Prelude.Text,
     -- | An array of parameter types supported by the application.
@@ -102,13 +102,13 @@ data Version = Version'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceCodeUrl', 'version_sourceCodeUrl' - A link to a public repository for the source code of your application,
--- for example the URL of a specific GitHub commit.
---
 -- 'sourceCodeArchiveUrl', 'version_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
 -- for this version of your application.
 --
 -- Maximum size 50 MB
+--
+-- 'sourceCodeUrl', 'version_sourceCodeUrl' - A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
 --
 -- 'templateUrl', 'version_templateUrl' - A link to the packaged AWS SAM template of your application.
 --
@@ -182,8 +182,8 @@ newVersion
   pApplicationId_
   pSemanticVersion_ =
     Version'
-      { sourceCodeUrl = Prelude.Nothing,
-        sourceCodeArchiveUrl = Prelude.Nothing,
+      { sourceCodeArchiveUrl = Prelude.Nothing,
+        sourceCodeUrl = Prelude.Nothing,
         templateUrl = pTemplateUrl_,
         parameterDefinitions = Prelude.mempty,
         resourcesSupported = pResourcesSupported_,
@@ -193,17 +193,17 @@ newVersion
         semanticVersion = pSemanticVersion_
       }
 
--- | A link to a public repository for the source code of your application,
--- for example the URL of a specific GitHub commit.
-version_sourceCodeUrl :: Lens.Lens' Version (Prelude.Maybe Prelude.Text)
-version_sourceCodeUrl = Lens.lens (\Version' {sourceCodeUrl} -> sourceCodeUrl) (\s@Version' {} a -> s {sourceCodeUrl = a} :: Version)
-
 -- | A link to the S3 object that contains the ZIP archive of the source code
 -- for this version of your application.
 --
 -- Maximum size 50 MB
 version_sourceCodeArchiveUrl :: Lens.Lens' Version (Prelude.Maybe Prelude.Text)
 version_sourceCodeArchiveUrl = Lens.lens (\Version' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@Version' {} a -> s {sourceCodeArchiveUrl = a} :: Version)
+
+-- | A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+version_sourceCodeUrl :: Lens.Lens' Version (Prelude.Maybe Prelude.Text)
+version_sourceCodeUrl = Lens.lens (\Version' {sourceCodeUrl} -> sourceCodeUrl) (\s@Version' {} a -> s {sourceCodeUrl = a} :: Version)
 
 -- | A link to the packaged AWS SAM template of your application.
 version_templateUrl :: Lens.Lens' Version Prelude.Text
@@ -279,8 +279,8 @@ instance Core.FromJSON Version where
       "Version"
       ( \x ->
           Version'
-            Prelude.<$> (x Core..:? "sourceCodeUrl")
-            Prelude.<*> (x Core..:? "sourceCodeArchiveUrl")
+            Prelude.<$> (x Core..:? "sourceCodeArchiveUrl")
+            Prelude.<*> (x Core..:? "sourceCodeUrl")
             Prelude.<*> (x Core..: "templateUrl")
             Prelude.<*> ( x Core..:? "parameterDefinitions"
                             Core..!= Prelude.mempty
@@ -296,8 +296,8 @@ instance Core.FromJSON Version where
 
 instance Prelude.Hashable Version where
   hashWithSalt _salt Version' {..} =
-    _salt `Prelude.hashWithSalt` sourceCodeUrl
-      `Prelude.hashWithSalt` sourceCodeArchiveUrl
+    _salt `Prelude.hashWithSalt` sourceCodeArchiveUrl
+      `Prelude.hashWithSalt` sourceCodeUrl
       `Prelude.hashWithSalt` templateUrl
       `Prelude.hashWithSalt` parameterDefinitions
       `Prelude.hashWithSalt` resourcesSupported
@@ -308,8 +308,8 @@ instance Prelude.Hashable Version where
 
 instance Prelude.NFData Version where
   rnf Version' {..} =
-    Prelude.rnf sourceCodeUrl
-      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
+    Prelude.rnf sourceCodeArchiveUrl
+      `Prelude.seq` Prelude.rnf sourceCodeUrl
       `Prelude.seq` Prelude.rnf templateUrl
       `Prelude.seq` Prelude.rnf parameterDefinitions
       `Prelude.seq` Prelude.rnf resourcesSupported

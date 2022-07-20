@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDecimalColumnStatisticsData' smart constructor.
 data DecimalColumnStatisticsData = DecimalColumnStatisticsData'
-  { -- | The highest value in the column.
-    maximumValue :: Prelude.Maybe DecimalNumber,
-    -- | The lowest value in the column.
+  { -- | The lowest value in the column.
     minimumValue :: Prelude.Maybe DecimalNumber,
+    -- | The highest value in the column.
+    maximumValue :: Prelude.Maybe DecimalNumber,
     -- | The number of null values in the column.
     numberOfNulls :: Prelude.Natural,
     -- | The number of distinct values in a column.
@@ -47,9 +47,9 @@ data DecimalColumnStatisticsData = DecimalColumnStatisticsData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maximumValue', 'decimalColumnStatisticsData_maximumValue' - The highest value in the column.
---
 -- 'minimumValue', 'decimalColumnStatisticsData_minimumValue' - The lowest value in the column.
+--
+-- 'maximumValue', 'decimalColumnStatisticsData_maximumValue' - The highest value in the column.
 --
 -- 'numberOfNulls', 'decimalColumnStatisticsData_numberOfNulls' - The number of null values in the column.
 --
@@ -64,21 +64,21 @@ newDecimalColumnStatisticsData
   pNumberOfNulls_
   pNumberOfDistinctValues_ =
     DecimalColumnStatisticsData'
-      { maximumValue =
+      { minimumValue =
           Prelude.Nothing,
-        minimumValue = Prelude.Nothing,
+        maximumValue = Prelude.Nothing,
         numberOfNulls = pNumberOfNulls_,
         numberOfDistinctValues =
           pNumberOfDistinctValues_
       }
 
--- | The highest value in the column.
-decimalColumnStatisticsData_maximumValue :: Lens.Lens' DecimalColumnStatisticsData (Prelude.Maybe DecimalNumber)
-decimalColumnStatisticsData_maximumValue = Lens.lens (\DecimalColumnStatisticsData' {maximumValue} -> maximumValue) (\s@DecimalColumnStatisticsData' {} a -> s {maximumValue = a} :: DecimalColumnStatisticsData)
-
 -- | The lowest value in the column.
 decimalColumnStatisticsData_minimumValue :: Lens.Lens' DecimalColumnStatisticsData (Prelude.Maybe DecimalNumber)
 decimalColumnStatisticsData_minimumValue = Lens.lens (\DecimalColumnStatisticsData' {minimumValue} -> minimumValue) (\s@DecimalColumnStatisticsData' {} a -> s {minimumValue = a} :: DecimalColumnStatisticsData)
+
+-- | The highest value in the column.
+decimalColumnStatisticsData_maximumValue :: Lens.Lens' DecimalColumnStatisticsData (Prelude.Maybe DecimalNumber)
+decimalColumnStatisticsData_maximumValue = Lens.lens (\DecimalColumnStatisticsData' {maximumValue} -> maximumValue) (\s@DecimalColumnStatisticsData' {} a -> s {maximumValue = a} :: DecimalColumnStatisticsData)
 
 -- | The number of null values in the column.
 decimalColumnStatisticsData_numberOfNulls :: Lens.Lens' DecimalColumnStatisticsData Prelude.Natural
@@ -94,23 +94,23 @@ instance Core.FromJSON DecimalColumnStatisticsData where
       "DecimalColumnStatisticsData"
       ( \x ->
           DecimalColumnStatisticsData'
-            Prelude.<$> (x Core..:? "MaximumValue")
-            Prelude.<*> (x Core..:? "MinimumValue")
+            Prelude.<$> (x Core..:? "MinimumValue")
+            Prelude.<*> (x Core..:? "MaximumValue")
             Prelude.<*> (x Core..: "NumberOfNulls")
             Prelude.<*> (x Core..: "NumberOfDistinctValues")
       )
 
 instance Prelude.Hashable DecimalColumnStatisticsData where
   hashWithSalt _salt DecimalColumnStatisticsData' {..} =
-    _salt `Prelude.hashWithSalt` maximumValue
-      `Prelude.hashWithSalt` minimumValue
+    _salt `Prelude.hashWithSalt` minimumValue
+      `Prelude.hashWithSalt` maximumValue
       `Prelude.hashWithSalt` numberOfNulls
       `Prelude.hashWithSalt` numberOfDistinctValues
 
 instance Prelude.NFData DecimalColumnStatisticsData where
   rnf DecimalColumnStatisticsData' {..} =
-    Prelude.rnf maximumValue
-      `Prelude.seq` Prelude.rnf minimumValue
+    Prelude.rnf minimumValue
+      `Prelude.seq` Prelude.rnf maximumValue
       `Prelude.seq` Prelude.rnf numberOfNulls
       `Prelude.seq` Prelude.rnf numberOfDistinctValues
 
@@ -118,8 +118,8 @@ instance Core.ToJSON DecimalColumnStatisticsData where
   toJSON DecimalColumnStatisticsData' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaximumValue" Core..=) Prelude.<$> maximumValue,
-            ("MinimumValue" Core..=) Prelude.<$> minimumValue,
+          [ ("MinimumValue" Core..=) Prelude.<$> minimumValue,
+            ("MaximumValue" Core..=) Prelude.<$> maximumValue,
             Prelude.Just ("NumberOfNulls" Core..= numberOfNulls),
             Prelude.Just
               ( "NumberOfDistinctValues"

@@ -27,9 +27,9 @@ module Amazonka.Location.UpdateGeofenceCollection
     newUpdateGeofenceCollection,
 
     -- * Request Lenses
-    updateGeofenceCollection_pricingPlan,
-    updateGeofenceCollection_pricingPlanDataSource,
     updateGeofenceCollection_description,
+    updateGeofenceCollection_pricingPlanDataSource,
+    updateGeofenceCollection_pricingPlan,
     updateGeofenceCollection_collectionName,
 
     -- * Destructuring the Response
@@ -53,11 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGeofenceCollection' smart constructor.
 data UpdateGeofenceCollection = UpdateGeofenceCollection'
-  { -- | Updates the pricing plan for the geofence collection.
-    --
-    -- For more information about each pricing plan option restrictions, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-    pricingPlan :: Prelude.Maybe PricingPlan,
+  { -- | Updates the description for the geofence collection.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Updates the data provider for the geofence collection.
     --
     -- A required value for the following pricing plans: @MobileAssetTracking@|
@@ -76,8 +73,11 @@ data UpdateGeofenceCollection = UpdateGeofenceCollection'
     -- the data provider, and will remain in your AWS account and Region unless
     -- you move it.
     pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | Updates the description for the geofence collection.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Updates the pricing plan for the geofence collection.
+    --
+    -- For more information about each pricing plan option restrictions, see
+    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the geofence collection to update.
     collectionName :: Prelude.Text
   }
@@ -91,10 +91,7 @@ data UpdateGeofenceCollection = UpdateGeofenceCollection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pricingPlan', 'updateGeofenceCollection_pricingPlan' - Updates the pricing plan for the geofence collection.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- 'description', 'updateGeofenceCollection_description' - Updates the description for the geofence collection.
 --
 -- 'pricingPlanDataSource', 'updateGeofenceCollection_pricingPlanDataSource' - Updates the data provider for the geofence collection.
 --
@@ -114,7 +111,10 @@ data UpdateGeofenceCollection = UpdateGeofenceCollection'
 -- the data provider, and will remain in your AWS account and Region unless
 -- you move it.
 --
--- 'description', 'updateGeofenceCollection_description' - Updates the description for the geofence collection.
+-- 'pricingPlan', 'updateGeofenceCollection_pricingPlan' - Updates the pricing plan for the geofence collection.
+--
+-- For more information about each pricing plan option restrictions, see
+-- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
 --
 -- 'collectionName', 'updateGeofenceCollection_collectionName' - The name of the geofence collection to update.
 newUpdateGeofenceCollection ::
@@ -123,19 +123,16 @@ newUpdateGeofenceCollection ::
   UpdateGeofenceCollection
 newUpdateGeofenceCollection pCollectionName_ =
   UpdateGeofenceCollection'
-    { pricingPlan =
+    { description =
         Prelude.Nothing,
       pricingPlanDataSource = Prelude.Nothing,
-      description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       collectionName = pCollectionName_
     }
 
--- | Updates the pricing plan for the geofence collection.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-updateGeofenceCollection_pricingPlan :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe PricingPlan)
-updateGeofenceCollection_pricingPlan = Lens.lens (\UpdateGeofenceCollection' {pricingPlan} -> pricingPlan) (\s@UpdateGeofenceCollection' {} a -> s {pricingPlan = a} :: UpdateGeofenceCollection)
+-- | Updates the description for the geofence collection.
+updateGeofenceCollection_description :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe Prelude.Text)
+updateGeofenceCollection_description = Lens.lens (\UpdateGeofenceCollection' {description} -> description) (\s@UpdateGeofenceCollection' {} a -> s {description = a} :: UpdateGeofenceCollection)
 
 -- | Updates the data provider for the geofence collection.
 --
@@ -157,9 +154,12 @@ updateGeofenceCollection_pricingPlan = Lens.lens (\UpdateGeofenceCollection' {pr
 updateGeofenceCollection_pricingPlanDataSource :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe Prelude.Text)
 updateGeofenceCollection_pricingPlanDataSource = Lens.lens (\UpdateGeofenceCollection' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@UpdateGeofenceCollection' {} a -> s {pricingPlanDataSource = a} :: UpdateGeofenceCollection)
 
--- | Updates the description for the geofence collection.
-updateGeofenceCollection_description :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe Prelude.Text)
-updateGeofenceCollection_description = Lens.lens (\UpdateGeofenceCollection' {description} -> description) (\s@UpdateGeofenceCollection' {} a -> s {description = a} :: UpdateGeofenceCollection)
+-- | Updates the pricing plan for the geofence collection.
+--
+-- For more information about each pricing plan option restrictions, see
+-- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+updateGeofenceCollection_pricingPlan :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe PricingPlan)
+updateGeofenceCollection_pricingPlan = Lens.lens (\UpdateGeofenceCollection' {pricingPlan} -> pricingPlan) (\s@UpdateGeofenceCollection' {} a -> s {pricingPlan = a} :: UpdateGeofenceCollection)
 
 -- | The name of the geofence collection to update.
 updateGeofenceCollection_collectionName :: Lens.Lens' UpdateGeofenceCollection Prelude.Text
@@ -182,16 +182,16 @@ instance Core.AWSRequest UpdateGeofenceCollection where
 
 instance Prelude.Hashable UpdateGeofenceCollection where
   hashWithSalt _salt UpdateGeofenceCollection' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlanDataSource
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` collectionName
 
 instance Prelude.NFData UpdateGeofenceCollection where
   rnf UpdateGeofenceCollection' {..} =
-    Prelude.rnf pricingPlan
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf collectionName
 
 instance Core.ToHeaders UpdateGeofenceCollection where
@@ -209,10 +209,10 @@ instance Core.ToJSON UpdateGeofenceCollection where
   toJSON UpdateGeofenceCollection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
+          [ ("Description" Core..=) Prelude.<$> description,
             ("PricingPlanDataSource" Core..=)
               Prelude.<$> pricingPlanDataSource,
-            ("Description" Core..=) Prelude.<$> description
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
           ]
       )
 

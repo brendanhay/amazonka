@@ -39,8 +39,8 @@ module Amazonka.Snowball.ListClusters
     newListClustersResponse,
 
     -- * Response Lenses
-    listClustersResponse_clusterListEntries,
     listClustersResponse_nextToken,
+    listClustersResponse_clusterListEntries,
     listClustersResponse_httpStatus,
   )
 where
@@ -121,10 +121,10 @@ instance Core.AWSRequest ListClusters where
     Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Prelude.<$> ( x Core..?> "ClusterListEntries"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ClusterListEntries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,13 +170,13 @@ instance Core.ToQuery ListClusters where
 
 -- | /See:/ 'newListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-  { -- | Each @ClusterListEntry@ object contains a cluster\'s state, a cluster\'s
-    -- ID, and other important status information.
-    clusterListEntries :: Prelude.Maybe [ClusterListEntry],
-    -- | HTTP requests are stateless. If you use the automatically generated
+  { -- | HTTP requests are stateless. If you use the automatically generated
     -- @NextToken@ value in your next @ClusterListEntry@ call, your list of
     -- returned clusters will start from this point in the array.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Each @ClusterListEntry@ object contains a cluster\'s state, a cluster\'s
+    -- ID, and other important status information.
+    clusterListEntries :: Prelude.Maybe [ClusterListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,12 +190,12 @@ data ListClustersResponse = ListClustersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterListEntries', 'listClustersResponse_clusterListEntries' - Each @ClusterListEntry@ object contains a cluster\'s state, a cluster\'s
--- ID, and other important status information.
---
 -- 'nextToken', 'listClustersResponse_nextToken' - HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @ClusterListEntry@ call, your list of
 -- returned clusters will start from this point in the array.
+--
+-- 'clusterListEntries', 'listClustersResponse_clusterListEntries' - Each @ClusterListEntry@ object contains a cluster\'s state, a cluster\'s
+-- ID, and other important status information.
 --
 -- 'httpStatus', 'listClustersResponse_httpStatus' - The response's http status code.
 newListClustersResponse ::
@@ -204,16 +204,10 @@ newListClustersResponse ::
   ListClustersResponse
 newListClustersResponse pHttpStatus_ =
   ListClustersResponse'
-    { clusterListEntries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      clusterListEntries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Each @ClusterListEntry@ object contains a cluster\'s state, a cluster\'s
--- ID, and other important status information.
-listClustersResponse_clusterListEntries :: Lens.Lens' ListClustersResponse (Prelude.Maybe [ClusterListEntry])
-listClustersResponse_clusterListEntries = Lens.lens (\ListClustersResponse' {clusterListEntries} -> clusterListEntries) (\s@ListClustersResponse' {} a -> s {clusterListEntries = a} :: ListClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @ClusterListEntry@ call, your list of
@@ -221,12 +215,17 @@ listClustersResponse_clusterListEntries = Lens.lens (\ListClustersResponse' {clu
 listClustersResponse_nextToken :: Lens.Lens' ListClustersResponse (Prelude.Maybe Prelude.Text)
 listClustersResponse_nextToken = Lens.lens (\ListClustersResponse' {nextToken} -> nextToken) (\s@ListClustersResponse' {} a -> s {nextToken = a} :: ListClustersResponse)
 
+-- | Each @ClusterListEntry@ object contains a cluster\'s state, a cluster\'s
+-- ID, and other important status information.
+listClustersResponse_clusterListEntries :: Lens.Lens' ListClustersResponse (Prelude.Maybe [ClusterListEntry])
+listClustersResponse_clusterListEntries = Lens.lens (\ListClustersResponse' {clusterListEntries} -> clusterListEntries) (\s@ListClustersResponse' {} a -> s {clusterListEntries = a} :: ListClustersResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listClustersResponse_httpStatus :: Lens.Lens' ListClustersResponse Prelude.Int
 listClustersResponse_httpStatus = Lens.lens (\ListClustersResponse' {httpStatus} -> httpStatus) (\s@ListClustersResponse' {} a -> s {httpStatus = a} :: ListClustersResponse)
 
 instance Prelude.NFData ListClustersResponse where
   rnf ListClustersResponse' {..} =
-    Prelude.rnf clusterListEntries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf clusterListEntries
       `Prelude.seq` Prelude.rnf httpStatus

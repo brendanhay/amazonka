@@ -30,8 +30,8 @@ module Amazonka.DirectoryService.DescribeDomainControllers
 
     -- * Request Lenses
     describeDomainControllers_nextToken,
-    describeDomainControllers_domainControllerIds,
     describeDomainControllers_limit,
+    describeDomainControllers_domainControllerIds,
     describeDomainControllers_directoryId,
 
     -- * Destructuring the Response
@@ -57,11 +57,11 @@ data DescribeDomainControllers = DescribeDomainControllers'
   { -- | The /DescribeDomainControllers.NextToken/ value from a previous call to
     -- DescribeDomainControllers. Pass null if this is the first call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | A list of identifiers for the domain controllers whose information will
     -- be provided.
     domainControllerIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of items to return.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | Identifier of the directory for which to retrieve the domain controller
     -- information.
     directoryId :: Prelude.Text
@@ -79,10 +79,10 @@ data DescribeDomainControllers = DescribeDomainControllers'
 -- 'nextToken', 'describeDomainControllers_nextToken' - The /DescribeDomainControllers.NextToken/ value from a previous call to
 -- DescribeDomainControllers. Pass null if this is the first call.
 --
+-- 'limit', 'describeDomainControllers_limit' - The maximum number of items to return.
+--
 -- 'domainControllerIds', 'describeDomainControllers_domainControllerIds' - A list of identifiers for the domain controllers whose information will
 -- be provided.
---
--- 'limit', 'describeDomainControllers_limit' - The maximum number of items to return.
 --
 -- 'directoryId', 'describeDomainControllers_directoryId' - Identifier of the directory for which to retrieve the domain controller
 -- information.
@@ -94,8 +94,8 @@ newDescribeDomainControllers pDirectoryId_ =
   DescribeDomainControllers'
     { nextToken =
         Prelude.Nothing,
-      domainControllerIds = Prelude.Nothing,
       limit = Prelude.Nothing,
+      domainControllerIds = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
 
@@ -104,14 +104,14 @@ newDescribeDomainControllers pDirectoryId_ =
 describeDomainControllers_nextToken :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe Prelude.Text)
 describeDomainControllers_nextToken = Lens.lens (\DescribeDomainControllers' {nextToken} -> nextToken) (\s@DescribeDomainControllers' {} a -> s {nextToken = a} :: DescribeDomainControllers)
 
+-- | The maximum number of items to return.
+describeDomainControllers_limit :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe Prelude.Natural)
+describeDomainControllers_limit = Lens.lens (\DescribeDomainControllers' {limit} -> limit) (\s@DescribeDomainControllers' {} a -> s {limit = a} :: DescribeDomainControllers)
+
 -- | A list of identifiers for the domain controllers whose information will
 -- be provided.
 describeDomainControllers_domainControllerIds :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe [Prelude.Text])
 describeDomainControllers_domainControllerIds = Lens.lens (\DescribeDomainControllers' {domainControllerIds} -> domainControllerIds) (\s@DescribeDomainControllers' {} a -> s {domainControllerIds = a} :: DescribeDomainControllers) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of items to return.
-describeDomainControllers_limit :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe Prelude.Natural)
-describeDomainControllers_limit = Lens.lens (\DescribeDomainControllers' {limit} -> limit) (\s@DescribeDomainControllers' {} a -> s {limit = a} :: DescribeDomainControllers)
 
 -- | Identifier of the directory for which to retrieve the domain controller
 -- information.
@@ -159,15 +159,15 @@ instance Core.AWSRequest DescribeDomainControllers where
 instance Prelude.Hashable DescribeDomainControllers where
   hashWithSalt _salt DescribeDomainControllers' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` domainControllerIds
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` domainControllerIds
       `Prelude.hashWithSalt` directoryId
 
 instance Prelude.NFData DescribeDomainControllers where
   rnf DescribeDomainControllers' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainControllerIds
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf domainControllerIds
       `Prelude.seq` Prelude.rnf directoryId
 
 instance Core.ToHeaders DescribeDomainControllers where
@@ -190,9 +190,9 @@ instance Core.ToJSON DescribeDomainControllers where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Limit" Core..=) Prelude.<$> limit,
             ("DomainControllerIds" Core..=)
               Prelude.<$> domainControllerIds,
-            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("DirectoryId" Core..= directoryId)
           ]
       )

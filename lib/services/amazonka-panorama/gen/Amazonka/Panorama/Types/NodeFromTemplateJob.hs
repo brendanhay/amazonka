@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNodeFromTemplateJob' smart constructor.
 data NodeFromTemplateJob = NodeFromTemplateJob'
-  { -- | The job\'s status.
-    status :: Prelude.Maybe NodeFromTemplateJobStatus,
-    -- | The job\'s ID.
-    jobId :: Prelude.Maybe Prelude.Text,
+  { -- | The job\'s template type.
+    templateType :: Prelude.Maybe TemplateType,
     -- | When the job was created.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The job\'s template type.
-    templateType :: Prelude.Maybe TemplateType,
+    -- | The job\'s ID.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The job\'s status.
+    status :: Prelude.Maybe NodeFromTemplateJobStatus,
     -- | The node\'s name.
     nodeName :: Prelude.Maybe Prelude.Text,
     -- | The job\'s status message.
@@ -52,13 +52,13 @@ data NodeFromTemplateJob = NodeFromTemplateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'nodeFromTemplateJob_status' - The job\'s status.
---
--- 'jobId', 'nodeFromTemplateJob_jobId' - The job\'s ID.
+-- 'templateType', 'nodeFromTemplateJob_templateType' - The job\'s template type.
 --
 -- 'createdTime', 'nodeFromTemplateJob_createdTime' - When the job was created.
 --
--- 'templateType', 'nodeFromTemplateJob_templateType' - The job\'s template type.
+-- 'jobId', 'nodeFromTemplateJob_jobId' - The job\'s ID.
+--
+-- 'status', 'nodeFromTemplateJob_status' - The job\'s status.
 --
 -- 'nodeName', 'nodeFromTemplateJob_nodeName' - The node\'s name.
 --
@@ -67,29 +67,30 @@ newNodeFromTemplateJob ::
   NodeFromTemplateJob
 newNodeFromTemplateJob =
   NodeFromTemplateJob'
-    { status = Prelude.Nothing,
-      jobId = Prelude.Nothing,
+    { templateType =
+        Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      templateType = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      status = Prelude.Nothing,
       nodeName = Prelude.Nothing,
       statusMessage = Prelude.Nothing
     }
 
--- | The job\'s status.
-nodeFromTemplateJob_status :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe NodeFromTemplateJobStatus)
-nodeFromTemplateJob_status = Lens.lens (\NodeFromTemplateJob' {status} -> status) (\s@NodeFromTemplateJob' {} a -> s {status = a} :: NodeFromTemplateJob)
-
--- | The job\'s ID.
-nodeFromTemplateJob_jobId :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe Prelude.Text)
-nodeFromTemplateJob_jobId = Lens.lens (\NodeFromTemplateJob' {jobId} -> jobId) (\s@NodeFromTemplateJob' {} a -> s {jobId = a} :: NodeFromTemplateJob)
+-- | The job\'s template type.
+nodeFromTemplateJob_templateType :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe TemplateType)
+nodeFromTemplateJob_templateType = Lens.lens (\NodeFromTemplateJob' {templateType} -> templateType) (\s@NodeFromTemplateJob' {} a -> s {templateType = a} :: NodeFromTemplateJob)
 
 -- | When the job was created.
 nodeFromTemplateJob_createdTime :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe Prelude.UTCTime)
 nodeFromTemplateJob_createdTime = Lens.lens (\NodeFromTemplateJob' {createdTime} -> createdTime) (\s@NodeFromTemplateJob' {} a -> s {createdTime = a} :: NodeFromTemplateJob) Prelude.. Lens.mapping Core._Time
 
--- | The job\'s template type.
-nodeFromTemplateJob_templateType :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe TemplateType)
-nodeFromTemplateJob_templateType = Lens.lens (\NodeFromTemplateJob' {templateType} -> templateType) (\s@NodeFromTemplateJob' {} a -> s {templateType = a} :: NodeFromTemplateJob)
+-- | The job\'s ID.
+nodeFromTemplateJob_jobId :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe Prelude.Text)
+nodeFromTemplateJob_jobId = Lens.lens (\NodeFromTemplateJob' {jobId} -> jobId) (\s@NodeFromTemplateJob' {} a -> s {jobId = a} :: NodeFromTemplateJob)
+
+-- | The job\'s status.
+nodeFromTemplateJob_status :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe NodeFromTemplateJobStatus)
+nodeFromTemplateJob_status = Lens.lens (\NodeFromTemplateJob' {status} -> status) (\s@NodeFromTemplateJob' {} a -> s {status = a} :: NodeFromTemplateJob)
 
 -- | The node\'s name.
 nodeFromTemplateJob_nodeName :: Lens.Lens' NodeFromTemplateJob (Prelude.Maybe Prelude.Text)
@@ -105,28 +106,28 @@ instance Core.FromJSON NodeFromTemplateJob where
       "NodeFromTemplateJob"
       ( \x ->
           NodeFromTemplateJob'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<$> (x Core..:? "TemplateType")
             Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "TemplateType")
+            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "NodeName")
             Prelude.<*> (x Core..:? "StatusMessage")
       )
 
 instance Prelude.Hashable NodeFromTemplateJob where
   hashWithSalt _salt NodeFromTemplateJob' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` jobId
+    _salt `Prelude.hashWithSalt` templateType
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` templateType
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` nodeName
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData NodeFromTemplateJob where
   rnf NodeFromTemplateJob' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf templateType
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf templateType
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf nodeName
       `Prelude.seq` Prelude.rnf statusMessage

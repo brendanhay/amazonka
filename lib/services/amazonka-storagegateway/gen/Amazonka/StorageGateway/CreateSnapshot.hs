@@ -65,8 +65,8 @@ module Amazonka.StorageGateway.CreateSnapshot
     newCreateSnapshotResponse,
 
     -- * Response Lenses
-    createSnapshotResponse_volumeARN,
     createSnapshotResponse_snapshotId,
+    createSnapshotResponse_volumeARN,
     createSnapshotResponse_httpStatus,
   )
 where
@@ -172,8 +172,8 @@ instance Core.AWSRequest CreateSnapshot where
     Response.receiveJSON
       ( \s h x ->
           CreateSnapshotResponse'
-            Prelude.<$> (x Core..?> "VolumeARN")
-            Prelude.<*> (x Core..?> "SnapshotId")
+            Prelude.<$> (x Core..?> "SnapshotId")
+            Prelude.<*> (x Core..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -225,14 +225,14 @@ instance Core.ToQuery CreateSnapshot where
 --
 -- /See:/ 'newCreateSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-  { -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
-    -- taken.
-    volumeARN :: Prelude.Maybe Prelude.Text,
-    -- | The snapshot ID that is used to refer to the snapshot in future
+  { -- | The snapshot ID that is used to refer to the snapshot in future
     -- operations such as describing snapshots (Amazon Elastic Compute Cloud
     -- API @DescribeSnapshots@) or creating a volume from a snapshot
     -- (CreateStorediSCSIVolume).
     snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
+    -- taken.
+    volumeARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,13 +246,13 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeARN', 'createSnapshotResponse_volumeARN' - The Amazon Resource Name (ARN) of the volume of which the snapshot was
--- taken.
---
 -- 'snapshotId', 'createSnapshotResponse_snapshotId' - The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud
 -- API @DescribeSnapshots@) or creating a volume from a snapshot
 -- (CreateStorediSCSIVolume).
+--
+-- 'volumeARN', 'createSnapshotResponse_volumeARN' - The Amazon Resource Name (ARN) of the volume of which the snapshot was
+-- taken.
 --
 -- 'httpStatus', 'createSnapshotResponse_httpStatus' - The response's http status code.
 newCreateSnapshotResponse ::
@@ -261,16 +261,11 @@ newCreateSnapshotResponse ::
   CreateSnapshotResponse
 newCreateSnapshotResponse pHttpStatus_ =
   CreateSnapshotResponse'
-    { volumeARN =
+    { snapshotId =
         Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
+      volumeARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
--- taken.
-createSnapshotResponse_volumeARN :: Lens.Lens' CreateSnapshotResponse (Prelude.Maybe Prelude.Text)
-createSnapshotResponse_volumeARN = Lens.lens (\CreateSnapshotResponse' {volumeARN} -> volumeARN) (\s@CreateSnapshotResponse' {} a -> s {volumeARN = a} :: CreateSnapshotResponse)
 
 -- | The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud
@@ -279,12 +274,17 @@ createSnapshotResponse_volumeARN = Lens.lens (\CreateSnapshotResponse' {volumeAR
 createSnapshotResponse_snapshotId :: Lens.Lens' CreateSnapshotResponse (Prelude.Maybe Prelude.Text)
 createSnapshotResponse_snapshotId = Lens.lens (\CreateSnapshotResponse' {snapshotId} -> snapshotId) (\s@CreateSnapshotResponse' {} a -> s {snapshotId = a} :: CreateSnapshotResponse)
 
+-- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
+-- taken.
+createSnapshotResponse_volumeARN :: Lens.Lens' CreateSnapshotResponse (Prelude.Maybe Prelude.Text)
+createSnapshotResponse_volumeARN = Lens.lens (\CreateSnapshotResponse' {volumeARN} -> volumeARN) (\s@CreateSnapshotResponse' {} a -> s {volumeARN = a} :: CreateSnapshotResponse)
+
 -- | The response's http status code.
 createSnapshotResponse_httpStatus :: Lens.Lens' CreateSnapshotResponse Prelude.Int
 createSnapshotResponse_httpStatus = Lens.lens (\CreateSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateSnapshotResponse' {} a -> s {httpStatus = a} :: CreateSnapshotResponse)
 
 instance Prelude.NFData CreateSnapshotResponse where
   rnf CreateSnapshotResponse' {..} =
-    Prelude.rnf volumeARN
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf volumeARN
       `Prelude.seq` Prelude.rnf httpStatus

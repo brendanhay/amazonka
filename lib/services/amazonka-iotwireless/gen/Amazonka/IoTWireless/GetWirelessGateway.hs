@@ -35,12 +35,12 @@ module Amazonka.IoTWireless.GetWirelessGateway
     newGetWirelessGatewayResponse,
 
     -- * Response Lenses
-    getWirelessGatewayResponse_arn,
-    getWirelessGatewayResponse_loRaWAN,
-    getWirelessGatewayResponse_thingArn,
     getWirelessGatewayResponse_name,
-    getWirelessGatewayResponse_id,
     getWirelessGatewayResponse_thingName,
+    getWirelessGatewayResponse_thingArn,
+    getWirelessGatewayResponse_loRaWAN,
+    getWirelessGatewayResponse_arn,
+    getWirelessGatewayResponse_id,
     getWirelessGatewayResponse_description,
     getWirelessGatewayResponse_httpStatus,
   )
@@ -102,12 +102,12 @@ instance Core.AWSRequest GetWirelessGateway where
     Response.receiveJSON
       ( \s h x ->
           GetWirelessGatewayResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "ThingArn")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "ThingName")
+            Prelude.<*> (x Core..?> "ThingArn")
+            Prelude.<*> (x Core..?> "LoRaWAN")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,19 +137,19 @@ instance Core.ToQuery GetWirelessGateway where
 
 -- | /See:/ 'newGetWirelessGatewayResponse' smart constructor.
 data GetWirelessGatewayResponse = GetWirelessGatewayResponse'
-  { -- | The Amazon Resource Name of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the wireless gateway.
-    loRaWAN :: Prelude.Maybe LoRaWANGateway,
-    -- | The ARN of the thing associated with the wireless gateway.
-    thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource.
+  { -- | The name of the resource.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the wireless gateway.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing associated with the wireless gateway. The value is
     -- empty if a thing isn\'t associated with the gateway.
     thingName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the thing associated with the wireless gateway.
+    thingArn :: Prelude.Maybe Prelude.Text,
+    -- | Information about the wireless gateway.
+    loRaWAN :: Prelude.Maybe LoRaWANGateway,
+    -- | The Amazon Resource Name of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the wireless gateway.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The description of the resource.
     description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -165,18 +165,18 @@ data GetWirelessGatewayResponse = GetWirelessGatewayResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getWirelessGatewayResponse_arn' - The Amazon Resource Name of the resource.
---
--- 'loRaWAN', 'getWirelessGatewayResponse_loRaWAN' - Information about the wireless gateway.
---
--- 'thingArn', 'getWirelessGatewayResponse_thingArn' - The ARN of the thing associated with the wireless gateway.
---
 -- 'name', 'getWirelessGatewayResponse_name' - The name of the resource.
---
--- 'id', 'getWirelessGatewayResponse_id' - The ID of the wireless gateway.
 --
 -- 'thingName', 'getWirelessGatewayResponse_thingName' - The name of the thing associated with the wireless gateway. The value is
 -- empty if a thing isn\'t associated with the gateway.
+--
+-- 'thingArn', 'getWirelessGatewayResponse_thingArn' - The ARN of the thing associated with the wireless gateway.
+--
+-- 'loRaWAN', 'getWirelessGatewayResponse_loRaWAN' - Information about the wireless gateway.
+--
+-- 'arn', 'getWirelessGatewayResponse_arn' - The Amazon Resource Name of the resource.
+--
+-- 'id', 'getWirelessGatewayResponse_id' - The ID of the wireless gateway.
 --
 -- 'description', 'getWirelessGatewayResponse_description' - The description of the resource.
 --
@@ -187,40 +187,40 @@ newGetWirelessGatewayResponse ::
   GetWirelessGatewayResponse
 newGetWirelessGatewayResponse pHttpStatus_ =
   GetWirelessGatewayResponse'
-    { arn = Prelude.Nothing,
-      loRaWAN = Prelude.Nothing,
-      thingArn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { name = Prelude.Nothing,
       thingName = Prelude.Nothing,
+      thingArn = Prelude.Nothing,
+      loRaWAN = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
       description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name of the resource.
-getWirelessGatewayResponse_arn :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
-getWirelessGatewayResponse_arn = Lens.lens (\GetWirelessGatewayResponse' {arn} -> arn) (\s@GetWirelessGatewayResponse' {} a -> s {arn = a} :: GetWirelessGatewayResponse)
-
--- | Information about the wireless gateway.
-getWirelessGatewayResponse_loRaWAN :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe LoRaWANGateway)
-getWirelessGatewayResponse_loRaWAN = Lens.lens (\GetWirelessGatewayResponse' {loRaWAN} -> loRaWAN) (\s@GetWirelessGatewayResponse' {} a -> s {loRaWAN = a} :: GetWirelessGatewayResponse)
-
--- | The ARN of the thing associated with the wireless gateway.
-getWirelessGatewayResponse_thingArn :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
-getWirelessGatewayResponse_thingArn = Lens.lens (\GetWirelessGatewayResponse' {thingArn} -> thingArn) (\s@GetWirelessGatewayResponse' {} a -> s {thingArn = a} :: GetWirelessGatewayResponse)
 
 -- | The name of the resource.
 getWirelessGatewayResponse_name :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
 getWirelessGatewayResponse_name = Lens.lens (\GetWirelessGatewayResponse' {name} -> name) (\s@GetWirelessGatewayResponse' {} a -> s {name = a} :: GetWirelessGatewayResponse)
 
--- | The ID of the wireless gateway.
-getWirelessGatewayResponse_id :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
-getWirelessGatewayResponse_id = Lens.lens (\GetWirelessGatewayResponse' {id} -> id) (\s@GetWirelessGatewayResponse' {} a -> s {id = a} :: GetWirelessGatewayResponse)
-
 -- | The name of the thing associated with the wireless gateway. The value is
 -- empty if a thing isn\'t associated with the gateway.
 getWirelessGatewayResponse_thingName :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
 getWirelessGatewayResponse_thingName = Lens.lens (\GetWirelessGatewayResponse' {thingName} -> thingName) (\s@GetWirelessGatewayResponse' {} a -> s {thingName = a} :: GetWirelessGatewayResponse)
+
+-- | The ARN of the thing associated with the wireless gateway.
+getWirelessGatewayResponse_thingArn :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
+getWirelessGatewayResponse_thingArn = Lens.lens (\GetWirelessGatewayResponse' {thingArn} -> thingArn) (\s@GetWirelessGatewayResponse' {} a -> s {thingArn = a} :: GetWirelessGatewayResponse)
+
+-- | Information about the wireless gateway.
+getWirelessGatewayResponse_loRaWAN :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe LoRaWANGateway)
+getWirelessGatewayResponse_loRaWAN = Lens.lens (\GetWirelessGatewayResponse' {loRaWAN} -> loRaWAN) (\s@GetWirelessGatewayResponse' {} a -> s {loRaWAN = a} :: GetWirelessGatewayResponse)
+
+-- | The Amazon Resource Name of the resource.
+getWirelessGatewayResponse_arn :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
+getWirelessGatewayResponse_arn = Lens.lens (\GetWirelessGatewayResponse' {arn} -> arn) (\s@GetWirelessGatewayResponse' {} a -> s {arn = a} :: GetWirelessGatewayResponse)
+
+-- | The ID of the wireless gateway.
+getWirelessGatewayResponse_id :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
+getWirelessGatewayResponse_id = Lens.lens (\GetWirelessGatewayResponse' {id} -> id) (\s@GetWirelessGatewayResponse' {} a -> s {id = a} :: GetWirelessGatewayResponse)
 
 -- | The description of the resource.
 getWirelessGatewayResponse_description :: Lens.Lens' GetWirelessGatewayResponse (Prelude.Maybe Prelude.Text)
@@ -232,11 +232,11 @@ getWirelessGatewayResponse_httpStatus = Lens.lens (\GetWirelessGatewayResponse' 
 
 instance Prelude.NFData GetWirelessGatewayResponse where
   rnf GetWirelessGatewayResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf httpStatus

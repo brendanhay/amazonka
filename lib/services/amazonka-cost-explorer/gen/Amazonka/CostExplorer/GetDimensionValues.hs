@@ -31,10 +31,10 @@ module Amazonka.CostExplorer.GetDimensionValues
     -- * Request Lenses
     getDimensionValues_nextPageToken,
     getDimensionValues_context,
+    getDimensionValues_sortBy,
     getDimensionValues_searchString,
     getDimensionValues_filter,
     getDimensionValues_maxResults,
-    getDimensionValues_sortBy,
     getDimensionValues_timePeriod,
     getDimensionValues_dimension,
 
@@ -171,16 +171,6 @@ data GetDimensionValues = GetDimensionValues'
     --
     -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
     context :: Prelude.Maybe Context,
-    -- | The value that you want to search the filter values for.
-    searchString :: Prelude.Maybe Prelude.Text,
-    filter' :: Prelude.Maybe Expression,
-    -- | This field is only used when SortBy is provided in the request. The
-    -- maximum number of objects that to be returned for this request. If
-    -- MaxResults is not specified with SortBy, the request will return 1000
-    -- results as the default value for this parameter.
-    --
-    -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The value by which you want to sort the data.
     --
     -- The key represents cost and usage metrics. The following values are
@@ -206,6 +196,16 @@ data GetDimensionValues = GetDimensionValues'
     -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
     -- @SearchString@ are not supported.
     sortBy :: Prelude.Maybe [SortDefinition],
+    -- | The value that you want to search the filter values for.
+    searchString :: Prelude.Maybe Prelude.Text,
+    filter' :: Prelude.Maybe Expression,
+    -- | This field is only used when SortBy is provided in the request. The
+    -- maximum number of objects that to be returned for this request. If
+    -- MaxResults is not specified with SortBy, the request will return 1000
+    -- results as the default value for this parameter.
+    --
+    -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The start date and end date for retrieving the dimension values. The
     -- start date is inclusive, but the end date is exclusive. For example, if
     -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
@@ -337,17 +337,6 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
 --
--- 'searchString', 'getDimensionValues_searchString' - The value that you want to search the filter values for.
---
--- 'filter'', 'getDimensionValues_filter' - Undocumented member.
---
--- 'maxResults', 'getDimensionValues_maxResults' - This field is only used when SortBy is provided in the request. The
--- maximum number of objects that to be returned for this request. If
--- MaxResults is not specified with SortBy, the request will return 1000
--- results as the default value for this parameter.
---
--- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
---
 -- 'sortBy', 'getDimensionValues_sortBy' - The value by which you want to sort the data.
 --
 -- The key represents cost and usage metrics. The following values are
@@ -373,6 +362,17 @@ data GetDimensionValues = GetDimensionValues'
 -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
 -- @SearchString@ are not supported.
 --
+-- 'searchString', 'getDimensionValues_searchString' - The value that you want to search the filter values for.
+--
+-- 'filter'', 'getDimensionValues_filter' - Undocumented member.
+--
+-- 'maxResults', 'getDimensionValues_maxResults' - This field is only used when SortBy is provided in the request. The
+-- maximum number of objects that to be returned for this request. If
+-- MaxResults is not specified with SortBy, the request will return 1000
+-- results as the default value for this parameter.
+--
+-- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
+--
 -- 'timePeriod', 'getDimensionValues_timePeriod' - The start date and end date for retrieving the dimension values. The
 -- start date is inclusive, but the end date is exclusive. For example, if
 -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
@@ -392,10 +392,10 @@ newGetDimensionValues pTimePeriod_ pDimension_ =
     { nextPageToken =
         Prelude.Nothing,
       context = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       searchString = Prelude.Nothing,
       filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       timePeriod = pTimePeriod_,
       dimension = pDimension_
     }
@@ -515,23 +515,6 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 getDimensionValues_context :: Lens.Lens' GetDimensionValues (Prelude.Maybe Context)
 getDimensionValues_context = Lens.lens (\GetDimensionValues' {context} -> context) (\s@GetDimensionValues' {} a -> s {context = a} :: GetDimensionValues)
 
--- | The value that you want to search the filter values for.
-getDimensionValues_searchString :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
-getDimensionValues_searchString = Lens.lens (\GetDimensionValues' {searchString} -> searchString) (\s@GetDimensionValues' {} a -> s {searchString = a} :: GetDimensionValues)
-
--- | Undocumented member.
-getDimensionValues_filter :: Lens.Lens' GetDimensionValues (Prelude.Maybe Expression)
-getDimensionValues_filter = Lens.lens (\GetDimensionValues' {filter'} -> filter') (\s@GetDimensionValues' {} a -> s {filter' = a} :: GetDimensionValues)
-
--- | This field is only used when SortBy is provided in the request. The
--- maximum number of objects that to be returned for this request. If
--- MaxResults is not specified with SortBy, the request will return 1000
--- results as the default value for this parameter.
---
--- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
-getDimensionValues_maxResults :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Natural)
-getDimensionValues_maxResults = Lens.lens (\GetDimensionValues' {maxResults} -> maxResults) (\s@GetDimensionValues' {} a -> s {maxResults = a} :: GetDimensionValues)
-
 -- | The value by which you want to sort the data.
 --
 -- The key represents cost and usage metrics. The following values are
@@ -558,6 +541,23 @@ getDimensionValues_maxResults = Lens.lens (\GetDimensionValues' {maxResults} -> 
 -- @SearchString@ are not supported.
 getDimensionValues_sortBy :: Lens.Lens' GetDimensionValues (Prelude.Maybe [SortDefinition])
 getDimensionValues_sortBy = Lens.lens (\GetDimensionValues' {sortBy} -> sortBy) (\s@GetDimensionValues' {} a -> s {sortBy = a} :: GetDimensionValues) Prelude.. Lens.mapping Lens.coerced
+
+-- | The value that you want to search the filter values for.
+getDimensionValues_searchString :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Text)
+getDimensionValues_searchString = Lens.lens (\GetDimensionValues' {searchString} -> searchString) (\s@GetDimensionValues' {} a -> s {searchString = a} :: GetDimensionValues)
+
+-- | Undocumented member.
+getDimensionValues_filter :: Lens.Lens' GetDimensionValues (Prelude.Maybe Expression)
+getDimensionValues_filter = Lens.lens (\GetDimensionValues' {filter'} -> filter') (\s@GetDimensionValues' {} a -> s {filter' = a} :: GetDimensionValues)
+
+-- | This field is only used when SortBy is provided in the request. The
+-- maximum number of objects that to be returned for this request. If
+-- MaxResults is not specified with SortBy, the request will return 1000
+-- results as the default value for this parameter.
+--
+-- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
+getDimensionValues_maxResults :: Lens.Lens' GetDimensionValues (Prelude.Maybe Prelude.Natural)
+getDimensionValues_maxResults = Lens.lens (\GetDimensionValues' {maxResults} -> maxResults) (\s@GetDimensionValues' {} a -> s {maxResults = a} :: GetDimensionValues)
 
 -- | The start date and end date for retrieving the dimension values. The
 -- start date is inclusive, but the end date is exclusive. For example, if
@@ -594,10 +594,10 @@ instance Prelude.Hashable GetDimensionValues where
   hashWithSalt _salt GetDimensionValues' {..} =
     _salt `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` searchString
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` dimension
 
@@ -605,10 +605,10 @@ instance Prelude.NFData GetDimensionValues where
   rnf GetDimensionValues' {..} =
     Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf context
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf searchString
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf timePeriod
       `Prelude.seq` Prelude.rnf dimension
 
@@ -633,10 +633,10 @@ instance Core.ToJSON GetDimensionValues where
       ( Prelude.catMaybes
           [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("Context" Core..=) Prelude.<$> context,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("SearchString" Core..=) Prelude.<$> searchString,
             ("Filter" Core..=) Prelude.<$> filter',
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
             Prelude.Just ("TimePeriod" Core..= timePeriod),
             Prelude.Just ("Dimension" Core..= dimension)
           ]

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetSummary' smart constructor.
 data TargetSummary = TargetSummary'
-  { -- | The type of the target (for example, SNS).
-    targetType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the SNS topic.
+  { -- | The Amazon Resource Name (ARN) of the SNS topic.
     targetAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The type of the target (for example, SNS).
+    targetType :: Prelude.Maybe Prelude.Text,
     -- | The status of the target.
     targetStatus :: Prelude.Maybe TargetStatus
   }
@@ -45,27 +45,27 @@ data TargetSummary = TargetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetType', 'targetSummary_targetType' - The type of the target (for example, SNS).
---
 -- 'targetAddress', 'targetSummary_targetAddress' - The Amazon Resource Name (ARN) of the SNS topic.
+--
+-- 'targetType', 'targetSummary_targetType' - The type of the target (for example, SNS).
 --
 -- 'targetStatus', 'targetSummary_targetStatus' - The status of the target.
 newTargetSummary ::
   TargetSummary
 newTargetSummary =
   TargetSummary'
-    { targetType = Prelude.Nothing,
-      targetAddress = Prelude.Nothing,
+    { targetAddress = Prelude.Nothing,
+      targetType = Prelude.Nothing,
       targetStatus = Prelude.Nothing
     }
-
--- | The type of the target (for example, SNS).
-targetSummary_targetType :: Lens.Lens' TargetSummary (Prelude.Maybe Prelude.Text)
-targetSummary_targetType = Lens.lens (\TargetSummary' {targetType} -> targetType) (\s@TargetSummary' {} a -> s {targetType = a} :: TargetSummary)
 
 -- | The Amazon Resource Name (ARN) of the SNS topic.
 targetSummary_targetAddress :: Lens.Lens' TargetSummary (Prelude.Maybe Prelude.Text)
 targetSummary_targetAddress = Lens.lens (\TargetSummary' {targetAddress} -> targetAddress) (\s@TargetSummary' {} a -> s {targetAddress = a} :: TargetSummary) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The type of the target (for example, SNS).
+targetSummary_targetType :: Lens.Lens' TargetSummary (Prelude.Maybe Prelude.Text)
+targetSummary_targetType = Lens.lens (\TargetSummary' {targetType} -> targetType) (\s@TargetSummary' {} a -> s {targetType = a} :: TargetSummary)
 
 -- | The status of the target.
 targetSummary_targetStatus :: Lens.Lens' TargetSummary (Prelude.Maybe TargetStatus)
@@ -77,19 +77,19 @@ instance Core.FromJSON TargetSummary where
       "TargetSummary"
       ( \x ->
           TargetSummary'
-            Prelude.<$> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "TargetAddress")
+            Prelude.<$> (x Core..:? "TargetAddress")
+            Prelude.<*> (x Core..:? "TargetType")
             Prelude.<*> (x Core..:? "TargetStatus")
       )
 
 instance Prelude.Hashable TargetSummary where
   hashWithSalt _salt TargetSummary' {..} =
-    _salt `Prelude.hashWithSalt` targetType
-      `Prelude.hashWithSalt` targetAddress
+    _salt `Prelude.hashWithSalt` targetAddress
+      `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` targetStatus
 
 instance Prelude.NFData TargetSummary where
   rnf TargetSummary' {..} =
-    Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf targetAddress
+    Prelude.rnf targetAddress
+      `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf targetStatus

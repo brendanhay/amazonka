@@ -31,8 +31,8 @@ module Amazonka.WorkSpaces.ImportWorkspaceImage
     newImportWorkspaceImage,
 
     -- * Request Lenses
-    importWorkspaceImage_applications,
     importWorkspaceImage_tags,
+    importWorkspaceImage_applications,
     importWorkspaceImage_ec2ImageId,
     importWorkspaceImage_ingestionProcess,
     importWorkspaceImage_imageName,
@@ -57,7 +57,9 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newImportWorkspaceImage' smart constructor.
 data ImportWorkspaceImage = ImportWorkspaceImage'
-  { -- | If specified, the version of Microsoft Office to subscribe to. Valid
+  { -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | If specified, the version of Microsoft Office to subscribe to. Valid
     -- only for Windows 10 BYOL images. For more information about subscribing
     -- to Office for BYOL images, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses>.
@@ -65,8 +67,6 @@ data ImportWorkspaceImage = ImportWorkspaceImage'
     -- Although this parameter is an array, only one item is allowed at this
     -- time.
     applications :: Prelude.Maybe (Prelude.NonEmpty Application),
-    -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-    tags :: Prelude.Maybe [Tag],
     -- | The identifier of the EC2 image.
     ec2ImageId :: Prelude.Text,
     -- | The ingestion process to be used when importing the image, depending on
@@ -94,6 +94,8 @@ data ImportWorkspaceImage = ImportWorkspaceImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'importWorkspaceImage_tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+--
 -- 'applications', 'importWorkspaceImage_applications' - If specified, the version of Microsoft Office to subscribe to. Valid
 -- only for Windows 10 BYOL images. For more information about subscribing
 -- to Office for BYOL images, see
@@ -101,8 +103,6 @@ data ImportWorkspaceImage = ImportWorkspaceImage'
 --
 -- Although this parameter is an array, only one item is allowed at this
 -- time.
---
--- 'tags', 'importWorkspaceImage_tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
 --
 -- 'ec2ImageId', 'importWorkspaceImage_ec2ImageId' - The identifier of the EC2 image.
 --
@@ -135,14 +135,17 @@ newImportWorkspaceImage
   pImageName_
   pImageDescription_ =
     ImportWorkspaceImage'
-      { applications =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        applications = Prelude.Nothing,
         ec2ImageId = pEc2ImageId_,
         ingestionProcess = pIngestionProcess_,
         imageName = pImageName_,
         imageDescription = pImageDescription_
       }
+
+-- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+importWorkspaceImage_tags :: Lens.Lens' ImportWorkspaceImage (Prelude.Maybe [Tag])
+importWorkspaceImage_tags = Lens.lens (\ImportWorkspaceImage' {tags} -> tags) (\s@ImportWorkspaceImage' {} a -> s {tags = a} :: ImportWorkspaceImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | If specified, the version of Microsoft Office to subscribe to. Valid
 -- only for Windows 10 BYOL images. For more information about subscribing
@@ -153,10 +156,6 @@ newImportWorkspaceImage
 -- time.
 importWorkspaceImage_applications :: Lens.Lens' ImportWorkspaceImage (Prelude.Maybe (Prelude.NonEmpty Application))
 importWorkspaceImage_applications = Lens.lens (\ImportWorkspaceImage' {applications} -> applications) (\s@ImportWorkspaceImage' {} a -> s {applications = a} :: ImportWorkspaceImage) Prelude.. Lens.mapping Lens.coerced
-
--- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
-importWorkspaceImage_tags :: Lens.Lens' ImportWorkspaceImage (Prelude.Maybe [Tag])
-importWorkspaceImage_tags = Lens.lens (\ImportWorkspaceImage' {tags} -> tags) (\s@ImportWorkspaceImage' {} a -> s {tags = a} :: ImportWorkspaceImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the EC2 image.
 importWorkspaceImage_ec2ImageId :: Lens.Lens' ImportWorkspaceImage Prelude.Text
@@ -197,8 +196,8 @@ instance Core.AWSRequest ImportWorkspaceImage where
 
 instance Prelude.Hashable ImportWorkspaceImage where
   hashWithSalt _salt ImportWorkspaceImage' {..} =
-    _salt `Prelude.hashWithSalt` applications
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` ec2ImageId
       `Prelude.hashWithSalt` ingestionProcess
       `Prelude.hashWithSalt` imageName
@@ -206,8 +205,8 @@ instance Prelude.Hashable ImportWorkspaceImage where
 
 instance Prelude.NFData ImportWorkspaceImage where
   rnf ImportWorkspaceImage' {..} =
-    Prelude.rnf applications
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applications
       `Prelude.seq` Prelude.rnf ec2ImageId
       `Prelude.seq` Prelude.rnf ingestionProcess
       `Prelude.seq` Prelude.rnf imageName
@@ -232,8 +231,8 @@ instance Core.ToJSON ImportWorkspaceImage where
   toJSON ImportWorkspaceImage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Applications" Core..=) Prelude.<$> applications,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Applications" Core..=) Prelude.<$> applications,
             Prelude.Just ("Ec2ImageId" Core..= ec2ImageId),
             Prelude.Just
               ("IngestionProcess" Core..= ingestionProcess),

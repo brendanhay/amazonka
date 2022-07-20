@@ -34,9 +34,9 @@ module Amazonka.AppStream.CreateUpdatedImage
 
     -- * Request Lenses
     createUpdatedImage_newImageTags,
+    createUpdatedImage_dryRun,
     createUpdatedImage_newImageDescription,
     createUpdatedImage_newImageDisplayName,
-    createUpdatedImage_dryRun,
     createUpdatedImage_existingImageName,
     createUpdatedImage_newImageName,
 
@@ -45,8 +45,8 @@ module Amazonka.AppStream.CreateUpdatedImage
     newCreateUpdatedImageResponse,
 
     -- * Response Lenses
-    createUpdatedImageResponse_image,
     createUpdatedImageResponse_canUpdateImage,
+    createUpdatedImageResponse_image,
     createUpdatedImageResponse_httpStatus,
   )
 where
@@ -75,10 +75,6 @@ data CreateUpdatedImage = CreateUpdatedImage'
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
     newImageTags' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description to display for the new image.
-    newImageDescription' :: Prelude.Maybe Prelude.Text,
-    -- | The name to display for the new image.
-    newImageDisplayName' :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to display the status of image update availability
     -- before AppStream 2.0 initiates the process of creating a new updated
     -- image. If this value is set to @true@, AppStream 2.0 displays whether
@@ -86,6 +82,10 @@ data CreateUpdatedImage = CreateUpdatedImage'
     -- 2.0 initiates the process of creating a new updated image without
     -- displaying whether image updates are available.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The description to display for the new image.
+    newImageDescription' :: Prelude.Maybe Prelude.Text,
+    -- | The name to display for the new image.
+    newImageDisplayName' :: Prelude.Maybe Prelude.Text,
     -- | The name of the image to update.
     existingImageName :: Prelude.Text,
     -- | The name of the new image. The name must be unique within the AWS
@@ -117,16 +117,16 @@ data CreateUpdatedImage = CreateUpdatedImage'
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
 --
--- 'newImageDescription'', 'createUpdatedImage_newImageDescription' - The description to display for the new image.
---
--- 'newImageDisplayName'', 'createUpdatedImage_newImageDisplayName' - The name to display for the new image.
---
 -- 'dryRun', 'createUpdatedImage_dryRun' - Indicates whether to display the status of image update availability
 -- before AppStream 2.0 initiates the process of creating a new updated
 -- image. If this value is set to @true@, AppStream 2.0 displays whether
 -- image updates are available. If this value is set to @false@, AppStream
 -- 2.0 initiates the process of creating a new updated image without
 -- displaying whether image updates are available.
+--
+-- 'newImageDescription'', 'createUpdatedImage_newImageDescription' - The description to display for the new image.
+--
+-- 'newImageDisplayName'', 'createUpdatedImage_newImageDisplayName' - The name to display for the new image.
 --
 -- 'existingImageName', 'createUpdatedImage_existingImageName' - The name of the image to update.
 --
@@ -144,9 +144,9 @@ newCreateUpdatedImage
     CreateUpdatedImage'
       { newImageTags' =
           Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         newImageDescription' = Prelude.Nothing,
         newImageDisplayName' = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         existingImageName = pExistingImageName_,
         newImageName' = pNewImageName_
       }
@@ -168,14 +168,6 @@ newCreateUpdatedImage
 createUpdatedImage_newImageTags :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createUpdatedImage_newImageTags = Lens.lens (\CreateUpdatedImage' {newImageTags'} -> newImageTags') (\s@CreateUpdatedImage' {} a -> s {newImageTags' = a} :: CreateUpdatedImage) Prelude.. Lens.mapping Lens.coerced
 
--- | The description to display for the new image.
-createUpdatedImage_newImageDescription :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe Prelude.Text)
-createUpdatedImage_newImageDescription = Lens.lens (\CreateUpdatedImage' {newImageDescription'} -> newImageDescription') (\s@CreateUpdatedImage' {} a -> s {newImageDescription' = a} :: CreateUpdatedImage)
-
--- | The name to display for the new image.
-createUpdatedImage_newImageDisplayName :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe Prelude.Text)
-createUpdatedImage_newImageDisplayName = Lens.lens (\CreateUpdatedImage' {newImageDisplayName'} -> newImageDisplayName') (\s@CreateUpdatedImage' {} a -> s {newImageDisplayName' = a} :: CreateUpdatedImage)
-
 -- | Indicates whether to display the status of image update availability
 -- before AppStream 2.0 initiates the process of creating a new updated
 -- image. If this value is set to @true@, AppStream 2.0 displays whether
@@ -184,6 +176,14 @@ createUpdatedImage_newImageDisplayName = Lens.lens (\CreateUpdatedImage' {newIma
 -- displaying whether image updates are available.
 createUpdatedImage_dryRun :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe Prelude.Bool)
 createUpdatedImage_dryRun = Lens.lens (\CreateUpdatedImage' {dryRun} -> dryRun) (\s@CreateUpdatedImage' {} a -> s {dryRun = a} :: CreateUpdatedImage)
+
+-- | The description to display for the new image.
+createUpdatedImage_newImageDescription :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe Prelude.Text)
+createUpdatedImage_newImageDescription = Lens.lens (\CreateUpdatedImage' {newImageDescription'} -> newImageDescription') (\s@CreateUpdatedImage' {} a -> s {newImageDescription' = a} :: CreateUpdatedImage)
+
+-- | The name to display for the new image.
+createUpdatedImage_newImageDisplayName :: Lens.Lens' CreateUpdatedImage (Prelude.Maybe Prelude.Text)
+createUpdatedImage_newImageDisplayName = Lens.lens (\CreateUpdatedImage' {newImageDisplayName'} -> newImageDisplayName') (\s@CreateUpdatedImage' {} a -> s {newImageDisplayName' = a} :: CreateUpdatedImage)
 
 -- | The name of the image to update.
 createUpdatedImage_existingImageName :: Lens.Lens' CreateUpdatedImage Prelude.Text
@@ -203,26 +203,26 @@ instance Core.AWSRequest CreateUpdatedImage where
     Response.receiveJSON
       ( \s h x ->
           CreateUpdatedImageResponse'
-            Prelude.<$> (x Core..?> "image")
-            Prelude.<*> (x Core..?> "canUpdateImage")
+            Prelude.<$> (x Core..?> "canUpdateImage")
+            Prelude.<*> (x Core..?> "image")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateUpdatedImage where
   hashWithSalt _salt CreateUpdatedImage' {..} =
     _salt `Prelude.hashWithSalt` newImageTags'
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` newImageDescription'
       `Prelude.hashWithSalt` newImageDisplayName'
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` existingImageName
       `Prelude.hashWithSalt` newImageName'
 
 instance Prelude.NFData CreateUpdatedImage where
   rnf CreateUpdatedImage' {..} =
     Prelude.rnf newImageTags'
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf newImageDescription'
       `Prelude.seq` Prelude.rnf newImageDisplayName'
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf existingImageName
       `Prelude.seq` Prelude.rnf newImageName'
 
@@ -246,11 +246,11 @@ instance Core.ToJSON CreateUpdatedImage where
     Core.object
       ( Prelude.catMaybes
           [ ("newImageTags" Core..=) Prelude.<$> newImageTags',
+            ("dryRun" Core..=) Prelude.<$> dryRun,
             ("newImageDescription" Core..=)
               Prelude.<$> newImageDescription',
             ("newImageDisplayName" Core..=)
               Prelude.<$> newImageDisplayName',
-            ("dryRun" Core..=) Prelude.<$> dryRun,
             Prelude.Just
               ("existingImageName" Core..= existingImageName),
             Prelude.Just ("newImageName" Core..= newImageName')
@@ -265,9 +265,9 @@ instance Core.ToQuery CreateUpdatedImage where
 
 -- | /See:/ 'newCreateUpdatedImageResponse' smart constructor.
 data CreateUpdatedImageResponse = CreateUpdatedImageResponse'
-  { image :: Prelude.Maybe Image,
-    -- | Indicates whether a new image can be created.
+  { -- | Indicates whether a new image can be created.
     canUpdateImage :: Prelude.Maybe Prelude.Bool,
+    image :: Prelude.Maybe Image,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -281,9 +281,9 @@ data CreateUpdatedImageResponse = CreateUpdatedImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'image', 'createUpdatedImageResponse_image' - Undocumented member.
---
 -- 'canUpdateImage', 'createUpdatedImageResponse_canUpdateImage' - Indicates whether a new image can be created.
+--
+-- 'image', 'createUpdatedImageResponse_image' - Undocumented member.
 --
 -- 'httpStatus', 'createUpdatedImageResponse_httpStatus' - The response's http status code.
 newCreateUpdatedImageResponse ::
@@ -292,19 +292,19 @@ newCreateUpdatedImageResponse ::
   CreateUpdatedImageResponse
 newCreateUpdatedImageResponse pHttpStatus_ =
   CreateUpdatedImageResponse'
-    { image =
+    { canUpdateImage =
         Prelude.Nothing,
-      canUpdateImage = Prelude.Nothing,
+      image = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-createUpdatedImageResponse_image :: Lens.Lens' CreateUpdatedImageResponse (Prelude.Maybe Image)
-createUpdatedImageResponse_image = Lens.lens (\CreateUpdatedImageResponse' {image} -> image) (\s@CreateUpdatedImageResponse' {} a -> s {image = a} :: CreateUpdatedImageResponse)
 
 -- | Indicates whether a new image can be created.
 createUpdatedImageResponse_canUpdateImage :: Lens.Lens' CreateUpdatedImageResponse (Prelude.Maybe Prelude.Bool)
 createUpdatedImageResponse_canUpdateImage = Lens.lens (\CreateUpdatedImageResponse' {canUpdateImage} -> canUpdateImage) (\s@CreateUpdatedImageResponse' {} a -> s {canUpdateImage = a} :: CreateUpdatedImageResponse)
+
+-- | Undocumented member.
+createUpdatedImageResponse_image :: Lens.Lens' CreateUpdatedImageResponse (Prelude.Maybe Image)
+createUpdatedImageResponse_image = Lens.lens (\CreateUpdatedImageResponse' {image} -> image) (\s@CreateUpdatedImageResponse' {} a -> s {image = a} :: CreateUpdatedImageResponse)
 
 -- | The response's http status code.
 createUpdatedImageResponse_httpStatus :: Lens.Lens' CreateUpdatedImageResponse Prelude.Int
@@ -312,6 +312,6 @@ createUpdatedImageResponse_httpStatus = Lens.lens (\CreateUpdatedImageResponse' 
 
 instance Prelude.NFData CreateUpdatedImageResponse where
   rnf CreateUpdatedImageResponse' {..} =
-    Prelude.rnf image
-      `Prelude.seq` Prelude.rnf canUpdateImage
+    Prelude.rnf canUpdateImage
+      `Prelude.seq` Prelude.rnf image
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,9 +34,9 @@ module Amazonka.IoTWireless.GetDeviceProfile
     newGetDeviceProfileResponse,
 
     -- * Response Lenses
-    getDeviceProfileResponse_arn,
-    getDeviceProfileResponse_loRaWAN,
     getDeviceProfileResponse_name,
+    getDeviceProfileResponse_loRaWAN,
+    getDeviceProfileResponse_arn,
     getDeviceProfileResponse_id,
     getDeviceProfileResponse_httpStatus,
   )
@@ -85,9 +85,9 @@ instance Core.AWSRequest GetDeviceProfile where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceProfileResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -111,12 +111,12 @@ instance Core.ToQuery GetDeviceProfile where
 
 -- | /See:/ 'newGetDeviceProfileResponse' smart constructor.
 data GetDeviceProfileResponse = GetDeviceProfileResponse'
-  { -- | The Amazon Resource Name of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Information about the device profile.
     loRaWAN :: Prelude.Maybe LoRaWANDeviceProfile,
-    -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the device profile.
     id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -132,11 +132,11 @@ data GetDeviceProfileResponse = GetDeviceProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getDeviceProfileResponse_arn' - The Amazon Resource Name of the resource.
+-- 'name', 'getDeviceProfileResponse_name' - The name of the resource.
 --
 -- 'loRaWAN', 'getDeviceProfileResponse_loRaWAN' - Information about the device profile.
 --
--- 'name', 'getDeviceProfileResponse_name' - The name of the resource.
+-- 'arn', 'getDeviceProfileResponse_arn' - The Amazon Resource Name of the resource.
 --
 -- 'id', 'getDeviceProfileResponse_id' - The ID of the device profile.
 --
@@ -147,24 +147,24 @@ newGetDeviceProfileResponse ::
   GetDeviceProfileResponse
 newGetDeviceProfileResponse pHttpStatus_ =
   GetDeviceProfileResponse'
-    { arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       loRaWAN = Prelude.Nothing,
-      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name of the resource.
-getDeviceProfileResponse_arn :: Lens.Lens' GetDeviceProfileResponse (Prelude.Maybe Prelude.Text)
-getDeviceProfileResponse_arn = Lens.lens (\GetDeviceProfileResponse' {arn} -> arn) (\s@GetDeviceProfileResponse' {} a -> s {arn = a} :: GetDeviceProfileResponse)
+-- | The name of the resource.
+getDeviceProfileResponse_name :: Lens.Lens' GetDeviceProfileResponse (Prelude.Maybe Prelude.Text)
+getDeviceProfileResponse_name = Lens.lens (\GetDeviceProfileResponse' {name} -> name) (\s@GetDeviceProfileResponse' {} a -> s {name = a} :: GetDeviceProfileResponse)
 
 -- | Information about the device profile.
 getDeviceProfileResponse_loRaWAN :: Lens.Lens' GetDeviceProfileResponse (Prelude.Maybe LoRaWANDeviceProfile)
 getDeviceProfileResponse_loRaWAN = Lens.lens (\GetDeviceProfileResponse' {loRaWAN} -> loRaWAN) (\s@GetDeviceProfileResponse' {} a -> s {loRaWAN = a} :: GetDeviceProfileResponse)
 
--- | The name of the resource.
-getDeviceProfileResponse_name :: Lens.Lens' GetDeviceProfileResponse (Prelude.Maybe Prelude.Text)
-getDeviceProfileResponse_name = Lens.lens (\GetDeviceProfileResponse' {name} -> name) (\s@GetDeviceProfileResponse' {} a -> s {name = a} :: GetDeviceProfileResponse)
+-- | The Amazon Resource Name of the resource.
+getDeviceProfileResponse_arn :: Lens.Lens' GetDeviceProfileResponse (Prelude.Maybe Prelude.Text)
+getDeviceProfileResponse_arn = Lens.lens (\GetDeviceProfileResponse' {arn} -> arn) (\s@GetDeviceProfileResponse' {} a -> s {arn = a} :: GetDeviceProfileResponse)
 
 -- | The ID of the device profile.
 getDeviceProfileResponse_id :: Lens.Lens' GetDeviceProfileResponse (Prelude.Maybe Prelude.Text)
@@ -176,8 +176,8 @@ getDeviceProfileResponse_httpStatus = Lens.lens (\GetDeviceProfileResponse' {htt
 
 instance Prelude.NFData GetDeviceProfileResponse where
   rnf GetDeviceProfileResponse' {..} =
-    Prelude.rnf arn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf httpStatus

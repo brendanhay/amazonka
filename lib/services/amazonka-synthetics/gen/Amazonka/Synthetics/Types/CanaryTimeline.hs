@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCanaryTimeline' smart constructor.
 data CanaryTimeline = CanaryTimeline'
-  { -- | The date and time the canary was created.
-    created :: Prelude.Maybe Core.POSIX,
-    -- | The date and time that the canary\'s most recent run started.
+  { -- | The date and time that the canary\'s most recent run started.
     lastStarted :: Prelude.Maybe Core.POSIX,
-    -- | The date and time that the canary\'s most recent run ended.
-    lastStopped :: Prelude.Maybe Core.POSIX,
+    -- | The date and time the canary was created.
+    created :: Prelude.Maybe Core.POSIX,
     -- | The date and time the canary was most recently modified.
-    lastModified :: Prelude.Maybe Core.POSIX
+    lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The date and time that the canary\'s most recent run ended.
+    lastStopped :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data CanaryTimeline = CanaryTimeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'created', 'canaryTimeline_created' - The date and time the canary was created.
---
 -- 'lastStarted', 'canaryTimeline_lastStarted' - The date and time that the canary\'s most recent run started.
 --
--- 'lastStopped', 'canaryTimeline_lastStopped' - The date and time that the canary\'s most recent run ended.
+-- 'created', 'canaryTimeline_created' - The date and time the canary was created.
 --
 -- 'lastModified', 'canaryTimeline_lastModified' - The date and time the canary was most recently modified.
+--
+-- 'lastStopped', 'canaryTimeline_lastStopped' - The date and time that the canary\'s most recent run ended.
 newCanaryTimeline ::
   CanaryTimeline
 newCanaryTimeline =
   CanaryTimeline'
-    { created = Prelude.Nothing,
-      lastStarted = Prelude.Nothing,
-      lastStopped = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+    { lastStarted = Prelude.Nothing,
+      created = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      lastStopped = Prelude.Nothing
     }
-
--- | The date and time the canary was created.
-canaryTimeline_created :: Lens.Lens' CanaryTimeline (Prelude.Maybe Prelude.UTCTime)
-canaryTimeline_created = Lens.lens (\CanaryTimeline' {created} -> created) (\s@CanaryTimeline' {} a -> s {created = a} :: CanaryTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time that the canary\'s most recent run started.
 canaryTimeline_lastStarted :: Lens.Lens' CanaryTimeline (Prelude.Maybe Prelude.UTCTime)
 canaryTimeline_lastStarted = Lens.lens (\CanaryTimeline' {lastStarted} -> lastStarted) (\s@CanaryTimeline' {} a -> s {lastStarted = a} :: CanaryTimeline) Prelude.. Lens.mapping Core._Time
 
--- | The date and time that the canary\'s most recent run ended.
-canaryTimeline_lastStopped :: Lens.Lens' CanaryTimeline (Prelude.Maybe Prelude.UTCTime)
-canaryTimeline_lastStopped = Lens.lens (\CanaryTimeline' {lastStopped} -> lastStopped) (\s@CanaryTimeline' {} a -> s {lastStopped = a} :: CanaryTimeline) Prelude.. Lens.mapping Core._Time
+-- | The date and time the canary was created.
+canaryTimeline_created :: Lens.Lens' CanaryTimeline (Prelude.Maybe Prelude.UTCTime)
+canaryTimeline_created = Lens.lens (\CanaryTimeline' {created} -> created) (\s@CanaryTimeline' {} a -> s {created = a} :: CanaryTimeline) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time the canary was most recently modified.
 canaryTimeline_lastModified :: Lens.Lens' CanaryTimeline (Prelude.Maybe Prelude.UTCTime)
 canaryTimeline_lastModified = Lens.lens (\CanaryTimeline' {lastModified} -> lastModified) (\s@CanaryTimeline' {} a -> s {lastModified = a} :: CanaryTimeline) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time that the canary\'s most recent run ended.
+canaryTimeline_lastStopped :: Lens.Lens' CanaryTimeline (Prelude.Maybe Prelude.UTCTime)
+canaryTimeline_lastStopped = Lens.lens (\CanaryTimeline' {lastStopped} -> lastStopped) (\s@CanaryTimeline' {} a -> s {lastStopped = a} :: CanaryTimeline) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON CanaryTimeline where
   parseJSON =
@@ -86,22 +86,22 @@ instance Core.FromJSON CanaryTimeline where
       "CanaryTimeline"
       ( \x ->
           CanaryTimeline'
-            Prelude.<$> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "LastStarted")
-            Prelude.<*> (x Core..:? "LastStopped")
+            Prelude.<$> (x Core..:? "LastStarted")
+            Prelude.<*> (x Core..:? "Created")
             Prelude.<*> (x Core..:? "LastModified")
+            Prelude.<*> (x Core..:? "LastStopped")
       )
 
 instance Prelude.Hashable CanaryTimeline where
   hashWithSalt _salt CanaryTimeline' {..} =
-    _salt `Prelude.hashWithSalt` created
-      `Prelude.hashWithSalt` lastStarted
-      `Prelude.hashWithSalt` lastStopped
+    _salt `Prelude.hashWithSalt` lastStarted
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` lastStopped
 
 instance Prelude.NFData CanaryTimeline where
   rnf CanaryTimeline' {..} =
-    Prelude.rnf created
-      `Prelude.seq` Prelude.rnf lastStarted
-      `Prelude.seq` Prelude.rnf lastStopped
+    Prelude.rnf lastStarted
+      `Prelude.seq` Prelude.rnf created
       `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf lastStopped

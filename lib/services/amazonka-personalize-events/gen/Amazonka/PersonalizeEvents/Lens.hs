@@ -14,29 +14,29 @@
 module Amazonka.PersonalizeEvents.Lens
   ( -- * Operations
 
-    -- ** PutUsers
-    putUsers_datasetArn,
-    putUsers_users,
-
-    -- ** PutItems
-    putItems_datasetArn,
-    putItems_items,
-
     -- ** PutEvents
     putEvents_userId,
     putEvents_trackingId,
     putEvents_sessionId,
     putEvents_eventList,
 
+    -- ** PutItems
+    putItems_datasetArn,
+    putItems_items,
+
+    -- ** PutUsers
+    putUsers_datasetArn,
+    putUsers_users,
+
     -- * Types
 
     -- ** Event
+    event_properties,
     event_recommendationId,
     event_eventValue,
-    event_itemId,
-    event_impression,
     event_eventId,
-    event_properties,
+    event_impression,
+    event_itemId,
     event_eventType,
     event_sentAt,
 

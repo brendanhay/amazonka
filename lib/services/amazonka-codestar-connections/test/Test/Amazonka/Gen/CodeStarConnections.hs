@@ -27,32 +27,32 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateHost $
---             newCreateHost
+--         [ requestCreateConnection $
+--             newCreateConnection
 --
---         , requestListConnections $
---             newListConnections
+--         , requestCreateHost $
+--             newCreateHost
 --
 --         , requestDeleteConnection $
 --             newDeleteConnection
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestCreateConnection $
---             newCreateConnection
+--         , requestDeleteHost $
+--             newDeleteHost
 --
 --         , requestGetConnection $
 --             newGetConnection
 --
---         , requestDeleteHost $
---             newDeleteHost
+--         , requestGetHost $
+--             newGetHost
 --
---         , requestUpdateHost $
---             newUpdateHost
+--         , requestListConnections $
+--             newListConnections
 --
 --         , requestListHosts $
 --             newListHosts
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestTagResource $
 --             newTagResource
@@ -60,38 +60,38 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetHost $
---             newGetHost
+--         , requestUpdateHost $
+--             newUpdateHost
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateHost $
---             newCreateHostResponse
+--         [ responseCreateConnection $
+--             newCreateConnectionResponse
 --
---         , responseListConnections $
---             newListConnectionsResponse
+--         , responseCreateHost $
+--             newCreateHostResponse
 --
 --         , responseDeleteConnection $
 --             newDeleteConnectionResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseCreateConnection $
---             newCreateConnectionResponse
+--         , responseDeleteHost $
+--             newDeleteHostResponse
 --
 --         , responseGetConnection $
 --             newGetConnectionResponse
 --
---         , responseDeleteHost $
---             newDeleteHostResponse
+--         , responseGetHost $
+--             newGetHostResponse
 --
---         , responseUpdateHost $
---             newUpdateHostResponse
+--         , responseListConnections $
+--             newListConnectionsResponse
 --
 --         , responseListHosts $
 --             newListHostsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -99,37 +99,13 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetHost $
---             newGetHostResponse
+--         , responseUpdateHost $
+--             newUpdateHostResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestCreateHost :: CreateHost -> TestTree
-requestCreateHost =
-  req
-    "CreateHost"
-    "fixture/CreateHost.yaml"
-
-requestListConnections :: ListConnections -> TestTree
-requestListConnections =
-  req
-    "ListConnections"
-    "fixture/ListConnections.yaml"
-
-requestDeleteConnection :: DeleteConnection -> TestTree
-requestDeleteConnection =
-  req
-    "DeleteConnection"
-    "fixture/DeleteConnection.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
 
 requestCreateConnection :: CreateConnection -> TestTree
 requestCreateConnection =
@@ -137,11 +113,17 @@ requestCreateConnection =
     "CreateConnection"
     "fixture/CreateConnection.yaml"
 
-requestGetConnection :: GetConnection -> TestTree
-requestGetConnection =
+requestCreateHost :: CreateHost -> TestTree
+requestCreateHost =
   req
-    "GetConnection"
-    "fixture/GetConnection.yaml"
+    "CreateHost"
+    "fixture/CreateHost.yaml"
+
+requestDeleteConnection :: DeleteConnection -> TestTree
+requestDeleteConnection =
+  req
+    "DeleteConnection"
+    "fixture/DeleteConnection.yaml"
 
 requestDeleteHost :: DeleteHost -> TestTree
 requestDeleteHost =
@@ -149,17 +131,35 @@ requestDeleteHost =
     "DeleteHost"
     "fixture/DeleteHost.yaml"
 
-requestUpdateHost :: UpdateHost -> TestTree
-requestUpdateHost =
+requestGetConnection :: GetConnection -> TestTree
+requestGetConnection =
   req
-    "UpdateHost"
-    "fixture/UpdateHost.yaml"
+    "GetConnection"
+    "fixture/GetConnection.yaml"
+
+requestGetHost :: GetHost -> TestTree
+requestGetHost =
+  req
+    "GetHost"
+    "fixture/GetHost.yaml"
+
+requestListConnections :: ListConnections -> TestTree
+requestListConnections =
+  req
+    "ListConnections"
+    "fixture/ListConnections.yaml"
 
 requestListHosts :: ListHosts -> TestTree
 requestListHosts =
   req
     "ListHosts"
     "fixture/ListHosts.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -173,45 +173,13 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetHost :: GetHost -> TestTree
-requestGetHost =
+requestUpdateHost :: UpdateHost -> TestTree
+requestUpdateHost =
   req
-    "GetHost"
-    "fixture/GetHost.yaml"
+    "UpdateHost"
+    "fixture/UpdateHost.yaml"
 
 -- Responses
-
-responseCreateHost :: CreateHostResponse -> TestTree
-responseCreateHost =
-  res
-    "CreateHostResponse"
-    "fixture/CreateHostResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateHost)
-
-responseListConnections :: ListConnectionsResponse -> TestTree
-responseListConnections =
-  res
-    "ListConnectionsResponse"
-    "fixture/ListConnectionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListConnections)
-
-responseDeleteConnection :: DeleteConnectionResponse -> TestTree
-responseDeleteConnection =
-  res
-    "DeleteConnectionResponse"
-    "fixture/DeleteConnectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseCreateConnection :: CreateConnectionResponse -> TestTree
 responseCreateConnection =
@@ -221,13 +189,21 @@ responseCreateConnection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateConnection)
 
-responseGetConnection :: GetConnectionResponse -> TestTree
-responseGetConnection =
+responseCreateHost :: CreateHostResponse -> TestTree
+responseCreateHost =
   res
-    "GetConnectionResponse"
-    "fixture/GetConnectionResponse.proto"
+    "CreateHostResponse"
+    "fixture/CreateHostResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetConnection)
+    (Proxy.Proxy :: Proxy.Proxy CreateHost)
+
+responseDeleteConnection :: DeleteConnectionResponse -> TestTree
+responseDeleteConnection =
+  res
+    "DeleteConnectionResponse"
+    "fixture/DeleteConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
 responseDeleteHost :: DeleteHostResponse -> TestTree
 responseDeleteHost =
@@ -237,13 +213,29 @@ responseDeleteHost =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteHost)
 
-responseUpdateHost :: UpdateHostResponse -> TestTree
-responseUpdateHost =
+responseGetConnection :: GetConnectionResponse -> TestTree
+responseGetConnection =
   res
-    "UpdateHostResponse"
-    "fixture/UpdateHostResponse.proto"
+    "GetConnectionResponse"
+    "fixture/GetConnectionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateHost)
+    (Proxy.Proxy :: Proxy.Proxy GetConnection)
+
+responseGetHost :: GetHostResponse -> TestTree
+responseGetHost =
+  res
+    "GetHostResponse"
+    "fixture/GetHostResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetHost)
+
+responseListConnections :: ListConnectionsResponse -> TestTree
+responseListConnections =
+  res
+    "ListConnectionsResponse"
+    "fixture/ListConnectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListConnections)
 
 responseListHosts :: ListHostsResponse -> TestTree
 responseListHosts =
@@ -252,6 +244,14 @@ responseListHosts =
     "fixture/ListHostsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListHosts)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -269,10 +269,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseGetHost :: GetHostResponse -> TestTree
-responseGetHost =
+responseUpdateHost :: UpdateHostResponse -> TestTree
+responseUpdateHost =
   res
-    "GetHostResponse"
-    "fixture/GetHostResponse.proto"
+    "UpdateHostResponse"
+    "fixture/UpdateHostResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetHost)
+    (Proxy.Proxy :: Proxy.Proxy UpdateHost)

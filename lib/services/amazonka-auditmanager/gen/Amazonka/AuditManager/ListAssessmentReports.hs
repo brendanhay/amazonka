@@ -35,8 +35,8 @@ module Amazonka.AuditManager.ListAssessmentReports
     newListAssessmentReportsResponse,
 
     -- * Response Lenses
-    listAssessmentReportsResponse_assessmentReports,
     listAssessmentReportsResponse_nextToken,
+    listAssessmentReportsResponse_assessmentReports,
     listAssessmentReportsResponse_httpStatus,
   )
 where
@@ -96,10 +96,10 @@ instance Core.AWSRequest ListAssessmentReports where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentReportsResponse'
-            Prelude.<$> ( x Core..?> "assessmentReports"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "assessmentReports"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,11 +136,11 @@ instance Core.ToQuery ListAssessmentReports where
 
 -- | /See:/ 'newListAssessmentReportsResponse' smart constructor.
 data ListAssessmentReportsResponse = ListAssessmentReportsResponse'
-  { -- | The list of assessment reports returned by the @ListAssessmentReports@
+  { -- | The pagination token used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of assessment reports returned by the @ListAssessmentReports@
     -- API.
     assessmentReports :: Prelude.Maybe [AssessmentReportMetadata],
-    -- | The pagination token used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,10 +154,10 @@ data ListAssessmentReportsResponse = ListAssessmentReportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listAssessmentReportsResponse_nextToken' - The pagination token used to fetch the next set of results.
+--
 -- 'assessmentReports', 'listAssessmentReportsResponse_assessmentReports' - The list of assessment reports returned by the @ListAssessmentReports@
 -- API.
---
--- 'nextToken', 'listAssessmentReportsResponse_nextToken' - The pagination token used to fetch the next set of results.
 --
 -- 'httpStatus', 'listAssessmentReportsResponse_httpStatus' - The response's http status code.
 newListAssessmentReportsResponse ::
@@ -166,20 +166,20 @@ newListAssessmentReportsResponse ::
   ListAssessmentReportsResponse
 newListAssessmentReportsResponse pHttpStatus_ =
   ListAssessmentReportsResponse'
-    { assessmentReports =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      assessmentReports = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The pagination token used to fetch the next set of results.
+listAssessmentReportsResponse_nextToken :: Lens.Lens' ListAssessmentReportsResponse (Prelude.Maybe Prelude.Text)
+listAssessmentReportsResponse_nextToken = Lens.lens (\ListAssessmentReportsResponse' {nextToken} -> nextToken) (\s@ListAssessmentReportsResponse' {} a -> s {nextToken = a} :: ListAssessmentReportsResponse)
 
 -- | The list of assessment reports returned by the @ListAssessmentReports@
 -- API.
 listAssessmentReportsResponse_assessmentReports :: Lens.Lens' ListAssessmentReportsResponse (Prelude.Maybe [AssessmentReportMetadata])
 listAssessmentReportsResponse_assessmentReports = Lens.lens (\ListAssessmentReportsResponse' {assessmentReports} -> assessmentReports) (\s@ListAssessmentReportsResponse' {} a -> s {assessmentReports = a} :: ListAssessmentReportsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The pagination token used to fetch the next set of results.
-listAssessmentReportsResponse_nextToken :: Lens.Lens' ListAssessmentReportsResponse (Prelude.Maybe Prelude.Text)
-listAssessmentReportsResponse_nextToken = Lens.lens (\ListAssessmentReportsResponse' {nextToken} -> nextToken) (\s@ListAssessmentReportsResponse' {} a -> s {nextToken = a} :: ListAssessmentReportsResponse)
 
 -- | The response's http status code.
 listAssessmentReportsResponse_httpStatus :: Lens.Lens' ListAssessmentReportsResponse Prelude.Int
@@ -187,6 +187,6 @@ listAssessmentReportsResponse_httpStatus = Lens.lens (\ListAssessmentReportsResp
 
 instance Prelude.NFData ListAssessmentReportsResponse where
   rnf ListAssessmentReportsResponse' {..} =
-    Prelude.rnf assessmentReports
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assessmentReports
       `Prelude.seq` Prelude.rnf httpStatus

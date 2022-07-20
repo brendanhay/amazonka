@@ -29,7 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationConformancePack' smart constructor.
 data OrganizationConformancePack = OrganizationConformancePack'
-  { -- | The name of the Amazon S3 bucket where Config stores conformance pack
+  { -- | A comma-separated list of accounts excluded from organization
+    -- conformance pack.
+    excludedAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | A list of @ConformancePackInputParameter@ objects.
+    conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
+    -- | The name of the Amazon S3 bucket where Config stores conformance pack
     -- templates.
     --
     -- This field is optional.
@@ -38,11 +43,6 @@ data OrganizationConformancePack = OrganizationConformancePack'
     --
     -- This field is optional.
     deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ConformancePackInputParameter@ objects.
-    conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
-    -- | A comma-separated list of accounts excluded from organization
-    -- conformance pack.
-    excludedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | The name you assign to an organization conformance pack.
     organizationConformancePackName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of organization conformance pack.
@@ -60,6 +60,11 @@ data OrganizationConformancePack = OrganizationConformancePack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'excludedAccounts', 'organizationConformancePack_excludedAccounts' - A comma-separated list of accounts excluded from organization
+-- conformance pack.
+--
+-- 'conformancePackInputParameters', 'organizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
+--
 -- 'deliveryS3Bucket', 'organizationConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
 -- templates.
 --
@@ -68,11 +73,6 @@ data OrganizationConformancePack = OrganizationConformancePack'
 -- 'deliveryS3KeyPrefix', 'organizationConformancePack_deliveryS3KeyPrefix' - Any folder structure you want to add to an Amazon S3 bucket.
 --
 -- This field is optional.
---
--- 'conformancePackInputParameters', 'organizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
---
--- 'excludedAccounts', 'organizationConformancePack_excludedAccounts' - A comma-separated list of accounts excluded from organization
--- conformance pack.
 --
 -- 'organizationConformancePackName', 'organizationConformancePack_organizationConformancePackName' - The name you assign to an organization conformance pack.
 --
@@ -92,12 +92,12 @@ newOrganizationConformancePack
   pOrganizationConformancePackArn_
   pLastUpdateTime_ =
     OrganizationConformancePack'
-      { deliveryS3Bucket =
+      { excludedAccounts =
           Prelude.Nothing,
-        deliveryS3KeyPrefix = Prelude.Nothing,
         conformancePackInputParameters =
           Prelude.Nothing,
-        excludedAccounts = Prelude.Nothing,
+        deliveryS3Bucket = Prelude.Nothing,
+        deliveryS3KeyPrefix = Prelude.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_,
         organizationConformancePackArn =
@@ -105,6 +105,15 @@ newOrganizationConformancePack
         lastUpdateTime =
           Core._Time Lens.# pLastUpdateTime_
       }
+
+-- | A comma-separated list of accounts excluded from organization
+-- conformance pack.
+organizationConformancePack_excludedAccounts :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [Prelude.Text])
+organizationConformancePack_excludedAccounts = Lens.lens (\OrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConformancePack' {} a -> s {excludedAccounts = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of @ConformancePackInputParameter@ objects.
+organizationConformancePack_conformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
+organizationConformancePack_conformancePackInputParameters = Lens.lens (\OrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@OrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Amazon S3 bucket where Config stores conformance pack
 -- templates.
@@ -118,15 +127,6 @@ organizationConformancePack_deliveryS3Bucket = Lens.lens (\OrganizationConforman
 -- This field is optional.
 organizationConformancePack_deliveryS3KeyPrefix :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe Prelude.Text)
 organizationConformancePack_deliveryS3KeyPrefix = Lens.lens (\OrganizationConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@OrganizationConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: OrganizationConformancePack)
-
--- | A list of @ConformancePackInputParameter@ objects.
-organizationConformancePack_conformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
-organizationConformancePack_conformancePackInputParameters = Lens.lens (\OrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@OrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
-
--- | A comma-separated list of accounts excluded from organization
--- conformance pack.
-organizationConformancePack_excludedAccounts :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [Prelude.Text])
-organizationConformancePack_excludedAccounts = Lens.lens (\OrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConformancePack' {} a -> s {excludedAccounts = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name you assign to an organization conformance pack.
 organizationConformancePack_organizationConformancePackName :: Lens.Lens' OrganizationConformancePack Prelude.Text
@@ -146,14 +146,14 @@ instance Core.FromJSON OrganizationConformancePack where
       "OrganizationConformancePack"
       ( \x ->
           OrganizationConformancePack'
-            Prelude.<$> (x Core..:? "DeliveryS3Bucket")
-            Prelude.<*> (x Core..:? "DeliveryS3KeyPrefix")
+            Prelude.<$> ( x Core..:? "ExcludedAccounts"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Core..:? "ConformancePackInputParameters"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ExcludedAccounts"
-                            Core..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Core..:? "DeliveryS3Bucket")
+            Prelude.<*> (x Core..:? "DeliveryS3KeyPrefix")
             Prelude.<*> (x Core..: "OrganizationConformancePackName")
             Prelude.<*> (x Core..: "OrganizationConformancePackArn")
             Prelude.<*> (x Core..: "LastUpdateTime")
@@ -161,20 +161,20 @@ instance Core.FromJSON OrganizationConformancePack where
 
 instance Prelude.Hashable OrganizationConformancePack where
   hashWithSalt _salt OrganizationConformancePack' {..} =
-    _salt `Prelude.hashWithSalt` deliveryS3Bucket
-      `Prelude.hashWithSalt` deliveryS3KeyPrefix
+    _salt `Prelude.hashWithSalt` excludedAccounts
       `Prelude.hashWithSalt` conformancePackInputParameters
-      `Prelude.hashWithSalt` excludedAccounts
+      `Prelude.hashWithSalt` deliveryS3Bucket
+      `Prelude.hashWithSalt` deliveryS3KeyPrefix
       `Prelude.hashWithSalt` organizationConformancePackName
       `Prelude.hashWithSalt` organizationConformancePackArn
       `Prelude.hashWithSalt` lastUpdateTime
 
 instance Prelude.NFData OrganizationConformancePack where
   rnf OrganizationConformancePack' {..} =
-    Prelude.rnf deliveryS3Bucket
-      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
+    Prelude.rnf excludedAccounts
       `Prelude.seq` Prelude.rnf conformancePackInputParameters
-      `Prelude.seq` Prelude.rnf excludedAccounts
+      `Prelude.seq` Prelude.rnf deliveryS3Bucket
+      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
       `Prelude.seq` Prelude.rnf organizationConformancePackName
       `Prelude.seq` Prelude.rnf organizationConformancePackArn
       `Prelude.seq` Prelude.rnf lastUpdateTime

@@ -39,9 +39,9 @@ module Amazonka.QuickSight.ListUserGroups
     newListUserGroupsResponse,
 
     -- * Response Lenses
+    listUserGroupsResponse_nextToken,
     listUserGroupsResponse_requestId,
     listUserGroupsResponse_groupList,
-    listUserGroupsResponse_nextToken,
     listUserGroupsResponse_status,
   )
 where
@@ -143,9 +143,9 @@ instance Core.AWSRequest ListUserGroups where
     Response.receiveJSON
       ( \s h x ->
           ListUserGroupsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "GroupList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,12 +197,12 @@ instance Core.ToQuery ListUserGroups where
 
 -- | /See:/ 'newListUserGroupsResponse' smart constructor.
 data ListUserGroupsResponse = ListUserGroupsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | A pagination token that can be used in a subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The list of groups the user is a member of.
     groupList :: Prelude.Maybe [Group],
-    -- | A pagination token that can be used in a subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -216,11 +216,11 @@ data ListUserGroupsResponse = ListUserGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listUserGroupsResponse_nextToken' - A pagination token that can be used in a subsequent request.
+--
 -- 'requestId', 'listUserGroupsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'groupList', 'listUserGroupsResponse_groupList' - The list of groups the user is a member of.
---
--- 'nextToken', 'listUserGroupsResponse_nextToken' - A pagination token that can be used in a subsequent request.
 --
 -- 'status', 'listUserGroupsResponse_status' - The HTTP status of the request.
 newListUserGroupsResponse ::
@@ -229,12 +229,16 @@ newListUserGroupsResponse ::
   ListUserGroupsResponse
 newListUserGroupsResponse pStatus_ =
   ListUserGroupsResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
+      requestId = Prelude.Nothing,
       groupList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | A pagination token that can be used in a subsequent request.
+listUserGroupsResponse_nextToken :: Lens.Lens' ListUserGroupsResponse (Prelude.Maybe Prelude.Text)
+listUserGroupsResponse_nextToken = Lens.lens (\ListUserGroupsResponse' {nextToken} -> nextToken) (\s@ListUserGroupsResponse' {} a -> s {nextToken = a} :: ListUserGroupsResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 listUserGroupsResponse_requestId :: Lens.Lens' ListUserGroupsResponse (Prelude.Maybe Prelude.Text)
@@ -244,17 +248,13 @@ listUserGroupsResponse_requestId = Lens.lens (\ListUserGroupsResponse' {requestI
 listUserGroupsResponse_groupList :: Lens.Lens' ListUserGroupsResponse (Prelude.Maybe [Group])
 listUserGroupsResponse_groupList = Lens.lens (\ListUserGroupsResponse' {groupList} -> groupList) (\s@ListUserGroupsResponse' {} a -> s {groupList = a} :: ListUserGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A pagination token that can be used in a subsequent request.
-listUserGroupsResponse_nextToken :: Lens.Lens' ListUserGroupsResponse (Prelude.Maybe Prelude.Text)
-listUserGroupsResponse_nextToken = Lens.lens (\ListUserGroupsResponse' {nextToken} -> nextToken) (\s@ListUserGroupsResponse' {} a -> s {nextToken = a} :: ListUserGroupsResponse)
-
 -- | The HTTP status of the request.
 listUserGroupsResponse_status :: Lens.Lens' ListUserGroupsResponse Prelude.Int
 listUserGroupsResponse_status = Lens.lens (\ListUserGroupsResponse' {status} -> status) (\s@ListUserGroupsResponse' {} a -> s {status = a} :: ListUserGroupsResponse)
 
 instance Prelude.NFData ListUserGroupsResponse where
   rnf ListUserGroupsResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf groupList
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status

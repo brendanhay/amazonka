@@ -17,8 +17,8 @@ module Amazonka.MechanicalTurk.Types
     defaultService,
 
     -- * Errors
-    _ServiceFault,
     _RequestError,
+    _ServiceFault,
 
     -- * AssignmentStatus
     AssignmentStatus (..),
@@ -62,52 +62,52 @@ module Amazonka.MechanicalTurk.Types
     -- * Assignment
     Assignment (..),
     newAssignment,
-    assignment_acceptTime,
-    assignment_answer,
-    assignment_assignmentStatus,
-    assignment_requesterFeedback,
-    assignment_deadline,
     assignment_approvalTime,
-    assignment_rejectionTime,
+    assignment_submitTime,
+    assignment_workerId,
+    assignment_deadline,
+    assignment_requesterFeedback,
     assignment_autoApprovalTime,
     assignment_hITId,
-    assignment_workerId,
+    assignment_answer,
     assignment_assignmentId,
-    assignment_submitTime,
+    assignment_rejectionTime,
+    assignment_assignmentStatus,
+    assignment_acceptTime,
 
     -- * BonusPayment
     BonusPayment (..),
     newBonusPayment,
-    bonusPayment_reason,
-    bonusPayment_grantTime,
     bonusPayment_workerId,
+    bonusPayment_grantTime,
+    bonusPayment_reason,
     bonusPayment_assignmentId,
     bonusPayment_bonusAmount,
 
     -- * HIT
     HIT (..),
     newHIT,
-    hit_creationTime,
     hit_hITGroupId,
-    hit_numberOfAssignmentsPending,
-    hit_hITTypeId,
     hit_expiration,
-    hit_autoApprovalDelayInSeconds,
-    hit_requesterAnnotation,
+    hit_numberOfAssignmentsAvailable,
     hit_hITStatus,
     hit_maxAssignments,
-    hit_numberOfAssignmentsCompleted,
-    hit_reward,
     hit_keywords,
-    hit_hITLayoutId,
-    hit_qualificationRequirements,
+    hit_numberOfAssignmentsPending,
+    hit_description,
+    hit_assignmentDurationInSeconds,
+    hit_question,
     hit_title,
     hit_hITId,
+    hit_autoApprovalDelayInSeconds,
+    hit_reward,
+    hit_qualificationRequirements,
+    hit_hITTypeId,
+    hit_creationTime,
     hit_hITReviewStatus,
-    hit_numberOfAssignmentsAvailable,
-    hit_description,
-    hit_question,
-    hit_assignmentDurationInSeconds,
+    hit_hITLayoutId,
+    hit_numberOfAssignmentsCompleted,
+    hit_requesterAnnotation,
 
     -- * HITLayoutParameter
     HITLayoutParameter (..),
@@ -132,81 +132,81 @@ module Amazonka.MechanicalTurk.Types
     -- * NotifyWorkersFailureStatus
     NotifyWorkersFailureStatus (..),
     newNotifyWorkersFailureStatus,
-    notifyWorkersFailureStatus_notifyWorkersFailureMessage,
-    notifyWorkersFailureStatus_notifyWorkersFailureCode,
     notifyWorkersFailureStatus_workerId,
+    notifyWorkersFailureStatus_notifyWorkersFailureCode,
+    notifyWorkersFailureStatus_notifyWorkersFailureMessage,
 
     -- * ParameterMapEntry
     ParameterMapEntry (..),
     newParameterMapEntry,
-    parameterMapEntry_values,
     parameterMapEntry_key,
+    parameterMapEntry_values,
 
     -- * PolicyParameter
     PolicyParameter (..),
     newPolicyParameter,
-    policyParameter_values,
-    policyParameter_mapEntries,
     policyParameter_key,
+    policyParameter_mapEntries,
+    policyParameter_values,
 
     -- * Qualification
     Qualification (..),
     newQualification,
-    qualification_status,
-    qualification_integerValue,
-    qualification_localeValue,
     qualification_qualificationTypeId,
-    qualification_grantTime,
+    qualification_integerValue,
     qualification_workerId,
+    qualification_status,
+    qualification_grantTime,
+    qualification_localeValue,
 
     -- * QualificationRequest
     QualificationRequest (..),
     newQualificationRequest,
-    qualificationRequest_qualificationRequestId,
-    qualificationRequest_test,
     qualificationRequest_qualificationTypeId,
-    qualificationRequest_answer,
-    qualificationRequest_workerId,
     qualificationRequest_submitTime,
+    qualificationRequest_workerId,
+    qualificationRequest_answer,
+    qualificationRequest_test,
+    qualificationRequest_qualificationRequestId,
 
     -- * QualificationRequirement
     QualificationRequirement (..),
     newQualificationRequirement,
+    qualificationRequirement_integerValues,
     qualificationRequirement_localeValues,
     qualificationRequirement_actionsGuarded,
     qualificationRequirement_requiredToPreview,
-    qualificationRequirement_integerValues,
     qualificationRequirement_qualificationTypeId,
     qualificationRequirement_comparator,
 
     -- * QualificationType
     QualificationType (..),
     newQualificationType,
-    qualificationType_creationTime,
-    qualificationType_testDurationInSeconds,
-    qualificationType_qualificationTypeStatus,
-    qualificationType_answerKey,
-    qualificationType_test,
     qualificationType_qualificationTypeId,
-    qualificationType_name,
-    qualificationType_keywords,
-    qualificationType_autoGranted,
     qualificationType_autoGrantedValue,
+    qualificationType_name,
+    qualificationType_testDurationInSeconds,
+    qualificationType_keywords,
     qualificationType_description,
-    qualificationType_isRequestable,
+    qualificationType_test,
     qualificationType_retryDelayInSeconds,
+    qualificationType_creationTime,
+    qualificationType_answerKey,
+    qualificationType_autoGranted,
+    qualificationType_isRequestable,
+    qualificationType_qualificationTypeStatus,
 
     -- * ReviewActionDetail
     ReviewActionDetail (..),
     newReviewActionDetail,
-    reviewActionDetail_status,
-    reviewActionDetail_targetId,
-    reviewActionDetail_actionId,
-    reviewActionDetail_targetType,
-    reviewActionDetail_result,
     reviewActionDetail_actionName,
+    reviewActionDetail_targetId,
+    reviewActionDetail_status,
     reviewActionDetail_completeTime,
+    reviewActionDetail_targetType,
+    reviewActionDetail_actionId,
     reviewActionDetail_errorCode,
+    reviewActionDetail_result,
 
     -- * ReviewPolicy
     ReviewPolicy (..),
@@ -217,24 +217,24 @@ module Amazonka.MechanicalTurk.Types
     -- * ReviewReport
     ReviewReport (..),
     newReviewReport,
-    reviewReport_reviewActions,
     reviewReport_reviewResults,
+    reviewReport_reviewActions,
 
     -- * ReviewResultDetail
     ReviewResultDetail (..),
     newReviewResultDetail,
-    reviewResultDetail_value,
-    reviewResultDetail_actionId,
-    reviewResultDetail_subjectType,
+    reviewResultDetail_subjectId,
     reviewResultDetail_key,
     reviewResultDetail_questionId,
-    reviewResultDetail_subjectId,
+    reviewResultDetail_actionId,
+    reviewResultDetail_subjectType,
+    reviewResultDetail_value,
 
     -- * WorkerBlock
     WorkerBlock (..),
     newWorkerBlock,
-    workerBlock_reason,
     workerBlock_workerId,
+    workerBlock_reason,
   )
 where
 
@@ -301,35 +301,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -338,13 +311,47 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Your request is invalid.
+_RequestError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestError =
+  Core._MatchServiceError
+    defaultService
+    "RequestError"
 
 -- | Amazon Mechanical Turk is temporarily unable to process your request.
 -- Try your call again.
@@ -353,10 +360,3 @@ _ServiceFault =
   Core._MatchServiceError
     defaultService
     "ServiceFault"
-
--- | Your request is invalid.
-_RequestError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestError =
-  Core._MatchServiceError
-    defaultService
-    "RequestError"

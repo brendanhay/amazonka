@@ -37,14 +37,14 @@ module Amazonka.ElastiCache.DeleteUser
     newUser,
 
     -- * Response Lenses
-    user_status,
-    user_arn,
-    user_userGroupIds,
-    user_authentication,
-    user_engine,
-    user_userName,
     user_accessString,
+    user_authentication,
+    user_userName,
+    user_arn,
+    user_status,
+    user_userGroupIds,
     user_userId,
+    user_engine,
   )
 where
 

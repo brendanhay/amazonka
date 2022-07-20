@@ -27,21 +27,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipelineDetail' smart constructor.
 data PipelineDetail = PipelineDetail'
-  { -- | Pipeline ID
-    pipelineId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the input switch schedule action that occurred most recently
-    -- and that resulted in the switch to the current input attachment for this
-    -- pipeline.
-    activeInputSwitchActionName :: Prelude.Maybe Prelude.Text,
-    -- | The current URI being used for HTML5 motion graphics for this pipeline.
+  { -- | The current URI being used for HTML5 motion graphics for this pipeline.
     activeMotionGraphicsUri :: Prelude.Maybe Prelude.Text,
+    -- | Pipeline ID
+    pipelineId :: Prelude.Maybe Prelude.Text,
     -- | The name of the active input attachment currently being ingested by this
     -- pipeline.
     activeInputAttachmentName :: Prelude.Maybe Prelude.Text,
     -- | The name of the motion graphics activate action that occurred most
     -- recently and that resulted in the current graphics URI for this
     -- pipeline.
-    activeMotionGraphicsActionName :: Prelude.Maybe Prelude.Text
+    activeMotionGraphicsActionName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the input switch schedule action that occurred most recently
+    -- and that resulted in the switch to the current input attachment for this
+    -- pipeline.
+    activeInputSwitchActionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,13 +53,9 @@ data PipelineDetail = PipelineDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineId', 'pipelineDetail_pipelineId' - Pipeline ID
---
--- 'activeInputSwitchActionName', 'pipelineDetail_activeInputSwitchActionName' - The name of the input switch schedule action that occurred most recently
--- and that resulted in the switch to the current input attachment for this
--- pipeline.
---
 -- 'activeMotionGraphicsUri', 'pipelineDetail_activeMotionGraphicsUri' - The current URI being used for HTML5 motion graphics for this pipeline.
+--
+-- 'pipelineId', 'pipelineDetail_pipelineId' - Pipeline ID
 --
 -- 'activeInputAttachmentName', 'pipelineDetail_activeInputAttachmentName' - The name of the active input attachment currently being ingested by this
 -- pipeline.
@@ -67,30 +63,29 @@ data PipelineDetail = PipelineDetail'
 -- 'activeMotionGraphicsActionName', 'pipelineDetail_activeMotionGraphicsActionName' - The name of the motion graphics activate action that occurred most
 -- recently and that resulted in the current graphics URI for this
 -- pipeline.
+--
+-- 'activeInputSwitchActionName', 'pipelineDetail_activeInputSwitchActionName' - The name of the input switch schedule action that occurred most recently
+-- and that resulted in the switch to the current input attachment for this
+-- pipeline.
 newPipelineDetail ::
   PipelineDetail
 newPipelineDetail =
   PipelineDetail'
-    { pipelineId = Prelude.Nothing,
-      activeInputSwitchActionName = Prelude.Nothing,
-      activeMotionGraphicsUri = Prelude.Nothing,
+    { activeMotionGraphicsUri =
+        Prelude.Nothing,
+      pipelineId = Prelude.Nothing,
       activeInputAttachmentName = Prelude.Nothing,
-      activeMotionGraphicsActionName = Prelude.Nothing
+      activeMotionGraphicsActionName = Prelude.Nothing,
+      activeInputSwitchActionName = Prelude.Nothing
     }
-
--- | Pipeline ID
-pipelineDetail_pipelineId :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
-pipelineDetail_pipelineId = Lens.lens (\PipelineDetail' {pipelineId} -> pipelineId) (\s@PipelineDetail' {} a -> s {pipelineId = a} :: PipelineDetail)
-
--- | The name of the input switch schedule action that occurred most recently
--- and that resulted in the switch to the current input attachment for this
--- pipeline.
-pipelineDetail_activeInputSwitchActionName :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
-pipelineDetail_activeInputSwitchActionName = Lens.lens (\PipelineDetail' {activeInputSwitchActionName} -> activeInputSwitchActionName) (\s@PipelineDetail' {} a -> s {activeInputSwitchActionName = a} :: PipelineDetail)
 
 -- | The current URI being used for HTML5 motion graphics for this pipeline.
 pipelineDetail_activeMotionGraphicsUri :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
 pipelineDetail_activeMotionGraphicsUri = Lens.lens (\PipelineDetail' {activeMotionGraphicsUri} -> activeMotionGraphicsUri) (\s@PipelineDetail' {} a -> s {activeMotionGraphicsUri = a} :: PipelineDetail)
+
+-- | Pipeline ID
+pipelineDetail_pipelineId :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
+pipelineDetail_pipelineId = Lens.lens (\PipelineDetail' {pipelineId} -> pipelineId) (\s@PipelineDetail' {} a -> s {pipelineId = a} :: PipelineDetail)
 
 -- | The name of the active input attachment currently being ingested by this
 -- pipeline.
@@ -103,31 +98,38 @@ pipelineDetail_activeInputAttachmentName = Lens.lens (\PipelineDetail' {activeIn
 pipelineDetail_activeMotionGraphicsActionName :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
 pipelineDetail_activeMotionGraphicsActionName = Lens.lens (\PipelineDetail' {activeMotionGraphicsActionName} -> activeMotionGraphicsActionName) (\s@PipelineDetail' {} a -> s {activeMotionGraphicsActionName = a} :: PipelineDetail)
 
+-- | The name of the input switch schedule action that occurred most recently
+-- and that resulted in the switch to the current input attachment for this
+-- pipeline.
+pipelineDetail_activeInputSwitchActionName :: Lens.Lens' PipelineDetail (Prelude.Maybe Prelude.Text)
+pipelineDetail_activeInputSwitchActionName = Lens.lens (\PipelineDetail' {activeInputSwitchActionName} -> activeInputSwitchActionName) (\s@PipelineDetail' {} a -> s {activeInputSwitchActionName = a} :: PipelineDetail)
+
 instance Core.FromJSON PipelineDetail where
   parseJSON =
     Core.withObject
       "PipelineDetail"
       ( \x ->
           PipelineDetail'
-            Prelude.<$> (x Core..:? "pipelineId")
-            Prelude.<*> (x Core..:? "activeInputSwitchActionName")
-            Prelude.<*> (x Core..:? "activeMotionGraphicsUri")
+            Prelude.<$> (x Core..:? "activeMotionGraphicsUri")
+            Prelude.<*> (x Core..:? "pipelineId")
             Prelude.<*> (x Core..:? "activeInputAttachmentName")
             Prelude.<*> (x Core..:? "activeMotionGraphicsActionName")
+            Prelude.<*> (x Core..:? "activeInputSwitchActionName")
       )
 
 instance Prelude.Hashable PipelineDetail where
   hashWithSalt _salt PipelineDetail' {..} =
-    _salt `Prelude.hashWithSalt` pipelineId
-      `Prelude.hashWithSalt` activeInputSwitchActionName
+    _salt
       `Prelude.hashWithSalt` activeMotionGraphicsUri
+      `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` activeInputAttachmentName
       `Prelude.hashWithSalt` activeMotionGraphicsActionName
+      `Prelude.hashWithSalt` activeInputSwitchActionName
 
 instance Prelude.NFData PipelineDetail where
   rnf PipelineDetail' {..} =
-    Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf activeInputSwitchActionName
-      `Prelude.seq` Prelude.rnf activeMotionGraphicsUri
+    Prelude.rnf activeMotionGraphicsUri
+      `Prelude.seq` Prelude.rnf pipelineId
       `Prelude.seq` Prelude.rnf activeInputAttachmentName
       `Prelude.seq` Prelude.rnf activeMotionGraphicsActionName
+      `Prelude.seq` Prelude.rnf activeInputSwitchActionName

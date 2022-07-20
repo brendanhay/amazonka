@@ -22,43 +22,6 @@ import Amazonka.Rekognition.DescribeProjectVersions
 import Amazonka.Rekognition.Lens
 import Amazonka.Rekognition.Types
 
--- | Polls 'Amazonka.Rekognition.DescribeProjectVersions' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newProjectVersionRunning :: Core.Wait DescribeProjectVersions
-newProjectVersionRunning =
-  Core.Wait
-    { Core._waitName = "ProjectVersionRunning",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "RUNNING"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. projectVersionDescription_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. projectVersionDescription_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Amazonka.Rekognition.DescribeProjectVersions' every 120 seconds until a successful state is reached. An error is returned after 360 failed checks.
 newProjectVersionTrainingCompleted :: Core.Wait DescribeProjectVersions
 newProjectVersionTrainingCompleted =
@@ -83,6 +46,43 @@ newProjectVersionTrainingCompleted =
             ),
           Core.matchAny
             "TRAINING_FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeProjectVersionsResponse_projectVersionDescriptions
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. projectVersionDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.Rekognition.DescribeProjectVersions' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newProjectVersionRunning :: Core.Wait DescribeProjectVersions
+newProjectVersionRunning =
+  Core.Wait
+    { Core._waitName = "ProjectVersionRunning",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "RUNNING"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeProjectVersionsResponse_projectVersionDescriptions
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. projectVersionDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "FAILED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf

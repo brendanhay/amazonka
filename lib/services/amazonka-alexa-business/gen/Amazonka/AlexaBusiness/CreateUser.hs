@@ -27,11 +27,11 @@ module Amazonka.AlexaBusiness.CreateUser
     newCreateUser,
 
     -- * Request Lenses
+    createUser_tags,
+    createUser_clientRequestToken,
+    createUser_firstName,
     createUser_email,
     createUser_lastName,
-    createUser_firstName,
-    createUser_clientRequestToken,
-    createUser_tags,
     createUser_userId,
 
     -- * Destructuring the Response
@@ -53,17 +53,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | The email address for the user.
-    email :: Prelude.Maybe Prelude.Text,
-    -- | The last name for the user.
-    lastName :: Prelude.Maybe Prelude.Text,
-    -- | The first name for the user.
-    firstName :: Prelude.Maybe Prelude.Text,
+  { -- | The tags for the user.
+    tags :: Prelude.Maybe [Tag],
     -- | A unique, user-specified identifier for this request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the user.
-    tags :: Prelude.Maybe [Tag],
+    -- | The first name for the user.
+    firstName :: Prelude.Maybe Prelude.Text,
+    -- | The email address for the user.
+    email :: Prelude.Maybe Prelude.Text,
+    -- | The last name for the user.
+    lastName :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the user.
     userId :: Prelude.Text
   }
@@ -77,16 +77,16 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'email', 'createUser_email' - The email address for the user.
---
--- 'lastName', 'createUser_lastName' - The last name for the user.
---
--- 'firstName', 'createUser_firstName' - The first name for the user.
+-- 'tags', 'createUser_tags' - The tags for the user.
 --
 -- 'clientRequestToken', 'createUser_clientRequestToken' - A unique, user-specified identifier for this request that ensures
 -- idempotency.
 --
--- 'tags', 'createUser_tags' - The tags for the user.
+-- 'firstName', 'createUser_firstName' - The first name for the user.
+--
+-- 'email', 'createUser_email' - The email address for the user.
+--
+-- 'lastName', 'createUser_lastName' - The last name for the user.
 --
 -- 'userId', 'createUser_userId' - The ARN for the user.
 newCreateUser ::
@@ -95,13 +95,26 @@ newCreateUser ::
   CreateUser
 newCreateUser pUserId_ =
   CreateUser'
-    { email = Prelude.Nothing,
-      lastName = Prelude.Nothing,
-      firstName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      firstName = Prelude.Nothing,
+      email = Prelude.Nothing,
+      lastName = Prelude.Nothing,
       userId = pUserId_
     }
+
+-- | The tags for the user.
+createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe [Tag])
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique, user-specified identifier for this request that ensures
+-- idempotency.
+createUser_clientRequestToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_clientRequestToken = Lens.lens (\CreateUser' {clientRequestToken} -> clientRequestToken) (\s@CreateUser' {} a -> s {clientRequestToken = a} :: CreateUser)
+
+-- | The first name for the user.
+createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser)
 
 -- | The email address for the user.
 createUser_email :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
@@ -110,19 +123,6 @@ createUser_email = Lens.lens (\CreateUser' {email} -> email) (\s@CreateUser' {} 
 -- | The last name for the user.
 createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser)
-
--- | The first name for the user.
-createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser)
-
--- | A unique, user-specified identifier for this request that ensures
--- idempotency.
-createUser_clientRequestToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_clientRequestToken = Lens.lens (\CreateUser' {clientRequestToken} -> clientRequestToken) (\s@CreateUser' {} a -> s {clientRequestToken = a} :: CreateUser)
-
--- | The tags for the user.
-createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe [Tag])
-createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN for the user.
 createUser_userId :: Lens.Lens' CreateUser Prelude.Text
@@ -141,20 +141,20 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` email
-      `Prelude.hashWithSalt` lastName
-      `Prelude.hashWithSalt` firstName
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` lastName
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf email
-      `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf firstName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf lastName
       `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToHeaders CreateUser where
@@ -176,12 +176,12 @@ instance Core.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Email" Core..=) Prelude.<$> email,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("FirstName" Core..=) Prelude.<$> firstName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("FirstName" Core..=) Prelude.<$> firstName,
+            ("Email" Core..=) Prelude.<$> email,
+            ("LastName" Core..=) Prelude.<$> lastName,
             Prelude.Just ("UserId" Core..= userId)
           ]
       )

@@ -32,31 +32,31 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUser' smart constructor.
 data User = User'
-  { -- | The user invite status.
-    userInvitationStatus :: Prelude.Maybe InviteStatus,
-    -- | The user\'s personal meeting PIN.
+  { -- | The user\'s personal meeting PIN.
     personalPIN :: Prelude.Maybe Prelude.Text,
-    -- | The primary phone number associated with the user.
-    primaryProvisionedNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Date and time when the user is invited to the Amazon Chime account, in
+    -- ISO 8601 format.
+    invitedOn :: Prelude.Maybe Core.POSIX,
     -- | The license type for the user.
     licenseType :: Prelude.Maybe License,
+    -- | The display name of the user.
+    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The Alexa for Business metadata.
+    alexaForBusinessMetadata :: Prelude.Maybe AlexaForBusinessMetadata,
+    -- | The user type.
+    userType :: Prelude.Maybe UserType,
     -- | Date and time when the user is registered, in ISO 8601 format.
     registeredOn :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The user registration status.
     userRegistrationStatus :: Prelude.Maybe RegistrationStatus,
-    -- | Date and time when the user is invited to the Amazon Chime account, in
-    -- ISO 8601 format.
-    invitedOn :: Prelude.Maybe Core.POSIX,
-    -- | The display name of the user.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The primary email address of the user.
     primaryEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The user type.
-    userType :: Prelude.Maybe UserType,
-    -- | The Alexa for Business metadata.
-    alexaForBusinessMetadata :: Prelude.Maybe AlexaForBusinessMetadata,
+    -- | The primary phone number associated with the user.
+    primaryProvisionedNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The user invite status.
+    userInvitationStatus :: Prelude.Maybe InviteStatus,
     -- | The user ID.
     userId :: Prelude.Text
   }
@@ -70,13 +70,18 @@ data User = User'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userInvitationStatus', 'user_userInvitationStatus' - The user invite status.
---
 -- 'personalPIN', 'user_personalPIN' - The user\'s personal meeting PIN.
 --
--- 'primaryProvisionedNumber', 'user_primaryProvisionedNumber' - The primary phone number associated with the user.
+-- 'invitedOn', 'user_invitedOn' - Date and time when the user is invited to the Amazon Chime account, in
+-- ISO 8601 format.
 --
 -- 'licenseType', 'user_licenseType' - The license type for the user.
+--
+-- 'displayName', 'user_displayName' - The display name of the user.
+--
+-- 'alexaForBusinessMetadata', 'user_alexaForBusinessMetadata' - The Alexa for Business metadata.
+--
+-- 'userType', 'user_userType' - The user type.
 --
 -- 'registeredOn', 'user_registeredOn' - Date and time when the user is registered, in ISO 8601 format.
 --
@@ -84,16 +89,11 @@ data User = User'
 --
 -- 'userRegistrationStatus', 'user_userRegistrationStatus' - The user registration status.
 --
--- 'invitedOn', 'user_invitedOn' - Date and time when the user is invited to the Amazon Chime account, in
--- ISO 8601 format.
---
--- 'displayName', 'user_displayName' - The display name of the user.
---
 -- 'primaryEmail', 'user_primaryEmail' - The primary email address of the user.
 --
--- 'userType', 'user_userType' - The user type.
+-- 'primaryProvisionedNumber', 'user_primaryProvisionedNumber' - The primary phone number associated with the user.
 --
--- 'alexaForBusinessMetadata', 'user_alexaForBusinessMetadata' - The Alexa for Business metadata.
+-- 'userInvitationStatus', 'user_userInvitationStatus' - The user invite status.
 --
 -- 'userId', 'user_userId' - The user ID.
 newUser ::
@@ -102,36 +102,45 @@ newUser ::
   User
 newUser pUserId_ =
   User'
-    { userInvitationStatus = Prelude.Nothing,
-      personalPIN = Prelude.Nothing,
-      primaryProvisionedNumber = Prelude.Nothing,
+    { personalPIN = Prelude.Nothing,
+      invitedOn = Prelude.Nothing,
       licenseType = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      alexaForBusinessMetadata = Prelude.Nothing,
+      userType = Prelude.Nothing,
       registeredOn = Prelude.Nothing,
       accountId = Prelude.Nothing,
       userRegistrationStatus = Prelude.Nothing,
-      invitedOn = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       primaryEmail = Prelude.Nothing,
-      userType = Prelude.Nothing,
-      alexaForBusinessMetadata = Prelude.Nothing,
+      primaryProvisionedNumber = Prelude.Nothing,
+      userInvitationStatus = Prelude.Nothing,
       userId = pUserId_
     }
-
--- | The user invite status.
-user_userInvitationStatus :: Lens.Lens' User (Prelude.Maybe InviteStatus)
-user_userInvitationStatus = Lens.lens (\User' {userInvitationStatus} -> userInvitationStatus) (\s@User' {} a -> s {userInvitationStatus = a} :: User)
 
 -- | The user\'s personal meeting PIN.
 user_personalPIN :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_personalPIN = Lens.lens (\User' {personalPIN} -> personalPIN) (\s@User' {} a -> s {personalPIN = a} :: User)
 
--- | The primary phone number associated with the user.
-user_primaryProvisionedNumber :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_primaryProvisionedNumber = Lens.lens (\User' {primaryProvisionedNumber} -> primaryProvisionedNumber) (\s@User' {} a -> s {primaryProvisionedNumber = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+-- | Date and time when the user is invited to the Amazon Chime account, in
+-- ISO 8601 format.
+user_invitedOn :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
+user_invitedOn = Lens.lens (\User' {invitedOn} -> invitedOn) (\s@User' {} a -> s {invitedOn = a} :: User) Prelude.. Lens.mapping Core._Time
 
 -- | The license type for the user.
 user_licenseType :: Lens.Lens' User (Prelude.Maybe License)
 user_licenseType = Lens.lens (\User' {licenseType} -> licenseType) (\s@User' {} a -> s {licenseType = a} :: User)
+
+-- | The display name of the user.
+user_displayName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_displayName = Lens.lens (\User' {displayName} -> displayName) (\s@User' {} a -> s {displayName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The Alexa for Business metadata.
+user_alexaForBusinessMetadata :: Lens.Lens' User (Prelude.Maybe AlexaForBusinessMetadata)
+user_alexaForBusinessMetadata = Lens.lens (\User' {alexaForBusinessMetadata} -> alexaForBusinessMetadata) (\s@User' {} a -> s {alexaForBusinessMetadata = a} :: User)
+
+-- | The user type.
+user_userType :: Lens.Lens' User (Prelude.Maybe UserType)
+user_userType = Lens.lens (\User' {userType} -> userType) (\s@User' {} a -> s {userType = a} :: User)
 
 -- | Date and time when the user is registered, in ISO 8601 format.
 user_registeredOn :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
@@ -145,26 +154,17 @@ user_accountId = Lens.lens (\User' {accountId} -> accountId) (\s@User' {} a -> s
 user_userRegistrationStatus :: Lens.Lens' User (Prelude.Maybe RegistrationStatus)
 user_userRegistrationStatus = Lens.lens (\User' {userRegistrationStatus} -> userRegistrationStatus) (\s@User' {} a -> s {userRegistrationStatus = a} :: User)
 
--- | Date and time when the user is invited to the Amazon Chime account, in
--- ISO 8601 format.
-user_invitedOn :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_invitedOn = Lens.lens (\User' {invitedOn} -> invitedOn) (\s@User' {} a -> s {invitedOn = a} :: User) Prelude.. Lens.mapping Core._Time
-
--- | The display name of the user.
-user_displayName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_displayName = Lens.lens (\User' {displayName} -> displayName) (\s@User' {} a -> s {displayName = a} :: User) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The primary email address of the user.
 user_primaryEmail :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_primaryEmail = Lens.lens (\User' {primaryEmail} -> primaryEmail) (\s@User' {} a -> s {primaryEmail = a} :: User) Prelude.. Lens.mapping Core._Sensitive
 
--- | The user type.
-user_userType :: Lens.Lens' User (Prelude.Maybe UserType)
-user_userType = Lens.lens (\User' {userType} -> userType) (\s@User' {} a -> s {userType = a} :: User)
+-- | The primary phone number associated with the user.
+user_primaryProvisionedNumber :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_primaryProvisionedNumber = Lens.lens (\User' {primaryProvisionedNumber} -> primaryProvisionedNumber) (\s@User' {} a -> s {primaryProvisionedNumber = a} :: User) Prelude.. Lens.mapping Core._Sensitive
 
--- | The Alexa for Business metadata.
-user_alexaForBusinessMetadata :: Lens.Lens' User (Prelude.Maybe AlexaForBusinessMetadata)
-user_alexaForBusinessMetadata = Lens.lens (\User' {alexaForBusinessMetadata} -> alexaForBusinessMetadata) (\s@User' {} a -> s {alexaForBusinessMetadata = a} :: User)
+-- | The user invite status.
+user_userInvitationStatus :: Lens.Lens' User (Prelude.Maybe InviteStatus)
+user_userInvitationStatus = Lens.lens (\User' {userInvitationStatus} -> userInvitationStatus) (\s@User' {} a -> s {userInvitationStatus = a} :: User)
 
 -- | The user ID.
 user_userId :: Lens.Lens' User Prelude.Text
@@ -176,49 +176,49 @@ instance Core.FromJSON User where
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "UserInvitationStatus")
-            Prelude.<*> (x Core..:? "PersonalPIN")
-            Prelude.<*> (x Core..:? "PrimaryProvisionedNumber")
+            Prelude.<$> (x Core..:? "PersonalPIN")
+            Prelude.<*> (x Core..:? "InvitedOn")
             Prelude.<*> (x Core..:? "LicenseType")
+            Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "AlexaForBusinessMetadata")
+            Prelude.<*> (x Core..:? "UserType")
             Prelude.<*> (x Core..:? "RegisteredOn")
             Prelude.<*> (x Core..:? "AccountId")
             Prelude.<*> (x Core..:? "UserRegistrationStatus")
-            Prelude.<*> (x Core..:? "InvitedOn")
-            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "PrimaryEmail")
-            Prelude.<*> (x Core..:? "UserType")
-            Prelude.<*> (x Core..:? "AlexaForBusinessMetadata")
+            Prelude.<*> (x Core..:? "PrimaryProvisionedNumber")
+            Prelude.<*> (x Core..:? "UserInvitationStatus")
             Prelude.<*> (x Core..: "UserId")
       )
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` userInvitationStatus
-      `Prelude.hashWithSalt` personalPIN
-      `Prelude.hashWithSalt` primaryProvisionedNumber
+    _salt `Prelude.hashWithSalt` personalPIN
+      `Prelude.hashWithSalt` invitedOn
       `Prelude.hashWithSalt` licenseType
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` alexaForBusinessMetadata
+      `Prelude.hashWithSalt` userType
       `Prelude.hashWithSalt` registeredOn
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userRegistrationStatus
-      `Prelude.hashWithSalt` invitedOn
-      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` primaryEmail
-      `Prelude.hashWithSalt` userType
-      `Prelude.hashWithSalt` alexaForBusinessMetadata
+      `Prelude.hashWithSalt` primaryProvisionedNumber
+      `Prelude.hashWithSalt` userInvitationStatus
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf userInvitationStatus
-      `Prelude.seq` Prelude.rnf personalPIN
-      `Prelude.seq` Prelude.rnf primaryProvisionedNumber
+    Prelude.rnf personalPIN
+      `Prelude.seq` Prelude.rnf invitedOn
       `Prelude.seq` Prelude.rnf licenseType
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf alexaForBusinessMetadata
+      `Prelude.seq` Prelude.rnf userType
       `Prelude.seq` Prelude.rnf registeredOn
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userRegistrationStatus
-      `Prelude.seq` Prelude.rnf invitedOn
-      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf primaryEmail
-      `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf alexaForBusinessMetadata
+      `Prelude.seq` Prelude.rnf primaryProvisionedNumber
+      `Prelude.seq` Prelude.rnf userInvitationStatus
       `Prelude.seq` Prelude.rnf userId

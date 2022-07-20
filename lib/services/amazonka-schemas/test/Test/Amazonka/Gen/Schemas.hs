@@ -27,277 +27,199 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateRegistry $
---             newUpdateRegistry
---
---         , requestDeleteRegistry $
---             newDeleteRegistry
---
---         , requestSearchSchemas $
---             newSearchSchemas
---
---         , requestStopDiscoverer $
---             newStopDiscoverer
---
---         , requestDeleteSchemaVersion $
---             newDeleteSchemaVersion
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListSchemaVersions $
---             newListSchemaVersions
---
---         , requestExportSchema $
---             newExportSchema
---
---         , requestGetDiscoveredSchema $
---             newGetDiscoveredSchema
---
---         , requestDeleteDiscoverer $
---             newDeleteDiscoverer
---
---         , requestUpdateDiscoverer $
---             newUpdateDiscoverer
---
---         , requestListDiscoverers $
---             newListDiscoverers
---
---         , requestListSchemas $
---             newListSchemas
---
---         , requestCreateDiscoverer $
+--         [ requestCreateDiscoverer $
 --             newCreateDiscoverer
---
---         , requestDescribeRegistry $
---             newDescribeRegistry
 --
 --         , requestCreateRegistry $
 --             newCreateRegistry
 --
---         , requestListRegistries $
---             newListRegistries
---
---         , requestDescribeDiscoverer $
---             newDescribeDiscoverer
---
---         , requestGetResourcePolicy $
---             newGetResourcePolicy
---
---         , requestStartDiscoverer $
---             newStartDiscoverer
---
---         , requestDescribeSchema $
---             newDescribeSchema
---
---         , requestGetCodeBindingSource $
---             newGetCodeBindingSource
---
---         , requestPutCodeBinding $
---             newPutCodeBinding
---
 --         , requestCreateSchema $
 --             newCreateSchema
 --
---         , requestTagResource $
---             newTagResource
+--         , requestDeleteDiscoverer $
+--             newDeleteDiscoverer
 --
---         , requestUpdateSchema $
---             newUpdateSchema
---
---         , requestDeleteSchema $
---             newDeleteSchema
---
---         , requestPutResourcePolicy $
---             newPutResourcePolicy
+--         , requestDeleteRegistry $
+--             newDeleteRegistry
 --
 --         , requestDeleteResourcePolicy $
 --             newDeleteResourcePolicy
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDeleteSchema $
+--             newDeleteSchema
+--
+--         , requestDeleteSchemaVersion $
+--             newDeleteSchemaVersion
 --
 --         , requestDescribeCodeBinding $
 --             newDescribeCodeBinding
 --
+--         , requestDescribeDiscoverer $
+--             newDescribeDiscoverer
+--
+--         , requestDescribeRegistry $
+--             newDescribeRegistry
+--
+--         , requestDescribeSchema $
+--             newDescribeSchema
+--
+--         , requestExportSchema $
+--             newExportSchema
+--
+--         , requestGetCodeBindingSource $
+--             newGetCodeBindingSource
+--
+--         , requestGetDiscoveredSchema $
+--             newGetDiscoveredSchema
+--
+--         , requestGetResourcePolicy $
+--             newGetResourcePolicy
+--
+--         , requestListDiscoverers $
+--             newListDiscoverers
+--
+--         , requestListRegistries $
+--             newListRegistries
+--
+--         , requestListSchemaVersions $
+--             newListSchemaVersions
+--
+--         , requestListSchemas $
+--             newListSchemas
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutCodeBinding $
+--             newPutCodeBinding
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
+--         , requestSearchSchemas $
+--             newSearchSchemas
+--
+--         , requestStartDiscoverer $
+--             newStartDiscoverer
+--
+--         , requestStopDiscoverer $
+--             newStopDiscoverer
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateDiscoverer $
+--             newUpdateDiscoverer
+--
+--         , requestUpdateRegistry $
+--             newUpdateRegistry
+--
+--         , requestUpdateSchema $
+--             newUpdateSchema
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateRegistry $
---             newUpdateRegistryResponse
---
---         , responseDeleteRegistry $
---             newDeleteRegistryResponse
---
---         , responseSearchSchemas $
---             newSearchSchemasResponse
---
---         , responseStopDiscoverer $
---             newStopDiscovererResponse
---
---         , responseDeleteSchemaVersion $
---             newDeleteSchemaVersionResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListSchemaVersions $
---             newListSchemaVersionsResponse
---
---         , responseExportSchema $
---             newExportSchemaResponse
---
---         , responseGetDiscoveredSchema $
---             newGetDiscoveredSchemaResponse
---
---         , responseDeleteDiscoverer $
---             newDeleteDiscovererResponse
---
---         , responseUpdateDiscoverer $
---             newUpdateDiscovererResponse
---
---         , responseListDiscoverers $
---             newListDiscoverersResponse
---
---         , responseListSchemas $
---             newListSchemasResponse
---
---         , responseCreateDiscoverer $
+--         [ responseCreateDiscoverer $
 --             newCreateDiscovererResponse
---
---         , responseDescribeRegistry $
---             newDescribeRegistryResponse
 --
 --         , responseCreateRegistry $
 --             newCreateRegistryResponse
 --
---         , responseListRegistries $
---             newListRegistriesResponse
---
---         , responseDescribeDiscoverer $
---             newDescribeDiscovererResponse
---
---         , responseGetResourcePolicy $
---             newGetResourcePolicyResponse
---
---         , responseStartDiscoverer $
---             newStartDiscovererResponse
---
---         , responseDescribeSchema $
---             newDescribeSchemaResponse
---
---         , responseGetCodeBindingSource $
---             newGetCodeBindingSourceResponse
---
---         , responsePutCodeBinding $
---             newPutCodeBindingResponse
---
 --         , responseCreateSchema $
 --             newCreateSchemaResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDeleteDiscoverer $
+--             newDeleteDiscovererResponse
 --
---         , responseUpdateSchema $
---             newUpdateSchemaResponse
---
---         , responseDeleteSchema $
---             newDeleteSchemaResponse
---
---         , responsePutResourcePolicy $
---             newPutResourcePolicyResponse
+--         , responseDeleteRegistry $
+--             newDeleteRegistryResponse
 --
 --         , responseDeleteResourcePolicy $
 --             newDeleteResourcePolicyResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDeleteSchema $
+--             newDeleteSchemaResponse
+--
+--         , responseDeleteSchemaVersion $
+--             newDeleteSchemaVersionResponse
 --
 --         , responseDescribeCodeBinding $
 --             newDescribeCodeBindingResponse
+--
+--         , responseDescribeDiscoverer $
+--             newDescribeDiscovererResponse
+--
+--         , responseDescribeRegistry $
+--             newDescribeRegistryResponse
+--
+--         , responseDescribeSchema $
+--             newDescribeSchemaResponse
+--
+--         , responseExportSchema $
+--             newExportSchemaResponse
+--
+--         , responseGetCodeBindingSource $
+--             newGetCodeBindingSourceResponse
+--
+--         , responseGetDiscoveredSchema $
+--             newGetDiscoveredSchemaResponse
+--
+--         , responseGetResourcePolicy $
+--             newGetResourcePolicyResponse
+--
+--         , responseListDiscoverers $
+--             newListDiscoverersResponse
+--
+--         , responseListRegistries $
+--             newListRegistriesResponse
+--
+--         , responseListSchemaVersions $
+--             newListSchemaVersionsResponse
+--
+--         , responseListSchemas $
+--             newListSchemasResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutCodeBinding $
+--             newPutCodeBindingResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
+--
+--         , responseSearchSchemas $
+--             newSearchSchemasResponse
+--
+--         , responseStartDiscoverer $
+--             newStartDiscovererResponse
+--
+--         , responseStopDiscoverer $
+--             newStopDiscovererResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateDiscoverer $
+--             newUpdateDiscovererResponse
+--
+--         , responseUpdateRegistry $
+--             newUpdateRegistryResponse
+--
+--         , responseUpdateSchema $
+--             newUpdateSchemaResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdateRegistry :: UpdateRegistry -> TestTree
-requestUpdateRegistry =
-  req
-    "UpdateRegistry"
-    "fixture/UpdateRegistry.yaml"
-
-requestDeleteRegistry :: DeleteRegistry -> TestTree
-requestDeleteRegistry =
-  req
-    "DeleteRegistry"
-    "fixture/DeleteRegistry.yaml"
-
-requestSearchSchemas :: SearchSchemas -> TestTree
-requestSearchSchemas =
-  req
-    "SearchSchemas"
-    "fixture/SearchSchemas.yaml"
-
-requestStopDiscoverer :: StopDiscoverer -> TestTree
-requestStopDiscoverer =
-  req
-    "StopDiscoverer"
-    "fixture/StopDiscoverer.yaml"
-
-requestDeleteSchemaVersion :: DeleteSchemaVersion -> TestTree
-requestDeleteSchemaVersion =
-  req
-    "DeleteSchemaVersion"
-    "fixture/DeleteSchemaVersion.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListSchemaVersions :: ListSchemaVersions -> TestTree
-requestListSchemaVersions =
-  req
-    "ListSchemaVersions"
-    "fixture/ListSchemaVersions.yaml"
-
-requestExportSchema :: ExportSchema -> TestTree
-requestExportSchema =
-  req
-    "ExportSchema"
-    "fixture/ExportSchema.yaml"
-
-requestGetDiscoveredSchema :: GetDiscoveredSchema -> TestTree
-requestGetDiscoveredSchema =
-  req
-    "GetDiscoveredSchema"
-    "fixture/GetDiscoveredSchema.yaml"
-
-requestDeleteDiscoverer :: DeleteDiscoverer -> TestTree
-requestDeleteDiscoverer =
-  req
-    "DeleteDiscoverer"
-    "fixture/DeleteDiscoverer.yaml"
-
-requestUpdateDiscoverer :: UpdateDiscoverer -> TestTree
-requestUpdateDiscoverer =
-  req
-    "UpdateDiscoverer"
-    "fixture/UpdateDiscoverer.yaml"
-
-requestListDiscoverers :: ListDiscoverers -> TestTree
-requestListDiscoverers =
-  req
-    "ListDiscoverers"
-    "fixture/ListDiscoverers.yaml"
-
-requestListSchemas :: ListSchemas -> TestTree
-requestListSchemas =
-  req
-    "ListSchemas"
-    "fixture/ListSchemas.yaml"
 
 requestCreateDiscoverer :: CreateDiscoverer -> TestTree
 requestCreateDiscoverer =
@@ -305,59 +227,11 @@ requestCreateDiscoverer =
     "CreateDiscoverer"
     "fixture/CreateDiscoverer.yaml"
 
-requestDescribeRegistry :: DescribeRegistry -> TestTree
-requestDescribeRegistry =
-  req
-    "DescribeRegistry"
-    "fixture/DescribeRegistry.yaml"
-
 requestCreateRegistry :: CreateRegistry -> TestTree
 requestCreateRegistry =
   req
     "CreateRegistry"
     "fixture/CreateRegistry.yaml"
-
-requestListRegistries :: ListRegistries -> TestTree
-requestListRegistries =
-  req
-    "ListRegistries"
-    "fixture/ListRegistries.yaml"
-
-requestDescribeDiscoverer :: DescribeDiscoverer -> TestTree
-requestDescribeDiscoverer =
-  req
-    "DescribeDiscoverer"
-    "fixture/DescribeDiscoverer.yaml"
-
-requestGetResourcePolicy :: GetResourcePolicy -> TestTree
-requestGetResourcePolicy =
-  req
-    "GetResourcePolicy"
-    "fixture/GetResourcePolicy.yaml"
-
-requestStartDiscoverer :: StartDiscoverer -> TestTree
-requestStartDiscoverer =
-  req
-    "StartDiscoverer"
-    "fixture/StartDiscoverer.yaml"
-
-requestDescribeSchema :: DescribeSchema -> TestTree
-requestDescribeSchema =
-  req
-    "DescribeSchema"
-    "fixture/DescribeSchema.yaml"
-
-requestGetCodeBindingSource :: GetCodeBindingSource -> TestTree
-requestGetCodeBindingSource =
-  req
-    "GetCodeBindingSource"
-    "fixture/GetCodeBindingSource.yaml"
-
-requestPutCodeBinding :: PutCodeBinding -> TestTree
-requestPutCodeBinding =
-  req
-    "PutCodeBinding"
-    "fixture/PutCodeBinding.yaml"
 
 requestCreateSchema :: CreateSchema -> TestTree
 requestCreateSchema =
@@ -365,29 +239,17 @@ requestCreateSchema =
     "CreateSchema"
     "fixture/CreateSchema.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDeleteDiscoverer :: DeleteDiscoverer -> TestTree
+requestDeleteDiscoverer =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DeleteDiscoverer"
+    "fixture/DeleteDiscoverer.yaml"
 
-requestUpdateSchema :: UpdateSchema -> TestTree
-requestUpdateSchema =
+requestDeleteRegistry :: DeleteRegistry -> TestTree
+requestDeleteRegistry =
   req
-    "UpdateSchema"
-    "fixture/UpdateSchema.yaml"
-
-requestDeleteSchema :: DeleteSchema -> TestTree
-requestDeleteSchema =
-  req
-    "DeleteSchema"
-    "fixture/DeleteSchema.yaml"
-
-requestPutResourcePolicy :: PutResourcePolicy -> TestTree
-requestPutResourcePolicy =
-  req
-    "PutResourcePolicy"
-    "fixture/PutResourcePolicy.yaml"
+    "DeleteRegistry"
+    "fixture/DeleteRegistry.yaml"
 
 requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
 requestDeleteResourcePolicy =
@@ -395,11 +257,17 @@ requestDeleteResourcePolicy =
     "DeleteResourcePolicy"
     "fixture/DeleteResourcePolicy.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteSchema :: DeleteSchema -> TestTree
+requestDeleteSchema =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DeleteSchema"
+    "fixture/DeleteSchema.yaml"
+
+requestDeleteSchemaVersion :: DeleteSchemaVersion -> TestTree
+requestDeleteSchemaVersion =
+  req
+    "DeleteSchemaVersion"
+    "fixture/DeleteSchemaVersion.yaml"
 
 requestDescribeCodeBinding :: DescribeCodeBinding -> TestTree
 requestDescribeCodeBinding =
@@ -407,111 +275,139 @@ requestDescribeCodeBinding =
     "DescribeCodeBinding"
     "fixture/DescribeCodeBinding.yaml"
 
+requestDescribeDiscoverer :: DescribeDiscoverer -> TestTree
+requestDescribeDiscoverer =
+  req
+    "DescribeDiscoverer"
+    "fixture/DescribeDiscoverer.yaml"
+
+requestDescribeRegistry :: DescribeRegistry -> TestTree
+requestDescribeRegistry =
+  req
+    "DescribeRegistry"
+    "fixture/DescribeRegistry.yaml"
+
+requestDescribeSchema :: DescribeSchema -> TestTree
+requestDescribeSchema =
+  req
+    "DescribeSchema"
+    "fixture/DescribeSchema.yaml"
+
+requestExportSchema :: ExportSchema -> TestTree
+requestExportSchema =
+  req
+    "ExportSchema"
+    "fixture/ExportSchema.yaml"
+
+requestGetCodeBindingSource :: GetCodeBindingSource -> TestTree
+requestGetCodeBindingSource =
+  req
+    "GetCodeBindingSource"
+    "fixture/GetCodeBindingSource.yaml"
+
+requestGetDiscoveredSchema :: GetDiscoveredSchema -> TestTree
+requestGetDiscoveredSchema =
+  req
+    "GetDiscoveredSchema"
+    "fixture/GetDiscoveredSchema.yaml"
+
+requestGetResourcePolicy :: GetResourcePolicy -> TestTree
+requestGetResourcePolicy =
+  req
+    "GetResourcePolicy"
+    "fixture/GetResourcePolicy.yaml"
+
+requestListDiscoverers :: ListDiscoverers -> TestTree
+requestListDiscoverers =
+  req
+    "ListDiscoverers"
+    "fixture/ListDiscoverers.yaml"
+
+requestListRegistries :: ListRegistries -> TestTree
+requestListRegistries =
+  req
+    "ListRegistries"
+    "fixture/ListRegistries.yaml"
+
+requestListSchemaVersions :: ListSchemaVersions -> TestTree
+requestListSchemaVersions =
+  req
+    "ListSchemaVersions"
+    "fixture/ListSchemaVersions.yaml"
+
+requestListSchemas :: ListSchemas -> TestTree
+requestListSchemas =
+  req
+    "ListSchemas"
+    "fixture/ListSchemas.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutCodeBinding :: PutCodeBinding -> TestTree
+requestPutCodeBinding =
+  req
+    "PutCodeBinding"
+    "fixture/PutCodeBinding.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
+requestSearchSchemas :: SearchSchemas -> TestTree
+requestSearchSchemas =
+  req
+    "SearchSchemas"
+    "fixture/SearchSchemas.yaml"
+
+requestStartDiscoverer :: StartDiscoverer -> TestTree
+requestStartDiscoverer =
+  req
+    "StartDiscoverer"
+    "fixture/StartDiscoverer.yaml"
+
+requestStopDiscoverer :: StopDiscoverer -> TestTree
+requestStopDiscoverer =
+  req
+    "StopDiscoverer"
+    "fixture/StopDiscoverer.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateDiscoverer :: UpdateDiscoverer -> TestTree
+requestUpdateDiscoverer =
+  req
+    "UpdateDiscoverer"
+    "fixture/UpdateDiscoverer.yaml"
+
+requestUpdateRegistry :: UpdateRegistry -> TestTree
+requestUpdateRegistry =
+  req
+    "UpdateRegistry"
+    "fixture/UpdateRegistry.yaml"
+
+requestUpdateSchema :: UpdateSchema -> TestTree
+requestUpdateSchema =
+  req
+    "UpdateSchema"
+    "fixture/UpdateSchema.yaml"
+
 -- Responses
-
-responseUpdateRegistry :: UpdateRegistryResponse -> TestTree
-responseUpdateRegistry =
-  res
-    "UpdateRegistryResponse"
-    "fixture/UpdateRegistryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRegistry)
-
-responseDeleteRegistry :: DeleteRegistryResponse -> TestTree
-responseDeleteRegistry =
-  res
-    "DeleteRegistryResponse"
-    "fixture/DeleteRegistryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRegistry)
-
-responseSearchSchemas :: SearchSchemasResponse -> TestTree
-responseSearchSchemas =
-  res
-    "SearchSchemasResponse"
-    "fixture/SearchSchemasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchSchemas)
-
-responseStopDiscoverer :: StopDiscovererResponse -> TestTree
-responseStopDiscoverer =
-  res
-    "StopDiscovererResponse"
-    "fixture/StopDiscovererResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopDiscoverer)
-
-responseDeleteSchemaVersion :: DeleteSchemaVersionResponse -> TestTree
-responseDeleteSchemaVersion =
-  res
-    "DeleteSchemaVersionResponse"
-    "fixture/DeleteSchemaVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSchemaVersion)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListSchemaVersions :: ListSchemaVersionsResponse -> TestTree
-responseListSchemaVersions =
-  res
-    "ListSchemaVersionsResponse"
-    "fixture/ListSchemaVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSchemaVersions)
-
-responseExportSchema :: ExportSchemaResponse -> TestTree
-responseExportSchema =
-  res
-    "ExportSchemaResponse"
-    "fixture/ExportSchemaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExportSchema)
-
-responseGetDiscoveredSchema :: GetDiscoveredSchemaResponse -> TestTree
-responseGetDiscoveredSchema =
-  res
-    "GetDiscoveredSchemaResponse"
-    "fixture/GetDiscoveredSchemaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDiscoveredSchema)
-
-responseDeleteDiscoverer :: DeleteDiscovererResponse -> TestTree
-responseDeleteDiscoverer =
-  res
-    "DeleteDiscovererResponse"
-    "fixture/DeleteDiscovererResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDiscoverer)
-
-responseUpdateDiscoverer :: UpdateDiscovererResponse -> TestTree
-responseUpdateDiscoverer =
-  res
-    "UpdateDiscovererResponse"
-    "fixture/UpdateDiscovererResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDiscoverer)
-
-responseListDiscoverers :: ListDiscoverersResponse -> TestTree
-responseListDiscoverers =
-  res
-    "ListDiscoverersResponse"
-    "fixture/ListDiscoverersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDiscoverers)
-
-responseListSchemas :: ListSchemasResponse -> TestTree
-responseListSchemas =
-  res
-    "ListSchemasResponse"
-    "fixture/ListSchemasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSchemas)
 
 responseCreateDiscoverer :: CreateDiscovererResponse -> TestTree
 responseCreateDiscoverer =
@@ -521,14 +417,6 @@ responseCreateDiscoverer =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDiscoverer)
 
-responseDescribeRegistry :: DescribeRegistryResponse -> TestTree
-responseDescribeRegistry =
-  res
-    "DescribeRegistryResponse"
-    "fixture/DescribeRegistryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRegistry)
-
 responseCreateRegistry :: CreateRegistryResponse -> TestTree
 responseCreateRegistry =
   res
@@ -536,62 +424,6 @@ responseCreateRegistry =
     "fixture/CreateRegistryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateRegistry)
-
-responseListRegistries :: ListRegistriesResponse -> TestTree
-responseListRegistries =
-  res
-    "ListRegistriesResponse"
-    "fixture/ListRegistriesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRegistries)
-
-responseDescribeDiscoverer :: DescribeDiscovererResponse -> TestTree
-responseDescribeDiscoverer =
-  res
-    "DescribeDiscovererResponse"
-    "fixture/DescribeDiscovererResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDiscoverer)
-
-responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
-responseGetResourcePolicy =
-  res
-    "GetResourcePolicyResponse"
-    "fixture/GetResourcePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
-
-responseStartDiscoverer :: StartDiscovererResponse -> TestTree
-responseStartDiscoverer =
-  res
-    "StartDiscovererResponse"
-    "fixture/StartDiscovererResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartDiscoverer)
-
-responseDescribeSchema :: DescribeSchemaResponse -> TestTree
-responseDescribeSchema =
-  res
-    "DescribeSchemaResponse"
-    "fixture/DescribeSchemaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSchema)
-
-responseGetCodeBindingSource :: GetCodeBindingSourceResponse -> TestTree
-responseGetCodeBindingSource =
-  res
-    "GetCodeBindingSourceResponse"
-    "fixture/GetCodeBindingSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCodeBindingSource)
-
-responsePutCodeBinding :: PutCodeBindingResponse -> TestTree
-responsePutCodeBinding =
-  res
-    "PutCodeBindingResponse"
-    "fixture/PutCodeBindingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutCodeBinding)
 
 responseCreateSchema :: CreateSchemaResponse -> TestTree
 responseCreateSchema =
@@ -601,37 +433,21 @@ responseCreateSchema =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSchema)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDeleteDiscoverer :: DeleteDiscovererResponse -> TestTree
+responseDeleteDiscoverer =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DeleteDiscovererResponse"
+    "fixture/DeleteDiscovererResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDiscoverer)
 
-responseUpdateSchema :: UpdateSchemaResponse -> TestTree
-responseUpdateSchema =
+responseDeleteRegistry :: DeleteRegistryResponse -> TestTree
+responseDeleteRegistry =
   res
-    "UpdateSchemaResponse"
-    "fixture/UpdateSchemaResponse.proto"
+    "DeleteRegistryResponse"
+    "fixture/DeleteRegistryResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSchema)
-
-responseDeleteSchema :: DeleteSchemaResponse -> TestTree
-responseDeleteSchema =
-  res
-    "DeleteSchemaResponse"
-    "fixture/DeleteSchemaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSchema)
-
-responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
-responsePutResourcePolicy =
-  res
-    "PutResourcePolicyResponse"
-    "fixture/PutResourcePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRegistry)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -641,13 +457,21 @@ responseDeleteResourcePolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDeleteSchema :: DeleteSchemaResponse -> TestTree
+responseDeleteSchema =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DeleteSchemaResponse"
+    "fixture/DeleteSchemaResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchema)
+
+responseDeleteSchemaVersion :: DeleteSchemaVersionResponse -> TestTree
+responseDeleteSchemaVersion =
+  res
+    "DeleteSchemaVersionResponse"
+    "fixture/DeleteSchemaVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchemaVersion)
 
 responseDescribeCodeBinding :: DescribeCodeBindingResponse -> TestTree
 responseDescribeCodeBinding =
@@ -656,3 +480,179 @@ responseDescribeCodeBinding =
     "fixture/DescribeCodeBindingResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeCodeBinding)
+
+responseDescribeDiscoverer :: DescribeDiscovererResponse -> TestTree
+responseDescribeDiscoverer =
+  res
+    "DescribeDiscovererResponse"
+    "fixture/DescribeDiscovererResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDiscoverer)
+
+responseDescribeRegistry :: DescribeRegistryResponse -> TestTree
+responseDescribeRegistry =
+  res
+    "DescribeRegistryResponse"
+    "fixture/DescribeRegistryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRegistry)
+
+responseDescribeSchema :: DescribeSchemaResponse -> TestTree
+responseDescribeSchema =
+  res
+    "DescribeSchemaResponse"
+    "fixture/DescribeSchemaResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSchema)
+
+responseExportSchema :: ExportSchemaResponse -> TestTree
+responseExportSchema =
+  res
+    "ExportSchemaResponse"
+    "fixture/ExportSchemaResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportSchema)
+
+responseGetCodeBindingSource :: GetCodeBindingSourceResponse -> TestTree
+responseGetCodeBindingSource =
+  res
+    "GetCodeBindingSourceResponse"
+    "fixture/GetCodeBindingSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCodeBindingSource)
+
+responseGetDiscoveredSchema :: GetDiscoveredSchemaResponse -> TestTree
+responseGetDiscoveredSchema =
+  res
+    "GetDiscoveredSchemaResponse"
+    "fixture/GetDiscoveredSchemaResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDiscoveredSchema)
+
+responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
+responseGetResourcePolicy =
+  res
+    "GetResourcePolicyResponse"
+    "fixture/GetResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
+
+responseListDiscoverers :: ListDiscoverersResponse -> TestTree
+responseListDiscoverers =
+  res
+    "ListDiscoverersResponse"
+    "fixture/ListDiscoverersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDiscoverers)
+
+responseListRegistries :: ListRegistriesResponse -> TestTree
+responseListRegistries =
+  res
+    "ListRegistriesResponse"
+    "fixture/ListRegistriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRegistries)
+
+responseListSchemaVersions :: ListSchemaVersionsResponse -> TestTree
+responseListSchemaVersions =
+  res
+    "ListSchemaVersionsResponse"
+    "fixture/ListSchemaVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSchemaVersions)
+
+responseListSchemas :: ListSchemasResponse -> TestTree
+responseListSchemas =
+  res
+    "ListSchemasResponse"
+    "fixture/ListSchemasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSchemas)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutCodeBinding :: PutCodeBindingResponse -> TestTree
+responsePutCodeBinding =
+  res
+    "PutCodeBindingResponse"
+    "fixture/PutCodeBindingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutCodeBinding)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
+
+responseSearchSchemas :: SearchSchemasResponse -> TestTree
+responseSearchSchemas =
+  res
+    "SearchSchemasResponse"
+    "fixture/SearchSchemasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchSchemas)
+
+responseStartDiscoverer :: StartDiscovererResponse -> TestTree
+responseStartDiscoverer =
+  res
+    "StartDiscovererResponse"
+    "fixture/StartDiscovererResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDiscoverer)
+
+responseStopDiscoverer :: StopDiscovererResponse -> TestTree
+responseStopDiscoverer =
+  res
+    "StopDiscovererResponse"
+    "fixture/StopDiscovererResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopDiscoverer)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateDiscoverer :: UpdateDiscovererResponse -> TestTree
+responseUpdateDiscoverer =
+  res
+    "UpdateDiscovererResponse"
+    "fixture/UpdateDiscovererResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDiscoverer)
+
+responseUpdateRegistry :: UpdateRegistryResponse -> TestTree
+responseUpdateRegistry =
+  res
+    "UpdateRegistryResponse"
+    "fixture/UpdateRegistryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRegistry)
+
+responseUpdateSchema :: UpdateSchemaResponse -> TestTree
+responseUpdateSchema =
+  res
+    "UpdateSchemaResponse"
+    "fixture/UpdateSchemaResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSchema)

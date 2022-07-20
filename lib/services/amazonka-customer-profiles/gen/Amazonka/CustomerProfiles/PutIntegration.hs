@@ -30,9 +30,9 @@ module Amazonka.CustomerProfiles.PutIntegration
     newPutIntegration,
 
     -- * Request Lenses
-    putIntegration_flowDefinition,
-    putIntegration_uri,
     putIntegration_tags,
+    putIntegration_uri,
+    putIntegration_flowDefinition,
     putIntegration_domainName,
     putIntegration_objectTypeName,
 
@@ -60,13 +60,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutIntegration' smart constructor.
 data PutIntegration = PutIntegration'
-  { -- | The configuration that controls how Customer Profiles retrieves data
-    -- from the source.
-    flowDefinition :: Prelude.Maybe FlowDefinition,
+  { -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The URI of the S3 bucket or any other type of data source.
     uri :: Prelude.Maybe Prelude.Text,
-    -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The configuration that controls how Customer Profiles retrieves data
+    -- from the source.
+    flowDefinition :: Prelude.Maybe FlowDefinition,
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | The name of the profile object type.
@@ -82,12 +82,12 @@ data PutIntegration = PutIntegration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flowDefinition', 'putIntegration_flowDefinition' - The configuration that controls how Customer Profiles retrieves data
--- from the source.
+-- 'tags', 'putIntegration_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'uri', 'putIntegration_uri' - The URI of the S3 bucket or any other type of data source.
 --
--- 'tags', 'putIntegration_tags' - The tags used to organize, track, or control access for this resource.
+-- 'flowDefinition', 'putIntegration_flowDefinition' - The configuration that controls how Customer Profiles retrieves data
+-- from the source.
 --
 -- 'domainName', 'putIntegration_domainName' - The unique name of the domain.
 --
@@ -100,25 +100,25 @@ newPutIntegration ::
   PutIntegration
 newPutIntegration pDomainName_ pObjectTypeName_ =
   PutIntegration'
-    { flowDefinition = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       uri = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      flowDefinition = Prelude.Nothing,
       domainName = pDomainName_,
       objectTypeName = pObjectTypeName_
     }
 
--- | The configuration that controls how Customer Profiles retrieves data
--- from the source.
-putIntegration_flowDefinition :: Lens.Lens' PutIntegration (Prelude.Maybe FlowDefinition)
-putIntegration_flowDefinition = Lens.lens (\PutIntegration' {flowDefinition} -> flowDefinition) (\s@PutIntegration' {} a -> s {flowDefinition = a} :: PutIntegration)
+-- | The tags used to organize, track, or control access for this resource.
+putIntegration_tags :: Lens.Lens' PutIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putIntegration_tags = Lens.lens (\PutIntegration' {tags} -> tags) (\s@PutIntegration' {} a -> s {tags = a} :: PutIntegration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The URI of the S3 bucket or any other type of data source.
 putIntegration_uri :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
 putIntegration_uri = Lens.lens (\PutIntegration' {uri} -> uri) (\s@PutIntegration' {} a -> s {uri = a} :: PutIntegration)
 
--- | The tags used to organize, track, or control access for this resource.
-putIntegration_tags :: Lens.Lens' PutIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putIntegration_tags = Lens.lens (\PutIntegration' {tags} -> tags) (\s@PutIntegration' {} a -> s {tags = a} :: PutIntegration) Prelude.. Lens.mapping Lens.coerced
+-- | The configuration that controls how Customer Profiles retrieves data
+-- from the source.
+putIntegration_flowDefinition :: Lens.Lens' PutIntegration (Prelude.Maybe FlowDefinition)
+putIntegration_flowDefinition = Lens.lens (\PutIntegration' {flowDefinition} -> flowDefinition) (\s@PutIntegration' {} a -> s {flowDefinition = a} :: PutIntegration)
 
 -- | The unique name of the domain.
 putIntegration_domainName :: Lens.Lens' PutIntegration Prelude.Text
@@ -148,17 +148,17 @@ instance Core.AWSRequest PutIntegration where
 
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =
-    _salt `Prelude.hashWithSalt` flowDefinition
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` uri
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` flowDefinition
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` objectTypeName
 
 instance Prelude.NFData PutIntegration where
   rnf PutIntegration' {..} =
-    Prelude.rnf flowDefinition
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf flowDefinition
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf objectTypeName
 
@@ -177,10 +177,10 @@ instance Core.ToJSON PutIntegration where
   toJSON PutIntegration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FlowDefinition" Core..=)
-              Prelude.<$> flowDefinition,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Uri" Core..=) Prelude.<$> uri,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("FlowDefinition" Core..=)
+              Prelude.<$> flowDefinition,
             Prelude.Just
               ("ObjectTypeName" Core..= objectTypeName)
           ]

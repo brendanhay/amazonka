@@ -38,11 +38,11 @@ module Amazonka.EC2.DescribeRouteTables
     newDescribeRouteTables,
 
     -- * Request Lenses
-    describeRouteTables_filters,
     describeRouteTables_nextToken,
+    describeRouteTables_filters,
+    describeRouteTables_routeTableIds,
     describeRouteTables_dryRun,
     describeRouteTables_maxResults,
-    describeRouteTables_routeTableIds,
 
     -- * Destructuring the Response
     DescribeRouteTablesResponse (..),
@@ -64,7 +64,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRouteTables' smart constructor.
 data DescribeRouteTables = DescribeRouteTables'
-  { -- | One or more filters.
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @association.route-table-association-id@ - The ID of an association
     --     ID for the route table.
@@ -134,8 +136,10 @@ data DescribeRouteTables = DescribeRouteTables'
     --
     -- -   @vpc-id@ - The ID of the VPC for the route table.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more route table IDs.
+    --
+    -- Default: Describes all your route tables.
+    routeTableIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -144,11 +148,7 @@ data DescribeRouteTables = DescribeRouteTables'
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | One or more route table IDs.
-    --
-    -- Default: Describes all your route tables.
-    routeTableIds :: Prelude.Maybe [Prelude.Text]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -159,6 +159,8 @@ data DescribeRouteTables = DescribeRouteTables'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeRouteTables_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeRouteTables_filters' - One or more filters.
 --
@@ -230,7 +232,9 @@ data DescribeRouteTables = DescribeRouteTables'
 --
 -- -   @vpc-id@ - The ID of the VPC for the route table.
 --
--- 'nextToken', 'describeRouteTables_nextToken' - The token for the next page of results.
+-- 'routeTableIds', 'describeRouteTables_routeTableIds' - One or more route table IDs.
+--
+-- Default: Describes all your route tables.
 --
 -- 'dryRun', 'describeRouteTables_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -240,20 +244,20 @@ data DescribeRouteTables = DescribeRouteTables'
 -- 'maxResults', 'describeRouteTables_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
---
--- 'routeTableIds', 'describeRouteTables_routeTableIds' - One or more route table IDs.
---
--- Default: Describes all your route tables.
 newDescribeRouteTables ::
   DescribeRouteTables
 newDescribeRouteTables =
   DescribeRouteTables'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      routeTableIds = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      routeTableIds = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeRouteTables_nextToken :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Text)
+describeRouteTables_nextToken = Lens.lens (\DescribeRouteTables' {nextToken} -> nextToken) (\s@DescribeRouteTables' {} a -> s {nextToken = a} :: DescribeRouteTables)
 
 -- | One or more filters.
 --
@@ -327,9 +331,11 @@ newDescribeRouteTables =
 describeRouteTables_filters :: Lens.Lens' DescribeRouteTables (Prelude.Maybe [Filter])
 describeRouteTables_filters = Lens.lens (\DescribeRouteTables' {filters} -> filters) (\s@DescribeRouteTables' {} a -> s {filters = a} :: DescribeRouteTables) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next page of results.
-describeRouteTables_nextToken :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Text)
-describeRouteTables_nextToken = Lens.lens (\DescribeRouteTables' {nextToken} -> nextToken) (\s@DescribeRouteTables' {} a -> s {nextToken = a} :: DescribeRouteTables)
+-- | One or more route table IDs.
+--
+-- Default: Describes all your route tables.
+describeRouteTables_routeTableIds :: Lens.Lens' DescribeRouteTables (Prelude.Maybe [Prelude.Text])
+describeRouteTables_routeTableIds = Lens.lens (\DescribeRouteTables' {routeTableIds} -> routeTableIds) (\s@DescribeRouteTables' {} a -> s {routeTableIds = a} :: DescribeRouteTables) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -343,12 +349,6 @@ describeRouteTables_dryRun = Lens.lens (\DescribeRouteTables' {dryRun} -> dryRun
 -- value.
 describeRouteTables_maxResults :: Lens.Lens' DescribeRouteTables (Prelude.Maybe Prelude.Natural)
 describeRouteTables_maxResults = Lens.lens (\DescribeRouteTables' {maxResults} -> maxResults) (\s@DescribeRouteTables' {} a -> s {maxResults = a} :: DescribeRouteTables)
-
--- | One or more route table IDs.
---
--- Default: Describes all your route tables.
-describeRouteTables_routeTableIds :: Lens.Lens' DescribeRouteTables (Prelude.Maybe [Prelude.Text])
-describeRouteTables_routeTableIds = Lens.lens (\DescribeRouteTables' {routeTableIds} -> routeTableIds) (\s@DescribeRouteTables' {} a -> s {routeTableIds = a} :: DescribeRouteTables) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeRouteTables where
   page rq rs
@@ -390,19 +390,19 @@ instance Core.AWSRequest DescribeRouteTables where
 
 instance Prelude.Hashable DescribeRouteTables where
   hashWithSalt _salt DescribeRouteTables' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` routeTableIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` routeTableIds
 
 instance Prelude.NFData DescribeRouteTables where
   rnf DescribeRouteTables' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf routeTableIds
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf routeTableIds
 
 instance Core.ToHeaders DescribeRouteTables where
   toHeaders = Prelude.const Prelude.mempty
@@ -417,15 +417,15 @@ instance Core.ToQuery DescribeRouteTables where
           Core.=: ("DescribeRouteTables" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "RouteTableId"
               Prelude.<$> routeTableIds
-          )
+          ),
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | Contains the output of DescribeRouteTables.

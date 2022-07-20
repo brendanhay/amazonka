@@ -31,12 +31,12 @@ module Amazonka.EMRContainers.ListManagedEndpoints
     newListManagedEndpoints,
 
     -- * Request Lenses
-    listManagedEndpoints_states,
-    listManagedEndpoints_createdAfter,
-    listManagedEndpoints_types,
     listManagedEndpoints_nextToken,
-    listManagedEndpoints_maxResults,
     listManagedEndpoints_createdBefore,
+    listManagedEndpoints_types,
+    listManagedEndpoints_maxResults,
+    listManagedEndpoints_createdAfter,
+    listManagedEndpoints_states,
     listManagedEndpoints_virtualClusterId,
 
     -- * Destructuring the Response
@@ -59,18 +59,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListManagedEndpoints' smart constructor.
 data ListManagedEndpoints = ListManagedEndpoints'
-  { -- | The states of the managed endpoints.
-    states :: Prelude.Maybe [EndpointState],
-    -- | The date and time after which the endpoints are created.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The types of the managed endpoints.
-    types :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next set of managed endpoints to return.
+  { -- | The token for the next set of managed endpoints to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of managed endpoints that can be listed.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The date and time before which the endpoints are created.
     createdBefore :: Prelude.Maybe Core.POSIX,
+    -- | The types of the managed endpoints.
+    types :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of managed endpoints that can be listed.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The date and time after which the endpoints are created.
+    createdAfter :: Prelude.Maybe Core.POSIX,
+    -- | The states of the managed endpoints.
+    states :: Prelude.Maybe [EndpointState],
     -- | The ID of the virtual cluster.
     virtualClusterId :: Prelude.Text
   }
@@ -84,17 +84,17 @@ data ListManagedEndpoints = ListManagedEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'states', 'listManagedEndpoints_states' - The states of the managed endpoints.
+-- 'nextToken', 'listManagedEndpoints_nextToken' - The token for the next set of managed endpoints to return.
 --
--- 'createdAfter', 'listManagedEndpoints_createdAfter' - The date and time after which the endpoints are created.
+-- 'createdBefore', 'listManagedEndpoints_createdBefore' - The date and time before which the endpoints are created.
 --
 -- 'types', 'listManagedEndpoints_types' - The types of the managed endpoints.
 --
--- 'nextToken', 'listManagedEndpoints_nextToken' - The token for the next set of managed endpoints to return.
---
 -- 'maxResults', 'listManagedEndpoints_maxResults' - The maximum number of managed endpoints that can be listed.
 --
--- 'createdBefore', 'listManagedEndpoints_createdBefore' - The date and time before which the endpoints are created.
+-- 'createdAfter', 'listManagedEndpoints_createdAfter' - The date and time after which the endpoints are created.
+--
+-- 'states', 'listManagedEndpoints_states' - The states of the managed endpoints.
 --
 -- 'virtualClusterId', 'listManagedEndpoints_virtualClusterId' - The ID of the virtual cluster.
 newListManagedEndpoints ::
@@ -103,38 +103,38 @@ newListManagedEndpoints ::
   ListManagedEndpoints
 newListManagedEndpoints pVirtualClusterId_ =
   ListManagedEndpoints'
-    { states = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
-      types = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
+      types = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
+      states = Prelude.Nothing,
       virtualClusterId = pVirtualClusterId_
     }
-
--- | The states of the managed endpoints.
-listManagedEndpoints_states :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [EndpointState])
-listManagedEndpoints_states = Lens.lens (\ListManagedEndpoints' {states} -> states) (\s@ListManagedEndpoints' {} a -> s {states = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Lens.coerced
-
--- | The date and time after which the endpoints are created.
-listManagedEndpoints_createdAfter :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
-listManagedEndpoints_createdAfter = Lens.lens (\ListManagedEndpoints' {createdAfter} -> createdAfter) (\s@ListManagedEndpoints' {} a -> s {createdAfter = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Core._Time
-
--- | The types of the managed endpoints.
-listManagedEndpoints_types :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [Prelude.Text])
-listManagedEndpoints_types = Lens.lens (\ListManagedEndpoints' {types} -> types) (\s@ListManagedEndpoints' {} a -> s {types = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of managed endpoints to return.
 listManagedEndpoints_nextToken :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.Text)
 listManagedEndpoints_nextToken = Lens.lens (\ListManagedEndpoints' {nextToken} -> nextToken) (\s@ListManagedEndpoints' {} a -> s {nextToken = a} :: ListManagedEndpoints)
 
+-- | The date and time before which the endpoints are created.
+listManagedEndpoints_createdBefore :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
+listManagedEndpoints_createdBefore = Lens.lens (\ListManagedEndpoints' {createdBefore} -> createdBefore) (\s@ListManagedEndpoints' {} a -> s {createdBefore = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Core._Time
+
+-- | The types of the managed endpoints.
+listManagedEndpoints_types :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [Prelude.Text])
+listManagedEndpoints_types = Lens.lens (\ListManagedEndpoints' {types} -> types) (\s@ListManagedEndpoints' {} a -> s {types = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of managed endpoints that can be listed.
 listManagedEndpoints_maxResults :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.Int)
 listManagedEndpoints_maxResults = Lens.lens (\ListManagedEndpoints' {maxResults} -> maxResults) (\s@ListManagedEndpoints' {} a -> s {maxResults = a} :: ListManagedEndpoints)
 
--- | The date and time before which the endpoints are created.
-listManagedEndpoints_createdBefore :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
-listManagedEndpoints_createdBefore = Lens.lens (\ListManagedEndpoints' {createdBefore} -> createdBefore) (\s@ListManagedEndpoints' {} a -> s {createdBefore = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Core._Time
+-- | The date and time after which the endpoints are created.
+listManagedEndpoints_createdAfter :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
+listManagedEndpoints_createdAfter = Lens.lens (\ListManagedEndpoints' {createdAfter} -> createdAfter) (\s@ListManagedEndpoints' {} a -> s {createdAfter = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Core._Time
+
+-- | The states of the managed endpoints.
+listManagedEndpoints_states :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [EndpointState])
+listManagedEndpoints_states = Lens.lens (\ListManagedEndpoints' {states} -> states) (\s@ListManagedEndpoints' {} a -> s {states = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the virtual cluster.
 listManagedEndpoints_virtualClusterId :: Lens.Lens' ListManagedEndpoints Prelude.Text
@@ -178,22 +178,22 @@ instance Core.AWSRequest ListManagedEndpoints where
 
 instance Prelude.Hashable ListManagedEndpoints where
   hashWithSalt _salt ListManagedEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` states
-      `Prelude.hashWithSalt` createdAfter
-      `Prelude.hashWithSalt` types
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` types
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` states
       `Prelude.hashWithSalt` virtualClusterId
 
 instance Prelude.NFData ListManagedEndpoints where
   rnf ListManagedEndpoints' {..} =
-    Prelude.rnf states
-      `Prelude.seq` Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf types
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf types
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf virtualClusterId
 
 instance Core.ToHeaders ListManagedEndpoints where
@@ -218,16 +218,16 @@ instance Core.ToPath ListManagedEndpoints where
 instance Core.ToQuery ListManagedEndpoints where
   toQuery ListManagedEndpoints' {..} =
     Prelude.mconcat
-      [ "states"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states),
-        "createdAfter" Core.=: createdAfter,
+      [ "nextToken" Core.=: nextToken,
+        "createdBefore" Core.=: createdBefore,
         "types"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> types),
-        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults,
-        "createdBefore" Core.=: createdBefore
+        "createdAfter" Core.=: createdAfter,
+        "states"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListManagedEndpointsResponse' smart constructor.

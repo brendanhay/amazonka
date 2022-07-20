@@ -29,9 +29,9 @@ module Amazonka.ServiceCatalog.ListPortfolios
     newListPortfolios,
 
     -- * Request Lenses
-    listPortfolios_acceptLanguage,
     listPortfolios_pageToken,
     listPortfolios_pageSize,
+    listPortfolios_acceptLanguage,
 
     -- * Destructuring the Response
     ListPortfoliosResponse (..),
@@ -53,19 +53,19 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListPortfolios' smart constructor.
 data ListPortfolios = ListPortfolios'
-  { -- | The language code.
+  { -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +77,11 @@ data ListPortfolios = ListPortfolios'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pageToken', 'listPortfolios_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listPortfolios_pageSize' - The maximum number of items to return with this call.
+--
 -- 'acceptLanguage', 'listPortfolios_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -84,19 +89,23 @@ data ListPortfolios = ListPortfolios'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'pageToken', 'listPortfolios_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listPortfolios_pageSize' - The maximum number of items to return with this call.
 newListPortfolios ::
   ListPortfolios
 newListPortfolios =
   ListPortfolios'
-    { acceptLanguage = Prelude.Nothing,
-      pageToken = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+    { pageToken = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listPortfolios_pageToken :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Text)
+listPortfolios_pageToken = Lens.lens (\ListPortfolios' {pageToken} -> pageToken) (\s@ListPortfolios' {} a -> s {pageToken = a} :: ListPortfolios)
+
+-- | The maximum number of items to return with this call.
+listPortfolios_pageSize :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Natural)
+listPortfolios_pageSize = Lens.lens (\ListPortfolios' {pageSize} -> pageSize) (\s@ListPortfolios' {} a -> s {pageSize = a} :: ListPortfolios)
 
 -- | The language code.
 --
@@ -107,15 +116,6 @@ newListPortfolios =
 -- -   @zh@ - Chinese
 listPortfolios_acceptLanguage :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Text)
 listPortfolios_acceptLanguage = Lens.lens (\ListPortfolios' {acceptLanguage} -> acceptLanguage) (\s@ListPortfolios' {} a -> s {acceptLanguage = a} :: ListPortfolios)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listPortfolios_pageToken :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Text)
-listPortfolios_pageToken = Lens.lens (\ListPortfolios' {pageToken} -> pageToken) (\s@ListPortfolios' {} a -> s {pageToken = a} :: ListPortfolios)
-
--- | The maximum number of items to return with this call.
-listPortfolios_pageSize :: Lens.Lens' ListPortfolios (Prelude.Maybe Prelude.Natural)
-listPortfolios_pageSize = Lens.lens (\ListPortfolios' {pageSize} -> pageSize) (\s@ListPortfolios' {} a -> s {pageSize = a} :: ListPortfolios)
 
 instance Core.AWSPager ListPortfolios where
   page rq rs
@@ -157,15 +157,15 @@ instance Core.AWSRequest ListPortfolios where
 
 instance Prelude.Hashable ListPortfolios where
   hashWithSalt _salt ListPortfolios' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` acceptLanguage
 
 instance Prelude.NFData ListPortfolios where
   rnf ListPortfolios' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders ListPortfolios where
   toHeaders =
@@ -186,10 +186,10 @@ instance Core.ToJSON ListPortfolios where
   toJSON ListPortfolios' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize
+          [ ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage
           ]
       )
 

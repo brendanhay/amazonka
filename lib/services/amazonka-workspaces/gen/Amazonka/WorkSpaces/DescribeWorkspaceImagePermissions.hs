@@ -37,8 +37,8 @@ module Amazonka.WorkSpaces.DescribeWorkspaceImagePermissions
     newDescribeWorkspaceImagePermissionsResponse,
 
     -- * Response Lenses
-    describeWorkspaceImagePermissionsResponse_imagePermissions,
     describeWorkspaceImagePermissionsResponse_nextToken,
+    describeWorkspaceImagePermissionsResponse_imagePermissions,
     describeWorkspaceImagePermissionsResponse_imageId,
     describeWorkspaceImagePermissionsResponse_httpStatus,
   )
@@ -114,10 +114,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceImagePermissionsResponse'
-            Prelude.<$> ( x Core..?> "ImagePermissions"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "ImagePermissions"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (x Core..?> "ImageId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -187,12 +187,12 @@ instance
 
 -- | /See:/ 'newDescribeWorkspaceImagePermissionsResponse' smart constructor.
 data DescribeWorkspaceImagePermissionsResponse = DescribeWorkspaceImagePermissionsResponse'
-  { -- | The identifiers of the Amazon Web Services accounts that the image has
-    -- been shared with.
-    imagePermissions :: Prelude.Maybe [ImagePermission],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifiers of the Amazon Web Services accounts that the image has
+    -- been shared with.
+    imagePermissions :: Prelude.Maybe [ImagePermission],
     -- | The identifier of the image.
     imageId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -208,11 +208,11 @@ data DescribeWorkspaceImagePermissionsResponse = DescribeWorkspaceImagePermissio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imagePermissions', 'describeWorkspaceImagePermissionsResponse_imagePermissions' - The identifiers of the Amazon Web Services accounts that the image has
--- been shared with.
---
 -- 'nextToken', 'describeWorkspaceImagePermissionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
+--
+-- 'imagePermissions', 'describeWorkspaceImagePermissionsResponse_imagePermissions' - The identifiers of the Amazon Web Services accounts that the image has
+-- been shared with.
 --
 -- 'imageId', 'describeWorkspaceImagePermissionsResponse_imageId' - The identifier of the image.
 --
@@ -224,22 +224,23 @@ newDescribeWorkspaceImagePermissionsResponse ::
 newDescribeWorkspaceImagePermissionsResponse
   pHttpStatus_ =
     DescribeWorkspaceImagePermissionsResponse'
-      { imagePermissions =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        imagePermissions =
+          Prelude.Nothing,
         imageId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The identifiers of the Amazon Web Services accounts that the image has
--- been shared with.
-describeWorkspaceImagePermissionsResponse_imagePermissions :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse (Prelude.Maybe [ImagePermission])
-describeWorkspaceImagePermissionsResponse_imagePermissions = Lens.lens (\DescribeWorkspaceImagePermissionsResponse' {imagePermissions} -> imagePermissions) (\s@DescribeWorkspaceImagePermissionsResponse' {} a -> s {imagePermissions = a} :: DescribeWorkspaceImagePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 describeWorkspaceImagePermissionsResponse_nextToken :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse (Prelude.Maybe Prelude.Text)
 describeWorkspaceImagePermissionsResponse_nextToken = Lens.lens (\DescribeWorkspaceImagePermissionsResponse' {nextToken} -> nextToken) (\s@DescribeWorkspaceImagePermissionsResponse' {} a -> s {nextToken = a} :: DescribeWorkspaceImagePermissionsResponse)
+
+-- | The identifiers of the Amazon Web Services accounts that the image has
+-- been shared with.
+describeWorkspaceImagePermissionsResponse_imagePermissions :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse (Prelude.Maybe [ImagePermission])
+describeWorkspaceImagePermissionsResponse_imagePermissions = Lens.lens (\DescribeWorkspaceImagePermissionsResponse' {imagePermissions} -> imagePermissions) (\s@DescribeWorkspaceImagePermissionsResponse' {} a -> s {imagePermissions = a} :: DescribeWorkspaceImagePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the image.
 describeWorkspaceImagePermissionsResponse_imageId :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -254,7 +255,7 @@ instance
     DescribeWorkspaceImagePermissionsResponse
   where
   rnf DescribeWorkspaceImagePermissionsResponse' {..} =
-    Prelude.rnf imagePermissions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imagePermissions
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf httpStatus

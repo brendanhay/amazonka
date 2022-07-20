@@ -29,8 +29,8 @@ module Amazonka.EC2.DescribeClientVpnRoutes
     newDescribeClientVpnRoutes,
 
     -- * Request Lenses
-    describeClientVpnRoutes_filters,
     describeClientVpnRoutes_nextToken,
+    describeClientVpnRoutes_filters,
     describeClientVpnRoutes_dryRun,
     describeClientVpnRoutes_maxResults,
     describeClientVpnRoutes_clientVpnEndpointId,
@@ -40,8 +40,8 @@ module Amazonka.EC2.DescribeClientVpnRoutes
     newDescribeClientVpnRoutesResponse,
 
     -- * Response Lenses
-    describeClientVpnRoutesResponse_routes,
     describeClientVpnRoutesResponse_nextToken,
+    describeClientVpnRoutesResponse_routes,
     describeClientVpnRoutesResponse_httpStatus,
   )
 where
@@ -55,7 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClientVpnRoutes' smart constructor.
 data DescribeClientVpnRoutes = DescribeClientVpnRoutes'
-  { -- | One or more filters. Filter names and values are case-sensitive.
+  { -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @destination-cidr@ - The CIDR of the route destination.
     --
@@ -65,8 +67,6 @@ data DescribeClientVpnRoutes = DescribeClientVpnRoutes'
     -- -   @target-subnet@ - The ID of the subnet through which traffic is
     --     routed.
     filters :: Prelude.Maybe [Filter],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -89,6 +89,8 @@ data DescribeClientVpnRoutes = DescribeClientVpnRoutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeClientVpnRoutes_nextToken' - The token to retrieve the next page of results.
+--
 -- 'filters', 'describeClientVpnRoutes_filters' - One or more filters. Filter names and values are case-sensitive.
 --
 -- -   @destination-cidr@ - The CIDR of the route destination.
@@ -98,8 +100,6 @@ data DescribeClientVpnRoutes = DescribeClientVpnRoutes'
 --
 -- -   @target-subnet@ - The ID of the subnet through which traffic is
 --     routed.
---
--- 'nextToken', 'describeClientVpnRoutes_nextToken' - The token to retrieve the next page of results.
 --
 -- 'dryRun', 'describeClientVpnRoutes_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -117,12 +117,17 @@ newDescribeClientVpnRoutes ::
   DescribeClientVpnRoutes
 newDescribeClientVpnRoutes pClientVpnEndpointId_ =
   DescribeClientVpnRoutes'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       clientVpnEndpointId = pClientVpnEndpointId_
     }
+
+-- | The token to retrieve the next page of results.
+describeClientVpnRoutes_nextToken :: Lens.Lens' DescribeClientVpnRoutes (Prelude.Maybe Prelude.Text)
+describeClientVpnRoutes_nextToken = Lens.lens (\DescribeClientVpnRoutes' {nextToken} -> nextToken) (\s@DescribeClientVpnRoutes' {} a -> s {nextToken = a} :: DescribeClientVpnRoutes)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -135,10 +140,6 @@ newDescribeClientVpnRoutes pClientVpnEndpointId_ =
 --     routed.
 describeClientVpnRoutes_filters :: Lens.Lens' DescribeClientVpnRoutes (Prelude.Maybe [Filter])
 describeClientVpnRoutes_filters = Lens.lens (\DescribeClientVpnRoutes' {filters} -> filters) (\s@DescribeClientVpnRoutes' {} a -> s {filters = a} :: DescribeClientVpnRoutes) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to retrieve the next page of results.
-describeClientVpnRoutes_nextToken :: Lens.Lens' DescribeClientVpnRoutes (Prelude.Maybe Prelude.Text)
-describeClientVpnRoutes_nextToken = Lens.lens (\DescribeClientVpnRoutes' {nextToken} -> nextToken) (\s@DescribeClientVpnRoutes' {} a -> s {nextToken = a} :: DescribeClientVpnRoutes)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -188,25 +189,25 @@ instance Core.AWSRequest DescribeClientVpnRoutes where
     Response.receiveXML
       ( \s h x ->
           DescribeClientVpnRoutesResponse'
-            Prelude.<$> ( x Core..@? "routes" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "routes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeClientVpnRoutes where
   hashWithSalt _salt DescribeClientVpnRoutes' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` clientVpnEndpointId
 
 instance Prelude.NFData DescribeClientVpnRoutes where
   rnf DescribeClientVpnRoutes' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
@@ -224,9 +225,9 @@ instance Core.ToQuery DescribeClientVpnRoutes where
           Core.=: ("DescribeClientVpnRoutes" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId
@@ -234,11 +235,11 @@ instance Core.ToQuery DescribeClientVpnRoutes where
 
 -- | /See:/ 'newDescribeClientVpnRoutesResponse' smart constructor.
 data DescribeClientVpnRoutesResponse = DescribeClientVpnRoutesResponse'
-  { -- | Information about the Client VPN endpoint routes.
-    routes :: Prelude.Maybe [ClientVpnRoute],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the Client VPN endpoint routes.
+    routes :: Prelude.Maybe [ClientVpnRoute],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,10 +253,10 @@ data DescribeClientVpnRoutesResponse = DescribeClientVpnRoutesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routes', 'describeClientVpnRoutesResponse_routes' - Information about the Client VPN endpoint routes.
---
 -- 'nextToken', 'describeClientVpnRoutesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'routes', 'describeClientVpnRoutesResponse_routes' - Information about the Client VPN endpoint routes.
 --
 -- 'httpStatus', 'describeClientVpnRoutesResponse_httpStatus' - The response's http status code.
 newDescribeClientVpnRoutesResponse ::
@@ -264,20 +265,20 @@ newDescribeClientVpnRoutesResponse ::
   DescribeClientVpnRoutesResponse
 newDescribeClientVpnRoutesResponse pHttpStatus_ =
   DescribeClientVpnRoutesResponse'
-    { routes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      routes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the Client VPN endpoint routes.
-describeClientVpnRoutesResponse_routes :: Lens.Lens' DescribeClientVpnRoutesResponse (Prelude.Maybe [ClientVpnRoute])
-describeClientVpnRoutesResponse_routes = Lens.lens (\DescribeClientVpnRoutesResponse' {routes} -> routes) (\s@DescribeClientVpnRoutesResponse' {} a -> s {routes = a} :: DescribeClientVpnRoutesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeClientVpnRoutesResponse_nextToken :: Lens.Lens' DescribeClientVpnRoutesResponse (Prelude.Maybe Prelude.Text)
 describeClientVpnRoutesResponse_nextToken = Lens.lens (\DescribeClientVpnRoutesResponse' {nextToken} -> nextToken) (\s@DescribeClientVpnRoutesResponse' {} a -> s {nextToken = a} :: DescribeClientVpnRoutesResponse)
+
+-- | Information about the Client VPN endpoint routes.
+describeClientVpnRoutesResponse_routes :: Lens.Lens' DescribeClientVpnRoutesResponse (Prelude.Maybe [ClientVpnRoute])
+describeClientVpnRoutesResponse_routes = Lens.lens (\DescribeClientVpnRoutesResponse' {routes} -> routes) (\s@DescribeClientVpnRoutesResponse' {} a -> s {routes = a} :: DescribeClientVpnRoutesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeClientVpnRoutesResponse_httpStatus :: Lens.Lens' DescribeClientVpnRoutesResponse Prelude.Int
@@ -288,6 +289,6 @@ instance
     DescribeClientVpnRoutesResponse
   where
   rnf DescribeClientVpnRoutesResponse' {..} =
-    Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf routes
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,9 +29,9 @@ module Amazonka.LicenseManager.ListLicenseConfigurations
     newListLicenseConfigurations,
 
     -- * Request Lenses
-    listLicenseConfigurations_filters,
     listLicenseConfigurations_nextToken,
     listLicenseConfigurations_licenseConfigurationArns,
+    listLicenseConfigurations_filters,
     listLicenseConfigurations_maxResults,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.LicenseManager.ListLicenseConfigurations
     newListLicenseConfigurationsResponse,
 
     -- * Response Lenses
-    listLicenseConfigurationsResponse_nextToken,
     listLicenseConfigurationsResponse_licenseConfigurations,
+    listLicenseConfigurationsResponse_nextToken,
     listLicenseConfigurationsResponse_httpStatus,
   )
 where
@@ -54,7 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLicenseConfigurations' smart constructor.
 data ListLicenseConfigurations = ListLicenseConfigurations'
-  { -- | Filters to scope the results. The following filters and logical
+  { -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Resource Names (ARN) of the license configurations.
+    licenseConfigurationArns :: Prelude.Maybe [Prelude.Text],
+    -- | Filters to scope the results. The following filters and logical
     -- operators are supported:
     --
     -- -   @licenseCountingType@ - The dimension for which licenses are
@@ -69,10 +73,6 @@ data ListLicenseConfigurations = ListLicenseConfigurations'
     --     available licenses have been exceeded. Logical operators are
     --     @EQUALS@ | @NOT_EQUALS@.
     filters :: Prelude.Maybe [Filter],
-    -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Names (ARN) of the license configurations.
-    licenseConfigurationArns :: Prelude.Maybe [Prelude.Text],
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Int
   }
@@ -85,6 +85,10 @@ data ListLicenseConfigurations = ListLicenseConfigurations'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listLicenseConfigurations_nextToken' - Token for the next set of results.
+--
+-- 'licenseConfigurationArns', 'listLicenseConfigurations_licenseConfigurationArns' - Amazon Resource Names (ARN) of the license configurations.
 --
 -- 'filters', 'listLicenseConfigurations_filters' - Filters to scope the results. The following filters and logical
 -- operators are supported:
@@ -101,21 +105,25 @@ data ListLicenseConfigurations = ListLicenseConfigurations'
 --     available licenses have been exceeded. Logical operators are
 --     @EQUALS@ | @NOT_EQUALS@.
 --
--- 'nextToken', 'listLicenseConfigurations_nextToken' - Token for the next set of results.
---
--- 'licenseConfigurationArns', 'listLicenseConfigurations_licenseConfigurationArns' - Amazon Resource Names (ARN) of the license configurations.
---
 -- 'maxResults', 'listLicenseConfigurations_maxResults' - Maximum number of results to return in a single call.
 newListLicenseConfigurations ::
   ListLicenseConfigurations
 newListLicenseConfigurations =
   ListLicenseConfigurations'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       licenseConfigurationArns = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Token for the next set of results.
+listLicenseConfigurations_nextToken :: Lens.Lens' ListLicenseConfigurations (Prelude.Maybe Prelude.Text)
+listLicenseConfigurations_nextToken = Lens.lens (\ListLicenseConfigurations' {nextToken} -> nextToken) (\s@ListLicenseConfigurations' {} a -> s {nextToken = a} :: ListLicenseConfigurations)
+
+-- | Amazon Resource Names (ARN) of the license configurations.
+listLicenseConfigurations_licenseConfigurationArns :: Lens.Lens' ListLicenseConfigurations (Prelude.Maybe [Prelude.Text])
+listLicenseConfigurations_licenseConfigurationArns = Lens.lens (\ListLicenseConfigurations' {licenseConfigurationArns} -> licenseConfigurationArns) (\s@ListLicenseConfigurations' {} a -> s {licenseConfigurationArns = a} :: ListLicenseConfigurations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filters to scope the results. The following filters and logical
 -- operators are supported:
@@ -133,14 +141,6 @@ newListLicenseConfigurations =
 --     @EQUALS@ | @NOT_EQUALS@.
 listLicenseConfigurations_filters :: Lens.Lens' ListLicenseConfigurations (Prelude.Maybe [Filter])
 listLicenseConfigurations_filters = Lens.lens (\ListLicenseConfigurations' {filters} -> filters) (\s@ListLicenseConfigurations' {} a -> s {filters = a} :: ListLicenseConfigurations) Prelude.. Lens.mapping Lens.coerced
-
--- | Token for the next set of results.
-listLicenseConfigurations_nextToken :: Lens.Lens' ListLicenseConfigurations (Prelude.Maybe Prelude.Text)
-listLicenseConfigurations_nextToken = Lens.lens (\ListLicenseConfigurations' {nextToken} -> nextToken) (\s@ListLicenseConfigurations' {} a -> s {nextToken = a} :: ListLicenseConfigurations)
-
--- | Amazon Resource Names (ARN) of the license configurations.
-listLicenseConfigurations_licenseConfigurationArns :: Lens.Lens' ListLicenseConfigurations (Prelude.Maybe [Prelude.Text])
-listLicenseConfigurations_licenseConfigurationArns = Lens.lens (\ListLicenseConfigurations' {licenseConfigurationArns} -> licenseConfigurationArns) (\s@ListLicenseConfigurations' {} a -> s {licenseConfigurationArns = a} :: ListLicenseConfigurations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Maximum number of results to return in a single call.
 listLicenseConfigurations_maxResults :: Lens.Lens' ListLicenseConfigurations (Prelude.Maybe Prelude.Int)
@@ -177,25 +177,25 @@ instance Core.AWSRequest ListLicenseConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListLicenseConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LicenseConfigurations"
+            Prelude.<$> ( x Core..?> "LicenseConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLicenseConfigurations where
   hashWithSalt _salt ListLicenseConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` licenseConfigurationArns
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListLicenseConfigurations where
   rnf ListLicenseConfigurations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf licenseConfigurationArns
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLicenseConfigurations where
@@ -217,10 +217,10 @@ instance Core.ToJSON ListLicenseConfigurations where
   toJSON ListLicenseConfigurations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("LicenseConfigurationArns" Core..=)
               Prelude.<$> licenseConfigurationArns,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -233,10 +233,10 @@ instance Core.ToQuery ListLicenseConfigurations where
 
 -- | /See:/ 'newListLicenseConfigurationsResponse' smart constructor.
 data ListLicenseConfigurationsResponse = ListLicenseConfigurationsResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the license configurations.
+  { -- | Information about the license configurations.
     licenseConfigurations :: Prelude.Maybe [LicenseConfiguration],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,9 +250,9 @@ data ListLicenseConfigurationsResponse = ListLicenseConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLicenseConfigurationsResponse_nextToken' - Token for the next set of results.
---
 -- 'licenseConfigurations', 'listLicenseConfigurationsResponse_licenseConfigurations' - Information about the license configurations.
+--
+-- 'nextToken', 'listLicenseConfigurationsResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listLicenseConfigurationsResponse_httpStatus' - The response's http status code.
 newListLicenseConfigurationsResponse ::
@@ -261,19 +261,19 @@ newListLicenseConfigurationsResponse ::
   ListLicenseConfigurationsResponse
 newListLicenseConfigurationsResponse pHttpStatus_ =
   ListLicenseConfigurationsResponse'
-    { nextToken =
+    { licenseConfigurations =
         Prelude.Nothing,
-      licenseConfigurations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Token for the next set of results.
-listLicenseConfigurationsResponse_nextToken :: Lens.Lens' ListLicenseConfigurationsResponse (Prelude.Maybe Prelude.Text)
-listLicenseConfigurationsResponse_nextToken = Lens.lens (\ListLicenseConfigurationsResponse' {nextToken} -> nextToken) (\s@ListLicenseConfigurationsResponse' {} a -> s {nextToken = a} :: ListLicenseConfigurationsResponse)
 
 -- | Information about the license configurations.
 listLicenseConfigurationsResponse_licenseConfigurations :: Lens.Lens' ListLicenseConfigurationsResponse (Prelude.Maybe [LicenseConfiguration])
 listLicenseConfigurationsResponse_licenseConfigurations = Lens.lens (\ListLicenseConfigurationsResponse' {licenseConfigurations} -> licenseConfigurations) (\s@ListLicenseConfigurationsResponse' {} a -> s {licenseConfigurations = a} :: ListLicenseConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listLicenseConfigurationsResponse_nextToken :: Lens.Lens' ListLicenseConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listLicenseConfigurationsResponse_nextToken = Lens.lens (\ListLicenseConfigurationsResponse' {nextToken} -> nextToken) (\s@ListLicenseConfigurationsResponse' {} a -> s {nextToken = a} :: ListLicenseConfigurationsResponse)
 
 -- | The response's http status code.
 listLicenseConfigurationsResponse_httpStatus :: Lens.Lens' ListLicenseConfigurationsResponse Prelude.Int
@@ -284,6 +284,6 @@ instance
     ListLicenseConfigurationsResponse
   where
   rnf ListLicenseConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf licenseConfigurations
+    Prelude.rnf licenseConfigurations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

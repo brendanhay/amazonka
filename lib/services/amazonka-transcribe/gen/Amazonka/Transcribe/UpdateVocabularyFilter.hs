@@ -27,8 +27,8 @@ module Amazonka.Transcribe.UpdateVocabularyFilter
     newUpdateVocabularyFilter,
 
     -- * Request Lenses
-    updateVocabularyFilter_vocabularyFilterFileUri,
     updateVocabularyFilter_words,
+    updateVocabularyFilter_vocabularyFilterFileUri,
     updateVocabularyFilter_vocabularyFilterName,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.Transcribe.UpdateVocabularyFilter
     newUpdateVocabularyFilterResponse,
 
     -- * Response Lenses
-    updateVocabularyFilterResponse_languageCode,
     updateVocabularyFilterResponse_lastModifiedTime,
+    updateVocabularyFilterResponse_languageCode,
     updateVocabularyFilterResponse_vocabularyFilterName,
     updateVocabularyFilterResponse_httpStatus,
   )
@@ -52,7 +52,15 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newUpdateVocabularyFilter' smart constructor.
 data UpdateVocabularyFilter = UpdateVocabularyFilter'
-  { -- | The Amazon S3 location of a text file used as input to create the
+  { -- | The words to use in the vocabulary filter. Only use characters from the
+    -- character set defined for custom vocabularies. For a list of character
+    -- sets, see
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
+    --
+    -- If you provide a list of words in the @Words@ parameter, you can\'t use
+    -- the @VocabularyFilterFileUri@ parameter.
+    words :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The Amazon S3 location of a text file used as input to create the
     -- vocabulary filter. Only use characters from the character set defined
     -- for custom vocabularies. For a list of character sets, see
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
@@ -63,14 +71,6 @@ data UpdateVocabularyFilter = UpdateVocabularyFilter'
     -- @VocabularyFilterFileUri@ parameter, you can\'t use the @Words@
     -- parameter.
     vocabularyFilterFileUri :: Prelude.Maybe Prelude.Text,
-    -- | The words to use in the vocabulary filter. Only use characters from the
-    -- character set defined for custom vocabularies. For a list of character
-    -- sets, see
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
-    --
-    -- If you provide a list of words in the @Words@ parameter, you can\'t use
-    -- the @VocabularyFilterFileUri@ parameter.
-    words :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the vocabulary filter to update. If you try to update a
     -- vocabulary filter with the same name as another vocabulary filter, you
     -- get a @ConflictException@ error.
@@ -86,6 +86,14 @@ data UpdateVocabularyFilter = UpdateVocabularyFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'words', 'updateVocabularyFilter_words' - The words to use in the vocabulary filter. Only use characters from the
+-- character set defined for custom vocabularies. For a list of character
+-- sets, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
+--
+-- If you provide a list of words in the @Words@ parameter, you can\'t use
+-- the @VocabularyFilterFileUri@ parameter.
+--
 -- 'vocabularyFilterFileUri', 'updateVocabularyFilter_vocabularyFilterFileUri' - The Amazon S3 location of a text file used as input to create the
 -- vocabulary filter. Only use characters from the character set defined
 -- for custom vocabularies. For a list of character sets, see
@@ -97,14 +105,6 @@ data UpdateVocabularyFilter = UpdateVocabularyFilter'
 -- @VocabularyFilterFileUri@ parameter, you can\'t use the @Words@
 -- parameter.
 --
--- 'words', 'updateVocabularyFilter_words' - The words to use in the vocabulary filter. Only use characters from the
--- character set defined for custom vocabularies. For a list of character
--- sets, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
---
--- If you provide a list of words in the @Words@ parameter, you can\'t use
--- the @VocabularyFilterFileUri@ parameter.
---
 -- 'vocabularyFilterName', 'updateVocabularyFilter_vocabularyFilterName' - The name of the vocabulary filter to update. If you try to update a
 -- vocabulary filter with the same name as another vocabulary filter, you
 -- get a @ConflictException@ error.
@@ -114,11 +114,20 @@ newUpdateVocabularyFilter ::
   UpdateVocabularyFilter
 newUpdateVocabularyFilter pVocabularyFilterName_ =
   UpdateVocabularyFilter'
-    { vocabularyFilterFileUri =
-        Prelude.Nothing,
-      words = Prelude.Nothing,
+    { words = Prelude.Nothing,
+      vocabularyFilterFileUri = Prelude.Nothing,
       vocabularyFilterName = pVocabularyFilterName_
     }
+
+-- | The words to use in the vocabulary filter. Only use characters from the
+-- character set defined for custom vocabularies. For a list of character
+-- sets, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
+--
+-- If you provide a list of words in the @Words@ parameter, you can\'t use
+-- the @VocabularyFilterFileUri@ parameter.
+updateVocabularyFilter_words :: Lens.Lens' UpdateVocabularyFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateVocabularyFilter_words = Lens.lens (\UpdateVocabularyFilter' {words} -> words) (\s@UpdateVocabularyFilter' {} a -> s {words = a} :: UpdateVocabularyFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 location of a text file used as input to create the
 -- vocabulary filter. Only use characters from the character set defined
@@ -132,16 +141,6 @@ newUpdateVocabularyFilter pVocabularyFilterName_ =
 -- parameter.
 updateVocabularyFilter_vocabularyFilterFileUri :: Lens.Lens' UpdateVocabularyFilter (Prelude.Maybe Prelude.Text)
 updateVocabularyFilter_vocabularyFilterFileUri = Lens.lens (\UpdateVocabularyFilter' {vocabularyFilterFileUri} -> vocabularyFilterFileUri) (\s@UpdateVocabularyFilter' {} a -> s {vocabularyFilterFileUri = a} :: UpdateVocabularyFilter)
-
--- | The words to use in the vocabulary filter. Only use characters from the
--- character set defined for custom vocabularies. For a list of character
--- sets, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html#charsets Character Sets for Custom Vocabularies>.
---
--- If you provide a list of words in the @Words@ parameter, you can\'t use
--- the @VocabularyFilterFileUri@ parameter.
-updateVocabularyFilter_words :: Lens.Lens' UpdateVocabularyFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateVocabularyFilter_words = Lens.lens (\UpdateVocabularyFilter' {words} -> words) (\s@UpdateVocabularyFilter' {} a -> s {words = a} :: UpdateVocabularyFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the vocabulary filter to update. If you try to update a
 -- vocabulary filter with the same name as another vocabulary filter, you
@@ -158,23 +157,22 @@ instance Core.AWSRequest UpdateVocabularyFilter where
     Response.receiveJSON
       ( \s h x ->
           UpdateVocabularyFilterResponse'
-            Prelude.<$> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<$> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "LanguageCode")
             Prelude.<*> (x Core..?> "VocabularyFilterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateVocabularyFilter where
   hashWithSalt _salt UpdateVocabularyFilter' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` words
       `Prelude.hashWithSalt` vocabularyFilterFileUri
-      `Prelude.hashWithSalt` words
       `Prelude.hashWithSalt` vocabularyFilterName
 
 instance Prelude.NFData UpdateVocabularyFilter where
   rnf UpdateVocabularyFilter' {..} =
-    Prelude.rnf vocabularyFilterFileUri
-      `Prelude.seq` Prelude.rnf words
+    Prelude.rnf words
+      `Prelude.seq` Prelude.rnf vocabularyFilterFileUri
       `Prelude.seq` Prelude.rnf vocabularyFilterName
 
 instance Core.ToHeaders UpdateVocabularyFilter where
@@ -196,9 +194,9 @@ instance Core.ToJSON UpdateVocabularyFilter where
   toJSON UpdateVocabularyFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VocabularyFilterFileUri" Core..=)
+          [ ("Words" Core..=) Prelude.<$> words,
+            ("VocabularyFilterFileUri" Core..=)
               Prelude.<$> vocabularyFilterFileUri,
-            ("Words" Core..=) Prelude.<$> words,
             Prelude.Just
               ( "VocabularyFilterName"
                   Core..= vocabularyFilterName
@@ -214,10 +212,10 @@ instance Core.ToQuery UpdateVocabularyFilter where
 
 -- | /See:/ 'newUpdateVocabularyFilterResponse' smart constructor.
 data UpdateVocabularyFilterResponse = UpdateVocabularyFilterResponse'
-  { -- | The language code of the words in the vocabulary filter.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | The date and time that the vocabulary filter was updated.
+  { -- | The date and time that the vocabulary filter was updated.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The language code of the words in the vocabulary filter.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The name of the updated vocabulary filter.
     vocabularyFilterName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -233,9 +231,9 @@ data UpdateVocabularyFilterResponse = UpdateVocabularyFilterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageCode', 'updateVocabularyFilterResponse_languageCode' - The language code of the words in the vocabulary filter.
---
 -- 'lastModifiedTime', 'updateVocabularyFilterResponse_lastModifiedTime' - The date and time that the vocabulary filter was updated.
+--
+-- 'languageCode', 'updateVocabularyFilterResponse_languageCode' - The language code of the words in the vocabulary filter.
 --
 -- 'vocabularyFilterName', 'updateVocabularyFilterResponse_vocabularyFilterName' - The name of the updated vocabulary filter.
 --
@@ -246,20 +244,20 @@ newUpdateVocabularyFilterResponse ::
   UpdateVocabularyFilterResponse
 newUpdateVocabularyFilterResponse pHttpStatus_ =
   UpdateVocabularyFilterResponse'
-    { languageCode =
+    { lastModifiedTime =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       vocabularyFilterName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The language code of the words in the vocabulary filter.
-updateVocabularyFilterResponse_languageCode :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe LanguageCode)
-updateVocabularyFilterResponse_languageCode = Lens.lens (\UpdateVocabularyFilterResponse' {languageCode} -> languageCode) (\s@UpdateVocabularyFilterResponse' {} a -> s {languageCode = a} :: UpdateVocabularyFilterResponse)
-
 -- | The date and time that the vocabulary filter was updated.
 updateVocabularyFilterResponse_lastModifiedTime :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe Prelude.UTCTime)
 updateVocabularyFilterResponse_lastModifiedTime = Lens.lens (\UpdateVocabularyFilterResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVocabularyFilterResponse' {} a -> s {lastModifiedTime = a} :: UpdateVocabularyFilterResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The language code of the words in the vocabulary filter.
+updateVocabularyFilterResponse_languageCode :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe LanguageCode)
+updateVocabularyFilterResponse_languageCode = Lens.lens (\UpdateVocabularyFilterResponse' {languageCode} -> languageCode) (\s@UpdateVocabularyFilterResponse' {} a -> s {languageCode = a} :: UpdateVocabularyFilterResponse)
 
 -- | The name of the updated vocabulary filter.
 updateVocabularyFilterResponse_vocabularyFilterName :: Lens.Lens' UpdateVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
@@ -274,7 +272,7 @@ instance
     UpdateVocabularyFilterResponse
   where
   rnf UpdateVocabularyFilterResponse' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf vocabularyFilterName
       `Prelude.seq` Prelude.rnf httpStatus

@@ -39,9 +39,9 @@ module Amazonka.EC2.DescribeSpotFleetInstances
     newDescribeSpotFleetInstancesResponse,
 
     -- * Response Lenses
+    describeSpotFleetInstancesResponse_activeInstances,
     describeSpotFleetInstancesResponse_nextToken,
     describeSpotFleetInstancesResponse_spotFleetRequestId,
-    describeSpotFleetInstancesResponse_activeInstances,
     describeSpotFleetInstancesResponse_httpStatus,
   )
 where
@@ -161,12 +161,12 @@ instance Core.AWSRequest DescribeSpotFleetInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeSpotFleetInstancesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> (x Core..@? "spotFleetRequestId")
-            Prelude.<*> ( x Core..@? "activeInstanceSet"
+            Prelude.<$> ( x Core..@? "activeInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<*> (x Core..@? "spotFleetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,14 +207,14 @@ instance Core.ToQuery DescribeSpotFleetInstances where
 --
 -- /See:/ 'newDescribeSpotFleetInstancesResponse' smart constructor.
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
-  { -- | The token required to retrieve the next set of results. This value is
+  { -- | The running instances. This list is refreshed periodically and might be
+    -- out of date.
+    activeInstances :: Prelude.Maybe [ActiveInstance],
+    -- | The token required to retrieve the next set of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Spot Fleet request.
     spotFleetRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The running instances. This list is refreshed periodically and might be
-    -- out of date.
-    activeInstances :: Prelude.Maybe [ActiveInstance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,13 +228,13 @@ data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'activeInstances', 'describeSpotFleetInstancesResponse_activeInstances' - The running instances. This list is refreshed periodically and might be
+-- out of date.
+--
 -- 'nextToken', 'describeSpotFleetInstancesResponse_nextToken' - The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
 --
 -- 'spotFleetRequestId', 'describeSpotFleetInstancesResponse_spotFleetRequestId' - The ID of the Spot Fleet request.
---
--- 'activeInstances', 'describeSpotFleetInstancesResponse_activeInstances' - The running instances. This list is refreshed periodically and might be
--- out of date.
 --
 -- 'httpStatus', 'describeSpotFleetInstancesResponse_httpStatus' - The response's http status code.
 newDescribeSpotFleetInstancesResponse ::
@@ -243,12 +243,17 @@ newDescribeSpotFleetInstancesResponse ::
   DescribeSpotFleetInstancesResponse
 newDescribeSpotFleetInstancesResponse pHttpStatus_ =
   DescribeSpotFleetInstancesResponse'
-    { nextToken =
+    { activeInstances =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       spotFleetRequestId = Prelude.Nothing,
-      activeInstances = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The running instances. This list is refreshed periodically and might be
+-- out of date.
+describeSpotFleetInstancesResponse_activeInstances :: Lens.Lens' DescribeSpotFleetInstancesResponse (Prelude.Maybe [ActiveInstance])
+describeSpotFleetInstancesResponse_activeInstances = Lens.lens (\DescribeSpotFleetInstancesResponse' {activeInstances} -> activeInstances) (\s@DescribeSpotFleetInstancesResponse' {} a -> s {activeInstances = a} :: DescribeSpotFleetInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -259,11 +264,6 @@ describeSpotFleetInstancesResponse_nextToken = Lens.lens (\DescribeSpotFleetInst
 describeSpotFleetInstancesResponse_spotFleetRequestId :: Lens.Lens' DescribeSpotFleetInstancesResponse (Prelude.Maybe Prelude.Text)
 describeSpotFleetInstancesResponse_spotFleetRequestId = Lens.lens (\DescribeSpotFleetInstancesResponse' {spotFleetRequestId} -> spotFleetRequestId) (\s@DescribeSpotFleetInstancesResponse' {} a -> s {spotFleetRequestId = a} :: DescribeSpotFleetInstancesResponse)
 
--- | The running instances. This list is refreshed periodically and might be
--- out of date.
-describeSpotFleetInstancesResponse_activeInstances :: Lens.Lens' DescribeSpotFleetInstancesResponse (Prelude.Maybe [ActiveInstance])
-describeSpotFleetInstancesResponse_activeInstances = Lens.lens (\DescribeSpotFleetInstancesResponse' {activeInstances} -> activeInstances) (\s@DescribeSpotFleetInstancesResponse' {} a -> s {activeInstances = a} :: DescribeSpotFleetInstancesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeSpotFleetInstancesResponse_httpStatus :: Lens.Lens' DescribeSpotFleetInstancesResponse Prelude.Int
 describeSpotFleetInstancesResponse_httpStatus = Lens.lens (\DescribeSpotFleetInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeSpotFleetInstancesResponse' {} a -> s {httpStatus = a} :: DescribeSpotFleetInstancesResponse)
@@ -273,7 +273,7 @@ instance
     DescribeSpotFleetInstancesResponse
   where
   rnf DescribeSpotFleetInstancesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf activeInstances
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf spotFleetRequestId
-      `Prelude.seq` Prelude.rnf activeInstances
       `Prelude.seq` Prelude.rnf httpStatus

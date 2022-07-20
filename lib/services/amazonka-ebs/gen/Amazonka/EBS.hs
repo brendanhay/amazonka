@@ -46,29 +46,29 @@ module Amazonka.EBS
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** RequestThrottledException
+    _RequestThrottledException,
 
     -- ** ConcurrentLimitExceededException
     _ConcurrentLimitExceededException,
 
-    -- ** RequestThrottledException
-    _RequestThrottledException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -76,11 +76,23 @@ module Amazonka.EBS
     -- * Operations
     -- $operations
 
-    -- ** StartSnapshot
-    StartSnapshot (StartSnapshot'),
-    newStartSnapshot,
-    StartSnapshotResponse (StartSnapshotResponse'),
-    newStartSnapshotResponse,
+    -- ** CompleteSnapshot
+    CompleteSnapshot (CompleteSnapshot'),
+    newCompleteSnapshot,
+    CompleteSnapshotResponse (CompleteSnapshotResponse'),
+    newCompleteSnapshotResponse,
+
+    -- ** GetSnapshotBlock
+    GetSnapshotBlock (GetSnapshotBlock'),
+    newGetSnapshotBlock,
+    GetSnapshotBlockResponse (GetSnapshotBlockResponse'),
+    newGetSnapshotBlockResponse,
+
+    -- ** ListChangedBlocks
+    ListChangedBlocks (ListChangedBlocks'),
+    newListChangedBlocks,
+    ListChangedBlocksResponse (ListChangedBlocksResponse'),
+    newListChangedBlocksResponse,
 
     -- ** ListSnapshotBlocks
     ListSnapshotBlocks (ListSnapshotBlocks'),
@@ -94,23 +106,11 @@ module Amazonka.EBS
     PutSnapshotBlockResponse (PutSnapshotBlockResponse'),
     newPutSnapshotBlockResponse,
 
-    -- ** ListChangedBlocks
-    ListChangedBlocks (ListChangedBlocks'),
-    newListChangedBlocks,
-    ListChangedBlocksResponse (ListChangedBlocksResponse'),
-    newListChangedBlocksResponse,
-
-    -- ** CompleteSnapshot
-    CompleteSnapshot (CompleteSnapshot'),
-    newCompleteSnapshot,
-    CompleteSnapshotResponse (CompleteSnapshotResponse'),
-    newCompleteSnapshotResponse,
-
-    -- ** GetSnapshotBlock
-    GetSnapshotBlock (GetSnapshotBlock'),
-    newGetSnapshotBlock,
-    GetSnapshotBlockResponse (GetSnapshotBlockResponse'),
-    newGetSnapshotBlockResponse,
+    -- ** StartSnapshot
+    StartSnapshot (StartSnapshot'),
+    newStartSnapshot,
+    StartSnapshotResponse (StartSnapshotResponse'),
+    newStartSnapshotResponse,
 
     -- * Types
 

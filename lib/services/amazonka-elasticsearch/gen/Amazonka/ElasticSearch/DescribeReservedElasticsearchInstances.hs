@@ -39,8 +39,8 @@ module Amazonka.ElasticSearch.DescribeReservedElasticsearchInstances
     newDescribeReservedElasticsearchInstancesResponse,
 
     -- * Response Lenses
-    describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances,
     describeReservedElasticsearchInstancesResponse_nextToken,
+    describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances,
     describeReservedElasticsearchInstancesResponse_httpStatus,
   )
 where
@@ -150,10 +150,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeReservedElasticsearchInstancesResponse'
-            Prelude.<$> ( x Core..?> "ReservedElasticsearchInstances"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "ReservedElasticsearchInstances"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,10 +207,10 @@ instance
 --
 -- /See:/ 'newDescribeReservedElasticsearchInstancesResponse' smart constructor.
 data DescribeReservedElasticsearchInstancesResponse = DescribeReservedElasticsearchInstancesResponse'
-  { -- | List of reserved Elasticsearch instances.
-    reservedElasticsearchInstances :: Prelude.Maybe [ReservedElasticsearchInstance],
-    -- | Provides an identifier to allow retrieval of paginated results.
+  { -- | Provides an identifier to allow retrieval of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of reserved Elasticsearch instances.
+    reservedElasticsearchInstances :: Prelude.Maybe [ReservedElasticsearchInstance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,9 +224,9 @@ data DescribeReservedElasticsearchInstancesResponse = DescribeReservedElasticsea
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservedElasticsearchInstances', 'describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances' - List of reserved Elasticsearch instances.
---
 -- 'nextToken', 'describeReservedElasticsearchInstancesResponse_nextToken' - Provides an identifier to allow retrieval of paginated results.
+--
+-- 'reservedElasticsearchInstances', 'describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances' - List of reserved Elasticsearch instances.
 --
 -- 'httpStatus', 'describeReservedElasticsearchInstancesResponse_httpStatus' - The response's http status code.
 newDescribeReservedElasticsearchInstancesResponse ::
@@ -236,19 +236,20 @@ newDescribeReservedElasticsearchInstancesResponse ::
 newDescribeReservedElasticsearchInstancesResponse
   pHttpStatus_ =
     DescribeReservedElasticsearchInstancesResponse'
-      { reservedElasticsearchInstances =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        reservedElasticsearchInstances =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | List of reserved Elasticsearch instances.
-describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances :: Lens.Lens' DescribeReservedElasticsearchInstancesResponse (Prelude.Maybe [ReservedElasticsearchInstance])
-describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances = Lens.lens (\DescribeReservedElasticsearchInstancesResponse' {reservedElasticsearchInstances} -> reservedElasticsearchInstances) (\s@DescribeReservedElasticsearchInstancesResponse' {} a -> s {reservedElasticsearchInstances = a} :: DescribeReservedElasticsearchInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Provides an identifier to allow retrieval of paginated results.
 describeReservedElasticsearchInstancesResponse_nextToken :: Lens.Lens' DescribeReservedElasticsearchInstancesResponse (Prelude.Maybe Prelude.Text)
 describeReservedElasticsearchInstancesResponse_nextToken = Lens.lens (\DescribeReservedElasticsearchInstancesResponse' {nextToken} -> nextToken) (\s@DescribeReservedElasticsearchInstancesResponse' {} a -> s {nextToken = a} :: DescribeReservedElasticsearchInstancesResponse)
+
+-- | List of reserved Elasticsearch instances.
+describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances :: Lens.Lens' DescribeReservedElasticsearchInstancesResponse (Prelude.Maybe [ReservedElasticsearchInstance])
+describeReservedElasticsearchInstancesResponse_reservedElasticsearchInstances = Lens.lens (\DescribeReservedElasticsearchInstancesResponse' {reservedElasticsearchInstances} -> reservedElasticsearchInstances) (\s@DescribeReservedElasticsearchInstancesResponse' {} a -> s {reservedElasticsearchInstances = a} :: DescribeReservedElasticsearchInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeReservedElasticsearchInstancesResponse_httpStatus :: Lens.Lens' DescribeReservedElasticsearchInstancesResponse Prelude.Int
@@ -260,6 +261,6 @@ instance
   where
   rnf
     DescribeReservedElasticsearchInstancesResponse' {..} =
-      Prelude.rnf reservedElasticsearchInstances
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf reservedElasticsearchInstances
         `Prelude.seq` Prelude.rnf httpStatus

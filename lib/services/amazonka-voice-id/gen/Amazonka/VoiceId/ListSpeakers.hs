@@ -36,8 +36,8 @@ module Amazonka.VoiceId.ListSpeakers
     newListSpeakersResponse,
 
     -- * Response Lenses
-    listSpeakersResponse_speakerSummaries,
     listSpeakersResponse_nextToken,
+    listSpeakersResponse_speakerSummaries,
     listSpeakersResponse_httpStatus,
   )
 where
@@ -118,10 +118,10 @@ instance Core.AWSRequest ListSpeakers where
     Response.receiveJSON
       ( \s h x ->
           ListSpeakersResponse'
-            Prelude.<$> ( x Core..?> "SpeakerSummaries"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "SpeakerSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,14 +168,14 @@ instance Core.ToQuery ListSpeakers where
 
 -- | /See:/ 'newListSpeakersResponse' smart constructor.
 data ListSpeakersResponse = ListSpeakersResponse'
-  { -- | A list containing details about each speaker in the Amazon Web Services
-    -- account.
-    speakerSummaries :: Prelude.Maybe [SpeakerSummary],
-    -- | If @NextToken@ is returned, there are more results available. The value
+  { -- | If @NextToken@ is returned, there are more results available. The value
     -- of @NextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list containing details about each speaker in the Amazon Web Services
+    -- account.
+    speakerSummaries :: Prelude.Maybe [SpeakerSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,13 +189,13 @@ data ListSpeakersResponse = ListSpeakersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'speakerSummaries', 'listSpeakersResponse_speakerSummaries' - A list containing details about each speaker in the Amazon Web Services
--- account.
---
 -- 'nextToken', 'listSpeakersResponse_nextToken' - If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours.
+--
+-- 'speakerSummaries', 'listSpeakersResponse_speakerSummaries' - A list containing details about each speaker in the Amazon Web Services
+-- account.
 --
 -- 'httpStatus', 'listSpeakersResponse_httpStatus' - The response's http status code.
 newListSpeakersResponse ::
@@ -204,16 +204,10 @@ newListSpeakersResponse ::
   ListSpeakersResponse
 newListSpeakersResponse pHttpStatus_ =
   ListSpeakersResponse'
-    { speakerSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      speakerSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list containing details about each speaker in the Amazon Web Services
--- account.
-listSpeakersResponse_speakerSummaries :: Lens.Lens' ListSpeakersResponse (Prelude.Maybe [SpeakerSummary])
-listSpeakersResponse_speakerSummaries = Lens.lens (\ListSpeakersResponse' {speakerSummaries} -> speakerSummaries) (\s@ListSpeakersResponse' {} a -> s {speakerSummaries = a} :: ListSpeakersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -222,12 +216,17 @@ listSpeakersResponse_speakerSummaries = Lens.lens (\ListSpeakersResponse' {speak
 listSpeakersResponse_nextToken :: Lens.Lens' ListSpeakersResponse (Prelude.Maybe Prelude.Text)
 listSpeakersResponse_nextToken = Lens.lens (\ListSpeakersResponse' {nextToken} -> nextToken) (\s@ListSpeakersResponse' {} a -> s {nextToken = a} :: ListSpeakersResponse)
 
+-- | A list containing details about each speaker in the Amazon Web Services
+-- account.
+listSpeakersResponse_speakerSummaries :: Lens.Lens' ListSpeakersResponse (Prelude.Maybe [SpeakerSummary])
+listSpeakersResponse_speakerSummaries = Lens.lens (\ListSpeakersResponse' {speakerSummaries} -> speakerSummaries) (\s@ListSpeakersResponse' {} a -> s {speakerSummaries = a} :: ListSpeakersResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listSpeakersResponse_httpStatus :: Lens.Lens' ListSpeakersResponse Prelude.Int
 listSpeakersResponse_httpStatus = Lens.lens (\ListSpeakersResponse' {httpStatus} -> httpStatus) (\s@ListSpeakersResponse' {} a -> s {httpStatus = a} :: ListSpeakersResponse)
 
 instance Prelude.NFData ListSpeakersResponse where
   rnf ListSpeakersResponse' {..} =
-    Prelude.rnf speakerSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf speakerSummaries
       `Prelude.seq` Prelude.rnf httpStatus

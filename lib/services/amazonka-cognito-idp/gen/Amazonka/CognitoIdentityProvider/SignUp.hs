@@ -48,11 +48,11 @@ module Amazonka.CognitoIdentityProvider.SignUp
     newSignUp,
 
     -- * Request Lenses
-    signUp_clientMetadata,
     signUp_analyticsMetadata,
+    signUp_clientMetadata,
+    signUp_secretHash,
     signUp_userContextData,
     signUp_userAttributes,
-    signUp_secretHash,
     signUp_validationData,
     signUp_clientId,
     signUp_username,
@@ -81,7 +81,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newSignUp' smart constructor.
 data SignUp = SignUp'
-  { -- | A map of custom key-value pairs that you can provide as input for any
+  { -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @SignUp@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
     -- You create custom workflows by assigning Lambda functions to user pool
@@ -113,9 +116,10 @@ data SignUp = SignUp'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @SignUp@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | A keyed-hash message authentication code (HMAC) calculated using the
+    -- secret key of a user pool client and username plus the client ID in the
+    -- message.
+    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
@@ -125,10 +129,6 @@ data SignUp = SignUp'
     -- For custom attributes, you must prepend the @custom:@ prefix to the
     -- attribute name.
     userAttributes :: Prelude.Maybe [AttributeType],
-    -- | A keyed-hash message authentication code (HMAC) calculated using the
-    -- secret key of a user pool client and username plus the client ID in the
-    -- message.
-    secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The validation data in the request to register a user.
     validationData :: Prelude.Maybe [AttributeType],
     -- | The ID of the client associated with the user pool.
@@ -147,6 +147,9 @@ data SignUp = SignUp'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'analyticsMetadata', 'signUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @SignUp@ calls.
 --
 -- 'clientMetadata', 'signUp_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -180,8 +183,9 @@ data SignUp = SignUp'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
--- 'analyticsMetadata', 'signUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @SignUp@ calls.
+-- 'secretHash', 'signUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
+-- secret key of a user pool client and username plus the client ID in the
+-- message.
 --
 -- 'userContextData', 'signUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
@@ -191,10 +195,6 @@ data SignUp = SignUp'
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the
 -- attribute name.
---
--- 'secretHash', 'signUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
 --
 -- 'validationData', 'signUp_validationData' - The validation data in the request to register a user.
 --
@@ -213,16 +213,21 @@ newSignUp ::
   SignUp
 newSignUp pClientId_ pUsername_ pPassword_ =
   SignUp'
-    { clientMetadata = Prelude.Nothing,
-      analyticsMetadata = Prelude.Nothing,
+    { analyticsMetadata = Prelude.Nothing,
+      clientMetadata = Prelude.Nothing,
+      secretHash = Prelude.Nothing,
       userContextData = Prelude.Nothing,
       userAttributes = Prelude.Nothing,
-      secretHash = Prelude.Nothing,
       validationData = Prelude.Nothing,
       clientId = Core._Sensitive Lens.# pClientId_,
       username = Core._Sensitive Lens.# pUsername_,
       password = Core._Sensitive Lens.# pPassword_
     }
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @SignUp@ calls.
+signUp_analyticsMetadata :: Lens.Lens' SignUp (Prelude.Maybe AnalyticsMetadataType)
+signUp_analyticsMetadata = Lens.lens (\SignUp' {analyticsMetadata} -> analyticsMetadata) (\s@SignUp' {} a -> s {analyticsMetadata = a} :: SignUp)
 
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -258,10 +263,11 @@ newSignUp pClientId_ pUsername_ pPassword_ =
 signUp_clientMetadata :: Lens.Lens' SignUp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 signUp_clientMetadata = Lens.lens (\SignUp' {clientMetadata} -> clientMetadata) (\s@SignUp' {} a -> s {clientMetadata = a} :: SignUp) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @SignUp@ calls.
-signUp_analyticsMetadata :: Lens.Lens' SignUp (Prelude.Maybe AnalyticsMetadataType)
-signUp_analyticsMetadata = Lens.lens (\SignUp' {analyticsMetadata} -> analyticsMetadata) (\s@SignUp' {} a -> s {analyticsMetadata = a} :: SignUp)
+-- | A keyed-hash message authentication code (HMAC) calculated using the
+-- secret key of a user pool client and username plus the client ID in the
+-- message.
+signUp_secretHash :: Lens.Lens' SignUp (Prelude.Maybe Prelude.Text)
+signUp_secretHash = Lens.lens (\SignUp' {secretHash} -> secretHash) (\s@SignUp' {} a -> s {secretHash = a} :: SignUp) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
@@ -275,12 +281,6 @@ signUp_userContextData = Lens.lens (\SignUp' {userContextData} -> userContextDat
 -- attribute name.
 signUp_userAttributes :: Lens.Lens' SignUp (Prelude.Maybe [AttributeType])
 signUp_userAttributes = Lens.lens (\SignUp' {userAttributes} -> userAttributes) (\s@SignUp' {} a -> s {userAttributes = a} :: SignUp) Prelude.. Lens.mapping Lens.coerced
-
--- | A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
-signUp_secretHash :: Lens.Lens' SignUp (Prelude.Maybe Prelude.Text)
-signUp_secretHash = Lens.lens (\SignUp' {secretHash} -> secretHash) (\s@SignUp' {} a -> s {secretHash = a} :: SignUp) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The validation data in the request to register a user.
 signUp_validationData :: Lens.Lens' SignUp (Prelude.Maybe [AttributeType])
@@ -313,11 +313,11 @@ instance Core.AWSRequest SignUp where
 
 instance Prelude.Hashable SignUp where
   hashWithSalt _salt SignUp' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
-      `Prelude.hashWithSalt` analyticsMetadata
+    _salt `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` clientMetadata
+      `Prelude.hashWithSalt` secretHash
       `Prelude.hashWithSalt` userContextData
       `Prelude.hashWithSalt` userAttributes
-      `Prelude.hashWithSalt` secretHash
       `Prelude.hashWithSalt` validationData
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` username
@@ -325,11 +325,11 @@ instance Prelude.Hashable SignUp where
 
 instance Prelude.NFData SignUp where
   rnf SignUp' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf analyticsMetadata
+    Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf secretHash
       `Prelude.seq` Prelude.rnf userContextData
       `Prelude.seq` Prelude.rnf userAttributes
-      `Prelude.seq` Prelude.rnf secretHash
       `Prelude.seq` Prelude.rnf validationData
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf username
@@ -354,15 +354,15 @@ instance Core.ToJSON SignUp where
   toJSON SignUp' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
-              Prelude.<$> clientMetadata,
-            ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Core..=)
               Prelude.<$> analyticsMetadata,
+            ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            ("SecretHash" Core..=) Prelude.<$> secretHash,
             ("UserContextData" Core..=)
               Prelude.<$> userContextData,
             ("UserAttributes" Core..=)
               Prelude.<$> userAttributes,
-            ("SecretHash" Core..=) Prelude.<$> secretHash,
             ("ValidationData" Core..=)
               Prelude.<$> validationData,
             Prelude.Just ("ClientId" Core..= clientId),

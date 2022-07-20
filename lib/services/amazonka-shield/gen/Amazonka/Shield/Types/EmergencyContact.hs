@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEmergencyContact' smart constructor.
 data EmergencyContact = EmergencyContact'
-  { -- | The phone number for the contact.
-    phoneNumber :: Prelude.Maybe Prelude.Text,
-    -- | Additional notes regarding the contact.
+  { -- | Additional notes regarding the contact.
     contactNotes :: Prelude.Maybe Prelude.Text,
+    -- | The phone number for the contact.
+    phoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The email address for the contact.
     emailAddress :: Prelude.Text
   }
@@ -46,9 +46,9 @@ data EmergencyContact = EmergencyContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumber', 'emergencyContact_phoneNumber' - The phone number for the contact.
---
 -- 'contactNotes', 'emergencyContact_contactNotes' - Additional notes regarding the contact.
+--
+-- 'phoneNumber', 'emergencyContact_phoneNumber' - The phone number for the contact.
 --
 -- 'emailAddress', 'emergencyContact_emailAddress' - The email address for the contact.
 newEmergencyContact ::
@@ -57,18 +57,18 @@ newEmergencyContact ::
   EmergencyContact
 newEmergencyContact pEmailAddress_ =
   EmergencyContact'
-    { phoneNumber = Prelude.Nothing,
-      contactNotes = Prelude.Nothing,
+    { contactNotes = Prelude.Nothing,
+      phoneNumber = Prelude.Nothing,
       emailAddress = pEmailAddress_
     }
-
--- | The phone number for the contact.
-emergencyContact_phoneNumber :: Lens.Lens' EmergencyContact (Prelude.Maybe Prelude.Text)
-emergencyContact_phoneNumber = Lens.lens (\EmergencyContact' {phoneNumber} -> phoneNumber) (\s@EmergencyContact' {} a -> s {phoneNumber = a} :: EmergencyContact)
 
 -- | Additional notes regarding the contact.
 emergencyContact_contactNotes :: Lens.Lens' EmergencyContact (Prelude.Maybe Prelude.Text)
 emergencyContact_contactNotes = Lens.lens (\EmergencyContact' {contactNotes} -> contactNotes) (\s@EmergencyContact' {} a -> s {contactNotes = a} :: EmergencyContact)
+
+-- | The phone number for the contact.
+emergencyContact_phoneNumber :: Lens.Lens' EmergencyContact (Prelude.Maybe Prelude.Text)
+emergencyContact_phoneNumber = Lens.lens (\EmergencyContact' {phoneNumber} -> phoneNumber) (\s@EmergencyContact' {} a -> s {phoneNumber = a} :: EmergencyContact)
 
 -- | The email address for the contact.
 emergencyContact_emailAddress :: Lens.Lens' EmergencyContact Prelude.Text
@@ -80,29 +80,29 @@ instance Core.FromJSON EmergencyContact where
       "EmergencyContact"
       ( \x ->
           EmergencyContact'
-            Prelude.<$> (x Core..:? "PhoneNumber")
-            Prelude.<*> (x Core..:? "ContactNotes")
+            Prelude.<$> (x Core..:? "ContactNotes")
+            Prelude.<*> (x Core..:? "PhoneNumber")
             Prelude.<*> (x Core..: "EmailAddress")
       )
 
 instance Prelude.Hashable EmergencyContact where
   hashWithSalt _salt EmergencyContact' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumber
-      `Prelude.hashWithSalt` contactNotes
+    _salt `Prelude.hashWithSalt` contactNotes
+      `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` emailAddress
 
 instance Prelude.NFData EmergencyContact where
   rnf EmergencyContact' {..} =
-    Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf contactNotes
+    Prelude.rnf contactNotes
+      `Prelude.seq` Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToJSON EmergencyContact where
   toJSON EmergencyContact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
-            ("ContactNotes" Core..=) Prelude.<$> contactNotes,
+          [ ("ContactNotes" Core..=) Prelude.<$> contactNotes,
+            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
             Prelude.Just ("EmailAddress" Core..= emailAddress)
           ]
       )

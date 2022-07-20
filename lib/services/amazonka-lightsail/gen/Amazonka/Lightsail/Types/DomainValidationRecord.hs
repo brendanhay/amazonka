@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainValidationRecord' smart constructor.
 data DomainValidationRecord = DomainValidationRecord'
-  { -- | An object that describes the DNS records to add to your domain\'s DNS to
-    -- validate it for the certificate.
-    resourceRecord :: Prelude.Maybe ResourceRecord,
-    -- | The domain name of the certificate validation record. For example,
+  { -- | The domain name of the certificate validation record. For example,
     -- @example.com@ or @www.example.com@.
-    domainName :: Prelude.Maybe Prelude.Text
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | An object that describes the DNS records to add to your domain\'s DNS to
+    -- validate it for the certificate.
+    resourceRecord :: Prelude.Maybe ResourceRecord
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data DomainValidationRecord = DomainValidationRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceRecord', 'domainValidationRecord_resourceRecord' - An object that describes the DNS records to add to your domain\'s DNS to
--- validate it for the certificate.
---
 -- 'domainName', 'domainValidationRecord_domainName' - The domain name of the certificate validation record. For example,
 -- @example.com@ or @www.example.com@.
+--
+-- 'resourceRecord', 'domainValidationRecord_resourceRecord' - An object that describes the DNS records to add to your domain\'s DNS to
+-- validate it for the certificate.
 newDomainValidationRecord ::
   DomainValidationRecord
 newDomainValidationRecord =
   DomainValidationRecord'
-    { resourceRecord =
+    { domainName =
         Prelude.Nothing,
-      domainName = Prelude.Nothing
+      resourceRecord = Prelude.Nothing
     }
-
--- | An object that describes the DNS records to add to your domain\'s DNS to
--- validate it for the certificate.
-domainValidationRecord_resourceRecord :: Lens.Lens' DomainValidationRecord (Prelude.Maybe ResourceRecord)
-domainValidationRecord_resourceRecord = Lens.lens (\DomainValidationRecord' {resourceRecord} -> resourceRecord) (\s@DomainValidationRecord' {} a -> s {resourceRecord = a} :: DomainValidationRecord)
 
 -- | The domain name of the certificate validation record. For example,
 -- @example.com@ or @www.example.com@.
 domainValidationRecord_domainName :: Lens.Lens' DomainValidationRecord (Prelude.Maybe Prelude.Text)
 domainValidationRecord_domainName = Lens.lens (\DomainValidationRecord' {domainName} -> domainName) (\s@DomainValidationRecord' {} a -> s {domainName = a} :: DomainValidationRecord)
+
+-- | An object that describes the DNS records to add to your domain\'s DNS to
+-- validate it for the certificate.
+domainValidationRecord_resourceRecord :: Lens.Lens' DomainValidationRecord (Prelude.Maybe ResourceRecord)
+domainValidationRecord_resourceRecord = Lens.lens (\DomainValidationRecord' {resourceRecord} -> resourceRecord) (\s@DomainValidationRecord' {} a -> s {resourceRecord = a} :: DomainValidationRecord)
 
 instance Core.FromJSON DomainValidationRecord where
   parseJSON =
@@ -76,16 +76,16 @@ instance Core.FromJSON DomainValidationRecord where
       "DomainValidationRecord"
       ( \x ->
           DomainValidationRecord'
-            Prelude.<$> (x Core..:? "resourceRecord")
-            Prelude.<*> (x Core..:? "domainName")
+            Prelude.<$> (x Core..:? "domainName")
+            Prelude.<*> (x Core..:? "resourceRecord")
       )
 
 instance Prelude.Hashable DomainValidationRecord where
   hashWithSalt _salt DomainValidationRecord' {..} =
-    _salt `Prelude.hashWithSalt` resourceRecord
-      `Prelude.hashWithSalt` domainName
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` resourceRecord
 
 instance Prelude.NFData DomainValidationRecord where
   rnf DomainValidationRecord' {..} =
-    Prelude.rnf resourceRecord
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf resourceRecord

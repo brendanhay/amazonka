@@ -32,10 +32,10 @@ data ResourceFilters = ResourceFilters'
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource.
     resourceName :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit source account ID.
-    accountId :: Prelude.Maybe Prelude.Text,
     -- | The source region.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The 12-digit source account ID.
+    accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,17 +51,17 @@ data ResourceFilters = ResourceFilters'
 --
 -- 'resourceName', 'resourceFilters_resourceName' - The name of the resource.
 --
--- 'accountId', 'resourceFilters_accountId' - The 12-digit source account ID.
---
 -- 'region', 'resourceFilters_region' - The source region.
+--
+-- 'accountId', 'resourceFilters_accountId' - The 12-digit source account ID.
 newResourceFilters ::
   ResourceFilters
 newResourceFilters =
   ResourceFilters'
     { resourceId = Prelude.Nothing,
       resourceName = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      region = Prelude.Nothing
+      region = Prelude.Nothing,
+      accountId = Prelude.Nothing
     }
 
 -- | The ID of the resource.
@@ -72,27 +72,27 @@ resourceFilters_resourceId = Lens.lens (\ResourceFilters' {resourceId} -> resour
 resourceFilters_resourceName :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
 resourceFilters_resourceName = Lens.lens (\ResourceFilters' {resourceName} -> resourceName) (\s@ResourceFilters' {} a -> s {resourceName = a} :: ResourceFilters)
 
--- | The 12-digit source account ID.
-resourceFilters_accountId :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
-resourceFilters_accountId = Lens.lens (\ResourceFilters' {accountId} -> accountId) (\s@ResourceFilters' {} a -> s {accountId = a} :: ResourceFilters)
-
 -- | The source region.
 resourceFilters_region :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
 resourceFilters_region = Lens.lens (\ResourceFilters' {region} -> region) (\s@ResourceFilters' {} a -> s {region = a} :: ResourceFilters)
+
+-- | The 12-digit source account ID.
+resourceFilters_accountId :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
+resourceFilters_accountId = Lens.lens (\ResourceFilters' {accountId} -> accountId) (\s@ResourceFilters' {} a -> s {accountId = a} :: ResourceFilters)
 
 instance Prelude.Hashable ResourceFilters where
   hashWithSalt _salt ResourceFilters' {..} =
     _salt `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceName
-      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData ResourceFilters where
   rnf ResourceFilters' {..} =
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToJSON ResourceFilters where
   toJSON ResourceFilters' {..} =
@@ -100,7 +100,7 @@ instance Core.ToJSON ResourceFilters where
       ( Prelude.catMaybes
           [ ("ResourceId" Core..=) Prelude.<$> resourceId,
             ("ResourceName" Core..=) Prelude.<$> resourceName,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("Region" Core..=) Prelude.<$> region
+            ("Region" Core..=) Prelude.<$> region,
+            ("AccountId" Core..=) Prelude.<$> accountId
           ]
       )

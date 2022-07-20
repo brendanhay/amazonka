@@ -28,16 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentationPartLocation' smart constructor.
 data DocumentationPartLocation = DocumentationPartLocation'
-  { -- | The URL path of the target. It is a valid field for the API entity types
-    -- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
-    -- @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and
-    -- @RESPONSE_BODY@. The default value is @\/@ for the root resource. When
-    -- an applicable child entity inherits the content of another entity of the
-    -- same type with more general specifications of the other @location@
-    -- attributes, the child entity\'s @path@ attribute must match that of the
-    -- parent entity as a prefix.
-    path :: Prelude.Maybe Prelude.Text,
-    -- | The name of the targeted API entity. It is a valid and required field
+  { -- | The name of the targeted API entity. It is a valid and required field
     -- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
     -- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
     -- @RESPONSE_HEADER@. It is an invalid field for any other entity type.
@@ -50,6 +41,15 @@ data DocumentationPartLocation = DocumentationPartLocation'
     -- specifications of the other @location@ attributes, the child entity\'s
     -- @method@ attribute must match that of the parent entity exactly.
     method :: Prelude.Maybe Prelude.Text,
+    -- | The URL path of the target. It is a valid field for the API entity types
+    -- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
+    -- @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and
+    -- @RESPONSE_BODY@. The default value is @\/@ for the root resource. When
+    -- an applicable child entity inherits the content of another entity of the
+    -- same type with more general specifications of the other @location@
+    -- attributes, the child entity\'s @path@ attribute must match that of the
+    -- parent entity as a prefix.
+    path :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status code of a response. It is a valid field for the API
     -- entity types of @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. The
     -- default value is @*@ for any status code. When an applicable child
@@ -76,15 +76,6 @@ data DocumentationPartLocation = DocumentationPartLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'path', 'documentationPartLocation_path' - The URL path of the target. It is a valid field for the API entity types
--- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
--- @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and
--- @RESPONSE_BODY@. The default value is @\/@ for the root resource. When
--- an applicable child entity inherits the content of another entity of the
--- same type with more general specifications of the other @location@
--- attributes, the child entity\'s @path@ attribute must match that of the
--- parent entity as a prefix.
---
 -- 'name', 'documentationPartLocation_name' - The name of the targeted API entity. It is a valid and required field
 -- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
 -- @QUERY_PARAMETER@, @REQUEST_HEADER@, @REQUEST_BODY@ and
@@ -97,6 +88,15 @@ data DocumentationPartLocation = DocumentationPartLocation'
 -- inherits the content of an entity of the same type with more general
 -- specifications of the other @location@ attributes, the child entity\'s
 -- @method@ attribute must match that of the parent entity exactly.
+--
+-- 'path', 'documentationPartLocation_path' - The URL path of the target. It is a valid field for the API entity types
+-- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
+-- @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and
+-- @RESPONSE_BODY@. The default value is @\/@ for the root resource. When
+-- an applicable child entity inherits the content of another entity of the
+-- same type with more general specifications of the other @location@
+-- attributes, the child entity\'s @path@ attribute must match that of the
+-- parent entity as a prefix.
 --
 -- 'statusCode', 'documentationPartLocation_statusCode' - The HTTP status code of a response. It is a valid field for the API
 -- entity types of @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. The
@@ -118,23 +118,12 @@ newDocumentationPartLocation ::
   DocumentationPartLocation
 newDocumentationPartLocation pType_ =
   DocumentationPartLocation'
-    { path = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       method = Prelude.Nothing,
+      path = Prelude.Nothing,
       statusCode = Prelude.Nothing,
       type' = pType_
     }
-
--- | The URL path of the target. It is a valid field for the API entity types
--- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
--- @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and
--- @RESPONSE_BODY@. The default value is @\/@ for the root resource. When
--- an applicable child entity inherits the content of another entity of the
--- same type with more general specifications of the other @location@
--- attributes, the child entity\'s @path@ attribute must match that of the
--- parent entity as a prefix.
-documentationPartLocation_path :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
-documentationPartLocation_path = Lens.lens (\DocumentationPartLocation' {path} -> path) (\s@DocumentationPartLocation' {} a -> s {path = a} :: DocumentationPartLocation)
 
 -- | The name of the targeted API entity. It is a valid and required field
 -- for the API entity types of @AUTHORIZER@, @MODEL@, @PATH_PARAMETER@,
@@ -152,6 +141,17 @@ documentationPartLocation_name = Lens.lens (\DocumentationPartLocation' {name} -
 -- @method@ attribute must match that of the parent entity exactly.
 documentationPartLocation_method :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
 documentationPartLocation_method = Lens.lens (\DocumentationPartLocation' {method} -> method) (\s@DocumentationPartLocation' {} a -> s {method = a} :: DocumentationPartLocation)
+
+-- | The URL path of the target. It is a valid field for the API entity types
+-- of @RESOURCE@, @METHOD@, @PATH_PARAMETER@, @QUERY_PARAMETER@,
+-- @REQUEST_HEADER@, @REQUEST_BODY@, @RESPONSE@, @RESPONSE_HEADER@, and
+-- @RESPONSE_BODY@. The default value is @\/@ for the root resource. When
+-- an applicable child entity inherits the content of another entity of the
+-- same type with more general specifications of the other @location@
+-- attributes, the child entity\'s @path@ attribute must match that of the
+-- parent entity as a prefix.
+documentationPartLocation_path :: Lens.Lens' DocumentationPartLocation (Prelude.Maybe Prelude.Text)
+documentationPartLocation_path = Lens.lens (\DocumentationPartLocation' {path} -> path) (\s@DocumentationPartLocation' {} a -> s {path = a} :: DocumentationPartLocation)
 
 -- | The HTTP status code of a response. It is a valid field for the API
 -- entity types of @RESPONSE@, @RESPONSE_HEADER@, and @RESPONSE_BODY@. The
@@ -178,26 +178,26 @@ instance Core.FromJSON DocumentationPartLocation where
       "DocumentationPartLocation"
       ( \x ->
           DocumentationPartLocation'
-            Prelude.<$> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "method")
+            Prelude.<*> (x Core..:? "path")
             Prelude.<*> (x Core..:? "statusCode")
             Prelude.<*> (x Core..: "type")
       )
 
 instance Prelude.Hashable DocumentationPartLocation where
   hashWithSalt _salt DocumentationPartLocation' {..} =
-    _salt `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` method
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DocumentationPartLocation where
   rnf DocumentationPartLocation' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf method
+      `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf type'
 
@@ -205,9 +205,9 @@ instance Core.ToJSON DocumentationPartLocation where
   toJSON DocumentationPartLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("path" Core..=) Prelude.<$> path,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
             ("method" Core..=) Prelude.<$> method,
+            ("path" Core..=) Prelude.<$> path,
             ("statusCode" Core..=) Prelude.<$> statusCode,
             Prelude.Just ("type" Core..= type')
           ]

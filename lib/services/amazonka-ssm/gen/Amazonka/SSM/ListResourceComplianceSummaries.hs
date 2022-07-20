@@ -31,8 +31,8 @@ module Amazonka.SSM.ListResourceComplianceSummaries
     newListResourceComplianceSummaries,
 
     -- * Request Lenses
-    listResourceComplianceSummaries_filters,
     listResourceComplianceSummaries_nextToken,
+    listResourceComplianceSummaries_filters,
     listResourceComplianceSummaries_maxResults,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.SSM.ListResourceComplianceSummaries
     newListResourceComplianceSummariesResponse,
 
     -- * Response Lenses
-    listResourceComplianceSummariesResponse_resourceComplianceSummaryItems,
     listResourceComplianceSummariesResponse_nextToken,
+    listResourceComplianceSummariesResponse_resourceComplianceSummaryItems,
     listResourceComplianceSummariesResponse_httpStatus,
   )
 where
@@ -55,12 +55,12 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListResourceComplianceSummaries' smart constructor.
 data ListResourceComplianceSummaries = ListResourceComplianceSummaries'
-  { -- | One or more filters. Use a filter to return a more specific list of
-    -- results.
-    filters :: Prelude.Maybe [ComplianceStringFilter],
-    -- | A token to start the list. Use this token to get the next set of
+  { -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. Use a filter to return a more specific list of
+    -- results.
+    filters :: Prelude.Maybe [ComplianceStringFilter],
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -76,10 +76,10 @@ data ListResourceComplianceSummaries = ListResourceComplianceSummaries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listResourceComplianceSummaries_filters' - One or more filters. Use a filter to return a more specific list of
+-- 'nextToken', 'listResourceComplianceSummaries_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
 --
--- 'nextToken', 'listResourceComplianceSummaries_nextToken' - A token to start the list. Use this token to get the next set of
+-- 'filters', 'listResourceComplianceSummaries_filters' - One or more filters. Use a filter to return a more specific list of
 -- results.
 --
 -- 'maxResults', 'listResourceComplianceSummaries_maxResults' - The maximum number of items to return for this call. The call also
@@ -89,21 +89,21 @@ newListResourceComplianceSummaries ::
   ListResourceComplianceSummaries
 newListResourceComplianceSummaries =
   ListResourceComplianceSummaries'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | One or more filters. Use a filter to return a more specific list of
--- results.
-listResourceComplianceSummaries_filters :: Lens.Lens' ListResourceComplianceSummaries (Prelude.Maybe [ComplianceStringFilter])
-listResourceComplianceSummaries_filters = Lens.lens (\ListResourceComplianceSummaries' {filters} -> filters) (\s@ListResourceComplianceSummaries' {} a -> s {filters = a} :: ListResourceComplianceSummaries) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
 listResourceComplianceSummaries_nextToken :: Lens.Lens' ListResourceComplianceSummaries (Prelude.Maybe Prelude.Text)
 listResourceComplianceSummaries_nextToken = Lens.lens (\ListResourceComplianceSummaries' {nextToken} -> nextToken) (\s@ListResourceComplianceSummaries' {} a -> s {nextToken = a} :: ListResourceComplianceSummaries)
+
+-- | One or more filters. Use a filter to return a more specific list of
+-- results.
+listResourceComplianceSummaries_filters :: Lens.Lens' ListResourceComplianceSummaries (Prelude.Maybe [ComplianceStringFilter])
+listResourceComplianceSummaries_filters = Lens.lens (\ListResourceComplianceSummaries' {filters} -> filters) (\s@ListResourceComplianceSummaries' {} a -> s {filters = a} :: ListResourceComplianceSummaries) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -148,10 +148,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListResourceComplianceSummariesResponse'
-            Prelude.<$> ( x Core..?> "ResourceComplianceSummaryItems"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ResourceComplianceSummaryItems"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,8 +162,8 @@ instance
   hashWithSalt
     _salt
     ListResourceComplianceSummaries' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
 
 instance
@@ -171,8 +171,8 @@ instance
     ListResourceComplianceSummaries
   where
   rnf ListResourceComplianceSummaries' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
@@ -197,8 +197,8 @@ instance Core.ToJSON ListResourceComplianceSummaries where
   toJSON ListResourceComplianceSummaries' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -211,14 +211,14 @@ instance Core.ToQuery ListResourceComplianceSummaries where
 
 -- | /See:/ 'newListResourceComplianceSummariesResponse' smart constructor.
 data ListResourceComplianceSummariesResponse = ListResourceComplianceSummariesResponse'
-  { -- | A summary count for specified or targeted managed instances. Summary
+  { -- | The token for the next set of items to return. Use this token to get the
+    -- next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A summary count for specified or targeted managed instances. Summary
     -- count includes information about compliant and non-compliant State
     -- Manager associations, patch status, or custom items according to the
     -- filter criteria that you specify.
     resourceComplianceSummaryItems :: Prelude.Maybe [ResourceComplianceSummaryItem],
-    -- | The token for the next set of items to return. Use this token to get the
-    -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,13 +232,13 @@ data ListResourceComplianceSummariesResponse = ListResourceComplianceSummariesRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listResourceComplianceSummariesResponse_nextToken' - The token for the next set of items to return. Use this token to get the
+-- next set of results.
+--
 -- 'resourceComplianceSummaryItems', 'listResourceComplianceSummariesResponse_resourceComplianceSummaryItems' - A summary count for specified or targeted managed instances. Summary
 -- count includes information about compliant and non-compliant State
 -- Manager associations, patch status, or custom items according to the
 -- filter criteria that you specify.
---
--- 'nextToken', 'listResourceComplianceSummariesResponse_nextToken' - The token for the next set of items to return. Use this token to get the
--- next set of results.
 --
 -- 'httpStatus', 'listResourceComplianceSummariesResponse_httpStatus' - The response's http status code.
 newListResourceComplianceSummariesResponse ::
@@ -248,11 +248,17 @@ newListResourceComplianceSummariesResponse ::
 newListResourceComplianceSummariesResponse
   pHttpStatus_ =
     ListResourceComplianceSummariesResponse'
-      { resourceComplianceSummaryItems =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        resourceComplianceSummaryItems =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The token for the next set of items to return. Use this token to get the
+-- next set of results.
+listResourceComplianceSummariesResponse_nextToken :: Lens.Lens' ListResourceComplianceSummariesResponse (Prelude.Maybe Prelude.Text)
+listResourceComplianceSummariesResponse_nextToken = Lens.lens (\ListResourceComplianceSummariesResponse' {nextToken} -> nextToken) (\s@ListResourceComplianceSummariesResponse' {} a -> s {nextToken = a} :: ListResourceComplianceSummariesResponse)
 
 -- | A summary count for specified or targeted managed instances. Summary
 -- count includes information about compliant and non-compliant State
@@ -260,11 +266,6 @@ newListResourceComplianceSummariesResponse
 -- filter criteria that you specify.
 listResourceComplianceSummariesResponse_resourceComplianceSummaryItems :: Lens.Lens' ListResourceComplianceSummariesResponse (Prelude.Maybe [ResourceComplianceSummaryItem])
 listResourceComplianceSummariesResponse_resourceComplianceSummaryItems = Lens.lens (\ListResourceComplianceSummariesResponse' {resourceComplianceSummaryItems} -> resourceComplianceSummaryItems) (\s@ListResourceComplianceSummariesResponse' {} a -> s {resourceComplianceSummaryItems = a} :: ListResourceComplianceSummariesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next set of items to return. Use this token to get the
--- next set of results.
-listResourceComplianceSummariesResponse_nextToken :: Lens.Lens' ListResourceComplianceSummariesResponse (Prelude.Maybe Prelude.Text)
-listResourceComplianceSummariesResponse_nextToken = Lens.lens (\ListResourceComplianceSummariesResponse' {nextToken} -> nextToken) (\s@ListResourceComplianceSummariesResponse' {} a -> s {nextToken = a} :: ListResourceComplianceSummariesResponse)
 
 -- | The response's http status code.
 listResourceComplianceSummariesResponse_httpStatus :: Lens.Lens' ListResourceComplianceSummariesResponse Prelude.Int
@@ -275,6 +276,6 @@ instance
     ListResourceComplianceSummariesResponse
   where
   rnf ListResourceComplianceSummariesResponse' {..} =
-    Prelude.rnf resourceComplianceSummaryItems
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceComplianceSummaryItems
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReplicaRegionType' smart constructor.
 data ReplicaRegionType = ReplicaRegionType'
-  { -- | Can be an @ARN@, @Key ID@, or @Alias@.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Describes a single instance of Region objects.
-    region :: Prelude.Maybe Prelude.Text
+  { -- | Describes a single instance of Region objects.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | Can be an @ARN@, @Key ID@, or @Alias@.
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,40 +43,40 @@ data ReplicaRegionType = ReplicaRegionType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'replicaRegionType_kmsKeyId' - Can be an @ARN@, @Key ID@, or @Alias@.
---
 -- 'region', 'replicaRegionType_region' - Describes a single instance of Region objects.
+--
+-- 'kmsKeyId', 'replicaRegionType_kmsKeyId' - Can be an @ARN@, @Key ID@, or @Alias@.
 newReplicaRegionType ::
   ReplicaRegionType
 newReplicaRegionType =
   ReplicaRegionType'
-    { kmsKeyId = Prelude.Nothing,
-      region = Prelude.Nothing
+    { region = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing
     }
-
--- | Can be an @ARN@, @Key ID@, or @Alias@.
-replicaRegionType_kmsKeyId :: Lens.Lens' ReplicaRegionType (Prelude.Maybe Prelude.Text)
-replicaRegionType_kmsKeyId = Lens.lens (\ReplicaRegionType' {kmsKeyId} -> kmsKeyId) (\s@ReplicaRegionType' {} a -> s {kmsKeyId = a} :: ReplicaRegionType)
 
 -- | Describes a single instance of Region objects.
 replicaRegionType_region :: Lens.Lens' ReplicaRegionType (Prelude.Maybe Prelude.Text)
 replicaRegionType_region = Lens.lens (\ReplicaRegionType' {region} -> region) (\s@ReplicaRegionType' {} a -> s {region = a} :: ReplicaRegionType)
 
+-- | Can be an @ARN@, @Key ID@, or @Alias@.
+replicaRegionType_kmsKeyId :: Lens.Lens' ReplicaRegionType (Prelude.Maybe Prelude.Text)
+replicaRegionType_kmsKeyId = Lens.lens (\ReplicaRegionType' {kmsKeyId} -> kmsKeyId) (\s@ReplicaRegionType' {} a -> s {kmsKeyId = a} :: ReplicaRegionType)
+
 instance Prelude.Hashable ReplicaRegionType where
   hashWithSalt _salt ReplicaRegionType' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` region
+    _salt `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData ReplicaRegionType where
   rnf ReplicaRegionType' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf region
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Core.ToJSON ReplicaRegionType where
   toJSON ReplicaRegionType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Region" Core..=) Prelude.<$> region
+          [ ("Region" Core..=) Prelude.<$> region,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId
           ]
       )

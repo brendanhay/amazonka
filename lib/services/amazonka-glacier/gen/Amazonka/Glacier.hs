@@ -51,20 +51,8 @@ module Amazonka.Glacier
     -- * Errors
     -- $errors
 
-    -- ** PolicyEnforcedException
-    _PolicyEnforcedException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** RequestTimeoutException
-    _RequestTimeoutException,
-
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
-
-    -- ** InsufficientCapacityException
-    _InsufficientCapacityException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -72,122 +60,32 @@ module Amazonka.Glacier
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** InsufficientCapacityException
+    _InsufficientCapacityException,
+
     -- ** MissingParameterValueException
     _MissingParameterValueException,
+
+    -- ** RequestTimeoutException
+    _RequestTimeoutException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** PolicyEnforcedException
+    _PolicyEnforcedException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** VaultNotExists
-    newVaultNotExists,
-
     -- ** VaultExists
     newVaultExists,
 
+    -- ** VaultNotExists
+    newVaultNotExists,
+
     -- * Operations
     -- $operations
-
-    -- ** SetVaultAccessPolicy
-    SetVaultAccessPolicy (SetVaultAccessPolicy'),
-    newSetVaultAccessPolicy,
-    SetVaultAccessPolicyResponse (SetVaultAccessPolicyResponse'),
-    newSetVaultAccessPolicyResponse,
-
-    -- ** InitiateJob
-    InitiateJob (InitiateJob'),
-    newInitiateJob,
-    InitiateJobResponse (InitiateJobResponse'),
-    newInitiateJobResponse,
-
-    -- ** SetDataRetrievalPolicy
-    SetDataRetrievalPolicy (SetDataRetrievalPolicy'),
-    newSetDataRetrievalPolicy,
-    SetDataRetrievalPolicyResponse (SetDataRetrievalPolicyResponse'),
-    newSetDataRetrievalPolicyResponse,
-
-    -- ** DeleteVaultAccessPolicy
-    DeleteVaultAccessPolicy (DeleteVaultAccessPolicy'),
-    newDeleteVaultAccessPolicy,
-    DeleteVaultAccessPolicyResponse (DeleteVaultAccessPolicyResponse'),
-    newDeleteVaultAccessPolicyResponse,
-
-    -- ** GetVaultNotifications
-    GetVaultNotifications (GetVaultNotifications'),
-    newGetVaultNotifications,
-    GetVaultNotificationsResponse (GetVaultNotificationsResponse'),
-    newGetVaultNotificationsResponse,
-
-    -- ** ListTagsForVault
-    ListTagsForVault (ListTagsForVault'),
-    newListTagsForVault,
-    ListTagsForVaultResponse (ListTagsForVaultResponse'),
-    newListTagsForVaultResponse,
-
-    -- ** UploadMultipartPart
-    UploadMultipartPart (UploadMultipartPart'),
-    newUploadMultipartPart,
-    UploadMultipartPartResponse (UploadMultipartPartResponse'),
-    newUploadMultipartPartResponse,
-
-    -- ** DeleteVaultNotifications
-    DeleteVaultNotifications (DeleteVaultNotifications'),
-    newDeleteVaultNotifications,
-    DeleteVaultNotificationsResponse (DeleteVaultNotificationsResponse'),
-    newDeleteVaultNotificationsResponse,
-
-    -- ** CompleteVaultLock
-    CompleteVaultLock (CompleteVaultLock'),
-    newCompleteVaultLock,
-    CompleteVaultLockResponse (CompleteVaultLockResponse'),
-    newCompleteVaultLockResponse,
-
-    -- ** AbortVaultLock
-    AbortVaultLock (AbortVaultLock'),
-    newAbortVaultLock,
-    AbortVaultLockResponse (AbortVaultLockResponse'),
-    newAbortVaultLockResponse,
-
-    -- ** ListVaults (Paginated)
-    ListVaults (ListVaults'),
-    newListVaults,
-    ListVaultsResponse (ListVaultsResponse'),
-    newListVaultsResponse,
-
-    -- ** ListProvisionedCapacity
-    ListProvisionedCapacity (ListProvisionedCapacity'),
-    newListProvisionedCapacity,
-    ListProvisionedCapacityResponse (ListProvisionedCapacityResponse'),
-    newListProvisionedCapacityResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** SetVaultNotifications
-    SetVaultNotifications (SetVaultNotifications'),
-    newSetVaultNotifications,
-    SetVaultNotificationsResponse (SetVaultNotificationsResponse'),
-    newSetVaultNotificationsResponse,
-
-    -- ** GetJobOutput
-    GetJobOutput (GetJobOutput'),
-    newGetJobOutput,
-    GetJobOutputResponse (GetJobOutputResponse'),
-    newGetJobOutputResponse,
-
-    -- ** CompleteMultipartUpload
-    CompleteMultipartUpload (CompleteMultipartUpload'),
-    newCompleteMultipartUpload,
-    ArchiveCreationOutput (ArchiveCreationOutput'),
-    newArchiveCreationOutput,
-
-    -- ** ListMultipartUploads (Paginated)
-    ListMultipartUploads (ListMultipartUploads'),
-    newListMultipartUploads,
-    ListMultipartUploadsResponse (ListMultipartUploadsResponse'),
-    newListMultipartUploadsResponse,
 
     -- ** AbortMultipartUpload
     AbortMultipartUpload (AbortMultipartUpload'),
@@ -195,83 +93,11 @@ module Amazonka.Glacier
     AbortMultipartUploadResponse (AbortMultipartUploadResponse'),
     newAbortMultipartUploadResponse,
 
-    -- ** PurchaseProvisionedCapacity
-    PurchaseProvisionedCapacity (PurchaseProvisionedCapacity'),
-    newPurchaseProvisionedCapacity,
-    PurchaseProvisionedCapacityResponse (PurchaseProvisionedCapacityResponse'),
-    newPurchaseProvisionedCapacityResponse,
-
-    -- ** DescribeVault
-    DescribeVault (DescribeVault'),
-    newDescribeVault,
-    DescribeVaultOutput (DescribeVaultOutput'),
-    newDescribeVaultOutput,
-
-    -- ** GetVaultLock
-    GetVaultLock (GetVaultLock'),
-    newGetVaultLock,
-    GetVaultLockResponse (GetVaultLockResponse'),
-    newGetVaultLockResponse,
-
-    -- ** DescribeJob
-    DescribeJob (DescribeJob'),
-    newDescribeJob,
-    GlacierJobDescription (GlacierJobDescription'),
-    newGlacierJobDescription,
-
-    -- ** InitiateVaultLock
-    InitiateVaultLock (InitiateVaultLock'),
-    newInitiateVaultLock,
-    InitiateVaultLockResponse (InitiateVaultLockResponse'),
-    newInitiateVaultLockResponse,
-
-    -- ** GetVaultAccessPolicy
-    GetVaultAccessPolicy (GetVaultAccessPolicy'),
-    newGetVaultAccessPolicy,
-    GetVaultAccessPolicyResponse (GetVaultAccessPolicyResponse'),
-    newGetVaultAccessPolicyResponse,
-
-    -- ** GetDataRetrievalPolicy
-    GetDataRetrievalPolicy (GetDataRetrievalPolicy'),
-    newGetDataRetrievalPolicy,
-    GetDataRetrievalPolicyResponse (GetDataRetrievalPolicyResponse'),
-    newGetDataRetrievalPolicyResponse,
-
-    -- ** RemoveTagsFromVault
-    RemoveTagsFromVault (RemoveTagsFromVault'),
-    newRemoveTagsFromVault,
-    RemoveTagsFromVaultResponse (RemoveTagsFromVaultResponse'),
-    newRemoveTagsFromVaultResponse,
-
-    -- ** DeleteVault
-    DeleteVault (DeleteVault'),
-    newDeleteVault,
-    DeleteVaultResponse (DeleteVaultResponse'),
-    newDeleteVaultResponse,
-
-    -- ** DeleteArchive
-    DeleteArchive (DeleteArchive'),
-    newDeleteArchive,
-    DeleteArchiveResponse (DeleteArchiveResponse'),
-    newDeleteArchiveResponse,
-
-    -- ** CreateVault
-    CreateVault (CreateVault'),
-    newCreateVault,
-    CreateVaultResponse (CreateVaultResponse'),
-    newCreateVaultResponse,
-
-    -- ** InitiateMultipartUpload
-    InitiateMultipartUpload (InitiateMultipartUpload'),
-    newInitiateMultipartUpload,
-    InitiateMultipartUploadResponse (InitiateMultipartUploadResponse'),
-    newInitiateMultipartUploadResponse,
-
-    -- ** ListParts (Paginated)
-    ListParts (ListParts'),
-    newListParts,
-    ListPartsResponse (ListPartsResponse'),
-    newListPartsResponse,
+    -- ** AbortVaultLock
+    AbortVaultLock (AbortVaultLock'),
+    newAbortVaultLock,
+    AbortVaultLockResponse (AbortVaultLockResponse'),
+    newAbortVaultLockResponse,
 
     -- ** AddTagsToVault
     AddTagsToVault (AddTagsToVault'),
@@ -279,11 +105,185 @@ module Amazonka.Glacier
     AddTagsToVaultResponse (AddTagsToVaultResponse'),
     newAddTagsToVaultResponse,
 
+    -- ** CompleteMultipartUpload
+    CompleteMultipartUpload (CompleteMultipartUpload'),
+    newCompleteMultipartUpload,
+    ArchiveCreationOutput (ArchiveCreationOutput'),
+    newArchiveCreationOutput,
+
+    -- ** CompleteVaultLock
+    CompleteVaultLock (CompleteVaultLock'),
+    newCompleteVaultLock,
+    CompleteVaultLockResponse (CompleteVaultLockResponse'),
+    newCompleteVaultLockResponse,
+
+    -- ** CreateVault
+    CreateVault (CreateVault'),
+    newCreateVault,
+    CreateVaultResponse (CreateVaultResponse'),
+    newCreateVaultResponse,
+
+    -- ** DeleteArchive
+    DeleteArchive (DeleteArchive'),
+    newDeleteArchive,
+    DeleteArchiveResponse (DeleteArchiveResponse'),
+    newDeleteArchiveResponse,
+
+    -- ** DeleteVault
+    DeleteVault (DeleteVault'),
+    newDeleteVault,
+    DeleteVaultResponse (DeleteVaultResponse'),
+    newDeleteVaultResponse,
+
+    -- ** DeleteVaultAccessPolicy
+    DeleteVaultAccessPolicy (DeleteVaultAccessPolicy'),
+    newDeleteVaultAccessPolicy,
+    DeleteVaultAccessPolicyResponse (DeleteVaultAccessPolicyResponse'),
+    newDeleteVaultAccessPolicyResponse,
+
+    -- ** DeleteVaultNotifications
+    DeleteVaultNotifications (DeleteVaultNotifications'),
+    newDeleteVaultNotifications,
+    DeleteVaultNotificationsResponse (DeleteVaultNotificationsResponse'),
+    newDeleteVaultNotificationsResponse,
+
+    -- ** DescribeJob
+    DescribeJob (DescribeJob'),
+    newDescribeJob,
+    GlacierJobDescription (GlacierJobDescription'),
+    newGlacierJobDescription,
+
+    -- ** DescribeVault
+    DescribeVault (DescribeVault'),
+    newDescribeVault,
+    DescribeVaultOutput (DescribeVaultOutput'),
+    newDescribeVaultOutput,
+
+    -- ** GetDataRetrievalPolicy
+    GetDataRetrievalPolicy (GetDataRetrievalPolicy'),
+    newGetDataRetrievalPolicy,
+    GetDataRetrievalPolicyResponse (GetDataRetrievalPolicyResponse'),
+    newGetDataRetrievalPolicyResponse,
+
+    -- ** GetJobOutput
+    GetJobOutput (GetJobOutput'),
+    newGetJobOutput,
+    GetJobOutputResponse (GetJobOutputResponse'),
+    newGetJobOutputResponse,
+
+    -- ** GetVaultAccessPolicy
+    GetVaultAccessPolicy (GetVaultAccessPolicy'),
+    newGetVaultAccessPolicy,
+    GetVaultAccessPolicyResponse (GetVaultAccessPolicyResponse'),
+    newGetVaultAccessPolicyResponse,
+
+    -- ** GetVaultLock
+    GetVaultLock (GetVaultLock'),
+    newGetVaultLock,
+    GetVaultLockResponse (GetVaultLockResponse'),
+    newGetVaultLockResponse,
+
+    -- ** GetVaultNotifications
+    GetVaultNotifications (GetVaultNotifications'),
+    newGetVaultNotifications,
+    GetVaultNotificationsResponse (GetVaultNotificationsResponse'),
+    newGetVaultNotificationsResponse,
+
+    -- ** InitiateJob
+    InitiateJob (InitiateJob'),
+    newInitiateJob,
+    InitiateJobResponse (InitiateJobResponse'),
+    newInitiateJobResponse,
+
+    -- ** InitiateMultipartUpload
+    InitiateMultipartUpload (InitiateMultipartUpload'),
+    newInitiateMultipartUpload,
+    InitiateMultipartUploadResponse (InitiateMultipartUploadResponse'),
+    newInitiateMultipartUploadResponse,
+
+    -- ** InitiateVaultLock
+    InitiateVaultLock (InitiateVaultLock'),
+    newInitiateVaultLock,
+    InitiateVaultLockResponse (InitiateVaultLockResponse'),
+    newInitiateVaultLockResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** ListMultipartUploads (Paginated)
+    ListMultipartUploads (ListMultipartUploads'),
+    newListMultipartUploads,
+    ListMultipartUploadsResponse (ListMultipartUploadsResponse'),
+    newListMultipartUploadsResponse,
+
+    -- ** ListParts (Paginated)
+    ListParts (ListParts'),
+    newListParts,
+    ListPartsResponse (ListPartsResponse'),
+    newListPartsResponse,
+
+    -- ** ListProvisionedCapacity
+    ListProvisionedCapacity (ListProvisionedCapacity'),
+    newListProvisionedCapacity,
+    ListProvisionedCapacityResponse (ListProvisionedCapacityResponse'),
+    newListProvisionedCapacityResponse,
+
+    -- ** ListTagsForVault
+    ListTagsForVault (ListTagsForVault'),
+    newListTagsForVault,
+    ListTagsForVaultResponse (ListTagsForVaultResponse'),
+    newListTagsForVaultResponse,
+
+    -- ** ListVaults (Paginated)
+    ListVaults (ListVaults'),
+    newListVaults,
+    ListVaultsResponse (ListVaultsResponse'),
+    newListVaultsResponse,
+
+    -- ** PurchaseProvisionedCapacity
+    PurchaseProvisionedCapacity (PurchaseProvisionedCapacity'),
+    newPurchaseProvisionedCapacity,
+    PurchaseProvisionedCapacityResponse (PurchaseProvisionedCapacityResponse'),
+    newPurchaseProvisionedCapacityResponse,
+
+    -- ** RemoveTagsFromVault
+    RemoveTagsFromVault (RemoveTagsFromVault'),
+    newRemoveTagsFromVault,
+    RemoveTagsFromVaultResponse (RemoveTagsFromVaultResponse'),
+    newRemoveTagsFromVaultResponse,
+
+    -- ** SetDataRetrievalPolicy
+    SetDataRetrievalPolicy (SetDataRetrievalPolicy'),
+    newSetDataRetrievalPolicy,
+    SetDataRetrievalPolicyResponse (SetDataRetrievalPolicyResponse'),
+    newSetDataRetrievalPolicyResponse,
+
+    -- ** SetVaultAccessPolicy
+    SetVaultAccessPolicy (SetVaultAccessPolicy'),
+    newSetVaultAccessPolicy,
+    SetVaultAccessPolicyResponse (SetVaultAccessPolicyResponse'),
+    newSetVaultAccessPolicyResponse,
+
+    -- ** SetVaultNotifications
+    SetVaultNotifications (SetVaultNotifications'),
+    newSetVaultNotifications,
+    SetVaultNotificationsResponse (SetVaultNotificationsResponse'),
+    newSetVaultNotificationsResponse,
+
     -- ** UploadArchive
     UploadArchive (UploadArchive'),
     newUploadArchive,
     ArchiveCreationOutput (ArchiveCreationOutput'),
     newArchiveCreationOutput,
+
+    -- ** UploadMultipartPart
+    UploadMultipartPart (UploadMultipartPart'),
+    newUploadMultipartPart,
+    UploadMultipartPartResponse (UploadMultipartPartResponse'),
+    newUploadMultipartPartResponse,
 
     -- * Types
 

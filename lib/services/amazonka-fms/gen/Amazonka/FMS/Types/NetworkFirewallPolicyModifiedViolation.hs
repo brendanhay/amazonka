@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkFirewallPolicyModifiedViolation' smart constructor.
 data NetworkFirewallPolicyModifiedViolation = NetworkFirewallPolicyModifiedViolation'
-  { -- | The policy that\'s currently in use in the individual account.
-    currentPolicyDescription :: Prelude.Maybe NetworkFirewallPolicyDescription,
-    -- | The ID of the Network Firewall or VPC resource that\'s in violation.
+  { -- | The ID of the Network Firewall or VPC resource that\'s in violation.
     violationTarget :: Prelude.Maybe Prelude.Text,
+    -- | The policy that\'s currently in use in the individual account.
+    currentPolicyDescription :: Prelude.Maybe NetworkFirewallPolicyDescription,
     -- | The policy that should be in use in the individual account in order to
     -- be compliant.
     expectedPolicyDescription :: Prelude.Maybe NetworkFirewallPolicyDescription
@@ -48,9 +48,9 @@ data NetworkFirewallPolicyModifiedViolation = NetworkFirewallPolicyModifiedViola
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'currentPolicyDescription', 'networkFirewallPolicyModifiedViolation_currentPolicyDescription' - The policy that\'s currently in use in the individual account.
---
 -- 'violationTarget', 'networkFirewallPolicyModifiedViolation_violationTarget' - The ID of the Network Firewall or VPC resource that\'s in violation.
+--
+-- 'currentPolicyDescription', 'networkFirewallPolicyModifiedViolation_currentPolicyDescription' - The policy that\'s currently in use in the individual account.
 --
 -- 'expectedPolicyDescription', 'networkFirewallPolicyModifiedViolation_expectedPolicyDescription' - The policy that should be in use in the individual account in order to
 -- be compliant.
@@ -58,20 +58,21 @@ newNetworkFirewallPolicyModifiedViolation ::
   NetworkFirewallPolicyModifiedViolation
 newNetworkFirewallPolicyModifiedViolation =
   NetworkFirewallPolicyModifiedViolation'
-    { currentPolicyDescription =
+    { violationTarget =
         Prelude.Nothing,
-      violationTarget = Prelude.Nothing,
+      currentPolicyDescription =
+        Prelude.Nothing,
       expectedPolicyDescription =
         Prelude.Nothing
     }
 
--- | The policy that\'s currently in use in the individual account.
-networkFirewallPolicyModifiedViolation_currentPolicyDescription :: Lens.Lens' NetworkFirewallPolicyModifiedViolation (Prelude.Maybe NetworkFirewallPolicyDescription)
-networkFirewallPolicyModifiedViolation_currentPolicyDescription = Lens.lens (\NetworkFirewallPolicyModifiedViolation' {currentPolicyDescription} -> currentPolicyDescription) (\s@NetworkFirewallPolicyModifiedViolation' {} a -> s {currentPolicyDescription = a} :: NetworkFirewallPolicyModifiedViolation)
-
 -- | The ID of the Network Firewall or VPC resource that\'s in violation.
 networkFirewallPolicyModifiedViolation_violationTarget :: Lens.Lens' NetworkFirewallPolicyModifiedViolation (Prelude.Maybe Prelude.Text)
 networkFirewallPolicyModifiedViolation_violationTarget = Lens.lens (\NetworkFirewallPolicyModifiedViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallPolicyModifiedViolation' {} a -> s {violationTarget = a} :: NetworkFirewallPolicyModifiedViolation)
+
+-- | The policy that\'s currently in use in the individual account.
+networkFirewallPolicyModifiedViolation_currentPolicyDescription :: Lens.Lens' NetworkFirewallPolicyModifiedViolation (Prelude.Maybe NetworkFirewallPolicyDescription)
+networkFirewallPolicyModifiedViolation_currentPolicyDescription = Lens.lens (\NetworkFirewallPolicyModifiedViolation' {currentPolicyDescription} -> currentPolicyDescription) (\s@NetworkFirewallPolicyModifiedViolation' {} a -> s {currentPolicyDescription = a} :: NetworkFirewallPolicyModifiedViolation)
 
 -- | The policy that should be in use in the individual account in order to
 -- be compliant.
@@ -87,8 +88,8 @@ instance
       "NetworkFirewallPolicyModifiedViolation"
       ( \x ->
           NetworkFirewallPolicyModifiedViolation'
-            Prelude.<$> (x Core..:? "CurrentPolicyDescription")
-            Prelude.<*> (x Core..:? "ViolationTarget")
+            Prelude.<$> (x Core..:? "ViolationTarget")
+            Prelude.<*> (x Core..:? "CurrentPolicyDescription")
             Prelude.<*> (x Core..:? "ExpectedPolicyDescription")
       )
 
@@ -99,9 +100,8 @@ instance
   hashWithSalt
     _salt
     NetworkFirewallPolicyModifiedViolation' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` violationTarget
         `Prelude.hashWithSalt` currentPolicyDescription
-        `Prelude.hashWithSalt` violationTarget
         `Prelude.hashWithSalt` expectedPolicyDescription
 
 instance
@@ -109,6 +109,6 @@ instance
     NetworkFirewallPolicyModifiedViolation
   where
   rnf NetworkFirewallPolicyModifiedViolation' {..} =
-    Prelude.rnf currentPolicyDescription
-      `Prelude.seq` Prelude.rnf violationTarget
+    Prelude.rnf violationTarget
+      `Prelude.seq` Prelude.rnf currentPolicyDescription
       `Prelude.seq` Prelude.rnf expectedPolicyDescription

@@ -66,32 +66,41 @@ module Amazonka.MarketplaceMetering
     -- * Errors
     -- $errors
 
-    -- ** InvalidTagException
-    _InvalidTagException,
+    -- ** CustomerNotEntitledException
+    _CustomerNotEntitledException,
+
+    -- ** InvalidTokenException
+    _InvalidTokenException,
 
     -- ** InvalidEndpointRegionException
     _InvalidEndpointRegionException,
 
+    -- ** DisabledApiException
+    _DisabledApiException,
+
+    -- ** InvalidCustomerIdentifierException
+    _InvalidCustomerIdentifierException,
+
     -- ** InvalidProductCodeException
     _InvalidProductCodeException,
 
-    -- ** InvalidUsageDimensionException
-    _InvalidUsageDimensionException,
+    -- ** ExpiredTokenException
+    _ExpiredTokenException,
 
     -- ** PlatformNotSupportedException
     _PlatformNotSupportedException,
 
-    -- ** CustomerNotEntitledException
-    _CustomerNotEntitledException,
-
-    -- ** DuplicateRequestException
-    _DuplicateRequestException,
-
-    -- ** DisabledApiException
-    _DisabledApiException,
+    -- ** InvalidUsageAllocationsException
+    _InvalidUsageAllocationsException,
 
     -- ** TimestampOutOfBoundsException
     _TimestampOutOfBoundsException,
+
+    -- ** InvalidRegionException
+    _InvalidRegionException,
+
+    -- ** InvalidUsageDimensionException
+    _InvalidUsageDimensionException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -99,23 +108,14 @@ module Amazonka.MarketplaceMetering
     -- ** InvalidPublicKeyVersionException
     _InvalidPublicKeyVersionException,
 
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** DuplicateRequestException
+    _DuplicateRequestException,
+
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
-
-    -- ** InvalidTokenException
-    _InvalidTokenException,
-
-    -- ** InvalidUsageAllocationsException
-    _InvalidUsageAllocationsException,
-
-    -- ** ExpiredTokenException
-    _ExpiredTokenException,
-
-    -- ** InvalidRegionException
-    _InvalidRegionException,
-
-    -- ** InvalidCustomerIdentifierException
-    _InvalidCustomerIdentifierException,
 
     -- * Waiters
     -- $waiters
@@ -123,29 +123,29 @@ module Amazonka.MarketplaceMetering
     -- * Operations
     -- $operations
 
-    -- ** RegisterUsage
-    RegisterUsage (RegisterUsage'),
-    newRegisterUsage,
-    RegisterUsageResponse (RegisterUsageResponse'),
-    newRegisterUsageResponse,
-
     -- ** BatchMeterUsage
     BatchMeterUsage (BatchMeterUsage'),
     newBatchMeterUsage,
     BatchMeterUsageResponse (BatchMeterUsageResponse'),
     newBatchMeterUsageResponse,
 
-    -- ** ResolveCustomer
-    ResolveCustomer (ResolveCustomer'),
-    newResolveCustomer,
-    ResolveCustomerResponse (ResolveCustomerResponse'),
-    newResolveCustomerResponse,
-
     -- ** MeterUsage
     MeterUsage (MeterUsage'),
     newMeterUsage,
     MeterUsageResponse (MeterUsageResponse'),
     newMeterUsageResponse,
+
+    -- ** RegisterUsage
+    RegisterUsage (RegisterUsage'),
+    newRegisterUsage,
+    RegisterUsageResponse (RegisterUsageResponse'),
+    newRegisterUsageResponse,
+
+    -- ** ResolveCustomer
+    ResolveCustomer (ResolveCustomer'),
+    newResolveCustomer,
+    ResolveCustomerResponse (ResolveCustomerResponse'),
+    newResolveCustomerResponse,
 
     -- * Types
 

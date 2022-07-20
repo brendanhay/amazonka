@@ -35,9 +35,9 @@ module Amazonka.Glue.ListJobs
     newListJobs,
 
     -- * Request Lenses
+    listJobs_tags,
     listJobs_nextToken,
     listJobs_maxResults,
-    listJobs_tags,
 
     -- * Destructuring the Response
     ListJobsResponse (..),
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | A continuation token, if this is a continuation request.
+  { -- | Specifies to return only these tagged resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A continuation token, if this is a continuation request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of a list to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies to return only these tagged resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,19 +76,23 @@ data ListJobs = ListJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listJobs_tags' - Specifies to return only these tagged resources.
+--
 -- 'nextToken', 'listJobs_nextToken' - A continuation token, if this is a continuation request.
 --
 -- 'maxResults', 'listJobs_maxResults' - The maximum size of a list to return.
---
--- 'tags', 'listJobs_tags' - Specifies to return only these tagged resources.
 newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | Specifies to return only these tagged resources.
+listJobs_tags :: Lens.Lens' ListJobs (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listJobs_tags = Lens.lens (\ListJobs' {tags} -> tags) (\s@ListJobs' {} a -> s {tags = a} :: ListJobs) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if this is a continuation request.
 listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
@@ -97,10 +101,6 @@ listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJob
 -- | The maximum size of a list to return.
 listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
 listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
-
--- | Specifies to return only these tagged resources.
-listJobs_tags :: Lens.Lens' ListJobs (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listJobs_tags = Lens.lens (\ListJobs' {tags} -> tags) (\s@ListJobs' {} a -> s {tags = a} :: ListJobs) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -116,15 +116,15 @@ instance Core.AWSRequest ListJobs where
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders ListJobs where
   toHeaders =
@@ -143,9 +143,9 @@ instance Core.ToJSON ListJobs where
   toJSON ListJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Tags" Core..=) Prelude.<$> tags
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

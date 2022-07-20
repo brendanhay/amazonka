@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttachment' smart constructor.
 data Attachment = Attachment'
-  { -- | The content of the attachment file.
-    data' :: Prelude.Maybe Core.Base64,
-    -- | The name of the attachment file.
-    fileName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the attachment file.
+    fileName :: Prelude.Maybe Prelude.Text,
+    -- | The content of the attachment file.
+    data' :: Prelude.Maybe Core.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,20 +43,24 @@ data Attachment = Attachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fileName', 'attachment_fileName' - The name of the attachment file.
+--
 -- 'data'', 'attachment_data' - The content of the attachment file.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'fileName', 'attachment_fileName' - The name of the attachment file.
 newAttachment ::
   Attachment
 newAttachment =
   Attachment'
-    { data' = Prelude.Nothing,
-      fileName = Prelude.Nothing
+    { fileName = Prelude.Nothing,
+      data' = Prelude.Nothing
     }
+
+-- | The name of the attachment file.
+attachment_fileName :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
+attachment_fileName = Lens.lens (\Attachment' {fileName} -> fileName) (\s@Attachment' {} a -> s {fileName = a} :: Attachment)
 
 -- | The content of the attachment file.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -66,35 +70,31 @@ newAttachment =
 attachment_data :: Lens.Lens' Attachment (Prelude.Maybe Prelude.ByteString)
 attachment_data = Lens.lens (\Attachment' {data'} -> data') (\s@Attachment' {} a -> s {data' = a} :: Attachment) Prelude.. Lens.mapping Core._Base64
 
--- | The name of the attachment file.
-attachment_fileName :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
-attachment_fileName = Lens.lens (\Attachment' {fileName} -> fileName) (\s@Attachment' {} a -> s {fileName = a} :: Attachment)
-
 instance Core.FromJSON Attachment where
   parseJSON =
     Core.withObject
       "Attachment"
       ( \x ->
           Attachment'
-            Prelude.<$> (x Core..:? "data")
-            Prelude.<*> (x Core..:? "fileName")
+            Prelude.<$> (x Core..:? "fileName")
+            Prelude.<*> (x Core..:? "data")
       )
 
 instance Prelude.Hashable Attachment where
   hashWithSalt _salt Attachment' {..} =
-    _salt `Prelude.hashWithSalt` data'
-      `Prelude.hashWithSalt` fileName
+    _salt `Prelude.hashWithSalt` fileName
+      `Prelude.hashWithSalt` data'
 
 instance Prelude.NFData Attachment where
   rnf Attachment' {..} =
-    Prelude.rnf data'
-      `Prelude.seq` Prelude.rnf fileName
+    Prelude.rnf fileName
+      `Prelude.seq` Prelude.rnf data'
 
 instance Core.ToJSON Attachment where
   toJSON Attachment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("data" Core..=) Prelude.<$> data',
-            ("fileName" Core..=) Prelude.<$> fileName
+          [ ("fileName" Core..=) Prelude.<$> fileName,
+            ("data" Core..=) Prelude.<$> data'
           ]
       )

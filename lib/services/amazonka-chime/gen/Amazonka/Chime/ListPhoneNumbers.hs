@@ -29,11 +29,11 @@ module Amazonka.Chime.ListPhoneNumbers
     newListPhoneNumbers,
 
     -- * Request Lenses
+    listPhoneNumbers_nextToken,
+    listPhoneNumbers_productType,
+    listPhoneNumbers_filterValue,
     listPhoneNumbers_status,
     listPhoneNumbers_filterName,
-    listPhoneNumbers_productType,
-    listPhoneNumbers_nextToken,
-    listPhoneNumbers_filterValue,
     listPhoneNumbers_maxResults,
 
     -- * Destructuring the Response
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPhoneNumbers' smart constructor.
 data ListPhoneNumbers = ListPhoneNumbers'
-  { -- | The phone number status.
+  { -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The phone number product type.
+    productType :: Prelude.Maybe PhoneNumberProductType,
+    -- | The value to use for the filter.
+    filterValue :: Prelude.Maybe Prelude.Text,
+    -- | The phone number status.
     status :: Prelude.Maybe PhoneNumberStatus,
     -- | The filter to use to limit the number of results.
     filterName :: Prelude.Maybe PhoneNumberAssociationName,
-    -- | The phone number product type.
-    productType :: Prelude.Maybe PhoneNumberProductType,
-    -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The value to use for the filter.
-    filterValue :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -79,28 +79,40 @@ data ListPhoneNumbers = ListPhoneNumbers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listPhoneNumbers_status' - The phone number status.
---
--- 'filterName', 'listPhoneNumbers_filterName' - The filter to use to limit the number of results.
+-- 'nextToken', 'listPhoneNumbers_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'productType', 'listPhoneNumbers_productType' - The phone number product type.
 --
--- 'nextToken', 'listPhoneNumbers_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'filterValue', 'listPhoneNumbers_filterValue' - The value to use for the filter.
+--
+-- 'status', 'listPhoneNumbers_status' - The phone number status.
+--
+-- 'filterName', 'listPhoneNumbers_filterName' - The filter to use to limit the number of results.
 --
 -- 'maxResults', 'listPhoneNumbers_maxResults' - The maximum number of results to return in a single call.
 newListPhoneNumbers ::
   ListPhoneNumbers
 newListPhoneNumbers =
   ListPhoneNumbers'
-    { status = Prelude.Nothing,
-      filterName = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       productType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       filterValue = Prelude.Nothing,
+      status = Prelude.Nothing,
+      filterName = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token to use to retrieve the next page of results.
+listPhoneNumbers_nextToken :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Text)
+listPhoneNumbers_nextToken = Lens.lens (\ListPhoneNumbers' {nextToken} -> nextToken) (\s@ListPhoneNumbers' {} a -> s {nextToken = a} :: ListPhoneNumbers)
+
+-- | The phone number product type.
+listPhoneNumbers_productType :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe PhoneNumberProductType)
+listPhoneNumbers_productType = Lens.lens (\ListPhoneNumbers' {productType} -> productType) (\s@ListPhoneNumbers' {} a -> s {productType = a} :: ListPhoneNumbers)
+
+-- | The value to use for the filter.
+listPhoneNumbers_filterValue :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Text)
+listPhoneNumbers_filterValue = Lens.lens (\ListPhoneNumbers' {filterValue} -> filterValue) (\s@ListPhoneNumbers' {} a -> s {filterValue = a} :: ListPhoneNumbers)
 
 -- | The phone number status.
 listPhoneNumbers_status :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe PhoneNumberStatus)
@@ -109,18 +121,6 @@ listPhoneNumbers_status = Lens.lens (\ListPhoneNumbers' {status} -> status) (\s@
 -- | The filter to use to limit the number of results.
 listPhoneNumbers_filterName :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe PhoneNumberAssociationName)
 listPhoneNumbers_filterName = Lens.lens (\ListPhoneNumbers' {filterName} -> filterName) (\s@ListPhoneNumbers' {} a -> s {filterName = a} :: ListPhoneNumbers)
-
--- | The phone number product type.
-listPhoneNumbers_productType :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe PhoneNumberProductType)
-listPhoneNumbers_productType = Lens.lens (\ListPhoneNumbers' {productType} -> productType) (\s@ListPhoneNumbers' {} a -> s {productType = a} :: ListPhoneNumbers)
-
--- | The token to use to retrieve the next page of results.
-listPhoneNumbers_nextToken :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Text)
-listPhoneNumbers_nextToken = Lens.lens (\ListPhoneNumbers' {nextToken} -> nextToken) (\s@ListPhoneNumbers' {} a -> s {nextToken = a} :: ListPhoneNumbers)
-
--- | The value to use for the filter.
-listPhoneNumbers_filterValue :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Text)
-listPhoneNumbers_filterValue = Lens.lens (\ListPhoneNumbers' {filterValue} -> filterValue) (\s@ListPhoneNumbers' {} a -> s {filterValue = a} :: ListPhoneNumbers)
 
 -- | The maximum number of results to return in a single call.
 listPhoneNumbers_maxResults :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Natural)
@@ -142,20 +142,20 @@ instance Core.AWSRequest ListPhoneNumbers where
 
 instance Prelude.Hashable ListPhoneNumbers where
   hashWithSalt _salt ListPhoneNumbers' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` filterName
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` productType
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filterValue
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` filterName
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListPhoneNumbers where
   rnf ListPhoneNumbers' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf filterName
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filterValue
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf filterName
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListPhoneNumbers where
@@ -167,11 +167,11 @@ instance Core.ToPath ListPhoneNumbers where
 instance Core.ToQuery ListPhoneNumbers where
   toQuery ListPhoneNumbers' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
-        "filter-name" Core.=: filterName,
+      [ "next-token" Core.=: nextToken,
         "product-type" Core.=: productType,
-        "next-token" Core.=: nextToken,
         "filter-value" Core.=: filterValue,
+        "status" Core.=: status,
+        "filter-name" Core.=: filterName,
         "max-results" Core.=: maxResults
       ]
 

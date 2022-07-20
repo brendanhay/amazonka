@@ -27,13 +27,13 @@ module Amazonka.RDS.ModifyDBProxy
     newModifyDBProxy,
 
     -- * Request Lenses
+    modifyDBProxy_roleArn,
+    modifyDBProxy_requireTLS,
     modifyDBProxy_debugLogging,
     modifyDBProxy_securityGroups,
     modifyDBProxy_auth,
-    modifyDBProxy_requireTLS,
     modifyDBProxy_idleClientTimeout,
     modifyDBProxy_newDBProxyName,
-    modifyDBProxy_roleArn,
     modifyDBProxy_dbProxyName,
 
     -- * Destructuring the Response
@@ -55,7 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBProxy' smart constructor.
 data ModifyDBProxy = ModifyDBProxy'
-  { -- | Whether the proxy includes detailed information about SQL statements in
+  { -- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
+    -- access secrets in Amazon Web Services Secrets Manager.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether Transport Layer Security (TLS) encryption is required for
+    -- connections to the proxy. By enabling this setting, you can enforce
+    -- encrypted TLS connections to the proxy, even if the associated database
+    -- doesn\'t use TLS.
+    requireTLS :: Prelude.Maybe Prelude.Bool,
+    -- | Whether the proxy includes detailed information about SQL statements in
     -- its logs. This information helps you to debug issues involving SQL
     -- behavior or the performance and scalability of the proxy connections.
     -- The debug information includes the text of SQL statements that you
@@ -67,11 +75,6 @@ data ModifyDBProxy = ModifyDBProxy'
     securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The new authentication settings for the @DBProxy@.
     auth :: Prelude.Maybe [UserAuthConfig],
-    -- | Whether Transport Layer Security (TLS) encryption is required for
-    -- connections to the proxy. By enabling this setting, you can enforce
-    -- encrypted TLS connections to the proxy, even if the associated database
-    -- doesn\'t use TLS.
-    requireTLS :: Prelude.Maybe Prelude.Bool,
     -- | The number of seconds that a connection to the proxy can be inactive
     -- before the proxy disconnects it. You can set this value higher or lower
     -- than the connection timeout limit for the associated database.
@@ -80,9 +83,6 @@ data ModifyDBProxy = ModifyDBProxy'
     -- letter and must contain only ASCII letters, digits, and hyphens; it
     -- can\'t end with a hyphen or contain two consecutive hyphens.
     newDBProxyName' :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
-    -- access secrets in Amazon Web Services Secrets Manager.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the @DBProxy@ to modify.
     dbProxyName :: Prelude.Text
   }
@@ -96,6 +96,14 @@ data ModifyDBProxy = ModifyDBProxy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleArn', 'modifyDBProxy_roleArn' - The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
+-- access secrets in Amazon Web Services Secrets Manager.
+--
+-- 'requireTLS', 'modifyDBProxy_requireTLS' - Whether Transport Layer Security (TLS) encryption is required for
+-- connections to the proxy. By enabling this setting, you can enforce
+-- encrypted TLS connections to the proxy, even if the associated database
+-- doesn\'t use TLS.
+--
 -- 'debugLogging', 'modifyDBProxy_debugLogging' - Whether the proxy includes detailed information about SQL statements in
 -- its logs. This information helps you to debug issues involving SQL
 -- behavior or the performance and scalability of the proxy connections.
@@ -108,11 +116,6 @@ data ModifyDBProxy = ModifyDBProxy'
 --
 -- 'auth', 'modifyDBProxy_auth' - The new authentication settings for the @DBProxy@.
 --
--- 'requireTLS', 'modifyDBProxy_requireTLS' - Whether Transport Layer Security (TLS) encryption is required for
--- connections to the proxy. By enabling this setting, you can enforce
--- encrypted TLS connections to the proxy, even if the associated database
--- doesn\'t use TLS.
---
 -- 'idleClientTimeout', 'modifyDBProxy_idleClientTimeout' - The number of seconds that a connection to the proxy can be inactive
 -- before the proxy disconnects it. You can set this value higher or lower
 -- than the connection timeout limit for the associated database.
@@ -121,9 +124,6 @@ data ModifyDBProxy = ModifyDBProxy'
 -- letter and must contain only ASCII letters, digits, and hyphens; it
 -- can\'t end with a hyphen or contain two consecutive hyphens.
 --
--- 'roleArn', 'modifyDBProxy_roleArn' - The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
--- access secrets in Amazon Web Services Secrets Manager.
---
 -- 'dbProxyName', 'modifyDBProxy_dbProxyName' - The identifier for the @DBProxy@ to modify.
 newModifyDBProxy ::
   -- | 'dbProxyName'
@@ -131,15 +131,27 @@ newModifyDBProxy ::
   ModifyDBProxy
 newModifyDBProxy pDBProxyName_ =
   ModifyDBProxy'
-    { debugLogging = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
+      requireTLS = Prelude.Nothing,
+      debugLogging = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
       auth = Prelude.Nothing,
-      requireTLS = Prelude.Nothing,
       idleClientTimeout = Prelude.Nothing,
       newDBProxyName' = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
       dbProxyName = pDBProxyName_
     }
+
+-- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
+-- access secrets in Amazon Web Services Secrets Manager.
+modifyDBProxy_roleArn :: Lens.Lens' ModifyDBProxy (Prelude.Maybe Prelude.Text)
+modifyDBProxy_roleArn = Lens.lens (\ModifyDBProxy' {roleArn} -> roleArn) (\s@ModifyDBProxy' {} a -> s {roleArn = a} :: ModifyDBProxy)
+
+-- | Whether Transport Layer Security (TLS) encryption is required for
+-- connections to the proxy. By enabling this setting, you can enforce
+-- encrypted TLS connections to the proxy, even if the associated database
+-- doesn\'t use TLS.
+modifyDBProxy_requireTLS :: Lens.Lens' ModifyDBProxy (Prelude.Maybe Prelude.Bool)
+modifyDBProxy_requireTLS = Lens.lens (\ModifyDBProxy' {requireTLS} -> requireTLS) (\s@ModifyDBProxy' {} a -> s {requireTLS = a} :: ModifyDBProxy)
 
 -- | Whether the proxy includes detailed information about SQL statements in
 -- its logs. This information helps you to debug issues involving SQL
@@ -159,13 +171,6 @@ modifyDBProxy_securityGroups = Lens.lens (\ModifyDBProxy' {securityGroups} -> se
 modifyDBProxy_auth :: Lens.Lens' ModifyDBProxy (Prelude.Maybe [UserAuthConfig])
 modifyDBProxy_auth = Lens.lens (\ModifyDBProxy' {auth} -> auth) (\s@ModifyDBProxy' {} a -> s {auth = a} :: ModifyDBProxy) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether Transport Layer Security (TLS) encryption is required for
--- connections to the proxy. By enabling this setting, you can enforce
--- encrypted TLS connections to the proxy, even if the associated database
--- doesn\'t use TLS.
-modifyDBProxy_requireTLS :: Lens.Lens' ModifyDBProxy (Prelude.Maybe Prelude.Bool)
-modifyDBProxy_requireTLS = Lens.lens (\ModifyDBProxy' {requireTLS} -> requireTLS) (\s@ModifyDBProxy' {} a -> s {requireTLS = a} :: ModifyDBProxy)
-
 -- | The number of seconds that a connection to the proxy can be inactive
 -- before the proxy disconnects it. You can set this value higher or lower
 -- than the connection timeout limit for the associated database.
@@ -177,11 +182,6 @@ modifyDBProxy_idleClientTimeout = Lens.lens (\ModifyDBProxy' {idleClientTimeout}
 -- can\'t end with a hyphen or contain two consecutive hyphens.
 modifyDBProxy_newDBProxyName :: Lens.Lens' ModifyDBProxy (Prelude.Maybe Prelude.Text)
 modifyDBProxy_newDBProxyName = Lens.lens (\ModifyDBProxy' {newDBProxyName'} -> newDBProxyName') (\s@ModifyDBProxy' {} a -> s {newDBProxyName' = a} :: ModifyDBProxy)
-
--- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
--- access secrets in Amazon Web Services Secrets Manager.
-modifyDBProxy_roleArn :: Lens.Lens' ModifyDBProxy (Prelude.Maybe Prelude.Text)
-modifyDBProxy_roleArn = Lens.lens (\ModifyDBProxy' {roleArn} -> roleArn) (\s@ModifyDBProxy' {} a -> s {roleArn = a} :: ModifyDBProxy)
 
 -- | The identifier for the @DBProxy@ to modify.
 modifyDBProxy_dbProxyName :: Lens.Lens' ModifyDBProxy Prelude.Text
@@ -203,24 +203,24 @@ instance Core.AWSRequest ModifyDBProxy where
 
 instance Prelude.Hashable ModifyDBProxy where
   hashWithSalt _salt ModifyDBProxy' {..} =
-    _salt `Prelude.hashWithSalt` debugLogging
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` requireTLS
+      `Prelude.hashWithSalt` debugLogging
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` auth
-      `Prelude.hashWithSalt` requireTLS
       `Prelude.hashWithSalt` idleClientTimeout
       `Prelude.hashWithSalt` newDBProxyName'
-      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` dbProxyName
 
 instance Prelude.NFData ModifyDBProxy where
   rnf ModifyDBProxy' {..} =
-    Prelude.rnf debugLogging
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf requireTLS
+      `Prelude.seq` Prelude.rnf debugLogging
       `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf auth
-      `Prelude.seq` Prelude.rnf requireTLS
       `Prelude.seq` Prelude.rnf idleClientTimeout
       `Prelude.seq` Prelude.rnf newDBProxyName'
-      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf dbProxyName
 
 instance Core.ToHeaders ModifyDBProxy where
@@ -236,6 +236,8 @@ instance Core.ToQuery ModifyDBProxy where
           Core.=: ("ModifyDBProxy" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "RoleArn" Core.=: roleArn,
+        "RequireTLS" Core.=: requireTLS,
         "DebugLogging" Core.=: debugLogging,
         "SecurityGroups"
           Core.=: Core.toQuery
@@ -245,10 +247,8 @@ instance Core.ToQuery ModifyDBProxy where
         "Auth"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> auth),
-        "RequireTLS" Core.=: requireTLS,
         "IdleClientTimeout" Core.=: idleClientTimeout,
         "NewDBProxyName" Core.=: newDBProxyName',
-        "RoleArn" Core.=: roleArn,
         "DBProxyName" Core.=: dbProxyName
       ]
 

@@ -87,14 +87,14 @@ module Amazonka.CodeStarConnections
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
 
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- * Waiters
     -- $waiters
@@ -102,17 +102,17 @@ module Amazonka.CodeStarConnections
     -- * Operations
     -- $operations
 
+    -- ** CreateConnection
+    CreateConnection (CreateConnection'),
+    newCreateConnection,
+    CreateConnectionResponse (CreateConnectionResponse'),
+    newCreateConnectionResponse,
+
     -- ** CreateHost
     CreateHost (CreateHost'),
     newCreateHost,
     CreateHostResponse (CreateHostResponse'),
     newCreateHostResponse,
-
-    -- ** ListConnections
-    ListConnections (ListConnections'),
-    newListConnections,
-    ListConnectionsResponse (ListConnectionsResponse'),
-    newListConnectionsResponse,
 
     -- ** DeleteConnection
     DeleteConnection (DeleteConnection'),
@@ -120,17 +120,11 @@ module Amazonka.CodeStarConnections
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** CreateConnection
-    CreateConnection (CreateConnection'),
-    newCreateConnection,
-    CreateConnectionResponse (CreateConnectionResponse'),
-    newCreateConnectionResponse,
+    -- ** DeleteHost
+    DeleteHost (DeleteHost'),
+    newDeleteHost,
+    DeleteHostResponse (DeleteHostResponse'),
+    newDeleteHostResponse,
 
     -- ** GetConnection
     GetConnection (GetConnection'),
@@ -138,23 +132,29 @@ module Amazonka.CodeStarConnections
     GetConnectionResponse (GetConnectionResponse'),
     newGetConnectionResponse,
 
-    -- ** DeleteHost
-    DeleteHost (DeleteHost'),
-    newDeleteHost,
-    DeleteHostResponse (DeleteHostResponse'),
-    newDeleteHostResponse,
+    -- ** GetHost
+    GetHost (GetHost'),
+    newGetHost,
+    GetHostResponse (GetHostResponse'),
+    newGetHostResponse,
 
-    -- ** UpdateHost
-    UpdateHost (UpdateHost'),
-    newUpdateHost,
-    UpdateHostResponse (UpdateHostResponse'),
-    newUpdateHostResponse,
+    -- ** ListConnections
+    ListConnections (ListConnections'),
+    newListConnections,
+    ListConnectionsResponse (ListConnectionsResponse'),
+    newListConnectionsResponse,
 
     -- ** ListHosts
     ListHosts (ListHosts'),
     newListHosts,
     ListHostsResponse (ListHostsResponse'),
     newListHostsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -168,11 +168,11 @@ module Amazonka.CodeStarConnections
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetHost
-    GetHost (GetHost'),
-    newGetHost,
-    GetHostResponse (GetHostResponse'),
-    newGetHostResponse,
+    -- ** UpdateHost
+    UpdateHost (UpdateHost'),
+    newUpdateHost,
+    UpdateHostResponse (UpdateHostResponse'),
+    newUpdateHostResponse,
 
     -- * Types
 

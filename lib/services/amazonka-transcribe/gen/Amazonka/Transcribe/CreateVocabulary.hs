@@ -28,9 +28,9 @@ module Amazonka.Transcribe.CreateVocabulary
     newCreateVocabulary,
 
     -- * Request Lenses
-    createVocabulary_vocabularyFileUri,
-    createVocabulary_phrases,
     createVocabulary_tags,
+    createVocabulary_phrases,
+    createVocabulary_vocabularyFileUri,
     createVocabulary_vocabularyName,
     createVocabulary_languageCode,
 
@@ -39,11 +39,11 @@ module Amazonka.Transcribe.CreateVocabulary
     newCreateVocabularyResponse,
 
     -- * Response Lenses
-    createVocabularyResponse_failureReason,
-    createVocabularyResponse_languageCode,
     createVocabularyResponse_vocabularyName,
-    createVocabularyResponse_lastModifiedTime,
     createVocabularyResponse_vocabularyState,
+    createVocabularyResponse_lastModifiedTime,
+    createVocabularyResponse_languageCode,
+    createVocabularyResponse_failureReason,
     createVocabularyResponse_httpStatus,
   )
 where
@@ -57,7 +57,12 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newCreateVocabulary' smart constructor.
 data CreateVocabulary = CreateVocabulary'
-  { -- | The S3 location of the text file that contains the definition of the
+  { -- | Adds one or more tags, each in the form of a key:value pair, to a new
+    -- Amazon Transcribe vocabulary at the time you create this new vocabulary.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | An array of strings that contains the vocabulary entries.
+    phrases :: Prelude.Maybe [Prelude.Text],
+    -- | The S3 location of the text file that contains the definition of the
     -- custom vocabulary. The URI must be in the same region as the API
     -- endpoint that you are calling. The general form is:
     --
@@ -68,11 +73,6 @@ data CreateVocabulary = CreateVocabulary'
     -- For more information about custom vocabularies, see
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary Custom vocabularies>.
     vocabularyFileUri :: Prelude.Maybe Prelude.Text,
-    -- | An array of strings that contains the vocabulary entries.
-    phrases :: Prelude.Maybe [Prelude.Text],
-    -- | Adds one or more tags, each in the form of a key:value pair, to a new
-    -- Amazon Transcribe vocabulary at the time you create this new vocabulary.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the vocabulary. The name must be unique within an Amazon Web
     -- Services account. The name is case sensitive. If you try to create a
     -- vocabulary with the same name as a previous vocabulary you will receive
@@ -92,6 +92,11 @@ data CreateVocabulary = CreateVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createVocabulary_tags' - Adds one or more tags, each in the form of a key:value pair, to a new
+-- Amazon Transcribe vocabulary at the time you create this new vocabulary.
+--
+-- 'phrases', 'createVocabulary_phrases' - An array of strings that contains the vocabulary entries.
+--
 -- 'vocabularyFileUri', 'createVocabulary_vocabularyFileUri' - The S3 location of the text file that contains the definition of the
 -- custom vocabulary. The URI must be in the same region as the API
 -- endpoint that you are calling. The general form is:
@@ -102,11 +107,6 @@ data CreateVocabulary = CreateVocabulary'
 --
 -- For more information about custom vocabularies, see
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary Custom vocabularies>.
---
--- 'phrases', 'createVocabulary_phrases' - An array of strings that contains the vocabulary entries.
---
--- 'tags', 'createVocabulary_tags' - Adds one or more tags, each in the form of a key:value pair, to a new
--- Amazon Transcribe vocabulary at the time you create this new vocabulary.
 --
 -- 'vocabularyName', 'createVocabulary_vocabularyName' - The name of the vocabulary. The name must be unique within an Amazon Web
 -- Services account. The name is case sensitive. If you try to create a
@@ -123,13 +123,21 @@ newCreateVocabulary ::
   CreateVocabulary
 newCreateVocabulary pVocabularyName_ pLanguageCode_ =
   CreateVocabulary'
-    { vocabularyFileUri =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       phrases = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      vocabularyFileUri = Prelude.Nothing,
       vocabularyName = pVocabularyName_,
       languageCode = pLanguageCode_
     }
+
+-- | Adds one or more tags, each in the form of a key:value pair, to a new
+-- Amazon Transcribe vocabulary at the time you create this new vocabulary.
+createVocabulary_tags :: Lens.Lens' CreateVocabulary (Prelude.Maybe (Prelude.NonEmpty Tag))
+createVocabulary_tags = Lens.lens (\CreateVocabulary' {tags} -> tags) (\s@CreateVocabulary' {} a -> s {tags = a} :: CreateVocabulary) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of strings that contains the vocabulary entries.
+createVocabulary_phrases :: Lens.Lens' CreateVocabulary (Prelude.Maybe [Prelude.Text])
+createVocabulary_phrases = Lens.lens (\CreateVocabulary' {phrases} -> phrases) (\s@CreateVocabulary' {} a -> s {phrases = a} :: CreateVocabulary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The S3 location of the text file that contains the definition of the
 -- custom vocabulary. The URI must be in the same region as the API
@@ -143,15 +151,6 @@ newCreateVocabulary pVocabularyName_ pLanguageCode_ =
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary Custom vocabularies>.
 createVocabulary_vocabularyFileUri :: Lens.Lens' CreateVocabulary (Prelude.Maybe Prelude.Text)
 createVocabulary_vocabularyFileUri = Lens.lens (\CreateVocabulary' {vocabularyFileUri} -> vocabularyFileUri) (\s@CreateVocabulary' {} a -> s {vocabularyFileUri = a} :: CreateVocabulary)
-
--- | An array of strings that contains the vocabulary entries.
-createVocabulary_phrases :: Lens.Lens' CreateVocabulary (Prelude.Maybe [Prelude.Text])
-createVocabulary_phrases = Lens.lens (\CreateVocabulary' {phrases} -> phrases) (\s@CreateVocabulary' {} a -> s {phrases = a} :: CreateVocabulary) Prelude.. Lens.mapping Lens.coerced
-
--- | Adds one or more tags, each in the form of a key:value pair, to a new
--- Amazon Transcribe vocabulary at the time you create this new vocabulary.
-createVocabulary_tags :: Lens.Lens' CreateVocabulary (Prelude.Maybe (Prelude.NonEmpty Tag))
-createVocabulary_tags = Lens.lens (\CreateVocabulary' {tags} -> tags) (\s@CreateVocabulary' {} a -> s {tags = a} :: CreateVocabulary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the vocabulary. The name must be unique within an Amazon Web
 -- Services account. The name is case sensitive. If you try to create a
@@ -174,27 +173,27 @@ instance Core.AWSRequest CreateVocabulary where
     Response.receiveJSON
       ( \s h x ->
           CreateVocabularyResponse'
-            Prelude.<$> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "VocabularyName")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<$> (x Core..?> "VocabularyName")
             Prelude.<*> (x Core..?> "VocabularyState")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "LanguageCode")
+            Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` vocabularyFileUri
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` phrases
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vocabularyFileUri
       `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData CreateVocabulary where
   rnf CreateVocabulary' {..} =
-    Prelude.rnf vocabularyFileUri
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf phrases
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vocabularyFileUri
       `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf languageCode
 
@@ -217,10 +216,10 @@ instance Core.ToJSON CreateVocabulary where
   toJSON CreateVocabulary' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VocabularyFileUri" Core..=)
-              Prelude.<$> vocabularyFileUri,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Phrases" Core..=) Prelude.<$> phrases,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("VocabularyFileUri" Core..=)
+              Prelude.<$> vocabularyFileUri,
             Prelude.Just
               ("VocabularyName" Core..= vocabularyName),
             Prelude.Just ("LanguageCode" Core..= languageCode)
@@ -235,19 +234,19 @@ instance Core.ToQuery CreateVocabulary where
 
 -- | /See:/ 'newCreateVocabularyResponse' smart constructor.
 data CreateVocabularyResponse = CreateVocabularyResponse'
-  { -- | If the @VocabularyState@ field is @FAILED@, this field contains
-    -- information about why the job failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The language code of the vocabulary entries.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | The name of the vocabulary.
+  { -- | The name of the vocabulary.
     vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the vocabulary was created.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The processing state of the vocabulary. When the @VocabularyState@ field
     -- contains @READY@ the vocabulary is ready to be used in a
     -- @StartTranscriptionJob@ request.
     vocabularyState :: Prelude.Maybe VocabularyState,
+    -- | The date and time that the vocabulary was created.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The language code of the vocabulary entries.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | If the @VocabularyState@ field is @FAILED@, this field contains
+    -- information about why the job failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -261,18 +260,18 @@ data CreateVocabularyResponse = CreateVocabularyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'createVocabularyResponse_failureReason' - If the @VocabularyState@ field is @FAILED@, this field contains
--- information about why the job failed.
---
--- 'languageCode', 'createVocabularyResponse_languageCode' - The language code of the vocabulary entries.
---
 -- 'vocabularyName', 'createVocabularyResponse_vocabularyName' - The name of the vocabulary.
---
--- 'lastModifiedTime', 'createVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was created.
 --
 -- 'vocabularyState', 'createVocabularyResponse_vocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field
 -- contains @READY@ the vocabulary is ready to be used in a
 -- @StartTranscriptionJob@ request.
+--
+-- 'lastModifiedTime', 'createVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was created.
+--
+-- 'languageCode', 'createVocabularyResponse_languageCode' - The language code of the vocabulary entries.
+--
+-- 'failureReason', 'createVocabularyResponse_failureReason' - If the @VocabularyState@ field is @FAILED@, this field contains
+-- information about why the job failed.
 --
 -- 'httpStatus', 'createVocabularyResponse_httpStatus' - The response's http status code.
 newCreateVocabularyResponse ::
@@ -281,31 +280,18 @@ newCreateVocabularyResponse ::
   CreateVocabularyResponse
 newCreateVocabularyResponse pHttpStatus_ =
   CreateVocabularyResponse'
-    { failureReason =
+    { vocabularyName =
         Prelude.Nothing,
-      languageCode = Prelude.Nothing,
-      vocabularyName = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       vocabularyState = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If the @VocabularyState@ field is @FAILED@, this field contains
--- information about why the job failed.
-createVocabularyResponse_failureReason :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe Prelude.Text)
-createVocabularyResponse_failureReason = Lens.lens (\CreateVocabularyResponse' {failureReason} -> failureReason) (\s@CreateVocabularyResponse' {} a -> s {failureReason = a} :: CreateVocabularyResponse)
-
--- | The language code of the vocabulary entries.
-createVocabularyResponse_languageCode :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe LanguageCode)
-createVocabularyResponse_languageCode = Lens.lens (\CreateVocabularyResponse' {languageCode} -> languageCode) (\s@CreateVocabularyResponse' {} a -> s {languageCode = a} :: CreateVocabularyResponse)
 
 -- | The name of the vocabulary.
 createVocabularyResponse_vocabularyName :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe Prelude.Text)
 createVocabularyResponse_vocabularyName = Lens.lens (\CreateVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@CreateVocabularyResponse' {} a -> s {vocabularyName = a} :: CreateVocabularyResponse)
-
--- | The date and time that the vocabulary was created.
-createVocabularyResponse_lastModifiedTime :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
-createVocabularyResponse_lastModifiedTime = Lens.lens (\CreateVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateVocabularyResponse' {} a -> s {lastModifiedTime = a} :: CreateVocabularyResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The processing state of the vocabulary. When the @VocabularyState@ field
 -- contains @READY@ the vocabulary is ready to be used in a
@@ -313,15 +299,28 @@ createVocabularyResponse_lastModifiedTime = Lens.lens (\CreateVocabularyResponse
 createVocabularyResponse_vocabularyState :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe VocabularyState)
 createVocabularyResponse_vocabularyState = Lens.lens (\CreateVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@CreateVocabularyResponse' {} a -> s {vocabularyState = a} :: CreateVocabularyResponse)
 
+-- | The date and time that the vocabulary was created.
+createVocabularyResponse_lastModifiedTime :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
+createVocabularyResponse_lastModifiedTime = Lens.lens (\CreateVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateVocabularyResponse' {} a -> s {lastModifiedTime = a} :: CreateVocabularyResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The language code of the vocabulary entries.
+createVocabularyResponse_languageCode :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe LanguageCode)
+createVocabularyResponse_languageCode = Lens.lens (\CreateVocabularyResponse' {languageCode} -> languageCode) (\s@CreateVocabularyResponse' {} a -> s {languageCode = a} :: CreateVocabularyResponse)
+
+-- | If the @VocabularyState@ field is @FAILED@, this field contains
+-- information about why the job failed.
+createVocabularyResponse_failureReason :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe Prelude.Text)
+createVocabularyResponse_failureReason = Lens.lens (\CreateVocabularyResponse' {failureReason} -> failureReason) (\s@CreateVocabularyResponse' {} a -> s {failureReason = a} :: CreateVocabularyResponse)
+
 -- | The response's http status code.
 createVocabularyResponse_httpStatus :: Lens.Lens' CreateVocabularyResponse Prelude.Int
 createVocabularyResponse_httpStatus = Lens.lens (\CreateVocabularyResponse' {httpStatus} -> httpStatus) (\s@CreateVocabularyResponse' {} a -> s {httpStatus = a} :: CreateVocabularyResponse)
 
 instance Prelude.NFData CreateVocabularyResponse where
   rnf CreateVocabularyResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf vocabularyState
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,9 +29,9 @@ module Amazonka.GuardDuty.ListFindings
     newListFindings,
 
     -- * Request Lenses
-    listFindings_findingCriteria,
     listFindings_sortCriteria,
     listFindings_nextToken,
+    listFindings_findingCriteria,
     listFindings_maxResults,
     listFindings_detectorId,
 
@@ -55,7 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFindings' smart constructor.
 data ListFindings = ListFindings'
-  { -- | Represents the criteria used for querying findings. Valid values
+  { -- | Represents the criteria used for sorting findings.
+    sortCriteria :: Prelude.Maybe SortCriteria,
+    -- | You can use this parameter when paginating results. Set the value of
+    -- this parameter to null on your first call to the list action. For
+    -- subsequent calls to the action, fill nextToken in the request with the
+    -- value of NextToken from the previous response to continue listing data.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Represents the criteria used for querying findings. Valid values
     -- include:
     --
     -- -   JSON field name
@@ -163,13 +170,6 @@ data ListFindings = ListFindings'
     --
     --     Type: Timestamp in Unix Epoch millisecond format: 1486685375000
     findingCriteria :: Prelude.Maybe FindingCriteria,
-    -- | Represents the criteria used for sorting findings.
-    sortCriteria :: Prelude.Maybe SortCriteria,
-    -- | You can use this parameter when paginating results. Set the value of
-    -- this parameter to null on your first call to the list action. For
-    -- subsequent calls to the action, fill nextToken in the request with the
-    -- value of NextToken from the previous response to continue listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 50. The maximum value is 50.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -186,6 +186,13 @@ data ListFindings = ListFindings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'sortCriteria', 'listFindings_sortCriteria' - Represents the criteria used for sorting findings.
+--
+-- 'nextToken', 'listFindings_nextToken' - You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the list action. For
+-- subsequent calls to the action, fill nextToken in the request with the
+-- value of NextToken from the previous response to continue listing data.
 --
 -- 'findingCriteria', 'listFindings_findingCriteria' - Represents the criteria used for querying findings. Valid values
 -- include:
@@ -295,13 +302,6 @@ data ListFindings = ListFindings'
 --
 --     Type: Timestamp in Unix Epoch millisecond format: 1486685375000
 --
--- 'sortCriteria', 'listFindings_sortCriteria' - Represents the criteria used for sorting findings.
---
--- 'nextToken', 'listFindings_nextToken' - You can use this parameter when paginating results. Set the value of
--- this parameter to null on your first call to the list action. For
--- subsequent calls to the action, fill nextToken in the request with the
--- value of NextToken from the previous response to continue listing data.
---
 -- 'maxResults', 'listFindings_maxResults' - You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 50. The maximum value is 50.
 --
@@ -313,12 +313,23 @@ newListFindings ::
   ListFindings
 newListFindings pDetectorId_ =
   ListFindings'
-    { findingCriteria = Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
+    { sortCriteria = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      findingCriteria = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       detectorId = pDetectorId_
     }
+
+-- | Represents the criteria used for sorting findings.
+listFindings_sortCriteria :: Lens.Lens' ListFindings (Prelude.Maybe SortCriteria)
+listFindings_sortCriteria = Lens.lens (\ListFindings' {sortCriteria} -> sortCriteria) (\s@ListFindings' {} a -> s {sortCriteria = a} :: ListFindings)
+
+-- | You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the list action. For
+-- subsequent calls to the action, fill nextToken in the request with the
+-- value of NextToken from the previous response to continue listing data.
+listFindings_nextToken :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Text)
+listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s@ListFindings' {} a -> s {nextToken = a} :: ListFindings)
 
 -- | Represents the criteria used for querying findings. Valid values
 -- include:
@@ -430,17 +441,6 @@ newListFindings pDetectorId_ =
 listFindings_findingCriteria :: Lens.Lens' ListFindings (Prelude.Maybe FindingCriteria)
 listFindings_findingCriteria = Lens.lens (\ListFindings' {findingCriteria} -> findingCriteria) (\s@ListFindings' {} a -> s {findingCriteria = a} :: ListFindings)
 
--- | Represents the criteria used for sorting findings.
-listFindings_sortCriteria :: Lens.Lens' ListFindings (Prelude.Maybe SortCriteria)
-listFindings_sortCriteria = Lens.lens (\ListFindings' {sortCriteria} -> sortCriteria) (\s@ListFindings' {} a -> s {sortCriteria = a} :: ListFindings)
-
--- | You can use this parameter when paginating results. Set the value of
--- this parameter to null on your first call to the list action. For
--- subsequent calls to the action, fill nextToken in the request with the
--- value of NextToken from the previous response to continue listing data.
-listFindings_nextToken :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Text)
-listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s@ListFindings' {} a -> s {nextToken = a} :: ListFindings)
-
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 50. The maximum value is 50.
 listFindings_maxResults :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Natural)
@@ -482,17 +482,17 @@ instance Core.AWSRequest ListFindings where
 
 instance Prelude.Hashable ListFindings where
   hashWithSalt _salt ListFindings' {..} =
-    _salt `Prelude.hashWithSalt` findingCriteria
-      `Prelude.hashWithSalt` sortCriteria
+    _salt `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` findingCriteria
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData ListFindings where
   rnf ListFindings' {..} =
-    Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf findingCriteria
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf detectorId
 
@@ -511,10 +511,10 @@ instance Core.ToJSON ListFindings where
   toJSON ListFindings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("findingCriteria" Core..=)
-              Prelude.<$> findingCriteria,
-            ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
+          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
             ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("findingCriteria" Core..=)
+              Prelude.<$> findingCriteria,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

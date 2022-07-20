@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecurityGroup' smart constructor.
 data SecurityGroup = SecurityGroup'
-  { -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the security group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the security group.
+    groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data SecurityGroup = SecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupId', 'securityGroup_groupId' - The ID of the security group.
---
 -- 'groupName', 'securityGroup_groupName' - The name of the security group.
+--
+-- 'groupId', 'securityGroup_groupId' - The ID of the security group.
 newSecurityGroup ::
   SecurityGroup
 newSecurityGroup =
   SecurityGroup'
-    { groupId = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { groupName = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
-
--- | The ID of the security group.
-securityGroup_groupId :: Lens.Lens' SecurityGroup (Prelude.Maybe Prelude.Text)
-securityGroup_groupId = Lens.lens (\SecurityGroup' {groupId} -> groupId) (\s@SecurityGroup' {} a -> s {groupId = a} :: SecurityGroup)
 
 -- | The name of the security group.
 securityGroup_groupName :: Lens.Lens' SecurityGroup (Prelude.Maybe Prelude.Text)
 securityGroup_groupName = Lens.lens (\SecurityGroup' {groupName} -> groupName) (\s@SecurityGroup' {} a -> s {groupName = a} :: SecurityGroup)
+
+-- | The ID of the security group.
+securityGroup_groupId :: Lens.Lens' SecurityGroup (Prelude.Maybe Prelude.Text)
+securityGroup_groupId = Lens.lens (\SecurityGroup' {groupId} -> groupId) (\s@SecurityGroup' {} a -> s {groupId = a} :: SecurityGroup)
 
 instance Core.FromJSON SecurityGroup where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON SecurityGroup where
       "SecurityGroup"
       ( \x ->
           SecurityGroup'
-            Prelude.<$> (x Core..:? "groupId")
-            Prelude.<*> (x Core..:? "groupName")
+            Prelude.<$> (x Core..:? "groupName")
+            Prelude.<*> (x Core..:? "groupId")
       )
 
 instance Prelude.Hashable SecurityGroup where
   hashWithSalt _salt SecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupId
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData SecurityGroup where
   rnf SecurityGroup' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupId

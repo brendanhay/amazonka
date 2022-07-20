@@ -35,7 +35,17 @@ import Amazonka.S3.Types.SourceSelectionCriteria
 --
 -- /See:/ 'newReplicationRule' smart constructor.
 data ReplicationRule = ReplicationRule'
-  { deleteMarkerReplication :: Prelude.Maybe DeleteMarkerReplication,
+  { -- | A container that describes additional filters for identifying the source
+    -- objects that you want to replicate. You can choose to enable or disable
+    -- the replication of these objects. Currently, Amazon S3 supports only the
+    -- filter that you can specify for objects created with server-side
+    -- encryption using a customer managed key stored in Amazon Web Services
+    -- Key Management Service (SSE-KMS).
+    sourceSelectionCriteria :: Prelude.Maybe SourceSelectionCriteria,
+    -- | A unique identifier for the rule. The maximum value is 255 characters.
+    id :: Prelude.Maybe Prelude.Text,
+    existingObjectReplication :: Prelude.Maybe ExistingObjectReplication,
+    filter' :: Prelude.Maybe ReplicationRuleFilter,
     -- | The priority indicates which rule has precedence whenever two or more
     -- replication rules conflict. Amazon S3 will attempt to replicate objects
     -- according to all replication rules. However, if there are two or more
@@ -56,17 +66,7 @@ data ReplicationRule = ReplicationRule'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
     prefix :: Prelude.Maybe Prelude.Text,
-    existingObjectReplication :: Prelude.Maybe ExistingObjectReplication,
-    -- | A unique identifier for the rule. The maximum value is 255 characters.
-    id :: Prelude.Maybe Prelude.Text,
-    filter' :: Prelude.Maybe ReplicationRuleFilter,
-    -- | A container that describes additional filters for identifying the source
-    -- objects that you want to replicate. You can choose to enable or disable
-    -- the replication of these objects. Currently, Amazon S3 supports only the
-    -- filter that you can specify for objects created with server-side
-    -- encryption using a customer managed key stored in Amazon Web Services
-    -- Key Management Service (SSE-KMS).
-    sourceSelectionCriteria :: Prelude.Maybe SourceSelectionCriteria,
+    deleteMarkerReplication :: Prelude.Maybe DeleteMarkerReplication,
     -- | Specifies whether the rule is enabled.
     status :: ReplicationRuleStatus,
     -- | A container for information about the replication destination and its
@@ -84,7 +84,18 @@ data ReplicationRule = ReplicationRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deleteMarkerReplication', 'replicationRule_deleteMarkerReplication' - Undocumented member.
+-- 'sourceSelectionCriteria', 'replicationRule_sourceSelectionCriteria' - A container that describes additional filters for identifying the source
+-- objects that you want to replicate. You can choose to enable or disable
+-- the replication of these objects. Currently, Amazon S3 supports only the
+-- filter that you can specify for objects created with server-side
+-- encryption using a customer managed key stored in Amazon Web Services
+-- Key Management Service (SSE-KMS).
+--
+-- 'id', 'replicationRule_id' - A unique identifier for the rule. The maximum value is 255 characters.
+--
+-- 'existingObjectReplication', 'replicationRule_existingObjectReplication' -
+--
+-- 'filter'', 'replicationRule_filter' - Undocumented member.
 --
 -- 'priority', 'replicationRule_priority' - The priority indicates which rule has precedence whenever two or more
 -- replication rules conflict. Amazon S3 will attempt to replicate objects
@@ -106,18 +117,7 @@ data ReplicationRule = ReplicationRule'
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
 --
--- 'existingObjectReplication', 'replicationRule_existingObjectReplication' -
---
--- 'id', 'replicationRule_id' - A unique identifier for the rule. The maximum value is 255 characters.
---
--- 'filter'', 'replicationRule_filter' - Undocumented member.
---
--- 'sourceSelectionCriteria', 'replicationRule_sourceSelectionCriteria' - A container that describes additional filters for identifying the source
--- objects that you want to replicate. You can choose to enable or disable
--- the replication of these objects. Currently, Amazon S3 supports only the
--- filter that you can specify for objects created with server-side
--- encryption using a customer managed key stored in Amazon Web Services
--- Key Management Service (SSE-KMS).
+-- 'deleteMarkerReplication', 'replicationRule_deleteMarkerReplication' - Undocumented member.
 --
 -- 'status', 'replicationRule_status' - Specifies whether the rule is enabled.
 --
@@ -132,21 +132,38 @@ newReplicationRule ::
   ReplicationRule
 newReplicationRule pStatus_ pDestination_ =
   ReplicationRule'
-    { deleteMarkerReplication =
+    { sourceSelectionCriteria =
         Prelude.Nothing,
+      id = Prelude.Nothing,
+      existingObjectReplication = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       priority = Prelude.Nothing,
       prefix = Prelude.Nothing,
-      existingObjectReplication = Prelude.Nothing,
-      id = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      sourceSelectionCriteria = Prelude.Nothing,
+      deleteMarkerReplication = Prelude.Nothing,
       status = pStatus_,
       destination = pDestination_
     }
 
+-- | A container that describes additional filters for identifying the source
+-- objects that you want to replicate. You can choose to enable or disable
+-- the replication of these objects. Currently, Amazon S3 supports only the
+-- filter that you can specify for objects created with server-side
+-- encryption using a customer managed key stored in Amazon Web Services
+-- Key Management Service (SSE-KMS).
+replicationRule_sourceSelectionCriteria :: Lens.Lens' ReplicationRule (Prelude.Maybe SourceSelectionCriteria)
+replicationRule_sourceSelectionCriteria = Lens.lens (\ReplicationRule' {sourceSelectionCriteria} -> sourceSelectionCriteria) (\s@ReplicationRule' {} a -> s {sourceSelectionCriteria = a} :: ReplicationRule)
+
+-- | A unique identifier for the rule. The maximum value is 255 characters.
+replicationRule_id :: Lens.Lens' ReplicationRule (Prelude.Maybe Prelude.Text)
+replicationRule_id = Lens.lens (\ReplicationRule' {id} -> id) (\s@ReplicationRule' {} a -> s {id = a} :: ReplicationRule)
+
+-- |
+replicationRule_existingObjectReplication :: Lens.Lens' ReplicationRule (Prelude.Maybe ExistingObjectReplication)
+replicationRule_existingObjectReplication = Lens.lens (\ReplicationRule' {existingObjectReplication} -> existingObjectReplication) (\s@ReplicationRule' {} a -> s {existingObjectReplication = a} :: ReplicationRule)
+
 -- | Undocumented member.
-replicationRule_deleteMarkerReplication :: Lens.Lens' ReplicationRule (Prelude.Maybe DeleteMarkerReplication)
-replicationRule_deleteMarkerReplication = Lens.lens (\ReplicationRule' {deleteMarkerReplication} -> deleteMarkerReplication) (\s@ReplicationRule' {} a -> s {deleteMarkerReplication = a} :: ReplicationRule)
+replicationRule_filter :: Lens.Lens' ReplicationRule (Prelude.Maybe ReplicationRuleFilter)
+replicationRule_filter = Lens.lens (\ReplicationRule' {filter'} -> filter') (\s@ReplicationRule' {} a -> s {filter' = a} :: ReplicationRule)
 
 -- | The priority indicates which rule has precedence whenever two or more
 -- replication rules conflict. Amazon S3 will attempt to replicate objects
@@ -172,26 +189,9 @@ replicationRule_priority = Lens.lens (\ReplicationRule' {priority} -> priority) 
 replicationRule_prefix :: Lens.Lens' ReplicationRule (Prelude.Maybe Prelude.Text)
 replicationRule_prefix = Lens.lens (\ReplicationRule' {prefix} -> prefix) (\s@ReplicationRule' {} a -> s {prefix = a} :: ReplicationRule)
 
--- |
-replicationRule_existingObjectReplication :: Lens.Lens' ReplicationRule (Prelude.Maybe ExistingObjectReplication)
-replicationRule_existingObjectReplication = Lens.lens (\ReplicationRule' {existingObjectReplication} -> existingObjectReplication) (\s@ReplicationRule' {} a -> s {existingObjectReplication = a} :: ReplicationRule)
-
--- | A unique identifier for the rule. The maximum value is 255 characters.
-replicationRule_id :: Lens.Lens' ReplicationRule (Prelude.Maybe Prelude.Text)
-replicationRule_id = Lens.lens (\ReplicationRule' {id} -> id) (\s@ReplicationRule' {} a -> s {id = a} :: ReplicationRule)
-
 -- | Undocumented member.
-replicationRule_filter :: Lens.Lens' ReplicationRule (Prelude.Maybe ReplicationRuleFilter)
-replicationRule_filter = Lens.lens (\ReplicationRule' {filter'} -> filter') (\s@ReplicationRule' {} a -> s {filter' = a} :: ReplicationRule)
-
--- | A container that describes additional filters for identifying the source
--- objects that you want to replicate. You can choose to enable or disable
--- the replication of these objects. Currently, Amazon S3 supports only the
--- filter that you can specify for objects created with server-side
--- encryption using a customer managed key stored in Amazon Web Services
--- Key Management Service (SSE-KMS).
-replicationRule_sourceSelectionCriteria :: Lens.Lens' ReplicationRule (Prelude.Maybe SourceSelectionCriteria)
-replicationRule_sourceSelectionCriteria = Lens.lens (\ReplicationRule' {sourceSelectionCriteria} -> sourceSelectionCriteria) (\s@ReplicationRule' {} a -> s {sourceSelectionCriteria = a} :: ReplicationRule)
+replicationRule_deleteMarkerReplication :: Lens.Lens' ReplicationRule (Prelude.Maybe DeleteMarkerReplication)
+replicationRule_deleteMarkerReplication = Lens.lens (\ReplicationRule' {deleteMarkerReplication} -> deleteMarkerReplication) (\s@ReplicationRule' {} a -> s {deleteMarkerReplication = a} :: ReplicationRule)
 
 -- | Specifies whether the rule is enabled.
 replicationRule_status :: Lens.Lens' ReplicationRule ReplicationRuleStatus
@@ -206,54 +206,54 @@ replicationRule_destination = Lens.lens (\ReplicationRule' {destination} -> dest
 instance Core.FromXML ReplicationRule where
   parseXML x =
     ReplicationRule'
-      Prelude.<$> (x Core..@? "DeleteMarkerReplication")
+      Prelude.<$> (x Core..@? "SourceSelectionCriteria")
+      Prelude.<*> (x Core..@? "ID")
+      Prelude.<*> (x Core..@? "ExistingObjectReplication")
+      Prelude.<*> (x Core..@? "Filter")
       Prelude.<*> (x Core..@? "Priority")
       Prelude.<*> (x Core..@? "Prefix")
-      Prelude.<*> (x Core..@? "ExistingObjectReplication")
-      Prelude.<*> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "Filter")
-      Prelude.<*> (x Core..@? "SourceSelectionCriteria")
+      Prelude.<*> (x Core..@? "DeleteMarkerReplication")
       Prelude.<*> (x Core..@ "Status")
       Prelude.<*> (x Core..@ "Destination")
 
 instance Prelude.Hashable ReplicationRule where
   hashWithSalt _salt ReplicationRule' {..} =
     _salt
-      `Prelude.hashWithSalt` deleteMarkerReplication
+      `Prelude.hashWithSalt` sourceSelectionCriteria
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` existingObjectReplication
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` existingObjectReplication
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` filter'
-      `Prelude.hashWithSalt` sourceSelectionCriteria
+      `Prelude.hashWithSalt` deleteMarkerReplication
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData ReplicationRule where
   rnf ReplicationRule' {..} =
-    Prelude.rnf deleteMarkerReplication
+    Prelude.rnf sourceSelectionCriteria
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf existingObjectReplication
+      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf existingObjectReplication
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf sourceSelectionCriteria
+      `Prelude.seq` Prelude.rnf deleteMarkerReplication
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToXML ReplicationRule where
   toXML ReplicationRule' {..} =
     Prelude.mconcat
-      [ "DeleteMarkerReplication"
-          Core.@= deleteMarkerReplication,
-        "Priority" Core.@= priority,
-        "Prefix" Core.@= prefix,
+      [ "SourceSelectionCriteria"
+          Core.@= sourceSelectionCriteria,
+        "ID" Core.@= id,
         "ExistingObjectReplication"
           Core.@= existingObjectReplication,
-        "ID" Core.@= id,
         "Filter" Core.@= filter',
-        "SourceSelectionCriteria"
-          Core.@= sourceSelectionCriteria,
+        "Priority" Core.@= priority,
+        "Prefix" Core.@= prefix,
+        "DeleteMarkerReplication"
+          Core.@= deleteMarkerReplication,
         "Status" Core.@= status,
         "Destination" Core.@= destination
       ]

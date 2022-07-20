@@ -28,16 +28,16 @@ import Amazonka.QuickSight.Types.ResourceStatus
 --
 -- /See:/ 'newTemplateVersionSummary' smart constructor.
 data TemplateVersionSummary = TemplateVersionSummary'
-  { -- | The status of the template version.
-    status :: Prelude.Maybe ResourceStatus,
+  { -- | The time that this template version was created.
+    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the template version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The time that this template version was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The version number of the template version.
-    versionNumber :: Prelude.Maybe Prelude.Natural,
+    -- | The status of the template version.
+    status :: Prelude.Maybe ResourceStatus,
     -- | The description of the template version.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the template version.
+    versionNumber :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,46 @@ data TemplateVersionSummary = TemplateVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'templateVersionSummary_status' - The status of the template version.
+-- 'createdTime', 'templateVersionSummary_createdTime' - The time that this template version was created.
 --
 -- 'arn', 'templateVersionSummary_arn' - The Amazon Resource Name (ARN) of the template version.
 --
--- 'createdTime', 'templateVersionSummary_createdTime' - The time that this template version was created.
---
--- 'versionNumber', 'templateVersionSummary_versionNumber' - The version number of the template version.
+-- 'status', 'templateVersionSummary_status' - The status of the template version.
 --
 -- 'description', 'templateVersionSummary_description' - The description of the template version.
+--
+-- 'versionNumber', 'templateVersionSummary_versionNumber' - The version number of the template version.
 newTemplateVersionSummary ::
   TemplateVersionSummary
 newTemplateVersionSummary =
   TemplateVersionSummary'
-    { status = Prelude.Nothing,
+    { createdTime =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      versionNumber = Prelude.Nothing,
-      description = Prelude.Nothing
+      status = Prelude.Nothing,
+      description = Prelude.Nothing,
+      versionNumber = Prelude.Nothing
     }
-
--- | The status of the template version.
-templateVersionSummary_status :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe ResourceStatus)
-templateVersionSummary_status = Lens.lens (\TemplateVersionSummary' {status} -> status) (\s@TemplateVersionSummary' {} a -> s {status = a} :: TemplateVersionSummary)
-
--- | The Amazon Resource Name (ARN) of the template version.
-templateVersionSummary_arn :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.Text)
-templateVersionSummary_arn = Lens.lens (\TemplateVersionSummary' {arn} -> arn) (\s@TemplateVersionSummary' {} a -> s {arn = a} :: TemplateVersionSummary)
 
 -- | The time that this template version was created.
 templateVersionSummary_createdTime :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.UTCTime)
 templateVersionSummary_createdTime = Lens.lens (\TemplateVersionSummary' {createdTime} -> createdTime) (\s@TemplateVersionSummary' {} a -> s {createdTime = a} :: TemplateVersionSummary) Prelude.. Lens.mapping Core._Time
 
--- | The version number of the template version.
-templateVersionSummary_versionNumber :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.Natural)
-templateVersionSummary_versionNumber = Lens.lens (\TemplateVersionSummary' {versionNumber} -> versionNumber) (\s@TemplateVersionSummary' {} a -> s {versionNumber = a} :: TemplateVersionSummary)
+-- | The Amazon Resource Name (ARN) of the template version.
+templateVersionSummary_arn :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.Text)
+templateVersionSummary_arn = Lens.lens (\TemplateVersionSummary' {arn} -> arn) (\s@TemplateVersionSummary' {} a -> s {arn = a} :: TemplateVersionSummary)
+
+-- | The status of the template version.
+templateVersionSummary_status :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe ResourceStatus)
+templateVersionSummary_status = Lens.lens (\TemplateVersionSummary' {status} -> status) (\s@TemplateVersionSummary' {} a -> s {status = a} :: TemplateVersionSummary)
 
 -- | The description of the template version.
 templateVersionSummary_description :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.Text)
 templateVersionSummary_description = Lens.lens (\TemplateVersionSummary' {description} -> description) (\s@TemplateVersionSummary' {} a -> s {description = a} :: TemplateVersionSummary)
+
+-- | The version number of the template version.
+templateVersionSummary_versionNumber :: Lens.Lens' TemplateVersionSummary (Prelude.Maybe Prelude.Natural)
+templateVersionSummary_versionNumber = Lens.lens (\TemplateVersionSummary' {versionNumber} -> versionNumber) (\s@TemplateVersionSummary' {} a -> s {versionNumber = a} :: TemplateVersionSummary)
 
 instance Core.FromJSON TemplateVersionSummary where
   parseJSON =
@@ -95,25 +96,25 @@ instance Core.FromJSON TemplateVersionSummary where
       "TemplateVersionSummary"
       ( \x ->
           TemplateVersionSummary'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "VersionNumber")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "VersionNumber")
       )
 
 instance Prelude.Hashable TemplateVersionSummary where
   hashWithSalt _salt TemplateVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` versionNumber
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData TemplateVersionSummary where
   rnf TemplateVersionSummary' {..} =
-    Prelude.rnf status
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf versionNumber
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf versionNumber

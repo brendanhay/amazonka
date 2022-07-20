@@ -27,16 +27,16 @@ module Amazonka.ECS.DescribeClusters
     newDescribeClusters,
 
     -- * Request Lenses
-    describeClusters_include,
     describeClusters_clusters,
+    describeClusters_include,
 
     -- * Destructuring the Response
     DescribeClustersResponse (..),
     newDescribeClustersResponse,
 
     -- * Response Lenses
-    describeClustersResponse_failures,
     describeClustersResponse_clusters,
+    describeClustersResponse_failures,
     describeClustersResponse_httpStatus,
   )
 where
@@ -50,7 +50,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { -- | Whether to include additional information about the clusters in the
+  { -- | A list of up to 100 cluster names or full cluster Amazon Resource Name
+    -- (ARN) entries. If you do not specify a cluster, the default cluster is
+    -- assumed.
+    clusters :: Prelude.Maybe [Prelude.Text],
+    -- | Whether to include additional information about the clusters in the
     -- response. If this field is omitted, this information isn\'t included.
     --
     -- If @ATTACHMENTS@ is specified, the attachments for the container
@@ -66,11 +70,7 @@ data DescribeClusters = DescribeClusters'
     --
     -- If @TAGS@ is specified, the metadata tags associated with the cluster
     -- are included.
-    include :: Prelude.Maybe [ClusterField],
-    -- | A list of up to 100 cluster names or full cluster Amazon Resource Name
-    -- (ARN) entries. If you do not specify a cluster, the default cluster is
-    -- assumed.
-    clusters :: Prelude.Maybe [Prelude.Text]
+    include :: Prelude.Maybe [ClusterField]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,6 +81,10 @@ data DescribeClusters = DescribeClusters'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clusters', 'describeClusters_clusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name
+-- (ARN) entries. If you do not specify a cluster, the default cluster is
+-- assumed.
 --
 -- 'include', 'describeClusters_include' - Whether to include additional information about the clusters in the
 -- response. If this field is omitted, this information isn\'t included.
@@ -98,17 +102,19 @@ data DescribeClusters = DescribeClusters'
 --
 -- If @TAGS@ is specified, the metadata tags associated with the cluster
 -- are included.
---
--- 'clusters', 'describeClusters_clusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name
--- (ARN) entries. If you do not specify a cluster, the default cluster is
--- assumed.
 newDescribeClusters ::
   DescribeClusters
 newDescribeClusters =
   DescribeClusters'
-    { include = Prelude.Nothing,
-      clusters = Prelude.Nothing
+    { clusters = Prelude.Nothing,
+      include = Prelude.Nothing
     }
+
+-- | A list of up to 100 cluster names or full cluster Amazon Resource Name
+-- (ARN) entries. If you do not specify a cluster, the default cluster is
+-- assumed.
+describeClusters_clusters :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
+describeClusters_clusters = Lens.lens (\DescribeClusters' {clusters} -> clusters) (\s@DescribeClusters' {} a -> s {clusters = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to include additional information about the clusters in the
 -- response. If this field is omitted, this information isn\'t included.
@@ -129,12 +135,6 @@ newDescribeClusters =
 describeClusters_include :: Lens.Lens' DescribeClusters (Prelude.Maybe [ClusterField])
 describeClusters_include = Lens.lens (\DescribeClusters' {include} -> include) (\s@DescribeClusters' {} a -> s {include = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of up to 100 cluster names or full cluster Amazon Resource Name
--- (ARN) entries. If you do not specify a cluster, the default cluster is
--- assumed.
-describeClusters_clusters :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
-describeClusters_clusters = Lens.lens (\DescribeClusters' {clusters} -> clusters) (\s@DescribeClusters' {} a -> s {clusters = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.AWSRequest DescribeClusters where
   type
     AWSResponse DescribeClusters =
@@ -144,20 +144,20 @@ instance Core.AWSRequest DescribeClusters where
     Response.receiveJSON
       ( \s h x ->
           DescribeClustersResponse'
-            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "clusters" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "clusters" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeClusters where
   hashWithSalt _salt DescribeClusters' {..} =
-    _salt `Prelude.hashWithSalt` include
-      `Prelude.hashWithSalt` clusters
+    _salt `Prelude.hashWithSalt` clusters
+      `Prelude.hashWithSalt` include
 
 instance Prelude.NFData DescribeClusters where
   rnf DescribeClusters' {..} =
-    Prelude.rnf include
-      `Prelude.seq` Prelude.rnf clusters
+    Prelude.rnf clusters
+      `Prelude.seq` Prelude.rnf include
 
 instance Core.ToHeaders DescribeClusters where
   toHeaders =
@@ -178,8 +178,8 @@ instance Core.ToJSON DescribeClusters where
   toJSON DescribeClusters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("include" Core..=) Prelude.<$> include,
-            ("clusters" Core..=) Prelude.<$> clusters
+          [ ("clusters" Core..=) Prelude.<$> clusters,
+            ("include" Core..=) Prelude.<$> include
           ]
       )
 
@@ -191,10 +191,10 @@ instance Core.ToQuery DescribeClusters where
 
 -- | /See:/ 'newDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-  { -- | Any failures associated with the call.
-    failures :: Prelude.Maybe [Failure],
-    -- | The list of clusters.
+  { -- | The list of clusters.
     clusters :: Prelude.Maybe [Cluster],
+    -- | Any failures associated with the call.
+    failures :: Prelude.Maybe [Failure],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,9 +208,9 @@ data DescribeClustersResponse = DescribeClustersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failures', 'describeClustersResponse_failures' - Any failures associated with the call.
---
 -- 'clusters', 'describeClustersResponse_clusters' - The list of clusters.
+--
+-- 'failures', 'describeClustersResponse_failures' - Any failures associated with the call.
 --
 -- 'httpStatus', 'describeClustersResponse_httpStatus' - The response's http status code.
 newDescribeClustersResponse ::
@@ -219,19 +219,19 @@ newDescribeClustersResponse ::
   DescribeClustersResponse
 newDescribeClustersResponse pHttpStatus_ =
   DescribeClustersResponse'
-    { failures =
+    { clusters =
         Prelude.Nothing,
-      clusters = Prelude.Nothing,
+      failures = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Any failures associated with the call.
-describeClustersResponse_failures :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Failure])
-describeClustersResponse_failures = Lens.lens (\DescribeClustersResponse' {failures} -> failures) (\s@DescribeClustersResponse' {} a -> s {failures = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of clusters.
 describeClustersResponse_clusters :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Cluster])
 describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Any failures associated with the call.
+describeClustersResponse_failures :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Failure])
+describeClustersResponse_failures = Lens.lens (\DescribeClustersResponse' {failures} -> failures) (\s@DescribeClustersResponse' {} a -> s {failures = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeClustersResponse_httpStatus :: Lens.Lens' DescribeClustersResponse Prelude.Int
@@ -239,6 +239,6 @@ describeClustersResponse_httpStatus = Lens.lens (\DescribeClustersResponse' {htt
 
 instance Prelude.NFData DescribeClustersResponse where
   rnf DescribeClustersResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf clusters
+    Prelude.rnf clusters
+      `Prelude.seq` Prelude.rnf failures
       `Prelude.seq` Prelude.rnf httpStatus

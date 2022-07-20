@@ -39,8 +39,8 @@ module Amazonka.Backup.ListTags
     newListTagsResponse,
 
     -- * Response Lenses
-    listTagsResponse_nextToken,
     listTagsResponse_tags,
+    listTagsResponse_nextToken,
     listTagsResponse_httpStatus,
   )
 where
@@ -121,8 +121,8 @@ instance Core.AWSRequest ListTags where
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,14 +163,14 @@ instance Core.ToQuery ListTags where
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { -- | The next item following a partial list of returned items. For example,
+  { -- | To help organize your resources, you can assign your own metadata to the
+    -- resources you create. Each tag is a key-value pair.
+    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | To help organize your resources, you can assign your own metadata to the
-    -- resources you create. Each tag is a key-value pair.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,13 +184,13 @@ data ListTagsResponse = ListTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listTagsResponse_tags' - To help organize your resources, you can assign your own metadata to the
+-- resources you create. Each tag is a key-value pair.
+--
 -- 'nextToken', 'listTagsResponse_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
---
--- 'tags', 'listTagsResponse_tags' - To help organize your resources, you can assign your own metadata to the
--- resources you create. Each tag is a key-value pair.
 --
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
@@ -199,10 +199,15 @@ newListTagsResponse ::
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | To help organize your resources, you can assign your own metadata to the
+-- resources you create. Each tag is a key-value pair.
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -211,17 +216,12 @@ newListTagsResponse pHttpStatus_ =
 listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
--- | To help organize your resources, you can assign your own metadata to the
--- resources you create. Each tag is a key-value pair.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
-
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
 instance Prelude.NFData ListTagsResponse where
   rnf ListTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

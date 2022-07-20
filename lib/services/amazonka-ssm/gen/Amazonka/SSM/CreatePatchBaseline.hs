@@ -30,18 +30,18 @@ module Amazonka.SSM.CreatePatchBaseline
     newCreatePatchBaseline,
 
     -- * Request Lenses
-    createPatchBaseline_approvalRules,
-    createPatchBaseline_clientToken,
-    createPatchBaseline_operatingSystem,
-    createPatchBaseline_globalFilters,
-    createPatchBaseline_approvedPatchesComplianceLevel,
-    createPatchBaseline_rejectedPatchesAction,
-    createPatchBaseline_approvedPatches,
-    createPatchBaseline_approvedPatchesEnableNonSecurity,
-    createPatchBaseline_rejectedPatches,
-    createPatchBaseline_sources,
-    createPatchBaseline_description,
     createPatchBaseline_tags,
+    createPatchBaseline_operatingSystem,
+    createPatchBaseline_approvedPatches,
+    createPatchBaseline_approvedPatchesComplianceLevel,
+    createPatchBaseline_sources,
+    createPatchBaseline_clientToken,
+    createPatchBaseline_approvalRules,
+    createPatchBaseline_rejectedPatchesAction,
+    createPatchBaseline_description,
+    createPatchBaseline_globalFilters,
+    createPatchBaseline_rejectedPatches,
+    createPatchBaseline_approvedPatchesEnableNonSecurity,
     createPatchBaseline_name,
 
     -- * Destructuring the Response
@@ -63,19 +63,42 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreatePatchBaseline' smart constructor.
 data CreatePatchBaseline = CreatePatchBaseline'
-  { -- | A set of rules used to include patches in the baseline.
-    approvalRules :: Prelude.Maybe PatchRuleGroup,
-    -- | User-provided idempotency token.
-    clientToken :: Prelude.Maybe Prelude.Text,
+  { -- | Optional metadata that you assign to a resource. Tags enable you to
+    -- categorize a resource in different ways, such as by purpose, owner, or
+    -- environment. For example, you might want to tag a patch baseline to
+    -- identify the severity level of patches it specifies and the operating
+    -- system family it applies to. In this case, you could specify the
+    -- following key-value pairs:
+    --
+    -- -   @Key=PatchSeverity,Value=Critical@
+    --
+    -- -   @Key=OS,Value=Windows@
+    --
+    -- To add tags to an existing patch baseline, use the AddTagsToResource
+    -- operation.
+    tags :: Prelude.Maybe [Tag],
     -- | Defines the operating system the patch baseline applies to. The default
     -- value is @WINDOWS@.
     operatingSystem :: Prelude.Maybe OperatingSystem,
-    -- | A set of global filters used to include patches in the baseline.
-    globalFilters :: Prelude.Maybe PatchFilterGroup,
+    -- | A list of explicitly approved patches for the baseline.
+    --
+    -- For information about accepted formats for lists of approved patches and
+    -- rejected patches, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    approvedPatches :: Prelude.Maybe [Prelude.Text],
     -- | Defines the compliance level for approved patches. When an approved
     -- patch is reported as missing, this value describes the severity of the
     -- compliance violation. The default value is @UNSPECIFIED@.
     approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
+    -- | Information about the patches to use to update the instances, including
+    -- target operating systems and source repositories. Applies to Linux
+    -- instances only.
+    sources :: Prelude.Maybe [PatchSource],
+    -- | User-provided idempotency token.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A set of rules used to include patches in the baseline.
+    approvalRules :: Prelude.Maybe PatchRuleGroup,
     -- | The action for Patch Manager to take on patches included in the
     -- @RejectedPackages@ list.
     --
@@ -91,17 +114,10 @@ data CreatePatchBaseline = CreatePatchBaseline'
     --     Rejected patches list, it is considered non-compliant with the patch
     --     baseline, and its status is reported as @InstalledRejected@.
     rejectedPatchesAction :: Prelude.Maybe PatchAction,
-    -- | A list of explicitly approved patches for the baseline.
-    --
-    -- For information about accepted formats for lists of approved patches and
-    -- rejected patches, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    approvedPatches :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether the list of approved patches includes non-security
-    -- updates that should be applied to the instances. The default value is
-    -- @false@. Applies to Linux instances only.
-    approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
+    -- | A description of the patch baseline.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A set of global filters used to include patches in the baseline.
+    globalFilters :: Prelude.Maybe PatchFilterGroup,
     -- | A list of explicitly rejected patches for the baseline.
     --
     -- For information about accepted formats for lists of approved patches and
@@ -109,26 +125,10 @@ data CreatePatchBaseline = CreatePatchBaseline'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     rejectedPatches :: Prelude.Maybe [Prelude.Text],
-    -- | Information about the patches to use to update the instances, including
-    -- target operating systems and source repositories. Applies to Linux
-    -- instances only.
-    sources :: Prelude.Maybe [PatchSource],
-    -- | A description of the patch baseline.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you assign to a resource. Tags enable you to
-    -- categorize a resource in different ways, such as by purpose, owner, or
-    -- environment. For example, you might want to tag a patch baseline to
-    -- identify the severity level of patches it specifies and the operating
-    -- system family it applies to. In this case, you could specify the
-    -- following key-value pairs:
-    --
-    -- -   @Key=PatchSeverity,Value=Critical@
-    --
-    -- -   @Key=OS,Value=Windows@
-    --
-    -- To add tags to an existing patch baseline, use the AddTagsToResource
-    -- operation.
-    tags :: Prelude.Maybe [Tag],
+    -- | Indicates whether the list of approved patches includes non-security
+    -- updates that should be applied to the instances. The default value is
+    -- @false@. Applies to Linux instances only.
+    approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | The name of the patch baseline.
     name :: Prelude.Text
   }
@@ -142,18 +142,41 @@ data CreatePatchBaseline = CreatePatchBaseline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'approvalRules', 'createPatchBaseline_approvalRules' - A set of rules used to include patches in the baseline.
+-- 'tags', 'createPatchBaseline_tags' - Optional metadata that you assign to a resource. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag a patch baseline to
+-- identify the severity level of patches it specifies and the operating
+-- system family it applies to. In this case, you could specify the
+-- following key-value pairs:
 --
--- 'clientToken', 'createPatchBaseline_clientToken' - User-provided idempotency token.
+-- -   @Key=PatchSeverity,Value=Critical@
+--
+-- -   @Key=OS,Value=Windows@
+--
+-- To add tags to an existing patch baseline, use the AddTagsToResource
+-- operation.
 --
 -- 'operatingSystem', 'createPatchBaseline_operatingSystem' - Defines the operating system the patch baseline applies to. The default
 -- value is @WINDOWS@.
 --
--- 'globalFilters', 'createPatchBaseline_globalFilters' - A set of global filters used to include patches in the baseline.
+-- 'approvedPatches', 'createPatchBaseline_approvedPatches' - A list of explicitly approved patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and
+-- rejected patches, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'approvedPatchesComplianceLevel', 'createPatchBaseline_approvedPatchesComplianceLevel' - Defines the compliance level for approved patches. When an approved
 -- patch is reported as missing, this value describes the severity of the
 -- compliance violation. The default value is @UNSPECIFIED@.
+--
+-- 'sources', 'createPatchBaseline_sources' - Information about the patches to use to update the instances, including
+-- target operating systems and source repositories. Applies to Linux
+-- instances only.
+--
+-- 'clientToken', 'createPatchBaseline_clientToken' - User-provided idempotency token.
+--
+-- 'approvalRules', 'createPatchBaseline_approvalRules' - A set of rules used to include patches in the baseline.
 --
 -- 'rejectedPatchesAction', 'createPatchBaseline_rejectedPatchesAction' - The action for Patch Manager to take on patches included in the
 -- @RejectedPackages@ list.
@@ -170,7 +193,11 @@ data CreatePatchBaseline = CreatePatchBaseline'
 --     Rejected patches list, it is considered non-compliant with the patch
 --     baseline, and its status is reported as @InstalledRejected@.
 --
--- 'approvedPatches', 'createPatchBaseline_approvedPatches' - A list of explicitly approved patches for the baseline.
+-- 'description', 'createPatchBaseline_description' - A description of the patch baseline.
+--
+-- 'globalFilters', 'createPatchBaseline_globalFilters' - A set of global filters used to include patches in the baseline.
+--
+-- 'rejectedPatches', 'createPatchBaseline_rejectedPatches' - A list of explicitly rejected patches for the baseline.
 --
 -- For information about accepted formats for lists of approved patches and
 -- rejected patches, see
@@ -181,20 +208,29 @@ data CreatePatchBaseline = CreatePatchBaseline'
 -- updates that should be applied to the instances. The default value is
 -- @false@. Applies to Linux instances only.
 --
--- 'rejectedPatches', 'createPatchBaseline_rejectedPatches' - A list of explicitly rejected patches for the baseline.
---
--- For information about accepted formats for lists of approved patches and
--- rejected patches, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
--- 'sources', 'createPatchBaseline_sources' - Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
---
--- 'description', 'createPatchBaseline_description' - A description of the patch baseline.
---
--- 'tags', 'createPatchBaseline_tags' - Optional metadata that you assign to a resource. Tags enable you to
+-- 'name', 'createPatchBaseline_name' - The name of the patch baseline.
+newCreatePatchBaseline ::
+  -- | 'name'
+  Prelude.Text ->
+  CreatePatchBaseline
+newCreatePatchBaseline pName_ =
+  CreatePatchBaseline'
+    { tags = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
+      approvedPatches = Prelude.Nothing,
+      approvedPatchesComplianceLevel = Prelude.Nothing,
+      sources = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      approvalRules = Prelude.Nothing,
+      rejectedPatchesAction = Prelude.Nothing,
+      description = Prelude.Nothing,
+      globalFilters = Prelude.Nothing,
+      rejectedPatches = Prelude.Nothing,
+      approvedPatchesEnableNonSecurity = Prelude.Nothing,
+      name = pName_
+    }
+
+-- | Optional metadata that you assign to a resource. Tags enable you to
 -- categorize a resource in different ways, such as by purpose, owner, or
 -- environment. For example, you might want to tag a patch baseline to
 -- identify the severity level of patches it specifies and the operating
@@ -207,52 +243,42 @@ data CreatePatchBaseline = CreatePatchBaseline'
 --
 -- To add tags to an existing patch baseline, use the AddTagsToResource
 -- operation.
---
--- 'name', 'createPatchBaseline_name' - The name of the patch baseline.
-newCreatePatchBaseline ::
-  -- | 'name'
-  Prelude.Text ->
-  CreatePatchBaseline
-newCreatePatchBaseline pName_ =
-  CreatePatchBaseline'
-    { approvalRules =
-        Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
-      globalFilters = Prelude.Nothing,
-      approvedPatchesComplianceLevel = Prelude.Nothing,
-      rejectedPatchesAction = Prelude.Nothing,
-      approvedPatches = Prelude.Nothing,
-      approvedPatchesEnableNonSecurity = Prelude.Nothing,
-      rejectedPatches = Prelude.Nothing,
-      sources = Prelude.Nothing,
-      description = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      name = pName_
-    }
-
--- | A set of rules used to include patches in the baseline.
-createPatchBaseline_approvalRules :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe PatchRuleGroup)
-createPatchBaseline_approvalRules = Lens.lens (\CreatePatchBaseline' {approvalRules} -> approvalRules) (\s@CreatePatchBaseline' {} a -> s {approvalRules = a} :: CreatePatchBaseline)
-
--- | User-provided idempotency token.
-createPatchBaseline_clientToken :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe Prelude.Text)
-createPatchBaseline_clientToken = Lens.lens (\CreatePatchBaseline' {clientToken} -> clientToken) (\s@CreatePatchBaseline' {} a -> s {clientToken = a} :: CreatePatchBaseline)
+createPatchBaseline_tags :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe [Tag])
+createPatchBaseline_tags = Lens.lens (\CreatePatchBaseline' {tags} -> tags) (\s@CreatePatchBaseline' {} a -> s {tags = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
 
 -- | Defines the operating system the patch baseline applies to. The default
 -- value is @WINDOWS@.
 createPatchBaseline_operatingSystem :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe OperatingSystem)
 createPatchBaseline_operatingSystem = Lens.lens (\CreatePatchBaseline' {operatingSystem} -> operatingSystem) (\s@CreatePatchBaseline' {} a -> s {operatingSystem = a} :: CreatePatchBaseline)
 
--- | A set of global filters used to include patches in the baseline.
-createPatchBaseline_globalFilters :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe PatchFilterGroup)
-createPatchBaseline_globalFilters = Lens.lens (\CreatePatchBaseline' {globalFilters} -> globalFilters) (\s@CreatePatchBaseline' {} a -> s {globalFilters = a} :: CreatePatchBaseline)
+-- | A list of explicitly approved patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and
+-- rejected patches, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+createPatchBaseline_approvedPatches :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe [Prelude.Text])
+createPatchBaseline_approvedPatches = Lens.lens (\CreatePatchBaseline' {approvedPatches} -> approvedPatches) (\s@CreatePatchBaseline' {} a -> s {approvedPatches = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
 
 -- | Defines the compliance level for approved patches. When an approved
 -- patch is reported as missing, this value describes the severity of the
 -- compliance violation. The default value is @UNSPECIFIED@.
 createPatchBaseline_approvedPatchesComplianceLevel :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe PatchComplianceLevel)
 createPatchBaseline_approvedPatchesComplianceLevel = Lens.lens (\CreatePatchBaseline' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@CreatePatchBaseline' {} a -> s {approvedPatchesComplianceLevel = a} :: CreatePatchBaseline)
+
+-- | Information about the patches to use to update the instances, including
+-- target operating systems and source repositories. Applies to Linux
+-- instances only.
+createPatchBaseline_sources :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe [PatchSource])
+createPatchBaseline_sources = Lens.lens (\CreatePatchBaseline' {sources} -> sources) (\s@CreatePatchBaseline' {} a -> s {sources = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
+
+-- | User-provided idempotency token.
+createPatchBaseline_clientToken :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe Prelude.Text)
+createPatchBaseline_clientToken = Lens.lens (\CreatePatchBaseline' {clientToken} -> clientToken) (\s@CreatePatchBaseline' {} a -> s {clientToken = a} :: CreatePatchBaseline)
+
+-- | A set of rules used to include patches in the baseline.
+createPatchBaseline_approvalRules :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe PatchRuleGroup)
+createPatchBaseline_approvalRules = Lens.lens (\CreatePatchBaseline' {approvalRules} -> approvalRules) (\s@CreatePatchBaseline' {} a -> s {approvalRules = a} :: CreatePatchBaseline)
 
 -- | The action for Patch Manager to take on patches included in the
 -- @RejectedPackages@ list.
@@ -271,20 +297,13 @@ createPatchBaseline_approvedPatchesComplianceLevel = Lens.lens (\CreatePatchBase
 createPatchBaseline_rejectedPatchesAction :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe PatchAction)
 createPatchBaseline_rejectedPatchesAction = Lens.lens (\CreatePatchBaseline' {rejectedPatchesAction} -> rejectedPatchesAction) (\s@CreatePatchBaseline' {} a -> s {rejectedPatchesAction = a} :: CreatePatchBaseline)
 
--- | A list of explicitly approved patches for the baseline.
---
--- For information about accepted formats for lists of approved patches and
--- rejected patches, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
--- in the /Amazon Web Services Systems Manager User Guide/.
-createPatchBaseline_approvedPatches :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe [Prelude.Text])
-createPatchBaseline_approvedPatches = Lens.lens (\CreatePatchBaseline' {approvedPatches} -> approvedPatches) (\s@CreatePatchBaseline' {} a -> s {approvedPatches = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
+-- | A description of the patch baseline.
+createPatchBaseline_description :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe Prelude.Text)
+createPatchBaseline_description = Lens.lens (\CreatePatchBaseline' {description} -> description) (\s@CreatePatchBaseline' {} a -> s {description = a} :: CreatePatchBaseline)
 
--- | Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
-createPatchBaseline_approvedPatchesEnableNonSecurity :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe Prelude.Bool)
-createPatchBaseline_approvedPatchesEnableNonSecurity = Lens.lens (\CreatePatchBaseline' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@CreatePatchBaseline' {} a -> s {approvedPatchesEnableNonSecurity = a} :: CreatePatchBaseline)
+-- | A set of global filters used to include patches in the baseline.
+createPatchBaseline_globalFilters :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe PatchFilterGroup)
+createPatchBaseline_globalFilters = Lens.lens (\CreatePatchBaseline' {globalFilters} -> globalFilters) (\s@CreatePatchBaseline' {} a -> s {globalFilters = a} :: CreatePatchBaseline)
 
 -- | A list of explicitly rejected patches for the baseline.
 --
@@ -295,31 +314,11 @@ createPatchBaseline_approvedPatchesEnableNonSecurity = Lens.lens (\CreatePatchBa
 createPatchBaseline_rejectedPatches :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe [Prelude.Text])
 createPatchBaseline_rejectedPatches = Lens.lens (\CreatePatchBaseline' {rejectedPatches} -> rejectedPatches) (\s@CreatePatchBaseline' {} a -> s {rejectedPatches = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
-createPatchBaseline_sources :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe [PatchSource])
-createPatchBaseline_sources = Lens.lens (\CreatePatchBaseline' {sources} -> sources) (\s@CreatePatchBaseline' {} a -> s {sources = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of the patch baseline.
-createPatchBaseline_description :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe Prelude.Text)
-createPatchBaseline_description = Lens.lens (\CreatePatchBaseline' {description} -> description) (\s@CreatePatchBaseline' {} a -> s {description = a} :: CreatePatchBaseline)
-
--- | Optional metadata that you assign to a resource. Tags enable you to
--- categorize a resource in different ways, such as by purpose, owner, or
--- environment. For example, you might want to tag a patch baseline to
--- identify the severity level of patches it specifies and the operating
--- system family it applies to. In this case, you could specify the
--- following key-value pairs:
---
--- -   @Key=PatchSeverity,Value=Critical@
---
--- -   @Key=OS,Value=Windows@
---
--- To add tags to an existing patch baseline, use the AddTagsToResource
--- operation.
-createPatchBaseline_tags :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe [Tag])
-createPatchBaseline_tags = Lens.lens (\CreatePatchBaseline' {tags} -> tags) (\s@CreatePatchBaseline' {} a -> s {tags = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
+-- | Indicates whether the list of approved patches includes non-security
+-- updates that should be applied to the instances. The default value is
+-- @false@. Applies to Linux instances only.
+createPatchBaseline_approvedPatchesEnableNonSecurity :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe Prelude.Bool)
+createPatchBaseline_approvedPatchesEnableNonSecurity = Lens.lens (\CreatePatchBaseline' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@CreatePatchBaseline' {} a -> s {approvedPatchesEnableNonSecurity = a} :: CreatePatchBaseline)
 
 -- | The name of the patch baseline.
 createPatchBaseline_name :: Lens.Lens' CreatePatchBaseline Prelude.Text
@@ -340,34 +339,34 @@ instance Core.AWSRequest CreatePatchBaseline where
 
 instance Prelude.Hashable CreatePatchBaseline where
   hashWithSalt _salt CreatePatchBaseline' {..} =
-    _salt `Prelude.hashWithSalt` approvalRules
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` operatingSystem
-      `Prelude.hashWithSalt` globalFilters
-      `Prelude.hashWithSalt` approvedPatchesComplianceLevel
-      `Prelude.hashWithSalt` rejectedPatchesAction
       `Prelude.hashWithSalt` approvedPatches
-      `Prelude.hashWithSalt` approvedPatchesEnableNonSecurity
-      `Prelude.hashWithSalt` rejectedPatches
+      `Prelude.hashWithSalt` approvedPatchesComplianceLevel
       `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` approvalRules
+      `Prelude.hashWithSalt` rejectedPatchesAction
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` globalFilters
+      `Prelude.hashWithSalt` rejectedPatches
+      `Prelude.hashWithSalt` approvedPatchesEnableNonSecurity
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreatePatchBaseline where
   rnf CreatePatchBaseline' {..} =
-    Prelude.rnf approvalRules
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf globalFilters
-      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
-      `Prelude.seq` Prelude.rnf rejectedPatchesAction
       `Prelude.seq` Prelude.rnf approvedPatches
-      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
-      `Prelude.seq` Prelude.rnf rejectedPatches
+      `Prelude.seq` Prelude.rnf approvedPatchesComplianceLevel
       `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf approvalRules
+      `Prelude.seq` Prelude.rnf rejectedPatchesAction
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf globalFilters
+      `Prelude.seq` Prelude.rnf rejectedPatches
+      `Prelude.seq` Prelude.rnf approvedPatchesEnableNonSecurity
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreatePatchBaseline where
@@ -389,24 +388,24 @@ instance Core.ToJSON CreatePatchBaseline where
   toJSON CreatePatchBaseline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ApprovalRules" Core..=) Prelude.<$> approvalRules,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("OperatingSystem" Core..=)
               Prelude.<$> operatingSystem,
-            ("GlobalFilters" Core..=) Prelude.<$> globalFilters,
-            ("ApprovedPatchesComplianceLevel" Core..=)
-              Prelude.<$> approvedPatchesComplianceLevel,
-            ("RejectedPatchesAction" Core..=)
-              Prelude.<$> rejectedPatchesAction,
             ("ApprovedPatches" Core..=)
               Prelude.<$> approvedPatches,
-            ("ApprovedPatchesEnableNonSecurity" Core..=)
-              Prelude.<$> approvedPatchesEnableNonSecurity,
+            ("ApprovedPatchesComplianceLevel" Core..=)
+              Prelude.<$> approvedPatchesComplianceLevel,
+            ("Sources" Core..=) Prelude.<$> sources,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("ApprovalRules" Core..=) Prelude.<$> approvalRules,
+            ("RejectedPatchesAction" Core..=)
+              Prelude.<$> rejectedPatchesAction,
+            ("Description" Core..=) Prelude.<$> description,
+            ("GlobalFilters" Core..=) Prelude.<$> globalFilters,
             ("RejectedPatches" Core..=)
               Prelude.<$> rejectedPatches,
-            ("Sources" Core..=) Prelude.<$> sources,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("ApprovedPatchesEnableNonSecurity" Core..=)
+              Prelude.<$> approvedPatchesEnableNonSecurity,
             Prelude.Just ("Name" Core..= name)
           ]
       )

@@ -49,15 +49,15 @@ module Amazonka.EC2.RevokeSecurityGroupEgress
     newRevokeSecurityGroupEgress,
 
     -- * Request Lenses
-    revokeSecurityGroupEgress_fromPort,
+    revokeSecurityGroupEgress_sourceSecurityGroupName,
+    revokeSecurityGroupEgress_toPort,
     revokeSecurityGroupEgress_ipPermissions,
     revokeSecurityGroupEgress_ipProtocol,
-    revokeSecurityGroupEgress_toPort,
-    revokeSecurityGroupEgress_cidrIp,
-    revokeSecurityGroupEgress_sourceSecurityGroupOwnerId,
-    revokeSecurityGroupEgress_sourceSecurityGroupName,
     revokeSecurityGroupEgress_dryRun,
     revokeSecurityGroupEgress_securityGroupRuleIds,
+    revokeSecurityGroupEgress_cidrIp,
+    revokeSecurityGroupEgress_sourceSecurityGroupOwnerId,
+    revokeSecurityGroupEgress_fromPort,
     revokeSecurityGroupEgress_groupId,
 
     -- * Destructuring the Response
@@ -80,24 +80,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRevokeSecurityGroupEgress' smart constructor.
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
-  { -- | Not supported. Use a set of IP permissions to specify the port.
-    fromPort :: Prelude.Maybe Prelude.Int,
+  { -- | Not supported. Use a set of IP permissions to specify a destination
+    -- security group.
+    sourceSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Not supported. Use a set of IP permissions to specify the port.
+    toPort :: Prelude.Maybe Prelude.Int,
     -- | The sets of IP permissions. You can\'t specify a destination security
     -- group and a CIDR IP address range in the same set of permissions.
     ipPermissions :: Prelude.Maybe [IpPermission],
     -- | Not supported. Use a set of IP permissions to specify the protocol name
     -- or number.
     ipProtocol :: Prelude.Maybe Prelude.Text,
-    -- | Not supported. Use a set of IP permissions to specify the port.
-    toPort :: Prelude.Maybe Prelude.Int,
-    -- | Not supported. Use a set of IP permissions to specify the CIDR.
-    cidrIp :: Prelude.Maybe Prelude.Text,
-    -- | Not supported. Use a set of IP permissions to specify a destination
-    -- security group.
-    sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | Not supported. Use a set of IP permissions to specify a destination
-    -- security group.
-    sourceSecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -105,6 +98,13 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the security group rules.
     securityGroupRuleIds :: Prelude.Maybe [Prelude.Text],
+    -- | Not supported. Use a set of IP permissions to specify the CIDR.
+    cidrIp :: Prelude.Maybe Prelude.Text,
+    -- | Not supported. Use a set of IP permissions to specify a destination
+    -- security group.
+    sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
+    -- | Not supported. Use a set of IP permissions to specify the port.
+    fromPort :: Prelude.Maybe Prelude.Int,
     -- | The ID of the security group.
     groupId :: Prelude.Text
   }
@@ -118,23 +118,16 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fromPort', 'revokeSecurityGroupEgress_fromPort' - Not supported. Use a set of IP permissions to specify the port.
+-- 'sourceSecurityGroupName', 'revokeSecurityGroupEgress_sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination
+-- security group.
+--
+-- 'toPort', 'revokeSecurityGroupEgress_toPort' - Not supported. Use a set of IP permissions to specify the port.
 --
 -- 'ipPermissions', 'revokeSecurityGroupEgress_ipPermissions' - The sets of IP permissions. You can\'t specify a destination security
 -- group and a CIDR IP address range in the same set of permissions.
 --
 -- 'ipProtocol', 'revokeSecurityGroupEgress_ipProtocol' - Not supported. Use a set of IP permissions to specify the protocol name
 -- or number.
---
--- 'toPort', 'revokeSecurityGroupEgress_toPort' - Not supported. Use a set of IP permissions to specify the port.
---
--- 'cidrIp', 'revokeSecurityGroupEgress_cidrIp' - Not supported. Use a set of IP permissions to specify the CIDR.
---
--- 'sourceSecurityGroupOwnerId', 'revokeSecurityGroupEgress_sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination
--- security group.
---
--- 'sourceSecurityGroupName', 'revokeSecurityGroupEgress_sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination
--- security group.
 --
 -- 'dryRun', 'revokeSecurityGroupEgress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -143,6 +136,13 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
 --
 -- 'securityGroupRuleIds', 'revokeSecurityGroupEgress_securityGroupRuleIds' - The IDs of the security group rules.
 --
+-- 'cidrIp', 'revokeSecurityGroupEgress_cidrIp' - Not supported. Use a set of IP permissions to specify the CIDR.
+--
+-- 'sourceSecurityGroupOwnerId', 'revokeSecurityGroupEgress_sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination
+-- security group.
+--
+-- 'fromPort', 'revokeSecurityGroupEgress_fromPort' - Not supported. Use a set of IP permissions to specify the port.
+--
 -- 'groupId', 'revokeSecurityGroupEgress_groupId' - The ID of the security group.
 newRevokeSecurityGroupEgress ::
   -- | 'groupId'
@@ -150,22 +150,27 @@ newRevokeSecurityGroupEgress ::
   RevokeSecurityGroupEgress
 newRevokeSecurityGroupEgress pGroupId_ =
   RevokeSecurityGroupEgress'
-    { fromPort =
+    { sourceSecurityGroupName =
         Prelude.Nothing,
+      toPort = Prelude.Nothing,
       ipPermissions = Prelude.Nothing,
       ipProtocol = Prelude.Nothing,
-      toPort = Prelude.Nothing,
-      cidrIp = Prelude.Nothing,
-      sourceSecurityGroupOwnerId = Prelude.Nothing,
-      sourceSecurityGroupName = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       securityGroupRuleIds = Prelude.Nothing,
+      cidrIp = Prelude.Nothing,
+      sourceSecurityGroupOwnerId = Prelude.Nothing,
+      fromPort = Prelude.Nothing,
       groupId = pGroupId_
     }
 
+-- | Not supported. Use a set of IP permissions to specify a destination
+-- security group.
+revokeSecurityGroupEgress_sourceSecurityGroupName :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupEgress_sourceSecurityGroupName = Lens.lens (\RevokeSecurityGroupEgress' {sourceSecurityGroupName} -> sourceSecurityGroupName) (\s@RevokeSecurityGroupEgress' {} a -> s {sourceSecurityGroupName = a} :: RevokeSecurityGroupEgress)
+
 -- | Not supported. Use a set of IP permissions to specify the port.
-revokeSecurityGroupEgress_fromPort :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
-revokeSecurityGroupEgress_fromPort = Lens.lens (\RevokeSecurityGroupEgress' {fromPort} -> fromPort) (\s@RevokeSecurityGroupEgress' {} a -> s {fromPort = a} :: RevokeSecurityGroupEgress)
+revokeSecurityGroupEgress_toPort :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
+revokeSecurityGroupEgress_toPort = Lens.lens (\RevokeSecurityGroupEgress' {toPort} -> toPort) (\s@RevokeSecurityGroupEgress' {} a -> s {toPort = a} :: RevokeSecurityGroupEgress)
 
 -- | The sets of IP permissions. You can\'t specify a destination security
 -- group and a CIDR IP address range in the same set of permissions.
@@ -177,24 +182,6 @@ revokeSecurityGroupEgress_ipPermissions = Lens.lens (\RevokeSecurityGroupEgress'
 revokeSecurityGroupEgress_ipProtocol :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
 revokeSecurityGroupEgress_ipProtocol = Lens.lens (\RevokeSecurityGroupEgress' {ipProtocol} -> ipProtocol) (\s@RevokeSecurityGroupEgress' {} a -> s {ipProtocol = a} :: RevokeSecurityGroupEgress)
 
--- | Not supported. Use a set of IP permissions to specify the port.
-revokeSecurityGroupEgress_toPort :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
-revokeSecurityGroupEgress_toPort = Lens.lens (\RevokeSecurityGroupEgress' {toPort} -> toPort) (\s@RevokeSecurityGroupEgress' {} a -> s {toPort = a} :: RevokeSecurityGroupEgress)
-
--- | Not supported. Use a set of IP permissions to specify the CIDR.
-revokeSecurityGroupEgress_cidrIp :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
-revokeSecurityGroupEgress_cidrIp = Lens.lens (\RevokeSecurityGroupEgress' {cidrIp} -> cidrIp) (\s@RevokeSecurityGroupEgress' {} a -> s {cidrIp = a} :: RevokeSecurityGroupEgress)
-
--- | Not supported. Use a set of IP permissions to specify a destination
--- security group.
-revokeSecurityGroupEgress_sourceSecurityGroupOwnerId :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
-revokeSecurityGroupEgress_sourceSecurityGroupOwnerId = Lens.lens (\RevokeSecurityGroupEgress' {sourceSecurityGroupOwnerId} -> sourceSecurityGroupOwnerId) (\s@RevokeSecurityGroupEgress' {} a -> s {sourceSecurityGroupOwnerId = a} :: RevokeSecurityGroupEgress)
-
--- | Not supported. Use a set of IP permissions to specify a destination
--- security group.
-revokeSecurityGroupEgress_sourceSecurityGroupName :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
-revokeSecurityGroupEgress_sourceSecurityGroupName = Lens.lens (\RevokeSecurityGroupEgress' {sourceSecurityGroupName} -> sourceSecurityGroupName) (\s@RevokeSecurityGroupEgress' {} a -> s {sourceSecurityGroupName = a} :: RevokeSecurityGroupEgress)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -205,6 +192,19 @@ revokeSecurityGroupEgress_dryRun = Lens.lens (\RevokeSecurityGroupEgress' {dryRu
 -- | The IDs of the security group rules.
 revokeSecurityGroupEgress_securityGroupRuleIds :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe [Prelude.Text])
 revokeSecurityGroupEgress_securityGroupRuleIds = Lens.lens (\RevokeSecurityGroupEgress' {securityGroupRuleIds} -> securityGroupRuleIds) (\s@RevokeSecurityGroupEgress' {} a -> s {securityGroupRuleIds = a} :: RevokeSecurityGroupEgress) Prelude.. Lens.mapping Lens.coerced
+
+-- | Not supported. Use a set of IP permissions to specify the CIDR.
+revokeSecurityGroupEgress_cidrIp :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupEgress_cidrIp = Lens.lens (\RevokeSecurityGroupEgress' {cidrIp} -> cidrIp) (\s@RevokeSecurityGroupEgress' {} a -> s {cidrIp = a} :: RevokeSecurityGroupEgress)
+
+-- | Not supported. Use a set of IP permissions to specify a destination
+-- security group.
+revokeSecurityGroupEgress_sourceSecurityGroupOwnerId :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupEgress_sourceSecurityGroupOwnerId = Lens.lens (\RevokeSecurityGroupEgress' {sourceSecurityGroupOwnerId} -> sourceSecurityGroupOwnerId) (\s@RevokeSecurityGroupEgress' {} a -> s {sourceSecurityGroupOwnerId = a} :: RevokeSecurityGroupEgress)
+
+-- | Not supported. Use a set of IP permissions to specify the port.
+revokeSecurityGroupEgress_fromPort :: Lens.Lens' RevokeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
+revokeSecurityGroupEgress_fromPort = Lens.lens (\RevokeSecurityGroupEgress' {fromPort} -> fromPort) (\s@RevokeSecurityGroupEgress' {} a -> s {fromPort = a} :: RevokeSecurityGroupEgress)
 
 -- | The ID of the security group.
 revokeSecurityGroupEgress_groupId :: Lens.Lens' RevokeSecurityGroupEgress Prelude.Text
@@ -229,28 +229,29 @@ instance Core.AWSRequest RevokeSecurityGroupEgress where
 
 instance Prelude.Hashable RevokeSecurityGroupEgress where
   hashWithSalt _salt RevokeSecurityGroupEgress' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` sourceSecurityGroupName
+      `Prelude.hashWithSalt` toPort
       `Prelude.hashWithSalt` ipPermissions
       `Prelude.hashWithSalt` ipProtocol
-      `Prelude.hashWithSalt` toPort
-      `Prelude.hashWithSalt` cidrIp
-      `Prelude.hashWithSalt` sourceSecurityGroupOwnerId
-      `Prelude.hashWithSalt` sourceSecurityGroupName
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` securityGroupRuleIds
+      `Prelude.hashWithSalt` cidrIp
+      `Prelude.hashWithSalt` sourceSecurityGroupOwnerId
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData RevokeSecurityGroupEgress where
   rnf RevokeSecurityGroupEgress' {..} =
-    Prelude.rnf fromPort
+    Prelude.rnf sourceSecurityGroupName
+      `Prelude.seq` Prelude.rnf toPort
       `Prelude.seq` Prelude.rnf ipPermissions
       `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf cidrIp
-      `Prelude.seq` Prelude.rnf sourceSecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf sourceSecurityGroupName
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf securityGroupRuleIds
+      `Prelude.seq` Prelude.rnf cidrIp
+      `Prelude.seq` Prelude.rnf sourceSecurityGroupOwnerId
+      `Prelude.seq` Prelude.rnf fromPort
       `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToHeaders RevokeSecurityGroupEgress where
@@ -266,23 +267,23 @@ instance Core.ToQuery RevokeSecurityGroupEgress where
           Core.=: ("RevokeSecurityGroupEgress" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "FromPort" Core.=: fromPort,
+        "SourceSecurityGroupName"
+          Core.=: sourceSecurityGroupName,
+        "ToPort" Core.=: toPort,
         Core.toQuery
           ( Core.toQueryList "IpPermissions"
               Prelude.<$> ipPermissions
           ),
         "IpProtocol" Core.=: ipProtocol,
-        "ToPort" Core.=: toPort,
-        "CidrIp" Core.=: cidrIp,
-        "SourceSecurityGroupOwnerId"
-          Core.=: sourceSecurityGroupOwnerId,
-        "SourceSecurityGroupName"
-          Core.=: sourceSecurityGroupName,
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "SecurityGroupRuleId"
               Prelude.<$> securityGroupRuleIds
           ),
+        "CidrIp" Core.=: cidrIp,
+        "SourceSecurityGroupOwnerId"
+          Core.=: sourceSecurityGroupOwnerId,
+        "FromPort" Core.=: fromPort,
         "GroupId" Core.=: groupId
       ]
 

@@ -74,17 +74,26 @@ module Amazonka.CodeStar
     -- * Errors
     -- $errors
 
-    -- ** TeamMemberAlreadyAssociatedException
-    _TeamMemberAlreadyAssociatedException,
+    -- ** ProjectCreationFailedException
+    _ProjectCreationFailedException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** TeamMemberNotFoundException
+    _TeamMemberNotFoundException,
+
+    -- ** ProjectConfigurationException
+    _ProjectConfigurationException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** InvalidServiceRoleException
     _InvalidServiceRoleException,
-
-    -- ** ProjectCreationFailedException
-    _ProjectCreationFailedException,
 
     -- ** UserProfileAlreadyExistsException
     _UserProfileAlreadyExistsException,
@@ -92,26 +101,17 @@ module Amazonka.CodeStar
     -- ** ProjectNotFoundException
     _ProjectNotFoundException,
 
-    -- ** TeamMemberNotFoundException
-    _TeamMemberNotFoundException,
+    -- ** UserProfileNotFoundException
+    _UserProfileNotFoundException,
 
     -- ** ProjectAlreadyExistsException
     _ProjectAlreadyExistsException,
 
-    -- ** ProjectConfigurationException
-    _ProjectConfigurationException,
+    -- ** ValidationException
+    _ValidationException,
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** UserProfileNotFoundException
-    _UserProfileNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** TeamMemberAlreadyAssociatedException
+    _TeamMemberAlreadyAssociatedException,
 
     -- * Waiters
     -- $waiters
@@ -119,101 +119,17 @@ module Amazonka.CodeStar
     -- * Operations
     -- $operations
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
-
-    -- ** ListTeamMembers (Paginated)
-    ListTeamMembers (ListTeamMembers'),
-    newListTeamMembers,
-    ListTeamMembersResponse (ListTeamMembersResponse'),
-    newListTeamMembersResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** DisassociateTeamMember
-    DisassociateTeamMember (DisassociateTeamMember'),
-    newDisassociateTeamMember,
-    DisassociateTeamMemberResponse (DisassociateTeamMemberResponse'),
-    newDisassociateTeamMemberResponse,
-
-    -- ** TagProject
-    TagProject (TagProject'),
-    newTagProject,
-    TagProjectResponse (TagProjectResponse'),
-    newTagProjectResponse,
-
-    -- ** DescribeProject
-    DescribeProject (DescribeProject'),
-    newDescribeProject,
-    DescribeProjectResponse (DescribeProjectResponse'),
-    newDescribeProjectResponse,
-
-    -- ** ListUserProfiles (Paginated)
-    ListUserProfiles (ListUserProfiles'),
-    newListUserProfiles,
-    ListUserProfilesResponse (ListUserProfilesResponse'),
-    newListUserProfilesResponse,
-
-    -- ** ListResources (Paginated)
-    ListResources (ListResources'),
-    newListResources,
-    ListResourcesResponse (ListResourcesResponse'),
-    newListResourcesResponse,
-
     -- ** AssociateTeamMember
     AssociateTeamMember (AssociateTeamMember'),
     newAssociateTeamMember,
     AssociateTeamMemberResponse (AssociateTeamMemberResponse'),
     newAssociateTeamMemberResponse,
 
-    -- ** UntagProject
-    UntagProject (UntagProject'),
-    newUntagProject,
-    UntagProjectResponse (UntagProjectResponse'),
-    newUntagProjectResponse,
-
-    -- ** UpdateTeamMember
-    UpdateTeamMember (UpdateTeamMember'),
-    newUpdateTeamMember,
-    UpdateTeamMemberResponse (UpdateTeamMemberResponse'),
-    newUpdateTeamMemberResponse,
-
-    -- ** DescribeUserProfile
-    DescribeUserProfile (DescribeUserProfile'),
-    newDescribeUserProfile,
-    DescribeUserProfileResponse (DescribeUserProfileResponse'),
-    newDescribeUserProfileResponse,
-
-    -- ** ListTagsForProject
-    ListTagsForProject (ListTagsForProject'),
-    newListTagsForProject,
-    ListTagsForProjectResponse (ListTagsForProjectResponse'),
-    newListTagsForProjectResponse,
-
-    -- ** DeleteUserProfile
-    DeleteUserProfile (DeleteUserProfile'),
-    newDeleteUserProfile,
-    DeleteUserProfileResponse (DeleteUserProfileResponse'),
-    newDeleteUserProfileResponse,
-
-    -- ** UpdateUserProfile
-    UpdateUserProfile (UpdateUserProfile'),
-    newUpdateUserProfile,
-    UpdateUserProfileResponse (UpdateUserProfileResponse'),
-    newUpdateUserProfileResponse,
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
     -- ** CreateUserProfile
     CreateUserProfile (CreateUserProfile'),
@@ -221,11 +137,95 @@ module Amazonka.CodeStar
     CreateUserProfileResponse (CreateUserProfileResponse'),
     newCreateUserProfileResponse,
 
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
+
+    -- ** DeleteUserProfile
+    DeleteUserProfile (DeleteUserProfile'),
+    newDeleteUserProfile,
+    DeleteUserProfileResponse (DeleteUserProfileResponse'),
+    newDeleteUserProfileResponse,
+
+    -- ** DescribeProject
+    DescribeProject (DescribeProject'),
+    newDescribeProject,
+    DescribeProjectResponse (DescribeProjectResponse'),
+    newDescribeProjectResponse,
+
+    -- ** DescribeUserProfile
+    DescribeUserProfile (DescribeUserProfile'),
+    newDescribeUserProfile,
+    DescribeUserProfileResponse (DescribeUserProfileResponse'),
+    newDescribeUserProfileResponse,
+
+    -- ** DisassociateTeamMember
+    DisassociateTeamMember (DisassociateTeamMember'),
+    newDisassociateTeamMember,
+    DisassociateTeamMemberResponse (DisassociateTeamMemberResponse'),
+    newDisassociateTeamMemberResponse,
+
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
+
+    -- ** ListResources (Paginated)
+    ListResources (ListResources'),
+    newListResources,
+    ListResourcesResponse (ListResourcesResponse'),
+    newListResourcesResponse,
+
+    -- ** ListTagsForProject
+    ListTagsForProject (ListTagsForProject'),
+    newListTagsForProject,
+    ListTagsForProjectResponse (ListTagsForProjectResponse'),
+    newListTagsForProjectResponse,
+
+    -- ** ListTeamMembers (Paginated)
+    ListTeamMembers (ListTeamMembers'),
+    newListTeamMembers,
+    ListTeamMembersResponse (ListTeamMembersResponse'),
+    newListTeamMembersResponse,
+
+    -- ** ListUserProfiles (Paginated)
+    ListUserProfiles (ListUserProfiles'),
+    newListUserProfiles,
+    ListUserProfilesResponse (ListUserProfilesResponse'),
+    newListUserProfilesResponse,
+
+    -- ** TagProject
+    TagProject (TagProject'),
+    newTagProject,
+    TagProjectResponse (TagProjectResponse'),
+    newTagProjectResponse,
+
+    -- ** UntagProject
+    UntagProject (UntagProject'),
+    newUntagProject,
+    UntagProjectResponse (UntagProjectResponse'),
+    newUntagProjectResponse,
+
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
+
+    -- ** UpdateTeamMember
+    UpdateTeamMember (UpdateTeamMember'),
+    newUpdateTeamMember,
+    UpdateTeamMemberResponse (UpdateTeamMemberResponse'),
+    newUpdateTeamMemberResponse,
+
+    -- ** UpdateUserProfile
+    UpdateUserProfile (UpdateUserProfile'),
+    newUpdateUserProfile,
+    UpdateUserProfileResponse (UpdateUserProfileResponse'),
+    newUpdateUserProfileResponse,
 
     -- * Types
 

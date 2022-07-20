@@ -38,9 +38,9 @@ module Amazonka.QuickSight.ListTemplates
     newListTemplatesResponse,
 
     -- * Response Lenses
+    listTemplatesResponse_nextToken,
     listTemplatesResponse_requestId,
     listTemplatesResponse_templateSummaryList,
-    listTemplatesResponse_nextToken,
     listTemplatesResponse_status,
   )
 where
@@ -134,11 +134,11 @@ instance Core.AWSRequest ListTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListTemplatesResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> ( x Core..?> "TemplateSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,13 +179,13 @@ instance Core.ToQuery ListTemplates where
 
 -- | /See:/ 'newListTemplatesResponse' smart constructor.
 data ListTemplatesResponse = ListTemplatesResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | The token for the next set of results, or null if there are no more
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | A structure containing information about the templates in the list.
     templateSummaryList :: Prelude.Maybe [TemplateSummary],
-    -- | The token for the next set of results, or null if there are no more
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -199,12 +199,12 @@ data ListTemplatesResponse = ListTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listTemplatesResponse_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
+--
 -- 'requestId', 'listTemplatesResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'templateSummaryList', 'listTemplatesResponse_templateSummaryList' - A structure containing information about the templates in the list.
---
--- 'nextToken', 'listTemplatesResponse_nextToken' - The token for the next set of results, or null if there are no more
--- results.
 --
 -- 'status', 'listTemplatesResponse_status' - The HTTP status of the request.
 newListTemplatesResponse ::
@@ -213,11 +213,16 @@ newListTemplatesResponse ::
   ListTemplatesResponse
 newListTemplatesResponse pStatus_ =
   ListTemplatesResponse'
-    { requestId = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       templateSummaryList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The token for the next set of results, or null if there are no more
+-- results.
+listTemplatesResponse_nextToken :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe Prelude.Text)
+listTemplatesResponse_nextToken = Lens.lens (\ListTemplatesResponse' {nextToken} -> nextToken) (\s@ListTemplatesResponse' {} a -> s {nextToken = a} :: ListTemplatesResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 listTemplatesResponse_requestId :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe Prelude.Text)
@@ -227,18 +232,13 @@ listTemplatesResponse_requestId = Lens.lens (\ListTemplatesResponse' {requestId}
 listTemplatesResponse_templateSummaryList :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe [TemplateSummary])
 listTemplatesResponse_templateSummaryList = Lens.lens (\ListTemplatesResponse' {templateSummaryList} -> templateSummaryList) (\s@ListTemplatesResponse' {} a -> s {templateSummaryList = a} :: ListTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next set of results, or null if there are no more
--- results.
-listTemplatesResponse_nextToken :: Lens.Lens' ListTemplatesResponse (Prelude.Maybe Prelude.Text)
-listTemplatesResponse_nextToken = Lens.lens (\ListTemplatesResponse' {nextToken} -> nextToken) (\s@ListTemplatesResponse' {} a -> s {nextToken = a} :: ListTemplatesResponse)
-
 -- | The HTTP status of the request.
 listTemplatesResponse_status :: Lens.Lens' ListTemplatesResponse Prelude.Int
 listTemplatesResponse_status = Lens.lens (\ListTemplatesResponse' {status} -> status) (\s@ListTemplatesResponse' {} a -> s {status = a} :: ListTemplatesResponse)
 
 instance Prelude.NFData ListTemplatesResponse where
   rnf ListTemplatesResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf templateSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status

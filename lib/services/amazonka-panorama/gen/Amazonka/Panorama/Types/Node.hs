@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data Node = Node'
   { -- | The node\'s ARN.
     packageArn :: Prelude.Maybe Prelude.Text,
-    -- | The account ID of the node\'s owner.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The node\'s description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the node\'s owner.
+    ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The node\'s ID.
     nodeId :: Prelude.Text,
     -- | The node\'s name.
@@ -64,9 +64,9 @@ data Node = Node'
 --
 -- 'packageArn', 'node_packageArn' - The node\'s ARN.
 --
--- 'ownerAccount', 'node_ownerAccount' - The account ID of the node\'s owner.
---
 -- 'description', 'node_description' - The node\'s description.
+--
+-- 'ownerAccount', 'node_ownerAccount' - The account ID of the node\'s owner.
 --
 -- 'nodeId', 'node_nodeId' - The node\'s ID.
 --
@@ -112,8 +112,8 @@ newNode
   pCreatedTime_ =
     Node'
       { packageArn = Prelude.Nothing,
-        ownerAccount = Prelude.Nothing,
         description = Prelude.Nothing,
+        ownerAccount = Prelude.Nothing,
         nodeId = pNodeId_,
         name = pName_,
         category = pCategory_,
@@ -128,13 +128,13 @@ newNode
 node_packageArn :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_packageArn = Lens.lens (\Node' {packageArn} -> packageArn) (\s@Node' {} a -> s {packageArn = a} :: Node)
 
--- | The account ID of the node\'s owner.
-node_ownerAccount :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
-node_ownerAccount = Lens.lens (\Node' {ownerAccount} -> ownerAccount) (\s@Node' {} a -> s {ownerAccount = a} :: Node)
-
 -- | The node\'s description.
 node_description :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_description = Lens.lens (\Node' {description} -> description) (\s@Node' {} a -> s {description = a} :: Node)
+
+-- | The account ID of the node\'s owner.
+node_ownerAccount :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
+node_ownerAccount = Lens.lens (\Node' {ownerAccount} -> ownerAccount) (\s@Node' {} a -> s {ownerAccount = a} :: Node)
 
 -- | The node\'s ID.
 node_nodeId :: Lens.Lens' Node Prelude.Text
@@ -175,8 +175,8 @@ instance Core.FromJSON Node where
       ( \x ->
           Node'
             Prelude.<$> (x Core..:? "PackageArn")
-            Prelude.<*> (x Core..:? "OwnerAccount")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "OwnerAccount")
             Prelude.<*> (x Core..: "NodeId")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Category")
@@ -190,8 +190,8 @@ instance Core.FromJSON Node where
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
     _salt `Prelude.hashWithSalt` packageArn
-      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` nodeId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` category
@@ -204,8 +204,8 @@ instance Prelude.Hashable Node where
 instance Prelude.NFData Node where
   rnf Node' {..} =
     Prelude.rnf packageArn
-      `Prelude.seq` Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf nodeId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf category

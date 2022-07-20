@@ -36,11 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3JobDefinition' smart constructor.
 data S3JobDefinition = S3JobDefinition'
-  { -- | The property- and tag-based conditions that determine which S3 objects
-    -- to include or exclude from the analysis. Each time the job runs, the job
-    -- uses these criteria to determine which objects to analyze.
-    scoping :: Prelude.Maybe Scoping,
-    -- | The property- and tag-based conditions that determine which S3 buckets
+  { -- | The property- and tag-based conditions that determine which S3 buckets
     -- to include or exclude from the analysis. Each time the job runs, the job
     -- uses these criteria to determine which buckets contain objects to
     -- analyze. A job\'s definition can contain a bucketCriteria object or a
@@ -51,7 +47,11 @@ data S3JobDefinition = S3JobDefinition'
     -- an account and one or more buckets to analyze for that account. A job\'s
     -- definition can contain a bucketDefinitions array or a bucketCriteria
     -- object, not both.
-    bucketDefinitions :: Prelude.Maybe [S3BucketDefinitionForJob]
+    bucketDefinitions :: Prelude.Maybe [S3BucketDefinitionForJob],
+    -- | The property- and tag-based conditions that determine which S3 objects
+    -- to include or exclude from the analysis. Each time the job runs, the job
+    -- uses these criteria to determine which objects to analyze.
+    scoping :: Prelude.Maybe Scoping
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,10 +62,6 @@ data S3JobDefinition = S3JobDefinition'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'scoping', 's3JobDefinition_scoping' - The property- and tag-based conditions that determine which S3 objects
--- to include or exclude from the analysis. Each time the job runs, the job
--- uses these criteria to determine which objects to analyze.
 --
 -- 'bucketCriteria', 's3JobDefinition_bucketCriteria' - The property- and tag-based conditions that determine which S3 buckets
 -- to include or exclude from the analysis. Each time the job runs, the job
@@ -78,20 +74,18 @@ data S3JobDefinition = S3JobDefinition'
 -- an account and one or more buckets to analyze for that account. A job\'s
 -- definition can contain a bucketDefinitions array or a bucketCriteria
 -- object, not both.
+--
+-- 'scoping', 's3JobDefinition_scoping' - The property- and tag-based conditions that determine which S3 objects
+-- to include or exclude from the analysis. Each time the job runs, the job
+-- uses these criteria to determine which objects to analyze.
 newS3JobDefinition ::
   S3JobDefinition
 newS3JobDefinition =
   S3JobDefinition'
-    { scoping = Prelude.Nothing,
-      bucketCriteria = Prelude.Nothing,
-      bucketDefinitions = Prelude.Nothing
+    { bucketCriteria = Prelude.Nothing,
+      bucketDefinitions = Prelude.Nothing,
+      scoping = Prelude.Nothing
     }
-
--- | The property- and tag-based conditions that determine which S3 objects
--- to include or exclude from the analysis. Each time the job runs, the job
--- uses these criteria to determine which objects to analyze.
-s3JobDefinition_scoping :: Lens.Lens' S3JobDefinition (Prelude.Maybe Scoping)
-s3JobDefinition_scoping = Lens.lens (\S3JobDefinition' {scoping} -> scoping) (\s@S3JobDefinition' {} a -> s {scoping = a} :: S3JobDefinition)
 
 -- | The property- and tag-based conditions that determine which S3 buckets
 -- to include or exclude from the analysis. Each time the job runs, the job
@@ -109,39 +103,45 @@ s3JobDefinition_bucketCriteria = Lens.lens (\S3JobDefinition' {bucketCriteria} -
 s3JobDefinition_bucketDefinitions :: Lens.Lens' S3JobDefinition (Prelude.Maybe [S3BucketDefinitionForJob])
 s3JobDefinition_bucketDefinitions = Lens.lens (\S3JobDefinition' {bucketDefinitions} -> bucketDefinitions) (\s@S3JobDefinition' {} a -> s {bucketDefinitions = a} :: S3JobDefinition) Prelude.. Lens.mapping Lens.coerced
 
+-- | The property- and tag-based conditions that determine which S3 objects
+-- to include or exclude from the analysis. Each time the job runs, the job
+-- uses these criteria to determine which objects to analyze.
+s3JobDefinition_scoping :: Lens.Lens' S3JobDefinition (Prelude.Maybe Scoping)
+s3JobDefinition_scoping = Lens.lens (\S3JobDefinition' {scoping} -> scoping) (\s@S3JobDefinition' {} a -> s {scoping = a} :: S3JobDefinition)
+
 instance Core.FromJSON S3JobDefinition where
   parseJSON =
     Core.withObject
       "S3JobDefinition"
       ( \x ->
           S3JobDefinition'
-            Prelude.<$> (x Core..:? "scoping")
-            Prelude.<*> (x Core..:? "bucketCriteria")
+            Prelude.<$> (x Core..:? "bucketCriteria")
             Prelude.<*> ( x Core..:? "bucketDefinitions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "scoping")
       )
 
 instance Prelude.Hashable S3JobDefinition where
   hashWithSalt _salt S3JobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` scoping
-      `Prelude.hashWithSalt` bucketCriteria
+    _salt `Prelude.hashWithSalt` bucketCriteria
       `Prelude.hashWithSalt` bucketDefinitions
+      `Prelude.hashWithSalt` scoping
 
 instance Prelude.NFData S3JobDefinition where
   rnf S3JobDefinition' {..} =
-    Prelude.rnf scoping
-      `Prelude.seq` Prelude.rnf bucketCriteria
+    Prelude.rnf bucketCriteria
       `Prelude.seq` Prelude.rnf bucketDefinitions
+      `Prelude.seq` Prelude.rnf scoping
 
 instance Core.ToJSON S3JobDefinition where
   toJSON S3JobDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("scoping" Core..=) Prelude.<$> scoping,
-            ("bucketCriteria" Core..=)
+          [ ("bucketCriteria" Core..=)
               Prelude.<$> bucketCriteria,
             ("bucketDefinitions" Core..=)
-              Prelude.<$> bucketDefinitions
+              Prelude.<$> bucketDefinitions,
+            ("scoping" Core..=) Prelude.<$> scoping
           ]
       )

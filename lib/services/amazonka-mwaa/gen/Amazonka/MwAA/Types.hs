@@ -17,10 +17,10 @@ module Amazonka.MwAA.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _ValidationException,
 
     -- * EnvironmentStatus
     EnvironmentStatus (..),
@@ -46,65 +46,65 @@ module Amazonka.MwAA.Types
     -- * Environment
     Environment (..),
     newEnvironment,
-    environment_serviceRoleArn,
+    environment_tags,
     environment_schedulers,
-    environment_status,
-    environment_minWorkers,
+    environment_pluginsS3ObjectVersion,
+    environment_name,
+    environment_requirementsS3Path,
     environment_pluginsS3Path,
-    environment_webserverAccessMode,
     environment_airflowVersion,
+    environment_serviceRoleArn,
+    environment_dagS3Path,
+    environment_sourceBucketArn,
     environment_kmsKey,
     environment_arn,
-    environment_createdAt,
-    environment_weeklyMaintenanceWindowStart,
-    environment_executionRoleArn,
-    environment_requirementsS3ObjectVersion,
-    environment_lastUpdate,
-    environment_sourceBucketArn,
-    environment_webserverUrl,
-    environment_dagS3Path,
-    environment_name,
-    environment_pluginsS3ObjectVersion,
     environment_airflowConfigurationOptions,
-    environment_loggingConfiguration,
-    environment_environmentClass,
     environment_networkConfiguration,
-    environment_tags,
-    environment_requirementsS3Path,
+    environment_status,
+    environment_minWorkers,
+    environment_environmentClass,
+    environment_weeklyMaintenanceWindowStart,
+    environment_lastUpdate,
+    environment_requirementsS3ObjectVersion,
+    environment_executionRoleArn,
+    environment_webserverAccessMode,
     environment_maxWorkers,
+    environment_createdAt,
+    environment_webserverUrl,
+    environment_loggingConfiguration,
 
     -- * LastUpdate
     LastUpdate (..),
     newLastUpdate,
     lastUpdate_status,
-    lastUpdate_createdAt,
     lastUpdate_error,
+    lastUpdate_createdAt,
 
     -- * LoggingConfiguration
     LoggingConfiguration (..),
     newLoggingConfiguration,
+    loggingConfiguration_dagProcessingLogs,
     loggingConfiguration_taskLogs,
+    loggingConfiguration_workerLogs,
     loggingConfiguration_webserverLogs,
     loggingConfiguration_schedulerLogs,
-    loggingConfiguration_dagProcessingLogs,
-    loggingConfiguration_workerLogs,
 
     -- * LoggingConfigurationInput
     LoggingConfigurationInput (..),
     newLoggingConfigurationInput,
+    loggingConfigurationInput_dagProcessingLogs,
     loggingConfigurationInput_taskLogs,
+    loggingConfigurationInput_workerLogs,
     loggingConfigurationInput_webserverLogs,
     loggingConfigurationInput_schedulerLogs,
-    loggingConfigurationInput_dagProcessingLogs,
-    loggingConfigurationInput_workerLogs,
 
     -- * MetricDatum
     MetricDatum (..),
     newMetricDatum,
-    metricDatum_value,
+    metricDatum_statisticValues,
     metricDatum_dimensions,
     metricDatum_unit,
-    metricDatum_statisticValues,
+    metricDatum_value,
     metricDatum_metricName,
     metricDatum_timestamp,
 
@@ -112,8 +112,8 @@ module Amazonka.MwAA.Types
     ModuleLoggingConfiguration (..),
     newModuleLoggingConfiguration,
     moduleLoggingConfiguration_logLevel,
-    moduleLoggingConfiguration_enabled,
     moduleLoggingConfiguration_cloudWatchLogGroupArn,
+    moduleLoggingConfiguration_enabled,
 
     -- * ModuleLoggingConfigurationInput
     ModuleLoggingConfigurationInput (..),
@@ -130,16 +130,16 @@ module Amazonka.MwAA.Types
     -- * StatisticSet
     StatisticSet (..),
     newStatisticSet,
-    statisticSet_sampleCount,
-    statisticSet_maximum,
     statisticSet_minimum,
+    statisticSet_sampleCount,
     statisticSet_sum,
+    statisticSet_maximum,
 
     -- * UpdateError
     UpdateError (..),
     newUpdateError,
-    updateError_errorCode,
     updateError_errorMessage,
+    updateError_errorCode,
 
     -- * UpdateNetworkConfigurationInput
     UpdateNetworkConfigurationInput (..),
@@ -195,35 +195,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -232,21 +205,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | ValidationException: The provided input is not valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | Access to the Airflow Web UI or CLI has been Denied. Please follow the
 -- MWAA user guide to setup permissions to access the Web UI and CLI
@@ -273,3 +265,11 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | ValidationException: The provided input is not valid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

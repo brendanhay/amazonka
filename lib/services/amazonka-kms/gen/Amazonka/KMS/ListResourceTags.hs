@@ -59,9 +59,9 @@ module Amazonka.KMS.ListResourceTags
     newListResourceTagsResponse,
 
     -- * Response Lenses
+    listResourceTagsResponse_tags,
     listResourceTagsResponse_truncated,
     listResourceTagsResponse_nextMarker,
-    listResourceTagsResponse_tags,
     listResourceTagsResponse_httpStatus,
   )
 where
@@ -195,9 +195,9 @@ instance Core.AWSRequest ListResourceTags where
     Response.receiveJSON
       ( \s h x ->
           ListResourceTagsResponse'
-            Prelude.<$> (x Core..?> "Truncated")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Truncated")
             Prelude.<*> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -246,7 +246,14 @@ instance Core.ToQuery ListResourceTags where
 
 -- | /See:/ 'newListResourceTagsResponse' smart constructor.
 data ListResourceTagsResponse = ListResourceTagsResponse'
-  { -- | A flag that indicates whether there are more items in the list. When
+  { -- | A list of tags. Each tag consists of a tag key and a tag value.
+    --
+    -- Tagging or untagging a KMS key can allow or deny permission to the KMS
+    -- key. For details, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+    -- in the /Key Management Service Developer Guide/.
+    tags :: Prelude.Maybe [Tag],
+    -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
@@ -256,13 +263,6 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
     --
     -- Do not assume or infer any information from this value.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags. Each tag consists of a tag key and a tag value.
-    --
-    -- Tagging or untagging a KMS key can allow or deny permission to the KMS
-    -- key. For details, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
-    -- in the /Key Management Service Developer Guide/.
-    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -276,6 +276,13 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listResourceTagsResponse_tags' - A list of tags. Each tag consists of a tag key and a tag value.
+--
+-- Tagging or untagging a KMS key can allow or deny permission to the KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- in the /Key Management Service Developer Guide/.
+--
 -- 'truncated', 'listResourceTagsResponse_truncated' - A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
@@ -286,13 +293,6 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
 --
 -- Do not assume or infer any information from this value.
 --
--- 'tags', 'listResourceTagsResponse_tags' - A list of tags. Each tag consists of a tag key and a tag value.
---
--- Tagging or untagging a KMS key can allow or deny permission to the KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
--- in the /Key Management Service Developer Guide/.
---
 -- 'httpStatus', 'listResourceTagsResponse_httpStatus' - The response's http status code.
 newListResourceTagsResponse ::
   -- | 'httpStatus'
@@ -300,12 +300,20 @@ newListResourceTagsResponse ::
   ListResourceTagsResponse
 newListResourceTagsResponse pHttpStatus_ =
   ListResourceTagsResponse'
-    { truncated =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      truncated = Prelude.Nothing,
       nextMarker = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of tags. Each tag consists of a tag key and a tag value.
+--
+-- Tagging or untagging a KMS key can allow or deny permission to the KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- in the /Key Management Service Developer Guide/.
+listResourceTagsResponse_tags :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe [Tag])
+listResourceTagsResponse_tags = Lens.lens (\ListResourceTagsResponse' {tags} -> tags) (\s@ListResourceTagsResponse' {} a -> s {tags = a} :: ListResourceTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
@@ -321,22 +329,13 @@ listResourceTagsResponse_truncated = Lens.lens (\ListResourceTagsResponse' {trun
 listResourceTagsResponse_nextMarker :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe Prelude.Text)
 listResourceTagsResponse_nextMarker = Lens.lens (\ListResourceTagsResponse' {nextMarker} -> nextMarker) (\s@ListResourceTagsResponse' {} a -> s {nextMarker = a} :: ListResourceTagsResponse)
 
--- | A list of tags. Each tag consists of a tag key and a tag value.
---
--- Tagging or untagging a KMS key can allow or deny permission to the KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
--- in the /Key Management Service Developer Guide/.
-listResourceTagsResponse_tags :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe [Tag])
-listResourceTagsResponse_tags = Lens.lens (\ListResourceTagsResponse' {tags} -> tags) (\s@ListResourceTagsResponse' {} a -> s {tags = a} :: ListResourceTagsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listResourceTagsResponse_httpStatus :: Lens.Lens' ListResourceTagsResponse Prelude.Int
 listResourceTagsResponse_httpStatus = Lens.lens (\ListResourceTagsResponse' {httpStatus} -> httpStatus) (\s@ListResourceTagsResponse' {} a -> s {httpStatus = a} :: ListResourceTagsResponse)
 
 instance Prelude.NFData ListResourceTagsResponse where
   rnf ListResourceTagsResponse' {..} =
-    Prelude.rnf truncated
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf truncated
       `Prelude.seq` Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

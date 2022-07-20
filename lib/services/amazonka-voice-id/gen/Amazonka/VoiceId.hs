@@ -20,26 +20,26 @@ module Amazonka.VoiceId
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -47,17 +47,83 @@ module Amazonka.VoiceId
     -- * Operations
     -- $operations
 
-    -- ** DescribeFraudsterRegistrationJob
-    DescribeFraudsterRegistrationJob (DescribeFraudsterRegistrationJob'),
-    newDescribeFraudsterRegistrationJob,
-    DescribeFraudsterRegistrationJobResponse (DescribeFraudsterRegistrationJobResponse'),
-    newDescribeFraudsterRegistrationJobResponse,
+    -- ** CreateDomain
+    CreateDomain (CreateDomain'),
+    newCreateDomain,
+    CreateDomainResponse (CreateDomainResponse'),
+    newCreateDomainResponse,
+
+    -- ** DeleteDomain
+    DeleteDomain (DeleteDomain'),
+    newDeleteDomain,
+    DeleteDomainResponse (DeleteDomainResponse'),
+    newDeleteDomainResponse,
+
+    -- ** DeleteFraudster
+    DeleteFraudster (DeleteFraudster'),
+    newDeleteFraudster,
+    DeleteFraudsterResponse (DeleteFraudsterResponse'),
+    newDeleteFraudsterResponse,
 
     -- ** DeleteSpeaker
     DeleteSpeaker (DeleteSpeaker'),
     newDeleteSpeaker,
     DeleteSpeakerResponse (DeleteSpeakerResponse'),
     newDeleteSpeakerResponse,
+
+    -- ** DescribeDomain
+    DescribeDomain (DescribeDomain'),
+    newDescribeDomain,
+    DescribeDomainResponse (DescribeDomainResponse'),
+    newDescribeDomainResponse,
+
+    -- ** DescribeFraudster
+    DescribeFraudster (DescribeFraudster'),
+    newDescribeFraudster,
+    DescribeFraudsterResponse (DescribeFraudsterResponse'),
+    newDescribeFraudsterResponse,
+
+    -- ** DescribeFraudsterRegistrationJob
+    DescribeFraudsterRegistrationJob (DescribeFraudsterRegistrationJob'),
+    newDescribeFraudsterRegistrationJob,
+    DescribeFraudsterRegistrationJobResponse (DescribeFraudsterRegistrationJobResponse'),
+    newDescribeFraudsterRegistrationJobResponse,
+
+    -- ** DescribeSpeaker
+    DescribeSpeaker (DescribeSpeaker'),
+    newDescribeSpeaker,
+    DescribeSpeakerResponse (DescribeSpeakerResponse'),
+    newDescribeSpeakerResponse,
+
+    -- ** DescribeSpeakerEnrollmentJob
+    DescribeSpeakerEnrollmentJob (DescribeSpeakerEnrollmentJob'),
+    newDescribeSpeakerEnrollmentJob,
+    DescribeSpeakerEnrollmentJobResponse (DescribeSpeakerEnrollmentJobResponse'),
+    newDescribeSpeakerEnrollmentJobResponse,
+
+    -- ** EvaluateSession
+    EvaluateSession (EvaluateSession'),
+    newEvaluateSession,
+    EvaluateSessionResponse (EvaluateSessionResponse'),
+    newEvaluateSessionResponse,
+
+    -- ** ListDomains
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
+
+    -- ** ListFraudsterRegistrationJobs
+    ListFraudsterRegistrationJobs (ListFraudsterRegistrationJobs'),
+    newListFraudsterRegistrationJobs,
+    ListFraudsterRegistrationJobsResponse (ListFraudsterRegistrationJobsResponse'),
+    newListFraudsterRegistrationJobsResponse,
+
+    -- ** ListSpeakerEnrollmentJobs
+    ListSpeakerEnrollmentJobs (ListSpeakerEnrollmentJobs'),
+    newListSpeakerEnrollmentJobs,
+    ListSpeakerEnrollmentJobsResponse (ListSpeakerEnrollmentJobsResponse'),
+    newListSpeakerEnrollmentJobsResponse,
 
     -- ** ListSpeakers
     ListSpeakers (ListSpeakers'),
@@ -71,47 +137,11 @@ module Amazonka.VoiceId
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** EvaluateSession
-    EvaluateSession (EvaluateSession'),
-    newEvaluateSession,
-    EvaluateSessionResponse (EvaluateSessionResponse'),
-    newEvaluateSessionResponse,
-
-    -- ** DescribeSpeakerEnrollmentJob
-    DescribeSpeakerEnrollmentJob (DescribeSpeakerEnrollmentJob'),
-    newDescribeSpeakerEnrollmentJob,
-    DescribeSpeakerEnrollmentJobResponse (DescribeSpeakerEnrollmentJobResponse'),
-    newDescribeSpeakerEnrollmentJobResponse,
-
-    -- ** DeleteFraudster
-    DeleteFraudster (DeleteFraudster'),
-    newDeleteFraudster,
-    DeleteFraudsterResponse (DeleteFraudsterResponse'),
-    newDeleteFraudsterResponse,
-
-    -- ** ListFraudsterRegistrationJobs
-    ListFraudsterRegistrationJobs (ListFraudsterRegistrationJobs'),
-    newListFraudsterRegistrationJobs,
-    ListFraudsterRegistrationJobsResponse (ListFraudsterRegistrationJobsResponse'),
-    newListFraudsterRegistrationJobsResponse,
-
-    -- ** DescribeFraudster
-    DescribeFraudster (DescribeFraudster'),
-    newDescribeFraudster,
-    DescribeFraudsterResponse (DescribeFraudsterResponse'),
-    newDescribeFraudsterResponse,
-
-    -- ** ListSpeakerEnrollmentJobs
-    ListSpeakerEnrollmentJobs (ListSpeakerEnrollmentJobs'),
-    newListSpeakerEnrollmentJobs,
-    ListSpeakerEnrollmentJobsResponse (ListSpeakerEnrollmentJobsResponse'),
-    newListSpeakerEnrollmentJobsResponse,
-
-    -- ** CreateDomain
-    CreateDomain (CreateDomain'),
-    newCreateDomain,
-    CreateDomainResponse (CreateDomainResponse'),
-    newCreateDomainResponse,
+    -- ** OptOutSpeaker
+    OptOutSpeaker (OptOutSpeaker'),
+    newOptOutSpeaker,
+    OptOutSpeakerResponse (OptOutSpeakerResponse'),
+    newOptOutSpeakerResponse,
 
     -- ** StartFraudsterRegistrationJob
     StartFraudsterRegistrationJob (StartFraudsterRegistrationJob'),
@@ -119,11 +149,11 @@ module Amazonka.VoiceId
     StartFraudsterRegistrationJobResponse (StartFraudsterRegistrationJobResponse'),
     newStartFraudsterRegistrationJobResponse,
 
-    -- ** DescribeDomain
-    DescribeDomain (DescribeDomain'),
-    newDescribeDomain,
-    DescribeDomainResponse (DescribeDomainResponse'),
-    newDescribeDomainResponse,
+    -- ** StartSpeakerEnrollmentJob
+    StartSpeakerEnrollmentJob (StartSpeakerEnrollmentJob'),
+    newStartSpeakerEnrollmentJob,
+    StartSpeakerEnrollmentJobResponse (StartSpeakerEnrollmentJobResponse'),
+    newStartSpeakerEnrollmentJobResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -131,47 +161,17 @@ module Amazonka.VoiceId
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** StartSpeakerEnrollmentJob
-    StartSpeakerEnrollmentJob (StartSpeakerEnrollmentJob'),
-    newStartSpeakerEnrollmentJob,
-    StartSpeakerEnrollmentJobResponse (StartSpeakerEnrollmentJobResponse'),
-    newStartSpeakerEnrollmentJobResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** OptOutSpeaker
-    OptOutSpeaker (OptOutSpeaker'),
-    newOptOutSpeaker,
-    OptOutSpeakerResponse (OptOutSpeakerResponse'),
-    newOptOutSpeakerResponse,
-
-    -- ** DescribeSpeaker
-    DescribeSpeaker (DescribeSpeaker'),
-    newDescribeSpeaker,
-    DescribeSpeakerResponse (DescribeSpeakerResponse'),
-    newDescribeSpeakerResponse,
-
-    -- ** DeleteDomain
-    DeleteDomain (DeleteDomain'),
-    newDeleteDomain,
-    DeleteDomainResponse (DeleteDomainResponse'),
-    newDeleteDomainResponse,
-
     -- ** UpdateDomain
     UpdateDomain (UpdateDomain'),
     newUpdateDomain,
     UpdateDomainResponse (UpdateDomainResponse'),
     newUpdateDomainResponse,
-
-    -- ** ListDomains
-    ListDomains (ListDomains'),
-    newListDomains,
-    ListDomainsResponse (ListDomainsResponse'),
-    newListDomainsResponse,
 
     -- * Types
 

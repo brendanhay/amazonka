@@ -30,9 +30,9 @@ module Amazonka.S3.GetObjectLegalHold
     newGetObjectLegalHold,
 
     -- * Request Lenses
-    getObjectLegalHold_versionId,
-    getObjectLegalHold_requestPayer,
     getObjectLegalHold_expectedBucketOwner,
+    getObjectLegalHold_requestPayer,
+    getObjectLegalHold_versionId,
     getObjectLegalHold_bucket,
     getObjectLegalHold_key,
 
@@ -55,14 +55,14 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newGetObjectLegalHold' smart constructor.
 data GetObjectLegalHold = GetObjectLegalHold'
-  { -- | The version ID of the object whose Legal Hold status you want to
-    -- retrieve.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The version ID of the object whose Legal Hold status you want to
+    -- retrieve.
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name containing the object whose Legal Hold status you want
     -- to retrieve.
     --
@@ -89,14 +89,14 @@ data GetObjectLegalHold = GetObjectLegalHold'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'getObjectLegalHold_versionId' - The version ID of the object whose Legal Hold status you want to
--- retrieve.
---
--- 'requestPayer', 'getObjectLegalHold_requestPayer' - Undocumented member.
---
 -- 'expectedBucketOwner', 'getObjectLegalHold_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'requestPayer', 'getObjectLegalHold_requestPayer' - Undocumented member.
+--
+-- 'versionId', 'getObjectLegalHold_versionId' - The version ID of the object whose Legal Hold status you want to
+-- retrieve.
 --
 -- 'bucket', 'getObjectLegalHold_bucket' - The bucket name containing the object whose Legal Hold status you want
 -- to retrieve.
@@ -120,27 +120,28 @@ newGetObjectLegalHold ::
   GetObjectLegalHold
 newGetObjectLegalHold pBucket_ pKey_ =
   GetObjectLegalHold'
-    { versionId = Prelude.Nothing,
+    { expectedBucketOwner =
+        Prelude.Nothing,
       requestPayer = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
-
--- | The version ID of the object whose Legal Hold status you want to
--- retrieve.
-getObjectLegalHold_versionId :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe ObjectVersionId)
-getObjectLegalHold_versionId = Lens.lens (\GetObjectLegalHold' {versionId} -> versionId) (\s@GetObjectLegalHold' {} a -> s {versionId = a} :: GetObjectLegalHold)
-
--- | Undocumented member.
-getObjectLegalHold_requestPayer :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe RequestPayer)
-getObjectLegalHold_requestPayer = Lens.lens (\GetObjectLegalHold' {requestPayer} -> requestPayer) (\s@GetObjectLegalHold' {} a -> s {requestPayer = a} :: GetObjectLegalHold)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getObjectLegalHold_expectedBucketOwner :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe Prelude.Text)
 getObjectLegalHold_expectedBucketOwner = Lens.lens (\GetObjectLegalHold' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectLegalHold' {} a -> s {expectedBucketOwner = a} :: GetObjectLegalHold)
+
+-- | Undocumented member.
+getObjectLegalHold_requestPayer :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe RequestPayer)
+getObjectLegalHold_requestPayer = Lens.lens (\GetObjectLegalHold' {requestPayer} -> requestPayer) (\s@GetObjectLegalHold' {} a -> s {requestPayer = a} :: GetObjectLegalHold)
+
+-- | The version ID of the object whose Legal Hold status you want to
+-- retrieve.
+getObjectLegalHold_versionId :: Lens.Lens' GetObjectLegalHold (Prelude.Maybe ObjectVersionId)
+getObjectLegalHold_versionId = Lens.lens (\GetObjectLegalHold' {versionId} -> versionId) (\s@GetObjectLegalHold' {} a -> s {versionId = a} :: GetObjectLegalHold)
 
 -- | The bucket name containing the object whose Legal Hold status you want
 -- to retrieve.
@@ -178,26 +179,26 @@ instance Core.AWSRequest GetObjectLegalHold where
 
 instance Prelude.Hashable GetObjectLegalHold where
   hashWithSalt _salt GetObjectLegalHold' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData GetObjectLegalHold where
   rnf GetObjectLegalHold' {..} =
-    Prelude.rnf versionId
+    Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
 instance Core.ToHeaders GetObjectLegalHold where
   toHeaders GetObjectLegalHold' {..} =
     Prelude.mconcat
-      [ "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
 instance Core.ToPath GetObjectLegalHold where

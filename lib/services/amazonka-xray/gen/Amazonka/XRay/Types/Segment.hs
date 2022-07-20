@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSegment' smart constructor.
 data Segment = Segment'
-  { -- | The segment document.
-    document :: Prelude.Maybe Prelude.Text,
-    -- | The segment\'s ID.
-    id :: Prelude.Maybe Prelude.Text
+  { -- | The segment\'s ID.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The segment document.
+    document :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,24 +50,24 @@ data Segment = Segment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'document', 'segment_document' - The segment document.
---
 -- 'id', 'segment_id' - The segment\'s ID.
+--
+-- 'document', 'segment_document' - The segment document.
 newSegment ::
   Segment
 newSegment =
   Segment'
-    { document = Prelude.Nothing,
-      id = Prelude.Nothing
+    { id = Prelude.Nothing,
+      document = Prelude.Nothing
     }
-
--- | The segment document.
-segment_document :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
-segment_document = Lens.lens (\Segment' {document} -> document) (\s@Segment' {} a -> s {document = a} :: Segment)
 
 -- | The segment\'s ID.
 segment_id :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
 segment_id = Lens.lens (\Segment' {id} -> id) (\s@Segment' {} a -> s {id = a} :: Segment)
+
+-- | The segment document.
+segment_document :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
+segment_document = Lens.lens (\Segment' {document} -> document) (\s@Segment' {} a -> s {document = a} :: Segment)
 
 instance Core.FromJSON Segment where
   parseJSON =
@@ -75,15 +75,15 @@ instance Core.FromJSON Segment where
       "Segment"
       ( \x ->
           Segment'
-            Prelude.<$> (x Core..:? "Document")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Document")
       )
 
 instance Prelude.Hashable Segment where
   hashWithSalt _salt Segment' {..} =
-    _salt `Prelude.hashWithSalt` document
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` document
 
 instance Prelude.NFData Segment where
   rnf Segment' {..} =
-    Prelude.rnf document `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id `Prelude.seq` Prelude.rnf document

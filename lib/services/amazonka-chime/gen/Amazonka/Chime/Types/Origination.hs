@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrigination' smart constructor.
 data Origination = Origination'
-  { -- | The call distribution properties defined for your SIP hosts. Valid
-    -- range: Minimum value of 1. Maximum value of 20. This parameter is not
-    -- required, but you must specify this parameter or @Disabled@.
-    routes :: Prelude.Maybe [OriginationRoute],
-    -- | When origination settings are disabled, inbound calls are not enabled
+  { -- | When origination settings are disabled, inbound calls are not enabled
     -- for your Amazon Chime Voice Connector. This parameter is not required,
     -- but you must specify this parameter or @Routes@.
-    disabled :: Prelude.Maybe Prelude.Bool
+    disabled :: Prelude.Maybe Prelude.Bool,
+    -- | The call distribution properties defined for your SIP hosts. Valid
+    -- range: Minimum value of 1. Maximum value of 20. This parameter is not
+    -- required, but you must specify this parameter or @Disabled@.
+    routes :: Prelude.Maybe [OriginationRoute]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,26 +51,20 @@ data Origination = Origination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routes', 'origination_routes' - The call distribution properties defined for your SIP hosts. Valid
--- range: Minimum value of 1. Maximum value of 20. This parameter is not
--- required, but you must specify this parameter or @Disabled@.
---
 -- 'disabled', 'origination_disabled' - When origination settings are disabled, inbound calls are not enabled
 -- for your Amazon Chime Voice Connector. This parameter is not required,
 -- but you must specify this parameter or @Routes@.
+--
+-- 'routes', 'origination_routes' - The call distribution properties defined for your SIP hosts. Valid
+-- range: Minimum value of 1. Maximum value of 20. This parameter is not
+-- required, but you must specify this parameter or @Disabled@.
 newOrigination ::
   Origination
 newOrigination =
   Origination'
-    { routes = Prelude.Nothing,
-      disabled = Prelude.Nothing
+    { disabled = Prelude.Nothing,
+      routes = Prelude.Nothing
     }
-
--- | The call distribution properties defined for your SIP hosts. Valid
--- range: Minimum value of 1. Maximum value of 20. This parameter is not
--- required, but you must specify this parameter or @Disabled@.
-origination_routes :: Lens.Lens' Origination (Prelude.Maybe [OriginationRoute])
-origination_routes = Lens.lens (\Origination' {routes} -> routes) (\s@Origination' {} a -> s {routes = a} :: Origination) Prelude.. Lens.mapping Lens.coerced
 
 -- | When origination settings are disabled, inbound calls are not enabled
 -- for your Amazon Chime Voice Connector. This parameter is not required,
@@ -78,31 +72,37 @@ origination_routes = Lens.lens (\Origination' {routes} -> routes) (\s@Originatio
 origination_disabled :: Lens.Lens' Origination (Prelude.Maybe Prelude.Bool)
 origination_disabled = Lens.lens (\Origination' {disabled} -> disabled) (\s@Origination' {} a -> s {disabled = a} :: Origination)
 
+-- | The call distribution properties defined for your SIP hosts. Valid
+-- range: Minimum value of 1. Maximum value of 20. This parameter is not
+-- required, but you must specify this parameter or @Disabled@.
+origination_routes :: Lens.Lens' Origination (Prelude.Maybe [OriginationRoute])
+origination_routes = Lens.lens (\Origination' {routes} -> routes) (\s@Origination' {} a -> s {routes = a} :: Origination) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON Origination where
   parseJSON =
     Core.withObject
       "Origination"
       ( \x ->
           Origination'
-            Prelude.<$> (x Core..:? "Routes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Disabled")
+            Prelude.<$> (x Core..:? "Disabled")
+            Prelude.<*> (x Core..:? "Routes" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Origination where
   hashWithSalt _salt Origination' {..} =
-    _salt `Prelude.hashWithSalt` routes
-      `Prelude.hashWithSalt` disabled
+    _salt `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` routes
 
 instance Prelude.NFData Origination where
   rnf Origination' {..} =
-    Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf disabled
+    Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf routes
 
 instance Core.ToJSON Origination where
   toJSON Origination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Routes" Core..=) Prelude.<$> routes,
-            ("Disabled" Core..=) Prelude.<$> disabled
+          [ ("Disabled" Core..=) Prelude.<$> disabled,
+            ("Routes" Core..=) Prelude.<$> routes
           ]
       )

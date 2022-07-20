@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 data EbsInfo = EbsInfo'
   { -- | Describes the optimized EBS performance for the instance type.
     ebsOptimizedInfo :: Prelude.Maybe EbsOptimizedInfo,
-    -- | Indicates whether Amazon EBS encryption is supported.
-    encryptionSupport :: Prelude.Maybe EbsEncryptionSupport,
+    -- | Indicates whether non-volatile memory express (NVMe) is supported.
+    nvmeSupport :: Prelude.Maybe EbsNvmeSupport,
     -- | Indicates whether the instance type is Amazon EBS-optimized. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-optimized instances>
     -- in /Amazon EC2 User Guide/.
     ebsOptimizedSupport :: Prelude.Maybe EbsOptimizedSupport,
-    -- | Indicates whether non-volatile memory express (NVMe) is supported.
-    nvmeSupport :: Prelude.Maybe EbsNvmeSupport
+    -- | Indicates whether Amazon EBS encryption is supported.
+    encryptionSupport :: Prelude.Maybe EbsEncryptionSupport
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,31 +56,31 @@ data EbsInfo = EbsInfo'
 --
 -- 'ebsOptimizedInfo', 'ebsInfo_ebsOptimizedInfo' - Describes the optimized EBS performance for the instance type.
 --
--- 'encryptionSupport', 'ebsInfo_encryptionSupport' - Indicates whether Amazon EBS encryption is supported.
+-- 'nvmeSupport', 'ebsInfo_nvmeSupport' - Indicates whether non-volatile memory express (NVMe) is supported.
 --
 -- 'ebsOptimizedSupport', 'ebsInfo_ebsOptimizedSupport' - Indicates whether the instance type is Amazon EBS-optimized. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-optimized instances>
 -- in /Amazon EC2 User Guide/.
 --
--- 'nvmeSupport', 'ebsInfo_nvmeSupport' - Indicates whether non-volatile memory express (NVMe) is supported.
+-- 'encryptionSupport', 'ebsInfo_encryptionSupport' - Indicates whether Amazon EBS encryption is supported.
 newEbsInfo ::
   EbsInfo
 newEbsInfo =
   EbsInfo'
     { ebsOptimizedInfo = Prelude.Nothing,
-      encryptionSupport = Prelude.Nothing,
+      nvmeSupport = Prelude.Nothing,
       ebsOptimizedSupport = Prelude.Nothing,
-      nvmeSupport = Prelude.Nothing
+      encryptionSupport = Prelude.Nothing
     }
 
 -- | Describes the optimized EBS performance for the instance type.
 ebsInfo_ebsOptimizedInfo :: Lens.Lens' EbsInfo (Prelude.Maybe EbsOptimizedInfo)
 ebsInfo_ebsOptimizedInfo = Lens.lens (\EbsInfo' {ebsOptimizedInfo} -> ebsOptimizedInfo) (\s@EbsInfo' {} a -> s {ebsOptimizedInfo = a} :: EbsInfo)
 
--- | Indicates whether Amazon EBS encryption is supported.
-ebsInfo_encryptionSupport :: Lens.Lens' EbsInfo (Prelude.Maybe EbsEncryptionSupport)
-ebsInfo_encryptionSupport = Lens.lens (\EbsInfo' {encryptionSupport} -> encryptionSupport) (\s@EbsInfo' {} a -> s {encryptionSupport = a} :: EbsInfo)
+-- | Indicates whether non-volatile memory express (NVMe) is supported.
+ebsInfo_nvmeSupport :: Lens.Lens' EbsInfo (Prelude.Maybe EbsNvmeSupport)
+ebsInfo_nvmeSupport = Lens.lens (\EbsInfo' {nvmeSupport} -> nvmeSupport) (\s@EbsInfo' {} a -> s {nvmeSupport = a} :: EbsInfo)
 
 -- | Indicates whether the instance type is Amazon EBS-optimized. For more
 -- information, see
@@ -89,28 +89,28 @@ ebsInfo_encryptionSupport = Lens.lens (\EbsInfo' {encryptionSupport} -> encrypti
 ebsInfo_ebsOptimizedSupport :: Lens.Lens' EbsInfo (Prelude.Maybe EbsOptimizedSupport)
 ebsInfo_ebsOptimizedSupport = Lens.lens (\EbsInfo' {ebsOptimizedSupport} -> ebsOptimizedSupport) (\s@EbsInfo' {} a -> s {ebsOptimizedSupport = a} :: EbsInfo)
 
--- | Indicates whether non-volatile memory express (NVMe) is supported.
-ebsInfo_nvmeSupport :: Lens.Lens' EbsInfo (Prelude.Maybe EbsNvmeSupport)
-ebsInfo_nvmeSupport = Lens.lens (\EbsInfo' {nvmeSupport} -> nvmeSupport) (\s@EbsInfo' {} a -> s {nvmeSupport = a} :: EbsInfo)
+-- | Indicates whether Amazon EBS encryption is supported.
+ebsInfo_encryptionSupport :: Lens.Lens' EbsInfo (Prelude.Maybe EbsEncryptionSupport)
+ebsInfo_encryptionSupport = Lens.lens (\EbsInfo' {encryptionSupport} -> encryptionSupport) (\s@EbsInfo' {} a -> s {encryptionSupport = a} :: EbsInfo)
 
 instance Core.FromXML EbsInfo where
   parseXML x =
     EbsInfo'
       Prelude.<$> (x Core..@? "ebsOptimizedInfo")
-      Prelude.<*> (x Core..@? "encryptionSupport")
-      Prelude.<*> (x Core..@? "ebsOptimizedSupport")
       Prelude.<*> (x Core..@? "nvmeSupport")
+      Prelude.<*> (x Core..@? "ebsOptimizedSupport")
+      Prelude.<*> (x Core..@? "encryptionSupport")
 
 instance Prelude.Hashable EbsInfo where
   hashWithSalt _salt EbsInfo' {..} =
     _salt `Prelude.hashWithSalt` ebsOptimizedInfo
-      `Prelude.hashWithSalt` encryptionSupport
-      `Prelude.hashWithSalt` ebsOptimizedSupport
       `Prelude.hashWithSalt` nvmeSupport
+      `Prelude.hashWithSalt` ebsOptimizedSupport
+      `Prelude.hashWithSalt` encryptionSupport
 
 instance Prelude.NFData EbsInfo where
   rnf EbsInfo' {..} =
     Prelude.rnf ebsOptimizedInfo
-      `Prelude.seq` Prelude.rnf encryptionSupport
-      `Prelude.seq` Prelude.rnf ebsOptimizedSupport
       `Prelude.seq` Prelude.rnf nvmeSupport
+      `Prelude.seq` Prelude.rnf ebsOptimizedSupport
+      `Prelude.seq` Prelude.rnf encryptionSupport

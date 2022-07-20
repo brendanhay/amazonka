@@ -29,7 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHandshakeFilter' smart constructor.
 data HandshakeFilter = HandshakeFilter'
-  { -- | Specifies the parent handshake. Only used for handshake types that are a
+  { -- | Specifies the type of handshake action.
+    --
+    -- If you specify @ActionType@, you cannot also specify
+    -- @ParentHandshakeId@.
+    actionType :: Prelude.Maybe ActionType,
+    -- | Specifies the parent handshake. Only used for handshake types that are a
     -- child of another type.
     --
     -- If you specify @ParentHandshakeId@, you cannot also specify
@@ -38,12 +43,7 @@ data HandshakeFilter = HandshakeFilter'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    parentHandshakeId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the type of handshake action.
-    --
-    -- If you specify @ActionType@, you cannot also specify
-    -- @ParentHandshakeId@.
-    actionType :: Prelude.Maybe ActionType
+    parentHandshakeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,11 @@ data HandshakeFilter = HandshakeFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionType', 'handshakeFilter_actionType' - Specifies the type of handshake action.
+--
+-- If you specify @ActionType@, you cannot also specify
+-- @ParentHandshakeId@.
+--
 -- 'parentHandshakeId', 'handshakeFilter_parentHandshakeId' - Specifies the parent handshake. Only used for handshake types that are a
 -- child of another type.
 --
@@ -64,19 +69,20 @@ data HandshakeFilter = HandshakeFilter'
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
---
--- 'actionType', 'handshakeFilter_actionType' - Specifies the type of handshake action.
---
--- If you specify @ActionType@, you cannot also specify
--- @ParentHandshakeId@.
 newHandshakeFilter ::
   HandshakeFilter
 newHandshakeFilter =
   HandshakeFilter'
-    { parentHandshakeId =
-        Prelude.Nothing,
-      actionType = Prelude.Nothing
+    { actionType = Prelude.Nothing,
+      parentHandshakeId = Prelude.Nothing
     }
+
+-- | Specifies the type of handshake action.
+--
+-- If you specify @ActionType@, you cannot also specify
+-- @ParentHandshakeId@.
+handshakeFilter_actionType :: Lens.Lens' HandshakeFilter (Prelude.Maybe ActionType)
+handshakeFilter_actionType = Lens.lens (\HandshakeFilter' {actionType} -> actionType) (\s@HandshakeFilter' {} a -> s {actionType = a} :: HandshakeFilter)
 
 -- | Specifies the parent handshake. Only used for handshake types that are a
 -- child of another type.
@@ -90,29 +96,22 @@ newHandshakeFilter =
 handshakeFilter_parentHandshakeId :: Lens.Lens' HandshakeFilter (Prelude.Maybe Prelude.Text)
 handshakeFilter_parentHandshakeId = Lens.lens (\HandshakeFilter' {parentHandshakeId} -> parentHandshakeId) (\s@HandshakeFilter' {} a -> s {parentHandshakeId = a} :: HandshakeFilter)
 
--- | Specifies the type of handshake action.
---
--- If you specify @ActionType@, you cannot also specify
--- @ParentHandshakeId@.
-handshakeFilter_actionType :: Lens.Lens' HandshakeFilter (Prelude.Maybe ActionType)
-handshakeFilter_actionType = Lens.lens (\HandshakeFilter' {actionType} -> actionType) (\s@HandshakeFilter' {} a -> s {actionType = a} :: HandshakeFilter)
-
 instance Prelude.Hashable HandshakeFilter where
   hashWithSalt _salt HandshakeFilter' {..} =
-    _salt `Prelude.hashWithSalt` parentHandshakeId
-      `Prelude.hashWithSalt` actionType
+    _salt `Prelude.hashWithSalt` actionType
+      `Prelude.hashWithSalt` parentHandshakeId
 
 instance Prelude.NFData HandshakeFilter where
   rnf HandshakeFilter' {..} =
-    Prelude.rnf parentHandshakeId
-      `Prelude.seq` Prelude.rnf actionType
+    Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf parentHandshakeId
 
 instance Core.ToJSON HandshakeFilter where
   toJSON HandshakeFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParentHandshakeId" Core..=)
-              Prelude.<$> parentHandshakeId,
-            ("ActionType" Core..=) Prelude.<$> actionType
+          [ ("ActionType" Core..=) Prelude.<$> actionType,
+            ("ParentHandshakeId" Core..=)
+              Prelude.<$> parentHandshakeId
           ]
       )

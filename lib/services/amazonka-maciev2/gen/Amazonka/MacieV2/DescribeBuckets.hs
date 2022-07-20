@@ -40,8 +40,8 @@ module Amazonka.MacieV2.DescribeBuckets
     newDescribeBucketsResponse,
 
     -- * Response Lenses
-    describeBucketsResponse_buckets,
     describeBucketsResponse_nextToken,
+    describeBucketsResponse_buckets,
     describeBucketsResponse_httpStatus,
   )
 where
@@ -143,8 +143,8 @@ instance Core.AWSRequest DescribeBuckets where
     Response.receiveJSON
       ( \s h x ->
           DescribeBucketsResponse'
-            Prelude.<$> (x Core..?> "buckets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,13 +192,13 @@ instance Core.ToQuery DescribeBuckets where
 
 -- | /See:/ 'newDescribeBucketsResponse' smart constructor.
 data DescribeBucketsResponse = DescribeBucketsResponse'
-  { -- | An array of objects, one for each bucket that meets the filter criteria
-    -- specified in the request.
-    buckets :: Prelude.Maybe [BucketMetadata],
-    -- | The string to use in a subsequent request to get the next page of
+  { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects, one for each bucket that meets the filter criteria
+    -- specified in the request.
+    buckets :: Prelude.Maybe [BucketMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,12 +212,12 @@ data DescribeBucketsResponse = DescribeBucketsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'buckets', 'describeBucketsResponse_buckets' - An array of objects, one for each bucket that meets the filter criteria
--- specified in the request.
---
 -- 'nextToken', 'describeBucketsResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
+--
+-- 'buckets', 'describeBucketsResponse_buckets' - An array of objects, one for each bucket that meets the filter criteria
+-- specified in the request.
 --
 -- 'httpStatus', 'describeBucketsResponse_httpStatus' - The response's http status code.
 newDescribeBucketsResponse ::
@@ -226,15 +226,11 @@ newDescribeBucketsResponse ::
   DescribeBucketsResponse
 newDescribeBucketsResponse pHttpStatus_ =
   DescribeBucketsResponse'
-    { buckets = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      buckets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects, one for each bucket that meets the filter criteria
--- specified in the request.
-describeBucketsResponse_buckets :: Lens.Lens' DescribeBucketsResponse (Prelude.Maybe [BucketMetadata])
-describeBucketsResponse_buckets = Lens.lens (\DescribeBucketsResponse' {buckets} -> buckets) (\s@DescribeBucketsResponse' {} a -> s {buckets = a} :: DescribeBucketsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -242,12 +238,17 @@ describeBucketsResponse_buckets = Lens.lens (\DescribeBucketsResponse' {buckets}
 describeBucketsResponse_nextToken :: Lens.Lens' DescribeBucketsResponse (Prelude.Maybe Prelude.Text)
 describeBucketsResponse_nextToken = Lens.lens (\DescribeBucketsResponse' {nextToken} -> nextToken) (\s@DescribeBucketsResponse' {} a -> s {nextToken = a} :: DescribeBucketsResponse)
 
+-- | An array of objects, one for each bucket that meets the filter criteria
+-- specified in the request.
+describeBucketsResponse_buckets :: Lens.Lens' DescribeBucketsResponse (Prelude.Maybe [BucketMetadata])
+describeBucketsResponse_buckets = Lens.lens (\DescribeBucketsResponse' {buckets} -> buckets) (\s@DescribeBucketsResponse' {} a -> s {buckets = a} :: DescribeBucketsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeBucketsResponse_httpStatus :: Lens.Lens' DescribeBucketsResponse Prelude.Int
 describeBucketsResponse_httpStatus = Lens.lens (\DescribeBucketsResponse' {httpStatus} -> httpStatus) (\s@DescribeBucketsResponse' {} a -> s {httpStatus = a} :: DescribeBucketsResponse)
 
 instance Prelude.NFData DescribeBucketsResponse where
   rnf DescribeBucketsResponse' {..} =
-    Prelude.rnf buckets
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf buckets
       `Prelude.seq` Prelude.rnf httpStatus

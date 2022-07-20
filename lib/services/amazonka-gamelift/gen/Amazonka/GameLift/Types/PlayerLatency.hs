@@ -35,10 +35,10 @@ data PlayerLatency = PlayerLatency'
   { -- | Amount of time that represents the time lag experienced by the player
     -- when connected to the specified Region.
     latencyInMilliseconds :: Prelude.Maybe Prelude.Double,
-    -- | Name of the Region that is associated with the latency value.
-    regionIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a player associated with the latency data.
-    playerId :: Prelude.Maybe Prelude.Text
+    playerId :: Prelude.Maybe Prelude.Text,
+    -- | Name of the Region that is associated with the latency value.
+    regionIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,17 +53,17 @@ data PlayerLatency = PlayerLatency'
 -- 'latencyInMilliseconds', 'playerLatency_latencyInMilliseconds' - Amount of time that represents the time lag experienced by the player
 -- when connected to the specified Region.
 --
--- 'regionIdentifier', 'playerLatency_regionIdentifier' - Name of the Region that is associated with the latency value.
---
 -- 'playerId', 'playerLatency_playerId' - A unique identifier for a player associated with the latency data.
+--
+-- 'regionIdentifier', 'playerLatency_regionIdentifier' - Name of the Region that is associated with the latency value.
 newPlayerLatency ::
   PlayerLatency
 newPlayerLatency =
   PlayerLatency'
     { latencyInMilliseconds =
         Prelude.Nothing,
-      regionIdentifier = Prelude.Nothing,
-      playerId = Prelude.Nothing
+      playerId = Prelude.Nothing,
+      regionIdentifier = Prelude.Nothing
     }
 
 -- | Amount of time that represents the time lag experienced by the player
@@ -71,13 +71,13 @@ newPlayerLatency =
 playerLatency_latencyInMilliseconds :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Double)
 playerLatency_latencyInMilliseconds = Lens.lens (\PlayerLatency' {latencyInMilliseconds} -> latencyInMilliseconds) (\s@PlayerLatency' {} a -> s {latencyInMilliseconds = a} :: PlayerLatency)
 
--- | Name of the Region that is associated with the latency value.
-playerLatency_regionIdentifier :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Text)
-playerLatency_regionIdentifier = Lens.lens (\PlayerLatency' {regionIdentifier} -> regionIdentifier) (\s@PlayerLatency' {} a -> s {regionIdentifier = a} :: PlayerLatency)
-
 -- | A unique identifier for a player associated with the latency data.
 playerLatency_playerId :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Text)
 playerLatency_playerId = Lens.lens (\PlayerLatency' {playerId} -> playerId) (\s@PlayerLatency' {} a -> s {playerId = a} :: PlayerLatency)
+
+-- | Name of the Region that is associated with the latency value.
+playerLatency_regionIdentifier :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Text)
+playerLatency_regionIdentifier = Lens.lens (\PlayerLatency' {regionIdentifier} -> regionIdentifier) (\s@PlayerLatency' {} a -> s {regionIdentifier = a} :: PlayerLatency)
 
 instance Core.FromJSON PlayerLatency where
   parseJSON =
@@ -86,21 +86,21 @@ instance Core.FromJSON PlayerLatency where
       ( \x ->
           PlayerLatency'
             Prelude.<$> (x Core..:? "LatencyInMilliseconds")
-            Prelude.<*> (x Core..:? "RegionIdentifier")
             Prelude.<*> (x Core..:? "PlayerId")
+            Prelude.<*> (x Core..:? "RegionIdentifier")
       )
 
 instance Prelude.Hashable PlayerLatency where
   hashWithSalt _salt PlayerLatency' {..} =
     _salt `Prelude.hashWithSalt` latencyInMilliseconds
-      `Prelude.hashWithSalt` regionIdentifier
       `Prelude.hashWithSalt` playerId
+      `Prelude.hashWithSalt` regionIdentifier
 
 instance Prelude.NFData PlayerLatency where
   rnf PlayerLatency' {..} =
     Prelude.rnf latencyInMilliseconds
-      `Prelude.seq` Prelude.rnf regionIdentifier
       `Prelude.seq` Prelude.rnf playerId
+      `Prelude.seq` Prelude.rnf regionIdentifier
 
 instance Core.ToJSON PlayerLatency where
   toJSON PlayerLatency' {..} =
@@ -108,8 +108,8 @@ instance Core.ToJSON PlayerLatency where
       ( Prelude.catMaybes
           [ ("LatencyInMilliseconds" Core..=)
               Prelude.<$> latencyInMilliseconds,
+            ("PlayerId" Core..=) Prelude.<$> playerId,
             ("RegionIdentifier" Core..=)
-              Prelude.<$> regionIdentifier,
-            ("PlayerId" Core..=) Prelude.<$> playerId
+              Prelude.<$> regionIdentifier
           ]
       )

@@ -17,11 +17,11 @@ module Amazonka.Athena.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
     _MetadataException,
-    _TooManyRequestsException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _TooManyRequestsException,
+    _InvalidRequestException,
 
     -- * ColumnNullable
     ColumnNullable (..),
@@ -51,36 +51,36 @@ module Amazonka.Athena.Types
     -- * ColumnInfo
     ColumnInfo (..),
     newColumnInfo,
-    columnInfo_scale,
-    columnInfo_precision,
-    columnInfo_schemaName,
-    columnInfo_catalogName,
-    columnInfo_caseSensitive,
-    columnInfo_label,
     columnInfo_tableName,
+    columnInfo_catalogName,
+    columnInfo_label,
+    columnInfo_caseSensitive,
+    columnInfo_schemaName,
     columnInfo_nullable,
+    columnInfo_precision,
+    columnInfo_scale,
     columnInfo_name,
     columnInfo_type,
 
     -- * DataCatalog
     DataCatalog (..),
     newDataCatalog,
-    dataCatalog_parameters,
     dataCatalog_description,
+    dataCatalog_parameters,
     dataCatalog_name,
     dataCatalog_type,
 
     -- * DataCatalogSummary
     DataCatalogSummary (..),
     newDataCatalogSummary,
-    dataCatalogSummary_catalogName,
     dataCatalogSummary_type,
+    dataCatalogSummary_catalogName,
 
     -- * Database
     Database (..),
     newDatabase,
-    database_parameters,
     database_description,
+    database_parameters,
     database_name,
 
     -- * Datum
@@ -97,15 +97,15 @@ module Amazonka.Athena.Types
     -- * EngineVersion
     EngineVersion (..),
     newEngineVersion,
-    engineVersion_effectiveEngineVersion,
     engineVersion_selectedEngineVersion,
+    engineVersion_effectiveEngineVersion,
 
     -- * NamedQuery
     NamedQuery (..),
     newNamedQuery,
-    namedQuery_namedQueryId,
-    namedQuery_description,
     namedQuery_workGroup,
+    namedQuery_description,
+    namedQuery_namedQueryId,
     namedQuery_name,
     namedQuery_database,
     namedQuery_queryString,
@@ -113,11 +113,11 @@ module Amazonka.Athena.Types
     -- * PreparedStatement
     PreparedStatement (..),
     newPreparedStatement,
+    preparedStatement_workGroupName,
+    preparedStatement_description,
     preparedStatement_lastModifiedTime,
     preparedStatement_queryStatement,
     preparedStatement_statementName,
-    preparedStatement_description,
-    preparedStatement_workGroupName,
 
     -- * PreparedStatementSummary
     PreparedStatementSummary (..),
@@ -128,54 +128,54 @@ module Amazonka.Athena.Types
     -- * QueryExecution
     QueryExecution (..),
     newQueryExecution,
-    queryExecution_engineVersion,
+    queryExecution_queryExecutionId,
+    queryExecution_statistics,
+    queryExecution_statementType,
+    queryExecution_workGroup,
     queryExecution_status,
-    queryExecution_queryExecutionContext,
     queryExecution_resultConfiguration,
     queryExecution_query,
-    queryExecution_statementType,
-    queryExecution_statistics,
-    queryExecution_queryExecutionId,
-    queryExecution_workGroup,
+    queryExecution_queryExecutionContext,
+    queryExecution_engineVersion,
 
     -- * QueryExecutionContext
     QueryExecutionContext (..),
     newQueryExecutionContext,
-    queryExecutionContext_database,
     queryExecutionContext_catalog,
+    queryExecutionContext_database,
 
     -- * QueryExecutionStatistics
     QueryExecutionStatistics (..),
     newQueryExecutionStatistics,
+    queryExecutionStatistics_dataScannedInBytes,
+    queryExecutionStatistics_queryQueueTimeInMillis,
+    queryExecutionStatistics_serviceProcessingTimeInMillis,
+    queryExecutionStatistics_dataManifestLocation,
     queryExecutionStatistics_totalExecutionTimeInMillis,
     queryExecutionStatistics_engineExecutionTimeInMillis,
     queryExecutionStatistics_queryPlanningTimeInMillis,
-    queryExecutionStatistics_dataScannedInBytes,
-    queryExecutionStatistics_queryQueueTimeInMillis,
-    queryExecutionStatistics_dataManifestLocation,
-    queryExecutionStatistics_serviceProcessingTimeInMillis,
 
     -- * QueryExecutionStatus
     QueryExecutionStatus (..),
     newQueryExecutionStatus,
-    queryExecutionStatus_state,
     queryExecutionStatus_stateChangeReason,
     queryExecutionStatus_submissionDateTime,
+    queryExecutionStatus_state,
     queryExecutionStatus_completionDateTime,
 
     -- * ResultConfiguration
     ResultConfiguration (..),
     newResultConfiguration,
-    resultConfiguration_encryptionConfiguration,
     resultConfiguration_outputLocation,
+    resultConfiguration_encryptionConfiguration,
 
     -- * ResultConfigurationUpdates
     ResultConfigurationUpdates (..),
     newResultConfigurationUpdates,
-    resultConfigurationUpdates_removeOutputLocation,
     resultConfigurationUpdates_removeEncryptionConfiguration,
-    resultConfigurationUpdates_encryptionConfiguration,
     resultConfigurationUpdates_outputLocation,
+    resultConfigurationUpdates_removeOutputLocation,
+    resultConfigurationUpdates_encryptionConfiguration,
 
     -- * ResultSet
     ResultSet (..),
@@ -196,72 +196,72 @@ module Amazonka.Athena.Types
     -- * TableMetadata
     TableMetadata (..),
     newTableMetadata,
-    tableMetadata_tableType,
-    tableMetadata_parameters,
     tableMetadata_columns,
     tableMetadata_lastAccessTime,
     tableMetadata_partitionKeys,
+    tableMetadata_tableType,
     tableMetadata_createTime,
+    tableMetadata_parameters,
     tableMetadata_name,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
 
     -- * UnprocessedNamedQueryId
     UnprocessedNamedQueryId (..),
     newUnprocessedNamedQueryId,
-    unprocessedNamedQueryId_namedQueryId,
-    unprocessedNamedQueryId_errorCode,
     unprocessedNamedQueryId_errorMessage,
+    unprocessedNamedQueryId_errorCode,
+    unprocessedNamedQueryId_namedQueryId,
 
     -- * UnprocessedQueryExecutionId
     UnprocessedQueryExecutionId (..),
     newUnprocessedQueryExecutionId,
-    unprocessedQueryExecutionId_errorCode,
     unprocessedQueryExecutionId_queryExecutionId,
     unprocessedQueryExecutionId_errorMessage,
+    unprocessedQueryExecutionId_errorCode,
 
     -- * WorkGroup
     WorkGroup (..),
     newWorkGroup,
-    workGroup_creationTime,
-    workGroup_state,
     workGroup_configuration,
+    workGroup_state,
     workGroup_description,
+    workGroup_creationTime,
     workGroup_name,
 
     -- * WorkGroupConfiguration
     WorkGroupConfiguration (..),
     newWorkGroupConfiguration,
-    workGroupConfiguration_engineVersion,
-    workGroupConfiguration_requesterPaysEnabled,
+    workGroupConfiguration_publishCloudWatchMetricsEnabled,
+    workGroupConfiguration_enforceWorkGroupConfiguration,
     workGroupConfiguration_resultConfiguration,
     workGroupConfiguration_bytesScannedCutoffPerQuery,
-    workGroupConfiguration_enforceWorkGroupConfiguration,
-    workGroupConfiguration_publishCloudWatchMetricsEnabled,
+    workGroupConfiguration_requesterPaysEnabled,
+    workGroupConfiguration_engineVersion,
 
     -- * WorkGroupConfigurationUpdates
     WorkGroupConfigurationUpdates (..),
     newWorkGroupConfigurationUpdates,
-    workGroupConfigurationUpdates_engineVersion,
-    workGroupConfigurationUpdates_requesterPaysEnabled,
     workGroupConfigurationUpdates_resultConfigurationUpdates,
-    workGroupConfigurationUpdates_bytesScannedCutoffPerQuery,
-    workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery,
-    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
     workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled,
+    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
+    workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery,
+    workGroupConfigurationUpdates_bytesScannedCutoffPerQuery,
+    workGroupConfigurationUpdates_requesterPaysEnabled,
+    workGroupConfigurationUpdates_engineVersion,
 
     -- * WorkGroupSummary
     WorkGroupSummary (..),
     newWorkGroupSummary,
+    workGroupSummary_name,
+    workGroupSummary_state,
+    workGroupSummary_description,
     workGroupSummary_creationTime,
     workGroupSummary_engineVersion,
-    workGroupSummary_state,
-    workGroupSummary_name,
-    workGroupSummary_description,
   )
 where
 
@@ -329,35 +329,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -366,21 +339,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Indicates that something is wrong with the input to the request. For
--- example, a required parameter may be missing or out of range.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
 
 -- | An exception that Athena received when it called a custom metastore.
 -- Occurs if the error is not caused by user input
@@ -393,13 +385,6 @@ _MetadataException =
   Core._MatchServiceError
     defaultService
     "MetadataException"
-
--- | Indicates that the request was throttled.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
 
 -- | Indicates a platform issue, which may be due to a transient condition or
 -- outage.
@@ -415,3 +400,18 @@ _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
+
+-- | Indicates that the request was throttled.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+
+-- | Indicates that something is wrong with the input to the request. For
+-- example, a required parameter may be missing or out of range.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"

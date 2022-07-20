@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDefaultIntegerHyperParameterRange' smart constructor.
 data DefaultIntegerHyperParameterRange = DefaultIntegerHyperParameterRange'
-  { -- | The maximum allowable value for the hyperparameter.
-    maxValue :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the hyperparameter is tunable.
-    isTunable :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the hyperparameter.
+  { -- | The name of the hyperparameter.
     name :: Prelude.Maybe Prelude.Text,
     -- | The minimum allowable value for the hyperparameter.
-    minValue :: Prelude.Maybe Prelude.Int
+    minValue :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the hyperparameter is tunable.
+    isTunable :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum allowable value for the hyperparameter.
+    maxValue :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,23 @@ data DefaultIntegerHyperParameterRange = DefaultIntegerHyperParameterRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxValue', 'defaultIntegerHyperParameterRange_maxValue' - The maximum allowable value for the hyperparameter.
---
--- 'isTunable', 'defaultIntegerHyperParameterRange_isTunable' - Indicates whether the hyperparameter is tunable.
---
 -- 'name', 'defaultIntegerHyperParameterRange_name' - The name of the hyperparameter.
 --
 -- 'minValue', 'defaultIntegerHyperParameterRange_minValue' - The minimum allowable value for the hyperparameter.
+--
+-- 'isTunable', 'defaultIntegerHyperParameterRange_isTunable' - Indicates whether the hyperparameter is tunable.
+--
+-- 'maxValue', 'defaultIntegerHyperParameterRange_maxValue' - The maximum allowable value for the hyperparameter.
 newDefaultIntegerHyperParameterRange ::
   DefaultIntegerHyperParameterRange
 newDefaultIntegerHyperParameterRange =
   DefaultIntegerHyperParameterRange'
-    { maxValue =
+    { name =
         Prelude.Nothing,
+      minValue = Prelude.Nothing,
       isTunable = Prelude.Nothing,
-      name = Prelude.Nothing,
-      minValue = Prelude.Nothing
+      maxValue = Prelude.Nothing
     }
-
--- | The maximum allowable value for the hyperparameter.
-defaultIntegerHyperParameterRange_maxValue :: Lens.Lens' DefaultIntegerHyperParameterRange (Prelude.Maybe Prelude.Int)
-defaultIntegerHyperParameterRange_maxValue = Lens.lens (\DefaultIntegerHyperParameterRange' {maxValue} -> maxValue) (\s@DefaultIntegerHyperParameterRange' {} a -> s {maxValue = a} :: DefaultIntegerHyperParameterRange)
-
--- | Indicates whether the hyperparameter is tunable.
-defaultIntegerHyperParameterRange_isTunable :: Lens.Lens' DefaultIntegerHyperParameterRange (Prelude.Maybe Prelude.Bool)
-defaultIntegerHyperParameterRange_isTunable = Lens.lens (\DefaultIntegerHyperParameterRange' {isTunable} -> isTunable) (\s@DefaultIntegerHyperParameterRange' {} a -> s {isTunable = a} :: DefaultIntegerHyperParameterRange)
 
 -- | The name of the hyperparameter.
 defaultIntegerHyperParameterRange_name :: Lens.Lens' DefaultIntegerHyperParameterRange (Prelude.Maybe Prelude.Text)
@@ -81,6 +73,14 @@ defaultIntegerHyperParameterRange_name = Lens.lens (\DefaultIntegerHyperParamete
 -- | The minimum allowable value for the hyperparameter.
 defaultIntegerHyperParameterRange_minValue :: Lens.Lens' DefaultIntegerHyperParameterRange (Prelude.Maybe Prelude.Int)
 defaultIntegerHyperParameterRange_minValue = Lens.lens (\DefaultIntegerHyperParameterRange' {minValue} -> minValue) (\s@DefaultIntegerHyperParameterRange' {} a -> s {minValue = a} :: DefaultIntegerHyperParameterRange)
+
+-- | Indicates whether the hyperparameter is tunable.
+defaultIntegerHyperParameterRange_isTunable :: Lens.Lens' DefaultIntegerHyperParameterRange (Prelude.Maybe Prelude.Bool)
+defaultIntegerHyperParameterRange_isTunable = Lens.lens (\DefaultIntegerHyperParameterRange' {isTunable} -> isTunable) (\s@DefaultIntegerHyperParameterRange' {} a -> s {isTunable = a} :: DefaultIntegerHyperParameterRange)
+
+-- | The maximum allowable value for the hyperparameter.
+defaultIntegerHyperParameterRange_maxValue :: Lens.Lens' DefaultIntegerHyperParameterRange (Prelude.Maybe Prelude.Int)
+defaultIntegerHyperParameterRange_maxValue = Lens.lens (\DefaultIntegerHyperParameterRange' {maxValue} -> maxValue) (\s@DefaultIntegerHyperParameterRange' {} a -> s {maxValue = a} :: DefaultIntegerHyperParameterRange)
 
 instance
   Core.FromJSON
@@ -91,10 +91,10 @@ instance
       "DefaultIntegerHyperParameterRange"
       ( \x ->
           DefaultIntegerHyperParameterRange'
-            Prelude.<$> (x Core..:? "maxValue")
-            Prelude.<*> (x Core..:? "isTunable")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "minValue")
+            Prelude.<*> (x Core..:? "isTunable")
+            Prelude.<*> (x Core..:? "maxValue")
       )
 
 instance
@@ -104,17 +104,17 @@ instance
   hashWithSalt
     _salt
     DefaultIntegerHyperParameterRange' {..} =
-      _salt `Prelude.hashWithSalt` maxValue
-        `Prelude.hashWithSalt` isTunable
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` minValue
+        `Prelude.hashWithSalt` isTunable
+        `Prelude.hashWithSalt` maxValue
 
 instance
   Prelude.NFData
     DefaultIntegerHyperParameterRange
   where
   rnf DefaultIntegerHyperParameterRange' {..} =
-    Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf isTunable
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf isTunable
+      `Prelude.seq` Prelude.rnf maxValue

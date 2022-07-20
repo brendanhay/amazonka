@@ -40,11 +40,11 @@ module Amazonka.Transcribe.CreateLanguageModel
     newCreateLanguageModelResponse,
 
     -- * Response Lenses
+    createLanguageModelResponse_modelStatus,
     createLanguageModelResponse_languageCode,
     createLanguageModelResponse_modelName,
-    createLanguageModelResponse_inputDataConfig,
     createLanguageModelResponse_baseModelName,
-    createLanguageModelResponse_modelStatus,
+    createLanguageModelResponse_inputDataConfig,
     createLanguageModelResponse_httpStatus,
   )
 where
@@ -170,11 +170,11 @@ instance Core.AWSRequest CreateLanguageModel where
     Response.receiveJSON
       ( \s h x ->
           CreateLanguageModelResponse'
-            Prelude.<$> (x Core..?> "LanguageCode")
+            Prelude.<$> (x Core..?> "ModelStatus")
+            Prelude.<*> (x Core..?> "LanguageCode")
             Prelude.<*> (x Core..?> "ModelName")
-            Prelude.<*> (x Core..?> "InputDataConfig")
             Prelude.<*> (x Core..?> "BaseModelName")
-            Prelude.<*> (x Core..?> "ModelStatus")
+            Prelude.<*> (x Core..?> "InputDataConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,20 +230,20 @@ instance Core.ToQuery CreateLanguageModel where
 
 -- | /See:/ 'newCreateLanguageModelResponse' smart constructor.
 data CreateLanguageModelResponse = CreateLanguageModelResponse'
-  { -- | The language code of the text you\'ve used to create a custom language
+  { -- | The status of the custom language model. When the status is @COMPLETED@
+    -- the model is ready to use.
+    modelStatus :: Prelude.Maybe ModelStatus,
+    -- | The language code of the text you\'ve used to create a custom language
     -- model.
     languageCode :: Prelude.Maybe CLMLanguageCode,
     -- | The name you\'ve chosen for your custom language model.
     modelName :: Prelude.Maybe Prelude.Text,
-    -- | The data access role and Amazon S3 prefixes you\'ve chosen to create
-    -- your custom language model.
-    inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The Amazon Transcribe standard language model, or base model you\'ve
     -- used to create a custom language model.
     baseModelName :: Prelude.Maybe BaseModelName,
-    -- | The status of the custom language model. When the status is @COMPLETED@
-    -- the model is ready to use.
-    modelStatus :: Prelude.Maybe ModelStatus,
+    -- | The data access role and Amazon S3 prefixes you\'ve chosen to create
+    -- your custom language model.
+    inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,19 +257,19 @@ data CreateLanguageModelResponse = CreateLanguageModelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'modelStatus', 'createLanguageModelResponse_modelStatus' - The status of the custom language model. When the status is @COMPLETED@
+-- the model is ready to use.
+--
 -- 'languageCode', 'createLanguageModelResponse_languageCode' - The language code of the text you\'ve used to create a custom language
 -- model.
 --
 -- 'modelName', 'createLanguageModelResponse_modelName' - The name you\'ve chosen for your custom language model.
 --
--- 'inputDataConfig', 'createLanguageModelResponse_inputDataConfig' - The data access role and Amazon S3 prefixes you\'ve chosen to create
--- your custom language model.
---
 -- 'baseModelName', 'createLanguageModelResponse_baseModelName' - The Amazon Transcribe standard language model, or base model you\'ve
 -- used to create a custom language model.
 --
--- 'modelStatus', 'createLanguageModelResponse_modelStatus' - The status of the custom language model. When the status is @COMPLETED@
--- the model is ready to use.
+-- 'inputDataConfig', 'createLanguageModelResponse_inputDataConfig' - The data access role and Amazon S3 prefixes you\'ve chosen to create
+-- your custom language model.
 --
 -- 'httpStatus', 'createLanguageModelResponse_httpStatus' - The response's http status code.
 newCreateLanguageModelResponse ::
@@ -278,14 +278,19 @@ newCreateLanguageModelResponse ::
   CreateLanguageModelResponse
 newCreateLanguageModelResponse pHttpStatus_ =
   CreateLanguageModelResponse'
-    { languageCode =
+    { modelStatus =
         Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       modelName = Prelude.Nothing,
-      inputDataConfig = Prelude.Nothing,
       baseModelName = Prelude.Nothing,
-      modelStatus = Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The status of the custom language model. When the status is @COMPLETED@
+-- the model is ready to use.
+createLanguageModelResponse_modelStatus :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe ModelStatus)
+createLanguageModelResponse_modelStatus = Lens.lens (\CreateLanguageModelResponse' {modelStatus} -> modelStatus) (\s@CreateLanguageModelResponse' {} a -> s {modelStatus = a} :: CreateLanguageModelResponse)
 
 -- | The language code of the text you\'ve used to create a custom language
 -- model.
@@ -296,20 +301,15 @@ createLanguageModelResponse_languageCode = Lens.lens (\CreateLanguageModelRespon
 createLanguageModelResponse_modelName :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe Prelude.Text)
 createLanguageModelResponse_modelName = Lens.lens (\CreateLanguageModelResponse' {modelName} -> modelName) (\s@CreateLanguageModelResponse' {} a -> s {modelName = a} :: CreateLanguageModelResponse)
 
--- | The data access role and Amazon S3 prefixes you\'ve chosen to create
--- your custom language model.
-createLanguageModelResponse_inputDataConfig :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe InputDataConfig)
-createLanguageModelResponse_inputDataConfig = Lens.lens (\CreateLanguageModelResponse' {inputDataConfig} -> inputDataConfig) (\s@CreateLanguageModelResponse' {} a -> s {inputDataConfig = a} :: CreateLanguageModelResponse)
-
 -- | The Amazon Transcribe standard language model, or base model you\'ve
 -- used to create a custom language model.
 createLanguageModelResponse_baseModelName :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe BaseModelName)
 createLanguageModelResponse_baseModelName = Lens.lens (\CreateLanguageModelResponse' {baseModelName} -> baseModelName) (\s@CreateLanguageModelResponse' {} a -> s {baseModelName = a} :: CreateLanguageModelResponse)
 
--- | The status of the custom language model. When the status is @COMPLETED@
--- the model is ready to use.
-createLanguageModelResponse_modelStatus :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe ModelStatus)
-createLanguageModelResponse_modelStatus = Lens.lens (\CreateLanguageModelResponse' {modelStatus} -> modelStatus) (\s@CreateLanguageModelResponse' {} a -> s {modelStatus = a} :: CreateLanguageModelResponse)
+-- | The data access role and Amazon S3 prefixes you\'ve chosen to create
+-- your custom language model.
+createLanguageModelResponse_inputDataConfig :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe InputDataConfig)
+createLanguageModelResponse_inputDataConfig = Lens.lens (\CreateLanguageModelResponse' {inputDataConfig} -> inputDataConfig) (\s@CreateLanguageModelResponse' {} a -> s {inputDataConfig = a} :: CreateLanguageModelResponse)
 
 -- | The response's http status code.
 createLanguageModelResponse_httpStatus :: Lens.Lens' CreateLanguageModelResponse Prelude.Int
@@ -317,9 +317,9 @@ createLanguageModelResponse_httpStatus = Lens.lens (\CreateLanguageModelResponse
 
 instance Prelude.NFData CreateLanguageModelResponse where
   rnf CreateLanguageModelResponse' {..} =
-    Prelude.rnf languageCode
+    Prelude.rnf modelStatus
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf baseModelName
-      `Prelude.seq` Prelude.rnf modelStatus
+      `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf httpStatus

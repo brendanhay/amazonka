@@ -30,23 +30,23 @@ import Amazonka.S3.Types.Owner
 --
 -- /See:/ 'newObjectVersion' smart constructor.
 data ObjectVersion = ObjectVersion'
-  { -- | The entity tag is an MD5 hash of that version of the object.
-    eTag :: Prelude.Maybe ETag,
-    -- | Version ID of an object.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    -- | Size in bytes of the object.
-    size :: Prelude.Maybe Prelude.Integer,
+  { -- | The object key.
+    key :: Prelude.Maybe ObjectKey,
     -- | Specifies whether the object is (true) or is not (false) the latest
     -- version of an object.
     isLatest :: Prelude.Maybe Prelude.Bool,
+    -- | Size in bytes of the object.
+    size :: Prelude.Maybe Prelude.Integer,
     -- | Specifies the owner of the object.
     owner :: Prelude.Maybe Owner,
-    -- | The object key.
-    key :: Prelude.Maybe ObjectKey,
+    -- | Date and time the object was last modified.
+    lastModified :: Prelude.Maybe Core.ISO8601,
     -- | The class of storage used to store the object.
     storageClass :: Prelude.Maybe ObjectVersionStorageClass,
-    -- | Date and time the object was last modified.
-    lastModified :: Prelude.Maybe Core.ISO8601
+    -- | The entity tag is an MD5 hash of that version of the object.
+    eTag :: Prelude.Maybe ETag,
+    -- | Version ID of an object.
+    versionId :: Prelude.Maybe ObjectVersionId
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,35 +58,60 @@ data ObjectVersion = ObjectVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'objectVersion_eTag' - The entity tag is an MD5 hash of that version of the object.
---
--- 'versionId', 'objectVersion_versionId' - Version ID of an object.
---
--- 'size', 'objectVersion_size' - Size in bytes of the object.
+-- 'key', 'objectVersion_key' - The object key.
 --
 -- 'isLatest', 'objectVersion_isLatest' - Specifies whether the object is (true) or is not (false) the latest
 -- version of an object.
 --
+-- 'size', 'objectVersion_size' - Size in bytes of the object.
+--
 -- 'owner', 'objectVersion_owner' - Specifies the owner of the object.
 --
--- 'key', 'objectVersion_key' - The object key.
+-- 'lastModified', 'objectVersion_lastModified' - Date and time the object was last modified.
 --
 -- 'storageClass', 'objectVersion_storageClass' - The class of storage used to store the object.
 --
--- 'lastModified', 'objectVersion_lastModified' - Date and time the object was last modified.
+-- 'eTag', 'objectVersion_eTag' - The entity tag is an MD5 hash of that version of the object.
+--
+-- 'versionId', 'objectVersion_versionId' - Version ID of an object.
 newObjectVersion ::
   ObjectVersion
 newObjectVersion =
   ObjectVersion'
-    { eTag = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      size = Prelude.Nothing,
+    { key = Prelude.Nothing,
       isLatest = Prelude.Nothing,
+      size = Prelude.Nothing,
       owner = Prelude.Nothing,
-      key = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
       storageClass = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+      eTag = Prelude.Nothing,
+      versionId = Prelude.Nothing
     }
+
+-- | The object key.
+objectVersion_key :: Lens.Lens' ObjectVersion (Prelude.Maybe ObjectKey)
+objectVersion_key = Lens.lens (\ObjectVersion' {key} -> key) (\s@ObjectVersion' {} a -> s {key = a} :: ObjectVersion)
+
+-- | Specifies whether the object is (true) or is not (false) the latest
+-- version of an object.
+objectVersion_isLatest :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.Bool)
+objectVersion_isLatest = Lens.lens (\ObjectVersion' {isLatest} -> isLatest) (\s@ObjectVersion' {} a -> s {isLatest = a} :: ObjectVersion)
+
+-- | Size in bytes of the object.
+objectVersion_size :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.Integer)
+objectVersion_size = Lens.lens (\ObjectVersion' {size} -> size) (\s@ObjectVersion' {} a -> s {size = a} :: ObjectVersion)
+
+-- | Specifies the owner of the object.
+objectVersion_owner :: Lens.Lens' ObjectVersion (Prelude.Maybe Owner)
+objectVersion_owner = Lens.lens (\ObjectVersion' {owner} -> owner) (\s@ObjectVersion' {} a -> s {owner = a} :: ObjectVersion)
+
+-- | Date and time the object was last modified.
+objectVersion_lastModified :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.UTCTime)
+objectVersion_lastModified = Lens.lens (\ObjectVersion' {lastModified} -> lastModified) (\s@ObjectVersion' {} a -> s {lastModified = a} :: ObjectVersion) Prelude.. Lens.mapping Core._Time
+
+-- | The class of storage used to store the object.
+objectVersion_storageClass :: Lens.Lens' ObjectVersion (Prelude.Maybe ObjectVersionStorageClass)
+objectVersion_storageClass = Lens.lens (\ObjectVersion' {storageClass} -> storageClass) (\s@ObjectVersion' {} a -> s {storageClass = a} :: ObjectVersion)
 
 -- | The entity tag is an MD5 hash of that version of the object.
 objectVersion_eTag :: Lens.Lens' ObjectVersion (Prelude.Maybe ETag)
@@ -96,61 +121,36 @@ objectVersion_eTag = Lens.lens (\ObjectVersion' {eTag} -> eTag) (\s@ObjectVersio
 objectVersion_versionId :: Lens.Lens' ObjectVersion (Prelude.Maybe ObjectVersionId)
 objectVersion_versionId = Lens.lens (\ObjectVersion' {versionId} -> versionId) (\s@ObjectVersion' {} a -> s {versionId = a} :: ObjectVersion)
 
--- | Size in bytes of the object.
-objectVersion_size :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.Integer)
-objectVersion_size = Lens.lens (\ObjectVersion' {size} -> size) (\s@ObjectVersion' {} a -> s {size = a} :: ObjectVersion)
-
--- | Specifies whether the object is (true) or is not (false) the latest
--- version of an object.
-objectVersion_isLatest :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.Bool)
-objectVersion_isLatest = Lens.lens (\ObjectVersion' {isLatest} -> isLatest) (\s@ObjectVersion' {} a -> s {isLatest = a} :: ObjectVersion)
-
--- | Specifies the owner of the object.
-objectVersion_owner :: Lens.Lens' ObjectVersion (Prelude.Maybe Owner)
-objectVersion_owner = Lens.lens (\ObjectVersion' {owner} -> owner) (\s@ObjectVersion' {} a -> s {owner = a} :: ObjectVersion)
-
--- | The object key.
-objectVersion_key :: Lens.Lens' ObjectVersion (Prelude.Maybe ObjectKey)
-objectVersion_key = Lens.lens (\ObjectVersion' {key} -> key) (\s@ObjectVersion' {} a -> s {key = a} :: ObjectVersion)
-
--- | The class of storage used to store the object.
-objectVersion_storageClass :: Lens.Lens' ObjectVersion (Prelude.Maybe ObjectVersionStorageClass)
-objectVersion_storageClass = Lens.lens (\ObjectVersion' {storageClass} -> storageClass) (\s@ObjectVersion' {} a -> s {storageClass = a} :: ObjectVersion)
-
--- | Date and time the object was last modified.
-objectVersion_lastModified :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.UTCTime)
-objectVersion_lastModified = Lens.lens (\ObjectVersion' {lastModified} -> lastModified) (\s@ObjectVersion' {} a -> s {lastModified = a} :: ObjectVersion) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromXML ObjectVersion where
   parseXML x =
     ObjectVersion'
-      Prelude.<$> (x Core..@? "ETag")
-      Prelude.<*> (x Core..@? "VersionId")
-      Prelude.<*> (x Core..@? "Size")
+      Prelude.<$> (x Core..@? "Key")
       Prelude.<*> (x Core..@? "IsLatest")
+      Prelude.<*> (x Core..@? "Size")
       Prelude.<*> (x Core..@? "Owner")
-      Prelude.<*> (x Core..@? "Key")
-      Prelude.<*> (x Core..@? "StorageClass")
       Prelude.<*> (x Core..@? "LastModified")
+      Prelude.<*> (x Core..@? "StorageClass")
+      Prelude.<*> (x Core..@? "ETag")
+      Prelude.<*> (x Core..@? "VersionId")
 
 instance Prelude.Hashable ObjectVersion where
   hashWithSalt _salt ObjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` eTag
-      `Prelude.hashWithSalt` versionId
-      `Prelude.hashWithSalt` size
+    _salt `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` isLatest
+      `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` owner
-      `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` storageClass
       `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData ObjectVersion where
   rnf ObjectVersion' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf size
+    Prelude.rnf key
       `Prelude.seq` Prelude.rnf isLatest
+      `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf key
-      `Prelude.seq` Prelude.rnf storageClass
       `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf versionId

@@ -30,10 +30,10 @@ import Amazonka.ServiceCatalog.Types.ServiceActionDefinitionType
 data ServiceActionSummary = ServiceActionSummary'
   { -- | The self-service action name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The self-service action identifier.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
     definitionType :: Prelude.Maybe ServiceActionDefinitionType,
+    -- | The self-service action identifier.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The self-service action description.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -49,9 +49,9 @@ data ServiceActionSummary = ServiceActionSummary'
 --
 -- 'name', 'serviceActionSummary_name' - The self-service action name.
 --
--- 'id', 'serviceActionSummary_id' - The self-service action identifier.
---
 -- 'definitionType', 'serviceActionSummary_definitionType' - The self-service action definition type. For example, @SSM_AUTOMATION@.
+--
+-- 'id', 'serviceActionSummary_id' - The self-service action identifier.
 --
 -- 'description', 'serviceActionSummary_description' - The self-service action description.
 newServiceActionSummary ::
@@ -59,8 +59,8 @@ newServiceActionSummary ::
 newServiceActionSummary =
   ServiceActionSummary'
     { name = Prelude.Nothing,
-      id = Prelude.Nothing,
       definitionType = Prelude.Nothing,
+      id = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
@@ -68,13 +68,13 @@ newServiceActionSummary =
 serviceActionSummary_name :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
 serviceActionSummary_name = Lens.lens (\ServiceActionSummary' {name} -> name) (\s@ServiceActionSummary' {} a -> s {name = a} :: ServiceActionSummary)
 
--- | The self-service action identifier.
-serviceActionSummary_id :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
-serviceActionSummary_id = Lens.lens (\ServiceActionSummary' {id} -> id) (\s@ServiceActionSummary' {} a -> s {id = a} :: ServiceActionSummary)
-
 -- | The self-service action definition type. For example, @SSM_AUTOMATION@.
 serviceActionSummary_definitionType :: Lens.Lens' ServiceActionSummary (Prelude.Maybe ServiceActionDefinitionType)
 serviceActionSummary_definitionType = Lens.lens (\ServiceActionSummary' {definitionType} -> definitionType) (\s@ServiceActionSummary' {} a -> s {definitionType = a} :: ServiceActionSummary)
+
+-- | The self-service action identifier.
+serviceActionSummary_id :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
+serviceActionSummary_id = Lens.lens (\ServiceActionSummary' {id} -> id) (\s@ServiceActionSummary' {} a -> s {id = a} :: ServiceActionSummary)
 
 -- | The self-service action description.
 serviceActionSummary_description :: Lens.Lens' ServiceActionSummary (Prelude.Maybe Prelude.Text)
@@ -87,21 +87,21 @@ instance Core.FromJSON ServiceActionSummary where
       ( \x ->
           ServiceActionSummary'
             Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "DefinitionType")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable ServiceActionSummary where
   hashWithSalt _salt ServiceActionSummary' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` definitionType
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData ServiceActionSummary where
   rnf ServiceActionSummary' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf definitionType
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description

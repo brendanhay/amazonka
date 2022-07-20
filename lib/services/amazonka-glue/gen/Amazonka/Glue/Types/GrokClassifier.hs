@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrokClassifier' smart constructor.
 data GrokClassifier = GrokClassifier'
-  { -- | The time that this classifier was registered.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The time that this classifier was last updated.
+  { -- | The time that this classifier was last updated.
     lastUpdated :: Prelude.Maybe Core.POSIX,
-    -- | The version of this classifier.
-    version :: Prelude.Maybe Prelude.Integer,
+    -- | The time that this classifier was registered.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | Optional custom grok patterns defined by this classifier. For more
     -- information, see custom patterns in
     -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers>.
     customPatterns :: Prelude.Maybe Prelude.Text,
+    -- | The version of this classifier.
+    version :: Prelude.Maybe Prelude.Integer,
     -- | The name of the classifier.
     name :: Prelude.Text,
     -- | An identifier of the data format that the classifier matches, such as
@@ -57,15 +57,15 @@ data GrokClassifier = GrokClassifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'grokClassifier_creationTime' - The time that this classifier was registered.
---
 -- 'lastUpdated', 'grokClassifier_lastUpdated' - The time that this classifier was last updated.
 --
--- 'version', 'grokClassifier_version' - The version of this classifier.
+-- 'creationTime', 'grokClassifier_creationTime' - The time that this classifier was registered.
 --
 -- 'customPatterns', 'grokClassifier_customPatterns' - Optional custom grok patterns defined by this classifier. For more
 -- information, see custom patterns in
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers>.
+--
+-- 'version', 'grokClassifier_version' - The version of this classifier.
 --
 -- 'name', 'grokClassifier_name' - The name of the classifier.
 --
@@ -88,32 +88,32 @@ newGrokClassifier
   pClassification_
   pGrokPattern_ =
     GrokClassifier'
-      { creationTime = Prelude.Nothing,
-        lastUpdated = Prelude.Nothing,
-        version = Prelude.Nothing,
+      { lastUpdated = Prelude.Nothing,
+        creationTime = Prelude.Nothing,
         customPatterns = Prelude.Nothing,
+        version = Prelude.Nothing,
         name = pName_,
         classification = pClassification_,
         grokPattern = pGrokPattern_
       }
 
--- | The time that this classifier was registered.
-grokClassifier_creationTime :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.UTCTime)
-grokClassifier_creationTime = Lens.lens (\GrokClassifier' {creationTime} -> creationTime) (\s@GrokClassifier' {} a -> s {creationTime = a} :: GrokClassifier) Prelude.. Lens.mapping Core._Time
-
 -- | The time that this classifier was last updated.
 grokClassifier_lastUpdated :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.UTCTime)
 grokClassifier_lastUpdated = Lens.lens (\GrokClassifier' {lastUpdated} -> lastUpdated) (\s@GrokClassifier' {} a -> s {lastUpdated = a} :: GrokClassifier) Prelude.. Lens.mapping Core._Time
 
--- | The version of this classifier.
-grokClassifier_version :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.Integer)
-grokClassifier_version = Lens.lens (\GrokClassifier' {version} -> version) (\s@GrokClassifier' {} a -> s {version = a} :: GrokClassifier)
+-- | The time that this classifier was registered.
+grokClassifier_creationTime :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.UTCTime)
+grokClassifier_creationTime = Lens.lens (\GrokClassifier' {creationTime} -> creationTime) (\s@GrokClassifier' {} a -> s {creationTime = a} :: GrokClassifier) Prelude.. Lens.mapping Core._Time
 
 -- | Optional custom grok patterns defined by this classifier. For more
 -- information, see custom patterns in
 -- <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers>.
 grokClassifier_customPatterns :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.Text)
 grokClassifier_customPatterns = Lens.lens (\GrokClassifier' {customPatterns} -> customPatterns) (\s@GrokClassifier' {} a -> s {customPatterns = a} :: GrokClassifier)
+
+-- | The version of this classifier.
+grokClassifier_version :: Lens.Lens' GrokClassifier (Prelude.Maybe Prelude.Integer)
+grokClassifier_version = Lens.lens (\GrokClassifier' {version} -> version) (\s@GrokClassifier' {} a -> s {version = a} :: GrokClassifier)
 
 -- | The name of the classifier.
 grokClassifier_name :: Lens.Lens' GrokClassifier Prelude.Text
@@ -136,10 +136,10 @@ instance Core.FromJSON GrokClassifier where
       "GrokClassifier"
       ( \x ->
           GrokClassifier'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Core..:? "LastUpdated")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "CustomPatterns")
+            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Classification")
             Prelude.<*> (x Core..: "GrokPattern")
@@ -147,20 +147,20 @@ instance Core.FromJSON GrokClassifier where
 
 instance Prelude.Hashable GrokClassifier where
   hashWithSalt _salt GrokClassifier' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` lastUpdated
-      `Prelude.hashWithSalt` version
+    _salt `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` customPatterns
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` grokPattern
 
 instance Prelude.NFData GrokClassifier where
   rnf GrokClassifier' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf customPatterns
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf classification
       `Prelude.seq` Prelude.rnf grokPattern

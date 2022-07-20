@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParent' smart constructor.
 data Parent = Parent'
-  { -- | The unique identifier (ID) of the parent entity.
+  { -- | The type of the parent entity.
+    type' :: Prelude.Maybe ParentType,
+    -- | The unique identifier (ID) of the parent entity.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID
     -- string requires one of the following:
@@ -41,9 +43,7 @@ data Parent = Parent'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The type of the parent entity.
-    type' :: Prelude.Maybe ParentType
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,8 @@ data Parent = Parent'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'type'', 'parent_type' - The type of the parent entity.
 --
 -- 'id', 'parent_id' - The unique identifier (ID) of the parent entity.
 --
@@ -67,15 +69,17 @@ data Parent = Parent'
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
---
--- 'type'', 'parent_type' - The type of the parent entity.
 newParent ::
   Parent
 newParent =
   Parent'
-    { id = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | The type of the parent entity.
+parent_type :: Lens.Lens' Parent (Prelude.Maybe ParentType)
+parent_type = Lens.lens (\Parent' {type'} -> type') (\s@Parent' {} a -> s {type' = a} :: Parent)
 
 -- | The unique identifier (ID) of the parent entity.
 --
@@ -92,24 +96,20 @@ newParent =
 parent_id :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
 parent_id = Lens.lens (\Parent' {id} -> id) (\s@Parent' {} a -> s {id = a} :: Parent)
 
--- | The type of the parent entity.
-parent_type :: Lens.Lens' Parent (Prelude.Maybe ParentType)
-parent_type = Lens.lens (\Parent' {type'} -> type') (\s@Parent' {} a -> s {type' = a} :: Parent)
-
 instance Core.FromJSON Parent where
   parseJSON =
     Core.withObject
       "Parent"
       ( \x ->
           Parent'
-            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable Parent where
   hashWithSalt _salt Parent' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Parent where
   rnf Parent' {..} =
-    Prelude.rnf id `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf id

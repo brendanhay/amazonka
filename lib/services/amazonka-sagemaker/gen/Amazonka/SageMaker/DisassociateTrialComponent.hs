@@ -44,8 +44,8 @@ module Amazonka.SageMaker.DisassociateTrialComponent
     newDisassociateTrialComponentResponse,
 
     -- * Response Lenses
-    disassociateTrialComponentResponse_trialArn,
     disassociateTrialComponentResponse_trialComponentArn,
+    disassociateTrialComponentResponse_trialArn,
     disassociateTrialComponentResponse_httpStatus,
   )
 where
@@ -109,8 +109,8 @@ instance Core.AWSRequest DisassociateTrialComponent where
     Response.receiveJSON
       ( \s h x ->
           DisassociateTrialComponentResponse'
-            Prelude.<$> (x Core..?> "TrialArn")
-            Prelude.<*> (x Core..?> "TrialComponentArn")
+            Prelude.<$> (x Core..?> "TrialComponentArn")
+            Prelude.<*> (x Core..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,10 +157,10 @@ instance Core.ToQuery DisassociateTrialComponent where
 
 -- | /See:/ 'newDisassociateTrialComponentResponse' smart constructor.
 data DisassociateTrialComponentResponse = DisassociateTrialComponentResponse'
-  { -- | The Amazon Resource Name (ARN) of the trial.
-    trialArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the trial component.
+  { -- | The ARN of the trial component.
     trialComponentArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the trial.
+    trialArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,9 +174,9 @@ data DisassociateTrialComponentResponse = DisassociateTrialComponentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trialArn', 'disassociateTrialComponentResponse_trialArn' - The Amazon Resource Name (ARN) of the trial.
---
 -- 'trialComponentArn', 'disassociateTrialComponentResponse_trialComponentArn' - The ARN of the trial component.
+--
+-- 'trialArn', 'disassociateTrialComponentResponse_trialArn' - The Amazon Resource Name (ARN) of the trial.
 --
 -- 'httpStatus', 'disassociateTrialComponentResponse_httpStatus' - The response's http status code.
 newDisassociateTrialComponentResponse ::
@@ -185,19 +185,19 @@ newDisassociateTrialComponentResponse ::
   DisassociateTrialComponentResponse
 newDisassociateTrialComponentResponse pHttpStatus_ =
   DisassociateTrialComponentResponse'
-    { trialArn =
+    { trialComponentArn =
         Prelude.Nothing,
-      trialComponentArn = Prelude.Nothing,
+      trialArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the trial.
-disassociateTrialComponentResponse_trialArn :: Lens.Lens' DisassociateTrialComponentResponse (Prelude.Maybe Prelude.Text)
-disassociateTrialComponentResponse_trialArn = Lens.lens (\DisassociateTrialComponentResponse' {trialArn} -> trialArn) (\s@DisassociateTrialComponentResponse' {} a -> s {trialArn = a} :: DisassociateTrialComponentResponse)
 
 -- | The ARN of the trial component.
 disassociateTrialComponentResponse_trialComponentArn :: Lens.Lens' DisassociateTrialComponentResponse (Prelude.Maybe Prelude.Text)
 disassociateTrialComponentResponse_trialComponentArn = Lens.lens (\DisassociateTrialComponentResponse' {trialComponentArn} -> trialComponentArn) (\s@DisassociateTrialComponentResponse' {} a -> s {trialComponentArn = a} :: DisassociateTrialComponentResponse)
+
+-- | The Amazon Resource Name (ARN) of the trial.
+disassociateTrialComponentResponse_trialArn :: Lens.Lens' DisassociateTrialComponentResponse (Prelude.Maybe Prelude.Text)
+disassociateTrialComponentResponse_trialArn = Lens.lens (\DisassociateTrialComponentResponse' {trialArn} -> trialArn) (\s@DisassociateTrialComponentResponse' {} a -> s {trialArn = a} :: DisassociateTrialComponentResponse)
 
 -- | The response's http status code.
 disassociateTrialComponentResponse_httpStatus :: Lens.Lens' DisassociateTrialComponentResponse Prelude.Int
@@ -208,6 +208,6 @@ instance
     DisassociateTrialComponentResponse
   where
   rnf DisassociateTrialComponentResponse' {..} =
-    Prelude.rnf trialArn
-      `Prelude.seq` Prelude.rnf trialComponentArn
+    Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf trialArn
       `Prelude.seq` Prelude.rnf httpStatus

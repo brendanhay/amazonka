@@ -66,8 +66,8 @@ module Amazonka.Config.PutOrganizationConfigRule
     newPutOrganizationConfigRule,
 
     -- * Request Lenses
-    putOrganizationConfigRule_organizationManagedRuleMetadata,
     putOrganizationConfigRule_excludedAccounts,
+    putOrganizationConfigRule_organizationManagedRuleMetadata,
     putOrganizationConfigRule_organizationCustomRuleMetadata,
     putOrganizationConfigRule_organizationConfigRuleName,
 
@@ -90,11 +90,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutOrganizationConfigRule' smart constructor.
 data PutOrganizationConfigRule = PutOrganizationConfigRule'
-  { -- | An @OrganizationManagedRuleMetadata@ object.
-    organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
-    -- | A comma-separated list of accounts that you want to exclude from an
+  { -- | A comma-separated list of accounts that you want to exclude from an
     -- organization config rule.
     excludedAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | An @OrganizationManagedRuleMetadata@ object.
+    organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
     -- | An @OrganizationCustomRuleMetadata@ object.
     organizationCustomRuleMetadata :: Prelude.Maybe OrganizationCustomRuleMetadata,
     -- | The name that you assign to an organization config rule.
@@ -110,10 +110,10 @@ data PutOrganizationConfigRule = PutOrganizationConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationManagedRuleMetadata', 'putOrganizationConfigRule_organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object.
---
 -- 'excludedAccounts', 'putOrganizationConfigRule_excludedAccounts' - A comma-separated list of accounts that you want to exclude from an
 -- organization config rule.
+--
+-- 'organizationManagedRuleMetadata', 'putOrganizationConfigRule_organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object.
 --
 -- 'organizationCustomRuleMetadata', 'putOrganizationConfigRule_organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object.
 --
@@ -125,22 +125,23 @@ newPutOrganizationConfigRule ::
 newPutOrganizationConfigRule
   pOrganizationConfigRuleName_ =
     PutOrganizationConfigRule'
-      { organizationManagedRuleMetadata =
+      { excludedAccounts =
           Prelude.Nothing,
-        excludedAccounts = Prelude.Nothing,
+        organizationManagedRuleMetadata =
+          Prelude.Nothing,
         organizationCustomRuleMetadata = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_
       }
 
--- | An @OrganizationManagedRuleMetadata@ object.
-putOrganizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
-putOrganizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\PutOrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@PutOrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: PutOrganizationConfigRule)
-
 -- | A comma-separated list of accounts that you want to exclude from an
 -- organization config rule.
 putOrganizationConfigRule_excludedAccounts :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe [Prelude.Text])
 putOrganizationConfigRule_excludedAccounts = Lens.lens (\PutOrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConfigRule' {} a -> s {excludedAccounts = a} :: PutOrganizationConfigRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | An @OrganizationManagedRuleMetadata@ object.
+putOrganizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
+putOrganizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\PutOrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@PutOrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: PutOrganizationConfigRule)
 
 -- | An @OrganizationCustomRuleMetadata@ object.
 putOrganizationConfigRule_organizationCustomRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationCustomRuleMetadata)
@@ -165,16 +166,15 @@ instance Core.AWSRequest PutOrganizationConfigRule where
 
 instance Prelude.Hashable PutOrganizationConfigRule where
   hashWithSalt _salt PutOrganizationConfigRule' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` excludedAccounts
       `Prelude.hashWithSalt` organizationManagedRuleMetadata
-      `Prelude.hashWithSalt` excludedAccounts
       `Prelude.hashWithSalt` organizationCustomRuleMetadata
       `Prelude.hashWithSalt` organizationConfigRuleName
 
 instance Prelude.NFData PutOrganizationConfigRule where
   rnf PutOrganizationConfigRule' {..} =
-    Prelude.rnf organizationManagedRuleMetadata
-      `Prelude.seq` Prelude.rnf excludedAccounts
+    Prelude.rnf excludedAccounts
+      `Prelude.seq` Prelude.rnf organizationManagedRuleMetadata
       `Prelude.seq` Prelude.rnf organizationCustomRuleMetadata
       `Prelude.seq` Prelude.rnf organizationConfigRuleName
 
@@ -197,10 +197,10 @@ instance Core.ToJSON PutOrganizationConfigRule where
   toJSON PutOrganizationConfigRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OrganizationManagedRuleMetadata" Core..=)
-              Prelude.<$> organizationManagedRuleMetadata,
-            ("ExcludedAccounts" Core..=)
+          [ ("ExcludedAccounts" Core..=)
               Prelude.<$> excludedAccounts,
+            ("OrganizationManagedRuleMetadata" Core..=)
+              Prelude.<$> organizationManagedRuleMetadata,
             ("OrganizationCustomRuleMetadata" Core..=)
               Prelude.<$> organizationCustomRuleMetadata,
             Prelude.Just

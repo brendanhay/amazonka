@@ -32,8 +32,8 @@ module Amazonka.Backup.CreateBackupVault
     newCreateBackupVault,
 
     -- * Request Lenses
-    createBackupVault_creatorRequestId,
     createBackupVault_encryptionKeyArn,
+    createBackupVault_creatorRequestId,
     createBackupVault_backupVaultTags,
     createBackupVault_backupVaultName,
 
@@ -42,9 +42,9 @@ module Amazonka.Backup.CreateBackupVault
     newCreateBackupVaultResponse,
 
     -- * Response Lenses
-    createBackupVaultResponse_backupVaultArn,
-    createBackupVaultResponse_creationDate,
     createBackupVaultResponse_backupVaultName,
+    createBackupVaultResponse_creationDate,
+    createBackupVaultResponse_backupVaultArn,
     createBackupVaultResponse_httpStatus,
   )
 where
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBackupVault' smart constructor.
 data CreateBackupVault = CreateBackupVault'
-  { -- | A unique string that identifies the request and allows failed requests
-    -- to be retried without the risk of running the operation twice.
-    creatorRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The server-side encryption key that is used to protect your backups; for
+  { -- | The server-side encryption key that is used to protect your backups; for
     -- example,
     -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
     encryptionKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique string that identifies the request and allows failed requests
+    -- to be retried without the risk of running the operation twice.
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | Metadata that you can assign to help organize the resources that you
     -- create. Each tag is a key-value pair.
     backupVaultTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
@@ -84,12 +84,12 @@ data CreateBackupVault = CreateBackupVault'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creatorRequestId', 'createBackupVault_creatorRequestId' - A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
---
 -- 'encryptionKeyArn', 'createBackupVault_encryptionKeyArn' - The server-side encryption key that is used to protect your backups; for
 -- example,
 -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+--
+-- 'creatorRequestId', 'createBackupVault_creatorRequestId' - A unique string that identifies the request and allows failed requests
+-- to be retried without the risk of running the operation twice.
 --
 -- 'backupVaultTags', 'createBackupVault_backupVaultTags' - Metadata that you can assign to help organize the resources that you
 -- create. Each tag is a key-value pair.
@@ -104,23 +104,23 @@ newCreateBackupVault ::
   CreateBackupVault
 newCreateBackupVault pBackupVaultName_ =
   CreateBackupVault'
-    { creatorRequestId =
+    { encryptionKeyArn =
         Prelude.Nothing,
-      encryptionKeyArn = Prelude.Nothing,
+      creatorRequestId = Prelude.Nothing,
       backupVaultTags = Prelude.Nothing,
       backupVaultName = pBackupVaultName_
     }
-
--- | A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
-createBackupVault_creatorRequestId :: Lens.Lens' CreateBackupVault (Prelude.Maybe Prelude.Text)
-createBackupVault_creatorRequestId = Lens.lens (\CreateBackupVault' {creatorRequestId} -> creatorRequestId) (\s@CreateBackupVault' {} a -> s {creatorRequestId = a} :: CreateBackupVault)
 
 -- | The server-side encryption key that is used to protect your backups; for
 -- example,
 -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
 createBackupVault_encryptionKeyArn :: Lens.Lens' CreateBackupVault (Prelude.Maybe Prelude.Text)
 createBackupVault_encryptionKeyArn = Lens.lens (\CreateBackupVault' {encryptionKeyArn} -> encryptionKeyArn) (\s@CreateBackupVault' {} a -> s {encryptionKeyArn = a} :: CreateBackupVault)
+
+-- | A unique string that identifies the request and allows failed requests
+-- to be retried without the risk of running the operation twice.
+createBackupVault_creatorRequestId :: Lens.Lens' CreateBackupVault (Prelude.Maybe Prelude.Text)
+createBackupVault_creatorRequestId = Lens.lens (\CreateBackupVault' {creatorRequestId} -> creatorRequestId) (\s@CreateBackupVault' {} a -> s {creatorRequestId = a} :: CreateBackupVault)
 
 -- | Metadata that you can assign to help organize the resources that you
 -- create. Each tag is a key-value pair.
@@ -143,23 +143,23 @@ instance Core.AWSRequest CreateBackupVault where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupVaultResponse'
-            Prelude.<$> (x Core..?> "BackupVaultArn")
+            Prelude.<$> (x Core..?> "BackupVaultName")
             Prelude.<*> (x Core..?> "CreationDate")
-            Prelude.<*> (x Core..?> "BackupVaultName")
+            Prelude.<*> (x Core..?> "BackupVaultArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateBackupVault where
   hashWithSalt _salt CreateBackupVault' {..} =
-    _salt `Prelude.hashWithSalt` creatorRequestId
-      `Prelude.hashWithSalt` encryptionKeyArn
+    _salt `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` backupVaultTags
       `Prelude.hashWithSalt` backupVaultName
 
 instance Prelude.NFData CreateBackupVault where
   rnf CreateBackupVault' {..} =
-    Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
+    Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf backupVaultTags
       `Prelude.seq` Prelude.rnf backupVaultName
 
@@ -178,10 +178,10 @@ instance Core.ToJSON CreateBackupVault where
   toJSON CreateBackupVault' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatorRequestId" Core..=)
-              Prelude.<$> creatorRequestId,
-            ("EncryptionKeyArn" Core..=)
+          [ ("EncryptionKeyArn" Core..=)
               Prelude.<$> encryptionKeyArn,
+            ("CreatorRequestId" Core..=)
+              Prelude.<$> creatorRequestId,
             ("BackupVaultTags" Core..=)
               Prelude.<$> backupVaultTags
           ]
@@ -197,19 +197,19 @@ instance Core.ToQuery CreateBackupVault where
 
 -- | /See:/ 'newCreateBackupVaultResponse' smart constructor.
 data CreateBackupVaultResponse = CreateBackupVaultResponse'
-  { -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
-    -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-    backupVaultArn :: Prelude.Maybe Prelude.Text,
+  { -- | The name of a logical container where backups are stored. Backup vaults
+    -- are identified by names that are unique to the account used to create
+    -- them and the Region where they are created. They consist of lowercase
+    -- letters, numbers, and hyphens.
+    backupVaultName :: Prelude.Maybe Prelude.Text,
     -- | The date and time a backup vault is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The name of a logical container where backups are stored. Backup vaults
-    -- are identified by names that are unique to the account used to create
-    -- them and the Region where they are created. They consist of lowercase
-    -- letters, numbers, and hyphens.
-    backupVaultName :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
+    -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+    backupVaultArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,18 +223,18 @@ data CreateBackupVaultResponse = CreateBackupVaultResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupVaultArn', 'createBackupVaultResponse_backupVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
--- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+-- 'backupVaultName', 'createBackupVaultResponse_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
+-- are identified by names that are unique to the account used to create
+-- them and the Region where they are created. They consist of lowercase
+-- letters, numbers, and hyphens.
 --
 -- 'creationDate', 'createBackupVaultResponse_creationDate' - The date and time a backup vault is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
--- 'backupVaultName', 'createBackupVaultResponse_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
--- are identified by names that are unique to the account used to create
--- them and the Region where they are created. They consist of lowercase
--- letters, numbers, and hyphens.
+-- 'backupVaultArn', 'createBackupVaultResponse_backupVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
+-- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
 --
 -- 'httpStatus', 'createBackupVaultResponse_httpStatus' - The response's http status code.
 newCreateBackupVaultResponse ::
@@ -243,24 +243,12 @@ newCreateBackupVaultResponse ::
   CreateBackupVaultResponse
 newCreateBackupVaultResponse pHttpStatus_ =
   CreateBackupVaultResponse'
-    { backupVaultArn =
+    { backupVaultName =
         Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      backupVaultName = Prelude.Nothing,
+      backupVaultArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
--- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-createBackupVaultResponse_backupVaultArn :: Lens.Lens' CreateBackupVaultResponse (Prelude.Maybe Prelude.Text)
-createBackupVaultResponse_backupVaultArn = Lens.lens (\CreateBackupVaultResponse' {backupVaultArn} -> backupVaultArn) (\s@CreateBackupVaultResponse' {} a -> s {backupVaultArn = a} :: CreateBackupVaultResponse)
-
--- | The date and time a backup vault is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
-createBackupVaultResponse_creationDate :: Lens.Lens' CreateBackupVaultResponse (Prelude.Maybe Prelude.UTCTime)
-createBackupVaultResponse_creationDate = Lens.lens (\CreateBackupVaultResponse' {creationDate} -> creationDate) (\s@CreateBackupVaultResponse' {} a -> s {creationDate = a} :: CreateBackupVaultResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -269,13 +257,25 @@ createBackupVaultResponse_creationDate = Lens.lens (\CreateBackupVaultResponse' 
 createBackupVaultResponse_backupVaultName :: Lens.Lens' CreateBackupVaultResponse (Prelude.Maybe Prelude.Text)
 createBackupVaultResponse_backupVaultName = Lens.lens (\CreateBackupVaultResponse' {backupVaultName} -> backupVaultName) (\s@CreateBackupVaultResponse' {} a -> s {backupVaultName = a} :: CreateBackupVaultResponse)
 
+-- | The date and time a backup vault is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+createBackupVaultResponse_creationDate :: Lens.Lens' CreateBackupVaultResponse (Prelude.Maybe Prelude.UTCTime)
+createBackupVaultResponse_creationDate = Lens.lens (\CreateBackupVaultResponse' {creationDate} -> creationDate) (\s@CreateBackupVaultResponse' {} a -> s {creationDate = a} :: CreateBackupVaultResponse) Prelude.. Lens.mapping Core._Time
+
+-- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
+-- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+createBackupVaultResponse_backupVaultArn :: Lens.Lens' CreateBackupVaultResponse (Prelude.Maybe Prelude.Text)
+createBackupVaultResponse_backupVaultArn = Lens.lens (\CreateBackupVaultResponse' {backupVaultArn} -> backupVaultArn) (\s@CreateBackupVaultResponse' {} a -> s {backupVaultArn = a} :: CreateBackupVaultResponse)
+
 -- | The response's http status code.
 createBackupVaultResponse_httpStatus :: Lens.Lens' CreateBackupVaultResponse Prelude.Int
 createBackupVaultResponse_httpStatus = Lens.lens (\CreateBackupVaultResponse' {httpStatus} -> httpStatus) (\s@CreateBackupVaultResponse' {} a -> s {httpStatus = a} :: CreateBackupVaultResponse)
 
 instance Prelude.NFData CreateBackupVaultResponse where
   rnf CreateBackupVaultResponse' {..} =
-    Prelude.rnf backupVaultArn
+    Prelude.rnf backupVaultName
       `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf backupVaultArn
       `Prelude.seq` Prelude.rnf httpStatus

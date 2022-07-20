@@ -46,10 +46,10 @@ module Amazonka.LookoutVision.CreateModel
     newCreateModel,
 
     -- * Request Lenses
-    createModel_clientToken,
-    createModel_kmsKeyId,
-    createModel_description,
     createModel_tags,
+    createModel_clientToken,
+    createModel_description,
+    createModel_kmsKeyId,
     createModel_projectName,
     createModel_outputConfig,
 
@@ -72,7 +72,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateModel' smart constructor.
 data CreateModel = CreateModel'
-  { -- | ClientToken is an idempotency token that ensures a call to @CreateModel@
+  { -- | A set of tags (key-value pairs) that you want to attach to the model.
+    tags :: Prelude.Maybe [Tag],
+    -- | ClientToken is an idempotency token that ensures a call to @CreateModel@
     -- completes only once. You choose the value to pass. For example, An
     -- issue, such as an network outage, might prevent you from getting a
     -- response from @CreateModel@. In this case, safely retry your call to
@@ -81,16 +83,14 @@ data CreateModel = CreateModel'
     -- request. Using a different value for @ClientToken@ is considered a new
     -- call to @CreateModel@. An idempotency token is active for 8 hours.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description for the version of the model.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier for your AWS Key Management Service (AWS KMS) customer
     -- master key (CMK). The key is used to encrypt training and test images
     -- copied into the service for model training. Your source images are
     -- unaffected. If this parameter is not specified, the copied images are
     -- encrypted by a key that AWS owns and manages.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A description for the version of the model.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A set of tags (key-value pairs) that you want to attach to the model.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the project in which you want to create a model version.
     projectName :: Prelude.Text,
     -- | The location where Amazon Lookout for Vision saves the training results.
@@ -106,6 +106,8 @@ data CreateModel = CreateModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createModel_tags' - A set of tags (key-value pairs) that you want to attach to the model.
+--
 -- 'clientToken', 'createModel_clientToken' - ClientToken is an idempotency token that ensures a call to @CreateModel@
 -- completes only once. You choose the value to pass. For example, An
 -- issue, such as an network outage, might prevent you from getting a
@@ -115,15 +117,13 @@ data CreateModel = CreateModel'
 -- request. Using a different value for @ClientToken@ is considered a new
 -- call to @CreateModel@. An idempotency token is active for 8 hours.
 --
+-- 'description', 'createModel_description' - A description for the version of the model.
+--
 -- 'kmsKeyId', 'createModel_kmsKeyId' - The identifier for your AWS Key Management Service (AWS KMS) customer
 -- master key (CMK). The key is used to encrypt training and test images
 -- copied into the service for model training. Your source images are
 -- unaffected. If this parameter is not specified, the copied images are
 -- encrypted by a key that AWS owns and manages.
---
--- 'description', 'createModel_description' - A description for the version of the model.
---
--- 'tags', 'createModel_tags' - A set of tags (key-value pairs) that you want to attach to the model.
 --
 -- 'projectName', 'createModel_projectName' - The name of the project in which you want to create a model version.
 --
@@ -136,13 +136,17 @@ newCreateModel ::
   CreateModel
 newCreateModel pProjectName_ pOutputConfig_ =
   CreateModel'
-    { clientToken = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       projectName = pProjectName_,
       outputConfig = pOutputConfig_
     }
+
+-- | A set of tags (key-value pairs) that you want to attach to the model.
+createModel_tags :: Lens.Lens' CreateModel (Prelude.Maybe [Tag])
+createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | ClientToken is an idempotency token that ensures a call to @CreateModel@
 -- completes only once. You choose the value to pass. For example, An
@@ -155,6 +159,10 @@ newCreateModel pProjectName_ pOutputConfig_ =
 createModel_clientToken :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_clientToken = Lens.lens (\CreateModel' {clientToken} -> clientToken) (\s@CreateModel' {} a -> s {clientToken = a} :: CreateModel)
 
+-- | A description for the version of the model.
+createModel_description :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
+createModel_description = Lens.lens (\CreateModel' {description} -> description) (\s@CreateModel' {} a -> s {description = a} :: CreateModel)
+
 -- | The identifier for your AWS Key Management Service (AWS KMS) customer
 -- master key (CMK). The key is used to encrypt training and test images
 -- copied into the service for model training. Your source images are
@@ -162,14 +170,6 @@ createModel_clientToken = Lens.lens (\CreateModel' {clientToken} -> clientToken)
 -- encrypted by a key that AWS owns and manages.
 createModel_kmsKeyId :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_kmsKeyId = Lens.lens (\CreateModel' {kmsKeyId} -> kmsKeyId) (\s@CreateModel' {} a -> s {kmsKeyId = a} :: CreateModel)
-
--- | A description for the version of the model.
-createModel_description :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
-createModel_description = Lens.lens (\CreateModel' {description} -> description) (\s@CreateModel' {} a -> s {description = a} :: CreateModel)
-
--- | A set of tags (key-value pairs) that you want to attach to the model.
-createModel_tags :: Lens.Lens' CreateModel (Prelude.Maybe [Tag])
-createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the project in which you want to create a model version.
 createModel_projectName :: Lens.Lens' CreateModel Prelude.Text
@@ -192,19 +192,19 @@ instance Core.AWSRequest CreateModel where
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` outputConfig
 
 instance Prelude.NFData CreateModel where
   rnf CreateModel' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf outputConfig
 
@@ -220,9 +220,9 @@ instance Core.ToJSON CreateModel where
   toJSON CreateModel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("OutputConfig" Core..= outputConfig)
           ]
       )

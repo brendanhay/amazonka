@@ -54,8 +54,8 @@ module Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     newGetOpenIdTokenForDeveloperIdentityResponse,
 
     -- * Response Lenses
-    getOpenIdTokenForDeveloperIdentityResponse_token,
     getOpenIdTokenForDeveloperIdentityResponse_identityId,
+    getOpenIdTokenForDeveloperIdentityResponse_token,
     getOpenIdTokenForDeveloperIdentityResponse_httpStatus,
   )
 where
@@ -208,8 +208,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetOpenIdTokenForDeveloperIdentityResponse'
-            Prelude.<$> (x Core..?> "Token")
-              Prelude.<*> (x Core..?> "IdentityId")
+            Prelude.<$> (x Core..?> "IdentityId")
+              Prelude.<*> (x Core..?> "Token")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -288,10 +288,10 @@ instance
 --
 -- /See:/ 'newGetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
-  { -- | An OpenID token.
-    token :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier in the format REGION:GUID.
+  { -- | A unique identifier in the format REGION:GUID.
     identityId :: Prelude.Maybe Prelude.Text,
+    -- | An OpenID token.
+    token :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -305,9 +305,9 @@ data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIden
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'token', 'getOpenIdTokenForDeveloperIdentityResponse_token' - An OpenID token.
---
 -- 'identityId', 'getOpenIdTokenForDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.
+--
+-- 'token', 'getOpenIdTokenForDeveloperIdentityResponse_token' - An OpenID token.
 --
 -- 'httpStatus', 'getOpenIdTokenForDeveloperIdentityResponse_httpStatus' - The response's http status code.
 newGetOpenIdTokenForDeveloperIdentityResponse ::
@@ -317,19 +317,19 @@ newGetOpenIdTokenForDeveloperIdentityResponse ::
 newGetOpenIdTokenForDeveloperIdentityResponse
   pHttpStatus_ =
     GetOpenIdTokenForDeveloperIdentityResponse'
-      { token =
+      { identityId =
           Prelude.Nothing,
-        identityId = Prelude.Nothing,
+        token = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | An OpenID token.
-getOpenIdTokenForDeveloperIdentityResponse_token :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
-getOpenIdTokenForDeveloperIdentityResponse_token = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {token} -> token) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {token = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
 
 -- | A unique identifier in the format REGION:GUID.
 getOpenIdTokenForDeveloperIdentityResponse_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
 getOpenIdTokenForDeveloperIdentityResponse_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
+
+-- | An OpenID token.
+getOpenIdTokenForDeveloperIdentityResponse_token :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenForDeveloperIdentityResponse_token = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {token} -> token) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {token = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
 
 -- | The response's http status code.
 getOpenIdTokenForDeveloperIdentityResponse_httpStatus :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse Prelude.Int
@@ -340,6 +340,6 @@ instance
     GetOpenIdTokenForDeveloperIdentityResponse
   where
   rnf GetOpenIdTokenForDeveloperIdentityResponse' {..} =
-    Prelude.rnf token
-      `Prelude.seq` Prelude.rnf identityId
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf httpStatus

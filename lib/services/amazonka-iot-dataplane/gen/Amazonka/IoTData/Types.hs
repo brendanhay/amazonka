@@ -17,24 +17,24 @@ module Amazonka.IoTData.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
-    _ConflictException,
-    _RequestEntityTooLargeException,
-    _ThrottlingException,
-    _MethodNotAllowedException,
-    _InternalFailureException,
-    _ServiceUnavailableException,
     _UnauthorizedException,
+    _ServiceUnavailableException,
     _ResourceNotFoundException,
     _UnsupportedDocumentEncodingException,
+    _ConflictException,
+    _ThrottlingException,
+    _MethodNotAllowedException,
+    _RequestEntityTooLargeException,
+    _InvalidRequestException,
+    _InternalFailureException,
 
     -- * RetainedMessageSummary
     RetainedMessageSummary (..),
     newRetainedMessageSummary,
-    retainedMessageSummary_lastModifiedTime,
-    retainedMessageSummary_topic,
-    retainedMessageSummary_qos,
     retainedMessageSummary_payloadSize,
+    retainedMessageSummary_lastModifiedTime,
+    retainedMessageSummary_qos,
+    retainedMessageSummary_topic,
   )
 where
 
@@ -69,35 +69,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -106,21 +79,72 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | You are not authorized to perform this operation.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401
+
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The document encoding is not supported.
+_UnsupportedDocumentEncodingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedDocumentEncodingException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedDocumentEncodingException"
+    Prelude.. Core.hasStatus 415
 
 -- | The specified version does not match the version of the document.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -129,14 +153,6 @@ _ConflictException =
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
-
--- | The payload exceeds the maximum size allowed.
-_RequestEntityTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestEntityTooLargeException =
-  Core._MatchServiceError
-    defaultService
-    "RequestEntityTooLargeException"
-    Prelude.. Core.hasStatus 413
 
 -- | The rate exceeds the limit.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -154,6 +170,22 @@ _MethodNotAllowedException =
     "MethodNotAllowedException"
     Prelude.. Core.hasStatus 405
 
+-- | The payload exceeds the maximum size allowed.
+_RequestEntityTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestEntityTooLargeException =
+  Core._MatchServiceError
+    defaultService
+    "RequestEntityTooLargeException"
+    Prelude.. Core.hasStatus 413
+
+-- | The request is not valid.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
 -- | An unexpected error has occurred.
 _InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalFailureException =
@@ -161,35 +193,3 @@ _InternalFailureException =
     defaultService
     "InternalFailureException"
     Prelude.. Core.hasStatus 500
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | You are not authorized to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
-
--- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The document encoding is not supported.
-_UnsupportedDocumentEncodingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedDocumentEncodingException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedDocumentEncodingException"
-    Prelude.. Core.hasStatus 415

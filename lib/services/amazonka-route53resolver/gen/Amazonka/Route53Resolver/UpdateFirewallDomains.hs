@@ -36,10 +36,10 @@ module Amazonka.Route53Resolver.UpdateFirewallDomains
     newUpdateFirewallDomainsResponse,
 
     -- * Response Lenses
-    updateFirewallDomainsResponse_status,
-    updateFirewallDomainsResponse_statusMessage,
     updateFirewallDomainsResponse_name,
+    updateFirewallDomainsResponse_status,
     updateFirewallDomainsResponse_id,
+    updateFirewallDomainsResponse_statusMessage,
     updateFirewallDomainsResponse_httpStatus,
   )
 where
@@ -172,10 +172,10 @@ instance Core.AWSRequest UpdateFirewallDomains where
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallDomainsResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "StatusMessage")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,13 +227,13 @@ instance Core.ToQuery UpdateFirewallDomains where
 
 -- | /See:/ 'newUpdateFirewallDomainsResponse' smart constructor.
 data UpdateFirewallDomainsResponse = UpdateFirewallDomainsResponse'
-  { status :: Prelude.Maybe FirewallDomainListStatus,
-    -- | Additional information about the status of the list, if available.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the domain list.
+  { -- | The name of the domain list.
     name :: Prelude.Maybe Prelude.Text,
+    status :: Prelude.Maybe FirewallDomainListStatus,
     -- | The ID of the firewall domain list that DNS Firewall just updated.
     id :: Prelude.Maybe Prelude.Text,
+    -- | Additional information about the status of the list, if available.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,13 +247,13 @@ data UpdateFirewallDomainsResponse = UpdateFirewallDomainsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'updateFirewallDomainsResponse_status' -
---
--- 'statusMessage', 'updateFirewallDomainsResponse_statusMessage' - Additional information about the status of the list, if available.
---
 -- 'name', 'updateFirewallDomainsResponse_name' - The name of the domain list.
 --
+-- 'status', 'updateFirewallDomainsResponse_status' -
+--
 -- 'id', 'updateFirewallDomainsResponse_id' - The ID of the firewall domain list that DNS Firewall just updated.
+--
+-- 'statusMessage', 'updateFirewallDomainsResponse_statusMessage' - Additional information about the status of the list, if available.
 --
 -- 'httpStatus', 'updateFirewallDomainsResponse_httpStatus' - The response's http status code.
 newUpdateFirewallDomainsResponse ::
@@ -262,29 +262,29 @@ newUpdateFirewallDomainsResponse ::
   UpdateFirewallDomainsResponse
 newUpdateFirewallDomainsResponse pHttpStatus_ =
   UpdateFirewallDomainsResponse'
-    { status =
+    { name =
         Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      name = Prelude.Nothing,
+      status = Prelude.Nothing,
       id = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- |
-updateFirewallDomainsResponse_status :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe FirewallDomainListStatus)
-updateFirewallDomainsResponse_status = Lens.lens (\UpdateFirewallDomainsResponse' {status} -> status) (\s@UpdateFirewallDomainsResponse' {} a -> s {status = a} :: UpdateFirewallDomainsResponse)
-
--- | Additional information about the status of the list, if available.
-updateFirewallDomainsResponse_statusMessage :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe Prelude.Text)
-updateFirewallDomainsResponse_statusMessage = Lens.lens (\UpdateFirewallDomainsResponse' {statusMessage} -> statusMessage) (\s@UpdateFirewallDomainsResponse' {} a -> s {statusMessage = a} :: UpdateFirewallDomainsResponse)
 
 -- | The name of the domain list.
 updateFirewallDomainsResponse_name :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe Prelude.Text)
 updateFirewallDomainsResponse_name = Lens.lens (\UpdateFirewallDomainsResponse' {name} -> name) (\s@UpdateFirewallDomainsResponse' {} a -> s {name = a} :: UpdateFirewallDomainsResponse)
 
+-- |
+updateFirewallDomainsResponse_status :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe FirewallDomainListStatus)
+updateFirewallDomainsResponse_status = Lens.lens (\UpdateFirewallDomainsResponse' {status} -> status) (\s@UpdateFirewallDomainsResponse' {} a -> s {status = a} :: UpdateFirewallDomainsResponse)
+
 -- | The ID of the firewall domain list that DNS Firewall just updated.
 updateFirewallDomainsResponse_id :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe Prelude.Text)
 updateFirewallDomainsResponse_id = Lens.lens (\UpdateFirewallDomainsResponse' {id} -> id) (\s@UpdateFirewallDomainsResponse' {} a -> s {id = a} :: UpdateFirewallDomainsResponse)
+
+-- | Additional information about the status of the list, if available.
+updateFirewallDomainsResponse_statusMessage :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe Prelude.Text)
+updateFirewallDomainsResponse_statusMessage = Lens.lens (\UpdateFirewallDomainsResponse' {statusMessage} -> statusMessage) (\s@UpdateFirewallDomainsResponse' {} a -> s {statusMessage = a} :: UpdateFirewallDomainsResponse)
 
 -- | The response's http status code.
 updateFirewallDomainsResponse_httpStatus :: Lens.Lens' UpdateFirewallDomainsResponse Prelude.Int
@@ -292,8 +292,8 @@ updateFirewallDomainsResponse_httpStatus = Lens.lens (\UpdateFirewallDomainsResp
 
 instance Prelude.NFData UpdateFirewallDomainsResponse where
   rnf UpdateFirewallDomainsResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf httpStatus

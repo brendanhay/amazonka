@@ -40,10 +40,10 @@ module Amazonka.Rekognition.StartTextDetection
     newStartTextDetection,
 
     -- * Request Lenses
-    startTextDetection_jobTag,
-    startTextDetection_filters,
-    startTextDetection_notificationChannel,
     startTextDetection_clientRequestToken,
+    startTextDetection_filters,
+    startTextDetection_jobTag,
+    startTextDetection_notificationChannel,
     startTextDetection_video,
 
     -- * Destructuring the Response
@@ -65,19 +65,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartTextDetection' smart constructor.
 data StartTextDetection = StartTextDetection'
-  { -- | An identifier returned in the completion status published by your Amazon
-    -- Simple Notification Service topic. For example, you can use @JobTag@ to
-    -- group related jobs and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
-    -- | Optional parameters that let you set criteria the text must meet to be
-    -- included in your response.
-    filters :: Prelude.Maybe StartTextDetectionFilters,
-    notificationChannel :: Prelude.Maybe NotificationChannel,
-    -- | Idempotent token used to identify the start request. If you use the same
+  { -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartTextDetection@ requests, the same @JobId@ is
     -- returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidentaly started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional parameters that let you set criteria the text must meet to be
+    -- included in your response.
+    filters :: Prelude.Maybe StartTextDetectionFilters,
+    -- | An identifier returned in the completion status published by your Amazon
+    -- Simple Notification Service topic. For example, you can use @JobTag@ to
+    -- group related jobs and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    notificationChannel :: Prelude.Maybe NotificationChannel,
     video :: Video
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,19 +90,19 @@ data StartTextDetection = StartTextDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobTag', 'startTextDetection_jobTag' - An identifier returned in the completion status published by your Amazon
--- Simple Notification Service topic. For example, you can use @JobTag@ to
--- group related jobs and identify them in the completion notification.
---
--- 'filters', 'startTextDetection_filters' - Optional parameters that let you set criteria the text must meet to be
--- included in your response.
---
--- 'notificationChannel', 'startTextDetection_notificationChannel' - Undocumented member.
---
 -- 'clientRequestToken', 'startTextDetection_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartTextDetection@ requests, the same @JobId@ is
 -- returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidentaly started more than once.
+--
+-- 'filters', 'startTextDetection_filters' - Optional parameters that let you set criteria the text must meet to be
+-- included in your response.
+--
+-- 'jobTag', 'startTextDetection_jobTag' - An identifier returned in the completion status published by your Amazon
+-- Simple Notification Service topic. For example, you can use @JobTag@ to
+-- group related jobs and identify them in the completion notification.
+--
+-- 'notificationChannel', 'startTextDetection_notificationChannel' - Undocumented member.
 --
 -- 'video', 'startTextDetection_video' - Undocumented member.
 newStartTextDetection ::
@@ -111,27 +111,13 @@ newStartTextDetection ::
   StartTextDetection
 newStartTextDetection pVideo_ =
   StartTextDetection'
-    { jobTag = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       filters = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       video = pVideo_
     }
-
--- | An identifier returned in the completion status published by your Amazon
--- Simple Notification Service topic. For example, you can use @JobTag@ to
--- group related jobs and identify them in the completion notification.
-startTextDetection_jobTag :: Lens.Lens' StartTextDetection (Prelude.Maybe Prelude.Text)
-startTextDetection_jobTag = Lens.lens (\StartTextDetection' {jobTag} -> jobTag) (\s@StartTextDetection' {} a -> s {jobTag = a} :: StartTextDetection)
-
--- | Optional parameters that let you set criteria the text must meet to be
--- included in your response.
-startTextDetection_filters :: Lens.Lens' StartTextDetection (Prelude.Maybe StartTextDetectionFilters)
-startTextDetection_filters = Lens.lens (\StartTextDetection' {filters} -> filters) (\s@StartTextDetection' {} a -> s {filters = a} :: StartTextDetection)
-
--- | Undocumented member.
-startTextDetection_notificationChannel :: Lens.Lens' StartTextDetection (Prelude.Maybe NotificationChannel)
-startTextDetection_notificationChannel = Lens.lens (\StartTextDetection' {notificationChannel} -> notificationChannel) (\s@StartTextDetection' {} a -> s {notificationChannel = a} :: StartTextDetection)
 
 -- | Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartTextDetection@ requests, the same @JobId@ is
@@ -139,6 +125,21 @@ startTextDetection_notificationChannel = Lens.lens (\StartTextDetection' {notifi
 -- accidentaly started more than once.
 startTextDetection_clientRequestToken :: Lens.Lens' StartTextDetection (Prelude.Maybe Prelude.Text)
 startTextDetection_clientRequestToken = Lens.lens (\StartTextDetection' {clientRequestToken} -> clientRequestToken) (\s@StartTextDetection' {} a -> s {clientRequestToken = a} :: StartTextDetection)
+
+-- | Optional parameters that let you set criteria the text must meet to be
+-- included in your response.
+startTextDetection_filters :: Lens.Lens' StartTextDetection (Prelude.Maybe StartTextDetectionFilters)
+startTextDetection_filters = Lens.lens (\StartTextDetection' {filters} -> filters) (\s@StartTextDetection' {} a -> s {filters = a} :: StartTextDetection)
+
+-- | An identifier returned in the completion status published by your Amazon
+-- Simple Notification Service topic. For example, you can use @JobTag@ to
+-- group related jobs and identify them in the completion notification.
+startTextDetection_jobTag :: Lens.Lens' StartTextDetection (Prelude.Maybe Prelude.Text)
+startTextDetection_jobTag = Lens.lens (\StartTextDetection' {jobTag} -> jobTag) (\s@StartTextDetection' {} a -> s {jobTag = a} :: StartTextDetection)
+
+-- | Undocumented member.
+startTextDetection_notificationChannel :: Lens.Lens' StartTextDetection (Prelude.Maybe NotificationChannel)
+startTextDetection_notificationChannel = Lens.lens (\StartTextDetection' {notificationChannel} -> notificationChannel) (\s@StartTextDetection' {} a -> s {notificationChannel = a} :: StartTextDetection)
 
 -- | Undocumented member.
 startTextDetection_video :: Lens.Lens' StartTextDetection Video
@@ -159,18 +160,18 @@ instance Core.AWSRequest StartTextDetection where
 
 instance Prelude.Hashable StartTextDetection where
   hashWithSalt _salt StartTextDetection' {..} =
-    _salt `Prelude.hashWithSalt` jobTag
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` notificationChannel
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` video
 
 instance Prelude.NFData StartTextDetection where
   rnf StartTextDetection' {..} =
-    Prelude.rnf jobTag
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf video
 
 instance Core.ToHeaders StartTextDetection where
@@ -192,12 +193,12 @@ instance Core.ToJSON StartTextDetection where
   toJSON StartTextDetection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobTag" Core..=) Prelude.<$> jobTag,
+          [ ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
             ("Filters" Core..=) Prelude.<$> filters,
+            ("JobTag" Core..=) Prelude.<$> jobTag,
             ("NotificationChannel" Core..=)
               Prelude.<$> notificationChannel,
-            ("ClientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken,
             Prelude.Just ("Video" Core..= video)
           ]
       )

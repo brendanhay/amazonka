@@ -38,8 +38,8 @@ module Amazonka.WorkMail.ListGroups
     newListGroupsResponse,
 
     -- * Response Lenses
-    listGroupsResponse_groups,
     listGroupsResponse_nextToken,
+    listGroupsResponse_groups,
     listGroupsResponse_httpStatus,
   )
 where
@@ -127,8 +127,8 @@ instance Core.AWSRequest ListGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            Prelude.<$> (x Core..?> "Groups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,11 +176,11 @@ instance Core.ToQuery ListGroups where
 
 -- | /See:/ 'newListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { -- | The overview of groups for an organization.
-    groups :: Prelude.Maybe [Group],
-    -- | The token to use to retrieve the next page of results. The value is
+  { -- | The token to use to retrieve the next page of results. The value is
     -- \"null\" when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The overview of groups for an organization.
+    groups :: Prelude.Maybe [Group],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,10 +194,10 @@ data ListGroupsResponse = ListGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'listGroupsResponse_groups' - The overview of groups for an organization.
---
 -- 'nextToken', 'listGroupsResponse_nextToken' - The token to use to retrieve the next page of results. The value is
 -- \"null\" when there are no more results to return.
+--
+-- 'groups', 'listGroupsResponse_groups' - The overview of groups for an organization.
 --
 -- 'httpStatus', 'listGroupsResponse_httpStatus' - The response's http status code.
 newListGroupsResponse ::
@@ -206,19 +206,19 @@ newListGroupsResponse ::
   ListGroupsResponse
 newListGroupsResponse pHttpStatus_ =
   ListGroupsResponse'
-    { groups = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      groups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The overview of groups for an organization.
-listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [Group])
-listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The value is
 -- \"null\" when there are no more results to return.
 listGroupsResponse_nextToken :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Text)
 listGroupsResponse_nextToken = Lens.lens (\ListGroupsResponse' {nextToken} -> nextToken) (\s@ListGroupsResponse' {} a -> s {nextToken = a} :: ListGroupsResponse)
+
+-- | The overview of groups for an organization.
+listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [Group])
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Prelude.Int
@@ -226,6 +226,6 @@ listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListGroupsResponse where
   rnf ListGroupsResponse' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,9 +27,9 @@ module Amazonka.QuickSight.UpdateTheme
     newUpdateTheme,
 
     -- * Request Lenses
-    updateTheme_versionDescription,
     updateTheme_name,
     updateTheme_configuration,
+    updateTheme_versionDescription,
     updateTheme_awsAccountId,
     updateTheme_themeId,
     updateTheme_baseThemeId,
@@ -39,11 +39,11 @@ module Amazonka.QuickSight.UpdateTheme
     newUpdateThemeResponse,
 
     -- * Response Lenses
-    updateThemeResponse_requestId,
-    updateThemeResponse_themeId,
-    updateThemeResponse_arn,
     updateThemeResponse_creationStatus,
+    updateThemeResponse_requestId,
+    updateThemeResponse_arn,
     updateThemeResponse_versionArn,
+    updateThemeResponse_themeId,
     updateThemeResponse_status,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTheme' smart constructor.
 data UpdateTheme = UpdateTheme'
-  { -- | A description of the theme version that you\'re updating Every time that
+  { -- | The name for the theme.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The theme configuration, which contains the theme display properties.
+    configuration :: Prelude.Maybe ThemeConfiguration,
+    -- | A description of the theme version that you\'re updating Every time that
     -- you call @UpdateTheme@, you create a new version of the theme. Each
     -- version of the theme maintains a description of the version in
     -- @VersionDescription@.
     versionDescription :: Prelude.Maybe Prelude.Text,
-    -- | The name for the theme.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The theme configuration, which contains the theme display properties.
-    configuration :: Prelude.Maybe ThemeConfiguration,
     -- | The ID of the Amazon Web Services account that contains the theme that
     -- you\'re updating.
     awsAccountId :: Prelude.Text,
@@ -86,14 +86,14 @@ data UpdateTheme = UpdateTheme'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'updateTheme_name' - The name for the theme.
+--
+-- 'configuration', 'updateTheme_configuration' - The theme configuration, which contains the theme display properties.
+--
 -- 'versionDescription', 'updateTheme_versionDescription' - A description of the theme version that you\'re updating Every time that
 -- you call @UpdateTheme@, you create a new version of the theme. Each
 -- version of the theme maintains a description of the version in
 -- @VersionDescription@.
---
--- 'name', 'updateTheme_name' - The name for the theme.
---
--- 'configuration', 'updateTheme_configuration' - The theme configuration, which contains the theme display properties.
 --
 -- 'awsAccountId', 'updateTheme_awsAccountId' - The ID of the Amazon Web Services account that contains the theme that
 -- you\'re updating.
@@ -113,20 +113,13 @@ newUpdateTheme ::
   UpdateTheme
 newUpdateTheme pAwsAccountId_ pThemeId_ pBaseThemeId_ =
   UpdateTheme'
-    { versionDescription = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       configuration = Prelude.Nothing,
+      versionDescription = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       themeId = pThemeId_,
       baseThemeId = pBaseThemeId_
     }
-
--- | A description of the theme version that you\'re updating Every time that
--- you call @UpdateTheme@, you create a new version of the theme. Each
--- version of the theme maintains a description of the version in
--- @VersionDescription@.
-updateTheme_versionDescription :: Lens.Lens' UpdateTheme (Prelude.Maybe Prelude.Text)
-updateTheme_versionDescription = Lens.lens (\UpdateTheme' {versionDescription} -> versionDescription) (\s@UpdateTheme' {} a -> s {versionDescription = a} :: UpdateTheme)
 
 -- | The name for the theme.
 updateTheme_name :: Lens.Lens' UpdateTheme (Prelude.Maybe Prelude.Text)
@@ -135,6 +128,13 @@ updateTheme_name = Lens.lens (\UpdateTheme' {name} -> name) (\s@UpdateTheme' {} 
 -- | The theme configuration, which contains the theme display properties.
 updateTheme_configuration :: Lens.Lens' UpdateTheme (Prelude.Maybe ThemeConfiguration)
 updateTheme_configuration = Lens.lens (\UpdateTheme' {configuration} -> configuration) (\s@UpdateTheme' {} a -> s {configuration = a} :: UpdateTheme)
+
+-- | A description of the theme version that you\'re updating Every time that
+-- you call @UpdateTheme@, you create a new version of the theme. Each
+-- version of the theme maintains a description of the version in
+-- @VersionDescription@.
+updateTheme_versionDescription :: Lens.Lens' UpdateTheme (Prelude.Maybe Prelude.Text)
+updateTheme_versionDescription = Lens.lens (\UpdateTheme' {versionDescription} -> versionDescription) (\s@UpdateTheme' {} a -> s {versionDescription = a} :: UpdateTheme)
 
 -- | The ID of the Amazon Web Services account that contains the theme that
 -- you\'re updating.
@@ -158,28 +158,28 @@ instance Core.AWSRequest UpdateTheme where
     Response.receiveJSON
       ( \s h x ->
           UpdateThemeResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "ThemeId")
+            Prelude.<$> (x Core..?> "CreationStatus")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreationStatus")
             Prelude.<*> (x Core..?> "VersionArn")
+            Prelude.<*> (x Core..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateTheme where
   hashWithSalt _salt UpdateTheme' {..} =
-    _salt `Prelude.hashWithSalt` versionDescription
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId
       `Prelude.hashWithSalt` baseThemeId
 
 instance Prelude.NFData UpdateTheme where
   rnf UpdateTheme' {..} =
-    Prelude.rnf versionDescription
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf themeId
       `Prelude.seq` Prelude.rnf baseThemeId
@@ -199,10 +199,10 @@ instance Core.ToJSON UpdateTheme where
   toJSON UpdateTheme' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VersionDescription" Core..=)
-              Prelude.<$> versionDescription,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("Configuration" Core..=) Prelude.<$> configuration,
+            ("VersionDescription" Core..=)
+              Prelude.<$> versionDescription,
             Prelude.Just ("BaseThemeId" Core..= baseThemeId)
           ]
       )
@@ -221,16 +221,16 @@ instance Core.ToQuery UpdateTheme where
 
 -- | /See:/ 'newUpdateThemeResponse' smart constructor.
 data UpdateThemeResponse = UpdateThemeResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | The creation status of the theme.
+    creationStatus :: Prelude.Maybe ResourceStatus,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the theme.
-    themeId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the theme.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The creation status of the theme.
-    creationStatus :: Prelude.Maybe ResourceStatus,
     -- | The Amazon Resource Name (ARN) for the new version of the theme.
     versionArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the theme.
+    themeId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -244,15 +244,15 @@ data UpdateThemeResponse = UpdateThemeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateThemeResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'creationStatus', 'updateThemeResponse_creationStatus' - The creation status of the theme.
 --
--- 'themeId', 'updateThemeResponse_themeId' - The ID for the theme.
+-- 'requestId', 'updateThemeResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'arn', 'updateThemeResponse_arn' - The Amazon Resource Name (ARN) for the theme.
 --
--- 'creationStatus', 'updateThemeResponse_creationStatus' - The creation status of the theme.
---
 -- 'versionArn', 'updateThemeResponse_versionArn' - The Amazon Resource Name (ARN) for the new version of the theme.
+--
+-- 'themeId', 'updateThemeResponse_themeId' - The ID for the theme.
 --
 -- 'status', 'updateThemeResponse_status' - The HTTP status of the request.
 newUpdateThemeResponse ::
@@ -261,33 +261,34 @@ newUpdateThemeResponse ::
   UpdateThemeResponse
 newUpdateThemeResponse pStatus_ =
   UpdateThemeResponse'
-    { requestId = Prelude.Nothing,
-      themeId = Prelude.Nothing,
+    { creationStatus =
+        Prelude.Nothing,
+      requestId = Prelude.Nothing,
       arn = Prelude.Nothing,
-      creationStatus = Prelude.Nothing,
       versionArn = Prelude.Nothing,
+      themeId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-updateThemeResponse_requestId :: Lens.Lens' UpdateThemeResponse (Prelude.Maybe Prelude.Text)
-updateThemeResponse_requestId = Lens.lens (\UpdateThemeResponse' {requestId} -> requestId) (\s@UpdateThemeResponse' {} a -> s {requestId = a} :: UpdateThemeResponse)
-
--- | The ID for the theme.
-updateThemeResponse_themeId :: Lens.Lens' UpdateThemeResponse (Prelude.Maybe Prelude.Text)
-updateThemeResponse_themeId = Lens.lens (\UpdateThemeResponse' {themeId} -> themeId) (\s@UpdateThemeResponse' {} a -> s {themeId = a} :: UpdateThemeResponse)
-
--- | The Amazon Resource Name (ARN) for the theme.
-updateThemeResponse_arn :: Lens.Lens' UpdateThemeResponse (Prelude.Maybe Prelude.Text)
-updateThemeResponse_arn = Lens.lens (\UpdateThemeResponse' {arn} -> arn) (\s@UpdateThemeResponse' {} a -> s {arn = a} :: UpdateThemeResponse)
 
 -- | The creation status of the theme.
 updateThemeResponse_creationStatus :: Lens.Lens' UpdateThemeResponse (Prelude.Maybe ResourceStatus)
 updateThemeResponse_creationStatus = Lens.lens (\UpdateThemeResponse' {creationStatus} -> creationStatus) (\s@UpdateThemeResponse' {} a -> s {creationStatus = a} :: UpdateThemeResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+updateThemeResponse_requestId :: Lens.Lens' UpdateThemeResponse (Prelude.Maybe Prelude.Text)
+updateThemeResponse_requestId = Lens.lens (\UpdateThemeResponse' {requestId} -> requestId) (\s@UpdateThemeResponse' {} a -> s {requestId = a} :: UpdateThemeResponse)
+
+-- | The Amazon Resource Name (ARN) for the theme.
+updateThemeResponse_arn :: Lens.Lens' UpdateThemeResponse (Prelude.Maybe Prelude.Text)
+updateThemeResponse_arn = Lens.lens (\UpdateThemeResponse' {arn} -> arn) (\s@UpdateThemeResponse' {} a -> s {arn = a} :: UpdateThemeResponse)
+
 -- | The Amazon Resource Name (ARN) for the new version of the theme.
 updateThemeResponse_versionArn :: Lens.Lens' UpdateThemeResponse (Prelude.Maybe Prelude.Text)
 updateThemeResponse_versionArn = Lens.lens (\UpdateThemeResponse' {versionArn} -> versionArn) (\s@UpdateThemeResponse' {} a -> s {versionArn = a} :: UpdateThemeResponse)
+
+-- | The ID for the theme.
+updateThemeResponse_themeId :: Lens.Lens' UpdateThemeResponse (Prelude.Maybe Prelude.Text)
+updateThemeResponse_themeId = Lens.lens (\UpdateThemeResponse' {themeId} -> themeId) (\s@UpdateThemeResponse' {} a -> s {themeId = a} :: UpdateThemeResponse)
 
 -- | The HTTP status of the request.
 updateThemeResponse_status :: Lens.Lens' UpdateThemeResponse Prelude.Int
@@ -295,9 +296,9 @@ updateThemeResponse_status = Lens.lens (\UpdateThemeResponse' {status} -> status
 
 instance Prelude.NFData UpdateThemeResponse where
   rnf UpdateThemeResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf themeId
+    Prelude.rnf creationStatus
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
       `Prelude.seq` Prelude.rnf versionArn
+      `Prelude.seq` Prelude.rnf themeId
       `Prelude.seq` Prelude.rnf status

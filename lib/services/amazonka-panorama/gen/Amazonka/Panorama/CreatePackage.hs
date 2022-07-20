@@ -35,8 +35,8 @@ module Amazonka.Panorama.CreatePackage
     newCreatePackageResponse,
 
     -- * Response Lenses
-    createPackageResponse_packageId,
     createPackageResponse_arn,
+    createPackageResponse_packageId,
     createPackageResponse_httpStatus,
     createPackageResponse_storageLocation,
   )
@@ -96,8 +96,8 @@ instance Core.AWSRequest CreatePackage where
     Response.receiveJSON
       ( \s h x ->
           CreatePackageResponse'
-            Prelude.<$> (x Core..?> "PackageId")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "PackageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "StorageLocation")
       )
@@ -140,10 +140,10 @@ instance Core.ToQuery CreatePackage where
 
 -- | /See:/ 'newCreatePackageResponse' smart constructor.
 data CreatePackageResponse = CreatePackageResponse'
-  { -- | The package\'s ID.
-    packageId :: Prelude.Maybe Prelude.Text,
-    -- | The package\'s ARN.
+  { -- | The package\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The package\'s ID.
+    packageId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The package\'s storage location.
@@ -159,9 +159,9 @@ data CreatePackageResponse = CreatePackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageId', 'createPackageResponse_packageId' - The package\'s ID.
---
 -- 'arn', 'createPackageResponse_arn' - The package\'s ARN.
+--
+-- 'packageId', 'createPackageResponse_packageId' - The package\'s ID.
 --
 -- 'httpStatus', 'createPackageResponse_httpStatus' - The response's http status code.
 --
@@ -176,19 +176,19 @@ newCreatePackageResponse
   pHttpStatus_
   pStorageLocation_ =
     CreatePackageResponse'
-      { packageId = Prelude.Nothing,
-        arn = Prelude.Nothing,
+      { arn = Prelude.Nothing,
+        packageId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         storageLocation = pStorageLocation_
       }
 
--- | The package\'s ID.
-createPackageResponse_packageId :: Lens.Lens' CreatePackageResponse (Prelude.Maybe Prelude.Text)
-createPackageResponse_packageId = Lens.lens (\CreatePackageResponse' {packageId} -> packageId) (\s@CreatePackageResponse' {} a -> s {packageId = a} :: CreatePackageResponse)
-
 -- | The package\'s ARN.
 createPackageResponse_arn :: Lens.Lens' CreatePackageResponse (Prelude.Maybe Prelude.Text)
 createPackageResponse_arn = Lens.lens (\CreatePackageResponse' {arn} -> arn) (\s@CreatePackageResponse' {} a -> s {arn = a} :: CreatePackageResponse)
+
+-- | The package\'s ID.
+createPackageResponse_packageId :: Lens.Lens' CreatePackageResponse (Prelude.Maybe Prelude.Text)
+createPackageResponse_packageId = Lens.lens (\CreatePackageResponse' {packageId} -> packageId) (\s@CreatePackageResponse' {} a -> s {packageId = a} :: CreatePackageResponse)
 
 -- | The response's http status code.
 createPackageResponse_httpStatus :: Lens.Lens' CreatePackageResponse Prelude.Int
@@ -200,7 +200,7 @@ createPackageResponse_storageLocation = Lens.lens (\CreatePackageResponse' {stor
 
 instance Prelude.NFData CreatePackageResponse where
   rnf CreatePackageResponse' {..} =
-    Prelude.rnf packageId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf packageId
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf storageLocation

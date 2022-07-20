@@ -28,7 +28,9 @@ import Amazonka.SESV2.Types.ReviewStatus
 --
 -- /See:/ 'newReviewDetails' smart constructor.
 data ReviewDetails = ReviewDetails'
-  { -- | The status of the latest review of your account. The status can be one
+  { -- | The associated support center case ID (if any).
+    caseId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the latest review of your account. The status can be one
     -- of the following:
     --
     -- -   @PENDING@ – We have received your appeal and are in the process of
@@ -42,9 +44,7 @@ data ReviewDetails = ReviewDetails'
     --
     -- -   @FAILED@ – An internal error occurred and we didn\'t receive your
     --     appeal. You can submit your appeal again.
-    status :: Prelude.Maybe ReviewStatus,
-    -- | The associated support center case ID (if any).
-    caseId :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe ReviewStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,8 @@ data ReviewDetails = ReviewDetails'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'caseId', 'reviewDetails_caseId' - The associated support center case ID (if any).
 --
 -- 'status', 'reviewDetails_status' - The status of the latest review of your account. The status can be one
 -- of the following:
@@ -70,15 +72,17 @@ data ReviewDetails = ReviewDetails'
 --
 -- -   @FAILED@ – An internal error occurred and we didn\'t receive your
 --     appeal. You can submit your appeal again.
---
--- 'caseId', 'reviewDetails_caseId' - The associated support center case ID (if any).
 newReviewDetails ::
   ReviewDetails
 newReviewDetails =
   ReviewDetails'
-    { status = Prelude.Nothing,
-      caseId = Prelude.Nothing
+    { caseId = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The associated support center case ID (if any).
+reviewDetails_caseId :: Lens.Lens' ReviewDetails (Prelude.Maybe Prelude.Text)
+reviewDetails_caseId = Lens.lens (\ReviewDetails' {caseId} -> caseId) (\s@ReviewDetails' {} a -> s {caseId = a} :: ReviewDetails)
 
 -- | The status of the latest review of your account. The status can be one
 -- of the following:
@@ -97,25 +101,21 @@ newReviewDetails =
 reviewDetails_status :: Lens.Lens' ReviewDetails (Prelude.Maybe ReviewStatus)
 reviewDetails_status = Lens.lens (\ReviewDetails' {status} -> status) (\s@ReviewDetails' {} a -> s {status = a} :: ReviewDetails)
 
--- | The associated support center case ID (if any).
-reviewDetails_caseId :: Lens.Lens' ReviewDetails (Prelude.Maybe Prelude.Text)
-reviewDetails_caseId = Lens.lens (\ReviewDetails' {caseId} -> caseId) (\s@ReviewDetails' {} a -> s {caseId = a} :: ReviewDetails)
-
 instance Core.FromJSON ReviewDetails where
   parseJSON =
     Core.withObject
       "ReviewDetails"
       ( \x ->
           ReviewDetails'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CaseId")
+            Prelude.<$> (x Core..:? "CaseId")
+            Prelude.<*> (x Core..:? "Status")
       )
 
 instance Prelude.Hashable ReviewDetails where
   hashWithSalt _salt ReviewDetails' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` caseId
+    _salt `Prelude.hashWithSalt` caseId
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ReviewDetails where
   rnf ReviewDetails' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf caseId
+    Prelude.rnf caseId `Prelude.seq` Prelude.rnf status

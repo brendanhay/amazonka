@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchemaVersionNumber' smart constructor.
 data SchemaVersionNumber = SchemaVersionNumber'
-  { -- | The version number of the schema.
-    versionNumber :: Prelude.Maybe Prelude.Natural,
-    -- | The latest version available for the schema.
-    latestVersion :: Prelude.Maybe Prelude.Bool
+  { -- | The latest version available for the schema.
+    latestVersion :: Prelude.Maybe Prelude.Bool,
+    -- | The version number of the schema.
+    versionNumber :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,41 +42,41 @@ data SchemaVersionNumber = SchemaVersionNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionNumber', 'schemaVersionNumber_versionNumber' - The version number of the schema.
---
 -- 'latestVersion', 'schemaVersionNumber_latestVersion' - The latest version available for the schema.
+--
+-- 'versionNumber', 'schemaVersionNumber_versionNumber' - The version number of the schema.
 newSchemaVersionNumber ::
   SchemaVersionNumber
 newSchemaVersionNumber =
   SchemaVersionNumber'
-    { versionNumber =
+    { latestVersion =
         Prelude.Nothing,
-      latestVersion = Prelude.Nothing
+      versionNumber = Prelude.Nothing
     }
-
--- | The version number of the schema.
-schemaVersionNumber_versionNumber :: Lens.Lens' SchemaVersionNumber (Prelude.Maybe Prelude.Natural)
-schemaVersionNumber_versionNumber = Lens.lens (\SchemaVersionNumber' {versionNumber} -> versionNumber) (\s@SchemaVersionNumber' {} a -> s {versionNumber = a} :: SchemaVersionNumber)
 
 -- | The latest version available for the schema.
 schemaVersionNumber_latestVersion :: Lens.Lens' SchemaVersionNumber (Prelude.Maybe Prelude.Bool)
 schemaVersionNumber_latestVersion = Lens.lens (\SchemaVersionNumber' {latestVersion} -> latestVersion) (\s@SchemaVersionNumber' {} a -> s {latestVersion = a} :: SchemaVersionNumber)
 
+-- | The version number of the schema.
+schemaVersionNumber_versionNumber :: Lens.Lens' SchemaVersionNumber (Prelude.Maybe Prelude.Natural)
+schemaVersionNumber_versionNumber = Lens.lens (\SchemaVersionNumber' {versionNumber} -> versionNumber) (\s@SchemaVersionNumber' {} a -> s {versionNumber = a} :: SchemaVersionNumber)
+
 instance Prelude.Hashable SchemaVersionNumber where
   hashWithSalt _salt SchemaVersionNumber' {..} =
-    _salt `Prelude.hashWithSalt` versionNumber
-      `Prelude.hashWithSalt` latestVersion
+    _salt `Prelude.hashWithSalt` latestVersion
+      `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData SchemaVersionNumber where
   rnf SchemaVersionNumber' {..} =
-    Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf latestVersion
+    Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf versionNumber
 
 instance Core.ToJSON SchemaVersionNumber where
   toJSON SchemaVersionNumber' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VersionNumber" Core..=) Prelude.<$> versionNumber,
-            ("LatestVersion" Core..=) Prelude.<$> latestVersion
+          [ ("LatestVersion" Core..=) Prelude.<$> latestVersion,
+            ("VersionNumber" Core..=) Prelude.<$> versionNumber
           ]
       )

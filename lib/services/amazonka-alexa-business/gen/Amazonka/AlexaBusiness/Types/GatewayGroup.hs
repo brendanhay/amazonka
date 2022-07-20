@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGatewayGroup' smart constructor.
 data GatewayGroup = GatewayGroup'
-  { -- | The ARN of the gateway group.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the gateway group.
+  { -- | The name of the gateway group.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the gateway group.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the gateway group.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -44,27 +44,27 @@ data GatewayGroup = GatewayGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'gatewayGroup_arn' - The ARN of the gateway group.
---
 -- 'name', 'gatewayGroup_name' - The name of the gateway group.
+--
+-- 'arn', 'gatewayGroup_arn' - The ARN of the gateway group.
 --
 -- 'description', 'gatewayGroup_description' - The description of the gateway group.
 newGatewayGroup ::
   GatewayGroup
 newGatewayGroup =
   GatewayGroup'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | The ARN of the gateway group.
-gatewayGroup_arn :: Lens.Lens' GatewayGroup (Prelude.Maybe Prelude.Text)
-gatewayGroup_arn = Lens.lens (\GatewayGroup' {arn} -> arn) (\s@GatewayGroup' {} a -> s {arn = a} :: GatewayGroup)
 
 -- | The name of the gateway group.
 gatewayGroup_name :: Lens.Lens' GatewayGroup (Prelude.Maybe Prelude.Text)
 gatewayGroup_name = Lens.lens (\GatewayGroup' {name} -> name) (\s@GatewayGroup' {} a -> s {name = a} :: GatewayGroup)
+
+-- | The ARN of the gateway group.
+gatewayGroup_arn :: Lens.Lens' GatewayGroup (Prelude.Maybe Prelude.Text)
+gatewayGroup_arn = Lens.lens (\GatewayGroup' {arn} -> arn) (\s@GatewayGroup' {} a -> s {arn = a} :: GatewayGroup)
 
 -- | The description of the gateway group.
 gatewayGroup_description :: Lens.Lens' GatewayGroup (Prelude.Maybe Prelude.Text)
@@ -76,19 +76,19 @@ instance Core.FromJSON GatewayGroup where
       "GatewayGroup"
       ( \x ->
           GatewayGroup'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable GatewayGroup where
   hashWithSalt _salt GatewayGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData GatewayGroup where
   rnf GatewayGroup' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description

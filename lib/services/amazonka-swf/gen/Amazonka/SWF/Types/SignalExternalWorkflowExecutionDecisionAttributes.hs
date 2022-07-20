@@ -47,12 +47,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSignalExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowExecutionDecisionAttributes'
-  { -- | The data attached to the event that can be used by the decider in
-    -- subsequent decision tasks.
-    control :: Prelude.Maybe Prelude.Text,
-    -- | The input data to be provided with the signal. The target workflow
+  { -- | The input data to be provided with the signal. The target workflow
     -- execution uses the signal name and input data to process the signal.
     input :: Prelude.Maybe Prelude.Text,
+    -- | The data attached to the event that can be used by the decider in
+    -- subsequent decision tasks.
+    control :: Prelude.Maybe Prelude.Text,
     -- | The @runId@ of the workflow execution to be signaled.
     runId :: Prelude.Maybe Prelude.Text,
     -- | The @workflowId@ of the workflow execution to be signaled.
@@ -71,11 +71,11 @@ data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'control', 'signalExternalWorkflowExecutionDecisionAttributes_control' - The data attached to the event that can be used by the decider in
--- subsequent decision tasks.
---
 -- 'input', 'signalExternalWorkflowExecutionDecisionAttributes_input' - The input data to be provided with the signal. The target workflow
 -- execution uses the signal name and input data to process the signal.
+--
+-- 'control', 'signalExternalWorkflowExecutionDecisionAttributes_control' - The data attached to the event that can be used by the decider in
+-- subsequent decision tasks.
 --
 -- 'runId', 'signalExternalWorkflowExecutionDecisionAttributes_runId' - The @runId@ of the workflow execution to be signaled.
 --
@@ -93,9 +93,10 @@ newSignalExternalWorkflowExecutionDecisionAttributes
   pWorkflowId_
   pSignalName_ =
     SignalExternalWorkflowExecutionDecisionAttributes'
-      { control =
+      { input =
           Prelude.Nothing,
-        input = Prelude.Nothing,
+        control =
+          Prelude.Nothing,
         runId = Prelude.Nothing,
         workflowId =
           pWorkflowId_,
@@ -103,15 +104,15 @@ newSignalExternalWorkflowExecutionDecisionAttributes
           pSignalName_
       }
 
--- | The data attached to the event that can be used by the decider in
--- subsequent decision tasks.
-signalExternalWorkflowExecutionDecisionAttributes_control :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
-signalExternalWorkflowExecutionDecisionAttributes_control = Lens.lens (\SignalExternalWorkflowExecutionDecisionAttributes' {control} -> control) (\s@SignalExternalWorkflowExecutionDecisionAttributes' {} a -> s {control = a} :: SignalExternalWorkflowExecutionDecisionAttributes)
-
 -- | The input data to be provided with the signal. The target workflow
 -- execution uses the signal name and input data to process the signal.
 signalExternalWorkflowExecutionDecisionAttributes_input :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
 signalExternalWorkflowExecutionDecisionAttributes_input = Lens.lens (\SignalExternalWorkflowExecutionDecisionAttributes' {input} -> input) (\s@SignalExternalWorkflowExecutionDecisionAttributes' {} a -> s {input = a} :: SignalExternalWorkflowExecutionDecisionAttributes)
+
+-- | The data attached to the event that can be used by the decider in
+-- subsequent decision tasks.
+signalExternalWorkflowExecutionDecisionAttributes_control :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
+signalExternalWorkflowExecutionDecisionAttributes_control = Lens.lens (\SignalExternalWorkflowExecutionDecisionAttributes' {control} -> control) (\s@SignalExternalWorkflowExecutionDecisionAttributes' {} a -> s {control = a} :: SignalExternalWorkflowExecutionDecisionAttributes)
 
 -- | The @runId@ of the workflow execution to be signaled.
 signalExternalWorkflowExecutionDecisionAttributes_runId :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
@@ -133,8 +134,8 @@ instance
   hashWithSalt
     _salt
     SignalExternalWorkflowExecutionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
-        `Prelude.hashWithSalt` input
+      _salt `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` runId
         `Prelude.hashWithSalt` workflowId
         `Prelude.hashWithSalt` signalName
@@ -145,8 +146,8 @@ instance
   where
   rnf
     SignalExternalWorkflowExecutionDecisionAttributes' {..} =
-      Prelude.rnf control
-        `Prelude.seq` Prelude.rnf input
+      Prelude.rnf input
+        `Prelude.seq` Prelude.rnf control
         `Prelude.seq` Prelude.rnf runId
         `Prelude.seq` Prelude.rnf workflowId
         `Prelude.seq` Prelude.rnf signalName
@@ -159,8 +160,8 @@ instance
     SignalExternalWorkflowExecutionDecisionAttributes' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("control" Core..=) Prelude.<$> control,
-              ("input" Core..=) Prelude.<$> input,
+            [ ("input" Core..=) Prelude.<$> input,
+              ("control" Core..=) Prelude.<$> control,
               ("runId" Core..=) Prelude.<$> runId,
               Prelude.Just ("workflowId" Core..= workflowId),
               Prelude.Just ("signalName" Core..= signalName)

@@ -34,13 +34,13 @@ module Amazonka.Transfer.CreateUser
     newCreateUser,
 
     -- * Request Lenses
-    createUser_homeDirectoryType,
+    createUser_tags,
+    createUser_homeDirectory,
+    createUser_policy,
     createUser_sshPublicKeyBody,
     createUser_posixProfile,
+    createUser_homeDirectoryType,
     createUser_homeDirectoryMappings,
-    createUser_policy,
-    createUser_homeDirectory,
-    createUser_tags,
     createUser_role,
     createUser_serverId,
     createUser_userName,
@@ -65,13 +65,35 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | The type of landing directory (folder) you want your users\' home
-    -- directory to be when they log into the server. If you set it to @PATH@,
-    -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
-    -- their file transfer protocol clients. If you set it @LOGICAL@, you need
-    -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
-    -- make Amazon S3 or EFS paths visible to your users.
-    homeDirectoryType :: Prelude.Maybe HomeDirectoryType,
+  { -- | Key-value pairs that can be used to group and search for users. Tags are
+    -- metadata attached to users for any purpose.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The landing directory (folder) for a user when they log in to the server
+    -- using the client.
+    --
+    -- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
+    homeDirectory :: Prelude.Maybe Prelude.Text,
+    -- | A session policy for your user so that you can use the same IAM role
+    -- across multiple users. This policy scopes down user access to portions
+    -- of their Amazon S3 bucket. Variables that you can use inside this policy
+    -- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
+    -- @${Transfer:HomeBucket}@.
+    --
+    -- This only applies when the domain of @ServerId@ is S3. EFS does not use
+    -- session policies.
+    --
+    -- For session policies, Amazon Web Services Transfer Family stores the
+    -- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
+    -- policy. You save the policy as a JSON blob and pass it in the @Policy@
+    -- argument.
+    --
+    -- For an example of a session policy, see
+    -- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole>
+    -- in the /Amazon Web Services Security Token Service API Reference/.
+    policy :: Prelude.Maybe Prelude.Text,
     -- | The public portion of the Secure Shell (SSH) key used to authenticate
     -- the user to the server.
     sshPublicKeyBody :: Prelude.Maybe Prelude.Text,
@@ -82,6 +104,13 @@ data CreateUser = CreateUser'
     -- determine the level of access your users get when transferring files
     -- into and out of your Amazon EFS file systems.
     posixProfile :: Prelude.Maybe PosixProfile,
+    -- | The type of landing directory (folder) you want your users\' home
+    -- directory to be when they log into the server. If you set it to @PATH@,
+    -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
+    -- their file transfer protocol clients. If you set it @LOGICAL@, you need
+    -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
+    -- make Amazon S3 or EFS paths visible to your users.
+    homeDirectoryType :: Prelude.Maybe HomeDirectoryType,
     -- | Logical directory mappings that specify what Amazon S3 or Amazon EFS
     -- paths and keys should be visible to your user and how you want to make
     -- them visible. You must specify the @Entry@ and @Target@ pair, where
@@ -115,35 +144,6 @@ data CreateUser = CreateUser'
     -- Make sure that the end of the key name ends in a @\/@ for it to be
     -- considered a folder.
     homeDirectoryMappings :: Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry),
-    -- | A session policy for your user so that you can use the same IAM role
-    -- across multiple users. This policy scopes down user access to portions
-    -- of their Amazon S3 bucket. Variables that you can use inside this policy
-    -- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
-    -- @${Transfer:HomeBucket}@.
-    --
-    -- This only applies when the domain of @ServerId@ is S3. EFS does not use
-    -- session policies.
-    --
-    -- For session policies, Amazon Web Services Transfer Family stores the
-    -- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
-    -- policy. You save the policy as a JSON blob and pass it in the @Policy@
-    -- argument.
-    --
-    -- For an example of a session policy, see
-    -- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole>
-    -- in the /Amazon Web Services Security Token Service API Reference/.
-    policy :: Prelude.Maybe Prelude.Text,
-    -- | The landing directory (folder) for a user when they log in to the server
-    -- using the client.
-    --
-    -- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
-    homeDirectory :: Prelude.Maybe Prelude.Text,
-    -- | Key-value pairs that can be used to group and search for users. Tags are
-    -- metadata attached to users for any purpose.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls
     -- your users\' access to your Amazon S3 bucket or EFS file system. The
     -- policies attached to this role determine the level of access that you
@@ -172,12 +172,34 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'homeDirectoryType', 'createUser_homeDirectoryType' - The type of landing directory (folder) you want your users\' home
--- directory to be when they log into the server. If you set it to @PATH@,
--- the user will see the absolute Amazon S3 bucket or EFS paths as is in
--- their file transfer protocol clients. If you set it @LOGICAL@, you need
--- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or EFS paths visible to your users.
+-- 'tags', 'createUser_tags' - Key-value pairs that can be used to group and search for users. Tags are
+-- metadata attached to users for any purpose.
+--
+-- 'homeDirectory', 'createUser_homeDirectory' - The landing directory (folder) for a user when they log in to the server
+-- using the client.
+--
+-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
+--
+-- 'policy', 'createUser_policy' - A session policy for your user so that you can use the same IAM role
+-- across multiple users. This policy scopes down user access to portions
+-- of their Amazon S3 bucket. Variables that you can use inside this policy
+-- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
+-- @${Transfer:HomeBucket}@.
+--
+-- This only applies when the domain of @ServerId@ is S3. EFS does not use
+-- session policies.
+--
+-- For session policies, Amazon Web Services Transfer Family stores the
+-- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
+-- policy. You save the policy as a JSON blob and pass it in the @Policy@
+-- argument.
+--
+-- For an example of a session policy, see
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole>
+-- in the /Amazon Web Services Security Token Service API Reference/.
 --
 -- 'sshPublicKeyBody', 'createUser_sshPublicKeyBody' - The public portion of the Secure Shell (SSH) key used to authenticate
 -- the user to the server.
@@ -188,6 +210,13 @@ data CreateUser = CreateUser'
 -- permissions that are set on files and directories in Amazon EFS
 -- determine the level of access your users get when transferring files
 -- into and out of your Amazon EFS file systems.
+--
+-- 'homeDirectoryType', 'createUser_homeDirectoryType' - The type of landing directory (folder) you want your users\' home
+-- directory to be when they log into the server. If you set it to @PATH@,
+-- the user will see the absolute Amazon S3 bucket or EFS paths as is in
+-- their file transfer protocol clients. If you set it @LOGICAL@, you need
+-- to provide mappings in the @HomeDirectoryMappings@ for how you want to
+-- make Amazon S3 or EFS paths visible to your users.
 --
 -- 'homeDirectoryMappings', 'createUser_homeDirectoryMappings' - Logical directory mappings that specify what Amazon S3 or Amazon EFS
 -- paths and keys should be visible to your user and how you want to make
@@ -222,35 +251,6 @@ data CreateUser = CreateUser'
 -- Make sure that the end of the key name ends in a @\/@ for it to be
 -- considered a folder.
 --
--- 'policy', 'createUser_policy' - A session policy for your user so that you can use the same IAM role
--- across multiple users. This policy scopes down user access to portions
--- of their Amazon S3 bucket. Variables that you can use inside this policy
--- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
--- @${Transfer:HomeBucket}@.
---
--- This only applies when the domain of @ServerId@ is S3. EFS does not use
--- session policies.
---
--- For session policies, Amazon Web Services Transfer Family stores the
--- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
--- policy. You save the policy as a JSON blob and pass it in the @Policy@
--- argument.
---
--- For an example of a session policy, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
---
--- For more information, see
--- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole>
--- in the /Amazon Web Services Security Token Service API Reference/.
---
--- 'homeDirectory', 'createUser_homeDirectory' - The landing directory (folder) for a user when they log in to the server
--- using the client.
---
--- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
---
--- 'tags', 'createUser_tags' - Key-value pairs that can be used to group and search for users. Tags are
--- metadata attached to users for any purpose.
---
 -- 'role'', 'createUser_role' - Specifies the Amazon Resource Name (ARN) of the IAM role that controls
 -- your users\' access to your Amazon S3 bucket or EFS file system. The
 -- policies attached to this role determine the level of access that you
@@ -277,26 +277,52 @@ newCreateUser ::
   CreateUser
 newCreateUser pRole_ pServerId_ pUserName_ =
   CreateUser'
-    { homeDirectoryType = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      homeDirectory = Prelude.Nothing,
+      policy = Prelude.Nothing,
       sshPublicKeyBody = Prelude.Nothing,
       posixProfile = Prelude.Nothing,
+      homeDirectoryType = Prelude.Nothing,
       homeDirectoryMappings = Prelude.Nothing,
-      policy = Prelude.Nothing,
-      homeDirectory = Prelude.Nothing,
-      tags = Prelude.Nothing,
       role' = pRole_,
       serverId = pServerId_,
       userName = pUserName_
     }
 
--- | The type of landing directory (folder) you want your users\' home
--- directory to be when they log into the server. If you set it to @PATH@,
--- the user will see the absolute Amazon S3 bucket or EFS paths as is in
--- their file transfer protocol clients. If you set it @LOGICAL@, you need
--- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or EFS paths visible to your users.
-createUser_homeDirectoryType :: Lens.Lens' CreateUser (Prelude.Maybe HomeDirectoryType)
-createUser_homeDirectoryType = Lens.lens (\CreateUser' {homeDirectoryType} -> homeDirectoryType) (\s@CreateUser' {} a -> s {homeDirectoryType = a} :: CreateUser)
+-- | Key-value pairs that can be used to group and search for users. Tags are
+-- metadata attached to users for any purpose.
+createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.NonEmpty Tag))
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | The landing directory (folder) for a user when they log in to the server
+-- using the client.
+--
+-- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
+createUser_homeDirectory :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_homeDirectory = Lens.lens (\CreateUser' {homeDirectory} -> homeDirectory) (\s@CreateUser' {} a -> s {homeDirectory = a} :: CreateUser)
+
+-- | A session policy for your user so that you can use the same IAM role
+-- across multiple users. This policy scopes down user access to portions
+-- of their Amazon S3 bucket. Variables that you can use inside this policy
+-- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
+-- @${Transfer:HomeBucket}@.
+--
+-- This only applies when the domain of @ServerId@ is S3. EFS does not use
+-- session policies.
+--
+-- For session policies, Amazon Web Services Transfer Family stores the
+-- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
+-- policy. You save the policy as a JSON blob and pass it in the @Policy@
+-- argument.
+--
+-- For an example of a session policy, see
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole>
+-- in the /Amazon Web Services Security Token Service API Reference/.
+createUser_policy :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_policy = Lens.lens (\CreateUser' {policy} -> policy) (\s@CreateUser' {} a -> s {policy = a} :: CreateUser)
 
 -- | The public portion of the Secure Shell (SSH) key used to authenticate
 -- the user to the server.
@@ -311,6 +337,15 @@ createUser_sshPublicKeyBody = Lens.lens (\CreateUser' {sshPublicKeyBody} -> sshP
 -- into and out of your Amazon EFS file systems.
 createUser_posixProfile :: Lens.Lens' CreateUser (Prelude.Maybe PosixProfile)
 createUser_posixProfile = Lens.lens (\CreateUser' {posixProfile} -> posixProfile) (\s@CreateUser' {} a -> s {posixProfile = a} :: CreateUser)
+
+-- | The type of landing directory (folder) you want your users\' home
+-- directory to be when they log into the server. If you set it to @PATH@,
+-- the user will see the absolute Amazon S3 bucket or EFS paths as is in
+-- their file transfer protocol clients. If you set it @LOGICAL@, you need
+-- to provide mappings in the @HomeDirectoryMappings@ for how you want to
+-- make Amazon S3 or EFS paths visible to your users.
+createUser_homeDirectoryType :: Lens.Lens' CreateUser (Prelude.Maybe HomeDirectoryType)
+createUser_homeDirectoryType = Lens.lens (\CreateUser' {homeDirectoryType} -> homeDirectoryType) (\s@CreateUser' {} a -> s {homeDirectoryType = a} :: CreateUser)
 
 -- | Logical directory mappings that specify what Amazon S3 or Amazon EFS
 -- paths and keys should be visible to your user and how you want to make
@@ -346,41 +381,6 @@ createUser_posixProfile = Lens.lens (\CreateUser' {posixProfile} -> posixProfile
 -- considered a folder.
 createUser_homeDirectoryMappings :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry))
 createUser_homeDirectoryMappings = Lens.lens (\CreateUser' {homeDirectoryMappings} -> homeDirectoryMappings) (\s@CreateUser' {} a -> s {homeDirectoryMappings = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
-
--- | A session policy for your user so that you can use the same IAM role
--- across multiple users. This policy scopes down user access to portions
--- of their Amazon S3 bucket. Variables that you can use inside this policy
--- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
--- @${Transfer:HomeBucket}@.
---
--- This only applies when the domain of @ServerId@ is S3. EFS does not use
--- session policies.
---
--- For session policies, Amazon Web Services Transfer Family stores the
--- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
--- policy. You save the policy as a JSON blob and pass it in the @Policy@
--- argument.
---
--- For an example of a session policy, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
---
--- For more information, see
--- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AssumeRole>
--- in the /Amazon Web Services Security Token Service API Reference/.
-createUser_policy :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_policy = Lens.lens (\CreateUser' {policy} -> policy) (\s@CreateUser' {} a -> s {policy = a} :: CreateUser)
-
--- | The landing directory (folder) for a user when they log in to the server
--- using the client.
---
--- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
-createUser_homeDirectory :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_homeDirectory = Lens.lens (\CreateUser' {homeDirectory} -> homeDirectory) (\s@CreateUser' {} a -> s {homeDirectory = a} :: CreateUser)
-
--- | Key-value pairs that can be used to group and search for users. Tags are
--- metadata attached to users for any purpose.
-createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.NonEmpty Tag))
-createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls
 -- your users\' access to your Amazon S3 bucket or EFS file system. The
@@ -419,26 +419,26 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` homeDirectoryType
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` homeDirectory
+      `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` sshPublicKeyBody
       `Prelude.hashWithSalt` posixProfile
+      `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` homeDirectoryMappings
-      `Prelude.hashWithSalt` policy
-      `Prelude.hashWithSalt` homeDirectory
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf homeDirectoryType
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf homeDirectory
+      `Prelude.seq` Prelude.rnf policy
       `Prelude.seq` Prelude.rnf sshPublicKeyBody
       `Prelude.seq` Prelude.rnf posixProfile
+      `Prelude.seq` Prelude.rnf homeDirectoryType
       `Prelude.seq` Prelude.rnf homeDirectoryMappings
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf homeDirectory
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf userName
@@ -460,16 +460,16 @@ instance Core.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("HomeDirectoryType" Core..=)
-              Prelude.<$> homeDirectoryType,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("HomeDirectory" Core..=) Prelude.<$> homeDirectory,
+            ("Policy" Core..=) Prelude.<$> policy,
             ("SshPublicKeyBody" Core..=)
               Prelude.<$> sshPublicKeyBody,
             ("PosixProfile" Core..=) Prelude.<$> posixProfile,
+            ("HomeDirectoryType" Core..=)
+              Prelude.<$> homeDirectoryType,
             ("HomeDirectoryMappings" Core..=)
               Prelude.<$> homeDirectoryMappings,
-            ("Policy" Core..=) Prelude.<$> policy,
-            ("HomeDirectory" Core..=) Prelude.<$> homeDirectory,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Role" Core..= role'),
             Prelude.Just ("ServerId" Core..= serverId),
             Prelude.Just ("UserName" Core..= userName)

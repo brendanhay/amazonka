@@ -41,10 +41,10 @@ module Amazonka.IoT.GetPercentiles
     newGetPercentiles,
 
     -- * Request Lenses
-    getPercentiles_percents,
-    getPercentiles_queryVersion,
     getPercentiles_aggregationField,
+    getPercentiles_percents,
     getPercentiles_indexName,
+    getPercentiles_queryVersion,
     getPercentiles_queryString,
 
     -- * Destructuring the Response
@@ -66,14 +66,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPercentiles' smart constructor.
 data GetPercentiles = GetPercentiles'
-  { -- | The percentile groups returned.
-    percents :: Prelude.Maybe [Prelude.Double],
-    -- | The query version.
-    queryVersion :: Prelude.Maybe Prelude.Text,
-    -- | The field to aggregate.
+  { -- | The field to aggregate.
     aggregationField :: Prelude.Maybe Prelude.Text,
+    -- | The percentile groups returned.
+    percents :: Prelude.Maybe [Prelude.Double],
     -- | The name of the index to search.
     indexName :: Prelude.Maybe Prelude.Text,
+    -- | The query version.
+    queryVersion :: Prelude.Maybe Prelude.Text,
     -- | The search query string.
     queryString :: Prelude.Text
   }
@@ -87,13 +87,13 @@ data GetPercentiles = GetPercentiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'percents', 'getPercentiles_percents' - The percentile groups returned.
---
--- 'queryVersion', 'getPercentiles_queryVersion' - The query version.
---
 -- 'aggregationField', 'getPercentiles_aggregationField' - The field to aggregate.
 --
+-- 'percents', 'getPercentiles_percents' - The percentile groups returned.
+--
 -- 'indexName', 'getPercentiles_indexName' - The name of the index to search.
+--
+-- 'queryVersion', 'getPercentiles_queryVersion' - The query version.
 --
 -- 'queryString', 'getPercentiles_queryString' - The search query string.
 newGetPercentiles ::
@@ -102,28 +102,28 @@ newGetPercentiles ::
   GetPercentiles
 newGetPercentiles pQueryString_ =
   GetPercentiles'
-    { percents = Prelude.Nothing,
-      queryVersion = Prelude.Nothing,
-      aggregationField = Prelude.Nothing,
+    { aggregationField = Prelude.Nothing,
+      percents = Prelude.Nothing,
       indexName = Prelude.Nothing,
+      queryVersion = Prelude.Nothing,
       queryString = pQueryString_
     }
-
--- | The percentile groups returned.
-getPercentiles_percents :: Lens.Lens' GetPercentiles (Prelude.Maybe [Prelude.Double])
-getPercentiles_percents = Lens.lens (\GetPercentiles' {percents} -> percents) (\s@GetPercentiles' {} a -> s {percents = a} :: GetPercentiles) Prelude.. Lens.mapping Lens.coerced
-
--- | The query version.
-getPercentiles_queryVersion :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
-getPercentiles_queryVersion = Lens.lens (\GetPercentiles' {queryVersion} -> queryVersion) (\s@GetPercentiles' {} a -> s {queryVersion = a} :: GetPercentiles)
 
 -- | The field to aggregate.
 getPercentiles_aggregationField :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
 getPercentiles_aggregationField = Lens.lens (\GetPercentiles' {aggregationField} -> aggregationField) (\s@GetPercentiles' {} a -> s {aggregationField = a} :: GetPercentiles)
 
+-- | The percentile groups returned.
+getPercentiles_percents :: Lens.Lens' GetPercentiles (Prelude.Maybe [Prelude.Double])
+getPercentiles_percents = Lens.lens (\GetPercentiles' {percents} -> percents) (\s@GetPercentiles' {} a -> s {percents = a} :: GetPercentiles) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the index to search.
 getPercentiles_indexName :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
 getPercentiles_indexName = Lens.lens (\GetPercentiles' {indexName} -> indexName) (\s@GetPercentiles' {} a -> s {indexName = a} :: GetPercentiles)
+
+-- | The query version.
+getPercentiles_queryVersion :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
+getPercentiles_queryVersion = Lens.lens (\GetPercentiles' {queryVersion} -> queryVersion) (\s@GetPercentiles' {} a -> s {queryVersion = a} :: GetPercentiles)
 
 -- | The search query string.
 getPercentiles_queryString :: Lens.Lens' GetPercentiles Prelude.Text
@@ -144,18 +144,18 @@ instance Core.AWSRequest GetPercentiles where
 
 instance Prelude.Hashable GetPercentiles where
   hashWithSalt _salt GetPercentiles' {..} =
-    _salt `Prelude.hashWithSalt` percents
-      `Prelude.hashWithSalt` queryVersion
-      `Prelude.hashWithSalt` aggregationField
+    _salt `Prelude.hashWithSalt` aggregationField
+      `Prelude.hashWithSalt` percents
       `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData GetPercentiles where
   rnf GetPercentiles' {..} =
-    Prelude.rnf percents
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf aggregationField
+    Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf percents
       `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf queryVersion
       `Prelude.seq` Prelude.rnf queryString
 
 instance Core.ToHeaders GetPercentiles where
@@ -165,11 +165,11 @@ instance Core.ToJSON GetPercentiles where
   toJSON GetPercentiles' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("percents" Core..=) Prelude.<$> percents,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            ("aggregationField" Core..=)
+          [ ("aggregationField" Core..=)
               Prelude.<$> aggregationField,
+            ("percents" Core..=) Prelude.<$> percents,
             ("indexName" Core..=) Prelude.<$> indexName,
+            ("queryVersion" Core..=) Prelude.<$> queryVersion,
             Prelude.Just ("queryString" Core..= queryString)
           ]
       )

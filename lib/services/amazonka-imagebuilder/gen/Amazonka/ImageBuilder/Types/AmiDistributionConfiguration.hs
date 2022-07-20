@@ -31,17 +31,17 @@ data AmiDistributionConfiguration = AmiDistributionConfiguration'
   { -- | Launch permissions can be used to configure which Amazon Web Services
     -- accounts can use the AMI to launch instances.
     launchPermission :: Prelude.Maybe LaunchPermissionConfiguration,
+    -- | The name of the output AMI.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The description of the distribution configuration. Minimum and maximum
+    -- length are in characters.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of an account to which you want to distribute an image.
     targetAccountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The tags to apply to AMIs distributed to this Region.
     amiTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the output AMI.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The KMS key identifier used to encrypt the distributed image.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The description of the distribution configuration. Minimum and maximum
-    -- length are in characters.
-    description :: Prelude.Maybe Prelude.Text
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,33 +56,42 @@ data AmiDistributionConfiguration = AmiDistributionConfiguration'
 -- 'launchPermission', 'amiDistributionConfiguration_launchPermission' - Launch permissions can be used to configure which Amazon Web Services
 -- accounts can use the AMI to launch instances.
 --
+-- 'name', 'amiDistributionConfiguration_name' - The name of the output AMI.
+--
+-- 'description', 'amiDistributionConfiguration_description' - The description of the distribution configuration. Minimum and maximum
+-- length are in characters.
+--
 -- 'targetAccountIds', 'amiDistributionConfiguration_targetAccountIds' - The ID of an account to which you want to distribute an image.
 --
 -- 'amiTags', 'amiDistributionConfiguration_amiTags' - The tags to apply to AMIs distributed to this Region.
 --
--- 'name', 'amiDistributionConfiguration_name' - The name of the output AMI.
---
 -- 'kmsKeyId', 'amiDistributionConfiguration_kmsKeyId' - The KMS key identifier used to encrypt the distributed image.
---
--- 'description', 'amiDistributionConfiguration_description' - The description of the distribution configuration. Minimum and maximum
--- length are in characters.
 newAmiDistributionConfiguration ::
   AmiDistributionConfiguration
 newAmiDistributionConfiguration =
   AmiDistributionConfiguration'
     { launchPermission =
         Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing,
       targetAccountIds = Prelude.Nothing,
       amiTags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      description = Prelude.Nothing
+      kmsKeyId = Prelude.Nothing
     }
 
 -- | Launch permissions can be used to configure which Amazon Web Services
 -- accounts can use the AMI to launch instances.
 amiDistributionConfiguration_launchPermission :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe LaunchPermissionConfiguration)
 amiDistributionConfiguration_launchPermission = Lens.lens (\AmiDistributionConfiguration' {launchPermission} -> launchPermission) (\s@AmiDistributionConfiguration' {} a -> s {launchPermission = a} :: AmiDistributionConfiguration)
+
+-- | The name of the output AMI.
+amiDistributionConfiguration_name :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe Prelude.Text)
+amiDistributionConfiguration_name = Lens.lens (\AmiDistributionConfiguration' {name} -> name) (\s@AmiDistributionConfiguration' {} a -> s {name = a} :: AmiDistributionConfiguration)
+
+-- | The description of the distribution configuration. Minimum and maximum
+-- length are in characters.
+amiDistributionConfiguration_description :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe Prelude.Text)
+amiDistributionConfiguration_description = Lens.lens (\AmiDistributionConfiguration' {description} -> description) (\s@AmiDistributionConfiguration' {} a -> s {description = a} :: AmiDistributionConfiguration)
 
 -- | The ID of an account to which you want to distribute an image.
 amiDistributionConfiguration_targetAccountIds :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -92,18 +101,9 @@ amiDistributionConfiguration_targetAccountIds = Lens.lens (\AmiDistributionConfi
 amiDistributionConfiguration_amiTags :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 amiDistributionConfiguration_amiTags = Lens.lens (\AmiDistributionConfiguration' {amiTags} -> amiTags) (\s@AmiDistributionConfiguration' {} a -> s {amiTags = a} :: AmiDistributionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the output AMI.
-amiDistributionConfiguration_name :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe Prelude.Text)
-amiDistributionConfiguration_name = Lens.lens (\AmiDistributionConfiguration' {name} -> name) (\s@AmiDistributionConfiguration' {} a -> s {name = a} :: AmiDistributionConfiguration)
-
 -- | The KMS key identifier used to encrypt the distributed image.
 amiDistributionConfiguration_kmsKeyId :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe Prelude.Text)
 amiDistributionConfiguration_kmsKeyId = Lens.lens (\AmiDistributionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@AmiDistributionConfiguration' {} a -> s {kmsKeyId = a} :: AmiDistributionConfiguration)
-
--- | The description of the distribution configuration. Minimum and maximum
--- length are in characters.
-amiDistributionConfiguration_description :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe Prelude.Text)
-amiDistributionConfiguration_description = Lens.lens (\AmiDistributionConfiguration' {description} -> description) (\s@AmiDistributionConfiguration' {} a -> s {description = a} :: AmiDistributionConfiguration)
 
 instance Core.FromJSON AmiDistributionConfiguration where
   parseJSON =
@@ -112,11 +112,11 @@ instance Core.FromJSON AmiDistributionConfiguration where
       ( \x ->
           AmiDistributionConfiguration'
             Prelude.<$> (x Core..:? "launchPermission")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "targetAccountIds")
             Prelude.<*> (x Core..:? "amiTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "description")
       )
 
 instance
@@ -125,20 +125,20 @@ instance
   where
   hashWithSalt _salt AmiDistributionConfiguration' {..} =
     _salt `Prelude.hashWithSalt` launchPermission
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` targetAccountIds
       `Prelude.hashWithSalt` amiTags
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData AmiDistributionConfiguration where
   rnf AmiDistributionConfiguration' {..} =
     Prelude.rnf launchPermission
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf targetAccountIds
       `Prelude.seq` Prelude.rnf amiTags
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf description
 
 instance Core.ToJSON AmiDistributionConfiguration where
   toJSON AmiDistributionConfiguration' {..} =
@@ -146,11 +146,11 @@ instance Core.ToJSON AmiDistributionConfiguration where
       ( Prelude.catMaybes
           [ ("launchPermission" Core..=)
               Prelude.<$> launchPermission,
+            ("name" Core..=) Prelude.<$> name,
+            ("description" Core..=) Prelude.<$> description,
             ("targetAccountIds" Core..=)
               Prelude.<$> targetAccountIds,
             ("amiTags" Core..=) Prelude.<$> amiTags,
-            ("name" Core..=) Prelude.<$> name,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("description" Core..=) Prelude.<$> description
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId
           ]
       )

@@ -42,11 +42,11 @@ module Amazonka.Redshift.DescribeHsmConfigurations
     newDescribeHsmConfigurations,
 
     -- * Request Lenses
-    describeHsmConfigurations_tagValues,
-    describeHsmConfigurations_hsmConfigurationIdentifier,
     describeHsmConfigurations_tagKeys,
     describeHsmConfigurations_marker,
+    describeHsmConfigurations_tagValues,
     describeHsmConfigurations_maxRecords,
+    describeHsmConfigurations_hsmConfigurationIdentifier,
 
     -- * Destructuring the Response
     DescribeHsmConfigurationsResponse (..),
@@ -70,19 +70,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeHsmConfigurations' smart constructor.
 data DescribeHsmConfigurations = DescribeHsmConfigurations'
-  { -- | A tag value or values for which you want to return all matching HSM
-    -- configurations that are associated with the specified tag value or
-    -- values. For example, suppose that you have HSM configurations that are
-    -- tagged with values called @admin@ and @test@. If you specify both of
-    -- these tag values in the request, Amazon Redshift returns a response with
-    -- the HSM configurations that have either or both of these tag values
-    -- associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | The identifier of a specific Amazon Redshift HSM configuration to be
-    -- described. If no identifier is specified, information is returned for
-    -- all HSM configurations owned by your Amazon Web Services account.
-    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A tag key or keys for which you want to return all matching HSM
+  { -- | A tag key or keys for which you want to return all matching HSM
     -- configurations that are associated with the specified key or keys. For
     -- example, suppose that you have HSM configurations that are tagged with
     -- keys called @owner@ and @environment@. If you specify both of these tag
@@ -97,6 +85,14 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
     -- the next set of response records by providing the returned marker value
     -- in the @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A tag value or values for which you want to return all matching HSM
+    -- configurations that are associated with the specified tag value or
+    -- values. For example, suppose that you have HSM configurations that are
+    -- tagged with values called @admin@ and @test@. If you specify both of
+    -- these tag values in the request, Amazon Redshift returns a response with
+    -- the HSM configurations that have either or both of these tag values
+    -- associated with them.
+    tagValues :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -106,7 +102,11 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The identifier of a specific Amazon Redshift HSM configuration to be
+    -- described. If no identifier is specified, information is returned for
+    -- all HSM configurations owned by your Amazon Web Services account.
+    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,18 +117,6 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tagValues', 'describeHsmConfigurations_tagValues' - A tag value or values for which you want to return all matching HSM
--- configurations that are associated with the specified tag value or
--- values. For example, suppose that you have HSM configurations that are
--- tagged with values called @admin@ and @test@. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the HSM configurations that have either or both of these tag values
--- associated with them.
---
--- 'hsmConfigurationIdentifier', 'describeHsmConfigurations_hsmConfigurationIdentifier' - The identifier of a specific Amazon Redshift HSM configuration to be
--- described. If no identifier is specified, information is returned for
--- all HSM configurations owned by your Amazon Web Services account.
 --
 -- 'tagKeys', 'describeHsmConfigurations_tagKeys' - A tag key or keys for which you want to return all matching HSM
 -- configurations that are associated with the specified key or keys. For
@@ -145,6 +133,14 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
 --
+-- 'tagValues', 'describeHsmConfigurations_tagValues' - A tag value or values for which you want to return all matching HSM
+-- configurations that are associated with the specified tag value or
+-- values. For example, suppose that you have HSM configurations that are
+-- tagged with values called @admin@ and @test@. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the HSM configurations that have either or both of these tag values
+-- associated with them.
+--
 -- 'maxRecords', 'describeHsmConfigurations_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -154,33 +150,21 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
+--
+-- 'hsmConfigurationIdentifier', 'describeHsmConfigurations_hsmConfigurationIdentifier' - The identifier of a specific Amazon Redshift HSM configuration to be
+-- described. If no identifier is specified, information is returned for
+-- all HSM configurations owned by your Amazon Web Services account.
 newDescribeHsmConfigurations ::
   DescribeHsmConfigurations
 newDescribeHsmConfigurations =
   DescribeHsmConfigurations'
-    { tagValues =
+    { tagKeys =
         Prelude.Nothing,
-      hsmConfigurationIdentifier = Prelude.Nothing,
-      tagKeys = Prelude.Nothing,
       marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      tagValues = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      hsmConfigurationIdentifier = Prelude.Nothing
     }
-
--- | A tag value or values for which you want to return all matching HSM
--- configurations that are associated with the specified tag value or
--- values. For example, suppose that you have HSM configurations that are
--- tagged with values called @admin@ and @test@. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the HSM configurations that have either or both of these tag values
--- associated with them.
-describeHsmConfigurations_tagValues :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe [Prelude.Text])
-describeHsmConfigurations_tagValues = Lens.lens (\DescribeHsmConfigurations' {tagValues} -> tagValues) (\s@DescribeHsmConfigurations' {} a -> s {tagValues = a} :: DescribeHsmConfigurations) Prelude.. Lens.mapping Lens.coerced
-
--- | The identifier of a specific Amazon Redshift HSM configuration to be
--- described. If no identifier is specified, information is returned for
--- all HSM configurations owned by your Amazon Web Services account.
-describeHsmConfigurations_hsmConfigurationIdentifier :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Text)
-describeHsmConfigurations_hsmConfigurationIdentifier = Lens.lens (\DescribeHsmConfigurations' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@DescribeHsmConfigurations' {} a -> s {hsmConfigurationIdentifier = a} :: DescribeHsmConfigurations)
 
 -- | A tag key or keys for which you want to return all matching HSM
 -- configurations that are associated with the specified key or keys. For
@@ -201,6 +185,16 @@ describeHsmConfigurations_tagKeys = Lens.lens (\DescribeHsmConfigurations' {tagK
 describeHsmConfigurations_marker :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Text)
 describeHsmConfigurations_marker = Lens.lens (\DescribeHsmConfigurations' {marker} -> marker) (\s@DescribeHsmConfigurations' {} a -> s {marker = a} :: DescribeHsmConfigurations)
 
+-- | A tag value or values for which you want to return all matching HSM
+-- configurations that are associated with the specified tag value or
+-- values. For example, suppose that you have HSM configurations that are
+-- tagged with values called @admin@ and @test@. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the HSM configurations that have either or both of these tag values
+-- associated with them.
+describeHsmConfigurations_tagValues :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe [Prelude.Text])
+describeHsmConfigurations_tagValues = Lens.lens (\DescribeHsmConfigurations' {tagValues} -> tagValues) (\s@DescribeHsmConfigurations' {} a -> s {tagValues = a} :: DescribeHsmConfigurations) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -212,6 +206,12 @@ describeHsmConfigurations_marker = Lens.lens (\DescribeHsmConfigurations' {marke
 -- Constraints: minimum 20, maximum 100.
 describeHsmConfigurations_maxRecords :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Int)
 describeHsmConfigurations_maxRecords = Lens.lens (\DescribeHsmConfigurations' {maxRecords} -> maxRecords) (\s@DescribeHsmConfigurations' {} a -> s {maxRecords = a} :: DescribeHsmConfigurations)
+
+-- | The identifier of a specific Amazon Redshift HSM configuration to be
+-- described. If no identifier is specified, information is returned for
+-- all HSM configurations owned by your Amazon Web Services account.
+describeHsmConfigurations_hsmConfigurationIdentifier :: Lens.Lens' DescribeHsmConfigurations (Prelude.Maybe Prelude.Text)
+describeHsmConfigurations_hsmConfigurationIdentifier = Lens.lens (\DescribeHsmConfigurations' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@DescribeHsmConfigurations' {} a -> s {hsmConfigurationIdentifier = a} :: DescribeHsmConfigurations)
 
 instance Core.AWSPager DescribeHsmConfigurations where
   page rq rs
@@ -255,19 +255,19 @@ instance Core.AWSRequest DescribeHsmConfigurations where
 
 instance Prelude.Hashable DescribeHsmConfigurations where
   hashWithSalt _salt DescribeHsmConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` tagValues
-      `Prelude.hashWithSalt` hsmConfigurationIdentifier
-      `Prelude.hashWithSalt` tagKeys
+    _salt `Prelude.hashWithSalt` tagKeys
       `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` tagValues
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
 
 instance Prelude.NFData DescribeHsmConfigurations where
   rnf DescribeHsmConfigurations' {..} =
-    Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
-      `Prelude.seq` Prelude.rnf tagKeys
+    Prelude.rnf tagKeys
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
 
 instance Core.ToHeaders DescribeHsmConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,16 +282,16 @@ instance Core.ToQuery DescribeHsmConfigurations where
           Core.=: ("DescribeHsmConfigurations" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "HsmConfigurationIdentifier"
-          Core.=: hsmConfigurationIdentifier,
         "TagKeys"
           Core.=: Core.toQuery
             (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
         "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "TagValues"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
+        "MaxRecords" Core.=: maxRecords,
+        "HsmConfigurationIdentifier"
+          Core.=: hsmConfigurationIdentifier
       ]
 
 -- |

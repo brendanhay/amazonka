@@ -33,11 +33,11 @@ data Source = Source'
     dataflowSourceRegion :: Prelude.Maybe Prelude.Text,
     -- | UUID of a @Config@.
     configId :: Prelude.Maybe Prelude.Text,
-    -- | Type of a @Config@.
-    configType :: Prelude.Maybe ConfigCapabilityType,
     -- | Additional details for a @Config@, if type is dataflow endpoint or
     -- antenna demod decode.
-    configDetails :: Prelude.Maybe ConfigDetails
+    configDetails :: Prelude.Maybe ConfigDetails,
+    -- | Type of a @Config@.
+    configType :: Prelude.Maybe ConfigCapabilityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,18 +53,18 @@ data Source = Source'
 --
 -- 'configId', 'source_configId' - UUID of a @Config@.
 --
--- 'configType', 'source_configType' - Type of a @Config@.
---
 -- 'configDetails', 'source_configDetails' - Additional details for a @Config@, if type is dataflow endpoint or
 -- antenna demod decode.
+--
+-- 'configType', 'source_configType' - Type of a @Config@.
 newSource ::
   Source
 newSource =
   Source'
     { dataflowSourceRegion = Prelude.Nothing,
       configId = Prelude.Nothing,
-      configType = Prelude.Nothing,
-      configDetails = Prelude.Nothing
+      configDetails = Prelude.Nothing,
+      configType = Prelude.Nothing
     }
 
 -- | Region of a dataflow source.
@@ -75,14 +75,14 @@ source_dataflowSourceRegion = Lens.lens (\Source' {dataflowSourceRegion} -> data
 source_configId :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_configId = Lens.lens (\Source' {configId} -> configId) (\s@Source' {} a -> s {configId = a} :: Source)
 
--- | Type of a @Config@.
-source_configType :: Lens.Lens' Source (Prelude.Maybe ConfigCapabilityType)
-source_configType = Lens.lens (\Source' {configType} -> configType) (\s@Source' {} a -> s {configType = a} :: Source)
-
 -- | Additional details for a @Config@, if type is dataflow endpoint or
 -- antenna demod decode.
 source_configDetails :: Lens.Lens' Source (Prelude.Maybe ConfigDetails)
 source_configDetails = Lens.lens (\Source' {configDetails} -> configDetails) (\s@Source' {} a -> s {configDetails = a} :: Source)
+
+-- | Type of a @Config@.
+source_configType :: Lens.Lens' Source (Prelude.Maybe ConfigCapabilityType)
+source_configType = Lens.lens (\Source' {configType} -> configType) (\s@Source' {} a -> s {configType = a} :: Source)
 
 instance Core.FromJSON Source where
   parseJSON =
@@ -92,20 +92,20 @@ instance Core.FromJSON Source where
           Source'
             Prelude.<$> (x Core..:? "dataflowSourceRegion")
             Prelude.<*> (x Core..:? "configId")
-            Prelude.<*> (x Core..:? "configType")
             Prelude.<*> (x Core..:? "configDetails")
+            Prelude.<*> (x Core..:? "configType")
       )
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
     _salt `Prelude.hashWithSalt` dataflowSourceRegion
       `Prelude.hashWithSalt` configId
-      `Prelude.hashWithSalt` configType
       `Prelude.hashWithSalt` configDetails
+      `Prelude.hashWithSalt` configType
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
     Prelude.rnf dataflowSourceRegion
       `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configType
       `Prelude.seq` Prelude.rnf configDetails
+      `Prelude.seq` Prelude.rnf configType

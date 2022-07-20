@@ -35,9 +35,9 @@ module Amazonka.Glue.ListCrawlers
     newListCrawlers,
 
     -- * Request Lenses
+    listCrawlers_tags,
     listCrawlers_nextToken,
     listCrawlers_maxResults,
-    listCrawlers_tags,
 
     -- * Destructuring the Response
     ListCrawlersResponse (..),
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCrawlers' smart constructor.
 data ListCrawlers = ListCrawlers'
-  { -- | A continuation token, if this is a continuation request.
+  { -- | Specifies to return only these tagged resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A continuation token, if this is a continuation request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of a list to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies to return only these tagged resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,19 +76,23 @@ data ListCrawlers = ListCrawlers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listCrawlers_tags' - Specifies to return only these tagged resources.
+--
 -- 'nextToken', 'listCrawlers_nextToken' - A continuation token, if this is a continuation request.
 --
 -- 'maxResults', 'listCrawlers_maxResults' - The maximum size of a list to return.
---
--- 'tags', 'listCrawlers_tags' - Specifies to return only these tagged resources.
 newListCrawlers ::
   ListCrawlers
 newListCrawlers =
   ListCrawlers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | Specifies to return only these tagged resources.
+listCrawlers_tags :: Lens.Lens' ListCrawlers (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listCrawlers_tags = Lens.lens (\ListCrawlers' {tags} -> tags) (\s@ListCrawlers' {} a -> s {tags = a} :: ListCrawlers) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if this is a continuation request.
 listCrawlers_nextToken :: Lens.Lens' ListCrawlers (Prelude.Maybe Prelude.Text)
@@ -97,10 +101,6 @@ listCrawlers_nextToken = Lens.lens (\ListCrawlers' {nextToken} -> nextToken) (\s
 -- | The maximum size of a list to return.
 listCrawlers_maxResults :: Lens.Lens' ListCrawlers (Prelude.Maybe Prelude.Natural)
 listCrawlers_maxResults = Lens.lens (\ListCrawlers' {maxResults} -> maxResults) (\s@ListCrawlers' {} a -> s {maxResults = a} :: ListCrawlers)
-
--- | Specifies to return only these tagged resources.
-listCrawlers_tags :: Lens.Lens' ListCrawlers (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listCrawlers_tags = Lens.lens (\ListCrawlers' {tags} -> tags) (\s@ListCrawlers' {} a -> s {tags = a} :: ListCrawlers) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListCrawlers where
   type AWSResponse ListCrawlers = ListCrawlersResponse
@@ -116,15 +116,15 @@ instance Core.AWSRequest ListCrawlers where
 
 instance Prelude.Hashable ListCrawlers where
   hashWithSalt _salt ListCrawlers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ListCrawlers where
   rnf ListCrawlers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders ListCrawlers where
   toHeaders =
@@ -143,9 +143,9 @@ instance Core.ToJSON ListCrawlers where
   toJSON ListCrawlers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Tags" Core..=) Prelude.<$> tags
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

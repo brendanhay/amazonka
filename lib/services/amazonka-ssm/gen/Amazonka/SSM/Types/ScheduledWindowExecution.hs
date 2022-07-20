@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduledWindowExecution' smart constructor.
 data ScheduledWindowExecution = ScheduledWindowExecution'
-  { -- | The time, in ISO-8601 Extended format, that the maintenance window is
+  { -- | The name of the maintenance window to be run.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The time, in ISO-8601 Extended format, that the maintenance window is
     -- scheduled to be run.
     executionTime :: Prelude.Maybe Prelude.Text,
-    -- | The name of the maintenance window to be run.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window to be run.
     windowId :: Prelude.Maybe Prelude.Text
   }
@@ -45,30 +45,29 @@ data ScheduledWindowExecution = ScheduledWindowExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'scheduledWindowExecution_name' - The name of the maintenance window to be run.
+--
 -- 'executionTime', 'scheduledWindowExecution_executionTime' - The time, in ISO-8601 Extended format, that the maintenance window is
 -- scheduled to be run.
---
--- 'name', 'scheduledWindowExecution_name' - The name of the maintenance window to be run.
 --
 -- 'windowId', 'scheduledWindowExecution_windowId' - The ID of the maintenance window to be run.
 newScheduledWindowExecution ::
   ScheduledWindowExecution
 newScheduledWindowExecution =
   ScheduledWindowExecution'
-    { executionTime =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      executionTime = Prelude.Nothing,
       windowId = Prelude.Nothing
     }
+
+-- | The name of the maintenance window to be run.
+scheduledWindowExecution_name :: Lens.Lens' ScheduledWindowExecution (Prelude.Maybe Prelude.Text)
+scheduledWindowExecution_name = Lens.lens (\ScheduledWindowExecution' {name} -> name) (\s@ScheduledWindowExecution' {} a -> s {name = a} :: ScheduledWindowExecution)
 
 -- | The time, in ISO-8601 Extended format, that the maintenance window is
 -- scheduled to be run.
 scheduledWindowExecution_executionTime :: Lens.Lens' ScheduledWindowExecution (Prelude.Maybe Prelude.Text)
 scheduledWindowExecution_executionTime = Lens.lens (\ScheduledWindowExecution' {executionTime} -> executionTime) (\s@ScheduledWindowExecution' {} a -> s {executionTime = a} :: ScheduledWindowExecution)
-
--- | The name of the maintenance window to be run.
-scheduledWindowExecution_name :: Lens.Lens' ScheduledWindowExecution (Prelude.Maybe Prelude.Text)
-scheduledWindowExecution_name = Lens.lens (\ScheduledWindowExecution' {name} -> name) (\s@ScheduledWindowExecution' {} a -> s {name = a} :: ScheduledWindowExecution)
 
 -- | The ID of the maintenance window to be run.
 scheduledWindowExecution_windowId :: Lens.Lens' ScheduledWindowExecution (Prelude.Maybe Prelude.Text)
@@ -80,19 +79,19 @@ instance Core.FromJSON ScheduledWindowExecution where
       "ScheduledWindowExecution"
       ( \x ->
           ScheduledWindowExecution'
-            Prelude.<$> (x Core..:? "ExecutionTime")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ExecutionTime")
             Prelude.<*> (x Core..:? "WindowId")
       )
 
 instance Prelude.Hashable ScheduledWindowExecution where
   hashWithSalt _salt ScheduledWindowExecution' {..} =
-    _salt `Prelude.hashWithSalt` executionTime
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` executionTime
       `Prelude.hashWithSalt` windowId
 
 instance Prelude.NFData ScheduledWindowExecution where
   rnf ScheduledWindowExecution' {..} =
-    Prelude.rnf executionTime
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf executionTime
       `Prelude.seq` Prelude.rnf windowId

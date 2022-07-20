@@ -62,23 +62,23 @@ module Amazonka.Lambda.CreateEventSourceMapping
     newCreateEventSourceMapping,
 
     -- * Request Lenses
-    createEventSourceMapping_eventSourceArn,
-    createEventSourceMapping_startingPositionTimestamp,
-    createEventSourceMapping_topics,
-    createEventSourceMapping_queues,
-    createEventSourceMapping_enabled,
-    createEventSourceMapping_bisectBatchOnFunctionError,
-    createEventSourceMapping_parallelizationFactor,
-    createEventSourceMapping_maximumRetryAttempts,
-    createEventSourceMapping_batchSize,
-    createEventSourceMapping_maximumBatchingWindowInSeconds,
-    createEventSourceMapping_sourceAccessConfigurations,
     createEventSourceMapping_maximumRecordAgeInSeconds,
+    createEventSourceMapping_startingPosition,
     createEventSourceMapping_functionResponseTypes,
-    createEventSourceMapping_tumblingWindowInSeconds,
+    createEventSourceMapping_parallelizationFactor,
+    createEventSourceMapping_maximumBatchingWindowInSeconds,
+    createEventSourceMapping_enabled,
     createEventSourceMapping_selfManagedEventSource,
     createEventSourceMapping_destinationConfig,
-    createEventSourceMapping_startingPosition,
+    createEventSourceMapping_eventSourceArn,
+    createEventSourceMapping_maximumRetryAttempts,
+    createEventSourceMapping_batchSize,
+    createEventSourceMapping_topics,
+    createEventSourceMapping_queues,
+    createEventSourceMapping_bisectBatchOnFunctionError,
+    createEventSourceMapping_tumblingWindowInSeconds,
+    createEventSourceMapping_startingPositionTimestamp,
+    createEventSourceMapping_sourceAccessConfigurations,
     createEventSourceMapping_functionName,
 
     -- * Destructuring the Response
@@ -86,28 +86,28 @@ module Amazonka.Lambda.CreateEventSourceMapping
     newEventSourceMappingConfiguration,
 
     -- * Response Lenses
-    eventSourceMappingConfiguration_eventSourceArn,
-    eventSourceMappingConfiguration_state,
-    eventSourceMappingConfiguration_startingPositionTimestamp,
+    eventSourceMappingConfiguration_maximumRecordAgeInSeconds,
     eventSourceMappingConfiguration_functionArn,
+    eventSourceMappingConfiguration_startingPosition,
+    eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_parallelizationFactor,
+    eventSourceMappingConfiguration_lastProcessingResult,
+    eventSourceMappingConfiguration_state,
+    eventSourceMappingConfiguration_uuid,
+    eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
+    eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_destinationConfig,
+    eventSourceMappingConfiguration_eventSourceArn,
+    eventSourceMappingConfiguration_maximumRetryAttempts,
+    eventSourceMappingConfiguration_lastModified,
+    eventSourceMappingConfiguration_batchSize,
     eventSourceMappingConfiguration_topics,
     eventSourceMappingConfiguration_queues,
     eventSourceMappingConfiguration_bisectBatchOnFunctionError,
-    eventSourceMappingConfiguration_uuid,
-    eventSourceMappingConfiguration_parallelizationFactor,
-    eventSourceMappingConfiguration_lastProcessingResult,
-    eventSourceMappingConfiguration_maximumRetryAttempts,
-    eventSourceMappingConfiguration_batchSize,
-    eventSourceMappingConfiguration_stateTransitionReason,
-    eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
-    eventSourceMappingConfiguration_sourceAccessConfigurations,
-    eventSourceMappingConfiguration_maximumRecordAgeInSeconds,
-    eventSourceMappingConfiguration_functionResponseTypes,
     eventSourceMappingConfiguration_tumblingWindowInSeconds,
-    eventSourceMappingConfiguration_selfManagedEventSource,
-    eventSourceMappingConfiguration_lastModified,
-    eventSourceMappingConfiguration_destinationConfig,
-    eventSourceMappingConfiguration_startingPosition,
+    eventSourceMappingConfiguration_startingPositionTimestamp,
+    eventSourceMappingConfiguration_sourceAccessConfigurations,
   )
 where
 
@@ -120,7 +120,39 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEventSourceMapping' smart constructor.
 data CreateEventSourceMapping = CreateEventSourceMapping'
-  { -- | The Amazon Resource Name (ARN) of the event source.
+  { -- | (Streams only) Discard records older than the specified age. The default
+    -- value is infinite (-1).
+    maximumRecordAgeInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The position in a stream from which to start reading. Required for
+    -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
+    -- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+    startingPosition :: Prelude.Maybe EventSourcePosition,
+    -- | (Streams only) A list of current response type enums applied to the
+    -- event source mapping.
+    functionResponseTypes :: Prelude.Maybe [FunctionResponseType],
+    -- | (Streams only) The number of batches to process from each shard
+    -- concurrently.
+    parallelizationFactor :: Prelude.Maybe Prelude.Natural,
+    -- | (Streams and Amazon SQS standard queues) The maximum amount of time, in
+    -- seconds, that Lambda spends gathering records before invoking the
+    -- function.
+    --
+    -- Default: 0
+    --
+    -- Related setting: When you set @BatchSize@ to a value greater than 10,
+    -- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+    maximumBatchingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | When true, the event source mapping is active. When false, Lambda pauses
+    -- polling and invocation.
+    --
+    -- Default: True
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The Self-Managed Apache Kafka cluster to send records.
+    selfManagedEventSource :: Prelude.Maybe SelfManagedEventSource,
+    -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
+    -- discarded records.
+    destinationConfig :: Prelude.Maybe DestinationConfig,
+    -- | The Amazon Resource Name (ARN) of the event source.
     --
     -- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
     --     consumer.
@@ -132,24 +164,6 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
     --     cluster.
     eventSourceArn :: Prelude.Maybe Prelude.Text,
-    -- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
-    -- start reading.
-    startingPositionTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The name of the Kafka topic.
-    topics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | (MQ) The name of the Amazon MQ broker destination queue to consume.
-    queues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | When true, the event source mapping is active. When false, Lambda pauses
-    -- polling and invocation.
-    --
-    -- Default: True
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | (Streams only) If the function returns an error, split the batch in two
-    -- and retry.
-    bisectBatchOnFunctionError :: Prelude.Maybe Prelude.Bool,
-    -- | (Streams only) The number of batches to process from each shard
-    -- concurrently.
-    parallelizationFactor :: Prelude.Maybe Prelude.Natural,
     -- | (Streams only) Discard records after the specified number of retries.
     -- The default value is infinite (-1). When set to infinite (-1), failed
     -- records will be retried until the record expires.
@@ -171,36 +185,22 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     --
     -- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
     batchSize :: Prelude.Maybe Prelude.Natural,
-    -- | (Streams and Amazon SQS standard queues) The maximum amount of time, in
-    -- seconds, that Lambda spends gathering records before invoking the
-    -- function.
-    --
-    -- Default: 0
-    --
-    -- Related setting: When you set @BatchSize@ to a value greater than 10,
-    -- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
-    maximumBatchingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | An array of authentication protocols or VPC components required to
-    -- secure your event source.
-    sourceAccessConfigurations :: Prelude.Maybe [SourceAccessConfiguration],
-    -- | (Streams only) Discard records older than the specified age. The default
-    -- value is infinite (-1).
-    maximumRecordAgeInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | (Streams only) A list of current response type enums applied to the
-    -- event source mapping.
-    functionResponseTypes :: Prelude.Maybe [FunctionResponseType],
+    -- | The name of the Kafka topic.
+    topics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | (MQ) The name of the Amazon MQ broker destination queue to consume.
+    queues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | (Streams only) If the function returns an error, split the batch in two
+    -- and retry.
+    bisectBatchOnFunctionError :: Prelude.Maybe Prelude.Bool,
     -- | (Streams only) The duration in seconds of a processing window. The range
     -- is between 1 second up to 900 seconds.
     tumblingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The Self-Managed Apache Kafka cluster to send records.
-    selfManagedEventSource :: Prelude.Maybe SelfManagedEventSource,
-    -- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
-    -- discarded records.
-    destinationConfig :: Prelude.Maybe DestinationConfig,
-    -- | The position in a stream from which to start reading. Required for
-    -- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
-    -- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
-    startingPosition :: Prelude.Maybe EventSourcePosition,
+    -- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
+    -- start reading.
+    startingPositionTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | An array of authentication protocols or VPC components required to
+    -- secure your event source.
+    sourceAccessConfigurations :: Prelude.Maybe [SourceAccessConfiguration],
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -229,6 +229,38 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maximumRecordAgeInSeconds', 'createEventSourceMapping_maximumRecordAgeInSeconds' - (Streams only) Discard records older than the specified age. The default
+-- value is infinite (-1).
+--
+-- 'startingPosition', 'createEventSourceMapping_startingPosition' - The position in a stream from which to start reading. Required for
+-- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
+-- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+--
+-- 'functionResponseTypes', 'createEventSourceMapping_functionResponseTypes' - (Streams only) A list of current response type enums applied to the
+-- event source mapping.
+--
+-- 'parallelizationFactor', 'createEventSourceMapping_parallelizationFactor' - (Streams only) The number of batches to process from each shard
+-- concurrently.
+--
+-- 'maximumBatchingWindowInSeconds', 'createEventSourceMapping_maximumBatchingWindowInSeconds' - (Streams and Amazon SQS standard queues) The maximum amount of time, in
+-- seconds, that Lambda spends gathering records before invoking the
+-- function.
+--
+-- Default: 0
+--
+-- Related setting: When you set @BatchSize@ to a value greater than 10,
+-- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+--
+-- 'enabled', 'createEventSourceMapping_enabled' - When true, the event source mapping is active. When false, Lambda pauses
+-- polling and invocation.
+--
+-- Default: True
+--
+-- 'selfManagedEventSource', 'createEventSourceMapping_selfManagedEventSource' - The Self-Managed Apache Kafka cluster to send records.
+--
+-- 'destinationConfig', 'createEventSourceMapping_destinationConfig' - (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
+-- discarded records.
+--
 -- 'eventSourceArn', 'createEventSourceMapping_eventSourceArn' - The Amazon Resource Name (ARN) of the event source.
 --
 -- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
@@ -240,24 +272,6 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
 --     cluster.
---
--- 'startingPositionTimestamp', 'createEventSourceMapping_startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
--- start reading.
---
--- 'topics', 'createEventSourceMapping_topics' - The name of the Kafka topic.
---
--- 'queues', 'createEventSourceMapping_queues' - (MQ) The name of the Amazon MQ broker destination queue to consume.
---
--- 'enabled', 'createEventSourceMapping_enabled' - When true, the event source mapping is active. When false, Lambda pauses
--- polling and invocation.
---
--- Default: True
---
--- 'bisectBatchOnFunctionError', 'createEventSourceMapping_bisectBatchOnFunctionError' - (Streams only) If the function returns an error, split the batch in two
--- and retry.
---
--- 'parallelizationFactor', 'createEventSourceMapping_parallelizationFactor' - (Streams only) The number of batches to process from each shard
--- concurrently.
 --
 -- 'maximumRetryAttempts', 'createEventSourceMapping_maximumRetryAttempts' - (Streams only) Discard records after the specified number of retries.
 -- The default value is infinite (-1). When set to infinite (-1), failed
@@ -280,35 +294,21 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
 --
--- 'maximumBatchingWindowInSeconds', 'createEventSourceMapping_maximumBatchingWindowInSeconds' - (Streams and Amazon SQS standard queues) The maximum amount of time, in
--- seconds, that Lambda spends gathering records before invoking the
--- function.
+-- 'topics', 'createEventSourceMapping_topics' - The name of the Kafka topic.
 --
--- Default: 0
+-- 'queues', 'createEventSourceMapping_queues' - (MQ) The name of the Amazon MQ broker destination queue to consume.
 --
--- Related setting: When you set @BatchSize@ to a value greater than 10,
--- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
---
--- 'sourceAccessConfigurations', 'createEventSourceMapping_sourceAccessConfigurations' - An array of authentication protocols or VPC components required to
--- secure your event source.
---
--- 'maximumRecordAgeInSeconds', 'createEventSourceMapping_maximumRecordAgeInSeconds' - (Streams only) Discard records older than the specified age. The default
--- value is infinite (-1).
---
--- 'functionResponseTypes', 'createEventSourceMapping_functionResponseTypes' - (Streams only) A list of current response type enums applied to the
--- event source mapping.
+-- 'bisectBatchOnFunctionError', 'createEventSourceMapping_bisectBatchOnFunctionError' - (Streams only) If the function returns an error, split the batch in two
+-- and retry.
 --
 -- 'tumblingWindowInSeconds', 'createEventSourceMapping_tumblingWindowInSeconds' - (Streams only) The duration in seconds of a processing window. The range
 -- is between 1 second up to 900 seconds.
 --
--- 'selfManagedEventSource', 'createEventSourceMapping_selfManagedEventSource' - The Self-Managed Apache Kafka cluster to send records.
+-- 'startingPositionTimestamp', 'createEventSourceMapping_startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
+-- start reading.
 --
--- 'destinationConfig', 'createEventSourceMapping_destinationConfig' - (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
--- discarded records.
---
--- 'startingPosition', 'createEventSourceMapping_startingPosition' - The position in a stream from which to start reading. Required for
--- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
--- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+-- 'sourceAccessConfigurations', 'createEventSourceMapping_sourceAccessConfigurations' - An array of authentication protocols or VPC components required to
+-- secure your event source.
 --
 -- 'functionName', 'createEventSourceMapping_functionName' - The name of the Lambda function.
 --
@@ -332,26 +332,74 @@ newCreateEventSourceMapping ::
   CreateEventSourceMapping
 newCreateEventSourceMapping pFunctionName_ =
   CreateEventSourceMapping'
-    { eventSourceArn =
+    { maximumRecordAgeInSeconds =
         Prelude.Nothing,
-      startingPositionTimestamp = Prelude.Nothing,
-      topics = Prelude.Nothing,
-      queues = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      bisectBatchOnFunctionError = Prelude.Nothing,
-      parallelizationFactor = Prelude.Nothing,
-      maximumRetryAttempts = Prelude.Nothing,
-      batchSize = Prelude.Nothing,
-      maximumBatchingWindowInSeconds = Prelude.Nothing,
-      sourceAccessConfigurations = Prelude.Nothing,
-      maximumRecordAgeInSeconds = Prelude.Nothing,
+      startingPosition = Prelude.Nothing,
       functionResponseTypes = Prelude.Nothing,
-      tumblingWindowInSeconds = Prelude.Nothing,
+      parallelizationFactor = Prelude.Nothing,
+      maximumBatchingWindowInSeconds = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       selfManagedEventSource = Prelude.Nothing,
       destinationConfig = Prelude.Nothing,
-      startingPosition = Prelude.Nothing,
+      eventSourceArn = Prelude.Nothing,
+      maximumRetryAttempts = Prelude.Nothing,
+      batchSize = Prelude.Nothing,
+      topics = Prelude.Nothing,
+      queues = Prelude.Nothing,
+      bisectBatchOnFunctionError = Prelude.Nothing,
+      tumblingWindowInSeconds = Prelude.Nothing,
+      startingPositionTimestamp = Prelude.Nothing,
+      sourceAccessConfigurations = Prelude.Nothing,
       functionName = pFunctionName_
     }
+
+-- | (Streams only) Discard records older than the specified age. The default
+-- value is infinite (-1).
+createEventSourceMapping_maximumRecordAgeInSeconds :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Int)
+createEventSourceMapping_maximumRecordAgeInSeconds = Lens.lens (\CreateEventSourceMapping' {maximumRecordAgeInSeconds} -> maximumRecordAgeInSeconds) (\s@CreateEventSourceMapping' {} a -> s {maximumRecordAgeInSeconds = a} :: CreateEventSourceMapping)
+
+-- | The position in a stream from which to start reading. Required for
+-- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
+-- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+createEventSourceMapping_startingPosition :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe EventSourcePosition)
+createEventSourceMapping_startingPosition = Lens.lens (\CreateEventSourceMapping' {startingPosition} -> startingPosition) (\s@CreateEventSourceMapping' {} a -> s {startingPosition = a} :: CreateEventSourceMapping)
+
+-- | (Streams only) A list of current response type enums applied to the
+-- event source mapping.
+createEventSourceMapping_functionResponseTypes :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe [FunctionResponseType])
+createEventSourceMapping_functionResponseTypes = Lens.lens (\CreateEventSourceMapping' {functionResponseTypes} -> functionResponseTypes) (\s@CreateEventSourceMapping' {} a -> s {functionResponseTypes = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
+
+-- | (Streams only) The number of batches to process from each shard
+-- concurrently.
+createEventSourceMapping_parallelizationFactor :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
+createEventSourceMapping_parallelizationFactor = Lens.lens (\CreateEventSourceMapping' {parallelizationFactor} -> parallelizationFactor) (\s@CreateEventSourceMapping' {} a -> s {parallelizationFactor = a} :: CreateEventSourceMapping)
+
+-- | (Streams and Amazon SQS standard queues) The maximum amount of time, in
+-- seconds, that Lambda spends gathering records before invoking the
+-- function.
+--
+-- Default: 0
+--
+-- Related setting: When you set @BatchSize@ to a value greater than 10,
+-- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
+createEventSourceMapping_maximumBatchingWindowInSeconds :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
+createEventSourceMapping_maximumBatchingWindowInSeconds = Lens.lens (\CreateEventSourceMapping' {maximumBatchingWindowInSeconds} -> maximumBatchingWindowInSeconds) (\s@CreateEventSourceMapping' {} a -> s {maximumBatchingWindowInSeconds = a} :: CreateEventSourceMapping)
+
+-- | When true, the event source mapping is active. When false, Lambda pauses
+-- polling and invocation.
+--
+-- Default: True
+createEventSourceMapping_enabled :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Bool)
+createEventSourceMapping_enabled = Lens.lens (\CreateEventSourceMapping' {enabled} -> enabled) (\s@CreateEventSourceMapping' {} a -> s {enabled = a} :: CreateEventSourceMapping)
+
+-- | The Self-Managed Apache Kafka cluster to send records.
+createEventSourceMapping_selfManagedEventSource :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe SelfManagedEventSource)
+createEventSourceMapping_selfManagedEventSource = Lens.lens (\CreateEventSourceMapping' {selfManagedEventSource} -> selfManagedEventSource) (\s@CreateEventSourceMapping' {} a -> s {selfManagedEventSource = a} :: CreateEventSourceMapping)
+
+-- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
+-- discarded records.
+createEventSourceMapping_destinationConfig :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe DestinationConfig)
+createEventSourceMapping_destinationConfig = Lens.lens (\CreateEventSourceMapping' {destinationConfig} -> destinationConfig) (\s@CreateEventSourceMapping' {} a -> s {destinationConfig = a} :: CreateEventSourceMapping)
 
 -- | The Amazon Resource Name (ARN) of the event source.
 --
@@ -366,36 +414,6 @@ newCreateEventSourceMapping pFunctionName_ =
 --     cluster.
 createEventSourceMapping_eventSourceArn :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Text)
 createEventSourceMapping_eventSourceArn = Lens.lens (\CreateEventSourceMapping' {eventSourceArn} -> eventSourceArn) (\s@CreateEventSourceMapping' {} a -> s {eventSourceArn = a} :: CreateEventSourceMapping)
-
--- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
--- start reading.
-createEventSourceMapping_startingPositionTimestamp :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.UTCTime)
-createEventSourceMapping_startingPositionTimestamp = Lens.lens (\CreateEventSourceMapping' {startingPositionTimestamp} -> startingPositionTimestamp) (\s@CreateEventSourceMapping' {} a -> s {startingPositionTimestamp = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Core._Time
-
--- | The name of the Kafka topic.
-createEventSourceMapping_topics :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createEventSourceMapping_topics = Lens.lens (\CreateEventSourceMapping' {topics} -> topics) (\s@CreateEventSourceMapping' {} a -> s {topics = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
-
--- | (MQ) The name of the Amazon MQ broker destination queue to consume.
-createEventSourceMapping_queues :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createEventSourceMapping_queues = Lens.lens (\CreateEventSourceMapping' {queues} -> queues) (\s@CreateEventSourceMapping' {} a -> s {queues = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
-
--- | When true, the event source mapping is active. When false, Lambda pauses
--- polling and invocation.
---
--- Default: True
-createEventSourceMapping_enabled :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Bool)
-createEventSourceMapping_enabled = Lens.lens (\CreateEventSourceMapping' {enabled} -> enabled) (\s@CreateEventSourceMapping' {} a -> s {enabled = a} :: CreateEventSourceMapping)
-
--- | (Streams only) If the function returns an error, split the batch in two
--- and retry.
-createEventSourceMapping_bisectBatchOnFunctionError :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Bool)
-createEventSourceMapping_bisectBatchOnFunctionError = Lens.lens (\CreateEventSourceMapping' {bisectBatchOnFunctionError} -> bisectBatchOnFunctionError) (\s@CreateEventSourceMapping' {} a -> s {bisectBatchOnFunctionError = a} :: CreateEventSourceMapping)
-
--- | (Streams only) The number of batches to process from each shard
--- concurrently.
-createEventSourceMapping_parallelizationFactor :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
-createEventSourceMapping_parallelizationFactor = Lens.lens (\CreateEventSourceMapping' {parallelizationFactor} -> parallelizationFactor) (\s@CreateEventSourceMapping' {} a -> s {parallelizationFactor = a} :: CreateEventSourceMapping)
 
 -- | (Streams only) Discard records after the specified number of retries.
 -- The default value is infinite (-1). When set to infinite (-1), failed
@@ -422,51 +440,33 @@ createEventSourceMapping_maximumRetryAttempts = Lens.lens (\CreateEventSourceMap
 createEventSourceMapping_batchSize :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
 createEventSourceMapping_batchSize = Lens.lens (\CreateEventSourceMapping' {batchSize} -> batchSize) (\s@CreateEventSourceMapping' {} a -> s {batchSize = a} :: CreateEventSourceMapping)
 
--- | (Streams and Amazon SQS standard queues) The maximum amount of time, in
--- seconds, that Lambda spends gathering records before invoking the
--- function.
---
--- Default: 0
---
--- Related setting: When you set @BatchSize@ to a value greater than 10,
--- you must set @MaximumBatchingWindowInSeconds@ to at least 1.
-createEventSourceMapping_maximumBatchingWindowInSeconds :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
-createEventSourceMapping_maximumBatchingWindowInSeconds = Lens.lens (\CreateEventSourceMapping' {maximumBatchingWindowInSeconds} -> maximumBatchingWindowInSeconds) (\s@CreateEventSourceMapping' {} a -> s {maximumBatchingWindowInSeconds = a} :: CreateEventSourceMapping)
+-- | The name of the Kafka topic.
+createEventSourceMapping_topics :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createEventSourceMapping_topics = Lens.lens (\CreateEventSourceMapping' {topics} -> topics) (\s@CreateEventSourceMapping' {} a -> s {topics = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of authentication protocols or VPC components required to
--- secure your event source.
-createEventSourceMapping_sourceAccessConfigurations :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe [SourceAccessConfiguration])
-createEventSourceMapping_sourceAccessConfigurations = Lens.lens (\CreateEventSourceMapping' {sourceAccessConfigurations} -> sourceAccessConfigurations) (\s@CreateEventSourceMapping' {} a -> s {sourceAccessConfigurations = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
+-- | (MQ) The name of the Amazon MQ broker destination queue to consume.
+createEventSourceMapping_queues :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createEventSourceMapping_queues = Lens.lens (\CreateEventSourceMapping' {queues} -> queues) (\s@CreateEventSourceMapping' {} a -> s {queues = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
 
--- | (Streams only) Discard records older than the specified age. The default
--- value is infinite (-1).
-createEventSourceMapping_maximumRecordAgeInSeconds :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Int)
-createEventSourceMapping_maximumRecordAgeInSeconds = Lens.lens (\CreateEventSourceMapping' {maximumRecordAgeInSeconds} -> maximumRecordAgeInSeconds) (\s@CreateEventSourceMapping' {} a -> s {maximumRecordAgeInSeconds = a} :: CreateEventSourceMapping)
-
--- | (Streams only) A list of current response type enums applied to the
--- event source mapping.
-createEventSourceMapping_functionResponseTypes :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe [FunctionResponseType])
-createEventSourceMapping_functionResponseTypes = Lens.lens (\CreateEventSourceMapping' {functionResponseTypes} -> functionResponseTypes) (\s@CreateEventSourceMapping' {} a -> s {functionResponseTypes = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
+-- | (Streams only) If the function returns an error, split the batch in two
+-- and retry.
+createEventSourceMapping_bisectBatchOnFunctionError :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Bool)
+createEventSourceMapping_bisectBatchOnFunctionError = Lens.lens (\CreateEventSourceMapping' {bisectBatchOnFunctionError} -> bisectBatchOnFunctionError) (\s@CreateEventSourceMapping' {} a -> s {bisectBatchOnFunctionError = a} :: CreateEventSourceMapping)
 
 -- | (Streams only) The duration in seconds of a processing window. The range
 -- is between 1 second up to 900 seconds.
 createEventSourceMapping_tumblingWindowInSeconds :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.Natural)
 createEventSourceMapping_tumblingWindowInSeconds = Lens.lens (\CreateEventSourceMapping' {tumblingWindowInSeconds} -> tumblingWindowInSeconds) (\s@CreateEventSourceMapping' {} a -> s {tumblingWindowInSeconds = a} :: CreateEventSourceMapping)
 
--- | The Self-Managed Apache Kafka cluster to send records.
-createEventSourceMapping_selfManagedEventSource :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe SelfManagedEventSource)
-createEventSourceMapping_selfManagedEventSource = Lens.lens (\CreateEventSourceMapping' {selfManagedEventSource} -> selfManagedEventSource) (\s@CreateEventSourceMapping' {} a -> s {selfManagedEventSource = a} :: CreateEventSourceMapping)
+-- | With @StartingPosition@ set to @AT_TIMESTAMP@, the time from which to
+-- start reading.
+createEventSourceMapping_startingPositionTimestamp :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe Prelude.UTCTime)
+createEventSourceMapping_startingPositionTimestamp = Lens.lens (\CreateEventSourceMapping' {startingPositionTimestamp} -> startingPositionTimestamp) (\s@CreateEventSourceMapping' {} a -> s {startingPositionTimestamp = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Core._Time
 
--- | (Streams only) An Amazon SQS queue or Amazon SNS topic destination for
--- discarded records.
-createEventSourceMapping_destinationConfig :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe DestinationConfig)
-createEventSourceMapping_destinationConfig = Lens.lens (\CreateEventSourceMapping' {destinationConfig} -> destinationConfig) (\s@CreateEventSourceMapping' {} a -> s {destinationConfig = a} :: CreateEventSourceMapping)
-
--- | The position in a stream from which to start reading. Required for
--- Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.
--- @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
-createEventSourceMapping_startingPosition :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe EventSourcePosition)
-createEventSourceMapping_startingPosition = Lens.lens (\CreateEventSourceMapping' {startingPosition} -> startingPosition) (\s@CreateEventSourceMapping' {} a -> s {startingPosition = a} :: CreateEventSourceMapping)
+-- | An array of authentication protocols or VPC components required to
+-- secure your event source.
+createEventSourceMapping_sourceAccessConfigurations :: Lens.Lens' CreateEventSourceMapping (Prelude.Maybe [SourceAccessConfiguration])
+createEventSourceMapping_sourceAccessConfigurations = Lens.lens (\CreateEventSourceMapping' {sourceAccessConfigurations} -> sourceAccessConfigurations) (\s@CreateEventSourceMapping' {} a -> s {sourceAccessConfigurations = a} :: CreateEventSourceMapping) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Lambda function.
 --
@@ -498,44 +498,46 @@ instance Core.AWSRequest CreateEventSourceMapping where
 
 instance Prelude.Hashable CreateEventSourceMapping where
   hashWithSalt _salt CreateEventSourceMapping' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceArn
-      `Prelude.hashWithSalt` startingPositionTimestamp
-      `Prelude.hashWithSalt` topics
-      `Prelude.hashWithSalt` queues
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` bisectBatchOnFunctionError
-      `Prelude.hashWithSalt` parallelizationFactor
-      `Prelude.hashWithSalt` maximumRetryAttempts
-      `Prelude.hashWithSalt` batchSize
-      `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
-      `Prelude.hashWithSalt` sourceAccessConfigurations
+    _salt
       `Prelude.hashWithSalt` maximumRecordAgeInSeconds
+      `Prelude.hashWithSalt` startingPosition
       `Prelude.hashWithSalt` functionResponseTypes
-      `Prelude.hashWithSalt` tumblingWindowInSeconds
+      `Prelude.hashWithSalt` parallelizationFactor
+      `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` selfManagedEventSource
       `Prelude.hashWithSalt` destinationConfig
-      `Prelude.hashWithSalt` startingPosition
+      `Prelude.hashWithSalt` eventSourceArn
+      `Prelude.hashWithSalt` maximumRetryAttempts
+      `Prelude.hashWithSalt` batchSize
+      `Prelude.hashWithSalt` topics
+      `Prelude.hashWithSalt` queues
+      `Prelude.hashWithSalt` bisectBatchOnFunctionError
+      `Prelude.hashWithSalt` tumblingWindowInSeconds
+      `Prelude.hashWithSalt` startingPositionTimestamp
+      `Prelude.hashWithSalt` sourceAccessConfigurations
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData CreateEventSourceMapping where
   rnf CreateEventSourceMapping' {..} =
-    Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf startingPositionTimestamp
-      `Prelude.seq` Prelude.rnf topics
-      `Prelude.seq` Prelude.rnf queues
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
-      `Prelude.seq` Prelude.rnf parallelizationFactor
-      `Prelude.seq` Prelude.rnf maximumRetryAttempts
-      `Prelude.seq` Prelude.rnf batchSize
-      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
-      `Prelude.seq` Prelude.rnf sourceAccessConfigurations
-      `Prelude.seq` Prelude.rnf maximumRecordAgeInSeconds
+    Prelude.rnf maximumRecordAgeInSeconds
+      `Prelude.seq` Prelude.rnf startingPosition
       `Prelude.seq` Prelude.rnf functionResponseTypes
-      `Prelude.seq` Prelude.rnf tumblingWindowInSeconds
+      `Prelude.seq` Prelude.rnf parallelizationFactor
+      `Prelude.seq` Prelude.rnf maximumBatchingWindowInSeconds
+      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf selfManagedEventSource
       `Prelude.seq` Prelude.rnf destinationConfig
-      `Prelude.seq` Prelude.rnf startingPosition
+      `Prelude.seq` Prelude.rnf eventSourceArn
+      `Prelude.seq` Prelude.rnf maximumRetryAttempts
+      `Prelude.seq` Prelude.rnf batchSize
+      `Prelude.seq` Prelude.rnf topics
+      `Prelude.seq` Prelude.rnf queues
+      `Prelude.seq` Prelude.rnf bisectBatchOnFunctionError
+      `Prelude.seq` Prelude.rnf tumblingWindowInSeconds
+      `Prelude.seq` Prelude.rnf startingPositionTimestamp
+      `Prelude.seq` Prelude.rnf
+        sourceAccessConfigurations
       `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders CreateEventSourceMapping where
@@ -545,36 +547,36 @@ instance Core.ToJSON CreateEventSourceMapping where
   toJSON CreateEventSourceMapping' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EventSourceArn" Core..=)
-              Prelude.<$> eventSourceArn,
-            ("StartingPositionTimestamp" Core..=)
-              Prelude.<$> startingPositionTimestamp,
-            ("Topics" Core..=) Prelude.<$> topics,
-            ("Queues" Core..=) Prelude.<$> queues,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("BisectBatchOnFunctionError" Core..=)
-              Prelude.<$> bisectBatchOnFunctionError,
-            ("ParallelizationFactor" Core..=)
-              Prelude.<$> parallelizationFactor,
-            ("MaximumRetryAttempts" Core..=)
-              Prelude.<$> maximumRetryAttempts,
-            ("BatchSize" Core..=) Prelude.<$> batchSize,
-            ("MaximumBatchingWindowInSeconds" Core..=)
-              Prelude.<$> maximumBatchingWindowInSeconds,
-            ("SourceAccessConfigurations" Core..=)
-              Prelude.<$> sourceAccessConfigurations,
-            ("MaximumRecordAgeInSeconds" Core..=)
+          [ ("MaximumRecordAgeInSeconds" Core..=)
               Prelude.<$> maximumRecordAgeInSeconds,
+            ("StartingPosition" Core..=)
+              Prelude.<$> startingPosition,
             ("FunctionResponseTypes" Core..=)
               Prelude.<$> functionResponseTypes,
-            ("TumblingWindowInSeconds" Core..=)
-              Prelude.<$> tumblingWindowInSeconds,
+            ("ParallelizationFactor" Core..=)
+              Prelude.<$> parallelizationFactor,
+            ("MaximumBatchingWindowInSeconds" Core..=)
+              Prelude.<$> maximumBatchingWindowInSeconds,
+            ("Enabled" Core..=) Prelude.<$> enabled,
             ("SelfManagedEventSource" Core..=)
               Prelude.<$> selfManagedEventSource,
             ("DestinationConfig" Core..=)
               Prelude.<$> destinationConfig,
-            ("StartingPosition" Core..=)
-              Prelude.<$> startingPosition,
+            ("EventSourceArn" Core..=)
+              Prelude.<$> eventSourceArn,
+            ("MaximumRetryAttempts" Core..=)
+              Prelude.<$> maximumRetryAttempts,
+            ("BatchSize" Core..=) Prelude.<$> batchSize,
+            ("Topics" Core..=) Prelude.<$> topics,
+            ("Queues" Core..=) Prelude.<$> queues,
+            ("BisectBatchOnFunctionError" Core..=)
+              Prelude.<$> bisectBatchOnFunctionError,
+            ("TumblingWindowInSeconds" Core..=)
+              Prelude.<$> tumblingWindowInSeconds,
+            ("StartingPositionTimestamp" Core..=)
+              Prelude.<$> startingPositionTimestamp,
+            ("SourceAccessConfigurations" Core..=)
+              Prelude.<$> sourceAccessConfigurations,
             Prelude.Just ("FunctionName" Core..= functionName)
           ]
       )

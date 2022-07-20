@@ -69,12 +69,6 @@ module Amazonka.CodeStarNotifications
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
@@ -84,14 +78,20 @@ module Amazonka.CodeStarNotifications
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -105,29 +105,11 @@ module Amazonka.CodeStarNotifications
     CreateNotificationRuleResponse (CreateNotificationRuleResponse'),
     newCreateNotificationRuleResponse,
 
-    -- ** UpdateNotificationRule
-    UpdateNotificationRule (UpdateNotificationRule'),
-    newUpdateNotificationRule,
-    UpdateNotificationRuleResponse (UpdateNotificationRuleResponse'),
-    newUpdateNotificationRuleResponse,
-
     -- ** DeleteNotificationRule
     DeleteNotificationRule (DeleteNotificationRule'),
     newDeleteNotificationRule,
     DeleteNotificationRuleResponse (DeleteNotificationRuleResponse'),
     newDeleteNotificationRuleResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** ListEventTypes (Paginated)
-    ListEventTypes (ListEventTypes'),
-    newListEventTypes,
-    ListEventTypesResponse (ListEventTypesResponse'),
-    newListEventTypesResponse,
 
     -- ** DeleteTarget
     DeleteTarget (DeleteTarget'),
@@ -135,11 +117,29 @@ module Amazonka.CodeStarNotifications
     DeleteTargetResponse (DeleteTargetResponse'),
     newDeleteTargetResponse,
 
+    -- ** DescribeNotificationRule
+    DescribeNotificationRule (DescribeNotificationRule'),
+    newDescribeNotificationRule,
+    DescribeNotificationRuleResponse (DescribeNotificationRuleResponse'),
+    newDescribeNotificationRuleResponse,
+
+    -- ** ListEventTypes (Paginated)
+    ListEventTypes (ListEventTypes'),
+    newListEventTypes,
+    ListEventTypesResponse (ListEventTypesResponse'),
+    newListEventTypesResponse,
+
     -- ** ListNotificationRules (Paginated)
     ListNotificationRules (ListNotificationRules'),
     newListNotificationRules,
     ListNotificationRulesResponse (ListNotificationRulesResponse'),
     newListNotificationRulesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** ListTargets (Paginated)
     ListTargets (ListTargets'),
@@ -147,23 +147,17 @@ module Amazonka.CodeStarNotifications
     ListTargetsResponse (ListTargetsResponse'),
     newListTargetsResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
     -- ** Subscribe
     Subscribe (Subscribe'),
     newSubscribe,
     SubscribeResponse (SubscribeResponse'),
     newSubscribeResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** Unsubscribe
     Unsubscribe (Unsubscribe'),
@@ -171,11 +165,17 @@ module Amazonka.CodeStarNotifications
     UnsubscribeResponse (UnsubscribeResponse'),
     newUnsubscribeResponse,
 
-    -- ** DescribeNotificationRule
-    DescribeNotificationRule (DescribeNotificationRule'),
-    newDescribeNotificationRule,
-    DescribeNotificationRuleResponse (DescribeNotificationRuleResponse'),
-    newDescribeNotificationRuleResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateNotificationRule
+    UpdateNotificationRule (UpdateNotificationRule'),
+    newUpdateNotificationRule,
+    UpdateNotificationRuleResponse (UpdateNotificationRuleResponse'),
+    newUpdateNotificationRuleResponse,
 
     -- * Types
 

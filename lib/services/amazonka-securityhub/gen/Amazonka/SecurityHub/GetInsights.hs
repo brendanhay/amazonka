@@ -30,8 +30,8 @@ module Amazonka.SecurityHub.GetInsights
 
     -- * Request Lenses
     getInsights_nextToken,
-    getInsights_insightArns,
     getInsights_maxResults,
+    getInsights_insightArns,
 
     -- * Destructuring the Response
     GetInsightsResponse (..),
@@ -60,12 +60,12 @@ data GetInsights = GetInsights'
     -- value of this parameter to the value returned from the previous
     -- response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARNs of the insights to describe. If you do not provide any insight
     -- ARNs, then @GetInsights@ returns all of your custom insights. It does
     -- not return any managed insights.
-    insightArns :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of items to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    insightArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,18 +84,18 @@ data GetInsights = GetInsights'
 -- value of this parameter to the value returned from the previous
 -- response.
 --
+-- 'maxResults', 'getInsights_maxResults' - The maximum number of items to return in the response.
+--
 -- 'insightArns', 'getInsights_insightArns' - The ARNs of the insights to describe. If you do not provide any insight
 -- ARNs, then @GetInsights@ returns all of your custom insights. It does
 -- not return any managed insights.
---
--- 'maxResults', 'getInsights_maxResults' - The maximum number of items to return in the response.
 newGetInsights ::
   GetInsights
 newGetInsights =
   GetInsights'
     { nextToken = Prelude.Nothing,
-      insightArns = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      insightArns = Prelude.Nothing
     }
 
 -- | The token that is required for pagination. On your first call to the
@@ -107,15 +107,15 @@ newGetInsights =
 getInsights_nextToken :: Lens.Lens' GetInsights (Prelude.Maybe Prelude.Text)
 getInsights_nextToken = Lens.lens (\GetInsights' {nextToken} -> nextToken) (\s@GetInsights' {} a -> s {nextToken = a} :: GetInsights)
 
+-- | The maximum number of items to return in the response.
+getInsights_maxResults :: Lens.Lens' GetInsights (Prelude.Maybe Prelude.Natural)
+getInsights_maxResults = Lens.lens (\GetInsights' {maxResults} -> maxResults) (\s@GetInsights' {} a -> s {maxResults = a} :: GetInsights)
+
 -- | The ARNs of the insights to describe. If you do not provide any insight
 -- ARNs, then @GetInsights@ returns all of your custom insights. It does
 -- not return any managed insights.
 getInsights_insightArns :: Lens.Lens' GetInsights (Prelude.Maybe [Prelude.Text])
 getInsights_insightArns = Lens.lens (\GetInsights' {insightArns} -> insightArns) (\s@GetInsights' {} a -> s {insightArns = a} :: GetInsights) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of items to return in the response.
-getInsights_maxResults :: Lens.Lens' GetInsights (Prelude.Maybe Prelude.Natural)
-getInsights_maxResults = Lens.lens (\GetInsights' {maxResults} -> maxResults) (\s@GetInsights' {} a -> s {maxResults = a} :: GetInsights)
 
 instance Core.AWSPager GetInsights where
   page rq rs
@@ -148,14 +148,14 @@ instance Core.AWSRequest GetInsights where
 instance Prelude.Hashable GetInsights where
   hashWithSalt _salt GetInsights' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` insightArns
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` insightArns
 
 instance Prelude.NFData GetInsights where
   rnf GetInsights' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf insightArns
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf insightArns
 
 instance Core.ToHeaders GetInsights where
   toHeaders =
@@ -173,8 +173,8 @@ instance Core.ToJSON GetInsights where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("InsightArns" Core..=) Prelude.<$> insightArns,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("InsightArns" Core..=) Prelude.<$> insightArns
           ]
       )
 

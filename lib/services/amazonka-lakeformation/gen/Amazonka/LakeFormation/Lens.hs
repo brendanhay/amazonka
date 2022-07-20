@@ -14,45 +14,6 @@
 module Amazonka.LakeFormation.Lens
   ( -- * Operations
 
-    -- ** BatchRevokePermissions
-    batchRevokePermissions_catalogId,
-    batchRevokePermissions_entries,
-    batchRevokePermissionsResponse_failures,
-    batchRevokePermissionsResponse_httpStatus,
-
-    -- ** DescribeResource
-    describeResource_resourceArn,
-    describeResourceResponse_resourceInfo,
-    describeResourceResponse_httpStatus,
-
-    -- ** BatchGrantPermissions
-    batchGrantPermissions_catalogId,
-    batchGrantPermissions_entries,
-    batchGrantPermissionsResponse_failures,
-    batchGrantPermissionsResponse_httpStatus,
-
-    -- ** GetEffectivePermissionsForPath
-    getEffectivePermissionsForPath_catalogId,
-    getEffectivePermissionsForPath_nextToken,
-    getEffectivePermissionsForPath_maxResults,
-    getEffectivePermissionsForPath_resourceArn,
-    getEffectivePermissionsForPathResponse_nextToken,
-    getEffectivePermissionsForPathResponse_permissions,
-    getEffectivePermissionsForPathResponse_httpStatus,
-
-    -- ** RevokePermissions
-    revokePermissions_catalogId,
-    revokePermissions_permissionsWithGrantOption,
-    revokePermissions_principal,
-    revokePermissions_resource,
-    revokePermissions_permissions,
-    revokePermissionsResponse_httpStatus,
-
-    -- ** UpdateResource
-    updateResource_roleArn,
-    updateResource_resourceArn,
-    updateResourceResponse_httpStatus,
-
     -- ** AddLFTagsToResource
     addLFTagsToResource_catalogId,
     addLFTagsToResource_resource,
@@ -60,49 +21,17 @@ module Amazonka.LakeFormation.Lens
     addLFTagsToResourceResponse_failures,
     addLFTagsToResourceResponse_httpStatus,
 
-    -- ** SearchTablesByLFTags
-    searchTablesByLFTags_catalogId,
-    searchTablesByLFTags_nextToken,
-    searchTablesByLFTags_maxResults,
-    searchTablesByLFTags_expression,
-    searchTablesByLFTagsResponse_tableList,
-    searchTablesByLFTagsResponse_nextToken,
-    searchTablesByLFTagsResponse_httpStatus,
+    -- ** BatchGrantPermissions
+    batchGrantPermissions_catalogId,
+    batchGrantPermissions_entries,
+    batchGrantPermissionsResponse_failures,
+    batchGrantPermissionsResponse_httpStatus,
 
-    -- ** ListResources
-    listResources_filterConditionList,
-    listResources_nextToken,
-    listResources_maxResults,
-    listResourcesResponse_resourceInfoList,
-    listResourcesResponse_nextToken,
-    listResourcesResponse_httpStatus,
-
-    -- ** GetLFTag
-    getLFTag_catalogId,
-    getLFTag_tagKey,
-    getLFTagResponse_tagValues,
-    getLFTagResponse_catalogId,
-    getLFTagResponse_tagKey,
-    getLFTagResponse_httpStatus,
-
-    -- ** RemoveLFTagsFromResource
-    removeLFTagsFromResource_catalogId,
-    removeLFTagsFromResource_resource,
-    removeLFTagsFromResource_lFTags,
-    removeLFTagsFromResourceResponse_failures,
-    removeLFTagsFromResourceResponse_httpStatus,
-
-    -- ** UpdateLFTag
-    updateLFTag_catalogId,
-    updateLFTag_tagValuesToAdd,
-    updateLFTag_tagValuesToDelete,
-    updateLFTag_tagKey,
-    updateLFTagResponse_httpStatus,
-
-    -- ** DeleteLFTag
-    deleteLFTag_catalogId,
-    deleteLFTag_tagKey,
-    deleteLFTagResponse_httpStatus,
+    -- ** BatchRevokePermissions
+    batchRevokePermissions_catalogId,
+    batchRevokePermissions_entries,
+    batchRevokePermissionsResponse_failures,
+    batchRevokePermissionsResponse_httpStatus,
 
     -- ** CreateLFTag
     createLFTag_catalogId,
@@ -110,54 +39,50 @@ module Amazonka.LakeFormation.Lens
     createLFTag_tagValues,
     createLFTagResponse_httpStatus,
 
-    -- ** GetResourceLFTags
-    getResourceLFTags_showAssignedLFTags,
-    getResourceLFTags_catalogId,
-    getResourceLFTags_resource,
-    getResourceLFTagsResponse_lFTagsOnTable,
-    getResourceLFTagsResponse_lFTagOnDatabase,
-    getResourceLFTagsResponse_lFTagsOnColumns,
-    getResourceLFTagsResponse_httpStatus,
-
-    -- ** PutDataLakeSettings
-    putDataLakeSettings_catalogId,
-    putDataLakeSettings_dataLakeSettings,
-    putDataLakeSettingsResponse_httpStatus,
-
-    -- ** ListPermissions
-    listPermissions_resourceType,
-    listPermissions_catalogId,
-    listPermissions_nextToken,
-    listPermissions_principal,
-    listPermissions_resource,
-    listPermissions_maxResults,
-    listPermissionsResponse_nextToken,
-    listPermissionsResponse_principalResourcePermissions,
-    listPermissionsResponse_httpStatus,
+    -- ** DeleteLFTag
+    deleteLFTag_catalogId,
+    deleteLFTag_tagKey,
+    deleteLFTagResponse_httpStatus,
 
     -- ** DeregisterResource
     deregisterResource_resourceArn,
     deregisterResourceResponse_httpStatus,
+
+    -- ** DescribeResource
+    describeResource_resourceArn,
+    describeResourceResponse_resourceInfo,
+    describeResourceResponse_httpStatus,
 
     -- ** GetDataLakeSettings
     getDataLakeSettings_catalogId,
     getDataLakeSettingsResponse_dataLakeSettings,
     getDataLakeSettingsResponse_httpStatus,
 
-    -- ** SearchDatabasesByLFTags
-    searchDatabasesByLFTags_catalogId,
-    searchDatabasesByLFTags_nextToken,
-    searchDatabasesByLFTags_maxResults,
-    searchDatabasesByLFTags_expression,
-    searchDatabasesByLFTagsResponse_databaseList,
-    searchDatabasesByLFTagsResponse_nextToken,
-    searchDatabasesByLFTagsResponse_httpStatus,
+    -- ** GetEffectivePermissionsForPath
+    getEffectivePermissionsForPath_nextToken,
+    getEffectivePermissionsForPath_maxResults,
+    getEffectivePermissionsForPath_catalogId,
+    getEffectivePermissionsForPath_resourceArn,
+    getEffectivePermissionsForPathResponse_nextToken,
+    getEffectivePermissionsForPathResponse_permissions,
+    getEffectivePermissionsForPathResponse_httpStatus,
 
-    -- ** RegisterResource
-    registerResource_useServiceLinkedRole,
-    registerResource_roleArn,
-    registerResource_resourceArn,
-    registerResourceResponse_httpStatus,
+    -- ** GetLFTag
+    getLFTag_catalogId,
+    getLFTag_tagKey,
+    getLFTagResponse_tagValues,
+    getLFTagResponse_tagKey,
+    getLFTagResponse_catalogId,
+    getLFTagResponse_httpStatus,
+
+    -- ** GetResourceLFTags
+    getResourceLFTags_catalogId,
+    getResourceLFTags_showAssignedLFTags,
+    getResourceLFTags_resource,
+    getResourceLFTagsResponse_lFTagsOnTable,
+    getResourceLFTagsResponse_lFTagOnDatabase,
+    getResourceLFTagsResponse_lFTagsOnColumns,
+    getResourceLFTagsResponse_httpStatus,
 
     -- ** GrantPermissions
     grantPermissions_catalogId,
@@ -168,25 +93,100 @@ module Amazonka.LakeFormation.Lens
     grantPermissionsResponse_httpStatus,
 
     -- ** ListLFTags
-    listLFTags_resourceShareType,
-    listLFTags_catalogId,
     listLFTags_nextToken,
+    listLFTags_resourceShareType,
     listLFTags_maxResults,
+    listLFTags_catalogId,
     listLFTagsResponse_nextToken,
     listLFTagsResponse_lFTags,
     listLFTagsResponse_httpStatus,
 
+    -- ** ListPermissions
+    listPermissions_principal,
+    listPermissions_resourceType,
+    listPermissions_nextToken,
+    listPermissions_maxResults,
+    listPermissions_catalogId,
+    listPermissions_resource,
+    listPermissionsResponse_nextToken,
+    listPermissionsResponse_principalResourcePermissions,
+    listPermissionsResponse_httpStatus,
+
+    -- ** ListResources
+    listResources_nextToken,
+    listResources_filterConditionList,
+    listResources_maxResults,
+    listResourcesResponse_nextToken,
+    listResourcesResponse_resourceInfoList,
+    listResourcesResponse_httpStatus,
+
+    -- ** PutDataLakeSettings
+    putDataLakeSettings_catalogId,
+    putDataLakeSettings_dataLakeSettings,
+    putDataLakeSettingsResponse_httpStatus,
+
+    -- ** RegisterResource
+    registerResource_roleArn,
+    registerResource_useServiceLinkedRole,
+    registerResource_resourceArn,
+    registerResourceResponse_httpStatus,
+
+    -- ** RemoveLFTagsFromResource
+    removeLFTagsFromResource_catalogId,
+    removeLFTagsFromResource_resource,
+    removeLFTagsFromResource_lFTags,
+    removeLFTagsFromResourceResponse_failures,
+    removeLFTagsFromResourceResponse_httpStatus,
+
+    -- ** RevokePermissions
+    revokePermissions_catalogId,
+    revokePermissions_permissionsWithGrantOption,
+    revokePermissions_principal,
+    revokePermissions_resource,
+    revokePermissions_permissions,
+    revokePermissionsResponse_httpStatus,
+
+    -- ** SearchDatabasesByLFTags
+    searchDatabasesByLFTags_nextToken,
+    searchDatabasesByLFTags_maxResults,
+    searchDatabasesByLFTags_catalogId,
+    searchDatabasesByLFTags_expression,
+    searchDatabasesByLFTagsResponse_nextToken,
+    searchDatabasesByLFTagsResponse_databaseList,
+    searchDatabasesByLFTagsResponse_httpStatus,
+
+    -- ** SearchTablesByLFTags
+    searchTablesByLFTags_nextToken,
+    searchTablesByLFTags_maxResults,
+    searchTablesByLFTags_catalogId,
+    searchTablesByLFTags_expression,
+    searchTablesByLFTagsResponse_nextToken,
+    searchTablesByLFTagsResponse_tableList,
+    searchTablesByLFTagsResponse_httpStatus,
+
+    -- ** UpdateLFTag
+    updateLFTag_catalogId,
+    updateLFTag_tagValuesToDelete,
+    updateLFTag_tagValuesToAdd,
+    updateLFTag_tagKey,
+    updateLFTagResponse_httpStatus,
+
+    -- ** UpdateResource
+    updateResource_roleArn,
+    updateResource_resourceArn,
+    updateResourceResponse_httpStatus,
+
     -- * Types
 
     -- ** BatchPermissionsFailureEntry
-    batchPermissionsFailureEntry_error,
     batchPermissionsFailureEntry_requestEntry,
+    batchPermissionsFailureEntry_error,
 
     -- ** BatchPermissionsRequestEntry
-    batchPermissionsRequestEntry_permissionsWithGrantOption,
     batchPermissionsRequestEntry_principal,
-    batchPermissionsRequestEntry_resource,
     batchPermissionsRequestEntry_permissions,
+    batchPermissionsRequestEntry_permissionsWithGrantOption,
+    batchPermissionsRequestEntry_resource,
     batchPermissionsRequestEntry_id,
 
     -- ** CatalogResource
@@ -203,8 +203,8 @@ module Amazonka.LakeFormation.Lens
 
     -- ** DataLakeSettings
     dataLakeSettings_dataLakeAdmins,
-    dataLakeSettings_trustedResourceOwners,
     dataLakeSettings_createDatabaseDefaultPermissions,
+    dataLakeSettings_trustedResourceOwners,
     dataLakeSettings_createTableDefaultPermissions,
 
     -- ** DataLocationResource
@@ -219,8 +219,8 @@ module Amazonka.LakeFormation.Lens
     detailsMap_resourceShare,
 
     -- ** ErrorDetail
-    errorDetail_errorCode,
     errorDetail_errorMessage,
+    errorDetail_errorCode,
 
     -- ** FilterCondition
     filterCondition_field,
@@ -255,50 +255,50 @@ module Amazonka.LakeFormation.Lens
     principalPermissions_permissions,
 
     -- ** PrincipalResourcePermissions
-    principalResourcePermissions_additionalDetails,
-    principalResourcePermissions_permissionsWithGrantOption,
     principalResourcePermissions_principal,
-    principalResourcePermissions_resource,
+    principalResourcePermissions_additionalDetails,
     principalResourcePermissions_permissions,
+    principalResourcePermissions_permissionsWithGrantOption,
+    principalResourcePermissions_resource,
 
     -- ** Resource
-    resource_dataLocation,
-    resource_database,
-    resource_lFTag,
-    resource_catalog,
-    resource_lFTagPolicy,
-    resource_table,
     resource_tableWithColumns,
+    resource_catalog,
+    resource_lFTag,
+    resource_lFTagPolicy,
+    resource_database,
+    resource_dataLocation,
+    resource_table,
 
     -- ** ResourceInfo
-    resourceInfo_resourceArn,
-    resourceInfo_lastModified,
     resourceInfo_roleArn,
+    resourceInfo_lastModified,
+    resourceInfo_resourceArn,
 
     -- ** TableResource
-    tableResource_catalogId,
-    tableResource_tableWildcard,
     tableResource_name,
+    tableResource_tableWildcard,
+    tableResource_catalogId,
     tableResource_databaseName,
 
     -- ** TableWildcard
 
     -- ** TableWithColumnsResource
-    tableWithColumnsResource_catalogId,
-    tableWithColumnsResource_columnWildcard,
     tableWithColumnsResource_columnNames,
+    tableWithColumnsResource_columnWildcard,
+    tableWithColumnsResource_catalogId,
     tableWithColumnsResource_databaseName,
     tableWithColumnsResource_name,
 
     -- ** TaggedDatabase
-    taggedDatabase_database,
     taggedDatabase_lFTags,
+    taggedDatabase_database,
 
     -- ** TaggedTable
     taggedTable_lFTagsOnTable,
+    taggedTable_table,
     taggedTable_lFTagOnDatabase,
     taggedTable_lFTagsOnColumns,
-    taggedTable_table,
   )
 where
 

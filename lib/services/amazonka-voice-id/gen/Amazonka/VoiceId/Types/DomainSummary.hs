@@ -29,23 +29,23 @@ import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
 --
 -- /See:/ 'newDomainSummary' smart constructor.
 data DomainSummary = DomainSummary'
-  { -- | The current status of the domain.
-    domainStatus :: Prelude.Maybe DomainStatus,
-    -- | The Amazon Resource Name (ARN) for the domain.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp showing when the domain is created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The client-provided name for the domain.
+  { -- | The client-provided name for the domain.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The service-generated identifier for the domain.
-    domainId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp showing the domain\'s last update.
-    updatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The client-provided description of the domain.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The server-side encryption configuration containing the KMS Key
     -- Identifier you want Voice ID to use to encrypt your data..
-    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration
+    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
+    -- | The Amazon Resource Name (ARN) for the domain.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The client-provided description of the domain.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The current status of the domain.
+    domainStatus :: Prelude.Maybe DomainStatus,
+    -- | The service-generated identifier for the domain.
+    domainId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp showing when the domain is created.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The timestamp showing the domain\'s last update.
+    updatedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,68 +57,68 @@ data DomainSummary = DomainSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainStatus', 'domainSummary_domainStatus' - The current status of the domain.
---
--- 'arn', 'domainSummary_arn' - The Amazon Resource Name (ARN) for the domain.
---
--- 'createdAt', 'domainSummary_createdAt' - The timestamp showing when the domain is created.
---
 -- 'name', 'domainSummary_name' - The client-provided name for the domain.
---
--- 'domainId', 'domainSummary_domainId' - The service-generated identifier for the domain.
---
--- 'updatedAt', 'domainSummary_updatedAt' - The timestamp showing the domain\'s last update.
---
--- 'description', 'domainSummary_description' - The client-provided description of the domain.
 --
 -- 'serverSideEncryptionConfiguration', 'domainSummary_serverSideEncryptionConfiguration' - The server-side encryption configuration containing the KMS Key
 -- Identifier you want Voice ID to use to encrypt your data..
+--
+-- 'arn', 'domainSummary_arn' - The Amazon Resource Name (ARN) for the domain.
+--
+-- 'description', 'domainSummary_description' - The client-provided description of the domain.
+--
+-- 'domainStatus', 'domainSummary_domainStatus' - The current status of the domain.
+--
+-- 'domainId', 'domainSummary_domainId' - The service-generated identifier for the domain.
+--
+-- 'createdAt', 'domainSummary_createdAt' - The timestamp showing when the domain is created.
+--
+-- 'updatedAt', 'domainSummary_updatedAt' - The timestamp showing the domain\'s last update.
 newDomainSummary ::
   DomainSummary
 newDomainSummary =
   DomainSummary'
-    { domainStatus = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      serverSideEncryptionConfiguration = Prelude.Nothing,
       arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      name = Prelude.Nothing,
-      domainId = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
       description = Prelude.Nothing,
-      serverSideEncryptionConfiguration = Prelude.Nothing
+      domainStatus = Prelude.Nothing,
+      domainId = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      updatedAt = Prelude.Nothing
     }
-
--- | The current status of the domain.
-domainSummary_domainStatus :: Lens.Lens' DomainSummary (Prelude.Maybe DomainStatus)
-domainSummary_domainStatus = Lens.lens (\DomainSummary' {domainStatus} -> domainStatus) (\s@DomainSummary' {} a -> s {domainStatus = a} :: DomainSummary)
-
--- | The Amazon Resource Name (ARN) for the domain.
-domainSummary_arn :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
-domainSummary_arn = Lens.lens (\DomainSummary' {arn} -> arn) (\s@DomainSummary' {} a -> s {arn = a} :: DomainSummary)
-
--- | The timestamp showing when the domain is created.
-domainSummary_createdAt :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
-domainSummary_createdAt = Lens.lens (\DomainSummary' {createdAt} -> createdAt) (\s@DomainSummary' {} a -> s {createdAt = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The client-provided name for the domain.
 domainSummary_name :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummary' {} a -> s {name = a} :: DomainSummary) Prelude.. Lens.mapping Core._Sensitive
 
--- | The service-generated identifier for the domain.
-domainSummary_domainId :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
-domainSummary_domainId = Lens.lens (\DomainSummary' {domainId} -> domainId) (\s@DomainSummary' {} a -> s {domainId = a} :: DomainSummary)
+-- | The server-side encryption configuration containing the KMS Key
+-- Identifier you want Voice ID to use to encrypt your data..
+domainSummary_serverSideEncryptionConfiguration :: Lens.Lens' DomainSummary (Prelude.Maybe ServerSideEncryptionConfiguration)
+domainSummary_serverSideEncryptionConfiguration = Lens.lens (\DomainSummary' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@DomainSummary' {} a -> s {serverSideEncryptionConfiguration = a} :: DomainSummary)
 
--- | The timestamp showing the domain\'s last update.
-domainSummary_updatedAt :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
-domainSummary_updatedAt = Lens.lens (\DomainSummary' {updatedAt} -> updatedAt) (\s@DomainSummary' {} a -> s {updatedAt = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) for the domain.
+domainSummary_arn :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
+domainSummary_arn = Lens.lens (\DomainSummary' {arn} -> arn) (\s@DomainSummary' {} a -> s {arn = a} :: DomainSummary)
 
 -- | The client-provided description of the domain.
 domainSummary_description :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_description = Lens.lens (\DomainSummary' {description} -> description) (\s@DomainSummary' {} a -> s {description = a} :: DomainSummary) Prelude.. Lens.mapping Core._Sensitive
 
--- | The server-side encryption configuration containing the KMS Key
--- Identifier you want Voice ID to use to encrypt your data..
-domainSummary_serverSideEncryptionConfiguration :: Lens.Lens' DomainSummary (Prelude.Maybe ServerSideEncryptionConfiguration)
-domainSummary_serverSideEncryptionConfiguration = Lens.lens (\DomainSummary' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@DomainSummary' {} a -> s {serverSideEncryptionConfiguration = a} :: DomainSummary)
+-- | The current status of the domain.
+domainSummary_domainStatus :: Lens.Lens' DomainSummary (Prelude.Maybe DomainStatus)
+domainSummary_domainStatus = Lens.lens (\DomainSummary' {domainStatus} -> domainStatus) (\s@DomainSummary' {} a -> s {domainStatus = a} :: DomainSummary)
+
+-- | The service-generated identifier for the domain.
+domainSummary_domainId :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
+domainSummary_domainId = Lens.lens (\DomainSummary' {domainId} -> domainId) (\s@DomainSummary' {} a -> s {domainId = a} :: DomainSummary)
+
+-- | The timestamp showing when the domain is created.
+domainSummary_createdAt :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
+domainSummary_createdAt = Lens.lens (\DomainSummary' {createdAt} -> createdAt) (\s@DomainSummary' {} a -> s {createdAt = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The timestamp showing the domain\'s last update.
+domainSummary_updatedAt :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
+domainSummary_updatedAt = Lens.lens (\DomainSummary' {updatedAt} -> updatedAt) (\s@DomainSummary' {} a -> s {updatedAt = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON DomainSummary where
   parseJSON =
@@ -126,34 +126,34 @@ instance Core.FromJSON DomainSummary where
       "DomainSummary"
       ( \x ->
           DomainSummary'
-            Prelude.<$> (x Core..:? "DomainStatus")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "UpdatedAt")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "ServerSideEncryptionConfiguration")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "DomainStatus")
+            Prelude.<*> (x Core..:? "DomainId")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable DomainSummary where
   hashWithSalt _salt DomainSummary' {..} =
-    _salt `Prelude.hashWithSalt` domainStatus
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` domainId
-      `Prelude.hashWithSalt` updatedAt
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` domainStatus
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
-    Prelude.rnf domainStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf updatedAt

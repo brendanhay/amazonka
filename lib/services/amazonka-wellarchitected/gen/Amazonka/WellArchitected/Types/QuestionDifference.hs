@@ -28,10 +28,10 @@ import Amazonka.WellArchitected.Types.DifferenceStatus
 --
 -- /See:/ 'newQuestionDifference' smart constructor.
 data QuestionDifference = QuestionDifference'
-  { questionTitle :: Prelude.Maybe Prelude.Text,
+  { questionId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the type of change to the question.
     differenceStatus :: Prelude.Maybe DifferenceStatus,
-    questionId :: Prelude.Maybe Prelude.Text
+    questionTitle :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,32 +43,31 @@ data QuestionDifference = QuestionDifference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'questionTitle', 'questionDifference_questionTitle' - Undocumented member.
+-- 'questionId', 'questionDifference_questionId' - Undocumented member.
 --
 -- 'differenceStatus', 'questionDifference_differenceStatus' - Indicates the type of change to the question.
 --
--- 'questionId', 'questionDifference_questionId' - Undocumented member.
+-- 'questionTitle', 'questionDifference_questionTitle' - Undocumented member.
 newQuestionDifference ::
   QuestionDifference
 newQuestionDifference =
   QuestionDifference'
-    { questionTitle =
-        Prelude.Nothing,
+    { questionId = Prelude.Nothing,
       differenceStatus = Prelude.Nothing,
-      questionId = Prelude.Nothing
+      questionTitle = Prelude.Nothing
     }
 
 -- | Undocumented member.
-questionDifference_questionTitle :: Lens.Lens' QuestionDifference (Prelude.Maybe Prelude.Text)
-questionDifference_questionTitle = Lens.lens (\QuestionDifference' {questionTitle} -> questionTitle) (\s@QuestionDifference' {} a -> s {questionTitle = a} :: QuestionDifference)
+questionDifference_questionId :: Lens.Lens' QuestionDifference (Prelude.Maybe Prelude.Text)
+questionDifference_questionId = Lens.lens (\QuestionDifference' {questionId} -> questionId) (\s@QuestionDifference' {} a -> s {questionId = a} :: QuestionDifference)
 
 -- | Indicates the type of change to the question.
 questionDifference_differenceStatus :: Lens.Lens' QuestionDifference (Prelude.Maybe DifferenceStatus)
 questionDifference_differenceStatus = Lens.lens (\QuestionDifference' {differenceStatus} -> differenceStatus) (\s@QuestionDifference' {} a -> s {differenceStatus = a} :: QuestionDifference)
 
 -- | Undocumented member.
-questionDifference_questionId :: Lens.Lens' QuestionDifference (Prelude.Maybe Prelude.Text)
-questionDifference_questionId = Lens.lens (\QuestionDifference' {questionId} -> questionId) (\s@QuestionDifference' {} a -> s {questionId = a} :: QuestionDifference)
+questionDifference_questionTitle :: Lens.Lens' QuestionDifference (Prelude.Maybe Prelude.Text)
+questionDifference_questionTitle = Lens.lens (\QuestionDifference' {questionTitle} -> questionTitle) (\s@QuestionDifference' {} a -> s {questionTitle = a} :: QuestionDifference)
 
 instance Core.FromJSON QuestionDifference where
   parseJSON =
@@ -76,19 +75,19 @@ instance Core.FromJSON QuestionDifference where
       "QuestionDifference"
       ( \x ->
           QuestionDifference'
-            Prelude.<$> (x Core..:? "QuestionTitle")
+            Prelude.<$> (x Core..:? "QuestionId")
             Prelude.<*> (x Core..:? "DifferenceStatus")
-            Prelude.<*> (x Core..:? "QuestionId")
+            Prelude.<*> (x Core..:? "QuestionTitle")
       )
 
 instance Prelude.Hashable QuestionDifference where
   hashWithSalt _salt QuestionDifference' {..} =
-    _salt `Prelude.hashWithSalt` questionTitle
+    _salt `Prelude.hashWithSalt` questionId
       `Prelude.hashWithSalt` differenceStatus
-      `Prelude.hashWithSalt` questionId
+      `Prelude.hashWithSalt` questionTitle
 
 instance Prelude.NFData QuestionDifference where
   rnf QuestionDifference' {..} =
-    Prelude.rnf questionTitle
+    Prelude.rnf questionId
       `Prelude.seq` Prelude.rnf differenceStatus
-      `Prelude.seq` Prelude.rnf questionId
+      `Prelude.seq` Prelude.rnf questionTitle

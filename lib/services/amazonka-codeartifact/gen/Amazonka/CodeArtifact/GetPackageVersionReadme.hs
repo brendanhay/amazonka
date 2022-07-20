@@ -33,8 +33,8 @@ module Amazonka.CodeArtifact.GetPackageVersionReadme
     newGetPackageVersionReadme,
 
     -- * Request Lenses
-    getPackageVersionReadme_namespace,
     getPackageVersionReadme_domainOwner,
+    getPackageVersionReadme_namespace,
     getPackageVersionReadme_domain,
     getPackageVersionReadme_repository,
     getPackageVersionReadme_format,
@@ -46,12 +46,12 @@ module Amazonka.CodeArtifact.GetPackageVersionReadme
     newGetPackageVersionReadmeResponse,
 
     -- * Response Lenses
-    getPackageVersionReadmeResponse_readme,
-    getPackageVersionReadmeResponse_format,
-    getPackageVersionReadmeResponse_namespace,
     getPackageVersionReadmeResponse_versionRevision,
-    getPackageVersionReadmeResponse_version,
+    getPackageVersionReadmeResponse_format,
+    getPackageVersionReadmeResponse_readme,
     getPackageVersionReadmeResponse_package,
+    getPackageVersionReadmeResponse_namespace,
+    getPackageVersionReadmeResponse_version,
     getPackageVersionReadmeResponse_httpStatus,
   )
 where
@@ -65,7 +65,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPackageVersionReadme' smart constructor.
 data GetPackageVersionReadme = GetPackageVersionReadme'
-  { -- | The namespace of the package. The package component that specifies its
+  { -- | The 12-digit account number of the AWS account that owns the domain. It
+    -- does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
     -- -   The namespace of a Maven package is its @groupId@.
@@ -75,9 +78,6 @@ data GetPackageVersionReadme = GetPackageVersionReadme'
     -- -   A Python package does not contain a corresponding component, so
     --     Python packages do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
     -- package version with the requested readme file.
     domain :: Prelude.Text,
@@ -107,6 +107,9 @@ data GetPackageVersionReadme = GetPackageVersionReadme'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainOwner', 'getPackageVersionReadme_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+--
 -- 'namespace', 'getPackageVersionReadme_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
 --
@@ -116,9 +119,6 @@ data GetPackageVersionReadme = GetPackageVersionReadme'
 --
 -- -   A Python package does not contain a corresponding component, so
 --     Python packages do not have a namespace.
---
--- 'domainOwner', 'getPackageVersionReadme_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
 --
 -- 'domain', 'getPackageVersionReadme_domain' - The name of the domain that contains the repository that contains the
 -- package version with the requested readme file.
@@ -156,15 +156,20 @@ newGetPackageVersionReadme
   pPackage_
   pPackageVersion_ =
     GetPackageVersionReadme'
-      { namespace =
+      { domainOwner =
           Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
+        namespace = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         format = pFormat_,
         package = pPackage_,
         packageVersion = pPackageVersion_
       }
+
+-- | The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+getPackageVersionReadme_domainOwner :: Lens.Lens' GetPackageVersionReadme (Prelude.Maybe Prelude.Text)
+getPackageVersionReadme_domainOwner = Lens.lens (\GetPackageVersionReadme' {domainOwner} -> domainOwner) (\s@GetPackageVersionReadme' {} a -> s {domainOwner = a} :: GetPackageVersionReadme)
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -177,11 +182,6 @@ newGetPackageVersionReadme
 --     Python packages do not have a namespace.
 getPackageVersionReadme_namespace :: Lens.Lens' GetPackageVersionReadme (Prelude.Maybe Prelude.Text)
 getPackageVersionReadme_namespace = Lens.lens (\GetPackageVersionReadme' {namespace} -> namespace) (\s@GetPackageVersionReadme' {} a -> s {namespace = a} :: GetPackageVersionReadme)
-
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
-getPackageVersionReadme_domainOwner :: Lens.Lens' GetPackageVersionReadme (Prelude.Maybe Prelude.Text)
-getPackageVersionReadme_domainOwner = Lens.lens (\GetPackageVersionReadme' {domainOwner} -> domainOwner) (\s@GetPackageVersionReadme' {} a -> s {domainOwner = a} :: GetPackageVersionReadme)
 
 -- | The name of the domain that contains the repository that contains the
 -- package version with the requested readme file.
@@ -220,19 +220,19 @@ instance Core.AWSRequest GetPackageVersionReadme where
     Response.receiveJSON
       ( \s h x ->
           GetPackageVersionReadmeResponse'
-            Prelude.<$> (x Core..?> "readme")
+            Prelude.<$> (x Core..?> "versionRevision")
             Prelude.<*> (x Core..?> "format")
-            Prelude.<*> (x Core..?> "namespace")
-            Prelude.<*> (x Core..?> "versionRevision")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Core..?> "readme")
             Prelude.<*> (x Core..?> "package")
+            Prelude.<*> (x Core..?> "namespace")
+            Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetPackageVersionReadme where
   hashWithSalt _salt GetPackageVersionReadme' {..} =
-    _salt `Prelude.hashWithSalt` namespace
-      `Prelude.hashWithSalt` domainOwner
+    _salt `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` format
@@ -241,8 +241,8 @@ instance Prelude.Hashable GetPackageVersionReadme where
 
 instance Prelude.NFData GetPackageVersionReadme where
   rnf GetPackageVersionReadme' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf domainOwner
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
@@ -266,8 +266,8 @@ instance Core.ToPath GetPackageVersionReadme where
 instance Core.ToQuery GetPackageVersionReadme where
   toQuery GetPackageVersionReadme' {..} =
     Prelude.mconcat
-      [ "namespace" Core.=: namespace,
-        "domain-owner" Core.=: domainOwner,
+      [ "domain-owner" Core.=: domainOwner,
+        "namespace" Core.=: namespace,
         "domain" Core.=: domain,
         "repository" Core.=: repository,
         "format" Core.=: format,
@@ -277,8 +277,8 @@ instance Core.ToQuery GetPackageVersionReadme where
 
 -- | /See:/ 'newGetPackageVersionReadmeResponse' smart constructor.
 data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
-  { -- | The text of the returned readme file.
-    readme :: Prelude.Maybe Prelude.Text,
+  { -- | The current revision associated with the package version.
+    versionRevision :: Prelude.Maybe Prelude.Text,
     -- | The format of the package with the requested readme file. Valid format
     -- types are:
     --
@@ -288,6 +288,10 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
     --
     -- -   @maven@
     format :: Prelude.Maybe PackageFormat,
+    -- | The text of the returned readme file.
+    readme :: Prelude.Maybe Prelude.Text,
+    -- | The name of the package that contains the returned readme file.
+    package :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
@@ -298,12 +302,8 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
     -- -   A Python package does not contain a corresponding component, so
     --     Python packages do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The current revision associated with the package version.
-    versionRevision :: Prelude.Maybe Prelude.Text,
     -- | The version of the package with the requested readme file.
     version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the package that contains the returned readme file.
-    package :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -317,7 +317,7 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readme', 'getPackageVersionReadmeResponse_readme' - The text of the returned readme file.
+-- 'versionRevision', 'getPackageVersionReadmeResponse_versionRevision' - The current revision associated with the package version.
 --
 -- 'format', 'getPackageVersionReadmeResponse_format' - The format of the package with the requested readme file. Valid format
 -- types are:
@@ -327,6 +327,10 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
 -- -   @pypi@
 --
 -- -   @maven@
+--
+-- 'readme', 'getPackageVersionReadmeResponse_readme' - The text of the returned readme file.
+--
+-- 'package', 'getPackageVersionReadmeResponse_package' - The name of the package that contains the returned readme file.
 --
 -- 'namespace', 'getPackageVersionReadmeResponse_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -338,11 +342,7 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
 -- -   A Python package does not contain a corresponding component, so
 --     Python packages do not have a namespace.
 --
--- 'versionRevision', 'getPackageVersionReadmeResponse_versionRevision' - The current revision associated with the package version.
---
 -- 'version', 'getPackageVersionReadmeResponse_version' - The version of the package with the requested readme file.
---
--- 'package', 'getPackageVersionReadmeResponse_package' - The name of the package that contains the returned readme file.
 --
 -- 'httpStatus', 'getPackageVersionReadmeResponse_httpStatus' - The response's http status code.
 newGetPackageVersionReadmeResponse ::
@@ -351,19 +351,19 @@ newGetPackageVersionReadmeResponse ::
   GetPackageVersionReadmeResponse
 newGetPackageVersionReadmeResponse pHttpStatus_ =
   GetPackageVersionReadmeResponse'
-    { readme =
+    { versionRevision =
         Prelude.Nothing,
       format = Prelude.Nothing,
-      namespace = Prelude.Nothing,
-      versionRevision = Prelude.Nothing,
-      version = Prelude.Nothing,
+      readme = Prelude.Nothing,
       package = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The text of the returned readme file.
-getPackageVersionReadmeResponse_readme :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
-getPackageVersionReadmeResponse_readme = Lens.lens (\GetPackageVersionReadmeResponse' {readme} -> readme) (\s@GetPackageVersionReadmeResponse' {} a -> s {readme = a} :: GetPackageVersionReadmeResponse)
+-- | The current revision associated with the package version.
+getPackageVersionReadmeResponse_versionRevision :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
+getPackageVersionReadmeResponse_versionRevision = Lens.lens (\GetPackageVersionReadmeResponse' {versionRevision} -> versionRevision) (\s@GetPackageVersionReadmeResponse' {} a -> s {versionRevision = a} :: GetPackageVersionReadmeResponse)
 
 -- | The format of the package with the requested readme file. Valid format
 -- types are:
@@ -375,6 +375,14 @@ getPackageVersionReadmeResponse_readme = Lens.lens (\GetPackageVersionReadmeResp
 -- -   @maven@
 getPackageVersionReadmeResponse_format :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe PackageFormat)
 getPackageVersionReadmeResponse_format = Lens.lens (\GetPackageVersionReadmeResponse' {format} -> format) (\s@GetPackageVersionReadmeResponse' {} a -> s {format = a} :: GetPackageVersionReadmeResponse)
+
+-- | The text of the returned readme file.
+getPackageVersionReadmeResponse_readme :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
+getPackageVersionReadmeResponse_readme = Lens.lens (\GetPackageVersionReadmeResponse' {readme} -> readme) (\s@GetPackageVersionReadmeResponse' {} a -> s {readme = a} :: GetPackageVersionReadmeResponse)
+
+-- | The name of the package that contains the returned readme file.
+getPackageVersionReadmeResponse_package :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
+getPackageVersionReadmeResponse_package = Lens.lens (\GetPackageVersionReadmeResponse' {package} -> package) (\s@GetPackageVersionReadmeResponse' {} a -> s {package = a} :: GetPackageVersionReadmeResponse)
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -388,17 +396,9 @@ getPackageVersionReadmeResponse_format = Lens.lens (\GetPackageVersionReadmeResp
 getPackageVersionReadmeResponse_namespace :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionReadmeResponse_namespace = Lens.lens (\GetPackageVersionReadmeResponse' {namespace} -> namespace) (\s@GetPackageVersionReadmeResponse' {} a -> s {namespace = a} :: GetPackageVersionReadmeResponse)
 
--- | The current revision associated with the package version.
-getPackageVersionReadmeResponse_versionRevision :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
-getPackageVersionReadmeResponse_versionRevision = Lens.lens (\GetPackageVersionReadmeResponse' {versionRevision} -> versionRevision) (\s@GetPackageVersionReadmeResponse' {} a -> s {versionRevision = a} :: GetPackageVersionReadmeResponse)
-
 -- | The version of the package with the requested readme file.
 getPackageVersionReadmeResponse_version :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionReadmeResponse_version = Lens.lens (\GetPackageVersionReadmeResponse' {version} -> version) (\s@GetPackageVersionReadmeResponse' {} a -> s {version = a} :: GetPackageVersionReadmeResponse)
-
--- | The name of the package that contains the returned readme file.
-getPackageVersionReadmeResponse_package :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
-getPackageVersionReadmeResponse_package = Lens.lens (\GetPackageVersionReadmeResponse' {package} -> package) (\s@GetPackageVersionReadmeResponse' {} a -> s {package = a} :: GetPackageVersionReadmeResponse)
 
 -- | The response's http status code.
 getPackageVersionReadmeResponse_httpStatus :: Lens.Lens' GetPackageVersionReadmeResponse Prelude.Int
@@ -409,10 +409,10 @@ instance
     GetPackageVersionReadmeResponse
   where
   rnf GetPackageVersionReadmeResponse' {..} =
-    Prelude.rnf readme
+    Prelude.rnf versionRevision
       `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf versionRevision
-      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf readme
       `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

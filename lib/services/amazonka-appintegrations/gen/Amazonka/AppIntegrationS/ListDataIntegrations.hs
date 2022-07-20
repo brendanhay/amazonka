@@ -41,8 +41,8 @@ module Amazonka.AppIntegrationS.ListDataIntegrations
     newListDataIntegrationsResponse,
 
     -- * Response Lenses
-    listDataIntegrationsResponse_dataIntegrations,
     listDataIntegrationsResponse_nextToken,
+    listDataIntegrationsResponse_dataIntegrations,
     listDataIntegrationsResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance Core.AWSRequest ListDataIntegrations where
     Response.receiveJSON
       ( \s h x ->
           ListDataIntegrationsResponse'
-            Prelude.<$> (x Core..?> "DataIntegrations")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "DataIntegrations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,11 +143,11 @@ instance Core.ToQuery ListDataIntegrations where
 
 -- | /See:/ 'newListDataIntegrationsResponse' smart constructor.
 data ListDataIntegrationsResponse = ListDataIntegrationsResponse'
-  { -- | The DataIntegrations associated with this account.
-    dataIntegrations :: Prelude.Maybe (Prelude.NonEmpty DataIntegrationSummary),
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The DataIntegrations associated with this account.
+    dataIntegrations :: Prelude.Maybe (Prelude.NonEmpty DataIntegrationSummary),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,10 +161,10 @@ data ListDataIntegrationsResponse = ListDataIntegrationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataIntegrations', 'listDataIntegrationsResponse_dataIntegrations' - The DataIntegrations associated with this account.
---
 -- 'nextToken', 'listDataIntegrationsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'dataIntegrations', 'listDataIntegrationsResponse_dataIntegrations' - The DataIntegrations associated with this account.
 --
 -- 'httpStatus', 'listDataIntegrationsResponse_httpStatus' - The response's http status code.
 newListDataIntegrationsResponse ::
@@ -173,20 +173,20 @@ newListDataIntegrationsResponse ::
   ListDataIntegrationsResponse
 newListDataIntegrationsResponse pHttpStatus_ =
   ListDataIntegrationsResponse'
-    { dataIntegrations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      dataIntegrations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The DataIntegrations associated with this account.
-listDataIntegrationsResponse_dataIntegrations :: Lens.Lens' ListDataIntegrationsResponse (Prelude.Maybe (Prelude.NonEmpty DataIntegrationSummary))
-listDataIntegrationsResponse_dataIntegrations = Lens.lens (\ListDataIntegrationsResponse' {dataIntegrations} -> dataIntegrations) (\s@ListDataIntegrationsResponse' {} a -> s {dataIntegrations = a} :: ListDataIntegrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listDataIntegrationsResponse_nextToken :: Lens.Lens' ListDataIntegrationsResponse (Prelude.Maybe Prelude.Text)
 listDataIntegrationsResponse_nextToken = Lens.lens (\ListDataIntegrationsResponse' {nextToken} -> nextToken) (\s@ListDataIntegrationsResponse' {} a -> s {nextToken = a} :: ListDataIntegrationsResponse)
+
+-- | The DataIntegrations associated with this account.
+listDataIntegrationsResponse_dataIntegrations :: Lens.Lens' ListDataIntegrationsResponse (Prelude.Maybe (Prelude.NonEmpty DataIntegrationSummary))
+listDataIntegrationsResponse_dataIntegrations = Lens.lens (\ListDataIntegrationsResponse' {dataIntegrations} -> dataIntegrations) (\s@ListDataIntegrationsResponse' {} a -> s {dataIntegrations = a} :: ListDataIntegrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDataIntegrationsResponse_httpStatus :: Lens.Lens' ListDataIntegrationsResponse Prelude.Int
@@ -194,6 +194,6 @@ listDataIntegrationsResponse_httpStatus = Lens.lens (\ListDataIntegrationsRespon
 
 instance Prelude.NFData ListDataIntegrationsResponse where
   rnf ListDataIntegrationsResponse' {..} =
-    Prelude.rnf dataIntegrations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dataIntegrations
       `Prelude.seq` Prelude.rnf httpStatus

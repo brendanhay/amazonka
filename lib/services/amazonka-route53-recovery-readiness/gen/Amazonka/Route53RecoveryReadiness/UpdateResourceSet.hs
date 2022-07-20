@@ -36,11 +36,11 @@ module Amazonka.Route53RecoveryReadiness.UpdateResourceSet
     newUpdateResourceSetResponse,
 
     -- * Response Lenses
-    updateResourceSetResponse_resourceSetName,
+    updateResourceSetResponse_tags,
     updateResourceSetResponse_resourceSetType,
+    updateResourceSetResponse_resourceSetName,
     updateResourceSetResponse_resources,
     updateResourceSetResponse_resourceSetArn,
-    updateResourceSetResponse_tags,
     updateResourceSetResponse_httpStatus,
   )
 where
@@ -115,11 +115,11 @@ instance Core.AWSRequest UpdateResourceSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateResourceSetResponse'
-            Prelude.<$> (x Core..?> "resourceSetName")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "resourceSetType")
+            Prelude.<*> (x Core..?> "resourceSetName")
             Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "resourceSetArn")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,15 +166,15 @@ instance Core.ToQuery UpdateResourceSet where
 
 -- | /See:/ 'newUpdateResourceSetResponse' smart constructor.
 data UpdateResourceSetResponse = UpdateResourceSetResponse'
-  { -- | The name of the ResourceSet
-    resourceSetName :: Prelude.Maybe Prelude.Text,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | AWS Resource Type of the resources in the ResourceSet
     resourceSetType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the ResourceSet
+    resourceSetName :: Prelude.Maybe Prelude.Text,
     -- | A list of Resource objects
     resources :: Prelude.Maybe [Resource],
     -- | The arn for the ResourceSet
     resourceSetArn :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,15 +188,15 @@ data UpdateResourceSetResponse = UpdateResourceSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceSetName', 'updateResourceSetResponse_resourceSetName' - The name of the ResourceSet
+-- 'tags', 'updateResourceSetResponse_tags' - Undocumented member.
 --
 -- 'resourceSetType', 'updateResourceSetResponse_resourceSetType' - AWS Resource Type of the resources in the ResourceSet
+--
+-- 'resourceSetName', 'updateResourceSetResponse_resourceSetName' - The name of the ResourceSet
 --
 -- 'resources', 'updateResourceSetResponse_resources' - A list of Resource objects
 --
 -- 'resourceSetArn', 'updateResourceSetResponse_resourceSetArn' - The arn for the ResourceSet
---
--- 'tags', 'updateResourceSetResponse_tags' - Undocumented member.
 --
 -- 'httpStatus', 'updateResourceSetResponse_httpStatus' - The response's http status code.
 newUpdateResourceSetResponse ::
@@ -205,22 +205,25 @@ newUpdateResourceSetResponse ::
   UpdateResourceSetResponse
 newUpdateResourceSetResponse pHttpStatus_ =
   UpdateResourceSetResponse'
-    { resourceSetName =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       resourceSetType = Prelude.Nothing,
+      resourceSetName = Prelude.Nothing,
       resources = Prelude.Nothing,
       resourceSetArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the ResourceSet
-updateResourceSetResponse_resourceSetName :: Lens.Lens' UpdateResourceSetResponse (Prelude.Maybe Prelude.Text)
-updateResourceSetResponse_resourceSetName = Lens.lens (\UpdateResourceSetResponse' {resourceSetName} -> resourceSetName) (\s@UpdateResourceSetResponse' {} a -> s {resourceSetName = a} :: UpdateResourceSetResponse)
+-- | Undocumented member.
+updateResourceSetResponse_tags :: Lens.Lens' UpdateResourceSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateResourceSetResponse_tags = Lens.lens (\UpdateResourceSetResponse' {tags} -> tags) (\s@UpdateResourceSetResponse' {} a -> s {tags = a} :: UpdateResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | AWS Resource Type of the resources in the ResourceSet
 updateResourceSetResponse_resourceSetType :: Lens.Lens' UpdateResourceSetResponse (Prelude.Maybe Prelude.Text)
 updateResourceSetResponse_resourceSetType = Lens.lens (\UpdateResourceSetResponse' {resourceSetType} -> resourceSetType) (\s@UpdateResourceSetResponse' {} a -> s {resourceSetType = a} :: UpdateResourceSetResponse)
+
+-- | The name of the ResourceSet
+updateResourceSetResponse_resourceSetName :: Lens.Lens' UpdateResourceSetResponse (Prelude.Maybe Prelude.Text)
+updateResourceSetResponse_resourceSetName = Lens.lens (\UpdateResourceSetResponse' {resourceSetName} -> resourceSetName) (\s@UpdateResourceSetResponse' {} a -> s {resourceSetName = a} :: UpdateResourceSetResponse)
 
 -- | A list of Resource objects
 updateResourceSetResponse_resources :: Lens.Lens' UpdateResourceSetResponse (Prelude.Maybe [Resource])
@@ -230,19 +233,15 @@ updateResourceSetResponse_resources = Lens.lens (\UpdateResourceSetResponse' {re
 updateResourceSetResponse_resourceSetArn :: Lens.Lens' UpdateResourceSetResponse (Prelude.Maybe Prelude.Text)
 updateResourceSetResponse_resourceSetArn = Lens.lens (\UpdateResourceSetResponse' {resourceSetArn} -> resourceSetArn) (\s@UpdateResourceSetResponse' {} a -> s {resourceSetArn = a} :: UpdateResourceSetResponse)
 
--- | Undocumented member.
-updateResourceSetResponse_tags :: Lens.Lens' UpdateResourceSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateResourceSetResponse_tags = Lens.lens (\UpdateResourceSetResponse' {tags} -> tags) (\s@UpdateResourceSetResponse' {} a -> s {tags = a} :: UpdateResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 updateResourceSetResponse_httpStatus :: Lens.Lens' UpdateResourceSetResponse Prelude.Int
 updateResourceSetResponse_httpStatus = Lens.lens (\UpdateResourceSetResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceSetResponse' {} a -> s {httpStatus = a} :: UpdateResourceSetResponse)
 
 instance Prelude.NFData UpdateResourceSetResponse where
   rnf UpdateResourceSetResponse' {..} =
-    Prelude.rnf resourceSetName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceSetType
+      `Prelude.seq` Prelude.rnf resourceSetName
       `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf resourceSetArn
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

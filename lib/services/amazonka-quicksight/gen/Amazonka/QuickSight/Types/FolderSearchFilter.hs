@@ -29,16 +29,16 @@ import Amazonka.QuickSight.Types.FolderFilterAttribute
 --
 -- /See:/ 'newFolderSearchFilter' smart constructor.
 data FolderSearchFilter = FolderSearchFilter'
-  { -- | The comparison operator that you want to use as a filter. For example,
+  { -- | The name of the value that you want to use as a filter. For example,
+    -- @\"Name\": \"PARENT_FOLDER_ARN\"@.
+    name :: Prelude.Maybe FolderFilterAttribute,
+    -- | The comparison operator that you want to use as a filter. For example,
     -- @\"Operator\": \"StringEquals\"@.
     operator :: Prelude.Maybe FilterOperator,
     -- | The value of the named item (in this example, @PARENT_FOLDER_ARN@), that
     -- you want to use as a filter. For example,
     -- @\"Value\": \"arn:aws:quicksight:us-east-1:1:folder\/folderId\"@.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the value that you want to use as a filter. For example,
-    -- @\"Name\": \"PARENT_FOLDER_ARN\"@.
-    name :: Prelude.Maybe FolderFilterAttribute
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,23 +50,28 @@ data FolderSearchFilter = FolderSearchFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'folderSearchFilter_name' - The name of the value that you want to use as a filter. For example,
+-- @\"Name\": \"PARENT_FOLDER_ARN\"@.
+--
 -- 'operator', 'folderSearchFilter_operator' - The comparison operator that you want to use as a filter. For example,
 -- @\"Operator\": \"StringEquals\"@.
 --
 -- 'value', 'folderSearchFilter_value' - The value of the named item (in this example, @PARENT_FOLDER_ARN@), that
 -- you want to use as a filter. For example,
 -- @\"Value\": \"arn:aws:quicksight:us-east-1:1:folder\/folderId\"@.
---
--- 'name', 'folderSearchFilter_name' - The name of the value that you want to use as a filter. For example,
--- @\"Name\": \"PARENT_FOLDER_ARN\"@.
 newFolderSearchFilter ::
   FolderSearchFilter
 newFolderSearchFilter =
   FolderSearchFilter'
-    { operator = Prelude.Nothing,
-      value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      operator = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | The name of the value that you want to use as a filter. For example,
+-- @\"Name\": \"PARENT_FOLDER_ARN\"@.
+folderSearchFilter_name :: Lens.Lens' FolderSearchFilter (Prelude.Maybe FolderFilterAttribute)
+folderSearchFilter_name = Lens.lens (\FolderSearchFilter' {name} -> name) (\s@FolderSearchFilter' {} a -> s {name = a} :: FolderSearchFilter)
 
 -- | The comparison operator that you want to use as a filter. For example,
 -- @\"Operator\": \"StringEquals\"@.
@@ -79,29 +84,24 @@ folderSearchFilter_operator = Lens.lens (\FolderSearchFilter' {operator} -> oper
 folderSearchFilter_value :: Lens.Lens' FolderSearchFilter (Prelude.Maybe Prelude.Text)
 folderSearchFilter_value = Lens.lens (\FolderSearchFilter' {value} -> value) (\s@FolderSearchFilter' {} a -> s {value = a} :: FolderSearchFilter)
 
--- | The name of the value that you want to use as a filter. For example,
--- @\"Name\": \"PARENT_FOLDER_ARN\"@.
-folderSearchFilter_name :: Lens.Lens' FolderSearchFilter (Prelude.Maybe FolderFilterAttribute)
-folderSearchFilter_name = Lens.lens (\FolderSearchFilter' {name} -> name) (\s@FolderSearchFilter' {} a -> s {name = a} :: FolderSearchFilter)
-
 instance Prelude.Hashable FolderSearchFilter where
   hashWithSalt _salt FolderSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData FolderSearchFilter where
   rnf FolderSearchFilter' {..} =
-    Prelude.rnf operator
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf operator
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON FolderSearchFilter where
   toJSON FolderSearchFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Operator" Core..=) Prelude.<$> operator,
-            ("Value" Core..=) Prelude.<$> value,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Operator" Core..=) Prelude.<$> operator,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

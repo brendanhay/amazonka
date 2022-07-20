@@ -78,10 +78,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newByoipCidr' smart constructor.
 data ByoipCidr = ByoipCidr'
-  { -- | The state of the address pool.
-    state :: Prelude.Maybe ByoipCidrState,
-    -- | The address range, in CIDR notation.
+  { -- | The address range, in CIDR notation.
     cidr :: Prelude.Maybe Prelude.Text,
+    -- | The state of the address pool.
+    state :: Prelude.Maybe ByoipCidrState,
     -- | A history of status changes for an IP address range that you bring to
     -- AWS Global Accelerator through bring your own IP address (BYOIP).
     events :: Prelude.Maybe [ByoipCidrEvent]
@@ -96,9 +96,9 @@ data ByoipCidr = ByoipCidr'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'byoipCidr_state' - The state of the address pool.
---
 -- 'cidr', 'byoipCidr_cidr' - The address range, in CIDR notation.
+--
+-- 'state', 'byoipCidr_state' - The state of the address pool.
 --
 -- 'events', 'byoipCidr_events' - A history of status changes for an IP address range that you bring to
 -- AWS Global Accelerator through bring your own IP address (BYOIP).
@@ -106,18 +106,18 @@ newByoipCidr ::
   ByoipCidr
 newByoipCidr =
   ByoipCidr'
-    { state = Prelude.Nothing,
-      cidr = Prelude.Nothing,
+    { cidr = Prelude.Nothing,
+      state = Prelude.Nothing,
       events = Prelude.Nothing
     }
-
--- | The state of the address pool.
-byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
-byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -> s {state = a} :: ByoipCidr)
 
 -- | The address range, in CIDR notation.
 byoipCidr_cidr :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
 byoipCidr_cidr = Lens.lens (\ByoipCidr' {cidr} -> cidr) (\s@ByoipCidr' {} a -> s {cidr = a} :: ByoipCidr)
+
+-- | The state of the address pool.
+byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
+byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -> s {state = a} :: ByoipCidr)
 
 -- | A history of status changes for an IP address range that you bring to
 -- AWS Global Accelerator through bring your own IP address (BYOIP).
@@ -130,19 +130,19 @@ instance Core.FromJSON ByoipCidr where
       "ByoipCidr"
       ( \x ->
           ByoipCidr'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Cidr")
+            Prelude.<$> (x Core..:? "Cidr")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Events" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ByoipCidr where
   hashWithSalt _salt ByoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` cidr
+    _salt `Prelude.hashWithSalt` cidr
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` events
 
 instance Prelude.NFData ByoipCidr where
   rnf ByoipCidr' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf cidr
+    Prelude.rnf cidr
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf events

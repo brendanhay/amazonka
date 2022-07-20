@@ -34,6 +34,11 @@ data NexGuardFileMarkerSettings = NexGuardFileMarkerSettings'
     -- specify a value. When you don\'t specify a value here, the Nagra
     -- NexGuard library uses its default value.
     strength :: Prelude.Maybe WatermarkingStrength,
+    -- | Use the base64 license string that Nagra provides you. Enter it directly
+    -- in your JSON job specification or in the console. Required when you
+    -- include Nagra NexGuard File Marker watermarking
+    -- (NexGuardWatermarkingSettings) in your job.
+    license :: Prelude.Maybe Prelude.Text,
     -- | Specify the payload ID that you want associated with this output. Valid
     -- values vary depending on your Nagra NexGuard forensic watermarking
     -- workflow. Required when you include Nagra NexGuard File Marker
@@ -50,12 +55,7 @@ data NexGuardFileMarkerSettings = NexGuardFileMarkerSettings'
     -- | Enter one of the watermarking preset strings that Nagra provides you.
     -- Required when you include Nagra NexGuard File Marker watermarking
     -- (NexGuardWatermarkingSettings) in your job.
-    preset :: Prelude.Maybe Prelude.Text,
-    -- | Use the base64 license string that Nagra provides you. Enter it directly
-    -- in your JSON job specification or in the console. Required when you
-    -- include Nagra NexGuard File Marker watermarking
-    -- (NexGuardWatermarkingSettings) in your job.
-    license :: Prelude.Maybe Prelude.Text
+    preset :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,6 +70,11 @@ data NexGuardFileMarkerSettings = NexGuardFileMarkerSettings'
 -- 'strength', 'nexGuardFileMarkerSettings_strength' - Optional. Ignore this setting unless Nagra support directs you to
 -- specify a value. When you don\'t specify a value here, the Nagra
 -- NexGuard library uses its default value.
+--
+-- 'license', 'nexGuardFileMarkerSettings_license' - Use the base64 license string that Nagra provides you. Enter it directly
+-- in your JSON job specification or in the console. Required when you
+-- include Nagra NexGuard File Marker watermarking
+-- (NexGuardWatermarkingSettings) in your job.
 --
 -- 'payload', 'nexGuardFileMarkerSettings_payload' - Specify the payload ID that you want associated with this output. Valid
 -- values vary depending on your Nagra NexGuard forensic watermarking
@@ -87,20 +92,15 @@ data NexGuardFileMarkerSettings = NexGuardFileMarkerSettings'
 -- 'preset', 'nexGuardFileMarkerSettings_preset' - Enter one of the watermarking preset strings that Nagra provides you.
 -- Required when you include Nagra NexGuard File Marker watermarking
 -- (NexGuardWatermarkingSettings) in your job.
---
--- 'license', 'nexGuardFileMarkerSettings_license' - Use the base64 license string that Nagra provides you. Enter it directly
--- in your JSON job specification or in the console. Required when you
--- include Nagra NexGuard File Marker watermarking
--- (NexGuardWatermarkingSettings) in your job.
 newNexGuardFileMarkerSettings ::
   NexGuardFileMarkerSettings
 newNexGuardFileMarkerSettings =
   NexGuardFileMarkerSettings'
     { strength =
         Prelude.Nothing,
+      license = Prelude.Nothing,
       payload = Prelude.Nothing,
-      preset = Prelude.Nothing,
-      license = Prelude.Nothing
+      preset = Prelude.Nothing
     }
 
 -- | Optional. Ignore this setting unless Nagra support directs you to
@@ -108,6 +108,13 @@ newNexGuardFileMarkerSettings =
 -- NexGuard library uses its default value.
 nexGuardFileMarkerSettings_strength :: Lens.Lens' NexGuardFileMarkerSettings (Prelude.Maybe WatermarkingStrength)
 nexGuardFileMarkerSettings_strength = Lens.lens (\NexGuardFileMarkerSettings' {strength} -> strength) (\s@NexGuardFileMarkerSettings' {} a -> s {strength = a} :: NexGuardFileMarkerSettings)
+
+-- | Use the base64 license string that Nagra provides you. Enter it directly
+-- in your JSON job specification or in the console. Required when you
+-- include Nagra NexGuard File Marker watermarking
+-- (NexGuardWatermarkingSettings) in your job.
+nexGuardFileMarkerSettings_license :: Lens.Lens' NexGuardFileMarkerSettings (Prelude.Maybe Prelude.Text)
+nexGuardFileMarkerSettings_license = Lens.lens (\NexGuardFileMarkerSettings' {license} -> license) (\s@NexGuardFileMarkerSettings' {} a -> s {license = a} :: NexGuardFileMarkerSettings)
 
 -- | Specify the payload ID that you want associated with this output. Valid
 -- values vary depending on your Nagra NexGuard forensic watermarking
@@ -130,13 +137,6 @@ nexGuardFileMarkerSettings_payload = Lens.lens (\NexGuardFileMarkerSettings' {pa
 nexGuardFileMarkerSettings_preset :: Lens.Lens' NexGuardFileMarkerSettings (Prelude.Maybe Prelude.Text)
 nexGuardFileMarkerSettings_preset = Lens.lens (\NexGuardFileMarkerSettings' {preset} -> preset) (\s@NexGuardFileMarkerSettings' {} a -> s {preset = a} :: NexGuardFileMarkerSettings)
 
--- | Use the base64 license string that Nagra provides you. Enter it directly
--- in your JSON job specification or in the console. Required when you
--- include Nagra NexGuard File Marker watermarking
--- (NexGuardWatermarkingSettings) in your job.
-nexGuardFileMarkerSettings_license :: Lens.Lens' NexGuardFileMarkerSettings (Prelude.Maybe Prelude.Text)
-nexGuardFileMarkerSettings_license = Lens.lens (\NexGuardFileMarkerSettings' {license} -> license) (\s@NexGuardFileMarkerSettings' {} a -> s {license = a} :: NexGuardFileMarkerSettings)
-
 instance Core.FromJSON NexGuardFileMarkerSettings where
   parseJSON =
     Core.withObject
@@ -144,32 +144,32 @@ instance Core.FromJSON NexGuardFileMarkerSettings where
       ( \x ->
           NexGuardFileMarkerSettings'
             Prelude.<$> (x Core..:? "strength")
+            Prelude.<*> (x Core..:? "license")
             Prelude.<*> (x Core..:? "payload")
             Prelude.<*> (x Core..:? "preset")
-            Prelude.<*> (x Core..:? "license")
       )
 
 instance Prelude.Hashable NexGuardFileMarkerSettings where
   hashWithSalt _salt NexGuardFileMarkerSettings' {..} =
     _salt `Prelude.hashWithSalt` strength
+      `Prelude.hashWithSalt` license
       `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` preset
-      `Prelude.hashWithSalt` license
 
 instance Prelude.NFData NexGuardFileMarkerSettings where
   rnf NexGuardFileMarkerSettings' {..} =
     Prelude.rnf strength
+      `Prelude.seq` Prelude.rnf license
       `Prelude.seq` Prelude.rnf payload
       `Prelude.seq` Prelude.rnf preset
-      `Prelude.seq` Prelude.rnf license
 
 instance Core.ToJSON NexGuardFileMarkerSettings where
   toJSON NexGuardFileMarkerSettings' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("strength" Core..=) Prelude.<$> strength,
+            ("license" Core..=) Prelude.<$> license,
             ("payload" Core..=) Prelude.<$> payload,
-            ("preset" Core..=) Prelude.<$> preset,
-            ("license" Core..=) Prelude.<$> license
+            ("preset" Core..=) Prelude.<$> preset
           ]
       )

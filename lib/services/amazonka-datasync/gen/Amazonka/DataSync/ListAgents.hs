@@ -48,8 +48,8 @@ module Amazonka.DataSync.ListAgents
     newListAgentsResponse,
 
     -- * Response Lenses
-    listAgentsResponse_agents,
     listAgentsResponse_nextToken,
+    listAgentsResponse_agents,
     listAgentsResponse_httpStatus,
   )
 where
@@ -128,8 +128,8 @@ instance Core.AWSRequest ListAgents where
     Response.receiveJSON
       ( \s h x ->
           ListAgentsResponse'
-            Prelude.<$> (x Core..?> "Agents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Agents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,11 +175,11 @@ instance Core.ToQuery ListAgents where
 --
 -- /See:/ 'newListAgentsResponse' smart constructor.
 data ListAgentsResponse = ListAgentsResponse'
-  { -- | A list of agents in your account.
-    agents :: Prelude.Maybe [AgentListEntry],
-    -- | An opaque string that indicates the position at which to begin returning
+  { -- | An opaque string that indicates the position at which to begin returning
     -- the next list of agents.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of agents in your account.
+    agents :: Prelude.Maybe [AgentListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,10 +193,10 @@ data ListAgentsResponse = ListAgentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agents', 'listAgentsResponse_agents' - A list of agents in your account.
---
 -- 'nextToken', 'listAgentsResponse_nextToken' - An opaque string that indicates the position at which to begin returning
 -- the next list of agents.
+--
+-- 'agents', 'listAgentsResponse_agents' - A list of agents in your account.
 --
 -- 'httpStatus', 'listAgentsResponse_httpStatus' - The response's http status code.
 newListAgentsResponse ::
@@ -205,19 +205,19 @@ newListAgentsResponse ::
   ListAgentsResponse
 newListAgentsResponse pHttpStatus_ =
   ListAgentsResponse'
-    { agents = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      agents = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of agents in your account.
-listAgentsResponse_agents :: Lens.Lens' ListAgentsResponse (Prelude.Maybe [AgentListEntry])
-listAgentsResponse_agents = Lens.lens (\ListAgentsResponse' {agents} -> agents) (\s@ListAgentsResponse' {} a -> s {agents = a} :: ListAgentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque string that indicates the position at which to begin returning
 -- the next list of agents.
 listAgentsResponse_nextToken :: Lens.Lens' ListAgentsResponse (Prelude.Maybe Prelude.Text)
 listAgentsResponse_nextToken = Lens.lens (\ListAgentsResponse' {nextToken} -> nextToken) (\s@ListAgentsResponse' {} a -> s {nextToken = a} :: ListAgentsResponse)
+
+-- | A list of agents in your account.
+listAgentsResponse_agents :: Lens.Lens' ListAgentsResponse (Prelude.Maybe [AgentListEntry])
+listAgentsResponse_agents = Lens.lens (\ListAgentsResponse' {agents} -> agents) (\s@ListAgentsResponse' {} a -> s {agents = a} :: ListAgentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAgentsResponse_httpStatus :: Lens.Lens' ListAgentsResponse Prelude.Int
@@ -225,6 +225,6 @@ listAgentsResponse_httpStatus = Lens.lens (\ListAgentsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAgentsResponse where
   rnf ListAgentsResponse' {..} =
-    Prelude.rnf agents
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf agents
       `Prelude.seq` Prelude.rnf httpStatus

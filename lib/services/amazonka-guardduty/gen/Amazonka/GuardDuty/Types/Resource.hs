@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 data Resource = Resource'
   { -- | The type of AWS resource.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | Contains information on the S3 bucket.
-    s3BucketDetails :: Prelude.Maybe [S3BucketDetail],
     -- | The information about the EC2 instance associated with the activity that
     -- prompted GuardDuty to generate a finding.
     instanceDetails :: Prelude.Maybe InstanceDetails,
+    -- | Contains information on the S3 bucket.
+    s3BucketDetails :: Prelude.Maybe [S3BucketDetail],
     -- | The IAM access key details (IAM user information) of a user that engaged
     -- in the activity that prompted GuardDuty to generate a finding.
     accessKeyDetails :: Prelude.Maybe AccessKeyDetails
@@ -54,10 +54,10 @@ data Resource = Resource'
 --
 -- 'resourceType', 'resource_resourceType' - The type of AWS resource.
 --
--- 's3BucketDetails', 'resource_s3BucketDetails' - Contains information on the S3 bucket.
---
 -- 'instanceDetails', 'resource_instanceDetails' - The information about the EC2 instance associated with the activity that
 -- prompted GuardDuty to generate a finding.
+--
+-- 's3BucketDetails', 'resource_s3BucketDetails' - Contains information on the S3 bucket.
 --
 -- 'accessKeyDetails', 'resource_accessKeyDetails' - The IAM access key details (IAM user information) of a user that engaged
 -- in the activity that prompted GuardDuty to generate a finding.
@@ -66,8 +66,8 @@ newResource ::
 newResource =
   Resource'
     { resourceType = Prelude.Nothing,
-      s3BucketDetails = Prelude.Nothing,
       instanceDetails = Prelude.Nothing,
+      s3BucketDetails = Prelude.Nothing,
       accessKeyDetails = Prelude.Nothing
     }
 
@@ -75,14 +75,14 @@ newResource =
 resource_resourceType :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_resourceType = Lens.lens (\Resource' {resourceType} -> resourceType) (\s@Resource' {} a -> s {resourceType = a} :: Resource)
 
--- | Contains information on the S3 bucket.
-resource_s3BucketDetails :: Lens.Lens' Resource (Prelude.Maybe [S3BucketDetail])
-resource_s3BucketDetails = Lens.lens (\Resource' {s3BucketDetails} -> s3BucketDetails) (\s@Resource' {} a -> s {s3BucketDetails = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
-
 -- | The information about the EC2 instance associated with the activity that
 -- prompted GuardDuty to generate a finding.
 resource_instanceDetails :: Lens.Lens' Resource (Prelude.Maybe InstanceDetails)
 resource_instanceDetails = Lens.lens (\Resource' {instanceDetails} -> instanceDetails) (\s@Resource' {} a -> s {instanceDetails = a} :: Resource)
+
+-- | Contains information on the S3 bucket.
+resource_s3BucketDetails :: Lens.Lens' Resource (Prelude.Maybe [S3BucketDetail])
+resource_s3BucketDetails = Lens.lens (\Resource' {s3BucketDetails} -> s3BucketDetails) (\s@Resource' {} a -> s {s3BucketDetails = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IAM access key details (IAM user information) of a user that engaged
 -- in the activity that prompted GuardDuty to generate a finding.
@@ -96,23 +96,23 @@ instance Core.FromJSON Resource where
       ( \x ->
           Resource'
             Prelude.<$> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "instanceDetails")
             Prelude.<*> ( x Core..:? "s3BucketDetails"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "instanceDetails")
             Prelude.<*> (x Core..:? "accessKeyDetails")
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
     _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` s3BucketDetails
       `Prelude.hashWithSalt` instanceDetails
+      `Prelude.hashWithSalt` s3BucketDetails
       `Prelude.hashWithSalt` accessKeyDetails
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
     Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf s3BucketDetails
       `Prelude.seq` Prelude.rnf instanceDetails
+      `Prelude.seq` Prelude.rnf s3BucketDetails
       `Prelude.seq` Prelude.rnf accessKeyDetails

@@ -29,26 +29,26 @@ module Amazonka.IoTThingsGraph
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -56,77 +56,17 @@ module Amazonka.IoTThingsGraph
     -- * Operations
     -- $operations
 
-    -- ** GetFlowTemplate
-    GetFlowTemplate (GetFlowTemplate'),
-    newGetFlowTemplate,
-    GetFlowTemplateResponse (GetFlowTemplateResponse'),
-    newGetFlowTemplateResponse,
+    -- ** AssociateEntityToThing
+    AssociateEntityToThing (AssociateEntityToThing'),
+    newAssociateEntityToThing,
+    AssociateEntityToThingResponse (AssociateEntityToThingResponse'),
+    newAssociateEntityToThingResponse,
 
-    -- ** UpdateSystemTemplate
-    UpdateSystemTemplate (UpdateSystemTemplate'),
-    newUpdateSystemTemplate,
-    UpdateSystemTemplateResponse (UpdateSystemTemplateResponse'),
-    newUpdateSystemTemplateResponse,
-
-    -- ** DeleteSystemTemplate
-    DeleteSystemTemplate (DeleteSystemTemplate'),
-    newDeleteSystemTemplate,
-    DeleteSystemTemplateResponse (DeleteSystemTemplateResponse'),
-    newDeleteSystemTemplateResponse,
-
-    -- ** DeprecateFlowTemplate
-    DeprecateFlowTemplate (DeprecateFlowTemplate'),
-    newDeprecateFlowTemplate,
-    DeprecateFlowTemplateResponse (DeprecateFlowTemplateResponse'),
-    newDeprecateFlowTemplateResponse,
-
-    -- ** DeploySystemInstance
-    DeploySystemInstance (DeploySystemInstance'),
-    newDeploySystemInstance,
-    DeploySystemInstanceResponse (DeploySystemInstanceResponse'),
-    newDeploySystemInstanceResponse,
-
-    -- ** SearchFlowTemplates (Paginated)
-    SearchFlowTemplates (SearchFlowTemplates'),
-    newSearchFlowTemplates,
-    SearchFlowTemplatesResponse (SearchFlowTemplatesResponse'),
-    newSearchFlowTemplatesResponse,
-
-    -- ** DeleteNamespace
-    DeleteNamespace (DeleteNamespace'),
-    newDeleteNamespace,
-    DeleteNamespaceResponse (DeleteNamespaceResponse'),
-    newDeleteNamespaceResponse,
-
-    -- ** GetSystemInstance
-    GetSystemInstance (GetSystemInstance'),
-    newGetSystemInstance,
-    GetSystemInstanceResponse (GetSystemInstanceResponse'),
-    newGetSystemInstanceResponse,
-
-    -- ** ListFlowExecutionMessages (Paginated)
-    ListFlowExecutionMessages (ListFlowExecutionMessages'),
-    newListFlowExecutionMessages,
-    ListFlowExecutionMessagesResponse (ListFlowExecutionMessagesResponse'),
-    newListFlowExecutionMessagesResponse,
-
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** SearchFlowExecutions (Paginated)
-    SearchFlowExecutions (SearchFlowExecutions'),
-    newSearchFlowExecutions,
-    SearchFlowExecutionsResponse (SearchFlowExecutionsResponse'),
-    newSearchFlowExecutionsResponse,
-
-    -- ** DeleteSystemInstance
-    DeleteSystemInstance (DeleteSystemInstance'),
-    newDeleteSystemInstance,
-    DeleteSystemInstanceResponse (DeleteSystemInstanceResponse'),
-    newDeleteSystemInstanceResponse,
+    -- ** CreateFlowTemplate
+    CreateFlowTemplate (CreateFlowTemplate'),
+    newCreateFlowTemplate,
+    CreateFlowTemplateResponse (CreateFlowTemplateResponse'),
+    newCreateFlowTemplateResponse,
 
     -- ** CreateSystemInstance
     CreateSystemInstance (CreateSystemInstance'),
@@ -134,23 +74,11 @@ module Amazonka.IoTThingsGraph
     CreateSystemInstanceResponse (CreateSystemInstanceResponse'),
     newCreateSystemInstanceResponse,
 
-    -- ** DeprecateSystemTemplate
-    DeprecateSystemTemplate (DeprecateSystemTemplate'),
-    newDeprecateSystemTemplate,
-    DeprecateSystemTemplateResponse (DeprecateSystemTemplateResponse'),
-    newDeprecateSystemTemplateResponse,
-
-    -- ** GetSystemTemplateRevisions (Paginated)
-    GetSystemTemplateRevisions (GetSystemTemplateRevisions'),
-    newGetSystemTemplateRevisions,
-    GetSystemTemplateRevisionsResponse (GetSystemTemplateRevisionsResponse'),
-    newGetSystemTemplateRevisionsResponse,
-
-    -- ** SearchEntities (Paginated)
-    SearchEntities (SearchEntities'),
-    newSearchEntities,
-    SearchEntitiesResponse (SearchEntitiesResponse'),
-    newSearchEntitiesResponse,
+    -- ** CreateSystemTemplate
+    CreateSystemTemplate (CreateSystemTemplate'),
+    newCreateSystemTemplate,
+    CreateSystemTemplateResponse (CreateSystemTemplateResponse'),
+    newCreateSystemTemplateResponse,
 
     -- ** DeleteFlowTemplate
     DeleteFlowTemplate (DeleteFlowTemplate'),
@@ -158,41 +86,65 @@ module Amazonka.IoTThingsGraph
     DeleteFlowTemplateResponse (DeleteFlowTemplateResponse'),
     newDeleteFlowTemplateResponse,
 
-    -- ** UpdateFlowTemplate
-    UpdateFlowTemplate (UpdateFlowTemplate'),
-    newUpdateFlowTemplate,
-    UpdateFlowTemplateResponse (UpdateFlowTemplateResponse'),
-    newUpdateFlowTemplateResponse,
+    -- ** DeleteNamespace
+    DeleteNamespace (DeleteNamespace'),
+    newDeleteNamespace,
+    DeleteNamespaceResponse (DeleteNamespaceResponse'),
+    newDeleteNamespaceResponse,
 
-    -- ** GetSystemTemplate
-    GetSystemTemplate (GetSystemTemplate'),
-    newGetSystemTemplate,
-    GetSystemTemplateResponse (GetSystemTemplateResponse'),
-    newGetSystemTemplateResponse,
+    -- ** DeleteSystemInstance
+    DeleteSystemInstance (DeleteSystemInstance'),
+    newDeleteSystemInstance,
+    DeleteSystemInstanceResponse (DeleteSystemInstanceResponse'),
+    newDeleteSystemInstanceResponse,
 
-    -- ** SearchSystemInstances (Paginated)
-    SearchSystemInstances (SearchSystemInstances'),
-    newSearchSystemInstances,
-    SearchSystemInstancesResponse (SearchSystemInstancesResponse'),
-    newSearchSystemInstancesResponse,
+    -- ** DeleteSystemTemplate
+    DeleteSystemTemplate (DeleteSystemTemplate'),
+    newDeleteSystemTemplate,
+    DeleteSystemTemplateResponse (DeleteSystemTemplateResponse'),
+    newDeleteSystemTemplateResponse,
 
-    -- ** GetUploadStatus
-    GetUploadStatus (GetUploadStatus'),
-    newGetUploadStatus,
-    GetUploadStatusResponse (GetUploadStatusResponse'),
-    newGetUploadStatusResponse,
+    -- ** DeploySystemInstance
+    DeploySystemInstance (DeploySystemInstance'),
+    newDeploySystemInstance,
+    DeploySystemInstanceResponse (DeploySystemInstanceResponse'),
+    newDeploySystemInstanceResponse,
 
-    -- ** CreateSystemTemplate
-    CreateSystemTemplate (CreateSystemTemplate'),
-    newCreateSystemTemplate,
-    CreateSystemTemplateResponse (CreateSystemTemplateResponse'),
-    newCreateSystemTemplateResponse,
+    -- ** DeprecateFlowTemplate
+    DeprecateFlowTemplate (DeprecateFlowTemplate'),
+    newDeprecateFlowTemplate,
+    DeprecateFlowTemplateResponse (DeprecateFlowTemplateResponse'),
+    newDeprecateFlowTemplateResponse,
 
-    -- ** UndeploySystemInstance
-    UndeploySystemInstance (UndeploySystemInstance'),
-    newUndeploySystemInstance,
-    UndeploySystemInstanceResponse (UndeploySystemInstanceResponse'),
-    newUndeploySystemInstanceResponse,
+    -- ** DeprecateSystemTemplate
+    DeprecateSystemTemplate (DeprecateSystemTemplate'),
+    newDeprecateSystemTemplate,
+    DeprecateSystemTemplateResponse (DeprecateSystemTemplateResponse'),
+    newDeprecateSystemTemplateResponse,
+
+    -- ** DescribeNamespace
+    DescribeNamespace (DescribeNamespace'),
+    newDescribeNamespace,
+    DescribeNamespaceResponse (DescribeNamespaceResponse'),
+    newDescribeNamespaceResponse,
+
+    -- ** DissociateEntityFromThing
+    DissociateEntityFromThing (DissociateEntityFromThing'),
+    newDissociateEntityFromThing,
+    DissociateEntityFromThingResponse (DissociateEntityFromThingResponse'),
+    newDissociateEntityFromThingResponse,
+
+    -- ** GetEntities
+    GetEntities (GetEntities'),
+    newGetEntities,
+    GetEntitiesResponse (GetEntitiesResponse'),
+    newGetEntitiesResponse,
+
+    -- ** GetFlowTemplate
+    GetFlowTemplate (GetFlowTemplate'),
+    newGetFlowTemplate,
+    GetFlowTemplateResponse (GetFlowTemplateResponse'),
+    newGetFlowTemplateResponse,
 
     -- ** GetFlowTemplateRevisions (Paginated)
     GetFlowTemplateRevisions (GetFlowTemplateRevisions'),
@@ -206,11 +158,65 @@ module Amazonka.IoTThingsGraph
     GetNamespaceDeletionStatusResponse (GetNamespaceDeletionStatusResponse'),
     newGetNamespaceDeletionStatusResponse,
 
-    -- ** AssociateEntityToThing
-    AssociateEntityToThing (AssociateEntityToThing'),
-    newAssociateEntityToThing,
-    AssociateEntityToThingResponse (AssociateEntityToThingResponse'),
-    newAssociateEntityToThingResponse,
+    -- ** GetSystemInstance
+    GetSystemInstance (GetSystemInstance'),
+    newGetSystemInstance,
+    GetSystemInstanceResponse (GetSystemInstanceResponse'),
+    newGetSystemInstanceResponse,
+
+    -- ** GetSystemTemplate
+    GetSystemTemplate (GetSystemTemplate'),
+    newGetSystemTemplate,
+    GetSystemTemplateResponse (GetSystemTemplateResponse'),
+    newGetSystemTemplateResponse,
+
+    -- ** GetSystemTemplateRevisions (Paginated)
+    GetSystemTemplateRevisions (GetSystemTemplateRevisions'),
+    newGetSystemTemplateRevisions,
+    GetSystemTemplateRevisionsResponse (GetSystemTemplateRevisionsResponse'),
+    newGetSystemTemplateRevisionsResponse,
+
+    -- ** GetUploadStatus
+    GetUploadStatus (GetUploadStatus'),
+    newGetUploadStatus,
+    GetUploadStatusResponse (GetUploadStatusResponse'),
+    newGetUploadStatusResponse,
+
+    -- ** ListFlowExecutionMessages (Paginated)
+    ListFlowExecutionMessages (ListFlowExecutionMessages'),
+    newListFlowExecutionMessages,
+    ListFlowExecutionMessagesResponse (ListFlowExecutionMessagesResponse'),
+    newListFlowExecutionMessagesResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** SearchEntities (Paginated)
+    SearchEntities (SearchEntities'),
+    newSearchEntities,
+    SearchEntitiesResponse (SearchEntitiesResponse'),
+    newSearchEntitiesResponse,
+
+    -- ** SearchFlowExecutions (Paginated)
+    SearchFlowExecutions (SearchFlowExecutions'),
+    newSearchFlowExecutions,
+    SearchFlowExecutionsResponse (SearchFlowExecutionsResponse'),
+    newSearchFlowExecutionsResponse,
+
+    -- ** SearchFlowTemplates (Paginated)
+    SearchFlowTemplates (SearchFlowTemplates'),
+    newSearchFlowTemplates,
+    SearchFlowTemplatesResponse (SearchFlowTemplatesResponse'),
+    newSearchFlowTemplatesResponse,
+
+    -- ** SearchSystemInstances (Paginated)
+    SearchSystemInstances (SearchSystemInstances'),
+    newSearchSystemInstances,
+    SearchSystemInstancesResponse (SearchSystemInstancesResponse'),
+    newSearchSystemInstancesResponse,
 
     -- ** SearchSystemTemplates (Paginated)
     SearchSystemTemplates (SearchSystemTemplates'),
@@ -218,11 +224,23 @@ module Amazonka.IoTThingsGraph
     SearchSystemTemplatesResponse (SearchSystemTemplatesResponse'),
     newSearchSystemTemplatesResponse,
 
+    -- ** SearchThings (Paginated)
+    SearchThings (SearchThings'),
+    newSearchThings,
+    SearchThingsResponse (SearchThingsResponse'),
+    newSearchThingsResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** UndeploySystemInstance
+    UndeploySystemInstance (UndeploySystemInstance'),
+    newUndeploySystemInstance,
+    UndeploySystemInstanceResponse (UndeploySystemInstanceResponse'),
+    newUndeploySystemInstanceResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -230,41 +248,23 @@ module Amazonka.IoTThingsGraph
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetEntities
-    GetEntities (GetEntities'),
-    newGetEntities,
-    GetEntitiesResponse (GetEntitiesResponse'),
-    newGetEntitiesResponse,
+    -- ** UpdateFlowTemplate
+    UpdateFlowTemplate (UpdateFlowTemplate'),
+    newUpdateFlowTemplate,
+    UpdateFlowTemplateResponse (UpdateFlowTemplateResponse'),
+    newUpdateFlowTemplateResponse,
 
-    -- ** DescribeNamespace
-    DescribeNamespace (DescribeNamespace'),
-    newDescribeNamespace,
-    DescribeNamespaceResponse (DescribeNamespaceResponse'),
-    newDescribeNamespaceResponse,
-
-    -- ** CreateFlowTemplate
-    CreateFlowTemplate (CreateFlowTemplate'),
-    newCreateFlowTemplate,
-    CreateFlowTemplateResponse (CreateFlowTemplateResponse'),
-    newCreateFlowTemplateResponse,
+    -- ** UpdateSystemTemplate
+    UpdateSystemTemplate (UpdateSystemTemplate'),
+    newUpdateSystemTemplate,
+    UpdateSystemTemplateResponse (UpdateSystemTemplateResponse'),
+    newUpdateSystemTemplateResponse,
 
     -- ** UploadEntityDefinitions
     UploadEntityDefinitions (UploadEntityDefinitions'),
     newUploadEntityDefinitions,
     UploadEntityDefinitionsResponse (UploadEntityDefinitionsResponse'),
     newUploadEntityDefinitionsResponse,
-
-    -- ** DissociateEntityFromThing
-    DissociateEntityFromThing (DissociateEntityFromThing'),
-    newDissociateEntityFromThing,
-    DissociateEntityFromThingResponse (DissociateEntityFromThingResponse'),
-    newDissociateEntityFromThingResponse,
-
-    -- ** SearchThings (Paginated)
-    SearchThings (SearchThings'),
-    newSearchThings,
-    SearchThingsResponse (SearchThingsResponse'),
-    newSearchThingsResponse,
 
     -- * Types
 

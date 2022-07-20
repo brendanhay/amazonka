@@ -28,10 +28,10 @@ import Amazonka.QuickSight.Types.DataSourceErrorInfoType
 --
 -- /See:/ 'newDataSourceErrorInfo' smart constructor.
 data DataSourceErrorInfo = DataSourceErrorInfo'
-  { -- | Error type.
-    type' :: Prelude.Maybe DataSourceErrorInfoType,
-    -- | Error message.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | Error message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | Error type.
+    type' :: Prelude.Maybe DataSourceErrorInfoType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data DataSourceErrorInfo = DataSourceErrorInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'dataSourceErrorInfo_type' - Error type.
---
 -- 'message', 'dataSourceErrorInfo_message' - Error message.
+--
+-- 'type'', 'dataSourceErrorInfo_type' - Error type.
 newDataSourceErrorInfo ::
   DataSourceErrorInfo
 newDataSourceErrorInfo =
   DataSourceErrorInfo'
-    { type' = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | Error type.
-dataSourceErrorInfo_type :: Lens.Lens' DataSourceErrorInfo (Prelude.Maybe DataSourceErrorInfoType)
-dataSourceErrorInfo_type = Lens.lens (\DataSourceErrorInfo' {type'} -> type') (\s@DataSourceErrorInfo' {} a -> s {type' = a} :: DataSourceErrorInfo)
 
 -- | Error message.
 dataSourceErrorInfo_message :: Lens.Lens' DataSourceErrorInfo (Prelude.Maybe Prelude.Text)
 dataSourceErrorInfo_message = Lens.lens (\DataSourceErrorInfo' {message} -> message) (\s@DataSourceErrorInfo' {} a -> s {message = a} :: DataSourceErrorInfo)
+
+-- | Error type.
+dataSourceErrorInfo_type :: Lens.Lens' DataSourceErrorInfo (Prelude.Maybe DataSourceErrorInfoType)
+dataSourceErrorInfo_type = Lens.lens (\DataSourceErrorInfo' {type'} -> type') (\s@DataSourceErrorInfo' {} a -> s {type' = a} :: DataSourceErrorInfo)
 
 instance Core.FromJSON DataSourceErrorInfo where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON DataSourceErrorInfo where
       "DataSourceErrorInfo"
       ( \x ->
           DataSourceErrorInfo'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable DataSourceErrorInfo where
   hashWithSalt _salt DataSourceErrorInfo' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DataSourceErrorInfo where
   rnf DataSourceErrorInfo' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf type'

@@ -37,8 +37,8 @@ module Amazonka.Greengrass.UpdateConnectivityInfo
     newUpdateConnectivityInfoResponse,
 
     -- * Response Lenses
-    updateConnectivityInfoResponse_version,
     updateConnectivityInfoResponse_message,
+    updateConnectivityInfoResponse_version,
     updateConnectivityInfoResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance Core.AWSRequest UpdateConnectivityInfo where
     Response.receiveJSON
       ( \s h x ->
           UpdateConnectivityInfoResponse'
-            Prelude.<$> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "message")
+            Prelude.<$> (x Core..?> "message")
+            Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,10 +148,10 @@ instance Core.ToQuery UpdateConnectivityInfo where
 
 -- | /See:/ 'newUpdateConnectivityInfoResponse' smart constructor.
 data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
-  { -- | The new version of the connectivity info.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | A message about the connectivity info update request.
+  { -- | A message about the connectivity info update request.
     message :: Prelude.Maybe Prelude.Text,
+    -- | The new version of the connectivity info.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,9 +165,9 @@ data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'updateConnectivityInfoResponse_version' - The new version of the connectivity info.
---
 -- 'message', 'updateConnectivityInfoResponse_message' - A message about the connectivity info update request.
+--
+-- 'version', 'updateConnectivityInfoResponse_version' - The new version of the connectivity info.
 --
 -- 'httpStatus', 'updateConnectivityInfoResponse_httpStatus' - The response's http status code.
 newUpdateConnectivityInfoResponse ::
@@ -176,19 +176,19 @@ newUpdateConnectivityInfoResponse ::
   UpdateConnectivityInfoResponse
 newUpdateConnectivityInfoResponse pHttpStatus_ =
   UpdateConnectivityInfoResponse'
-    { version =
+    { message =
         Prelude.Nothing,
-      message = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The new version of the connectivity info.
-updateConnectivityInfoResponse_version :: Lens.Lens' UpdateConnectivityInfoResponse (Prelude.Maybe Prelude.Text)
-updateConnectivityInfoResponse_version = Lens.lens (\UpdateConnectivityInfoResponse' {version} -> version) (\s@UpdateConnectivityInfoResponse' {} a -> s {version = a} :: UpdateConnectivityInfoResponse)
 
 -- | A message about the connectivity info update request.
 updateConnectivityInfoResponse_message :: Lens.Lens' UpdateConnectivityInfoResponse (Prelude.Maybe Prelude.Text)
 updateConnectivityInfoResponse_message = Lens.lens (\UpdateConnectivityInfoResponse' {message} -> message) (\s@UpdateConnectivityInfoResponse' {} a -> s {message = a} :: UpdateConnectivityInfoResponse)
+
+-- | The new version of the connectivity info.
+updateConnectivityInfoResponse_version :: Lens.Lens' UpdateConnectivityInfoResponse (Prelude.Maybe Prelude.Text)
+updateConnectivityInfoResponse_version = Lens.lens (\UpdateConnectivityInfoResponse' {version} -> version) (\s@UpdateConnectivityInfoResponse' {} a -> s {version = a} :: UpdateConnectivityInfoResponse)
 
 -- | The response's http status code.
 updateConnectivityInfoResponse_httpStatus :: Lens.Lens' UpdateConnectivityInfoResponse Prelude.Int
@@ -199,6 +199,6 @@ instance
     UpdateConnectivityInfoResponse
   where
   rnf UpdateConnectivityInfoResponse' {..} =
-    Prelude.rnf version
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

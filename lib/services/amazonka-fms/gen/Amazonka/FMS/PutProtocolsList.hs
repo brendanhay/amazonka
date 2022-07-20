@@ -35,8 +35,8 @@ module Amazonka.FMS.PutProtocolsList
     newPutProtocolsListResponse,
 
     -- * Response Lenses
-    putProtocolsListResponse_protocolsList,
     putProtocolsListResponse_protocolsListArn,
+    putProtocolsListResponse_protocolsList,
     putProtocolsListResponse_httpStatus,
   )
 where
@@ -95,8 +95,8 @@ instance Core.AWSRequest PutProtocolsList where
     Response.receiveJSON
       ( \s h x ->
           PutProtocolsListResponse'
-            Prelude.<$> (x Core..?> "ProtocolsList")
-            Prelude.<*> (x Core..?> "ProtocolsListArn")
+            Prelude.<$> (x Core..?> "ProtocolsListArn")
+            Prelude.<*> (x Core..?> "ProtocolsList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,10 +143,10 @@ instance Core.ToQuery PutProtocolsList where
 
 -- | /See:/ 'newPutProtocolsListResponse' smart constructor.
 data PutProtocolsListResponse = PutProtocolsListResponse'
-  { -- | The details of the Firewall Manager protocols list.
-    protocolsList :: Prelude.Maybe ProtocolsListData,
-    -- | The Amazon Resource Name (ARN) of the protocols list.
+  { -- | The Amazon Resource Name (ARN) of the protocols list.
     protocolsListArn :: Prelude.Maybe Prelude.Text,
+    -- | The details of the Firewall Manager protocols list.
+    protocolsList :: Prelude.Maybe ProtocolsListData,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,9 +160,9 @@ data PutProtocolsListResponse = PutProtocolsListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'protocolsList', 'putProtocolsListResponse_protocolsList' - The details of the Firewall Manager protocols list.
---
 -- 'protocolsListArn', 'putProtocolsListResponse_protocolsListArn' - The Amazon Resource Name (ARN) of the protocols list.
+--
+-- 'protocolsList', 'putProtocolsListResponse_protocolsList' - The details of the Firewall Manager protocols list.
 --
 -- 'httpStatus', 'putProtocolsListResponse_httpStatus' - The response's http status code.
 newPutProtocolsListResponse ::
@@ -171,19 +171,19 @@ newPutProtocolsListResponse ::
   PutProtocolsListResponse
 newPutProtocolsListResponse pHttpStatus_ =
   PutProtocolsListResponse'
-    { protocolsList =
+    { protocolsListArn =
         Prelude.Nothing,
-      protocolsListArn = Prelude.Nothing,
+      protocolsList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The details of the Firewall Manager protocols list.
-putProtocolsListResponse_protocolsList :: Lens.Lens' PutProtocolsListResponse (Prelude.Maybe ProtocolsListData)
-putProtocolsListResponse_protocolsList = Lens.lens (\PutProtocolsListResponse' {protocolsList} -> protocolsList) (\s@PutProtocolsListResponse' {} a -> s {protocolsList = a} :: PutProtocolsListResponse)
 
 -- | The Amazon Resource Name (ARN) of the protocols list.
 putProtocolsListResponse_protocolsListArn :: Lens.Lens' PutProtocolsListResponse (Prelude.Maybe Prelude.Text)
 putProtocolsListResponse_protocolsListArn = Lens.lens (\PutProtocolsListResponse' {protocolsListArn} -> protocolsListArn) (\s@PutProtocolsListResponse' {} a -> s {protocolsListArn = a} :: PutProtocolsListResponse)
+
+-- | The details of the Firewall Manager protocols list.
+putProtocolsListResponse_protocolsList :: Lens.Lens' PutProtocolsListResponse (Prelude.Maybe ProtocolsListData)
+putProtocolsListResponse_protocolsList = Lens.lens (\PutProtocolsListResponse' {protocolsList} -> protocolsList) (\s@PutProtocolsListResponse' {} a -> s {protocolsList = a} :: PutProtocolsListResponse)
 
 -- | The response's http status code.
 putProtocolsListResponse_httpStatus :: Lens.Lens' PutProtocolsListResponse Prelude.Int
@@ -191,6 +191,6 @@ putProtocolsListResponse_httpStatus = Lens.lens (\PutProtocolsListResponse' {htt
 
 instance Prelude.NFData PutProtocolsListResponse where
   rnf PutProtocolsListResponse' {..} =
-    Prelude.rnf protocolsList
-      `Prelude.seq` Prelude.rnf protocolsListArn
+    Prelude.rnf protocolsListArn
+      `Prelude.seq` Prelude.rnf protocolsList
       `Prelude.seq` Prelude.rnf httpStatus

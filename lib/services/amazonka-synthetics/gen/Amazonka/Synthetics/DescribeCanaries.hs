@@ -41,8 +41,8 @@ module Amazonka.Synthetics.DescribeCanaries
     newDescribeCanariesResponse,
 
     -- * Response Lenses
-    describeCanariesResponse_canaries,
     describeCanariesResponse_nextToken,
+    describeCanariesResponse_canaries,
     describeCanariesResponse_httpStatus,
   )
 where
@@ -111,8 +111,8 @@ instance Core.AWSRequest DescribeCanaries where
     Response.receiveJSON
       ( \s h x ->
           DescribeCanariesResponse'
-            Prelude.<$> (x Core..?> "Canaries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Canaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,13 +154,13 @@ instance Core.ToQuery DescribeCanaries where
 
 -- | /See:/ 'newDescribeCanariesResponse' smart constructor.
 data DescribeCanariesResponse = DescribeCanariesResponse'
-  { -- | Returns an array. Each item in the array contains the full information
-    -- about one canary.
-    canaries :: Prelude.Maybe [Canary],
-    -- | A token that indicates that there is more data available. You can use
+  { -- | A token that indicates that there is more data available. You can use
     -- this token in a subsequent @DescribeCanaries@ operation to retrieve the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns an array. Each item in the array contains the full information
+    -- about one canary.
+    canaries :: Prelude.Maybe [Canary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,12 +174,12 @@ data DescribeCanariesResponse = DescribeCanariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'canaries', 'describeCanariesResponse_canaries' - Returns an array. Each item in the array contains the full information
--- about one canary.
---
 -- 'nextToken', 'describeCanariesResponse_nextToken' - A token that indicates that there is more data available. You can use
 -- this token in a subsequent @DescribeCanaries@ operation to retrieve the
 -- next set of results.
+--
+-- 'canaries', 'describeCanariesResponse_canaries' - Returns an array. Each item in the array contains the full information
+-- about one canary.
 --
 -- 'httpStatus', 'describeCanariesResponse_httpStatus' - The response's http status code.
 newDescribeCanariesResponse ::
@@ -188,16 +188,11 @@ newDescribeCanariesResponse ::
   DescribeCanariesResponse
 newDescribeCanariesResponse pHttpStatus_ =
   DescribeCanariesResponse'
-    { canaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      canaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns an array. Each item in the array contains the full information
--- about one canary.
-describeCanariesResponse_canaries :: Lens.Lens' DescribeCanariesResponse (Prelude.Maybe [Canary])
-describeCanariesResponse_canaries = Lens.lens (\DescribeCanariesResponse' {canaries} -> canaries) (\s@DescribeCanariesResponse' {} a -> s {canaries = a} :: DescribeCanariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there is more data available. You can use
 -- this token in a subsequent @DescribeCanaries@ operation to retrieve the
@@ -205,12 +200,17 @@ describeCanariesResponse_canaries = Lens.lens (\DescribeCanariesResponse' {canar
 describeCanariesResponse_nextToken :: Lens.Lens' DescribeCanariesResponse (Prelude.Maybe Prelude.Text)
 describeCanariesResponse_nextToken = Lens.lens (\DescribeCanariesResponse' {nextToken} -> nextToken) (\s@DescribeCanariesResponse' {} a -> s {nextToken = a} :: DescribeCanariesResponse)
 
+-- | Returns an array. Each item in the array contains the full information
+-- about one canary.
+describeCanariesResponse_canaries :: Lens.Lens' DescribeCanariesResponse (Prelude.Maybe [Canary])
+describeCanariesResponse_canaries = Lens.lens (\DescribeCanariesResponse' {canaries} -> canaries) (\s@DescribeCanariesResponse' {} a -> s {canaries = a} :: DescribeCanariesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeCanariesResponse_httpStatus :: Lens.Lens' DescribeCanariesResponse Prelude.Int
 describeCanariesResponse_httpStatus = Lens.lens (\DescribeCanariesResponse' {httpStatus} -> httpStatus) (\s@DescribeCanariesResponse' {} a -> s {httpStatus = a} :: DescribeCanariesResponse)
 
 instance Prelude.NFData DescribeCanariesResponse where
   rnf DescribeCanariesResponse' {..} =
-    Prelude.rnf canaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf canaries
       `Prelude.seq` Prelude.rnf httpStatus

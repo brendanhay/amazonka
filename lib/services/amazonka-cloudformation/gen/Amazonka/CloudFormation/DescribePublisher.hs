@@ -45,10 +45,10 @@ module Amazonka.CloudFormation.DescribePublisher
     newDescribePublisherResponse,
 
     -- * Response Lenses
+    describePublisherResponse_publisherId,
     describePublisherResponse_publisherStatus,
     describePublisherResponse_publisherProfile,
     describePublisherResponse_identityProvider,
-    describePublisherResponse_publisherId,
     describePublisherResponse_httpStatus,
   )
 where
@@ -107,10 +107,10 @@ instance Core.AWSRequest DescribePublisher where
       "DescribePublisherResult"
       ( \s h x ->
           DescribePublisherResponse'
-            Prelude.<$> (x Core..@? "PublisherStatus")
+            Prelude.<$> (x Core..@? "PublisherId")
+            Prelude.<*> (x Core..@? "PublisherStatus")
             Prelude.<*> (x Core..@? "PublisherProfile")
             Prelude.<*> (x Core..@? "IdentityProvider")
-            Prelude.<*> (x Core..@? "PublisherId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,7 +139,9 @@ instance Core.ToQuery DescribePublisher where
 
 -- | /See:/ 'newDescribePublisherResponse' smart constructor.
 data DescribePublisherResponse = DescribePublisherResponse'
-  { -- | Whether the publisher is verified. Currently, all registered publishers
+  { -- | The ID of the extension publisher.
+    publisherId :: Prelude.Maybe Prelude.Text,
+    -- | Whether the publisher is verified. Currently, all registered publishers
     -- are verified.
     publisherStatus :: Prelude.Maybe PublisherStatus,
     -- | The URL to the publisher\'s profile with the identity provider.
@@ -147,8 +149,6 @@ data DescribePublisherResponse = DescribePublisherResponse'
     -- | The type of account used as the identity provider when registering this
     -- publisher with CloudFormation.
     identityProvider :: Prelude.Maybe IdentityProvider,
-    -- | The ID of the extension publisher.
-    publisherId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,6 +162,8 @@ data DescribePublisherResponse = DescribePublisherResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'publisherId', 'describePublisherResponse_publisherId' - The ID of the extension publisher.
+--
 -- 'publisherStatus', 'describePublisherResponse_publisherStatus' - Whether the publisher is verified. Currently, all registered publishers
 -- are verified.
 --
@@ -170,8 +172,6 @@ data DescribePublisherResponse = DescribePublisherResponse'
 -- 'identityProvider', 'describePublisherResponse_identityProvider' - The type of account used as the identity provider when registering this
 -- publisher with CloudFormation.
 --
--- 'publisherId', 'describePublisherResponse_publisherId' - The ID of the extension publisher.
---
 -- 'httpStatus', 'describePublisherResponse_httpStatus' - The response's http status code.
 newDescribePublisherResponse ::
   -- | 'httpStatus'
@@ -179,13 +179,17 @@ newDescribePublisherResponse ::
   DescribePublisherResponse
 newDescribePublisherResponse pHttpStatus_ =
   DescribePublisherResponse'
-    { publisherStatus =
+    { publisherId =
         Prelude.Nothing,
+      publisherStatus = Prelude.Nothing,
       publisherProfile = Prelude.Nothing,
       identityProvider = Prelude.Nothing,
-      publisherId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the extension publisher.
+describePublisherResponse_publisherId :: Lens.Lens' DescribePublisherResponse (Prelude.Maybe Prelude.Text)
+describePublisherResponse_publisherId = Lens.lens (\DescribePublisherResponse' {publisherId} -> publisherId) (\s@DescribePublisherResponse' {} a -> s {publisherId = a} :: DescribePublisherResponse)
 
 -- | Whether the publisher is verified. Currently, all registered publishers
 -- are verified.
@@ -201,18 +205,14 @@ describePublisherResponse_publisherProfile = Lens.lens (\DescribePublisherRespon
 describePublisherResponse_identityProvider :: Lens.Lens' DescribePublisherResponse (Prelude.Maybe IdentityProvider)
 describePublisherResponse_identityProvider = Lens.lens (\DescribePublisherResponse' {identityProvider} -> identityProvider) (\s@DescribePublisherResponse' {} a -> s {identityProvider = a} :: DescribePublisherResponse)
 
--- | The ID of the extension publisher.
-describePublisherResponse_publisherId :: Lens.Lens' DescribePublisherResponse (Prelude.Maybe Prelude.Text)
-describePublisherResponse_publisherId = Lens.lens (\DescribePublisherResponse' {publisherId} -> publisherId) (\s@DescribePublisherResponse' {} a -> s {publisherId = a} :: DescribePublisherResponse)
-
 -- | The response's http status code.
 describePublisherResponse_httpStatus :: Lens.Lens' DescribePublisherResponse Prelude.Int
 describePublisherResponse_httpStatus = Lens.lens (\DescribePublisherResponse' {httpStatus} -> httpStatus) (\s@DescribePublisherResponse' {} a -> s {httpStatus = a} :: DescribePublisherResponse)
 
 instance Prelude.NFData DescribePublisherResponse where
   rnf DescribePublisherResponse' {..} =
-    Prelude.rnf publisherStatus
+    Prelude.rnf publisherId
+      `Prelude.seq` Prelude.rnf publisherStatus
       `Prelude.seq` Prelude.rnf publisherProfile
       `Prelude.seq` Prelude.rnf identityProvider
-      `Prelude.seq` Prelude.rnf publisherId
       `Prelude.seq` Prelude.rnf httpStatus

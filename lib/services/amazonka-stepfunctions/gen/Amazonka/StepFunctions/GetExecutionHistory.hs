@@ -41,10 +41,10 @@ module Amazonka.StepFunctions.GetExecutionHistory
     newGetExecutionHistory,
 
     -- * Request Lenses
-    getExecutionHistory_reverseOrder,
-    getExecutionHistory_includeExecutionData,
     getExecutionHistory_nextToken,
     getExecutionHistory_maxResults,
+    getExecutionHistory_includeExecutionData,
+    getExecutionHistory_reverseOrder,
     getExecutionHistory_executionArn,
 
     -- * Destructuring the Response
@@ -67,12 +67,7 @@ import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newGetExecutionHistory' smart constructor.
 data GetExecutionHistory = GetExecutionHistory'
-  { -- | Lists events in descending order of their @timeStamp@.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
-    -- | You can select whether execution data (input or output of a history
-    -- event) is returned. The default is @true@.
-    includeExecutionData :: Prelude.Maybe Prelude.Bool,
-    -- | If @nextToken@ is returned, there are more results available. The value
+  { -- | If @nextToken@ is returned, there are more results available. The value
     -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours. Using
@@ -86,6 +81,11 @@ data GetExecutionHistory = GetExecutionHistory'
     -- This is only an upper limit. The actual number of results returned per
     -- call might be fewer than the specified maximum.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | You can select whether execution data (input or output of a history
+    -- event) is returned. The default is @true@.
+    includeExecutionData :: Prelude.Maybe Prelude.Bool,
+    -- | Lists events in descending order of their @timeStamp@.
+    reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the execution.
     executionArn :: Prelude.Text
   }
@@ -98,11 +98,6 @@ data GetExecutionHistory = GetExecutionHistory'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'reverseOrder', 'getExecutionHistory_reverseOrder' - Lists events in descending order of their @timeStamp@.
---
--- 'includeExecutionData', 'getExecutionHistory_includeExecutionData' - You can select whether execution data (input or output of a history
--- event) is returned. The default is @true@.
 --
 -- 'nextToken', 'getExecutionHistory_nextToken' - If @nextToken@ is returned, there are more results available. The value
 -- of @nextToken@ is a unique pagination token for each page. Make the call
@@ -118,6 +113,11 @@ data GetExecutionHistory = GetExecutionHistory'
 -- This is only an upper limit. The actual number of results returned per
 -- call might be fewer than the specified maximum.
 --
+-- 'includeExecutionData', 'getExecutionHistory_includeExecutionData' - You can select whether execution data (input or output of a history
+-- event) is returned. The default is @true@.
+--
+-- 'reverseOrder', 'getExecutionHistory_reverseOrder' - Lists events in descending order of their @timeStamp@.
+--
 -- 'executionArn', 'getExecutionHistory_executionArn' - The Amazon Resource Name (ARN) of the execution.
 newGetExecutionHistory ::
   -- | 'executionArn'
@@ -125,22 +125,12 @@ newGetExecutionHistory ::
   GetExecutionHistory
 newGetExecutionHistory pExecutionArn_ =
   GetExecutionHistory'
-    { reverseOrder =
-        Prelude.Nothing,
-      includeExecutionData = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      includeExecutionData = Prelude.Nothing,
+      reverseOrder = Prelude.Nothing,
       executionArn = pExecutionArn_
     }
-
--- | Lists events in descending order of their @timeStamp@.
-getExecutionHistory_reverseOrder :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
-getExecutionHistory_reverseOrder = Lens.lens (\GetExecutionHistory' {reverseOrder} -> reverseOrder) (\s@GetExecutionHistory' {} a -> s {reverseOrder = a} :: GetExecutionHistory)
-
--- | You can select whether execution data (input or output of a history
--- event) is returned. The default is @true@.
-getExecutionHistory_includeExecutionData :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
-getExecutionHistory_includeExecutionData = Lens.lens (\GetExecutionHistory' {includeExecutionData} -> includeExecutionData) (\s@GetExecutionHistory' {} a -> s {includeExecutionData = a} :: GetExecutionHistory)
 
 -- | If @nextToken@ is returned, there are more results available. The value
 -- of @nextToken@ is a unique pagination token for each page. Make the call
@@ -159,6 +149,15 @@ getExecutionHistory_nextToken = Lens.lens (\GetExecutionHistory' {nextToken} -> 
 -- call might be fewer than the specified maximum.
 getExecutionHistory_maxResults :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Natural)
 getExecutionHistory_maxResults = Lens.lens (\GetExecutionHistory' {maxResults} -> maxResults) (\s@GetExecutionHistory' {} a -> s {maxResults = a} :: GetExecutionHistory)
+
+-- | You can select whether execution data (input or output of a history
+-- event) is returned. The default is @true@.
+getExecutionHistory_includeExecutionData :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
+getExecutionHistory_includeExecutionData = Lens.lens (\GetExecutionHistory' {includeExecutionData} -> includeExecutionData) (\s@GetExecutionHistory' {} a -> s {includeExecutionData = a} :: GetExecutionHistory)
+
+-- | Lists events in descending order of their @timeStamp@.
+getExecutionHistory_reverseOrder :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
+getExecutionHistory_reverseOrder = Lens.lens (\GetExecutionHistory' {reverseOrder} -> reverseOrder) (\s@GetExecutionHistory' {} a -> s {reverseOrder = a} :: GetExecutionHistory)
 
 -- | The Amazon Resource Name (ARN) of the execution.
 getExecutionHistory_executionArn :: Lens.Lens' GetExecutionHistory Prelude.Text
@@ -199,18 +198,18 @@ instance Core.AWSRequest GetExecutionHistory where
 
 instance Prelude.Hashable GetExecutionHistory where
   hashWithSalt _salt GetExecutionHistory' {..} =
-    _salt `Prelude.hashWithSalt` reverseOrder
-      `Prelude.hashWithSalt` includeExecutionData
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` includeExecutionData
+      `Prelude.hashWithSalt` reverseOrder
       `Prelude.hashWithSalt` executionArn
 
 instance Prelude.NFData GetExecutionHistory where
   rnf GetExecutionHistory' {..} =
-    Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf includeExecutionData
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf includeExecutionData
+      `Prelude.seq` Prelude.rnf reverseOrder
       `Prelude.seq` Prelude.rnf executionArn
 
 instance Core.ToHeaders GetExecutionHistory where
@@ -232,11 +231,11 @@ instance Core.ToJSON GetExecutionHistory where
   toJSON GetExecutionHistory' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("includeExecutionData" Core..=)
               Prelude.<$> includeExecutionData,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             Prelude.Just ("executionArn" Core..= executionArn)
           ]
       )

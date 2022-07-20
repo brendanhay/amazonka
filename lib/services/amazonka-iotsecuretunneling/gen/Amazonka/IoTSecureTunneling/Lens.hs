@@ -14,31 +14,39 @@
 module Amazonka.IoTSecureTunneling.Lens
   ( -- * Operations
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
     -- ** CloseTunnel
     closeTunnel_delete,
     closeTunnel_tunnelId,
     closeTunnelResponse_httpStatus,
 
-    -- ** OpenTunnel
-    openTunnel_destinationConfig,
-    openTunnel_description,
-    openTunnel_timeoutConfig,
-    openTunnel_tags,
-    openTunnelResponse_sourceAccessToken,
-    openTunnelResponse_tunnelArn,
-    openTunnelResponse_destinationAccessToken,
-    openTunnelResponse_tunnelId,
-    openTunnelResponse_httpStatus,
-
     -- ** DescribeTunnel
     describeTunnel_tunnelId,
     describeTunnelResponse_tunnel,
     describeTunnelResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListTunnels
+    listTunnels_nextToken,
+    listTunnels_thingName,
+    listTunnels_maxResults,
+    listTunnelsResponse_nextToken,
+    listTunnelsResponse_tunnelSummaries,
+    listTunnelsResponse_httpStatus,
+
+    -- ** OpenTunnel
+    openTunnel_tags,
+    openTunnel_description,
+    openTunnel_destinationConfig,
+    openTunnel_timeoutConfig,
+    openTunnelResponse_sourceAccessToken,
+    openTunnelResponse_destinationAccessToken,
+    openTunnelResponse_tunnelId,
+    openTunnelResponse_tunnelArn,
+    openTunnelResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -50,19 +58,11 @@ module Amazonka.IoTSecureTunneling.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** ListTunnels
-    listTunnels_nextToken,
-    listTunnels_thingName,
-    listTunnels_maxResults,
-    listTunnelsResponse_nextToken,
-    listTunnelsResponse_tunnelSummaries,
-    listTunnelsResponse_httpStatus,
-
     -- * Types
 
     -- ** ConnectionState
-    connectionState_status,
     connectionState_lastUpdatedAt,
+    connectionState_status,
 
     -- ** DestinationConfig
     destinationConfig_thingName,
@@ -76,25 +76,25 @@ module Amazonka.IoTSecureTunneling.Lens
     timeoutConfig_maxLifetimeTimeoutMinutes,
 
     -- ** Tunnel
-    tunnel_status,
-    tunnel_lastUpdatedAt,
-    tunnel_createdAt,
-    tunnel_tunnelArn,
-    tunnel_sourceConnectionState,
-    tunnel_destinationConnectionState,
-    tunnel_tunnelId,
-    tunnel_destinationConfig,
-    tunnel_description,
-    tunnel_timeoutConfig,
     tunnel_tags,
+    tunnel_lastUpdatedAt,
+    tunnel_destinationConnectionState,
+    tunnel_status,
+    tunnel_description,
+    tunnel_destinationConfig,
+    tunnel_tunnelId,
+    tunnel_timeoutConfig,
+    tunnel_tunnelArn,
+    tunnel_createdAt,
+    tunnel_sourceConnectionState,
 
     -- ** TunnelSummary
-    tunnelSummary_status,
     tunnelSummary_lastUpdatedAt,
-    tunnelSummary_createdAt,
-    tunnelSummary_tunnelArn,
-    tunnelSummary_tunnelId,
+    tunnelSummary_status,
     tunnelSummary_description,
+    tunnelSummary_tunnelId,
+    tunnelSummary_tunnelArn,
+    tunnelSummary_createdAt,
   )
 where
 

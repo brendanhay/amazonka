@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueueTransition' smart constructor.
 data QueueTransition = QueueTransition'
-  { -- | The queue that the job was on before the transition.
-    sourceQueue :: Prelude.Maybe Prelude.Text,
-    -- | The queue that the job was on after the transition.
+  { -- | The queue that the job was on after the transition.
     destinationQueue :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix epoch format, that the job moved from the source queue
     -- to the destination queue.
-    timestamp :: Prelude.Maybe Core.POSIX
+    timestamp :: Prelude.Maybe Core.POSIX,
+    -- | The queue that the job was on before the transition.
+    sourceQueue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,21 @@ data QueueTransition = QueueTransition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceQueue', 'queueTransition_sourceQueue' - The queue that the job was on before the transition.
---
 -- 'destinationQueue', 'queueTransition_destinationQueue' - The queue that the job was on after the transition.
 --
 -- 'timestamp', 'queueTransition_timestamp' - The time, in Unix epoch format, that the job moved from the source queue
 -- to the destination queue.
+--
+-- 'sourceQueue', 'queueTransition_sourceQueue' - The queue that the job was on before the transition.
 newQueueTransition ::
   QueueTransition
 newQueueTransition =
   QueueTransition'
-    { sourceQueue = Prelude.Nothing,
-      destinationQueue = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { destinationQueue =
+        Prelude.Nothing,
+      timestamp = Prelude.Nothing,
+      sourceQueue = Prelude.Nothing
     }
-
--- | The queue that the job was on before the transition.
-queueTransition_sourceQueue :: Lens.Lens' QueueTransition (Prelude.Maybe Prelude.Text)
-queueTransition_sourceQueue = Lens.lens (\QueueTransition' {sourceQueue} -> sourceQueue) (\s@QueueTransition' {} a -> s {sourceQueue = a} :: QueueTransition)
 
 -- | The queue that the job was on after the transition.
 queueTransition_destinationQueue :: Lens.Lens' QueueTransition (Prelude.Maybe Prelude.Text)
@@ -74,25 +71,29 @@ queueTransition_destinationQueue = Lens.lens (\QueueTransition' {destinationQueu
 queueTransition_timestamp :: Lens.Lens' QueueTransition (Prelude.Maybe Prelude.UTCTime)
 queueTransition_timestamp = Lens.lens (\QueueTransition' {timestamp} -> timestamp) (\s@QueueTransition' {} a -> s {timestamp = a} :: QueueTransition) Prelude.. Lens.mapping Core._Time
 
+-- | The queue that the job was on before the transition.
+queueTransition_sourceQueue :: Lens.Lens' QueueTransition (Prelude.Maybe Prelude.Text)
+queueTransition_sourceQueue = Lens.lens (\QueueTransition' {sourceQueue} -> sourceQueue) (\s@QueueTransition' {} a -> s {sourceQueue = a} :: QueueTransition)
+
 instance Core.FromJSON QueueTransition where
   parseJSON =
     Core.withObject
       "QueueTransition"
       ( \x ->
           QueueTransition'
-            Prelude.<$> (x Core..:? "sourceQueue")
-            Prelude.<*> (x Core..:? "destinationQueue")
+            Prelude.<$> (x Core..:? "destinationQueue")
             Prelude.<*> (x Core..:? "timestamp")
+            Prelude.<*> (x Core..:? "sourceQueue")
       )
 
 instance Prelude.Hashable QueueTransition where
   hashWithSalt _salt QueueTransition' {..} =
-    _salt `Prelude.hashWithSalt` sourceQueue
-      `Prelude.hashWithSalt` destinationQueue
+    _salt `Prelude.hashWithSalt` destinationQueue
       `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` sourceQueue
 
 instance Prelude.NFData QueueTransition where
   rnf QueueTransition' {..} =
-    Prelude.rnf sourceQueue
-      `Prelude.seq` Prelude.rnf destinationQueue
+    Prelude.rnf destinationQueue
       `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf sourceQueue

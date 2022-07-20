@@ -31,9 +31,9 @@ module Amazonka.EC2.DescribeCustomerGateways
     newDescribeCustomerGateways,
 
     -- * Request Lenses
-    describeCustomerGateways_customerGatewayIds,
     describeCustomerGateways_filters,
     describeCustomerGateways_dryRun,
+    describeCustomerGateways_customerGatewayIds,
 
     -- * Destructuring the Response
     DescribeCustomerGatewaysResponse (..),
@@ -56,11 +56,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeCustomerGateways' smart constructor.
 data DescribeCustomerGateways = DescribeCustomerGateways'
-  { -- | One or more customer gateway IDs.
-    --
-    -- Default: Describes all your customer gateways.
-    customerGatewayIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @bgp-asn@ - The customer gateway\'s Border Gateway Protocol (BGP)
     --     Autonomous System Number (ASN).
@@ -90,7 +86,11 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more customer gateway IDs.
+    --
+    -- Default: Describes all your customer gateways.
+    customerGatewayIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,10 +101,6 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'customerGatewayIds', 'describeCustomerGateways_customerGatewayIds' - One or more customer gateway IDs.
---
--- Default: Describes all your customer gateways.
 --
 -- 'filters', 'describeCustomerGateways_filters' - One or more filters.
 --
@@ -136,21 +132,19 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'customerGatewayIds', 'describeCustomerGateways_customerGatewayIds' - One or more customer gateway IDs.
+--
+-- Default: Describes all your customer gateways.
 newDescribeCustomerGateways ::
   DescribeCustomerGateways
 newDescribeCustomerGateways =
   DescribeCustomerGateways'
-    { customerGatewayIds =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      customerGatewayIds = Prelude.Nothing
     }
-
--- | One or more customer gateway IDs.
---
--- Default: Describes all your customer gateways.
-describeCustomerGateways_customerGatewayIds :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe [Prelude.Text])
-describeCustomerGateways_customerGatewayIds = Lens.lens (\DescribeCustomerGateways' {customerGatewayIds} -> customerGatewayIds) (\s@DescribeCustomerGateways' {} a -> s {customerGatewayIds = a} :: DescribeCustomerGateways) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more filters.
 --
@@ -187,6 +181,12 @@ describeCustomerGateways_filters = Lens.lens (\DescribeCustomerGateways' {filter
 describeCustomerGateways_dryRun :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe Prelude.Bool)
 describeCustomerGateways_dryRun = Lens.lens (\DescribeCustomerGateways' {dryRun} -> dryRun) (\s@DescribeCustomerGateways' {} a -> s {dryRun = a} :: DescribeCustomerGateways)
 
+-- | One or more customer gateway IDs.
+--
+-- Default: Describes all your customer gateways.
+describeCustomerGateways_customerGatewayIds :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe [Prelude.Text])
+describeCustomerGateways_customerGatewayIds = Lens.lens (\DescribeCustomerGateways' {customerGatewayIds} -> customerGatewayIds) (\s@DescribeCustomerGateways' {} a -> s {customerGatewayIds = a} :: DescribeCustomerGateways) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.AWSRequest DescribeCustomerGateways where
   type
     AWSResponse DescribeCustomerGateways =
@@ -205,15 +205,15 @@ instance Core.AWSRequest DescribeCustomerGateways where
 
 instance Prelude.Hashable DescribeCustomerGateways where
   hashWithSalt _salt DescribeCustomerGateways' {..} =
-    _salt `Prelude.hashWithSalt` customerGatewayIds
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` customerGatewayIds
 
 instance Prelude.NFData DescribeCustomerGateways where
   rnf DescribeCustomerGateways' {..} =
-    Prelude.rnf customerGatewayIds
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf customerGatewayIds
 
 instance Core.ToHeaders DescribeCustomerGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,12 +229,12 @@ instance Core.ToQuery DescribeCustomerGateways where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
           ( Core.toQueryList "CustomerGatewayId"
               Prelude.<$> customerGatewayIds
-          ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun
+          )
       ]
 
 -- | Contains the output of DescribeCustomerGateways.

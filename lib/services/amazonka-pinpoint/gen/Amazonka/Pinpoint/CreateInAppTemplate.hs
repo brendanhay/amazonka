@@ -134,14 +134,7 @@ instance Core.ToHeaders CreateInAppTemplate where
 
 instance Core.ToJSON CreateInAppTemplate where
   toJSON CreateInAppTemplate' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "InAppTemplateRequest"
-                  Core..= inAppTemplateRequest
-              )
-          ]
-      )
+    Core.toJSON inAppTemplateRequest
 
 instance Core.ToPath CreateInAppTemplate where
   toPath CreateInAppTemplate' {..} =

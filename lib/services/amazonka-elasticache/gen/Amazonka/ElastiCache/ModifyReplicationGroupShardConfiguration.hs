@@ -29,9 +29,9 @@ module Amazonka.ElastiCache.ModifyReplicationGroupShardConfiguration
     newModifyReplicationGroupShardConfiguration,
 
     -- * Request Lenses
-    modifyReplicationGroupShardConfiguration_nodeGroupsToRetain,
-    modifyReplicationGroupShardConfiguration_reshardingConfiguration,
     modifyReplicationGroupShardConfiguration_nodeGroupsToRemove,
+    modifyReplicationGroupShardConfiguration_reshardingConfiguration,
+    modifyReplicationGroupShardConfiguration_nodeGroupsToRetain,
     modifyReplicationGroupShardConfiguration_replicationGroupId,
     modifyReplicationGroupShardConfiguration_nodeGroupCount,
     modifyReplicationGroupShardConfiguration_applyImmediately,
@@ -60,12 +60,12 @@ import qualified Amazonka.Response as Response
 data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfiguration'
   { -- | If the value of @NodeGroupCount@ is less than the current number of node
     -- groups (shards), then either @NodeGroupsToRemove@ or
-    -- @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of
-    -- @NodeGroupId@s to retain in the cluster.
+    -- @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of
+    -- @NodeGroupId@s to remove from the cluster.
     --
-    -- ElastiCache for Redis will attempt to remove all node groups except
-    -- those listed by @NodeGroupsToRetain@ from the cluster.
-    nodeGroupsToRetain :: Prelude.Maybe [Prelude.Text],
+    -- ElastiCache for Redis will attempt to remove all node groups listed by
+    -- @NodeGroupsToRemove@ from the cluster.
+    nodeGroupsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the preferred availability zones for each node group in the
     -- cluster. If the value of @NodeGroupCount@ is greater than the current
     -- number of node groups (shards), you can use this parameter to specify
@@ -77,12 +77,12 @@ data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfi
     reshardingConfiguration :: Prelude.Maybe [ReshardingConfiguration],
     -- | If the value of @NodeGroupCount@ is less than the current number of node
     -- groups (shards), then either @NodeGroupsToRemove@ or
-    -- @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of
-    -- @NodeGroupId@s to remove from the cluster.
+    -- @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of
+    -- @NodeGroupId@s to retain in the cluster.
     --
-    -- ElastiCache for Redis will attempt to remove all node groups listed by
-    -- @NodeGroupsToRemove@ from the cluster.
-    nodeGroupsToRemove :: Prelude.Maybe [Prelude.Text],
+    -- ElastiCache for Redis will attempt to remove all node groups except
+    -- those listed by @NodeGroupsToRetain@ from the cluster.
+    nodeGroupsToRetain :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Redis (cluster mode enabled) cluster (replication group)
     -- on which the shards are to be configured.
     replicationGroupId :: Prelude.Text,
@@ -105,13 +105,13 @@ data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeGroupsToRetain', 'modifyReplicationGroupShardConfiguration_nodeGroupsToRetain' - If the value of @NodeGroupCount@ is less than the current number of node
+-- 'nodeGroupsToRemove', 'modifyReplicationGroupShardConfiguration_nodeGroupsToRemove' - If the value of @NodeGroupCount@ is less than the current number of node
 -- groups (shards), then either @NodeGroupsToRemove@ or
--- @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of
--- @NodeGroupId@s to retain in the cluster.
+-- @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of
+-- @NodeGroupId@s to remove from the cluster.
 --
--- ElastiCache for Redis will attempt to remove all node groups except
--- those listed by @NodeGroupsToRetain@ from the cluster.
+-- ElastiCache for Redis will attempt to remove all node groups listed by
+-- @NodeGroupsToRemove@ from the cluster.
 --
 -- 'reshardingConfiguration', 'modifyReplicationGroupShardConfiguration_reshardingConfiguration' - Specifies the preferred availability zones for each node group in the
 -- cluster. If the value of @NodeGroupCount@ is greater than the current
@@ -122,13 +122,13 @@ data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfi
 -- You can specify this parameter only if the value of @NodeGroupCount@ is
 -- greater than the current number of node groups (shards).
 --
--- 'nodeGroupsToRemove', 'modifyReplicationGroupShardConfiguration_nodeGroupsToRemove' - If the value of @NodeGroupCount@ is less than the current number of node
+-- 'nodeGroupsToRetain', 'modifyReplicationGroupShardConfiguration_nodeGroupsToRetain' - If the value of @NodeGroupCount@ is less than the current number of node
 -- groups (shards), then either @NodeGroupsToRemove@ or
--- @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of
--- @NodeGroupId@s to remove from the cluster.
+-- @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of
+-- @NodeGroupId@s to retain in the cluster.
 --
--- ElastiCache for Redis will attempt to remove all node groups listed by
--- @NodeGroupsToRemove@ from the cluster.
+-- ElastiCache for Redis will attempt to remove all node groups except
+-- those listed by @NodeGroupsToRetain@ from the cluster.
 --
 -- 'replicationGroupId', 'modifyReplicationGroupShardConfiguration_replicationGroupId' - The name of the Redis (cluster mode enabled) cluster (replication group)
 -- on which the shards are to be configured.
@@ -153,11 +153,11 @@ newModifyReplicationGroupShardConfiguration
   pNodeGroupCount_
   pApplyImmediately_ =
     ModifyReplicationGroupShardConfiguration'
-      { nodeGroupsToRetain =
+      { nodeGroupsToRemove =
           Prelude.Nothing,
         reshardingConfiguration =
           Prelude.Nothing,
-        nodeGroupsToRemove =
+        nodeGroupsToRetain =
           Prelude.Nothing,
         replicationGroupId =
           pReplicationGroupId_,
@@ -168,13 +168,13 @@ newModifyReplicationGroupShardConfiguration
 
 -- | If the value of @NodeGroupCount@ is less than the current number of node
 -- groups (shards), then either @NodeGroupsToRemove@ or
--- @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of
--- @NodeGroupId@s to retain in the cluster.
+-- @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of
+-- @NodeGroupId@s to remove from the cluster.
 --
--- ElastiCache for Redis will attempt to remove all node groups except
--- those listed by @NodeGroupsToRetain@ from the cluster.
-modifyReplicationGroupShardConfiguration_nodeGroupsToRetain :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Prelude.Maybe [Prelude.Text])
-modifyReplicationGroupShardConfiguration_nodeGroupsToRetain = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupsToRetain} -> nodeGroupsToRetain) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupsToRetain = a} :: ModifyReplicationGroupShardConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- ElastiCache for Redis will attempt to remove all node groups listed by
+-- @NodeGroupsToRemove@ from the cluster.
+modifyReplicationGroupShardConfiguration_nodeGroupsToRemove :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroupShardConfiguration_nodeGroupsToRemove = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupsToRemove} -> nodeGroupsToRemove) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupsToRemove = a} :: ModifyReplicationGroupShardConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the preferred availability zones for each node group in the
 -- cluster. If the value of @NodeGroupCount@ is greater than the current
@@ -189,13 +189,13 @@ modifyReplicationGroupShardConfiguration_reshardingConfiguration = Lens.lens (\M
 
 -- | If the value of @NodeGroupCount@ is less than the current number of node
 -- groups (shards), then either @NodeGroupsToRemove@ or
--- @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of
--- @NodeGroupId@s to remove from the cluster.
+-- @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of
+-- @NodeGroupId@s to retain in the cluster.
 --
--- ElastiCache for Redis will attempt to remove all node groups listed by
--- @NodeGroupsToRemove@ from the cluster.
-modifyReplicationGroupShardConfiguration_nodeGroupsToRemove :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Prelude.Maybe [Prelude.Text])
-modifyReplicationGroupShardConfiguration_nodeGroupsToRemove = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupsToRemove} -> nodeGroupsToRemove) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupsToRemove = a} :: ModifyReplicationGroupShardConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- ElastiCache for Redis will attempt to remove all node groups except
+-- those listed by @NodeGroupsToRetain@ from the cluster.
+modifyReplicationGroupShardConfiguration_nodeGroupsToRetain :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroupShardConfiguration_nodeGroupsToRetain = Lens.lens (\ModifyReplicationGroupShardConfiguration' {nodeGroupsToRetain} -> nodeGroupsToRetain) (\s@ModifyReplicationGroupShardConfiguration' {} a -> s {nodeGroupsToRetain = a} :: ModifyReplicationGroupShardConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Redis (cluster mode enabled) cluster (replication group)
 -- on which the shards are to be configured.
@@ -239,9 +239,9 @@ instance
   hashWithSalt
     _salt
     ModifyReplicationGroupShardConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` nodeGroupsToRetain
+      _salt `Prelude.hashWithSalt` nodeGroupsToRemove
         `Prelude.hashWithSalt` reshardingConfiguration
-        `Prelude.hashWithSalt` nodeGroupsToRemove
+        `Prelude.hashWithSalt` nodeGroupsToRetain
         `Prelude.hashWithSalt` replicationGroupId
         `Prelude.hashWithSalt` nodeGroupCount
         `Prelude.hashWithSalt` applyImmediately
@@ -251,9 +251,9 @@ instance
     ModifyReplicationGroupShardConfiguration
   where
   rnf ModifyReplicationGroupShardConfiguration' {..} =
-    Prelude.rnf nodeGroupsToRetain
+    Prelude.rnf nodeGroupsToRemove
       `Prelude.seq` Prelude.rnf reshardingConfiguration
-      `Prelude.seq` Prelude.rnf nodeGroupsToRemove
+      `Prelude.seq` Prelude.rnf nodeGroupsToRetain
       `Prelude.seq` Prelude.rnf replicationGroupId
       `Prelude.seq` Prelude.rnf nodeGroupCount
       `Prelude.seq` Prelude.rnf applyImmediately
@@ -282,20 +282,20 @@ instance
                   ),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "NodeGroupsToRetain"
+        "NodeGroupsToRemove"
           Core.=: Core.toQuery
-            ( Core.toQueryList "NodeGroupToRetain"
-                Prelude.<$> nodeGroupsToRetain
+            ( Core.toQueryList "NodeGroupToRemove"
+                Prelude.<$> nodeGroupsToRemove
             ),
         "ReshardingConfiguration"
           Core.=: Core.toQuery
             ( Core.toQueryList "ReshardingConfiguration"
                 Prelude.<$> reshardingConfiguration
             ),
-        "NodeGroupsToRemove"
+        "NodeGroupsToRetain"
           Core.=: Core.toQuery
-            ( Core.toQueryList "NodeGroupToRemove"
-                Prelude.<$> nodeGroupsToRemove
+            ( Core.toQueryList "NodeGroupToRetain"
+                Prelude.<$> nodeGroupsToRetain
             ),
         "ReplicationGroupId" Core.=: replicationGroupId,
         "NodeGroupCount" Core.=: nodeGroupCount,

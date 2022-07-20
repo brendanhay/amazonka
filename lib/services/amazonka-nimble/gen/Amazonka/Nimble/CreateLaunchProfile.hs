@@ -27,9 +27,9 @@ module Amazonka.Nimble.CreateLaunchProfile
     newCreateLaunchProfile,
 
     -- * Request Lenses
+    createLaunchProfile_tags,
     createLaunchProfile_clientToken,
     createLaunchProfile_description,
-    createLaunchProfile_tags,
     createLaunchProfile_ec2SubnetIds,
     createLaunchProfile_studioComponentIds,
     createLaunchProfile_studioId,
@@ -58,7 +58,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLaunchProfile' smart constructor.
 data CreateLaunchProfile = CreateLaunchProfile'
-  { -- | To make an idempotent API request using one of these actions, specify a
+  { -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | To make an idempotent API request using one of these actions, specify a
     -- client token in the request. You should not reuse the same client token
     -- for other API requests. If you retry a request that completed
     -- successfully using the same client token and the same parameters, the
@@ -69,9 +72,6 @@ data CreateLaunchProfile = CreateLaunchProfile'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
-    -- this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     ec2SubnetIds :: [Prelude.Text],
     -- | Unique identifiers for a collection of studio components that can be
     -- used with this launch profile.
@@ -96,6 +96,9 @@ data CreateLaunchProfile = CreateLaunchProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createLaunchProfile_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+--
 -- 'clientToken', 'createLaunchProfile_clientToken' - To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
 -- for other API requests. If you retry a request that completed
@@ -106,9 +109,6 @@ data CreateLaunchProfile = CreateLaunchProfile'
 -- error.
 --
 -- 'description', 'createLaunchProfile_description' - The description.
---
--- 'tags', 'createLaunchProfile_tags' - A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
 --
 -- 'ec2SubnetIds', 'createLaunchProfile_ec2SubnetIds' -
 --
@@ -139,9 +139,9 @@ newCreateLaunchProfile
   pName_
   pStreamConfiguration_ =
     CreateLaunchProfile'
-      { clientToken = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
         ec2SubnetIds = Prelude.mempty,
         studioComponentIds =
           Lens.coerced Lens.# pStudioComponentIds_,
@@ -150,6 +150,11 @@ newCreateLaunchProfile
         name = pName_,
         streamConfiguration = pStreamConfiguration_
       }
+
+-- | A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+createLaunchProfile_tags :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createLaunchProfile_tags = Lens.lens (\CreateLaunchProfile' {tags} -> tags) (\s@CreateLaunchProfile' {} a -> s {tags = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -165,11 +170,6 @@ createLaunchProfile_clientToken = Lens.lens (\CreateLaunchProfile' {clientToken}
 -- | The description.
 createLaunchProfile_description :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe Prelude.Text)
 createLaunchProfile_description = Lens.lens (\CreateLaunchProfile' {description} -> description) (\s@CreateLaunchProfile' {} a -> s {description = a} :: CreateLaunchProfile)
-
--- | A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
-createLaunchProfile_tags :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createLaunchProfile_tags = Lens.lens (\CreateLaunchProfile' {tags} -> tags) (\s@CreateLaunchProfile' {} a -> s {tags = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 createLaunchProfile_ec2SubnetIds :: Lens.Lens' CreateLaunchProfile [Prelude.Text]
@@ -212,9 +212,9 @@ instance Core.AWSRequest CreateLaunchProfile where
 
 instance Prelude.Hashable CreateLaunchProfile where
   hashWithSalt _salt CreateLaunchProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ec2SubnetIds
       `Prelude.hashWithSalt` studioComponentIds
       `Prelude.hashWithSalt` studioId
@@ -224,9 +224,9 @@ instance Prelude.Hashable CreateLaunchProfile where
 
 instance Prelude.NFData CreateLaunchProfile where
   rnf CreateLaunchProfile' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ec2SubnetIds
       `Prelude.seq` Prelude.rnf studioComponentIds
       `Prelude.seq` Prelude.rnf studioId
@@ -246,8 +246,8 @@ instance Core.ToJSON CreateLaunchProfile where
   toJSON CreateLaunchProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("ec2SubnetIds" Core..= ec2SubnetIds),
             Prelude.Just
               ("studioComponentIds" Core..= studioComponentIds),

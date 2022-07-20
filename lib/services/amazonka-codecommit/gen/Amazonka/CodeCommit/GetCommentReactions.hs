@@ -29,8 +29,8 @@ module Amazonka.CodeCommit.GetCommentReactions
 
     -- * Request Lenses
     getCommentReactions_nextToken,
-    getCommentReactions_reactionUserArn,
     getCommentReactions_maxResults,
+    getCommentReactions_reactionUserArn,
     getCommentReactions_commentId,
 
     -- * Destructuring the Response
@@ -56,12 +56,12 @@ data GetCommentReactions = GetCommentReactions'
   { -- | An enumeration token that, when provided in a request, returns the next
     -- batch of the results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional. The Amazon Resource Name (ARN) of the user or identity for
-    -- which you want to get reaction information.
-    reactionUserArn :: Prelude.Maybe Prelude.Text,
     -- | A non-zero, non-negative integer used to limit the number of returned
     -- results. The default is the same as the allowed maximum, 1,000.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Optional. The Amazon Resource Name (ARN) of the user or identity for
+    -- which you want to get reaction information.
+    reactionUserArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the comment for which you want to get reactions information.
     commentId :: Prelude.Text
   }
@@ -78,11 +78,11 @@ data GetCommentReactions = GetCommentReactions'
 -- 'nextToken', 'getCommentReactions_nextToken' - An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
 --
--- 'reactionUserArn', 'getCommentReactions_reactionUserArn' - Optional. The Amazon Resource Name (ARN) of the user or identity for
--- which you want to get reaction information.
---
 -- 'maxResults', 'getCommentReactions_maxResults' - A non-zero, non-negative integer used to limit the number of returned
 -- results. The default is the same as the allowed maximum, 1,000.
+--
+-- 'reactionUserArn', 'getCommentReactions_reactionUserArn' - Optional. The Amazon Resource Name (ARN) of the user or identity for
+-- which you want to get reaction information.
 --
 -- 'commentId', 'getCommentReactions_commentId' - The ID of the comment for which you want to get reactions information.
 newGetCommentReactions ::
@@ -92,8 +92,8 @@ newGetCommentReactions ::
 newGetCommentReactions pCommentId_ =
   GetCommentReactions'
     { nextToken = Prelude.Nothing,
-      reactionUserArn = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      reactionUserArn = Prelude.Nothing,
       commentId = pCommentId_
     }
 
@@ -102,15 +102,15 @@ newGetCommentReactions pCommentId_ =
 getCommentReactions_nextToken :: Lens.Lens' GetCommentReactions (Prelude.Maybe Prelude.Text)
 getCommentReactions_nextToken = Lens.lens (\GetCommentReactions' {nextToken} -> nextToken) (\s@GetCommentReactions' {} a -> s {nextToken = a} :: GetCommentReactions)
 
--- | Optional. The Amazon Resource Name (ARN) of the user or identity for
--- which you want to get reaction information.
-getCommentReactions_reactionUserArn :: Lens.Lens' GetCommentReactions (Prelude.Maybe Prelude.Text)
-getCommentReactions_reactionUserArn = Lens.lens (\GetCommentReactions' {reactionUserArn} -> reactionUserArn) (\s@GetCommentReactions' {} a -> s {reactionUserArn = a} :: GetCommentReactions)
-
 -- | A non-zero, non-negative integer used to limit the number of returned
 -- results. The default is the same as the allowed maximum, 1,000.
 getCommentReactions_maxResults :: Lens.Lens' GetCommentReactions (Prelude.Maybe Prelude.Int)
 getCommentReactions_maxResults = Lens.lens (\GetCommentReactions' {maxResults} -> maxResults) (\s@GetCommentReactions' {} a -> s {maxResults = a} :: GetCommentReactions)
+
+-- | Optional. The Amazon Resource Name (ARN) of the user or identity for
+-- which you want to get reaction information.
+getCommentReactions_reactionUserArn :: Lens.Lens' GetCommentReactions (Prelude.Maybe Prelude.Text)
+getCommentReactions_reactionUserArn = Lens.lens (\GetCommentReactions' {reactionUserArn} -> reactionUserArn) (\s@GetCommentReactions' {} a -> s {reactionUserArn = a} :: GetCommentReactions)
 
 -- | The ID of the comment for which you want to get reactions information.
 getCommentReactions_commentId :: Lens.Lens' GetCommentReactions Prelude.Text
@@ -135,15 +135,15 @@ instance Core.AWSRequest GetCommentReactions where
 instance Prelude.Hashable GetCommentReactions where
   hashWithSalt _salt GetCommentReactions' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` reactionUserArn
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` reactionUserArn
       `Prelude.hashWithSalt` commentId
 
 instance Prelude.NFData GetCommentReactions where
   rnf GetCommentReactions' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reactionUserArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf reactionUserArn
       `Prelude.seq` Prelude.rnf commentId
 
 instance Core.ToHeaders GetCommentReactions where
@@ -166,9 +166,9 @@ instance Core.ToJSON GetCommentReactions where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("reactionUserArn" Core..=)
               Prelude.<$> reactionUserArn,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("commentId" Core..= commentId)
           ]
       )

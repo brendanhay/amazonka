@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecordOutput' smart constructor.
 data RecordOutput = RecordOutput'
-  { -- | The output value.
-    outputValue :: Prelude.Maybe Prelude.Text,
-    -- | The output key.
+  { -- | The output key.
     outputKey :: Prelude.Maybe Prelude.Text,
     -- | The description of the output.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The output value.
+    outputValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data RecordOutput = RecordOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputValue', 'recordOutput_outputValue' - The output value.
---
 -- 'outputKey', 'recordOutput_outputKey' - The output key.
 --
 -- 'description', 'recordOutput_description' - The description of the output.
+--
+-- 'outputValue', 'recordOutput_outputValue' - The output value.
 newRecordOutput ::
   RecordOutput
 newRecordOutput =
   RecordOutput'
-    { outputValue = Prelude.Nothing,
-      outputKey = Prelude.Nothing,
-      description = Prelude.Nothing
+    { outputKey = Prelude.Nothing,
+      description = Prelude.Nothing,
+      outputValue = Prelude.Nothing
     }
-
--- | The output value.
-recordOutput_outputValue :: Lens.Lens' RecordOutput (Prelude.Maybe Prelude.Text)
-recordOutput_outputValue = Lens.lens (\RecordOutput' {outputValue} -> outputValue) (\s@RecordOutput' {} a -> s {outputValue = a} :: RecordOutput)
 
 -- | The output key.
 recordOutput_outputKey :: Lens.Lens' RecordOutput (Prelude.Maybe Prelude.Text)
@@ -72,25 +68,29 @@ recordOutput_outputKey = Lens.lens (\RecordOutput' {outputKey} -> outputKey) (\s
 recordOutput_description :: Lens.Lens' RecordOutput (Prelude.Maybe Prelude.Text)
 recordOutput_description = Lens.lens (\RecordOutput' {description} -> description) (\s@RecordOutput' {} a -> s {description = a} :: RecordOutput)
 
+-- | The output value.
+recordOutput_outputValue :: Lens.Lens' RecordOutput (Prelude.Maybe Prelude.Text)
+recordOutput_outputValue = Lens.lens (\RecordOutput' {outputValue} -> outputValue) (\s@RecordOutput' {} a -> s {outputValue = a} :: RecordOutput)
+
 instance Core.FromJSON RecordOutput where
   parseJSON =
     Core.withObject
       "RecordOutput"
       ( \x ->
           RecordOutput'
-            Prelude.<$> (x Core..:? "OutputValue")
-            Prelude.<*> (x Core..:? "OutputKey")
+            Prelude.<$> (x Core..:? "OutputKey")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "OutputValue")
       )
 
 instance Prelude.Hashable RecordOutput where
   hashWithSalt _salt RecordOutput' {..} =
-    _salt `Prelude.hashWithSalt` outputValue
-      `Prelude.hashWithSalt` outputKey
+    _salt `Prelude.hashWithSalt` outputKey
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` outputValue
 
 instance Prelude.NFData RecordOutput where
   rnf RecordOutput' {..} =
-    Prelude.rnf outputValue
-      `Prelude.seq` Prelude.rnf outputKey
+    Prelude.rnf outputKey
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf outputValue

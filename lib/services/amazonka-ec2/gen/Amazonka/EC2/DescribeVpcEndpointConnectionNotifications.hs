@@ -30,9 +30,9 @@ module Amazonka.EC2.DescribeVpcEndpointConnectionNotifications
     newDescribeVpcEndpointConnectionNotifications,
 
     -- * Request Lenses
-    describeVpcEndpointConnectionNotifications_filters,
-    describeVpcEndpointConnectionNotifications_nextToken,
     describeVpcEndpointConnectionNotifications_connectionNotificationId,
+    describeVpcEndpointConnectionNotifications_nextToken,
+    describeVpcEndpointConnectionNotifications_filters,
     describeVpcEndpointConnectionNotifications_dryRun,
     describeVpcEndpointConnectionNotifications_maxResults,
 
@@ -41,8 +41,8 @@ module Amazonka.EC2.DescribeVpcEndpointConnectionNotifications
     newDescribeVpcEndpointConnectionNotificationsResponse,
 
     -- * Response Lenses
-    describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet,
     describeVpcEndpointConnectionNotificationsResponse_nextToken,
+    describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet,
     describeVpcEndpointConnectionNotificationsResponse_httpStatus,
   )
 where
@@ -56,7 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVpcEndpointConnectionNotifications' smart constructor.
 data DescribeVpcEndpointConnectionNotifications = DescribeVpcEndpointConnectionNotifications'
-  { -- | One or more filters.
+  { -- | The ID of the notification.
+    connectionNotificationId :: Prelude.Maybe Prelude.Text,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @connection-notification-arn@ - The ARN of the SNS topic for the
     --     notification.
@@ -72,10 +76,6 @@ data DescribeVpcEndpointConnectionNotifications = DescribeVpcEndpointConnectionN
     --
     -- -   @vpc-endpoint-id@ - The ID of the VPC endpoint.
     filters :: Prelude.Maybe [Filter],
-    -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the notification.
-    connectionNotificationId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -96,6 +96,10 @@ data DescribeVpcEndpointConnectionNotifications = DescribeVpcEndpointConnectionN
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionNotificationId', 'describeVpcEndpointConnectionNotifications_connectionNotificationId' - The ID of the notification.
+--
+-- 'nextToken', 'describeVpcEndpointConnectionNotifications_nextToken' - The token to request the next page of results.
+--
 -- 'filters', 'describeVpcEndpointConnectionNotifications_filters' - One or more filters.
 --
 -- -   @connection-notification-arn@ - The ARN of the SNS topic for the
@@ -112,10 +116,6 @@ data DescribeVpcEndpointConnectionNotifications = DescribeVpcEndpointConnectionN
 --
 -- -   @vpc-endpoint-id@ - The ID of the VPC endpoint.
 --
--- 'nextToken', 'describeVpcEndpointConnectionNotifications_nextToken' - The token to request the next page of results.
---
--- 'connectionNotificationId', 'describeVpcEndpointConnectionNotifications_connectionNotificationId' - The ID of the notification.
---
 -- 'dryRun', 'describeVpcEndpointConnectionNotifications_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -128,14 +128,21 @@ newDescribeVpcEndpointConnectionNotifications ::
   DescribeVpcEndpointConnectionNotifications
 newDescribeVpcEndpointConnectionNotifications =
   DescribeVpcEndpointConnectionNotifications'
-    { filters =
+    { connectionNotificationId =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      connectionNotificationId =
-        Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The ID of the notification.
+describeVpcEndpointConnectionNotifications_connectionNotificationId :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Text)
+describeVpcEndpointConnectionNotifications_connectionNotificationId = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {connectionNotificationId} -> connectionNotificationId) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {connectionNotificationId = a} :: DescribeVpcEndpointConnectionNotifications)
+
+-- | The token to request the next page of results.
+describeVpcEndpointConnectionNotifications_nextToken :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Text)
+describeVpcEndpointConnectionNotifications_nextToken = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnectionNotifications)
 
 -- | One or more filters.
 --
@@ -154,14 +161,6 @@ newDescribeVpcEndpointConnectionNotifications =
 -- -   @vpc-endpoint-id@ - The ID of the VPC endpoint.
 describeVpcEndpointConnectionNotifications_filters :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe [Filter])
 describeVpcEndpointConnectionNotifications_filters = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {filters} -> filters) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {filters = a} :: DescribeVpcEndpointConnectionNotifications) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to request the next page of results.
-describeVpcEndpointConnectionNotifications_nextToken :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Text)
-describeVpcEndpointConnectionNotifications_nextToken = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnectionNotifications)
-
--- | The ID of the notification.
-describeVpcEndpointConnectionNotifications_connectionNotificationId :: Lens.Lens' DescribeVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Text)
-describeVpcEndpointConnectionNotifications_connectionNotificationId = Lens.lens (\DescribeVpcEndpointConnectionNotifications' {connectionNotificationId} -> connectionNotificationId) (\s@DescribeVpcEndpointConnectionNotifications' {} a -> s {connectionNotificationId = a} :: DescribeVpcEndpointConnectionNotifications)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -214,11 +213,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeVpcEndpointConnectionNotificationsResponse'
-            Prelude.<$> ( x Core..@? "connectionNotificationSet"
-                            Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
-                        )
-              Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "connectionNotificationSet"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -229,9 +228,10 @@ instance
   hashWithSalt
     _salt
     DescribeVpcEndpointConnectionNotifications' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt
         `Prelude.hashWithSalt` connectionNotificationId
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
 
@@ -240,9 +240,9 @@ instance
     DescribeVpcEndpointConnectionNotifications
   where
   rnf DescribeVpcEndpointConnectionNotifications' {..} =
-    Prelude.rnf filters
+    Prelude.rnf connectionNotificationId
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf connectionNotificationId
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -271,22 +271,22 @@ instance
                     ),
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
-          Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-          "NextToken" Core.=: nextToken,
           "ConnectionNotificationId"
             Core.=: connectionNotificationId,
+          "NextToken" Core.=: nextToken,
+          Core.toQuery
+            (Core.toQueryList "Filter" Prelude.<$> filters),
           "DryRun" Core.=: dryRun,
           "MaxResults" Core.=: maxResults
         ]
 
 -- | /See:/ 'newDescribeVpcEndpointConnectionNotificationsResponse' smart constructor.
 data DescribeVpcEndpointConnectionNotificationsResponse = DescribeVpcEndpointConnectionNotificationsResponse'
-  { -- | One or more notifications.
-    connectionNotificationSet :: Prelude.Maybe [ConnectionNotification],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more notifications.
+    connectionNotificationSet :: Prelude.Maybe [ConnectionNotification],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -300,10 +300,10 @@ data DescribeVpcEndpointConnectionNotificationsResponse = DescribeVpcEndpointCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionNotificationSet', 'describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet' - One or more notifications.
---
 -- 'nextToken', 'describeVpcEndpointConnectionNotificationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'connectionNotificationSet', 'describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet' - One or more notifications.
 --
 -- 'httpStatus', 'describeVpcEndpointConnectionNotificationsResponse_httpStatus' - The response's http status code.
 newDescribeVpcEndpointConnectionNotificationsResponse ::
@@ -313,22 +313,22 @@ newDescribeVpcEndpointConnectionNotificationsResponse ::
 newDescribeVpcEndpointConnectionNotificationsResponse
   pHttpStatus_ =
     DescribeVpcEndpointConnectionNotificationsResponse'
-      { connectionNotificationSet =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        connectionNotificationSet =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | One or more notifications.
-describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet :: Lens.Lens' DescribeVpcEndpointConnectionNotificationsResponse (Prelude.Maybe [ConnectionNotification])
-describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet = Lens.lens (\DescribeVpcEndpointConnectionNotificationsResponse' {connectionNotificationSet} -> connectionNotificationSet) (\s@DescribeVpcEndpointConnectionNotificationsResponse' {} a -> s {connectionNotificationSet = a} :: DescribeVpcEndpointConnectionNotificationsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeVpcEndpointConnectionNotificationsResponse_nextToken :: Lens.Lens' DescribeVpcEndpointConnectionNotificationsResponse (Prelude.Maybe Prelude.Text)
 describeVpcEndpointConnectionNotificationsResponse_nextToken = Lens.lens (\DescribeVpcEndpointConnectionNotificationsResponse' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnectionNotificationsResponse' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnectionNotificationsResponse)
+
+-- | One or more notifications.
+describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet :: Lens.Lens' DescribeVpcEndpointConnectionNotificationsResponse (Prelude.Maybe [ConnectionNotification])
+describeVpcEndpointConnectionNotificationsResponse_connectionNotificationSet = Lens.lens (\DescribeVpcEndpointConnectionNotificationsResponse' {connectionNotificationSet} -> connectionNotificationSet) (\s@DescribeVpcEndpointConnectionNotificationsResponse' {} a -> s {connectionNotificationSet = a} :: DescribeVpcEndpointConnectionNotificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVpcEndpointConnectionNotificationsResponse_httpStatus :: Lens.Lens' DescribeVpcEndpointConnectionNotificationsResponse Prelude.Int
@@ -340,6 +340,6 @@ instance
   where
   rnf
     DescribeVpcEndpointConnectionNotificationsResponse' {..} =
-      Prelude.rnf connectionNotificationSet
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf connectionNotificationSet
         `Prelude.seq` Prelude.rnf httpStatus

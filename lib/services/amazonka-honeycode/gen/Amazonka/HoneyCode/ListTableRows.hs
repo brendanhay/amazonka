@@ -30,8 +30,8 @@ module Amazonka.HoneyCode.ListTableRows
     newListTableRows,
 
     -- * Request Lenses
-    listTableRows_rowIds,
     listTableRows_nextToken,
+    listTableRows_rowIds,
     listTableRows_maxResults,
     listTableRows_workbookId,
     listTableRows_tableId,
@@ -41,8 +41,8 @@ module Amazonka.HoneyCode.ListTableRows
     newListTableRowsResponse,
 
     -- * Response Lenses
-    listTableRowsResponse_rowIdsNotFound,
     listTableRowsResponse_nextToken,
+    listTableRowsResponse_rowIdsNotFound,
     listTableRowsResponse_httpStatus,
     listTableRowsResponse_columnIds,
     listTableRowsResponse_rows,
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTableRows' smart constructor.
 data ListTableRows = ListTableRows'
-  { -- | This parameter is optional. If one or more row ids are specified in this
-    -- list, then only the specified row ids are returned in the result. If no
-    -- row ids are specified here, then all the rows in the table are returned.
-    rowIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | This parameter is optional. If a nextToken is not specified, the API
+  { -- | This parameter is optional. If a nextToken is not specified, the API
     -- returns the first page of data.
     --
     -- Pagination tokens expire after 1 hour. If you use a token that was
     -- returned more than an hour back, the API will throw ValidationException.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is optional. If one or more row ids are specified in this
+    -- list, then only the specified row ids are returned in the result. If no
+    -- row ids are specified here, then all the rows in the table are returned.
+    rowIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of rows to return in each page of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the workbook that contains the table whose rows are being
@@ -93,15 +93,15 @@ data ListTableRows = ListTableRows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rowIds', 'listTableRows_rowIds' - This parameter is optional. If one or more row ids are specified in this
--- list, then only the specified row ids are returned in the result. If no
--- row ids are specified here, then all the rows in the table are returned.
---
 -- 'nextToken', 'listTableRows_nextToken' - This parameter is optional. If a nextToken is not specified, the API
 -- returns the first page of data.
 --
 -- Pagination tokens expire after 1 hour. If you use a token that was
 -- returned more than an hour back, the API will throw ValidationException.
+--
+-- 'rowIds', 'listTableRows_rowIds' - This parameter is optional. If one or more row ids are specified in this
+-- list, then only the specified row ids are returned in the result. If no
+-- row ids are specified here, then all the rows in the table are returned.
 --
 -- 'maxResults', 'listTableRows_maxResults' - The maximum number of rows to return in each page of the results.
 --
@@ -123,18 +123,12 @@ newListTableRows ::
   ListTableRows
 newListTableRows pWorkbookId_ pTableId_ =
   ListTableRows'
-    { rowIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      rowIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       workbookId = pWorkbookId_,
       tableId = pTableId_
     }
-
--- | This parameter is optional. If one or more row ids are specified in this
--- list, then only the specified row ids are returned in the result. If no
--- row ids are specified here, then all the rows in the table are returned.
-listTableRows_rowIds :: Lens.Lens' ListTableRows (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listTableRows_rowIds = Lens.lens (\ListTableRows' {rowIds} -> rowIds) (\s@ListTableRows' {} a -> s {rowIds = a} :: ListTableRows) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter is optional. If a nextToken is not specified, the API
 -- returns the first page of data.
@@ -143,6 +137,12 @@ listTableRows_rowIds = Lens.lens (\ListTableRows' {rowIds} -> rowIds) (\s@ListTa
 -- returned more than an hour back, the API will throw ValidationException.
 listTableRows_nextToken :: Lens.Lens' ListTableRows (Prelude.Maybe Prelude.Text)
 listTableRows_nextToken = Lens.lens (\ListTableRows' {nextToken} -> nextToken) (\s@ListTableRows' {} a -> s {nextToken = a} :: ListTableRows)
+
+-- | This parameter is optional. If one or more row ids are specified in this
+-- list, then only the specified row ids are returned in the result. If no
+-- row ids are specified here, then all the rows in the table are returned.
+listTableRows_rowIds :: Lens.Lens' ListTableRows (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listTableRows_rowIds = Lens.lens (\ListTableRows' {rowIds} -> rowIds) (\s@ListTableRows' {} a -> s {rowIds = a} :: ListTableRows) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of rows to return in each page of the results.
 listTableRows_maxResults :: Lens.Lens' ListTableRows (Prelude.Maybe Prelude.Natural)
@@ -188,8 +188,8 @@ instance Core.AWSRequest ListTableRows where
     Response.receiveJSON
       ( \s h x ->
           ListTableRowsResponse'
-            Prelude.<$> (x Core..?> "rowIdsNotFound")
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "rowIdsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "columnIds")
             Prelude.<*> (x Core..?> "rows" Core..!@ Prelude.mempty)
@@ -198,16 +198,16 @@ instance Core.AWSRequest ListTableRows where
 
 instance Prelude.Hashable ListTableRows where
   hashWithSalt _salt ListTableRows' {..} =
-    _salt `Prelude.hashWithSalt` rowIds
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` rowIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` tableId
 
 instance Prelude.NFData ListTableRows where
   rnf ListTableRows' {..} =
-    Prelude.rnf rowIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf rowIds
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workbookId
       `Prelude.seq` Prelude.rnf tableId
@@ -227,8 +227,8 @@ instance Core.ToJSON ListTableRows where
   toJSON ListTableRows' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rowIds" Core..=) Prelude.<$> rowIds,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("rowIds" Core..=) Prelude.<$> rowIds,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -248,14 +248,14 @@ instance Core.ToQuery ListTableRows where
 
 -- | /See:/ 'newListTableRowsResponse' smart constructor.
 data ListTableRowsResponse = ListTableRowsResponse'
-  { -- | The list of row ids included in the request that were not found in the
-    -- table.
-    rowIdsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Provides the pagination token to load the next page if there are more
+  { -- | Provides the pagination token to load the next page if there are more
     -- results matching the request. If a pagination token is not present in
     -- the response, it means that all data matching the request has been
     -- loaded.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of row ids included in the request that were not found in the
+    -- table.
+    rowIdsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The list of columns in the table whose row data is returned in the
@@ -279,13 +279,13 @@ data ListTableRowsResponse = ListTableRowsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rowIdsNotFound', 'listTableRowsResponse_rowIdsNotFound' - The list of row ids included in the request that were not found in the
--- table.
---
 -- 'nextToken', 'listTableRowsResponse_nextToken' - Provides the pagination token to load the next page if there are more
 -- results matching the request. If a pagination token is not present in
 -- the response, it means that all data matching the request has been
 -- loaded.
+--
+-- 'rowIdsNotFound', 'listTableRowsResponse_rowIdsNotFound' - The list of row ids included in the request that were not found in the
+-- table.
 --
 -- 'httpStatus', 'listTableRowsResponse_httpStatus' - The response's http status code.
 --
@@ -311,19 +311,13 @@ newListTableRowsResponse
   pColumnIds_
   pWorkbookCursor_ =
     ListTableRowsResponse'
-      { rowIdsNotFound =
-          Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+      { nextToken = Prelude.Nothing,
+        rowIdsNotFound = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         columnIds = Lens.coerced Lens.# pColumnIds_,
         rows = Prelude.mempty,
         workbookCursor = pWorkbookCursor_
       }
-
--- | The list of row ids included in the request that were not found in the
--- table.
-listTableRowsResponse_rowIdsNotFound :: Lens.Lens' ListTableRowsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listTableRowsResponse_rowIdsNotFound = Lens.lens (\ListTableRowsResponse' {rowIdsNotFound} -> rowIdsNotFound) (\s@ListTableRowsResponse' {} a -> s {rowIdsNotFound = a} :: ListTableRowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Provides the pagination token to load the next page if there are more
 -- results matching the request. If a pagination token is not present in
@@ -331,6 +325,11 @@ listTableRowsResponse_rowIdsNotFound = Lens.lens (\ListTableRowsResponse' {rowId
 -- loaded.
 listTableRowsResponse_nextToken :: Lens.Lens' ListTableRowsResponse (Prelude.Maybe Prelude.Text)
 listTableRowsResponse_nextToken = Lens.lens (\ListTableRowsResponse' {nextToken} -> nextToken) (\s@ListTableRowsResponse' {} a -> s {nextToken = a} :: ListTableRowsResponse)
+
+-- | The list of row ids included in the request that were not found in the
+-- table.
+listTableRowsResponse_rowIdsNotFound :: Lens.Lens' ListTableRowsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listTableRowsResponse_rowIdsNotFound = Lens.lens (\ListTableRowsResponse' {rowIdsNotFound} -> rowIdsNotFound) (\s@ListTableRowsResponse' {} a -> s {rowIdsNotFound = a} :: ListTableRowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTableRowsResponse_httpStatus :: Lens.Lens' ListTableRowsResponse Prelude.Int
@@ -354,8 +353,8 @@ listTableRowsResponse_workbookCursor = Lens.lens (\ListTableRowsResponse' {workb
 
 instance Prelude.NFData ListTableRowsResponse where
   rnf ListTableRowsResponse' {..} =
-    Prelude.rnf rowIdsNotFound
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf rowIdsNotFound
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf columnIds
       `Prelude.seq` Prelude.rnf rows

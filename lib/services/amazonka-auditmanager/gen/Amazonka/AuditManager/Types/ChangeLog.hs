@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeLog' smart constructor.
 data ChangeLog = ChangeLog'
-  { -- | The name of the changelog object.
+  { -- | The action performed.
+    action :: Prelude.Maybe ActionEnum,
+    -- | The name of the changelog object.
     objectName :: Prelude.Maybe Prelude.Text,
+    -- | The IAM user or role that performed the action.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The time of creation for the changelog object.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The changelog object type, such as an assessment, control, or control
     -- set.
-    objectType :: Prelude.Maybe ObjectTypeEnum,
-    -- | The IAM user or role that performed the action.
-    createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The action performed.
-    action :: Prelude.Maybe ActionEnum
+    objectType :: Prelude.Maybe ObjectTypeEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,38 @@ data ChangeLog = ChangeLog'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'action', 'changeLog_action' - The action performed.
+--
 -- 'objectName', 'changeLog_objectName' - The name of the changelog object.
+--
+-- 'createdBy', 'changeLog_createdBy' - The IAM user or role that performed the action.
 --
 -- 'createdAt', 'changeLog_createdAt' - The time of creation for the changelog object.
 --
 -- 'objectType', 'changeLog_objectType' - The changelog object type, such as an assessment, control, or control
 -- set.
---
--- 'createdBy', 'changeLog_createdBy' - The IAM user or role that performed the action.
---
--- 'action', 'changeLog_action' - The action performed.
 newChangeLog ::
   ChangeLog
 newChangeLog =
   ChangeLog'
-    { objectName = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      objectType = Prelude.Nothing,
+    { action = Prelude.Nothing,
+      objectName = Prelude.Nothing,
       createdBy = Prelude.Nothing,
-      action = Prelude.Nothing
+      createdAt = Prelude.Nothing,
+      objectType = Prelude.Nothing
     }
+
+-- | The action performed.
+changeLog_action :: Lens.Lens' ChangeLog (Prelude.Maybe ActionEnum)
+changeLog_action = Lens.lens (\ChangeLog' {action} -> action) (\s@ChangeLog' {} a -> s {action = a} :: ChangeLog)
 
 -- | The name of the changelog object.
 changeLog_objectName :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.Text)
 changeLog_objectName = Lens.lens (\ChangeLog' {objectName} -> objectName) (\s@ChangeLog' {} a -> s {objectName = a} :: ChangeLog)
+
+-- | The IAM user or role that performed the action.
+changeLog_createdBy :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.Text)
+changeLog_createdBy = Lens.lens (\ChangeLog' {createdBy} -> createdBy) (\s@ChangeLog' {} a -> s {createdBy = a} :: ChangeLog)
 
 -- | The time of creation for the changelog object.
 changeLog_createdAt :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.UTCTime)
@@ -86,39 +94,31 @@ changeLog_createdAt = Lens.lens (\ChangeLog' {createdAt} -> createdAt) (\s@Chang
 changeLog_objectType :: Lens.Lens' ChangeLog (Prelude.Maybe ObjectTypeEnum)
 changeLog_objectType = Lens.lens (\ChangeLog' {objectType} -> objectType) (\s@ChangeLog' {} a -> s {objectType = a} :: ChangeLog)
 
--- | The IAM user or role that performed the action.
-changeLog_createdBy :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.Text)
-changeLog_createdBy = Lens.lens (\ChangeLog' {createdBy} -> createdBy) (\s@ChangeLog' {} a -> s {createdBy = a} :: ChangeLog)
-
--- | The action performed.
-changeLog_action :: Lens.Lens' ChangeLog (Prelude.Maybe ActionEnum)
-changeLog_action = Lens.lens (\ChangeLog' {action} -> action) (\s@ChangeLog' {} a -> s {action = a} :: ChangeLog)
-
 instance Core.FromJSON ChangeLog where
   parseJSON =
     Core.withObject
       "ChangeLog"
       ( \x ->
           ChangeLog'
-            Prelude.<$> (x Core..:? "objectName")
+            Prelude.<$> (x Core..:? "action")
+            Prelude.<*> (x Core..:? "objectName")
+            Prelude.<*> (x Core..:? "createdBy")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "objectType")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "action")
       )
 
 instance Prelude.Hashable ChangeLog where
   hashWithSalt _salt ChangeLog' {..} =
-    _salt `Prelude.hashWithSalt` objectName
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` objectName
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` objectType
-      `Prelude.hashWithSalt` createdBy
-      `Prelude.hashWithSalt` action
 
 instance Prelude.NFData ChangeLog where
   rnf ChangeLog' {..} =
-    Prelude.rnf objectName
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf objectName
+      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf objectType
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf action

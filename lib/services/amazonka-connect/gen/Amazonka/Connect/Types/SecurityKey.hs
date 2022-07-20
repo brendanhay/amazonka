@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecurityKey' smart constructor.
 data SecurityKey = SecurityKey'
-  { -- | When the security key was created.
+  { -- | The key of the security key.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | When the security key was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Prelude.Maybe Prelude.Text,
-    -- | The key of the security key.
-    key :: Prelude.Maybe Prelude.Text
+    associationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,24 @@ data SecurityKey = SecurityKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 'securityKey_key' - The key of the security key.
+--
 -- 'creationTime', 'securityKey_creationTime' - When the security key was created.
 --
 -- 'associationId', 'securityKey_associationId' - The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
---
--- 'key', 'securityKey_key' - The key of the security key.
 newSecurityKey ::
   SecurityKey
 newSecurityKey =
   SecurityKey'
-    { creationTime = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      associationId = Prelude.Nothing
     }
+
+-- | The key of the security key.
+securityKey_key :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.Text)
+securityKey_key = Lens.lens (\SecurityKey' {key} -> key) (\s@SecurityKey' {} a -> s {key = a} :: SecurityKey)
 
 -- | When the security key was created.
 securityKey_creationTime :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.UTCTime)
@@ -69,29 +73,25 @@ securityKey_creationTime = Lens.lens (\SecurityKey' {creationTime} -> creationTi
 securityKey_associationId :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.Text)
 securityKey_associationId = Lens.lens (\SecurityKey' {associationId} -> associationId) (\s@SecurityKey' {} a -> s {associationId = a} :: SecurityKey)
 
--- | The key of the security key.
-securityKey_key :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.Text)
-securityKey_key = Lens.lens (\SecurityKey' {key} -> key) (\s@SecurityKey' {} a -> s {key = a} :: SecurityKey)
-
 instance Core.FromJSON SecurityKey where
   parseJSON =
     Core.withObject
       "SecurityKey"
       ( \x ->
           SecurityKey'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "Key")
       )
 
 instance Prelude.Hashable SecurityKey where
   hashWithSalt _salt SecurityKey' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` associationId
-      `Prelude.hashWithSalt` key
 
 instance Prelude.NFData SecurityKey where
   rnf SecurityKey' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf key

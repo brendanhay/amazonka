@@ -38,8 +38,8 @@ module Amazonka.CloudDirectory.ListDevelopmentSchemaArns
     newListDevelopmentSchemaArnsResponse,
 
     -- * Response Lenses
-    listDevelopmentSchemaArnsResponse_schemaArns,
     listDevelopmentSchemaArnsResponse_nextToken,
+    listDevelopmentSchemaArnsResponse_schemaArns,
     listDevelopmentSchemaArnsResponse_httpStatus,
   )
 where
@@ -119,8 +119,8 @@ instance Core.AWSRequest ListDevelopmentSchemaArns where
     Response.receiveJSON
       ( \s h x ->
           ListDevelopmentSchemaArnsResponse'
-            Prelude.<$> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,10 +156,10 @@ instance Core.ToQuery ListDevelopmentSchemaArns where
 
 -- | /See:/ 'newListDevelopmentSchemaArnsResponse' smart constructor.
 data ListDevelopmentSchemaArnsResponse = ListDevelopmentSchemaArnsResponse'
-  { -- | The ARNs of retrieved development schemas.
-    schemaArns :: Prelude.Maybe [Prelude.Text],
-    -- | The pagination token.
+  { -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs of retrieved development schemas.
+    schemaArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +173,9 @@ data ListDevelopmentSchemaArnsResponse = ListDevelopmentSchemaArnsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaArns', 'listDevelopmentSchemaArnsResponse_schemaArns' - The ARNs of retrieved development schemas.
---
 -- 'nextToken', 'listDevelopmentSchemaArnsResponse_nextToken' - The pagination token.
+--
+-- 'schemaArns', 'listDevelopmentSchemaArnsResponse_schemaArns' - The ARNs of retrieved development schemas.
 --
 -- 'httpStatus', 'listDevelopmentSchemaArnsResponse_httpStatus' - The response's http status code.
 newListDevelopmentSchemaArnsResponse ::
@@ -184,19 +184,19 @@ newListDevelopmentSchemaArnsResponse ::
   ListDevelopmentSchemaArnsResponse
 newListDevelopmentSchemaArnsResponse pHttpStatus_ =
   ListDevelopmentSchemaArnsResponse'
-    { schemaArns =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      schemaArns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARNs of retrieved development schemas.
-listDevelopmentSchemaArnsResponse_schemaArns :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
-listDevelopmentSchemaArnsResponse_schemaArns = Lens.lens (\ListDevelopmentSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListDevelopmentSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 listDevelopmentSchemaArnsResponse_nextToken :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Prelude.Maybe Prelude.Text)
 listDevelopmentSchemaArnsResponse_nextToken = Lens.lens (\ListDevelopmentSchemaArnsResponse' {nextToken} -> nextToken) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {nextToken = a} :: ListDevelopmentSchemaArnsResponse)
+
+-- | The ARNs of retrieved development schemas.
+listDevelopmentSchemaArnsResponse_schemaArns :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
+listDevelopmentSchemaArnsResponse_schemaArns = Lens.lens (\ListDevelopmentSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListDevelopmentSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDevelopmentSchemaArnsResponse_httpStatus :: Lens.Lens' ListDevelopmentSchemaArnsResponse Prelude.Int
@@ -207,6 +207,6 @@ instance
     ListDevelopmentSchemaArnsResponse
   where
   rnf ListDevelopmentSchemaArnsResponse' {..} =
-    Prelude.rnf schemaArns
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaArns
       `Prelude.seq` Prelude.rnf httpStatus

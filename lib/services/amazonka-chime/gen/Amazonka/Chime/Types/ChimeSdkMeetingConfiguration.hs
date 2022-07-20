@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChimeSdkMeetingConfiguration' smart constructor.
 data ChimeSdkMeetingConfiguration = ChimeSdkMeetingConfiguration'
-  { -- | The configuration for the artifacts in an Amazon Chime SDK meeting.
-    artifactsConfiguration :: Prelude.Maybe ArtifactsConfiguration,
-    -- | The source configuration for a specified media capture pipline.
-    sourceConfiguration :: Prelude.Maybe SourceConfiguration
+  { -- | The source configuration for a specified media capture pipline.
+    sourceConfiguration :: Prelude.Maybe SourceConfiguration,
+    -- | The configuration for the artifacts in an Amazon Chime SDK meeting.
+    artifactsConfiguration :: Prelude.Maybe ArtifactsConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data ChimeSdkMeetingConfiguration = ChimeSdkMeetingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'artifactsConfiguration', 'chimeSdkMeetingConfiguration_artifactsConfiguration' - The configuration for the artifacts in an Amazon Chime SDK meeting.
---
 -- 'sourceConfiguration', 'chimeSdkMeetingConfiguration_sourceConfiguration' - The source configuration for a specified media capture pipline.
+--
+-- 'artifactsConfiguration', 'chimeSdkMeetingConfiguration_artifactsConfiguration' - The configuration for the artifacts in an Amazon Chime SDK meeting.
 newChimeSdkMeetingConfiguration ::
   ChimeSdkMeetingConfiguration
 newChimeSdkMeetingConfiguration =
   ChimeSdkMeetingConfiguration'
-    { artifactsConfiguration =
+    { sourceConfiguration =
         Prelude.Nothing,
-      sourceConfiguration = Prelude.Nothing
+      artifactsConfiguration = Prelude.Nothing
     }
-
--- | The configuration for the artifacts in an Amazon Chime SDK meeting.
-chimeSdkMeetingConfiguration_artifactsConfiguration :: Lens.Lens' ChimeSdkMeetingConfiguration (Prelude.Maybe ArtifactsConfiguration)
-chimeSdkMeetingConfiguration_artifactsConfiguration = Lens.lens (\ChimeSdkMeetingConfiguration' {artifactsConfiguration} -> artifactsConfiguration) (\s@ChimeSdkMeetingConfiguration' {} a -> s {artifactsConfiguration = a} :: ChimeSdkMeetingConfiguration)
 
 -- | The source configuration for a specified media capture pipline.
 chimeSdkMeetingConfiguration_sourceConfiguration :: Lens.Lens' ChimeSdkMeetingConfiguration (Prelude.Maybe SourceConfiguration)
 chimeSdkMeetingConfiguration_sourceConfiguration = Lens.lens (\ChimeSdkMeetingConfiguration' {sourceConfiguration} -> sourceConfiguration) (\s@ChimeSdkMeetingConfiguration' {} a -> s {sourceConfiguration = a} :: ChimeSdkMeetingConfiguration)
+
+-- | The configuration for the artifacts in an Amazon Chime SDK meeting.
+chimeSdkMeetingConfiguration_artifactsConfiguration :: Lens.Lens' ChimeSdkMeetingConfiguration (Prelude.Maybe ArtifactsConfiguration)
+chimeSdkMeetingConfiguration_artifactsConfiguration = Lens.lens (\ChimeSdkMeetingConfiguration' {artifactsConfiguration} -> artifactsConfiguration) (\s@ChimeSdkMeetingConfiguration' {} a -> s {artifactsConfiguration = a} :: ChimeSdkMeetingConfiguration)
 
 instance Core.FromJSON ChimeSdkMeetingConfiguration where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON ChimeSdkMeetingConfiguration where
       "ChimeSdkMeetingConfiguration"
       ( \x ->
           ChimeSdkMeetingConfiguration'
-            Prelude.<$> (x Core..:? "ArtifactsConfiguration")
-            Prelude.<*> (x Core..:? "SourceConfiguration")
+            Prelude.<$> (x Core..:? "SourceConfiguration")
+            Prelude.<*> (x Core..:? "ArtifactsConfiguration")
       )
 
 instance
@@ -80,21 +80,21 @@ instance
     ChimeSdkMeetingConfiguration
   where
   hashWithSalt _salt ChimeSdkMeetingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` artifactsConfiguration
-      `Prelude.hashWithSalt` sourceConfiguration
+    _salt `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` artifactsConfiguration
 
 instance Prelude.NFData ChimeSdkMeetingConfiguration where
   rnf ChimeSdkMeetingConfiguration' {..} =
-    Prelude.rnf artifactsConfiguration
-      `Prelude.seq` Prelude.rnf sourceConfiguration
+    Prelude.rnf sourceConfiguration
+      `Prelude.seq` Prelude.rnf artifactsConfiguration
 
 instance Core.ToJSON ChimeSdkMeetingConfiguration where
   toJSON ChimeSdkMeetingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ArtifactsConfiguration" Core..=)
-              Prelude.<$> artifactsConfiguration,
-            ("SourceConfiguration" Core..=)
-              Prelude.<$> sourceConfiguration
+          [ ("SourceConfiguration" Core..=)
+              Prelude.<$> sourceConfiguration,
+            ("ArtifactsConfiguration" Core..=)
+              Prelude.<$> artifactsConfiguration
           ]
       )

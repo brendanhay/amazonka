@@ -27,8 +27,8 @@ module Amazonka.Location.UpdateMap
     newUpdateMap,
 
     -- * Request Lenses
-    updateMap_pricingPlan,
     updateMap_description,
+    updateMap_pricingPlan,
     updateMap_mapName,
 
     -- * Destructuring the Response
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateMap' smart constructor.
 data UpdateMap = UpdateMap'
-  { -- | Updates the pricing plan for the map resource.
+  { -- | Updates the description for the map resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Updates the pricing plan for the map resource.
     --
     -- For more information about each pricing plan option restrictions, see
     -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
     pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | Updates the description for the map resource.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the map resource to update.
     mapName :: Prelude.Text
   }
@@ -72,12 +72,12 @@ data UpdateMap = UpdateMap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateMap_description' - Updates the description for the map resource.
+--
 -- 'pricingPlan', 'updateMap_pricingPlan' - Updates the pricing plan for the map resource.
 --
 -- For more information about each pricing plan option restrictions, see
 -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
---
--- 'description', 'updateMap_description' - Updates the description for the map resource.
 --
 -- 'mapName', 'updateMap_mapName' - The name of the map resource to update.
 newUpdateMap ::
@@ -86,10 +86,14 @@ newUpdateMap ::
   UpdateMap
 newUpdateMap pMapName_ =
   UpdateMap'
-    { pricingPlan = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       mapName = pMapName_
     }
+
+-- | Updates the description for the map resource.
+updateMap_description :: Lens.Lens' UpdateMap (Prelude.Maybe Prelude.Text)
+updateMap_description = Lens.lens (\UpdateMap' {description} -> description) (\s@UpdateMap' {} a -> s {description = a} :: UpdateMap)
 
 -- | Updates the pricing plan for the map resource.
 --
@@ -97,10 +101,6 @@ newUpdateMap pMapName_ =
 -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
 updateMap_pricingPlan :: Lens.Lens' UpdateMap (Prelude.Maybe PricingPlan)
 updateMap_pricingPlan = Lens.lens (\UpdateMap' {pricingPlan} -> pricingPlan) (\s@UpdateMap' {} a -> s {pricingPlan = a} :: UpdateMap)
-
--- | Updates the description for the map resource.
-updateMap_description :: Lens.Lens' UpdateMap (Prelude.Maybe Prelude.Text)
-updateMap_description = Lens.lens (\UpdateMap' {description} -> description) (\s@UpdateMap' {} a -> s {description = a} :: UpdateMap)
 
 -- | The name of the map resource to update.
 updateMap_mapName :: Lens.Lens' UpdateMap Prelude.Text
@@ -121,14 +121,14 @@ instance Core.AWSRequest UpdateMap where
 
 instance Prelude.Hashable UpdateMap where
   hashWithSalt _salt UpdateMap' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` mapName
 
 instance Prelude.NFData UpdateMap where
   rnf UpdateMap' {..} =
-    Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf mapName
 
 instance Core.ToHeaders UpdateMap where
@@ -146,8 +146,8 @@ instance Core.ToJSON UpdateMap where
   toJSON UpdateMap' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
           ]
       )
 

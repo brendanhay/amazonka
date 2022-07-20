@@ -43,11 +43,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3InputFileLocation' smart constructor.
 data S3InputFileLocation = S3InputFileLocation'
-  { -- | Specifies the S3 bucket for the customer input file.
-    bucket :: Prelude.Maybe Prelude.Text,
-    -- | The name assigned to the file when it was created in S3. You use the
+  { -- | The name assigned to the file when it was created in S3. You use the
     -- object key to retrieve the object.
-    key :: Prelude.Maybe Prelude.Text
+    key :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the S3 bucket for the customer input file.
+    bucket :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,26 +59,26 @@ data S3InputFileLocation = S3InputFileLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucket', 's3InputFileLocation_bucket' - Specifies the S3 bucket for the customer input file.
---
 -- 'key', 's3InputFileLocation_key' - The name assigned to the file when it was created in S3. You use the
 -- object key to retrieve the object.
+--
+-- 'bucket', 's3InputFileLocation_bucket' - Specifies the S3 bucket for the customer input file.
 newS3InputFileLocation ::
   S3InputFileLocation
 newS3InputFileLocation =
   S3InputFileLocation'
-    { bucket = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      bucket = Prelude.Nothing
     }
-
--- | Specifies the S3 bucket for the customer input file.
-s3InputFileLocation_bucket :: Lens.Lens' S3InputFileLocation (Prelude.Maybe Prelude.Text)
-s3InputFileLocation_bucket = Lens.lens (\S3InputFileLocation' {bucket} -> bucket) (\s@S3InputFileLocation' {} a -> s {bucket = a} :: S3InputFileLocation)
 
 -- | The name assigned to the file when it was created in S3. You use the
 -- object key to retrieve the object.
 s3InputFileLocation_key :: Lens.Lens' S3InputFileLocation (Prelude.Maybe Prelude.Text)
 s3InputFileLocation_key = Lens.lens (\S3InputFileLocation' {key} -> key) (\s@S3InputFileLocation' {} a -> s {key = a} :: S3InputFileLocation)
+
+-- | Specifies the S3 bucket for the customer input file.
+s3InputFileLocation_bucket :: Lens.Lens' S3InputFileLocation (Prelude.Maybe Prelude.Text)
+s3InputFileLocation_bucket = Lens.lens (\S3InputFileLocation' {bucket} -> bucket) (\s@S3InputFileLocation' {} a -> s {bucket = a} :: S3InputFileLocation)
 
 instance Core.FromJSON S3InputFileLocation where
   parseJSON =
@@ -86,23 +86,23 @@ instance Core.FromJSON S3InputFileLocation where
       "S3InputFileLocation"
       ( \x ->
           S3InputFileLocation'
-            Prelude.<$> (x Core..:? "Bucket") Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Bucket")
       )
 
 instance Prelude.Hashable S3InputFileLocation where
   hashWithSalt _salt S3InputFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` bucket
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData S3InputFileLocation where
   rnf S3InputFileLocation' {..} =
-    Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf bucket
 
 instance Core.ToJSON S3InputFileLocation where
   toJSON S3InputFileLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Bucket" Core..=) Prelude.<$> bucket,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Bucket" Core..=) Prelude.<$> bucket
           ]
       )

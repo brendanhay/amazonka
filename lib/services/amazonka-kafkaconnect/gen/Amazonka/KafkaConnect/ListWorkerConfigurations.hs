@@ -38,8 +38,8 @@ module Amazonka.KafkaConnect.ListWorkerConfigurations
     newListWorkerConfigurationsResponse,
 
     -- * Response Lenses
-    listWorkerConfigurationsResponse_workerConfigurations,
     listWorkerConfigurationsResponse_nextToken,
+    listWorkerConfigurationsResponse_workerConfigurations,
     listWorkerConfigurationsResponse_httpStatus,
   )
 where
@@ -125,10 +125,10 @@ instance Core.AWSRequest ListWorkerConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListWorkerConfigurationsResponse'
-            Prelude.<$> ( x Core..?> "workerConfigurations"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "workerConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,12 +165,12 @@ instance Core.ToQuery ListWorkerConfigurations where
 
 -- | /See:/ 'newListWorkerConfigurationsResponse' smart constructor.
 data ListWorkerConfigurationsResponse = ListWorkerConfigurationsResponse'
-  { -- | An array of worker configuration descriptions.
-    workerConfigurations :: Prelude.Maybe [WorkerConfigurationSummary],
-    -- | If the response of a ListWorkerConfigurations operation is truncated, it
+  { -- | If the response of a ListWorkerConfigurations operation is truncated, it
     -- will include a NextToken. Send this NextToken in a subsequent request to
     -- continue listing from where the previous operation left off.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of worker configuration descriptions.
+    workerConfigurations :: Prelude.Maybe [WorkerConfigurationSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,11 +184,11 @@ data ListWorkerConfigurationsResponse = ListWorkerConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workerConfigurations', 'listWorkerConfigurationsResponse_workerConfigurations' - An array of worker configuration descriptions.
---
 -- 'nextToken', 'listWorkerConfigurationsResponse_nextToken' - If the response of a ListWorkerConfigurations operation is truncated, it
 -- will include a NextToken. Send this NextToken in a subsequent request to
 -- continue listing from where the previous operation left off.
+--
+-- 'workerConfigurations', 'listWorkerConfigurationsResponse_workerConfigurations' - An array of worker configuration descriptions.
 --
 -- 'httpStatus', 'listWorkerConfigurationsResponse_httpStatus' - The response's http status code.
 newListWorkerConfigurationsResponse ::
@@ -197,21 +197,21 @@ newListWorkerConfigurationsResponse ::
   ListWorkerConfigurationsResponse
 newListWorkerConfigurationsResponse pHttpStatus_ =
   ListWorkerConfigurationsResponse'
-    { workerConfigurations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      workerConfigurations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of worker configuration descriptions.
-listWorkerConfigurationsResponse_workerConfigurations :: Lens.Lens' ListWorkerConfigurationsResponse (Prelude.Maybe [WorkerConfigurationSummary])
-listWorkerConfigurationsResponse_workerConfigurations = Lens.lens (\ListWorkerConfigurationsResponse' {workerConfigurations} -> workerConfigurations) (\s@ListWorkerConfigurationsResponse' {} a -> s {workerConfigurations = a} :: ListWorkerConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response of a ListWorkerConfigurations operation is truncated, it
 -- will include a NextToken. Send this NextToken in a subsequent request to
 -- continue listing from where the previous operation left off.
 listWorkerConfigurationsResponse_nextToken :: Lens.Lens' ListWorkerConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listWorkerConfigurationsResponse_nextToken = Lens.lens (\ListWorkerConfigurationsResponse' {nextToken} -> nextToken) (\s@ListWorkerConfigurationsResponse' {} a -> s {nextToken = a} :: ListWorkerConfigurationsResponse)
+
+-- | An array of worker configuration descriptions.
+listWorkerConfigurationsResponse_workerConfigurations :: Lens.Lens' ListWorkerConfigurationsResponse (Prelude.Maybe [WorkerConfigurationSummary])
+listWorkerConfigurationsResponse_workerConfigurations = Lens.lens (\ListWorkerConfigurationsResponse' {workerConfigurations} -> workerConfigurations) (\s@ListWorkerConfigurationsResponse' {} a -> s {workerConfigurations = a} :: ListWorkerConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWorkerConfigurationsResponse_httpStatus :: Lens.Lens' ListWorkerConfigurationsResponse Prelude.Int
@@ -222,6 +222,6 @@ instance
     ListWorkerConfigurationsResponse
   where
   rnf ListWorkerConfigurationsResponse' {..} =
-    Prelude.rnf workerConfigurations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workerConfigurations
       `Prelude.seq` Prelude.rnf httpStatus

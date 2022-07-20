@@ -27,8 +27,8 @@ module Amazonka.AlexaBusiness.UpdateDevice
     newUpdateDevice,
 
     -- * Request Lenses
-    updateDevice_deviceArn,
     updateDevice_deviceName,
+    updateDevice_deviceArn,
 
     -- * Destructuring the Response
     UpdateDeviceResponse (..),
@@ -48,10 +48,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDevice' smart constructor.
 data UpdateDevice = UpdateDevice'
-  { -- | The ARN of the device to update. Required.
-    deviceArn :: Prelude.Maybe Prelude.Text,
-    -- | The updated device name. Required.
-    deviceName :: Prelude.Maybe Prelude.Text
+  { -- | The updated device name. Required.
+    deviceName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the device to update. Required.
+    deviceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,24 +63,24 @@ data UpdateDevice = UpdateDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceArn', 'updateDevice_deviceArn' - The ARN of the device to update. Required.
---
 -- 'deviceName', 'updateDevice_deviceName' - The updated device name. Required.
+--
+-- 'deviceArn', 'updateDevice_deviceArn' - The ARN of the device to update. Required.
 newUpdateDevice ::
   UpdateDevice
 newUpdateDevice =
   UpdateDevice'
-    { deviceArn = Prelude.Nothing,
-      deviceName = Prelude.Nothing
+    { deviceName = Prelude.Nothing,
+      deviceArn = Prelude.Nothing
     }
-
--- | The ARN of the device to update. Required.
-updateDevice_deviceArn :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
-updateDevice_deviceArn = Lens.lens (\UpdateDevice' {deviceArn} -> deviceArn) (\s@UpdateDevice' {} a -> s {deviceArn = a} :: UpdateDevice)
 
 -- | The updated device name. Required.
 updateDevice_deviceName :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_deviceName = Lens.lens (\UpdateDevice' {deviceName} -> deviceName) (\s@UpdateDevice' {} a -> s {deviceName = a} :: UpdateDevice)
+
+-- | The ARN of the device to update. Required.
+updateDevice_deviceArn :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
+updateDevice_deviceArn = Lens.lens (\UpdateDevice' {deviceArn} -> deviceArn) (\s@UpdateDevice' {} a -> s {deviceArn = a} :: UpdateDevice)
 
 instance Core.AWSRequest UpdateDevice where
   type AWSResponse UpdateDevice = UpdateDeviceResponse
@@ -94,13 +94,13 @@ instance Core.AWSRequest UpdateDevice where
 
 instance Prelude.Hashable UpdateDevice where
   hashWithSalt _salt UpdateDevice' {..} =
-    _salt `Prelude.hashWithSalt` deviceArn
-      `Prelude.hashWithSalt` deviceName
+    _salt `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` deviceArn
 
 instance Prelude.NFData UpdateDevice where
   rnf UpdateDevice' {..} =
-    Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf deviceArn
 
 instance Core.ToHeaders UpdateDevice where
   toHeaders =
@@ -121,8 +121,8 @@ instance Core.ToJSON UpdateDevice where
   toJSON UpdateDevice' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DeviceArn" Core..=) Prelude.<$> deviceArn,
-            ("DeviceName" Core..=) Prelude.<$> deviceName
+          [ ("DeviceName" Core..=) Prelude.<$> deviceName,
+            ("DeviceArn" Core..=) Prelude.<$> deviceArn
           ]
       )
 

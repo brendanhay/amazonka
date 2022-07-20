@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCollectionConfiguration' smart constructor.
 data CollectionConfiguration = CollectionConfiguration'
-  { -- | Parameter values for the tensor collection. The allowed parameters are
+  { -- | The name of the tensor collection. The name must be unique relative to
+    -- other rule configuration names.
+    collectionName :: Prelude.Maybe Prelude.Text,
+    -- | Parameter values for the tensor collection. The allowed parameters are
     -- @\"name\"@, @\"include_regex\"@, @\"reduction_config\"@,
     -- @\"save_config\"@, @\"tensor_names\"@, and @\"save_histogram\"@.
-    collectionParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the tensor collection. The name must be unique relative to
-    -- other rule configuration names.
-    collectionName :: Prelude.Maybe Prelude.Text
+    collectionParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,25 @@ data CollectionConfiguration = CollectionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'collectionName', 'collectionConfiguration_collectionName' - The name of the tensor collection. The name must be unique relative to
+-- other rule configuration names.
+--
 -- 'collectionParameters', 'collectionConfiguration_collectionParameters' - Parameter values for the tensor collection. The allowed parameters are
 -- @\"name\"@, @\"include_regex\"@, @\"reduction_config\"@,
 -- @\"save_config\"@, @\"tensor_names\"@, and @\"save_histogram\"@.
---
--- 'collectionName', 'collectionConfiguration_collectionName' - The name of the tensor collection. The name must be unique relative to
--- other rule configuration names.
 newCollectionConfiguration ::
   CollectionConfiguration
 newCollectionConfiguration =
   CollectionConfiguration'
-    { collectionParameters =
+    { collectionName =
         Prelude.Nothing,
-      collectionName = Prelude.Nothing
+      collectionParameters = Prelude.Nothing
     }
+
+-- | The name of the tensor collection. The name must be unique relative to
+-- other rule configuration names.
+collectionConfiguration_collectionName :: Lens.Lens' CollectionConfiguration (Prelude.Maybe Prelude.Text)
+collectionConfiguration_collectionName = Lens.lens (\CollectionConfiguration' {collectionName} -> collectionName) (\s@CollectionConfiguration' {} a -> s {collectionName = a} :: CollectionConfiguration)
 
 -- | Parameter values for the tensor collection. The allowed parameters are
 -- @\"name\"@, @\"include_regex\"@, @\"reduction_config\"@,
@@ -66,40 +71,35 @@ newCollectionConfiguration =
 collectionConfiguration_collectionParameters :: Lens.Lens' CollectionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 collectionConfiguration_collectionParameters = Lens.lens (\CollectionConfiguration' {collectionParameters} -> collectionParameters) (\s@CollectionConfiguration' {} a -> s {collectionParameters = a} :: CollectionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the tensor collection. The name must be unique relative to
--- other rule configuration names.
-collectionConfiguration_collectionName :: Lens.Lens' CollectionConfiguration (Prelude.Maybe Prelude.Text)
-collectionConfiguration_collectionName = Lens.lens (\CollectionConfiguration' {collectionName} -> collectionName) (\s@CollectionConfiguration' {} a -> s {collectionName = a} :: CollectionConfiguration)
-
 instance Core.FromJSON CollectionConfiguration where
   parseJSON =
     Core.withObject
       "CollectionConfiguration"
       ( \x ->
           CollectionConfiguration'
-            Prelude.<$> ( x Core..:? "CollectionParameters"
+            Prelude.<$> (x Core..:? "CollectionName")
+            Prelude.<*> ( x Core..:? "CollectionParameters"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CollectionName")
       )
 
 instance Prelude.Hashable CollectionConfiguration where
   hashWithSalt _salt CollectionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` collectionParameters
-      `Prelude.hashWithSalt` collectionName
+    _salt `Prelude.hashWithSalt` collectionName
+      `Prelude.hashWithSalt` collectionParameters
 
 instance Prelude.NFData CollectionConfiguration where
   rnf CollectionConfiguration' {..} =
-    Prelude.rnf collectionParameters
-      `Prelude.seq` Prelude.rnf collectionName
+    Prelude.rnf collectionName
+      `Prelude.seq` Prelude.rnf collectionParameters
 
 instance Core.ToJSON CollectionConfiguration where
   toJSON CollectionConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CollectionParameters" Core..=)
-              Prelude.<$> collectionParameters,
-            ("CollectionName" Core..=)
-              Prelude.<$> collectionName
+          [ ("CollectionName" Core..=)
+              Prelude.<$> collectionName,
+            ("CollectionParameters" Core..=)
+              Prelude.<$> collectionParameters
           ]
       )

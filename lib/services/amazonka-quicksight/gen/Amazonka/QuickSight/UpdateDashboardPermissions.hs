@@ -27,8 +27,8 @@ module Amazonka.QuickSight.UpdateDashboardPermissions
     newUpdateDashboardPermissions,
 
     -- * Request Lenses
-    updateDashboardPermissions_revokePermissions,
     updateDashboardPermissions_grantPermissions,
+    updateDashboardPermissions_revokePermissions,
     updateDashboardPermissions_awsAccountId,
     updateDashboardPermissions_dashboardId,
 
@@ -38,8 +38,8 @@ module Amazonka.QuickSight.UpdateDashboardPermissions
 
     -- * Response Lenses
     updateDashboardPermissionsResponse_requestId,
-    updateDashboardPermissionsResponse_dashboardId,
     updateDashboardPermissionsResponse_permissions,
+    updateDashboardPermissionsResponse_dashboardId,
     updateDashboardPermissionsResponse_dashboardArn,
     updateDashboardPermissionsResponse_status,
   )
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDashboardPermissions' smart constructor.
 data UpdateDashboardPermissions = UpdateDashboardPermissions'
-  { -- | The permissions that you want to revoke from this resource.
-    revokePermissions :: Prelude.Maybe [ResourcePermission],
-    -- | The permissions that you want to grant on this resource.
+  { -- | The permissions that you want to grant on this resource.
     grantPermissions :: Prelude.Maybe [ResourcePermission],
+    -- | The permissions that you want to revoke from this resource.
+    revokePermissions :: Prelude.Maybe [ResourcePermission],
     -- | The ID of the Amazon Web Services account that contains the dashboard
     -- whose permissions you\'re updating.
     awsAccountId :: Prelude.Text,
@@ -74,9 +74,9 @@ data UpdateDashboardPermissions = UpdateDashboardPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revokePermissions', 'updateDashboardPermissions_revokePermissions' - The permissions that you want to revoke from this resource.
---
 -- 'grantPermissions', 'updateDashboardPermissions_grantPermissions' - The permissions that you want to grant on this resource.
+--
+-- 'revokePermissions', 'updateDashboardPermissions_revokePermissions' - The permissions that you want to revoke from this resource.
 --
 -- 'awsAccountId', 'updateDashboardPermissions_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboard
 -- whose permissions you\'re updating.
@@ -92,20 +92,20 @@ newUpdateDashboardPermissions
   pAwsAccountId_
   pDashboardId_ =
     UpdateDashboardPermissions'
-      { revokePermissions =
+      { grantPermissions =
           Prelude.Nothing,
-        grantPermissions = Prelude.Nothing,
+        revokePermissions = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         dashboardId = pDashboardId_
       }
 
--- | The permissions that you want to revoke from this resource.
-updateDashboardPermissions_revokePermissions :: Lens.Lens' UpdateDashboardPermissions (Prelude.Maybe [ResourcePermission])
-updateDashboardPermissions_revokePermissions = Lens.lens (\UpdateDashboardPermissions' {revokePermissions} -> revokePermissions) (\s@UpdateDashboardPermissions' {} a -> s {revokePermissions = a} :: UpdateDashboardPermissions) Prelude.. Lens.mapping Lens.coerced
-
 -- | The permissions that you want to grant on this resource.
 updateDashboardPermissions_grantPermissions :: Lens.Lens' UpdateDashboardPermissions (Prelude.Maybe [ResourcePermission])
 updateDashboardPermissions_grantPermissions = Lens.lens (\UpdateDashboardPermissions' {grantPermissions} -> grantPermissions) (\s@UpdateDashboardPermissions' {} a -> s {grantPermissions = a} :: UpdateDashboardPermissions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The permissions that you want to revoke from this resource.
+updateDashboardPermissions_revokePermissions :: Lens.Lens' UpdateDashboardPermissions (Prelude.Maybe [ResourcePermission])
+updateDashboardPermissions_revokePermissions = Lens.lens (\UpdateDashboardPermissions' {revokePermissions} -> revokePermissions) (\s@UpdateDashboardPermissions' {} a -> s {revokePermissions = a} :: UpdateDashboardPermissions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Amazon Web Services account that contains the dashboard
 -- whose permissions you\'re updating.
@@ -126,23 +126,23 @@ instance Core.AWSRequest UpdateDashboardPermissions where
       ( \s h x ->
           UpdateDashboardPermissionsResponse'
             Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "DashboardId")
             Prelude.<*> (x Core..?> "Permissions")
+            Prelude.<*> (x Core..?> "DashboardId")
             Prelude.<*> (x Core..?> "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateDashboardPermissions where
   hashWithSalt _salt UpdateDashboardPermissions' {..} =
-    _salt `Prelude.hashWithSalt` revokePermissions
-      `Prelude.hashWithSalt` grantPermissions
+    _salt `Prelude.hashWithSalt` grantPermissions
+      `Prelude.hashWithSalt` revokePermissions
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
 
 instance Prelude.NFData UpdateDashboardPermissions where
   rnf UpdateDashboardPermissions' {..} =
-    Prelude.rnf revokePermissions
-      `Prelude.seq` Prelude.rnf grantPermissions
+    Prelude.rnf grantPermissions
+      `Prelude.seq` Prelude.rnf revokePermissions
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
 
@@ -161,10 +161,10 @@ instance Core.ToJSON UpdateDashboardPermissions where
   toJSON UpdateDashboardPermissions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RevokePermissions" Core..=)
-              Prelude.<$> revokePermissions,
-            ("GrantPermissions" Core..=)
-              Prelude.<$> grantPermissions
+          [ ("GrantPermissions" Core..=)
+              Prelude.<$> grantPermissions,
+            ("RevokePermissions" Core..=)
+              Prelude.<$> revokePermissions
           ]
       )
 
@@ -185,10 +185,10 @@ instance Core.ToQuery UpdateDashboardPermissions where
 data UpdateDashboardPermissionsResponse = UpdateDashboardPermissionsResponse'
   { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the dashboard.
-    dashboardId :: Prelude.Maybe Prelude.Text,
     -- | Information about the permissions on the dashboard.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | The ID for the dashboard.
+    dashboardId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dashboard.
     dashboardArn :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -206,9 +206,9 @@ data UpdateDashboardPermissionsResponse = UpdateDashboardPermissionsResponse'
 --
 -- 'requestId', 'updateDashboardPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'dashboardId', 'updateDashboardPermissionsResponse_dashboardId' - The ID for the dashboard.
---
 -- 'permissions', 'updateDashboardPermissionsResponse_permissions' - Information about the permissions on the dashboard.
+--
+-- 'dashboardId', 'updateDashboardPermissionsResponse_dashboardId' - The ID for the dashboard.
 --
 -- 'dashboardArn', 'updateDashboardPermissionsResponse_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
 --
@@ -221,8 +221,8 @@ newUpdateDashboardPermissionsResponse pStatus_ =
   UpdateDashboardPermissionsResponse'
     { requestId =
         Prelude.Nothing,
-      dashboardId = Prelude.Nothing,
       permissions = Prelude.Nothing,
+      dashboardId = Prelude.Nothing,
       dashboardArn = Prelude.Nothing,
       status = pStatus_
     }
@@ -231,13 +231,13 @@ newUpdateDashboardPermissionsResponse pStatus_ =
 updateDashboardPermissionsResponse_requestId :: Lens.Lens' UpdateDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
 updateDashboardPermissionsResponse_requestId = Lens.lens (\UpdateDashboardPermissionsResponse' {requestId} -> requestId) (\s@UpdateDashboardPermissionsResponse' {} a -> s {requestId = a} :: UpdateDashboardPermissionsResponse)
 
--- | The ID for the dashboard.
-updateDashboardPermissionsResponse_dashboardId :: Lens.Lens' UpdateDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
-updateDashboardPermissionsResponse_dashboardId = Lens.lens (\UpdateDashboardPermissionsResponse' {dashboardId} -> dashboardId) (\s@UpdateDashboardPermissionsResponse' {} a -> s {dashboardId = a} :: UpdateDashboardPermissionsResponse)
-
 -- | Information about the permissions on the dashboard.
 updateDashboardPermissionsResponse_permissions :: Lens.Lens' UpdateDashboardPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 updateDashboardPermissionsResponse_permissions = Lens.lens (\UpdateDashboardPermissionsResponse' {permissions} -> permissions) (\s@UpdateDashboardPermissionsResponse' {} a -> s {permissions = a} :: UpdateDashboardPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID for the dashboard.
+updateDashboardPermissionsResponse_dashboardId :: Lens.Lens' UpdateDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
+updateDashboardPermissionsResponse_dashboardId = Lens.lens (\UpdateDashboardPermissionsResponse' {dashboardId} -> dashboardId) (\s@UpdateDashboardPermissionsResponse' {} a -> s {dashboardId = a} :: UpdateDashboardPermissionsResponse)
 
 -- | The Amazon Resource Name (ARN) of the dashboard.
 updateDashboardPermissionsResponse_dashboardArn :: Lens.Lens' UpdateDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -253,7 +253,7 @@ instance
   where
   rnf UpdateDashboardPermissionsResponse' {..} =
     Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf dashboardArn
       `Prelude.seq` Prelude.rnf status

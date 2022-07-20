@@ -32,14 +32,14 @@ data SecretsManagerAccessTokenConfiguration = SecretsManagerAccessTokenConfigura
   { -- | The name of the HTTP header used to supply the access token in requests
     -- to the source location.
     headerName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
+    -- contains the access token.
+    secretArn :: Prelude.Maybe Prelude.Text,
     -- | The AWS Secrets Manager
     -- <https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html SecretString>
     -- key associated with the access token. MediaTailor uses the key to look
     -- up SecretString key and value pair containing the access token.
-    secretStringKey :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
-    -- contains the access token.
-    secretArn :: Prelude.Maybe Prelude.Text
+    secretStringKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,21 +54,21 @@ data SecretsManagerAccessTokenConfiguration = SecretsManagerAccessTokenConfigura
 -- 'headerName', 'secretsManagerAccessTokenConfiguration_headerName' - The name of the HTTP header used to supply the access token in requests
 -- to the source location.
 --
+-- 'secretArn', 'secretsManagerAccessTokenConfiguration_secretArn' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
+-- contains the access token.
+--
 -- 'secretStringKey', 'secretsManagerAccessTokenConfiguration_secretStringKey' - The AWS Secrets Manager
 -- <https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html SecretString>
 -- key associated with the access token. MediaTailor uses the key to look
 -- up SecretString key and value pair containing the access token.
---
--- 'secretArn', 'secretsManagerAccessTokenConfiguration_secretArn' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
--- contains the access token.
 newSecretsManagerAccessTokenConfiguration ::
   SecretsManagerAccessTokenConfiguration
 newSecretsManagerAccessTokenConfiguration =
   SecretsManagerAccessTokenConfiguration'
     { headerName =
         Prelude.Nothing,
-      secretStringKey = Prelude.Nothing,
-      secretArn = Prelude.Nothing
+      secretArn = Prelude.Nothing,
+      secretStringKey = Prelude.Nothing
     }
 
 -- | The name of the HTTP header used to supply the access token in requests
@@ -76,17 +76,17 @@ newSecretsManagerAccessTokenConfiguration =
 secretsManagerAccessTokenConfiguration_headerName :: Lens.Lens' SecretsManagerAccessTokenConfiguration (Prelude.Maybe Prelude.Text)
 secretsManagerAccessTokenConfiguration_headerName = Lens.lens (\SecretsManagerAccessTokenConfiguration' {headerName} -> headerName) (\s@SecretsManagerAccessTokenConfiguration' {} a -> s {headerName = a} :: SecretsManagerAccessTokenConfiguration)
 
+-- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
+-- contains the access token.
+secretsManagerAccessTokenConfiguration_secretArn :: Lens.Lens' SecretsManagerAccessTokenConfiguration (Prelude.Maybe Prelude.Text)
+secretsManagerAccessTokenConfiguration_secretArn = Lens.lens (\SecretsManagerAccessTokenConfiguration' {secretArn} -> secretArn) (\s@SecretsManagerAccessTokenConfiguration' {} a -> s {secretArn = a} :: SecretsManagerAccessTokenConfiguration)
+
 -- | The AWS Secrets Manager
 -- <https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html SecretString>
 -- key associated with the access token. MediaTailor uses the key to look
 -- up SecretString key and value pair containing the access token.
 secretsManagerAccessTokenConfiguration_secretStringKey :: Lens.Lens' SecretsManagerAccessTokenConfiguration (Prelude.Maybe Prelude.Text)
 secretsManagerAccessTokenConfiguration_secretStringKey = Lens.lens (\SecretsManagerAccessTokenConfiguration' {secretStringKey} -> secretStringKey) (\s@SecretsManagerAccessTokenConfiguration' {} a -> s {secretStringKey = a} :: SecretsManagerAccessTokenConfiguration)
-
--- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
--- contains the access token.
-secretsManagerAccessTokenConfiguration_secretArn :: Lens.Lens' SecretsManagerAccessTokenConfiguration (Prelude.Maybe Prelude.Text)
-secretsManagerAccessTokenConfiguration_secretArn = Lens.lens (\SecretsManagerAccessTokenConfiguration' {secretArn} -> secretArn) (\s@SecretsManagerAccessTokenConfiguration' {} a -> s {secretArn = a} :: SecretsManagerAccessTokenConfiguration)
 
 instance
   Core.FromJSON
@@ -98,8 +98,8 @@ instance
       ( \x ->
           SecretsManagerAccessTokenConfiguration'
             Prelude.<$> (x Core..:? "HeaderName")
-            Prelude.<*> (x Core..:? "SecretStringKey")
             Prelude.<*> (x Core..:? "SecretArn")
+            Prelude.<*> (x Core..:? "SecretStringKey")
       )
 
 instance
@@ -110,8 +110,8 @@ instance
     _salt
     SecretsManagerAccessTokenConfiguration' {..} =
       _salt `Prelude.hashWithSalt` headerName
-        `Prelude.hashWithSalt` secretStringKey
         `Prelude.hashWithSalt` secretArn
+        `Prelude.hashWithSalt` secretStringKey
 
 instance
   Prelude.NFData
@@ -119,8 +119,8 @@ instance
   where
   rnf SecretsManagerAccessTokenConfiguration' {..} =
     Prelude.rnf headerName
-      `Prelude.seq` Prelude.rnf secretStringKey
       `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf secretStringKey
 
 instance
   Core.ToJSON
@@ -130,8 +130,8 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("HeaderName" Core..=) Prelude.<$> headerName,
+            ("SecretArn" Core..=) Prelude.<$> secretArn,
             ("SecretStringKey" Core..=)
-              Prelude.<$> secretStringKey,
-            ("SecretArn" Core..=) Prelude.<$> secretArn
+              Prelude.<$> secretStringKey
           ]
       )

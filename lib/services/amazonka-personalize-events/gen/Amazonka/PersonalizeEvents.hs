@@ -37,11 +37,11 @@ module Amazonka.PersonalizeEvents
     -- * Operations
     -- $operations
 
-    -- ** PutUsers
-    PutUsers (PutUsers'),
-    newPutUsers,
-    PutUsersResponse (PutUsersResponse'),
-    newPutUsersResponse,
+    -- ** PutEvents
+    PutEvents (PutEvents'),
+    newPutEvents,
+    PutEventsResponse (PutEventsResponse'),
+    newPutEventsResponse,
 
     -- ** PutItems
     PutItems (PutItems'),
@@ -49,11 +49,11 @@ module Amazonka.PersonalizeEvents
     PutItemsResponse (PutItemsResponse'),
     newPutItemsResponse,
 
-    -- ** PutEvents
-    PutEvents (PutEvents'),
-    newPutEvents,
-    PutEventsResponse (PutEventsResponse'),
-    newPutEventsResponse,
+    -- ** PutUsers
+    PutUsers (PutUsers'),
+    newPutUsers,
+    PutUsersResponse (PutUsersResponse'),
+    newPutUsersResponse,
 
     -- * Types
 

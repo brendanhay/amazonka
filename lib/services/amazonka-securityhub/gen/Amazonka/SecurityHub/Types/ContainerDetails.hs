@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 data ContainerDetails = ContainerDetails'
   { -- | The name of the container related to a finding.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the image related to a finding.
-    imageId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the image related to a finding.
-    imageName :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the container started.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
-    launchedAt :: Prelude.Maybe Prelude.Text
+    launchedAt :: Prelude.Maybe Prelude.Text,
+    -- | The name of the image related to a finding.
+    imageName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the image related to a finding.
+    imageId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,37 +53,29 @@ data ContainerDetails = ContainerDetails'
 --
 -- 'name', 'containerDetails_name' - The name of the container related to a finding.
 --
--- 'imageId', 'containerDetails_imageId' - The identifier of the image related to a finding.
---
--- 'imageName', 'containerDetails_imageName' - The name of the image related to a finding.
---
 -- 'launchedAt', 'containerDetails_launchedAt' - Indicates when the container started.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
+--
+-- 'imageName', 'containerDetails_imageName' - The name of the image related to a finding.
+--
+-- 'imageId', 'containerDetails_imageId' - The identifier of the image related to a finding.
 newContainerDetails ::
   ContainerDetails
 newContainerDetails =
   ContainerDetails'
     { name = Prelude.Nothing,
-      imageId = Prelude.Nothing,
+      launchedAt = Prelude.Nothing,
       imageName = Prelude.Nothing,
-      launchedAt = Prelude.Nothing
+      imageId = Prelude.Nothing
     }
 
 -- | The name of the container related to a finding.
 containerDetails_name :: Lens.Lens' ContainerDetails (Prelude.Maybe Prelude.Text)
 containerDetails_name = Lens.lens (\ContainerDetails' {name} -> name) (\s@ContainerDetails' {} a -> s {name = a} :: ContainerDetails)
-
--- | The identifier of the image related to a finding.
-containerDetails_imageId :: Lens.Lens' ContainerDetails (Prelude.Maybe Prelude.Text)
-containerDetails_imageId = Lens.lens (\ContainerDetails' {imageId} -> imageId) (\s@ContainerDetails' {} a -> s {imageId = a} :: ContainerDetails)
-
--- | The name of the image related to a finding.
-containerDetails_imageName :: Lens.Lens' ContainerDetails (Prelude.Maybe Prelude.Text)
-containerDetails_imageName = Lens.lens (\ContainerDetails' {imageName} -> imageName) (\s@ContainerDetails' {} a -> s {imageName = a} :: ContainerDetails)
 
 -- | Indicates when the container started.
 --
@@ -94,6 +86,14 @@ containerDetails_imageName = Lens.lens (\ContainerDetails' {imageName} -> imageN
 containerDetails_launchedAt :: Lens.Lens' ContainerDetails (Prelude.Maybe Prelude.Text)
 containerDetails_launchedAt = Lens.lens (\ContainerDetails' {launchedAt} -> launchedAt) (\s@ContainerDetails' {} a -> s {launchedAt = a} :: ContainerDetails)
 
+-- | The name of the image related to a finding.
+containerDetails_imageName :: Lens.Lens' ContainerDetails (Prelude.Maybe Prelude.Text)
+containerDetails_imageName = Lens.lens (\ContainerDetails' {imageName} -> imageName) (\s@ContainerDetails' {} a -> s {imageName = a} :: ContainerDetails)
+
+-- | The identifier of the image related to a finding.
+containerDetails_imageId :: Lens.Lens' ContainerDetails (Prelude.Maybe Prelude.Text)
+containerDetails_imageId = Lens.lens (\ContainerDetails' {imageId} -> imageId) (\s@ContainerDetails' {} a -> s {imageId = a} :: ContainerDetails)
+
 instance Core.FromJSON ContainerDetails where
   parseJSON =
     Core.withObject
@@ -101,32 +101,32 @@ instance Core.FromJSON ContainerDetails where
       ( \x ->
           ContainerDetails'
             Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ImageId")
-            Prelude.<*> (x Core..:? "ImageName")
             Prelude.<*> (x Core..:? "LaunchedAt")
+            Prelude.<*> (x Core..:? "ImageName")
+            Prelude.<*> (x Core..:? "ImageId")
       )
 
 instance Prelude.Hashable ContainerDetails where
   hashWithSalt _salt ContainerDetails' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` imageId
-      `Prelude.hashWithSalt` imageName
       `Prelude.hashWithSalt` launchedAt
+      `Prelude.hashWithSalt` imageName
+      `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData ContainerDetails where
   rnf ContainerDetails' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf imageName
       `Prelude.seq` Prelude.rnf launchedAt
+      `Prelude.seq` Prelude.rnf imageName
+      `Prelude.seq` Prelude.rnf imageId
 
 instance Core.ToJSON ContainerDetails where
   toJSON ContainerDetails' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Name" Core..=) Prelude.<$> name,
-            ("ImageId" Core..=) Prelude.<$> imageId,
+            ("LaunchedAt" Core..=) Prelude.<$> launchedAt,
             ("ImageName" Core..=) Prelude.<$> imageName,
-            ("LaunchedAt" Core..=) Prelude.<$> launchedAt
+            ("ImageId" Core..=) Prelude.<$> imageId
           ]
       )

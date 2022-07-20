@@ -32,9 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 data SpotMarketOptions = SpotMarketOptions'
   { -- | Deprecated.
     blockDurationMinutes :: Prelude.Maybe Prelude.Int,
+    -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
+    -- The default is the On-Demand price.
+    maxPrice :: Prelude.Maybe Prelude.Text,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
     instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
+    -- | The Spot Instance request type. For
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
+    -- persistent Spot Instance requests are only supported when the instance
+    -- interruption behavior is either @hibernate@ or @stop@.
+    spotInstanceType :: Prelude.Maybe SpotInstanceType,
     -- | The end date of the request, in UTC format
     -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). Supported only for persistent
     -- requests.
@@ -45,15 +53,7 @@ data SpotMarketOptions = SpotMarketOptions'
     --
     -- -   For a one-time request, @ValidUntil@ is not supported. The request
     --     remains active until all instances launch or you cancel the request.
-    validUntil :: Prelude.Maybe Core.ISO8601,
-    -- | The Spot Instance request type. For
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
-    -- persistent Spot Instance requests are only supported when the instance
-    -- interruption behavior is either @hibernate@ or @stop@.
-    spotInstanceType :: Prelude.Maybe SpotInstanceType,
-    -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
-    -- The default is the On-Demand price.
-    maxPrice :: Prelude.Maybe Prelude.Text
+    validUntil :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,8 +67,16 @@ data SpotMarketOptions = SpotMarketOptions'
 --
 -- 'blockDurationMinutes', 'spotMarketOptions_blockDurationMinutes' - Deprecated.
 --
+-- 'maxPrice', 'spotMarketOptions_maxPrice' - The maximum hourly price you\'re willing to pay for the Spot Instances.
+-- The default is the On-Demand price.
+--
 -- 'instanceInterruptionBehavior', 'spotMarketOptions_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
+--
+-- 'spotInstanceType', 'spotMarketOptions_spotInstanceType' - The Spot Instance request type. For
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
+-- persistent Spot Instance requests are only supported when the instance
+-- interruption behavior is either @hibernate@ or @stop@.
 --
 -- 'validUntil', 'spotMarketOptions_validUntil' - The end date of the request, in UTC format
 -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). Supported only for persistent
@@ -80,34 +88,38 @@ data SpotMarketOptions = SpotMarketOptions'
 --
 -- -   For a one-time request, @ValidUntil@ is not supported. The request
 --     remains active until all instances launch or you cancel the request.
---
--- 'spotInstanceType', 'spotMarketOptions_spotInstanceType' - The Spot Instance request type. For
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
--- persistent Spot Instance requests are only supported when the instance
--- interruption behavior is either @hibernate@ or @stop@.
---
--- 'maxPrice', 'spotMarketOptions_maxPrice' - The maximum hourly price you\'re willing to pay for the Spot Instances.
--- The default is the On-Demand price.
 newSpotMarketOptions ::
   SpotMarketOptions
 newSpotMarketOptions =
   SpotMarketOptions'
     { blockDurationMinutes =
         Prelude.Nothing,
+      maxPrice = Prelude.Nothing,
       instanceInterruptionBehavior = Prelude.Nothing,
-      validUntil = Prelude.Nothing,
       spotInstanceType = Prelude.Nothing,
-      maxPrice = Prelude.Nothing
+      validUntil = Prelude.Nothing
     }
 
 -- | Deprecated.
 spotMarketOptions_blockDurationMinutes :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Int)
 spotMarketOptions_blockDurationMinutes = Lens.lens (\SpotMarketOptions' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotMarketOptions' {} a -> s {blockDurationMinutes = a} :: SpotMarketOptions)
 
+-- | The maximum hourly price you\'re willing to pay for the Spot Instances.
+-- The default is the On-Demand price.
+spotMarketOptions_maxPrice :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Text)
+spotMarketOptions_maxPrice = Lens.lens (\SpotMarketOptions' {maxPrice} -> maxPrice) (\s@SpotMarketOptions' {} a -> s {maxPrice = a} :: SpotMarketOptions)
+
 -- | The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
 spotMarketOptions_instanceInterruptionBehavior :: Lens.Lens' SpotMarketOptions (Prelude.Maybe InstanceInterruptionBehavior)
 spotMarketOptions_instanceInterruptionBehavior = Lens.lens (\SpotMarketOptions' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@SpotMarketOptions' {} a -> s {instanceInterruptionBehavior = a} :: SpotMarketOptions)
+
+-- | The Spot Instance request type. For
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
+-- persistent Spot Instance requests are only supported when the instance
+-- interruption behavior is either @hibernate@ or @stop@.
+spotMarketOptions_spotInstanceType :: Lens.Lens' SpotMarketOptions (Prelude.Maybe SpotInstanceType)
+spotMarketOptions_spotInstanceType = Lens.lens (\SpotMarketOptions' {spotInstanceType} -> spotInstanceType) (\s@SpotMarketOptions' {} a -> s {spotInstanceType = a} :: SpotMarketOptions)
 
 -- | The end date of the request, in UTC format
 -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). Supported only for persistent
@@ -122,41 +134,29 @@ spotMarketOptions_instanceInterruptionBehavior = Lens.lens (\SpotMarketOptions' 
 spotMarketOptions_validUntil :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.UTCTime)
 spotMarketOptions_validUntil = Lens.lens (\SpotMarketOptions' {validUntil} -> validUntil) (\s@SpotMarketOptions' {} a -> s {validUntil = a} :: SpotMarketOptions) Prelude.. Lens.mapping Core._Time
 
--- | The Spot Instance request type. For
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
--- persistent Spot Instance requests are only supported when the instance
--- interruption behavior is either @hibernate@ or @stop@.
-spotMarketOptions_spotInstanceType :: Lens.Lens' SpotMarketOptions (Prelude.Maybe SpotInstanceType)
-spotMarketOptions_spotInstanceType = Lens.lens (\SpotMarketOptions' {spotInstanceType} -> spotInstanceType) (\s@SpotMarketOptions' {} a -> s {spotInstanceType = a} :: SpotMarketOptions)
-
--- | The maximum hourly price you\'re willing to pay for the Spot Instances.
--- The default is the On-Demand price.
-spotMarketOptions_maxPrice :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Text)
-spotMarketOptions_maxPrice = Lens.lens (\SpotMarketOptions' {maxPrice} -> maxPrice) (\s@SpotMarketOptions' {} a -> s {maxPrice = a} :: SpotMarketOptions)
-
 instance Prelude.Hashable SpotMarketOptions where
   hashWithSalt _salt SpotMarketOptions' {..} =
     _salt `Prelude.hashWithSalt` blockDurationMinutes
-      `Prelude.hashWithSalt` instanceInterruptionBehavior
-      `Prelude.hashWithSalt` validUntil
-      `Prelude.hashWithSalt` spotInstanceType
       `Prelude.hashWithSalt` maxPrice
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
+      `Prelude.hashWithSalt` spotInstanceType
+      `Prelude.hashWithSalt` validUntil
 
 instance Prelude.NFData SpotMarketOptions where
   rnf SpotMarketOptions' {..} =
     Prelude.rnf blockDurationMinutes
-      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
-      `Prelude.seq` Prelude.rnf validUntil
-      `Prelude.seq` Prelude.rnf spotInstanceType
       `Prelude.seq` Prelude.rnf maxPrice
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
+      `Prelude.seq` Prelude.rnf spotInstanceType
+      `Prelude.seq` Prelude.rnf validUntil
 
 instance Core.ToQuery SpotMarketOptions where
   toQuery SpotMarketOptions' {..} =
     Prelude.mconcat
       [ "BlockDurationMinutes" Core.=: blockDurationMinutes,
+        "MaxPrice" Core.=: maxPrice,
         "InstanceInterruptionBehavior"
           Core.=: instanceInterruptionBehavior,
-        "ValidUntil" Core.=: validUntil,
         "SpotInstanceType" Core.=: spotInstanceType,
-        "MaxPrice" Core.=: maxPrice
+        "ValidUntil" Core.=: validUntil
       ]

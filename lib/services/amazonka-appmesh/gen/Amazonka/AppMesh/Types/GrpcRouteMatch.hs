@@ -31,11 +31,11 @@ data GrpcRouteMatch = GrpcRouteMatch'
   { -- | The method name to match from the request. If you specify a name, you
     -- must also specify a @serviceName@.
     methodName :: Prelude.Maybe Prelude.Text,
+    -- | An object that represents the data to match from the request.
+    metadata :: Prelude.Maybe (Prelude.NonEmpty GrpcRouteMetadata),
     -- | The fully qualified domain name for the service to match from the
     -- request.
-    serviceName :: Prelude.Maybe Prelude.Text,
-    -- | An object that represents the data to match from the request.
-    metadata :: Prelude.Maybe (Prelude.NonEmpty GrpcRouteMetadata)
+    serviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,17 +50,17 @@ data GrpcRouteMatch = GrpcRouteMatch'
 -- 'methodName', 'grpcRouteMatch_methodName' - The method name to match from the request. If you specify a name, you
 -- must also specify a @serviceName@.
 --
+-- 'metadata', 'grpcRouteMatch_metadata' - An object that represents the data to match from the request.
+--
 -- 'serviceName', 'grpcRouteMatch_serviceName' - The fully qualified domain name for the service to match from the
 -- request.
---
--- 'metadata', 'grpcRouteMatch_metadata' - An object that represents the data to match from the request.
 newGrpcRouteMatch ::
   GrpcRouteMatch
 newGrpcRouteMatch =
   GrpcRouteMatch'
     { methodName = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
-      metadata = Prelude.Nothing
+      metadata = Prelude.Nothing,
+      serviceName = Prelude.Nothing
     }
 
 -- | The method name to match from the request. If you specify a name, you
@@ -68,14 +68,14 @@ newGrpcRouteMatch =
 grpcRouteMatch_methodName :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe Prelude.Text)
 grpcRouteMatch_methodName = Lens.lens (\GrpcRouteMatch' {methodName} -> methodName) (\s@GrpcRouteMatch' {} a -> s {methodName = a} :: GrpcRouteMatch)
 
+-- | An object that represents the data to match from the request.
+grpcRouteMatch_metadata :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe (Prelude.NonEmpty GrpcRouteMetadata))
+grpcRouteMatch_metadata = Lens.lens (\GrpcRouteMatch' {metadata} -> metadata) (\s@GrpcRouteMatch' {} a -> s {metadata = a} :: GrpcRouteMatch) Prelude.. Lens.mapping Lens.coerced
+
 -- | The fully qualified domain name for the service to match from the
 -- request.
 grpcRouteMatch_serviceName :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe Prelude.Text)
 grpcRouteMatch_serviceName = Lens.lens (\GrpcRouteMatch' {serviceName} -> serviceName) (\s@GrpcRouteMatch' {} a -> s {serviceName = a} :: GrpcRouteMatch)
-
--- | An object that represents the data to match from the request.
-grpcRouteMatch_metadata :: Lens.Lens' GrpcRouteMatch (Prelude.Maybe (Prelude.NonEmpty GrpcRouteMetadata))
-grpcRouteMatch_metadata = Lens.lens (\GrpcRouteMatch' {metadata} -> metadata) (\s@GrpcRouteMatch' {} a -> s {metadata = a} :: GrpcRouteMatch) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON GrpcRouteMatch where
   parseJSON =
@@ -84,28 +84,28 @@ instance Core.FromJSON GrpcRouteMatch where
       ( \x ->
           GrpcRouteMatch'
             Prelude.<$> (x Core..:? "methodName")
-            Prelude.<*> (x Core..:? "serviceName")
             Prelude.<*> (x Core..:? "metadata")
+            Prelude.<*> (x Core..:? "serviceName")
       )
 
 instance Prelude.Hashable GrpcRouteMatch where
   hashWithSalt _salt GrpcRouteMatch' {..} =
     _salt `Prelude.hashWithSalt` methodName
-      `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData GrpcRouteMatch where
   rnf GrpcRouteMatch' {..} =
     Prelude.rnf methodName
-      `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToJSON GrpcRouteMatch where
   toJSON GrpcRouteMatch' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("methodName" Core..=) Prelude.<$> methodName,
-            ("serviceName" Core..=) Prelude.<$> serviceName,
-            ("metadata" Core..=) Prelude.<$> metadata
+            ("metadata" Core..=) Prelude.<$> metadata,
+            ("serviceName" Core..=) Prelude.<$> serviceName
           ]
       )

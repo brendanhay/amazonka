@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3DestinationDescription' smart constructor.
 data S3DestinationDescription = S3DestinationDescription'
-  { -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
+  { -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
+    -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
     -- delivered Amazon S3 files. You can also specify a custom prefix, as
     -- described in
     -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records
     -- before writing them to S3. This prefix appears immediately following the
     -- bucket name. For information about how to specify this prefix, see
@@ -70,12 +70,12 @@ data S3DestinationDescription = S3DestinationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cloudWatchLoggingOptions', 's3DestinationDescription_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
+--
 -- 'prefix', 's3DestinationDescription_prefix' - The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
 -- delivered Amazon S3 files. You can also specify a custom prefix, as
 -- described in
 -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
---
--- 'cloudWatchLoggingOptions', 's3DestinationDescription_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
 --
 -- 'errorOutputPrefix', 's3DestinationDescription_errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records
 -- before writing them to S3. This prefix appears immediately following the
@@ -116,8 +116,9 @@ newS3DestinationDescription
   pCompressionFormat_
   pEncryptionConfiguration_ =
     S3DestinationDescription'
-      { prefix = Prelude.Nothing,
-        cloudWatchLoggingOptions = Prelude.Nothing,
+      { cloudWatchLoggingOptions =
+          Prelude.Nothing,
+        prefix = Prelude.Nothing,
         errorOutputPrefix = Prelude.Nothing,
         roleARN = pRoleARN_,
         bucketARN = pBucketARN_,
@@ -127,16 +128,16 @@ newS3DestinationDescription
           pEncryptionConfiguration_
       }
 
+-- | The Amazon CloudWatch logging options for your delivery stream.
+s3DestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' S3DestinationDescription (Prelude.Maybe CloudWatchLoggingOptions)
+s3DestinationDescription_cloudWatchLoggingOptions = Lens.lens (\S3DestinationDescription' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@S3DestinationDescription' {} a -> s {cloudWatchLoggingOptions = a} :: S3DestinationDescription)
+
 -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
 -- delivered Amazon S3 files. You can also specify a custom prefix, as
 -- described in
 -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
 s3DestinationDescription_prefix :: Lens.Lens' S3DestinationDescription (Prelude.Maybe Prelude.Text)
 s3DestinationDescription_prefix = Lens.lens (\S3DestinationDescription' {prefix} -> prefix) (\s@S3DestinationDescription' {} a -> s {prefix = a} :: S3DestinationDescription)
-
--- | The Amazon CloudWatch logging options for your delivery stream.
-s3DestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' S3DestinationDescription (Prelude.Maybe CloudWatchLoggingOptions)
-s3DestinationDescription_cloudWatchLoggingOptions = Lens.lens (\S3DestinationDescription' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@S3DestinationDescription' {} a -> s {cloudWatchLoggingOptions = a} :: S3DestinationDescription)
 
 -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records
 -- before writing them to S3. This prefix appears immediately following the
@@ -177,8 +178,8 @@ instance Core.FromJSON S3DestinationDescription where
       "S3DestinationDescription"
       ( \x ->
           S3DestinationDescription'
-            Prelude.<$> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
+            Prelude.<$> (x Core..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Core..:? "Prefix")
             Prelude.<*> (x Core..:? "ErrorOutputPrefix")
             Prelude.<*> (x Core..: "RoleARN")
             Prelude.<*> (x Core..: "BucketARN")
@@ -189,8 +190,9 @@ instance Core.FromJSON S3DestinationDescription where
 
 instance Prelude.Hashable S3DestinationDescription where
   hashWithSalt _salt S3DestinationDescription' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
       `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` errorOutputPrefix
       `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` bucketARN
@@ -200,8 +202,8 @@ instance Prelude.Hashable S3DestinationDescription where
 
 instance Prelude.NFData S3DestinationDescription where
   rnf S3DestinationDescription' {..} =
-    Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+    Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf errorOutputPrefix
       `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf bucketARN

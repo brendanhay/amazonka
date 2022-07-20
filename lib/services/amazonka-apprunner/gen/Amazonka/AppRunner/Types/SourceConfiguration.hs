@@ -31,11 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceConfiguration' smart constructor.
 data SourceConfiguration = SourceConfiguration'
-  { -- | The description of a source image repository.
-    --
-    -- You must provide either this member or @CodeRepository@ (but not both).
-    imageRepository :: Prelude.Maybe ImageRepository,
-    -- | The description of a source code repository.
+  { -- | The description of a source code repository.
     --
     -- You must provide either this member or @ImageRepository@ (but not both).
     codeRepository :: Prelude.Maybe CodeRepository,
@@ -49,6 +45,10 @@ data SourceConfiguration = SourceConfiguration'
     -- @true@ in all other cases (which currently include a source code
     -- repository or a source image using a same-account ECR repository).
     autoDeploymentsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The description of a source image repository.
+    --
+    -- You must provide either this member or @CodeRepository@ (but not both).
+    imageRepository :: Prelude.Maybe ImageRepository,
     -- | Describes the resources that are needed to authenticate access to some
     -- source repositories.
     authenticationConfiguration :: Prelude.Maybe AuthenticationConfiguration
@@ -62,10 +62,6 @@ data SourceConfiguration = SourceConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'imageRepository', 'sourceConfiguration_imageRepository' - The description of a source image repository.
---
--- You must provide either this member or @CodeRepository@ (but not both).
 --
 -- 'codeRepository', 'sourceConfiguration_codeRepository' - The description of a source code repository.
 --
@@ -81,24 +77,22 @@ data SourceConfiguration = SourceConfiguration'
 -- @true@ in all other cases (which currently include a source code
 -- repository or a source image using a same-account ECR repository).
 --
+-- 'imageRepository', 'sourceConfiguration_imageRepository' - The description of a source image repository.
+--
+-- You must provide either this member or @CodeRepository@ (but not both).
+--
 -- 'authenticationConfiguration', 'sourceConfiguration_authenticationConfiguration' - Describes the resources that are needed to authenticate access to some
 -- source repositories.
 newSourceConfiguration ::
   SourceConfiguration
 newSourceConfiguration =
   SourceConfiguration'
-    { imageRepository =
+    { codeRepository =
         Prelude.Nothing,
-      codeRepository = Prelude.Nothing,
       autoDeploymentsEnabled = Prelude.Nothing,
+      imageRepository = Prelude.Nothing,
       authenticationConfiguration = Prelude.Nothing
     }
-
--- | The description of a source image repository.
---
--- You must provide either this member or @CodeRepository@ (but not both).
-sourceConfiguration_imageRepository :: Lens.Lens' SourceConfiguration (Prelude.Maybe ImageRepository)
-sourceConfiguration_imageRepository = Lens.lens (\SourceConfiguration' {imageRepository} -> imageRepository) (\s@SourceConfiguration' {} a -> s {imageRepository = a} :: SourceConfiguration)
 
 -- | The description of a source code repository.
 --
@@ -118,6 +112,12 @@ sourceConfiguration_codeRepository = Lens.lens (\SourceConfiguration' {codeRepos
 sourceConfiguration_autoDeploymentsEnabled :: Lens.Lens' SourceConfiguration (Prelude.Maybe Prelude.Bool)
 sourceConfiguration_autoDeploymentsEnabled = Lens.lens (\SourceConfiguration' {autoDeploymentsEnabled} -> autoDeploymentsEnabled) (\s@SourceConfiguration' {} a -> s {autoDeploymentsEnabled = a} :: SourceConfiguration)
 
+-- | The description of a source image repository.
+--
+-- You must provide either this member or @CodeRepository@ (but not both).
+sourceConfiguration_imageRepository :: Lens.Lens' SourceConfiguration (Prelude.Maybe ImageRepository)
+sourceConfiguration_imageRepository = Lens.lens (\SourceConfiguration' {imageRepository} -> imageRepository) (\s@SourceConfiguration' {} a -> s {imageRepository = a} :: SourceConfiguration)
+
 -- | Describes the resources that are needed to authenticate access to some
 -- source repositories.
 sourceConfiguration_authenticationConfiguration :: Lens.Lens' SourceConfiguration (Prelude.Maybe AuthenticationConfiguration)
@@ -129,36 +129,36 @@ instance Core.FromJSON SourceConfiguration where
       "SourceConfiguration"
       ( \x ->
           SourceConfiguration'
-            Prelude.<$> (x Core..:? "ImageRepository")
-            Prelude.<*> (x Core..:? "CodeRepository")
+            Prelude.<$> (x Core..:? "CodeRepository")
             Prelude.<*> (x Core..:? "AutoDeploymentsEnabled")
+            Prelude.<*> (x Core..:? "ImageRepository")
             Prelude.<*> (x Core..:? "AuthenticationConfiguration")
       )
 
 instance Prelude.Hashable SourceConfiguration where
   hashWithSalt _salt SourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` imageRepository
-      `Prelude.hashWithSalt` codeRepository
+    _salt `Prelude.hashWithSalt` codeRepository
       `Prelude.hashWithSalt` autoDeploymentsEnabled
+      `Prelude.hashWithSalt` imageRepository
       `Prelude.hashWithSalt` authenticationConfiguration
 
 instance Prelude.NFData SourceConfiguration where
   rnf SourceConfiguration' {..} =
-    Prelude.rnf imageRepository
-      `Prelude.seq` Prelude.rnf codeRepository
+    Prelude.rnf codeRepository
       `Prelude.seq` Prelude.rnf autoDeploymentsEnabled
+      `Prelude.seq` Prelude.rnf imageRepository
       `Prelude.seq` Prelude.rnf authenticationConfiguration
 
 instance Core.ToJSON SourceConfiguration where
   toJSON SourceConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ImageRepository" Core..=)
-              Prelude.<$> imageRepository,
-            ("CodeRepository" Core..=)
+          [ ("CodeRepository" Core..=)
               Prelude.<$> codeRepository,
             ("AutoDeploymentsEnabled" Core..=)
               Prelude.<$> autoDeploymentsEnabled,
+            ("ImageRepository" Core..=)
+              Prelude.<$> imageRepository,
             ("AuthenticationConfiguration" Core..=)
               Prelude.<$> authenticationConfiguration
           ]

@@ -32,8 +32,8 @@ module Amazonka.LookoutMetrics.ListMetricSets
     newListMetricSets,
 
     -- * Request Lenses
-    listMetricSets_anomalyDetectorArn,
     listMetricSets_nextToken,
+    listMetricSets_anomalyDetectorArn,
     listMetricSets_maxResults,
 
     -- * Destructuring the Response
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMetricSets' smart constructor.
 data ListMetricSets = ListMetricSets'
-  { -- | The ARN of the anomaly detector containing the metrics sets to list.
-    anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
-    -- | If the result of the previous request was truncated, the response
+  { -- | If the result of the previous request was truncated, the response
     -- includes a @NextToken@. To retrieve the next set of results, use the
     -- token in the next request. Tokens expire after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the anomaly detector containing the metrics sets to list.
+    anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -75,32 +75,31 @@ data ListMetricSets = ListMetricSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'anomalyDetectorArn', 'listMetricSets_anomalyDetectorArn' - The ARN of the anomaly detector containing the metrics sets to list.
---
 -- 'nextToken', 'listMetricSets_nextToken' - If the result of the previous request was truncated, the response
 -- includes a @NextToken@. To retrieve the next set of results, use the
 -- token in the next request. Tokens expire after 24 hours.
+--
+-- 'anomalyDetectorArn', 'listMetricSets_anomalyDetectorArn' - The ARN of the anomaly detector containing the metrics sets to list.
 --
 -- 'maxResults', 'listMetricSets_maxResults' - The maximum number of results to return.
 newListMetricSets ::
   ListMetricSets
 newListMetricSets =
   ListMetricSets'
-    { anomalyDetectorArn =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      anomalyDetectorArn = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The ARN of the anomaly detector containing the metrics sets to list.
-listMetricSets_anomalyDetectorArn :: Lens.Lens' ListMetricSets (Prelude.Maybe Prelude.Text)
-listMetricSets_anomalyDetectorArn = Lens.lens (\ListMetricSets' {anomalyDetectorArn} -> anomalyDetectorArn) (\s@ListMetricSets' {} a -> s {anomalyDetectorArn = a} :: ListMetricSets)
 
 -- | If the result of the previous request was truncated, the response
 -- includes a @NextToken@. To retrieve the next set of results, use the
 -- token in the next request. Tokens expire after 24 hours.
 listMetricSets_nextToken :: Lens.Lens' ListMetricSets (Prelude.Maybe Prelude.Text)
 listMetricSets_nextToken = Lens.lens (\ListMetricSets' {nextToken} -> nextToken) (\s@ListMetricSets' {} a -> s {nextToken = a} :: ListMetricSets)
+
+-- | The ARN of the anomaly detector containing the metrics sets to list.
+listMetricSets_anomalyDetectorArn :: Lens.Lens' ListMetricSets (Prelude.Maybe Prelude.Text)
+listMetricSets_anomalyDetectorArn = Lens.lens (\ListMetricSets' {anomalyDetectorArn} -> anomalyDetectorArn) (\s@ListMetricSets' {} a -> s {anomalyDetectorArn = a} :: ListMetricSets)
 
 -- | The maximum number of results to return.
 listMetricSets_maxResults :: Lens.Lens' ListMetricSets (Prelude.Maybe Prelude.Natural)
@@ -124,14 +123,14 @@ instance Core.AWSRequest ListMetricSets where
 
 instance Prelude.Hashable ListMetricSets where
   hashWithSalt _salt ListMetricSets' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorArn
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListMetricSets where
   rnf ListMetricSets' {..} =
-    Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListMetricSets where
@@ -149,9 +148,9 @@ instance Core.ToJSON ListMetricSets where
   toJSON ListMetricSets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AnomalyDetectorArn" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("AnomalyDetectorArn" Core..=)
               Prelude.<$> anomalyDetectorArn,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

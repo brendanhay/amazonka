@@ -180,11 +180,7 @@ instance Core.ToHeaders InitiateVaultLock where
   toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON InitiateVaultLock where
-  toJSON InitiateVaultLock' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [("policy" Core..=) Prelude.<$> policy]
-      )
+  toJSON InitiateVaultLock' {..} = Core.toJSON policy
 
 instance Core.ToPath InitiateVaultLock where
   toPath InitiateVaultLock' {..} =

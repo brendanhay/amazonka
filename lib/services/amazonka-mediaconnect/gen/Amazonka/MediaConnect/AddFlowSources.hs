@@ -35,8 +35,8 @@ module Amazonka.MediaConnect.AddFlowSources
     newAddFlowSourcesResponse,
 
     -- * Response Lenses
-    addFlowSourcesResponse_flowArn,
     addFlowSourcesResponse_sources,
+    addFlowSourcesResponse_flowArn,
     addFlowSourcesResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest AddFlowSources where
     Response.receiveJSON
       ( \s h x ->
           AddFlowSourcesResponse'
-            Prelude.<$> (x Core..?> "flowArn")
-            Prelude.<*> (x Core..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,10 +140,10 @@ instance Core.ToQuery AddFlowSources where
 
 -- | /See:/ 'newAddFlowSourcesResponse' smart constructor.
 data AddFlowSourcesResponse = AddFlowSourcesResponse'
-  { -- | The ARN of the flow that these sources were added to.
-    flowArn :: Prelude.Maybe Prelude.Text,
-    -- | The details of the newly added sources.
+  { -- | The details of the newly added sources.
     sources :: Prelude.Maybe [Source],
+    -- | The ARN of the flow that these sources were added to.
+    flowArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,9 +157,9 @@ data AddFlowSourcesResponse = AddFlowSourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flowArn', 'addFlowSourcesResponse_flowArn' - The ARN of the flow that these sources were added to.
---
 -- 'sources', 'addFlowSourcesResponse_sources' - The details of the newly added sources.
+--
+-- 'flowArn', 'addFlowSourcesResponse_flowArn' - The ARN of the flow that these sources were added to.
 --
 -- 'httpStatus', 'addFlowSourcesResponse_httpStatus' - The response's http status code.
 newAddFlowSourcesResponse ::
@@ -168,18 +168,18 @@ newAddFlowSourcesResponse ::
   AddFlowSourcesResponse
 newAddFlowSourcesResponse pHttpStatus_ =
   AddFlowSourcesResponse'
-    { flowArn = Prelude.Nothing,
-      sources = Prelude.Nothing,
+    { sources = Prelude.Nothing,
+      flowArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the flow that these sources were added to.
-addFlowSourcesResponse_flowArn :: Lens.Lens' AddFlowSourcesResponse (Prelude.Maybe Prelude.Text)
-addFlowSourcesResponse_flowArn = Lens.lens (\AddFlowSourcesResponse' {flowArn} -> flowArn) (\s@AddFlowSourcesResponse' {} a -> s {flowArn = a} :: AddFlowSourcesResponse)
 
 -- | The details of the newly added sources.
 addFlowSourcesResponse_sources :: Lens.Lens' AddFlowSourcesResponse (Prelude.Maybe [Source])
 addFlowSourcesResponse_sources = Lens.lens (\AddFlowSourcesResponse' {sources} -> sources) (\s@AddFlowSourcesResponse' {} a -> s {sources = a} :: AddFlowSourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the flow that these sources were added to.
+addFlowSourcesResponse_flowArn :: Lens.Lens' AddFlowSourcesResponse (Prelude.Maybe Prelude.Text)
+addFlowSourcesResponse_flowArn = Lens.lens (\AddFlowSourcesResponse' {flowArn} -> flowArn) (\s@AddFlowSourcesResponse' {} a -> s {flowArn = a} :: AddFlowSourcesResponse)
 
 -- | The response's http status code.
 addFlowSourcesResponse_httpStatus :: Lens.Lens' AddFlowSourcesResponse Prelude.Int
@@ -187,6 +187,6 @@ addFlowSourcesResponse_httpStatus = Lens.lens (\AddFlowSourcesResponse' {httpSta
 
 instance Prelude.NFData AddFlowSourcesResponse where
   rnf AddFlowSourcesResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf httpStatus

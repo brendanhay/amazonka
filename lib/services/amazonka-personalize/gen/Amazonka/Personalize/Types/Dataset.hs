@@ -27,7 +27,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataset' smart constructor.
 data Dataset = Dataset'
-  { -- | The status of the dataset.
+  { -- | The name of the dataset.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The creation date and time (in Unix time) of the dataset.
+    creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | One of the following values:
+    --
+    -- -   Interactions
+    --
+    -- -   Items
+    --
+    -- -   Users
+    datasetType :: Prelude.Maybe Prelude.Text,
+    -- | The status of the dataset.
     --
     -- A dataset can be in one of the following states:
     --
@@ -38,24 +50,12 @@ data Dataset = Dataset'
     -- | The Amazon Resource Name (ARN) of the dataset that you want metadata
     -- for.
     datasetArn :: Prelude.Maybe Prelude.Text,
-    -- | A time stamp that shows when the dataset was updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the associated schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | One of the following values:
-    --
-    -- -   Interactions
-    --
-    -- -   Items
-    --
-    -- -   Users
-    datasetType :: Prelude.Maybe Prelude.Text,
-    -- | The creation date and time (in Unix time) of the dataset.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the dataset group.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | A time stamp that shows when the dataset was updated.
+    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +66,18 @@ data Dataset = Dataset'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'name', 'dataset_name' - The name of the dataset.
+--
+-- 'creationDateTime', 'dataset_creationDateTime' - The creation date and time (in Unix time) of the dataset.
+--
+-- 'datasetType', 'dataset_datasetType' - One of the following values:
+--
+-- -   Interactions
+--
+-- -   Items
+--
+-- -   Users
 --
 -- 'status', 'dataset_status' - The status of the dataset.
 --
@@ -78,36 +90,42 @@ data Dataset = Dataset'
 -- 'datasetArn', 'dataset_datasetArn' - The Amazon Resource Name (ARN) of the dataset that you want metadata
 -- for.
 --
--- 'lastUpdatedDateTime', 'dataset_lastUpdatedDateTime' - A time stamp that shows when the dataset was updated.
---
 -- 'schemaArn', 'dataset_schemaArn' - The ARN of the associated schema.
 --
--- 'name', 'dataset_name' - The name of the dataset.
+-- 'datasetGroupArn', 'dataset_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group.
 --
--- 'datasetType', 'dataset_datasetType' - One of the following values:
+-- 'lastUpdatedDateTime', 'dataset_lastUpdatedDateTime' - A time stamp that shows when the dataset was updated.
+newDataset ::
+  Dataset
+newDataset =
+  Dataset'
+    { name = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      datasetType = Prelude.Nothing,
+      status = Prelude.Nothing,
+      datasetArn = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
+      datasetGroupArn = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing
+    }
+
+-- | The name of the dataset.
+dataset_name :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
+dataset_name = Lens.lens (\Dataset' {name} -> name) (\s@Dataset' {} a -> s {name = a} :: Dataset)
+
+-- | The creation date and time (in Unix time) of the dataset.
+dataset_creationDateTime :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
+dataset_creationDateTime = Lens.lens (\Dataset' {creationDateTime} -> creationDateTime) (\s@Dataset' {} a -> s {creationDateTime = a} :: Dataset) Prelude.. Lens.mapping Core._Time
+
+-- | One of the following values:
 --
 -- -   Interactions
 --
 -- -   Items
 --
 -- -   Users
---
--- 'creationDateTime', 'dataset_creationDateTime' - The creation date and time (in Unix time) of the dataset.
---
--- 'datasetGroupArn', 'dataset_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group.
-newDataset ::
-  Dataset
-newDataset =
-  Dataset'
-    { status = Prelude.Nothing,
-      datasetArn = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
-      schemaArn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      datasetType = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing
-    }
+dataset_datasetType :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
+dataset_datasetType = Lens.lens (\Dataset' {datasetType} -> datasetType) (\s@Dataset' {} a -> s {datasetType = a} :: Dataset)
 
 -- | The status of the dataset.
 --
@@ -124,35 +142,17 @@ dataset_status = Lens.lens (\Dataset' {status} -> status) (\s@Dataset' {} a -> s
 dataset_datasetArn :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
 dataset_datasetArn = Lens.lens (\Dataset' {datasetArn} -> datasetArn) (\s@Dataset' {} a -> s {datasetArn = a} :: Dataset)
 
--- | A time stamp that shows when the dataset was updated.
-dataset_lastUpdatedDateTime :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_lastUpdatedDateTime = Lens.lens (\Dataset' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Dataset' {} a -> s {lastUpdatedDateTime = a} :: Dataset) Prelude.. Lens.mapping Core._Time
-
 -- | The ARN of the associated schema.
 dataset_schemaArn :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
 dataset_schemaArn = Lens.lens (\Dataset' {schemaArn} -> schemaArn) (\s@Dataset' {} a -> s {schemaArn = a} :: Dataset)
 
--- | The name of the dataset.
-dataset_name :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
-dataset_name = Lens.lens (\Dataset' {name} -> name) (\s@Dataset' {} a -> s {name = a} :: Dataset)
-
--- | One of the following values:
---
--- -   Interactions
---
--- -   Items
---
--- -   Users
-dataset_datasetType :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
-dataset_datasetType = Lens.lens (\Dataset' {datasetType} -> datasetType) (\s@Dataset' {} a -> s {datasetType = a} :: Dataset)
-
--- | The creation date and time (in Unix time) of the dataset.
-dataset_creationDateTime :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_creationDateTime = Lens.lens (\Dataset' {creationDateTime} -> creationDateTime) (\s@Dataset' {} a -> s {creationDateTime = a} :: Dataset) Prelude.. Lens.mapping Core._Time
-
 -- | The Amazon Resource Name (ARN) of the dataset group.
 dataset_datasetGroupArn :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
 dataset_datasetGroupArn = Lens.lens (\Dataset' {datasetGroupArn} -> datasetGroupArn) (\s@Dataset' {} a -> s {datasetGroupArn = a} :: Dataset)
+
+-- | A time stamp that shows when the dataset was updated.
+dataset_lastUpdatedDateTime :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
+dataset_lastUpdatedDateTime = Lens.lens (\Dataset' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Dataset' {} a -> s {lastUpdatedDateTime = a} :: Dataset) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Dataset where
   parseJSON =
@@ -160,34 +160,34 @@ instance Core.FromJSON Dataset where
       "Dataset"
       ( \x ->
           Dataset'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "datasetArn")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "schemaArn")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "datasetType")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "datasetType")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "datasetArn")
+            Prelude.<*> (x Core..:? "schemaArn")
             Prelude.<*> (x Core..:? "datasetGroupArn")
+            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable Dataset where
   hashWithSalt _salt Dataset' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` datasetArn
-      `Prelude.hashWithSalt` lastUpdatedDateTime
-      `Prelude.hashWithSalt` schemaArn
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` datasetType
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` datasetType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` lastUpdatedDateTime
 
 instance Prelude.NFData Dataset where
   rnf Dataset' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf datasetType
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime

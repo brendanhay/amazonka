@@ -35,8 +35,8 @@ module Amazonka.IoTWireless.ListDeviceProfiles
     newListDeviceProfilesResponse,
 
     -- * Response Lenses
-    listDeviceProfilesResponse_deviceProfileList,
     listDeviceProfilesResponse_nextToken,
+    listDeviceProfilesResponse_deviceProfileList,
     listDeviceProfilesResponse_httpStatus,
   )
 where
@@ -99,10 +99,10 @@ instance Core.AWSRequest ListDeviceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceProfilesResponse'
-            Prelude.<$> ( x Core..?> "DeviceProfileList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "DeviceProfileList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,11 +131,11 @@ instance Core.ToQuery ListDeviceProfiles where
 
 -- | /See:/ 'newListDeviceProfilesResponse' smart constructor.
 data ListDeviceProfilesResponse = ListDeviceProfilesResponse'
-  { -- | The list of device profiles.
-    deviceProfileList :: Prelude.Maybe [DeviceProfile],
-    -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of device profiles.
+    deviceProfileList :: Prelude.Maybe [DeviceProfile],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,10 +149,10 @@ data ListDeviceProfilesResponse = ListDeviceProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceProfileList', 'listDeviceProfilesResponse_deviceProfileList' - The list of device profiles.
---
 -- 'nextToken', 'listDeviceProfilesResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
+--
+-- 'deviceProfileList', 'listDeviceProfilesResponse_deviceProfileList' - The list of device profiles.
 --
 -- 'httpStatus', 'listDeviceProfilesResponse_httpStatus' - The response's http status code.
 newListDeviceProfilesResponse ::
@@ -161,20 +161,20 @@ newListDeviceProfilesResponse ::
   ListDeviceProfilesResponse
 newListDeviceProfilesResponse pHttpStatus_ =
   ListDeviceProfilesResponse'
-    { deviceProfileList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      deviceProfileList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of device profiles.
-listDeviceProfilesResponse_deviceProfileList :: Lens.Lens' ListDeviceProfilesResponse (Prelude.Maybe [DeviceProfile])
-listDeviceProfilesResponse_deviceProfileList = Lens.lens (\ListDeviceProfilesResponse' {deviceProfileList} -> deviceProfileList) (\s@ListDeviceProfilesResponse' {} a -> s {deviceProfileList = a} :: ListDeviceProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listDeviceProfilesResponse_nextToken :: Lens.Lens' ListDeviceProfilesResponse (Prelude.Maybe Prelude.Text)
 listDeviceProfilesResponse_nextToken = Lens.lens (\ListDeviceProfilesResponse' {nextToken} -> nextToken) (\s@ListDeviceProfilesResponse' {} a -> s {nextToken = a} :: ListDeviceProfilesResponse)
+
+-- | The list of device profiles.
+listDeviceProfilesResponse_deviceProfileList :: Lens.Lens' ListDeviceProfilesResponse (Prelude.Maybe [DeviceProfile])
+listDeviceProfilesResponse_deviceProfileList = Lens.lens (\ListDeviceProfilesResponse' {deviceProfileList} -> deviceProfileList) (\s@ListDeviceProfilesResponse' {} a -> s {deviceProfileList = a} :: ListDeviceProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDeviceProfilesResponse_httpStatus :: Lens.Lens' ListDeviceProfilesResponse Prelude.Int
@@ -182,6 +182,6 @@ listDeviceProfilesResponse_httpStatus = Lens.lens (\ListDeviceProfilesResponse' 
 
 instance Prelude.NFData ListDeviceProfilesResponse where
   rnf ListDeviceProfilesResponse' {..} =
-    Prelude.rnf deviceProfileList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf deviceProfileList
       `Prelude.seq` Prelude.rnf httpStatus

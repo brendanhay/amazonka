@@ -27,139 +27,157 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeAnomaly $
+--         [ requestAddNotificationChannel $
+--             newAddNotificationChannel
+--
+--         , requestDescribeAccountHealth $
+--             newDescribeAccountHealth
+--
+--         , requestDescribeAccountOverview $
+--             newDescribeAccountOverview
+--
+--         , requestDescribeAnomaly $
 --             newDescribeAnomaly
 --
 --         , requestDescribeFeedback $
 --             newDescribeFeedback
 --
---         , requestListInsights $
---             newListInsights
---
---         , requestAddNotificationChannel $
---             newAddNotificationChannel
---
---         , requestListNotificationChannels $
---             newListNotificationChannels
---
---         , requestDescribeAccountOverview $
---             newDescribeAccountOverview
+--         , requestDescribeInsight $
+--             newDescribeInsight
 --
 --         , requestDescribeResourceCollectionHealth $
 --             newDescribeResourceCollectionHealth
 --
---         , requestRemoveNotificationChannel $
---             newRemoveNotificationChannel
---
---         , requestListAnomaliesForInsight $
---             newListAnomaliesForInsight
---
---         , requestPutFeedback $
---             newPutFeedback
---
---         , requestSearchInsights $
---             newSearchInsights
---
 --         , requestDescribeServiceIntegration $
 --             newDescribeServiceIntegration
---
---         , requestUpdateServiceIntegration $
---             newUpdateServiceIntegration
---
---         , requestGetResourceCollection $
---             newGetResourceCollection
---
---         , requestListEvents $
---             newListEvents
---
---         , requestUpdateResourceCollection $
---             newUpdateResourceCollection
---
---         , requestStartCostEstimation $
---             newStartCostEstimation
---
---         , requestListRecommendations $
---             newListRecommendations
---
---         , requestDescribeAccountHealth $
---             newDescribeAccountHealth
---
---         , requestDescribeInsight $
---             newDescribeInsight
 --
 --         , requestGetCostEstimation $
 --             newGetCostEstimation
 --
+--         , requestGetResourceCollection $
+--             newGetResourceCollection
+--
+--         , requestListAnomaliesForInsight $
+--             newListAnomaliesForInsight
+--
+--         , requestListEvents $
+--             newListEvents
+--
+--         , requestListInsights $
+--             newListInsights
+--
+--         , requestListNotificationChannels $
+--             newListNotificationChannels
+--
+--         , requestListRecommendations $
+--             newListRecommendations
+--
+--         , requestPutFeedback $
+--             newPutFeedback
+--
+--         , requestRemoveNotificationChannel $
+--             newRemoveNotificationChannel
+--
+--         , requestSearchInsights $
+--             newSearchInsights
+--
+--         , requestStartCostEstimation $
+--             newStartCostEstimation
+--
+--         , requestUpdateResourceCollection $
+--             newUpdateResourceCollection
+--
+--         , requestUpdateServiceIntegration $
+--             newUpdateServiceIntegration
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeAnomaly $
+--         [ responseAddNotificationChannel $
+--             newAddNotificationChannelResponse
+--
+--         , responseDescribeAccountHealth $
+--             newDescribeAccountHealthResponse
+--
+--         , responseDescribeAccountOverview $
+--             newDescribeAccountOverviewResponse
+--
+--         , responseDescribeAnomaly $
 --             newDescribeAnomalyResponse
 --
 --         , responseDescribeFeedback $
 --             newDescribeFeedbackResponse
 --
---         , responseListInsights $
---             newListInsightsResponse
---
---         , responseAddNotificationChannel $
---             newAddNotificationChannelResponse
---
---         , responseListNotificationChannels $
---             newListNotificationChannelsResponse
---
---         , responseDescribeAccountOverview $
---             newDescribeAccountOverviewResponse
+--         , responseDescribeInsight $
+--             newDescribeInsightResponse
 --
 --         , responseDescribeResourceCollectionHealth $
 --             newDescribeResourceCollectionHealthResponse
 --
---         , responseRemoveNotificationChannel $
---             newRemoveNotificationChannelResponse
---
---         , responseListAnomaliesForInsight $
---             newListAnomaliesForInsightResponse
---
---         , responsePutFeedback $
---             newPutFeedbackResponse
---
---         , responseSearchInsights $
---             newSearchInsightsResponse
---
 --         , responseDescribeServiceIntegration $
 --             newDescribeServiceIntegrationResponse
 --
---         , responseUpdateServiceIntegration $
---             newUpdateServiceIntegrationResponse
+--         , responseGetCostEstimation $
+--             newGetCostEstimationResponse
 --
 --         , responseGetResourceCollection $
 --             newGetResourceCollectionResponse
 --
+--         , responseListAnomaliesForInsight $
+--             newListAnomaliesForInsightResponse
+--
 --         , responseListEvents $
 --             newListEventsResponse
 --
---         , responseUpdateResourceCollection $
---             newUpdateResourceCollectionResponse
+--         , responseListInsights $
+--             newListInsightsResponse
 --
---         , responseStartCostEstimation $
---             newStartCostEstimationResponse
+--         , responseListNotificationChannels $
+--             newListNotificationChannelsResponse
 --
 --         , responseListRecommendations $
 --             newListRecommendationsResponse
 --
---         , responseDescribeAccountHealth $
---             newDescribeAccountHealthResponse
+--         , responsePutFeedback $
+--             newPutFeedbackResponse
 --
---         , responseDescribeInsight $
---             newDescribeInsightResponse
+--         , responseRemoveNotificationChannel $
+--             newRemoveNotificationChannelResponse
 --
---         , responseGetCostEstimation $
---             newGetCostEstimationResponse
+--         , responseSearchInsights $
+--             newSearchInsightsResponse
+--
+--         , responseStartCostEstimation $
+--             newStartCostEstimationResponse
+--
+--         , responseUpdateResourceCollection $
+--             newUpdateResourceCollectionResponse
+--
+--         , responseUpdateServiceIntegration $
+--             newUpdateServiceIntegrationResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestAddNotificationChannel :: AddNotificationChannel -> TestTree
+requestAddNotificationChannel =
+  req
+    "AddNotificationChannel"
+    "fixture/AddNotificationChannel.yaml"
+
+requestDescribeAccountHealth :: DescribeAccountHealth -> TestTree
+requestDescribeAccountHealth =
+  req
+    "DescribeAccountHealth"
+    "fixture/DescribeAccountHealth.yaml"
+
+requestDescribeAccountOverview :: DescribeAccountOverview -> TestTree
+requestDescribeAccountOverview =
+  req
+    "DescribeAccountOverview"
+    "fixture/DescribeAccountOverview.yaml"
 
 requestDescribeAnomaly :: DescribeAnomaly -> TestTree
 requestDescribeAnomaly =
@@ -173,29 +191,11 @@ requestDescribeFeedback =
     "DescribeFeedback"
     "fixture/DescribeFeedback.yaml"
 
-requestListInsights :: ListInsights -> TestTree
-requestListInsights =
+requestDescribeInsight :: DescribeInsight -> TestTree
+requestDescribeInsight =
   req
-    "ListInsights"
-    "fixture/ListInsights.yaml"
-
-requestAddNotificationChannel :: AddNotificationChannel -> TestTree
-requestAddNotificationChannel =
-  req
-    "AddNotificationChannel"
-    "fixture/AddNotificationChannel.yaml"
-
-requestListNotificationChannels :: ListNotificationChannels -> TestTree
-requestListNotificationChannels =
-  req
-    "ListNotificationChannels"
-    "fixture/ListNotificationChannels.yaml"
-
-requestDescribeAccountOverview :: DescribeAccountOverview -> TestTree
-requestDescribeAccountOverview =
-  req
-    "DescribeAccountOverview"
-    "fixture/DescribeAccountOverview.yaml"
+    "DescribeInsight"
+    "fixture/DescribeInsight.yaml"
 
 requestDescribeResourceCollectionHealth :: DescribeResourceCollectionHealth -> TestTree
 requestDescribeResourceCollectionHealth =
@@ -203,83 +203,11 @@ requestDescribeResourceCollectionHealth =
     "DescribeResourceCollectionHealth"
     "fixture/DescribeResourceCollectionHealth.yaml"
 
-requestRemoveNotificationChannel :: RemoveNotificationChannel -> TestTree
-requestRemoveNotificationChannel =
-  req
-    "RemoveNotificationChannel"
-    "fixture/RemoveNotificationChannel.yaml"
-
-requestListAnomaliesForInsight :: ListAnomaliesForInsight -> TestTree
-requestListAnomaliesForInsight =
-  req
-    "ListAnomaliesForInsight"
-    "fixture/ListAnomaliesForInsight.yaml"
-
-requestPutFeedback :: PutFeedback -> TestTree
-requestPutFeedback =
-  req
-    "PutFeedback"
-    "fixture/PutFeedback.yaml"
-
-requestSearchInsights :: SearchInsights -> TestTree
-requestSearchInsights =
-  req
-    "SearchInsights"
-    "fixture/SearchInsights.yaml"
-
 requestDescribeServiceIntegration :: DescribeServiceIntegration -> TestTree
 requestDescribeServiceIntegration =
   req
     "DescribeServiceIntegration"
     "fixture/DescribeServiceIntegration.yaml"
-
-requestUpdateServiceIntegration :: UpdateServiceIntegration -> TestTree
-requestUpdateServiceIntegration =
-  req
-    "UpdateServiceIntegration"
-    "fixture/UpdateServiceIntegration.yaml"
-
-requestGetResourceCollection :: GetResourceCollection -> TestTree
-requestGetResourceCollection =
-  req
-    "GetResourceCollection"
-    "fixture/GetResourceCollection.yaml"
-
-requestListEvents :: ListEvents -> TestTree
-requestListEvents =
-  req
-    "ListEvents"
-    "fixture/ListEvents.yaml"
-
-requestUpdateResourceCollection :: UpdateResourceCollection -> TestTree
-requestUpdateResourceCollection =
-  req
-    "UpdateResourceCollection"
-    "fixture/UpdateResourceCollection.yaml"
-
-requestStartCostEstimation :: StartCostEstimation -> TestTree
-requestStartCostEstimation =
-  req
-    "StartCostEstimation"
-    "fixture/StartCostEstimation.yaml"
-
-requestListRecommendations :: ListRecommendations -> TestTree
-requestListRecommendations =
-  req
-    "ListRecommendations"
-    "fixture/ListRecommendations.yaml"
-
-requestDescribeAccountHealth :: DescribeAccountHealth -> TestTree
-requestDescribeAccountHealth =
-  req
-    "DescribeAccountHealth"
-    "fixture/DescribeAccountHealth.yaml"
-
-requestDescribeInsight :: DescribeInsight -> TestTree
-requestDescribeInsight =
-  req
-    "DescribeInsight"
-    "fixture/DescribeInsight.yaml"
 
 requestGetCostEstimation :: GetCostEstimation -> TestTree
 requestGetCostEstimation =
@@ -287,7 +215,103 @@ requestGetCostEstimation =
     "GetCostEstimation"
     "fixture/GetCostEstimation.yaml"
 
+requestGetResourceCollection :: GetResourceCollection -> TestTree
+requestGetResourceCollection =
+  req
+    "GetResourceCollection"
+    "fixture/GetResourceCollection.yaml"
+
+requestListAnomaliesForInsight :: ListAnomaliesForInsight -> TestTree
+requestListAnomaliesForInsight =
+  req
+    "ListAnomaliesForInsight"
+    "fixture/ListAnomaliesForInsight.yaml"
+
+requestListEvents :: ListEvents -> TestTree
+requestListEvents =
+  req
+    "ListEvents"
+    "fixture/ListEvents.yaml"
+
+requestListInsights :: ListInsights -> TestTree
+requestListInsights =
+  req
+    "ListInsights"
+    "fixture/ListInsights.yaml"
+
+requestListNotificationChannels :: ListNotificationChannels -> TestTree
+requestListNotificationChannels =
+  req
+    "ListNotificationChannels"
+    "fixture/ListNotificationChannels.yaml"
+
+requestListRecommendations :: ListRecommendations -> TestTree
+requestListRecommendations =
+  req
+    "ListRecommendations"
+    "fixture/ListRecommendations.yaml"
+
+requestPutFeedback :: PutFeedback -> TestTree
+requestPutFeedback =
+  req
+    "PutFeedback"
+    "fixture/PutFeedback.yaml"
+
+requestRemoveNotificationChannel :: RemoveNotificationChannel -> TestTree
+requestRemoveNotificationChannel =
+  req
+    "RemoveNotificationChannel"
+    "fixture/RemoveNotificationChannel.yaml"
+
+requestSearchInsights :: SearchInsights -> TestTree
+requestSearchInsights =
+  req
+    "SearchInsights"
+    "fixture/SearchInsights.yaml"
+
+requestStartCostEstimation :: StartCostEstimation -> TestTree
+requestStartCostEstimation =
+  req
+    "StartCostEstimation"
+    "fixture/StartCostEstimation.yaml"
+
+requestUpdateResourceCollection :: UpdateResourceCollection -> TestTree
+requestUpdateResourceCollection =
+  req
+    "UpdateResourceCollection"
+    "fixture/UpdateResourceCollection.yaml"
+
+requestUpdateServiceIntegration :: UpdateServiceIntegration -> TestTree
+requestUpdateServiceIntegration =
+  req
+    "UpdateServiceIntegration"
+    "fixture/UpdateServiceIntegration.yaml"
+
 -- Responses
+
+responseAddNotificationChannel :: AddNotificationChannelResponse -> TestTree
+responseAddNotificationChannel =
+  res
+    "AddNotificationChannelResponse"
+    "fixture/AddNotificationChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddNotificationChannel)
+
+responseDescribeAccountHealth :: DescribeAccountHealthResponse -> TestTree
+responseDescribeAccountHealth =
+  res
+    "DescribeAccountHealthResponse"
+    "fixture/DescribeAccountHealthResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountHealth)
+
+responseDescribeAccountOverview :: DescribeAccountOverviewResponse -> TestTree
+responseDescribeAccountOverview =
+  res
+    "DescribeAccountOverviewResponse"
+    "fixture/DescribeAccountOverviewResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountOverview)
 
 responseDescribeAnomaly :: DescribeAnomalyResponse -> TestTree
 responseDescribeAnomaly =
@@ -305,37 +329,13 @@ responseDescribeFeedback =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeFeedback)
 
-responseListInsights :: ListInsightsResponse -> TestTree
-responseListInsights =
+responseDescribeInsight :: DescribeInsightResponse -> TestTree
+responseDescribeInsight =
   res
-    "ListInsightsResponse"
-    "fixture/ListInsightsResponse.proto"
+    "DescribeInsightResponse"
+    "fixture/DescribeInsightResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInsights)
-
-responseAddNotificationChannel :: AddNotificationChannelResponse -> TestTree
-responseAddNotificationChannel =
-  res
-    "AddNotificationChannelResponse"
-    "fixture/AddNotificationChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddNotificationChannel)
-
-responseListNotificationChannels :: ListNotificationChannelsResponse -> TestTree
-responseListNotificationChannels =
-  res
-    "ListNotificationChannelsResponse"
-    "fixture/ListNotificationChannelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListNotificationChannels)
-
-responseDescribeAccountOverview :: DescribeAccountOverviewResponse -> TestTree
-responseDescribeAccountOverview =
-  res
-    "DescribeAccountOverviewResponse"
-    "fixture/DescribeAccountOverviewResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccountOverview)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInsight)
 
 responseDescribeResourceCollectionHealth :: DescribeResourceCollectionHealthResponse -> TestTree
 responseDescribeResourceCollectionHealth =
@@ -345,38 +345,6 @@ responseDescribeResourceCollectionHealth =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeResourceCollectionHealth)
 
-responseRemoveNotificationChannel :: RemoveNotificationChannelResponse -> TestTree
-responseRemoveNotificationChannel =
-  res
-    "RemoveNotificationChannelResponse"
-    "fixture/RemoveNotificationChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveNotificationChannel)
-
-responseListAnomaliesForInsight :: ListAnomaliesForInsightResponse -> TestTree
-responseListAnomaliesForInsight =
-  res
-    "ListAnomaliesForInsightResponse"
-    "fixture/ListAnomaliesForInsightResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAnomaliesForInsight)
-
-responsePutFeedback :: PutFeedbackResponse -> TestTree
-responsePutFeedback =
-  res
-    "PutFeedbackResponse"
-    "fixture/PutFeedbackResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutFeedback)
-
-responseSearchInsights :: SearchInsightsResponse -> TestTree
-responseSearchInsights =
-  res
-    "SearchInsightsResponse"
-    "fixture/SearchInsightsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchInsights)
-
 responseDescribeServiceIntegration :: DescribeServiceIntegrationResponse -> TestTree
 responseDescribeServiceIntegration =
   res
@@ -385,13 +353,13 @@ responseDescribeServiceIntegration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeServiceIntegration)
 
-responseUpdateServiceIntegration :: UpdateServiceIntegrationResponse -> TestTree
-responseUpdateServiceIntegration =
+responseGetCostEstimation :: GetCostEstimationResponse -> TestTree
+responseGetCostEstimation =
   res
-    "UpdateServiceIntegrationResponse"
-    "fixture/UpdateServiceIntegrationResponse.proto"
+    "GetCostEstimationResponse"
+    "fixture/GetCostEstimationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateServiceIntegration)
+    (Proxy.Proxy :: Proxy.Proxy GetCostEstimation)
 
 responseGetResourceCollection :: GetResourceCollectionResponse -> TestTree
 responseGetResourceCollection =
@@ -401,6 +369,14 @@ responseGetResourceCollection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResourceCollection)
 
+responseListAnomaliesForInsight :: ListAnomaliesForInsightResponse -> TestTree
+responseListAnomaliesForInsight =
+  res
+    "ListAnomaliesForInsightResponse"
+    "fixture/ListAnomaliesForInsightResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAnomaliesForInsight)
+
 responseListEvents :: ListEventsResponse -> TestTree
 responseListEvents =
   res
@@ -409,21 +385,21 @@ responseListEvents =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEvents)
 
-responseUpdateResourceCollection :: UpdateResourceCollectionResponse -> TestTree
-responseUpdateResourceCollection =
+responseListInsights :: ListInsightsResponse -> TestTree
+responseListInsights =
   res
-    "UpdateResourceCollectionResponse"
-    "fixture/UpdateResourceCollectionResponse.proto"
+    "ListInsightsResponse"
+    "fixture/ListInsightsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateResourceCollection)
+    (Proxy.Proxy :: Proxy.Proxy ListInsights)
 
-responseStartCostEstimation :: StartCostEstimationResponse -> TestTree
-responseStartCostEstimation =
+responseListNotificationChannels :: ListNotificationChannelsResponse -> TestTree
+responseListNotificationChannels =
   res
-    "StartCostEstimationResponse"
-    "fixture/StartCostEstimationResponse.proto"
+    "ListNotificationChannelsResponse"
+    "fixture/ListNotificationChannelsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartCostEstimation)
+    (Proxy.Proxy :: Proxy.Proxy ListNotificationChannels)
 
 responseListRecommendations :: ListRecommendationsResponse -> TestTree
 responseListRecommendations =
@@ -433,26 +409,50 @@ responseListRecommendations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRecommendations)
 
-responseDescribeAccountHealth :: DescribeAccountHealthResponse -> TestTree
-responseDescribeAccountHealth =
+responsePutFeedback :: PutFeedbackResponse -> TestTree
+responsePutFeedback =
   res
-    "DescribeAccountHealthResponse"
-    "fixture/DescribeAccountHealthResponse.proto"
+    "PutFeedbackResponse"
+    "fixture/PutFeedbackResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccountHealth)
+    (Proxy.Proxy :: Proxy.Proxy PutFeedback)
 
-responseDescribeInsight :: DescribeInsightResponse -> TestTree
-responseDescribeInsight =
+responseRemoveNotificationChannel :: RemoveNotificationChannelResponse -> TestTree
+responseRemoveNotificationChannel =
   res
-    "DescribeInsightResponse"
-    "fixture/DescribeInsightResponse.proto"
+    "RemoveNotificationChannelResponse"
+    "fixture/RemoveNotificationChannelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeInsight)
+    (Proxy.Proxy :: Proxy.Proxy RemoveNotificationChannel)
 
-responseGetCostEstimation :: GetCostEstimationResponse -> TestTree
-responseGetCostEstimation =
+responseSearchInsights :: SearchInsightsResponse -> TestTree
+responseSearchInsights =
   res
-    "GetCostEstimationResponse"
-    "fixture/GetCostEstimationResponse.proto"
+    "SearchInsightsResponse"
+    "fixture/SearchInsightsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCostEstimation)
+    (Proxy.Proxy :: Proxy.Proxy SearchInsights)
+
+responseStartCostEstimation :: StartCostEstimationResponse -> TestTree
+responseStartCostEstimation =
+  res
+    "StartCostEstimationResponse"
+    "fixture/StartCostEstimationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartCostEstimation)
+
+responseUpdateResourceCollection :: UpdateResourceCollectionResponse -> TestTree
+responseUpdateResourceCollection =
+  res
+    "UpdateResourceCollectionResponse"
+    "fixture/UpdateResourceCollectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceCollection)
+
+responseUpdateServiceIntegration :: UpdateServiceIntegrationResponse -> TestTree
+responseUpdateServiceIntegration =
+  res
+    "UpdateServiceIntegrationResponse"
+    "fixture/UpdateServiceIntegrationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateServiceIntegration)

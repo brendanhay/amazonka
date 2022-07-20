@@ -28,10 +28,10 @@ module Amazonka.WorkMail.ListMobileDeviceAccessOverrides
     newListMobileDeviceAccessOverrides,
 
     -- * Request Lenses
-    listMobileDeviceAccessOverrides_userId,
     listMobileDeviceAccessOverrides_nextToken,
     listMobileDeviceAccessOverrides_deviceId,
     listMobileDeviceAccessOverrides_maxResults,
+    listMobileDeviceAccessOverrides_userId,
     listMobileDeviceAccessOverrides_organizationId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.WorkMail.ListMobileDeviceAccessOverrides
     newListMobileDeviceAccessOverridesResponse,
 
     -- * Response Lenses
-    listMobileDeviceAccessOverridesResponse_overrides,
     listMobileDeviceAccessOverridesResponse_nextToken,
+    listMobileDeviceAccessOverridesResponse_overrides,
     listMobileDeviceAccessOverridesResponse_httpStatus,
   )
 where
@@ -54,7 +54,14 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListMobileDeviceAccessOverrides' smart constructor.
 data ListMobileDeviceAccessOverrides = ListMobileDeviceAccessOverrides'
-  { -- | The WorkMail user under which you list the mobile device access
+  { -- | The token to use to retrieve the next page of results. The first call
+    -- does not require a token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The mobile device to which the access override applies.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The WorkMail user under which you list the mobile device access
     -- overrides. Accepts the following types of user identities:
     --
     -- -   User ID: @12345678-1234-1234-1234-123456789012@ or
@@ -64,13 +71,6 @@ data ListMobileDeviceAccessOverrides = ListMobileDeviceAccessOverrides'
     --
     -- -   User name: @user@
     userId :: Prelude.Maybe Prelude.Text,
-    -- | The token to use to retrieve the next page of results. The first call
-    -- does not require a token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The mobile device to which the access override applies.
-    deviceId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon WorkMail organization under which to list mobile device
     -- access overrides.
     organizationId :: Prelude.Text
@@ -85,6 +85,13 @@ data ListMobileDeviceAccessOverrides = ListMobileDeviceAccessOverrides'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listMobileDeviceAccessOverrides_nextToken' - The token to use to retrieve the next page of results. The first call
+-- does not require a token.
+--
+-- 'deviceId', 'listMobileDeviceAccessOverrides_deviceId' - The mobile device to which the access override applies.
+--
+-- 'maxResults', 'listMobileDeviceAccessOverrides_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'userId', 'listMobileDeviceAccessOverrides_userId' - The WorkMail user under which you list the mobile device access
 -- overrides. Accepts the following types of user identities:
 --
@@ -95,13 +102,6 @@ data ListMobileDeviceAccessOverrides = ListMobileDeviceAccessOverrides'
 --
 -- -   User name: @user@
 --
--- 'nextToken', 'listMobileDeviceAccessOverrides_nextToken' - The token to use to retrieve the next page of results. The first call
--- does not require a token.
---
--- 'deviceId', 'listMobileDeviceAccessOverrides_deviceId' - The mobile device to which the access override applies.
---
--- 'maxResults', 'listMobileDeviceAccessOverrides_maxResults' - The maximum number of results to return in a single call.
---
 -- 'organizationId', 'listMobileDeviceAccessOverrides_organizationId' - The Amazon WorkMail organization under which to list mobile device
 -- access overrides.
 newListMobileDeviceAccessOverrides ::
@@ -110,25 +110,13 @@ newListMobileDeviceAccessOverrides ::
   ListMobileDeviceAccessOverrides
 newListMobileDeviceAccessOverrides pOrganizationId_ =
   ListMobileDeviceAccessOverrides'
-    { userId =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       deviceId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      userId = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
-
--- | The WorkMail user under which you list the mobile device access
--- overrides. Accepts the following types of user identities:
---
--- -   User ID: @12345678-1234-1234-1234-123456789012@ or
---     @S-1-1-12-1234567890-123456789-123456789-1234@
---
--- -   Email address: @user\@domain.tld@
---
--- -   User name: @user@
-listMobileDeviceAccessOverrides_userId :: Lens.Lens' ListMobileDeviceAccessOverrides (Prelude.Maybe Prelude.Text)
-listMobileDeviceAccessOverrides_userId = Lens.lens (\ListMobileDeviceAccessOverrides' {userId} -> userId) (\s@ListMobileDeviceAccessOverrides' {} a -> s {userId = a} :: ListMobileDeviceAccessOverrides)
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not require a token.
@@ -142,6 +130,18 @@ listMobileDeviceAccessOverrides_deviceId = Lens.lens (\ListMobileDeviceAccessOve
 -- | The maximum number of results to return in a single call.
 listMobileDeviceAccessOverrides_maxResults :: Lens.Lens' ListMobileDeviceAccessOverrides (Prelude.Maybe Prelude.Natural)
 listMobileDeviceAccessOverrides_maxResults = Lens.lens (\ListMobileDeviceAccessOverrides' {maxResults} -> maxResults) (\s@ListMobileDeviceAccessOverrides' {} a -> s {maxResults = a} :: ListMobileDeviceAccessOverrides)
+
+-- | The WorkMail user under which you list the mobile device access
+-- overrides. Accepts the following types of user identities:
+--
+-- -   User ID: @12345678-1234-1234-1234-123456789012@ or
+--     @S-1-1-12-1234567890-123456789-123456789-1234@
+--
+-- -   Email address: @user\@domain.tld@
+--
+-- -   User name: @user@
+listMobileDeviceAccessOverrides_userId :: Lens.Lens' ListMobileDeviceAccessOverrides (Prelude.Maybe Prelude.Text)
+listMobileDeviceAccessOverrides_userId = Lens.lens (\ListMobileDeviceAccessOverrides' {userId} -> userId) (\s@ListMobileDeviceAccessOverrides' {} a -> s {userId = a} :: ListMobileDeviceAccessOverrides)
 
 -- | The Amazon WorkMail organization under which to list mobile device
 -- access overrides.
@@ -160,8 +160,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListMobileDeviceAccessOverridesResponse'
-            Prelude.<$> (x Core..?> "Overrides" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Overrides" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,10 +172,10 @@ instance
   hashWithSalt
     _salt
     ListMobileDeviceAccessOverrides' {..} =
-      _salt `Prelude.hashWithSalt` userId
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` deviceId
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` userId
         `Prelude.hashWithSalt` organizationId
 
 instance
@@ -183,10 +183,10 @@ instance
     ListMobileDeviceAccessOverrides
   where
   rnf ListMobileDeviceAccessOverrides' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf organizationId
 
 instance
@@ -211,10 +211,10 @@ instance Core.ToJSON ListMobileDeviceAccessOverrides where
   toJSON ListMobileDeviceAccessOverrides' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserId" Core..=) Prelude.<$> userId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("DeviceId" Core..=) Prelude.<$> deviceId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("UserId" Core..=) Prelude.<$> userId,
             Prelude.Just
               ("OrganizationId" Core..= organizationId)
           ]
@@ -228,12 +228,12 @@ instance Core.ToQuery ListMobileDeviceAccessOverrides where
 
 -- | /See:/ 'newListMobileDeviceAccessOverridesResponse' smart constructor.
 data ListMobileDeviceAccessOverridesResponse = ListMobileDeviceAccessOverridesResponse'
-  { -- | The list of mobile device access overrides that exist for the specified
-    -- Amazon WorkMail organization and user.
-    overrides :: Prelude.Maybe [MobileDeviceAccessOverride],
-    -- | The token to use to retrieve the next page of results. The value is
+  { -- | The token to use to retrieve the next page of results. The value is
     -- “null” when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of mobile device access overrides that exist for the specified
+    -- Amazon WorkMail organization and user.
+    overrides :: Prelude.Maybe [MobileDeviceAccessOverride],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,11 +247,11 @@ data ListMobileDeviceAccessOverridesResponse = ListMobileDeviceAccessOverridesRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'overrides', 'listMobileDeviceAccessOverridesResponse_overrides' - The list of mobile device access overrides that exist for the specified
--- Amazon WorkMail organization and user.
---
 -- 'nextToken', 'listMobileDeviceAccessOverridesResponse_nextToken' - The token to use to retrieve the next page of results. The value is
 -- “null” when there are no more results to return.
+--
+-- 'overrides', 'listMobileDeviceAccessOverridesResponse_overrides' - The list of mobile device access overrides that exist for the specified
+-- Amazon WorkMail organization and user.
 --
 -- 'httpStatus', 'listMobileDeviceAccessOverridesResponse_httpStatus' - The response's http status code.
 newListMobileDeviceAccessOverridesResponse ::
@@ -261,21 +261,21 @@ newListMobileDeviceAccessOverridesResponse ::
 newListMobileDeviceAccessOverridesResponse
   pHttpStatus_ =
     ListMobileDeviceAccessOverridesResponse'
-      { overrides =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        overrides = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The list of mobile device access overrides that exist for the specified
--- Amazon WorkMail organization and user.
-listMobileDeviceAccessOverridesResponse_overrides :: Lens.Lens' ListMobileDeviceAccessOverridesResponse (Prelude.Maybe [MobileDeviceAccessOverride])
-listMobileDeviceAccessOverridesResponse_overrides = Lens.lens (\ListMobileDeviceAccessOverridesResponse' {overrides} -> overrides) (\s@ListMobileDeviceAccessOverridesResponse' {} a -> s {overrides = a} :: ListMobileDeviceAccessOverridesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The value is
 -- “null” when there are no more results to return.
 listMobileDeviceAccessOverridesResponse_nextToken :: Lens.Lens' ListMobileDeviceAccessOverridesResponse (Prelude.Maybe Prelude.Text)
 listMobileDeviceAccessOverridesResponse_nextToken = Lens.lens (\ListMobileDeviceAccessOverridesResponse' {nextToken} -> nextToken) (\s@ListMobileDeviceAccessOverridesResponse' {} a -> s {nextToken = a} :: ListMobileDeviceAccessOverridesResponse)
+
+-- | The list of mobile device access overrides that exist for the specified
+-- Amazon WorkMail organization and user.
+listMobileDeviceAccessOverridesResponse_overrides :: Lens.Lens' ListMobileDeviceAccessOverridesResponse (Prelude.Maybe [MobileDeviceAccessOverride])
+listMobileDeviceAccessOverridesResponse_overrides = Lens.lens (\ListMobileDeviceAccessOverridesResponse' {overrides} -> overrides) (\s@ListMobileDeviceAccessOverridesResponse' {} a -> s {overrides = a} :: ListMobileDeviceAccessOverridesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMobileDeviceAccessOverridesResponse_httpStatus :: Lens.Lens' ListMobileDeviceAccessOverridesResponse Prelude.Int
@@ -286,6 +286,6 @@ instance
     ListMobileDeviceAccessOverridesResponse
   where
   rnf ListMobileDeviceAccessOverridesResponse' {..} =
-    Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf overrides
       `Prelude.seq` Prelude.rnf httpStatus

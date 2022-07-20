@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClientVpnEndpointStatus' smart constructor.
 data ClientVpnEndpointStatus = ClientVpnEndpointStatus'
-  { -- | The state of the Client VPN endpoint. Possible states include:
+  { -- | A message about the status of the Client VPN endpoint.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The state of the Client VPN endpoint. Possible states include:
     --
     -- -   @pending-associate@ - The Client VPN endpoint has been created but
     --     no target networks have been associated. The Client VPN endpoint
@@ -44,9 +46,7 @@ data ClientVpnEndpointStatus = ClientVpnEndpointStatus'
     --
     -- -   @deleted@ - The Client VPN endpoint has been deleted. The Client VPN
     --     endpoint cannot accept connections.
-    code :: Prelude.Maybe ClientVpnEndpointStatusCode,
-    -- | A message about the status of the Client VPN endpoint.
-    message :: Prelude.Maybe Prelude.Text
+    code :: Prelude.Maybe ClientVpnEndpointStatusCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,8 @@ data ClientVpnEndpointStatus = ClientVpnEndpointStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'message', 'clientVpnEndpointStatus_message' - A message about the status of the Client VPN endpoint.
 --
 -- 'code', 'clientVpnEndpointStatus_code' - The state of the Client VPN endpoint. Possible states include:
 --
@@ -73,15 +75,17 @@ data ClientVpnEndpointStatus = ClientVpnEndpointStatus'
 --
 -- -   @deleted@ - The Client VPN endpoint has been deleted. The Client VPN
 --     endpoint cannot accept connections.
---
--- 'message', 'clientVpnEndpointStatus_message' - A message about the status of the Client VPN endpoint.
 newClientVpnEndpointStatus ::
   ClientVpnEndpointStatus
 newClientVpnEndpointStatus =
   ClientVpnEndpointStatus'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
+
+-- | A message about the status of the Client VPN endpoint.
+clientVpnEndpointStatus_message :: Lens.Lens' ClientVpnEndpointStatus (Prelude.Maybe Prelude.Text)
+clientVpnEndpointStatus_message = Lens.lens (\ClientVpnEndpointStatus' {message} -> message) (\s@ClientVpnEndpointStatus' {} a -> s {message = a} :: ClientVpnEndpointStatus)
 
 -- | The state of the Client VPN endpoint. Possible states include:
 --
@@ -101,21 +105,17 @@ newClientVpnEndpointStatus =
 clientVpnEndpointStatus_code :: Lens.Lens' ClientVpnEndpointStatus (Prelude.Maybe ClientVpnEndpointStatusCode)
 clientVpnEndpointStatus_code = Lens.lens (\ClientVpnEndpointStatus' {code} -> code) (\s@ClientVpnEndpointStatus' {} a -> s {code = a} :: ClientVpnEndpointStatus)
 
--- | A message about the status of the Client VPN endpoint.
-clientVpnEndpointStatus_message :: Lens.Lens' ClientVpnEndpointStatus (Prelude.Maybe Prelude.Text)
-clientVpnEndpointStatus_message = Lens.lens (\ClientVpnEndpointStatus' {message} -> message) (\s@ClientVpnEndpointStatus' {} a -> s {message = a} :: ClientVpnEndpointStatus)
-
 instance Core.FromXML ClientVpnEndpointStatus where
   parseXML x =
     ClientVpnEndpointStatus'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance Prelude.Hashable ClientVpnEndpointStatus where
   hashWithSalt _salt ClientVpnEndpointStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData ClientVpnEndpointStatus where
   rnf ClientVpnEndpointStatus' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

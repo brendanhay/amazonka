@@ -37,8 +37,8 @@ module Amazonka.SMS.GetConnectors
     newGetConnectorsResponse,
 
     -- * Response Lenses
-    getConnectorsResponse_connectorList,
     getConnectorsResponse_nextToken,
+    getConnectorsResponse_connectorList,
     getConnectorsResponse_httpStatus,
   )
 where
@@ -121,8 +121,8 @@ instance Core.AWSRequest GetConnectors where
     Response.receiveJSON
       ( \s h x ->
           GetConnectorsResponse'
-            Prelude.<$> (x Core..?> "connectorList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "connectorList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,11 +168,11 @@ instance Core.ToQuery GetConnectors where
 
 -- | /See:/ 'newGetConnectorsResponse' smart constructor.
 data GetConnectorsResponse = GetConnectorsResponse'
-  { -- | Information about the registered connectors.
-    connectorList :: Prelude.Maybe [Connector],
-    -- | The token required to retrieve the next set of results. This value is
+  { -- | The token required to retrieve the next set of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the registered connectors.
+    connectorList :: Prelude.Maybe [Connector],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,10 +186,10 @@ data GetConnectorsResponse = GetConnectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectorList', 'getConnectorsResponse_connectorList' - Information about the registered connectors.
---
 -- 'nextToken', 'getConnectorsResponse_nextToken' - The token required to retrieve the next set of results. This value is
 -- null when there are no more results to return.
+--
+-- 'connectorList', 'getConnectorsResponse_connectorList' - Information about the registered connectors.
 --
 -- 'httpStatus', 'getConnectorsResponse_httpStatus' - The response's http status code.
 newGetConnectorsResponse ::
@@ -198,20 +198,19 @@ newGetConnectorsResponse ::
   GetConnectorsResponse
 newGetConnectorsResponse pHttpStatus_ =
   GetConnectorsResponse'
-    { connectorList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      connectorList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the registered connectors.
-getConnectorsResponse_connectorList :: Lens.Lens' GetConnectorsResponse (Prelude.Maybe [Connector])
-getConnectorsResponse_connectorList = Lens.lens (\GetConnectorsResponse' {connectorList} -> connectorList) (\s@GetConnectorsResponse' {} a -> s {connectorList = a} :: GetConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token required to retrieve the next set of results. This value is
 -- null when there are no more results to return.
 getConnectorsResponse_nextToken :: Lens.Lens' GetConnectorsResponse (Prelude.Maybe Prelude.Text)
 getConnectorsResponse_nextToken = Lens.lens (\GetConnectorsResponse' {nextToken} -> nextToken) (\s@GetConnectorsResponse' {} a -> s {nextToken = a} :: GetConnectorsResponse)
+
+-- | Information about the registered connectors.
+getConnectorsResponse_connectorList :: Lens.Lens' GetConnectorsResponse (Prelude.Maybe [Connector])
+getConnectorsResponse_connectorList = Lens.lens (\GetConnectorsResponse' {connectorList} -> connectorList) (\s@GetConnectorsResponse' {} a -> s {connectorList = a} :: GetConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getConnectorsResponse_httpStatus :: Lens.Lens' GetConnectorsResponse Prelude.Int
@@ -219,6 +218,6 @@ getConnectorsResponse_httpStatus = Lens.lens (\GetConnectorsResponse' {httpStatu
 
 instance Prelude.NFData GetConnectorsResponse where
   rnf GetConnectorsResponse' {..} =
-    Prelude.rnf connectorList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connectorList
       `Prelude.seq` Prelude.rnf httpStatus

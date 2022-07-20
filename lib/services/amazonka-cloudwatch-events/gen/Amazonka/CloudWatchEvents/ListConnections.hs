@@ -28,17 +28,17 @@ module Amazonka.CloudWatchEvents.ListConnections
 
     -- * Request Lenses
     listConnections_nextToken,
-    listConnections_namePrefix,
-    listConnections_limit,
     listConnections_connectionState,
+    listConnections_limit,
+    listConnections_namePrefix,
 
     -- * Destructuring the Response
     ListConnectionsResponse (..),
     newListConnectionsResponse,
 
     -- * Response Lenses
-    listConnectionsResponse_connections,
     listConnectionsResponse_nextToken,
+    listConnectionsResponse_connections,
     listConnectionsResponse_httpStatus,
   )
 where
@@ -55,13 +55,13 @@ data ListConnections = ListConnections'
   { -- | The token returned by a previous call to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A name prefix to filter results returned. Only connections with a name
-    -- that starts with the prefix are returned.
-    namePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The state of the connection.
+    connectionState :: Prelude.Maybe ConnectionState,
     -- | The maximum number of connections to return.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The state of the connection.
-    connectionState :: Prelude.Maybe ConnectionState
+    -- | A name prefix to filter results returned. Only connections with a name
+    -- that starts with the prefix are returned.
+    namePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,20 +76,20 @@ data ListConnections = ListConnections'
 -- 'nextToken', 'listConnections_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
 --
--- 'namePrefix', 'listConnections_namePrefix' - A name prefix to filter results returned. Only connections with a name
--- that starts with the prefix are returned.
+-- 'connectionState', 'listConnections_connectionState' - The state of the connection.
 --
 -- 'limit', 'listConnections_limit' - The maximum number of connections to return.
 --
--- 'connectionState', 'listConnections_connectionState' - The state of the connection.
+-- 'namePrefix', 'listConnections_namePrefix' - A name prefix to filter results returned. Only connections with a name
+-- that starts with the prefix are returned.
 newListConnections ::
   ListConnections
 newListConnections =
   ListConnections'
     { nextToken = Prelude.Nothing,
-      namePrefix = Prelude.Nothing,
+      connectionState = Prelude.Nothing,
       limit = Prelude.Nothing,
-      connectionState = Prelude.Nothing
+      namePrefix = Prelude.Nothing
     }
 
 -- | The token returned by a previous call to retrieve the next set of
@@ -97,18 +97,18 @@ newListConnections =
 listConnections_nextToken :: Lens.Lens' ListConnections (Prelude.Maybe Prelude.Text)
 listConnections_nextToken = Lens.lens (\ListConnections' {nextToken} -> nextToken) (\s@ListConnections' {} a -> s {nextToken = a} :: ListConnections)
 
--- | A name prefix to filter results returned. Only connections with a name
--- that starts with the prefix are returned.
-listConnections_namePrefix :: Lens.Lens' ListConnections (Prelude.Maybe Prelude.Text)
-listConnections_namePrefix = Lens.lens (\ListConnections' {namePrefix} -> namePrefix) (\s@ListConnections' {} a -> s {namePrefix = a} :: ListConnections)
+-- | The state of the connection.
+listConnections_connectionState :: Lens.Lens' ListConnections (Prelude.Maybe ConnectionState)
+listConnections_connectionState = Lens.lens (\ListConnections' {connectionState} -> connectionState) (\s@ListConnections' {} a -> s {connectionState = a} :: ListConnections)
 
 -- | The maximum number of connections to return.
 listConnections_limit :: Lens.Lens' ListConnections (Prelude.Maybe Prelude.Natural)
 listConnections_limit = Lens.lens (\ListConnections' {limit} -> limit) (\s@ListConnections' {} a -> s {limit = a} :: ListConnections)
 
--- | The state of the connection.
-listConnections_connectionState :: Lens.Lens' ListConnections (Prelude.Maybe ConnectionState)
-listConnections_connectionState = Lens.lens (\ListConnections' {connectionState} -> connectionState) (\s@ListConnections' {} a -> s {connectionState = a} :: ListConnections)
+-- | A name prefix to filter results returned. Only connections with a name
+-- that starts with the prefix are returned.
+listConnections_namePrefix :: Lens.Lens' ListConnections (Prelude.Maybe Prelude.Text)
+listConnections_namePrefix = Lens.lens (\ListConnections' {namePrefix} -> namePrefix) (\s@ListConnections' {} a -> s {namePrefix = a} :: ListConnections)
 
 instance Core.AWSRequest ListConnections where
   type
@@ -119,24 +119,24 @@ instance Core.AWSRequest ListConnections where
     Response.receiveJSON
       ( \s h x ->
           ListConnectionsResponse'
-            Prelude.<$> (x Core..?> "Connections" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Connections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListConnections where
   hashWithSalt _salt ListConnections' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` namePrefix
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` connectionState
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` namePrefix
 
 instance Prelude.NFData ListConnections where
   rnf ListConnections' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf namePrefix
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf connectionState
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf namePrefix
 
 instance Core.ToHeaders ListConnections where
   toHeaders =
@@ -156,10 +156,10 @@ instance Core.ToJSON ListConnections where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NamePrefix" Core..=) Prelude.<$> namePrefix,
-            ("Limit" Core..=) Prelude.<$> limit,
             ("ConnectionState" Core..=)
-              Prelude.<$> connectionState
+              Prelude.<$> connectionState,
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("NamePrefix" Core..=) Prelude.<$> namePrefix
           ]
       )
 
@@ -171,12 +171,12 @@ instance Core.ToQuery ListConnections where
 
 -- | /See:/ 'newListConnectionsResponse' smart constructor.
 data ListConnectionsResponse = ListConnectionsResponse'
-  { -- | An array of connections objects that include details about the
-    -- connections.
-    connections :: Prelude.Maybe [Connection],
-    -- | A token you can use in a subsequent request to retrieve the next set of
+  { -- | A token you can use in a subsequent request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of connections objects that include details about the
+    -- connections.
+    connections :: Prelude.Maybe [Connection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,11 +190,11 @@ data ListConnectionsResponse = ListConnectionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connections', 'listConnectionsResponse_connections' - An array of connections objects that include details about the
--- connections.
---
 -- 'nextToken', 'listConnectionsResponse_nextToken' - A token you can use in a subsequent request to retrieve the next set of
 -- results.
+--
+-- 'connections', 'listConnectionsResponse_connections' - An array of connections objects that include details about the
+-- connections.
 --
 -- 'httpStatus', 'listConnectionsResponse_httpStatus' - The response's http status code.
 newListConnectionsResponse ::
@@ -203,21 +203,21 @@ newListConnectionsResponse ::
   ListConnectionsResponse
 newListConnectionsResponse pHttpStatus_ =
   ListConnectionsResponse'
-    { connections =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      connections = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of connections objects that include details about the
--- connections.
-listConnectionsResponse_connections :: Lens.Lens' ListConnectionsResponse (Prelude.Maybe [Connection])
-listConnectionsResponse_connections = Lens.lens (\ListConnectionsResponse' {connections} -> connections) (\s@ListConnectionsResponse' {} a -> s {connections = a} :: ListConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token you can use in a subsequent request to retrieve the next set of
 -- results.
 listConnectionsResponse_nextToken :: Lens.Lens' ListConnectionsResponse (Prelude.Maybe Prelude.Text)
 listConnectionsResponse_nextToken = Lens.lens (\ListConnectionsResponse' {nextToken} -> nextToken) (\s@ListConnectionsResponse' {} a -> s {nextToken = a} :: ListConnectionsResponse)
+
+-- | An array of connections objects that include details about the
+-- connections.
+listConnectionsResponse_connections :: Lens.Lens' ListConnectionsResponse (Prelude.Maybe [Connection])
+listConnectionsResponse_connections = Lens.lens (\ListConnectionsResponse' {connections} -> connections) (\s@ListConnectionsResponse' {} a -> s {connections = a} :: ListConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listConnectionsResponse_httpStatus :: Lens.Lens' ListConnectionsResponse Prelude.Int
@@ -225,6 +225,6 @@ listConnectionsResponse_httpStatus = Lens.lens (\ListConnectionsResponse' {httpS
 
 instance Prelude.NFData ListConnectionsResponse where
   rnf ListConnectionsResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connections
       `Prelude.seq` Prelude.rnf httpStatus

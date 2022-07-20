@@ -28,46 +28,46 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDeployment' smart constructor.
 data Deployment = Deployment'
-  { -- | The percentage of targets to receive a deployed configuration during
-    -- each interval.
-    growthFactor :: Prelude.Maybe Prelude.Double,
-    -- | The name of the configuration.
-    configurationName :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the deployment strategy that was deployed.
+    deploymentStrategyId :: Prelude.Maybe Prelude.Text,
+    -- | The algorithm used to define how percentage grew over time.
+    growthType :: Prelude.Maybe GrowthType,
     -- | The state of the deployment.
     state :: Prelude.Maybe DeploymentState,
-    -- | The ID of the deployment strategy that was deployed.
-    deploymentStrategyId :: Prelude.Maybe Prelude.Text,
-    -- | The sequence number of the deployment.
-    deploymentNumber :: Prelude.Maybe Prelude.Int,
-    -- | The configuration version that was deployed.
-    configurationVersion :: Prelude.Maybe Prelude.Text,
-    -- | A list containing all events related to a deployment. The most recent
-    -- events are displayed first.
-    eventLog :: Prelude.Maybe [DeploymentEvent],
-    -- | The percentage of targets for which the deployment is available.
-    percentageComplete :: Prelude.Maybe Prelude.Double,
-    -- | The time the deployment started.
-    startedAt :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the application that was deployed.
-    applicationId :: Prelude.Maybe Prelude.Text,
     -- | Total amount of time the deployment lasted.
     deploymentDurationInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the environment that was deployed.
-    environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The time the deployment completed.
-    completedAt :: Prelude.Maybe Core.POSIX,
-    -- | Information about the source location of the configuration.
-    configurationLocationUri :: Prelude.Maybe Prelude.Text,
+    -- | The sequence number of the deployment.
+    deploymentNumber :: Prelude.Maybe Prelude.Int,
+    -- | The description of the deployment.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The amount of time AppConfig monitored for alarms before considering the
     -- deployment to be complete and no longer eligible for automatic roll
     -- back.
     finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The description of the deployment.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The time the deployment started.
+    startedAt :: Prelude.Maybe Core.POSIX,
+    -- | The name of the configuration.
+    configurationName :: Prelude.Maybe Prelude.Text,
+    -- | The percentage of targets to receive a deployed configuration during
+    -- each interval.
+    growthFactor :: Prelude.Maybe Prelude.Double,
+    -- | A list containing all events related to a deployment. The most recent
+    -- events are displayed first.
+    eventLog :: Prelude.Maybe [DeploymentEvent],
+    -- | The configuration version that was deployed.
+    configurationVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the environment that was deployed.
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The percentage of targets for which the deployment is available.
+    percentageComplete :: Prelude.Maybe Prelude.Double,
+    -- | Information about the source location of the configuration.
+    configurationLocationUri :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the application that was deployed.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The time the deployment completed.
+    completedAt :: Prelude.Maybe Core.POSIX,
     -- | The ID of the configuration profile that was deployed.
-    configurationProfileId :: Prelude.Maybe Prelude.Text,
-    -- | The algorithm used to define how percentage grew over time.
-    growthType :: Prelude.Maybe GrowthType
+    configurationProfileId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,126 +79,92 @@ data Deployment = Deployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'growthFactor', 'deployment_growthFactor' - The percentage of targets to receive a deployed configuration during
--- each interval.
+-- 'deploymentStrategyId', 'deployment_deploymentStrategyId' - The ID of the deployment strategy that was deployed.
 --
--- 'configurationName', 'deployment_configurationName' - The name of the configuration.
+-- 'growthType', 'deployment_growthType' - The algorithm used to define how percentage grew over time.
 --
 -- 'state', 'deployment_state' - The state of the deployment.
 --
--- 'deploymentStrategyId', 'deployment_deploymentStrategyId' - The ID of the deployment strategy that was deployed.
+-- 'deploymentDurationInMinutes', 'deployment_deploymentDurationInMinutes' - Total amount of time the deployment lasted.
 --
 -- 'deploymentNumber', 'deployment_deploymentNumber' - The sequence number of the deployment.
 --
--- 'configurationVersion', 'deployment_configurationVersion' - The configuration version that was deployed.
---
--- 'eventLog', 'deployment_eventLog' - A list containing all events related to a deployment. The most recent
--- events are displayed first.
---
--- 'percentageComplete', 'deployment_percentageComplete' - The percentage of targets for which the deployment is available.
---
--- 'startedAt', 'deployment_startedAt' - The time the deployment started.
---
--- 'applicationId', 'deployment_applicationId' - The ID of the application that was deployed.
---
--- 'deploymentDurationInMinutes', 'deployment_deploymentDurationInMinutes' - Total amount of time the deployment lasted.
---
--- 'environmentId', 'deployment_environmentId' - The ID of the environment that was deployed.
---
--- 'completedAt', 'deployment_completedAt' - The time the deployment completed.
---
--- 'configurationLocationUri', 'deployment_configurationLocationUri' - Information about the source location of the configuration.
+-- 'description', 'deployment_description' - The description of the deployment.
 --
 -- 'finalBakeTimeInMinutes', 'deployment_finalBakeTimeInMinutes' - The amount of time AppConfig monitored for alarms before considering the
 -- deployment to be complete and no longer eligible for automatic roll
 -- back.
 --
--- 'description', 'deployment_description' - The description of the deployment.
+-- 'startedAt', 'deployment_startedAt' - The time the deployment started.
+--
+-- 'configurationName', 'deployment_configurationName' - The name of the configuration.
+--
+-- 'growthFactor', 'deployment_growthFactor' - The percentage of targets to receive a deployed configuration during
+-- each interval.
+--
+-- 'eventLog', 'deployment_eventLog' - A list containing all events related to a deployment. The most recent
+-- events are displayed first.
+--
+-- 'configurationVersion', 'deployment_configurationVersion' - The configuration version that was deployed.
+--
+-- 'environmentId', 'deployment_environmentId' - The ID of the environment that was deployed.
+--
+-- 'percentageComplete', 'deployment_percentageComplete' - The percentage of targets for which the deployment is available.
+--
+-- 'configurationLocationUri', 'deployment_configurationLocationUri' - Information about the source location of the configuration.
+--
+-- 'applicationId', 'deployment_applicationId' - The ID of the application that was deployed.
+--
+-- 'completedAt', 'deployment_completedAt' - The time the deployment completed.
 --
 -- 'configurationProfileId', 'deployment_configurationProfileId' - The ID of the configuration profile that was deployed.
---
--- 'growthType', 'deployment_growthType' - The algorithm used to define how percentage grew over time.
 newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { growthFactor = Prelude.Nothing,
-      configurationName = Prelude.Nothing,
+    { deploymentStrategyId = Prelude.Nothing,
+      growthType = Prelude.Nothing,
       state = Prelude.Nothing,
-      deploymentStrategyId = Prelude.Nothing,
-      deploymentNumber = Prelude.Nothing,
-      configurationVersion = Prelude.Nothing,
-      eventLog = Prelude.Nothing,
-      percentageComplete = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
       deploymentDurationInMinutes = Prelude.Nothing,
-      environmentId = Prelude.Nothing,
-      completedAt = Prelude.Nothing,
-      configurationLocationUri = Prelude.Nothing,
-      finalBakeTimeInMinutes = Prelude.Nothing,
+      deploymentNumber = Prelude.Nothing,
       description = Prelude.Nothing,
-      configurationProfileId = Prelude.Nothing,
-      growthType = Prelude.Nothing
+      finalBakeTimeInMinutes = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      configurationName = Prelude.Nothing,
+      growthFactor = Prelude.Nothing,
+      eventLog = Prelude.Nothing,
+      configurationVersion = Prelude.Nothing,
+      environmentId = Prelude.Nothing,
+      percentageComplete = Prelude.Nothing,
+      configurationLocationUri = Prelude.Nothing,
+      applicationId = Prelude.Nothing,
+      completedAt = Prelude.Nothing,
+      configurationProfileId = Prelude.Nothing
     }
-
--- | The percentage of targets to receive a deployed configuration during
--- each interval.
-deployment_growthFactor :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Double)
-deployment_growthFactor = Lens.lens (\Deployment' {growthFactor} -> growthFactor) (\s@Deployment' {} a -> s {growthFactor = a} :: Deployment)
-
--- | The name of the configuration.
-deployment_configurationName :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_configurationName = Lens.lens (\Deployment' {configurationName} -> configurationName) (\s@Deployment' {} a -> s {configurationName = a} :: Deployment)
-
--- | The state of the deployment.
-deployment_state :: Lens.Lens' Deployment (Prelude.Maybe DeploymentState)
-deployment_state = Lens.lens (\Deployment' {state} -> state) (\s@Deployment' {} a -> s {state = a} :: Deployment)
 
 -- | The ID of the deployment strategy that was deployed.
 deployment_deploymentStrategyId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_deploymentStrategyId = Lens.lens (\Deployment' {deploymentStrategyId} -> deploymentStrategyId) (\s@Deployment' {} a -> s {deploymentStrategyId = a} :: Deployment)
 
--- | The sequence number of the deployment.
-deployment_deploymentNumber :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Int)
-deployment_deploymentNumber = Lens.lens (\Deployment' {deploymentNumber} -> deploymentNumber) (\s@Deployment' {} a -> s {deploymentNumber = a} :: Deployment)
+-- | The algorithm used to define how percentage grew over time.
+deployment_growthType :: Lens.Lens' Deployment (Prelude.Maybe GrowthType)
+deployment_growthType = Lens.lens (\Deployment' {growthType} -> growthType) (\s@Deployment' {} a -> s {growthType = a} :: Deployment)
 
--- | The configuration version that was deployed.
-deployment_configurationVersion :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_configurationVersion = Lens.lens (\Deployment' {configurationVersion} -> configurationVersion) (\s@Deployment' {} a -> s {configurationVersion = a} :: Deployment)
-
--- | A list containing all events related to a deployment. The most recent
--- events are displayed first.
-deployment_eventLog :: Lens.Lens' Deployment (Prelude.Maybe [DeploymentEvent])
-deployment_eventLog = Lens.lens (\Deployment' {eventLog} -> eventLog) (\s@Deployment' {} a -> s {eventLog = a} :: Deployment) Prelude.. Lens.mapping Lens.coerced
-
--- | The percentage of targets for which the deployment is available.
-deployment_percentageComplete :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Double)
-deployment_percentageComplete = Lens.lens (\Deployment' {percentageComplete} -> percentageComplete) (\s@Deployment' {} a -> s {percentageComplete = a} :: Deployment)
-
--- | The time the deployment started.
-deployment_startedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_startedAt = Lens.lens (\Deployment' {startedAt} -> startedAt) (\s@Deployment' {} a -> s {startedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
-
--- | The ID of the application that was deployed.
-deployment_applicationId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_applicationId = Lens.lens (\Deployment' {applicationId} -> applicationId) (\s@Deployment' {} a -> s {applicationId = a} :: Deployment)
+-- | The state of the deployment.
+deployment_state :: Lens.Lens' Deployment (Prelude.Maybe DeploymentState)
+deployment_state = Lens.lens (\Deployment' {state} -> state) (\s@Deployment' {} a -> s {state = a} :: Deployment)
 
 -- | Total amount of time the deployment lasted.
 deployment_deploymentDurationInMinutes :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Natural)
 deployment_deploymentDurationInMinutes = Lens.lens (\Deployment' {deploymentDurationInMinutes} -> deploymentDurationInMinutes) (\s@Deployment' {} a -> s {deploymentDurationInMinutes = a} :: Deployment)
 
--- | The ID of the environment that was deployed.
-deployment_environmentId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_environmentId = Lens.lens (\Deployment' {environmentId} -> environmentId) (\s@Deployment' {} a -> s {environmentId = a} :: Deployment)
+-- | The sequence number of the deployment.
+deployment_deploymentNumber :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Int)
+deployment_deploymentNumber = Lens.lens (\Deployment' {deploymentNumber} -> deploymentNumber) (\s@Deployment' {} a -> s {deploymentNumber = a} :: Deployment)
 
--- | The time the deployment completed.
-deployment_completedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_completedAt = Lens.lens (\Deployment' {completedAt} -> completedAt) (\s@Deployment' {} a -> s {completedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
-
--- | Information about the source location of the configuration.
-deployment_configurationLocationUri :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_configurationLocationUri = Lens.lens (\Deployment' {configurationLocationUri} -> configurationLocationUri) (\s@Deployment' {} a -> s {configurationLocationUri = a} :: Deployment)
+-- | The description of the deployment.
+deployment_description :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_description = Lens.lens (\Deployment' {description} -> description) (\s@Deployment' {} a -> s {description = a} :: Deployment)
 
 -- | The amount of time AppConfig monitored for alarms before considering the
 -- deployment to be complete and no longer eligible for automatic roll
@@ -206,17 +172,51 @@ deployment_configurationLocationUri = Lens.lens (\Deployment' {configurationLoca
 deployment_finalBakeTimeInMinutes :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Natural)
 deployment_finalBakeTimeInMinutes = Lens.lens (\Deployment' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@Deployment' {} a -> s {finalBakeTimeInMinutes = a} :: Deployment)
 
--- | The description of the deployment.
-deployment_description :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_description = Lens.lens (\Deployment' {description} -> description) (\s@Deployment' {} a -> s {description = a} :: Deployment)
+-- | The time the deployment started.
+deployment_startedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
+deployment_startedAt = Lens.lens (\Deployment' {startedAt} -> startedAt) (\s@Deployment' {} a -> s {startedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the configuration.
+deployment_configurationName :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_configurationName = Lens.lens (\Deployment' {configurationName} -> configurationName) (\s@Deployment' {} a -> s {configurationName = a} :: Deployment)
+
+-- | The percentage of targets to receive a deployed configuration during
+-- each interval.
+deployment_growthFactor :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Double)
+deployment_growthFactor = Lens.lens (\Deployment' {growthFactor} -> growthFactor) (\s@Deployment' {} a -> s {growthFactor = a} :: Deployment)
+
+-- | A list containing all events related to a deployment. The most recent
+-- events are displayed first.
+deployment_eventLog :: Lens.Lens' Deployment (Prelude.Maybe [DeploymentEvent])
+deployment_eventLog = Lens.lens (\Deployment' {eventLog} -> eventLog) (\s@Deployment' {} a -> s {eventLog = a} :: Deployment) Prelude.. Lens.mapping Lens.coerced
+
+-- | The configuration version that was deployed.
+deployment_configurationVersion :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_configurationVersion = Lens.lens (\Deployment' {configurationVersion} -> configurationVersion) (\s@Deployment' {} a -> s {configurationVersion = a} :: Deployment)
+
+-- | The ID of the environment that was deployed.
+deployment_environmentId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_environmentId = Lens.lens (\Deployment' {environmentId} -> environmentId) (\s@Deployment' {} a -> s {environmentId = a} :: Deployment)
+
+-- | The percentage of targets for which the deployment is available.
+deployment_percentageComplete :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Double)
+deployment_percentageComplete = Lens.lens (\Deployment' {percentageComplete} -> percentageComplete) (\s@Deployment' {} a -> s {percentageComplete = a} :: Deployment)
+
+-- | Information about the source location of the configuration.
+deployment_configurationLocationUri :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_configurationLocationUri = Lens.lens (\Deployment' {configurationLocationUri} -> configurationLocationUri) (\s@Deployment' {} a -> s {configurationLocationUri = a} :: Deployment)
+
+-- | The ID of the application that was deployed.
+deployment_applicationId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_applicationId = Lens.lens (\Deployment' {applicationId} -> applicationId) (\s@Deployment' {} a -> s {applicationId = a} :: Deployment)
+
+-- | The time the deployment completed.
+deployment_completedAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
+deployment_completedAt = Lens.lens (\Deployment' {completedAt} -> completedAt) (\s@Deployment' {} a -> s {completedAt = a} :: Deployment) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the configuration profile that was deployed.
 deployment_configurationProfileId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_configurationProfileId = Lens.lens (\Deployment' {configurationProfileId} -> configurationProfileId) (\s@Deployment' {} a -> s {configurationProfileId = a} :: Deployment)
-
--- | The algorithm used to define how percentage grew over time.
-deployment_growthType :: Lens.Lens' Deployment (Prelude.Maybe GrowthType)
-deployment_growthType = Lens.lens (\Deployment' {growthType} -> growthType) (\s@Deployment' {} a -> s {growthType = a} :: Deployment)
 
 instance Core.FromJSON Deployment where
   parseJSON =
@@ -224,64 +224,64 @@ instance Core.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "GrowthFactor")
-            Prelude.<*> (x Core..:? "ConfigurationName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "DeploymentStrategyId")
-            Prelude.<*> (x Core..:? "DeploymentNumber")
-            Prelude.<*> (x Core..:? "ConfigurationVersion")
-            Prelude.<*> (x Core..:? "EventLog" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PercentageComplete")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "DeploymentDurationInMinutes")
-            Prelude.<*> (x Core..:? "EnvironmentId")
-            Prelude.<*> (x Core..:? "CompletedAt")
-            Prelude.<*> (x Core..:? "ConfigurationLocationUri")
-            Prelude.<*> (x Core..:? "FinalBakeTimeInMinutes")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ConfigurationProfileId")
+            Prelude.<$> (x Core..:? "DeploymentStrategyId")
             Prelude.<*> (x Core..:? "GrowthType")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "DeploymentDurationInMinutes")
+            Prelude.<*> (x Core..:? "DeploymentNumber")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "FinalBakeTimeInMinutes")
+            Prelude.<*> (x Core..:? "StartedAt")
+            Prelude.<*> (x Core..:? "ConfigurationName")
+            Prelude.<*> (x Core..:? "GrowthFactor")
+            Prelude.<*> (x Core..:? "EventLog" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ConfigurationVersion")
+            Prelude.<*> (x Core..:? "EnvironmentId")
+            Prelude.<*> (x Core..:? "PercentageComplete")
+            Prelude.<*> (x Core..:? "ConfigurationLocationUri")
+            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "CompletedAt")
+            Prelude.<*> (x Core..:? "ConfigurationProfileId")
       )
 
 instance Prelude.Hashable Deployment where
   hashWithSalt _salt Deployment' {..} =
-    _salt `Prelude.hashWithSalt` growthFactor
-      `Prelude.hashWithSalt` configurationName
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` deploymentStrategyId
-      `Prelude.hashWithSalt` deploymentNumber
-      `Prelude.hashWithSalt` configurationVersion
-      `Prelude.hashWithSalt` eventLog
-      `Prelude.hashWithSalt` percentageComplete
-      `Prelude.hashWithSalt` startedAt
-      `Prelude.hashWithSalt` applicationId
-      `Prelude.hashWithSalt` deploymentDurationInMinutes
-      `Prelude.hashWithSalt` environmentId
-      `Prelude.hashWithSalt` completedAt
-      `Prelude.hashWithSalt` configurationLocationUri
-      `Prelude.hashWithSalt` finalBakeTimeInMinutes
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` configurationProfileId
+    _salt `Prelude.hashWithSalt` deploymentStrategyId
       `Prelude.hashWithSalt` growthType
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` deploymentDurationInMinutes
+      `Prelude.hashWithSalt` deploymentNumber
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` finalBakeTimeInMinutes
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` configurationName
+      `Prelude.hashWithSalt` growthFactor
+      `Prelude.hashWithSalt` eventLog
+      `Prelude.hashWithSalt` configurationVersion
+      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` percentageComplete
+      `Prelude.hashWithSalt` configurationLocationUri
+      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` configurationProfileId
 
 instance Prelude.NFData Deployment where
   rnf Deployment' {..} =
-    Prelude.rnf growthFactor
-      `Prelude.seq` Prelude.rnf configurationName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf deploymentStrategyId
-      `Prelude.seq` Prelude.rnf deploymentNumber
-      `Prelude.seq` Prelude.rnf configurationVersion
-      `Prelude.seq` Prelude.rnf eventLog
-      `Prelude.seq` Prelude.rnf percentageComplete
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
-      `Prelude.seq` Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf configurationLocationUri
-      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf configurationProfileId
+    Prelude.rnf deploymentStrategyId
       `Prelude.seq` Prelude.rnf growthType
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
+      `Prelude.seq` Prelude.rnf deploymentNumber
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf configurationName
+      `Prelude.seq` Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf eventLog
+      `Prelude.seq` Prelude.rnf configurationVersion
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf percentageComplete
+      `Prelude.seq` Prelude.rnf configurationLocationUri
+      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf configurationProfileId

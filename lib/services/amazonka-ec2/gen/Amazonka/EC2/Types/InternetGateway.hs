@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInternetGateway' smart constructor.
 data InternetGateway = InternetGateway'
-  { -- | Any VPCs attached to the internet gateway.
-    attachments :: Prelude.Maybe [InternetGatewayAttachment],
+  { -- | Any tags assigned to the internet gateway.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the Amazon Web Services account that owns the internet
     -- gateway.
     ownerId :: Prelude.Maybe Prelude.Text,
-    -- | Any tags assigned to the internet gateway.
-    tags :: Prelude.Maybe [Tag],
+    -- | Any VPCs attached to the internet gateway.
+    attachments :: Prelude.Maybe [InternetGatewayAttachment],
     -- | The ID of the internet gateway.
     internetGatewayId :: Prelude.Text
   }
@@ -50,12 +50,12 @@ data InternetGateway = InternetGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attachments', 'internetGateway_attachments' - Any VPCs attached to the internet gateway.
+-- 'tags', 'internetGateway_tags' - Any tags assigned to the internet gateway.
 --
 -- 'ownerId', 'internetGateway_ownerId' - The ID of the Amazon Web Services account that owns the internet
 -- gateway.
 --
--- 'tags', 'internetGateway_tags' - Any tags assigned to the internet gateway.
+-- 'attachments', 'internetGateway_attachments' - Any VPCs attached to the internet gateway.
 --
 -- 'internetGatewayId', 'internetGateway_internetGatewayId' - The ID of the internet gateway.
 newInternetGateway ::
@@ -64,24 +64,24 @@ newInternetGateway ::
   InternetGateway
 newInternetGateway pInternetGatewayId_ =
   InternetGateway'
-    { attachments = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       ownerId = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      attachments = Prelude.Nothing,
       internetGatewayId = pInternetGatewayId_
     }
 
--- | Any VPCs attached to the internet gateway.
-internetGateway_attachments :: Lens.Lens' InternetGateway (Prelude.Maybe [InternetGatewayAttachment])
-internetGateway_attachments = Lens.lens (\InternetGateway' {attachments} -> attachments) (\s@InternetGateway' {} a -> s {attachments = a} :: InternetGateway) Prelude.. Lens.mapping Lens.coerced
+-- | Any tags assigned to the internet gateway.
+internetGateway_tags :: Lens.Lens' InternetGateway (Prelude.Maybe [Tag])
+internetGateway_tags = Lens.lens (\InternetGateway' {tags} -> tags) (\s@InternetGateway' {} a -> s {tags = a} :: InternetGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Amazon Web Services account that owns the internet
 -- gateway.
 internetGateway_ownerId :: Lens.Lens' InternetGateway (Prelude.Maybe Prelude.Text)
 internetGateway_ownerId = Lens.lens (\InternetGateway' {ownerId} -> ownerId) (\s@InternetGateway' {} a -> s {ownerId = a} :: InternetGateway)
 
--- | Any tags assigned to the internet gateway.
-internetGateway_tags :: Lens.Lens' InternetGateway (Prelude.Maybe [Tag])
-internetGateway_tags = Lens.lens (\InternetGateway' {tags} -> tags) (\s@InternetGateway' {} a -> s {tags = a} :: InternetGateway) Prelude.. Lens.mapping Lens.coerced
+-- | Any VPCs attached to the internet gateway.
+internetGateway_attachments :: Lens.Lens' InternetGateway (Prelude.Maybe [InternetGatewayAttachment])
+internetGateway_attachments = Lens.lens (\InternetGateway' {attachments} -> attachments) (\s@InternetGateway' {} a -> s {attachments = a} :: InternetGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the internet gateway.
 internetGateway_internetGatewayId :: Lens.Lens' InternetGateway Prelude.Text
@@ -90,25 +90,25 @@ internetGateway_internetGatewayId = Lens.lens (\InternetGateway' {internetGatewa
 instance Core.FromXML InternetGateway where
   parseXML x =
     InternetGateway'
-      Prelude.<$> ( x Core..@? "attachmentSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "attachmentSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@ "internetGatewayId")
 
 instance Prelude.Hashable InternetGateway where
   hashWithSalt _salt InternetGateway' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ownerId
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` internetGatewayId
 
 instance Prelude.NFData InternetGateway where
   rnf InternetGateway' {..} =
-    Prelude.rnf attachments
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf attachments
       `Prelude.seq` Prelude.rnf internetGatewayId

@@ -31,18 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpotOptionsRequest' smart constructor.
 data SpotOptionsRequest = SpotOptionsRequest'
-  { -- | The behavior when a Spot Instance is interrupted. The default is
-    -- @terminate@.
-    instanceInterruptionBehavior :: Prelude.Maybe SpotInstanceInterruptionBehavior,
-    -- | Indicates that the fleet launches all Spot Instances into a single
-    -- Availability Zone. Supported only for fleets of type @instant@.
-    singleAvailabilityZone :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum amount per hour for Spot Instances that you\'re willing to
-    -- pay.
-    maxTotalPrice :: Prelude.Maybe Prelude.Text,
-    -- | The minimum target capacity for Spot Instances in the fleet. If the
-    -- minimum target capacity is not reached, the fleet launches no instances.
-    minTargetCapacity :: Prelude.Maybe Prelude.Int,
+  { -- | Indicates that the fleet uses a single instance type to launch all Spot
+    -- Instances in the fleet. Supported only for fleets of type @instant@.
+    singleInstanceType :: Prelude.Maybe Prelude.Bool,
     -- | The number of Spot pools across which to allocate your target Spot
     -- capacity. Valid only when Spot __AllocationStrategy__ is set to
     -- @lowest-price@. EC2 Fleet selects the cheapest Spot pools and evenly
@@ -59,12 +50,18 @@ data SpotOptionsRequest = SpotOptionsRequest'
     -- your full target capacity from fewer than the number of pools that you
     -- specified.
     instancePoolsToUseCount :: Prelude.Maybe Prelude.Int,
+    -- | Indicates that the fleet launches all Spot Instances into a single
+    -- Availability Zone. Supported only for fleets of type @instant@.
+    singleAvailabilityZone :: Prelude.Maybe Prelude.Bool,
+    -- | The minimum target capacity for Spot Instances in the fleet. If the
+    -- minimum target capacity is not reached, the fleet launches no instances.
+    minTargetCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The behavior when a Spot Instance is interrupted. The default is
+    -- @terminate@.
+    instanceInterruptionBehavior :: Prelude.Maybe SpotInstanceInterruptionBehavior,
     -- | The strategies for managing your Spot Instances that are at an elevated
     -- risk of being interrupted.
     maintenanceStrategies :: Prelude.Maybe FleetSpotMaintenanceStrategiesRequest,
-    -- | Indicates that the fleet uses a single instance type to launch all Spot
-    -- Instances in the fleet. Supported only for fleets of type @instant@.
-    singleInstanceType :: Prelude.Maybe Prelude.Bool,
     -- | Indicates how to allocate the target Spot Instance capacity across the
     -- Spot Instance pools specified by the EC2 Fleet.
     --
@@ -87,7 +84,10 @@ data SpotOptionsRequest = SpotOptionsRequest'
     -- your fleet uses a launch template. Note that if the On-Demand
     -- @AllocationStrategy@ is set to @prioritized@, the same priority is
     -- applied when fulfilling On-Demand capacity.
-    allocationStrategy :: Prelude.Maybe SpotAllocationStrategy
+    allocationStrategy :: Prelude.Maybe SpotAllocationStrategy,
+    -- | The maximum amount per hour for Spot Instances that you\'re willing to
+    -- pay.
+    maxTotalPrice :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,17 +99,8 @@ data SpotOptionsRequest = SpotOptionsRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceInterruptionBehavior', 'spotOptionsRequest_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
--- @terminate@.
---
--- 'singleAvailabilityZone', 'spotOptionsRequest_singleAvailabilityZone' - Indicates that the fleet launches all Spot Instances into a single
--- Availability Zone. Supported only for fleets of type @instant@.
---
--- 'maxTotalPrice', 'spotOptionsRequest_maxTotalPrice' - The maximum amount per hour for Spot Instances that you\'re willing to
--- pay.
---
--- 'minTargetCapacity', 'spotOptionsRequest_minTargetCapacity' - The minimum target capacity for Spot Instances in the fleet. If the
--- minimum target capacity is not reached, the fleet launches no instances.
+-- 'singleInstanceType', 'spotOptionsRequest_singleInstanceType' - Indicates that the fleet uses a single instance type to launch all Spot
+-- Instances in the fleet. Supported only for fleets of type @instant@.
 --
 -- 'instancePoolsToUseCount', 'spotOptionsRequest_instancePoolsToUseCount' - The number of Spot pools across which to allocate your target Spot
 -- capacity. Valid only when Spot __AllocationStrategy__ is set to
@@ -127,11 +118,17 @@ data SpotOptionsRequest = SpotOptionsRequest'
 -- your full target capacity from fewer than the number of pools that you
 -- specified.
 --
+-- 'singleAvailabilityZone', 'spotOptionsRequest_singleAvailabilityZone' - Indicates that the fleet launches all Spot Instances into a single
+-- Availability Zone. Supported only for fleets of type @instant@.
+--
+-- 'minTargetCapacity', 'spotOptionsRequest_minTargetCapacity' - The minimum target capacity for Spot Instances in the fleet. If the
+-- minimum target capacity is not reached, the fleet launches no instances.
+--
+-- 'instanceInterruptionBehavior', 'spotOptionsRequest_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
+-- @terminate@.
+--
 -- 'maintenanceStrategies', 'spotOptionsRequest_maintenanceStrategies' - The strategies for managing your Spot Instances that are at an elevated
 -- risk of being interrupted.
---
--- 'singleInstanceType', 'spotOptionsRequest_singleInstanceType' - Indicates that the fleet uses a single instance type to launch all Spot
--- Instances in the fleet. Supported only for fleets of type @instant@.
 --
 -- 'allocationStrategy', 'spotOptionsRequest_allocationStrategy' - Indicates how to allocate the target Spot Instance capacity across the
 -- Spot Instance pools specified by the EC2 Fleet.
@@ -155,40 +152,28 @@ data SpotOptionsRequest = SpotOptionsRequest'
 -- your fleet uses a launch template. Note that if the On-Demand
 -- @AllocationStrategy@ is set to @prioritized@, the same priority is
 -- applied when fulfilling On-Demand capacity.
+--
+-- 'maxTotalPrice', 'spotOptionsRequest_maxTotalPrice' - The maximum amount per hour for Spot Instances that you\'re willing to
+-- pay.
 newSpotOptionsRequest ::
   SpotOptionsRequest
 newSpotOptionsRequest =
   SpotOptionsRequest'
-    { instanceInterruptionBehavior =
+    { singleInstanceType =
         Prelude.Nothing,
-      singleAvailabilityZone = Prelude.Nothing,
-      maxTotalPrice = Prelude.Nothing,
-      minTargetCapacity = Prelude.Nothing,
       instancePoolsToUseCount = Prelude.Nothing,
+      singleAvailabilityZone = Prelude.Nothing,
+      minTargetCapacity = Prelude.Nothing,
+      instanceInterruptionBehavior = Prelude.Nothing,
       maintenanceStrategies = Prelude.Nothing,
-      singleInstanceType = Prelude.Nothing,
-      allocationStrategy = Prelude.Nothing
+      allocationStrategy = Prelude.Nothing,
+      maxTotalPrice = Prelude.Nothing
     }
 
--- | The behavior when a Spot Instance is interrupted. The default is
--- @terminate@.
-spotOptionsRequest_instanceInterruptionBehavior :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe SpotInstanceInterruptionBehavior)
-spotOptionsRequest_instanceInterruptionBehavior = Lens.lens (\SpotOptionsRequest' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@SpotOptionsRequest' {} a -> s {instanceInterruptionBehavior = a} :: SpotOptionsRequest)
-
--- | Indicates that the fleet launches all Spot Instances into a single
--- Availability Zone. Supported only for fleets of type @instant@.
-spotOptionsRequest_singleAvailabilityZone :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Bool)
-spotOptionsRequest_singleAvailabilityZone = Lens.lens (\SpotOptionsRequest' {singleAvailabilityZone} -> singleAvailabilityZone) (\s@SpotOptionsRequest' {} a -> s {singleAvailabilityZone = a} :: SpotOptionsRequest)
-
--- | The maximum amount per hour for Spot Instances that you\'re willing to
--- pay.
-spotOptionsRequest_maxTotalPrice :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Text)
-spotOptionsRequest_maxTotalPrice = Lens.lens (\SpotOptionsRequest' {maxTotalPrice} -> maxTotalPrice) (\s@SpotOptionsRequest' {} a -> s {maxTotalPrice = a} :: SpotOptionsRequest)
-
--- | The minimum target capacity for Spot Instances in the fleet. If the
--- minimum target capacity is not reached, the fleet launches no instances.
-spotOptionsRequest_minTargetCapacity :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Int)
-spotOptionsRequest_minTargetCapacity = Lens.lens (\SpotOptionsRequest' {minTargetCapacity} -> minTargetCapacity) (\s@SpotOptionsRequest' {} a -> s {minTargetCapacity = a} :: SpotOptionsRequest)
+-- | Indicates that the fleet uses a single instance type to launch all Spot
+-- Instances in the fleet. Supported only for fleets of type @instant@.
+spotOptionsRequest_singleInstanceType :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Bool)
+spotOptionsRequest_singleInstanceType = Lens.lens (\SpotOptionsRequest' {singleInstanceType} -> singleInstanceType) (\s@SpotOptionsRequest' {} a -> s {singleInstanceType = a} :: SpotOptionsRequest)
 
 -- | The number of Spot pools across which to allocate your target Spot
 -- capacity. Valid only when Spot __AllocationStrategy__ is set to
@@ -208,15 +193,25 @@ spotOptionsRequest_minTargetCapacity = Lens.lens (\SpotOptionsRequest' {minTarge
 spotOptionsRequest_instancePoolsToUseCount :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Int)
 spotOptionsRequest_instancePoolsToUseCount = Lens.lens (\SpotOptionsRequest' {instancePoolsToUseCount} -> instancePoolsToUseCount) (\s@SpotOptionsRequest' {} a -> s {instancePoolsToUseCount = a} :: SpotOptionsRequest)
 
+-- | Indicates that the fleet launches all Spot Instances into a single
+-- Availability Zone. Supported only for fleets of type @instant@.
+spotOptionsRequest_singleAvailabilityZone :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Bool)
+spotOptionsRequest_singleAvailabilityZone = Lens.lens (\SpotOptionsRequest' {singleAvailabilityZone} -> singleAvailabilityZone) (\s@SpotOptionsRequest' {} a -> s {singleAvailabilityZone = a} :: SpotOptionsRequest)
+
+-- | The minimum target capacity for Spot Instances in the fleet. If the
+-- minimum target capacity is not reached, the fleet launches no instances.
+spotOptionsRequest_minTargetCapacity :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Int)
+spotOptionsRequest_minTargetCapacity = Lens.lens (\SpotOptionsRequest' {minTargetCapacity} -> minTargetCapacity) (\s@SpotOptionsRequest' {} a -> s {minTargetCapacity = a} :: SpotOptionsRequest)
+
+-- | The behavior when a Spot Instance is interrupted. The default is
+-- @terminate@.
+spotOptionsRequest_instanceInterruptionBehavior :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe SpotInstanceInterruptionBehavior)
+spotOptionsRequest_instanceInterruptionBehavior = Lens.lens (\SpotOptionsRequest' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@SpotOptionsRequest' {} a -> s {instanceInterruptionBehavior = a} :: SpotOptionsRequest)
+
 -- | The strategies for managing your Spot Instances that are at an elevated
 -- risk of being interrupted.
 spotOptionsRequest_maintenanceStrategies :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe FleetSpotMaintenanceStrategiesRequest)
 spotOptionsRequest_maintenanceStrategies = Lens.lens (\SpotOptionsRequest' {maintenanceStrategies} -> maintenanceStrategies) (\s@SpotOptionsRequest' {} a -> s {maintenanceStrategies = a} :: SpotOptionsRequest)
-
--- | Indicates that the fleet uses a single instance type to launch all Spot
--- Instances in the fleet. Supported only for fleets of type @instant@.
-spotOptionsRequest_singleInstanceType :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Bool)
-spotOptionsRequest_singleInstanceType = Lens.lens (\SpotOptionsRequest' {singleInstanceType} -> singleInstanceType) (\s@SpotOptionsRequest' {} a -> s {singleInstanceType = a} :: SpotOptionsRequest)
 
 -- | Indicates how to allocate the target Spot Instance capacity across the
 -- Spot Instance pools specified by the EC2 Fleet.
@@ -243,42 +238,46 @@ spotOptionsRequest_singleInstanceType = Lens.lens (\SpotOptionsRequest' {singleI
 spotOptionsRequest_allocationStrategy :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe SpotAllocationStrategy)
 spotOptionsRequest_allocationStrategy = Lens.lens (\SpotOptionsRequest' {allocationStrategy} -> allocationStrategy) (\s@SpotOptionsRequest' {} a -> s {allocationStrategy = a} :: SpotOptionsRequest)
 
+-- | The maximum amount per hour for Spot Instances that you\'re willing to
+-- pay.
+spotOptionsRequest_maxTotalPrice :: Lens.Lens' SpotOptionsRequest (Prelude.Maybe Prelude.Text)
+spotOptionsRequest_maxTotalPrice = Lens.lens (\SpotOptionsRequest' {maxTotalPrice} -> maxTotalPrice) (\s@SpotOptionsRequest' {} a -> s {maxTotalPrice = a} :: SpotOptionsRequest)
+
 instance Prelude.Hashable SpotOptionsRequest where
   hashWithSalt _salt SpotOptionsRequest' {..} =
-    _salt
-      `Prelude.hashWithSalt` instanceInterruptionBehavior
-      `Prelude.hashWithSalt` singleAvailabilityZone
-      `Prelude.hashWithSalt` maxTotalPrice
-      `Prelude.hashWithSalt` minTargetCapacity
+    _salt `Prelude.hashWithSalt` singleInstanceType
       `Prelude.hashWithSalt` instancePoolsToUseCount
+      `Prelude.hashWithSalt` singleAvailabilityZone
+      `Prelude.hashWithSalt` minTargetCapacity
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
       `Prelude.hashWithSalt` maintenanceStrategies
-      `Prelude.hashWithSalt` singleInstanceType
       `Prelude.hashWithSalt` allocationStrategy
+      `Prelude.hashWithSalt` maxTotalPrice
 
 instance Prelude.NFData SpotOptionsRequest where
   rnf SpotOptionsRequest' {..} =
-    Prelude.rnf instanceInterruptionBehavior
-      `Prelude.seq` Prelude.rnf singleAvailabilityZone
-      `Prelude.seq` Prelude.rnf maxTotalPrice
-      `Prelude.seq` Prelude.rnf minTargetCapacity
+    Prelude.rnf singleInstanceType
       `Prelude.seq` Prelude.rnf instancePoolsToUseCount
+      `Prelude.seq` Prelude.rnf singleAvailabilityZone
+      `Prelude.seq` Prelude.rnf minTargetCapacity
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
       `Prelude.seq` Prelude.rnf maintenanceStrategies
-      `Prelude.seq` Prelude.rnf singleInstanceType
       `Prelude.seq` Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf maxTotalPrice
 
 instance Core.ToQuery SpotOptionsRequest where
   toQuery SpotOptionsRequest' {..} =
     Prelude.mconcat
-      [ "InstanceInterruptionBehavior"
-          Core.=: instanceInterruptionBehavior,
-        "SingleAvailabilityZone"
-          Core.=: singleAvailabilityZone,
-        "MaxTotalPrice" Core.=: maxTotalPrice,
-        "MinTargetCapacity" Core.=: minTargetCapacity,
+      [ "SingleInstanceType" Core.=: singleInstanceType,
         "InstancePoolsToUseCount"
           Core.=: instancePoolsToUseCount,
+        "SingleAvailabilityZone"
+          Core.=: singleAvailabilityZone,
+        "MinTargetCapacity" Core.=: minTargetCapacity,
+        "InstanceInterruptionBehavior"
+          Core.=: instanceInterruptionBehavior,
         "MaintenanceStrategies"
           Core.=: maintenanceStrategies,
-        "SingleInstanceType" Core.=: singleInstanceType,
-        "AllocationStrategy" Core.=: allocationStrategy
+        "AllocationStrategy" Core.=: allocationStrategy,
+        "MaxTotalPrice" Core.=: maxTotalPrice
       ]

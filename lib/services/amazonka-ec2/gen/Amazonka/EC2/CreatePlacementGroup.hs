@@ -40,11 +40,11 @@ module Amazonka.EC2.CreatePlacementGroup
     newCreatePlacementGroup,
 
     -- * Request Lenses
-    createPlacementGroup_strategy,
-    createPlacementGroup_tagSpecifications,
+    createPlacementGroup_partitionCount,
     createPlacementGroup_groupName,
     createPlacementGroup_dryRun,
-    createPlacementGroup_partitionCount,
+    createPlacementGroup_strategy,
+    createPlacementGroup_tagSpecifications,
 
     -- * Destructuring the Response
     CreatePlacementGroupResponse (..),
@@ -65,10 +65,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
-  { -- | The placement strategy.
-    strategy :: Prelude.Maybe PlacementStrategy,
-    -- | The tags to apply to the new placement group.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+  { -- | The number of partitions. Valid only when __Strategy__ is set to
+    -- @partition@.
+    partitionCount :: Prelude.Maybe Prelude.Int,
     -- | A name for the placement group. Must be unique within the scope of your
     -- account for the Region.
     --
@@ -79,9 +78,10 @@ data CreatePlacementGroup = CreatePlacementGroup'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The number of partitions. Valid only when __Strategy__ is set to
-    -- @partition@.
-    partitionCount :: Prelude.Maybe Prelude.Int
+    -- | The placement strategy.
+    strategy :: Prelude.Maybe PlacementStrategy,
+    -- | The tags to apply to the new placement group.
+    tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,9 +93,8 @@ data CreatePlacementGroup = CreatePlacementGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'strategy', 'createPlacementGroup_strategy' - The placement strategy.
---
--- 'tagSpecifications', 'createPlacementGroup_tagSpecifications' - The tags to apply to the new placement group.
+-- 'partitionCount', 'createPlacementGroup_partitionCount' - The number of partitions. Valid only when __Strategy__ is set to
+-- @partition@.
 --
 -- 'groupName', 'createPlacementGroup_groupName' - A name for the placement group. Must be unique within the scope of your
 -- account for the Region.
@@ -107,26 +106,25 @@ data CreatePlacementGroup = CreatePlacementGroup'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'partitionCount', 'createPlacementGroup_partitionCount' - The number of partitions. Valid only when __Strategy__ is set to
--- @partition@.
+-- 'strategy', 'createPlacementGroup_strategy' - The placement strategy.
+--
+-- 'tagSpecifications', 'createPlacementGroup_tagSpecifications' - The tags to apply to the new placement group.
 newCreatePlacementGroup ::
   CreatePlacementGroup
 newCreatePlacementGroup =
   CreatePlacementGroup'
-    { strategy = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
+    { partitionCount =
+        Prelude.Nothing,
       groupName = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      partitionCount = Prelude.Nothing
+      strategy = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing
     }
 
--- | The placement strategy.
-createPlacementGroup_strategy :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe PlacementStrategy)
-createPlacementGroup_strategy = Lens.lens (\CreatePlacementGroup' {strategy} -> strategy) (\s@CreatePlacementGroup' {} a -> s {strategy = a} :: CreatePlacementGroup)
-
--- | The tags to apply to the new placement group.
-createPlacementGroup_tagSpecifications :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe [TagSpecification])
-createPlacementGroup_tagSpecifications = Lens.lens (\CreatePlacementGroup' {tagSpecifications} -> tagSpecifications) (\s@CreatePlacementGroup' {} a -> s {tagSpecifications = a} :: CreatePlacementGroup) Prelude.. Lens.mapping Lens.coerced
+-- | The number of partitions. Valid only when __Strategy__ is set to
+-- @partition@.
+createPlacementGroup_partitionCount :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Int)
+createPlacementGroup_partitionCount = Lens.lens (\CreatePlacementGroup' {partitionCount} -> partitionCount) (\s@CreatePlacementGroup' {} a -> s {partitionCount = a} :: CreatePlacementGroup)
 
 -- | A name for the placement group. Must be unique within the scope of your
 -- account for the Region.
@@ -142,10 +140,13 @@ createPlacementGroup_groupName = Lens.lens (\CreatePlacementGroup' {groupName} -
 createPlacementGroup_dryRun :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Bool)
 createPlacementGroup_dryRun = Lens.lens (\CreatePlacementGroup' {dryRun} -> dryRun) (\s@CreatePlacementGroup' {} a -> s {dryRun = a} :: CreatePlacementGroup)
 
--- | The number of partitions. Valid only when __Strategy__ is set to
--- @partition@.
-createPlacementGroup_partitionCount :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Int)
-createPlacementGroup_partitionCount = Lens.lens (\CreatePlacementGroup' {partitionCount} -> partitionCount) (\s@CreatePlacementGroup' {} a -> s {partitionCount = a} :: CreatePlacementGroup)
+-- | The placement strategy.
+createPlacementGroup_strategy :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe PlacementStrategy)
+createPlacementGroup_strategy = Lens.lens (\CreatePlacementGroup' {strategy} -> strategy) (\s@CreatePlacementGroup' {} a -> s {strategy = a} :: CreatePlacementGroup)
+
+-- | The tags to apply to the new placement group.
+createPlacementGroup_tagSpecifications :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe [TagSpecification])
+createPlacementGroup_tagSpecifications = Lens.lens (\CreatePlacementGroup' {tagSpecifications} -> tagSpecifications) (\s@CreatePlacementGroup' {} a -> s {tagSpecifications = a} :: CreatePlacementGroup) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreatePlacementGroup where
   type
@@ -162,19 +163,19 @@ instance Core.AWSRequest CreatePlacementGroup where
 
 instance Prelude.Hashable CreatePlacementGroup where
   hashWithSalt _salt CreatePlacementGroup' {..} =
-    _salt `Prelude.hashWithSalt` strategy
-      `Prelude.hashWithSalt` tagSpecifications
+    _salt `Prelude.hashWithSalt` partitionCount
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` partitionCount
+      `Prelude.hashWithSalt` strategy
+      `Prelude.hashWithSalt` tagSpecifications
 
 instance Prelude.NFData CreatePlacementGroup where
   rnf CreatePlacementGroup' {..} =
-    Prelude.rnf strategy
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf partitionCount
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf partitionCount
+      `Prelude.seq` Prelude.rnf strategy
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreatePlacementGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -189,14 +190,14 @@ instance Core.ToQuery CreatePlacementGroup where
           Core.=: ("CreatePlacementGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "PartitionCount" Core.=: partitionCount,
+        "GroupName" Core.=: groupName,
+        "DryRun" Core.=: dryRun,
         "Strategy" Core.=: strategy,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
-          ),
-        "GroupName" Core.=: groupName,
-        "DryRun" Core.=: dryRun,
-        "PartitionCount" Core.=: partitionCount
+          )
       ]
 
 -- | /See:/ 'newCreatePlacementGroupResponse' smart constructor.

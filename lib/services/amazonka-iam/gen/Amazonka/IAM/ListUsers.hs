@@ -40,9 +40,9 @@ module Amazonka.IAM.ListUsers
     newListUsers,
 
     -- * Request Lenses
-    listUsers_pathPrefix,
     listUsers_marker,
     listUsers_maxItems,
+    listUsers_pathPrefix,
 
     -- * Destructuring the Response
     ListUsersResponse (..),
@@ -65,20 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { -- | The path prefix for filtering the results. For example:
-    -- @\/division_abc\/subdivision_xyz\/@, which would get all user names
-    -- whose path starts with @\/division_abc\/subdivision_xyz\/@.
-    --
-    -- This parameter is optional. If it is not included, it defaults to a
-    -- slash (\/), listing all user names. This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of either a forward slash (\/) by itself or a string that
-    -- must begin and end with forward slashes. In addition, it can contain any
-    -- ASCII character from the ! (@\\u0021@) through the DEL character
-    -- (@\\u007F@), including most punctuation characters, digits, and upper
-    -- and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
@@ -92,7 +79,20 @@ data ListUsers = ListUsers'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The path prefix for filtering the results. For example:
+    -- @\/division_abc\/subdivision_xyz\/@, which would get all user names
+    -- whose path starts with @\/division_abc\/subdivision_xyz\/@.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/), listing all user names. This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,19 +103,6 @@ data ListUsers = ListUsers'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'pathPrefix', 'listUsers_pathPrefix' - The path prefix for filtering the results. For example:
--- @\/division_abc\/subdivision_xyz\/@, which would get all user names
--- whose path starts with @\/division_abc\/subdivision_xyz\/@.
---
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/), listing all user names. This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
 --
 -- 'marker', 'listUsers_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -131,16 +118,8 @@ data ListUsers = ListUsers'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-newListUsers ::
-  ListUsers
-newListUsers =
-  ListUsers'
-    { pathPrefix = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
-    }
-
--- | The path prefix for filtering the results. For example:
+--
+-- 'pathPrefix', 'listUsers_pathPrefix' - The path prefix for filtering the results. For example:
 -- @\/division_abc\/subdivision_xyz\/@, which would get all user names
 -- whose path starts with @\/division_abc\/subdivision_xyz\/@.
 --
@@ -152,8 +131,14 @@ newListUsers =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-listUsers_pathPrefix :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
-listUsers_pathPrefix = Lens.lens (\ListUsers' {pathPrefix} -> pathPrefix) (\s@ListUsers' {} a -> s {pathPrefix = a} :: ListUsers)
+newListUsers ::
+  ListUsers
+newListUsers =
+  ListUsers'
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing
+    }
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -173,6 +158,21 @@ listUsers_marker = Lens.lens (\ListUsers' {marker} -> marker) (\s@ListUsers' {} 
 -- subsequent call that tells the service where to continue from.
 listUsers_maxItems :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
 listUsers_maxItems = Lens.lens (\ListUsers' {maxItems} -> maxItems) (\s@ListUsers' {} a -> s {maxItems = a} :: ListUsers)
+
+-- | The path prefix for filtering the results. For example:
+-- @\/division_abc\/subdivision_xyz\/@, which would get all user names
+-- whose path starts with @\/division_abc\/subdivision_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all user names. This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+listUsers_pathPrefix :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_pathPrefix = Lens.lens (\ListUsers' {pathPrefix} -> pathPrefix) (\s@ListUsers' {} a -> s {pathPrefix = a} :: ListUsers)
 
 instance Core.AWSPager ListUsers where
   page rq rs
@@ -211,15 +211,15 @@ instance Core.AWSRequest ListUsers where
 
 instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefix
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` pathPrefix
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf pathPrefix
 
 instance Core.ToHeaders ListUsers where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,9 +234,9 @@ instance Core.ToQuery ListUsers where
           Core.=: ("ListUsers" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Core.=: pathPrefix,
         "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+        "MaxItems" Core.=: maxItems,
+        "PathPrefix" Core.=: pathPrefix
       ]
 
 -- | Contains the response to a successful ListUsers request.

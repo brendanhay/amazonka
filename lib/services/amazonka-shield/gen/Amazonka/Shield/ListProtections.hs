@@ -37,8 +37,8 @@ module Amazonka.Shield.ListProtections
     newListProtectionsResponse,
 
     -- * Response Lenses
-    listProtectionsResponse_protections,
     listProtectionsResponse_nextToken,
+    listProtectionsResponse_protections,
     listProtectionsResponse_httpStatus,
   )
 where
@@ -144,8 +144,8 @@ instance Core.AWSRequest ListProtections where
     Response.receiveJSON
       ( \s h x ->
           ListProtectionsResponse'
-            Prelude.<$> (x Core..?> "Protections" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Protections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,9 +191,7 @@ instance Core.ToQuery ListProtections where
 
 -- | /See:/ 'newListProtectionsResponse' smart constructor.
 data ListProtectionsResponse = ListProtectionsResponse'
-  { -- | The array of enabled Protection objects.
-    protections :: Prelude.Maybe [Protection],
-    -- | If you specify a value for @MaxResults@ and you have more Protections
+  { -- | If you specify a value for @MaxResults@ and you have more Protections
     -- than the value of MaxResults, Shield Advanced returns a NextToken value
     -- in the response that allows you to list another group of Protections.
     -- For the second and subsequent ListProtections requests, specify the
@@ -205,6 +203,8 @@ data ListProtectionsResponse = ListProtectionsResponse'
     -- Protection objects to return, Shield Advanced will always also return a
     -- @NextToken@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The array of enabled Protection objects.
+    protections :: Prelude.Maybe [Protection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,8 +218,6 @@ data ListProtectionsResponse = ListProtectionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'protections', 'listProtectionsResponse_protections' - The array of enabled Protection objects.
---
 -- 'nextToken', 'listProtectionsResponse_nextToken' - If you specify a value for @MaxResults@ and you have more Protections
 -- than the value of MaxResults, Shield Advanced returns a NextToken value
 -- in the response that allows you to list another group of Protections.
@@ -232,6 +230,8 @@ data ListProtectionsResponse = ListProtectionsResponse'
 -- Protection objects to return, Shield Advanced will always also return a
 -- @NextToken@.
 --
+-- 'protections', 'listProtectionsResponse_protections' - The array of enabled Protection objects.
+--
 -- 'httpStatus', 'listProtectionsResponse_httpStatus' - The response's http status code.
 newListProtectionsResponse ::
   -- | 'httpStatus'
@@ -239,15 +239,11 @@ newListProtectionsResponse ::
   ListProtectionsResponse
 newListProtectionsResponse pHttpStatus_ =
   ListProtectionsResponse'
-    { protections =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      protections = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The array of enabled Protection objects.
-listProtectionsResponse_protections :: Lens.Lens' ListProtectionsResponse (Prelude.Maybe [Protection])
-listProtectionsResponse_protections = Lens.lens (\ListProtectionsResponse' {protections} -> protections) (\s@ListProtectionsResponse' {} a -> s {protections = a} :: ListProtectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you specify a value for @MaxResults@ and you have more Protections
 -- than the value of MaxResults, Shield Advanced returns a NextToken value
@@ -263,12 +259,16 @@ listProtectionsResponse_protections = Lens.lens (\ListProtectionsResponse' {prot
 listProtectionsResponse_nextToken :: Lens.Lens' ListProtectionsResponse (Prelude.Maybe Prelude.Text)
 listProtectionsResponse_nextToken = Lens.lens (\ListProtectionsResponse' {nextToken} -> nextToken) (\s@ListProtectionsResponse' {} a -> s {nextToken = a} :: ListProtectionsResponse)
 
+-- | The array of enabled Protection objects.
+listProtectionsResponse_protections :: Lens.Lens' ListProtectionsResponse (Prelude.Maybe [Protection])
+listProtectionsResponse_protections = Lens.lens (\ListProtectionsResponse' {protections} -> protections) (\s@ListProtectionsResponse' {} a -> s {protections = a} :: ListProtectionsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listProtectionsResponse_httpStatus :: Lens.Lens' ListProtectionsResponse Prelude.Int
 listProtectionsResponse_httpStatus = Lens.lens (\ListProtectionsResponse' {httpStatus} -> httpStatus) (\s@ListProtectionsResponse' {} a -> s {httpStatus = a} :: ListProtectionsResponse)
 
 instance Prelude.NFData ListProtectionsResponse where
   rnf ListProtectionsResponse' {..} =
-    Prelude.rnf protections
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf protections
       `Prelude.seq` Prelude.rnf httpStatus

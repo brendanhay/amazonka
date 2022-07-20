@@ -35,8 +35,8 @@ module Amazonka.Panorama.ListPackages
     newListPackagesResponse,
 
     -- * Response Lenses
-    listPackagesResponse_packages,
     listPackagesResponse_nextToken,
+    listPackagesResponse_packages,
     listPackagesResponse_httpStatus,
   )
 where
@@ -94,8 +94,8 @@ instance Core.AWSRequest ListPackages where
     Response.receiveJSON
       ( \s h x ->
           ListPackagesResponse'
-            Prelude.<$> (x Core..?> "Packages" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Packages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,10 +132,10 @@ instance Core.ToQuery ListPackages where
 
 -- | /See:/ 'newListPackagesResponse' smart constructor.
 data ListPackagesResponse = ListPackagesResponse'
-  { -- | A list of packages.
-    packages :: Prelude.Maybe [PackageListItem],
-    -- | A pagination token that\'s included if more results are available.
+  { -- | A pagination token that\'s included if more results are available.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of packages.
+    packages :: Prelude.Maybe [PackageListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,9 +149,9 @@ data ListPackagesResponse = ListPackagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packages', 'listPackagesResponse_packages' - A list of packages.
---
 -- 'nextToken', 'listPackagesResponse_nextToken' - A pagination token that\'s included if more results are available.
+--
+-- 'packages', 'listPackagesResponse_packages' - A list of packages.
 --
 -- 'httpStatus', 'listPackagesResponse_httpStatus' - The response's http status code.
 newListPackagesResponse ::
@@ -160,18 +160,18 @@ newListPackagesResponse ::
   ListPackagesResponse
 newListPackagesResponse pHttpStatus_ =
   ListPackagesResponse'
-    { packages = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      packages = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of packages.
-listPackagesResponse_packages :: Lens.Lens' ListPackagesResponse (Prelude.Maybe [PackageListItem])
-listPackagesResponse_packages = Lens.lens (\ListPackagesResponse' {packages} -> packages) (\s@ListPackagesResponse' {} a -> s {packages = a} :: ListPackagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that\'s included if more results are available.
 listPackagesResponse_nextToken :: Lens.Lens' ListPackagesResponse (Prelude.Maybe Prelude.Text)
 listPackagesResponse_nextToken = Lens.lens (\ListPackagesResponse' {nextToken} -> nextToken) (\s@ListPackagesResponse' {} a -> s {nextToken = a} :: ListPackagesResponse)
+
+-- | A list of packages.
+listPackagesResponse_packages :: Lens.Lens' ListPackagesResponse (Prelude.Maybe [PackageListItem])
+listPackagesResponse_packages = Lens.lens (\ListPackagesResponse' {packages} -> packages) (\s@ListPackagesResponse' {} a -> s {packages = a} :: ListPackagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPackagesResponse_httpStatus :: Lens.Lens' ListPackagesResponse Prelude.Int
@@ -179,6 +179,6 @@ listPackagesResponse_httpStatus = Lens.lens (\ListPackagesResponse' {httpStatus}
 
 instance Prelude.NFData ListPackagesResponse where
   rnf ListPackagesResponse' {..} =
-    Prelude.rnf packages
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf packages
       `Prelude.seq` Prelude.rnf httpStatus

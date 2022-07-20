@@ -27,349 +27,205 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateServer $
---             newUpdateServer
---
---         , requestDeleteServer $
---             newDeleteServer
---
---         , requestCreateWorkflow $
---             newCreateWorkflow
---
---         , requestDeleteSshPublicKey $
---             newDeleteSshPublicKey
---
---         , requestListSecurityPolicies $
---             newListSecurityPolicies
---
---         , requestDeleteWorkflow $
---             newDeleteWorkflow
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestSendWorkflowStepState $
---             newSendWorkflowStepState
---
---         , requestStopServer $
---             newStopServer
---
---         , requestListUsers $
---             newListUsers
---
---         , requestDescribeServer $
---             newDescribeServer
---
---         , requestDescribeSecurityPolicy $
---             newDescribeSecurityPolicy
---
---         , requestImportSshPublicKey $
---             newImportSshPublicKey
---
---         , requestListExecutions $
---             newListExecutions
+--         [ requestCreateAccess $
+--             newCreateAccess
 --
 --         , requestCreateServer $
 --             newCreateServer
 --
---         , requestTestIdentityProvider $
---             newTestIdentityProvider
---
---         , requestListServers $
---             newListServers
---
---         , requestDescribeUser $
---             newDescribeUser
---
---         , requestDescribeExecution $
---             newDescribeExecution
---
---         , requestListWorkflows $
---             newListWorkflows
---
 --         , requestCreateUser $
 --             newCreateUser
 --
---         , requestStartServer $
---             newStartServer
---
---         , requestUpdateAccess $
---             newUpdateAccess
+--         , requestCreateWorkflow $
+--             newCreateWorkflow
 --
 --         , requestDeleteAccess $
 --             newDeleteAccess
 --
---         , requestCreateAccess $
---             newCreateAccess
+--         , requestDeleteServer $
+--             newDeleteServer
 --
---         , requestListAccesses $
---             newListAccesses
---
---         , requestUpdateUser $
---             newUpdateUser
+--         , requestDeleteSshPublicKey $
+--             newDeleteSshPublicKey
 --
 --         , requestDeleteUser $
 --             newDeleteUser
 --
---         , requestTagResource $
---             newTagResource
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestDescribeWorkflow $
---             newDescribeWorkflow
+--         , requestDeleteWorkflow $
+--             newDeleteWorkflow
 --
 --         , requestDescribeAccess $
 --             newDescribeAccess
 --
+--         , requestDescribeExecution $
+--             newDescribeExecution
+--
+--         , requestDescribeSecurityPolicy $
+--             newDescribeSecurityPolicy
+--
+--         , requestDescribeServer $
+--             newDescribeServer
+--
+--         , requestDescribeUser $
+--             newDescribeUser
+--
+--         , requestDescribeWorkflow $
+--             newDescribeWorkflow
+--
+--         , requestImportSshPublicKey $
+--             newImportSshPublicKey
+--
+--         , requestListAccesses $
+--             newListAccesses
+--
+--         , requestListExecutions $
+--             newListExecutions
+--
+--         , requestListSecurityPolicies $
+--             newListSecurityPolicies
+--
+--         , requestListServers $
+--             newListServers
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListUsers $
+--             newListUsers
+--
+--         , requestListWorkflows $
+--             newListWorkflows
+--
+--         , requestSendWorkflowStepState $
+--             newSendWorkflowStepState
+--
+--         , requestStartServer $
+--             newStartServer
+--
+--         , requestStopServer $
+--             newStopServer
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestTestIdentityProvider $
+--             newTestIdentityProvider
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateAccess $
+--             newUpdateAccess
+--
+--         , requestUpdateServer $
+--             newUpdateServer
+--
+--         , requestUpdateUser $
+--             newUpdateUser
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateServer $
---             newUpdateServerResponse
---
---         , responseDeleteServer $
---             newDeleteServerResponse
---
---         , responseCreateWorkflow $
---             newCreateWorkflowResponse
---
---         , responseDeleteSshPublicKey $
---             newDeleteSshPublicKeyResponse
---
---         , responseListSecurityPolicies $
---             newListSecurityPoliciesResponse
---
---         , responseDeleteWorkflow $
---             newDeleteWorkflowResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseSendWorkflowStepState $
---             newSendWorkflowStepStateResponse
---
---         , responseStopServer $
---             newStopServerResponse
---
---         , responseListUsers $
---             newListUsersResponse
---
---         , responseDescribeServer $
---             newDescribeServerResponse
---
---         , responseDescribeSecurityPolicy $
---             newDescribeSecurityPolicyResponse
---
---         , responseImportSshPublicKey $
---             newImportSshPublicKeyResponse
---
---         , responseListExecutions $
---             newListExecutionsResponse
+--         [ responseCreateAccess $
+--             newCreateAccessResponse
 --
 --         , responseCreateServer $
 --             newCreateServerResponse
 --
---         , responseTestIdentityProvider $
---             newTestIdentityProviderResponse
---
---         , responseListServers $
---             newListServersResponse
---
---         , responseDescribeUser $
---             newDescribeUserResponse
---
---         , responseDescribeExecution $
---             newDescribeExecutionResponse
---
---         , responseListWorkflows $
---             newListWorkflowsResponse
---
 --         , responseCreateUser $
 --             newCreateUserResponse
 --
---         , responseStartServer $
---             newStartServerResponse
---
---         , responseUpdateAccess $
---             newUpdateAccessResponse
+--         , responseCreateWorkflow $
+--             newCreateWorkflowResponse
 --
 --         , responseDeleteAccess $
 --             newDeleteAccessResponse
 --
---         , responseCreateAccess $
---             newCreateAccessResponse
+--         , responseDeleteServer $
+--             newDeleteServerResponse
 --
---         , responseListAccesses $
---             newListAccessesResponse
---
---         , responseUpdateUser $
---             newUpdateUserResponse
+--         , responseDeleteSshPublicKey $
+--             newDeleteSshPublicKeyResponse
 --
 --         , responseDeleteUser $
 --             newDeleteUserResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDeleteWorkflow $
+--             newDeleteWorkflowResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDescribeAccess $
+--             newDescribeAccessResponse
+--
+--         , responseDescribeExecution $
+--             newDescribeExecutionResponse
+--
+--         , responseDescribeSecurityPolicy $
+--             newDescribeSecurityPolicyResponse
+--
+--         , responseDescribeServer $
+--             newDescribeServerResponse
+--
+--         , responseDescribeUser $
+--             newDescribeUserResponse
 --
 --         , responseDescribeWorkflow $
 --             newDescribeWorkflowResponse
 --
---         , responseDescribeAccess $
---             newDescribeAccessResponse
+--         , responseImportSshPublicKey $
+--             newImportSshPublicKeyResponse
+--
+--         , responseListAccesses $
+--             newListAccessesResponse
+--
+--         , responseListExecutions $
+--             newListExecutionsResponse
+--
+--         , responseListSecurityPolicies $
+--             newListSecurityPoliciesResponse
+--
+--         , responseListServers $
+--             newListServersResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListUsers $
+--             newListUsersResponse
+--
+--         , responseListWorkflows $
+--             newListWorkflowsResponse
+--
+--         , responseSendWorkflowStepState $
+--             newSendWorkflowStepStateResponse
+--
+--         , responseStartServer $
+--             newStartServerResponse
+--
+--         , responseStopServer $
+--             newStopServerResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseTestIdentityProvider $
+--             newTestIdentityProviderResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateAccess $
+--             newUpdateAccessResponse
+--
+--         , responseUpdateServer $
+--             newUpdateServerResponse
+--
+--         , responseUpdateUser $
+--             newUpdateUserResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdateServer :: UpdateServer -> TestTree
-requestUpdateServer =
-  req
-    "UpdateServer"
-    "fixture/UpdateServer.yaml"
-
-requestDeleteServer :: DeleteServer -> TestTree
-requestDeleteServer =
-  req
-    "DeleteServer"
-    "fixture/DeleteServer.yaml"
-
-requestCreateWorkflow :: CreateWorkflow -> TestTree
-requestCreateWorkflow =
-  req
-    "CreateWorkflow"
-    "fixture/CreateWorkflow.yaml"
-
-requestDeleteSshPublicKey :: DeleteSshPublicKey -> TestTree
-requestDeleteSshPublicKey =
-  req
-    "DeleteSshPublicKey"
-    "fixture/DeleteSshPublicKey.yaml"
-
-requestListSecurityPolicies :: ListSecurityPolicies -> TestTree
-requestListSecurityPolicies =
-  req
-    "ListSecurityPolicies"
-    "fixture/ListSecurityPolicies.yaml"
-
-requestDeleteWorkflow :: DeleteWorkflow -> TestTree
-requestDeleteWorkflow =
-  req
-    "DeleteWorkflow"
-    "fixture/DeleteWorkflow.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestSendWorkflowStepState :: SendWorkflowStepState -> TestTree
-requestSendWorkflowStepState =
-  req
-    "SendWorkflowStepState"
-    "fixture/SendWorkflowStepState.yaml"
-
-requestStopServer :: StopServer -> TestTree
-requestStopServer =
-  req
-    "StopServer"
-    "fixture/StopServer.yaml"
-
-requestListUsers :: ListUsers -> TestTree
-requestListUsers =
-  req
-    "ListUsers"
-    "fixture/ListUsers.yaml"
-
-requestDescribeServer :: DescribeServer -> TestTree
-requestDescribeServer =
-  req
-    "DescribeServer"
-    "fixture/DescribeServer.yaml"
-
-requestDescribeSecurityPolicy :: DescribeSecurityPolicy -> TestTree
-requestDescribeSecurityPolicy =
-  req
-    "DescribeSecurityPolicy"
-    "fixture/DescribeSecurityPolicy.yaml"
-
-requestImportSshPublicKey :: ImportSshPublicKey -> TestTree
-requestImportSshPublicKey =
-  req
-    "ImportSshPublicKey"
-    "fixture/ImportSshPublicKey.yaml"
-
-requestListExecutions :: ListExecutions -> TestTree
-requestListExecutions =
-  req
-    "ListExecutions"
-    "fixture/ListExecutions.yaml"
-
-requestCreateServer :: CreateServer -> TestTree
-requestCreateServer =
-  req
-    "CreateServer"
-    "fixture/CreateServer.yaml"
-
-requestTestIdentityProvider :: TestIdentityProvider -> TestTree
-requestTestIdentityProvider =
-  req
-    "TestIdentityProvider"
-    "fixture/TestIdentityProvider.yaml"
-
-requestListServers :: ListServers -> TestTree
-requestListServers =
-  req
-    "ListServers"
-    "fixture/ListServers.yaml"
-
-requestDescribeUser :: DescribeUser -> TestTree
-requestDescribeUser =
-  req
-    "DescribeUser"
-    "fixture/DescribeUser.yaml"
-
-requestDescribeExecution :: DescribeExecution -> TestTree
-requestDescribeExecution =
-  req
-    "DescribeExecution"
-    "fixture/DescribeExecution.yaml"
-
-requestListWorkflows :: ListWorkflows -> TestTree
-requestListWorkflows =
-  req
-    "ListWorkflows"
-    "fixture/ListWorkflows.yaml"
-
-requestCreateUser :: CreateUser -> TestTree
-requestCreateUser =
-  req
-    "CreateUser"
-    "fixture/CreateUser.yaml"
-
-requestStartServer :: StartServer -> TestTree
-requestStartServer =
-  req
-    "StartServer"
-    "fixture/StartServer.yaml"
-
-requestUpdateAccess :: UpdateAccess -> TestTree
-requestUpdateAccess =
-  req
-    "UpdateAccess"
-    "fixture/UpdateAccess.yaml"
-
-requestDeleteAccess :: DeleteAccess -> TestTree
-requestDeleteAccess =
-  req
-    "DeleteAccess"
-    "fixture/DeleteAccess.yaml"
 
 requestCreateAccess :: CreateAccess -> TestTree
 requestCreateAccess =
@@ -377,17 +233,41 @@ requestCreateAccess =
     "CreateAccess"
     "fixture/CreateAccess.yaml"
 
-requestListAccesses :: ListAccesses -> TestTree
-requestListAccesses =
+requestCreateServer :: CreateServer -> TestTree
+requestCreateServer =
   req
-    "ListAccesses"
-    "fixture/ListAccesses.yaml"
+    "CreateServer"
+    "fixture/CreateServer.yaml"
 
-requestUpdateUser :: UpdateUser -> TestTree
-requestUpdateUser =
+requestCreateUser :: CreateUser -> TestTree
+requestCreateUser =
   req
-    "UpdateUser"
-    "fixture/UpdateUser.yaml"
+    "CreateUser"
+    "fixture/CreateUser.yaml"
+
+requestCreateWorkflow :: CreateWorkflow -> TestTree
+requestCreateWorkflow =
+  req
+    "CreateWorkflow"
+    "fixture/CreateWorkflow.yaml"
+
+requestDeleteAccess :: DeleteAccess -> TestTree
+requestDeleteAccess =
+  req
+    "DeleteAccess"
+    "fixture/DeleteAccess.yaml"
+
+requestDeleteServer :: DeleteServer -> TestTree
+requestDeleteServer =
+  req
+    "DeleteServer"
+    "fixture/DeleteServer.yaml"
+
+requestDeleteSshPublicKey :: DeleteSshPublicKey -> TestTree
+requestDeleteSshPublicKey =
+  req
+    "DeleteSshPublicKey"
+    "fixture/DeleteSshPublicKey.yaml"
 
 requestDeleteUser :: DeleteUser -> TestTree
 requestDeleteUser =
@@ -395,23 +275,11 @@ requestDeleteUser =
     "DeleteUser"
     "fixture/DeleteUser.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDeleteWorkflow :: DeleteWorkflow -> TestTree
+requestDeleteWorkflow =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestDescribeWorkflow :: DescribeWorkflow -> TestTree
-requestDescribeWorkflow =
-  req
-    "DescribeWorkflow"
-    "fixture/DescribeWorkflow.yaml"
+    "DeleteWorkflow"
+    "fixture/DeleteWorkflow.yaml"
 
 requestDescribeAccess :: DescribeAccess -> TestTree
 requestDescribeAccess =
@@ -419,199 +287,139 @@ requestDescribeAccess =
     "DescribeAccess"
     "fixture/DescribeAccess.yaml"
 
+requestDescribeExecution :: DescribeExecution -> TestTree
+requestDescribeExecution =
+  req
+    "DescribeExecution"
+    "fixture/DescribeExecution.yaml"
+
+requestDescribeSecurityPolicy :: DescribeSecurityPolicy -> TestTree
+requestDescribeSecurityPolicy =
+  req
+    "DescribeSecurityPolicy"
+    "fixture/DescribeSecurityPolicy.yaml"
+
+requestDescribeServer :: DescribeServer -> TestTree
+requestDescribeServer =
+  req
+    "DescribeServer"
+    "fixture/DescribeServer.yaml"
+
+requestDescribeUser :: DescribeUser -> TestTree
+requestDescribeUser =
+  req
+    "DescribeUser"
+    "fixture/DescribeUser.yaml"
+
+requestDescribeWorkflow :: DescribeWorkflow -> TestTree
+requestDescribeWorkflow =
+  req
+    "DescribeWorkflow"
+    "fixture/DescribeWorkflow.yaml"
+
+requestImportSshPublicKey :: ImportSshPublicKey -> TestTree
+requestImportSshPublicKey =
+  req
+    "ImportSshPublicKey"
+    "fixture/ImportSshPublicKey.yaml"
+
+requestListAccesses :: ListAccesses -> TestTree
+requestListAccesses =
+  req
+    "ListAccesses"
+    "fixture/ListAccesses.yaml"
+
+requestListExecutions :: ListExecutions -> TestTree
+requestListExecutions =
+  req
+    "ListExecutions"
+    "fixture/ListExecutions.yaml"
+
+requestListSecurityPolicies :: ListSecurityPolicies -> TestTree
+requestListSecurityPolicies =
+  req
+    "ListSecurityPolicies"
+    "fixture/ListSecurityPolicies.yaml"
+
+requestListServers :: ListServers -> TestTree
+requestListServers =
+  req
+    "ListServers"
+    "fixture/ListServers.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListUsers :: ListUsers -> TestTree
+requestListUsers =
+  req
+    "ListUsers"
+    "fixture/ListUsers.yaml"
+
+requestListWorkflows :: ListWorkflows -> TestTree
+requestListWorkflows =
+  req
+    "ListWorkflows"
+    "fixture/ListWorkflows.yaml"
+
+requestSendWorkflowStepState :: SendWorkflowStepState -> TestTree
+requestSendWorkflowStepState =
+  req
+    "SendWorkflowStepState"
+    "fixture/SendWorkflowStepState.yaml"
+
+requestStartServer :: StartServer -> TestTree
+requestStartServer =
+  req
+    "StartServer"
+    "fixture/StartServer.yaml"
+
+requestStopServer :: StopServer -> TestTree
+requestStopServer =
+  req
+    "StopServer"
+    "fixture/StopServer.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestTestIdentityProvider :: TestIdentityProvider -> TestTree
+requestTestIdentityProvider =
+  req
+    "TestIdentityProvider"
+    "fixture/TestIdentityProvider.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateAccess :: UpdateAccess -> TestTree
+requestUpdateAccess =
+  req
+    "UpdateAccess"
+    "fixture/UpdateAccess.yaml"
+
+requestUpdateServer :: UpdateServer -> TestTree
+requestUpdateServer =
+  req
+    "UpdateServer"
+    "fixture/UpdateServer.yaml"
+
+requestUpdateUser :: UpdateUser -> TestTree
+requestUpdateUser =
+  req
+    "UpdateUser"
+    "fixture/UpdateUser.yaml"
+
 -- Responses
-
-responseUpdateServer :: UpdateServerResponse -> TestTree
-responseUpdateServer =
-  res
-    "UpdateServerResponse"
-    "fixture/UpdateServerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateServer)
-
-responseDeleteServer :: DeleteServerResponse -> TestTree
-responseDeleteServer =
-  res
-    "DeleteServerResponse"
-    "fixture/DeleteServerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteServer)
-
-responseCreateWorkflow :: CreateWorkflowResponse -> TestTree
-responseCreateWorkflow =
-  res
-    "CreateWorkflowResponse"
-    "fixture/CreateWorkflowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateWorkflow)
-
-responseDeleteSshPublicKey :: DeleteSshPublicKeyResponse -> TestTree
-responseDeleteSshPublicKey =
-  res
-    "DeleteSshPublicKeyResponse"
-    "fixture/DeleteSshPublicKeyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSshPublicKey)
-
-responseListSecurityPolicies :: ListSecurityPoliciesResponse -> TestTree
-responseListSecurityPolicies =
-  res
-    "ListSecurityPoliciesResponse"
-    "fixture/ListSecurityPoliciesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSecurityPolicies)
-
-responseDeleteWorkflow :: DeleteWorkflowResponse -> TestTree
-responseDeleteWorkflow =
-  res
-    "DeleteWorkflowResponse"
-    "fixture/DeleteWorkflowResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteWorkflow)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseSendWorkflowStepState :: SendWorkflowStepStateResponse -> TestTree
-responseSendWorkflowStepState =
-  res
-    "SendWorkflowStepStateResponse"
-    "fixture/SendWorkflowStepStateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SendWorkflowStepState)
-
-responseStopServer :: StopServerResponse -> TestTree
-responseStopServer =
-  res
-    "StopServerResponse"
-    "fixture/StopServerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopServer)
-
-responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers =
-  res
-    "ListUsersResponse"
-    "fixture/ListUsersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListUsers)
-
-responseDescribeServer :: DescribeServerResponse -> TestTree
-responseDescribeServer =
-  res
-    "DescribeServerResponse"
-    "fixture/DescribeServerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeServer)
-
-responseDescribeSecurityPolicy :: DescribeSecurityPolicyResponse -> TestTree
-responseDescribeSecurityPolicy =
-  res
-    "DescribeSecurityPolicyResponse"
-    "fixture/DescribeSecurityPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSecurityPolicy)
-
-responseImportSshPublicKey :: ImportSshPublicKeyResponse -> TestTree
-responseImportSshPublicKey =
-  res
-    "ImportSshPublicKeyResponse"
-    "fixture/ImportSshPublicKeyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ImportSshPublicKey)
-
-responseListExecutions :: ListExecutionsResponse -> TestTree
-responseListExecutions =
-  res
-    "ListExecutionsResponse"
-    "fixture/ListExecutionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListExecutions)
-
-responseCreateServer :: CreateServerResponse -> TestTree
-responseCreateServer =
-  res
-    "CreateServerResponse"
-    "fixture/CreateServerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateServer)
-
-responseTestIdentityProvider :: TestIdentityProviderResponse -> TestTree
-responseTestIdentityProvider =
-  res
-    "TestIdentityProviderResponse"
-    "fixture/TestIdentityProviderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TestIdentityProvider)
-
-responseListServers :: ListServersResponse -> TestTree
-responseListServers =
-  res
-    "ListServersResponse"
-    "fixture/ListServersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListServers)
-
-responseDescribeUser :: DescribeUserResponse -> TestTree
-responseDescribeUser =
-  res
-    "DescribeUserResponse"
-    "fixture/DescribeUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
-
-responseDescribeExecution :: DescribeExecutionResponse -> TestTree
-responseDescribeExecution =
-  res
-    "DescribeExecutionResponse"
-    "fixture/DescribeExecutionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
-
-responseListWorkflows :: ListWorkflowsResponse -> TestTree
-responseListWorkflows =
-  res
-    "ListWorkflowsResponse"
-    "fixture/ListWorkflowsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListWorkflows)
-
-responseCreateUser :: CreateUserResponse -> TestTree
-responseCreateUser =
-  res
-    "CreateUserResponse"
-    "fixture/CreateUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateUser)
-
-responseStartServer :: StartServerResponse -> TestTree
-responseStartServer =
-  res
-    "StartServerResponse"
-    "fixture/StartServerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartServer)
-
-responseUpdateAccess :: UpdateAccessResponse -> TestTree
-responseUpdateAccess =
-  res
-    "UpdateAccessResponse"
-    "fixture/UpdateAccessResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAccess)
-
-responseDeleteAccess :: DeleteAccessResponse -> TestTree
-responseDeleteAccess =
-  res
-    "DeleteAccessResponse"
-    "fixture/DeleteAccessResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAccess)
 
 responseCreateAccess :: CreateAccessResponse -> TestTree
 responseCreateAccess =
@@ -621,21 +429,53 @@ responseCreateAccess =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAccess)
 
-responseListAccesses :: ListAccessesResponse -> TestTree
-responseListAccesses =
+responseCreateServer :: CreateServerResponse -> TestTree
+responseCreateServer =
   res
-    "ListAccessesResponse"
-    "fixture/ListAccessesResponse.proto"
+    "CreateServerResponse"
+    "fixture/CreateServerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccesses)
+    (Proxy.Proxy :: Proxy.Proxy CreateServer)
 
-responseUpdateUser :: UpdateUserResponse -> TestTree
-responseUpdateUser =
+responseCreateUser :: CreateUserResponse -> TestTree
+responseCreateUser =
   res
-    "UpdateUserResponse"
-    "fixture/UpdateUserResponse.proto"
+    "CreateUserResponse"
+    "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
+
+responseCreateWorkflow :: CreateWorkflowResponse -> TestTree
+responseCreateWorkflow =
+  res
+    "CreateWorkflowResponse"
+    "fixture/CreateWorkflowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkflow)
+
+responseDeleteAccess :: DeleteAccessResponse -> TestTree
+responseDeleteAccess =
+  res
+    "DeleteAccessResponse"
+    "fixture/DeleteAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccess)
+
+responseDeleteServer :: DeleteServerResponse -> TestTree
+responseDeleteServer =
+  res
+    "DeleteServerResponse"
+    "fixture/DeleteServerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteServer)
+
+responseDeleteSshPublicKey :: DeleteSshPublicKeyResponse -> TestTree
+responseDeleteSshPublicKey =
+  res
+    "DeleteSshPublicKeyResponse"
+    "fixture/DeleteSshPublicKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSshPublicKey)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
@@ -645,21 +485,53 @@ responseDeleteUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDeleteWorkflow :: DeleteWorkflowResponse -> TestTree
+responseDeleteWorkflow =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DeleteWorkflowResponse"
+    "fixture/DeleteWorkflowResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkflow)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDescribeAccess :: DescribeAccessResponse -> TestTree
+responseDescribeAccess =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DescribeAccessResponse"
+    "fixture/DescribeAccessResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccess)
+
+responseDescribeExecution :: DescribeExecutionResponse -> TestTree
+responseDescribeExecution =
+  res
+    "DescribeExecutionResponse"
+    "fixture/DescribeExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
+
+responseDescribeSecurityPolicy :: DescribeSecurityPolicyResponse -> TestTree
+responseDescribeSecurityPolicy =
+  res
+    "DescribeSecurityPolicyResponse"
+    "fixture/DescribeSecurityPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSecurityPolicy)
+
+responseDescribeServer :: DescribeServerResponse -> TestTree
+responseDescribeServer =
+  res
+    "DescribeServerResponse"
+    "fixture/DescribeServerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeServer)
+
+responseDescribeUser :: DescribeUserResponse -> TestTree
+responseDescribeUser =
+  res
+    "DescribeUserResponse"
+    "fixture/DescribeUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeUser)
 
 responseDescribeWorkflow :: DescribeWorkflowResponse -> TestTree
 responseDescribeWorkflow =
@@ -669,10 +541,138 @@ responseDescribeWorkflow =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeWorkflow)
 
-responseDescribeAccess :: DescribeAccessResponse -> TestTree
-responseDescribeAccess =
+responseImportSshPublicKey :: ImportSshPublicKeyResponse -> TestTree
+responseImportSshPublicKey =
   res
-    "DescribeAccessResponse"
-    "fixture/DescribeAccessResponse.proto"
+    "ImportSshPublicKeyResponse"
+    "fixture/ImportSshPublicKeyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccess)
+    (Proxy.Proxy :: Proxy.Proxy ImportSshPublicKey)
+
+responseListAccesses :: ListAccessesResponse -> TestTree
+responseListAccesses =
+  res
+    "ListAccessesResponse"
+    "fixture/ListAccessesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccesses)
+
+responseListExecutions :: ListExecutionsResponse -> TestTree
+responseListExecutions =
+  res
+    "ListExecutionsResponse"
+    "fixture/ListExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExecutions)
+
+responseListSecurityPolicies :: ListSecurityPoliciesResponse -> TestTree
+responseListSecurityPolicies =
+  res
+    "ListSecurityPoliciesResponse"
+    "fixture/ListSecurityPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSecurityPolicies)
+
+responseListServers :: ListServersResponse -> TestTree
+responseListServers =
+  res
+    "ListServersResponse"
+    "fixture/ListServersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServers)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListUsers :: ListUsersResponse -> TestTree
+responseListUsers =
+  res
+    "ListUsersResponse"
+    "fixture/ListUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
+
+responseListWorkflows :: ListWorkflowsResponse -> TestTree
+responseListWorkflows =
+  res
+    "ListWorkflowsResponse"
+    "fixture/ListWorkflowsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWorkflows)
+
+responseSendWorkflowStepState :: SendWorkflowStepStateResponse -> TestTree
+responseSendWorkflowStepState =
+  res
+    "SendWorkflowStepStateResponse"
+    "fixture/SendWorkflowStepStateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendWorkflowStepState)
+
+responseStartServer :: StartServerResponse -> TestTree
+responseStartServer =
+  res
+    "StartServerResponse"
+    "fixture/StartServerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartServer)
+
+responseStopServer :: StopServerResponse -> TestTree
+responseStopServer =
+  res
+    "StopServerResponse"
+    "fixture/StopServerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopServer)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseTestIdentityProvider :: TestIdentityProviderResponse -> TestTree
+responseTestIdentityProvider =
+  res
+    "TestIdentityProviderResponse"
+    "fixture/TestIdentityProviderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TestIdentityProvider)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAccess :: UpdateAccessResponse -> TestTree
+responseUpdateAccess =
+  res
+    "UpdateAccessResponse"
+    "fixture/UpdateAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccess)
+
+responseUpdateServer :: UpdateServerResponse -> TestTree
+responseUpdateServer =
+  res
+    "UpdateServerResponse"
+    "fixture/UpdateServerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateServer)
+
+responseUpdateUser :: UpdateUserResponse -> TestTree
+responseUpdateUser =
+  res
+    "UpdateUserResponse"
+    "fixture/UpdateUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)

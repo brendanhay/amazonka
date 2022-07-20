@@ -28,8 +28,8 @@ module Amazonka.RDS.DeleteDBInstanceAutomatedBackup
     newDeleteDBInstanceAutomatedBackup,
 
     -- * Request Lenses
-    deleteDBInstanceAutomatedBackup_dbiResourceId,
     deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn,
+    deleteDBInstanceAutomatedBackup_dbiResourceId,
 
     -- * Destructuring the Response
     DeleteDBInstanceAutomatedBackupResponse (..),
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteDBInstanceAutomatedBackup' smart constructor.
 data DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
-  { -- | The identifier for the source DB instance, which can\'t be changed and
-    -- which is unique to an Amazon Web Services Region.
-    dbiResourceId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the automated backups to delete, for
+  { -- | The Amazon Resource Name (ARN) of the automated backups to delete, for
     -- example,
     -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
-    dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text
+    dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the source DB instance, which can\'t be changed and
+    -- which is unique to an Amazon Web Services Region.
+    dbiResourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,32 +70,31 @@ data DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbiResourceId', 'deleteDBInstanceAutomatedBackup_dbiResourceId' - The identifier for the source DB instance, which can\'t be changed and
--- which is unique to an Amazon Web Services Region.
---
 -- 'dbInstanceAutomatedBackupsArn', 'deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn' - The Amazon Resource Name (ARN) of the automated backups to delete, for
 -- example,
 -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
+--
+-- 'dbiResourceId', 'deleteDBInstanceAutomatedBackup_dbiResourceId' - The identifier for the source DB instance, which can\'t be changed and
+-- which is unique to an Amazon Web Services Region.
 newDeleteDBInstanceAutomatedBackup ::
   DeleteDBInstanceAutomatedBackup
 newDeleteDBInstanceAutomatedBackup =
   DeleteDBInstanceAutomatedBackup'
-    { dbiResourceId =
+    { dbInstanceAutomatedBackupsArn =
         Prelude.Nothing,
-      dbInstanceAutomatedBackupsArn =
-        Prelude.Nothing
+      dbiResourceId = Prelude.Nothing
     }
-
--- | The identifier for the source DB instance, which can\'t be changed and
--- which is unique to an Amazon Web Services Region.
-deleteDBInstanceAutomatedBackup_dbiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
-deleteDBInstanceAutomatedBackup_dbiResourceId = Lens.lens (\DeleteDBInstanceAutomatedBackup' {dbiResourceId} -> dbiResourceId) (\s@DeleteDBInstanceAutomatedBackup' {} a -> s {dbiResourceId = a} :: DeleteDBInstanceAutomatedBackup)
 
 -- | The Amazon Resource Name (ARN) of the automated backups to delete, for
 -- example,
 -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
 deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
 deleteDBInstanceAutomatedBackup_dbInstanceAutomatedBackupsArn = Lens.lens (\DeleteDBInstanceAutomatedBackup' {dbInstanceAutomatedBackupsArn} -> dbInstanceAutomatedBackupsArn) (\s@DeleteDBInstanceAutomatedBackup' {} a -> s {dbInstanceAutomatedBackupsArn = a} :: DeleteDBInstanceAutomatedBackup)
+
+-- | The identifier for the source DB instance, which can\'t be changed and
+-- which is unique to an Amazon Web Services Region.
+deleteDBInstanceAutomatedBackup_dbiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup (Prelude.Maybe Prelude.Text)
+deleteDBInstanceAutomatedBackup_dbiResourceId = Lens.lens (\DeleteDBInstanceAutomatedBackup' {dbiResourceId} -> dbiResourceId) (\s@DeleteDBInstanceAutomatedBackup' {} a -> s {dbiResourceId = a} :: DeleteDBInstanceAutomatedBackup)
 
 instance
   Core.AWSRequest
@@ -121,16 +120,17 @@ instance
   hashWithSalt
     _salt
     DeleteDBInstanceAutomatedBackup' {..} =
-      _salt `Prelude.hashWithSalt` dbiResourceId
+      _salt
         `Prelude.hashWithSalt` dbInstanceAutomatedBackupsArn
+        `Prelude.hashWithSalt` dbiResourceId
 
 instance
   Prelude.NFData
     DeleteDBInstanceAutomatedBackup
   where
   rnf DeleteDBInstanceAutomatedBackup' {..} =
-    Prelude.rnf dbiResourceId
-      `Prelude.seq` Prelude.rnf dbInstanceAutomatedBackupsArn
+    Prelude.rnf dbInstanceAutomatedBackupsArn
+      `Prelude.seq` Prelude.rnf dbiResourceId
 
 instance
   Core.ToHeaders
@@ -150,9 +150,9 @@ instance Core.ToQuery DeleteDBInstanceAutomatedBackup where
                   ),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DbiResourceId" Core.=: dbiResourceId,
         "DBInstanceAutomatedBackupsArn"
-          Core.=: dbInstanceAutomatedBackupsArn
+          Core.=: dbInstanceAutomatedBackupsArn,
+        "DbiResourceId" Core.=: dbiResourceId
       ]
 
 -- | /See:/ 'newDeleteDBInstanceAutomatedBackupResponse' smart constructor.

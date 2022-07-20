@@ -25,8 +25,8 @@ module Amazonka.APIGatewayManagementAPI
     -- * Errors
     -- $errors
 
-    -- ** PayloadTooLargeException
-    _PayloadTooLargeException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ForbiddenException
     _ForbiddenException,
@@ -34,8 +34,8 @@ module Amazonka.APIGatewayManagementAPI
     -- ** GoneException
     _GoneException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** PayloadTooLargeException
+    _PayloadTooLargeException,
 
     -- * Waiters
     -- $waiters

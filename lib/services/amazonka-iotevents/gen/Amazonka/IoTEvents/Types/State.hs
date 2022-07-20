@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newState' smart constructor.
 data State = State'
-  { -- | When entering this state, perform these @actions@ if the @condition@ is
-    -- TRUE.
-    onEnter :: Prelude.Maybe OnEnterLifecycle,
-    -- | When an input is received and the @condition@ is TRUE, perform the
+  { -- | When an input is received and the @condition@ is TRUE, perform the
     -- specified @actions@.
     onInput :: Prelude.Maybe OnInputLifecycle,
+    -- | When entering this state, perform these @actions@ if the @condition@ is
+    -- TRUE.
+    onEnter :: Prelude.Maybe OnEnterLifecycle,
     -- | When exiting this state, perform these @actions@ if the specified
     -- @condition@ is @TRUE@.
     onExit :: Prelude.Maybe OnExitLifecycle,
@@ -52,11 +52,11 @@ data State = State'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'onEnter', 'state_onEnter' - When entering this state, perform these @actions@ if the @condition@ is
--- TRUE.
---
 -- 'onInput', 'state_onInput' - When an input is received and the @condition@ is TRUE, perform the
 -- specified @actions@.
+--
+-- 'onEnter', 'state_onEnter' - When entering this state, perform these @actions@ if the @condition@ is
+-- TRUE.
 --
 -- 'onExit', 'state_onExit' - When exiting this state, perform these @actions@ if the specified
 -- @condition@ is @TRUE@.
@@ -68,21 +68,21 @@ newState ::
   State
 newState pStateName_ =
   State'
-    { onEnter = Prelude.Nothing,
-      onInput = Prelude.Nothing,
+    { onInput = Prelude.Nothing,
+      onEnter = Prelude.Nothing,
       onExit = Prelude.Nothing,
       stateName = pStateName_
     }
-
--- | When entering this state, perform these @actions@ if the @condition@ is
--- TRUE.
-state_onEnter :: Lens.Lens' State (Prelude.Maybe OnEnterLifecycle)
-state_onEnter = Lens.lens (\State' {onEnter} -> onEnter) (\s@State' {} a -> s {onEnter = a} :: State)
 
 -- | When an input is received and the @condition@ is TRUE, perform the
 -- specified @actions@.
 state_onInput :: Lens.Lens' State (Prelude.Maybe OnInputLifecycle)
 state_onInput = Lens.lens (\State' {onInput} -> onInput) (\s@State' {} a -> s {onInput = a} :: State)
+
+-- | When entering this state, perform these @actions@ if the @condition@ is
+-- TRUE.
+state_onEnter :: Lens.Lens' State (Prelude.Maybe OnEnterLifecycle)
+state_onEnter = Lens.lens (\State' {onEnter} -> onEnter) (\s@State' {} a -> s {onEnter = a} :: State)
 
 -- | When exiting this state, perform these @actions@ if the specified
 -- @condition@ is @TRUE@.
@@ -99,23 +99,23 @@ instance Core.FromJSON State where
       "State"
       ( \x ->
           State'
-            Prelude.<$> (x Core..:? "onEnter")
-            Prelude.<*> (x Core..:? "onInput")
+            Prelude.<$> (x Core..:? "onInput")
+            Prelude.<*> (x Core..:? "onEnter")
             Prelude.<*> (x Core..:? "onExit")
             Prelude.<*> (x Core..: "stateName")
       )
 
 instance Prelude.Hashable State where
   hashWithSalt _salt State' {..} =
-    _salt `Prelude.hashWithSalt` onEnter
-      `Prelude.hashWithSalt` onInput
+    _salt `Prelude.hashWithSalt` onInput
+      `Prelude.hashWithSalt` onEnter
       `Prelude.hashWithSalt` onExit
       `Prelude.hashWithSalt` stateName
 
 instance Prelude.NFData State where
   rnf State' {..} =
-    Prelude.rnf onEnter
-      `Prelude.seq` Prelude.rnf onInput
+    Prelude.rnf onInput
+      `Prelude.seq` Prelude.rnf onEnter
       `Prelude.seq` Prelude.rnf onExit
       `Prelude.seq` Prelude.rnf stateName
 
@@ -123,8 +123,8 @@ instance Core.ToJSON State where
   toJSON State' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("onEnter" Core..=) Prelude.<$> onEnter,
-            ("onInput" Core..=) Prelude.<$> onInput,
+          [ ("onInput" Core..=) Prelude.<$> onInput,
+            ("onEnter" Core..=) Prelude.<$> onEnter,
             ("onExit" Core..=) Prelude.<$> onExit,
             Prelude.Just ("stateName" Core..= stateName)
           ]

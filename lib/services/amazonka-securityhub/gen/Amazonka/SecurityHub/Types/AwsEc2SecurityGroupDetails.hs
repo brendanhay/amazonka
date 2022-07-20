@@ -28,18 +28,18 @@ import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpPermission
 --
 -- /See:/ 'newAwsEc2SecurityGroupDetails' smart constructor.
 data AwsEc2SecurityGroupDetails = AwsEc2SecurityGroupDetails'
-  { -- | [VPC only] The ID of the VPC for the security group.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The inbound rules associated with the security group.
-    ipPermissions :: Prelude.Maybe [AwsEc2SecurityGroupIpPermission],
+  { -- | [VPC only] The outbound rules associated with the security group.
+    ipPermissionsEgress :: Prelude.Maybe [AwsEc2SecurityGroupIpPermission],
     -- | The Amazon Web Services account ID of the owner of the security group.
     ownerId :: Prelude.Maybe Prelude.Text,
-    -- | [VPC only] The outbound rules associated with the security group.
-    ipPermissionsEgress :: Prelude.Maybe [AwsEc2SecurityGroupIpPermission],
-    -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The inbound rules associated with the security group.
+    ipPermissions :: Prelude.Maybe [AwsEc2SecurityGroupIpPermission],
     -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | [VPC only] The ID of the VPC for the security group.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the security group.
+    groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,53 +51,53 @@ data AwsEc2SecurityGroupDetails = AwsEc2SecurityGroupDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcId', 'awsEc2SecurityGroupDetails_vpcId' - [VPC only] The ID of the VPC for the security group.
---
--- 'ipPermissions', 'awsEc2SecurityGroupDetails_ipPermissions' - The inbound rules associated with the security group.
+-- 'ipPermissionsEgress', 'awsEc2SecurityGroupDetails_ipPermissionsEgress' - [VPC only] The outbound rules associated with the security group.
 --
 -- 'ownerId', 'awsEc2SecurityGroupDetails_ownerId' - The Amazon Web Services account ID of the owner of the security group.
 --
--- 'ipPermissionsEgress', 'awsEc2SecurityGroupDetails_ipPermissionsEgress' - [VPC only] The outbound rules associated with the security group.
---
--- 'groupId', 'awsEc2SecurityGroupDetails_groupId' - The ID of the security group.
+-- 'ipPermissions', 'awsEc2SecurityGroupDetails_ipPermissions' - The inbound rules associated with the security group.
 --
 -- 'groupName', 'awsEc2SecurityGroupDetails_groupName' - The name of the security group.
+--
+-- 'vpcId', 'awsEc2SecurityGroupDetails_vpcId' - [VPC only] The ID of the VPC for the security group.
+--
+-- 'groupId', 'awsEc2SecurityGroupDetails_groupId' - The ID of the security group.
 newAwsEc2SecurityGroupDetails ::
   AwsEc2SecurityGroupDetails
 newAwsEc2SecurityGroupDetails =
   AwsEc2SecurityGroupDetails'
-    { vpcId =
+    { ipPermissionsEgress =
         Prelude.Nothing,
-      ipPermissions = Prelude.Nothing,
       ownerId = Prelude.Nothing,
-      ipPermissionsEgress = Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      groupName = Prelude.Nothing
+      ipPermissions = Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
-
--- | [VPC only] The ID of the VPC for the security group.
-awsEc2SecurityGroupDetails_vpcId :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe Prelude.Text)
-awsEc2SecurityGroupDetails_vpcId = Lens.lens (\AwsEc2SecurityGroupDetails' {vpcId} -> vpcId) (\s@AwsEc2SecurityGroupDetails' {} a -> s {vpcId = a} :: AwsEc2SecurityGroupDetails)
-
--- | The inbound rules associated with the security group.
-awsEc2SecurityGroupDetails_ipPermissions :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe [AwsEc2SecurityGroupIpPermission])
-awsEc2SecurityGroupDetails_ipPermissions = Lens.lens (\AwsEc2SecurityGroupDetails' {ipPermissions} -> ipPermissions) (\s@AwsEc2SecurityGroupDetails' {} a -> s {ipPermissions = a} :: AwsEc2SecurityGroupDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Web Services account ID of the owner of the security group.
-awsEc2SecurityGroupDetails_ownerId :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe Prelude.Text)
-awsEc2SecurityGroupDetails_ownerId = Lens.lens (\AwsEc2SecurityGroupDetails' {ownerId} -> ownerId) (\s@AwsEc2SecurityGroupDetails' {} a -> s {ownerId = a} :: AwsEc2SecurityGroupDetails)
 
 -- | [VPC only] The outbound rules associated with the security group.
 awsEc2SecurityGroupDetails_ipPermissionsEgress :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe [AwsEc2SecurityGroupIpPermission])
 awsEc2SecurityGroupDetails_ipPermissionsEgress = Lens.lens (\AwsEc2SecurityGroupDetails' {ipPermissionsEgress} -> ipPermissionsEgress) (\s@AwsEc2SecurityGroupDetails' {} a -> s {ipPermissionsEgress = a} :: AwsEc2SecurityGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the security group.
-awsEc2SecurityGroupDetails_groupId :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe Prelude.Text)
-awsEc2SecurityGroupDetails_groupId = Lens.lens (\AwsEc2SecurityGroupDetails' {groupId} -> groupId) (\s@AwsEc2SecurityGroupDetails' {} a -> s {groupId = a} :: AwsEc2SecurityGroupDetails)
+-- | The Amazon Web Services account ID of the owner of the security group.
+awsEc2SecurityGroupDetails_ownerId :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe Prelude.Text)
+awsEc2SecurityGroupDetails_ownerId = Lens.lens (\AwsEc2SecurityGroupDetails' {ownerId} -> ownerId) (\s@AwsEc2SecurityGroupDetails' {} a -> s {ownerId = a} :: AwsEc2SecurityGroupDetails)
+
+-- | The inbound rules associated with the security group.
+awsEc2SecurityGroupDetails_ipPermissions :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe [AwsEc2SecurityGroupIpPermission])
+awsEc2SecurityGroupDetails_ipPermissions = Lens.lens (\AwsEc2SecurityGroupDetails' {ipPermissions} -> ipPermissions) (\s@AwsEc2SecurityGroupDetails' {} a -> s {ipPermissions = a} :: AwsEc2SecurityGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the security group.
 awsEc2SecurityGroupDetails_groupName :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe Prelude.Text)
 awsEc2SecurityGroupDetails_groupName = Lens.lens (\AwsEc2SecurityGroupDetails' {groupName} -> groupName) (\s@AwsEc2SecurityGroupDetails' {} a -> s {groupName = a} :: AwsEc2SecurityGroupDetails)
+
+-- | [VPC only] The ID of the VPC for the security group.
+awsEc2SecurityGroupDetails_vpcId :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe Prelude.Text)
+awsEc2SecurityGroupDetails_vpcId = Lens.lens (\AwsEc2SecurityGroupDetails' {vpcId} -> vpcId) (\s@AwsEc2SecurityGroupDetails' {} a -> s {vpcId = a} :: AwsEc2SecurityGroupDetails)
+
+-- | The ID of the security group.
+awsEc2SecurityGroupDetails_groupId :: Lens.Lens' AwsEc2SecurityGroupDetails (Prelude.Maybe Prelude.Text)
+awsEc2SecurityGroupDetails_groupId = Lens.lens (\AwsEc2SecurityGroupDetails' {groupId} -> groupId) (\s@AwsEc2SecurityGroupDetails' {} a -> s {groupId = a} :: AwsEc2SecurityGroupDetails)
 
 instance Core.FromJSON AwsEc2SecurityGroupDetails where
   parseJSON =
@@ -105,44 +105,44 @@ instance Core.FromJSON AwsEc2SecurityGroupDetails where
       "AwsEc2SecurityGroupDetails"
       ( \x ->
           AwsEc2SecurityGroupDetails'
-            Prelude.<$> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "IpPermissions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> ( x Core..:? "IpPermissionsEgress"
+            Prelude.<$> ( x Core..:? "IpPermissionsEgress"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "GroupId")
+            Prelude.<*> (x Core..:? "OwnerId")
+            Prelude.<*> (x Core..:? "IpPermissions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "GroupName")
+            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "GroupId")
       )
 
 instance Prelude.Hashable AwsEc2SecurityGroupDetails where
   hashWithSalt _salt AwsEc2SecurityGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` ipPermissions
+    _salt `Prelude.hashWithSalt` ipPermissionsEgress
       `Prelude.hashWithSalt` ownerId
-      `Prelude.hashWithSalt` ipPermissionsEgress
-      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` ipPermissions
       `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData AwsEc2SecurityGroupDetails where
   rnf AwsEc2SecurityGroupDetails' {..} =
-    Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf ipPermissions
+    Prelude.rnf ipPermissionsEgress
       `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf ipPermissionsEgress
-      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf ipPermissions
       `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf groupId
 
 instance Core.ToJSON AwsEc2SecurityGroupDetails where
   toJSON AwsEc2SecurityGroupDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("IpPermissions" Core..=) Prelude.<$> ipPermissions,
-            ("OwnerId" Core..=) Prelude.<$> ownerId,
-            ("IpPermissionsEgress" Core..=)
+          [ ("IpPermissionsEgress" Core..=)
               Prelude.<$> ipPermissionsEgress,
-            ("GroupId" Core..=) Prelude.<$> groupId,
-            ("GroupName" Core..=) Prelude.<$> groupName
+            ("OwnerId" Core..=) Prelude.<$> ownerId,
+            ("IpPermissions" Core..=) Prelude.<$> ipPermissions,
+            ("GroupName" Core..=) Prelude.<$> groupName,
+            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("GroupId" Core..=) Prelude.<$> groupId
           ]
       )

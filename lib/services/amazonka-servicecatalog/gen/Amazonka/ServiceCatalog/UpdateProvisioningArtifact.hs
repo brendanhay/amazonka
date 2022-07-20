@@ -31,11 +31,11 @@ module Amazonka.ServiceCatalog.UpdateProvisioningArtifact
     newUpdateProvisioningArtifact,
 
     -- * Request Lenses
-    updateProvisioningArtifact_active,
     updateProvisioningArtifact_name,
-    updateProvisioningArtifact_acceptLanguage,
-    updateProvisioningArtifact_guidance,
+    updateProvisioningArtifact_active,
     updateProvisioningArtifact_description,
+    updateProvisioningArtifact_guidance,
+    updateProvisioningArtifact_acceptLanguage,
     updateProvisioningArtifact_productId,
     updateProvisioningArtifact_provisioningArtifactId,
 
@@ -44,8 +44,8 @@ module Amazonka.ServiceCatalog.UpdateProvisioningArtifact
     newUpdateProvisioningArtifactResponse,
 
     -- * Response Lenses
-    updateProvisioningArtifactResponse_status,
     updateProvisioningArtifactResponse_info,
+    updateProvisioningArtifactResponse_status,
     updateProvisioningArtifactResponse_provisioningArtifactDetail,
     updateProvisioningArtifactResponse_httpStatus,
   )
@@ -60,22 +60,16 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newUpdateProvisioningArtifact' smart constructor.
 data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
-  { -- | Indicates whether the product version is active.
+  { -- | The updated name of the provisioning artifact.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the product version is active.
     --
     -- Inactive provisioning artifacts are invisible to end users. End users
     -- cannot launch or update a provisioned product from an inactive
     -- provisioning artifact.
     active :: Prelude.Maybe Prelude.Bool,
-    -- | The updated name of the provisioning artifact.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
-    --
-    -- -   @en@ - English (default)
-    --
-    -- -   @jp@ - Japanese
-    --
-    -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The updated description of the provisioning artifact.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Information set by the administrator to provide guidance to end users
     -- about which provisioning artifacts to use.
     --
@@ -86,8 +80,14 @@ data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
     -- to a provisioned product of a deprecated version but cannot launch new
     -- provisioned products using a deprecated version.
     guidance :: Prelude.Maybe ProvisioningArtifactGuidance,
-    -- | The updated description of the provisioning artifact.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
     productId :: Prelude.Text,
     -- | The identifier of the provisioning artifact.
@@ -103,21 +103,15 @@ data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'updateProvisioningArtifact_name' - The updated name of the provisioning artifact.
+--
 -- 'active', 'updateProvisioningArtifact_active' - Indicates whether the product version is active.
 --
 -- Inactive provisioning artifacts are invisible to end users. End users
 -- cannot launch or update a provisioned product from an inactive
 -- provisioning artifact.
 --
--- 'name', 'updateProvisioningArtifact_name' - The updated name of the provisioning artifact.
---
--- 'acceptLanguage', 'updateProvisioningArtifact_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
+-- 'description', 'updateProvisioningArtifact_description' - The updated description of the provisioning artifact.
 --
 -- 'guidance', 'updateProvisioningArtifact_guidance' - Information set by the administrator to provide guidance to end users
 -- about which provisioning artifacts to use.
@@ -129,7 +123,13 @@ data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
 -- to a provisioned product of a deprecated version but cannot launch new
 -- provisioned products using a deprecated version.
 --
--- 'description', 'updateProvisioningArtifact_description' - The updated description of the provisioning artifact.
+-- 'acceptLanguage', 'updateProvisioningArtifact_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
 --
 -- 'productId', 'updateProvisioningArtifact_productId' - The product identifier.
 --
@@ -144,16 +144,19 @@ newUpdateProvisioningArtifact
   pProductId_
   pProvisioningArtifactId_ =
     UpdateProvisioningArtifact'
-      { active =
-          Prelude.Nothing,
-        name = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
-        guidance = Prelude.Nothing,
+      { name = Prelude.Nothing,
+        active = Prelude.Nothing,
         description = Prelude.Nothing,
+        guidance = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         productId = pProductId_,
         provisioningArtifactId =
           pProvisioningArtifactId_
       }
+
+-- | The updated name of the provisioning artifact.
+updateProvisioningArtifact_name :: Lens.Lens' UpdateProvisioningArtifact (Prelude.Maybe Prelude.Text)
+updateProvisioningArtifact_name = Lens.lens (\UpdateProvisioningArtifact' {name} -> name) (\s@UpdateProvisioningArtifact' {} a -> s {name = a} :: UpdateProvisioningArtifact)
 
 -- | Indicates whether the product version is active.
 --
@@ -163,19 +166,9 @@ newUpdateProvisioningArtifact
 updateProvisioningArtifact_active :: Lens.Lens' UpdateProvisioningArtifact (Prelude.Maybe Prelude.Bool)
 updateProvisioningArtifact_active = Lens.lens (\UpdateProvisioningArtifact' {active} -> active) (\s@UpdateProvisioningArtifact' {} a -> s {active = a} :: UpdateProvisioningArtifact)
 
--- | The updated name of the provisioning artifact.
-updateProvisioningArtifact_name :: Lens.Lens' UpdateProvisioningArtifact (Prelude.Maybe Prelude.Text)
-updateProvisioningArtifact_name = Lens.lens (\UpdateProvisioningArtifact' {name} -> name) (\s@UpdateProvisioningArtifact' {} a -> s {name = a} :: UpdateProvisioningArtifact)
-
--- | The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
-updateProvisioningArtifact_acceptLanguage :: Lens.Lens' UpdateProvisioningArtifact (Prelude.Maybe Prelude.Text)
-updateProvisioningArtifact_acceptLanguage = Lens.lens (\UpdateProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@UpdateProvisioningArtifact' {} a -> s {acceptLanguage = a} :: UpdateProvisioningArtifact)
+-- | The updated description of the provisioning artifact.
+updateProvisioningArtifact_description :: Lens.Lens' UpdateProvisioningArtifact (Prelude.Maybe Prelude.Text)
+updateProvisioningArtifact_description = Lens.lens (\UpdateProvisioningArtifact' {description} -> description) (\s@UpdateProvisioningArtifact' {} a -> s {description = a} :: UpdateProvisioningArtifact)
 
 -- | Information set by the administrator to provide guidance to end users
 -- about which provisioning artifacts to use.
@@ -189,9 +182,15 @@ updateProvisioningArtifact_acceptLanguage = Lens.lens (\UpdateProvisioningArtifa
 updateProvisioningArtifact_guidance :: Lens.Lens' UpdateProvisioningArtifact (Prelude.Maybe ProvisioningArtifactGuidance)
 updateProvisioningArtifact_guidance = Lens.lens (\UpdateProvisioningArtifact' {guidance} -> guidance) (\s@UpdateProvisioningArtifact' {} a -> s {guidance = a} :: UpdateProvisioningArtifact)
 
--- | The updated description of the provisioning artifact.
-updateProvisioningArtifact_description :: Lens.Lens' UpdateProvisioningArtifact (Prelude.Maybe Prelude.Text)
-updateProvisioningArtifact_description = Lens.lens (\UpdateProvisioningArtifact' {description} -> description) (\s@UpdateProvisioningArtifact' {} a -> s {description = a} :: UpdateProvisioningArtifact)
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+updateProvisioningArtifact_acceptLanguage :: Lens.Lens' UpdateProvisioningArtifact (Prelude.Maybe Prelude.Text)
+updateProvisioningArtifact_acceptLanguage = Lens.lens (\UpdateProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@UpdateProvisioningArtifact' {} a -> s {acceptLanguage = a} :: UpdateProvisioningArtifact)
 
 -- | The product identifier.
 updateProvisioningArtifact_productId :: Lens.Lens' UpdateProvisioningArtifact Prelude.Text
@@ -210,29 +209,29 @@ instance Core.AWSRequest UpdateProvisioningArtifact where
     Response.receiveJSON
       ( \s h x ->
           UpdateProvisioningArtifactResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Info" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Info" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ProvisioningArtifactDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateProvisioningArtifact where
   hashWithSalt _salt UpdateProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` active
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` guidance
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` guidance
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` provisioningArtifactId
 
 instance Prelude.NFData UpdateProvisioningArtifact where
   rnf UpdateProvisioningArtifact' {..} =
-    Prelude.rnf active
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf guidance
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf active
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf guidance
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf provisioningArtifactId
 
@@ -255,12 +254,12 @@ instance Core.ToJSON UpdateProvisioningArtifact where
   toJSON UpdateProvisioningArtifact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Active" Core..=) Prelude.<$> active,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Active" Core..=) Prelude.<$> active,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Guidance" Core..=) Prelude.<$> guidance,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("Guidance" Core..=) Prelude.<$> guidance,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("ProductId" Core..= productId),
             Prelude.Just
               ( "ProvisioningArtifactId"
@@ -277,10 +276,10 @@ instance Core.ToQuery UpdateProvisioningArtifact where
 
 -- | /See:/ 'newUpdateProvisioningArtifactResponse' smart constructor.
 data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
-  { -- | The status of the current request.
-    status :: Prelude.Maybe RequestStatus,
-    -- | The URL of the CloudFormation template in Amazon S3.
+  { -- | The URL of the CloudFormation template in Amazon S3.
     info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
     -- | Information about the provisioning artifact.
     provisioningArtifactDetail :: Prelude.Maybe ProvisioningArtifactDetail,
     -- | The response's http status code.
@@ -296,9 +295,9 @@ data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'updateProvisioningArtifactResponse_status' - The status of the current request.
---
 -- 'info', 'updateProvisioningArtifactResponse_info' - The URL of the CloudFormation template in Amazon S3.
+--
+-- 'status', 'updateProvisioningArtifactResponse_status' - The status of the current request.
 --
 -- 'provisioningArtifactDetail', 'updateProvisioningArtifactResponse_provisioningArtifactDetail' - Information about the provisioning artifact.
 --
@@ -309,21 +308,21 @@ newUpdateProvisioningArtifactResponse ::
   UpdateProvisioningArtifactResponse
 newUpdateProvisioningArtifactResponse pHttpStatus_ =
   UpdateProvisioningArtifactResponse'
-    { status =
+    { info =
         Prelude.Nothing,
-      info = Prelude.Nothing,
+      status = Prelude.Nothing,
       provisioningArtifactDetail =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of the current request.
-updateProvisioningArtifactResponse_status :: Lens.Lens' UpdateProvisioningArtifactResponse (Prelude.Maybe RequestStatus)
-updateProvisioningArtifactResponse_status = Lens.lens (\UpdateProvisioningArtifactResponse' {status} -> status) (\s@UpdateProvisioningArtifactResponse' {} a -> s {status = a} :: UpdateProvisioningArtifactResponse)
-
 -- | The URL of the CloudFormation template in Amazon S3.
 updateProvisioningArtifactResponse_info :: Lens.Lens' UpdateProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateProvisioningArtifactResponse_info = Lens.lens (\UpdateProvisioningArtifactResponse' {info} -> info) (\s@UpdateProvisioningArtifactResponse' {} a -> s {info = a} :: UpdateProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the current request.
+updateProvisioningArtifactResponse_status :: Lens.Lens' UpdateProvisioningArtifactResponse (Prelude.Maybe RequestStatus)
+updateProvisioningArtifactResponse_status = Lens.lens (\UpdateProvisioningArtifactResponse' {status} -> status) (\s@UpdateProvisioningArtifactResponse' {} a -> s {status = a} :: UpdateProvisioningArtifactResponse)
 
 -- | Information about the provisioning artifact.
 updateProvisioningArtifactResponse_provisioningArtifactDetail :: Lens.Lens' UpdateProvisioningArtifactResponse (Prelude.Maybe ProvisioningArtifactDetail)
@@ -338,7 +337,7 @@ instance
     UpdateProvisioningArtifactResponse
   where
   rnf UpdateProvisioningArtifactResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf info
+    Prelude.rnf info
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf provisioningArtifactDetail
       `Prelude.seq` Prelude.rnf httpStatus

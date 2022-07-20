@@ -29,7 +29,10 @@ import Amazonka.SageMaker.Types.S3DataType
 --
 -- /See:/ 'newS3DataSource' smart constructor.
 data S3DataSource = S3DataSource'
-  { -- | If you want Amazon SageMaker to replicate the entire dataset on each ML
+  { -- | A list of one or more attribute names to use that are found in a
+    -- specified augmented manifest file.
+    attributeNames :: Prelude.Maybe [Prelude.Text],
+    -- | If you want Amazon SageMaker to replicate the entire dataset on each ML
     -- compute instance that is launched for model training, specify
     -- @FullyReplicated@.
     --
@@ -50,9 +53,6 @@ data S3DataSource = S3DataSource'
     -- copying training data to the ML storage volume (when @TrainingInputMode@
     -- is set to @File@), this copies 1\//n/ of the number of objects.
     s3DataDistributionType :: Prelude.Maybe S3DataDistribution,
-    -- | A list of one or more attribute names to use that are found in a
-    -- specified augmented manifest file.
-    attributeNames :: Prelude.Maybe [Prelude.Text],
     -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
     -- SageMaker uses all objects that match the specified key name prefix for
     -- model training.
@@ -123,6 +123,9 @@ data S3DataSource = S3DataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeNames', 's3DataSource_attributeNames' - A list of one or more attribute names to use that are found in a
+-- specified augmented manifest file.
+--
 -- 's3DataDistributionType', 's3DataSource_s3DataDistributionType' - If you want Amazon SageMaker to replicate the entire dataset on each ML
 -- compute instance that is launched for model training, specify
 -- @FullyReplicated@.
@@ -143,9 +146,6 @@ data S3DataSource = S3DataSource'
 -- instances, you might choose @ShardedByS3Key@. If the algorithm requires
 -- copying training data to the ML storage volume (when @TrainingInputMode@
 -- is set to @File@), this copies 1\//n/ of the number of objects.
---
--- 'attributeNames', 's3DataSource_attributeNames' - A list of one or more attribute names to use that are found in a
--- specified augmented manifest file.
 --
 -- 's3DataType', 's3DataSource_s3DataType' - If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
 -- SageMaker uses all objects that match the specified key name prefix for
@@ -213,12 +213,16 @@ newS3DataSource ::
   S3DataSource
 newS3DataSource pS3DataType_ pS3Uri_ =
   S3DataSource'
-    { s3DataDistributionType =
-        Prelude.Nothing,
-      attributeNames = Prelude.Nothing,
+    { attributeNames = Prelude.Nothing,
+      s3DataDistributionType = Prelude.Nothing,
       s3DataType = pS3DataType_,
       s3Uri = pS3Uri_
     }
+
+-- | A list of one or more attribute names to use that are found in a
+-- specified augmented manifest file.
+s3DataSource_attributeNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
+s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attributeNames) (\s@S3DataSource' {} a -> s {attributeNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you want Amazon SageMaker to replicate the entire dataset on each ML
 -- compute instance that is launched for model training, specify
@@ -242,11 +246,6 @@ newS3DataSource pS3DataType_ pS3Uri_ =
 -- is set to @File@), this copies 1\//n/ of the number of objects.
 s3DataSource_s3DataDistributionType :: Lens.Lens' S3DataSource (Prelude.Maybe S3DataDistribution)
 s3DataSource_s3DataDistributionType = Lens.lens (\S3DataSource' {s3DataDistributionType} -> s3DataDistributionType) (\s@S3DataSource' {} a -> s {s3DataDistributionType = a} :: S3DataSource)
-
--- | A list of one or more attribute names to use that are found in a
--- specified augmented manifest file.
-s3DataSource_attributeNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
-s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attributeNames) (\s@S3DataSource' {} a -> s {attributeNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
 -- SageMaker uses all objects that match the specified key name prefix for
@@ -317,23 +316,23 @@ instance Core.FromJSON S3DataSource where
       "S3DataSource"
       ( \x ->
           S3DataSource'
-            Prelude.<$> (x Core..:? "S3DataDistributionType")
-            Prelude.<*> (x Core..:? "AttributeNames" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "AttributeNames" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "S3DataDistributionType")
             Prelude.<*> (x Core..: "S3DataType")
             Prelude.<*> (x Core..: "S3Uri")
       )
 
 instance Prelude.Hashable S3DataSource where
   hashWithSalt _salt S3DataSource' {..} =
-    _salt `Prelude.hashWithSalt` s3DataDistributionType
-      `Prelude.hashWithSalt` attributeNames
+    _salt `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` s3DataDistributionType
       `Prelude.hashWithSalt` s3DataType
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData S3DataSource where
   rnf S3DataSource' {..} =
-    Prelude.rnf s3DataDistributionType
-      `Prelude.seq` Prelude.rnf attributeNames
+    Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf s3DataDistributionType
       `Prelude.seq` Prelude.rnf s3DataType
       `Prelude.seq` Prelude.rnf s3Uri
 
@@ -341,10 +340,10 @@ instance Core.ToJSON S3DataSource where
   toJSON S3DataSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3DataDistributionType" Core..=)
-              Prelude.<$> s3DataDistributionType,
-            ("AttributeNames" Core..=)
+          [ ("AttributeNames" Core..=)
               Prelude.<$> attributeNames,
+            ("S3DataDistributionType" Core..=)
+              Prelude.<$> s3DataDistributionType,
             Prelude.Just ("S3DataType" Core..= s3DataType),
             Prelude.Just ("S3Uri" Core..= s3Uri)
           ]

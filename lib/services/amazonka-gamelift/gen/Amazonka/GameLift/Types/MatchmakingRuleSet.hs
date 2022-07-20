@@ -61,11 +61,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMatchmakingRuleSet' smart constructor.
 data MatchmakingRuleSet = MatchmakingRuleSet'
-  { -- | A time stamp indicating when this data object was created. Format is a
-    -- number expressed in Unix time as milliseconds (for example
-    -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | A unique identifier for the matchmaking rule set
+  { -- | A unique identifier for the matchmaking rule set
     ruleSetName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -74,6 +70,10 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
     -- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
     -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
     ruleSetArn :: Prelude.Maybe Prelude.Text,
+    -- | A time stamp indicating when this data object was created. Format is a
+    -- number expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | A collection of matchmaking rules, formatted as a JSON string. Comments
     -- are not allowed in JSON, but most elements support a description field.
     ruleSetBody :: Prelude.Text
@@ -88,10 +88,6 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'matchmakingRuleSet_creationTime' - A time stamp indicating when this data object was created. Format is a
--- number expressed in Unix time as milliseconds (for example
--- @\"1469498468.057\"@).
---
 -- 'ruleSetName', 'matchmakingRuleSet_ruleSetName' - A unique identifier for the matchmaking rule set
 --
 -- 'ruleSetArn', 'matchmakingRuleSet_ruleSetArn' - The Amazon Resource Name
@@ -101,6 +97,10 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
 -- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
 -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
 --
+-- 'creationTime', 'matchmakingRuleSet_creationTime' - A time stamp indicating when this data object was created. Format is a
+-- number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+--
 -- 'ruleSetBody', 'matchmakingRuleSet_ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments
 -- are not allowed in JSON, but most elements support a description field.
 newMatchmakingRuleSet ::
@@ -109,17 +109,11 @@ newMatchmakingRuleSet ::
   MatchmakingRuleSet
 newMatchmakingRuleSet pRuleSetBody_ =
   MatchmakingRuleSet'
-    { creationTime = Prelude.Nothing,
-      ruleSetName = Prelude.Nothing,
+    { ruleSetName = Prelude.Nothing,
       ruleSetArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       ruleSetBody = pRuleSetBody_
     }
-
--- | A time stamp indicating when this data object was created. Format is a
--- number expressed in Unix time as milliseconds (for example
--- @\"1469498468.057\"@).
-matchmakingRuleSet_creationTime :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.UTCTime)
-matchmakingRuleSet_creationTime = Lens.lens (\MatchmakingRuleSet' {creationTime} -> creationTime) (\s@MatchmakingRuleSet' {} a -> s {creationTime = a} :: MatchmakingRuleSet) Prelude.. Lens.mapping Core._Time
 
 -- | A unique identifier for the matchmaking rule set
 matchmakingRuleSet_ruleSetName :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.Text)
@@ -134,6 +128,12 @@ matchmakingRuleSet_ruleSetName = Lens.lens (\MatchmakingRuleSet' {ruleSetName} -
 matchmakingRuleSet_ruleSetArn :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.Text)
 matchmakingRuleSet_ruleSetArn = Lens.lens (\MatchmakingRuleSet' {ruleSetArn} -> ruleSetArn) (\s@MatchmakingRuleSet' {} a -> s {ruleSetArn = a} :: MatchmakingRuleSet)
 
+-- | A time stamp indicating when this data object was created. Format is a
+-- number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+matchmakingRuleSet_creationTime :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.UTCTime)
+matchmakingRuleSet_creationTime = Lens.lens (\MatchmakingRuleSet' {creationTime} -> creationTime) (\s@MatchmakingRuleSet' {} a -> s {creationTime = a} :: MatchmakingRuleSet) Prelude.. Lens.mapping Core._Time
+
 -- | A collection of matchmaking rules, formatted as a JSON string. Comments
 -- are not allowed in JSON, but most elements support a description field.
 matchmakingRuleSet_ruleSetBody :: Lens.Lens' MatchmakingRuleSet Prelude.Text
@@ -145,22 +145,22 @@ instance Core.FromJSON MatchmakingRuleSet where
       "MatchmakingRuleSet"
       ( \x ->
           MatchmakingRuleSet'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "RuleSetName")
+            Prelude.<$> (x Core..:? "RuleSetName")
             Prelude.<*> (x Core..:? "RuleSetArn")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..: "RuleSetBody")
       )
 
 instance Prelude.Hashable MatchmakingRuleSet where
   hashWithSalt _salt MatchmakingRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` ruleSetName
+    _salt `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` ruleSetArn
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` ruleSetBody
 
 instance Prelude.NFData MatchmakingRuleSet where
   rnf MatchmakingRuleSet' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf ruleSetName
+    Prelude.rnf ruleSetName
       `Prelude.seq` Prelude.rnf ruleSetArn
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf ruleSetBody

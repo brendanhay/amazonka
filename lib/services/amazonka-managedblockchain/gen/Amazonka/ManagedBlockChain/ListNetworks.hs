@@ -30,11 +30,11 @@ module Amazonka.ManagedBlockChain.ListNetworks
     newListNetworks,
 
     -- * Request Lenses
-    listNetworks_status,
-    listNetworks_framework,
-    listNetworks_nextToken,
     listNetworks_name,
+    listNetworks_nextToken,
+    listNetworks_status,
     listNetworks_maxResults,
+    listNetworks_framework,
 
     -- * Destructuring the Response
     ListNetworksResponse (..),
@@ -56,20 +56,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNetworks' smart constructor.
 data ListNetworks = ListNetworks'
-  { -- | An optional status specifier. If provided, only networks currently in
+  { -- | The name of the network.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token that indicates the next set of results to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional status specifier. If provided, only networks currently in
     -- this status are listed.
     --
     -- Applies only to Hyperledger Fabric.
     status :: Prelude.Maybe NetworkStatus,
+    -- | The maximum number of networks to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An optional framework specifier. If provided, only networks of this
     -- framework type are listed.
-    framework :: Prelude.Maybe Framework,
-    -- | The pagination token that indicates the next set of results to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the network.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of networks to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    framework :: Prelude.Maybe Framework
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,29 +81,37 @@ data ListNetworks = ListNetworks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'listNetworks_name' - The name of the network.
+--
+-- 'nextToken', 'listNetworks_nextToken' - The pagination token that indicates the next set of results to retrieve.
+--
 -- 'status', 'listNetworks_status' - An optional status specifier. If provided, only networks currently in
 -- this status are listed.
 --
 -- Applies only to Hyperledger Fabric.
 --
+-- 'maxResults', 'listNetworks_maxResults' - The maximum number of networks to list.
+--
 -- 'framework', 'listNetworks_framework' - An optional framework specifier. If provided, only networks of this
 -- framework type are listed.
---
--- 'nextToken', 'listNetworks_nextToken' - The pagination token that indicates the next set of results to retrieve.
---
--- 'name', 'listNetworks_name' - The name of the network.
---
--- 'maxResults', 'listNetworks_maxResults' - The maximum number of networks to list.
 newListNetworks ::
   ListNetworks
 newListNetworks =
   ListNetworks'
-    { status = Prelude.Nothing,
-      framework = Prelude.Nothing,
+    { name = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      name = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      framework = Prelude.Nothing
     }
+
+-- | The name of the network.
+listNetworks_name :: Lens.Lens' ListNetworks (Prelude.Maybe Prelude.Text)
+listNetworks_name = Lens.lens (\ListNetworks' {name} -> name) (\s@ListNetworks' {} a -> s {name = a} :: ListNetworks)
+
+-- | The pagination token that indicates the next set of results to retrieve.
+listNetworks_nextToken :: Lens.Lens' ListNetworks (Prelude.Maybe Prelude.Text)
+listNetworks_nextToken = Lens.lens (\ListNetworks' {nextToken} -> nextToken) (\s@ListNetworks' {} a -> s {nextToken = a} :: ListNetworks)
 
 -- | An optional status specifier. If provided, only networks currently in
 -- this status are listed.
@@ -112,22 +120,14 @@ newListNetworks =
 listNetworks_status :: Lens.Lens' ListNetworks (Prelude.Maybe NetworkStatus)
 listNetworks_status = Lens.lens (\ListNetworks' {status} -> status) (\s@ListNetworks' {} a -> s {status = a} :: ListNetworks)
 
+-- | The maximum number of networks to list.
+listNetworks_maxResults :: Lens.Lens' ListNetworks (Prelude.Maybe Prelude.Natural)
+listNetworks_maxResults = Lens.lens (\ListNetworks' {maxResults} -> maxResults) (\s@ListNetworks' {} a -> s {maxResults = a} :: ListNetworks)
+
 -- | An optional framework specifier. If provided, only networks of this
 -- framework type are listed.
 listNetworks_framework :: Lens.Lens' ListNetworks (Prelude.Maybe Framework)
 listNetworks_framework = Lens.lens (\ListNetworks' {framework} -> framework) (\s@ListNetworks' {} a -> s {framework = a} :: ListNetworks)
-
--- | The pagination token that indicates the next set of results to retrieve.
-listNetworks_nextToken :: Lens.Lens' ListNetworks (Prelude.Maybe Prelude.Text)
-listNetworks_nextToken = Lens.lens (\ListNetworks' {nextToken} -> nextToken) (\s@ListNetworks' {} a -> s {nextToken = a} :: ListNetworks)
-
--- | The name of the network.
-listNetworks_name :: Lens.Lens' ListNetworks (Prelude.Maybe Prelude.Text)
-listNetworks_name = Lens.lens (\ListNetworks' {name} -> name) (\s@ListNetworks' {} a -> s {name = a} :: ListNetworks)
-
--- | The maximum number of networks to list.
-listNetworks_maxResults :: Lens.Lens' ListNetworks (Prelude.Maybe Prelude.Natural)
-listNetworks_maxResults = Lens.lens (\ListNetworks' {maxResults} -> maxResults) (\s@ListNetworks' {} a -> s {maxResults = a} :: ListNetworks)
 
 instance Core.AWSRequest ListNetworks where
   type AWSResponse ListNetworks = ListNetworksResponse
@@ -143,19 +143,19 @@ instance Core.AWSRequest ListNetworks where
 
 instance Prelude.Hashable ListNetworks where
   hashWithSalt _salt ListNetworks' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` framework
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` framework
 
 instance Prelude.NFData ListNetworks where
   rnf ListNetworks' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf framework
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf framework
 
 instance Core.ToHeaders ListNetworks where
   toHeaders =
@@ -174,11 +174,11 @@ instance Core.ToPath ListNetworks where
 instance Core.ToQuery ListNetworks where
   toQuery ListNetworks' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
-        "framework" Core.=: framework,
+      [ "name" Core.=: name,
         "nextToken" Core.=: nextToken,
-        "name" Core.=: name,
-        "maxResults" Core.=: maxResults
+        "status" Core.=: status,
+        "maxResults" Core.=: maxResults,
+        "framework" Core.=: framework
       ]
 
 -- | /See:/ 'newListNetworksResponse' smart constructor.

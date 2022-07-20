@@ -36,14 +36,14 @@ data UserPausedDetails = UserPausedDetails'
   { -- | The date and time, in UTC and extended ISO 8601 format, when the job or
     -- job run will expire and be cancelled if you don\'t resume it first.
     jobExpiresAt :: Prelude.Maybe Core.POSIX,
+    -- | The date and time, in UTC and extended ISO 8601 format, when you paused
+    -- the job.
+    jobPausedAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the Health event that Amazon Macie
     -- sent to notify you of the job or job run\'s pending expiration and
     -- cancellation. This value is null if a job has been paused for less than
     -- 23 days.
-    jobImminentExpirationHealthEventArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in UTC and extended ISO 8601 format, when you paused
-    -- the job.
-    jobPausedAt :: Prelude.Maybe Core.POSIX
+    jobImminentExpirationHealthEventArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,27 +58,32 @@ data UserPausedDetails = UserPausedDetails'
 -- 'jobExpiresAt', 'userPausedDetails_jobExpiresAt' - The date and time, in UTC and extended ISO 8601 format, when the job or
 -- job run will expire and be cancelled if you don\'t resume it first.
 --
+-- 'jobPausedAt', 'userPausedDetails_jobPausedAt' - The date and time, in UTC and extended ISO 8601 format, when you paused
+-- the job.
+--
 -- 'jobImminentExpirationHealthEventArn', 'userPausedDetails_jobImminentExpirationHealthEventArn' - The Amazon Resource Name (ARN) of the Health event that Amazon Macie
 -- sent to notify you of the job or job run\'s pending expiration and
 -- cancellation. This value is null if a job has been paused for less than
 -- 23 days.
---
--- 'jobPausedAt', 'userPausedDetails_jobPausedAt' - The date and time, in UTC and extended ISO 8601 format, when you paused
--- the job.
 newUserPausedDetails ::
   UserPausedDetails
 newUserPausedDetails =
   UserPausedDetails'
     { jobExpiresAt = Prelude.Nothing,
+      jobPausedAt = Prelude.Nothing,
       jobImminentExpirationHealthEventArn =
-        Prelude.Nothing,
-      jobPausedAt = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the job or
 -- job run will expire and be cancelled if you don\'t resume it first.
 userPausedDetails_jobExpiresAt :: Lens.Lens' UserPausedDetails (Prelude.Maybe Prelude.UTCTime)
 userPausedDetails_jobExpiresAt = Lens.lens (\UserPausedDetails' {jobExpiresAt} -> jobExpiresAt) (\s@UserPausedDetails' {} a -> s {jobExpiresAt = a} :: UserPausedDetails) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time, in UTC and extended ISO 8601 format, when you paused
+-- the job.
+userPausedDetails_jobPausedAt :: Lens.Lens' UserPausedDetails (Prelude.Maybe Prelude.UTCTime)
+userPausedDetails_jobPausedAt = Lens.lens (\UserPausedDetails' {jobPausedAt} -> jobPausedAt) (\s@UserPausedDetails' {} a -> s {jobPausedAt = a} :: UserPausedDetails) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the Health event that Amazon Macie
 -- sent to notify you of the job or job run\'s pending expiration and
@@ -87,11 +92,6 @@ userPausedDetails_jobExpiresAt = Lens.lens (\UserPausedDetails' {jobExpiresAt} -
 userPausedDetails_jobImminentExpirationHealthEventArn :: Lens.Lens' UserPausedDetails (Prelude.Maybe Prelude.Text)
 userPausedDetails_jobImminentExpirationHealthEventArn = Lens.lens (\UserPausedDetails' {jobImminentExpirationHealthEventArn} -> jobImminentExpirationHealthEventArn) (\s@UserPausedDetails' {} a -> s {jobImminentExpirationHealthEventArn = a} :: UserPausedDetails)
 
--- | The date and time, in UTC and extended ISO 8601 format, when you paused
--- the job.
-userPausedDetails_jobPausedAt :: Lens.Lens' UserPausedDetails (Prelude.Maybe Prelude.UTCTime)
-userPausedDetails_jobPausedAt = Lens.lens (\UserPausedDetails' {jobPausedAt} -> jobPausedAt) (\s@UserPausedDetails' {} a -> s {jobPausedAt = a} :: UserPausedDetails) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON UserPausedDetails where
   parseJSON =
     Core.withObject
@@ -99,18 +99,18 @@ instance Core.FromJSON UserPausedDetails where
       ( \x ->
           UserPausedDetails'
             Prelude.<$> (x Core..:? "jobExpiresAt")
-            Prelude.<*> (x Core..:? "jobImminentExpirationHealthEventArn")
             Prelude.<*> (x Core..:? "jobPausedAt")
+            Prelude.<*> (x Core..:? "jobImminentExpirationHealthEventArn")
       )
 
 instance Prelude.Hashable UserPausedDetails where
   hashWithSalt _salt UserPausedDetails' {..} =
     _salt `Prelude.hashWithSalt` jobExpiresAt
-      `Prelude.hashWithSalt` jobImminentExpirationHealthEventArn
       `Prelude.hashWithSalt` jobPausedAt
+      `Prelude.hashWithSalt` jobImminentExpirationHealthEventArn
 
 instance Prelude.NFData UserPausedDetails where
   rnf UserPausedDetails' {..} =
     Prelude.rnf jobExpiresAt
-      `Prelude.seq` Prelude.rnf jobImminentExpirationHealthEventArn
       `Prelude.seq` Prelude.rnf jobPausedAt
+      `Prelude.seq` Prelude.rnf jobImminentExpirationHealthEventArn

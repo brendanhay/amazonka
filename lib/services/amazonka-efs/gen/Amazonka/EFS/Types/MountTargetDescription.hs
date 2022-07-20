@@ -28,17 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMountTargetDescription' smart constructor.
 data MountTargetDescription = MountTargetDescription'
-  { -- | Address at which the file system can be mounted by using the mount
-    -- target.
-    ipAddress :: Prelude.Maybe Prelude.Text,
-    -- | The unique and consistent identifier of the Availability Zone that the
-    -- mount target resides in. For example, @use1-az1@ is an AZ ID for the
-    -- us-east-1 Region and it has the same location in every Amazon Web
-    -- Services account.
-    availabilityZoneId :: Prelude.Maybe Prelude.Text,
-    -- | The virtual private cloud (VPC) ID that the mount target is configured
-    -- in.
-    vpcId :: Prelude.Maybe Prelude.Text,
+  { -- | Amazon Web Services account ID that owns the resource.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Availability Zone in which the mount target is located.
     -- Availability Zones are independently mapped to names for each Amazon Web
     -- Services account. For example, the Availability Zone @us-east-1a@ for
@@ -48,8 +39,17 @@ data MountTargetDescription = MountTargetDescription'
     -- | The ID of the network interface that Amazon EFS created when it created
     -- the mount target.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Web Services account ID that owns the resource.
-    ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The virtual private cloud (VPC) ID that the mount target is configured
+    -- in.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Address at which the file system can be mounted by using the mount
+    -- target.
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | The unique and consistent identifier of the Availability Zone that the
+    -- mount target resides in. For example, @use1-az1@ is an AZ ID for the
+    -- us-east-1 Region and it has the same location in every Amazon Web
+    -- Services account.
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | System-assigned mount target ID.
     mountTargetId :: Prelude.Text,
     -- | The ID of the file system for which the mount target is intended.
@@ -69,16 +69,7 @@ data MountTargetDescription = MountTargetDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipAddress', 'mountTargetDescription_ipAddress' - Address at which the file system can be mounted by using the mount
--- target.
---
--- 'availabilityZoneId', 'mountTargetDescription_availabilityZoneId' - The unique and consistent identifier of the Availability Zone that the
--- mount target resides in. For example, @use1-az1@ is an AZ ID for the
--- us-east-1 Region and it has the same location in every Amazon Web
--- Services account.
---
--- 'vpcId', 'mountTargetDescription_vpcId' - The virtual private cloud (VPC) ID that the mount target is configured
--- in.
+-- 'ownerId', 'mountTargetDescription_ownerId' - Amazon Web Services account ID that owns the resource.
 --
 -- 'availabilityZoneName', 'mountTargetDescription_availabilityZoneName' - The name of the Availability Zone in which the mount target is located.
 -- Availability Zones are independently mapped to names for each Amazon Web
@@ -89,7 +80,16 @@ data MountTargetDescription = MountTargetDescription'
 -- 'networkInterfaceId', 'mountTargetDescription_networkInterfaceId' - The ID of the network interface that Amazon EFS created when it created
 -- the mount target.
 --
--- 'ownerId', 'mountTargetDescription_ownerId' - Amazon Web Services account ID that owns the resource.
+-- 'vpcId', 'mountTargetDescription_vpcId' - The virtual private cloud (VPC) ID that the mount target is configured
+-- in.
+--
+-- 'ipAddress', 'mountTargetDescription_ipAddress' - Address at which the file system can be mounted by using the mount
+-- target.
+--
+-- 'availabilityZoneId', 'mountTargetDescription_availabilityZoneId' - The unique and consistent identifier of the Availability Zone that the
+-- mount target resides in. For example, @use1-az1@ is an AZ ID for the
+-- us-east-1 Region and it has the same location in every Amazon Web
+-- Services account.
 --
 -- 'mountTargetId', 'mountTargetDescription_mountTargetId' - System-assigned mount target ID.
 --
@@ -114,35 +114,21 @@ newMountTargetDescription
   pSubnetId_
   pLifeCycleState_ =
     MountTargetDescription'
-      { ipAddress =
-          Prelude.Nothing,
-        availabilityZoneId = Prelude.Nothing,
-        vpcId = Prelude.Nothing,
+      { ownerId = Prelude.Nothing,
         availabilityZoneName = Prelude.Nothing,
         networkInterfaceId = Prelude.Nothing,
-        ownerId = Prelude.Nothing,
+        vpcId = Prelude.Nothing,
+        ipAddress = Prelude.Nothing,
+        availabilityZoneId = Prelude.Nothing,
         mountTargetId = pMountTargetId_,
         fileSystemId = pFileSystemId_,
         subnetId = pSubnetId_,
         lifeCycleState = pLifeCycleState_
       }
 
--- | Address at which the file system can be mounted by using the mount
--- target.
-mountTargetDescription_ipAddress :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
-mountTargetDescription_ipAddress = Lens.lens (\MountTargetDescription' {ipAddress} -> ipAddress) (\s@MountTargetDescription' {} a -> s {ipAddress = a} :: MountTargetDescription)
-
--- | The unique and consistent identifier of the Availability Zone that the
--- mount target resides in. For example, @use1-az1@ is an AZ ID for the
--- us-east-1 Region and it has the same location in every Amazon Web
--- Services account.
-mountTargetDescription_availabilityZoneId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
-mountTargetDescription_availabilityZoneId = Lens.lens (\MountTargetDescription' {availabilityZoneId} -> availabilityZoneId) (\s@MountTargetDescription' {} a -> s {availabilityZoneId = a} :: MountTargetDescription)
-
--- | The virtual private cloud (VPC) ID that the mount target is configured
--- in.
-mountTargetDescription_vpcId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
-mountTargetDescription_vpcId = Lens.lens (\MountTargetDescription' {vpcId} -> vpcId) (\s@MountTargetDescription' {} a -> s {vpcId = a} :: MountTargetDescription)
+-- | Amazon Web Services account ID that owns the resource.
+mountTargetDescription_ownerId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
+mountTargetDescription_ownerId = Lens.lens (\MountTargetDescription' {ownerId} -> ownerId) (\s@MountTargetDescription' {} a -> s {ownerId = a} :: MountTargetDescription)
 
 -- | The name of the Availability Zone in which the mount target is located.
 -- Availability Zones are independently mapped to names for each Amazon Web
@@ -157,9 +143,22 @@ mountTargetDescription_availabilityZoneName = Lens.lens (\MountTargetDescription
 mountTargetDescription_networkInterfaceId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
 mountTargetDescription_networkInterfaceId = Lens.lens (\MountTargetDescription' {networkInterfaceId} -> networkInterfaceId) (\s@MountTargetDescription' {} a -> s {networkInterfaceId = a} :: MountTargetDescription)
 
--- | Amazon Web Services account ID that owns the resource.
-mountTargetDescription_ownerId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
-mountTargetDescription_ownerId = Lens.lens (\MountTargetDescription' {ownerId} -> ownerId) (\s@MountTargetDescription' {} a -> s {ownerId = a} :: MountTargetDescription)
+-- | The virtual private cloud (VPC) ID that the mount target is configured
+-- in.
+mountTargetDescription_vpcId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
+mountTargetDescription_vpcId = Lens.lens (\MountTargetDescription' {vpcId} -> vpcId) (\s@MountTargetDescription' {} a -> s {vpcId = a} :: MountTargetDescription)
+
+-- | Address at which the file system can be mounted by using the mount
+-- target.
+mountTargetDescription_ipAddress :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
+mountTargetDescription_ipAddress = Lens.lens (\MountTargetDescription' {ipAddress} -> ipAddress) (\s@MountTargetDescription' {} a -> s {ipAddress = a} :: MountTargetDescription)
+
+-- | The unique and consistent identifier of the Availability Zone that the
+-- mount target resides in. For example, @use1-az1@ is an AZ ID for the
+-- us-east-1 Region and it has the same location in every Amazon Web
+-- Services account.
+mountTargetDescription_availabilityZoneId :: Lens.Lens' MountTargetDescription (Prelude.Maybe Prelude.Text)
+mountTargetDescription_availabilityZoneId = Lens.lens (\MountTargetDescription' {availabilityZoneId} -> availabilityZoneId) (\s@MountTargetDescription' {} a -> s {availabilityZoneId = a} :: MountTargetDescription)
 
 -- | System-assigned mount target ID.
 mountTargetDescription_mountTargetId :: Lens.Lens' MountTargetDescription Prelude.Text
@@ -183,12 +182,12 @@ instance Core.FromJSON MountTargetDescription where
       "MountTargetDescription"
       ( \x ->
           MountTargetDescription'
-            Prelude.<$> (x Core..:? "IpAddress")
-            Prelude.<*> (x Core..:? "AvailabilityZoneId")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Core..:? "OwnerId")
             Prelude.<*> (x Core..:? "AvailabilityZoneName")
             Prelude.<*> (x Core..:? "NetworkInterfaceId")
-            Prelude.<*> (x Core..:? "OwnerId")
+            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "IpAddress")
+            Prelude.<*> (x Core..:? "AvailabilityZoneId")
             Prelude.<*> (x Core..: "MountTargetId")
             Prelude.<*> (x Core..: "FileSystemId")
             Prelude.<*> (x Core..: "SubnetId")
@@ -197,12 +196,12 @@ instance Core.FromJSON MountTargetDescription where
 
 instance Prelude.Hashable MountTargetDescription where
   hashWithSalt _salt MountTargetDescription' {..} =
-    _salt `Prelude.hashWithSalt` ipAddress
-      `Prelude.hashWithSalt` availabilityZoneId
-      `Prelude.hashWithSalt` vpcId
+    _salt `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` availabilityZoneName
       `Prelude.hashWithSalt` networkInterfaceId
-      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` mountTargetId
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` subnetId
@@ -210,12 +209,12 @@ instance Prelude.Hashable MountTargetDescription where
 
 instance Prelude.NFData MountTargetDescription where
   rnf MountTargetDescription' {..} =
-    Prelude.rnf ipAddress
-      `Prelude.seq` Prelude.rnf availabilityZoneId
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf availabilityZoneName
       `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf availabilityZoneId
       `Prelude.seq` Prelude.rnf mountTargetId
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf subnetId

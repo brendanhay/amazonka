@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 data LambdaFunctionMemoryRecommendationOption = LambdaFunctionMemoryRecommendationOption'
   { -- | The memory size, in MB, of the function recommendation option.
     memorySize :: Prelude.Maybe Prelude.Int,
-    -- | An array of objects that describe the projected utilization metrics of
-    -- the function recommendation option.
-    projectedUtilizationMetrics :: Prelude.Maybe [LambdaFunctionMemoryProjectedMetric],
     -- | The rank of the function recommendation option.
     --
     -- The top recommendation option is ranked as @1@.
-    rank :: Prelude.Maybe Prelude.Int
+    rank :: Prelude.Maybe Prelude.Int,
+    -- | An array of objects that describe the projected utilization metrics of
+    -- the function recommendation option.
+    projectedUtilizationMetrics :: Prelude.Maybe [LambdaFunctionMemoryProjectedMetric]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,37 +50,37 @@ data LambdaFunctionMemoryRecommendationOption = LambdaFunctionMemoryRecommendati
 --
 -- 'memorySize', 'lambdaFunctionMemoryRecommendationOption_memorySize' - The memory size, in MB, of the function recommendation option.
 --
--- 'projectedUtilizationMetrics', 'lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics' - An array of objects that describe the projected utilization metrics of
--- the function recommendation option.
---
 -- 'rank', 'lambdaFunctionMemoryRecommendationOption_rank' - The rank of the function recommendation option.
 --
 -- The top recommendation option is ranked as @1@.
+--
+-- 'projectedUtilizationMetrics', 'lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics' - An array of objects that describe the projected utilization metrics of
+-- the function recommendation option.
 newLambdaFunctionMemoryRecommendationOption ::
   LambdaFunctionMemoryRecommendationOption
 newLambdaFunctionMemoryRecommendationOption =
   LambdaFunctionMemoryRecommendationOption'
     { memorySize =
         Prelude.Nothing,
+      rank = Prelude.Nothing,
       projectedUtilizationMetrics =
-        Prelude.Nothing,
-      rank = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | The memory size, in MB, of the function recommendation option.
 lambdaFunctionMemoryRecommendationOption_memorySize :: Lens.Lens' LambdaFunctionMemoryRecommendationOption (Prelude.Maybe Prelude.Int)
 lambdaFunctionMemoryRecommendationOption_memorySize = Lens.lens (\LambdaFunctionMemoryRecommendationOption' {memorySize} -> memorySize) (\s@LambdaFunctionMemoryRecommendationOption' {} a -> s {memorySize = a} :: LambdaFunctionMemoryRecommendationOption)
 
--- | An array of objects that describe the projected utilization metrics of
--- the function recommendation option.
-lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics :: Lens.Lens' LambdaFunctionMemoryRecommendationOption (Prelude.Maybe [LambdaFunctionMemoryProjectedMetric])
-lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics = Lens.lens (\LambdaFunctionMemoryRecommendationOption' {projectedUtilizationMetrics} -> projectedUtilizationMetrics) (\s@LambdaFunctionMemoryRecommendationOption' {} a -> s {projectedUtilizationMetrics = a} :: LambdaFunctionMemoryRecommendationOption) Prelude.. Lens.mapping Lens.coerced
-
 -- | The rank of the function recommendation option.
 --
 -- The top recommendation option is ranked as @1@.
 lambdaFunctionMemoryRecommendationOption_rank :: Lens.Lens' LambdaFunctionMemoryRecommendationOption (Prelude.Maybe Prelude.Int)
 lambdaFunctionMemoryRecommendationOption_rank = Lens.lens (\LambdaFunctionMemoryRecommendationOption' {rank} -> rank) (\s@LambdaFunctionMemoryRecommendationOption' {} a -> s {rank = a} :: LambdaFunctionMemoryRecommendationOption)
+
+-- | An array of objects that describe the projected utilization metrics of
+-- the function recommendation option.
+lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics :: Lens.Lens' LambdaFunctionMemoryRecommendationOption (Prelude.Maybe [LambdaFunctionMemoryProjectedMetric])
+lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics = Lens.lens (\LambdaFunctionMemoryRecommendationOption' {projectedUtilizationMetrics} -> projectedUtilizationMetrics) (\s@LambdaFunctionMemoryRecommendationOption' {} a -> s {projectedUtilizationMetrics = a} :: LambdaFunctionMemoryRecommendationOption) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -92,10 +92,10 @@ instance
       ( \x ->
           LambdaFunctionMemoryRecommendationOption'
             Prelude.<$> (x Core..:? "memorySize")
+            Prelude.<*> (x Core..:? "rank")
             Prelude.<*> ( x Core..:? "projectedUtilizationMetrics"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "rank")
       )
 
 instance
@@ -106,8 +106,8 @@ instance
     _salt
     LambdaFunctionMemoryRecommendationOption' {..} =
       _salt `Prelude.hashWithSalt` memorySize
-        `Prelude.hashWithSalt` projectedUtilizationMetrics
         `Prelude.hashWithSalt` rank
+        `Prelude.hashWithSalt` projectedUtilizationMetrics
 
 instance
   Prelude.NFData
@@ -115,5 +115,5 @@ instance
   where
   rnf LambdaFunctionMemoryRecommendationOption' {..} =
     Prelude.rnf memorySize
-      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics
       `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics

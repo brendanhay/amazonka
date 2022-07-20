@@ -39,12 +39,12 @@ module Amazonka.MediaTailor.CreatePrefetchSchedule
     newCreatePrefetchScheduleResponse,
 
     -- * Response Lenses
-    createPrefetchScheduleResponse_arn,
-    createPrefetchScheduleResponse_playbackConfigurationName,
-    createPrefetchScheduleResponse_retrieval,
     createPrefetchScheduleResponse_name,
-    createPrefetchScheduleResponse_consumption,
+    createPrefetchScheduleResponse_arn,
     createPrefetchScheduleResponse_streamId,
+    createPrefetchScheduleResponse_retrieval,
+    createPrefetchScheduleResponse_playbackConfigurationName,
+    createPrefetchScheduleResponse_consumption,
     createPrefetchScheduleResponse_httpStatus,
   )
 where
@@ -174,12 +174,12 @@ instance Core.AWSRequest CreatePrefetchSchedule where
     Response.receiveJSON
       ( \s h x ->
           CreatePrefetchScheduleResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "PlaybackConfigurationName")
-            Prelude.<*> (x Core..?> "Retrieval")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Consumption")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "StreamId")
+            Prelude.<*> (x Core..?> "Retrieval")
+            Prelude.<*> (x Core..?> "PlaybackConfigurationName")
+            Prelude.<*> (x Core..?> "Consumption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,27 +234,27 @@ instance Core.ToQuery CreatePrefetchSchedule where
 
 -- | /See:/ 'newCreatePrefetchScheduleResponse' smart constructor.
 data CreatePrefetchScheduleResponse = CreatePrefetchScheduleResponse'
-  { -- | The Amazon Resource Name (ARN) of the prefetch schedule.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the playback configuration to create the prefetch schedule
-    -- for.
-    playbackConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains settings for prefetch retrieval from the ad
-    -- decision server (ADS).
-    retrieval :: Prelude.Maybe PrefetchRetrieval,
-    -- | The name of the prefetch schedule. The name must be unique among all
+  { -- | The name of the prefetch schedule. The name must be unique among all
     -- prefetch schedules that are associated with the specified playback
     -- configuration.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the prefetch schedule.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | An optional stream identifier that you can specify in order to prefetch
+    -- for multiple streams that use the same playback configuration.
+    streamId :: Prelude.Maybe Prelude.Text,
+    -- | A complex type that contains settings for prefetch retrieval from the ad
+    -- decision server (ADS).
+    retrieval :: Prelude.Maybe PrefetchRetrieval,
+    -- | The name of the playback configuration to create the prefetch schedule
+    -- for.
+    playbackConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | Consumption settings determine how, and when, MediaTailor places the
     -- prefetched ads into ad breaks. Ad consumption occurs within a span of
     -- time that you define, called a /consumption window/. You can designate
     -- which ad breaks that MediaTailor fills with prefetch ads by setting
     -- avail matching criteria.
     consumption :: Prelude.Maybe PrefetchConsumption,
-    -- | An optional stream identifier that you can specify in order to prefetch
-    -- for multiple streams that use the same playback configuration.
-    streamId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -268,26 +268,26 @@ data CreatePrefetchScheduleResponse = CreatePrefetchScheduleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createPrefetchScheduleResponse_name' - The name of the prefetch schedule. The name must be unique among all
+-- prefetch schedules that are associated with the specified playback
+-- configuration.
+--
 -- 'arn', 'createPrefetchScheduleResponse_arn' - The Amazon Resource Name (ARN) of the prefetch schedule.
 --
--- 'playbackConfigurationName', 'createPrefetchScheduleResponse_playbackConfigurationName' - The name of the playback configuration to create the prefetch schedule
--- for.
+-- 'streamId', 'createPrefetchScheduleResponse_streamId' - An optional stream identifier that you can specify in order to prefetch
+-- for multiple streams that use the same playback configuration.
 --
 -- 'retrieval', 'createPrefetchScheduleResponse_retrieval' - A complex type that contains settings for prefetch retrieval from the ad
 -- decision server (ADS).
 --
--- 'name', 'createPrefetchScheduleResponse_name' - The name of the prefetch schedule. The name must be unique among all
--- prefetch schedules that are associated with the specified playback
--- configuration.
+-- 'playbackConfigurationName', 'createPrefetchScheduleResponse_playbackConfigurationName' - The name of the playback configuration to create the prefetch schedule
+-- for.
 --
 -- 'consumption', 'createPrefetchScheduleResponse_consumption' - Consumption settings determine how, and when, MediaTailor places the
 -- prefetched ads into ad breaks. Ad consumption occurs within a span of
 -- time that you define, called a /consumption window/. You can designate
 -- which ad breaks that MediaTailor fills with prefetch ads by setting
 -- avail matching criteria.
---
--- 'streamId', 'createPrefetchScheduleResponse_streamId' - An optional stream identifier that you can specify in order to prefetch
--- for multiple streams that use the same playback configuration.
 --
 -- 'httpStatus', 'createPrefetchScheduleResponse_httpStatus' - The response's http status code.
 newCreatePrefetchScheduleResponse ::
@@ -296,35 +296,40 @@ newCreatePrefetchScheduleResponse ::
   CreatePrefetchScheduleResponse
 newCreatePrefetchScheduleResponse pHttpStatus_ =
   CreatePrefetchScheduleResponse'
-    { arn =
+    { name =
         Prelude.Nothing,
-      playbackConfigurationName = Prelude.Nothing,
-      retrieval = Prelude.Nothing,
-      name = Prelude.Nothing,
-      consumption = Prelude.Nothing,
+      arn = Prelude.Nothing,
       streamId = Prelude.Nothing,
+      retrieval = Prelude.Nothing,
+      playbackConfigurationName = Prelude.Nothing,
+      consumption = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the prefetch schedule.
-createPrefetchScheduleResponse_arn :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
-createPrefetchScheduleResponse_arn = Lens.lens (\CreatePrefetchScheduleResponse' {arn} -> arn) (\s@CreatePrefetchScheduleResponse' {} a -> s {arn = a} :: CreatePrefetchScheduleResponse)
-
--- | The name of the playback configuration to create the prefetch schedule
--- for.
-createPrefetchScheduleResponse_playbackConfigurationName :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
-createPrefetchScheduleResponse_playbackConfigurationName = Lens.lens (\CreatePrefetchScheduleResponse' {playbackConfigurationName} -> playbackConfigurationName) (\s@CreatePrefetchScheduleResponse' {} a -> s {playbackConfigurationName = a} :: CreatePrefetchScheduleResponse)
-
--- | A complex type that contains settings for prefetch retrieval from the ad
--- decision server (ADS).
-createPrefetchScheduleResponse_retrieval :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe PrefetchRetrieval)
-createPrefetchScheduleResponse_retrieval = Lens.lens (\CreatePrefetchScheduleResponse' {retrieval} -> retrieval) (\s@CreatePrefetchScheduleResponse' {} a -> s {retrieval = a} :: CreatePrefetchScheduleResponse)
 
 -- | The name of the prefetch schedule. The name must be unique among all
 -- prefetch schedules that are associated with the specified playback
 -- configuration.
 createPrefetchScheduleResponse_name :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
 createPrefetchScheduleResponse_name = Lens.lens (\CreatePrefetchScheduleResponse' {name} -> name) (\s@CreatePrefetchScheduleResponse' {} a -> s {name = a} :: CreatePrefetchScheduleResponse)
+
+-- | The Amazon Resource Name (ARN) of the prefetch schedule.
+createPrefetchScheduleResponse_arn :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
+createPrefetchScheduleResponse_arn = Lens.lens (\CreatePrefetchScheduleResponse' {arn} -> arn) (\s@CreatePrefetchScheduleResponse' {} a -> s {arn = a} :: CreatePrefetchScheduleResponse)
+
+-- | An optional stream identifier that you can specify in order to prefetch
+-- for multiple streams that use the same playback configuration.
+createPrefetchScheduleResponse_streamId :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
+createPrefetchScheduleResponse_streamId = Lens.lens (\CreatePrefetchScheduleResponse' {streamId} -> streamId) (\s@CreatePrefetchScheduleResponse' {} a -> s {streamId = a} :: CreatePrefetchScheduleResponse)
+
+-- | A complex type that contains settings for prefetch retrieval from the ad
+-- decision server (ADS).
+createPrefetchScheduleResponse_retrieval :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe PrefetchRetrieval)
+createPrefetchScheduleResponse_retrieval = Lens.lens (\CreatePrefetchScheduleResponse' {retrieval} -> retrieval) (\s@CreatePrefetchScheduleResponse' {} a -> s {retrieval = a} :: CreatePrefetchScheduleResponse)
+
+-- | The name of the playback configuration to create the prefetch schedule
+-- for.
+createPrefetchScheduleResponse_playbackConfigurationName :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
+createPrefetchScheduleResponse_playbackConfigurationName = Lens.lens (\CreatePrefetchScheduleResponse' {playbackConfigurationName} -> playbackConfigurationName) (\s@CreatePrefetchScheduleResponse' {} a -> s {playbackConfigurationName = a} :: CreatePrefetchScheduleResponse)
 
 -- | Consumption settings determine how, and when, MediaTailor places the
 -- prefetched ads into ad breaks. Ad consumption occurs within a span of
@@ -333,11 +338,6 @@ createPrefetchScheduleResponse_name = Lens.lens (\CreatePrefetchScheduleResponse
 -- avail matching criteria.
 createPrefetchScheduleResponse_consumption :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe PrefetchConsumption)
 createPrefetchScheduleResponse_consumption = Lens.lens (\CreatePrefetchScheduleResponse' {consumption} -> consumption) (\s@CreatePrefetchScheduleResponse' {} a -> s {consumption = a} :: CreatePrefetchScheduleResponse)
-
--- | An optional stream identifier that you can specify in order to prefetch
--- for multiple streams that use the same playback configuration.
-createPrefetchScheduleResponse_streamId :: Lens.Lens' CreatePrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
-createPrefetchScheduleResponse_streamId = Lens.lens (\CreatePrefetchScheduleResponse' {streamId} -> streamId) (\s@CreatePrefetchScheduleResponse' {} a -> s {streamId = a} :: CreatePrefetchScheduleResponse)
 
 -- | The response's http status code.
 createPrefetchScheduleResponse_httpStatus :: Lens.Lens' CreatePrefetchScheduleResponse Prelude.Int
@@ -348,10 +348,10 @@ instance
     CreatePrefetchScheduleResponse
   where
   rnf CreatePrefetchScheduleResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
-      `Prelude.seq` Prelude.rnf retrieval
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf consumption
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf retrieval
+      `Prelude.seq` Prelude.rnf playbackConfigurationName
+      `Prelude.seq` Prelude.rnf consumption
       `Prelude.seq` Prelude.rnf httpStatus

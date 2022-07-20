@@ -31,13 +31,15 @@ import Amazonka.SWF.Types.WorkflowType
 --
 -- /See:/ 'newWorkflowExecutionInfo' smart constructor.
 data WorkflowExecutionInfo = WorkflowExecutionInfo'
-  { -- | If this workflow execution is a child of another execution then contains
-    -- the workflow execution that started this execution.
-    parent :: Prelude.Maybe WorkflowExecution,
-    -- | The list of tags associated with the workflow execution. Tags can be
+  { -- | The list of tags associated with the workflow execution. Tags can be
     -- used to identify and list workflow executions of interest through the
     -- visibility APIs. A workflow execution can have a maximum of 5 tags.
     tagList :: Prelude.Maybe [Prelude.Text],
+    -- | Set to true if a cancellation is requested for this workflow execution.
+    cancelRequested :: Prelude.Maybe Prelude.Bool,
+    -- | The time when the workflow execution was closed. Set only if the
+    -- execution status is CLOSED.
+    closeTimestamp :: Prelude.Maybe Core.POSIX,
     -- | If the execution status is closed then this specifies how the execution
     -- was closed:
     --
@@ -58,11 +60,9 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo'
     --     means the current execution was completed and a new execution was
     --     started to carry on the workflow.
     closeStatus :: Prelude.Maybe CloseStatus,
-    -- | The time when the workflow execution was closed. Set only if the
-    -- execution status is CLOSED.
-    closeTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | Set to true if a cancellation is requested for this workflow execution.
-    cancelRequested :: Prelude.Maybe Prelude.Bool,
+    -- | If this workflow execution is a child of another execution then contains
+    -- the workflow execution that started this execution.
+    parent :: Prelude.Maybe WorkflowExecution,
     -- | The workflow execution this information is about.
     execution :: WorkflowExecution,
     -- | The type of the workflow execution.
@@ -82,12 +82,14 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parent', 'workflowExecutionInfo_parent' - If this workflow execution is a child of another execution then contains
--- the workflow execution that started this execution.
---
 -- 'tagList', 'workflowExecutionInfo_tagList' - The list of tags associated with the workflow execution. Tags can be
 -- used to identify and list workflow executions of interest through the
 -- visibility APIs. A workflow execution can have a maximum of 5 tags.
+--
+-- 'cancelRequested', 'workflowExecutionInfo_cancelRequested' - Set to true if a cancellation is requested for this workflow execution.
+--
+-- 'closeTimestamp', 'workflowExecutionInfo_closeTimestamp' - The time when the workflow execution was closed. Set only if the
+-- execution status is CLOSED.
 --
 -- 'closeStatus', 'workflowExecutionInfo_closeStatus' - If the execution status is closed then this specifies how the execution
 -- was closed:
@@ -109,10 +111,8 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo'
 --     means the current execution was completed and a new execution was
 --     started to carry on the workflow.
 --
--- 'closeTimestamp', 'workflowExecutionInfo_closeTimestamp' - The time when the workflow execution was closed. Set only if the
--- execution status is CLOSED.
---
--- 'cancelRequested', 'workflowExecutionInfo_cancelRequested' - Set to true if a cancellation is requested for this workflow execution.
+-- 'parent', 'workflowExecutionInfo_parent' - If this workflow execution is a child of another execution then contains
+-- the workflow execution that started this execution.
 --
 -- 'execution', 'workflowExecutionInfo_execution' - The workflow execution this information is about.
 --
@@ -137,27 +137,31 @@ newWorkflowExecutionInfo
   pStartTimestamp_
   pExecutionStatus_ =
     WorkflowExecutionInfo'
-      { parent = Prelude.Nothing,
-        tagList = Prelude.Nothing,
-        closeStatus = Prelude.Nothing,
-        closeTimestamp = Prelude.Nothing,
+      { tagList = Prelude.Nothing,
         cancelRequested = Prelude.Nothing,
+        closeTimestamp = Prelude.Nothing,
+        closeStatus = Prelude.Nothing,
+        parent = Prelude.Nothing,
         execution = pExecution_,
         workflowType = pWorkflowType_,
         startTimestamp = Core._Time Lens.# pStartTimestamp_,
         executionStatus = pExecutionStatus_
       }
 
--- | If this workflow execution is a child of another execution then contains
--- the workflow execution that started this execution.
-workflowExecutionInfo_parent :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe WorkflowExecution)
-workflowExecutionInfo_parent = Lens.lens (\WorkflowExecutionInfo' {parent} -> parent) (\s@WorkflowExecutionInfo' {} a -> s {parent = a} :: WorkflowExecutionInfo)
-
 -- | The list of tags associated with the workflow execution. Tags can be
 -- used to identify and list workflow executions of interest through the
 -- visibility APIs. A workflow execution can have a maximum of 5 tags.
 workflowExecutionInfo_tagList :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe [Prelude.Text])
 workflowExecutionInfo_tagList = Lens.lens (\WorkflowExecutionInfo' {tagList} -> tagList) (\s@WorkflowExecutionInfo' {} a -> s {tagList = a} :: WorkflowExecutionInfo) Prelude.. Lens.mapping Lens.coerced
+
+-- | Set to true if a cancellation is requested for this workflow execution.
+workflowExecutionInfo_cancelRequested :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe Prelude.Bool)
+workflowExecutionInfo_cancelRequested = Lens.lens (\WorkflowExecutionInfo' {cancelRequested} -> cancelRequested) (\s@WorkflowExecutionInfo' {} a -> s {cancelRequested = a} :: WorkflowExecutionInfo)
+
+-- | The time when the workflow execution was closed. Set only if the
+-- execution status is CLOSED.
+workflowExecutionInfo_closeTimestamp :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe Prelude.UTCTime)
+workflowExecutionInfo_closeTimestamp = Lens.lens (\WorkflowExecutionInfo' {closeTimestamp} -> closeTimestamp) (\s@WorkflowExecutionInfo' {} a -> s {closeTimestamp = a} :: WorkflowExecutionInfo) Prelude.. Lens.mapping Core._Time
 
 -- | If the execution status is closed then this specifies how the execution
 -- was closed:
@@ -181,14 +185,10 @@ workflowExecutionInfo_tagList = Lens.lens (\WorkflowExecutionInfo' {tagList} -> 
 workflowExecutionInfo_closeStatus :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe CloseStatus)
 workflowExecutionInfo_closeStatus = Lens.lens (\WorkflowExecutionInfo' {closeStatus} -> closeStatus) (\s@WorkflowExecutionInfo' {} a -> s {closeStatus = a} :: WorkflowExecutionInfo)
 
--- | The time when the workflow execution was closed. Set only if the
--- execution status is CLOSED.
-workflowExecutionInfo_closeTimestamp :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe Prelude.UTCTime)
-workflowExecutionInfo_closeTimestamp = Lens.lens (\WorkflowExecutionInfo' {closeTimestamp} -> closeTimestamp) (\s@WorkflowExecutionInfo' {} a -> s {closeTimestamp = a} :: WorkflowExecutionInfo) Prelude.. Lens.mapping Core._Time
-
--- | Set to true if a cancellation is requested for this workflow execution.
-workflowExecutionInfo_cancelRequested :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe Prelude.Bool)
-workflowExecutionInfo_cancelRequested = Lens.lens (\WorkflowExecutionInfo' {cancelRequested} -> cancelRequested) (\s@WorkflowExecutionInfo' {} a -> s {cancelRequested = a} :: WorkflowExecutionInfo)
+-- | If this workflow execution is a child of another execution then contains
+-- the workflow execution that started this execution.
+workflowExecutionInfo_parent :: Lens.Lens' WorkflowExecutionInfo (Prelude.Maybe WorkflowExecution)
+workflowExecutionInfo_parent = Lens.lens (\WorkflowExecutionInfo' {parent} -> parent) (\s@WorkflowExecutionInfo' {} a -> s {parent = a} :: WorkflowExecutionInfo)
 
 -- | The workflow execution this information is about.
 workflowExecutionInfo_execution :: Lens.Lens' WorkflowExecutionInfo WorkflowExecution
@@ -212,11 +212,11 @@ instance Core.FromJSON WorkflowExecutionInfo where
       "WorkflowExecutionInfo"
       ( \x ->
           WorkflowExecutionInfo'
-            Prelude.<$> (x Core..:? "parent")
-            Prelude.<*> (x Core..:? "tagList" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "closeStatus")
-            Prelude.<*> (x Core..:? "closeTimestamp")
+            Prelude.<$> (x Core..:? "tagList" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "cancelRequested")
+            Prelude.<*> (x Core..:? "closeTimestamp")
+            Prelude.<*> (x Core..:? "closeStatus")
+            Prelude.<*> (x Core..:? "parent")
             Prelude.<*> (x Core..: "execution")
             Prelude.<*> (x Core..: "workflowType")
             Prelude.<*> (x Core..: "startTimestamp")
@@ -225,11 +225,11 @@ instance Core.FromJSON WorkflowExecutionInfo where
 
 instance Prelude.Hashable WorkflowExecutionInfo where
   hashWithSalt _salt WorkflowExecutionInfo' {..} =
-    _salt `Prelude.hashWithSalt` parent
-      `Prelude.hashWithSalt` tagList
-      `Prelude.hashWithSalt` closeStatus
-      `Prelude.hashWithSalt` closeTimestamp
+    _salt `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` cancelRequested
+      `Prelude.hashWithSalt` closeTimestamp
+      `Prelude.hashWithSalt` closeStatus
+      `Prelude.hashWithSalt` parent
       `Prelude.hashWithSalt` execution
       `Prelude.hashWithSalt` workflowType
       `Prelude.hashWithSalt` startTimestamp
@@ -237,11 +237,11 @@ instance Prelude.Hashable WorkflowExecutionInfo where
 
 instance Prelude.NFData WorkflowExecutionInfo where
   rnf WorkflowExecutionInfo' {..} =
-    Prelude.rnf parent
-      `Prelude.seq` Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf closeStatus
-      `Prelude.seq` Prelude.rnf closeTimestamp
+    Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf cancelRequested
+      `Prelude.seq` Prelude.rnf closeTimestamp
+      `Prelude.seq` Prelude.rnf closeStatus
+      `Prelude.seq` Prelude.rnf parent
       `Prelude.seq` Prelude.rnf execution
       `Prelude.seq` Prelude.rnf workflowType
       `Prelude.seq` Prelude.rnf startTimestamp

@@ -31,19 +31,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutRecordsResultEntry' smart constructor.
 data PutRecordsResultEntry = PutRecordsResultEntry'
-  { -- | The sequence number for an individual record result.
-    sequenceNumber :: Prelude.Maybe Prelude.Text,
-    -- | The error code for an individual record result. @ErrorCodes@ can be
-    -- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
-    errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The error message for an individual record result. An @ErrorCode@ value
+  { -- | The error message for an individual record result. An @ErrorCode@ value
     -- of @ProvisionedThroughputExceededException@ has an error message that
     -- includes the account ID, stream name, and shard ID. An @ErrorCode@ value
     -- of @InternalFailure@ has the error message
     -- @\"Internal Service Failure\"@.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The shard ID for an individual record result.
-    shardId :: Prelude.Maybe Prelude.Text
+    shardId :: Prelude.Maybe Prelude.Text,
+    -- | The sequence number for an individual record result.
+    sequenceNumber :: Prelude.Maybe Prelude.Text,
+    -- | The error code for an individual record result. @ErrorCodes@ can be
+    -- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,11 +55,6 @@ data PutRecordsResultEntry = PutRecordsResultEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sequenceNumber', 'putRecordsResultEntry_sequenceNumber' - The sequence number for an individual record result.
---
--- 'errorCode', 'putRecordsResultEntry_errorCode' - The error code for an individual record result. @ErrorCodes@ can be
--- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
---
 -- 'errorMessage', 'putRecordsResultEntry_errorMessage' - The error message for an individual record result. An @ErrorCode@ value
 -- of @ProvisionedThroughputExceededException@ has an error message that
 -- includes the account ID, stream name, and shard ID. An @ErrorCode@ value
@@ -67,25 +62,21 @@ data PutRecordsResultEntry = PutRecordsResultEntry'
 -- @\"Internal Service Failure\"@.
 --
 -- 'shardId', 'putRecordsResultEntry_shardId' - The shard ID for an individual record result.
+--
+-- 'sequenceNumber', 'putRecordsResultEntry_sequenceNumber' - The sequence number for an individual record result.
+--
+-- 'errorCode', 'putRecordsResultEntry_errorCode' - The error code for an individual record result. @ErrorCodes@ can be
+-- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
 newPutRecordsResultEntry ::
   PutRecordsResultEntry
 newPutRecordsResultEntry =
   PutRecordsResultEntry'
-    { sequenceNumber =
+    { errorMessage =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      shardId = Prelude.Nothing
+      shardId = Prelude.Nothing,
+      sequenceNumber = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
-
--- | The sequence number for an individual record result.
-putRecordsResultEntry_sequenceNumber :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
-putRecordsResultEntry_sequenceNumber = Lens.lens (\PutRecordsResultEntry' {sequenceNumber} -> sequenceNumber) (\s@PutRecordsResultEntry' {} a -> s {sequenceNumber = a} :: PutRecordsResultEntry)
-
--- | The error code for an individual record result. @ErrorCodes@ can be
--- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
-putRecordsResultEntry_errorCode :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
-putRecordsResultEntry_errorCode = Lens.lens (\PutRecordsResultEntry' {errorCode} -> errorCode) (\s@PutRecordsResultEntry' {} a -> s {errorCode = a} :: PutRecordsResultEntry)
 
 -- | The error message for an individual record result. An @ErrorCode@ value
 -- of @ProvisionedThroughputExceededException@ has an error message that
@@ -99,28 +90,37 @@ putRecordsResultEntry_errorMessage = Lens.lens (\PutRecordsResultEntry' {errorMe
 putRecordsResultEntry_shardId :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
 putRecordsResultEntry_shardId = Lens.lens (\PutRecordsResultEntry' {shardId} -> shardId) (\s@PutRecordsResultEntry' {} a -> s {shardId = a} :: PutRecordsResultEntry)
 
+-- | The sequence number for an individual record result.
+putRecordsResultEntry_sequenceNumber :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
+putRecordsResultEntry_sequenceNumber = Lens.lens (\PutRecordsResultEntry' {sequenceNumber} -> sequenceNumber) (\s@PutRecordsResultEntry' {} a -> s {sequenceNumber = a} :: PutRecordsResultEntry)
+
+-- | The error code for an individual record result. @ErrorCodes@ can be
+-- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
+putRecordsResultEntry_errorCode :: Lens.Lens' PutRecordsResultEntry (Prelude.Maybe Prelude.Text)
+putRecordsResultEntry_errorCode = Lens.lens (\PutRecordsResultEntry' {errorCode} -> errorCode) (\s@PutRecordsResultEntry' {} a -> s {errorCode = a} :: PutRecordsResultEntry)
+
 instance Core.FromJSON PutRecordsResultEntry where
   parseJSON =
     Core.withObject
       "PutRecordsResultEntry"
       ( \x ->
           PutRecordsResultEntry'
-            Prelude.<$> (x Core..:? "SequenceNumber")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "ShardId")
+            Prelude.<*> (x Core..:? "SequenceNumber")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PutRecordsResultEntry where
   hashWithSalt _salt PutRecordsResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` sequenceNumber
-      `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` shardId
+      `Prelude.hashWithSalt` sequenceNumber
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData PutRecordsResultEntry where
   rnf PutRecordsResultEntry' {..} =
-    Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf errorCode

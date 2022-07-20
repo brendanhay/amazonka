@@ -27,8 +27,8 @@ module Amazonka.WorkDocs.GetFolder
     newGetFolder,
 
     -- * Request Lenses
-    getFolder_authenticationToken,
     getFolder_includeCustomMetadata,
+    getFolder_authenticationToken,
     getFolder_folderId,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.WorkDocs.GetFolder
     newGetFolderResponse,
 
     -- * Response Lenses
-    getFolderResponse_customMetadata,
     getFolderResponse_metadata,
+    getFolderResponse_customMetadata,
     getFolderResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newGetFolder' smart constructor.
 data GetFolder = GetFolder'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Set to TRUE to include custom metadata in the response.
+    includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Set to TRUE to include custom metadata in the response.
-    includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the folder.
     folderId :: Prelude.Text
   }
@@ -69,10 +69,10 @@ data GetFolder = GetFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'includeCustomMetadata', 'getFolder_includeCustomMetadata' - Set to TRUE to include custom metadata in the response.
+--
 -- 'authenticationToken', 'getFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
---
--- 'includeCustomMetadata', 'getFolder_includeCustomMetadata' - Set to TRUE to include custom metadata in the response.
 --
 -- 'folderId', 'getFolder_folderId' - The ID of the folder.
 newGetFolder ::
@@ -81,19 +81,19 @@ newGetFolder ::
   GetFolder
 newGetFolder pFolderId_ =
   GetFolder'
-    { authenticationToken = Prelude.Nothing,
-      includeCustomMetadata = Prelude.Nothing,
+    { includeCustomMetadata = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
       folderId = pFolderId_
     }
+
+-- | Set to TRUE to include custom metadata in the response.
+getFolder_includeCustomMetadata :: Lens.Lens' GetFolder (Prelude.Maybe Prelude.Bool)
+getFolder_includeCustomMetadata = Lens.lens (\GetFolder' {includeCustomMetadata} -> includeCustomMetadata) (\s@GetFolder' {} a -> s {includeCustomMetadata = a} :: GetFolder)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 getFolder_authenticationToken :: Lens.Lens' GetFolder (Prelude.Maybe Prelude.Text)
 getFolder_authenticationToken = Lens.lens (\GetFolder' {authenticationToken} -> authenticationToken) (\s@GetFolder' {} a -> s {authenticationToken = a} :: GetFolder) Prelude.. Lens.mapping Core._Sensitive
-
--- | Set to TRUE to include custom metadata in the response.
-getFolder_includeCustomMetadata :: Lens.Lens' GetFolder (Prelude.Maybe Prelude.Bool)
-getFolder_includeCustomMetadata = Lens.lens (\GetFolder' {includeCustomMetadata} -> includeCustomMetadata) (\s@GetFolder' {} a -> s {includeCustomMetadata = a} :: GetFolder)
 
 -- | The ID of the folder.
 getFolder_folderId :: Lens.Lens' GetFolder Prelude.Text
@@ -106,21 +106,21 @@ instance Core.AWSRequest GetFolder where
     Response.receiveJSON
       ( \s h x ->
           GetFolderResponse'
-            Prelude.<$> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Metadata")
+            Prelude.<$> (x Core..?> "Metadata")
+            Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetFolder where
   hashWithSalt _salt GetFolder' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
-      `Prelude.hashWithSalt` includeCustomMetadata
+    _salt `Prelude.hashWithSalt` includeCustomMetadata
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData GetFolder where
   rnf GetFolder' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf includeCustomMetadata
+    Prelude.rnf includeCustomMetadata
+      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders GetFolder where
@@ -145,10 +145,10 @@ instance Core.ToQuery GetFolder where
 
 -- | /See:/ 'newGetFolderResponse' smart constructor.
 data GetFolderResponse = GetFolderResponse'
-  { -- | The custom metadata on the folder.
-    customMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The metadata of the folder.
+  { -- | The metadata of the folder.
     metadata :: Prelude.Maybe FolderMetadata,
+    -- | The custom metadata on the folder.
+    customMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,9 +162,9 @@ data GetFolderResponse = GetFolderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customMetadata', 'getFolderResponse_customMetadata' - The custom metadata on the folder.
---
 -- 'metadata', 'getFolderResponse_metadata' - The metadata of the folder.
+--
+-- 'customMetadata', 'getFolderResponse_customMetadata' - The custom metadata on the folder.
 --
 -- 'httpStatus', 'getFolderResponse_httpStatus' - The response's http status code.
 newGetFolderResponse ::
@@ -173,19 +173,18 @@ newGetFolderResponse ::
   GetFolderResponse
 newGetFolderResponse pHttpStatus_ =
   GetFolderResponse'
-    { customMetadata =
-        Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
+      customMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The custom metadata on the folder.
-getFolderResponse_customMetadata :: Lens.Lens' GetFolderResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getFolderResponse_customMetadata = Lens.lens (\GetFolderResponse' {customMetadata} -> customMetadata) (\s@GetFolderResponse' {} a -> s {customMetadata = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata of the folder.
 getFolderResponse_metadata :: Lens.Lens' GetFolderResponse (Prelude.Maybe FolderMetadata)
 getFolderResponse_metadata = Lens.lens (\GetFolderResponse' {metadata} -> metadata) (\s@GetFolderResponse' {} a -> s {metadata = a} :: GetFolderResponse)
+
+-- | The custom metadata on the folder.
+getFolderResponse_customMetadata :: Lens.Lens' GetFolderResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getFolderResponse_customMetadata = Lens.lens (\GetFolderResponse' {customMetadata} -> customMetadata) (\s@GetFolderResponse' {} a -> s {customMetadata = a} :: GetFolderResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getFolderResponse_httpStatus :: Lens.Lens' GetFolderResponse Prelude.Int
@@ -193,6 +192,6 @@ getFolderResponse_httpStatus = Lens.lens (\GetFolderResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetFolderResponse where
   rnf GetFolderResponse' {..} =
-    Prelude.rnf customMetadata
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf customMetadata
       `Prelude.seq` Prelude.rnf httpStatus

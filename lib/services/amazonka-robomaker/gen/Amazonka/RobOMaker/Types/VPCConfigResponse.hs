@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVPCConfigResponse' smart constructor.
 data VPCConfigResponse = VPCConfigResponse'
-  { -- | A list of security group IDs associated with the simulation job.
+  { -- | A list of subnet IDs associated with the simulation job.
+    subnets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of security group IDs associated with the simulation job.
     securityGroups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The VPC ID associated with your simulation job.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | A list of subnet IDs associated with the simulation job.
-    subnets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A boolean indicating if a public IP was assigned.
     assignPublicIp :: Prelude.Maybe Prelude.Bool
   }
@@ -46,23 +46,26 @@ data VPCConfigResponse = VPCConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subnets', 'vPCConfigResponse_subnets' - A list of subnet IDs associated with the simulation job.
+--
 -- 'securityGroups', 'vPCConfigResponse_securityGroups' - A list of security group IDs associated with the simulation job.
 --
 -- 'vpcId', 'vPCConfigResponse_vpcId' - The VPC ID associated with your simulation job.
---
--- 'subnets', 'vPCConfigResponse_subnets' - A list of subnet IDs associated with the simulation job.
 --
 -- 'assignPublicIp', 'vPCConfigResponse_assignPublicIp' - A boolean indicating if a public IP was assigned.
 newVPCConfigResponse ::
   VPCConfigResponse
 newVPCConfigResponse =
   VPCConfigResponse'
-    { securityGroups =
-        Prelude.Nothing,
+    { subnets = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
       vpcId = Prelude.Nothing,
-      subnets = Prelude.Nothing,
       assignPublicIp = Prelude.Nothing
     }
+
+-- | A list of subnet IDs associated with the simulation job.
+vPCConfigResponse_subnets :: Lens.Lens' VPCConfigResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+vPCConfigResponse_subnets = Lens.lens (\VPCConfigResponse' {subnets} -> subnets) (\s@VPCConfigResponse' {} a -> s {subnets = a} :: VPCConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of security group IDs associated with the simulation job.
 vPCConfigResponse_securityGroups :: Lens.Lens' VPCConfigResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -71,10 +74,6 @@ vPCConfigResponse_securityGroups = Lens.lens (\VPCConfigResponse' {securityGroup
 -- | The VPC ID associated with your simulation job.
 vPCConfigResponse_vpcId :: Lens.Lens' VPCConfigResponse (Prelude.Maybe Prelude.Text)
 vPCConfigResponse_vpcId = Lens.lens (\VPCConfigResponse' {vpcId} -> vpcId) (\s@VPCConfigResponse' {} a -> s {vpcId = a} :: VPCConfigResponse)
-
--- | A list of subnet IDs associated with the simulation job.
-vPCConfigResponse_subnets :: Lens.Lens' VPCConfigResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-vPCConfigResponse_subnets = Lens.lens (\VPCConfigResponse' {subnets} -> subnets) (\s@VPCConfigResponse' {} a -> s {subnets = a} :: VPCConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A boolean indicating if a public IP was assigned.
 vPCConfigResponse_assignPublicIp :: Lens.Lens' VPCConfigResponse (Prelude.Maybe Prelude.Bool)
@@ -86,22 +85,22 @@ instance Core.FromJSON VPCConfigResponse where
       "VPCConfigResponse"
       ( \x ->
           VPCConfigResponse'
-            Prelude.<$> (x Core..:? "securityGroups")
+            Prelude.<$> (x Core..:? "subnets")
+            Prelude.<*> (x Core..:? "securityGroups")
             Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "subnets")
             Prelude.<*> (x Core..:? "assignPublicIp")
       )
 
 instance Prelude.Hashable VPCConfigResponse where
   hashWithSalt _salt VPCConfigResponse' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
+    _salt `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` subnets
       `Prelude.hashWithSalt` assignPublicIp
 
 instance Prelude.NFData VPCConfigResponse where
   rnf VPCConfigResponse' {..} =
-    Prelude.rnf securityGroups
+    Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf subnets
       `Prelude.seq` Prelude.rnf assignPublicIp

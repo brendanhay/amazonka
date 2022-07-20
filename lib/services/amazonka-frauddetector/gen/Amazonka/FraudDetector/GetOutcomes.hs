@@ -32,8 +32,8 @@ module Amazonka.FraudDetector.GetOutcomes
     newGetOutcomes,
 
     -- * Request Lenses
-    getOutcomes_nextToken,
     getOutcomes_name,
+    getOutcomes_nextToken,
     getOutcomes_maxResults,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.FraudDetector.GetOutcomes
     newGetOutcomesResponse,
 
     -- * Response Lenses
-    getOutcomesResponse_outcomes,
     getOutcomesResponse_nextToken,
+    getOutcomesResponse_outcomes,
     getOutcomesResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetOutcomes' smart constructor.
 data GetOutcomes = GetOutcomes'
-  { -- | The next page token for the request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the outcome or outcomes to get.
+  { -- | The name of the outcome or outcomes to get.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The next page token for the request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects to return for the request.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -73,27 +73,27 @@ data GetOutcomes = GetOutcomes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getOutcomes_nextToken' - The next page token for the request.
---
 -- 'name', 'getOutcomes_name' - The name of the outcome or outcomes to get.
+--
+-- 'nextToken', 'getOutcomes_nextToken' - The next page token for the request.
 --
 -- 'maxResults', 'getOutcomes_maxResults' - The maximum number of objects to return for the request.
 newGetOutcomes ::
   GetOutcomes
 newGetOutcomes =
   GetOutcomes'
-    { nextToken = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The next page token for the request.
-getOutcomes_nextToken :: Lens.Lens' GetOutcomes (Prelude.Maybe Prelude.Text)
-getOutcomes_nextToken = Lens.lens (\GetOutcomes' {nextToken} -> nextToken) (\s@GetOutcomes' {} a -> s {nextToken = a} :: GetOutcomes)
 
 -- | The name of the outcome or outcomes to get.
 getOutcomes_name :: Lens.Lens' GetOutcomes (Prelude.Maybe Prelude.Text)
 getOutcomes_name = Lens.lens (\GetOutcomes' {name} -> name) (\s@GetOutcomes' {} a -> s {name = a} :: GetOutcomes)
+
+-- | The next page token for the request.
+getOutcomes_nextToken :: Lens.Lens' GetOutcomes (Prelude.Maybe Prelude.Text)
+getOutcomes_nextToken = Lens.lens (\GetOutcomes' {nextToken} -> nextToken) (\s@GetOutcomes' {} a -> s {nextToken = a} :: GetOutcomes)
 
 -- | The maximum number of objects to return for the request.
 getOutcomes_maxResults :: Lens.Lens' GetOutcomes (Prelude.Maybe Prelude.Natural)
@@ -106,21 +106,21 @@ instance Core.AWSRequest GetOutcomes where
     Response.receiveJSON
       ( \s h x ->
           GetOutcomesResponse'
-            Prelude.<$> (x Core..?> "outcomes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "outcomes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetOutcomes where
   hashWithSalt _salt GetOutcomes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetOutcomes where
   rnf GetOutcomes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetOutcomes where
@@ -142,8 +142,8 @@ instance Core.ToJSON GetOutcomes where
   toJSON GetOutcomes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -156,10 +156,10 @@ instance Core.ToQuery GetOutcomes where
 
 -- | /See:/ 'newGetOutcomesResponse' smart constructor.
 data GetOutcomesResponse = GetOutcomesResponse'
-  { -- | The outcomes.
-    outcomes :: Prelude.Maybe [Outcome],
-    -- | The next page token for subsequent requests.
+  { -- | The next page token for subsequent requests.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The outcomes.
+    outcomes :: Prelude.Maybe [Outcome],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +173,9 @@ data GetOutcomesResponse = GetOutcomesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outcomes', 'getOutcomesResponse_outcomes' - The outcomes.
---
 -- 'nextToken', 'getOutcomesResponse_nextToken' - The next page token for subsequent requests.
+--
+-- 'outcomes', 'getOutcomesResponse_outcomes' - The outcomes.
 --
 -- 'httpStatus', 'getOutcomesResponse_httpStatus' - The response's http status code.
 newGetOutcomesResponse ::
@@ -184,18 +184,18 @@ newGetOutcomesResponse ::
   GetOutcomesResponse
 newGetOutcomesResponse pHttpStatus_ =
   GetOutcomesResponse'
-    { outcomes = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      outcomes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The outcomes.
-getOutcomesResponse_outcomes :: Lens.Lens' GetOutcomesResponse (Prelude.Maybe [Outcome])
-getOutcomesResponse_outcomes = Lens.lens (\GetOutcomesResponse' {outcomes} -> outcomes) (\s@GetOutcomesResponse' {} a -> s {outcomes = a} :: GetOutcomesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next page token for subsequent requests.
 getOutcomesResponse_nextToken :: Lens.Lens' GetOutcomesResponse (Prelude.Maybe Prelude.Text)
 getOutcomesResponse_nextToken = Lens.lens (\GetOutcomesResponse' {nextToken} -> nextToken) (\s@GetOutcomesResponse' {} a -> s {nextToken = a} :: GetOutcomesResponse)
+
+-- | The outcomes.
+getOutcomesResponse_outcomes :: Lens.Lens' GetOutcomesResponse (Prelude.Maybe [Outcome])
+getOutcomesResponse_outcomes = Lens.lens (\GetOutcomesResponse' {outcomes} -> outcomes) (\s@GetOutcomesResponse' {} a -> s {outcomes = a} :: GetOutcomesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getOutcomesResponse_httpStatus :: Lens.Lens' GetOutcomesResponse Prelude.Int
@@ -203,6 +203,6 @@ getOutcomesResponse_httpStatus = Lens.lens (\GetOutcomesResponse' {httpStatus} -
 
 instance Prelude.NFData GetOutcomesResponse where
   rnf GetOutcomesResponse' {..} =
-    Prelude.rnf outcomes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf outcomes
       `Prelude.seq` Prelude.rnf httpStatus

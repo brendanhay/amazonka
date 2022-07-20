@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAbpV1_1' smart constructor.
 data AbpV1_1 = AbpV1_1'
-  { -- | The DevAddr value.
-    devAddr :: Prelude.Maybe Prelude.Text,
-    -- | Session keys for ABP v1.1
-    sessionKeys :: Prelude.Maybe SessionKeysAbpV1_1
+  { -- | Session keys for ABP v1.1
+    sessionKeys :: Prelude.Maybe SessionKeysAbpV1_1,
+    -- | The DevAddr value.
+    devAddr :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data AbpV1_1 = AbpV1_1'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'devAddr', 'abpV1_1_devAddr' - The DevAddr value.
---
 -- 'sessionKeys', 'abpV1_1_sessionKeys' - Session keys for ABP v1.1
+--
+-- 'devAddr', 'abpV1_1_devAddr' - The DevAddr value.
 newAbpV1_1 ::
   AbpV1_1
 newAbpV1_1 =
   AbpV1_1'
-    { devAddr = Prelude.Nothing,
-      sessionKeys = Prelude.Nothing
+    { sessionKeys = Prelude.Nothing,
+      devAddr = Prelude.Nothing
     }
-
--- | The DevAddr value.
-abpV1_1_devAddr :: Lens.Lens' AbpV1_1 (Prelude.Maybe Prelude.Text)
-abpV1_1_devAddr = Lens.lens (\AbpV1_1' {devAddr} -> devAddr) (\s@AbpV1_1' {} a -> s {devAddr = a} :: AbpV1_1)
 
 -- | Session keys for ABP v1.1
 abpV1_1_sessionKeys :: Lens.Lens' AbpV1_1 (Prelude.Maybe SessionKeysAbpV1_1)
 abpV1_1_sessionKeys = Lens.lens (\AbpV1_1' {sessionKeys} -> sessionKeys) (\s@AbpV1_1' {} a -> s {sessionKeys = a} :: AbpV1_1)
+
+-- | The DevAddr value.
+abpV1_1_devAddr :: Lens.Lens' AbpV1_1 (Prelude.Maybe Prelude.Text)
+abpV1_1_devAddr = Lens.lens (\AbpV1_1' {devAddr} -> devAddr) (\s@AbpV1_1' {} a -> s {devAddr = a} :: AbpV1_1)
 
 instance Core.FromJSON AbpV1_1 where
   parseJSON =
@@ -68,25 +68,25 @@ instance Core.FromJSON AbpV1_1 where
       "AbpV1_1"
       ( \x ->
           AbpV1_1'
-            Prelude.<$> (x Core..:? "DevAddr")
-            Prelude.<*> (x Core..:? "SessionKeys")
+            Prelude.<$> (x Core..:? "SessionKeys")
+            Prelude.<*> (x Core..:? "DevAddr")
       )
 
 instance Prelude.Hashable AbpV1_1 where
   hashWithSalt _salt AbpV1_1' {..} =
-    _salt `Prelude.hashWithSalt` devAddr
-      `Prelude.hashWithSalt` sessionKeys
+    _salt `Prelude.hashWithSalt` sessionKeys
+      `Prelude.hashWithSalt` devAddr
 
 instance Prelude.NFData AbpV1_1 where
   rnf AbpV1_1' {..} =
-    Prelude.rnf devAddr
-      `Prelude.seq` Prelude.rnf sessionKeys
+    Prelude.rnf sessionKeys
+      `Prelude.seq` Prelude.rnf devAddr
 
 instance Core.ToJSON AbpV1_1 where
   toJSON AbpV1_1' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DevAddr" Core..=) Prelude.<$> devAddr,
-            ("SessionKeys" Core..=) Prelude.<$> sessionKeys
+          [ ("SessionKeys" Core..=) Prelude.<$> sessionKeys,
+            ("DevAddr" Core..=) Prelude.<$> devAddr
           ]
       )

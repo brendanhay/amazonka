@@ -40,47 +40,44 @@ module Amazonka.StepFunctions
     -- * Errors
     -- $errors
 
-    -- ** ExecutionLimitExceeded
-    _ExecutionLimitExceeded,
-
-    -- ** InvalidDefinition
-    _InvalidDefinition,
-
-    -- ** StateMachineLimitExceeded
-    _StateMachineLimitExceeded,
-
-    -- ** ExecutionAlreadyExists
-    _ExecutionAlreadyExists,
-
-    -- ** StateMachineAlreadyExists
-    _StateMachineAlreadyExists,
+    -- ** TaskDoesNotExist
+    _TaskDoesNotExist,
 
     -- ** TaskTimedOut
     _TaskTimedOut,
 
-    -- ** InvalidExecutionInput
-    _InvalidExecutionInput,
+    -- ** InvalidDefinition
+    _InvalidDefinition,
 
-    -- ** InvalidOutput
-    _InvalidOutput,
-
-    -- ** InvalidName
-    _InvalidName,
-
-    -- ** TaskDoesNotExist
-    _TaskDoesNotExist,
+    -- ** ResourceNotFound
+    _ResourceNotFound,
 
     -- ** ActivityDoesNotExist
     _ActivityDoesNotExist,
 
+    -- ** ExecutionDoesNotExist
+    _ExecutionDoesNotExist,
+
     -- ** StateMachineDeleting
     _StateMachineDeleting,
+
+    -- ** InvalidName
+    _InvalidName,
+
+    -- ** InvalidOutput
+    _InvalidOutput,
+
+    -- ** MissingRequiredParameter
+    _MissingRequiredParameter,
+
+    -- ** ExecutionLimitExceeded
+    _ExecutionLimitExceeded,
 
     -- ** StateMachineTypeNotSupported
     _StateMachineTypeNotSupported,
 
-    -- ** MissingRequiredParameter
-    _MissingRequiredParameter,
+    -- ** ActivityLimitExceeded
+    _ActivityLimitExceeded,
 
     -- ** InvalidArn
     _InvalidArn,
@@ -88,29 +85,32 @@ module Amazonka.StepFunctions
     -- ** InvalidToken
     _InvalidToken,
 
+    -- ** InvalidExecutionInput
+    _InvalidExecutionInput,
+
+    -- ** StateMachineAlreadyExists
+    _StateMachineAlreadyExists,
+
     -- ** InvalidLoggingConfiguration
     _InvalidLoggingConfiguration,
 
-    -- ** ActivityWorkerLimitExceeded
-    _ActivityWorkerLimitExceeded,
+    -- ** StateMachineLimitExceeded
+    _StateMachineLimitExceeded,
 
     -- ** InvalidTracingConfiguration
     _InvalidTracingConfiguration,
 
-    -- ** ActivityLimitExceeded
-    _ActivityLimitExceeded,
-
-    -- ** TooManyTags
-    _TooManyTags,
-
-    -- ** ExecutionDoesNotExist
-    _ExecutionDoesNotExist,
+    -- ** ActivityWorkerLimitExceeded
+    _ActivityWorkerLimitExceeded,
 
     -- ** StateMachineDoesNotExist
     _StateMachineDoesNotExist,
 
-    -- ** ResourceNotFound
-    _ResourceNotFound,
+    -- ** ExecutionAlreadyExists
+    _ExecutionAlreadyExists,
+
+    -- ** TooManyTags
+    _TooManyTags,
 
     -- * Waiters
     -- $waiters
@@ -118,47 +118,23 @@ module Amazonka.StepFunctions
     -- * Operations
     -- $operations
 
+    -- ** CreateActivity
+    CreateActivity (CreateActivity'),
+    newCreateActivity,
+    CreateActivityResponse (CreateActivityResponse'),
+    newCreateActivityResponse,
+
+    -- ** CreateStateMachine
+    CreateStateMachine (CreateStateMachine'),
+    newCreateStateMachine,
+    CreateStateMachineResponse (CreateStateMachineResponse'),
+    newCreateStateMachineResponse,
+
     -- ** DeleteActivity
     DeleteActivity (DeleteActivity'),
     newDeleteActivity,
     DeleteActivityResponse (DeleteActivityResponse'),
     newDeleteActivityResponse,
-
-    -- ** DescribeStateMachine
-    DescribeStateMachine (DescribeStateMachine'),
-    newDescribeStateMachine,
-    DescribeStateMachineResponse (DescribeStateMachineResponse'),
-    newDescribeStateMachineResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** StopExecution
-    StopExecution (StopExecution'),
-    newStopExecution,
-    StopExecutionResponse (StopExecutionResponse'),
-    newStopExecutionResponse,
-
-    -- ** DescribeActivity
-    DescribeActivity (DescribeActivity'),
-    newDescribeActivity,
-    DescribeActivityResponse (DescribeActivityResponse'),
-    newDescribeActivityResponse,
-
-    -- ** ListStateMachines (Paginated)
-    ListStateMachines (ListStateMachines'),
-    newListStateMachines,
-    ListStateMachinesResponse (ListStateMachinesResponse'),
-    newListStateMachinesResponse,
-
-    -- ** ListExecutions (Paginated)
-    ListExecutions (ListExecutions'),
-    newListExecutions,
-    ListExecutionsResponse (ListExecutionsResponse'),
-    newListExecutionsResponse,
 
     -- ** DeleteStateMachine
     DeleteStateMachine (DeleteStateMachine'),
@@ -166,11 +142,23 @@ module Amazonka.StepFunctions
     DeleteStateMachineResponse (DeleteStateMachineResponse'),
     newDeleteStateMachineResponse,
 
-    -- ** UpdateStateMachine
-    UpdateStateMachine (UpdateStateMachine'),
-    newUpdateStateMachine,
-    UpdateStateMachineResponse (UpdateStateMachineResponse'),
-    newUpdateStateMachineResponse,
+    -- ** DescribeActivity
+    DescribeActivity (DescribeActivity'),
+    newDescribeActivity,
+    DescribeActivityResponse (DescribeActivityResponse'),
+    newDescribeActivityResponse,
+
+    -- ** DescribeExecution
+    DescribeExecution (DescribeExecution'),
+    newDescribeExecution,
+    DescribeExecutionResponse (DescribeExecutionResponse'),
+    newDescribeExecutionResponse,
+
+    -- ** DescribeStateMachine
+    DescribeStateMachine (DescribeStateMachine'),
+    newDescribeStateMachine,
+    DescribeStateMachineResponse (DescribeStateMachineResponse'),
+    newDescribeStateMachineResponse,
 
     -- ** DescribeStateMachineForExecution
     DescribeStateMachineForExecution (DescribeStateMachineForExecution'),
@@ -184,11 +172,11 @@ module Amazonka.StepFunctions
     GetActivityTaskResponse (GetActivityTaskResponse'),
     newGetActivityTaskResponse,
 
-    -- ** CreateActivity
-    CreateActivity (CreateActivity'),
-    newCreateActivity,
-    CreateActivityResponse (CreateActivityResponse'),
-    newCreateActivityResponse,
+    -- ** GetExecutionHistory (Paginated)
+    GetExecutionHistory (GetExecutionHistory'),
+    newGetExecutionHistory,
+    GetExecutionHistoryResponse (GetExecutionHistoryResponse'),
+    newGetExecutionHistoryResponse,
 
     -- ** ListActivities (Paginated)
     ListActivities (ListActivities'),
@@ -196,11 +184,23 @@ module Amazonka.StepFunctions
     ListActivitiesResponse (ListActivitiesResponse'),
     newListActivitiesResponse,
 
-    -- ** SendTaskHeartbeat
-    SendTaskHeartbeat (SendTaskHeartbeat'),
-    newSendTaskHeartbeat,
-    SendTaskHeartbeatResponse (SendTaskHeartbeatResponse'),
-    newSendTaskHeartbeatResponse,
+    -- ** ListExecutions (Paginated)
+    ListExecutions (ListExecutions'),
+    newListExecutions,
+    ListExecutionsResponse (ListExecutionsResponse'),
+    newListExecutionsResponse,
+
+    -- ** ListStateMachines (Paginated)
+    ListStateMachines (ListStateMachines'),
+    newListStateMachines,
+    ListStateMachinesResponse (ListStateMachinesResponse'),
+    newListStateMachinesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** SendTaskFailure
     SendTaskFailure (SendTaskFailure'),
@@ -208,11 +208,11 @@ module Amazonka.StepFunctions
     SendTaskFailureResponse (SendTaskFailureResponse'),
     newSendTaskFailureResponse,
 
-    -- ** DescribeExecution
-    DescribeExecution (DescribeExecution'),
-    newDescribeExecution,
-    DescribeExecutionResponse (DescribeExecutionResponse'),
-    newDescribeExecutionResponse,
+    -- ** SendTaskHeartbeat
+    SendTaskHeartbeat (SendTaskHeartbeat'),
+    newSendTaskHeartbeat,
+    SendTaskHeartbeatResponse (SendTaskHeartbeatResponse'),
+    newSendTaskHeartbeatResponse,
 
     -- ** SendTaskSuccess
     SendTaskSuccess (SendTaskSuccess'),
@@ -232,6 +232,12 @@ module Amazonka.StepFunctions
     StartSyncExecutionResponse (StartSyncExecutionResponse'),
     newStartSyncExecutionResponse,
 
+    -- ** StopExecution
+    StopExecution (StopExecution'),
+    newStopExecution,
+    StopExecutionResponse (StopExecutionResponse'),
+    newStopExecutionResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -244,17 +250,11 @@ module Amazonka.StepFunctions
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetExecutionHistory (Paginated)
-    GetExecutionHistory (GetExecutionHistory'),
-    newGetExecutionHistory,
-    GetExecutionHistoryResponse (GetExecutionHistoryResponse'),
-    newGetExecutionHistoryResponse,
-
-    -- ** CreateStateMachine
-    CreateStateMachine (CreateStateMachine'),
-    newCreateStateMachine,
-    CreateStateMachineResponse (CreateStateMachineResponse'),
-    newCreateStateMachineResponse,
+    -- ** UpdateStateMachine
+    UpdateStateMachine (UpdateStateMachine'),
+    newUpdateStateMachine,
+    UpdateStateMachineResponse (UpdateStateMachineResponse'),
+    newUpdateStateMachineResponse,
 
     -- * Types
 

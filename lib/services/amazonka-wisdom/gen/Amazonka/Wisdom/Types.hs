@@ -17,13 +17,13 @@ module Amazonka.Wisdom.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
-    _AccessDeniedException,
     _PreconditionFailedException,
+    _AccessDeniedException,
     _TooManyTagsException,
-    _ConflictException,
     _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ValidationException,
 
     -- * AssistantStatus
     AssistantStatus (..),
@@ -93,9 +93,9 @@ module Amazonka.Wisdom.Types
     -- * AssistantData
     AssistantData (..),
     newAssistantData,
-    assistantData_description,
-    assistantData_serverSideEncryptionConfiguration,
     assistantData_tags,
+    assistantData_serverSideEncryptionConfiguration,
+    assistantData_description,
     assistantData_assistantArn,
     assistantData_assistantId,
     assistantData_name,
@@ -105,9 +105,9 @@ module Amazonka.Wisdom.Types
     -- * AssistantSummary
     AssistantSummary (..),
     newAssistantSummary,
-    assistantSummary_description,
-    assistantSummary_serverSideEncryptionConfiguration,
     assistantSummary_tags,
+    assistantSummary_serverSideEncryptionConfiguration,
+    assistantSummary_description,
     assistantSummary_assistantArn,
     assistantSummary_assistantId,
     assistantSummary_name,
@@ -117,8 +117,8 @@ module Amazonka.Wisdom.Types
     -- * ContentData
     ContentData (..),
     newContentData,
-    contentData_linkOutUri,
     contentData_tags,
+    contentData_linkOutUri,
     contentData_contentArn,
     contentData_contentId,
     contentData_contentType,
@@ -135,9 +135,9 @@ module Amazonka.Wisdom.Types
     -- * ContentReference
     ContentReference (..),
     newContentReference,
+    contentReference_knowledgeBaseArn,
     contentReference_contentArn,
     contentReference_contentId,
-    contentReference_knowledgeBaseArn,
     contentReference_knowledgeBaseId,
 
     -- * ContentSummary
@@ -165,8 +165,8 @@ module Amazonka.Wisdom.Types
     -- * DocumentText
     DocumentText (..),
     newDocumentText,
-    documentText_text,
     documentText_highlights,
+    documentText_text,
 
     -- * Filter
     Filter (..),
@@ -190,12 +190,12 @@ module Amazonka.Wisdom.Types
     -- * KnowledgeBaseData
     KnowledgeBaseData (..),
     newKnowledgeBaseData,
-    knowledgeBaseData_renderingConfiguration,
+    knowledgeBaseData_tags,
     knowledgeBaseData_sourceConfiguration,
+    knowledgeBaseData_serverSideEncryptionConfiguration,
     knowledgeBaseData_lastContentModificationTime,
     knowledgeBaseData_description,
-    knowledgeBaseData_serverSideEncryptionConfiguration,
-    knowledgeBaseData_tags,
+    knowledgeBaseData_renderingConfiguration,
     knowledgeBaseData_knowledgeBaseArn,
     knowledgeBaseData_knowledgeBaseId,
     knowledgeBaseData_knowledgeBaseType,
@@ -205,11 +205,11 @@ module Amazonka.Wisdom.Types
     -- * KnowledgeBaseSummary
     KnowledgeBaseSummary (..),
     newKnowledgeBaseSummary,
-    knowledgeBaseSummary_renderingConfiguration,
-    knowledgeBaseSummary_sourceConfiguration,
-    knowledgeBaseSummary_description,
-    knowledgeBaseSummary_serverSideEncryptionConfiguration,
     knowledgeBaseSummary_tags,
+    knowledgeBaseSummary_sourceConfiguration,
+    knowledgeBaseSummary_serverSideEncryptionConfiguration,
+    knowledgeBaseSummary_description,
+    knowledgeBaseSummary_renderingConfiguration,
     knowledgeBaseSummary_knowledgeBaseArn,
     knowledgeBaseSummary_knowledgeBaseId,
     knowledgeBaseSummary_knowledgeBaseType,
@@ -219,8 +219,8 @@ module Amazonka.Wisdom.Types
     -- * NotifyRecommendationsReceivedError
     NotifyRecommendationsReceivedError (..),
     newNotifyRecommendationsReceivedError,
-    notifyRecommendationsReceivedError_recommendationId,
     notifyRecommendationsReceivedError_message,
+    notifyRecommendationsReceivedError_recommendationId,
 
     -- * RecommendationData
     RecommendationData (..),
@@ -255,8 +255,8 @@ module Amazonka.Wisdom.Types
     -- * SessionData
     SessionData (..),
     newSessionData,
-    sessionData_description,
     sessionData_tags,
+    sessionData_description,
     sessionData_name,
     sessionData_sessionArn,
     sessionData_sessionId,
@@ -341,35 +341,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -378,29 +351,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input fails to satisfy the constraints specified by an AWS service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-    Prelude.. Core.hasStatus 403
 
 -- | The provided @revisionId@ does not match, indicating the content has
 -- been modified since it was last read.
@@ -411,6 +395,14 @@ _PreconditionFailedException =
     "PreconditionFailedException"
     Prelude.. Core.hasStatus 412
 
+-- | You do not have sufficient access to perform this action.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
+
 -- | Amazon Connect Wisdom throws this exception if you have too many tags in
 -- your tag set.
 _TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -419,17 +411,6 @@ _TooManyTagsException =
     defaultService
     "TooManyTagsException"
     Prelude.. Core.hasStatus 400
-
--- | The request could not be processed because of conflict in the current
--- state of the resource. For example, if you\'re using a @Create@ API
--- (such as @CreateAssistant@) that accepts name, a conflicting resource
--- (usually with the same name) is being created or mutated.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | You\'ve exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use service quotas to request
@@ -448,3 +429,22 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request could not be processed because of conflict in the current
+-- state of the resource. For example, if you\'re using a @Create@ API
+-- (such as @CreateAssistant@) that accepts name, a conflicting resource
+-- (usually with the same name) is being created or mutated.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The input fails to satisfy the constraints specified by an AWS service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

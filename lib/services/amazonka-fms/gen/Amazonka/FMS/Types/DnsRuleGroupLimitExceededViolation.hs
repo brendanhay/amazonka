@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDnsRuleGroupLimitExceededViolation' smart constructor.
 data DnsRuleGroupLimitExceededViolation = DnsRuleGroupLimitExceededViolation'
-  { -- | A description of the violation that specifies the rule group and VPC.
-    violationTargetDescription :: Prelude.Maybe Prelude.Text,
-    -- | Information about the VPC ID.
+  { -- | Information about the VPC ID.
     violationTarget :: Prelude.Maybe Prelude.Text,
     -- | The number of rule groups currently associated with the VPC.
-    numberOfRuleGroupsAlreadyAssociated :: Prelude.Maybe Prelude.Int
+    numberOfRuleGroupsAlreadyAssociated :: Prelude.Maybe Prelude.Int,
+    -- | A description of the violation that specifies the rule group and VPC.
+    violationTargetDescription :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,22 @@ data DnsRuleGroupLimitExceededViolation = DnsRuleGroupLimitExceededViolation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'violationTargetDescription', 'dnsRuleGroupLimitExceededViolation_violationTargetDescription' - A description of the violation that specifies the rule group and VPC.
---
 -- 'violationTarget', 'dnsRuleGroupLimitExceededViolation_violationTarget' - Information about the VPC ID.
 --
 -- 'numberOfRuleGroupsAlreadyAssociated', 'dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated' - The number of rule groups currently associated with the VPC.
+--
+-- 'violationTargetDescription', 'dnsRuleGroupLimitExceededViolation_violationTargetDescription' - A description of the violation that specifies the rule group and VPC.
 newDnsRuleGroupLimitExceededViolation ::
   DnsRuleGroupLimitExceededViolation
 newDnsRuleGroupLimitExceededViolation =
   DnsRuleGroupLimitExceededViolation'
-    { violationTargetDescription =
+    { violationTarget =
         Prelude.Nothing,
-      violationTarget = Prelude.Nothing,
       numberOfRuleGroupsAlreadyAssociated =
+        Prelude.Nothing,
+      violationTargetDescription =
         Prelude.Nothing
     }
-
--- | A description of the violation that specifies the rule group and VPC.
-dnsRuleGroupLimitExceededViolation_violationTargetDescription :: Lens.Lens' DnsRuleGroupLimitExceededViolation (Prelude.Maybe Prelude.Text)
-dnsRuleGroupLimitExceededViolation_violationTargetDescription = Lens.lens (\DnsRuleGroupLimitExceededViolation' {violationTargetDescription} -> violationTargetDescription) (\s@DnsRuleGroupLimitExceededViolation' {} a -> s {violationTargetDescription = a} :: DnsRuleGroupLimitExceededViolation)
 
 -- | Information about the VPC ID.
 dnsRuleGroupLimitExceededViolation_violationTarget :: Lens.Lens' DnsRuleGroupLimitExceededViolation (Prelude.Maybe Prelude.Text)
@@ -74,6 +71,10 @@ dnsRuleGroupLimitExceededViolation_violationTarget = Lens.lens (\DnsRuleGroupLim
 -- | The number of rule groups currently associated with the VPC.
 dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated :: Lens.Lens' DnsRuleGroupLimitExceededViolation (Prelude.Maybe Prelude.Int)
 dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated = Lens.lens (\DnsRuleGroupLimitExceededViolation' {numberOfRuleGroupsAlreadyAssociated} -> numberOfRuleGroupsAlreadyAssociated) (\s@DnsRuleGroupLimitExceededViolation' {} a -> s {numberOfRuleGroupsAlreadyAssociated = a} :: DnsRuleGroupLimitExceededViolation)
+
+-- | A description of the violation that specifies the rule group and VPC.
+dnsRuleGroupLimitExceededViolation_violationTargetDescription :: Lens.Lens' DnsRuleGroupLimitExceededViolation (Prelude.Maybe Prelude.Text)
+dnsRuleGroupLimitExceededViolation_violationTargetDescription = Lens.lens (\DnsRuleGroupLimitExceededViolation' {violationTargetDescription} -> violationTargetDescription) (\s@DnsRuleGroupLimitExceededViolation' {} a -> s {violationTargetDescription = a} :: DnsRuleGroupLimitExceededViolation)
 
 instance
   Core.FromJSON
@@ -84,9 +85,9 @@ instance
       "DnsRuleGroupLimitExceededViolation"
       ( \x ->
           DnsRuleGroupLimitExceededViolation'
-            Prelude.<$> (x Core..:? "ViolationTargetDescription")
-            Prelude.<*> (x Core..:? "ViolationTarget")
+            Prelude.<$> (x Core..:? "ViolationTarget")
             Prelude.<*> (x Core..:? "NumberOfRuleGroupsAlreadyAssociated")
+            Prelude.<*> (x Core..:? "ViolationTargetDescription")
       )
 
 instance
@@ -96,16 +97,15 @@ instance
   hashWithSalt
     _salt
     DnsRuleGroupLimitExceededViolation' {..} =
-      _salt
-        `Prelude.hashWithSalt` violationTargetDescription
-        `Prelude.hashWithSalt` violationTarget
+      _salt `Prelude.hashWithSalt` violationTarget
         `Prelude.hashWithSalt` numberOfRuleGroupsAlreadyAssociated
+        `Prelude.hashWithSalt` violationTargetDescription
 
 instance
   Prelude.NFData
     DnsRuleGroupLimitExceededViolation
   where
   rnf DnsRuleGroupLimitExceededViolation' {..} =
-    Prelude.rnf violationTargetDescription
-      `Prelude.seq` Prelude.rnf violationTarget
+    Prelude.rnf violationTarget
       `Prelude.seq` Prelude.rnf numberOfRuleGroupsAlreadyAssociated
+      `Prelude.seq` Prelude.rnf violationTargetDescription

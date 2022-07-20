@@ -27,9 +27,9 @@ module Amazonka.GlobalAccelerator.UpdateListener
     newUpdateListener,
 
     -- * Request Lenses
-    updateListener_portRanges,
-    updateListener_protocol,
     updateListener_clientAffinity,
+    updateListener_protocol,
+    updateListener_portRanges,
     updateListener_listenerArn,
 
     -- * Destructuring the Response
@@ -51,13 +51,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateListener' smart constructor.
 data UpdateListener = UpdateListener'
-  { -- | The updated list of port ranges for the connections from clients to the
-    -- accelerator.
-    portRanges :: Prelude.Maybe (Prelude.NonEmpty PortRange),
-    -- | The updated protocol for the connections from clients to the
-    -- accelerator.
-    protocol :: Prelude.Maybe Protocol,
-    -- | Client affinity lets you direct all requests from a user to the same
+  { -- | Client affinity lets you direct all requests from a user to the same
     -- endpoint, if you have stateful applications, regardless of the port and
     -- protocol of the client request. Client affinity gives you control over
     -- whether to always route each client to the same specific endpoint.
@@ -80,6 +74,12 @@ data UpdateListener = UpdateListener'
     --
     -- The default value is @NONE@.
     clientAffinity :: Prelude.Maybe ClientAffinity,
+    -- | The updated protocol for the connections from clients to the
+    -- accelerator.
+    protocol :: Prelude.Maybe Protocol,
+    -- | The updated list of port ranges for the connections from clients to the
+    -- accelerator.
+    portRanges :: Prelude.Maybe (Prelude.NonEmpty PortRange),
     -- | The Amazon Resource Name (ARN) of the listener to update.
     listenerArn :: Prelude.Text
   }
@@ -92,12 +92,6 @@ data UpdateListener = UpdateListener'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'portRanges', 'updateListener_portRanges' - The updated list of port ranges for the connections from clients to the
--- accelerator.
---
--- 'protocol', 'updateListener_protocol' - The updated protocol for the connections from clients to the
--- accelerator.
 --
 -- 'clientAffinity', 'updateListener_clientAffinity' - Client affinity lets you direct all requests from a user to the same
 -- endpoint, if you have stateful applications, regardless of the port and
@@ -122,6 +116,12 @@ data UpdateListener = UpdateListener'
 --
 -- The default value is @NONE@.
 --
+-- 'protocol', 'updateListener_protocol' - The updated protocol for the connections from clients to the
+-- accelerator.
+--
+-- 'portRanges', 'updateListener_portRanges' - The updated list of port ranges for the connections from clients to the
+-- accelerator.
+--
 -- 'listenerArn', 'updateListener_listenerArn' - The Amazon Resource Name (ARN) of the listener to update.
 newUpdateListener ::
   -- | 'listenerArn'
@@ -129,21 +129,11 @@ newUpdateListener ::
   UpdateListener
 newUpdateListener pListenerArn_ =
   UpdateListener'
-    { portRanges = Prelude.Nothing,
+    { clientAffinity = Prelude.Nothing,
       protocol = Prelude.Nothing,
-      clientAffinity = Prelude.Nothing,
+      portRanges = Prelude.Nothing,
       listenerArn = pListenerArn_
     }
-
--- | The updated list of port ranges for the connections from clients to the
--- accelerator.
-updateListener_portRanges :: Lens.Lens' UpdateListener (Prelude.Maybe (Prelude.NonEmpty PortRange))
-updateListener_portRanges = Lens.lens (\UpdateListener' {portRanges} -> portRanges) (\s@UpdateListener' {} a -> s {portRanges = a} :: UpdateListener) Prelude.. Lens.mapping Lens.coerced
-
--- | The updated protocol for the connections from clients to the
--- accelerator.
-updateListener_protocol :: Lens.Lens' UpdateListener (Prelude.Maybe Protocol)
-updateListener_protocol = Lens.lens (\UpdateListener' {protocol} -> protocol) (\s@UpdateListener' {} a -> s {protocol = a} :: UpdateListener)
 
 -- | Client affinity lets you direct all requests from a user to the same
 -- endpoint, if you have stateful applications, regardless of the port and
@@ -170,6 +160,16 @@ updateListener_protocol = Lens.lens (\UpdateListener' {protocol} -> protocol) (\
 updateListener_clientAffinity :: Lens.Lens' UpdateListener (Prelude.Maybe ClientAffinity)
 updateListener_clientAffinity = Lens.lens (\UpdateListener' {clientAffinity} -> clientAffinity) (\s@UpdateListener' {} a -> s {clientAffinity = a} :: UpdateListener)
 
+-- | The updated protocol for the connections from clients to the
+-- accelerator.
+updateListener_protocol :: Lens.Lens' UpdateListener (Prelude.Maybe Protocol)
+updateListener_protocol = Lens.lens (\UpdateListener' {protocol} -> protocol) (\s@UpdateListener' {} a -> s {protocol = a} :: UpdateListener)
+
+-- | The updated list of port ranges for the connections from clients to the
+-- accelerator.
+updateListener_portRanges :: Lens.Lens' UpdateListener (Prelude.Maybe (Prelude.NonEmpty PortRange))
+updateListener_portRanges = Lens.lens (\UpdateListener' {portRanges} -> portRanges) (\s@UpdateListener' {} a -> s {portRanges = a} :: UpdateListener) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Amazon Resource Name (ARN) of the listener to update.
 updateListener_listenerArn :: Lens.Lens' UpdateListener Prelude.Text
 updateListener_listenerArn = Lens.lens (\UpdateListener' {listenerArn} -> listenerArn) (\s@UpdateListener' {} a -> s {listenerArn = a} :: UpdateListener)
@@ -189,16 +189,16 @@ instance Core.AWSRequest UpdateListener where
 
 instance Prelude.Hashable UpdateListener where
   hashWithSalt _salt UpdateListener' {..} =
-    _salt `Prelude.hashWithSalt` portRanges
+    _salt `Prelude.hashWithSalt` clientAffinity
       `Prelude.hashWithSalt` protocol
-      `Prelude.hashWithSalt` clientAffinity
+      `Prelude.hashWithSalt` portRanges
       `Prelude.hashWithSalt` listenerArn
 
 instance Prelude.NFData UpdateListener where
   rnf UpdateListener' {..} =
-    Prelude.rnf portRanges
+    Prelude.rnf clientAffinity
       `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf clientAffinity
+      `Prelude.seq` Prelude.rnf portRanges
       `Prelude.seq` Prelude.rnf listenerArn
 
 instance Core.ToHeaders UpdateListener where
@@ -220,10 +220,10 @@ instance Core.ToJSON UpdateListener where
   toJSON UpdateListener' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PortRanges" Core..=) Prelude.<$> portRanges,
-            ("Protocol" Core..=) Prelude.<$> protocol,
-            ("ClientAffinity" Core..=)
+          [ ("ClientAffinity" Core..=)
               Prelude.<$> clientAffinity,
+            ("Protocol" Core..=) Prelude.<$> protocol,
+            ("PortRanges" Core..=) Prelude.<$> portRanges,
             Prelude.Just ("ListenerArn" Core..= listenerArn)
           ]
       )

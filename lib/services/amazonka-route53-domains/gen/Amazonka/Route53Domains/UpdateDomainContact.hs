@@ -34,9 +34,9 @@ module Amazonka.Route53Domains.UpdateDomainContact
     newUpdateDomainContact,
 
     -- * Request Lenses
-    updateDomainContact_registrantContact,
     updateDomainContact_adminContact,
     updateDomainContact_techContact,
+    updateDomainContact_registrantContact,
     updateDomainContact_domainName,
 
     -- * Destructuring the Response
@@ -61,11 +61,11 @@ import Amazonka.Route53Domains.Types
 -- /See:/ 'newUpdateDomainContact' smart constructor.
 data UpdateDomainContact = UpdateDomainContact'
   { -- | Provides detailed contact information.
-    registrantContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
-    -- | Provides detailed contact information.
     adminContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
     -- | Provides detailed contact information.
     techContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
+    -- | Provides detailed contact information.
+    registrantContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
     -- | The name of the domain that you want to update contact information for.
     domainName :: Prelude.Text
   }
@@ -79,11 +79,11 @@ data UpdateDomainContact = UpdateDomainContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registrantContact', 'updateDomainContact_registrantContact' - Provides detailed contact information.
---
 -- 'adminContact', 'updateDomainContact_adminContact' - Provides detailed contact information.
 --
 -- 'techContact', 'updateDomainContact_techContact' - Provides detailed contact information.
+--
+-- 'registrantContact', 'updateDomainContact_registrantContact' - Provides detailed contact information.
 --
 -- 'domainName', 'updateDomainContact_domainName' - The name of the domain that you want to update contact information for.
 newUpdateDomainContact ::
@@ -92,16 +92,12 @@ newUpdateDomainContact ::
   UpdateDomainContact
 newUpdateDomainContact pDomainName_ =
   UpdateDomainContact'
-    { registrantContact =
+    { adminContact =
         Prelude.Nothing,
-      adminContact = Prelude.Nothing,
       techContact = Prelude.Nothing,
+      registrantContact = Prelude.Nothing,
       domainName = pDomainName_
     }
-
--- | Provides detailed contact information.
-updateDomainContact_registrantContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
-updateDomainContact_registrantContact = Lens.lens (\UpdateDomainContact' {registrantContact} -> registrantContact) (\s@UpdateDomainContact' {} a -> s {registrantContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Provides detailed contact information.
 updateDomainContact_adminContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
@@ -110,6 +106,10 @@ updateDomainContact_adminContact = Lens.lens (\UpdateDomainContact' {adminContac
 -- | Provides detailed contact information.
 updateDomainContact_techContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
 updateDomainContact_techContact = Lens.lens (\UpdateDomainContact' {techContact} -> techContact) (\s@UpdateDomainContact' {} a -> s {techContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Provides detailed contact information.
+updateDomainContact_registrantContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
+updateDomainContact_registrantContact = Lens.lens (\UpdateDomainContact' {registrantContact} -> registrantContact) (\s@UpdateDomainContact' {} a -> s {registrantContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the domain that you want to update contact information for.
 updateDomainContact_domainName :: Lens.Lens' UpdateDomainContact Prelude.Text
@@ -130,16 +130,16 @@ instance Core.AWSRequest UpdateDomainContact where
 
 instance Prelude.Hashable UpdateDomainContact where
   hashWithSalt _salt UpdateDomainContact' {..} =
-    _salt `Prelude.hashWithSalt` registrantContact
-      `Prelude.hashWithSalt` adminContact
+    _salt `Prelude.hashWithSalt` adminContact
       `Prelude.hashWithSalt` techContact
+      `Prelude.hashWithSalt` registrantContact
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData UpdateDomainContact where
   rnf UpdateDomainContact' {..} =
-    Prelude.rnf registrantContact
-      `Prelude.seq` Prelude.rnf adminContact
+    Prelude.rnf adminContact
       `Prelude.seq` Prelude.rnf techContact
+      `Prelude.seq` Prelude.rnf registrantContact
       `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDomainContact where
@@ -161,10 +161,10 @@ instance Core.ToJSON UpdateDomainContact where
   toJSON UpdateDomainContact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RegistrantContact" Core..=)
-              Prelude.<$> registrantContact,
-            ("AdminContact" Core..=) Prelude.<$> adminContact,
+          [ ("AdminContact" Core..=) Prelude.<$> adminContact,
             ("TechContact" Core..=) Prelude.<$> techContact,
+            ("RegistrantContact" Core..=)
+              Prelude.<$> registrantContact,
             Prelude.Just ("DomainName" Core..= domainName)
           ]
       )

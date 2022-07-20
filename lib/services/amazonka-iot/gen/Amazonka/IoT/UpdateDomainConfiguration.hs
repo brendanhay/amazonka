@@ -42,8 +42,8 @@ module Amazonka.IoT.UpdateDomainConfiguration
     newUpdateDomainConfigurationResponse,
 
     -- * Response Lenses
-    updateDomainConfigurationResponse_domainConfigurationName,
     updateDomainConfigurationResponse_domainConfigurationArn,
+    updateDomainConfigurationResponse_domainConfigurationName,
     updateDomainConfigurationResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance Core.AWSRequest UpdateDomainConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainConfigurationResponse'
-            Prelude.<$> (x Core..?> "domainConfigurationName")
-            Prelude.<*> (x Core..?> "domainConfigurationArn")
+            Prelude.<$> (x Core..?> "domainConfigurationArn")
+            Prelude.<*> (x Core..?> "domainConfigurationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,10 +170,10 @@ instance Core.ToQuery UpdateDomainConfiguration where
 
 -- | /See:/ 'newUpdateDomainConfigurationResponse' smart constructor.
 data UpdateDomainConfigurationResponse = UpdateDomainConfigurationResponse'
-  { -- | The name of the domain configuration that was updated.
-    domainConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the domain configuration that was updated.
+  { -- | The ARN of the domain configuration that was updated.
     domainConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the domain configuration that was updated.
+    domainConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,9 +187,9 @@ data UpdateDomainConfigurationResponse = UpdateDomainConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainConfigurationName', 'updateDomainConfigurationResponse_domainConfigurationName' - The name of the domain configuration that was updated.
---
 -- 'domainConfigurationArn', 'updateDomainConfigurationResponse_domainConfigurationArn' - The ARN of the domain configuration that was updated.
+--
+-- 'domainConfigurationName', 'updateDomainConfigurationResponse_domainConfigurationName' - The name of the domain configuration that was updated.
 --
 -- 'httpStatus', 'updateDomainConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateDomainConfigurationResponse ::
@@ -198,19 +198,20 @@ newUpdateDomainConfigurationResponse ::
   UpdateDomainConfigurationResponse
 newUpdateDomainConfigurationResponse pHttpStatus_ =
   UpdateDomainConfigurationResponse'
-    { domainConfigurationName =
+    { domainConfigurationArn =
         Prelude.Nothing,
-      domainConfigurationArn = Prelude.Nothing,
+      domainConfigurationName =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the domain configuration that was updated.
-updateDomainConfigurationResponse_domainConfigurationName :: Lens.Lens' UpdateDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
-updateDomainConfigurationResponse_domainConfigurationName = Lens.lens (\UpdateDomainConfigurationResponse' {domainConfigurationName} -> domainConfigurationName) (\s@UpdateDomainConfigurationResponse' {} a -> s {domainConfigurationName = a} :: UpdateDomainConfigurationResponse)
 
 -- | The ARN of the domain configuration that was updated.
 updateDomainConfigurationResponse_domainConfigurationArn :: Lens.Lens' UpdateDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateDomainConfigurationResponse_domainConfigurationArn = Lens.lens (\UpdateDomainConfigurationResponse' {domainConfigurationArn} -> domainConfigurationArn) (\s@UpdateDomainConfigurationResponse' {} a -> s {domainConfigurationArn = a} :: UpdateDomainConfigurationResponse)
+
+-- | The name of the domain configuration that was updated.
+updateDomainConfigurationResponse_domainConfigurationName :: Lens.Lens' UpdateDomainConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateDomainConfigurationResponse_domainConfigurationName = Lens.lens (\UpdateDomainConfigurationResponse' {domainConfigurationName} -> domainConfigurationName) (\s@UpdateDomainConfigurationResponse' {} a -> s {domainConfigurationName = a} :: UpdateDomainConfigurationResponse)
 
 -- | The response's http status code.
 updateDomainConfigurationResponse_httpStatus :: Lens.Lens' UpdateDomainConfigurationResponse Prelude.Int
@@ -221,6 +222,6 @@ instance
     UpdateDomainConfigurationResponse
   where
   rnf UpdateDomainConfigurationResponse' {..} =
-    Prelude.rnf domainConfigurationName
-      `Prelude.seq` Prelude.rnf domainConfigurationArn
+    Prelude.rnf domainConfigurationArn
+      `Prelude.seq` Prelude.rnf domainConfigurationName
       `Prelude.seq` Prelude.rnf httpStatus

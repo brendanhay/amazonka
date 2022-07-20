@@ -28,8 +28,8 @@ module Amazonka.Batch.UpdateComputeEnvironment
 
     -- * Request Lenses
     updateComputeEnvironment_state,
-    updateComputeEnvironment_computeResources,
     updateComputeEnvironment_serviceRole,
+    updateComputeEnvironment_computeResources,
     updateComputeEnvironment_computeEnvironment,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.Batch.UpdateComputeEnvironment
     newUpdateComputeEnvironmentResponse,
 
     -- * Response Lenses
-    updateComputeEnvironmentResponse_computeEnvironmentName,
     updateComputeEnvironmentResponse_computeEnvironmentArn,
+    updateComputeEnvironmentResponse_computeEnvironmentName,
     updateComputeEnvironmentResponse_httpStatus,
   )
 where
@@ -69,11 +69,6 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
     -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
     -- value after instances become idle.
     state :: Prelude.Maybe CEState,
-    -- | Details of the compute resources managed by the compute environment.
-    -- Required for a managed compute environment. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
-    -- in the /Batch User Guide/.
-    computeResources :: Prelude.Maybe ComputeResourceUpdate,
     -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
     -- make calls to other Amazon Web Services services on your behalf. For
     -- more information, see
@@ -96,6 +91,11 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
     -- specify the full ARN of your service role when you create compute
     -- environments.
     serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | Details of the compute resources managed by the compute environment.
+    -- Required for a managed compute environment. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+    -- in the /Batch User Guide/.
+    computeResources :: Prelude.Maybe ComputeResourceUpdate,
     -- | The name or full Amazon Resource Name (ARN) of the compute environment
     -- to update.
     computeEnvironment :: Prelude.Text
@@ -125,11 +125,6 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
 -- value after instances become idle.
 --
--- 'computeResources', 'updateComputeEnvironment_computeResources' - Details of the compute resources managed by the compute environment.
--- Required for a managed compute environment. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
---
 -- 'serviceRole', 'updateComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
 -- more information, see
@@ -152,6 +147,11 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 -- specify the full ARN of your service role when you create compute
 -- environments.
 --
+-- 'computeResources', 'updateComputeEnvironment_computeResources' - Details of the compute resources managed by the compute environment.
+-- Required for a managed compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
+--
 -- 'computeEnvironment', 'updateComputeEnvironment_computeEnvironment' - The name or full Amazon Resource Name (ARN) of the compute environment
 -- to update.
 newUpdateComputeEnvironment ::
@@ -161,8 +161,8 @@ newUpdateComputeEnvironment ::
 newUpdateComputeEnvironment pComputeEnvironment_ =
   UpdateComputeEnvironment'
     { state = Prelude.Nothing,
-      computeResources = Prelude.Nothing,
       serviceRole = Prelude.Nothing,
+      computeResources = Prelude.Nothing,
       computeEnvironment = pComputeEnvironment_
     }
 
@@ -182,13 +182,6 @@ newUpdateComputeEnvironment pComputeEnvironment_ =
 -- value after instances become idle.
 updateComputeEnvironment_state :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe CEState)
 updateComputeEnvironment_state = Lens.lens (\UpdateComputeEnvironment' {state} -> state) (\s@UpdateComputeEnvironment' {} a -> s {state = a} :: UpdateComputeEnvironment)
-
--- | Details of the compute resources managed by the compute environment.
--- Required for a managed compute environment. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
-updateComputeEnvironment_computeResources :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe ComputeResourceUpdate)
-updateComputeEnvironment_computeResources = Lens.lens (\UpdateComputeEnvironment' {computeResources} -> computeResources) (\s@UpdateComputeEnvironment' {} a -> s {computeResources = a} :: UpdateComputeEnvironment)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
@@ -214,6 +207,13 @@ updateComputeEnvironment_computeResources = Lens.lens (\UpdateComputeEnvironment
 updateComputeEnvironment_serviceRole :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe Prelude.Text)
 updateComputeEnvironment_serviceRole = Lens.lens (\UpdateComputeEnvironment' {serviceRole} -> serviceRole) (\s@UpdateComputeEnvironment' {} a -> s {serviceRole = a} :: UpdateComputeEnvironment)
 
+-- | Details of the compute resources managed by the compute environment.
+-- Required for a managed compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
+updateComputeEnvironment_computeResources :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe ComputeResourceUpdate)
+updateComputeEnvironment_computeResources = Lens.lens (\UpdateComputeEnvironment' {computeResources} -> computeResources) (\s@UpdateComputeEnvironment' {} a -> s {computeResources = a} :: UpdateComputeEnvironment)
+
 -- | The name or full Amazon Resource Name (ARN) of the compute environment
 -- to update.
 updateComputeEnvironment_computeEnvironment :: Lens.Lens' UpdateComputeEnvironment Prelude.Text
@@ -228,23 +228,23 @@ instance Core.AWSRequest UpdateComputeEnvironment where
     Response.receiveJSON
       ( \s h x ->
           UpdateComputeEnvironmentResponse'
-            Prelude.<$> (x Core..?> "computeEnvironmentName")
-            Prelude.<*> (x Core..?> "computeEnvironmentArn")
+            Prelude.<$> (x Core..?> "computeEnvironmentArn")
+            Prelude.<*> (x Core..?> "computeEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateComputeEnvironment where
   hashWithSalt _salt UpdateComputeEnvironment' {..} =
     _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` computeEnvironment
 
 instance Prelude.NFData UpdateComputeEnvironment where
   rnf UpdateComputeEnvironment' {..} =
     Prelude.rnf state
-      `Prelude.seq` Prelude.rnf computeResources
       `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf computeResources
       `Prelude.seq` Prelude.rnf computeEnvironment
 
 instance Core.ToHeaders UpdateComputeEnvironment where
@@ -263,9 +263,9 @@ instance Core.ToJSON UpdateComputeEnvironment where
     Core.object
       ( Prelude.catMaybes
           [ ("state" Core..=) Prelude.<$> state,
+            ("serviceRole" Core..=) Prelude.<$> serviceRole,
             ("computeResources" Core..=)
               Prelude.<$> computeResources,
-            ("serviceRole" Core..=) Prelude.<$> serviceRole,
             Prelude.Just
               ("computeEnvironment" Core..= computeEnvironment)
           ]
@@ -279,11 +279,11 @@ instance Core.ToQuery UpdateComputeEnvironment where
 
 -- | /See:/ 'newUpdateComputeEnvironmentResponse' smart constructor.
 data UpdateComputeEnvironmentResponse = UpdateComputeEnvironmentResponse'
-  { -- | The name of the compute environment. Up to 128 letters (uppercase and
+  { -- | The Amazon Resource Name (ARN) of the compute environment.
+    computeEnvironmentArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the compute environment. Up to 128 letters (uppercase and
     -- lowercase), numbers, hyphens, and underscores are allowed.
     computeEnvironmentName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironmentArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -297,10 +297,10 @@ data UpdateComputeEnvironmentResponse = UpdateComputeEnvironmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'computeEnvironmentArn', 'updateComputeEnvironmentResponse_computeEnvironmentArn' - The Amazon Resource Name (ARN) of the compute environment.
+--
 -- 'computeEnvironmentName', 'updateComputeEnvironmentResponse_computeEnvironmentName' - The name of the compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
---
--- 'computeEnvironmentArn', 'updateComputeEnvironmentResponse_computeEnvironmentArn' - The Amazon Resource Name (ARN) of the compute environment.
 --
 -- 'httpStatus', 'updateComputeEnvironmentResponse_httpStatus' - The response's http status code.
 newUpdateComputeEnvironmentResponse ::
@@ -309,20 +309,20 @@ newUpdateComputeEnvironmentResponse ::
   UpdateComputeEnvironmentResponse
 newUpdateComputeEnvironmentResponse pHttpStatus_ =
   UpdateComputeEnvironmentResponse'
-    { computeEnvironmentName =
+    { computeEnvironmentArn =
         Prelude.Nothing,
-      computeEnvironmentArn = Prelude.Nothing,
+      computeEnvironmentName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the compute environment.
+updateComputeEnvironmentResponse_computeEnvironmentArn :: Lens.Lens' UpdateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
+updateComputeEnvironmentResponse_computeEnvironmentArn = Lens.lens (\UpdateComputeEnvironmentResponse' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@UpdateComputeEnvironmentResponse' {} a -> s {computeEnvironmentArn = a} :: UpdateComputeEnvironmentResponse)
 
 -- | The name of the compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
 updateComputeEnvironmentResponse_computeEnvironmentName :: Lens.Lens' UpdateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
 updateComputeEnvironmentResponse_computeEnvironmentName = Lens.lens (\UpdateComputeEnvironmentResponse' {computeEnvironmentName} -> computeEnvironmentName) (\s@UpdateComputeEnvironmentResponse' {} a -> s {computeEnvironmentName = a} :: UpdateComputeEnvironmentResponse)
-
--- | The Amazon Resource Name (ARN) of the compute environment.
-updateComputeEnvironmentResponse_computeEnvironmentArn :: Lens.Lens' UpdateComputeEnvironmentResponse (Prelude.Maybe Prelude.Text)
-updateComputeEnvironmentResponse_computeEnvironmentArn = Lens.lens (\UpdateComputeEnvironmentResponse' {computeEnvironmentArn} -> computeEnvironmentArn) (\s@UpdateComputeEnvironmentResponse' {} a -> s {computeEnvironmentArn = a} :: UpdateComputeEnvironmentResponse)
 
 -- | The response's http status code.
 updateComputeEnvironmentResponse_httpStatus :: Lens.Lens' UpdateComputeEnvironmentResponse Prelude.Int
@@ -333,6 +333,6 @@ instance
     UpdateComputeEnvironmentResponse
   where
   rnf UpdateComputeEnvironmentResponse' {..} =
-    Prelude.rnf computeEnvironmentName
-      `Prelude.seq` Prelude.rnf computeEnvironmentArn
+    Prelude.rnf computeEnvironmentArn
+      `Prelude.seq` Prelude.rnf computeEnvironmentName
       `Prelude.seq` Prelude.rnf httpStatus

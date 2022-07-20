@@ -30,8 +30,8 @@ module Amazonka.Config.GetOrganizationConformancePackDetailedStatus
     newGetOrganizationConformancePackDetailedStatus,
 
     -- * Request Lenses
-    getOrganizationConformancePackDetailedStatus_filters,
     getOrganizationConformancePackDetailedStatus_nextToken,
+    getOrganizationConformancePackDetailedStatus_filters,
     getOrganizationConformancePackDetailedStatus_limit,
     getOrganizationConformancePackDetailedStatus_organizationConformancePackName,
 
@@ -40,8 +40,8 @@ module Amazonka.Config.GetOrganizationConformancePackDetailedStatus
     newGetOrganizationConformancePackDetailedStatusResponse,
 
     -- * Response Lenses
-    getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses,
     getOrganizationConformancePackDetailedStatusResponse_nextToken,
+    getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses,
     getOrganizationConformancePackDetailedStatusResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetOrganizationConformancePackDetailedStatus' smart constructor.
 data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePackDetailedStatus'
-  { -- | An @OrganizationResourceDetailedStatusFilters@ object.
-    filters :: Prelude.Maybe OrganizationResourceDetailedStatusFilters,
-    -- | The nextToken string returned on a previous page that you use to get the
+  { -- | The nextToken string returned on a previous page that you use to get the
     -- next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An @OrganizationResourceDetailedStatusFilters@ object.
+    filters :: Prelude.Maybe OrganizationResourceDetailedStatusFilters,
     -- | The maximum number of @OrganizationConformancePackDetailedStatuses@
     -- returned on each page. If you do not specify a number, Config uses the
     -- default. The default is 100.
@@ -78,10 +78,10 @@ data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'getOrganizationConformancePackDetailedStatus_filters' - An @OrganizationResourceDetailedStatusFilters@ object.
---
 -- 'nextToken', 'getOrganizationConformancePackDetailedStatus_nextToken' - The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
+--
+-- 'filters', 'getOrganizationConformancePackDetailedStatus_filters' - An @OrganizationResourceDetailedStatusFilters@ object.
 --
 -- 'limit', 'getOrganizationConformancePackDetailedStatus_limit' - The maximum number of @OrganizationConformancePackDetailedStatuses@
 -- returned on each page. If you do not specify a number, Config uses the
@@ -96,22 +96,22 @@ newGetOrganizationConformancePackDetailedStatus ::
 newGetOrganizationConformancePackDetailedStatus
   pOrganizationConformancePackName_ =
     GetOrganizationConformancePackDetailedStatus'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         limit = Prelude.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_
       }
 
--- | An @OrganizationResourceDetailedStatusFilters@ object.
-getOrganizationConformancePackDetailedStatus_filters :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Prelude.Maybe OrganizationResourceDetailedStatusFilters)
-getOrganizationConformancePackDetailedStatus_filters = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {filters} -> filters) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {filters = a} :: GetOrganizationConformancePackDetailedStatus)
-
 -- | The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
 getOrganizationConformancePackDetailedStatus_nextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Prelude.Maybe Prelude.Text)
 getOrganizationConformancePackDetailedStatus_nextToken = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {nextToken} -> nextToken) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {nextToken = a} :: GetOrganizationConformancePackDetailedStatus)
+
+-- | An @OrganizationResourceDetailedStatusFilters@ object.
+getOrganizationConformancePackDetailedStatus_filters :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Prelude.Maybe OrganizationResourceDetailedStatusFilters)
+getOrganizationConformancePackDetailedStatus_filters = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {filters} -> filters) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {filters = a} :: GetOrganizationConformancePackDetailedStatus)
 
 -- | The maximum number of @OrganizationConformancePackDetailedStatuses@
 -- returned on each page. If you do not specify a number, Config uses the
@@ -162,11 +162,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetOrganizationConformancePackDetailedStatusResponse'
-            Prelude.<$> ( x
-                            Core..?> "OrganizationConformancePackDetailedStatuses"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x
+                              Core..?> "OrganizationConformancePackDetailedStatuses"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,8 +177,8 @@ instance
   hashWithSalt
     _salt
     GetOrganizationConformancePackDetailedStatus' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` organizationConformancePackName
 
@@ -187,8 +187,8 @@ instance
     GetOrganizationConformancePackDetailedStatus
   where
   rnf GetOrganizationConformancePackDetailedStatus' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf organizationConformancePackName
 
@@ -218,8 +218,8 @@ instance
     GetOrganizationConformancePackDetailedStatus' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Filters" Core..=) Prelude.<$> filters,
-              ("NextToken" Core..=) Prelude.<$> nextToken,
+            [ ("NextToken" Core..=) Prelude.<$> nextToken,
+              ("Filters" Core..=) Prelude.<$> filters,
               ("Limit" Core..=) Prelude.<$> limit,
               Prelude.Just
                 ( "OrganizationConformancePackName"
@@ -242,11 +242,11 @@ instance
 
 -- | /See:/ 'newGetOrganizationConformancePackDetailedStatusResponse' smart constructor.
 data GetOrganizationConformancePackDetailedStatusResponse = GetOrganizationConformancePackDetailedStatusResponse'
-  { -- | A list of @OrganizationConformancePackDetailedStatus@ objects.
-    organizationConformancePackDetailedStatuses :: Prelude.Maybe [OrganizationConformancePackDetailedStatus],
-    -- | The nextToken string returned on a previous page that you use to get the
+  { -- | The nextToken string returned on a previous page that you use to get the
     -- next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of @OrganizationConformancePackDetailedStatus@ objects.
+    organizationConformancePackDetailedStatuses :: Prelude.Maybe [OrganizationConformancePackDetailedStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -260,10 +260,10 @@ data GetOrganizationConformancePackDetailedStatusResponse = GetOrganizationConfo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationConformancePackDetailedStatuses', 'getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses' - A list of @OrganizationConformancePackDetailedStatus@ objects.
---
 -- 'nextToken', 'getOrganizationConformancePackDetailedStatusResponse_nextToken' - The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
+--
+-- 'organizationConformancePackDetailedStatuses', 'getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses' - A list of @OrganizationConformancePackDetailedStatus@ objects.
 --
 -- 'httpStatus', 'getOrganizationConformancePackDetailedStatusResponse_httpStatus' - The response's http status code.
 newGetOrganizationConformancePackDetailedStatusResponse ::
@@ -273,22 +273,22 @@ newGetOrganizationConformancePackDetailedStatusResponse ::
 newGetOrganizationConformancePackDetailedStatusResponse
   pHttpStatus_ =
     GetOrganizationConformancePackDetailedStatusResponse'
-      { organizationConformancePackDetailedStatuses =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        organizationConformancePackDetailedStatuses =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | A list of @OrganizationConformancePackDetailedStatus@ objects.
-getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse (Prelude.Maybe [OrganizationConformancePackDetailedStatus])
-getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses = Lens.lens (\GetOrganizationConformancePackDetailedStatusResponse' {organizationConformancePackDetailedStatuses} -> organizationConformancePackDetailedStatuses) (\s@GetOrganizationConformancePackDetailedStatusResponse' {} a -> s {organizationConformancePackDetailedStatuses = a} :: GetOrganizationConformancePackDetailedStatusResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
 getOrganizationConformancePackDetailedStatusResponse_nextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse (Prelude.Maybe Prelude.Text)
 getOrganizationConformancePackDetailedStatusResponse_nextToken = Lens.lens (\GetOrganizationConformancePackDetailedStatusResponse' {nextToken} -> nextToken) (\s@GetOrganizationConformancePackDetailedStatusResponse' {} a -> s {nextToken = a} :: GetOrganizationConformancePackDetailedStatusResponse)
+
+-- | A list of @OrganizationConformancePackDetailedStatus@ objects.
+getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse (Prelude.Maybe [OrganizationConformancePackDetailedStatus])
+getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses = Lens.lens (\GetOrganizationConformancePackDetailedStatusResponse' {organizationConformancePackDetailedStatuses} -> organizationConformancePackDetailedStatuses) (\s@GetOrganizationConformancePackDetailedStatusResponse' {} a -> s {organizationConformancePackDetailedStatuses = a} :: GetOrganizationConformancePackDetailedStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getOrganizationConformancePackDetailedStatusResponse_httpStatus :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse Prelude.Int
@@ -300,7 +300,7 @@ instance
   where
   rnf
     GetOrganizationConformancePackDetailedStatusResponse' {..} =
-      Prelude.rnf
-        organizationConformancePackDetailedStatuses
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf
+          organizationConformancePackDetailedStatuses
         `Prelude.seq` Prelude.rnf httpStatus

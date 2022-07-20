@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-  { -- | The first sequence number for the stream records contained within a
+  { -- | The last sequence number for the stream records contained within a
     -- shard. String contains numeric characters only.
-    startingSequenceNumber :: Prelude.Maybe Prelude.Text,
-    -- | The last sequence number for the stream records contained within a
+    endingSequenceNumber :: Prelude.Maybe Prelude.Text,
+    -- | The first sequence number for the stream records contained within a
     -- shard. String contains numeric characters only.
-    endingSequenceNumber :: Prelude.Maybe Prelude.Text
+    startingSequenceNumber :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data SequenceNumberRange = SequenceNumberRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startingSequenceNumber', 'sequenceNumberRange_startingSequenceNumber' - The first sequence number for the stream records contained within a
+-- 'endingSequenceNumber', 'sequenceNumberRange_endingSequenceNumber' - The last sequence number for the stream records contained within a
 -- shard. String contains numeric characters only.
 --
--- 'endingSequenceNumber', 'sequenceNumberRange_endingSequenceNumber' - The last sequence number for the stream records contained within a
+-- 'startingSequenceNumber', 'sequenceNumberRange_startingSequenceNumber' - The first sequence number for the stream records contained within a
 -- shard. String contains numeric characters only.
 newSequenceNumberRange ::
   SequenceNumberRange
 newSequenceNumberRange =
   SequenceNumberRange'
-    { startingSequenceNumber =
+    { endingSequenceNumber =
         Prelude.Nothing,
-      endingSequenceNumber = Prelude.Nothing
+      startingSequenceNumber = Prelude.Nothing
     }
-
--- | The first sequence number for the stream records contained within a
--- shard. String contains numeric characters only.
-sequenceNumberRange_startingSequenceNumber :: Lens.Lens' SequenceNumberRange (Prelude.Maybe Prelude.Text)
-sequenceNumberRange_startingSequenceNumber = Lens.lens (\SequenceNumberRange' {startingSequenceNumber} -> startingSequenceNumber) (\s@SequenceNumberRange' {} a -> s {startingSequenceNumber = a} :: SequenceNumberRange)
 
 -- | The last sequence number for the stream records contained within a
 -- shard. String contains numeric characters only.
 sequenceNumberRange_endingSequenceNumber :: Lens.Lens' SequenceNumberRange (Prelude.Maybe Prelude.Text)
 sequenceNumberRange_endingSequenceNumber = Lens.lens (\SequenceNumberRange' {endingSequenceNumber} -> endingSequenceNumber) (\s@SequenceNumberRange' {} a -> s {endingSequenceNumber = a} :: SequenceNumberRange)
+
+-- | The first sequence number for the stream records contained within a
+-- shard. String contains numeric characters only.
+sequenceNumberRange_startingSequenceNumber :: Lens.Lens' SequenceNumberRange (Prelude.Maybe Prelude.Text)
+sequenceNumberRange_startingSequenceNumber = Lens.lens (\SequenceNumberRange' {startingSequenceNumber} -> startingSequenceNumber) (\s@SequenceNumberRange' {} a -> s {startingSequenceNumber = a} :: SequenceNumberRange)
 
 instance Core.FromJSON SequenceNumberRange where
   parseJSON =
@@ -76,16 +76,16 @@ instance Core.FromJSON SequenceNumberRange where
       "SequenceNumberRange"
       ( \x ->
           SequenceNumberRange'
-            Prelude.<$> (x Core..:? "StartingSequenceNumber")
-            Prelude.<*> (x Core..:? "EndingSequenceNumber")
+            Prelude.<$> (x Core..:? "EndingSequenceNumber")
+            Prelude.<*> (x Core..:? "StartingSequenceNumber")
       )
 
 instance Prelude.Hashable SequenceNumberRange where
   hashWithSalt _salt SequenceNumberRange' {..} =
-    _salt `Prelude.hashWithSalt` startingSequenceNumber
-      `Prelude.hashWithSalt` endingSequenceNumber
+    _salt `Prelude.hashWithSalt` endingSequenceNumber
+      `Prelude.hashWithSalt` startingSequenceNumber
 
 instance Prelude.NFData SequenceNumberRange where
   rnf SequenceNumberRange' {..} =
-    Prelude.rnf startingSequenceNumber
-      `Prelude.seq` Prelude.rnf endingSequenceNumber
+    Prelude.rnf endingSequenceNumber
+      `Prelude.seq` Prelude.rnf startingSequenceNumber

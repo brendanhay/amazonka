@@ -23,28 +23,6 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newWorkspaceDeleted :: Core.Wait DescribeWorkspace
-newWorkspaceDeleted =
-  Core.Wait
-    { Core._waitName = "WorkspaceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 2,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "DELETING"
-            Core.AcceptRetry
-            ( describeWorkspaceResponse_workspace
-                Prelude.. workspaceDescription_status
-                Prelude.. workspaceStatus_statusCode
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newWorkspaceActive :: Core.Wait DescribeWorkspace
 newWorkspaceActive =
   Core.Wait
@@ -70,6 +48,28 @@ newWorkspaceActive =
             ),
           Core.matchAll
             "CREATING"
+            Core.AcceptRetry
+            ( describeWorkspaceResponse_workspace
+                Prelude.. workspaceDescription_status
+                Prelude.. workspaceStatus_statusCode
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.AMP.DescribeWorkspace' every 2 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newWorkspaceDeleted :: Core.Wait DescribeWorkspace
+newWorkspaceDeleted =
+  Core.Wait
+    { Core._waitName = "WorkspaceDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 2,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETING"
             Core.AcceptRetry
             ( describeWorkspaceResponse_workspace
                 Prelude.. workspaceDescription_status

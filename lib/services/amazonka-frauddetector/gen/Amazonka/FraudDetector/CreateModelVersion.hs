@@ -28,9 +28,9 @@ module Amazonka.FraudDetector.CreateModelVersion
     newCreateModelVersion,
 
     -- * Request Lenses
-    createModelVersion_externalEventsDetail,
-    createModelVersion_ingestedEventsDetail,
     createModelVersion_tags,
+    createModelVersion_ingestedEventsDetail,
+    createModelVersion_externalEventsDetail,
     createModelVersion_modelId,
     createModelVersion_modelType,
     createModelVersion_trainingDataSource,
@@ -41,10 +41,10 @@ module Amazonka.FraudDetector.CreateModelVersion
     newCreateModelVersionResponse,
 
     -- * Response Lenses
+    createModelVersionResponse_modelVersionNumber,
     createModelVersionResponse_status,
     createModelVersionResponse_modelType,
     createModelVersionResponse_modelId,
-    createModelVersionResponse_modelVersionNumber,
     createModelVersionResponse_httpStatus,
   )
 where
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateModelVersion' smart constructor.
 data CreateModelVersion = CreateModelVersion'
-  { -- | Details of the external events data used for model version training.
-    -- Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
-    externalEventsDetail :: Prelude.Maybe ExternalEventsDetail,
+  { -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
     -- | Details of the ingested events data used for model version training.
     -- Required if @trainingDataSource@ is @INGESTED_EVENTS@.
     ingestedEventsDetail :: Prelude.Maybe IngestedEventsDetail,
-    -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
+    -- | Details of the external events data used for model version training.
+    -- Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
+    externalEventsDetail :: Prelude.Maybe ExternalEventsDetail,
     -- | The model ID.
     modelId :: Prelude.Text,
     -- | The model type.
@@ -85,13 +85,13 @@ data CreateModelVersion = CreateModelVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalEventsDetail', 'createModelVersion_externalEventsDetail' - Details of the external events data used for model version training.
--- Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
+-- 'tags', 'createModelVersion_tags' - A collection of key and value pairs.
 --
 -- 'ingestedEventsDetail', 'createModelVersion_ingestedEventsDetail' - Details of the ingested events data used for model version training.
 -- Required if @trainingDataSource@ is @INGESTED_EVENTS@.
 --
--- 'tags', 'createModelVersion_tags' - A collection of key and value pairs.
+-- 'externalEventsDetail', 'createModelVersion_externalEventsDetail' - Details of the external events data used for model version training.
+-- Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
 --
 -- 'modelId', 'createModelVersion_modelId' - The model ID.
 --
@@ -116,29 +116,28 @@ newCreateModelVersion
   pTrainingDataSource_
   pTrainingDataSchema_ =
     CreateModelVersion'
-      { externalEventsDetail =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         ingestedEventsDetail = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        externalEventsDetail = Prelude.Nothing,
         modelId = pModelId_,
         modelType = pModelType_,
         trainingDataSource = pTrainingDataSource_,
         trainingDataSchema = pTrainingDataSchema_
       }
 
--- | Details of the external events data used for model version training.
--- Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
-createModelVersion_externalEventsDetail :: Lens.Lens' CreateModelVersion (Prelude.Maybe ExternalEventsDetail)
-createModelVersion_externalEventsDetail = Lens.lens (\CreateModelVersion' {externalEventsDetail} -> externalEventsDetail) (\s@CreateModelVersion' {} a -> s {externalEventsDetail = a} :: CreateModelVersion)
+-- | A collection of key and value pairs.
+createModelVersion_tags :: Lens.Lens' CreateModelVersion (Prelude.Maybe [Tag])
+createModelVersion_tags = Lens.lens (\CreateModelVersion' {tags} -> tags) (\s@CreateModelVersion' {} a -> s {tags = a} :: CreateModelVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | Details of the ingested events data used for model version training.
 -- Required if @trainingDataSource@ is @INGESTED_EVENTS@.
 createModelVersion_ingestedEventsDetail :: Lens.Lens' CreateModelVersion (Prelude.Maybe IngestedEventsDetail)
 createModelVersion_ingestedEventsDetail = Lens.lens (\CreateModelVersion' {ingestedEventsDetail} -> ingestedEventsDetail) (\s@CreateModelVersion' {} a -> s {ingestedEventsDetail = a} :: CreateModelVersion)
 
--- | A collection of key and value pairs.
-createModelVersion_tags :: Lens.Lens' CreateModelVersion (Prelude.Maybe [Tag])
-createModelVersion_tags = Lens.lens (\CreateModelVersion' {tags} -> tags) (\s@CreateModelVersion' {} a -> s {tags = a} :: CreateModelVersion) Prelude.. Lens.mapping Lens.coerced
+-- | Details of the external events data used for model version training.
+-- Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
+createModelVersion_externalEventsDetail :: Lens.Lens' CreateModelVersion (Prelude.Maybe ExternalEventsDetail)
+createModelVersion_externalEventsDetail = Lens.lens (\CreateModelVersion' {externalEventsDetail} -> externalEventsDetail) (\s@CreateModelVersion' {} a -> s {externalEventsDetail = a} :: CreateModelVersion)
 
 -- | The model ID.
 createModelVersion_modelId :: Lens.Lens' CreateModelVersion Prelude.Text
@@ -165,18 +164,18 @@ instance Core.AWSRequest CreateModelVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateModelVersionResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Core..?> "modelVersionNumber")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "modelType")
             Prelude.<*> (x Core..?> "modelId")
-            Prelude.<*> (x Core..?> "modelVersionNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateModelVersion where
   hashWithSalt _salt CreateModelVersion' {..} =
-    _salt `Prelude.hashWithSalt` externalEventsDetail
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ingestedEventsDetail
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` externalEventsDetail
       `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` trainingDataSource
@@ -184,9 +183,9 @@ instance Prelude.Hashable CreateModelVersion where
 
 instance Prelude.NFData CreateModelVersion where
   rnf CreateModelVersion' {..} =
-    Prelude.rnf externalEventsDetail
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ingestedEventsDetail
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf externalEventsDetail
       `Prelude.seq` Prelude.rnf modelId
       `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf trainingDataSource
@@ -211,11 +210,11 @@ instance Core.ToJSON CreateModelVersion where
   toJSON CreateModelVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("externalEventsDetail" Core..=)
-              Prelude.<$> externalEventsDetail,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("ingestedEventsDetail" Core..=)
               Prelude.<$> ingestedEventsDetail,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("externalEventsDetail" Core..=)
+              Prelude.<$> externalEventsDetail,
             Prelude.Just ("modelId" Core..= modelId),
             Prelude.Just ("modelType" Core..= modelType),
             Prelude.Just
@@ -233,14 +232,14 @@ instance Core.ToQuery CreateModelVersion where
 
 -- | /See:/ 'newCreateModelVersionResponse' smart constructor.
 data CreateModelVersionResponse = CreateModelVersionResponse'
-  { -- | The model version status.
+  { -- | The model version number of the model version created.
+    modelVersionNumber :: Prelude.Maybe Prelude.Text,
+    -- | The model version status.
     status :: Prelude.Maybe Prelude.Text,
     -- | The model type.
     modelType :: Prelude.Maybe ModelTypeEnum,
     -- | The model ID.
     modelId :: Prelude.Maybe Prelude.Text,
-    -- | The model version number of the model version created.
-    modelVersionNumber :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -254,13 +253,13 @@ data CreateModelVersionResponse = CreateModelVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'modelVersionNumber', 'createModelVersionResponse_modelVersionNumber' - The model version number of the model version created.
+--
 -- 'status', 'createModelVersionResponse_status' - The model version status.
 --
 -- 'modelType', 'createModelVersionResponse_modelType' - The model type.
 --
 -- 'modelId', 'createModelVersionResponse_modelId' - The model ID.
---
--- 'modelVersionNumber', 'createModelVersionResponse_modelVersionNumber' - The model version number of the model version created.
 --
 -- 'httpStatus', 'createModelVersionResponse_httpStatus' - The response's http status code.
 newCreateModelVersionResponse ::
@@ -269,13 +268,17 @@ newCreateModelVersionResponse ::
   CreateModelVersionResponse
 newCreateModelVersionResponse pHttpStatus_ =
   CreateModelVersionResponse'
-    { status =
+    { modelVersionNumber =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       modelType = Prelude.Nothing,
       modelId = Prelude.Nothing,
-      modelVersionNumber = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The model version number of the model version created.
+createModelVersionResponse_modelVersionNumber :: Lens.Lens' CreateModelVersionResponse (Prelude.Maybe Prelude.Text)
+createModelVersionResponse_modelVersionNumber = Lens.lens (\CreateModelVersionResponse' {modelVersionNumber} -> modelVersionNumber) (\s@CreateModelVersionResponse' {} a -> s {modelVersionNumber = a} :: CreateModelVersionResponse)
 
 -- | The model version status.
 createModelVersionResponse_status :: Lens.Lens' CreateModelVersionResponse (Prelude.Maybe Prelude.Text)
@@ -289,18 +292,14 @@ createModelVersionResponse_modelType = Lens.lens (\CreateModelVersionResponse' {
 createModelVersionResponse_modelId :: Lens.Lens' CreateModelVersionResponse (Prelude.Maybe Prelude.Text)
 createModelVersionResponse_modelId = Lens.lens (\CreateModelVersionResponse' {modelId} -> modelId) (\s@CreateModelVersionResponse' {} a -> s {modelId = a} :: CreateModelVersionResponse)
 
--- | The model version number of the model version created.
-createModelVersionResponse_modelVersionNumber :: Lens.Lens' CreateModelVersionResponse (Prelude.Maybe Prelude.Text)
-createModelVersionResponse_modelVersionNumber = Lens.lens (\CreateModelVersionResponse' {modelVersionNumber} -> modelVersionNumber) (\s@CreateModelVersionResponse' {} a -> s {modelVersionNumber = a} :: CreateModelVersionResponse)
-
 -- | The response's http status code.
 createModelVersionResponse_httpStatus :: Lens.Lens' CreateModelVersionResponse Prelude.Int
 createModelVersionResponse_httpStatus = Lens.lens (\CreateModelVersionResponse' {httpStatus} -> httpStatus) (\s@CreateModelVersionResponse' {} a -> s {httpStatus = a} :: CreateModelVersionResponse)
 
 instance Prelude.NFData CreateModelVersionResponse where
   rnf CreateModelVersionResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelVersionNumber
       `Prelude.seq` Prelude.rnf httpStatus

@@ -38,12 +38,12 @@ data CreateDelegationRequest = CreateDelegationRequest'
     -- In @BatchCreateDelegationByAssessment@, @roleType@ can only be
     -- @RESOURCE_OWNER@.
     roleType :: Prelude.Maybe RoleType,
-    -- | The unique identifier for the control set.
-    controlSetId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A comment related to the delegation request.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role.
-    roleArn :: Prelude.Maybe Prelude.Text
+    -- | The unique identifier for the control set.
+    controlSetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,20 +64,20 @@ data CreateDelegationRequest = CreateDelegationRequest'
 -- In @BatchCreateDelegationByAssessment@, @roleType@ can only be
 -- @RESOURCE_OWNER@.
 --
--- 'controlSetId', 'createDelegationRequest_controlSetId' - The unique identifier for the control set.
+-- 'roleArn', 'createDelegationRequest_roleArn' - The Amazon Resource Name (ARN) of the IAM role.
 --
 -- 'comment', 'createDelegationRequest_comment' - A comment related to the delegation request.
 --
--- 'roleArn', 'createDelegationRequest_roleArn' - The Amazon Resource Name (ARN) of the IAM role.
+-- 'controlSetId', 'createDelegationRequest_controlSetId' - The unique identifier for the control set.
 newCreateDelegationRequest ::
   CreateDelegationRequest
 newCreateDelegationRequest =
   CreateDelegationRequest'
     { roleType =
         Prelude.Nothing,
-      controlSetId = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       comment = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+      controlSetId = Prelude.Nothing
     }
 
 -- | The type of customer persona.
@@ -91,17 +91,17 @@ newCreateDelegationRequest =
 createDelegationRequest_roleType :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe RoleType)
 createDelegationRequest_roleType = Lens.lens (\CreateDelegationRequest' {roleType} -> roleType) (\s@CreateDelegationRequest' {} a -> s {roleType = a} :: CreateDelegationRequest)
 
--- | The unique identifier for the control set.
-createDelegationRequest_controlSetId :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe Prelude.Text)
-createDelegationRequest_controlSetId = Lens.lens (\CreateDelegationRequest' {controlSetId} -> controlSetId) (\s@CreateDelegationRequest' {} a -> s {controlSetId = a} :: CreateDelegationRequest)
+-- | The Amazon Resource Name (ARN) of the IAM role.
+createDelegationRequest_roleArn :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe Prelude.Text)
+createDelegationRequest_roleArn = Lens.lens (\CreateDelegationRequest' {roleArn} -> roleArn) (\s@CreateDelegationRequest' {} a -> s {roleArn = a} :: CreateDelegationRequest)
 
 -- | A comment related to the delegation request.
 createDelegationRequest_comment :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe Prelude.Text)
 createDelegationRequest_comment = Lens.lens (\CreateDelegationRequest' {comment} -> comment) (\s@CreateDelegationRequest' {} a -> s {comment = a} :: CreateDelegationRequest)
 
--- | The Amazon Resource Name (ARN) of the IAM role.
-createDelegationRequest_roleArn :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe Prelude.Text)
-createDelegationRequest_roleArn = Lens.lens (\CreateDelegationRequest' {roleArn} -> roleArn) (\s@CreateDelegationRequest' {} a -> s {roleArn = a} :: CreateDelegationRequest)
+-- | The unique identifier for the control set.
+createDelegationRequest_controlSetId :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe Prelude.Text)
+createDelegationRequest_controlSetId = Lens.lens (\CreateDelegationRequest' {controlSetId} -> controlSetId) (\s@CreateDelegationRequest' {} a -> s {controlSetId = a} :: CreateDelegationRequest)
 
 instance Core.FromJSON CreateDelegationRequest where
   parseJSON =
@@ -110,32 +110,32 @@ instance Core.FromJSON CreateDelegationRequest where
       ( \x ->
           CreateDelegationRequest'
             Prelude.<$> (x Core..:? "roleType")
-            Prelude.<*> (x Core..:? "controlSetId")
-            Prelude.<*> (x Core..:? "comment")
             Prelude.<*> (x Core..:? "roleArn")
+            Prelude.<*> (x Core..:? "comment")
+            Prelude.<*> (x Core..:? "controlSetId")
       )
 
 instance Prelude.Hashable CreateDelegationRequest where
   hashWithSalt _salt CreateDelegationRequest' {..} =
     _salt `Prelude.hashWithSalt` roleType
-      `Prelude.hashWithSalt` controlSetId
-      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` controlSetId
 
 instance Prelude.NFData CreateDelegationRequest where
   rnf CreateDelegationRequest' {..} =
     Prelude.rnf roleType
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf controlSetId
 
 instance Core.ToJSON CreateDelegationRequest where
   toJSON CreateDelegationRequest' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("roleType" Core..=) Prelude.<$> roleType,
-            ("controlSetId" Core..=) Prelude.<$> controlSetId,
+            ("roleArn" Core..=) Prelude.<$> roleArn,
             ("comment" Core..=) Prelude.<$> comment,
-            ("roleArn" Core..=) Prelude.<$> roleArn
+            ("controlSetId" Core..=) Prelude.<$> controlSetId
           ]
       )

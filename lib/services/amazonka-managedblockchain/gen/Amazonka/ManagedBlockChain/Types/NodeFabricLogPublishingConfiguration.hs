@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNodeFabricLogPublishingConfiguration' smart constructor.
 data NodeFabricLogPublishingConfiguration = NodeFabricLogPublishingConfiguration'
-  { -- | Configuration properties for logging events associated with chaincode
+  { -- | Configuration properties for a peer node log. Peer node logs contain
+    -- messages generated when your client submits transaction proposals to
+    -- peer nodes, requests to join channels, enrolls an admin peer, and lists
+    -- the chaincode instances on a peer node.
+    peerLogs :: Prelude.Maybe LogConfigurations,
+    -- | Configuration properties for logging events associated with chaincode
     -- execution on a peer node. Chaincode logs contain the results of
     -- instantiating, invoking, and querying the chaincode. A peer can run
     -- multiple instances of chaincode. When enabled, a log stream is created
     -- for all chaincodes, with an individual log stream for each chaincode.
-    chaincodeLogs :: Prelude.Maybe LogConfigurations,
-    -- | Configuration properties for a peer node log. Peer node logs contain
-    -- messages generated when your client submits transaction proposals to
-    -- peer nodes, requests to join channels, enrolls an admin peer, and lists
-    -- the chaincode instances on a peer node.
-    peerLogs :: Prelude.Maybe LogConfigurations
+    chaincodeLogs :: Prelude.Maybe LogConfigurations
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,31 @@ data NodeFabricLogPublishingConfiguration = NodeFabricLogPublishingConfiguration
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'peerLogs', 'nodeFabricLogPublishingConfiguration_peerLogs' - Configuration properties for a peer node log. Peer node logs contain
+-- messages generated when your client submits transaction proposals to
+-- peer nodes, requests to join channels, enrolls an admin peer, and lists
+-- the chaincode instances on a peer node.
+--
 -- 'chaincodeLogs', 'nodeFabricLogPublishingConfiguration_chaincodeLogs' - Configuration properties for logging events associated with chaincode
 -- execution on a peer node. Chaincode logs contain the results of
 -- instantiating, invoking, and querying the chaincode. A peer can run
 -- multiple instances of chaincode. When enabled, a log stream is created
 -- for all chaincodes, with an individual log stream for each chaincode.
---
--- 'peerLogs', 'nodeFabricLogPublishingConfiguration_peerLogs' - Configuration properties for a peer node log. Peer node logs contain
--- messages generated when your client submits transaction proposals to
--- peer nodes, requests to join channels, enrolls an admin peer, and lists
--- the chaincode instances on a peer node.
 newNodeFabricLogPublishingConfiguration ::
   NodeFabricLogPublishingConfiguration
 newNodeFabricLogPublishingConfiguration =
   NodeFabricLogPublishingConfiguration'
-    { chaincodeLogs =
+    { peerLogs =
         Prelude.Nothing,
-      peerLogs = Prelude.Nothing
+      chaincodeLogs = Prelude.Nothing
     }
+
+-- | Configuration properties for a peer node log. Peer node logs contain
+-- messages generated when your client submits transaction proposals to
+-- peer nodes, requests to join channels, enrolls an admin peer, and lists
+-- the chaincode instances on a peer node.
+nodeFabricLogPublishingConfiguration_peerLogs :: Lens.Lens' NodeFabricLogPublishingConfiguration (Prelude.Maybe LogConfigurations)
+nodeFabricLogPublishingConfiguration_peerLogs = Lens.lens (\NodeFabricLogPublishingConfiguration' {peerLogs} -> peerLogs) (\s@NodeFabricLogPublishingConfiguration' {} a -> s {peerLogs = a} :: NodeFabricLogPublishingConfiguration)
 
 -- | Configuration properties for logging events associated with chaincode
 -- execution on a peer node. Chaincode logs contain the results of
@@ -77,13 +84,6 @@ newNodeFabricLogPublishingConfiguration =
 -- for all chaincodes, with an individual log stream for each chaincode.
 nodeFabricLogPublishingConfiguration_chaincodeLogs :: Lens.Lens' NodeFabricLogPublishingConfiguration (Prelude.Maybe LogConfigurations)
 nodeFabricLogPublishingConfiguration_chaincodeLogs = Lens.lens (\NodeFabricLogPublishingConfiguration' {chaincodeLogs} -> chaincodeLogs) (\s@NodeFabricLogPublishingConfiguration' {} a -> s {chaincodeLogs = a} :: NodeFabricLogPublishingConfiguration)
-
--- | Configuration properties for a peer node log. Peer node logs contain
--- messages generated when your client submits transaction proposals to
--- peer nodes, requests to join channels, enrolls an admin peer, and lists
--- the chaincode instances on a peer node.
-nodeFabricLogPublishingConfiguration_peerLogs :: Lens.Lens' NodeFabricLogPublishingConfiguration (Prelude.Maybe LogConfigurations)
-nodeFabricLogPublishingConfiguration_peerLogs = Lens.lens (\NodeFabricLogPublishingConfiguration' {peerLogs} -> peerLogs) (\s@NodeFabricLogPublishingConfiguration' {} a -> s {peerLogs = a} :: NodeFabricLogPublishingConfiguration)
 
 instance
   Core.FromJSON
@@ -94,8 +94,8 @@ instance
       "NodeFabricLogPublishingConfiguration"
       ( \x ->
           NodeFabricLogPublishingConfiguration'
-            Prelude.<$> (x Core..:? "ChaincodeLogs")
-            Prelude.<*> (x Core..:? "PeerLogs")
+            Prelude.<$> (x Core..:? "PeerLogs")
+            Prelude.<*> (x Core..:? "ChaincodeLogs")
       )
 
 instance
@@ -105,16 +105,16 @@ instance
   hashWithSalt
     _salt
     NodeFabricLogPublishingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` chaincodeLogs
-        `Prelude.hashWithSalt` peerLogs
+      _salt `Prelude.hashWithSalt` peerLogs
+        `Prelude.hashWithSalt` chaincodeLogs
 
 instance
   Prelude.NFData
     NodeFabricLogPublishingConfiguration
   where
   rnf NodeFabricLogPublishingConfiguration' {..} =
-    Prelude.rnf chaincodeLogs
-      `Prelude.seq` Prelude.rnf peerLogs
+    Prelude.rnf peerLogs
+      `Prelude.seq` Prelude.rnf chaincodeLogs
 
 instance
   Core.ToJSON
@@ -123,7 +123,7 @@ instance
   toJSON NodeFabricLogPublishingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ChaincodeLogs" Core..=) Prelude.<$> chaincodeLogs,
-            ("PeerLogs" Core..=) Prelude.<$> peerLogs
+          [ ("PeerLogs" Core..=) Prelude.<$> peerLogs,
+            ("ChaincodeLogs" Core..=) Prelude.<$> chaincodeLogs
           ]
       )

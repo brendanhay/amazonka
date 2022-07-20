@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBeard' smart constructor.
 data Beard = Beard'
-  { -- | Boolean value that indicates whether the face has beard or not.
-    value :: Prelude.Maybe Prelude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double
+  { -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | Boolean value that indicates whether the face has beard or not.
+    value :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Beard = Beard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'beard_value' - Boolean value that indicates whether the face has beard or not.
---
 -- 'confidence', 'beard_confidence' - Level of confidence in the determination.
+--
+-- 'value', 'beard_value' - Boolean value that indicates whether the face has beard or not.
 newBeard ::
   Beard
 newBeard =
   Beard'
-    { value = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | Boolean value that indicates whether the face has beard or not.
-beard_value :: Lens.Lens' Beard (Prelude.Maybe Prelude.Bool)
-beard_value = Lens.lens (\Beard' {value} -> value) (\s@Beard' {} a -> s {value = a} :: Beard)
 
 -- | Level of confidence in the determination.
 beard_confidence :: Lens.Lens' Beard (Prelude.Maybe Prelude.Double)
 beard_confidence = Lens.lens (\Beard' {confidence} -> confidence) (\s@Beard' {} a -> s {confidence = a} :: Beard)
+
+-- | Boolean value that indicates whether the face has beard or not.
+beard_value :: Lens.Lens' Beard (Prelude.Maybe Prelude.Bool)
+beard_value = Lens.lens (\Beard' {value} -> value) (\s@Beard' {} a -> s {value = a} :: Beard)
 
 instance Core.FromJSON Beard where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON Beard where
       "Beard"
       ( \x ->
           Beard'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Beard where
   hashWithSalt _salt Beard' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Beard where
   rnf Beard' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf value

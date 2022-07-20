@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWriteApplicationSettingsRequest' smart constructor.
 data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
-  { eventTaggingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether to enable application-related alarms in Amazon
-    -- CloudWatch.
-    cloudWatchMetricsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The default sending limits for campaigns in the application. To override
+  { -- | The default sending limits for campaigns in the application. To override
     -- these limits and define custom limits for a specific campaign or
     -- journey, use the Campaign resource or the Journey resource,
     -- respectively.
     limits :: Prelude.Maybe CampaignLimits,
+    eventTaggingEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether to enable application-related alarms in Amazon
+    -- CloudWatch.
+    cloudWatchMetricsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The default quiet time for campaigns in the application. Quiet time is a
     -- specific time range when messages aren\'t sent to endpoints, if all the
     -- following conditions are met:
@@ -81,15 +81,15 @@ data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventTaggingEnabled', 'writeApplicationSettingsRequest_eventTaggingEnabled' - Undocumented member.
---
--- 'cloudWatchMetricsEnabled', 'writeApplicationSettingsRequest_cloudWatchMetricsEnabled' - Specifies whether to enable application-related alarms in Amazon
--- CloudWatch.
---
 -- 'limits', 'writeApplicationSettingsRequest_limits' - The default sending limits for campaigns in the application. To override
 -- these limits and define custom limits for a specific campaign or
 -- journey, use the Campaign resource or the Journey resource,
 -- respectively.
+--
+-- 'eventTaggingEnabled', 'writeApplicationSettingsRequest_eventTaggingEnabled' - Undocumented member.
+--
+-- 'cloudWatchMetricsEnabled', 'writeApplicationSettingsRequest_cloudWatchMetricsEnabled' - Specifies whether to enable application-related alarms in Amazon
+-- CloudWatch.
 --
 -- 'quietTime', 'writeApplicationSettingsRequest_quietTime' - The default quiet time for campaigns in the application. Quiet time is a
 -- specific time range when messages aren\'t sent to endpoints, if all the
@@ -125,13 +125,20 @@ newWriteApplicationSettingsRequest ::
   WriteApplicationSettingsRequest
 newWriteApplicationSettingsRequest =
   WriteApplicationSettingsRequest'
-    { eventTaggingEnabled =
+    { limits =
         Prelude.Nothing,
+      eventTaggingEnabled = Prelude.Nothing,
       cloudWatchMetricsEnabled = Prelude.Nothing,
-      limits = Prelude.Nothing,
       quietTime = Prelude.Nothing,
       campaignHook = Prelude.Nothing
     }
+
+-- | The default sending limits for campaigns in the application. To override
+-- these limits and define custom limits for a specific campaign or
+-- journey, use the Campaign resource or the Journey resource,
+-- respectively.
+writeApplicationSettingsRequest_limits :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe CampaignLimits)
+writeApplicationSettingsRequest_limits = Lens.lens (\WriteApplicationSettingsRequest' {limits} -> limits) (\s@WriteApplicationSettingsRequest' {} a -> s {limits = a} :: WriteApplicationSettingsRequest)
 
 -- | Undocumented member.
 writeApplicationSettingsRequest_eventTaggingEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe Prelude.Bool)
@@ -141,13 +148,6 @@ writeApplicationSettingsRequest_eventTaggingEnabled = Lens.lens (\WriteApplicati
 -- CloudWatch.
 writeApplicationSettingsRequest_cloudWatchMetricsEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe Prelude.Bool)
 writeApplicationSettingsRequest_cloudWatchMetricsEnabled = Lens.lens (\WriteApplicationSettingsRequest' {cloudWatchMetricsEnabled} -> cloudWatchMetricsEnabled) (\s@WriteApplicationSettingsRequest' {} a -> s {cloudWatchMetricsEnabled = a} :: WriteApplicationSettingsRequest)
-
--- | The default sending limits for campaigns in the application. To override
--- these limits and define custom limits for a specific campaign or
--- journey, use the Campaign resource or the Journey resource,
--- respectively.
-writeApplicationSettingsRequest_limits :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe CampaignLimits)
-writeApplicationSettingsRequest_limits = Lens.lens (\WriteApplicationSettingsRequest' {limits} -> limits) (\s@WriteApplicationSettingsRequest' {} a -> s {limits = a} :: WriteApplicationSettingsRequest)
 
 -- | The default quiet time for campaigns in the application. Quiet time is a
 -- specific time range when messages aren\'t sent to endpoints, if all the
@@ -191,9 +191,9 @@ instance
   hashWithSalt
     _salt
     WriteApplicationSettingsRequest' {..} =
-      _salt `Prelude.hashWithSalt` eventTaggingEnabled
+      _salt `Prelude.hashWithSalt` limits
+        `Prelude.hashWithSalt` eventTaggingEnabled
         `Prelude.hashWithSalt` cloudWatchMetricsEnabled
-        `Prelude.hashWithSalt` limits
         `Prelude.hashWithSalt` quietTime
         `Prelude.hashWithSalt` campaignHook
 
@@ -202,9 +202,9 @@ instance
     WriteApplicationSettingsRequest
   where
   rnf WriteApplicationSettingsRequest' {..} =
-    Prelude.rnf eventTaggingEnabled
+    Prelude.rnf limits
+      `Prelude.seq` Prelude.rnf eventTaggingEnabled
       `Prelude.seq` Prelude.rnf cloudWatchMetricsEnabled
-      `Prelude.seq` Prelude.rnf limits
       `Prelude.seq` Prelude.rnf quietTime
       `Prelude.seq` Prelude.rnf campaignHook
 
@@ -212,11 +212,11 @@ instance Core.ToJSON WriteApplicationSettingsRequest where
   toJSON WriteApplicationSettingsRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EventTaggingEnabled" Core..=)
+          [ ("Limits" Core..=) Prelude.<$> limits,
+            ("EventTaggingEnabled" Core..=)
               Prelude.<$> eventTaggingEnabled,
             ("CloudWatchMetricsEnabled" Core..=)
               Prelude.<$> cloudWatchMetricsEnabled,
-            ("Limits" Core..=) Prelude.<$> limits,
             ("QuietTime" Core..=) Prelude.<$> quietTime,
             ("CampaignHook" Core..=) Prelude.<$> campaignHook
           ]

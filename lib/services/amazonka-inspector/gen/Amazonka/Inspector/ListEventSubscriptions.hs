@@ -32,8 +32,8 @@ module Amazonka.Inspector.ListEventSubscriptions
 
     -- * Request Lenses
     listEventSubscriptions_nextToken,
-    listEventSubscriptions_resourceArn,
     listEventSubscriptions_maxResults,
+    listEventSubscriptions_resourceArn,
 
     -- * Destructuring the Response
     ListEventSubscriptionsResponse (..),
@@ -61,12 +61,12 @@ data ListEventSubscriptions = ListEventSubscriptions'
     -- __nextToken__ in the request with the value of __NextToken__ from the
     -- previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the assessment template for which you want to list the
-    -- existing event subscriptions.
-    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The ARN of the assessment template for which you want to list the
+    -- existing event subscriptions.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,19 +84,19 @@ data ListEventSubscriptions = ListEventSubscriptions'
 -- __nextToken__ in the request with the value of __NextToken__ from the
 -- previous response to continue listing data.
 --
--- 'resourceArn', 'listEventSubscriptions_resourceArn' - The ARN of the assessment template for which you want to list the
--- existing event subscriptions.
---
 -- 'maxResults', 'listEventSubscriptions_maxResults' - You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 10. The maximum value is 500.
+--
+-- 'resourceArn', 'listEventSubscriptions_resourceArn' - The ARN of the assessment template for which you want to list the
+-- existing event subscriptions.
 newListEventSubscriptions ::
   ListEventSubscriptions
 newListEventSubscriptions =
   ListEventSubscriptions'
     { nextToken =
         Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      resourceArn = Prelude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -107,15 +107,15 @@ newListEventSubscriptions =
 listEventSubscriptions_nextToken :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Text)
 listEventSubscriptions_nextToken = Lens.lens (\ListEventSubscriptions' {nextToken} -> nextToken) (\s@ListEventSubscriptions' {} a -> s {nextToken = a} :: ListEventSubscriptions)
 
--- | The ARN of the assessment template for which you want to list the
--- existing event subscriptions.
-listEventSubscriptions_resourceArn :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Text)
-listEventSubscriptions_resourceArn = Lens.lens (\ListEventSubscriptions' {resourceArn} -> resourceArn) (\s@ListEventSubscriptions' {} a -> s {resourceArn = a} :: ListEventSubscriptions)
-
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 10. The maximum value is 500.
 listEventSubscriptions_maxResults :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Int)
 listEventSubscriptions_maxResults = Lens.lens (\ListEventSubscriptions' {maxResults} -> maxResults) (\s@ListEventSubscriptions' {} a -> s {maxResults = a} :: ListEventSubscriptions)
+
+-- | The ARN of the assessment template for which you want to list the
+-- existing event subscriptions.
+listEventSubscriptions_resourceArn :: Lens.Lens' ListEventSubscriptions (Prelude.Maybe Prelude.Text)
+listEventSubscriptions_resourceArn = Lens.lens (\ListEventSubscriptions' {resourceArn} -> resourceArn) (\s@ListEventSubscriptions' {} a -> s {resourceArn = a} :: ListEventSubscriptions)
 
 instance Core.AWSPager ListEventSubscriptions where
   page rq rs
@@ -155,14 +155,14 @@ instance Core.AWSRequest ListEventSubscriptions where
 instance Prelude.Hashable ListEventSubscriptions where
   hashWithSalt _salt ListEventSubscriptions' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListEventSubscriptions where
   rnf ListEventSubscriptions' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders ListEventSubscriptions where
   toHeaders =
@@ -184,8 +184,8 @@ instance Core.ToJSON ListEventSubscriptions where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceArn" Core..=) Prelude.<$> resourceArn,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("resourceArn" Core..=) Prelude.<$> resourceArn
           ]
       )
 

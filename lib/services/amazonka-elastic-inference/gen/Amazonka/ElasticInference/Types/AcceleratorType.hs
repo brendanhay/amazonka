@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAcceleratorType' smart constructor.
 data AcceleratorType = AcceleratorType'
-  { -- | The throughput information of the Elastic Inference Accelerator type.
-    throughputInfo :: Prelude.Maybe [KeyValuePair],
-    -- | The memory information of the Elastic Inference Accelerator type.
+  { -- | The memory information of the Elastic Inference Accelerator type.
     memoryInfo :: Prelude.Maybe MemoryInfo,
     -- | The name of the Elastic Inference Accelerator type.
-    acceleratorTypeName :: Prelude.Maybe Prelude.Text
+    acceleratorTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The throughput information of the Elastic Inference Accelerator type.
+    throughputInfo :: Prelude.Maybe [KeyValuePair]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data AcceleratorType = AcceleratorType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'throughputInfo', 'acceleratorType_throughputInfo' - The throughput information of the Elastic Inference Accelerator type.
---
 -- 'memoryInfo', 'acceleratorType_memoryInfo' - The memory information of the Elastic Inference Accelerator type.
 --
 -- 'acceleratorTypeName', 'acceleratorType_acceleratorTypeName' - The name of the Elastic Inference Accelerator type.
+--
+-- 'throughputInfo', 'acceleratorType_throughputInfo' - The throughput information of the Elastic Inference Accelerator type.
 newAcceleratorType ::
   AcceleratorType
 newAcceleratorType =
   AcceleratorType'
-    { throughputInfo = Prelude.Nothing,
-      memoryInfo = Prelude.Nothing,
-      acceleratorTypeName = Prelude.Nothing
+    { memoryInfo = Prelude.Nothing,
+      acceleratorTypeName = Prelude.Nothing,
+      throughputInfo = Prelude.Nothing
     }
-
--- | The throughput information of the Elastic Inference Accelerator type.
-acceleratorType_throughputInfo :: Lens.Lens' AcceleratorType (Prelude.Maybe [KeyValuePair])
-acceleratorType_throughputInfo = Lens.lens (\AcceleratorType' {throughputInfo} -> throughputInfo) (\s@AcceleratorType' {} a -> s {throughputInfo = a} :: AcceleratorType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The memory information of the Elastic Inference Accelerator type.
 acceleratorType_memoryInfo :: Lens.Lens' AcceleratorType (Prelude.Maybe MemoryInfo)
@@ -72,25 +68,31 @@ acceleratorType_memoryInfo = Lens.lens (\AcceleratorType' {memoryInfo} -> memory
 acceleratorType_acceleratorTypeName :: Lens.Lens' AcceleratorType (Prelude.Maybe Prelude.Text)
 acceleratorType_acceleratorTypeName = Lens.lens (\AcceleratorType' {acceleratorTypeName} -> acceleratorTypeName) (\s@AcceleratorType' {} a -> s {acceleratorTypeName = a} :: AcceleratorType)
 
+-- | The throughput information of the Elastic Inference Accelerator type.
+acceleratorType_throughputInfo :: Lens.Lens' AcceleratorType (Prelude.Maybe [KeyValuePair])
+acceleratorType_throughputInfo = Lens.lens (\AcceleratorType' {throughputInfo} -> throughputInfo) (\s@AcceleratorType' {} a -> s {throughputInfo = a} :: AcceleratorType) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON AcceleratorType where
   parseJSON =
     Core.withObject
       "AcceleratorType"
       ( \x ->
           AcceleratorType'
-            Prelude.<$> (x Core..:? "throughputInfo" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "memoryInfo")
+            Prelude.<$> (x Core..:? "memoryInfo")
             Prelude.<*> (x Core..:? "acceleratorTypeName")
+            Prelude.<*> ( x Core..:? "throughputInfo"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable AcceleratorType where
   hashWithSalt _salt AcceleratorType' {..} =
-    _salt `Prelude.hashWithSalt` throughputInfo
-      `Prelude.hashWithSalt` memoryInfo
+    _salt `Prelude.hashWithSalt` memoryInfo
       `Prelude.hashWithSalt` acceleratorTypeName
+      `Prelude.hashWithSalt` throughputInfo
 
 instance Prelude.NFData AcceleratorType where
   rnf AcceleratorType' {..} =
-    Prelude.rnf throughputInfo
-      `Prelude.seq` Prelude.rnf memoryInfo
+    Prelude.rnf memoryInfo
       `Prelude.seq` Prelude.rnf acceleratorTypeName
+      `Prelude.seq` Prelude.rnf throughputInfo

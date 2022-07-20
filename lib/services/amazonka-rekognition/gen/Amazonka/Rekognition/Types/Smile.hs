@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSmile' smart constructor.
 data Smile = Smile'
-  { -- | Boolean value that indicates whether the face is smiling or not.
-    value :: Prelude.Maybe Prelude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double
+  { -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | Boolean value that indicates whether the face is smiling or not.
+    value :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Smile = Smile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'smile_value' - Boolean value that indicates whether the face is smiling or not.
---
 -- 'confidence', 'smile_confidence' - Level of confidence in the determination.
+--
+-- 'value', 'smile_value' - Boolean value that indicates whether the face is smiling or not.
 newSmile ::
   Smile
 newSmile =
   Smile'
-    { value = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | Boolean value that indicates whether the face is smiling or not.
-smile_value :: Lens.Lens' Smile (Prelude.Maybe Prelude.Bool)
-smile_value = Lens.lens (\Smile' {value} -> value) (\s@Smile' {} a -> s {value = a} :: Smile)
 
 -- | Level of confidence in the determination.
 smile_confidence :: Lens.Lens' Smile (Prelude.Maybe Prelude.Double)
 smile_confidence = Lens.lens (\Smile' {confidence} -> confidence) (\s@Smile' {} a -> s {confidence = a} :: Smile)
+
+-- | Boolean value that indicates whether the face is smiling or not.
+smile_value :: Lens.Lens' Smile (Prelude.Maybe Prelude.Bool)
+smile_value = Lens.lens (\Smile' {value} -> value) (\s@Smile' {} a -> s {value = a} :: Smile)
 
 instance Core.FromJSON Smile where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON Smile where
       "Smile"
       ( \x ->
           Smile'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Smile where
   hashWithSalt _salt Smile' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Smile where
   rnf Smile' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf value

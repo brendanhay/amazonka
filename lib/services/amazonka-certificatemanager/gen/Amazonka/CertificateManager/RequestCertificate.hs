@@ -45,13 +45,13 @@ module Amazonka.CertificateManager.RequestCertificate
     newRequestCertificate,
 
     -- * Request Lenses
-    requestCertificate_idempotencyToken,
-    requestCertificate_validationMethod,
-    requestCertificate_subjectAlternativeNames,
-    requestCertificate_options,
+    requestCertificate_tags,
     requestCertificate_domainValidationOptions,
     requestCertificate_certificateAuthorityArn,
-    requestCertificate_tags,
+    requestCertificate_idempotencyToken,
+    requestCertificate_options,
+    requestCertificate_validationMethod,
+    requestCertificate_subjectAlternativeNames,
     requestCertificate_domainName,
 
     -- * Destructuring the Response
@@ -73,7 +73,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRequestCertificate' smart constructor.
 data RequestCertificate = RequestCertificate'
-  { -- | Customer chosen string that can be used to distinguish between calls to
+  { -- | One or more resource tags to associate with the certificate.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The domain name that you want ACM to use to send you emails so that you
+    -- can validate domain ownership.
+    domainValidationOptions :: Prelude.Maybe (Prelude.NonEmpty DomainValidationOption),
+    -- | The Amazon Resource Name (ARN) of the private certificate authority (CA)
+    -- that will be used to issue the certificate. If you do not provide an ARN
+    -- and you are trying to request a private certificate, ACM will attempt to
+    -- issue a public certificate. For more information about private CAs, see
+    -- the
+    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
+    -- user guide. The ARN must have the following form:
+    --
+    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
+    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    -- | Customer chosen string that can be used to distinguish between calls to
     -- @RequestCertificate@. Idempotency tokens time out after one hour.
     -- Therefore, if you call @RequestCertificate@ multiple times with the same
     -- idempotency token within one hour, ACM recognizes that you are
@@ -81,6 +96,14 @@ data RequestCertificate = RequestCertificate'
     -- the idempotency token for each call, ACM recognizes that you are
     -- requesting multiple certificates.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
+    -- | Currently, you can use this parameter to specify whether to add the
+    -- certificate to a certificate transparency log. Certificate transparency
+    -- makes it possible to detect SSL\/TLS certificates that have been
+    -- mistakenly or maliciously issued. Certificates that have not been logged
+    -- typically produce an error message in a browser. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging>.
+    options :: Prelude.Maybe CertificateOptions,
     -- | The method you want to use if you are requesting a public certificate to
     -- validate that you own or control domain. You can
     -- <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html validate with DNS>
@@ -114,29 +137,6 @@ data RequestCertificate = RequestCertificate'
     --     because the total length of the DNS name (63+1+63+1+63+1+62) exceeds
     --     253 octets.
     subjectAlternativeNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Currently, you can use this parameter to specify whether to add the
-    -- certificate to a certificate transparency log. Certificate transparency
-    -- makes it possible to detect SSL\/TLS certificates that have been
-    -- mistakenly or maliciously issued. Certificates that have not been logged
-    -- typically produce an error message in a browser. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging>.
-    options :: Prelude.Maybe CertificateOptions,
-    -- | The domain name that you want ACM to use to send you emails so that you
-    -- can validate domain ownership.
-    domainValidationOptions :: Prelude.Maybe (Prelude.NonEmpty DomainValidationOption),
-    -- | The Amazon Resource Name (ARN) of the private certificate authority (CA)
-    -- that will be used to issue the certificate. If you do not provide an ARN
-    -- and you are trying to request a private certificate, ACM will attempt to
-    -- issue a public certificate. For more information about private CAs, see
-    -- the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
-    -- user guide. The ARN must have the following form:
-    --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
-    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
-    -- | One or more resource tags to associate with the certificate.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Fully qualified domain name (FQDN), such as www.example.com, that you
     -- want to secure with an ACM certificate. Use an asterisk (*) to create a
     -- wildcard certificate that protects several sites in the same domain. For
@@ -158,6 +158,21 @@ data RequestCertificate = RequestCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'requestCertificate_tags' - One or more resource tags to associate with the certificate.
+--
+-- 'domainValidationOptions', 'requestCertificate_domainValidationOptions' - The domain name that you want ACM to use to send you emails so that you
+-- can validate domain ownership.
+--
+-- 'certificateAuthorityArn', 'requestCertificate_certificateAuthorityArn' - The Amazon Resource Name (ARN) of the private certificate authority (CA)
+-- that will be used to issue the certificate. If you do not provide an ARN
+-- and you are trying to request a private certificate, ACM will attempt to
+-- issue a public certificate. For more information about private CAs, see
+-- the
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
+-- user guide. The ARN must have the following form:
+--
+-- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
+--
 -- 'idempotencyToken', 'requestCertificate_idempotencyToken' - Customer chosen string that can be used to distinguish between calls to
 -- @RequestCertificate@. Idempotency tokens time out after one hour.
 -- Therefore, if you call @RequestCertificate@ multiple times with the same
@@ -165,6 +180,14 @@ data RequestCertificate = RequestCertificate'
 -- requesting only one certificate and will issue only one. If you change
 -- the idempotency token for each call, ACM recognizes that you are
 -- requesting multiple certificates.
+--
+-- 'options', 'requestCertificate_options' - Currently, you can use this parameter to specify whether to add the
+-- certificate to a certificate transparency log. Certificate transparency
+-- makes it possible to detect SSL\/TLS certificates that have been
+-- mistakenly or maliciously issued. Certificates that have not been logged
+-- typically produce an error message in a browser. For more information,
+-- see
+-- <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging>.
 --
 -- 'validationMethod', 'requestCertificate_validationMethod' - The method you want to use if you are requesting a public certificate to
 -- validate that you own or control domain. You can
@@ -199,29 +222,6 @@ data RequestCertificate = RequestCertificate'
 --     because the total length of the DNS name (63+1+63+1+63+1+62) exceeds
 --     253 octets.
 --
--- 'options', 'requestCertificate_options' - Currently, you can use this parameter to specify whether to add the
--- certificate to a certificate transparency log. Certificate transparency
--- makes it possible to detect SSL\/TLS certificates that have been
--- mistakenly or maliciously issued. Certificates that have not been logged
--- typically produce an error message in a browser. For more information,
--- see
--- <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging>.
---
--- 'domainValidationOptions', 'requestCertificate_domainValidationOptions' - The domain name that you want ACM to use to send you emails so that you
--- can validate domain ownership.
---
--- 'certificateAuthorityArn', 'requestCertificate_certificateAuthorityArn' - The Amazon Resource Name (ARN) of the private certificate authority (CA)
--- that will be used to issue the certificate. If you do not provide an ARN
--- and you are trying to request a private certificate, ACM will attempt to
--- issue a public certificate. For more information about private CAs, see
--- the
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
--- user guide. The ARN must have the following form:
---
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
---
--- 'tags', 'requestCertificate_tags' - One or more resource tags to associate with the certificate.
---
 -- 'domainName', 'requestCertificate_domainName' - Fully qualified domain name (FQDN), such as www.example.com, that you
 -- want to secure with an ACM certificate. Use an asterisk (*) to create a
 -- wildcard certificate that protects several sites in the same domain. For
@@ -237,16 +237,36 @@ newRequestCertificate ::
   RequestCertificate
 newRequestCertificate pDomainName_ =
   RequestCertificate'
-    { idempotencyToken =
-        Prelude.Nothing,
-      validationMethod = Prelude.Nothing,
-      subjectAlternativeNames = Prelude.Nothing,
-      options = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       domainValidationOptions = Prelude.Nothing,
       certificateAuthorityArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
+      options = Prelude.Nothing,
+      validationMethod = Prelude.Nothing,
+      subjectAlternativeNames = Prelude.Nothing,
       domainName = pDomainName_
     }
+
+-- | One or more resource tags to associate with the certificate.
+requestCertificate_tags :: Lens.Lens' RequestCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
+requestCertificate_tags = Lens.lens (\RequestCertificate' {tags} -> tags) (\s@RequestCertificate' {} a -> s {tags = a} :: RequestCertificate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The domain name that you want ACM to use to send you emails so that you
+-- can validate domain ownership.
+requestCertificate_domainValidationOptions :: Lens.Lens' RequestCertificate (Prelude.Maybe (Prelude.NonEmpty DomainValidationOption))
+requestCertificate_domainValidationOptions = Lens.lens (\RequestCertificate' {domainValidationOptions} -> domainValidationOptions) (\s@RequestCertificate' {} a -> s {domainValidationOptions = a} :: RequestCertificate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the private certificate authority (CA)
+-- that will be used to issue the certificate. If you do not provide an ARN
+-- and you are trying to request a private certificate, ACM will attempt to
+-- issue a public certificate. For more information about private CAs, see
+-- the
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
+-- user guide. The ARN must have the following form:
+--
+-- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
+requestCertificate_certificateAuthorityArn :: Lens.Lens' RequestCertificate (Prelude.Maybe Prelude.Text)
+requestCertificate_certificateAuthorityArn = Lens.lens (\RequestCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@RequestCertificate' {} a -> s {certificateAuthorityArn = a} :: RequestCertificate)
 
 -- | Customer chosen string that can be used to distinguish between calls to
 -- @RequestCertificate@. Idempotency tokens time out after one hour.
@@ -257,6 +277,16 @@ newRequestCertificate pDomainName_ =
 -- requesting multiple certificates.
 requestCertificate_idempotencyToken :: Lens.Lens' RequestCertificate (Prelude.Maybe Prelude.Text)
 requestCertificate_idempotencyToken = Lens.lens (\RequestCertificate' {idempotencyToken} -> idempotencyToken) (\s@RequestCertificate' {} a -> s {idempotencyToken = a} :: RequestCertificate)
+
+-- | Currently, you can use this parameter to specify whether to add the
+-- certificate to a certificate transparency log. Certificate transparency
+-- makes it possible to detect SSL\/TLS certificates that have been
+-- mistakenly or maliciously issued. Certificates that have not been logged
+-- typically produce an error message in a browser. For more information,
+-- see
+-- <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging>.
+requestCertificate_options :: Lens.Lens' RequestCertificate (Prelude.Maybe CertificateOptions)
+requestCertificate_options = Lens.lens (\RequestCertificate' {options} -> options) (\s@RequestCertificate' {} a -> s {options = a} :: RequestCertificate)
 
 -- | The method you want to use if you are requesting a public certificate to
 -- validate that you own or control domain. You can
@@ -295,37 +325,6 @@ requestCertificate_validationMethod = Lens.lens (\RequestCertificate' {validatio
 requestCertificate_subjectAlternativeNames :: Lens.Lens' RequestCertificate (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 requestCertificate_subjectAlternativeNames = Lens.lens (\RequestCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@RequestCertificate' {} a -> s {subjectAlternativeNames = a} :: RequestCertificate) Prelude.. Lens.mapping Lens.coerced
 
--- | Currently, you can use this parameter to specify whether to add the
--- certificate to a certificate transparency log. Certificate transparency
--- makes it possible to detect SSL\/TLS certificates that have been
--- mistakenly or maliciously issued. Certificates that have not been logged
--- typically produce an error message in a browser. For more information,
--- see
--- <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging>.
-requestCertificate_options :: Lens.Lens' RequestCertificate (Prelude.Maybe CertificateOptions)
-requestCertificate_options = Lens.lens (\RequestCertificate' {options} -> options) (\s@RequestCertificate' {} a -> s {options = a} :: RequestCertificate)
-
--- | The domain name that you want ACM to use to send you emails so that you
--- can validate domain ownership.
-requestCertificate_domainValidationOptions :: Lens.Lens' RequestCertificate (Prelude.Maybe (Prelude.NonEmpty DomainValidationOption))
-requestCertificate_domainValidationOptions = Lens.lens (\RequestCertificate' {domainValidationOptions} -> domainValidationOptions) (\s@RequestCertificate' {} a -> s {domainValidationOptions = a} :: RequestCertificate) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the private certificate authority (CA)
--- that will be used to issue the certificate. If you do not provide an ARN
--- and you are trying to request a private certificate, ACM will attempt to
--- issue a public certificate. For more information about private CAs, see
--- the
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html Amazon Web Services Certificate Manager Private Certificate Authority (PCA)>
--- user guide. The ARN must have the following form:
---
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
-requestCertificate_certificateAuthorityArn :: Lens.Lens' RequestCertificate (Prelude.Maybe Prelude.Text)
-requestCertificate_certificateAuthorityArn = Lens.lens (\RequestCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@RequestCertificate' {} a -> s {certificateAuthorityArn = a} :: RequestCertificate)
-
--- | One or more resource tags to associate with the certificate.
-requestCertificate_tags :: Lens.Lens' RequestCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
-requestCertificate_tags = Lens.lens (\RequestCertificate' {tags} -> tags) (\s@RequestCertificate' {} a -> s {tags = a} :: RequestCertificate) Prelude.. Lens.mapping Lens.coerced
-
 -- | Fully qualified domain name (FQDN), such as www.example.com, that you
 -- want to secure with an ACM certificate. Use an asterisk (*) to create a
 -- wildcard certificate that protects several sites in the same domain. For
@@ -353,24 +352,24 @@ instance Core.AWSRequest RequestCertificate where
 
 instance Prelude.Hashable RequestCertificate where
   hashWithSalt _salt RequestCertificate' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
-      `Prelude.hashWithSalt` validationMethod
-      `Prelude.hashWithSalt` subjectAlternativeNames
-      `Prelude.hashWithSalt` options
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domainValidationOptions
       `Prelude.hashWithSalt` certificateAuthorityArn
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` validationMethod
+      `Prelude.hashWithSalt` subjectAlternativeNames
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData RequestCertificate where
   rnf RequestCertificate' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf validationMethod
-      `Prelude.seq` Prelude.rnf subjectAlternativeNames
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf domainValidationOptions
       `Prelude.seq` Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf validationMethod
+      `Prelude.seq` Prelude.rnf subjectAlternativeNames
       `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders RequestCertificate where
@@ -392,18 +391,18 @@ instance Core.ToJSON RequestCertificate where
   toJSON RequestCertificate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IdempotencyToken" Core..=)
-              Prelude.<$> idempotencyToken,
-            ("ValidationMethod" Core..=)
-              Prelude.<$> validationMethod,
-            ("SubjectAlternativeNames" Core..=)
-              Prelude.<$> subjectAlternativeNames,
-            ("Options" Core..=) Prelude.<$> options,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("DomainValidationOptions" Core..=)
               Prelude.<$> domainValidationOptions,
             ("CertificateAuthorityArn" Core..=)
               Prelude.<$> certificateAuthorityArn,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("IdempotencyToken" Core..=)
+              Prelude.<$> idempotencyToken,
+            ("Options" Core..=) Prelude.<$> options,
+            ("ValidationMethod" Core..=)
+              Prelude.<$> validationMethod,
+            ("SubjectAlternativeNames" Core..=)
+              Prelude.<$> subjectAlternativeNames,
             Prelude.Just ("DomainName" Core..= domainName)
           ]
       )

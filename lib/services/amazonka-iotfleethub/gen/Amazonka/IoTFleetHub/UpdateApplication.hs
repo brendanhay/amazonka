@@ -31,8 +31,8 @@ module Amazonka.IoTFleetHub.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
-    updateApplication_applicationDescription,
     updateApplication_clientToken,
+    updateApplication_applicationDescription,
     updateApplication_applicationName,
     updateApplication_applicationId,
 
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | An optional description of the web application.
-    applicationDescription :: Prelude.Maybe Prelude.Text,
-    -- | A unique case-sensitive identifier that you can provide to ensure the
+  { -- | A unique case-sensitive identifier that you can provide to ensure the
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional description of the web application.
+    applicationDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the web application.
     applicationName :: Prelude.Maybe Prelude.Text,
     -- | The unique Id of the web application.
@@ -75,11 +75,11 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationDescription', 'updateApplication_applicationDescription' - An optional description of the web application.
---
 -- 'clientToken', 'updateApplication_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
+--
+-- 'applicationDescription', 'updateApplication_applicationDescription' - An optional description of the web application.
 --
 -- 'applicationName', 'updateApplication_applicationName' - The name of the web application.
 --
@@ -90,22 +90,21 @@ newUpdateApplication ::
   UpdateApplication
 newUpdateApplication pApplicationId_ =
   UpdateApplication'
-    { applicationDescription =
-        Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      applicationDescription = Prelude.Nothing,
       applicationName = Prelude.Nothing,
       applicationId = pApplicationId_
     }
-
--- | An optional description of the web application.
-updateApplication_applicationDescription :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
-updateApplication_applicationDescription = Lens.lens (\UpdateApplication' {applicationDescription} -> applicationDescription) (\s@UpdateApplication' {} a -> s {applicationDescription = a} :: UpdateApplication)
 
 -- | A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 updateApplication_clientToken :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_clientToken = Lens.lens (\UpdateApplication' {clientToken} -> clientToken) (\s@UpdateApplication' {} a -> s {clientToken = a} :: UpdateApplication)
+
+-- | An optional description of the web application.
+updateApplication_applicationDescription :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_applicationDescription = Lens.lens (\UpdateApplication' {applicationDescription} -> applicationDescription) (\s@UpdateApplication' {} a -> s {applicationDescription = a} :: UpdateApplication)
 
 -- | The name of the web application.
 updateApplication_applicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
@@ -129,15 +128,15 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationDescription
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` applicationDescription
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf applicationDescription
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf applicationId
 
@@ -156,9 +155,9 @@ instance Core.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("applicationDescription" Core..=)
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("applicationDescription" Core..=)
               Prelude.<$> applicationDescription,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
             ("applicationName" Core..=)
               Prelude.<$> applicationName
           ]

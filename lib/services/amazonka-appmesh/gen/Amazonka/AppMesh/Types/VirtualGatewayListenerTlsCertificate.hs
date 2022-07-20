@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualGatewayListenerTlsCertificate' smart constructor.
 data VirtualGatewayListenerTlsCertificate = VirtualGatewayListenerTlsCertificate'
-  { -- | A reference to an object that represents an Certificate Manager
-    -- certificate.
-    acm :: Prelude.Maybe VirtualGatewayListenerTlsAcmCertificate,
-    -- | A reference to an object that represents a virtual gateway\'s
+  { -- | A reference to an object that represents a virtual gateway\'s
     -- listener\'s Secret Discovery Service certificate.
     sds :: Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate,
     -- | A reference to an object that represents a local file certificate.
-    file :: Prelude.Maybe VirtualGatewayListenerTlsFileCertificate
+    file :: Prelude.Maybe VirtualGatewayListenerTlsFileCertificate,
+    -- | A reference to an object that represents an Certificate Manager
+    -- certificate.
+    acm :: Prelude.Maybe VirtualGatewayListenerTlsAcmCertificate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,27 +50,22 @@ data VirtualGatewayListenerTlsCertificate = VirtualGatewayListenerTlsCertificate
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'acm', 'virtualGatewayListenerTlsCertificate_acm' - A reference to an object that represents an Certificate Manager
--- certificate.
---
 -- 'sds', 'virtualGatewayListenerTlsCertificate_sds' - A reference to an object that represents a virtual gateway\'s
 -- listener\'s Secret Discovery Service certificate.
 --
 -- 'file', 'virtualGatewayListenerTlsCertificate_file' - A reference to an object that represents a local file certificate.
+--
+-- 'acm', 'virtualGatewayListenerTlsCertificate_acm' - A reference to an object that represents an Certificate Manager
+-- certificate.
 newVirtualGatewayListenerTlsCertificate ::
   VirtualGatewayListenerTlsCertificate
 newVirtualGatewayListenerTlsCertificate =
   VirtualGatewayListenerTlsCertificate'
-    { acm =
+    { sds =
         Prelude.Nothing,
-      sds = Prelude.Nothing,
-      file = Prelude.Nothing
+      file = Prelude.Nothing,
+      acm = Prelude.Nothing
     }
-
--- | A reference to an object that represents an Certificate Manager
--- certificate.
-virtualGatewayListenerTlsCertificate_acm :: Lens.Lens' VirtualGatewayListenerTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsAcmCertificate)
-virtualGatewayListenerTlsCertificate_acm = Lens.lens (\VirtualGatewayListenerTlsCertificate' {acm} -> acm) (\s@VirtualGatewayListenerTlsCertificate' {} a -> s {acm = a} :: VirtualGatewayListenerTlsCertificate)
 
 -- | A reference to an object that represents a virtual gateway\'s
 -- listener\'s Secret Discovery Service certificate.
@@ -81,6 +76,11 @@ virtualGatewayListenerTlsCertificate_sds = Lens.lens (\VirtualGatewayListenerTls
 virtualGatewayListenerTlsCertificate_file :: Lens.Lens' VirtualGatewayListenerTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsFileCertificate)
 virtualGatewayListenerTlsCertificate_file = Lens.lens (\VirtualGatewayListenerTlsCertificate' {file} -> file) (\s@VirtualGatewayListenerTlsCertificate' {} a -> s {file = a} :: VirtualGatewayListenerTlsCertificate)
 
+-- | A reference to an object that represents an Certificate Manager
+-- certificate.
+virtualGatewayListenerTlsCertificate_acm :: Lens.Lens' VirtualGatewayListenerTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsAcmCertificate)
+virtualGatewayListenerTlsCertificate_acm = Lens.lens (\VirtualGatewayListenerTlsCertificate' {acm} -> acm) (\s@VirtualGatewayListenerTlsCertificate' {} a -> s {acm = a} :: VirtualGatewayListenerTlsCertificate)
+
 instance
   Core.FromJSON
     VirtualGatewayListenerTlsCertificate
@@ -90,9 +90,9 @@ instance
       "VirtualGatewayListenerTlsCertificate"
       ( \x ->
           VirtualGatewayListenerTlsCertificate'
-            Prelude.<$> (x Core..:? "acm")
-            Prelude.<*> (x Core..:? "sds")
+            Prelude.<$> (x Core..:? "sds")
             Prelude.<*> (x Core..:? "file")
+            Prelude.<*> (x Core..:? "acm")
       )
 
 instance
@@ -102,18 +102,18 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayListenerTlsCertificate' {..} =
-      _salt `Prelude.hashWithSalt` acm
-        `Prelude.hashWithSalt` sds
+      _salt `Prelude.hashWithSalt` sds
         `Prelude.hashWithSalt` file
+        `Prelude.hashWithSalt` acm
 
 instance
   Prelude.NFData
     VirtualGatewayListenerTlsCertificate
   where
   rnf VirtualGatewayListenerTlsCertificate' {..} =
-    Prelude.rnf acm
-      `Prelude.seq` Prelude.rnf sds
+    Prelude.rnf sds
       `Prelude.seq` Prelude.rnf file
+      `Prelude.seq` Prelude.rnf acm
 
 instance
   Core.ToJSON
@@ -122,8 +122,8 @@ instance
   toJSON VirtualGatewayListenerTlsCertificate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("acm" Core..=) Prelude.<$> acm,
-            ("sds" Core..=) Prelude.<$> sds,
-            ("file" Core..=) Prelude.<$> file
+          [ ("sds" Core..=) Prelude.<$> sds,
+            ("file" Core..=) Prelude.<$> file,
+            ("acm" Core..=) Prelude.<$> acm
           ]
       )

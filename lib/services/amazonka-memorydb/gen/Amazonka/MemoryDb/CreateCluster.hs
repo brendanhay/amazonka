@@ -28,24 +28,24 @@ module Amazonka.MemoryDb.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
-    createCluster_engineVersion,
-    createCluster_securityGroupIds,
-    createCluster_snapshotArns,
-    createCluster_autoMinorVersionUpgrade,
-    createCluster_snsTopicArn,
-    createCluster_snapshotWindow,
-    createCluster_subnetGroupName,
-    createCluster_tLSEnabled,
-    createCluster_numShards,
-    createCluster_maintenanceWindow,
-    createCluster_kmsKeyId,
-    createCluster_snapshotRetentionLimit,
-    createCluster_snapshotName,
-    createCluster_description,
-    createCluster_numReplicasPerShard,
     createCluster_tags,
     createCluster_port,
+    createCluster_subnetGroupName,
     createCluster_parameterGroupName,
+    createCluster_numReplicasPerShard,
+    createCluster_snapshotName,
+    createCluster_securityGroupIds,
+    createCluster_autoMinorVersionUpgrade,
+    createCluster_tLSEnabled,
+    createCluster_description,
+    createCluster_snapshotArns,
+    createCluster_maintenanceWindow,
+    createCluster_snapshotWindow,
+    createCluster_snapshotRetentionLimit,
+    createCluster_snsTopicArn,
+    createCluster_kmsKeyId,
+    createCluster_numShards,
+    createCluster_engineVersion,
     createCluster_clusterName,
     createCluster_nodeType,
     createCluster_aCLName,
@@ -69,21 +69,43 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | The version number of the Redis engine to be used for the cluster.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+  { -- | A list of tags to be added to this resource. Tags are comma-separated
+    -- key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include
+    -- multiple tags as shown following: Key=myKey, Value=myKeyValue
+    -- Key=mySecondKey, Value=mySecondKeyValue.
+    tags :: Prelude.Maybe [Tag],
+    -- | The port number on which each of the nodes accepts connections.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The name of the subnet group to be used for the cluster.
+    subnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the parameter group associated with the cluster.
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The number of replicas to apply to each shard. The default value is 1.
+    -- The maximum is 5.
+    numReplicasPerShard :: Prelude.Maybe Prelude.Int,
+    -- | The name of a snapshot from which to restore data into the new cluster.
+    -- The snapshot status changes to restoring while the new cluster is being
+    -- created.
+    snapshotName :: Prelude.Maybe Prelude.Text,
     -- | A list of security group names to associate with this cluster.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | When set to true, the cluster will automatically receive minor engine
+    -- version upgrades after launch.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | A flag to enable in-transit encryption on the cluster.
+    tLSEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | An optional description of the cluster.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of Amazon Resource Names (ARN) that uniquely identify the RDB
     -- snapshot files stored in Amazon S3. The snapshot files are used to
     -- populate the new cluster. The Amazon S3 object name in the ARN cannot
     -- contain any commas.
     snapshotArns :: Prelude.Maybe [Prelude.Text],
-    -- | When set to true, the cluster will automatically receive minor engine
-    -- version upgrades after launch.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
-    -- (SNS) topic to which notifications are sent.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the weekly time range during which maintenance on the cluster
+    -- is performed. It is specified as a range in the format
+    -- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
+    -- window is a 60 minute period.
+    maintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The daily time range (in UTC) during which MemoryDB begins taking a
     -- daily snapshot of your shard.
     --
@@ -92,42 +114,20 @@ data CreateCluster = CreateCluster'
     -- If you do not specify this parameter, MemoryDB automatically chooses an
     -- appropriate time range.
     snapshotWindow :: Prelude.Maybe Prelude.Text,
-    -- | The name of the subnet group to be used for the cluster.
-    subnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A flag to enable in-transit encryption on the cluster.
-    tLSEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The number of shards the cluster will contain. The default value is 1.
-    numShards :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the weekly time range during which maintenance on the cluster
-    -- is performed. It is specified as a range in the format
-    -- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
-    -- window is a 60 minute period.
-    maintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the KMS key used to encrypt the cluster.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The number of days for which MemoryDB retains automatic snapshots before
     -- deleting them. For example, if you set SnapshotRetentionLimit to 5, a
     -- snapshot that was taken today is retained for 5 days before being
     -- deleted.
     snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
-    -- | The name of a snapshot from which to restore data into the new cluster.
-    -- The snapshot status changes to restoring while the new cluster is being
-    -- created.
-    snapshotName :: Prelude.Maybe Prelude.Text,
-    -- | An optional description of the cluster.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The number of replicas to apply to each shard. The default value is 1.
-    -- The maximum is 5.
-    numReplicasPerShard :: Prelude.Maybe Prelude.Int,
-    -- | A list of tags to be added to this resource. Tags are comma-separated
-    -- key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include
-    -- multiple tags as shown following: Key=myKey, Value=myKeyValue
-    -- Key=mySecondKey, Value=mySecondKeyValue.
-    tags :: Prelude.Maybe [Tag],
-    -- | The port number on which each of the nodes accepts connections.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | The name of the parameter group associated with the cluster.
-    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
+    -- (SNS) topic to which notifications are sent.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the KMS key used to encrypt the cluster.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The number of shards the cluster will contain. The default value is 1.
+    numShards :: Prelude.Maybe Prelude.Int,
+    -- | The version number of the Redis engine to be used for the cluster.
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster. This value must be unique as it also serves as
     -- the cluster identifier.
     clusterName :: Prelude.Text,
@@ -146,20 +146,42 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'createCluster_engineVersion' - The version number of the Redis engine to be used for the cluster.
+-- 'tags', 'createCluster_tags' - A list of tags to be added to this resource. Tags are comma-separated
+-- key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include
+-- multiple tags as shown following: Key=myKey, Value=myKeyValue
+-- Key=mySecondKey, Value=mySecondKeyValue.
+--
+-- 'port', 'createCluster_port' - The port number on which each of the nodes accepts connections.
+--
+-- 'subnetGroupName', 'createCluster_subnetGroupName' - The name of the subnet group to be used for the cluster.
+--
+-- 'parameterGroupName', 'createCluster_parameterGroupName' - The name of the parameter group associated with the cluster.
+--
+-- 'numReplicasPerShard', 'createCluster_numReplicasPerShard' - The number of replicas to apply to each shard. The default value is 1.
+-- The maximum is 5.
+--
+-- 'snapshotName', 'createCluster_snapshotName' - The name of a snapshot from which to restore data into the new cluster.
+-- The snapshot status changes to restoring while the new cluster is being
+-- created.
 --
 -- 'securityGroupIds', 'createCluster_securityGroupIds' - A list of security group names to associate with this cluster.
+--
+-- 'autoMinorVersionUpgrade', 'createCluster_autoMinorVersionUpgrade' - When set to true, the cluster will automatically receive minor engine
+-- version upgrades after launch.
+--
+-- 'tLSEnabled', 'createCluster_tLSEnabled' - A flag to enable in-transit encryption on the cluster.
+--
+-- 'description', 'createCluster_description' - An optional description of the cluster.
 --
 -- 'snapshotArns', 'createCluster_snapshotArns' - A list of Amazon Resource Names (ARN) that uniquely identify the RDB
 -- snapshot files stored in Amazon S3. The snapshot files are used to
 -- populate the new cluster. The Amazon S3 object name in the ARN cannot
 -- contain any commas.
 --
--- 'autoMinorVersionUpgrade', 'createCluster_autoMinorVersionUpgrade' - When set to true, the cluster will automatically receive minor engine
--- version upgrades after launch.
---
--- 'snsTopicArn', 'createCluster_snsTopicArn' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (SNS) topic to which notifications are sent.
+-- 'maintenanceWindow', 'createCluster_maintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
+-- window is a 60 minute period.
 --
 -- 'snapshotWindow', 'createCluster_snapshotWindow' - The daily time range (in UTC) during which MemoryDB begins taking a
 -- daily snapshot of your shard.
@@ -169,41 +191,19 @@ data CreateCluster = CreateCluster'
 -- If you do not specify this parameter, MemoryDB automatically chooses an
 -- appropriate time range.
 --
--- 'subnetGroupName', 'createCluster_subnetGroupName' - The name of the subnet group to be used for the cluster.
---
--- 'tLSEnabled', 'createCluster_tLSEnabled' - A flag to enable in-transit encryption on the cluster.
---
--- 'numShards', 'createCluster_numShards' - The number of shards the cluster will contain. The default value is 1.
---
--- 'maintenanceWindow', 'createCluster_maintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
--- window is a 60 minute period.
---
--- 'kmsKeyId', 'createCluster_kmsKeyId' - The ID of the KMS key used to encrypt the cluster.
---
 -- 'snapshotRetentionLimit', 'createCluster_snapshotRetentionLimit' - The number of days for which MemoryDB retains automatic snapshots before
 -- deleting them. For example, if you set SnapshotRetentionLimit to 5, a
 -- snapshot that was taken today is retained for 5 days before being
 -- deleted.
 --
--- 'snapshotName', 'createCluster_snapshotName' - The name of a snapshot from which to restore data into the new cluster.
--- The snapshot status changes to restoring while the new cluster is being
--- created.
+-- 'snsTopicArn', 'createCluster_snsTopicArn' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
+-- (SNS) topic to which notifications are sent.
 --
--- 'description', 'createCluster_description' - An optional description of the cluster.
+-- 'kmsKeyId', 'createCluster_kmsKeyId' - The ID of the KMS key used to encrypt the cluster.
 --
--- 'numReplicasPerShard', 'createCluster_numReplicasPerShard' - The number of replicas to apply to each shard. The default value is 1.
--- The maximum is 5.
+-- 'numShards', 'createCluster_numShards' - The number of shards the cluster will contain. The default value is 1.
 --
--- 'tags', 'createCluster_tags' - A list of tags to be added to this resource. Tags are comma-separated
--- key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include
--- multiple tags as shown following: Key=myKey, Value=myKeyValue
--- Key=mySecondKey, Value=mySecondKeyValue.
---
--- 'port', 'createCluster_port' - The port number on which each of the nodes accepts connections.
---
--- 'parameterGroupName', 'createCluster_parameterGroupName' - The name of the parameter group associated with the cluster.
+-- 'engineVersion', 'createCluster_engineVersion' - The version number of the Redis engine to be used for the cluster.
 --
 -- 'clusterName', 'createCluster_clusterName' - The name of the cluster. This value must be unique as it also serves as
 -- the cluster identifier.
@@ -221,108 +221,28 @@ newCreateCluster ::
   CreateCluster
 newCreateCluster pClusterName_ pNodeType_ pACLName_ =
   CreateCluster'
-    { engineVersion = Prelude.Nothing,
-      securityGroupIds = Prelude.Nothing,
-      snapshotArns = Prelude.Nothing,
-      autoMinorVersionUpgrade = Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
-      snapshotWindow = Prelude.Nothing,
-      subnetGroupName = Prelude.Nothing,
-      tLSEnabled = Prelude.Nothing,
-      numShards = Prelude.Nothing,
-      maintenanceWindow = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      snapshotRetentionLimit = Prelude.Nothing,
-      snapshotName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      numReplicasPerShard = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       port = Prelude.Nothing,
+      subnetGroupName = Prelude.Nothing,
       parameterGroupName = Prelude.Nothing,
+      numReplicasPerShard = Prelude.Nothing,
+      snapshotName = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      tLSEnabled = Prelude.Nothing,
+      description = Prelude.Nothing,
+      snapshotArns = Prelude.Nothing,
+      maintenanceWindow = Prelude.Nothing,
+      snapshotWindow = Prelude.Nothing,
+      snapshotRetentionLimit = Prelude.Nothing,
+      snsTopicArn = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      numShards = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
       clusterName = pClusterName_,
       nodeType = pNodeType_,
       aCLName = pACLName_
     }
-
--- | The version number of the Redis engine to be used for the cluster.
-createCluster_engineVersion :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_engineVersion = Lens.lens (\CreateCluster' {engineVersion} -> engineVersion) (\s@CreateCluster' {} a -> s {engineVersion = a} :: CreateCluster)
-
--- | A list of security group names to associate with this cluster.
-createCluster_securityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
-createCluster_securityGroupIds = Lens.lens (\CreateCluster' {securityGroupIds} -> securityGroupIds) (\s@CreateCluster' {} a -> s {securityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of Amazon Resource Names (ARN) that uniquely identify the RDB
--- snapshot files stored in Amazon S3. The snapshot files are used to
--- populate the new cluster. The Amazon S3 object name in the ARN cannot
--- contain any commas.
-createCluster_snapshotArns :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
-createCluster_snapshotArns = Lens.lens (\CreateCluster' {snapshotArns} -> snapshotArns) (\s@CreateCluster' {} a -> s {snapshotArns = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | When set to true, the cluster will automatically receive minor engine
--- version upgrades after launch.
-createCluster_autoMinorVersionUpgrade :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
-createCluster_autoMinorVersionUpgrade = Lens.lens (\CreateCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CreateCluster)
-
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (SNS) topic to which notifications are sent.
-createCluster_snsTopicArn :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_snsTopicArn = Lens.lens (\CreateCluster' {snsTopicArn} -> snsTopicArn) (\s@CreateCluster' {} a -> s {snsTopicArn = a} :: CreateCluster)
-
--- | The daily time range (in UTC) during which MemoryDB begins taking a
--- daily snapshot of your shard.
---
--- Example: 05:00-09:00
---
--- If you do not specify this parameter, MemoryDB automatically chooses an
--- appropriate time range.
-createCluster_snapshotWindow :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_snapshotWindow = Lens.lens (\CreateCluster' {snapshotWindow} -> snapshotWindow) (\s@CreateCluster' {} a -> s {snapshotWindow = a} :: CreateCluster)
-
--- | The name of the subnet group to be used for the cluster.
-createCluster_subnetGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_subnetGroupName = Lens.lens (\CreateCluster' {subnetGroupName} -> subnetGroupName) (\s@CreateCluster' {} a -> s {subnetGroupName = a} :: CreateCluster)
-
--- | A flag to enable in-transit encryption on the cluster.
-createCluster_tLSEnabled :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
-createCluster_tLSEnabled = Lens.lens (\CreateCluster' {tLSEnabled} -> tLSEnabled) (\s@CreateCluster' {} a -> s {tLSEnabled = a} :: CreateCluster)
-
--- | The number of shards the cluster will contain. The default value is 1.
-createCluster_numShards :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
-createCluster_numShards = Lens.lens (\CreateCluster' {numShards} -> numShards) (\s@CreateCluster' {} a -> s {numShards = a} :: CreateCluster)
-
--- | Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
--- window is a 60 minute period.
-createCluster_maintenanceWindow :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_maintenanceWindow = Lens.lens (\CreateCluster' {maintenanceWindow} -> maintenanceWindow) (\s@CreateCluster' {} a -> s {maintenanceWindow = a} :: CreateCluster)
-
--- | The ID of the KMS key used to encrypt the cluster.
-createCluster_kmsKeyId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateCluster' {} a -> s {kmsKeyId = a} :: CreateCluster)
-
--- | The number of days for which MemoryDB retains automatic snapshots before
--- deleting them. For example, if you set SnapshotRetentionLimit to 5, a
--- snapshot that was taken today is retained for 5 days before being
--- deleted.
-createCluster_snapshotRetentionLimit :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
-createCluster_snapshotRetentionLimit = Lens.lens (\CreateCluster' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@CreateCluster' {} a -> s {snapshotRetentionLimit = a} :: CreateCluster)
-
--- | The name of a snapshot from which to restore data into the new cluster.
--- The snapshot status changes to restoring while the new cluster is being
--- created.
-createCluster_snapshotName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_snapshotName = Lens.lens (\CreateCluster' {snapshotName} -> snapshotName) (\s@CreateCluster' {} a -> s {snapshotName = a} :: CreateCluster)
-
--- | An optional description of the cluster.
-createCluster_description :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_description = Lens.lens (\CreateCluster' {description} -> description) (\s@CreateCluster' {} a -> s {description = a} :: CreateCluster)
-
--- | The number of replicas to apply to each shard. The default value is 1.
--- The maximum is 5.
-createCluster_numReplicasPerShard :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
-createCluster_numReplicasPerShard = Lens.lens (\CreateCluster' {numReplicasPerShard} -> numReplicasPerShard) (\s@CreateCluster' {} a -> s {numReplicasPerShard = a} :: CreateCluster)
 
 -- | A list of tags to be added to this resource. Tags are comma-separated
 -- key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include
@@ -335,9 +255,89 @@ createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluste
 createCluster_port :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
 createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluster' {} a -> s {port = a} :: CreateCluster)
 
+-- | The name of the subnet group to be used for the cluster.
+createCluster_subnetGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_subnetGroupName = Lens.lens (\CreateCluster' {subnetGroupName} -> subnetGroupName) (\s@CreateCluster' {} a -> s {subnetGroupName = a} :: CreateCluster)
+
 -- | The name of the parameter group associated with the cluster.
 createCluster_parameterGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_parameterGroupName = Lens.lens (\CreateCluster' {parameterGroupName} -> parameterGroupName) (\s@CreateCluster' {} a -> s {parameterGroupName = a} :: CreateCluster)
+
+-- | The number of replicas to apply to each shard. The default value is 1.
+-- The maximum is 5.
+createCluster_numReplicasPerShard :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_numReplicasPerShard = Lens.lens (\CreateCluster' {numReplicasPerShard} -> numReplicasPerShard) (\s@CreateCluster' {} a -> s {numReplicasPerShard = a} :: CreateCluster)
+
+-- | The name of a snapshot from which to restore data into the new cluster.
+-- The snapshot status changes to restoring while the new cluster is being
+-- created.
+createCluster_snapshotName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_snapshotName = Lens.lens (\CreateCluster' {snapshotName} -> snapshotName) (\s@CreateCluster' {} a -> s {snapshotName = a} :: CreateCluster)
+
+-- | A list of security group names to associate with this cluster.
+createCluster_securityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_securityGroupIds = Lens.lens (\CreateCluster' {securityGroupIds} -> securityGroupIds) (\s@CreateCluster' {} a -> s {securityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | When set to true, the cluster will automatically receive minor engine
+-- version upgrades after launch.
+createCluster_autoMinorVersionUpgrade :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
+createCluster_autoMinorVersionUpgrade = Lens.lens (\CreateCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CreateCluster)
+
+-- | A flag to enable in-transit encryption on the cluster.
+createCluster_tLSEnabled :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
+createCluster_tLSEnabled = Lens.lens (\CreateCluster' {tLSEnabled} -> tLSEnabled) (\s@CreateCluster' {} a -> s {tLSEnabled = a} :: CreateCluster)
+
+-- | An optional description of the cluster.
+createCluster_description :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_description = Lens.lens (\CreateCluster' {description} -> description) (\s@CreateCluster' {} a -> s {description = a} :: CreateCluster)
+
+-- | A list of Amazon Resource Names (ARN) that uniquely identify the RDB
+-- snapshot files stored in Amazon S3. The snapshot files are used to
+-- populate the new cluster. The Amazon S3 object name in the ARN cannot
+-- contain any commas.
+createCluster_snapshotArns :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_snapshotArns = Lens.lens (\CreateCluster' {snapshotArns} -> snapshotArns) (\s@CreateCluster' {} a -> s {snapshotArns = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- @ddd:hh24:mi-ddd:hh24:mi@ (24H Clock UTC). The minimum maintenance
+-- window is a 60 minute period.
+createCluster_maintenanceWindow :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_maintenanceWindow = Lens.lens (\CreateCluster' {maintenanceWindow} -> maintenanceWindow) (\s@CreateCluster' {} a -> s {maintenanceWindow = a} :: CreateCluster)
+
+-- | The daily time range (in UTC) during which MemoryDB begins taking a
+-- daily snapshot of your shard.
+--
+-- Example: 05:00-09:00
+--
+-- If you do not specify this parameter, MemoryDB automatically chooses an
+-- appropriate time range.
+createCluster_snapshotWindow :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_snapshotWindow = Lens.lens (\CreateCluster' {snapshotWindow} -> snapshotWindow) (\s@CreateCluster' {} a -> s {snapshotWindow = a} :: CreateCluster)
+
+-- | The number of days for which MemoryDB retains automatic snapshots before
+-- deleting them. For example, if you set SnapshotRetentionLimit to 5, a
+-- snapshot that was taken today is retained for 5 days before being
+-- deleted.
+createCluster_snapshotRetentionLimit :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_snapshotRetentionLimit = Lens.lens (\CreateCluster' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@CreateCluster' {} a -> s {snapshotRetentionLimit = a} :: CreateCluster)
+
+-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
+-- (SNS) topic to which notifications are sent.
+createCluster_snsTopicArn :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_snsTopicArn = Lens.lens (\CreateCluster' {snsTopicArn} -> snsTopicArn) (\s@CreateCluster' {} a -> s {snsTopicArn = a} :: CreateCluster)
+
+-- | The ID of the KMS key used to encrypt the cluster.
+createCluster_kmsKeyId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateCluster' {} a -> s {kmsKeyId = a} :: CreateCluster)
+
+-- | The number of shards the cluster will contain. The default value is 1.
+createCluster_numShards :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_numShards = Lens.lens (\CreateCluster' {numShards} -> numShards) (\s@CreateCluster' {} a -> s {numShards = a} :: CreateCluster)
+
+-- | The version number of the Redis engine to be used for the cluster.
+createCluster_engineVersion :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_engineVersion = Lens.lens (\CreateCluster' {engineVersion} -> engineVersion) (\s@CreateCluster' {} a -> s {engineVersion = a} :: CreateCluster)
 
 -- | The name of the cluster. This value must be unique as it also serves as
 -- the cluster identifier.
@@ -367,48 +367,48 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` snapshotArns
-      `Prelude.hashWithSalt` autoMinorVersionUpgrade
-      `Prelude.hashWithSalt` snsTopicArn
-      `Prelude.hashWithSalt` snapshotWindow
-      `Prelude.hashWithSalt` subnetGroupName
-      `Prelude.hashWithSalt` tLSEnabled
-      `Prelude.hashWithSalt` numShards
-      `Prelude.hashWithSalt` maintenanceWindow
-      `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` snapshotRetentionLimit
-      `Prelude.hashWithSalt` snapshotName
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` numReplicasPerShard
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` subnetGroupName
       `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` numReplicasPerShard
+      `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` tLSEnabled
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` snapshotArns
+      `Prelude.hashWithSalt` maintenanceWindow
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` numShards
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` aCLName
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf snapshotArns
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf snapshotWindow
-      `Prelude.seq` Prelude.rnf subnetGroupName
-      `Prelude.seq` Prelude.rnf tLSEnabled
-      `Prelude.seq` Prelude.rnf numShards
-      `Prelude.seq` Prelude.rnf maintenanceWindow
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf numReplicasPerShard
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf subnetGroupName
       `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf numReplicasPerShard
+      `Prelude.seq` Prelude.rnf snapshotName
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf tLSEnabled
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf snapshotArns
+      `Prelude.seq` Prelude.rnf maintenanceWindow
+      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf numShards
+      `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf nodeType
       `Prelude.seq` Prelude.rnf aCLName
@@ -432,32 +432,32 @@ instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("SecurityGroupIds" Core..=)
-              Prelude.<$> securityGroupIds,
-            ("SnapshotArns" Core..=) Prelude.<$> snapshotArns,
-            ("AutoMinorVersionUpgrade" Core..=)
-              Prelude.<$> autoMinorVersionUpgrade,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("SnapshotWindow" Core..=)
-              Prelude.<$> snapshotWindow,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Port" Core..=) Prelude.<$> port,
             ("SubnetGroupName" Core..=)
               Prelude.<$> subnetGroupName,
-            ("TLSEnabled" Core..=) Prelude.<$> tLSEnabled,
-            ("NumShards" Core..=) Prelude.<$> numShards,
-            ("MaintenanceWindow" Core..=)
-              Prelude.<$> maintenanceWindow,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("SnapshotRetentionLimit" Core..=)
-              Prelude.<$> snapshotRetentionLimit,
-            ("SnapshotName" Core..=) Prelude.<$> snapshotName,
-            ("Description" Core..=) Prelude.<$> description,
-            ("NumReplicasPerShard" Core..=)
-              Prelude.<$> numReplicasPerShard,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("Port" Core..=) Prelude.<$> port,
             ("ParameterGroupName" Core..=)
               Prelude.<$> parameterGroupName,
+            ("NumReplicasPerShard" Core..=)
+              Prelude.<$> numReplicasPerShard,
+            ("SnapshotName" Core..=) Prelude.<$> snapshotName,
+            ("SecurityGroupIds" Core..=)
+              Prelude.<$> securityGroupIds,
+            ("AutoMinorVersionUpgrade" Core..=)
+              Prelude.<$> autoMinorVersionUpgrade,
+            ("TLSEnabled" Core..=) Prelude.<$> tLSEnabled,
+            ("Description" Core..=) Prelude.<$> description,
+            ("SnapshotArns" Core..=) Prelude.<$> snapshotArns,
+            ("MaintenanceWindow" Core..=)
+              Prelude.<$> maintenanceWindow,
+            ("SnapshotWindow" Core..=)
+              Prelude.<$> snapshotWindow,
+            ("SnapshotRetentionLimit" Core..=)
+              Prelude.<$> snapshotRetentionLimit,
+            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("NumShards" Core..=) Prelude.<$> numShards,
+            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
             Prelude.Just ("ClusterName" Core..= clusterName),
             Prelude.Just ("NodeType" Core..= nodeType),
             Prelude.Just ("ACLName" Core..= aCLName)

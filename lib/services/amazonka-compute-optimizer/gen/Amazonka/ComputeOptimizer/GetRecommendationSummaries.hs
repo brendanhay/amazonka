@@ -50,8 +50,8 @@ module Amazonka.ComputeOptimizer.GetRecommendationSummaries
     newGetRecommendationSummariesResponse,
 
     -- * Response Lenses
-    getRecommendationSummariesResponse_nextToken,
     getRecommendationSummariesResponse_recommendationSummaries,
+    getRecommendationSummariesResponse_nextToken,
     getRecommendationSummariesResponse_httpStatus,
   )
 where
@@ -151,10 +151,10 @@ instance Core.AWSRequest GetRecommendationSummaries where
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationSummariesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "recommendationSummaries"
+            Prelude.<$> ( x Core..?> "recommendationSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,14 +203,14 @@ instance Core.ToQuery GetRecommendationSummaries where
 
 -- | /See:/ 'newGetRecommendationSummariesResponse' smart constructor.
 data GetRecommendationSummariesResponse = GetRecommendationSummariesResponse'
-  { -- | The token to use to advance to the next page of recommendation
+  { -- | An array of objects that summarize a recommendation.
+    recommendationSummaries :: Prelude.Maybe [RecommendationSummary],
+    -- | The token to use to advance to the next page of recommendation
     -- summaries.
     --
     -- This value is null when there are no more pages of recommendation
     -- summaries to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that summarize a recommendation.
-    recommendationSummaries :: Prelude.Maybe [RecommendationSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,13 +224,13 @@ data GetRecommendationSummariesResponse = GetRecommendationSummariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'recommendationSummaries', 'getRecommendationSummariesResponse_recommendationSummaries' - An array of objects that summarize a recommendation.
+--
 -- 'nextToken', 'getRecommendationSummariesResponse_nextToken' - The token to use to advance to the next page of recommendation
 -- summaries.
 --
 -- This value is null when there are no more pages of recommendation
 -- summaries to return.
---
--- 'recommendationSummaries', 'getRecommendationSummariesResponse_recommendationSummaries' - An array of objects that summarize a recommendation.
 --
 -- 'httpStatus', 'getRecommendationSummariesResponse_httpStatus' - The response's http status code.
 newGetRecommendationSummariesResponse ::
@@ -239,12 +239,15 @@ newGetRecommendationSummariesResponse ::
   GetRecommendationSummariesResponse
 newGetRecommendationSummariesResponse pHttpStatus_ =
   GetRecommendationSummariesResponse'
-    { nextToken =
+    { recommendationSummaries =
         Prelude.Nothing,
-      recommendationSummaries =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects that summarize a recommendation.
+getRecommendationSummariesResponse_recommendationSummaries :: Lens.Lens' GetRecommendationSummariesResponse (Prelude.Maybe [RecommendationSummary])
+getRecommendationSummariesResponse_recommendationSummaries = Lens.lens (\GetRecommendationSummariesResponse' {recommendationSummaries} -> recommendationSummaries) (\s@GetRecommendationSummariesResponse' {} a -> s {recommendationSummaries = a} :: GetRecommendationSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to advance to the next page of recommendation
 -- summaries.
@@ -253,10 +256,6 @@ newGetRecommendationSummariesResponse pHttpStatus_ =
 -- summaries to return.
 getRecommendationSummariesResponse_nextToken :: Lens.Lens' GetRecommendationSummariesResponse (Prelude.Maybe Prelude.Text)
 getRecommendationSummariesResponse_nextToken = Lens.lens (\GetRecommendationSummariesResponse' {nextToken} -> nextToken) (\s@GetRecommendationSummariesResponse' {} a -> s {nextToken = a} :: GetRecommendationSummariesResponse)
-
--- | An array of objects that summarize a recommendation.
-getRecommendationSummariesResponse_recommendationSummaries :: Lens.Lens' GetRecommendationSummariesResponse (Prelude.Maybe [RecommendationSummary])
-getRecommendationSummariesResponse_recommendationSummaries = Lens.lens (\GetRecommendationSummariesResponse' {recommendationSummaries} -> recommendationSummaries) (\s@GetRecommendationSummariesResponse' {} a -> s {recommendationSummaries = a} :: GetRecommendationSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRecommendationSummariesResponse_httpStatus :: Lens.Lens' GetRecommendationSummariesResponse Prelude.Int
@@ -267,6 +266,6 @@ instance
     GetRecommendationSummariesResponse
   where
   rnf GetRecommendationSummariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationSummaries
+    Prelude.rnf recommendationSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

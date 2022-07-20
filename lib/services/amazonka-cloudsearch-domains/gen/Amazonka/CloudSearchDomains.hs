@@ -42,6 +42,12 @@ module Amazonka.CloudSearchDomains
     -- * Operations
     -- $operations
 
+    -- ** Search
+    Search (Search'),
+    newSearch,
+    SearchResponse (SearchResponse'),
+    newSearchResponse,
+
     -- ** Suggest
     Suggest (Suggest'),
     newSuggest,
@@ -53,12 +59,6 @@ module Amazonka.CloudSearchDomains
     newUploadDocuments,
     UploadDocumentsResponse (UploadDocumentsResponse'),
     newUploadDocumentsResponse,
-
-    -- ** Search
-    Search (Search'),
-    newSearch,
-    SearchResponse (SearchResponse'),
-    newSearchResponse,
 
     -- * Types
 

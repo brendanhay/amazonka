@@ -71,8 +71,8 @@ module Amazonka.Glacier.ListMultipartUploads
     newListMultipartUploadsResponse,
 
     -- * Response Lenses
-    listMultipartUploadsResponse_uploadsList,
     listMultipartUploadsResponse_marker,
+    listMultipartUploadsResponse_uploadsList,
     listMultipartUploadsResponse_httpStatus,
   )
 where
@@ -208,8 +208,8 @@ instance Core.AWSRequest ListMultipartUploads where
     Response.receiveJSON
       ( \s h x ->
           ListMultipartUploadsResponse'
-            Prelude.<$> (x Core..?> "UploadsList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "UploadsList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -249,13 +249,13 @@ instance Core.ToQuery ListMultipartUploads where
 --
 -- /See:/ 'newListMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-  { -- | A list of in-progress multipart uploads.
-    uploadsList :: Prelude.Maybe [UploadListElement],
-    -- | An opaque string that represents where to continue pagination of the
+  { -- | An opaque string that represents where to continue pagination of the
     -- results. You use the marker in a new List Multipart Uploads request to
     -- obtain more uploads in the list. If there are no more uploads, this
     -- value is @null@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of in-progress multipart uploads.
+    uploadsList :: Prelude.Maybe [UploadListElement],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -269,12 +269,12 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploadsList', 'listMultipartUploadsResponse_uploadsList' - A list of in-progress multipart uploads.
---
 -- 'marker', 'listMultipartUploadsResponse_marker' - An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Multipart Uploads request to
 -- obtain more uploads in the list. If there are no more uploads, this
 -- value is @null@.
+--
+-- 'uploadsList', 'listMultipartUploadsResponse_uploadsList' - A list of in-progress multipart uploads.
 --
 -- 'httpStatus', 'listMultipartUploadsResponse_httpStatus' - The response's http status code.
 newListMultipartUploadsResponse ::
@@ -283,15 +283,11 @@ newListMultipartUploadsResponse ::
   ListMultipartUploadsResponse
 newListMultipartUploadsResponse pHttpStatus_ =
   ListMultipartUploadsResponse'
-    { uploadsList =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      uploadsList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of in-progress multipart uploads.
-listMultipartUploadsResponse_uploadsList :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe [UploadListElement])
-listMultipartUploadsResponse_uploadsList = Lens.lens (\ListMultipartUploadsResponse' {uploadsList} -> uploadsList) (\s@ListMultipartUploadsResponse' {} a -> s {uploadsList = a} :: ListMultipartUploadsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Multipart Uploads request to
@@ -300,12 +296,16 @@ listMultipartUploadsResponse_uploadsList = Lens.lens (\ListMultipartUploadsRespo
 listMultipartUploadsResponse_marker :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe Prelude.Text)
 listMultipartUploadsResponse_marker = Lens.lens (\ListMultipartUploadsResponse' {marker} -> marker) (\s@ListMultipartUploadsResponse' {} a -> s {marker = a} :: ListMultipartUploadsResponse)
 
+-- | A list of in-progress multipart uploads.
+listMultipartUploadsResponse_uploadsList :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe [UploadListElement])
+listMultipartUploadsResponse_uploadsList = Lens.lens (\ListMultipartUploadsResponse' {uploadsList} -> uploadsList) (\s@ListMultipartUploadsResponse' {} a -> s {uploadsList = a} :: ListMultipartUploadsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listMultipartUploadsResponse_httpStatus :: Lens.Lens' ListMultipartUploadsResponse Prelude.Int
 listMultipartUploadsResponse_httpStatus = Lens.lens (\ListMultipartUploadsResponse' {httpStatus} -> httpStatus) (\s@ListMultipartUploadsResponse' {} a -> s {httpStatus = a} :: ListMultipartUploadsResponse)
 
 instance Prelude.NFData ListMultipartUploadsResponse where
   rnf ListMultipartUploadsResponse' {..} =
-    Prelude.rnf uploadsList
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf uploadsList
       `Prelude.seq` Prelude.rnf httpStatus

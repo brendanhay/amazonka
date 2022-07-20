@@ -21,6 +21,9 @@ module Amazonka.MediaStoreData
     -- * Errors
     -- $errors
 
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
+
     -- ** RequestedRangeNotSatisfiableException
     _RequestedRangeNotSatisfiableException,
 
@@ -30,20 +33,11 @@ module Amazonka.MediaStoreData
     -- ** ContainerNotFoundException
     _ContainerNotFoundException,
 
-    -- ** ObjectNotFoundException
-    _ObjectNotFoundException,
-
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** PutObject
-    PutObject (PutObject'),
-    newPutObject,
-    PutObjectResponse (PutObjectResponse'),
-    newPutObjectResponse,
 
     -- ** DeleteObject
     DeleteObject (DeleteObject'),
@@ -68,6 +62,12 @@ module Amazonka.MediaStoreData
     newListItems,
     ListItemsResponse (ListItemsResponse'),
     newListItemsResponse,
+
+    -- ** PutObject
+    PutObject (PutObject'),
+    newPutObject,
+    PutObjectResponse (PutObjectResponse'),
+    newPutObjectResponse,
 
     -- * Types
 

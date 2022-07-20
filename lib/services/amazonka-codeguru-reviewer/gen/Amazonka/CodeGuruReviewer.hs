@@ -34,110 +34,38 @@ module Amazonka.CodeGuruReviewer
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** NotFoundException
+    _NotFoundException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** CodeReviewCompleted
-    newCodeReviewCompleted,
-
     -- ** RepositoryAssociationSucceeded
     newRepositoryAssociationSucceeded,
 
+    -- ** CodeReviewCompleted
+    newCodeReviewCompleted,
+
     -- * Operations
     -- $operations
-
-    -- ** ListRecommendationFeedback
-    ListRecommendationFeedback (ListRecommendationFeedback'),
-    newListRecommendationFeedback,
-    ListRecommendationFeedbackResponse (ListRecommendationFeedbackResponse'),
-    newListRecommendationFeedbackResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DisassociateRepository
-    DisassociateRepository (DisassociateRepository'),
-    newDisassociateRepository,
-    DisassociateRepositoryResponse (DisassociateRepositoryResponse'),
-    newDisassociateRepositoryResponse,
-
-    -- ** DescribeRepositoryAssociation
-    DescribeRepositoryAssociation (DescribeRepositoryAssociation'),
-    newDescribeRepositoryAssociation,
-    DescribeRepositoryAssociationResponse (DescribeRepositoryAssociationResponse'),
-    newDescribeRepositoryAssociationResponse,
-
-    -- ** DescribeCodeReview
-    DescribeCodeReview (DescribeCodeReview'),
-    newDescribeCodeReview,
-    DescribeCodeReviewResponse (DescribeCodeReviewResponse'),
-    newDescribeCodeReviewResponse,
-
-    -- ** ListRepositoryAssociations (Paginated)
-    ListRepositoryAssociations (ListRepositoryAssociations'),
-    newListRepositoryAssociations,
-    ListRepositoryAssociationsResponse (ListRepositoryAssociationsResponse'),
-    newListRepositoryAssociationsResponse,
-
-    -- ** DescribeRecommendationFeedback
-    DescribeRecommendationFeedback (DescribeRecommendationFeedback'),
-    newDescribeRecommendationFeedback,
-    DescribeRecommendationFeedbackResponse (DescribeRecommendationFeedbackResponse'),
-    newDescribeRecommendationFeedbackResponse,
-
-    -- ** ListRecommendations
-    ListRecommendations (ListRecommendations'),
-    newListRecommendations,
-    ListRecommendationsResponse (ListRecommendationsResponse'),
-    newListRecommendationsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** CreateCodeReview
-    CreateCodeReview (CreateCodeReview'),
-    newCreateCodeReview,
-    CreateCodeReviewResponse (CreateCodeReviewResponse'),
-    newCreateCodeReviewResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** ListCodeReviews
-    ListCodeReviews (ListCodeReviews'),
-    newListCodeReviews,
-    ListCodeReviewsResponse (ListCodeReviewsResponse'),
-    newListCodeReviewsResponse,
 
     -- ** AssociateRepository
     AssociateRepository (AssociateRepository'),
@@ -145,11 +73,83 @@ module Amazonka.CodeGuruReviewer
     AssociateRepositoryResponse (AssociateRepositoryResponse'),
     newAssociateRepositoryResponse,
 
+    -- ** CreateCodeReview
+    CreateCodeReview (CreateCodeReview'),
+    newCreateCodeReview,
+    CreateCodeReviewResponse (CreateCodeReviewResponse'),
+    newCreateCodeReviewResponse,
+
+    -- ** DescribeCodeReview
+    DescribeCodeReview (DescribeCodeReview'),
+    newDescribeCodeReview,
+    DescribeCodeReviewResponse (DescribeCodeReviewResponse'),
+    newDescribeCodeReviewResponse,
+
+    -- ** DescribeRecommendationFeedback
+    DescribeRecommendationFeedback (DescribeRecommendationFeedback'),
+    newDescribeRecommendationFeedback,
+    DescribeRecommendationFeedbackResponse (DescribeRecommendationFeedbackResponse'),
+    newDescribeRecommendationFeedbackResponse,
+
+    -- ** DescribeRepositoryAssociation
+    DescribeRepositoryAssociation (DescribeRepositoryAssociation'),
+    newDescribeRepositoryAssociation,
+    DescribeRepositoryAssociationResponse (DescribeRepositoryAssociationResponse'),
+    newDescribeRepositoryAssociationResponse,
+
+    -- ** DisassociateRepository
+    DisassociateRepository (DisassociateRepository'),
+    newDisassociateRepository,
+    DisassociateRepositoryResponse (DisassociateRepositoryResponse'),
+    newDisassociateRepositoryResponse,
+
+    -- ** ListCodeReviews
+    ListCodeReviews (ListCodeReviews'),
+    newListCodeReviews,
+    ListCodeReviewsResponse (ListCodeReviewsResponse'),
+    newListCodeReviewsResponse,
+
+    -- ** ListRecommendationFeedback
+    ListRecommendationFeedback (ListRecommendationFeedback'),
+    newListRecommendationFeedback,
+    ListRecommendationFeedbackResponse (ListRecommendationFeedbackResponse'),
+    newListRecommendationFeedbackResponse,
+
+    -- ** ListRecommendations
+    ListRecommendations (ListRecommendations'),
+    newListRecommendations,
+    ListRecommendationsResponse (ListRecommendationsResponse'),
+    newListRecommendationsResponse,
+
+    -- ** ListRepositoryAssociations (Paginated)
+    ListRepositoryAssociations (ListRepositoryAssociations'),
+    newListRepositoryAssociations,
+    ListRepositoryAssociationsResponse (ListRepositoryAssociationsResponse'),
+    newListRepositoryAssociationsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** PutRecommendationFeedback
     PutRecommendationFeedback (PutRecommendationFeedback'),
     newPutRecommendationFeedback,
     PutRecommendationFeedbackResponse (PutRecommendationFeedbackResponse'),
     newPutRecommendationFeedbackResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- * Types
 

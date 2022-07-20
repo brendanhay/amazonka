@@ -28,7 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpointConfiguration' smart constructor.
 data EndpointConfiguration = EndpointConfiguration'
-  { -- | The weight associated with the endpoint. When you add weights to
+  { -- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
+    -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
+    -- resource. If the endpoint is an Elastic IP address, this is the Elastic
+    -- IP address allocation ID. For Amazon EC2 instances, this is the EC2
+    -- instance ID. A resource must be valid and active when you add it as an
+    -- endpoint.
+    --
+    -- An Application Load Balancer can be either internal or internet-facing.
+    endpointId :: Prelude.Maybe Prelude.Text,
+    -- | The weight associated with the endpoint. When you add weights to
     -- endpoints, you configure AWS Global Accelerator to route traffic based
     -- on proportions that you specify. For example, you might specify endpoint
     -- weights of 4, 5, 5, and 6 (sum=20). The result is that 4\/20 of your
@@ -49,16 +58,7 @@ data EndpointConfiguration = EndpointConfiguration'
     -- For more information, see
     -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve Client IP Addresses in AWS Global Accelerator>
     -- in the /AWS Global Accelerator Developer Guide/.
-    clientIPPreservationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
-    -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
-    -- resource. If the endpoint is an Elastic IP address, this is the Elastic
-    -- IP address allocation ID. For Amazon EC2 instances, this is the EC2
-    -- instance ID. A resource must be valid and active when you add it as an
-    -- endpoint.
-    --
-    -- An Application Load Balancer can be either internal or internet-facing.
-    endpointId :: Prelude.Maybe Prelude.Text
+    clientIPPreservationEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +69,15 @@ data EndpointConfiguration = EndpointConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'endpointId', 'endpointConfiguration_endpointId' - An ID for the endpoint. If the endpoint is a Network Load Balancer or
+-- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
+-- resource. If the endpoint is an Elastic IP address, this is the Elastic
+-- IP address allocation ID. For Amazon EC2 instances, this is the EC2
+-- instance ID. A resource must be valid and active when you add it as an
+-- endpoint.
+--
+-- An Application Load Balancer can be either internal or internet-facing.
 --
 -- 'weight', 'endpointConfiguration_weight' - The weight associated with the endpoint. When you add weights to
 -- endpoints, you configure AWS Global Accelerator to route traffic based
@@ -91,8 +100,17 @@ data EndpointConfiguration = EndpointConfiguration'
 -- For more information, see
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve Client IP Addresses in AWS Global Accelerator>
 -- in the /AWS Global Accelerator Developer Guide/.
---
--- 'endpointId', 'endpointConfiguration_endpointId' - An ID for the endpoint. If the endpoint is a Network Load Balancer or
+newEndpointConfiguration ::
+  EndpointConfiguration
+newEndpointConfiguration =
+  EndpointConfiguration'
+    { endpointId =
+        Prelude.Nothing,
+      weight = Prelude.Nothing,
+      clientIPPreservationEnabled = Prelude.Nothing
+    }
+
+-- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
 -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
 -- resource. If the endpoint is an Elastic IP address, this is the Elastic
 -- IP address allocation ID. For Amazon EC2 instances, this is the EC2
@@ -100,14 +118,8 @@ data EndpointConfiguration = EndpointConfiguration'
 -- endpoint.
 --
 -- An Application Load Balancer can be either internal or internet-facing.
-newEndpointConfiguration ::
-  EndpointConfiguration
-newEndpointConfiguration =
-  EndpointConfiguration'
-    { weight = Prelude.Nothing,
-      clientIPPreservationEnabled = Prelude.Nothing,
-      endpointId = Prelude.Nothing
-    }
+endpointConfiguration_endpointId :: Lens.Lens' EndpointConfiguration (Prelude.Maybe Prelude.Text)
+endpointConfiguration_endpointId = Lens.lens (\EndpointConfiguration' {endpointId} -> endpointId) (\s@EndpointConfiguration' {} a -> s {endpointId = a} :: EndpointConfiguration)
 
 -- | The weight associated with the endpoint. When you add weights to
 -- endpoints, you configure AWS Global Accelerator to route traffic based
@@ -135,36 +147,25 @@ endpointConfiguration_weight = Lens.lens (\EndpointConfiguration' {weight} -> we
 endpointConfiguration_clientIPPreservationEnabled :: Lens.Lens' EndpointConfiguration (Prelude.Maybe Prelude.Bool)
 endpointConfiguration_clientIPPreservationEnabled = Lens.lens (\EndpointConfiguration' {clientIPPreservationEnabled} -> clientIPPreservationEnabled) (\s@EndpointConfiguration' {} a -> s {clientIPPreservationEnabled = a} :: EndpointConfiguration)
 
--- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
--- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
--- resource. If the endpoint is an Elastic IP address, this is the Elastic
--- IP address allocation ID. For Amazon EC2 instances, this is the EC2
--- instance ID. A resource must be valid and active when you add it as an
--- endpoint.
---
--- An Application Load Balancer can be either internal or internet-facing.
-endpointConfiguration_endpointId :: Lens.Lens' EndpointConfiguration (Prelude.Maybe Prelude.Text)
-endpointConfiguration_endpointId = Lens.lens (\EndpointConfiguration' {endpointId} -> endpointId) (\s@EndpointConfiguration' {} a -> s {endpointId = a} :: EndpointConfiguration)
-
 instance Prelude.Hashable EndpointConfiguration where
   hashWithSalt _salt EndpointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` weight
+    _salt `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` weight
       `Prelude.hashWithSalt` clientIPPreservationEnabled
-      `Prelude.hashWithSalt` endpointId
 
 instance Prelude.NFData EndpointConfiguration where
   rnf EndpointConfiguration' {..} =
-    Prelude.rnf weight
+    Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf weight
       `Prelude.seq` Prelude.rnf clientIPPreservationEnabled
-      `Prelude.seq` Prelude.rnf endpointId
 
 instance Core.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Weight" Core..=) Prelude.<$> weight,
+          [ ("EndpointId" Core..=) Prelude.<$> endpointId,
+            ("Weight" Core..=) Prelude.<$> weight,
             ("ClientIPPreservationEnabled" Core..=)
-              Prelude.<$> clientIPPreservationEnabled,
-            ("EndpointId" Core..=) Prelude.<$> endpointId
+              Prelude.<$> clientIPPreservationEnabled
           ]
       )

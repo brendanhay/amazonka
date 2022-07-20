@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchFailedResultModel' smart constructor.
 data BatchFailedResultModel = BatchFailedResultModel'
-  { -- | ARN of the resource
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | ID of the resource
-    id :: Prelude.Maybe Prelude.Text,
+  { -- | Error message for the failed operation
+    message :: Prelude.Maybe Prelude.Text,
     -- | Error code for the failed operation
     code :: Prelude.Maybe Prelude.Text,
-    -- | Error message for the failed operation
-    message :: Prelude.Maybe Prelude.Text
+    -- | ARN of the resource
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | ID of the resource
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,22 +46,30 @@ data BatchFailedResultModel = BatchFailedResultModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'batchFailedResultModel_arn' - ARN of the resource
---
--- 'id', 'batchFailedResultModel_id' - ID of the resource
+-- 'message', 'batchFailedResultModel_message' - Error message for the failed operation
 --
 -- 'code', 'batchFailedResultModel_code' - Error code for the failed operation
 --
--- 'message', 'batchFailedResultModel_message' - Error message for the failed operation
+-- 'arn', 'batchFailedResultModel_arn' - ARN of the resource
+--
+-- 'id', 'batchFailedResultModel_id' - ID of the resource
 newBatchFailedResultModel ::
   BatchFailedResultModel
 newBatchFailedResultModel =
   BatchFailedResultModel'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { message = Prelude.Nothing,
       code = Prelude.Nothing,
-      message = Prelude.Nothing
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | Error message for the failed operation
+batchFailedResultModel_message :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
+batchFailedResultModel_message = Lens.lens (\BatchFailedResultModel' {message} -> message) (\s@BatchFailedResultModel' {} a -> s {message = a} :: BatchFailedResultModel)
+
+-- | Error code for the failed operation
+batchFailedResultModel_code :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
+batchFailedResultModel_code = Lens.lens (\BatchFailedResultModel' {code} -> code) (\s@BatchFailedResultModel' {} a -> s {code = a} :: BatchFailedResultModel)
 
 -- | ARN of the resource
 batchFailedResultModel_arn :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
@@ -71,36 +79,28 @@ batchFailedResultModel_arn = Lens.lens (\BatchFailedResultModel' {arn} -> arn) (
 batchFailedResultModel_id :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
 batchFailedResultModel_id = Lens.lens (\BatchFailedResultModel' {id} -> id) (\s@BatchFailedResultModel' {} a -> s {id = a} :: BatchFailedResultModel)
 
--- | Error code for the failed operation
-batchFailedResultModel_code :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
-batchFailedResultModel_code = Lens.lens (\BatchFailedResultModel' {code} -> code) (\s@BatchFailedResultModel' {} a -> s {code = a} :: BatchFailedResultModel)
-
--- | Error message for the failed operation
-batchFailedResultModel_message :: Lens.Lens' BatchFailedResultModel (Prelude.Maybe Prelude.Text)
-batchFailedResultModel_message = Lens.lens (\BatchFailedResultModel' {message} -> message) (\s@BatchFailedResultModel' {} a -> s {message = a} :: BatchFailedResultModel)
-
 instance Core.FromJSON BatchFailedResultModel where
   parseJSON =
     Core.withObject
       "BatchFailedResultModel"
       ( \x ->
           BatchFailedResultModel'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Core..:? "message")
             Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "id")
       )
 
 instance Prelude.Hashable BatchFailedResultModel where
   hashWithSalt _salt BatchFailedResultModel' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData BatchFailedResultModel where
   rnf BatchFailedResultModel' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id

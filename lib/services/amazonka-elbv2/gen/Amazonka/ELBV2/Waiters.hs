@@ -23,46 +23,16 @@ import Amazonka.ELBV2.Types
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newLoadBalancersDeleted :: Core.Wait DescribeLoadBalancers
-newLoadBalancersDeleted =
+-- | Polls 'Amazonka.ELBV2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newTargetInService :: Core.Wait DescribeTargetHealth
+newTargetInService =
   Core.Wait
-    { Core._waitName = "LoadBalancersDeleted",
+    { Core._waitName = "TargetInService",
       Core._waitAttempts = 40,
       Core._waitDelay = 15,
       Core._waitAcceptors =
         [ Core.matchAll
-            "active"
-            Core.AcceptRetry
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeLoadBalancersResponse_loadBalancers
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. loadBalancer_state
-                Prelude.. Lens._Just
-                Prelude.. loadBalancerState_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "LoadBalancerNotFound"
-            Core.AcceptSuccess
-        ]
-    }
-
--- | Polls 'Amazonka.ELBV2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newTargetDeregistered :: Core.Wait DescribeTargetHealth
-newTargetDeregistered =
-  Core.Wait
-    { Core._waitName = "TargetDeregistered",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
-        [ Core.matchError "InvalidTarget" Core.AcceptSuccess,
-          Core.matchAll
-            "unused"
+            "healthy"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -75,7 +45,23 @@ newTargetDeregistered =
                 Prelude.. targetHealth_state
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
-            )
+            ),
+          Core.matchError "InvalidInstance" Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newLoadBalancerExists :: Core.Wait DescribeLoadBalancers
+newLoadBalancerExists =
+  Core.Wait
+    { Core._waitName = "LoadBalancerExists",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
+            "LoadBalancerNotFound"
+            Core.AcceptRetry
         ]
     }
 
@@ -124,15 +110,16 @@ newLoadBalancerAvailable =
     }
 
 -- | Polls 'Amazonka.ELBV2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newTargetInService :: Core.Wait DescribeTargetHealth
-newTargetInService =
+newTargetDeregistered :: Core.Wait DescribeTargetHealth
+newTargetDeregistered =
   Core.Wait
-    { Core._waitName = "TargetInService",
+    { Core._waitName = "TargetDeregistered",
       Core._waitAttempts = 40,
       Core._waitDelay = 15,
       Core._waitAcceptors =
-        [ Core.matchAll
-            "healthy"
+        [ Core.matchError "InvalidTarget" Core.AcceptSuccess,
+          Core.matchAll
+            "unused"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -145,22 +132,35 @@ newTargetInService =
                 Prelude.. targetHealth_state
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError "InvalidInstance" Core.AcceptRetry
+            )
         ]
     }
 
 -- | Polls 'Amazonka.ELBV2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newLoadBalancerExists :: Core.Wait DescribeLoadBalancers
-newLoadBalancerExists =
+newLoadBalancersDeleted :: Core.Wait DescribeLoadBalancers
+newLoadBalancersDeleted =
   Core.Wait
-    { Core._waitName = "LoadBalancerExists",
+    { Core._waitName = "LoadBalancersDeleted",
       Core._waitAttempts = 40,
       Core._waitDelay = 15,
       Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
+        [ Core.matchAll
+            "active"
+            Core.AcceptRetry
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeLoadBalancersResponse_loadBalancers
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. loadBalancer_state
+                Prelude.. Lens._Just
+                Prelude.. loadBalancerState_code
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
           Core.matchError
             "LoadBalancerNotFound"
-            Core.AcceptRetry
+            Core.AcceptSuccess
         ]
     }

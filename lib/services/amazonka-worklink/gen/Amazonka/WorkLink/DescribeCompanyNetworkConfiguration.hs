@@ -36,8 +36,8 @@ module Amazonka.WorkLink.DescribeCompanyNetworkConfiguration
 
     -- * Response Lenses
     describeCompanyNetworkConfigurationResponse_securityGroupIds,
-    describeCompanyNetworkConfigurationResponse_subnetIds,
     describeCompanyNetworkConfigurationResponse_vpcId,
+    describeCompanyNetworkConfigurationResponse_subnetIds,
     describeCompanyNetworkConfigurationResponse_httpStatus,
   )
 where
@@ -94,8 +94,8 @@ instance
             Prelude.<$> ( x Core..?> "SecurityGroupIds"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Core..?> "SubnetIds" Core..!@ Prelude.mempty)
               Prelude.<*> (x Core..?> "VpcId")
+              Prelude.<*> (x Core..?> "SubnetIds" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,11 +157,11 @@ instance
 data DescribeCompanyNetworkConfigurationResponse = DescribeCompanyNetworkConfigurationResponse'
   { -- | The security groups associated with access to the provided subnets.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The VPC with connectivity to associated websites.
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The subnets used for X-ENI connections from Amazon WorkLink rendering
     -- containers.
     subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The VPC with connectivity to associated websites.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,10 +177,10 @@ data DescribeCompanyNetworkConfigurationResponse = DescribeCompanyNetworkConfigu
 --
 -- 'securityGroupIds', 'describeCompanyNetworkConfigurationResponse_securityGroupIds' - The security groups associated with access to the provided subnets.
 --
+-- 'vpcId', 'describeCompanyNetworkConfigurationResponse_vpcId' - The VPC with connectivity to associated websites.
+--
 -- 'subnetIds', 'describeCompanyNetworkConfigurationResponse_subnetIds' - The subnets used for X-ENI connections from Amazon WorkLink rendering
 -- containers.
---
--- 'vpcId', 'describeCompanyNetworkConfigurationResponse_vpcId' - The VPC with connectivity to associated websites.
 --
 -- 'httpStatus', 'describeCompanyNetworkConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeCompanyNetworkConfigurationResponse ::
@@ -192,8 +192,8 @@ newDescribeCompanyNetworkConfigurationResponse
     DescribeCompanyNetworkConfigurationResponse'
       { securityGroupIds =
           Prelude.Nothing,
-        subnetIds = Prelude.Nothing,
         vpcId = Prelude.Nothing,
+        subnetIds = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -201,14 +201,14 @@ newDescribeCompanyNetworkConfigurationResponse
 describeCompanyNetworkConfigurationResponse_securityGroupIds :: Lens.Lens' DescribeCompanyNetworkConfigurationResponse (Prelude.Maybe [Prelude.Text])
 describeCompanyNetworkConfigurationResponse_securityGroupIds = Lens.lens (\DescribeCompanyNetworkConfigurationResponse' {securityGroupIds} -> securityGroupIds) (\s@DescribeCompanyNetworkConfigurationResponse' {} a -> s {securityGroupIds = a} :: DescribeCompanyNetworkConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The VPC with connectivity to associated websites.
+describeCompanyNetworkConfigurationResponse_vpcId :: Lens.Lens' DescribeCompanyNetworkConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeCompanyNetworkConfigurationResponse_vpcId = Lens.lens (\DescribeCompanyNetworkConfigurationResponse' {vpcId} -> vpcId) (\s@DescribeCompanyNetworkConfigurationResponse' {} a -> s {vpcId = a} :: DescribeCompanyNetworkConfigurationResponse)
+
 -- | The subnets used for X-ENI connections from Amazon WorkLink rendering
 -- containers.
 describeCompanyNetworkConfigurationResponse_subnetIds :: Lens.Lens' DescribeCompanyNetworkConfigurationResponse (Prelude.Maybe [Prelude.Text])
 describeCompanyNetworkConfigurationResponse_subnetIds = Lens.lens (\DescribeCompanyNetworkConfigurationResponse' {subnetIds} -> subnetIds) (\s@DescribeCompanyNetworkConfigurationResponse' {} a -> s {subnetIds = a} :: DescribeCompanyNetworkConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The VPC with connectivity to associated websites.
-describeCompanyNetworkConfigurationResponse_vpcId :: Lens.Lens' DescribeCompanyNetworkConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeCompanyNetworkConfigurationResponse_vpcId = Lens.lens (\DescribeCompanyNetworkConfigurationResponse' {vpcId} -> vpcId) (\s@DescribeCompanyNetworkConfigurationResponse' {} a -> s {vpcId = a} :: DescribeCompanyNetworkConfigurationResponse)
 
 -- | The response's http status code.
 describeCompanyNetworkConfigurationResponse_httpStatus :: Lens.Lens' DescribeCompanyNetworkConfigurationResponse Prelude.Int
@@ -220,6 +220,6 @@ instance
   where
   rnf DescribeCompanyNetworkConfigurationResponse' {..} =
     Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf httpStatus

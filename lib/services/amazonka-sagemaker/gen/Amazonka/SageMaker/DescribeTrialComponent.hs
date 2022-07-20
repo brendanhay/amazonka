@@ -34,22 +34,22 @@ module Amazonka.SageMaker.DescribeTrialComponent
     newDescribeTrialComponentResponse,
 
     -- * Response Lenses
-    describeTrialComponentResponse_creationTime,
+    describeTrialComponentResponse_trialComponentArn,
+    describeTrialComponentResponse_trialComponentName,
     describeTrialComponentResponse_metadataProperties,
+    describeTrialComponentResponse_displayName,
     describeTrialComponentResponse_status,
     describeTrialComponentResponse_metrics,
     describeTrialComponentResponse_outputArtifacts,
-    describeTrialComponentResponse_startTime,
-    describeTrialComponentResponse_createdBy,
-    describeTrialComponentResponse_lastModifiedTime,
     describeTrialComponentResponse_endTime,
-    describeTrialComponentResponse_trialComponentName,
-    describeTrialComponentResponse_parameters,
+    describeTrialComponentResponse_lastModifiedTime,
     describeTrialComponentResponse_source,
-    describeTrialComponentResponse_displayName,
-    describeTrialComponentResponse_lastModifiedBy,
-    describeTrialComponentResponse_trialComponentArn,
+    describeTrialComponentResponse_creationTime,
     describeTrialComponentResponse_inputArtifacts,
+    describeTrialComponentResponse_lastModifiedBy,
+    describeTrialComponentResponse_createdBy,
+    describeTrialComponentResponse_startTime,
+    describeTrialComponentResponse_parameters,
     describeTrialComponentResponse_httpStatus,
   )
 where
@@ -100,24 +100,24 @@ instance Core.AWSRequest DescribeTrialComponent where
     Response.receiveJSON
       ( \s h x ->
           DescribeTrialComponentResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "TrialComponentArn")
+            Prelude.<*> (x Core..?> "TrialComponentName")
             Prelude.<*> (x Core..?> "MetadataProperties")
+            Prelude.<*> (x Core..?> "DisplayName")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "Metrics" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "OutputArtifacts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "StartTime")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "TrialComponentName")
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "Source")
-            Prelude.<*> (x Core..?> "DisplayName")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "TrialComponentArn")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "InputArtifacts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastModifiedBy")
+            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,9 +161,14 @@ instance Core.ToQuery DescribeTrialComponent where
 
 -- | /See:/ 'newDescribeTrialComponentResponse' smart constructor.
 data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
-  { -- | When the component was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The Amazon Resource Name (ARN) of the trial component.
+    trialComponentArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the trial component.
+    trialComponentName :: Prelude.Maybe Prelude.Text,
     metadataProperties :: Prelude.Maybe MetadataProperties,
+    -- | The name of the component as displayed. If @DisplayName@ isn\'t
+    -- specified, @TrialComponentName@ is displayed.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The status of the component. States include:
     --
     -- -   InProgress
@@ -176,30 +181,25 @@ data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
     metrics :: Prelude.Maybe [TrialComponentMetricSummary],
     -- | The output artifacts of the component.
     outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
-    -- | When the component started.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | Who created the trial component.
-    createdBy :: Prelude.Maybe UserContext,
-    -- | When the component was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | When the component ended.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the trial component.
-    trialComponentName :: Prelude.Maybe Prelude.Text,
-    -- | The hyperparameters of the component.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
+    -- | When the component was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the source and, optionally, the job
     -- type.
     source :: Prelude.Maybe TrialComponentSource,
-    -- | The name of the component as displayed. If @DisplayName@ isn\'t
-    -- specified, @TrialComponentName@ is displayed.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | Who last modified the component.
-    lastModifiedBy :: Prelude.Maybe UserContext,
-    -- | The Amazon Resource Name (ARN) of the trial component.
-    trialComponentArn :: Prelude.Maybe Prelude.Text,
+    -- | When the component was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The input artifacts of the component.
     inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
+    -- | Who last modified the component.
+    lastModifiedBy :: Prelude.Maybe UserContext,
+    -- | Who created the trial component.
+    createdBy :: Prelude.Maybe UserContext,
+    -- | When the component started.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | The hyperparameters of the component.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,9 +213,14 @@ data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeTrialComponentResponse_creationTime' - When the component was created.
+-- 'trialComponentArn', 'describeTrialComponentResponse_trialComponentArn' - The Amazon Resource Name (ARN) of the trial component.
+--
+-- 'trialComponentName', 'describeTrialComponentResponse_trialComponentName' - The name of the trial component.
 --
 -- 'metadataProperties', 'describeTrialComponentResponse_metadataProperties' - Undocumented member.
+--
+-- 'displayName', 'describeTrialComponentResponse_displayName' - The name of the component as displayed. If @DisplayName@ isn\'t
+-- specified, @TrialComponentName@ is displayed.
 --
 -- 'status', 'describeTrialComponentResponse_status' - The status of the component. States include:
 --
@@ -229,29 +234,24 @@ data DescribeTrialComponentResponse = DescribeTrialComponentResponse'
 --
 -- 'outputArtifacts', 'describeTrialComponentResponse_outputArtifacts' - The output artifacts of the component.
 --
--- 'startTime', 'describeTrialComponentResponse_startTime' - When the component started.
---
--- 'createdBy', 'describeTrialComponentResponse_createdBy' - Who created the trial component.
---
--- 'lastModifiedTime', 'describeTrialComponentResponse_lastModifiedTime' - When the component was last modified.
---
 -- 'endTime', 'describeTrialComponentResponse_endTime' - When the component ended.
 --
--- 'trialComponentName', 'describeTrialComponentResponse_trialComponentName' - The name of the trial component.
---
--- 'parameters', 'describeTrialComponentResponse_parameters' - The hyperparameters of the component.
+-- 'lastModifiedTime', 'describeTrialComponentResponse_lastModifiedTime' - When the component was last modified.
 --
 -- 'source', 'describeTrialComponentResponse_source' - The Amazon Resource Name (ARN) of the source and, optionally, the job
 -- type.
 --
--- 'displayName', 'describeTrialComponentResponse_displayName' - The name of the component as displayed. If @DisplayName@ isn\'t
--- specified, @TrialComponentName@ is displayed.
+-- 'creationTime', 'describeTrialComponentResponse_creationTime' - When the component was created.
+--
+-- 'inputArtifacts', 'describeTrialComponentResponse_inputArtifacts' - The input artifacts of the component.
 --
 -- 'lastModifiedBy', 'describeTrialComponentResponse_lastModifiedBy' - Who last modified the component.
 --
--- 'trialComponentArn', 'describeTrialComponentResponse_trialComponentArn' - The Amazon Resource Name (ARN) of the trial component.
+-- 'createdBy', 'describeTrialComponentResponse_createdBy' - Who created the trial component.
 --
--- 'inputArtifacts', 'describeTrialComponentResponse_inputArtifacts' - The input artifacts of the component.
+-- 'startTime', 'describeTrialComponentResponse_startTime' - When the component started.
+--
+-- 'parameters', 'describeTrialComponentResponse_parameters' - The hyperparameters of the component.
 --
 -- 'httpStatus', 'describeTrialComponentResponse_httpStatus' - The response's http status code.
 newDescribeTrialComponentResponse ::
@@ -260,33 +260,42 @@ newDescribeTrialComponentResponse ::
   DescribeTrialComponentResponse
 newDescribeTrialComponentResponse pHttpStatus_ =
   DescribeTrialComponentResponse'
-    { creationTime =
+    { trialComponentArn =
         Prelude.Nothing,
+      trialComponentName = Prelude.Nothing,
       metadataProperties = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       status = Prelude.Nothing,
       metrics = Prelude.Nothing,
       outputArtifacts = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      trialComponentName = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
       source = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      trialComponentArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | When the component was created.
-describeTrialComponentResponse_creationTime :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrialComponentResponse_creationTime = Lens.lens (\DescribeTrialComponentResponse' {creationTime} -> creationTime) (\s@DescribeTrialComponentResponse' {} a -> s {creationTime = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) of the trial component.
+describeTrialComponentResponse_trialComponentArn :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.Text)
+describeTrialComponentResponse_trialComponentArn = Lens.lens (\DescribeTrialComponentResponse' {trialComponentArn} -> trialComponentArn) (\s@DescribeTrialComponentResponse' {} a -> s {trialComponentArn = a} :: DescribeTrialComponentResponse)
+
+-- | The name of the trial component.
+describeTrialComponentResponse_trialComponentName :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.Text)
+describeTrialComponentResponse_trialComponentName = Lens.lens (\DescribeTrialComponentResponse' {trialComponentName} -> trialComponentName) (\s@DescribeTrialComponentResponse' {} a -> s {trialComponentName = a} :: DescribeTrialComponentResponse)
 
 -- | Undocumented member.
 describeTrialComponentResponse_metadataProperties :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe MetadataProperties)
 describeTrialComponentResponse_metadataProperties = Lens.lens (\DescribeTrialComponentResponse' {metadataProperties} -> metadataProperties) (\s@DescribeTrialComponentResponse' {} a -> s {metadataProperties = a} :: DescribeTrialComponentResponse)
+
+-- | The name of the component as displayed. If @DisplayName@ isn\'t
+-- specified, @TrialComponentName@ is displayed.
+describeTrialComponentResponse_displayName :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.Text)
+describeTrialComponentResponse_displayName = Lens.lens (\DescribeTrialComponentResponse' {displayName} -> displayName) (\s@DescribeTrialComponentResponse' {} a -> s {displayName = a} :: DescribeTrialComponentResponse)
 
 -- | The status of the component. States include:
 --
@@ -306,51 +315,42 @@ describeTrialComponentResponse_metrics = Lens.lens (\DescribeTrialComponentRespo
 describeTrialComponentResponse_outputArtifacts :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
 describeTrialComponentResponse_outputArtifacts = Lens.lens (\DescribeTrialComponentResponse' {outputArtifacts} -> outputArtifacts) (\s@DescribeTrialComponentResponse' {} a -> s {outputArtifacts = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | When the component started.
-describeTrialComponentResponse_startTime :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrialComponentResponse_startTime = Lens.lens (\DescribeTrialComponentResponse' {startTime} -> startTime) (\s@DescribeTrialComponentResponse' {} a -> s {startTime = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Core._Time
-
--- | Who created the trial component.
-describeTrialComponentResponse_createdBy :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe UserContext)
-describeTrialComponentResponse_createdBy = Lens.lens (\DescribeTrialComponentResponse' {createdBy} -> createdBy) (\s@DescribeTrialComponentResponse' {} a -> s {createdBy = a} :: DescribeTrialComponentResponse)
-
--- | When the component was last modified.
-describeTrialComponentResponse_lastModifiedTime :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrialComponentResponse_lastModifiedTime = Lens.lens (\DescribeTrialComponentResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeTrialComponentResponse' {} a -> s {lastModifiedTime = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Core._Time
-
 -- | When the component ended.
 describeTrialComponentResponse_endTime :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.UTCTime)
 describeTrialComponentResponse_endTime = Lens.lens (\DescribeTrialComponentResponse' {endTime} -> endTime) (\s@DescribeTrialComponentResponse' {} a -> s {endTime = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the trial component.
-describeTrialComponentResponse_trialComponentName :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.Text)
-describeTrialComponentResponse_trialComponentName = Lens.lens (\DescribeTrialComponentResponse' {trialComponentName} -> trialComponentName) (\s@DescribeTrialComponentResponse' {} a -> s {trialComponentName = a} :: DescribeTrialComponentResponse)
-
--- | The hyperparameters of the component.
-describeTrialComponentResponse_parameters :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
-describeTrialComponentResponse_parameters = Lens.lens (\DescribeTrialComponentResponse' {parameters} -> parameters) (\s@DescribeTrialComponentResponse' {} a -> s {parameters = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Lens.coerced
+-- | When the component was last modified.
+describeTrialComponentResponse_lastModifiedTime :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.UTCTime)
+describeTrialComponentResponse_lastModifiedTime = Lens.lens (\DescribeTrialComponentResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeTrialComponentResponse' {} a -> s {lastModifiedTime = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the source and, optionally, the job
 -- type.
 describeTrialComponentResponse_source :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe TrialComponentSource)
 describeTrialComponentResponse_source = Lens.lens (\DescribeTrialComponentResponse' {source} -> source) (\s@DescribeTrialComponentResponse' {} a -> s {source = a} :: DescribeTrialComponentResponse)
 
--- | The name of the component as displayed. If @DisplayName@ isn\'t
--- specified, @TrialComponentName@ is displayed.
-describeTrialComponentResponse_displayName :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.Text)
-describeTrialComponentResponse_displayName = Lens.lens (\DescribeTrialComponentResponse' {displayName} -> displayName) (\s@DescribeTrialComponentResponse' {} a -> s {displayName = a} :: DescribeTrialComponentResponse)
+-- | When the component was created.
+describeTrialComponentResponse_creationTime :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.UTCTime)
+describeTrialComponentResponse_creationTime = Lens.lens (\DescribeTrialComponentResponse' {creationTime} -> creationTime) (\s@DescribeTrialComponentResponse' {} a -> s {creationTime = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The input artifacts of the component.
+describeTrialComponentResponse_inputArtifacts :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
+describeTrialComponentResponse_inputArtifacts = Lens.lens (\DescribeTrialComponentResponse' {inputArtifacts} -> inputArtifacts) (\s@DescribeTrialComponentResponse' {} a -> s {inputArtifacts = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Who last modified the component.
 describeTrialComponentResponse_lastModifiedBy :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe UserContext)
 describeTrialComponentResponse_lastModifiedBy = Lens.lens (\DescribeTrialComponentResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeTrialComponentResponse' {} a -> s {lastModifiedBy = a} :: DescribeTrialComponentResponse)
 
--- | The Amazon Resource Name (ARN) of the trial component.
-describeTrialComponentResponse_trialComponentArn :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.Text)
-describeTrialComponentResponse_trialComponentArn = Lens.lens (\DescribeTrialComponentResponse' {trialComponentArn} -> trialComponentArn) (\s@DescribeTrialComponentResponse' {} a -> s {trialComponentArn = a} :: DescribeTrialComponentResponse)
+-- | Who created the trial component.
+describeTrialComponentResponse_createdBy :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe UserContext)
+describeTrialComponentResponse_createdBy = Lens.lens (\DescribeTrialComponentResponse' {createdBy} -> createdBy) (\s@DescribeTrialComponentResponse' {} a -> s {createdBy = a} :: DescribeTrialComponentResponse)
 
--- | The input artifacts of the component.
-describeTrialComponentResponse_inputArtifacts :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
-describeTrialComponentResponse_inputArtifacts = Lens.lens (\DescribeTrialComponentResponse' {inputArtifacts} -> inputArtifacts) (\s@DescribeTrialComponentResponse' {} a -> s {inputArtifacts = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Lens.coerced
+-- | When the component started.
+describeTrialComponentResponse_startTime :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe Prelude.UTCTime)
+describeTrialComponentResponse_startTime = Lens.lens (\DescribeTrialComponentResponse' {startTime} -> startTime) (\s@DescribeTrialComponentResponse' {} a -> s {startTime = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The hyperparameters of the component.
+describeTrialComponentResponse_parameters :: Lens.Lens' DescribeTrialComponentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
+describeTrialComponentResponse_parameters = Lens.lens (\DescribeTrialComponentResponse' {parameters} -> parameters) (\s@DescribeTrialComponentResponse' {} a -> s {parameters = a} :: DescribeTrialComponentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTrialComponentResponse_httpStatus :: Lens.Lens' DescribeTrialComponentResponse Prelude.Int
@@ -361,20 +361,20 @@ instance
     DescribeTrialComponentResponse
   where
   rnf DescribeTrialComponentResponse' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf trialComponentName
       `Prelude.seq` Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf outputArtifacts
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf trialComponentName
-      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf trialComponentArn
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf inputArtifacts
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf httpStatus

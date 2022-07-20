@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduleConfiguration' smart constructor.
 data ScheduleConfiguration = ScheduleConfiguration'
-  { -- | How often the data should be pulled from data source.
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | The name of the object to pull from the data source.
+  { -- | The name of the object to pull from the data source.
     object' :: Prelude.Maybe Prelude.Text,
+    -- | How often the data should be pulled from data source.
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | The start date for objects to import in the first flow run.
     firstExecutionFrom :: Prelude.Maybe Prelude.Text
   }
@@ -44,28 +44,27 @@ data ScheduleConfiguration = ScheduleConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduleExpression', 'scheduleConfiguration_scheduleExpression' - How often the data should be pulled from data source.
---
 -- 'object'', 'scheduleConfiguration_object' - The name of the object to pull from the data source.
+--
+-- 'scheduleExpression', 'scheduleConfiguration_scheduleExpression' - How often the data should be pulled from data source.
 --
 -- 'firstExecutionFrom', 'scheduleConfiguration_firstExecutionFrom' - The start date for objects to import in the first flow run.
 newScheduleConfiguration ::
   ScheduleConfiguration
 newScheduleConfiguration =
   ScheduleConfiguration'
-    { scheduleExpression =
-        Prelude.Nothing,
-      object' = Prelude.Nothing,
+    { object' = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
       firstExecutionFrom = Prelude.Nothing
     }
-
--- | How often the data should be pulled from data source.
-scheduleConfiguration_scheduleExpression :: Lens.Lens' ScheduleConfiguration (Prelude.Maybe Prelude.Text)
-scheduleConfiguration_scheduleExpression = Lens.lens (\ScheduleConfiguration' {scheduleExpression} -> scheduleExpression) (\s@ScheduleConfiguration' {} a -> s {scheduleExpression = a} :: ScheduleConfiguration)
 
 -- | The name of the object to pull from the data source.
 scheduleConfiguration_object :: Lens.Lens' ScheduleConfiguration (Prelude.Maybe Prelude.Text)
 scheduleConfiguration_object = Lens.lens (\ScheduleConfiguration' {object'} -> object') (\s@ScheduleConfiguration' {} a -> s {object' = a} :: ScheduleConfiguration)
+
+-- | How often the data should be pulled from data source.
+scheduleConfiguration_scheduleExpression :: Lens.Lens' ScheduleConfiguration (Prelude.Maybe Prelude.Text)
+scheduleConfiguration_scheduleExpression = Lens.lens (\ScheduleConfiguration' {scheduleExpression} -> scheduleExpression) (\s@ScheduleConfiguration' {} a -> s {scheduleExpression = a} :: ScheduleConfiguration)
 
 -- | The start date for objects to import in the first flow run.
 scheduleConfiguration_firstExecutionFrom :: Lens.Lens' ScheduleConfiguration (Prelude.Maybe Prelude.Text)
@@ -77,30 +76,30 @@ instance Core.FromJSON ScheduleConfiguration where
       "ScheduleConfiguration"
       ( \x ->
           ScheduleConfiguration'
-            Prelude.<$> (x Core..:? "ScheduleExpression")
-            Prelude.<*> (x Core..:? "Object")
+            Prelude.<$> (x Core..:? "Object")
+            Prelude.<*> (x Core..:? "ScheduleExpression")
             Prelude.<*> (x Core..:? "FirstExecutionFrom")
       )
 
 instance Prelude.Hashable ScheduleConfiguration where
   hashWithSalt _salt ScheduleConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` scheduleExpression
-      `Prelude.hashWithSalt` object'
+    _salt `Prelude.hashWithSalt` object'
+      `Prelude.hashWithSalt` scheduleExpression
       `Prelude.hashWithSalt` firstExecutionFrom
 
 instance Prelude.NFData ScheduleConfiguration where
   rnf ScheduleConfiguration' {..} =
-    Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf object'
+    Prelude.rnf object'
+      `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf firstExecutionFrom
 
 instance Core.ToJSON ScheduleConfiguration where
   toJSON ScheduleConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ScheduleExpression" Core..=)
+          [ ("Object" Core..=) Prelude.<$> object',
+            ("ScheduleExpression" Core..=)
               Prelude.<$> scheduleExpression,
-            ("Object" Core..=) Prelude.<$> object',
             ("FirstExecutionFrom" Core..=)
               Prelude.<$> firstExecutionFrom
           ]

@@ -36,8 +36,8 @@ module Amazonka.IAM.ListMFADevices
     newListMFADevices,
 
     -- * Request Lenses
-    listMFADevices_userName,
     listMFADevices_marker,
+    listMFADevices_userName,
     listMFADevices_maxItems,
 
     -- * Destructuring the Response
@@ -61,18 +61,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMFADevices' smart constructor.
 data ListMFADevices = ListMFADevices'
-  { -- | The name of the user whose MFA devices you want to list.
+  { -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The name of the user whose MFA devices you want to list.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
     userName :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -94,17 +94,17 @@ data ListMFADevices = ListMFADevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listMFADevices_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
 -- 'userName', 'listMFADevices_userName' - The name of the user whose MFA devices you want to list.
 --
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
---
--- 'marker', 'listMFADevices_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
 --
 -- 'maxItems', 'listMFADevices_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -119,10 +119,17 @@ newListMFADevices ::
   ListMFADevices
 newListMFADevices =
   ListMFADevices'
-    { userName = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      userName = Prelude.Nothing,
       maxItems = Prelude.Nothing
     }
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listMFADevices_marker :: Lens.Lens' ListMFADevices (Prelude.Maybe Prelude.Text)
+listMFADevices_marker = Lens.lens (\ListMFADevices' {marker} -> marker) (\s@ListMFADevices' {} a -> s {marker = a} :: ListMFADevices)
 
 -- | The name of the user whose MFA devices you want to list.
 --
@@ -132,13 +139,6 @@ newListMFADevices =
 -- spaces. You can also include any of the following characters: _+=,.\@-
 listMFADevices_userName :: Lens.Lens' ListMFADevices (Prelude.Maybe Prelude.Text)
 listMFADevices_userName = Lens.lens (\ListMFADevices' {userName} -> userName) (\s@ListMFADevices' {} a -> s {userName = a} :: ListMFADevices)
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-listMFADevices_marker :: Lens.Lens' ListMFADevices (Prelude.Maybe Prelude.Text)
-listMFADevices_marker = Lens.lens (\ListMFADevices' {marker} -> marker) (\s@ListMFADevices' {} a -> s {marker = a} :: ListMFADevices)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -192,14 +192,14 @@ instance Core.AWSRequest ListMFADevices where
 
 instance Prelude.Hashable ListMFADevices where
   hashWithSalt _salt ListMFADevices' {..} =
-    _salt `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListMFADevices where
   rnf ListMFADevices' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf maxItems
 
 instance Core.ToHeaders ListMFADevices where
@@ -215,8 +215,8 @@ instance Core.ToQuery ListMFADevices where
           Core.=: ("ListMFADevices" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Core.=: userName,
         "Marker" Core.=: marker,
+        "UserName" Core.=: userName,
         "MaxItems" Core.=: maxItems
       ]
 

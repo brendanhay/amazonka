@@ -27,8 +27,8 @@ module Amazonka.SSMContacts.UpdateContact
     newUpdateContact,
 
     -- * Request Lenses
-    updateContact_plan,
     updateContact_displayName,
+    updateContact_plan,
     updateContact_contactId,
 
     -- * Destructuring the Response
@@ -49,12 +49,12 @@ import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newUpdateContact' smart constructor.
 data UpdateContact = UpdateContact'
-  { -- | A list of stages. A contact has an engagement plan with stages for
+  { -- | The full name of the contact or escalation plan.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | A list of stages. A contact has an engagement plan with stages for
     -- specified contact channels. An escalation plan uses these stages to
     -- contact specified contacts.
     plan :: Prelude.Maybe Plan,
-    -- | The full name of the contact or escalation plan.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the contact or escalation plan you\'re
     -- updating.
     contactId :: Prelude.Text
@@ -69,11 +69,11 @@ data UpdateContact = UpdateContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'displayName', 'updateContact_displayName' - The full name of the contact or escalation plan.
+--
 -- 'plan', 'updateContact_plan' - A list of stages. A contact has an engagement plan with stages for
 -- specified contact channels. An escalation plan uses these stages to
 -- contact specified contacts.
---
--- 'displayName', 'updateContact_displayName' - The full name of the contact or escalation plan.
 --
 -- 'contactId', 'updateContact_contactId' - The Amazon Resource Name (ARN) of the contact or escalation plan you\'re
 -- updating.
@@ -83,20 +83,20 @@ newUpdateContact ::
   UpdateContact
 newUpdateContact pContactId_ =
   UpdateContact'
-    { plan = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+    { displayName = Prelude.Nothing,
+      plan = Prelude.Nothing,
       contactId = pContactId_
     }
+
+-- | The full name of the contact or escalation plan.
+updateContact_displayName :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
+updateContact_displayName = Lens.lens (\UpdateContact' {displayName} -> displayName) (\s@UpdateContact' {} a -> s {displayName = a} :: UpdateContact)
 
 -- | A list of stages. A contact has an engagement plan with stages for
 -- specified contact channels. An escalation plan uses these stages to
 -- contact specified contacts.
 updateContact_plan :: Lens.Lens' UpdateContact (Prelude.Maybe Plan)
 updateContact_plan = Lens.lens (\UpdateContact' {plan} -> plan) (\s@UpdateContact' {} a -> s {plan = a} :: UpdateContact)
-
--- | The full name of the contact or escalation plan.
-updateContact_displayName :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
-updateContact_displayName = Lens.lens (\UpdateContact' {displayName} -> displayName) (\s@UpdateContact' {} a -> s {displayName = a} :: UpdateContact)
 
 -- | The Amazon Resource Name (ARN) of the contact or escalation plan you\'re
 -- updating.
@@ -117,14 +117,14 @@ instance Core.AWSRequest UpdateContact where
 
 instance Prelude.Hashable UpdateContact where
   hashWithSalt _salt UpdateContact' {..} =
-    _salt `Prelude.hashWithSalt` plan
-      `Prelude.hashWithSalt` displayName
+    _salt `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` plan
       `Prelude.hashWithSalt` contactId
 
 instance Prelude.NFData UpdateContact where
   rnf UpdateContact' {..} =
-    Prelude.rnf plan
-      `Prelude.seq` Prelude.rnf displayName
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf plan
       `Prelude.seq` Prelude.rnf contactId
 
 instance Core.ToHeaders UpdateContact where
@@ -144,8 +144,8 @@ instance Core.ToJSON UpdateContact where
   toJSON UpdateContact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Plan" Core..=) Prelude.<$> plan,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
+          [ ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("Plan" Core..=) Prelude.<$> plan,
             Prelude.Just ("ContactId" Core..= contactId)
           ]
       )

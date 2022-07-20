@@ -28,9 +28,9 @@ module Amazonka.LookoutEquipment.ListDataIngestionJobs
     newListDataIngestionJobs,
 
     -- * Request Lenses
-    listDataIngestionJobs_status,
     listDataIngestionJobs_nextToken,
     listDataIngestionJobs_datasetName,
+    listDataIngestionJobs_status,
     listDataIngestionJobs_maxResults,
 
     -- * Destructuring the Response
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataIngestionJobs' smart constructor.
 data ListDataIngestionJobs = ListDataIngestionJobs'
-  { -- | Indicates the status of the data ingestion job.
-    status :: Prelude.Maybe IngestionJobStatus,
-    -- | An opaque pagination token indicating where to continue the listing of
+  { -- | An opaque pagination token indicating where to continue the listing of
     -- data ingestion jobs.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the dataset being used for the data ingestion job.
     datasetName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the status of the data ingestion job.
+    status :: Prelude.Maybe IngestionJobStatus,
     -- | Specifies the maximum number of data ingestion jobs to list.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -73,27 +73,23 @@ data ListDataIngestionJobs = ListDataIngestionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listDataIngestionJobs_status' - Indicates the status of the data ingestion job.
---
 -- 'nextToken', 'listDataIngestionJobs_nextToken' - An opaque pagination token indicating where to continue the listing of
 -- data ingestion jobs.
 --
 -- 'datasetName', 'listDataIngestionJobs_datasetName' - The name of the dataset being used for the data ingestion job.
+--
+-- 'status', 'listDataIngestionJobs_status' - Indicates the status of the data ingestion job.
 --
 -- 'maxResults', 'listDataIngestionJobs_maxResults' - Specifies the maximum number of data ingestion jobs to list.
 newListDataIngestionJobs ::
   ListDataIngestionJobs
 newListDataIngestionJobs =
   ListDataIngestionJobs'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       datasetName = Prelude.Nothing,
+      status = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Indicates the status of the data ingestion job.
-listDataIngestionJobs_status :: Lens.Lens' ListDataIngestionJobs (Prelude.Maybe IngestionJobStatus)
-listDataIngestionJobs_status = Lens.lens (\ListDataIngestionJobs' {status} -> status) (\s@ListDataIngestionJobs' {} a -> s {status = a} :: ListDataIngestionJobs)
 
 -- | An opaque pagination token indicating where to continue the listing of
 -- data ingestion jobs.
@@ -103,6 +99,10 @@ listDataIngestionJobs_nextToken = Lens.lens (\ListDataIngestionJobs' {nextToken}
 -- | The name of the dataset being used for the data ingestion job.
 listDataIngestionJobs_datasetName :: Lens.Lens' ListDataIngestionJobs (Prelude.Maybe Prelude.Text)
 listDataIngestionJobs_datasetName = Lens.lens (\ListDataIngestionJobs' {datasetName} -> datasetName) (\s@ListDataIngestionJobs' {} a -> s {datasetName = a} :: ListDataIngestionJobs)
+
+-- | Indicates the status of the data ingestion job.
+listDataIngestionJobs_status :: Lens.Lens' ListDataIngestionJobs (Prelude.Maybe IngestionJobStatus)
+listDataIngestionJobs_status = Lens.lens (\ListDataIngestionJobs' {status} -> status) (\s@ListDataIngestionJobs' {} a -> s {status = a} :: ListDataIngestionJobs)
 
 -- | Specifies the maximum number of data ingestion jobs to list.
 listDataIngestionJobs_maxResults :: Lens.Lens' ListDataIngestionJobs (Prelude.Maybe Prelude.Natural)
@@ -126,16 +126,16 @@ instance Core.AWSRequest ListDataIngestionJobs where
 
 instance Prelude.Hashable ListDataIngestionJobs where
   hashWithSalt _salt ListDataIngestionJobs' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListDataIngestionJobs where
   rnf ListDataIngestionJobs' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDataIngestionJobs where
@@ -157,9 +157,9 @@ instance Core.ToJSON ListDataIngestionJobs where
   toJSON ListDataIngestionJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("DatasetName" Core..=) Prelude.<$> datasetName,
+            ("Status" Core..=) Prelude.<$> status,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

@@ -27,10 +27,10 @@ module Amazonka.Glue.CreateWorkflow
     newCreateWorkflow,
 
     -- * Request Lenses
+    createWorkflow_tags,
     createWorkflow_maxConcurrentRuns,
     createWorkflow_defaultRunProperties,
     createWorkflow_description,
-    createWorkflow_tags,
     createWorkflow_name,
 
     -- * Destructuring the Response
@@ -52,7 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkflow' smart constructor.
 data CreateWorkflow = CreateWorkflow'
-  { -- | You can use this parameter to prevent unwanted multiple updates to data,
+  { -- | The tags to be used with this workflow.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | You can use this parameter to prevent unwanted multiple updates to data,
     -- to control costs, or in some cases, to prevent exceeding the maximum
     -- number of concurrent runs of any of the component jobs. If you leave
     -- this parameter blank, there is no limit to the number of concurrent
@@ -63,8 +65,6 @@ data CreateWorkflow = CreateWorkflow'
     defaultRunProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A description of the workflow.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to be used with this workflow.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name to be assigned to the workflow. It should be unique within your
     -- account.
     name :: Prelude.Text
@@ -79,6 +79,8 @@ data CreateWorkflow = CreateWorkflow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createWorkflow_tags' - The tags to be used with this workflow.
+--
 -- 'maxConcurrentRuns', 'createWorkflow_maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data,
 -- to control costs, or in some cases, to prevent exceeding the maximum
 -- number of concurrent runs of any of the component jobs. If you leave
@@ -90,8 +92,6 @@ data CreateWorkflow = CreateWorkflow'
 --
 -- 'description', 'createWorkflow_description' - A description of the workflow.
 --
--- 'tags', 'createWorkflow_tags' - The tags to be used with this workflow.
---
 -- 'name', 'createWorkflow_name' - The name to be assigned to the workflow. It should be unique within your
 -- account.
 newCreateWorkflow ::
@@ -100,13 +100,16 @@ newCreateWorkflow ::
   CreateWorkflow
 newCreateWorkflow pName_ =
   CreateWorkflow'
-    { maxConcurrentRuns =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      maxConcurrentRuns = Prelude.Nothing,
       defaultRunProperties = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       name = pName_
     }
+
+-- | The tags to be used with this workflow.
+createWorkflow_tags :: Lens.Lens' CreateWorkflow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createWorkflow_tags = Lens.lens (\CreateWorkflow' {tags} -> tags) (\s@CreateWorkflow' {} a -> s {tags = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can use this parameter to prevent unwanted multiple updates to data,
 -- to control costs, or in some cases, to prevent exceeding the maximum
@@ -124,10 +127,6 @@ createWorkflow_defaultRunProperties = Lens.lens (\CreateWorkflow' {defaultRunPro
 -- | A description of the workflow.
 createWorkflow_description :: Lens.Lens' CreateWorkflow (Prelude.Maybe Prelude.Text)
 createWorkflow_description = Lens.lens (\CreateWorkflow' {description} -> description) (\s@CreateWorkflow' {} a -> s {description = a} :: CreateWorkflow)
-
--- | The tags to be used with this workflow.
-createWorkflow_tags :: Lens.Lens' CreateWorkflow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createWorkflow_tags = Lens.lens (\CreateWorkflow' {tags} -> tags) (\s@CreateWorkflow' {} a -> s {tags = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name to be assigned to the workflow. It should be unique within your
 -- account.
@@ -149,18 +148,18 @@ instance Core.AWSRequest CreateWorkflow where
 
 instance Prelude.Hashable CreateWorkflow where
   hashWithSalt _salt CreateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` maxConcurrentRuns
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` maxConcurrentRuns
       `Prelude.hashWithSalt` defaultRunProperties
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateWorkflow where
   rnf CreateWorkflow' {..} =
-    Prelude.rnf maxConcurrentRuns
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf maxConcurrentRuns
       `Prelude.seq` Prelude.rnf defaultRunProperties
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateWorkflow where
@@ -180,12 +179,12 @@ instance Core.ToJSON CreateWorkflow where
   toJSON CreateWorkflow' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxConcurrentRuns" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("MaxConcurrentRuns" Core..=)
               Prelude.<$> maxConcurrentRuns,
             ("DefaultRunProperties" Core..=)
               Prelude.<$> defaultRunProperties,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name)
           ]
       )

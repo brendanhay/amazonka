@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWebsocket' smart constructor.
 data Websocket = Websocket'
-  { -- | The URL of the websocket.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The URL expiration timestamp in ISO date format.
+  { -- | The URL expiration timestamp in ISO date format.
     --
     -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
     -- example, 2019-11-08T02:41:28.172Z.
-    connectionExpiry :: Prelude.Maybe Prelude.Text
+    connectionExpiry :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the websocket.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,19 @@ data Websocket = Websocket'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'websocket_url' - The URL of the websocket.
---
 -- 'connectionExpiry', 'websocket_connectionExpiry' - The URL expiration timestamp in ISO date format.
 --
 -- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For
 -- example, 2019-11-08T02:41:28.172Z.
+--
+-- 'url', 'websocket_url' - The URL of the websocket.
 newWebsocket ::
   Websocket
 newWebsocket =
   Websocket'
-    { url = Prelude.Nothing,
-      connectionExpiry = Prelude.Nothing
+    { connectionExpiry = Prelude.Nothing,
+      url = Prelude.Nothing
     }
-
--- | The URL of the websocket.
-websocket_url :: Lens.Lens' Websocket (Prelude.Maybe Prelude.Text)
-websocket_url = Lens.lens (\Websocket' {url} -> url) (\s@Websocket' {} a -> s {url = a} :: Websocket)
 
 -- | The URL expiration timestamp in ISO date format.
 --
@@ -70,22 +66,26 @@ websocket_url = Lens.lens (\Websocket' {url} -> url) (\s@Websocket' {} a -> s {u
 websocket_connectionExpiry :: Lens.Lens' Websocket (Prelude.Maybe Prelude.Text)
 websocket_connectionExpiry = Lens.lens (\Websocket' {connectionExpiry} -> connectionExpiry) (\s@Websocket' {} a -> s {connectionExpiry = a} :: Websocket)
 
+-- | The URL of the websocket.
+websocket_url :: Lens.Lens' Websocket (Prelude.Maybe Prelude.Text)
+websocket_url = Lens.lens (\Websocket' {url} -> url) (\s@Websocket' {} a -> s {url = a} :: Websocket)
+
 instance Core.FromJSON Websocket where
   parseJSON =
     Core.withObject
       "Websocket"
       ( \x ->
           Websocket'
-            Prelude.<$> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "ConnectionExpiry")
+            Prelude.<$> (x Core..:? "ConnectionExpiry")
+            Prelude.<*> (x Core..:? "Url")
       )
 
 instance Prelude.Hashable Websocket where
   hashWithSalt _salt Websocket' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` connectionExpiry
+    _salt `Prelude.hashWithSalt` connectionExpiry
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Websocket where
   rnf Websocket' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf connectionExpiry
+    Prelude.rnf connectionExpiry
+      `Prelude.seq` Prelude.rnf url

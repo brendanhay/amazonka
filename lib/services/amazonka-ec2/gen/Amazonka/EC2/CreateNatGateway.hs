@@ -46,9 +46,9 @@ module Amazonka.EC2.CreateNatGateway
     -- * Request Lenses
     createNatGateway_clientToken,
     createNatGateway_allocationId,
+    createNatGateway_dryRun,
     createNatGateway_connectivityType,
     createNatGateway_tagSpecifications,
-    createNatGateway_dryRun,
     createNatGateway_subnetId,
 
     -- * Destructuring the Response
@@ -82,16 +82,16 @@ data CreateNatGateway = CreateNatGateway'
     -- with a private NAT gateway. If the Elastic IP address is associated with
     -- another resource, you must first disassociate it.
     allocationId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the NAT gateway supports public or private
-    -- connectivity. The default is public connectivity.
-    connectivityType :: Prelude.Maybe ConnectivityType,
-    -- | The tags to assign to the NAT gateway.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the NAT gateway supports public or private
+    -- connectivity. The default is public connectivity.
+    connectivityType :: Prelude.Maybe ConnectivityType,
+    -- | The tags to assign to the NAT gateway.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The subnet in which to create the NAT gateway.
     subnetId :: Prelude.Text
   }
@@ -116,15 +116,15 @@ data CreateNatGateway = CreateNatGateway'
 -- with a private NAT gateway. If the Elastic IP address is associated with
 -- another resource, you must first disassociate it.
 --
--- 'connectivityType', 'createNatGateway_connectivityType' - Indicates whether the NAT gateway supports public or private
--- connectivity. The default is public connectivity.
---
--- 'tagSpecifications', 'createNatGateway_tagSpecifications' - The tags to assign to the NAT gateway.
---
 -- 'dryRun', 'createNatGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'connectivityType', 'createNatGateway_connectivityType' - Indicates whether the NAT gateway supports public or private
+-- connectivity. The default is public connectivity.
+--
+-- 'tagSpecifications', 'createNatGateway_tagSpecifications' - The tags to assign to the NAT gateway.
 --
 -- 'subnetId', 'createNatGateway_subnetId' - The subnet in which to create the NAT gateway.
 newCreateNatGateway ::
@@ -135,9 +135,9 @@ newCreateNatGateway pSubnetId_ =
   CreateNatGateway'
     { clientToken = Prelude.Nothing,
       allocationId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       connectivityType = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       subnetId = pSubnetId_
     }
 
@@ -156,6 +156,13 @@ createNatGateway_clientToken = Lens.lens (\CreateNatGateway' {clientToken} -> cl
 createNatGateway_allocationId :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
 createNatGateway_allocationId = Lens.lens (\CreateNatGateway' {allocationId} -> allocationId) (\s@CreateNatGateway' {} a -> s {allocationId = a} :: CreateNatGateway)
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createNatGateway_dryRun :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Bool)
+createNatGateway_dryRun = Lens.lens (\CreateNatGateway' {dryRun} -> dryRun) (\s@CreateNatGateway' {} a -> s {dryRun = a} :: CreateNatGateway)
+
 -- | Indicates whether the NAT gateway supports public or private
 -- connectivity. The default is public connectivity.
 createNatGateway_connectivityType :: Lens.Lens' CreateNatGateway (Prelude.Maybe ConnectivityType)
@@ -164,13 +171,6 @@ createNatGateway_connectivityType = Lens.lens (\CreateNatGateway' {connectivityT
 -- | The tags to assign to the NAT gateway.
 createNatGateway_tagSpecifications :: Lens.Lens' CreateNatGateway (Prelude.Maybe [TagSpecification])
 createNatGateway_tagSpecifications = Lens.lens (\CreateNatGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateNatGateway' {} a -> s {tagSpecifications = a} :: CreateNatGateway) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createNatGateway_dryRun :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Bool)
-createNatGateway_dryRun = Lens.lens (\CreateNatGateway' {dryRun} -> dryRun) (\s@CreateNatGateway' {} a -> s {dryRun = a} :: CreateNatGateway)
 
 -- | The subnet in which to create the NAT gateway.
 createNatGateway_subnetId :: Lens.Lens' CreateNatGateway Prelude.Text
@@ -194,18 +194,18 @@ instance Prelude.Hashable CreateNatGateway where
   hashWithSalt _salt CreateNatGateway' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` connectivityType
       `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData CreateNatGateway where
   rnf CreateNatGateway' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf connectivityType
       `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToHeaders CreateNatGateway where
@@ -223,12 +223,12 @@ instance Core.ToQuery CreateNatGateway where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Core.=: clientToken,
         "AllocationId" Core.=: allocationId,
+        "DryRun" Core.=: dryRun,
         "ConnectivityType" Core.=: connectivityType,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "SubnetId" Core.=: subnetId
       ]
 

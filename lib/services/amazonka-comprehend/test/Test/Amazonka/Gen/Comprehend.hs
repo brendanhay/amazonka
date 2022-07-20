@@ -27,122 +27,47 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestBatchDetectSentiment $
---             newBatchDetectSentiment
---
---         , requestDeleteEntityRecognizer $
---             newDeleteEntityRecognizer
---
---         , requestDescribeKeyPhrasesDetectionJob $
---             newDescribeKeyPhrasesDetectionJob
---
---         , requestListEntitiesDetectionJobs $
---             newListEntitiesDetectionJobs
---
---         , requestCreateEndpoint $
---             newCreateEndpoint
---
---         , requestStopEventsDetectionJob $
---             newStopEventsDetectionJob
---
---         , requestStartSentimentDetectionJob $
---             newStartSentimentDetectionJob
---
---         , requestBatchDetectSyntax $
---             newBatchDetectSyntax
---
---         , requestStartTopicsDetectionJob $
---             newStartTopicsDetectionJob
---
---         , requestDescribeEventsDetectionJob $
---             newDescribeEventsDetectionJob
---
---         , requestDeleteEndpoint $
---             newDeleteEndpoint
---
---         , requestUpdateEndpoint $
---             newUpdateEndpoint
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestBatchDetectKeyPhrases $
---             newBatchDetectKeyPhrases
---
---         , requestDescribeSentimentDetectionJob $
---             newDescribeSentimentDetectionJob
---
---         , requestStartEntitiesDetectionJob $
---             newStartEntitiesDetectionJob
---
---         , requestStopPiiEntitiesDetectionJob $
---             newStopPiiEntitiesDetectionJob
---
---         , requestDescribeEntityRecognizer $
---             newDescribeEntityRecognizer
---
---         , requestDetectSentiment $
---             newDetectSentiment
---
---         , requestStartDominantLanguageDetectionJob $
---             newStartDominantLanguageDetectionJob
---
---         , requestStopTrainingDocumentClassifier $
---             newStopTrainingDocumentClassifier
---
---         , requestDescribeDocumentClassificationJob $
---             newDescribeDocumentClassificationJob
---
---         , requestContainsPiiEntities $
---             newContainsPiiEntities
---
---         , requestListEventsDetectionJobs $
---             newListEventsDetectionJobs
+--         [ requestBatchDetectDominantLanguage $
+--             newBatchDetectDominantLanguage
 --
 --         , requestBatchDetectEntities $
 --             newBatchDetectEntities
 --
---         , requestCreateEntityRecognizer $
---             newCreateEntityRecognizer
+--         , requestBatchDetectKeyPhrases $
+--             newBatchDetectKeyPhrases
 --
---         , requestStopKeyPhrasesDetectionJob $
---             newStopKeyPhrasesDetectionJob
+--         , requestBatchDetectSentiment $
+--             newBatchDetectSentiment
 --
---         , requestCreateDocumentClassifier $
---             newCreateDocumentClassifier
---
---         , requestListPiiEntitiesDetectionJobs $
---             newListPiiEntitiesDetectionJobs
---
---         , requestListEntityRecognizers $
---             newListEntityRecognizers
---
---         , requestStopSentimentDetectionJob $
---             newStopSentimentDetectionJob
---
---         , requestDetectDominantLanguage $
---             newDetectDominantLanguage
+--         , requestBatchDetectSyntax $
+--             newBatchDetectSyntax
 --
 --         , requestClassifyDocument $
 --             newClassifyDocument
 --
---         , requestStartEventsDetectionJob $
---             newStartEventsDetectionJob
+--         , requestContainsPiiEntities $
+--             newContainsPiiEntities
 --
---         , requestDescribeTopicsDetectionJob $
---             newDescribeTopicsDetectionJob
+--         , requestCreateDocumentClassifier $
+--             newCreateDocumentClassifier
 --
---         , requestListDocumentClassificationJobs $
---             newListDocumentClassificationJobs
+--         , requestCreateEndpoint $
+--             newCreateEndpoint
 --
---         , requestDetectPiiEntities $
---             newDetectPiiEntities
+--         , requestCreateEntityRecognizer $
+--             newCreateEntityRecognizer
 --
---         , requestListEndpoints $
---             newListEndpoints
+--         , requestDeleteDocumentClassifier $
+--             newDeleteDocumentClassifier
 --
---         , requestDetectEntities $
---             newDetectEntities
+--         , requestDeleteEndpoint $
+--             newDeleteEndpoint
+--
+--         , requestDeleteEntityRecognizer $
+--             newDeleteEntityRecognizer
+--
+--         , requestDescribeDocumentClassificationJob $
+--             newDescribeDocumentClassificationJob
 --
 --         , requestDescribeDocumentClassifier $
 --             newDescribeDocumentClassifier
@@ -150,191 +75,191 @@ import Test.Tasty
 --         , requestDescribeDominantLanguageDetectionJob $
 --             newDescribeDominantLanguageDetectionJob
 --
---         , requestListEntityRecognizerSummaries $
---             newListEntityRecognizerSummaries
---
---         , requestStopEntitiesDetectionJob $
---             newStopEntitiesDetectionJob
---
---         , requestStopTrainingEntityRecognizer $
---             newStopTrainingEntityRecognizer
---
---         , requestStartPiiEntitiesDetectionJob $
---             newStartPiiEntitiesDetectionJob
---
---         , requestListKeyPhrasesDetectionJobs $
---             newListKeyPhrasesDetectionJobs
+--         , requestDescribeEndpoint $
+--             newDescribeEndpoint
 --
 --         , requestDescribeEntitiesDetectionJob $
 --             newDescribeEntitiesDetectionJob
 --
---         , requestListDocumentClassifierSummaries $
---             newListDocumentClassifierSummaries
+--         , requestDescribeEntityRecognizer $
+--             newDescribeEntityRecognizer
 --
---         , requestStopDominantLanguageDetectionJob $
---             newStopDominantLanguageDetectionJob
+--         , requestDescribeEventsDetectionJob $
+--             newDescribeEventsDetectionJob
 --
---         , requestTagResource $
---             newTagResource
+--         , requestDescribeKeyPhrasesDetectionJob $
+--             newDescribeKeyPhrasesDetectionJob
 --
 --         , requestDescribePiiEntitiesDetectionJob $
 --             newDescribePiiEntitiesDetectionJob
 --
---         , requestListTopicsDetectionJobs $
---             newListTopicsDetectionJobs
+--         , requestDescribeSentimentDetectionJob $
+--             newDescribeSentimentDetectionJob
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDescribeTopicsDetectionJob $
+--             newDescribeTopicsDetectionJob
 --
---         , requestBatchDetectDominantLanguage $
---             newBatchDetectDominantLanguage
+--         , requestDetectDominantLanguage $
+--             newDetectDominantLanguage
 --
---         , requestStartDocumentClassificationJob $
---             newStartDocumentClassificationJob
+--         , requestDetectEntities $
+--             newDetectEntities
 --
 --         , requestDetectKeyPhrases $
 --             newDetectKeyPhrases
 --
+--         , requestDetectPiiEntities $
+--             newDetectPiiEntities
+--
+--         , requestDetectSentiment $
+--             newDetectSentiment
+--
 --         , requestDetectSyntax $
 --             newDetectSyntax
 --
---         , requestDescribeEndpoint $
---             newDescribeEndpoint
+--         , requestListDocumentClassificationJobs $
+--             newListDocumentClassificationJobs
 --
---         , requestListSentimentDetectionJobs $
---             newListSentimentDetectionJobs
---
---         , requestDeleteDocumentClassifier $
---             newDeleteDocumentClassifier
---
---         , requestListDominantLanguageDetectionJobs $
---             newListDominantLanguageDetectionJobs
---
---         , requestStartKeyPhrasesDetectionJob $
---             newStartKeyPhrasesDetectionJob
+--         , requestListDocumentClassifierSummaries $
+--             newListDocumentClassifierSummaries
 --
 --         , requestListDocumentClassifiers $
 --             newListDocumentClassifiers
 --
+--         , requestListDominantLanguageDetectionJobs $
+--             newListDominantLanguageDetectionJobs
+--
+--         , requestListEndpoints $
+--             newListEndpoints
+--
+--         , requestListEntitiesDetectionJobs $
+--             newListEntitiesDetectionJobs
+--
+--         , requestListEntityRecognizerSummaries $
+--             newListEntityRecognizerSummaries
+--
+--         , requestListEntityRecognizers $
+--             newListEntityRecognizers
+--
+--         , requestListEventsDetectionJobs $
+--             newListEventsDetectionJobs
+--
+--         , requestListKeyPhrasesDetectionJobs $
+--             newListKeyPhrasesDetectionJobs
+--
+--         , requestListPiiEntitiesDetectionJobs $
+--             newListPiiEntitiesDetectionJobs
+--
+--         , requestListSentimentDetectionJobs $
+--             newListSentimentDetectionJobs
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListTopicsDetectionJobs $
+--             newListTopicsDetectionJobs
+--
+--         , requestStartDocumentClassificationJob $
+--             newStartDocumentClassificationJob
+--
+--         , requestStartDominantLanguageDetectionJob $
+--             newStartDominantLanguageDetectionJob
+--
+--         , requestStartEntitiesDetectionJob $
+--             newStartEntitiesDetectionJob
+--
+--         , requestStartEventsDetectionJob $
+--             newStartEventsDetectionJob
+--
+--         , requestStartKeyPhrasesDetectionJob $
+--             newStartKeyPhrasesDetectionJob
+--
+--         , requestStartPiiEntitiesDetectionJob $
+--             newStartPiiEntitiesDetectionJob
+--
+--         , requestStartSentimentDetectionJob $
+--             newStartSentimentDetectionJob
+--
+--         , requestStartTopicsDetectionJob $
+--             newStartTopicsDetectionJob
+--
+--         , requestStopDominantLanguageDetectionJob $
+--             newStopDominantLanguageDetectionJob
+--
+--         , requestStopEntitiesDetectionJob $
+--             newStopEntitiesDetectionJob
+--
+--         , requestStopEventsDetectionJob $
+--             newStopEventsDetectionJob
+--
+--         , requestStopKeyPhrasesDetectionJob $
+--             newStopKeyPhrasesDetectionJob
+--
+--         , requestStopPiiEntitiesDetectionJob $
+--             newStopPiiEntitiesDetectionJob
+--
+--         , requestStopSentimentDetectionJob $
+--             newStopSentimentDetectionJob
+--
+--         , requestStopTrainingDocumentClassifier $
+--             newStopTrainingDocumentClassifier
+--
+--         , requestStopTrainingEntityRecognizer $
+--             newStopTrainingEntityRecognizer
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateEndpoint $
+--             newUpdateEndpoint
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseBatchDetectSentiment $
---             newBatchDetectSentimentResponse
---
---         , responseDeleteEntityRecognizer $
---             newDeleteEntityRecognizerResponse
---
---         , responseDescribeKeyPhrasesDetectionJob $
---             newDescribeKeyPhrasesDetectionJobResponse
---
---         , responseListEntitiesDetectionJobs $
---             newListEntitiesDetectionJobsResponse
---
---         , responseCreateEndpoint $
---             newCreateEndpointResponse
---
---         , responseStopEventsDetectionJob $
---             newStopEventsDetectionJobResponse
---
---         , responseStartSentimentDetectionJob $
---             newStartSentimentDetectionJobResponse
---
---         , responseBatchDetectSyntax $
---             newBatchDetectSyntaxResponse
---
---         , responseStartTopicsDetectionJob $
---             newStartTopicsDetectionJobResponse
---
---         , responseDescribeEventsDetectionJob $
---             newDescribeEventsDetectionJobResponse
---
---         , responseDeleteEndpoint $
---             newDeleteEndpointResponse
---
---         , responseUpdateEndpoint $
---             newUpdateEndpointResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseBatchDetectKeyPhrases $
---             newBatchDetectKeyPhrasesResponse
---
---         , responseDescribeSentimentDetectionJob $
---             newDescribeSentimentDetectionJobResponse
---
---         , responseStartEntitiesDetectionJob $
---             newStartEntitiesDetectionJobResponse
---
---         , responseStopPiiEntitiesDetectionJob $
---             newStopPiiEntitiesDetectionJobResponse
---
---         , responseDescribeEntityRecognizer $
---             newDescribeEntityRecognizerResponse
---
---         , responseDetectSentiment $
---             newDetectSentimentResponse
---
---         , responseStartDominantLanguageDetectionJob $
---             newStartDominantLanguageDetectionJobResponse
---
---         , responseStopTrainingDocumentClassifier $
---             newStopTrainingDocumentClassifierResponse
---
---         , responseDescribeDocumentClassificationJob $
---             newDescribeDocumentClassificationJobResponse
---
---         , responseContainsPiiEntities $
---             newContainsPiiEntitiesResponse
---
---         , responseListEventsDetectionJobs $
---             newListEventsDetectionJobsResponse
+--         [ responseBatchDetectDominantLanguage $
+--             newBatchDetectDominantLanguageResponse
 --
 --         , responseBatchDetectEntities $
 --             newBatchDetectEntitiesResponse
 --
---         , responseCreateEntityRecognizer $
---             newCreateEntityRecognizerResponse
+--         , responseBatchDetectKeyPhrases $
+--             newBatchDetectKeyPhrasesResponse
 --
---         , responseStopKeyPhrasesDetectionJob $
---             newStopKeyPhrasesDetectionJobResponse
+--         , responseBatchDetectSentiment $
+--             newBatchDetectSentimentResponse
 --
---         , responseCreateDocumentClassifier $
---             newCreateDocumentClassifierResponse
---
---         , responseListPiiEntitiesDetectionJobs $
---             newListPiiEntitiesDetectionJobsResponse
---
---         , responseListEntityRecognizers $
---             newListEntityRecognizersResponse
---
---         , responseStopSentimentDetectionJob $
---             newStopSentimentDetectionJobResponse
---
---         , responseDetectDominantLanguage $
---             newDetectDominantLanguageResponse
+--         , responseBatchDetectSyntax $
+--             newBatchDetectSyntaxResponse
 --
 --         , responseClassifyDocument $
 --             newClassifyDocumentResponse
 --
---         , responseStartEventsDetectionJob $
---             newStartEventsDetectionJobResponse
+--         , responseContainsPiiEntities $
+--             newContainsPiiEntitiesResponse
 --
---         , responseDescribeTopicsDetectionJob $
---             newDescribeTopicsDetectionJobResponse
+--         , responseCreateDocumentClassifier $
+--             newCreateDocumentClassifierResponse
 --
---         , responseListDocumentClassificationJobs $
---             newListDocumentClassificationJobsResponse
+--         , responseCreateEndpoint $
+--             newCreateEndpointResponse
 --
---         , responseDetectPiiEntities $
---             newDetectPiiEntitiesResponse
+--         , responseCreateEntityRecognizer $
+--             newCreateEntityRecognizerResponse
 --
---         , responseListEndpoints $
---             newListEndpointsResponse
+--         , responseDeleteDocumentClassifier $
+--             newDeleteDocumentClassifierResponse
 --
---         , responseDetectEntities $
---             newDetectEntitiesResponse
+--         , responseDeleteEndpoint $
+--             newDeleteEndpointResponse
+--
+--         , responseDeleteEntityRecognizer $
+--             newDeleteEntityRecognizerResponse
+--
+--         , responseDescribeDocumentClassificationJob $
+--             newDescribeDocumentClassificationJobResponse
 --
 --         , responseDescribeDocumentClassifier $
 --             newDescribeDocumentClassifierResponse
@@ -342,220 +267,157 @@ import Test.Tasty
 --         , responseDescribeDominantLanguageDetectionJob $
 --             newDescribeDominantLanguageDetectionJobResponse
 --
---         , responseListEntityRecognizerSummaries $
---             newListEntityRecognizerSummariesResponse
---
---         , responseStopEntitiesDetectionJob $
---             newStopEntitiesDetectionJobResponse
---
---         , responseStopTrainingEntityRecognizer $
---             newStopTrainingEntityRecognizerResponse
---
---         , responseStartPiiEntitiesDetectionJob $
---             newStartPiiEntitiesDetectionJobResponse
---
---         , responseListKeyPhrasesDetectionJobs $
---             newListKeyPhrasesDetectionJobsResponse
+--         , responseDescribeEndpoint $
+--             newDescribeEndpointResponse
 --
 --         , responseDescribeEntitiesDetectionJob $
 --             newDescribeEntitiesDetectionJobResponse
 --
---         , responseListDocumentClassifierSummaries $
---             newListDocumentClassifierSummariesResponse
+--         , responseDescribeEntityRecognizer $
+--             newDescribeEntityRecognizerResponse
 --
---         , responseStopDominantLanguageDetectionJob $
---             newStopDominantLanguageDetectionJobResponse
+--         , responseDescribeEventsDetectionJob $
+--             newDescribeEventsDetectionJobResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDescribeKeyPhrasesDetectionJob $
+--             newDescribeKeyPhrasesDetectionJobResponse
 --
 --         , responseDescribePiiEntitiesDetectionJob $
 --             newDescribePiiEntitiesDetectionJobResponse
 --
---         , responseListTopicsDetectionJobs $
---             newListTopicsDetectionJobsResponse
+--         , responseDescribeSentimentDetectionJob $
+--             newDescribeSentimentDetectionJobResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDescribeTopicsDetectionJob $
+--             newDescribeTopicsDetectionJobResponse
 --
---         , responseBatchDetectDominantLanguage $
---             newBatchDetectDominantLanguageResponse
+--         , responseDetectDominantLanguage $
+--             newDetectDominantLanguageResponse
 --
---         , responseStartDocumentClassificationJob $
---             newStartDocumentClassificationJobResponse
+--         , responseDetectEntities $
+--             newDetectEntitiesResponse
 --
 --         , responseDetectKeyPhrases $
 --             newDetectKeyPhrasesResponse
 --
+--         , responseDetectPiiEntities $
+--             newDetectPiiEntitiesResponse
+--
+--         , responseDetectSentiment $
+--             newDetectSentimentResponse
+--
 --         , responseDetectSyntax $
 --             newDetectSyntaxResponse
 --
---         , responseDescribeEndpoint $
---             newDescribeEndpointResponse
+--         , responseListDocumentClassificationJobs $
+--             newListDocumentClassificationJobsResponse
 --
---         , responseListSentimentDetectionJobs $
---             newListSentimentDetectionJobsResponse
+--         , responseListDocumentClassifierSummaries $
+--             newListDocumentClassifierSummariesResponse
 --
---         , responseDeleteDocumentClassifier $
---             newDeleteDocumentClassifierResponse
+--         , responseListDocumentClassifiers $
+--             newListDocumentClassifiersResponse
 --
 --         , responseListDominantLanguageDetectionJobs $
 --             newListDominantLanguageDetectionJobsResponse
 --
+--         , responseListEndpoints $
+--             newListEndpointsResponse
+--
+--         , responseListEntitiesDetectionJobs $
+--             newListEntitiesDetectionJobsResponse
+--
+--         , responseListEntityRecognizerSummaries $
+--             newListEntityRecognizerSummariesResponse
+--
+--         , responseListEntityRecognizers $
+--             newListEntityRecognizersResponse
+--
+--         , responseListEventsDetectionJobs $
+--             newListEventsDetectionJobsResponse
+--
+--         , responseListKeyPhrasesDetectionJobs $
+--             newListKeyPhrasesDetectionJobsResponse
+--
+--         , responseListPiiEntitiesDetectionJobs $
+--             newListPiiEntitiesDetectionJobsResponse
+--
+--         , responseListSentimentDetectionJobs $
+--             newListSentimentDetectionJobsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListTopicsDetectionJobs $
+--             newListTopicsDetectionJobsResponse
+--
+--         , responseStartDocumentClassificationJob $
+--             newStartDocumentClassificationJobResponse
+--
+--         , responseStartDominantLanguageDetectionJob $
+--             newStartDominantLanguageDetectionJobResponse
+--
+--         , responseStartEntitiesDetectionJob $
+--             newStartEntitiesDetectionJobResponse
+--
+--         , responseStartEventsDetectionJob $
+--             newStartEventsDetectionJobResponse
+--
 --         , responseStartKeyPhrasesDetectionJob $
 --             newStartKeyPhrasesDetectionJobResponse
 --
---         , responseListDocumentClassifiers $
---             newListDocumentClassifiersResponse
+--         , responseStartPiiEntitiesDetectionJob $
+--             newStartPiiEntitiesDetectionJobResponse
+--
+--         , responseStartSentimentDetectionJob $
+--             newStartSentimentDetectionJobResponse
+--
+--         , responseStartTopicsDetectionJob $
+--             newStartTopicsDetectionJobResponse
+--
+--         , responseStopDominantLanguageDetectionJob $
+--             newStopDominantLanguageDetectionJobResponse
+--
+--         , responseStopEntitiesDetectionJob $
+--             newStopEntitiesDetectionJobResponse
+--
+--         , responseStopEventsDetectionJob $
+--             newStopEventsDetectionJobResponse
+--
+--         , responseStopKeyPhrasesDetectionJob $
+--             newStopKeyPhrasesDetectionJobResponse
+--
+--         , responseStopPiiEntitiesDetectionJob $
+--             newStopPiiEntitiesDetectionJobResponse
+--
+--         , responseStopSentimentDetectionJob $
+--             newStopSentimentDetectionJobResponse
+--
+--         , responseStopTrainingDocumentClassifier $
+--             newStopTrainingDocumentClassifierResponse
+--
+--         , responseStopTrainingEntityRecognizer $
+--             newStopTrainingEntityRecognizerResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateEndpoint $
+--             newUpdateEndpointResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestBatchDetectSentiment :: BatchDetectSentiment -> TestTree
-requestBatchDetectSentiment =
+requestBatchDetectDominantLanguage :: BatchDetectDominantLanguage -> TestTree
+requestBatchDetectDominantLanguage =
   req
-    "BatchDetectSentiment"
-    "fixture/BatchDetectSentiment.yaml"
-
-requestDeleteEntityRecognizer :: DeleteEntityRecognizer -> TestTree
-requestDeleteEntityRecognizer =
-  req
-    "DeleteEntityRecognizer"
-    "fixture/DeleteEntityRecognizer.yaml"
-
-requestDescribeKeyPhrasesDetectionJob :: DescribeKeyPhrasesDetectionJob -> TestTree
-requestDescribeKeyPhrasesDetectionJob =
-  req
-    "DescribeKeyPhrasesDetectionJob"
-    "fixture/DescribeKeyPhrasesDetectionJob.yaml"
-
-requestListEntitiesDetectionJobs :: ListEntitiesDetectionJobs -> TestTree
-requestListEntitiesDetectionJobs =
-  req
-    "ListEntitiesDetectionJobs"
-    "fixture/ListEntitiesDetectionJobs.yaml"
-
-requestCreateEndpoint :: CreateEndpoint -> TestTree
-requestCreateEndpoint =
-  req
-    "CreateEndpoint"
-    "fixture/CreateEndpoint.yaml"
-
-requestStopEventsDetectionJob :: StopEventsDetectionJob -> TestTree
-requestStopEventsDetectionJob =
-  req
-    "StopEventsDetectionJob"
-    "fixture/StopEventsDetectionJob.yaml"
-
-requestStartSentimentDetectionJob :: StartSentimentDetectionJob -> TestTree
-requestStartSentimentDetectionJob =
-  req
-    "StartSentimentDetectionJob"
-    "fixture/StartSentimentDetectionJob.yaml"
-
-requestBatchDetectSyntax :: BatchDetectSyntax -> TestTree
-requestBatchDetectSyntax =
-  req
-    "BatchDetectSyntax"
-    "fixture/BatchDetectSyntax.yaml"
-
-requestStartTopicsDetectionJob :: StartTopicsDetectionJob -> TestTree
-requestStartTopicsDetectionJob =
-  req
-    "StartTopicsDetectionJob"
-    "fixture/StartTopicsDetectionJob.yaml"
-
-requestDescribeEventsDetectionJob :: DescribeEventsDetectionJob -> TestTree
-requestDescribeEventsDetectionJob =
-  req
-    "DescribeEventsDetectionJob"
-    "fixture/DescribeEventsDetectionJob.yaml"
-
-requestDeleteEndpoint :: DeleteEndpoint -> TestTree
-requestDeleteEndpoint =
-  req
-    "DeleteEndpoint"
-    "fixture/DeleteEndpoint.yaml"
-
-requestUpdateEndpoint :: UpdateEndpoint -> TestTree
-requestUpdateEndpoint =
-  req
-    "UpdateEndpoint"
-    "fixture/UpdateEndpoint.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestBatchDetectKeyPhrases :: BatchDetectKeyPhrases -> TestTree
-requestBatchDetectKeyPhrases =
-  req
-    "BatchDetectKeyPhrases"
-    "fixture/BatchDetectKeyPhrases.yaml"
-
-requestDescribeSentimentDetectionJob :: DescribeSentimentDetectionJob -> TestTree
-requestDescribeSentimentDetectionJob =
-  req
-    "DescribeSentimentDetectionJob"
-    "fixture/DescribeSentimentDetectionJob.yaml"
-
-requestStartEntitiesDetectionJob :: StartEntitiesDetectionJob -> TestTree
-requestStartEntitiesDetectionJob =
-  req
-    "StartEntitiesDetectionJob"
-    "fixture/StartEntitiesDetectionJob.yaml"
-
-requestStopPiiEntitiesDetectionJob :: StopPiiEntitiesDetectionJob -> TestTree
-requestStopPiiEntitiesDetectionJob =
-  req
-    "StopPiiEntitiesDetectionJob"
-    "fixture/StopPiiEntitiesDetectionJob.yaml"
-
-requestDescribeEntityRecognizer :: DescribeEntityRecognizer -> TestTree
-requestDescribeEntityRecognizer =
-  req
-    "DescribeEntityRecognizer"
-    "fixture/DescribeEntityRecognizer.yaml"
-
-requestDetectSentiment :: DetectSentiment -> TestTree
-requestDetectSentiment =
-  req
-    "DetectSentiment"
-    "fixture/DetectSentiment.yaml"
-
-requestStartDominantLanguageDetectionJob :: StartDominantLanguageDetectionJob -> TestTree
-requestStartDominantLanguageDetectionJob =
-  req
-    "StartDominantLanguageDetectionJob"
-    "fixture/StartDominantLanguageDetectionJob.yaml"
-
-requestStopTrainingDocumentClassifier :: StopTrainingDocumentClassifier -> TestTree
-requestStopTrainingDocumentClassifier =
-  req
-    "StopTrainingDocumentClassifier"
-    "fixture/StopTrainingDocumentClassifier.yaml"
-
-requestDescribeDocumentClassificationJob :: DescribeDocumentClassificationJob -> TestTree
-requestDescribeDocumentClassificationJob =
-  req
-    "DescribeDocumentClassificationJob"
-    "fixture/DescribeDocumentClassificationJob.yaml"
-
-requestContainsPiiEntities :: ContainsPiiEntities -> TestTree
-requestContainsPiiEntities =
-  req
-    "ContainsPiiEntities"
-    "fixture/ContainsPiiEntities.yaml"
-
-requestListEventsDetectionJobs :: ListEventsDetectionJobs -> TestTree
-requestListEventsDetectionJobs =
-  req
-    "ListEventsDetectionJobs"
-    "fixture/ListEventsDetectionJobs.yaml"
+    "BatchDetectDominantLanguage"
+    "fixture/BatchDetectDominantLanguage.yaml"
 
 requestBatchDetectEntities :: BatchDetectEntities -> TestTree
 requestBatchDetectEntities =
@@ -563,47 +425,23 @@ requestBatchDetectEntities =
     "BatchDetectEntities"
     "fixture/BatchDetectEntities.yaml"
 
-requestCreateEntityRecognizer :: CreateEntityRecognizer -> TestTree
-requestCreateEntityRecognizer =
+requestBatchDetectKeyPhrases :: BatchDetectKeyPhrases -> TestTree
+requestBatchDetectKeyPhrases =
   req
-    "CreateEntityRecognizer"
-    "fixture/CreateEntityRecognizer.yaml"
+    "BatchDetectKeyPhrases"
+    "fixture/BatchDetectKeyPhrases.yaml"
 
-requestStopKeyPhrasesDetectionJob :: StopKeyPhrasesDetectionJob -> TestTree
-requestStopKeyPhrasesDetectionJob =
+requestBatchDetectSentiment :: BatchDetectSentiment -> TestTree
+requestBatchDetectSentiment =
   req
-    "StopKeyPhrasesDetectionJob"
-    "fixture/StopKeyPhrasesDetectionJob.yaml"
+    "BatchDetectSentiment"
+    "fixture/BatchDetectSentiment.yaml"
 
-requestCreateDocumentClassifier :: CreateDocumentClassifier -> TestTree
-requestCreateDocumentClassifier =
+requestBatchDetectSyntax :: BatchDetectSyntax -> TestTree
+requestBatchDetectSyntax =
   req
-    "CreateDocumentClassifier"
-    "fixture/CreateDocumentClassifier.yaml"
-
-requestListPiiEntitiesDetectionJobs :: ListPiiEntitiesDetectionJobs -> TestTree
-requestListPiiEntitiesDetectionJobs =
-  req
-    "ListPiiEntitiesDetectionJobs"
-    "fixture/ListPiiEntitiesDetectionJobs.yaml"
-
-requestListEntityRecognizers :: ListEntityRecognizers -> TestTree
-requestListEntityRecognizers =
-  req
-    "ListEntityRecognizers"
-    "fixture/ListEntityRecognizers.yaml"
-
-requestStopSentimentDetectionJob :: StopSentimentDetectionJob -> TestTree
-requestStopSentimentDetectionJob =
-  req
-    "StopSentimentDetectionJob"
-    "fixture/StopSentimentDetectionJob.yaml"
-
-requestDetectDominantLanguage :: DetectDominantLanguage -> TestTree
-requestDetectDominantLanguage =
-  req
-    "DetectDominantLanguage"
-    "fixture/DetectDominantLanguage.yaml"
+    "BatchDetectSyntax"
+    "fixture/BatchDetectSyntax.yaml"
 
 requestClassifyDocument :: ClassifyDocument -> TestTree
 requestClassifyDocument =
@@ -611,41 +449,53 @@ requestClassifyDocument =
     "ClassifyDocument"
     "fixture/ClassifyDocument.yaml"
 
-requestStartEventsDetectionJob :: StartEventsDetectionJob -> TestTree
-requestStartEventsDetectionJob =
+requestContainsPiiEntities :: ContainsPiiEntities -> TestTree
+requestContainsPiiEntities =
   req
-    "StartEventsDetectionJob"
-    "fixture/StartEventsDetectionJob.yaml"
+    "ContainsPiiEntities"
+    "fixture/ContainsPiiEntities.yaml"
 
-requestDescribeTopicsDetectionJob :: DescribeTopicsDetectionJob -> TestTree
-requestDescribeTopicsDetectionJob =
+requestCreateDocumentClassifier :: CreateDocumentClassifier -> TestTree
+requestCreateDocumentClassifier =
   req
-    "DescribeTopicsDetectionJob"
-    "fixture/DescribeTopicsDetectionJob.yaml"
+    "CreateDocumentClassifier"
+    "fixture/CreateDocumentClassifier.yaml"
 
-requestListDocumentClassificationJobs :: ListDocumentClassificationJobs -> TestTree
-requestListDocumentClassificationJobs =
+requestCreateEndpoint :: CreateEndpoint -> TestTree
+requestCreateEndpoint =
   req
-    "ListDocumentClassificationJobs"
-    "fixture/ListDocumentClassificationJobs.yaml"
+    "CreateEndpoint"
+    "fixture/CreateEndpoint.yaml"
 
-requestDetectPiiEntities :: DetectPiiEntities -> TestTree
-requestDetectPiiEntities =
+requestCreateEntityRecognizer :: CreateEntityRecognizer -> TestTree
+requestCreateEntityRecognizer =
   req
-    "DetectPiiEntities"
-    "fixture/DetectPiiEntities.yaml"
+    "CreateEntityRecognizer"
+    "fixture/CreateEntityRecognizer.yaml"
 
-requestListEndpoints :: ListEndpoints -> TestTree
-requestListEndpoints =
+requestDeleteDocumentClassifier :: DeleteDocumentClassifier -> TestTree
+requestDeleteDocumentClassifier =
   req
-    "ListEndpoints"
-    "fixture/ListEndpoints.yaml"
+    "DeleteDocumentClassifier"
+    "fixture/DeleteDocumentClassifier.yaml"
 
-requestDetectEntities :: DetectEntities -> TestTree
-requestDetectEntities =
+requestDeleteEndpoint :: DeleteEndpoint -> TestTree
+requestDeleteEndpoint =
   req
-    "DetectEntities"
-    "fixture/DetectEntities.yaml"
+    "DeleteEndpoint"
+    "fixture/DeleteEndpoint.yaml"
+
+requestDeleteEntityRecognizer :: DeleteEntityRecognizer -> TestTree
+requestDeleteEntityRecognizer =
+  req
+    "DeleteEntityRecognizer"
+    "fixture/DeleteEntityRecognizer.yaml"
+
+requestDescribeDocumentClassificationJob :: DescribeDocumentClassificationJob -> TestTree
+requestDescribeDocumentClassificationJob =
+  req
+    "DescribeDocumentClassificationJob"
+    "fixture/DescribeDocumentClassificationJob.yaml"
 
 requestDescribeDocumentClassifier :: DescribeDocumentClassifier -> TestTree
 requestDescribeDocumentClassifier =
@@ -659,35 +509,11 @@ requestDescribeDominantLanguageDetectionJob =
     "DescribeDominantLanguageDetectionJob"
     "fixture/DescribeDominantLanguageDetectionJob.yaml"
 
-requestListEntityRecognizerSummaries :: ListEntityRecognizerSummaries -> TestTree
-requestListEntityRecognizerSummaries =
+requestDescribeEndpoint :: DescribeEndpoint -> TestTree
+requestDescribeEndpoint =
   req
-    "ListEntityRecognizerSummaries"
-    "fixture/ListEntityRecognizerSummaries.yaml"
-
-requestStopEntitiesDetectionJob :: StopEntitiesDetectionJob -> TestTree
-requestStopEntitiesDetectionJob =
-  req
-    "StopEntitiesDetectionJob"
-    "fixture/StopEntitiesDetectionJob.yaml"
-
-requestStopTrainingEntityRecognizer :: StopTrainingEntityRecognizer -> TestTree
-requestStopTrainingEntityRecognizer =
-  req
-    "StopTrainingEntityRecognizer"
-    "fixture/StopTrainingEntityRecognizer.yaml"
-
-requestStartPiiEntitiesDetectionJob :: StartPiiEntitiesDetectionJob -> TestTree
-requestStartPiiEntitiesDetectionJob =
-  req
-    "StartPiiEntitiesDetectionJob"
-    "fixture/StartPiiEntitiesDetectionJob.yaml"
-
-requestListKeyPhrasesDetectionJobs :: ListKeyPhrasesDetectionJobs -> TestTree
-requestListKeyPhrasesDetectionJobs =
-  req
-    "ListKeyPhrasesDetectionJobs"
-    "fixture/ListKeyPhrasesDetectionJobs.yaml"
+    "DescribeEndpoint"
+    "fixture/DescribeEndpoint.yaml"
 
 requestDescribeEntitiesDetectionJob :: DescribeEntitiesDetectionJob -> TestTree
 requestDescribeEntitiesDetectionJob =
@@ -695,23 +521,23 @@ requestDescribeEntitiesDetectionJob =
     "DescribeEntitiesDetectionJob"
     "fixture/DescribeEntitiesDetectionJob.yaml"
 
-requestListDocumentClassifierSummaries :: ListDocumentClassifierSummaries -> TestTree
-requestListDocumentClassifierSummaries =
+requestDescribeEntityRecognizer :: DescribeEntityRecognizer -> TestTree
+requestDescribeEntityRecognizer =
   req
-    "ListDocumentClassifierSummaries"
-    "fixture/ListDocumentClassifierSummaries.yaml"
+    "DescribeEntityRecognizer"
+    "fixture/DescribeEntityRecognizer.yaml"
 
-requestStopDominantLanguageDetectionJob :: StopDominantLanguageDetectionJob -> TestTree
-requestStopDominantLanguageDetectionJob =
+requestDescribeEventsDetectionJob :: DescribeEventsDetectionJob -> TestTree
+requestDescribeEventsDetectionJob =
   req
-    "StopDominantLanguageDetectionJob"
-    "fixture/StopDominantLanguageDetectionJob.yaml"
+    "DescribeEventsDetectionJob"
+    "fixture/DescribeEventsDetectionJob.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDescribeKeyPhrasesDetectionJob :: DescribeKeyPhrasesDetectionJob -> TestTree
+requestDescribeKeyPhrasesDetectionJob =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DescribeKeyPhrasesDetectionJob"
+    "fixture/DescribeKeyPhrasesDetectionJob.yaml"
 
 requestDescribePiiEntitiesDetectionJob :: DescribePiiEntitiesDetectionJob -> TestTree
 requestDescribePiiEntitiesDetectionJob =
@@ -719,29 +545,29 @@ requestDescribePiiEntitiesDetectionJob =
     "DescribePiiEntitiesDetectionJob"
     "fixture/DescribePiiEntitiesDetectionJob.yaml"
 
-requestListTopicsDetectionJobs :: ListTopicsDetectionJobs -> TestTree
-requestListTopicsDetectionJobs =
+requestDescribeSentimentDetectionJob :: DescribeSentimentDetectionJob -> TestTree
+requestDescribeSentimentDetectionJob =
   req
-    "ListTopicsDetectionJobs"
-    "fixture/ListTopicsDetectionJobs.yaml"
+    "DescribeSentimentDetectionJob"
+    "fixture/DescribeSentimentDetectionJob.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDescribeTopicsDetectionJob :: DescribeTopicsDetectionJob -> TestTree
+requestDescribeTopicsDetectionJob =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DescribeTopicsDetectionJob"
+    "fixture/DescribeTopicsDetectionJob.yaml"
 
-requestBatchDetectDominantLanguage :: BatchDetectDominantLanguage -> TestTree
-requestBatchDetectDominantLanguage =
+requestDetectDominantLanguage :: DetectDominantLanguage -> TestTree
+requestDetectDominantLanguage =
   req
-    "BatchDetectDominantLanguage"
-    "fixture/BatchDetectDominantLanguage.yaml"
+    "DetectDominantLanguage"
+    "fixture/DetectDominantLanguage.yaml"
 
-requestStartDocumentClassificationJob :: StartDocumentClassificationJob -> TestTree
-requestStartDocumentClassificationJob =
+requestDetectEntities :: DetectEntities -> TestTree
+requestDetectEntities =
   req
-    "StartDocumentClassificationJob"
-    "fixture/StartDocumentClassificationJob.yaml"
+    "DetectEntities"
+    "fixture/DetectEntities.yaml"
 
 requestDetectKeyPhrases :: DetectKeyPhrases -> TestTree
 requestDetectKeyPhrases =
@@ -749,41 +575,35 @@ requestDetectKeyPhrases =
     "DetectKeyPhrases"
     "fixture/DetectKeyPhrases.yaml"
 
+requestDetectPiiEntities :: DetectPiiEntities -> TestTree
+requestDetectPiiEntities =
+  req
+    "DetectPiiEntities"
+    "fixture/DetectPiiEntities.yaml"
+
+requestDetectSentiment :: DetectSentiment -> TestTree
+requestDetectSentiment =
+  req
+    "DetectSentiment"
+    "fixture/DetectSentiment.yaml"
+
 requestDetectSyntax :: DetectSyntax -> TestTree
 requestDetectSyntax =
   req
     "DetectSyntax"
     "fixture/DetectSyntax.yaml"
 
-requestDescribeEndpoint :: DescribeEndpoint -> TestTree
-requestDescribeEndpoint =
+requestListDocumentClassificationJobs :: ListDocumentClassificationJobs -> TestTree
+requestListDocumentClassificationJobs =
   req
-    "DescribeEndpoint"
-    "fixture/DescribeEndpoint.yaml"
+    "ListDocumentClassificationJobs"
+    "fixture/ListDocumentClassificationJobs.yaml"
 
-requestListSentimentDetectionJobs :: ListSentimentDetectionJobs -> TestTree
-requestListSentimentDetectionJobs =
+requestListDocumentClassifierSummaries :: ListDocumentClassifierSummaries -> TestTree
+requestListDocumentClassifierSummaries =
   req
-    "ListSentimentDetectionJobs"
-    "fixture/ListSentimentDetectionJobs.yaml"
-
-requestDeleteDocumentClassifier :: DeleteDocumentClassifier -> TestTree
-requestDeleteDocumentClassifier =
-  req
-    "DeleteDocumentClassifier"
-    "fixture/DeleteDocumentClassifier.yaml"
-
-requestListDominantLanguageDetectionJobs :: ListDominantLanguageDetectionJobs -> TestTree
-requestListDominantLanguageDetectionJobs =
-  req
-    "ListDominantLanguageDetectionJobs"
-    "fixture/ListDominantLanguageDetectionJobs.yaml"
-
-requestStartKeyPhrasesDetectionJob :: StartKeyPhrasesDetectionJob -> TestTree
-requestStartKeyPhrasesDetectionJob =
-  req
-    "StartKeyPhrasesDetectionJob"
-    "fixture/StartKeyPhrasesDetectionJob.yaml"
+    "ListDocumentClassifierSummaries"
+    "fixture/ListDocumentClassifierSummaries.yaml"
 
 requestListDocumentClassifiers :: ListDocumentClassifiers -> TestTree
 requestListDocumentClassifiers =
@@ -791,199 +611,195 @@ requestListDocumentClassifiers =
     "ListDocumentClassifiers"
     "fixture/ListDocumentClassifiers.yaml"
 
+requestListDominantLanguageDetectionJobs :: ListDominantLanguageDetectionJobs -> TestTree
+requestListDominantLanguageDetectionJobs =
+  req
+    "ListDominantLanguageDetectionJobs"
+    "fixture/ListDominantLanguageDetectionJobs.yaml"
+
+requestListEndpoints :: ListEndpoints -> TestTree
+requestListEndpoints =
+  req
+    "ListEndpoints"
+    "fixture/ListEndpoints.yaml"
+
+requestListEntitiesDetectionJobs :: ListEntitiesDetectionJobs -> TestTree
+requestListEntitiesDetectionJobs =
+  req
+    "ListEntitiesDetectionJobs"
+    "fixture/ListEntitiesDetectionJobs.yaml"
+
+requestListEntityRecognizerSummaries :: ListEntityRecognizerSummaries -> TestTree
+requestListEntityRecognizerSummaries =
+  req
+    "ListEntityRecognizerSummaries"
+    "fixture/ListEntityRecognizerSummaries.yaml"
+
+requestListEntityRecognizers :: ListEntityRecognizers -> TestTree
+requestListEntityRecognizers =
+  req
+    "ListEntityRecognizers"
+    "fixture/ListEntityRecognizers.yaml"
+
+requestListEventsDetectionJobs :: ListEventsDetectionJobs -> TestTree
+requestListEventsDetectionJobs =
+  req
+    "ListEventsDetectionJobs"
+    "fixture/ListEventsDetectionJobs.yaml"
+
+requestListKeyPhrasesDetectionJobs :: ListKeyPhrasesDetectionJobs -> TestTree
+requestListKeyPhrasesDetectionJobs =
+  req
+    "ListKeyPhrasesDetectionJobs"
+    "fixture/ListKeyPhrasesDetectionJobs.yaml"
+
+requestListPiiEntitiesDetectionJobs :: ListPiiEntitiesDetectionJobs -> TestTree
+requestListPiiEntitiesDetectionJobs =
+  req
+    "ListPiiEntitiesDetectionJobs"
+    "fixture/ListPiiEntitiesDetectionJobs.yaml"
+
+requestListSentimentDetectionJobs :: ListSentimentDetectionJobs -> TestTree
+requestListSentimentDetectionJobs =
+  req
+    "ListSentimentDetectionJobs"
+    "fixture/ListSentimentDetectionJobs.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListTopicsDetectionJobs :: ListTopicsDetectionJobs -> TestTree
+requestListTopicsDetectionJobs =
+  req
+    "ListTopicsDetectionJobs"
+    "fixture/ListTopicsDetectionJobs.yaml"
+
+requestStartDocumentClassificationJob :: StartDocumentClassificationJob -> TestTree
+requestStartDocumentClassificationJob =
+  req
+    "StartDocumentClassificationJob"
+    "fixture/StartDocumentClassificationJob.yaml"
+
+requestStartDominantLanguageDetectionJob :: StartDominantLanguageDetectionJob -> TestTree
+requestStartDominantLanguageDetectionJob =
+  req
+    "StartDominantLanguageDetectionJob"
+    "fixture/StartDominantLanguageDetectionJob.yaml"
+
+requestStartEntitiesDetectionJob :: StartEntitiesDetectionJob -> TestTree
+requestStartEntitiesDetectionJob =
+  req
+    "StartEntitiesDetectionJob"
+    "fixture/StartEntitiesDetectionJob.yaml"
+
+requestStartEventsDetectionJob :: StartEventsDetectionJob -> TestTree
+requestStartEventsDetectionJob =
+  req
+    "StartEventsDetectionJob"
+    "fixture/StartEventsDetectionJob.yaml"
+
+requestStartKeyPhrasesDetectionJob :: StartKeyPhrasesDetectionJob -> TestTree
+requestStartKeyPhrasesDetectionJob =
+  req
+    "StartKeyPhrasesDetectionJob"
+    "fixture/StartKeyPhrasesDetectionJob.yaml"
+
+requestStartPiiEntitiesDetectionJob :: StartPiiEntitiesDetectionJob -> TestTree
+requestStartPiiEntitiesDetectionJob =
+  req
+    "StartPiiEntitiesDetectionJob"
+    "fixture/StartPiiEntitiesDetectionJob.yaml"
+
+requestStartSentimentDetectionJob :: StartSentimentDetectionJob -> TestTree
+requestStartSentimentDetectionJob =
+  req
+    "StartSentimentDetectionJob"
+    "fixture/StartSentimentDetectionJob.yaml"
+
+requestStartTopicsDetectionJob :: StartTopicsDetectionJob -> TestTree
+requestStartTopicsDetectionJob =
+  req
+    "StartTopicsDetectionJob"
+    "fixture/StartTopicsDetectionJob.yaml"
+
+requestStopDominantLanguageDetectionJob :: StopDominantLanguageDetectionJob -> TestTree
+requestStopDominantLanguageDetectionJob =
+  req
+    "StopDominantLanguageDetectionJob"
+    "fixture/StopDominantLanguageDetectionJob.yaml"
+
+requestStopEntitiesDetectionJob :: StopEntitiesDetectionJob -> TestTree
+requestStopEntitiesDetectionJob =
+  req
+    "StopEntitiesDetectionJob"
+    "fixture/StopEntitiesDetectionJob.yaml"
+
+requestStopEventsDetectionJob :: StopEventsDetectionJob -> TestTree
+requestStopEventsDetectionJob =
+  req
+    "StopEventsDetectionJob"
+    "fixture/StopEventsDetectionJob.yaml"
+
+requestStopKeyPhrasesDetectionJob :: StopKeyPhrasesDetectionJob -> TestTree
+requestStopKeyPhrasesDetectionJob =
+  req
+    "StopKeyPhrasesDetectionJob"
+    "fixture/StopKeyPhrasesDetectionJob.yaml"
+
+requestStopPiiEntitiesDetectionJob :: StopPiiEntitiesDetectionJob -> TestTree
+requestStopPiiEntitiesDetectionJob =
+  req
+    "StopPiiEntitiesDetectionJob"
+    "fixture/StopPiiEntitiesDetectionJob.yaml"
+
+requestStopSentimentDetectionJob :: StopSentimentDetectionJob -> TestTree
+requestStopSentimentDetectionJob =
+  req
+    "StopSentimentDetectionJob"
+    "fixture/StopSentimentDetectionJob.yaml"
+
+requestStopTrainingDocumentClassifier :: StopTrainingDocumentClassifier -> TestTree
+requestStopTrainingDocumentClassifier =
+  req
+    "StopTrainingDocumentClassifier"
+    "fixture/StopTrainingDocumentClassifier.yaml"
+
+requestStopTrainingEntityRecognizer :: StopTrainingEntityRecognizer -> TestTree
+requestStopTrainingEntityRecognizer =
+  req
+    "StopTrainingEntityRecognizer"
+    "fixture/StopTrainingEntityRecognizer.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateEndpoint :: UpdateEndpoint -> TestTree
+requestUpdateEndpoint =
+  req
+    "UpdateEndpoint"
+    "fixture/UpdateEndpoint.yaml"
+
 -- Responses
 
-responseBatchDetectSentiment :: BatchDetectSentimentResponse -> TestTree
-responseBatchDetectSentiment =
+responseBatchDetectDominantLanguage :: BatchDetectDominantLanguageResponse -> TestTree
+responseBatchDetectDominantLanguage =
   res
-    "BatchDetectSentimentResponse"
-    "fixture/BatchDetectSentimentResponse.proto"
+    "BatchDetectDominantLanguageResponse"
+    "fixture/BatchDetectDominantLanguageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDetectSentiment)
-
-responseDeleteEntityRecognizer :: DeleteEntityRecognizerResponse -> TestTree
-responseDeleteEntityRecognizer =
-  res
-    "DeleteEntityRecognizerResponse"
-    "fixture/DeleteEntityRecognizerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEntityRecognizer)
-
-responseDescribeKeyPhrasesDetectionJob :: DescribeKeyPhrasesDetectionJobResponse -> TestTree
-responseDescribeKeyPhrasesDetectionJob =
-  res
-    "DescribeKeyPhrasesDetectionJobResponse"
-    "fixture/DescribeKeyPhrasesDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeKeyPhrasesDetectionJob)
-
-responseListEntitiesDetectionJobs :: ListEntitiesDetectionJobsResponse -> TestTree
-responseListEntitiesDetectionJobs =
-  res
-    "ListEntitiesDetectionJobsResponse"
-    "fixture/ListEntitiesDetectionJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEntitiesDetectionJobs)
-
-responseCreateEndpoint :: CreateEndpointResponse -> TestTree
-responseCreateEndpoint =
-  res
-    "CreateEndpointResponse"
-    "fixture/CreateEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateEndpoint)
-
-responseStopEventsDetectionJob :: StopEventsDetectionJobResponse -> TestTree
-responseStopEventsDetectionJob =
-  res
-    "StopEventsDetectionJobResponse"
-    "fixture/StopEventsDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopEventsDetectionJob)
-
-responseStartSentimentDetectionJob :: StartSentimentDetectionJobResponse -> TestTree
-responseStartSentimentDetectionJob =
-  res
-    "StartSentimentDetectionJobResponse"
-    "fixture/StartSentimentDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartSentimentDetectionJob)
-
-responseBatchDetectSyntax :: BatchDetectSyntaxResponse -> TestTree
-responseBatchDetectSyntax =
-  res
-    "BatchDetectSyntaxResponse"
-    "fixture/BatchDetectSyntaxResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDetectSyntax)
-
-responseStartTopicsDetectionJob :: StartTopicsDetectionJobResponse -> TestTree
-responseStartTopicsDetectionJob =
-  res
-    "StartTopicsDetectionJobResponse"
-    "fixture/StartTopicsDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartTopicsDetectionJob)
-
-responseDescribeEventsDetectionJob :: DescribeEventsDetectionJobResponse -> TestTree
-responseDescribeEventsDetectionJob =
-  res
-    "DescribeEventsDetectionJobResponse"
-    "fixture/DescribeEventsDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeEventsDetectionJob)
-
-responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
-responseDeleteEndpoint =
-  res
-    "DeleteEndpointResponse"
-    "fixture/DeleteEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEndpoint)
-
-responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
-responseUpdateEndpoint =
-  res
-    "UpdateEndpointResponse"
-    "fixture/UpdateEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateEndpoint)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseBatchDetectKeyPhrases :: BatchDetectKeyPhrasesResponse -> TestTree
-responseBatchDetectKeyPhrases =
-  res
-    "BatchDetectKeyPhrasesResponse"
-    "fixture/BatchDetectKeyPhrasesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDetectKeyPhrases)
-
-responseDescribeSentimentDetectionJob :: DescribeSentimentDetectionJobResponse -> TestTree
-responseDescribeSentimentDetectionJob =
-  res
-    "DescribeSentimentDetectionJobResponse"
-    "fixture/DescribeSentimentDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSentimentDetectionJob)
-
-responseStartEntitiesDetectionJob :: StartEntitiesDetectionJobResponse -> TestTree
-responseStartEntitiesDetectionJob =
-  res
-    "StartEntitiesDetectionJobResponse"
-    "fixture/StartEntitiesDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartEntitiesDetectionJob)
-
-responseStopPiiEntitiesDetectionJob :: StopPiiEntitiesDetectionJobResponse -> TestTree
-responseStopPiiEntitiesDetectionJob =
-  res
-    "StopPiiEntitiesDetectionJobResponse"
-    "fixture/StopPiiEntitiesDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopPiiEntitiesDetectionJob)
-
-responseDescribeEntityRecognizer :: DescribeEntityRecognizerResponse -> TestTree
-responseDescribeEntityRecognizer =
-  res
-    "DescribeEntityRecognizerResponse"
-    "fixture/DescribeEntityRecognizerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeEntityRecognizer)
-
-responseDetectSentiment :: DetectSentimentResponse -> TestTree
-responseDetectSentiment =
-  res
-    "DetectSentimentResponse"
-    "fixture/DetectSentimentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DetectSentiment)
-
-responseStartDominantLanguageDetectionJob :: StartDominantLanguageDetectionJobResponse -> TestTree
-responseStartDominantLanguageDetectionJob =
-  res
-    "StartDominantLanguageDetectionJobResponse"
-    "fixture/StartDominantLanguageDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartDominantLanguageDetectionJob)
-
-responseStopTrainingDocumentClassifier :: StopTrainingDocumentClassifierResponse -> TestTree
-responseStopTrainingDocumentClassifier =
-  res
-    "StopTrainingDocumentClassifierResponse"
-    "fixture/StopTrainingDocumentClassifierResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopTrainingDocumentClassifier)
-
-responseDescribeDocumentClassificationJob :: DescribeDocumentClassificationJobResponse -> TestTree
-responseDescribeDocumentClassificationJob =
-  res
-    "DescribeDocumentClassificationJobResponse"
-    "fixture/DescribeDocumentClassificationJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDocumentClassificationJob)
-
-responseContainsPiiEntities :: ContainsPiiEntitiesResponse -> TestTree
-responseContainsPiiEntities =
-  res
-    "ContainsPiiEntitiesResponse"
-    "fixture/ContainsPiiEntitiesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ContainsPiiEntities)
-
-responseListEventsDetectionJobs :: ListEventsDetectionJobsResponse -> TestTree
-responseListEventsDetectionJobs =
-  res
-    "ListEventsDetectionJobsResponse"
-    "fixture/ListEventsDetectionJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEventsDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectDominantLanguage)
 
 responseBatchDetectEntities :: BatchDetectEntitiesResponse -> TestTree
 responseBatchDetectEntities =
@@ -993,61 +809,29 @@ responseBatchDetectEntities =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchDetectEntities)
 
-responseCreateEntityRecognizer :: CreateEntityRecognizerResponse -> TestTree
-responseCreateEntityRecognizer =
+responseBatchDetectKeyPhrases :: BatchDetectKeyPhrasesResponse -> TestTree
+responseBatchDetectKeyPhrases =
   res
-    "CreateEntityRecognizerResponse"
-    "fixture/CreateEntityRecognizerResponse.proto"
+    "BatchDetectKeyPhrasesResponse"
+    "fixture/BatchDetectKeyPhrasesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateEntityRecognizer)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectKeyPhrases)
 
-responseStopKeyPhrasesDetectionJob :: StopKeyPhrasesDetectionJobResponse -> TestTree
-responseStopKeyPhrasesDetectionJob =
+responseBatchDetectSentiment :: BatchDetectSentimentResponse -> TestTree
+responseBatchDetectSentiment =
   res
-    "StopKeyPhrasesDetectionJobResponse"
-    "fixture/StopKeyPhrasesDetectionJobResponse.proto"
+    "BatchDetectSentimentResponse"
+    "fixture/BatchDetectSentimentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopKeyPhrasesDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectSentiment)
 
-responseCreateDocumentClassifier :: CreateDocumentClassifierResponse -> TestTree
-responseCreateDocumentClassifier =
+responseBatchDetectSyntax :: BatchDetectSyntaxResponse -> TestTree
+responseBatchDetectSyntax =
   res
-    "CreateDocumentClassifierResponse"
-    "fixture/CreateDocumentClassifierResponse.proto"
+    "BatchDetectSyntaxResponse"
+    "fixture/BatchDetectSyntaxResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDocumentClassifier)
-
-responseListPiiEntitiesDetectionJobs :: ListPiiEntitiesDetectionJobsResponse -> TestTree
-responseListPiiEntitiesDetectionJobs =
-  res
-    "ListPiiEntitiesDetectionJobsResponse"
-    "fixture/ListPiiEntitiesDetectionJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPiiEntitiesDetectionJobs)
-
-responseListEntityRecognizers :: ListEntityRecognizersResponse -> TestTree
-responseListEntityRecognizers =
-  res
-    "ListEntityRecognizersResponse"
-    "fixture/ListEntityRecognizersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEntityRecognizers)
-
-responseStopSentimentDetectionJob :: StopSentimentDetectionJobResponse -> TestTree
-responseStopSentimentDetectionJob =
-  res
-    "StopSentimentDetectionJobResponse"
-    "fixture/StopSentimentDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopSentimentDetectionJob)
-
-responseDetectDominantLanguage :: DetectDominantLanguageResponse -> TestTree
-responseDetectDominantLanguage =
-  res
-    "DetectDominantLanguageResponse"
-    "fixture/DetectDominantLanguageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DetectDominantLanguage)
+    (Proxy.Proxy :: Proxy.Proxy BatchDetectSyntax)
 
 responseClassifyDocument :: ClassifyDocumentResponse -> TestTree
 responseClassifyDocument =
@@ -1057,53 +841,69 @@ responseClassifyDocument =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ClassifyDocument)
 
-responseStartEventsDetectionJob :: StartEventsDetectionJobResponse -> TestTree
-responseStartEventsDetectionJob =
+responseContainsPiiEntities :: ContainsPiiEntitiesResponse -> TestTree
+responseContainsPiiEntities =
   res
-    "StartEventsDetectionJobResponse"
-    "fixture/StartEventsDetectionJobResponse.proto"
+    "ContainsPiiEntitiesResponse"
+    "fixture/ContainsPiiEntitiesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartEventsDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy ContainsPiiEntities)
 
-responseDescribeTopicsDetectionJob :: DescribeTopicsDetectionJobResponse -> TestTree
-responseDescribeTopicsDetectionJob =
+responseCreateDocumentClassifier :: CreateDocumentClassifierResponse -> TestTree
+responseCreateDocumentClassifier =
   res
-    "DescribeTopicsDetectionJobResponse"
-    "fixture/DescribeTopicsDetectionJobResponse.proto"
+    "CreateDocumentClassifierResponse"
+    "fixture/CreateDocumentClassifierResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTopicsDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateDocumentClassifier)
 
-responseListDocumentClassificationJobs :: ListDocumentClassificationJobsResponse -> TestTree
-responseListDocumentClassificationJobs =
+responseCreateEndpoint :: CreateEndpointResponse -> TestTree
+responseCreateEndpoint =
   res
-    "ListDocumentClassificationJobsResponse"
-    "fixture/ListDocumentClassificationJobsResponse.proto"
+    "CreateEndpointResponse"
+    "fixture/CreateEndpointResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassificationJobs)
+    (Proxy.Proxy :: Proxy.Proxy CreateEndpoint)
 
-responseDetectPiiEntities :: DetectPiiEntitiesResponse -> TestTree
-responseDetectPiiEntities =
+responseCreateEntityRecognizer :: CreateEntityRecognizerResponse -> TestTree
+responseCreateEntityRecognizer =
   res
-    "DetectPiiEntitiesResponse"
-    "fixture/DetectPiiEntitiesResponse.proto"
+    "CreateEntityRecognizerResponse"
+    "fixture/CreateEntityRecognizerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DetectPiiEntities)
+    (Proxy.Proxy :: Proxy.Proxy CreateEntityRecognizer)
 
-responseListEndpoints :: ListEndpointsResponse -> TestTree
-responseListEndpoints =
+responseDeleteDocumentClassifier :: DeleteDocumentClassifierResponse -> TestTree
+responseDeleteDocumentClassifier =
   res
-    "ListEndpointsResponse"
-    "fixture/ListEndpointsResponse.proto"
+    "DeleteDocumentClassifierResponse"
+    "fixture/DeleteDocumentClassifierResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDocumentClassifier)
 
-responseDetectEntities :: DetectEntitiesResponse -> TestTree
-responseDetectEntities =
+responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
+responseDeleteEndpoint =
   res
-    "DetectEntitiesResponse"
-    "fixture/DetectEntitiesResponse.proto"
+    "DeleteEndpointResponse"
+    "fixture/DeleteEndpointResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DetectEntities)
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpoint)
+
+responseDeleteEntityRecognizer :: DeleteEntityRecognizerResponse -> TestTree
+responseDeleteEntityRecognizer =
+  res
+    "DeleteEntityRecognizerResponse"
+    "fixture/DeleteEntityRecognizerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEntityRecognizer)
+
+responseDescribeDocumentClassificationJob :: DescribeDocumentClassificationJobResponse -> TestTree
+responseDescribeDocumentClassificationJob =
+  res
+    "DescribeDocumentClassificationJobResponse"
+    "fixture/DescribeDocumentClassificationJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDocumentClassificationJob)
 
 responseDescribeDocumentClassifier :: DescribeDocumentClassifierResponse -> TestTree
 responseDescribeDocumentClassifier =
@@ -1121,45 +921,13 @@ responseDescribeDominantLanguageDetectionJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDominantLanguageDetectionJob)
 
-responseListEntityRecognizerSummaries :: ListEntityRecognizerSummariesResponse -> TestTree
-responseListEntityRecognizerSummaries =
+responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
+responseDescribeEndpoint =
   res
-    "ListEntityRecognizerSummariesResponse"
-    "fixture/ListEntityRecognizerSummariesResponse.proto"
+    "DescribeEndpointResponse"
+    "fixture/DescribeEndpointResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEntityRecognizerSummaries)
-
-responseStopEntitiesDetectionJob :: StopEntitiesDetectionJobResponse -> TestTree
-responseStopEntitiesDetectionJob =
-  res
-    "StopEntitiesDetectionJobResponse"
-    "fixture/StopEntitiesDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopEntitiesDetectionJob)
-
-responseStopTrainingEntityRecognizer :: StopTrainingEntityRecognizerResponse -> TestTree
-responseStopTrainingEntityRecognizer =
-  res
-    "StopTrainingEntityRecognizerResponse"
-    "fixture/StopTrainingEntityRecognizerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopTrainingEntityRecognizer)
-
-responseStartPiiEntitiesDetectionJob :: StartPiiEntitiesDetectionJobResponse -> TestTree
-responseStartPiiEntitiesDetectionJob =
-  res
-    "StartPiiEntitiesDetectionJobResponse"
-    "fixture/StartPiiEntitiesDetectionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartPiiEntitiesDetectionJob)
-
-responseListKeyPhrasesDetectionJobs :: ListKeyPhrasesDetectionJobsResponse -> TestTree
-responseListKeyPhrasesDetectionJobs =
-  res
-    "ListKeyPhrasesDetectionJobsResponse"
-    "fixture/ListKeyPhrasesDetectionJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListKeyPhrasesDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoint)
 
 responseDescribeEntitiesDetectionJob :: DescribeEntitiesDetectionJobResponse -> TestTree
 responseDescribeEntitiesDetectionJob =
@@ -1169,29 +937,29 @@ responseDescribeEntitiesDetectionJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeEntitiesDetectionJob)
 
-responseListDocumentClassifierSummaries :: ListDocumentClassifierSummariesResponse -> TestTree
-responseListDocumentClassifierSummaries =
+responseDescribeEntityRecognizer :: DescribeEntityRecognizerResponse -> TestTree
+responseDescribeEntityRecognizer =
   res
-    "ListDocumentClassifierSummariesResponse"
-    "fixture/ListDocumentClassifierSummariesResponse.proto"
+    "DescribeEntityRecognizerResponse"
+    "fixture/DescribeEntityRecognizerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassifierSummaries)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEntityRecognizer)
 
-responseStopDominantLanguageDetectionJob :: StopDominantLanguageDetectionJobResponse -> TestTree
-responseStopDominantLanguageDetectionJob =
+responseDescribeEventsDetectionJob :: DescribeEventsDetectionJobResponse -> TestTree
+responseDescribeEventsDetectionJob =
   res
-    "StopDominantLanguageDetectionJobResponse"
-    "fixture/StopDominantLanguageDetectionJobResponse.proto"
+    "DescribeEventsDetectionJobResponse"
+    "fixture/DescribeEventsDetectionJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopDominantLanguageDetectionJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventsDetectionJob)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDescribeKeyPhrasesDetectionJob :: DescribeKeyPhrasesDetectionJobResponse -> TestTree
+responseDescribeKeyPhrasesDetectionJob =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DescribeKeyPhrasesDetectionJobResponse"
+    "fixture/DescribeKeyPhrasesDetectionJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeKeyPhrasesDetectionJob)
 
 responseDescribePiiEntitiesDetectionJob :: DescribePiiEntitiesDetectionJobResponse -> TestTree
 responseDescribePiiEntitiesDetectionJob =
@@ -1201,37 +969,37 @@ responseDescribePiiEntitiesDetectionJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePiiEntitiesDetectionJob)
 
-responseListTopicsDetectionJobs :: ListTopicsDetectionJobsResponse -> TestTree
-responseListTopicsDetectionJobs =
+responseDescribeSentimentDetectionJob :: DescribeSentimentDetectionJobResponse -> TestTree
+responseDescribeSentimentDetectionJob =
   res
-    "ListTopicsDetectionJobsResponse"
-    "fixture/ListTopicsDetectionJobsResponse.proto"
+    "DescribeSentimentDetectionJobResponse"
+    "fixture/DescribeSentimentDetectionJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTopicsDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSentimentDetectionJob)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDescribeTopicsDetectionJob :: DescribeTopicsDetectionJobResponse -> TestTree
+responseDescribeTopicsDetectionJob =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DescribeTopicsDetectionJobResponse"
+    "fixture/DescribeTopicsDetectionJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTopicsDetectionJob)
 
-responseBatchDetectDominantLanguage :: BatchDetectDominantLanguageResponse -> TestTree
-responseBatchDetectDominantLanguage =
+responseDetectDominantLanguage :: DetectDominantLanguageResponse -> TestTree
+responseDetectDominantLanguage =
   res
-    "BatchDetectDominantLanguageResponse"
-    "fixture/BatchDetectDominantLanguageResponse.proto"
+    "DetectDominantLanguageResponse"
+    "fixture/DetectDominantLanguageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDetectDominantLanguage)
+    (Proxy.Proxy :: Proxy.Proxy DetectDominantLanguage)
 
-responseStartDocumentClassificationJob :: StartDocumentClassificationJobResponse -> TestTree
-responseStartDocumentClassificationJob =
+responseDetectEntities :: DetectEntitiesResponse -> TestTree
+responseDetectEntities =
   res
-    "StartDocumentClassificationJobResponse"
-    "fixture/StartDocumentClassificationJobResponse.proto"
+    "DetectEntitiesResponse"
+    "fixture/DetectEntitiesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartDocumentClassificationJob)
+    (Proxy.Proxy :: Proxy.Proxy DetectEntities)
 
 responseDetectKeyPhrases :: DetectKeyPhrasesResponse -> TestTree
 responseDetectKeyPhrases =
@@ -1241,6 +1009,22 @@ responseDetectKeyPhrases =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetectKeyPhrases)
 
+responseDetectPiiEntities :: DetectPiiEntitiesResponse -> TestTree
+responseDetectPiiEntities =
+  res
+    "DetectPiiEntitiesResponse"
+    "fixture/DetectPiiEntitiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetectPiiEntities)
+
+responseDetectSentiment :: DetectSentimentResponse -> TestTree
+responseDetectSentiment =
+  res
+    "DetectSentimentResponse"
+    "fixture/DetectSentimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetectSentiment)
+
 responseDetectSyntax :: DetectSyntaxResponse -> TestTree
 responseDetectSyntax =
   res
@@ -1249,29 +1033,29 @@ responseDetectSyntax =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetectSyntax)
 
-responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
-responseDescribeEndpoint =
+responseListDocumentClassificationJobs :: ListDocumentClassificationJobsResponse -> TestTree
+responseListDocumentClassificationJobs =
   res
-    "DescribeEndpointResponse"
-    "fixture/DescribeEndpointResponse.proto"
+    "ListDocumentClassificationJobsResponse"
+    "fixture/ListDocumentClassificationJobsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassificationJobs)
 
-responseListSentimentDetectionJobs :: ListSentimentDetectionJobsResponse -> TestTree
-responseListSentimentDetectionJobs =
+responseListDocumentClassifierSummaries :: ListDocumentClassifierSummariesResponse -> TestTree
+responseListDocumentClassifierSummaries =
   res
-    "ListSentimentDetectionJobsResponse"
-    "fixture/ListSentimentDetectionJobsResponse.proto"
+    "ListDocumentClassifierSummariesResponse"
+    "fixture/ListDocumentClassifierSummariesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSentimentDetectionJobs)
+    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassifierSummaries)
 
-responseDeleteDocumentClassifier :: DeleteDocumentClassifierResponse -> TestTree
-responseDeleteDocumentClassifier =
+responseListDocumentClassifiers :: ListDocumentClassifiersResponse -> TestTree
+responseListDocumentClassifiers =
   res
-    "DeleteDocumentClassifierResponse"
-    "fixture/DeleteDocumentClassifierResponse.proto"
+    "ListDocumentClassifiersResponse"
+    "fixture/ListDocumentClassifiersResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDocumentClassifier)
+    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassifiers)
 
 responseListDominantLanguageDetectionJobs :: ListDominantLanguageDetectionJobsResponse -> TestTree
 responseListDominantLanguageDetectionJobs =
@@ -1281,6 +1065,118 @@ responseListDominantLanguageDetectionJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDominantLanguageDetectionJobs)
 
+responseListEndpoints :: ListEndpointsResponse -> TestTree
+responseListEndpoints =
+  res
+    "ListEndpointsResponse"
+    "fixture/ListEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEndpoints)
+
+responseListEntitiesDetectionJobs :: ListEntitiesDetectionJobsResponse -> TestTree
+responseListEntitiesDetectionJobs =
+  res
+    "ListEntitiesDetectionJobsResponse"
+    "fixture/ListEntitiesDetectionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEntitiesDetectionJobs)
+
+responseListEntityRecognizerSummaries :: ListEntityRecognizerSummariesResponse -> TestTree
+responseListEntityRecognizerSummaries =
+  res
+    "ListEntityRecognizerSummariesResponse"
+    "fixture/ListEntityRecognizerSummariesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEntityRecognizerSummaries)
+
+responseListEntityRecognizers :: ListEntityRecognizersResponse -> TestTree
+responseListEntityRecognizers =
+  res
+    "ListEntityRecognizersResponse"
+    "fixture/ListEntityRecognizersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEntityRecognizers)
+
+responseListEventsDetectionJobs :: ListEventsDetectionJobsResponse -> TestTree
+responseListEventsDetectionJobs =
+  res
+    "ListEventsDetectionJobsResponse"
+    "fixture/ListEventsDetectionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventsDetectionJobs)
+
+responseListKeyPhrasesDetectionJobs :: ListKeyPhrasesDetectionJobsResponse -> TestTree
+responseListKeyPhrasesDetectionJobs =
+  res
+    "ListKeyPhrasesDetectionJobsResponse"
+    "fixture/ListKeyPhrasesDetectionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListKeyPhrasesDetectionJobs)
+
+responseListPiiEntitiesDetectionJobs :: ListPiiEntitiesDetectionJobsResponse -> TestTree
+responseListPiiEntitiesDetectionJobs =
+  res
+    "ListPiiEntitiesDetectionJobsResponse"
+    "fixture/ListPiiEntitiesDetectionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPiiEntitiesDetectionJobs)
+
+responseListSentimentDetectionJobs :: ListSentimentDetectionJobsResponse -> TestTree
+responseListSentimentDetectionJobs =
+  res
+    "ListSentimentDetectionJobsResponse"
+    "fixture/ListSentimentDetectionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSentimentDetectionJobs)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTopicsDetectionJobs :: ListTopicsDetectionJobsResponse -> TestTree
+responseListTopicsDetectionJobs =
+  res
+    "ListTopicsDetectionJobsResponse"
+    "fixture/ListTopicsDetectionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTopicsDetectionJobs)
+
+responseStartDocumentClassificationJob :: StartDocumentClassificationJobResponse -> TestTree
+responseStartDocumentClassificationJob =
+  res
+    "StartDocumentClassificationJobResponse"
+    "fixture/StartDocumentClassificationJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDocumentClassificationJob)
+
+responseStartDominantLanguageDetectionJob :: StartDominantLanguageDetectionJobResponse -> TestTree
+responseStartDominantLanguageDetectionJob =
+  res
+    "StartDominantLanguageDetectionJobResponse"
+    "fixture/StartDominantLanguageDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDominantLanguageDetectionJob)
+
+responseStartEntitiesDetectionJob :: StartEntitiesDetectionJobResponse -> TestTree
+responseStartEntitiesDetectionJob =
+  res
+    "StartEntitiesDetectionJobResponse"
+    "fixture/StartEntitiesDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartEntitiesDetectionJob)
+
+responseStartEventsDetectionJob :: StartEventsDetectionJobResponse -> TestTree
+responseStartEventsDetectionJob =
+  res
+    "StartEventsDetectionJobResponse"
+    "fixture/StartEventsDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartEventsDetectionJob)
+
 responseStartKeyPhrasesDetectionJob :: StartKeyPhrasesDetectionJobResponse -> TestTree
 responseStartKeyPhrasesDetectionJob =
   res
@@ -1289,10 +1185,114 @@ responseStartKeyPhrasesDetectionJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartKeyPhrasesDetectionJob)
 
-responseListDocumentClassifiers :: ListDocumentClassifiersResponse -> TestTree
-responseListDocumentClassifiers =
+responseStartPiiEntitiesDetectionJob :: StartPiiEntitiesDetectionJobResponse -> TestTree
+responseStartPiiEntitiesDetectionJob =
   res
-    "ListDocumentClassifiersResponse"
-    "fixture/ListDocumentClassifiersResponse.proto"
+    "StartPiiEntitiesDetectionJobResponse"
+    "fixture/StartPiiEntitiesDetectionJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDocumentClassifiers)
+    (Proxy.Proxy :: Proxy.Proxy StartPiiEntitiesDetectionJob)
+
+responseStartSentimentDetectionJob :: StartSentimentDetectionJobResponse -> TestTree
+responseStartSentimentDetectionJob =
+  res
+    "StartSentimentDetectionJobResponse"
+    "fixture/StartSentimentDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSentimentDetectionJob)
+
+responseStartTopicsDetectionJob :: StartTopicsDetectionJobResponse -> TestTree
+responseStartTopicsDetectionJob =
+  res
+    "StartTopicsDetectionJobResponse"
+    "fixture/StartTopicsDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartTopicsDetectionJob)
+
+responseStopDominantLanguageDetectionJob :: StopDominantLanguageDetectionJobResponse -> TestTree
+responseStopDominantLanguageDetectionJob =
+  res
+    "StopDominantLanguageDetectionJobResponse"
+    "fixture/StopDominantLanguageDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopDominantLanguageDetectionJob)
+
+responseStopEntitiesDetectionJob :: StopEntitiesDetectionJobResponse -> TestTree
+responseStopEntitiesDetectionJob =
+  res
+    "StopEntitiesDetectionJobResponse"
+    "fixture/StopEntitiesDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopEntitiesDetectionJob)
+
+responseStopEventsDetectionJob :: StopEventsDetectionJobResponse -> TestTree
+responseStopEventsDetectionJob =
+  res
+    "StopEventsDetectionJobResponse"
+    "fixture/StopEventsDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopEventsDetectionJob)
+
+responseStopKeyPhrasesDetectionJob :: StopKeyPhrasesDetectionJobResponse -> TestTree
+responseStopKeyPhrasesDetectionJob =
+  res
+    "StopKeyPhrasesDetectionJobResponse"
+    "fixture/StopKeyPhrasesDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopKeyPhrasesDetectionJob)
+
+responseStopPiiEntitiesDetectionJob :: StopPiiEntitiesDetectionJobResponse -> TestTree
+responseStopPiiEntitiesDetectionJob =
+  res
+    "StopPiiEntitiesDetectionJobResponse"
+    "fixture/StopPiiEntitiesDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopPiiEntitiesDetectionJob)
+
+responseStopSentimentDetectionJob :: StopSentimentDetectionJobResponse -> TestTree
+responseStopSentimentDetectionJob =
+  res
+    "StopSentimentDetectionJobResponse"
+    "fixture/StopSentimentDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopSentimentDetectionJob)
+
+responseStopTrainingDocumentClassifier :: StopTrainingDocumentClassifierResponse -> TestTree
+responseStopTrainingDocumentClassifier =
+  res
+    "StopTrainingDocumentClassifierResponse"
+    "fixture/StopTrainingDocumentClassifierResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopTrainingDocumentClassifier)
+
+responseStopTrainingEntityRecognizer :: StopTrainingEntityRecognizerResponse -> TestTree
+responseStopTrainingEntityRecognizer =
+  res
+    "StopTrainingEntityRecognizerResponse"
+    "fixture/StopTrainingEntityRecognizerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopTrainingEntityRecognizer)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
+responseUpdateEndpoint =
+  res
+    "UpdateEndpointResponse"
+    "fixture/UpdateEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEndpoint)

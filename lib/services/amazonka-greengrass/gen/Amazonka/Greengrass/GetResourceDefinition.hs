@@ -35,14 +35,14 @@ module Amazonka.Greengrass.GetResourceDefinition
     newGetResourceDefinitionResponse,
 
     -- * Response Lenses
-    getResourceDefinitionResponse_latestVersionArn,
-    getResourceDefinitionResponse_arn,
-    getResourceDefinitionResponse_name,
-    getResourceDefinitionResponse_creationTimestamp,
-    getResourceDefinitionResponse_id,
-    getResourceDefinitionResponse_latestVersion,
     getResourceDefinitionResponse_lastUpdatedTimestamp,
     getResourceDefinitionResponse_tags,
+    getResourceDefinitionResponse_name,
+    getResourceDefinitionResponse_arn,
+    getResourceDefinitionResponse_latestVersion,
+    getResourceDefinitionResponse_id,
+    getResourceDefinitionResponse_creationTimestamp,
+    getResourceDefinitionResponse_latestVersionArn,
     getResourceDefinitionResponse_httpStatus,
   )
 where
@@ -93,14 +93,14 @@ instance Core.AWSRequest GetResourceDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetResourceDefinitionResponse'
-            Prelude.<$> (x Core..?> "LatestVersionArn")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "LatestVersion")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
+            Prelude.<$> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "LatestVersion")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,24 +135,24 @@ instance Core.ToQuery GetResourceDefinition where
 
 -- | /See:/ 'newGetResourceDefinitionResponse' smart constructor.
 data GetResourceDefinitionResponse = GetResourceDefinitionResponse'
-  { -- | The ARN of the latest version associated with the definition.
-    latestVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the definition.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the definition was
-    -- created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the definition.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the definition was last
+  { -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
     -- | Tag(s) attached to the resource arn.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the definition.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the definition.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was
+    -- created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,23 +166,23 @@ data GetResourceDefinitionResponse = GetResourceDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latestVersionArn', 'getResourceDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
---
--- 'arn', 'getResourceDefinitionResponse_arn' - The ARN of the definition.
---
--- 'name', 'getResourceDefinitionResponse_name' - The name of the definition.
---
--- 'creationTimestamp', 'getResourceDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
--- created.
---
--- 'id', 'getResourceDefinitionResponse_id' - The ID of the definition.
---
--- 'latestVersion', 'getResourceDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
---
 -- 'lastUpdatedTimestamp', 'getResourceDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 --
 -- 'tags', 'getResourceDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
+-- 'name', 'getResourceDefinitionResponse_name' - The name of the definition.
+--
+-- 'arn', 'getResourceDefinitionResponse_arn' - The ARN of the definition.
+--
+-- 'latestVersion', 'getResourceDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
+--
+-- 'id', 'getResourceDefinitionResponse_id' - The ID of the definition.
+--
+-- 'creationTimestamp', 'getResourceDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
+-- created.
+--
+-- 'latestVersionArn', 'getResourceDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
 --
 -- 'httpStatus', 'getResourceDefinitionResponse_httpStatus' - The response's http status code.
 newGetResourceDefinitionResponse ::
@@ -191,42 +191,17 @@ newGetResourceDefinitionResponse ::
   GetResourceDefinitionResponse
 newGetResourceDefinitionResponse pHttpStatus_ =
   GetResourceDefinitionResponse'
-    { latestVersionArn =
+    { lastUpdatedTimestamp =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      creationTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
+      id = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      latestVersionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the latest version associated with the definition.
-getResourceDefinitionResponse_latestVersionArn :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-getResourceDefinitionResponse_latestVersionArn = Lens.lens (\GetResourceDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@GetResourceDefinitionResponse' {} a -> s {latestVersionArn = a} :: GetResourceDefinitionResponse)
-
--- | The ARN of the definition.
-getResourceDefinitionResponse_arn :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-getResourceDefinitionResponse_arn = Lens.lens (\GetResourceDefinitionResponse' {arn} -> arn) (\s@GetResourceDefinitionResponse' {} a -> s {arn = a} :: GetResourceDefinitionResponse)
-
--- | The name of the definition.
-getResourceDefinitionResponse_name :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-getResourceDefinitionResponse_name = Lens.lens (\GetResourceDefinitionResponse' {name} -> name) (\s@GetResourceDefinitionResponse' {} a -> s {name = a} :: GetResourceDefinitionResponse)
-
--- | The time, in milliseconds since the epoch, when the definition was
--- created.
-getResourceDefinitionResponse_creationTimestamp :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-getResourceDefinitionResponse_creationTimestamp = Lens.lens (\GetResourceDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetResourceDefinitionResponse' {} a -> s {creationTimestamp = a} :: GetResourceDefinitionResponse)
-
--- | The ID of the definition.
-getResourceDefinitionResponse_id :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-getResourceDefinitionResponse_id = Lens.lens (\GetResourceDefinitionResponse' {id} -> id) (\s@GetResourceDefinitionResponse' {} a -> s {id = a} :: GetResourceDefinitionResponse)
-
--- | The ID of the latest version associated with the definition.
-getResourceDefinitionResponse_latestVersion :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-getResourceDefinitionResponse_latestVersion = Lens.lens (\GetResourceDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetResourceDefinitionResponse' {} a -> s {latestVersion = a} :: GetResourceDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
@@ -237,18 +212,43 @@ getResourceDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetResourceDefi
 getResourceDefinitionResponse_tags :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getResourceDefinitionResponse_tags = Lens.lens (\GetResourceDefinitionResponse' {tags} -> tags) (\s@GetResourceDefinitionResponse' {} a -> s {tags = a} :: GetResourceDefinitionResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the definition.
+getResourceDefinitionResponse_name :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+getResourceDefinitionResponse_name = Lens.lens (\GetResourceDefinitionResponse' {name} -> name) (\s@GetResourceDefinitionResponse' {} a -> s {name = a} :: GetResourceDefinitionResponse)
+
+-- | The ARN of the definition.
+getResourceDefinitionResponse_arn :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+getResourceDefinitionResponse_arn = Lens.lens (\GetResourceDefinitionResponse' {arn} -> arn) (\s@GetResourceDefinitionResponse' {} a -> s {arn = a} :: GetResourceDefinitionResponse)
+
+-- | The ID of the latest version associated with the definition.
+getResourceDefinitionResponse_latestVersion :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+getResourceDefinitionResponse_latestVersion = Lens.lens (\GetResourceDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetResourceDefinitionResponse' {} a -> s {latestVersion = a} :: GetResourceDefinitionResponse)
+
+-- | The ID of the definition.
+getResourceDefinitionResponse_id :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+getResourceDefinitionResponse_id = Lens.lens (\GetResourceDefinitionResponse' {id} -> id) (\s@GetResourceDefinitionResponse' {} a -> s {id = a} :: GetResourceDefinitionResponse)
+
+-- | The time, in milliseconds since the epoch, when the definition was
+-- created.
+getResourceDefinitionResponse_creationTimestamp :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+getResourceDefinitionResponse_creationTimestamp = Lens.lens (\GetResourceDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetResourceDefinitionResponse' {} a -> s {creationTimestamp = a} :: GetResourceDefinitionResponse)
+
+-- | The ARN of the latest version associated with the definition.
+getResourceDefinitionResponse_latestVersionArn :: Lens.Lens' GetResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+getResourceDefinitionResponse_latestVersionArn = Lens.lens (\GetResourceDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@GetResourceDefinitionResponse' {} a -> s {latestVersionArn = a} :: GetResourceDefinitionResponse)
+
 -- | The response's http status code.
 getResourceDefinitionResponse_httpStatus :: Lens.Lens' GetResourceDefinitionResponse Prelude.Int
 getResourceDefinitionResponse_httpStatus = Lens.lens (\GetResourceDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetResourceDefinitionResponse' {} a -> s {httpStatus = a} :: GetResourceDefinitionResponse)
 
 instance Prelude.NFData GetResourceDefinitionResponse where
   rnf GetResourceDefinitionResponse' {..} =
-    Prelude.rnf latestVersionArn
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+    Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestVersion
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf latestVersionArn
       `Prelude.seq` Prelude.rnf httpStatus

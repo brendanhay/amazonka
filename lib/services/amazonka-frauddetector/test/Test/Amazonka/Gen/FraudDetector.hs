@@ -27,77 +27,122 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateDetectorVersion $
---             newCreateDetectorVersion
+--         [ requestBatchCreateVariable $
+--             newBatchCreateVariable
 --
 --         , requestBatchGetVariable $
 --             newBatchGetVariable
 --
---         , requestUpdateModelVersion $
---             newUpdateModelVersion
---
---         , requestDeleteModelVersion $
---             newDeleteModelVersion
---
---         , requestUpdateDetectorVersionMetadata $
---             newUpdateDetectorVersionMetadata
---
---         , requestDeleteBatchImportJob $
---             newDeleteBatchImportJob
---
---         , requestDeleteRule $
---             newDeleteRule
---
---         , requestPutLabel $
---             newPutLabel
---
---         , requestGetExternalModels $
---             newGetExternalModels
---
---         , requestGetDetectors $
---             newGetDetectors
---
---         , requestDeleteLabel $
---             newDeleteLabel
---
---         , requestDeleteVariable $
---             newDeleteVariable
---
---         , requestUpdateVariable $
---             newUpdateVariable
---
---         , requestCreateVariable $
---             newCreateVariable
---
---         , requestCreateBatchImportJob $
---             newCreateBatchImportJob
---
---         , requestCreateRule $
---             newCreateRule
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetModels $
---             newGetModels
---
---         , requestUpdateRuleVersion $
---             newUpdateRuleVersion
---
---         , requestDeleteEvent $
---             newDeleteEvent
+--         , requestCancelBatchImportJob $
+--             newCancelBatchImportJob
 --
 --         , requestCancelBatchPredictionJob $
 --             newCancelBatchPredictionJob
 --
---         , requestUpdateModelVersionStatus $
---             newUpdateModelVersionStatus
+--         , requestCreateBatchImportJob $
+--             newCreateBatchImportJob
+--
+--         , requestCreateBatchPredictionJob $
+--             newCreateBatchPredictionJob
+--
+--         , requestCreateDetectorVersion $
+--             newCreateDetectorVersion
+--
+--         , requestCreateModel $
+--             newCreateModel
+--
+--         , requestCreateModelVersion $
+--             newCreateModelVersion
+--
+--         , requestCreateRule $
+--             newCreateRule
+--
+--         , requestCreateVariable $
+--             newCreateVariable
+--
+--         , requestDeleteBatchImportJob $
+--             newDeleteBatchImportJob
+--
+--         , requestDeleteBatchPredictionJob $
+--             newDeleteBatchPredictionJob
+--
+--         , requestDeleteDetector $
+--             newDeleteDetector
+--
+--         , requestDeleteDetectorVersion $
+--             newDeleteDetectorVersion
+--
+--         , requestDeleteEntityType $
+--             newDeleteEntityType
+--
+--         , requestDeleteEvent $
+--             newDeleteEvent
+--
+--         , requestDeleteEventType $
+--             newDeleteEventType
+--
+--         , requestDeleteEventsByEventType $
+--             newDeleteEventsByEventType
+--
+--         , requestDeleteExternalModel $
+--             newDeleteExternalModel
+--
+--         , requestDeleteLabel $
+--             newDeleteLabel
+--
+--         , requestDeleteModel $
+--             newDeleteModel
+--
+--         , requestDeleteModelVersion $
+--             newDeleteModelVersion
+--
+--         , requestDeleteOutcome $
+--             newDeleteOutcome
+--
+--         , requestDeleteRule $
+--             newDeleteRule
+--
+--         , requestDeleteVariable $
+--             newDeleteVariable
+--
+--         , requestDescribeDetector $
+--             newDescribeDetector
+--
+--         , requestDescribeModelVersions $
+--             newDescribeModelVersions
+--
+--         , requestGetBatchImportJobs $
+--             newGetBatchImportJobs
 --
 --         , requestGetBatchPredictionJobs $
 --             newGetBatchPredictionJobs
 --
---         , requestCreateModel $
---             newCreateModel
+--         , requestGetDeleteEventsByEventTypeStatus $
+--             newGetDeleteEventsByEventTypeStatus
+--
+--         , requestGetDetectorVersion $
+--             newGetDetectorVersion
+--
+--         , requestGetDetectors $
+--             newGetDetectors
+--
+--         , requestGetEntityTypes $
+--             newGetEntityTypes
+--
+--         , requestGetEvent $
+--             newGetEvent
+--
+--         , requestGetEventPrediction $
+--             newGetEventPrediction
+--
+--         , requestGetEventTypes $
+--             newGetEventTypes
+--
+--         , requestGetExternalModels $
+--             newGetExternalModels
+--
+--         , requestGetKMSEncryptionKey $
+--             newGetKMSEncryptionKey
 --
 --         , requestGetLabels $
 --             newGetLabels
@@ -105,89 +150,11 @@ import Test.Tasty
 --         , requestGetModelVersion $
 --             newGetModelVersion
 --
---         , requestPutExternalModel $
---             newPutExternalModel
---
---         , requestDeleteExternalModel $
---             newDeleteExternalModel
---
---         , requestGetEntityTypes $
---             newGetEntityTypes
---
---         , requestDeleteModel $
---             newDeleteModel
---
---         , requestUpdateModel $
---             newUpdateModel
---
---         , requestCreateModelVersion $
---             newCreateModelVersion
---
---         , requestDeleteEventsByEventType $
---             newDeleteEventsByEventType
---
---         , requestPutKMSEncryptionKey $
---             newPutKMSEncryptionKey
---
---         , requestDescribeDetector $
---             newDescribeDetector
+--         , requestGetModels $
+--             newGetModels
 --
 --         , requestGetOutcomes $
 --             newGetOutcomes
---
---         , requestGetEventPrediction $
---             newGetEventPrediction
---
---         , requestDeleteBatchPredictionJob $
---             newDeleteBatchPredictionJob
---
---         , requestGetEvent $
---             newGetEvent
---
---         , requestUpdateRuleMetadata $
---             newUpdateRuleMetadata
---
---         , requestPutEntityType $
---             newPutEntityType
---
---         , requestCreateBatchPredictionJob $
---             newCreateBatchPredictionJob
---
---         , requestDeleteEntityType $
---             newDeleteEntityType
---
---         , requestDeleteEventType $
---             newDeleteEventType
---
---         , requestPutEventType $
---             newPutEventType
---
---         , requestUpdateDetectorVersionStatus $
---             newUpdateDetectorVersionStatus
---
---         , requestCancelBatchImportJob $
---             newCancelBatchImportJob
---
---         , requestSendEvent $
---             newSendEvent
---
---         , requestTagResource $
---             newTagResource
---
---         , requestGetKMSEncryptionKey $
---             newGetKMSEncryptionKey
---
---         , requestUpdateEventLabel $
---             newUpdateEventLabel
---
---         , requestGetBatchImportJobs $
---             newGetBatchImportJobs
---
---         , requestGetDeleteEventsByEventTypeStatus $
---             newGetDeleteEventsByEventTypeStatus
---
---         , requestDeleteOutcome $
---             newDeleteOutcome
 --
 --         , requestGetRules $
 --             newGetRules
@@ -195,110 +162,188 @@ import Test.Tasty
 --         , requestGetVariables $
 --             newGetVariables
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestPutDetector $
 --             newPutDetector
 --
+--         , requestPutEntityType $
+--             newPutEntityType
+--
+--         , requestPutEventType $
+--             newPutEventType
+--
+--         , requestPutExternalModel $
+--             newPutExternalModel
+--
+--         , requestPutKMSEncryptionKey $
+--             newPutKMSEncryptionKey
+--
+--         , requestPutLabel $
+--             newPutLabel
+--
 --         , requestPutOutcome $
 --             newPutOutcome
 --
---         , requestDeleteDetector $
---             newDeleteDetector
+--         , requestSendEvent $
+--             newSendEvent
 --
---         , requestDescribeModelVersions $
---             newDescribeModelVersions
+--         , requestTagResource $
+--             newTagResource
 --
---         , requestBatchCreateVariable $
---             newBatchCreateVariable
---
---         , requestGetDetectorVersion $
---             newGetDetectorVersion
---
---         , requestGetEventTypes $
---             newGetEventTypes
---
---         , requestDeleteDetectorVersion $
---             newDeleteDetectorVersion
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestUpdateDetectorVersion $
 --             newUpdateDetectorVersion
 --
+--         , requestUpdateDetectorVersionMetadata $
+--             newUpdateDetectorVersionMetadata
+--
+--         , requestUpdateDetectorVersionStatus $
+--             newUpdateDetectorVersionStatus
+--
+--         , requestUpdateEventLabel $
+--             newUpdateEventLabel
+--
+--         , requestUpdateModel $
+--             newUpdateModel
+--
+--         , requestUpdateModelVersion $
+--             newUpdateModelVersion
+--
+--         , requestUpdateModelVersionStatus $
+--             newUpdateModelVersionStatus
+--
+--         , requestUpdateRuleMetadata $
+--             newUpdateRuleMetadata
+--
+--         , requestUpdateRuleVersion $
+--             newUpdateRuleVersion
+--
+--         , requestUpdateVariable $
+--             newUpdateVariable
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateDetectorVersion $
---             newCreateDetectorVersionResponse
+--         [ responseBatchCreateVariable $
+--             newBatchCreateVariableResponse
 --
 --         , responseBatchGetVariable $
 --             newBatchGetVariableResponse
 --
---         , responseUpdateModelVersion $
---             newUpdateModelVersionResponse
---
---         , responseDeleteModelVersion $
---             newDeleteModelVersionResponse
---
---         , responseUpdateDetectorVersionMetadata $
---             newUpdateDetectorVersionMetadataResponse
---
---         , responseDeleteBatchImportJob $
---             newDeleteBatchImportJobResponse
---
---         , responseDeleteRule $
---             newDeleteRuleResponse
---
---         , responsePutLabel $
---             newPutLabelResponse
---
---         , responseGetExternalModels $
---             newGetExternalModelsResponse
---
---         , responseGetDetectors $
---             newGetDetectorsResponse
---
---         , responseDeleteLabel $
---             newDeleteLabelResponse
---
---         , responseDeleteVariable $
---             newDeleteVariableResponse
---
---         , responseUpdateVariable $
---             newUpdateVariableResponse
---
---         , responseCreateVariable $
---             newCreateVariableResponse
---
---         , responseCreateBatchImportJob $
---             newCreateBatchImportJobResponse
---
---         , responseCreateRule $
---             newCreateRuleResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetModels $
---             newGetModelsResponse
---
---         , responseUpdateRuleVersion $
---             newUpdateRuleVersionResponse
---
---         , responseDeleteEvent $
---             newDeleteEventResponse
+--         , responseCancelBatchImportJob $
+--             newCancelBatchImportJobResponse
 --
 --         , responseCancelBatchPredictionJob $
 --             newCancelBatchPredictionJobResponse
 --
---         , responseUpdateModelVersionStatus $
---             newUpdateModelVersionStatusResponse
+--         , responseCreateBatchImportJob $
+--             newCreateBatchImportJobResponse
+--
+--         , responseCreateBatchPredictionJob $
+--             newCreateBatchPredictionJobResponse
+--
+--         , responseCreateDetectorVersion $
+--             newCreateDetectorVersionResponse
+--
+--         , responseCreateModel $
+--             newCreateModelResponse
+--
+--         , responseCreateModelVersion $
+--             newCreateModelVersionResponse
+--
+--         , responseCreateRule $
+--             newCreateRuleResponse
+--
+--         , responseCreateVariable $
+--             newCreateVariableResponse
+--
+--         , responseDeleteBatchImportJob $
+--             newDeleteBatchImportJobResponse
+--
+--         , responseDeleteBatchPredictionJob $
+--             newDeleteBatchPredictionJobResponse
+--
+--         , responseDeleteDetector $
+--             newDeleteDetectorResponse
+--
+--         , responseDeleteDetectorVersion $
+--             newDeleteDetectorVersionResponse
+--
+--         , responseDeleteEntityType $
+--             newDeleteEntityTypeResponse
+--
+--         , responseDeleteEvent $
+--             newDeleteEventResponse
+--
+--         , responseDeleteEventType $
+--             newDeleteEventTypeResponse
+--
+--         , responseDeleteEventsByEventType $
+--             newDeleteEventsByEventTypeResponse
+--
+--         , responseDeleteExternalModel $
+--             newDeleteExternalModelResponse
+--
+--         , responseDeleteLabel $
+--             newDeleteLabelResponse
+--
+--         , responseDeleteModel $
+--             newDeleteModelResponse
+--
+--         , responseDeleteModelVersion $
+--             newDeleteModelVersionResponse
+--
+--         , responseDeleteOutcome $
+--             newDeleteOutcomeResponse
+--
+--         , responseDeleteRule $
+--             newDeleteRuleResponse
+--
+--         , responseDeleteVariable $
+--             newDeleteVariableResponse
+--
+--         , responseDescribeDetector $
+--             newDescribeDetectorResponse
+--
+--         , responseDescribeModelVersions $
+--             newDescribeModelVersionsResponse
+--
+--         , responseGetBatchImportJobs $
+--             newGetBatchImportJobsResponse
 --
 --         , responseGetBatchPredictionJobs $
 --             newGetBatchPredictionJobsResponse
 --
---         , responseCreateModel $
---             newCreateModelResponse
+--         , responseGetDeleteEventsByEventTypeStatus $
+--             newGetDeleteEventsByEventTypeStatusResponse
+--
+--         , responseGetDetectorVersion $
+--             newGetDetectorVersionResponse
+--
+--         , responseGetDetectors $
+--             newGetDetectorsResponse
+--
+--         , responseGetEntityTypes $
+--             newGetEntityTypesResponse
+--
+--         , responseGetEvent $
+--             newGetEventResponse
+--
+--         , responseGetEventPrediction $
+--             newGetEventPredictionResponse
+--
+--         , responseGetEventTypes $
+--             newGetEventTypesResponse
+--
+--         , responseGetExternalModels $
+--             newGetExternalModelsResponse
+--
+--         , responseGetKMSEncryptionKey $
+--             newGetKMSEncryptionKeyResponse
 --
 --         , responseGetLabels $
 --             newGetLabelsResponse
@@ -306,89 +351,11 @@ import Test.Tasty
 --         , responseGetModelVersion $
 --             newGetModelVersionResponse
 --
---         , responsePutExternalModel $
---             newPutExternalModelResponse
---
---         , responseDeleteExternalModel $
---             newDeleteExternalModelResponse
---
---         , responseGetEntityTypes $
---             newGetEntityTypesResponse
---
---         , responseDeleteModel $
---             newDeleteModelResponse
---
---         , responseUpdateModel $
---             newUpdateModelResponse
---
---         , responseCreateModelVersion $
---             newCreateModelVersionResponse
---
---         , responseDeleteEventsByEventType $
---             newDeleteEventsByEventTypeResponse
---
---         , responsePutKMSEncryptionKey $
---             newPutKMSEncryptionKeyResponse
---
---         , responseDescribeDetector $
---             newDescribeDetectorResponse
+--         , responseGetModels $
+--             newGetModelsResponse
 --
 --         , responseGetOutcomes $
 --             newGetOutcomesResponse
---
---         , responseGetEventPrediction $
---             newGetEventPredictionResponse
---
---         , responseDeleteBatchPredictionJob $
---             newDeleteBatchPredictionJobResponse
---
---         , responseGetEvent $
---             newGetEventResponse
---
---         , responseUpdateRuleMetadata $
---             newUpdateRuleMetadataResponse
---
---         , responsePutEntityType $
---             newPutEntityTypeResponse
---
---         , responseCreateBatchPredictionJob $
---             newCreateBatchPredictionJobResponse
---
---         , responseDeleteEntityType $
---             newDeleteEntityTypeResponse
---
---         , responseDeleteEventType $
---             newDeleteEventTypeResponse
---
---         , responsePutEventType $
---             newPutEventTypeResponse
---
---         , responseUpdateDetectorVersionStatus $
---             newUpdateDetectorVersionStatusResponse
---
---         , responseCancelBatchImportJob $
---             newCancelBatchImportJobResponse
---
---         , responseSendEvent $
---             newSendEventResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseGetKMSEncryptionKey $
---             newGetKMSEncryptionKeyResponse
---
---         , responseUpdateEventLabel $
---             newUpdateEventLabelResponse
---
---         , responseGetBatchImportJobs $
---             newGetBatchImportJobsResponse
---
---         , responseGetDeleteEventsByEventTypeStatus $
---             newGetDeleteEventsByEventTypeStatusResponse
---
---         , responseDeleteOutcome $
---             newDeleteOutcomeResponse
 --
 --         , responseGetRules $
 --             newGetRulesResponse
@@ -396,46 +363,79 @@ import Test.Tasty
 --         , responseGetVariables $
 --             newGetVariablesResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responsePutDetector $
 --             newPutDetectorResponse
 --
+--         , responsePutEntityType $
+--             newPutEntityTypeResponse
+--
+--         , responsePutEventType $
+--             newPutEventTypeResponse
+--
+--         , responsePutExternalModel $
+--             newPutExternalModelResponse
+--
+--         , responsePutKMSEncryptionKey $
+--             newPutKMSEncryptionKeyResponse
+--
+--         , responsePutLabel $
+--             newPutLabelResponse
+--
 --         , responsePutOutcome $
 --             newPutOutcomeResponse
 --
---         , responseDeleteDetector $
---             newDeleteDetectorResponse
+--         , responseSendEvent $
+--             newSendEventResponse
 --
---         , responseDescribeModelVersions $
---             newDescribeModelVersionsResponse
+--         , responseTagResource $
+--             newTagResourceResponse
 --
---         , responseBatchCreateVariable $
---             newBatchCreateVariableResponse
---
---         , responseGetDetectorVersion $
---             newGetDetectorVersionResponse
---
---         , responseGetEventTypes $
---             newGetEventTypesResponse
---
---         , responseDeleteDetectorVersion $
---             newDeleteDetectorVersionResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdateDetectorVersion $
 --             newUpdateDetectorVersionResponse
+--
+--         , responseUpdateDetectorVersionMetadata $
+--             newUpdateDetectorVersionMetadataResponse
+--
+--         , responseUpdateDetectorVersionStatus $
+--             newUpdateDetectorVersionStatusResponse
+--
+--         , responseUpdateEventLabel $
+--             newUpdateEventLabelResponse
+--
+--         , responseUpdateModel $
+--             newUpdateModelResponse
+--
+--         , responseUpdateModelVersion $
+--             newUpdateModelVersionResponse
+--
+--         , responseUpdateModelVersionStatus $
+--             newUpdateModelVersionStatusResponse
+--
+--         , responseUpdateRuleMetadata $
+--             newUpdateRuleMetadataResponse
+--
+--         , responseUpdateRuleVersion $
+--             newUpdateRuleVersionResponse
+--
+--         , responseUpdateVariable $
+--             newUpdateVariableResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestCreateDetectorVersion :: CreateDetectorVersion -> TestTree
-requestCreateDetectorVersion =
+requestBatchCreateVariable :: BatchCreateVariable -> TestTree
+requestBatchCreateVariable =
   req
-    "CreateDetectorVersion"
-    "fixture/CreateDetectorVersion.yaml"
+    "BatchCreateVariable"
+    "fixture/BatchCreateVariable.yaml"
 
 requestBatchGetVariable :: BatchGetVariable -> TestTree
 requestBatchGetVariable =
@@ -443,113 +443,11 @@ requestBatchGetVariable =
     "BatchGetVariable"
     "fixture/BatchGetVariable.yaml"
 
-requestUpdateModelVersion :: UpdateModelVersion -> TestTree
-requestUpdateModelVersion =
+requestCancelBatchImportJob :: CancelBatchImportJob -> TestTree
+requestCancelBatchImportJob =
   req
-    "UpdateModelVersion"
-    "fixture/UpdateModelVersion.yaml"
-
-requestDeleteModelVersion :: DeleteModelVersion -> TestTree
-requestDeleteModelVersion =
-  req
-    "DeleteModelVersion"
-    "fixture/DeleteModelVersion.yaml"
-
-requestUpdateDetectorVersionMetadata :: UpdateDetectorVersionMetadata -> TestTree
-requestUpdateDetectorVersionMetadata =
-  req
-    "UpdateDetectorVersionMetadata"
-    "fixture/UpdateDetectorVersionMetadata.yaml"
-
-requestDeleteBatchImportJob :: DeleteBatchImportJob -> TestTree
-requestDeleteBatchImportJob =
-  req
-    "DeleteBatchImportJob"
-    "fixture/DeleteBatchImportJob.yaml"
-
-requestDeleteRule :: DeleteRule -> TestTree
-requestDeleteRule =
-  req
-    "DeleteRule"
-    "fixture/DeleteRule.yaml"
-
-requestPutLabel :: PutLabel -> TestTree
-requestPutLabel =
-  req
-    "PutLabel"
-    "fixture/PutLabel.yaml"
-
-requestGetExternalModels :: GetExternalModels -> TestTree
-requestGetExternalModels =
-  req
-    "GetExternalModels"
-    "fixture/GetExternalModels.yaml"
-
-requestGetDetectors :: GetDetectors -> TestTree
-requestGetDetectors =
-  req
-    "GetDetectors"
-    "fixture/GetDetectors.yaml"
-
-requestDeleteLabel :: DeleteLabel -> TestTree
-requestDeleteLabel =
-  req
-    "DeleteLabel"
-    "fixture/DeleteLabel.yaml"
-
-requestDeleteVariable :: DeleteVariable -> TestTree
-requestDeleteVariable =
-  req
-    "DeleteVariable"
-    "fixture/DeleteVariable.yaml"
-
-requestUpdateVariable :: UpdateVariable -> TestTree
-requestUpdateVariable =
-  req
-    "UpdateVariable"
-    "fixture/UpdateVariable.yaml"
-
-requestCreateVariable :: CreateVariable -> TestTree
-requestCreateVariable =
-  req
-    "CreateVariable"
-    "fixture/CreateVariable.yaml"
-
-requestCreateBatchImportJob :: CreateBatchImportJob -> TestTree
-requestCreateBatchImportJob =
-  req
-    "CreateBatchImportJob"
-    "fixture/CreateBatchImportJob.yaml"
-
-requestCreateRule :: CreateRule -> TestTree
-requestCreateRule =
-  req
-    "CreateRule"
-    "fixture/CreateRule.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetModels :: GetModels -> TestTree
-requestGetModels =
-  req
-    "GetModels"
-    "fixture/GetModels.yaml"
-
-requestUpdateRuleVersion :: UpdateRuleVersion -> TestTree
-requestUpdateRuleVersion =
-  req
-    "UpdateRuleVersion"
-    "fixture/UpdateRuleVersion.yaml"
-
-requestDeleteEvent :: DeleteEvent -> TestTree
-requestDeleteEvent =
-  req
-    "DeleteEvent"
-    "fixture/DeleteEvent.yaml"
+    "CancelBatchImportJob"
+    "fixture/CancelBatchImportJob.yaml"
 
 requestCancelBatchPredictionJob :: CancelBatchPredictionJob -> TestTree
 requestCancelBatchPredictionJob =
@@ -557,11 +455,155 @@ requestCancelBatchPredictionJob =
     "CancelBatchPredictionJob"
     "fixture/CancelBatchPredictionJob.yaml"
 
-requestUpdateModelVersionStatus :: UpdateModelVersionStatus -> TestTree
-requestUpdateModelVersionStatus =
+requestCreateBatchImportJob :: CreateBatchImportJob -> TestTree
+requestCreateBatchImportJob =
   req
-    "UpdateModelVersionStatus"
-    "fixture/UpdateModelVersionStatus.yaml"
+    "CreateBatchImportJob"
+    "fixture/CreateBatchImportJob.yaml"
+
+requestCreateBatchPredictionJob :: CreateBatchPredictionJob -> TestTree
+requestCreateBatchPredictionJob =
+  req
+    "CreateBatchPredictionJob"
+    "fixture/CreateBatchPredictionJob.yaml"
+
+requestCreateDetectorVersion :: CreateDetectorVersion -> TestTree
+requestCreateDetectorVersion =
+  req
+    "CreateDetectorVersion"
+    "fixture/CreateDetectorVersion.yaml"
+
+requestCreateModel :: CreateModel -> TestTree
+requestCreateModel =
+  req
+    "CreateModel"
+    "fixture/CreateModel.yaml"
+
+requestCreateModelVersion :: CreateModelVersion -> TestTree
+requestCreateModelVersion =
+  req
+    "CreateModelVersion"
+    "fixture/CreateModelVersion.yaml"
+
+requestCreateRule :: CreateRule -> TestTree
+requestCreateRule =
+  req
+    "CreateRule"
+    "fixture/CreateRule.yaml"
+
+requestCreateVariable :: CreateVariable -> TestTree
+requestCreateVariable =
+  req
+    "CreateVariable"
+    "fixture/CreateVariable.yaml"
+
+requestDeleteBatchImportJob :: DeleteBatchImportJob -> TestTree
+requestDeleteBatchImportJob =
+  req
+    "DeleteBatchImportJob"
+    "fixture/DeleteBatchImportJob.yaml"
+
+requestDeleteBatchPredictionJob :: DeleteBatchPredictionJob -> TestTree
+requestDeleteBatchPredictionJob =
+  req
+    "DeleteBatchPredictionJob"
+    "fixture/DeleteBatchPredictionJob.yaml"
+
+requestDeleteDetector :: DeleteDetector -> TestTree
+requestDeleteDetector =
+  req
+    "DeleteDetector"
+    "fixture/DeleteDetector.yaml"
+
+requestDeleteDetectorVersion :: DeleteDetectorVersion -> TestTree
+requestDeleteDetectorVersion =
+  req
+    "DeleteDetectorVersion"
+    "fixture/DeleteDetectorVersion.yaml"
+
+requestDeleteEntityType :: DeleteEntityType -> TestTree
+requestDeleteEntityType =
+  req
+    "DeleteEntityType"
+    "fixture/DeleteEntityType.yaml"
+
+requestDeleteEvent :: DeleteEvent -> TestTree
+requestDeleteEvent =
+  req
+    "DeleteEvent"
+    "fixture/DeleteEvent.yaml"
+
+requestDeleteEventType :: DeleteEventType -> TestTree
+requestDeleteEventType =
+  req
+    "DeleteEventType"
+    "fixture/DeleteEventType.yaml"
+
+requestDeleteEventsByEventType :: DeleteEventsByEventType -> TestTree
+requestDeleteEventsByEventType =
+  req
+    "DeleteEventsByEventType"
+    "fixture/DeleteEventsByEventType.yaml"
+
+requestDeleteExternalModel :: DeleteExternalModel -> TestTree
+requestDeleteExternalModel =
+  req
+    "DeleteExternalModel"
+    "fixture/DeleteExternalModel.yaml"
+
+requestDeleteLabel :: DeleteLabel -> TestTree
+requestDeleteLabel =
+  req
+    "DeleteLabel"
+    "fixture/DeleteLabel.yaml"
+
+requestDeleteModel :: DeleteModel -> TestTree
+requestDeleteModel =
+  req
+    "DeleteModel"
+    "fixture/DeleteModel.yaml"
+
+requestDeleteModelVersion :: DeleteModelVersion -> TestTree
+requestDeleteModelVersion =
+  req
+    "DeleteModelVersion"
+    "fixture/DeleteModelVersion.yaml"
+
+requestDeleteOutcome :: DeleteOutcome -> TestTree
+requestDeleteOutcome =
+  req
+    "DeleteOutcome"
+    "fixture/DeleteOutcome.yaml"
+
+requestDeleteRule :: DeleteRule -> TestTree
+requestDeleteRule =
+  req
+    "DeleteRule"
+    "fixture/DeleteRule.yaml"
+
+requestDeleteVariable :: DeleteVariable -> TestTree
+requestDeleteVariable =
+  req
+    "DeleteVariable"
+    "fixture/DeleteVariable.yaml"
+
+requestDescribeDetector :: DescribeDetector -> TestTree
+requestDescribeDetector =
+  req
+    "DescribeDetector"
+    "fixture/DescribeDetector.yaml"
+
+requestDescribeModelVersions :: DescribeModelVersions -> TestTree
+requestDescribeModelVersions =
+  req
+    "DescribeModelVersions"
+    "fixture/DescribeModelVersions.yaml"
+
+requestGetBatchImportJobs :: GetBatchImportJobs -> TestTree
+requestGetBatchImportJobs =
+  req
+    "GetBatchImportJobs"
+    "fixture/GetBatchImportJobs.yaml"
 
 requestGetBatchPredictionJobs :: GetBatchPredictionJobs -> TestTree
 requestGetBatchPredictionJobs =
@@ -569,11 +611,59 @@ requestGetBatchPredictionJobs =
     "GetBatchPredictionJobs"
     "fixture/GetBatchPredictionJobs.yaml"
 
-requestCreateModel :: CreateModel -> TestTree
-requestCreateModel =
+requestGetDeleteEventsByEventTypeStatus :: GetDeleteEventsByEventTypeStatus -> TestTree
+requestGetDeleteEventsByEventTypeStatus =
   req
-    "CreateModel"
-    "fixture/CreateModel.yaml"
+    "GetDeleteEventsByEventTypeStatus"
+    "fixture/GetDeleteEventsByEventTypeStatus.yaml"
+
+requestGetDetectorVersion :: GetDetectorVersion -> TestTree
+requestGetDetectorVersion =
+  req
+    "GetDetectorVersion"
+    "fixture/GetDetectorVersion.yaml"
+
+requestGetDetectors :: GetDetectors -> TestTree
+requestGetDetectors =
+  req
+    "GetDetectors"
+    "fixture/GetDetectors.yaml"
+
+requestGetEntityTypes :: GetEntityTypes -> TestTree
+requestGetEntityTypes =
+  req
+    "GetEntityTypes"
+    "fixture/GetEntityTypes.yaml"
+
+requestGetEvent :: GetEvent -> TestTree
+requestGetEvent =
+  req
+    "GetEvent"
+    "fixture/GetEvent.yaml"
+
+requestGetEventPrediction :: GetEventPrediction -> TestTree
+requestGetEventPrediction =
+  req
+    "GetEventPrediction"
+    "fixture/GetEventPrediction.yaml"
+
+requestGetEventTypes :: GetEventTypes -> TestTree
+requestGetEventTypes =
+  req
+    "GetEventTypes"
+    "fixture/GetEventTypes.yaml"
+
+requestGetExternalModels :: GetExternalModels -> TestTree
+requestGetExternalModels =
+  req
+    "GetExternalModels"
+    "fixture/GetExternalModels.yaml"
+
+requestGetKMSEncryptionKey :: GetKMSEncryptionKey -> TestTree
+requestGetKMSEncryptionKey =
+  req
+    "GetKMSEncryptionKey"
+    "fixture/GetKMSEncryptionKey.yaml"
 
 requestGetLabels :: GetLabels -> TestTree
 requestGetLabels =
@@ -587,173 +677,17 @@ requestGetModelVersion =
     "GetModelVersion"
     "fixture/GetModelVersion.yaml"
 
-requestPutExternalModel :: PutExternalModel -> TestTree
-requestPutExternalModel =
+requestGetModels :: GetModels -> TestTree
+requestGetModels =
   req
-    "PutExternalModel"
-    "fixture/PutExternalModel.yaml"
-
-requestDeleteExternalModel :: DeleteExternalModel -> TestTree
-requestDeleteExternalModel =
-  req
-    "DeleteExternalModel"
-    "fixture/DeleteExternalModel.yaml"
-
-requestGetEntityTypes :: GetEntityTypes -> TestTree
-requestGetEntityTypes =
-  req
-    "GetEntityTypes"
-    "fixture/GetEntityTypes.yaml"
-
-requestDeleteModel :: DeleteModel -> TestTree
-requestDeleteModel =
-  req
-    "DeleteModel"
-    "fixture/DeleteModel.yaml"
-
-requestUpdateModel :: UpdateModel -> TestTree
-requestUpdateModel =
-  req
-    "UpdateModel"
-    "fixture/UpdateModel.yaml"
-
-requestCreateModelVersion :: CreateModelVersion -> TestTree
-requestCreateModelVersion =
-  req
-    "CreateModelVersion"
-    "fixture/CreateModelVersion.yaml"
-
-requestDeleteEventsByEventType :: DeleteEventsByEventType -> TestTree
-requestDeleteEventsByEventType =
-  req
-    "DeleteEventsByEventType"
-    "fixture/DeleteEventsByEventType.yaml"
-
-requestPutKMSEncryptionKey :: PutKMSEncryptionKey -> TestTree
-requestPutKMSEncryptionKey =
-  req
-    "PutKMSEncryptionKey"
-    "fixture/PutKMSEncryptionKey.yaml"
-
-requestDescribeDetector :: DescribeDetector -> TestTree
-requestDescribeDetector =
-  req
-    "DescribeDetector"
-    "fixture/DescribeDetector.yaml"
+    "GetModels"
+    "fixture/GetModels.yaml"
 
 requestGetOutcomes :: GetOutcomes -> TestTree
 requestGetOutcomes =
   req
     "GetOutcomes"
     "fixture/GetOutcomes.yaml"
-
-requestGetEventPrediction :: GetEventPrediction -> TestTree
-requestGetEventPrediction =
-  req
-    "GetEventPrediction"
-    "fixture/GetEventPrediction.yaml"
-
-requestDeleteBatchPredictionJob :: DeleteBatchPredictionJob -> TestTree
-requestDeleteBatchPredictionJob =
-  req
-    "DeleteBatchPredictionJob"
-    "fixture/DeleteBatchPredictionJob.yaml"
-
-requestGetEvent :: GetEvent -> TestTree
-requestGetEvent =
-  req
-    "GetEvent"
-    "fixture/GetEvent.yaml"
-
-requestUpdateRuleMetadata :: UpdateRuleMetadata -> TestTree
-requestUpdateRuleMetadata =
-  req
-    "UpdateRuleMetadata"
-    "fixture/UpdateRuleMetadata.yaml"
-
-requestPutEntityType :: PutEntityType -> TestTree
-requestPutEntityType =
-  req
-    "PutEntityType"
-    "fixture/PutEntityType.yaml"
-
-requestCreateBatchPredictionJob :: CreateBatchPredictionJob -> TestTree
-requestCreateBatchPredictionJob =
-  req
-    "CreateBatchPredictionJob"
-    "fixture/CreateBatchPredictionJob.yaml"
-
-requestDeleteEntityType :: DeleteEntityType -> TestTree
-requestDeleteEntityType =
-  req
-    "DeleteEntityType"
-    "fixture/DeleteEntityType.yaml"
-
-requestDeleteEventType :: DeleteEventType -> TestTree
-requestDeleteEventType =
-  req
-    "DeleteEventType"
-    "fixture/DeleteEventType.yaml"
-
-requestPutEventType :: PutEventType -> TestTree
-requestPutEventType =
-  req
-    "PutEventType"
-    "fixture/PutEventType.yaml"
-
-requestUpdateDetectorVersionStatus :: UpdateDetectorVersionStatus -> TestTree
-requestUpdateDetectorVersionStatus =
-  req
-    "UpdateDetectorVersionStatus"
-    "fixture/UpdateDetectorVersionStatus.yaml"
-
-requestCancelBatchImportJob :: CancelBatchImportJob -> TestTree
-requestCancelBatchImportJob =
-  req
-    "CancelBatchImportJob"
-    "fixture/CancelBatchImportJob.yaml"
-
-requestSendEvent :: SendEvent -> TestTree
-requestSendEvent =
-  req
-    "SendEvent"
-    "fixture/SendEvent.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestGetKMSEncryptionKey :: GetKMSEncryptionKey -> TestTree
-requestGetKMSEncryptionKey =
-  req
-    "GetKMSEncryptionKey"
-    "fixture/GetKMSEncryptionKey.yaml"
-
-requestUpdateEventLabel :: UpdateEventLabel -> TestTree
-requestUpdateEventLabel =
-  req
-    "UpdateEventLabel"
-    "fixture/UpdateEventLabel.yaml"
-
-requestGetBatchImportJobs :: GetBatchImportJobs -> TestTree
-requestGetBatchImportJobs =
-  req
-    "GetBatchImportJobs"
-    "fixture/GetBatchImportJobs.yaml"
-
-requestGetDeleteEventsByEventTypeStatus :: GetDeleteEventsByEventTypeStatus -> TestTree
-requestGetDeleteEventsByEventTypeStatus =
-  req
-    "GetDeleteEventsByEventTypeStatus"
-    "fixture/GetDeleteEventsByEventTypeStatus.yaml"
-
-requestDeleteOutcome :: DeleteOutcome -> TestTree
-requestDeleteOutcome =
-  req
-    "DeleteOutcome"
-    "fixture/DeleteOutcome.yaml"
 
 requestGetRules :: GetRules -> TestTree
 requestGetRules =
@@ -767,11 +701,11 @@ requestGetVariables =
     "GetVariables"
     "fixture/GetVariables.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestPutDetector :: PutDetector -> TestTree
 requestPutDetector =
@@ -779,47 +713,59 @@ requestPutDetector =
     "PutDetector"
     "fixture/PutDetector.yaml"
 
+requestPutEntityType :: PutEntityType -> TestTree
+requestPutEntityType =
+  req
+    "PutEntityType"
+    "fixture/PutEntityType.yaml"
+
+requestPutEventType :: PutEventType -> TestTree
+requestPutEventType =
+  req
+    "PutEventType"
+    "fixture/PutEventType.yaml"
+
+requestPutExternalModel :: PutExternalModel -> TestTree
+requestPutExternalModel =
+  req
+    "PutExternalModel"
+    "fixture/PutExternalModel.yaml"
+
+requestPutKMSEncryptionKey :: PutKMSEncryptionKey -> TestTree
+requestPutKMSEncryptionKey =
+  req
+    "PutKMSEncryptionKey"
+    "fixture/PutKMSEncryptionKey.yaml"
+
+requestPutLabel :: PutLabel -> TestTree
+requestPutLabel =
+  req
+    "PutLabel"
+    "fixture/PutLabel.yaml"
+
 requestPutOutcome :: PutOutcome -> TestTree
 requestPutOutcome =
   req
     "PutOutcome"
     "fixture/PutOutcome.yaml"
 
-requestDeleteDetector :: DeleteDetector -> TestTree
-requestDeleteDetector =
+requestSendEvent :: SendEvent -> TestTree
+requestSendEvent =
   req
-    "DeleteDetector"
-    "fixture/DeleteDetector.yaml"
+    "SendEvent"
+    "fixture/SendEvent.yaml"
 
-requestDescribeModelVersions :: DescribeModelVersions -> TestTree
-requestDescribeModelVersions =
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
   req
-    "DescribeModelVersions"
-    "fixture/DescribeModelVersions.yaml"
+    "TagResource"
+    "fixture/TagResource.yaml"
 
-requestBatchCreateVariable :: BatchCreateVariable -> TestTree
-requestBatchCreateVariable =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "BatchCreateVariable"
-    "fixture/BatchCreateVariable.yaml"
-
-requestGetDetectorVersion :: GetDetectorVersion -> TestTree
-requestGetDetectorVersion =
-  req
-    "GetDetectorVersion"
-    "fixture/GetDetectorVersion.yaml"
-
-requestGetEventTypes :: GetEventTypes -> TestTree
-requestGetEventTypes =
-  req
-    "GetEventTypes"
-    "fixture/GetEventTypes.yaml"
-
-requestDeleteDetectorVersion :: DeleteDetectorVersion -> TestTree
-requestDeleteDetectorVersion =
-  req
-    "DeleteDetectorVersion"
-    "fixture/DeleteDetectorVersion.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateDetectorVersion :: UpdateDetectorVersion -> TestTree
 requestUpdateDetectorVersion =
@@ -827,15 +773,69 @@ requestUpdateDetectorVersion =
     "UpdateDetectorVersion"
     "fixture/UpdateDetectorVersion.yaml"
 
+requestUpdateDetectorVersionMetadata :: UpdateDetectorVersionMetadata -> TestTree
+requestUpdateDetectorVersionMetadata =
+  req
+    "UpdateDetectorVersionMetadata"
+    "fixture/UpdateDetectorVersionMetadata.yaml"
+
+requestUpdateDetectorVersionStatus :: UpdateDetectorVersionStatus -> TestTree
+requestUpdateDetectorVersionStatus =
+  req
+    "UpdateDetectorVersionStatus"
+    "fixture/UpdateDetectorVersionStatus.yaml"
+
+requestUpdateEventLabel :: UpdateEventLabel -> TestTree
+requestUpdateEventLabel =
+  req
+    "UpdateEventLabel"
+    "fixture/UpdateEventLabel.yaml"
+
+requestUpdateModel :: UpdateModel -> TestTree
+requestUpdateModel =
+  req
+    "UpdateModel"
+    "fixture/UpdateModel.yaml"
+
+requestUpdateModelVersion :: UpdateModelVersion -> TestTree
+requestUpdateModelVersion =
+  req
+    "UpdateModelVersion"
+    "fixture/UpdateModelVersion.yaml"
+
+requestUpdateModelVersionStatus :: UpdateModelVersionStatus -> TestTree
+requestUpdateModelVersionStatus =
+  req
+    "UpdateModelVersionStatus"
+    "fixture/UpdateModelVersionStatus.yaml"
+
+requestUpdateRuleMetadata :: UpdateRuleMetadata -> TestTree
+requestUpdateRuleMetadata =
+  req
+    "UpdateRuleMetadata"
+    "fixture/UpdateRuleMetadata.yaml"
+
+requestUpdateRuleVersion :: UpdateRuleVersion -> TestTree
+requestUpdateRuleVersion =
+  req
+    "UpdateRuleVersion"
+    "fixture/UpdateRuleVersion.yaml"
+
+requestUpdateVariable :: UpdateVariable -> TestTree
+requestUpdateVariable =
+  req
+    "UpdateVariable"
+    "fixture/UpdateVariable.yaml"
+
 -- Responses
 
-responseCreateDetectorVersion :: CreateDetectorVersionResponse -> TestTree
-responseCreateDetectorVersion =
+responseBatchCreateVariable :: BatchCreateVariableResponse -> TestTree
+responseBatchCreateVariable =
   res
-    "CreateDetectorVersionResponse"
-    "fixture/CreateDetectorVersionResponse.proto"
+    "BatchCreateVariableResponse"
+    "fixture/BatchCreateVariableResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDetectorVersion)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateVariable)
 
 responseBatchGetVariable :: BatchGetVariableResponse -> TestTree
 responseBatchGetVariable =
@@ -845,149 +845,13 @@ responseBatchGetVariable =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetVariable)
 
-responseUpdateModelVersion :: UpdateModelVersionResponse -> TestTree
-responseUpdateModelVersion =
+responseCancelBatchImportJob :: CancelBatchImportJobResponse -> TestTree
+responseCancelBatchImportJob =
   res
-    "UpdateModelVersionResponse"
-    "fixture/UpdateModelVersionResponse.proto"
+    "CancelBatchImportJobResponse"
+    "fixture/CancelBatchImportJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateModelVersion)
-
-responseDeleteModelVersion :: DeleteModelVersionResponse -> TestTree
-responseDeleteModelVersion =
-  res
-    "DeleteModelVersionResponse"
-    "fixture/DeleteModelVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteModelVersion)
-
-responseUpdateDetectorVersionMetadata :: UpdateDetectorVersionMetadataResponse -> TestTree
-responseUpdateDetectorVersionMetadata =
-  res
-    "UpdateDetectorVersionMetadataResponse"
-    "fixture/UpdateDetectorVersionMetadataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorVersionMetadata)
-
-responseDeleteBatchImportJob :: DeleteBatchImportJobResponse -> TestTree
-responseDeleteBatchImportJob =
-  res
-    "DeleteBatchImportJobResponse"
-    "fixture/DeleteBatchImportJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteBatchImportJob)
-
-responseDeleteRule :: DeleteRuleResponse -> TestTree
-responseDeleteRule =
-  res
-    "DeleteRuleResponse"
-    "fixture/DeleteRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRule)
-
-responsePutLabel :: PutLabelResponse -> TestTree
-responsePutLabel =
-  res
-    "PutLabelResponse"
-    "fixture/PutLabelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutLabel)
-
-responseGetExternalModels :: GetExternalModelsResponse -> TestTree
-responseGetExternalModels =
-  res
-    "GetExternalModelsResponse"
-    "fixture/GetExternalModelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetExternalModels)
-
-responseGetDetectors :: GetDetectorsResponse -> TestTree
-responseGetDetectors =
-  res
-    "GetDetectorsResponse"
-    "fixture/GetDetectorsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDetectors)
-
-responseDeleteLabel :: DeleteLabelResponse -> TestTree
-responseDeleteLabel =
-  res
-    "DeleteLabelResponse"
-    "fixture/DeleteLabelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLabel)
-
-responseDeleteVariable :: DeleteVariableResponse -> TestTree
-responseDeleteVariable =
-  res
-    "DeleteVariableResponse"
-    "fixture/DeleteVariableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVariable)
-
-responseUpdateVariable :: UpdateVariableResponse -> TestTree
-responseUpdateVariable =
-  res
-    "UpdateVariableResponse"
-    "fixture/UpdateVariableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVariable)
-
-responseCreateVariable :: CreateVariableResponse -> TestTree
-responseCreateVariable =
-  res
-    "CreateVariableResponse"
-    "fixture/CreateVariableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVariable)
-
-responseCreateBatchImportJob :: CreateBatchImportJobResponse -> TestTree
-responseCreateBatchImportJob =
-  res
-    "CreateBatchImportJobResponse"
-    "fixture/CreateBatchImportJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateBatchImportJob)
-
-responseCreateRule :: CreateRuleResponse -> TestTree
-responseCreateRule =
-  res
-    "CreateRuleResponse"
-    "fixture/CreateRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRule)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetModels :: GetModelsResponse -> TestTree
-responseGetModels =
-  res
-    "GetModelsResponse"
-    "fixture/GetModelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetModels)
-
-responseUpdateRuleVersion :: UpdateRuleVersionResponse -> TestTree
-responseUpdateRuleVersion =
-  res
-    "UpdateRuleVersionResponse"
-    "fixture/UpdateRuleVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRuleVersion)
-
-responseDeleteEvent :: DeleteEventResponse -> TestTree
-responseDeleteEvent =
-  res
-    "DeleteEventResponse"
-    "fixture/DeleteEventResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEvent)
+    (Proxy.Proxy :: Proxy.Proxy CancelBatchImportJob)
 
 responseCancelBatchPredictionJob :: CancelBatchPredictionJobResponse -> TestTree
 responseCancelBatchPredictionJob =
@@ -997,13 +861,205 @@ responseCancelBatchPredictionJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelBatchPredictionJob)
 
-responseUpdateModelVersionStatus :: UpdateModelVersionStatusResponse -> TestTree
-responseUpdateModelVersionStatus =
+responseCreateBatchImportJob :: CreateBatchImportJobResponse -> TestTree
+responseCreateBatchImportJob =
   res
-    "UpdateModelVersionStatusResponse"
-    "fixture/UpdateModelVersionStatusResponse.proto"
+    "CreateBatchImportJobResponse"
+    "fixture/CreateBatchImportJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateModelVersionStatus)
+    (Proxy.Proxy :: Proxy.Proxy CreateBatchImportJob)
+
+responseCreateBatchPredictionJob :: CreateBatchPredictionJobResponse -> TestTree
+responseCreateBatchPredictionJob =
+  res
+    "CreateBatchPredictionJobResponse"
+    "fixture/CreateBatchPredictionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBatchPredictionJob)
+
+responseCreateDetectorVersion :: CreateDetectorVersionResponse -> TestTree
+responseCreateDetectorVersion =
+  res
+    "CreateDetectorVersionResponse"
+    "fixture/CreateDetectorVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDetectorVersion)
+
+responseCreateModel :: CreateModelResponse -> TestTree
+responseCreateModel =
+  res
+    "CreateModelResponse"
+    "fixture/CreateModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateModel)
+
+responseCreateModelVersion :: CreateModelVersionResponse -> TestTree
+responseCreateModelVersion =
+  res
+    "CreateModelVersionResponse"
+    "fixture/CreateModelVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateModelVersion)
+
+responseCreateRule :: CreateRuleResponse -> TestTree
+responseCreateRule =
+  res
+    "CreateRuleResponse"
+    "fixture/CreateRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRule)
+
+responseCreateVariable :: CreateVariableResponse -> TestTree
+responseCreateVariable =
+  res
+    "CreateVariableResponse"
+    "fixture/CreateVariableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVariable)
+
+responseDeleteBatchImportJob :: DeleteBatchImportJobResponse -> TestTree
+responseDeleteBatchImportJob =
+  res
+    "DeleteBatchImportJobResponse"
+    "fixture/DeleteBatchImportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBatchImportJob)
+
+responseDeleteBatchPredictionJob :: DeleteBatchPredictionJobResponse -> TestTree
+responseDeleteBatchPredictionJob =
+  res
+    "DeleteBatchPredictionJobResponse"
+    "fixture/DeleteBatchPredictionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBatchPredictionJob)
+
+responseDeleteDetector :: DeleteDetectorResponse -> TestTree
+responseDeleteDetector =
+  res
+    "DeleteDetectorResponse"
+    "fixture/DeleteDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDetector)
+
+responseDeleteDetectorVersion :: DeleteDetectorVersionResponse -> TestTree
+responseDeleteDetectorVersion =
+  res
+    "DeleteDetectorVersionResponse"
+    "fixture/DeleteDetectorVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDetectorVersion)
+
+responseDeleteEntityType :: DeleteEntityTypeResponse -> TestTree
+responseDeleteEntityType =
+  res
+    "DeleteEntityTypeResponse"
+    "fixture/DeleteEntityTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEntityType)
+
+responseDeleteEvent :: DeleteEventResponse -> TestTree
+responseDeleteEvent =
+  res
+    "DeleteEventResponse"
+    "fixture/DeleteEventResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEvent)
+
+responseDeleteEventType :: DeleteEventTypeResponse -> TestTree
+responseDeleteEventType =
+  res
+    "DeleteEventTypeResponse"
+    "fixture/DeleteEventTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventType)
+
+responseDeleteEventsByEventType :: DeleteEventsByEventTypeResponse -> TestTree
+responseDeleteEventsByEventType =
+  res
+    "DeleteEventsByEventTypeResponse"
+    "fixture/DeleteEventsByEventTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventsByEventType)
+
+responseDeleteExternalModel :: DeleteExternalModelResponse -> TestTree
+responseDeleteExternalModel =
+  res
+    "DeleteExternalModelResponse"
+    "fixture/DeleteExternalModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteExternalModel)
+
+responseDeleteLabel :: DeleteLabelResponse -> TestTree
+responseDeleteLabel =
+  res
+    "DeleteLabelResponse"
+    "fixture/DeleteLabelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLabel)
+
+responseDeleteModel :: DeleteModelResponse -> TestTree
+responseDeleteModel =
+  res
+    "DeleteModelResponse"
+    "fixture/DeleteModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
+
+responseDeleteModelVersion :: DeleteModelVersionResponse -> TestTree
+responseDeleteModelVersion =
+  res
+    "DeleteModelVersionResponse"
+    "fixture/DeleteModelVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelVersion)
+
+responseDeleteOutcome :: DeleteOutcomeResponse -> TestTree
+responseDeleteOutcome =
+  res
+    "DeleteOutcomeResponse"
+    "fixture/DeleteOutcomeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteOutcome)
+
+responseDeleteRule :: DeleteRuleResponse -> TestTree
+responseDeleteRule =
+  res
+    "DeleteRuleResponse"
+    "fixture/DeleteRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRule)
+
+responseDeleteVariable :: DeleteVariableResponse -> TestTree
+responseDeleteVariable =
+  res
+    "DeleteVariableResponse"
+    "fixture/DeleteVariableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVariable)
+
+responseDescribeDetector :: DescribeDetectorResponse -> TestTree
+responseDescribeDetector =
+  res
+    "DescribeDetectorResponse"
+    "fixture/DescribeDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDetector)
+
+responseDescribeModelVersions :: DescribeModelVersionsResponse -> TestTree
+responseDescribeModelVersions =
+  res
+    "DescribeModelVersionsResponse"
+    "fixture/DescribeModelVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelVersions)
+
+responseGetBatchImportJobs :: GetBatchImportJobsResponse -> TestTree
+responseGetBatchImportJobs =
+  res
+    "GetBatchImportJobsResponse"
+    "fixture/GetBatchImportJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBatchImportJobs)
 
 responseGetBatchPredictionJobs :: GetBatchPredictionJobsResponse -> TestTree
 responseGetBatchPredictionJobs =
@@ -1013,13 +1069,77 @@ responseGetBatchPredictionJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetBatchPredictionJobs)
 
-responseCreateModel :: CreateModelResponse -> TestTree
-responseCreateModel =
+responseGetDeleteEventsByEventTypeStatus :: GetDeleteEventsByEventTypeStatusResponse -> TestTree
+responseGetDeleteEventsByEventTypeStatus =
   res
-    "CreateModelResponse"
-    "fixture/CreateModelResponse.proto"
+    "GetDeleteEventsByEventTypeStatusResponse"
+    "fixture/GetDeleteEventsByEventTypeStatusResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateModel)
+    (Proxy.Proxy :: Proxy.Proxy GetDeleteEventsByEventTypeStatus)
+
+responseGetDetectorVersion :: GetDetectorVersionResponse -> TestTree
+responseGetDetectorVersion =
+  res
+    "GetDetectorVersionResponse"
+    "fixture/GetDetectorVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDetectorVersion)
+
+responseGetDetectors :: GetDetectorsResponse -> TestTree
+responseGetDetectors =
+  res
+    "GetDetectorsResponse"
+    "fixture/GetDetectorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDetectors)
+
+responseGetEntityTypes :: GetEntityTypesResponse -> TestTree
+responseGetEntityTypes =
+  res
+    "GetEntityTypesResponse"
+    "fixture/GetEntityTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEntityTypes)
+
+responseGetEvent :: GetEventResponse -> TestTree
+responseGetEvent =
+  res
+    "GetEventResponse"
+    "fixture/GetEventResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEvent)
+
+responseGetEventPrediction :: GetEventPredictionResponse -> TestTree
+responseGetEventPrediction =
+  res
+    "GetEventPredictionResponse"
+    "fixture/GetEventPredictionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventPrediction)
+
+responseGetEventTypes :: GetEventTypesResponse -> TestTree
+responseGetEventTypes =
+  res
+    "GetEventTypesResponse"
+    "fixture/GetEventTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventTypes)
+
+responseGetExternalModels :: GetExternalModelsResponse -> TestTree
+responseGetExternalModels =
+  res
+    "GetExternalModelsResponse"
+    "fixture/GetExternalModelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetExternalModels)
+
+responseGetKMSEncryptionKey :: GetKMSEncryptionKeyResponse -> TestTree
+responseGetKMSEncryptionKey =
+  res
+    "GetKMSEncryptionKeyResponse"
+    "fixture/GetKMSEncryptionKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetKMSEncryptionKey)
 
 responseGetLabels :: GetLabelsResponse -> TestTree
 responseGetLabels =
@@ -1037,77 +1157,13 @@ responseGetModelVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetModelVersion)
 
-responsePutExternalModel :: PutExternalModelResponse -> TestTree
-responsePutExternalModel =
+responseGetModels :: GetModelsResponse -> TestTree
+responseGetModels =
   res
-    "PutExternalModelResponse"
-    "fixture/PutExternalModelResponse.proto"
+    "GetModelsResponse"
+    "fixture/GetModelsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutExternalModel)
-
-responseDeleteExternalModel :: DeleteExternalModelResponse -> TestTree
-responseDeleteExternalModel =
-  res
-    "DeleteExternalModelResponse"
-    "fixture/DeleteExternalModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteExternalModel)
-
-responseGetEntityTypes :: GetEntityTypesResponse -> TestTree
-responseGetEntityTypes =
-  res
-    "GetEntityTypesResponse"
-    "fixture/GetEntityTypesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEntityTypes)
-
-responseDeleteModel :: DeleteModelResponse -> TestTree
-responseDeleteModel =
-  res
-    "DeleteModelResponse"
-    "fixture/DeleteModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteModel)
-
-responseUpdateModel :: UpdateModelResponse -> TestTree
-responseUpdateModel =
-  res
-    "UpdateModelResponse"
-    "fixture/UpdateModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateModel)
-
-responseCreateModelVersion :: CreateModelVersionResponse -> TestTree
-responseCreateModelVersion =
-  res
-    "CreateModelVersionResponse"
-    "fixture/CreateModelVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateModelVersion)
-
-responseDeleteEventsByEventType :: DeleteEventsByEventTypeResponse -> TestTree
-responseDeleteEventsByEventType =
-  res
-    "DeleteEventsByEventTypeResponse"
-    "fixture/DeleteEventsByEventTypeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEventsByEventType)
-
-responsePutKMSEncryptionKey :: PutKMSEncryptionKeyResponse -> TestTree
-responsePutKMSEncryptionKey =
-  res
-    "PutKMSEncryptionKeyResponse"
-    "fixture/PutKMSEncryptionKeyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutKMSEncryptionKey)
-
-responseDescribeDetector :: DescribeDetectorResponse -> TestTree
-responseDescribeDetector =
-  res
-    "DescribeDetectorResponse"
-    "fixture/DescribeDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDetector)
+    (Proxy.Proxy :: Proxy.Proxy GetModels)
 
 responseGetOutcomes :: GetOutcomesResponse -> TestTree
 responseGetOutcomes =
@@ -1116,150 +1172,6 @@ responseGetOutcomes =
     "fixture/GetOutcomesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetOutcomes)
-
-responseGetEventPrediction :: GetEventPredictionResponse -> TestTree
-responseGetEventPrediction =
-  res
-    "GetEventPredictionResponse"
-    "fixture/GetEventPredictionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEventPrediction)
-
-responseDeleteBatchPredictionJob :: DeleteBatchPredictionJobResponse -> TestTree
-responseDeleteBatchPredictionJob =
-  res
-    "DeleteBatchPredictionJobResponse"
-    "fixture/DeleteBatchPredictionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteBatchPredictionJob)
-
-responseGetEvent :: GetEventResponse -> TestTree
-responseGetEvent =
-  res
-    "GetEventResponse"
-    "fixture/GetEventResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEvent)
-
-responseUpdateRuleMetadata :: UpdateRuleMetadataResponse -> TestTree
-responseUpdateRuleMetadata =
-  res
-    "UpdateRuleMetadataResponse"
-    "fixture/UpdateRuleMetadataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRuleMetadata)
-
-responsePutEntityType :: PutEntityTypeResponse -> TestTree
-responsePutEntityType =
-  res
-    "PutEntityTypeResponse"
-    "fixture/PutEntityTypeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutEntityType)
-
-responseCreateBatchPredictionJob :: CreateBatchPredictionJobResponse -> TestTree
-responseCreateBatchPredictionJob =
-  res
-    "CreateBatchPredictionJobResponse"
-    "fixture/CreateBatchPredictionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateBatchPredictionJob)
-
-responseDeleteEntityType :: DeleteEntityTypeResponse -> TestTree
-responseDeleteEntityType =
-  res
-    "DeleteEntityTypeResponse"
-    "fixture/DeleteEntityTypeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEntityType)
-
-responseDeleteEventType :: DeleteEventTypeResponse -> TestTree
-responseDeleteEventType =
-  res
-    "DeleteEventTypeResponse"
-    "fixture/DeleteEventTypeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEventType)
-
-responsePutEventType :: PutEventTypeResponse -> TestTree
-responsePutEventType =
-  res
-    "PutEventTypeResponse"
-    "fixture/PutEventTypeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutEventType)
-
-responseUpdateDetectorVersionStatus :: UpdateDetectorVersionStatusResponse -> TestTree
-responseUpdateDetectorVersionStatus =
-  res
-    "UpdateDetectorVersionStatusResponse"
-    "fixture/UpdateDetectorVersionStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorVersionStatus)
-
-responseCancelBatchImportJob :: CancelBatchImportJobResponse -> TestTree
-responseCancelBatchImportJob =
-  res
-    "CancelBatchImportJobResponse"
-    "fixture/CancelBatchImportJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelBatchImportJob)
-
-responseSendEvent :: SendEventResponse -> TestTree
-responseSendEvent =
-  res
-    "SendEventResponse"
-    "fixture/SendEventResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SendEvent)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseGetKMSEncryptionKey :: GetKMSEncryptionKeyResponse -> TestTree
-responseGetKMSEncryptionKey =
-  res
-    "GetKMSEncryptionKeyResponse"
-    "fixture/GetKMSEncryptionKeyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetKMSEncryptionKey)
-
-responseUpdateEventLabel :: UpdateEventLabelResponse -> TestTree
-responseUpdateEventLabel =
-  res
-    "UpdateEventLabelResponse"
-    "fixture/UpdateEventLabelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateEventLabel)
-
-responseGetBatchImportJobs :: GetBatchImportJobsResponse -> TestTree
-responseGetBatchImportJobs =
-  res
-    "GetBatchImportJobsResponse"
-    "fixture/GetBatchImportJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetBatchImportJobs)
-
-responseGetDeleteEventsByEventTypeStatus :: GetDeleteEventsByEventTypeStatusResponse -> TestTree
-responseGetDeleteEventsByEventTypeStatus =
-  res
-    "GetDeleteEventsByEventTypeStatusResponse"
-    "fixture/GetDeleteEventsByEventTypeStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDeleteEventsByEventTypeStatus)
-
-responseDeleteOutcome :: DeleteOutcomeResponse -> TestTree
-responseDeleteOutcome =
-  res
-    "DeleteOutcomeResponse"
-    "fixture/DeleteOutcomeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteOutcome)
 
 responseGetRules :: GetRulesResponse -> TestTree
 responseGetRules =
@@ -1277,13 +1189,13 @@ responseGetVariables =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetVariables)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responsePutDetector :: PutDetectorResponse -> TestTree
 responsePutDetector =
@@ -1293,6 +1205,46 @@ responsePutDetector =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutDetector)
 
+responsePutEntityType :: PutEntityTypeResponse -> TestTree
+responsePutEntityType =
+  res
+    "PutEntityTypeResponse"
+    "fixture/PutEntityTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutEntityType)
+
+responsePutEventType :: PutEventTypeResponse -> TestTree
+responsePutEventType =
+  res
+    "PutEventTypeResponse"
+    "fixture/PutEventTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutEventType)
+
+responsePutExternalModel :: PutExternalModelResponse -> TestTree
+responsePutExternalModel =
+  res
+    "PutExternalModelResponse"
+    "fixture/PutExternalModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutExternalModel)
+
+responsePutKMSEncryptionKey :: PutKMSEncryptionKeyResponse -> TestTree
+responsePutKMSEncryptionKey =
+  res
+    "PutKMSEncryptionKeyResponse"
+    "fixture/PutKMSEncryptionKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutKMSEncryptionKey)
+
+responsePutLabel :: PutLabelResponse -> TestTree
+responsePutLabel =
+  res
+    "PutLabelResponse"
+    "fixture/PutLabelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutLabel)
+
 responsePutOutcome :: PutOutcomeResponse -> TestTree
 responsePutOutcome =
   res
@@ -1301,53 +1253,29 @@ responsePutOutcome =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutOutcome)
 
-responseDeleteDetector :: DeleteDetectorResponse -> TestTree
-responseDeleteDetector =
+responseSendEvent :: SendEventResponse -> TestTree
+responseSendEvent =
   res
-    "DeleteDetectorResponse"
-    "fixture/DeleteDetectorResponse.proto"
+    "SendEventResponse"
+    "fixture/SendEventResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDetector)
+    (Proxy.Proxy :: Proxy.Proxy SendEvent)
 
-responseDescribeModelVersions :: DescribeModelVersionsResponse -> TestTree
-responseDescribeModelVersions =
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
   res
-    "DescribeModelVersionsResponse"
-    "fixture/DescribeModelVersionsResponse.proto"
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeModelVersions)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseBatchCreateVariable :: BatchCreateVariableResponse -> TestTree
-responseBatchCreateVariable =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "BatchCreateVariableResponse"
-    "fixture/BatchCreateVariableResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchCreateVariable)
-
-responseGetDetectorVersion :: GetDetectorVersionResponse -> TestTree
-responseGetDetectorVersion =
-  res
-    "GetDetectorVersionResponse"
-    "fixture/GetDetectorVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDetectorVersion)
-
-responseGetEventTypes :: GetEventTypesResponse -> TestTree
-responseGetEventTypes =
-  res
-    "GetEventTypesResponse"
-    "fixture/GetEventTypesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEventTypes)
-
-responseDeleteDetectorVersion :: DeleteDetectorVersionResponse -> TestTree
-responseDeleteDetectorVersion =
-  res
-    "DeleteDetectorVersionResponse"
-    "fixture/DeleteDetectorVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDetectorVersion)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateDetectorVersion :: UpdateDetectorVersionResponse -> TestTree
 responseUpdateDetectorVersion =
@@ -1356,3 +1284,75 @@ responseUpdateDetectorVersion =
     "fixture/UpdateDetectorVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDetectorVersion)
+
+responseUpdateDetectorVersionMetadata :: UpdateDetectorVersionMetadataResponse -> TestTree
+responseUpdateDetectorVersionMetadata =
+  res
+    "UpdateDetectorVersionMetadataResponse"
+    "fixture/UpdateDetectorVersionMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorVersionMetadata)
+
+responseUpdateDetectorVersionStatus :: UpdateDetectorVersionStatusResponse -> TestTree
+responseUpdateDetectorVersionStatus =
+  res
+    "UpdateDetectorVersionStatusResponse"
+    "fixture/UpdateDetectorVersionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorVersionStatus)
+
+responseUpdateEventLabel :: UpdateEventLabelResponse -> TestTree
+responseUpdateEventLabel =
+  res
+    "UpdateEventLabelResponse"
+    "fixture/UpdateEventLabelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEventLabel)
+
+responseUpdateModel :: UpdateModelResponse -> TestTree
+responseUpdateModel =
+  res
+    "UpdateModelResponse"
+    "fixture/UpdateModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateModel)
+
+responseUpdateModelVersion :: UpdateModelVersionResponse -> TestTree
+responseUpdateModelVersion =
+  res
+    "UpdateModelVersionResponse"
+    "fixture/UpdateModelVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateModelVersion)
+
+responseUpdateModelVersionStatus :: UpdateModelVersionStatusResponse -> TestTree
+responseUpdateModelVersionStatus =
+  res
+    "UpdateModelVersionStatusResponse"
+    "fixture/UpdateModelVersionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateModelVersionStatus)
+
+responseUpdateRuleMetadata :: UpdateRuleMetadataResponse -> TestTree
+responseUpdateRuleMetadata =
+  res
+    "UpdateRuleMetadataResponse"
+    "fixture/UpdateRuleMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuleMetadata)
+
+responseUpdateRuleVersion :: UpdateRuleVersionResponse -> TestTree
+responseUpdateRuleVersion =
+  res
+    "UpdateRuleVersionResponse"
+    "fixture/UpdateRuleVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuleVersion)
+
+responseUpdateVariable :: UpdateVariableResponse -> TestTree
+responseUpdateVariable =
+  res
+    "UpdateVariableResponse"
+    "fixture/UpdateVariableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVariable)

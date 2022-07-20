@@ -27,14 +27,47 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutMetadata $
---             newPutMetadata
+--         [ requestBatchGetChannel $
+--             newBatchGetChannel
 --
---         , requestListRecordingConfigurations $
---             newListRecordingConfigurations
+--         , requestBatchGetStreamKey $
+--             newBatchGetStreamKey
+--
+--         , requestCreateChannel $
+--             newCreateChannel
+--
+--         , requestCreateRecordingConfiguration $
+--             newCreateRecordingConfiguration
 --
 --         , requestCreateStreamKey $
 --             newCreateStreamKey
+--
+--         , requestDeleteChannel $
+--             newDeleteChannel
+--
+--         , requestDeletePlaybackKeyPair $
+--             newDeletePlaybackKeyPair
+--
+--         , requestDeleteRecordingConfiguration $
+--             newDeleteRecordingConfiguration
+--
+--         , requestDeleteStreamKey $
+--             newDeleteStreamKey
+--
+--         , requestGetChannel $
+--             newGetChannel
+--
+--         , requestGetPlaybackKeyPair $
+--             newGetPlaybackKeyPair
+--
+--         , requestGetRecordingConfiguration $
+--             newGetRecordingConfiguration
+--
+--         , requestGetStream $
+--             newGetStream
+--
+--         , requestGetStreamKey $
+--             newGetStreamKey
 --
 --         , requestImportPlaybackKeyPair $
 --             newImportPlaybackKeyPair
@@ -42,80 +75,80 @@ import Test.Tasty
 --         , requestListChannels $
 --             newListChannels
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestListPlaybackKeyPairs $
+--             newListPlaybackKeyPairs
 --
---         , requestDeleteChannel $
---             newDeleteChannel
---
---         , requestUpdateChannel $
---             newUpdateChannel
---
---         , requestGetStreamKey $
---             newGetStreamKey
---
---         , requestDeletePlaybackKeyPair $
---             newDeletePlaybackKeyPair
---
---         , requestBatchGetStreamKey $
---             newBatchGetStreamKey
---
---         , requestGetPlaybackKeyPair $
---             newGetPlaybackKeyPair
---
---         , requestDeleteRecordingConfiguration $
---             newDeleteRecordingConfiguration
---
---         , requestStopStream $
---             newStopStream
---
---         , requestCreateChannel $
---             newCreateChannel
---
---         , requestDeleteStreamKey $
---             newDeleteStreamKey
---
---         , requestGetStream $
---             newGetStream
+--         , requestListRecordingConfigurations $
+--             newListRecordingConfigurations
 --
 --         , requestListStreamKeys $
 --             newListStreamKeys
 --
---         , requestGetChannel $
---             newGetChannel
---
 --         , requestListStreams $
 --             newListStreams
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutMetadata $
+--             newPutMetadata
+--
+--         , requestStopStream $
+--             newStopStream
 --
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestGetRecordingConfiguration $
---             newGetRecordingConfiguration
---
---         , requestListPlaybackKeyPairs $
---             newListPlaybackKeyPairs
---
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestCreateRecordingConfiguration $
---             newCreateRecordingConfiguration
---
---         , requestBatchGetChannel $
---             newBatchGetChannel
+--         , requestUpdateChannel $
+--             newUpdateChannel
 --
 --           ]
 
 --     , testGroup "response"
---         [ responsePutMetadata $
---             newPutMetadataResponse
+--         [ responseBatchGetChannel $
+--             newBatchGetChannelResponse
 --
---         , responseListRecordingConfigurations $
---             newListRecordingConfigurationsResponse
+--         , responseBatchGetStreamKey $
+--             newBatchGetStreamKeyResponse
+--
+--         , responseCreateChannel $
+--             newCreateChannelResponse
+--
+--         , responseCreateRecordingConfiguration $
+--             newCreateRecordingConfigurationResponse
 --
 --         , responseCreateStreamKey $
 --             newCreateStreamKeyResponse
+--
+--         , responseDeleteChannel $
+--             newDeleteChannelResponse
+--
+--         , responseDeletePlaybackKeyPair $
+--             newDeletePlaybackKeyPairResponse
+--
+--         , responseDeleteRecordingConfiguration $
+--             newDeleteRecordingConfigurationResponse
+--
+--         , responseDeleteStreamKey $
+--             newDeleteStreamKeyResponse
+--
+--         , responseGetChannel $
+--             newGetChannelResponse
+--
+--         , responseGetPlaybackKeyPair $
+--             newGetPlaybackKeyPairResponse
+--
+--         , responseGetRecordingConfiguration $
+--             newGetRecordingConfigurationResponse
+--
+--         , responseGetStream $
+--             newGetStreamResponse
+--
+--         , responseGetStreamKey $
+--             newGetStreamKeyResponse
 --
 --         , responseImportPlaybackKeyPair $
 --             newImportPlaybackKeyPairResponse
@@ -123,91 +156,124 @@ import Test.Tasty
 --         , responseListChannels $
 --             newListChannelsResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseListPlaybackKeyPairs $
+--             newListPlaybackKeyPairsResponse
 --
---         , responseDeleteChannel $
---             newDeleteChannelResponse
---
---         , responseUpdateChannel $
---             newUpdateChannelResponse
---
---         , responseGetStreamKey $
---             newGetStreamKeyResponse
---
---         , responseDeletePlaybackKeyPair $
---             newDeletePlaybackKeyPairResponse
---
---         , responseBatchGetStreamKey $
---             newBatchGetStreamKeyResponse
---
---         , responseGetPlaybackKeyPair $
---             newGetPlaybackKeyPairResponse
---
---         , responseDeleteRecordingConfiguration $
---             newDeleteRecordingConfigurationResponse
---
---         , responseStopStream $
---             newStopStreamResponse
---
---         , responseCreateChannel $
---             newCreateChannelResponse
---
---         , responseDeleteStreamKey $
---             newDeleteStreamKeyResponse
---
---         , responseGetStream $
---             newGetStreamResponse
+--         , responseListRecordingConfigurations $
+--             newListRecordingConfigurationsResponse
 --
 --         , responseListStreamKeys $
 --             newListStreamKeysResponse
 --
---         , responseGetChannel $
---             newGetChannelResponse
---
 --         , responseListStreams $
 --             newListStreamsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutMetadata $
+--             newPutMetadataResponse
+--
+--         , responseStopStream $
+--             newStopStreamResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseGetRecordingConfiguration $
---             newGetRecordingConfigurationResponse
---
---         , responseListPlaybackKeyPairs $
---             newListPlaybackKeyPairsResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseCreateRecordingConfiguration $
---             newCreateRecordingConfigurationResponse
---
---         , responseBatchGetChannel $
---             newBatchGetChannelResponse
+--         , responseUpdateChannel $
+--             newUpdateChannelResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestPutMetadata :: PutMetadata -> TestTree
-requestPutMetadata =
+requestBatchGetChannel :: BatchGetChannel -> TestTree
+requestBatchGetChannel =
   req
-    "PutMetadata"
-    "fixture/PutMetadata.yaml"
+    "BatchGetChannel"
+    "fixture/BatchGetChannel.yaml"
 
-requestListRecordingConfigurations :: ListRecordingConfigurations -> TestTree
-requestListRecordingConfigurations =
+requestBatchGetStreamKey :: BatchGetStreamKey -> TestTree
+requestBatchGetStreamKey =
   req
-    "ListRecordingConfigurations"
-    "fixture/ListRecordingConfigurations.yaml"
+    "BatchGetStreamKey"
+    "fixture/BatchGetStreamKey.yaml"
+
+requestCreateChannel :: CreateChannel -> TestTree
+requestCreateChannel =
+  req
+    "CreateChannel"
+    "fixture/CreateChannel.yaml"
+
+requestCreateRecordingConfiguration :: CreateRecordingConfiguration -> TestTree
+requestCreateRecordingConfiguration =
+  req
+    "CreateRecordingConfiguration"
+    "fixture/CreateRecordingConfiguration.yaml"
 
 requestCreateStreamKey :: CreateStreamKey -> TestTree
 requestCreateStreamKey =
   req
     "CreateStreamKey"
     "fixture/CreateStreamKey.yaml"
+
+requestDeleteChannel :: DeleteChannel -> TestTree
+requestDeleteChannel =
+  req
+    "DeleteChannel"
+    "fixture/DeleteChannel.yaml"
+
+requestDeletePlaybackKeyPair :: DeletePlaybackKeyPair -> TestTree
+requestDeletePlaybackKeyPair =
+  req
+    "DeletePlaybackKeyPair"
+    "fixture/DeletePlaybackKeyPair.yaml"
+
+requestDeleteRecordingConfiguration :: DeleteRecordingConfiguration -> TestTree
+requestDeleteRecordingConfiguration =
+  req
+    "DeleteRecordingConfiguration"
+    "fixture/DeleteRecordingConfiguration.yaml"
+
+requestDeleteStreamKey :: DeleteStreamKey -> TestTree
+requestDeleteStreamKey =
+  req
+    "DeleteStreamKey"
+    "fixture/DeleteStreamKey.yaml"
+
+requestGetChannel :: GetChannel -> TestTree
+requestGetChannel =
+  req
+    "GetChannel"
+    "fixture/GetChannel.yaml"
+
+requestGetPlaybackKeyPair :: GetPlaybackKeyPair -> TestTree
+requestGetPlaybackKeyPair =
+  req
+    "GetPlaybackKeyPair"
+    "fixture/GetPlaybackKeyPair.yaml"
+
+requestGetRecordingConfiguration :: GetRecordingConfiguration -> TestTree
+requestGetRecordingConfiguration =
+  req
+    "GetRecordingConfiguration"
+    "fixture/GetRecordingConfiguration.yaml"
+
+requestGetStream :: GetStream -> TestTree
+requestGetStream =
+  req
+    "GetStream"
+    "fixture/GetStream.yaml"
+
+requestGetStreamKey :: GetStreamKey -> TestTree
+requestGetStreamKey =
+  req
+    "GetStreamKey"
+    "fixture/GetStreamKey.yaml"
 
 requestImportPlaybackKeyPair :: ImportPlaybackKeyPair -> TestTree
 requestImportPlaybackKeyPair =
@@ -221,77 +287,17 @@ requestListChannels =
     "ListChannels"
     "fixture/ListChannels.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestListPlaybackKeyPairs :: ListPlaybackKeyPairs -> TestTree
+requestListPlaybackKeyPairs =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "ListPlaybackKeyPairs"
+    "fixture/ListPlaybackKeyPairs.yaml"
 
-requestDeleteChannel :: DeleteChannel -> TestTree
-requestDeleteChannel =
+requestListRecordingConfigurations :: ListRecordingConfigurations -> TestTree
+requestListRecordingConfigurations =
   req
-    "DeleteChannel"
-    "fixture/DeleteChannel.yaml"
-
-requestUpdateChannel :: UpdateChannel -> TestTree
-requestUpdateChannel =
-  req
-    "UpdateChannel"
-    "fixture/UpdateChannel.yaml"
-
-requestGetStreamKey :: GetStreamKey -> TestTree
-requestGetStreamKey =
-  req
-    "GetStreamKey"
-    "fixture/GetStreamKey.yaml"
-
-requestDeletePlaybackKeyPair :: DeletePlaybackKeyPair -> TestTree
-requestDeletePlaybackKeyPair =
-  req
-    "DeletePlaybackKeyPair"
-    "fixture/DeletePlaybackKeyPair.yaml"
-
-requestBatchGetStreamKey :: BatchGetStreamKey -> TestTree
-requestBatchGetStreamKey =
-  req
-    "BatchGetStreamKey"
-    "fixture/BatchGetStreamKey.yaml"
-
-requestGetPlaybackKeyPair :: GetPlaybackKeyPair -> TestTree
-requestGetPlaybackKeyPair =
-  req
-    "GetPlaybackKeyPair"
-    "fixture/GetPlaybackKeyPair.yaml"
-
-requestDeleteRecordingConfiguration :: DeleteRecordingConfiguration -> TestTree
-requestDeleteRecordingConfiguration =
-  req
-    "DeleteRecordingConfiguration"
-    "fixture/DeleteRecordingConfiguration.yaml"
-
-requestStopStream :: StopStream -> TestTree
-requestStopStream =
-  req
-    "StopStream"
-    "fixture/StopStream.yaml"
-
-requestCreateChannel :: CreateChannel -> TestTree
-requestCreateChannel =
-  req
-    "CreateChannel"
-    "fixture/CreateChannel.yaml"
-
-requestDeleteStreamKey :: DeleteStreamKey -> TestTree
-requestDeleteStreamKey =
-  req
-    "DeleteStreamKey"
-    "fixture/DeleteStreamKey.yaml"
-
-requestGetStream :: GetStream -> TestTree
-requestGetStream =
-  req
-    "GetStream"
-    "fixture/GetStream.yaml"
+    "ListRecordingConfigurations"
+    "fixture/ListRecordingConfigurations.yaml"
 
 requestListStreamKeys :: ListStreamKeys -> TestTree
 requestListStreamKeys =
@@ -299,17 +305,29 @@ requestListStreamKeys =
     "ListStreamKeys"
     "fixture/ListStreamKeys.yaml"
 
-requestGetChannel :: GetChannel -> TestTree
-requestGetChannel =
-  req
-    "GetChannel"
-    "fixture/GetChannel.yaml"
-
 requestListStreams :: ListStreams -> TestTree
 requestListStreams =
   req
     "ListStreams"
     "fixture/ListStreams.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutMetadata :: PutMetadata -> TestTree
+requestPutMetadata =
+  req
+    "PutMetadata"
+    "fixture/PutMetadata.yaml"
+
+requestStopStream :: StopStream -> TestTree
+requestStopStream =
+  req
+    "StopStream"
+    "fixture/StopStream.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -317,53 +335,51 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestGetRecordingConfiguration :: GetRecordingConfiguration -> TestTree
-requestGetRecordingConfiguration =
-  req
-    "GetRecordingConfiguration"
-    "fixture/GetRecordingConfiguration.yaml"
-
-requestListPlaybackKeyPairs :: ListPlaybackKeyPairs -> TestTree
-requestListPlaybackKeyPairs =
-  req
-    "ListPlaybackKeyPairs"
-    "fixture/ListPlaybackKeyPairs.yaml"
-
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestCreateRecordingConfiguration :: CreateRecordingConfiguration -> TestTree
-requestCreateRecordingConfiguration =
+requestUpdateChannel :: UpdateChannel -> TestTree
+requestUpdateChannel =
   req
-    "CreateRecordingConfiguration"
-    "fixture/CreateRecordingConfiguration.yaml"
-
-requestBatchGetChannel :: BatchGetChannel -> TestTree
-requestBatchGetChannel =
-  req
-    "BatchGetChannel"
-    "fixture/BatchGetChannel.yaml"
+    "UpdateChannel"
+    "fixture/UpdateChannel.yaml"
 
 -- Responses
 
-responsePutMetadata :: PutMetadataResponse -> TestTree
-responsePutMetadata =
+responseBatchGetChannel :: BatchGetChannelResponse -> TestTree
+responseBatchGetChannel =
   res
-    "PutMetadataResponse"
-    "fixture/PutMetadataResponse.proto"
+    "BatchGetChannelResponse"
+    "fixture/BatchGetChannelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutMetadata)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetChannel)
 
-responseListRecordingConfigurations :: ListRecordingConfigurationsResponse -> TestTree
-responseListRecordingConfigurations =
+responseBatchGetStreamKey :: BatchGetStreamKeyResponse -> TestTree
+responseBatchGetStreamKey =
   res
-    "ListRecordingConfigurationsResponse"
-    "fixture/ListRecordingConfigurationsResponse.proto"
+    "BatchGetStreamKeyResponse"
+    "fixture/BatchGetStreamKeyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRecordingConfigurations)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetStreamKey)
+
+responseCreateChannel :: CreateChannelResponse -> TestTree
+responseCreateChannel =
+  res
+    "CreateChannelResponse"
+    "fixture/CreateChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
+
+responseCreateRecordingConfiguration :: CreateRecordingConfigurationResponse -> TestTree
+responseCreateRecordingConfiguration =
+  res
+    "CreateRecordingConfigurationResponse"
+    "fixture/CreateRecordingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRecordingConfiguration)
 
 responseCreateStreamKey :: CreateStreamKeyResponse -> TestTree
 responseCreateStreamKey =
@@ -372,6 +388,78 @@ responseCreateStreamKey =
     "fixture/CreateStreamKeyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateStreamKey)
+
+responseDeleteChannel :: DeleteChannelResponse -> TestTree
+responseDeleteChannel =
+  res
+    "DeleteChannelResponse"
+    "fixture/DeleteChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
+
+responseDeletePlaybackKeyPair :: DeletePlaybackKeyPairResponse -> TestTree
+responseDeletePlaybackKeyPair =
+  res
+    "DeletePlaybackKeyPairResponse"
+    "fixture/DeletePlaybackKeyPairResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePlaybackKeyPair)
+
+responseDeleteRecordingConfiguration :: DeleteRecordingConfigurationResponse -> TestTree
+responseDeleteRecordingConfiguration =
+  res
+    "DeleteRecordingConfigurationResponse"
+    "fixture/DeleteRecordingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecordingConfiguration)
+
+responseDeleteStreamKey :: DeleteStreamKeyResponse -> TestTree
+responseDeleteStreamKey =
+  res
+    "DeleteStreamKeyResponse"
+    "fixture/DeleteStreamKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteStreamKey)
+
+responseGetChannel :: GetChannelResponse -> TestTree
+responseGetChannel =
+  res
+    "GetChannelResponse"
+    "fixture/GetChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetChannel)
+
+responseGetPlaybackKeyPair :: GetPlaybackKeyPairResponse -> TestTree
+responseGetPlaybackKeyPair =
+  res
+    "GetPlaybackKeyPairResponse"
+    "fixture/GetPlaybackKeyPairResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPlaybackKeyPair)
+
+responseGetRecordingConfiguration :: GetRecordingConfigurationResponse -> TestTree
+responseGetRecordingConfiguration =
+  res
+    "GetRecordingConfigurationResponse"
+    "fixture/GetRecordingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRecordingConfiguration)
+
+responseGetStream :: GetStreamResponse -> TestTree
+responseGetStream =
+  res
+    "GetStreamResponse"
+    "fixture/GetStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStream)
+
+responseGetStreamKey :: GetStreamKeyResponse -> TestTree
+responseGetStreamKey =
+  res
+    "GetStreamKeyResponse"
+    "fixture/GetStreamKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStreamKey)
 
 responseImportPlaybackKeyPair :: ImportPlaybackKeyPairResponse -> TestTree
 responseImportPlaybackKeyPair =
@@ -389,101 +477,21 @@ responseListChannels =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListChannels)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseListPlaybackKeyPairs :: ListPlaybackKeyPairsResponse -> TestTree
+responseListPlaybackKeyPairs =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "ListPlaybackKeyPairsResponse"
+    "fixture/ListPlaybackKeyPairsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy ListPlaybackKeyPairs)
 
-responseDeleteChannel :: DeleteChannelResponse -> TestTree
-responseDeleteChannel =
+responseListRecordingConfigurations :: ListRecordingConfigurationsResponse -> TestTree
+responseListRecordingConfigurations =
   res
-    "DeleteChannelResponse"
-    "fixture/DeleteChannelResponse.proto"
+    "ListRecordingConfigurationsResponse"
+    "fixture/ListRecordingConfigurationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
-
-responseUpdateChannel :: UpdateChannelResponse -> TestTree
-responseUpdateChannel =
-  res
-    "UpdateChannelResponse"
-    "fixture/UpdateChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
-
-responseGetStreamKey :: GetStreamKeyResponse -> TestTree
-responseGetStreamKey =
-  res
-    "GetStreamKeyResponse"
-    "fixture/GetStreamKeyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStreamKey)
-
-responseDeletePlaybackKeyPair :: DeletePlaybackKeyPairResponse -> TestTree
-responseDeletePlaybackKeyPair =
-  res
-    "DeletePlaybackKeyPairResponse"
-    "fixture/DeletePlaybackKeyPairResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePlaybackKeyPair)
-
-responseBatchGetStreamKey :: BatchGetStreamKeyResponse -> TestTree
-responseBatchGetStreamKey =
-  res
-    "BatchGetStreamKeyResponse"
-    "fixture/BatchGetStreamKeyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetStreamKey)
-
-responseGetPlaybackKeyPair :: GetPlaybackKeyPairResponse -> TestTree
-responseGetPlaybackKeyPair =
-  res
-    "GetPlaybackKeyPairResponse"
-    "fixture/GetPlaybackKeyPairResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPlaybackKeyPair)
-
-responseDeleteRecordingConfiguration :: DeleteRecordingConfigurationResponse -> TestTree
-responseDeleteRecordingConfiguration =
-  res
-    "DeleteRecordingConfigurationResponse"
-    "fixture/DeleteRecordingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRecordingConfiguration)
-
-responseStopStream :: StopStreamResponse -> TestTree
-responseStopStream =
-  res
-    "StopStreamResponse"
-    "fixture/StopStreamResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopStream)
-
-responseCreateChannel :: CreateChannelResponse -> TestTree
-responseCreateChannel =
-  res
-    "CreateChannelResponse"
-    "fixture/CreateChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
-
-responseDeleteStreamKey :: DeleteStreamKeyResponse -> TestTree
-responseDeleteStreamKey =
-  res
-    "DeleteStreamKeyResponse"
-    "fixture/DeleteStreamKeyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteStreamKey)
-
-responseGetStream :: GetStreamResponse -> TestTree
-responseGetStream =
-  res
-    "GetStreamResponse"
-    "fixture/GetStreamResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStream)
+    (Proxy.Proxy :: Proxy.Proxy ListRecordingConfigurations)
 
 responseListStreamKeys :: ListStreamKeysResponse -> TestTree
 responseListStreamKeys =
@@ -493,14 +501,6 @@ responseListStreamKeys =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListStreamKeys)
 
-responseGetChannel :: GetChannelResponse -> TestTree
-responseGetChannel =
-  res
-    "GetChannelResponse"
-    "fixture/GetChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetChannel)
-
 responseListStreams :: ListStreamsResponse -> TestTree
 responseListStreams =
   res
@@ -508,6 +508,30 @@ responseListStreams =
     "fixture/ListStreamsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListStreams)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutMetadata :: PutMetadataResponse -> TestTree
+responsePutMetadata =
+  res
+    "PutMetadataResponse"
+    "fixture/PutMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutMetadata)
+
+responseStopStream :: StopStreamResponse -> TestTree
+responseStopStream =
+  res
+    "StopStreamResponse"
+    "fixture/StopStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopStream)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -517,22 +541,6 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseGetRecordingConfiguration :: GetRecordingConfigurationResponse -> TestTree
-responseGetRecordingConfiguration =
-  res
-    "GetRecordingConfigurationResponse"
-    "fixture/GetRecordingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRecordingConfiguration)
-
-responseListPlaybackKeyPairs :: ListPlaybackKeyPairsResponse -> TestTree
-responseListPlaybackKeyPairs =
-  res
-    "ListPlaybackKeyPairsResponse"
-    "fixture/ListPlaybackKeyPairsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPlaybackKeyPairs)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -541,18 +549,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseCreateRecordingConfiguration :: CreateRecordingConfigurationResponse -> TestTree
-responseCreateRecordingConfiguration =
+responseUpdateChannel :: UpdateChannelResponse -> TestTree
+responseUpdateChannel =
   res
-    "CreateRecordingConfigurationResponse"
-    "fixture/CreateRecordingConfigurationResponse.proto"
+    "UpdateChannelResponse"
+    "fixture/UpdateChannelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRecordingConfiguration)
-
-responseBatchGetChannel :: BatchGetChannelResponse -> TestTree
-responseBatchGetChannel =
-  res
-    "BatchGetChannelResponse"
-    "fixture/BatchGetChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetChannel)
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)

@@ -28,21 +28,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStep' smart constructor.
 data Step = Step'
-  { -- | The URL to the logs for the execution step.
+  { -- | The list of screenshot URLs for the execution step, if relevant.
+    screenshots :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The reason for the current step status.
+    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the logs for the execution step.
     logUrl :: Prelude.Maybe Prelude.Text,
     -- | The context for the current step. Includes a build image if the step is
     -- build.
     context :: Prelude.Maybe Prelude.Text,
-    -- | The URL to the test artifact for the execution step.
-    testArtifactsUrl :: Prelude.Maybe Prelude.Text,
     -- | The URL to the artifact for the execution step.
     artifactsUrl :: Prelude.Maybe Prelude.Text,
     -- | The URL to the test configuration for the execution step.
     testConfigUrl :: Prelude.Maybe Prelude.Text,
-    -- | The list of screenshot URLs for the execution step, if relevant.
-    screenshots :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The reason for the current step status.
-    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the test artifact for the execution step.
+    testArtifactsUrl :: Prelude.Maybe Prelude.Text,
     -- | The name of the execution step.
     stepName :: Prelude.Text,
     -- | The start date and time of the execution step.
@@ -62,20 +62,20 @@ data Step = Step'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'screenshots', 'step_screenshots' - The list of screenshot URLs for the execution step, if relevant.
+--
+-- 'statusReason', 'step_statusReason' - The reason for the current step status.
+--
 -- 'logUrl', 'step_logUrl' - The URL to the logs for the execution step.
 --
 -- 'context', 'step_context' - The context for the current step. Includes a build image if the step is
 -- build.
 --
--- 'testArtifactsUrl', 'step_testArtifactsUrl' - The URL to the test artifact for the execution step.
---
 -- 'artifactsUrl', 'step_artifactsUrl' - The URL to the artifact for the execution step.
 --
 -- 'testConfigUrl', 'step_testConfigUrl' - The URL to the test configuration for the execution step.
 --
--- 'screenshots', 'step_screenshots' - The list of screenshot URLs for the execution step, if relevant.
---
--- 'statusReason', 'step_statusReason' - The reason for the current step status.
+-- 'testArtifactsUrl', 'step_testArtifactsUrl' - The URL to the test artifact for the execution step.
 --
 -- 'stepName', 'step_stepName' - The name of the execution step.
 --
@@ -96,18 +96,26 @@ newStep ::
   Step
 newStep pStepName_ pStartTime_ pStatus_ pEndTime_ =
   Step'
-    { logUrl = Prelude.Nothing,
+    { screenshots = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
+      logUrl = Prelude.Nothing,
       context = Prelude.Nothing,
-      testArtifactsUrl = Prelude.Nothing,
       artifactsUrl = Prelude.Nothing,
       testConfigUrl = Prelude.Nothing,
-      screenshots = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
+      testArtifactsUrl = Prelude.Nothing,
       stepName = pStepName_,
       startTime = Core._Time Lens.# pStartTime_,
       status = pStatus_,
       endTime = Core._Time Lens.# pEndTime_
     }
+
+-- | The list of screenshot URLs for the execution step, if relevant.
+step_screenshots :: Lens.Lens' Step (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+step_screenshots = Lens.lens (\Step' {screenshots} -> screenshots) (\s@Step' {} a -> s {screenshots = a} :: Step) Prelude.. Lens.mapping Lens.coerced
+
+-- | The reason for the current step status.
+step_statusReason :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
+step_statusReason = Lens.lens (\Step' {statusReason} -> statusReason) (\s@Step' {} a -> s {statusReason = a} :: Step)
 
 -- | The URL to the logs for the execution step.
 step_logUrl :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
@@ -118,10 +126,6 @@ step_logUrl = Lens.lens (\Step' {logUrl} -> logUrl) (\s@Step' {} a -> s {logUrl 
 step_context :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
 step_context = Lens.lens (\Step' {context} -> context) (\s@Step' {} a -> s {context = a} :: Step)
 
--- | The URL to the test artifact for the execution step.
-step_testArtifactsUrl :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
-step_testArtifactsUrl = Lens.lens (\Step' {testArtifactsUrl} -> testArtifactsUrl) (\s@Step' {} a -> s {testArtifactsUrl = a} :: Step)
-
 -- | The URL to the artifact for the execution step.
 step_artifactsUrl :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
 step_artifactsUrl = Lens.lens (\Step' {artifactsUrl} -> artifactsUrl) (\s@Step' {} a -> s {artifactsUrl = a} :: Step)
@@ -130,13 +134,9 @@ step_artifactsUrl = Lens.lens (\Step' {artifactsUrl} -> artifactsUrl) (\s@Step' 
 step_testConfigUrl :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
 step_testConfigUrl = Lens.lens (\Step' {testConfigUrl} -> testConfigUrl) (\s@Step' {} a -> s {testConfigUrl = a} :: Step)
 
--- | The list of screenshot URLs for the execution step, if relevant.
-step_screenshots :: Lens.Lens' Step (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-step_screenshots = Lens.lens (\Step' {screenshots} -> screenshots) (\s@Step' {} a -> s {screenshots = a} :: Step) Prelude.. Lens.mapping Lens.coerced
-
--- | The reason for the current step status.
-step_statusReason :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
-step_statusReason = Lens.lens (\Step' {statusReason} -> statusReason) (\s@Step' {} a -> s {statusReason = a} :: Step)
+-- | The URL to the test artifact for the execution step.
+step_testArtifactsUrl :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
+step_testArtifactsUrl = Lens.lens (\Step' {testArtifactsUrl} -> testArtifactsUrl) (\s@Step' {} a -> s {testArtifactsUrl = a} :: Step)
 
 -- | The name of the execution step.
 step_stepName :: Lens.Lens' Step Prelude.Text
@@ -160,13 +160,13 @@ instance Core.FromJSON Step where
       "Step"
       ( \x ->
           Step'
-            Prelude.<$> (x Core..:? "logUrl")
+            Prelude.<$> (x Core..:? "screenshots" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..:? "logUrl")
             Prelude.<*> (x Core..:? "context")
-            Prelude.<*> (x Core..:? "testArtifactsUrl")
             Prelude.<*> (x Core..:? "artifactsUrl")
             Prelude.<*> (x Core..:? "testConfigUrl")
-            Prelude.<*> (x Core..:? "screenshots" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..:? "testArtifactsUrl")
             Prelude.<*> (x Core..: "stepName")
             Prelude.<*> (x Core..: "startTime")
             Prelude.<*> (x Core..: "status")
@@ -175,13 +175,13 @@ instance Core.FromJSON Step where
 
 instance Prelude.Hashable Step where
   hashWithSalt _salt Step' {..} =
-    _salt `Prelude.hashWithSalt` logUrl
+    _salt `Prelude.hashWithSalt` screenshots
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` logUrl
       `Prelude.hashWithSalt` context
-      `Prelude.hashWithSalt` testArtifactsUrl
       `Prelude.hashWithSalt` artifactsUrl
       `Prelude.hashWithSalt` testConfigUrl
-      `Prelude.hashWithSalt` screenshots
-      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` testArtifactsUrl
       `Prelude.hashWithSalt` stepName
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` status
@@ -189,13 +189,13 @@ instance Prelude.Hashable Step where
 
 instance Prelude.NFData Step where
   rnf Step' {..} =
-    Prelude.rnf logUrl
+    Prelude.rnf screenshots
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf logUrl
       `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf testArtifactsUrl
       `Prelude.seq` Prelude.rnf artifactsUrl
       `Prelude.seq` Prelude.rnf testConfigUrl
-      `Prelude.seq` Prelude.rnf screenshots
-      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf testArtifactsUrl
       `Prelude.seq` Prelude.rnf stepName
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf status

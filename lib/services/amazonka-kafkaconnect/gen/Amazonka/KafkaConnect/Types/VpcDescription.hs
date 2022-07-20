@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcDescription' smart constructor.
 data VpcDescription = VpcDescription'
-  { -- | The security groups for the connector.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | The subnets for the connector.
-    subnets :: Prelude.Maybe [Prelude.Text]
+  { -- | The subnets for the connector.
+    subnets :: Prelude.Maybe [Prelude.Text],
+    -- | The security groups for the connector.
+    securityGroups :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data VpcDescription = VpcDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroups', 'vpcDescription_securityGroups' - The security groups for the connector.
---
 -- 'subnets', 'vpcDescription_subnets' - The subnets for the connector.
+--
+-- 'securityGroups', 'vpcDescription_securityGroups' - The security groups for the connector.
 newVpcDescription ::
   VpcDescription
 newVpcDescription =
   VpcDescription'
-    { securityGroups = Prelude.Nothing,
-      subnets = Prelude.Nothing
+    { subnets = Prelude.Nothing,
+      securityGroups = Prelude.Nothing
     }
-
--- | The security groups for the connector.
-vpcDescription_securityGroups :: Lens.Lens' VpcDescription (Prelude.Maybe [Prelude.Text])
-vpcDescription_securityGroups = Lens.lens (\VpcDescription' {securityGroups} -> securityGroups) (\s@VpcDescription' {} a -> s {securityGroups = a} :: VpcDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The subnets for the connector.
 vpcDescription_subnets :: Lens.Lens' VpcDescription (Prelude.Maybe [Prelude.Text])
 vpcDescription_subnets = Lens.lens (\VpcDescription' {subnets} -> subnets) (\s@VpcDescription' {} a -> s {subnets = a} :: VpcDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The security groups for the connector.
+vpcDescription_securityGroups :: Lens.Lens' VpcDescription (Prelude.Maybe [Prelude.Text])
+vpcDescription_securityGroups = Lens.lens (\VpcDescription' {securityGroups} -> securityGroups) (\s@VpcDescription' {} a -> s {securityGroups = a} :: VpcDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON VpcDescription where
   parseJSON =
@@ -67,16 +67,18 @@ instance Core.FromJSON VpcDescription where
       "VpcDescription"
       ( \x ->
           VpcDescription'
-            Prelude.<$> (x Core..:? "securityGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "subnets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "subnets" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "securityGroups"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable VpcDescription where
   hashWithSalt _salt VpcDescription' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
-      `Prelude.hashWithSalt` subnets
+    _salt `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` securityGroups
 
 instance Prelude.NFData VpcDescription where
   rnf VpcDescription' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf subnets
+    Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf securityGroups

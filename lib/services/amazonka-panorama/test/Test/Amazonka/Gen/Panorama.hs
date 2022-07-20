@@ -27,71 +27,56 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateDeviceMetadata $
---             newUpdateDeviceMetadata
---
---         , requestDescribeApplicationInstanceDetails $
---             newDescribeApplicationInstanceDetails
---
---         , requestCreateApplicationInstance $
+--         [ requestCreateApplicationInstance $
 --             newCreateApplicationInstance
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestRemoveApplicationInstance $
---             newRemoveApplicationInstance
---
---         , requestListDevicesJobs $
---             newListDevicesJobs
+--         , requestCreateJobForDevices $
+--             newCreateJobForDevices
 --
 --         , requestCreateNodeFromTemplateJob $
 --             newCreateNodeFromTemplateJob
 --
---         , requestDeregisterPackageVersion $
---             newDeregisterPackageVersion
---
---         , requestListPackages $
---             newListPackages
---
---         , requestDescribeApplicationInstance $
---             newDescribeApplicationInstance
---
---         , requestRegisterPackageVersion $
---             newRegisterPackageVersion
---
---         , requestDescribeNodeFromTemplateJob $
---             newDescribeNodeFromTemplateJob
+--         , requestCreatePackage $
+--             newCreatePackage
 --
 --         , requestCreatePackageImportJob $
 --             newCreatePackageImportJob
 --
---         , requestDescribePackage $
---             newDescribePackage
+--         , requestDeleteDevice $
+--             newDeleteDevice
 --
---         , requestListApplicationInstances $
---             newListApplicationInstances
+--         , requestDeletePackage $
+--             newDeletePackage
 --
---         , requestDescribeDeviceJob $
---             newDescribeDeviceJob
+--         , requestDeregisterPackageVersion $
+--             newDeregisterPackageVersion
 --
---         , requestDescribePackageImportJob $
---             newDescribePackageImportJob
+--         , requestDescribeApplicationInstance $
+--             newDescribeApplicationInstance
+--
+--         , requestDescribeApplicationInstanceDetails $
+--             newDescribeApplicationInstanceDetails
 --
 --         , requestDescribeDevice $
 --             newDescribeDevice
 --
---         , requestDescribePackageVersion $
---             newDescribePackageVersion
+--         , requestDescribeDeviceJob $
+--             newDescribeDeviceJob
 --
 --         , requestDescribeNode $
 --             newDescribeNode
 --
---         , requestListNodeFromTemplateJobs $
---             newListNodeFromTemplateJobs
+--         , requestDescribeNodeFromTemplateJob $
+--             newDescribeNodeFromTemplateJob
 --
---         , requestTagResource $
---             newTagResource
+--         , requestDescribePackage $
+--             newDescribePackage
+--
+--         , requestDescribePackageImportJob $
+--             newDescribePackageImportJob
+--
+--         , requestDescribePackageVersion $
+--             newDescribePackageVersion
 --
 --         , requestListApplicationInstanceDependencies $
 --             newListApplicationInstanceDependencies
@@ -99,101 +84,101 @@ import Test.Tasty
 --         , requestListApplicationInstanceNodeInstances $
 --             newListApplicationInstanceNodeInstances
 --
---         , requestCreateJobForDevices $
---             newCreateJobForDevices
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestDeletePackage $
---             newDeletePackage
---
---         , requestCreatePackage $
---             newCreatePackage
---
---         , requestProvisionDevice $
---             newProvisionDevice
---
---         , requestDeleteDevice $
---             newDeleteDevice
---
---         , requestListNodes $
---             newListNodes
+--         , requestListApplicationInstances $
+--             newListApplicationInstances
 --
 --         , requestListDevices $
 --             newListDevices
 --
+--         , requestListDevicesJobs $
+--             newListDevicesJobs
+--
+--         , requestListNodeFromTemplateJobs $
+--             newListNodeFromTemplateJobs
+--
+--         , requestListNodes $
+--             newListNodes
+--
 --         , requestListPackageImportJobs $
 --             newListPackageImportJobs
+--
+--         , requestListPackages $
+--             newListPackages
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestProvisionDevice $
+--             newProvisionDevice
+--
+--         , requestRegisterPackageVersion $
+--             newRegisterPackageVersion
+--
+--         , requestRemoveApplicationInstance $
+--             newRemoveApplicationInstance
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateDeviceMetadata $
+--             newUpdateDeviceMetadata
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateDeviceMetadata $
---             newUpdateDeviceMetadataResponse
---
---         , responseDescribeApplicationInstanceDetails $
---             newDescribeApplicationInstanceDetailsResponse
---
---         , responseCreateApplicationInstance $
+--         [ responseCreateApplicationInstance $
 --             newCreateApplicationInstanceResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseRemoveApplicationInstance $
---             newRemoveApplicationInstanceResponse
---
---         , responseListDevicesJobs $
---             newListDevicesJobsResponse
+--         , responseCreateJobForDevices $
+--             newCreateJobForDevicesResponse
 --
 --         , responseCreateNodeFromTemplateJob $
 --             newCreateNodeFromTemplateJobResponse
 --
---         , responseDeregisterPackageVersion $
---             newDeregisterPackageVersionResponse
---
---         , responseListPackages $
---             newListPackagesResponse
---
---         , responseDescribeApplicationInstance $
---             newDescribeApplicationInstanceResponse
---
---         , responseRegisterPackageVersion $
---             newRegisterPackageVersionResponse
---
---         , responseDescribeNodeFromTemplateJob $
---             newDescribeNodeFromTemplateJobResponse
+--         , responseCreatePackage $
+--             newCreatePackageResponse
 --
 --         , responseCreatePackageImportJob $
 --             newCreatePackageImportJobResponse
 --
---         , responseDescribePackage $
---             newDescribePackageResponse
+--         , responseDeleteDevice $
+--             newDeleteDeviceResponse
 --
---         , responseListApplicationInstances $
---             newListApplicationInstancesResponse
+--         , responseDeletePackage $
+--             newDeletePackageResponse
 --
---         , responseDescribeDeviceJob $
---             newDescribeDeviceJobResponse
+--         , responseDeregisterPackageVersion $
+--             newDeregisterPackageVersionResponse
 --
---         , responseDescribePackageImportJob $
---             newDescribePackageImportJobResponse
+--         , responseDescribeApplicationInstance $
+--             newDescribeApplicationInstanceResponse
+--
+--         , responseDescribeApplicationInstanceDetails $
+--             newDescribeApplicationInstanceDetailsResponse
 --
 --         , responseDescribeDevice $
 --             newDescribeDeviceResponse
 --
---         , responseDescribePackageVersion $
---             newDescribePackageVersionResponse
+--         , responseDescribeDeviceJob $
+--             newDescribeDeviceJobResponse
 --
 --         , responseDescribeNode $
 --             newDescribeNodeResponse
 --
---         , responseListNodeFromTemplateJobs $
---             newListNodeFromTemplateJobsResponse
+--         , responseDescribeNodeFromTemplateJob $
+--             newDescribeNodeFromTemplateJobResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDescribePackage $
+--             newDescribePackageResponse
+--
+--         , responseDescribePackageImportJob $
+--             newDescribePackageImportJobResponse
+--
+--         , responseDescribePackageVersion $
+--             newDescribePackageVersionResponse
 --
 --         , responseListApplicationInstanceDependencies $
 --             newListApplicationInstanceDependenciesResponse
@@ -201,49 +186,52 @@ import Test.Tasty
 --         , responseListApplicationInstanceNodeInstances $
 --             newListApplicationInstanceNodeInstancesResponse
 --
---         , responseCreateJobForDevices $
---             newCreateJobForDevicesResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseDeletePackage $
---             newDeletePackageResponse
---
---         , responseCreatePackage $
---             newCreatePackageResponse
---
---         , responseProvisionDevice $
---             newProvisionDeviceResponse
---
---         , responseDeleteDevice $
---             newDeleteDeviceResponse
---
---         , responseListNodes $
---             newListNodesResponse
+--         , responseListApplicationInstances $
+--             newListApplicationInstancesResponse
 --
 --         , responseListDevices $
 --             newListDevicesResponse
 --
+--         , responseListDevicesJobs $
+--             newListDevicesJobsResponse
+--
+--         , responseListNodeFromTemplateJobs $
+--             newListNodeFromTemplateJobsResponse
+--
+--         , responseListNodes $
+--             newListNodesResponse
+--
 --         , responseListPackageImportJobs $
 --             newListPackageImportJobsResponse
+--
+--         , responseListPackages $
+--             newListPackagesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseProvisionDevice $
+--             newProvisionDeviceResponse
+--
+--         , responseRegisterPackageVersion $
+--             newRegisterPackageVersionResponse
+--
+--         , responseRemoveApplicationInstance $
+--             newRemoveApplicationInstanceResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateDeviceMetadata $
+--             newUpdateDeviceMetadataResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdateDeviceMetadata :: UpdateDeviceMetadata -> TestTree
-requestUpdateDeviceMetadata =
-  req
-    "UpdateDeviceMetadata"
-    "fixture/UpdateDeviceMetadata.yaml"
-
-requestDescribeApplicationInstanceDetails :: DescribeApplicationInstanceDetails -> TestTree
-requestDescribeApplicationInstanceDetails =
-  req
-    "DescribeApplicationInstanceDetails"
-    "fixture/DescribeApplicationInstanceDetails.yaml"
 
 requestCreateApplicationInstance :: CreateApplicationInstance -> TestTree
 requestCreateApplicationInstance =
@@ -251,23 +239,11 @@ requestCreateApplicationInstance =
     "CreateApplicationInstance"
     "fixture/CreateApplicationInstance.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestCreateJobForDevices :: CreateJobForDevices -> TestTree
+requestCreateJobForDevices =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestRemoveApplicationInstance :: RemoveApplicationInstance -> TestTree
-requestRemoveApplicationInstance =
-  req
-    "RemoveApplicationInstance"
-    "fixture/RemoveApplicationInstance.yaml"
-
-requestListDevicesJobs :: ListDevicesJobs -> TestTree
-requestListDevicesJobs =
-  req
-    "ListDevicesJobs"
-    "fixture/ListDevicesJobs.yaml"
+    "CreateJobForDevices"
+    "fixture/CreateJobForDevices.yaml"
 
 requestCreateNodeFromTemplateJob :: CreateNodeFromTemplateJob -> TestTree
 requestCreateNodeFromTemplateJob =
@@ -275,35 +251,11 @@ requestCreateNodeFromTemplateJob =
     "CreateNodeFromTemplateJob"
     "fixture/CreateNodeFromTemplateJob.yaml"
 
-requestDeregisterPackageVersion :: DeregisterPackageVersion -> TestTree
-requestDeregisterPackageVersion =
+requestCreatePackage :: CreatePackage -> TestTree
+requestCreatePackage =
   req
-    "DeregisterPackageVersion"
-    "fixture/DeregisterPackageVersion.yaml"
-
-requestListPackages :: ListPackages -> TestTree
-requestListPackages =
-  req
-    "ListPackages"
-    "fixture/ListPackages.yaml"
-
-requestDescribeApplicationInstance :: DescribeApplicationInstance -> TestTree
-requestDescribeApplicationInstance =
-  req
-    "DescribeApplicationInstance"
-    "fixture/DescribeApplicationInstance.yaml"
-
-requestRegisterPackageVersion :: RegisterPackageVersion -> TestTree
-requestRegisterPackageVersion =
-  req
-    "RegisterPackageVersion"
-    "fixture/RegisterPackageVersion.yaml"
-
-requestDescribeNodeFromTemplateJob :: DescribeNodeFromTemplateJob -> TestTree
-requestDescribeNodeFromTemplateJob =
-  req
-    "DescribeNodeFromTemplateJob"
-    "fixture/DescribeNodeFromTemplateJob.yaml"
+    "CreatePackage"
+    "fixture/CreatePackage.yaml"
 
 requestCreatePackageImportJob :: CreatePackageImportJob -> TestTree
 requestCreatePackageImportJob =
@@ -311,29 +263,35 @@ requestCreatePackageImportJob =
     "CreatePackageImportJob"
     "fixture/CreatePackageImportJob.yaml"
 
-requestDescribePackage :: DescribePackage -> TestTree
-requestDescribePackage =
+requestDeleteDevice :: DeleteDevice -> TestTree
+requestDeleteDevice =
   req
-    "DescribePackage"
-    "fixture/DescribePackage.yaml"
+    "DeleteDevice"
+    "fixture/DeleteDevice.yaml"
 
-requestListApplicationInstances :: ListApplicationInstances -> TestTree
-requestListApplicationInstances =
+requestDeletePackage :: DeletePackage -> TestTree
+requestDeletePackage =
   req
-    "ListApplicationInstances"
-    "fixture/ListApplicationInstances.yaml"
+    "DeletePackage"
+    "fixture/DeletePackage.yaml"
 
-requestDescribeDeviceJob :: DescribeDeviceJob -> TestTree
-requestDescribeDeviceJob =
+requestDeregisterPackageVersion :: DeregisterPackageVersion -> TestTree
+requestDeregisterPackageVersion =
   req
-    "DescribeDeviceJob"
-    "fixture/DescribeDeviceJob.yaml"
+    "DeregisterPackageVersion"
+    "fixture/DeregisterPackageVersion.yaml"
 
-requestDescribePackageImportJob :: DescribePackageImportJob -> TestTree
-requestDescribePackageImportJob =
+requestDescribeApplicationInstance :: DescribeApplicationInstance -> TestTree
+requestDescribeApplicationInstance =
   req
-    "DescribePackageImportJob"
-    "fixture/DescribePackageImportJob.yaml"
+    "DescribeApplicationInstance"
+    "fixture/DescribeApplicationInstance.yaml"
+
+requestDescribeApplicationInstanceDetails :: DescribeApplicationInstanceDetails -> TestTree
+requestDescribeApplicationInstanceDetails =
+  req
+    "DescribeApplicationInstanceDetails"
+    "fixture/DescribeApplicationInstanceDetails.yaml"
 
 requestDescribeDevice :: DescribeDevice -> TestTree
 requestDescribeDevice =
@@ -341,11 +299,11 @@ requestDescribeDevice =
     "DescribeDevice"
     "fixture/DescribeDevice.yaml"
 
-requestDescribePackageVersion :: DescribePackageVersion -> TestTree
-requestDescribePackageVersion =
+requestDescribeDeviceJob :: DescribeDeviceJob -> TestTree
+requestDescribeDeviceJob =
   req
-    "DescribePackageVersion"
-    "fixture/DescribePackageVersion.yaml"
+    "DescribeDeviceJob"
+    "fixture/DescribeDeviceJob.yaml"
 
 requestDescribeNode :: DescribeNode -> TestTree
 requestDescribeNode =
@@ -353,17 +311,29 @@ requestDescribeNode =
     "DescribeNode"
     "fixture/DescribeNode.yaml"
 
-requestListNodeFromTemplateJobs :: ListNodeFromTemplateJobs -> TestTree
-requestListNodeFromTemplateJobs =
+requestDescribeNodeFromTemplateJob :: DescribeNodeFromTemplateJob -> TestTree
+requestDescribeNodeFromTemplateJob =
   req
-    "ListNodeFromTemplateJobs"
-    "fixture/ListNodeFromTemplateJobs.yaml"
+    "DescribeNodeFromTemplateJob"
+    "fixture/DescribeNodeFromTemplateJob.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDescribePackage :: DescribePackage -> TestTree
+requestDescribePackage =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DescribePackage"
+    "fixture/DescribePackage.yaml"
+
+requestDescribePackageImportJob :: DescribePackageImportJob -> TestTree
+requestDescribePackageImportJob =
+  req
+    "DescribePackageImportJob"
+    "fixture/DescribePackageImportJob.yaml"
+
+requestDescribePackageVersion :: DescribePackageVersion -> TestTree
+requestDescribePackageVersion =
+  req
+    "DescribePackageVersion"
+    "fixture/DescribePackageVersion.yaml"
 
 requestListApplicationInstanceDependencies :: ListApplicationInstanceDependencies -> TestTree
 requestListApplicationInstanceDependencies =
@@ -377,47 +347,11 @@ requestListApplicationInstanceNodeInstances =
     "ListApplicationInstanceNodeInstances"
     "fixture/ListApplicationInstanceNodeInstances.yaml"
 
-requestCreateJobForDevices :: CreateJobForDevices -> TestTree
-requestCreateJobForDevices =
+requestListApplicationInstances :: ListApplicationInstances -> TestTree
+requestListApplicationInstances =
   req
-    "CreateJobForDevices"
-    "fixture/CreateJobForDevices.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestDeletePackage :: DeletePackage -> TestTree
-requestDeletePackage =
-  req
-    "DeletePackage"
-    "fixture/DeletePackage.yaml"
-
-requestCreatePackage :: CreatePackage -> TestTree
-requestCreatePackage =
-  req
-    "CreatePackage"
-    "fixture/CreatePackage.yaml"
-
-requestProvisionDevice :: ProvisionDevice -> TestTree
-requestProvisionDevice =
-  req
-    "ProvisionDevice"
-    "fixture/ProvisionDevice.yaml"
-
-requestDeleteDevice :: DeleteDevice -> TestTree
-requestDeleteDevice =
-  req
-    "DeleteDevice"
-    "fixture/DeleteDevice.yaml"
-
-requestListNodes :: ListNodes -> TestTree
-requestListNodes =
-  req
-    "ListNodes"
-    "fixture/ListNodes.yaml"
+    "ListApplicationInstances"
+    "fixture/ListApplicationInstances.yaml"
 
 requestListDevices :: ListDevices -> TestTree
 requestListDevices =
@@ -425,29 +359,79 @@ requestListDevices =
     "ListDevices"
     "fixture/ListDevices.yaml"
 
+requestListDevicesJobs :: ListDevicesJobs -> TestTree
+requestListDevicesJobs =
+  req
+    "ListDevicesJobs"
+    "fixture/ListDevicesJobs.yaml"
+
+requestListNodeFromTemplateJobs :: ListNodeFromTemplateJobs -> TestTree
+requestListNodeFromTemplateJobs =
+  req
+    "ListNodeFromTemplateJobs"
+    "fixture/ListNodeFromTemplateJobs.yaml"
+
+requestListNodes :: ListNodes -> TestTree
+requestListNodes =
+  req
+    "ListNodes"
+    "fixture/ListNodes.yaml"
+
 requestListPackageImportJobs :: ListPackageImportJobs -> TestTree
 requestListPackageImportJobs =
   req
     "ListPackageImportJobs"
     "fixture/ListPackageImportJobs.yaml"
 
+requestListPackages :: ListPackages -> TestTree
+requestListPackages =
+  req
+    "ListPackages"
+    "fixture/ListPackages.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestProvisionDevice :: ProvisionDevice -> TestTree
+requestProvisionDevice =
+  req
+    "ProvisionDevice"
+    "fixture/ProvisionDevice.yaml"
+
+requestRegisterPackageVersion :: RegisterPackageVersion -> TestTree
+requestRegisterPackageVersion =
+  req
+    "RegisterPackageVersion"
+    "fixture/RegisterPackageVersion.yaml"
+
+requestRemoveApplicationInstance :: RemoveApplicationInstance -> TestTree
+requestRemoveApplicationInstance =
+  req
+    "RemoveApplicationInstance"
+    "fixture/RemoveApplicationInstance.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateDeviceMetadata :: UpdateDeviceMetadata -> TestTree
+requestUpdateDeviceMetadata =
+  req
+    "UpdateDeviceMetadata"
+    "fixture/UpdateDeviceMetadata.yaml"
+
 -- Responses
-
-responseUpdateDeviceMetadata :: UpdateDeviceMetadataResponse -> TestTree
-responseUpdateDeviceMetadata =
-  res
-    "UpdateDeviceMetadataResponse"
-    "fixture/UpdateDeviceMetadataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDeviceMetadata)
-
-responseDescribeApplicationInstanceDetails :: DescribeApplicationInstanceDetailsResponse -> TestTree
-responseDescribeApplicationInstanceDetails =
-  res
-    "DescribeApplicationInstanceDetailsResponse"
-    "fixture/DescribeApplicationInstanceDetailsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationInstanceDetails)
 
 responseCreateApplicationInstance :: CreateApplicationInstanceResponse -> TestTree
 responseCreateApplicationInstance =
@@ -457,29 +441,13 @@ responseCreateApplicationInstance =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateApplicationInstance)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseCreateJobForDevices :: CreateJobForDevicesResponse -> TestTree
+responseCreateJobForDevices =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "CreateJobForDevicesResponse"
+    "fixture/CreateJobForDevicesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseRemoveApplicationInstance :: RemoveApplicationInstanceResponse -> TestTree
-responseRemoveApplicationInstance =
-  res
-    "RemoveApplicationInstanceResponse"
-    "fixture/RemoveApplicationInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveApplicationInstance)
-
-responseListDevicesJobs :: ListDevicesJobsResponse -> TestTree
-responseListDevicesJobs =
-  res
-    "ListDevicesJobsResponse"
-    "fixture/ListDevicesJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDevicesJobs)
+    (Proxy.Proxy :: Proxy.Proxy CreateJobForDevices)
 
 responseCreateNodeFromTemplateJob :: CreateNodeFromTemplateJobResponse -> TestTree
 responseCreateNodeFromTemplateJob =
@@ -489,45 +457,13 @@ responseCreateNodeFromTemplateJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateNodeFromTemplateJob)
 
-responseDeregisterPackageVersion :: DeregisterPackageVersionResponse -> TestTree
-responseDeregisterPackageVersion =
+responseCreatePackage :: CreatePackageResponse -> TestTree
+responseCreatePackage =
   res
-    "DeregisterPackageVersionResponse"
-    "fixture/DeregisterPackageVersionResponse.proto"
+    "CreatePackageResponse"
+    "fixture/CreatePackageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeregisterPackageVersion)
-
-responseListPackages :: ListPackagesResponse -> TestTree
-responseListPackages =
-  res
-    "ListPackagesResponse"
-    "fixture/ListPackagesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPackages)
-
-responseDescribeApplicationInstance :: DescribeApplicationInstanceResponse -> TestTree
-responseDescribeApplicationInstance =
-  res
-    "DescribeApplicationInstanceResponse"
-    "fixture/DescribeApplicationInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationInstance)
-
-responseRegisterPackageVersion :: RegisterPackageVersionResponse -> TestTree
-responseRegisterPackageVersion =
-  res
-    "RegisterPackageVersionResponse"
-    "fixture/RegisterPackageVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterPackageVersion)
-
-responseDescribeNodeFromTemplateJob :: DescribeNodeFromTemplateJobResponse -> TestTree
-responseDescribeNodeFromTemplateJob =
-  res
-    "DescribeNodeFromTemplateJobResponse"
-    "fixture/DescribeNodeFromTemplateJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeNodeFromTemplateJob)
+    (Proxy.Proxy :: Proxy.Proxy CreatePackage)
 
 responseCreatePackageImportJob :: CreatePackageImportJobResponse -> TestTree
 responseCreatePackageImportJob =
@@ -537,37 +473,45 @@ responseCreatePackageImportJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreatePackageImportJob)
 
-responseDescribePackage :: DescribePackageResponse -> TestTree
-responseDescribePackage =
+responseDeleteDevice :: DeleteDeviceResponse -> TestTree
+responseDeleteDevice =
   res
-    "DescribePackageResponse"
-    "fixture/DescribePackageResponse.proto"
+    "DeleteDeviceResponse"
+    "fixture/DeleteDeviceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePackage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDevice)
 
-responseListApplicationInstances :: ListApplicationInstancesResponse -> TestTree
-responseListApplicationInstances =
+responseDeletePackage :: DeletePackageResponse -> TestTree
+responseDeletePackage =
   res
-    "ListApplicationInstancesResponse"
-    "fixture/ListApplicationInstancesResponse.proto"
+    "DeletePackageResponse"
+    "fixture/DeletePackageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListApplicationInstances)
+    (Proxy.Proxy :: Proxy.Proxy DeletePackage)
 
-responseDescribeDeviceJob :: DescribeDeviceJobResponse -> TestTree
-responseDescribeDeviceJob =
+responseDeregisterPackageVersion :: DeregisterPackageVersionResponse -> TestTree
+responseDeregisterPackageVersion =
   res
-    "DescribeDeviceJobResponse"
-    "fixture/DescribeDeviceJobResponse.proto"
+    "DeregisterPackageVersionResponse"
+    "fixture/DeregisterPackageVersionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDeviceJob)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterPackageVersion)
 
-responseDescribePackageImportJob :: DescribePackageImportJobResponse -> TestTree
-responseDescribePackageImportJob =
+responseDescribeApplicationInstance :: DescribeApplicationInstanceResponse -> TestTree
+responseDescribeApplicationInstance =
   res
-    "DescribePackageImportJobResponse"
-    "fixture/DescribePackageImportJobResponse.proto"
+    "DescribeApplicationInstanceResponse"
+    "fixture/DescribeApplicationInstanceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePackageImportJob)
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationInstance)
+
+responseDescribeApplicationInstanceDetails :: DescribeApplicationInstanceDetailsResponse -> TestTree
+responseDescribeApplicationInstanceDetails =
+  res
+    "DescribeApplicationInstanceDetailsResponse"
+    "fixture/DescribeApplicationInstanceDetailsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationInstanceDetails)
 
 responseDescribeDevice :: DescribeDeviceResponse -> TestTree
 responseDescribeDevice =
@@ -577,13 +521,13 @@ responseDescribeDevice =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
 
-responseDescribePackageVersion :: DescribePackageVersionResponse -> TestTree
-responseDescribePackageVersion =
+responseDescribeDeviceJob :: DescribeDeviceJobResponse -> TestTree
+responseDescribeDeviceJob =
   res
-    "DescribePackageVersionResponse"
-    "fixture/DescribePackageVersionResponse.proto"
+    "DescribeDeviceJobResponse"
+    "fixture/DescribeDeviceJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePackageVersion)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDeviceJob)
 
 responseDescribeNode :: DescribeNodeResponse -> TestTree
 responseDescribeNode =
@@ -593,21 +537,37 @@ responseDescribeNode =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeNode)
 
-responseListNodeFromTemplateJobs :: ListNodeFromTemplateJobsResponse -> TestTree
-responseListNodeFromTemplateJobs =
+responseDescribeNodeFromTemplateJob :: DescribeNodeFromTemplateJobResponse -> TestTree
+responseDescribeNodeFromTemplateJob =
   res
-    "ListNodeFromTemplateJobsResponse"
-    "fixture/ListNodeFromTemplateJobsResponse.proto"
+    "DescribeNodeFromTemplateJobResponse"
+    "fixture/DescribeNodeFromTemplateJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListNodeFromTemplateJobs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNodeFromTemplateJob)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDescribePackage :: DescribePackageResponse -> TestTree
+responseDescribePackage =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DescribePackageResponse"
+    "fixture/DescribePackageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribePackage)
+
+responseDescribePackageImportJob :: DescribePackageImportJobResponse -> TestTree
+responseDescribePackageImportJob =
+  res
+    "DescribePackageImportJobResponse"
+    "fixture/DescribePackageImportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePackageImportJob)
+
+responseDescribePackageVersion :: DescribePackageVersionResponse -> TestTree
+responseDescribePackageVersion =
+  res
+    "DescribePackageVersionResponse"
+    "fixture/DescribePackageVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePackageVersion)
 
 responseListApplicationInstanceDependencies :: ListApplicationInstanceDependenciesResponse -> TestTree
 responseListApplicationInstanceDependencies =
@@ -625,61 +585,13 @@ responseListApplicationInstanceNodeInstances =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListApplicationInstanceNodeInstances)
 
-responseCreateJobForDevices :: CreateJobForDevicesResponse -> TestTree
-responseCreateJobForDevices =
+responseListApplicationInstances :: ListApplicationInstancesResponse -> TestTree
+responseListApplicationInstances =
   res
-    "CreateJobForDevicesResponse"
-    "fixture/CreateJobForDevicesResponse.proto"
+    "ListApplicationInstancesResponse"
+    "fixture/ListApplicationInstancesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateJobForDevices)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseDeletePackage :: DeletePackageResponse -> TestTree
-responseDeletePackage =
-  res
-    "DeletePackageResponse"
-    "fixture/DeletePackageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePackage)
-
-responseCreatePackage :: CreatePackageResponse -> TestTree
-responseCreatePackage =
-  res
-    "CreatePackageResponse"
-    "fixture/CreatePackageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePackage)
-
-responseProvisionDevice :: ProvisionDeviceResponse -> TestTree
-responseProvisionDevice =
-  res
-    "ProvisionDeviceResponse"
-    "fixture/ProvisionDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ProvisionDevice)
-
-responseDeleteDevice :: DeleteDeviceResponse -> TestTree
-responseDeleteDevice =
-  res
-    "DeleteDeviceResponse"
-    "fixture/DeleteDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDevice)
-
-responseListNodes :: ListNodesResponse -> TestTree
-responseListNodes =
-  res
-    "ListNodesResponse"
-    "fixture/ListNodesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListNodes)
+    (Proxy.Proxy :: Proxy.Proxy ListApplicationInstances)
 
 responseListDevices :: ListDevicesResponse -> TestTree
 responseListDevices =
@@ -689,6 +601,30 @@ responseListDevices =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDevices)
 
+responseListDevicesJobs :: ListDevicesJobsResponse -> TestTree
+responseListDevicesJobs =
+  res
+    "ListDevicesJobsResponse"
+    "fixture/ListDevicesJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDevicesJobs)
+
+responseListNodeFromTemplateJobs :: ListNodeFromTemplateJobsResponse -> TestTree
+responseListNodeFromTemplateJobs =
+  res
+    "ListNodeFromTemplateJobsResponse"
+    "fixture/ListNodeFromTemplateJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListNodeFromTemplateJobs)
+
+responseListNodes :: ListNodesResponse -> TestTree
+responseListNodes =
+  res
+    "ListNodesResponse"
+    "fixture/ListNodesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListNodes)
+
 responseListPackageImportJobs :: ListPackageImportJobsResponse -> TestTree
 responseListPackageImportJobs =
   res
@@ -696,3 +632,67 @@ responseListPackageImportJobs =
     "fixture/ListPackageImportJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPackageImportJobs)
+
+responseListPackages :: ListPackagesResponse -> TestTree
+responseListPackages =
+  res
+    "ListPackagesResponse"
+    "fixture/ListPackagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackages)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseProvisionDevice :: ProvisionDeviceResponse -> TestTree
+responseProvisionDevice =
+  res
+    "ProvisionDeviceResponse"
+    "fixture/ProvisionDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ProvisionDevice)
+
+responseRegisterPackageVersion :: RegisterPackageVersionResponse -> TestTree
+responseRegisterPackageVersion =
+  res
+    "RegisterPackageVersionResponse"
+    "fixture/RegisterPackageVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterPackageVersion)
+
+responseRemoveApplicationInstance :: RemoveApplicationInstanceResponse -> TestTree
+responseRemoveApplicationInstance =
+  res
+    "RemoveApplicationInstanceResponse"
+    "fixture/RemoveApplicationInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveApplicationInstance)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateDeviceMetadata :: UpdateDeviceMetadataResponse -> TestTree
+responseUpdateDeviceMetadata =
+  res
+    "UpdateDeviceMetadataResponse"
+    "fixture/UpdateDeviceMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeviceMetadata)

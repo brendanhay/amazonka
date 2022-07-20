@@ -46,8 +46,8 @@ module Amazonka.Comprehend.StopSentimentDetectionJob
     newStopSentimentDetectionJobResponse,
 
     -- * Response Lenses
-    stopSentimentDetectionJobResponse_jobId,
     stopSentimentDetectionJobResponse_jobStatus,
+    stopSentimentDetectionJobResponse_jobId,
     stopSentimentDetectionJobResponse_httpStatus,
   )
 where
@@ -95,8 +95,8 @@ instance Core.AWSRequest StopSentimentDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopSentimentDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,12 +138,12 @@ instance Core.ToQuery StopSentimentDetectionJob where
 
 -- | /See:/ 'newStopSentimentDetectionJobResponse' smart constructor.
 data StopSentimentDetectionJobResponse = StopSentimentDetectionJobResponse'
-  { -- | The identifier of the sentiment detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
+  { -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
     -- the job was previously stopped with the @StopSentimentDetectionJob@
     -- operation.
     jobStatus :: Prelude.Maybe JobStatus,
+    -- | The identifier of the sentiment detection job to stop.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,11 +157,11 @@ data StopSentimentDetectionJobResponse = StopSentimentDetectionJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'stopSentimentDetectionJobResponse_jobId' - The identifier of the sentiment detection job to stop.
---
 -- 'jobStatus', 'stopSentimentDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopSentimentDetectionJob@
 -- operation.
+--
+-- 'jobId', 'stopSentimentDetectionJobResponse_jobId' - The identifier of the sentiment detection job to stop.
 --
 -- 'httpStatus', 'stopSentimentDetectionJobResponse_httpStatus' - The response's http status code.
 newStopSentimentDetectionJobResponse ::
@@ -170,21 +170,21 @@ newStopSentimentDetectionJobResponse ::
   StopSentimentDetectionJobResponse
 newStopSentimentDetectionJobResponse pHttpStatus_ =
   StopSentimentDetectionJobResponse'
-    { jobId =
+    { jobStatus =
         Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifier of the sentiment detection job to stop.
-stopSentimentDetectionJobResponse_jobId :: Lens.Lens' StopSentimentDetectionJobResponse (Prelude.Maybe Prelude.Text)
-stopSentimentDetectionJobResponse_jobId = Lens.lens (\StopSentimentDetectionJobResponse' {jobId} -> jobId) (\s@StopSentimentDetectionJobResponse' {} a -> s {jobId = a} :: StopSentimentDetectionJobResponse)
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopSentimentDetectionJob@
 -- operation.
 stopSentimentDetectionJobResponse_jobStatus :: Lens.Lens' StopSentimentDetectionJobResponse (Prelude.Maybe JobStatus)
 stopSentimentDetectionJobResponse_jobStatus = Lens.lens (\StopSentimentDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopSentimentDetectionJobResponse' {} a -> s {jobStatus = a} :: StopSentimentDetectionJobResponse)
+
+-- | The identifier of the sentiment detection job to stop.
+stopSentimentDetectionJobResponse_jobId :: Lens.Lens' StopSentimentDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopSentimentDetectionJobResponse_jobId = Lens.lens (\StopSentimentDetectionJobResponse' {jobId} -> jobId) (\s@StopSentimentDetectionJobResponse' {} a -> s {jobId = a} :: StopSentimentDetectionJobResponse)
 
 -- | The response's http status code.
 stopSentimentDetectionJobResponse_httpStatus :: Lens.Lens' StopSentimentDetectionJobResponse Prelude.Int
@@ -195,6 +195,6 @@ instance
     StopSentimentDetectionJobResponse
   where
   rnf StopSentimentDetectionJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf httpStatus

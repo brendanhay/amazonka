@@ -34,10 +34,10 @@ module Amazonka.EMR.ListClusters
     newListClusters,
 
     -- * Request Lenses
-    listClusters_createdAfter,
-    listClusters_marker,
     listClusters_clusterStates,
+    listClusters_marker,
     listClusters_createdBefore,
+    listClusters_createdAfter,
 
     -- * Destructuring the Response
     ListClustersResponse (..),
@@ -62,16 +62,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListClusters' smart constructor.
 data ListClusters = ListClusters'
-  { -- | The creation date and time beginning value filter for listing clusters.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The cluster state filters to apply when listing clusters. Clusters that
+  { -- | The cluster state filters to apply when listing clusters. Clusters that
     -- change state while this action runs may be not be returned as expected
     -- in the list of clusters.
     clusterStates :: Prelude.Maybe [ClusterState],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time end value filter for listing clusters.
-    createdBefore :: Prelude.Maybe Core.POSIX
+    createdBefore :: Prelude.Maybe Core.POSIX,
+    -- | The creation date and time beginning value filter for listing clusters.
+    createdAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,32 +83,24 @@ data ListClusters = ListClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listClusters_createdAfter' - The creation date and time beginning value filter for listing clusters.
---
--- 'marker', 'listClusters_marker' - The pagination token that indicates the next set of results to retrieve.
---
 -- 'clusterStates', 'listClusters_clusterStates' - The cluster state filters to apply when listing clusters. Clusters that
 -- change state while this action runs may be not be returned as expected
 -- in the list of clusters.
 --
+-- 'marker', 'listClusters_marker' - The pagination token that indicates the next set of results to retrieve.
+--
 -- 'createdBefore', 'listClusters_createdBefore' - The creation date and time end value filter for listing clusters.
+--
+-- 'createdAfter', 'listClusters_createdAfter' - The creation date and time beginning value filter for listing clusters.
 newListClusters ::
   ListClusters
 newListClusters =
   ListClusters'
-    { createdAfter = Prelude.Nothing,
+    { clusterStates = Prelude.Nothing,
       marker = Prelude.Nothing,
-      clusterStates = Prelude.Nothing,
-      createdBefore = Prelude.Nothing
+      createdBefore = Prelude.Nothing,
+      createdAfter = Prelude.Nothing
     }
-
--- | The creation date and time beginning value filter for listing clusters.
-listClusters_createdAfter :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
-listClusters_createdAfter = Lens.lens (\ListClusters' {createdAfter} -> createdAfter) (\s@ListClusters' {} a -> s {createdAfter = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
-
--- | The pagination token that indicates the next set of results to retrieve.
-listClusters_marker :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
-listClusters_marker = Lens.lens (\ListClusters' {marker} -> marker) (\s@ListClusters' {} a -> s {marker = a} :: ListClusters)
 
 -- | The cluster state filters to apply when listing clusters. Clusters that
 -- change state while this action runs may be not be returned as expected
@@ -116,9 +108,17 @@ listClusters_marker = Lens.lens (\ListClusters' {marker} -> marker) (\s@ListClus
 listClusters_clusterStates :: Lens.Lens' ListClusters (Prelude.Maybe [ClusterState])
 listClusters_clusterStates = Lens.lens (\ListClusters' {clusterStates} -> clusterStates) (\s@ListClusters' {} a -> s {clusterStates = a} :: ListClusters) Prelude.. Lens.mapping Lens.coerced
 
+-- | The pagination token that indicates the next set of results to retrieve.
+listClusters_marker :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
+listClusters_marker = Lens.lens (\ListClusters' {marker} -> marker) (\s@ListClusters' {} a -> s {marker = a} :: ListClusters)
+
 -- | The creation date and time end value filter for listing clusters.
 listClusters_createdBefore :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
 listClusters_createdBefore = Lens.lens (\ListClusters' {createdBefore} -> createdBefore) (\s@ListClusters' {} a -> s {createdBefore = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
+
+-- | The creation date and time beginning value filter for listing clusters.
+listClusters_createdAfter :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
+listClusters_createdAfter = Lens.lens (\ListClusters' {createdAfter} -> createdAfter) (\s@ListClusters' {} a -> s {createdAfter = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListClusters where
   page rq rs
@@ -153,17 +153,17 @@ instance Core.AWSRequest ListClusters where
 
 instance Prelude.Hashable ListClusters where
   hashWithSalt _salt ListClusters' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt `Prelude.hashWithSalt` clusterStates
       `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` clusterStates
       `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` createdAfter
 
 instance Prelude.NFData ListClusters where
   rnf ListClusters' {..} =
-    Prelude.rnf createdAfter
+    Prelude.rnf clusterStates
       `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf clusterStates
       `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf createdAfter
 
 instance Core.ToHeaders ListClusters where
   toHeaders =
@@ -184,10 +184,10 @@ instance Core.ToJSON ListClusters where
   toJSON ListClusters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+          [ ("ClusterStates" Core..=) Prelude.<$> clusterStates,
             ("Marker" Core..=) Prelude.<$> marker,
-            ("ClusterStates" Core..=) Prelude.<$> clusterStates,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore
+            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter
           ]
       )
 

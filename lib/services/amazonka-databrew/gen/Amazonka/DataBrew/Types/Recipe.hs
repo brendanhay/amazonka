@@ -28,20 +28,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecipe' smart constructor.
 data Recipe = Recipe'
-  { -- | The last modification date and time of the recipe.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The date and time that the recipe was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+  { -- | Metadata tags that have been applied to the recipe.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the user who published the recipe.
     publishedBy :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the user who created the recipe.
-    createdBy :: Prelude.Maybe Prelude.Text,
+    -- | The last modification date and time of the recipe.
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | A list of steps that are defined by the recipe.
     steps :: Prelude.Maybe [RecipeStep],
+    -- | The description of the recipe.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the recipe was created.
+    createDate :: Prelude.Maybe Core.POSIX,
     -- | The date and time when the recipe was published.
     publishedDate :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the user who last modified the recipe.
+    lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the recipe.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the project that the recipe is associated with.
+    projectName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the user who created the recipe.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the version for the recipe. Must be one of the
     -- following:
     --
@@ -55,14 +63,6 @@ data Recipe = Recipe'
     --
     -- -   @LATEST_PUBLISHED@ - the most recent published version.
     recipeVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the project that the recipe is associated with.
-    projectName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the user who last modified the recipe.
-    lastModifiedBy :: Prelude.Maybe Prelude.Text,
-    -- | The description of the recipe.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Metadata tags that have been applied to the recipe.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique name for the recipe.
     name :: Prelude.Text
   }
@@ -76,19 +76,27 @@ data Recipe = Recipe'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'recipe_lastModifiedDate' - The last modification date and time of the recipe.
---
--- 'createDate', 'recipe_createDate' - The date and time that the recipe was created.
+-- 'tags', 'recipe_tags' - Metadata tags that have been applied to the recipe.
 --
 -- 'publishedBy', 'recipe_publishedBy' - The Amazon Resource Name (ARN) of the user who published the recipe.
 --
--- 'createdBy', 'recipe_createdBy' - The Amazon Resource Name (ARN) of the user who created the recipe.
+-- 'lastModifiedDate', 'recipe_lastModifiedDate' - The last modification date and time of the recipe.
 --
 -- 'steps', 'recipe_steps' - A list of steps that are defined by the recipe.
 --
+-- 'description', 'recipe_description' - The description of the recipe.
+--
+-- 'createDate', 'recipe_createDate' - The date and time that the recipe was created.
+--
 -- 'publishedDate', 'recipe_publishedDate' - The date and time when the recipe was published.
 --
+-- 'lastModifiedBy', 'recipe_lastModifiedBy' - The Amazon Resource Name (ARN) of the user who last modified the recipe.
+--
 -- 'resourceArn', 'recipe_resourceArn' - The Amazon Resource Name (ARN) for the recipe.
+--
+-- 'projectName', 'recipe_projectName' - The name of the project that the recipe is associated with.
+--
+-- 'createdBy', 'recipe_createdBy' - The Amazon Resource Name (ARN) of the user who created the recipe.
 --
 -- 'recipeVersion', 'recipe_recipeVersion' - The identifier for the version for the recipe. Must be one of the
 -- following:
@@ -103,14 +111,6 @@ data Recipe = Recipe'
 --
 -- -   @LATEST_PUBLISHED@ - the most recent published version.
 --
--- 'projectName', 'recipe_projectName' - The name of the project that the recipe is associated with.
---
--- 'lastModifiedBy', 'recipe_lastModifiedBy' - The Amazon Resource Name (ARN) of the user who last modified the recipe.
---
--- 'description', 'recipe_description' - The description of the recipe.
---
--- 'tags', 'recipe_tags' - Metadata tags that have been applied to the recipe.
---
 -- 'name', 'recipe_name' - The unique name for the recipe.
 newRecipe ::
   -- | 'name'
@@ -118,48 +118,64 @@ newRecipe ::
   Recipe
 newRecipe pName_ =
   Recipe'
-    { lastModifiedDate = Prelude.Nothing,
-      createDate = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       publishedBy = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       steps = Prelude.Nothing,
-      publishedDate = Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
-      recipeVersion = Prelude.Nothing,
-      projectName = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      publishedDate = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
+      projectName = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      recipeVersion = Prelude.Nothing,
       name = pName_
     }
 
--- | The last modification date and time of the recipe.
-recipe_lastModifiedDate :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
-recipe_lastModifiedDate = Lens.lens (\Recipe' {lastModifiedDate} -> lastModifiedDate) (\s@Recipe' {} a -> s {lastModifiedDate = a} :: Recipe) Prelude.. Lens.mapping Core._Time
-
--- | The date and time that the recipe was created.
-recipe_createDate :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
-recipe_createDate = Lens.lens (\Recipe' {createDate} -> createDate) (\s@Recipe' {} a -> s {createDate = a} :: Recipe) Prelude.. Lens.mapping Core._Time
+-- | Metadata tags that have been applied to the recipe.
+recipe_tags :: Lens.Lens' Recipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+recipe_tags = Lens.lens (\Recipe' {tags} -> tags) (\s@Recipe' {} a -> s {tags = a} :: Recipe) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the user who published the recipe.
 recipe_publishedBy :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
 recipe_publishedBy = Lens.lens (\Recipe' {publishedBy} -> publishedBy) (\s@Recipe' {} a -> s {publishedBy = a} :: Recipe)
 
--- | The Amazon Resource Name (ARN) of the user who created the recipe.
-recipe_createdBy :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
-recipe_createdBy = Lens.lens (\Recipe' {createdBy} -> createdBy) (\s@Recipe' {} a -> s {createdBy = a} :: Recipe)
+-- | The last modification date and time of the recipe.
+recipe_lastModifiedDate :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
+recipe_lastModifiedDate = Lens.lens (\Recipe' {lastModifiedDate} -> lastModifiedDate) (\s@Recipe' {} a -> s {lastModifiedDate = a} :: Recipe) Prelude.. Lens.mapping Core._Time
 
 -- | A list of steps that are defined by the recipe.
 recipe_steps :: Lens.Lens' Recipe (Prelude.Maybe [RecipeStep])
 recipe_steps = Lens.lens (\Recipe' {steps} -> steps) (\s@Recipe' {} a -> s {steps = a} :: Recipe) Prelude.. Lens.mapping Lens.coerced
 
+-- | The description of the recipe.
+recipe_description :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
+recipe_description = Lens.lens (\Recipe' {description} -> description) (\s@Recipe' {} a -> s {description = a} :: Recipe)
+
+-- | The date and time that the recipe was created.
+recipe_createDate :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
+recipe_createDate = Lens.lens (\Recipe' {createDate} -> createDate) (\s@Recipe' {} a -> s {createDate = a} :: Recipe) Prelude.. Lens.mapping Core._Time
+
 -- | The date and time when the recipe was published.
 recipe_publishedDate :: Lens.Lens' Recipe (Prelude.Maybe Prelude.UTCTime)
 recipe_publishedDate = Lens.lens (\Recipe' {publishedDate} -> publishedDate) (\s@Recipe' {} a -> s {publishedDate = a} :: Recipe) Prelude.. Lens.mapping Core._Time
 
+-- | The Amazon Resource Name (ARN) of the user who last modified the recipe.
+recipe_lastModifiedBy :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
+recipe_lastModifiedBy = Lens.lens (\Recipe' {lastModifiedBy} -> lastModifiedBy) (\s@Recipe' {} a -> s {lastModifiedBy = a} :: Recipe)
+
 -- | The Amazon Resource Name (ARN) for the recipe.
 recipe_resourceArn :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
 recipe_resourceArn = Lens.lens (\Recipe' {resourceArn} -> resourceArn) (\s@Recipe' {} a -> s {resourceArn = a} :: Recipe)
+
+-- | The name of the project that the recipe is associated with.
+recipe_projectName :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
+recipe_projectName = Lens.lens (\Recipe' {projectName} -> projectName) (\s@Recipe' {} a -> s {projectName = a} :: Recipe)
+
+-- | The Amazon Resource Name (ARN) of the user who created the recipe.
+recipe_createdBy :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
+recipe_createdBy = Lens.lens (\Recipe' {createdBy} -> createdBy) (\s@Recipe' {} a -> s {createdBy = a} :: Recipe)
 
 -- | The identifier for the version for the recipe. Must be one of the
 -- following:
@@ -176,22 +192,6 @@ recipe_resourceArn = Lens.lens (\Recipe' {resourceArn} -> resourceArn) (\s@Recip
 recipe_recipeVersion :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
 recipe_recipeVersion = Lens.lens (\Recipe' {recipeVersion} -> recipeVersion) (\s@Recipe' {} a -> s {recipeVersion = a} :: Recipe)
 
--- | The name of the project that the recipe is associated with.
-recipe_projectName :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
-recipe_projectName = Lens.lens (\Recipe' {projectName} -> projectName) (\s@Recipe' {} a -> s {projectName = a} :: Recipe)
-
--- | The Amazon Resource Name (ARN) of the user who last modified the recipe.
-recipe_lastModifiedBy :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
-recipe_lastModifiedBy = Lens.lens (\Recipe' {lastModifiedBy} -> lastModifiedBy) (\s@Recipe' {} a -> s {lastModifiedBy = a} :: Recipe)
-
--- | The description of the recipe.
-recipe_description :: Lens.Lens' Recipe (Prelude.Maybe Prelude.Text)
-recipe_description = Lens.lens (\Recipe' {description} -> description) (\s@Recipe' {} a -> s {description = a} :: Recipe)
-
--- | Metadata tags that have been applied to the recipe.
-recipe_tags :: Lens.Lens' Recipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-recipe_tags = Lens.lens (\Recipe' {tags} -> tags) (\s@Recipe' {} a -> s {tags = a} :: Recipe) Prelude.. Lens.mapping Lens.coerced
-
 -- | The unique name for the recipe.
 recipe_name :: Lens.Lens' Recipe Prelude.Text
 recipe_name = Lens.lens (\Recipe' {name} -> name) (\s@Recipe' {} a -> s {name = a} :: Recipe)
@@ -202,49 +202,49 @@ instance Core.FromJSON Recipe where
       "Recipe"
       ( \x ->
           Recipe'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CreateDate")
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "PublishedBy")
-            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "Steps" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PublishedDate")
-            Prelude.<*> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "RecipeVersion")
-            Prelude.<*> (x Core..:? "ProjectName")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CreateDate")
+            Prelude.<*> (x Core..:? "PublishedDate")
+            Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<*> (x Core..:? "ProjectName")
+            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "RecipeVersion")
             Prelude.<*> (x Core..: "Name")
       )
 
 instance Prelude.Hashable Recipe where
   hashWithSalt _salt Recipe' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` createDate
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` publishedBy
-      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` steps
-      `Prelude.hashWithSalt` publishedDate
-      `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` recipeVersion
-      `Prelude.hashWithSalt` projectName
-      `Prelude.hashWithSalt` lastModifiedBy
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` publishedDate
+      `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` recipeVersion
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Recipe where
   rnf Recipe' {..} =
-    Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf createDate
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf publishedBy
-      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf steps
-      `Prelude.seq` Prelude.rnf publishedDate
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf recipeVersion
-      `Prelude.seq` Prelude.rnf projectName
-      `Prelude.seq` Prelude.rnf lastModifiedBy
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf publishedDate
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf recipeVersion
       `Prelude.seq` Prelude.rnf name

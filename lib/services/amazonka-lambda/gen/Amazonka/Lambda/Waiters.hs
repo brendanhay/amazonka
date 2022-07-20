@@ -23,21 +23,6 @@ import Amazonka.Lambda.Types
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newFunctionExists :: Core.Wait GetFunction
-newFunctionExists =
-  Core.Wait
-    { Core._waitName = "FunctionExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptRetry
-        ]
-    }
-
 -- | Polls 'Amazonka.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newFunctionActive :: Core.Wait GetFunctionConfiguration
 newFunctionActive =
@@ -64,6 +49,21 @@ newFunctionActive =
             ( functionConfiguration_state Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )
+        ]
+    }
+
+-- | Polls 'Amazonka.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newFunctionExists :: Core.Wait GetFunction
+newFunctionExists =
+  Core.Wait
+    { Core._waitName = "FunctionExists",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptRetry
         ]
     }
 

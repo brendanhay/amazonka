@@ -33,10 +33,10 @@ module Amazonka.ChimeSDKMessaging.CreateChannel
     newCreateChannel,
 
     -- * Request Lenses
-    createChannel_mode,
-    createChannel_privacy,
-    createChannel_metadata,
     createChannel_tags,
+    createChannel_metadata,
+    createChannel_privacy,
+    createChannel_mode,
     createChannel_appInstanceArn,
     createChannel_name,
     createChannel_clientRequestToken,
@@ -61,19 +61,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { -- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
-    -- moderators, and channel members can add themselves and other members to
-    -- unrestricted channels. Only administrators and moderators can add
-    -- members to restricted channels.
-    mode :: Prelude.Maybe ChannelMode,
+  { -- | The tags for the creation request.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The metadata of the creation request. Limited to 1KB and UTF-8.
+    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
     -- aren\'t discoverable by users outside the channel. Public channels are
     -- discoverable by anyone in the @AppInstance@.
     privacy :: Prelude.Maybe ChannelPrivacy,
-    -- | The metadata of the creation request. Limited to 1KB and UTF-8.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The tags for the creation request.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
+    -- moderators, and channel members can add themselves and other members to
+    -- unrestricted channels. Only administrators and moderators can add
+    -- members to restricted channels.
+    mode :: Prelude.Maybe ChannelMode,
     -- | The ARN of the channel request.
     appInstanceArn :: Prelude.Text,
     -- | The name of the channel.
@@ -93,18 +93,18 @@ data CreateChannel = CreateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mode', 'createChannel_mode' - The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
--- moderators, and channel members can add themselves and other members to
--- unrestricted channels. Only administrators and moderators can add
--- members to restricted channels.
+-- 'tags', 'createChannel_tags' - The tags for the creation request.
+--
+-- 'metadata', 'createChannel_metadata' - The metadata of the creation request. Limited to 1KB and UTF-8.
 --
 -- 'privacy', 'createChannel_privacy' - The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
 -- aren\'t discoverable by users outside the channel. Public channels are
 -- discoverable by anyone in the @AppInstance@.
 --
--- 'metadata', 'createChannel_metadata' - The metadata of the creation request. Limited to 1KB and UTF-8.
---
--- 'tags', 'createChannel_tags' - The tags for the creation request.
+-- 'mode', 'createChannel_mode' - The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
+-- moderators, and channel members can add themselves and other members to
+-- unrestricted channels. Only administrators and moderators can add
+-- members to restricted channels.
 --
 -- 'appInstanceArn', 'createChannel_appInstanceArn' - The ARN of the channel request.
 --
@@ -129,10 +129,10 @@ newCreateChannel
   pClientRequestToken_
   pChimeBearer_ =
     CreateChannel'
-      { mode = Prelude.Nothing,
-        privacy = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         metadata = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        privacy = Prelude.Nothing,
+        mode = Prelude.Nothing,
         appInstanceArn = pAppInstanceArn_,
         name = Core._Sensitive Lens.# pName_,
         clientRequestToken =
@@ -140,12 +140,13 @@ newCreateChannel
         chimeBearer = pChimeBearer_
       }
 
--- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
--- moderators, and channel members can add themselves and other members to
--- unrestricted channels. Only administrators and moderators can add
--- members to restricted channels.
-createChannel_mode :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelMode)
-createChannel_mode = Lens.lens (\CreateChannel' {mode} -> mode) (\s@CreateChannel' {} a -> s {mode = a} :: CreateChannel)
+-- | The tags for the creation request.
+createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Tag))
+createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
+
+-- | The metadata of the creation request. Limited to 1KB and UTF-8.
+createChannel_metadata :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
+createChannel_metadata = Lens.lens (\CreateChannel' {metadata} -> metadata) (\s@CreateChannel' {} a -> s {metadata = a} :: CreateChannel) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
 -- aren\'t discoverable by users outside the channel. Public channels are
@@ -153,13 +154,12 @@ createChannel_mode = Lens.lens (\CreateChannel' {mode} -> mode) (\s@CreateChanne
 createChannel_privacy :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelPrivacy)
 createChannel_privacy = Lens.lens (\CreateChannel' {privacy} -> privacy) (\s@CreateChannel' {} a -> s {privacy = a} :: CreateChannel)
 
--- | The metadata of the creation request. Limited to 1KB and UTF-8.
-createChannel_metadata :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
-createChannel_metadata = Lens.lens (\CreateChannel' {metadata} -> metadata) (\s@CreateChannel' {} a -> s {metadata = a} :: CreateChannel) Prelude.. Lens.mapping Core._Sensitive
-
--- | The tags for the creation request.
-createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Tag))
-createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
+-- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
+-- moderators, and channel members can add themselves and other members to
+-- unrestricted channels. Only administrators and moderators can add
+-- members to restricted channels.
+createChannel_mode :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelMode)
+createChannel_mode = Lens.lens (\CreateChannel' {mode} -> mode) (\s@CreateChannel' {} a -> s {mode = a} :: CreateChannel)
 
 -- | The ARN of the channel request.
 createChannel_appInstanceArn :: Lens.Lens' CreateChannel Prelude.Text
@@ -192,10 +192,10 @@ instance Core.AWSRequest CreateChannel where
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
-    _salt `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` privacy
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` privacy
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken
@@ -203,10 +203,10 @@ instance Prelude.Hashable CreateChannel where
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf privacy
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf privacy
+      `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
@@ -221,10 +221,10 @@ instance Core.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Mode" Core..=) Prelude.<$> mode,
-            ("Privacy" Core..=) Prelude.<$> privacy,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Metadata" Core..=) Prelude.<$> metadata,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Privacy" Core..=) Prelude.<$> privacy,
+            ("Mode" Core..=) Prelude.<$> mode,
             Prelude.Just
               ("AppInstanceArn" Core..= appInstanceArn),
             Prelude.Just ("Name" Core..= name),

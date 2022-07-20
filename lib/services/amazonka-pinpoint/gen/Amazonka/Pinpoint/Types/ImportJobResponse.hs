@@ -32,24 +32,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportJobResponse' smart constructor.
 data ImportJobResponse = ImportJobResponse'
-  { -- | The number of pieces that were processed successfully (completed) by the
-    -- import job, as of the time of the request.
-    completedPieces :: Prelude.Maybe Prelude.Int,
-    -- | The number of pieces that weren\'t processed successfully (failed) by
+  { -- | The number of pieces that weren\'t processed successfully (failed) by
     -- the import job, as of the time of the request.
     failedPieces :: Prelude.Maybe Prelude.Int,
-    -- | The total number of endpoint definitions that were processed by the
-    -- import job.
-    totalProcessed :: Prelude.Maybe Prelude.Int,
-    -- | An array of entries, one for each of the first 100 entries that weren\'t
-    -- processed successfully (failed) by the import job, if any.
-    failures :: Prelude.Maybe [Prelude.Text],
+    -- | The number of pieces that were processed successfully (completed) by the
+    -- import job, as of the time of the request.
+    completedPieces :: Prelude.Maybe Prelude.Int,
     -- | The total number of pieces that must be processed to complete the import
     -- job. Each piece consists of an approximately equal portion of the
     -- endpoint definitions that are part of the import job.
     totalPieces :: Prelude.Maybe Prelude.Int,
     -- | The date, in ISO 8601 format, when the import job was completed.
     completionDate :: Prelude.Maybe Prelude.Text,
+    -- | The total number of endpoint definitions that were processed by the
+    -- import job.
+    totalProcessed :: Prelude.Maybe Prelude.Int,
+    -- | An array of entries, one for each of the first 100 entries that weren\'t
+    -- processed successfully (failed) by the import job, if any.
+    failures :: Prelude.Maybe [Prelude.Text],
     -- | The total number of endpoint definitions that weren\'t processed
     -- successfully (failed) by the import job, typically because an error,
     -- such as a syntax error, occurred.
@@ -79,23 +79,23 @@ data ImportJobResponse = ImportJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'completedPieces', 'importJobResponse_completedPieces' - The number of pieces that were processed successfully (completed) by the
--- import job, as of the time of the request.
---
 -- 'failedPieces', 'importJobResponse_failedPieces' - The number of pieces that weren\'t processed successfully (failed) by
 -- the import job, as of the time of the request.
 --
--- 'totalProcessed', 'importJobResponse_totalProcessed' - The total number of endpoint definitions that were processed by the
--- import job.
---
--- 'failures', 'importJobResponse_failures' - An array of entries, one for each of the first 100 entries that weren\'t
--- processed successfully (failed) by the import job, if any.
+-- 'completedPieces', 'importJobResponse_completedPieces' - The number of pieces that were processed successfully (completed) by the
+-- import job, as of the time of the request.
 --
 -- 'totalPieces', 'importJobResponse_totalPieces' - The total number of pieces that must be processed to complete the import
 -- job. Each piece consists of an approximately equal portion of the
 -- endpoint definitions that are part of the import job.
 --
 -- 'completionDate', 'importJobResponse_completionDate' - The date, in ISO 8601 format, when the import job was completed.
+--
+-- 'totalProcessed', 'importJobResponse_totalProcessed' - The total number of endpoint definitions that were processed by the
+-- import job.
+--
+-- 'failures', 'importJobResponse_failures' - An array of entries, one for each of the first 100 entries that weren\'t
+-- processed successfully (failed) by the import job, if any.
 --
 -- 'totalFailures', 'importJobResponse_totalFailures' - The total number of endpoint definitions that weren\'t processed
 -- successfully (failed) by the import job, typically because an error,
@@ -136,13 +136,12 @@ newImportJobResponse
   pId_
   pApplicationId_ =
     ImportJobResponse'
-      { completedPieces =
-          Prelude.Nothing,
-        failedPieces = Prelude.Nothing,
-        totalProcessed = Prelude.Nothing,
-        failures = Prelude.Nothing,
+      { failedPieces = Prelude.Nothing,
+        completedPieces = Prelude.Nothing,
         totalPieces = Prelude.Nothing,
         completionDate = Prelude.Nothing,
+        totalProcessed = Prelude.Nothing,
+        failures = Prelude.Nothing,
         totalFailures = Prelude.Nothing,
         jobStatus = pJobStatus_,
         creationDate = pCreationDate_,
@@ -152,25 +151,15 @@ newImportJobResponse
         applicationId = pApplicationId_
       }
 
--- | The number of pieces that were processed successfully (completed) by the
--- import job, as of the time of the request.
-importJobResponse_completedPieces :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
-importJobResponse_completedPieces = Lens.lens (\ImportJobResponse' {completedPieces} -> completedPieces) (\s@ImportJobResponse' {} a -> s {completedPieces = a} :: ImportJobResponse)
-
 -- | The number of pieces that weren\'t processed successfully (failed) by
 -- the import job, as of the time of the request.
 importJobResponse_failedPieces :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
 importJobResponse_failedPieces = Lens.lens (\ImportJobResponse' {failedPieces} -> failedPieces) (\s@ImportJobResponse' {} a -> s {failedPieces = a} :: ImportJobResponse)
 
--- | The total number of endpoint definitions that were processed by the
--- import job.
-importJobResponse_totalProcessed :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
-importJobResponse_totalProcessed = Lens.lens (\ImportJobResponse' {totalProcessed} -> totalProcessed) (\s@ImportJobResponse' {} a -> s {totalProcessed = a} :: ImportJobResponse)
-
--- | An array of entries, one for each of the first 100 entries that weren\'t
--- processed successfully (failed) by the import job, if any.
-importJobResponse_failures :: Lens.Lens' ImportJobResponse (Prelude.Maybe [Prelude.Text])
-importJobResponse_failures = Lens.lens (\ImportJobResponse' {failures} -> failures) (\s@ImportJobResponse' {} a -> s {failures = a} :: ImportJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The number of pieces that were processed successfully (completed) by the
+-- import job, as of the time of the request.
+importJobResponse_completedPieces :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
+importJobResponse_completedPieces = Lens.lens (\ImportJobResponse' {completedPieces} -> completedPieces) (\s@ImportJobResponse' {} a -> s {completedPieces = a} :: ImportJobResponse)
 
 -- | The total number of pieces that must be processed to complete the import
 -- job. Each piece consists of an approximately equal portion of the
@@ -181,6 +170,16 @@ importJobResponse_totalPieces = Lens.lens (\ImportJobResponse' {totalPieces} -> 
 -- | The date, in ISO 8601 format, when the import job was completed.
 importJobResponse_completionDate :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Text)
 importJobResponse_completionDate = Lens.lens (\ImportJobResponse' {completionDate} -> completionDate) (\s@ImportJobResponse' {} a -> s {completionDate = a} :: ImportJobResponse)
+
+-- | The total number of endpoint definitions that were processed by the
+-- import job.
+importJobResponse_totalProcessed :: Lens.Lens' ImportJobResponse (Prelude.Maybe Prelude.Int)
+importJobResponse_totalProcessed = Lens.lens (\ImportJobResponse' {totalProcessed} -> totalProcessed) (\s@ImportJobResponse' {} a -> s {totalProcessed = a} :: ImportJobResponse)
+
+-- | An array of entries, one for each of the first 100 entries that weren\'t
+-- processed successfully (failed) by the import job, if any.
+importJobResponse_failures :: Lens.Lens' ImportJobResponse (Prelude.Maybe [Prelude.Text])
+importJobResponse_failures = Lens.lens (\ImportJobResponse' {failures} -> failures) (\s@ImportJobResponse' {} a -> s {failures = a} :: ImportJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of endpoint definitions that weren\'t processed
 -- successfully (failed) by the import job, typically because an error,
@@ -220,12 +219,12 @@ instance Core.FromJSON ImportJobResponse where
       "ImportJobResponse"
       ( \x ->
           ImportJobResponse'
-            Prelude.<$> (x Core..:? "CompletedPieces")
-            Prelude.<*> (x Core..:? "FailedPieces")
-            Prelude.<*> (x Core..:? "TotalProcessed")
-            Prelude.<*> (x Core..:? "Failures" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "FailedPieces")
+            Prelude.<*> (x Core..:? "CompletedPieces")
             Prelude.<*> (x Core..:? "TotalPieces")
             Prelude.<*> (x Core..:? "CompletionDate")
+            Prelude.<*> (x Core..:? "TotalProcessed")
+            Prelude.<*> (x Core..:? "Failures" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "TotalFailures")
             Prelude.<*> (x Core..: "JobStatus")
             Prelude.<*> (x Core..: "CreationDate")
@@ -237,12 +236,12 @@ instance Core.FromJSON ImportJobResponse where
 
 instance Prelude.Hashable ImportJobResponse where
   hashWithSalt _salt ImportJobResponse' {..} =
-    _salt `Prelude.hashWithSalt` completedPieces
-      `Prelude.hashWithSalt` failedPieces
-      `Prelude.hashWithSalt` totalProcessed
-      `Prelude.hashWithSalt` failures
+    _salt `Prelude.hashWithSalt` failedPieces
+      `Prelude.hashWithSalt` completedPieces
       `Prelude.hashWithSalt` totalPieces
       `Prelude.hashWithSalt` completionDate
+      `Prelude.hashWithSalt` totalProcessed
+      `Prelude.hashWithSalt` failures
       `Prelude.hashWithSalt` totalFailures
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` creationDate
@@ -253,12 +252,12 @@ instance Prelude.Hashable ImportJobResponse where
 
 instance Prelude.NFData ImportJobResponse where
   rnf ImportJobResponse' {..} =
-    Prelude.rnf completedPieces
-      `Prelude.seq` Prelude.rnf failedPieces
-      `Prelude.seq` Prelude.rnf totalProcessed
-      `Prelude.seq` Prelude.rnf failures
+    Prelude.rnf failedPieces
+      `Prelude.seq` Prelude.rnf completedPieces
       `Prelude.seq` Prelude.rnf totalPieces
       `Prelude.seq` Prelude.rnf completionDate
+      `Prelude.seq` Prelude.rnf totalProcessed
+      `Prelude.seq` Prelude.rnf failures
       `Prelude.seq` Prelude.rnf totalFailures
       `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf creationDate

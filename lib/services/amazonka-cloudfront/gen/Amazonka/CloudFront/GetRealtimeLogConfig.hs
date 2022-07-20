@@ -32,8 +32,8 @@ module Amazonka.CloudFront.GetRealtimeLogConfig
     newGetRealtimeLogConfig,
 
     -- * Request Lenses
-    getRealtimeLogConfig_arn,
     getRealtimeLogConfig_name,
+    getRealtimeLogConfig_arn,
 
     -- * Destructuring the Response
     GetRealtimeLogConfigResponse (..),
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRealtimeLogConfig' smart constructor.
 data GetRealtimeLogConfig = GetRealtimeLogConfig'
-  { -- | The Amazon Resource Name (ARN) of the real-time log configuration to
+  { -- | The name of the real-time log configuration to get.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the real-time log configuration to
     -- get.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the real-time log configuration to get.
-    name :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,26 +70,26 @@ data GetRealtimeLogConfig = GetRealtimeLogConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'getRealtimeLogConfig_name' - The name of the real-time log configuration to get.
+--
 -- 'arn', 'getRealtimeLogConfig_arn' - The Amazon Resource Name (ARN) of the real-time log configuration to
 -- get.
---
--- 'name', 'getRealtimeLogConfig_name' - The name of the real-time log configuration to get.
 newGetRealtimeLogConfig ::
   GetRealtimeLogConfig
 newGetRealtimeLogConfig =
   GetRealtimeLogConfig'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
+
+-- | The name of the real-time log configuration to get.
+getRealtimeLogConfig_name :: Lens.Lens' GetRealtimeLogConfig (Prelude.Maybe Prelude.Text)
+getRealtimeLogConfig_name = Lens.lens (\GetRealtimeLogConfig' {name} -> name) (\s@GetRealtimeLogConfig' {} a -> s {name = a} :: GetRealtimeLogConfig)
 
 -- | The Amazon Resource Name (ARN) of the real-time log configuration to
 -- get.
 getRealtimeLogConfig_arn :: Lens.Lens' GetRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 getRealtimeLogConfig_arn = Lens.lens (\GetRealtimeLogConfig' {arn} -> arn) (\s@GetRealtimeLogConfig' {} a -> s {arn = a} :: GetRealtimeLogConfig)
-
--- | The name of the real-time log configuration to get.
-getRealtimeLogConfig_name :: Lens.Lens' GetRealtimeLogConfig (Prelude.Maybe Prelude.Text)
-getRealtimeLogConfig_name = Lens.lens (\GetRealtimeLogConfig' {name} -> name) (\s@GetRealtimeLogConfig' {} a -> s {name = a} :: GetRealtimeLogConfig)
 
 instance Core.AWSRequest GetRealtimeLogConfig where
   type
@@ -106,12 +106,12 @@ instance Core.AWSRequest GetRealtimeLogConfig where
 
 instance Prelude.Hashable GetRealtimeLogConfig where
   hashWithSalt _salt GetRealtimeLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData GetRealtimeLogConfig where
   rnf GetRealtimeLogConfig' {..} =
-    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToElement GetRealtimeLogConfig where
   toElement =
@@ -132,7 +132,7 @@ instance Core.ToQuery GetRealtimeLogConfig where
 instance Core.ToXML GetRealtimeLogConfig where
   toXML GetRealtimeLogConfig' {..} =
     Prelude.mconcat
-      ["ARN" Core.@= arn, "Name" Core.@= name]
+      ["Name" Core.@= name, "ARN" Core.@= arn]
 
 -- | /See:/ 'newGetRealtimeLogConfigResponse' smart constructor.
 data GetRealtimeLogConfigResponse = GetRealtimeLogConfigResponse'

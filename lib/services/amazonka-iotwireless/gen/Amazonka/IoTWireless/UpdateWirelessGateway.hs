@@ -28,9 +28,9 @@ module Amazonka.IoTWireless.UpdateWirelessGateway
 
     -- * Request Lenses
     updateWirelessGateway_name,
-    updateWirelessGateway_joinEuiFilters,
     updateWirelessGateway_description,
     updateWirelessGateway_netIdFilters,
+    updateWirelessGateway_joinEuiFilters,
     updateWirelessGateway_id,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 data UpdateWirelessGateway = UpdateWirelessGateway'
   { -- | The new name of the resource.
     name :: Prelude.Maybe Prelude.Text,
-    joinEuiFilters :: Prelude.Maybe [Prelude.NonEmpty Prelude.Text],
     -- | A new description of the resource.
     description :: Prelude.Maybe Prelude.Text,
     netIdFilters :: Prelude.Maybe [Prelude.Text],
+    joinEuiFilters :: Prelude.Maybe [Prelude.NonEmpty Prelude.Text],
     -- | The ID of the resource to update.
     id :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data UpdateWirelessGateway = UpdateWirelessGateway'
 --
 -- 'name', 'updateWirelessGateway_name' - The new name of the resource.
 --
--- 'joinEuiFilters', 'updateWirelessGateway_joinEuiFilters' - Undocumented member.
---
 -- 'description', 'updateWirelessGateway_description' - A new description of the resource.
 --
 -- 'netIdFilters', 'updateWirelessGateway_netIdFilters' - Undocumented member.
+--
+-- 'joinEuiFilters', 'updateWirelessGateway_joinEuiFilters' - Undocumented member.
 --
 -- 'id', 'updateWirelessGateway_id' - The ID of the resource to update.
 newUpdateWirelessGateway ::
@@ -86,19 +86,15 @@ newUpdateWirelessGateway ::
 newUpdateWirelessGateway pId_ =
   UpdateWirelessGateway'
     { name = Prelude.Nothing,
-      joinEuiFilters = Prelude.Nothing,
       description = Prelude.Nothing,
       netIdFilters = Prelude.Nothing,
+      joinEuiFilters = Prelude.Nothing,
       id = pId_
     }
 
 -- | The new name of the resource.
 updateWirelessGateway_name :: Lens.Lens' UpdateWirelessGateway (Prelude.Maybe Prelude.Text)
 updateWirelessGateway_name = Lens.lens (\UpdateWirelessGateway' {name} -> name) (\s@UpdateWirelessGateway' {} a -> s {name = a} :: UpdateWirelessGateway)
-
--- | Undocumented member.
-updateWirelessGateway_joinEuiFilters :: Lens.Lens' UpdateWirelessGateway (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
-updateWirelessGateway_joinEuiFilters = Lens.lens (\UpdateWirelessGateway' {joinEuiFilters} -> joinEuiFilters) (\s@UpdateWirelessGateway' {} a -> s {joinEuiFilters = a} :: UpdateWirelessGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | A new description of the resource.
 updateWirelessGateway_description :: Lens.Lens' UpdateWirelessGateway (Prelude.Maybe Prelude.Text)
@@ -107,6 +103,10 @@ updateWirelessGateway_description = Lens.lens (\UpdateWirelessGateway' {descript
 -- | Undocumented member.
 updateWirelessGateway_netIdFilters :: Lens.Lens' UpdateWirelessGateway (Prelude.Maybe [Prelude.Text])
 updateWirelessGateway_netIdFilters = Lens.lens (\UpdateWirelessGateway' {netIdFilters} -> netIdFilters) (\s@UpdateWirelessGateway' {} a -> s {netIdFilters = a} :: UpdateWirelessGateway) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+updateWirelessGateway_joinEuiFilters :: Lens.Lens' UpdateWirelessGateway (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
+updateWirelessGateway_joinEuiFilters = Lens.lens (\UpdateWirelessGateway' {joinEuiFilters} -> joinEuiFilters) (\s@UpdateWirelessGateway' {} a -> s {joinEuiFilters = a} :: UpdateWirelessGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the resource to update.
 updateWirelessGateway_id :: Lens.Lens' UpdateWirelessGateway Prelude.Text
@@ -127,17 +127,17 @@ instance Core.AWSRequest UpdateWirelessGateway where
 instance Prelude.Hashable UpdateWirelessGateway where
   hashWithSalt _salt UpdateWirelessGateway' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` joinEuiFilters
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` netIdFilters
+      `Prelude.hashWithSalt` joinEuiFilters
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateWirelessGateway where
   rnf UpdateWirelessGateway' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf joinEuiFilters
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf netIdFilters
+      `Prelude.seq` Prelude.rnf joinEuiFilters
       `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateWirelessGateway where
@@ -148,10 +148,10 @@ instance Core.ToJSON UpdateWirelessGateway where
     Core.object
       ( Prelude.catMaybes
           [ ("Name" Core..=) Prelude.<$> name,
-            ("JoinEuiFilters" Core..=)
-              Prelude.<$> joinEuiFilters,
             ("Description" Core..=) Prelude.<$> description,
-            ("NetIdFilters" Core..=) Prelude.<$> netIdFilters
+            ("NetIdFilters" Core..=) Prelude.<$> netIdFilters,
+            ("JoinEuiFilters" Core..=)
+              Prelude.<$> joinEuiFilters
           ]
       )
 

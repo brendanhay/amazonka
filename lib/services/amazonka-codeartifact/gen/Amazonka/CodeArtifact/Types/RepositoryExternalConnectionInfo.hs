@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRepositoryExternalConnectionInfo' smart constructor.
 data RepositoryExternalConnectionInfo = RepositoryExternalConnectionInfo'
-  { -- | The name of the external connection associated with a repository.
-    externalConnectionName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the external connection of a repository. There is one
+  { -- | The status of the external connection of a repository. There is one
     -- valid value, @Available@.
     status :: Prelude.Maybe ExternalConnectionStatus,
+    -- | The name of the external connection associated with a repository.
+    externalConnectionName :: Prelude.Maybe Prelude.Text,
     -- | The package format associated with a repository\'s external connection.
     -- The valid package formats are:
     --
@@ -55,10 +55,10 @@ data RepositoryExternalConnectionInfo = RepositoryExternalConnectionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalConnectionName', 'repositoryExternalConnectionInfo_externalConnectionName' - The name of the external connection associated with a repository.
---
 -- 'status', 'repositoryExternalConnectionInfo_status' - The status of the external connection of a repository. There is one
 -- valid value, @Available@.
+--
+-- 'externalConnectionName', 'repositoryExternalConnectionInfo_externalConnectionName' - The name of the external connection associated with a repository.
 --
 -- 'packageFormat', 'repositoryExternalConnectionInfo_packageFormat' - The package format associated with a repository\'s external connection.
 -- The valid package formats are:
@@ -73,20 +73,20 @@ newRepositoryExternalConnectionInfo ::
   RepositoryExternalConnectionInfo
 newRepositoryExternalConnectionInfo =
   RepositoryExternalConnectionInfo'
-    { externalConnectionName =
+    { status =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      externalConnectionName = Prelude.Nothing,
       packageFormat = Prelude.Nothing
     }
-
--- | The name of the external connection associated with a repository.
-repositoryExternalConnectionInfo_externalConnectionName :: Lens.Lens' RepositoryExternalConnectionInfo (Prelude.Maybe Prelude.Text)
-repositoryExternalConnectionInfo_externalConnectionName = Lens.lens (\RepositoryExternalConnectionInfo' {externalConnectionName} -> externalConnectionName) (\s@RepositoryExternalConnectionInfo' {} a -> s {externalConnectionName = a} :: RepositoryExternalConnectionInfo)
 
 -- | The status of the external connection of a repository. There is one
 -- valid value, @Available@.
 repositoryExternalConnectionInfo_status :: Lens.Lens' RepositoryExternalConnectionInfo (Prelude.Maybe ExternalConnectionStatus)
 repositoryExternalConnectionInfo_status = Lens.lens (\RepositoryExternalConnectionInfo' {status} -> status) (\s@RepositoryExternalConnectionInfo' {} a -> s {status = a} :: RepositoryExternalConnectionInfo)
+
+-- | The name of the external connection associated with a repository.
+repositoryExternalConnectionInfo_externalConnectionName :: Lens.Lens' RepositoryExternalConnectionInfo (Prelude.Maybe Prelude.Text)
+repositoryExternalConnectionInfo_externalConnectionName = Lens.lens (\RepositoryExternalConnectionInfo' {externalConnectionName} -> externalConnectionName) (\s@RepositoryExternalConnectionInfo' {} a -> s {externalConnectionName = a} :: RepositoryExternalConnectionInfo)
 
 -- | The package format associated with a repository\'s external connection.
 -- The valid package formats are:
@@ -109,8 +109,8 @@ instance
       "RepositoryExternalConnectionInfo"
       ( \x ->
           RepositoryExternalConnectionInfo'
-            Prelude.<$> (x Core..:? "externalConnectionName")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "externalConnectionName")
             Prelude.<*> (x Core..:? "packageFormat")
       )
 
@@ -121,8 +121,8 @@ instance
   hashWithSalt
     _salt
     RepositoryExternalConnectionInfo' {..} =
-      _salt `Prelude.hashWithSalt` externalConnectionName
-        `Prelude.hashWithSalt` status
+      _salt `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` externalConnectionName
         `Prelude.hashWithSalt` packageFormat
 
 instance
@@ -130,6 +130,6 @@ instance
     RepositoryExternalConnectionInfo
   where
   rnf RepositoryExternalConnectionInfo' {..} =
-    Prelude.rnf externalConnectionName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf externalConnectionName
       `Prelude.seq` Prelude.rnf packageFormat

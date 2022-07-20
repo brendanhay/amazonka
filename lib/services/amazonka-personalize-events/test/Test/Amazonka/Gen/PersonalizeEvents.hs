@@ -27,43 +27,31 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutUsers $
---             newPutUsers
+--         [ requestPutEvents $
+--             newPutEvents
 --
 --         , requestPutItems $
 --             newPutItems
 --
---         , requestPutEvents $
---             newPutEvents
+--         , requestPutUsers $
+--             newPutUsers
 --
 --           ]
 
 --     , testGroup "response"
---         [ responsePutUsers $
---             newPutUsersResponse
+--         [ responsePutEvents $
+--             newPutEventsResponse
 --
 --         , responsePutItems $
 --             newPutItemsResponse
 --
---         , responsePutEvents $
---             newPutEventsResponse
+--         , responsePutUsers $
+--             newPutUsersResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestPutUsers :: PutUsers -> TestTree
-requestPutUsers =
-  req
-    "PutUsers"
-    "fixture/PutUsers.yaml"
-
-requestPutItems :: PutItems -> TestTree
-requestPutItems =
-  req
-    "PutItems"
-    "fixture/PutItems.yaml"
 
 requestPutEvents :: PutEvents -> TestTree
 requestPutEvents =
@@ -71,15 +59,27 @@ requestPutEvents =
     "PutEvents"
     "fixture/PutEvents.yaml"
 
+requestPutItems :: PutItems -> TestTree
+requestPutItems =
+  req
+    "PutItems"
+    "fixture/PutItems.yaml"
+
+requestPutUsers :: PutUsers -> TestTree
+requestPutUsers =
+  req
+    "PutUsers"
+    "fixture/PutUsers.yaml"
+
 -- Responses
 
-responsePutUsers :: PutUsersResponse -> TestTree
-responsePutUsers =
+responsePutEvents :: PutEventsResponse -> TestTree
+responsePutEvents =
   res
-    "PutUsersResponse"
-    "fixture/PutUsersResponse.proto"
+    "PutEventsResponse"
+    "fixture/PutEventsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutUsers)
+    (Proxy.Proxy :: Proxy.Proxy PutEvents)
 
 responsePutItems :: PutItemsResponse -> TestTree
 responsePutItems =
@@ -89,10 +89,10 @@ responsePutItems =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutItems)
 
-responsePutEvents :: PutEventsResponse -> TestTree
-responsePutEvents =
+responsePutUsers :: PutUsersResponse -> TestTree
+responsePutUsers =
   res
-    "PutEventsResponse"
-    "fixture/PutEventsResponse.proto"
+    "PutUsersResponse"
+    "fixture/PutUsersResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutEvents)
+    (Proxy.Proxy :: Proxy.Proxy PutUsers)

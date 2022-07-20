@@ -25,14 +25,8 @@ module Amazonka.KinesisVideoSignaling
     -- ** InvalidArgumentException
     _InvalidArgumentException,
 
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
-
     -- ** ClientLimitExceededException
     _ClientLimitExceededException,
-
-    -- ** SessionExpiredException
-    _SessionExpiredException,
 
     -- ** InvalidClientException
     _InvalidClientException,
@@ -40,23 +34,29 @@ module Amazonka.KinesisVideoSignaling
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** SessionExpiredException
+    _SessionExpiredException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** SendAlexaOfferToMaster
-    SendAlexaOfferToMaster (SendAlexaOfferToMaster'),
-    newSendAlexaOfferToMaster,
-    SendAlexaOfferToMasterResponse (SendAlexaOfferToMasterResponse'),
-    newSendAlexaOfferToMasterResponse,
-
     -- ** GetIceServerConfig
     GetIceServerConfig (GetIceServerConfig'),
     newGetIceServerConfig,
     GetIceServerConfigResponse (GetIceServerConfigResponse'),
     newGetIceServerConfigResponse,
+
+    -- ** SendAlexaOfferToMaster
+    SendAlexaOfferToMaster (SendAlexaOfferToMaster'),
+    newSendAlexaOfferToMaster,
+    SendAlexaOfferToMasterResponse (SendAlexaOfferToMasterResponse'),
+    newSendAlexaOfferToMasterResponse,
 
     -- * Types
 

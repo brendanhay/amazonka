@@ -28,11 +28,11 @@ module Amazonka.ElasticTranscoder.CreatePipeline
     newCreatePipeline,
 
     -- * Request Lenses
-    createPipeline_contentConfig,
-    createPipeline_outputBucket,
-    createPipeline_awsKmsKeyArn,
     createPipeline_notifications,
     createPipeline_thumbnailConfig,
+    createPipeline_awsKmsKeyArn,
+    createPipeline_outputBucket,
+    createPipeline_contentConfig,
     createPipeline_name,
     createPipeline_inputBucket,
     createPipeline_role,
@@ -59,116 +59,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { -- | The optional @ContentConfig@ object specifies information about the
-    -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
-    -- files and playlists: which bucket to use, which users you want to have
-    -- access to the files, the type of access you want users to have, and the
-    -- storage class that you want to assign to the files.
-    --
-    -- If you specify values for @ContentConfig@, you must also specify values
-    -- for @ThumbnailConfig@.
-    --
-    -- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
-    -- the @OutputBucket@ object.
-    --
-    -- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
-    --     Transcoder to save transcoded files and playlists.
-    --
-    -- -   __Permissions__ (Optional): The Permissions object specifies which
-    --     users you want to have access to transcoded files and the type of
-    --     access you want them to have. You can grant permissions to a maximum
-    --     of 30 users and\/or predefined Amazon S3 groups.
-    --
-    -- -   __Grantee Type__: Specify the type of value that appears in the
-    --     @Grantee@ object:
-    --
-    --     -   __Canonical__: The value in the @Grantee@ object is either the
-    --         canonical user ID for an AWS account or an origin access
-    --         identity for an Amazon CloudFront distribution. For more
-    --         information about canonical user IDs, see Access Control List
-    --         (ACL) Overview in the Amazon Simple Storage Service Developer
-    --         Guide. For more information about using CloudFront origin access
-    --         identities to require that users use CloudFront URLs instead of
-    --         Amazon S3 URLs, see Using an Origin Access Identity to Restrict
-    --         Access to Your Amazon S3 Content.
-    --
-    --         A canonical user ID is not the same as an AWS account number.
-    --
-    --     -   __Email__: The value in the @Grantee@ object is the registered
-    --         email address of an AWS account.
-    --
-    --     -   __Group__: The value in the @Grantee@ object is one of the
-    --         following predefined Amazon S3 groups: @AllUsers@,
-    --         @AuthenticatedUsers@, or @LogDelivery@.
-    --
-    -- -   __Grantee__: The AWS user or group that you want to have access to
-    --     transcoded files and playlists. To identify the user or group, you
-    --     can specify the canonical user ID for an AWS account, an origin
-    --     access identity for a CloudFront distribution, the registered email
-    --     address of an AWS account, or a predefined Amazon S3 group
-    --
-    -- -   __Access__: The permission that you want to give to the AWS user
-    --     that you specified in @Grantee@. Permissions are granted on the
-    --     files that Elastic Transcoder adds to the bucket, including
-    --     playlists and video files. Valid values include:
-    --
-    --     -   @READ@: The grantee can read the objects and metadata for
-    --         objects that Elastic Transcoder adds to the Amazon S3 bucket.
-    --
-    --     -   @READ_ACP@: The grantee can read the object ACL for objects that
-    --         Elastic Transcoder adds to the Amazon S3 bucket.
-    --
-    --     -   @WRITE_ACP@: The grantee can write the ACL for the objects that
-    --         Elastic Transcoder adds to the Amazon S3 bucket.
-    --
-    --     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
-    --         @WRITE_ACP@ permissions for the objects that Elastic Transcoder
-    --         adds to the Amazon S3 bucket.
-    --
-    -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
-    --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
-    --     the video files and playlists that it stores in your Amazon S3
-    --     bucket.
-    contentConfig :: Prelude.Maybe PipelineOutputConfig,
-    -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
-    -- transcoded files. (Use this, or use ContentConfig:Bucket plus
-    -- ThumbnailConfig:Bucket.)
-    --
-    -- Specify this value when all of the following are true:
-    --
-    -- -   You want to save transcoded files, thumbnails (if any), and
-    --     playlists (if any) together in one bucket.
-    --
-    -- -   You do not want to specify the users or groups who have access to
-    --     the transcoded files, thumbnails, and playlists.
-    --
-    -- -   You do not want to specify the permissions that Elastic Transcoder
-    --     grants to the files.
-    --
-    --     When Elastic Transcoder saves files in @OutputBucket@, it grants
-    --     full control over the files only to the AWS account that owns the
-    --     role that is specified by @Role@.
-    --
-    -- -   You want to associate the transcoded files and thumbnails with the
-    --     Amazon S3 Standard storage class.
-    --
-    -- If you want to save transcoded files and playlists in one bucket and
-    -- thumbnails in another bucket, specify which users can access the
-    -- transcoded files or the permissions the users have, or change the Amazon
-    -- S3 storage class, omit @OutputBucket@ and specify values for
-    -- @ContentConfig@ and @ThumbnailConfig@ instead.
-    outputBucket :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Key Management Service (AWS KMS) key that you want to use with
-    -- this pipeline.
-    --
-    -- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you
-    -- don\'t need to provide a key with your job because a default key, known
-    -- as an AWS-KMS key, is created for you automatically. You need to provide
-    -- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
-    -- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
-    -- @aes-gcm@.
-    awsKmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
+  { -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
     -- to notify to report job status.
     --
     -- To receive notifications, you must also subscribe to the new topic in
@@ -261,6 +152,115 @@ data CreatePipeline = CreatePipeline'
     --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
     --     the thumbnails that it stores in your Amazon S3 bucket.
     thumbnailConfig :: Prelude.Maybe PipelineOutputConfig,
+    -- | The AWS Key Management Service (AWS KMS) key that you want to use with
+    -- this pipeline.
+    --
+    -- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you
+    -- don\'t need to provide a key with your job because a default key, known
+    -- as an AWS-KMS key, is created for you automatically. You need to provide
+    -- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
+    -- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
+    -- @aes-gcm@.
+    awsKmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
+    -- transcoded files. (Use this, or use ContentConfig:Bucket plus
+    -- ThumbnailConfig:Bucket.)
+    --
+    -- Specify this value when all of the following are true:
+    --
+    -- -   You want to save transcoded files, thumbnails (if any), and
+    --     playlists (if any) together in one bucket.
+    --
+    -- -   You do not want to specify the users or groups who have access to
+    --     the transcoded files, thumbnails, and playlists.
+    --
+    -- -   You do not want to specify the permissions that Elastic Transcoder
+    --     grants to the files.
+    --
+    --     When Elastic Transcoder saves files in @OutputBucket@, it grants
+    --     full control over the files only to the AWS account that owns the
+    --     role that is specified by @Role@.
+    --
+    -- -   You want to associate the transcoded files and thumbnails with the
+    --     Amazon S3 Standard storage class.
+    --
+    -- If you want to save transcoded files and playlists in one bucket and
+    -- thumbnails in another bucket, specify which users can access the
+    -- transcoded files or the permissions the users have, or change the Amazon
+    -- S3 storage class, omit @OutputBucket@ and specify values for
+    -- @ContentConfig@ and @ThumbnailConfig@ instead.
+    outputBucket :: Prelude.Maybe Prelude.Text,
+    -- | The optional @ContentConfig@ object specifies information about the
+    -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
+    -- files and playlists: which bucket to use, which users you want to have
+    -- access to the files, the type of access you want users to have, and the
+    -- storage class that you want to assign to the files.
+    --
+    -- If you specify values for @ContentConfig@, you must also specify values
+    -- for @ThumbnailConfig@.
+    --
+    -- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
+    -- the @OutputBucket@ object.
+    --
+    -- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
+    --     Transcoder to save transcoded files and playlists.
+    --
+    -- -   __Permissions__ (Optional): The Permissions object specifies which
+    --     users you want to have access to transcoded files and the type of
+    --     access you want them to have. You can grant permissions to a maximum
+    --     of 30 users and\/or predefined Amazon S3 groups.
+    --
+    -- -   __Grantee Type__: Specify the type of value that appears in the
+    --     @Grantee@ object:
+    --
+    --     -   __Canonical__: The value in the @Grantee@ object is either the
+    --         canonical user ID for an AWS account or an origin access
+    --         identity for an Amazon CloudFront distribution. For more
+    --         information about canonical user IDs, see Access Control List
+    --         (ACL) Overview in the Amazon Simple Storage Service Developer
+    --         Guide. For more information about using CloudFront origin access
+    --         identities to require that users use CloudFront URLs instead of
+    --         Amazon S3 URLs, see Using an Origin Access Identity to Restrict
+    --         Access to Your Amazon S3 Content.
+    --
+    --         A canonical user ID is not the same as an AWS account number.
+    --
+    --     -   __Email__: The value in the @Grantee@ object is the registered
+    --         email address of an AWS account.
+    --
+    --     -   __Group__: The value in the @Grantee@ object is one of the
+    --         following predefined Amazon S3 groups: @AllUsers@,
+    --         @AuthenticatedUsers@, or @LogDelivery@.
+    --
+    -- -   __Grantee__: The AWS user or group that you want to have access to
+    --     transcoded files and playlists. To identify the user or group, you
+    --     can specify the canonical user ID for an AWS account, an origin
+    --     access identity for a CloudFront distribution, the registered email
+    --     address of an AWS account, or a predefined Amazon S3 group
+    --
+    -- -   __Access__: The permission that you want to give to the AWS user
+    --     that you specified in @Grantee@. Permissions are granted on the
+    --     files that Elastic Transcoder adds to the bucket, including
+    --     playlists and video files. Valid values include:
+    --
+    --     -   @READ@: The grantee can read the objects and metadata for
+    --         objects that Elastic Transcoder adds to the Amazon S3 bucket.
+    --
+    --     -   @READ_ACP@: The grantee can read the object ACL for objects that
+    --         Elastic Transcoder adds to the Amazon S3 bucket.
+    --
+    --     -   @WRITE_ACP@: The grantee can write the ACL for the objects that
+    --         Elastic Transcoder adds to the Amazon S3 bucket.
+    --
+    --     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
+    --         @WRITE_ACP@ permissions for the objects that Elastic Transcoder
+    --         adds to the Amazon S3 bucket.
+    --
+    -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
+    --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
+    --     the video files and playlists that it stores in your Amazon S3
+    --     bucket.
+    contentConfig :: Prelude.Maybe PipelineOutputConfig,
     -- | The name of the pipeline. We recommend that the name be unique within
     -- the AWS account, but uniqueness is not enforced.
     --
@@ -282,115 +282,6 @@ data CreatePipeline = CreatePipeline'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'contentConfig', 'createPipeline_contentConfig' - The optional @ContentConfig@ object specifies information about the
--- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
--- files and playlists: which bucket to use, which users you want to have
--- access to the files, the type of access you want users to have, and the
--- storage class that you want to assign to the files.
---
--- If you specify values for @ContentConfig@, you must also specify values
--- for @ThumbnailConfig@.
---
--- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
--- the @OutputBucket@ object.
---
--- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
---     Transcoder to save transcoded files and playlists.
---
--- -   __Permissions__ (Optional): The Permissions object specifies which
---     users you want to have access to transcoded files and the type of
---     access you want them to have. You can grant permissions to a maximum
---     of 30 users and\/or predefined Amazon S3 groups.
---
--- -   __Grantee Type__: Specify the type of value that appears in the
---     @Grantee@ object:
---
---     -   __Canonical__: The value in the @Grantee@ object is either the
---         canonical user ID for an AWS account or an origin access
---         identity for an Amazon CloudFront distribution. For more
---         information about canonical user IDs, see Access Control List
---         (ACL) Overview in the Amazon Simple Storage Service Developer
---         Guide. For more information about using CloudFront origin access
---         identities to require that users use CloudFront URLs instead of
---         Amazon S3 URLs, see Using an Origin Access Identity to Restrict
---         Access to Your Amazon S3 Content.
---
---         A canonical user ID is not the same as an AWS account number.
---
---     -   __Email__: The value in the @Grantee@ object is the registered
---         email address of an AWS account.
---
---     -   __Group__: The value in the @Grantee@ object is one of the
---         following predefined Amazon S3 groups: @AllUsers@,
---         @AuthenticatedUsers@, or @LogDelivery@.
---
--- -   __Grantee__: The AWS user or group that you want to have access to
---     transcoded files and playlists. To identify the user or group, you
---     can specify the canonical user ID for an AWS account, an origin
---     access identity for a CloudFront distribution, the registered email
---     address of an AWS account, or a predefined Amazon S3 group
---
--- -   __Access__: The permission that you want to give to the AWS user
---     that you specified in @Grantee@. Permissions are granted on the
---     files that Elastic Transcoder adds to the bucket, including
---     playlists and video files. Valid values include:
---
---     -   @READ@: The grantee can read the objects and metadata for
---         objects that Elastic Transcoder adds to the Amazon S3 bucket.
---
---     -   @READ_ACP@: The grantee can read the object ACL for objects that
---         Elastic Transcoder adds to the Amazon S3 bucket.
---
---     -   @WRITE_ACP@: The grantee can write the ACL for the objects that
---         Elastic Transcoder adds to the Amazon S3 bucket.
---
---     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
---         @WRITE_ACP@ permissions for the objects that Elastic Transcoder
---         adds to the Amazon S3 bucket.
---
--- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
---     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
---     the video files and playlists that it stores in your Amazon S3
---     bucket.
---
--- 'outputBucket', 'createPipeline_outputBucket' - The Amazon S3 bucket in which you want Elastic Transcoder to save the
--- transcoded files. (Use this, or use ContentConfig:Bucket plus
--- ThumbnailConfig:Bucket.)
---
--- Specify this value when all of the following are true:
---
--- -   You want to save transcoded files, thumbnails (if any), and
---     playlists (if any) together in one bucket.
---
--- -   You do not want to specify the users or groups who have access to
---     the transcoded files, thumbnails, and playlists.
---
--- -   You do not want to specify the permissions that Elastic Transcoder
---     grants to the files.
---
---     When Elastic Transcoder saves files in @OutputBucket@, it grants
---     full control over the files only to the AWS account that owns the
---     role that is specified by @Role@.
---
--- -   You want to associate the transcoded files and thumbnails with the
---     Amazon S3 Standard storage class.
---
--- If you want to save transcoded files and playlists in one bucket and
--- thumbnails in another bucket, specify which users can access the
--- transcoded files or the permissions the users have, or change the Amazon
--- S3 storage class, omit @OutputBucket@ and specify values for
--- @ContentConfig@ and @ThumbnailConfig@ instead.
---
--- 'awsKmsKeyArn', 'createPipeline_awsKmsKeyArn' - The AWS Key Management Service (AWS KMS) key that you want to use with
--- this pipeline.
---
--- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you
--- don\'t need to provide a key with your job because a default key, known
--- as an AWS-KMS key, is created for you automatically. You need to provide
--- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
--- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
--- @aes-gcm@.
 --
 -- 'notifications', 'createPipeline_notifications' - The Amazon Simple Notification Service (Amazon SNS) topic that you want
 -- to notify to report job status.
@@ -485,37 +376,45 @@ data CreatePipeline = CreatePipeline'
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
 --
--- 'name', 'createPipeline_name' - The name of the pipeline. We recommend that the name be unique within
--- the AWS account, but uniqueness is not enforced.
+-- 'awsKmsKeyArn', 'createPipeline_awsKmsKeyArn' - The AWS Key Management Service (AWS KMS) key that you want to use with
+-- this pipeline.
 --
--- Constraints: Maximum 40 characters.
+-- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you
+-- don\'t need to provide a key with your job because a default key, known
+-- as an AWS-KMS key, is created for you automatically. You need to provide
+-- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
+-- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
+-- @aes-gcm@.
 --
--- 'inputBucket', 'createPipeline_inputBucket' - The Amazon S3 bucket in which you saved the media files that you want to
--- transcode.
+-- 'outputBucket', 'createPipeline_outputBucket' - The Amazon S3 bucket in which you want Elastic Transcoder to save the
+-- transcoded files. (Use this, or use ContentConfig:Bucket plus
+-- ThumbnailConfig:Bucket.)
 --
--- 'role'', 'createPipeline_role' - The IAM Amazon Resource Name (ARN) for the role that you want Elastic
--- Transcoder to use to create the pipeline.
-newCreatePipeline ::
-  -- | 'name'
-  Prelude.Text ->
-  -- | 'inputBucket'
-  Prelude.Text ->
-  -- | 'role''
-  Prelude.Text ->
-  CreatePipeline
-newCreatePipeline pName_ pInputBucket_ pRole_ =
-  CreatePipeline'
-    { contentConfig = Prelude.Nothing,
-      outputBucket = Prelude.Nothing,
-      awsKmsKeyArn = Prelude.Nothing,
-      notifications = Prelude.Nothing,
-      thumbnailConfig = Prelude.Nothing,
-      name = pName_,
-      inputBucket = pInputBucket_,
-      role' = pRole_
-    }
-
--- | The optional @ContentConfig@ object specifies information about the
+-- Specify this value when all of the following are true:
+--
+-- -   You want to save transcoded files, thumbnails (if any), and
+--     playlists (if any) together in one bucket.
+--
+-- -   You do not want to specify the users or groups who have access to
+--     the transcoded files, thumbnails, and playlists.
+--
+-- -   You do not want to specify the permissions that Elastic Transcoder
+--     grants to the files.
+--
+--     When Elastic Transcoder saves files in @OutputBucket@, it grants
+--     full control over the files only to the AWS account that owns the
+--     role that is specified by @Role@.
+--
+-- -   You want to associate the transcoded files and thumbnails with the
+--     Amazon S3 Standard storage class.
+--
+-- If you want to save transcoded files and playlists in one bucket and
+-- thumbnails in another bucket, specify which users can access the
+-- transcoded files or the permissions the users have, or change the Amazon
+-- S3 storage class, omit @OutputBucket@ and specify values for
+-- @ContentConfig@ and @ThumbnailConfig@ instead.
+--
+-- 'contentConfig', 'createPipeline_contentConfig' - The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
 -- files and playlists: which bucket to use, which users you want to have
 -- access to the files, the type of access you want users to have, and the
@@ -585,50 +484,36 @@ newCreatePipeline pName_ pInputBucket_ pRole_ =
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the video files and playlists that it stores in your Amazon S3
 --     bucket.
-createPipeline_contentConfig :: Lens.Lens' CreatePipeline (Prelude.Maybe PipelineOutputConfig)
-createPipeline_contentConfig = Lens.lens (\CreatePipeline' {contentConfig} -> contentConfig) (\s@CreatePipeline' {} a -> s {contentConfig = a} :: CreatePipeline)
-
--- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
--- transcoded files. (Use this, or use ContentConfig:Bucket plus
--- ThumbnailConfig:Bucket.)
 --
--- Specify this value when all of the following are true:
+-- 'name', 'createPipeline_name' - The name of the pipeline. We recommend that the name be unique within
+-- the AWS account, but uniqueness is not enforced.
 --
--- -   You want to save transcoded files, thumbnails (if any), and
---     playlists (if any) together in one bucket.
+-- Constraints: Maximum 40 characters.
 --
--- -   You do not want to specify the users or groups who have access to
---     the transcoded files, thumbnails, and playlists.
+-- 'inputBucket', 'createPipeline_inputBucket' - The Amazon S3 bucket in which you saved the media files that you want to
+-- transcode.
 --
--- -   You do not want to specify the permissions that Elastic Transcoder
---     grants to the files.
---
---     When Elastic Transcoder saves files in @OutputBucket@, it grants
---     full control over the files only to the AWS account that owns the
---     role that is specified by @Role@.
---
--- -   You want to associate the transcoded files and thumbnails with the
---     Amazon S3 Standard storage class.
---
--- If you want to save transcoded files and playlists in one bucket and
--- thumbnails in another bucket, specify which users can access the
--- transcoded files or the permissions the users have, or change the Amazon
--- S3 storage class, omit @OutputBucket@ and specify values for
--- @ContentConfig@ and @ThumbnailConfig@ instead.
-createPipeline_outputBucket :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
-createPipeline_outputBucket = Lens.lens (\CreatePipeline' {outputBucket} -> outputBucket) (\s@CreatePipeline' {} a -> s {outputBucket = a} :: CreatePipeline)
-
--- | The AWS Key Management Service (AWS KMS) key that you want to use with
--- this pipeline.
---
--- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you
--- don\'t need to provide a key with your job because a default key, known
--- as an AWS-KMS key, is created for you automatically. You need to provide
--- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
--- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
--- @aes-gcm@.
-createPipeline_awsKmsKeyArn :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
-createPipeline_awsKmsKeyArn = Lens.lens (\CreatePipeline' {awsKmsKeyArn} -> awsKmsKeyArn) (\s@CreatePipeline' {} a -> s {awsKmsKeyArn = a} :: CreatePipeline)
+-- 'role'', 'createPipeline_role' - The IAM Amazon Resource Name (ARN) for the role that you want Elastic
+-- Transcoder to use to create the pipeline.
+newCreatePipeline ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'inputBucket'
+  Prelude.Text ->
+  -- | 'role''
+  Prelude.Text ->
+  CreatePipeline
+newCreatePipeline pName_ pInputBucket_ pRole_ =
+  CreatePipeline'
+    { notifications = Prelude.Nothing,
+      thumbnailConfig = Prelude.Nothing,
+      awsKmsKeyArn = Prelude.Nothing,
+      outputBucket = Prelude.Nothing,
+      contentConfig = Prelude.Nothing,
+      name = pName_,
+      inputBucket = pInputBucket_,
+      role' = pRole_
+    }
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
 -- to notify to report job status.
@@ -727,6 +612,121 @@ createPipeline_notifications = Lens.lens (\CreatePipeline' {notifications} -> no
 createPipeline_thumbnailConfig :: Lens.Lens' CreatePipeline (Prelude.Maybe PipelineOutputConfig)
 createPipeline_thumbnailConfig = Lens.lens (\CreatePipeline' {thumbnailConfig} -> thumbnailConfig) (\s@CreatePipeline' {} a -> s {thumbnailConfig = a} :: CreatePipeline)
 
+-- | The AWS Key Management Service (AWS KMS) key that you want to use with
+-- this pipeline.
+--
+-- If you use either @s3@ or @s3-aws-kms@ as your @Encryption:Mode@, you
+-- don\'t need to provide a key with your job because a default key, known
+-- as an AWS-KMS key, is created for you automatically. You need to provide
+-- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
+-- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
+-- @aes-gcm@.
+createPipeline_awsKmsKeyArn :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
+createPipeline_awsKmsKeyArn = Lens.lens (\CreatePipeline' {awsKmsKeyArn} -> awsKmsKeyArn) (\s@CreatePipeline' {} a -> s {awsKmsKeyArn = a} :: CreatePipeline)
+
+-- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
+-- transcoded files. (Use this, or use ContentConfig:Bucket plus
+-- ThumbnailConfig:Bucket.)
+--
+-- Specify this value when all of the following are true:
+--
+-- -   You want to save transcoded files, thumbnails (if any), and
+--     playlists (if any) together in one bucket.
+--
+-- -   You do not want to specify the users or groups who have access to
+--     the transcoded files, thumbnails, and playlists.
+--
+-- -   You do not want to specify the permissions that Elastic Transcoder
+--     grants to the files.
+--
+--     When Elastic Transcoder saves files in @OutputBucket@, it grants
+--     full control over the files only to the AWS account that owns the
+--     role that is specified by @Role@.
+--
+-- -   You want to associate the transcoded files and thumbnails with the
+--     Amazon S3 Standard storage class.
+--
+-- If you want to save transcoded files and playlists in one bucket and
+-- thumbnails in another bucket, specify which users can access the
+-- transcoded files or the permissions the users have, or change the Amazon
+-- S3 storage class, omit @OutputBucket@ and specify values for
+-- @ContentConfig@ and @ThumbnailConfig@ instead.
+createPipeline_outputBucket :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
+createPipeline_outputBucket = Lens.lens (\CreatePipeline' {outputBucket} -> outputBucket) (\s@CreatePipeline' {} a -> s {outputBucket = a} :: CreatePipeline)
+
+-- | The optional @ContentConfig@ object specifies information about the
+-- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
+-- files and playlists: which bucket to use, which users you want to have
+-- access to the files, the type of access you want users to have, and the
+-- storage class that you want to assign to the files.
+--
+-- If you specify values for @ContentConfig@, you must also specify values
+-- for @ThumbnailConfig@.
+--
+-- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
+-- the @OutputBucket@ object.
+--
+-- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
+--     Transcoder to save transcoded files and playlists.
+--
+-- -   __Permissions__ (Optional): The Permissions object specifies which
+--     users you want to have access to transcoded files and the type of
+--     access you want them to have. You can grant permissions to a maximum
+--     of 30 users and\/or predefined Amazon S3 groups.
+--
+-- -   __Grantee Type__: Specify the type of value that appears in the
+--     @Grantee@ object:
+--
+--     -   __Canonical__: The value in the @Grantee@ object is either the
+--         canonical user ID for an AWS account or an origin access
+--         identity for an Amazon CloudFront distribution. For more
+--         information about canonical user IDs, see Access Control List
+--         (ACL) Overview in the Amazon Simple Storage Service Developer
+--         Guide. For more information about using CloudFront origin access
+--         identities to require that users use CloudFront URLs instead of
+--         Amazon S3 URLs, see Using an Origin Access Identity to Restrict
+--         Access to Your Amazon S3 Content.
+--
+--         A canonical user ID is not the same as an AWS account number.
+--
+--     -   __Email__: The value in the @Grantee@ object is the registered
+--         email address of an AWS account.
+--
+--     -   __Group__: The value in the @Grantee@ object is one of the
+--         following predefined Amazon S3 groups: @AllUsers@,
+--         @AuthenticatedUsers@, or @LogDelivery@.
+--
+-- -   __Grantee__: The AWS user or group that you want to have access to
+--     transcoded files and playlists. To identify the user or group, you
+--     can specify the canonical user ID for an AWS account, an origin
+--     access identity for a CloudFront distribution, the registered email
+--     address of an AWS account, or a predefined Amazon S3 group
+--
+-- -   __Access__: The permission that you want to give to the AWS user
+--     that you specified in @Grantee@. Permissions are granted on the
+--     files that Elastic Transcoder adds to the bucket, including
+--     playlists and video files. Valid values include:
+--
+--     -   @READ@: The grantee can read the objects and metadata for
+--         objects that Elastic Transcoder adds to the Amazon S3 bucket.
+--
+--     -   @READ_ACP@: The grantee can read the object ACL for objects that
+--         Elastic Transcoder adds to the Amazon S3 bucket.
+--
+--     -   @WRITE_ACP@: The grantee can write the ACL for the objects that
+--         Elastic Transcoder adds to the Amazon S3 bucket.
+--
+--     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
+--         @WRITE_ACP@ permissions for the objects that Elastic Transcoder
+--         adds to the Amazon S3 bucket.
+--
+-- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
+--     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
+--     the video files and playlists that it stores in your Amazon S3
+--     bucket.
+createPipeline_contentConfig :: Lens.Lens' CreatePipeline (Prelude.Maybe PipelineOutputConfig)
+createPipeline_contentConfig = Lens.lens (\CreatePipeline' {contentConfig} -> contentConfig) (\s@CreatePipeline' {} a -> s {contentConfig = a} :: CreatePipeline)
+
 -- | The name of the pipeline. We recommend that the name be unique within
 -- the AWS account, but uniqueness is not enforced.
 --
@@ -760,22 +760,22 @@ instance Core.AWSRequest CreatePipeline where
 
 instance Prelude.Hashable CreatePipeline where
   hashWithSalt _salt CreatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` contentConfig
-      `Prelude.hashWithSalt` outputBucket
-      `Prelude.hashWithSalt` awsKmsKeyArn
-      `Prelude.hashWithSalt` notifications
+    _salt `Prelude.hashWithSalt` notifications
       `Prelude.hashWithSalt` thumbnailConfig
+      `Prelude.hashWithSalt` awsKmsKeyArn
+      `Prelude.hashWithSalt` outputBucket
+      `Prelude.hashWithSalt` contentConfig
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputBucket
       `Prelude.hashWithSalt` role'
 
 instance Prelude.NFData CreatePipeline where
   rnf CreatePipeline' {..} =
-    Prelude.rnf contentConfig
-      `Prelude.seq` Prelude.rnf outputBucket
-      `Prelude.seq` Prelude.rnf awsKmsKeyArn
-      `Prelude.seq` Prelude.rnf notifications
+    Prelude.rnf notifications
       `Prelude.seq` Prelude.rnf thumbnailConfig
+      `Prelude.seq` Prelude.rnf awsKmsKeyArn
+      `Prelude.seq` Prelude.rnf outputBucket
+      `Prelude.seq` Prelude.rnf contentConfig
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputBucket
       `Prelude.seq` Prelude.rnf role'
@@ -787,12 +787,12 @@ instance Core.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ContentConfig" Core..=) Prelude.<$> contentConfig,
-            ("OutputBucket" Core..=) Prelude.<$> outputBucket,
-            ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn,
-            ("Notifications" Core..=) Prelude.<$> notifications,
+          [ ("Notifications" Core..=) Prelude.<$> notifications,
             ("ThumbnailConfig" Core..=)
               Prelude.<$> thumbnailConfig,
+            ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn,
+            ("OutputBucket" Core..=) Prelude.<$> outputBucket,
+            ("ContentConfig" Core..=) Prelude.<$> contentConfig,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("InputBucket" Core..= inputBucket),
             Prelude.Just ("Role" Core..= role')

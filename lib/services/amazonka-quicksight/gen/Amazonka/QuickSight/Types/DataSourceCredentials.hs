@@ -29,13 +29,13 @@ import Amazonka.QuickSight.Types.CredentialPair
 --
 -- /See:/ 'newDataSourceCredentials' smart constructor.
 data DataSourceCredentials = DataSourceCredentials'
-  { -- | The Amazon Resource Name (ARN) of a data source that has the credential
+  { -- | Credential pair. For more information, see CredentialPair.
+    credentialPair :: Prelude.Maybe CredentialPair,
+    -- | The Amazon Resource Name (ARN) of a data source that has the credential
     -- pair that you want to use. When @CopySourceArn@ is not null, the
     -- credential pair from the data source in the ARN is used as the
     -- credentials for the @DataSourceCredentials@ structure.
-    copySourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Credential pair. For more information, see CredentialPair.
-    credentialPair :: Prelude.Maybe CredentialPair
+    copySourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data DataSourceCredentials = DataSourceCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'credentialPair', 'dataSourceCredentials_credentialPair' - Credential pair. For more information, see CredentialPair.
+--
 -- 'copySourceArn', 'dataSourceCredentials_copySourceArn' - The Amazon Resource Name (ARN) of a data source that has the credential
 -- pair that you want to use. When @CopySourceArn@ is not null, the
 -- credential pair from the data source in the ARN is used as the
 -- credentials for the @DataSourceCredentials@ structure.
---
--- 'credentialPair', 'dataSourceCredentials_credentialPair' - Credential pair. For more information, see CredentialPair.
 newDataSourceCredentials ::
   DataSourceCredentials
 newDataSourceCredentials =
   DataSourceCredentials'
-    { copySourceArn =
+    { credentialPair =
         Prelude.Nothing,
-      credentialPair = Prelude.Nothing
+      copySourceArn = Prelude.Nothing
     }
+
+-- | Credential pair. For more information, see CredentialPair.
+dataSourceCredentials_credentialPair :: Lens.Lens' DataSourceCredentials (Prelude.Maybe CredentialPair)
+dataSourceCredentials_credentialPair = Lens.lens (\DataSourceCredentials' {credentialPair} -> credentialPair) (\s@DataSourceCredentials' {} a -> s {credentialPair = a} :: DataSourceCredentials)
 
 -- | The Amazon Resource Name (ARN) of a data source that has the credential
 -- pair that you want to use. When @CopySourceArn@ is not null, the
@@ -69,26 +73,22 @@ newDataSourceCredentials =
 dataSourceCredentials_copySourceArn :: Lens.Lens' DataSourceCredentials (Prelude.Maybe Prelude.Text)
 dataSourceCredentials_copySourceArn = Lens.lens (\DataSourceCredentials' {copySourceArn} -> copySourceArn) (\s@DataSourceCredentials' {} a -> s {copySourceArn = a} :: DataSourceCredentials)
 
--- | Credential pair. For more information, see CredentialPair.
-dataSourceCredentials_credentialPair :: Lens.Lens' DataSourceCredentials (Prelude.Maybe CredentialPair)
-dataSourceCredentials_credentialPair = Lens.lens (\DataSourceCredentials' {credentialPair} -> credentialPair) (\s@DataSourceCredentials' {} a -> s {credentialPair = a} :: DataSourceCredentials)
-
 instance Prelude.Hashable DataSourceCredentials where
   hashWithSalt _salt DataSourceCredentials' {..} =
-    _salt `Prelude.hashWithSalt` copySourceArn
-      `Prelude.hashWithSalt` credentialPair
+    _salt `Prelude.hashWithSalt` credentialPair
+      `Prelude.hashWithSalt` copySourceArn
 
 instance Prelude.NFData DataSourceCredentials where
   rnf DataSourceCredentials' {..} =
-    Prelude.rnf copySourceArn
-      `Prelude.seq` Prelude.rnf credentialPair
+    Prelude.rnf credentialPair
+      `Prelude.seq` Prelude.rnf copySourceArn
 
 instance Core.ToJSON DataSourceCredentials where
   toJSON DataSourceCredentials' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CopySourceArn" Core..=) Prelude.<$> copySourceArn,
-            ("CredentialPair" Core..=)
-              Prelude.<$> credentialPair
+          [ ("CredentialPair" Core..=)
+              Prelude.<$> credentialPair,
+            ("CopySourceArn" Core..=) Prelude.<$> copySourceArn
           ]
       )

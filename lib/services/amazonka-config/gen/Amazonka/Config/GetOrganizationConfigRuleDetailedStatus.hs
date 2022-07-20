@@ -30,8 +30,8 @@ module Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
     newGetOrganizationConfigRuleDetailedStatus,
 
     -- * Request Lenses
-    getOrganizationConfigRuleDetailedStatus_filters,
     getOrganizationConfigRuleDetailedStatus_nextToken,
+    getOrganizationConfigRuleDetailedStatus_filters,
     getOrganizationConfigRuleDetailedStatus_limit,
     getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName,
 
@@ -40,8 +40,8 @@ module Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
     newGetOrganizationConfigRuleDetailedStatusResponse,
 
     -- * Response Lenses
-    getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus,
     getOrganizationConfigRuleDetailedStatusResponse_nextToken,
+    getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus,
     getOrganizationConfigRuleDetailedStatusResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetOrganizationConfigRuleDetailedStatus' smart constructor.
 data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailedStatus'
-  { -- | A @StatusDetailFilters@ object.
-    filters :: Prelude.Maybe StatusDetailFilters,
-    -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A @StatusDetailFilters@ object.
+    filters :: Prelude.Maybe StatusDetailFilters,
     -- | The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on
     -- each page. If you do not specify a number, Config uses the default. The
     -- default is 100.
@@ -78,10 +78,10 @@ data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailed
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'getOrganizationConfigRuleDetailedStatus_filters' - A @StatusDetailFilters@ object.
---
 -- 'nextToken', 'getOrganizationConfigRuleDetailedStatus_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
+--
+-- 'filters', 'getOrganizationConfigRuleDetailedStatus_filters' - A @StatusDetailFilters@ object.
 --
 -- 'limit', 'getOrganizationConfigRuleDetailedStatus_limit' - The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on
 -- each page. If you do not specify a number, Config uses the default. The
@@ -96,22 +96,22 @@ newGetOrganizationConfigRuleDetailedStatus ::
 newGetOrganizationConfigRuleDetailedStatus
   pOrganizationConfigRuleName_ =
     GetOrganizationConfigRuleDetailedStatus'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         limit = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_
       }
 
--- | A @StatusDetailFilters@ object.
-getOrganizationConfigRuleDetailedStatus_filters :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe StatusDetailFilters)
-getOrganizationConfigRuleDetailedStatus_filters = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {filters} -> filters) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {filters = a} :: GetOrganizationConfigRuleDetailedStatus)
-
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 getOrganizationConfigRuleDetailedStatus_nextToken :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe Prelude.Text)
 getOrganizationConfigRuleDetailedStatus_nextToken = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {nextToken} -> nextToken) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {nextToken = a} :: GetOrganizationConfigRuleDetailedStatus)
+
+-- | A @StatusDetailFilters@ object.
+getOrganizationConfigRuleDetailedStatus_filters :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe StatusDetailFilters)
+getOrganizationConfigRuleDetailedStatus_filters = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {filters} -> filters) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {filters = a} :: GetOrganizationConfigRuleDetailedStatus)
 
 -- | The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on
 -- each page. If you do not specify a number, Config uses the default. The
@@ -162,10 +162,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetOrganizationConfigRuleDetailedStatusResponse'
-            Prelude.<$> ( x Core..?> "OrganizationConfigRuleDetailedStatus"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "OrganizationConfigRuleDetailedStatus"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,8 +176,8 @@ instance
   hashWithSalt
     _salt
     GetOrganizationConfigRuleDetailedStatus' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` organizationConfigRuleName
 
@@ -186,8 +186,8 @@ instance
     GetOrganizationConfigRuleDetailedStatus
   where
   rnf GetOrganizationConfigRuleDetailedStatus' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf organizationConfigRuleName
 
@@ -216,8 +216,8 @@ instance
   toJSON GetOrganizationConfigRuleDetailedStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ( "OrganizationConfigRuleName"
@@ -240,11 +240,11 @@ instance
 
 -- | /See:/ 'newGetOrganizationConfigRuleDetailedStatusResponse' smart constructor.
 data GetOrganizationConfigRuleDetailedStatusResponse = GetOrganizationConfigRuleDetailedStatusResponse'
-  { -- | A list of @MemberAccountStatus@ objects.
-    organizationConfigRuleDetailedStatus :: Prelude.Maybe [MemberAccountStatus],
-    -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of @MemberAccountStatus@ objects.
+    organizationConfigRuleDetailedStatus :: Prelude.Maybe [MemberAccountStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -258,10 +258,10 @@ data GetOrganizationConfigRuleDetailedStatusResponse = GetOrganizationConfigRule
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationConfigRuleDetailedStatus', 'getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus' - A list of @MemberAccountStatus@ objects.
---
 -- 'nextToken', 'getOrganizationConfigRuleDetailedStatusResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
+--
+-- 'organizationConfigRuleDetailedStatus', 'getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus' - A list of @MemberAccountStatus@ objects.
 --
 -- 'httpStatus', 'getOrganizationConfigRuleDetailedStatusResponse_httpStatus' - The response's http status code.
 newGetOrganizationConfigRuleDetailedStatusResponse ::
@@ -271,21 +271,21 @@ newGetOrganizationConfigRuleDetailedStatusResponse ::
 newGetOrganizationConfigRuleDetailedStatusResponse
   pHttpStatus_ =
     GetOrganizationConfigRuleDetailedStatusResponse'
-      { organizationConfigRuleDetailedStatus =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        organizationConfigRuleDetailedStatus =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A list of @MemberAccountStatus@ objects.
-getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus :: Lens.Lens' GetOrganizationConfigRuleDetailedStatusResponse (Prelude.Maybe [MemberAccountStatus])
-getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus = Lens.lens (\GetOrganizationConfigRuleDetailedStatusResponse' {organizationConfigRuleDetailedStatus} -> organizationConfigRuleDetailedStatus) (\s@GetOrganizationConfigRuleDetailedStatusResponse' {} a -> s {organizationConfigRuleDetailedStatus = a} :: GetOrganizationConfigRuleDetailedStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 getOrganizationConfigRuleDetailedStatusResponse_nextToken :: Lens.Lens' GetOrganizationConfigRuleDetailedStatusResponse (Prelude.Maybe Prelude.Text)
 getOrganizationConfigRuleDetailedStatusResponse_nextToken = Lens.lens (\GetOrganizationConfigRuleDetailedStatusResponse' {nextToken} -> nextToken) (\s@GetOrganizationConfigRuleDetailedStatusResponse' {} a -> s {nextToken = a} :: GetOrganizationConfigRuleDetailedStatusResponse)
+
+-- | A list of @MemberAccountStatus@ objects.
+getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus :: Lens.Lens' GetOrganizationConfigRuleDetailedStatusResponse (Prelude.Maybe [MemberAccountStatus])
+getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus = Lens.lens (\GetOrganizationConfigRuleDetailedStatusResponse' {organizationConfigRuleDetailedStatus} -> organizationConfigRuleDetailedStatus) (\s@GetOrganizationConfigRuleDetailedStatusResponse' {} a -> s {organizationConfigRuleDetailedStatus = a} :: GetOrganizationConfigRuleDetailedStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getOrganizationConfigRuleDetailedStatusResponse_httpStatus :: Lens.Lens' GetOrganizationConfigRuleDetailedStatusResponse Prelude.Int
@@ -297,6 +297,6 @@ instance
   where
   rnf
     GetOrganizationConfigRuleDetailedStatusResponse' {..} =
-      Prelude.rnf organizationConfigRuleDetailedStatus
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf organizationConfigRuleDetailedStatus
         `Prelude.seq` Prelude.rnf httpStatus

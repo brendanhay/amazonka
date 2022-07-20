@@ -48,15 +48,6 @@ data Channel = Channel'
     -- across nodes so that the content sent to a particular node on the first
     -- epoch might be sent to a different node on the second epoch.
     shuffleConfig :: Prelude.Maybe ShuffleConfig,
-    -- | Specify RecordIO as the value when input data is in raw format but the
-    -- training algorithm requires the RecordIO format. In this case, Amazon
-    -- SageMaker wraps each individual S3 object in a RecordIO record. If the
-    -- input data is already in RecordIO format, you don\'t need to set this
-    -- attribute. For more information, see
-    -- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
-    --
-    -- In File mode, leave this field unset or set it to None.
-    recordWrapperType :: Prelude.Maybe RecordWrapper,
     -- | (Optional) The input mode to use for the data channel in a training job.
     -- If you don\'t set a value for @InputMode@, Amazon SageMaker uses the
     -- value set for @TrainingInputMode@. Use this parameter to override the
@@ -73,6 +64,15 @@ data Channel = Channel'
     -- is @None@. @CompressionType@ is used only in Pipe input mode. In File
     -- mode, leave this field unset or set it to None.
     compressionType :: Prelude.Maybe CompressionType,
+    -- | Specify RecordIO as the value when input data is in raw format but the
+    -- training algorithm requires the RecordIO format. In this case, Amazon
+    -- SageMaker wraps each individual S3 object in a RecordIO record. If the
+    -- input data is already in RecordIO format, you don\'t need to set this
+    -- attribute. For more information, see
+    -- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
+    --
+    -- In File mode, leave this field unset or set it to None.
+    recordWrapperType :: Prelude.Maybe RecordWrapper,
     -- | The MIME type of the data.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The name of the channel.
@@ -106,15 +106,6 @@ data Channel = Channel'
 -- across nodes so that the content sent to a particular node on the first
 -- epoch might be sent to a different node on the second epoch.
 --
--- 'recordWrapperType', 'channel_recordWrapperType' - Specify RecordIO as the value when input data is in raw format but the
--- training algorithm requires the RecordIO format. In this case, Amazon
--- SageMaker wraps each individual S3 object in a RecordIO record. If the
--- input data is already in RecordIO format, you don\'t need to set this
--- attribute. For more information, see
--- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
---
--- In File mode, leave this field unset or set it to None.
---
 -- 'inputMode', 'channel_inputMode' - (Optional) The input mode to use for the data channel in a training job.
 -- If you don\'t set a value for @InputMode@, Amazon SageMaker uses the
 -- value set for @TrainingInputMode@. Use this parameter to override the
@@ -131,6 +122,15 @@ data Channel = Channel'
 -- is @None@. @CompressionType@ is used only in Pipe input mode. In File
 -- mode, leave this field unset or set it to None.
 --
+-- 'recordWrapperType', 'channel_recordWrapperType' - Specify RecordIO as the value when input data is in raw format but the
+-- training algorithm requires the RecordIO format. In this case, Amazon
+-- SageMaker wraps each individual S3 object in a RecordIO record. If the
+-- input data is already in RecordIO format, you don\'t need to set this
+-- attribute. For more information, see
+-- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
+--
+-- In File mode, leave this field unset or set it to None.
+--
 -- 'contentType', 'channel_contentType' - The MIME type of the data.
 --
 -- 'channelName', 'channel_channelName' - The name of the channel.
@@ -145,9 +145,9 @@ newChannel ::
 newChannel pChannelName_ pDataSource_ =
   Channel'
     { shuffleConfig = Prelude.Nothing,
-      recordWrapperType = Prelude.Nothing,
       inputMode = Prelude.Nothing,
       compressionType = Prelude.Nothing,
+      recordWrapperType = Prelude.Nothing,
       contentType = Prelude.Nothing,
       channelName = pChannelName_,
       dataSource = pDataSource_
@@ -171,17 +171,6 @@ newChannel pChannelName_ pDataSource_ =
 channel_shuffleConfig :: Lens.Lens' Channel (Prelude.Maybe ShuffleConfig)
 channel_shuffleConfig = Lens.lens (\Channel' {shuffleConfig} -> shuffleConfig) (\s@Channel' {} a -> s {shuffleConfig = a} :: Channel)
 
--- | Specify RecordIO as the value when input data is in raw format but the
--- training algorithm requires the RecordIO format. In this case, Amazon
--- SageMaker wraps each individual S3 object in a RecordIO record. If the
--- input data is already in RecordIO format, you don\'t need to set this
--- attribute. For more information, see
--- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
---
--- In File mode, leave this field unset or set it to None.
-channel_recordWrapperType :: Lens.Lens' Channel (Prelude.Maybe RecordWrapper)
-channel_recordWrapperType = Lens.lens (\Channel' {recordWrapperType} -> recordWrapperType) (\s@Channel' {} a -> s {recordWrapperType = a} :: Channel)
-
 -- | (Optional) The input mode to use for the data channel in a training job.
 -- If you don\'t set a value for @InputMode@, Amazon SageMaker uses the
 -- value set for @TrainingInputMode@. Use this parameter to override the
@@ -202,6 +191,17 @@ channel_inputMode = Lens.lens (\Channel' {inputMode} -> inputMode) (\s@Channel' 
 channel_compressionType :: Lens.Lens' Channel (Prelude.Maybe CompressionType)
 channel_compressionType = Lens.lens (\Channel' {compressionType} -> compressionType) (\s@Channel' {} a -> s {compressionType = a} :: Channel)
 
+-- | Specify RecordIO as the value when input data is in raw format but the
+-- training algorithm requires the RecordIO format. In this case, Amazon
+-- SageMaker wraps each individual S3 object in a RecordIO record. If the
+-- input data is already in RecordIO format, you don\'t need to set this
+-- attribute. For more information, see
+-- <https://mxnet.apache.org/api/architecture/note_data_loading#data-format Create a Dataset Using RecordIO>.
+--
+-- In File mode, leave this field unset or set it to None.
+channel_recordWrapperType :: Lens.Lens' Channel (Prelude.Maybe RecordWrapper)
+channel_recordWrapperType = Lens.lens (\Channel' {recordWrapperType} -> recordWrapperType) (\s@Channel' {} a -> s {recordWrapperType = a} :: Channel)
+
 -- | The MIME type of the data.
 channel_contentType :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_contentType = Lens.lens (\Channel' {contentType} -> contentType) (\s@Channel' {} a -> s {contentType = a} :: Channel)
@@ -221,9 +221,9 @@ instance Core.FromJSON Channel where
       ( \x ->
           Channel'
             Prelude.<$> (x Core..:? "ShuffleConfig")
-            Prelude.<*> (x Core..:? "RecordWrapperType")
             Prelude.<*> (x Core..:? "InputMode")
             Prelude.<*> (x Core..:? "CompressionType")
+            Prelude.<*> (x Core..:? "RecordWrapperType")
             Prelude.<*> (x Core..:? "ContentType")
             Prelude.<*> (x Core..: "ChannelName")
             Prelude.<*> (x Core..: "DataSource")
@@ -232,9 +232,9 @@ instance Core.FromJSON Channel where
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
     _salt `Prelude.hashWithSalt` shuffleConfig
-      `Prelude.hashWithSalt` recordWrapperType
       `Prelude.hashWithSalt` inputMode
       `Prelude.hashWithSalt` compressionType
+      `Prelude.hashWithSalt` recordWrapperType
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` dataSource
@@ -242,9 +242,9 @@ instance Prelude.Hashable Channel where
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
     Prelude.rnf shuffleConfig
-      `Prelude.seq` Prelude.rnf recordWrapperType
       `Prelude.seq` Prelude.rnf inputMode
       `Prelude.seq` Prelude.rnf compressionType
+      `Prelude.seq` Prelude.rnf recordWrapperType
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf dataSource
@@ -254,11 +254,11 @@ instance Core.ToJSON Channel where
     Core.object
       ( Prelude.catMaybes
           [ ("ShuffleConfig" Core..=) Prelude.<$> shuffleConfig,
-            ("RecordWrapperType" Core..=)
-              Prelude.<$> recordWrapperType,
             ("InputMode" Core..=) Prelude.<$> inputMode,
             ("CompressionType" Core..=)
               Prelude.<$> compressionType,
+            ("RecordWrapperType" Core..=)
+              Prelude.<$> recordWrapperType,
             ("ContentType" Core..=) Prelude.<$> contentType,
             Prelude.Just ("ChannelName" Core..= channelName),
             Prelude.Just ("DataSource" Core..= dataSource)

@@ -25,6 +25,43 @@ import Amazonka.MachineLearning.Lens
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 
+-- | Polls 'Amazonka.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newEvaluationAvailable :: Core.Wait DescribeEvaluations
+newEvaluationAvailable =
+  Core.Wait
+    { Core._waitName = "EvaluationAvailable",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "COMPLETED"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeEvaluationsResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. evaluation_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeEvaluationsResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. evaluation_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newMLModelAvailable :: Core.Wait DescribeMLModels
 newMLModelAvailable =
@@ -56,44 +93,6 @@ newMLModelAvailable =
                     )
                 )
                 Prelude.. mLModel_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
-newBatchPredictionAvailable =
-  Core.Wait
-    { Core._waitName =
-        "BatchPredictionAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "COMPLETED"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeBatchPredictionsResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. batchPrediction_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeBatchPredictionsResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. batchPrediction_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )
@@ -137,11 +136,12 @@ newDataSourceAvailable =
         ]
     }
 
--- | Polls 'Amazonka.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newEvaluationAvailable :: Core.Wait DescribeEvaluations
-newEvaluationAvailable =
+-- | Polls 'Amazonka.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
+newBatchPredictionAvailable =
   Core.Wait
-    { Core._waitName = "EvaluationAvailable",
+    { Core._waitName =
+        "BatchPredictionAvailable",
       Core._waitAttempts = 60,
       Core._waitDelay = 30,
       Core._waitAcceptors =
@@ -150,11 +150,11 @@ newEvaluationAvailable =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeEvaluationsResponse_results
+                    ( describeBatchPredictionsResponse_results
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. evaluation_status
+                Prelude.. batchPrediction_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
@@ -163,11 +163,11 @@ newEvaluationAvailable =
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeEvaluationsResponse_results
+                    ( describeBatchPredictionsResponse_results
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. evaluation_status
+                Prelude.. batchPrediction_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkStatus' smart constructor.
 data NetworkStatus = NetworkStatus'
-  { -- | The status of Ethernet port 1.
-    ethernet1Status :: Prelude.Maybe EthernetStatus,
-    -- | The status of Ethernet port 0.
-    ethernet0Status :: Prelude.Maybe EthernetStatus
+  { -- | The status of Ethernet port 0.
+    ethernet0Status :: Prelude.Maybe EthernetStatus,
+    -- | The status of Ethernet port 1.
+    ethernet1Status :: Prelude.Maybe EthernetStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data NetworkStatus = NetworkStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ethernet1Status', 'networkStatus_ethernet1Status' - The status of Ethernet port 1.
---
 -- 'ethernet0Status', 'networkStatus_ethernet0Status' - The status of Ethernet port 0.
+--
+-- 'ethernet1Status', 'networkStatus_ethernet1Status' - The status of Ethernet port 1.
 newNetworkStatus ::
   NetworkStatus
 newNetworkStatus =
   NetworkStatus'
-    { ethernet1Status = Prelude.Nothing,
-      ethernet0Status = Prelude.Nothing
+    { ethernet0Status = Prelude.Nothing,
+      ethernet1Status = Prelude.Nothing
     }
-
--- | The status of Ethernet port 1.
-networkStatus_ethernet1Status :: Lens.Lens' NetworkStatus (Prelude.Maybe EthernetStatus)
-networkStatus_ethernet1Status = Lens.lens (\NetworkStatus' {ethernet1Status} -> ethernet1Status) (\s@NetworkStatus' {} a -> s {ethernet1Status = a} :: NetworkStatus)
 
 -- | The status of Ethernet port 0.
 networkStatus_ethernet0Status :: Lens.Lens' NetworkStatus (Prelude.Maybe EthernetStatus)
 networkStatus_ethernet0Status = Lens.lens (\NetworkStatus' {ethernet0Status} -> ethernet0Status) (\s@NetworkStatus' {} a -> s {ethernet0Status = a} :: NetworkStatus)
+
+-- | The status of Ethernet port 1.
+networkStatus_ethernet1Status :: Lens.Lens' NetworkStatus (Prelude.Maybe EthernetStatus)
+networkStatus_ethernet1Status = Lens.lens (\NetworkStatus' {ethernet1Status} -> ethernet1Status) (\s@NetworkStatus' {} a -> s {ethernet1Status = a} :: NetworkStatus)
 
 instance Core.FromJSON NetworkStatus where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON NetworkStatus where
       "NetworkStatus"
       ( \x ->
           NetworkStatus'
-            Prelude.<$> (x Core..:? "Ethernet1Status")
-            Prelude.<*> (x Core..:? "Ethernet0Status")
+            Prelude.<$> (x Core..:? "Ethernet0Status")
+            Prelude.<*> (x Core..:? "Ethernet1Status")
       )
 
 instance Prelude.Hashable NetworkStatus where
   hashWithSalt _salt NetworkStatus' {..} =
-    _salt `Prelude.hashWithSalt` ethernet1Status
-      `Prelude.hashWithSalt` ethernet0Status
+    _salt `Prelude.hashWithSalt` ethernet0Status
+      `Prelude.hashWithSalt` ethernet1Status
 
 instance Prelude.NFData NetworkStatus where
   rnf NetworkStatus' {..} =
-    Prelude.rnf ethernet1Status
-      `Prelude.seq` Prelude.rnf ethernet0Status
+    Prelude.rnf ethernet0Status
+      `Prelude.seq` Prelude.rnf ethernet1Status

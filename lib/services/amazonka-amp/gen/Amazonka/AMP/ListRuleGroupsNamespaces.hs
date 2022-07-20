@@ -29,8 +29,8 @@ module Amazonka.AMP.ListRuleGroupsNamespaces
     newListRuleGroupsNamespaces,
 
     -- * Request Lenses
-    listRuleGroupsNamespaces_nextToken,
     listRuleGroupsNamespaces_name,
+    listRuleGroupsNamespaces_nextToken,
     listRuleGroupsNamespaces_maxResults,
     listRuleGroupsNamespaces_workspaceId,
 
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListRuleGroupsNamespaces' smart constructor.
 data ListRuleGroupsNamespaces = ListRuleGroupsNamespaces'
-  { -- | Pagination token to request the next page in a paginated list. This
+  { -- | Optional filter for rule groups namespace name. Only the rule groups
+    -- namespace that begin with this value will be returned.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Pagination token to request the next page in a paginated list. This
     -- token is obtained from the output of the previous
     -- ListRuleGroupsNamespaces request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional filter for rule groups namespace name. Only the rule groups
-    -- namespace that begin with this value will be returned.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Maximum results to return in response (default=100, maximum=1000).
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the workspace.
@@ -78,12 +78,12 @@ data ListRuleGroupsNamespaces = ListRuleGroupsNamespaces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'listRuleGroupsNamespaces_name' - Optional filter for rule groups namespace name. Only the rule groups
+-- namespace that begin with this value will be returned.
+--
 -- 'nextToken', 'listRuleGroupsNamespaces_nextToken' - Pagination token to request the next page in a paginated list. This
 -- token is obtained from the output of the previous
 -- ListRuleGroupsNamespaces request.
---
--- 'name', 'listRuleGroupsNamespaces_name' - Optional filter for rule groups namespace name. Only the rule groups
--- namespace that begin with this value will be returned.
 --
 -- 'maxResults', 'listRuleGroupsNamespaces_maxResults' - Maximum results to return in response (default=100, maximum=1000).
 --
@@ -94,23 +94,22 @@ newListRuleGroupsNamespaces ::
   ListRuleGroupsNamespaces
 newListRuleGroupsNamespaces pWorkspaceId_ =
   ListRuleGroupsNamespaces'
-    { nextToken =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       workspaceId = pWorkspaceId_
     }
+
+-- | Optional filter for rule groups namespace name. Only the rule groups
+-- namespace that begin with this value will be returned.
+listRuleGroupsNamespaces_name :: Lens.Lens' ListRuleGroupsNamespaces (Prelude.Maybe Prelude.Text)
+listRuleGroupsNamespaces_name = Lens.lens (\ListRuleGroupsNamespaces' {name} -> name) (\s@ListRuleGroupsNamespaces' {} a -> s {name = a} :: ListRuleGroupsNamespaces)
 
 -- | Pagination token to request the next page in a paginated list. This
 -- token is obtained from the output of the previous
 -- ListRuleGroupsNamespaces request.
 listRuleGroupsNamespaces_nextToken :: Lens.Lens' ListRuleGroupsNamespaces (Prelude.Maybe Prelude.Text)
 listRuleGroupsNamespaces_nextToken = Lens.lens (\ListRuleGroupsNamespaces' {nextToken} -> nextToken) (\s@ListRuleGroupsNamespaces' {} a -> s {nextToken = a} :: ListRuleGroupsNamespaces)
-
--- | Optional filter for rule groups namespace name. Only the rule groups
--- namespace that begin with this value will be returned.
-listRuleGroupsNamespaces_name :: Lens.Lens' ListRuleGroupsNamespaces (Prelude.Maybe Prelude.Text)
-listRuleGroupsNamespaces_name = Lens.lens (\ListRuleGroupsNamespaces' {name} -> name) (\s@ListRuleGroupsNamespaces' {} a -> s {name = a} :: ListRuleGroupsNamespaces)
 
 -- | Maximum results to return in response (default=100, maximum=1000).
 listRuleGroupsNamespaces_maxResults :: Lens.Lens' ListRuleGroupsNamespaces (Prelude.Maybe Prelude.Natural)
@@ -159,15 +158,15 @@ instance Core.AWSRequest ListRuleGroupsNamespaces where
 
 instance Prelude.Hashable ListRuleGroupsNamespaces where
   hashWithSalt _salt ListRuleGroupsNamespaces' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData ListRuleGroupsNamespaces where
   rnf ListRuleGroupsNamespaces' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workspaceId
 
@@ -193,8 +192,8 @@ instance Core.ToPath ListRuleGroupsNamespaces where
 instance Core.ToQuery ListRuleGroupsNamespaces where
   toQuery ListRuleGroupsNamespaces' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "name" Core.=: name,
+      [ "name" Core.=: name,
+        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 

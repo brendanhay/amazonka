@@ -36,8 +36,8 @@ module Amazonka.Connect.CreateUserHierarchyGroup
     newCreateUserHierarchyGroupResponse,
 
     -- * Response Lenses
-    createUserHierarchyGroupResponse_hierarchyGroupArn,
     createUserHierarchyGroupResponse_hierarchyGroupId,
+    createUserHierarchyGroupResponse_hierarchyGroupArn,
     createUserHierarchyGroupResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest CreateUserHierarchyGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateUserHierarchyGroupResponse'
-            Prelude.<$> (x Core..?> "HierarchyGroupArn")
-            Prelude.<*> (x Core..?> "HierarchyGroupId")
+            Prelude.<$> (x Core..?> "HierarchyGroupId")
+            Prelude.<*> (x Core..?> "HierarchyGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,10 +164,10 @@ instance Core.ToQuery CreateUserHierarchyGroup where
 
 -- | /See:/ 'newCreateUserHierarchyGroupResponse' smart constructor.
 data CreateUserHierarchyGroupResponse = CreateUserHierarchyGroupResponse'
-  { -- | The Amazon Resource Name (ARN) of the hierarchy group.
-    hierarchyGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the hierarchy group.
+  { -- | The identifier of the hierarchy group.
     hierarchyGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the hierarchy group.
+    hierarchyGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,9 +181,9 @@ data CreateUserHierarchyGroupResponse = CreateUserHierarchyGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hierarchyGroupArn', 'createUserHierarchyGroupResponse_hierarchyGroupArn' - The Amazon Resource Name (ARN) of the hierarchy group.
---
 -- 'hierarchyGroupId', 'createUserHierarchyGroupResponse_hierarchyGroupId' - The identifier of the hierarchy group.
+--
+-- 'hierarchyGroupArn', 'createUserHierarchyGroupResponse_hierarchyGroupArn' - The Amazon Resource Name (ARN) of the hierarchy group.
 --
 -- 'httpStatus', 'createUserHierarchyGroupResponse_httpStatus' - The response's http status code.
 newCreateUserHierarchyGroupResponse ::
@@ -192,19 +192,19 @@ newCreateUserHierarchyGroupResponse ::
   CreateUserHierarchyGroupResponse
 newCreateUserHierarchyGroupResponse pHttpStatus_ =
   CreateUserHierarchyGroupResponse'
-    { hierarchyGroupArn =
+    { hierarchyGroupId =
         Prelude.Nothing,
-      hierarchyGroupId = Prelude.Nothing,
+      hierarchyGroupArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the hierarchy group.
-createUserHierarchyGroupResponse_hierarchyGroupArn :: Lens.Lens' CreateUserHierarchyGroupResponse (Prelude.Maybe Prelude.Text)
-createUserHierarchyGroupResponse_hierarchyGroupArn = Lens.lens (\CreateUserHierarchyGroupResponse' {hierarchyGroupArn} -> hierarchyGroupArn) (\s@CreateUserHierarchyGroupResponse' {} a -> s {hierarchyGroupArn = a} :: CreateUserHierarchyGroupResponse)
 
 -- | The identifier of the hierarchy group.
 createUserHierarchyGroupResponse_hierarchyGroupId :: Lens.Lens' CreateUserHierarchyGroupResponse (Prelude.Maybe Prelude.Text)
 createUserHierarchyGroupResponse_hierarchyGroupId = Lens.lens (\CreateUserHierarchyGroupResponse' {hierarchyGroupId} -> hierarchyGroupId) (\s@CreateUserHierarchyGroupResponse' {} a -> s {hierarchyGroupId = a} :: CreateUserHierarchyGroupResponse)
+
+-- | The Amazon Resource Name (ARN) of the hierarchy group.
+createUserHierarchyGroupResponse_hierarchyGroupArn :: Lens.Lens' CreateUserHierarchyGroupResponse (Prelude.Maybe Prelude.Text)
+createUserHierarchyGroupResponse_hierarchyGroupArn = Lens.lens (\CreateUserHierarchyGroupResponse' {hierarchyGroupArn} -> hierarchyGroupArn) (\s@CreateUserHierarchyGroupResponse' {} a -> s {hierarchyGroupArn = a} :: CreateUserHierarchyGroupResponse)
 
 -- | The response's http status code.
 createUserHierarchyGroupResponse_httpStatus :: Lens.Lens' CreateUserHierarchyGroupResponse Prelude.Int
@@ -215,6 +215,6 @@ instance
     CreateUserHierarchyGroupResponse
   where
   rnf CreateUserHierarchyGroupResponse' {..} =
-    Prelude.rnf hierarchyGroupArn
-      `Prelude.seq` Prelude.rnf hierarchyGroupId
+    Prelude.rnf hierarchyGroupId
+      `Prelude.seq` Prelude.rnf hierarchyGroupArn
       `Prelude.seq` Prelude.rnf httpStatus

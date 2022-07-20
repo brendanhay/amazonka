@@ -30,9 +30,9 @@ module Amazonka.NetworkManager.GetConnections
     newGetConnections,
 
     -- * Request Lenses
-    getConnections_connectionIds,
     getConnections_nextToken,
     getConnections_deviceId,
+    getConnections_connectionIds,
     getConnections_maxResults,
     getConnections_globalNetworkId,
 
@@ -41,8 +41,8 @@ module Amazonka.NetworkManager.GetConnections
     newGetConnectionsResponse,
 
     -- * Response Lenses
-    getConnectionsResponse_connections,
     getConnectionsResponse_nextToken,
+    getConnectionsResponse_connections,
     getConnectionsResponse_httpStatus,
   )
 where
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConnections' smart constructor.
 data GetConnections = GetConnections'
-  { -- | One or more connection IDs.
-    connectionIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
+  { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the device.
     deviceId :: Prelude.Maybe Prelude.Text,
+    -- | One or more connection IDs.
+    connectionIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the global network.
@@ -77,11 +77,11 @@ data GetConnections = GetConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionIds', 'getConnections_connectionIds' - One or more connection IDs.
---
 -- 'nextToken', 'getConnections_nextToken' - The token for the next page of results.
 --
 -- 'deviceId', 'getConnections_deviceId' - The ID of the device.
+--
+-- 'connectionIds', 'getConnections_connectionIds' - One or more connection IDs.
 --
 -- 'maxResults', 'getConnections_maxResults' - The maximum number of results to return.
 --
@@ -92,16 +92,12 @@ newGetConnections ::
   GetConnections
 newGetConnections pGlobalNetworkId_ =
   GetConnections'
-    { connectionIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       deviceId = Prelude.Nothing,
+      connectionIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
-
--- | One or more connection IDs.
-getConnections_connectionIds :: Lens.Lens' GetConnections (Prelude.Maybe [Prelude.Text])
-getConnections_connectionIds = Lens.lens (\GetConnections' {connectionIds} -> connectionIds) (\s@GetConnections' {} a -> s {connectionIds = a} :: GetConnections) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next page of results.
 getConnections_nextToken :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Text)
@@ -110,6 +106,10 @@ getConnections_nextToken = Lens.lens (\GetConnections' {nextToken} -> nextToken)
 -- | The ID of the device.
 getConnections_deviceId :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Text)
 getConnections_deviceId = Lens.lens (\GetConnections' {deviceId} -> deviceId) (\s@GetConnections' {} a -> s {deviceId = a} :: GetConnections)
+
+-- | One or more connection IDs.
+getConnections_connectionIds :: Lens.Lens' GetConnections (Prelude.Maybe [Prelude.Text])
+getConnections_connectionIds = Lens.lens (\GetConnections' {connectionIds} -> connectionIds) (\s@GetConnections' {} a -> s {connectionIds = a} :: GetConnections) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return.
 getConnections_maxResults :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Natural)
@@ -149,24 +149,24 @@ instance Core.AWSRequest GetConnections where
     Response.receiveJSON
       ( \s h x ->
           GetConnectionsResponse'
-            Prelude.<$> (x Core..?> "Connections" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Connections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetConnections where
   hashWithSalt _salt GetConnections' {..} =
-    _salt `Prelude.hashWithSalt` connectionIds
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` connectionIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetConnections where
   rnf GetConnections' {..} =
-    Prelude.rnf connectionIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf connectionIds
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
 
@@ -192,22 +192,22 @@ instance Core.ToPath GetConnections where
 instance Core.ToQuery GetConnections where
   toQuery GetConnections' {..} =
     Prelude.mconcat
-      [ "connectionIds"
+      [ "nextToken" Core.=: nextToken,
+        "deviceId" Core.=: deviceId,
+        "connectionIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> connectionIds
             ),
-        "nextToken" Core.=: nextToken,
-        "deviceId" Core.=: deviceId,
         "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newGetConnectionsResponse' smart constructor.
 data GetConnectionsResponse = GetConnectionsResponse'
-  { -- | Information about the connections.
-    connections :: Prelude.Maybe [Connection],
-    -- | The token to use for the next page of results.
+  { -- | The token to use for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the connections.
+    connections :: Prelude.Maybe [Connection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,9 +221,9 @@ data GetConnectionsResponse = GetConnectionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connections', 'getConnectionsResponse_connections' - Information about the connections.
---
 -- 'nextToken', 'getConnectionsResponse_nextToken' - The token to use for the next page of results.
+--
+-- 'connections', 'getConnectionsResponse_connections' - Information about the connections.
 --
 -- 'httpStatus', 'getConnectionsResponse_httpStatus' - The response's http status code.
 newGetConnectionsResponse ::
@@ -232,19 +232,19 @@ newGetConnectionsResponse ::
   GetConnectionsResponse
 newGetConnectionsResponse pHttpStatus_ =
   GetConnectionsResponse'
-    { connections =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      connections = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the connections.
-getConnectionsResponse_connections :: Lens.Lens' GetConnectionsResponse (Prelude.Maybe [Connection])
-getConnectionsResponse_connections = Lens.lens (\GetConnectionsResponse' {connections} -> connections) (\s@GetConnectionsResponse' {} a -> s {connections = a} :: GetConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use for the next page of results.
 getConnectionsResponse_nextToken :: Lens.Lens' GetConnectionsResponse (Prelude.Maybe Prelude.Text)
 getConnectionsResponse_nextToken = Lens.lens (\GetConnectionsResponse' {nextToken} -> nextToken) (\s@GetConnectionsResponse' {} a -> s {nextToken = a} :: GetConnectionsResponse)
+
+-- | Information about the connections.
+getConnectionsResponse_connections :: Lens.Lens' GetConnectionsResponse (Prelude.Maybe [Connection])
+getConnectionsResponse_connections = Lens.lens (\GetConnectionsResponse' {connections} -> connections) (\s@GetConnectionsResponse' {} a -> s {connections = a} :: GetConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getConnectionsResponse_httpStatus :: Lens.Lens' GetConnectionsResponse Prelude.Int
@@ -252,6 +252,6 @@ getConnectionsResponse_httpStatus = Lens.lens (\GetConnectionsResponse' {httpSta
 
 instance Prelude.NFData GetConnectionsResponse where
   rnf GetConnectionsResponse' {..} =
-    Prelude.rnf connections
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf connections
       `Prelude.seq` Prelude.rnf httpStatus

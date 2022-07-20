@@ -48,9 +48,9 @@ module Amazonka.ChimeSDKMessaging.SendChannelMessage
     newSendChannelMessageResponse,
 
     -- * Response Lenses
-    sendChannelMessageResponse_status,
     sendChannelMessageResponse_channelArn,
     sendChannelMessageResponse_messageId,
+    sendChannelMessageResponse_status,
     sendChannelMessageResponse_httpStatus,
   )
 where
@@ -174,9 +174,9 @@ instance Core.AWSRequest SendChannelMessage where
     Response.receiveJSON
       ( \s h x ->
           SendChannelMessageResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ChannelArn")
+            Prelude.<$> (x Core..?> "ChannelArn")
             Prelude.<*> (x Core..?> "MessageId")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,12 +228,12 @@ instance Core.ToQuery SendChannelMessage where
 
 -- | /See:/ 'newSendChannelMessageResponse' smart constructor.
 data SendChannelMessageResponse = SendChannelMessageResponse'
-  { -- | The status of the channel message.
-    status :: Prelude.Maybe ChannelMessageStatusStructure,
-    -- | The ARN of the channel.
+  { -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The ID string assigned to each message.
     messageId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the channel message.
+    status :: Prelude.Maybe ChannelMessageStatusStructure,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,11 +247,11 @@ data SendChannelMessageResponse = SendChannelMessageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'sendChannelMessageResponse_status' - The status of the channel message.
---
 -- 'channelArn', 'sendChannelMessageResponse_channelArn' - The ARN of the channel.
 --
 -- 'messageId', 'sendChannelMessageResponse_messageId' - The ID string assigned to each message.
+--
+-- 'status', 'sendChannelMessageResponse_status' - The status of the channel message.
 --
 -- 'httpStatus', 'sendChannelMessageResponse_httpStatus' - The response's http status code.
 newSendChannelMessageResponse ::
@@ -260,16 +260,12 @@ newSendChannelMessageResponse ::
   SendChannelMessageResponse
 newSendChannelMessageResponse pHttpStatus_ =
   SendChannelMessageResponse'
-    { status =
+    { channelArn =
         Prelude.Nothing,
-      channelArn = Prelude.Nothing,
       messageId = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the channel message.
-sendChannelMessageResponse_status :: Lens.Lens' SendChannelMessageResponse (Prelude.Maybe ChannelMessageStatusStructure)
-sendChannelMessageResponse_status = Lens.lens (\SendChannelMessageResponse' {status} -> status) (\s@SendChannelMessageResponse' {} a -> s {status = a} :: SendChannelMessageResponse)
 
 -- | The ARN of the channel.
 sendChannelMessageResponse_channelArn :: Lens.Lens' SendChannelMessageResponse (Prelude.Maybe Prelude.Text)
@@ -279,13 +275,17 @@ sendChannelMessageResponse_channelArn = Lens.lens (\SendChannelMessageResponse' 
 sendChannelMessageResponse_messageId :: Lens.Lens' SendChannelMessageResponse (Prelude.Maybe Prelude.Text)
 sendChannelMessageResponse_messageId = Lens.lens (\SendChannelMessageResponse' {messageId} -> messageId) (\s@SendChannelMessageResponse' {} a -> s {messageId = a} :: SendChannelMessageResponse)
 
+-- | The status of the channel message.
+sendChannelMessageResponse_status :: Lens.Lens' SendChannelMessageResponse (Prelude.Maybe ChannelMessageStatusStructure)
+sendChannelMessageResponse_status = Lens.lens (\SendChannelMessageResponse' {status} -> status) (\s@SendChannelMessageResponse' {} a -> s {status = a} :: SendChannelMessageResponse)
+
 -- | The response's http status code.
 sendChannelMessageResponse_httpStatus :: Lens.Lens' SendChannelMessageResponse Prelude.Int
 sendChannelMessageResponse_httpStatus = Lens.lens (\SendChannelMessageResponse' {httpStatus} -> httpStatus) (\s@SendChannelMessageResponse' {} a -> s {httpStatus = a} :: SendChannelMessageResponse)
 
 instance Prelude.NFData SendChannelMessageResponse where
   rnf SendChannelMessageResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

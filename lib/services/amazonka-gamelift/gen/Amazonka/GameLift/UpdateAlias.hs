@@ -36,8 +36,8 @@ module Amazonka.GameLift.UpdateAlias
     newUpdateAlias,
 
     -- * Request Lenses
-    updateAlias_routingStrategy,
     updateAlias_name,
+    updateAlias_routingStrategy,
     updateAlias_description,
     updateAlias_aliasId,
 
@@ -62,12 +62,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { -- | The routing configuration, including routing type and fleet target, for
-    -- the alias.
-    routingStrategy :: Prelude.Maybe RoutingStrategy,
-    -- | A descriptive label that is associated with an alias. Alias names do not
+  { -- | A descriptive label that is associated with an alias. Alias names do not
     -- need to be unique.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The routing configuration, including routing type and fleet target, for
+    -- the alias.
+    routingStrategy :: Prelude.Maybe RoutingStrategy,
     -- | A human-readable description of the alias.
     description :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the alias that you want to update. You can use
@@ -84,11 +84,11 @@ data UpdateAlias = UpdateAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routingStrategy', 'updateAlias_routingStrategy' - The routing configuration, including routing type and fleet target, for
--- the alias.
---
 -- 'name', 'updateAlias_name' - A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
+--
+-- 'routingStrategy', 'updateAlias_routingStrategy' - The routing configuration, including routing type and fleet target, for
+-- the alias.
 --
 -- 'description', 'updateAlias_description' - A human-readable description of the alias.
 --
@@ -100,21 +100,21 @@ newUpdateAlias ::
   UpdateAlias
 newUpdateAlias pAliasId_ =
   UpdateAlias'
-    { routingStrategy = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      routingStrategy = Prelude.Nothing,
       description = Prelude.Nothing,
       aliasId = pAliasId_
     }
-
--- | The routing configuration, including routing type and fleet target, for
--- the alias.
-updateAlias_routingStrategy :: Lens.Lens' UpdateAlias (Prelude.Maybe RoutingStrategy)
-updateAlias_routingStrategy = Lens.lens (\UpdateAlias' {routingStrategy} -> routingStrategy) (\s@UpdateAlias' {} a -> s {routingStrategy = a} :: UpdateAlias)
 
 -- | A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
 updateAlias_name :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
 updateAlias_name = Lens.lens (\UpdateAlias' {name} -> name) (\s@UpdateAlias' {} a -> s {name = a} :: UpdateAlias)
+
+-- | The routing configuration, including routing type and fleet target, for
+-- the alias.
+updateAlias_routingStrategy :: Lens.Lens' UpdateAlias (Prelude.Maybe RoutingStrategy)
+updateAlias_routingStrategy = Lens.lens (\UpdateAlias' {routingStrategy} -> routingStrategy) (\s@UpdateAlias' {} a -> s {routingStrategy = a} :: UpdateAlias)
 
 -- | A human-readable description of the alias.
 updateAlias_description :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
@@ -138,15 +138,15 @@ instance Core.AWSRequest UpdateAlias where
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =
-    _salt `Prelude.hashWithSalt` routingStrategy
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` routingStrategy
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` aliasId
 
 instance Prelude.NFData UpdateAlias where
   rnf UpdateAlias' {..} =
-    Prelude.rnf routingStrategy
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf routingStrategy
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf aliasId
 
@@ -167,9 +167,9 @@ instance Core.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoutingStrategy" Core..=)
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("RoutingStrategy" Core..=)
               Prelude.<$> routingStrategy,
-            ("Name" Core..=) Prelude.<$> name,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("AliasId" Core..= aliasId)
           ]

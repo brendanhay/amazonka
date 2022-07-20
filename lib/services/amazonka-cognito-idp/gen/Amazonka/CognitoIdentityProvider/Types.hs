@@ -17,46 +17,46 @@ module Amazonka.CognitoIdentityProvider.Types
     defaultService,
 
     -- * Errors
-    _UnsupportedUserStateException,
-    _PasswordResetRequiredException,
-    _InvalidParameterException,
-    _UnsupportedOperationException,
-    _InvalidLambdaResponseException,
-    _InvalidEmailRoleAccessPolicyException,
-    _UnsupportedIdentityProviderException,
-    _UserNotFoundException,
-    _UnexpectedLambdaException,
-    _NotAuthorizedException,
-    _InternalErrorException,
-    _InvalidUserPoolConfigurationException,
-    _InvalidSmsRoleAccessPolicyException,
-    _InvalidOAuthFlowException,
     _CodeMismatchException,
+    _UnsupportedOperationException,
+    _UsernameExistsException,
+    _PasswordResetRequiredException,
+    _UserPoolAddOnNotEnabledException,
+    _CodeDeliveryFailureException,
+    _ConcurrentModificationException,
+    _UserPoolTaggingException,
+    _UnauthorizedException,
+    _EnableSoftwareTokenMFAException,
+    _InternalErrorException,
+    _UserNotFoundException,
+    _DuplicateProviderException,
+    _PreconditionNotMetException,
+    _TooManyFailedAttemptsException,
+    _UserLambdaValidationException,
+    _InvalidPasswordException,
+    _ResourceNotFoundException,
+    _UnexpectedLambdaException,
+    _UnsupportedUserStateException,
+    _LimitExceededException,
+    _InvalidUserPoolConfigurationException,
+    _AliasExistsException,
+    _ScopeDoesNotExistException,
+    _InvalidLambdaResponseException,
+    _GroupExistsException,
+    _ExpiredCodeException,
     _UserImportInProgressException,
     _InvalidSmsRoleTrustRelationshipException,
-    _UserPoolTaggingException,
     _SoftwareTokenMFANotFoundException,
-    _TooManyRequestsException,
-    _ConcurrentModificationException,
-    _UserPoolAddOnNotEnabledException,
-    _UserLambdaValidationException,
-    _PreconditionNotMetException,
-    _ExpiredCodeException,
-    _TooManyFailedAttemptsException,
-    _EnableSoftwareTokenMFAException,
-    _UserNotConfirmedException,
-    _GroupExistsException,
-    _UnauthorizedException,
-    _CodeDeliveryFailureException,
-    _ScopeDoesNotExistException,
-    _ResourceNotFoundException,
     _MFAMethodNotFoundException,
-    _AliasExistsException,
+    _NotAuthorizedException,
+    _InvalidOAuthFlowException,
+    _UnsupportedIdentityProviderException,
+    _InvalidEmailRoleAccessPolicyException,
     _UnsupportedTokenTypeException,
-    _DuplicateProviderException,
-    _LimitExceededException,
-    _InvalidPasswordException,
-    _UsernameExistsException,
+    _InvalidSmsRoleAccessPolicyException,
+    _TooManyRequestsException,
+    _UserNotConfirmedException,
+    _InvalidParameterException,
 
     -- * AccountTakeoverEventActionType
     AccountTakeoverEventActionType (..),
@@ -181,8 +181,8 @@ module Amazonka.CognitoIdentityProvider.Types
     AccountTakeoverActionsType (..),
     newAccountTakeoverActionsType,
     accountTakeoverActionsType_lowAction,
-    accountTakeoverActionsType_highAction,
     accountTakeoverActionsType_mediumAction,
+    accountTakeoverActionsType_highAction,
 
     -- * AccountTakeoverRiskConfigurationType
     AccountTakeoverRiskConfigurationType (..),
@@ -193,18 +193,18 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * AdminCreateUserConfigType
     AdminCreateUserConfigType (..),
     newAdminCreateUserConfigType,
+    adminCreateUserConfigType_inviteMessageTemplate,
     adminCreateUserConfigType_allowAdminCreateUserOnly,
     adminCreateUserConfigType_unusedAccountValidityDays,
-    adminCreateUserConfigType_inviteMessageTemplate,
 
     -- * AnalyticsConfigurationType
     AnalyticsConfigurationType (..),
     newAnalyticsConfigurationType,
-    analyticsConfigurationType_applicationArn,
     analyticsConfigurationType_userDataShared,
-    analyticsConfigurationType_applicationId,
-    analyticsConfigurationType_externalId,
     analyticsConfigurationType_roleArn,
+    analyticsConfigurationType_applicationArn,
+    analyticsConfigurationType_externalId,
+    analyticsConfigurationType_applicationId,
 
     -- * AnalyticsMetadataType
     AnalyticsMetadataType (..),
@@ -220,30 +220,30 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * AuthEventType
     AuthEventType (..),
     newAuthEventType,
-    authEventType_eventRisk,
+    authEventType_eventType,
     authEventType_eventResponse,
     authEventType_eventContextData,
-    authEventType_challengeResponses,
-    authEventType_eventType,
     authEventType_creationDate,
-    authEventType_eventFeedback,
+    authEventType_eventRisk,
     authEventType_eventId,
+    authEventType_eventFeedback,
+    authEventType_challengeResponses,
 
     -- * AuthenticationResultType
     AuthenticationResultType (..),
     newAuthenticationResultType,
     authenticationResultType_accessToken,
-    authenticationResultType_refreshToken,
-    authenticationResultType_newDeviceMetadata,
     authenticationResultType_expiresIn,
-    authenticationResultType_tokenType,
     authenticationResultType_idToken,
+    authenticationResultType_newDeviceMetadata,
+    authenticationResultType_tokenType,
+    authenticationResultType_refreshToken,
 
     -- * ChallengeResponseType
     ChallengeResponseType (..),
     newChallengeResponseType,
-    challengeResponseType_challengeName,
     challengeResponseType_challengeResponse,
+    challengeResponseType_challengeName,
 
     -- * CodeDeliveryDetailsType
     CodeDeliveryDetailsType (..),
@@ -292,53 +292,53 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * DeviceConfigurationType
     DeviceConfigurationType (..),
     newDeviceConfigurationType,
-    deviceConfigurationType_challengeRequiredOnNewDevice,
     deviceConfigurationType_deviceOnlyRememberedOnUserPrompt,
+    deviceConfigurationType_challengeRequiredOnNewDevice,
 
     -- * DeviceSecretVerifierConfigType
     DeviceSecretVerifierConfigType (..),
     newDeviceSecretVerifierConfigType,
-    deviceSecretVerifierConfigType_passwordVerifier,
     deviceSecretVerifierConfigType_salt,
+    deviceSecretVerifierConfigType_passwordVerifier,
 
     -- * DeviceType
     DeviceType (..),
     newDeviceType,
-    deviceType_deviceLastModifiedDate,
-    deviceType_deviceCreateDate,
-    deviceType_deviceAttributes,
     deviceType_deviceKey,
     deviceType_deviceLastAuthenticatedDate,
+    deviceType_deviceAttributes,
+    deviceType_deviceLastModifiedDate,
+    deviceType_deviceCreateDate,
 
     -- * DomainDescriptionType
     DomainDescriptionType (..),
     newDomainDescriptionType,
-    domainDescriptionType_status,
-    domainDescriptionType_cloudFrontDistribution,
-    domainDescriptionType_userPoolId,
-    domainDescriptionType_domain,
     domainDescriptionType_aWSAccountId,
-    domainDescriptionType_customDomainConfig,
-    domainDescriptionType_version,
     domainDescriptionType_s3Bucket,
+    domainDescriptionType_domain,
+    domainDescriptionType_customDomainConfig,
+    domainDescriptionType_status,
+    domainDescriptionType_userPoolId,
+    domainDescriptionType_cloudFrontDistribution,
+    domainDescriptionType_version,
 
     -- * EmailConfigurationType
     EmailConfigurationType (..),
     newEmailConfigurationType,
-    emailConfigurationType_sourceArn,
     emailConfigurationType_from,
-    emailConfigurationType_configurationSet,
     emailConfigurationType_replyToEmailAddress,
+    emailConfigurationType_sourceArn,
     emailConfigurationType_emailSendingAccount,
+    emailConfigurationType_configurationSet,
 
     -- * EventContextDataType
     EventContextDataType (..),
     newEventContextDataType,
-    eventContextDataType_ipAddress,
     eventContextDataType_country,
-    eventContextDataType_city,
     eventContextDataType_deviceName,
     eventContextDataType_timezone,
+    eventContextDataType_city,
+    eventContextDataType_ipAddress,
 
     -- * EventFeedbackType
     EventFeedbackType (..),
@@ -357,13 +357,13 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * GroupType
     GroupType (..),
     newGroupType,
+    groupType_roleArn,
     groupType_lastModifiedDate,
-    groupType_userPoolId,
     groupType_creationDate,
-    groupType_precedence,
     groupType_groupName,
     groupType_description,
-    groupType_roleArn,
+    groupType_userPoolId,
+    groupType_precedence,
 
     -- * HttpHeader
     HttpHeader (..),
@@ -374,31 +374,31 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * IdentityProviderType
     IdentityProviderType (..),
     newIdentityProviderType,
+    identityProviderType_providerName,
     identityProviderType_lastModifiedDate,
-    identityProviderType_userPoolId,
-    identityProviderType_providerType,
-    identityProviderType_creationDate,
-    identityProviderType_idpIdentifiers,
     identityProviderType_attributeMapping,
     identityProviderType_providerDetails,
-    identityProviderType_providerName,
+    identityProviderType_idpIdentifiers,
+    identityProviderType_creationDate,
+    identityProviderType_providerType,
+    identityProviderType_userPoolId,
 
     -- * LambdaConfigType
     LambdaConfigType (..),
     newLambdaConfigType,
-    lambdaConfigType_preAuthentication,
-    lambdaConfigType_createAuthChallenge,
-    lambdaConfigType_verifyAuthChallengeResponse,
     lambdaConfigType_customSMSSender,
-    lambdaConfigType_postAuthentication,
-    lambdaConfigType_customMessage,
-    lambdaConfigType_defineAuthChallenge,
-    lambdaConfigType_customEmailSender,
-    lambdaConfigType_kmsKeyID,
-    lambdaConfigType_postConfirmation,
-    lambdaConfigType_preTokenGeneration,
     lambdaConfigType_userMigration,
+    lambdaConfigType_postAuthentication,
+    lambdaConfigType_defineAuthChallenge,
+    lambdaConfigType_postConfirmation,
     lambdaConfigType_preSignUp,
+    lambdaConfigType_verifyAuthChallengeResponse,
+    lambdaConfigType_customMessage,
+    lambdaConfigType_kmsKeyID,
+    lambdaConfigType_preAuthentication,
+    lambdaConfigType_preTokenGeneration,
+    lambdaConfigType_createAuthChallenge,
+    lambdaConfigType_customEmailSender,
 
     -- * MFAOptionType
     MFAOptionType (..),
@@ -422,11 +422,11 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * NotifyConfigurationType
     NotifyConfigurationType (..),
     newNotifyConfigurationType,
-    notifyConfigurationType_noActionEmail,
     notifyConfigurationType_from,
-    notifyConfigurationType_replyTo,
-    notifyConfigurationType_blockEmail,
     notifyConfigurationType_mfaEmail,
+    notifyConfigurationType_blockEmail,
+    notifyConfigurationType_noActionEmail,
+    notifyConfigurationType_replyTo,
     notifyConfigurationType_sourceArn,
 
     -- * NotifyEmailType
@@ -439,33 +439,33 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * NumberAttributeConstraintsType
     NumberAttributeConstraintsType (..),
     newNumberAttributeConstraintsType,
-    numberAttributeConstraintsType_maxValue,
     numberAttributeConstraintsType_minValue,
+    numberAttributeConstraintsType_maxValue,
 
     -- * PasswordPolicyType
     PasswordPolicyType (..),
     newPasswordPolicyType,
-    passwordPolicyType_requireNumbers,
-    passwordPolicyType_requireUppercase,
     passwordPolicyType_requireLowercase,
-    passwordPolicyType_minimumLength,
+    passwordPolicyType_requireNumbers,
     passwordPolicyType_requireSymbols,
+    passwordPolicyType_requireUppercase,
+    passwordPolicyType_minimumLength,
     passwordPolicyType_temporaryPasswordValidityDays,
 
     -- * ProviderDescription
     ProviderDescription (..),
     newProviderDescription,
-    providerDescription_lastModifiedDate,
-    providerDescription_providerType,
-    providerDescription_creationDate,
     providerDescription_providerName,
+    providerDescription_lastModifiedDate,
+    providerDescription_creationDate,
+    providerDescription_providerType,
 
     -- * ProviderUserIdentifierType
     ProviderUserIdentifierType (..),
     newProviderUserIdentifierType,
-    providerUserIdentifierType_providerAttributeValue,
-    providerUserIdentifierType_providerAttributeName,
     providerUserIdentifierType_providerName,
+    providerUserIdentifierType_providerAttributeName,
+    providerUserIdentifierType_providerAttributeValue,
 
     -- * RecoveryOptionType
     RecoveryOptionType (..),
@@ -482,18 +482,18 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * ResourceServerType
     ResourceServerType (..),
     newResourceServerType,
-    resourceServerType_userPoolId,
-    resourceServerType_identifier,
-    resourceServerType_scopes,
     resourceServerType_name,
+    resourceServerType_identifier,
+    resourceServerType_userPoolId,
+    resourceServerType_scopes,
 
     -- * RiskConfigurationType
     RiskConfigurationType (..),
     newRiskConfigurationType,
-    riskConfigurationType_riskExceptionConfiguration,
     riskConfigurationType_clientId,
-    riskConfigurationType_accountTakeoverRiskConfiguration,
     riskConfigurationType_lastModifiedDate,
+    riskConfigurationType_accountTakeoverRiskConfiguration,
+    riskConfigurationType_riskExceptionConfiguration,
     riskConfigurationType_userPoolId,
     riskConfigurationType_compromisedCredentialsRiskConfiguration,
 
@@ -506,19 +506,19 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * SMSMfaSettingsType
     SMSMfaSettingsType (..),
     newSMSMfaSettingsType,
-    sMSMfaSettingsType_enabled,
     sMSMfaSettingsType_preferredMfa,
+    sMSMfaSettingsType_enabled,
 
     -- * SchemaAttributeType
     SchemaAttributeType (..),
     newSchemaAttributeType,
     schemaAttributeType_numberAttributeConstraints,
+    schemaAttributeType_name,
     schemaAttributeType_required,
     schemaAttributeType_attributeDataType,
     schemaAttributeType_stringAttributeConstraints,
-    schemaAttributeType_name,
-    schemaAttributeType_developerOnlyAttribute,
     schemaAttributeType_mutable,
+    schemaAttributeType_developerOnlyAttribute,
 
     -- * SmsConfigurationType
     SmsConfigurationType (..),
@@ -529,8 +529,8 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * SmsMfaConfigType
     SmsMfaConfigType (..),
     newSmsMfaConfigType,
-    smsMfaConfigType_smsAuthenticationMessage,
     smsMfaConfigType_smsConfiguration,
+    smsMfaConfigType_smsAuthenticationMessage,
 
     -- * SoftwareTokenMfaConfigType
     SoftwareTokenMfaConfigType (..),
@@ -540,8 +540,8 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * SoftwareTokenMfaSettingsType
     SoftwareTokenMfaSettingsType (..),
     newSoftwareTokenMfaSettingsType,
-    softwareTokenMfaSettingsType_enabled,
     softwareTokenMfaSettingsType_preferredMfa,
+    softwareTokenMfaSettingsType_enabled,
 
     -- * StringAttributeConstraintsType
     StringAttributeConstraintsType (..),
@@ -553,19 +553,19 @@ module Amazonka.CognitoIdentityProvider.Types
     TokenValidityUnitsType (..),
     newTokenValidityUnitsType,
     tokenValidityUnitsType_accessToken,
-    tokenValidityUnitsType_refreshToken,
     tokenValidityUnitsType_idToken,
+    tokenValidityUnitsType_refreshToken,
 
     -- * UICustomizationType
     UICustomizationType (..),
     newUICustomizationType,
+    uICustomizationType_cSSVersion,
     uICustomizationType_clientId,
     uICustomizationType_lastModifiedDate,
-    uICustomizationType_userPoolId,
-    uICustomizationType_css,
-    uICustomizationType_cSSVersion,
     uICustomizationType_imageUrl,
     uICustomizationType_creationDate,
+    uICustomizationType_userPoolId,
+    uICustomizationType_css,
 
     -- * UserContextDataType
     UserContextDataType (..),
@@ -575,19 +575,19 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * UserImportJobType
     UserImportJobType (..),
     newUserImportJobType,
-    userImportJobType_status,
     userImportJobType_skippedUsers,
-    userImportJobType_jobId,
-    userImportJobType_userPoolId,
-    userImportJobType_jobName,
-    userImportJobType_preSignedUrl,
     userImportJobType_failedUsers,
-    userImportJobType_startDate,
-    userImportJobType_completionMessage,
-    userImportJobType_creationDate,
+    userImportJobType_jobName,
     userImportJobType_completionDate,
-    userImportJobType_cloudWatchLogsRoleArn,
+    userImportJobType_creationDate,
+    userImportJobType_jobId,
+    userImportJobType_status,
     userImportJobType_importedUsers,
+    userImportJobType_startDate,
+    userImportJobType_userPoolId,
+    userImportJobType_cloudWatchLogsRoleArn,
+    userImportJobType_preSignedUrl,
+    userImportJobType_completionMessage,
 
     -- * UserPoolAddOnsType
     UserPoolAddOnsType (..),
@@ -598,44 +598,44 @@ module Amazonka.CognitoIdentityProvider.Types
     UserPoolClientDescription (..),
     newUserPoolClientDescription,
     userPoolClientDescription_clientId,
-    userPoolClientDescription_userPoolId,
     userPoolClientDescription_clientName,
+    userPoolClientDescription_userPoolId,
 
     -- * UserPoolClientType
     UserPoolClientType (..),
     newUserPoolClientType,
-    userPoolClientType_refreshTokenValidity,
-    userPoolClientType_clientId,
-    userPoolClientType_explicitAuthFlows,
-    userPoolClientType_clientSecret,
-    userPoolClientType_lastModifiedDate,
-    userPoolClientType_supportedIdentityProviders,
-    userPoolClientType_logoutURLs,
-    userPoolClientType_allowedOAuthFlowsUserPoolClient,
-    userPoolClientType_userPoolId,
-    userPoolClientType_idTokenValidity,
-    userPoolClientType_tokenValidityUnits,
     userPoolClientType_defaultRedirectURI,
-    userPoolClientType_enableTokenRevocation,
-    userPoolClientType_writeAttributes,
-    userPoolClientType_preventUserExistenceErrors,
+    userPoolClientType_clientSecret,
     userPoolClientType_accessTokenValidity,
-    userPoolClientType_creationDate,
-    userPoolClientType_readAttributes,
-    userPoolClientType_allowedOAuthScopes,
-    userPoolClientType_allowedOAuthFlows,
-    userPoolClientType_analyticsConfiguration,
-    userPoolClientType_clientName,
+    userPoolClientType_clientId,
+    userPoolClientType_lastModifiedDate,
+    userPoolClientType_explicitAuthFlows,
     userPoolClientType_callbackURLs,
+    userPoolClientType_allowedOAuthScopes,
+    userPoolClientType_creationDate,
+    userPoolClientType_idTokenValidity,
+    userPoolClientType_allowedOAuthFlowsUserPoolClient,
+    userPoolClientType_refreshTokenValidity,
+    userPoolClientType_analyticsConfiguration,
+    userPoolClientType_preventUserExistenceErrors,
+    userPoolClientType_tokenValidityUnits,
+    userPoolClientType_clientName,
+    userPoolClientType_enableTokenRevocation,
+    userPoolClientType_allowedOAuthFlows,
+    userPoolClientType_userPoolId,
+    userPoolClientType_writeAttributes,
+    userPoolClientType_logoutURLs,
+    userPoolClientType_supportedIdentityProviders,
+    userPoolClientType_readAttributes,
 
     -- * UserPoolDescriptionType
     UserPoolDescriptionType (..),
     newUserPoolDescriptionType,
-    userPoolDescriptionType_status,
-    userPoolDescriptionType_lastModifiedDate,
     userPoolDescriptionType_name,
-    userPoolDescriptionType_id,
+    userPoolDescriptionType_lastModifiedDate,
     userPoolDescriptionType_creationDate,
+    userPoolDescriptionType_status,
+    userPoolDescriptionType_id,
     userPoolDescriptionType_lambdaConfig,
 
     -- * UserPoolPolicyType
@@ -646,48 +646,48 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * UserPoolType
     UserPoolType (..),
     newUserPoolType,
-    userPoolType_status,
-    userPoolType_userPoolTags,
-    userPoolType_emailConfigurationFailure,
-    userPoolType_lastModifiedDate,
+    userPoolType_emailConfiguration,
+    userPoolType_schemaAttributes,
+    userPoolType_name,
+    userPoolType_adminCreateUserConfig,
     userPoolType_verificationMessageTemplate,
-    userPoolType_estimatedNumberOfUsers,
-    userPoolType_arn,
+    userPoolType_aliasAttributes,
+    userPoolType_deviceConfiguration,
+    userPoolType_mfaConfiguration,
+    userPoolType_lastModifiedDate,
+    userPoolType_smsConfigurationFailure,
+    userPoolType_usernameConfiguration,
     userPoolType_domain,
-    userPoolType_customDomain,
+    userPoolType_arn,
+    userPoolType_creationDate,
+    userPoolType_status,
+    userPoolType_id,
+    userPoolType_autoVerifiedAttributes,
+    userPoolType_smsConfiguration,
+    userPoolType_policies,
+    userPoolType_smsVerificationMessage,
+    userPoolType_emailVerificationSubject,
+    userPoolType_accountRecoverySetting,
+    userPoolType_userPoolTags,
     userPoolType_emailVerificationMessage,
     userPoolType_smsAuthenticationMessage,
-    userPoolType_userPoolAddOns,
-    userPoolType_schemaAttributes,
-    userPoolType_emailVerificationSubject,
+    userPoolType_emailConfigurationFailure,
     userPoolType_usernameAttributes,
-    userPoolType_aliasAttributes,
-    userPoolType_accountRecoverySetting,
-    userPoolType_emailConfiguration,
-    userPoolType_smsVerificationMessage,
-    userPoolType_name,
-    userPoolType_mfaConfiguration,
-    userPoolType_id,
-    userPoolType_smsConfigurationFailure,
-    userPoolType_creationDate,
+    userPoolType_estimatedNumberOfUsers,
     userPoolType_lambdaConfig,
-    userPoolType_smsConfiguration,
-    userPoolType_adminCreateUserConfig,
-    userPoolType_deviceConfiguration,
-    userPoolType_autoVerifiedAttributes,
-    userPoolType_policies,
-    userPoolType_usernameConfiguration,
+    userPoolType_customDomain,
+    userPoolType_userPoolAddOns,
 
     -- * UserType
     UserType (..),
     newUserType,
-    userType_enabled,
-    userType_userStatus,
     userType_username,
-    userType_userCreateDate,
-    userType_attributes,
-    userType_mfaOptions,
     userType_userLastModifiedDate,
+    userType_userCreateDate,
+    userType_enabled,
+    userType_attributes,
+    userType_userStatus,
+    userType_mfaOptions,
 
     -- * UsernameConfigurationType
     UsernameConfigurationType (..),
@@ -697,11 +697,11 @@ module Amazonka.CognitoIdentityProvider.Types
     -- * VerificationMessageTemplateType
     VerificationMessageTemplateType (..),
     newVerificationMessageTemplateType,
-    verificationMessageTemplateType_defaultEmailOption,
     verificationMessageTemplateType_emailSubject,
-    verificationMessageTemplateType_emailSubjectByLink,
     verificationMessageTemplateType_smsMessage,
+    verificationMessageTemplateType_emailSubjectByLink,
     verificationMessageTemplateType_emailMessageByLink,
+    verificationMessageTemplateType_defaultEmailOption,
     verificationMessageTemplateType_emailMessage,
   )
 where
@@ -838,35 +838,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -875,35 +848,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The request failed because the user is in an unsupported state.
-_UnsupportedUserStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedUserStateException =
+-- | This exception is thrown if the provided code does not match what the
+-- server was expecting.
+_CodeMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CodeMismatchException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedUserStateException"
-
--- | This exception is thrown when a password reset is required.
-_PasswordResetRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PasswordResetRequiredException =
-  Core._MatchServiceError
-    defaultService
-    "PasswordResetRequiredException"
-
--- | This exception is thrown when the Amazon Cognito service encounters an
--- invalid parameter.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
+    "CodeMismatchException"
 
 -- | This exception is thrown when you attempt to perform an operation that
 -- is not enabled for the user pool client.
@@ -913,50 +899,67 @@ _UnsupportedOperationException =
     defaultService
     "UnsupportedOperationException"
 
--- | This exception is thrown when the Amazon Cognito service encounters an
--- invalid Lambda response.
-_InvalidLambdaResponseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidLambdaResponseException =
+-- | This exception is thrown when Amazon Cognito encounters a user name that
+-- already exists in the user pool.
+_UsernameExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UsernameExistsException =
   Core._MatchServiceError
     defaultService
-    "InvalidLambdaResponseException"
+    "UsernameExistsException"
 
--- | This exception is thrown when Amazon Cognito is not allowed to use your
--- email identity. HTTP status code: 400.
-_InvalidEmailRoleAccessPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidEmailRoleAccessPolicyException =
+-- | This exception is thrown when a password reset is required.
+_PasswordResetRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PasswordResetRequiredException =
   Core._MatchServiceError
     defaultService
-    "InvalidEmailRoleAccessPolicyException"
+    "PasswordResetRequiredException"
 
--- | This exception is thrown when the specified identifier is not supported.
-_UnsupportedIdentityProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedIdentityProviderException =
+-- | This exception is thrown when user pool add-ons are not enabled.
+_UserPoolAddOnNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserPoolAddOnNotEnabledException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedIdentityProviderException"
+    "UserPoolAddOnNotEnabledException"
 
--- | This exception is thrown when a user is not found.
-_UserNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserNotFoundException =
+-- | This exception is thrown when a verification code fails to deliver
+-- successfully.
+_CodeDeliveryFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CodeDeliveryFailureException =
   Core._MatchServiceError
     defaultService
-    "UserNotFoundException"
+    "CodeDeliveryFailureException"
 
--- | This exception is thrown when the Amazon Cognito service encounters an
--- unexpected exception with the Lambda service.
-_UnexpectedLambdaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnexpectedLambdaException =
+-- | This exception is thrown if two or more modifications are happening
+-- concurrently.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "UnexpectedLambdaException"
+    "ConcurrentModificationException"
 
--- | This exception is thrown when a user is not authorized.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotAuthorizedException =
+-- | This exception is thrown when a user pool tag cannot be set or updated.
+_UserPoolTaggingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserPoolTaggingException =
   Core._MatchServiceError
     defaultService
-    "NotAuthorizedException"
+    "UserPoolTaggingException"
+
+-- | This exception is thrown when the request is not authorized. This can
+-- happen due to an invalid access token in the request.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"
+
+-- | This exception is thrown when there is a code mismatch and the service
+-- fails to configure the software token TOTP multi-factor authentication
+-- (MFA).
+_EnableSoftwareTokenMFAException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EnableSoftwareTokenMFAException =
+  Core._MatchServiceError
+    defaultService
+    "EnableSoftwareTokenMFAException"
 
 -- | This exception is thrown when Amazon Cognito encounters an internal
 -- error.
@@ -966,6 +969,83 @@ _InternalErrorException =
     defaultService
     "InternalErrorException"
 
+-- | This exception is thrown when a user is not found.
+_UserNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "UserNotFoundException"
+
+-- | This exception is thrown when the provider is already supported by the
+-- user pool.
+_DuplicateProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateProviderException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateProviderException"
+
+-- | This exception is thrown when a precondition is not met.
+_PreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionNotMetException =
+  Core._MatchServiceError
+    defaultService
+    "PreconditionNotMetException"
+
+-- | This exception is thrown when the user has made too many failed attempts
+-- for a given action (e.g., sign in).
+_TooManyFailedAttemptsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyFailedAttemptsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyFailedAttemptsException"
+
+-- | This exception is thrown when the Amazon Cognito service encounters a
+-- user validation exception with the Lambda service.
+_UserLambdaValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserLambdaValidationException =
+  Core._MatchServiceError
+    defaultService
+    "UserLambdaValidationException"
+
+-- | This exception is thrown when the Amazon Cognito service encounters an
+-- invalid password.
+_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPasswordException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPasswordException"
+
+-- | This exception is thrown when the Amazon Cognito service cannot find the
+-- requested resource.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | This exception is thrown when the Amazon Cognito service encounters an
+-- unexpected exception with the Lambda service.
+_UnexpectedLambdaException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnexpectedLambdaException =
+  Core._MatchServiceError
+    defaultService
+    "UnexpectedLambdaException"
+
+-- | The request failed because the user is in an unsupported state.
+_UnsupportedUserStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedUserStateException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedUserStateException"
+
+-- | This exception is thrown when a user exceeds the limit for a requested
+-- Amazon Web Services resource.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
 -- | This exception is thrown when the user pool configuration is invalid.
 _InvalidUserPoolConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidUserPoolConfigurationException =
@@ -973,28 +1053,45 @@ _InvalidUserPoolConfigurationException =
     defaultService
     "InvalidUserPoolConfigurationException"
 
--- | This exception is returned when the role provided for SMS configuration
--- does not have permission to publish using Amazon SNS.
-_InvalidSmsRoleAccessPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSmsRoleAccessPolicyException =
+-- | This exception is thrown when a user tries to confirm the account with
+-- an email or phone number that has already been supplied as an alias from
+-- a different account. This exception tells user that an account with this
+-- email or phone already exists.
+_AliasExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AliasExistsException =
   Core._MatchServiceError
     defaultService
-    "InvalidSmsRoleAccessPolicyException"
+    "AliasExistsException"
 
--- | This exception is thrown when the specified OAuth flow is invalid.
-_InvalidOAuthFlowException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOAuthFlowException =
+-- | This exception is thrown when the specified scope does not exist.
+_ScopeDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ScopeDoesNotExistException =
   Core._MatchServiceError
     defaultService
-    "InvalidOAuthFlowException"
+    "ScopeDoesNotExistException"
 
--- | This exception is thrown if the provided code does not match what the
--- server was expecting.
-_CodeMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CodeMismatchException =
+-- | This exception is thrown when the Amazon Cognito service encounters an
+-- invalid Lambda response.
+_InvalidLambdaResponseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidLambdaResponseException =
   Core._MatchServiceError
     defaultService
-    "CodeMismatchException"
+    "InvalidLambdaResponseException"
+
+-- | This exception is thrown when Amazon Cognito encounters a group that
+-- already exists in the user pool.
+_GroupExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GroupExistsException =
+  Core._MatchServiceError
+    defaultService
+    "GroupExistsException"
+
+-- | This exception is thrown if a code has expired.
+_ExpiredCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredCodeException =
+  Core._MatchServiceError
+    defaultService
+    "ExpiredCodeException"
 
 -- | This exception is thrown when you are trying to modify a user pool while
 -- a user import job is in progress for that pool.
@@ -1014,13 +1111,6 @@ _InvalidSmsRoleTrustRelationshipException =
     defaultService
     "InvalidSmsRoleTrustRelationshipException"
 
--- | This exception is thrown when a user pool tag cannot be set or updated.
-_UserPoolTaggingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserPoolTaggingException =
-  Core._MatchServiceError
-    defaultService
-    "UserPoolTaggingException"
-
 -- | This exception is thrown when the software token TOTP multi-factor
 -- authentication (MFA) is not enabled for the user pool.
 _SoftwareTokenMFANotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1028,114 +1118,6 @@ _SoftwareTokenMFANotFoundException =
   Core._MatchServiceError
     defaultService
     "SoftwareTokenMFANotFoundException"
-
--- | This exception is thrown when the user has made too many requests for a
--- given operation.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-
--- | This exception is thrown if two or more modifications are happening
--- concurrently.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
--- | This exception is thrown when user pool add-ons are not enabled.
-_UserPoolAddOnNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserPoolAddOnNotEnabledException =
-  Core._MatchServiceError
-    defaultService
-    "UserPoolAddOnNotEnabledException"
-
--- | This exception is thrown when the Amazon Cognito service encounters a
--- user validation exception with the Lambda service.
-_UserLambdaValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserLambdaValidationException =
-  Core._MatchServiceError
-    defaultService
-    "UserLambdaValidationException"
-
--- | This exception is thrown when a precondition is not met.
-_PreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PreconditionNotMetException =
-  Core._MatchServiceError
-    defaultService
-    "PreconditionNotMetException"
-
--- | This exception is thrown if a code has expired.
-_ExpiredCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExpiredCodeException =
-  Core._MatchServiceError
-    defaultService
-    "ExpiredCodeException"
-
--- | This exception is thrown when the user has made too many failed attempts
--- for a given action (e.g., sign in).
-_TooManyFailedAttemptsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyFailedAttemptsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyFailedAttemptsException"
-
--- | This exception is thrown when there is a code mismatch and the service
--- fails to configure the software token TOTP multi-factor authentication
--- (MFA).
-_EnableSoftwareTokenMFAException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EnableSoftwareTokenMFAException =
-  Core._MatchServiceError
-    defaultService
-    "EnableSoftwareTokenMFAException"
-
--- | This exception is thrown when a user is not confirmed successfully.
-_UserNotConfirmedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserNotConfirmedException =
-  Core._MatchServiceError
-    defaultService
-    "UserNotConfirmedException"
-
--- | This exception is thrown when Amazon Cognito encounters a group that
--- already exists in the user pool.
-_GroupExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GroupExistsException =
-  Core._MatchServiceError
-    defaultService
-    "GroupExistsException"
-
--- | This exception is thrown when the request is not authorized. This can
--- happen due to an invalid access token in the request.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-
--- | This exception is thrown when a verification code fails to deliver
--- successfully.
-_CodeDeliveryFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CodeDeliveryFailureException =
-  Core._MatchServiceError
-    defaultService
-    "CodeDeliveryFailureException"
-
--- | This exception is thrown when the specified scope does not exist.
-_ScopeDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ScopeDoesNotExistException =
-  Core._MatchServiceError
-    defaultService
-    "ScopeDoesNotExistException"
-
--- | This exception is thrown when the Amazon Cognito service cannot find the
--- requested resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | This exception is thrown when Amazon Cognito cannot find a multi-factor
 -- authentication (MFA) method.
@@ -1145,15 +1127,34 @@ _MFAMethodNotFoundException =
     defaultService
     "MFAMethodNotFoundException"
 
--- | This exception is thrown when a user tries to confirm the account with
--- an email or phone number that has already been supplied as an alias from
--- a different account. This exception tells user that an account with this
--- email or phone already exists.
-_AliasExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AliasExistsException =
+-- | This exception is thrown when a user is not authorized.
+_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException =
   Core._MatchServiceError
     defaultService
-    "AliasExistsException"
+    "NotAuthorizedException"
+
+-- | This exception is thrown when the specified OAuth flow is invalid.
+_InvalidOAuthFlowException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOAuthFlowException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOAuthFlowException"
+
+-- | This exception is thrown when the specified identifier is not supported.
+_UnsupportedIdentityProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedIdentityProviderException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedIdentityProviderException"
+
+-- | This exception is thrown when Amazon Cognito is not allowed to use your
+-- email identity. HTTP status code: 400.
+_InvalidEmailRoleAccessPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEmailRoleAccessPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidEmailRoleAccessPolicyException"
 
 -- | This exception is thrown when an unsupported token is passed to an
 -- operation.
@@ -1163,34 +1164,33 @@ _UnsupportedTokenTypeException =
     defaultService
     "UnsupportedTokenTypeException"
 
--- | This exception is thrown when the provider is already supported by the
--- user pool.
-_DuplicateProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateProviderException =
+-- | This exception is returned when the role provided for SMS configuration
+-- does not have permission to publish using Amazon SNS.
+_InvalidSmsRoleAccessPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSmsRoleAccessPolicyException =
   Core._MatchServiceError
     defaultService
-    "DuplicateProviderException"
+    "InvalidSmsRoleAccessPolicyException"
 
--- | This exception is thrown when a user exceeds the limit for a requested
--- Amazon Web Services resource.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | This exception is thrown when the user has made too many requests for a
+-- given operation.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "TooManyRequestsException"
+
+-- | This exception is thrown when a user is not confirmed successfully.
+_UserNotConfirmedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserNotConfirmedException =
+  Core._MatchServiceError
+    defaultService
+    "UserNotConfirmedException"
 
 -- | This exception is thrown when the Amazon Cognito service encounters an
--- invalid password.
-_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPasswordException =
+-- invalid parameter.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "InvalidPasswordException"
-
--- | This exception is thrown when Amazon Cognito encounters a user name that
--- already exists in the user pool.
-_UsernameExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UsernameExistsException =
-  Core._MatchServiceError
-    defaultService
-    "UsernameExistsException"
+    "InvalidParameterException"

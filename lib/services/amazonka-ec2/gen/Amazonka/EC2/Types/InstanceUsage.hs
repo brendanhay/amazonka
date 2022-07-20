@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceUsage' smart constructor.
 data InstanceUsage = InstanceUsage'
-  { -- | The ID of the Amazon Web Services account that is making use of the
-    -- Capacity Reservation.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The number of instances the Amazon Web Services account currently has in
+  { -- | The number of instances the Amazon Web Services account currently has in
     -- the Capacity Reservation.
-    usedInstanceCount :: Prelude.Maybe Prelude.Int
+    usedInstanceCount :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the Amazon Web Services account that is making use of the
+    -- Capacity Reservation.
+    accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,41 +45,41 @@ data InstanceUsage = InstanceUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'instanceUsage_accountId' - The ID of the Amazon Web Services account that is making use of the
--- Capacity Reservation.
---
 -- 'usedInstanceCount', 'instanceUsage_usedInstanceCount' - The number of instances the Amazon Web Services account currently has in
 -- the Capacity Reservation.
+--
+-- 'accountId', 'instanceUsage_accountId' - The ID of the Amazon Web Services account that is making use of the
+-- Capacity Reservation.
 newInstanceUsage ::
   InstanceUsage
 newInstanceUsage =
   InstanceUsage'
-    { accountId = Prelude.Nothing,
-      usedInstanceCount = Prelude.Nothing
+    { usedInstanceCount = Prelude.Nothing,
+      accountId = Prelude.Nothing
     }
-
--- | The ID of the Amazon Web Services account that is making use of the
--- Capacity Reservation.
-instanceUsage_accountId :: Lens.Lens' InstanceUsage (Prelude.Maybe Prelude.Text)
-instanceUsage_accountId = Lens.lens (\InstanceUsage' {accountId} -> accountId) (\s@InstanceUsage' {} a -> s {accountId = a} :: InstanceUsage)
 
 -- | The number of instances the Amazon Web Services account currently has in
 -- the Capacity Reservation.
 instanceUsage_usedInstanceCount :: Lens.Lens' InstanceUsage (Prelude.Maybe Prelude.Int)
 instanceUsage_usedInstanceCount = Lens.lens (\InstanceUsage' {usedInstanceCount} -> usedInstanceCount) (\s@InstanceUsage' {} a -> s {usedInstanceCount = a} :: InstanceUsage)
 
+-- | The ID of the Amazon Web Services account that is making use of the
+-- Capacity Reservation.
+instanceUsage_accountId :: Lens.Lens' InstanceUsage (Prelude.Maybe Prelude.Text)
+instanceUsage_accountId = Lens.lens (\InstanceUsage' {accountId} -> accountId) (\s@InstanceUsage' {} a -> s {accountId = a} :: InstanceUsage)
+
 instance Core.FromXML InstanceUsage where
   parseXML x =
     InstanceUsage'
-      Prelude.<$> (x Core..@? "accountId")
-      Prelude.<*> (x Core..@? "usedInstanceCount")
+      Prelude.<$> (x Core..@? "usedInstanceCount")
+      Prelude.<*> (x Core..@? "accountId")
 
 instance Prelude.Hashable InstanceUsage where
   hashWithSalt _salt InstanceUsage' {..} =
-    _salt `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` usedInstanceCount
+    _salt `Prelude.hashWithSalt` usedInstanceCount
+      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData InstanceUsage where
   rnf InstanceUsage' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf usedInstanceCount
+    Prelude.rnf usedInstanceCount
+      `Prelude.seq` Prelude.rnf accountId

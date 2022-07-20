@@ -32,38 +32,38 @@ module Amazonka.OpenSearch
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** BaseException
-    _BaseException,
-
-    -- ** DisabledOperationException
-    _DisabledOperationException,
-
-    -- ** InternalException
-    _InternalException,
-
-    -- ** InvalidTypeException
-    _InvalidTypeException,
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
+    -- ** InvalidTypeException
+    _InvalidTypeException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** DisabledOperationException
+    _DisabledOperationException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** InternalException
+    _InternalException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** BaseException
+    _BaseException,
 
     -- * Waiters
     -- $waiters
@@ -71,179 +71,11 @@ module Amazonka.OpenSearch
     -- * Operations
     -- $operations
 
-    -- ** RejectInboundConnection
-    RejectInboundConnection (RejectInboundConnection'),
-    newRejectInboundConnection,
-    RejectInboundConnectionResponse (RejectInboundConnectionResponse'),
-    newRejectInboundConnectionResponse,
-
-    -- ** DescribeOutboundConnections
-    DescribeOutboundConnections (DescribeOutboundConnections'),
-    newDescribeOutboundConnections,
-    DescribeOutboundConnectionsResponse (DescribeOutboundConnectionsResponse'),
-    newDescribeOutboundConnectionsResponse,
-
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
-
-    -- ** DescribeInstanceTypeLimits
-    DescribeInstanceTypeLimits (DescribeInstanceTypeLimits'),
-    newDescribeInstanceTypeLimits,
-    DescribeInstanceTypeLimitsResponse (DescribeInstanceTypeLimitsResponse'),
-    newDescribeInstanceTypeLimitsResponse,
-
-    -- ** DescribeInboundConnections
-    DescribeInboundConnections (DescribeInboundConnections'),
-    newDescribeInboundConnections,
-    DescribeInboundConnectionsResponse (DescribeInboundConnectionsResponse'),
-    newDescribeInboundConnectionsResponse,
-
-    -- ** CancelServiceSoftwareUpdate
-    CancelServiceSoftwareUpdate (CancelServiceSoftwareUpdate'),
-    newCancelServiceSoftwareUpdate,
-    CancelServiceSoftwareUpdateResponse (CancelServiceSoftwareUpdateResponse'),
-    newCancelServiceSoftwareUpdateResponse,
-
-    -- ** ListDomainsForPackage
-    ListDomainsForPackage (ListDomainsForPackage'),
-    newListDomainsForPackage,
-    ListDomainsForPackageResponse (ListDomainsForPackageResponse'),
-    newListDomainsForPackageResponse,
-
-    -- ** ListPackagesForDomain
-    ListPackagesForDomain (ListPackagesForDomain'),
-    newListPackagesForDomain,
-    ListPackagesForDomainResponse (ListPackagesForDomainResponse'),
-    newListPackagesForDomainResponse,
-
-    -- ** UpgradeDomain
-    UpgradeDomain (UpgradeDomain'),
-    newUpgradeDomain,
-    UpgradeDomainResponse (UpgradeDomainResponse'),
-    newUpgradeDomainResponse,
-
-    -- ** DescribeDomainAutoTunes
-    DescribeDomainAutoTunes (DescribeDomainAutoTunes'),
-    newDescribeDomainAutoTunes,
-    DescribeDomainAutoTunesResponse (DescribeDomainAutoTunesResponse'),
-    newDescribeDomainAutoTunesResponse,
-
-    -- ** DescribeReservedInstances
-    DescribeReservedInstances (DescribeReservedInstances'),
-    newDescribeReservedInstances,
-    DescribeReservedInstancesResponse (DescribeReservedInstancesResponse'),
-    newDescribeReservedInstancesResponse,
-
-    -- ** StartServiceSoftwareUpdate
-    StartServiceSoftwareUpdate (StartServiceSoftwareUpdate'),
-    newStartServiceSoftwareUpdate,
-    StartServiceSoftwareUpdateResponse (StartServiceSoftwareUpdateResponse'),
-    newStartServiceSoftwareUpdateResponse,
-
-    -- ** DeleteOutboundConnection
-    DeleteOutboundConnection (DeleteOutboundConnection'),
-    newDeleteOutboundConnection,
-    DeleteOutboundConnectionResponse (DeleteOutboundConnectionResponse'),
-    newDeleteOutboundConnectionResponse,
-
-    -- ** ListVersions
-    ListVersions (ListVersions'),
-    newListVersions,
-    ListVersionsResponse (ListVersionsResponse'),
-    newListVersionsResponse,
-
-    -- ** DescribeReservedInstanceOfferings
-    DescribeReservedInstanceOfferings (DescribeReservedInstanceOfferings'),
-    newDescribeReservedInstanceOfferings,
-    DescribeReservedInstanceOfferingsResponse (DescribeReservedInstanceOfferingsResponse'),
-    newDescribeReservedInstanceOfferingsResponse,
-
-    -- ** ListDomainNames
-    ListDomainNames (ListDomainNames'),
-    newListDomainNames,
-    ListDomainNamesResponse (ListDomainNamesResponse'),
-    newListDomainNamesResponse,
-
-    -- ** PurchaseReservedInstanceOffering
-    PurchaseReservedInstanceOffering (PurchaseReservedInstanceOffering'),
-    newPurchaseReservedInstanceOffering,
-    PurchaseReservedInstanceOfferingResponse (PurchaseReservedInstanceOfferingResponse'),
-    newPurchaseReservedInstanceOfferingResponse,
-
-    -- ** DescribeDomains
-    DescribeDomains (DescribeDomains'),
-    newDescribeDomains,
-    DescribeDomainsResponse (DescribeDomainsResponse'),
-    newDescribeDomainsResponse,
-
-    -- ** AssociatePackage
-    AssociatePackage (AssociatePackage'),
-    newAssociatePackage,
-    AssociatePackageResponse (AssociatePackageResponse'),
-    newAssociatePackageResponse,
-
-    -- ** ListInstanceTypeDetails
-    ListInstanceTypeDetails (ListInstanceTypeDetails'),
-    newListInstanceTypeDetails,
-    ListInstanceTypeDetailsResponse (ListInstanceTypeDetailsResponse'),
-    newListInstanceTypeDetailsResponse,
-
-    -- ** GetPackageVersionHistory
-    GetPackageVersionHistory (GetPackageVersionHistory'),
-    newGetPackageVersionHistory,
-    GetPackageVersionHistoryResponse (GetPackageVersionHistoryResponse'),
-    newGetPackageVersionHistoryResponse,
-
-    -- ** GetUpgradeHistory
-    GetUpgradeHistory (GetUpgradeHistory'),
-    newGetUpgradeHistory,
-    GetUpgradeHistoryResponse (GetUpgradeHistoryResponse'),
-    newGetUpgradeHistoryResponse,
-
-    -- ** DescribePackages
-    DescribePackages (DescribePackages'),
-    newDescribePackages,
-    DescribePackagesResponse (DescribePackagesResponse'),
-    newDescribePackagesResponse,
-
-    -- ** CreateDomain
-    CreateDomain (CreateDomain'),
-    newCreateDomain,
-    CreateDomainResponse (CreateDomainResponse'),
-    newCreateDomainResponse,
-
-    -- ** DescribeDomainConfig
-    DescribeDomainConfig (DescribeDomainConfig'),
-    newDescribeDomainConfig,
-    DescribeDomainConfigResponse (DescribeDomainConfigResponse'),
-    newDescribeDomainConfigResponse,
-
-    -- ** GetUpgradeStatus
-    GetUpgradeStatus (GetUpgradeStatus'),
-    newGetUpgradeStatus,
-    GetUpgradeStatusResponse (GetUpgradeStatusResponse'),
-    newGetUpgradeStatusResponse,
-
-    -- ** DeleteInboundConnection
-    DeleteInboundConnection (DeleteInboundConnection'),
-    newDeleteInboundConnection,
-    DeleteInboundConnectionResponse (DeleteInboundConnectionResponse'),
-    newDeleteInboundConnectionResponse,
-
-    -- ** DissociatePackage
-    DissociatePackage (DissociatePackage'),
-    newDissociatePackage,
-    DissociatePackageResponse (DissociatePackageResponse'),
-    newDissociatePackageResponse,
-
-    -- ** DescribeDomain
-    DescribeDomain (DescribeDomain'),
-    newDescribeDomain,
-    DescribeDomainResponse (DescribeDomainResponse'),
-    newDescribeDomainResponse,
+    -- ** AcceptInboundConnection
+    AcceptInboundConnection (AcceptInboundConnection'),
+    newAcceptInboundConnection,
+    AcceptInboundConnectionResponse (AcceptInboundConnectionResponse'),
+    newAcceptInboundConnectionResponse,
 
     -- ** AddTags
     AddTags (AddTags'),
@@ -251,35 +83,23 @@ module Amazonka.OpenSearch
     AddTagsResponse (AddTagsResponse'),
     newAddTagsResponse,
 
-    -- ** AcceptInboundConnection
-    AcceptInboundConnection (AcceptInboundConnection'),
-    newAcceptInboundConnection,
-    AcceptInboundConnectionResponse (AcceptInboundConnectionResponse'),
-    newAcceptInboundConnectionResponse,
+    -- ** AssociatePackage
+    AssociatePackage (AssociatePackage'),
+    newAssociatePackage,
+    AssociatePackageResponse (AssociatePackageResponse'),
+    newAssociatePackageResponse,
 
-    -- ** UpdateDomainConfig
-    UpdateDomainConfig (UpdateDomainConfig'),
-    newUpdateDomainConfig,
-    UpdateDomainConfigResponse (UpdateDomainConfigResponse'),
-    newUpdateDomainConfigResponse,
+    -- ** CancelServiceSoftwareUpdate
+    CancelServiceSoftwareUpdate (CancelServiceSoftwareUpdate'),
+    newCancelServiceSoftwareUpdate,
+    CancelServiceSoftwareUpdateResponse (CancelServiceSoftwareUpdateResponse'),
+    newCancelServiceSoftwareUpdateResponse,
 
-    -- ** ListTags
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
-
-    -- ** DeletePackage
-    DeletePackage (DeletePackage'),
-    newDeletePackage,
-    DeletePackageResponse (DeletePackageResponse'),
-    newDeletePackageResponse,
-
-    -- ** UpdatePackage
-    UpdatePackage (UpdatePackage'),
-    newUpdatePackage,
-    UpdatePackageResponse (UpdatePackageResponse'),
-    newUpdatePackageResponse,
+    -- ** CreateDomain
+    CreateDomain (CreateDomain'),
+    newCreateDomain,
+    CreateDomainResponse (CreateDomainResponse'),
+    newCreateDomainResponse,
 
     -- ** CreateOutboundConnection
     CreateOutboundConnection (CreateOutboundConnection'),
@@ -299,11 +119,191 @@ module Amazonka.OpenSearch
     DeleteDomainResponse (DeleteDomainResponse'),
     newDeleteDomainResponse,
 
+    -- ** DeleteInboundConnection
+    DeleteInboundConnection (DeleteInboundConnection'),
+    newDeleteInboundConnection,
+    DeleteInboundConnectionResponse (DeleteInboundConnectionResponse'),
+    newDeleteInboundConnectionResponse,
+
+    -- ** DeleteOutboundConnection
+    DeleteOutboundConnection (DeleteOutboundConnection'),
+    newDeleteOutboundConnection,
+    DeleteOutboundConnectionResponse (DeleteOutboundConnectionResponse'),
+    newDeleteOutboundConnectionResponse,
+
+    -- ** DeletePackage
+    DeletePackage (DeletePackage'),
+    newDeletePackage,
+    DeletePackageResponse (DeletePackageResponse'),
+    newDeletePackageResponse,
+
+    -- ** DescribeDomain
+    DescribeDomain (DescribeDomain'),
+    newDescribeDomain,
+    DescribeDomainResponse (DescribeDomainResponse'),
+    newDescribeDomainResponse,
+
+    -- ** DescribeDomainAutoTunes
+    DescribeDomainAutoTunes (DescribeDomainAutoTunes'),
+    newDescribeDomainAutoTunes,
+    DescribeDomainAutoTunesResponse (DescribeDomainAutoTunesResponse'),
+    newDescribeDomainAutoTunesResponse,
+
+    -- ** DescribeDomainConfig
+    DescribeDomainConfig (DescribeDomainConfig'),
+    newDescribeDomainConfig,
+    DescribeDomainConfigResponse (DescribeDomainConfigResponse'),
+    newDescribeDomainConfigResponse,
+
+    -- ** DescribeDomains
+    DescribeDomains (DescribeDomains'),
+    newDescribeDomains,
+    DescribeDomainsResponse (DescribeDomainsResponse'),
+    newDescribeDomainsResponse,
+
+    -- ** DescribeInboundConnections
+    DescribeInboundConnections (DescribeInboundConnections'),
+    newDescribeInboundConnections,
+    DescribeInboundConnectionsResponse (DescribeInboundConnectionsResponse'),
+    newDescribeInboundConnectionsResponse,
+
+    -- ** DescribeInstanceTypeLimits
+    DescribeInstanceTypeLimits (DescribeInstanceTypeLimits'),
+    newDescribeInstanceTypeLimits,
+    DescribeInstanceTypeLimitsResponse (DescribeInstanceTypeLimitsResponse'),
+    newDescribeInstanceTypeLimitsResponse,
+
+    -- ** DescribeOutboundConnections
+    DescribeOutboundConnections (DescribeOutboundConnections'),
+    newDescribeOutboundConnections,
+    DescribeOutboundConnectionsResponse (DescribeOutboundConnectionsResponse'),
+    newDescribeOutboundConnectionsResponse,
+
+    -- ** DescribePackages
+    DescribePackages (DescribePackages'),
+    newDescribePackages,
+    DescribePackagesResponse (DescribePackagesResponse'),
+    newDescribePackagesResponse,
+
+    -- ** DescribeReservedInstanceOfferings
+    DescribeReservedInstanceOfferings (DescribeReservedInstanceOfferings'),
+    newDescribeReservedInstanceOfferings,
+    DescribeReservedInstanceOfferingsResponse (DescribeReservedInstanceOfferingsResponse'),
+    newDescribeReservedInstanceOfferingsResponse,
+
+    -- ** DescribeReservedInstances
+    DescribeReservedInstances (DescribeReservedInstances'),
+    newDescribeReservedInstances,
+    DescribeReservedInstancesResponse (DescribeReservedInstancesResponse'),
+    newDescribeReservedInstancesResponse,
+
+    -- ** DissociatePackage
+    DissociatePackage (DissociatePackage'),
+    newDissociatePackage,
+    DissociatePackageResponse (DissociatePackageResponse'),
+    newDissociatePackageResponse,
+
     -- ** GetCompatibleVersions
     GetCompatibleVersions (GetCompatibleVersions'),
     newGetCompatibleVersions,
     GetCompatibleVersionsResponse (GetCompatibleVersionsResponse'),
     newGetCompatibleVersionsResponse,
+
+    -- ** GetPackageVersionHistory
+    GetPackageVersionHistory (GetPackageVersionHistory'),
+    newGetPackageVersionHistory,
+    GetPackageVersionHistoryResponse (GetPackageVersionHistoryResponse'),
+    newGetPackageVersionHistoryResponse,
+
+    -- ** GetUpgradeHistory
+    GetUpgradeHistory (GetUpgradeHistory'),
+    newGetUpgradeHistory,
+    GetUpgradeHistoryResponse (GetUpgradeHistoryResponse'),
+    newGetUpgradeHistoryResponse,
+
+    -- ** GetUpgradeStatus
+    GetUpgradeStatus (GetUpgradeStatus'),
+    newGetUpgradeStatus,
+    GetUpgradeStatusResponse (GetUpgradeStatusResponse'),
+    newGetUpgradeStatusResponse,
+
+    -- ** ListDomainNames
+    ListDomainNames (ListDomainNames'),
+    newListDomainNames,
+    ListDomainNamesResponse (ListDomainNamesResponse'),
+    newListDomainNamesResponse,
+
+    -- ** ListDomainsForPackage
+    ListDomainsForPackage (ListDomainsForPackage'),
+    newListDomainsForPackage,
+    ListDomainsForPackageResponse (ListDomainsForPackageResponse'),
+    newListDomainsForPackageResponse,
+
+    -- ** ListInstanceTypeDetails
+    ListInstanceTypeDetails (ListInstanceTypeDetails'),
+    newListInstanceTypeDetails,
+    ListInstanceTypeDetailsResponse (ListInstanceTypeDetailsResponse'),
+    newListInstanceTypeDetailsResponse,
+
+    -- ** ListPackagesForDomain
+    ListPackagesForDomain (ListPackagesForDomain'),
+    newListPackagesForDomain,
+    ListPackagesForDomainResponse (ListPackagesForDomainResponse'),
+    newListPackagesForDomainResponse,
+
+    -- ** ListTags
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** ListVersions
+    ListVersions (ListVersions'),
+    newListVersions,
+    ListVersionsResponse (ListVersionsResponse'),
+    newListVersionsResponse,
+
+    -- ** PurchaseReservedInstanceOffering
+    PurchaseReservedInstanceOffering (PurchaseReservedInstanceOffering'),
+    newPurchaseReservedInstanceOffering,
+    PurchaseReservedInstanceOfferingResponse (PurchaseReservedInstanceOfferingResponse'),
+    newPurchaseReservedInstanceOfferingResponse,
+
+    -- ** RejectInboundConnection
+    RejectInboundConnection (RejectInboundConnection'),
+    newRejectInboundConnection,
+    RejectInboundConnectionResponse (RejectInboundConnectionResponse'),
+    newRejectInboundConnectionResponse,
+
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
+
+    -- ** StartServiceSoftwareUpdate
+    StartServiceSoftwareUpdate (StartServiceSoftwareUpdate'),
+    newStartServiceSoftwareUpdate,
+    StartServiceSoftwareUpdateResponse (StartServiceSoftwareUpdateResponse'),
+    newStartServiceSoftwareUpdateResponse,
+
+    -- ** UpdateDomainConfig
+    UpdateDomainConfig (UpdateDomainConfig'),
+    newUpdateDomainConfig,
+    UpdateDomainConfigResponse (UpdateDomainConfigResponse'),
+    newUpdateDomainConfigResponse,
+
+    -- ** UpdatePackage
+    UpdatePackage (UpdatePackage'),
+    newUpdatePackage,
+    UpdatePackageResponse (UpdatePackageResponse'),
+    newUpdatePackageResponse,
+
+    -- ** UpgradeDomain
+    UpgradeDomain (UpgradeDomain'),
+    newUpgradeDomain,
+    UpgradeDomainResponse (UpgradeDomainResponse'),
+    newUpgradeDomainResponse,
 
     -- * Types
 

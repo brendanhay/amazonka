@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 data AWSAccount = AWSAccount'
   { -- | The name of the specified Amazon Web Services account.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the specified Amazon Web Services account.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The email address associated with the specified Amazon Web Services
     -- account.
-    emailAddress :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified Amazon Web Services account.
-    id :: Prelude.Maybe Prelude.Text
+    emailAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,31 @@ data AWSAccount = AWSAccount'
 --
 -- 'name', 'aWSAccount_name' - The name of the specified Amazon Web Services account.
 --
+-- 'id', 'aWSAccount_id' - The identifier for the specified Amazon Web Services account.
+--
 -- 'emailAddress', 'aWSAccount_emailAddress' - The email address associated with the specified Amazon Web Services
 -- account.
---
--- 'id', 'aWSAccount_id' - The identifier for the specified Amazon Web Services account.
 newAWSAccount ::
   AWSAccount
 newAWSAccount =
   AWSAccount'
     { name = Prelude.Nothing,
-      emailAddress = Prelude.Nothing,
-      id = Prelude.Nothing
+      id = Prelude.Nothing,
+      emailAddress = Prelude.Nothing
     }
 
 -- | The name of the specified Amazon Web Services account.
 aWSAccount_name :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
 aWSAccount_name = Lens.lens (\AWSAccount' {name} -> name) (\s@AWSAccount' {} a -> s {name = a} :: AWSAccount)
 
+-- | The identifier for the specified Amazon Web Services account.
+aWSAccount_id :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
+aWSAccount_id = Lens.lens (\AWSAccount' {id} -> id) (\s@AWSAccount' {} a -> s {id = a} :: AWSAccount)
+
 -- | The email address associated with the specified Amazon Web Services
 -- account.
 aWSAccount_emailAddress :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
 aWSAccount_emailAddress = Lens.lens (\AWSAccount' {emailAddress} -> emailAddress) (\s@AWSAccount' {} a -> s {emailAddress = a} :: AWSAccount)
-
--- | The identifier for the specified Amazon Web Services account.
-aWSAccount_id :: Lens.Lens' AWSAccount (Prelude.Maybe Prelude.Text)
-aWSAccount_id = Lens.lens (\AWSAccount' {id} -> id) (\s@AWSAccount' {} a -> s {id = a} :: AWSAccount)
 
 instance Core.FromJSON AWSAccount where
   parseJSON =
@@ -81,28 +81,28 @@ instance Core.FromJSON AWSAccount where
       ( \x ->
           AWSAccount'
             Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "emailAddress")
             Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "emailAddress")
       )
 
 instance Prelude.Hashable AWSAccount where
   hashWithSalt _salt AWSAccount' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` emailAddress
 
 instance Prelude.NFData AWSAccount where
   rnf AWSAccount' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf emailAddress
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf emailAddress
 
 instance Core.ToJSON AWSAccount where
   toJSON AWSAccount' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
-            ("emailAddress" Core..=) Prelude.<$> emailAddress,
-            ("id" Core..=) Prelude.<$> id
+            ("id" Core..=) Prelude.<$> id,
+            ("emailAddress" Core..=) Prelude.<$> emailAddress
           ]
       )

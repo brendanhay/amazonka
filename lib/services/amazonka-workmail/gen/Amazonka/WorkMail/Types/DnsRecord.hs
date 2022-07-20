@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDnsRecord' smart constructor.
 data DnsRecord = DnsRecord'
-  { -- | The DNS hostname.- For example, @domain.example.com@.
+  { -- | The RFC 1035 record type. Possible values: @CNAME@, @A@, @MX@.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The DNS hostname.- For example, @domain.example.com@.
     hostname :: Prelude.Maybe Prelude.Text,
     -- | The value returned by the DNS for a query to that hostname and record
     -- type.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The RFC 1035 record type. Possible values: @CNAME@, @A@, @MX@.
-    type' :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,24 @@ data DnsRecord = DnsRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'dnsRecord_type' - The RFC 1035 record type. Possible values: @CNAME@, @A@, @MX@.
+--
 -- 'hostname', 'dnsRecord_hostname' - The DNS hostname.- For example, @domain.example.com@.
 --
 -- 'value', 'dnsRecord_value' - The value returned by the DNS for a query to that hostname and record
 -- type.
---
--- 'type'', 'dnsRecord_type' - The RFC 1035 record type. Possible values: @CNAME@, @A@, @MX@.
 newDnsRecord ::
   DnsRecord
 newDnsRecord =
   DnsRecord'
-    { hostname = Prelude.Nothing,
-      value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      hostname = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | The RFC 1035 record type. Possible values: @CNAME@, @A@, @MX@.
+dnsRecord_type :: Lens.Lens' DnsRecord (Prelude.Maybe Prelude.Text)
+dnsRecord_type = Lens.lens (\DnsRecord' {type'} -> type') (\s@DnsRecord' {} a -> s {type' = a} :: DnsRecord)
 
 -- | The DNS hostname.- For example, @domain.example.com@.
 dnsRecord_hostname :: Lens.Lens' DnsRecord (Prelude.Maybe Prelude.Text)
@@ -69,29 +73,25 @@ dnsRecord_hostname = Lens.lens (\DnsRecord' {hostname} -> hostname) (\s@DnsRecor
 dnsRecord_value :: Lens.Lens' DnsRecord (Prelude.Maybe Prelude.Text)
 dnsRecord_value = Lens.lens (\DnsRecord' {value} -> value) (\s@DnsRecord' {} a -> s {value = a} :: DnsRecord)
 
--- | The RFC 1035 record type. Possible values: @CNAME@, @A@, @MX@.
-dnsRecord_type :: Lens.Lens' DnsRecord (Prelude.Maybe Prelude.Text)
-dnsRecord_type = Lens.lens (\DnsRecord' {type'} -> type') (\s@DnsRecord' {} a -> s {type' = a} :: DnsRecord)
-
 instance Core.FromJSON DnsRecord where
   parseJSON =
     Core.withObject
       "DnsRecord"
       ( \x ->
           DnsRecord'
-            Prelude.<$> (x Core..:? "Hostname")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Hostname")
             Prelude.<*> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable DnsRecord where
   hashWithSalt _salt DnsRecord' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DnsRecord where
   rnf DnsRecord' {..} =
-    Prelude.rnf hostname
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf type'

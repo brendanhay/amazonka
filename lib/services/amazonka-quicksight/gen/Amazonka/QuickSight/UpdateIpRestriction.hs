@@ -36,8 +36,8 @@ module Amazonka.QuickSight.UpdateIpRestriction
     newUpdateIpRestrictionResponse,
 
     -- * Response Lenses
-    updateIpRestrictionResponse_requestId,
     updateIpRestrictionResponse_awsAccountId,
+    updateIpRestrictionResponse_requestId,
     updateIpRestrictionResponse_status,
   )
 where
@@ -106,8 +106,8 @@ instance Core.AWSRequest UpdateIpRestriction where
     Response.receiveJSON
       ( \s h x ->
           UpdateIpRestrictionResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "AwsAccountId")
+            Prelude.<$> (x Core..?> "AwsAccountId")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,10 +157,10 @@ instance Core.ToQuery UpdateIpRestriction where
 
 -- | /See:/ 'newUpdateIpRestrictionResponse' smart constructor.
 data UpdateIpRestrictionResponse = UpdateIpRestrictionResponse'
-  { -- | The ID of the update request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | Your AWS account ID.
+  { -- | Your AWS account ID.
     awsAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the update request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The status of the updated IP rules. A successful request returns a 200
     -- code.
     status :: Prelude.Int
@@ -175,9 +175,9 @@ data UpdateIpRestrictionResponse = UpdateIpRestrictionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateIpRestrictionResponse_requestId' - The ID of the update request.
---
 -- 'awsAccountId', 'updateIpRestrictionResponse_awsAccountId' - Your AWS account ID.
+--
+-- 'requestId', 'updateIpRestrictionResponse_requestId' - The ID of the update request.
 --
 -- 'status', 'updateIpRestrictionResponse_status' - The status of the updated IP rules. A successful request returns a 200
 -- code.
@@ -187,19 +187,19 @@ newUpdateIpRestrictionResponse ::
   UpdateIpRestrictionResponse
 newUpdateIpRestrictionResponse pStatus_ =
   UpdateIpRestrictionResponse'
-    { requestId =
+    { awsAccountId =
         Prelude.Nothing,
-      awsAccountId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The ID of the update request.
-updateIpRestrictionResponse_requestId :: Lens.Lens' UpdateIpRestrictionResponse (Prelude.Maybe Prelude.Text)
-updateIpRestrictionResponse_requestId = Lens.lens (\UpdateIpRestrictionResponse' {requestId} -> requestId) (\s@UpdateIpRestrictionResponse' {} a -> s {requestId = a} :: UpdateIpRestrictionResponse)
 
 -- | Your AWS account ID.
 updateIpRestrictionResponse_awsAccountId :: Lens.Lens' UpdateIpRestrictionResponse (Prelude.Maybe Prelude.Text)
 updateIpRestrictionResponse_awsAccountId = Lens.lens (\UpdateIpRestrictionResponse' {awsAccountId} -> awsAccountId) (\s@UpdateIpRestrictionResponse' {} a -> s {awsAccountId = a} :: UpdateIpRestrictionResponse)
+
+-- | The ID of the update request.
+updateIpRestrictionResponse_requestId :: Lens.Lens' UpdateIpRestrictionResponse (Prelude.Maybe Prelude.Text)
+updateIpRestrictionResponse_requestId = Lens.lens (\UpdateIpRestrictionResponse' {requestId} -> requestId) (\s@UpdateIpRestrictionResponse' {} a -> s {requestId = a} :: UpdateIpRestrictionResponse)
 
 -- | The status of the updated IP rules. A successful request returns a 200
 -- code.
@@ -208,6 +208,6 @@ updateIpRestrictionResponse_status = Lens.lens (\UpdateIpRestrictionResponse' {s
 
 instance Prelude.NFData UpdateIpRestrictionResponse where
   rnf UpdateIpRestrictionResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf awsAccountId
+    Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

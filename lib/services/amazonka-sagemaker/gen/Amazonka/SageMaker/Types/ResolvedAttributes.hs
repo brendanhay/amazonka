@@ -30,10 +30,10 @@ import Amazonka.SageMaker.Types.ProblemType
 --
 -- /See:/ 'newResolvedAttributes' smart constructor.
 data ResolvedAttributes = ResolvedAttributes'
-  { -- | The problem type.
-    problemType :: Prelude.Maybe ProblemType,
+  { completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria,
     autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
-    completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria
+    -- | The problem type.
+    problemType :: Prelude.Maybe ProblemType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,32 @@ data ResolvedAttributes = ResolvedAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'problemType', 'resolvedAttributes_problemType' - The problem type.
+-- 'completionCriteria', 'resolvedAttributes_completionCriteria' - Undocumented member.
 --
 -- 'autoMLJobObjective', 'resolvedAttributes_autoMLJobObjective' - Undocumented member.
 --
--- 'completionCriteria', 'resolvedAttributes_completionCriteria' - Undocumented member.
+-- 'problemType', 'resolvedAttributes_problemType' - The problem type.
 newResolvedAttributes ::
   ResolvedAttributes
 newResolvedAttributes =
   ResolvedAttributes'
-    { problemType = Prelude.Nothing,
+    { completionCriteria =
+        Prelude.Nothing,
       autoMLJobObjective = Prelude.Nothing,
-      completionCriteria = Prelude.Nothing
+      problemType = Prelude.Nothing
     }
 
--- | The problem type.
-resolvedAttributes_problemType :: Lens.Lens' ResolvedAttributes (Prelude.Maybe ProblemType)
-resolvedAttributes_problemType = Lens.lens (\ResolvedAttributes' {problemType} -> problemType) (\s@ResolvedAttributes' {} a -> s {problemType = a} :: ResolvedAttributes)
+-- | Undocumented member.
+resolvedAttributes_completionCriteria :: Lens.Lens' ResolvedAttributes (Prelude.Maybe AutoMLJobCompletionCriteria)
+resolvedAttributes_completionCriteria = Lens.lens (\ResolvedAttributes' {completionCriteria} -> completionCriteria) (\s@ResolvedAttributes' {} a -> s {completionCriteria = a} :: ResolvedAttributes)
 
 -- | Undocumented member.
 resolvedAttributes_autoMLJobObjective :: Lens.Lens' ResolvedAttributes (Prelude.Maybe AutoMLJobObjective)
 resolvedAttributes_autoMLJobObjective = Lens.lens (\ResolvedAttributes' {autoMLJobObjective} -> autoMLJobObjective) (\s@ResolvedAttributes' {} a -> s {autoMLJobObjective = a} :: ResolvedAttributes)
 
--- | Undocumented member.
-resolvedAttributes_completionCriteria :: Lens.Lens' ResolvedAttributes (Prelude.Maybe AutoMLJobCompletionCriteria)
-resolvedAttributes_completionCriteria = Lens.lens (\ResolvedAttributes' {completionCriteria} -> completionCriteria) (\s@ResolvedAttributes' {} a -> s {completionCriteria = a} :: ResolvedAttributes)
+-- | The problem type.
+resolvedAttributes_problemType :: Lens.Lens' ResolvedAttributes (Prelude.Maybe ProblemType)
+resolvedAttributes_problemType = Lens.lens (\ResolvedAttributes' {problemType} -> problemType) (\s@ResolvedAttributes' {} a -> s {problemType = a} :: ResolvedAttributes)
 
 instance Core.FromJSON ResolvedAttributes where
   parseJSON =
@@ -77,19 +78,19 @@ instance Core.FromJSON ResolvedAttributes where
       "ResolvedAttributes"
       ( \x ->
           ResolvedAttributes'
-            Prelude.<$> (x Core..:? "ProblemType")
+            Prelude.<$> (x Core..:? "CompletionCriteria")
             Prelude.<*> (x Core..:? "AutoMLJobObjective")
-            Prelude.<*> (x Core..:? "CompletionCriteria")
+            Prelude.<*> (x Core..:? "ProblemType")
       )
 
 instance Prelude.Hashable ResolvedAttributes where
   hashWithSalt _salt ResolvedAttributes' {..} =
-    _salt `Prelude.hashWithSalt` problemType
+    _salt `Prelude.hashWithSalt` completionCriteria
       `Prelude.hashWithSalt` autoMLJobObjective
-      `Prelude.hashWithSalt` completionCriteria
+      `Prelude.hashWithSalt` problemType
 
 instance Prelude.NFData ResolvedAttributes where
   rnf ResolvedAttributes' {..} =
-    Prelude.rnf problemType
+    Prelude.rnf completionCriteria
       `Prelude.seq` Prelude.rnf autoMLJobObjective
-      `Prelude.seq` Prelude.rnf completionCriteria
+      `Prelude.seq` Prelude.rnf problemType

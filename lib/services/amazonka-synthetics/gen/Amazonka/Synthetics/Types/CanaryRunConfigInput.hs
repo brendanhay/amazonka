@@ -27,7 +27,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCanaryRunConfigInput' smart constructor.
 data CanaryRunConfigInput = CanaryRunConfigInput'
-  { -- | How long the canary is allowed to run before it must stop. You can\'t
+  { -- | Specifies whether this canary is to use active X-Ray tracing when it
+    -- runs. Active tracing enables this canary run to be displayed in the
+    -- ServiceLens and X-Ray service maps even if the canary does not hit an
+    -- endpoint that has X-Ray tracing enabled. Using X-Ray tracing incurs
+    -- charges. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html Canaries and X-Ray tracing>.
+    --
+    -- You can enable active tracing only for canaries that use version
+    -- @syn-nodejs-2.0@ or later for their canary runtime.
+    activeTracing :: Prelude.Maybe Prelude.Bool,
+    -- | How long the canary is allowed to run before it must stop. You can\'t
     -- set this time to be longer than the frequency of the runs of this
     -- canary.
     --
@@ -45,16 +55,6 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
     -- environment variables. For more information about reserved keys, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime Runtime environment variables>.
     environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies whether this canary is to use active X-Ray tracing when it
-    -- runs. Active tracing enables this canary run to be displayed in the
-    -- ServiceLens and X-Ray service maps even if the canary does not hit an
-    -- endpoint that has X-Ray tracing enabled. Using X-Ray tracing incurs
-    -- charges. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html Canaries and X-Ray tracing>.
-    --
-    -- You can enable active tracing only for canaries that use version
-    -- @syn-nodejs-2.0@ or later for their canary runtime.
-    activeTracing :: Prelude.Maybe Prelude.Bool,
     -- | The maximum amount of memory available to the canary while it is
     -- running, in MB. This value must be a multiple of 64.
     memoryInMB :: Prelude.Maybe Prelude.Natural
@@ -68,6 +68,16 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'activeTracing', 'canaryRunConfigInput_activeTracing' - Specifies whether this canary is to use active X-Ray tracing when it
+-- runs. Active tracing enables this canary run to be displayed in the
+-- ServiceLens and X-Ray service maps even if the canary does not hit an
+-- endpoint that has X-Ray tracing enabled. Using X-Ray tracing incurs
+-- charges. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html Canaries and X-Ray tracing>.
+--
+-- You can enable active tracing only for canaries that use version
+-- @syn-nodejs-2.0@ or later for their canary runtime.
 --
 -- 'timeoutInSeconds', 'canaryRunConfigInput_timeoutInSeconds' - How long the canary is allowed to run before it must stop. You can\'t
 -- set this time to be longer than the frequency of the runs of this
@@ -87,7 +97,20 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
 -- environment variables. For more information about reserved keys, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime Runtime environment variables>.
 --
--- 'activeTracing', 'canaryRunConfigInput_activeTracing' - Specifies whether this canary is to use active X-Ray tracing when it
+-- 'memoryInMB', 'canaryRunConfigInput_memoryInMB' - The maximum amount of memory available to the canary while it is
+-- running, in MB. This value must be a multiple of 64.
+newCanaryRunConfigInput ::
+  CanaryRunConfigInput
+newCanaryRunConfigInput =
+  CanaryRunConfigInput'
+    { activeTracing =
+        Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing,
+      environmentVariables = Prelude.Nothing,
+      memoryInMB = Prelude.Nothing
+    }
+
+-- | Specifies whether this canary is to use active X-Ray tracing when it
 -- runs. Active tracing enables this canary run to be displayed in the
 -- ServiceLens and X-Ray service maps even if the canary does not hit an
 -- endpoint that has X-Ray tracing enabled. Using X-Ray tracing incurs
@@ -96,19 +119,8 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
 --
 -- You can enable active tracing only for canaries that use version
 -- @syn-nodejs-2.0@ or later for their canary runtime.
---
--- 'memoryInMB', 'canaryRunConfigInput_memoryInMB' - The maximum amount of memory available to the canary while it is
--- running, in MB. This value must be a multiple of 64.
-newCanaryRunConfigInput ::
-  CanaryRunConfigInput
-newCanaryRunConfigInput =
-  CanaryRunConfigInput'
-    { timeoutInSeconds =
-        Prelude.Nothing,
-      environmentVariables = Prelude.Nothing,
-      activeTracing = Prelude.Nothing,
-      memoryInMB = Prelude.Nothing
-    }
+canaryRunConfigInput_activeTracing :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe Prelude.Bool)
+canaryRunConfigInput_activeTracing = Lens.lens (\CanaryRunConfigInput' {activeTracing} -> activeTracing) (\s@CanaryRunConfigInput' {} a -> s {activeTracing = a} :: CanaryRunConfigInput)
 
 -- | How long the canary is allowed to run before it must stop. You can\'t
 -- set this time to be longer than the frequency of the runs of this
@@ -132,18 +144,6 @@ canaryRunConfigInput_timeoutInSeconds = Lens.lens (\CanaryRunConfigInput' {timeo
 canaryRunConfigInput_environmentVariables :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 canaryRunConfigInput_environmentVariables = Lens.lens (\CanaryRunConfigInput' {environmentVariables} -> environmentVariables) (\s@CanaryRunConfigInput' {} a -> s {environmentVariables = a} :: CanaryRunConfigInput) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether this canary is to use active X-Ray tracing when it
--- runs. Active tracing enables this canary run to be displayed in the
--- ServiceLens and X-Ray service maps even if the canary does not hit an
--- endpoint that has X-Ray tracing enabled. Using X-Ray tracing incurs
--- charges. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html Canaries and X-Ray tracing>.
---
--- You can enable active tracing only for canaries that use version
--- @syn-nodejs-2.0@ or later for their canary runtime.
-canaryRunConfigInput_activeTracing :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe Prelude.Bool)
-canaryRunConfigInput_activeTracing = Lens.lens (\CanaryRunConfigInput' {activeTracing} -> activeTracing) (\s@CanaryRunConfigInput' {} a -> s {activeTracing = a} :: CanaryRunConfigInput)
-
 -- | The maximum amount of memory available to the canary while it is
 -- running, in MB. This value must be a multiple of 64.
 canaryRunConfigInput_memoryInMB :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe Prelude.Natural)
@@ -151,27 +151,27 @@ canaryRunConfigInput_memoryInMB = Lens.lens (\CanaryRunConfigInput' {memoryInMB}
 
 instance Prelude.Hashable CanaryRunConfigInput where
   hashWithSalt _salt CanaryRunConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` timeoutInSeconds
+    _salt `Prelude.hashWithSalt` activeTracing
+      `Prelude.hashWithSalt` timeoutInSeconds
       `Prelude.hashWithSalt` environmentVariables
-      `Prelude.hashWithSalt` activeTracing
       `Prelude.hashWithSalt` memoryInMB
 
 instance Prelude.NFData CanaryRunConfigInput where
   rnf CanaryRunConfigInput' {..} =
-    Prelude.rnf timeoutInSeconds
+    Prelude.rnf activeTracing
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
       `Prelude.seq` Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf activeTracing
       `Prelude.seq` Prelude.rnf memoryInMB
 
 instance Core.ToJSON CanaryRunConfigInput where
   toJSON CanaryRunConfigInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TimeoutInSeconds" Core..=)
+          [ ("ActiveTracing" Core..=) Prelude.<$> activeTracing,
+            ("TimeoutInSeconds" Core..=)
               Prelude.<$> timeoutInSeconds,
             ("EnvironmentVariables" Core..=)
               Prelude.<$> environmentVariables,
-            ("ActiveTracing" Core..=) Prelude.<$> activeTracing,
             ("MemoryInMB" Core..=) Prelude.<$> memoryInMB
           ]
       )

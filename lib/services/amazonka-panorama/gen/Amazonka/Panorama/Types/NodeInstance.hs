@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNodeInstance' smart constructor.
 data NodeInstance = NodeInstance'
-  { -- | The instance\'s package name.
+  { -- | The node\'s ID.
+    nodeId :: Prelude.Maybe Prelude.Text,
+    -- | The instance\'s package name.
     packageName :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s package version.
-    packageVersion :: Prelude.Maybe Prelude.Text,
     -- | The instance\'s package patch version.
     packagePatchVersion :: Prelude.Maybe Prelude.Text,
+    -- | The instance\'s package version.
+    packageVersion :: Prelude.Maybe Prelude.Text,
     -- | The instance\'s name.
     nodeName :: Prelude.Maybe Prelude.Text,
-    -- | The node\'s ID.
-    nodeId :: Prelude.Maybe Prelude.Text,
     -- | The instance\'s ID.
     nodeInstanceId :: Prelude.Text,
     -- | The instance\'s current status.
@@ -53,15 +53,15 @@ data NodeInstance = NodeInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageName', 'nodeInstance_packageName' - The instance\'s package name.
+-- 'nodeId', 'nodeInstance_nodeId' - The node\'s ID.
 --
--- 'packageVersion', 'nodeInstance_packageVersion' - The instance\'s package version.
+-- 'packageName', 'nodeInstance_packageName' - The instance\'s package name.
 --
 -- 'packagePatchVersion', 'nodeInstance_packagePatchVersion' - The instance\'s package patch version.
 --
--- 'nodeName', 'nodeInstance_nodeName' - The instance\'s name.
+-- 'packageVersion', 'nodeInstance_packageVersion' - The instance\'s package version.
 --
--- 'nodeId', 'nodeInstance_nodeId' - The node\'s ID.
+-- 'nodeName', 'nodeInstance_nodeName' - The instance\'s name.
 --
 -- 'nodeInstanceId', 'nodeInstance_nodeInstanceId' - The instance\'s ID.
 --
@@ -74,34 +74,34 @@ newNodeInstance ::
   NodeInstance
 newNodeInstance pNodeInstanceId_ pCurrentStatus_ =
   NodeInstance'
-    { packageName = Prelude.Nothing,
-      packageVersion = Prelude.Nothing,
+    { nodeId = Prelude.Nothing,
+      packageName = Prelude.Nothing,
       packagePatchVersion = Prelude.Nothing,
+      packageVersion = Prelude.Nothing,
       nodeName = Prelude.Nothing,
-      nodeId = Prelude.Nothing,
       nodeInstanceId = pNodeInstanceId_,
       currentStatus = pCurrentStatus_
     }
+
+-- | The node\'s ID.
+nodeInstance_nodeId :: Lens.Lens' NodeInstance (Prelude.Maybe Prelude.Text)
+nodeInstance_nodeId = Lens.lens (\NodeInstance' {nodeId} -> nodeId) (\s@NodeInstance' {} a -> s {nodeId = a} :: NodeInstance)
 
 -- | The instance\'s package name.
 nodeInstance_packageName :: Lens.Lens' NodeInstance (Prelude.Maybe Prelude.Text)
 nodeInstance_packageName = Lens.lens (\NodeInstance' {packageName} -> packageName) (\s@NodeInstance' {} a -> s {packageName = a} :: NodeInstance)
 
--- | The instance\'s package version.
-nodeInstance_packageVersion :: Lens.Lens' NodeInstance (Prelude.Maybe Prelude.Text)
-nodeInstance_packageVersion = Lens.lens (\NodeInstance' {packageVersion} -> packageVersion) (\s@NodeInstance' {} a -> s {packageVersion = a} :: NodeInstance)
-
 -- | The instance\'s package patch version.
 nodeInstance_packagePatchVersion :: Lens.Lens' NodeInstance (Prelude.Maybe Prelude.Text)
 nodeInstance_packagePatchVersion = Lens.lens (\NodeInstance' {packagePatchVersion} -> packagePatchVersion) (\s@NodeInstance' {} a -> s {packagePatchVersion = a} :: NodeInstance)
 
+-- | The instance\'s package version.
+nodeInstance_packageVersion :: Lens.Lens' NodeInstance (Prelude.Maybe Prelude.Text)
+nodeInstance_packageVersion = Lens.lens (\NodeInstance' {packageVersion} -> packageVersion) (\s@NodeInstance' {} a -> s {packageVersion = a} :: NodeInstance)
+
 -- | The instance\'s name.
 nodeInstance_nodeName :: Lens.Lens' NodeInstance (Prelude.Maybe Prelude.Text)
 nodeInstance_nodeName = Lens.lens (\NodeInstance' {nodeName} -> nodeName) (\s@NodeInstance' {} a -> s {nodeName = a} :: NodeInstance)
-
--- | The node\'s ID.
-nodeInstance_nodeId :: Lens.Lens' NodeInstance (Prelude.Maybe Prelude.Text)
-nodeInstance_nodeId = Lens.lens (\NodeInstance' {nodeId} -> nodeId) (\s@NodeInstance' {} a -> s {nodeId = a} :: NodeInstance)
 
 -- | The instance\'s ID.
 nodeInstance_nodeInstanceId :: Lens.Lens' NodeInstance Prelude.Text
@@ -117,31 +117,31 @@ instance Core.FromJSON NodeInstance where
       "NodeInstance"
       ( \x ->
           NodeInstance'
-            Prelude.<$> (x Core..:? "PackageName")
-            Prelude.<*> (x Core..:? "PackageVersion")
+            Prelude.<$> (x Core..:? "NodeId")
+            Prelude.<*> (x Core..:? "PackageName")
             Prelude.<*> (x Core..:? "PackagePatchVersion")
+            Prelude.<*> (x Core..:? "PackageVersion")
             Prelude.<*> (x Core..:? "NodeName")
-            Prelude.<*> (x Core..:? "NodeId")
             Prelude.<*> (x Core..: "NodeInstanceId")
             Prelude.<*> (x Core..: "CurrentStatus")
       )
 
 instance Prelude.Hashable NodeInstance where
   hashWithSalt _salt NodeInstance' {..} =
-    _salt `Prelude.hashWithSalt` packageName
-      `Prelude.hashWithSalt` packageVersion
+    _salt `Prelude.hashWithSalt` nodeId
+      `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` packagePatchVersion
+      `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` nodeName
-      `Prelude.hashWithSalt` nodeId
       `Prelude.hashWithSalt` nodeInstanceId
       `Prelude.hashWithSalt` currentStatus
 
 instance Prelude.NFData NodeInstance where
   rnf NodeInstance' {..} =
-    Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf packageVersion
+    Prelude.rnf nodeId
+      `Prelude.seq` Prelude.rnf packageName
       `Prelude.seq` Prelude.rnf packagePatchVersion
+      `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf nodeId
       `Prelude.seq` Prelude.rnf nodeInstanceId
       `Prelude.seq` Prelude.rnf currentStatus

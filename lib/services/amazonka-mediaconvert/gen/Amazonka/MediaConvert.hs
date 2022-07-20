@@ -19,185 +19,29 @@ module Amazonka.MediaConvert
     -- * Errors
     -- $errors
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
     -- ** NotFoundException
     _NotFoundException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
 
     -- ** InternalServerErrorException
     _InternalServerErrorException,
 
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** BadRequestException
     _BadRequestException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** DeletePreset
-    DeletePreset (DeletePreset'),
-    newDeletePreset,
-    DeletePresetResponse (DeletePresetResponse'),
-    newDeletePresetResponse,
-
-    -- ** UpdatePreset
-    UpdatePreset (UpdatePreset'),
-    newUpdatePreset,
-    UpdatePresetResponse (UpdatePresetResponse'),
-    newUpdatePresetResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** ListQueues (Paginated)
-    ListQueues (ListQueues'),
-    newListQueues,
-    ListQueuesResponse (ListQueuesResponse'),
-    newListQueuesResponse,
-
-    -- ** DeleteQueue
-    DeleteQueue (DeleteQueue'),
-    newDeleteQueue,
-    DeleteQueueResponse (DeleteQueueResponse'),
-    newDeleteQueueResponse,
-
-    -- ** UpdateQueue
-    UpdateQueue (UpdateQueue'),
-    newUpdateQueue,
-    UpdateQueueResponse (UpdateQueueResponse'),
-    newUpdateQueueResponse,
-
-    -- ** GetPreset
-    GetPreset (GetPreset'),
-    newGetPreset,
-    GetPresetResponse (GetPresetResponse'),
-    newGetPresetResponse,
-
-    -- ** CreateJob
-    CreateJob (CreateJob'),
-    newCreateJob,
-    CreateJobResponse (CreateJobResponse'),
-    newCreateJobResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** PutPolicy
-    PutPolicy (PutPolicy'),
-    newPutPolicy,
-    PutPolicyResponse (PutPolicyResponse'),
-    newPutPolicyResponse,
-
-    -- ** GetJob
-    GetJob (GetJob'),
-    newGetJob,
-    GetJobResponse (GetJobResponse'),
-    newGetJobResponse,
-
-    -- ** DeletePolicy
-    DeletePolicy (DeletePolicy'),
-    newDeletePolicy,
-    DeletePolicyResponse (DeletePolicyResponse'),
-    newDeletePolicyResponse,
-
-    -- ** CreatePreset
-    CreatePreset (CreatePreset'),
-    newCreatePreset,
-    CreatePresetResponse (CreatePresetResponse'),
-    newCreatePresetResponse,
-
-    -- ** ListPresets (Paginated)
-    ListPresets (ListPresets'),
-    newListPresets,
-    ListPresetsResponse (ListPresetsResponse'),
-    newListPresetsResponse,
-
-    -- ** DisassociateCertificate
-    DisassociateCertificate (DisassociateCertificate'),
-    newDisassociateCertificate,
-    DisassociateCertificateResponse (DisassociateCertificateResponse'),
-    newDisassociateCertificateResponse,
-
-    -- ** GetQueue
-    GetQueue (GetQueue'),
-    newGetQueue,
-    GetQueueResponse (GetQueueResponse'),
-    newGetQueueResponse,
-
-    -- ** DescribeEndpoints (Paginated)
-    DescribeEndpoints (DescribeEndpoints'),
-    newDescribeEndpoints,
-    DescribeEndpointsResponse (DescribeEndpointsResponse'),
-    newDescribeEndpointsResponse,
-
-    -- ** CreateQueue
-    CreateQueue (CreateQueue'),
-    newCreateQueue,
-    CreateQueueResponse (CreateQueueResponse'),
-    newCreateQueueResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** CreateJobTemplate
-    CreateJobTemplate (CreateJobTemplate'),
-    newCreateJobTemplate,
-    CreateJobTemplateResponse (CreateJobTemplateResponse'),
-    newCreateJobTemplateResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DeleteJobTemplate
-    DeleteJobTemplate (DeleteJobTemplate'),
-    newDeleteJobTemplate,
-    DeleteJobTemplateResponse (DeleteJobTemplateResponse'),
-    newDeleteJobTemplateResponse,
-
-    -- ** UpdateJobTemplate
-    UpdateJobTemplate (UpdateJobTemplate'),
-    newUpdateJobTemplate,
-    UpdateJobTemplateResponse (UpdateJobTemplateResponse'),
-    newUpdateJobTemplateResponse,
-
-    -- ** GetPolicy
-    GetPolicy (GetPolicy'),
-    newGetPolicy,
-    GetPolicyResponse (GetPolicyResponse'),
-    newGetPolicyResponse,
-
-    -- ** ListJobTemplates (Paginated)
-    ListJobTemplates (ListJobTemplates'),
-    newListJobTemplates,
-    ListJobTemplatesResponse (ListJobTemplatesResponse'),
-    newListJobTemplatesResponse,
-
-    -- ** GetJobTemplate
-    GetJobTemplate (GetJobTemplate'),
-    newGetJobTemplate,
-    GetJobTemplateResponse (GetJobTemplateResponse'),
-    newGetJobTemplateResponse,
 
     -- ** AssociateCertificate
     AssociateCertificate (AssociateCertificate'),
@@ -210,6 +54,162 @@ module Amazonka.MediaConvert
     newCancelJob,
     CancelJobResponse (CancelJobResponse'),
     newCancelJobResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** CreateJobTemplate
+    CreateJobTemplate (CreateJobTemplate'),
+    newCreateJobTemplate,
+    CreateJobTemplateResponse (CreateJobTemplateResponse'),
+    newCreateJobTemplateResponse,
+
+    -- ** CreatePreset
+    CreatePreset (CreatePreset'),
+    newCreatePreset,
+    CreatePresetResponse (CreatePresetResponse'),
+    newCreatePresetResponse,
+
+    -- ** CreateQueue
+    CreateQueue (CreateQueue'),
+    newCreateQueue,
+    CreateQueueResponse (CreateQueueResponse'),
+    newCreateQueueResponse,
+
+    -- ** DeleteJobTemplate
+    DeleteJobTemplate (DeleteJobTemplate'),
+    newDeleteJobTemplate,
+    DeleteJobTemplateResponse (DeleteJobTemplateResponse'),
+    newDeleteJobTemplateResponse,
+
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
+
+    -- ** DeletePreset
+    DeletePreset (DeletePreset'),
+    newDeletePreset,
+    DeletePresetResponse (DeletePresetResponse'),
+    newDeletePresetResponse,
+
+    -- ** DeleteQueue
+    DeleteQueue (DeleteQueue'),
+    newDeleteQueue,
+    DeleteQueueResponse (DeleteQueueResponse'),
+    newDeleteQueueResponse,
+
+    -- ** DescribeEndpoints (Paginated)
+    DescribeEndpoints (DescribeEndpoints'),
+    newDescribeEndpoints,
+    DescribeEndpointsResponse (DescribeEndpointsResponse'),
+    newDescribeEndpointsResponse,
+
+    -- ** DisassociateCertificate
+    DisassociateCertificate (DisassociateCertificate'),
+    newDisassociateCertificate,
+    DisassociateCertificateResponse (DisassociateCertificateResponse'),
+    newDisassociateCertificateResponse,
+
+    -- ** GetJob
+    GetJob (GetJob'),
+    newGetJob,
+    GetJobResponse (GetJobResponse'),
+    newGetJobResponse,
+
+    -- ** GetJobTemplate
+    GetJobTemplate (GetJobTemplate'),
+    newGetJobTemplate,
+    GetJobTemplateResponse (GetJobTemplateResponse'),
+    newGetJobTemplateResponse,
+
+    -- ** GetPolicy
+    GetPolicy (GetPolicy'),
+    newGetPolicy,
+    GetPolicyResponse (GetPolicyResponse'),
+    newGetPolicyResponse,
+
+    -- ** GetPreset
+    GetPreset (GetPreset'),
+    newGetPreset,
+    GetPresetResponse (GetPresetResponse'),
+    newGetPresetResponse,
+
+    -- ** GetQueue
+    GetQueue (GetQueue'),
+    newGetQueue,
+    GetQueueResponse (GetQueueResponse'),
+    newGetQueueResponse,
+
+    -- ** ListJobTemplates (Paginated)
+    ListJobTemplates (ListJobTemplates'),
+    newListJobTemplates,
+    ListJobTemplatesResponse (ListJobTemplatesResponse'),
+    newListJobTemplatesResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** ListPresets (Paginated)
+    ListPresets (ListPresets'),
+    newListPresets,
+    ListPresetsResponse (ListPresetsResponse'),
+    newListPresetsResponse,
+
+    -- ** ListQueues (Paginated)
+    ListQueues (ListQueues'),
+    newListQueues,
+    ListQueuesResponse (ListQueuesResponse'),
+    newListQueuesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutPolicy
+    PutPolicy (PutPolicy'),
+    newPutPolicy,
+    PutPolicyResponse (PutPolicyResponse'),
+    newPutPolicyResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateJobTemplate
+    UpdateJobTemplate (UpdateJobTemplate'),
+    newUpdateJobTemplate,
+    UpdateJobTemplateResponse (UpdateJobTemplateResponse'),
+    newUpdateJobTemplateResponse,
+
+    -- ** UpdatePreset
+    UpdatePreset (UpdatePreset'),
+    newUpdatePreset,
+    UpdatePresetResponse (UpdatePresetResponse'),
+    newUpdatePresetResponse,
+
+    -- ** UpdateQueue
+    UpdateQueue (UpdateQueue'),
+    newUpdateQueue,
+    UpdateQueueResponse (UpdateQueueResponse'),
+    newUpdateQueueResponse,
 
     -- * Types
 

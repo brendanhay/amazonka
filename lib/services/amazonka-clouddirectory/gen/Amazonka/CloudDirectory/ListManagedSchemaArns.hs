@@ -40,8 +40,8 @@ module Amazonka.CloudDirectory.ListManagedSchemaArns
     newListManagedSchemaArnsResponse,
 
     -- * Response Lenses
-    listManagedSchemaArnsResponse_schemaArns,
     listManagedSchemaArnsResponse_nextToken,
+    listManagedSchemaArnsResponse_schemaArns,
     listManagedSchemaArnsResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest ListManagedSchemaArns where
     Response.receiveJSON
       ( \s h x ->
           ListManagedSchemaArnsResponse'
-            Prelude.<$> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,10 +172,10 @@ instance Core.ToQuery ListManagedSchemaArns where
 
 -- | /See:/ 'newListManagedSchemaArnsResponse' smart constructor.
 data ListManagedSchemaArnsResponse = ListManagedSchemaArnsResponse'
-  { -- | The ARNs for all AWS managed schemas.
-    schemaArns :: Prelude.Maybe [Prelude.Text],
-    -- | The pagination token.
+  { -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs for all AWS managed schemas.
+    schemaArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +189,9 @@ data ListManagedSchemaArnsResponse = ListManagedSchemaArnsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaArns', 'listManagedSchemaArnsResponse_schemaArns' - The ARNs for all AWS managed schemas.
---
 -- 'nextToken', 'listManagedSchemaArnsResponse_nextToken' - The pagination token.
+--
+-- 'schemaArns', 'listManagedSchemaArnsResponse_schemaArns' - The ARNs for all AWS managed schemas.
 --
 -- 'httpStatus', 'listManagedSchemaArnsResponse_httpStatus' - The response's http status code.
 newListManagedSchemaArnsResponse ::
@@ -200,19 +200,19 @@ newListManagedSchemaArnsResponse ::
   ListManagedSchemaArnsResponse
 newListManagedSchemaArnsResponse pHttpStatus_ =
   ListManagedSchemaArnsResponse'
-    { schemaArns =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      schemaArns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARNs for all AWS managed schemas.
-listManagedSchemaArnsResponse_schemaArns :: Lens.Lens' ListManagedSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
-listManagedSchemaArnsResponse_schemaArns = Lens.lens (\ListManagedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListManagedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListManagedSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 listManagedSchemaArnsResponse_nextToken :: Lens.Lens' ListManagedSchemaArnsResponse (Prelude.Maybe Prelude.Text)
 listManagedSchemaArnsResponse_nextToken = Lens.lens (\ListManagedSchemaArnsResponse' {nextToken} -> nextToken) (\s@ListManagedSchemaArnsResponse' {} a -> s {nextToken = a} :: ListManagedSchemaArnsResponse)
+
+-- | The ARNs for all AWS managed schemas.
+listManagedSchemaArnsResponse_schemaArns :: Lens.Lens' ListManagedSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
+listManagedSchemaArnsResponse_schemaArns = Lens.lens (\ListManagedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListManagedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListManagedSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listManagedSchemaArnsResponse_httpStatus :: Lens.Lens' ListManagedSchemaArnsResponse Prelude.Int
@@ -220,6 +220,6 @@ listManagedSchemaArnsResponse_httpStatus = Lens.lens (\ListManagedSchemaArnsResp
 
 instance Prelude.NFData ListManagedSchemaArnsResponse where
   rnf ListManagedSchemaArnsResponse' {..} =
-    Prelude.rnf schemaArns
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaArns
       `Prelude.seq` Prelude.rnf httpStatus

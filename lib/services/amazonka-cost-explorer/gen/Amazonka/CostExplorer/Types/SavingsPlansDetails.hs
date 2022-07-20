@@ -27,15 +27,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansDetails' smart constructor.
 data SavingsPlansDetails = SavingsPlansDetails'
-  { -- | A group of instance types that Savings Plans applies to.
+  { -- | A collection of Amazon Web Services resources in a geographic area. Each
+    -- Amazon Web Services Region is isolated and independent of the other
+    -- Regions.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | A group of instance types that Savings Plans applies to.
     instanceFamily :: Prelude.Maybe Prelude.Text,
     -- | The unique ID that\'s used to distinguish Savings Plans from one
     -- another.
-    offeringId :: Prelude.Maybe Prelude.Text,
-    -- | A collection of Amazon Web Services resources in a geographic area. Each
-    -- Amazon Web Services Region is isolated and independent of the other
-    -- Regions.
-    region :: Prelude.Maybe Prelude.Text
+    offeringId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,28 @@ data SavingsPlansDetails = SavingsPlansDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'region', 'savingsPlansDetails_region' - A collection of Amazon Web Services resources in a geographic area. Each
+-- Amazon Web Services Region is isolated and independent of the other
+-- Regions.
+--
 -- 'instanceFamily', 'savingsPlansDetails_instanceFamily' - A group of instance types that Savings Plans applies to.
 --
 -- 'offeringId', 'savingsPlansDetails_offeringId' - The unique ID that\'s used to distinguish Savings Plans from one
 -- another.
---
--- 'region', 'savingsPlansDetails_region' - A collection of Amazon Web Services resources in a geographic area. Each
--- Amazon Web Services Region is isolated and independent of the other
--- Regions.
 newSavingsPlansDetails ::
   SavingsPlansDetails
 newSavingsPlansDetails =
   SavingsPlansDetails'
-    { instanceFamily =
-        Prelude.Nothing,
-      offeringId = Prelude.Nothing,
-      region = Prelude.Nothing
+    { region = Prelude.Nothing,
+      instanceFamily = Prelude.Nothing,
+      offeringId = Prelude.Nothing
     }
+
+-- | A collection of Amazon Web Services resources in a geographic area. Each
+-- Amazon Web Services Region is isolated and independent of the other
+-- Regions.
+savingsPlansDetails_region :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
+savingsPlansDetails_region = Lens.lens (\SavingsPlansDetails' {region} -> region) (\s@SavingsPlansDetails' {} a -> s {region = a} :: SavingsPlansDetails)
 
 -- | A group of instance types that Savings Plans applies to.
 savingsPlansDetails_instanceFamily :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
@@ -74,31 +79,25 @@ savingsPlansDetails_instanceFamily = Lens.lens (\SavingsPlansDetails' {instanceF
 savingsPlansDetails_offeringId :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
 savingsPlansDetails_offeringId = Lens.lens (\SavingsPlansDetails' {offeringId} -> offeringId) (\s@SavingsPlansDetails' {} a -> s {offeringId = a} :: SavingsPlansDetails)
 
--- | A collection of Amazon Web Services resources in a geographic area. Each
--- Amazon Web Services Region is isolated and independent of the other
--- Regions.
-savingsPlansDetails_region :: Lens.Lens' SavingsPlansDetails (Prelude.Maybe Prelude.Text)
-savingsPlansDetails_region = Lens.lens (\SavingsPlansDetails' {region} -> region) (\s@SavingsPlansDetails' {} a -> s {region = a} :: SavingsPlansDetails)
-
 instance Core.FromJSON SavingsPlansDetails where
   parseJSON =
     Core.withObject
       "SavingsPlansDetails"
       ( \x ->
           SavingsPlansDetails'
-            Prelude.<$> (x Core..:? "InstanceFamily")
+            Prelude.<$> (x Core..:? "Region")
+            Prelude.<*> (x Core..:? "InstanceFamily")
             Prelude.<*> (x Core..:? "OfferingId")
-            Prelude.<*> (x Core..:? "Region")
       )
 
 instance Prelude.Hashable SavingsPlansDetails where
   hashWithSalt _salt SavingsPlansDetails' {..} =
-    _salt `Prelude.hashWithSalt` instanceFamily
+    _salt `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` instanceFamily
       `Prelude.hashWithSalt` offeringId
-      `Prelude.hashWithSalt` region
 
 instance Prelude.NFData SavingsPlansDetails where
   rnf SavingsPlansDetails' {..} =
-    Prelude.rnf instanceFamily
+    Prelude.rnf region
+      `Prelude.seq` Prelude.rnf instanceFamily
       `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf region

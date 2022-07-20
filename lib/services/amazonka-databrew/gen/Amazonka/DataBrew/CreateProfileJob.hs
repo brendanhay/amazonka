@@ -27,15 +27,15 @@ module Amazonka.DataBrew.CreateProfileJob
     newCreateProfileJob,
 
     -- * Request Lenses
-    createProfileJob_encryptionMode,
+    createProfileJob_tags,
+    createProfileJob_encryptionKeyArn,
+    createProfileJob_jobSample,
+    createProfileJob_timeout,
+    createProfileJob_configuration,
     createProfileJob_logSubscription,
     createProfileJob_maxRetries,
-    createProfileJob_encryptionKeyArn,
     createProfileJob_maxCapacity,
-    createProfileJob_configuration,
-    createProfileJob_timeout,
-    createProfileJob_tags,
-    createProfileJob_jobSample,
+    createProfileJob_encryptionMode,
     createProfileJob_datasetName,
     createProfileJob_name,
     createProfileJob_outputLocation,
@@ -60,38 +60,38 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProfileJob' smart constructor.
 data CreateProfileJob = CreateProfileJob'
-  { -- | The encryption mode for the job, which can be one of the following:
+  { -- | Metadata tags to apply to this job.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of an encryption key that is used to
+    -- protect the job.
+    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | Sample configuration for profile jobs only. Determines the number of
+    -- rows on which the profile job will be executed. If a JobSample value is
+    -- not provided, the default value will be used. The default value is
+    -- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+    jobSample :: Prelude.Maybe JobSample,
+    -- | The job\'s timeout in minutes. A job that attempts to run longer than
+    -- this timeout period ends with a status of @TIMEOUT@.
+    timeout :: Prelude.Maybe Prelude.Natural,
+    -- | Configuration for profile jobs. Used to select columns, do evaluations,
+    -- and override default parameters of evaluations. When configuration is
+    -- null, the profile job will run with default settings.
+    configuration :: Prelude.Maybe ProfileConfiguration,
+    -- | Enables or disables Amazon CloudWatch logging for the job. If logging is
+    -- enabled, CloudWatch writes one log stream for each job run.
+    logSubscription :: Prelude.Maybe LogSubscription,
+    -- | The maximum number of times to retry the job after a job run fails.
+    maxRetries :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of nodes that DataBrew can use when the job processes
+    -- data.
+    maxCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The encryption mode for the job, which can be one of the following:
     --
     -- -   @SSE-KMS@ - @SSE-KMS@ - Server-side encryption with KMS-managed
     --     keys.
     --
     -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
     encryptionMode :: Prelude.Maybe EncryptionMode,
-    -- | Enables or disables Amazon CloudWatch logging for the job. If logging is
-    -- enabled, CloudWatch writes one log stream for each job run.
-    logSubscription :: Prelude.Maybe LogSubscription,
-    -- | The maximum number of times to retry the job after a job run fails.
-    maxRetries :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of an encryption key that is used to
-    -- protect the job.
-    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of nodes that DataBrew can use when the job processes
-    -- data.
-    maxCapacity :: Prelude.Maybe Prelude.Int,
-    -- | Configuration for profile jobs. Used to select columns, do evaluations,
-    -- and override default parameters of evaluations. When configuration is
-    -- null, the profile job will run with default settings.
-    configuration :: Prelude.Maybe ProfileConfiguration,
-    -- | The job\'s timeout in minutes. A job that attempts to run longer than
-    -- this timeout period ends with a status of @TIMEOUT@.
-    timeout :: Prelude.Maybe Prelude.Natural,
-    -- | Metadata tags to apply to this job.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Sample configuration for profile jobs only. Determines the number of
-    -- rows on which the profile job will be executed. If a JobSample value is
-    -- not provided, the default value will be used. The default value is
-    -- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
-    jobSample :: Prelude.Maybe JobSample,
     -- | The name of the dataset that this job is to act upon.
     datasetName :: Prelude.Text,
     -- | The name of the job to be created. Valid characters are alphanumeric
@@ -112,37 +112,37 @@ data CreateProfileJob = CreateProfileJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionMode', 'createProfileJob_encryptionMode' - The encryption mode for the job, which can be one of the following:
+-- 'tags', 'createProfileJob_tags' - Metadata tags to apply to this job.
 --
--- -   @SSE-KMS@ - @SSE-KMS@ - Server-side encryption with KMS-managed
---     keys.
+-- 'encryptionKeyArn', 'createProfileJob_encryptionKeyArn' - The Amazon Resource Name (ARN) of an encryption key that is used to
+-- protect the job.
 --
--- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
+-- 'jobSample', 'createProfileJob_jobSample' - Sample configuration for profile jobs only. Determines the number of
+-- rows on which the profile job will be executed. If a JobSample value is
+-- not provided, the default value will be used. The default value is
+-- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+--
+-- 'timeout', 'createProfileJob_timeout' - The job\'s timeout in minutes. A job that attempts to run longer than
+-- this timeout period ends with a status of @TIMEOUT@.
+--
+-- 'configuration', 'createProfileJob_configuration' - Configuration for profile jobs. Used to select columns, do evaluations,
+-- and override default parameters of evaluations. When configuration is
+-- null, the profile job will run with default settings.
 --
 -- 'logSubscription', 'createProfileJob_logSubscription' - Enables or disables Amazon CloudWatch logging for the job. If logging is
 -- enabled, CloudWatch writes one log stream for each job run.
 --
 -- 'maxRetries', 'createProfileJob_maxRetries' - The maximum number of times to retry the job after a job run fails.
 --
--- 'encryptionKeyArn', 'createProfileJob_encryptionKeyArn' - The Amazon Resource Name (ARN) of an encryption key that is used to
--- protect the job.
---
 -- 'maxCapacity', 'createProfileJob_maxCapacity' - The maximum number of nodes that DataBrew can use when the job processes
 -- data.
 --
--- 'configuration', 'createProfileJob_configuration' - Configuration for profile jobs. Used to select columns, do evaluations,
--- and override default parameters of evaluations. When configuration is
--- null, the profile job will run with default settings.
+-- 'encryptionMode', 'createProfileJob_encryptionMode' - The encryption mode for the job, which can be one of the following:
 --
--- 'timeout', 'createProfileJob_timeout' - The job\'s timeout in minutes. A job that attempts to run longer than
--- this timeout period ends with a status of @TIMEOUT@.
+-- -   @SSE-KMS@ - @SSE-KMS@ - Server-side encryption with KMS-managed
+--     keys.
 --
--- 'tags', 'createProfileJob_tags' - Metadata tags to apply to this job.
---
--- 'jobSample', 'createProfileJob_jobSample' - Sample configuration for profile jobs only. Determines the number of
--- rows on which the profile job will be executed. If a JobSample value is
--- not provided, the default value will be used. The default value is
--- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
 --
 -- 'datasetName', 'createProfileJob_datasetName' - The name of the dataset that this job is to act upon.
 --
@@ -169,29 +169,47 @@ newCreateProfileJob
   pOutputLocation_
   pRoleArn_ =
     CreateProfileJob'
-      { encryptionMode = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        encryptionKeyArn = Prelude.Nothing,
+        jobSample = Prelude.Nothing,
+        timeout = Prelude.Nothing,
+        configuration = Prelude.Nothing,
         logSubscription = Prelude.Nothing,
         maxRetries = Prelude.Nothing,
-        encryptionKeyArn = Prelude.Nothing,
         maxCapacity = Prelude.Nothing,
-        configuration = Prelude.Nothing,
-        timeout = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        jobSample = Prelude.Nothing,
+        encryptionMode = Prelude.Nothing,
         datasetName = pDatasetName_,
         name = pName_,
         outputLocation = pOutputLocation_,
         roleArn = pRoleArn_
       }
 
--- | The encryption mode for the job, which can be one of the following:
---
--- -   @SSE-KMS@ - @SSE-KMS@ - Server-side encryption with KMS-managed
---     keys.
---
--- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
-createProfileJob_encryptionMode :: Lens.Lens' CreateProfileJob (Prelude.Maybe EncryptionMode)
-createProfileJob_encryptionMode = Lens.lens (\CreateProfileJob' {encryptionMode} -> encryptionMode) (\s@CreateProfileJob' {} a -> s {encryptionMode = a} :: CreateProfileJob)
+-- | Metadata tags to apply to this job.
+createProfileJob_tags :: Lens.Lens' CreateProfileJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProfileJob_tags = Lens.lens (\CreateProfileJob' {tags} -> tags) (\s@CreateProfileJob' {} a -> s {tags = a} :: CreateProfileJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of an encryption key that is used to
+-- protect the job.
+createProfileJob_encryptionKeyArn :: Lens.Lens' CreateProfileJob (Prelude.Maybe Prelude.Text)
+createProfileJob_encryptionKeyArn = Lens.lens (\CreateProfileJob' {encryptionKeyArn} -> encryptionKeyArn) (\s@CreateProfileJob' {} a -> s {encryptionKeyArn = a} :: CreateProfileJob)
+
+-- | Sample configuration for profile jobs only. Determines the number of
+-- rows on which the profile job will be executed. If a JobSample value is
+-- not provided, the default value will be used. The default value is
+-- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+createProfileJob_jobSample :: Lens.Lens' CreateProfileJob (Prelude.Maybe JobSample)
+createProfileJob_jobSample = Lens.lens (\CreateProfileJob' {jobSample} -> jobSample) (\s@CreateProfileJob' {} a -> s {jobSample = a} :: CreateProfileJob)
+
+-- | The job\'s timeout in minutes. A job that attempts to run longer than
+-- this timeout period ends with a status of @TIMEOUT@.
+createProfileJob_timeout :: Lens.Lens' CreateProfileJob (Prelude.Maybe Prelude.Natural)
+createProfileJob_timeout = Lens.lens (\CreateProfileJob' {timeout} -> timeout) (\s@CreateProfileJob' {} a -> s {timeout = a} :: CreateProfileJob)
+
+-- | Configuration for profile jobs. Used to select columns, do evaluations,
+-- and override default parameters of evaluations. When configuration is
+-- null, the profile job will run with default settings.
+createProfileJob_configuration :: Lens.Lens' CreateProfileJob (Prelude.Maybe ProfileConfiguration)
+createProfileJob_configuration = Lens.lens (\CreateProfileJob' {configuration} -> configuration) (\s@CreateProfileJob' {} a -> s {configuration = a} :: CreateProfileJob)
 
 -- | Enables or disables Amazon CloudWatch logging for the job. If logging is
 -- enabled, CloudWatch writes one log stream for each job run.
@@ -202,37 +220,19 @@ createProfileJob_logSubscription = Lens.lens (\CreateProfileJob' {logSubscriptio
 createProfileJob_maxRetries :: Lens.Lens' CreateProfileJob (Prelude.Maybe Prelude.Natural)
 createProfileJob_maxRetries = Lens.lens (\CreateProfileJob' {maxRetries} -> maxRetries) (\s@CreateProfileJob' {} a -> s {maxRetries = a} :: CreateProfileJob)
 
--- | The Amazon Resource Name (ARN) of an encryption key that is used to
--- protect the job.
-createProfileJob_encryptionKeyArn :: Lens.Lens' CreateProfileJob (Prelude.Maybe Prelude.Text)
-createProfileJob_encryptionKeyArn = Lens.lens (\CreateProfileJob' {encryptionKeyArn} -> encryptionKeyArn) (\s@CreateProfileJob' {} a -> s {encryptionKeyArn = a} :: CreateProfileJob)
-
 -- | The maximum number of nodes that DataBrew can use when the job processes
 -- data.
 createProfileJob_maxCapacity :: Lens.Lens' CreateProfileJob (Prelude.Maybe Prelude.Int)
 createProfileJob_maxCapacity = Lens.lens (\CreateProfileJob' {maxCapacity} -> maxCapacity) (\s@CreateProfileJob' {} a -> s {maxCapacity = a} :: CreateProfileJob)
 
--- | Configuration for profile jobs. Used to select columns, do evaluations,
--- and override default parameters of evaluations. When configuration is
--- null, the profile job will run with default settings.
-createProfileJob_configuration :: Lens.Lens' CreateProfileJob (Prelude.Maybe ProfileConfiguration)
-createProfileJob_configuration = Lens.lens (\CreateProfileJob' {configuration} -> configuration) (\s@CreateProfileJob' {} a -> s {configuration = a} :: CreateProfileJob)
-
--- | The job\'s timeout in minutes. A job that attempts to run longer than
--- this timeout period ends with a status of @TIMEOUT@.
-createProfileJob_timeout :: Lens.Lens' CreateProfileJob (Prelude.Maybe Prelude.Natural)
-createProfileJob_timeout = Lens.lens (\CreateProfileJob' {timeout} -> timeout) (\s@CreateProfileJob' {} a -> s {timeout = a} :: CreateProfileJob)
-
--- | Metadata tags to apply to this job.
-createProfileJob_tags :: Lens.Lens' CreateProfileJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProfileJob_tags = Lens.lens (\CreateProfileJob' {tags} -> tags) (\s@CreateProfileJob' {} a -> s {tags = a} :: CreateProfileJob) Prelude.. Lens.mapping Lens.coerced
-
--- | Sample configuration for profile jobs only. Determines the number of
--- rows on which the profile job will be executed. If a JobSample value is
--- not provided, the default value will be used. The default value is
--- CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
-createProfileJob_jobSample :: Lens.Lens' CreateProfileJob (Prelude.Maybe JobSample)
-createProfileJob_jobSample = Lens.lens (\CreateProfileJob' {jobSample} -> jobSample) (\s@CreateProfileJob' {} a -> s {jobSample = a} :: CreateProfileJob)
+-- | The encryption mode for the job, which can be one of the following:
+--
+-- -   @SSE-KMS@ - @SSE-KMS@ - Server-side encryption with KMS-managed
+--     keys.
+--
+-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
+createProfileJob_encryptionMode :: Lens.Lens' CreateProfileJob (Prelude.Maybe EncryptionMode)
+createProfileJob_encryptionMode = Lens.lens (\CreateProfileJob' {encryptionMode} -> encryptionMode) (\s@CreateProfileJob' {} a -> s {encryptionMode = a} :: CreateProfileJob)
 
 -- | The name of the dataset that this job is to act upon.
 createProfileJob_datasetName :: Lens.Lens' CreateProfileJob Prelude.Text
@@ -267,15 +267,15 @@ instance Core.AWSRequest CreateProfileJob where
 
 instance Prelude.Hashable CreateProfileJob where
   hashWithSalt _salt CreateProfileJob' {..} =
-    _salt `Prelude.hashWithSalt` encryptionMode
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` jobSample
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` logSubscription
       `Prelude.hashWithSalt` maxRetries
-      `Prelude.hashWithSalt` encryptionKeyArn
       `Prelude.hashWithSalt` maxCapacity
-      `Prelude.hashWithSalt` configuration
-      `Prelude.hashWithSalt` timeout
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` jobSample
+      `Prelude.hashWithSalt` encryptionMode
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outputLocation
@@ -283,15 +283,15 @@ instance Prelude.Hashable CreateProfileJob where
 
 instance Prelude.NFData CreateProfileJob where
   rnf CreateProfileJob' {..} =
-    Prelude.rnf encryptionMode
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf jobSample
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf logSubscription
       `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
       `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobSample
+      `Prelude.seq` Prelude.rnf encryptionMode
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf outputLocation
@@ -312,18 +312,18 @@ instance Core.ToJSON CreateProfileJob where
   toJSON CreateProfileJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EncryptionMode" Core..=)
-              Prelude.<$> encryptionMode,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("EncryptionKeyArn" Core..=)
+              Prelude.<$> encryptionKeyArn,
+            ("JobSample" Core..=) Prelude.<$> jobSample,
+            ("Timeout" Core..=) Prelude.<$> timeout,
+            ("Configuration" Core..=) Prelude.<$> configuration,
             ("LogSubscription" Core..=)
               Prelude.<$> logSubscription,
             ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("EncryptionKeyArn" Core..=)
-              Prelude.<$> encryptionKeyArn,
             ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("JobSample" Core..=) Prelude.<$> jobSample,
+            ("EncryptionMode" Core..=)
+              Prelude.<$> encryptionMode,
             Prelude.Just ("DatasetName" Core..= datasetName),
             Prelude.Just ("Name" Core..= name),
             Prelude.Just

@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBudgetedAndActualAmounts' smart constructor.
 data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
-  { -- | The time period covered by this budget comparison.
+  { -- | The amount of cost or usage that you created the budget for.
+    budgetedAmount :: Prelude.Maybe Spend,
+    -- | The time period covered by this budget comparison.
     timePeriod :: Prelude.Maybe TimePeriod,
     -- | Your actual costs or usage for a budget period.
-    actualAmount :: Prelude.Maybe Spend,
-    -- | The amount of cost or usage that you created the budget for.
-    budgetedAmount :: Prelude.Maybe Spend
+    actualAmount :: Prelude.Maybe Spend
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'budgetedAmount', 'budgetedAndActualAmounts_budgetedAmount' - The amount of cost or usage that you created the budget for.
+--
 -- 'timePeriod', 'budgetedAndActualAmounts_timePeriod' - The time period covered by this budget comparison.
 --
 -- 'actualAmount', 'budgetedAndActualAmounts_actualAmount' - Your actual costs or usage for a budget period.
---
--- 'budgetedAmount', 'budgetedAndActualAmounts_budgetedAmount' - The amount of cost or usage that you created the budget for.
 newBudgetedAndActualAmounts ::
   BudgetedAndActualAmounts
 newBudgetedAndActualAmounts =
   BudgetedAndActualAmounts'
-    { timePeriod =
+    { budgetedAmount =
         Prelude.Nothing,
-      actualAmount = Prelude.Nothing,
-      budgetedAmount = Prelude.Nothing
+      timePeriod = Prelude.Nothing,
+      actualAmount = Prelude.Nothing
     }
+
+-- | The amount of cost or usage that you created the budget for.
+budgetedAndActualAmounts_budgetedAmount :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe Spend)
+budgetedAndActualAmounts_budgetedAmount = Lens.lens (\BudgetedAndActualAmounts' {budgetedAmount} -> budgetedAmount) (\s@BudgetedAndActualAmounts' {} a -> s {budgetedAmount = a} :: BudgetedAndActualAmounts)
 
 -- | The time period covered by this budget comparison.
 budgetedAndActualAmounts_timePeriod :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe TimePeriod)
@@ -70,29 +74,25 @@ budgetedAndActualAmounts_timePeriod = Lens.lens (\BudgetedAndActualAmounts' {tim
 budgetedAndActualAmounts_actualAmount :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe Spend)
 budgetedAndActualAmounts_actualAmount = Lens.lens (\BudgetedAndActualAmounts' {actualAmount} -> actualAmount) (\s@BudgetedAndActualAmounts' {} a -> s {actualAmount = a} :: BudgetedAndActualAmounts)
 
--- | The amount of cost or usage that you created the budget for.
-budgetedAndActualAmounts_budgetedAmount :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe Spend)
-budgetedAndActualAmounts_budgetedAmount = Lens.lens (\BudgetedAndActualAmounts' {budgetedAmount} -> budgetedAmount) (\s@BudgetedAndActualAmounts' {} a -> s {budgetedAmount = a} :: BudgetedAndActualAmounts)
-
 instance Core.FromJSON BudgetedAndActualAmounts where
   parseJSON =
     Core.withObject
       "BudgetedAndActualAmounts"
       ( \x ->
           BudgetedAndActualAmounts'
-            Prelude.<$> (x Core..:? "TimePeriod")
+            Prelude.<$> (x Core..:? "BudgetedAmount")
+            Prelude.<*> (x Core..:? "TimePeriod")
             Prelude.<*> (x Core..:? "ActualAmount")
-            Prelude.<*> (x Core..:? "BudgetedAmount")
       )
 
 instance Prelude.Hashable BudgetedAndActualAmounts where
   hashWithSalt _salt BudgetedAndActualAmounts' {..} =
-    _salt `Prelude.hashWithSalt` timePeriod
+    _salt `Prelude.hashWithSalt` budgetedAmount
+      `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` actualAmount
-      `Prelude.hashWithSalt` budgetedAmount
 
 instance Prelude.NFData BudgetedAndActualAmounts where
   rnf BudgetedAndActualAmounts' {..} =
-    Prelude.rnf timePeriod
+    Prelude.rnf budgetedAmount
+      `Prelude.seq` Prelude.rnf timePeriod
       `Prelude.seq` Prelude.rnf actualAmount
-      `Prelude.seq` Prelude.rnf budgetedAmount

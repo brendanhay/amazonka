@@ -29,8 +29,8 @@ module Amazonka.Discovery.ListServerNeighbors
 
     -- * Request Lenses
     listServerNeighbors_portInformationNeeded,
-    listServerNeighbors_neighborConfigurationIds,
     listServerNeighbors_nextToken,
+    listServerNeighbors_neighborConfigurationIds,
     listServerNeighbors_maxResults,
     listServerNeighbors_configurationId,
 
@@ -58,8 +58,6 @@ data ListServerNeighbors = ListServerNeighbors'
   { -- | Flag to indicate if port and protocol information is needed as part of
     -- the response.
     portInformationNeeded :: Prelude.Maybe Prelude.Bool,
-    -- | List of configuration IDs to test for one-hop-away.
-    neighborConfigurationIds :: Prelude.Maybe [Prelude.Text],
     -- | Token to retrieve the next set of results. For example, if you
     -- previously specified 100 IDs for
     -- @ListServerNeighborsRequest$neighborConfigurationIds@ but set
@@ -67,6 +65,8 @@ data ListServerNeighbors = ListServerNeighbors'
     -- results along with a token. Use that token in this query to get the next
     -- set of 10.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of configuration IDs to test for one-hop-away.
+    neighborConfigurationIds :: Prelude.Maybe [Prelude.Text],
     -- | Maximum number of results to return in a single page of output.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | Configuration ID of the server for which neighbors are being listed.
@@ -85,14 +85,14 @@ data ListServerNeighbors = ListServerNeighbors'
 -- 'portInformationNeeded', 'listServerNeighbors_portInformationNeeded' - Flag to indicate if port and protocol information is needed as part of
 -- the response.
 --
--- 'neighborConfigurationIds', 'listServerNeighbors_neighborConfigurationIds' - List of configuration IDs to test for one-hop-away.
---
 -- 'nextToken', 'listServerNeighbors_nextToken' - Token to retrieve the next set of results. For example, if you
 -- previously specified 100 IDs for
 -- @ListServerNeighborsRequest$neighborConfigurationIds@ but set
 -- @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10
 -- results along with a token. Use that token in this query to get the next
 -- set of 10.
+--
+-- 'neighborConfigurationIds', 'listServerNeighbors_neighborConfigurationIds' - List of configuration IDs to test for one-hop-away.
 --
 -- 'maxResults', 'listServerNeighbors_maxResults' - Maximum number of results to return in a single page of output.
 --
@@ -105,8 +105,8 @@ newListServerNeighbors pConfigurationId_ =
   ListServerNeighbors'
     { portInformationNeeded =
         Prelude.Nothing,
-      neighborConfigurationIds = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      neighborConfigurationIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       configurationId = pConfigurationId_
     }
@@ -116,10 +116,6 @@ newListServerNeighbors pConfigurationId_ =
 listServerNeighbors_portInformationNeeded :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Bool)
 listServerNeighbors_portInformationNeeded = Lens.lens (\ListServerNeighbors' {portInformationNeeded} -> portInformationNeeded) (\s@ListServerNeighbors' {} a -> s {portInformationNeeded = a} :: ListServerNeighbors)
 
--- | List of configuration IDs to test for one-hop-away.
-listServerNeighbors_neighborConfigurationIds :: Lens.Lens' ListServerNeighbors (Prelude.Maybe [Prelude.Text])
-listServerNeighbors_neighborConfigurationIds = Lens.lens (\ListServerNeighbors' {neighborConfigurationIds} -> neighborConfigurationIds) (\s@ListServerNeighbors' {} a -> s {neighborConfigurationIds = a} :: ListServerNeighbors) Prelude.. Lens.mapping Lens.coerced
-
 -- | Token to retrieve the next set of results. For example, if you
 -- previously specified 100 IDs for
 -- @ListServerNeighborsRequest$neighborConfigurationIds@ but set
@@ -128,6 +124,10 @@ listServerNeighbors_neighborConfigurationIds = Lens.lens (\ListServerNeighbors' 
 -- set of 10.
 listServerNeighbors_nextToken :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Text)
 listServerNeighbors_nextToken = Lens.lens (\ListServerNeighbors' {nextToken} -> nextToken) (\s@ListServerNeighbors' {} a -> s {nextToken = a} :: ListServerNeighbors)
+
+-- | List of configuration IDs to test for one-hop-away.
+listServerNeighbors_neighborConfigurationIds :: Lens.Lens' ListServerNeighbors (Prelude.Maybe [Prelude.Text])
+listServerNeighbors_neighborConfigurationIds = Lens.lens (\ListServerNeighbors' {neighborConfigurationIds} -> neighborConfigurationIds) (\s@ListServerNeighbors' {} a -> s {neighborConfigurationIds = a} :: ListServerNeighbors) Prelude.. Lens.mapping Lens.coerced
 
 -- | Maximum number of results to return in a single page of output.
 listServerNeighbors_maxResults :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Int)
@@ -155,16 +155,16 @@ instance Core.AWSRequest ListServerNeighbors where
 instance Prelude.Hashable ListServerNeighbors where
   hashWithSalt _salt ListServerNeighbors' {..} =
     _salt `Prelude.hashWithSalt` portInformationNeeded
-      `Prelude.hashWithSalt` neighborConfigurationIds
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` neighborConfigurationIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` configurationId
 
 instance Prelude.NFData ListServerNeighbors where
   rnf ListServerNeighbors' {..} =
     Prelude.rnf portInformationNeeded
-      `Prelude.seq` Prelude.rnf neighborConfigurationIds
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf neighborConfigurationIds
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf configurationId
 
@@ -189,9 +189,9 @@ instance Core.ToJSON ListServerNeighbors where
       ( Prelude.catMaybes
           [ ("portInformationNeeded" Core..=)
               Prelude.<$> portInformationNeeded,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("neighborConfigurationIds" Core..=)
               Prelude.<$> neighborConfigurationIds,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("configurationId" Core..= configurationId)

@@ -30,8 +30,8 @@ module Amazonka.MediaStoreData.ListItems
     newListItems,
 
     -- * Request Lenses
-    listItems_path,
     listItems_nextToken,
+    listItems_path,
     listItems_maxResults,
 
     -- * Destructuring the Response
@@ -54,10 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListItems' smart constructor.
 data ListItems = ListItems'
-  { -- | The path in the container from which to retrieve items. Format: \<folder
-    -- name>\/\<folder name>\/\<file name>
-    path :: Prelude.Maybe Prelude.Text,
-    -- | The token that identifies which batch of results that you want to see.
+  { -- | The token that identifies which batch of results that you want to see.
     -- For example, you submit a @ListItems@ request with @MaxResults@ set at
     -- 500. The service returns the first batch of results (up to 500) and a
     -- @NextToken@ value. To see the next batch of results, you can submit the
@@ -65,6 +62,9 @@ data ListItems = ListItems'
     --
     -- Tokens expire after 15 minutes.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The path in the container from which to retrieve items. Format: \<folder
+    -- name>\/\<folder name>\/\<file name>
+    path :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per API request. For example,
     -- you submit a @ListItems@ request with @MaxResults@ set at 500. Although
     -- 2,000 items match your request, the service returns no more than the
@@ -86,9 +86,6 @@ data ListItems = ListItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'path', 'listItems_path' - The path in the container from which to retrieve items. Format: \<folder
--- name>\/\<folder name>\/\<file name>
---
 -- 'nextToken', 'listItems_nextToken' - The token that identifies which batch of results that you want to see.
 -- For example, you submit a @ListItems@ request with @MaxResults@ set at
 -- 500. The service returns the first batch of results (up to 500) and a
@@ -96,6 +93,9 @@ data ListItems = ListItems'
 -- @ListItems@ request a second time and specify the @NextToken@ value.
 --
 -- Tokens expire after 15 minutes.
+--
+-- 'path', 'listItems_path' - The path in the container from which to retrieve items. Format: \<folder
+-- name>\/\<folder name>\/\<file name>
 --
 -- 'maxResults', 'listItems_maxResults' - The maximum number of results to return per API request. For example,
 -- you submit a @ListItems@ request with @MaxResults@ set at 500. Although
@@ -110,15 +110,10 @@ newListItems ::
   ListItems
 newListItems =
   ListItems'
-    { path = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      path = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The path in the container from which to retrieve items. Format: \<folder
--- name>\/\<folder name>\/\<file name>
-listItems_path :: Lens.Lens' ListItems (Prelude.Maybe Prelude.Text)
-listItems_path = Lens.lens (\ListItems' {path} -> path) (\s@ListItems' {} a -> s {path = a} :: ListItems)
 
 -- | The token that identifies which batch of results that you want to see.
 -- For example, you submit a @ListItems@ request with @MaxResults@ set at
@@ -129,6 +124,11 @@ listItems_path = Lens.lens (\ListItems' {path} -> path) (\s@ListItems' {} a -> s
 -- Tokens expire after 15 minutes.
 listItems_nextToken :: Lens.Lens' ListItems (Prelude.Maybe Prelude.Text)
 listItems_nextToken = Lens.lens (\ListItems' {nextToken} -> nextToken) (\s@ListItems' {} a -> s {nextToken = a} :: ListItems)
+
+-- | The path in the container from which to retrieve items. Format: \<folder
+-- name>\/\<folder name>\/\<file name>
+listItems_path :: Lens.Lens' ListItems (Prelude.Maybe Prelude.Text)
+listItems_path = Lens.lens (\ListItems' {path} -> path) (\s@ListItems' {} a -> s {path = a} :: ListItems)
 
 -- | The maximum number of results to return per API request. For example,
 -- you submit a @ListItems@ request with @MaxResults@ set at 500. Although
@@ -175,14 +175,14 @@ instance Core.AWSRequest ListItems where
 
 instance Prelude.Hashable ListItems where
   hashWithSalt _salt ListItems' {..} =
-    _salt `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListItems where
   rnf ListItems' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListItems where
@@ -194,8 +194,8 @@ instance Core.ToPath ListItems where
 instance Core.ToQuery ListItems where
   toQuery ListItems' {..} =
     Prelude.mconcat
-      [ "Path" Core.=: path,
-        "NextToken" Core.=: nextToken,
+      [ "NextToken" Core.=: nextToken,
+        "Path" Core.=: path,
         "MaxResults" Core.=: maxResults
       ]
 

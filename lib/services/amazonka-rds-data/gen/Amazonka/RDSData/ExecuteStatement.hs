@@ -34,13 +34,13 @@ module Amazonka.RDSData.ExecuteStatement
     newExecuteStatement,
 
     -- * Request Lenses
+    executeStatement_continueAfterTimeout,
     executeStatement_database,
+    executeStatement_resultSetOptions,
+    executeStatement_includeResultMetadata,
     executeStatement_transactionId,
     executeStatement_schema,
     executeStatement_parameters,
-    executeStatement_includeResultMetadata,
-    executeStatement_resultSetOptions,
-    executeStatement_continueAfterTimeout,
     executeStatement_resourceArn,
     executeStatement_secretArn,
     executeStatement_sql,
@@ -52,8 +52,8 @@ module Amazonka.RDSData.ExecuteStatement
     -- * Response Lenses
     executeStatementResponse_records,
     executeStatementResponse_columnMetadata,
-    executeStatementResponse_generatedFields,
     executeStatementResponse_numberOfRecordsUpdated,
+    executeStatementResponse_generatedFields,
     executeStatementResponse_httpStatus,
   )
 where
@@ -70,8 +70,21 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newExecuteStatement' smart constructor.
 data ExecuteStatement = ExecuteStatement'
-  { -- | The name of the database.
+  { -- | A value that indicates whether to continue running the statement after
+    -- the call times out. By default, the statement stops running when the
+    -- call times out.
+    --
+    -- For DDL statements, we recommend continuing to run the statement after
+    -- the call times out. When a DDL statement terminates before it is
+    -- finished running, it can result in errors and possibly corrupted data
+    -- structures.
+    continueAfterTimeout :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the database.
     database :: Prelude.Maybe Prelude.Text,
+    -- | Options that control how the result set is returned.
+    resultSetOptions :: Prelude.Maybe ResultSetOptions,
+    -- | A value that indicates whether to include metadata in the results.
+    includeResultMetadata :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of a transaction that was started by using the
     -- @BeginTransaction@ operation. Specify the transaction ID of the
     -- transaction that you want to include the SQL statement in.
@@ -87,19 +100,6 @@ data ExecuteStatement = ExecuteStatement'
     --
     -- Array parameters are not supported.
     parameters :: Prelude.Maybe [SqlParameter],
-    -- | A value that indicates whether to include metadata in the results.
-    includeResultMetadata :: Prelude.Maybe Prelude.Bool,
-    -- | Options that control how the result set is returned.
-    resultSetOptions :: Prelude.Maybe ResultSetOptions,
-    -- | A value that indicates whether to continue running the statement after
-    -- the call times out. By default, the statement stops running when the
-    -- call times out.
-    --
-    -- For DDL statements, we recommend continuing to run the statement after
-    -- the call times out. When a DDL statement terminates before it is
-    -- finished running, it can result in errors and possibly corrupted data
-    -- structures.
-    continueAfterTimeout :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
     resourceArn :: Prelude.Text,
     -- | The name or ARN of the secret that enables access to the DB cluster.
@@ -117,7 +117,20 @@ data ExecuteStatement = ExecuteStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'continueAfterTimeout', 'executeStatement_continueAfterTimeout' - A value that indicates whether to continue running the statement after
+-- the call times out. By default, the statement stops running when the
+-- call times out.
+--
+-- For DDL statements, we recommend continuing to run the statement after
+-- the call times out. When a DDL statement terminates before it is
+-- finished running, it can result in errors and possibly corrupted data
+-- structures.
+--
 -- 'database', 'executeStatement_database' - The name of the database.
+--
+-- 'resultSetOptions', 'executeStatement_resultSetOptions' - Options that control how the result set is returned.
+--
+-- 'includeResultMetadata', 'executeStatement_includeResultMetadata' - A value that indicates whether to include metadata in the results.
 --
 -- 'transactionId', 'executeStatement_transactionId' - The identifier of a transaction that was started by using the
 -- @BeginTransaction@ operation. Specify the transaction ID of the
@@ -134,19 +147,6 @@ data ExecuteStatement = ExecuteStatement'
 --
 -- Array parameters are not supported.
 --
--- 'includeResultMetadata', 'executeStatement_includeResultMetadata' - A value that indicates whether to include metadata in the results.
---
--- 'resultSetOptions', 'executeStatement_resultSetOptions' - Options that control how the result set is returned.
---
--- 'continueAfterTimeout', 'executeStatement_continueAfterTimeout' - A value that indicates whether to continue running the statement after
--- the call times out. By default, the statement stops running when the
--- call times out.
---
--- For DDL statements, we recommend continuing to run the statement after
--- the call times out. When a DDL statement terminates before it is
--- finished running, it can result in errors and possibly corrupted data
--- structures.
---
 -- 'resourceArn', 'executeStatement_resourceArn' - The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 --
 -- 'secretArn', 'executeStatement_secretArn' - The name or ARN of the secret that enables access to the DB cluster.
@@ -162,21 +162,41 @@ newExecuteStatement ::
   ExecuteStatement
 newExecuteStatement pResourceArn_ pSecretArn_ pSql_ =
   ExecuteStatement'
-    { database = Prelude.Nothing,
+    { continueAfterTimeout =
+        Prelude.Nothing,
+      database = Prelude.Nothing,
+      resultSetOptions = Prelude.Nothing,
+      includeResultMetadata = Prelude.Nothing,
       transactionId = Prelude.Nothing,
       schema = Prelude.Nothing,
       parameters = Prelude.Nothing,
-      includeResultMetadata = Prelude.Nothing,
-      resultSetOptions = Prelude.Nothing,
-      continueAfterTimeout = Prelude.Nothing,
       resourceArn = pResourceArn_,
       secretArn = pSecretArn_,
       sql = pSql_
     }
 
+-- | A value that indicates whether to continue running the statement after
+-- the call times out. By default, the statement stops running when the
+-- call times out.
+--
+-- For DDL statements, we recommend continuing to run the statement after
+-- the call times out. When a DDL statement terminates before it is
+-- finished running, it can result in errors and possibly corrupted data
+-- structures.
+executeStatement_continueAfterTimeout :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
+executeStatement_continueAfterTimeout = Lens.lens (\ExecuteStatement' {continueAfterTimeout} -> continueAfterTimeout) (\s@ExecuteStatement' {} a -> s {continueAfterTimeout = a} :: ExecuteStatement)
+
 -- | The name of the database.
 executeStatement_database :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
 executeStatement_database = Lens.lens (\ExecuteStatement' {database} -> database) (\s@ExecuteStatement' {} a -> s {database = a} :: ExecuteStatement)
+
+-- | Options that control how the result set is returned.
+executeStatement_resultSetOptions :: Lens.Lens' ExecuteStatement (Prelude.Maybe ResultSetOptions)
+executeStatement_resultSetOptions = Lens.lens (\ExecuteStatement' {resultSetOptions} -> resultSetOptions) (\s@ExecuteStatement' {} a -> s {resultSetOptions = a} :: ExecuteStatement)
+
+-- | A value that indicates whether to include metadata in the results.
+executeStatement_includeResultMetadata :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
+executeStatement_includeResultMetadata = Lens.lens (\ExecuteStatement' {includeResultMetadata} -> includeResultMetadata) (\s@ExecuteStatement' {} a -> s {includeResultMetadata = a} :: ExecuteStatement)
 
 -- | The identifier of a transaction that was started by using the
 -- @BeginTransaction@ operation. Specify the transaction ID of the
@@ -198,25 +218,6 @@ executeStatement_schema = Lens.lens (\ExecuteStatement' {schema} -> schema) (\s@
 -- Array parameters are not supported.
 executeStatement_parameters :: Lens.Lens' ExecuteStatement (Prelude.Maybe [SqlParameter])
 executeStatement_parameters = Lens.lens (\ExecuteStatement' {parameters} -> parameters) (\s@ExecuteStatement' {} a -> s {parameters = a} :: ExecuteStatement) Prelude.. Lens.mapping Lens.coerced
-
--- | A value that indicates whether to include metadata in the results.
-executeStatement_includeResultMetadata :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
-executeStatement_includeResultMetadata = Lens.lens (\ExecuteStatement' {includeResultMetadata} -> includeResultMetadata) (\s@ExecuteStatement' {} a -> s {includeResultMetadata = a} :: ExecuteStatement)
-
--- | Options that control how the result set is returned.
-executeStatement_resultSetOptions :: Lens.Lens' ExecuteStatement (Prelude.Maybe ResultSetOptions)
-executeStatement_resultSetOptions = Lens.lens (\ExecuteStatement' {resultSetOptions} -> resultSetOptions) (\s@ExecuteStatement' {} a -> s {resultSetOptions = a} :: ExecuteStatement)
-
--- | A value that indicates whether to continue running the statement after
--- the call times out. By default, the statement stops running when the
--- call times out.
---
--- For DDL statements, we recommend continuing to run the statement after
--- the call times out. When a DDL statement terminates before it is
--- finished running, it can result in errors and possibly corrupted data
--- structures.
-executeStatement_continueAfterTimeout :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
-executeStatement_continueAfterTimeout = Lens.lens (\ExecuteStatement' {continueAfterTimeout} -> continueAfterTimeout) (\s@ExecuteStatement' {} a -> s {continueAfterTimeout = a} :: ExecuteStatement)
 
 -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 executeStatement_resourceArn :: Lens.Lens' ExecuteStatement Prelude.Text
@@ -241,35 +242,35 @@ instance Core.AWSRequest ExecuteStatement where
           ExecuteStatementResponse'
             Prelude.<$> (x Core..?> "records" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "columnMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "numberOfRecordsUpdated")
             Prelude.<*> ( x Core..?> "generatedFields"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "numberOfRecordsUpdated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` database
+    _salt `Prelude.hashWithSalt` continueAfterTimeout
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` resultSetOptions
+      `Prelude.hashWithSalt` includeResultMetadata
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` includeResultMetadata
-      `Prelude.hashWithSalt` resultSetOptions
-      `Prelude.hashWithSalt` continueAfterTimeout
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` sql
 
 instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
-    Prelude.rnf database
+    Prelude.rnf continueAfterTimeout
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf resultSetOptions
+      `Prelude.seq` Prelude.rnf includeResultMetadata
       `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf includeResultMetadata
-      `Prelude.seq` Prelude.rnf resultSetOptions
-      `Prelude.seq` Prelude.rnf continueAfterTimeout
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf sql
@@ -289,16 +290,16 @@ instance Core.ToJSON ExecuteStatement where
   toJSON ExecuteStatement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("database" Core..=) Prelude.<$> database,
+          [ ("continueAfterTimeout" Core..=)
+              Prelude.<$> continueAfterTimeout,
+            ("database" Core..=) Prelude.<$> database,
+            ("resultSetOptions" Core..=)
+              Prelude.<$> resultSetOptions,
+            ("includeResultMetadata" Core..=)
+              Prelude.<$> includeResultMetadata,
             ("transactionId" Core..=) Prelude.<$> transactionId,
             ("schema" Core..=) Prelude.<$> schema,
             ("parameters" Core..=) Prelude.<$> parameters,
-            ("includeResultMetadata" Core..=)
-              Prelude.<$> includeResultMetadata,
-            ("resultSetOptions" Core..=)
-              Prelude.<$> resultSetOptions,
-            ("continueAfterTimeout" Core..=)
-              Prelude.<$> continueAfterTimeout,
             Prelude.Just ("resourceArn" Core..= resourceArn),
             Prelude.Just ("secretArn" Core..= secretArn),
             Prelude.Just ("sql" Core..= sql)
@@ -320,12 +321,12 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
     records :: Prelude.Maybe [[Field]],
     -- | Metadata for the columns included in the results.
     columnMetadata :: Prelude.Maybe [ColumnMetadata],
+    -- | The number of records updated by the request.
+    numberOfRecordsUpdated :: Prelude.Maybe Prelude.Integer,
     -- | Values for fields generated during the request.
     --
     -- >  <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
     generatedFields :: Prelude.Maybe [Field],
-    -- | The number of records updated by the request.
-    numberOfRecordsUpdated :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -343,11 +344,11 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
 --
 -- 'columnMetadata', 'executeStatementResponse_columnMetadata' - Metadata for the columns included in the results.
 --
+-- 'numberOfRecordsUpdated', 'executeStatementResponse_numberOfRecordsUpdated' - The number of records updated by the request.
+--
 -- 'generatedFields', 'executeStatementResponse_generatedFields' - Values for fields generated during the request.
 --
 -- >  <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
---
--- 'numberOfRecordsUpdated', 'executeStatementResponse_numberOfRecordsUpdated' - The number of records updated by the request.
 --
 -- 'httpStatus', 'executeStatementResponse_httpStatus' - The response's http status code.
 newExecuteStatementResponse ::
@@ -359,8 +360,8 @@ newExecuteStatementResponse pHttpStatus_ =
     { records =
         Prelude.Nothing,
       columnMetadata = Prelude.Nothing,
-      generatedFields = Prelude.Nothing,
       numberOfRecordsUpdated = Prelude.Nothing,
+      generatedFields = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -372,15 +373,15 @@ executeStatementResponse_records = Lens.lens (\ExecuteStatementResponse' {record
 executeStatementResponse_columnMetadata :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [ColumnMetadata])
 executeStatementResponse_columnMetadata = Lens.lens (\ExecuteStatementResponse' {columnMetadata} -> columnMetadata) (\s@ExecuteStatementResponse' {} a -> s {columnMetadata = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The number of records updated by the request.
+executeStatementResponse_numberOfRecordsUpdated :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Integer)
+executeStatementResponse_numberOfRecordsUpdated = Lens.lens (\ExecuteStatementResponse' {numberOfRecordsUpdated} -> numberOfRecordsUpdated) (\s@ExecuteStatementResponse' {} a -> s {numberOfRecordsUpdated = a} :: ExecuteStatementResponse)
+
 -- | Values for fields generated during the request.
 --
 -- >  <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
 executeStatementResponse_generatedFields :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [Field])
 executeStatementResponse_generatedFields = Lens.lens (\ExecuteStatementResponse' {generatedFields} -> generatedFields) (\s@ExecuteStatementResponse' {} a -> s {generatedFields = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The number of records updated by the request.
-executeStatementResponse_numberOfRecordsUpdated :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Integer)
-executeStatementResponse_numberOfRecordsUpdated = Lens.lens (\ExecuteStatementResponse' {numberOfRecordsUpdated} -> numberOfRecordsUpdated) (\s@ExecuteStatementResponse' {} a -> s {numberOfRecordsUpdated = a} :: ExecuteStatementResponse)
 
 -- | The response's http status code.
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int
@@ -390,6 +391,6 @@ instance Prelude.NFData ExecuteStatementResponse where
   rnf ExecuteStatementResponse' {..} =
     Prelude.rnf records
       `Prelude.seq` Prelude.rnf columnMetadata
-      `Prelude.seq` Prelude.rnf generatedFields
       `Prelude.seq` Prelude.rnf numberOfRecordsUpdated
+      `Prelude.seq` Prelude.rnf generatedFields
       `Prelude.seq` Prelude.rnf httpStatus

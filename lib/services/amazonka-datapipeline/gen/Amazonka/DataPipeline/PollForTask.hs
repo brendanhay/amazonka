@@ -41,8 +41,8 @@ module Amazonka.DataPipeline.PollForTask
     newPollForTask,
 
     -- * Request Lenses
-    pollForTask_hostname,
     pollForTask_instanceIdentity,
+    pollForTask_hostname,
     pollForTask_workerGroup,
 
     -- * Destructuring the Response
@@ -66,9 +66,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPollForTask' smart constructor.
 data PollForTask = PollForTask'
-  { -- | The public DNS name of the calling task runner.
-    hostname :: Prelude.Maybe Prelude.Text,
-    -- | Identity information for the EC2 instance that is hosting the task
+  { -- | Identity information for the EC2 instance that is hosting the task
     -- runner. You can get this value from the instance using
     -- @http:\/\/169.254.169.254\/latest\/meta-data\/instance-id@. For more
     -- information, see
@@ -78,6 +76,8 @@ data PollForTask = PollForTask'
     -- the proper AWS Data Pipeline service charges are applied to your
     -- pipeline.
     instanceIdentity :: Prelude.Maybe InstanceIdentity,
+    -- | The public DNS name of the calling task runner.
+    hostname :: Prelude.Maybe Prelude.Text,
     -- | The type of task the task runner is configured to accept and process.
     -- The worker group is set as a field on objects in the pipeline when they
     -- are created. You can only specify a single value for @workerGroup@ in
@@ -95,8 +95,6 @@ data PollForTask = PollForTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostname', 'pollForTask_hostname' - The public DNS name of the calling task runner.
---
 -- 'instanceIdentity', 'pollForTask_instanceIdentity' - Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value from the instance using
 -- @http:\/\/169.254.169.254\/latest\/meta-data\/instance-id@. For more
@@ -106,6 +104,8 @@ data PollForTask = PollForTask'
 -- proves that your task runner is running on an EC2 instance, and ensures
 -- the proper AWS Data Pipeline service charges are applied to your
 -- pipeline.
+--
+-- 'hostname', 'pollForTask_hostname' - The public DNS name of the calling task runner.
 --
 -- 'workerGroup', 'pollForTask_workerGroup' - The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
@@ -118,14 +118,10 @@ newPollForTask ::
   PollForTask
 newPollForTask pWorkerGroup_ =
   PollForTask'
-    { hostname = Prelude.Nothing,
-      instanceIdentity = Prelude.Nothing,
+    { instanceIdentity = Prelude.Nothing,
+      hostname = Prelude.Nothing,
       workerGroup = pWorkerGroup_
     }
-
--- | The public DNS name of the calling task runner.
-pollForTask_hostname :: Lens.Lens' PollForTask (Prelude.Maybe Prelude.Text)
-pollForTask_hostname = Lens.lens (\PollForTask' {hostname} -> hostname) (\s@PollForTask' {} a -> s {hostname = a} :: PollForTask)
 
 -- | Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value from the instance using
@@ -138,6 +134,10 @@ pollForTask_hostname = Lens.lens (\PollForTask' {hostname} -> hostname) (\s@Poll
 -- pipeline.
 pollForTask_instanceIdentity :: Lens.Lens' PollForTask (Prelude.Maybe InstanceIdentity)
 pollForTask_instanceIdentity = Lens.lens (\PollForTask' {instanceIdentity} -> instanceIdentity) (\s@PollForTask' {} a -> s {instanceIdentity = a} :: PollForTask)
+
+-- | The public DNS name of the calling task runner.
+pollForTask_hostname :: Lens.Lens' PollForTask (Prelude.Maybe Prelude.Text)
+pollForTask_hostname = Lens.lens (\PollForTask' {hostname} -> hostname) (\s@PollForTask' {} a -> s {hostname = a} :: PollForTask)
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
@@ -160,14 +160,14 @@ instance Core.AWSRequest PollForTask where
 
 instance Prelude.Hashable PollForTask where
   hashWithSalt _salt PollForTask' {..} =
-    _salt `Prelude.hashWithSalt` hostname
-      `Prelude.hashWithSalt` instanceIdentity
+    _salt `Prelude.hashWithSalt` instanceIdentity
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` workerGroup
 
 instance Prelude.NFData PollForTask where
   rnf PollForTask' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf instanceIdentity
+    Prelude.rnf instanceIdentity
+      `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf workerGroup
 
 instance Core.ToHeaders PollForTask where
@@ -187,9 +187,9 @@ instance Core.ToJSON PollForTask where
   toJSON PollForTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("hostname" Core..=) Prelude.<$> hostname,
-            ("instanceIdentity" Core..=)
+          [ ("instanceIdentity" Core..=)
               Prelude.<$> instanceIdentity,
+            ("hostname" Core..=) Prelude.<$> hostname,
             Prelude.Just ("workerGroup" Core..= workerGroup)
           ]
       )

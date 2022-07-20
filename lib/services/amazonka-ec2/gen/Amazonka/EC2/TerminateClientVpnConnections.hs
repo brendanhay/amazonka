@@ -29,8 +29,8 @@ module Amazonka.EC2.TerminateClientVpnConnections
     newTerminateClientVpnConnections,
 
     -- * Request Lenses
-    terminateClientVpnConnections_connectionId,
     terminateClientVpnConnections_username,
+    terminateClientVpnConnections_connectionId,
     terminateClientVpnConnections_dryRun,
     terminateClientVpnConnections_clientVpnEndpointId,
 
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTerminateClientVpnConnections' smart constructor.
 data TerminateClientVpnConnections = TerminateClientVpnConnections'
-  { -- | The ID of the client connection to be terminated.
-    connectionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the user who initiated the connection. Use this option to
+  { -- | The name of the user who initiated the connection. Use this option to
     -- terminate all active connections for the specified user. This option can
     -- only be used if the user has established up to five connections.
     username :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the client connection to be terminated.
+    connectionId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -79,11 +79,11 @@ data TerminateClientVpnConnections = TerminateClientVpnConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionId', 'terminateClientVpnConnections_connectionId' - The ID of the client connection to be terminated.
---
 -- 'username', 'terminateClientVpnConnections_username' - The name of the user who initiated the connection. Use this option to
 -- terminate all active connections for the specified user. This option can
 -- only be used if the user has established up to five connections.
+--
+-- 'connectionId', 'terminateClientVpnConnections_connectionId' - The ID of the client connection to be terminated.
 --
 -- 'dryRun', 'terminateClientVpnConnections_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -98,22 +98,22 @@ newTerminateClientVpnConnections ::
 newTerminateClientVpnConnections
   pClientVpnEndpointId_ =
     TerminateClientVpnConnections'
-      { connectionId =
+      { username =
           Prelude.Nothing,
-        username = Prelude.Nothing,
+        connectionId = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_
       }
-
--- | The ID of the client connection to be terminated.
-terminateClientVpnConnections_connectionId :: Lens.Lens' TerminateClientVpnConnections (Prelude.Maybe Prelude.Text)
-terminateClientVpnConnections_connectionId = Lens.lens (\TerminateClientVpnConnections' {connectionId} -> connectionId) (\s@TerminateClientVpnConnections' {} a -> s {connectionId = a} :: TerminateClientVpnConnections)
 
 -- | The name of the user who initiated the connection. Use this option to
 -- terminate all active connections for the specified user. This option can
 -- only be used if the user has established up to five connections.
 terminateClientVpnConnections_username :: Lens.Lens' TerminateClientVpnConnections (Prelude.Maybe Prelude.Text)
 terminateClientVpnConnections_username = Lens.lens (\TerminateClientVpnConnections' {username} -> username) (\s@TerminateClientVpnConnections' {} a -> s {username = a} :: TerminateClientVpnConnections)
+
+-- | The ID of the client connection to be terminated.
+terminateClientVpnConnections_connectionId :: Lens.Lens' TerminateClientVpnConnections (Prelude.Maybe Prelude.Text)
+terminateClientVpnConnections_connectionId = Lens.lens (\TerminateClientVpnConnections' {connectionId} -> connectionId) (\s@TerminateClientVpnConnections' {} a -> s {connectionId = a} :: TerminateClientVpnConnections)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -152,15 +152,15 @@ instance
     TerminateClientVpnConnections
   where
   hashWithSalt _salt TerminateClientVpnConnections' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
-      `Prelude.hashWithSalt` username
+    _salt `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` clientVpnEndpointId
 
 instance Prelude.NFData TerminateClientVpnConnections where
   rnf TerminateClientVpnConnections' {..} =
-    Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
@@ -179,8 +179,8 @@ instance Core.ToQuery TerminateClientVpnConnections where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ConnectionId" Core.=: connectionId,
         "Username" Core.=: username,
+        "ConnectionId" Core.=: connectionId,
         "DryRun" Core.=: dryRun,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId
       ]

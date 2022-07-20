@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSidewalkAccountInfo' smart constructor.
 data SidewalkAccountInfo = SidewalkAccountInfo'
-  { -- | The Sidewalk Amazon ID.
-    amazonId :: Prelude.Maybe Prelude.Text,
-    -- | The Sidewalk application server private key.
-    appServerPrivateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+  { -- | The Sidewalk application server private key.
+    appServerPrivateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The Sidewalk Amazon ID.
+    amazonId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,25 @@ data SidewalkAccountInfo = SidewalkAccountInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'amazonId', 'sidewalkAccountInfo_amazonId' - The Sidewalk Amazon ID.
---
 -- 'appServerPrivateKey', 'sidewalkAccountInfo_appServerPrivateKey' - The Sidewalk application server private key.
+--
+-- 'amazonId', 'sidewalkAccountInfo_amazonId' - The Sidewalk Amazon ID.
 newSidewalkAccountInfo ::
   SidewalkAccountInfo
 newSidewalkAccountInfo =
   SidewalkAccountInfo'
-    { amazonId = Prelude.Nothing,
-      appServerPrivateKey = Prelude.Nothing
+    { appServerPrivateKey =
+        Prelude.Nothing,
+      amazonId = Prelude.Nothing
     }
-
--- | The Sidewalk Amazon ID.
-sidewalkAccountInfo_amazonId :: Lens.Lens' SidewalkAccountInfo (Prelude.Maybe Prelude.Text)
-sidewalkAccountInfo_amazonId = Lens.lens (\SidewalkAccountInfo' {amazonId} -> amazonId) (\s@SidewalkAccountInfo' {} a -> s {amazonId = a} :: SidewalkAccountInfo)
 
 -- | The Sidewalk application server private key.
 sidewalkAccountInfo_appServerPrivateKey :: Lens.Lens' SidewalkAccountInfo (Prelude.Maybe Prelude.Text)
 sidewalkAccountInfo_appServerPrivateKey = Lens.lens (\SidewalkAccountInfo' {appServerPrivateKey} -> appServerPrivateKey) (\s@SidewalkAccountInfo' {} a -> s {appServerPrivateKey = a} :: SidewalkAccountInfo) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The Sidewalk Amazon ID.
+sidewalkAccountInfo_amazonId :: Lens.Lens' SidewalkAccountInfo (Prelude.Maybe Prelude.Text)
+sidewalkAccountInfo_amazonId = Lens.lens (\SidewalkAccountInfo' {amazonId} -> amazonId) (\s@SidewalkAccountInfo' {} a -> s {amazonId = a} :: SidewalkAccountInfo)
 
 instance Core.FromJSON SidewalkAccountInfo where
   parseJSON =
@@ -67,26 +68,26 @@ instance Core.FromJSON SidewalkAccountInfo where
       "SidewalkAccountInfo"
       ( \x ->
           SidewalkAccountInfo'
-            Prelude.<$> (x Core..:? "AmazonId")
-            Prelude.<*> (x Core..:? "AppServerPrivateKey")
+            Prelude.<$> (x Core..:? "AppServerPrivateKey")
+            Prelude.<*> (x Core..:? "AmazonId")
       )
 
 instance Prelude.Hashable SidewalkAccountInfo where
   hashWithSalt _salt SidewalkAccountInfo' {..} =
-    _salt `Prelude.hashWithSalt` amazonId
-      `Prelude.hashWithSalt` appServerPrivateKey
+    _salt `Prelude.hashWithSalt` appServerPrivateKey
+      `Prelude.hashWithSalt` amazonId
 
 instance Prelude.NFData SidewalkAccountInfo where
   rnf SidewalkAccountInfo' {..} =
-    Prelude.rnf amazonId
-      `Prelude.seq` Prelude.rnf appServerPrivateKey
+    Prelude.rnf appServerPrivateKey
+      `Prelude.seq` Prelude.rnf amazonId
 
 instance Core.ToJSON SidewalkAccountInfo where
   toJSON SidewalkAccountInfo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AmazonId" Core..=) Prelude.<$> amazonId,
-            ("AppServerPrivateKey" Core..=)
-              Prelude.<$> appServerPrivateKey
+          [ ("AppServerPrivateKey" Core..=)
+              Prelude.<$> appServerPrivateKey,
+            ("AmazonId" Core..=) Prelude.<$> amazonId
           ]
       )

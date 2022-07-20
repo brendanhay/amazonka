@@ -14,64 +14,67 @@
 module Amazonka.CodeStarConnections.Lens
   ( -- * Operations
 
+    -- ** CreateConnection
+    createConnection_tags,
+    createConnection_hostArn,
+    createConnection_providerType,
+    createConnection_connectionName,
+    createConnectionResponse_tags,
+    createConnectionResponse_httpStatus,
+    createConnectionResponse_connectionArn,
+
     -- ** CreateHost
-    createHost_vpcConfiguration,
     createHost_tags,
+    createHost_vpcConfiguration,
     createHost_name,
     createHost_providerType,
     createHost_providerEndpoint,
-    createHostResponse_hostArn,
     createHostResponse_tags,
+    createHostResponse_hostArn,
     createHostResponse_httpStatus,
-
-    -- ** ListConnections
-    listConnections_hostArnFilter,
-    listConnections_nextToken,
-    listConnections_maxResults,
-    listConnections_providerTypeFilter,
-    listConnectionsResponse_connections,
-    listConnectionsResponse_nextToken,
-    listConnectionsResponse_httpStatus,
 
     -- ** DeleteConnection
     deleteConnection_connectionArn,
     deleteConnectionResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** CreateConnection
-    createConnection_providerType,
-    createConnection_hostArn,
-    createConnection_tags,
-    createConnection_connectionName,
-    createConnectionResponse_tags,
-    createConnectionResponse_httpStatus,
-    createConnectionResponse_connectionArn,
+    -- ** DeleteHost
+    deleteHost_hostArn,
+    deleteHostResponse_httpStatus,
 
     -- ** GetConnection
     getConnection_connectionArn,
     getConnectionResponse_connection,
     getConnectionResponse_httpStatus,
 
-    -- ** DeleteHost
-    deleteHost_hostArn,
-    deleteHostResponse_httpStatus,
+    -- ** GetHost
+    getHost_hostArn,
+    getHostResponse_vpcConfiguration,
+    getHostResponse_name,
+    getHostResponse_providerEndpoint,
+    getHostResponse_status,
+    getHostResponse_providerType,
+    getHostResponse_httpStatus,
 
-    -- ** UpdateHost
-    updateHost_providerEndpoint,
-    updateHost_vpcConfiguration,
-    updateHost_hostArn,
-    updateHostResponse_httpStatus,
+    -- ** ListConnections
+    listConnections_hostArnFilter,
+    listConnections_providerTypeFilter,
+    listConnections_nextToken,
+    listConnections_maxResults,
+    listConnectionsResponse_nextToken,
+    listConnectionsResponse_connections,
+    listConnectionsResponse_httpStatus,
 
     -- ** ListHosts
     listHosts_nextToken,
     listHosts_maxResults,
-    listHostsResponse_hosts,
     listHostsResponse_nextToken,
+    listHostsResponse_hosts,
     listHostsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -83,33 +86,30 @@ module Amazonka.CodeStarConnections.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** GetHost
-    getHost_hostArn,
-    getHostResponse_status,
-    getHostResponse_providerEndpoint,
-    getHostResponse_providerType,
-    getHostResponse_name,
-    getHostResponse_vpcConfiguration,
-    getHostResponse_httpStatus,
+    -- ** UpdateHost
+    updateHost_vpcConfiguration,
+    updateHost_providerEndpoint,
+    updateHost_hostArn,
+    updateHostResponse_httpStatus,
 
     -- * Types
 
     -- ** Connection
-    connection_ownerAccountId,
-    connection_providerType,
-    connection_connectionName,
-    connection_connectionStatus,
     connection_hostArn,
     connection_connectionArn,
+    connection_providerType,
+    connection_ownerAccountId,
+    connection_connectionStatus,
+    connection_connectionName,
 
     -- ** Host
-    host_status,
-    host_providerEndpoint,
-    host_providerType,
-    host_statusMessage,
+    host_vpcConfiguration,
     host_name,
     host_hostArn,
-    host_vpcConfiguration,
+    host_providerEndpoint,
+    host_status,
+    host_providerType,
+    host_statusMessage,
 
     -- ** Tag
     tag_key,

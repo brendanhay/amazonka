@@ -30,22 +30,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newECSTarget' smart constructor.
 data ECSTarget = ECSTarget'
-  { -- | The Amazon Resource Name (ARN) of the target.
-    targetArn :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of a deployment target that has a type of @ecsTarget@.
+  { -- | The unique ID of a deployment target that has a type of @ecsTarget@.
     targetId :: Prelude.Maybe Prelude.Text,
-    -- | The status an Amazon ECS deployment\'s target ECS application.
-    status :: Prelude.Maybe TargetStatus,
-    -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The lifecycle events of the deployment to this target Amazon ECS
+    -- application.
+    lifecycleEvents :: Prelude.Maybe [LifecycleEvent],
     -- | The date and time when the target Amazon ECS application was updated by
     -- a deployment.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The unique ID of a deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the target.
+    targetArn :: Prelude.Maybe Prelude.Text,
+    -- | The status an Amazon ECS deployment\'s target ECS application.
+    status :: Prelude.Maybe TargetStatus,
     -- | The @ECSTaskSet@ objects associated with the ECS target.
-    taskSetsInfo :: Prelude.Maybe [ECSTaskSet],
-    -- | The lifecycle events of the deployment to this target Amazon ECS
-    -- application.
-    lifecycleEvents :: Prelude.Maybe [LifecycleEvent]
+    taskSetsInfo :: Prelude.Maybe [ECSTaskSet]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,63 +57,63 @@ data ECSTarget = ECSTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetArn', 'eCSTarget_targetArn' - The Amazon Resource Name (ARN) of the target.
---
 -- 'targetId', 'eCSTarget_targetId' - The unique ID of a deployment target that has a type of @ecsTarget@.
 --
--- 'status', 'eCSTarget_status' - The status an Amazon ECS deployment\'s target ECS application.
---
--- 'deploymentId', 'eCSTarget_deploymentId' - The unique ID of a deployment.
+-- 'lifecycleEvents', 'eCSTarget_lifecycleEvents' - The lifecycle events of the deployment to this target Amazon ECS
+-- application.
 --
 -- 'lastUpdatedAt', 'eCSTarget_lastUpdatedAt' - The date and time when the target Amazon ECS application was updated by
 -- a deployment.
 --
--- 'taskSetsInfo', 'eCSTarget_taskSetsInfo' - The @ECSTaskSet@ objects associated with the ECS target.
+-- 'deploymentId', 'eCSTarget_deploymentId' - The unique ID of a deployment.
 --
--- 'lifecycleEvents', 'eCSTarget_lifecycleEvents' - The lifecycle events of the deployment to this target Amazon ECS
--- application.
+-- 'targetArn', 'eCSTarget_targetArn' - The Amazon Resource Name (ARN) of the target.
+--
+-- 'status', 'eCSTarget_status' - The status an Amazon ECS deployment\'s target ECS application.
+--
+-- 'taskSetsInfo', 'eCSTarget_taskSetsInfo' - The @ECSTaskSet@ objects associated with the ECS target.
 newECSTarget ::
   ECSTarget
 newECSTarget =
   ECSTarget'
-    { targetArn = Prelude.Nothing,
-      targetId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      deploymentId = Prelude.Nothing,
+    { targetId = Prelude.Nothing,
+      lifecycleEvents = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      taskSetsInfo = Prelude.Nothing,
-      lifecycleEvents = Prelude.Nothing
+      deploymentId = Prelude.Nothing,
+      targetArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      taskSetsInfo = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the target.
-eCSTarget_targetArn :: Lens.Lens' ECSTarget (Prelude.Maybe Prelude.Text)
-eCSTarget_targetArn = Lens.lens (\ECSTarget' {targetArn} -> targetArn) (\s@ECSTarget' {} a -> s {targetArn = a} :: ECSTarget)
 
 -- | The unique ID of a deployment target that has a type of @ecsTarget@.
 eCSTarget_targetId :: Lens.Lens' ECSTarget (Prelude.Maybe Prelude.Text)
 eCSTarget_targetId = Lens.lens (\ECSTarget' {targetId} -> targetId) (\s@ECSTarget' {} a -> s {targetId = a} :: ECSTarget)
 
--- | The status an Amazon ECS deployment\'s target ECS application.
-eCSTarget_status :: Lens.Lens' ECSTarget (Prelude.Maybe TargetStatus)
-eCSTarget_status = Lens.lens (\ECSTarget' {status} -> status) (\s@ECSTarget' {} a -> s {status = a} :: ECSTarget)
-
--- | The unique ID of a deployment.
-eCSTarget_deploymentId :: Lens.Lens' ECSTarget (Prelude.Maybe Prelude.Text)
-eCSTarget_deploymentId = Lens.lens (\ECSTarget' {deploymentId} -> deploymentId) (\s@ECSTarget' {} a -> s {deploymentId = a} :: ECSTarget)
+-- | The lifecycle events of the deployment to this target Amazon ECS
+-- application.
+eCSTarget_lifecycleEvents :: Lens.Lens' ECSTarget (Prelude.Maybe [LifecycleEvent])
+eCSTarget_lifecycleEvents = Lens.lens (\ECSTarget' {lifecycleEvents} -> lifecycleEvents) (\s@ECSTarget' {} a -> s {lifecycleEvents = a} :: ECSTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time when the target Amazon ECS application was updated by
 -- a deployment.
 eCSTarget_lastUpdatedAt :: Lens.Lens' ECSTarget (Prelude.Maybe Prelude.UTCTime)
 eCSTarget_lastUpdatedAt = Lens.lens (\ECSTarget' {lastUpdatedAt} -> lastUpdatedAt) (\s@ECSTarget' {} a -> s {lastUpdatedAt = a} :: ECSTarget) Prelude.. Lens.mapping Core._Time
 
+-- | The unique ID of a deployment.
+eCSTarget_deploymentId :: Lens.Lens' ECSTarget (Prelude.Maybe Prelude.Text)
+eCSTarget_deploymentId = Lens.lens (\ECSTarget' {deploymentId} -> deploymentId) (\s@ECSTarget' {} a -> s {deploymentId = a} :: ECSTarget)
+
+-- | The Amazon Resource Name (ARN) of the target.
+eCSTarget_targetArn :: Lens.Lens' ECSTarget (Prelude.Maybe Prelude.Text)
+eCSTarget_targetArn = Lens.lens (\ECSTarget' {targetArn} -> targetArn) (\s@ECSTarget' {} a -> s {targetArn = a} :: ECSTarget)
+
+-- | The status an Amazon ECS deployment\'s target ECS application.
+eCSTarget_status :: Lens.Lens' ECSTarget (Prelude.Maybe TargetStatus)
+eCSTarget_status = Lens.lens (\ECSTarget' {status} -> status) (\s@ECSTarget' {} a -> s {status = a} :: ECSTarget)
+
 -- | The @ECSTaskSet@ objects associated with the ECS target.
 eCSTarget_taskSetsInfo :: Lens.Lens' ECSTarget (Prelude.Maybe [ECSTaskSet])
 eCSTarget_taskSetsInfo = Lens.lens (\ECSTarget' {taskSetsInfo} -> taskSetsInfo) (\s@ECSTarget' {} a -> s {taskSetsInfo = a} :: ECSTarget) Prelude.. Lens.mapping Lens.coerced
-
--- | The lifecycle events of the deployment to this target Amazon ECS
--- application.
-eCSTarget_lifecycleEvents :: Lens.Lens' ECSTarget (Prelude.Maybe [LifecycleEvent])
-eCSTarget_lifecycleEvents = Lens.lens (\ECSTarget' {lifecycleEvents} -> lifecycleEvents) (\s@ECSTarget' {} a -> s {lifecycleEvents = a} :: ECSTarget) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ECSTarget where
   parseJSON =
@@ -121,33 +121,33 @@ instance Core.FromJSON ECSTarget where
       "ECSTarget"
       ( \x ->
           ECSTarget'
-            Prelude.<$> (x Core..:? "targetArn")
-            Prelude.<*> (x Core..:? "targetId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "taskSetsInfo" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "targetId")
             Prelude.<*> ( x Core..:? "lifecycleEvents"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> (x Core..:? "deploymentId")
+            Prelude.<*> (x Core..:? "targetArn")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "taskSetsInfo" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ECSTarget where
   hashWithSalt _salt ECSTarget' {..} =
-    _salt `Prelude.hashWithSalt` targetArn
-      `Prelude.hashWithSalt` targetId
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` deploymentId
-      `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` taskSetsInfo
+    _salt `Prelude.hashWithSalt` targetId
       `Prelude.hashWithSalt` lifecycleEvents
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` taskSetsInfo
 
 instance Prelude.NFData ECSTarget where
   rnf ECSTarget' {..} =
-    Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf taskSetsInfo
+    Prelude.rnf targetId
       `Prelude.seq` Prelude.rnf lifecycleEvents
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf taskSetsInfo

@@ -49,10 +49,10 @@ module Amazonka.WorkMail.CreateOrganization
 
     -- * Request Lenses
     createOrganization_directoryId,
-    createOrganization_enableInteroperability,
-    createOrganization_kmsKeyArn,
-    createOrganization_clientToken,
     createOrganization_domains,
+    createOrganization_clientToken,
+    createOrganization_kmsKeyArn,
+    createOrganization_enableInteroperability,
     createOrganization_alias,
 
     -- * Destructuring the Response
@@ -76,17 +76,17 @@ import Amazonka.WorkMail.Types
 data CreateOrganization = CreateOrganization'
   { -- | The AWS Directory Service directory ID.
     directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The email domains to associate with the organization.
+    domains :: Prelude.Maybe [Domain],
+    -- | The idempotency token associated with the request.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a customer managed master key from AWS
+    -- KMS.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | When @true@, allows organization interoperability between Amazon
     -- WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD
     -- Connector directory ID is included in the request.
     enableInteroperability :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of a customer managed master key from AWS
-    -- KMS.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token associated with the request.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The email domains to associate with the organization.
-    domains :: Prelude.Maybe [Domain],
     -- | The organization alias.
     alias :: Prelude.Text
   }
@@ -102,16 +102,16 @@ data CreateOrganization = CreateOrganization'
 --
 -- 'directoryId', 'createOrganization_directoryId' - The AWS Directory Service directory ID.
 --
--- 'enableInteroperability', 'createOrganization_enableInteroperability' - When @true@, allows organization interoperability between Amazon
--- WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD
--- Connector directory ID is included in the request.
+-- 'domains', 'createOrganization_domains' - The email domains to associate with the organization.
+--
+-- 'clientToken', 'createOrganization_clientToken' - The idempotency token associated with the request.
 --
 -- 'kmsKeyArn', 'createOrganization_kmsKeyArn' - The Amazon Resource Name (ARN) of a customer managed master key from AWS
 -- KMS.
 --
--- 'clientToken', 'createOrganization_clientToken' - The idempotency token associated with the request.
---
--- 'domains', 'createOrganization_domains' - The email domains to associate with the organization.
+-- 'enableInteroperability', 'createOrganization_enableInteroperability' - When @true@, allows organization interoperability between Amazon
+-- WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD
+-- Connector directory ID is included in the request.
 --
 -- 'alias', 'createOrganization_alias' - The organization alias.
 newCreateOrganization ::
@@ -121,10 +121,10 @@ newCreateOrganization ::
 newCreateOrganization pAlias_ =
   CreateOrganization'
     { directoryId = Prelude.Nothing,
-      enableInteroperability = Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
       domains = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
+      enableInteroperability = Prelude.Nothing,
       alias = pAlias_
     }
 
@@ -132,24 +132,24 @@ newCreateOrganization pAlias_ =
 createOrganization_directoryId :: Lens.Lens' CreateOrganization (Prelude.Maybe Prelude.Text)
 createOrganization_directoryId = Lens.lens (\CreateOrganization' {directoryId} -> directoryId) (\s@CreateOrganization' {} a -> s {directoryId = a} :: CreateOrganization)
 
--- | When @true@, allows organization interoperability between Amazon
--- WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD
--- Connector directory ID is included in the request.
-createOrganization_enableInteroperability :: Lens.Lens' CreateOrganization (Prelude.Maybe Prelude.Bool)
-createOrganization_enableInteroperability = Lens.lens (\CreateOrganization' {enableInteroperability} -> enableInteroperability) (\s@CreateOrganization' {} a -> s {enableInteroperability = a} :: CreateOrganization)
+-- | The email domains to associate with the organization.
+createOrganization_domains :: Lens.Lens' CreateOrganization (Prelude.Maybe [Domain])
+createOrganization_domains = Lens.lens (\CreateOrganization' {domains} -> domains) (\s@CreateOrganization' {} a -> s {domains = a} :: CreateOrganization) Prelude.. Lens.mapping Lens.coerced
+
+-- | The idempotency token associated with the request.
+createOrganization_clientToken :: Lens.Lens' CreateOrganization (Prelude.Maybe Prelude.Text)
+createOrganization_clientToken = Lens.lens (\CreateOrganization' {clientToken} -> clientToken) (\s@CreateOrganization' {} a -> s {clientToken = a} :: CreateOrganization)
 
 -- | The Amazon Resource Name (ARN) of a customer managed master key from AWS
 -- KMS.
 createOrganization_kmsKeyArn :: Lens.Lens' CreateOrganization (Prelude.Maybe Prelude.Text)
 createOrganization_kmsKeyArn = Lens.lens (\CreateOrganization' {kmsKeyArn} -> kmsKeyArn) (\s@CreateOrganization' {} a -> s {kmsKeyArn = a} :: CreateOrganization)
 
--- | The idempotency token associated with the request.
-createOrganization_clientToken :: Lens.Lens' CreateOrganization (Prelude.Maybe Prelude.Text)
-createOrganization_clientToken = Lens.lens (\CreateOrganization' {clientToken} -> clientToken) (\s@CreateOrganization' {} a -> s {clientToken = a} :: CreateOrganization)
-
--- | The email domains to associate with the organization.
-createOrganization_domains :: Lens.Lens' CreateOrganization (Prelude.Maybe [Domain])
-createOrganization_domains = Lens.lens (\CreateOrganization' {domains} -> domains) (\s@CreateOrganization' {} a -> s {domains = a} :: CreateOrganization) Prelude.. Lens.mapping Lens.coerced
+-- | When @true@, allows organization interoperability between Amazon
+-- WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD
+-- Connector directory ID is included in the request.
+createOrganization_enableInteroperability :: Lens.Lens' CreateOrganization (Prelude.Maybe Prelude.Bool)
+createOrganization_enableInteroperability = Lens.lens (\CreateOrganization' {enableInteroperability} -> enableInteroperability) (\s@CreateOrganization' {} a -> s {enableInteroperability = a} :: CreateOrganization)
 
 -- | The organization alias.
 createOrganization_alias :: Lens.Lens' CreateOrganization Prelude.Text
@@ -171,19 +171,19 @@ instance Core.AWSRequest CreateOrganization where
 instance Prelude.Hashable CreateOrganization where
   hashWithSalt _salt CreateOrganization' {..} =
     _salt `Prelude.hashWithSalt` directoryId
-      `Prelude.hashWithSalt` enableInteroperability
-      `Prelude.hashWithSalt` kmsKeyArn
-      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` domains
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` enableInteroperability
       `Prelude.hashWithSalt` alias
 
 instance Prelude.NFData CreateOrganization where
   rnf CreateOrganization' {..} =
     Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf enableInteroperability
-      `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf domains
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf enableInteroperability
       `Prelude.seq` Prelude.rnf alias
 
 instance Core.ToHeaders CreateOrganization where
@@ -206,11 +206,11 @@ instance Core.ToJSON CreateOrganization where
     Core.object
       ( Prelude.catMaybes
           [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
+            ("Domains" Core..=) Prelude.<$> domains,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
             ("EnableInteroperability" Core..=)
               Prelude.<$> enableInteroperability,
-            ("KmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Domains" Core..=) Prelude.<$> domains,
             Prelude.Just ("Alias" Core..= alias)
           ]
       )

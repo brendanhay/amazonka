@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBundleTaskError' smart constructor.
 data BundleTaskError = BundleTaskError'
-  { -- | The error code.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The error message.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The error message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,36 +43,36 @@ data BundleTaskError = BundleTaskError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'bundleTaskError_code' - The error code.
---
 -- 'message', 'bundleTaskError_message' - The error message.
+--
+-- 'code', 'bundleTaskError_code' - The error code.
 newBundleTaskError ::
   BundleTaskError
 newBundleTaskError =
   BundleTaskError'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The error code.
-bundleTaskError_code :: Lens.Lens' BundleTaskError (Prelude.Maybe Prelude.Text)
-bundleTaskError_code = Lens.lens (\BundleTaskError' {code} -> code) (\s@BundleTaskError' {} a -> s {code = a} :: BundleTaskError)
 
 -- | The error message.
 bundleTaskError_message :: Lens.Lens' BundleTaskError (Prelude.Maybe Prelude.Text)
 bundleTaskError_message = Lens.lens (\BundleTaskError' {message} -> message) (\s@BundleTaskError' {} a -> s {message = a} :: BundleTaskError)
 
+-- | The error code.
+bundleTaskError_code :: Lens.Lens' BundleTaskError (Prelude.Maybe Prelude.Text)
+bundleTaskError_code = Lens.lens (\BundleTaskError' {code} -> code) (\s@BundleTaskError' {} a -> s {code = a} :: BundleTaskError)
+
 instance Core.FromXML BundleTaskError where
   parseXML x =
     BundleTaskError'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance Prelude.Hashable BundleTaskError where
   hashWithSalt _salt BundleTaskError' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData BundleTaskError where
   rnf BundleTaskError' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

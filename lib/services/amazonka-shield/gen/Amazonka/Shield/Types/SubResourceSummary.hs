@@ -30,14 +30,14 @@ import Amazonka.Shield.Types.SummarizedCounter
 --
 -- /See:/ 'newSubResourceSummary' smart constructor.
 data SubResourceSummary = SubResourceSummary'
-  { -- | The counters that describe the details of the attack.
+  { -- | The @SubResource@ type.
+    type' :: Prelude.Maybe SubResourceType,
+    -- | The counters that describe the details of the attack.
     counters :: Prelude.Maybe [SummarizedCounter],
-    -- | The list of attack types and associated counters.
-    attackVectors :: Prelude.Maybe [SummarizedAttackVector],
     -- | The unique identifier (ID) of the @SubResource@.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The @SubResource@ type.
-    type' :: Prelude.Maybe SubResourceType
+    -- | The list of attack types and associated counters.
+    attackVectors :: Prelude.Maybe [SummarizedAttackVector]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,38 +49,38 @@ data SubResourceSummary = SubResourceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'counters', 'subResourceSummary_counters' - The counters that describe the details of the attack.
+-- 'type'', 'subResourceSummary_type' - The @SubResource@ type.
 --
--- 'attackVectors', 'subResourceSummary_attackVectors' - The list of attack types and associated counters.
+-- 'counters', 'subResourceSummary_counters' - The counters that describe the details of the attack.
 --
 -- 'id', 'subResourceSummary_id' - The unique identifier (ID) of the @SubResource@.
 --
--- 'type'', 'subResourceSummary_type' - The @SubResource@ type.
+-- 'attackVectors', 'subResourceSummary_attackVectors' - The list of attack types and associated counters.
 newSubResourceSummary ::
   SubResourceSummary
 newSubResourceSummary =
   SubResourceSummary'
-    { counters = Prelude.Nothing,
-      attackVectors = Prelude.Nothing,
+    { type' = Prelude.Nothing,
+      counters = Prelude.Nothing,
       id = Prelude.Nothing,
-      type' = Prelude.Nothing
+      attackVectors = Prelude.Nothing
     }
+
+-- | The @SubResource@ type.
+subResourceSummary_type :: Lens.Lens' SubResourceSummary (Prelude.Maybe SubResourceType)
+subResourceSummary_type = Lens.lens (\SubResourceSummary' {type'} -> type') (\s@SubResourceSummary' {} a -> s {type' = a} :: SubResourceSummary)
 
 -- | The counters that describe the details of the attack.
 subResourceSummary_counters :: Lens.Lens' SubResourceSummary (Prelude.Maybe [SummarizedCounter])
 subResourceSummary_counters = Lens.lens (\SubResourceSummary' {counters} -> counters) (\s@SubResourceSummary' {} a -> s {counters = a} :: SubResourceSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of attack types and associated counters.
-subResourceSummary_attackVectors :: Lens.Lens' SubResourceSummary (Prelude.Maybe [SummarizedAttackVector])
-subResourceSummary_attackVectors = Lens.lens (\SubResourceSummary' {attackVectors} -> attackVectors) (\s@SubResourceSummary' {} a -> s {attackVectors = a} :: SubResourceSummary) Prelude.. Lens.mapping Lens.coerced
-
 -- | The unique identifier (ID) of the @SubResource@.
 subResourceSummary_id :: Lens.Lens' SubResourceSummary (Prelude.Maybe Prelude.Text)
 subResourceSummary_id = Lens.lens (\SubResourceSummary' {id} -> id) (\s@SubResourceSummary' {} a -> s {id = a} :: SubResourceSummary)
 
--- | The @SubResource@ type.
-subResourceSummary_type :: Lens.Lens' SubResourceSummary (Prelude.Maybe SubResourceType)
-subResourceSummary_type = Lens.lens (\SubResourceSummary' {type'} -> type') (\s@SubResourceSummary' {} a -> s {type' = a} :: SubResourceSummary)
+-- | The list of attack types and associated counters.
+subResourceSummary_attackVectors :: Lens.Lens' SubResourceSummary (Prelude.Maybe [SummarizedAttackVector])
+subResourceSummary_attackVectors = Lens.lens (\SubResourceSummary' {attackVectors} -> attackVectors) (\s@SubResourceSummary' {} a -> s {attackVectors = a} :: SubResourceSummary) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SubResourceSummary where
   parseJSON =
@@ -88,22 +88,22 @@ instance Core.FromJSON SubResourceSummary where
       "SubResourceSummary"
       ( \x ->
           SubResourceSummary'
-            Prelude.<$> (x Core..:? "Counters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AttackVectors" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Counters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "AttackVectors" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SubResourceSummary where
   hashWithSalt _salt SubResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` counters
-      `Prelude.hashWithSalt` attackVectors
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` counters
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` attackVectors
 
 instance Prelude.NFData SubResourceSummary where
   rnf SubResourceSummary' {..} =
-    Prelude.rnf counters
-      `Prelude.seq` Prelude.rnf attackVectors
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf counters
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf attackVectors

@@ -39,8 +39,8 @@ module Amazonka.CognitoIdentityProvider.AdminListDevices
     newAdminListDevicesResponse,
 
     -- * Response Lenses
-    adminListDevicesResponse_paginationToken,
     adminListDevicesResponse_devices,
+    adminListDevicesResponse_paginationToken,
     adminListDevicesResponse_httpStatus,
   )
 where
@@ -122,8 +122,8 @@ instance Core.AWSRequest AdminListDevices where
     Response.receiveJSON
       ( \s h x ->
           AdminListDevicesResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,10 +178,10 @@ instance Core.ToQuery AdminListDevices where
 --
 -- /See:/ 'newAdminListDevicesResponse' smart constructor.
 data AdminListDevicesResponse = AdminListDevicesResponse'
-  { -- | The pagination token.
-    paginationToken :: Prelude.Maybe Prelude.Text,
-    -- | The devices in the list of devices response.
+  { -- | The devices in the list of devices response.
     devices :: Prelude.Maybe [DeviceType],
+    -- | The pagination token.
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data AdminListDevicesResponse = AdminListDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'paginationToken', 'adminListDevicesResponse_paginationToken' - The pagination token.
---
 -- 'devices', 'adminListDevicesResponse_devices' - The devices in the list of devices response.
+--
+-- 'paginationToken', 'adminListDevicesResponse_paginationToken' - The pagination token.
 --
 -- 'httpStatus', 'adminListDevicesResponse_httpStatus' - The response's http status code.
 newAdminListDevicesResponse ::
@@ -206,19 +206,19 @@ newAdminListDevicesResponse ::
   AdminListDevicesResponse
 newAdminListDevicesResponse pHttpStatus_ =
   AdminListDevicesResponse'
-    { paginationToken =
+    { devices =
         Prelude.Nothing,
-      devices = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token.
-adminListDevicesResponse_paginationToken :: Lens.Lens' AdminListDevicesResponse (Prelude.Maybe Prelude.Text)
-adminListDevicesResponse_paginationToken = Lens.lens (\AdminListDevicesResponse' {paginationToken} -> paginationToken) (\s@AdminListDevicesResponse' {} a -> s {paginationToken = a} :: AdminListDevicesResponse)
 
 -- | The devices in the list of devices response.
 adminListDevicesResponse_devices :: Lens.Lens' AdminListDevicesResponse (Prelude.Maybe [DeviceType])
 adminListDevicesResponse_devices = Lens.lens (\AdminListDevicesResponse' {devices} -> devices) (\s@AdminListDevicesResponse' {} a -> s {devices = a} :: AdminListDevicesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token.
+adminListDevicesResponse_paginationToken :: Lens.Lens' AdminListDevicesResponse (Prelude.Maybe Prelude.Text)
+adminListDevicesResponse_paginationToken = Lens.lens (\AdminListDevicesResponse' {paginationToken} -> paginationToken) (\s@AdminListDevicesResponse' {} a -> s {paginationToken = a} :: AdminListDevicesResponse)
 
 -- | The response's http status code.
 adminListDevicesResponse_httpStatus :: Lens.Lens' AdminListDevicesResponse Prelude.Int
@@ -226,6 +226,6 @@ adminListDevicesResponse_httpStatus = Lens.lens (\AdminListDevicesResponse' {htt
 
 instance Prelude.NFData AdminListDevicesResponse where
   rnf AdminListDevicesResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf httpStatus

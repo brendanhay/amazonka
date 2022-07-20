@@ -33,8 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newHlsCdnSettings' smart constructor.
 data HlsCdnSettings = HlsCdnSettings'
   { hlsAkamaiSettings :: Prelude.Maybe HlsAkamaiSettings,
-    hlsMediaStoreSettings :: Prelude.Maybe HlsMediaStoreSettings,
     hlsS3Settings :: Prelude.Maybe HlsS3Settings,
+    hlsMediaStoreSettings :: Prelude.Maybe HlsMediaStoreSettings,
     hlsBasicPutSettings :: Prelude.Maybe HlsBasicPutSettings,
     hlsWebdavSettings :: Prelude.Maybe HlsWebdavSettings
   }
@@ -50,9 +50,9 @@ data HlsCdnSettings = HlsCdnSettings'
 --
 -- 'hlsAkamaiSettings', 'hlsCdnSettings_hlsAkamaiSettings' - Undocumented member.
 --
--- 'hlsMediaStoreSettings', 'hlsCdnSettings_hlsMediaStoreSettings' - Undocumented member.
---
 -- 'hlsS3Settings', 'hlsCdnSettings_hlsS3Settings' - Undocumented member.
+--
+-- 'hlsMediaStoreSettings', 'hlsCdnSettings_hlsMediaStoreSettings' - Undocumented member.
 --
 -- 'hlsBasicPutSettings', 'hlsCdnSettings_hlsBasicPutSettings' - Undocumented member.
 --
@@ -63,8 +63,8 @@ newHlsCdnSettings =
   HlsCdnSettings'
     { hlsAkamaiSettings =
         Prelude.Nothing,
-      hlsMediaStoreSettings = Prelude.Nothing,
       hlsS3Settings = Prelude.Nothing,
+      hlsMediaStoreSettings = Prelude.Nothing,
       hlsBasicPutSettings = Prelude.Nothing,
       hlsWebdavSettings = Prelude.Nothing
     }
@@ -74,12 +74,12 @@ hlsCdnSettings_hlsAkamaiSettings :: Lens.Lens' HlsCdnSettings (Prelude.Maybe Hls
 hlsCdnSettings_hlsAkamaiSettings = Lens.lens (\HlsCdnSettings' {hlsAkamaiSettings} -> hlsAkamaiSettings) (\s@HlsCdnSettings' {} a -> s {hlsAkamaiSettings = a} :: HlsCdnSettings)
 
 -- | Undocumented member.
-hlsCdnSettings_hlsMediaStoreSettings :: Lens.Lens' HlsCdnSettings (Prelude.Maybe HlsMediaStoreSettings)
-hlsCdnSettings_hlsMediaStoreSettings = Lens.lens (\HlsCdnSettings' {hlsMediaStoreSettings} -> hlsMediaStoreSettings) (\s@HlsCdnSettings' {} a -> s {hlsMediaStoreSettings = a} :: HlsCdnSettings)
-
--- | Undocumented member.
 hlsCdnSettings_hlsS3Settings :: Lens.Lens' HlsCdnSettings (Prelude.Maybe HlsS3Settings)
 hlsCdnSettings_hlsS3Settings = Lens.lens (\HlsCdnSettings' {hlsS3Settings} -> hlsS3Settings) (\s@HlsCdnSettings' {} a -> s {hlsS3Settings = a} :: HlsCdnSettings)
+
+-- | Undocumented member.
+hlsCdnSettings_hlsMediaStoreSettings :: Lens.Lens' HlsCdnSettings (Prelude.Maybe HlsMediaStoreSettings)
+hlsCdnSettings_hlsMediaStoreSettings = Lens.lens (\HlsCdnSettings' {hlsMediaStoreSettings} -> hlsMediaStoreSettings) (\s@HlsCdnSettings' {} a -> s {hlsMediaStoreSettings = a} :: HlsCdnSettings)
 
 -- | Undocumented member.
 hlsCdnSettings_hlsBasicPutSettings :: Lens.Lens' HlsCdnSettings (Prelude.Maybe HlsBasicPutSettings)
@@ -96,8 +96,8 @@ instance Core.FromJSON HlsCdnSettings where
       ( \x ->
           HlsCdnSettings'
             Prelude.<$> (x Core..:? "hlsAkamaiSettings")
-            Prelude.<*> (x Core..:? "hlsMediaStoreSettings")
             Prelude.<*> (x Core..:? "hlsS3Settings")
+            Prelude.<*> (x Core..:? "hlsMediaStoreSettings")
             Prelude.<*> (x Core..:? "hlsBasicPutSettings")
             Prelude.<*> (x Core..:? "hlsWebdavSettings")
       )
@@ -105,16 +105,16 @@ instance Core.FromJSON HlsCdnSettings where
 instance Prelude.Hashable HlsCdnSettings where
   hashWithSalt _salt HlsCdnSettings' {..} =
     _salt `Prelude.hashWithSalt` hlsAkamaiSettings
-      `Prelude.hashWithSalt` hlsMediaStoreSettings
       `Prelude.hashWithSalt` hlsS3Settings
+      `Prelude.hashWithSalt` hlsMediaStoreSettings
       `Prelude.hashWithSalt` hlsBasicPutSettings
       `Prelude.hashWithSalt` hlsWebdavSettings
 
 instance Prelude.NFData HlsCdnSettings where
   rnf HlsCdnSettings' {..} =
     Prelude.rnf hlsAkamaiSettings
-      `Prelude.seq` Prelude.rnf hlsMediaStoreSettings
       `Prelude.seq` Prelude.rnf hlsS3Settings
+      `Prelude.seq` Prelude.rnf hlsMediaStoreSettings
       `Prelude.seq` Prelude.rnf hlsBasicPutSettings
       `Prelude.seq` Prelude.rnf hlsWebdavSettings
 
@@ -124,9 +124,9 @@ instance Core.ToJSON HlsCdnSettings where
       ( Prelude.catMaybes
           [ ("hlsAkamaiSettings" Core..=)
               Prelude.<$> hlsAkamaiSettings,
+            ("hlsS3Settings" Core..=) Prelude.<$> hlsS3Settings,
             ("hlsMediaStoreSettings" Core..=)
               Prelude.<$> hlsMediaStoreSettings,
-            ("hlsS3Settings" Core..=) Prelude.<$> hlsS3Settings,
             ("hlsBasicPutSettings" Core..=)
               Prelude.<$> hlsBasicPutSettings,
             ("hlsWebdavSettings" Core..=)

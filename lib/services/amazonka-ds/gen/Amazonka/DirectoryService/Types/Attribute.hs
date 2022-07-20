@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
-  { -- | The value of the attribute.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the attribute.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the attribute.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The value of the attribute.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data Attribute = Attribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'attribute_value' - The value of the attribute.
---
 -- 'name', 'attribute_name' - The name of the attribute.
+--
+-- 'value', 'attribute_value' - The value of the attribute.
 newAttribute ::
   Attribute
 newAttribute =
   Attribute'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the attribute.
-attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
-attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 -- | The name of the attribute.
 attribute_name :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_name = Lens.lens (\Attribute' {name} -> name) (\s@Attribute' {} a -> s {name = a} :: Attribute)
+
+-- | The value of the attribute.
+attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
 instance Core.FromJSON Attribute where
   parseJSON =
@@ -67,23 +67,23 @@ instance Core.FromJSON Attribute where
       "Attribute"
       ( \x ->
           Attribute'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Attribute where
   rnf Attribute' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Attribute where
   toJSON Attribute' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

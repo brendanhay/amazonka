@@ -35,14 +35,14 @@ module Amazonka.WorkLink.DescribeFleetMetadata
     newDescribeFleetMetadataResponse,
 
     -- * Response Lenses
-    describeFleetMetadataResponse_lastUpdatedTime,
-    describeFleetMetadataResponse_fleetStatus,
+    describeFleetMetadataResponse_tags,
     describeFleetMetadataResponse_companyCode,
     describeFleetMetadataResponse_createdTime,
-    describeFleetMetadataResponse_optimizeForEndUserLocation,
     describeFleetMetadataResponse_displayName,
+    describeFleetMetadataResponse_lastUpdatedTime,
     describeFleetMetadataResponse_fleetName,
-    describeFleetMetadataResponse_tags,
+    describeFleetMetadataResponse_optimizeForEndUserLocation,
+    describeFleetMetadataResponse_fleetStatus,
     describeFleetMetadataResponse_httpStatus,
   )
 where
@@ -90,14 +90,14 @@ instance Core.AWSRequest DescribeFleetMetadata where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetMetadataResponse'
-            Prelude.<$> (x Core..?> "LastUpdatedTime")
-            Prelude.<*> (x Core..?> "FleetStatus")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "CompanyCode")
             Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "OptimizeForEndUserLocation")
             Prelude.<*> (x Core..?> "DisplayName")
+            Prelude.<*> (x Core..?> "LastUpdatedTime")
             Prelude.<*> (x Core..?> "FleetName")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "OptimizeForEndUserLocation")
+            Prelude.<*> (x Core..?> "FleetStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,24 +134,24 @@ instance Core.ToQuery DescribeFleetMetadata where
 
 -- | /See:/ 'newDescribeFleetMetadataResponse' smart constructor.
 data DescribeFleetMetadataResponse = DescribeFleetMetadataResponse'
-  { -- | The time that the fleet was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | The current state of the fleet.
-    fleetStatus :: Prelude.Maybe FleetStatus,
+  { -- | The tags attached to the resource. A tag is a key-value pair.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier used by users to sign in to the Amazon WorkLink app.
     companyCode :: Prelude.Maybe Prelude.Text,
     -- | The time that the fleet was created.
     createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The time that the fleet was last updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the fleet.
+    fleetName :: Prelude.Maybe Prelude.Text,
     -- | The option to optimize for better performance by routing traffic through
     -- the closest AWS Region to users, which may be outside of your home
     -- Region.
     optimizeForEndUserLocation :: Prelude.Maybe Prelude.Bool,
-    -- | The name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the fleet.
-    fleetName :: Prelude.Maybe Prelude.Text,
-    -- | The tags attached to the resource. A tag is a key-value pair.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The current state of the fleet.
+    fleetStatus :: Prelude.Maybe FleetStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,23 +165,23 @@ data DescribeFleetMetadataResponse = DescribeFleetMetadataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'describeFleetMetadataResponse_lastUpdatedTime' - The time that the fleet was last updated.
---
--- 'fleetStatus', 'describeFleetMetadataResponse_fleetStatus' - The current state of the fleet.
+-- 'tags', 'describeFleetMetadataResponse_tags' - The tags attached to the resource. A tag is a key-value pair.
 --
 -- 'companyCode', 'describeFleetMetadataResponse_companyCode' - The identifier used by users to sign in to the Amazon WorkLink app.
 --
 -- 'createdTime', 'describeFleetMetadataResponse_createdTime' - The time that the fleet was created.
 --
+-- 'displayName', 'describeFleetMetadataResponse_displayName' - The name to display.
+--
+-- 'lastUpdatedTime', 'describeFleetMetadataResponse_lastUpdatedTime' - The time that the fleet was last updated.
+--
+-- 'fleetName', 'describeFleetMetadataResponse_fleetName' - The name of the fleet.
+--
 -- 'optimizeForEndUserLocation', 'describeFleetMetadataResponse_optimizeForEndUserLocation' - The option to optimize for better performance by routing traffic through
 -- the closest AWS Region to users, which may be outside of your home
 -- Region.
 --
--- 'displayName', 'describeFleetMetadataResponse_displayName' - The name to display.
---
--- 'fleetName', 'describeFleetMetadataResponse_fleetName' - The name of the fleet.
---
--- 'tags', 'describeFleetMetadataResponse_tags' - The tags attached to the resource. A tag is a key-value pair.
+-- 'fleetStatus', 'describeFleetMetadataResponse_fleetStatus' - The current state of the fleet.
 --
 -- 'httpStatus', 'describeFleetMetadataResponse_httpStatus' - The response's http status code.
 newDescribeFleetMetadataResponse ::
@@ -190,25 +190,21 @@ newDescribeFleetMetadataResponse ::
   DescribeFleetMetadataResponse
 newDescribeFleetMetadataResponse pHttpStatus_ =
   DescribeFleetMetadataResponse'
-    { lastUpdatedTime =
+    { tags =
         Prelude.Nothing,
-      fleetStatus = Prelude.Nothing,
       companyCode = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      optimizeForEndUserLocation = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       fleetName = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      optimizeForEndUserLocation = Prelude.Nothing,
+      fleetStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The time that the fleet was last updated.
-describeFleetMetadataResponse_lastUpdatedTime :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.UTCTime)
-describeFleetMetadataResponse_lastUpdatedTime = Lens.lens (\DescribeFleetMetadataResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeFleetMetadataResponse' {} a -> s {lastUpdatedTime = a} :: DescribeFleetMetadataResponse) Prelude.. Lens.mapping Core._Time
-
--- | The current state of the fleet.
-describeFleetMetadataResponse_fleetStatus :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe FleetStatus)
-describeFleetMetadataResponse_fleetStatus = Lens.lens (\DescribeFleetMetadataResponse' {fleetStatus} -> fleetStatus) (\s@DescribeFleetMetadataResponse' {} a -> s {fleetStatus = a} :: DescribeFleetMetadataResponse)
+-- | The tags attached to the resource. A tag is a key-value pair.
+describeFleetMetadataResponse_tags :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeFleetMetadataResponse_tags = Lens.lens (\DescribeFleetMetadataResponse' {tags} -> tags) (\s@DescribeFleetMetadataResponse' {} a -> s {tags = a} :: DescribeFleetMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier used by users to sign in to the Amazon WorkLink app.
 describeFleetMetadataResponse_companyCode :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.Text)
@@ -218,23 +214,27 @@ describeFleetMetadataResponse_companyCode = Lens.lens (\DescribeFleetMetadataRes
 describeFleetMetadataResponse_createdTime :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.UTCTime)
 describeFleetMetadataResponse_createdTime = Lens.lens (\DescribeFleetMetadataResponse' {createdTime} -> createdTime) (\s@DescribeFleetMetadataResponse' {} a -> s {createdTime = a} :: DescribeFleetMetadataResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The name to display.
+describeFleetMetadataResponse_displayName :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.Text)
+describeFleetMetadataResponse_displayName = Lens.lens (\DescribeFleetMetadataResponse' {displayName} -> displayName) (\s@DescribeFleetMetadataResponse' {} a -> s {displayName = a} :: DescribeFleetMetadataResponse)
+
+-- | The time that the fleet was last updated.
+describeFleetMetadataResponse_lastUpdatedTime :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.UTCTime)
+describeFleetMetadataResponse_lastUpdatedTime = Lens.lens (\DescribeFleetMetadataResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeFleetMetadataResponse' {} a -> s {lastUpdatedTime = a} :: DescribeFleetMetadataResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the fleet.
+describeFleetMetadataResponse_fleetName :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.Text)
+describeFleetMetadataResponse_fleetName = Lens.lens (\DescribeFleetMetadataResponse' {fleetName} -> fleetName) (\s@DescribeFleetMetadataResponse' {} a -> s {fleetName = a} :: DescribeFleetMetadataResponse)
+
 -- | The option to optimize for better performance by routing traffic through
 -- the closest AWS Region to users, which may be outside of your home
 -- Region.
 describeFleetMetadataResponse_optimizeForEndUserLocation :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.Bool)
 describeFleetMetadataResponse_optimizeForEndUserLocation = Lens.lens (\DescribeFleetMetadataResponse' {optimizeForEndUserLocation} -> optimizeForEndUserLocation) (\s@DescribeFleetMetadataResponse' {} a -> s {optimizeForEndUserLocation = a} :: DescribeFleetMetadataResponse)
 
--- | The name to display.
-describeFleetMetadataResponse_displayName :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.Text)
-describeFleetMetadataResponse_displayName = Lens.lens (\DescribeFleetMetadataResponse' {displayName} -> displayName) (\s@DescribeFleetMetadataResponse' {} a -> s {displayName = a} :: DescribeFleetMetadataResponse)
-
--- | The name of the fleet.
-describeFleetMetadataResponse_fleetName :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe Prelude.Text)
-describeFleetMetadataResponse_fleetName = Lens.lens (\DescribeFleetMetadataResponse' {fleetName} -> fleetName) (\s@DescribeFleetMetadataResponse' {} a -> s {fleetName = a} :: DescribeFleetMetadataResponse)
-
--- | The tags attached to the resource. A tag is a key-value pair.
-describeFleetMetadataResponse_tags :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeFleetMetadataResponse_tags = Lens.lens (\DescribeFleetMetadataResponse' {tags} -> tags) (\s@DescribeFleetMetadataResponse' {} a -> s {tags = a} :: DescribeFleetMetadataResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The current state of the fleet.
+describeFleetMetadataResponse_fleetStatus :: Lens.Lens' DescribeFleetMetadataResponse (Prelude.Maybe FleetStatus)
+describeFleetMetadataResponse_fleetStatus = Lens.lens (\DescribeFleetMetadataResponse' {fleetStatus} -> fleetStatus) (\s@DescribeFleetMetadataResponse' {} a -> s {fleetStatus = a} :: DescribeFleetMetadataResponse)
 
 -- | The response's http status code.
 describeFleetMetadataResponse_httpStatus :: Lens.Lens' DescribeFleetMetadataResponse Prelude.Int
@@ -242,12 +242,12 @@ describeFleetMetadataResponse_httpStatus = Lens.lens (\DescribeFleetMetadataResp
 
 instance Prelude.NFData DescribeFleetMetadataResponse where
   rnf DescribeFleetMetadataResponse' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf fleetStatus
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf companyCode
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf optimizeForEndUserLocation
       `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf fleetName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf optimizeForEndUserLocation
+      `Prelude.seq` Prelude.rnf fleetStatus
       `Prelude.seq` Prelude.rnf httpStatus

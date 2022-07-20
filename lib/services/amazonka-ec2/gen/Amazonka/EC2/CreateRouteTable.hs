@@ -32,8 +32,8 @@ module Amazonka.EC2.CreateRouteTable
     newCreateRouteTable,
 
     -- * Request Lenses
-    createRouteTable_tagSpecifications,
     createRouteTable_dryRun,
+    createRouteTable_tagSpecifications,
     createRouteTable_vpcId,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRouteTable' smart constructor.
 data CreateRouteTable = CreateRouteTable'
-  { -- | The tags to assign to the route table.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to assign to the route table.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the VPC.
     vpcId :: Prelude.Text
   }
@@ -75,12 +75,12 @@ data CreateRouteTable = CreateRouteTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createRouteTable_tagSpecifications' - The tags to assign to the route table.
---
 -- 'dryRun', 'createRouteTable_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createRouteTable_tagSpecifications' - The tags to assign to the route table.
 --
 -- 'vpcId', 'createRouteTable_vpcId' - The ID of the VPC.
 newCreateRouteTable ::
@@ -89,15 +89,10 @@ newCreateRouteTable ::
   CreateRouteTable
 newCreateRouteTable pVpcId_ =
   CreateRouteTable'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       vpcId = pVpcId_
     }
-
--- | The tags to assign to the route table.
-createRouteTable_tagSpecifications :: Lens.Lens' CreateRouteTable (Prelude.Maybe [TagSpecification])
-createRouteTable_tagSpecifications = Lens.lens (\CreateRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateRouteTable' {} a -> s {tagSpecifications = a} :: CreateRouteTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,6 +100,10 @@ createRouteTable_tagSpecifications = Lens.lens (\CreateRouteTable' {tagSpecifica
 -- Otherwise, it is @UnauthorizedOperation@.
 createRouteTable_dryRun :: Lens.Lens' CreateRouteTable (Prelude.Maybe Prelude.Bool)
 createRouteTable_dryRun = Lens.lens (\CreateRouteTable' {dryRun} -> dryRun) (\s@CreateRouteTable' {} a -> s {dryRun = a} :: CreateRouteTable)
+
+-- | The tags to assign to the route table.
+createRouteTable_tagSpecifications :: Lens.Lens' CreateRouteTable (Prelude.Maybe [TagSpecification])
+createRouteTable_tagSpecifications = Lens.lens (\CreateRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateRouteTable' {} a -> s {tagSpecifications = a} :: CreateRouteTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the VPC.
 createRouteTable_vpcId :: Lens.Lens' CreateRouteTable Prelude.Text
@@ -125,14 +124,14 @@ instance Core.AWSRequest CreateRouteTable where
 
 instance Prelude.Hashable CreateRouteTable where
   hashWithSalt _salt CreateRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData CreateRouteTable where
   rnf CreateRouteTable' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders CreateRouteTable where
@@ -148,11 +147,11 @@ instance Core.ToQuery CreateRouteTable where
           Core.=: ("CreateRouteTable" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "VpcId" Core.=: vpcId
       ]
 

@@ -17,24 +17,24 @@ module Amazonka.Rekognition.Types
     defaultService,
 
     -- * Errors
-    _AccessDeniedException,
-    _VideoTooLargeException,
-    _InvalidParameterException,
-    _InvalidImageFormatException,
     _ResourceAlreadyExistsException,
-    _InvalidS3ObjectException,
-    _ProvisionedThroughputExceededException,
-    _ImageTooLargeException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
-    _InternalServerError,
-    _IdempotentParameterMismatchException,
     _ResourceNotReadyException,
-    _ResourceNotFoundException,
+    _AccessDeniedException,
+    _ImageTooLargeException,
+    _ProvisionedThroughputExceededException,
+    _ServiceQuotaExceededException,
     _HumanLoopQuotaExceededException,
     _InvalidPaginationTokenException,
-    _LimitExceededException,
+    _VideoTooLargeException,
+    _ResourceNotFoundException,
     _ResourceInUseException,
+    _LimitExceededException,
+    _InternalServerError,
+    _ThrottlingException,
+    _InvalidImageFormatException,
+    _InvalidS3ObjectException,
+    _IdempotentParameterMismatchException,
+    _InvalidParameterException,
 
     -- * Attribute
     Attribute (..),
@@ -125,56 +125,56 @@ module Amazonka.Rekognition.Types
     -- * AudioMetadata
     AudioMetadata (..),
     newAudioMetadata,
-    audioMetadata_codec,
-    audioMetadata_sampleRate,
     audioMetadata_numberOfChannels,
+    audioMetadata_sampleRate,
+    audioMetadata_codec,
     audioMetadata_durationMillis,
 
     -- * Beard
     Beard (..),
     newBeard,
-    beard_value,
     beard_confidence,
+    beard_value,
 
     -- * BlackFrame
     BlackFrame (..),
     newBlackFrame,
-    blackFrame_maxPixelThreshold,
     blackFrame_minCoveragePercentage,
+    blackFrame_maxPixelThreshold,
 
     -- * BoundingBox
     BoundingBox (..),
     newBoundingBox,
-    boundingBox_height,
-    boundingBox_left,
     boundingBox_width,
     boundingBox_top,
+    boundingBox_left,
+    boundingBox_height,
 
     -- * Celebrity
     Celebrity (..),
     newCelebrity,
-    celebrity_matchConfidence,
-    celebrity_urls,
-    celebrity_knownGender,
     celebrity_name,
+    celebrity_matchConfidence,
+    celebrity_knownGender,
     celebrity_id,
     celebrity_face,
+    celebrity_urls,
 
     -- * CelebrityDetail
     CelebrityDetail (..),
     newCelebrityDetail,
-    celebrityDetail_boundingBox,
-    celebrityDetail_urls,
-    celebrityDetail_confidence,
     celebrityDetail_name,
+    celebrityDetail_confidence,
     celebrityDetail_id,
     celebrityDetail_face,
+    celebrityDetail_boundingBox,
+    celebrityDetail_urls,
 
     -- * CelebrityRecognition
     CelebrityRecognition (..),
     newCelebrityRecognition,
-    celebrityRecognition_celebrity,
     celebrityRecognition_timestamp,
+    celebrityRecognition_celebrity,
 
     -- * CompareFacesMatch
     CompareFacesMatch (..),
@@ -185,37 +185,37 @@ module Amazonka.Rekognition.Types
     -- * ComparedFace
     ComparedFace (..),
     newComparedFace,
-    comparedFace_boundingBox,
-    comparedFace_emotions,
+    comparedFace_quality,
     comparedFace_pose,
     comparedFace_confidence,
-    comparedFace_quality,
-    comparedFace_smile,
+    comparedFace_boundingBox,
     comparedFace_landmarks,
+    comparedFace_emotions,
+    comparedFace_smile,
 
     -- * ComparedSourceImageFace
     ComparedSourceImageFace (..),
     newComparedSourceImageFace,
-    comparedSourceImageFace_boundingBox,
     comparedSourceImageFace_confidence,
+    comparedSourceImageFace_boundingBox,
 
     -- * ContentModerationDetection
     ContentModerationDetection (..),
     newContentModerationDetection,
-    contentModerationDetection_moderationLabel,
     contentModerationDetection_timestamp,
+    contentModerationDetection_moderationLabel,
 
     -- * CoversBodyPart
     CoversBodyPart (..),
     newCoversBodyPart,
-    coversBodyPart_value,
     coversBodyPart_confidence,
+    coversBodyPart_value,
 
     -- * CustomLabel
     CustomLabel (..),
     newCustomLabel,
-    customLabel_confidence,
     customLabel_name,
+    customLabel_confidence,
     customLabel_geometry,
 
     -- * DetectTextFilters
@@ -234,62 +234,62 @@ module Amazonka.Rekognition.Types
     -- * Emotion
     Emotion (..),
     newEmotion,
-    emotion_confidence,
     emotion_type,
+    emotion_confidence,
 
     -- * EquipmentDetection
     EquipmentDetection (..),
     newEquipmentDetection,
+    equipmentDetection_type,
+    equipmentDetection_confidence,
     equipmentDetection_boundingBox,
     equipmentDetection_coversBodyPart,
-    equipmentDetection_confidence,
-    equipmentDetection_type,
 
     -- * EvaluationResult
     EvaluationResult (..),
     newEvaluationResult,
-    evaluationResult_summary,
     evaluationResult_f1Score,
+    evaluationResult_summary,
 
     -- * EyeOpen
     EyeOpen (..),
     newEyeOpen,
-    eyeOpen_value,
     eyeOpen_confidence,
+    eyeOpen_value,
 
     -- * Eyeglasses
     Eyeglasses (..),
     newEyeglasses,
-    eyeglasses_value,
     eyeglasses_confidence,
+    eyeglasses_value,
 
     -- * Face
     Face (..),
     newFace,
+    face_confidence,
     face_faceId,
     face_boundingBox,
     face_externalImageId,
-    face_confidence,
     face_imageId,
 
     -- * FaceDetail
     FaceDetail (..),
     newFaceDetail,
+    faceDetail_beard,
     faceDetail_ageRange,
-    faceDetail_sunglasses,
-    faceDetail_mouthOpen,
-    faceDetail_boundingBox,
-    faceDetail_emotions,
-    faceDetail_eyesOpen,
+    faceDetail_quality,
     faceDetail_pose,
     faceDetail_confidence,
-    faceDetail_gender,
-    faceDetail_quality,
-    faceDetail_eyeglasses,
-    faceDetail_beard,
-    faceDetail_mustache,
-    faceDetail_smile,
+    faceDetail_mouthOpen,
+    faceDetail_sunglasses,
+    faceDetail_boundingBox,
     faceDetail_landmarks,
+    faceDetail_gender,
+    faceDetail_eyeglasses,
+    faceDetail_emotions,
+    faceDetail_smile,
+    faceDetail_eyesOpen,
+    faceDetail_mustache,
 
     -- * FaceDetection
     FaceDetection (..),
@@ -318,14 +318,14 @@ module Amazonka.Rekognition.Types
     -- * Gender
     Gender (..),
     newGender,
-    gender_value,
     gender_confidence,
+    gender_value,
 
     -- * Geometry
     Geometry (..),
     newGeometry,
-    geometry_boundingBox,
     geometry_polygon,
+    geometry_boundingBox,
 
     -- * GroundTruthManifest
     GroundTruthManifest (..),
@@ -335,9 +335,9 @@ module Amazonka.Rekognition.Types
     -- * HumanLoopActivationOutput
     HumanLoopActivationOutput (..),
     newHumanLoopActivationOutput,
-    humanLoopActivationOutput_humanLoopActivationReasons,
-    humanLoopActivationOutput_humanLoopArn,
     humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults,
+    humanLoopActivationOutput_humanLoopArn,
+    humanLoopActivationOutput_humanLoopActivationReasons,
 
     -- * HumanLoopConfig
     HumanLoopConfig (..),
@@ -354,8 +354,8 @@ module Amazonka.Rekognition.Types
     -- * Image
     Image (..),
     newImage,
-    image_s3Object,
     image_bytes,
+    image_s3Object,
 
     -- * ImageQuality
     ImageQuality (..),
@@ -366,8 +366,8 @@ module Amazonka.Rekognition.Types
     -- * Instance
     Instance (..),
     newInstance,
-    instance_boundingBox,
     instance_confidence,
+    instance_boundingBox,
 
     -- * KinesisDataStream
     KinesisDataStream (..),
@@ -387,10 +387,10 @@ module Amazonka.Rekognition.Types
     -- * Label
     Label (..),
     newLabel,
+    label_instances,
+    label_name,
     label_confidence,
     label_parents,
-    label_name,
-    label_instances,
 
     -- * LabelDetection
     LabelDetection (..),
@@ -408,21 +408,21 @@ module Amazonka.Rekognition.Types
     -- * ModerationLabel
     ModerationLabel (..),
     newModerationLabel,
-    moderationLabel_confidence,
     moderationLabel_name,
+    moderationLabel_confidence,
     moderationLabel_parentName,
 
     -- * MouthOpen
     MouthOpen (..),
     newMouthOpen,
-    mouthOpen_value,
     mouthOpen_confidence,
+    mouthOpen_value,
 
     -- * Mustache
     Mustache (..),
     newMustache,
-    mustache_value,
     mustache_confidence,
+    mustache_value,
 
     -- * NotificationChannel
     NotificationChannel (..),
@@ -433,8 +433,8 @@ module Amazonka.Rekognition.Types
     -- * OutputConfig
     OutputConfig (..),
     newOutputConfig,
-    outputConfig_s3KeyPrefix,
     outputConfig_s3Bucket,
+    outputConfig_s3KeyPrefix,
 
     -- * Parent
     Parent (..),
@@ -444,9 +444,9 @@ module Amazonka.Rekognition.Types
     -- * PersonDetail
     PersonDetail (..),
     newPersonDetail,
-    personDetail_boundingBox,
     personDetail_index,
     personDetail_face,
+    personDetail_boundingBox,
 
     -- * PersonDetection
     PersonDetection (..),
@@ -457,9 +457,9 @@ module Amazonka.Rekognition.Types
     -- * PersonMatch
     PersonMatch (..),
     newPersonMatch,
-    personMatch_faceMatches,
     personMatch_person,
     personMatch_timestamp,
+    personMatch_faceMatches,
 
     -- * Point
     Point (..),
@@ -470,9 +470,9 @@ module Amazonka.Rekognition.Types
     -- * Pose
     Pose (..),
     newPose,
-    pose_yaw,
     pose_roll,
     pose_pitch,
+    pose_yaw,
 
     -- * ProjectDescription
     ProjectDescription (..),
@@ -484,34 +484,34 @@ module Amazonka.Rekognition.Types
     -- * ProjectVersionDescription
     ProjectVersionDescription (..),
     newProjectVersionDescription,
+    projectVersionDescription_trainingEndTimestamp,
     projectVersionDescription_minInferenceUnits,
     projectVersionDescription_status,
-    projectVersionDescription_evaluationResult,
-    projectVersionDescription_manifestSummary,
-    projectVersionDescription_kmsKeyId,
     projectVersionDescription_testingDataResult,
-    projectVersionDescription_statusMessage,
     projectVersionDescription_creationTimestamp,
-    projectVersionDescription_projectVersionArn,
-    projectVersionDescription_outputConfig,
-    projectVersionDescription_billableTrainingTimeInSeconds,
-    projectVersionDescription_trainingEndTimestamp,
+    projectVersionDescription_manifestSummary,
     projectVersionDescription_trainingDataResult,
+    projectVersionDescription_evaluationResult,
+    projectVersionDescription_kmsKeyId,
+    projectVersionDescription_projectVersionArn,
+    projectVersionDescription_billableTrainingTimeInSeconds,
+    projectVersionDescription_statusMessage,
+    projectVersionDescription_outputConfig,
 
     -- * ProtectiveEquipmentBodyPart
     ProtectiveEquipmentBodyPart (..),
     newProtectiveEquipmentBodyPart,
-    protectiveEquipmentBodyPart_equipmentDetections,
-    protectiveEquipmentBodyPart_confidence,
     protectiveEquipmentBodyPart_name,
+    protectiveEquipmentBodyPart_confidence,
+    protectiveEquipmentBodyPart_equipmentDetections,
 
     -- * ProtectiveEquipmentPerson
     ProtectiveEquipmentPerson (..),
     newProtectiveEquipmentPerson,
-    protectiveEquipmentPerson_bodyParts,
-    protectiveEquipmentPerson_boundingBox,
     protectiveEquipmentPerson_confidence,
+    protectiveEquipmentPerson_bodyParts,
     protectiveEquipmentPerson_id,
+    protectiveEquipmentPerson_boundingBox,
 
     -- * ProtectiveEquipmentSummarizationAttributes
     ProtectiveEquipmentSummarizationAttributes (..),
@@ -534,43 +534,43 @@ module Amazonka.Rekognition.Types
     -- * S3Object
     S3Object (..),
     newS3Object,
-    s3Object_bucket,
     s3Object_name,
+    s3Object_bucket,
     s3Object_version,
 
     -- * SegmentDetection
     SegmentDetection (..),
     newSegmentDetection,
-    segmentDetection_technicalCueSegment,
-    segmentDetection_endFrameNumber,
-    segmentDetection_durationSMPTE,
-    segmentDetection_endTimestampMillis,
     segmentDetection_startTimecodeSMPTE,
-    segmentDetection_endTimecodeSMPTE,
-    segmentDetection_durationMillis,
-    segmentDetection_durationFrames,
-    segmentDetection_startTimestampMillis,
     segmentDetection_type,
-    segmentDetection_shotSegment,
+    segmentDetection_startTimestampMillis,
+    segmentDetection_durationSMPTE,
     segmentDetection_startFrameNumber,
+    segmentDetection_shotSegment,
+    segmentDetection_technicalCueSegment,
+    segmentDetection_endTimestampMillis,
+    segmentDetection_endTimecodeSMPTE,
+    segmentDetection_durationFrames,
+    segmentDetection_durationMillis,
+    segmentDetection_endFrameNumber,
 
     -- * SegmentTypeInfo
     SegmentTypeInfo (..),
     newSegmentTypeInfo,
-    segmentTypeInfo_modelVersion,
     segmentTypeInfo_type,
+    segmentTypeInfo_modelVersion,
 
     -- * ShotSegment
     ShotSegment (..),
     newShotSegment,
-    shotSegment_confidence,
     shotSegment_index,
+    shotSegment_confidence,
 
     -- * Smile
     Smile (..),
     newSmile,
-    smile_value,
     smile_confidence,
+    smile_value,
 
     -- * StartSegmentDetectionFilters
     StartSegmentDetectionFilters (..),
@@ -586,8 +586,8 @@ module Amazonka.Rekognition.Types
     -- * StartTechnicalCueDetectionFilter
     StartTechnicalCueDetectionFilter (..),
     newStartTechnicalCueDetectionFilter,
-    startTechnicalCueDetectionFilter_blackFrame,
     startTechnicalCueDetectionFilter_minSegmentConfidence,
+    startTechnicalCueDetectionFilter_blackFrame,
 
     -- * StartTextDetectionFilters
     StartTextDetectionFilters (..),
@@ -598,8 +598,8 @@ module Amazonka.Rekognition.Types
     -- * StreamProcessor
     StreamProcessor (..),
     newStreamProcessor,
-    streamProcessor_status,
     streamProcessor_name,
+    streamProcessor_status,
 
     -- * StreamProcessorInput
     StreamProcessorInput (..),
@@ -624,14 +624,14 @@ module Amazonka.Rekognition.Types
     -- * Sunglasses
     Sunglasses (..),
     newSunglasses,
-    sunglasses_value,
     sunglasses_confidence,
+    sunglasses_value,
 
     -- * TechnicalCueSegment
     TechnicalCueSegment (..),
     newTechnicalCueSegment,
-    technicalCueSegment_confidence,
     technicalCueSegment_type,
+    technicalCueSegment_confidence,
 
     -- * TestingData
     TestingData (..),
@@ -642,25 +642,25 @@ module Amazonka.Rekognition.Types
     -- * TestingDataResult
     TestingDataResult (..),
     newTestingDataResult,
+    testingDataResult_validation,
     testingDataResult_input,
     testingDataResult_output,
-    testingDataResult_validation,
 
     -- * TextDetection
     TextDetection (..),
     newTextDetection,
-    textDetection_detectedText,
-    textDetection_confidence,
-    textDetection_geometry,
-    textDetection_id,
     textDetection_type,
+    textDetection_confidence,
     textDetection_parentId,
+    textDetection_detectedText,
+    textDetection_id,
+    textDetection_geometry,
 
     -- * TextDetectionResult
     TextDetectionResult (..),
     newTextDetectionResult,
-    textDetectionResult_textDetection,
     textDetectionResult_timestamp,
+    textDetectionResult_textDetection,
 
     -- * TrainingData
     TrainingData (..),
@@ -670,15 +670,15 @@ module Amazonka.Rekognition.Types
     -- * TrainingDataResult
     TrainingDataResult (..),
     newTrainingDataResult,
+    trainingDataResult_validation,
     trainingDataResult_input,
     trainingDataResult_output,
-    trainingDataResult_validation,
 
     -- * UnindexedFace
     UnindexedFace (..),
     newUnindexedFace,
-    unindexedFace_reasons,
     unindexedFace_faceDetail,
+    unindexedFace_reasons,
 
     -- * ValidationData
     ValidationData (..),
@@ -693,13 +693,13 @@ module Amazonka.Rekognition.Types
     -- * VideoMetadata
     VideoMetadata (..),
     newVideoMetadata,
-    videoMetadata_frameRate,
-    videoMetadata_colorRange,
     videoMetadata_format,
-    videoMetadata_codec,
     videoMetadata_frameHeight,
+    videoMetadata_codec,
+    videoMetadata_colorRange,
     videoMetadata_durationMillis,
     videoMetadata_frameWidth,
+    videoMetadata_frameRate,
   )
 where
 
@@ -846,35 +846,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -883,43 +856,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | You are not authorized to perform the action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-
--- | The file size or duration of the supplied media is too large. The
--- maximum file size is 10GB. The maximum duration is 6 hours.
-_VideoTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_VideoTooLargeException =
-  Core._MatchServiceError
-    defaultService
-    "VideoTooLargeException"
-
--- | Input parameter violated a constraint. Validate your parameter before
--- calling the API operation again.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
-
--- | The provided image format is not supported.
-_InvalidImageFormatException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidImageFormatException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidImageFormatException"
 
 -- | A resource with the specified ID already exists.
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -928,21 +898,21 @@ _ResourceAlreadyExistsException =
     defaultService
     "ResourceAlreadyExistsException"
 
--- | Amazon Rekognition is unable to access the S3 object specified in the
--- request.
-_InvalidS3ObjectException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidS3ObjectException =
+-- | The requested resource isn\'t ready. For example, this exception occurs
+-- when you call @DetectCustomLabels@ with a model version that isn\'t
+-- deployed.
+_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotReadyException =
   Core._MatchServiceError
     defaultService
-    "InvalidS3ObjectException"
+    "ResourceNotReadyException"
 
--- | The number of requests exceeded your throughput limit. If you want to
--- increase this limit, contact Amazon Rekognition.
-_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProvisionedThroughputExceededException =
+-- | You are not authorized to perform the action.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "ProvisionedThroughputExceededException"
+    "AccessDeniedException"
 
 -- | The input image size exceeds the allowed limit. If you are calling
 -- DetectProtectiveEquipment, the image size or resolution exceeds the
@@ -954,6 +924,14 @@ _ImageTooLargeException =
     defaultService
     "ImageTooLargeException"
 
+-- | The number of requests exceeded your throughput limit. If you want to
+-- increase this limit, contact Amazon Rekognition.
+_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProvisionedThroughputExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ProvisionedThroughputExceededException"
+
 -- | The size of the collection exceeds the allowed limit. For more
 -- information, see Limits in Amazon Rekognition in the Amazon Rekognition
 -- Developer Guide.
@@ -962,46 +940,6 @@ _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
     "ServiceQuotaExceededException"
-
--- | Amazon Rekognition is temporarily unable to process the request. Try
--- your call again.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-
--- | Amazon Rekognition experienced a service issue. Try your call again.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerError"
-
--- | A @ClientRequestToken@ input parameter was reused with an operation, but
--- at least one of the other input parameters is different from the
--- previous call to the operation.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IdempotentParameterMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "IdempotentParameterMismatchException"
-
--- | The requested resource isn\'t ready. For example, this exception occurs
--- when you call @DetectCustomLabels@ with a model version that isn\'t
--- deployed.
-_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotReadyException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotReadyException"
-
--- | The resource specified in the request cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | The number of in-progress human reviews you have has exceeded the number
 -- allowed.
@@ -1018,6 +956,28 @@ _InvalidPaginationTokenException =
     defaultService
     "InvalidPaginationTokenException"
 
+-- | The file size or duration of the supplied media is too large. The
+-- maximum file size is 10GB. The maximum duration is 6 hours.
+_VideoTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_VideoTooLargeException =
+  Core._MatchServiceError
+    defaultService
+    "VideoTooLargeException"
+
+-- | The resource specified in the request cannot be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The specified resource is already being used.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
 -- | An Amazon Rekognition service limit was exceeded. For example, if you
 -- start too many Amazon Rekognition Video jobs concurrently, calls to
 -- start operations (@StartLabelDetection@, for example) will raise a
@@ -1030,9 +990,49 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The specified resource is already being used.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | Amazon Rekognition experienced a service issue. Try your call again.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "InternalServerError"
+
+-- | Amazon Rekognition is temporarily unable to process the request. Try
+-- your call again.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+
+-- | The provided image format is not supported.
+_InvalidImageFormatException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidImageFormatException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidImageFormatException"
+
+-- | Amazon Rekognition is unable to access the S3 object specified in the
+-- request.
+_InvalidS3ObjectException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidS3ObjectException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidS3ObjectException"
+
+-- | A @ClientRequestToken@ input parameter was reused with an operation, but
+-- at least one of the other input parameters is different from the
+-- previous call to the operation.
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "IdempotentParameterMismatchException"
+
+-- | Input parameter violated a constraint. Validate your parameter before
+-- calling the API operation again.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"

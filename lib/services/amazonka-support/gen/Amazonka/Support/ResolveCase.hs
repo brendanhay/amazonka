@@ -44,8 +44,8 @@ module Amazonka.Support.ResolveCase
     newResolveCaseResponse,
 
     -- * Response Lenses
-    resolveCaseResponse_initialCaseStatus,
     resolveCaseResponse_finalCaseStatus,
+    resolveCaseResponse_initialCaseStatus,
     resolveCaseResponse_httpStatus,
   )
 where
@@ -95,8 +95,8 @@ instance Core.AWSRequest ResolveCase where
     Response.receiveJSON
       ( \s h x ->
           ResolveCaseResponse'
-            Prelude.<$> (x Core..?> "initialCaseStatus")
-            Prelude.<*> (x Core..?> "finalCaseStatus")
+            Prelude.<$> (x Core..?> "finalCaseStatus")
+            Prelude.<*> (x Core..?> "initialCaseStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,10 +139,10 @@ instance Core.ToQuery ResolveCase where
 --
 -- /See:/ 'newResolveCaseResponse' smart constructor.
 data ResolveCaseResponse = ResolveCaseResponse'
-  { -- | The status of the case when the ResolveCase request was sent.
-    initialCaseStatus :: Prelude.Maybe Prelude.Text,
-    -- | The status of the case after the ResolveCase request was processed.
+  { -- | The status of the case after the ResolveCase request was processed.
     finalCaseStatus :: Prelude.Maybe Prelude.Text,
+    -- | The status of the case when the ResolveCase request was sent.
+    initialCaseStatus :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,9 +156,9 @@ data ResolveCaseResponse = ResolveCaseResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'initialCaseStatus', 'resolveCaseResponse_initialCaseStatus' - The status of the case when the ResolveCase request was sent.
---
 -- 'finalCaseStatus', 'resolveCaseResponse_finalCaseStatus' - The status of the case after the ResolveCase request was processed.
+--
+-- 'initialCaseStatus', 'resolveCaseResponse_initialCaseStatus' - The status of the case when the ResolveCase request was sent.
 --
 -- 'httpStatus', 'resolveCaseResponse_httpStatus' - The response's http status code.
 newResolveCaseResponse ::
@@ -167,19 +167,19 @@ newResolveCaseResponse ::
   ResolveCaseResponse
 newResolveCaseResponse pHttpStatus_ =
   ResolveCaseResponse'
-    { initialCaseStatus =
+    { finalCaseStatus =
         Prelude.Nothing,
-      finalCaseStatus = Prelude.Nothing,
+      initialCaseStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the case when the ResolveCase request was sent.
-resolveCaseResponse_initialCaseStatus :: Lens.Lens' ResolveCaseResponse (Prelude.Maybe Prelude.Text)
-resolveCaseResponse_initialCaseStatus = Lens.lens (\ResolveCaseResponse' {initialCaseStatus} -> initialCaseStatus) (\s@ResolveCaseResponse' {} a -> s {initialCaseStatus = a} :: ResolveCaseResponse)
 
 -- | The status of the case after the ResolveCase request was processed.
 resolveCaseResponse_finalCaseStatus :: Lens.Lens' ResolveCaseResponse (Prelude.Maybe Prelude.Text)
 resolveCaseResponse_finalCaseStatus = Lens.lens (\ResolveCaseResponse' {finalCaseStatus} -> finalCaseStatus) (\s@ResolveCaseResponse' {} a -> s {finalCaseStatus = a} :: ResolveCaseResponse)
+
+-- | The status of the case when the ResolveCase request was sent.
+resolveCaseResponse_initialCaseStatus :: Lens.Lens' ResolveCaseResponse (Prelude.Maybe Prelude.Text)
+resolveCaseResponse_initialCaseStatus = Lens.lens (\ResolveCaseResponse' {initialCaseStatus} -> initialCaseStatus) (\s@ResolveCaseResponse' {} a -> s {initialCaseStatus = a} :: ResolveCaseResponse)
 
 -- | The response's http status code.
 resolveCaseResponse_httpStatus :: Lens.Lens' ResolveCaseResponse Prelude.Int
@@ -187,6 +187,6 @@ resolveCaseResponse_httpStatus = Lens.lens (\ResolveCaseResponse' {httpStatus} -
 
 instance Prelude.NFData ResolveCaseResponse where
   rnf ResolveCaseResponse' {..} =
-    Prelude.rnf initialCaseStatus
-      `Prelude.seq` Prelude.rnf finalCaseStatus
+    Prelude.rnf finalCaseStatus
+      `Prelude.seq` Prelude.rnf initialCaseStatus
       `Prelude.seq` Prelude.rnf httpStatus

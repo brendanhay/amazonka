@@ -28,10 +28,10 @@ module Amazonka.CodeCommit.PutFile
     newPutFile,
 
     -- * Request Lenses
-    putFile_email,
     putFile_fileMode,
     putFile_parentCommitId,
     putFile_name,
+    putFile_email,
     putFile_commitMessage,
     putFile_repositoryName,
     putFile_branchName,
@@ -59,9 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutFile' smart constructor.
 data PutFile = PutFile'
-  { -- | An email address for the person adding or updating the file.
-    email :: Prelude.Maybe Prelude.Text,
-    -- | The file mode permissions of the blob. Valid file mode permissions are
+  { -- | The file mode permissions of the blob. Valid file mode permissions are
     -- listed here.
     fileMode :: Prelude.Maybe FileModeTypeEnum,
     -- | The full commit ID of the head commit in the branch where you want to
@@ -76,6 +74,8 @@ data PutFile = PutFile'
     -- optional, a name makes the commit history for your repository more
     -- useful.
     name :: Prelude.Maybe Prelude.Text,
+    -- | An email address for the person adding or updating the file.
+    email :: Prelude.Maybe Prelude.Text,
     -- | A message about why this file was added or updated. Although it is
     -- optional, a message makes the commit history for your repository more
     -- useful.
@@ -104,8 +104,6 @@ data PutFile = PutFile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'email', 'putFile_email' - An email address for the person adding or updating the file.
---
 -- 'fileMode', 'putFile_fileMode' - The file mode permissions of the blob. Valid file mode permissions are
 -- listed here.
 --
@@ -120,6 +118,8 @@ data PutFile = PutFile'
 -- 'name', 'putFile_name' - The name of the person adding or updating the file. Although it is
 -- optional, a name makes the commit history for your repository more
 -- useful.
+--
+-- 'email', 'putFile_email' - An email address for the person adding or updating the file.
 --
 -- 'commitMessage', 'putFile_commitMessage' - A message about why this file was added or updated. Although it is
 -- optional, a message makes the commit history for your repository more
@@ -157,20 +157,16 @@ newPutFile
   pFileContent_
   pFilePath_ =
     PutFile'
-      { email = Prelude.Nothing,
-        fileMode = Prelude.Nothing,
+      { fileMode = Prelude.Nothing,
         parentCommitId = Prelude.Nothing,
         name = Prelude.Nothing,
+        email = Prelude.Nothing,
         commitMessage = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         branchName = pBranchName_,
         fileContent = Core._Base64 Lens.# pFileContent_,
         filePath = pFilePath_
       }
-
--- | An email address for the person adding or updating the file.
-putFile_email :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
-putFile_email = Lens.lens (\PutFile' {email} -> email) (\s@PutFile' {} a -> s {email = a} :: PutFile)
 
 -- | The file mode permissions of the blob. Valid file mode permissions are
 -- listed here.
@@ -192,6 +188,10 @@ putFile_parentCommitId = Lens.lens (\PutFile' {parentCommitId} -> parentCommitId
 -- useful.
 putFile_name :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
 putFile_name = Lens.lens (\PutFile' {name} -> name) (\s@PutFile' {} a -> s {name = a} :: PutFile)
+
+-- | An email address for the person adding or updating the file.
+putFile_email :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
+putFile_email = Lens.lens (\PutFile' {email} -> email) (\s@PutFile' {} a -> s {email = a} :: PutFile)
 
 -- | A message about why this file was added or updated. Although it is
 -- optional, a message makes the commit history for your repository more
@@ -239,10 +239,10 @@ instance Core.AWSRequest PutFile where
 
 instance Prelude.Hashable PutFile where
   hashWithSalt _salt PutFile' {..} =
-    _salt `Prelude.hashWithSalt` email
-      `Prelude.hashWithSalt` fileMode
+    _salt `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` parentCommitId
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` branchName
@@ -251,10 +251,10 @@ instance Prelude.Hashable PutFile where
 
 instance Prelude.NFData PutFile where
   rnf PutFile' {..} =
-    Prelude.rnf email
-      `Prelude.seq` Prelude.rnf fileMode
+    Prelude.rnf fileMode
       `Prelude.seq` Prelude.rnf parentCommitId
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf commitMessage
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf branchName
@@ -280,11 +280,11 @@ instance Core.ToJSON PutFile where
   toJSON PutFile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("email" Core..=) Prelude.<$> email,
-            ("fileMode" Core..=) Prelude.<$> fileMode,
+          [ ("fileMode" Core..=) Prelude.<$> fileMode,
             ("parentCommitId" Core..=)
               Prelude.<$> parentCommitId,
             ("name" Core..=) Prelude.<$> name,
+            ("email" Core..=) Prelude.<$> email,
             ("commitMessage" Core..=) Prelude.<$> commitMessage,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),

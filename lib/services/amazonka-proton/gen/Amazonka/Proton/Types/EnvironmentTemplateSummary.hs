@@ -28,11 +28,11 @@ import Amazonka.Proton.Types.Provisioning
 --
 -- /See:/ 'newEnvironmentTemplateSummary' smart constructor.
 data EnvironmentTemplateSummary = EnvironmentTemplateSummary'
-  { -- | When included, indicates that the environment template is for customer
+  { -- | The ID of the recommended version of the environment template.
+    recommendedVersion :: Prelude.Maybe Prelude.Text,
+    -- | When included, indicates that the environment template is for customer
     -- provisioned and managed infrastructure.
     provisioning :: Prelude.Maybe Provisioning,
-    -- | The ID of the recommended version of the environment template.
-    recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment template as displayed in the developer
     -- interface.
     displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -57,10 +57,10 @@ data EnvironmentTemplateSummary = EnvironmentTemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'recommendedVersion', 'environmentTemplateSummary_recommendedVersion' - The ID of the recommended version of the environment template.
+--
 -- 'provisioning', 'environmentTemplateSummary_provisioning' - When included, indicates that the environment template is for customer
 -- provisioned and managed infrastructure.
---
--- 'recommendedVersion', 'environmentTemplateSummary_recommendedVersion' - The ID of the recommended version of the environment template.
 --
 -- 'displayName', 'environmentTemplateSummary_displayName' - The name of the environment template as displayed in the developer
 -- interface.
@@ -90,9 +90,9 @@ newEnvironmentTemplateSummary
   pLastModifiedAt_
   pName_ =
     EnvironmentTemplateSummary'
-      { provisioning =
+      { recommendedVersion =
           Prelude.Nothing,
-        recommendedVersion = Prelude.Nothing,
+        provisioning = Prelude.Nothing,
         displayName = Prelude.Nothing,
         description = Prelude.Nothing,
         arn = pArn_,
@@ -102,14 +102,14 @@ newEnvironmentTemplateSummary
         name = pName_
       }
 
+-- | The ID of the recommended version of the environment template.
+environmentTemplateSummary_recommendedVersion :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
+environmentTemplateSummary_recommendedVersion = Lens.lens (\EnvironmentTemplateSummary' {recommendedVersion} -> recommendedVersion) (\s@EnvironmentTemplateSummary' {} a -> s {recommendedVersion = a} :: EnvironmentTemplateSummary)
+
 -- | When included, indicates that the environment template is for customer
 -- provisioned and managed infrastructure.
 environmentTemplateSummary_provisioning :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Provisioning)
 environmentTemplateSummary_provisioning = Lens.lens (\EnvironmentTemplateSummary' {provisioning} -> provisioning) (\s@EnvironmentTemplateSummary' {} a -> s {provisioning = a} :: EnvironmentTemplateSummary)
-
--- | The ID of the recommended version of the environment template.
-environmentTemplateSummary_recommendedVersion :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
-environmentTemplateSummary_recommendedVersion = Lens.lens (\EnvironmentTemplateSummary' {recommendedVersion} -> recommendedVersion) (\s@EnvironmentTemplateSummary' {} a -> s {recommendedVersion = a} :: EnvironmentTemplateSummary)
 
 -- | The name of the environment template as displayed in the developer
 -- interface.
@@ -142,8 +142,8 @@ instance Core.FromJSON EnvironmentTemplateSummary where
       "EnvironmentTemplateSummary"
       ( \x ->
           EnvironmentTemplateSummary'
-            Prelude.<$> (x Core..:? "provisioning")
-            Prelude.<*> (x Core..:? "recommendedVersion")
+            Prelude.<$> (x Core..:? "recommendedVersion")
+            Prelude.<*> (x Core..:? "provisioning")
             Prelude.<*> (x Core..:? "displayName")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "arn")
@@ -154,8 +154,8 @@ instance Core.FromJSON EnvironmentTemplateSummary where
 
 instance Prelude.Hashable EnvironmentTemplateSummary where
   hashWithSalt _salt EnvironmentTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` provisioning
-      `Prelude.hashWithSalt` recommendedVersion
+    _salt `Prelude.hashWithSalt` recommendedVersion
+      `Prelude.hashWithSalt` provisioning
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` arn
@@ -165,8 +165,8 @@ instance Prelude.Hashable EnvironmentTemplateSummary where
 
 instance Prelude.NFData EnvironmentTemplateSummary where
   rnf EnvironmentTemplateSummary' {..} =
-    Prelude.rnf provisioning
-      `Prelude.seq` Prelude.rnf recommendedVersion
+    Prelude.rnf recommendedVersion
+      `Prelude.seq` Prelude.rnf provisioning
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf arn

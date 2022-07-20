@@ -30,12 +30,12 @@ import Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
 --
 -- /See:/ 'newAssistantSummary' smart constructor.
 data AssistantSummary = AssistantSummary'
-  { -- | The description of the assistant.
-    description :: Prelude.Maybe Prelude.Text,
+  { -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The KMS key used for encryption.
     serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
-    -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the assistant.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Wisdom assistant
     assistantArn :: Prelude.Text,
     -- | The identifier of the Wisdom assistant.
@@ -57,11 +57,11 @@ data AssistantSummary = AssistantSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'assistantSummary_description' - The description of the assistant.
+-- 'tags', 'assistantSummary_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'serverSideEncryptionConfiguration', 'assistantSummary_serverSideEncryptionConfiguration' - The KMS key used for encryption.
 --
--- 'tags', 'assistantSummary_tags' - The tags used to organize, track, or control access for this resource.
+-- 'description', 'assistantSummary_description' - The description of the assistant.
 --
 -- 'assistantArn', 'assistantSummary_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant
 --
@@ -91,9 +91,9 @@ newAssistantSummary
   pStatus_
   pType_ =
     AssistantSummary'
-      { description = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         serverSideEncryptionConfiguration = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         assistantArn = pAssistantArn_,
         assistantId = pAssistantId_,
         name = pName_,
@@ -101,17 +101,17 @@ newAssistantSummary
         type' = pType_
       }
 
--- | The description of the assistant.
-assistantSummary_description :: Lens.Lens' AssistantSummary (Prelude.Maybe Prelude.Text)
-assistantSummary_description = Lens.lens (\AssistantSummary' {description} -> description) (\s@AssistantSummary' {} a -> s {description = a} :: AssistantSummary)
+-- | The tags used to organize, track, or control access for this resource.
+assistantSummary_tags :: Lens.Lens' AssistantSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+assistantSummary_tags = Lens.lens (\AssistantSummary' {tags} -> tags) (\s@AssistantSummary' {} a -> s {tags = a} :: AssistantSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The KMS key used for encryption.
 assistantSummary_serverSideEncryptionConfiguration :: Lens.Lens' AssistantSummary (Prelude.Maybe ServerSideEncryptionConfiguration)
 assistantSummary_serverSideEncryptionConfiguration = Lens.lens (\AssistantSummary' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@AssistantSummary' {} a -> s {serverSideEncryptionConfiguration = a} :: AssistantSummary)
 
--- | The tags used to organize, track, or control access for this resource.
-assistantSummary_tags :: Lens.Lens' AssistantSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-assistantSummary_tags = Lens.lens (\AssistantSummary' {tags} -> tags) (\s@AssistantSummary' {} a -> s {tags = a} :: AssistantSummary) Prelude.. Lens.mapping Lens.coerced
+-- | The description of the assistant.
+assistantSummary_description :: Lens.Lens' AssistantSummary (Prelude.Maybe Prelude.Text)
+assistantSummary_description = Lens.lens (\AssistantSummary' {description} -> description) (\s@AssistantSummary' {} a -> s {description = a} :: AssistantSummary)
 
 -- | The Amazon Resource Name (ARN) of the Wisdom assistant
 assistantSummary_assistantArn :: Lens.Lens' AssistantSummary Prelude.Text
@@ -139,9 +139,9 @@ instance Core.FromJSON AssistantSummary where
       "AssistantSummary"
       ( \x ->
           AssistantSummary'
-            Prelude.<$> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "serverSideEncryptionConfiguration")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "assistantArn")
             Prelude.<*> (x Core..: "assistantId")
             Prelude.<*> (x Core..: "name")
@@ -151,9 +151,9 @@ instance Core.FromJSON AssistantSummary where
 
 instance Prelude.Hashable AssistantSummary where
   hashWithSalt _salt AssistantSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` assistantArn
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` name
@@ -162,9 +162,9 @@ instance Prelude.Hashable AssistantSummary where
 
 instance Prelude.NFData AssistantSummary where
   rnf AssistantSummary' {..} =
-    Prelude.rnf description
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf assistantArn
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf name

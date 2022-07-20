@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMultiplexProgramPipelineDetail' smart constructor.
 data MultiplexProgramPipelineDetail = MultiplexProgramPipelineDetail'
-  { -- | Identifies a specific pipeline in the multiplex.
-    pipelineId :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the channel pipeline that is currently active for the
+  { -- | Identifies the channel pipeline that is currently active for the
     -- pipeline (identified by PipelineId) in the multiplex.
-    activeChannelPipeline :: Prelude.Maybe Prelude.Text
+    activeChannelPipeline :: Prelude.Maybe Prelude.Text,
+    -- | Identifies a specific pipeline in the multiplex.
+    pipelineId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,27 +43,27 @@ data MultiplexProgramPipelineDetail = MultiplexProgramPipelineDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineId', 'multiplexProgramPipelineDetail_pipelineId' - Identifies a specific pipeline in the multiplex.
---
 -- 'activeChannelPipeline', 'multiplexProgramPipelineDetail_activeChannelPipeline' - Identifies the channel pipeline that is currently active for the
 -- pipeline (identified by PipelineId) in the multiplex.
+--
+-- 'pipelineId', 'multiplexProgramPipelineDetail_pipelineId' - Identifies a specific pipeline in the multiplex.
 newMultiplexProgramPipelineDetail ::
   MultiplexProgramPipelineDetail
 newMultiplexProgramPipelineDetail =
   MultiplexProgramPipelineDetail'
-    { pipelineId =
+    { activeChannelPipeline =
         Prelude.Nothing,
-      activeChannelPipeline = Prelude.Nothing
+      pipelineId = Prelude.Nothing
     }
-
--- | Identifies a specific pipeline in the multiplex.
-multiplexProgramPipelineDetail_pipelineId :: Lens.Lens' MultiplexProgramPipelineDetail (Prelude.Maybe Prelude.Text)
-multiplexProgramPipelineDetail_pipelineId = Lens.lens (\MultiplexProgramPipelineDetail' {pipelineId} -> pipelineId) (\s@MultiplexProgramPipelineDetail' {} a -> s {pipelineId = a} :: MultiplexProgramPipelineDetail)
 
 -- | Identifies the channel pipeline that is currently active for the
 -- pipeline (identified by PipelineId) in the multiplex.
 multiplexProgramPipelineDetail_activeChannelPipeline :: Lens.Lens' MultiplexProgramPipelineDetail (Prelude.Maybe Prelude.Text)
 multiplexProgramPipelineDetail_activeChannelPipeline = Lens.lens (\MultiplexProgramPipelineDetail' {activeChannelPipeline} -> activeChannelPipeline) (\s@MultiplexProgramPipelineDetail' {} a -> s {activeChannelPipeline = a} :: MultiplexProgramPipelineDetail)
+
+-- | Identifies a specific pipeline in the multiplex.
+multiplexProgramPipelineDetail_pipelineId :: Lens.Lens' MultiplexProgramPipelineDetail (Prelude.Maybe Prelude.Text)
+multiplexProgramPipelineDetail_pipelineId = Lens.lens (\MultiplexProgramPipelineDetail' {pipelineId} -> pipelineId) (\s@MultiplexProgramPipelineDetail' {} a -> s {pipelineId = a} :: MultiplexProgramPipelineDetail)
 
 instance Core.FromJSON MultiplexProgramPipelineDetail where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON MultiplexProgramPipelineDetail where
       "MultiplexProgramPipelineDetail"
       ( \x ->
           MultiplexProgramPipelineDetail'
-            Prelude.<$> (x Core..:? "pipelineId")
-            Prelude.<*> (x Core..:? "activeChannelPipeline")
+            Prelude.<$> (x Core..:? "activeChannelPipeline")
+            Prelude.<*> (x Core..:? "pipelineId")
       )
 
 instance
@@ -82,13 +82,13 @@ instance
   hashWithSalt
     _salt
     MultiplexProgramPipelineDetail' {..} =
-      _salt `Prelude.hashWithSalt` pipelineId
-        `Prelude.hashWithSalt` activeChannelPipeline
+      _salt `Prelude.hashWithSalt` activeChannelPipeline
+        `Prelude.hashWithSalt` pipelineId
 
 instance
   Prelude.NFData
     MultiplexProgramPipelineDetail
   where
   rnf MultiplexProgramPipelineDetail' {..} =
-    Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf activeChannelPipeline
+    Prelude.rnf activeChannelPipeline
+      `Prelude.seq` Prelude.rnf pipelineId

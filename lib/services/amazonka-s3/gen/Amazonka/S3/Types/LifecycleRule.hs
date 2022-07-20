@@ -38,7 +38,26 @@ data LifecycleRule = LifecycleRule'
   { -- | Specifies when an Amazon S3 object transitions to a specified storage
     -- class.
     transitions :: Prelude.Maybe [Transition],
+    -- | Specifies the expiration for the lifecycle of the object in the form of
+    -- date, days and, whether the object has a delete marker.
+    expiration :: Prelude.Maybe LifecycleExpiration,
+    -- | Unique identifier for the rule. The value cannot be longer than 255
+    -- characters.
+    id :: Prelude.Maybe Prelude.Text,
     noncurrentVersionExpiration :: Prelude.Maybe NoncurrentVersionExpiration,
+    -- | The @Filter@ is used to identify objects that a Lifecycle Rule applies
+    -- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
+    -- specified. @Filter@ is required if the @LifecycleRule@ does not containt
+    -- a @Prefix@ element.
+    filter' :: Prelude.Maybe LifecycleRuleFilter,
+    -- | Specifies the transition rule for the lifecycle rule that describes when
+    -- noncurrent objects transition to a specific storage class. If your
+    -- bucket is versioning-enabled (or versioning is suspended), you can set
+    -- this action to request that Amazon S3 transition noncurrent object
+    -- versions to a specific storage class at a set period in the object\'s
+    -- lifetime.
+    noncurrentVersionTransitions :: Prelude.Maybe [NoncurrentVersionTransition],
+    abortIncompleteMultipartUpload :: Prelude.Maybe AbortIncompleteMultipartUpload,
     -- | Prefix identifying one or more objects to which the rule applies. This
     -- is no longer used; use @Filter@ instead.
     --
@@ -47,25 +66,6 @@ data LifecycleRule = LifecycleRule'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the transition rule for the lifecycle rule that describes when
-    -- noncurrent objects transition to a specific storage class. If your
-    -- bucket is versioning-enabled (or versioning is suspended), you can set
-    -- this action to request that Amazon S3 transition noncurrent object
-    -- versions to a specific storage class at a set period in the object\'s
-    -- lifetime.
-    noncurrentVersionTransitions :: Prelude.Maybe [NoncurrentVersionTransition],
-    -- | Specifies the expiration for the lifecycle of the object in the form of
-    -- date, days and, whether the object has a delete marker.
-    expiration :: Prelude.Maybe LifecycleExpiration,
-    -- | Unique identifier for the rule. The value cannot be longer than 255
-    -- characters.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The @Filter@ is used to identify objects that a Lifecycle Rule applies
-    -- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
-    -- specified. @Filter@ is required if the @LifecycleRule@ does not containt
-    -- a @Prefix@ element.
-    filter' :: Prelude.Maybe LifecycleRuleFilter,
-    abortIncompleteMultipartUpload :: Prelude.Maybe AbortIncompleteMultipartUpload,
     -- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
     -- the rule is not currently being applied.
     status :: ExpirationStatus
@@ -83,15 +83,18 @@ data LifecycleRule = LifecycleRule'
 -- 'transitions', 'lifecycleRule_transitions' - Specifies when an Amazon S3 object transitions to a specified storage
 -- class.
 --
+-- 'expiration', 'lifecycleRule_expiration' - Specifies the expiration for the lifecycle of the object in the form of
+-- date, days and, whether the object has a delete marker.
+--
+-- 'id', 'lifecycleRule_id' - Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
+--
 -- 'noncurrentVersionExpiration', 'lifecycleRule_noncurrentVersionExpiration' - Undocumented member.
 --
--- 'prefix', 'lifecycleRule_prefix' - Prefix identifying one or more objects to which the rule applies. This
--- is no longer used; use @Filter@ instead.
---
--- Replacement must be made for object keys containing special characters
--- (such as carriage returns) when using XML requests. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
+-- 'filter'', 'lifecycleRule_filter' - The @Filter@ is used to identify objects that a Lifecycle Rule applies
+-- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
+-- specified. @Filter@ is required if the @LifecycleRule@ does not containt
+-- a @Prefix@ element.
 --
 -- 'noncurrentVersionTransitions', 'lifecycleRule_noncurrentVersionTransitions' - Specifies the transition rule for the lifecycle rule that describes when
 -- noncurrent objects transition to a specific storage class. If your
@@ -100,18 +103,15 @@ data LifecycleRule = LifecycleRule'
 -- versions to a specific storage class at a set period in the object\'s
 -- lifetime.
 --
--- 'expiration', 'lifecycleRule_expiration' - Specifies the expiration for the lifecycle of the object in the form of
--- date, days and, whether the object has a delete marker.
---
--- 'id', 'lifecycleRule_id' - Unique identifier for the rule. The value cannot be longer than 255
--- characters.
---
--- 'filter'', 'lifecycleRule_filter' - The @Filter@ is used to identify objects that a Lifecycle Rule applies
--- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
--- specified. @Filter@ is required if the @LifecycleRule@ does not containt
--- a @Prefix@ element.
---
 -- 'abortIncompleteMultipartUpload', 'lifecycleRule_abortIncompleteMultipartUpload' - Undocumented member.
+--
+-- 'prefix', 'lifecycleRule_prefix' - Prefix identifying one or more objects to which the rule applies. This
+-- is no longer used; use @Filter@ instead.
+--
+-- Replacement must be made for object keys containing special characters
+-- (such as carriage returns) when using XML requests. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
 --
 -- 'status', 'lifecycleRule_status' - If \'Enabled\', the rule is currently being applied. If \'Disabled\',
 -- the rule is not currently being applied.
@@ -122,13 +122,13 @@ newLifecycleRule ::
 newLifecycleRule pStatus_ =
   LifecycleRule'
     { transitions = Prelude.Nothing,
-      noncurrentVersionExpiration = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      noncurrentVersionTransitions = Prelude.Nothing,
       expiration = Prelude.Nothing,
       id = Prelude.Nothing,
+      noncurrentVersionExpiration = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      noncurrentVersionTransitions = Prelude.Nothing,
       abortIncompleteMultipartUpload = Prelude.Nothing,
+      prefix = Prelude.Nothing,
       status = pStatus_
     }
 
@@ -136,29 +136,6 @@ newLifecycleRule pStatus_ =
 -- class.
 lifecycleRule_transitions :: Lens.Lens' LifecycleRule (Prelude.Maybe [Transition])
 lifecycleRule_transitions = Lens.lens (\LifecycleRule' {transitions} -> transitions) (\s@LifecycleRule' {} a -> s {transitions = a} :: LifecycleRule) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-lifecycleRule_noncurrentVersionExpiration :: Lens.Lens' LifecycleRule (Prelude.Maybe NoncurrentVersionExpiration)
-lifecycleRule_noncurrentVersionExpiration = Lens.lens (\LifecycleRule' {noncurrentVersionExpiration} -> noncurrentVersionExpiration) (\s@LifecycleRule' {} a -> s {noncurrentVersionExpiration = a} :: LifecycleRule)
-
--- | Prefix identifying one or more objects to which the rule applies. This
--- is no longer used; use @Filter@ instead.
---
--- Replacement must be made for object keys containing special characters
--- (such as carriage returns) when using XML requests. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-lifecycleRule_prefix :: Lens.Lens' LifecycleRule (Prelude.Maybe Prelude.Text)
-lifecycleRule_prefix = Lens.lens (\LifecycleRule' {prefix} -> prefix) (\s@LifecycleRule' {} a -> s {prefix = a} :: LifecycleRule)
-
--- | Specifies the transition rule for the lifecycle rule that describes when
--- noncurrent objects transition to a specific storage class. If your
--- bucket is versioning-enabled (or versioning is suspended), you can set
--- this action to request that Amazon S3 transition noncurrent object
--- versions to a specific storage class at a set period in the object\'s
--- lifetime.
-lifecycleRule_noncurrentVersionTransitions :: Lens.Lens' LifecycleRule (Prelude.Maybe [NoncurrentVersionTransition])
-lifecycleRule_noncurrentVersionTransitions = Lens.lens (\LifecycleRule' {noncurrentVersionTransitions} -> noncurrentVersionTransitions) (\s@LifecycleRule' {} a -> s {noncurrentVersionTransitions = a} :: LifecycleRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the expiration for the lifecycle of the object in the form of
 -- date, days and, whether the object has a delete marker.
@@ -170,6 +147,10 @@ lifecycleRule_expiration = Lens.lens (\LifecycleRule' {expiration} -> expiration
 lifecycleRule_id :: Lens.Lens' LifecycleRule (Prelude.Maybe Prelude.Text)
 lifecycleRule_id = Lens.lens (\LifecycleRule' {id} -> id) (\s@LifecycleRule' {} a -> s {id = a} :: LifecycleRule)
 
+-- | Undocumented member.
+lifecycleRule_noncurrentVersionExpiration :: Lens.Lens' LifecycleRule (Prelude.Maybe NoncurrentVersionExpiration)
+lifecycleRule_noncurrentVersionExpiration = Lens.lens (\LifecycleRule' {noncurrentVersionExpiration} -> noncurrentVersionExpiration) (\s@LifecycleRule' {} a -> s {noncurrentVersionExpiration = a} :: LifecycleRule)
+
 -- | The @Filter@ is used to identify objects that a Lifecycle Rule applies
 -- to. A @Filter@ must have exactly one of @Prefix@, @Tag@, or @And@
 -- specified. @Filter@ is required if the @LifecycleRule@ does not containt
@@ -177,9 +158,28 @@ lifecycleRule_id = Lens.lens (\LifecycleRule' {id} -> id) (\s@LifecycleRule' {} 
 lifecycleRule_filter :: Lens.Lens' LifecycleRule (Prelude.Maybe LifecycleRuleFilter)
 lifecycleRule_filter = Lens.lens (\LifecycleRule' {filter'} -> filter') (\s@LifecycleRule' {} a -> s {filter' = a} :: LifecycleRule)
 
+-- | Specifies the transition rule for the lifecycle rule that describes when
+-- noncurrent objects transition to a specific storage class. If your
+-- bucket is versioning-enabled (or versioning is suspended), you can set
+-- this action to request that Amazon S3 transition noncurrent object
+-- versions to a specific storage class at a set period in the object\'s
+-- lifetime.
+lifecycleRule_noncurrentVersionTransitions :: Lens.Lens' LifecycleRule (Prelude.Maybe [NoncurrentVersionTransition])
+lifecycleRule_noncurrentVersionTransitions = Lens.lens (\LifecycleRule' {noncurrentVersionTransitions} -> noncurrentVersionTransitions) (\s@LifecycleRule' {} a -> s {noncurrentVersionTransitions = a} :: LifecycleRule) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
 lifecycleRule_abortIncompleteMultipartUpload :: Lens.Lens' LifecycleRule (Prelude.Maybe AbortIncompleteMultipartUpload)
 lifecycleRule_abortIncompleteMultipartUpload = Lens.lens (\LifecycleRule' {abortIncompleteMultipartUpload} -> abortIncompleteMultipartUpload) (\s@LifecycleRule' {} a -> s {abortIncompleteMultipartUpload = a} :: LifecycleRule)
+
+-- | Prefix identifying one or more objects to which the rule applies. This
+-- is no longer used; use @Filter@ instead.
+--
+-- Replacement must be made for object keys containing special characters
+-- (such as carriage returns) when using XML requests. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
+lifecycleRule_prefix :: Lens.Lens' LifecycleRule (Prelude.Maybe Prelude.Text)
+lifecycleRule_prefix = Lens.lens (\LifecycleRule' {prefix} -> prefix) (\s@LifecycleRule' {} a -> s {prefix = a} :: LifecycleRule)
 
 -- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
 -- the rule is not currently being applied.
@@ -190,40 +190,40 @@ instance Core.FromXML LifecycleRule where
   parseXML x =
     LifecycleRule'
       Prelude.<$> (Core.may (Core.parseXMLList "Transition") x)
+      Prelude.<*> (x Core..@? "Expiration")
+      Prelude.<*> (x Core..@? "ID")
       Prelude.<*> (x Core..@? "NoncurrentVersionExpiration")
-      Prelude.<*> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "Filter")
       Prelude.<*> ( Core.may
                       (Core.parseXMLList "NoncurrentVersionTransition")
                       x
                   )
-      Prelude.<*> (x Core..@? "Expiration")
-      Prelude.<*> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "Filter")
       Prelude.<*> (x Core..@? "AbortIncompleteMultipartUpload")
+      Prelude.<*> (x Core..@? "Prefix")
       Prelude.<*> (x Core..@ "Status")
 
 instance Prelude.Hashable LifecycleRule where
   hashWithSalt _salt LifecycleRule' {..} =
     _salt `Prelude.hashWithSalt` transitions
-      `Prelude.hashWithSalt` noncurrentVersionExpiration
-      `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` noncurrentVersionTransitions
       `Prelude.hashWithSalt` expiration
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` noncurrentVersionExpiration
       `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` noncurrentVersionTransitions
       `Prelude.hashWithSalt` abortIncompleteMultipartUpload
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData LifecycleRule where
   rnf LifecycleRule' {..} =
     Prelude.rnf transitions
-      `Prelude.seq` Prelude.rnf noncurrentVersionExpiration
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
       `Prelude.seq` Prelude.rnf expiration
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf noncurrentVersionExpiration
       `Prelude.seq` Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
       `Prelude.seq` Prelude.rnf abortIncompleteMultipartUpload
+      `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf status
 
 instance Core.ToXML LifecycleRule where
@@ -233,17 +233,17 @@ instance Core.ToXML LifecycleRule where
           ( Core.toXMLList "Transition"
               Prelude.<$> transitions
           ),
+        "Expiration" Core.@= expiration,
+        "ID" Core.@= id,
         "NoncurrentVersionExpiration"
           Core.@= noncurrentVersionExpiration,
-        "Prefix" Core.@= prefix,
+        "Filter" Core.@= filter',
         Core.toXML
           ( Core.toXMLList "NoncurrentVersionTransition"
               Prelude.<$> noncurrentVersionTransitions
           ),
-        "Expiration" Core.@= expiration,
-        "ID" Core.@= id,
-        "Filter" Core.@= filter',
         "AbortIncompleteMultipartUpload"
           Core.@= abortIncompleteMultipartUpload,
+        "Prefix" Core.@= prefix,
         "Status" Core.@= status
       ]

@@ -35,8 +35,8 @@ module Amazonka.CodeGuruReviewer.DisassociateRepository
     newDisassociateRepositoryResponse,
 
     -- * Response Lenses
-    disassociateRepositoryResponse_repositoryAssociation,
     disassociateRepositoryResponse_tags,
+    disassociateRepositoryResponse_repositoryAssociation,
     disassociateRepositoryResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest DisassociateRepository where
     Response.receiveJSON
       ( \s h x ->
           DisassociateRepositoryResponse'
-            Prelude.<$> (x Core..?> "RepositoryAssociation")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "RepositoryAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,9 +133,7 @@ instance Core.ToQuery DisassociateRepository where
 
 -- | /See:/ 'newDisassociateRepositoryResponse' smart constructor.
 data DisassociateRepositoryResponse = DisassociateRepositoryResponse'
-  { -- | Information about the disassociated repository.
-    repositoryAssociation :: Prelude.Maybe RepositoryAssociation,
-    -- | An array of key-value pairs used to tag an associated repository. A tag
+  { -- | An array of key-value pairs used to tag an associated repository. A tag
     -- is a custom attribute label with two parts:
     --
     -- -   A /tag key/ (for example, @CostCenter@, @Environment@, @Project@, or
@@ -146,6 +144,8 @@ data DisassociateRepositoryResponse = DisassociateRepositoryResponse'
     --     value is the same as using an empty string. Like tag keys, tag
     --     values are case sensitive.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Information about the disassociated repository.
+    repositoryAssociation :: Prelude.Maybe RepositoryAssociation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,8 +159,6 @@ data DisassociateRepositoryResponse = DisassociateRepositoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repositoryAssociation', 'disassociateRepositoryResponse_repositoryAssociation' - Information about the disassociated repository.
---
 -- 'tags', 'disassociateRepositoryResponse_tags' - An array of key-value pairs used to tag an associated repository. A tag
 -- is a custom attribute label with two parts:
 --
@@ -172,6 +170,8 @@ data DisassociateRepositoryResponse = DisassociateRepositoryResponse'
 --     value is the same as using an empty string. Like tag keys, tag
 --     values are case sensitive.
 --
+-- 'repositoryAssociation', 'disassociateRepositoryResponse_repositoryAssociation' - Information about the disassociated repository.
+--
 -- 'httpStatus', 'disassociateRepositoryResponse_httpStatus' - The response's http status code.
 newDisassociateRepositoryResponse ::
   -- | 'httpStatus'
@@ -179,15 +179,11 @@ newDisassociateRepositoryResponse ::
   DisassociateRepositoryResponse
 newDisassociateRepositoryResponse pHttpStatus_ =
   DisassociateRepositoryResponse'
-    { repositoryAssociation =
+    { tags =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
+      repositoryAssociation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the disassociated repository.
-disassociateRepositoryResponse_repositoryAssociation :: Lens.Lens' DisassociateRepositoryResponse (Prelude.Maybe RepositoryAssociation)
-disassociateRepositoryResponse_repositoryAssociation = Lens.lens (\DisassociateRepositoryResponse' {repositoryAssociation} -> repositoryAssociation) (\s@DisassociateRepositoryResponse' {} a -> s {repositoryAssociation = a} :: DisassociateRepositoryResponse)
 
 -- | An array of key-value pairs used to tag an associated repository. A tag
 -- is a custom attribute label with two parts:
@@ -202,6 +198,10 @@ disassociateRepositoryResponse_repositoryAssociation = Lens.lens (\DisassociateR
 disassociateRepositoryResponse_tags :: Lens.Lens' DisassociateRepositoryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 disassociateRepositoryResponse_tags = Lens.lens (\DisassociateRepositoryResponse' {tags} -> tags) (\s@DisassociateRepositoryResponse' {} a -> s {tags = a} :: DisassociateRepositoryResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Information about the disassociated repository.
+disassociateRepositoryResponse_repositoryAssociation :: Lens.Lens' DisassociateRepositoryResponse (Prelude.Maybe RepositoryAssociation)
+disassociateRepositoryResponse_repositoryAssociation = Lens.lens (\DisassociateRepositoryResponse' {repositoryAssociation} -> repositoryAssociation) (\s@DisassociateRepositoryResponse' {} a -> s {repositoryAssociation = a} :: DisassociateRepositoryResponse)
+
 -- | The response's http status code.
 disassociateRepositoryResponse_httpStatus :: Lens.Lens' DisassociateRepositoryResponse Prelude.Int
 disassociateRepositoryResponse_httpStatus = Lens.lens (\DisassociateRepositoryResponse' {httpStatus} -> httpStatus) (\s@DisassociateRepositoryResponse' {} a -> s {httpStatus = a} :: DisassociateRepositoryResponse)
@@ -211,6 +211,6 @@ instance
     DisassociateRepositoryResponse
   where
   rnf DisassociateRepositoryResponse' {..} =
-    Prelude.rnf repositoryAssociation
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf repositoryAssociation
       `Prelude.seq` Prelude.rnf httpStatus

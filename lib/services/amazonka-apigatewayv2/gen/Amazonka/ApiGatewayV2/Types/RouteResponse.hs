@@ -31,12 +31,12 @@ data RouteResponse = RouteResponse'
   { -- | Represents the model selection expression of a route response. Supported
     -- only for WebSocket APIs.
     modelSelectionExpression :: Prelude.Maybe Prelude.Text,
+    -- | Represents the response parameters of a route response.
+    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints),
     -- | Represents the response models of a route response.
     responseModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Represents the identifier of a route response.
     routeResponseId :: Prelude.Maybe Prelude.Text,
-    -- | Represents the response parameters of a route response.
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints),
     -- | Represents the route response key of a route response.
     routeResponseKey :: Prelude.Text
   }
@@ -53,11 +53,11 @@ data RouteResponse = RouteResponse'
 -- 'modelSelectionExpression', 'routeResponse_modelSelectionExpression' - Represents the model selection expression of a route response. Supported
 -- only for WebSocket APIs.
 --
+-- 'responseParameters', 'routeResponse_responseParameters' - Represents the response parameters of a route response.
+--
 -- 'responseModels', 'routeResponse_responseModels' - Represents the response models of a route response.
 --
 -- 'routeResponseId', 'routeResponse_routeResponseId' - Represents the identifier of a route response.
---
--- 'responseParameters', 'routeResponse_responseParameters' - Represents the response parameters of a route response.
 --
 -- 'routeResponseKey', 'routeResponse_routeResponseKey' - Represents the route response key of a route response.
 newRouteResponse ::
@@ -68,9 +68,9 @@ newRouteResponse pRouteResponseKey_ =
   RouteResponse'
     { modelSelectionExpression =
         Prelude.Nothing,
+      responseParameters = Prelude.Nothing,
       responseModels = Prelude.Nothing,
       routeResponseId = Prelude.Nothing,
-      responseParameters = Prelude.Nothing,
       routeResponseKey = pRouteResponseKey_
     }
 
@@ -79,6 +79,10 @@ newRouteResponse pRouteResponseKey_ =
 routeResponse_modelSelectionExpression :: Lens.Lens' RouteResponse (Prelude.Maybe Prelude.Text)
 routeResponse_modelSelectionExpression = Lens.lens (\RouteResponse' {modelSelectionExpression} -> modelSelectionExpression) (\s@RouteResponse' {} a -> s {modelSelectionExpression = a} :: RouteResponse)
 
+-- | Represents the response parameters of a route response.
+routeResponse_responseParameters :: Lens.Lens' RouteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints))
+routeResponse_responseParameters = Lens.lens (\RouteResponse' {responseParameters} -> responseParameters) (\s@RouteResponse' {} a -> s {responseParameters = a} :: RouteResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Represents the response models of a route response.
 routeResponse_responseModels :: Lens.Lens' RouteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 routeResponse_responseModels = Lens.lens (\RouteResponse' {responseModels} -> responseModels) (\s@RouteResponse' {} a -> s {responseModels = a} :: RouteResponse) Prelude.. Lens.mapping Lens.coerced
@@ -86,10 +90,6 @@ routeResponse_responseModels = Lens.lens (\RouteResponse' {responseModels} -> re
 -- | Represents the identifier of a route response.
 routeResponse_routeResponseId :: Lens.Lens' RouteResponse (Prelude.Maybe Prelude.Text)
 routeResponse_routeResponseId = Lens.lens (\RouteResponse' {routeResponseId} -> routeResponseId) (\s@RouteResponse' {} a -> s {routeResponseId = a} :: RouteResponse)
-
--- | Represents the response parameters of a route response.
-routeResponse_responseParameters :: Lens.Lens' RouteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints))
-routeResponse_responseParameters = Lens.lens (\RouteResponse' {responseParameters} -> responseParameters) (\s@RouteResponse' {} a -> s {responseParameters = a} :: RouteResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Represents the route response key of a route response.
 routeResponse_routeResponseKey :: Lens.Lens' RouteResponse Prelude.Text
@@ -102,11 +102,11 @@ instance Core.FromJSON RouteResponse where
       ( \x ->
           RouteResponse'
             Prelude.<$> (x Core..:? "modelSelectionExpression")
-            Prelude.<*> (x Core..:? "responseModels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "routeResponseId")
             Prelude.<*> ( x Core..:? "responseParameters"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "responseModels" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "routeResponseId")
             Prelude.<*> (x Core..: "routeResponseKey")
       )
 
@@ -114,15 +114,15 @@ instance Prelude.Hashable RouteResponse where
   hashWithSalt _salt RouteResponse' {..} =
     _salt
       `Prelude.hashWithSalt` modelSelectionExpression
+      `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseModels
       `Prelude.hashWithSalt` routeResponseId
-      `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` routeResponseKey
 
 instance Prelude.NFData RouteResponse where
   rnf RouteResponse' {..} =
     Prelude.rnf modelSelectionExpression
+      `Prelude.seq` Prelude.rnf responseParameters
       `Prelude.seq` Prelude.rnf responseModels
       `Prelude.seq` Prelude.rnf routeResponseId
-      `Prelude.seq` Prelude.rnf responseParameters
       `Prelude.seq` Prelude.rnf routeResponseKey

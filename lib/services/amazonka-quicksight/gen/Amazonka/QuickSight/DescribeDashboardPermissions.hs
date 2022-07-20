@@ -36,8 +36,8 @@ module Amazonka.QuickSight.DescribeDashboardPermissions
 
     -- * Response Lenses
     describeDashboardPermissionsResponse_requestId,
-    describeDashboardPermissionsResponse_dashboardId,
     describeDashboardPermissionsResponse_permissions,
+    describeDashboardPermissionsResponse_dashboardId,
     describeDashboardPermissionsResponse_dashboardArn,
     describeDashboardPermissionsResponse_status,
   )
@@ -106,8 +106,8 @@ instance Core.AWSRequest DescribeDashboardPermissions where
       ( \s h x ->
           DescribeDashboardPermissionsResponse'
             Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "DashboardId")
             Prelude.<*> (x Core..?> "Permissions")
+            Prelude.<*> (x Core..?> "DashboardId")
             Prelude.<*> (x Core..?> "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -153,10 +153,10 @@ instance Core.ToQuery DescribeDashboardPermissions where
 data DescribeDashboardPermissionsResponse = DescribeDashboardPermissionsResponse'
   { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the dashboard.
-    dashboardId :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the permissions for the dashboard.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | The ID for the dashboard.
+    dashboardId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dashboard.
     dashboardArn :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -174,9 +174,9 @@ data DescribeDashboardPermissionsResponse = DescribeDashboardPermissionsResponse
 --
 -- 'requestId', 'describeDashboardPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'dashboardId', 'describeDashboardPermissionsResponse_dashboardId' - The ID for the dashboard.
---
 -- 'permissions', 'describeDashboardPermissionsResponse_permissions' - A structure that contains the permissions for the dashboard.
+--
+-- 'dashboardId', 'describeDashboardPermissionsResponse_dashboardId' - The ID for the dashboard.
 --
 -- 'dashboardArn', 'describeDashboardPermissionsResponse_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
 --
@@ -189,8 +189,8 @@ newDescribeDashboardPermissionsResponse pStatus_ =
   DescribeDashboardPermissionsResponse'
     { requestId =
         Prelude.Nothing,
-      dashboardId = Prelude.Nothing,
       permissions = Prelude.Nothing,
+      dashboardId = Prelude.Nothing,
       dashboardArn = Prelude.Nothing,
       status = pStatus_
     }
@@ -199,13 +199,13 @@ newDescribeDashboardPermissionsResponse pStatus_ =
 describeDashboardPermissionsResponse_requestId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeDashboardPermissionsResponse_requestId = Lens.lens (\DescribeDashboardPermissionsResponse' {requestId} -> requestId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {requestId = a} :: DescribeDashboardPermissionsResponse)
 
--- | The ID for the dashboard.
-describeDashboardPermissionsResponse_dashboardId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeDashboardPermissionsResponse_dashboardId = Lens.lens (\DescribeDashboardPermissionsResponse' {dashboardId} -> dashboardId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {dashboardId = a} :: DescribeDashboardPermissionsResponse)
-
 -- | A structure that contains the permissions for the dashboard.
 describeDashboardPermissionsResponse_permissions :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 describeDashboardPermissionsResponse_permissions = Lens.lens (\DescribeDashboardPermissionsResponse' {permissions} -> permissions) (\s@DescribeDashboardPermissionsResponse' {} a -> s {permissions = a} :: DescribeDashboardPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID for the dashboard.
+describeDashboardPermissionsResponse_dashboardId :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeDashboardPermissionsResponse_dashboardId = Lens.lens (\DescribeDashboardPermissionsResponse' {dashboardId} -> dashboardId) (\s@DescribeDashboardPermissionsResponse' {} a -> s {dashboardId = a} :: DescribeDashboardPermissionsResponse)
 
 -- | The Amazon Resource Name (ARN) of the dashboard.
 describeDashboardPermissionsResponse_dashboardArn :: Lens.Lens' DescribeDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -221,7 +221,7 @@ instance
   where
   rnf DescribeDashboardPermissionsResponse' {..} =
     Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf dashboardArn
       `Prelude.seq` Prelude.rnf status

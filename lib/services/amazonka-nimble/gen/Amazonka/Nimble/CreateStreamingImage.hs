@@ -27,9 +27,9 @@ module Amazonka.Nimble.CreateStreamingImage
     newCreateStreamingImage,
 
     -- * Request Lenses
+    createStreamingImage_tags,
     createStreamingImage_clientToken,
     createStreamingImage_description,
-    createStreamingImage_tags,
     createStreamingImage_studioId,
     createStreamingImage_name,
     createStreamingImage_ec2ImageId,
@@ -55,7 +55,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateStreamingImage' smart constructor.
 data CreateStreamingImage = CreateStreamingImage'
-  { -- | To make an idempotent API request using one of these actions, specify a
+  { -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | To make an idempotent API request using one of these actions, specify a
     -- client token in the request. You should not reuse the same client token
     -- for other API requests. If you retry a request that completed
     -- successfully using the same client token and the same parameters, the
@@ -66,9 +69,6 @@ data CreateStreamingImage = CreateStreamingImage'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description of the streaming image.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
-    -- this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The studio ID.
     studioId :: Prelude.Text,
     -- | A friendly name for a streaming image resource.
@@ -87,6 +87,9 @@ data CreateStreamingImage = CreateStreamingImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createStreamingImage_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+--
 -- 'clientToken', 'createStreamingImage_clientToken' - To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
 -- for other API requests. If you retry a request that completed
@@ -97,9 +100,6 @@ data CreateStreamingImage = CreateStreamingImage'
 -- error.
 --
 -- 'description', 'createStreamingImage_description' - A human-readable description of the streaming image.
---
--- 'tags', 'createStreamingImage_tags' - A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
 --
 -- 'studioId', 'createStreamingImage_studioId' - The studio ID.
 --
@@ -120,14 +120,18 @@ newCreateStreamingImage
   pName_
   pEc2ImageId_ =
     CreateStreamingImage'
-      { clientToken =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
         studioId = pStudioId_,
         name = pName_,
         ec2ImageId = pEc2ImageId_
       }
+
+-- | A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+createStreamingImage_tags :: Lens.Lens' CreateStreamingImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStreamingImage_tags = Lens.lens (\CreateStreamingImage' {tags} -> tags) (\s@CreateStreamingImage' {} a -> s {tags = a} :: CreateStreamingImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -143,11 +147,6 @@ createStreamingImage_clientToken = Lens.lens (\CreateStreamingImage' {clientToke
 -- | A human-readable description of the streaming image.
 createStreamingImage_description :: Lens.Lens' CreateStreamingImage (Prelude.Maybe Prelude.Text)
 createStreamingImage_description = Lens.lens (\CreateStreamingImage' {description} -> description) (\s@CreateStreamingImage' {} a -> s {description = a} :: CreateStreamingImage)
-
--- | A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
-createStreamingImage_tags :: Lens.Lens' CreateStreamingImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStreamingImage_tags = Lens.lens (\CreateStreamingImage' {tags} -> tags) (\s@CreateStreamingImage' {} a -> s {tags = a} :: CreateStreamingImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The studio ID.
 createStreamingImage_studioId :: Lens.Lens' CreateStreamingImage Prelude.Text
@@ -177,18 +176,18 @@ instance Core.AWSRequest CreateStreamingImage where
 
 instance Prelude.Hashable CreateStreamingImage where
   hashWithSalt _salt CreateStreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ec2ImageId
 
 instance Prelude.NFData CreateStreamingImage where
   rnf CreateStreamingImage' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ec2ImageId
@@ -205,8 +204,8 @@ instance Core.ToJSON CreateStreamingImage where
   toJSON CreateStreamingImage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("ec2ImageId" Core..= ec2ImageId)
           ]

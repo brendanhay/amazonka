@@ -33,7 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOriginationRoute' smart constructor.
 data OriginationRoute = OriginationRoute'
-  { -- | The priority associated with the host, with 1 being the highest
+  { -- | The designated origination route port. Defaults to 5060.
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | The FQDN or IP address to contact for origination traffic.
+    host :: Prelude.Maybe Prelude.Text,
+    -- | The priority associated with the host, with 1 being the highest
     -- priority. Higher priority hosts are attempted first.
     priority :: Prelude.Maybe Prelude.Natural,
     -- | The weight associated with the host. If hosts are equal in priority,
@@ -41,11 +45,7 @@ data OriginationRoute = OriginationRoute'
     weight :: Prelude.Maybe Prelude.Natural,
     -- | The protocol to use for the origination route. Encryption-enabled Amazon
     -- Chime Voice Connectors use TCP protocol by default.
-    protocol :: Prelude.Maybe OriginationRouteProtocol,
-    -- | The FQDN or IP address to contact for origination traffic.
-    host :: Prelude.Maybe Prelude.Text,
-    -- | The designated origination route port. Defaults to 5060.
-    port :: Prelude.Maybe Prelude.Natural
+    protocol :: Prelude.Maybe OriginationRouteProtocol
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,10 @@ data OriginationRoute = OriginationRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'originationRoute_port' - The designated origination route port. Defaults to 5060.
+--
+-- 'host', 'originationRoute_host' - The FQDN or IP address to contact for origination traffic.
+--
 -- 'priority', 'originationRoute_priority' - The priority associated with the host, with 1 being the highest
 -- priority. Higher priority hosts are attempted first.
 --
@@ -65,20 +69,24 @@ data OriginationRoute = OriginationRoute'
 --
 -- 'protocol', 'originationRoute_protocol' - The protocol to use for the origination route. Encryption-enabled Amazon
 -- Chime Voice Connectors use TCP protocol by default.
---
--- 'host', 'originationRoute_host' - The FQDN or IP address to contact for origination traffic.
---
--- 'port', 'originationRoute_port' - The designated origination route port. Defaults to 5060.
 newOriginationRoute ::
   OriginationRoute
 newOriginationRoute =
   OriginationRoute'
-    { priority = Prelude.Nothing,
-      weight = Prelude.Nothing,
-      protocol = Prelude.Nothing,
+    { port = Prelude.Nothing,
       host = Prelude.Nothing,
-      port = Prelude.Nothing
+      priority = Prelude.Nothing,
+      weight = Prelude.Nothing,
+      protocol = Prelude.Nothing
     }
+
+-- | The designated origination route port. Defaults to 5060.
+originationRoute_port :: Lens.Lens' OriginationRoute (Prelude.Maybe Prelude.Natural)
+originationRoute_port = Lens.lens (\OriginationRoute' {port} -> port) (\s@OriginationRoute' {} a -> s {port = a} :: OriginationRoute)
+
+-- | The FQDN or IP address to contact for origination traffic.
+originationRoute_host :: Lens.Lens' OriginationRoute (Prelude.Maybe Prelude.Text)
+originationRoute_host = Lens.lens (\OriginationRoute' {host} -> host) (\s@OriginationRoute' {} a -> s {host = a} :: OriginationRoute)
 
 -- | The priority associated with the host, with 1 being the highest
 -- priority. Higher priority hosts are attempted first.
@@ -95,51 +103,43 @@ originationRoute_weight = Lens.lens (\OriginationRoute' {weight} -> weight) (\s@
 originationRoute_protocol :: Lens.Lens' OriginationRoute (Prelude.Maybe OriginationRouteProtocol)
 originationRoute_protocol = Lens.lens (\OriginationRoute' {protocol} -> protocol) (\s@OriginationRoute' {} a -> s {protocol = a} :: OriginationRoute)
 
--- | The FQDN or IP address to contact for origination traffic.
-originationRoute_host :: Lens.Lens' OriginationRoute (Prelude.Maybe Prelude.Text)
-originationRoute_host = Lens.lens (\OriginationRoute' {host} -> host) (\s@OriginationRoute' {} a -> s {host = a} :: OriginationRoute)
-
--- | The designated origination route port. Defaults to 5060.
-originationRoute_port :: Lens.Lens' OriginationRoute (Prelude.Maybe Prelude.Natural)
-originationRoute_port = Lens.lens (\OriginationRoute' {port} -> port) (\s@OriginationRoute' {} a -> s {port = a} :: OriginationRoute)
-
 instance Core.FromJSON OriginationRoute where
   parseJSON =
     Core.withObject
       "OriginationRoute"
       ( \x ->
           OriginationRoute'
-            Prelude.<$> (x Core..:? "Priority")
+            Prelude.<$> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "Host")
+            Prelude.<*> (x Core..:? "Priority")
             Prelude.<*> (x Core..:? "Weight")
             Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "Host")
-            Prelude.<*> (x Core..:? "Port")
       )
 
 instance Prelude.Hashable OriginationRoute where
   hashWithSalt _salt OriginationRoute' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` weight
       `Prelude.hashWithSalt` protocol
-      `Prelude.hashWithSalt` host
-      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData OriginationRoute where
   rnf OriginationRoute' {..} =
-    Prelude.rnf priority
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf weight
       `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON OriginationRoute where
   toJSON OriginationRoute' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Priority" Core..=) Prelude.<$> priority,
-            ("Weight" Core..=) Prelude.<$> weight,
-            ("Protocol" Core..=) Prelude.<$> protocol,
+          [ ("Port" Core..=) Prelude.<$> port,
             ("Host" Core..=) Prelude.<$> host,
-            ("Port" Core..=) Prelude.<$> port
+            ("Priority" Core..=) Prelude.<$> priority,
+            ("Weight" Core..=) Prelude.<$> weight,
+            ("Protocol" Core..=) Prelude.<$> protocol
           ]
       )

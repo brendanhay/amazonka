@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 data FrameworkMetadata = FrameworkMetadata'
   { -- | The name of the framework.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The compliance standard associated with the framework, such as PCI-DSS
-    -- or HIPAA.
-    complianceType :: Prelude.Maybe Prelude.Text,
+    -- | The description of the framework.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The logo associated with the framework.
     logo :: Prelude.Maybe Prelude.Text,
-    -- | The description of the framework.
-    description :: Prelude.Maybe Prelude.Text
+    -- | The compliance standard associated with the framework, such as PCI-DSS
+    -- or HIPAA.
+    complianceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,38 +50,38 @@ data FrameworkMetadata = FrameworkMetadata'
 --
 -- 'name', 'frameworkMetadata_name' - The name of the framework.
 --
--- 'complianceType', 'frameworkMetadata_complianceType' - The compliance standard associated with the framework, such as PCI-DSS
--- or HIPAA.
+-- 'description', 'frameworkMetadata_description' - The description of the framework.
 --
 -- 'logo', 'frameworkMetadata_logo' - The logo associated with the framework.
 --
--- 'description', 'frameworkMetadata_description' - The description of the framework.
+-- 'complianceType', 'frameworkMetadata_complianceType' - The compliance standard associated with the framework, such as PCI-DSS
+-- or HIPAA.
 newFrameworkMetadata ::
   FrameworkMetadata
 newFrameworkMetadata =
   FrameworkMetadata'
     { name = Prelude.Nothing,
-      complianceType = Prelude.Nothing,
+      description = Prelude.Nothing,
       logo = Prelude.Nothing,
-      description = Prelude.Nothing
+      complianceType = Prelude.Nothing
     }
 
 -- | The name of the framework.
 frameworkMetadata_name :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
 frameworkMetadata_name = Lens.lens (\FrameworkMetadata' {name} -> name) (\s@FrameworkMetadata' {} a -> s {name = a} :: FrameworkMetadata)
 
--- | The compliance standard associated with the framework, such as PCI-DSS
--- or HIPAA.
-frameworkMetadata_complianceType :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
-frameworkMetadata_complianceType = Lens.lens (\FrameworkMetadata' {complianceType} -> complianceType) (\s@FrameworkMetadata' {} a -> s {complianceType = a} :: FrameworkMetadata)
+-- | The description of the framework.
+frameworkMetadata_description :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
+frameworkMetadata_description = Lens.lens (\FrameworkMetadata' {description} -> description) (\s@FrameworkMetadata' {} a -> s {description = a} :: FrameworkMetadata)
 
 -- | The logo associated with the framework.
 frameworkMetadata_logo :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
 frameworkMetadata_logo = Lens.lens (\FrameworkMetadata' {logo} -> logo) (\s@FrameworkMetadata' {} a -> s {logo = a} :: FrameworkMetadata)
 
--- | The description of the framework.
-frameworkMetadata_description :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
-frameworkMetadata_description = Lens.lens (\FrameworkMetadata' {description} -> description) (\s@FrameworkMetadata' {} a -> s {description = a} :: FrameworkMetadata)
+-- | The compliance standard associated with the framework, such as PCI-DSS
+-- or HIPAA.
+frameworkMetadata_complianceType :: Lens.Lens' FrameworkMetadata (Prelude.Maybe Prelude.Text)
+frameworkMetadata_complianceType = Lens.lens (\FrameworkMetadata' {complianceType} -> complianceType) (\s@FrameworkMetadata' {} a -> s {complianceType = a} :: FrameworkMetadata)
 
 instance Core.FromJSON FrameworkMetadata where
   parseJSON =
@@ -90,21 +90,21 @@ instance Core.FromJSON FrameworkMetadata where
       ( \x ->
           FrameworkMetadata'
             Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "complianceType")
-            Prelude.<*> (x Core..:? "logo")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "logo")
+            Prelude.<*> (x Core..:? "complianceType")
       )
 
 instance Prelude.Hashable FrameworkMetadata where
   hashWithSalt _salt FrameworkMetadata' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` complianceType
-      `Prelude.hashWithSalt` logo
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` logo
+      `Prelude.hashWithSalt` complianceType
 
 instance Prelude.NFData FrameworkMetadata where
   rnf FrameworkMetadata' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf complianceType
-      `Prelude.seq` Prelude.rnf logo
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf logo
+      `Prelude.seq` Prelude.rnf complianceType

@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedisSettings' smart constructor.
 data RedisSettings = RedisSettings'
-  { -- | The connection to a Redis target endpoint using Transport Layer Security
+  { -- | The user name provided with the @auth-role@ option of the @AuthType@
+    -- setting for a Redis target endpoint.
+    authUserName :: Prelude.Maybe Prelude.Text,
+    -- | The connection to a Redis target endpoint using Transport Layer Security
     -- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The
     -- default is @ssl-encryption@. The @ssl-encryption@ option makes an
     -- encrypted connection. Optionally, you can identify an Amazon Resource
@@ -40,15 +43,12 @@ data RedisSettings = RedisSettings'
     -- The @plaintext@ option doesn\'t provide Transport Layer Security (TLS)
     -- encryption for traffic between endpoint and database.
     sslSecurityProtocol :: Prelude.Maybe SslSecurityProtocolValue,
-    -- | The user name provided with the @auth-role@ option of the @AuthType@
-    -- setting for a Redis target endpoint.
-    authUserName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the certificate authority (CA) that
-    -- DMS uses to connect to your Redis target endpoint.
-    sslCaCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The password provided with the @auth-role@ and @auth-token@ options of
     -- the @AuthType@ setting for a Redis target endpoint.
     authPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The Amazon Resource Name (ARN) for the certificate authority (CA) that
+    -- DMS uses to connect to your Redis target endpoint.
+    sslCaCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The type of authentication to perform when connecting to a Redis target.
     -- Options include @none@, @auth-token@, and @auth-role@. The @auth-token@
     -- option requires an @AuthPassword@ value to be provided. The @auth-role@
@@ -69,6 +69,9 @@ data RedisSettings = RedisSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authUserName', 'redisSettings_authUserName' - The user name provided with the @auth-role@ option of the @AuthType@
+-- setting for a Redis target endpoint.
+--
 -- 'sslSecurityProtocol', 'redisSettings_sslSecurityProtocol' - The connection to a Redis target endpoint using Transport Layer Security
 -- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The
 -- default is @ssl-encryption@. The @ssl-encryption@ option makes an
@@ -80,14 +83,11 @@ data RedisSettings = RedisSettings'
 -- The @plaintext@ option doesn\'t provide Transport Layer Security (TLS)
 -- encryption for traffic between endpoint and database.
 --
--- 'authUserName', 'redisSettings_authUserName' - The user name provided with the @auth-role@ option of the @AuthType@
--- setting for a Redis target endpoint.
+-- 'authPassword', 'redisSettings_authPassword' - The password provided with the @auth-role@ and @auth-token@ options of
+-- the @AuthType@ setting for a Redis target endpoint.
 --
 -- 'sslCaCertificateArn', 'redisSettings_sslCaCertificateArn' - The Amazon Resource Name (ARN) for the certificate authority (CA) that
 -- DMS uses to connect to your Redis target endpoint.
---
--- 'authPassword', 'redisSettings_authPassword' - The password provided with the @auth-role@ and @auth-token@ options of
--- the @AuthType@ setting for a Redis target endpoint.
 --
 -- 'authType', 'redisSettings_authType' - The type of authentication to perform when connecting to a Redis target.
 -- Options include @none@, @auth-token@, and @auth-role@. The @auth-token@
@@ -105,15 +105,19 @@ newRedisSettings ::
   RedisSettings
 newRedisSettings pServerName_ pPort_ =
   RedisSettings'
-    { sslSecurityProtocol =
-        Prelude.Nothing,
-      authUserName = Prelude.Nothing,
-      sslCaCertificateArn = Prelude.Nothing,
+    { authUserName = Prelude.Nothing,
+      sslSecurityProtocol = Prelude.Nothing,
       authPassword = Prelude.Nothing,
+      sslCaCertificateArn = Prelude.Nothing,
       authType = Prelude.Nothing,
       serverName = pServerName_,
       port = pPort_
     }
+
+-- | The user name provided with the @auth-role@ option of the @AuthType@
+-- setting for a Redis target endpoint.
+redisSettings_authUserName :: Lens.Lens' RedisSettings (Prelude.Maybe Prelude.Text)
+redisSettings_authUserName = Lens.lens (\RedisSettings' {authUserName} -> authUserName) (\s@RedisSettings' {} a -> s {authUserName = a} :: RedisSettings)
 
 -- | The connection to a Redis target endpoint using Transport Layer Security
 -- (TLS). Valid values include @plaintext@ and @ssl-encryption@. The
@@ -128,20 +132,15 @@ newRedisSettings pServerName_ pPort_ =
 redisSettings_sslSecurityProtocol :: Lens.Lens' RedisSettings (Prelude.Maybe SslSecurityProtocolValue)
 redisSettings_sslSecurityProtocol = Lens.lens (\RedisSettings' {sslSecurityProtocol} -> sslSecurityProtocol) (\s@RedisSettings' {} a -> s {sslSecurityProtocol = a} :: RedisSettings)
 
--- | The user name provided with the @auth-role@ option of the @AuthType@
--- setting for a Redis target endpoint.
-redisSettings_authUserName :: Lens.Lens' RedisSettings (Prelude.Maybe Prelude.Text)
-redisSettings_authUserName = Lens.lens (\RedisSettings' {authUserName} -> authUserName) (\s@RedisSettings' {} a -> s {authUserName = a} :: RedisSettings)
+-- | The password provided with the @auth-role@ and @auth-token@ options of
+-- the @AuthType@ setting for a Redis target endpoint.
+redisSettings_authPassword :: Lens.Lens' RedisSettings (Prelude.Maybe Prelude.Text)
+redisSettings_authPassword = Lens.lens (\RedisSettings' {authPassword} -> authPassword) (\s@RedisSettings' {} a -> s {authPassword = a} :: RedisSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) for the certificate authority (CA) that
 -- DMS uses to connect to your Redis target endpoint.
 redisSettings_sslCaCertificateArn :: Lens.Lens' RedisSettings (Prelude.Maybe Prelude.Text)
 redisSettings_sslCaCertificateArn = Lens.lens (\RedisSettings' {sslCaCertificateArn} -> sslCaCertificateArn) (\s@RedisSettings' {} a -> s {sslCaCertificateArn = a} :: RedisSettings)
-
--- | The password provided with the @auth-role@ and @auth-token@ options of
--- the @AuthType@ setting for a Redis target endpoint.
-redisSettings_authPassword :: Lens.Lens' RedisSettings (Prelude.Maybe Prelude.Text)
-redisSettings_authPassword = Lens.lens (\RedisSettings' {authPassword} -> authPassword) (\s@RedisSettings' {} a -> s {authPassword = a} :: RedisSettings) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The type of authentication to perform when connecting to a Redis target.
 -- Options include @none@, @auth-token@, and @auth-role@. The @auth-token@
@@ -164,10 +163,10 @@ instance Core.FromJSON RedisSettings where
       "RedisSettings"
       ( \x ->
           RedisSettings'
-            Prelude.<$> (x Core..:? "SslSecurityProtocol")
-            Prelude.<*> (x Core..:? "AuthUserName")
-            Prelude.<*> (x Core..:? "SslCaCertificateArn")
+            Prelude.<$> (x Core..:? "AuthUserName")
+            Prelude.<*> (x Core..:? "SslSecurityProtocol")
             Prelude.<*> (x Core..:? "AuthPassword")
+            Prelude.<*> (x Core..:? "SslCaCertificateArn")
             Prelude.<*> (x Core..:? "AuthType")
             Prelude.<*> (x Core..: "ServerName")
             Prelude.<*> (x Core..: "Port")
@@ -175,20 +174,20 @@ instance Core.FromJSON RedisSettings where
 
 instance Prelude.Hashable RedisSettings where
   hashWithSalt _salt RedisSettings' {..} =
-    _salt `Prelude.hashWithSalt` sslSecurityProtocol
-      `Prelude.hashWithSalt` authUserName
-      `Prelude.hashWithSalt` sslCaCertificateArn
+    _salt `Prelude.hashWithSalt` authUserName
+      `Prelude.hashWithSalt` sslSecurityProtocol
       `Prelude.hashWithSalt` authPassword
+      `Prelude.hashWithSalt` sslCaCertificateArn
       `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` serverName
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData RedisSettings where
   rnf RedisSettings' {..} =
-    Prelude.rnf sslSecurityProtocol
-      `Prelude.seq` Prelude.rnf authUserName
-      `Prelude.seq` Prelude.rnf sslCaCertificateArn
+    Prelude.rnf authUserName
+      `Prelude.seq` Prelude.rnf sslSecurityProtocol
       `Prelude.seq` Prelude.rnf authPassword
+      `Prelude.seq` Prelude.rnf sslCaCertificateArn
       `Prelude.seq` Prelude.rnf authType
       `Prelude.seq` Prelude.rnf serverName
       `Prelude.seq` Prelude.rnf port
@@ -197,12 +196,12 @@ instance Core.ToJSON RedisSettings where
   toJSON RedisSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SslSecurityProtocol" Core..=)
+          [ ("AuthUserName" Core..=) Prelude.<$> authUserName,
+            ("SslSecurityProtocol" Core..=)
               Prelude.<$> sslSecurityProtocol,
-            ("AuthUserName" Core..=) Prelude.<$> authUserName,
+            ("AuthPassword" Core..=) Prelude.<$> authPassword,
             ("SslCaCertificateArn" Core..=)
               Prelude.<$> sslCaCertificateArn,
-            ("AuthPassword" Core..=) Prelude.<$> authPassword,
             ("AuthType" Core..=) Prelude.<$> authType,
             Prelude.Just ("ServerName" Core..= serverName),
             Prelude.Just ("Port" Core..= port)

@@ -89,10 +89,10 @@ module Amazonka.KMS.ScheduleKeyDeletion
     newScheduleKeyDeletionResponse,
 
     -- * Response Lenses
-    scheduleKeyDeletionResponse_keyId,
+    scheduleKeyDeletionResponse_pendingWindowInDays,
     scheduleKeyDeletionResponse_keyState,
     scheduleKeyDeletionResponse_deletionDate,
-    scheduleKeyDeletionResponse_pendingWindowInDays,
+    scheduleKeyDeletionResponse_keyId,
     scheduleKeyDeletionResponse_httpStatus,
   )
 where
@@ -212,10 +212,10 @@ instance Core.AWSRequest ScheduleKeyDeletion where
     Response.receiveJSON
       ( \s h x ->
           ScheduleKeyDeletionResponse'
-            Prelude.<$> (x Core..?> "KeyId")
+            Prelude.<$> (x Core..?> "PendingWindowInDays")
             Prelude.<*> (x Core..?> "KeyState")
             Prelude.<*> (x Core..?> "DeletionDate")
-            Prelude.<*> (x Core..?> "PendingWindowInDays")
+            Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -262,10 +262,12 @@ instance Core.ToQuery ScheduleKeyDeletion where
 
 -- | /See:/ 'newScheduleKeyDeletionResponse' smart constructor.
 data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
-  { -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the KMS key whose deletion is scheduled.
-    keyId :: Prelude.Maybe Prelude.Text,
+  { -- | The waiting period before the KMS key is deleted.
+    --
+    -- If the KMS key is a multi-Region primary key with replicas, the waiting
+    -- period begins when the last of its replica keys is deleted. Otherwise,
+    -- the waiting period begins immediately.
+    pendingWindowInDays :: Prelude.Maybe Prelude.Natural,
     -- | The current status of the KMS key.
     --
     -- For more information about how key state affects the use of a KMS key,
@@ -279,12 +281,10 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
     -- field does not appear. The deletion date for the primary key isn\'t
     -- known until its last replica key is deleted.
     deletionDate :: Prelude.Maybe Core.POSIX,
-    -- | The waiting period before the KMS key is deleted.
-    --
-    -- If the KMS key is a multi-Region primary key with replicas, the waiting
-    -- period begins when the last of its replica keys is deleted. Otherwise,
-    -- the waiting period begins immediately.
-    pendingWindowInDays :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+    -- of the KMS key whose deletion is scheduled.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,9 +298,11 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'scheduleKeyDeletionResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key whose deletion is scheduled.
+-- 'pendingWindowInDays', 'scheduleKeyDeletionResponse_pendingWindowInDays' - The waiting period before the KMS key is deleted.
+--
+-- If the KMS key is a multi-Region primary key with replicas, the waiting
+-- period begins when the last of its replica keys is deleted. Otherwise,
+-- the waiting period begins immediately.
 --
 -- 'keyState', 'scheduleKeyDeletionResponse_keyState' - The current status of the KMS key.
 --
@@ -315,11 +317,9 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
 -- field does not appear. The deletion date for the primary key isn\'t
 -- known until its last replica key is deleted.
 --
--- 'pendingWindowInDays', 'scheduleKeyDeletionResponse_pendingWindowInDays' - The waiting period before the KMS key is deleted.
---
--- If the KMS key is a multi-Region primary key with replicas, the waiting
--- period begins when the last of its replica keys is deleted. Otherwise,
--- the waiting period begins immediately.
+-- 'keyId', 'scheduleKeyDeletionResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key whose deletion is scheduled.
 --
 -- 'httpStatus', 'scheduleKeyDeletionResponse_httpStatus' - The response's http status code.
 newScheduleKeyDeletionResponse ::
@@ -328,19 +328,21 @@ newScheduleKeyDeletionResponse ::
   ScheduleKeyDeletionResponse
 newScheduleKeyDeletionResponse pHttpStatus_ =
   ScheduleKeyDeletionResponse'
-    { keyId =
+    { pendingWindowInDays =
         Prelude.Nothing,
       keyState = Prelude.Nothing,
       deletionDate = Prelude.Nothing,
-      pendingWindowInDays = Prelude.Nothing,
+      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key whose deletion is scheduled.
-scheduleKeyDeletionResponse_keyId :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.Text)
-scheduleKeyDeletionResponse_keyId = Lens.lens (\ScheduleKeyDeletionResponse' {keyId} -> keyId) (\s@ScheduleKeyDeletionResponse' {} a -> s {keyId = a} :: ScheduleKeyDeletionResponse)
+-- | The waiting period before the KMS key is deleted.
+--
+-- If the KMS key is a multi-Region primary key with replicas, the waiting
+-- period begins when the last of its replica keys is deleted. Otherwise,
+-- the waiting period begins immediately.
+scheduleKeyDeletionResponse_pendingWindowInDays :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.Natural)
+scheduleKeyDeletionResponse_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletionResponse' {pendingWindowInDays} -> pendingWindowInDays) (\s@ScheduleKeyDeletionResponse' {} a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletionResponse)
 
 -- | The current status of the KMS key.
 --
@@ -359,13 +361,11 @@ scheduleKeyDeletionResponse_keyState = Lens.lens (\ScheduleKeyDeletionResponse' 
 scheduleKeyDeletionResponse_deletionDate :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.UTCTime)
 scheduleKeyDeletionResponse_deletionDate = Lens.lens (\ScheduleKeyDeletionResponse' {deletionDate} -> deletionDate) (\s@ScheduleKeyDeletionResponse' {} a -> s {deletionDate = a} :: ScheduleKeyDeletionResponse) Prelude.. Lens.mapping Core._Time
 
--- | The waiting period before the KMS key is deleted.
---
--- If the KMS key is a multi-Region primary key with replicas, the waiting
--- period begins when the last of its replica keys is deleted. Otherwise,
--- the waiting period begins immediately.
-scheduleKeyDeletionResponse_pendingWindowInDays :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.Natural)
-scheduleKeyDeletionResponse_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletionResponse' {pendingWindowInDays} -> pendingWindowInDays) (\s@ScheduleKeyDeletionResponse' {} a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletionResponse)
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key whose deletion is scheduled.
+scheduleKeyDeletionResponse_keyId :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.Text)
+scheduleKeyDeletionResponse_keyId = Lens.lens (\ScheduleKeyDeletionResponse' {keyId} -> keyId) (\s@ScheduleKeyDeletionResponse' {} a -> s {keyId = a} :: ScheduleKeyDeletionResponse)
 
 -- | The response's http status code.
 scheduleKeyDeletionResponse_httpStatus :: Lens.Lens' ScheduleKeyDeletionResponse Prelude.Int
@@ -373,8 +373,8 @@ scheduleKeyDeletionResponse_httpStatus = Lens.lens (\ScheduleKeyDeletionResponse
 
 instance Prelude.NFData ScheduleKeyDeletionResponse where
   rnf ScheduleKeyDeletionResponse' {..} =
-    Prelude.rnf keyId
+    Prelude.rnf pendingWindowInDays
       `Prelude.seq` Prelude.rnf keyState
       `Prelude.seq` Prelude.rnf deletionDate
-      `Prelude.seq` Prelude.rnf pendingWindowInDays
+      `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf httpStatus

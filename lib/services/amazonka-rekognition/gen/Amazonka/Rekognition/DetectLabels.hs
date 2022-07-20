@@ -98,8 +98,8 @@ module Amazonka.Rekognition.DetectLabels
     newDetectLabels,
 
     -- * Request Lenses
-    detectLabels_minConfidence,
     detectLabels_maxLabels,
+    detectLabels_minConfidence,
     detectLabels_image,
 
     -- * Destructuring the Response
@@ -107,9 +107,9 @@ module Amazonka.Rekognition.DetectLabels
     newDetectLabelsResponse,
 
     -- * Response Lenses
-    detectLabelsResponse_labels,
-    detectLabelsResponse_orientationCorrection,
     detectLabelsResponse_labelModelVersion,
+    detectLabelsResponse_orientationCorrection,
+    detectLabelsResponse_labels,
     detectLabelsResponse_httpStatus,
   )
 where
@@ -123,16 +123,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectLabels' smart constructor.
 data DetectLabels = DetectLabels'
-  { -- | Specifies the minimum confidence level for the labels to return. Amazon
+  { -- | Maximum number of labels you want the service to return in the response.
+    -- The service returns the specified number of highest confidence labels.
+    maxLabels :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the minimum confidence level for the labels to return. Amazon
     -- Rekognition doesn\'t return any labels with confidence lower than this
     -- specified value.
     --
     -- If @MinConfidence@ is not specified, the operation returns labels with a
     -- confidence values greater than or equal to 55 percent.
     minConfidence :: Prelude.Maybe Prelude.Double,
-    -- | Maximum number of labels you want the service to return in the response.
-    -- The service returns the specified number of highest confidence labels.
-    maxLabels :: Prelude.Maybe Prelude.Natural,
     -- | The input image as base64-encoded bytes or an S3 object. If you use the
     -- AWS CLI to call Amazon Rekognition operations, passing image bytes is
     -- not supported. Images stored in an S3 Bucket do not need to be
@@ -153,15 +153,15 @@ data DetectLabels = DetectLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxLabels', 'detectLabels_maxLabels' - Maximum number of labels you want the service to return in the response.
+-- The service returns the specified number of highest confidence labels.
+--
 -- 'minConfidence', 'detectLabels_minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon
 -- Rekognition doesn\'t return any labels with confidence lower than this
 -- specified value.
 --
 -- If @MinConfidence@ is not specified, the operation returns labels with a
 -- confidence values greater than or equal to 55 percent.
---
--- 'maxLabels', 'detectLabels_maxLabels' - Maximum number of labels you want the service to return in the response.
--- The service returns the specified number of highest confidence labels.
 --
 -- 'image', 'detectLabels_image' - The input image as base64-encoded bytes or an S3 object. If you use the
 -- AWS CLI to call Amazon Rekognition operations, passing image bytes is
@@ -177,10 +177,15 @@ newDetectLabels ::
   DetectLabels
 newDetectLabels pImage_ =
   DetectLabels'
-    { minConfidence = Prelude.Nothing,
-      maxLabels = Prelude.Nothing,
+    { maxLabels = Prelude.Nothing,
+      minConfidence = Prelude.Nothing,
       image = pImage_
     }
+
+-- | Maximum number of labels you want the service to return in the response.
+-- The service returns the specified number of highest confidence labels.
+detectLabels_maxLabels :: Lens.Lens' DetectLabels (Prelude.Maybe Prelude.Natural)
+detectLabels_maxLabels = Lens.lens (\DetectLabels' {maxLabels} -> maxLabels) (\s@DetectLabels' {} a -> s {maxLabels = a} :: DetectLabels)
 
 -- | Specifies the minimum confidence level for the labels to return. Amazon
 -- Rekognition doesn\'t return any labels with confidence lower than this
@@ -190,11 +195,6 @@ newDetectLabels pImage_ =
 -- confidence values greater than or equal to 55 percent.
 detectLabels_minConfidence :: Lens.Lens' DetectLabels (Prelude.Maybe Prelude.Double)
 detectLabels_minConfidence = Lens.lens (\DetectLabels' {minConfidence} -> minConfidence) (\s@DetectLabels' {} a -> s {minConfidence = a} :: DetectLabels)
-
--- | Maximum number of labels you want the service to return in the response.
--- The service returns the specified number of highest confidence labels.
-detectLabels_maxLabels :: Lens.Lens' DetectLabels (Prelude.Maybe Prelude.Natural)
-detectLabels_maxLabels = Lens.lens (\DetectLabels' {maxLabels} -> maxLabels) (\s@DetectLabels' {} a -> s {maxLabels = a} :: DetectLabels)
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the
 -- AWS CLI to call Amazon Rekognition operations, passing image bytes is
@@ -214,22 +214,22 @@ instance Core.AWSRequest DetectLabels where
     Response.receiveJSON
       ( \s h x ->
           DetectLabelsResponse'
-            Prelude.<$> (x Core..?> "Labels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "LabelModelVersion")
             Prelude.<*> (x Core..?> "OrientationCorrection")
-            Prelude.<*> (x Core..?> "LabelModelVersion")
+            Prelude.<*> (x Core..?> "Labels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DetectLabels where
   hashWithSalt _salt DetectLabels' {..} =
-    _salt `Prelude.hashWithSalt` minConfidence
-      `Prelude.hashWithSalt` maxLabels
+    _salt `Prelude.hashWithSalt` maxLabels
+      `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` image
 
 instance Prelude.NFData DetectLabels where
   rnf DetectLabels' {..} =
-    Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf maxLabels
+    Prelude.rnf maxLabels
+      `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf image
 
 instance Core.ToHeaders DetectLabels where
@@ -251,8 +251,8 @@ instance Core.ToJSON DetectLabels where
   toJSON DetectLabels' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MinConfidence" Core..=) Prelude.<$> minConfidence,
-            ("MaxLabels" Core..=) Prelude.<$> maxLabels,
+          [ ("MaxLabels" Core..=) Prelude.<$> maxLabels,
+            ("MinConfidence" Core..=) Prelude.<$> minConfidence,
             Prelude.Just ("Image" Core..= image)
           ]
       )
@@ -265,8 +265,9 @@ instance Core.ToQuery DetectLabels where
 
 -- | /See:/ 'newDetectLabelsResponse' smart constructor.
 data DetectLabelsResponse = DetectLabelsResponse'
-  { -- | An array of labels for the real-world objects detected.
-    labels :: Prelude.Maybe [Label],
+  { -- | Version number of the label detection model that was used to detect
+    -- labels.
+    labelModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The value of @OrientationCorrection@ is always null.
     --
     -- If the input image is in .jpeg format, it might contain exchangeable
@@ -282,9 +283,8 @@ data DetectLabelsResponse = DetectLabelsResponse'
     -- Exif metadata. The bounding box coordinates aren\'t translated and
     -- represent the object locations before the image is rotated.
     orientationCorrection :: Prelude.Maybe OrientationCorrection,
-    -- | Version number of the label detection model that was used to detect
-    -- labels.
-    labelModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | An array of labels for the real-world objects detected.
+    labels :: Prelude.Maybe [Label],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,7 +298,8 @@ data DetectLabelsResponse = DetectLabelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'labels', 'detectLabelsResponse_labels' - An array of labels for the real-world objects detected.
+-- 'labelModelVersion', 'detectLabelsResponse_labelModelVersion' - Version number of the label detection model that was used to detect
+-- labels.
 --
 -- 'orientationCorrection', 'detectLabelsResponse_orientationCorrection' - The value of @OrientationCorrection@ is always null.
 --
@@ -315,8 +316,7 @@ data DetectLabelsResponse = DetectLabelsResponse'
 -- Exif metadata. The bounding box coordinates aren\'t translated and
 -- represent the object locations before the image is rotated.
 --
--- 'labelModelVersion', 'detectLabelsResponse_labelModelVersion' - Version number of the label detection model that was used to detect
--- labels.
+-- 'labels', 'detectLabelsResponse_labels' - An array of labels for the real-world objects detected.
 --
 -- 'httpStatus', 'detectLabelsResponse_httpStatus' - The response's http status code.
 newDetectLabelsResponse ::
@@ -325,15 +325,17 @@ newDetectLabelsResponse ::
   DetectLabelsResponse
 newDetectLabelsResponse pHttpStatus_ =
   DetectLabelsResponse'
-    { labels = Prelude.Nothing,
+    { labelModelVersion =
+        Prelude.Nothing,
       orientationCorrection = Prelude.Nothing,
-      labelModelVersion = Prelude.Nothing,
+      labels = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An array of labels for the real-world objects detected.
-detectLabelsResponse_labels :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe [Label])
-detectLabelsResponse_labels = Lens.lens (\DetectLabelsResponse' {labels} -> labels) (\s@DetectLabelsResponse' {} a -> s {labels = a} :: DetectLabelsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Version number of the label detection model that was used to detect
+-- labels.
+detectLabelsResponse_labelModelVersion :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe Prelude.Text)
+detectLabelsResponse_labelModelVersion = Lens.lens (\DetectLabelsResponse' {labelModelVersion} -> labelModelVersion) (\s@DetectLabelsResponse' {} a -> s {labelModelVersion = a} :: DetectLabelsResponse)
 
 -- | The value of @OrientationCorrection@ is always null.
 --
@@ -352,10 +354,9 @@ detectLabelsResponse_labels = Lens.lens (\DetectLabelsResponse' {labels} -> labe
 detectLabelsResponse_orientationCorrection :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe OrientationCorrection)
 detectLabelsResponse_orientationCorrection = Lens.lens (\DetectLabelsResponse' {orientationCorrection} -> orientationCorrection) (\s@DetectLabelsResponse' {} a -> s {orientationCorrection = a} :: DetectLabelsResponse)
 
--- | Version number of the label detection model that was used to detect
--- labels.
-detectLabelsResponse_labelModelVersion :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe Prelude.Text)
-detectLabelsResponse_labelModelVersion = Lens.lens (\DetectLabelsResponse' {labelModelVersion} -> labelModelVersion) (\s@DetectLabelsResponse' {} a -> s {labelModelVersion = a} :: DetectLabelsResponse)
+-- | An array of labels for the real-world objects detected.
+detectLabelsResponse_labels :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe [Label])
+detectLabelsResponse_labels = Lens.lens (\DetectLabelsResponse' {labels} -> labels) (\s@DetectLabelsResponse' {} a -> s {labels = a} :: DetectLabelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detectLabelsResponse_httpStatus :: Lens.Lens' DetectLabelsResponse Prelude.Int
@@ -363,7 +364,7 @@ detectLabelsResponse_httpStatus = Lens.lens (\DetectLabelsResponse' {httpStatus}
 
 instance Prelude.NFData DetectLabelsResponse where
   rnf DetectLabelsResponse' {..} =
-    Prelude.rnf labels
+    Prelude.rnf labelModelVersion
       `Prelude.seq` Prelude.rnf orientationCorrection
-      `Prelude.seq` Prelude.rnf labelModelVersion
+      `Prelude.seq` Prelude.rnf labels
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,8 +27,8 @@ module Amazonka.Transcribe.ListVocabularyFilters
     newListVocabularyFilters,
 
     -- * Request Lenses
-    listVocabularyFilters_nameContains,
     listVocabularyFilters_nextToken,
+    listVocabularyFilters_nameContains,
     listVocabularyFilters_maxResults,
 
     -- * Destructuring the Response
@@ -51,12 +51,12 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListVocabularyFilters' smart constructor.
 data ListVocabularyFilters = ListVocabularyFilters'
-  { -- | Filters the response so that it only contains vocabulary filters whose
-    -- name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | If the result of the previous request to @ListVocabularyFilters@ was
+  { -- | If the result of the previous request to @ListVocabularyFilters@ was
     -- truncated, include the @NextToken@ to fetch the next set of collections.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters the response so that it only contains vocabulary filters whose
+    -- name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of filters to return in each page of results. If
     -- there are fewer results than the value you specify, only the actual
     -- results are returned. If you do not specify a value, the default of 5 is
@@ -73,11 +73,11 @@ data ListVocabularyFilters = ListVocabularyFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nameContains', 'listVocabularyFilters_nameContains' - Filters the response so that it only contains vocabulary filters whose
--- name contains the specified string.
---
 -- 'nextToken', 'listVocabularyFilters_nextToken' - If the result of the previous request to @ListVocabularyFilters@ was
 -- truncated, include the @NextToken@ to fetch the next set of collections.
+--
+-- 'nameContains', 'listVocabularyFilters_nameContains' - Filters the response so that it only contains vocabulary filters whose
+-- name contains the specified string.
 --
 -- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of filters to return in each page of results. If
 -- there are fewer results than the value you specify, only the actual
@@ -87,21 +87,20 @@ newListVocabularyFilters ::
   ListVocabularyFilters
 newListVocabularyFilters =
   ListVocabularyFilters'
-    { nameContains =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Filters the response so that it only contains vocabulary filters whose
--- name contains the specified string.
-listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
-listVocabularyFilters_nameContains = Lens.lens (\ListVocabularyFilters' {nameContains} -> nameContains) (\s@ListVocabularyFilters' {} a -> s {nameContains = a} :: ListVocabularyFilters)
 
 -- | If the result of the previous request to @ListVocabularyFilters@ was
 -- truncated, include the @NextToken@ to fetch the next set of collections.
 listVocabularyFilters_nextToken :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
 listVocabularyFilters_nextToken = Lens.lens (\ListVocabularyFilters' {nextToken} -> nextToken) (\s@ListVocabularyFilters' {} a -> s {nextToken = a} :: ListVocabularyFilters)
+
+-- | Filters the response so that it only contains vocabulary filters whose
+-- name contains the specified string.
+listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
+listVocabularyFilters_nameContains = Lens.lens (\ListVocabularyFilters' {nameContains} -> nameContains) (\s@ListVocabularyFilters' {} a -> s {nameContains = a} :: ListVocabularyFilters)
 
 -- | The maximum number of filters to return in each page of results. If
 -- there are fewer results than the value you specify, only the actual
@@ -128,14 +127,14 @@ instance Core.AWSRequest ListVocabularyFilters where
 
 instance Prelude.Hashable ListVocabularyFilters where
   hashWithSalt _salt ListVocabularyFilters' {..} =
-    _salt `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListVocabularyFilters where
   rnf ListVocabularyFilters' {..} =
-    Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListVocabularyFilters where
@@ -157,8 +156,8 @@ instance Core.ToJSON ListVocabularyFilters where
   toJSON ListVocabularyFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

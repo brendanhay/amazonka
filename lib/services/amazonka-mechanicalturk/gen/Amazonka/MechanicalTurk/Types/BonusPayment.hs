@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBonusPayment' smart constructor.
 data BonusPayment = BonusPayment'
-  { -- | The Reason text given when the bonus was granted, if any.
-    reason :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the Worker to whom the bonus was paid.
+    workerId :: Prelude.Maybe Prelude.Text,
     -- | The date and time of when the bonus was granted.
     grantTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the Worker to whom the bonus was paid.
-    workerId :: Prelude.Maybe Prelude.Text,
+    -- | The Reason text given when the bonus was granted, if any.
+    reason :: Prelude.Maybe Prelude.Text,
     -- | The ID of the assignment associated with this bonus payment.
     assignmentId :: Prelude.Maybe Prelude.Text,
     bonusAmount :: Prelude.Maybe Prelude.Text
@@ -47,11 +47,11 @@ data BonusPayment = BonusPayment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reason', 'bonusPayment_reason' - The Reason text given when the bonus was granted, if any.
+-- 'workerId', 'bonusPayment_workerId' - The ID of the Worker to whom the bonus was paid.
 --
 -- 'grantTime', 'bonusPayment_grantTime' - The date and time of when the bonus was granted.
 --
--- 'workerId', 'bonusPayment_workerId' - The ID of the Worker to whom the bonus was paid.
+-- 'reason', 'bonusPayment_reason' - The Reason text given when the bonus was granted, if any.
 --
 -- 'assignmentId', 'bonusPayment_assignmentId' - The ID of the assignment associated with this bonus payment.
 --
@@ -60,24 +60,24 @@ newBonusPayment ::
   BonusPayment
 newBonusPayment =
   BonusPayment'
-    { reason = Prelude.Nothing,
+    { workerId = Prelude.Nothing,
       grantTime = Prelude.Nothing,
-      workerId = Prelude.Nothing,
+      reason = Prelude.Nothing,
       assignmentId = Prelude.Nothing,
       bonusAmount = Prelude.Nothing
     }
 
--- | The Reason text given when the bonus was granted, if any.
-bonusPayment_reason :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.Text)
-bonusPayment_reason = Lens.lens (\BonusPayment' {reason} -> reason) (\s@BonusPayment' {} a -> s {reason = a} :: BonusPayment)
+-- | The ID of the Worker to whom the bonus was paid.
+bonusPayment_workerId :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.Text)
+bonusPayment_workerId = Lens.lens (\BonusPayment' {workerId} -> workerId) (\s@BonusPayment' {} a -> s {workerId = a} :: BonusPayment)
 
 -- | The date and time of when the bonus was granted.
 bonusPayment_grantTime :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.UTCTime)
 bonusPayment_grantTime = Lens.lens (\BonusPayment' {grantTime} -> grantTime) (\s@BonusPayment' {} a -> s {grantTime = a} :: BonusPayment) Prelude.. Lens.mapping Core._Time
 
--- | The ID of the Worker to whom the bonus was paid.
-bonusPayment_workerId :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.Text)
-bonusPayment_workerId = Lens.lens (\BonusPayment' {workerId} -> workerId) (\s@BonusPayment' {} a -> s {workerId = a} :: BonusPayment)
+-- | The Reason text given when the bonus was granted, if any.
+bonusPayment_reason :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.Text)
+bonusPayment_reason = Lens.lens (\BonusPayment' {reason} -> reason) (\s@BonusPayment' {} a -> s {reason = a} :: BonusPayment)
 
 -- | The ID of the assignment associated with this bonus payment.
 bonusPayment_assignmentId :: Lens.Lens' BonusPayment (Prelude.Maybe Prelude.Text)
@@ -93,25 +93,25 @@ instance Core.FromJSON BonusPayment where
       "BonusPayment"
       ( \x ->
           BonusPayment'
-            Prelude.<$> (x Core..:? "Reason")
+            Prelude.<$> (x Core..:? "WorkerId")
             Prelude.<*> (x Core..:? "GrantTime")
-            Prelude.<*> (x Core..:? "WorkerId")
+            Prelude.<*> (x Core..:? "Reason")
             Prelude.<*> (x Core..:? "AssignmentId")
             Prelude.<*> (x Core..:? "BonusAmount")
       )
 
 instance Prelude.Hashable BonusPayment where
   hashWithSalt _salt BonusPayment' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` workerId
       `Prelude.hashWithSalt` grantTime
-      `Prelude.hashWithSalt` workerId
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` assignmentId
       `Prelude.hashWithSalt` bonusAmount
 
 instance Prelude.NFData BonusPayment where
   rnf BonusPayment' {..} =
-    Prelude.rnf reason
+    Prelude.rnf workerId
       `Prelude.seq` Prelude.rnf grantTime
-      `Prelude.seq` Prelude.rnf workerId
+      `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf assignmentId
       `Prelude.seq` Prelude.rnf bonusAmount

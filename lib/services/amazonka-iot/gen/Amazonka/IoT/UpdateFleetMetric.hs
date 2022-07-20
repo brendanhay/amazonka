@@ -31,13 +31,13 @@ module Amazonka.IoT.UpdateFleetMetric
     newUpdateFleetMetric,
 
     -- * Request Lenses
+    updateFleetMetric_aggregationField,
     updateFleetMetric_aggregationType,
     updateFleetMetric_period,
-    updateFleetMetric_queryVersion,
-    updateFleetMetric_aggregationField,
-    updateFleetMetric_expectedVersion,
-    updateFleetMetric_queryString,
     updateFleetMetric_description,
+    updateFleetMetric_queryVersion,
+    updateFleetMetric_queryString,
+    updateFleetMetric_expectedVersion,
     updateFleetMetric_unit,
     updateFleetMetric_metricName,
     updateFleetMetric_indexName,
@@ -57,21 +57,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFleetMetric' smart constructor.
 data UpdateFleetMetric = UpdateFleetMetric'
-  { -- | The type of the aggregation query.
+  { -- | The field to aggregate.
+    aggregationField :: Prelude.Maybe Prelude.Text,
+    -- | The type of the aggregation query.
     aggregationType :: Prelude.Maybe AggregationType,
     -- | The time in seconds between fleet metric emissions. Range [60(1 min),
     -- 86400(1 day)] and must be multiple of 60.
     period :: Prelude.Maybe Prelude.Natural,
-    -- | The version of the query.
-    queryVersion :: Prelude.Maybe Prelude.Text,
-    -- | The field to aggregate.
-    aggregationField :: Prelude.Maybe Prelude.Text,
-    -- | The expected version of the fleet metric record in the registry.
-    expectedVersion :: Prelude.Maybe Prelude.Integer,
-    -- | The search query string.
-    queryString :: Prelude.Maybe Prelude.Text,
     -- | The description of the fleet metric.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The version of the query.
+    queryVersion :: Prelude.Maybe Prelude.Text,
+    -- | The search query string.
+    queryString :: Prelude.Maybe Prelude.Text,
+    -- | The expected version of the fleet metric record in the registry.
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | Used to support unit transformation such as milliseconds to seconds. The
     -- unit must be supported by
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
@@ -91,20 +91,20 @@ data UpdateFleetMetric = UpdateFleetMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aggregationField', 'updateFleetMetric_aggregationField' - The field to aggregate.
+--
 -- 'aggregationType', 'updateFleetMetric_aggregationType' - The type of the aggregation query.
 --
 -- 'period', 'updateFleetMetric_period' - The time in seconds between fleet metric emissions. Range [60(1 min),
 -- 86400(1 day)] and must be multiple of 60.
 --
+-- 'description', 'updateFleetMetric_description' - The description of the fleet metric.
+--
 -- 'queryVersion', 'updateFleetMetric_queryVersion' - The version of the query.
---
--- 'aggregationField', 'updateFleetMetric_aggregationField' - The field to aggregate.
---
--- 'expectedVersion', 'updateFleetMetric_expectedVersion' - The expected version of the fleet metric record in the registry.
 --
 -- 'queryString', 'updateFleetMetric_queryString' - The search query string.
 --
--- 'description', 'updateFleetMetric_description' - The description of the fleet metric.
+-- 'expectedVersion', 'updateFleetMetric_expectedVersion' - The expected version of the fleet metric record in the registry.
 --
 -- 'unit', 'updateFleetMetric_unit' - Used to support unit transformation such as milliseconds to seconds. The
 -- unit must be supported by
@@ -121,18 +121,22 @@ newUpdateFleetMetric ::
   UpdateFleetMetric
 newUpdateFleetMetric pMetricName_ pIndexName_ =
   UpdateFleetMetric'
-    { aggregationType =
+    { aggregationField =
         Prelude.Nothing,
+      aggregationType = Prelude.Nothing,
       period = Prelude.Nothing,
-      queryVersion = Prelude.Nothing,
-      aggregationField = Prelude.Nothing,
-      expectedVersion = Prelude.Nothing,
-      queryString = Prelude.Nothing,
       description = Prelude.Nothing,
+      queryVersion = Prelude.Nothing,
+      queryString = Prelude.Nothing,
+      expectedVersion = Prelude.Nothing,
       unit = Prelude.Nothing,
       metricName = pMetricName_,
       indexName = pIndexName_
     }
+
+-- | The field to aggregate.
+updateFleetMetric_aggregationField :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Text)
+updateFleetMetric_aggregationField = Lens.lens (\UpdateFleetMetric' {aggregationField} -> aggregationField) (\s@UpdateFleetMetric' {} a -> s {aggregationField = a} :: UpdateFleetMetric)
 
 -- | The type of the aggregation query.
 updateFleetMetric_aggregationType :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe AggregationType)
@@ -143,25 +147,21 @@ updateFleetMetric_aggregationType = Lens.lens (\UpdateFleetMetric' {aggregationT
 updateFleetMetric_period :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Natural)
 updateFleetMetric_period = Lens.lens (\UpdateFleetMetric' {period} -> period) (\s@UpdateFleetMetric' {} a -> s {period = a} :: UpdateFleetMetric)
 
+-- | The description of the fleet metric.
+updateFleetMetric_description :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Text)
+updateFleetMetric_description = Lens.lens (\UpdateFleetMetric' {description} -> description) (\s@UpdateFleetMetric' {} a -> s {description = a} :: UpdateFleetMetric)
+
 -- | The version of the query.
 updateFleetMetric_queryVersion :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Text)
 updateFleetMetric_queryVersion = Lens.lens (\UpdateFleetMetric' {queryVersion} -> queryVersion) (\s@UpdateFleetMetric' {} a -> s {queryVersion = a} :: UpdateFleetMetric)
-
--- | The field to aggregate.
-updateFleetMetric_aggregationField :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Text)
-updateFleetMetric_aggregationField = Lens.lens (\UpdateFleetMetric' {aggregationField} -> aggregationField) (\s@UpdateFleetMetric' {} a -> s {aggregationField = a} :: UpdateFleetMetric)
-
--- | The expected version of the fleet metric record in the registry.
-updateFleetMetric_expectedVersion :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Integer)
-updateFleetMetric_expectedVersion = Lens.lens (\UpdateFleetMetric' {expectedVersion} -> expectedVersion) (\s@UpdateFleetMetric' {} a -> s {expectedVersion = a} :: UpdateFleetMetric)
 
 -- | The search query string.
 updateFleetMetric_queryString :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Text)
 updateFleetMetric_queryString = Lens.lens (\UpdateFleetMetric' {queryString} -> queryString) (\s@UpdateFleetMetric' {} a -> s {queryString = a} :: UpdateFleetMetric)
 
--- | The description of the fleet metric.
-updateFleetMetric_description :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Text)
-updateFleetMetric_description = Lens.lens (\UpdateFleetMetric' {description} -> description) (\s@UpdateFleetMetric' {} a -> s {description = a} :: UpdateFleetMetric)
+-- | The expected version of the fleet metric record in the registry.
+updateFleetMetric_expectedVersion :: Lens.Lens' UpdateFleetMetric (Prelude.Maybe Prelude.Integer)
+updateFleetMetric_expectedVersion = Lens.lens (\UpdateFleetMetric' {expectedVersion} -> expectedVersion) (\s@UpdateFleetMetric' {} a -> s {expectedVersion = a} :: UpdateFleetMetric)
 
 -- | Used to support unit transformation such as milliseconds to seconds. The
 -- unit must be supported by
@@ -187,26 +187,26 @@ instance Core.AWSRequest UpdateFleetMetric where
 
 instance Prelude.Hashable UpdateFleetMetric where
   hashWithSalt _salt UpdateFleetMetric' {..} =
-    _salt `Prelude.hashWithSalt` aggregationType
+    _salt `Prelude.hashWithSalt` aggregationField
+      `Prelude.hashWithSalt` aggregationType
       `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` queryVersion
-      `Prelude.hashWithSalt` aggregationField
-      `Prelude.hashWithSalt` expectedVersion
-      `Prelude.hashWithSalt` queryString
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` queryVersion
+      `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` indexName
 
 instance Prelude.NFData UpdateFleetMetric where
   rnf UpdateFleetMetric' {..} =
-    Prelude.rnf aggregationType
+    Prelude.rnf aggregationField
+      `Prelude.seq` Prelude.rnf aggregationType
       `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf aggregationField
-      `Prelude.seq` Prelude.rnf expectedVersion
-      `Prelude.seq` Prelude.rnf queryString
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf expectedVersion
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf indexName
@@ -218,16 +218,16 @@ instance Core.ToJSON UpdateFleetMetric where
   toJSON UpdateFleetMetric' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("aggregationType" Core..=)
+          [ ("aggregationField" Core..=)
+              Prelude.<$> aggregationField,
+            ("aggregationType" Core..=)
               Prelude.<$> aggregationType,
             ("period" Core..=) Prelude.<$> period,
+            ("description" Core..=) Prelude.<$> description,
             ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            ("aggregationField" Core..=)
-              Prelude.<$> aggregationField,
+            ("queryString" Core..=) Prelude.<$> queryString,
             ("expectedVersion" Core..=)
               Prelude.<$> expectedVersion,
-            ("queryString" Core..=) Prelude.<$> queryString,
-            ("description" Core..=) Prelude.<$> description,
             ("unit" Core..=) Prelude.<$> unit,
             Prelude.Just ("indexName" Core..= indexName)
           ]

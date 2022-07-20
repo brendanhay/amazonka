@@ -31,9 +31,9 @@ module Amazonka.EC2.DescribeLocalGatewayRouteTables
     newDescribeLocalGatewayRouteTables,
 
     -- * Request Lenses
-    describeLocalGatewayRouteTables_filters,
-    describeLocalGatewayRouteTables_nextToken,
     describeLocalGatewayRouteTables_localGatewayRouteTableIds,
+    describeLocalGatewayRouteTables_nextToken,
+    describeLocalGatewayRouteTables_filters,
     describeLocalGatewayRouteTables_dryRun,
     describeLocalGatewayRouteTables_maxResults,
 
@@ -57,7 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLocalGatewayRouteTables' smart constructor.
 data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
-  { -- | One or more filters.
+  { -- | The IDs of the local gateway route tables.
+    localGatewayRouteTableIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
     --
@@ -68,10 +72,6 @@ data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
     --
     -- -   @state@ - The state of the local gateway route table.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the local gateway route tables.
-    localGatewayRouteTableIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -92,6 +92,10 @@ data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'localGatewayRouteTableIds', 'describeLocalGatewayRouteTables_localGatewayRouteTableIds' - The IDs of the local gateway route tables.
+--
+-- 'nextToken', 'describeLocalGatewayRouteTables_nextToken' - The token for the next page of results.
+--
 -- 'filters', 'describeLocalGatewayRouteTables_filters' - One or more filters.
 --
 -- -   @local-gateway-id@ - The ID of a local gateway.
@@ -102,10 +106,6 @@ data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
 -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
 --
 -- -   @state@ - The state of the local gateway route table.
---
--- 'nextToken', 'describeLocalGatewayRouteTables_nextToken' - The token for the next page of results.
---
--- 'localGatewayRouteTableIds', 'describeLocalGatewayRouteTables_localGatewayRouteTableIds' - The IDs of the local gateway route tables.
 --
 -- 'dryRun', 'describeLocalGatewayRouteTables_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -119,14 +119,21 @@ newDescribeLocalGatewayRouteTables ::
   DescribeLocalGatewayRouteTables
 newDescribeLocalGatewayRouteTables =
   DescribeLocalGatewayRouteTables'
-    { filters =
+    { localGatewayRouteTableIds =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      localGatewayRouteTableIds =
-        Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The IDs of the local gateway route tables.
+describeLocalGatewayRouteTables_localGatewayRouteTableIds :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe [Prelude.Text])
+describeLocalGatewayRouteTables_localGatewayRouteTableIds = Lens.lens (\DescribeLocalGatewayRouteTables' {localGatewayRouteTableIds} -> localGatewayRouteTableIds) (\s@DescribeLocalGatewayRouteTables' {} a -> s {localGatewayRouteTableIds = a} :: DescribeLocalGatewayRouteTables) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+describeLocalGatewayRouteTables_nextToken :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe Prelude.Text)
+describeLocalGatewayRouteTables_nextToken = Lens.lens (\DescribeLocalGatewayRouteTables' {nextToken} -> nextToken) (\s@DescribeLocalGatewayRouteTables' {} a -> s {nextToken = a} :: DescribeLocalGatewayRouteTables)
 
 -- | One or more filters.
 --
@@ -140,14 +147,6 @@ newDescribeLocalGatewayRouteTables =
 -- -   @state@ - The state of the local gateway route table.
 describeLocalGatewayRouteTables_filters :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe [Filter])
 describeLocalGatewayRouteTables_filters = Lens.lens (\DescribeLocalGatewayRouteTables' {filters} -> filters) (\s@DescribeLocalGatewayRouteTables' {} a -> s {filters = a} :: DescribeLocalGatewayRouteTables) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-describeLocalGatewayRouteTables_nextToken :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe Prelude.Text)
-describeLocalGatewayRouteTables_nextToken = Lens.lens (\DescribeLocalGatewayRouteTables' {nextToken} -> nextToken) (\s@DescribeLocalGatewayRouteTables' {} a -> s {nextToken = a} :: DescribeLocalGatewayRouteTables)
-
--- | The IDs of the local gateway route tables.
-describeLocalGatewayRouteTables_localGatewayRouteTableIds :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe [Prelude.Text])
-describeLocalGatewayRouteTables_localGatewayRouteTableIds = Lens.lens (\DescribeLocalGatewayRouteTables' {localGatewayRouteTableIds} -> localGatewayRouteTableIds) (\s@DescribeLocalGatewayRouteTables' {} a -> s {localGatewayRouteTableIds = a} :: DescribeLocalGatewayRouteTables) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -214,9 +213,10 @@ instance
   hashWithSalt
     _salt
     DescribeLocalGatewayRouteTables' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt
         `Prelude.hashWithSalt` localGatewayRouteTableIds
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
 
@@ -225,9 +225,9 @@ instance
     DescribeLocalGatewayRouteTables
   where
   rnf DescribeLocalGatewayRouteTables' {..} =
-    Prelude.rnf filters
+    Prelude.rnf localGatewayRouteTableIds
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableIds
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -250,12 +250,12 @@ instance Core.ToQuery DescribeLocalGatewayRouteTables where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
           ( Core.toQueryList "LocalGatewayRouteTableId"
               Prelude.<$> localGatewayRouteTableIds
           ),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]

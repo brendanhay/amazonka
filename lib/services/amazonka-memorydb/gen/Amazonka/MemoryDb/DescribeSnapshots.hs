@@ -30,12 +30,12 @@ module Amazonka.MemoryDb.DescribeSnapshots
     newDescribeSnapshots,
 
     -- * Request Lenses
-    describeSnapshots_showDetail,
     describeSnapshots_nextToken,
-    describeSnapshots_source,
-    describeSnapshots_clusterName,
     describeSnapshots_snapshotName,
+    describeSnapshots_showDetail,
+    describeSnapshots_source,
     describeSnapshots_maxResults,
+    describeSnapshots_clusterName,
 
     -- * Destructuring the Response
     DescribeSnapshotsResponse (..),
@@ -57,30 +57,30 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-  { -- | A Boolean value which if true, the shard configuration is included in
-    -- the snapshot description.
-    showDetail :: Prelude.Maybe Prelude.Bool,
-    -- | An optional argument to pass in case the total number of records exceeds
+  { -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A user-supplied name of the snapshot. If this parameter is specified,
+    -- only this named snapshot is described.
+    snapshotName :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value which if true, the shard configuration is included in
+    -- the snapshot description.
+    showDetail :: Prelude.Maybe Prelude.Bool,
     -- | If set to system, the output shows snapshots that were automatically
     -- created by MemoryDB. If set to user the output shows snapshots that were
     -- manually created. If omitted, the output shows both automatically and
     -- manually created snapshots.
     source :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied cluster identifier. If this parameter is specified, only
-    -- snapshots associated with that specific cluster are described.
-    clusterName :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name of the snapshot. If this parameter is specified,
-    -- only this named snapshot is described.
-    snapshotName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A user-supplied cluster identifier. If this parameter is specified, only
+    -- snapshots associated with that specific cluster are described.
+    clusterName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,45 +92,40 @@ data DescribeSnapshots = DescribeSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'showDetail', 'describeSnapshots_showDetail' - A Boolean value which if true, the shard configuration is included in
--- the snapshot description.
---
 -- 'nextToken', 'describeSnapshots_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
 --
+-- 'snapshotName', 'describeSnapshots_snapshotName' - A user-supplied name of the snapshot. If this parameter is specified,
+-- only this named snapshot is described.
+--
+-- 'showDetail', 'describeSnapshots_showDetail' - A Boolean value which if true, the shard configuration is included in
+-- the snapshot description.
+--
 -- 'source', 'describeSnapshots_source' - If set to system, the output shows snapshots that were automatically
 -- created by MemoryDB. If set to user the output shows snapshots that were
 -- manually created. If omitted, the output shows both automatically and
 -- manually created snapshots.
 --
--- 'clusterName', 'describeSnapshots_clusterName' - A user-supplied cluster identifier. If this parameter is specified, only
--- snapshots associated with that specific cluster are described.
---
--- 'snapshotName', 'describeSnapshots_snapshotName' - A user-supplied name of the snapshot. If this parameter is specified,
--- only this named snapshot is described.
---
 -- 'maxResults', 'describeSnapshots_maxResults' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'clusterName', 'describeSnapshots_clusterName' - A user-supplied cluster identifier. If this parameter is specified, only
+-- snapshots associated with that specific cluster are described.
 newDescribeSnapshots ::
   DescribeSnapshots
 newDescribeSnapshots =
   DescribeSnapshots'
-    { showDetail = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      source = Prelude.Nothing,
-      clusterName = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       snapshotName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      showDetail = Prelude.Nothing,
+      source = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      clusterName = Prelude.Nothing
     }
-
--- | A Boolean value which if true, the shard configuration is included in
--- the snapshot description.
-describeSnapshots_showDetail :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Bool)
-describeSnapshots_showDetail = Lens.lens (\DescribeSnapshots' {showDetail} -> showDetail) (\s@DescribeSnapshots' {} a -> s {showDetail = a} :: DescribeSnapshots)
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -140,6 +135,16 @@ describeSnapshots_showDetail = Lens.lens (\DescribeSnapshots' {showDetail} -> sh
 describeSnapshots_nextToken :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_nextToken = Lens.lens (\DescribeSnapshots' {nextToken} -> nextToken) (\s@DescribeSnapshots' {} a -> s {nextToken = a} :: DescribeSnapshots)
 
+-- | A user-supplied name of the snapshot. If this parameter is specified,
+-- only this named snapshot is described.
+describeSnapshots_snapshotName :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
+describeSnapshots_snapshotName = Lens.lens (\DescribeSnapshots' {snapshotName} -> snapshotName) (\s@DescribeSnapshots' {} a -> s {snapshotName = a} :: DescribeSnapshots)
+
+-- | A Boolean value which if true, the shard configuration is included in
+-- the snapshot description.
+describeSnapshots_showDetail :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Bool)
+describeSnapshots_showDetail = Lens.lens (\DescribeSnapshots' {showDetail} -> showDetail) (\s@DescribeSnapshots' {} a -> s {showDetail = a} :: DescribeSnapshots)
+
 -- | If set to system, the output shows snapshots that were automatically
 -- created by MemoryDB. If set to user the output shows snapshots that were
 -- manually created. If omitted, the output shows both automatically and
@@ -147,21 +152,16 @@ describeSnapshots_nextToken = Lens.lens (\DescribeSnapshots' {nextToken} -> next
 describeSnapshots_source :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_source = Lens.lens (\DescribeSnapshots' {source} -> source) (\s@DescribeSnapshots' {} a -> s {source = a} :: DescribeSnapshots)
 
--- | A user-supplied cluster identifier. If this parameter is specified, only
--- snapshots associated with that specific cluster are described.
-describeSnapshots_clusterName :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
-describeSnapshots_clusterName = Lens.lens (\DescribeSnapshots' {clusterName} -> clusterName) (\s@DescribeSnapshots' {} a -> s {clusterName = a} :: DescribeSnapshots)
-
--- | A user-supplied name of the snapshot. If this parameter is specified,
--- only this named snapshot is described.
-describeSnapshots_snapshotName :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
-describeSnapshots_snapshotName = Lens.lens (\DescribeSnapshots' {snapshotName} -> snapshotName) (\s@DescribeSnapshots' {} a -> s {snapshotName = a} :: DescribeSnapshots)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
 describeSnapshots_maxResults :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Int)
 describeSnapshots_maxResults = Lens.lens (\DescribeSnapshots' {maxResults} -> maxResults) (\s@DescribeSnapshots' {} a -> s {maxResults = a} :: DescribeSnapshots)
+
+-- | A user-supplied cluster identifier. If this parameter is specified, only
+-- snapshots associated with that specific cluster are described.
+describeSnapshots_clusterName :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
+describeSnapshots_clusterName = Lens.lens (\DescribeSnapshots' {clusterName} -> clusterName) (\s@DescribeSnapshots' {} a -> s {clusterName = a} :: DescribeSnapshots)
 
 instance Core.AWSRequest DescribeSnapshots where
   type
@@ -179,21 +179,21 @@ instance Core.AWSRequest DescribeSnapshots where
 
 instance Prelude.Hashable DescribeSnapshots where
   hashWithSalt _salt DescribeSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` showDetail
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` clusterName
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` showDetail
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` clusterName
 
 instance Prelude.NFData DescribeSnapshots where
   rnf DescribeSnapshots' {..} =
-    Prelude.rnf showDetail
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf snapshotName
+      `Prelude.seq` Prelude.rnf showDetail
+      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf clusterName
 
 instance Core.ToHeaders DescribeSnapshots where
   toHeaders =
@@ -214,12 +214,12 @@ instance Core.ToJSON DescribeSnapshots where
   toJSON DescribeSnapshots' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ShowDetail" Core..=) Prelude.<$> showDetail,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Source" Core..=) Prelude.<$> source,
-            ("ClusterName" Core..=) Prelude.<$> clusterName,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SnapshotName" Core..=) Prelude.<$> snapshotName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("ShowDetail" Core..=) Prelude.<$> showDetail,
+            ("Source" Core..=) Prelude.<$> source,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ClusterName" Core..=) Prelude.<$> clusterName
           ]
       )
 

@@ -31,17 +31,17 @@ import Amazonka.Rekognition.Types.ProtectiveEquipmentBodyPart
 --
 -- /See:/ 'newProtectiveEquipmentPerson' smart constructor.
 data ProtectiveEquipmentPerson = ProtectiveEquipmentPerson'
-  { -- | An array of body parts detected on a person\'s body (including body
-    -- parts without PPE).
-    bodyParts :: Prelude.Maybe [ProtectiveEquipmentBodyPart],
-    -- | A bounding box around the detected person.
-    boundingBox :: Prelude.Maybe BoundingBox,
-    -- | The confidence that Amazon Rekognition has that the bounding box
+  { -- | The confidence that Amazon Rekognition has that the bounding box
     -- contains a person.
     confidence :: Prelude.Maybe Prelude.Double,
+    -- | An array of body parts detected on a person\'s body (including body
+    -- parts without PPE).
+    bodyParts :: Prelude.Maybe [ProtectiveEquipmentBodyPart],
     -- | The identifier for the detected person. The identifier is only unique
     -- for a single call to @DetectProtectiveEquipment@.
-    id :: Prelude.Maybe Prelude.Natural
+    id :: Prelude.Maybe Prelude.Natural,
+    -- | A bounding box around the detected person.
+    boundingBox :: Prelude.Maybe BoundingBox
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,45 +53,45 @@ data ProtectiveEquipmentPerson = ProtectiveEquipmentPerson'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bodyParts', 'protectiveEquipmentPerson_bodyParts' - An array of body parts detected on a person\'s body (including body
--- parts without PPE).
---
--- 'boundingBox', 'protectiveEquipmentPerson_boundingBox' - A bounding box around the detected person.
---
 -- 'confidence', 'protectiveEquipmentPerson_confidence' - The confidence that Amazon Rekognition has that the bounding box
 -- contains a person.
 --
+-- 'bodyParts', 'protectiveEquipmentPerson_bodyParts' - An array of body parts detected on a person\'s body (including body
+-- parts without PPE).
+--
 -- 'id', 'protectiveEquipmentPerson_id' - The identifier for the detected person. The identifier is only unique
 -- for a single call to @DetectProtectiveEquipment@.
+--
+-- 'boundingBox', 'protectiveEquipmentPerson_boundingBox' - A bounding box around the detected person.
 newProtectiveEquipmentPerson ::
   ProtectiveEquipmentPerson
 newProtectiveEquipmentPerson =
   ProtectiveEquipmentPerson'
-    { bodyParts =
+    { confidence =
         Prelude.Nothing,
-      boundingBox = Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      id = Prelude.Nothing
+      bodyParts = Prelude.Nothing,
+      id = Prelude.Nothing,
+      boundingBox = Prelude.Nothing
     }
-
--- | An array of body parts detected on a person\'s body (including body
--- parts without PPE).
-protectiveEquipmentPerson_bodyParts :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe [ProtectiveEquipmentBodyPart])
-protectiveEquipmentPerson_bodyParts = Lens.lens (\ProtectiveEquipmentPerson' {bodyParts} -> bodyParts) (\s@ProtectiveEquipmentPerson' {} a -> s {bodyParts = a} :: ProtectiveEquipmentPerson) Prelude.. Lens.mapping Lens.coerced
-
--- | A bounding box around the detected person.
-protectiveEquipmentPerson_boundingBox :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe BoundingBox)
-protectiveEquipmentPerson_boundingBox = Lens.lens (\ProtectiveEquipmentPerson' {boundingBox} -> boundingBox) (\s@ProtectiveEquipmentPerson' {} a -> s {boundingBox = a} :: ProtectiveEquipmentPerson)
 
 -- | The confidence that Amazon Rekognition has that the bounding box
 -- contains a person.
 protectiveEquipmentPerson_confidence :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe Prelude.Double)
 protectiveEquipmentPerson_confidence = Lens.lens (\ProtectiveEquipmentPerson' {confidence} -> confidence) (\s@ProtectiveEquipmentPerson' {} a -> s {confidence = a} :: ProtectiveEquipmentPerson)
 
+-- | An array of body parts detected on a person\'s body (including body
+-- parts without PPE).
+protectiveEquipmentPerson_bodyParts :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe [ProtectiveEquipmentBodyPart])
+protectiveEquipmentPerson_bodyParts = Lens.lens (\ProtectiveEquipmentPerson' {bodyParts} -> bodyParts) (\s@ProtectiveEquipmentPerson' {} a -> s {bodyParts = a} :: ProtectiveEquipmentPerson) Prelude.. Lens.mapping Lens.coerced
+
 -- | The identifier for the detected person. The identifier is only unique
 -- for a single call to @DetectProtectiveEquipment@.
 protectiveEquipmentPerson_id :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe Prelude.Natural)
 protectiveEquipmentPerson_id = Lens.lens (\ProtectiveEquipmentPerson' {id} -> id) (\s@ProtectiveEquipmentPerson' {} a -> s {id = a} :: ProtectiveEquipmentPerson)
+
+-- | A bounding box around the detected person.
+protectiveEquipmentPerson_boundingBox :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe BoundingBox)
+protectiveEquipmentPerson_boundingBox = Lens.lens (\ProtectiveEquipmentPerson' {boundingBox} -> boundingBox) (\s@ProtectiveEquipmentPerson' {} a -> s {boundingBox = a} :: ProtectiveEquipmentPerson)
 
 instance Core.FromJSON ProtectiveEquipmentPerson where
   parseJSON =
@@ -99,22 +99,22 @@ instance Core.FromJSON ProtectiveEquipmentPerson where
       "ProtectiveEquipmentPerson"
       ( \x ->
           ProtectiveEquipmentPerson'
-            Prelude.<$> (x Core..:? "BodyParts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BoundingBox")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "BodyParts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "BoundingBox")
       )
 
 instance Prelude.Hashable ProtectiveEquipmentPerson where
   hashWithSalt _salt ProtectiveEquipmentPerson' {..} =
-    _salt `Prelude.hashWithSalt` bodyParts
-      `Prelude.hashWithSalt` boundingBox
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` bodyParts
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` boundingBox
 
 instance Prelude.NFData ProtectiveEquipmentPerson where
   rnf ProtectiveEquipmentPerson' {..} =
-    Prelude.rnf bodyParts
-      `Prelude.seq` Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf bodyParts
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf boundingBox

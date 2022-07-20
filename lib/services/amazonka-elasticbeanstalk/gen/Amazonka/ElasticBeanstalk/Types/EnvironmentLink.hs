@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentLink' smart constructor.
 data EnvironmentLink = EnvironmentLink'
-  { -- | The name of the link.
-    linkName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the linked environment (the dependency).
-    environmentName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the linked environment (the dependency).
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the link.
+    linkName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,37 +46,37 @@ data EnvironmentLink = EnvironmentLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'linkName', 'environmentLink_linkName' - The name of the link.
---
 -- 'environmentName', 'environmentLink_environmentName' - The name of the linked environment (the dependency).
+--
+-- 'linkName', 'environmentLink_linkName' - The name of the link.
 newEnvironmentLink ::
   EnvironmentLink
 newEnvironmentLink =
   EnvironmentLink'
-    { linkName = Prelude.Nothing,
-      environmentName = Prelude.Nothing
+    { environmentName = Prelude.Nothing,
+      linkName = Prelude.Nothing
     }
-
--- | The name of the link.
-environmentLink_linkName :: Lens.Lens' EnvironmentLink (Prelude.Maybe Prelude.Text)
-environmentLink_linkName = Lens.lens (\EnvironmentLink' {linkName} -> linkName) (\s@EnvironmentLink' {} a -> s {linkName = a} :: EnvironmentLink)
 
 -- | The name of the linked environment (the dependency).
 environmentLink_environmentName :: Lens.Lens' EnvironmentLink (Prelude.Maybe Prelude.Text)
 environmentLink_environmentName = Lens.lens (\EnvironmentLink' {environmentName} -> environmentName) (\s@EnvironmentLink' {} a -> s {environmentName = a} :: EnvironmentLink)
 
+-- | The name of the link.
+environmentLink_linkName :: Lens.Lens' EnvironmentLink (Prelude.Maybe Prelude.Text)
+environmentLink_linkName = Lens.lens (\EnvironmentLink' {linkName} -> linkName) (\s@EnvironmentLink' {} a -> s {linkName = a} :: EnvironmentLink)
+
 instance Core.FromXML EnvironmentLink where
   parseXML x =
     EnvironmentLink'
-      Prelude.<$> (x Core..@? "LinkName")
-      Prelude.<*> (x Core..@? "EnvironmentName")
+      Prelude.<$> (x Core..@? "EnvironmentName")
+      Prelude.<*> (x Core..@? "LinkName")
 
 instance Prelude.Hashable EnvironmentLink where
   hashWithSalt _salt EnvironmentLink' {..} =
-    _salt `Prelude.hashWithSalt` linkName
-      `Prelude.hashWithSalt` environmentName
+    _salt `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` linkName
 
 instance Prelude.NFData EnvironmentLink where
   rnf EnvironmentLink' {..} =
-    Prelude.rnf linkName
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf linkName

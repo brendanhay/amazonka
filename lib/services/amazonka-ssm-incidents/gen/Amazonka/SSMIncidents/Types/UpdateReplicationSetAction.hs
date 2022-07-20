@@ -29,10 +29,10 @@ import Amazonka.SSMIncidents.Types.DeleteRegionAction
 --
 -- /See:/ 'newUpdateReplicationSetAction' smart constructor.
 data UpdateReplicationSetAction = UpdateReplicationSetAction'
-  { -- | Details about the Region that you\'re adding to the replication set.
-    addRegionAction :: Prelude.Maybe AddRegionAction,
-    -- | Details about the Region that you\'re deleting to the replication set.
-    deleteRegionAction :: Prelude.Maybe DeleteRegionAction
+  { -- | Details about the Region that you\'re deleting to the replication set.
+    deleteRegionAction :: Prelude.Maybe DeleteRegionAction,
+    -- | Details about the Region that you\'re adding to the replication set.
+    addRegionAction :: Prelude.Maybe AddRegionAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,43 +44,43 @@ data UpdateReplicationSetAction = UpdateReplicationSetAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addRegionAction', 'updateReplicationSetAction_addRegionAction' - Details about the Region that you\'re adding to the replication set.
---
 -- 'deleteRegionAction', 'updateReplicationSetAction_deleteRegionAction' - Details about the Region that you\'re deleting to the replication set.
+--
+-- 'addRegionAction', 'updateReplicationSetAction_addRegionAction' - Details about the Region that you\'re adding to the replication set.
 newUpdateReplicationSetAction ::
   UpdateReplicationSetAction
 newUpdateReplicationSetAction =
   UpdateReplicationSetAction'
-    { addRegionAction =
+    { deleteRegionAction =
         Prelude.Nothing,
-      deleteRegionAction = Prelude.Nothing
+      addRegionAction = Prelude.Nothing
     }
-
--- | Details about the Region that you\'re adding to the replication set.
-updateReplicationSetAction_addRegionAction :: Lens.Lens' UpdateReplicationSetAction (Prelude.Maybe AddRegionAction)
-updateReplicationSetAction_addRegionAction = Lens.lens (\UpdateReplicationSetAction' {addRegionAction} -> addRegionAction) (\s@UpdateReplicationSetAction' {} a -> s {addRegionAction = a} :: UpdateReplicationSetAction)
 
 -- | Details about the Region that you\'re deleting to the replication set.
 updateReplicationSetAction_deleteRegionAction :: Lens.Lens' UpdateReplicationSetAction (Prelude.Maybe DeleteRegionAction)
 updateReplicationSetAction_deleteRegionAction = Lens.lens (\UpdateReplicationSetAction' {deleteRegionAction} -> deleteRegionAction) (\s@UpdateReplicationSetAction' {} a -> s {deleteRegionAction = a} :: UpdateReplicationSetAction)
 
+-- | Details about the Region that you\'re adding to the replication set.
+updateReplicationSetAction_addRegionAction :: Lens.Lens' UpdateReplicationSetAction (Prelude.Maybe AddRegionAction)
+updateReplicationSetAction_addRegionAction = Lens.lens (\UpdateReplicationSetAction' {addRegionAction} -> addRegionAction) (\s@UpdateReplicationSetAction' {} a -> s {addRegionAction = a} :: UpdateReplicationSetAction)
+
 instance Prelude.Hashable UpdateReplicationSetAction where
   hashWithSalt _salt UpdateReplicationSetAction' {..} =
-    _salt `Prelude.hashWithSalt` addRegionAction
-      `Prelude.hashWithSalt` deleteRegionAction
+    _salt `Prelude.hashWithSalt` deleteRegionAction
+      `Prelude.hashWithSalt` addRegionAction
 
 instance Prelude.NFData UpdateReplicationSetAction where
   rnf UpdateReplicationSetAction' {..} =
-    Prelude.rnf addRegionAction
-      `Prelude.seq` Prelude.rnf deleteRegionAction
+    Prelude.rnf deleteRegionAction
+      `Prelude.seq` Prelude.rnf addRegionAction
 
 instance Core.ToJSON UpdateReplicationSetAction where
   toJSON UpdateReplicationSetAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("addRegionAction" Core..=)
-              Prelude.<$> addRegionAction,
-            ("deleteRegionAction" Core..=)
-              Prelude.<$> deleteRegionAction
+          [ ("deleteRegionAction" Core..=)
+              Prelude.<$> deleteRegionAction,
+            ("addRegionAction" Core..=)
+              Prelude.<$> addRegionAction
           ]
       )

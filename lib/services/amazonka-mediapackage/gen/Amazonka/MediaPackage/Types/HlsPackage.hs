@@ -33,20 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsPackage' smart constructor.
 data HlsPackage = HlsPackage'
-  { adsOnDeliveryRestrictions :: Prelude.Maybe AdsOnDeliveryRestrictions,
+  { -- | Time window (in seconds) contained in each parent manifest.
+    playlistWindowSeconds :: Prelude.Maybe Prelude.Int,
+    adsOnDeliveryRestrictions :: Prelude.Maybe AdsOnDeliveryRestrictions,
     -- | When enabled, audio streams will be placed in rendition groups in the
     -- output.
     useAudioRenditionGroup :: Prelude.Maybe Prelude.Bool,
-    -- | When enabled, MediaPackage passes through digital video broadcasting
-    -- (DVB) subtitles into the output.
-    includeDvbSubtitles :: Prelude.Maybe Prelude.Bool,
-    -- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
-    -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
-    -- included in the media playlist.
-    playlistType :: Prelude.Maybe PlaylistType,
-    -- | Duration (in seconds) of each fragment. Actual fragments will be rounded
-    -- to the nearest multiple of the source fragment duration.
-    segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
+    streamSelection :: Prelude.Maybe StreamSelection,
     -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
     -- inserted into manifests. Additionally, when an interval is specified
     -- ID3Timed Metadata messages will be generated every 5 seconds using the
@@ -57,7 +50,8 @@ data HlsPackage = HlsPackage'
     -- HTTP Live Streaming (HLS) input, it will be passed through to HLS
     -- output.
     programDateTimeIntervalSeconds :: Prelude.Maybe Prelude.Int,
-    streamSelection :: Prelude.Maybe StreamSelection,
+    -- | When enabled, an I-Frame only stream will be included in the output.
+    includeIframeOnlyStream :: Prelude.Maybe Prelude.Bool,
     -- | This setting controls how ad markers are included in the packaged
     -- OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the
     -- output. \"PASSTHROUGH\" causes the manifest to contain a copy of the
@@ -68,12 +62,18 @@ data HlsPackage = HlsPackage'
     -- transition events in HLS and CMAF manifests. For this option, you must
     -- set a programDateTimeIntervalSeconds value that is greater than 0.
     adMarkers :: Prelude.Maybe AdMarkers,
-    encryption :: Prelude.Maybe HlsEncryption,
-    -- | When enabled, an I-Frame only stream will be included in the output.
-    includeIframeOnlyStream :: Prelude.Maybe Prelude.Bool,
     adTriggers :: Prelude.Maybe [AdTriggersElement],
-    -- | Time window (in seconds) contained in each parent manifest.
-    playlistWindowSeconds :: Prelude.Maybe Prelude.Int
+    -- | Duration (in seconds) of each fragment. Actual fragments will be rounded
+    -- to the nearest multiple of the source fragment duration.
+    segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
+    encryption :: Prelude.Maybe HlsEncryption,
+    -- | When enabled, MediaPackage passes through digital video broadcasting
+    -- (DVB) subtitles into the output.
+    includeDvbSubtitles :: Prelude.Maybe Prelude.Bool,
+    -- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
+    -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
+    -- included in the media playlist.
+    playlistType :: Prelude.Maybe PlaylistType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,20 +85,14 @@ data HlsPackage = HlsPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'playlistWindowSeconds', 'hlsPackage_playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
+--
 -- 'adsOnDeliveryRestrictions', 'hlsPackage_adsOnDeliveryRestrictions' - Undocumented member.
 --
 -- 'useAudioRenditionGroup', 'hlsPackage_useAudioRenditionGroup' - When enabled, audio streams will be placed in rendition groups in the
 -- output.
 --
--- 'includeDvbSubtitles', 'hlsPackage_includeDvbSubtitles' - When enabled, MediaPackage passes through digital video broadcasting
--- (DVB) subtitles into the output.
---
--- 'playlistType', 'hlsPackage_playlistType' - The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
--- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
--- included in the media playlist.
---
--- 'segmentDurationSeconds', 'hlsPackage_segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be rounded
--- to the nearest multiple of the source fragment duration.
+-- 'streamSelection', 'hlsPackage_streamSelection' - Undocumented member.
 --
 -- 'programDateTimeIntervalSeconds', 'hlsPackage_programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
 -- inserted into manifests. Additionally, when an interval is specified
@@ -110,7 +104,7 @@ data HlsPackage = HlsPackage'
 -- HTTP Live Streaming (HLS) input, it will be passed through to HLS
 -- output.
 --
--- 'streamSelection', 'hlsPackage_streamSelection' - Undocumented member.
+-- 'includeIframeOnlyStream', 'hlsPackage_includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
 --
 -- 'adMarkers', 'hlsPackage_adMarkers' - This setting controls how ad markers are included in the packaged
 -- OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the
@@ -122,31 +116,41 @@ data HlsPackage = HlsPackage'
 -- transition events in HLS and CMAF manifests. For this option, you must
 -- set a programDateTimeIntervalSeconds value that is greater than 0.
 --
--- 'encryption', 'hlsPackage_encryption' - Undocumented member.
---
--- 'includeIframeOnlyStream', 'hlsPackage_includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
---
 -- 'adTriggers', 'hlsPackage_adTriggers' - Undocumented member.
 --
--- 'playlistWindowSeconds', 'hlsPackage_playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
+-- 'segmentDurationSeconds', 'hlsPackage_segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be rounded
+-- to the nearest multiple of the source fragment duration.
+--
+-- 'encryption', 'hlsPackage_encryption' - Undocumented member.
+--
+-- 'includeDvbSubtitles', 'hlsPackage_includeDvbSubtitles' - When enabled, MediaPackage passes through digital video broadcasting
+-- (DVB) subtitles into the output.
+--
+-- 'playlistType', 'hlsPackage_playlistType' - The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
+-- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
+-- included in the media playlist.
 newHlsPackage ::
   HlsPackage
 newHlsPackage =
   HlsPackage'
-    { adsOnDeliveryRestrictions =
+    { playlistWindowSeconds =
         Prelude.Nothing,
+      adsOnDeliveryRestrictions = Prelude.Nothing,
       useAudioRenditionGroup = Prelude.Nothing,
-      includeDvbSubtitles = Prelude.Nothing,
-      playlistType = Prelude.Nothing,
-      segmentDurationSeconds = Prelude.Nothing,
-      programDateTimeIntervalSeconds = Prelude.Nothing,
       streamSelection = Prelude.Nothing,
-      adMarkers = Prelude.Nothing,
-      encryption = Prelude.Nothing,
+      programDateTimeIntervalSeconds = Prelude.Nothing,
       includeIframeOnlyStream = Prelude.Nothing,
+      adMarkers = Prelude.Nothing,
       adTriggers = Prelude.Nothing,
-      playlistWindowSeconds = Prelude.Nothing
+      segmentDurationSeconds = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      includeDvbSubtitles = Prelude.Nothing,
+      playlistType = Prelude.Nothing
     }
+
+-- | Time window (in seconds) contained in each parent manifest.
+hlsPackage_playlistWindowSeconds :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Int)
+hlsPackage_playlistWindowSeconds = Lens.lens (\HlsPackage' {playlistWindowSeconds} -> playlistWindowSeconds) (\s@HlsPackage' {} a -> s {playlistWindowSeconds = a} :: HlsPackage)
 
 -- | Undocumented member.
 hlsPackage_adsOnDeliveryRestrictions :: Lens.Lens' HlsPackage (Prelude.Maybe AdsOnDeliveryRestrictions)
@@ -157,21 +161,9 @@ hlsPackage_adsOnDeliveryRestrictions = Lens.lens (\HlsPackage' {adsOnDeliveryRes
 hlsPackage_useAudioRenditionGroup :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
 hlsPackage_useAudioRenditionGroup = Lens.lens (\HlsPackage' {useAudioRenditionGroup} -> useAudioRenditionGroup) (\s@HlsPackage' {} a -> s {useAudioRenditionGroup = a} :: HlsPackage)
 
--- | When enabled, MediaPackage passes through digital video broadcasting
--- (DVB) subtitles into the output.
-hlsPackage_includeDvbSubtitles :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
-hlsPackage_includeDvbSubtitles = Lens.lens (\HlsPackage' {includeDvbSubtitles} -> includeDvbSubtitles) (\s@HlsPackage' {} a -> s {includeDvbSubtitles = a} :: HlsPackage)
-
--- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
--- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
--- included in the media playlist.
-hlsPackage_playlistType :: Lens.Lens' HlsPackage (Prelude.Maybe PlaylistType)
-hlsPackage_playlistType = Lens.lens (\HlsPackage' {playlistType} -> playlistType) (\s@HlsPackage' {} a -> s {playlistType = a} :: HlsPackage)
-
--- | Duration (in seconds) of each fragment. Actual fragments will be rounded
--- to the nearest multiple of the source fragment duration.
-hlsPackage_segmentDurationSeconds :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Int)
-hlsPackage_segmentDurationSeconds = Lens.lens (\HlsPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@HlsPackage' {} a -> s {segmentDurationSeconds = a} :: HlsPackage)
+-- | Undocumented member.
+hlsPackage_streamSelection :: Lens.Lens' HlsPackage (Prelude.Maybe StreamSelection)
+hlsPackage_streamSelection = Lens.lens (\HlsPackage' {streamSelection} -> streamSelection) (\s@HlsPackage' {} a -> s {streamSelection = a} :: HlsPackage)
 
 -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
 -- inserted into manifests. Additionally, when an interval is specified
@@ -185,9 +177,9 @@ hlsPackage_segmentDurationSeconds = Lens.lens (\HlsPackage' {segmentDurationSeco
 hlsPackage_programDateTimeIntervalSeconds :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Int)
 hlsPackage_programDateTimeIntervalSeconds = Lens.lens (\HlsPackage' {programDateTimeIntervalSeconds} -> programDateTimeIntervalSeconds) (\s@HlsPackage' {} a -> s {programDateTimeIntervalSeconds = a} :: HlsPackage)
 
--- | Undocumented member.
-hlsPackage_streamSelection :: Lens.Lens' HlsPackage (Prelude.Maybe StreamSelection)
-hlsPackage_streamSelection = Lens.lens (\HlsPackage' {streamSelection} -> streamSelection) (\s@HlsPackage' {} a -> s {streamSelection = a} :: HlsPackage)
+-- | When enabled, an I-Frame only stream will be included in the output.
+hlsPackage_includeIframeOnlyStream :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
+hlsPackage_includeIframeOnlyStream = Lens.lens (\HlsPackage' {includeIframeOnlyStream} -> includeIframeOnlyStream) (\s@HlsPackage' {} a -> s {includeIframeOnlyStream = a} :: HlsPackage)
 
 -- | This setting controls how ad markers are included in the packaged
 -- OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the
@@ -202,20 +194,28 @@ hlsPackage_adMarkers :: Lens.Lens' HlsPackage (Prelude.Maybe AdMarkers)
 hlsPackage_adMarkers = Lens.lens (\HlsPackage' {adMarkers} -> adMarkers) (\s@HlsPackage' {} a -> s {adMarkers = a} :: HlsPackage)
 
 -- | Undocumented member.
-hlsPackage_encryption :: Lens.Lens' HlsPackage (Prelude.Maybe HlsEncryption)
-hlsPackage_encryption = Lens.lens (\HlsPackage' {encryption} -> encryption) (\s@HlsPackage' {} a -> s {encryption = a} :: HlsPackage)
-
--- | When enabled, an I-Frame only stream will be included in the output.
-hlsPackage_includeIframeOnlyStream :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
-hlsPackage_includeIframeOnlyStream = Lens.lens (\HlsPackage' {includeIframeOnlyStream} -> includeIframeOnlyStream) (\s@HlsPackage' {} a -> s {includeIframeOnlyStream = a} :: HlsPackage)
-
--- | Undocumented member.
 hlsPackage_adTriggers :: Lens.Lens' HlsPackage (Prelude.Maybe [AdTriggersElement])
 hlsPackage_adTriggers = Lens.lens (\HlsPackage' {adTriggers} -> adTriggers) (\s@HlsPackage' {} a -> s {adTriggers = a} :: HlsPackage) Prelude.. Lens.mapping Lens.coerced
 
--- | Time window (in seconds) contained in each parent manifest.
-hlsPackage_playlistWindowSeconds :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Int)
-hlsPackage_playlistWindowSeconds = Lens.lens (\HlsPackage' {playlistWindowSeconds} -> playlistWindowSeconds) (\s@HlsPackage' {} a -> s {playlistWindowSeconds = a} :: HlsPackage)
+-- | Duration (in seconds) of each fragment. Actual fragments will be rounded
+-- to the nearest multiple of the source fragment duration.
+hlsPackage_segmentDurationSeconds :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Int)
+hlsPackage_segmentDurationSeconds = Lens.lens (\HlsPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@HlsPackage' {} a -> s {segmentDurationSeconds = a} :: HlsPackage)
+
+-- | Undocumented member.
+hlsPackage_encryption :: Lens.Lens' HlsPackage (Prelude.Maybe HlsEncryption)
+hlsPackage_encryption = Lens.lens (\HlsPackage' {encryption} -> encryption) (\s@HlsPackage' {} a -> s {encryption = a} :: HlsPackage)
+
+-- | When enabled, MediaPackage passes through digital video broadcasting
+-- (DVB) subtitles into the output.
+hlsPackage_includeDvbSubtitles :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
+hlsPackage_includeDvbSubtitles = Lens.lens (\HlsPackage' {includeDvbSubtitles} -> includeDvbSubtitles) (\s@HlsPackage' {} a -> s {includeDvbSubtitles = a} :: HlsPackage)
+
+-- | The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
+-- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
+-- included in the media playlist.
+hlsPackage_playlistType :: Lens.Lens' HlsPackage (Prelude.Maybe PlaylistType)
+hlsPackage_playlistType = Lens.lens (\HlsPackage' {playlistType} -> playlistType) (\s@HlsPackage' {} a -> s {playlistType = a} :: HlsPackage)
 
 instance Core.FromJSON HlsPackage where
   parseJSON =
@@ -223,74 +223,73 @@ instance Core.FromJSON HlsPackage where
       "HlsPackage"
       ( \x ->
           HlsPackage'
-            Prelude.<$> (x Core..:? "adsOnDeliveryRestrictions")
+            Prelude.<$> (x Core..:? "playlistWindowSeconds")
+            Prelude.<*> (x Core..:? "adsOnDeliveryRestrictions")
             Prelude.<*> (x Core..:? "useAudioRenditionGroup")
+            Prelude.<*> (x Core..:? "streamSelection")
+            Prelude.<*> (x Core..:? "programDateTimeIntervalSeconds")
+            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
+            Prelude.<*> (x Core..:? "adMarkers")
+            Prelude.<*> (x Core..:? "adTriggers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "segmentDurationSeconds")
+            Prelude.<*> (x Core..:? "encryption")
             Prelude.<*> (x Core..:? "includeDvbSubtitles")
             Prelude.<*> (x Core..:? "playlistType")
-            Prelude.<*> (x Core..:? "segmentDurationSeconds")
-            Prelude.<*> (x Core..:? "programDateTimeIntervalSeconds")
-            Prelude.<*> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "adMarkers")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
-            Prelude.<*> (x Core..:? "adTriggers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "playlistWindowSeconds")
       )
 
 instance Prelude.Hashable HlsPackage where
   hashWithSalt _salt HlsPackage' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` playlistWindowSeconds
       `Prelude.hashWithSalt` adsOnDeliveryRestrictions
       `Prelude.hashWithSalt` useAudioRenditionGroup
+      `Prelude.hashWithSalt` streamSelection
+      `Prelude.hashWithSalt` programDateTimeIntervalSeconds
+      `Prelude.hashWithSalt` includeIframeOnlyStream
+      `Prelude.hashWithSalt` adMarkers
+      `Prelude.hashWithSalt` adTriggers
+      `Prelude.hashWithSalt` segmentDurationSeconds
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` includeDvbSubtitles
       `Prelude.hashWithSalt` playlistType
-      `Prelude.hashWithSalt` segmentDurationSeconds
-      `Prelude.hashWithSalt` programDateTimeIntervalSeconds
-      `Prelude.hashWithSalt` streamSelection
-      `Prelude.hashWithSalt` adMarkers
-      `Prelude.hashWithSalt` encryption
-      `Prelude.hashWithSalt` includeIframeOnlyStream
-      `Prelude.hashWithSalt` adTriggers
-      `Prelude.hashWithSalt` playlistWindowSeconds
 
 instance Prelude.NFData HlsPackage where
   rnf HlsPackage' {..} =
-    Prelude.rnf adsOnDeliveryRestrictions
+    Prelude.rnf playlistWindowSeconds
+      `Prelude.seq` Prelude.rnf adsOnDeliveryRestrictions
       `Prelude.seq` Prelude.rnf useAudioRenditionGroup
+      `Prelude.seq` Prelude.rnf streamSelection
+      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
+      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
+      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf adTriggers
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf includeDvbSubtitles
       `Prelude.seq` Prelude.rnf playlistType
-      `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
-      `Prelude.seq` Prelude.rnf streamSelection
-      `Prelude.seq` Prelude.rnf adMarkers
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
-      `Prelude.seq` Prelude.rnf adTriggers
-      `Prelude.seq` Prelude.rnf playlistWindowSeconds
 
 instance Core.ToJSON HlsPackage where
   toJSON HlsPackage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("adsOnDeliveryRestrictions" Core..=)
+          [ ("playlistWindowSeconds" Core..=)
+              Prelude.<$> playlistWindowSeconds,
+            ("adsOnDeliveryRestrictions" Core..=)
               Prelude.<$> adsOnDeliveryRestrictions,
             ("useAudioRenditionGroup" Core..=)
               Prelude.<$> useAudioRenditionGroup,
-            ("includeDvbSubtitles" Core..=)
-              Prelude.<$> includeDvbSubtitles,
-            ("playlistType" Core..=) Prelude.<$> playlistType,
-            ("segmentDurationSeconds" Core..=)
-              Prelude.<$> segmentDurationSeconds,
-            ("programDateTimeIntervalSeconds" Core..=)
-              Prelude.<$> programDateTimeIntervalSeconds,
             ("streamSelection" Core..=)
               Prelude.<$> streamSelection,
-            ("adMarkers" Core..=) Prelude.<$> adMarkers,
-            ("encryption" Core..=) Prelude.<$> encryption,
+            ("programDateTimeIntervalSeconds" Core..=)
+              Prelude.<$> programDateTimeIntervalSeconds,
             ("includeIframeOnlyStream" Core..=)
               Prelude.<$> includeIframeOnlyStream,
+            ("adMarkers" Core..=) Prelude.<$> adMarkers,
             ("adTriggers" Core..=) Prelude.<$> adTriggers,
-            ("playlistWindowSeconds" Core..=)
-              Prelude.<$> playlistWindowSeconds
+            ("segmentDurationSeconds" Core..=)
+              Prelude.<$> segmentDurationSeconds,
+            ("encryption" Core..=) Prelude.<$> encryption,
+            ("includeDvbSubtitles" Core..=)
+              Prelude.<$> includeDvbSubtitles,
+            ("playlistType" Core..=) Prelude.<$> playlistType
           ]
       )

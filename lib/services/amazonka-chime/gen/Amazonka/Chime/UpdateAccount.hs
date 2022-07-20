@@ -29,8 +29,8 @@ module Amazonka.Chime.UpdateAccount
     newUpdateAccount,
 
     -- * Request Lenses
-    updateAccount_defaultLicense,
     updateAccount_name,
+    updateAccount_defaultLicense,
     updateAccount_accountId,
 
     -- * Destructuring the Response
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAccount' smart constructor.
 data UpdateAccount = UpdateAccount'
-  { -- | The default license applied when you add users to an Amazon Chime
+  { -- | The new name for the specified Amazon Chime account.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The default license applied when you add users to an Amazon Chime
     -- account.
     defaultLicense :: Prelude.Maybe License,
-    -- | The new name for the specified Amazon Chime account.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text
   }
@@ -70,10 +70,10 @@ data UpdateAccount = UpdateAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'updateAccount_name' - The new name for the specified Amazon Chime account.
+--
 -- 'defaultLicense', 'updateAccount_defaultLicense' - The default license applied when you add users to an Amazon Chime
 -- account.
---
--- 'name', 'updateAccount_name' - The new name for the specified Amazon Chime account.
 --
 -- 'accountId', 'updateAccount_accountId' - The Amazon Chime account ID.
 newUpdateAccount ::
@@ -82,19 +82,19 @@ newUpdateAccount ::
   UpdateAccount
 newUpdateAccount pAccountId_ =
   UpdateAccount'
-    { defaultLicense = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      defaultLicense = Prelude.Nothing,
       accountId = pAccountId_
     }
+
+-- | The new name for the specified Amazon Chime account.
+updateAccount_name :: Lens.Lens' UpdateAccount (Prelude.Maybe Prelude.Text)
+updateAccount_name = Lens.lens (\UpdateAccount' {name} -> name) (\s@UpdateAccount' {} a -> s {name = a} :: UpdateAccount)
 
 -- | The default license applied when you add users to an Amazon Chime
 -- account.
 updateAccount_defaultLicense :: Lens.Lens' UpdateAccount (Prelude.Maybe License)
 updateAccount_defaultLicense = Lens.lens (\UpdateAccount' {defaultLicense} -> defaultLicense) (\s@UpdateAccount' {} a -> s {defaultLicense = a} :: UpdateAccount)
-
--- | The new name for the specified Amazon Chime account.
-updateAccount_name :: Lens.Lens' UpdateAccount (Prelude.Maybe Prelude.Text)
-updateAccount_name = Lens.lens (\UpdateAccount' {name} -> name) (\s@UpdateAccount' {} a -> s {name = a} :: UpdateAccount)
 
 -- | The Amazon Chime account ID.
 updateAccount_accountId :: Lens.Lens' UpdateAccount Prelude.Text
@@ -115,14 +115,14 @@ instance Core.AWSRequest UpdateAccount where
 
 instance Prelude.Hashable UpdateAccount where
   hashWithSalt _salt UpdateAccount' {..} =
-    _salt `Prelude.hashWithSalt` defaultLicense
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` defaultLicense
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData UpdateAccount where
   rnf UpdateAccount' {..} =
-    Prelude.rnf defaultLicense
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf defaultLicense
       `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders UpdateAccount where
@@ -132,9 +132,9 @@ instance Core.ToJSON UpdateAccount where
   toJSON UpdateAccount' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultLicense" Core..=)
-              Prelude.<$> defaultLicense,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("DefaultLicense" Core..=)
+              Prelude.<$> defaultLicense
           ]
       )
 

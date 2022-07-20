@@ -29,8 +29,8 @@ module Amazonka.SSM.DescribePatchGroups
     newDescribePatchGroups,
 
     -- * Request Lenses
-    describePatchGroups_filters,
     describePatchGroups_nextToken,
+    describePatchGroups_filters,
     describePatchGroups_maxResults,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.SSM.DescribePatchGroups
     newDescribePatchGroupsResponse,
 
     -- * Response Lenses
-    describePatchGroupsResponse_mappings,
     describePatchGroupsResponse_nextToken,
+    describePatchGroupsResponse_mappings,
     describePatchGroupsResponse_httpStatus,
   )
 where
@@ -53,7 +53,10 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribePatchGroups' smart constructor.
 data DescribePatchGroups = DescribePatchGroups'
-  { -- | Each element in the array is a structure containing a key-value pair.
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Each element in the array is a structure containing a key-value pair.
     --
     -- Supported keys for @DescribePatchGroups@ include the following:
     --
@@ -65,9 +68,6 @@ data DescribePatchGroups = DescribePatchGroups'
     --
     --     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
     filters :: Prelude.Maybe [PatchOrchestratorFilter],
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of patch groups to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -81,6 +81,9 @@ data DescribePatchGroups = DescribePatchGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describePatchGroups_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'filters', 'describePatchGroups_filters' - Each element in the array is a structure containing a key-value pair.
 --
 -- Supported keys for @DescribePatchGroups@ include the following:
@@ -93,18 +96,20 @@ data DescribePatchGroups = DescribePatchGroups'
 --
 --     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
 --
--- 'nextToken', 'describePatchGroups_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxResults', 'describePatchGroups_maxResults' - The maximum number of patch groups to return (per page).
 newDescribePatchGroups ::
   DescribePatchGroups
 newDescribePatchGroups =
   DescribePatchGroups'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describePatchGroups_nextToken :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Text)
+describePatchGroups_nextToken = Lens.lens (\DescribePatchGroups' {nextToken} -> nextToken) (\s@DescribePatchGroups' {} a -> s {nextToken = a} :: DescribePatchGroups)
 
 -- | Each element in the array is a structure containing a key-value pair.
 --
@@ -119,11 +124,6 @@ newDescribePatchGroups =
 --     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
 describePatchGroups_filters :: Lens.Lens' DescribePatchGroups (Prelude.Maybe [PatchOrchestratorFilter])
 describePatchGroups_filters = Lens.lens (\DescribePatchGroups' {filters} -> filters) (\s@DescribePatchGroups' {} a -> s {filters = a} :: DescribePatchGroups) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describePatchGroups_nextToken :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Text)
-describePatchGroups_nextToken = Lens.lens (\DescribePatchGroups' {nextToken} -> nextToken) (\s@DescribePatchGroups' {} a -> s {nextToken = a} :: DescribePatchGroups)
 
 -- | The maximum number of patch groups to return (per page).
 describePatchGroups_maxResults :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Natural)
@@ -160,21 +160,21 @@ instance Core.AWSRequest DescribePatchGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribePatchGroupsResponse'
-            Prelude.<$> (x Core..?> "Mappings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Mappings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribePatchGroups where
   hashWithSalt _salt DescribePatchGroups' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribePatchGroups where
   rnf DescribePatchGroups' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribePatchGroups where
@@ -196,8 +196,8 @@ instance Core.ToJSON DescribePatchGroups where
   toJSON DescribePatchGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -210,16 +210,16 @@ instance Core.ToQuery DescribePatchGroups where
 
 -- | /See:/ 'newDescribePatchGroupsResponse' smart constructor.
 data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
-  { -- | Each entry in the array contains:
+  { -- | The token to use when requesting the next set of items. If there are no
+    -- additional items to return, the string is empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Each entry in the array contains:
     --
     -- -   @PatchGroup@: string (between 1 and 256 characters. Regex:
     --     @^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)@
     --
     -- -   @PatchBaselineIdentity@: A @PatchBaselineIdentity@ element.
     mappings :: Prelude.Maybe [PatchGroupPatchBaselineMapping],
-    -- | The token to use when requesting the next set of items. If there are no
-    -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,15 +233,15 @@ data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describePatchGroupsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+--
 -- 'mappings', 'describePatchGroupsResponse_mappings' - Each entry in the array contains:
 --
 -- -   @PatchGroup@: string (between 1 and 256 characters. Regex:
 --     @^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)@
 --
 -- -   @PatchBaselineIdentity@: A @PatchBaselineIdentity@ element.
---
--- 'nextToken', 'describePatchGroupsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
 --
 -- 'httpStatus', 'describePatchGroupsResponse_httpStatus' - The response's http status code.
 newDescribePatchGroupsResponse ::
@@ -250,11 +250,16 @@ newDescribePatchGroupsResponse ::
   DescribePatchGroupsResponse
 newDescribePatchGroupsResponse pHttpStatus_ =
   DescribePatchGroupsResponse'
-    { mappings =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      mappings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+describePatchGroupsResponse_nextToken :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe Prelude.Text)
+describePatchGroupsResponse_nextToken = Lens.lens (\DescribePatchGroupsResponse' {nextToken} -> nextToken) (\s@DescribePatchGroupsResponse' {} a -> s {nextToken = a} :: DescribePatchGroupsResponse)
 
 -- | Each entry in the array contains:
 --
@@ -265,17 +270,12 @@ newDescribePatchGroupsResponse pHttpStatus_ =
 describePatchGroupsResponse_mappings :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe [PatchGroupPatchBaselineMapping])
 describePatchGroupsResponse_mappings = Lens.lens (\DescribePatchGroupsResponse' {mappings} -> mappings) (\s@DescribePatchGroupsResponse' {} a -> s {mappings = a} :: DescribePatchGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
-describePatchGroupsResponse_nextToken :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe Prelude.Text)
-describePatchGroupsResponse_nextToken = Lens.lens (\DescribePatchGroupsResponse' {nextToken} -> nextToken) (\s@DescribePatchGroupsResponse' {} a -> s {nextToken = a} :: DescribePatchGroupsResponse)
-
 -- | The response's http status code.
 describePatchGroupsResponse_httpStatus :: Lens.Lens' DescribePatchGroupsResponse Prelude.Int
 describePatchGroupsResponse_httpStatus = Lens.lens (\DescribePatchGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribePatchGroupsResponse' {} a -> s {httpStatus = a} :: DescribePatchGroupsResponse)
 
 instance Prelude.NFData DescribePatchGroupsResponse where
   rnf DescribePatchGroupsResponse' {..} =
-    Prelude.rnf mappings
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf mappings
       `Prelude.seq` Prelude.rnf httpStatus

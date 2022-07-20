@@ -34,8 +34,6 @@ data FirewallConfig = FirewallConfig'
     -- | The Amazon Web Services account ID of the owner of the VPC that this
     -- firewall configuration applies to.
     ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the firewall configuration.
-    id :: Prelude.Maybe Prelude.Text,
     -- | Determines how DNS Firewall operates during failures, for example when
     -- all traffic that is sent to DNS Firewall fails to receive a reply.
     --
@@ -50,7 +48,9 @@ data FirewallConfig = FirewallConfig'
     --
     -- This behavior is only enforced for VPCs that have at least one DNS
     -- Firewall rule group association.
-    firewallFailOpen :: Prelude.Maybe FirewallFailOpenStatus
+    firewallFailOpen :: Prelude.Maybe FirewallFailOpenStatus,
+    -- | The ID of the firewall configuration.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,8 +67,6 @@ data FirewallConfig = FirewallConfig'
 -- 'ownerId', 'firewallConfig_ownerId' - The Amazon Web Services account ID of the owner of the VPC that this
 -- firewall configuration applies to.
 --
--- 'id', 'firewallConfig_id' - The ID of the firewall configuration.
---
 -- 'firewallFailOpen', 'firewallConfig_firewallFailOpen' - Determines how DNS Firewall operates during failures, for example when
 -- all traffic that is sent to DNS Firewall fails to receive a reply.
 --
@@ -83,14 +81,16 @@ data FirewallConfig = FirewallConfig'
 --
 -- This behavior is only enforced for VPCs that have at least one DNS
 -- Firewall rule group association.
+--
+-- 'id', 'firewallConfig_id' - The ID of the firewall configuration.
 newFirewallConfig ::
   FirewallConfig
 newFirewallConfig =
   FirewallConfig'
     { resourceId = Prelude.Nothing,
       ownerId = Prelude.Nothing,
-      id = Prelude.Nothing,
-      firewallFailOpen = Prelude.Nothing
+      firewallFailOpen = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The ID of the VPC that this firewall configuration applies to.
@@ -101,10 +101,6 @@ firewallConfig_resourceId = Lens.lens (\FirewallConfig' {resourceId} -> resource
 -- firewall configuration applies to.
 firewallConfig_ownerId :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
 firewallConfig_ownerId = Lens.lens (\FirewallConfig' {ownerId} -> ownerId) (\s@FirewallConfig' {} a -> s {ownerId = a} :: FirewallConfig)
-
--- | The ID of the firewall configuration.
-firewallConfig_id :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
-firewallConfig_id = Lens.lens (\FirewallConfig' {id} -> id) (\s@FirewallConfig' {} a -> s {id = a} :: FirewallConfig)
 
 -- | Determines how DNS Firewall operates during failures, for example when
 -- all traffic that is sent to DNS Firewall fails to receive a reply.
@@ -123,6 +119,10 @@ firewallConfig_id = Lens.lens (\FirewallConfig' {id} -> id) (\s@FirewallConfig' 
 firewallConfig_firewallFailOpen :: Lens.Lens' FirewallConfig (Prelude.Maybe FirewallFailOpenStatus)
 firewallConfig_firewallFailOpen = Lens.lens (\FirewallConfig' {firewallFailOpen} -> firewallFailOpen) (\s@FirewallConfig' {} a -> s {firewallFailOpen = a} :: FirewallConfig)
 
+-- | The ID of the firewall configuration.
+firewallConfig_id :: Lens.Lens' FirewallConfig (Prelude.Maybe Prelude.Text)
+firewallConfig_id = Lens.lens (\FirewallConfig' {id} -> id) (\s@FirewallConfig' {} a -> s {id = a} :: FirewallConfig)
+
 instance Core.FromJSON FirewallConfig where
   parseJSON =
     Core.withObject
@@ -131,20 +131,20 @@ instance Core.FromJSON FirewallConfig where
           FirewallConfig'
             Prelude.<$> (x Core..:? "ResourceId")
             Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "FirewallFailOpen")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable FirewallConfig where
   hashWithSalt _salt FirewallConfig' {..} =
     _salt `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` ownerId
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` firewallFailOpen
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData FirewallConfig where
   rnf FirewallConfig' {..} =
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf firewallFailOpen
+      `Prelude.seq` Prelude.rnf id

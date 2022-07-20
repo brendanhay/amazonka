@@ -65,8 +65,8 @@ module Amazonka.GameLift.UpdateGameServer
     newUpdateGameServer,
 
     -- * Request Lenses
-    updateGameServer_healthCheck,
     updateGameServer_gameServerData,
+    updateGameServer_healthCheck,
     updateGameServer_utilizationStatus,
     updateGameServer_gameServerGroupName,
     updateGameServer_gameServerId,
@@ -90,13 +90,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGameServer' smart constructor.
 data UpdateGameServer = UpdateGameServer'
-  { -- | Indicates health status of the game server. A request that includes this
-    -- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
-    healthCheck :: Prelude.Maybe GameServerHealthCheck,
-    -- | A set of custom game server properties, formatted as a single string
+  { -- | A set of custom game server properties, formatted as a single string
     -- value. This data is passed to a game client or service when it requests
     -- information on game servers using ListGameServers or ClaimGameServer.
     gameServerData :: Prelude.Maybe Prelude.Text,
+    -- | Indicates health status of the game server. A request that includes this
+    -- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
+    healthCheck :: Prelude.Maybe GameServerHealthCheck,
     -- | Indicates whether the game server is available or is currently hosting
     -- gameplay.
     utilizationStatus :: Prelude.Maybe GameServerUtilizationStatus,
@@ -116,12 +116,12 @@ data UpdateGameServer = UpdateGameServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'healthCheck', 'updateGameServer_healthCheck' - Indicates health status of the game server. A request that includes this
--- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
---
 -- 'gameServerData', 'updateGameServer_gameServerData' - A set of custom game server properties, formatted as a single string
 -- value. This data is passed to a game client or service when it requests
 -- information on game servers using ListGameServers or ClaimGameServer.
+--
+-- 'healthCheck', 'updateGameServer_healthCheck' - Indicates health status of the game server. A request that includes this
+-- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
 --
 -- 'utilizationStatus', 'updateGameServer_utilizationStatus' - Indicates whether the game server is available or is currently hosting
 -- gameplay.
@@ -140,23 +140,23 @@ newUpdateGameServer
   pGameServerGroupName_
   pGameServerId_ =
     UpdateGameServer'
-      { healthCheck = Prelude.Nothing,
-        gameServerData = Prelude.Nothing,
+      { gameServerData = Prelude.Nothing,
+        healthCheck = Prelude.Nothing,
         utilizationStatus = Prelude.Nothing,
         gameServerGroupName = pGameServerGroupName_,
         gameServerId = pGameServerId_
       }
-
--- | Indicates health status of the game server. A request that includes this
--- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
-updateGameServer_healthCheck :: Lens.Lens' UpdateGameServer (Prelude.Maybe GameServerHealthCheck)
-updateGameServer_healthCheck = Lens.lens (\UpdateGameServer' {healthCheck} -> healthCheck) (\s@UpdateGameServer' {} a -> s {healthCheck = a} :: UpdateGameServer)
 
 -- | A set of custom game server properties, formatted as a single string
 -- value. This data is passed to a game client or service when it requests
 -- information on game servers using ListGameServers or ClaimGameServer.
 updateGameServer_gameServerData :: Lens.Lens' UpdateGameServer (Prelude.Maybe Prelude.Text)
 updateGameServer_gameServerData = Lens.lens (\UpdateGameServer' {gameServerData} -> gameServerData) (\s@UpdateGameServer' {} a -> s {gameServerData = a} :: UpdateGameServer)
+
+-- | Indicates health status of the game server. A request that includes this
+-- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
+updateGameServer_healthCheck :: Lens.Lens' UpdateGameServer (Prelude.Maybe GameServerHealthCheck)
+updateGameServer_healthCheck = Lens.lens (\UpdateGameServer' {healthCheck} -> healthCheck) (\s@UpdateGameServer' {} a -> s {healthCheck = a} :: UpdateGameServer)
 
 -- | Indicates whether the game server is available or is currently hosting
 -- gameplay.
@@ -187,16 +187,16 @@ instance Core.AWSRequest UpdateGameServer where
 
 instance Prelude.Hashable UpdateGameServer where
   hashWithSalt _salt UpdateGameServer' {..} =
-    _salt `Prelude.hashWithSalt` healthCheck
-      `Prelude.hashWithSalt` gameServerData
+    _salt `Prelude.hashWithSalt` gameServerData
+      `Prelude.hashWithSalt` healthCheck
       `Prelude.hashWithSalt` utilizationStatus
       `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` gameServerId
 
 instance Prelude.NFData UpdateGameServer where
   rnf UpdateGameServer' {..} =
-    Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf gameServerData
+    Prelude.rnf gameServerData
+      `Prelude.seq` Prelude.rnf healthCheck
       `Prelude.seq` Prelude.rnf utilizationStatus
       `Prelude.seq` Prelude.rnf gameServerGroupName
       `Prelude.seq` Prelude.rnf gameServerId
@@ -218,9 +218,9 @@ instance Core.ToJSON UpdateGameServer where
   toJSON UpdateGameServer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("HealthCheck" Core..=) Prelude.<$> healthCheck,
-            ("GameServerData" Core..=)
+          [ ("GameServerData" Core..=)
               Prelude.<$> gameServerData,
+            ("HealthCheck" Core..=) Prelude.<$> healthCheck,
             ("UtilizationStatus" Core..=)
               Prelude.<$> utilizationStatus,
             Prelude.Just

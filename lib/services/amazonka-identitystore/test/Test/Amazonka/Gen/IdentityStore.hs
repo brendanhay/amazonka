@@ -30,14 +30,14 @@ import Test.Tasty
 --         [ requestDescribeGroup $
 --             newDescribeGroup
 --
---         , requestListUsers $
---             newListUsers
---
 --         , requestDescribeUser $
 --             newDescribeUser
 --
 --         , requestListGroups $
 --             newListGroups
+--
+--         , requestListUsers $
+--             newListUsers
 --
 --           ]
 
@@ -45,14 +45,14 @@ import Test.Tasty
 --         [ responseDescribeGroup $
 --             newDescribeGroupResponse
 --
---         , responseListUsers $
---             newListUsersResponse
---
 --         , responseDescribeUser $
 --             newDescribeUserResponse
 --
 --         , responseListGroups $
 --             newListGroupsResponse
+--
+--         , responseListUsers $
+--             newListUsersResponse
 --
 --           ]
 --     ]
@@ -64,12 +64,6 @@ requestDescribeGroup =
   req
     "DescribeGroup"
     "fixture/DescribeGroup.yaml"
-
-requestListUsers :: ListUsers -> TestTree
-requestListUsers =
-  req
-    "ListUsers"
-    "fixture/ListUsers.yaml"
 
 requestDescribeUser :: DescribeUser -> TestTree
 requestDescribeUser =
@@ -83,6 +77,12 @@ requestListGroups =
     "ListGroups"
     "fixture/ListGroups.yaml"
 
+requestListUsers :: ListUsers -> TestTree
+requestListUsers =
+  req
+    "ListUsers"
+    "fixture/ListUsers.yaml"
+
 -- Responses
 
 responseDescribeGroup :: DescribeGroupResponse -> TestTree
@@ -92,14 +92,6 @@ responseDescribeGroup =
     "fixture/DescribeGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeGroup)
-
-responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers =
-  res
-    "ListUsersResponse"
-    "fixture/ListUsersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListUsers)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
@@ -116,3 +108,11 @@ responseListGroups =
     "fixture/ListGroupsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListGroups)
+
+responseListUsers :: ListUsersResponse -> TestTree
+responseListUsers =
+  res
+    "ListUsersResponse"
+    "fixture/ListUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)

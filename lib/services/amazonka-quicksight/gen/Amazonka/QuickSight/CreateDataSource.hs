@@ -27,12 +27,12 @@ module Amazonka.QuickSight.CreateDataSource
     newCreateDataSource,
 
     -- * Request Lenses
+    createDataSource_tags,
     createDataSource_dataSourceParameters,
+    createDataSource_permissions,
+    createDataSource_vpcConnectionProperties,
     createDataSource_sslProperties,
     createDataSource_credentials,
-    createDataSource_vpcConnectionProperties,
-    createDataSource_permissions,
-    createDataSource_tags,
     createDataSource_awsAccountId,
     createDataSource_dataSourceId,
     createDataSource_name,
@@ -43,10 +43,10 @@ module Amazonka.QuickSight.CreateDataSource
     newCreateDataSourceResponse,
 
     -- * Response Lenses
-    createDataSourceResponse_requestId,
-    createDataSourceResponse_arn,
     createDataSourceResponse_creationStatus,
     createDataSourceResponse_dataSourceId,
+    createDataSourceResponse_requestId,
+    createDataSourceResponse_arn,
     createDataSourceResponse_status,
   )
 where
@@ -60,9 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataSource' smart constructor.
 data CreateDataSource = CreateDataSource'
-  { -- | The parameters that Amazon QuickSight uses to connect to your underlying
+  { -- | Contains a map of the key-value pairs for the resource tag or tags
+    -- assigned to the data source.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The parameters that Amazon QuickSight uses to connect to your underlying
     -- source.
     dataSourceParameters :: Prelude.Maybe DataSourceParameters,
+    -- | A list of resource permissions on the data source.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | Use this parameter only when you want Amazon QuickSight to use a VPC
+    -- connection when connecting to your underlying source.
+    vpcConnectionProperties :: Prelude.Maybe VpcConnectionProperties,
     -- | Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
     -- connects to your underlying source.
     sslProperties :: Prelude.Maybe SslProperties,
@@ -70,14 +78,6 @@ data CreateDataSource = CreateDataSource'
     -- underlying source. Currently, only credentials based on user name and
     -- password are supported.
     credentials :: Prelude.Maybe (Core.Sensitive DataSourceCredentials),
-    -- | Use this parameter only when you want Amazon QuickSight to use a VPC
-    -- connection when connecting to your underlying source.
-    vpcConnectionProperties :: Prelude.Maybe VpcConnectionProperties,
-    -- | A list of resource permissions on the data source.
-    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | Contains a map of the key-value pairs for the resource tag or tags
-    -- assigned to the data source.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Text,
     -- | An ID for the data source. This ID is unique per Amazon Web Services
@@ -101,8 +101,16 @@ data CreateDataSource = CreateDataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createDataSource_tags' - Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the data source.
+--
 -- 'dataSourceParameters', 'createDataSource_dataSourceParameters' - The parameters that Amazon QuickSight uses to connect to your underlying
 -- source.
+--
+-- 'permissions', 'createDataSource_permissions' - A list of resource permissions on the data source.
+--
+-- 'vpcConnectionProperties', 'createDataSource_vpcConnectionProperties' - Use this parameter only when you want Amazon QuickSight to use a VPC
+-- connection when connecting to your underlying source.
 --
 -- 'sslProperties', 'createDataSource_sslProperties' - Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
 -- connects to your underlying source.
@@ -110,14 +118,6 @@ data CreateDataSource = CreateDataSource'
 -- 'credentials', 'createDataSource_credentials' - The credentials Amazon QuickSight that uses to connect to your
 -- underlying source. Currently, only credentials based on user name and
 -- password are supported.
---
--- 'vpcConnectionProperties', 'createDataSource_vpcConnectionProperties' - Use this parameter only when you want Amazon QuickSight to use a VPC
--- connection when connecting to your underlying source.
---
--- 'permissions', 'createDataSource_permissions' - A list of resource permissions on the data source.
---
--- 'tags', 'createDataSource_tags' - Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the data source.
 --
 -- 'awsAccountId', 'createDataSource_awsAccountId' - The Amazon Web Services account ID.
 --
@@ -146,23 +146,36 @@ newCreateDataSource
   pName_
   pType_ =
     CreateDataSource'
-      { dataSourceParameters =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        dataSourceParameters = Prelude.Nothing,
+        permissions = Prelude.Nothing,
+        vpcConnectionProperties = Prelude.Nothing,
         sslProperties = Prelude.Nothing,
         credentials = Prelude.Nothing,
-        vpcConnectionProperties = Prelude.Nothing,
-        permissions = Prelude.Nothing,
-        tags = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         dataSourceId = pDataSourceId_,
         name = pName_,
         type' = pType_
       }
 
+-- | Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the data source.
+createDataSource_tags :: Lens.Lens' CreateDataSource (Prelude.Maybe (Prelude.NonEmpty Tag))
+createDataSource_tags = Lens.lens (\CreateDataSource' {tags} -> tags) (\s@CreateDataSource' {} a -> s {tags = a} :: CreateDataSource) Prelude.. Lens.mapping Lens.coerced
+
 -- | The parameters that Amazon QuickSight uses to connect to your underlying
 -- source.
 createDataSource_dataSourceParameters :: Lens.Lens' CreateDataSource (Prelude.Maybe DataSourceParameters)
 createDataSource_dataSourceParameters = Lens.lens (\CreateDataSource' {dataSourceParameters} -> dataSourceParameters) (\s@CreateDataSource' {} a -> s {dataSourceParameters = a} :: CreateDataSource)
+
+-- | A list of resource permissions on the data source.
+createDataSource_permissions :: Lens.Lens' CreateDataSource (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
+createDataSource_permissions = Lens.lens (\CreateDataSource' {permissions} -> permissions) (\s@CreateDataSource' {} a -> s {permissions = a} :: CreateDataSource) Prelude.. Lens.mapping Lens.coerced
+
+-- | Use this parameter only when you want Amazon QuickSight to use a VPC
+-- connection when connecting to your underlying source.
+createDataSource_vpcConnectionProperties :: Lens.Lens' CreateDataSource (Prelude.Maybe VpcConnectionProperties)
+createDataSource_vpcConnectionProperties = Lens.lens (\CreateDataSource' {vpcConnectionProperties} -> vpcConnectionProperties) (\s@CreateDataSource' {} a -> s {vpcConnectionProperties = a} :: CreateDataSource)
 
 -- | Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
 -- connects to your underlying source.
@@ -174,20 +187,6 @@ createDataSource_sslProperties = Lens.lens (\CreateDataSource' {sslProperties} -
 -- password are supported.
 createDataSource_credentials :: Lens.Lens' CreateDataSource (Prelude.Maybe DataSourceCredentials)
 createDataSource_credentials = Lens.lens (\CreateDataSource' {credentials} -> credentials) (\s@CreateDataSource' {} a -> s {credentials = a} :: CreateDataSource) Prelude.. Lens.mapping Core._Sensitive
-
--- | Use this parameter only when you want Amazon QuickSight to use a VPC
--- connection when connecting to your underlying source.
-createDataSource_vpcConnectionProperties :: Lens.Lens' CreateDataSource (Prelude.Maybe VpcConnectionProperties)
-createDataSource_vpcConnectionProperties = Lens.lens (\CreateDataSource' {vpcConnectionProperties} -> vpcConnectionProperties) (\s@CreateDataSource' {} a -> s {vpcConnectionProperties = a} :: CreateDataSource)
-
--- | A list of resource permissions on the data source.
-createDataSource_permissions :: Lens.Lens' CreateDataSource (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
-createDataSource_permissions = Lens.lens (\CreateDataSource' {permissions} -> permissions) (\s@CreateDataSource' {} a -> s {permissions = a} :: CreateDataSource) Prelude.. Lens.mapping Lens.coerced
-
--- | Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the data source.
-createDataSource_tags :: Lens.Lens' CreateDataSource (Prelude.Maybe (Prelude.NonEmpty Tag))
-createDataSource_tags = Lens.lens (\CreateDataSource' {tags} -> tags) (\s@CreateDataSource' {} a -> s {tags = a} :: CreateDataSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services account ID.
 createDataSource_awsAccountId :: Lens.Lens' CreateDataSource Prelude.Text
@@ -218,21 +217,21 @@ instance Core.AWSRequest CreateDataSource where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSourceResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreationStatus")
+            Prelude.<$> (x Core..?> "CreationStatus")
             Prelude.<*> (x Core..?> "DataSourceId")
+            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDataSource where
   hashWithSalt _salt CreateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceParameters
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` dataSourceParameters
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` vpcConnectionProperties
       `Prelude.hashWithSalt` sslProperties
       `Prelude.hashWithSalt` credentials
-      `Prelude.hashWithSalt` vpcConnectionProperties
-      `Prelude.hashWithSalt` permissions
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` name
@@ -240,12 +239,12 @@ instance Prelude.Hashable CreateDataSource where
 
 instance Prelude.NFData CreateDataSource where
   rnf CreateDataSource' {..} =
-    Prelude.rnf dataSourceParameters
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataSourceParameters
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf vpcConnectionProperties
       `Prelude.seq` Prelude.rnf sslProperties
       `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf vpcConnectionProperties
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSourceId
       `Prelude.seq` Prelude.rnf name
@@ -266,14 +265,14 @@ instance Core.ToJSON CreateDataSource where
   toJSON CreateDataSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataSourceParameters" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DataSourceParameters" Core..=)
               Prelude.<$> dataSourceParameters,
-            ("SslProperties" Core..=) Prelude.<$> sslProperties,
-            ("Credentials" Core..=) Prelude.<$> credentials,
+            ("Permissions" Core..=) Prelude.<$> permissions,
             ("VpcConnectionProperties" Core..=)
               Prelude.<$> vpcConnectionProperties,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("SslProperties" Core..=) Prelude.<$> sslProperties,
+            ("Credentials" Core..=) Prelude.<$> credentials,
             Prelude.Just ("DataSourceId" Core..= dataSourceId),
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Type" Core..= type')
@@ -293,15 +292,15 @@ instance Core.ToQuery CreateDataSource where
 
 -- | /See:/ 'newCreateDataSourceResponse' smart constructor.
 data CreateDataSourceResponse = CreateDataSourceResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the data source.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of creating the data source.
+  { -- | The status of creating the data source.
     creationStatus :: Prelude.Maybe ResourceStatus,
     -- | The ID of the data source. This ID is unique per Amazon Web Services
     -- Region for each Amazon Web Services account.
     dataSourceId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the data source.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -315,14 +314,14 @@ data CreateDataSourceResponse = CreateDataSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'createDataSourceResponse_requestId' - The Amazon Web Services request ID for this operation.
---
--- 'arn', 'createDataSourceResponse_arn' - The Amazon Resource Name (ARN) of the data source.
---
 -- 'creationStatus', 'createDataSourceResponse_creationStatus' - The status of creating the data source.
 --
 -- 'dataSourceId', 'createDataSourceResponse_dataSourceId' - The ID of the data source. This ID is unique per Amazon Web Services
 -- Region for each Amazon Web Services account.
+--
+-- 'requestId', 'createDataSourceResponse_requestId' - The Amazon Web Services request ID for this operation.
+--
+-- 'arn', 'createDataSourceResponse_arn' - The Amazon Resource Name (ARN) of the data source.
 --
 -- 'status', 'createDataSourceResponse_status' - The HTTP status of the request.
 newCreateDataSourceResponse ::
@@ -331,21 +330,13 @@ newCreateDataSourceResponse ::
   CreateDataSourceResponse
 newCreateDataSourceResponse pStatus_ =
   CreateDataSourceResponse'
-    { requestId =
+    { creationStatus =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      creationStatus = Prelude.Nothing,
       dataSourceId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
+      arn = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-createDataSourceResponse_requestId :: Lens.Lens' CreateDataSourceResponse (Prelude.Maybe Prelude.Text)
-createDataSourceResponse_requestId = Lens.lens (\CreateDataSourceResponse' {requestId} -> requestId) (\s@CreateDataSourceResponse' {} a -> s {requestId = a} :: CreateDataSourceResponse)
-
--- | The Amazon Resource Name (ARN) of the data source.
-createDataSourceResponse_arn :: Lens.Lens' CreateDataSourceResponse (Prelude.Maybe Prelude.Text)
-createDataSourceResponse_arn = Lens.lens (\CreateDataSourceResponse' {arn} -> arn) (\s@CreateDataSourceResponse' {} a -> s {arn = a} :: CreateDataSourceResponse)
 
 -- | The status of creating the data source.
 createDataSourceResponse_creationStatus :: Lens.Lens' CreateDataSourceResponse (Prelude.Maybe ResourceStatus)
@@ -356,14 +347,22 @@ createDataSourceResponse_creationStatus = Lens.lens (\CreateDataSourceResponse' 
 createDataSourceResponse_dataSourceId :: Lens.Lens' CreateDataSourceResponse (Prelude.Maybe Prelude.Text)
 createDataSourceResponse_dataSourceId = Lens.lens (\CreateDataSourceResponse' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceResponse' {} a -> s {dataSourceId = a} :: CreateDataSourceResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+createDataSourceResponse_requestId :: Lens.Lens' CreateDataSourceResponse (Prelude.Maybe Prelude.Text)
+createDataSourceResponse_requestId = Lens.lens (\CreateDataSourceResponse' {requestId} -> requestId) (\s@CreateDataSourceResponse' {} a -> s {requestId = a} :: CreateDataSourceResponse)
+
+-- | The Amazon Resource Name (ARN) of the data source.
+createDataSourceResponse_arn :: Lens.Lens' CreateDataSourceResponse (Prelude.Maybe Prelude.Text)
+createDataSourceResponse_arn = Lens.lens (\CreateDataSourceResponse' {arn} -> arn) (\s@CreateDataSourceResponse' {} a -> s {arn = a} :: CreateDataSourceResponse)
+
 -- | The HTTP status of the request.
 createDataSourceResponse_status :: Lens.Lens' CreateDataSourceResponse Prelude.Int
 createDataSourceResponse_status = Lens.lens (\CreateDataSourceResponse' {status} -> status) (\s@CreateDataSourceResponse' {} a -> s {status = a} :: CreateDataSourceResponse)
 
 instance Prelude.NFData CreateDataSourceResponse where
   rnf CreateDataSourceResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationStatus
+    Prelude.rnf creationStatus
       `Prelude.seq` Prelude.rnf dataSourceId
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status

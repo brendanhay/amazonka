@@ -27,9 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetGroupAttribute' smart constructor.
 data TargetGroupAttribute = TargetGroupAttribute'
-  { -- | The value of the attribute.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the attribute.
+  { -- | The name of the attribute.
     --
     -- The following attribute is supported by all load balancers:
     --
@@ -110,7 +108,9 @@ data TargetGroupAttribute = TargetGroupAttribute'
     -- -   @proxy_protocol_v2.enabled@ - Indicates whether Proxy Protocol
     --     version 2 is enabled. The value is @true@ or @false@. The default is
     --     @false@.
-    key :: Prelude.Maybe Prelude.Text
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The value of the attribute.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,8 +121,6 @@ data TargetGroupAttribute = TargetGroupAttribute'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'value', 'targetGroupAttribute_value' - The value of the attribute.
 --
 -- 'key', 'targetGroupAttribute_key' - The name of the attribute.
 --
@@ -205,17 +203,15 @@ data TargetGroupAttribute = TargetGroupAttribute'
 -- -   @proxy_protocol_v2.enabled@ - Indicates whether Proxy Protocol
 --     version 2 is enabled. The value is @true@ or @false@. The default is
 --     @false@.
+--
+-- 'value', 'targetGroupAttribute_value' - The value of the attribute.
 newTargetGroupAttribute ::
   TargetGroupAttribute
 newTargetGroupAttribute =
   TargetGroupAttribute'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the attribute.
-targetGroupAttribute_value :: Lens.Lens' TargetGroupAttribute (Prelude.Maybe Prelude.Text)
-targetGroupAttribute_value = Lens.lens (\TargetGroupAttribute' {value} -> value) (\s@TargetGroupAttribute' {} a -> s {value = a} :: TargetGroupAttribute)
 
 -- | The name of the attribute.
 --
@@ -301,21 +297,25 @@ targetGroupAttribute_value = Lens.lens (\TargetGroupAttribute' {value} -> value)
 targetGroupAttribute_key :: Lens.Lens' TargetGroupAttribute (Prelude.Maybe Prelude.Text)
 targetGroupAttribute_key = Lens.lens (\TargetGroupAttribute' {key} -> key) (\s@TargetGroupAttribute' {} a -> s {key = a} :: TargetGroupAttribute)
 
+-- | The value of the attribute.
+targetGroupAttribute_value :: Lens.Lens' TargetGroupAttribute (Prelude.Maybe Prelude.Text)
+targetGroupAttribute_value = Lens.lens (\TargetGroupAttribute' {value} -> value) (\s@TargetGroupAttribute' {} a -> s {value = a} :: TargetGroupAttribute)
+
 instance Core.FromXML TargetGroupAttribute where
   parseXML x =
     TargetGroupAttribute'
-      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
+      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
 
 instance Prelude.Hashable TargetGroupAttribute where
   hashWithSalt _salt TargetGroupAttribute' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TargetGroupAttribute where
   rnf TargetGroupAttribute' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToQuery TargetGroupAttribute where
   toQuery TargetGroupAttribute' {..} =
     Prelude.mconcat
-      ["Value" Core.=: value, "Key" Core.=: key]
+      ["Key" Core.=: key, "Value" Core.=: value]

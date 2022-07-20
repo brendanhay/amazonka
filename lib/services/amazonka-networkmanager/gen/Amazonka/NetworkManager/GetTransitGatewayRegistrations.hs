@@ -30,8 +30,8 @@ module Amazonka.NetworkManager.GetTransitGatewayRegistrations
     newGetTransitGatewayRegistrations,
 
     -- * Request Lenses
-    getTransitGatewayRegistrations_transitGatewayArns,
     getTransitGatewayRegistrations_nextToken,
+    getTransitGatewayRegistrations_transitGatewayArns,
     getTransitGatewayRegistrations_maxResults,
     getTransitGatewayRegistrations_globalNetworkId,
 
@@ -40,8 +40,8 @@ module Amazonka.NetworkManager.GetTransitGatewayRegistrations
     newGetTransitGatewayRegistrationsResponse,
 
     -- * Response Lenses
-    getTransitGatewayRegistrationsResponse_transitGatewayRegistrations,
     getTransitGatewayRegistrationsResponse_nextToken,
+    getTransitGatewayRegistrationsResponse_transitGatewayRegistrations,
     getTransitGatewayRegistrationsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayRegistrations' smart constructor.
 data GetTransitGatewayRegistrations = GetTransitGatewayRegistrations'
-  { -- | The Amazon Resource Names (ARNs) of one or more transit gateways. The
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Names (ARNs) of one or more transit gateways. The
     -- maximum is 10.
     transitGatewayArns :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the global network.
@@ -75,10 +75,10 @@ data GetTransitGatewayRegistrations = GetTransitGatewayRegistrations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getTransitGatewayRegistrations_nextToken' - The token for the next page of results.
+--
 -- 'transitGatewayArns', 'getTransitGatewayRegistrations_transitGatewayArns' - The Amazon Resource Names (ARNs) of one or more transit gateways. The
 -- maximum is 10.
---
--- 'nextToken', 'getTransitGatewayRegistrations_nextToken' - The token for the next page of results.
 --
 -- 'maxResults', 'getTransitGatewayRegistrations_maxResults' - The maximum number of results to return.
 --
@@ -89,21 +89,21 @@ newGetTransitGatewayRegistrations ::
   GetTransitGatewayRegistrations
 newGetTransitGatewayRegistrations pGlobalNetworkId_ =
   GetTransitGatewayRegistrations'
-    { transitGatewayArns =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      transitGatewayArns = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
+
+-- | The token for the next page of results.
+getTransitGatewayRegistrations_nextToken :: Lens.Lens' GetTransitGatewayRegistrations (Prelude.Maybe Prelude.Text)
+getTransitGatewayRegistrations_nextToken = Lens.lens (\GetTransitGatewayRegistrations' {nextToken} -> nextToken) (\s@GetTransitGatewayRegistrations' {} a -> s {nextToken = a} :: GetTransitGatewayRegistrations)
 
 -- | The Amazon Resource Names (ARNs) of one or more transit gateways. The
 -- maximum is 10.
 getTransitGatewayRegistrations_transitGatewayArns :: Lens.Lens' GetTransitGatewayRegistrations (Prelude.Maybe [Prelude.Text])
 getTransitGatewayRegistrations_transitGatewayArns = Lens.lens (\GetTransitGatewayRegistrations' {transitGatewayArns} -> transitGatewayArns) (\s@GetTransitGatewayRegistrations' {} a -> s {transitGatewayArns = a} :: GetTransitGatewayRegistrations) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-getTransitGatewayRegistrations_nextToken :: Lens.Lens' GetTransitGatewayRegistrations (Prelude.Maybe Prelude.Text)
-getTransitGatewayRegistrations_nextToken = Lens.lens (\GetTransitGatewayRegistrations' {nextToken} -> nextToken) (\s@GetTransitGatewayRegistrations' {} a -> s {nextToken = a} :: GetTransitGatewayRegistrations)
 
 -- | The maximum number of results to return.
 getTransitGatewayRegistrations_maxResults :: Lens.Lens' GetTransitGatewayRegistrations (Prelude.Maybe Prelude.Natural)
@@ -147,10 +147,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTransitGatewayRegistrationsResponse'
-            Prelude.<$> ( x Core..?> "TransitGatewayRegistrations"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "TransitGatewayRegistrations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,8 +161,8 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayRegistrations' {..} =
-      _salt `Prelude.hashWithSalt` transitGatewayArns
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` transitGatewayArns
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` globalNetworkId
 
@@ -171,8 +171,8 @@ instance
     GetTransitGatewayRegistrations
   where
   rnf GetTransitGatewayRegistrations' {..} =
-    Prelude.rnf transitGatewayArns
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf transitGatewayArns
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
 
@@ -201,21 +201,21 @@ instance Core.ToPath GetTransitGatewayRegistrations where
 instance Core.ToQuery GetTransitGatewayRegistrations where
   toQuery GetTransitGatewayRegistrations' {..} =
     Prelude.mconcat
-      [ "transitGatewayArns"
+      [ "nextToken" Core.=: nextToken,
+        "transitGatewayArns"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> transitGatewayArns
             ),
-        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newGetTransitGatewayRegistrationsResponse' smart constructor.
 data GetTransitGatewayRegistrationsResponse = GetTransitGatewayRegistrationsResponse'
-  { -- | The transit gateway registrations.
-    transitGatewayRegistrations :: Prelude.Maybe [TransitGatewayRegistration],
-    -- | The token for the next page of results.
+  { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The transit gateway registrations.
+    transitGatewayRegistrations :: Prelude.Maybe [TransitGatewayRegistration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,9 +229,9 @@ data GetTransitGatewayRegistrationsResponse = GetTransitGatewayRegistrationsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayRegistrations', 'getTransitGatewayRegistrationsResponse_transitGatewayRegistrations' - The transit gateway registrations.
---
 -- 'nextToken', 'getTransitGatewayRegistrationsResponse_nextToken' - The token for the next page of results.
+--
+-- 'transitGatewayRegistrations', 'getTransitGatewayRegistrationsResponse_transitGatewayRegistrations' - The transit gateway registrations.
 --
 -- 'httpStatus', 'getTransitGatewayRegistrationsResponse_httpStatus' - The response's http status code.
 newGetTransitGatewayRegistrationsResponse ::
@@ -241,19 +241,20 @@ newGetTransitGatewayRegistrationsResponse ::
 newGetTransitGatewayRegistrationsResponse
   pHttpStatus_ =
     GetTransitGatewayRegistrationsResponse'
-      { transitGatewayRegistrations =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        transitGatewayRegistrations =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The transit gateway registrations.
-getTransitGatewayRegistrationsResponse_transitGatewayRegistrations :: Lens.Lens' GetTransitGatewayRegistrationsResponse (Prelude.Maybe [TransitGatewayRegistration])
-getTransitGatewayRegistrationsResponse_transitGatewayRegistrations = Lens.lens (\GetTransitGatewayRegistrationsResponse' {transitGatewayRegistrations} -> transitGatewayRegistrations) (\s@GetTransitGatewayRegistrationsResponse' {} a -> s {transitGatewayRegistrations = a} :: GetTransitGatewayRegistrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next page of results.
 getTransitGatewayRegistrationsResponse_nextToken :: Lens.Lens' GetTransitGatewayRegistrationsResponse (Prelude.Maybe Prelude.Text)
 getTransitGatewayRegistrationsResponse_nextToken = Lens.lens (\GetTransitGatewayRegistrationsResponse' {nextToken} -> nextToken) (\s@GetTransitGatewayRegistrationsResponse' {} a -> s {nextToken = a} :: GetTransitGatewayRegistrationsResponse)
+
+-- | The transit gateway registrations.
+getTransitGatewayRegistrationsResponse_transitGatewayRegistrations :: Lens.Lens' GetTransitGatewayRegistrationsResponse (Prelude.Maybe [TransitGatewayRegistration])
+getTransitGatewayRegistrationsResponse_transitGatewayRegistrations = Lens.lens (\GetTransitGatewayRegistrationsResponse' {transitGatewayRegistrations} -> transitGatewayRegistrations) (\s@GetTransitGatewayRegistrationsResponse' {} a -> s {transitGatewayRegistrations = a} :: GetTransitGatewayRegistrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTransitGatewayRegistrationsResponse_httpStatus :: Lens.Lens' GetTransitGatewayRegistrationsResponse Prelude.Int
@@ -264,6 +265,6 @@ instance
     GetTransitGatewayRegistrationsResponse
   where
   rnf GetTransitGatewayRegistrationsResponse' {..} =
-    Prelude.rnf transitGatewayRegistrations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf transitGatewayRegistrations
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ module Amazonka.EC2.DeregisterTransitGatewayMulticastGroupSources
     newDeregisterTransitGatewayMulticastGroupSources,
 
     -- * Request Lenses
-    deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds,
-    deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
     deregisterTransitGatewayMulticastGroupSources_groupIpAddress,
     deregisterTransitGatewayMulticastGroupSources_dryRun,
+    deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
+    deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds,
 
     -- * Destructuring the Response
     DeregisterTransitGatewayMulticastGroupSourcesResponse (..),
@@ -52,17 +52,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeregisterTransitGatewayMulticastGroupSources' smart constructor.
 data DeregisterTransitGatewayMulticastGroupSources = DeregisterTransitGatewayMulticastGroupSources'
-  { -- | The IDs of the group sources\' network interfaces.
-    networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
-    -- | The IP address assigned to the transit gateway multicast group.
+  { -- | The IP address assigned to the transit gateway multicast group.
     groupIpAddress :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the group sources\' network interfaces.
+    networkInterfaceIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,36 +74,28 @@ data DeregisterTransitGatewayMulticastGroupSources = DeregisterTransitGatewayMul
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkInterfaceIds', 'deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds' - The IDs of the group sources\' network interfaces.
---
--- 'transitGatewayMulticastDomainId', 'deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
---
 -- 'groupIpAddress', 'deregisterTransitGatewayMulticastGroupSources_groupIpAddress' - The IP address assigned to the transit gateway multicast group.
 --
 -- 'dryRun', 'deregisterTransitGatewayMulticastGroupSources_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'transitGatewayMulticastDomainId', 'deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+--
+-- 'networkInterfaceIds', 'deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds' - The IDs of the group sources\' network interfaces.
 newDeregisterTransitGatewayMulticastGroupSources ::
   DeregisterTransitGatewayMulticastGroupSources
 newDeregisterTransitGatewayMulticastGroupSources =
   DeregisterTransitGatewayMulticastGroupSources'
-    { networkInterfaceIds =
+    { groupIpAddress =
         Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       transitGatewayMulticastDomainId =
         Prelude.Nothing,
-      groupIpAddress =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      networkInterfaceIds =
+        Prelude.Nothing
     }
-
--- | The IDs of the group sources\' network interfaces.
-deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Prelude.Maybe [Prelude.Text])
-deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds = Lens.lens (\DeregisterTransitGatewayMulticastGroupSources' {networkInterfaceIds} -> networkInterfaceIds) (\s@DeregisterTransitGatewayMulticastGroupSources' {} a -> s {networkInterfaceIds = a} :: DeregisterTransitGatewayMulticastGroupSources) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the transit gateway multicast domain.
-deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Text)
-deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId = Lens.lens (\DeregisterTransitGatewayMulticastGroupSources' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@DeregisterTransitGatewayMulticastGroupSources' {} a -> s {transitGatewayMulticastDomainId = a} :: DeregisterTransitGatewayMulticastGroupSources)
 
 -- | The IP address assigned to the transit gateway multicast group.
 deregisterTransitGatewayMulticastGroupSources_groupIpAddress :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Text)
@@ -115,6 +107,14 @@ deregisterTransitGatewayMulticastGroupSources_groupIpAddress = Lens.lens (\Dereg
 -- Otherwise, it is @UnauthorizedOperation@.
 deregisterTransitGatewayMulticastGroupSources_dryRun :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Bool)
 deregisterTransitGatewayMulticastGroupSources_dryRun = Lens.lens (\DeregisterTransitGatewayMulticastGroupSources' {dryRun} -> dryRun) (\s@DeregisterTransitGatewayMulticastGroupSources' {} a -> s {dryRun = a} :: DeregisterTransitGatewayMulticastGroupSources)
+
+-- | The ID of the transit gateway multicast domain.
+deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Text)
+deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId = Lens.lens (\DeregisterTransitGatewayMulticastGroupSources' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@DeregisterTransitGatewayMulticastGroupSources' {} a -> s {transitGatewayMulticastDomainId = a} :: DeregisterTransitGatewayMulticastGroupSources)
+
+-- | The IDs of the group sources\' network interfaces.
+deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Prelude.Maybe [Prelude.Text])
+deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds = Lens.lens (\DeregisterTransitGatewayMulticastGroupSources' {networkInterfaceIds} -> networkInterfaceIds) (\s@DeregisterTransitGatewayMulticastGroupSources' {} a -> s {networkInterfaceIds = a} :: DeregisterTransitGatewayMulticastGroupSources) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -140,10 +140,10 @@ instance
   hashWithSalt
     _salt
     DeregisterTransitGatewayMulticastGroupSources' {..} =
-      _salt `Prelude.hashWithSalt` networkInterfaceIds
-        `Prelude.hashWithSalt` transitGatewayMulticastDomainId
-        `Prelude.hashWithSalt` groupIpAddress
+      _salt `Prelude.hashWithSalt` groupIpAddress
         `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` transitGatewayMulticastDomainId
+        `Prelude.hashWithSalt` networkInterfaceIds
 
 instance
   Prelude.NFData
@@ -151,10 +151,10 @@ instance
   where
   rnf
     DeregisterTransitGatewayMulticastGroupSources' {..} =
-      Prelude.rnf networkInterfaceIds
-        `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
-        `Prelude.seq` Prelude.rnf groupIpAddress
+      Prelude.rnf groupIpAddress
         `Prelude.seq` Prelude.rnf dryRun
+        `Prelude.seq` Prelude.rnf transitGatewayMulticastDomainId
+        `Prelude.seq` Prelude.rnf networkInterfaceIds
 
 instance
   Core.ToHeaders
@@ -181,14 +181,14 @@ instance
                     ),
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
+          "GroupIpAddress" Core.=: groupIpAddress,
+          "DryRun" Core.=: dryRun,
+          "TransitGatewayMulticastDomainId"
+            Core.=: transitGatewayMulticastDomainId,
           Core.toQuery
             ( Core.toQueryList "NetworkInterfaceIds"
                 Prelude.<$> networkInterfaceIds
-            ),
-          "TransitGatewayMulticastDomainId"
-            Core.=: transitGatewayMulticastDomainId,
-          "GroupIpAddress" Core.=: groupIpAddress,
-          "DryRun" Core.=: dryRun
+            )
         ]
 
 -- | /See:/ 'newDeregisterTransitGatewayMulticastGroupSourcesResponse' smart constructor.

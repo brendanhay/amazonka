@@ -37,8 +37,8 @@ module Amazonka.Translate.ImportTerminology
     newImportTerminology,
 
     -- * Request Lenses
-    importTerminology_encryptionKey,
     importTerminology_description,
+    importTerminology_encryptionKey,
     importTerminology_name,
     importTerminology_mergeStrategy,
     importTerminology_terminologyData,
@@ -62,10 +62,10 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newImportTerminology' smart constructor.
 data ImportTerminology = ImportTerminology'
-  { -- | The encryption key for the custom terminology being imported.
-    encryptionKey :: Prelude.Maybe EncryptionKey,
-    -- | The description of the custom terminology being imported.
+  { -- | The description of the custom terminology being imported.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The encryption key for the custom terminology being imported.
+    encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | The name of the custom terminology being imported.
     name :: Prelude.Text,
     -- | The merge strategy of the custom terminology being imported. Currently,
@@ -86,9 +86,9 @@ data ImportTerminology = ImportTerminology'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionKey', 'importTerminology_encryptionKey' - The encryption key for the custom terminology being imported.
---
 -- 'description', 'importTerminology_description' - The description of the custom terminology being imported.
+--
+-- 'encryptionKey', 'importTerminology_encryptionKey' - The encryption key for the custom terminology being imported.
 --
 -- 'name', 'importTerminology_name' - The name of the custom terminology being imported.
 --
@@ -111,20 +111,20 @@ newImportTerminology
   pMergeStrategy_
   pTerminologyData_ =
     ImportTerminology'
-      { encryptionKey = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        encryptionKey = Prelude.Nothing,
         name = pName_,
         mergeStrategy = pMergeStrategy_,
         terminologyData = pTerminologyData_
       }
 
--- | The encryption key for the custom terminology being imported.
-importTerminology_encryptionKey :: Lens.Lens' ImportTerminology (Prelude.Maybe EncryptionKey)
-importTerminology_encryptionKey = Lens.lens (\ImportTerminology' {encryptionKey} -> encryptionKey) (\s@ImportTerminology' {} a -> s {encryptionKey = a} :: ImportTerminology)
-
 -- | The description of the custom terminology being imported.
 importTerminology_description :: Lens.Lens' ImportTerminology (Prelude.Maybe Prelude.Text)
 importTerminology_description = Lens.lens (\ImportTerminology' {description} -> description) (\s@ImportTerminology' {} a -> s {description = a} :: ImportTerminology)
+
+-- | The encryption key for the custom terminology being imported.
+importTerminology_encryptionKey :: Lens.Lens' ImportTerminology (Prelude.Maybe EncryptionKey)
+importTerminology_encryptionKey = Lens.lens (\ImportTerminology' {encryptionKey} -> encryptionKey) (\s@ImportTerminology' {} a -> s {encryptionKey = a} :: ImportTerminology)
 
 -- | The name of the custom terminology being imported.
 importTerminology_name :: Lens.Lens' ImportTerminology Prelude.Text
@@ -156,16 +156,16 @@ instance Core.AWSRequest ImportTerminology where
 
 instance Prelude.Hashable ImportTerminology where
   hashWithSalt _salt ImportTerminology' {..} =
-    _salt `Prelude.hashWithSalt` encryptionKey
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` mergeStrategy
       `Prelude.hashWithSalt` terminologyData
 
 instance Prelude.NFData ImportTerminology where
   rnf ImportTerminology' {..} =
-    Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf mergeStrategy
       `Prelude.seq` Prelude.rnf terminologyData
@@ -189,8 +189,8 @@ instance Core.ToJSON ImportTerminology where
   toJSON ImportTerminology' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("MergeStrategy" Core..= mergeStrategy),
             Prelude.Just

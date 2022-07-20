@@ -14,17 +14,44 @@
 module Amazonka.GlobalAccelerator.Lens
   ( -- * Operations
 
-    -- ** DenyCustomRoutingTraffic
-    denyCustomRoutingTraffic_destinationAddresses,
-    denyCustomRoutingTraffic_destinationPorts,
-    denyCustomRoutingTraffic_denyAllTrafficToEndpoint,
-    denyCustomRoutingTraffic_endpointGroupArn,
-    denyCustomRoutingTraffic_endpointId,
+    -- ** AddCustomRoutingEndpoints
+    addCustomRoutingEndpoints_endpointConfigurations,
+    addCustomRoutingEndpoints_endpointGroupArn,
+    addCustomRoutingEndpointsResponse_endpointDescriptions,
+    addCustomRoutingEndpointsResponse_endpointGroupArn,
+    addCustomRoutingEndpointsResponse_httpStatus,
 
-    -- ** DescribeCustomRoutingListener
-    describeCustomRoutingListener_listenerArn,
-    describeCustomRoutingListenerResponse_listener,
-    describeCustomRoutingListenerResponse_httpStatus,
+    -- ** AdvertiseByoipCidr
+    advertiseByoipCidr_cidr,
+    advertiseByoipCidrResponse_byoipCidr,
+    advertiseByoipCidrResponse_httpStatus,
+
+    -- ** AllowCustomRoutingTraffic
+    allowCustomRoutingTraffic_destinationPorts,
+    allowCustomRoutingTraffic_allowAllTrafficToEndpoint,
+    allowCustomRoutingTraffic_destinationAddresses,
+    allowCustomRoutingTraffic_endpointGroupArn,
+    allowCustomRoutingTraffic_endpointId,
+
+    -- ** CreateAccelerator
+    createAccelerator_tags,
+    createAccelerator_enabled,
+    createAccelerator_ipAddressType,
+    createAccelerator_ipAddresses,
+    createAccelerator_name,
+    createAccelerator_idempotencyToken,
+    createAcceleratorResponse_accelerator,
+    createAcceleratorResponse_httpStatus,
+
+    -- ** CreateCustomRoutingAccelerator
+    createCustomRoutingAccelerator_tags,
+    createCustomRoutingAccelerator_enabled,
+    createCustomRoutingAccelerator_ipAddressType,
+    createCustomRoutingAccelerator_ipAddresses,
+    createCustomRoutingAccelerator_name,
+    createCustomRoutingAccelerator_idempotencyToken,
+    createCustomRoutingAcceleratorResponse_accelerator,
+    createCustomRoutingAcceleratorResponse_httpStatus,
 
     -- ** CreateCustomRoutingEndpointGroup
     createCustomRoutingEndpointGroup_listenerArn,
@@ -34,160 +61,27 @@ module Amazonka.GlobalAccelerator.Lens
     createCustomRoutingEndpointGroupResponse_endpointGroup,
     createCustomRoutingEndpointGroupResponse_httpStatus,
 
-    -- ** DescribeCustomRoutingAcceleratorAttributes
-    describeCustomRoutingAcceleratorAttributes_acceleratorArn,
-    describeCustomRoutingAcceleratorAttributesResponse_acceleratorAttributes,
-    describeCustomRoutingAcceleratorAttributesResponse_httpStatus,
+    -- ** CreateCustomRoutingListener
+    createCustomRoutingListener_acceleratorArn,
+    createCustomRoutingListener_portRanges,
+    createCustomRoutingListener_idempotencyToken,
+    createCustomRoutingListenerResponse_listener,
+    createCustomRoutingListenerResponse_httpStatus,
 
-    -- ** DeleteCustomRoutingEndpointGroup
-    deleteCustomRoutingEndpointGroup_endpointGroupArn,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DescribeAcceleratorAttributes
-    describeAcceleratorAttributes_acceleratorArn,
-    describeAcceleratorAttributesResponse_acceleratorAttributes,
-    describeAcceleratorAttributesResponse_httpStatus,
-
-    -- ** DeleteEndpointGroup
-    deleteEndpointGroup_endpointGroupArn,
-
-    -- ** UpdateEndpointGroup
-    updateEndpointGroup_thresholdCount,
-    updateEndpointGroup_healthCheckPath,
-    updateEndpointGroup_healthCheckIntervalSeconds,
-    updateEndpointGroup_healthCheckProtocol,
-    updateEndpointGroup_trafficDialPercentage,
-    updateEndpointGroup_endpointConfigurations,
-    updateEndpointGroup_healthCheckPort,
-    updateEndpointGroup_portOverrides,
-    updateEndpointGroup_endpointGroupArn,
-    updateEndpointGroupResponse_endpointGroup,
-    updateEndpointGroupResponse_httpStatus,
-
-    -- ** ListCustomRoutingListeners
-    listCustomRoutingListeners_nextToken,
-    listCustomRoutingListeners_maxResults,
-    listCustomRoutingListeners_acceleratorArn,
-    listCustomRoutingListenersResponse_nextToken,
-    listCustomRoutingListenersResponse_listeners,
-    listCustomRoutingListenersResponse_httpStatus,
-
-    -- ** DeleteCustomRoutingListener
-    deleteCustomRoutingListener_listenerArn,
-
-    -- ** UpdateCustomRoutingListener
-    updateCustomRoutingListener_listenerArn,
-    updateCustomRoutingListener_portRanges,
-    updateCustomRoutingListenerResponse_listener,
-    updateCustomRoutingListenerResponse_httpStatus,
-
-    -- ** CreateAccelerator
-    createAccelerator_enabled,
-    createAccelerator_ipAddressType,
-    createAccelerator_tags,
-    createAccelerator_ipAddresses,
-    createAccelerator_name,
-    createAccelerator_idempotencyToken,
-    createAcceleratorResponse_accelerator,
-    createAcceleratorResponse_httpStatus,
-
-    -- ** AllowCustomRoutingTraffic
-    allowCustomRoutingTraffic_destinationAddresses,
-    allowCustomRoutingTraffic_destinationPorts,
-    allowCustomRoutingTraffic_allowAllTrafficToEndpoint,
-    allowCustomRoutingTraffic_endpointGroupArn,
-    allowCustomRoutingTraffic_endpointId,
-
-    -- ** WithdrawByoipCidr
-    withdrawByoipCidr_cidr,
-    withdrawByoipCidrResponse_byoipCidr,
-    withdrawByoipCidrResponse_httpStatus,
-
-    -- ** AdvertiseByoipCidr
-    advertiseByoipCidr_cidr,
-    advertiseByoipCidrResponse_byoipCidr,
-    advertiseByoipCidrResponse_httpStatus,
-
-    -- ** DeleteAccelerator
-    deleteAccelerator_acceleratorArn,
-
-    -- ** UpdateAccelerator
-    updateAccelerator_enabled,
-    updateAccelerator_ipAddressType,
-    updateAccelerator_name,
-    updateAccelerator_acceleratorArn,
-    updateAcceleratorResponse_accelerator,
-    updateAcceleratorResponse_httpStatus,
-
-    -- ** ListAccelerators
-    listAccelerators_nextToken,
-    listAccelerators_maxResults,
-    listAcceleratorsResponse_nextToken,
-    listAcceleratorsResponse_accelerators,
-    listAcceleratorsResponse_httpStatus,
-
-    -- ** DescribeEndpointGroup
-    describeEndpointGroup_endpointGroupArn,
-    describeEndpointGroupResponse_endpointGroup,
-    describeEndpointGroupResponse_httpStatus,
-
-    -- ** UpdateAcceleratorAttributes
-    updateAcceleratorAttributes_flowLogsS3Prefix,
-    updateAcceleratorAttributes_flowLogsEnabled,
-    updateAcceleratorAttributes_flowLogsS3Bucket,
-    updateAcceleratorAttributes_acceleratorArn,
-    updateAcceleratorAttributesResponse_acceleratorAttributes,
-    updateAcceleratorAttributesResponse_httpStatus,
-
-    -- ** CreateCustomRoutingAccelerator
-    createCustomRoutingAccelerator_enabled,
-    createCustomRoutingAccelerator_ipAddressType,
-    createCustomRoutingAccelerator_tags,
-    createCustomRoutingAccelerator_ipAddresses,
-    createCustomRoutingAccelerator_name,
-    createCustomRoutingAccelerator_idempotencyToken,
-    createCustomRoutingAcceleratorResponse_accelerator,
-    createCustomRoutingAcceleratorResponse_httpStatus,
-
-    -- ** ListCustomRoutingPortMappingsByDestination
-    listCustomRoutingPortMappingsByDestination_nextToken,
-    listCustomRoutingPortMappingsByDestination_maxResults,
-    listCustomRoutingPortMappingsByDestination_endpointId,
-    listCustomRoutingPortMappingsByDestination_destinationAddress,
-    listCustomRoutingPortMappingsByDestinationResponse_nextToken,
-    listCustomRoutingPortMappingsByDestinationResponse_destinationPortMappings,
-    listCustomRoutingPortMappingsByDestinationResponse_httpStatus,
-
-    -- ** DeleteListener
-    deleteListener_listenerArn,
-
-    -- ** UpdateListener
-    updateListener_portRanges,
-    updateListener_protocol,
-    updateListener_clientAffinity,
-    updateListener_listenerArn,
-    updateListenerResponse_listener,
-    updateListenerResponse_httpStatus,
-
-    -- ** ListListeners
-    listListeners_nextToken,
-    listListeners_maxResults,
-    listListeners_acceleratorArn,
-    listListenersResponse_nextToken,
-    listListenersResponse_listeners,
-    listListenersResponse_httpStatus,
-
-    -- ** ListCustomRoutingEndpointGroups
-    listCustomRoutingEndpointGroups_nextToken,
-    listCustomRoutingEndpointGroups_maxResults,
-    listCustomRoutingEndpointGroups_listenerArn,
-    listCustomRoutingEndpointGroupsResponse_nextToken,
-    listCustomRoutingEndpointGroupsResponse_endpointGroups,
-    listCustomRoutingEndpointGroupsResponse_httpStatus,
+    -- ** CreateEndpointGroup
+    createEndpointGroup_healthCheckProtocol,
+    createEndpointGroup_portOverrides,
+    createEndpointGroup_healthCheckPath,
+    createEndpointGroup_healthCheckIntervalSeconds,
+    createEndpointGroup_endpointConfigurations,
+    createEndpointGroup_trafficDialPercentage,
+    createEndpointGroup_thresholdCount,
+    createEndpointGroup_healthCheckPort,
+    createEndpointGroup_listenerArn,
+    createEndpointGroup_endpointGroupRegion,
+    createEndpointGroup_idempotencyToken,
+    createEndpointGroupResponse_endpointGroup,
+    createEndpointGroupResponse_httpStatus,
 
     -- ** CreateListener
     createListener_clientAffinity,
@@ -198,22 +92,130 @@ module Amazonka.GlobalAccelerator.Lens
     createListenerResponse_listener,
     createListenerResponse_httpStatus,
 
+    -- ** DeleteAccelerator
+    deleteAccelerator_acceleratorArn,
+
+    -- ** DeleteCustomRoutingAccelerator
+    deleteCustomRoutingAccelerator_acceleratorArn,
+
+    -- ** DeleteCustomRoutingEndpointGroup
+    deleteCustomRoutingEndpointGroup_endpointGroupArn,
+
+    -- ** DeleteCustomRoutingListener
+    deleteCustomRoutingListener_listenerArn,
+
+    -- ** DeleteEndpointGroup
+    deleteEndpointGroup_endpointGroupArn,
+
+    -- ** DeleteListener
+    deleteListener_listenerArn,
+
+    -- ** DenyCustomRoutingTraffic
+    denyCustomRoutingTraffic_destinationPorts,
+    denyCustomRoutingTraffic_denyAllTrafficToEndpoint,
+    denyCustomRoutingTraffic_destinationAddresses,
+    denyCustomRoutingTraffic_endpointGroupArn,
+    denyCustomRoutingTraffic_endpointId,
+
+    -- ** DeprovisionByoipCidr
+    deprovisionByoipCidr_cidr,
+    deprovisionByoipCidrResponse_byoipCidr,
+    deprovisionByoipCidrResponse_httpStatus,
+
     -- ** DescribeAccelerator
     describeAccelerator_acceleratorArn,
     describeAcceleratorResponse_accelerator,
     describeAcceleratorResponse_httpStatus,
 
-    -- ** CreateCustomRoutingListener
-    createCustomRoutingListener_acceleratorArn,
-    createCustomRoutingListener_portRanges,
-    createCustomRoutingListener_idempotencyToken,
-    createCustomRoutingListenerResponse_listener,
-    createCustomRoutingListenerResponse_httpStatus,
+    -- ** DescribeAcceleratorAttributes
+    describeAcceleratorAttributes_acceleratorArn,
+    describeAcceleratorAttributesResponse_acceleratorAttributes,
+    describeAcceleratorAttributesResponse_httpStatus,
 
     -- ** DescribeCustomRoutingAccelerator
     describeCustomRoutingAccelerator_acceleratorArn,
     describeCustomRoutingAcceleratorResponse_accelerator,
     describeCustomRoutingAcceleratorResponse_httpStatus,
+
+    -- ** DescribeCustomRoutingAcceleratorAttributes
+    describeCustomRoutingAcceleratorAttributes_acceleratorArn,
+    describeCustomRoutingAcceleratorAttributesResponse_acceleratorAttributes,
+    describeCustomRoutingAcceleratorAttributesResponse_httpStatus,
+
+    -- ** DescribeCustomRoutingEndpointGroup
+    describeCustomRoutingEndpointGroup_endpointGroupArn,
+    describeCustomRoutingEndpointGroupResponse_endpointGroup,
+    describeCustomRoutingEndpointGroupResponse_httpStatus,
+
+    -- ** DescribeCustomRoutingListener
+    describeCustomRoutingListener_listenerArn,
+    describeCustomRoutingListenerResponse_listener,
+    describeCustomRoutingListenerResponse_httpStatus,
+
+    -- ** DescribeEndpointGroup
+    describeEndpointGroup_endpointGroupArn,
+    describeEndpointGroupResponse_endpointGroup,
+    describeEndpointGroupResponse_httpStatus,
+
+    -- ** DescribeListener
+    describeListener_listenerArn,
+    describeListenerResponse_listener,
+    describeListenerResponse_httpStatus,
+
+    -- ** ListAccelerators
+    listAccelerators_nextToken,
+    listAccelerators_maxResults,
+    listAcceleratorsResponse_nextToken,
+    listAcceleratorsResponse_accelerators,
+    listAcceleratorsResponse_httpStatus,
+
+    -- ** ListByoipCidrs
+    listByoipCidrs_nextToken,
+    listByoipCidrs_maxResults,
+    listByoipCidrsResponse_nextToken,
+    listByoipCidrsResponse_byoipCidrs,
+    listByoipCidrsResponse_httpStatus,
+
+    -- ** ListCustomRoutingAccelerators
+    listCustomRoutingAccelerators_nextToken,
+    listCustomRoutingAccelerators_maxResults,
+    listCustomRoutingAcceleratorsResponse_nextToken,
+    listCustomRoutingAcceleratorsResponse_accelerators,
+    listCustomRoutingAcceleratorsResponse_httpStatus,
+
+    -- ** ListCustomRoutingEndpointGroups
+    listCustomRoutingEndpointGroups_nextToken,
+    listCustomRoutingEndpointGroups_maxResults,
+    listCustomRoutingEndpointGroups_listenerArn,
+    listCustomRoutingEndpointGroupsResponse_nextToken,
+    listCustomRoutingEndpointGroupsResponse_endpointGroups,
+    listCustomRoutingEndpointGroupsResponse_httpStatus,
+
+    -- ** ListCustomRoutingListeners
+    listCustomRoutingListeners_nextToken,
+    listCustomRoutingListeners_maxResults,
+    listCustomRoutingListeners_acceleratorArn,
+    listCustomRoutingListenersResponse_nextToken,
+    listCustomRoutingListenersResponse_listeners,
+    listCustomRoutingListenersResponse_httpStatus,
+
+    -- ** ListCustomRoutingPortMappings
+    listCustomRoutingPortMappings_nextToken,
+    listCustomRoutingPortMappings_maxResults,
+    listCustomRoutingPortMappings_endpointGroupArn,
+    listCustomRoutingPortMappings_acceleratorArn,
+    listCustomRoutingPortMappingsResponse_nextToken,
+    listCustomRoutingPortMappingsResponse_portMappings,
+    listCustomRoutingPortMappingsResponse_httpStatus,
+
+    -- ** ListCustomRoutingPortMappingsByDestination
+    listCustomRoutingPortMappingsByDestination_nextToken,
+    listCustomRoutingPortMappingsByDestination_maxResults,
+    listCustomRoutingPortMappingsByDestination_endpointId,
+    listCustomRoutingPortMappingsByDestination_destinationAddress,
+    listCustomRoutingPortMappingsByDestinationResponse_nextToken,
+    listCustomRoutingPortMappingsByDestinationResponse_destinationPortMappings,
+    listCustomRoutingPortMappingsByDestinationResponse_httpStatus,
 
     -- ** ListEndpointGroups
     listEndpointGroups_nextToken,
@@ -223,33 +225,28 @@ module Amazonka.GlobalAccelerator.Lens
     listEndpointGroupsResponse_endpointGroups,
     listEndpointGroupsResponse_httpStatus,
 
+    -- ** ListListeners
+    listListeners_nextToken,
+    listListeners_maxResults,
+    listListeners_acceleratorArn,
+    listListenersResponse_nextToken,
+    listListenersResponse_listeners,
+    listListenersResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** ProvisionByoipCidr
     provisionByoipCidr_cidr,
     provisionByoipCidr_cidrAuthorizationContext,
     provisionByoipCidrResponse_byoipCidr,
     provisionByoipCidrResponse_httpStatus,
 
-    -- ** CreateEndpointGroup
-    createEndpointGroup_thresholdCount,
-    createEndpointGroup_healthCheckPath,
-    createEndpointGroup_healthCheckIntervalSeconds,
-    createEndpointGroup_healthCheckProtocol,
-    createEndpointGroup_trafficDialPercentage,
-    createEndpointGroup_endpointConfigurations,
-    createEndpointGroup_healthCheckPort,
-    createEndpointGroup_portOverrides,
-    createEndpointGroup_listenerArn,
-    createEndpointGroup_endpointGroupRegion,
-    createEndpointGroup_idempotencyToken,
-    createEndpointGroupResponse_endpointGroup,
-    createEndpointGroupResponse_httpStatus,
-
-    -- ** ListByoipCidrs
-    listByoipCidrs_nextToken,
-    listByoipCidrs_maxResults,
-    listByoipCidrsResponse_nextToken,
-    listByoipCidrsResponse_byoipCidrs,
-    listByoipCidrsResponse_httpStatus,
+    -- ** RemoveCustomRoutingEndpoints
+    removeCustomRoutingEndpoints_endpointIds,
+    removeCustomRoutingEndpoints_endpointGroupArn,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -261,88 +258,91 @@ module Amazonka.GlobalAccelerator.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DescribeListener
-    describeListener_listenerArn,
-    describeListenerResponse_listener,
-    describeListenerResponse_httpStatus,
+    -- ** UpdateAccelerator
+    updateAccelerator_name,
+    updateAccelerator_enabled,
+    updateAccelerator_ipAddressType,
+    updateAccelerator_acceleratorArn,
+    updateAcceleratorResponse_accelerator,
+    updateAcceleratorResponse_httpStatus,
 
-    -- ** ListCustomRoutingPortMappings
-    listCustomRoutingPortMappings_endpointGroupArn,
-    listCustomRoutingPortMappings_nextToken,
-    listCustomRoutingPortMappings_maxResults,
-    listCustomRoutingPortMappings_acceleratorArn,
-    listCustomRoutingPortMappingsResponse_portMappings,
-    listCustomRoutingPortMappingsResponse_nextToken,
-    listCustomRoutingPortMappingsResponse_httpStatus,
-
-    -- ** AddCustomRoutingEndpoints
-    addCustomRoutingEndpoints_endpointConfigurations,
-    addCustomRoutingEndpoints_endpointGroupArn,
-    addCustomRoutingEndpointsResponse_endpointGroupArn,
-    addCustomRoutingEndpointsResponse_endpointDescriptions,
-    addCustomRoutingEndpointsResponse_httpStatus,
-
-    -- ** DescribeCustomRoutingEndpointGroup
-    describeCustomRoutingEndpointGroup_endpointGroupArn,
-    describeCustomRoutingEndpointGroupResponse_endpointGroup,
-    describeCustomRoutingEndpointGroupResponse_httpStatus,
-
-    -- ** UpdateCustomRoutingAcceleratorAttributes
-    updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix,
-    updateCustomRoutingAcceleratorAttributes_flowLogsEnabled,
-    updateCustomRoutingAcceleratorAttributes_flowLogsS3Bucket,
-    updateCustomRoutingAcceleratorAttributes_acceleratorArn,
-    updateCustomRoutingAcceleratorAttributesResponse_acceleratorAttributes,
-    updateCustomRoutingAcceleratorAttributesResponse_httpStatus,
-
-    -- ** RemoveCustomRoutingEndpoints
-    removeCustomRoutingEndpoints_endpointIds,
-    removeCustomRoutingEndpoints_endpointGroupArn,
+    -- ** UpdateAcceleratorAttributes
+    updateAcceleratorAttributes_flowLogsEnabled,
+    updateAcceleratorAttributes_flowLogsS3Bucket,
+    updateAcceleratorAttributes_flowLogsS3Prefix,
+    updateAcceleratorAttributes_acceleratorArn,
+    updateAcceleratorAttributesResponse_acceleratorAttributes,
+    updateAcceleratorAttributesResponse_httpStatus,
 
     -- ** UpdateCustomRoutingAccelerator
+    updateCustomRoutingAccelerator_name,
     updateCustomRoutingAccelerator_enabled,
     updateCustomRoutingAccelerator_ipAddressType,
-    updateCustomRoutingAccelerator_name,
     updateCustomRoutingAccelerator_acceleratorArn,
     updateCustomRoutingAcceleratorResponse_accelerator,
     updateCustomRoutingAcceleratorResponse_httpStatus,
 
-    -- ** DeleteCustomRoutingAccelerator
-    deleteCustomRoutingAccelerator_acceleratorArn,
+    -- ** UpdateCustomRoutingAcceleratorAttributes
+    updateCustomRoutingAcceleratorAttributes_flowLogsEnabled,
+    updateCustomRoutingAcceleratorAttributes_flowLogsS3Bucket,
+    updateCustomRoutingAcceleratorAttributes_flowLogsS3Prefix,
+    updateCustomRoutingAcceleratorAttributes_acceleratorArn,
+    updateCustomRoutingAcceleratorAttributesResponse_acceleratorAttributes,
+    updateCustomRoutingAcceleratorAttributesResponse_httpStatus,
 
-    -- ** ListCustomRoutingAccelerators
-    listCustomRoutingAccelerators_nextToken,
-    listCustomRoutingAccelerators_maxResults,
-    listCustomRoutingAcceleratorsResponse_nextToken,
-    listCustomRoutingAcceleratorsResponse_accelerators,
-    listCustomRoutingAcceleratorsResponse_httpStatus,
+    -- ** UpdateCustomRoutingListener
+    updateCustomRoutingListener_listenerArn,
+    updateCustomRoutingListener_portRanges,
+    updateCustomRoutingListenerResponse_listener,
+    updateCustomRoutingListenerResponse_httpStatus,
 
-    -- ** DeprovisionByoipCidr
-    deprovisionByoipCidr_cidr,
-    deprovisionByoipCidrResponse_byoipCidr,
-    deprovisionByoipCidrResponse_httpStatus,
+    -- ** UpdateEndpointGroup
+    updateEndpointGroup_healthCheckProtocol,
+    updateEndpointGroup_portOverrides,
+    updateEndpointGroup_healthCheckPath,
+    updateEndpointGroup_healthCheckIntervalSeconds,
+    updateEndpointGroup_endpointConfigurations,
+    updateEndpointGroup_trafficDialPercentage,
+    updateEndpointGroup_thresholdCount,
+    updateEndpointGroup_healthCheckPort,
+    updateEndpointGroup_endpointGroupArn,
+    updateEndpointGroupResponse_endpointGroup,
+    updateEndpointGroupResponse_httpStatus,
+
+    -- ** UpdateListener
+    updateListener_clientAffinity,
+    updateListener_protocol,
+    updateListener_portRanges,
+    updateListener_listenerArn,
+    updateListenerResponse_listener,
+    updateListenerResponse_httpStatus,
+
+    -- ** WithdrawByoipCidr
+    withdrawByoipCidr_cidr,
+    withdrawByoipCidrResponse_byoipCidr,
+    withdrawByoipCidrResponse_httpStatus,
 
     -- * Types
 
     -- ** Accelerator
-    accelerator_status,
-    accelerator_acceleratorArn,
-    accelerator_enabled,
-    accelerator_createdTime,
-    accelerator_lastModifiedTime,
-    accelerator_ipAddressType,
-    accelerator_name,
     accelerator_ipSets,
+    accelerator_name,
+    accelerator_acceleratorArn,
+    accelerator_createdTime,
+    accelerator_status,
+    accelerator_enabled,
+    accelerator_lastModifiedTime,
     accelerator_dnsName,
+    accelerator_ipAddressType,
 
     -- ** AcceleratorAttributes
-    acceleratorAttributes_flowLogsS3Prefix,
     acceleratorAttributes_flowLogsEnabled,
     acceleratorAttributes_flowLogsS3Bucket,
+    acceleratorAttributes_flowLogsS3Prefix,
 
     -- ** ByoipCidr
-    byoipCidr_state,
     byoipCidr_cidr,
+    byoipCidr_state,
     byoipCidr_events,
 
     -- ** ByoipCidrEvent
@@ -354,20 +354,20 @@ module Amazonka.GlobalAccelerator.Lens
     cidrAuthorizationContext_signature,
 
     -- ** CustomRoutingAccelerator
-    customRoutingAccelerator_status,
-    customRoutingAccelerator_acceleratorArn,
-    customRoutingAccelerator_enabled,
-    customRoutingAccelerator_createdTime,
-    customRoutingAccelerator_lastModifiedTime,
-    customRoutingAccelerator_ipAddressType,
-    customRoutingAccelerator_name,
     customRoutingAccelerator_ipSets,
+    customRoutingAccelerator_name,
+    customRoutingAccelerator_acceleratorArn,
+    customRoutingAccelerator_createdTime,
+    customRoutingAccelerator_status,
+    customRoutingAccelerator_enabled,
+    customRoutingAccelerator_lastModifiedTime,
     customRoutingAccelerator_dnsName,
+    customRoutingAccelerator_ipAddressType,
 
     -- ** CustomRoutingAcceleratorAttributes
-    customRoutingAcceleratorAttributes_flowLogsS3Prefix,
     customRoutingAcceleratorAttributes_flowLogsEnabled,
     customRoutingAcceleratorAttributes_flowLogsS3Bucket,
+    customRoutingAcceleratorAttributes_flowLogsS3Prefix,
 
     -- ** CustomRoutingDestinationConfiguration
     customRoutingDestinationConfiguration_fromPort,
@@ -375,9 +375,9 @@ module Amazonka.GlobalAccelerator.Lens
     customRoutingDestinationConfiguration_protocols,
 
     -- ** CustomRoutingDestinationDescription
-    customRoutingDestinationDescription_fromPort,
-    customRoutingDestinationDescription_protocols,
     customRoutingDestinationDescription_toPort,
+    customRoutingDestinationDescription_protocols,
+    customRoutingDestinationDescription_fromPort,
 
     -- ** CustomRoutingEndpointConfiguration
     customRoutingEndpointConfiguration_endpointId,
@@ -386,78 +386,78 @@ module Amazonka.GlobalAccelerator.Lens
     customRoutingEndpointDescription_endpointId,
 
     -- ** CustomRoutingEndpointGroup
-    customRoutingEndpointGroup_endpointGroupArn,
     customRoutingEndpointGroup_endpointGroupRegion,
     customRoutingEndpointGroup_endpointDescriptions,
     customRoutingEndpointGroup_destinationDescriptions,
+    customRoutingEndpointGroup_endpointGroupArn,
 
     -- ** CustomRoutingListener
-    customRoutingListener_portRanges,
     customRoutingListener_listenerArn,
+    customRoutingListener_portRanges,
 
     -- ** DestinationPortMapping
-    destinationPortMapping_destinationSocketAddress,
-    destinationPortMapping_acceleratorArn,
-    destinationPortMapping_endpointGroupArn,
     destinationPortMapping_endpointGroupRegion,
-    destinationPortMapping_ipAddressType,
-    destinationPortMapping_acceleratorSocketAddresses,
+    destinationPortMapping_acceleratorArn,
     destinationPortMapping_endpointId,
     destinationPortMapping_destinationTrafficState,
+    destinationPortMapping_ipAddressType,
+    destinationPortMapping_endpointGroupArn,
+    destinationPortMapping_destinationSocketAddress,
+    destinationPortMapping_acceleratorSocketAddresses,
 
     -- ** EndpointConfiguration
+    endpointConfiguration_endpointId,
     endpointConfiguration_weight,
     endpointConfiguration_clientIPPreservationEnabled,
-    endpointConfiguration_endpointId,
 
     -- ** EndpointDescription
+    endpointDescription_endpointId,
     endpointDescription_healthReason,
     endpointDescription_weight,
     endpointDescription_clientIPPreservationEnabled,
     endpointDescription_healthState,
-    endpointDescription_endpointId,
 
     -- ** EndpointGroup
-    endpointGroup_thresholdCount,
-    endpointGroup_healthCheckPath,
-    endpointGroup_healthCheckIntervalSeconds,
-    endpointGroup_endpointGroupArn,
     endpointGroup_healthCheckProtocol,
     endpointGroup_endpointGroupRegion,
-    endpointGroup_trafficDialPercentage,
-    endpointGroup_healthCheckPort,
     endpointGroup_portOverrides,
+    endpointGroup_healthCheckPath,
+    endpointGroup_healthCheckIntervalSeconds,
     endpointGroup_endpointDescriptions,
+    endpointGroup_trafficDialPercentage,
+    endpointGroup_thresholdCount,
+    endpointGroup_healthCheckPort,
+    endpointGroup_endpointGroupArn,
 
     -- ** IpSet
     ipSet_ipFamily,
     ipSet_ipAddresses,
 
     -- ** Listener
-    listener_portRanges,
     listener_listenerArn,
-    listener_protocol,
     listener_clientAffinity,
+    listener_protocol,
+    listener_portRanges,
 
     -- ** PortMapping
-    portMapping_destinationSocketAddress,
-    portMapping_protocols,
-    portMapping_endpointGroupArn,
-    portMapping_endpointId,
-    portMapping_destinationTrafficState,
     portMapping_acceleratorPort,
+    portMapping_endpointId,
+    portMapping_protocols,
+    portMapping_destinationTrafficState,
+    portMapping_endpointGroupArn,
+    portMapping_destinationSocketAddress,
 
     -- ** PortOverride
     portOverride_endpointPort,
     portOverride_listenerPort,
 
     -- ** PortRange
-    portRange_fromPort,
     portRange_toPort,
+    portRange_fromPort,
 
     -- ** SocketAddress
-    socketAddress_ipAddress,
     socketAddress_port,
+    socketAddress_ipAddress,
 
     -- ** Tag
     tag_key,

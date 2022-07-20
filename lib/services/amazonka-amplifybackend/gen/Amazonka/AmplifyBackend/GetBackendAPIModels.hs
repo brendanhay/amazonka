@@ -36,8 +36,8 @@ module Amazonka.AmplifyBackend.GetBackendAPIModels
     newGetBackendAPIModelsResponse,
 
     -- * Response Lenses
-    getBackendAPIModelsResponse_status,
     getBackendAPIModelsResponse_models,
+    getBackendAPIModelsResponse_status,
     getBackendAPIModelsResponse_httpStatus,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest GetBackendAPIModels where
     Response.receiveJSON
       ( \s h x ->
           GetBackendAPIModelsResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "models")
+            Prelude.<$> (x Core..?> "models")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,10 +164,10 @@ instance Core.ToQuery GetBackendAPIModels where
 
 -- | /See:/ 'newGetBackendAPIModelsResponse' smart constructor.
 data GetBackendAPIModelsResponse = GetBackendAPIModelsResponse'
-  { -- | The current status of the request.
-    status :: Prelude.Maybe Status,
-    -- | Stringified JSON of the datastore model.
+  { -- | Stringified JSON of the datastore model.
     models :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Status,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,9 +181,9 @@ data GetBackendAPIModelsResponse = GetBackendAPIModelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getBackendAPIModelsResponse_status' - The current status of the request.
---
 -- 'models', 'getBackendAPIModelsResponse_models' - Stringified JSON of the datastore model.
+--
+-- 'status', 'getBackendAPIModelsResponse_status' - The current status of the request.
 --
 -- 'httpStatus', 'getBackendAPIModelsResponse_httpStatus' - The response's http status code.
 newGetBackendAPIModelsResponse ::
@@ -192,19 +192,19 @@ newGetBackendAPIModelsResponse ::
   GetBackendAPIModelsResponse
 newGetBackendAPIModelsResponse pHttpStatus_ =
   GetBackendAPIModelsResponse'
-    { status =
+    { models =
         Prelude.Nothing,
-      models = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current status of the request.
-getBackendAPIModelsResponse_status :: Lens.Lens' GetBackendAPIModelsResponse (Prelude.Maybe Status)
-getBackendAPIModelsResponse_status = Lens.lens (\GetBackendAPIModelsResponse' {status} -> status) (\s@GetBackendAPIModelsResponse' {} a -> s {status = a} :: GetBackendAPIModelsResponse)
 
 -- | Stringified JSON of the datastore model.
 getBackendAPIModelsResponse_models :: Lens.Lens' GetBackendAPIModelsResponse (Prelude.Maybe Prelude.Text)
 getBackendAPIModelsResponse_models = Lens.lens (\GetBackendAPIModelsResponse' {models} -> models) (\s@GetBackendAPIModelsResponse' {} a -> s {models = a} :: GetBackendAPIModelsResponse)
+
+-- | The current status of the request.
+getBackendAPIModelsResponse_status :: Lens.Lens' GetBackendAPIModelsResponse (Prelude.Maybe Status)
+getBackendAPIModelsResponse_status = Lens.lens (\GetBackendAPIModelsResponse' {status} -> status) (\s@GetBackendAPIModelsResponse' {} a -> s {status = a} :: GetBackendAPIModelsResponse)
 
 -- | The response's http status code.
 getBackendAPIModelsResponse_httpStatus :: Lens.Lens' GetBackendAPIModelsResponse Prelude.Int
@@ -212,6 +212,6 @@ getBackendAPIModelsResponse_httpStatus = Lens.lens (\GetBackendAPIModelsResponse
 
 instance Prelude.NFData GetBackendAPIModelsResponse where
   rnf GetBackendAPIModelsResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf models
+    Prelude.rnf models
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

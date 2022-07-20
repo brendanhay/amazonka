@@ -27,8 +27,8 @@ module Amazonka.EMR.DeleteStudioSessionMapping
     newDeleteStudioSessionMapping,
 
     -- * Request Lenses
-    deleteStudioSessionMapping_identityId,
     deleteStudioSessionMapping_identityName,
+    deleteStudioSessionMapping_identityId,
     deleteStudioSessionMapping_studioId,
     deleteStudioSessionMapping_identityType,
 
@@ -47,15 +47,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteStudioSessionMapping' smart constructor.
 data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
-  { -- | The globally unique identifier (GUID) of the user or group to remove
-    -- from the Amazon EMR Studio. For more information, see
-    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
-    -- and
-    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
-    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
-    -- @IdentityName@ or @IdentityId@ must be specified.
-    identityId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the user name or group to remove from the Amazon EMR Studio.
+  { -- | The name of the user name or group to remove from the Amazon EMR Studio.
     -- For more information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
@@ -63,6 +55,14 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
     -- in the /Amazon Web Services SSO Store API Reference/. Either
     -- @IdentityName@ or @IdentityId@ must be specified.
     identityName :: Prelude.Maybe Prelude.Text,
+    -- | The globally unique identifier (GUID) of the user or group to remove
+    -- from the Amazon EMR Studio. For more information, see
+    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
+    -- and
+    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
+    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- @IdentityName@ or @IdentityId@ must be specified.
+    identityId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EMR Studio.
     studioId :: Prelude.Text,
     -- | Specifies whether the identity to delete from the Amazon EMR Studio is a
@@ -79,20 +79,20 @@ data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityId', 'deleteStudioSessionMapping_identityId' - The globally unique identifier (GUID) of the user or group to remove
--- from the Amazon EMR Studio. For more information, see
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
--- and
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
--- @IdentityName@ or @IdentityId@ must be specified.
---
 -- 'identityName', 'deleteStudioSessionMapping_identityName' - The name of the user name or group to remove from the Amazon EMR Studio.
 -- For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
 -- in the /Amazon Web Services SSO Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified.
+--
+-- 'identityId', 'deleteStudioSessionMapping_identityId' - The globally unique identifier (GUID) of the user or group to remove
+-- from the Amazon EMR Studio. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
+-- and
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
 -- @IdentityName@ or @IdentityId@ must be specified.
 --
 -- 'studioId', 'deleteStudioSessionMapping_studioId' - The ID of the Amazon EMR Studio.
@@ -109,22 +109,12 @@ newDeleteStudioSessionMapping
   pStudioId_
   pIdentityType_ =
     DeleteStudioSessionMapping'
-      { identityId =
+      { identityName =
           Prelude.Nothing,
-        identityName = Prelude.Nothing,
+        identityId = Prelude.Nothing,
         studioId = pStudioId_,
         identityType = pIdentityType_
       }
-
--- | The globally unique identifier (GUID) of the user or group to remove
--- from the Amazon EMR Studio. For more information, see
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
--- and
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
--- @IdentityName@ or @IdentityId@ must be specified.
-deleteStudioSessionMapping_identityId :: Lens.Lens' DeleteStudioSessionMapping (Prelude.Maybe Prelude.Text)
-deleteStudioSessionMapping_identityId = Lens.lens (\DeleteStudioSessionMapping' {identityId} -> identityId) (\s@DeleteStudioSessionMapping' {} a -> s {identityId = a} :: DeleteStudioSessionMapping)
 
 -- | The name of the user name or group to remove from the Amazon EMR Studio.
 -- For more information, see
@@ -135,6 +125,16 @@ deleteStudioSessionMapping_identityId = Lens.lens (\DeleteStudioSessionMapping' 
 -- @IdentityName@ or @IdentityId@ must be specified.
 deleteStudioSessionMapping_identityName :: Lens.Lens' DeleteStudioSessionMapping (Prelude.Maybe Prelude.Text)
 deleteStudioSessionMapping_identityName = Lens.lens (\DeleteStudioSessionMapping' {identityName} -> identityName) (\s@DeleteStudioSessionMapping' {} a -> s {identityName = a} :: DeleteStudioSessionMapping)
+
+-- | The globally unique identifier (GUID) of the user or group to remove
+-- from the Amazon EMR Studio. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
+-- and
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified.
+deleteStudioSessionMapping_identityId :: Lens.Lens' DeleteStudioSessionMapping (Prelude.Maybe Prelude.Text)
+deleteStudioSessionMapping_identityId = Lens.lens (\DeleteStudioSessionMapping' {identityId} -> identityId) (\s@DeleteStudioSessionMapping' {} a -> s {identityId = a} :: DeleteStudioSessionMapping)
 
 -- | The ID of the Amazon EMR Studio.
 deleteStudioSessionMapping_studioId :: Lens.Lens' DeleteStudioSessionMapping Prelude.Text
@@ -156,15 +156,15 @@ instance Core.AWSRequest DeleteStudioSessionMapping where
 
 instance Prelude.Hashable DeleteStudioSessionMapping where
   hashWithSalt _salt DeleteStudioSessionMapping' {..} =
-    _salt `Prelude.hashWithSalt` identityId
-      `Prelude.hashWithSalt` identityName
+    _salt `Prelude.hashWithSalt` identityName
+      `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` identityType
 
 instance Prelude.NFData DeleteStudioSessionMapping where
   rnf DeleteStudioSessionMapping' {..} =
-    Prelude.rnf identityId
-      `Prelude.seq` Prelude.rnf identityName
+    Prelude.rnf identityName
+      `Prelude.seq` Prelude.rnf identityId
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf identityType
 
@@ -187,8 +187,8 @@ instance Core.ToJSON DeleteStudioSessionMapping where
   toJSON DeleteStudioSessionMapping' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IdentityId" Core..=) Prelude.<$> identityId,
-            ("IdentityName" Core..=) Prelude.<$> identityName,
+          [ ("IdentityName" Core..=) Prelude.<$> identityName,
+            ("IdentityId" Core..=) Prelude.<$> identityId,
             Prelude.Just ("StudioId" Core..= studioId),
             Prelude.Just ("IdentityType" Core..= identityType)
           ]

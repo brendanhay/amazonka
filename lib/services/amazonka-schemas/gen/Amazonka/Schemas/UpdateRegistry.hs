@@ -35,10 +35,10 @@ module Amazonka.Schemas.UpdateRegistry
     newUpdateRegistryResponse,
 
     -- * Response Lenses
-    updateRegistryResponse_registryName,
-    updateRegistryResponse_registryArn,
-    updateRegistryResponse_description,
     updateRegistryResponse_tags,
+    updateRegistryResponse_registryName,
+    updateRegistryResponse_description,
+    updateRegistryResponse_registryArn,
     updateRegistryResponse_httpStatus,
   )
 where
@@ -99,10 +99,10 @@ instance Core.AWSRequest UpdateRegistry where
     Response.receiveJSON
       ( \s h x ->
           UpdateRegistryResponse'
-            Prelude.<$> (x Core..?> "RegistryName")
-            Prelude.<*> (x Core..?> "RegistryArn")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "RegistryName")
             Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,14 +144,14 @@ instance Core.ToQuery UpdateRegistry where
 
 -- | /See:/ 'newUpdateRegistryResponse' smart constructor.
 data UpdateRegistryResponse = UpdateRegistryResponse'
-  { -- | The name of the registry.
+  { -- | Tags associated with the registry.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the registry.
     registryName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the registry.
-    registryArn :: Prelude.Maybe Prelude.Text,
     -- | The description of the registry.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Tags associated with the registry.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ARN of the registry.
+    registryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,13 +165,13 @@ data UpdateRegistryResponse = UpdateRegistryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryName', 'updateRegistryResponse_registryName' - The name of the registry.
+-- 'tags', 'updateRegistryResponse_tags' - Tags associated with the registry.
 --
--- 'registryArn', 'updateRegistryResponse_registryArn' - The ARN of the registry.
+-- 'registryName', 'updateRegistryResponse_registryName' - The name of the registry.
 --
 -- 'description', 'updateRegistryResponse_description' - The description of the registry.
 --
--- 'tags', 'updateRegistryResponse_tags' - Tags associated with the registry.
+-- 'registryArn', 'updateRegistryResponse_registryArn' - The ARN of the registry.
 --
 -- 'httpStatus', 'updateRegistryResponse_httpStatus' - The response's http status code.
 newUpdateRegistryResponse ::
@@ -180,29 +180,28 @@ newUpdateRegistryResponse ::
   UpdateRegistryResponse
 newUpdateRegistryResponse pHttpStatus_ =
   UpdateRegistryResponse'
-    { registryName =
-        Prelude.Nothing,
-      registryArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      registryName = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      registryArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Tags associated with the registry.
+updateRegistryResponse_tags :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateRegistryResponse_tags = Lens.lens (\UpdateRegistryResponse' {tags} -> tags) (\s@UpdateRegistryResponse' {} a -> s {tags = a} :: UpdateRegistryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the registry.
 updateRegistryResponse_registryName :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
 updateRegistryResponse_registryName = Lens.lens (\UpdateRegistryResponse' {registryName} -> registryName) (\s@UpdateRegistryResponse' {} a -> s {registryName = a} :: UpdateRegistryResponse)
 
--- | The ARN of the registry.
-updateRegistryResponse_registryArn :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
-updateRegistryResponse_registryArn = Lens.lens (\UpdateRegistryResponse' {registryArn} -> registryArn) (\s@UpdateRegistryResponse' {} a -> s {registryArn = a} :: UpdateRegistryResponse)
-
 -- | The description of the registry.
 updateRegistryResponse_description :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
 updateRegistryResponse_description = Lens.lens (\UpdateRegistryResponse' {description} -> description) (\s@UpdateRegistryResponse' {} a -> s {description = a} :: UpdateRegistryResponse)
 
--- | Tags associated with the registry.
-updateRegistryResponse_tags :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateRegistryResponse_tags = Lens.lens (\UpdateRegistryResponse' {tags} -> tags) (\s@UpdateRegistryResponse' {} a -> s {tags = a} :: UpdateRegistryResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The ARN of the registry.
+updateRegistryResponse_registryArn :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
+updateRegistryResponse_registryArn = Lens.lens (\UpdateRegistryResponse' {registryArn} -> registryArn) (\s@UpdateRegistryResponse' {} a -> s {registryArn = a} :: UpdateRegistryResponse)
 
 -- | The response's http status code.
 updateRegistryResponse_httpStatus :: Lens.Lens' UpdateRegistryResponse Prelude.Int
@@ -210,8 +209,8 @@ updateRegistryResponse_httpStatus = Lens.lens (\UpdateRegistryResponse' {httpSta
 
 instance Prelude.NFData UpdateRegistryResponse where
   rnf UpdateRegistryResponse' {..} =
-    Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf registryArn
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf registryArn
       `Prelude.seq` Prelude.rnf httpStatus

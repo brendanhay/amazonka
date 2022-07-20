@@ -31,15 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceMetadataOptionsRequest' smart constructor.
 data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
-  { -- | Enables or disables the IPv6 endpoint for the instance metadata service.
-    httpProtocolIpv6 :: Prelude.Maybe InstanceMetadataProtocolState,
-    -- | Enables or disables the HTTP metadata endpoint on your instances. If the
-    -- parameter is not specified, the default state is @enabled@.
-    --
-    -- If you specify a value of @disabled@, you will not be able to access
-    -- your instance metadata.
-    httpEndpoint :: Prelude.Maybe InstanceMetadataEndpointState,
-    -- | The desired HTTP PUT response hop limit for instance metadata requests.
+  { -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- The larger the number, the further instance metadata requests can
     -- travel.
     --
@@ -61,7 +53,15 @@ data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
     -- instance metadata retrieval requests. In this state, retrieving the IAM
     -- role credentials always returns the version 2.0 credentials; the version
     -- 1.0 credentials are not available.
-    httpTokens :: Prelude.Maybe HttpTokensState
+    httpTokens :: Prelude.Maybe HttpTokensState,
+    -- | Enables or disables the HTTP metadata endpoint on your instances. If the
+    -- parameter is not specified, the default state is @enabled@.
+    --
+    -- If you specify a value of @disabled@, you will not be able to access
+    -- your instance metadata.
+    httpEndpoint :: Prelude.Maybe InstanceMetadataEndpointState,
+    -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+    httpProtocolIpv6 :: Prelude.Maybe InstanceMetadataProtocolState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,14 +72,6 @@ data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'httpProtocolIpv6', 'instanceMetadataOptionsRequest_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
---
--- 'httpEndpoint', 'instanceMetadataOptionsRequest_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. If the
--- parameter is not specified, the default state is @enabled@.
---
--- If you specify a value of @disabled@, you will not be able to access
--- your instance metadata.
 --
 -- 'httpPutResponseHopLimit', 'instanceMetadataOptionsRequest_httpPutResponseHopLimit' - The desired HTTP PUT response hop limit for instance metadata requests.
 -- The larger the number, the further instance metadata requests can
@@ -103,28 +95,24 @@ data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
 -- instance metadata retrieval requests. In this state, retrieving the IAM
 -- role credentials always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.
-newInstanceMetadataOptionsRequest ::
-  InstanceMetadataOptionsRequest
-newInstanceMetadataOptionsRequest =
-  InstanceMetadataOptionsRequest'
-    { httpProtocolIpv6 =
-        Prelude.Nothing,
-      httpEndpoint = Prelude.Nothing,
-      httpPutResponseHopLimit = Prelude.Nothing,
-      httpTokens = Prelude.Nothing
-    }
-
--- | Enables or disables the IPv6 endpoint for the instance metadata service.
-instanceMetadataOptionsRequest_httpProtocolIpv6 :: Lens.Lens' InstanceMetadataOptionsRequest (Prelude.Maybe InstanceMetadataProtocolState)
-instanceMetadataOptionsRequest_httpProtocolIpv6 = Lens.lens (\InstanceMetadataOptionsRequest' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@InstanceMetadataOptionsRequest' {} a -> s {httpProtocolIpv6 = a} :: InstanceMetadataOptionsRequest)
-
--- | Enables or disables the HTTP metadata endpoint on your instances. If the
+--
+-- 'httpEndpoint', 'instanceMetadataOptionsRequest_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. If the
 -- parameter is not specified, the default state is @enabled@.
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.
-instanceMetadataOptionsRequest_httpEndpoint :: Lens.Lens' InstanceMetadataOptionsRequest (Prelude.Maybe InstanceMetadataEndpointState)
-instanceMetadataOptionsRequest_httpEndpoint = Lens.lens (\InstanceMetadataOptionsRequest' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptionsRequest' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptionsRequest)
+--
+-- 'httpProtocolIpv6', 'instanceMetadataOptionsRequest_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
+newInstanceMetadataOptionsRequest ::
+  InstanceMetadataOptionsRequest
+newInstanceMetadataOptionsRequest =
+  InstanceMetadataOptionsRequest'
+    { httpPutResponseHopLimit =
+        Prelude.Nothing,
+      httpTokens = Prelude.Nothing,
+      httpEndpoint = Prelude.Nothing,
+      httpProtocolIpv6 = Prelude.Nothing
+    }
 
 -- | The desired HTTP PUT response hop limit for instance metadata requests.
 -- The larger the number, the further instance metadata requests can
@@ -153,6 +141,18 @@ instanceMetadataOptionsRequest_httpPutResponseHopLimit = Lens.lens (\InstanceMet
 instanceMetadataOptionsRequest_httpTokens :: Lens.Lens' InstanceMetadataOptionsRequest (Prelude.Maybe HttpTokensState)
 instanceMetadataOptionsRequest_httpTokens = Lens.lens (\InstanceMetadataOptionsRequest' {httpTokens} -> httpTokens) (\s@InstanceMetadataOptionsRequest' {} a -> s {httpTokens = a} :: InstanceMetadataOptionsRequest)
 
+-- | Enables or disables the HTTP metadata endpoint on your instances. If the
+-- parameter is not specified, the default state is @enabled@.
+--
+-- If you specify a value of @disabled@, you will not be able to access
+-- your instance metadata.
+instanceMetadataOptionsRequest_httpEndpoint :: Lens.Lens' InstanceMetadataOptionsRequest (Prelude.Maybe InstanceMetadataEndpointState)
+instanceMetadataOptionsRequest_httpEndpoint = Lens.lens (\InstanceMetadataOptionsRequest' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptionsRequest' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptionsRequest)
+
+-- | Enables or disables the IPv6 endpoint for the instance metadata service.
+instanceMetadataOptionsRequest_httpProtocolIpv6 :: Lens.Lens' InstanceMetadataOptionsRequest (Prelude.Maybe InstanceMetadataProtocolState)
+instanceMetadataOptionsRequest_httpProtocolIpv6 = Lens.lens (\InstanceMetadataOptionsRequest' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@InstanceMetadataOptionsRequest' {} a -> s {httpProtocolIpv6 = a} :: InstanceMetadataOptionsRequest)
+
 instance
   Prelude.Hashable
     InstanceMetadataOptionsRequest
@@ -160,27 +160,28 @@ instance
   hashWithSalt
     _salt
     InstanceMetadataOptionsRequest' {..} =
-      _salt `Prelude.hashWithSalt` httpProtocolIpv6
-        `Prelude.hashWithSalt` httpEndpoint
+      _salt
         `Prelude.hashWithSalt` httpPutResponseHopLimit
         `Prelude.hashWithSalt` httpTokens
+        `Prelude.hashWithSalt` httpEndpoint
+        `Prelude.hashWithSalt` httpProtocolIpv6
 
 instance
   Prelude.NFData
     InstanceMetadataOptionsRequest
   where
   rnf InstanceMetadataOptionsRequest' {..} =
-    Prelude.rnf httpProtocolIpv6
-      `Prelude.seq` Prelude.rnf httpEndpoint
-      `Prelude.seq` Prelude.rnf httpPutResponseHopLimit
+    Prelude.rnf httpPutResponseHopLimit
       `Prelude.seq` Prelude.rnf httpTokens
+      `Prelude.seq` Prelude.rnf httpEndpoint
+      `Prelude.seq` Prelude.rnf httpProtocolIpv6
 
 instance Core.ToQuery InstanceMetadataOptionsRequest where
   toQuery InstanceMetadataOptionsRequest' {..} =
     Prelude.mconcat
-      [ "HttpProtocolIpv6" Core.=: httpProtocolIpv6,
-        "HttpEndpoint" Core.=: httpEndpoint,
-        "HttpPutResponseHopLimit"
+      [ "HttpPutResponseHopLimit"
           Core.=: httpPutResponseHopLimit,
-        "HttpTokens" Core.=: httpTokens
+        "HttpTokens" Core.=: httpTokens,
+        "HttpEndpoint" Core.=: httpEndpoint,
+        "HttpProtocolIpv6" Core.=: httpProtocolIpv6
       ]

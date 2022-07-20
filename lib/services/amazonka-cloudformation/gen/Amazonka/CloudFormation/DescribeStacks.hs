@@ -40,8 +40,8 @@ module Amazonka.CloudFormation.DescribeStacks
     newDescribeStacksResponse,
 
     -- * Response Lenses
-    describeStacksResponse_nextToken,
     describeStacksResponse_stacks,
+    describeStacksResponse_nextToken,
     describeStacksResponse_httpStatus,
   )
 where
@@ -148,10 +148,10 @@ instance Core.AWSRequest DescribeStacks where
       "DescribeStacksResult"
       ( \s h x ->
           DescribeStacksResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Stacks" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Stacks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,11 +186,11 @@ instance Core.ToQuery DescribeStacks where
 --
 -- /See:/ 'newDescribeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-  { -- | If the output exceeds 1 MB in size, a string that identifies the next
+  { -- | A list of stack structures.
+    stacks :: Prelude.Maybe [Stack],
+    -- | If the output exceeds 1 MB in size, a string that identifies the next
     -- page of stacks. If no additional page exists, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of stack structures.
-    stacks :: Prelude.Maybe [Stack],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,10 +204,10 @@ data DescribeStacksResponse = DescribeStacksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stacks', 'describeStacksResponse_stacks' - A list of stack structures.
+--
 -- 'nextToken', 'describeStacksResponse_nextToken' - If the output exceeds 1 MB in size, a string that identifies the next
 -- page of stacks. If no additional page exists, this value is null.
---
--- 'stacks', 'describeStacksResponse_stacks' - A list of stack structures.
 --
 -- 'httpStatus', 'describeStacksResponse_httpStatus' - The response's http status code.
 newDescribeStacksResponse ::
@@ -216,20 +216,19 @@ newDescribeStacksResponse ::
   DescribeStacksResponse
 newDescribeStacksResponse pHttpStatus_ =
   DescribeStacksResponse'
-    { nextToken =
-        Prelude.Nothing,
-      stacks = Prelude.Nothing,
+    { stacks = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of stack structures.
+describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
+describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next
 -- page of stacks. If no additional page exists, this value is null.
 describeStacksResponse_nextToken :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe Prelude.Text)
 describeStacksResponse_nextToken = Lens.lens (\DescribeStacksResponse' {nextToken} -> nextToken) (\s@DescribeStacksResponse' {} a -> s {nextToken = a} :: DescribeStacksResponse)
-
--- | A list of stack structures.
-describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
-describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Prelude.Int
@@ -237,6 +236,6 @@ describeStacksResponse_httpStatus = Lens.lens (\DescribeStacksResponse' {httpSta
 
 instance Prelude.NFData DescribeStacksResponse where
   rnf DescribeStacksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf stacks
+    Prelude.rnf stacks
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

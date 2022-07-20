@@ -54,8 +54,8 @@ module Amazonka.EC2.ModifyVpcPeeringConnectionOptions
 
     -- * Request Lenses
     modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions,
-    modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions,
     modifyVpcPeeringConnectionOptions_dryRun,
+    modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions,
     modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId,
 
     -- * Destructuring the Response
@@ -80,13 +80,13 @@ import qualified Amazonka.Response as Response
 data ModifyVpcPeeringConnectionOptions = ModifyVpcPeeringConnectionOptions'
   { -- | The VPC peering connection options for the requester VPC.
     requesterPeeringConnectionOptions :: Prelude.Maybe PeeringConnectionOptionsRequest,
-    -- | The VPC peering connection options for the accepter VPC.
-    accepterPeeringConnectionOptions :: Prelude.Maybe PeeringConnectionOptionsRequest,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The VPC peering connection options for the accepter VPC.
+    accepterPeeringConnectionOptions :: Prelude.Maybe PeeringConnectionOptionsRequest,
     -- | The ID of the VPC peering connection.
     vpcPeeringConnectionId :: Prelude.Text
   }
@@ -102,12 +102,12 @@ data ModifyVpcPeeringConnectionOptions = ModifyVpcPeeringConnectionOptions'
 --
 -- 'requesterPeeringConnectionOptions', 'modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions' - The VPC peering connection options for the requester VPC.
 --
--- 'accepterPeeringConnectionOptions', 'modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions' - The VPC peering connection options for the accepter VPC.
---
 -- 'dryRun', 'modifyVpcPeeringConnectionOptions_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'accepterPeeringConnectionOptions', 'modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions' - The VPC peering connection options for the accepter VPC.
 --
 -- 'vpcPeeringConnectionId', 'modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId' - The ID of the VPC peering connection.
 newModifyVpcPeeringConnectionOptions ::
@@ -119,9 +119,9 @@ newModifyVpcPeeringConnectionOptions
     ModifyVpcPeeringConnectionOptions'
       { requesterPeeringConnectionOptions =
           Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         accepterPeeringConnectionOptions =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         vpcPeeringConnectionId =
           pVpcPeeringConnectionId_
       }
@@ -130,16 +130,16 @@ newModifyVpcPeeringConnectionOptions
 modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Prelude.Maybe PeeringConnectionOptionsRequest)
 modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions = Lens.lens (\ModifyVpcPeeringConnectionOptions' {requesterPeeringConnectionOptions} -> requesterPeeringConnectionOptions) (\s@ModifyVpcPeeringConnectionOptions' {} a -> s {requesterPeeringConnectionOptions = a} :: ModifyVpcPeeringConnectionOptions)
 
--- | The VPC peering connection options for the accepter VPC.
-modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Prelude.Maybe PeeringConnectionOptionsRequest)
-modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions = Lens.lens (\ModifyVpcPeeringConnectionOptions' {accepterPeeringConnectionOptions} -> accepterPeeringConnectionOptions) (\s@ModifyVpcPeeringConnectionOptions' {} a -> s {accepterPeeringConnectionOptions = a} :: ModifyVpcPeeringConnectionOptions)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyVpcPeeringConnectionOptions_dryRun :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Prelude.Maybe Prelude.Bool)
 modifyVpcPeeringConnectionOptions_dryRun = Lens.lens (\ModifyVpcPeeringConnectionOptions' {dryRun} -> dryRun) (\s@ModifyVpcPeeringConnectionOptions' {} a -> s {dryRun = a} :: ModifyVpcPeeringConnectionOptions)
+
+-- | The VPC peering connection options for the accepter VPC.
+modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Prelude.Maybe PeeringConnectionOptionsRequest)
+modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions = Lens.lens (\ModifyVpcPeeringConnectionOptions' {accepterPeeringConnectionOptions} -> accepterPeeringConnectionOptions) (\s@ModifyVpcPeeringConnectionOptions' {} a -> s {accepterPeeringConnectionOptions = a} :: ModifyVpcPeeringConnectionOptions)
 
 -- | The ID of the VPC peering connection.
 modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId :: Lens.Lens' ModifyVpcPeeringConnectionOptions Prelude.Text
@@ -171,8 +171,8 @@ instance
     ModifyVpcPeeringConnectionOptions' {..} =
       _salt
         `Prelude.hashWithSalt` requesterPeeringConnectionOptions
-        `Prelude.hashWithSalt` accepterPeeringConnectionOptions
         `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` accepterPeeringConnectionOptions
         `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance
@@ -181,8 +181,8 @@ instance
   where
   rnf ModifyVpcPeeringConnectionOptions' {..} =
     Prelude.rnf requesterPeeringConnectionOptions
-      `Prelude.seq` Prelude.rnf accepterPeeringConnectionOptions
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf accepterPeeringConnectionOptions
       `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
 instance
@@ -211,9 +211,9 @@ instance
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "RequesterPeeringConnectionOptions"
           Core.=: requesterPeeringConnectionOptions,
+        "DryRun" Core.=: dryRun,
         "AccepterPeeringConnectionOptions"
           Core.=: accepterPeeringConnectionOptions,
-        "DryRun" Core.=: dryRun,
         "VpcPeeringConnectionId"
           Core.=: vpcPeeringConnectionId
       ]

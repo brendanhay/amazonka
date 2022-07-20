@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackupRuleInput' smart constructor.
 data BackupRuleInput = BackupRuleInput'
-  { -- | The lifecycle defines when a protected resource is transitioned to cold
+  { -- | A value in minutes after a backup is scheduled before a job will be
+    -- canceled if it doesn\'t start successfully. This value is optional.
+    startWindowMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | The lifecycle defines when a protected resource is transitioned to cold
     -- storage and when it expires. Backup will transition and expire backups
     -- automatically according to the lifecycle that you define.
     --
@@ -41,9 +44,9 @@ data BackupRuleInput = BackupRuleInput'
     --
     -- Only Amazon EFS file system backups can be transitioned to cold storage.
     lifecycle :: Prelude.Maybe Lifecycle,
-    -- | To help organize your resources, you can assign your own metadata to the
-    -- resources that you create. Each tag is a key-value pair.
-    recoveryPointTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | An array of @CopyAction@ objects, which contains the details of the copy
+    -- operation.
+    copyActions :: Prelude.Maybe [CopyAction],
     -- | A CRON expression in UTC specifying when Backup initiates a backup job.
     scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether Backup creates continuous backups. True causes Backup
@@ -54,12 +57,9 @@ data BackupRuleInput = BackupRuleInput'
     -- must be completed or it will be canceled by Backup. This value is
     -- optional.
     completionWindowMinutes :: Prelude.Maybe Prelude.Integer,
-    -- | An array of @CopyAction@ objects, which contains the details of the copy
-    -- operation.
-    copyActions :: Prelude.Maybe [CopyAction],
-    -- | A value in minutes after a backup is scheduled before a job will be
-    -- canceled if it doesn\'t start successfully. This value is optional.
-    startWindowMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | To help organize your resources, you can assign your own metadata to the
+    -- resources that you create. Each tag is a key-value pair.
+    recoveryPointTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | An optional display name for a backup rule.
     ruleName :: Prelude.Text,
     -- | The name of a logical container where backups are stored. Backup vaults
@@ -78,6 +78,9 @@ data BackupRuleInput = BackupRuleInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'startWindowMinutes', 'backupRuleInput_startWindowMinutes' - A value in minutes after a backup is scheduled before a job will be
+-- canceled if it doesn\'t start successfully. This value is optional.
+--
 -- 'lifecycle', 'backupRuleInput_lifecycle' - The lifecycle defines when a protected resource is transitioned to cold
 -- storage and when it expires. Backup will transition and expire backups
 -- automatically according to the lifecycle that you define.
@@ -90,8 +93,8 @@ data BackupRuleInput = BackupRuleInput'
 --
 -- Only Amazon EFS file system backups can be transitioned to cold storage.
 --
--- 'recoveryPointTags', 'backupRuleInput_recoveryPointTags' - To help organize your resources, you can assign your own metadata to the
--- resources that you create. Each tag is a key-value pair.
+-- 'copyActions', 'backupRuleInput_copyActions' - An array of @CopyAction@ objects, which contains the details of the copy
+-- operation.
 --
 -- 'scheduleExpression', 'backupRuleInput_scheduleExpression' - A CRON expression in UTC specifying when Backup initiates a backup job.
 --
@@ -103,11 +106,8 @@ data BackupRuleInput = BackupRuleInput'
 -- must be completed or it will be canceled by Backup. This value is
 -- optional.
 --
--- 'copyActions', 'backupRuleInput_copyActions' - An array of @CopyAction@ objects, which contains the details of the copy
--- operation.
---
--- 'startWindowMinutes', 'backupRuleInput_startWindowMinutes' - A value in minutes after a backup is scheduled before a job will be
--- canceled if it doesn\'t start successfully. This value is optional.
+-- 'recoveryPointTags', 'backupRuleInput_recoveryPointTags' - To help organize your resources, you can assign your own metadata to the
+-- resources that you create. Each tag is a key-value pair.
 --
 -- 'ruleName', 'backupRuleInput_ruleName' - An optional display name for a backup rule.
 --
@@ -123,16 +123,22 @@ newBackupRuleInput ::
   BackupRuleInput
 newBackupRuleInput pRuleName_ pTargetBackupVaultName_ =
   BackupRuleInput'
-    { lifecycle = Prelude.Nothing,
-      recoveryPointTags = Prelude.Nothing,
+    { startWindowMinutes =
+        Prelude.Nothing,
+      lifecycle = Prelude.Nothing,
+      copyActions = Prelude.Nothing,
       scheduleExpression = Prelude.Nothing,
       enableContinuousBackup = Prelude.Nothing,
       completionWindowMinutes = Prelude.Nothing,
-      copyActions = Prelude.Nothing,
-      startWindowMinutes = Prelude.Nothing,
+      recoveryPointTags = Prelude.Nothing,
       ruleName = pRuleName_,
       targetBackupVaultName = pTargetBackupVaultName_
     }
+
+-- | A value in minutes after a backup is scheduled before a job will be
+-- canceled if it doesn\'t start successfully. This value is optional.
+backupRuleInput_startWindowMinutes :: Lens.Lens' BackupRuleInput (Prelude.Maybe Prelude.Integer)
+backupRuleInput_startWindowMinutes = Lens.lens (\BackupRuleInput' {startWindowMinutes} -> startWindowMinutes) (\s@BackupRuleInput' {} a -> s {startWindowMinutes = a} :: BackupRuleInput)
 
 -- | The lifecycle defines when a protected resource is transitioned to cold
 -- storage and when it expires. Backup will transition and expire backups
@@ -148,10 +154,10 @@ newBackupRuleInput pRuleName_ pTargetBackupVaultName_ =
 backupRuleInput_lifecycle :: Lens.Lens' BackupRuleInput (Prelude.Maybe Lifecycle)
 backupRuleInput_lifecycle = Lens.lens (\BackupRuleInput' {lifecycle} -> lifecycle) (\s@BackupRuleInput' {} a -> s {lifecycle = a} :: BackupRuleInput)
 
--- | To help organize your resources, you can assign your own metadata to the
--- resources that you create. Each tag is a key-value pair.
-backupRuleInput_recoveryPointTags :: Lens.Lens' BackupRuleInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-backupRuleInput_recoveryPointTags = Lens.lens (\BackupRuleInput' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRuleInput' {} a -> s {recoveryPointTags = a} :: BackupRuleInput) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+-- | An array of @CopyAction@ objects, which contains the details of the copy
+-- operation.
+backupRuleInput_copyActions :: Lens.Lens' BackupRuleInput (Prelude.Maybe [CopyAction])
+backupRuleInput_copyActions = Lens.lens (\BackupRuleInput' {copyActions} -> copyActions) (\s@BackupRuleInput' {} a -> s {copyActions = a} :: BackupRuleInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | A CRON expression in UTC specifying when Backup initiates a backup job.
 backupRuleInput_scheduleExpression :: Lens.Lens' BackupRuleInput (Prelude.Maybe Prelude.Text)
@@ -169,15 +175,10 @@ backupRuleInput_enableContinuousBackup = Lens.lens (\BackupRuleInput' {enableCon
 backupRuleInput_completionWindowMinutes :: Lens.Lens' BackupRuleInput (Prelude.Maybe Prelude.Integer)
 backupRuleInput_completionWindowMinutes = Lens.lens (\BackupRuleInput' {completionWindowMinutes} -> completionWindowMinutes) (\s@BackupRuleInput' {} a -> s {completionWindowMinutes = a} :: BackupRuleInput)
 
--- | An array of @CopyAction@ objects, which contains the details of the copy
--- operation.
-backupRuleInput_copyActions :: Lens.Lens' BackupRuleInput (Prelude.Maybe [CopyAction])
-backupRuleInput_copyActions = Lens.lens (\BackupRuleInput' {copyActions} -> copyActions) (\s@BackupRuleInput' {} a -> s {copyActions = a} :: BackupRuleInput) Prelude.. Lens.mapping Lens.coerced
-
--- | A value in minutes after a backup is scheduled before a job will be
--- canceled if it doesn\'t start successfully. This value is optional.
-backupRuleInput_startWindowMinutes :: Lens.Lens' BackupRuleInput (Prelude.Maybe Prelude.Integer)
-backupRuleInput_startWindowMinutes = Lens.lens (\BackupRuleInput' {startWindowMinutes} -> startWindowMinutes) (\s@BackupRuleInput' {} a -> s {startWindowMinutes = a} :: BackupRuleInput)
+-- | To help organize your resources, you can assign your own metadata to the
+-- resources that you create. Each tag is a key-value pair.
+backupRuleInput_recoveryPointTags :: Lens.Lens' BackupRuleInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+backupRuleInput_recoveryPointTags = Lens.lens (\BackupRuleInput' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRuleInput' {} a -> s {recoveryPointTags = a} :: BackupRuleInput) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | An optional display name for a backup rule.
 backupRuleInput_ruleName :: Lens.Lens' BackupRuleInput Prelude.Text
@@ -192,25 +193,25 @@ backupRuleInput_targetBackupVaultName = Lens.lens (\BackupRuleInput' {targetBack
 
 instance Prelude.Hashable BackupRuleInput where
   hashWithSalt _salt BackupRuleInput' {..} =
-    _salt `Prelude.hashWithSalt` lifecycle
-      `Prelude.hashWithSalt` recoveryPointTags
+    _salt `Prelude.hashWithSalt` startWindowMinutes
+      `Prelude.hashWithSalt` lifecycle
+      `Prelude.hashWithSalt` copyActions
       `Prelude.hashWithSalt` scheduleExpression
       `Prelude.hashWithSalt` enableContinuousBackup
       `Prelude.hashWithSalt` completionWindowMinutes
-      `Prelude.hashWithSalt` copyActions
-      `Prelude.hashWithSalt` startWindowMinutes
+      `Prelude.hashWithSalt` recoveryPointTags
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` targetBackupVaultName
 
 instance Prelude.NFData BackupRuleInput where
   rnf BackupRuleInput' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf recoveryPointTags
+    Prelude.rnf startWindowMinutes
+      `Prelude.seq` Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf copyActions
       `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf enableContinuousBackup
       `Prelude.seq` Prelude.rnf completionWindowMinutes
-      `Prelude.seq` Prelude.rnf copyActions
-      `Prelude.seq` Prelude.rnf startWindowMinutes
+      `Prelude.seq` Prelude.rnf recoveryPointTags
       `Prelude.seq` Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf targetBackupVaultName
 
@@ -218,18 +219,18 @@ instance Core.ToJSON BackupRuleInput where
   toJSON BackupRuleInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Lifecycle" Core..=) Prelude.<$> lifecycle,
-            ("RecoveryPointTags" Core..=)
-              Prelude.<$> recoveryPointTags,
+          [ ("StartWindowMinutes" Core..=)
+              Prelude.<$> startWindowMinutes,
+            ("Lifecycle" Core..=) Prelude.<$> lifecycle,
+            ("CopyActions" Core..=) Prelude.<$> copyActions,
             ("ScheduleExpression" Core..=)
               Prelude.<$> scheduleExpression,
             ("EnableContinuousBackup" Core..=)
               Prelude.<$> enableContinuousBackup,
             ("CompletionWindowMinutes" Core..=)
               Prelude.<$> completionWindowMinutes,
-            ("CopyActions" Core..=) Prelude.<$> copyActions,
-            ("StartWindowMinutes" Core..=)
-              Prelude.<$> startWindowMinutes,
+            ("RecoveryPointTags" Core..=)
+              Prelude.<$> recoveryPointTags,
             Prelude.Just ("RuleName" Core..= ruleName),
             Prelude.Just
               ( "TargetBackupVaultName"

@@ -35,9 +35,9 @@ module Amazonka.APIGateway.GetRequestValidator
     newRequestValidator,
 
     -- * Response Lenses
-    requestValidator_validateRequestParameters,
-    requestValidator_name,
     requestValidator_validateRequestBody,
+    requestValidator_name,
+    requestValidator_validateRequestParameters,
     requestValidator_id,
   )
 where

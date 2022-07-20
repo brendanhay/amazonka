@@ -27,8 +27,8 @@ module Amazonka.EC2.ModifyVpcAttribute
     newModifyVpcAttribute,
 
     -- * Request Lenses
-    modifyVpcAttribute_enableDnsHostnames,
     modifyVpcAttribute_enableDnsSupport,
+    modifyVpcAttribute_enableDnsHostnames,
     modifyVpcAttribute_vpcId,
 
     -- * Destructuring the Response
@@ -46,15 +46,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyVpcAttribute' smart constructor.
 data ModifyVpcAttribute = ModifyVpcAttribute'
-  { -- | Indicates whether the instances launched in the VPC get DNS hostnames.
-    -- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
-    -- not.
-    --
-    -- You cannot modify the DNS resolution and DNS hostnames attributes in the
-    -- same request. Use separate requests for each attribute. You can only
-    -- enable DNS hostnames if you\'ve enabled DNS support.
-    enableDnsHostnames :: Prelude.Maybe AttributeBooleanValue,
-    -- | Indicates whether the DNS resolution is supported for the VPC. If
+  { -- | Indicates whether the DNS resolution is supported for the VPC. If
     -- enabled, queries to the Amazon provided DNS server at the
     -- 169.254.169.253 IP address, or the reserved IP address at the base of
     -- the VPC network range \"plus two\" succeed. If disabled, the Amazon
@@ -64,6 +56,14 @@ data ModifyVpcAttribute = ModifyVpcAttribute'
     -- You cannot modify the DNS resolution and DNS hostnames attributes in the
     -- same request. Use separate requests for each attribute.
     enableDnsSupport :: Prelude.Maybe AttributeBooleanValue,
+    -- | Indicates whether the instances launched in the VPC get DNS hostnames.
+    -- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
+    -- not.
+    --
+    -- You cannot modify the DNS resolution and DNS hostnames attributes in the
+    -- same request. Use separate requests for each attribute. You can only
+    -- enable DNS hostnames if you\'ve enabled DNS support.
+    enableDnsHostnames :: Prelude.Maybe AttributeBooleanValue,
     -- | The ID of the VPC.
     vpcId :: Prelude.Text
   }
@@ -77,14 +77,6 @@ data ModifyVpcAttribute = ModifyVpcAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableDnsHostnames', 'modifyVpcAttribute_enableDnsHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames.
--- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
--- not.
---
--- You cannot modify the DNS resolution and DNS hostnames attributes in the
--- same request. Use separate requests for each attribute. You can only
--- enable DNS hostnames if you\'ve enabled DNS support.
---
 -- 'enableDnsSupport', 'modifyVpcAttribute_enableDnsSupport' - Indicates whether the DNS resolution is supported for the VPC. If
 -- enabled, queries to the Amazon provided DNS server at the
 -- 169.254.169.253 IP address, or the reserved IP address at the base of
@@ -95,6 +87,14 @@ data ModifyVpcAttribute = ModifyVpcAttribute'
 -- You cannot modify the DNS resolution and DNS hostnames attributes in the
 -- same request. Use separate requests for each attribute.
 --
+-- 'enableDnsHostnames', 'modifyVpcAttribute_enableDnsHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames.
+-- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
+-- not.
+--
+-- You cannot modify the DNS resolution and DNS hostnames attributes in the
+-- same request. Use separate requests for each attribute. You can only
+-- enable DNS hostnames if you\'ve enabled DNS support.
+--
 -- 'vpcId', 'modifyVpcAttribute_vpcId' - The ID of the VPC.
 newModifyVpcAttribute ::
   -- | 'vpcId'
@@ -102,21 +102,11 @@ newModifyVpcAttribute ::
   ModifyVpcAttribute
 newModifyVpcAttribute pVpcId_ =
   ModifyVpcAttribute'
-    { enableDnsHostnames =
+    { enableDnsSupport =
         Prelude.Nothing,
-      enableDnsSupport = Prelude.Nothing,
+      enableDnsHostnames = Prelude.Nothing,
       vpcId = pVpcId_
     }
-
--- | Indicates whether the instances launched in the VPC get DNS hostnames.
--- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
--- not.
---
--- You cannot modify the DNS resolution and DNS hostnames attributes in the
--- same request. Use separate requests for each attribute. You can only
--- enable DNS hostnames if you\'ve enabled DNS support.
-modifyVpcAttribute_enableDnsHostnames :: Lens.Lens' ModifyVpcAttribute (Prelude.Maybe AttributeBooleanValue)
-modifyVpcAttribute_enableDnsHostnames = Lens.lens (\ModifyVpcAttribute' {enableDnsHostnames} -> enableDnsHostnames) (\s@ModifyVpcAttribute' {} a -> s {enableDnsHostnames = a} :: ModifyVpcAttribute)
 
 -- | Indicates whether the DNS resolution is supported for the VPC. If
 -- enabled, queries to the Amazon provided DNS server at the
@@ -129,6 +119,16 @@ modifyVpcAttribute_enableDnsHostnames = Lens.lens (\ModifyVpcAttribute' {enableD
 -- same request. Use separate requests for each attribute.
 modifyVpcAttribute_enableDnsSupport :: Lens.Lens' ModifyVpcAttribute (Prelude.Maybe AttributeBooleanValue)
 modifyVpcAttribute_enableDnsSupport = Lens.lens (\ModifyVpcAttribute' {enableDnsSupport} -> enableDnsSupport) (\s@ModifyVpcAttribute' {} a -> s {enableDnsSupport = a} :: ModifyVpcAttribute)
+
+-- | Indicates whether the instances launched in the VPC get DNS hostnames.
+-- If enabled, instances in the VPC get DNS hostnames; otherwise, they do
+-- not.
+--
+-- You cannot modify the DNS resolution and DNS hostnames attributes in the
+-- same request. Use separate requests for each attribute. You can only
+-- enable DNS hostnames if you\'ve enabled DNS support.
+modifyVpcAttribute_enableDnsHostnames :: Lens.Lens' ModifyVpcAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyVpcAttribute_enableDnsHostnames = Lens.lens (\ModifyVpcAttribute' {enableDnsHostnames} -> enableDnsHostnames) (\s@ModifyVpcAttribute' {} a -> s {enableDnsHostnames = a} :: ModifyVpcAttribute)
 
 -- | The ID of the VPC.
 modifyVpcAttribute_vpcId :: Lens.Lens' ModifyVpcAttribute Prelude.Text
@@ -144,14 +144,14 @@ instance Core.AWSRequest ModifyVpcAttribute where
 
 instance Prelude.Hashable ModifyVpcAttribute where
   hashWithSalt _salt ModifyVpcAttribute' {..} =
-    _salt `Prelude.hashWithSalt` enableDnsHostnames
-      `Prelude.hashWithSalt` enableDnsSupport
+    _salt `Prelude.hashWithSalt` enableDnsSupport
+      `Prelude.hashWithSalt` enableDnsHostnames
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData ModifyVpcAttribute where
   rnf ModifyVpcAttribute' {..} =
-    Prelude.rnf enableDnsHostnames
-      `Prelude.seq` Prelude.rnf enableDnsSupport
+    Prelude.rnf enableDnsSupport
+      `Prelude.seq` Prelude.rnf enableDnsHostnames
       `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToHeaders ModifyVpcAttribute where
@@ -167,8 +167,8 @@ instance Core.ToQuery ModifyVpcAttribute where
           Core.=: ("ModifyVpcAttribute" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "EnableDnsHostnames" Core.=: enableDnsHostnames,
         "EnableDnsSupport" Core.=: enableDnsSupport,
+        "EnableDnsHostnames" Core.=: enableDnsHostnames,
         "VpcId" Core.=: vpcId
       ]
 

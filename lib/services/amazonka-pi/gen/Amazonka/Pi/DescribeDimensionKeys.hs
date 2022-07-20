@@ -31,10 +31,10 @@ module Amazonka.Pi.DescribeDimensionKeys
     newDescribeDimensionKeys,
 
     -- * Request Lenses
-    describeDimensionKeys_periodInSeconds,
     describeDimensionKeys_nextToken,
     describeDimensionKeys_filter,
     describeDimensionKeys_maxResults,
+    describeDimensionKeys_periodInSeconds,
     describeDimensionKeys_partitionBy,
     describeDimensionKeys_serviceType,
     describeDimensionKeys_identifier,
@@ -48,11 +48,11 @@ module Amazonka.Pi.DescribeDimensionKeys
     newDescribeDimensionKeysResponse,
 
     -- * Response Lenses
-    describeDimensionKeysResponse_alignedEndTime,
-    describeDimensionKeysResponse_alignedStartTime,
-    describeDimensionKeysResponse_keys,
     describeDimensionKeysResponse_nextToken,
+    describeDimensionKeysResponse_alignedEndTime,
     describeDimensionKeysResponse_partitionKeys,
+    describeDimensionKeysResponse_keys,
+    describeDimensionKeysResponse_alignedStartTime,
     describeDimensionKeysResponse_httpStatus,
   )
 where
@@ -66,7 +66,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDimensionKeys' smart constructor.
 data DescribeDimensionKeys = DescribeDimensionKeys'
-  { -- | The granularity, in seconds, of the data points returned from
+  { -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- token, up to the value specified by @MaxRecords@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters to apply in the request. Restrictions:
+    --
+    -- -   Any number of filters by the same dimension, as specified in the
+    --     @GroupBy@ or @Partition@ parameters.
+    --
+    -- -   A single filter for any other dimension in this dimension group.
+    filter' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The maximum number of items to return in the response. If more items
+    -- exist than the specified @MaxRecords@ value, a pagination token is
+    -- included in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The granularity, in seconds, of the data points returned from
     -- Performance Insights. A period can be as short as one second, or as long
     -- as one day (86400 seconds). Valid values are:
     --
@@ -84,21 +99,6 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
     -- chooses a value for you, with a goal of returning roughly 100-200 data
     -- points in the response.
     periodInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- token, up to the value specified by @MaxRecords@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters to apply in the request. Restrictions:
-    --
-    -- -   Any number of filters by the same dimension, as specified in the
-    --     @GroupBy@ or @Partition@ parameters.
-    --
-    -- -   A single filter for any other dimension in this dimension group.
-    filter' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The maximum number of items to return in the response. If more items
-    -- exist than the specified @MaxRecords@ value, a pagination token is
-    -- included in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | For each dimension specified in @GroupBy@, specify a secondary dimension
     -- to further subdivide the partition keys in the response.
     partitionBy :: Prelude.Maybe DimensionGroup,
@@ -160,6 +160,21 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeDimensionKeys_nextToken' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
+--
+-- 'filter'', 'describeDimensionKeys_filter' - One or more filters to apply in the request. Restrictions:
+--
+-- -   Any number of filters by the same dimension, as specified in the
+--     @GroupBy@ or @Partition@ parameters.
+--
+-- -   A single filter for any other dimension in this dimension group.
+--
+-- 'maxResults', 'describeDimensionKeys_maxResults' - The maximum number of items to return in the response. If more items
+-- exist than the specified @MaxRecords@ value, a pagination token is
+-- included in the response so that the remaining results can be retrieved.
+--
 -- 'periodInSeconds', 'describeDimensionKeys_periodInSeconds' - The granularity, in seconds, of the data points returned from
 -- Performance Insights. A period can be as short as one second, or as long
 -- as one day (86400 seconds). Valid values are:
@@ -177,21 +192,6 @@ data DescribeDimensionKeys = DescribeDimensionKeys'
 -- If you don\'t specify @PeriodInSeconds@, then Performance Insights
 -- chooses a value for you, with a goal of returning roughly 100-200 data
 -- points in the response.
---
--- 'nextToken', 'describeDimensionKeys_nextToken' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
---
--- 'filter'', 'describeDimensionKeys_filter' - One or more filters to apply in the request. Restrictions:
---
--- -   Any number of filters by the same dimension, as specified in the
---     @GroupBy@ or @Partition@ parameters.
---
--- -   A single filter for any other dimension in this dimension group.
---
--- 'maxResults', 'describeDimensionKeys_maxResults' - The maximum number of items to return in the response. If more items
--- exist than the specified @MaxRecords@ value, a pagination token is
--- included in the response so that the remaining results can be retrieved.
 --
 -- 'partitionBy', 'describeDimensionKeys_partitionBy' - For each dimension specified in @GroupBy@, specify a secondary dimension
 -- to further subdivide the partition keys in the response.
@@ -264,11 +264,10 @@ newDescribeDimensionKeys
   pMetric_
   pGroupBy_ =
     DescribeDimensionKeys'
-      { periodInSeconds =
-          Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+      { nextToken = Prelude.Nothing,
         filter' = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        periodInSeconds = Prelude.Nothing,
         partitionBy = Prelude.Nothing,
         serviceType = pServiceType_,
         identifier = pIdentifier_,
@@ -277,26 +276,6 @@ newDescribeDimensionKeys
         metric = pMetric_,
         groupBy = pGroupBy_
       }
-
--- | The granularity, in seconds, of the data points returned from
--- Performance Insights. A period can be as short as one second, or as long
--- as one day (86400 seconds). Valid values are:
---
--- -   @1@ (one second)
---
--- -   @60@ (one minute)
---
--- -   @300@ (five minutes)
---
--- -   @3600@ (one hour)
---
--- -   @86400@ (twenty-four hours)
---
--- If you don\'t specify @PeriodInSeconds@, then Performance Insights
--- chooses a value for you, with a goal of returning roughly 100-200 data
--- points in the response.
-describeDimensionKeys_periodInSeconds :: Lens.Lens' DescribeDimensionKeys (Prelude.Maybe Prelude.Int)
-describeDimensionKeys_periodInSeconds = Lens.lens (\DescribeDimensionKeys' {periodInSeconds} -> periodInSeconds) (\s@DescribeDimensionKeys' {} a -> s {periodInSeconds = a} :: DescribeDimensionKeys)
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -318,6 +297,26 @@ describeDimensionKeys_filter = Lens.lens (\DescribeDimensionKeys' {filter'} -> f
 -- included in the response so that the remaining results can be retrieved.
 describeDimensionKeys_maxResults :: Lens.Lens' DescribeDimensionKeys (Prelude.Maybe Prelude.Natural)
 describeDimensionKeys_maxResults = Lens.lens (\DescribeDimensionKeys' {maxResults} -> maxResults) (\s@DescribeDimensionKeys' {} a -> s {maxResults = a} :: DescribeDimensionKeys)
+
+-- | The granularity, in seconds, of the data points returned from
+-- Performance Insights. A period can be as short as one second, or as long
+-- as one day (86400 seconds). Valid values are:
+--
+-- -   @1@ (one second)
+--
+-- -   @60@ (one minute)
+--
+-- -   @300@ (five minutes)
+--
+-- -   @3600@ (one hour)
+--
+-- -   @86400@ (twenty-four hours)
+--
+-- If you don\'t specify @PeriodInSeconds@, then Performance Insights
+-- chooses a value for you, with a goal of returning roughly 100-200 data
+-- points in the response.
+describeDimensionKeys_periodInSeconds :: Lens.Lens' DescribeDimensionKeys (Prelude.Maybe Prelude.Int)
+describeDimensionKeys_periodInSeconds = Lens.lens (\DescribeDimensionKeys' {periodInSeconds} -> periodInSeconds) (\s@DescribeDimensionKeys' {} a -> s {periodInSeconds = a} :: DescribeDimensionKeys)
 
 -- | For each dimension specified in @GroupBy@, specify a secondary dimension
 -- to further subdivide the partition keys in the response.
@@ -392,20 +391,20 @@ instance Core.AWSRequest DescribeDimensionKeys where
     Response.receiveJSON
       ( \s h x ->
           DescribeDimensionKeysResponse'
-            Prelude.<$> (x Core..?> "AlignedEndTime")
-            Prelude.<*> (x Core..?> "AlignedStartTime")
-            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "AlignedEndTime")
             Prelude.<*> (x Core..?> "PartitionKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "AlignedStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDimensionKeys where
   hashWithSalt _salt DescribeDimensionKeys' {..} =
-    _salt `Prelude.hashWithSalt` periodInSeconds
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` periodInSeconds
       `Prelude.hashWithSalt` partitionBy
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` identifier
@@ -416,10 +415,10 @@ instance Prelude.Hashable DescribeDimensionKeys where
 
 instance Prelude.NFData DescribeDimensionKeys where
   rnf DescribeDimensionKeys' {..} =
-    Prelude.rnf periodInSeconds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf periodInSeconds
       `Prelude.seq` Prelude.rnf partitionBy
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf identifier
@@ -447,11 +446,11 @@ instance Core.ToJSON DescribeDimensionKeys where
   toJSON DescribeDimensionKeys' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PeriodInSeconds" Core..=)
-              Prelude.<$> periodInSeconds,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Filter" Core..=) Prelude.<$> filter',
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("PeriodInSeconds" Core..=)
+              Prelude.<$> periodInSeconds,
             ("PartitionBy" Core..=) Prelude.<$> partitionBy,
             Prelude.Just ("ServiceType" Core..= serviceType),
             Prelude.Just ("Identifier" Core..= identifier),
@@ -470,25 +469,25 @@ instance Core.ToQuery DescribeDimensionKeys where
 
 -- | /See:/ 'newDescribeDimensionKeysResponse' smart constructor.
 data DescribeDimensionKeysResponse = DescribeDimensionKeysResponse'
-  { -- | The end time for the returned dimension keys, after alignment to a
+  { -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- token, up to the value specified by @MaxRecords@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The end time for the returned dimension keys, after alignment to a
     -- granular boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@
     -- will be greater than or equal to the value of the user-specified
     -- @Endtime@.
     alignedEndTime :: Prelude.Maybe Core.POSIX,
+    -- | If @PartitionBy@ was present in the request, @PartitionKeys@ contains
+    -- the breakdown of dimension keys by the specified partitions.
+    partitionKeys :: Prelude.Maybe [ResponsePartitionKey],
+    -- | The dimension keys that were requested.
+    keys :: Prelude.Maybe [DimensionKeyDescription],
     -- | The start time for the returned dimension keys, after alignment to a
     -- granular boundary (as specified by @PeriodInSeconds@).
     -- @AlignedStartTime@ will be less than or equal to the value of the
     -- user-specified @StartTime@.
     alignedStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The dimension keys that were requested.
-    keys :: Prelude.Maybe [DimensionKeyDescription],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- token, up to the value specified by @MaxRecords@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If @PartitionBy@ was present in the request, @PartitionKeys@ contains
-    -- the breakdown of dimension keys by the specified partitions.
-    partitionKeys :: Prelude.Maybe [ResponsePartitionKey],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -502,24 +501,24 @@ data DescribeDimensionKeysResponse = DescribeDimensionKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeDimensionKeysResponse_nextToken' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
+--
 -- 'alignedEndTime', 'describeDimensionKeysResponse_alignedEndTime' - The end time for the returned dimension keys, after alignment to a
 -- granular boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@
 -- will be greater than or equal to the value of the user-specified
 -- @Endtime@.
 --
+-- 'partitionKeys', 'describeDimensionKeysResponse_partitionKeys' - If @PartitionBy@ was present in the request, @PartitionKeys@ contains
+-- the breakdown of dimension keys by the specified partitions.
+--
+-- 'keys', 'describeDimensionKeysResponse_keys' - The dimension keys that were requested.
+--
 -- 'alignedStartTime', 'describeDimensionKeysResponse_alignedStartTime' - The start time for the returned dimension keys, after alignment to a
 -- granular boundary (as specified by @PeriodInSeconds@).
 -- @AlignedStartTime@ will be less than or equal to the value of the
 -- user-specified @StartTime@.
---
--- 'keys', 'describeDimensionKeysResponse_keys' - The dimension keys that were requested.
---
--- 'nextToken', 'describeDimensionKeysResponse_nextToken' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
---
--- 'partitionKeys', 'describeDimensionKeysResponse_partitionKeys' - If @PartitionBy@ was present in the request, @PartitionKeys@ contains
--- the breakdown of dimension keys by the specified partitions.
 --
 -- 'httpStatus', 'describeDimensionKeysResponse_httpStatus' - The response's http status code.
 newDescribeDimensionKeysResponse ::
@@ -528,14 +527,20 @@ newDescribeDimensionKeysResponse ::
   DescribeDimensionKeysResponse
 newDescribeDimensionKeysResponse pHttpStatus_ =
   DescribeDimensionKeysResponse'
-    { alignedEndTime =
+    { nextToken =
         Prelude.Nothing,
-      alignedStartTime = Prelude.Nothing,
-      keys = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      alignedEndTime = Prelude.Nothing,
       partitionKeys = Prelude.Nothing,
+      keys = Prelude.Nothing,
+      alignedStartTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
+describeDimensionKeysResponse_nextToken :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe Prelude.Text)
+describeDimensionKeysResponse_nextToken = Lens.lens (\DescribeDimensionKeysResponse' {nextToken} -> nextToken) (\s@DescribeDimensionKeysResponse' {} a -> s {nextToken = a} :: DescribeDimensionKeysResponse)
 
 -- | The end time for the returned dimension keys, after alignment to a
 -- granular boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@
@@ -544,6 +549,15 @@ newDescribeDimensionKeysResponse pHttpStatus_ =
 describeDimensionKeysResponse_alignedEndTime :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe Prelude.UTCTime)
 describeDimensionKeysResponse_alignedEndTime = Lens.lens (\DescribeDimensionKeysResponse' {alignedEndTime} -> alignedEndTime) (\s@DescribeDimensionKeysResponse' {} a -> s {alignedEndTime = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Core._Time
 
+-- | If @PartitionBy@ was present in the request, @PartitionKeys@ contains
+-- the breakdown of dimension keys by the specified partitions.
+describeDimensionKeysResponse_partitionKeys :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe [ResponsePartitionKey])
+describeDimensionKeysResponse_partitionKeys = Lens.lens (\DescribeDimensionKeysResponse' {partitionKeys} -> partitionKeys) (\s@DescribeDimensionKeysResponse' {} a -> s {partitionKeys = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The dimension keys that were requested.
+describeDimensionKeysResponse_keys :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe [DimensionKeyDescription])
+describeDimensionKeysResponse_keys = Lens.lens (\DescribeDimensionKeysResponse' {keys} -> keys) (\s@DescribeDimensionKeysResponse' {} a -> s {keys = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The start time for the returned dimension keys, after alignment to a
 -- granular boundary (as specified by @PeriodInSeconds@).
 -- @AlignedStartTime@ will be less than or equal to the value of the
@@ -551,30 +565,15 @@ describeDimensionKeysResponse_alignedEndTime = Lens.lens (\DescribeDimensionKeys
 describeDimensionKeysResponse_alignedStartTime :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe Prelude.UTCTime)
 describeDimensionKeysResponse_alignedStartTime = Lens.lens (\DescribeDimensionKeysResponse' {alignedStartTime} -> alignedStartTime) (\s@DescribeDimensionKeysResponse' {} a -> s {alignedStartTime = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Core._Time
 
--- | The dimension keys that were requested.
-describeDimensionKeysResponse_keys :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe [DimensionKeyDescription])
-describeDimensionKeysResponse_keys = Lens.lens (\DescribeDimensionKeysResponse' {keys} -> keys) (\s@DescribeDimensionKeysResponse' {} a -> s {keys = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
-describeDimensionKeysResponse_nextToken :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe Prelude.Text)
-describeDimensionKeysResponse_nextToken = Lens.lens (\DescribeDimensionKeysResponse' {nextToken} -> nextToken) (\s@DescribeDimensionKeysResponse' {} a -> s {nextToken = a} :: DescribeDimensionKeysResponse)
-
--- | If @PartitionBy@ was present in the request, @PartitionKeys@ contains
--- the breakdown of dimension keys by the specified partitions.
-describeDimensionKeysResponse_partitionKeys :: Lens.Lens' DescribeDimensionKeysResponse (Prelude.Maybe [ResponsePartitionKey])
-describeDimensionKeysResponse_partitionKeys = Lens.lens (\DescribeDimensionKeysResponse' {partitionKeys} -> partitionKeys) (\s@DescribeDimensionKeysResponse' {} a -> s {partitionKeys = a} :: DescribeDimensionKeysResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeDimensionKeysResponse_httpStatus :: Lens.Lens' DescribeDimensionKeysResponse Prelude.Int
 describeDimensionKeysResponse_httpStatus = Lens.lens (\DescribeDimensionKeysResponse' {httpStatus} -> httpStatus) (\s@DescribeDimensionKeysResponse' {} a -> s {httpStatus = a} :: DescribeDimensionKeysResponse)
 
 instance Prelude.NFData DescribeDimensionKeysResponse where
   rnf DescribeDimensionKeysResponse' {..} =
-    Prelude.rnf alignedEndTime
-      `Prelude.seq` Prelude.rnf alignedStartTime
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf alignedEndTime
       `Prelude.seq` Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf alignedStartTime
       `Prelude.seq` Prelude.rnf httpStatus

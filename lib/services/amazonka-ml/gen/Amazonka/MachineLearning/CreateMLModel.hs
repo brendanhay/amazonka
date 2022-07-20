@@ -45,9 +45,9 @@ module Amazonka.MachineLearning.CreateMLModel
     newCreateMLModel,
 
     -- * Request Lenses
+    createMLModel_mLModelName,
     createMLModel_recipe,
     createMLModel_recipeUri,
-    createMLModel_mLModelName,
     createMLModel_parameters,
     createMLModel_mLModelId,
     createMLModel_mLModelType,
@@ -72,7 +72,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMLModel' smart constructor.
 data CreateMLModel = CreateMLModel'
-  { -- | The data recipe for creating the @MLModel@. You must specify either the
+  { -- | A user-supplied name or description of the @MLModel@.
+    mLModelName :: Prelude.Maybe Prelude.Text,
+    -- | The data recipe for creating the @MLModel@. You must specify either the
     -- recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML
     -- creates a default.
     recipe :: Prelude.Maybe Prelude.Text,
@@ -81,8 +83,6 @@ data CreateMLModel = CreateMLModel'
     -- or its URI. If you don\'t specify a recipe or its URI, Amazon ML creates
     -- a default.
     recipeUri :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name or description of the @MLModel@.
-    mLModelName :: Prelude.Maybe Prelude.Text,
     -- | A list of the training parameters in the @MLModel@. The list is
     -- implemented as a map of key-value pairs.
     --
@@ -154,6 +154,8 @@ data CreateMLModel = CreateMLModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'mLModelName', 'createMLModel_mLModelName' - A user-supplied name or description of the @MLModel@.
+--
 -- 'recipe', 'createMLModel_recipe' - The data recipe for creating the @MLModel@. You must specify either the
 -- recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML
 -- creates a default.
@@ -162,8 +164,6 @@ data CreateMLModel = CreateMLModel'
 -- that contains the @MLModel@ recipe. You must specify either the recipe
 -- or its URI. If you don\'t specify a recipe or its URI, Amazon ML creates
 -- a default.
---
--- 'mLModelName', 'createMLModel_mLModelName' - A user-supplied name or description of the @MLModel@.
 --
 -- 'parameters', 'createMLModel_parameters' - A list of the training parameters in the @MLModel@. The list is
 -- implemented as a map of key-value pairs.
@@ -237,14 +237,18 @@ newCreateMLModel
   pMLModelType_
   pTrainingDataSourceId_ =
     CreateMLModel'
-      { recipe = Prelude.Nothing,
+      { mLModelName = Prelude.Nothing,
+        recipe = Prelude.Nothing,
         recipeUri = Prelude.Nothing,
-        mLModelName = Prelude.Nothing,
         parameters = Prelude.Nothing,
         mLModelId = pMLModelId_,
         mLModelType = pMLModelType_,
         trainingDataSourceId = pTrainingDataSourceId_
       }
+
+-- | A user-supplied name or description of the @MLModel@.
+createMLModel_mLModelName :: Lens.Lens' CreateMLModel (Prelude.Maybe Prelude.Text)
+createMLModel_mLModelName = Lens.lens (\CreateMLModel' {mLModelName} -> mLModelName) (\s@CreateMLModel' {} a -> s {mLModelName = a} :: CreateMLModel)
 
 -- | The data recipe for creating the @MLModel@. You must specify either the
 -- recipe or its URI. If you don\'t specify a recipe or its URI, Amazon ML
@@ -258,10 +262,6 @@ createMLModel_recipe = Lens.lens (\CreateMLModel' {recipe} -> recipe) (\s@Create
 -- a default.
 createMLModel_recipeUri :: Lens.Lens' CreateMLModel (Prelude.Maybe Prelude.Text)
 createMLModel_recipeUri = Lens.lens (\CreateMLModel' {recipeUri} -> recipeUri) (\s@CreateMLModel' {} a -> s {recipeUri = a} :: CreateMLModel)
-
--- | A user-supplied name or description of the @MLModel@.
-createMLModel_mLModelName :: Lens.Lens' CreateMLModel (Prelude.Maybe Prelude.Text)
-createMLModel_mLModelName = Lens.lens (\CreateMLModel' {mLModelName} -> mLModelName) (\s@CreateMLModel' {} a -> s {mLModelName = a} :: CreateMLModel)
 
 -- | A list of the training parameters in the @MLModel@. The list is
 -- implemented as a map of key-value pairs.
@@ -346,9 +346,9 @@ instance Core.AWSRequest CreateMLModel where
 
 instance Prelude.Hashable CreateMLModel where
   hashWithSalt _salt CreateMLModel' {..} =
-    _salt `Prelude.hashWithSalt` recipe
+    _salt `Prelude.hashWithSalt` mLModelName
+      `Prelude.hashWithSalt` recipe
       `Prelude.hashWithSalt` recipeUri
-      `Prelude.hashWithSalt` mLModelName
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` mLModelId
       `Prelude.hashWithSalt` mLModelType
@@ -356,9 +356,9 @@ instance Prelude.Hashable CreateMLModel where
 
 instance Prelude.NFData CreateMLModel where
   rnf CreateMLModel' {..} =
-    Prelude.rnf recipe
+    Prelude.rnf mLModelName
+      `Prelude.seq` Prelude.rnf recipe
       `Prelude.seq` Prelude.rnf recipeUri
-      `Prelude.seq` Prelude.rnf mLModelName
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf mLModelId
       `Prelude.seq` Prelude.rnf mLModelType
@@ -383,9 +383,9 @@ instance Core.ToJSON CreateMLModel where
   toJSON CreateMLModel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Recipe" Core..=) Prelude.<$> recipe,
+          [ ("MLModelName" Core..=) Prelude.<$> mLModelName,
+            ("Recipe" Core..=) Prelude.<$> recipe,
             ("RecipeUri" Core..=) Prelude.<$> recipeUri,
-            ("MLModelName" Core..=) Prelude.<$> mLModelName,
             ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("MLModelId" Core..= mLModelId),
             Prelude.Just ("MLModelType" Core..= mLModelType),

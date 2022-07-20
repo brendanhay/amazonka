@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationRelatedAnomaly' smart constructor.
 data RecommendationRelatedAnomaly = RecommendationRelatedAnomaly'
-  { -- | An array of objects that represent resources in which DevOps Guru
-    -- detected anomalous behavior. Each object contains the name and type of
-    -- the resource.
-    resources :: Prelude.Maybe [RecommendationRelatedAnomalyResource],
-    -- | Information about where the anomalous behavior related the
+  { -- | Information about where the anomalous behavior related the
     -- recommendation was found. For example, details in Amazon CloudWatch
     -- metrics.
-    sourceDetails :: Prelude.Maybe [RecommendationRelatedAnomalySourceDetail]
+    sourceDetails :: Prelude.Maybe [RecommendationRelatedAnomalySourceDetail],
+    -- | An array of objects that represent resources in which DevOps Guru
+    -- detected anomalous behavior. Each object contains the name and type of
+    -- the resource.
+    resources :: Prelude.Maybe [RecommendationRelatedAnomalyResource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,27 +48,21 @@ data RecommendationRelatedAnomaly = RecommendationRelatedAnomaly'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'recommendationRelatedAnomaly_resources' - An array of objects that represent resources in which DevOps Guru
--- detected anomalous behavior. Each object contains the name and type of
--- the resource.
---
 -- 'sourceDetails', 'recommendationRelatedAnomaly_sourceDetails' - Information about where the anomalous behavior related the
 -- recommendation was found. For example, details in Amazon CloudWatch
 -- metrics.
+--
+-- 'resources', 'recommendationRelatedAnomaly_resources' - An array of objects that represent resources in which DevOps Guru
+-- detected anomalous behavior. Each object contains the name and type of
+-- the resource.
 newRecommendationRelatedAnomaly ::
   RecommendationRelatedAnomaly
 newRecommendationRelatedAnomaly =
   RecommendationRelatedAnomaly'
-    { resources =
+    { sourceDetails =
         Prelude.Nothing,
-      sourceDetails = Prelude.Nothing
+      resources = Prelude.Nothing
     }
-
--- | An array of objects that represent resources in which DevOps Guru
--- detected anomalous behavior. Each object contains the name and type of
--- the resource.
-recommendationRelatedAnomaly_resources :: Lens.Lens' RecommendationRelatedAnomaly (Prelude.Maybe [RecommendationRelatedAnomalyResource])
-recommendationRelatedAnomaly_resources = Lens.lens (\RecommendationRelatedAnomaly' {resources} -> resources) (\s@RecommendationRelatedAnomaly' {} a -> s {resources = a} :: RecommendationRelatedAnomaly) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about where the anomalous behavior related the
 -- recommendation was found. For example, details in Amazon CloudWatch
@@ -76,14 +70,20 @@ recommendationRelatedAnomaly_resources = Lens.lens (\RecommendationRelatedAnomal
 recommendationRelatedAnomaly_sourceDetails :: Lens.Lens' RecommendationRelatedAnomaly (Prelude.Maybe [RecommendationRelatedAnomalySourceDetail])
 recommendationRelatedAnomaly_sourceDetails = Lens.lens (\RecommendationRelatedAnomaly' {sourceDetails} -> sourceDetails) (\s@RecommendationRelatedAnomaly' {} a -> s {sourceDetails = a} :: RecommendationRelatedAnomaly) Prelude.. Lens.mapping Lens.coerced
 
+-- | An array of objects that represent resources in which DevOps Guru
+-- detected anomalous behavior. Each object contains the name and type of
+-- the resource.
+recommendationRelatedAnomaly_resources :: Lens.Lens' RecommendationRelatedAnomaly (Prelude.Maybe [RecommendationRelatedAnomalyResource])
+recommendationRelatedAnomaly_resources = Lens.lens (\RecommendationRelatedAnomaly' {resources} -> resources) (\s@RecommendationRelatedAnomaly' {} a -> s {resources = a} :: RecommendationRelatedAnomaly) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON RecommendationRelatedAnomaly where
   parseJSON =
     Core.withObject
       "RecommendationRelatedAnomaly"
       ( \x ->
           RecommendationRelatedAnomaly'
-            Prelude.<$> (x Core..:? "Resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
       )
 
 instance
@@ -91,10 +91,10 @@ instance
     RecommendationRelatedAnomaly
   where
   hashWithSalt _salt RecommendationRelatedAnomaly' {..} =
-    _salt `Prelude.hashWithSalt` resources
-      `Prelude.hashWithSalt` sourceDetails
+    _salt `Prelude.hashWithSalt` sourceDetails
+      `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData RecommendationRelatedAnomaly where
   rnf RecommendationRelatedAnomaly' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf sourceDetails
+    Prelude.rnf sourceDetails
+      `Prelude.seq` Prelude.rnf resources

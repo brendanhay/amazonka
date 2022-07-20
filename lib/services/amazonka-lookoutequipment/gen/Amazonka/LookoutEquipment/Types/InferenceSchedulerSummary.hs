@@ -30,16 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInferenceSchedulerSummary' smart constructor.
 data InferenceSchedulerSummary = InferenceSchedulerSummary'
-  { -- | Indicates the status of the inference scheduler.
-    status :: Prelude.Maybe InferenceSchedulerStatus,
-    -- | How often data is uploaded to the source S3 bucket for the input data.
-    -- This value is the length of time between data uploads. For instance, if
-    -- you select 5 minutes, Amazon Lookout for Equipment will upload the
-    -- real-time data to the source bucket once every 5 minutes. This frequency
-    -- also determines how often Amazon Lookout for Equipment starts a
-    -- scheduled inference on your data. In this example, it starts once every
-    -- 5 minutes.
-    dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
+  { -- | The name of the inference scheduler.
+    inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
     -- | A period of time (in minutes) by which inference on the data is delayed
     -- after the data starts. For instance, if an offset delay time of five
     -- minutes was selected, inference will not begin on the data until the
@@ -50,15 +42,23 @@ data InferenceSchedulerSummary = InferenceSchedulerSummary'
     -- frequency and they don\'t need to stop and restart the scheduler when
     -- uploading new data.
     dataDelayOffsetInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates the status of the inference scheduler.
+    status :: Prelude.Maybe InferenceSchedulerStatus,
     -- | The Amazon Resource Name (ARN) of the ML model used by the inference
     -- scheduler.
     modelArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the ML model used for the inference scheduler.
     modelName :: Prelude.Maybe Prelude.Text,
+    -- | How often data is uploaded to the source S3 bucket for the input data.
+    -- This value is the length of time between data uploads. For instance, if
+    -- you select 5 minutes, Amazon Lookout for Equipment will upload the
+    -- real-time data to the source bucket once every 5 minutes. This frequency
+    -- also determines how often Amazon Lookout for Equipment starts a
+    -- scheduled inference on your data. In this example, it starts once every
+    -- 5 minutes.
+    dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
     -- | The Amazon Resource Name (ARN) of the inference scheduler.
-    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the inference scheduler.
-    inferenceSchedulerName :: Prelude.Maybe Prelude.Text
+    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,15 +70,7 @@ data InferenceSchedulerSummary = InferenceSchedulerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'inferenceSchedulerSummary_status' - Indicates the status of the inference scheduler.
---
--- 'dataUploadFrequency', 'inferenceSchedulerSummary_dataUploadFrequency' - How often data is uploaded to the source S3 bucket for the input data.
--- This value is the length of time between data uploads. For instance, if
--- you select 5 minutes, Amazon Lookout for Equipment will upload the
--- real-time data to the source bucket once every 5 minutes. This frequency
--- also determines how often Amazon Lookout for Equipment starts a
--- scheduled inference on your data. In this example, it starts once every
--- 5 minutes.
+-- 'inferenceSchedulerName', 'inferenceSchedulerSummary_inferenceSchedulerName' - The name of the inference scheduler.
 --
 -- 'dataDelayOffsetInMinutes', 'inferenceSchedulerSummary_dataDelayOffsetInMinutes' - A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if an offset delay time of five
@@ -90,41 +82,39 @@ data InferenceSchedulerSummary = InferenceSchedulerSummary'
 -- frequency and they don\'t need to stop and restart the scheduler when
 -- uploading new data.
 --
+-- 'status', 'inferenceSchedulerSummary_status' - Indicates the status of the inference scheduler.
+--
 -- 'modelArn', 'inferenceSchedulerSummary_modelArn' - The Amazon Resource Name (ARN) of the ML model used by the inference
 -- scheduler.
 --
 -- 'modelName', 'inferenceSchedulerSummary_modelName' - The name of the ML model used for the inference scheduler.
 --
--- 'inferenceSchedulerArn', 'inferenceSchedulerSummary_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference scheduler.
---
--- 'inferenceSchedulerName', 'inferenceSchedulerSummary_inferenceSchedulerName' - The name of the inference scheduler.
-newInferenceSchedulerSummary ::
-  InferenceSchedulerSummary
-newInferenceSchedulerSummary =
-  InferenceSchedulerSummary'
-    { status =
-        Prelude.Nothing,
-      dataUploadFrequency = Prelude.Nothing,
-      dataDelayOffsetInMinutes = Prelude.Nothing,
-      modelArn = Prelude.Nothing,
-      modelName = Prelude.Nothing,
-      inferenceSchedulerArn = Prelude.Nothing,
-      inferenceSchedulerName = Prelude.Nothing
-    }
-
--- | Indicates the status of the inference scheduler.
-inferenceSchedulerSummary_status :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe InferenceSchedulerStatus)
-inferenceSchedulerSummary_status = Lens.lens (\InferenceSchedulerSummary' {status} -> status) (\s@InferenceSchedulerSummary' {} a -> s {status = a} :: InferenceSchedulerSummary)
-
--- | How often data is uploaded to the source S3 bucket for the input data.
+-- 'dataUploadFrequency', 'inferenceSchedulerSummary_dataUploadFrequency' - How often data is uploaded to the source S3 bucket for the input data.
 -- This value is the length of time between data uploads. For instance, if
 -- you select 5 minutes, Amazon Lookout for Equipment will upload the
 -- real-time data to the source bucket once every 5 minutes. This frequency
 -- also determines how often Amazon Lookout for Equipment starts a
 -- scheduled inference on your data. In this example, it starts once every
 -- 5 minutes.
-inferenceSchedulerSummary_dataUploadFrequency :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe DataUploadFrequency)
-inferenceSchedulerSummary_dataUploadFrequency = Lens.lens (\InferenceSchedulerSummary' {dataUploadFrequency} -> dataUploadFrequency) (\s@InferenceSchedulerSummary' {} a -> s {dataUploadFrequency = a} :: InferenceSchedulerSummary)
+--
+-- 'inferenceSchedulerArn', 'inferenceSchedulerSummary_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference scheduler.
+newInferenceSchedulerSummary ::
+  InferenceSchedulerSummary
+newInferenceSchedulerSummary =
+  InferenceSchedulerSummary'
+    { inferenceSchedulerName =
+        Prelude.Nothing,
+      dataDelayOffsetInMinutes = Prelude.Nothing,
+      status = Prelude.Nothing,
+      modelArn = Prelude.Nothing,
+      modelName = Prelude.Nothing,
+      dataUploadFrequency = Prelude.Nothing,
+      inferenceSchedulerArn = Prelude.Nothing
+    }
+
+-- | The name of the inference scheduler.
+inferenceSchedulerSummary_inferenceSchedulerName :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
+inferenceSchedulerSummary_inferenceSchedulerName = Lens.lens (\InferenceSchedulerSummary' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@InferenceSchedulerSummary' {} a -> s {inferenceSchedulerName = a} :: InferenceSchedulerSummary)
 
 -- | A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if an offset delay time of five
@@ -138,6 +128,10 @@ inferenceSchedulerSummary_dataUploadFrequency = Lens.lens (\InferenceSchedulerSu
 inferenceSchedulerSummary_dataDelayOffsetInMinutes :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Natural)
 inferenceSchedulerSummary_dataDelayOffsetInMinutes = Lens.lens (\InferenceSchedulerSummary' {dataDelayOffsetInMinutes} -> dataDelayOffsetInMinutes) (\s@InferenceSchedulerSummary' {} a -> s {dataDelayOffsetInMinutes = a} :: InferenceSchedulerSummary)
 
+-- | Indicates the status of the inference scheduler.
+inferenceSchedulerSummary_status :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe InferenceSchedulerStatus)
+inferenceSchedulerSummary_status = Lens.lens (\InferenceSchedulerSummary' {status} -> status) (\s@InferenceSchedulerSummary' {} a -> s {status = a} :: InferenceSchedulerSummary)
+
 -- | The Amazon Resource Name (ARN) of the ML model used by the inference
 -- scheduler.
 inferenceSchedulerSummary_modelArn :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
@@ -147,13 +141,19 @@ inferenceSchedulerSummary_modelArn = Lens.lens (\InferenceSchedulerSummary' {mod
 inferenceSchedulerSummary_modelName :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
 inferenceSchedulerSummary_modelName = Lens.lens (\InferenceSchedulerSummary' {modelName} -> modelName) (\s@InferenceSchedulerSummary' {} a -> s {modelName = a} :: InferenceSchedulerSummary)
 
+-- | How often data is uploaded to the source S3 bucket for the input data.
+-- This value is the length of time between data uploads. For instance, if
+-- you select 5 minutes, Amazon Lookout for Equipment will upload the
+-- real-time data to the source bucket once every 5 minutes. This frequency
+-- also determines how often Amazon Lookout for Equipment starts a
+-- scheduled inference on your data. In this example, it starts once every
+-- 5 minutes.
+inferenceSchedulerSummary_dataUploadFrequency :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe DataUploadFrequency)
+inferenceSchedulerSummary_dataUploadFrequency = Lens.lens (\InferenceSchedulerSummary' {dataUploadFrequency} -> dataUploadFrequency) (\s@InferenceSchedulerSummary' {} a -> s {dataUploadFrequency = a} :: InferenceSchedulerSummary)
+
 -- | The Amazon Resource Name (ARN) of the inference scheduler.
 inferenceSchedulerSummary_inferenceSchedulerArn :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
 inferenceSchedulerSummary_inferenceSchedulerArn = Lens.lens (\InferenceSchedulerSummary' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@InferenceSchedulerSummary' {} a -> s {inferenceSchedulerArn = a} :: InferenceSchedulerSummary)
-
--- | The name of the inference scheduler.
-inferenceSchedulerSummary_inferenceSchedulerName :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
-inferenceSchedulerSummary_inferenceSchedulerName = Lens.lens (\InferenceSchedulerSummary' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@InferenceSchedulerSummary' {} a -> s {inferenceSchedulerName = a} :: InferenceSchedulerSummary)
 
 instance Core.FromJSON InferenceSchedulerSummary where
   parseJSON =
@@ -161,31 +161,31 @@ instance Core.FromJSON InferenceSchedulerSummary where
       "InferenceSchedulerSummary"
       ( \x ->
           InferenceSchedulerSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "DataUploadFrequency")
+            Prelude.<$> (x Core..:? "InferenceSchedulerName")
             Prelude.<*> (x Core..:? "DataDelayOffsetInMinutes")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ModelArn")
             Prelude.<*> (x Core..:? "ModelName")
+            Prelude.<*> (x Core..:? "DataUploadFrequency")
             Prelude.<*> (x Core..:? "InferenceSchedulerArn")
-            Prelude.<*> (x Core..:? "InferenceSchedulerName")
       )
 
 instance Prelude.Hashable InferenceSchedulerSummary where
   hashWithSalt _salt InferenceSchedulerSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` dataUploadFrequency
+    _salt `Prelude.hashWithSalt` inferenceSchedulerName
       `Prelude.hashWithSalt` dataDelayOffsetInMinutes
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` modelArn
       `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` dataUploadFrequency
       `Prelude.hashWithSalt` inferenceSchedulerArn
-      `Prelude.hashWithSalt` inferenceSchedulerName
 
 instance Prelude.NFData InferenceSchedulerSummary where
   rnf InferenceSchedulerSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf dataUploadFrequency
+    Prelude.rnf inferenceSchedulerName
       `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf dataUploadFrequency
       `Prelude.seq` Prelude.rnf inferenceSchedulerArn
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName

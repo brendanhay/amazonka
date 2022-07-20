@@ -31,8 +31,8 @@ module Amazonka.Discovery.DescribeContinuousExports
     newDescribeContinuousExports,
 
     -- * Request Lenses
-    describeContinuousExports_nextToken,
     describeContinuousExports_exportIds,
+    describeContinuousExports_nextToken,
     describeContinuousExports_maxResults,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeContinuousExports' smart constructor.
 data DescribeContinuousExports = DescribeContinuousExports'
-  { -- | The token from the previous call to @DescribeExportTasks@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The unique IDs assigned to the exports.
+  { -- | The unique IDs assigned to the exports.
     exportIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token from the previous call to @DescribeExportTasks@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A number between 1 and 100 specifying the maximum number of continuous
     -- export descriptions returned.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -73,9 +73,9 @@ data DescribeContinuousExports = DescribeContinuousExports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeContinuousExports_nextToken' - The token from the previous call to @DescribeExportTasks@.
---
 -- 'exportIds', 'describeContinuousExports_exportIds' - The unique IDs assigned to the exports.
+--
+-- 'nextToken', 'describeContinuousExports_nextToken' - The token from the previous call to @DescribeExportTasks@.
 --
 -- 'maxResults', 'describeContinuousExports_maxResults' - A number between 1 and 100 specifying the maximum number of continuous
 -- export descriptions returned.
@@ -83,19 +83,19 @@ newDescribeContinuousExports ::
   DescribeContinuousExports
 newDescribeContinuousExports =
   DescribeContinuousExports'
-    { nextToken =
+    { exportIds =
         Prelude.Nothing,
-      exportIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The token from the previous call to @DescribeExportTasks@.
-describeContinuousExports_nextToken :: Lens.Lens' DescribeContinuousExports (Prelude.Maybe Prelude.Text)
-describeContinuousExports_nextToken = Lens.lens (\DescribeContinuousExports' {nextToken} -> nextToken) (\s@DescribeContinuousExports' {} a -> s {nextToken = a} :: DescribeContinuousExports)
 
 -- | The unique IDs assigned to the exports.
 describeContinuousExports_exportIds :: Lens.Lens' DescribeContinuousExports (Prelude.Maybe [Prelude.Text])
 describeContinuousExports_exportIds = Lens.lens (\DescribeContinuousExports' {exportIds} -> exportIds) (\s@DescribeContinuousExports' {} a -> s {exportIds = a} :: DescribeContinuousExports) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token from the previous call to @DescribeExportTasks@.
+describeContinuousExports_nextToken :: Lens.Lens' DescribeContinuousExports (Prelude.Maybe Prelude.Text)
+describeContinuousExports_nextToken = Lens.lens (\DescribeContinuousExports' {nextToken} -> nextToken) (\s@DescribeContinuousExports' {} a -> s {nextToken = a} :: DescribeContinuousExports)
 
 -- | A number between 1 and 100 specifying the maximum number of continuous
 -- export descriptions returned.
@@ -140,14 +140,14 @@ instance Core.AWSRequest DescribeContinuousExports where
 
 instance Prelude.Hashable DescribeContinuousExports where
   hashWithSalt _salt DescribeContinuousExports' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` exportIds
+    _salt `Prelude.hashWithSalt` exportIds
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeContinuousExports where
   rnf DescribeContinuousExports' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf exportIds
+    Prelude.rnf exportIds
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeContinuousExports where
@@ -169,8 +169,8 @@ instance Core.ToJSON DescribeContinuousExports where
   toJSON DescribeContinuousExports' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("exportIds" Core..=) Prelude.<$> exportIds,
+          [ ("exportIds" Core..=) Prelude.<$> exportIds,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

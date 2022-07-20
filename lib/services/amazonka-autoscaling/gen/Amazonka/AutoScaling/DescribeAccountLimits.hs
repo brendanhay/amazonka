@@ -39,10 +39,10 @@ module Amazonka.AutoScaling.DescribeAccountLimits
     newDescribeAccountLimitsResponse,
 
     -- * Response Lenses
-    describeAccountLimitsResponse_numberOfLaunchConfigurations,
     describeAccountLimitsResponse_numberOfAutoScalingGroups,
-    describeAccountLimitsResponse_maxNumberOfAutoScalingGroups,
     describeAccountLimitsResponse_maxNumberOfLaunchConfigurations,
+    describeAccountLimitsResponse_maxNumberOfAutoScalingGroups,
+    describeAccountLimitsResponse_numberOfLaunchConfigurations,
     describeAccountLimitsResponse_httpStatus,
   )
 where
@@ -78,10 +78,10 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> (x Core..@? "NumberOfLaunchConfigurations")
-            Prelude.<*> (x Core..@? "NumberOfAutoScalingGroups")
-            Prelude.<*> (x Core..@? "MaxNumberOfAutoScalingGroups")
+            Prelude.<$> (x Core..@? "NumberOfAutoScalingGroups")
             Prelude.<*> (x Core..@? "MaxNumberOfLaunchConfigurations")
+            Prelude.<*> (x Core..@? "MaxNumberOfAutoScalingGroups")
+            Prelude.<*> (x Core..@? "NumberOfLaunchConfigurations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,16 +111,16 @@ instance Core.ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { -- | The current number of launch configurations for your account.
-    numberOfLaunchConfigurations :: Prelude.Maybe Prelude.Int,
-    -- | The current number of groups for your account.
+  { -- | The current number of groups for your account.
     numberOfAutoScalingGroups :: Prelude.Maybe Prelude.Int,
-    -- | The maximum number of groups allowed for your account. The default is
-    -- 200 groups per Region.
-    maxNumberOfAutoScalingGroups :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of launch configurations allowed for your account.
     -- The default is 200 launch configurations per Region.
     maxNumberOfLaunchConfigurations :: Prelude.Maybe Prelude.Int,
+    -- | The maximum number of groups allowed for your account. The default is
+    -- 200 groups per Region.
+    maxNumberOfAutoScalingGroups :: Prelude.Maybe Prelude.Int,
+    -- | The current number of launch configurations for your account.
+    numberOfLaunchConfigurations :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -134,15 +134,15 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfLaunchConfigurations', 'describeAccountLimitsResponse_numberOfLaunchConfigurations' - The current number of launch configurations for your account.
---
 -- 'numberOfAutoScalingGroups', 'describeAccountLimitsResponse_numberOfAutoScalingGroups' - The current number of groups for your account.
+--
+-- 'maxNumberOfLaunchConfigurations', 'describeAccountLimitsResponse_maxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your account.
+-- The default is 200 launch configurations per Region.
 --
 -- 'maxNumberOfAutoScalingGroups', 'describeAccountLimitsResponse_maxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your account. The default is
 -- 200 groups per Region.
 --
--- 'maxNumberOfLaunchConfigurations', 'describeAccountLimitsResponse_maxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your account.
--- The default is 200 launch configurations per Region.
+-- 'numberOfLaunchConfigurations', 'describeAccountLimitsResponse_numberOfLaunchConfigurations' - The current number of launch configurations for your account.
 --
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
@@ -151,33 +151,34 @@ newDescribeAccountLimitsResponse ::
   DescribeAccountLimitsResponse
 newDescribeAccountLimitsResponse pHttpStatus_ =
   DescribeAccountLimitsResponse'
-    { numberOfLaunchConfigurations =
-        Prelude.Nothing,
-      numberOfAutoScalingGroups = Prelude.Nothing,
-      maxNumberOfAutoScalingGroups =
+    { numberOfAutoScalingGroups =
         Prelude.Nothing,
       maxNumberOfLaunchConfigurations =
+        Prelude.Nothing,
+      maxNumberOfAutoScalingGroups =
+        Prelude.Nothing,
+      numberOfLaunchConfigurations =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The current number of launch configurations for your account.
-describeAccountLimitsResponse_numberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
-describeAccountLimitsResponse_numberOfLaunchConfigurations = Lens.lens (\DescribeAccountLimitsResponse' {numberOfLaunchConfigurations} -> numberOfLaunchConfigurations) (\s@DescribeAccountLimitsResponse' {} a -> s {numberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
-
 -- | The current number of groups for your account.
 describeAccountLimitsResponse_numberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
 describeAccountLimitsResponse_numberOfAutoScalingGroups = Lens.lens (\DescribeAccountLimitsResponse' {numberOfAutoScalingGroups} -> numberOfAutoScalingGroups) (\s@DescribeAccountLimitsResponse' {} a -> s {numberOfAutoScalingGroups = a} :: DescribeAccountLimitsResponse)
+
+-- | The maximum number of launch configurations allowed for your account.
+-- The default is 200 launch configurations per Region.
+describeAccountLimitsResponse_maxNumberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
+describeAccountLimitsResponse_maxNumberOfLaunchConfigurations = Lens.lens (\DescribeAccountLimitsResponse' {maxNumberOfLaunchConfigurations} -> maxNumberOfLaunchConfigurations) (\s@DescribeAccountLimitsResponse' {} a -> s {maxNumberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
 
 -- | The maximum number of groups allowed for your account. The default is
 -- 200 groups per Region.
 describeAccountLimitsResponse_maxNumberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
 describeAccountLimitsResponse_maxNumberOfAutoScalingGroups = Lens.lens (\DescribeAccountLimitsResponse' {maxNumberOfAutoScalingGroups} -> maxNumberOfAutoScalingGroups) (\s@DescribeAccountLimitsResponse' {} a -> s {maxNumberOfAutoScalingGroups = a} :: DescribeAccountLimitsResponse)
 
--- | The maximum number of launch configurations allowed for your account.
--- The default is 200 launch configurations per Region.
-describeAccountLimitsResponse_maxNumberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
-describeAccountLimitsResponse_maxNumberOfLaunchConfigurations = Lens.lens (\DescribeAccountLimitsResponse' {maxNumberOfLaunchConfigurations} -> maxNumberOfLaunchConfigurations) (\s@DescribeAccountLimitsResponse' {} a -> s {maxNumberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
+-- | The current number of launch configurations for your account.
+describeAccountLimitsResponse_numberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
+describeAccountLimitsResponse_numberOfLaunchConfigurations = Lens.lens (\DescribeAccountLimitsResponse' {numberOfLaunchConfigurations} -> numberOfLaunchConfigurations) (\s@DescribeAccountLimitsResponse' {} a -> s {numberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
 
 -- | The response's http status code.
 describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int
@@ -185,8 +186,8 @@ describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResp
 
 instance Prelude.NFData DescribeAccountLimitsResponse where
   rnf DescribeAccountLimitsResponse' {..} =
-    Prelude.rnf numberOfLaunchConfigurations
-      `Prelude.seq` Prelude.rnf numberOfAutoScalingGroups
-      `Prelude.seq` Prelude.rnf maxNumberOfAutoScalingGroups
+    Prelude.rnf numberOfAutoScalingGroups
       `Prelude.seq` Prelude.rnf maxNumberOfLaunchConfigurations
+      `Prelude.seq` Prelude.rnf maxNumberOfAutoScalingGroups
+      `Prelude.seq` Prelude.rnf numberOfLaunchConfigurations
       `Prelude.seq` Prelude.rnf httpStatus

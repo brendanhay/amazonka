@@ -35,9 +35,9 @@ module Amazonka.OpsWorks.DescribeRaidArrays
     newDescribeRaidArrays,
 
     -- * Request Lenses
-    describeRaidArrays_instanceId,
-    describeRaidArrays_raidArrayIds,
     describeRaidArrays_stackId,
+    describeRaidArrays_raidArrayIds,
+    describeRaidArrays_instanceId,
 
     -- * Destructuring the Response
     DescribeRaidArraysResponse (..),
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRaidArrays' smart constructor.
 data DescribeRaidArrays = DescribeRaidArrays'
-  { -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
-    -- descriptions of the RAID arrays associated with the specified instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+  { -- | The stack ID.
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | An array of RAID array IDs. If you use this parameter,
     -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
     -- Otherwise, it returns a description of every array.
     raidArrayIds :: Prelude.Maybe [Prelude.Text],
-    -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text
+    -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
+    -- descriptions of the RAID arrays associated with the specified instance.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,27 +78,26 @@ data DescribeRaidArrays = DescribeRaidArrays'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'describeRaidArrays_instanceId' - The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
--- descriptions of the RAID arrays associated with the specified instance.
+-- 'stackId', 'describeRaidArrays_stackId' - The stack ID.
 --
 -- 'raidArrayIds', 'describeRaidArrays_raidArrayIds' - An array of RAID array IDs. If you use this parameter,
 -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
 -- Otherwise, it returns a description of every array.
 --
--- 'stackId', 'describeRaidArrays_stackId' - The stack ID.
+-- 'instanceId', 'describeRaidArrays_instanceId' - The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
+-- descriptions of the RAID arrays associated with the specified instance.
 newDescribeRaidArrays ::
   DescribeRaidArrays
 newDescribeRaidArrays =
   DescribeRaidArrays'
-    { instanceId = Prelude.Nothing,
+    { stackId = Prelude.Nothing,
       raidArrayIds = Prelude.Nothing,
-      stackId = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
 
--- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
--- descriptions of the RAID arrays associated with the specified instance.
-describeRaidArrays_instanceId :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe Prelude.Text)
-describeRaidArrays_instanceId = Lens.lens (\DescribeRaidArrays' {instanceId} -> instanceId) (\s@DescribeRaidArrays' {} a -> s {instanceId = a} :: DescribeRaidArrays)
+-- | The stack ID.
+describeRaidArrays_stackId :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe Prelude.Text)
+describeRaidArrays_stackId = Lens.lens (\DescribeRaidArrays' {stackId} -> stackId) (\s@DescribeRaidArrays' {} a -> s {stackId = a} :: DescribeRaidArrays)
 
 -- | An array of RAID array IDs. If you use this parameter,
 -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
@@ -106,9 +105,10 @@ describeRaidArrays_instanceId = Lens.lens (\DescribeRaidArrays' {instanceId} -> 
 describeRaidArrays_raidArrayIds :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe [Prelude.Text])
 describeRaidArrays_raidArrayIds = Lens.lens (\DescribeRaidArrays' {raidArrayIds} -> raidArrayIds) (\s@DescribeRaidArrays' {} a -> s {raidArrayIds = a} :: DescribeRaidArrays) Prelude.. Lens.mapping Lens.coerced
 
--- | The stack ID.
-describeRaidArrays_stackId :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe Prelude.Text)
-describeRaidArrays_stackId = Lens.lens (\DescribeRaidArrays' {stackId} -> stackId) (\s@DescribeRaidArrays' {} a -> s {stackId = a} :: DescribeRaidArrays)
+-- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
+-- descriptions of the RAID arrays associated with the specified instance.
+describeRaidArrays_instanceId :: Lens.Lens' DescribeRaidArrays (Prelude.Maybe Prelude.Text)
+describeRaidArrays_instanceId = Lens.lens (\DescribeRaidArrays' {instanceId} -> instanceId) (\s@DescribeRaidArrays' {} a -> s {instanceId = a} :: DescribeRaidArrays)
 
 instance Core.AWSRequest DescribeRaidArrays where
   type
@@ -125,15 +125,15 @@ instance Core.AWSRequest DescribeRaidArrays where
 
 instance Prelude.Hashable DescribeRaidArrays where
   hashWithSalt _salt DescribeRaidArrays' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` raidArrayIds
-      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DescribeRaidArrays where
   rnf DescribeRaidArrays' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf raidArrayIds
-      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders DescribeRaidArrays where
   toHeaders =
@@ -154,9 +154,9 @@ instance Core.ToJSON DescribeRaidArrays where
   toJSON DescribeRaidArrays' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+          [ ("StackId" Core..=) Prelude.<$> stackId,
             ("RaidArrayIds" Core..=) Prelude.<$> raidArrayIds,
-            ("StackId" Core..=) Prelude.<$> stackId
+            ("InstanceId" Core..=) Prelude.<$> instanceId
           ]
       )
 

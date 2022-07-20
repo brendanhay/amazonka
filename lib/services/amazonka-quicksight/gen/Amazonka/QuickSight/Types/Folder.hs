@@ -28,20 +28,20 @@ import Amazonka.QuickSight.Types.FolderType
 --
 -- /See:/ 'newFolder' smart constructor.
 data Folder = Folder'
-  { -- | The time that the folder was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | The folder Amazon Resource Name (ARN).
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | A display name for the folder.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The time that the folder was created.
     createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The folder Amazon Resource Name (ARN).
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The time that the folder was last updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
     -- | The folder ID.
     folderId :: Prelude.Maybe Prelude.Text,
-    -- | A display name for the folder.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | An array of ancestor folder ARN strings.
-    folderPath :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The type of the folder.
-    folderType :: Prelude.Maybe FolderType
+    folderType :: Prelude.Maybe FolderType,
+    -- | An array of ancestor folder ARN strings.
+    folderPath :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,59 +53,59 @@ data Folder = Folder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'folder_lastUpdatedTime' - The time that the folder was last updated.
---
--- 'arn', 'folder_arn' - The folder Amazon Resource Name (ARN).
+-- 'name', 'folder_name' - A display name for the folder.
 --
 -- 'createdTime', 'folder_createdTime' - The time that the folder was created.
 --
+-- 'arn', 'folder_arn' - The folder Amazon Resource Name (ARN).
+--
+-- 'lastUpdatedTime', 'folder_lastUpdatedTime' - The time that the folder was last updated.
+--
 -- 'folderId', 'folder_folderId' - The folder ID.
 --
--- 'name', 'folder_name' - A display name for the folder.
+-- 'folderType', 'folder_folderType' - The type of the folder.
 --
 -- 'folderPath', 'folder_folderPath' - An array of ancestor folder ARN strings.
---
--- 'folderType', 'folder_folderType' - The type of the folder.
 newFolder ::
   Folder
 newFolder =
   Folder'
-    { lastUpdatedTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       folderId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      folderPath = Prelude.Nothing,
-      folderType = Prelude.Nothing
+      folderType = Prelude.Nothing,
+      folderPath = Prelude.Nothing
     }
-
--- | The time that the folder was last updated.
-folder_lastUpdatedTime :: Lens.Lens' Folder (Prelude.Maybe Prelude.UTCTime)
-folder_lastUpdatedTime = Lens.lens (\Folder' {lastUpdatedTime} -> lastUpdatedTime) (\s@Folder' {} a -> s {lastUpdatedTime = a} :: Folder) Prelude.. Lens.mapping Core._Time
-
--- | The folder Amazon Resource Name (ARN).
-folder_arn :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
-folder_arn = Lens.lens (\Folder' {arn} -> arn) (\s@Folder' {} a -> s {arn = a} :: Folder)
-
--- | The time that the folder was created.
-folder_createdTime :: Lens.Lens' Folder (Prelude.Maybe Prelude.UTCTime)
-folder_createdTime = Lens.lens (\Folder' {createdTime} -> createdTime) (\s@Folder' {} a -> s {createdTime = a} :: Folder) Prelude.. Lens.mapping Core._Time
-
--- | The folder ID.
-folder_folderId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
-folder_folderId = Lens.lens (\Folder' {folderId} -> folderId) (\s@Folder' {} a -> s {folderId = a} :: Folder)
 
 -- | A display name for the folder.
 folder_name :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_name = Lens.lens (\Folder' {name} -> name) (\s@Folder' {} a -> s {name = a} :: Folder)
 
--- | An array of ancestor folder ARN strings.
-folder_folderPath :: Lens.Lens' Folder (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-folder_folderPath = Lens.lens (\Folder' {folderPath} -> folderPath) (\s@Folder' {} a -> s {folderPath = a} :: Folder) Prelude.. Lens.mapping Lens.coerced
+-- | The time that the folder was created.
+folder_createdTime :: Lens.Lens' Folder (Prelude.Maybe Prelude.UTCTime)
+folder_createdTime = Lens.lens (\Folder' {createdTime} -> createdTime) (\s@Folder' {} a -> s {createdTime = a} :: Folder) Prelude.. Lens.mapping Core._Time
+
+-- | The folder Amazon Resource Name (ARN).
+folder_arn :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
+folder_arn = Lens.lens (\Folder' {arn} -> arn) (\s@Folder' {} a -> s {arn = a} :: Folder)
+
+-- | The time that the folder was last updated.
+folder_lastUpdatedTime :: Lens.Lens' Folder (Prelude.Maybe Prelude.UTCTime)
+folder_lastUpdatedTime = Lens.lens (\Folder' {lastUpdatedTime} -> lastUpdatedTime) (\s@Folder' {} a -> s {lastUpdatedTime = a} :: Folder) Prelude.. Lens.mapping Core._Time
+
+-- | The folder ID.
+folder_folderId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
+folder_folderId = Lens.lens (\Folder' {folderId} -> folderId) (\s@Folder' {} a -> s {folderId = a} :: Folder)
 
 -- | The type of the folder.
 folder_folderType :: Lens.Lens' Folder (Prelude.Maybe FolderType)
 folder_folderType = Lens.lens (\Folder' {folderType} -> folderType) (\s@Folder' {} a -> s {folderType = a} :: Folder)
+
+-- | An array of ancestor folder ARN strings.
+folder_folderPath :: Lens.Lens' Folder (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+folder_folderPath = Lens.lens (\Folder' {folderPath} -> folderPath) (\s@Folder' {} a -> s {folderPath = a} :: Folder) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Folder where
   parseJSON =
@@ -113,31 +113,31 @@ instance Core.FromJSON Folder where
       "Folder"
       ( \x ->
           Folder'
-            Prelude.<$> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
             Prelude.<*> (x Core..:? "FolderId")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "FolderPath")
             Prelude.<*> (x Core..:? "FolderType")
+            Prelude.<*> (x Core..:? "FolderPath")
       )
 
 instance Prelude.Hashable Folder where
   hashWithSalt _salt Folder' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` folderId
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` folderPath
       `Prelude.hashWithSalt` folderType
+      `Prelude.hashWithSalt` folderPath
 
 instance Prelude.NFData Folder where
   rnf Folder' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf folderId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf folderPath
       `Prelude.seq` Prelude.rnf folderType
+      `Prelude.seq` Prelude.rnf folderPath

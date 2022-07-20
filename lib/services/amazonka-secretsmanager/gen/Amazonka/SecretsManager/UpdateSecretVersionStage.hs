@@ -60,8 +60,8 @@ module Amazonka.SecretsManager.UpdateSecretVersionStage
     newUpdateSecretVersionStage,
 
     -- * Request Lenses
-    updateSecretVersionStage_removeFromVersionId,
     updateSecretVersionStage_moveToVersionId,
+    updateSecretVersionStage_removeFromVersionId,
     updateSecretVersionStage_secretId,
     updateSecretVersionStage_versionStage,
 
@@ -70,8 +70,8 @@ module Amazonka.SecretsManager.UpdateSecretVersionStage
     newUpdateSecretVersionStageResponse,
 
     -- * Response Lenses
-    updateSecretVersionStageResponse_arn,
     updateSecretVersionStageResponse_name,
+    updateSecretVersionStageResponse_arn,
     updateSecretVersionStageResponse_httpStatus,
   )
 where
@@ -85,7 +85,14 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newUpdateSecretVersionStage' smart constructor.
 data UpdateSecretVersionStage = UpdateSecretVersionStage'
-  { -- | Specifies the secret version ID of the version that the staging label is
+  { -- | (Optional) The secret version ID that you want to add the staging label.
+    -- If you want to remove a label from a version, then do not specify this
+    -- parameter.
+    --
+    -- If the staging label is already attached to a different version of the
+    -- secret, then you must also specify the @RemoveFromVersionId@ parameter.
+    moveToVersionId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the secret version ID of the version that the staging label is
     -- to be removed from. If the staging label you are trying to attach to one
     -- version is already attached to a different version, then you must
     -- include this parameter and specify the version that the label is to be
@@ -93,13 +100,6 @@ data UpdateSecretVersionStage = UpdateSecretVersionStage'
     -- this parameter, or the version ID does not match, then the operation
     -- fails.
     removeFromVersionId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) The secret version ID that you want to add the staging label.
-    -- If you want to remove a label from a version, then do not specify this
-    -- parameter.
-    --
-    -- If the staging label is already attached to a different version of the
-    -- secret, then you must also specify the @RemoveFromVersionId@ parameter.
-    moveToVersionId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret with the version with the list of staging labels
     -- you want to modify. You can specify either the Amazon Resource Name
     -- (ARN) or the friendly name of the secret.
@@ -120,6 +120,13 @@ data UpdateSecretVersionStage = UpdateSecretVersionStage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'moveToVersionId', 'updateSecretVersionStage_moveToVersionId' - (Optional) The secret version ID that you want to add the staging label.
+-- If you want to remove a label from a version, then do not specify this
+-- parameter.
+--
+-- If the staging label is already attached to a different version of the
+-- secret, then you must also specify the @RemoveFromVersionId@ parameter.
+--
 -- 'removeFromVersionId', 'updateSecretVersionStage_removeFromVersionId' - Specifies the secret version ID of the version that the staging label is
 -- to be removed from. If the staging label you are trying to attach to one
 -- version is already attached to a different version, then you must
@@ -127,13 +134,6 @@ data UpdateSecretVersionStage = UpdateSecretVersionStage'
 -- removed from. If the label is attached and you either do not specify
 -- this parameter, or the version ID does not match, then the operation
 -- fails.
---
--- 'moveToVersionId', 'updateSecretVersionStage_moveToVersionId' - (Optional) The secret version ID that you want to add the staging label.
--- If you want to remove a label from a version, then do not specify this
--- parameter.
---
--- If the staging label is already attached to a different version of the
--- secret, then you must also specify the @RemoveFromVersionId@ parameter.
 --
 -- 'secretId', 'updateSecretVersionStage_secretId' - Specifies the secret with the version with the list of staging labels
 -- you want to modify. You can specify either the Amazon Resource Name
@@ -151,12 +151,21 @@ newUpdateSecretVersionStage ::
   UpdateSecretVersionStage
 newUpdateSecretVersionStage pSecretId_ pVersionStage_ =
   UpdateSecretVersionStage'
-    { removeFromVersionId =
+    { moveToVersionId =
         Prelude.Nothing,
-      moveToVersionId = Prelude.Nothing,
+      removeFromVersionId = Prelude.Nothing,
       secretId = pSecretId_,
       versionStage = pVersionStage_
     }
+
+-- | (Optional) The secret version ID that you want to add the staging label.
+-- If you want to remove a label from a version, then do not specify this
+-- parameter.
+--
+-- If the staging label is already attached to a different version of the
+-- secret, then you must also specify the @RemoveFromVersionId@ parameter.
+updateSecretVersionStage_moveToVersionId :: Lens.Lens' UpdateSecretVersionStage (Prelude.Maybe Prelude.Text)
+updateSecretVersionStage_moveToVersionId = Lens.lens (\UpdateSecretVersionStage' {moveToVersionId} -> moveToVersionId) (\s@UpdateSecretVersionStage' {} a -> s {moveToVersionId = a} :: UpdateSecretVersionStage)
 
 -- | Specifies the secret version ID of the version that the staging label is
 -- to be removed from. If the staging label you are trying to attach to one
@@ -167,15 +176,6 @@ newUpdateSecretVersionStage pSecretId_ pVersionStage_ =
 -- fails.
 updateSecretVersionStage_removeFromVersionId :: Lens.Lens' UpdateSecretVersionStage (Prelude.Maybe Prelude.Text)
 updateSecretVersionStage_removeFromVersionId = Lens.lens (\UpdateSecretVersionStage' {removeFromVersionId} -> removeFromVersionId) (\s@UpdateSecretVersionStage' {} a -> s {removeFromVersionId = a} :: UpdateSecretVersionStage)
-
--- | (Optional) The secret version ID that you want to add the staging label.
--- If you want to remove a label from a version, then do not specify this
--- parameter.
---
--- If the staging label is already attached to a different version of the
--- secret, then you must also specify the @RemoveFromVersionId@ parameter.
-updateSecretVersionStage_moveToVersionId :: Lens.Lens' UpdateSecretVersionStage (Prelude.Maybe Prelude.Text)
-updateSecretVersionStage_moveToVersionId = Lens.lens (\UpdateSecretVersionStage' {moveToVersionId} -> moveToVersionId) (\s@UpdateSecretVersionStage' {} a -> s {moveToVersionId = a} :: UpdateSecretVersionStage)
 
 -- | Specifies the secret with the version with the list of staging labels
 -- you want to modify. You can specify either the Amazon Resource Name
@@ -199,22 +199,22 @@ instance Core.AWSRequest UpdateSecretVersionStage where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretVersionStageResponse'
-            Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateSecretVersionStage where
   hashWithSalt _salt UpdateSecretVersionStage' {..} =
-    _salt `Prelude.hashWithSalt` removeFromVersionId
-      `Prelude.hashWithSalt` moveToVersionId
+    _salt `Prelude.hashWithSalt` moveToVersionId
+      `Prelude.hashWithSalt` removeFromVersionId
       `Prelude.hashWithSalt` secretId
       `Prelude.hashWithSalt` versionStage
 
 instance Prelude.NFData UpdateSecretVersionStage where
   rnf UpdateSecretVersionStage' {..} =
-    Prelude.rnf removeFromVersionId
-      `Prelude.seq` Prelude.rnf moveToVersionId
+    Prelude.rnf moveToVersionId
+      `Prelude.seq` Prelude.rnf removeFromVersionId
       `Prelude.seq` Prelude.rnf secretId
       `Prelude.seq` Prelude.rnf versionStage
 
@@ -237,10 +237,10 @@ instance Core.ToJSON UpdateSecretVersionStage where
   toJSON UpdateSecretVersionStage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RemoveFromVersionId" Core..=)
-              Prelude.<$> removeFromVersionId,
-            ("MoveToVersionId" Core..=)
+          [ ("MoveToVersionId" Core..=)
               Prelude.<$> moveToVersionId,
+            ("RemoveFromVersionId" Core..=)
+              Prelude.<$> removeFromVersionId,
             Prelude.Just ("SecretId" Core..= secretId),
             Prelude.Just ("VersionStage" Core..= versionStage)
           ]
@@ -254,10 +254,10 @@ instance Core.ToQuery UpdateSecretVersionStage where
 
 -- | /See:/ 'newUpdateSecretVersionStageResponse' smart constructor.
 data UpdateSecretVersionStageResponse = UpdateSecretVersionStageResponse'
-  { -- | The ARN of the secret with the modified staging label.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret with the modified staging label.
+  { -- | The friendly name of the secret with the modified staging label.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret with the modified staging label.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,9 +271,9 @@ data UpdateSecretVersionStageResponse = UpdateSecretVersionStageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'updateSecretVersionStageResponse_arn' - The ARN of the secret with the modified staging label.
---
 -- 'name', 'updateSecretVersionStageResponse_name' - The friendly name of the secret with the modified staging label.
+--
+-- 'arn', 'updateSecretVersionStageResponse_arn' - The ARN of the secret with the modified staging label.
 --
 -- 'httpStatus', 'updateSecretVersionStageResponse_httpStatus' - The response's http status code.
 newUpdateSecretVersionStageResponse ::
@@ -282,19 +282,19 @@ newUpdateSecretVersionStageResponse ::
   UpdateSecretVersionStageResponse
 newUpdateSecretVersionStageResponse pHttpStatus_ =
   UpdateSecretVersionStageResponse'
-    { arn =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the secret with the modified staging label.
-updateSecretVersionStageResponse_arn :: Lens.Lens' UpdateSecretVersionStageResponse (Prelude.Maybe Prelude.Text)
-updateSecretVersionStageResponse_arn = Lens.lens (\UpdateSecretVersionStageResponse' {arn} -> arn) (\s@UpdateSecretVersionStageResponse' {} a -> s {arn = a} :: UpdateSecretVersionStageResponse)
 
 -- | The friendly name of the secret with the modified staging label.
 updateSecretVersionStageResponse_name :: Lens.Lens' UpdateSecretVersionStageResponse (Prelude.Maybe Prelude.Text)
 updateSecretVersionStageResponse_name = Lens.lens (\UpdateSecretVersionStageResponse' {name} -> name) (\s@UpdateSecretVersionStageResponse' {} a -> s {name = a} :: UpdateSecretVersionStageResponse)
+
+-- | The ARN of the secret with the modified staging label.
+updateSecretVersionStageResponse_arn :: Lens.Lens' UpdateSecretVersionStageResponse (Prelude.Maybe Prelude.Text)
+updateSecretVersionStageResponse_arn = Lens.lens (\UpdateSecretVersionStageResponse' {arn} -> arn) (\s@UpdateSecretVersionStageResponse' {} a -> s {arn = a} :: UpdateSecretVersionStageResponse)
 
 -- | The response's http status code.
 updateSecretVersionStageResponse_httpStatus :: Lens.Lens' UpdateSecretVersionStageResponse Prelude.Int
@@ -305,6 +305,6 @@ instance
     UpdateSecretVersionStageResponse
   where
   rnf UpdateSecretVersionStageResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpStatus

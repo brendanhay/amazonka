@@ -29,24 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { -- | Channel playback URL.
-    playbackUrl :: Prelude.Maybe Prelude.Text,
-    -- | Whether the channel is private (enabled for playback authorization).
-    -- Default: @false@.
-    authorized :: Prelude.Maybe Prelude.Bool,
-    -- | Channel ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
-    -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
-    -- Default: @LOW@. (Note: In the Amazon IVS console, @LOW@ and @NORMAL@
-    -- correspond to Ultra-low and Standard, respectively.)
-    latencyMode :: Prelude.Maybe ChannelLatencyMode,
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Channel name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Recording-configuration ARN. A value other than an empty string
-    -- indicates that recording is enabled. Default: \"\" (empty string,
-    -- recording is disabled).
-    recordingConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | Channel type, which determines the allowable resolution and bitrate. /If
     -- you exceed the allowable resolution or bitrate, the stream probably will
     -- disconnect immediately./ Default: @STANDARD@. Valid values:
@@ -61,11 +47,25 @@ data Channel = Channel'
     --     viewer’s video-quality choice is limited to the original input.
     --     Resolution can be up to 480p and bitrate can be up to 1.5 Mbps.
     type' :: Prelude.Maybe ChannelType,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+    -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+    -- Default: @LOW@. (Note: In the Amazon IVS console, @LOW@ and @NORMAL@
+    -- correspond to Ultra-low and Standard, respectively.)
+    latencyMode :: Prelude.Maybe ChannelLatencyMode,
+    -- | Channel ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Whether the channel is private (enabled for playback authorization).
+    -- Default: @false@.
+    authorized :: Prelude.Maybe Prelude.Bool,
+    -- | Channel playback URL.
+    playbackUrl :: Prelude.Maybe Prelude.Text,
     -- | Channel ingest endpoint, part of the definition of an ingest server,
     -- used when you set up streaming software.
-    ingestEndpoint :: Prelude.Maybe Prelude.Text
+    ingestEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | Recording-configuration ARN. A value other than an empty string
+    -- indicates that recording is enabled. Default: \"\" (empty string,
+    -- recording is disabled).
+    recordingConfigurationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,23 +77,9 @@ data Channel = Channel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playbackUrl', 'channel_playbackUrl' - Channel playback URL.
---
--- 'authorized', 'channel_authorized' - Whether the channel is private (enabled for playback authorization).
--- Default: @false@.
---
--- 'arn', 'channel_arn' - Channel ARN.
---
--- 'latencyMode', 'channel_latencyMode' - Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
--- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
--- Default: @LOW@. (Note: In the Amazon IVS console, @LOW@ and @NORMAL@
--- correspond to Ultra-low and Standard, respectively.)
+-- 'tags', 'channel_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
 --
 -- 'name', 'channel_name' - Channel name.
---
--- 'recordingConfigurationArn', 'channel_recordingConfigurationArn' - Recording-configuration ARN. A value other than an empty string
--- indicates that recording is enabled. Default: \"\" (empty string,
--- recording is disabled).
 --
 -- 'type'', 'channel_type' - Channel type, which determines the allowable resolution and bitrate. /If
 -- you exceed the allowable resolution or bitrate, the stream probably will
@@ -109,54 +95,46 @@ data Channel = Channel'
 --     viewer’s video-quality choice is limited to the original input.
 --     Resolution can be up to 480p and bitrate can be up to 1.5 Mbps.
 --
--- 'tags', 'channel_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'latencyMode', 'channel_latencyMode' - Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+-- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+-- Default: @LOW@. (Note: In the Amazon IVS console, @LOW@ and @NORMAL@
+-- correspond to Ultra-low and Standard, respectively.)
+--
+-- 'arn', 'channel_arn' - Channel ARN.
+--
+-- 'authorized', 'channel_authorized' - Whether the channel is private (enabled for playback authorization).
+-- Default: @false@.
+--
+-- 'playbackUrl', 'channel_playbackUrl' - Channel playback URL.
 --
 -- 'ingestEndpoint', 'channel_ingestEndpoint' - Channel ingest endpoint, part of the definition of an ingest server,
 -- used when you set up streaming software.
+--
+-- 'recordingConfigurationArn', 'channel_recordingConfigurationArn' - Recording-configuration ARN. A value other than an empty string
+-- indicates that recording is enabled. Default: \"\" (empty string,
+-- recording is disabled).
 newChannel ::
   Channel
 newChannel =
   Channel'
-    { playbackUrl = Prelude.Nothing,
-      authorized = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      latencyMode = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
-      recordingConfigurationArn = Prelude.Nothing,
       type' = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      ingestEndpoint = Prelude.Nothing
+      latencyMode = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      authorized = Prelude.Nothing,
+      playbackUrl = Prelude.Nothing,
+      ingestEndpoint = Prelude.Nothing,
+      recordingConfigurationArn = Prelude.Nothing
     }
 
--- | Channel playback URL.
-channel_playbackUrl :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
-channel_playbackUrl = Lens.lens (\Channel' {playbackUrl} -> playbackUrl) (\s@Channel' {} a -> s {playbackUrl = a} :: Channel)
-
--- | Whether the channel is private (enabled for playback authorization).
--- Default: @false@.
-channel_authorized :: Lens.Lens' Channel (Prelude.Maybe Prelude.Bool)
-channel_authorized = Lens.lens (\Channel' {authorized} -> authorized) (\s@Channel' {} a -> s {authorized = a} :: Channel)
-
--- | Channel ARN.
-channel_arn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
-channel_arn = Lens.lens (\Channel' {arn} -> arn) (\s@Channel' {} a -> s {arn = a} :: Channel)
-
--- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
--- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
--- Default: @LOW@. (Note: In the Amazon IVS console, @LOW@ and @NORMAL@
--- correspond to Ultra-low and Standard, respectively.)
-channel_latencyMode :: Lens.Lens' Channel (Prelude.Maybe ChannelLatencyMode)
-channel_latencyMode = Lens.lens (\Channel' {latencyMode} -> latencyMode) (\s@Channel' {} a -> s {latencyMode = a} :: Channel)
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
 
 -- | Channel name.
 channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel)
-
--- | Recording-configuration ARN. A value other than an empty string
--- indicates that recording is enabled. Default: \"\" (empty string,
--- recording is disabled).
-channel_recordingConfigurationArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
-channel_recordingConfigurationArn = Lens.lens (\Channel' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@Channel' {} a -> s {recordingConfigurationArn = a} :: Channel)
 
 -- | Channel type, which determines the allowable resolution and bitrate. /If
 -- you exceed the allowable resolution or bitrate, the stream probably will
@@ -174,14 +152,36 @@ channel_recordingConfigurationArn = Lens.lens (\Channel' {recordingConfiguration
 channel_type :: Lens.Lens' Channel (Prelude.Maybe ChannelType)
 channel_type = Lens.lens (\Channel' {type'} -> type') (\s@Channel' {} a -> s {type' = a} :: Channel)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
+-- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+-- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+-- Default: @LOW@. (Note: In the Amazon IVS console, @LOW@ and @NORMAL@
+-- correspond to Ultra-low and Standard, respectively.)
+channel_latencyMode :: Lens.Lens' Channel (Prelude.Maybe ChannelLatencyMode)
+channel_latencyMode = Lens.lens (\Channel' {latencyMode} -> latencyMode) (\s@Channel' {} a -> s {latencyMode = a} :: Channel)
+
+-- | Channel ARN.
+channel_arn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_arn = Lens.lens (\Channel' {arn} -> arn) (\s@Channel' {} a -> s {arn = a} :: Channel)
+
+-- | Whether the channel is private (enabled for playback authorization).
+-- Default: @false@.
+channel_authorized :: Lens.Lens' Channel (Prelude.Maybe Prelude.Bool)
+channel_authorized = Lens.lens (\Channel' {authorized} -> authorized) (\s@Channel' {} a -> s {authorized = a} :: Channel)
+
+-- | Channel playback URL.
+channel_playbackUrl :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_playbackUrl = Lens.lens (\Channel' {playbackUrl} -> playbackUrl) (\s@Channel' {} a -> s {playbackUrl = a} :: Channel)
 
 -- | Channel ingest endpoint, part of the definition of an ingest server,
 -- used when you set up streaming software.
 channel_ingestEndpoint :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_ingestEndpoint = Lens.lens (\Channel' {ingestEndpoint} -> ingestEndpoint) (\s@Channel' {} a -> s {ingestEndpoint = a} :: Channel)
+
+-- | Recording-configuration ARN. A value other than an empty string
+-- indicates that recording is enabled. Default: \"\" (empty string,
+-- recording is disabled).
+channel_recordingConfigurationArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_recordingConfigurationArn = Lens.lens (\Channel' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@Channel' {} a -> s {recordingConfigurationArn = a} :: Channel)
 
 instance Core.FromJSON Channel where
   parseJSON =
@@ -189,37 +189,37 @@ instance Core.FromJSON Channel where
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "playbackUrl")
-            Prelude.<*> (x Core..:? "authorized")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "latencyMode")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "recordingConfigurationArn")
             Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "latencyMode")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "authorized")
+            Prelude.<*> (x Core..:? "playbackUrl")
             Prelude.<*> (x Core..:? "ingestEndpoint")
+            Prelude.<*> (x Core..:? "recordingConfigurationArn")
       )
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` playbackUrl
-      `Prelude.hashWithSalt` authorized
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` latencyMode
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` recordingConfigurationArn
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` latencyMode
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` authorized
+      `Prelude.hashWithSalt` playbackUrl
       `Prelude.hashWithSalt` ingestEndpoint
+      `Prelude.hashWithSalt` recordingConfigurationArn
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf playbackUrl
-      `Prelude.seq` Prelude.rnf authorized
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf latencyMode
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingConfigurationArn
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf latencyMode
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf authorized
+      `Prelude.seq` Prelude.rnf playbackUrl
       `Prelude.seq` Prelude.rnf ingestEndpoint
+      `Prelude.seq` Prelude.rnf recordingConfigurationArn

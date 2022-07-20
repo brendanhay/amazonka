@@ -28,30 +28,30 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecoveryPointByResource' smart constructor.
 data RecoveryPointByResource = RecoveryPointByResource'
-  { -- | A status code specifying the state of the recovery point.
-    status :: Prelude.Maybe RecoveryPointStatus,
-    -- | A message explaining the reason of the recovery point deletion failure.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+  { -- | The server-side encryption key that is used to protect your backups; for
+    -- example,
+    -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
     -- for example,
     -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
     recoveryPointArn :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of a backup.
     backupSizeBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The server-side encryption key that is used to protect your backups; for
-    -- example,
-    -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
-    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of a logical container where backups are stored. Backup vaults
+    -- are identified by names that are unique to the account used to create
+    -- them and the Amazon Web Services Region where they are created. They
+    -- consist of lowercase letters, numbers, and hyphens.
+    backupVaultName :: Prelude.Maybe Prelude.Text,
     -- | The date and time a recovery point is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The name of a logical container where backups are stored. Backup vaults
-    -- are identified by names that are unique to the account used to create
-    -- them and the Amazon Web Services Region where they are created. They
-    -- consist of lowercase letters, numbers, and hyphens.
-    backupVaultName :: Prelude.Maybe Prelude.Text
+    -- | A status code specifying the state of the recovery point.
+    status :: Prelude.Maybe RecoveryPointStatus,
+    -- | A message explaining the reason of the recovery point deletion failure.
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,9 +63,9 @@ data RecoveryPointByResource = RecoveryPointByResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'recoveryPointByResource_status' - A status code specifying the state of the recovery point.
---
--- 'statusMessage', 'recoveryPointByResource_statusMessage' - A message explaining the reason of the recovery point deletion failure.
+-- 'encryptionKeyArn', 'recoveryPointByResource_encryptionKeyArn' - The server-side encryption key that is used to protect your backups; for
+-- example,
+-- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
 --
 -- 'recoveryPointArn', 'recoveryPointByResource_recoveryPointArn' - An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
 -- for example,
@@ -73,39 +73,38 @@ data RecoveryPointByResource = RecoveryPointByResource'
 --
 -- 'backupSizeBytes', 'recoveryPointByResource_backupSizeBytes' - The size, in bytes, of a backup.
 --
--- 'encryptionKeyArn', 'recoveryPointByResource_encryptionKeyArn' - The server-side encryption key that is used to protect your backups; for
--- example,
--- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+-- 'backupVaultName', 'recoveryPointByResource_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
+-- are identified by names that are unique to the account used to create
+-- them and the Amazon Web Services Region where they are created. They
+-- consist of lowercase letters, numbers, and hyphens.
 --
 -- 'creationDate', 'recoveryPointByResource_creationDate' - The date and time a recovery point is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
--- 'backupVaultName', 'recoveryPointByResource_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
--- are identified by names that are unique to the account used to create
--- them and the Amazon Web Services Region where they are created. They
--- consist of lowercase letters, numbers, and hyphens.
+-- 'status', 'recoveryPointByResource_status' - A status code specifying the state of the recovery point.
+--
+-- 'statusMessage', 'recoveryPointByResource_statusMessage' - A message explaining the reason of the recovery point deletion failure.
 newRecoveryPointByResource ::
   RecoveryPointByResource
 newRecoveryPointByResource =
   RecoveryPointByResource'
-    { status = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
+    { encryptionKeyArn =
+        Prelude.Nothing,
       recoveryPointArn = Prelude.Nothing,
       backupSizeBytes = Prelude.Nothing,
-      encryptionKeyArn = Prelude.Nothing,
+      backupVaultName = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      backupVaultName = Prelude.Nothing
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
 
--- | A status code specifying the state of the recovery point.
-recoveryPointByResource_status :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe RecoveryPointStatus)
-recoveryPointByResource_status = Lens.lens (\RecoveryPointByResource' {status} -> status) (\s@RecoveryPointByResource' {} a -> s {status = a} :: RecoveryPointByResource)
-
--- | A message explaining the reason of the recovery point deletion failure.
-recoveryPointByResource_statusMessage :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
-recoveryPointByResource_statusMessage = Lens.lens (\RecoveryPointByResource' {statusMessage} -> statusMessage) (\s@RecoveryPointByResource' {} a -> s {statusMessage = a} :: RecoveryPointByResource)
+-- | The server-side encryption key that is used to protect your backups; for
+-- example,
+-- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+recoveryPointByResource_encryptionKeyArn :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
+recoveryPointByResource_encryptionKeyArn = Lens.lens (\RecoveryPointByResource' {encryptionKeyArn} -> encryptionKeyArn) (\s@RecoveryPointByResource' {} a -> s {encryptionKeyArn = a} :: RecoveryPointByResource)
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
 -- for example,
@@ -117,11 +116,12 @@ recoveryPointByResource_recoveryPointArn = Lens.lens (\RecoveryPointByResource' 
 recoveryPointByResource_backupSizeBytes :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Integer)
 recoveryPointByResource_backupSizeBytes = Lens.lens (\RecoveryPointByResource' {backupSizeBytes} -> backupSizeBytes) (\s@RecoveryPointByResource' {} a -> s {backupSizeBytes = a} :: RecoveryPointByResource)
 
--- | The server-side encryption key that is used to protect your backups; for
--- example,
--- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
-recoveryPointByResource_encryptionKeyArn :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
-recoveryPointByResource_encryptionKeyArn = Lens.lens (\RecoveryPointByResource' {encryptionKeyArn} -> encryptionKeyArn) (\s@RecoveryPointByResource' {} a -> s {encryptionKeyArn = a} :: RecoveryPointByResource)
+-- | The name of a logical container where backups are stored. Backup vaults
+-- are identified by names that are unique to the account used to create
+-- them and the Amazon Web Services Region where they are created. They
+-- consist of lowercase letters, numbers, and hyphens.
+recoveryPointByResource_backupVaultName :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
+recoveryPointByResource_backupVaultName = Lens.lens (\RecoveryPointByResource' {backupVaultName} -> backupVaultName) (\s@RecoveryPointByResource' {} a -> s {backupVaultName = a} :: RecoveryPointByResource)
 
 -- | The date and time a recovery point is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
@@ -130,12 +130,13 @@ recoveryPointByResource_encryptionKeyArn = Lens.lens (\RecoveryPointByResource' 
 recoveryPointByResource_creationDate :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.UTCTime)
 recoveryPointByResource_creationDate = Lens.lens (\RecoveryPointByResource' {creationDate} -> creationDate) (\s@RecoveryPointByResource' {} a -> s {creationDate = a} :: RecoveryPointByResource) Prelude.. Lens.mapping Core._Time
 
--- | The name of a logical container where backups are stored. Backup vaults
--- are identified by names that are unique to the account used to create
--- them and the Amazon Web Services Region where they are created. They
--- consist of lowercase letters, numbers, and hyphens.
-recoveryPointByResource_backupVaultName :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
-recoveryPointByResource_backupVaultName = Lens.lens (\RecoveryPointByResource' {backupVaultName} -> backupVaultName) (\s@RecoveryPointByResource' {} a -> s {backupVaultName = a} :: RecoveryPointByResource)
+-- | A status code specifying the state of the recovery point.
+recoveryPointByResource_status :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe RecoveryPointStatus)
+recoveryPointByResource_status = Lens.lens (\RecoveryPointByResource' {status} -> status) (\s@RecoveryPointByResource' {} a -> s {status = a} :: RecoveryPointByResource)
+
+-- | A message explaining the reason of the recovery point deletion failure.
+recoveryPointByResource_statusMessage :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
+recoveryPointByResource_statusMessage = Lens.lens (\RecoveryPointByResource' {statusMessage} -> statusMessage) (\s@RecoveryPointByResource' {} a -> s {statusMessage = a} :: RecoveryPointByResource)
 
 instance Core.FromJSON RecoveryPointByResource where
   parseJSON =
@@ -143,31 +144,31 @@ instance Core.FromJSON RecoveryPointByResource where
       "RecoveryPointByResource"
       ( \x ->
           RecoveryPointByResource'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Core..:? "EncryptionKeyArn")
             Prelude.<*> (x Core..:? "RecoveryPointArn")
             Prelude.<*> (x Core..:? "BackupSizeBytes")
-            Prelude.<*> (x Core..:? "EncryptionKeyArn")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "BackupVaultName")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "StatusMessage")
       )
 
 instance Prelude.Hashable RecoveryPointByResource where
   hashWithSalt _salt RecoveryPointByResource' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` statusMessage
+    _salt `Prelude.hashWithSalt` encryptionKeyArn
       `Prelude.hashWithSalt` recoveryPointArn
       `Prelude.hashWithSalt` backupSizeBytes
-      `Prelude.hashWithSalt` encryptionKeyArn
-      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData RecoveryPointByResource where
   rnf RecoveryPointByResource' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf encryptionKeyArn
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf backupSizeBytes
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage

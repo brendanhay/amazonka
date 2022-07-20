@@ -28,10 +28,7 @@ import Amazonka.ServiceCatalog.Types.AccessLevelFilterKey
 --
 -- /See:/ 'newAccessLevelFilter' smart constructor.
 data AccessLevelFilter = AccessLevelFilter'
-  { -- | The user to which the access level applies. The only supported value is
-    -- @Self@.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The access level.
+  { -- | The access level.
     --
     -- -   @Account@ - Filter results based on the account.
     --
@@ -39,7 +36,10 @@ data AccessLevelFilter = AccessLevelFilter'
     --     user.
     --
     -- -   @User@ - Filter results based on the specified user.
-    key :: Prelude.Maybe AccessLevelFilterKey
+    key :: Prelude.Maybe AccessLevelFilterKey,
+    -- | The user to which the access level applies. The only supported value is
+    -- @Self@.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,9 +51,6 @@ data AccessLevelFilter = AccessLevelFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'accessLevelFilter_value' - The user to which the access level applies. The only supported value is
--- @Self@.
---
 -- 'key', 'accessLevelFilter_key' - The access level.
 --
 -- -   @Account@ - Filter results based on the account.
@@ -62,18 +59,16 @@ data AccessLevelFilter = AccessLevelFilter'
 --     user.
 --
 -- -   @User@ - Filter results based on the specified user.
+--
+-- 'value', 'accessLevelFilter_value' - The user to which the access level applies. The only supported value is
+-- @Self@.
 newAccessLevelFilter ::
   AccessLevelFilter
 newAccessLevelFilter =
   AccessLevelFilter'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The user to which the access level applies. The only supported value is
--- @Self@.
-accessLevelFilter_value :: Lens.Lens' AccessLevelFilter (Prelude.Maybe Prelude.Text)
-accessLevelFilter_value = Lens.lens (\AccessLevelFilter' {value} -> value) (\s@AccessLevelFilter' {} a -> s {value = a} :: AccessLevelFilter)
 
 -- | The access level.
 --
@@ -86,20 +81,25 @@ accessLevelFilter_value = Lens.lens (\AccessLevelFilter' {value} -> value) (\s@A
 accessLevelFilter_key :: Lens.Lens' AccessLevelFilter (Prelude.Maybe AccessLevelFilterKey)
 accessLevelFilter_key = Lens.lens (\AccessLevelFilter' {key} -> key) (\s@AccessLevelFilter' {} a -> s {key = a} :: AccessLevelFilter)
 
+-- | The user to which the access level applies. The only supported value is
+-- @Self@.
+accessLevelFilter_value :: Lens.Lens' AccessLevelFilter (Prelude.Maybe Prelude.Text)
+accessLevelFilter_value = Lens.lens (\AccessLevelFilter' {value} -> value) (\s@AccessLevelFilter' {} a -> s {value = a} :: AccessLevelFilter)
+
 instance Prelude.Hashable AccessLevelFilter where
   hashWithSalt _salt AccessLevelFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AccessLevelFilter where
   rnf AccessLevelFilter' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON AccessLevelFilter where
   toJSON AccessLevelFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

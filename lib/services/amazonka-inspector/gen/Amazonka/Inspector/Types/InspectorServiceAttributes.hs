@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInspectorServiceAttributes' smart constructor.
 data InspectorServiceAttributes = InspectorServiceAttributes'
-  { -- | The ARN of the rules package that is used to generate the finding.
-    rulesPackageArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the assessment run during which the finding is generated.
+  { -- | The ARN of the assessment run during which the finding is generated.
     assessmentRunArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the rules package that is used to generate the finding.
+    rulesPackageArn :: Prelude.Maybe Prelude.Text,
     -- | The schema version of this data type.
     schemaVersion :: Prelude.Natural
   }
@@ -44,9 +44,9 @@ data InspectorServiceAttributes = InspectorServiceAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rulesPackageArn', 'inspectorServiceAttributes_rulesPackageArn' - The ARN of the rules package that is used to generate the finding.
---
 -- 'assessmentRunArn', 'inspectorServiceAttributes_assessmentRunArn' - The ARN of the assessment run during which the finding is generated.
+--
+-- 'rulesPackageArn', 'inspectorServiceAttributes_rulesPackageArn' - The ARN of the rules package that is used to generate the finding.
 --
 -- 'schemaVersion', 'inspectorServiceAttributes_schemaVersion' - The schema version of this data type.
 newInspectorServiceAttributes ::
@@ -55,19 +55,19 @@ newInspectorServiceAttributes ::
   InspectorServiceAttributes
 newInspectorServiceAttributes pSchemaVersion_ =
   InspectorServiceAttributes'
-    { rulesPackageArn =
+    { assessmentRunArn =
         Prelude.Nothing,
-      assessmentRunArn = Prelude.Nothing,
+      rulesPackageArn = Prelude.Nothing,
       schemaVersion = pSchemaVersion_
     }
-
--- | The ARN of the rules package that is used to generate the finding.
-inspectorServiceAttributes_rulesPackageArn :: Lens.Lens' InspectorServiceAttributes (Prelude.Maybe Prelude.Text)
-inspectorServiceAttributes_rulesPackageArn = Lens.lens (\InspectorServiceAttributes' {rulesPackageArn} -> rulesPackageArn) (\s@InspectorServiceAttributes' {} a -> s {rulesPackageArn = a} :: InspectorServiceAttributes)
 
 -- | The ARN of the assessment run during which the finding is generated.
 inspectorServiceAttributes_assessmentRunArn :: Lens.Lens' InspectorServiceAttributes (Prelude.Maybe Prelude.Text)
 inspectorServiceAttributes_assessmentRunArn = Lens.lens (\InspectorServiceAttributes' {assessmentRunArn} -> assessmentRunArn) (\s@InspectorServiceAttributes' {} a -> s {assessmentRunArn = a} :: InspectorServiceAttributes)
+
+-- | The ARN of the rules package that is used to generate the finding.
+inspectorServiceAttributes_rulesPackageArn :: Lens.Lens' InspectorServiceAttributes (Prelude.Maybe Prelude.Text)
+inspectorServiceAttributes_rulesPackageArn = Lens.lens (\InspectorServiceAttributes' {rulesPackageArn} -> rulesPackageArn) (\s@InspectorServiceAttributes' {} a -> s {rulesPackageArn = a} :: InspectorServiceAttributes)
 
 -- | The schema version of this data type.
 inspectorServiceAttributes_schemaVersion :: Lens.Lens' InspectorServiceAttributes Prelude.Natural
@@ -79,19 +79,19 @@ instance Core.FromJSON InspectorServiceAttributes where
       "InspectorServiceAttributes"
       ( \x ->
           InspectorServiceAttributes'
-            Prelude.<$> (x Core..:? "rulesPackageArn")
-            Prelude.<*> (x Core..:? "assessmentRunArn")
+            Prelude.<$> (x Core..:? "assessmentRunArn")
+            Prelude.<*> (x Core..:? "rulesPackageArn")
             Prelude.<*> (x Core..: "schemaVersion")
       )
 
 instance Prelude.Hashable InspectorServiceAttributes where
   hashWithSalt _salt InspectorServiceAttributes' {..} =
-    _salt `Prelude.hashWithSalt` rulesPackageArn
-      `Prelude.hashWithSalt` assessmentRunArn
+    _salt `Prelude.hashWithSalt` assessmentRunArn
+      `Prelude.hashWithSalt` rulesPackageArn
       `Prelude.hashWithSalt` schemaVersion
 
 instance Prelude.NFData InspectorServiceAttributes where
   rnf InspectorServiceAttributes' {..} =
-    Prelude.rnf rulesPackageArn
-      `Prelude.seq` Prelude.rnf assessmentRunArn
+    Prelude.rnf assessmentRunArn
+      `Prelude.seq` Prelude.rnf rulesPackageArn
       `Prelude.seq` Prelude.rnf schemaVersion

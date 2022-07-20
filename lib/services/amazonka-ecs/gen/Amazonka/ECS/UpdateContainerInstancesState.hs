@@ -89,8 +89,8 @@ module Amazonka.ECS.UpdateContainerInstancesState
     newUpdateContainerInstancesStateResponse,
 
     -- * Response Lenses
-    updateContainerInstancesStateResponse_failures,
     updateContainerInstancesStateResponse_containerInstances,
+    updateContainerInstancesStateResponse_failures,
     updateContainerInstancesStateResponse_httpStatus,
   )
 where
@@ -186,10 +186,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateContainerInstancesStateResponse'
-            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "containerInstances"
+            Prelude.<$> ( x Core..?> "containerInstances"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -242,10 +242,10 @@ instance Core.ToQuery UpdateContainerInstancesState where
 
 -- | /See:/ 'newUpdateContainerInstancesStateResponse' smart constructor.
 data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse'
-  { -- | Any failures associated with the call.
-    failures :: Prelude.Maybe [Failure],
-    -- | The list of container instances.
+  { -- | The list of container instances.
     containerInstances :: Prelude.Maybe [ContainerInstance],
+    -- | Any failures associated with the call.
+    failures :: Prelude.Maybe [Failure],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -259,9 +259,9 @@ data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failures', 'updateContainerInstancesStateResponse_failures' - Any failures associated with the call.
---
 -- 'containerInstances', 'updateContainerInstancesStateResponse_containerInstances' - The list of container instances.
+--
+-- 'failures', 'updateContainerInstancesStateResponse_failures' - Any failures associated with the call.
 --
 -- 'httpStatus', 'updateContainerInstancesStateResponse_httpStatus' - The response's http status code.
 newUpdateContainerInstancesStateResponse ::
@@ -270,19 +270,19 @@ newUpdateContainerInstancesStateResponse ::
   UpdateContainerInstancesStateResponse
 newUpdateContainerInstancesStateResponse pHttpStatus_ =
   UpdateContainerInstancesStateResponse'
-    { failures =
+    { containerInstances =
         Prelude.Nothing,
-      containerInstances = Prelude.Nothing,
+      failures = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Any failures associated with the call.
-updateContainerInstancesStateResponse_failures :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [Failure])
-updateContainerInstancesStateResponse_failures = Lens.lens (\UpdateContainerInstancesStateResponse' {failures} -> failures) (\s@UpdateContainerInstancesStateResponse' {} a -> s {failures = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of container instances.
 updateContainerInstancesStateResponse_containerInstances :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [ContainerInstance])
 updateContainerInstancesStateResponse_containerInstances = Lens.lens (\UpdateContainerInstancesStateResponse' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesStateResponse' {} a -> s {containerInstances = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Any failures associated with the call.
+updateContainerInstancesStateResponse_failures :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [Failure])
+updateContainerInstancesStateResponse_failures = Lens.lens (\UpdateContainerInstancesStateResponse' {failures} -> failures) (\s@UpdateContainerInstancesStateResponse' {} a -> s {failures = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateContainerInstancesStateResponse_httpStatus :: Lens.Lens' UpdateContainerInstancesStateResponse Prelude.Int
@@ -293,6 +293,6 @@ instance
     UpdateContainerInstancesStateResponse
   where
   rnf UpdateContainerInstancesStateResponse' {..} =
-    Prelude.rnf failures
-      `Prelude.seq` Prelude.rnf containerInstances
+    Prelude.rnf containerInstances
+      `Prelude.seq` Prelude.rnf failures
       `Prelude.seq` Prelude.rnf httpStatus

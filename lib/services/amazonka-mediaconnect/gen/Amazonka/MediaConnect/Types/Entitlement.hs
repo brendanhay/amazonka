@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntitlement' smart constructor.
 data Entitlement = Entitlement'
-  { -- | Percentage from 0-100 of the data transfer cost to be billed to the
-    -- subscriber.
-    dataTransferSubscriberFeePercent :: Prelude.Maybe Prelude.Int,
-    -- | The type of encryption that will be used on the output that is
-    -- associated with this entitlement.
-    encryption :: Prelude.Maybe Encryption,
-    -- | An indication of whether the entitlement is enabled.
+  { -- | An indication of whether the entitlement is enabled.
     entitlementStatus :: Prelude.Maybe EntitlementStatus,
     -- | A description of the entitlement.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The type of encryption that will be used on the output that is
+    -- associated with this entitlement.
+    encryption :: Prelude.Maybe Encryption,
+    -- | Percentage from 0-100 of the data transfer cost to be billed to the
+    -- subscriber.
+    dataTransferSubscriberFeePercent :: Prelude.Maybe Prelude.Int,
     -- | The ARN of the entitlement.
     entitlementArn :: Prelude.Text,
     -- | The AWS account IDs that you want to share your content with. The
@@ -58,15 +58,15 @@ data Entitlement = Entitlement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataTransferSubscriberFeePercent', 'entitlement_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the
--- subscriber.
+-- 'entitlementStatus', 'entitlement_entitlementStatus' - An indication of whether the entitlement is enabled.
+--
+-- 'description', 'entitlement_description' - A description of the entitlement.
 --
 -- 'encryption', 'entitlement_encryption' - The type of encryption that will be used on the output that is
 -- associated with this entitlement.
 --
--- 'entitlementStatus', 'entitlement_entitlementStatus' - An indication of whether the entitlement is enabled.
---
--- 'description', 'entitlement_description' - A description of the entitlement.
+-- 'dataTransferSubscriberFeePercent', 'entitlement_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the
+-- subscriber.
 --
 -- 'entitlementArn', 'entitlement_entitlementArn' - The ARN of the entitlement.
 --
@@ -83,25 +83,14 @@ newEntitlement ::
   Entitlement
 newEntitlement pEntitlementArn_ pName_ =
   Entitlement'
-    { dataTransferSubscriberFeePercent =
-        Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      entitlementStatus = Prelude.Nothing,
+    { entitlementStatus = Prelude.Nothing,
       description = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      dataTransferSubscriberFeePercent = Prelude.Nothing,
       entitlementArn = pEntitlementArn_,
       subscribers = Prelude.mempty,
       name = pName_
     }
-
--- | Percentage from 0-100 of the data transfer cost to be billed to the
--- subscriber.
-entitlement_dataTransferSubscriberFeePercent :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Int)
-entitlement_dataTransferSubscriberFeePercent = Lens.lens (\Entitlement' {dataTransferSubscriberFeePercent} -> dataTransferSubscriberFeePercent) (\s@Entitlement' {} a -> s {dataTransferSubscriberFeePercent = a} :: Entitlement)
-
--- | The type of encryption that will be used on the output that is
--- associated with this entitlement.
-entitlement_encryption :: Lens.Lens' Entitlement (Prelude.Maybe Encryption)
-entitlement_encryption = Lens.lens (\Entitlement' {encryption} -> encryption) (\s@Entitlement' {} a -> s {encryption = a} :: Entitlement)
 
 -- | An indication of whether the entitlement is enabled.
 entitlement_entitlementStatus :: Lens.Lens' Entitlement (Prelude.Maybe EntitlementStatus)
@@ -110,6 +99,16 @@ entitlement_entitlementStatus = Lens.lens (\Entitlement' {entitlementStatus} -> 
 -- | A description of the entitlement.
 entitlement_description :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
 entitlement_description = Lens.lens (\Entitlement' {description} -> description) (\s@Entitlement' {} a -> s {description = a} :: Entitlement)
+
+-- | The type of encryption that will be used on the output that is
+-- associated with this entitlement.
+entitlement_encryption :: Lens.Lens' Entitlement (Prelude.Maybe Encryption)
+entitlement_encryption = Lens.lens (\Entitlement' {encryption} -> encryption) (\s@Entitlement' {} a -> s {encryption = a} :: Entitlement)
+
+-- | Percentage from 0-100 of the data transfer cost to be billed to the
+-- subscriber.
+entitlement_dataTransferSubscriberFeePercent :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Int)
+entitlement_dataTransferSubscriberFeePercent = Lens.lens (\Entitlement' {dataTransferSubscriberFeePercent} -> dataTransferSubscriberFeePercent) (\s@Entitlement' {} a -> s {dataTransferSubscriberFeePercent = a} :: Entitlement)
 
 -- | The ARN of the entitlement.
 entitlement_entitlementArn :: Lens.Lens' Entitlement Prelude.Text
@@ -131,10 +130,10 @@ instance Core.FromJSON Entitlement where
       "Entitlement"
       ( \x ->
           Entitlement'
-            Prelude.<$> (x Core..:? "dataTransferSubscriberFeePercent")
-            Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "entitlementStatus")
+            Prelude.<$> (x Core..:? "entitlementStatus")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "encryption")
+            Prelude.<*> (x Core..:? "dataTransferSubscriberFeePercent")
             Prelude.<*> (x Core..: "entitlementArn")
             Prelude.<*> (x Core..:? "subscribers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "name")
@@ -142,21 +141,20 @@ instance Core.FromJSON Entitlement where
 
 instance Prelude.Hashable Entitlement where
   hashWithSalt _salt Entitlement' {..} =
-    _salt
-      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
-      `Prelude.hashWithSalt` encryption
-      `Prelude.hashWithSalt` entitlementStatus
+    _salt `Prelude.hashWithSalt` entitlementStatus
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
       `Prelude.hashWithSalt` entitlementArn
       `Prelude.hashWithSalt` subscribers
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Entitlement where
   rnf Entitlement' {..} =
-    Prelude.rnf dataTransferSubscriberFeePercent
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf entitlementStatus
+    Prelude.rnf entitlementStatus
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf dataTransferSubscriberFeePercent
       `Prelude.seq` Prelude.rnf entitlementArn
       `Prelude.seq` Prelude.rnf subscribers
       `Prelude.seq` Prelude.rnf name

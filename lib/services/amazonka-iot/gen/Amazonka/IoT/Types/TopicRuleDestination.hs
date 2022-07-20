@@ -30,8 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTopicRuleDestination' smart constructor.
 data TopicRuleDestination = TopicRuleDestination'
-  { -- | Properties of the virtual private cloud (VPC) connection.
-    vpcProperties :: Prelude.Maybe VpcDestinationProperties,
+  { -- | The date and time when the topic rule destination was last updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The topic rule destination URL.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Additional details or reason why the topic rule destination is in the
+    -- current status.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The status of the topic rule destination. Valid values are:
     --
     -- [IN_PROGRESS]
@@ -59,17 +64,12 @@ data TopicRuleDestination = TopicRuleDestination'
     --     causes a new confirmation challenge to be sent to your confirmation
     --     endpoint.
     status :: Prelude.Maybe TopicRuleDestinationStatus,
-    -- | The date and time when the topic rule destination was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | Properties of the HTTP URL.
     httpUrlProperties :: Prelude.Maybe HttpUrlDestinationProperties,
-    -- | The topic rule destination URL.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the topic rule destination was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | Additional details or reason why the topic rule destination is in the
-    -- current status.
-    statusReason :: Prelude.Maybe Prelude.Text
+    -- | Properties of the virtual private cloud (VPC) connection.
+    vpcProperties :: Prelude.Maybe VpcDestinationProperties
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,7 +81,12 @@ data TopicRuleDestination = TopicRuleDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcProperties', 'topicRuleDestination_vpcProperties' - Properties of the virtual private cloud (VPC) connection.
+-- 'lastUpdatedAt', 'topicRuleDestination_lastUpdatedAt' - The date and time when the topic rule destination was last updated.
+--
+-- 'arn', 'topicRuleDestination_arn' - The topic rule destination URL.
+--
+-- 'statusReason', 'topicRuleDestination_statusReason' - Additional details or reason why the topic rule destination is in the
+-- current status.
 --
 -- 'status', 'topicRuleDestination_status' - The status of the topic rule destination. Valid values are:
 --
@@ -110,33 +115,37 @@ data TopicRuleDestination = TopicRuleDestination'
 --     causes a new confirmation challenge to be sent to your confirmation
 --     endpoint.
 --
--- 'lastUpdatedAt', 'topicRuleDestination_lastUpdatedAt' - The date and time when the topic rule destination was last updated.
---
 -- 'httpUrlProperties', 'topicRuleDestination_httpUrlProperties' - Properties of the HTTP URL.
---
--- 'arn', 'topicRuleDestination_arn' - The topic rule destination URL.
 --
 -- 'createdAt', 'topicRuleDestination_createdAt' - The date and time when the topic rule destination was created.
 --
--- 'statusReason', 'topicRuleDestination_statusReason' - Additional details or reason why the topic rule destination is in the
--- current status.
+-- 'vpcProperties', 'topicRuleDestination_vpcProperties' - Properties of the virtual private cloud (VPC) connection.
 newTopicRuleDestination ::
   TopicRuleDestination
 newTopicRuleDestination =
   TopicRuleDestination'
-    { vpcProperties =
+    { lastUpdatedAt =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      httpUrlProperties = Prelude.Nothing,
       arn = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
+      status = Prelude.Nothing,
+      httpUrlProperties = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      statusReason = Prelude.Nothing
+      vpcProperties = Prelude.Nothing
     }
 
--- | Properties of the virtual private cloud (VPC) connection.
-topicRuleDestination_vpcProperties :: Lens.Lens' TopicRuleDestination (Prelude.Maybe VpcDestinationProperties)
-topicRuleDestination_vpcProperties = Lens.lens (\TopicRuleDestination' {vpcProperties} -> vpcProperties) (\s@TopicRuleDestination' {} a -> s {vpcProperties = a} :: TopicRuleDestination)
+-- | The date and time when the topic rule destination was last updated.
+topicRuleDestination_lastUpdatedAt :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.UTCTime)
+topicRuleDestination_lastUpdatedAt = Lens.lens (\TopicRuleDestination' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestination' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Core._Time
+
+-- | The topic rule destination URL.
+topicRuleDestination_arn :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.Text)
+topicRuleDestination_arn = Lens.lens (\TopicRuleDestination' {arn} -> arn) (\s@TopicRuleDestination' {} a -> s {arn = a} :: TopicRuleDestination)
+
+-- | Additional details or reason why the topic rule destination is in the
+-- current status.
+topicRuleDestination_statusReason :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.Text)
+topicRuleDestination_statusReason = Lens.lens (\TopicRuleDestination' {statusReason} -> statusReason) (\s@TopicRuleDestination' {} a -> s {statusReason = a} :: TopicRuleDestination)
 
 -- | The status of the topic rule destination. Valid values are:
 --
@@ -167,26 +176,17 @@ topicRuleDestination_vpcProperties = Lens.lens (\TopicRuleDestination' {vpcPrope
 topicRuleDestination_status :: Lens.Lens' TopicRuleDestination (Prelude.Maybe TopicRuleDestinationStatus)
 topicRuleDestination_status = Lens.lens (\TopicRuleDestination' {status} -> status) (\s@TopicRuleDestination' {} a -> s {status = a} :: TopicRuleDestination)
 
--- | The date and time when the topic rule destination was last updated.
-topicRuleDestination_lastUpdatedAt :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.UTCTime)
-topicRuleDestination_lastUpdatedAt = Lens.lens (\TopicRuleDestination' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestination' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Core._Time
-
 -- | Properties of the HTTP URL.
 topicRuleDestination_httpUrlProperties :: Lens.Lens' TopicRuleDestination (Prelude.Maybe HttpUrlDestinationProperties)
 topicRuleDestination_httpUrlProperties = Lens.lens (\TopicRuleDestination' {httpUrlProperties} -> httpUrlProperties) (\s@TopicRuleDestination' {} a -> s {httpUrlProperties = a} :: TopicRuleDestination)
-
--- | The topic rule destination URL.
-topicRuleDestination_arn :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.Text)
-topicRuleDestination_arn = Lens.lens (\TopicRuleDestination' {arn} -> arn) (\s@TopicRuleDestination' {} a -> s {arn = a} :: TopicRuleDestination)
 
 -- | The date and time when the topic rule destination was created.
 topicRuleDestination_createdAt :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.UTCTime)
 topicRuleDestination_createdAt = Lens.lens (\TopicRuleDestination' {createdAt} -> createdAt) (\s@TopicRuleDestination' {} a -> s {createdAt = a} :: TopicRuleDestination) Prelude.. Lens.mapping Core._Time
 
--- | Additional details or reason why the topic rule destination is in the
--- current status.
-topicRuleDestination_statusReason :: Lens.Lens' TopicRuleDestination (Prelude.Maybe Prelude.Text)
-topicRuleDestination_statusReason = Lens.lens (\TopicRuleDestination' {statusReason} -> statusReason) (\s@TopicRuleDestination' {} a -> s {statusReason = a} :: TopicRuleDestination)
+-- | Properties of the virtual private cloud (VPC) connection.
+topicRuleDestination_vpcProperties :: Lens.Lens' TopicRuleDestination (Prelude.Maybe VpcDestinationProperties)
+topicRuleDestination_vpcProperties = Lens.lens (\TopicRuleDestination' {vpcProperties} -> vpcProperties) (\s@TopicRuleDestination' {} a -> s {vpcProperties = a} :: TopicRuleDestination)
 
 instance Core.FromJSON TopicRuleDestination where
   parseJSON =
@@ -194,31 +194,31 @@ instance Core.FromJSON TopicRuleDestination where
       "TopicRuleDestination"
       ( \x ->
           TopicRuleDestination'
-            Prelude.<$> (x Core..:? "vpcProperties")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "httpUrlProperties")
+            Prelude.<$> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "httpUrlProperties")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "vpcProperties")
       )
 
 instance Prelude.Hashable TopicRuleDestination where
   hashWithSalt _salt TopicRuleDestination' {..} =
-    _salt `Prelude.hashWithSalt` vpcProperties
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` httpUrlProperties
+    _salt `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` httpUrlProperties
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` vpcProperties
 
 instance Prelude.NFData TopicRuleDestination where
   rnf TopicRuleDestination' {..} =
-    Prelude.rnf vpcProperties
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf httpUrlProperties
+    Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf httpUrlProperties
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf vpcProperties

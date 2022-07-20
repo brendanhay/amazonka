@@ -34,10 +34,26 @@ import qualified Amazonka.Prelude as Prelude
 data RemediationConfiguration = RemediationConfiguration'
   { -- | The type of a resource.
     resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of failed attempts for auto-remediation. If you do
+    -- not select a number, the default is 5.
+    --
+    -- For example, if you specify MaximumAutomaticAttempts as 5 with
+    -- RetryAttemptSeconds as 50 seconds, Config will put a
+    -- RemediationException on your behalf for the failing resource after the
+    -- 5th failed attempt within 50 seconds.
+    maximumAutomaticAttempts :: Prelude.Maybe Prelude.Natural,
     -- | Amazon Resource Name (ARN) of remediation configuration.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | An ExecutionControls object.
+    executionControls :: Prelude.Maybe ExecutionControls,
     -- | The remediation is triggered automatically.
     automatic :: Prelude.Maybe Prelude.Bool,
+    -- | Version of the target. For example, version of the SSM document.
+    --
+    -- If you make backward incompatible changes to the SSM document, you must
+    -- call PutRemediationConfiguration API again to ensure the remediations
+    -- can run.
+    targetVersion :: Prelude.Maybe Prelude.Text,
     -- | Name of the service that owns the service linked rule, if applicable.
     createdByService :: Prelude.Maybe Prelude.Text,
     -- | Maximum time in seconds that Config runs auto-remediation. If you do not
@@ -47,24 +63,8 @@ data RemediationConfiguration = RemediationConfiguration'
     -- MaximumAutomaticAttempts as 5, Config will run auto-remediations 5 times
     -- within 50 seconds before throwing an exception.
     retryAttemptSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | An ExecutionControls object.
-    executionControls :: Prelude.Maybe ExecutionControls,
     -- | An object of the RemediationParameterValue.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text RemediationParameterValue),
-    -- | The maximum number of failed attempts for auto-remediation. If you do
-    -- not select a number, the default is 5.
-    --
-    -- For example, if you specify MaximumAutomaticAttempts as 5 with
-    -- RetryAttemptSeconds as 50 seconds, Config will put a
-    -- RemediationException on your behalf for the failing resource after the
-    -- 5th failed attempt within 50 seconds.
-    maximumAutomaticAttempts :: Prelude.Maybe Prelude.Natural,
-    -- | Version of the target. For example, version of the SSM document.
-    --
-    -- If you make backward incompatible changes to the SSM document, you must
-    -- call PutRemediationConfiguration API again to ensure the remediations
-    -- can run.
-    targetVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the Config rule.
     configRuleName :: Prelude.Text,
     -- | The type of the target. Target executes remediation. For example, SSM
@@ -85,9 +85,25 @@ data RemediationConfiguration = RemediationConfiguration'
 --
 -- 'resourceType', 'remediationConfiguration_resourceType' - The type of a resource.
 --
+-- 'maximumAutomaticAttempts', 'remediationConfiguration_maximumAutomaticAttempts' - The maximum number of failed attempts for auto-remediation. If you do
+-- not select a number, the default is 5.
+--
+-- For example, if you specify MaximumAutomaticAttempts as 5 with
+-- RetryAttemptSeconds as 50 seconds, Config will put a
+-- RemediationException on your behalf for the failing resource after the
+-- 5th failed attempt within 50 seconds.
+--
 -- 'arn', 'remediationConfiguration_arn' - Amazon Resource Name (ARN) of remediation configuration.
 --
+-- 'executionControls', 'remediationConfiguration_executionControls' - An ExecutionControls object.
+--
 -- 'automatic', 'remediationConfiguration_automatic' - The remediation is triggered automatically.
+--
+-- 'targetVersion', 'remediationConfiguration_targetVersion' - Version of the target. For example, version of the SSM document.
+--
+-- If you make backward incompatible changes to the SSM document, you must
+-- call PutRemediationConfiguration API again to ensure the remediations
+-- can run.
 --
 -- 'createdByService', 'remediationConfiguration_createdByService' - Name of the service that owns the service linked rule, if applicable.
 --
@@ -98,23 +114,7 @@ data RemediationConfiguration = RemediationConfiguration'
 -- MaximumAutomaticAttempts as 5, Config will run auto-remediations 5 times
 -- within 50 seconds before throwing an exception.
 --
--- 'executionControls', 'remediationConfiguration_executionControls' - An ExecutionControls object.
---
 -- 'parameters', 'remediationConfiguration_parameters' - An object of the RemediationParameterValue.
---
--- 'maximumAutomaticAttempts', 'remediationConfiguration_maximumAutomaticAttempts' - The maximum number of failed attempts for auto-remediation. If you do
--- not select a number, the default is 5.
---
--- For example, if you specify MaximumAutomaticAttempts as 5 with
--- RetryAttemptSeconds as 50 seconds, Config will put a
--- RemediationException on your behalf for the failing resource after the
--- 5th failed attempt within 50 seconds.
---
--- 'targetVersion', 'remediationConfiguration_targetVersion' - Version of the target. For example, version of the SSM document.
---
--- If you make backward incompatible changes to the SSM document, you must
--- call PutRemediationConfiguration API again to ensure the remediations
--- can run.
 --
 -- 'configRuleName', 'remediationConfiguration_configRuleName' - The name of the Config rule.
 --
@@ -137,14 +137,14 @@ newRemediationConfiguration
     RemediationConfiguration'
       { resourceType =
           Prelude.Nothing,
+        maximumAutomaticAttempts = Prelude.Nothing,
         arn = Prelude.Nothing,
+        executionControls = Prelude.Nothing,
         automatic = Prelude.Nothing,
+        targetVersion = Prelude.Nothing,
         createdByService = Prelude.Nothing,
         retryAttemptSeconds = Prelude.Nothing,
-        executionControls = Prelude.Nothing,
         parameters = Prelude.Nothing,
-        maximumAutomaticAttempts = Prelude.Nothing,
-        targetVersion = Prelude.Nothing,
         configRuleName = pConfigRuleName_,
         targetType = pTargetType_,
         targetId = pTargetId_
@@ -154,13 +154,35 @@ newRemediationConfiguration
 remediationConfiguration_resourceType :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Text)
 remediationConfiguration_resourceType = Lens.lens (\RemediationConfiguration' {resourceType} -> resourceType) (\s@RemediationConfiguration' {} a -> s {resourceType = a} :: RemediationConfiguration)
 
+-- | The maximum number of failed attempts for auto-remediation. If you do
+-- not select a number, the default is 5.
+--
+-- For example, if you specify MaximumAutomaticAttempts as 5 with
+-- RetryAttemptSeconds as 50 seconds, Config will put a
+-- RemediationException on your behalf for the failing resource after the
+-- 5th failed attempt within 50 seconds.
+remediationConfiguration_maximumAutomaticAttempts :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Natural)
+remediationConfiguration_maximumAutomaticAttempts = Lens.lens (\RemediationConfiguration' {maximumAutomaticAttempts} -> maximumAutomaticAttempts) (\s@RemediationConfiguration' {} a -> s {maximumAutomaticAttempts = a} :: RemediationConfiguration)
+
 -- | Amazon Resource Name (ARN) of remediation configuration.
 remediationConfiguration_arn :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Text)
 remediationConfiguration_arn = Lens.lens (\RemediationConfiguration' {arn} -> arn) (\s@RemediationConfiguration' {} a -> s {arn = a} :: RemediationConfiguration)
 
+-- | An ExecutionControls object.
+remediationConfiguration_executionControls :: Lens.Lens' RemediationConfiguration (Prelude.Maybe ExecutionControls)
+remediationConfiguration_executionControls = Lens.lens (\RemediationConfiguration' {executionControls} -> executionControls) (\s@RemediationConfiguration' {} a -> s {executionControls = a} :: RemediationConfiguration)
+
 -- | The remediation is triggered automatically.
 remediationConfiguration_automatic :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Bool)
 remediationConfiguration_automatic = Lens.lens (\RemediationConfiguration' {automatic} -> automatic) (\s@RemediationConfiguration' {} a -> s {automatic = a} :: RemediationConfiguration)
+
+-- | Version of the target. For example, version of the SSM document.
+--
+-- If you make backward incompatible changes to the SSM document, you must
+-- call PutRemediationConfiguration API again to ensure the remediations
+-- can run.
+remediationConfiguration_targetVersion :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Text)
+remediationConfiguration_targetVersion = Lens.lens (\RemediationConfiguration' {targetVersion} -> targetVersion) (\s@RemediationConfiguration' {} a -> s {targetVersion = a} :: RemediationConfiguration)
 
 -- | Name of the service that owns the service linked rule, if applicable.
 remediationConfiguration_createdByService :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Text)
@@ -175,31 +197,9 @@ remediationConfiguration_createdByService = Lens.lens (\RemediationConfiguration
 remediationConfiguration_retryAttemptSeconds :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Natural)
 remediationConfiguration_retryAttemptSeconds = Lens.lens (\RemediationConfiguration' {retryAttemptSeconds} -> retryAttemptSeconds) (\s@RemediationConfiguration' {} a -> s {retryAttemptSeconds = a} :: RemediationConfiguration)
 
--- | An ExecutionControls object.
-remediationConfiguration_executionControls :: Lens.Lens' RemediationConfiguration (Prelude.Maybe ExecutionControls)
-remediationConfiguration_executionControls = Lens.lens (\RemediationConfiguration' {executionControls} -> executionControls) (\s@RemediationConfiguration' {} a -> s {executionControls = a} :: RemediationConfiguration)
-
 -- | An object of the RemediationParameterValue.
 remediationConfiguration_parameters :: Lens.Lens' RemediationConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text RemediationParameterValue))
 remediationConfiguration_parameters = Lens.lens (\RemediationConfiguration' {parameters} -> parameters) (\s@RemediationConfiguration' {} a -> s {parameters = a} :: RemediationConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of failed attempts for auto-remediation. If you do
--- not select a number, the default is 5.
---
--- For example, if you specify MaximumAutomaticAttempts as 5 with
--- RetryAttemptSeconds as 50 seconds, Config will put a
--- RemediationException on your behalf for the failing resource after the
--- 5th failed attempt within 50 seconds.
-remediationConfiguration_maximumAutomaticAttempts :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Natural)
-remediationConfiguration_maximumAutomaticAttempts = Lens.lens (\RemediationConfiguration' {maximumAutomaticAttempts} -> maximumAutomaticAttempts) (\s@RemediationConfiguration' {} a -> s {maximumAutomaticAttempts = a} :: RemediationConfiguration)
-
--- | Version of the target. For example, version of the SSM document.
---
--- If you make backward incompatible changes to the SSM document, you must
--- call PutRemediationConfiguration API again to ensure the remediations
--- can run.
-remediationConfiguration_targetVersion :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Text)
-remediationConfiguration_targetVersion = Lens.lens (\RemediationConfiguration' {targetVersion} -> targetVersion) (\s@RemediationConfiguration' {} a -> s {targetVersion = a} :: RemediationConfiguration)
 
 -- | The name of the Config rule.
 remediationConfiguration_configRuleName :: Lens.Lens' RemediationConfiguration Prelude.Text
@@ -221,14 +221,14 @@ instance Core.FromJSON RemediationConfiguration where
       ( \x ->
           RemediationConfiguration'
             Prelude.<$> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "MaximumAutomaticAttempts")
             Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "ExecutionControls")
             Prelude.<*> (x Core..:? "Automatic")
+            Prelude.<*> (x Core..:? "TargetVersion")
             Prelude.<*> (x Core..:? "CreatedByService")
             Prelude.<*> (x Core..:? "RetryAttemptSeconds")
-            Prelude.<*> (x Core..:? "ExecutionControls")
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaximumAutomaticAttempts")
-            Prelude.<*> (x Core..:? "TargetVersion")
             Prelude.<*> (x Core..: "ConfigRuleName")
             Prelude.<*> (x Core..: "TargetType")
             Prelude.<*> (x Core..: "TargetId")
@@ -237,14 +237,14 @@ instance Core.FromJSON RemediationConfiguration where
 instance Prelude.Hashable RemediationConfiguration where
   hashWithSalt _salt RemediationConfiguration' {..} =
     _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` maximumAutomaticAttempts
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` executionControls
       `Prelude.hashWithSalt` automatic
+      `Prelude.hashWithSalt` targetVersion
       `Prelude.hashWithSalt` createdByService
       `Prelude.hashWithSalt` retryAttemptSeconds
-      `Prelude.hashWithSalt` executionControls
       `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` maximumAutomaticAttempts
-      `Prelude.hashWithSalt` targetVersion
       `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` targetId
@@ -252,14 +252,14 @@ instance Prelude.Hashable RemediationConfiguration where
 instance Prelude.NFData RemediationConfiguration where
   rnf RemediationConfiguration' {..} =
     Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf maximumAutomaticAttempts
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf executionControls
       `Prelude.seq` Prelude.rnf automatic
+      `Prelude.seq` Prelude.rnf targetVersion
       `Prelude.seq` Prelude.rnf createdByService
       `Prelude.seq` Prelude.rnf retryAttemptSeconds
-      `Prelude.seq` Prelude.rnf executionControls
       `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf maximumAutomaticAttempts
-      `Prelude.seq` Prelude.rnf targetVersion
       `Prelude.seq` Prelude.rnf configRuleName
       `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf targetId
@@ -269,18 +269,18 @@ instance Core.ToJSON RemediationConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("ResourceType" Core..=) Prelude.<$> resourceType,
+            ("MaximumAutomaticAttempts" Core..=)
+              Prelude.<$> maximumAutomaticAttempts,
             ("Arn" Core..=) Prelude.<$> arn,
+            ("ExecutionControls" Core..=)
+              Prelude.<$> executionControls,
             ("Automatic" Core..=) Prelude.<$> automatic,
+            ("TargetVersion" Core..=) Prelude.<$> targetVersion,
             ("CreatedByService" Core..=)
               Prelude.<$> createdByService,
             ("RetryAttemptSeconds" Core..=)
               Prelude.<$> retryAttemptSeconds,
-            ("ExecutionControls" Core..=)
-              Prelude.<$> executionControls,
             ("Parameters" Core..=) Prelude.<$> parameters,
-            ("MaximumAutomaticAttempts" Core..=)
-              Prelude.<$> maximumAutomaticAttempts,
-            ("TargetVersion" Core..=) Prelude.<$> targetVersion,
             Prelude.Just
               ("ConfigRuleName" Core..= configRuleName),
             Prelude.Just ("TargetType" Core..= targetType),

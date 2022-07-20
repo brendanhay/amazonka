@@ -17,15 +17,15 @@ module Amazonka.Budgets.Types
     defaultService,
 
     -- * Errors
-    _AccessDeniedException,
-    _InvalidParameterException,
-    _InternalErrorException,
     _ExpiredNextTokenException,
-    _NotFoundException,
-    _ResourceLockedException,
-    _InvalidNextTokenException,
+    _AccessDeniedException,
     _DuplicateRecordException,
+    _InternalErrorException,
+    _NotFoundException,
+    _InvalidNextTokenException,
+    _ResourceLockedException,
     _CreationLimitExceededException,
+    _InvalidParameterException,
 
     -- * ActionStatus
     ActionStatus (..),
@@ -103,13 +103,13 @@ module Amazonka.Budgets.Types
     -- * Budget
     Budget (..),
     newBudget,
-    budget_calculatedSpend,
-    budget_plannedBudgetLimits,
-    budget_lastUpdatedTime,
     budget_budgetLimit,
+    budget_plannedBudgetLimits,
+    budget_costFilters,
+    budget_lastUpdatedTime,
+    budget_calculatedSpend,
     budget_timePeriod,
     budget_costTypes,
-    budget_costFilters,
     budget_budgetName,
     budget_timeUnit,
     budget_budgetType,
@@ -117,19 +117,19 @@ module Amazonka.Budgets.Types
     -- * BudgetPerformanceHistory
     BudgetPerformanceHistory (..),
     newBudgetPerformanceHistory,
-    budgetPerformanceHistory_budgetedAndActualAmountsList,
     budgetPerformanceHistory_timeUnit,
-    budgetPerformanceHistory_budgetName,
+    budgetPerformanceHistory_budgetedAndActualAmountsList,
+    budgetPerformanceHistory_costFilters,
     budgetPerformanceHistory_budgetType,
     budgetPerformanceHistory_costTypes,
-    budgetPerformanceHistory_costFilters,
+    budgetPerformanceHistory_budgetName,
 
     -- * BudgetedAndActualAmounts
     BudgetedAndActualAmounts (..),
     newBudgetedAndActualAmounts,
+    budgetedAndActualAmounts_budgetedAmount,
     budgetedAndActualAmounts_timePeriod,
     budgetedAndActualAmounts_actualAmount,
-    budgetedAndActualAmounts_budgetedAmount,
 
     -- * CalculatedSpend
     CalculatedSpend (..),
@@ -140,31 +140,31 @@ module Amazonka.Budgets.Types
     -- * CostTypes
     CostTypes (..),
     newCostTypes,
-    costTypes_useAmortized,
-    costTypes_includeRecurring,
-    costTypes_useBlended,
     costTypes_includeSupport,
     costTypes_includeDiscount,
-    costTypes_includeSubscription,
-    costTypes_includeRefund,
-    costTypes_includeUpfront,
-    costTypes_includeOtherSubscription,
+    costTypes_useAmortized,
     costTypes_includeTax,
+    costTypes_includeOtherSubscription,
+    costTypes_includeRefund,
+    costTypes_includeSubscription,
+    costTypes_useBlended,
+    costTypes_includeRecurring,
+    costTypes_includeUpfront,
     costTypes_includeCredit,
 
     -- * Definition
     Definition (..),
     newDefinition,
+    definition_ssmActionDefinition,
     definition_scpActionDefinition,
     definition_iamActionDefinition,
-    definition_ssmActionDefinition,
 
     -- * IamActionDefinition
     IamActionDefinition (..),
     newIamActionDefinition,
-    iamActionDefinition_groups,
-    iamActionDefinition_roles,
     iamActionDefinition_users,
+    iamActionDefinition_roles,
+    iamActionDefinition_groups,
     iamActionDefinition_policyArn,
 
     -- * Notification
@@ -276,35 +276,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -313,36 +286,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | You are not authorized to use this operation with the given parameters.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-
--- | An error on the client occurred. Typically, the cause is an invalid
--- input value.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
-
--- | An error on the server occurred during the processing of your request.
--- Try again later.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalErrorException"
 
 -- | The pagination token expired.
 _ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -351,27 +328,12 @@ _ExpiredNextTokenException =
     defaultService
     "ExpiredNextTokenException"
 
--- | We can’t locate the resource that you specified.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
+-- | You are not authorized to use this operation with the given parameters.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "NotFoundException"
-
--- | The request was received and recognized by the server, but the server
--- rejected that particular method for the requested resource.
-_ResourceLockedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLockedException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceLockedException"
-
--- | The pagination token is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
+    "AccessDeniedException"
 
 -- | The budget name already exists. Budget names must be unique within an
 -- account.
@@ -381,9 +343,47 @@ _DuplicateRecordException =
     defaultService
     "DuplicateRecordException"
 
+-- | An error on the server occurred during the processing of your request.
+-- Try again later.
+_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalErrorException"
+
+-- | We can’t locate the resource that you specified.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+
+-- | The pagination token is invalid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | The request was received and recognized by the server, but the server
+-- rejected that particular method for the requested resource.
+_ResourceLockedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLockedException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLockedException"
+
 -- | You\'ve exceeded the notification or subscriber limit.
 _CreationLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _CreationLimitExceededException =
   Core._MatchServiceError
     defaultService
     "CreationLimitExceededException"
+
+-- | An error on the client occurred. Typically, the cause is an invalid
+-- input value.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Destination' smart constructor.
 data S3Destination = S3Destination'
-  { -- | The S3 prefix.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket that contains the updated firmware.
-    bucket :: Prelude.Maybe Prelude.Text
+  { -- | The S3 bucket that contains the updated firmware.
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | The S3 prefix.
+    prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data S3Destination = S3Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'prefix', 's3Destination_prefix' - The S3 prefix.
---
 -- 'bucket', 's3Destination_bucket' - The S3 bucket that contains the updated firmware.
+--
+-- 'prefix', 's3Destination_prefix' - The S3 prefix.
 newS3Destination ::
   S3Destination
 newS3Destination =
   S3Destination'
-    { prefix = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { bucket = Prelude.Nothing,
+      prefix = Prelude.Nothing
     }
-
--- | The S3 prefix.
-s3Destination_prefix :: Lens.Lens' S3Destination (Prelude.Maybe Prelude.Text)
-s3Destination_prefix = Lens.lens (\S3Destination' {prefix} -> prefix) (\s@S3Destination' {} a -> s {prefix = a} :: S3Destination)
 
 -- | The S3 bucket that contains the updated firmware.
 s3Destination_bucket :: Lens.Lens' S3Destination (Prelude.Maybe Prelude.Text)
 s3Destination_bucket = Lens.lens (\S3Destination' {bucket} -> bucket) (\s@S3Destination' {} a -> s {bucket = a} :: S3Destination)
+
+-- | The S3 prefix.
+s3Destination_prefix :: Lens.Lens' S3Destination (Prelude.Maybe Prelude.Text)
+s3Destination_prefix = Lens.lens (\S3Destination' {prefix} -> prefix) (\s@S3Destination' {} a -> s {prefix = a} :: S3Destination)
 
 instance Core.FromJSON S3Destination where
   parseJSON =
@@ -67,24 +67,24 @@ instance Core.FromJSON S3Destination where
       "S3Destination"
       ( \x ->
           S3Destination'
-            Prelude.<$> (x Core..:? "prefix")
-            Prelude.<*> (x Core..:? "bucket")
+            Prelude.<$> (x Core..:? "bucket")
+            Prelude.<*> (x Core..:? "prefix")
       )
 
 instance Prelude.Hashable S3Destination where
   hashWithSalt _salt S3Destination' {..} =
-    _salt `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` bucket
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` prefix
 
 instance Prelude.NFData S3Destination where
   rnf S3Destination' {..} =
-    Prelude.rnf prefix `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToJSON S3Destination where
   toJSON S3Destination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("prefix" Core..=) Prelude.<$> prefix,
-            ("bucket" Core..=) Prelude.<$> bucket
+          [ ("bucket" Core..=) Prelude.<$> bucket,
+            ("prefix" Core..=) Prelude.<$> prefix
           ]
       )

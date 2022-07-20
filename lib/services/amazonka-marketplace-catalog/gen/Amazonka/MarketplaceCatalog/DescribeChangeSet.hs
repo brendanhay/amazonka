@@ -35,15 +35,15 @@ module Amazonka.MarketplaceCatalog.DescribeChangeSet
     newDescribeChangeSetResponse,
 
     -- * Response Lenses
-    describeChangeSetResponse_status,
-    describeChangeSetResponse_startTime,
-    describeChangeSetResponse_failureCode,
-    describeChangeSetResponse_changeSetName,
     describeChangeSetResponse_failureDescription,
+    describeChangeSetResponse_failureCode,
     describeChangeSetResponse_changeSetId,
-    describeChangeSetResponse_changeSet,
-    describeChangeSetResponse_endTime,
+    describeChangeSetResponse_changeSetName,
     describeChangeSetResponse_changeSetArn,
+    describeChangeSetResponse_status,
+    describeChangeSetResponse_endTime,
+    describeChangeSetResponse_changeSet,
+    describeChangeSetResponse_startTime,
     describeChangeSetResponse_httpStatus,
   )
 where
@@ -110,15 +110,15 @@ instance Core.AWSRequest DescribeChangeSet where
     Response.receiveJSON
       ( \s h x ->
           DescribeChangeSetResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Core..?> "FailureDescription")
             Prelude.<*> (x Core..?> "FailureCode")
-            Prelude.<*> (x Core..?> "ChangeSetName")
-            Prelude.<*> (x Core..?> "FailureDescription")
             Prelude.<*> (x Core..?> "ChangeSetId")
-            Prelude.<*> (x Core..?> "ChangeSet" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "EndTime")
+            Prelude.<*> (x Core..?> "ChangeSetName")
             Prelude.<*> (x Core..?> "ChangeSetArn")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "EndTime")
+            Prelude.<*> (x Core..?> "ChangeSet" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,34 +155,34 @@ instance Core.ToQuery DescribeChangeSet where
 
 -- | /See:/ 'newDescribeChangeSetResponse' smart constructor.
 data DescribeChangeSetResponse = DescribeChangeSetResponse'
-  { -- | The status of the change request.
-    status :: Prelude.Maybe ChangeStatus,
-    -- | The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
-    -- request started.
-    startTime :: Prelude.Maybe Prelude.Text,
+  { -- | Returned if there is a failure on the change set, but that failure is
+    -- not related to any of the changes in the request.
+    failureDescription :: Prelude.Maybe Prelude.Text,
     -- | Returned if the change set is in @FAILED@ status. Can be either
     -- @CLIENT_ERROR@, which means that there are issues with the request (see
     -- the @ErrorDetailList@), or @SERVER_FAULT@, which means that there is a
     -- problem in the system, and you should retry your request.
     failureCode :: Prelude.Maybe FailureCode,
-    -- | The optional name provided in the @StartChangeSet@ request. If you do
-    -- not provide a name, one is set by default.
-    changeSetName :: Prelude.Maybe Prelude.Text,
-    -- | Returned if there is a failure on the change set, but that failure is
-    -- not related to any of the changes in the request.
-    failureDescription :: Prelude.Maybe Prelude.Text,
     -- | Required. The unique identifier for the change set referenced in this
     -- request.
     changeSetId :: Prelude.Maybe Prelude.Text,
-    -- | An array of @ChangeSummary@ objects.
-    changeSet :: Prelude.Maybe [ChangeSummary],
+    -- | The optional name provided in the @StartChangeSet@ request. If you do
+    -- not provide a name, one is set by default.
+    changeSetName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN associated with the unique identifier for the change set
+    -- referenced in this request.
+    changeSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the change request.
+    status :: Prelude.Maybe ChangeStatus,
     -- | The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
     -- request transitioned to a terminal state. The change cannot transition
     -- to a different state. Null if the request is not in a terminal state.
     endTime :: Prelude.Maybe Prelude.Text,
-    -- | The ARN associated with the unique identifier for the change set
-    -- referenced in this request.
-    changeSetArn :: Prelude.Maybe Prelude.Text,
+    -- | An array of @ChangeSummary@ objects.
+    changeSet :: Prelude.Maybe [ChangeSummary],
+    -- | The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
+    -- request started.
+    startTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,33 +196,33 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeChangeSetResponse_status' - The status of the change request.
---
--- 'startTime', 'describeChangeSetResponse_startTime' - The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
--- request started.
+-- 'failureDescription', 'describeChangeSetResponse_failureDescription' - Returned if there is a failure on the change set, but that failure is
+-- not related to any of the changes in the request.
 --
 -- 'failureCode', 'describeChangeSetResponse_failureCode' - Returned if the change set is in @FAILED@ status. Can be either
 -- @CLIENT_ERROR@, which means that there are issues with the request (see
 -- the @ErrorDetailList@), or @SERVER_FAULT@, which means that there is a
 -- problem in the system, and you should retry your request.
 --
--- 'changeSetName', 'describeChangeSetResponse_changeSetName' - The optional name provided in the @StartChangeSet@ request. If you do
--- not provide a name, one is set by default.
---
--- 'failureDescription', 'describeChangeSetResponse_failureDescription' - Returned if there is a failure on the change set, but that failure is
--- not related to any of the changes in the request.
---
 -- 'changeSetId', 'describeChangeSetResponse_changeSetId' - Required. The unique identifier for the change set referenced in this
 -- request.
 --
--- 'changeSet', 'describeChangeSetResponse_changeSet' - An array of @ChangeSummary@ objects.
+-- 'changeSetName', 'describeChangeSetResponse_changeSetName' - The optional name provided in the @StartChangeSet@ request. If you do
+-- not provide a name, one is set by default.
+--
+-- 'changeSetArn', 'describeChangeSetResponse_changeSetArn' - The ARN associated with the unique identifier for the change set
+-- referenced in this request.
+--
+-- 'status', 'describeChangeSetResponse_status' - The status of the change request.
 --
 -- 'endTime', 'describeChangeSetResponse_endTime' - The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
 -- request transitioned to a terminal state. The change cannot transition
 -- to a different state. Null if the request is not in a terminal state.
 --
--- 'changeSetArn', 'describeChangeSetResponse_changeSetArn' - The ARN associated with the unique identifier for the change set
--- referenced in this request.
+-- 'changeSet', 'describeChangeSetResponse_changeSet' - An array of @ChangeSummary@ objects.
+--
+-- 'startTime', 'describeChangeSetResponse_startTime' - The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
+-- request started.
 --
 -- 'httpStatus', 'describeChangeSetResponse_httpStatus' - The response's http status code.
 newDescribeChangeSetResponse ::
@@ -231,27 +231,23 @@ newDescribeChangeSetResponse ::
   DescribeChangeSetResponse
 newDescribeChangeSetResponse pHttpStatus_ =
   DescribeChangeSetResponse'
-    { status =
+    { failureDescription =
         Prelude.Nothing,
-      startTime = Prelude.Nothing,
       failureCode = Prelude.Nothing,
-      changeSetName = Prelude.Nothing,
-      failureDescription = Prelude.Nothing,
       changeSetId = Prelude.Nothing,
-      changeSet = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+      changeSetName = Prelude.Nothing,
       changeSetArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      changeSet = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of the change request.
-describeChangeSetResponse_status :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe ChangeStatus)
-describeChangeSetResponse_status = Lens.lens (\DescribeChangeSetResponse' {status} -> status) (\s@DescribeChangeSetResponse' {} a -> s {status = a} :: DescribeChangeSetResponse)
-
--- | The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
--- request started.
-describeChangeSetResponse_startTime :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
-describeChangeSetResponse_startTime = Lens.lens (\DescribeChangeSetResponse' {startTime} -> startTime) (\s@DescribeChangeSetResponse' {} a -> s {startTime = a} :: DescribeChangeSetResponse)
+-- | Returned if there is a failure on the change set, but that failure is
+-- not related to any of the changes in the request.
+describeChangeSetResponse_failureDescription :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
+describeChangeSetResponse_failureDescription = Lens.lens (\DescribeChangeSetResponse' {failureDescription} -> failureDescription) (\s@DescribeChangeSetResponse' {} a -> s {failureDescription = a} :: DescribeChangeSetResponse)
 
 -- | Returned if the change set is in @FAILED@ status. Can be either
 -- @CLIENT_ERROR@, which means that there are issues with the request (see
@@ -260,24 +256,24 @@ describeChangeSetResponse_startTime = Lens.lens (\DescribeChangeSetResponse' {st
 describeChangeSetResponse_failureCode :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe FailureCode)
 describeChangeSetResponse_failureCode = Lens.lens (\DescribeChangeSetResponse' {failureCode} -> failureCode) (\s@DescribeChangeSetResponse' {} a -> s {failureCode = a} :: DescribeChangeSetResponse)
 
--- | The optional name provided in the @StartChangeSet@ request. If you do
--- not provide a name, one is set by default.
-describeChangeSetResponse_changeSetName :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
-describeChangeSetResponse_changeSetName = Lens.lens (\DescribeChangeSetResponse' {changeSetName} -> changeSetName) (\s@DescribeChangeSetResponse' {} a -> s {changeSetName = a} :: DescribeChangeSetResponse)
-
--- | Returned if there is a failure on the change set, but that failure is
--- not related to any of the changes in the request.
-describeChangeSetResponse_failureDescription :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
-describeChangeSetResponse_failureDescription = Lens.lens (\DescribeChangeSetResponse' {failureDescription} -> failureDescription) (\s@DescribeChangeSetResponse' {} a -> s {failureDescription = a} :: DescribeChangeSetResponse)
-
 -- | Required. The unique identifier for the change set referenced in this
 -- request.
 describeChangeSetResponse_changeSetId :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_changeSetId = Lens.lens (\DescribeChangeSetResponse' {changeSetId} -> changeSetId) (\s@DescribeChangeSetResponse' {} a -> s {changeSetId = a} :: DescribeChangeSetResponse)
 
--- | An array of @ChangeSummary@ objects.
-describeChangeSetResponse_changeSet :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe [ChangeSummary])
-describeChangeSetResponse_changeSet = Lens.lens (\DescribeChangeSetResponse' {changeSet} -> changeSet) (\s@DescribeChangeSetResponse' {} a -> s {changeSet = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The optional name provided in the @StartChangeSet@ request. If you do
+-- not provide a name, one is set by default.
+describeChangeSetResponse_changeSetName :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
+describeChangeSetResponse_changeSetName = Lens.lens (\DescribeChangeSetResponse' {changeSetName} -> changeSetName) (\s@DescribeChangeSetResponse' {} a -> s {changeSetName = a} :: DescribeChangeSetResponse)
+
+-- | The ARN associated with the unique identifier for the change set
+-- referenced in this request.
+describeChangeSetResponse_changeSetArn :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
+describeChangeSetResponse_changeSetArn = Lens.lens (\DescribeChangeSetResponse' {changeSetArn} -> changeSetArn) (\s@DescribeChangeSetResponse' {} a -> s {changeSetArn = a} :: DescribeChangeSetResponse)
+
+-- | The status of the change request.
+describeChangeSetResponse_status :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe ChangeStatus)
+describeChangeSetResponse_status = Lens.lens (\DescribeChangeSetResponse' {status} -> status) (\s@DescribeChangeSetResponse' {} a -> s {status = a} :: DescribeChangeSetResponse)
 
 -- | The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
 -- request transitioned to a terminal state. The change cannot transition
@@ -285,10 +281,14 @@ describeChangeSetResponse_changeSet = Lens.lens (\DescribeChangeSetResponse' {ch
 describeChangeSetResponse_endTime :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
 describeChangeSetResponse_endTime = Lens.lens (\DescribeChangeSetResponse' {endTime} -> endTime) (\s@DescribeChangeSetResponse' {} a -> s {endTime = a} :: DescribeChangeSetResponse)
 
--- | The ARN associated with the unique identifier for the change set
--- referenced in this request.
-describeChangeSetResponse_changeSetArn :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
-describeChangeSetResponse_changeSetArn = Lens.lens (\DescribeChangeSetResponse' {changeSetArn} -> changeSetArn) (\s@DescribeChangeSetResponse' {} a -> s {changeSetArn = a} :: DescribeChangeSetResponse)
+-- | An array of @ChangeSummary@ objects.
+describeChangeSetResponse_changeSet :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe [ChangeSummary])
+describeChangeSetResponse_changeSet = Lens.lens (\DescribeChangeSetResponse' {changeSet} -> changeSet) (\s@DescribeChangeSetResponse' {} a -> s {changeSet = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the
+-- request started.
+describeChangeSetResponse_startTime :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe Prelude.Text)
+describeChangeSetResponse_startTime = Lens.lens (\DescribeChangeSetResponse' {startTime} -> startTime) (\s@DescribeChangeSetResponse' {} a -> s {startTime = a} :: DescribeChangeSetResponse)
 
 -- | The response's http status code.
 describeChangeSetResponse_httpStatus :: Lens.Lens' DescribeChangeSetResponse Prelude.Int
@@ -296,13 +296,13 @@ describeChangeSetResponse_httpStatus = Lens.lens (\DescribeChangeSetResponse' {h
 
 instance Prelude.NFData DescribeChangeSetResponse where
   rnf DescribeChangeSetResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf failureDescription
       `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf failureDescription
       `Prelude.seq` Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf changeSet
-      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf changeSetName
       `Prelude.seq` Prelude.rnf changeSetArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf changeSet
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf httpStatus

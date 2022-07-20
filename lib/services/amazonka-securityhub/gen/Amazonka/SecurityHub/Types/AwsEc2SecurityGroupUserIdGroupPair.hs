@@ -29,8 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data AwsEc2SecurityGroupUserIdGroupPair = AwsEc2SecurityGroupUserIdGroupPair'
   { -- | The ID of the VPC peering connection, if applicable.
     vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the VPC for the referenced security group, if applicable.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the security group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The status of a VPC peering connection, if applicable.
+    peeringStatus :: Prelude.Maybe Prelude.Text,
     -- | The ID of an Amazon Web Services account.
     --
     -- For a referenced security group in another VPC, the account ID of the
@@ -40,12 +42,10 @@ data AwsEc2SecurityGroupUserIdGroupPair = AwsEc2SecurityGroupUserIdGroupPair'
     -- [EC2-Classic] Required when adding or removing rules that reference a
     -- security group in another VPC.
     userId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the VPC for the referenced security group, if applicable.
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The status of a VPC peering connection, if applicable.
-    peeringStatus :: Prelude.Maybe Prelude.Text
+    groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +59,9 @@ data AwsEc2SecurityGroupUserIdGroupPair = AwsEc2SecurityGroupUserIdGroupPair'
 --
 -- 'vpcPeeringConnectionId', 'awsEc2SecurityGroupUserIdGroupPair_vpcPeeringConnectionId' - The ID of the VPC peering connection, if applicable.
 --
--- 'vpcId', 'awsEc2SecurityGroupUserIdGroupPair_vpcId' - The ID of the VPC for the referenced security group, if applicable.
+-- 'groupName', 'awsEc2SecurityGroupUserIdGroupPair_groupName' - The name of the security group.
+--
+-- 'peeringStatus', 'awsEc2SecurityGroupUserIdGroupPair_peeringStatus' - The status of a VPC peering connection, if applicable.
 --
 -- 'userId', 'awsEc2SecurityGroupUserIdGroupPair_userId' - The ID of an Amazon Web Services account.
 --
@@ -70,31 +72,33 @@ data AwsEc2SecurityGroupUserIdGroupPair = AwsEc2SecurityGroupUserIdGroupPair'
 -- [EC2-Classic] Required when adding or removing rules that reference a
 -- security group in another VPC.
 --
+-- 'vpcId', 'awsEc2SecurityGroupUserIdGroupPair_vpcId' - The ID of the VPC for the referenced security group, if applicable.
+--
 -- 'groupId', 'awsEc2SecurityGroupUserIdGroupPair_groupId' - The ID of the security group.
---
--- 'groupName', 'awsEc2SecurityGroupUserIdGroupPair_groupName' - The name of the security group.
---
--- 'peeringStatus', 'awsEc2SecurityGroupUserIdGroupPair_peeringStatus' - The status of a VPC peering connection, if applicable.
 newAwsEc2SecurityGroupUserIdGroupPair ::
   AwsEc2SecurityGroupUserIdGroupPair
 newAwsEc2SecurityGroupUserIdGroupPair =
   AwsEc2SecurityGroupUserIdGroupPair'
     { vpcPeeringConnectionId =
         Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      userId = Prelude.Nothing,
-      groupId = Prelude.Nothing,
       groupName = Prelude.Nothing,
-      peeringStatus = Prelude.Nothing
+      peeringStatus = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
 
 -- | The ID of the VPC peering connection, if applicable.
 awsEc2SecurityGroupUserIdGroupPair_vpcPeeringConnectionId :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
 awsEc2SecurityGroupUserIdGroupPair_vpcPeeringConnectionId = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {vpcPeeringConnectionId = a} :: AwsEc2SecurityGroupUserIdGroupPair)
 
--- | The ID of the VPC for the referenced security group, if applicable.
-awsEc2SecurityGroupUserIdGroupPair_vpcId :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
-awsEc2SecurityGroupUserIdGroupPair_vpcId = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {vpcId} -> vpcId) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {vpcId = a} :: AwsEc2SecurityGroupUserIdGroupPair)
+-- | The name of the security group.
+awsEc2SecurityGroupUserIdGroupPair_groupName :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
+awsEc2SecurityGroupUserIdGroupPair_groupName = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {groupName} -> groupName) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {groupName = a} :: AwsEc2SecurityGroupUserIdGroupPair)
+
+-- | The status of a VPC peering connection, if applicable.
+awsEc2SecurityGroupUserIdGroupPair_peeringStatus :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
+awsEc2SecurityGroupUserIdGroupPair_peeringStatus = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {peeringStatus} -> peeringStatus) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {peeringStatus = a} :: AwsEc2SecurityGroupUserIdGroupPair)
 
 -- | The ID of an Amazon Web Services account.
 --
@@ -107,17 +111,13 @@ awsEc2SecurityGroupUserIdGroupPair_vpcId = Lens.lens (\AwsEc2SecurityGroupUserId
 awsEc2SecurityGroupUserIdGroupPair_userId :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
 awsEc2SecurityGroupUserIdGroupPair_userId = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {userId} -> userId) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {userId = a} :: AwsEc2SecurityGroupUserIdGroupPair)
 
+-- | The ID of the VPC for the referenced security group, if applicable.
+awsEc2SecurityGroupUserIdGroupPair_vpcId :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
+awsEc2SecurityGroupUserIdGroupPair_vpcId = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {vpcId} -> vpcId) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {vpcId = a} :: AwsEc2SecurityGroupUserIdGroupPair)
+
 -- | The ID of the security group.
 awsEc2SecurityGroupUserIdGroupPair_groupId :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
 awsEc2SecurityGroupUserIdGroupPair_groupId = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {groupId} -> groupId) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {groupId = a} :: AwsEc2SecurityGroupUserIdGroupPair)
-
--- | The name of the security group.
-awsEc2SecurityGroupUserIdGroupPair_groupName :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
-awsEc2SecurityGroupUserIdGroupPair_groupName = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {groupName} -> groupName) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {groupName = a} :: AwsEc2SecurityGroupUserIdGroupPair)
-
--- | The status of a VPC peering connection, if applicable.
-awsEc2SecurityGroupUserIdGroupPair_peeringStatus :: Lens.Lens' AwsEc2SecurityGroupUserIdGroupPair (Prelude.Maybe Prelude.Text)
-awsEc2SecurityGroupUserIdGroupPair_peeringStatus = Lens.lens (\AwsEc2SecurityGroupUserIdGroupPair' {peeringStatus} -> peeringStatus) (\s@AwsEc2SecurityGroupUserIdGroupPair' {} a -> s {peeringStatus = a} :: AwsEc2SecurityGroupUserIdGroupPair)
 
 instance
   Core.FromJSON
@@ -129,11 +129,11 @@ instance
       ( \x ->
           AwsEc2SecurityGroupUserIdGroupPair'
             Prelude.<$> (x Core..:? "VpcPeeringConnectionId")
-            Prelude.<*> (x Core..:? "VpcId")
-            Prelude.<*> (x Core..:? "UserId")
-            Prelude.<*> (x Core..:? "GroupId")
             Prelude.<*> (x Core..:? "GroupName")
             Prelude.<*> (x Core..:? "PeeringStatus")
+            Prelude.<*> (x Core..:? "UserId")
+            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "GroupId")
       )
 
 instance
@@ -144,11 +144,11 @@ instance
     _salt
     AwsEc2SecurityGroupUserIdGroupPair' {..} =
       _salt `Prelude.hashWithSalt` vpcPeeringConnectionId
-        `Prelude.hashWithSalt` vpcId
-        `Prelude.hashWithSalt` userId
-        `Prelude.hashWithSalt` groupId
         `Prelude.hashWithSalt` groupName
         `Prelude.hashWithSalt` peeringStatus
+        `Prelude.hashWithSalt` userId
+        `Prelude.hashWithSalt` vpcId
+        `Prelude.hashWithSalt` groupId
 
 instance
   Prelude.NFData
@@ -156,11 +156,11 @@ instance
   where
   rnf AwsEc2SecurityGroupUserIdGroupPair' {..} =
     Prelude.rnf vpcPeeringConnectionId
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf peeringStatus
+      `Prelude.seq` Prelude.rnf userId
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf groupId
 
 instance
   Core.ToJSON
@@ -171,10 +171,10 @@ instance
       ( Prelude.catMaybes
           [ ("VpcPeeringConnectionId" Core..=)
               Prelude.<$> vpcPeeringConnectionId,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("UserId" Core..=) Prelude.<$> userId,
-            ("GroupId" Core..=) Prelude.<$> groupId,
             ("GroupName" Core..=) Prelude.<$> groupName,
-            ("PeeringStatus" Core..=) Prelude.<$> peeringStatus
+            ("PeeringStatus" Core..=) Prelude.<$> peeringStatus,
+            ("UserId" Core..=) Prelude.<$> userId,
+            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("GroupId" Core..=) Prelude.<$> groupId
           ]
       )

@@ -17,28 +17,28 @@ module Amazonka.ELB.Types
     defaultService,
 
     -- * Errors
-    _PolicyNotFoundException,
-    _AccessPointNotFoundException,
+    _InvalidSchemeException,
+    _ListenerNotFoundException,
     _DuplicatePolicyNameException,
-    _InvalidConfigurationRequestException,
-    _SubnetNotFoundException,
-    _LoadBalancerAttributeNotFoundException,
-    _InvalidSubnetException,
     _DuplicateTagKeysException,
-    _DuplicateListenerException,
-    _TooManyTagsException,
     _PolicyTypeNotFoundException,
+    _CertificateNotFoundException,
+    _TooManyTagsException,
+    _InvalidSecurityGroupException,
+    _LoadBalancerAttributeNotFoundException,
+    _DependencyThrottleException,
+    _PolicyNotFoundException,
+    _TooManyPoliciesException,
+    _TooManyAccessPointsException,
+    _AccessPointNotFoundException,
+    _InvalidEndPointException,
+    _InvalidSubnetException,
+    _OperationNotPermittedException,
+    _InvalidConfigurationRequestException,
+    _DuplicateListenerException,
+    _SubnetNotFoundException,
     _UnsupportedProtocolException,
     _DuplicateAccessPointNameException,
-    _InvalidSecurityGroupException,
-    _ListenerNotFoundException,
-    _InvalidEndPointException,
-    _OperationNotPermittedException,
-    _DependencyThrottleException,
-    _InvalidSchemeException,
-    _TooManyAccessPointsException,
-    _TooManyPoliciesException,
-    _CertificateNotFoundException,
 
     -- * Re-exported Types
     module Amazonka.ELB.Internal,
@@ -46,16 +46,16 @@ module Amazonka.ELB.Types
     -- * AccessLog
     AccessLog (..),
     newAccessLog,
-    accessLog_emitInterval,
     accessLog_s3BucketPrefix,
     accessLog_s3BucketName,
+    accessLog_emitInterval,
     accessLog_enabled,
 
     -- * AdditionalAttribute
     AdditionalAttribute (..),
     newAdditionalAttribute,
-    additionalAttribute_value,
     additionalAttribute_key,
+    additionalAttribute_value,
 
     -- * AppCookieStickinessPolicy
     AppCookieStickinessPolicy (..),
@@ -102,10 +102,10 @@ module Amazonka.ELB.Types
     -- * InstanceState
     InstanceState (..),
     newInstanceState,
-    instanceState_instanceId,
     instanceState_state,
-    instanceState_reasonCode,
     instanceState_description,
+    instanceState_instanceId,
+    instanceState_reasonCode,
 
     -- * LBCookieStickinessPolicy
     LBCookieStickinessPolicy (..),
@@ -116,14 +116,14 @@ module Amazonka.ELB.Types
     -- * Limit
     Limit (..),
     newLimit,
-    limit_max,
     limit_name,
+    limit_max,
 
     -- * Listener
     Listener (..),
     newListener,
-    listener_instanceProtocol,
     listener_sSLCertificateId,
+    listener_instanceProtocol,
     listener_protocol,
     listener_loadBalancerPort,
     listener_instancePort,
@@ -131,37 +131,37 @@ module Amazonka.ELB.Types
     -- * ListenerDescription
     ListenerDescription (..),
     newListenerDescription,
-    listenerDescription_policyNames,
     listenerDescription_listener,
+    listenerDescription_policyNames,
 
     -- * LoadBalancerAttributes
     LoadBalancerAttributes (..),
     newLoadBalancerAttributes,
-    loadBalancerAttributes_crossZoneLoadBalancing,
-    loadBalancerAttributes_accessLog,
-    loadBalancerAttributes_additionalAttributes,
     loadBalancerAttributes_connectionSettings,
     loadBalancerAttributes_connectionDraining,
+    loadBalancerAttributes_additionalAttributes,
+    loadBalancerAttributes_accessLog,
+    loadBalancerAttributes_crossZoneLoadBalancing,
 
     -- * LoadBalancerDescription
     LoadBalancerDescription (..),
     newLoadBalancerDescription,
-    loadBalancerDescription_sourceSecurityGroup,
-    loadBalancerDescription_canonicalHostedZoneName,
-    loadBalancerDescription_securityGroups,
-    loadBalancerDescription_healthCheck,
-    loadBalancerDescription_loadBalancerName,
-    loadBalancerDescription_createdTime,
-    loadBalancerDescription_vPCId,
-    loadBalancerDescription_subnets,
-    loadBalancerDescription_availabilityZones,
-    loadBalancerDescription_backendServerDescriptions,
-    loadBalancerDescription_canonicalHostedZoneNameID,
     loadBalancerDescription_instances,
+    loadBalancerDescription_healthCheck,
     loadBalancerDescription_scheme,
+    loadBalancerDescription_createdTime,
+    loadBalancerDescription_canonicalHostedZoneName,
+    loadBalancerDescription_canonicalHostedZoneNameID,
+    loadBalancerDescription_loadBalancerName,
+    loadBalancerDescription_subnets,
+    loadBalancerDescription_sourceSecurityGroup,
+    loadBalancerDescription_availabilityZones,
     loadBalancerDescription_listenerDescriptions,
-    loadBalancerDescription_dNSName,
     loadBalancerDescription_policies,
+    loadBalancerDescription_backendServerDescriptions,
+    loadBalancerDescription_securityGroups,
+    loadBalancerDescription_vPCId,
+    loadBalancerDescription_dNSName,
 
     -- * Policies
     Policies (..),
@@ -185,11 +185,11 @@ module Amazonka.ELB.Types
     -- * PolicyAttributeTypeDescription
     PolicyAttributeTypeDescription (..),
     newPolicyAttributeTypeDescription,
+    policyAttributeTypeDescription_defaultValue,
+    policyAttributeTypeDescription_description,
     policyAttributeTypeDescription_attributeType,
     policyAttributeTypeDescription_cardinality,
-    policyAttributeTypeDescription_defaultValue,
     policyAttributeTypeDescription_attributeName,
-    policyAttributeTypeDescription_description,
 
     -- * PolicyDescription
     PolicyDescription (..),
@@ -201,9 +201,9 @@ module Amazonka.ELB.Types
     -- * PolicyTypeDescription
     PolicyTypeDescription (..),
     newPolicyTypeDescription,
+    policyTypeDescription_policyAttributeTypeDescriptions,
     policyTypeDescription_policyTypeName,
     policyTypeDescription_description,
-    policyTypeDescription_policyAttributeTypeDescriptions,
 
     -- * SourceSecurityGroup
     SourceSecurityGroup (..),
@@ -220,8 +220,8 @@ module Amazonka.ELB.Types
     -- * TagDescription
     TagDescription (..),
     newTagDescription,
-    tagDescription_loadBalancerName,
     tagDescription_tags,
+    tagDescription_loadBalancerName,
 
     -- * TagKeyOnly
     TagKeyOnly (..),
@@ -287,35 +287,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -324,28 +297,57 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | One or more of the specified policies do not exist.
-_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyNotFoundException =
+-- | The specified value for the schema is not valid. You can only specify a
+-- scheme for load balancers in a VPC.
+_InvalidSchemeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSchemeException =
   Core._MatchServiceError
     defaultService
-    "PolicyNotFound"
+    "InvalidScheme"
     Prelude.. Core.hasStatus 400
 
--- | The specified load balancer does not exist.
-_AccessPointNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessPointNotFoundException =
+-- | The load balancer does not have a listener configured at the specified
+-- port.
+_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ListenerNotFoundException =
   Core._MatchServiceError
     defaultService
-    "LoadBalancerNotFound"
+    "ListenerNotFound"
     Prelude.. Core.hasStatus 400
 
 -- | A policy with the specified name already exists for this load balancer.
@@ -356,38 +358,6 @@ _DuplicatePolicyNameException =
     "DuplicatePolicyName"
     Prelude.. Core.hasStatus 400
 
--- | The requested configuration change is not valid.
-_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidConfigurationRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidConfigurationRequest"
-    Prelude.. Core.hasStatus 409
-
--- | One or more of the specified subnets do not exist.
-_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "SubnetNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | The specified load balancer attribute does not exist.
-_LoadBalancerAttributeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LoadBalancerAttributeNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "LoadBalancerAttributeNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | The specified VPC has no associated Internet gateway.
-_InvalidSubnetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSubnetException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSubnet"
-    Prelude.. Core.hasStatus 400
-
 -- | A tag key was specified more than once.
 _DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateTagKeysException =
@@ -396,13 +366,23 @@ _DuplicateTagKeysException =
     "DuplicateTagKeys"
     Prelude.. Core.hasStatus 400
 
--- | A listener already exists for the specified load balancer name and port,
--- but with a different instance port, protocol, or SSL certificate.
-_DuplicateListenerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateListenerException =
+-- | One or more of the specified policy types do not exist.
+_PolicyTypeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyTypeNotFoundException =
   Core._MatchServiceError
     defaultService
-    "DuplicateListener"
+    "PolicyTypeNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified ARN does not refer to a valid SSL certificate in AWS
+-- Identity and Access Management (IAM) or AWS Certificate Manager (ACM).
+-- Note that if you recently uploaded the certificate to IAM, this error
+-- might indicate that the certificate is not fully available yet.
+_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "CertificateNotFound"
     Prelude.. Core.hasStatus 400
 
 -- | The quota for the number of tags that can be assigned to a load balancer
@@ -414,12 +394,111 @@ _TooManyTagsException =
     "TooManyTags"
     Prelude.. Core.hasStatus 400
 
--- | One or more of the specified policy types do not exist.
-_PolicyTypeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyTypeNotFoundException =
+-- | One or more of the specified security groups do not exist.
+_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSecurityGroupException =
   Core._MatchServiceError
     defaultService
-    "PolicyTypeNotFound"
+    "InvalidSecurityGroup"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified load balancer attribute does not exist.
+_LoadBalancerAttributeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LoadBalancerAttributeNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "LoadBalancerAttributeNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | A request made by Elastic Load Balancing to another service exceeds the
+-- maximum request rate permitted for your account.
+_DependencyThrottleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependencyThrottleException =
+  Core._MatchServiceError
+    defaultService
+    "DependencyThrottle"
+    Prelude.. Core.hasStatus 400
+
+-- | One or more of the specified policies do not exist.
+_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | The quota for the number of policies for this load balancer has been
+-- reached.
+_TooManyPoliciesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyPoliciesException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyPolicies"
+    Prelude.. Core.hasStatus 400
+
+-- | The quota for the number of load balancers has been reached.
+_TooManyAccessPointsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyAccessPointsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyLoadBalancers"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified load balancer does not exist.
+_AccessPointNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessPointNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "LoadBalancerNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified endpoint is not valid.
+_InvalidEndPointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEndPointException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInstance"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified VPC has no associated Internet gateway.
+_InvalidSubnetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnetException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSubnet"
+    Prelude.. Core.hasStatus 400
+
+-- | This operation is not allowed.
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotPermitted"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested configuration change is not valid.
+_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidConfigurationRequest"
+    Prelude.. Core.hasStatus 409
+
+-- | A listener already exists for the specified load balancer name and port,
+-- but with a different instance port, protocol, or SSL certificate.
+_DuplicateListenerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateListenerException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateListener"
+    Prelude.. Core.hasStatus 400
+
+-- | One or more of the specified subnets do not exist.
+_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "SubnetNotFound"
     Prelude.. Core.hasStatus 400
 
 -- | The specified protocol or signature version is not supported.
@@ -436,83 +515,4 @@ _DuplicateAccessPointNameException =
   Core._MatchServiceError
     defaultService
     "DuplicateLoadBalancerName"
-    Prelude.. Core.hasStatus 400
-
--- | One or more of the specified security groups do not exist.
-_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSecurityGroupException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSecurityGroup"
-    Prelude.. Core.hasStatus 400
-
--- | The load balancer does not have a listener configured at the specified
--- port.
-_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ListenerNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ListenerNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | The specified endpoint is not valid.
-_InvalidEndPointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidEndPointException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInstance"
-    Prelude.. Core.hasStatus 400
-
--- | This operation is not allowed.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotPermittedException =
-  Core._MatchServiceError
-    defaultService
-    "OperationNotPermitted"
-    Prelude.. Core.hasStatus 400
-
--- | A request made by Elastic Load Balancing to another service exceeds the
--- maximum request rate permitted for your account.
-_DependencyThrottleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DependencyThrottleException =
-  Core._MatchServiceError
-    defaultService
-    "DependencyThrottle"
-    Prelude.. Core.hasStatus 400
-
--- | The specified value for the schema is not valid. You can only specify a
--- scheme for load balancers in a VPC.
-_InvalidSchemeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSchemeException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidScheme"
-    Prelude.. Core.hasStatus 400
-
--- | The quota for the number of load balancers has been reached.
-_TooManyAccessPointsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyAccessPointsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyLoadBalancers"
-    Prelude.. Core.hasStatus 400
-
--- | The quota for the number of policies for this load balancer has been
--- reached.
-_TooManyPoliciesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyPoliciesException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyPolicies"
-    Prelude.. Core.hasStatus 400
-
--- | The specified ARN does not refer to a valid SSL certificate in AWS
--- Identity and Access Management (IAM) or AWS Certificate Manager (ACM).
--- Note that if you recently uploaded the certificate to IAM, this error
--- might indicate that the certificate is not fully available yet.
-_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "CertificateNotFound"
     Prelude.. Core.hasStatus 400

@@ -28,21 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryExecutionStatistics' smart constructor.
 data QueryExecutionStatistics = QueryExecutionStatistics'
-  { -- | The number of milliseconds that Athena took to run the query.
-    totalExecutionTimeInMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The number of milliseconds that the query took to execute.
-    engineExecutionTimeInMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The number of milliseconds that Athena took to plan the query processing
-    -- flow. This includes the time spent retrieving table partitions from the
-    -- data source. Note that because the query engine performs the query
-    -- planning, query planning time is a subset of engine processing time.
-    queryPlanningTimeInMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The number of bytes in the data that was queried.
+  { -- | The number of bytes in the data that was queried.
     dataScannedInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The number of milliseconds that the query was in your query queue
     -- waiting for resources. Note that if transient errors occur, Athena might
     -- automatically add the query back to the queue.
     queryQueueTimeInMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The number of milliseconds that Athena took to finalize and publish the
+    -- query results after the query engine finished running the query.
+    serviceProcessingTimeInMillis :: Prelude.Maybe Prelude.Integer,
     -- | The location and file name of a data manifest file. The manifest file is
     -- saved to the Athena query results location in Amazon S3. The manifest
     -- file tracks files that the query wrote to Amazon S3. If the query fails,
@@ -52,9 +46,15 @@ data QueryExecutionStatistics = QueryExecutionStatistics'
     -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History>
     -- in the /Amazon Athena User Guide/.
     dataManifestLocation :: Prelude.Maybe Prelude.Text,
-    -- | The number of milliseconds that Athena took to finalize and publish the
-    -- query results after the query engine finished running the query.
-    serviceProcessingTimeInMillis :: Prelude.Maybe Prelude.Integer
+    -- | The number of milliseconds that Athena took to run the query.
+    totalExecutionTimeInMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The number of milliseconds that the query took to execute.
+    engineExecutionTimeInMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The number of milliseconds that Athena took to plan the query processing
+    -- flow. This includes the time spent retrieving table partitions from the
+    -- data source. Note that because the query engine performs the query
+    -- planning, query planning time is a subset of engine processing time.
+    queryPlanningTimeInMillis :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,20 +66,14 @@ data QueryExecutionStatistics = QueryExecutionStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalExecutionTimeInMillis', 'queryExecutionStatistics_totalExecutionTimeInMillis' - The number of milliseconds that Athena took to run the query.
---
--- 'engineExecutionTimeInMillis', 'queryExecutionStatistics_engineExecutionTimeInMillis' - The number of milliseconds that the query took to execute.
---
--- 'queryPlanningTimeInMillis', 'queryExecutionStatistics_queryPlanningTimeInMillis' - The number of milliseconds that Athena took to plan the query processing
--- flow. This includes the time spent retrieving table partitions from the
--- data source. Note that because the query engine performs the query
--- planning, query planning time is a subset of engine processing time.
---
 -- 'dataScannedInBytes', 'queryExecutionStatistics_dataScannedInBytes' - The number of bytes in the data that was queried.
 --
 -- 'queryQueueTimeInMillis', 'queryExecutionStatistics_queryQueueTimeInMillis' - The number of milliseconds that the query was in your query queue
 -- waiting for resources. Note that if transient errors occur, Athena might
 -- automatically add the query back to the queue.
+--
+-- 'serviceProcessingTimeInMillis', 'queryExecutionStatistics_serviceProcessingTimeInMillis' - The number of milliseconds that Athena took to finalize and publish the
+-- query results after the query engine finished running the query.
 --
 -- 'dataManifestLocation', 'queryExecutionStatistics_dataManifestLocation' - The location and file name of a data manifest file. The manifest file is
 -- saved to the Athena query results location in Amazon S3. The manifest
@@ -90,21 +84,53 @@ data QueryExecutionStatistics = QueryExecutionStatistics'
 -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History>
 -- in the /Amazon Athena User Guide/.
 --
--- 'serviceProcessingTimeInMillis', 'queryExecutionStatistics_serviceProcessingTimeInMillis' - The number of milliseconds that Athena took to finalize and publish the
--- query results after the query engine finished running the query.
+-- 'totalExecutionTimeInMillis', 'queryExecutionStatistics_totalExecutionTimeInMillis' - The number of milliseconds that Athena took to run the query.
+--
+-- 'engineExecutionTimeInMillis', 'queryExecutionStatistics_engineExecutionTimeInMillis' - The number of milliseconds that the query took to execute.
+--
+-- 'queryPlanningTimeInMillis', 'queryExecutionStatistics_queryPlanningTimeInMillis' - The number of milliseconds that Athena took to plan the query processing
+-- flow. This includes the time spent retrieving table partitions from the
+-- data source. Note that because the query engine performs the query
+-- planning, query planning time is a subset of engine processing time.
 newQueryExecutionStatistics ::
   QueryExecutionStatistics
 newQueryExecutionStatistics =
   QueryExecutionStatistics'
-    { totalExecutionTimeInMillis =
+    { dataScannedInBytes =
         Prelude.Nothing,
-      engineExecutionTimeInMillis = Prelude.Nothing,
-      queryPlanningTimeInMillis = Prelude.Nothing,
-      dataScannedInBytes = Prelude.Nothing,
       queryQueueTimeInMillis = Prelude.Nothing,
+      serviceProcessingTimeInMillis = Prelude.Nothing,
       dataManifestLocation = Prelude.Nothing,
-      serviceProcessingTimeInMillis = Prelude.Nothing
+      totalExecutionTimeInMillis = Prelude.Nothing,
+      engineExecutionTimeInMillis = Prelude.Nothing,
+      queryPlanningTimeInMillis = Prelude.Nothing
     }
+
+-- | The number of bytes in the data that was queried.
+queryExecutionStatistics_dataScannedInBytes :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
+queryExecutionStatistics_dataScannedInBytes = Lens.lens (\QueryExecutionStatistics' {dataScannedInBytes} -> dataScannedInBytes) (\s@QueryExecutionStatistics' {} a -> s {dataScannedInBytes = a} :: QueryExecutionStatistics)
+
+-- | The number of milliseconds that the query was in your query queue
+-- waiting for resources. Note that if transient errors occur, Athena might
+-- automatically add the query back to the queue.
+queryExecutionStatistics_queryQueueTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
+queryExecutionStatistics_queryQueueTimeInMillis = Lens.lens (\QueryExecutionStatistics' {queryQueueTimeInMillis} -> queryQueueTimeInMillis) (\s@QueryExecutionStatistics' {} a -> s {queryQueueTimeInMillis = a} :: QueryExecutionStatistics)
+
+-- | The number of milliseconds that Athena took to finalize and publish the
+-- query results after the query engine finished running the query.
+queryExecutionStatistics_serviceProcessingTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
+queryExecutionStatistics_serviceProcessingTimeInMillis = Lens.lens (\QueryExecutionStatistics' {serviceProcessingTimeInMillis} -> serviceProcessingTimeInMillis) (\s@QueryExecutionStatistics' {} a -> s {serviceProcessingTimeInMillis = a} :: QueryExecutionStatistics)
+
+-- | The location and file name of a data manifest file. The manifest file is
+-- saved to the Athena query results location in Amazon S3. The manifest
+-- file tracks files that the query wrote to Amazon S3. If the query fails,
+-- the manifest file also tracks files that the query intended to write.
+-- The manifest is useful for identifying orphaned files resulting from a
+-- failed query. For more information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History>
+-- in the /Amazon Athena User Guide/.
+queryExecutionStatistics_dataManifestLocation :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Text)
+queryExecutionStatistics_dataManifestLocation = Lens.lens (\QueryExecutionStatistics' {dataManifestLocation} -> dataManifestLocation) (\s@QueryExecutionStatistics' {} a -> s {dataManifestLocation = a} :: QueryExecutionStatistics)
 
 -- | The number of milliseconds that Athena took to run the query.
 queryExecutionStatistics_totalExecutionTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
@@ -121,64 +147,37 @@ queryExecutionStatistics_engineExecutionTimeInMillis = Lens.lens (\QueryExecutio
 queryExecutionStatistics_queryPlanningTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
 queryExecutionStatistics_queryPlanningTimeInMillis = Lens.lens (\QueryExecutionStatistics' {queryPlanningTimeInMillis} -> queryPlanningTimeInMillis) (\s@QueryExecutionStatistics' {} a -> s {queryPlanningTimeInMillis = a} :: QueryExecutionStatistics)
 
--- | The number of bytes in the data that was queried.
-queryExecutionStatistics_dataScannedInBytes :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
-queryExecutionStatistics_dataScannedInBytes = Lens.lens (\QueryExecutionStatistics' {dataScannedInBytes} -> dataScannedInBytes) (\s@QueryExecutionStatistics' {} a -> s {dataScannedInBytes = a} :: QueryExecutionStatistics)
-
--- | The number of milliseconds that the query was in your query queue
--- waiting for resources. Note that if transient errors occur, Athena might
--- automatically add the query back to the queue.
-queryExecutionStatistics_queryQueueTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
-queryExecutionStatistics_queryQueueTimeInMillis = Lens.lens (\QueryExecutionStatistics' {queryQueueTimeInMillis} -> queryQueueTimeInMillis) (\s@QueryExecutionStatistics' {} a -> s {queryQueueTimeInMillis = a} :: QueryExecutionStatistics)
-
--- | The location and file name of a data manifest file. The manifest file is
--- saved to the Athena query results location in Amazon S3. The manifest
--- file tracks files that the query wrote to Amazon S3. If the query fails,
--- the manifest file also tracks files that the query intended to write.
--- The manifest is useful for identifying orphaned files resulting from a
--- failed query. For more information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with Query Results, Output Files, and Query History>
--- in the /Amazon Athena User Guide/.
-queryExecutionStatistics_dataManifestLocation :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Text)
-queryExecutionStatistics_dataManifestLocation = Lens.lens (\QueryExecutionStatistics' {dataManifestLocation} -> dataManifestLocation) (\s@QueryExecutionStatistics' {} a -> s {dataManifestLocation = a} :: QueryExecutionStatistics)
-
--- | The number of milliseconds that Athena took to finalize and publish the
--- query results after the query engine finished running the query.
-queryExecutionStatistics_serviceProcessingTimeInMillis :: Lens.Lens' QueryExecutionStatistics (Prelude.Maybe Prelude.Integer)
-queryExecutionStatistics_serviceProcessingTimeInMillis = Lens.lens (\QueryExecutionStatistics' {serviceProcessingTimeInMillis} -> serviceProcessingTimeInMillis) (\s@QueryExecutionStatistics' {} a -> s {serviceProcessingTimeInMillis = a} :: QueryExecutionStatistics)
-
 instance Core.FromJSON QueryExecutionStatistics where
   parseJSON =
     Core.withObject
       "QueryExecutionStatistics"
       ( \x ->
           QueryExecutionStatistics'
-            Prelude.<$> (x Core..:? "TotalExecutionTimeInMillis")
+            Prelude.<$> (x Core..:? "DataScannedInBytes")
+            Prelude.<*> (x Core..:? "QueryQueueTimeInMillis")
+            Prelude.<*> (x Core..:? "ServiceProcessingTimeInMillis")
+            Prelude.<*> (x Core..:? "DataManifestLocation")
+            Prelude.<*> (x Core..:? "TotalExecutionTimeInMillis")
             Prelude.<*> (x Core..:? "EngineExecutionTimeInMillis")
             Prelude.<*> (x Core..:? "QueryPlanningTimeInMillis")
-            Prelude.<*> (x Core..:? "DataScannedInBytes")
-            Prelude.<*> (x Core..:? "QueryQueueTimeInMillis")
-            Prelude.<*> (x Core..:? "DataManifestLocation")
-            Prelude.<*> (x Core..:? "ServiceProcessingTimeInMillis")
       )
 
 instance Prelude.Hashable QueryExecutionStatistics where
   hashWithSalt _salt QueryExecutionStatistics' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` dataScannedInBytes
+      `Prelude.hashWithSalt` queryQueueTimeInMillis
+      `Prelude.hashWithSalt` serviceProcessingTimeInMillis
+      `Prelude.hashWithSalt` dataManifestLocation
       `Prelude.hashWithSalt` totalExecutionTimeInMillis
       `Prelude.hashWithSalt` engineExecutionTimeInMillis
       `Prelude.hashWithSalt` queryPlanningTimeInMillis
-      `Prelude.hashWithSalt` dataScannedInBytes
-      `Prelude.hashWithSalt` queryQueueTimeInMillis
-      `Prelude.hashWithSalt` dataManifestLocation
-      `Prelude.hashWithSalt` serviceProcessingTimeInMillis
 
 instance Prelude.NFData QueryExecutionStatistics where
   rnf QueryExecutionStatistics' {..} =
-    Prelude.rnf totalExecutionTimeInMillis
+    Prelude.rnf dataScannedInBytes
+      `Prelude.seq` Prelude.rnf queryQueueTimeInMillis
+      `Prelude.seq` Prelude.rnf serviceProcessingTimeInMillis
+      `Prelude.seq` Prelude.rnf dataManifestLocation
+      `Prelude.seq` Prelude.rnf totalExecutionTimeInMillis
       `Prelude.seq` Prelude.rnf engineExecutionTimeInMillis
       `Prelude.seq` Prelude.rnf queryPlanningTimeInMillis
-      `Prelude.seq` Prelude.rnf dataScannedInBytes
-      `Prelude.seq` Prelude.rnf queryQueueTimeInMillis
-      `Prelude.seq` Prelude.rnf dataManifestLocation
-      `Prelude.seq` Prelude.rnf serviceProcessingTimeInMillis

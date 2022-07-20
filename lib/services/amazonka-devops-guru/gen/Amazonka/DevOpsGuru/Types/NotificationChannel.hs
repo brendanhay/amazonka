@@ -42,11 +42,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotificationChannel' smart constructor.
 data NotificationChannel = NotificationChannel'
-  { -- | A @NotificationChannelConfig@ object that contains information about
+  { -- | The ID of a notification channel.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | A @NotificationChannelConfig@ object that contains information about
     -- configured notification channels.
-    config :: Prelude.Maybe NotificationChannelConfig,
-    -- | The ID of a notification channel.
-    id :: Prelude.Maybe Prelude.Text
+    config :: Prelude.Maybe NotificationChannelConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,26 +58,26 @@ data NotificationChannel = NotificationChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'id', 'notificationChannel_id' - The ID of a notification channel.
+--
 -- 'config', 'notificationChannel_config' - A @NotificationChannelConfig@ object that contains information about
 -- configured notification channels.
---
--- 'id', 'notificationChannel_id' - The ID of a notification channel.
 newNotificationChannel ::
   NotificationChannel
 newNotificationChannel =
   NotificationChannel'
-    { config = Prelude.Nothing,
-      id = Prelude.Nothing
+    { id = Prelude.Nothing,
+      config = Prelude.Nothing
     }
+
+-- | The ID of a notification channel.
+notificationChannel_id :: Lens.Lens' NotificationChannel (Prelude.Maybe Prelude.Text)
+notificationChannel_id = Lens.lens (\NotificationChannel' {id} -> id) (\s@NotificationChannel' {} a -> s {id = a} :: NotificationChannel)
 
 -- | A @NotificationChannelConfig@ object that contains information about
 -- configured notification channels.
 notificationChannel_config :: Lens.Lens' NotificationChannel (Prelude.Maybe NotificationChannelConfig)
 notificationChannel_config = Lens.lens (\NotificationChannel' {config} -> config) (\s@NotificationChannel' {} a -> s {config = a} :: NotificationChannel)
-
--- | The ID of a notification channel.
-notificationChannel_id :: Lens.Lens' NotificationChannel (Prelude.Maybe Prelude.Text)
-notificationChannel_id = Lens.lens (\NotificationChannel' {id} -> id) (\s@NotificationChannel' {} a -> s {id = a} :: NotificationChannel)
 
 instance Core.FromJSON NotificationChannel where
   parseJSON =
@@ -85,14 +85,14 @@ instance Core.FromJSON NotificationChannel where
       "NotificationChannel"
       ( \x ->
           NotificationChannel'
-            Prelude.<$> (x Core..:? "Config") Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Config")
       )
 
 instance Prelude.Hashable NotificationChannel where
   hashWithSalt _salt NotificationChannel' {..} =
-    _salt `Prelude.hashWithSalt` config
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` config
 
 instance Prelude.NFData NotificationChannel where
   rnf NotificationChannel' {..} =
-    Prelude.rnf config `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id `Prelude.seq` Prelude.rnf config

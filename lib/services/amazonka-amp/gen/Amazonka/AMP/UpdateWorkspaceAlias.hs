@@ -27,8 +27,8 @@ module Amazonka.AMP.UpdateWorkspaceAlias
     newUpdateWorkspaceAlias,
 
     -- * Request Lenses
-    updateWorkspaceAlias_clientToken,
     updateWorkspaceAlias_alias,
+    updateWorkspaceAlias_clientToken,
     updateWorkspaceAlias_workspaceId,
 
     -- * Destructuring the Response
@@ -48,11 +48,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateWorkspaceAlias' smart constructor.
 data UpdateWorkspaceAlias = UpdateWorkspaceAlias'
-  { -- | Optional, unique, case-sensitive, user-provided identifier to ensure the
+  { -- | The new alias of the workspace.
+    alias :: Prelude.Maybe Prelude.Text,
+    -- | Optional, unique, case-sensitive, user-provided identifier to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The new alias of the workspace.
-    alias :: Prelude.Maybe Prelude.Text,
     -- | The ID of the workspace being updated.
     workspaceId :: Prelude.Text
   }
@@ -66,10 +66,10 @@ data UpdateWorkspaceAlias = UpdateWorkspaceAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'alias', 'updateWorkspaceAlias_alias' - The new alias of the workspace.
+--
 -- 'clientToken', 'updateWorkspaceAlias_clientToken' - Optional, unique, case-sensitive, user-provided identifier to ensure the
 -- idempotency of the request.
---
--- 'alias', 'updateWorkspaceAlias_alias' - The new alias of the workspace.
 --
 -- 'workspaceId', 'updateWorkspaceAlias_workspaceId' - The ID of the workspace being updated.
 newUpdateWorkspaceAlias ::
@@ -78,20 +78,19 @@ newUpdateWorkspaceAlias ::
   UpdateWorkspaceAlias
 newUpdateWorkspaceAlias pWorkspaceId_ =
   UpdateWorkspaceAlias'
-    { clientToken =
-        Prelude.Nothing,
-      alias = Prelude.Nothing,
+    { alias = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       workspaceId = pWorkspaceId_
     }
+
+-- | The new alias of the workspace.
+updateWorkspaceAlias_alias :: Lens.Lens' UpdateWorkspaceAlias (Prelude.Maybe Prelude.Text)
+updateWorkspaceAlias_alias = Lens.lens (\UpdateWorkspaceAlias' {alias} -> alias) (\s@UpdateWorkspaceAlias' {} a -> s {alias = a} :: UpdateWorkspaceAlias)
 
 -- | Optional, unique, case-sensitive, user-provided identifier to ensure the
 -- idempotency of the request.
 updateWorkspaceAlias_clientToken :: Lens.Lens' UpdateWorkspaceAlias (Prelude.Maybe Prelude.Text)
 updateWorkspaceAlias_clientToken = Lens.lens (\UpdateWorkspaceAlias' {clientToken} -> clientToken) (\s@UpdateWorkspaceAlias' {} a -> s {clientToken = a} :: UpdateWorkspaceAlias)
-
--- | The new alias of the workspace.
-updateWorkspaceAlias_alias :: Lens.Lens' UpdateWorkspaceAlias (Prelude.Maybe Prelude.Text)
-updateWorkspaceAlias_alias = Lens.lens (\UpdateWorkspaceAlias' {alias} -> alias) (\s@UpdateWorkspaceAlias' {} a -> s {alias = a} :: UpdateWorkspaceAlias)
 
 -- | The ID of the workspace being updated.
 updateWorkspaceAlias_workspaceId :: Lens.Lens' UpdateWorkspaceAlias Prelude.Text
@@ -107,14 +106,14 @@ instance Core.AWSRequest UpdateWorkspaceAlias where
 
 instance Prelude.Hashable UpdateWorkspaceAlias where
   hashWithSalt _salt UpdateWorkspaceAlias' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` alias
+    _salt `Prelude.hashWithSalt` alias
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData UpdateWorkspaceAlias where
   rnf UpdateWorkspaceAlias' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf alias
+    Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders UpdateWorkspaceAlias where
@@ -132,8 +131,8 @@ instance Core.ToJSON UpdateWorkspaceAlias where
   toJSON UpdateWorkspaceAlias' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("alias" Core..=) Prelude.<$> alias
+          [ ("alias" Core..=) Prelude.<$> alias,
+            ("clientToken" Core..=) Prelude.<$> clientToken
           ]
       )
 

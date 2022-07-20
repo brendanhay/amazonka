@@ -47,10 +47,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailWorkflowExecutionDecisionAttributes' smart constructor.
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes'
-  { -- | A descriptive reason for the failure that may help in diagnostics.
-    reason :: Prelude.Maybe Prelude.Text,
-    -- | Details of the failure.
-    details :: Prelude.Maybe Prelude.Text
+  { -- | Details of the failure.
+    details :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive reason for the failure that may help in diagnostics.
+    reason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,25 +62,25 @@ data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttr
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reason', 'failWorkflowExecutionDecisionAttributes_reason' - A descriptive reason for the failure that may help in diagnostics.
---
 -- 'details', 'failWorkflowExecutionDecisionAttributes_details' - Details of the failure.
+--
+-- 'reason', 'failWorkflowExecutionDecisionAttributes_reason' - A descriptive reason for the failure that may help in diagnostics.
 newFailWorkflowExecutionDecisionAttributes ::
   FailWorkflowExecutionDecisionAttributes
 newFailWorkflowExecutionDecisionAttributes =
   FailWorkflowExecutionDecisionAttributes'
-    { reason =
+    { details =
         Prelude.Nothing,
-      details = Prelude.Nothing
+      reason = Prelude.Nothing
     }
-
--- | A descriptive reason for the failure that may help in diagnostics.
-failWorkflowExecutionDecisionAttributes_reason :: Lens.Lens' FailWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
-failWorkflowExecutionDecisionAttributes_reason = Lens.lens (\FailWorkflowExecutionDecisionAttributes' {reason} -> reason) (\s@FailWorkflowExecutionDecisionAttributes' {} a -> s {reason = a} :: FailWorkflowExecutionDecisionAttributes)
 
 -- | Details of the failure.
 failWorkflowExecutionDecisionAttributes_details :: Lens.Lens' FailWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
 failWorkflowExecutionDecisionAttributes_details = Lens.lens (\FailWorkflowExecutionDecisionAttributes' {details} -> details) (\s@FailWorkflowExecutionDecisionAttributes' {} a -> s {details = a} :: FailWorkflowExecutionDecisionAttributes)
+
+-- | A descriptive reason for the failure that may help in diagnostics.
+failWorkflowExecutionDecisionAttributes_reason :: Lens.Lens' FailWorkflowExecutionDecisionAttributes (Prelude.Maybe Prelude.Text)
+failWorkflowExecutionDecisionAttributes_reason = Lens.lens (\FailWorkflowExecutionDecisionAttributes' {reason} -> reason) (\s@FailWorkflowExecutionDecisionAttributes' {} a -> s {reason = a} :: FailWorkflowExecutionDecisionAttributes)
 
 instance
   Prelude.Hashable
@@ -89,16 +89,16 @@ instance
   hashWithSalt
     _salt
     FailWorkflowExecutionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` reason
-        `Prelude.hashWithSalt` details
+      _salt `Prelude.hashWithSalt` details
+        `Prelude.hashWithSalt` reason
 
 instance
   Prelude.NFData
     FailWorkflowExecutionDecisionAttributes
   where
   rnf FailWorkflowExecutionDecisionAttributes' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf reason
 
 instance
   Core.ToJSON
@@ -107,7 +107,7 @@ instance
   toJSON FailWorkflowExecutionDecisionAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("reason" Core..=) Prelude.<$> reason,
-            ("details" Core..=) Prelude.<$> details
+          [ ("details" Core..=) Prelude.<$> details,
+            ("reason" Core..=) Prelude.<$> reason
           ]
       )

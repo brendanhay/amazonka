@@ -35,26 +35,26 @@ module Amazonka.OpsWorks.CloneStack
     newCloneStack,
 
     -- * Request Lenses
-    cloneStack_defaultInstanceProfileArn,
     cloneStack_cloneAppIds,
-    cloneStack_defaultRootDeviceType,
-    cloneStack_vpcId,
-    cloneStack_chefConfiguration,
-    cloneStack_agentVersion,
+    cloneStack_hostnameTheme,
+    cloneStack_name,
     cloneStack_defaultSshKeyName,
     cloneStack_customJson,
-    cloneStack_clonePermissions,
-    cloneStack_customCookbooksSource,
     cloneStack_defaultAvailabilityZone,
-    cloneStack_attributes,
-    cloneStack_name,
-    cloneStack_defaultOs,
-    cloneStack_useOpsworksSecurityGroups,
-    cloneStack_useCustomCookbooks,
+    cloneStack_defaultRootDeviceType,
+    cloneStack_defaultInstanceProfileArn,
+    cloneStack_clonePermissions,
+    cloneStack_configurationManager,
     cloneStack_defaultSubnetId,
     cloneStack_region,
-    cloneStack_configurationManager,
-    cloneStack_hostnameTheme,
+    cloneStack_useCustomCookbooks,
+    cloneStack_defaultOs,
+    cloneStack_useOpsworksSecurityGroups,
+    cloneStack_attributes,
+    cloneStack_vpcId,
+    cloneStack_chefConfiguration,
+    cloneStack_customCookbooksSource,
+    cloneStack_agentVersion,
     cloneStack_sourceStackId,
     cloneStack_serviceRoleArn,
 
@@ -77,72 +77,41 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCloneStack' smart constructor.
 data CloneStack = CloneStack'
-  { -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
-    -- profile for all of the stack\'s EC2 instances. For more information
-    -- about IAM ARNs, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    defaultInstanceProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of source stack app IDs to be included in the cloned stack.
+  { -- | A list of source stack app IDs to be included in the cloned stack.
     cloneAppIds :: Prelude.Maybe [Prelude.Text],
-    -- | The default root device type. This value is used by default for all
-    -- instances in the cloned stack, but you can override it when you create
-    -- an instance. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-    defaultRootDeviceType :: Prelude.Maybe RootDeviceType,
-    -- | The ID of the VPC that the cloned stack is to be launched into. It must
-    -- be in the specified region. All instances are launched into this VPC,
-    -- and you cannot change the ID later.
+    -- | The stack\'s host name theme, with spaces are replaced by underscores.
+    -- The theme is used to generate host names for the stack\'s instances. By
+    -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+    -- names by appending integers to the layer\'s short name. The other themes
+    -- are:
     --
-    -- -   If your account supports EC2 Classic, the default value is no VPC.
+    -- -   @Baked_Goods@
     --
-    -- -   If your account does not support EC2 Classic, the default value is
-    --     the default VPC for the specified region.
+    -- -   @Clouds@
     --
-    -- If the VPC ID corresponds to a default VPC and you have specified either
-    -- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
-    -- AWS OpsWorks Stacks infers the value of the other parameter. If you
-    -- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
-    -- the first valid Availability Zone for the specified region and the
-    -- corresponding default VPC subnet ID, respectively.
+    -- -   @Europe_Cities@
     --
-    -- If you specify a nondefault VPC ID, note the following:
+    -- -   @Fruits@
     --
-    -- -   It must belong to a VPC in your account that is in the specified
-    --     region.
+    -- -   @Greek_Deities_and_Titans@
     --
-    -- -   You must specify a value for @DefaultSubnetId@.
+    -- -   @Legendary_creatures_from_Japan@
     --
-    -- For more information about how to use AWS OpsWorks Stacks with a VPC,
-    -- see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
-    -- For more information about default VPC and EC2 Classic, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
-    -- and the Berkshelf version on Chef 11.10 stacks. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    chefConfiguration :: Prelude.Maybe ChefConfiguration,
-    -- | The default AWS OpsWorks Stacks agent version. You have the following
-    -- options:
+    -- -   @Planets_and_Moons@
     --
-    -- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
-    --     automatically installs new agent versions on the stack\'s instances
-    --     as soon as they are available.
+    -- -   @Roman_Deities@
     --
-    -- -   Fixed version - Set this parameter to your preferred agent version.
-    --     To update the agent version, you must edit the stack configuration
-    --     and specify a new version. AWS OpsWorks Stacks then automatically
-    --     installs that version on the stack\'s instances.
+    -- -   @Scottish_Islands@
     --
-    -- The default setting is @LATEST@. To specify an agent version, you must
-    -- use the complete version number, not the abbreviated number shown on the
-    -- console. For a list of available agent version numbers, call
-    -- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
+    -- -   @US_Cities@
     --
-    -- You can also specify an agent version when you create or update an
-    -- instance, which overrides the stack\'s default setting.
-    agentVersion :: Prelude.Maybe Prelude.Text,
+    -- -   @Wild_Cats@
+    --
+    -- To obtain a generated host name, call @GetHostNameSuggestion@, which
+    -- returns a host name based on the current theme.
+    hostnameTheme :: Prelude.Maybe Prelude.Text,
+    -- | The cloned stack name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A default Amazon EC2 key pair name. The default value is none. If you
     -- specify a key pair name, AWS OpsWorks installs the public key on the
     -- instance and you can use the private key with an SSH client to log in to
@@ -163,14 +132,6 @@ data CloneStack = CloneStack'
     -- For more information about custom JSON, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
     customJson :: Prelude.Maybe Prelude.Text,
-    -- | Whether to clone the source stack\'s permissions.
-    clonePermissions :: Prelude.Maybe Prelude.Bool,
-    -- | Contains the information required to retrieve an app or cookbook from a
-    -- repository. For more information, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
-    -- or
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-    customCookbooksSource :: Prelude.Maybe Source,
     -- | The cloned stack\'s default Availability Zone, which must be in the
     -- specified region. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -178,11 +139,36 @@ data CloneStack = CloneStack'
     -- the same zone. For more information, see the @VpcId@ parameter
     -- description.
     defaultAvailabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | A list of stack attributes and values as key\/value pairs to be added to
-    -- the cloned stack.
-    attributes :: Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)),
-    -- | The cloned stack name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The default root device type. This value is used by default for all
+    -- instances in the cloned stack, but you can override it when you create
+    -- an instance. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+    defaultRootDeviceType :: Prelude.Maybe RootDeviceType,
+    -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
+    -- profile for all of the stack\'s EC2 instances. For more information
+    -- about IAM ARNs, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+    defaultInstanceProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether to clone the source stack\'s permissions.
+    clonePermissions :: Prelude.Maybe Prelude.Bool,
+    -- | The configuration manager. When you clone a stack we recommend that you
+    -- use the configuration manager to specify the Chef version: 12, 11.10, or
+    -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+    -- Linux stacks is currently 12.
+    configurationManager :: Prelude.Maybe StackConfigurationManager,
+    -- | The stack\'s default VPC subnet ID. This parameter is required if you
+    -- specify a value for the @VpcId@ parameter. All instances are launched
+    -- into this subnet unless you specify otherwise when you create the
+    -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+    -- subnet must be in that zone. For information on default values and when
+    -- this parameter is required, see the @VpcId@ parameter description.
+    defaultSubnetId :: Prelude.Maybe Prelude.Text,
+    -- | The cloned stack AWS region, such as \"ap-northeast-2\". For more
+    -- information about AWS regions, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | Whether to use custom cookbooks.
+    useCustomCookbooks :: Prelude.Maybe Prelude.Bool,
     -- | The stack\'s operating system, which must be set to one of the
     -- following.
     --
@@ -240,55 +226,69 @@ data CloneStack = CloneStack'
     -- For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
     useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
-    -- | Whether to use custom cookbooks.
-    useCustomCookbooks :: Prelude.Maybe Prelude.Bool,
-    -- | The stack\'s default VPC subnet ID. This parameter is required if you
-    -- specify a value for the @VpcId@ parameter. All instances are launched
-    -- into this subnet unless you specify otherwise when you create the
-    -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
-    -- subnet must be in that zone. For information on default values and when
-    -- this parameter is required, see the @VpcId@ parameter description.
-    defaultSubnetId :: Prelude.Maybe Prelude.Text,
-    -- | The cloned stack AWS region, such as \"ap-northeast-2\". For more
-    -- information about AWS regions, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | The configuration manager. When you clone a stack we recommend that you
-    -- use the configuration manager to specify the Chef version: 12, 11.10, or
-    -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
-    -- Linux stacks is currently 12.
-    configurationManager :: Prelude.Maybe StackConfigurationManager,
-    -- | The stack\'s host name theme, with spaces are replaced by underscores.
-    -- The theme is used to generate host names for the stack\'s instances. By
-    -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
-    -- names by appending integers to the layer\'s short name. The other themes
-    -- are:
+    -- | A list of stack attributes and values as key\/value pairs to be added to
+    -- the cloned stack.
+    attributes :: Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)),
+    -- | The ID of the VPC that the cloned stack is to be launched into. It must
+    -- be in the specified region. All instances are launched into this VPC,
+    -- and you cannot change the ID later.
     --
-    -- -   @Baked_Goods@
+    -- -   If your account supports EC2 Classic, the default value is no VPC.
     --
-    -- -   @Clouds@
+    -- -   If your account does not support EC2 Classic, the default value is
+    --     the default VPC for the specified region.
     --
-    -- -   @Europe_Cities@
+    -- If the VPC ID corresponds to a default VPC and you have specified either
+    -- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
+    -- AWS OpsWorks Stacks infers the value of the other parameter. If you
+    -- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
+    -- the first valid Availability Zone for the specified region and the
+    -- corresponding default VPC subnet ID, respectively.
     --
-    -- -   @Fruits@
+    -- If you specify a nondefault VPC ID, note the following:
     --
-    -- -   @Greek_Deities_and_Titans@
+    -- -   It must belong to a VPC in your account that is in the specified
+    --     region.
     --
-    -- -   @Legendary_creatures_from_Japan@
+    -- -   You must specify a value for @DefaultSubnetId@.
     --
-    -- -   @Planets_and_Moons@
+    -- For more information about how to use AWS OpsWorks Stacks with a VPC,
+    -- see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
+    -- For more information about default VPC and EC2 Classic, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+    -- and the Berkshelf version on Chef 11.10 stacks. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+    chefConfiguration :: Prelude.Maybe ChefConfiguration,
+    -- | Contains the information required to retrieve an app or cookbook from a
+    -- repository. For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
+    -- or
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
+    customCookbooksSource :: Prelude.Maybe Source,
+    -- | The default AWS OpsWorks Stacks agent version. You have the following
+    -- options:
     --
-    -- -   @Roman_Deities@
+    -- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
+    --     automatically installs new agent versions on the stack\'s instances
+    --     as soon as they are available.
     --
-    -- -   @Scottish_Islands@
+    -- -   Fixed version - Set this parameter to your preferred agent version.
+    --     To update the agent version, you must edit the stack configuration
+    --     and specify a new version. AWS OpsWorks Stacks then automatically
+    --     installs that version on the stack\'s instances.
     --
-    -- -   @US_Cities@
+    -- The default setting is @LATEST@. To specify an agent version, you must
+    -- use the complete version number, not the abbreviated number shown on the
+    -- console. For a list of available agent version numbers, call
+    -- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
     --
-    -- -   @Wild_Cats@
-    --
-    -- To obtain a generated host name, call @GetHostNameSuggestion@, which
-    -- returns a host name based on the current theme.
-    hostnameTheme :: Prelude.Maybe Prelude.Text,
+    -- You can also specify an agent version when you create or update an
+    -- instance, which overrides the stack\'s default setting.
+    agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The source stack ID.
     sourceStackId :: Prelude.Text,
     -- | The stack AWS Identity and Access Management (IAM) role, which allows
@@ -315,71 +315,40 @@ data CloneStack = CloneStack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultInstanceProfileArn', 'cloneStack_defaultInstanceProfileArn' - The Amazon Resource Name (ARN) of an IAM profile that is the default
--- profile for all of the stack\'s EC2 instances. For more information
--- about IAM ARNs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
---
 -- 'cloneAppIds', 'cloneStack_cloneAppIds' - A list of source stack app IDs to be included in the cloned stack.
 --
--- 'defaultRootDeviceType', 'cloneStack_defaultRootDeviceType' - The default root device type. This value is used by default for all
--- instances in the cloned stack, but you can override it when you create
--- an instance. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+-- 'hostnameTheme', 'cloneStack_hostnameTheme' - The stack\'s host name theme, with spaces are replaced by underscores.
+-- The theme is used to generate host names for the stack\'s instances. By
+-- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+-- names by appending integers to the layer\'s short name. The other themes
+-- are:
 --
--- 'vpcId', 'cloneStack_vpcId' - The ID of the VPC that the cloned stack is to be launched into. It must
--- be in the specified region. All instances are launched into this VPC,
--- and you cannot change the ID later.
+-- -   @Baked_Goods@
 --
--- -   If your account supports EC2 Classic, the default value is no VPC.
+-- -   @Clouds@
 --
--- -   If your account does not support EC2 Classic, the default value is
---     the default VPC for the specified region.
+-- -   @Europe_Cities@
 --
--- If the VPC ID corresponds to a default VPC and you have specified either
--- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
--- AWS OpsWorks Stacks infers the value of the other parameter. If you
--- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
--- the first valid Availability Zone for the specified region and the
--- corresponding default VPC subnet ID, respectively.
+-- -   @Fruits@
 --
--- If you specify a nondefault VPC ID, note the following:
+-- -   @Greek_Deities_and_Titans@
 --
--- -   It must belong to a VPC in your account that is in the specified
---     region.
+-- -   @Legendary_creatures_from_Japan@
 --
--- -   You must specify a value for @DefaultSubnetId@.
+-- -   @Planets_and_Moons@
 --
--- For more information about how to use AWS OpsWorks Stacks with a VPC,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
--- For more information about default VPC and EC2 Classic, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
+-- -   @Roman_Deities@
 --
--- 'chefConfiguration', 'cloneStack_chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+-- -   @Scottish_Islands@
 --
--- 'agentVersion', 'cloneStack_agentVersion' - The default AWS OpsWorks Stacks agent version. You have the following
--- options:
+-- -   @US_Cities@
 --
--- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
---     automatically installs new agent versions on the stack\'s instances
---     as soon as they are available.
+-- -   @Wild_Cats@
 --
--- -   Fixed version - Set this parameter to your preferred agent version.
---     To update the agent version, you must edit the stack configuration
---     and specify a new version. AWS OpsWorks Stacks then automatically
---     installs that version on the stack\'s instances.
+-- To obtain a generated host name, call @GetHostNameSuggestion@, which
+-- returns a host name based on the current theme.
 --
--- The default setting is @LATEST@. To specify an agent version, you must
--- use the complete version number, not the abbreviated number shown on the
--- console. For a list of available agent version numbers, call
--- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
---
--- You can also specify an agent version when you create or update an
--- instance, which overrides the stack\'s default setting.
+-- 'name', 'cloneStack_name' - The cloned stack name.
 --
 -- 'defaultSshKeyName', 'cloneStack_defaultSshKeyName' - A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
@@ -401,14 +370,6 @@ data CloneStack = CloneStack'
 -- For more information about custom JSON, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
 --
--- 'clonePermissions', 'cloneStack_clonePermissions' - Whether to clone the source stack\'s permissions.
---
--- 'customCookbooksSource', 'cloneStack_customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a
--- repository. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
--- or
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
---
 -- 'defaultAvailabilityZone', 'cloneStack_defaultAvailabilityZone' - The cloned stack\'s default Availability Zone, which must be in the
 -- specified region. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -416,10 +377,35 @@ data CloneStack = CloneStack'
 -- the same zone. For more information, see the @VpcId@ parameter
 -- description.
 --
--- 'attributes', 'cloneStack_attributes' - A list of stack attributes and values as key\/value pairs to be added to
--- the cloned stack.
+-- 'defaultRootDeviceType', 'cloneStack_defaultRootDeviceType' - The default root device type. This value is used by default for all
+-- instances in the cloned stack, but you can override it when you create
+-- an instance. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
 --
--- 'name', 'cloneStack_name' - The cloned stack name.
+-- 'defaultInstanceProfileArn', 'cloneStack_defaultInstanceProfileArn' - The Amazon Resource Name (ARN) of an IAM profile that is the default
+-- profile for all of the stack\'s EC2 instances. For more information
+-- about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+--
+-- 'clonePermissions', 'cloneStack_clonePermissions' - Whether to clone the source stack\'s permissions.
+--
+-- 'configurationManager', 'cloneStack_configurationManager' - The configuration manager. When you clone a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 12.
+--
+-- 'defaultSubnetId', 'cloneStack_defaultSubnetId' - The stack\'s default VPC subnet ID. This parameter is required if you
+-- specify a value for the @VpcId@ parameter. All instances are launched
+-- into this subnet unless you specify otherwise when you create the
+-- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+-- subnet must be in that zone. For information on default values and when
+-- this parameter is required, see the @VpcId@ parameter description.
+--
+-- 'region', 'cloneStack_region' - The cloned stack AWS region, such as \"ap-northeast-2\". For more
+-- information about AWS regions, see
+-- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+--
+-- 'useCustomCookbooks', 'cloneStack_useCustomCookbooks' - Whether to use custom cookbooks.
 --
 -- 'defaultOs', 'cloneStack_defaultOs' - The stack\'s operating system, which must be set to one of the
 -- following.
@@ -478,25 +464,120 @@ data CloneStack = CloneStack'
 -- For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 --
--- 'useCustomCookbooks', 'cloneStack_useCustomCookbooks' - Whether to use custom cookbooks.
+-- 'attributes', 'cloneStack_attributes' - A list of stack attributes and values as key\/value pairs to be added to
+-- the cloned stack.
 --
--- 'defaultSubnetId', 'cloneStack_defaultSubnetId' - The stack\'s default VPC subnet ID. This parameter is required if you
--- specify a value for the @VpcId@ parameter. All instances are launched
--- into this subnet unless you specify otherwise when you create the
--- instance. If you also specify a value for @DefaultAvailabilityZone@, the
--- subnet must be in that zone. For information on default values and when
--- this parameter is required, see the @VpcId@ parameter description.
+-- 'vpcId', 'cloneStack_vpcId' - The ID of the VPC that the cloned stack is to be launched into. It must
+-- be in the specified region. All instances are launched into this VPC,
+-- and you cannot change the ID later.
 --
--- 'region', 'cloneStack_region' - The cloned stack AWS region, such as \"ap-northeast-2\". For more
--- information about AWS regions, see
--- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+-- -   If your account supports EC2 Classic, the default value is no VPC.
 --
--- 'configurationManager', 'cloneStack_configurationManager' - The configuration manager. When you clone a stack we recommend that you
--- use the configuration manager to specify the Chef version: 12, 11.10, or
--- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
--- Linux stacks is currently 12.
+-- -   If your account does not support EC2 Classic, the default value is
+--     the default VPC for the specified region.
 --
--- 'hostnameTheme', 'cloneStack_hostnameTheme' - The stack\'s host name theme, with spaces are replaced by underscores.
+-- If the VPC ID corresponds to a default VPC and you have specified either
+-- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
+-- AWS OpsWorks Stacks infers the value of the other parameter. If you
+-- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
+-- the first valid Availability Zone for the specified region and the
+-- corresponding default VPC subnet ID, respectively.
+--
+-- If you specify a nondefault VPC ID, note the following:
+--
+-- -   It must belong to a VPC in your account that is in the specified
+--     region.
+--
+-- -   You must specify a value for @DefaultSubnetId@.
+--
+-- For more information about how to use AWS OpsWorks Stacks with a VPC,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
+-- For more information about default VPC and EC2 Classic, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
+--
+-- 'chefConfiguration', 'cloneStack_chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+--
+-- 'customCookbooksSource', 'cloneStack_customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a
+-- repository. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
+-- or
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
+--
+-- 'agentVersion', 'cloneStack_agentVersion' - The default AWS OpsWorks Stacks agent version. You have the following
+-- options:
+--
+-- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
+--     automatically installs new agent versions on the stack\'s instances
+--     as soon as they are available.
+--
+-- -   Fixed version - Set this parameter to your preferred agent version.
+--     To update the agent version, you must edit the stack configuration
+--     and specify a new version. AWS OpsWorks Stacks then automatically
+--     installs that version on the stack\'s instances.
+--
+-- The default setting is @LATEST@. To specify an agent version, you must
+-- use the complete version number, not the abbreviated number shown on the
+-- console. For a list of available agent version numbers, call
+-- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
+--
+-- You can also specify an agent version when you create or update an
+-- instance, which overrides the stack\'s default setting.
+--
+-- 'sourceStackId', 'cloneStack_sourceStackId' - The source stack ID.
+--
+-- 'serviceRoleArn', 'cloneStack_serviceRoleArn' - The stack AWS Identity and Access Management (IAM) role, which allows
+-- AWS OpsWorks Stacks to work with AWS resources on your behalf. You must
+-- set this parameter to the Amazon Resource Name (ARN) for an existing IAM
+-- role. If you create a stack by using the AWS OpsWorks Stacks console, it
+-- creates the role for you. You can obtain an existing stack\'s IAM ARN
+-- programmatically by calling DescribePermissions. For more information
+-- about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+--
+-- You must set this parameter to a valid service role ARN or the action
+-- will fail; there is no default value. You can specify the source
+-- stack\'s service role ARN, if you prefer, but you must do so explicitly.
+newCloneStack ::
+  -- | 'sourceStackId'
+  Prelude.Text ->
+  -- | 'serviceRoleArn'
+  Prelude.Text ->
+  CloneStack
+newCloneStack pSourceStackId_ pServiceRoleArn_ =
+  CloneStack'
+    { cloneAppIds = Prelude.Nothing,
+      hostnameTheme = Prelude.Nothing,
+      name = Prelude.Nothing,
+      defaultSshKeyName = Prelude.Nothing,
+      customJson = Prelude.Nothing,
+      defaultAvailabilityZone = Prelude.Nothing,
+      defaultRootDeviceType = Prelude.Nothing,
+      defaultInstanceProfileArn = Prelude.Nothing,
+      clonePermissions = Prelude.Nothing,
+      configurationManager = Prelude.Nothing,
+      defaultSubnetId = Prelude.Nothing,
+      region = Prelude.Nothing,
+      useCustomCookbooks = Prelude.Nothing,
+      defaultOs = Prelude.Nothing,
+      useOpsworksSecurityGroups = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      chefConfiguration = Prelude.Nothing,
+      customCookbooksSource = Prelude.Nothing,
+      agentVersion = Prelude.Nothing,
+      sourceStackId = pSourceStackId_,
+      serviceRoleArn = pServiceRoleArn_
+    }
+
+-- | A list of source stack app IDs to be included in the cloned stack.
+cloneStack_cloneAppIds :: Lens.Lens' CloneStack (Prelude.Maybe [Prelude.Text])
+cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (\s@CloneStack' {} a -> s {cloneAppIds = a} :: CloneStack) Prelude.. Lens.mapping Lens.coerced
+
+-- | The stack\'s host name theme, with spaces are replaced by underscores.
 -- The theme is used to generate host names for the stack\'s instances. By
 -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
 -- names by appending integers to the layer\'s short name. The other themes
@@ -526,131 +607,12 @@ data CloneStack = CloneStack'
 --
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
---
--- 'sourceStackId', 'cloneStack_sourceStackId' - The source stack ID.
---
--- 'serviceRoleArn', 'cloneStack_serviceRoleArn' - The stack AWS Identity and Access Management (IAM) role, which allows
--- AWS OpsWorks Stacks to work with AWS resources on your behalf. You must
--- set this parameter to the Amazon Resource Name (ARN) for an existing IAM
--- role. If you create a stack by using the AWS OpsWorks Stacks console, it
--- creates the role for you. You can obtain an existing stack\'s IAM ARN
--- programmatically by calling DescribePermissions. For more information
--- about IAM ARNs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
---
--- You must set this parameter to a valid service role ARN or the action
--- will fail; there is no default value. You can specify the source
--- stack\'s service role ARN, if you prefer, but you must do so explicitly.
-newCloneStack ::
-  -- | 'sourceStackId'
-  Prelude.Text ->
-  -- | 'serviceRoleArn'
-  Prelude.Text ->
-  CloneStack
-newCloneStack pSourceStackId_ pServiceRoleArn_ =
-  CloneStack'
-    { defaultInstanceProfileArn =
-        Prelude.Nothing,
-      cloneAppIds = Prelude.Nothing,
-      defaultRootDeviceType = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      chefConfiguration = Prelude.Nothing,
-      agentVersion = Prelude.Nothing,
-      defaultSshKeyName = Prelude.Nothing,
-      customJson = Prelude.Nothing,
-      clonePermissions = Prelude.Nothing,
-      customCookbooksSource = Prelude.Nothing,
-      defaultAvailabilityZone = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      name = Prelude.Nothing,
-      defaultOs = Prelude.Nothing,
-      useOpsworksSecurityGroups = Prelude.Nothing,
-      useCustomCookbooks = Prelude.Nothing,
-      defaultSubnetId = Prelude.Nothing,
-      region = Prelude.Nothing,
-      configurationManager = Prelude.Nothing,
-      hostnameTheme = Prelude.Nothing,
-      sourceStackId = pSourceStackId_,
-      serviceRoleArn = pServiceRoleArn_
-    }
+cloneStack_hostnameTheme :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_hostnameTheme = Lens.lens (\CloneStack' {hostnameTheme} -> hostnameTheme) (\s@CloneStack' {} a -> s {hostnameTheme = a} :: CloneStack)
 
--- | The Amazon Resource Name (ARN) of an IAM profile that is the default
--- profile for all of the stack\'s EC2 instances. For more information
--- about IAM ARNs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-cloneStack_defaultInstanceProfileArn :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
-cloneStack_defaultInstanceProfileArn = Lens.lens (\CloneStack' {defaultInstanceProfileArn} -> defaultInstanceProfileArn) (\s@CloneStack' {} a -> s {defaultInstanceProfileArn = a} :: CloneStack)
-
--- | A list of source stack app IDs to be included in the cloned stack.
-cloneStack_cloneAppIds :: Lens.Lens' CloneStack (Prelude.Maybe [Prelude.Text])
-cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (\s@CloneStack' {} a -> s {cloneAppIds = a} :: CloneStack) Prelude.. Lens.mapping Lens.coerced
-
--- | The default root device type. This value is used by default for all
--- instances in the cloned stack, but you can override it when you create
--- an instance. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-cloneStack_defaultRootDeviceType :: Lens.Lens' CloneStack (Prelude.Maybe RootDeviceType)
-cloneStack_defaultRootDeviceType = Lens.lens (\CloneStack' {defaultRootDeviceType} -> defaultRootDeviceType) (\s@CloneStack' {} a -> s {defaultRootDeviceType = a} :: CloneStack)
-
--- | The ID of the VPC that the cloned stack is to be launched into. It must
--- be in the specified region. All instances are launched into this VPC,
--- and you cannot change the ID later.
---
--- -   If your account supports EC2 Classic, the default value is no VPC.
---
--- -   If your account does not support EC2 Classic, the default value is
---     the default VPC for the specified region.
---
--- If the VPC ID corresponds to a default VPC and you have specified either
--- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
--- AWS OpsWorks Stacks infers the value of the other parameter. If you
--- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
--- the first valid Availability Zone for the specified region and the
--- corresponding default VPC subnet ID, respectively.
---
--- If you specify a nondefault VPC ID, note the following:
---
--- -   It must belong to a VPC in your account that is in the specified
---     region.
---
--- -   You must specify a value for @DefaultSubnetId@.
---
--- For more information about how to use AWS OpsWorks Stacks with a VPC,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
--- For more information about default VPC and EC2 Classic, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-cloneStack_vpcId :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
-cloneStack_vpcId = Lens.lens (\CloneStack' {vpcId} -> vpcId) (\s@CloneStack' {} a -> s {vpcId = a} :: CloneStack)
-
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-cloneStack_chefConfiguration :: Lens.Lens' CloneStack (Prelude.Maybe ChefConfiguration)
-cloneStack_chefConfiguration = Lens.lens (\CloneStack' {chefConfiguration} -> chefConfiguration) (\s@CloneStack' {} a -> s {chefConfiguration = a} :: CloneStack)
-
--- | The default AWS OpsWorks Stacks agent version. You have the following
--- options:
---
--- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
---     automatically installs new agent versions on the stack\'s instances
---     as soon as they are available.
---
--- -   Fixed version - Set this parameter to your preferred agent version.
---     To update the agent version, you must edit the stack configuration
---     and specify a new version. AWS OpsWorks Stacks then automatically
---     installs that version on the stack\'s instances.
---
--- The default setting is @LATEST@. To specify an agent version, you must
--- use the complete version number, not the abbreviated number shown on the
--- console. For a list of available agent version numbers, call
--- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
---
--- You can also specify an agent version when you create or update an
--- instance, which overrides the stack\'s default setting.
-cloneStack_agentVersion :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
-cloneStack_agentVersion = Lens.lens (\CloneStack' {agentVersion} -> agentVersion) (\s@CloneStack' {} a -> s {agentVersion = a} :: CloneStack)
+-- | The cloned stack name.
+cloneStack_name :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_name = Lens.lens (\CloneStack' {name} -> name) (\s@CloneStack' {} a -> s {name = a} :: CloneStack)
 
 -- | A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
@@ -676,18 +638,6 @@ cloneStack_defaultSshKeyName = Lens.lens (\CloneStack' {defaultSshKeyName} -> de
 cloneStack_customJson :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_customJson = Lens.lens (\CloneStack' {customJson} -> customJson) (\s@CloneStack' {} a -> s {customJson = a} :: CloneStack)
 
--- | Whether to clone the source stack\'s permissions.
-cloneStack_clonePermissions :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
-cloneStack_clonePermissions = Lens.lens (\CloneStack' {clonePermissions} -> clonePermissions) (\s@CloneStack' {} a -> s {clonePermissions = a} :: CloneStack)
-
--- | Contains the information required to retrieve an app or cookbook from a
--- repository. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
--- or
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-cloneStack_customCookbooksSource :: Lens.Lens' CloneStack (Prelude.Maybe Source)
-cloneStack_customCookbooksSource = Lens.lens (\CloneStack' {customCookbooksSource} -> customCookbooksSource) (\s@CloneStack' {} a -> s {customCookbooksSource = a} :: CloneStack)
-
 -- | The cloned stack\'s default Availability Zone, which must be in the
 -- specified region. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -697,14 +647,49 @@ cloneStack_customCookbooksSource = Lens.lens (\CloneStack' {customCookbooksSourc
 cloneStack_defaultAvailabilityZone :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_defaultAvailabilityZone = Lens.lens (\CloneStack' {defaultAvailabilityZone} -> defaultAvailabilityZone) (\s@CloneStack' {} a -> s {defaultAvailabilityZone = a} :: CloneStack)
 
--- | A list of stack attributes and values as key\/value pairs to be added to
--- the cloned stack.
-cloneStack_attributes :: Lens.Lens' CloneStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-cloneStack_attributes = Lens.lens (\CloneStack' {attributes} -> attributes) (\s@CloneStack' {} a -> s {attributes = a} :: CloneStack) Prelude.. Lens.mapping Lens.coerced
+-- | The default root device type. This value is used by default for all
+-- instances in the cloned stack, but you can override it when you create
+-- an instance. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+cloneStack_defaultRootDeviceType :: Lens.Lens' CloneStack (Prelude.Maybe RootDeviceType)
+cloneStack_defaultRootDeviceType = Lens.lens (\CloneStack' {defaultRootDeviceType} -> defaultRootDeviceType) (\s@CloneStack' {} a -> s {defaultRootDeviceType = a} :: CloneStack)
 
--- | The cloned stack name.
-cloneStack_name :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
-cloneStack_name = Lens.lens (\CloneStack' {name} -> name) (\s@CloneStack' {} a -> s {name = a} :: CloneStack)
+-- | The Amazon Resource Name (ARN) of an IAM profile that is the default
+-- profile for all of the stack\'s EC2 instances. For more information
+-- about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+cloneStack_defaultInstanceProfileArn :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_defaultInstanceProfileArn = Lens.lens (\CloneStack' {defaultInstanceProfileArn} -> defaultInstanceProfileArn) (\s@CloneStack' {} a -> s {defaultInstanceProfileArn = a} :: CloneStack)
+
+-- | Whether to clone the source stack\'s permissions.
+cloneStack_clonePermissions :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
+cloneStack_clonePermissions = Lens.lens (\CloneStack' {clonePermissions} -> clonePermissions) (\s@CloneStack' {} a -> s {clonePermissions = a} :: CloneStack)
+
+-- | The configuration manager. When you clone a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 12.
+cloneStack_configurationManager :: Lens.Lens' CloneStack (Prelude.Maybe StackConfigurationManager)
+cloneStack_configurationManager = Lens.lens (\CloneStack' {configurationManager} -> configurationManager) (\s@CloneStack' {} a -> s {configurationManager = a} :: CloneStack)
+
+-- | The stack\'s default VPC subnet ID. This parameter is required if you
+-- specify a value for the @VpcId@ parameter. All instances are launched
+-- into this subnet unless you specify otherwise when you create the
+-- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+-- subnet must be in that zone. For information on default values and when
+-- this parameter is required, see the @VpcId@ parameter description.
+cloneStack_defaultSubnetId :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_defaultSubnetId = Lens.lens (\CloneStack' {defaultSubnetId} -> defaultSubnetId) (\s@CloneStack' {} a -> s {defaultSubnetId = a} :: CloneStack)
+
+-- | The cloned stack AWS region, such as \"ap-northeast-2\". For more
+-- information about AWS regions, see
+-- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+cloneStack_region :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_region = Lens.lens (\CloneStack' {region} -> region) (\s@CloneStack' {} a -> s {region = a} :: CloneStack)
+
+-- | Whether to use custom cookbooks.
+cloneStack_useCustomCookbooks :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
+cloneStack_useCustomCookbooks = Lens.lens (\CloneStack' {useCustomCookbooks} -> useCustomCookbooks) (\s@CloneStack' {} a -> s {useCustomCookbooks = a} :: CloneStack)
 
 -- | The stack\'s operating system, which must be set to one of the
 -- following.
@@ -767,64 +752,78 @@ cloneStack_defaultOs = Lens.lens (\CloneStack' {defaultOs} -> defaultOs) (\s@Clo
 cloneStack_useOpsworksSecurityGroups :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
 cloneStack_useOpsworksSecurityGroups = Lens.lens (\CloneStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@CloneStack' {} a -> s {useOpsworksSecurityGroups = a} :: CloneStack)
 
--- | Whether to use custom cookbooks.
-cloneStack_useCustomCookbooks :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
-cloneStack_useCustomCookbooks = Lens.lens (\CloneStack' {useCustomCookbooks} -> useCustomCookbooks) (\s@CloneStack' {} a -> s {useCustomCookbooks = a} :: CloneStack)
+-- | A list of stack attributes and values as key\/value pairs to be added to
+-- the cloned stack.
+cloneStack_attributes :: Lens.Lens' CloneStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
+cloneStack_attributes = Lens.lens (\CloneStack' {attributes} -> attributes) (\s@CloneStack' {} a -> s {attributes = a} :: CloneStack) Prelude.. Lens.mapping Lens.coerced
 
--- | The stack\'s default VPC subnet ID. This parameter is required if you
--- specify a value for the @VpcId@ parameter. All instances are launched
--- into this subnet unless you specify otherwise when you create the
--- instance. If you also specify a value for @DefaultAvailabilityZone@, the
--- subnet must be in that zone. For information on default values and when
--- this parameter is required, see the @VpcId@ parameter description.
-cloneStack_defaultSubnetId :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
-cloneStack_defaultSubnetId = Lens.lens (\CloneStack' {defaultSubnetId} -> defaultSubnetId) (\s@CloneStack' {} a -> s {defaultSubnetId = a} :: CloneStack)
+-- | The ID of the VPC that the cloned stack is to be launched into. It must
+-- be in the specified region. All instances are launched into this VPC,
+-- and you cannot change the ID later.
+--
+-- -   If your account supports EC2 Classic, the default value is no VPC.
+--
+-- -   If your account does not support EC2 Classic, the default value is
+--     the default VPC for the specified region.
+--
+-- If the VPC ID corresponds to a default VPC and you have specified either
+-- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
+-- AWS OpsWorks Stacks infers the value of the other parameter. If you
+-- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
+-- the first valid Availability Zone for the specified region and the
+-- corresponding default VPC subnet ID, respectively.
+--
+-- If you specify a nondefault VPC ID, note the following:
+--
+-- -   It must belong to a VPC in your account that is in the specified
+--     region.
+--
+-- -   You must specify a value for @DefaultSubnetId@.
+--
+-- For more information about how to use AWS OpsWorks Stacks with a VPC,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
+-- For more information about default VPC and EC2 Classic, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
+cloneStack_vpcId :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_vpcId = Lens.lens (\CloneStack' {vpcId} -> vpcId) (\s@CloneStack' {} a -> s {vpcId = a} :: CloneStack)
 
--- | The cloned stack AWS region, such as \"ap-northeast-2\". For more
--- information about AWS regions, see
--- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-cloneStack_region :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
-cloneStack_region = Lens.lens (\CloneStack' {region} -> region) (\s@CloneStack' {} a -> s {region = a} :: CloneStack)
+-- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+cloneStack_chefConfiguration :: Lens.Lens' CloneStack (Prelude.Maybe ChefConfiguration)
+cloneStack_chefConfiguration = Lens.lens (\CloneStack' {chefConfiguration} -> chefConfiguration) (\s@CloneStack' {} a -> s {chefConfiguration = a} :: CloneStack)
 
--- | The configuration manager. When you clone a stack we recommend that you
--- use the configuration manager to specify the Chef version: 12, 11.10, or
--- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
--- Linux stacks is currently 12.
-cloneStack_configurationManager :: Lens.Lens' CloneStack (Prelude.Maybe StackConfigurationManager)
-cloneStack_configurationManager = Lens.lens (\CloneStack' {configurationManager} -> configurationManager) (\s@CloneStack' {} a -> s {configurationManager = a} :: CloneStack)
+-- | Contains the information required to retrieve an app or cookbook from a
+-- repository. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
+-- or
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
+cloneStack_customCookbooksSource :: Lens.Lens' CloneStack (Prelude.Maybe Source)
+cloneStack_customCookbooksSource = Lens.lens (\CloneStack' {customCookbooksSource} -> customCookbooksSource) (\s@CloneStack' {} a -> s {customCookbooksSource = a} :: CloneStack)
 
--- | The stack\'s host name theme, with spaces are replaced by underscores.
--- The theme is used to generate host names for the stack\'s instances. By
--- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
--- names by appending integers to the layer\'s short name. The other themes
--- are:
+-- | The default AWS OpsWorks Stacks agent version. You have the following
+-- options:
 --
--- -   @Baked_Goods@
+-- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
+--     automatically installs new agent versions on the stack\'s instances
+--     as soon as they are available.
 --
--- -   @Clouds@
+-- -   Fixed version - Set this parameter to your preferred agent version.
+--     To update the agent version, you must edit the stack configuration
+--     and specify a new version. AWS OpsWorks Stacks then automatically
+--     installs that version on the stack\'s instances.
 --
--- -   @Europe_Cities@
+-- The default setting is @LATEST@. To specify an agent version, you must
+-- use the complete version number, not the abbreviated number shown on the
+-- console. For a list of available agent version numbers, call
+-- DescribeAgentVersions. AgentVersion cannot be set to Chef 12.2.
 --
--- -   @Fruits@
---
--- -   @Greek_Deities_and_Titans@
---
--- -   @Legendary_creatures_from_Japan@
---
--- -   @Planets_and_Moons@
---
--- -   @Roman_Deities@
---
--- -   @Scottish_Islands@
---
--- -   @US_Cities@
---
--- -   @Wild_Cats@
---
--- To obtain a generated host name, call @GetHostNameSuggestion@, which
--- returns a host name based on the current theme.
-cloneStack_hostnameTheme :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
-cloneStack_hostnameTheme = Lens.lens (\CloneStack' {hostnameTheme} -> hostnameTheme) (\s@CloneStack' {} a -> s {hostnameTheme = a} :: CloneStack)
+-- You can also specify an agent version when you create or update an
+-- instance, which overrides the stack\'s default setting.
+cloneStack_agentVersion :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_agentVersion = Lens.lens (\CloneStack' {agentVersion} -> agentVersion) (\s@CloneStack' {} a -> s {agentVersion = a} :: CloneStack)
 
 -- | The source stack ID.
 cloneStack_sourceStackId :: Lens.Lens' CloneStack Prelude.Text
@@ -858,52 +857,52 @@ instance Core.AWSRequest CloneStack where
 
 instance Prelude.Hashable CloneStack where
   hashWithSalt _salt CloneStack' {..} =
-    _salt
-      `Prelude.hashWithSalt` defaultInstanceProfileArn
-      `Prelude.hashWithSalt` cloneAppIds
-      `Prelude.hashWithSalt` defaultRootDeviceType
-      `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` chefConfiguration
-      `Prelude.hashWithSalt` agentVersion
+    _salt `Prelude.hashWithSalt` cloneAppIds
+      `Prelude.hashWithSalt` hostnameTheme
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` defaultSshKeyName
       `Prelude.hashWithSalt` customJson
-      `Prelude.hashWithSalt` clonePermissions
-      `Prelude.hashWithSalt` customCookbooksSource
       `Prelude.hashWithSalt` defaultAvailabilityZone
-      `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` defaultOs
-      `Prelude.hashWithSalt` useOpsworksSecurityGroups
-      `Prelude.hashWithSalt` useCustomCookbooks
+      `Prelude.hashWithSalt` defaultRootDeviceType
+      `Prelude.hashWithSalt` defaultInstanceProfileArn
+      `Prelude.hashWithSalt` clonePermissions
+      `Prelude.hashWithSalt` configurationManager
       `Prelude.hashWithSalt` defaultSubnetId
       `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` configurationManager
-      `Prelude.hashWithSalt` hostnameTheme
+      `Prelude.hashWithSalt` useCustomCookbooks
+      `Prelude.hashWithSalt` defaultOs
+      `Prelude.hashWithSalt` useOpsworksSecurityGroups
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` chefConfiguration
+      `Prelude.hashWithSalt` customCookbooksSource
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` sourceStackId
       `Prelude.hashWithSalt` serviceRoleArn
 
 instance Prelude.NFData CloneStack where
   rnf CloneStack' {..} =
-    Prelude.rnf defaultInstanceProfileArn
-      `Prelude.seq` Prelude.rnf cloneAppIds
-      `Prelude.seq` Prelude.rnf defaultRootDeviceType
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf chefConfiguration
-      `Prelude.seq` Prelude.rnf agentVersion
+    Prelude.rnf cloneAppIds
+      `Prelude.seq` Prelude.rnf hostnameTheme
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf defaultSshKeyName
       `Prelude.seq` Prelude.rnf customJson
-      `Prelude.seq` Prelude.rnf clonePermissions
-      `Prelude.seq` Prelude.rnf customCookbooksSource
       `Prelude.seq` Prelude.rnf defaultAvailabilityZone
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf defaultOs
-      `Prelude.seq` Prelude.rnf useOpsworksSecurityGroups
-      `Prelude.seq` Prelude.rnf useCustomCookbooks
+      `Prelude.seq` Prelude.rnf defaultRootDeviceType
+      `Prelude.seq` Prelude.rnf defaultInstanceProfileArn
+      `Prelude.seq` Prelude.rnf clonePermissions
+      `Prelude.seq` Prelude.rnf configurationManager
       `Prelude.seq` Prelude.rnf defaultSubnetId
       `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf configurationManager
-      `Prelude.seq` Prelude.rnf hostnameTheme
+      `Prelude.seq` Prelude.rnf useCustomCookbooks
+      `Prelude.seq` Prelude.rnf defaultOs
+      `Prelude.seq` Prelude.rnf useOpsworksSecurityGroups
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf chefConfiguration
+      `Prelude.seq` Prelude.rnf
+        customCookbooksSource
+      `Prelude.seq` Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf sourceStackId
       `Prelude.seq` Prelude.rnf serviceRoleArn
 
@@ -926,37 +925,37 @@ instance Core.ToJSON CloneStack where
   toJSON CloneStack' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultInstanceProfileArn" Core..=)
-              Prelude.<$> defaultInstanceProfileArn,
-            ("CloneAppIds" Core..=) Prelude.<$> cloneAppIds,
-            ("DefaultRootDeviceType" Core..=)
-              Prelude.<$> defaultRootDeviceType,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("ChefConfiguration" Core..=)
-              Prelude.<$> chefConfiguration,
-            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
+          [ ("CloneAppIds" Core..=) Prelude.<$> cloneAppIds,
+            ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
+            ("Name" Core..=) Prelude.<$> name,
             ("DefaultSshKeyName" Core..=)
               Prelude.<$> defaultSshKeyName,
             ("CustomJson" Core..=) Prelude.<$> customJson,
-            ("ClonePermissions" Core..=)
-              Prelude.<$> clonePermissions,
-            ("CustomCookbooksSource" Core..=)
-              Prelude.<$> customCookbooksSource,
             ("DefaultAvailabilityZone" Core..=)
               Prelude.<$> defaultAvailabilityZone,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("Name" Core..=) Prelude.<$> name,
-            ("DefaultOs" Core..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Core..=)
-              Prelude.<$> useOpsworksSecurityGroups,
-            ("UseCustomCookbooks" Core..=)
-              Prelude.<$> useCustomCookbooks,
+            ("DefaultRootDeviceType" Core..=)
+              Prelude.<$> defaultRootDeviceType,
+            ("DefaultInstanceProfileArn" Core..=)
+              Prelude.<$> defaultInstanceProfileArn,
+            ("ClonePermissions" Core..=)
+              Prelude.<$> clonePermissions,
+            ("ConfigurationManager" Core..=)
+              Prelude.<$> configurationManager,
             ("DefaultSubnetId" Core..=)
               Prelude.<$> defaultSubnetId,
             ("Region" Core..=) Prelude.<$> region,
-            ("ConfigurationManager" Core..=)
-              Prelude.<$> configurationManager,
-            ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
+            ("UseCustomCookbooks" Core..=)
+              Prelude.<$> useCustomCookbooks,
+            ("DefaultOs" Core..=) Prelude.<$> defaultOs,
+            ("UseOpsworksSecurityGroups" Core..=)
+              Prelude.<$> useOpsworksSecurityGroups,
+            ("Attributes" Core..=) Prelude.<$> attributes,
+            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("ChefConfiguration" Core..=)
+              Prelude.<$> chefConfiguration,
+            ("CustomCookbooksSource" Core..=)
+              Prelude.<$> customCookbooksSource,
+            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
             Prelude.Just ("SourceStackId" Core..= sourceStackId),
             Prelude.Just
               ("ServiceRoleArn" Core..= serviceRoleArn)

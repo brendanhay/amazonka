@@ -27,15 +27,15 @@ module Amazonka.Nimble.UpdateStudioComponent
     newUpdateStudioComponent,
 
     -- * Request Lenses
-    updateStudioComponent_initializationScripts,
-    updateStudioComponent_clientToken,
-    updateStudioComponent_ec2SecurityGroupIds,
-    updateStudioComponent_subtype,
-    updateStudioComponent_name,
     updateStudioComponent_scriptParameters,
+    updateStudioComponent_name,
+    updateStudioComponent_clientToken,
     updateStudioComponent_type,
+    updateStudioComponent_initializationScripts,
     updateStudioComponent_configuration,
     updateStudioComponent_description,
+    updateStudioComponent_subtype,
+    updateStudioComponent_ec2SecurityGroupIds,
     updateStudioComponent_studioId,
     updateStudioComponent_studioComponentId,
 
@@ -60,8 +60,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateStudioComponent' smart constructor.
 data UpdateStudioComponent = UpdateStudioComponent'
-  { -- | Initialization scripts for studio components.
-    initializationScripts :: Prelude.Maybe [StudioComponentInitializationScript],
+  { -- | Parameters for the studio component scripts.
+    scriptParameters :: Prelude.Maybe [ScriptParameterKeyValue],
+    -- | The name for the studio component.
+    name :: Prelude.Maybe Prelude.Text,
     -- | To make an idempotent API request using one of these actions, specify a
     -- client token in the request. You should not reuse the same client token
     -- for other API requests. If you retry a request that completed
@@ -71,20 +73,18 @@ data UpdateStudioComponent = UpdateStudioComponent'
     -- parameters are different, the retry fails with a ValidationException
     -- error.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 security groups that control access to the studio component.
-    ec2SecurityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The specific subtype of a studio component.
-    subtype :: Prelude.Maybe StudioComponentSubtype,
-    -- | The name for the studio component.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Parameters for the studio component scripts.
-    scriptParameters :: Prelude.Maybe [ScriptParameterKeyValue],
     -- | The type of the studio component.
     type' :: Prelude.Maybe StudioComponentType,
+    -- | Initialization scripts for studio components.
+    initializationScripts :: Prelude.Maybe [StudioComponentInitializationScript],
     -- | The configuration of the studio component, based on component type.
     configuration :: Prelude.Maybe StudioComponentConfiguration,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The specific subtype of a studio component.
+    subtype :: Prelude.Maybe StudioComponentSubtype,
+    -- | The EC2 security groups that control access to the studio component.
+    ec2SecurityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The studio ID.
     studioId :: Prelude.Text,
     -- | The studio component ID.
@@ -100,7 +100,9 @@ data UpdateStudioComponent = UpdateStudioComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'initializationScripts', 'updateStudioComponent_initializationScripts' - Initialization scripts for studio components.
+-- 'scriptParameters', 'updateStudioComponent_scriptParameters' - Parameters for the studio component scripts.
+--
+-- 'name', 'updateStudioComponent_name' - The name for the studio component.
 --
 -- 'clientToken', 'updateStudioComponent_clientToken' - To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -111,19 +113,17 @@ data UpdateStudioComponent = UpdateStudioComponent'
 -- parameters are different, the retry fails with a ValidationException
 -- error.
 --
--- 'ec2SecurityGroupIds', 'updateStudioComponent_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.
---
--- 'subtype', 'updateStudioComponent_subtype' - The specific subtype of a studio component.
---
--- 'name', 'updateStudioComponent_name' - The name for the studio component.
---
--- 'scriptParameters', 'updateStudioComponent_scriptParameters' - Parameters for the studio component scripts.
---
 -- 'type'', 'updateStudioComponent_type' - The type of the studio component.
+--
+-- 'initializationScripts', 'updateStudioComponent_initializationScripts' - Initialization scripts for studio components.
 --
 -- 'configuration', 'updateStudioComponent_configuration' - The configuration of the studio component, based on component type.
 --
 -- 'description', 'updateStudioComponent_description' - The description.
+--
+-- 'subtype', 'updateStudioComponent_subtype' - The specific subtype of a studio component.
+--
+-- 'ec2SecurityGroupIds', 'updateStudioComponent_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.
 --
 -- 'studioId', 'updateStudioComponent_studioId' - The studio ID.
 --
@@ -138,23 +138,27 @@ newUpdateStudioComponent
   pStudioId_
   pStudioComponentId_ =
     UpdateStudioComponent'
-      { initializationScripts =
+      { scriptParameters =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
-        ec2SecurityGroupIds = Prelude.Nothing,
-        subtype = Prelude.Nothing,
         name = Prelude.Nothing,
-        scriptParameters = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         type' = Prelude.Nothing,
+        initializationScripts = Prelude.Nothing,
         configuration = Prelude.Nothing,
         description = Prelude.Nothing,
+        subtype = Prelude.Nothing,
+        ec2SecurityGroupIds = Prelude.Nothing,
         studioId = pStudioId_,
         studioComponentId = pStudioComponentId_
       }
 
--- | Initialization scripts for studio components.
-updateStudioComponent_initializationScripts :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe [StudioComponentInitializationScript])
-updateStudioComponent_initializationScripts = Lens.lens (\UpdateStudioComponent' {initializationScripts} -> initializationScripts) (\s@UpdateStudioComponent' {} a -> s {initializationScripts = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
+-- | Parameters for the studio component scripts.
+updateStudioComponent_scriptParameters :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe [ScriptParameterKeyValue])
+updateStudioComponent_scriptParameters = Lens.lens (\UpdateStudioComponent' {scriptParameters} -> scriptParameters) (\s@UpdateStudioComponent' {} a -> s {scriptParameters = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name for the studio component.
+updateStudioComponent_name :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
+updateStudioComponent_name = Lens.lens (\UpdateStudioComponent' {name} -> name) (\s@UpdateStudioComponent' {} a -> s {name = a} :: UpdateStudioComponent)
 
 -- | To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -167,25 +171,13 @@ updateStudioComponent_initializationScripts = Lens.lens (\UpdateStudioComponent'
 updateStudioComponent_clientToken :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
 updateStudioComponent_clientToken = Lens.lens (\UpdateStudioComponent' {clientToken} -> clientToken) (\s@UpdateStudioComponent' {} a -> s {clientToken = a} :: UpdateStudioComponent)
 
--- | The EC2 security groups that control access to the studio component.
-updateStudioComponent_ec2SecurityGroupIds :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateStudioComponent_ec2SecurityGroupIds = Lens.lens (\UpdateStudioComponent' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@UpdateStudioComponent' {} a -> s {ec2SecurityGroupIds = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
-
--- | The specific subtype of a studio component.
-updateStudioComponent_subtype :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe StudioComponentSubtype)
-updateStudioComponent_subtype = Lens.lens (\UpdateStudioComponent' {subtype} -> subtype) (\s@UpdateStudioComponent' {} a -> s {subtype = a} :: UpdateStudioComponent)
-
--- | The name for the studio component.
-updateStudioComponent_name :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
-updateStudioComponent_name = Lens.lens (\UpdateStudioComponent' {name} -> name) (\s@UpdateStudioComponent' {} a -> s {name = a} :: UpdateStudioComponent)
-
--- | Parameters for the studio component scripts.
-updateStudioComponent_scriptParameters :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe [ScriptParameterKeyValue])
-updateStudioComponent_scriptParameters = Lens.lens (\UpdateStudioComponent' {scriptParameters} -> scriptParameters) (\s@UpdateStudioComponent' {} a -> s {scriptParameters = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
-
 -- | The type of the studio component.
 updateStudioComponent_type :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe StudioComponentType)
 updateStudioComponent_type = Lens.lens (\UpdateStudioComponent' {type'} -> type') (\s@UpdateStudioComponent' {} a -> s {type' = a} :: UpdateStudioComponent)
+
+-- | Initialization scripts for studio components.
+updateStudioComponent_initializationScripts :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe [StudioComponentInitializationScript])
+updateStudioComponent_initializationScripts = Lens.lens (\UpdateStudioComponent' {initializationScripts} -> initializationScripts) (\s@UpdateStudioComponent' {} a -> s {initializationScripts = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration of the studio component, based on component type.
 updateStudioComponent_configuration :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe StudioComponentConfiguration)
@@ -194,6 +186,14 @@ updateStudioComponent_configuration = Lens.lens (\UpdateStudioComponent' {config
 -- | The description.
 updateStudioComponent_description :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe Prelude.Text)
 updateStudioComponent_description = Lens.lens (\UpdateStudioComponent' {description} -> description) (\s@UpdateStudioComponent' {} a -> s {description = a} :: UpdateStudioComponent)
+
+-- | The specific subtype of a studio component.
+updateStudioComponent_subtype :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe StudioComponentSubtype)
+updateStudioComponent_subtype = Lens.lens (\UpdateStudioComponent' {subtype} -> subtype) (\s@UpdateStudioComponent' {} a -> s {subtype = a} :: UpdateStudioComponent)
+
+-- | The EC2 security groups that control access to the studio component.
+updateStudioComponent_ec2SecurityGroupIds :: Lens.Lens' UpdateStudioComponent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateStudioComponent_ec2SecurityGroupIds = Lens.lens (\UpdateStudioComponent' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@UpdateStudioComponent' {} a -> s {ec2SecurityGroupIds = a} :: UpdateStudioComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The studio ID.
 updateStudioComponent_studioId :: Lens.Lens' UpdateStudioComponent Prelude.Text
@@ -218,29 +218,29 @@ instance Core.AWSRequest UpdateStudioComponent where
 
 instance Prelude.Hashable UpdateStudioComponent where
   hashWithSalt _salt UpdateStudioComponent' {..} =
-    _salt `Prelude.hashWithSalt` initializationScripts
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` ec2SecurityGroupIds
-      `Prelude.hashWithSalt` subtype
+    _salt `Prelude.hashWithSalt` scriptParameters
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` scriptParameters
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` initializationScripts
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` subtype
+      `Prelude.hashWithSalt` ec2SecurityGroupIds
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` studioComponentId
 
 instance Prelude.NFData UpdateStudioComponent where
   rnf UpdateStudioComponent' {..} =
-    Prelude.rnf initializationScripts
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
-      `Prelude.seq` Prelude.rnf subtype
+    Prelude.rnf scriptParameters
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scriptParameters
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf initializationScripts
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf subtype
+      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf studioComponentId
 
@@ -256,17 +256,17 @@ instance Core.ToJSON UpdateStudioComponent where
   toJSON UpdateStudioComponent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("initializationScripts" Core..=)
-              Prelude.<$> initializationScripts,
-            ("ec2SecurityGroupIds" Core..=)
-              Prelude.<$> ec2SecurityGroupIds,
-            ("subtype" Core..=) Prelude.<$> subtype,
-            ("name" Core..=) Prelude.<$> name,
-            ("scriptParameters" Core..=)
+          [ ("scriptParameters" Core..=)
               Prelude.<$> scriptParameters,
+            ("name" Core..=) Prelude.<$> name,
             ("type" Core..=) Prelude.<$> type',
+            ("initializationScripts" Core..=)
+              Prelude.<$> initializationScripts,
             ("configuration" Core..=) Prelude.<$> configuration,
-            ("description" Core..=) Prelude.<$> description
+            ("description" Core..=) Prelude.<$> description,
+            ("subtype" Core..=) Prelude.<$> subtype,
+            ("ec2SecurityGroupIds" Core..=)
+              Prelude.<$> ec2SecurityGroupIds
           ]
       )
 

@@ -29,13 +29,13 @@ import Amazonka.SecretsManager.Types.FilterNameStringType
 --
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
-  { -- | Filters your list of secrets by a specific value.
+  { -- | Filters your list of secrets by a specific key.
+    key :: Prelude.Maybe FilterNameStringType,
+    -- | Filters your list of secrets by a specific value.
     --
     -- You can prefix your search value with an exclamation mark (@!@) in order
     -- to perform negation filters.
-    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Filters your list of secrets by a specific key.
-    key :: Prelude.Maybe FilterNameStringType
+    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data Filter = Filter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 'filter_key' - Filters your list of secrets by a specific key.
+--
 -- 'values', 'filter_values' - Filters your list of secrets by a specific value.
 --
 -- You can prefix your search value with an exclamation mark (@!@) in order
 -- to perform negation filters.
---
--- 'key', 'filter_key' - Filters your list of secrets by a specific key.
 newFilter ::
   Filter
 newFilter =
   Filter'
-    { values = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
+
+-- | Filters your list of secrets by a specific key.
+filter_key :: Lens.Lens' Filter (Prelude.Maybe FilterNameStringType)
+filter_key = Lens.lens (\Filter' {key} -> key) (\s@Filter' {} a -> s {key = a} :: Filter)
 
 -- | Filters your list of secrets by a specific value.
 --
@@ -68,24 +72,20 @@ newFilter =
 filter_values :: Lens.Lens' Filter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
 
--- | Filters your list of secrets by a specific key.
-filter_key :: Lens.Lens' Filter (Prelude.Maybe FilterNameStringType)
-filter_key = Lens.lens (\Filter' {key} -> key) (\s@Filter' {} a -> s {key = a} :: Filter)
-
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntityLabel' smart constructor.
 data EntityLabel = EntityLabel'
-  { -- | The level of confidence that Amazon Comprehend has in the accuracy of
+  { -- | The name of the label.
+    name :: Prelude.Maybe PiiEntityType,
+    -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
-    score :: Prelude.Maybe Prelude.Double,
-    -- | The name of the label.
-    name :: Prelude.Maybe PiiEntityType
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data EntityLabel = EntityLabel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'entityLabel_name' - The name of the label.
+--
 -- 'score', 'entityLabel_score' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
---
--- 'name', 'entityLabel_name' - The name of the label.
 newEntityLabel ::
   EntityLabel
 newEntityLabel =
   EntityLabel'
-    { score = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      score = Prelude.Nothing
     }
+
+-- | The name of the label.
+entityLabel_name :: Lens.Lens' EntityLabel (Prelude.Maybe PiiEntityType)
+entityLabel_name = Lens.lens (\EntityLabel' {name} -> name) (\s@EntityLabel' {} a -> s {name = a} :: EntityLabel)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
 entityLabel_score :: Lens.Lens' EntityLabel (Prelude.Maybe Prelude.Double)
 entityLabel_score = Lens.lens (\EntityLabel' {score} -> score) (\s@EntityLabel' {} a -> s {score = a} :: EntityLabel)
-
--- | The name of the label.
-entityLabel_name :: Lens.Lens' EntityLabel (Prelude.Maybe PiiEntityType)
-entityLabel_name = Lens.lens (\EntityLabel' {name} -> name) (\s@EntityLabel' {} a -> s {name = a} :: EntityLabel)
 
 instance Core.FromJSON EntityLabel where
   parseJSON =
@@ -72,14 +72,14 @@ instance Core.FromJSON EntityLabel where
       "EntityLabel"
       ( \x ->
           EntityLabel'
-            Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
       )
 
 instance Prelude.Hashable EntityLabel where
   hashWithSalt _salt EntityLabel' {..} =
-    _salt `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData EntityLabel where
   rnf EntityLabel' {..} =
-    Prelude.rnf score `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf score

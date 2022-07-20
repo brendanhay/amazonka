@@ -30,22 +30,22 @@ import Amazonka.RobOMaker.Types.UploadConfiguration
 --
 -- /See:/ 'newRobotApplicationConfig' smart constructor.
 data RobotApplicationConfig = RobotApplicationConfig'
-  { -- | A Boolean indicating whether to use default upload configurations. By
+  { -- | Information about tools configured for the robot application.
+    tools :: Prelude.Maybe [Tool],
+    -- | A Boolean indicating whether to use default robot application tools. The
+    -- default tools are rviz, rqt, terminal and rosbag record. The default is
+    -- @False@.
+    useDefaultTools :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean indicating whether to use default upload configurations. By
     -- default, @.ros@ and @.gazebo@ files are uploaded when the application
     -- terminates and all ROS topics will be recorded.
     --
     -- If you set this value, you must specify an @outputLocation@.
     useDefaultUploadConfigurations :: Prelude.Maybe Prelude.Bool,
-    -- | A Boolean indicating whether to use default robot application tools. The
-    -- default tools are rviz, rqt, terminal and rosbag record. The default is
-    -- @False@.
-    useDefaultTools :: Prelude.Maybe Prelude.Bool,
-    -- | The version of the robot application.
-    applicationVersion :: Prelude.Maybe Prelude.Text,
     -- | The upload configurations for the robot application.
     uploadConfigurations :: Prelude.Maybe [UploadConfiguration],
-    -- | Information about tools configured for the robot application.
-    tools :: Prelude.Maybe [Tool],
+    -- | The version of the robot application.
+    applicationVersion :: Prelude.Maybe Prelude.Text,
     -- | The application information for the robot application.
     application :: Prelude.Text,
     -- | The launch configuration for the robot application.
@@ -61,21 +61,21 @@ data RobotApplicationConfig = RobotApplicationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tools', 'robotApplicationConfig_tools' - Information about tools configured for the robot application.
+--
+-- 'useDefaultTools', 'robotApplicationConfig_useDefaultTools' - A Boolean indicating whether to use default robot application tools. The
+-- default tools are rviz, rqt, terminal and rosbag record. The default is
+-- @False@.
+--
 -- 'useDefaultUploadConfigurations', 'robotApplicationConfig_useDefaultUploadConfigurations' - A Boolean indicating whether to use default upload configurations. By
 -- default, @.ros@ and @.gazebo@ files are uploaded when the application
 -- terminates and all ROS topics will be recorded.
 --
 -- If you set this value, you must specify an @outputLocation@.
 --
--- 'useDefaultTools', 'robotApplicationConfig_useDefaultTools' - A Boolean indicating whether to use default robot application tools. The
--- default tools are rviz, rqt, terminal and rosbag record. The default is
--- @False@.
---
--- 'applicationVersion', 'robotApplicationConfig_applicationVersion' - The version of the robot application.
---
 -- 'uploadConfigurations', 'robotApplicationConfig_uploadConfigurations' - The upload configurations for the robot application.
 --
--- 'tools', 'robotApplicationConfig_tools' - Information about tools configured for the robot application.
+-- 'applicationVersion', 'robotApplicationConfig_applicationVersion' - The version of the robot application.
 --
 -- 'application', 'robotApplicationConfig_application' - The application information for the robot application.
 --
@@ -90,15 +90,24 @@ newRobotApplicationConfig
   pApplication_
   pLaunchConfig_ =
     RobotApplicationConfig'
-      { useDefaultUploadConfigurations =
-          Prelude.Nothing,
+      { tools = Prelude.Nothing,
         useDefaultTools = Prelude.Nothing,
-        applicationVersion = Prelude.Nothing,
+        useDefaultUploadConfigurations = Prelude.Nothing,
         uploadConfigurations = Prelude.Nothing,
-        tools = Prelude.Nothing,
+        applicationVersion = Prelude.Nothing,
         application = pApplication_,
         launchConfig = pLaunchConfig_
       }
+
+-- | Information about tools configured for the robot application.
+robotApplicationConfig_tools :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe [Tool])
+robotApplicationConfig_tools = Lens.lens (\RobotApplicationConfig' {tools} -> tools) (\s@RobotApplicationConfig' {} a -> s {tools = a} :: RobotApplicationConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | A Boolean indicating whether to use default robot application tools. The
+-- default tools are rviz, rqt, terminal and rosbag record. The default is
+-- @False@.
+robotApplicationConfig_useDefaultTools :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe Prelude.Bool)
+robotApplicationConfig_useDefaultTools = Lens.lens (\RobotApplicationConfig' {useDefaultTools} -> useDefaultTools) (\s@RobotApplicationConfig' {} a -> s {useDefaultTools = a} :: RobotApplicationConfig)
 
 -- | A Boolean indicating whether to use default upload configurations. By
 -- default, @.ros@ and @.gazebo@ files are uploaded when the application
@@ -108,23 +117,13 @@ newRobotApplicationConfig
 robotApplicationConfig_useDefaultUploadConfigurations :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe Prelude.Bool)
 robotApplicationConfig_useDefaultUploadConfigurations = Lens.lens (\RobotApplicationConfig' {useDefaultUploadConfigurations} -> useDefaultUploadConfigurations) (\s@RobotApplicationConfig' {} a -> s {useDefaultUploadConfigurations = a} :: RobotApplicationConfig)
 
--- | A Boolean indicating whether to use default robot application tools. The
--- default tools are rviz, rqt, terminal and rosbag record. The default is
--- @False@.
-robotApplicationConfig_useDefaultTools :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe Prelude.Bool)
-robotApplicationConfig_useDefaultTools = Lens.lens (\RobotApplicationConfig' {useDefaultTools} -> useDefaultTools) (\s@RobotApplicationConfig' {} a -> s {useDefaultTools = a} :: RobotApplicationConfig)
-
--- | The version of the robot application.
-robotApplicationConfig_applicationVersion :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe Prelude.Text)
-robotApplicationConfig_applicationVersion = Lens.lens (\RobotApplicationConfig' {applicationVersion} -> applicationVersion) (\s@RobotApplicationConfig' {} a -> s {applicationVersion = a} :: RobotApplicationConfig)
-
 -- | The upload configurations for the robot application.
 robotApplicationConfig_uploadConfigurations :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe [UploadConfiguration])
 robotApplicationConfig_uploadConfigurations = Lens.lens (\RobotApplicationConfig' {uploadConfigurations} -> uploadConfigurations) (\s@RobotApplicationConfig' {} a -> s {uploadConfigurations = a} :: RobotApplicationConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about tools configured for the robot application.
-robotApplicationConfig_tools :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe [Tool])
-robotApplicationConfig_tools = Lens.lens (\RobotApplicationConfig' {tools} -> tools) (\s@RobotApplicationConfig' {} a -> s {tools = a} :: RobotApplicationConfig) Prelude.. Lens.mapping Lens.coerced
+-- | The version of the robot application.
+robotApplicationConfig_applicationVersion :: Lens.Lens' RobotApplicationConfig (Prelude.Maybe Prelude.Text)
+robotApplicationConfig_applicationVersion = Lens.lens (\RobotApplicationConfig' {applicationVersion} -> applicationVersion) (\s@RobotApplicationConfig' {} a -> s {applicationVersion = a} :: RobotApplicationConfig)
 
 -- | The application information for the robot application.
 robotApplicationConfig_application :: Lens.Lens' RobotApplicationConfig Prelude.Text
@@ -140,35 +139,34 @@ instance Core.FromJSON RobotApplicationConfig where
       "RobotApplicationConfig"
       ( \x ->
           RobotApplicationConfig'
-            Prelude.<$> (x Core..:? "useDefaultUploadConfigurations")
+            Prelude.<$> (x Core..:? "tools" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "useDefaultTools")
-            Prelude.<*> (x Core..:? "applicationVersion")
+            Prelude.<*> (x Core..:? "useDefaultUploadConfigurations")
             Prelude.<*> ( x Core..:? "uploadConfigurations"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "tools" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "applicationVersion")
             Prelude.<*> (x Core..: "application")
             Prelude.<*> (x Core..: "launchConfig")
       )
 
 instance Prelude.Hashable RobotApplicationConfig where
   hashWithSalt _salt RobotApplicationConfig' {..} =
-    _salt
-      `Prelude.hashWithSalt` useDefaultUploadConfigurations
+    _salt `Prelude.hashWithSalt` tools
       `Prelude.hashWithSalt` useDefaultTools
-      `Prelude.hashWithSalt` applicationVersion
+      `Prelude.hashWithSalt` useDefaultUploadConfigurations
       `Prelude.hashWithSalt` uploadConfigurations
-      `Prelude.hashWithSalt` tools
+      `Prelude.hashWithSalt` applicationVersion
       `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` launchConfig
 
 instance Prelude.NFData RobotApplicationConfig where
   rnf RobotApplicationConfig' {..} =
-    Prelude.rnf useDefaultUploadConfigurations
+    Prelude.rnf tools
       `Prelude.seq` Prelude.rnf useDefaultTools
-      `Prelude.seq` Prelude.rnf applicationVersion
+      `Prelude.seq` Prelude.rnf useDefaultUploadConfigurations
       `Prelude.seq` Prelude.rnf uploadConfigurations
-      `Prelude.seq` Prelude.rnf tools
+      `Prelude.seq` Prelude.rnf applicationVersion
       `Prelude.seq` Prelude.rnf application
       `Prelude.seq` Prelude.rnf launchConfig
 
@@ -176,15 +174,15 @@ instance Core.ToJSON RobotApplicationConfig where
   toJSON RobotApplicationConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("useDefaultUploadConfigurations" Core..=)
-              Prelude.<$> useDefaultUploadConfigurations,
+          [ ("tools" Core..=) Prelude.<$> tools,
             ("useDefaultTools" Core..=)
               Prelude.<$> useDefaultTools,
-            ("applicationVersion" Core..=)
-              Prelude.<$> applicationVersion,
+            ("useDefaultUploadConfigurations" Core..=)
+              Prelude.<$> useDefaultUploadConfigurations,
             ("uploadConfigurations" Core..=)
               Prelude.<$> uploadConfigurations,
-            ("tools" Core..=) Prelude.<$> tools,
+            ("applicationVersion" Core..=)
+              Prelude.<$> applicationVersion,
             Prelude.Just ("application" Core..= application),
             Prelude.Just ("launchConfig" Core..= launchConfig)
           ]

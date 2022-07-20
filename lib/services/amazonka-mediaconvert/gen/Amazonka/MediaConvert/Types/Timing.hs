@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTiming' smart constructor.
 data Timing = Timing'
-  { -- | The time, in Unix epoch format, that transcoding for the job began.
-    startTime :: Prelude.Maybe Core.POSIX,
+  { -- | The time, in Unix epoch format, that you submitted the job.
+    submitTime :: Prelude.Maybe Core.POSIX,
     -- | The time, in Unix epoch format, that the transcoding job finished
     finishTime :: Prelude.Maybe Core.POSIX,
-    -- | The time, in Unix epoch format, that you submitted the job.
-    submitTime :: Prelude.Maybe Core.POSIX
+    -- | The time, in Unix epoch format, that transcoding for the job began.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data Timing = Timing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'timing_startTime' - The time, in Unix epoch format, that transcoding for the job began.
+-- 'submitTime', 'timing_submitTime' - The time, in Unix epoch format, that you submitted the job.
 --
 -- 'finishTime', 'timing_finishTime' - The time, in Unix epoch format, that the transcoding job finished
 --
--- 'submitTime', 'timing_submitTime' - The time, in Unix epoch format, that you submitted the job.
+-- 'startTime', 'timing_startTime' - The time, in Unix epoch format, that transcoding for the job began.
 newTiming ::
   Timing
 newTiming =
   Timing'
-    { startTime = Prelude.Nothing,
+    { submitTime = Prelude.Nothing,
       finishTime = Prelude.Nothing,
-      submitTime = Prelude.Nothing
+      startTime = Prelude.Nothing
     }
 
--- | The time, in Unix epoch format, that transcoding for the job began.
-timing_startTime :: Lens.Lens' Timing (Prelude.Maybe Prelude.UTCTime)
-timing_startTime = Lens.lens (\Timing' {startTime} -> startTime) (\s@Timing' {} a -> s {startTime = a} :: Timing) Prelude.. Lens.mapping Core._Time
+-- | The time, in Unix epoch format, that you submitted the job.
+timing_submitTime :: Lens.Lens' Timing (Prelude.Maybe Prelude.UTCTime)
+timing_submitTime = Lens.lens (\Timing' {submitTime} -> submitTime) (\s@Timing' {} a -> s {submitTime = a} :: Timing) Prelude.. Lens.mapping Core._Time
 
 -- | The time, in Unix epoch format, that the transcoding job finished
 timing_finishTime :: Lens.Lens' Timing (Prelude.Maybe Prelude.UTCTime)
 timing_finishTime = Lens.lens (\Timing' {finishTime} -> finishTime) (\s@Timing' {} a -> s {finishTime = a} :: Timing) Prelude.. Lens.mapping Core._Time
 
--- | The time, in Unix epoch format, that you submitted the job.
-timing_submitTime :: Lens.Lens' Timing (Prelude.Maybe Prelude.UTCTime)
-timing_submitTime = Lens.lens (\Timing' {submitTime} -> submitTime) (\s@Timing' {} a -> s {submitTime = a} :: Timing) Prelude.. Lens.mapping Core._Time
+-- | The time, in Unix epoch format, that transcoding for the job began.
+timing_startTime :: Lens.Lens' Timing (Prelude.Maybe Prelude.UTCTime)
+timing_startTime = Lens.lens (\Timing' {startTime} -> startTime) (\s@Timing' {} a -> s {startTime = a} :: Timing) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Timing where
   parseJSON =
@@ -77,19 +77,19 @@ instance Core.FromJSON Timing where
       "Timing"
       ( \x ->
           Timing'
-            Prelude.<$> (x Core..:? "startTime")
+            Prelude.<$> (x Core..:? "submitTime")
             Prelude.<*> (x Core..:? "finishTime")
-            Prelude.<*> (x Core..:? "submitTime")
+            Prelude.<*> (x Core..:? "startTime")
       )
 
 instance Prelude.Hashable Timing where
   hashWithSalt _salt Timing' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` submitTime
       `Prelude.hashWithSalt` finishTime
-      `Prelude.hashWithSalt` submitTime
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData Timing where
   rnf Timing' {..} =
-    Prelude.rnf startTime
+    Prelude.rnf submitTime
       `Prelude.seq` Prelude.rnf finishTime
-      `Prelude.seq` Prelude.rnf submitTime
+      `Prelude.seq` Prelude.rnf startTime

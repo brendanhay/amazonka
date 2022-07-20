@@ -14,25 +14,76 @@
 module Amazonka.AppSync.Lens
   ( -- * Operations
 
-    -- ** UpdateDataSource
-    updateDataSource_serviceRoleArn,
-    updateDataSource_relationalDatabaseConfig,
-    updateDataSource_dynamodbConfig,
-    updateDataSource_httpConfig,
-    updateDataSource_openSearchServiceConfig,
-    updateDataSource_lambdaConfig,
-    updateDataSource_description,
-    updateDataSource_elasticsearchConfig,
-    updateDataSource_apiId,
-    updateDataSource_name,
-    updateDataSource_type,
-    updateDataSourceResponse_dataSource,
-    updateDataSourceResponse_httpStatus,
+    -- ** CreateApiCache
+    createApiCache_transitEncryptionEnabled,
+    createApiCache_atRestEncryptionEnabled,
+    createApiCache_apiId,
+    createApiCache_ttl,
+    createApiCache_apiCachingBehavior,
+    createApiCache_type,
+    createApiCacheResponse_apiCache,
+    createApiCacheResponse_httpStatus,
 
-    -- ** DeleteDataSource
-    deleteDataSource_apiId,
-    deleteDataSource_name,
-    deleteDataSourceResponse_httpStatus,
+    -- ** CreateApiKey
+    createApiKey_description,
+    createApiKey_expires,
+    createApiKey_apiId,
+    createApiKeyResponse_apiKey,
+    createApiKeyResponse_httpStatus,
+
+    -- ** CreateDataSource
+    createDataSource_relationalDatabaseConfig,
+    createDataSource_serviceRoleArn,
+    createDataSource_openSearchServiceConfig,
+    createDataSource_description,
+    createDataSource_elasticsearchConfig,
+    createDataSource_lambdaConfig,
+    createDataSource_dynamodbConfig,
+    createDataSource_httpConfig,
+    createDataSource_apiId,
+    createDataSource_name,
+    createDataSource_type,
+    createDataSourceResponse_dataSource,
+    createDataSourceResponse_httpStatus,
+
+    -- ** CreateFunction
+    createFunction_description,
+    createFunction_responseMappingTemplate,
+    createFunction_syncConfig,
+    createFunction_requestMappingTemplate,
+    createFunction_apiId,
+    createFunction_name,
+    createFunction_dataSourceName,
+    createFunction_functionVersion,
+    createFunctionResponse_functionConfiguration,
+    createFunctionResponse_httpStatus,
+
+    -- ** CreateGraphqlApi
+    createGraphqlApi_tags,
+    createGraphqlApi_xrayEnabled,
+    createGraphqlApi_openIDConnectConfig,
+    createGraphqlApi_userPoolConfig,
+    createGraphqlApi_additionalAuthenticationProviders,
+    createGraphqlApi_lambdaAuthorizerConfig,
+    createGraphqlApi_logConfig,
+    createGraphqlApi_name,
+    createGraphqlApi_authenticationType,
+    createGraphqlApiResponse_graphqlApi,
+    createGraphqlApiResponse_httpStatus,
+
+    -- ** CreateResolver
+    createResolver_cachingConfig,
+    createResolver_pipelineConfig,
+    createResolver_kind,
+    createResolver_dataSourceName,
+    createResolver_responseMappingTemplate,
+    createResolver_syncConfig,
+    createResolver_requestMappingTemplate,
+    createResolver_apiId,
+    createResolver_typeName,
+    createResolver_fieldName,
+    createResolverResponse_resolver,
+    createResolverResponse_httpStatus,
 
     -- ** CreateType
     createType_apiId,
@@ -41,55 +92,65 @@ module Amazonka.AppSync.Lens
     createTypeResponse_type,
     createTypeResponse_httpStatus,
 
-    -- ** GetGraphqlApi
-    getGraphqlApi_apiId,
-    getGraphqlApiResponse_graphqlApi,
-    getGraphqlApiResponse_httpStatus,
+    -- ** DeleteApiCache
+    deleteApiCache_apiId,
+    deleteApiCacheResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** DeleteApiKey
+    deleteApiKey_apiId,
+    deleteApiKey_id,
+    deleteApiKeyResponse_httpStatus,
 
-    -- ** CreateGraphqlApi
-    createGraphqlApi_xrayEnabled,
-    createGraphqlApi_openIDConnectConfig,
-    createGraphqlApi_additionalAuthenticationProviders,
-    createGraphqlApi_lambdaAuthorizerConfig,
-    createGraphqlApi_userPoolConfig,
-    createGraphqlApi_logConfig,
-    createGraphqlApi_tags,
-    createGraphqlApi_name,
-    createGraphqlApi_authenticationType,
-    createGraphqlApiResponse_graphqlApi,
-    createGraphqlApiResponse_httpStatus,
+    -- ** DeleteDataSource
+    deleteDataSource_apiId,
+    deleteDataSource_name,
+    deleteDataSourceResponse_httpStatus,
 
-    -- ** StartSchemaCreation
-    startSchemaCreation_apiId,
-    startSchemaCreation_definition,
-    startSchemaCreationResponse_status,
-    startSchemaCreationResponse_httpStatus,
-
-    -- ** FlushApiCache
-    flushApiCache_apiId,
-    flushApiCacheResponse_httpStatus,
+    -- ** DeleteFunction
+    deleteFunction_apiId,
+    deleteFunction_functionId,
+    deleteFunctionResponse_httpStatus,
 
     -- ** DeleteGraphqlApi
     deleteGraphqlApi_apiId,
     deleteGraphqlApiResponse_httpStatus,
 
-    -- ** UpdateGraphqlApi
-    updateGraphqlApi_xrayEnabled,
-    updateGraphqlApi_openIDConnectConfig,
-    updateGraphqlApi_additionalAuthenticationProviders,
-    updateGraphqlApi_lambdaAuthorizerConfig,
-    updateGraphqlApi_userPoolConfig,
-    updateGraphqlApi_authenticationType,
-    updateGraphqlApi_logConfig,
-    updateGraphqlApi_apiId,
-    updateGraphqlApi_name,
-    updateGraphqlApiResponse_graphqlApi,
-    updateGraphqlApiResponse_httpStatus,
+    -- ** DeleteResolver
+    deleteResolver_apiId,
+    deleteResolver_typeName,
+    deleteResolver_fieldName,
+    deleteResolverResponse_httpStatus,
+
+    -- ** DeleteType
+    deleteType_apiId,
+    deleteType_typeName,
+    deleteTypeResponse_httpStatus,
+
+    -- ** FlushApiCache
+    flushApiCache_apiId,
+    flushApiCacheResponse_httpStatus,
+
+    -- ** GetApiCache
+    getApiCache_apiId,
+    getApiCacheResponse_apiCache,
+    getApiCacheResponse_httpStatus,
+
+    -- ** GetDataSource
+    getDataSource_apiId,
+    getDataSource_name,
+    getDataSourceResponse_dataSource,
+    getDataSourceResponse_httpStatus,
+
+    -- ** GetFunction
+    getFunction_apiId,
+    getFunction_functionId,
+    getFunctionResponse_functionConfiguration,
+    getFunctionResponse_httpStatus,
+
+    -- ** GetGraphqlApi
+    getGraphqlApi_apiId,
+    getGraphqlApiResponse_graphqlApi,
+    getGraphqlApiResponse_httpStatus,
 
     -- ** GetIntrospectionSchema
     getIntrospectionSchema_includeDirectives,
@@ -98,116 +159,56 @@ module Amazonka.AppSync.Lens
     getIntrospectionSchemaResponse_schema,
     getIntrospectionSchemaResponse_httpStatus,
 
-    -- ** GetDataSource
-    getDataSource_apiId,
-    getDataSource_name,
-    getDataSourceResponse_dataSource,
-    getDataSourceResponse_httpStatus,
+    -- ** GetResolver
+    getResolver_apiId,
+    getResolver_typeName,
+    getResolver_fieldName,
+    getResolverResponse_resolver,
+    getResolverResponse_httpStatus,
 
-    -- ** ListResolversByFunction
-    listResolversByFunction_nextToken,
-    listResolversByFunction_maxResults,
-    listResolversByFunction_apiId,
-    listResolversByFunction_functionId,
-    listResolversByFunctionResponse_nextToken,
-    listResolversByFunctionResponse_resolvers,
-    listResolversByFunctionResponse_httpStatus,
+    -- ** GetSchemaCreationStatus
+    getSchemaCreationStatus_apiId,
+    getSchemaCreationStatusResponse_status,
+    getSchemaCreationStatusResponse_details,
+    getSchemaCreationStatusResponse_httpStatus,
 
-    -- ** CreateFunction
-    createFunction_requestMappingTemplate,
-    createFunction_responseMappingTemplate,
-    createFunction_syncConfig,
-    createFunction_description,
-    createFunction_apiId,
-    createFunction_name,
-    createFunction_dataSourceName,
-    createFunction_functionVersion,
-    createFunctionResponse_functionConfiguration,
-    createFunctionResponse_httpStatus,
+    -- ** GetType
+    getType_apiId,
+    getType_typeName,
+    getType_format,
+    getTypeResponse_type,
+    getTypeResponse_httpStatus,
 
-    -- ** DeleteApiKey
-    deleteApiKey_apiId,
-    deleteApiKey_id,
-    deleteApiKeyResponse_httpStatus,
-
-    -- ** UpdateApiKey
-    updateApiKey_expires,
-    updateApiKey_description,
-    updateApiKey_apiId,
-    updateApiKey_id,
-    updateApiKeyResponse_apiKey,
-    updateApiKeyResponse_httpStatus,
-
-    -- ** UpdateType
-    updateType_definition,
-    updateType_apiId,
-    updateType_typeName,
-    updateType_format,
-    updateTypeResponse_type,
-    updateTypeResponse_httpStatus,
-
-    -- ** DeleteType
-    deleteType_apiId,
-    deleteType_typeName,
-    deleteTypeResponse_httpStatus,
-
-    -- ** CreateDataSource
-    createDataSource_serviceRoleArn,
-    createDataSource_relationalDatabaseConfig,
-    createDataSource_dynamodbConfig,
-    createDataSource_httpConfig,
-    createDataSource_openSearchServiceConfig,
-    createDataSource_lambdaConfig,
-    createDataSource_description,
-    createDataSource_elasticsearchConfig,
-    createDataSource_apiId,
-    createDataSource_name,
-    createDataSource_type,
-    createDataSourceResponse_dataSource,
-    createDataSourceResponse_httpStatus,
-
-    -- ** ListTypes
-    listTypes_nextToken,
-    listTypes_maxResults,
-    listTypes_apiId,
-    listTypes_format,
-    listTypesResponse_types,
-    listTypesResponse_nextToken,
-    listTypesResponse_httpStatus,
-
-    -- ** GetFunction
-    getFunction_apiId,
-    getFunction_functionId,
-    getFunctionResponse_functionConfiguration,
-    getFunctionResponse_httpStatus,
+    -- ** ListApiKeys
+    listApiKeys_nextToken,
+    listApiKeys_maxResults,
+    listApiKeys_apiId,
+    listApiKeysResponse_nextToken,
+    listApiKeysResponse_apiKeys,
+    listApiKeysResponse_httpStatus,
 
     -- ** ListDataSources
     listDataSources_nextToken,
     listDataSources_maxResults,
     listDataSources_apiId,
-    listDataSourcesResponse_dataSources,
     listDataSourcesResponse_nextToken,
+    listDataSourcesResponse_dataSources,
     listDataSourcesResponse_httpStatus,
 
-    -- ** UpdateResolver
-    updateResolver_dataSourceName,
-    updateResolver_requestMappingTemplate,
-    updateResolver_kind,
-    updateResolver_cachingConfig,
-    updateResolver_responseMappingTemplate,
-    updateResolver_syncConfig,
-    updateResolver_pipelineConfig,
-    updateResolver_apiId,
-    updateResolver_typeName,
-    updateResolver_fieldName,
-    updateResolverResponse_resolver,
-    updateResolverResponse_httpStatus,
+    -- ** ListFunctions
+    listFunctions_nextToken,
+    listFunctions_maxResults,
+    listFunctions_apiId,
+    listFunctionsResponse_functions,
+    listFunctionsResponse_nextToken,
+    listFunctionsResponse_httpStatus,
 
-    -- ** DeleteResolver
-    deleteResolver_apiId,
-    deleteResolver_typeName,
-    deleteResolver_fieldName,
-    deleteResolverResponse_httpStatus,
+    -- ** ListGraphqlApis
+    listGraphqlApis_nextToken,
+    listGraphqlApis_maxResults,
+    listGraphqlApisResponse_nextToken,
+    listGraphqlApisResponse_graphqlApis,
+    listGraphqlApisResponse_httpStatus,
 
     -- ** ListResolvers
     listResolvers_nextToken,
@@ -218,30 +219,44 @@ module Amazonka.AppSync.Lens
     listResolversResponse_resolvers,
     listResolversResponse_httpStatus,
 
-    -- ** CreateResolver
-    createResolver_dataSourceName,
-    createResolver_requestMappingTemplate,
-    createResolver_kind,
-    createResolver_cachingConfig,
-    createResolver_responseMappingTemplate,
-    createResolver_syncConfig,
-    createResolver_pipelineConfig,
-    createResolver_apiId,
-    createResolver_typeName,
-    createResolver_fieldName,
-    createResolverResponse_resolver,
-    createResolverResponse_httpStatus,
+    -- ** ListResolversByFunction
+    listResolversByFunction_nextToken,
+    listResolversByFunction_maxResults,
+    listResolversByFunction_apiId,
+    listResolversByFunction_functionId,
+    listResolversByFunctionResponse_nextToken,
+    listResolversByFunctionResponse_resolvers,
+    listResolversByFunctionResponse_httpStatus,
 
-    -- ** GetSchemaCreationStatus
-    getSchemaCreationStatus_apiId,
-    getSchemaCreationStatusResponse_status,
-    getSchemaCreationStatusResponse_details,
-    getSchemaCreationStatusResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** GetApiCache
-    getApiCache_apiId,
-    getApiCacheResponse_apiCache,
-    getApiCacheResponse_httpStatus,
+    -- ** ListTypes
+    listTypes_nextToken,
+    listTypes_maxResults,
+    listTypes_apiId,
+    listTypes_format,
+    listTypesResponse_nextToken,
+    listTypesResponse_types,
+    listTypesResponse_httpStatus,
+
+    -- ** StartSchemaCreation
+    startSchemaCreation_apiId,
+    startSchemaCreation_definition,
+    startSchemaCreationResponse_status,
+    startSchemaCreationResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** UpdateApiCache
     updateApiCache_apiId,
@@ -251,44 +266,34 @@ module Amazonka.AppSync.Lens
     updateApiCacheResponse_apiCache,
     updateApiCacheResponse_httpStatus,
 
-    -- ** DeleteApiCache
-    deleteApiCache_apiId,
-    deleteApiCacheResponse_httpStatus,
+    -- ** UpdateApiKey
+    updateApiKey_description,
+    updateApiKey_expires,
+    updateApiKey_apiId,
+    updateApiKey_id,
+    updateApiKeyResponse_apiKey,
+    updateApiKeyResponse_httpStatus,
 
-    -- ** ListGraphqlApis
-    listGraphqlApis_nextToken,
-    listGraphqlApis_maxResults,
-    listGraphqlApisResponse_nextToken,
-    listGraphqlApisResponse_graphqlApis,
-    listGraphqlApisResponse_httpStatus,
-
-    -- ** CreateApiCache
-    createApiCache_atRestEncryptionEnabled,
-    createApiCache_transitEncryptionEnabled,
-    createApiCache_apiId,
-    createApiCache_ttl,
-    createApiCache_apiCachingBehavior,
-    createApiCache_type,
-    createApiCacheResponse_apiCache,
-    createApiCacheResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** GetResolver
-    getResolver_apiId,
-    getResolver_typeName,
-    getResolver_fieldName,
-    getResolverResponse_resolver,
-    getResolverResponse_httpStatus,
+    -- ** UpdateDataSource
+    updateDataSource_relationalDatabaseConfig,
+    updateDataSource_serviceRoleArn,
+    updateDataSource_openSearchServiceConfig,
+    updateDataSource_description,
+    updateDataSource_elasticsearchConfig,
+    updateDataSource_lambdaConfig,
+    updateDataSource_dynamodbConfig,
+    updateDataSource_httpConfig,
+    updateDataSource_apiId,
+    updateDataSource_name,
+    updateDataSource_type,
+    updateDataSourceResponse_dataSource,
+    updateDataSourceResponse_httpStatus,
 
     -- ** UpdateFunction
-    updateFunction_requestMappingTemplate,
+    updateFunction_description,
     updateFunction_responseMappingTemplate,
     updateFunction_syncConfig,
-    updateFunction_description,
+    updateFunction_requestMappingTemplate,
     updateFunction_apiId,
     updateFunction_name,
     updateFunction_functionId,
@@ -297,67 +302,62 @@ module Amazonka.AppSync.Lens
     updateFunctionResponse_functionConfiguration,
     updateFunctionResponse_httpStatus,
 
-    -- ** DeleteFunction
-    deleteFunction_apiId,
-    deleteFunction_functionId,
-    deleteFunctionResponse_httpStatus,
+    -- ** UpdateGraphqlApi
+    updateGraphqlApi_xrayEnabled,
+    updateGraphqlApi_authenticationType,
+    updateGraphqlApi_openIDConnectConfig,
+    updateGraphqlApi_userPoolConfig,
+    updateGraphqlApi_additionalAuthenticationProviders,
+    updateGraphqlApi_lambdaAuthorizerConfig,
+    updateGraphqlApi_logConfig,
+    updateGraphqlApi_apiId,
+    updateGraphqlApi_name,
+    updateGraphqlApiResponse_graphqlApi,
+    updateGraphqlApiResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** UpdateResolver
+    updateResolver_cachingConfig,
+    updateResolver_pipelineConfig,
+    updateResolver_kind,
+    updateResolver_dataSourceName,
+    updateResolver_responseMappingTemplate,
+    updateResolver_syncConfig,
+    updateResolver_requestMappingTemplate,
+    updateResolver_apiId,
+    updateResolver_typeName,
+    updateResolver_fieldName,
+    updateResolverResponse_resolver,
+    updateResolverResponse_httpStatus,
 
-    -- ** CreateApiKey
-    createApiKey_expires,
-    createApiKey_description,
-    createApiKey_apiId,
-    createApiKeyResponse_apiKey,
-    createApiKeyResponse_httpStatus,
-
-    -- ** ListFunctions
-    listFunctions_nextToken,
-    listFunctions_maxResults,
-    listFunctions_apiId,
-    listFunctionsResponse_nextToken,
-    listFunctionsResponse_functions,
-    listFunctionsResponse_httpStatus,
-
-    -- ** ListApiKeys
-    listApiKeys_nextToken,
-    listApiKeys_maxResults,
-    listApiKeys_apiId,
-    listApiKeysResponse_apiKeys,
-    listApiKeysResponse_nextToken,
-    listApiKeysResponse_httpStatus,
-
-    -- ** GetType
-    getType_apiId,
-    getType_typeName,
-    getType_format,
-    getTypeResponse_type,
-    getTypeResponse_httpStatus,
+    -- ** UpdateType
+    updateType_definition,
+    updateType_apiId,
+    updateType_typeName,
+    updateType_format,
+    updateTypeResponse_type,
+    updateTypeResponse_httpStatus,
 
     -- * Types
 
     -- ** AdditionalAuthenticationProvider
-    additionalAuthenticationProvider_openIDConnectConfig,
-    additionalAuthenticationProvider_lambdaAuthorizerConfig,
-    additionalAuthenticationProvider_userPoolConfig,
     additionalAuthenticationProvider_authenticationType,
+    additionalAuthenticationProvider_openIDConnectConfig,
+    additionalAuthenticationProvider_userPoolConfig,
+    additionalAuthenticationProvider_lambdaAuthorizerConfig,
 
     -- ** ApiCache
+    apiCache_transitEncryptionEnabled,
+    apiCache_type,
+    apiCache_apiCachingBehavior,
     apiCache_ttl,
     apiCache_status,
     apiCache_atRestEncryptionEnabled,
-    apiCache_transitEncryptionEnabled,
-    apiCache_apiCachingBehavior,
-    apiCache_type,
 
     -- ** ApiKey
+    apiKey_description,
+    apiKey_id,
     apiKey_expires,
     apiKey_deletes,
-    apiKey_id,
-    apiKey_description,
 
     -- ** AuthorizationConfig
     authorizationConfig_awsIamConfig,
@@ -377,17 +377,17 @@ module Amazonka.AppSync.Lens
     cognitoUserPoolConfig_awsRegion,
 
     -- ** DataSource
-    dataSource_serviceRoleArn,
-    dataSource_relationalDatabaseConfig,
-    dataSource_dataSourceArn,
-    dataSource_dynamodbConfig,
     dataSource_name,
-    dataSource_httpConfig,
-    dataSource_openSearchServiceConfig,
-    dataSource_lambdaConfig,
+    dataSource_dataSourceArn,
     dataSource_type,
+    dataSource_relationalDatabaseConfig,
+    dataSource_serviceRoleArn,
+    dataSource_openSearchServiceConfig,
     dataSource_description,
     dataSource_elasticsearchConfig,
+    dataSource_lambdaConfig,
+    dataSource_dynamodbConfig,
+    dataSource_httpConfig,
 
     -- ** DeltaSyncConfig
     deltaSyncConfig_baseTableTTL,
@@ -395,8 +395,8 @@ module Amazonka.AppSync.Lens
     deltaSyncConfig_deltaSyncTableTTL,
 
     -- ** DynamodbDataSourceConfig
-    dynamodbDataSourceConfig_versioned,
     dynamodbDataSourceConfig_useCallerCredentials,
+    dynamodbDataSourceConfig_versioned,
     dynamodbDataSourceConfig_deltaSyncConfig,
     dynamodbDataSourceConfig_tableName,
     dynamodbDataSourceConfig_awsRegion,
@@ -407,37 +407,37 @@ module Amazonka.AppSync.Lens
 
     -- ** FunctionConfiguration
     functionConfiguration_functionArn,
-    functionConfiguration_dataSourceName,
-    functionConfiguration_requestMappingTemplate,
     functionConfiguration_name,
-    functionConfiguration_functionId,
-    functionConfiguration_responseMappingTemplate,
-    functionConfiguration_syncConfig,
     functionConfiguration_functionVersion,
     functionConfiguration_description,
+    functionConfiguration_dataSourceName,
+    functionConfiguration_responseMappingTemplate,
+    functionConfiguration_syncConfig,
+    functionConfiguration_functionId,
+    functionConfiguration_requestMappingTemplate,
 
     -- ** GraphqlApi
+    graphqlApi_tags,
     graphqlApi_xrayEnabled,
-    graphqlApi_arn,
+    graphqlApi_name,
+    graphqlApi_authenticationType,
     graphqlApi_apiId,
-    graphqlApi_uris,
     graphqlApi_openIDConnectConfig,
-    graphqlApi_wafWebAclArn,
+    graphqlApi_arn,
+    graphqlApi_uris,
+    graphqlApi_userPoolConfig,
     graphqlApi_additionalAuthenticationProviders,
     graphqlApi_lambdaAuthorizerConfig,
-    graphqlApi_name,
-    graphqlApi_userPoolConfig,
-    graphqlApi_authenticationType,
     graphqlApi_logConfig,
-    graphqlApi_tags,
+    graphqlApi_wafWebAclArn,
 
     -- ** HttpDataSourceConfig
-    httpDataSourceConfig_authorizationConfig,
     httpDataSourceConfig_endpoint,
+    httpDataSourceConfig_authorizationConfig,
 
     -- ** LambdaAuthorizerConfig
-    lambdaAuthorizerConfig_identityValidationExpression,
     lambdaAuthorizerConfig_authorizerResultTtlInSeconds,
+    lambdaAuthorizerConfig_identityValidationExpression,
     lambdaAuthorizerConfig_authorizerUri,
 
     -- ** LambdaConflictHandlerConfig
@@ -452,9 +452,9 @@ module Amazonka.AppSync.Lens
     logConfig_cloudWatchLogsRoleArn,
 
     -- ** OpenIDConnectConfig
-    openIDConnectConfig_authTTL,
-    openIDConnectConfig_clientId,
     openIDConnectConfig_iatTTL,
+    openIDConnectConfig_clientId,
+    openIDConnectConfig_authTTL,
     openIDConnectConfig_issuer,
 
     -- ** OpenSearchServiceDataSourceConfig
@@ -465,10 +465,10 @@ module Amazonka.AppSync.Lens
     pipelineConfig_functions,
 
     -- ** RdsHttpEndpointConfig
-    rdsHttpEndpointConfig_dbClusterIdentifier,
-    rdsHttpEndpointConfig_schema,
     rdsHttpEndpointConfig_databaseName,
+    rdsHttpEndpointConfig_dbClusterIdentifier,
     rdsHttpEndpointConfig_awsRegion,
+    rdsHttpEndpointConfig_schema,
     rdsHttpEndpointConfig_awsSecretStoreArn,
 
     -- ** RelationalDatabaseDataSourceConfig
@@ -476,16 +476,16 @@ module Amazonka.AppSync.Lens
     relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig,
 
     -- ** Resolver
+    resolver_resolverArn,
+    resolver_fieldName,
+    resolver_cachingConfig,
+    resolver_pipelineConfig,
+    resolver_kind,
     resolver_typeName,
     resolver_dataSourceName,
-    resolver_requestMappingTemplate,
-    resolver_kind,
-    resolver_resolverArn,
-    resolver_cachingConfig,
     resolver_responseMappingTemplate,
-    resolver_fieldName,
     resolver_syncConfig,
-    resolver_pipelineConfig,
+    resolver_requestMappingTemplate,
 
     -- ** SyncConfig
     syncConfig_conflictHandler,
@@ -493,11 +493,11 @@ module Amazonka.AppSync.Lens
     syncConfig_lambdaConflictHandlerConfig,
 
     -- ** Type
-    type_arn,
-    type_definition,
-    type_format,
     type_name,
+    type_format,
+    type_arn,
     type_description,
+    type_definition,
 
     -- ** UserPoolConfig
     userPoolConfig_appIdClientRegex,

@@ -34,13 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyGroup' smart constructor.
 data PolicyGroup = PolicyGroup'
-  { -- | The stable and unique string identifying the group. For more information
+  { -- | The name (friendly name, not ARN) identifying the group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The stable and unique string identifying the group. For more information
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    groupId :: Prelude.Maybe Prelude.Text,
-    -- | The name (friendly name, not ARN) identifying the group.
-    groupName :: Prelude.Maybe Prelude.Text
+    groupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,19 +52,23 @@ data PolicyGroup = PolicyGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groupName', 'policyGroup_groupName' - The name (friendly name, not ARN) identifying the group.
+--
 -- 'groupId', 'policyGroup_groupId' - The stable and unique string identifying the group. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
---
--- 'groupName', 'policyGroup_groupName' - The name (friendly name, not ARN) identifying the group.
 newPolicyGroup ::
   PolicyGroup
 newPolicyGroup =
   PolicyGroup'
-    { groupId = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { groupName = Prelude.Nothing,
+      groupId = Prelude.Nothing
     }
+
+-- | The name (friendly name, not ARN) identifying the group.
+policyGroup_groupName :: Lens.Lens' PolicyGroup (Prelude.Maybe Prelude.Text)
+policyGroup_groupName = Lens.lens (\PolicyGroup' {groupName} -> groupName) (\s@PolicyGroup' {} a -> s {groupName = a} :: PolicyGroup)
 
 -- | The stable and unique string identifying the group. For more information
 -- about IDs, see
@@ -73,22 +77,18 @@ newPolicyGroup =
 policyGroup_groupId :: Lens.Lens' PolicyGroup (Prelude.Maybe Prelude.Text)
 policyGroup_groupId = Lens.lens (\PolicyGroup' {groupId} -> groupId) (\s@PolicyGroup' {} a -> s {groupId = a} :: PolicyGroup)
 
--- | The name (friendly name, not ARN) identifying the group.
-policyGroup_groupName :: Lens.Lens' PolicyGroup (Prelude.Maybe Prelude.Text)
-policyGroup_groupName = Lens.lens (\PolicyGroup' {groupName} -> groupName) (\s@PolicyGroup' {} a -> s {groupName = a} :: PolicyGroup)
-
 instance Core.FromXML PolicyGroup where
   parseXML x =
     PolicyGroup'
-      Prelude.<$> (x Core..@? "GroupId")
-      Prelude.<*> (x Core..@? "GroupName")
+      Prelude.<$> (x Core..@? "GroupName")
+      Prelude.<*> (x Core..@? "GroupId")
 
 instance Prelude.Hashable PolicyGroup where
   hashWithSalt _salt PolicyGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupId
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData PolicyGroup where
   rnf PolicyGroup' {..} =
-    Prelude.rnf groupId
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupId

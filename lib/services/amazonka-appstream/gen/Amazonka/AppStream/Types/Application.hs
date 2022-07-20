@@ -27,21 +27,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplication' smart constructor.
 data Application = Application'
-  { -- | If there is a problem, the application can be disabled after image
-    -- creation.
-    enabled :: Prelude.Maybe Prelude.Bool,
+  { -- | The name of the application.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The path to the application executable in the instance.
     launchPath :: Prelude.Maybe Prelude.Text,
-    -- | The arguments that are passed to the application at launch.
-    launchParameters :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The application name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | Additional attributes that describe the application.
     metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The application name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | If there is a problem, the application can be disabled after image
+    -- creation.
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The URL for the application icon. This URL might be time-limited.
-    iconURL :: Prelude.Maybe Prelude.Text
+    iconURL :: Prelude.Maybe Prelude.Text,
+    -- | The arguments that are passed to the application at launch.
+    launchParameters :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,61 +53,61 @@ data Application = Application'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'application_enabled' - If there is a problem, the application can be disabled after image
--- creation.
+-- 'name', 'application_name' - The name of the application.
 --
 -- 'launchPath', 'application_launchPath' - The path to the application executable in the instance.
 --
--- 'launchParameters', 'application_launchParameters' - The arguments that are passed to the application at launch.
---
--- 'name', 'application_name' - The name of the application.
+-- 'metadata', 'application_metadata' - Additional attributes that describe the application.
 --
 -- 'displayName', 'application_displayName' - The application name to display.
 --
--- 'metadata', 'application_metadata' - Additional attributes that describe the application.
+-- 'enabled', 'application_enabled' - If there is a problem, the application can be disabled after image
+-- creation.
 --
 -- 'iconURL', 'application_iconURL' - The URL for the application icon. This URL might be time-limited.
+--
+-- 'launchParameters', 'application_launchParameters' - The arguments that are passed to the application at launch.
 newApplication ::
   Application
 newApplication =
   Application'
-    { enabled = Prelude.Nothing,
+    { name = Prelude.Nothing,
       launchPath = Prelude.Nothing,
-      launchParameters = Prelude.Nothing,
-      name = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       metadata = Prelude.Nothing,
-      iconURL = Prelude.Nothing
+      displayName = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      iconURL = Prelude.Nothing,
+      launchParameters = Prelude.Nothing
     }
+
+-- | The name of the application.
+application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
+
+-- | The path to the application executable in the instance.
+application_launchPath :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_launchPath = Lens.lens (\Application' {launchPath} -> launchPath) (\s@Application' {} a -> s {launchPath = a} :: Application)
+
+-- | Additional attributes that describe the application.
+application_metadata :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+application_metadata = Lens.lens (\Application' {metadata} -> metadata) (\s@Application' {} a -> s {metadata = a} :: Application) Prelude.. Lens.mapping Lens.coerced
+
+-- | The application name to display.
+application_displayName :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_displayName = Lens.lens (\Application' {displayName} -> displayName) (\s@Application' {} a -> s {displayName = a} :: Application)
 
 -- | If there is a problem, the application can be disabled after image
 -- creation.
 application_enabled :: Lens.Lens' Application (Prelude.Maybe Prelude.Bool)
 application_enabled = Lens.lens (\Application' {enabled} -> enabled) (\s@Application' {} a -> s {enabled = a} :: Application)
 
--- | The path to the application executable in the instance.
-application_launchPath :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
-application_launchPath = Lens.lens (\Application' {launchPath} -> launchPath) (\s@Application' {} a -> s {launchPath = a} :: Application)
+-- | The URL for the application icon. This URL might be time-limited.
+application_iconURL :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_iconURL = Lens.lens (\Application' {iconURL} -> iconURL) (\s@Application' {} a -> s {iconURL = a} :: Application)
 
 -- | The arguments that are passed to the application at launch.
 application_launchParameters :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_launchParameters = Lens.lens (\Application' {launchParameters} -> launchParameters) (\s@Application' {} a -> s {launchParameters = a} :: Application)
-
--- | The name of the application.
-application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
-application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
-
--- | The application name to display.
-application_displayName :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
-application_displayName = Lens.lens (\Application' {displayName} -> displayName) (\s@Application' {} a -> s {displayName = a} :: Application)
-
--- | Additional attributes that describe the application.
-application_metadata :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-application_metadata = Lens.lens (\Application' {metadata} -> metadata) (\s@Application' {} a -> s {metadata = a} :: Application) Prelude.. Lens.mapping Lens.coerced
-
--- | The URL for the application icon. This URL might be time-limited.
-application_iconURL :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
-application_iconURL = Lens.lens (\Application' {iconURL} -> iconURL) (\s@Application' {} a -> s {iconURL = a} :: Application)
 
 instance Core.FromJSON Application where
   parseJSON =
@@ -115,31 +115,31 @@ instance Core.FromJSON Application where
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Core..:? "Enabled")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "LaunchPath")
-            Prelude.<*> (x Core..:? "LaunchParameters")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "Metadata" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "IconURL")
+            Prelude.<*> (x Core..:? "LaunchParameters")
       )
 
 instance Prelude.Hashable Application where
   hashWithSalt _salt Application' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` launchPath
-      `Prelude.hashWithSalt` launchParameters
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` iconURL
+      `Prelude.hashWithSalt` launchParameters
 
 instance Prelude.NFData Application where
   rnf Application' {..} =
-    Prelude.rnf enabled
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf launchPath
-      `Prelude.seq` Prelude.rnf launchParameters
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf iconURL
+      `Prelude.seq` Prelude.rnf launchParameters

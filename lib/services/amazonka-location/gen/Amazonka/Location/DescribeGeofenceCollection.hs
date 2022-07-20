@@ -34,9 +34,9 @@ module Amazonka.Location.DescribeGeofenceCollection
     newDescribeGeofenceCollectionResponse,
 
     -- * Response Lenses
+    describeGeofenceCollectionResponse_tags,
     describeGeofenceCollectionResponse_pricingPlanDataSource,
     describeGeofenceCollectionResponse_kmsKeyId,
-    describeGeofenceCollectionResponse_tags,
     describeGeofenceCollectionResponse_httpStatus,
     describeGeofenceCollectionResponse_collectionArn,
     describeGeofenceCollectionResponse_collectionName,
@@ -93,9 +93,9 @@ instance Core.AWSRequest DescribeGeofenceCollection where
     Response.receiveJSON
       ( \s h x ->
           DescribeGeofenceCollectionResponse'
-            Prelude.<$> (x Core..?> "PricingPlanDataSource")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PricingPlanDataSource")
             Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CollectionArn")
             Prelude.<*> (x Core..:> "CollectionName")
@@ -136,14 +136,14 @@ instance Core.ToQuery DescribeGeofenceCollection where
 
 -- | /See:/ 'newDescribeGeofenceCollectionResponse' smart constructor.
 data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
-  { -- | The specified data provider for the geofence collection.
+  { -- | Displays the key, value pairs of tags associated with this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The specified data provider for the geofence collection.
     pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
     -- | A key identifier for an
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
     -- assigned to the Amazon Location resource
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Displays the key, value pairs of tags associated with this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the geofence collection resource.
@@ -181,13 +181,13 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'describeGeofenceCollectionResponse_tags' - Displays the key, value pairs of tags associated with this resource.
+--
 -- 'pricingPlanDataSource', 'describeGeofenceCollectionResponse_pricingPlanDataSource' - The specified data provider for the geofence collection.
 --
 -- 'kmsKeyId', 'describeGeofenceCollectionResponse_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
 -- assigned to the Amazon Location resource
---
--- 'tags', 'describeGeofenceCollectionResponse_tags' - Displays the key, value pairs of tags associated with this resource.
 --
 -- 'httpStatus', 'describeGeofenceCollectionResponse_httpStatus' - The response's http status code.
 --
@@ -239,10 +239,10 @@ newDescribeGeofenceCollectionResponse
   pPricingPlan_
   pUpdateTime_ =
     DescribeGeofenceCollectionResponse'
-      { pricingPlanDataSource =
+      { tags =
           Prelude.Nothing,
+        pricingPlanDataSource = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
-        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         collectionArn = pCollectionArn_,
         collectionName = pCollectionName_,
@@ -254,6 +254,10 @@ newDescribeGeofenceCollectionResponse
           Core._Time Lens.# pUpdateTime_
       }
 
+-- | Displays the key, value pairs of tags associated with this resource.
+describeGeofenceCollectionResponse_tags :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeGeofenceCollectionResponse_tags = Lens.lens (\DescribeGeofenceCollectionResponse' {tags} -> tags) (\s@DescribeGeofenceCollectionResponse' {} a -> s {tags = a} :: DescribeGeofenceCollectionResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The specified data provider for the geofence collection.
 describeGeofenceCollectionResponse_pricingPlanDataSource :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe Prelude.Text)
 describeGeofenceCollectionResponse_pricingPlanDataSource = Lens.lens (\DescribeGeofenceCollectionResponse' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@DescribeGeofenceCollectionResponse' {} a -> s {pricingPlanDataSource = a} :: DescribeGeofenceCollectionResponse)
@@ -263,10 +267,6 @@ describeGeofenceCollectionResponse_pricingPlanDataSource = Lens.lens (\DescribeG
 -- assigned to the Amazon Location resource
 describeGeofenceCollectionResponse_kmsKeyId :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe Prelude.Text)
 describeGeofenceCollectionResponse_kmsKeyId = Lens.lens (\DescribeGeofenceCollectionResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeGeofenceCollectionResponse' {} a -> s {kmsKeyId = a} :: DescribeGeofenceCollectionResponse)
-
--- | Displays the key, value pairs of tags associated with this resource.
-describeGeofenceCollectionResponse_tags :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeGeofenceCollectionResponse_tags = Lens.lens (\DescribeGeofenceCollectionResponse' {tags} -> tags) (\s@DescribeGeofenceCollectionResponse' {} a -> s {tags = a} :: DescribeGeofenceCollectionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGeofenceCollectionResponse_httpStatus :: Lens.Lens' DescribeGeofenceCollectionResponse Prelude.Int
@@ -313,9 +313,9 @@ instance
     DescribeGeofenceCollectionResponse
   where
   rnf DescribeGeofenceCollectionResponse' {..} =
-    Prelude.rnf pricingPlanDataSource
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf collectionArn
       `Prelude.seq` Prelude.rnf collectionName

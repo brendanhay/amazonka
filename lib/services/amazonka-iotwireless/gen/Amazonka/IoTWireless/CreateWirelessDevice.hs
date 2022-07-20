@@ -27,11 +27,11 @@ module Amazonka.IoTWireless.CreateWirelessDevice
     newCreateWirelessDevice,
 
     -- * Request Lenses
-    createWirelessDevice_loRaWAN,
+    createWirelessDevice_tags,
     createWirelessDevice_name,
     createWirelessDevice_clientRequestToken,
+    createWirelessDevice_loRaWAN,
     createWirelessDevice_description,
-    createWirelessDevice_tags,
     createWirelessDevice_type,
     createWirelessDevice_destinationName,
 
@@ -55,9 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWirelessDevice' smart constructor.
 data CreateWirelessDevice = CreateWirelessDevice'
-  { -- | The device configuration information to use to create the wireless
-    -- device.
-    loRaWAN :: Prelude.Maybe LoRaWANDevice,
+  { -- | The tags to attach to the new wireless device. Tags are metadata that
+    -- you can use to manage a resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the new resource.
     name :: Prelude.Maybe Prelude.Text,
     -- | Each resource must have a unique client request token. If you try to
@@ -65,11 +65,11 @@ data CreateWirelessDevice = CreateWirelessDevice'
     -- exists, an exception occurs. If you omit this value, AWS SDKs will
     -- automatically generate a unique client request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The device configuration information to use to create the wireless
+    -- device.
+    loRaWAN :: Prelude.Maybe LoRaWANDevice,
     -- | The description of the new resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to attach to the new wireless device. Tags are metadata that
-    -- you can use to manage a resource.
-    tags :: Prelude.Maybe [Tag],
     -- | The wireless device type.
     type' :: WirelessDeviceType,
     -- | The name of the destination to assign to the new wireless device.
@@ -85,8 +85,8 @@ data CreateWirelessDevice = CreateWirelessDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loRaWAN', 'createWirelessDevice_loRaWAN' - The device configuration information to use to create the wireless
--- device.
+-- 'tags', 'createWirelessDevice_tags' - The tags to attach to the new wireless device. Tags are metadata that
+-- you can use to manage a resource.
 --
 -- 'name', 'createWirelessDevice_name' - The name of the new resource.
 --
@@ -95,10 +95,10 @@ data CreateWirelessDevice = CreateWirelessDevice'
 -- exists, an exception occurs. If you omit this value, AWS SDKs will
 -- automatically generate a unique client request.
 --
--- 'description', 'createWirelessDevice_description' - The description of the new resource.
+-- 'loRaWAN', 'createWirelessDevice_loRaWAN' - The device configuration information to use to create the wireless
+-- device.
 --
--- 'tags', 'createWirelessDevice_tags' - The tags to attach to the new wireless device. Tags are metadata that
--- you can use to manage a resource.
+-- 'description', 'createWirelessDevice_description' - The description of the new resource.
 --
 -- 'type'', 'createWirelessDevice_type' - The wireless device type.
 --
@@ -111,19 +111,19 @@ newCreateWirelessDevice ::
   CreateWirelessDevice
 newCreateWirelessDevice pType_ pDestinationName_ =
   CreateWirelessDevice'
-    { loRaWAN = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
+      loRaWAN = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       type' = pType_,
       destinationName = pDestinationName_
     }
 
--- | The device configuration information to use to create the wireless
--- device.
-createWirelessDevice_loRaWAN :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe LoRaWANDevice)
-createWirelessDevice_loRaWAN = Lens.lens (\CreateWirelessDevice' {loRaWAN} -> loRaWAN) (\s@CreateWirelessDevice' {} a -> s {loRaWAN = a} :: CreateWirelessDevice)
+-- | The tags to attach to the new wireless device. Tags are metadata that
+-- you can use to manage a resource.
+createWirelessDevice_tags :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe [Tag])
+createWirelessDevice_tags = Lens.lens (\CreateWirelessDevice' {tags} -> tags) (\s@CreateWirelessDevice' {} a -> s {tags = a} :: CreateWirelessDevice) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new resource.
 createWirelessDevice_name :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe Prelude.Text)
@@ -136,14 +136,14 @@ createWirelessDevice_name = Lens.lens (\CreateWirelessDevice' {name} -> name) (\
 createWirelessDevice_clientRequestToken :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe Prelude.Text)
 createWirelessDevice_clientRequestToken = Lens.lens (\CreateWirelessDevice' {clientRequestToken} -> clientRequestToken) (\s@CreateWirelessDevice' {} a -> s {clientRequestToken = a} :: CreateWirelessDevice)
 
+-- | The device configuration information to use to create the wireless
+-- device.
+createWirelessDevice_loRaWAN :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe LoRaWANDevice)
+createWirelessDevice_loRaWAN = Lens.lens (\CreateWirelessDevice' {loRaWAN} -> loRaWAN) (\s@CreateWirelessDevice' {} a -> s {loRaWAN = a} :: CreateWirelessDevice)
+
 -- | The description of the new resource.
 createWirelessDevice_description :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe Prelude.Text)
 createWirelessDevice_description = Lens.lens (\CreateWirelessDevice' {description} -> description) (\s@CreateWirelessDevice' {} a -> s {description = a} :: CreateWirelessDevice)
-
--- | The tags to attach to the new wireless device. Tags are metadata that
--- you can use to manage a resource.
-createWirelessDevice_tags :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe [Tag])
-createWirelessDevice_tags = Lens.lens (\CreateWirelessDevice' {tags} -> tags) (\s@CreateWirelessDevice' {} a -> s {tags = a} :: CreateWirelessDevice) Prelude.. Lens.mapping Lens.coerced
 
 -- | The wireless device type.
 createWirelessDevice_type :: Lens.Lens' CreateWirelessDevice WirelessDeviceType
@@ -169,21 +169,21 @@ instance Core.AWSRequest CreateWirelessDevice where
 
 instance Prelude.Hashable CreateWirelessDevice where
   hashWithSalt _salt CreateWirelessDevice' {..} =
-    _salt `Prelude.hashWithSalt` loRaWAN
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` destinationName
 
 instance Prelude.NFData CreateWirelessDevice where
   rnf CreateWirelessDevice' {..} =
-    Prelude.rnf loRaWAN
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf destinationName
 
@@ -194,12 +194,12 @@ instance Core.ToJSON CreateWirelessDevice where
   toJSON CreateWirelessDevice' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Name" Core..=) Prelude.<$> name,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just
               ("DestinationName" Core..= destinationName)

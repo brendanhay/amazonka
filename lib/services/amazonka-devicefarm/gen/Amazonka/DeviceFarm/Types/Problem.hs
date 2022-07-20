@@ -30,8 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProblem' smart constructor.
 data Problem = Problem'
-  { -- | Information about the associated device.
+  { -- | A message about the problem\'s result.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | Information about the associated suite.
+    suite :: Prelude.Maybe ProblemDetail,
+    -- | Information about the associated device.
     device :: Prelude.Maybe Device,
+    -- | Information about the associated run.
+    run :: Prelude.Maybe ProblemDetail,
+    -- | Information about the associated job.
+    job :: Prelude.Maybe ProblemDetail,
     -- | Information about the associated test.
     test :: Prelude.Maybe ProblemDetail,
     -- | The problem\'s result.
@@ -51,15 +59,7 @@ data Problem = Problem'
     -- -   ERRORED
     --
     -- -   STOPPED
-    result :: Prelude.Maybe ExecutionResult,
-    -- | Information about the associated run.
-    run :: Prelude.Maybe ProblemDetail,
-    -- | Information about the associated job.
-    job :: Prelude.Maybe ProblemDetail,
-    -- | A message about the problem\'s result.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Information about the associated suite.
-    suite :: Prelude.Maybe ProblemDetail
+    result :: Prelude.Maybe ExecutionResult
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,7 +71,15 @@ data Problem = Problem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'problem_message' - A message about the problem\'s result.
+--
+-- 'suite', 'problem_suite' - Information about the associated suite.
+--
 -- 'device', 'problem_device' - Information about the associated device.
+--
+-- 'run', 'problem_run' - Information about the associated run.
+--
+-- 'job', 'problem_job' - Information about the associated job.
 --
 -- 'test', 'problem_test' - Information about the associated test.
 --
@@ -92,30 +100,38 @@ data Problem = Problem'
 -- -   ERRORED
 --
 -- -   STOPPED
---
--- 'run', 'problem_run' - Information about the associated run.
---
--- 'job', 'problem_job' - Information about the associated job.
---
--- 'message', 'problem_message' - A message about the problem\'s result.
---
--- 'suite', 'problem_suite' - Information about the associated suite.
 newProblem ::
   Problem
 newProblem =
   Problem'
-    { device = Prelude.Nothing,
-      test = Prelude.Nothing,
-      result = Prelude.Nothing,
+    { message = Prelude.Nothing,
+      suite = Prelude.Nothing,
+      device = Prelude.Nothing,
       run = Prelude.Nothing,
       job = Prelude.Nothing,
-      message = Prelude.Nothing,
-      suite = Prelude.Nothing
+      test = Prelude.Nothing,
+      result = Prelude.Nothing
     }
+
+-- | A message about the problem\'s result.
+problem_message :: Lens.Lens' Problem (Prelude.Maybe Prelude.Text)
+problem_message = Lens.lens (\Problem' {message} -> message) (\s@Problem' {} a -> s {message = a} :: Problem)
+
+-- | Information about the associated suite.
+problem_suite :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
+problem_suite = Lens.lens (\Problem' {suite} -> suite) (\s@Problem' {} a -> s {suite = a} :: Problem)
 
 -- | Information about the associated device.
 problem_device :: Lens.Lens' Problem (Prelude.Maybe Device)
 problem_device = Lens.lens (\Problem' {device} -> device) (\s@Problem' {} a -> s {device = a} :: Problem)
+
+-- | Information about the associated run.
+problem_run :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
+problem_run = Lens.lens (\Problem' {run} -> run) (\s@Problem' {} a -> s {run = a} :: Problem)
+
+-- | Information about the associated job.
+problem_job :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
+problem_job = Lens.lens (\Problem' {job} -> job) (\s@Problem' {} a -> s {job = a} :: Problem)
 
 -- | Information about the associated test.
 problem_test :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
@@ -141,53 +157,37 @@ problem_test = Lens.lens (\Problem' {test} -> test) (\s@Problem' {} a -> s {test
 problem_result :: Lens.Lens' Problem (Prelude.Maybe ExecutionResult)
 problem_result = Lens.lens (\Problem' {result} -> result) (\s@Problem' {} a -> s {result = a} :: Problem)
 
--- | Information about the associated run.
-problem_run :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
-problem_run = Lens.lens (\Problem' {run} -> run) (\s@Problem' {} a -> s {run = a} :: Problem)
-
--- | Information about the associated job.
-problem_job :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
-problem_job = Lens.lens (\Problem' {job} -> job) (\s@Problem' {} a -> s {job = a} :: Problem)
-
--- | A message about the problem\'s result.
-problem_message :: Lens.Lens' Problem (Prelude.Maybe Prelude.Text)
-problem_message = Lens.lens (\Problem' {message} -> message) (\s@Problem' {} a -> s {message = a} :: Problem)
-
--- | Information about the associated suite.
-problem_suite :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
-problem_suite = Lens.lens (\Problem' {suite} -> suite) (\s@Problem' {} a -> s {suite = a} :: Problem)
-
 instance Core.FromJSON Problem where
   parseJSON =
     Core.withObject
       "Problem"
       ( \x ->
           Problem'
-            Prelude.<$> (x Core..:? "device")
-            Prelude.<*> (x Core..:? "test")
-            Prelude.<*> (x Core..:? "result")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "suite")
+            Prelude.<*> (x Core..:? "device")
             Prelude.<*> (x Core..:? "run")
             Prelude.<*> (x Core..:? "job")
-            Prelude.<*> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "suite")
+            Prelude.<*> (x Core..:? "test")
+            Prelude.<*> (x Core..:? "result")
       )
 
 instance Prelude.Hashable Problem where
   hashWithSalt _salt Problem' {..} =
-    _salt `Prelude.hashWithSalt` device
-      `Prelude.hashWithSalt` test
-      `Prelude.hashWithSalt` result
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` suite
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` run
       `Prelude.hashWithSalt` job
-      `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` suite
+      `Prelude.hashWithSalt` test
+      `Prelude.hashWithSalt` result
 
 instance Prelude.NFData Problem where
   rnf Problem' {..} =
-    Prelude.rnf device
-      `Prelude.seq` Prelude.rnf test
-      `Prelude.seq` Prelude.rnf result
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf suite
+      `Prelude.seq` Prelude.rnf device
       `Prelude.seq` Prelude.rnf run
       `Prelude.seq` Prelude.rnf job
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf suite
+      `Prelude.seq` Prelude.rnf test
+      `Prelude.seq` Prelude.rnf result

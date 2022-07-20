@@ -17,16 +17,16 @@ module Amazonka.Backup.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
     _DependencyFailureException,
     _InvalidResourceStateException,
-    _ConflictException,
-    _InvalidParameterValueException,
     _ServiceUnavailableException,
     _ResourceNotFoundException,
     _AlreadyExistsException,
     _LimitExceededException,
+    _ConflictException,
     _MissingParameterValueException,
+    _InvalidRequestException,
+    _InvalidParameterValueException,
 
     -- * BackupJobState
     BackupJobState (..),
@@ -58,26 +58,26 @@ module Amazonka.Backup.Types
     -- * BackupJob
     BackupJob (..),
     newBackupJob,
-    backupJob_iamRoleArn,
-    backupJob_state,
     backupJob_resourceType,
-    backupJob_percentDone,
-    backupJob_startBy,
-    backupJob_createdBy,
-    backupJob_expectedCompletionDate,
-    backupJob_bytesTransferred,
-    backupJob_backupVaultArn,
-    backupJob_accountId,
-    backupJob_backupJobId,
-    backupJob_resourceArn,
-    backupJob_statusMessage,
     backupJob_recoveryPointArn,
-    backupJob_backupSizeInBytes,
-    backupJob_creationDate,
     backupJob_completionDate,
     backupJob_backupVaultName,
-    backupJob_backupType,
+    backupJob_state,
+    backupJob_creationDate,
+    backupJob_backupSizeInBytes,
+    backupJob_backupVaultArn,
     backupJob_backupOptions,
+    backupJob_iamRoleArn,
+    backupJob_accountId,
+    backupJob_backupType,
+    backupJob_percentDone,
+    backupJob_expectedCompletionDate,
+    backupJob_backupJobId,
+    backupJob_resourceArn,
+    backupJob_startBy,
+    backupJob_statusMessage,
+    backupJob_createdBy,
+    backupJob_bytesTransferred,
 
     -- * BackupPlan
     BackupPlan (..),
@@ -102,40 +102,40 @@ module Amazonka.Backup.Types
     -- * BackupPlansListMember
     BackupPlansListMember (..),
     newBackupPlansListMember,
-    backupPlansListMember_versionId,
     backupPlansListMember_backupPlanName,
-    backupPlansListMember_advancedBackupSettings,
-    backupPlansListMember_backupPlanId,
+    backupPlansListMember_creationDate,
     backupPlansListMember_creatorRequestId,
     backupPlansListMember_backupPlanArn,
+    backupPlansListMember_backupPlanId,
+    backupPlansListMember_advancedBackupSettings,
     backupPlansListMember_lastExecutionDate,
-    backupPlansListMember_creationDate,
     backupPlansListMember_deletionDate,
+    backupPlansListMember_versionId,
 
     -- * BackupRule
     BackupRule (..),
     newBackupRule,
-    backupRule_ruleId,
+    backupRule_startWindowMinutes,
     backupRule_lifecycle,
-    backupRule_recoveryPointTags,
+    backupRule_ruleId,
+    backupRule_copyActions,
     backupRule_scheduleExpression,
     backupRule_enableContinuousBackup,
     backupRule_completionWindowMinutes,
-    backupRule_copyActions,
-    backupRule_startWindowMinutes,
+    backupRule_recoveryPointTags,
     backupRule_ruleName,
     backupRule_targetBackupVaultName,
 
     -- * BackupRuleInput
     BackupRuleInput (..),
     newBackupRuleInput,
+    backupRuleInput_startWindowMinutes,
     backupRuleInput_lifecycle,
-    backupRuleInput_recoveryPointTags,
+    backupRuleInput_copyActions,
     backupRuleInput_scheduleExpression,
     backupRuleInput_enableContinuousBackup,
     backupRuleInput_completionWindowMinutes,
-    backupRuleInput_copyActions,
-    backupRuleInput_startWindowMinutes,
+    backupRuleInput_recoveryPointTags,
     backupRuleInput_ruleName,
     backupRuleInput_targetBackupVaultName,
 
@@ -150,32 +150,32 @@ module Amazonka.Backup.Types
     -- * BackupSelectionsListMember
     BackupSelectionsListMember (..),
     newBackupSelectionsListMember,
-    backupSelectionsListMember_iamRoleArn,
     backupSelectionsListMember_selectionName,
+    backupSelectionsListMember_creationDate,
+    backupSelectionsListMember_creatorRequestId,
+    backupSelectionsListMember_iamRoleArn,
     backupSelectionsListMember_selectionId,
     backupSelectionsListMember_backupPlanId,
-    backupSelectionsListMember_creatorRequestId,
-    backupSelectionsListMember_creationDate,
 
     -- * BackupVaultListMember
     BackupVaultListMember (..),
     newBackupVaultListMember,
-    backupVaultListMember_lockDate,
+    backupVaultListMember_encryptionKeyArn,
+    backupVaultListMember_minRetentionDays,
     backupVaultListMember_maxRetentionDays,
-    backupVaultListMember_locked,
+    backupVaultListMember_backupVaultName,
+    backupVaultListMember_creationDate,
+    backupVaultListMember_backupVaultArn,
     backupVaultListMember_creatorRequestId,
     backupVaultListMember_numberOfRecoveryPoints,
-    backupVaultListMember_backupVaultArn,
-    backupVaultListMember_encryptionKeyArn,
-    backupVaultListMember_creationDate,
-    backupVaultListMember_backupVaultName,
-    backupVaultListMember_minRetentionDays,
+    backupVaultListMember_locked,
+    backupVaultListMember_lockDate,
 
     -- * CalculatedLifecycle
     CalculatedLifecycle (..),
     newCalculatedLifecycle,
-    calculatedLifecycle_deleteAt,
     calculatedLifecycle_moveToColdStorageAt,
+    calculatedLifecycle_deleteAt,
 
     -- * Condition
     Condition (..),
@@ -193,9 +193,9 @@ module Amazonka.Backup.Types
     -- * ControlScope
     ControlScope (..),
     newControlScope,
-    controlScope_complianceResourceTypes,
     controlScope_tags,
     controlScope_complianceResourceIds,
+    controlScope_complianceResourceTypes,
 
     -- * CopyAction
     CopyAction (..),
@@ -206,91 +206,91 @@ module Amazonka.Backup.Types
     -- * CopyJob
     CopyJob (..),
     newCopyJob,
-    copyJob_iamRoleArn,
-    copyJob_state,
-    copyJob_sourceRecoveryPointArn,
     copyJob_resourceType,
+    copyJob_completionDate,
+    copyJob_state,
+    copyJob_creationDate,
     copyJob_destinationBackupVaultArn,
-    copyJob_createdBy,
-    copyJob_destinationRecoveryPointArn,
+    copyJob_backupSizeInBytes,
+    copyJob_iamRoleArn,
     copyJob_accountId,
-    copyJob_sourceBackupVaultArn,
+    copyJob_destinationRecoveryPointArn,
     copyJob_copyJobId,
+    copyJob_sourceBackupVaultArn,
     copyJob_resourceArn,
     copyJob_statusMessage,
-    copyJob_backupSizeInBytes,
-    copyJob_creationDate,
-    copyJob_completionDate,
+    copyJob_createdBy,
+    copyJob_sourceRecoveryPointArn,
 
     -- * Framework
     Framework (..),
     newFramework,
-    framework_creationTime,
-    framework_frameworkDescription,
-    framework_numberOfControls,
-    framework_frameworkArn,
     framework_deploymentStatus,
+    framework_frameworkArn,
+    framework_frameworkDescription,
     framework_frameworkName,
+    framework_numberOfControls,
+    framework_creationTime,
 
     -- * FrameworkControl
     FrameworkControl (..),
     newFrameworkControl,
-    frameworkControl_controlScope,
     frameworkControl_controlInputParameters,
+    frameworkControl_controlScope,
     frameworkControl_controlName,
 
     -- * Lifecycle
     Lifecycle (..),
     newLifecycle,
-    lifecycle_moveToColdStorageAfterDays,
     lifecycle_deleteAfterDays,
+    lifecycle_moveToColdStorageAfterDays,
 
     -- * ProtectedResource
     ProtectedResource (..),
     newProtectedResource,
     protectedResource_resourceType,
-    protectedResource_lastBackupTime,
     protectedResource_resourceArn,
+    protectedResource_lastBackupTime,
 
     -- * RecoveryPointByBackupVault
     RecoveryPointByBackupVault (..),
     newRecoveryPointByBackupVault,
-    recoveryPointByBackupVault_isEncrypted,
-    recoveryPointByBackupVault_status,
-    recoveryPointByBackupVault_iamRoleArn,
-    recoveryPointByBackupVault_resourceType,
-    recoveryPointByBackupVault_createdBy,
-    recoveryPointByBackupVault_calculatedLifecycle,
-    recoveryPointByBackupVault_lifecycle,
-    recoveryPointByBackupVault_backupVaultArn,
-    recoveryPointByBackupVault_sourceBackupVaultArn,
-    recoveryPointByBackupVault_lastRestoreTime,
-    recoveryPointByBackupVault_resourceArn,
-    recoveryPointByBackupVault_statusMessage,
-    recoveryPointByBackupVault_recoveryPointArn,
     recoveryPointByBackupVault_encryptionKeyArn,
-    recoveryPointByBackupVault_backupSizeInBytes,
-    recoveryPointByBackupVault_creationDate,
+    recoveryPointByBackupVault_resourceType,
+    recoveryPointByBackupVault_lifecycle,
+    recoveryPointByBackupVault_recoveryPointArn,
     recoveryPointByBackupVault_completionDate,
     recoveryPointByBackupVault_backupVaultName,
+    recoveryPointByBackupVault_creationDate,
+    recoveryPointByBackupVault_backupSizeInBytes,
+    recoveryPointByBackupVault_status,
+    recoveryPointByBackupVault_backupVaultArn,
+    recoveryPointByBackupVault_isEncrypted,
+    recoveryPointByBackupVault_iamRoleArn,
+    recoveryPointByBackupVault_sourceBackupVaultArn,
+    recoveryPointByBackupVault_resourceArn,
+    recoveryPointByBackupVault_statusMessage,
+    recoveryPointByBackupVault_createdBy,
+    recoveryPointByBackupVault_lastRestoreTime,
+    recoveryPointByBackupVault_calculatedLifecycle,
 
     -- * RecoveryPointByResource
     RecoveryPointByResource (..),
     newRecoveryPointByResource,
-    recoveryPointByResource_status,
-    recoveryPointByResource_statusMessage,
+    recoveryPointByResource_encryptionKeyArn,
     recoveryPointByResource_recoveryPointArn,
     recoveryPointByResource_backupSizeBytes,
-    recoveryPointByResource_encryptionKeyArn,
-    recoveryPointByResource_creationDate,
     recoveryPointByResource_backupVaultName,
+    recoveryPointByResource_creationDate,
+    recoveryPointByResource_status,
+    recoveryPointByResource_statusMessage,
 
     -- * RecoveryPointCreator
     RecoveryPointCreator (..),
     newRecoveryPointCreator,
-    recoveryPointCreator_backupPlanId,
-    recoveryPointCreator_backupPlanArn,
     recoveryPointCreator_backupPlanVersion,
+    recoveryPointCreator_backupPlanArn,
+    recoveryPointCreator_backupPlanId,
     recoveryPointCreator_backupRuleId,
 
     -- * ReportDeliveryChannel
@@ -303,33 +303,33 @@ module Amazonka.Backup.Types
     -- * ReportDestination
     ReportDestination (..),
     newReportDestination,
-    reportDestination_s3Keys,
     reportDestination_s3BucketName,
+    reportDestination_s3Keys,
 
     -- * ReportJob
     ReportJob (..),
     newReportJob,
-    reportJob_creationTime,
-    reportJob_status,
     reportJob_reportPlanArn,
-    reportJob_completionTime,
-    reportJob_reportJobId,
-    reportJob_statusMessage,
-    reportJob_reportDestination,
     reportJob_reportTemplate,
+    reportJob_reportJobId,
+    reportJob_reportDestination,
+    reportJob_status,
+    reportJob_completionTime,
+    reportJob_creationTime,
+    reportJob_statusMessage,
 
     -- * ReportPlan
     ReportPlan (..),
     newReportPlan,
-    reportPlan_creationTime,
-    reportPlan_reportPlanName,
-    reportPlan_reportPlanArn,
-    reportPlan_reportSetting,
-    reportPlan_reportPlanDescription,
-    reportPlan_lastAttemptedExecutionTime,
     reportPlan_deploymentStatus,
-    reportPlan_lastSuccessfulExecutionTime,
+    reportPlan_reportPlanArn,
     reportPlan_reportDeliveryChannel,
+    reportPlan_lastSuccessfulExecutionTime,
+    reportPlan_reportSetting,
+    reportPlan_lastAttemptedExecutionTime,
+    reportPlan_reportPlanName,
+    reportPlan_creationTime,
+    reportPlan_reportPlanDescription,
 
     -- * ReportSetting
     ReportSetting (..),
@@ -341,19 +341,19 @@ module Amazonka.Backup.Types
     -- * RestoreJobsListMember
     RestoreJobsListMember (..),
     newRestoreJobsListMember,
-    restoreJobsListMember_status,
-    restoreJobsListMember_iamRoleArn,
-    restoreJobsListMember_expectedCompletionTimeMinutes,
-    restoreJobsListMember_restoreJobId,
-    restoreJobsListMember_resourceType,
-    restoreJobsListMember_percentDone,
-    restoreJobsListMember_accountId,
     restoreJobsListMember_createdResourceArn,
-    restoreJobsListMember_statusMessage,
+    restoreJobsListMember_resourceType,
+    restoreJobsListMember_expectedCompletionTimeMinutes,
     restoreJobsListMember_recoveryPointArn,
-    restoreJobsListMember_backupSizeInBytes,
-    restoreJobsListMember_creationDate,
     restoreJobsListMember_completionDate,
+    restoreJobsListMember_creationDate,
+    restoreJobsListMember_backupSizeInBytes,
+    restoreJobsListMember_status,
+    restoreJobsListMember_restoreJobId,
+    restoreJobsListMember_iamRoleArn,
+    restoreJobsListMember_accountId,
+    restoreJobsListMember_percentDone,
+    restoreJobsListMember_statusMessage,
   )
 where
 
@@ -424,35 +424,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -461,21 +434,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Indicates that something is wrong with the input to the request. For
--- example, a parameter is of the wrong type.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
 
 -- | A dependent Amazon Web Services service or resource returned an error to
 -- the Backup service, and the action cannot be completed.
@@ -493,22 +485,6 @@ _InvalidResourceStateException =
   Core._MatchServiceError
     defaultService
     "InvalidResourceStateException"
-
--- | Backup can\'t perform the action that you requested until it finishes
--- performing a previous action. Try again later.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
--- | Indicates that something is wrong with a parameter\'s value. For
--- example, the value is out of range.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterValueException"
 
 -- | The request failed due to a temporary failure of the server.
 _ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -539,9 +515,33 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
+-- | Backup can\'t perform the action that you requested until it finishes
+-- performing a previous action. Try again later.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
 -- | Indicates that a required parameter is missing.
 _MissingParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingParameterValueException =
   Core._MatchServiceError
     defaultService
     "MissingParameterValueException"
+
+-- | Indicates that something is wrong with the input to the request. For
+-- example, a parameter is of the wrong type.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+
+-- | Indicates that something is wrong with a parameter\'s value. For
+-- example, the value is out of range.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterValueException"

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStartTimeRange' smart constructor.
 data StartTimeRange = StartTimeRange'
-  { -- | The start time of the time range.
-    fromTime :: Prelude.Maybe Core.POSIX,
-    -- | The end time of the time range.
-    toTime :: Prelude.Maybe Core.POSIX
+  { -- | The end time of the time range.
+    toTime :: Prelude.Maybe Core.POSIX,
+    -- | The start time of the time range.
+    fromTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,40 +43,40 @@ data StartTimeRange = StartTimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fromTime', 'startTimeRange_fromTime' - The start time of the time range.
---
 -- 'toTime', 'startTimeRange_toTime' - The end time of the time range.
+--
+-- 'fromTime', 'startTimeRange_fromTime' - The start time of the time range.
 newStartTimeRange ::
   StartTimeRange
 newStartTimeRange =
   StartTimeRange'
-    { fromTime = Prelude.Nothing,
-      toTime = Prelude.Nothing
+    { toTime = Prelude.Nothing,
+      fromTime = Prelude.Nothing
     }
-
--- | The start time of the time range.
-startTimeRange_fromTime :: Lens.Lens' StartTimeRange (Prelude.Maybe Prelude.UTCTime)
-startTimeRange_fromTime = Lens.lens (\StartTimeRange' {fromTime} -> fromTime) (\s@StartTimeRange' {} a -> s {fromTime = a} :: StartTimeRange) Prelude.. Lens.mapping Core._Time
 
 -- | The end time of the time range.
 startTimeRange_toTime :: Lens.Lens' StartTimeRange (Prelude.Maybe Prelude.UTCTime)
 startTimeRange_toTime = Lens.lens (\StartTimeRange' {toTime} -> toTime) (\s@StartTimeRange' {} a -> s {toTime = a} :: StartTimeRange) Prelude.. Lens.mapping Core._Time
 
+-- | The start time of the time range.
+startTimeRange_fromTime :: Lens.Lens' StartTimeRange (Prelude.Maybe Prelude.UTCTime)
+startTimeRange_fromTime = Lens.lens (\StartTimeRange' {fromTime} -> fromTime) (\s@StartTimeRange' {} a -> s {fromTime = a} :: StartTimeRange) Prelude.. Lens.mapping Core._Time
+
 instance Prelude.Hashable StartTimeRange where
   hashWithSalt _salt StartTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` fromTime
-      `Prelude.hashWithSalt` toTime
+    _salt `Prelude.hashWithSalt` toTime
+      `Prelude.hashWithSalt` fromTime
 
 instance Prelude.NFData StartTimeRange where
   rnf StartTimeRange' {..} =
-    Prelude.rnf fromTime
-      `Prelude.seq` Prelude.rnf toTime
+    Prelude.rnf toTime
+      `Prelude.seq` Prelude.rnf fromTime
 
 instance Core.ToJSON StartTimeRange where
   toJSON StartTimeRange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FromTime" Core..=) Prelude.<$> fromTime,
-            ("ToTime" Core..=) Prelude.<$> toTime
+          [ ("ToTime" Core..=) Prelude.<$> toTime,
+            ("FromTime" Core..=) Prelude.<$> fromTime
           ]
       )

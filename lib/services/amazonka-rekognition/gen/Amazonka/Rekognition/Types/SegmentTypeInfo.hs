@@ -30,10 +30,10 @@ import Amazonka.Rekognition.Types.SegmentType
 --
 -- /See:/ 'newSegmentTypeInfo' smart constructor.
 data SegmentTypeInfo = SegmentTypeInfo'
-  { -- | The version of the model used to detect segments.
-    modelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The type of a segment (technical cue or shot detection).
-    type' :: Prelude.Maybe SegmentType
+  { -- | The type of a segment (technical cue or shot detection).
+    type' :: Prelude.Maybe SegmentType,
+    -- | The version of the model used to detect segments.
+    modelVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data SegmentTypeInfo = SegmentTypeInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelVersion', 'segmentTypeInfo_modelVersion' - The version of the model used to detect segments.
---
 -- 'type'', 'segmentTypeInfo_type' - The type of a segment (technical cue or shot detection).
+--
+-- 'modelVersion', 'segmentTypeInfo_modelVersion' - The version of the model used to detect segments.
 newSegmentTypeInfo ::
   SegmentTypeInfo
 newSegmentTypeInfo =
   SegmentTypeInfo'
-    { modelVersion = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      modelVersion = Prelude.Nothing
     }
-
--- | The version of the model used to detect segments.
-segmentTypeInfo_modelVersion :: Lens.Lens' SegmentTypeInfo (Prelude.Maybe Prelude.Text)
-segmentTypeInfo_modelVersion = Lens.lens (\SegmentTypeInfo' {modelVersion} -> modelVersion) (\s@SegmentTypeInfo' {} a -> s {modelVersion = a} :: SegmentTypeInfo)
 
 -- | The type of a segment (technical cue or shot detection).
 segmentTypeInfo_type :: Lens.Lens' SegmentTypeInfo (Prelude.Maybe SegmentType)
 segmentTypeInfo_type = Lens.lens (\SegmentTypeInfo' {type'} -> type') (\s@SegmentTypeInfo' {} a -> s {type' = a} :: SegmentTypeInfo)
+
+-- | The version of the model used to detect segments.
+segmentTypeInfo_modelVersion :: Lens.Lens' SegmentTypeInfo (Prelude.Maybe Prelude.Text)
+segmentTypeInfo_modelVersion = Lens.lens (\SegmentTypeInfo' {modelVersion} -> modelVersion) (\s@SegmentTypeInfo' {} a -> s {modelVersion = a} :: SegmentTypeInfo)
 
 instance Core.FromJSON SegmentTypeInfo where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON SegmentTypeInfo where
       "SegmentTypeInfo"
       ( \x ->
           SegmentTypeInfo'
-            Prelude.<$> (x Core..:? "ModelVersion")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "ModelVersion")
       )
 
 instance Prelude.Hashable SegmentTypeInfo where
   hashWithSalt _salt SegmentTypeInfo' {..} =
-    _salt `Prelude.hashWithSalt` modelVersion
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` modelVersion
 
 instance Prelude.NFData SegmentTypeInfo where
   rnf SegmentTypeInfo' {..} =
-    Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf modelVersion

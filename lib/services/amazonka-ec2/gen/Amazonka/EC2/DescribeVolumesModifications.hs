@@ -41,9 +41,9 @@ module Amazonka.EC2.DescribeVolumesModifications
     newDescribeVolumesModifications,
 
     -- * Request Lenses
-    describeVolumesModifications_filters,
-    describeVolumesModifications_volumeIds,
     describeVolumesModifications_nextToken,
+    describeVolumesModifications_volumeIds,
+    describeVolumesModifications_filters,
     describeVolumesModifications_dryRun,
     describeVolumesModifications_maxResults,
 
@@ -52,8 +52,8 @@ module Amazonka.EC2.DescribeVolumesModifications
     newDescribeVolumesModificationsResponse,
 
     -- * Response Lenses
-    describeVolumesModificationsResponse_volumesModifications,
     describeVolumesModificationsResponse_nextToken,
+    describeVolumesModificationsResponse_volumesModifications,
     describeVolumesModificationsResponse_httpStatus,
   )
 where
@@ -67,7 +67,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVolumesModifications' smart constructor.
 data DescribeVolumesModifications = DescribeVolumesModifications'
-  { -- | The filters.
+  { -- | The @nextToken@ value returned by a previous paginated request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the volumes.
+    volumeIds :: Prelude.Maybe [Prelude.Text],
+    -- | The filters.
     --
     -- -   @modification-state@ - The current modification state (modifying |
     --     optimizing | completed | failed).
@@ -96,10 +100,6 @@ data DescribeVolumesModifications = DescribeVolumesModifications'
     --
     -- -   @volume-id@ - The ID of the volume.
     filters :: Prelude.Maybe [Filter],
-    -- | The IDs of the volumes.
-    volumeIds :: Prelude.Maybe [Prelude.Text],
-    -- | The @nextToken@ value returned by a previous paginated request.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -118,6 +118,10 @@ data DescribeVolumesModifications = DescribeVolumesModifications'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeVolumesModifications_nextToken' - The @nextToken@ value returned by a previous paginated request.
+--
+-- 'volumeIds', 'describeVolumesModifications_volumeIds' - The IDs of the volumes.
 --
 -- 'filters', 'describeVolumesModifications_filters' - The filters.
 --
@@ -148,10 +152,6 @@ data DescribeVolumesModifications = DescribeVolumesModifications'
 --
 -- -   @volume-id@ - The ID of the volume.
 --
--- 'volumeIds', 'describeVolumesModifications_volumeIds' - The IDs of the volumes.
---
--- 'nextToken', 'describeVolumesModifications_nextToken' - The @nextToken@ value returned by a previous paginated request.
---
 -- 'dryRun', 'describeVolumesModifications_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -163,13 +163,21 @@ newDescribeVolumesModifications ::
   DescribeVolumesModifications
 newDescribeVolumesModifications =
   DescribeVolumesModifications'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
       volumeIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The @nextToken@ value returned by a previous paginated request.
+describeVolumesModifications_nextToken :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe Prelude.Text)
+describeVolumesModifications_nextToken = Lens.lens (\DescribeVolumesModifications' {nextToken} -> nextToken) (\s@DescribeVolumesModifications' {} a -> s {nextToken = a} :: DescribeVolumesModifications)
+
+-- | The IDs of the volumes.
+describeVolumesModifications_volumeIds :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe [Prelude.Text])
+describeVolumesModifications_volumeIds = Lens.lens (\DescribeVolumesModifications' {volumeIds} -> volumeIds) (\s@DescribeVolumesModifications' {} a -> s {volumeIds = a} :: DescribeVolumesModifications) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters.
 --
@@ -201,14 +209,6 @@ newDescribeVolumesModifications =
 -- -   @volume-id@ - The ID of the volume.
 describeVolumesModifications_filters :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe [Filter])
 describeVolumesModifications_filters = Lens.lens (\DescribeVolumesModifications' {filters} -> filters) (\s@DescribeVolumesModifications' {} a -> s {filters = a} :: DescribeVolumesModifications) Prelude.. Lens.mapping Lens.coerced
-
--- | The IDs of the volumes.
-describeVolumesModifications_volumeIds :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe [Prelude.Text])
-describeVolumesModifications_volumeIds = Lens.lens (\DescribeVolumesModifications' {volumeIds} -> volumeIds) (\s@DescribeVolumesModifications' {} a -> s {volumeIds = a} :: DescribeVolumesModifications) Prelude.. Lens.mapping Lens.coerced
-
--- | The @nextToken@ value returned by a previous paginated request.
-describeVolumesModifications_nextToken :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe Prelude.Text)
-describeVolumesModifications_nextToken = Lens.lens (\DescribeVolumesModifications' {nextToken} -> nextToken) (\s@DescribeVolumesModifications' {} a -> s {nextToken = a} :: DescribeVolumesModifications)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -253,11 +253,11 @@ instance Core.AWSRequest DescribeVolumesModifications where
     Response.receiveXML
       ( \s h x ->
           DescribeVolumesModificationsResponse'
-            Prelude.<$> ( x Core..@? "volumeModificationSet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "volumeModificationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -266,17 +266,17 @@ instance
     DescribeVolumesModifications
   where
   hashWithSalt _salt DescribeVolumesModifications' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` volumeIds
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeVolumesModifications where
   rnf DescribeVolumesModifications' {..} =
-    Prelude.rnf filters
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf volumeIds
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -295,21 +295,21 @@ instance Core.ToQuery DescribeVolumesModifications where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
-        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeVolumesModificationsResponse' smart constructor.
 data DescribeVolumesModificationsResponse = DescribeVolumesModificationsResponse'
-  { -- | Information about the volume modifications.
-    volumesModifications :: Prelude.Maybe [VolumeModification],
-    -- | Token for pagination, null if there are no more results
+  { -- | Token for pagination, null if there are no more results
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the volume modifications.
+    volumesModifications :: Prelude.Maybe [VolumeModification],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -323,9 +323,9 @@ data DescribeVolumesModificationsResponse = DescribeVolumesModificationsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumesModifications', 'describeVolumesModificationsResponse_volumesModifications' - Information about the volume modifications.
---
 -- 'nextToken', 'describeVolumesModificationsResponse_nextToken' - Token for pagination, null if there are no more results
+--
+-- 'volumesModifications', 'describeVolumesModificationsResponse_volumesModifications' - Information about the volume modifications.
 --
 -- 'httpStatus', 'describeVolumesModificationsResponse_httpStatus' - The response's http status code.
 newDescribeVolumesModificationsResponse ::
@@ -334,19 +334,20 @@ newDescribeVolumesModificationsResponse ::
   DescribeVolumesModificationsResponse
 newDescribeVolumesModificationsResponse pHttpStatus_ =
   DescribeVolumesModificationsResponse'
-    { volumesModifications =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      volumesModifications =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the volume modifications.
-describeVolumesModificationsResponse_volumesModifications :: Lens.Lens' DescribeVolumesModificationsResponse (Prelude.Maybe [VolumeModification])
-describeVolumesModificationsResponse_volumesModifications = Lens.lens (\DescribeVolumesModificationsResponse' {volumesModifications} -> volumesModifications) (\s@DescribeVolumesModificationsResponse' {} a -> s {volumesModifications = a} :: DescribeVolumesModificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Token for pagination, null if there are no more results
 describeVolumesModificationsResponse_nextToken :: Lens.Lens' DescribeVolumesModificationsResponse (Prelude.Maybe Prelude.Text)
 describeVolumesModificationsResponse_nextToken = Lens.lens (\DescribeVolumesModificationsResponse' {nextToken} -> nextToken) (\s@DescribeVolumesModificationsResponse' {} a -> s {nextToken = a} :: DescribeVolumesModificationsResponse)
+
+-- | Information about the volume modifications.
+describeVolumesModificationsResponse_volumesModifications :: Lens.Lens' DescribeVolumesModificationsResponse (Prelude.Maybe [VolumeModification])
+describeVolumesModificationsResponse_volumesModifications = Lens.lens (\DescribeVolumesModificationsResponse' {volumesModifications} -> volumesModifications) (\s@DescribeVolumesModificationsResponse' {} a -> s {volumesModifications = a} :: DescribeVolumesModificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVolumesModificationsResponse_httpStatus :: Lens.Lens' DescribeVolumesModificationsResponse Prelude.Int
@@ -357,6 +358,6 @@ instance
     DescribeVolumesModificationsResponse
   where
   rnf DescribeVolumesModificationsResponse' {..} =
-    Prelude.rnf volumesModifications
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf volumesModifications
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,8 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBuildArtifacts' smart constructor.
 data BuildArtifacts = BuildArtifacts'
-  { -- | Information about the location of the build artifacts.
-    location :: Prelude.Maybe Prelude.Text,
+  { -- | Information that tells you if encryption for build artifacts is
+    -- disabled.
+    encryptionDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The MD5 hash of the build artifact.
     --
     -- You can use this hash along with a checksum tool to confirm file
@@ -38,17 +39,17 @@ data BuildArtifacts = BuildArtifacts'
     -- This value is available only if the build project\'s @packaging@ value
     -- is set to @ZIP@.
     md5sum :: Prelude.Maybe Prelude.Text,
-    -- | Information that tells you if encryption for build artifacts is
-    -- disabled.
-    encryptionDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | An identifier for this artifact definition.
+    artifactIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Information about the location of the build artifacts.
+    location :: Prelude.Maybe Prelude.Text,
     -- | If this flag is set, a name specified in the buildspec file overrides
     -- the artifact name. The name specified in a buildspec file is calculated
     -- at build time and uses the Shell Command Language. For example, you can
     -- append a date and time to your artifact name so that it is always
     -- unique.
     overrideArtifactName :: Prelude.Maybe Prelude.Bool,
-    -- | An identifier for this artifact definition.
-    artifactIdentifier :: Prelude.Maybe Prelude.Text,
+    bucketOwnerAccess :: Prelude.Maybe BucketOwnerAccess,
     -- | The SHA-256 hash of the build artifact.
     --
     -- You can use this hash along with a checksum tool to confirm file
@@ -56,8 +57,7 @@ data BuildArtifacts = BuildArtifacts'
     --
     -- This value is available only if the build project\'s @packaging@ value
     -- is set to @ZIP@.
-    sha256sum :: Prelude.Maybe Prelude.Text,
-    bucketOwnerAccess :: Prelude.Maybe BucketOwnerAccess
+    sha256sum :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,7 +69,8 @@ data BuildArtifacts = BuildArtifacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'buildArtifacts_location' - Information about the location of the build artifacts.
+-- 'encryptionDisabled', 'buildArtifacts_encryptionDisabled' - Information that tells you if encryption for build artifacts is
+-- disabled.
 --
 -- 'md5sum', 'buildArtifacts_md5sum' - The MD5 hash of the build artifact.
 --
@@ -79,8 +80,9 @@ data BuildArtifacts = BuildArtifacts'
 -- This value is available only if the build project\'s @packaging@ value
 -- is set to @ZIP@.
 --
--- 'encryptionDisabled', 'buildArtifacts_encryptionDisabled' - Information that tells you if encryption for build artifacts is
--- disabled.
+-- 'artifactIdentifier', 'buildArtifacts_artifactIdentifier' - An identifier for this artifact definition.
+--
+-- 'location', 'buildArtifacts_location' - Information about the location of the build artifacts.
 --
 -- 'overrideArtifactName', 'buildArtifacts_overrideArtifactName' - If this flag is set, a name specified in the buildspec file overrides
 -- the artifact name. The name specified in a buildspec file is calculated
@@ -88,7 +90,7 @@ data BuildArtifacts = BuildArtifacts'
 -- append a date and time to your artifact name so that it is always
 -- unique.
 --
--- 'artifactIdentifier', 'buildArtifacts_artifactIdentifier' - An identifier for this artifact definition.
+-- 'bucketOwnerAccess', 'buildArtifacts_bucketOwnerAccess' - Undocumented member.
 --
 -- 'sha256sum', 'buildArtifacts_sha256sum' - The SHA-256 hash of the build artifact.
 --
@@ -97,24 +99,24 @@ data BuildArtifacts = BuildArtifacts'
 --
 -- This value is available only if the build project\'s @packaging@ value
 -- is set to @ZIP@.
---
--- 'bucketOwnerAccess', 'buildArtifacts_bucketOwnerAccess' - Undocumented member.
 newBuildArtifacts ::
   BuildArtifacts
 newBuildArtifacts =
   BuildArtifacts'
-    { location = Prelude.Nothing,
+    { encryptionDisabled =
+        Prelude.Nothing,
       md5sum = Prelude.Nothing,
-      encryptionDisabled = Prelude.Nothing,
-      overrideArtifactName = Prelude.Nothing,
       artifactIdentifier = Prelude.Nothing,
-      sha256sum = Prelude.Nothing,
-      bucketOwnerAccess = Prelude.Nothing
+      location = Prelude.Nothing,
+      overrideArtifactName = Prelude.Nothing,
+      bucketOwnerAccess = Prelude.Nothing,
+      sha256sum = Prelude.Nothing
     }
 
--- | Information about the location of the build artifacts.
-buildArtifacts_location :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Text)
-buildArtifacts_location = Lens.lens (\BuildArtifacts' {location} -> location) (\s@BuildArtifacts' {} a -> s {location = a} :: BuildArtifacts)
+-- | Information that tells you if encryption for build artifacts is
+-- disabled.
+buildArtifacts_encryptionDisabled :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Bool)
+buildArtifacts_encryptionDisabled = Lens.lens (\BuildArtifacts' {encryptionDisabled} -> encryptionDisabled) (\s@BuildArtifacts' {} a -> s {encryptionDisabled = a} :: BuildArtifacts)
 
 -- | The MD5 hash of the build artifact.
 --
@@ -126,10 +128,13 @@ buildArtifacts_location = Lens.lens (\BuildArtifacts' {location} -> location) (\
 buildArtifacts_md5sum :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Text)
 buildArtifacts_md5sum = Lens.lens (\BuildArtifacts' {md5sum} -> md5sum) (\s@BuildArtifacts' {} a -> s {md5sum = a} :: BuildArtifacts)
 
--- | Information that tells you if encryption for build artifacts is
--- disabled.
-buildArtifacts_encryptionDisabled :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Bool)
-buildArtifacts_encryptionDisabled = Lens.lens (\BuildArtifacts' {encryptionDisabled} -> encryptionDisabled) (\s@BuildArtifacts' {} a -> s {encryptionDisabled = a} :: BuildArtifacts)
+-- | An identifier for this artifact definition.
+buildArtifacts_artifactIdentifier :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Text)
+buildArtifacts_artifactIdentifier = Lens.lens (\BuildArtifacts' {artifactIdentifier} -> artifactIdentifier) (\s@BuildArtifacts' {} a -> s {artifactIdentifier = a} :: BuildArtifacts)
+
+-- | Information about the location of the build artifacts.
+buildArtifacts_location :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Text)
+buildArtifacts_location = Lens.lens (\BuildArtifacts' {location} -> location) (\s@BuildArtifacts' {} a -> s {location = a} :: BuildArtifacts)
 
 -- | If this flag is set, a name specified in the buildspec file overrides
 -- the artifact name. The name specified in a buildspec file is calculated
@@ -139,9 +144,9 @@ buildArtifacts_encryptionDisabled = Lens.lens (\BuildArtifacts' {encryptionDisab
 buildArtifacts_overrideArtifactName :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Bool)
 buildArtifacts_overrideArtifactName = Lens.lens (\BuildArtifacts' {overrideArtifactName} -> overrideArtifactName) (\s@BuildArtifacts' {} a -> s {overrideArtifactName = a} :: BuildArtifacts)
 
--- | An identifier for this artifact definition.
-buildArtifacts_artifactIdentifier :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Text)
-buildArtifacts_artifactIdentifier = Lens.lens (\BuildArtifacts' {artifactIdentifier} -> artifactIdentifier) (\s@BuildArtifacts' {} a -> s {artifactIdentifier = a} :: BuildArtifacts)
+-- | Undocumented member.
+buildArtifacts_bucketOwnerAccess :: Lens.Lens' BuildArtifacts (Prelude.Maybe BucketOwnerAccess)
+buildArtifacts_bucketOwnerAccess = Lens.lens (\BuildArtifacts' {bucketOwnerAccess} -> bucketOwnerAccess) (\s@BuildArtifacts' {} a -> s {bucketOwnerAccess = a} :: BuildArtifacts)
 
 -- | The SHA-256 hash of the build artifact.
 --
@@ -153,41 +158,37 @@ buildArtifacts_artifactIdentifier = Lens.lens (\BuildArtifacts' {artifactIdentif
 buildArtifacts_sha256sum :: Lens.Lens' BuildArtifacts (Prelude.Maybe Prelude.Text)
 buildArtifacts_sha256sum = Lens.lens (\BuildArtifacts' {sha256sum} -> sha256sum) (\s@BuildArtifacts' {} a -> s {sha256sum = a} :: BuildArtifacts)
 
--- | Undocumented member.
-buildArtifacts_bucketOwnerAccess :: Lens.Lens' BuildArtifacts (Prelude.Maybe BucketOwnerAccess)
-buildArtifacts_bucketOwnerAccess = Lens.lens (\BuildArtifacts' {bucketOwnerAccess} -> bucketOwnerAccess) (\s@BuildArtifacts' {} a -> s {bucketOwnerAccess = a} :: BuildArtifacts)
-
 instance Core.FromJSON BuildArtifacts where
   parseJSON =
     Core.withObject
       "BuildArtifacts"
       ( \x ->
           BuildArtifacts'
-            Prelude.<$> (x Core..:? "location")
+            Prelude.<$> (x Core..:? "encryptionDisabled")
             Prelude.<*> (x Core..:? "md5sum")
-            Prelude.<*> (x Core..:? "encryptionDisabled")
-            Prelude.<*> (x Core..:? "overrideArtifactName")
             Prelude.<*> (x Core..:? "artifactIdentifier")
-            Prelude.<*> (x Core..:? "sha256sum")
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "overrideArtifactName")
             Prelude.<*> (x Core..:? "bucketOwnerAccess")
+            Prelude.<*> (x Core..:? "sha256sum")
       )
 
 instance Prelude.Hashable BuildArtifacts where
   hashWithSalt _salt BuildArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt `Prelude.hashWithSalt` encryptionDisabled
       `Prelude.hashWithSalt` md5sum
-      `Prelude.hashWithSalt` encryptionDisabled
-      `Prelude.hashWithSalt` overrideArtifactName
       `Prelude.hashWithSalt` artifactIdentifier
-      `Prelude.hashWithSalt` sha256sum
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` overrideArtifactName
       `Prelude.hashWithSalt` bucketOwnerAccess
+      `Prelude.hashWithSalt` sha256sum
 
 instance Prelude.NFData BuildArtifacts where
   rnf BuildArtifacts' {..} =
-    Prelude.rnf location
+    Prelude.rnf encryptionDisabled
       `Prelude.seq` Prelude.rnf md5sum
-      `Prelude.seq` Prelude.rnf encryptionDisabled
-      `Prelude.seq` Prelude.rnf overrideArtifactName
       `Prelude.seq` Prelude.rnf artifactIdentifier
-      `Prelude.seq` Prelude.rnf sha256sum
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf overrideArtifactName
       `Prelude.seq` Prelude.rnf bucketOwnerAccess
+      `Prelude.seq` Prelude.rnf sha256sum

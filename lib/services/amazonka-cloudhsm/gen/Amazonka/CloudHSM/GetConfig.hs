@@ -51,8 +51,8 @@ module Amazonka.CloudHSM.GetConfig
     newGetConfigResponse,
 
     -- * Response Lenses
-    getConfigResponse_configFile,
     getConfigResponse_configCred,
+    getConfigResponse_configFile,
     getConfigResponse_configType,
     getConfigResponse_httpStatus,
   )
@@ -124,8 +124,8 @@ instance Core.AWSRequest GetConfig where
     Response.receiveJSON
       ( \s h x ->
           GetConfigResponse'
-            Prelude.<$> (x Core..?> "ConfigFile")
-            Prelude.<*> (x Core..?> "ConfigCred")
+            Prelude.<$> (x Core..?> "ConfigCred")
+            Prelude.<*> (x Core..?> "ConfigFile")
             Prelude.<*> (x Core..?> "ConfigType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -175,10 +175,10 @@ instance Core.ToQuery GetConfig where
 
 -- | /See:/ 'newGetConfigResponse' smart constructor.
 data GetConfigResponse = GetConfigResponse'
-  { -- | The chrystoki.conf configuration file.
-    configFile :: Prelude.Maybe Prelude.Text,
-    -- | The certificate file containing the server.pem files of the HSMs.
+  { -- | The certificate file containing the server.pem files of the HSMs.
     configCred :: Prelude.Maybe Prelude.Text,
+    -- | The chrystoki.conf configuration file.
+    configFile :: Prelude.Maybe Prelude.Text,
     -- | The type of credentials.
     configType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -194,9 +194,9 @@ data GetConfigResponse = GetConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configFile', 'getConfigResponse_configFile' - The chrystoki.conf configuration file.
---
 -- 'configCred', 'getConfigResponse_configCred' - The certificate file containing the server.pem files of the HSMs.
+--
+-- 'configFile', 'getConfigResponse_configFile' - The chrystoki.conf configuration file.
 --
 -- 'configType', 'getConfigResponse_configType' - The type of credentials.
 --
@@ -207,19 +207,19 @@ newGetConfigResponse ::
   GetConfigResponse
 newGetConfigResponse pHttpStatus_ =
   GetConfigResponse'
-    { configFile = Prelude.Nothing,
-      configCred = Prelude.Nothing,
+    { configCred = Prelude.Nothing,
+      configFile = Prelude.Nothing,
       configType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The chrystoki.conf configuration file.
-getConfigResponse_configFile :: Lens.Lens' GetConfigResponse (Prelude.Maybe Prelude.Text)
-getConfigResponse_configFile = Lens.lens (\GetConfigResponse' {configFile} -> configFile) (\s@GetConfigResponse' {} a -> s {configFile = a} :: GetConfigResponse)
-
 -- | The certificate file containing the server.pem files of the HSMs.
 getConfigResponse_configCred :: Lens.Lens' GetConfigResponse (Prelude.Maybe Prelude.Text)
 getConfigResponse_configCred = Lens.lens (\GetConfigResponse' {configCred} -> configCred) (\s@GetConfigResponse' {} a -> s {configCred = a} :: GetConfigResponse)
+
+-- | The chrystoki.conf configuration file.
+getConfigResponse_configFile :: Lens.Lens' GetConfigResponse (Prelude.Maybe Prelude.Text)
+getConfigResponse_configFile = Lens.lens (\GetConfigResponse' {configFile} -> configFile) (\s@GetConfigResponse' {} a -> s {configFile = a} :: GetConfigResponse)
 
 -- | The type of credentials.
 getConfigResponse_configType :: Lens.Lens' GetConfigResponse (Prelude.Maybe Prelude.Text)
@@ -231,7 +231,7 @@ getConfigResponse_httpStatus = Lens.lens (\GetConfigResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetConfigResponse where
   rnf GetConfigResponse' {..} =
-    Prelude.rnf configFile
-      `Prelude.seq` Prelude.rnf configCred
+    Prelude.rnf configCred
+      `Prelude.seq` Prelude.rnf configFile
       `Prelude.seq` Prelude.rnf configType
       `Prelude.seq` Prelude.rnf httpStatus

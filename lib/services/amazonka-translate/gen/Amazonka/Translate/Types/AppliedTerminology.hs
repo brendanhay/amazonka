@@ -32,14 +32,14 @@ import Amazonka.Translate.Types.Term
 --
 -- /See:/ 'newAppliedTerminology' smart constructor.
 data AppliedTerminology = AppliedTerminology'
-  { -- | The specific terms of the custom terminology applied to the input text
+  { -- | The name of the custom terminology applied to the input text by Amazon
+    -- Translate for the translated text response.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The specific terms of the custom terminology applied to the input text
     -- by Amazon Translate for the translated text response. A maximum of 250
     -- terms will be returned, and the specific terms applied will be the first
     -- 250 terms in the source text.
-    terms :: Prelude.Maybe [Term],
-    -- | The name of the custom terminology applied to the input text by Amazon
-    -- Translate for the translated text response.
-    name :: Prelude.Maybe Prelude.Text
+    terms :: Prelude.Maybe [Term]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,20 +51,25 @@ data AppliedTerminology = AppliedTerminology'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'appliedTerminology_name' - The name of the custom terminology applied to the input text by Amazon
+-- Translate for the translated text response.
+--
 -- 'terms', 'appliedTerminology_terms' - The specific terms of the custom terminology applied to the input text
 -- by Amazon Translate for the translated text response. A maximum of 250
 -- terms will be returned, and the specific terms applied will be the first
 -- 250 terms in the source text.
---
--- 'name', 'appliedTerminology_name' - The name of the custom terminology applied to the input text by Amazon
--- Translate for the translated text response.
 newAppliedTerminology ::
   AppliedTerminology
 newAppliedTerminology =
   AppliedTerminology'
-    { terms = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      terms = Prelude.Nothing
     }
+
+-- | The name of the custom terminology applied to the input text by Amazon
+-- Translate for the translated text response.
+appliedTerminology_name :: Lens.Lens' AppliedTerminology (Prelude.Maybe Prelude.Text)
+appliedTerminology_name = Lens.lens (\AppliedTerminology' {name} -> name) (\s@AppliedTerminology' {} a -> s {name = a} :: AppliedTerminology)
 
 -- | The specific terms of the custom terminology applied to the input text
 -- by Amazon Translate for the translated text response. A maximum of 250
@@ -73,26 +78,21 @@ newAppliedTerminology =
 appliedTerminology_terms :: Lens.Lens' AppliedTerminology (Prelude.Maybe [Term])
 appliedTerminology_terms = Lens.lens (\AppliedTerminology' {terms} -> terms) (\s@AppliedTerminology' {} a -> s {terms = a} :: AppliedTerminology) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the custom terminology applied to the input text by Amazon
--- Translate for the translated text response.
-appliedTerminology_name :: Lens.Lens' AppliedTerminology (Prelude.Maybe Prelude.Text)
-appliedTerminology_name = Lens.lens (\AppliedTerminology' {name} -> name) (\s@AppliedTerminology' {} a -> s {name = a} :: AppliedTerminology)
-
 instance Core.FromJSON AppliedTerminology where
   parseJSON =
     Core.withObject
       "AppliedTerminology"
       ( \x ->
           AppliedTerminology'
-            Prelude.<$> (x Core..:? "Terms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Terms" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AppliedTerminology where
   hashWithSalt _salt AppliedTerminology' {..} =
-    _salt `Prelude.hashWithSalt` terms
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` terms
 
 instance Prelude.NFData AppliedTerminology where
   rnf AppliedTerminology' {..} =
-    Prelude.rnf terms `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf terms

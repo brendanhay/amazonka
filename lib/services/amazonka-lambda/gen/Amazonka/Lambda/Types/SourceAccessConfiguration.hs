@@ -29,10 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceAccessConfiguration' smart constructor.
 data SourceAccessConfiguration = SourceAccessConfiguration'
-  { -- | The value for your chosen configuration in @Type@. For example:
-    -- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
-    uri :: Prelude.Maybe Prelude.Text,
-    -- | The type of authentication protocol, VPC components, or virtual host for
+  { -- | The type of authentication protocol, VPC components, or virtual host for
     -- your event source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
     --
     -- -   @BASIC_AUTH@ - (Amazon MQ) The Secrets Manager secret that stores
@@ -59,7 +56,10 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
     --
     -- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
     --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
-    type' :: Prelude.Maybe SourceAccessType
+    type' :: Prelude.Maybe SourceAccessType,
+    -- | The value for your chosen configuration in @Type@. For example:
+    -- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
+    uri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,9 +70,6 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'uri', 'sourceAccessConfiguration_uri' - The value for your chosen configuration in @Type@. For example:
--- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
 --
 -- 'type'', 'sourceAccessConfiguration_type' - The type of authentication protocol, VPC components, or virtual host for
 -- your event source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
@@ -101,18 +98,16 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
 --
 -- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
 --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
+--
+-- 'uri', 'sourceAccessConfiguration_uri' - The value for your chosen configuration in @Type@. For example:
+-- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
 newSourceAccessConfiguration ::
   SourceAccessConfiguration
 newSourceAccessConfiguration =
   SourceAccessConfiguration'
-    { uri = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      uri = Prelude.Nothing
     }
-
--- | The value for your chosen configuration in @Type@. For example:
--- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
-sourceAccessConfiguration_uri :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe Prelude.Text)
-sourceAccessConfiguration_uri = Lens.lens (\SourceAccessConfiguration' {uri} -> uri) (\s@SourceAccessConfiguration' {} a -> s {uri = a} :: SourceAccessConfiguration)
 
 -- | The type of authentication protocol, VPC components, or virtual host for
 -- your event source. For example: @\"Type\":\"SASL_SCRAM_512_AUTH\"@.
@@ -144,29 +139,34 @@ sourceAccessConfiguration_uri = Lens.lens (\SourceAccessConfiguration' {uri} -> 
 sourceAccessConfiguration_type :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe SourceAccessType)
 sourceAccessConfiguration_type = Lens.lens (\SourceAccessConfiguration' {type'} -> type') (\s@SourceAccessConfiguration' {} a -> s {type' = a} :: SourceAccessConfiguration)
 
+-- | The value for your chosen configuration in @Type@. For example:
+-- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
+sourceAccessConfiguration_uri :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe Prelude.Text)
+sourceAccessConfiguration_uri = Lens.lens (\SourceAccessConfiguration' {uri} -> uri) (\s@SourceAccessConfiguration' {} a -> s {uri = a} :: SourceAccessConfiguration)
+
 instance Core.FromJSON SourceAccessConfiguration where
   parseJSON =
     Core.withObject
       "SourceAccessConfiguration"
       ( \x ->
           SourceAccessConfiguration'
-            Prelude.<$> (x Core..:? "URI") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "URI")
       )
 
 instance Prelude.Hashable SourceAccessConfiguration where
   hashWithSalt _salt SourceAccessConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` uri
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData SourceAccessConfiguration where
   rnf SourceAccessConfiguration' {..} =
-    Prelude.rnf uri `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf uri
 
 instance Core.ToJSON SourceAccessConfiguration where
   toJSON SourceAccessConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("URI" Core..=) Prelude.<$> uri,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("URI" Core..=) Prelude.<$> uri
           ]
       )

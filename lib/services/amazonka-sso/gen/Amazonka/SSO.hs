@@ -37,17 +37,17 @@ module Amazonka.SSO
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
     -- ** UnauthorizedException
     _UnauthorizedException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -55,17 +55,17 @@ module Amazonka.SSO
     -- * Operations
     -- $operations
 
-    -- ** Logout
-    Logout (Logout'),
-    newLogout,
-    LogoutResponse (LogoutResponse'),
-    newLogoutResponse,
-
     -- ** GetRoleCredentials
     GetRoleCredentials (GetRoleCredentials'),
     newGetRoleCredentials,
     GetRoleCredentialsResponse (GetRoleCredentialsResponse'),
     newGetRoleCredentialsResponse,
+
+    -- ** ListAccountRoles (Paginated)
+    ListAccountRoles (ListAccountRoles'),
+    newListAccountRoles,
+    ListAccountRolesResponse (ListAccountRolesResponse'),
+    newListAccountRolesResponse,
 
     -- ** ListAccounts (Paginated)
     ListAccounts (ListAccounts'),
@@ -73,11 +73,11 @@ module Amazonka.SSO
     ListAccountsResponse (ListAccountsResponse'),
     newListAccountsResponse,
 
-    -- ** ListAccountRoles (Paginated)
-    ListAccountRoles (ListAccountRoles'),
-    newListAccountRoles,
-    ListAccountRolesResponse (ListAccountRolesResponse'),
-    newListAccountRolesResponse,
+    -- ** Logout
+    Logout (Logout'),
+    newLogout,
+    LogoutResponse (LogoutResponse'),
+    newLogoutResponse,
 
     -- * Types
 

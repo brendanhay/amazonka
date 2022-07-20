@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStackInstanceFilter' smart constructor.
 data StackInstanceFilter = StackInstanceFilter'
-  { -- | The status to filter by.
-    values :: Prelude.Maybe Prelude.Text,
-    -- | The type of filter to apply.
-    name :: Prelude.Maybe StackInstanceFilterName
+  { -- | The type of filter to apply.
+    name :: Prelude.Maybe StackInstanceFilterName,
+    -- | The status to filter by.
+    values :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,35 +43,35 @@ data StackInstanceFilter = StackInstanceFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'stackInstanceFilter_values' - The status to filter by.
---
 -- 'name', 'stackInstanceFilter_name' - The type of filter to apply.
+--
+-- 'values', 'stackInstanceFilter_values' - The status to filter by.
 newStackInstanceFilter ::
   StackInstanceFilter
 newStackInstanceFilter =
   StackInstanceFilter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The status to filter by.
-stackInstanceFilter_values :: Lens.Lens' StackInstanceFilter (Prelude.Maybe Prelude.Text)
-stackInstanceFilter_values = Lens.lens (\StackInstanceFilter' {values} -> values) (\s@StackInstanceFilter' {} a -> s {values = a} :: StackInstanceFilter)
 
 -- | The type of filter to apply.
 stackInstanceFilter_name :: Lens.Lens' StackInstanceFilter (Prelude.Maybe StackInstanceFilterName)
 stackInstanceFilter_name = Lens.lens (\StackInstanceFilter' {name} -> name) (\s@StackInstanceFilter' {} a -> s {name = a} :: StackInstanceFilter)
 
+-- | The status to filter by.
+stackInstanceFilter_values :: Lens.Lens' StackInstanceFilter (Prelude.Maybe Prelude.Text)
+stackInstanceFilter_values = Lens.lens (\StackInstanceFilter' {values} -> values) (\s@StackInstanceFilter' {} a -> s {values = a} :: StackInstanceFilter)
+
 instance Prelude.Hashable StackInstanceFilter where
   hashWithSalt _salt StackInstanceFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData StackInstanceFilter where
   rnf StackInstanceFilter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToQuery StackInstanceFilter where
   toQuery StackInstanceFilter' {..} =
     Prelude.mconcat
-      ["Values" Core.=: values, "Name" Core.=: name]
+      ["Name" Core.=: name, "Values" Core.=: values]

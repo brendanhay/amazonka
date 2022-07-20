@@ -28,15 +28,15 @@ module Amazonka.WorkMail.UpdateMobileDeviceAccessRule
     newUpdateMobileDeviceAccessRule,
 
     -- * Request Lenses
-    updateMobileDeviceAccessRule_deviceUserAgents,
     updateMobileDeviceAccessRule_deviceTypes,
-    updateMobileDeviceAccessRule_notDeviceTypes,
-    updateMobileDeviceAccessRule_notDeviceOperatingSystems,
-    updateMobileDeviceAccessRule_deviceModels,
-    updateMobileDeviceAccessRule_deviceOperatingSystems,
-    updateMobileDeviceAccessRule_description,
     updateMobileDeviceAccessRule_notDeviceUserAgents,
+    updateMobileDeviceAccessRule_deviceUserAgents,
     updateMobileDeviceAccessRule_notDeviceModels,
+    updateMobileDeviceAccessRule_description,
+    updateMobileDeviceAccessRule_deviceModels,
+    updateMobileDeviceAccessRule_notDeviceTypes,
+    updateMobileDeviceAccessRule_deviceOperatingSystems,
+    updateMobileDeviceAccessRule_notDeviceOperatingSystems,
     updateMobileDeviceAccessRule_organizationId,
     updateMobileDeviceAccessRule_mobileDeviceAccessRuleId,
     updateMobileDeviceAccessRule_name,
@@ -60,28 +60,28 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newUpdateMobileDeviceAccessRule' smart constructor.
 data UpdateMobileDeviceAccessRule = UpdateMobileDeviceAccessRule'
-  { -- | User agents that the updated rule will match.
-    deviceUserAgents :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Device types that the updated rule will match.
+  { -- | Device types that the updated rule will match.
     deviceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Device types that the updated rule __will not__ match. All other device
-    -- types will match.
-    notDeviceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Device operating systems that the updated rule __will not__ match. All
-    -- other device operating systems will match.
-    notDeviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Device models that the updated rule will match.
-    deviceModels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Device operating systems that the updated rule will match.
-    deviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The updated rule description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | User agents that the updated rule __will not__ match. All other user
     -- agents will match.
     notDeviceUserAgents :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | User agents that the updated rule will match.
+    deviceUserAgents :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Device models that the updated rule __will not__ match. All other device
     -- models will match.
     notDeviceModels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The updated rule description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Device models that the updated rule will match.
+    deviceModels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Device types that the updated rule __will not__ match. All other device
+    -- types will match.
+    notDeviceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Device operating systems that the updated rule will match.
+    deviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Device operating systems that the updated rule __will not__ match. All
+    -- other device operating systems will match.
+    notDeviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon WorkMail organization under which the rule will be updated.
     organizationId :: Prelude.Text,
     -- | The identifier of the rule to be updated.
@@ -102,27 +102,27 @@ data UpdateMobileDeviceAccessRule = UpdateMobileDeviceAccessRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceUserAgents', 'updateMobileDeviceAccessRule_deviceUserAgents' - User agents that the updated rule will match.
---
 -- 'deviceTypes', 'updateMobileDeviceAccessRule_deviceTypes' - Device types that the updated rule will match.
---
--- 'notDeviceTypes', 'updateMobileDeviceAccessRule_notDeviceTypes' - Device types that the updated rule __will not__ match. All other device
--- types will match.
---
--- 'notDeviceOperatingSystems', 'updateMobileDeviceAccessRule_notDeviceOperatingSystems' - Device operating systems that the updated rule __will not__ match. All
--- other device operating systems will match.
---
--- 'deviceModels', 'updateMobileDeviceAccessRule_deviceModels' - Device models that the updated rule will match.
---
--- 'deviceOperatingSystems', 'updateMobileDeviceAccessRule_deviceOperatingSystems' - Device operating systems that the updated rule will match.
---
--- 'description', 'updateMobileDeviceAccessRule_description' - The updated rule description.
 --
 -- 'notDeviceUserAgents', 'updateMobileDeviceAccessRule_notDeviceUserAgents' - User agents that the updated rule __will not__ match. All other user
 -- agents will match.
 --
+-- 'deviceUserAgents', 'updateMobileDeviceAccessRule_deviceUserAgents' - User agents that the updated rule will match.
+--
 -- 'notDeviceModels', 'updateMobileDeviceAccessRule_notDeviceModels' - Device models that the updated rule __will not__ match. All other device
 -- models will match.
+--
+-- 'description', 'updateMobileDeviceAccessRule_description' - The updated rule description.
+--
+-- 'deviceModels', 'updateMobileDeviceAccessRule_deviceModels' - Device models that the updated rule will match.
+--
+-- 'notDeviceTypes', 'updateMobileDeviceAccessRule_notDeviceTypes' - Device types that the updated rule __will not__ match. All other device
+-- types will match.
+--
+-- 'deviceOperatingSystems', 'updateMobileDeviceAccessRule_deviceOperatingSystems' - Device operating systems that the updated rule will match.
+--
+-- 'notDeviceOperatingSystems', 'updateMobileDeviceAccessRule_notDeviceOperatingSystems' - Device operating systems that the updated rule __will not__ match. All
+-- other device operating systems will match.
 --
 -- 'organizationId', 'updateMobileDeviceAccessRule_organizationId' - The Amazon WorkMail organization under which the rule will be updated.
 --
@@ -148,16 +148,16 @@ newUpdateMobileDeviceAccessRule
   pName_
   pEffect_ =
     UpdateMobileDeviceAccessRule'
-      { deviceUserAgents =
+      { deviceTypes =
           Prelude.Nothing,
-        deviceTypes = Prelude.Nothing,
-        notDeviceTypes = Prelude.Nothing,
-        notDeviceOperatingSystems = Prelude.Nothing,
-        deviceModels = Prelude.Nothing,
-        deviceOperatingSystems = Prelude.Nothing,
-        description = Prelude.Nothing,
         notDeviceUserAgents = Prelude.Nothing,
+        deviceUserAgents = Prelude.Nothing,
         notDeviceModels = Prelude.Nothing,
+        description = Prelude.Nothing,
+        deviceModels = Prelude.Nothing,
+        notDeviceTypes = Prelude.Nothing,
+        deviceOperatingSystems = Prelude.Nothing,
+        notDeviceOperatingSystems = Prelude.Nothing,
         organizationId = pOrganizationId_,
         mobileDeviceAccessRuleId =
           pMobileDeviceAccessRuleId_,
@@ -165,45 +165,45 @@ newUpdateMobileDeviceAccessRule
         effect = pEffect_
       }
 
--- | User agents that the updated rule will match.
-updateMobileDeviceAccessRule_deviceUserAgents :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateMobileDeviceAccessRule_deviceUserAgents = Lens.lens (\UpdateMobileDeviceAccessRule' {deviceUserAgents} -> deviceUserAgents) (\s@UpdateMobileDeviceAccessRule' {} a -> s {deviceUserAgents = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
-
 -- | Device types that the updated rule will match.
 updateMobileDeviceAccessRule_deviceTypes :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateMobileDeviceAccessRule_deviceTypes = Lens.lens (\UpdateMobileDeviceAccessRule' {deviceTypes} -> deviceTypes) (\s@UpdateMobileDeviceAccessRule' {} a -> s {deviceTypes = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
-
--- | Device types that the updated rule __will not__ match. All other device
--- types will match.
-updateMobileDeviceAccessRule_notDeviceTypes :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateMobileDeviceAccessRule_notDeviceTypes = Lens.lens (\UpdateMobileDeviceAccessRule' {notDeviceTypes} -> notDeviceTypes) (\s@UpdateMobileDeviceAccessRule' {} a -> s {notDeviceTypes = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
-
--- | Device operating systems that the updated rule __will not__ match. All
--- other device operating systems will match.
-updateMobileDeviceAccessRule_notDeviceOperatingSystems :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateMobileDeviceAccessRule_notDeviceOperatingSystems = Lens.lens (\UpdateMobileDeviceAccessRule' {notDeviceOperatingSystems} -> notDeviceOperatingSystems) (\s@UpdateMobileDeviceAccessRule' {} a -> s {notDeviceOperatingSystems = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
-
--- | Device models that the updated rule will match.
-updateMobileDeviceAccessRule_deviceModels :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateMobileDeviceAccessRule_deviceModels = Lens.lens (\UpdateMobileDeviceAccessRule' {deviceModels} -> deviceModels) (\s@UpdateMobileDeviceAccessRule' {} a -> s {deviceModels = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
-
--- | Device operating systems that the updated rule will match.
-updateMobileDeviceAccessRule_deviceOperatingSystems :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateMobileDeviceAccessRule_deviceOperatingSystems = Lens.lens (\UpdateMobileDeviceAccessRule' {deviceOperatingSystems} -> deviceOperatingSystems) (\s@UpdateMobileDeviceAccessRule' {} a -> s {deviceOperatingSystems = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
-
--- | The updated rule description.
-updateMobileDeviceAccessRule_description :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe Prelude.Text)
-updateMobileDeviceAccessRule_description = Lens.lens (\UpdateMobileDeviceAccessRule' {description} -> description) (\s@UpdateMobileDeviceAccessRule' {} a -> s {description = a} :: UpdateMobileDeviceAccessRule)
 
 -- | User agents that the updated rule __will not__ match. All other user
 -- agents will match.
 updateMobileDeviceAccessRule_notDeviceUserAgents :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateMobileDeviceAccessRule_notDeviceUserAgents = Lens.lens (\UpdateMobileDeviceAccessRule' {notDeviceUserAgents} -> notDeviceUserAgents) (\s@UpdateMobileDeviceAccessRule' {} a -> s {notDeviceUserAgents = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
+-- | User agents that the updated rule will match.
+updateMobileDeviceAccessRule_deviceUserAgents :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateMobileDeviceAccessRule_deviceUserAgents = Lens.lens (\UpdateMobileDeviceAccessRule' {deviceUserAgents} -> deviceUserAgents) (\s@UpdateMobileDeviceAccessRule' {} a -> s {deviceUserAgents = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+
 -- | Device models that the updated rule __will not__ match. All other device
 -- models will match.
 updateMobileDeviceAccessRule_notDeviceModels :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateMobileDeviceAccessRule_notDeviceModels = Lens.lens (\UpdateMobileDeviceAccessRule' {notDeviceModels} -> notDeviceModels) (\s@UpdateMobileDeviceAccessRule' {} a -> s {notDeviceModels = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The updated rule description.
+updateMobileDeviceAccessRule_description :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe Prelude.Text)
+updateMobileDeviceAccessRule_description = Lens.lens (\UpdateMobileDeviceAccessRule' {description} -> description) (\s@UpdateMobileDeviceAccessRule' {} a -> s {description = a} :: UpdateMobileDeviceAccessRule)
+
+-- | Device models that the updated rule will match.
+updateMobileDeviceAccessRule_deviceModels :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateMobileDeviceAccessRule_deviceModels = Lens.lens (\UpdateMobileDeviceAccessRule' {deviceModels} -> deviceModels) (\s@UpdateMobileDeviceAccessRule' {} a -> s {deviceModels = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Device types that the updated rule __will not__ match. All other device
+-- types will match.
+updateMobileDeviceAccessRule_notDeviceTypes :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateMobileDeviceAccessRule_notDeviceTypes = Lens.lens (\UpdateMobileDeviceAccessRule' {notDeviceTypes} -> notDeviceTypes) (\s@UpdateMobileDeviceAccessRule' {} a -> s {notDeviceTypes = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Device operating systems that the updated rule will match.
+updateMobileDeviceAccessRule_deviceOperatingSystems :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateMobileDeviceAccessRule_deviceOperatingSystems = Lens.lens (\UpdateMobileDeviceAccessRule' {deviceOperatingSystems} -> deviceOperatingSystems) (\s@UpdateMobileDeviceAccessRule' {} a -> s {deviceOperatingSystems = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Device operating systems that the updated rule __will not__ match. All
+-- other device operating systems will match.
+updateMobileDeviceAccessRule_notDeviceOperatingSystems :: Lens.Lens' UpdateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateMobileDeviceAccessRule_notDeviceOperatingSystems = Lens.lens (\UpdateMobileDeviceAccessRule' {notDeviceOperatingSystems} -> notDeviceOperatingSystems) (\s@UpdateMobileDeviceAccessRule' {} a -> s {notDeviceOperatingSystems = a} :: UpdateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon WorkMail organization under which the rule will be updated.
 updateMobileDeviceAccessRule_organizationId :: Lens.Lens' UpdateMobileDeviceAccessRule Prelude.Text
@@ -239,15 +239,15 @@ instance
     UpdateMobileDeviceAccessRule
   where
   hashWithSalt _salt UpdateMobileDeviceAccessRule' {..} =
-    _salt `Prelude.hashWithSalt` deviceUserAgents
-      `Prelude.hashWithSalt` deviceTypes
-      `Prelude.hashWithSalt` notDeviceTypes
-      `Prelude.hashWithSalt` notDeviceOperatingSystems
-      `Prelude.hashWithSalt` deviceModels
-      `Prelude.hashWithSalt` deviceOperatingSystems
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` deviceTypes
       `Prelude.hashWithSalt` notDeviceUserAgents
+      `Prelude.hashWithSalt` deviceUserAgents
       `Prelude.hashWithSalt` notDeviceModels
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deviceModels
+      `Prelude.hashWithSalt` notDeviceTypes
+      `Prelude.hashWithSalt` deviceOperatingSystems
+      `Prelude.hashWithSalt` notDeviceOperatingSystems
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` mobileDeviceAccessRuleId
       `Prelude.hashWithSalt` name
@@ -255,15 +255,15 @@ instance
 
 instance Prelude.NFData UpdateMobileDeviceAccessRule where
   rnf UpdateMobileDeviceAccessRule' {..} =
-    Prelude.rnf deviceUserAgents
-      `Prelude.seq` Prelude.rnf deviceTypes
-      `Prelude.seq` Prelude.rnf notDeviceTypes
-      `Prelude.seq` Prelude.rnf notDeviceOperatingSystems
-      `Prelude.seq` Prelude.rnf deviceModels
-      `Prelude.seq` Prelude.rnf deviceOperatingSystems
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf deviceTypes
       `Prelude.seq` Prelude.rnf notDeviceUserAgents
+      `Prelude.seq` Prelude.rnf deviceUserAgents
       `Prelude.seq` Prelude.rnf notDeviceModels
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceModels
+      `Prelude.seq` Prelude.rnf notDeviceTypes
+      `Prelude.seq` Prelude.rnf deviceOperatingSystems
+      `Prelude.seq` Prelude.rnf notDeviceOperatingSystems
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf mobileDeviceAccessRuleId
       `Prelude.seq` Prelude.rnf name
@@ -288,21 +288,21 @@ instance Core.ToJSON UpdateMobileDeviceAccessRule where
   toJSON UpdateMobileDeviceAccessRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DeviceUserAgents" Core..=)
-              Prelude.<$> deviceUserAgents,
-            ("DeviceTypes" Core..=) Prelude.<$> deviceTypes,
-            ("NotDeviceTypes" Core..=)
-              Prelude.<$> notDeviceTypes,
-            ("NotDeviceOperatingSystems" Core..=)
-              Prelude.<$> notDeviceOperatingSystems,
-            ("DeviceModels" Core..=) Prelude.<$> deviceModels,
-            ("DeviceOperatingSystems" Core..=)
-              Prelude.<$> deviceOperatingSystems,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("DeviceTypes" Core..=) Prelude.<$> deviceTypes,
             ("NotDeviceUserAgents" Core..=)
               Prelude.<$> notDeviceUserAgents,
+            ("DeviceUserAgents" Core..=)
+              Prelude.<$> deviceUserAgents,
             ("NotDeviceModels" Core..=)
               Prelude.<$> notDeviceModels,
+            ("Description" Core..=) Prelude.<$> description,
+            ("DeviceModels" Core..=) Prelude.<$> deviceModels,
+            ("NotDeviceTypes" Core..=)
+              Prelude.<$> notDeviceTypes,
+            ("DeviceOperatingSystems" Core..=)
+              Prelude.<$> deviceOperatingSystems,
+            ("NotDeviceOperatingSystems" Core..=)
+              Prelude.<$> notDeviceOperatingSystems,
             Prelude.Just
               ("OrganizationId" Core..= organizationId),
             Prelude.Just

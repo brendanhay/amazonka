@@ -38,10 +38,10 @@ module Amazonka.RedshiftData.BatchExecuteStatement
     newBatchExecuteStatement,
 
     -- * Request Lenses
-    batchExecuteStatement_dbUser,
-    batchExecuteStatement_statementName,
     batchExecuteStatement_secretArn,
+    batchExecuteStatement_statementName,
     batchExecuteStatement_withEvent,
+    batchExecuteStatement_dbUser,
     batchExecuteStatement_clusterIdentifier,
     batchExecuteStatement_database,
     batchExecuteStatement_sqls,
@@ -51,12 +51,12 @@ module Amazonka.RedshiftData.BatchExecuteStatement
     newBatchExecuteStatementResponse,
 
     -- * Response Lenses
-    batchExecuteStatementResponse_dbUser,
-    batchExecuteStatementResponse_database,
-    batchExecuteStatementResponse_createdAt,
     batchExecuteStatementResponse_clusterIdentifier,
     batchExecuteStatementResponse_id,
+    batchExecuteStatementResponse_database,
     batchExecuteStatementResponse_secretArn,
+    batchExecuteStatementResponse_dbUser,
+    batchExecuteStatementResponse_createdAt,
     batchExecuteStatementResponse_httpStatus,
   )
 where
@@ -70,18 +70,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchExecuteStatement' smart constructor.
 data BatchExecuteStatement = BatchExecuteStatement'
-  { -- | The database user name. This parameter is required when authenticating
-    -- using temporary credentials.
-    dbUser :: Prelude.Maybe Prelude.Text,
+  { -- | The name or ARN of the secret that enables access to the database. This
+    -- parameter is required when authenticating using Secrets Manager.
+    secretArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the SQL statements. You can name the SQL statements when you
     -- create them to identify the query.
     statementName :: Prelude.Maybe Prelude.Text,
-    -- | The name or ARN of the secret that enables access to the database. This
-    -- parameter is required when authenticating using Secrets Manager.
-    secretArn :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to send an event to the Amazon
     -- EventBridge event bus after the SQL statements run.
     withEvent :: Prelude.Maybe Prelude.Bool,
+    -- | The database user name. This parameter is required when authenticating
+    -- using temporary credentials.
+    dbUser :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier. This parameter is required when authenticating
     -- using either Secrets Manager or temporary credentials.
     clusterIdentifier :: Prelude.Text,
@@ -101,17 +101,17 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbUser', 'batchExecuteStatement_dbUser' - The database user name. This parameter is required when authenticating
--- using temporary credentials.
+-- 'secretArn', 'batchExecuteStatement_secretArn' - The name or ARN of the secret that enables access to the database. This
+-- parameter is required when authenticating using Secrets Manager.
 --
 -- 'statementName', 'batchExecuteStatement_statementName' - The name of the SQL statements. You can name the SQL statements when you
 -- create them to identify the query.
 --
--- 'secretArn', 'batchExecuteStatement_secretArn' - The name or ARN of the secret that enables access to the database. This
--- parameter is required when authenticating using Secrets Manager.
---
 -- 'withEvent', 'batchExecuteStatement_withEvent' - A value that indicates whether to send an event to the Amazon
 -- EventBridge event bus after the SQL statements run.
+--
+-- 'dbUser', 'batchExecuteStatement_dbUser' - The database user name. This parameter is required when authenticating
+-- using temporary credentials.
 --
 -- 'clusterIdentifier', 'batchExecuteStatement_clusterIdentifier' - The cluster identifier. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -133,34 +133,34 @@ newBatchExecuteStatement
   pDatabase_
   pSqls_ =
     BatchExecuteStatement'
-      { dbUser = Prelude.Nothing,
+      { secretArn = Prelude.Nothing,
         statementName = Prelude.Nothing,
-        secretArn = Prelude.Nothing,
         withEvent = Prelude.Nothing,
+        dbUser = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         database = pDatabase_,
         sqls = Lens.coerced Lens.# pSqls_
       }
-
--- | The database user name. This parameter is required when authenticating
--- using temporary credentials.
-batchExecuteStatement_dbUser :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
-batchExecuteStatement_dbUser = Lens.lens (\BatchExecuteStatement' {dbUser} -> dbUser) (\s@BatchExecuteStatement' {} a -> s {dbUser = a} :: BatchExecuteStatement)
-
--- | The name of the SQL statements. You can name the SQL statements when you
--- create them to identify the query.
-batchExecuteStatement_statementName :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
-batchExecuteStatement_statementName = Lens.lens (\BatchExecuteStatement' {statementName} -> statementName) (\s@BatchExecuteStatement' {} a -> s {statementName = a} :: BatchExecuteStatement)
 
 -- | The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
 batchExecuteStatement_secretArn :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
 batchExecuteStatement_secretArn = Lens.lens (\BatchExecuteStatement' {secretArn} -> secretArn) (\s@BatchExecuteStatement' {} a -> s {secretArn = a} :: BatchExecuteStatement)
 
+-- | The name of the SQL statements. You can name the SQL statements when you
+-- create them to identify the query.
+batchExecuteStatement_statementName :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
+batchExecuteStatement_statementName = Lens.lens (\BatchExecuteStatement' {statementName} -> statementName) (\s@BatchExecuteStatement' {} a -> s {statementName = a} :: BatchExecuteStatement)
+
 -- | A value that indicates whether to send an event to the Amazon
 -- EventBridge event bus after the SQL statements run.
 batchExecuteStatement_withEvent :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Bool)
 batchExecuteStatement_withEvent = Lens.lens (\BatchExecuteStatement' {withEvent} -> withEvent) (\s@BatchExecuteStatement' {} a -> s {withEvent = a} :: BatchExecuteStatement)
+
+-- | The database user name. This parameter is required when authenticating
+-- using temporary credentials.
+batchExecuteStatement_dbUser :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
+batchExecuteStatement_dbUser = Lens.lens (\BatchExecuteStatement' {dbUser} -> dbUser) (\s@BatchExecuteStatement' {} a -> s {dbUser = a} :: BatchExecuteStatement)
 
 -- | The cluster identifier. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -185,31 +185,31 @@ instance Core.AWSRequest BatchExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           BatchExecuteStatementResponse'
-            Prelude.<$> (x Core..?> "DbUser")
-            Prelude.<*> (x Core..?> "Database")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "ClusterIdentifier")
+            Prelude.<$> (x Core..?> "ClusterIdentifier")
             Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Database")
             Prelude.<*> (x Core..?> "SecretArn")
+            Prelude.<*> (x Core..?> "DbUser")
+            Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` dbUser
+    _salt `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` statementName
-      `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` withEvent
+      `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` sqls
 
 instance Prelude.NFData BatchExecuteStatement where
   rnf BatchExecuteStatement' {..} =
-    Prelude.rnf dbUser
+    Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf withEvent
+      `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf sqls
@@ -233,10 +233,10 @@ instance Core.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DbUser" Core..=) Prelude.<$> dbUser,
+          [ ("SecretArn" Core..=) Prelude.<$> secretArn,
             ("StatementName" Core..=) Prelude.<$> statementName,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
             ("WithEvent" Core..=) Prelude.<$> withEvent,
+            ("DbUser" Core..=) Prelude.<$> dbUser,
             Prelude.Just
               ("ClusterIdentifier" Core..= clusterIdentifier),
             Prelude.Just ("Database" Core..= database),
@@ -252,21 +252,21 @@ instance Core.ToQuery BatchExecuteStatement where
 
 -- | /See:/ 'newBatchExecuteStatementResponse' smart constructor.
 data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
-  { -- | The database user name.
-    dbUser :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database.
-    database :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (UTC) the statement was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The cluster identifier.
+  { -- | The cluster identifier.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the SQL statement whose results are to be fetched.
     -- This value is a universally unique identifier (UUID) generated by Amazon
     -- Redshift Data API. This identifier is returned by
     -- @BatchExecuteStatment@.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database.
+    database :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the secret that enables access to the database.
     secretArn :: Prelude.Maybe Prelude.Text,
+    -- | The database user name.
+    dbUser :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (UTC) the statement was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -280,12 +280,6 @@ data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbUser', 'batchExecuteStatementResponse_dbUser' - The database user name.
---
--- 'database', 'batchExecuteStatementResponse_database' - The name of the database.
---
--- 'createdAt', 'batchExecuteStatementResponse_createdAt' - The date and time (UTC) the statement was created.
---
 -- 'clusterIdentifier', 'batchExecuteStatementResponse_clusterIdentifier' - The cluster identifier.
 --
 -- 'id', 'batchExecuteStatementResponse_id' - The identifier of the SQL statement whose results are to be fetched.
@@ -293,7 +287,13 @@ data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
 -- Redshift Data API. This identifier is returned by
 -- @BatchExecuteStatment@.
 --
+-- 'database', 'batchExecuteStatementResponse_database' - The name of the database.
+--
 -- 'secretArn', 'batchExecuteStatementResponse_secretArn' - The name or ARN of the secret that enables access to the database.
+--
+-- 'dbUser', 'batchExecuteStatementResponse_dbUser' - The database user name.
+--
+-- 'createdAt', 'batchExecuteStatementResponse_createdAt' - The date and time (UTC) the statement was created.
 --
 -- 'httpStatus', 'batchExecuteStatementResponse_httpStatus' - The response's http status code.
 newBatchExecuteStatementResponse ::
@@ -302,27 +302,15 @@ newBatchExecuteStatementResponse ::
   BatchExecuteStatementResponse
 newBatchExecuteStatementResponse pHttpStatus_ =
   BatchExecuteStatementResponse'
-    { dbUser =
+    { clusterIdentifier =
         Prelude.Nothing,
-      database = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing,
       id = Prelude.Nothing,
+      database = Prelude.Nothing,
       secretArn = Prelude.Nothing,
+      dbUser = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The database user name.
-batchExecuteStatementResponse_dbUser :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
-batchExecuteStatementResponse_dbUser = Lens.lens (\BatchExecuteStatementResponse' {dbUser} -> dbUser) (\s@BatchExecuteStatementResponse' {} a -> s {dbUser = a} :: BatchExecuteStatementResponse)
-
--- | The name of the database.
-batchExecuteStatementResponse_database :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
-batchExecuteStatementResponse_database = Lens.lens (\BatchExecuteStatementResponse' {database} -> database) (\s@BatchExecuteStatementResponse' {} a -> s {database = a} :: BatchExecuteStatementResponse)
-
--- | The date and time (UTC) the statement was created.
-batchExecuteStatementResponse_createdAt :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.UTCTime)
-batchExecuteStatementResponse_createdAt = Lens.lens (\BatchExecuteStatementResponse' {createdAt} -> createdAt) (\s@BatchExecuteStatementResponse' {} a -> s {createdAt = a} :: BatchExecuteStatementResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The cluster identifier.
 batchExecuteStatementResponse_clusterIdentifier :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
@@ -335,9 +323,21 @@ batchExecuteStatementResponse_clusterIdentifier = Lens.lens (\BatchExecuteStatem
 batchExecuteStatementResponse_id :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
 batchExecuteStatementResponse_id = Lens.lens (\BatchExecuteStatementResponse' {id} -> id) (\s@BatchExecuteStatementResponse' {} a -> s {id = a} :: BatchExecuteStatementResponse)
 
+-- | The name of the database.
+batchExecuteStatementResponse_database :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
+batchExecuteStatementResponse_database = Lens.lens (\BatchExecuteStatementResponse' {database} -> database) (\s@BatchExecuteStatementResponse' {} a -> s {database = a} :: BatchExecuteStatementResponse)
+
 -- | The name or ARN of the secret that enables access to the database.
 batchExecuteStatementResponse_secretArn :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
 batchExecuteStatementResponse_secretArn = Lens.lens (\BatchExecuteStatementResponse' {secretArn} -> secretArn) (\s@BatchExecuteStatementResponse' {} a -> s {secretArn = a} :: BatchExecuteStatementResponse)
+
+-- | The database user name.
+batchExecuteStatementResponse_dbUser :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
+batchExecuteStatementResponse_dbUser = Lens.lens (\BatchExecuteStatementResponse' {dbUser} -> dbUser) (\s@BatchExecuteStatementResponse' {} a -> s {dbUser = a} :: BatchExecuteStatementResponse)
+
+-- | The date and time (UTC) the statement was created.
+batchExecuteStatementResponse_createdAt :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.UTCTime)
+batchExecuteStatementResponse_createdAt = Lens.lens (\BatchExecuteStatementResponse' {createdAt} -> createdAt) (\s@BatchExecuteStatementResponse' {} a -> s {createdAt = a} :: BatchExecuteStatementResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 batchExecuteStatementResponse_httpStatus :: Lens.Lens' BatchExecuteStatementResponse Prelude.Int
@@ -345,10 +345,10 @@ batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResp
 
 instance Prelude.NFData BatchExecuteStatementResponse where
   rnf BatchExecuteStatementResponse' {..} =
-    Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

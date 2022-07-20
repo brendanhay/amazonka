@@ -20,14 +20,8 @@ module Amazonka.RobOMaker
     -- * Errors
     -- $errors
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
@@ -38,14 +32,20 @@ module Amazonka.RobOMaker
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -53,113 +53,11 @@ module Amazonka.RobOMaker
     -- * Operations
     -- $operations
 
-    -- ** DescribeWorldExportJob
-    DescribeWorldExportJob (DescribeWorldExportJob'),
-    newDescribeWorldExportJob,
-    DescribeWorldExportJobResponse (DescribeWorldExportJobResponse'),
-    newDescribeWorldExportJobResponse,
-
     -- ** BatchDeleteWorlds
     BatchDeleteWorlds (BatchDeleteWorlds'),
     newBatchDeleteWorlds,
     BatchDeleteWorldsResponse (BatchDeleteWorldsResponse'),
     newBatchDeleteWorldsResponse,
-
-    -- ** GetWorldTemplateBody
-    GetWorldTemplateBody (GetWorldTemplateBody'),
-    newGetWorldTemplateBody,
-    GetWorldTemplateBodyResponse (GetWorldTemplateBodyResponse'),
-    newGetWorldTemplateBodyResponse,
-
-    -- ** DeleteFleet
-    DeleteFleet (DeleteFleet'),
-    newDeleteFleet,
-    DeleteFleetResponse (DeleteFleetResponse'),
-    newDeleteFleetResponse,
-
-    -- ** CreateWorldGenerationJob
-    CreateWorldGenerationJob (CreateWorldGenerationJob'),
-    newCreateWorldGenerationJob,
-    CreateWorldGenerationJobResponse (CreateWorldGenerationJobResponse'),
-    newCreateWorldGenerationJobResponse,
-
-    -- ** ListRobotApplications (Paginated)
-    ListRobotApplications (ListRobotApplications'),
-    newListRobotApplications,
-    ListRobotApplicationsResponse (ListRobotApplicationsResponse'),
-    newListRobotApplicationsResponse,
-
-    -- ** UpdateRobotApplication
-    UpdateRobotApplication (UpdateRobotApplication'),
-    newUpdateRobotApplication,
-    UpdateRobotApplicationResponse (UpdateRobotApplicationResponse'),
-    newUpdateRobotApplicationResponse,
-
-    -- ** DeleteRobotApplication
-    DeleteRobotApplication (DeleteRobotApplication'),
-    newDeleteRobotApplication,
-    DeleteRobotApplicationResponse (DeleteRobotApplicationResponse'),
-    newDeleteRobotApplicationResponse,
-
-    -- ** CreateSimulationApplicationVersion
-    CreateSimulationApplicationVersion (CreateSimulationApplicationVersion'),
-    newCreateSimulationApplicationVersion,
-    CreateSimulationApplicationVersionResponse (CreateSimulationApplicationVersionResponse'),
-    newCreateSimulationApplicationVersionResponse,
-
-    -- ** ListDeploymentJobs (Paginated)
-    ListDeploymentJobs (ListDeploymentJobs'),
-    newListDeploymentJobs,
-    ListDeploymentJobsResponse (ListDeploymentJobsResponse'),
-    newListDeploymentJobsResponse,
-
-    -- ** DescribeWorld
-    DescribeWorld (DescribeWorld'),
-    newDescribeWorld,
-    DescribeWorldResponse (DescribeWorldResponse'),
-    newDescribeWorldResponse,
-
-    -- ** CancelSimulationJob
-    CancelSimulationJob (CancelSimulationJob'),
-    newCancelSimulationJob,
-    CancelSimulationJobResponse (CancelSimulationJobResponse'),
-    newCancelSimulationJobResponse,
-
-    -- ** CreateRobotApplication
-    CreateRobotApplication (CreateRobotApplication'),
-    newCreateRobotApplication,
-    CreateRobotApplicationResponse (CreateRobotApplicationResponse'),
-    newCreateRobotApplicationResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** CreateDeploymentJob
-    CreateDeploymentJob (CreateDeploymentJob'),
-    newCreateDeploymentJob,
-    CreateDeploymentJobResponse (CreateDeploymentJobResponse'),
-    newCreateDeploymentJobResponse,
-
-    -- ** RegisterRobot
-    RegisterRobot (RegisterRobot'),
-    newRegisterRobot,
-    RegisterRobotResponse (RegisterRobotResponse'),
-    newRegisterRobotResponse,
-
-    -- ** ListRobots (Paginated)
-    ListRobots (ListRobots'),
-    newListRobots,
-    ListRobotsResponse (ListRobotsResponse'),
-    newListRobotsResponse,
-
-    -- ** CreateWorldExportJob
-    CreateWorldExportJob (CreateWorldExportJob'),
-    newCreateWorldExportJob,
-    CreateWorldExportJobResponse (CreateWorldExportJobResponse'),
-    newCreateWorldExportJobResponse,
 
     -- ** BatchDescribeSimulationJob
     BatchDescribeSimulationJob (BatchDescribeSimulationJob'),
@@ -167,215 +65,17 @@ module Amazonka.RobOMaker
     BatchDescribeSimulationJobResponse (BatchDescribeSimulationJobResponse'),
     newBatchDescribeSimulationJobResponse,
 
-    -- ** CreateSimulationApplication
-    CreateSimulationApplication (CreateSimulationApplication'),
-    newCreateSimulationApplication,
-    CreateSimulationApplicationResponse (CreateSimulationApplicationResponse'),
-    newCreateSimulationApplicationResponse,
-
-    -- ** StartSimulationJobBatch
-    StartSimulationJobBatch (StartSimulationJobBatch'),
-    newStartSimulationJobBatch,
-    StartSimulationJobBatchResponse (StartSimulationJobBatchResponse'),
-    newStartSimulationJobBatchResponse,
-
-    -- ** CreateRobot
-    CreateRobot (CreateRobot'),
-    newCreateRobot,
-    CreateRobotResponse (CreateRobotResponse'),
-    newCreateRobotResponse,
-
-    -- ** DescribeFleet
-    DescribeFleet (DescribeFleet'),
-    newDescribeFleet,
-    DescribeFleetResponse (DescribeFleetResponse'),
-    newDescribeFleetResponse,
-
-    -- ** ListWorldTemplates (Paginated)
-    ListWorldTemplates (ListWorldTemplates'),
-    newListWorldTemplates,
-    ListWorldTemplatesResponse (ListWorldTemplatesResponse'),
-    newListWorldTemplatesResponse,
-
-    -- ** DescribeRobotApplication
-    DescribeRobotApplication (DescribeRobotApplication'),
-    newDescribeRobotApplication,
-    DescribeRobotApplicationResponse (DescribeRobotApplicationResponse'),
-    newDescribeRobotApplicationResponse,
-
-    -- ** RestartSimulationJob
-    RestartSimulationJob (RestartSimulationJob'),
-    newRestartSimulationJob,
-    RestartSimulationJobResponse (RestartSimulationJobResponse'),
-    newRestartSimulationJobResponse,
-
-    -- ** DescribeSimulationJob
-    DescribeSimulationJob (DescribeSimulationJob'),
-    newDescribeSimulationJob,
-    DescribeSimulationJobResponse (DescribeSimulationJobResponse'),
-    newDescribeSimulationJobResponse,
-
-    -- ** DeregisterRobot
-    DeregisterRobot (DeregisterRobot'),
-    newDeregisterRobot,
-    DeregisterRobotResponse (DeregisterRobotResponse'),
-    newDeregisterRobotResponse,
-
-    -- ** DescribeSimulationApplication
-    DescribeSimulationApplication (DescribeSimulationApplication'),
-    newDescribeSimulationApplication,
-    DescribeSimulationApplicationResponse (DescribeSimulationApplicationResponse'),
-    newDescribeSimulationApplicationResponse,
-
-    -- ** ListSimulationJobBatches (Paginated)
-    ListSimulationJobBatches (ListSimulationJobBatches'),
-    newListSimulationJobBatches,
-    ListSimulationJobBatchesResponse (ListSimulationJobBatchesResponse'),
-    newListSimulationJobBatchesResponse,
-
-    -- ** ListFleets (Paginated)
-    ListFleets (ListFleets'),
-    newListFleets,
-    ListFleetsResponse (ListFleetsResponse'),
-    newListFleetsResponse,
-
-    -- ** DescribeWorldTemplate
-    DescribeWorldTemplate (DescribeWorldTemplate'),
-    newDescribeWorldTemplate,
-    DescribeWorldTemplateResponse (DescribeWorldTemplateResponse'),
-    newDescribeWorldTemplateResponse,
-
-    -- ** CancelWorldExportJob
-    CancelWorldExportJob (CancelWorldExportJob'),
-    newCancelWorldExportJob,
-    CancelWorldExportJobResponse (CancelWorldExportJobResponse'),
-    newCancelWorldExportJobResponse,
-
-    -- ** ListWorldGenerationJobs (Paginated)
-    ListWorldGenerationJobs (ListWorldGenerationJobs'),
-    newListWorldGenerationJobs,
-    ListWorldGenerationJobsResponse (ListWorldGenerationJobsResponse'),
-    newListWorldGenerationJobsResponse,
-
-    -- ** CreateFleet
-    CreateFleet (CreateFleet'),
-    newCreateFleet,
-    CreateFleetResponse (CreateFleetResponse'),
-    newCreateFleetResponse,
-
-    -- ** CancelWorldGenerationJob
-    CancelWorldGenerationJob (CancelWorldGenerationJob'),
-    newCancelWorldGenerationJob,
-    CancelWorldGenerationJobResponse (CancelWorldGenerationJobResponse'),
-    newCancelWorldGenerationJobResponse,
-
-    -- ** DescribeSimulationJobBatch
-    DescribeSimulationJobBatch (DescribeSimulationJobBatch'),
-    newDescribeSimulationJobBatch,
-    DescribeSimulationJobBatchResponse (DescribeSimulationJobBatchResponse'),
-    newDescribeSimulationJobBatchResponse,
-
-    -- ** ListSimulationJobs (Paginated)
-    ListSimulationJobs (ListSimulationJobs'),
-    newListSimulationJobs,
-    ListSimulationJobsResponse (ListSimulationJobsResponse'),
-    newListSimulationJobsResponse,
-
-    -- ** DeleteRobot
-    DeleteRobot (DeleteRobot'),
-    newDeleteRobot,
-    DeleteRobotResponse (DeleteRobotResponse'),
-    newDeleteRobotResponse,
-
-    -- ** DeleteSimulationApplication
-    DeleteSimulationApplication (DeleteSimulationApplication'),
-    newDeleteSimulationApplication,
-    DeleteSimulationApplicationResponse (DeleteSimulationApplicationResponse'),
-    newDeleteSimulationApplicationResponse,
-
-    -- ** UpdateSimulationApplication
-    UpdateSimulationApplication (UpdateSimulationApplication'),
-    newUpdateSimulationApplication,
-    UpdateSimulationApplicationResponse (UpdateSimulationApplicationResponse'),
-    newUpdateSimulationApplicationResponse,
-
-    -- ** CreateSimulationJob
-    CreateSimulationJob (CreateSimulationJob'),
-    newCreateSimulationJob,
-    CreateSimulationJobResponse (CreateSimulationJobResponse'),
-    newCreateSimulationJobResponse,
-
-    -- ** ListWorldExportJobs (Paginated)
-    ListWorldExportJobs (ListWorldExportJobs'),
-    newListWorldExportJobs,
-    ListWorldExportJobsResponse (ListWorldExportJobsResponse'),
-    newListWorldExportJobsResponse,
-
-    -- ** ListSimulationApplications (Paginated)
-    ListSimulationApplications (ListSimulationApplications'),
-    newListSimulationApplications,
-    ListSimulationApplicationsResponse (ListSimulationApplicationsResponse'),
-    newListSimulationApplicationsResponse,
-
-    -- ** CreateRobotApplicationVersion
-    CreateRobotApplicationVersion (CreateRobotApplicationVersion'),
-    newCreateRobotApplicationVersion,
-    CreateRobotApplicationVersionResponse (CreateRobotApplicationVersionResponse'),
-    newCreateRobotApplicationVersionResponse,
-
     -- ** CancelDeploymentJob
     CancelDeploymentJob (CancelDeploymentJob'),
     newCancelDeploymentJob,
     CancelDeploymentJobResponse (CancelDeploymentJobResponse'),
     newCancelDeploymentJobResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListWorlds (Paginated)
-    ListWorlds (ListWorlds'),
-    newListWorlds,
-    ListWorldsResponse (ListWorldsResponse'),
-    newListWorldsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DescribeDeploymentJob
-    DescribeDeploymentJob (DescribeDeploymentJob'),
-    newDescribeDeploymentJob,
-    DescribeDeploymentJobResponse (DescribeDeploymentJobResponse'),
-    newDescribeDeploymentJobResponse,
-
-    -- ** DeleteWorldTemplate
-    DeleteWorldTemplate (DeleteWorldTemplate'),
-    newDeleteWorldTemplate,
-    DeleteWorldTemplateResponse (DeleteWorldTemplateResponse'),
-    newDeleteWorldTemplateResponse,
-
-    -- ** UpdateWorldTemplate
-    UpdateWorldTemplate (UpdateWorldTemplate'),
-    newUpdateWorldTemplate,
-    UpdateWorldTemplateResponse (UpdateWorldTemplateResponse'),
-    newUpdateWorldTemplateResponse,
-
-    -- ** DescribeWorldGenerationJob
-    DescribeWorldGenerationJob (DescribeWorldGenerationJob'),
-    newDescribeWorldGenerationJob,
-    DescribeWorldGenerationJobResponse (DescribeWorldGenerationJobResponse'),
-    newDescribeWorldGenerationJobResponse,
-
-    -- ** CreateWorldTemplate
-    CreateWorldTemplate (CreateWorldTemplate'),
-    newCreateWorldTemplate,
-    CreateWorldTemplateResponse (CreateWorldTemplateResponse'),
-    newCreateWorldTemplateResponse,
+    -- ** CancelSimulationJob
+    CancelSimulationJob (CancelSimulationJob'),
+    newCancelSimulationJob,
+    CancelSimulationJobResponse (CancelSimulationJobResponse'),
+    newCancelSimulationJobResponse,
 
     -- ** CancelSimulationJobBatch
     CancelSimulationJobBatch (CancelSimulationJobBatch'),
@@ -383,17 +83,317 @@ module Amazonka.RobOMaker
     CancelSimulationJobBatchResponse (CancelSimulationJobBatchResponse'),
     newCancelSimulationJobBatchResponse,
 
+    -- ** CancelWorldExportJob
+    CancelWorldExportJob (CancelWorldExportJob'),
+    newCancelWorldExportJob,
+    CancelWorldExportJobResponse (CancelWorldExportJobResponse'),
+    newCancelWorldExportJobResponse,
+
+    -- ** CancelWorldGenerationJob
+    CancelWorldGenerationJob (CancelWorldGenerationJob'),
+    newCancelWorldGenerationJob,
+    CancelWorldGenerationJobResponse (CancelWorldGenerationJobResponse'),
+    newCancelWorldGenerationJobResponse,
+
+    -- ** CreateDeploymentJob
+    CreateDeploymentJob (CreateDeploymentJob'),
+    newCreateDeploymentJob,
+    CreateDeploymentJobResponse (CreateDeploymentJobResponse'),
+    newCreateDeploymentJobResponse,
+
+    -- ** CreateFleet
+    CreateFleet (CreateFleet'),
+    newCreateFleet,
+    CreateFleetResponse (CreateFleetResponse'),
+    newCreateFleetResponse,
+
+    -- ** CreateRobot
+    CreateRobot (CreateRobot'),
+    newCreateRobot,
+    CreateRobotResponse (CreateRobotResponse'),
+    newCreateRobotResponse,
+
+    -- ** CreateRobotApplication
+    CreateRobotApplication (CreateRobotApplication'),
+    newCreateRobotApplication,
+    CreateRobotApplicationResponse (CreateRobotApplicationResponse'),
+    newCreateRobotApplicationResponse,
+
+    -- ** CreateRobotApplicationVersion
+    CreateRobotApplicationVersion (CreateRobotApplicationVersion'),
+    newCreateRobotApplicationVersion,
+    CreateRobotApplicationVersionResponse (CreateRobotApplicationVersionResponse'),
+    newCreateRobotApplicationVersionResponse,
+
+    -- ** CreateSimulationApplication
+    CreateSimulationApplication (CreateSimulationApplication'),
+    newCreateSimulationApplication,
+    CreateSimulationApplicationResponse (CreateSimulationApplicationResponse'),
+    newCreateSimulationApplicationResponse,
+
+    -- ** CreateSimulationApplicationVersion
+    CreateSimulationApplicationVersion (CreateSimulationApplicationVersion'),
+    newCreateSimulationApplicationVersion,
+    CreateSimulationApplicationVersionResponse (CreateSimulationApplicationVersionResponse'),
+    newCreateSimulationApplicationVersionResponse,
+
+    -- ** CreateSimulationJob
+    CreateSimulationJob (CreateSimulationJob'),
+    newCreateSimulationJob,
+    CreateSimulationJobResponse (CreateSimulationJobResponse'),
+    newCreateSimulationJobResponse,
+
+    -- ** CreateWorldExportJob
+    CreateWorldExportJob (CreateWorldExportJob'),
+    newCreateWorldExportJob,
+    CreateWorldExportJobResponse (CreateWorldExportJobResponse'),
+    newCreateWorldExportJobResponse,
+
+    -- ** CreateWorldGenerationJob
+    CreateWorldGenerationJob (CreateWorldGenerationJob'),
+    newCreateWorldGenerationJob,
+    CreateWorldGenerationJobResponse (CreateWorldGenerationJobResponse'),
+    newCreateWorldGenerationJobResponse,
+
+    -- ** CreateWorldTemplate
+    CreateWorldTemplate (CreateWorldTemplate'),
+    newCreateWorldTemplate,
+    CreateWorldTemplateResponse (CreateWorldTemplateResponse'),
+    newCreateWorldTemplateResponse,
+
+    -- ** DeleteFleet
+    DeleteFleet (DeleteFleet'),
+    newDeleteFleet,
+    DeleteFleetResponse (DeleteFleetResponse'),
+    newDeleteFleetResponse,
+
+    -- ** DeleteRobot
+    DeleteRobot (DeleteRobot'),
+    newDeleteRobot,
+    DeleteRobotResponse (DeleteRobotResponse'),
+    newDeleteRobotResponse,
+
+    -- ** DeleteRobotApplication
+    DeleteRobotApplication (DeleteRobotApplication'),
+    newDeleteRobotApplication,
+    DeleteRobotApplicationResponse (DeleteRobotApplicationResponse'),
+    newDeleteRobotApplicationResponse,
+
+    -- ** DeleteSimulationApplication
+    DeleteSimulationApplication (DeleteSimulationApplication'),
+    newDeleteSimulationApplication,
+    DeleteSimulationApplicationResponse (DeleteSimulationApplicationResponse'),
+    newDeleteSimulationApplicationResponse,
+
+    -- ** DeleteWorldTemplate
+    DeleteWorldTemplate (DeleteWorldTemplate'),
+    newDeleteWorldTemplate,
+    DeleteWorldTemplateResponse (DeleteWorldTemplateResponse'),
+    newDeleteWorldTemplateResponse,
+
+    -- ** DeregisterRobot
+    DeregisterRobot (DeregisterRobot'),
+    newDeregisterRobot,
+    DeregisterRobotResponse (DeregisterRobotResponse'),
+    newDeregisterRobotResponse,
+
+    -- ** DescribeDeploymentJob
+    DescribeDeploymentJob (DescribeDeploymentJob'),
+    newDescribeDeploymentJob,
+    DescribeDeploymentJobResponse (DescribeDeploymentJobResponse'),
+    newDescribeDeploymentJobResponse,
+
+    -- ** DescribeFleet
+    DescribeFleet (DescribeFleet'),
+    newDescribeFleet,
+    DescribeFleetResponse (DescribeFleetResponse'),
+    newDescribeFleetResponse,
+
     -- ** DescribeRobot
     DescribeRobot (DescribeRobot'),
     newDescribeRobot,
     DescribeRobotResponse (DescribeRobotResponse'),
     newDescribeRobotResponse,
 
+    -- ** DescribeRobotApplication
+    DescribeRobotApplication (DescribeRobotApplication'),
+    newDescribeRobotApplication,
+    DescribeRobotApplicationResponse (DescribeRobotApplicationResponse'),
+    newDescribeRobotApplicationResponse,
+
+    -- ** DescribeSimulationApplication
+    DescribeSimulationApplication (DescribeSimulationApplication'),
+    newDescribeSimulationApplication,
+    DescribeSimulationApplicationResponse (DescribeSimulationApplicationResponse'),
+    newDescribeSimulationApplicationResponse,
+
+    -- ** DescribeSimulationJob
+    DescribeSimulationJob (DescribeSimulationJob'),
+    newDescribeSimulationJob,
+    DescribeSimulationJobResponse (DescribeSimulationJobResponse'),
+    newDescribeSimulationJobResponse,
+
+    -- ** DescribeSimulationJobBatch
+    DescribeSimulationJobBatch (DescribeSimulationJobBatch'),
+    newDescribeSimulationJobBatch,
+    DescribeSimulationJobBatchResponse (DescribeSimulationJobBatchResponse'),
+    newDescribeSimulationJobBatchResponse,
+
+    -- ** DescribeWorld
+    DescribeWorld (DescribeWorld'),
+    newDescribeWorld,
+    DescribeWorldResponse (DescribeWorldResponse'),
+    newDescribeWorldResponse,
+
+    -- ** DescribeWorldExportJob
+    DescribeWorldExportJob (DescribeWorldExportJob'),
+    newDescribeWorldExportJob,
+    DescribeWorldExportJobResponse (DescribeWorldExportJobResponse'),
+    newDescribeWorldExportJobResponse,
+
+    -- ** DescribeWorldGenerationJob
+    DescribeWorldGenerationJob (DescribeWorldGenerationJob'),
+    newDescribeWorldGenerationJob,
+    DescribeWorldGenerationJobResponse (DescribeWorldGenerationJobResponse'),
+    newDescribeWorldGenerationJobResponse,
+
+    -- ** DescribeWorldTemplate
+    DescribeWorldTemplate (DescribeWorldTemplate'),
+    newDescribeWorldTemplate,
+    DescribeWorldTemplateResponse (DescribeWorldTemplateResponse'),
+    newDescribeWorldTemplateResponse,
+
+    -- ** GetWorldTemplateBody
+    GetWorldTemplateBody (GetWorldTemplateBody'),
+    newGetWorldTemplateBody,
+    GetWorldTemplateBodyResponse (GetWorldTemplateBodyResponse'),
+    newGetWorldTemplateBodyResponse,
+
+    -- ** ListDeploymentJobs (Paginated)
+    ListDeploymentJobs (ListDeploymentJobs'),
+    newListDeploymentJobs,
+    ListDeploymentJobsResponse (ListDeploymentJobsResponse'),
+    newListDeploymentJobsResponse,
+
+    -- ** ListFleets (Paginated)
+    ListFleets (ListFleets'),
+    newListFleets,
+    ListFleetsResponse (ListFleetsResponse'),
+    newListFleetsResponse,
+
+    -- ** ListRobotApplications (Paginated)
+    ListRobotApplications (ListRobotApplications'),
+    newListRobotApplications,
+    ListRobotApplicationsResponse (ListRobotApplicationsResponse'),
+    newListRobotApplicationsResponse,
+
+    -- ** ListRobots (Paginated)
+    ListRobots (ListRobots'),
+    newListRobots,
+    ListRobotsResponse (ListRobotsResponse'),
+    newListRobotsResponse,
+
+    -- ** ListSimulationApplications (Paginated)
+    ListSimulationApplications (ListSimulationApplications'),
+    newListSimulationApplications,
+    ListSimulationApplicationsResponse (ListSimulationApplicationsResponse'),
+    newListSimulationApplicationsResponse,
+
+    -- ** ListSimulationJobBatches (Paginated)
+    ListSimulationJobBatches (ListSimulationJobBatches'),
+    newListSimulationJobBatches,
+    ListSimulationJobBatchesResponse (ListSimulationJobBatchesResponse'),
+    newListSimulationJobBatchesResponse,
+
+    -- ** ListSimulationJobs (Paginated)
+    ListSimulationJobs (ListSimulationJobs'),
+    newListSimulationJobs,
+    ListSimulationJobsResponse (ListSimulationJobsResponse'),
+    newListSimulationJobsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListWorldExportJobs (Paginated)
+    ListWorldExportJobs (ListWorldExportJobs'),
+    newListWorldExportJobs,
+    ListWorldExportJobsResponse (ListWorldExportJobsResponse'),
+    newListWorldExportJobsResponse,
+
+    -- ** ListWorldGenerationJobs (Paginated)
+    ListWorldGenerationJobs (ListWorldGenerationJobs'),
+    newListWorldGenerationJobs,
+    ListWorldGenerationJobsResponse (ListWorldGenerationJobsResponse'),
+    newListWorldGenerationJobsResponse,
+
+    -- ** ListWorldTemplates (Paginated)
+    ListWorldTemplates (ListWorldTemplates'),
+    newListWorldTemplates,
+    ListWorldTemplatesResponse (ListWorldTemplatesResponse'),
+    newListWorldTemplatesResponse,
+
+    -- ** ListWorlds (Paginated)
+    ListWorlds (ListWorlds'),
+    newListWorlds,
+    ListWorldsResponse (ListWorldsResponse'),
+    newListWorldsResponse,
+
+    -- ** RegisterRobot
+    RegisterRobot (RegisterRobot'),
+    newRegisterRobot,
+    RegisterRobotResponse (RegisterRobotResponse'),
+    newRegisterRobotResponse,
+
+    -- ** RestartSimulationJob
+    RestartSimulationJob (RestartSimulationJob'),
+    newRestartSimulationJob,
+    RestartSimulationJobResponse (RestartSimulationJobResponse'),
+    newRestartSimulationJobResponse,
+
+    -- ** StartSimulationJobBatch
+    StartSimulationJobBatch (StartSimulationJobBatch'),
+    newStartSimulationJobBatch,
+    StartSimulationJobBatchResponse (StartSimulationJobBatchResponse'),
+    newStartSimulationJobBatchResponse,
+
     -- ** SyncDeploymentJob
     SyncDeploymentJob (SyncDeploymentJob'),
     newSyncDeploymentJob,
     SyncDeploymentJobResponse (SyncDeploymentJobResponse'),
     newSyncDeploymentJobResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateRobotApplication
+    UpdateRobotApplication (UpdateRobotApplication'),
+    newUpdateRobotApplication,
+    UpdateRobotApplicationResponse (UpdateRobotApplicationResponse'),
+    newUpdateRobotApplicationResponse,
+
+    -- ** UpdateSimulationApplication
+    UpdateSimulationApplication (UpdateSimulationApplication'),
+    newUpdateSimulationApplication,
+    UpdateSimulationApplicationResponse (UpdateSimulationApplicationResponse'),
+    newUpdateSimulationApplicationResponse,
+
+    -- ** UpdateWorldTemplate
+    UpdateWorldTemplate (UpdateWorldTemplate'),
+    newUpdateWorldTemplate,
+    UpdateWorldTemplateResponse (UpdateWorldTemplateResponse'),
+    newUpdateWorldTemplateResponse,
 
     -- * Types
 

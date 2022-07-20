@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 data VpnStaticRoute = VpnStaticRoute'
   { -- | The current state of the static route.
     state :: Prelude.Maybe VpnState,
-    -- | Indicates how the routes were provided.
-    source :: Prelude.Maybe VpnStaticRouteSource,
     -- | The CIDR block associated with the local subnet of the customer data
     -- center.
-    destinationCidrBlock :: Prelude.Maybe Prelude.Text
+    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | Indicates how the routes were provided.
+    source :: Prelude.Maybe VpnStaticRouteSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,47 +50,47 @@ data VpnStaticRoute = VpnStaticRoute'
 --
 -- 'state', 'vpnStaticRoute_state' - The current state of the static route.
 --
--- 'source', 'vpnStaticRoute_source' - Indicates how the routes were provided.
---
 -- 'destinationCidrBlock', 'vpnStaticRoute_destinationCidrBlock' - The CIDR block associated with the local subnet of the customer data
 -- center.
+--
+-- 'source', 'vpnStaticRoute_source' - Indicates how the routes were provided.
 newVpnStaticRoute ::
   VpnStaticRoute
 newVpnStaticRoute =
   VpnStaticRoute'
     { state = Prelude.Nothing,
-      source = Prelude.Nothing,
-      destinationCidrBlock = Prelude.Nothing
+      destinationCidrBlock = Prelude.Nothing,
+      source = Prelude.Nothing
     }
 
 -- | The current state of the static route.
 vpnStaticRoute_state :: Lens.Lens' VpnStaticRoute (Prelude.Maybe VpnState)
 vpnStaticRoute_state = Lens.lens (\VpnStaticRoute' {state} -> state) (\s@VpnStaticRoute' {} a -> s {state = a} :: VpnStaticRoute)
 
--- | Indicates how the routes were provided.
-vpnStaticRoute_source :: Lens.Lens' VpnStaticRoute (Prelude.Maybe VpnStaticRouteSource)
-vpnStaticRoute_source = Lens.lens (\VpnStaticRoute' {source} -> source) (\s@VpnStaticRoute' {} a -> s {source = a} :: VpnStaticRoute)
-
 -- | The CIDR block associated with the local subnet of the customer data
 -- center.
 vpnStaticRoute_destinationCidrBlock :: Lens.Lens' VpnStaticRoute (Prelude.Maybe Prelude.Text)
 vpnStaticRoute_destinationCidrBlock = Lens.lens (\VpnStaticRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@VpnStaticRoute' {} a -> s {destinationCidrBlock = a} :: VpnStaticRoute)
 
+-- | Indicates how the routes were provided.
+vpnStaticRoute_source :: Lens.Lens' VpnStaticRoute (Prelude.Maybe VpnStaticRouteSource)
+vpnStaticRoute_source = Lens.lens (\VpnStaticRoute' {source} -> source) (\s@VpnStaticRoute' {} a -> s {source = a} :: VpnStaticRoute)
+
 instance Core.FromXML VpnStaticRoute where
   parseXML x =
     VpnStaticRoute'
       Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "source")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
+      Prelude.<*> (x Core..@? "source")
 
 instance Prelude.Hashable VpnStaticRoute where
   hashWithSalt _salt VpnStaticRoute' {..} =
     _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` source
 
 instance Prelude.NFData VpnStaticRoute where
   rnf VpnStaticRoute' {..} =
     Prelude.rnf state
-      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf source

@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentLaunchConfig' smart constructor.
 data DeploymentLaunchConfig = DeploymentLaunchConfig'
-  { -- | The deployment pre-launch file. This file will be executed prior to the
-    -- launch file.
-    preLaunchFile :: Prelude.Maybe Prelude.Text,
-    -- | The deployment post-launch file. This file will be executed after the
+  { -- | The deployment post-launch file. This file will be executed after the
     -- launch file.
     postLaunchFile :: Prelude.Maybe Prelude.Text,
+    -- | The deployment pre-launch file. This file will be executed prior to the
+    -- launch file.
+    preLaunchFile :: Prelude.Maybe Prelude.Text,
     -- | An array of key\/value pairs specifying environment variables for the
     -- robot application
     environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -51,10 +51,10 @@ data DeploymentLaunchConfig = DeploymentLaunchConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preLaunchFile', 'deploymentLaunchConfig_preLaunchFile' - The deployment pre-launch file. This file will be executed prior to the
+-- 'postLaunchFile', 'deploymentLaunchConfig_postLaunchFile' - The deployment post-launch file. This file will be executed after the
 -- launch file.
 --
--- 'postLaunchFile', 'deploymentLaunchConfig_postLaunchFile' - The deployment post-launch file. This file will be executed after the
+-- 'preLaunchFile', 'deploymentLaunchConfig_preLaunchFile' - The deployment pre-launch file. This file will be executed prior to the
 -- launch file.
 --
 -- 'environmentVariables', 'deploymentLaunchConfig_environmentVariables' - An array of key\/value pairs specifying environment variables for the
@@ -71,23 +71,23 @@ newDeploymentLaunchConfig ::
   DeploymentLaunchConfig
 newDeploymentLaunchConfig pPackageName_ pLaunchFile_ =
   DeploymentLaunchConfig'
-    { preLaunchFile =
+    { postLaunchFile =
         Prelude.Nothing,
-      postLaunchFile = Prelude.Nothing,
+      preLaunchFile = Prelude.Nothing,
       environmentVariables = Prelude.Nothing,
       packageName = pPackageName_,
       launchFile = pLaunchFile_
     }
 
--- | The deployment pre-launch file. This file will be executed prior to the
--- launch file.
-deploymentLaunchConfig_preLaunchFile :: Lens.Lens' DeploymentLaunchConfig (Prelude.Maybe Prelude.Text)
-deploymentLaunchConfig_preLaunchFile = Lens.lens (\DeploymentLaunchConfig' {preLaunchFile} -> preLaunchFile) (\s@DeploymentLaunchConfig' {} a -> s {preLaunchFile = a} :: DeploymentLaunchConfig)
-
 -- | The deployment post-launch file. This file will be executed after the
 -- launch file.
 deploymentLaunchConfig_postLaunchFile :: Lens.Lens' DeploymentLaunchConfig (Prelude.Maybe Prelude.Text)
 deploymentLaunchConfig_postLaunchFile = Lens.lens (\DeploymentLaunchConfig' {postLaunchFile} -> postLaunchFile) (\s@DeploymentLaunchConfig' {} a -> s {postLaunchFile = a} :: DeploymentLaunchConfig)
+
+-- | The deployment pre-launch file. This file will be executed prior to the
+-- launch file.
+deploymentLaunchConfig_preLaunchFile :: Lens.Lens' DeploymentLaunchConfig (Prelude.Maybe Prelude.Text)
+deploymentLaunchConfig_preLaunchFile = Lens.lens (\DeploymentLaunchConfig' {preLaunchFile} -> preLaunchFile) (\s@DeploymentLaunchConfig' {} a -> s {preLaunchFile = a} :: DeploymentLaunchConfig)
 
 -- | An array of key\/value pairs specifying environment variables for the
 -- robot application
@@ -108,8 +108,8 @@ instance Core.FromJSON DeploymentLaunchConfig where
       "DeploymentLaunchConfig"
       ( \x ->
           DeploymentLaunchConfig'
-            Prelude.<$> (x Core..:? "preLaunchFile")
-            Prelude.<*> (x Core..:? "postLaunchFile")
+            Prelude.<$> (x Core..:? "postLaunchFile")
+            Prelude.<*> (x Core..:? "preLaunchFile")
             Prelude.<*> ( x Core..:? "environmentVariables"
                             Core..!= Prelude.mempty
                         )
@@ -119,16 +119,16 @@ instance Core.FromJSON DeploymentLaunchConfig where
 
 instance Prelude.Hashable DeploymentLaunchConfig where
   hashWithSalt _salt DeploymentLaunchConfig' {..} =
-    _salt `Prelude.hashWithSalt` preLaunchFile
-      `Prelude.hashWithSalt` postLaunchFile
+    _salt `Prelude.hashWithSalt` postLaunchFile
+      `Prelude.hashWithSalt` preLaunchFile
       `Prelude.hashWithSalt` environmentVariables
       `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` launchFile
 
 instance Prelude.NFData DeploymentLaunchConfig where
   rnf DeploymentLaunchConfig' {..} =
-    Prelude.rnf preLaunchFile
-      `Prelude.seq` Prelude.rnf postLaunchFile
+    Prelude.rnf postLaunchFile
+      `Prelude.seq` Prelude.rnf preLaunchFile
       `Prelude.seq` Prelude.rnf environmentVariables
       `Prelude.seq` Prelude.rnf packageName
       `Prelude.seq` Prelude.rnf launchFile
@@ -137,9 +137,9 @@ instance Core.ToJSON DeploymentLaunchConfig where
   toJSON DeploymentLaunchConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("preLaunchFile" Core..=) Prelude.<$> preLaunchFile,
-            ("postLaunchFile" Core..=)
+          [ ("postLaunchFile" Core..=)
               Prelude.<$> postLaunchFile,
+            ("preLaunchFile" Core..=) Prelude.<$> preLaunchFile,
             ("environmentVariables" Core..=)
               Prelude.<$> environmentVariables,
             Prelude.Just ("packageName" Core..= packageName),

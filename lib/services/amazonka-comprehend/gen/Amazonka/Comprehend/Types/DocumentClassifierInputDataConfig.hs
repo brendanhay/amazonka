@@ -32,14 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentClassifierInputDataConfig' smart constructor.
 data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
-  { -- | A list of augmented manifest files that provide training data for your
-    -- custom model. An augmented manifest file is a labeled dataset that is
-    -- produced by Amazon SageMaker Ground Truth.
-    --
-    -- This parameter is required if you set @DataFormat@ to
-    -- @AUGMENTED_MANIFEST@.
-    augmentedManifests :: Prelude.Maybe [AugmentedManifestsListItem],
-    -- | The format of your training data:
+  { -- | The format of your training data:
     --
     -- -   @COMPREHEND_CSV@: A two-column CSV file, where labels are provided
     --     in the first column, and documents are provided in the second. If
@@ -57,14 +50,6 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
     -- as the default.
     dataFormat :: Prelude.Maybe DocumentClassifierDataFormat,
-    -- | Indicates the delimiter used to separate each label for training a
-    -- multi-label classifier. The default delimiter between labels is a pipe
-    -- (|). You can use a different character as a delimiter (if it\'s an
-    -- allowed character) by specifying it under Delimiter for labels. If the
-    -- training documents use a delimiter other than the default or the
-    -- delimiter you specify, the labels on that line will be combined to make
-    -- a single unique label, such as LABELLABELLABEL.
-    labelDelimiter :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
     -- the same AWS Region as the API endpoint that you are calling. The URI
     -- can point to a single input file or it can provide the prefix for a
@@ -81,7 +66,22 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- them as input.
     --
     -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
-    s3Uri :: Prelude.Maybe Prelude.Text
+    s3Uri :: Prelude.Maybe Prelude.Text,
+    -- | A list of augmented manifest files that provide training data for your
+    -- custom model. An augmented manifest file is a labeled dataset that is
+    -- produced by Amazon SageMaker Ground Truth.
+    --
+    -- This parameter is required if you set @DataFormat@ to
+    -- @AUGMENTED_MANIFEST@.
+    augmentedManifests :: Prelude.Maybe [AugmentedManifestsListItem],
+    -- | Indicates the delimiter used to separate each label for training a
+    -- multi-label classifier. The default delimiter between labels is a pipe
+    -- (|). You can use a different character as a delimiter (if it\'s an
+    -- allowed character) by specifying it under Delimiter for labels. If the
+    -- training documents use a delimiter other than the default or the
+    -- delimiter you specify, the labels on that line will be combined to make
+    -- a single unique label, such as LABELLABELLABEL.
+    labelDelimiter :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,13 +92,6 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'augmentedManifests', 'documentClassifierInputDataConfig_augmentedManifests' - A list of augmented manifest files that provide training data for your
--- custom model. An augmented manifest file is a labeled dataset that is
--- produced by Amazon SageMaker Ground Truth.
---
--- This parameter is required if you set @DataFormat@ to
--- @AUGMENTED_MANIFEST@.
 --
 -- 'dataFormat', 'documentClassifierInputDataConfig_dataFormat' - The format of your training data:
 --
@@ -118,14 +111,6 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
 -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
 -- as the default.
 --
--- 'labelDelimiter', 'documentClassifierInputDataConfig_labelDelimiter' - Indicates the delimiter used to separate each label for training a
--- multi-label classifier. The default delimiter between labels is a pipe
--- (|). You can use a different character as a delimiter (if it\'s an
--- allowed character) by specifying it under Delimiter for labels. If the
--- training documents use a delimiter other than the default or the
--- delimiter you specify, the labels on that line will be combined to make
--- a single unique label, such as LABELLABELLABEL.
---
 -- 'testS3Uri', 'documentClassifierInputDataConfig_testS3Uri' - The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
 -- the same AWS Region as the API endpoint that you are calling. The URI
 -- can point to a single input file or it can provide the prefix for a
@@ -142,26 +127,32 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
 -- them as input.
 --
 -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
-newDocumentClassifierInputDataConfig ::
-  DocumentClassifierInputDataConfig
-newDocumentClassifierInputDataConfig =
-  DocumentClassifierInputDataConfig'
-    { augmentedManifests =
-        Prelude.Nothing,
-      dataFormat = Prelude.Nothing,
-      labelDelimiter = Prelude.Nothing,
-      testS3Uri = Prelude.Nothing,
-      s3Uri = Prelude.Nothing
-    }
-
--- | A list of augmented manifest files that provide training data for your
+--
+-- 'augmentedManifests', 'documentClassifierInputDataConfig_augmentedManifests' - A list of augmented manifest files that provide training data for your
 -- custom model. An augmented manifest file is a labeled dataset that is
 -- produced by Amazon SageMaker Ground Truth.
 --
 -- This parameter is required if you set @DataFormat@ to
 -- @AUGMENTED_MANIFEST@.
-documentClassifierInputDataConfig_augmentedManifests :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe [AugmentedManifestsListItem])
-documentClassifierInputDataConfig_augmentedManifests = Lens.lens (\DocumentClassifierInputDataConfig' {augmentedManifests} -> augmentedManifests) (\s@DocumentClassifierInputDataConfig' {} a -> s {augmentedManifests = a} :: DocumentClassifierInputDataConfig) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'labelDelimiter', 'documentClassifierInputDataConfig_labelDelimiter' - Indicates the delimiter used to separate each label for training a
+-- multi-label classifier. The default delimiter between labels is a pipe
+-- (|). You can use a different character as a delimiter (if it\'s an
+-- allowed character) by specifying it under Delimiter for labels. If the
+-- training documents use a delimiter other than the default or the
+-- delimiter you specify, the labels on that line will be combined to make
+-- a single unique label, such as LABELLABELLABEL.
+newDocumentClassifierInputDataConfig ::
+  DocumentClassifierInputDataConfig
+newDocumentClassifierInputDataConfig =
+  DocumentClassifierInputDataConfig'
+    { dataFormat =
+        Prelude.Nothing,
+      testS3Uri = Prelude.Nothing,
+      s3Uri = Prelude.Nothing,
+      augmentedManifests = Prelude.Nothing,
+      labelDelimiter = Prelude.Nothing
+    }
 
 -- | The format of your training data:
 --
@@ -182,16 +173,6 @@ documentClassifierInputDataConfig_augmentedManifests = Lens.lens (\DocumentClass
 -- as the default.
 documentClassifierInputDataConfig_dataFormat :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe DocumentClassifierDataFormat)
 documentClassifierInputDataConfig_dataFormat = Lens.lens (\DocumentClassifierInputDataConfig' {dataFormat} -> dataFormat) (\s@DocumentClassifierInputDataConfig' {} a -> s {dataFormat = a} :: DocumentClassifierInputDataConfig)
-
--- | Indicates the delimiter used to separate each label for training a
--- multi-label classifier. The default delimiter between labels is a pipe
--- (|). You can use a different character as a delimiter (if it\'s an
--- allowed character) by specifying it under Delimiter for labels. If the
--- training documents use a delimiter other than the default or the
--- delimiter you specify, the labels on that line will be combined to make
--- a single unique label, such as LABELLABELLABEL.
-documentClassifierInputDataConfig_labelDelimiter :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe Prelude.Text)
-documentClassifierInputDataConfig_labelDelimiter = Lens.lens (\DocumentClassifierInputDataConfig' {labelDelimiter} -> labelDelimiter) (\s@DocumentClassifierInputDataConfig' {} a -> s {labelDelimiter = a} :: DocumentClassifierInputDataConfig)
 
 -- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in
 -- the same AWS Region as the API endpoint that you are calling. The URI
@@ -214,6 +195,25 @@ documentClassifierInputDataConfig_testS3Uri = Lens.lens (\DocumentClassifierInpu
 documentClassifierInputDataConfig_s3Uri :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe Prelude.Text)
 documentClassifierInputDataConfig_s3Uri = Lens.lens (\DocumentClassifierInputDataConfig' {s3Uri} -> s3Uri) (\s@DocumentClassifierInputDataConfig' {} a -> s {s3Uri = a} :: DocumentClassifierInputDataConfig)
 
+-- | A list of augmented manifest files that provide training data for your
+-- custom model. An augmented manifest file is a labeled dataset that is
+-- produced by Amazon SageMaker Ground Truth.
+--
+-- This parameter is required if you set @DataFormat@ to
+-- @AUGMENTED_MANIFEST@.
+documentClassifierInputDataConfig_augmentedManifests :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe [AugmentedManifestsListItem])
+documentClassifierInputDataConfig_augmentedManifests = Lens.lens (\DocumentClassifierInputDataConfig' {augmentedManifests} -> augmentedManifests) (\s@DocumentClassifierInputDataConfig' {} a -> s {augmentedManifests = a} :: DocumentClassifierInputDataConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates the delimiter used to separate each label for training a
+-- multi-label classifier. The default delimiter between labels is a pipe
+-- (|). You can use a different character as a delimiter (if it\'s an
+-- allowed character) by specifying it under Delimiter for labels. If the
+-- training documents use a delimiter other than the default or the
+-- delimiter you specify, the labels on that line will be combined to make
+-- a single unique label, such as LABELLABELLABEL.
+documentClassifierInputDataConfig_labelDelimiter :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe Prelude.Text)
+documentClassifierInputDataConfig_labelDelimiter = Lens.lens (\DocumentClassifierInputDataConfig' {labelDelimiter} -> labelDelimiter) (\s@DocumentClassifierInputDataConfig' {} a -> s {labelDelimiter = a} :: DocumentClassifierInputDataConfig)
+
 instance
   Core.FromJSON
     DocumentClassifierInputDataConfig
@@ -223,13 +223,13 @@ instance
       "DocumentClassifierInputDataConfig"
       ( \x ->
           DocumentClassifierInputDataConfig'
-            Prelude.<$> ( x Core..:? "AugmentedManifests"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "DataFormat")
-            Prelude.<*> (x Core..:? "LabelDelimiter")
+            Prelude.<$> (x Core..:? "DataFormat")
             Prelude.<*> (x Core..:? "TestS3Uri")
             Prelude.<*> (x Core..:? "S3Uri")
+            Prelude.<*> ( x Core..:? "AugmentedManifests"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "LabelDelimiter")
       )
 
 instance
@@ -239,22 +239,22 @@ instance
   hashWithSalt
     _salt
     DocumentClassifierInputDataConfig' {..} =
-      _salt `Prelude.hashWithSalt` augmentedManifests
-        `Prelude.hashWithSalt` dataFormat
-        `Prelude.hashWithSalt` labelDelimiter
+      _salt `Prelude.hashWithSalt` dataFormat
         `Prelude.hashWithSalt` testS3Uri
         `Prelude.hashWithSalt` s3Uri
+        `Prelude.hashWithSalt` augmentedManifests
+        `Prelude.hashWithSalt` labelDelimiter
 
 instance
   Prelude.NFData
     DocumentClassifierInputDataConfig
   where
   rnf DocumentClassifierInputDataConfig' {..} =
-    Prelude.rnf augmentedManifests
-      `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf labelDelimiter
+    Prelude.rnf dataFormat
       `Prelude.seq` Prelude.rnf testS3Uri
       `Prelude.seq` Prelude.rnf s3Uri
+      `Prelude.seq` Prelude.rnf augmentedManifests
+      `Prelude.seq` Prelude.rnf labelDelimiter
 
 instance
   Core.ToJSON
@@ -263,12 +263,12 @@ instance
   toJSON DocumentClassifierInputDataConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AugmentedManifests" Core..=)
-              Prelude.<$> augmentedManifests,
-            ("DataFormat" Core..=) Prelude.<$> dataFormat,
-            ("LabelDelimiter" Core..=)
-              Prelude.<$> labelDelimiter,
+          [ ("DataFormat" Core..=) Prelude.<$> dataFormat,
             ("TestS3Uri" Core..=) Prelude.<$> testS3Uri,
-            ("S3Uri" Core..=) Prelude.<$> s3Uri
+            ("S3Uri" Core..=) Prelude.<$> s3Uri,
+            ("AugmentedManifests" Core..=)
+              Prelude.<$> augmentedManifests,
+            ("LabelDelimiter" Core..=)
+              Prelude.<$> labelDelimiter
           ]
       )

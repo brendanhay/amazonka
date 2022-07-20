@@ -29,8 +29,8 @@ module Amazonka.RobOMaker.ListWorldGenerationJobs
     newListWorldGenerationJobs,
 
     -- * Request Lenses
-    listWorldGenerationJobs_filters,
     listWorldGenerationJobs_nextToken,
+    listWorldGenerationJobs_filters,
     listWorldGenerationJobs_maxResults,
 
     -- * Destructuring the Response
@@ -53,10 +53,7 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newListWorldGenerationJobs' smart constructor.
 data ListWorldGenerationJobs = ListWorldGenerationJobs'
-  { -- | Optional filters to limit results. You can use @status@ and
-    -- @templateId@.
-    filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
-    -- | If the previous paginated request did not return all of the remaining
+  { -- | If the previous paginated request did not return all of the remaining
     -- results, the response object\'s @nextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call
     -- @ListWorldGenerationJobsRequest@ again and assign that token to the
@@ -64,6 +61,9 @@ data ListWorldGenerationJobs = ListWorldGenerationJobs'
     -- results, the previous response object\'s NextToken parameter is set to
     -- null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional filters to limit results. You can use @status@ and
+    -- @templateId@.
+    filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
     -- | When this parameter is used, @ListWorldGeneratorJobs@ only returns
     -- @maxResults@ results in a single page along with a @nextToken@ response
     -- element. The remaining results of the initial request can be seen by
@@ -83,9 +83,6 @@ data ListWorldGenerationJobs = ListWorldGenerationJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listWorldGenerationJobs_filters' - Optional filters to limit results. You can use @status@ and
--- @templateId@.
---
 -- 'nextToken', 'listWorldGenerationJobs_nextToken' - If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call
@@ -93,6 +90,9 @@ data ListWorldGenerationJobs = ListWorldGenerationJobs'
 -- request object\'s @nextToken@ parameter. If there are no remaining
 -- results, the previous response object\'s NextToken parameter is set to
 -- null.
+--
+-- 'filters', 'listWorldGenerationJobs_filters' - Optional filters to limit results. You can use @status@ and
+-- @templateId@.
 --
 -- 'maxResults', 'listWorldGenerationJobs_maxResults' - When this parameter is used, @ListWorldGeneratorJobs@ only returns
 -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -105,15 +105,11 @@ newListWorldGenerationJobs ::
   ListWorldGenerationJobs
 newListWorldGenerationJobs =
   ListWorldGenerationJobs'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Optional filters to limit results. You can use @status@ and
--- @templateId@.
-listWorldGenerationJobs_filters :: Lens.Lens' ListWorldGenerationJobs (Prelude.Maybe (Prelude.NonEmpty Filter))
-listWorldGenerationJobs_filters = Lens.lens (\ListWorldGenerationJobs' {filters} -> filters) (\s@ListWorldGenerationJobs' {} a -> s {filters = a} :: ListWorldGenerationJobs) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
@@ -124,6 +120,11 @@ listWorldGenerationJobs_filters = Lens.lens (\ListWorldGenerationJobs' {filters}
 -- null.
 listWorldGenerationJobs_nextToken :: Lens.Lens' ListWorldGenerationJobs (Prelude.Maybe Prelude.Text)
 listWorldGenerationJobs_nextToken = Lens.lens (\ListWorldGenerationJobs' {nextToken} -> nextToken) (\s@ListWorldGenerationJobs' {} a -> s {nextToken = a} :: ListWorldGenerationJobs)
+
+-- | Optional filters to limit results. You can use @status@ and
+-- @templateId@.
+listWorldGenerationJobs_filters :: Lens.Lens' ListWorldGenerationJobs (Prelude.Maybe (Prelude.NonEmpty Filter))
+listWorldGenerationJobs_filters = Lens.lens (\ListWorldGenerationJobs' {filters} -> filters) (\s@ListWorldGenerationJobs' {} a -> s {filters = a} :: ListWorldGenerationJobs) Prelude.. Lens.mapping Lens.coerced
 
 -- | When this parameter is used, @ListWorldGeneratorJobs@ only returns
 -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -174,14 +175,14 @@ instance Core.AWSRequest ListWorldGenerationJobs where
 
 instance Prelude.Hashable ListWorldGenerationJobs where
   hashWithSalt _salt ListWorldGenerationJobs' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListWorldGenerationJobs where
   rnf ListWorldGenerationJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListWorldGenerationJobs where
@@ -199,8 +200,8 @@ instance Core.ToJSON ListWorldGenerationJobs where
   toJSON ListWorldGenerationJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filters" Core..=) Prelude.<$> filters,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

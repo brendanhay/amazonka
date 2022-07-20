@@ -36,7 +36,12 @@ import Amazonka.SageMaker.Types.TargetPlatform
 --
 -- /See:/ 'newOutputConfig' smart constructor.
 data OutputConfig = OutputConfig'
-  { -- | Contains information about a target platform that you want your model to
+  { -- | Identifies the target device or the machine learning instance that you
+    -- want to run your model on after the compilation has completed.
+    -- Alternatively, you can specify OS, architecture, and accelerator using
+    -- TargetPlatform fields. It can be used instead of @TargetPlatform@.
+    targetDevice :: Prelude.Maybe TargetDevice,
+    -- | Contains information about a target platform that you want your model to
     -- run on, such as OS, architecture, and accelerators. It is an alternative
     -- of @TargetDevice@.
     --
@@ -185,11 +190,6 @@ data OutputConfig = OutputConfig'
     --     For example:
     --     @{\"precision_mode\": \"FP32\", \"output_names\": [\"output:0\"]}@
     compilerOptions :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the target device or the machine learning instance that you
-    -- want to run your model on after the compilation has completed.
-    -- Alternatively, you can specify OS, architecture, and accelerator using
-    -- TargetPlatform fields. It can be used instead of @TargetPlatform@.
-    targetDevice :: Prelude.Maybe TargetDevice,
     -- | Identifies the S3 bucket where you want Amazon SageMaker to store the
     -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
     s3OutputLocation :: Prelude.Text
@@ -203,6 +203,11 @@ data OutputConfig = OutputConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'targetDevice', 'outputConfig_targetDevice' - Identifies the target device or the machine learning instance that you
+-- want to run your model on after the compilation has completed.
+-- Alternatively, you can specify OS, architecture, and accelerator using
+-- TargetPlatform fields. It can be used instead of @TargetPlatform@.
 --
 -- 'targetPlatform', 'outputConfig_targetPlatform' - Contains information about a target platform that you want your model to
 -- run on, such as OS, architecture, and accelerators. It is an alternative
@@ -353,11 +358,6 @@ data OutputConfig = OutputConfig'
 --     For example:
 --     @{\"precision_mode\": \"FP32\", \"output_names\": [\"output:0\"]}@
 --
--- 'targetDevice', 'outputConfig_targetDevice' - Identifies the target device or the machine learning instance that you
--- want to run your model on after the compilation has completed.
--- Alternatively, you can specify OS, architecture, and accelerator using
--- TargetPlatform fields. It can be used instead of @TargetPlatform@.
---
 -- 's3OutputLocation', 'outputConfig_s3OutputLocation' - Identifies the S3 bucket where you want Amazon SageMaker to store the
 -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
 newOutputConfig ::
@@ -366,12 +366,19 @@ newOutputConfig ::
   OutputConfig
 newOutputConfig pS3OutputLocation_ =
   OutputConfig'
-    { targetPlatform = Prelude.Nothing,
+    { targetDevice = Prelude.Nothing,
+      targetPlatform = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       compilerOptions = Prelude.Nothing,
-      targetDevice = Prelude.Nothing,
       s3OutputLocation = pS3OutputLocation_
     }
+
+-- | Identifies the target device or the machine learning instance that you
+-- want to run your model on after the compilation has completed.
+-- Alternatively, you can specify OS, architecture, and accelerator using
+-- TargetPlatform fields. It can be used instead of @TargetPlatform@.
+outputConfig_targetDevice :: Lens.Lens' OutputConfig (Prelude.Maybe TargetDevice)
+outputConfig_targetDevice = Lens.lens (\OutputConfig' {targetDevice} -> targetDevice) (\s@OutputConfig' {} a -> s {targetDevice = a} :: OutputConfig)
 
 -- | Contains information about a target platform that you want your model to
 -- run on, such as OS, architecture, and accelerators. It is an alternative
@@ -528,13 +535,6 @@ outputConfig_kmsKeyId = Lens.lens (\OutputConfig' {kmsKeyId} -> kmsKeyId) (\s@Ou
 outputConfig_compilerOptions :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
 outputConfig_compilerOptions = Lens.lens (\OutputConfig' {compilerOptions} -> compilerOptions) (\s@OutputConfig' {} a -> s {compilerOptions = a} :: OutputConfig)
 
--- | Identifies the target device or the machine learning instance that you
--- want to run your model on after the compilation has completed.
--- Alternatively, you can specify OS, architecture, and accelerator using
--- TargetPlatform fields. It can be used instead of @TargetPlatform@.
-outputConfig_targetDevice :: Lens.Lens' OutputConfig (Prelude.Maybe TargetDevice)
-outputConfig_targetDevice = Lens.lens (\OutputConfig' {targetDevice} -> targetDevice) (\s@OutputConfig' {} a -> s {targetDevice = a} :: OutputConfig)
-
 -- | Identifies the S3 bucket where you want Amazon SageMaker to store the
 -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
 outputConfig_s3OutputLocation :: Lens.Lens' OutputConfig Prelude.Text
@@ -546,39 +546,39 @@ instance Core.FromJSON OutputConfig where
       "OutputConfig"
       ( \x ->
           OutputConfig'
-            Prelude.<$> (x Core..:? "TargetPlatform")
+            Prelude.<$> (x Core..:? "TargetDevice")
+            Prelude.<*> (x Core..:? "TargetPlatform")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "CompilerOptions")
-            Prelude.<*> (x Core..:? "TargetDevice")
             Prelude.<*> (x Core..: "S3OutputLocation")
       )
 
 instance Prelude.Hashable OutputConfig where
   hashWithSalt _salt OutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` targetPlatform
+    _salt `Prelude.hashWithSalt` targetDevice
+      `Prelude.hashWithSalt` targetPlatform
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` compilerOptions
-      `Prelude.hashWithSalt` targetDevice
       `Prelude.hashWithSalt` s3OutputLocation
 
 instance Prelude.NFData OutputConfig where
   rnf OutputConfig' {..} =
-    Prelude.rnf targetPlatform
+    Prelude.rnf targetDevice
+      `Prelude.seq` Prelude.rnf targetPlatform
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf compilerOptions
-      `Prelude.seq` Prelude.rnf targetDevice
       `Prelude.seq` Prelude.rnf s3OutputLocation
 
 instance Core.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TargetPlatform" Core..=)
+          [ ("TargetDevice" Core..=) Prelude.<$> targetDevice,
+            ("TargetPlatform" Core..=)
               Prelude.<$> targetPlatform,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("CompilerOptions" Core..=)
               Prelude.<$> compilerOptions,
-            ("TargetDevice" Core..=) Prelude.<$> targetDevice,
             Prelude.Just
               ("S3OutputLocation" Core..= s3OutputLocation)
           ]

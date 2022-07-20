@@ -32,13 +32,13 @@ import Amazonka.Route53RecoveryControlConfig.Types.Status
 --
 -- /See:/ 'newCluster' smart constructor.
 data Cluster = Cluster'
-  { -- | Deployment status of a resource. Status can be one of the following:
-    -- PENDING, DEPLOYED, PENDING_DELETION.
-    status :: Prelude.Maybe Status,
-    -- | The Amazon Resource Name (ARN) of the cluster.
+  { -- | The Amazon Resource Name (ARN) of the cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Deployment status of a resource. Status can be one of the following:
+    -- PENDING, DEPLOYED, PENDING_DELETION.
+    status :: Prelude.Maybe Status,
     -- | Endpoints for a cluster. Specify one of these endpoints when you want to
     -- set or retrieve a routing control state in the cluster.
     --
@@ -56,12 +56,12 @@ data Cluster = Cluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'cluster_status' - Deployment status of a resource. Status can be one of the following:
--- PENDING, DEPLOYED, PENDING_DELETION.
---
 -- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name (ARN) of the cluster.
 --
 -- 'name', 'cluster_name' - The name of the cluster.
+--
+-- 'status', 'cluster_status' - Deployment status of a resource. Status can be one of the following:
+-- PENDING, DEPLOYED, PENDING_DELETION.
 --
 -- 'clusterEndpoints', 'cluster_clusterEndpoints' - Endpoints for a cluster. Specify one of these endpoints when you want to
 -- set or retrieve a routing control state in the cluster.
@@ -72,16 +72,11 @@ newCluster ::
   Cluster
 newCluster =
   Cluster'
-    { status = Prelude.Nothing,
-      clusterArn = Prelude.Nothing,
+    { clusterArn = Prelude.Nothing,
       name = Prelude.Nothing,
+      status = Prelude.Nothing,
       clusterEndpoints = Prelude.Nothing
     }
-
--- | Deployment status of a resource. Status can be one of the following:
--- PENDING, DEPLOYED, PENDING_DELETION.
-cluster_status :: Lens.Lens' Cluster (Prelude.Maybe Status)
-cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
 -- | The Amazon Resource Name (ARN) of the cluster.
 cluster_clusterArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
@@ -90,6 +85,11 @@ cluster_clusterArn = Lens.lens (\Cluster' {clusterArn} -> clusterArn) (\s@Cluste
 -- | The name of the cluster.
 cluster_name :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_name = Lens.lens (\Cluster' {name} -> name) (\s@Cluster' {} a -> s {name = a} :: Cluster)
+
+-- | Deployment status of a resource. Status can be one of the following:
+-- PENDING, DEPLOYED, PENDING_DELETION.
+cluster_status :: Lens.Lens' Cluster (Prelude.Maybe Status)
+cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
 -- | Endpoints for a cluster. Specify one of these endpoints when you want to
 -- set or retrieve a routing control state in the cluster.
@@ -105,9 +105,9 @@ instance Core.FromJSON Cluster where
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ClusterArn")
+            Prelude.<$> (x Core..:? "ClusterArn")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> ( x Core..:? "ClusterEndpoints"
                             Core..!= Prelude.mempty
                         )
@@ -115,14 +115,14 @@ instance Core.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` clusterArn
+    _salt `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` clusterEndpoints
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf clusterArn
+    Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf clusterEndpoints

@@ -67,9 +67,9 @@ module Amazonka.KMS.ListAliases
     newListAliases,
 
     -- * Request Lenses
-    listAliases_keyId,
     listAliases_marker,
     listAliases_limit,
+    listAliases_keyId,
 
     -- * Destructuring the Response
     ListAliasesResponse (..),
@@ -92,7 +92,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { -- | Lists only aliases that are associated with the specified KMS key. Enter
+  { -- | Use this parameter in a subsequent request after you receive a response
+    -- with truncated results. Set it to the value of @NextMarker@ from the
+    -- truncated response you just received.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to specify the maximum number of items to return.
+    -- When this value is present, KMS does not return more than the specified
+    -- number of items, but it might return fewer.
+    --
+    -- This value is optional. If you include a value, it must be between 1 and
+    -- 100, inclusive. If you do not include a value, it defaults to 50.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Lists only aliases that are associated with the specified KMS key. Enter
     -- a KMS key in your Amazon Web Services account.
     --
     -- This parameter is optional. If you omit it, @ListAliases@ returns all
@@ -109,18 +120,7 @@ data ListAliases = ListAliases'
     --
     -- To get the key ID and key ARN for a KMS key, use ListKeys or
     -- DescribeKey.
-    keyId :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter in a subsequent request after you receive a response
-    -- with truncated results. Set it to the value of @NextMarker@ from the
-    -- truncated response you just received.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter to specify the maximum number of items to return.
-    -- When this value is present, KMS does not return more than the specified
-    -- number of items, but it might return fewer.
-    --
-    -- This value is optional. If you include a value, it must be between 1 and
-    -- 100, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Prelude.Maybe Prelude.Natural
+    keyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,6 +131,17 @@ data ListAliases = ListAliases'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'marker', 'listAliases_marker' - Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+--
+-- 'limit', 'listAliases_limit' - Use this parameter to specify the maximum number of items to return.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and
+-- 100, inclusive. If you do not include a value, it defaults to 50.
 --
 -- 'keyId', 'listAliases_keyId' - Lists only aliases that are associated with the specified KMS key. Enter
 -- a KMS key in your Amazon Web Services account.
@@ -149,25 +160,29 @@ data ListAliases = ListAliases'
 --
 -- To get the key ID and key ARN for a KMS key, use ListKeys or
 -- DescribeKey.
---
--- 'marker', 'listAliases_marker' - Use this parameter in a subsequent request after you receive a response
+newListAliases ::
+  ListAliases
+newListAliases =
+  ListAliases'
+    { marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      keyId = Prelude.Nothing
+    }
+
+-- | Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
---
--- 'limit', 'listAliases_limit' - Use this parameter to specify the maximum number of items to return.
+listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
+
+-- | Use this parameter to specify the maximum number of items to return.
 -- When this value is present, KMS does not return more than the specified
 -- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
-newListAliases ::
-  ListAliases
-newListAliases =
-  ListAliases'
-    { keyId = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      limit = Prelude.Nothing
-    }
+listAliases_limit :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
+listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' {} a -> s {limit = a} :: ListAliases)
 
 -- | Lists only aliases that are associated with the specified KMS key. Enter
 -- a KMS key in your Amazon Web Services account.
@@ -188,21 +203,6 @@ newListAliases =
 -- DescribeKey.
 listAliases_keyId :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_keyId = Lens.lens (\ListAliases' {keyId} -> keyId) (\s@ListAliases' {} a -> s {keyId = a} :: ListAliases)
-
--- | Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
-listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
-listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
-
--- | Use this parameter to specify the maximum number of items to return.
--- When this value is present, KMS does not return more than the specified
--- number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and
--- 100, inclusive. If you do not include a value, it defaults to 50.
-listAliases_limit :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
-listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' {} a -> s {limit = a} :: ListAliases)
 
 instance Core.AWSPager ListAliases where
   page rq rs
@@ -238,15 +238,15 @@ instance Core.AWSRequest ListAliases where
 
 instance Prelude.Hashable ListAliases where
   hashWithSalt _salt ListAliases' {..} =
-    _salt `Prelude.hashWithSalt` keyId
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData ListAliases where
   rnf ListAliases' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders ListAliases where
   toHeaders =
@@ -265,9 +265,9 @@ instance Core.ToJSON ListAliases where
   toJSON ListAliases' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KeyId" Core..=) Prelude.<$> keyId,
-            ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("KeyId" Core..=) Prelude.<$> keyId
           ]
       )
 

@@ -28,19 +28,19 @@ import Amazonka.QuickSight.Types.ResourceStatus
 --
 -- /See:/ 'newAnalysisSummary' smart constructor.
 data AnalysisSummary = AnalysisSummary'
-  { -- | The last known status for the analysis.
-    status :: Prelude.Maybe ResourceStatus,
-    -- | The ID of the analysis. This ID displays in the URL.
+  { -- | The ID of the analysis. This ID displays in the URL.
     analysisId :: Prelude.Maybe Prelude.Text,
-    -- | The time that the analysis was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) for the analysis.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time that the analysis was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the analysis. This name is displayed in the Amazon
     -- QuickSight console.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The time that the analysis was created.
+    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) for the analysis.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The last known status for the analysis.
+    status :: Prelude.Maybe ResourceStatus,
+    -- | The time that the analysis was last updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,54 +52,54 @@ data AnalysisSummary = AnalysisSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'analysisSummary_status' - The last known status for the analysis.
---
 -- 'analysisId', 'analysisSummary_analysisId' - The ID of the analysis. This ID displays in the URL.
---
--- 'lastUpdatedTime', 'analysisSummary_lastUpdatedTime' - The time that the analysis was last updated.
---
--- 'arn', 'analysisSummary_arn' - The Amazon Resource Name (ARN) for the analysis.
---
--- 'createdTime', 'analysisSummary_createdTime' - The time that the analysis was created.
 --
 -- 'name', 'analysisSummary_name' - The name of the analysis. This name is displayed in the Amazon
 -- QuickSight console.
+--
+-- 'createdTime', 'analysisSummary_createdTime' - The time that the analysis was created.
+--
+-- 'arn', 'analysisSummary_arn' - The Amazon Resource Name (ARN) for the analysis.
+--
+-- 'status', 'analysisSummary_status' - The last known status for the analysis.
+--
+-- 'lastUpdatedTime', 'analysisSummary_lastUpdatedTime' - The time that the analysis was last updated.
 newAnalysisSummary ::
   AnalysisSummary
 newAnalysisSummary =
   AnalysisSummary'
-    { status = Prelude.Nothing,
-      analysisId = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { analysisId = Prelude.Nothing,
+      name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      name = Prelude.Nothing
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing
     }
-
--- | The last known status for the analysis.
-analysisSummary_status :: Lens.Lens' AnalysisSummary (Prelude.Maybe ResourceStatus)
-analysisSummary_status = Lens.lens (\AnalysisSummary' {status} -> status) (\s@AnalysisSummary' {} a -> s {status = a} :: AnalysisSummary)
 
 -- | The ID of the analysis. This ID displays in the URL.
 analysisSummary_analysisId :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.Text)
 analysisSummary_analysisId = Lens.lens (\AnalysisSummary' {analysisId} -> analysisId) (\s@AnalysisSummary' {} a -> s {analysisId = a} :: AnalysisSummary)
 
--- | The time that the analysis was last updated.
-analysisSummary_lastUpdatedTime :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.UTCTime)
-analysisSummary_lastUpdatedTime = Lens.lens (\AnalysisSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@AnalysisSummary' {} a -> s {lastUpdatedTime = a} :: AnalysisSummary) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Name (ARN) for the analysis.
-analysisSummary_arn :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.Text)
-analysisSummary_arn = Lens.lens (\AnalysisSummary' {arn} -> arn) (\s@AnalysisSummary' {} a -> s {arn = a} :: AnalysisSummary)
+-- | The name of the analysis. This name is displayed in the Amazon
+-- QuickSight console.
+analysisSummary_name :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.Text)
+analysisSummary_name = Lens.lens (\AnalysisSummary' {name} -> name) (\s@AnalysisSummary' {} a -> s {name = a} :: AnalysisSummary)
 
 -- | The time that the analysis was created.
 analysisSummary_createdTime :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.UTCTime)
 analysisSummary_createdTime = Lens.lens (\AnalysisSummary' {createdTime} -> createdTime) (\s@AnalysisSummary' {} a -> s {createdTime = a} :: AnalysisSummary) Prelude.. Lens.mapping Core._Time
 
--- | The name of the analysis. This name is displayed in the Amazon
--- QuickSight console.
-analysisSummary_name :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.Text)
-analysisSummary_name = Lens.lens (\AnalysisSummary' {name} -> name) (\s@AnalysisSummary' {} a -> s {name = a} :: AnalysisSummary)
+-- | The Amazon Resource Name (ARN) for the analysis.
+analysisSummary_arn :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.Text)
+analysisSummary_arn = Lens.lens (\AnalysisSummary' {arn} -> arn) (\s@AnalysisSummary' {} a -> s {arn = a} :: AnalysisSummary)
+
+-- | The last known status for the analysis.
+analysisSummary_status :: Lens.Lens' AnalysisSummary (Prelude.Maybe ResourceStatus)
+analysisSummary_status = Lens.lens (\AnalysisSummary' {status} -> status) (\s@AnalysisSummary' {} a -> s {status = a} :: AnalysisSummary)
+
+-- | The time that the analysis was last updated.
+analysisSummary_lastUpdatedTime :: Lens.Lens' AnalysisSummary (Prelude.Maybe Prelude.UTCTime)
+analysisSummary_lastUpdatedTime = Lens.lens (\AnalysisSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@AnalysisSummary' {} a -> s {lastUpdatedTime = a} :: AnalysisSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON AnalysisSummary where
   parseJSON =
@@ -107,28 +107,28 @@ instance Core.FromJSON AnalysisSummary where
       "AnalysisSummary"
       ( \x ->
           AnalysisSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AnalysisId")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<$> (x Core..:? "AnalysisId")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
       )
 
 instance Prelude.Hashable AnalysisSummary where
   hashWithSalt _salt AnalysisSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` analysisId
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdTime
+    _salt `Prelude.hashWithSalt` analysisId
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdatedTime
 
 instance Prelude.NFData AnalysisSummary where
   rnf AnalysisSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf analysisId
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf analysisId
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

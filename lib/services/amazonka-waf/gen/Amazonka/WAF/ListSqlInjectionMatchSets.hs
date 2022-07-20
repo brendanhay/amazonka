@@ -38,8 +38,8 @@ module Amazonka.WAF.ListSqlInjectionMatchSets
     newListSqlInjectionMatchSets,
 
     -- * Request Lenses
-    listSqlInjectionMatchSets_nextMarker,
     listSqlInjectionMatchSets_limit,
+    listSqlInjectionMatchSets_nextMarker,
 
     -- * Destructuring the Response
     ListSqlInjectionMatchSetsResponse (..),
@@ -64,19 +64,19 @@ import Amazonka.WAF.Types
 --
 -- /See:/ 'newListSqlInjectionMatchSets' smart constructor.
 data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
-  { -- | If you specify a value for @Limit@ and you have more
+  { -- | Specifies the number of SqlInjectionMatchSet objects that you want AWS
+    -- WAF to return for this request. If you have more @SqlInjectionMatchSet@
+    -- objects than the number you specify for @Limit@, the response includes a
+    -- @NextMarker@ value that you can use to get another batch of @Rules@.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a value for @Limit@ and you have more
     -- SqlInjectionMatchSet objects than the value of @Limit@, AWS WAF returns
     -- a @NextMarker@ value in the response that allows you to list another
     -- group of @SqlInjectionMatchSets@. For the second and subsequent
     -- @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@
     -- from the previous response to get information about another batch of
     -- @SqlInjectionMatchSets@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of SqlInjectionMatchSet objects that you want AWS
-    -- WAF to return for this request. If you have more @SqlInjectionMatchSet@
-    -- objects than the number you specify for @Limit@, the response includes a
-    -- @NextMarker@ value that you can use to get another batch of @Rules@.
-    limit :: Prelude.Maybe Prelude.Natural
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,6 +88,11 @@ data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listSqlInjectionMatchSets_limit' - Specifies the number of SqlInjectionMatchSet objects that you want AWS
+-- WAF to return for this request. If you have more @SqlInjectionMatchSet@
+-- objects than the number you specify for @Limit@, the response includes a
+-- @NextMarker@ value that you can use to get another batch of @Rules@.
+--
 -- 'nextMarker', 'listSqlInjectionMatchSets_nextMarker' - If you specify a value for @Limit@ and you have more
 -- SqlInjectionMatchSet objects than the value of @Limit@, AWS WAF returns
 -- a @NextMarker@ value in the response that allows you to list another
@@ -95,19 +100,20 @@ data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
 -- @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@
 -- from the previous response to get information about another batch of
 -- @SqlInjectionMatchSets@.
---
--- 'limit', 'listSqlInjectionMatchSets_limit' - Specifies the number of SqlInjectionMatchSet objects that you want AWS
--- WAF to return for this request. If you have more @SqlInjectionMatchSet@
--- objects than the number you specify for @Limit@, the response includes a
--- @NextMarker@ value that you can use to get another batch of @Rules@.
 newListSqlInjectionMatchSets ::
   ListSqlInjectionMatchSets
 newListSqlInjectionMatchSets =
   ListSqlInjectionMatchSets'
-    { nextMarker =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      nextMarker = Prelude.Nothing
     }
+
+-- | Specifies the number of SqlInjectionMatchSet objects that you want AWS
+-- WAF to return for this request. If you have more @SqlInjectionMatchSet@
+-- objects than the number you specify for @Limit@, the response includes a
+-- @NextMarker@ value that you can use to get another batch of @Rules@.
+listSqlInjectionMatchSets_limit :: Lens.Lens' ListSqlInjectionMatchSets (Prelude.Maybe Prelude.Natural)
+listSqlInjectionMatchSets_limit = Lens.lens (\ListSqlInjectionMatchSets' {limit} -> limit) (\s@ListSqlInjectionMatchSets' {} a -> s {limit = a} :: ListSqlInjectionMatchSets)
 
 -- | If you specify a value for @Limit@ and you have more
 -- SqlInjectionMatchSet objects than the value of @Limit@, AWS WAF returns
@@ -118,13 +124,6 @@ newListSqlInjectionMatchSets =
 -- @SqlInjectionMatchSets@.
 listSqlInjectionMatchSets_nextMarker :: Lens.Lens' ListSqlInjectionMatchSets (Prelude.Maybe Prelude.Text)
 listSqlInjectionMatchSets_nextMarker = Lens.lens (\ListSqlInjectionMatchSets' {nextMarker} -> nextMarker) (\s@ListSqlInjectionMatchSets' {} a -> s {nextMarker = a} :: ListSqlInjectionMatchSets)
-
--- | Specifies the number of SqlInjectionMatchSet objects that you want AWS
--- WAF to return for this request. If you have more @SqlInjectionMatchSet@
--- objects than the number you specify for @Limit@, the response includes a
--- @NextMarker@ value that you can use to get another batch of @Rules@.
-listSqlInjectionMatchSets_limit :: Lens.Lens' ListSqlInjectionMatchSets (Prelude.Maybe Prelude.Natural)
-listSqlInjectionMatchSets_limit = Lens.lens (\ListSqlInjectionMatchSets' {limit} -> limit) (\s@ListSqlInjectionMatchSets' {} a -> s {limit = a} :: ListSqlInjectionMatchSets)
 
 instance Core.AWSPager ListSqlInjectionMatchSets where
   page rq rs
@@ -166,13 +165,13 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
 
 instance Prelude.Hashable ListSqlInjectionMatchSets where
   hashWithSalt _salt ListSqlInjectionMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListSqlInjectionMatchSets where
   rnf ListSqlInjectionMatchSets' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextMarker
 
 instance Core.ToHeaders ListSqlInjectionMatchSets where
   toHeaders =
@@ -193,8 +192,8 @@ instance Core.ToJSON ListSqlInjectionMatchSets where
   toJSON ListSqlInjectionMatchSets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker
           ]
       )
 

@@ -45,8 +45,8 @@ module Amazonka.EC2.GetConsoleOutput
     newGetConsoleOutput,
 
     -- * Request Lenses
-    getConsoleOutput_latest,
     getConsoleOutput_dryRun,
+    getConsoleOutput_latest,
     getConsoleOutput_instanceId,
 
     -- * Destructuring the Response
@@ -54,9 +54,9 @@ module Amazonka.EC2.GetConsoleOutput
     newGetConsoleOutputResponse,
 
     -- * Response Lenses
+    getConsoleOutputResponse_timestamp,
     getConsoleOutputResponse_instanceId,
     getConsoleOutputResponse_output,
-    getConsoleOutputResponse_timestamp,
     getConsoleOutputResponse_httpStatus,
   )
 where
@@ -70,15 +70,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConsoleOutput' smart constructor.
 data GetConsoleOutput = GetConsoleOutput'
-  { -- | When enabled, retrieves the latest console output for the instance.
-    --
-    -- Default: disabled (@false@)
-    latest :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | When enabled, retrieves the latest console output for the instance.
+    --
+    -- Default: disabled (@false@)
+    latest :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
     instanceId :: Prelude.Text
   }
@@ -92,14 +92,14 @@ data GetConsoleOutput = GetConsoleOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latest', 'getConsoleOutput_latest' - When enabled, retrieves the latest console output for the instance.
---
--- Default: disabled (@false@)
---
 -- 'dryRun', 'getConsoleOutput_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'latest', 'getConsoleOutput_latest' - When enabled, retrieves the latest console output for the instance.
+--
+-- Default: disabled (@false@)
 --
 -- 'instanceId', 'getConsoleOutput_instanceId' - The ID of the instance.
 newGetConsoleOutput ::
@@ -108,16 +108,10 @@ newGetConsoleOutput ::
   GetConsoleOutput
 newGetConsoleOutput pInstanceId_ =
   GetConsoleOutput'
-    { latest = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      latest = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | When enabled, retrieves the latest console output for the instance.
---
--- Default: disabled (@false@)
-getConsoleOutput_latest :: Lens.Lens' GetConsoleOutput (Prelude.Maybe Prelude.Bool)
-getConsoleOutput_latest = Lens.lens (\GetConsoleOutput' {latest} -> latest) (\s@GetConsoleOutput' {} a -> s {latest = a} :: GetConsoleOutput)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -125,6 +119,12 @@ getConsoleOutput_latest = Lens.lens (\GetConsoleOutput' {latest} -> latest) (\s@
 -- Otherwise, it is @UnauthorizedOperation@.
 getConsoleOutput_dryRun :: Lens.Lens' GetConsoleOutput (Prelude.Maybe Prelude.Bool)
 getConsoleOutput_dryRun = Lens.lens (\GetConsoleOutput' {dryRun} -> dryRun) (\s@GetConsoleOutput' {} a -> s {dryRun = a} :: GetConsoleOutput)
+
+-- | When enabled, retrieves the latest console output for the instance.
+--
+-- Default: disabled (@false@)
+getConsoleOutput_latest :: Lens.Lens' GetConsoleOutput (Prelude.Maybe Prelude.Bool)
+getConsoleOutput_latest = Lens.lens (\GetConsoleOutput' {latest} -> latest) (\s@GetConsoleOutput' {} a -> s {latest = a} :: GetConsoleOutput)
 
 -- | The ID of the instance.
 getConsoleOutput_instanceId :: Lens.Lens' GetConsoleOutput Prelude.Text
@@ -139,22 +139,22 @@ instance Core.AWSRequest GetConsoleOutput where
     Response.receiveXML
       ( \s h x ->
           GetConsoleOutputResponse'
-            Prelude.<$> (x Core..@? "instanceId")
+            Prelude.<$> (x Core..@? "timestamp")
+            Prelude.<*> (x Core..@? "instanceId")
             Prelude.<*> (x Core..@? "output")
-            Prelude.<*> (x Core..@? "timestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetConsoleOutput where
   hashWithSalt _salt GetConsoleOutput' {..} =
-    _salt `Prelude.hashWithSalt` latest
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` latest
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData GetConsoleOutput where
   rnf GetConsoleOutput' {..} =
-    Prelude.rnf latest
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf latest
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders GetConsoleOutput where
@@ -170,20 +170,20 @@ instance Core.ToQuery GetConsoleOutput where
           Core.=: ("GetConsoleOutput" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Latest" Core.=: latest,
         "DryRun" Core.=: dryRun,
+        "Latest" Core.=: latest,
         "InstanceId" Core.=: instanceId
       ]
 
 -- | /See:/ 'newGetConsoleOutputResponse' smart constructor.
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
-  { -- | The ID of the instance.
+  { -- | The time at which the output was last updated.
+    timestamp :: Prelude.Maybe Core.ISO8601,
+    -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The console output, base64-encoded. If you are using a command line
     -- tool, the tool decodes the output for you.
     output :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the output was last updated.
-    timestamp :: Prelude.Maybe Core.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,12 +197,12 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timestamp', 'getConsoleOutputResponse_timestamp' - The time at which the output was last updated.
+--
 -- 'instanceId', 'getConsoleOutputResponse_instanceId' - The ID of the instance.
 --
 -- 'output', 'getConsoleOutputResponse_output' - The console output, base64-encoded. If you are using a command line
 -- tool, the tool decodes the output for you.
---
--- 'timestamp', 'getConsoleOutputResponse_timestamp' - The time at which the output was last updated.
 --
 -- 'httpStatus', 'getConsoleOutputResponse_httpStatus' - The response's http status code.
 newGetConsoleOutputResponse ::
@@ -211,12 +211,16 @@ newGetConsoleOutputResponse ::
   GetConsoleOutputResponse
 newGetConsoleOutputResponse pHttpStatus_ =
   GetConsoleOutputResponse'
-    { instanceId =
+    { timestamp =
         Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       output = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time at which the output was last updated.
+getConsoleOutputResponse_timestamp :: Lens.Lens' GetConsoleOutputResponse (Prelude.Maybe Prelude.UTCTime)
+getConsoleOutputResponse_timestamp = Lens.lens (\GetConsoleOutputResponse' {timestamp} -> timestamp) (\s@GetConsoleOutputResponse' {} a -> s {timestamp = a} :: GetConsoleOutputResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the instance.
 getConsoleOutputResponse_instanceId :: Lens.Lens' GetConsoleOutputResponse (Prelude.Maybe Prelude.Text)
@@ -227,17 +231,13 @@ getConsoleOutputResponse_instanceId = Lens.lens (\GetConsoleOutputResponse' {ins
 getConsoleOutputResponse_output :: Lens.Lens' GetConsoleOutputResponse (Prelude.Maybe Prelude.Text)
 getConsoleOutputResponse_output = Lens.lens (\GetConsoleOutputResponse' {output} -> output) (\s@GetConsoleOutputResponse' {} a -> s {output = a} :: GetConsoleOutputResponse)
 
--- | The time at which the output was last updated.
-getConsoleOutputResponse_timestamp :: Lens.Lens' GetConsoleOutputResponse (Prelude.Maybe Prelude.UTCTime)
-getConsoleOutputResponse_timestamp = Lens.lens (\GetConsoleOutputResponse' {timestamp} -> timestamp) (\s@GetConsoleOutputResponse' {} a -> s {timestamp = a} :: GetConsoleOutputResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The response's http status code.
 getConsoleOutputResponse_httpStatus :: Lens.Lens' GetConsoleOutputResponse Prelude.Int
 getConsoleOutputResponse_httpStatus = Lens.lens (\GetConsoleOutputResponse' {httpStatus} -> httpStatus) (\s@GetConsoleOutputResponse' {} a -> s {httpStatus = a} :: GetConsoleOutputResponse)
 
 instance Prelude.NFData GetConsoleOutputResponse where
   rnf GetConsoleOutputResponse' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf httpStatus

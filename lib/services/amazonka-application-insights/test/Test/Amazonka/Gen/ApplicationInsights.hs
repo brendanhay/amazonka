@@ -27,175 +27,211 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeApplication $
+--         [ requestCreateApplication $
+--             newCreateApplication
+--
+--         , requestCreateComponent $
+--             newCreateComponent
+--
+--         , requestCreateLogPattern $
+--             newCreateLogPattern
+--
+--         , requestDeleteApplication $
+--             newDeleteApplication
+--
+--         , requestDeleteComponent $
+--             newDeleteComponent
+--
+--         , requestDeleteLogPattern $
+--             newDeleteLogPattern
+--
+--         , requestDescribeApplication $
 --             newDescribeApplication
 --
 --         , requestDescribeComponent $
 --             newDescribeComponent
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDeleteApplication $
---             newDeleteApplication
---
---         , requestUpdateApplication $
---             newUpdateApplication
+--         , requestDescribeComponentConfiguration $
+--             newDescribeComponentConfiguration
 --
 --         , requestDescribeComponentConfigurationRecommendation $
 --             newDescribeComponentConfigurationRecommendation
 --
---         , requestDescribeProblem $
---             newDescribeProblem
---
---         , requestUpdateComponentConfiguration $
---             newUpdateComponentConfiguration
---
---         , requestCreateApplication $
---             newCreateApplication
---
---         , requestDescribeProblemObservations $
---             newDescribeProblemObservations
+--         , requestDescribeLogPattern $
+--             newDescribeLogPattern
 --
 --         , requestDescribeObservation $
 --             newDescribeObservation
 --
---         , requestListLogPatternSets $
---             newListLogPatternSets
+--         , requestDescribeProblem $
+--             newDescribeProblem
 --
---         , requestDescribeComponentConfiguration $
---             newDescribeComponentConfiguration
---
---         , requestListProblems $
---             newListProblems
---
---         , requestListLogPatterns $
---             newListLogPatterns
---
---         , requestDeleteLogPattern $
---             newDeleteLogPattern
---
---         , requestUpdateLogPattern $
---             newUpdateLogPattern
---
---         , requestCreateLogPattern $
---             newCreateLogPattern
---
---         , requestListConfigurationHistory $
---             newListConfigurationHistory
---
---         , requestTagResource $
---             newTagResource
+--         , requestDescribeProblemObservations $
+--             newDescribeProblemObservations
 --
 --         , requestListApplications $
 --             newListApplications
 --
---         , requestUntagResource $
---             newUntagResource
---
---         , requestCreateComponent $
---             newCreateComponent
---
 --         , requestListComponents $
 --             newListComponents
 --
---         , requestDeleteComponent $
---             newDeleteComponent
+--         , requestListConfigurationHistory $
+--             newListConfigurationHistory
+--
+--         , requestListLogPatternSets $
+--             newListLogPatternSets
+--
+--         , requestListLogPatterns $
+--             newListLogPatterns
+--
+--         , requestListProblems $
+--             newListProblems
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateApplication $
+--             newUpdateApplication
 --
 --         , requestUpdateComponent $
 --             newUpdateComponent
 --
---         , requestDescribeLogPattern $
---             newDescribeLogPattern
+--         , requestUpdateComponentConfiguration $
+--             newUpdateComponentConfiguration
+--
+--         , requestUpdateLogPattern $
+--             newUpdateLogPattern
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeApplication $
+--         [ responseCreateApplication $
+--             newCreateApplicationResponse
+--
+--         , responseCreateComponent $
+--             newCreateComponentResponse
+--
+--         , responseCreateLogPattern $
+--             newCreateLogPatternResponse
+--
+--         , responseDeleteApplication $
+--             newDeleteApplicationResponse
+--
+--         , responseDeleteComponent $
+--             newDeleteComponentResponse
+--
+--         , responseDeleteLogPattern $
+--             newDeleteLogPatternResponse
+--
+--         , responseDescribeApplication $
 --             newDescribeApplicationResponse
 --
 --         , responseDescribeComponent $
 --             newDescribeComponentResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDeleteApplication $
---             newDeleteApplicationResponse
---
---         , responseUpdateApplication $
---             newUpdateApplicationResponse
+--         , responseDescribeComponentConfiguration $
+--             newDescribeComponentConfigurationResponse
 --
 --         , responseDescribeComponentConfigurationRecommendation $
 --             newDescribeComponentConfigurationRecommendationResponse
 --
---         , responseDescribeProblem $
---             newDescribeProblemResponse
---
---         , responseUpdateComponentConfiguration $
---             newUpdateComponentConfigurationResponse
---
---         , responseCreateApplication $
---             newCreateApplicationResponse
---
---         , responseDescribeProblemObservations $
---             newDescribeProblemObservationsResponse
+--         , responseDescribeLogPattern $
+--             newDescribeLogPatternResponse
 --
 --         , responseDescribeObservation $
 --             newDescribeObservationResponse
 --
---         , responseListLogPatternSets $
---             newListLogPatternSetsResponse
+--         , responseDescribeProblem $
+--             newDescribeProblemResponse
 --
---         , responseDescribeComponentConfiguration $
---             newDescribeComponentConfigurationResponse
---
---         , responseListProblems $
---             newListProblemsResponse
---
---         , responseListLogPatterns $
---             newListLogPatternsResponse
---
---         , responseDeleteLogPattern $
---             newDeleteLogPatternResponse
---
---         , responseUpdateLogPattern $
---             newUpdateLogPatternResponse
---
---         , responseCreateLogPattern $
---             newCreateLogPatternResponse
---
---         , responseListConfigurationHistory $
---             newListConfigurationHistoryResponse
---
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDescribeProblemObservations $
+--             newDescribeProblemObservationsResponse
 --
 --         , responseListApplications $
 --             newListApplicationsResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseCreateComponent $
---             newCreateComponentResponse
---
 --         , responseListComponents $
 --             newListComponentsResponse
 --
---         , responseDeleteComponent $
---             newDeleteComponentResponse
+--         , responseListConfigurationHistory $
+--             newListConfigurationHistoryResponse
+--
+--         , responseListLogPatternSets $
+--             newListLogPatternSetsResponse
+--
+--         , responseListLogPatterns $
+--             newListLogPatternsResponse
+--
+--         , responseListProblems $
+--             newListProblemsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateApplication $
+--             newUpdateApplicationResponse
 --
 --         , responseUpdateComponent $
 --             newUpdateComponentResponse
 --
---         , responseDescribeLogPattern $
---             newDescribeLogPatternResponse
+--         , responseUpdateComponentConfiguration $
+--             newUpdateComponentConfigurationResponse
+--
+--         , responseUpdateLogPattern $
+--             newUpdateLogPatternResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestCreateApplication :: CreateApplication -> TestTree
+requestCreateApplication =
+  req
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
+
+requestCreateComponent :: CreateComponent -> TestTree
+requestCreateComponent =
+  req
+    "CreateComponent"
+    "fixture/CreateComponent.yaml"
+
+requestCreateLogPattern :: CreateLogPattern -> TestTree
+requestCreateLogPattern =
+  req
+    "CreateLogPattern"
+    "fixture/CreateLogPattern.yaml"
+
+requestDeleteApplication :: DeleteApplication -> TestTree
+requestDeleteApplication =
+  req
+    "DeleteApplication"
+    "fixture/DeleteApplication.yaml"
+
+requestDeleteComponent :: DeleteComponent -> TestTree
+requestDeleteComponent =
+  req
+    "DeleteComponent"
+    "fixture/DeleteComponent.yaml"
+
+requestDeleteLogPattern :: DeleteLogPattern -> TestTree
+requestDeleteLogPattern =
+  req
+    "DeleteLogPattern"
+    "fixture/DeleteLogPattern.yaml"
 
 requestDescribeApplication :: DescribeApplication -> TestTree
 requestDescribeApplication =
@@ -209,23 +245,11 @@ requestDescribeComponent =
     "DescribeComponent"
     "fixture/DescribeComponent.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestDescribeComponentConfiguration :: DescribeComponentConfiguration -> TestTree
+requestDescribeComponentConfiguration =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication =
-  req
-    "DeleteApplication"
-    "fixture/DeleteApplication.yaml"
-
-requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication =
-  req
-    "UpdateApplication"
-    "fixture/UpdateApplication.yaml"
+    "DescribeComponentConfiguration"
+    "fixture/DescribeComponentConfiguration.yaml"
 
 requestDescribeComponentConfigurationRecommendation :: DescribeComponentConfigurationRecommendation -> TestTree
 requestDescribeComponentConfigurationRecommendation =
@@ -233,29 +257,11 @@ requestDescribeComponentConfigurationRecommendation =
     "DescribeComponentConfigurationRecommendation"
     "fixture/DescribeComponentConfigurationRecommendation.yaml"
 
-requestDescribeProblem :: DescribeProblem -> TestTree
-requestDescribeProblem =
+requestDescribeLogPattern :: DescribeLogPattern -> TestTree
+requestDescribeLogPattern =
   req
-    "DescribeProblem"
-    "fixture/DescribeProblem.yaml"
-
-requestUpdateComponentConfiguration :: UpdateComponentConfiguration -> TestTree
-requestUpdateComponentConfiguration =
-  req
-    "UpdateComponentConfiguration"
-    "fixture/UpdateComponentConfiguration.yaml"
-
-requestCreateApplication :: CreateApplication -> TestTree
-requestCreateApplication =
-  req
-    "CreateApplication"
-    "fixture/CreateApplication.yaml"
-
-requestDescribeProblemObservations :: DescribeProblemObservations -> TestTree
-requestDescribeProblemObservations =
-  req
-    "DescribeProblemObservations"
-    "fixture/DescribeProblemObservations.yaml"
+    "DescribeLogPattern"
+    "fixture/DescribeLogPattern.yaml"
 
 requestDescribeObservation :: DescribeObservation -> TestTree
 requestDescribeObservation =
@@ -263,59 +269,17 @@ requestDescribeObservation =
     "DescribeObservation"
     "fixture/DescribeObservation.yaml"
 
-requestListLogPatternSets :: ListLogPatternSets -> TestTree
-requestListLogPatternSets =
+requestDescribeProblem :: DescribeProblem -> TestTree
+requestDescribeProblem =
   req
-    "ListLogPatternSets"
-    "fixture/ListLogPatternSets.yaml"
+    "DescribeProblem"
+    "fixture/DescribeProblem.yaml"
 
-requestDescribeComponentConfiguration :: DescribeComponentConfiguration -> TestTree
-requestDescribeComponentConfiguration =
+requestDescribeProblemObservations :: DescribeProblemObservations -> TestTree
+requestDescribeProblemObservations =
   req
-    "DescribeComponentConfiguration"
-    "fixture/DescribeComponentConfiguration.yaml"
-
-requestListProblems :: ListProblems -> TestTree
-requestListProblems =
-  req
-    "ListProblems"
-    "fixture/ListProblems.yaml"
-
-requestListLogPatterns :: ListLogPatterns -> TestTree
-requestListLogPatterns =
-  req
-    "ListLogPatterns"
-    "fixture/ListLogPatterns.yaml"
-
-requestDeleteLogPattern :: DeleteLogPattern -> TestTree
-requestDeleteLogPattern =
-  req
-    "DeleteLogPattern"
-    "fixture/DeleteLogPattern.yaml"
-
-requestUpdateLogPattern :: UpdateLogPattern -> TestTree
-requestUpdateLogPattern =
-  req
-    "UpdateLogPattern"
-    "fixture/UpdateLogPattern.yaml"
-
-requestCreateLogPattern :: CreateLogPattern -> TestTree
-requestCreateLogPattern =
-  req
-    "CreateLogPattern"
-    "fixture/CreateLogPattern.yaml"
-
-requestListConfigurationHistory :: ListConfigurationHistory -> TestTree
-requestListConfigurationHistory =
-  req
-    "ListConfigurationHistory"
-    "fixture/ListConfigurationHistory.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DescribeProblemObservations"
+    "fixture/DescribeProblemObservations.yaml"
 
 requestListApplications :: ListApplications -> TestTree
 requestListApplications =
@@ -323,29 +287,59 @@ requestListApplications =
     "ListApplications"
     "fixture/ListApplications.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestCreateComponent :: CreateComponent -> TestTree
-requestCreateComponent =
-  req
-    "CreateComponent"
-    "fixture/CreateComponent.yaml"
-
 requestListComponents :: ListComponents -> TestTree
 requestListComponents =
   req
     "ListComponents"
     "fixture/ListComponents.yaml"
 
-requestDeleteComponent :: DeleteComponent -> TestTree
-requestDeleteComponent =
+requestListConfigurationHistory :: ListConfigurationHistory -> TestTree
+requestListConfigurationHistory =
   req
-    "DeleteComponent"
-    "fixture/DeleteComponent.yaml"
+    "ListConfigurationHistory"
+    "fixture/ListConfigurationHistory.yaml"
+
+requestListLogPatternSets :: ListLogPatternSets -> TestTree
+requestListLogPatternSets =
+  req
+    "ListLogPatternSets"
+    "fixture/ListLogPatternSets.yaml"
+
+requestListLogPatterns :: ListLogPatterns -> TestTree
+requestListLogPatterns =
+  req
+    "ListLogPatterns"
+    "fixture/ListLogPatterns.yaml"
+
+requestListProblems :: ListProblems -> TestTree
+requestListProblems =
+  req
+    "ListProblems"
+    "fixture/ListProblems.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication =
+  req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
 
 requestUpdateComponent :: UpdateComponent -> TestTree
 requestUpdateComponent =
@@ -353,13 +347,67 @@ requestUpdateComponent =
     "UpdateComponent"
     "fixture/UpdateComponent.yaml"
 
-requestDescribeLogPattern :: DescribeLogPattern -> TestTree
-requestDescribeLogPattern =
+requestUpdateComponentConfiguration :: UpdateComponentConfiguration -> TestTree
+requestUpdateComponentConfiguration =
   req
-    "DescribeLogPattern"
-    "fixture/DescribeLogPattern.yaml"
+    "UpdateComponentConfiguration"
+    "fixture/UpdateComponentConfiguration.yaml"
+
+requestUpdateLogPattern :: UpdateLogPattern -> TestTree
+requestUpdateLogPattern =
+  req
+    "UpdateLogPattern"
+    "fixture/UpdateLogPattern.yaml"
 
 -- Responses
+
+responseCreateApplication :: CreateApplicationResponse -> TestTree
+responseCreateApplication =
+  res
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
+
+responseCreateComponent :: CreateComponentResponse -> TestTree
+responseCreateComponent =
+  res
+    "CreateComponentResponse"
+    "fixture/CreateComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateComponent)
+
+responseCreateLogPattern :: CreateLogPatternResponse -> TestTree
+responseCreateLogPattern =
+  res
+    "CreateLogPatternResponse"
+    "fixture/CreateLogPatternResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLogPattern)
+
+responseDeleteApplication :: DeleteApplicationResponse -> TestTree
+responseDeleteApplication =
+  res
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
+
+responseDeleteComponent :: DeleteComponentResponse -> TestTree
+responseDeleteComponent =
+  res
+    "DeleteComponentResponse"
+    "fixture/DeleteComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
+
+responseDeleteLogPattern :: DeleteLogPatternResponse -> TestTree
+responseDeleteLogPattern =
+  res
+    "DeleteLogPatternResponse"
+    "fixture/DeleteLogPatternResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLogPattern)
 
 responseDescribeApplication :: DescribeApplicationResponse -> TestTree
 responseDescribeApplication =
@@ -377,29 +425,13 @@ responseDescribeComponent =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeComponent)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseDescribeComponentConfiguration :: DescribeComponentConfigurationResponse -> TestTree
+responseDescribeComponentConfiguration =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "DescribeComponentConfigurationResponse"
+    "fixture/DescribeComponentConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication =
-  res
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
-
-responseUpdateApplication :: UpdateApplicationResponse -> TestTree
-responseUpdateApplication =
-  res
-    "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy DescribeComponentConfiguration)
 
 responseDescribeComponentConfigurationRecommendation :: DescribeComponentConfigurationRecommendationResponse -> TestTree
 responseDescribeComponentConfigurationRecommendation =
@@ -409,37 +441,13 @@ responseDescribeComponentConfigurationRecommendation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeComponentConfigurationRecommendation)
 
-responseDescribeProblem :: DescribeProblemResponse -> TestTree
-responseDescribeProblem =
+responseDescribeLogPattern :: DescribeLogPatternResponse -> TestTree
+responseDescribeLogPattern =
   res
-    "DescribeProblemResponse"
-    "fixture/DescribeProblemResponse.proto"
+    "DescribeLogPatternResponse"
+    "fixture/DescribeLogPatternResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeProblem)
-
-responseUpdateComponentConfiguration :: UpdateComponentConfigurationResponse -> TestTree
-responseUpdateComponentConfiguration =
-  res
-    "UpdateComponentConfigurationResponse"
-    "fixture/UpdateComponentConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateComponentConfiguration)
-
-responseCreateApplication :: CreateApplicationResponse -> TestTree
-responseCreateApplication =
-  res
-    "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
-
-responseDescribeProblemObservations :: DescribeProblemObservationsResponse -> TestTree
-responseDescribeProblemObservations =
-  res
-    "DescribeProblemObservationsResponse"
-    "fixture/DescribeProblemObservationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeProblemObservations)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLogPattern)
 
 responseDescribeObservation :: DescribeObservationResponse -> TestTree
 responseDescribeObservation =
@@ -449,77 +457,21 @@ responseDescribeObservation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeObservation)
 
-responseListLogPatternSets :: ListLogPatternSetsResponse -> TestTree
-responseListLogPatternSets =
+responseDescribeProblem :: DescribeProblemResponse -> TestTree
+responseDescribeProblem =
   res
-    "ListLogPatternSetsResponse"
-    "fixture/ListLogPatternSetsResponse.proto"
+    "DescribeProblemResponse"
+    "fixture/DescribeProblemResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLogPatternSets)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProblem)
 
-responseDescribeComponentConfiguration :: DescribeComponentConfigurationResponse -> TestTree
-responseDescribeComponentConfiguration =
+responseDescribeProblemObservations :: DescribeProblemObservationsResponse -> TestTree
+responseDescribeProblemObservations =
   res
-    "DescribeComponentConfigurationResponse"
-    "fixture/DescribeComponentConfigurationResponse.proto"
+    "DescribeProblemObservationsResponse"
+    "fixture/DescribeProblemObservationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeComponentConfiguration)
-
-responseListProblems :: ListProblemsResponse -> TestTree
-responseListProblems =
-  res
-    "ListProblemsResponse"
-    "fixture/ListProblemsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProblems)
-
-responseListLogPatterns :: ListLogPatternsResponse -> TestTree
-responseListLogPatterns =
-  res
-    "ListLogPatternsResponse"
-    "fixture/ListLogPatternsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLogPatterns)
-
-responseDeleteLogPattern :: DeleteLogPatternResponse -> TestTree
-responseDeleteLogPattern =
-  res
-    "DeleteLogPatternResponse"
-    "fixture/DeleteLogPatternResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteLogPattern)
-
-responseUpdateLogPattern :: UpdateLogPatternResponse -> TestTree
-responseUpdateLogPattern =
-  res
-    "UpdateLogPatternResponse"
-    "fixture/UpdateLogPatternResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLogPattern)
-
-responseCreateLogPattern :: CreateLogPatternResponse -> TestTree
-responseCreateLogPattern =
-  res
-    "CreateLogPatternResponse"
-    "fixture/CreateLogPatternResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLogPattern)
-
-responseListConfigurationHistory :: ListConfigurationHistoryResponse -> TestTree
-responseListConfigurationHistory =
-  res
-    "ListConfigurationHistoryResponse"
-    "fixture/ListConfigurationHistoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListConfigurationHistory)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeProblemObservations)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -529,22 +481,6 @@ responseListApplications =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseCreateComponent :: CreateComponentResponse -> TestTree
-responseCreateComponent =
-  res
-    "CreateComponentResponse"
-    "fixture/CreateComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateComponent)
-
 responseListComponents :: ListComponentsResponse -> TestTree
 responseListComponents =
   res
@@ -553,13 +489,69 @@ responseListComponents =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListComponents)
 
-responseDeleteComponent :: DeleteComponentResponse -> TestTree
-responseDeleteComponent =
+responseListConfigurationHistory :: ListConfigurationHistoryResponse -> TestTree
+responseListConfigurationHistory =
   res
-    "DeleteComponentResponse"
-    "fixture/DeleteComponentResponse.proto"
+    "ListConfigurationHistoryResponse"
+    "fixture/ListConfigurationHistoryResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
+    (Proxy.Proxy :: Proxy.Proxy ListConfigurationHistory)
+
+responseListLogPatternSets :: ListLogPatternSetsResponse -> TestTree
+responseListLogPatternSets =
+  res
+    "ListLogPatternSetsResponse"
+    "fixture/ListLogPatternSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLogPatternSets)
+
+responseListLogPatterns :: ListLogPatternsResponse -> TestTree
+responseListLogPatterns =
+  res
+    "ListLogPatternsResponse"
+    "fixture/ListLogPatternsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLogPatterns)
+
+responseListProblems :: ListProblemsResponse -> TestTree
+responseListProblems =
+  res
+    "ListProblemsResponse"
+    "fixture/ListProblemsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProblems)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateApplication :: UpdateApplicationResponse -> TestTree
+responseUpdateApplication =
+  res
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseUpdateComponent :: UpdateComponentResponse -> TestTree
 responseUpdateComponent =
@@ -569,10 +561,18 @@ responseUpdateComponent =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateComponent)
 
-responseDescribeLogPattern :: DescribeLogPatternResponse -> TestTree
-responseDescribeLogPattern =
+responseUpdateComponentConfiguration :: UpdateComponentConfigurationResponse -> TestTree
+responseUpdateComponentConfiguration =
   res
-    "DescribeLogPatternResponse"
-    "fixture/DescribeLogPatternResponse.proto"
+    "UpdateComponentConfigurationResponse"
+    "fixture/UpdateComponentConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLogPattern)
+    (Proxy.Proxy :: Proxy.Proxy UpdateComponentConfiguration)
+
+responseUpdateLogPattern :: UpdateLogPatternResponse -> TestTree
+responseUpdateLogPattern =
+  res
+    "UpdateLogPatternResponse"
+    "fixture/UpdateLogPatternResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLogPattern)

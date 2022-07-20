@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data OTAUpdateSummary = OTAUpdateSummary'
   { -- | The date when the OTA update was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The OTA update ID.
-    otaUpdateId :: Prelude.Maybe Prelude.Text,
     -- | The OTA update ARN.
-    otaUpdateArn :: Prelude.Maybe Prelude.Text
+    otaUpdateArn :: Prelude.Maybe Prelude.Text,
+    -- | The OTA update ID.
+    otaUpdateId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data OTAUpdateSummary = OTAUpdateSummary'
 --
 -- 'creationDate', 'oTAUpdateSummary_creationDate' - The date when the OTA update was created.
 --
--- 'otaUpdateId', 'oTAUpdateSummary_otaUpdateId' - The OTA update ID.
---
 -- 'otaUpdateArn', 'oTAUpdateSummary_otaUpdateArn' - The OTA update ARN.
+--
+-- 'otaUpdateId', 'oTAUpdateSummary_otaUpdateId' - The OTA update ID.
 newOTAUpdateSummary ::
   OTAUpdateSummary
 newOTAUpdateSummary =
   OTAUpdateSummary'
     { creationDate = Prelude.Nothing,
-      otaUpdateId = Prelude.Nothing,
-      otaUpdateArn = Prelude.Nothing
+      otaUpdateArn = Prelude.Nothing,
+      otaUpdateId = Prelude.Nothing
     }
 
 -- | The date when the OTA update was created.
 oTAUpdateSummary_creationDate :: Lens.Lens' OTAUpdateSummary (Prelude.Maybe Prelude.UTCTime)
 oTAUpdateSummary_creationDate = Lens.lens (\OTAUpdateSummary' {creationDate} -> creationDate) (\s@OTAUpdateSummary' {} a -> s {creationDate = a} :: OTAUpdateSummary) Prelude.. Lens.mapping Core._Time
 
--- | The OTA update ID.
-oTAUpdateSummary_otaUpdateId :: Lens.Lens' OTAUpdateSummary (Prelude.Maybe Prelude.Text)
-oTAUpdateSummary_otaUpdateId = Lens.lens (\OTAUpdateSummary' {otaUpdateId} -> otaUpdateId) (\s@OTAUpdateSummary' {} a -> s {otaUpdateId = a} :: OTAUpdateSummary)
-
 -- | The OTA update ARN.
 oTAUpdateSummary_otaUpdateArn :: Lens.Lens' OTAUpdateSummary (Prelude.Maybe Prelude.Text)
 oTAUpdateSummary_otaUpdateArn = Lens.lens (\OTAUpdateSummary' {otaUpdateArn} -> otaUpdateArn) (\s@OTAUpdateSummary' {} a -> s {otaUpdateArn = a} :: OTAUpdateSummary)
+
+-- | The OTA update ID.
+oTAUpdateSummary_otaUpdateId :: Lens.Lens' OTAUpdateSummary (Prelude.Maybe Prelude.Text)
+oTAUpdateSummary_otaUpdateId = Lens.lens (\OTAUpdateSummary' {otaUpdateId} -> otaUpdateId) (\s@OTAUpdateSummary' {} a -> s {otaUpdateId = a} :: OTAUpdateSummary)
 
 instance Core.FromJSON OTAUpdateSummary where
   parseJSON =
@@ -77,18 +77,18 @@ instance Core.FromJSON OTAUpdateSummary where
       ( \x ->
           OTAUpdateSummary'
             Prelude.<$> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "otaUpdateId")
             Prelude.<*> (x Core..:? "otaUpdateArn")
+            Prelude.<*> (x Core..:? "otaUpdateId")
       )
 
 instance Prelude.Hashable OTAUpdateSummary where
   hashWithSalt _salt OTAUpdateSummary' {..} =
     _salt `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` otaUpdateId
       `Prelude.hashWithSalt` otaUpdateArn
+      `Prelude.hashWithSalt` otaUpdateId
 
 instance Prelude.NFData OTAUpdateSummary where
   rnf OTAUpdateSummary' {..} =
     Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf otaUpdateId
       `Prelude.seq` Prelude.rnf otaUpdateArn
+      `Prelude.seq` Prelude.rnf otaUpdateId

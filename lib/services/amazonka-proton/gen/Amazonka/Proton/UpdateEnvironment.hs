@@ -78,12 +78,12 @@ module Amazonka.Proton.UpdateEnvironment
     newUpdateEnvironment,
 
     -- * Request Lenses
+    updateEnvironment_templateMajorVersion,
+    updateEnvironment_description,
+    updateEnvironment_templateMinorVersion,
+    updateEnvironment_spec,
     updateEnvironment_protonServiceRoleArn,
     updateEnvironment_environmentAccountConnectionId,
-    updateEnvironment_spec,
-    updateEnvironment_templateMinorVersion,
-    updateEnvironment_description,
-    updateEnvironment_templateMajorVersion,
     updateEnvironment_deploymentType,
     updateEnvironment_name,
 
@@ -106,7 +106,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | The Amazon Resource Name (ARN) of the AWS Proton service role that
+  { -- | The ID of the major version of the environment to update.
+    templateMajorVersion :: Prelude.Maybe Prelude.Text,
+    -- | A description of the environment update.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the minor version of the environment to update.
+    templateMinorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The formatted specification that defines the update.
+    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the AWS Proton service role that
     -- allows AWS Proton to make API calls to other services your behalf.
     protonServiceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment account connection.
@@ -116,14 +124,6 @@ data UpdateEnvironment = UpdateEnvironment'
     -- account connection was created in and is associated with the current
     -- environment.
     environmentAccountConnectionId :: Prelude.Maybe Prelude.Text,
-    -- | The formatted specification that defines the update.
-    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the minor version of the environment to update.
-    templateMinorVersion :: Prelude.Maybe Prelude.Text,
-    -- | A description of the environment update.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the major version of the environment to update.
-    templateMajorVersion :: Prelude.Maybe Prelude.Text,
     -- | There are four modes for updating an environment as described in the
     -- following. The @deploymentType@ field defines the mode.
     --
@@ -171,6 +171,14 @@ data UpdateEnvironment = UpdateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The ID of the major version of the environment to update.
+--
+-- 'description', 'updateEnvironment_description' - A description of the environment update.
+--
+-- 'templateMinorVersion', 'updateEnvironment_templateMinorVersion' - The ID of the minor version of the environment to update.
+--
+-- 'spec', 'updateEnvironment_spec' - The formatted specification that defines the update.
+--
 -- 'protonServiceRoleArn', 'updateEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the AWS Proton service role that
 -- allows AWS Proton to make API calls to other services your behalf.
 --
@@ -180,14 +188,6 @@ data UpdateEnvironment = UpdateEnvironment'
 -- created in the same environment account that the current environment
 -- account connection was created in and is associated with the current
 -- environment.
---
--- 'spec', 'updateEnvironment_spec' - The formatted specification that defines the update.
---
--- 'templateMinorVersion', 'updateEnvironment_templateMinorVersion' - The ID of the minor version of the environment to update.
---
--- 'description', 'updateEnvironment_description' - A description of the environment update.
---
--- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The ID of the major version of the environment to update.
 --
 -- 'deploymentType', 'updateEnvironment_deploymentType' - There are four modes for updating an environment as described in the
 -- following. The @deploymentType@ field defines the mode.
@@ -232,16 +232,32 @@ newUpdateEnvironment ::
   UpdateEnvironment
 newUpdateEnvironment pDeploymentType_ pName_ =
   UpdateEnvironment'
-    { protonServiceRoleArn =
+    { templateMajorVersion =
         Prelude.Nothing,
-      environmentAccountConnectionId = Prelude.Nothing,
-      spec = Prelude.Nothing,
-      templateMinorVersion = Prelude.Nothing,
       description = Prelude.Nothing,
-      templateMajorVersion = Prelude.Nothing,
+      templateMinorVersion = Prelude.Nothing,
+      spec = Prelude.Nothing,
+      protonServiceRoleArn = Prelude.Nothing,
+      environmentAccountConnectionId = Prelude.Nothing,
       deploymentType = pDeploymentType_,
       name = pName_
     }
+
+-- | The ID of the major version of the environment to update.
+updateEnvironment_templateMajorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_templateMajorVersion = Lens.lens (\UpdateEnvironment' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateEnvironment' {} a -> s {templateMajorVersion = a} :: UpdateEnvironment)
+
+-- | A description of the environment update.
+updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID of the minor version of the environment to update.
+updateEnvironment_templateMinorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_templateMinorVersion = Lens.lens (\UpdateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@UpdateEnvironment' {} a -> s {templateMinorVersion = a} :: UpdateEnvironment)
+
+-- | The formatted specification that defines the update.
+updateEnvironment_spec :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_spec = Lens.lens (\UpdateEnvironment' {spec} -> spec) (\s@UpdateEnvironment' {} a -> s {spec = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the AWS Proton service role that
 -- allows AWS Proton to make API calls to other services your behalf.
@@ -256,22 +272,6 @@ updateEnvironment_protonServiceRoleArn = Lens.lens (\UpdateEnvironment' {protonS
 -- environment.
 updateEnvironment_environmentAccountConnectionId :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_environmentAccountConnectionId = Lens.lens (\UpdateEnvironment' {environmentAccountConnectionId} -> environmentAccountConnectionId) (\s@UpdateEnvironment' {} a -> s {environmentAccountConnectionId = a} :: UpdateEnvironment)
-
--- | The formatted specification that defines the update.
-updateEnvironment_spec :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_spec = Lens.lens (\UpdateEnvironment' {spec} -> spec) (\s@UpdateEnvironment' {} a -> s {spec = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
-
--- | The ID of the minor version of the environment to update.
-updateEnvironment_templateMinorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_templateMinorVersion = Lens.lens (\UpdateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@UpdateEnvironment' {} a -> s {templateMinorVersion = a} :: UpdateEnvironment)
-
--- | A description of the environment update.
-updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
-
--- | The ID of the major version of the environment to update.
-updateEnvironment_templateMajorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_templateMajorVersion = Lens.lens (\UpdateEnvironment' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateEnvironment' {} a -> s {templateMajorVersion = a} :: UpdateEnvironment)
 
 -- | There are four modes for updating an environment as described in the
 -- following. The @deploymentType@ field defines the mode.
@@ -328,23 +328,23 @@ instance Core.AWSRequest UpdateEnvironment where
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` protonServiceRoleArn
-      `Prelude.hashWithSalt` environmentAccountConnectionId
-      `Prelude.hashWithSalt` spec
-      `Prelude.hashWithSalt` templateMinorVersion
+    _salt `Prelude.hashWithSalt` templateMajorVersion
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` protonServiceRoleArn
+      `Prelude.hashWithSalt` environmentAccountConnectionId
       `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf protonServiceRoleArn
-      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf templateMinorVersion
+    Prelude.rnf templateMajorVersion
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf protonServiceRoleArn
+      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
       `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf name
 
@@ -367,16 +367,16 @@ instance Core.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("protonServiceRoleArn" Core..=)
+          [ ("templateMajorVersion" Core..=)
+              Prelude.<$> templateMajorVersion,
+            ("description" Core..=) Prelude.<$> description,
+            ("templateMinorVersion" Core..=)
+              Prelude.<$> templateMinorVersion,
+            ("spec" Core..=) Prelude.<$> spec,
+            ("protonServiceRoleArn" Core..=)
               Prelude.<$> protonServiceRoleArn,
             ("environmentAccountConnectionId" Core..=)
               Prelude.<$> environmentAccountConnectionId,
-            ("spec" Core..=) Prelude.<$> spec,
-            ("templateMinorVersion" Core..=)
-              Prelude.<$> templateMinorVersion,
-            ("description" Core..=) Prelude.<$> description,
-            ("templateMajorVersion" Core..=)
-              Prelude.<$> templateMajorVersion,
             Prelude.Just
               ("deploymentType" Core..= deploymentType),
             Prelude.Just ("name" Core..= name)

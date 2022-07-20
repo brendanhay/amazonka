@@ -27,8 +27,8 @@ module Amazonka.FraudDetector.CreateBatchPredictionJob
     newCreateBatchPredictionJob,
 
     -- * Request Lenses
-    createBatchPredictionJob_detectorVersion,
     createBatchPredictionJob_tags,
+    createBatchPredictionJob_detectorVersion,
     createBatchPredictionJob_jobId,
     createBatchPredictionJob_inputPath,
     createBatchPredictionJob_outputPath,
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBatchPredictionJob' smart constructor.
 data CreateBatchPredictionJob = CreateBatchPredictionJob'
-  { -- | The detector version.
-    detectorVersion :: Prelude.Maybe Prelude.Text,
-    -- | A collection of key and value pairs.
+  { -- | A collection of key and value pairs.
     tags :: Prelude.Maybe [Tag],
+    -- | The detector version.
+    detectorVersion :: Prelude.Maybe Prelude.Text,
     -- | The ID of the batch prediction job.
     jobId :: Prelude.Text,
     -- | The Amazon S3 location of your training file.
@@ -81,9 +81,9 @@ data CreateBatchPredictionJob = CreateBatchPredictionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detectorVersion', 'createBatchPredictionJob_detectorVersion' - The detector version.
---
 -- 'tags', 'createBatchPredictionJob_tags' - A collection of key and value pairs.
+--
+-- 'detectorVersion', 'createBatchPredictionJob_detectorVersion' - The detector version.
 --
 -- 'jobId', 'createBatchPredictionJob_jobId' - The ID of the batch prediction job.
 --
@@ -118,9 +118,8 @@ newCreateBatchPredictionJob
   pDetectorName_
   pIamRoleArn_ =
     CreateBatchPredictionJob'
-      { detectorVersion =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        detectorVersion = Prelude.Nothing,
         jobId = pJobId_,
         inputPath = pInputPath_,
         outputPath = pOutputPath_,
@@ -129,13 +128,13 @@ newCreateBatchPredictionJob
         iamRoleArn = pIamRoleArn_
       }
 
--- | The detector version.
-createBatchPredictionJob_detectorVersion :: Lens.Lens' CreateBatchPredictionJob (Prelude.Maybe Prelude.Text)
-createBatchPredictionJob_detectorVersion = Lens.lens (\CreateBatchPredictionJob' {detectorVersion} -> detectorVersion) (\s@CreateBatchPredictionJob' {} a -> s {detectorVersion = a} :: CreateBatchPredictionJob)
-
 -- | A collection of key and value pairs.
 createBatchPredictionJob_tags :: Lens.Lens' CreateBatchPredictionJob (Prelude.Maybe [Tag])
 createBatchPredictionJob_tags = Lens.lens (\CreateBatchPredictionJob' {tags} -> tags) (\s@CreateBatchPredictionJob' {} a -> s {tags = a} :: CreateBatchPredictionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The detector version.
+createBatchPredictionJob_detectorVersion :: Lens.Lens' CreateBatchPredictionJob (Prelude.Maybe Prelude.Text)
+createBatchPredictionJob_detectorVersion = Lens.lens (\CreateBatchPredictionJob' {detectorVersion} -> detectorVersion) (\s@CreateBatchPredictionJob' {} a -> s {detectorVersion = a} :: CreateBatchPredictionJob)
 
 -- | The ID of the batch prediction job.
 createBatchPredictionJob_jobId :: Lens.Lens' CreateBatchPredictionJob Prelude.Text
@@ -175,8 +174,8 @@ instance Core.AWSRequest CreateBatchPredictionJob where
 
 instance Prelude.Hashable CreateBatchPredictionJob where
   hashWithSalt _salt CreateBatchPredictionJob' {..} =
-    _salt `Prelude.hashWithSalt` detectorVersion
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` detectorVersion
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` inputPath
       `Prelude.hashWithSalt` outputPath
@@ -186,8 +185,8 @@ instance Prelude.Hashable CreateBatchPredictionJob where
 
 instance Prelude.NFData CreateBatchPredictionJob where
   rnf CreateBatchPredictionJob' {..} =
-    Prelude.rnf detectorVersion
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf detectorVersion
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf inputPath
       `Prelude.seq` Prelude.rnf outputPath
@@ -214,9 +213,9 @@ instance Core.ToJSON CreateBatchPredictionJob where
   toJSON CreateBatchPredictionJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("detectorVersion" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("detectorVersion" Core..=)
               Prelude.<$> detectorVersion,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("jobId" Core..= jobId),
             Prelude.Just ("inputPath" Core..= inputPath),
             Prelude.Just ("outputPath" Core..= outputPath),

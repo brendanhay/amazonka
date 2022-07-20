@@ -38,10 +38,10 @@ module Amazonka.ApiGatewayV2.CreateModel
     newCreateModelResponse,
 
     -- * Response Lenses
-    createModelResponse_modelId,
-    createModelResponse_schema,
     createModelResponse_name,
     createModelResponse_description,
+    createModelResponse_schema,
+    createModelResponse_modelId,
     createModelResponse_contentType,
     createModelResponse_httpStatus,
   )
@@ -135,10 +135,10 @@ instance Core.AWSRequest CreateModel where
     Response.receiveJSON
       ( \s h x ->
           CreateModelResponse'
-            Prelude.<$> (x Core..?> "modelId")
-            Prelude.<*> (x Core..?> "schema")
-            Prelude.<*> (x Core..?> "name")
+            Prelude.<$> (x Core..?> "name")
             Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "schema")
+            Prelude.<*> (x Core..?> "modelId")
             Prelude.<*> (x Core..?> "contentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -191,15 +191,15 @@ instance Core.ToQuery CreateModel where
 
 -- | /See:/ 'newCreateModelResponse' smart constructor.
 data CreateModelResponse = CreateModelResponse'
-  { -- | The model identifier.
-    modelId :: Prelude.Maybe Prelude.Text,
-    -- | The schema for the model. For application\/json models, this should be
-    -- JSON schema draft 4 model.
-    schema :: Prelude.Maybe Prelude.Text,
-    -- | The name of the model. Must be alphanumeric.
+  { -- | The name of the model. Must be alphanumeric.
     name :: Prelude.Maybe Prelude.Text,
     -- | The description of the model.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The schema for the model. For application\/json models, this should be
+    -- JSON schema draft 4 model.
+    schema :: Prelude.Maybe Prelude.Text,
+    -- | The model identifier.
+    modelId :: Prelude.Maybe Prelude.Text,
     -- | The content-type for the model, for example, \"application\/json\".
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -215,14 +215,14 @@ data CreateModelResponse = CreateModelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelId', 'createModelResponse_modelId' - The model identifier.
+-- 'name', 'createModelResponse_name' - The name of the model. Must be alphanumeric.
+--
+-- 'description', 'createModelResponse_description' - The description of the model.
 --
 -- 'schema', 'createModelResponse_schema' - The schema for the model. For application\/json models, this should be
 -- JSON schema draft 4 model.
 --
--- 'name', 'createModelResponse_name' - The name of the model. Must be alphanumeric.
---
--- 'description', 'createModelResponse_description' - The description of the model.
+-- 'modelId', 'createModelResponse_modelId' - The model identifier.
 --
 -- 'contentType', 'createModelResponse_contentType' - The content-type for the model, for example, \"application\/json\".
 --
@@ -233,22 +233,13 @@ newCreateModelResponse ::
   CreateModelResponse
 newCreateModelResponse pHttpStatus_ =
   CreateModelResponse'
-    { modelId = Prelude.Nothing,
-      schema = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       description = Prelude.Nothing,
+      schema = Prelude.Nothing,
+      modelId = Prelude.Nothing,
       contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The model identifier.
-createModelResponse_modelId :: Lens.Lens' CreateModelResponse (Prelude.Maybe Prelude.Text)
-createModelResponse_modelId = Lens.lens (\CreateModelResponse' {modelId} -> modelId) (\s@CreateModelResponse' {} a -> s {modelId = a} :: CreateModelResponse)
-
--- | The schema for the model. For application\/json models, this should be
--- JSON schema draft 4 model.
-createModelResponse_schema :: Lens.Lens' CreateModelResponse (Prelude.Maybe Prelude.Text)
-createModelResponse_schema = Lens.lens (\CreateModelResponse' {schema} -> schema) (\s@CreateModelResponse' {} a -> s {schema = a} :: CreateModelResponse)
 
 -- | The name of the model. Must be alphanumeric.
 createModelResponse_name :: Lens.Lens' CreateModelResponse (Prelude.Maybe Prelude.Text)
@@ -257,6 +248,15 @@ createModelResponse_name = Lens.lens (\CreateModelResponse' {name} -> name) (\s@
 -- | The description of the model.
 createModelResponse_description :: Lens.Lens' CreateModelResponse (Prelude.Maybe Prelude.Text)
 createModelResponse_description = Lens.lens (\CreateModelResponse' {description} -> description) (\s@CreateModelResponse' {} a -> s {description = a} :: CreateModelResponse)
+
+-- | The schema for the model. For application\/json models, this should be
+-- JSON schema draft 4 model.
+createModelResponse_schema :: Lens.Lens' CreateModelResponse (Prelude.Maybe Prelude.Text)
+createModelResponse_schema = Lens.lens (\CreateModelResponse' {schema} -> schema) (\s@CreateModelResponse' {} a -> s {schema = a} :: CreateModelResponse)
+
+-- | The model identifier.
+createModelResponse_modelId :: Lens.Lens' CreateModelResponse (Prelude.Maybe Prelude.Text)
+createModelResponse_modelId = Lens.lens (\CreateModelResponse' {modelId} -> modelId) (\s@CreateModelResponse' {} a -> s {modelId = a} :: CreateModelResponse)
 
 -- | The content-type for the model, for example, \"application\/json\".
 createModelResponse_contentType :: Lens.Lens' CreateModelResponse (Prelude.Maybe Prelude.Text)
@@ -268,9 +268,9 @@ createModelResponse_httpStatus = Lens.lens (\CreateModelResponse' {httpStatus} -
 
 instance Prelude.NFData CreateModelResponse where
   rnf CreateModelResponse' {..} =
-    Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf modelId
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf httpStatus

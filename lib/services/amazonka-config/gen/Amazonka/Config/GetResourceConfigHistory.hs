@@ -45,11 +45,11 @@ module Amazonka.Config.GetResourceConfigHistory
     newGetResourceConfigHistory,
 
     -- * Request Lenses
-    getResourceConfigHistory_chronologicalOrder,
     getResourceConfigHistory_nextToken,
+    getResourceConfigHistory_earlierTime,
     getResourceConfigHistory_limit,
     getResourceConfigHistory_laterTime,
-    getResourceConfigHistory_earlierTime,
+    getResourceConfigHistory_chronologicalOrder,
     getResourceConfigHistory_resourceType,
     getResourceConfigHistory_resourceId,
 
@@ -75,12 +75,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetResourceConfigHistory' smart constructor.
 data GetResourceConfigHistory = GetResourceConfigHistory'
-  { -- | The chronological order for configuration items listed. By default, the
-    -- results are listed in reverse chronological order.
-    chronologicalOrder :: Prelude.Maybe ChronologicalOrder,
-    -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The time stamp that indicates an earlier time. If not specified, the
+    -- action returns paginated results that contain configuration items that
+    -- start when the first configuration item was recorded.
+    earlierTime :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of configuration items returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
     -- specify 0, Config uses the default.
@@ -88,10 +89,9 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
     -- | The time stamp that indicates a later time. If not specified, current
     -- time is taken.
     laterTime :: Prelude.Maybe Core.POSIX,
-    -- | The time stamp that indicates an earlier time. If not specified, the
-    -- action returns paginated results that contain configuration items that
-    -- start when the first configuration item was recorded.
-    earlierTime :: Prelude.Maybe Core.POSIX,
+    -- | The chronological order for configuration items listed. By default, the
+    -- results are listed in reverse chronological order.
+    chronologicalOrder :: Prelude.Maybe ChronologicalOrder,
     -- | The resource type.
     resourceType :: ResourceType,
     -- | The ID of the resource (for example., @sg-xxxxxx@).
@@ -107,11 +107,12 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'chronologicalOrder', 'getResourceConfigHistory_chronologicalOrder' - The chronological order for configuration items listed. By default, the
--- results are listed in reverse chronological order.
---
 -- 'nextToken', 'getResourceConfigHistory_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
+--
+-- 'earlierTime', 'getResourceConfigHistory_earlierTime' - The time stamp that indicates an earlier time. If not specified, the
+-- action returns paginated results that contain configuration items that
+-- start when the first configuration item was recorded.
 --
 -- 'limit', 'getResourceConfigHistory_limit' - The maximum number of configuration items returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
@@ -120,9 +121,8 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
 -- 'laterTime', 'getResourceConfigHistory_laterTime' - The time stamp that indicates a later time. If not specified, current
 -- time is taken.
 --
--- 'earlierTime', 'getResourceConfigHistory_earlierTime' - The time stamp that indicates an earlier time. If not specified, the
--- action returns paginated results that contain configuration items that
--- start when the first configuration item was recorded.
+-- 'chronologicalOrder', 'getResourceConfigHistory_chronologicalOrder' - The chronological order for configuration items listed. By default, the
+-- results are listed in reverse chronological order.
 --
 -- 'resourceType', 'getResourceConfigHistory_resourceType' - The resource type.
 --
@@ -137,25 +137,26 @@ newGetResourceConfigHistory
   pResourceType_
   pResourceId_ =
     GetResourceConfigHistory'
-      { chronologicalOrder =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        earlierTime = Prelude.Nothing,
         limit = Prelude.Nothing,
         laterTime = Prelude.Nothing,
-        earlierTime = Prelude.Nothing,
+        chronologicalOrder = Prelude.Nothing,
         resourceType = pResourceType_,
         resourceId = pResourceId_
       }
-
--- | The chronological order for configuration items listed. By default, the
--- results are listed in reverse chronological order.
-getResourceConfigHistory_chronologicalOrder :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe ChronologicalOrder)
-getResourceConfigHistory_chronologicalOrder = Lens.lens (\GetResourceConfigHistory' {chronologicalOrder} -> chronologicalOrder) (\s@GetResourceConfigHistory' {} a -> s {chronologicalOrder = a} :: GetResourceConfigHistory)
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 getResourceConfigHistory_nextToken :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe Prelude.Text)
 getResourceConfigHistory_nextToken = Lens.lens (\GetResourceConfigHistory' {nextToken} -> nextToken) (\s@GetResourceConfigHistory' {} a -> s {nextToken = a} :: GetResourceConfigHistory)
+
+-- | The time stamp that indicates an earlier time. If not specified, the
+-- action returns paginated results that contain configuration items that
+-- start when the first configuration item was recorded.
+getResourceConfigHistory_earlierTime :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe Prelude.UTCTime)
+getResourceConfigHistory_earlierTime = Lens.lens (\GetResourceConfigHistory' {earlierTime} -> earlierTime) (\s@GetResourceConfigHistory' {} a -> s {earlierTime = a} :: GetResourceConfigHistory) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of configuration items returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
@@ -168,11 +169,10 @@ getResourceConfigHistory_limit = Lens.lens (\GetResourceConfigHistory' {limit} -
 getResourceConfigHistory_laterTime :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe Prelude.UTCTime)
 getResourceConfigHistory_laterTime = Lens.lens (\GetResourceConfigHistory' {laterTime} -> laterTime) (\s@GetResourceConfigHistory' {} a -> s {laterTime = a} :: GetResourceConfigHistory) Prelude.. Lens.mapping Core._Time
 
--- | The time stamp that indicates an earlier time. If not specified, the
--- action returns paginated results that contain configuration items that
--- start when the first configuration item was recorded.
-getResourceConfigHistory_earlierTime :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe Prelude.UTCTime)
-getResourceConfigHistory_earlierTime = Lens.lens (\GetResourceConfigHistory' {earlierTime} -> earlierTime) (\s@GetResourceConfigHistory' {} a -> s {earlierTime = a} :: GetResourceConfigHistory) Prelude.. Lens.mapping Core._Time
+-- | The chronological order for configuration items listed. By default, the
+-- results are listed in reverse chronological order.
+getResourceConfigHistory_chronologicalOrder :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe ChronologicalOrder)
+getResourceConfigHistory_chronologicalOrder = Lens.lens (\GetResourceConfigHistory' {chronologicalOrder} -> chronologicalOrder) (\s@GetResourceConfigHistory' {} a -> s {chronologicalOrder = a} :: GetResourceConfigHistory)
 
 -- | The resource type.
 getResourceConfigHistory_resourceType :: Lens.Lens' GetResourceConfigHistory ResourceType
@@ -222,21 +222,21 @@ instance Core.AWSRequest GetResourceConfigHistory where
 
 instance Prelude.Hashable GetResourceConfigHistory where
   hashWithSalt _salt GetResourceConfigHistory' {..} =
-    _salt `Prelude.hashWithSalt` chronologicalOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` earlierTime
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` laterTime
-      `Prelude.hashWithSalt` earlierTime
+      `Prelude.hashWithSalt` chronologicalOrder
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData GetResourceConfigHistory where
   rnf GetResourceConfigHistory' {..} =
-    Prelude.rnf chronologicalOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf earlierTime
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf laterTime
-      `Prelude.seq` Prelude.rnf earlierTime
+      `Prelude.seq` Prelude.rnf chronologicalOrder
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceId
 
@@ -259,12 +259,12 @@ instance Core.ToJSON GetResourceConfigHistory where
   toJSON GetResourceConfigHistory' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("chronologicalOrder" Core..=)
-              Prelude.<$> chronologicalOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("earlierTime" Core..=) Prelude.<$> earlierTime,
             ("limit" Core..=) Prelude.<$> limit,
             ("laterTime" Core..=) Prelude.<$> laterTime,
-            ("earlierTime" Core..=) Prelude.<$> earlierTime,
+            ("chronologicalOrder" Core..=)
+              Prelude.<$> chronologicalOrder,
             Prelude.Just ("resourceType" Core..= resourceType),
             Prelude.Just ("resourceId" Core..= resourceId)
           ]

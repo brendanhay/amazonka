@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-  { -- | Setting that allows meeting participants to choose the __Call me at a
+  { -- | Setting that stops or starts remote control of shared screens during
+    -- meetings.
+    disableRemoteControl :: Prelude.Maybe Prelude.Bool,
+    -- | Setting that allows meeting participants to choose the __Call me at a
     -- phone number__ option. For more information, see
     -- <https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html Join a Meeting without the Amazon Chime App>.
-    enableDialOut :: Prelude.Maybe Prelude.Bool,
-    -- | Setting that stops or starts remote control of shared screens during
-    -- meetings.
-    disableRemoteControl :: Prelude.Maybe Prelude.Bool
+    enableDialOut :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,19 +50,25 @@ data AccountSettings = AccountSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'disableRemoteControl', 'accountSettings_disableRemoteControl' - Setting that stops or starts remote control of shared screens during
+-- meetings.
+--
 -- 'enableDialOut', 'accountSettings_enableDialOut' - Setting that allows meeting participants to choose the __Call me at a
 -- phone number__ option. For more information, see
 -- <https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html Join a Meeting without the Amazon Chime App>.
---
--- 'disableRemoteControl', 'accountSettings_disableRemoteControl' - Setting that stops or starts remote control of shared screens during
--- meetings.
 newAccountSettings ::
   AccountSettings
 newAccountSettings =
   AccountSettings'
-    { enableDialOut = Prelude.Nothing,
-      disableRemoteControl = Prelude.Nothing
+    { disableRemoteControl =
+        Prelude.Nothing,
+      enableDialOut = Prelude.Nothing
     }
+
+-- | Setting that stops or starts remote control of shared screens during
+-- meetings.
+accountSettings_disableRemoteControl :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
+accountSettings_disableRemoteControl = Lens.lens (\AccountSettings' {disableRemoteControl} -> disableRemoteControl) (\s@AccountSettings' {} a -> s {disableRemoteControl = a} :: AccountSettings)
 
 -- | Setting that allows meeting participants to choose the __Call me at a
 -- phone number__ option. For more information, see
@@ -70,37 +76,32 @@ newAccountSettings =
 accountSettings_enableDialOut :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
 accountSettings_enableDialOut = Lens.lens (\AccountSettings' {enableDialOut} -> enableDialOut) (\s@AccountSettings' {} a -> s {enableDialOut = a} :: AccountSettings)
 
--- | Setting that stops or starts remote control of shared screens during
--- meetings.
-accountSettings_disableRemoteControl :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Bool)
-accountSettings_disableRemoteControl = Lens.lens (\AccountSettings' {disableRemoteControl} -> disableRemoteControl) (\s@AccountSettings' {} a -> s {disableRemoteControl = a} :: AccountSettings)
-
 instance Core.FromJSON AccountSettings where
   parseJSON =
     Core.withObject
       "AccountSettings"
       ( \x ->
           AccountSettings'
-            Prelude.<$> (x Core..:? "EnableDialOut")
-            Prelude.<*> (x Core..:? "DisableRemoteControl")
+            Prelude.<$> (x Core..:? "DisableRemoteControl")
+            Prelude.<*> (x Core..:? "EnableDialOut")
       )
 
 instance Prelude.Hashable AccountSettings where
   hashWithSalt _salt AccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` enableDialOut
-      `Prelude.hashWithSalt` disableRemoteControl
+    _salt `Prelude.hashWithSalt` disableRemoteControl
+      `Prelude.hashWithSalt` enableDialOut
 
 instance Prelude.NFData AccountSettings where
   rnf AccountSettings' {..} =
-    Prelude.rnf enableDialOut
-      `Prelude.seq` Prelude.rnf disableRemoteControl
+    Prelude.rnf disableRemoteControl
+      `Prelude.seq` Prelude.rnf enableDialOut
 
 instance Core.ToJSON AccountSettings where
   toJSON AccountSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EnableDialOut" Core..=) Prelude.<$> enableDialOut,
-            ("DisableRemoteControl" Core..=)
-              Prelude.<$> disableRemoteControl
+          [ ("DisableRemoteControl" Core..=)
+              Prelude.<$> disableRemoteControl,
+            ("EnableDialOut" Core..=) Prelude.<$> enableDialOut
           ]
       )

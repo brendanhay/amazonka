@@ -30,9 +30,9 @@ module Amazonka.ServiceCatalog.ListProvisioningArtifactsForServiceAction
     newListProvisioningArtifactsForServiceAction,
 
     -- * Request Lenses
-    listProvisioningArtifactsForServiceAction_acceptLanguage,
     listProvisioningArtifactsForServiceAction_pageToken,
     listProvisioningArtifactsForServiceAction_pageSize,
+    listProvisioningArtifactsForServiceAction_acceptLanguage,
     listProvisioningArtifactsForServiceAction_serviceActionId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.ServiceCatalog.ListProvisioningArtifactsForServiceAction
     newListProvisioningArtifactsForServiceActionResponse,
 
     -- * Response Lenses
-    listProvisioningArtifactsForServiceActionResponse_nextPageToken,
     listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews,
+    listProvisioningArtifactsForServiceActionResponse_nextPageToken,
     listProvisioningArtifactsForServiceActionResponse_httpStatus,
   )
 where
@@ -55,7 +55,12 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListProvisioningArtifactsForServiceAction' smart constructor.
 data ListProvisioningArtifactsForServiceAction = ListProvisioningArtifactsForServiceAction'
-  { -- | The language code.
+  { -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -63,11 +68,6 @@ data ListProvisioningArtifactsForServiceAction = ListProvisioningArtifactsForSer
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
     serviceActionId :: Prelude.Text
   }
@@ -81,6 +81,11 @@ data ListProvisioningArtifactsForServiceAction = ListProvisioningArtifactsForSer
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pageToken', 'listProvisioningArtifactsForServiceAction_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listProvisioningArtifactsForServiceAction_pageSize' - The maximum number of items to return with this call.
+--
 -- 'acceptLanguage', 'listProvisioningArtifactsForServiceAction_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -88,11 +93,6 @@ data ListProvisioningArtifactsForServiceAction = ListProvisioningArtifactsForSer
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'pageToken', 'listProvisioningArtifactsForServiceAction_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listProvisioningArtifactsForServiceAction_pageSize' - The maximum number of items to return with this call.
 --
 -- 'serviceActionId', 'listProvisioningArtifactsForServiceAction_serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@.
 newListProvisioningArtifactsForServiceAction ::
@@ -102,13 +102,22 @@ newListProvisioningArtifactsForServiceAction ::
 newListProvisioningArtifactsForServiceAction
   pServiceActionId_ =
     ListProvisioningArtifactsForServiceAction'
-      { acceptLanguage =
+      { pageToken =
           Prelude.Nothing,
-        pageToken = Prelude.Nothing,
         pageSize = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         serviceActionId =
           pServiceActionId_
       }
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listProvisioningArtifactsForServiceAction_pageToken :: Lens.Lens' ListProvisioningArtifactsForServiceAction (Prelude.Maybe Prelude.Text)
+listProvisioningArtifactsForServiceAction_pageToken = Lens.lens (\ListProvisioningArtifactsForServiceAction' {pageToken} -> pageToken) (\s@ListProvisioningArtifactsForServiceAction' {} a -> s {pageToken = a} :: ListProvisioningArtifactsForServiceAction)
+
+-- | The maximum number of items to return with this call.
+listProvisioningArtifactsForServiceAction_pageSize :: Lens.Lens' ListProvisioningArtifactsForServiceAction (Prelude.Maybe Prelude.Natural)
+listProvisioningArtifactsForServiceAction_pageSize = Lens.lens (\ListProvisioningArtifactsForServiceAction' {pageSize} -> pageSize) (\s@ListProvisioningArtifactsForServiceAction' {} a -> s {pageSize = a} :: ListProvisioningArtifactsForServiceAction)
 
 -- | The language code.
 --
@@ -119,15 +128,6 @@ newListProvisioningArtifactsForServiceAction
 -- -   @zh@ - Chinese
 listProvisioningArtifactsForServiceAction_acceptLanguage :: Lens.Lens' ListProvisioningArtifactsForServiceAction (Prelude.Maybe Prelude.Text)
 listProvisioningArtifactsForServiceAction_acceptLanguage = Lens.lens (\ListProvisioningArtifactsForServiceAction' {acceptLanguage} -> acceptLanguage) (\s@ListProvisioningArtifactsForServiceAction' {} a -> s {acceptLanguage = a} :: ListProvisioningArtifactsForServiceAction)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listProvisioningArtifactsForServiceAction_pageToken :: Lens.Lens' ListProvisioningArtifactsForServiceAction (Prelude.Maybe Prelude.Text)
-listProvisioningArtifactsForServiceAction_pageToken = Lens.lens (\ListProvisioningArtifactsForServiceAction' {pageToken} -> pageToken) (\s@ListProvisioningArtifactsForServiceAction' {} a -> s {pageToken = a} :: ListProvisioningArtifactsForServiceAction)
-
--- | The maximum number of items to return with this call.
-listProvisioningArtifactsForServiceAction_pageSize :: Lens.Lens' ListProvisioningArtifactsForServiceAction (Prelude.Maybe Prelude.Natural)
-listProvisioningArtifactsForServiceAction_pageSize = Lens.lens (\ListProvisioningArtifactsForServiceAction' {pageSize} -> pageSize) (\s@ListProvisioningArtifactsForServiceAction' {} a -> s {pageSize = a} :: ListProvisioningArtifactsForServiceAction)
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@.
 listProvisioningArtifactsForServiceAction_serviceActionId :: Lens.Lens' ListProvisioningArtifactsForServiceAction Prelude.Text
@@ -171,10 +171,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListProvisioningArtifactsForServiceActionResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-              Prelude.<*> ( x Core..?> "ProvisioningArtifactViews"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Core..?> "ProvisioningArtifactViews"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "NextPageToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,9 +185,9 @@ instance
   hashWithSalt
     _salt
     ListProvisioningArtifactsForServiceAction' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
-        `Prelude.hashWithSalt` pageToken
+      _salt `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` serviceActionId
 
 instance
@@ -195,9 +195,9 @@ instance
     ListProvisioningArtifactsForServiceAction
   where
   rnf ListProvisioningArtifactsForServiceAction' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf serviceActionId
 
 instance
@@ -225,10 +225,10 @@ instance
   toJSON ListProvisioningArtifactsForServiceAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
+          [ ("PageToken" Core..=) Prelude.<$> pageToken,
             ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             Prelude.Just
               ("ServiceActionId" Core..= serviceActionId)
           ]
@@ -248,12 +248,12 @@ instance
 
 -- | /See:/ 'newListProvisioningArtifactsForServiceActionResponse' smart constructor.
 data ListProvisioningArtifactsForServiceActionResponse = ListProvisioningArtifactsForServiceActionResponse'
-  { -- | The page token to use to retrieve the next set of results. If there are
-    -- no additional results, this value is null.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects with information about product views and
+  { -- | An array of objects with information about product views and
     -- provisioning artifacts.
     provisioningArtifactViews :: Prelude.Maybe [ProvisioningArtifactView],
+    -- | The page token to use to retrieve the next set of results. If there are
+    -- no additional results, this value is null.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -267,11 +267,11 @@ data ListProvisioningArtifactsForServiceActionResponse = ListProvisioningArtifac
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'listProvisioningArtifactsForServiceActionResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
--- no additional results, this value is null.
---
 -- 'provisioningArtifactViews', 'listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews' - An array of objects with information about product views and
 -- provisioning artifacts.
+--
+-- 'nextPageToken', 'listProvisioningArtifactsForServiceActionResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
 --
 -- 'httpStatus', 'listProvisioningArtifactsForServiceActionResponse_httpStatus' - The response's http status code.
 newListProvisioningArtifactsForServiceActionResponse ::
@@ -281,23 +281,23 @@ newListProvisioningArtifactsForServiceActionResponse ::
 newListProvisioningArtifactsForServiceActionResponse
   pHttpStatus_ =
     ListProvisioningArtifactsForServiceActionResponse'
-      { nextPageToken =
+      { provisioningArtifactViews =
           Prelude.Nothing,
-        provisioningArtifactViews =
+        nextPageToken =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | The page token to use to retrieve the next set of results. If there are
--- no additional results, this value is null.
-listProvisioningArtifactsForServiceActionResponse_nextPageToken :: Lens.Lens' ListProvisioningArtifactsForServiceActionResponse (Prelude.Maybe Prelude.Text)
-listProvisioningArtifactsForServiceActionResponse_nextPageToken = Lens.lens (\ListProvisioningArtifactsForServiceActionResponse' {nextPageToken} -> nextPageToken) (\s@ListProvisioningArtifactsForServiceActionResponse' {} a -> s {nextPageToken = a} :: ListProvisioningArtifactsForServiceActionResponse)
-
 -- | An array of objects with information about product views and
 -- provisioning artifacts.
 listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews :: Lens.Lens' ListProvisioningArtifactsForServiceActionResponse (Prelude.Maybe [ProvisioningArtifactView])
 listProvisioningArtifactsForServiceActionResponse_provisioningArtifactViews = Lens.lens (\ListProvisioningArtifactsForServiceActionResponse' {provisioningArtifactViews} -> provisioningArtifactViews) (\s@ListProvisioningArtifactsForServiceActionResponse' {} a -> s {provisioningArtifactViews = a} :: ListProvisioningArtifactsForServiceActionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
+listProvisioningArtifactsForServiceActionResponse_nextPageToken :: Lens.Lens' ListProvisioningArtifactsForServiceActionResponse (Prelude.Maybe Prelude.Text)
+listProvisioningArtifactsForServiceActionResponse_nextPageToken = Lens.lens (\ListProvisioningArtifactsForServiceActionResponse' {nextPageToken} -> nextPageToken) (\s@ListProvisioningArtifactsForServiceActionResponse' {} a -> s {nextPageToken = a} :: ListProvisioningArtifactsForServiceActionResponse)
 
 -- | The response's http status code.
 listProvisioningArtifactsForServiceActionResponse_httpStatus :: Lens.Lens' ListProvisioningArtifactsForServiceActionResponse Prelude.Int
@@ -309,6 +309,6 @@ instance
   where
   rnf
     ListProvisioningArtifactsForServiceActionResponse' {..} =
-      Prelude.rnf nextPageToken
-        `Prelude.seq` Prelude.rnf provisioningArtifactViews
+      Prelude.rnf provisioningArtifactViews
+        `Prelude.seq` Prelude.rnf nextPageToken
         `Prelude.seq` Prelude.rnf httpStatus

@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInferenceInputNameConfiguration' smart constructor.
 data InferenceInputNameConfiguration = InferenceInputNameConfiguration'
-  { -- | The format of the timestamp, whether Epoch time, or standard, with or
+  { -- | Indicates the delimiter character used between items in the data.
+    componentTimestampDelimiter :: Prelude.Maybe Prelude.Text,
+    -- | The format of the timestamp, whether Epoch time, or standard, with or
     -- without hyphens (-).
-    timestampFormat :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the delimiter character used between items in the data.
-    componentTimestampDelimiter :: Prelude.Maybe Prelude.Text
+    timestampFormat :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,27 @@ data InferenceInputNameConfiguration = InferenceInputNameConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'componentTimestampDelimiter', 'inferenceInputNameConfiguration_componentTimestampDelimiter' - Indicates the delimiter character used between items in the data.
+--
 -- 'timestampFormat', 'inferenceInputNameConfiguration_timestampFormat' - The format of the timestamp, whether Epoch time, or standard, with or
 -- without hyphens (-).
---
--- 'componentTimestampDelimiter', 'inferenceInputNameConfiguration_componentTimestampDelimiter' - Indicates the delimiter character used between items in the data.
 newInferenceInputNameConfiguration ::
   InferenceInputNameConfiguration
 newInferenceInputNameConfiguration =
   InferenceInputNameConfiguration'
-    { timestampFormat =
+    { componentTimestampDelimiter =
         Prelude.Nothing,
-      componentTimestampDelimiter =
-        Prelude.Nothing
+      timestampFormat = Prelude.Nothing
     }
+
+-- | Indicates the delimiter character used between items in the data.
+inferenceInputNameConfiguration_componentTimestampDelimiter :: Lens.Lens' InferenceInputNameConfiguration (Prelude.Maybe Prelude.Text)
+inferenceInputNameConfiguration_componentTimestampDelimiter = Lens.lens (\InferenceInputNameConfiguration' {componentTimestampDelimiter} -> componentTimestampDelimiter) (\s@InferenceInputNameConfiguration' {} a -> s {componentTimestampDelimiter = a} :: InferenceInputNameConfiguration)
 
 -- | The format of the timestamp, whether Epoch time, or standard, with or
 -- without hyphens (-).
 inferenceInputNameConfiguration_timestampFormat :: Lens.Lens' InferenceInputNameConfiguration (Prelude.Maybe Prelude.Text)
 inferenceInputNameConfiguration_timestampFormat = Lens.lens (\InferenceInputNameConfiguration' {timestampFormat} -> timestampFormat) (\s@InferenceInputNameConfiguration' {} a -> s {timestampFormat = a} :: InferenceInputNameConfiguration)
-
--- | Indicates the delimiter character used between items in the data.
-inferenceInputNameConfiguration_componentTimestampDelimiter :: Lens.Lens' InferenceInputNameConfiguration (Prelude.Maybe Prelude.Text)
-inferenceInputNameConfiguration_componentTimestampDelimiter = Lens.lens (\InferenceInputNameConfiguration' {componentTimestampDelimiter} -> componentTimestampDelimiter) (\s@InferenceInputNameConfiguration' {} a -> s {componentTimestampDelimiter = a} :: InferenceInputNameConfiguration)
 
 instance
   Core.FromJSON
@@ -76,8 +75,8 @@ instance
       "InferenceInputNameConfiguration"
       ( \x ->
           InferenceInputNameConfiguration'
-            Prelude.<$> (x Core..:? "TimestampFormat")
-            Prelude.<*> (x Core..:? "ComponentTimestampDelimiter")
+            Prelude.<$> (x Core..:? "ComponentTimestampDelimiter")
+            Prelude.<*> (x Core..:? "TimestampFormat")
       )
 
 instance
@@ -87,24 +86,25 @@ instance
   hashWithSalt
     _salt
     InferenceInputNameConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` timestampFormat
+      _salt
         `Prelude.hashWithSalt` componentTimestampDelimiter
+        `Prelude.hashWithSalt` timestampFormat
 
 instance
   Prelude.NFData
     InferenceInputNameConfiguration
   where
   rnf InferenceInputNameConfiguration' {..} =
-    Prelude.rnf timestampFormat
-      `Prelude.seq` Prelude.rnf componentTimestampDelimiter
+    Prelude.rnf componentTimestampDelimiter
+      `Prelude.seq` Prelude.rnf timestampFormat
 
 instance Core.ToJSON InferenceInputNameConfiguration where
   toJSON InferenceInputNameConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TimestampFormat" Core..=)
-              Prelude.<$> timestampFormat,
-            ("ComponentTimestampDelimiter" Core..=)
-              Prelude.<$> componentTimestampDelimiter
+          [ ("ComponentTimestampDelimiter" Core..=)
+              Prelude.<$> componentTimestampDelimiter,
+            ("TimestampFormat" Core..=)
+              Prelude.<$> timestampFormat
           ]
       )

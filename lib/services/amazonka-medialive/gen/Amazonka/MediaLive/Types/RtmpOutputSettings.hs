@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 data RtmpOutputSettings = RtmpOutputSettings'
   { -- | Number of retry attempts.
     numRetries :: Prelude.Maybe Prelude.Natural,
+    -- | Number of seconds to wait before retrying a connection to the Flash
+    -- Media server if the connection is lost.
+    connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
     -- | If set to verifyAuthenticity, verify the tls certificate chain to a
     -- trusted Certificate Authority (CA). This will cause rtmps outputs with
     -- self-signed certificates to fail.
     certificateMode :: Prelude.Maybe RtmpOutputCertificateMode,
-    -- | Number of seconds to wait before retrying a connection to the Flash
-    -- Media server if the connection is lost.
-    connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
     -- | The RTMP endpoint excluding the stream name (eg.
     -- rtmp:\/\/host\/appname). For connection to Akamai, a username and
     -- password must be supplied. URI fields accept format identifiers.
@@ -55,12 +55,12 @@ data RtmpOutputSettings = RtmpOutputSettings'
 --
 -- 'numRetries', 'rtmpOutputSettings_numRetries' - Number of retry attempts.
 --
+-- 'connectionRetryInterval', 'rtmpOutputSettings_connectionRetryInterval' - Number of seconds to wait before retrying a connection to the Flash
+-- Media server if the connection is lost.
+--
 -- 'certificateMode', 'rtmpOutputSettings_certificateMode' - If set to verifyAuthenticity, verify the tls certificate chain to a
 -- trusted Certificate Authority (CA). This will cause rtmps outputs with
 -- self-signed certificates to fail.
---
--- 'connectionRetryInterval', 'rtmpOutputSettings_connectionRetryInterval' - Number of seconds to wait before retrying a connection to the Flash
--- Media server if the connection is lost.
 --
 -- 'destination', 'rtmpOutputSettings_destination' - The RTMP endpoint excluding the stream name (eg.
 -- rtmp:\/\/host\/appname). For connection to Akamai, a username and
@@ -72,8 +72,8 @@ newRtmpOutputSettings ::
 newRtmpOutputSettings pDestination_ =
   RtmpOutputSettings'
     { numRetries = Prelude.Nothing,
-      certificateMode = Prelude.Nothing,
       connectionRetryInterval = Prelude.Nothing,
+      certificateMode = Prelude.Nothing,
       destination = pDestination_
     }
 
@@ -81,16 +81,16 @@ newRtmpOutputSettings pDestination_ =
 rtmpOutputSettings_numRetries :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe Prelude.Natural)
 rtmpOutputSettings_numRetries = Lens.lens (\RtmpOutputSettings' {numRetries} -> numRetries) (\s@RtmpOutputSettings' {} a -> s {numRetries = a} :: RtmpOutputSettings)
 
+-- | Number of seconds to wait before retrying a connection to the Flash
+-- Media server if the connection is lost.
+rtmpOutputSettings_connectionRetryInterval :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe Prelude.Natural)
+rtmpOutputSettings_connectionRetryInterval = Lens.lens (\RtmpOutputSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@RtmpOutputSettings' {} a -> s {connectionRetryInterval = a} :: RtmpOutputSettings)
+
 -- | If set to verifyAuthenticity, verify the tls certificate chain to a
 -- trusted Certificate Authority (CA). This will cause rtmps outputs with
 -- self-signed certificates to fail.
 rtmpOutputSettings_certificateMode :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe RtmpOutputCertificateMode)
 rtmpOutputSettings_certificateMode = Lens.lens (\RtmpOutputSettings' {certificateMode} -> certificateMode) (\s@RtmpOutputSettings' {} a -> s {certificateMode = a} :: RtmpOutputSettings)
-
--- | Number of seconds to wait before retrying a connection to the Flash
--- Media server if the connection is lost.
-rtmpOutputSettings_connectionRetryInterval :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe Prelude.Natural)
-rtmpOutputSettings_connectionRetryInterval = Lens.lens (\RtmpOutputSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@RtmpOutputSettings' {} a -> s {connectionRetryInterval = a} :: RtmpOutputSettings)
 
 -- | The RTMP endpoint excluding the stream name (eg.
 -- rtmp:\/\/host\/appname). For connection to Akamai, a username and
@@ -105,23 +105,23 @@ instance Core.FromJSON RtmpOutputSettings where
       ( \x ->
           RtmpOutputSettings'
             Prelude.<$> (x Core..:? "numRetries")
-            Prelude.<*> (x Core..:? "certificateMode")
             Prelude.<*> (x Core..:? "connectionRetryInterval")
+            Prelude.<*> (x Core..:? "certificateMode")
             Prelude.<*> (x Core..: "destination")
       )
 
 instance Prelude.Hashable RtmpOutputSettings where
   hashWithSalt _salt RtmpOutputSettings' {..} =
     _salt `Prelude.hashWithSalt` numRetries
-      `Prelude.hashWithSalt` certificateMode
       `Prelude.hashWithSalt` connectionRetryInterval
+      `Prelude.hashWithSalt` certificateMode
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData RtmpOutputSettings where
   rnf RtmpOutputSettings' {..} =
     Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf certificateMode
       `Prelude.seq` Prelude.rnf connectionRetryInterval
+      `Prelude.seq` Prelude.rnf certificateMode
       `Prelude.seq` Prelude.rnf destination
 
 instance Core.ToJSON RtmpOutputSettings where
@@ -129,10 +129,10 @@ instance Core.ToJSON RtmpOutputSettings where
     Core.object
       ( Prelude.catMaybes
           [ ("numRetries" Core..=) Prelude.<$> numRetries,
-            ("certificateMode" Core..=)
-              Prelude.<$> certificateMode,
             ("connectionRetryInterval" Core..=)
               Prelude.<$> connectionRetryInterval,
+            ("certificateMode" Core..=)
+              Prelude.<$> certificateMode,
             Prelude.Just ("destination" Core..= destination)
           ]
       )

@@ -27,8 +27,8 @@ module Amazonka.MemoryDb.CreateSnapshot
     newCreateSnapshot,
 
     -- * Request Lenses
-    createSnapshot_kmsKeyId,
     createSnapshot_tags,
+    createSnapshot_kmsKeyId,
     createSnapshot_clusterName,
     createSnapshot_snapshotName,
 
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { -- | The ID of the KMS key used to encrypt the snapshot.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
     -- A tag key must be accompanied by a tag value, although null is accepted.
     tags :: Prelude.Maybe [Tag],
+    -- | The ID of the KMS key used to encrypt the snapshot.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The snapshot is created from this cluster.
     clusterName :: Prelude.Text,
     -- | A name for the snapshot being created.
@@ -71,10 +71,10 @@ data CreateSnapshot = CreateSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'createSnapshot_kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
---
 -- 'tags', 'createSnapshot_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
+--
+-- 'kmsKeyId', 'createSnapshot_kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
 --
 -- 'clusterName', 'createSnapshot_clusterName' - The snapshot is created from this cluster.
 --
@@ -87,20 +87,20 @@ newCreateSnapshot ::
   CreateSnapshot
 newCreateSnapshot pClusterName_ pSnapshotName_ =
   CreateSnapshot'
-    { kmsKeyId = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       clusterName = pClusterName_,
       snapshotName = pSnapshotName_
     }
-
--- | The ID of the KMS key used to encrypt the snapshot.
-createSnapshot_kmsKeyId :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
-createSnapshot_kmsKeyId = Lens.lens (\CreateSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CreateSnapshot' {} a -> s {kmsKeyId = a} :: CreateSnapshot)
 
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe [Tag])
 createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the KMS key used to encrypt the snapshot.
+createSnapshot_kmsKeyId :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
+createSnapshot_kmsKeyId = Lens.lens (\CreateSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CreateSnapshot' {} a -> s {kmsKeyId = a} :: CreateSnapshot)
 
 -- | The snapshot is created from this cluster.
 createSnapshot_clusterName :: Lens.Lens' CreateSnapshot Prelude.Text
@@ -125,15 +125,15 @@ instance Core.AWSRequest CreateSnapshot where
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` snapshotName
 
 instance Prelude.NFData CreateSnapshot where
   rnf CreateSnapshot' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf snapshotName
 
@@ -156,8 +156,8 @@ instance Core.ToJSON CreateSnapshot where
   toJSON CreateSnapshot' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("ClusterName" Core..= clusterName),
             Prelude.Just ("SnapshotName" Core..= snapshotName)
           ]

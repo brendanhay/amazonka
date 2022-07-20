@@ -31,11 +31,11 @@ module Amazonka.LicenseManager.GetServiceSettings
     newGetServiceSettingsResponse,
 
     -- * Response Lenses
-    getServiceSettingsResponse_enableCrossAccountsDiscovery,
-    getServiceSettingsResponse_snsTopicArn,
-    getServiceSettingsResponse_licenseManagerResourceShareArn,
-    getServiceSettingsResponse_s3BucketArn,
     getServiceSettingsResponse_organizationConfiguration,
+    getServiceSettingsResponse_licenseManagerResourceShareArn,
+    getServiceSettingsResponse_snsTopicArn,
+    getServiceSettingsResponse_enableCrossAccountsDiscovery,
+    getServiceSettingsResponse_s3BucketArn,
     getServiceSettingsResponse_httpStatus,
   )
 where
@@ -70,11 +70,11 @@ instance Core.AWSRequest GetServiceSettings where
     Response.receiveJSON
       ( \s h x ->
           GetServiceSettingsResponse'
-            Prelude.<$> (x Core..?> "EnableCrossAccountsDiscovery")
-            Prelude.<*> (x Core..?> "SnsTopicArn")
+            Prelude.<$> (x Core..?> "OrganizationConfiguration")
             Prelude.<*> (x Core..?> "LicenseManagerResourceShareArn")
+            Prelude.<*> (x Core..?> "SnsTopicArn")
+            Prelude.<*> (x Core..?> "EnableCrossAccountsDiscovery")
             Prelude.<*> (x Core..?> "S3BucketArn")
-            Prelude.<*> (x Core..?> "OrganizationConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,19 +111,19 @@ instance Core.ToQuery GetServiceSettings where
 
 -- | /See:/ 'newGetServiceSettingsResponse' smart constructor.
 data GetServiceSettingsResponse = GetServiceSettingsResponse'
-  { -- | Indicates whether cross-account discovery is enabled.
-    enableCrossAccountsDiscovery :: Prelude.Maybe Prelude.Bool,
-    -- | SNS topic configured to receive notifications from License Manager.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+  { -- | Indicates whether Organizations is integrated with License Manager for
+    -- cross-account discovery.
+    organizationConfiguration :: Prelude.Maybe OrganizationConfiguration,
     -- | Amazon Resource Name (ARN) of the resource share. The License Manager
     -- management account provides member accounts with access to this share.
     licenseManagerResourceShareArn :: Prelude.Maybe Prelude.Text,
+    -- | SNS topic configured to receive notifications from License Manager.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether cross-account discovery is enabled.
+    enableCrossAccountsDiscovery :: Prelude.Maybe Prelude.Bool,
     -- | Regional S3 bucket path for storing reports, license trail event data,
     -- discovery data, and so on.
     s3BucketArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether Organizations is integrated with License Manager for
-    -- cross-account discovery.
-    organizationConfiguration :: Prelude.Maybe OrganizationConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,18 +137,18 @@ data GetServiceSettingsResponse = GetServiceSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableCrossAccountsDiscovery', 'getServiceSettingsResponse_enableCrossAccountsDiscovery' - Indicates whether cross-account discovery is enabled.
---
--- 'snsTopicArn', 'getServiceSettingsResponse_snsTopicArn' - SNS topic configured to receive notifications from License Manager.
+-- 'organizationConfiguration', 'getServiceSettingsResponse_organizationConfiguration' - Indicates whether Organizations is integrated with License Manager for
+-- cross-account discovery.
 --
 -- 'licenseManagerResourceShareArn', 'getServiceSettingsResponse_licenseManagerResourceShareArn' - Amazon Resource Name (ARN) of the resource share. The License Manager
 -- management account provides member accounts with access to this share.
 --
+-- 'snsTopicArn', 'getServiceSettingsResponse_snsTopicArn' - SNS topic configured to receive notifications from License Manager.
+--
+-- 'enableCrossAccountsDiscovery', 'getServiceSettingsResponse_enableCrossAccountsDiscovery' - Indicates whether cross-account discovery is enabled.
+--
 -- 's3BucketArn', 'getServiceSettingsResponse_s3BucketArn' - Regional S3 bucket path for storing reports, license trail event data,
 -- discovery data, and so on.
---
--- 'organizationConfiguration', 'getServiceSettingsResponse_organizationConfiguration' - Indicates whether Organizations is integrated with License Manager for
--- cross-account discovery.
 --
 -- 'httpStatus', 'getServiceSettingsResponse_httpStatus' - The response's http status code.
 newGetServiceSettingsResponse ::
@@ -157,38 +157,38 @@ newGetServiceSettingsResponse ::
   GetServiceSettingsResponse
 newGetServiceSettingsResponse pHttpStatus_ =
   GetServiceSettingsResponse'
-    { enableCrossAccountsDiscovery =
+    { organizationConfiguration =
         Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
       licenseManagerResourceShareArn =
         Prelude.Nothing,
+      snsTopicArn = Prelude.Nothing,
+      enableCrossAccountsDiscovery = Prelude.Nothing,
       s3BucketArn = Prelude.Nothing,
-      organizationConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Indicates whether cross-account discovery is enabled.
-getServiceSettingsResponse_enableCrossAccountsDiscovery :: Lens.Lens' GetServiceSettingsResponse (Prelude.Maybe Prelude.Bool)
-getServiceSettingsResponse_enableCrossAccountsDiscovery = Lens.lens (\GetServiceSettingsResponse' {enableCrossAccountsDiscovery} -> enableCrossAccountsDiscovery) (\s@GetServiceSettingsResponse' {} a -> s {enableCrossAccountsDiscovery = a} :: GetServiceSettingsResponse)
-
--- | SNS topic configured to receive notifications from License Manager.
-getServiceSettingsResponse_snsTopicArn :: Lens.Lens' GetServiceSettingsResponse (Prelude.Maybe Prelude.Text)
-getServiceSettingsResponse_snsTopicArn = Lens.lens (\GetServiceSettingsResponse' {snsTopicArn} -> snsTopicArn) (\s@GetServiceSettingsResponse' {} a -> s {snsTopicArn = a} :: GetServiceSettingsResponse)
+-- | Indicates whether Organizations is integrated with License Manager for
+-- cross-account discovery.
+getServiceSettingsResponse_organizationConfiguration :: Lens.Lens' GetServiceSettingsResponse (Prelude.Maybe OrganizationConfiguration)
+getServiceSettingsResponse_organizationConfiguration = Lens.lens (\GetServiceSettingsResponse' {organizationConfiguration} -> organizationConfiguration) (\s@GetServiceSettingsResponse' {} a -> s {organizationConfiguration = a} :: GetServiceSettingsResponse)
 
 -- | Amazon Resource Name (ARN) of the resource share. The License Manager
 -- management account provides member accounts with access to this share.
 getServiceSettingsResponse_licenseManagerResourceShareArn :: Lens.Lens' GetServiceSettingsResponse (Prelude.Maybe Prelude.Text)
 getServiceSettingsResponse_licenseManagerResourceShareArn = Lens.lens (\GetServiceSettingsResponse' {licenseManagerResourceShareArn} -> licenseManagerResourceShareArn) (\s@GetServiceSettingsResponse' {} a -> s {licenseManagerResourceShareArn = a} :: GetServiceSettingsResponse)
 
+-- | SNS topic configured to receive notifications from License Manager.
+getServiceSettingsResponse_snsTopicArn :: Lens.Lens' GetServiceSettingsResponse (Prelude.Maybe Prelude.Text)
+getServiceSettingsResponse_snsTopicArn = Lens.lens (\GetServiceSettingsResponse' {snsTopicArn} -> snsTopicArn) (\s@GetServiceSettingsResponse' {} a -> s {snsTopicArn = a} :: GetServiceSettingsResponse)
+
+-- | Indicates whether cross-account discovery is enabled.
+getServiceSettingsResponse_enableCrossAccountsDiscovery :: Lens.Lens' GetServiceSettingsResponse (Prelude.Maybe Prelude.Bool)
+getServiceSettingsResponse_enableCrossAccountsDiscovery = Lens.lens (\GetServiceSettingsResponse' {enableCrossAccountsDiscovery} -> enableCrossAccountsDiscovery) (\s@GetServiceSettingsResponse' {} a -> s {enableCrossAccountsDiscovery = a} :: GetServiceSettingsResponse)
+
 -- | Regional S3 bucket path for storing reports, license trail event data,
 -- discovery data, and so on.
 getServiceSettingsResponse_s3BucketArn :: Lens.Lens' GetServiceSettingsResponse (Prelude.Maybe Prelude.Text)
 getServiceSettingsResponse_s3BucketArn = Lens.lens (\GetServiceSettingsResponse' {s3BucketArn} -> s3BucketArn) (\s@GetServiceSettingsResponse' {} a -> s {s3BucketArn = a} :: GetServiceSettingsResponse)
-
--- | Indicates whether Organizations is integrated with License Manager for
--- cross-account discovery.
-getServiceSettingsResponse_organizationConfiguration :: Lens.Lens' GetServiceSettingsResponse (Prelude.Maybe OrganizationConfiguration)
-getServiceSettingsResponse_organizationConfiguration = Lens.lens (\GetServiceSettingsResponse' {organizationConfiguration} -> organizationConfiguration) (\s@GetServiceSettingsResponse' {} a -> s {organizationConfiguration = a} :: GetServiceSettingsResponse)
 
 -- | The response's http status code.
 getServiceSettingsResponse_httpStatus :: Lens.Lens' GetServiceSettingsResponse Prelude.Int
@@ -196,9 +196,9 @@ getServiceSettingsResponse_httpStatus = Lens.lens (\GetServiceSettingsResponse' 
 
 instance Prelude.NFData GetServiceSettingsResponse where
   rnf GetServiceSettingsResponse' {..} =
-    Prelude.rnf enableCrossAccountsDiscovery
-      `Prelude.seq` Prelude.rnf snsTopicArn
+    Prelude.rnf organizationConfiguration
       `Prelude.seq` Prelude.rnf licenseManagerResourceShareArn
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf enableCrossAccountsDiscovery
       `Prelude.seq` Prelude.rnf s3BucketArn
-      `Prelude.seq` Prelude.rnf organizationConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,11 +27,11 @@ module Amazonka.MacieV2.UpdateFindingsFilter
     newUpdateFindingsFilter,
 
     -- * Request Lenses
+    updateFindingsFilter_name,
     updateFindingsFilter_clientToken,
     updateFindingsFilter_findingCriteria,
-    updateFindingsFilter_action,
-    updateFindingsFilter_name,
     updateFindingsFilter_description,
+    updateFindingsFilter_action,
     updateFindingsFilter_position,
     updateFindingsFilter_id,
 
@@ -55,17 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFindingsFilter' smart constructor.
 data UpdateFindingsFilter = UpdateFindingsFilter'
-  { -- | A unique, case-sensitive token that you provide to ensure the
-    -- idempotency of the request.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The criteria to use to filter findings.
-    findingCriteria :: Prelude.Maybe FindingCriteria,
-    -- | The action to perform on findings that meet the filter criteria
-    -- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
-    -- archive) the findings; and, NOOP, don\'t perform any action on the
-    -- findings.
-    action :: Prelude.Maybe FindingsFilterAction,
-    -- | A custom name for the filter. The name must contain at least 3
+  { -- | A custom name for the filter. The name must contain at least 3
     -- characters and can contain as many as 64 characters.
     --
     -- We strongly recommend that you avoid including any sensitive data in the
@@ -73,6 +63,11 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
     -- depending on the actions that they\'re allowed to perform in Amazon
     -- Macie.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A unique, case-sensitive token that you provide to ensure the
+    -- idempotency of the request.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The criteria to use to filter findings.
+    findingCriteria :: Prelude.Maybe FindingCriteria,
     -- | A custom description of the filter. The description can contain as many
     -- as 512 characters.
     --
@@ -81,6 +76,11 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
     -- description, depending on the actions that they\'re allowed to perform
     -- in Amazon Macie.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The action to perform on findings that meet the filter criteria
+    -- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
+    -- archive) the findings; and, NOOP, don\'t perform any action on the
+    -- findings.
+    action :: Prelude.Maybe FindingsFilterAction,
     -- | The position of the filter in the list of saved filters on the Amazon
     -- Macie console. This value also determines the order in which the filter
     -- is applied to findings, relative to other filters that are also applied
@@ -100,16 +100,6 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateFindingsFilter_clientToken' - A unique, case-sensitive token that you provide to ensure the
--- idempotency of the request.
---
--- 'findingCriteria', 'updateFindingsFilter_findingCriteria' - The criteria to use to filter findings.
---
--- 'action', 'updateFindingsFilter_action' - The action to perform on findings that meet the filter criteria
--- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
--- archive) the findings; and, NOOP, don\'t perform any action on the
--- findings.
---
 -- 'name', 'updateFindingsFilter_name' - A custom name for the filter. The name must contain at least 3
 -- characters and can contain as many as 64 characters.
 --
@@ -118,6 +108,11 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
 -- depending on the actions that they\'re allowed to perform in Amazon
 -- Macie.
 --
+-- 'clientToken', 'updateFindingsFilter_clientToken' - A unique, case-sensitive token that you provide to ensure the
+-- idempotency of the request.
+--
+-- 'findingCriteria', 'updateFindingsFilter_findingCriteria' - The criteria to use to filter findings.
+--
 -- 'description', 'updateFindingsFilter_description' - A custom description of the filter. The description can contain as many
 -- as 512 characters.
 --
@@ -125,6 +120,11 @@ data UpdateFindingsFilter = UpdateFindingsFilter'
 -- description of a filter. Other users might be able to see the filter\'s
 -- description, depending on the actions that they\'re allowed to perform
 -- in Amazon Macie.
+--
+-- 'action', 'updateFindingsFilter_action' - The action to perform on findings that meet the filter criteria
+-- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
+-- archive) the findings; and, NOOP, don\'t perform any action on the
+-- findings.
 --
 -- 'position', 'updateFindingsFilter_position' - The position of the filter in the list of saved filters on the Amazon
 -- Macie console. This value also determines the order in which the filter
@@ -139,31 +139,14 @@ newUpdateFindingsFilter ::
   UpdateFindingsFilter
 newUpdateFindingsFilter pId_ =
   UpdateFindingsFilter'
-    { clientToken =
-        Prelude.Nothing,
+    { name = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       findingCriteria = Prelude.Nothing,
-      action = Prelude.Nothing,
-      name = Prelude.Nothing,
       description = Prelude.Nothing,
+      action = Prelude.Nothing,
       position = Prelude.Nothing,
       id = pId_
     }
-
--- | A unique, case-sensitive token that you provide to ensure the
--- idempotency of the request.
-updateFindingsFilter_clientToken :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Text)
-updateFindingsFilter_clientToken = Lens.lens (\UpdateFindingsFilter' {clientToken} -> clientToken) (\s@UpdateFindingsFilter' {} a -> s {clientToken = a} :: UpdateFindingsFilter)
-
--- | The criteria to use to filter findings.
-updateFindingsFilter_findingCriteria :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe FindingCriteria)
-updateFindingsFilter_findingCriteria = Lens.lens (\UpdateFindingsFilter' {findingCriteria} -> findingCriteria) (\s@UpdateFindingsFilter' {} a -> s {findingCriteria = a} :: UpdateFindingsFilter)
-
--- | The action to perform on findings that meet the filter criteria
--- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
--- archive) the findings; and, NOOP, don\'t perform any action on the
--- findings.
-updateFindingsFilter_action :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe FindingsFilterAction)
-updateFindingsFilter_action = Lens.lens (\UpdateFindingsFilter' {action} -> action) (\s@UpdateFindingsFilter' {} a -> s {action = a} :: UpdateFindingsFilter)
 
 -- | A custom name for the filter. The name must contain at least 3
 -- characters and can contain as many as 64 characters.
@@ -175,6 +158,15 @@ updateFindingsFilter_action = Lens.lens (\UpdateFindingsFilter' {action} -> acti
 updateFindingsFilter_name :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Text)
 updateFindingsFilter_name = Lens.lens (\UpdateFindingsFilter' {name} -> name) (\s@UpdateFindingsFilter' {} a -> s {name = a} :: UpdateFindingsFilter)
 
+-- | A unique, case-sensitive token that you provide to ensure the
+-- idempotency of the request.
+updateFindingsFilter_clientToken :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Text)
+updateFindingsFilter_clientToken = Lens.lens (\UpdateFindingsFilter' {clientToken} -> clientToken) (\s@UpdateFindingsFilter' {} a -> s {clientToken = a} :: UpdateFindingsFilter)
+
+-- | The criteria to use to filter findings.
+updateFindingsFilter_findingCriteria :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe FindingCriteria)
+updateFindingsFilter_findingCriteria = Lens.lens (\UpdateFindingsFilter' {findingCriteria} -> findingCriteria) (\s@UpdateFindingsFilter' {} a -> s {findingCriteria = a} :: UpdateFindingsFilter)
+
 -- | A custom description of the filter. The description can contain as many
 -- as 512 characters.
 --
@@ -184,6 +176,13 @@ updateFindingsFilter_name = Lens.lens (\UpdateFindingsFilter' {name} -> name) (\
 -- in Amazon Macie.
 updateFindingsFilter_description :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe Prelude.Text)
 updateFindingsFilter_description = Lens.lens (\UpdateFindingsFilter' {description} -> description) (\s@UpdateFindingsFilter' {} a -> s {description = a} :: UpdateFindingsFilter)
+
+-- | The action to perform on findings that meet the filter criteria
+-- (findingCriteria). Valid values are: ARCHIVE, suppress (automatically
+-- archive) the findings; and, NOOP, don\'t perform any action on the
+-- findings.
+updateFindingsFilter_action :: Lens.Lens' UpdateFindingsFilter (Prelude.Maybe FindingsFilterAction)
+updateFindingsFilter_action = Lens.lens (\UpdateFindingsFilter' {action} -> action) (\s@UpdateFindingsFilter' {} a -> s {action = a} :: UpdateFindingsFilter)
 
 -- | The position of the filter in the list of saved filters on the Amazon
 -- Macie console. This value also determines the order in which the filter
@@ -213,21 +212,21 @@ instance Core.AWSRequest UpdateFindingsFilter where
 
 instance Prelude.Hashable UpdateFindingsFilter where
   hashWithSalt _salt UpdateFindingsFilter' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` findingCriteria
-      `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateFindingsFilter where
   rnf UpdateFindingsFilter' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf id
 
@@ -246,12 +245,12 @@ instance Core.ToJSON UpdateFindingsFilter where
   toJSON UpdateFindingsFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             ("findingCriteria" Core..=)
               Prelude.<$> findingCriteria,
-            ("action" Core..=) Prelude.<$> action,
-            ("name" Core..=) Prelude.<$> name,
             ("description" Core..=) Prelude.<$> description,
+            ("action" Core..=) Prelude.<$> action,
             ("position" Core..=) Prelude.<$> position
           ]
       )

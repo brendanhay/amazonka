@@ -32,8 +32,8 @@ module Amazonka.IoT.CreateCustomMetric
     newCreateCustomMetric,
 
     -- * Request Lenses
-    createCustomMetric_displayName,
     createCustomMetric_tags,
+    createCustomMetric_displayName,
     createCustomMetric_metricName,
     createCustomMetric_metricType,
     createCustomMetric_clientRequestToken,
@@ -43,8 +43,8 @@ module Amazonka.IoT.CreateCustomMetric
     newCreateCustomMetricResponse,
 
     -- * Response Lenses
-    createCustomMetricResponse_metricName,
     createCustomMetricResponse_metricArn,
+    createCustomMetricResponse_metricName,
     createCustomMetricResponse_httpStatus,
   )
 where
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCustomMetric' smart constructor.
 data CreateCustomMetric = CreateCustomMetric'
-  { -- | Field represents a friendly name in the console for the custom metric;
+  { -- | Metadata that can be used to manage the custom metric.
+    tags :: Prelude.Maybe [Tag],
+    -- | Field represents a friendly name in the console for the custom metric;
     -- it doesn\'t have to be unique. Don\'t use this name as the metric
     -- identifier in the device metric report. Can be updated once defined.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | Metadata that can be used to manage the custom metric.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the custom metric. This will be used in the metric report
     -- submitted from the device\/thing. Shouldn\'t begin with @aws:@. Cannot
     -- be updated once defined.
@@ -87,11 +87,11 @@ data CreateCustomMetric = CreateCustomMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createCustomMetric_tags' - Metadata that can be used to manage the custom metric.
+--
 -- 'displayName', 'createCustomMetric_displayName' - Field represents a friendly name in the console for the custom metric;
 -- it doesn\'t have to be unique. Don\'t use this name as the metric
 -- identifier in the device metric report. Can be updated once defined.
---
--- 'tags', 'createCustomMetric_tags' - Metadata that can be used to manage the custom metric.
 --
 -- 'metricName', 'createCustomMetric_metricName' - The name of the custom metric. This will be used in the metric report
 -- submitted from the device\/thing. Shouldn\'t begin with @aws:@. Cannot
@@ -117,22 +117,22 @@ newCreateCustomMetric
   pMetricType_
   pClientRequestToken_ =
     CreateCustomMetric'
-      { displayName = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        displayName = Prelude.Nothing,
         metricName = pMetricName_,
         metricType = pMetricType_,
         clientRequestToken = pClientRequestToken_
       }
+
+-- | Metadata that can be used to manage the custom metric.
+createCustomMetric_tags :: Lens.Lens' CreateCustomMetric (Prelude.Maybe [Tag])
+createCustomMetric_tags = Lens.lens (\CreateCustomMetric' {tags} -> tags) (\s@CreateCustomMetric' {} a -> s {tags = a} :: CreateCustomMetric) Prelude.. Lens.mapping Lens.coerced
 
 -- | Field represents a friendly name in the console for the custom metric;
 -- it doesn\'t have to be unique. Don\'t use this name as the metric
 -- identifier in the device metric report. Can be updated once defined.
 createCustomMetric_displayName :: Lens.Lens' CreateCustomMetric (Prelude.Maybe Prelude.Text)
 createCustomMetric_displayName = Lens.lens (\CreateCustomMetric' {displayName} -> displayName) (\s@CreateCustomMetric' {} a -> s {displayName = a} :: CreateCustomMetric)
-
--- | Metadata that can be used to manage the custom metric.
-createCustomMetric_tags :: Lens.Lens' CreateCustomMetric (Prelude.Maybe [Tag])
-createCustomMetric_tags = Lens.lens (\CreateCustomMetric' {tags} -> tags) (\s@CreateCustomMetric' {} a -> s {tags = a} :: CreateCustomMetric) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the custom metric. This will be used in the metric report
 -- submitted from the device\/thing. Shouldn\'t begin with @aws:@. Cannot
@@ -161,23 +161,23 @@ instance Core.AWSRequest CreateCustomMetric where
     Response.receiveJSON
       ( \s h x ->
           CreateCustomMetricResponse'
-            Prelude.<$> (x Core..?> "metricName")
-            Prelude.<*> (x Core..?> "metricArn")
+            Prelude.<$> (x Core..?> "metricArn")
+            Prelude.<*> (x Core..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateCustomMetric where
   hashWithSalt _salt CreateCustomMetric' {..} =
-    _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` metricType
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData CreateCustomMetric where
   rnf CreateCustomMetric' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf metricType
       `Prelude.seq` Prelude.rnf clientRequestToken
@@ -189,8 +189,8 @@ instance Core.ToJSON CreateCustomMetric where
   toJSON CreateCustomMetric' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("displayName" Core..=) Prelude.<$> displayName,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("displayName" Core..=) Prelude.<$> displayName,
             Prelude.Just ("metricType" Core..= metricType),
             Prelude.Just
               ("clientRequestToken" Core..= clientRequestToken)
@@ -207,11 +207,11 @@ instance Core.ToQuery CreateCustomMetric where
 
 -- | /See:/ 'newCreateCustomMetricResponse' smart constructor.
 data CreateCustomMetricResponse = CreateCustomMetricResponse'
-  { -- | The name of the custom metric to be used in the metric report.
-    metricName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the custom metric, e.g.
+  { -- | The Amazon Resource Number (ARN) of the custom metric, e.g.
     -- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
     metricArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the custom metric to be used in the metric report.
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,10 +225,10 @@ data CreateCustomMetricResponse = CreateCustomMetricResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'createCustomMetricResponse_metricName' - The name of the custom metric to be used in the metric report.
---
 -- 'metricArn', 'createCustomMetricResponse_metricArn' - The Amazon Resource Number (ARN) of the custom metric, e.g.
 -- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
+--
+-- 'metricName', 'createCustomMetricResponse_metricName' - The name of the custom metric to be used in the metric report.
 --
 -- 'httpStatus', 'createCustomMetricResponse_httpStatus' - The response's http status code.
 newCreateCustomMetricResponse ::
@@ -237,20 +237,20 @@ newCreateCustomMetricResponse ::
   CreateCustomMetricResponse
 newCreateCustomMetricResponse pHttpStatus_ =
   CreateCustomMetricResponse'
-    { metricName =
+    { metricArn =
         Prelude.Nothing,
-      metricArn = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the custom metric to be used in the metric report.
-createCustomMetricResponse_metricName :: Lens.Lens' CreateCustomMetricResponse (Prelude.Maybe Prelude.Text)
-createCustomMetricResponse_metricName = Lens.lens (\CreateCustomMetricResponse' {metricName} -> metricName) (\s@CreateCustomMetricResponse' {} a -> s {metricName = a} :: CreateCustomMetricResponse)
 
 -- | The Amazon Resource Number (ARN) of the custom metric, e.g.
 -- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
 createCustomMetricResponse_metricArn :: Lens.Lens' CreateCustomMetricResponse (Prelude.Maybe Prelude.Text)
 createCustomMetricResponse_metricArn = Lens.lens (\CreateCustomMetricResponse' {metricArn} -> metricArn) (\s@CreateCustomMetricResponse' {} a -> s {metricArn = a} :: CreateCustomMetricResponse)
+
+-- | The name of the custom metric to be used in the metric report.
+createCustomMetricResponse_metricName :: Lens.Lens' CreateCustomMetricResponse (Prelude.Maybe Prelude.Text)
+createCustomMetricResponse_metricName = Lens.lens (\CreateCustomMetricResponse' {metricName} -> metricName) (\s@CreateCustomMetricResponse' {} a -> s {metricName = a} :: CreateCustomMetricResponse)
 
 -- | The response's http status code.
 createCustomMetricResponse_httpStatus :: Lens.Lens' CreateCustomMetricResponse Prelude.Int
@@ -258,6 +258,6 @@ createCustomMetricResponse_httpStatus = Lens.lens (\CreateCustomMetricResponse' 
 
 instance Prelude.NFData CreateCustomMetricResponse where
   rnf CreateCustomMetricResponse' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricArn
+    Prelude.rnf metricArn
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf httpStatus

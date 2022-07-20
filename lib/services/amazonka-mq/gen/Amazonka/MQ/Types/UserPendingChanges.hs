@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserPendingChanges' smart constructor.
 data UserPendingChanges = UserPendingChanges'
-  { -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
+  { -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+    consoleAccess :: Prelude.Maybe Prelude.Bool,
+    -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
     -- value can contain only alphanumeric characters, dashes, periods,
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Prelude.Maybe Prelude.Bool,
     -- | Required. The type of change pending for the ActiveMQ user.
     pendingChange :: ChangeType
   }
@@ -49,12 +49,12 @@ data UserPendingChanges = UserPendingChanges'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'consoleAccess', 'userPendingChanges_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+--
 -- 'groups', 'userPendingChanges_groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This
 -- value can contain only alphanumeric characters, dashes, periods,
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
---
--- 'consoleAccess', 'userPendingChanges_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 --
 -- 'pendingChange', 'userPendingChanges_pendingChange' - Required. The type of change pending for the ActiveMQ user.
 newUserPendingChanges ::
@@ -63,10 +63,15 @@ newUserPendingChanges ::
   UserPendingChanges
 newUserPendingChanges pPendingChange_ =
   UserPendingChanges'
-    { groups = Prelude.Nothing,
-      consoleAccess = Prelude.Nothing,
+    { consoleAccess =
+        Prelude.Nothing,
+      groups = Prelude.Nothing,
       pendingChange = pPendingChange_
     }
+
+-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+userPendingChanges_consoleAccess :: Lens.Lens' UserPendingChanges (Prelude.Maybe Prelude.Bool)
+userPendingChanges_consoleAccess = Lens.lens (\UserPendingChanges' {consoleAccess} -> consoleAccess) (\s@UserPendingChanges' {} a -> s {consoleAccess = a} :: UserPendingChanges)
 
 -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This
 -- value can contain only alphanumeric characters, dashes, periods,
@@ -74,10 +79,6 @@ newUserPendingChanges pPendingChange_ =
 -- long.
 userPendingChanges_groups :: Lens.Lens' UserPendingChanges (Prelude.Maybe [Prelude.Text])
 userPendingChanges_groups = Lens.lens (\UserPendingChanges' {groups} -> groups) (\s@UserPendingChanges' {} a -> s {groups = a} :: UserPendingChanges) Prelude.. Lens.mapping Lens.coerced
-
--- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-userPendingChanges_consoleAccess :: Lens.Lens' UserPendingChanges (Prelude.Maybe Prelude.Bool)
-userPendingChanges_consoleAccess = Lens.lens (\UserPendingChanges' {consoleAccess} -> consoleAccess) (\s@UserPendingChanges' {} a -> s {consoleAccess = a} :: UserPendingChanges)
 
 -- | Required. The type of change pending for the ActiveMQ user.
 userPendingChanges_pendingChange :: Lens.Lens' UserPendingChanges ChangeType
@@ -89,19 +90,19 @@ instance Core.FromJSON UserPendingChanges where
       "UserPendingChanges"
       ( \x ->
           UserPendingChanges'
-            Prelude.<$> (x Core..:? "groups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "consoleAccess")
+            Prelude.<$> (x Core..:? "consoleAccess")
+            Prelude.<*> (x Core..:? "groups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "pendingChange")
       )
 
 instance Prelude.Hashable UserPendingChanges where
   hashWithSalt _salt UserPendingChanges' {..} =
-    _salt `Prelude.hashWithSalt` groups
-      `Prelude.hashWithSalt` consoleAccess
+    _salt `Prelude.hashWithSalt` consoleAccess
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` pendingChange
 
 instance Prelude.NFData UserPendingChanges where
   rnf UserPendingChanges' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf consoleAccess
+    Prelude.rnf consoleAccess
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf pendingChange

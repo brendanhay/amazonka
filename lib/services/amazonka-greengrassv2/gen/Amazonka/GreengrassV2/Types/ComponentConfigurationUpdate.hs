@@ -30,15 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentConfigurationUpdate' smart constructor.
 data ComponentConfigurationUpdate = ComponentConfigurationUpdate'
-  { -- | The list of configuration nodes to reset to default values on target
-    -- devices. Use JSON pointers to specify each node to reset. JSON pointers
-    -- start with a forward slash (@\/@) and use forward slashes to separate
-    -- the key for each level in the object. For more information, see the
-    -- <https://tools.ietf.org/html/rfc6901 JSON pointer specification> and
-    -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#reset-configuration-update Reset configuration updates>
-    -- in the /IoT Greengrass V2 Developer Guide/.
-    reset :: Prelude.Maybe [Prelude.Text],
-    -- | A serialized JSON string that contains the configuration object to merge
+  { -- | A serialized JSON string that contains the configuration object to merge
     -- to target devices. The core device merges this configuration with the
     -- component\'s existing configuration. If this is the first time a
     -- component deploys on a device, the core device merges this configuration
@@ -47,7 +39,15 @@ data ComponentConfigurationUpdate = ComponentConfigurationUpdate'
     -- don\'t specify in this object. For more information, see
     -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#merge-configuration-update Merge configuration updates>
     -- in the /IoT Greengrass V2 Developer Guide/.
-    merge :: Prelude.Maybe Prelude.Text
+    merge :: Prelude.Maybe Prelude.Text,
+    -- | The list of configuration nodes to reset to default values on target
+    -- devices. Use JSON pointers to specify each node to reset. JSON pointers
+    -- start with a forward slash (@\/@) and use forward slashes to separate
+    -- the key for each level in the object. For more information, see the
+    -- <https://tools.ietf.org/html/rfc6901 JSON pointer specification> and
+    -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#reset-configuration-update Reset configuration updates>
+    -- in the /IoT Greengrass V2 Developer Guide/.
+    reset :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,14 +59,6 @@ data ComponentConfigurationUpdate = ComponentConfigurationUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reset', 'componentConfigurationUpdate_reset' - The list of configuration nodes to reset to default values on target
--- devices. Use JSON pointers to specify each node to reset. JSON pointers
--- start with a forward slash (@\/@) and use forward slashes to separate
--- the key for each level in the object. For more information, see the
--- <https://tools.ietf.org/html/rfc6901 JSON pointer specification> and
--- <https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#reset-configuration-update Reset configuration updates>
--- in the /IoT Greengrass V2 Developer Guide/.
---
 -- 'merge', 'componentConfigurationUpdate_merge' - A serialized JSON string that contains the configuration object to merge
 -- to target devices. The core device merges this configuration with the
 -- component\'s existing configuration. If this is the first time a
@@ -76,24 +68,22 @@ data ComponentConfigurationUpdate = ComponentConfigurationUpdate'
 -- don\'t specify in this object. For more information, see
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#merge-configuration-update Merge configuration updates>
 -- in the /IoT Greengrass V2 Developer Guide/.
-newComponentConfigurationUpdate ::
-  ComponentConfigurationUpdate
-newComponentConfigurationUpdate =
-  ComponentConfigurationUpdate'
-    { reset =
-        Prelude.Nothing,
-      merge = Prelude.Nothing
-    }
-
--- | The list of configuration nodes to reset to default values on target
+--
+-- 'reset', 'componentConfigurationUpdate_reset' - The list of configuration nodes to reset to default values on target
 -- devices. Use JSON pointers to specify each node to reset. JSON pointers
 -- start with a forward slash (@\/@) and use forward slashes to separate
 -- the key for each level in the object. For more information, see the
 -- <https://tools.ietf.org/html/rfc6901 JSON pointer specification> and
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#reset-configuration-update Reset configuration updates>
 -- in the /IoT Greengrass V2 Developer Guide/.
-componentConfigurationUpdate_reset :: Lens.Lens' ComponentConfigurationUpdate (Prelude.Maybe [Prelude.Text])
-componentConfigurationUpdate_reset = Lens.lens (\ComponentConfigurationUpdate' {reset} -> reset) (\s@ComponentConfigurationUpdate' {} a -> s {reset = a} :: ComponentConfigurationUpdate) Prelude.. Lens.mapping Lens.coerced
+newComponentConfigurationUpdate ::
+  ComponentConfigurationUpdate
+newComponentConfigurationUpdate =
+  ComponentConfigurationUpdate'
+    { merge =
+        Prelude.Nothing,
+      reset = Prelude.Nothing
+    }
 
 -- | A serialized JSON string that contains the configuration object to merge
 -- to target devices. The core device merges this configuration with the
@@ -107,14 +97,24 @@ componentConfigurationUpdate_reset = Lens.lens (\ComponentConfigurationUpdate' {
 componentConfigurationUpdate_merge :: Lens.Lens' ComponentConfigurationUpdate (Prelude.Maybe Prelude.Text)
 componentConfigurationUpdate_merge = Lens.lens (\ComponentConfigurationUpdate' {merge} -> merge) (\s@ComponentConfigurationUpdate' {} a -> s {merge = a} :: ComponentConfigurationUpdate)
 
+-- | The list of configuration nodes to reset to default values on target
+-- devices. Use JSON pointers to specify each node to reset. JSON pointers
+-- start with a forward slash (@\/@) and use forward slashes to separate
+-- the key for each level in the object. For more information, see the
+-- <https://tools.ietf.org/html/rfc6901 JSON pointer specification> and
+-- <https://docs.aws.amazon.com/greengrass/v2/developerguide/update-component-configurations.html#reset-configuration-update Reset configuration updates>
+-- in the /IoT Greengrass V2 Developer Guide/.
+componentConfigurationUpdate_reset :: Lens.Lens' ComponentConfigurationUpdate (Prelude.Maybe [Prelude.Text])
+componentConfigurationUpdate_reset = Lens.lens (\ComponentConfigurationUpdate' {reset} -> reset) (\s@ComponentConfigurationUpdate' {} a -> s {reset = a} :: ComponentConfigurationUpdate) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON ComponentConfigurationUpdate where
   parseJSON =
     Core.withObject
       "ComponentConfigurationUpdate"
       ( \x ->
           ComponentConfigurationUpdate'
-            Prelude.<$> (x Core..:? "reset" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "merge")
+            Prelude.<$> (x Core..:? "merge")
+            Prelude.<*> (x Core..:? "reset" Core..!= Prelude.mempty)
       )
 
 instance
@@ -122,18 +122,18 @@ instance
     ComponentConfigurationUpdate
   where
   hashWithSalt _salt ComponentConfigurationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` reset
-      `Prelude.hashWithSalt` merge
+    _salt `Prelude.hashWithSalt` merge
+      `Prelude.hashWithSalt` reset
 
 instance Prelude.NFData ComponentConfigurationUpdate where
   rnf ComponentConfigurationUpdate' {..} =
-    Prelude.rnf reset `Prelude.seq` Prelude.rnf merge
+    Prelude.rnf merge `Prelude.seq` Prelude.rnf reset
 
 instance Core.ToJSON ComponentConfigurationUpdate where
   toJSON ComponentConfigurationUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("reset" Core..=) Prelude.<$> reset,
-            ("merge" Core..=) Prelude.<$> merge
+          [ ("merge" Core..=) Prelude.<$> merge,
+            ("reset" Core..=) Prelude.<$> reset
           ]
       )

@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 data AddMediaStreamRequest = AddMediaStreamRequest'
   { -- | The resolution of the video.
     videoFormat :: Prelude.Maybe Prelude.Text,
-    -- | The attributes that you want to assign to the new media stream.
-    attributes :: Prelude.Maybe MediaStreamAttributesRequest,
+    -- | A description that can help you quickly identify what your media stream
+    -- is used for.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The sample rate (in Hz) for the stream. If the media stream type is
     -- video or ancillary data, set this value to 90000. If the media stream
     -- type is audio, set this value to either 48000 or 96000.
     clockRate :: Prelude.Maybe Prelude.Int,
-    -- | A description that can help you quickly identify what your media stream
-    -- is used for.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The attributes that you want to assign to the new media stream.
+    attributes :: Prelude.Maybe MediaStreamAttributesRequest,
     -- | The type of media stream.
     mediaStreamType :: MediaStreamType,
     -- | A unique identifier for the media stream.
@@ -59,14 +59,14 @@ data AddMediaStreamRequest = AddMediaStreamRequest'
 --
 -- 'videoFormat', 'addMediaStreamRequest_videoFormat' - The resolution of the video.
 --
--- 'attributes', 'addMediaStreamRequest_attributes' - The attributes that you want to assign to the new media stream.
+-- 'description', 'addMediaStreamRequest_description' - A description that can help you quickly identify what your media stream
+-- is used for.
 --
 -- 'clockRate', 'addMediaStreamRequest_clockRate' - The sample rate (in Hz) for the stream. If the media stream type is
 -- video or ancillary data, set this value to 90000. If the media stream
 -- type is audio, set this value to either 48000 or 96000.
 --
--- 'description', 'addMediaStreamRequest_description' - A description that can help you quickly identify what your media stream
--- is used for.
+-- 'attributes', 'addMediaStreamRequest_attributes' - The attributes that you want to assign to the new media stream.
 --
 -- 'mediaStreamType', 'addMediaStreamRequest_mediaStreamType' - The type of media stream.
 --
@@ -88,9 +88,9 @@ newAddMediaStreamRequest
     AddMediaStreamRequest'
       { videoFormat =
           Prelude.Nothing,
-        attributes = Prelude.Nothing,
-        clockRate = Prelude.Nothing,
         description = Prelude.Nothing,
+        clockRate = Prelude.Nothing,
+        attributes = Prelude.Nothing,
         mediaStreamType = pMediaStreamType_,
         mediaStreamId = pMediaStreamId_,
         mediaStreamName = pMediaStreamName_
@@ -100,9 +100,10 @@ newAddMediaStreamRequest
 addMediaStreamRequest_videoFormat :: Lens.Lens' AddMediaStreamRequest (Prelude.Maybe Prelude.Text)
 addMediaStreamRequest_videoFormat = Lens.lens (\AddMediaStreamRequest' {videoFormat} -> videoFormat) (\s@AddMediaStreamRequest' {} a -> s {videoFormat = a} :: AddMediaStreamRequest)
 
--- | The attributes that you want to assign to the new media stream.
-addMediaStreamRequest_attributes :: Lens.Lens' AddMediaStreamRequest (Prelude.Maybe MediaStreamAttributesRequest)
-addMediaStreamRequest_attributes = Lens.lens (\AddMediaStreamRequest' {attributes} -> attributes) (\s@AddMediaStreamRequest' {} a -> s {attributes = a} :: AddMediaStreamRequest)
+-- | A description that can help you quickly identify what your media stream
+-- is used for.
+addMediaStreamRequest_description :: Lens.Lens' AddMediaStreamRequest (Prelude.Maybe Prelude.Text)
+addMediaStreamRequest_description = Lens.lens (\AddMediaStreamRequest' {description} -> description) (\s@AddMediaStreamRequest' {} a -> s {description = a} :: AddMediaStreamRequest)
 
 -- | The sample rate (in Hz) for the stream. If the media stream type is
 -- video or ancillary data, set this value to 90000. If the media stream
@@ -110,10 +111,9 @@ addMediaStreamRequest_attributes = Lens.lens (\AddMediaStreamRequest' {attribute
 addMediaStreamRequest_clockRate :: Lens.Lens' AddMediaStreamRequest (Prelude.Maybe Prelude.Int)
 addMediaStreamRequest_clockRate = Lens.lens (\AddMediaStreamRequest' {clockRate} -> clockRate) (\s@AddMediaStreamRequest' {} a -> s {clockRate = a} :: AddMediaStreamRequest)
 
--- | A description that can help you quickly identify what your media stream
--- is used for.
-addMediaStreamRequest_description :: Lens.Lens' AddMediaStreamRequest (Prelude.Maybe Prelude.Text)
-addMediaStreamRequest_description = Lens.lens (\AddMediaStreamRequest' {description} -> description) (\s@AddMediaStreamRequest' {} a -> s {description = a} :: AddMediaStreamRequest)
+-- | The attributes that you want to assign to the new media stream.
+addMediaStreamRequest_attributes :: Lens.Lens' AddMediaStreamRequest (Prelude.Maybe MediaStreamAttributesRequest)
+addMediaStreamRequest_attributes = Lens.lens (\AddMediaStreamRequest' {attributes} -> attributes) (\s@AddMediaStreamRequest' {} a -> s {attributes = a} :: AddMediaStreamRequest)
 
 -- | The type of media stream.
 addMediaStreamRequest_mediaStreamType :: Lens.Lens' AddMediaStreamRequest MediaStreamType
@@ -130,9 +130,9 @@ addMediaStreamRequest_mediaStreamName = Lens.lens (\AddMediaStreamRequest' {medi
 instance Prelude.Hashable AddMediaStreamRequest where
   hashWithSalt _salt AddMediaStreamRequest' {..} =
     _salt `Prelude.hashWithSalt` videoFormat
-      `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` clockRate
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clockRate
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` mediaStreamType
       `Prelude.hashWithSalt` mediaStreamId
       `Prelude.hashWithSalt` mediaStreamName
@@ -140,9 +140,9 @@ instance Prelude.Hashable AddMediaStreamRequest where
 instance Prelude.NFData AddMediaStreamRequest where
   rnf AddMediaStreamRequest' {..} =
     Prelude.rnf videoFormat
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf clockRate
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clockRate
+      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf mediaStreamType
       `Prelude.seq` Prelude.rnf mediaStreamId
       `Prelude.seq` Prelude.rnf mediaStreamName
@@ -152,9 +152,9 @@ instance Core.ToJSON AddMediaStreamRequest where
     Core.object
       ( Prelude.catMaybes
           [ ("videoFormat" Core..=) Prelude.<$> videoFormat,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("clockRate" Core..=) Prelude.<$> clockRate,
             ("description" Core..=) Prelude.<$> description,
+            ("clockRate" Core..=) Prelude.<$> clockRate,
+            ("attributes" Core..=) Prelude.<$> attributes,
             Prelude.Just
               ("mediaStreamType" Core..= mediaStreamType),
             Prelude.Just ("mediaStreamId" Core..= mediaStreamId),

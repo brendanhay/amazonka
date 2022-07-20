@@ -27,10 +27,10 @@ module Amazonka.SageMaker.CreateModelBiasJobDefinition
     newCreateModelBiasJobDefinition,
 
     -- * Request Lenses
+    createModelBiasJobDefinition_tags,
+    createModelBiasJobDefinition_networkConfig,
     createModelBiasJobDefinition_modelBiasBaselineConfig,
     createModelBiasJobDefinition_stoppingCondition,
-    createModelBiasJobDefinition_networkConfig,
-    createModelBiasJobDefinition_tags,
     createModelBiasJobDefinition_jobDefinitionName,
     createModelBiasJobDefinition_modelBiasAppSpecification,
     createModelBiasJobDefinition_modelBiasJobInput,
@@ -57,15 +57,15 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateModelBiasJobDefinition' smart constructor.
 data CreateModelBiasJobDefinition = CreateModelBiasJobDefinition'
-  { -- | The baseline configuration for a model bias job.
-    modelBiasBaselineConfig :: Prelude.Maybe ModelBiasBaselineConfig,
-    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
-    -- | Networking options for a model bias job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
-    -- | (Optional) An array of key-value pairs. For more information, see
+  { -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
     -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
+    -- | Networking options for a model bias job.
+    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
+    -- | The baseline configuration for a model bias job.
+    modelBiasBaselineConfig :: Prelude.Maybe ModelBiasBaselineConfig,
+    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The name of the bias job definition. The name must be unique within an
     -- Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text,
@@ -89,15 +89,15 @@ data CreateModelBiasJobDefinition = CreateModelBiasJobDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelBiasBaselineConfig', 'createModelBiasJobDefinition_modelBiasBaselineConfig' - The baseline configuration for a model bias job.
---
--- 'stoppingCondition', 'createModelBiasJobDefinition_stoppingCondition' - Undocumented member.
---
--- 'networkConfig', 'createModelBiasJobDefinition_networkConfig' - Networking options for a model bias job.
---
 -- 'tags', 'createModelBiasJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
+--
+-- 'networkConfig', 'createModelBiasJobDefinition_networkConfig' - Networking options for a model bias job.
+--
+-- 'modelBiasBaselineConfig', 'createModelBiasJobDefinition_modelBiasBaselineConfig' - The baseline configuration for a model bias job.
+--
+-- 'stoppingCondition', 'createModelBiasJobDefinition_stoppingCondition' - Undocumented member.
 --
 -- 'jobDefinitionName', 'createModelBiasJobDefinition_jobDefinitionName' - The name of the bias job definition. The name must be unique within an
 -- Amazon Web Services Region in the Amazon Web Services account.
@@ -134,11 +134,11 @@ newCreateModelBiasJobDefinition
   pJobResources_
   pRoleArn_ =
     CreateModelBiasJobDefinition'
-      { modelBiasBaselineConfig =
+      { tags =
           Prelude.Nothing,
-        stoppingCondition = Prelude.Nothing,
         networkConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        modelBiasBaselineConfig = Prelude.Nothing,
+        stoppingCondition = Prelude.Nothing,
         jobDefinitionName = pJobDefinitionName_,
         modelBiasAppSpecification =
           pModelBiasAppSpecification_,
@@ -149,6 +149,16 @@ newCreateModelBiasJobDefinition
         roleArn = pRoleArn_
       }
 
+-- | (Optional) An array of key-value pairs. For more information, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
+createModelBiasJobDefinition_tags :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe [Tag])
+createModelBiasJobDefinition_tags = Lens.lens (\CreateModelBiasJobDefinition' {tags} -> tags) (\s@CreateModelBiasJobDefinition' {} a -> s {tags = a} :: CreateModelBiasJobDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | Networking options for a model bias job.
+createModelBiasJobDefinition_networkConfig :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe MonitoringNetworkConfig)
+createModelBiasJobDefinition_networkConfig = Lens.lens (\CreateModelBiasJobDefinition' {networkConfig} -> networkConfig) (\s@CreateModelBiasJobDefinition' {} a -> s {networkConfig = a} :: CreateModelBiasJobDefinition)
+
 -- | The baseline configuration for a model bias job.
 createModelBiasJobDefinition_modelBiasBaselineConfig :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe ModelBiasBaselineConfig)
 createModelBiasJobDefinition_modelBiasBaselineConfig = Lens.lens (\CreateModelBiasJobDefinition' {modelBiasBaselineConfig} -> modelBiasBaselineConfig) (\s@CreateModelBiasJobDefinition' {} a -> s {modelBiasBaselineConfig = a} :: CreateModelBiasJobDefinition)
@@ -156,16 +166,6 @@ createModelBiasJobDefinition_modelBiasBaselineConfig = Lens.lens (\CreateModelBi
 -- | Undocumented member.
 createModelBiasJobDefinition_stoppingCondition :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
 createModelBiasJobDefinition_stoppingCondition = Lens.lens (\CreateModelBiasJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateModelBiasJobDefinition' {} a -> s {stoppingCondition = a} :: CreateModelBiasJobDefinition)
-
--- | Networking options for a model bias job.
-createModelBiasJobDefinition_networkConfig :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe MonitoringNetworkConfig)
-createModelBiasJobDefinition_networkConfig = Lens.lens (\CreateModelBiasJobDefinition' {networkConfig} -> networkConfig) (\s@CreateModelBiasJobDefinition' {} a -> s {networkConfig = a} :: CreateModelBiasJobDefinition)
-
--- | (Optional) An array of key-value pairs. For more information, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /Amazon Web Services Billing and Cost Management User Guide/.
-createModelBiasJobDefinition_tags :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe [Tag])
-createModelBiasJobDefinition_tags = Lens.lens (\CreateModelBiasJobDefinition' {tags} -> tags) (\s@CreateModelBiasJobDefinition' {} a -> s {tags = a} :: CreateModelBiasJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the bias job definition. The name must be unique within an
 -- Amazon Web Services Region in the Amazon Web Services account.
@@ -211,11 +211,10 @@ instance
     CreateModelBiasJobDefinition
   where
   hashWithSalt _salt CreateModelBiasJobDefinition' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` networkConfig
       `Prelude.hashWithSalt` modelBiasBaselineConfig
       `Prelude.hashWithSalt` stoppingCondition
-      `Prelude.hashWithSalt` networkConfig
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobDefinitionName
       `Prelude.hashWithSalt` modelBiasAppSpecification
       `Prelude.hashWithSalt` modelBiasJobInput
@@ -225,10 +224,10 @@ instance
 
 instance Prelude.NFData CreateModelBiasJobDefinition where
   rnf CreateModelBiasJobDefinition' {..} =
-    Prelude.rnf modelBiasBaselineConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf modelBiasBaselineConfig
+      `Prelude.seq` Prelude.rnf stoppingCondition
       `Prelude.seq` Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf modelBiasAppSpecification
       `Prelude.seq` Prelude.rnf modelBiasJobInput
@@ -255,12 +254,12 @@ instance Core.ToJSON CreateModelBiasJobDefinition where
   toJSON CreateModelBiasJobDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ModelBiasBaselineConfig" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
+            ("ModelBiasBaselineConfig" Core..=)
               Prelude.<$> modelBiasBaselineConfig,
             ("StoppingCondition" Core..=)
               Prelude.<$> stoppingCondition,
-            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("JobDefinitionName" Core..= jobDefinitionName),
             Prelude.Just

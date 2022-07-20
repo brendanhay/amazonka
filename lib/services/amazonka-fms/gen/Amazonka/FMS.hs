@@ -27,20 +27,20 @@ module Amazonka.FMS
     -- * Errors
     -- $errors
 
-    -- ** InternalErrorException
-    _InternalErrorException,
-
     -- ** InvalidInputException
     _InvalidInputException,
 
     -- ** InvalidOperationException
     _InvalidOperationException,
 
-    -- ** InvalidTypeException
-    _InvalidTypeException,
+    -- ** InternalErrorException
+    _InternalErrorException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** InvalidTypeException
+    _InvalidTypeException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -51,71 +51,17 @@ module Amazonka.FMS
     -- * Operations
     -- $operations
 
-    -- ** ListPolicies (Paginated)
-    ListPolicies (ListPolicies'),
-    newListPolicies,
-    ListPoliciesResponse (ListPoliciesResponse'),
-    newListPoliciesResponse,
+    -- ** AssociateAdminAccount
+    AssociateAdminAccount (AssociateAdminAccount'),
+    newAssociateAdminAccount,
+    AssociateAdminAccountResponse (AssociateAdminAccountResponse'),
+    newAssociateAdminAccountResponse,
 
-    -- ** GetComplianceDetail
-    GetComplianceDetail (GetComplianceDetail'),
-    newGetComplianceDetail,
-    GetComplianceDetailResponse (GetComplianceDetailResponse'),
-    newGetComplianceDetailResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetNotificationChannel
-    GetNotificationChannel (GetNotificationChannel'),
-    newGetNotificationChannel,
-    GetNotificationChannelResponse (GetNotificationChannelResponse'),
-    newGetNotificationChannelResponse,
-
-    -- ** GetAdminAccount
-    GetAdminAccount (GetAdminAccount'),
-    newGetAdminAccount,
-    GetAdminAccountResponse (GetAdminAccountResponse'),
-    newGetAdminAccountResponse,
-
-    -- ** ListComplianceStatus (Paginated)
-    ListComplianceStatus (ListComplianceStatus'),
-    newListComplianceStatus,
-    ListComplianceStatusResponse (ListComplianceStatusResponse'),
-    newListComplianceStatusResponse,
-
-    -- ** GetAppsList
-    GetAppsList (GetAppsList'),
-    newGetAppsList,
-    GetAppsListResponse (GetAppsListResponse'),
-    newGetAppsListResponse,
-
-    -- ** PutPolicy
-    PutPolicy (PutPolicy'),
-    newPutPolicy,
-    PutPolicyResponse (PutPolicyResponse'),
-    newPutPolicyResponse,
-
-    -- ** DeletePolicy
-    DeletePolicy (DeletePolicy'),
-    newDeletePolicy,
-    DeletePolicyResponse (DeletePolicyResponse'),
-    newDeletePolicyResponse,
-
-    -- ** DisassociateAdminAccount
-    DisassociateAdminAccount (DisassociateAdminAccount'),
-    newDisassociateAdminAccount,
-    DisassociateAdminAccountResponse (DisassociateAdminAccountResponse'),
-    newDisassociateAdminAccountResponse,
-
-    -- ** PutNotificationChannel
-    PutNotificationChannel (PutNotificationChannel'),
-    newPutNotificationChannel,
-    PutNotificationChannelResponse (PutNotificationChannelResponse'),
-    newPutNotificationChannelResponse,
+    -- ** DeleteAppsList
+    DeleteAppsList (DeleteAppsList'),
+    newDeleteAppsList,
+    DeleteAppsListResponse (DeleteAppsListResponse'),
+    newDeleteAppsListResponse,
 
     -- ** DeleteNotificationChannel
     DeleteNotificationChannel (DeleteNotificationChannel'),
@@ -123,11 +69,65 @@ module Amazonka.FMS
     DeleteNotificationChannelResponse (DeleteNotificationChannelResponse'),
     newDeleteNotificationChannelResponse,
 
-    -- ** AssociateAdminAccount
-    AssociateAdminAccount (AssociateAdminAccount'),
-    newAssociateAdminAccount,
-    AssociateAdminAccountResponse (AssociateAdminAccountResponse'),
-    newAssociateAdminAccountResponse,
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
+
+    -- ** DeleteProtocolsList
+    DeleteProtocolsList (DeleteProtocolsList'),
+    newDeleteProtocolsList,
+    DeleteProtocolsListResponse (DeleteProtocolsListResponse'),
+    newDeleteProtocolsListResponse,
+
+    -- ** DisassociateAdminAccount
+    DisassociateAdminAccount (DisassociateAdminAccount'),
+    newDisassociateAdminAccount,
+    DisassociateAdminAccountResponse (DisassociateAdminAccountResponse'),
+    newDisassociateAdminAccountResponse,
+
+    -- ** GetAdminAccount
+    GetAdminAccount (GetAdminAccount'),
+    newGetAdminAccount,
+    GetAdminAccountResponse (GetAdminAccountResponse'),
+    newGetAdminAccountResponse,
+
+    -- ** GetAppsList
+    GetAppsList (GetAppsList'),
+    newGetAppsList,
+    GetAppsListResponse (GetAppsListResponse'),
+    newGetAppsListResponse,
+
+    -- ** GetComplianceDetail
+    GetComplianceDetail (GetComplianceDetail'),
+    newGetComplianceDetail,
+    GetComplianceDetailResponse (GetComplianceDetailResponse'),
+    newGetComplianceDetailResponse,
+
+    -- ** GetNotificationChannel
+    GetNotificationChannel (GetNotificationChannel'),
+    newGetNotificationChannel,
+    GetNotificationChannelResponse (GetNotificationChannelResponse'),
+    newGetNotificationChannelResponse,
+
+    -- ** GetPolicy
+    GetPolicy (GetPolicy'),
+    newGetPolicy,
+    GetPolicyResponse (GetPolicyResponse'),
+    newGetPolicyResponse,
+
+    -- ** GetProtectionStatus
+    GetProtectionStatus (GetProtectionStatus'),
+    newGetProtectionStatus,
+    GetProtectionStatusResponse (GetProtectionStatusResponse'),
+    newGetProtectionStatusResponse,
+
+    -- ** GetProtocolsList
+    GetProtocolsList (GetProtocolsList'),
+    newGetProtocolsList,
+    GetProtocolsListResponse (GetProtocolsListResponse'),
+    newGetProtocolsListResponse,
 
     -- ** GetViolationDetails
     GetViolationDetails (GetViolationDetails'),
@@ -135,11 +135,65 @@ module Amazonka.FMS
     GetViolationDetailsResponse (GetViolationDetailsResponse'),
     newGetViolationDetailsResponse,
 
+    -- ** ListAppsLists (Paginated)
+    ListAppsLists (ListAppsLists'),
+    newListAppsLists,
+    ListAppsListsResponse (ListAppsListsResponse'),
+    newListAppsListsResponse,
+
+    -- ** ListComplianceStatus (Paginated)
+    ListComplianceStatus (ListComplianceStatus'),
+    newListComplianceStatus,
+    ListComplianceStatusResponse (ListComplianceStatusResponse'),
+    newListComplianceStatusResponse,
+
     -- ** ListMemberAccounts (Paginated)
     ListMemberAccounts (ListMemberAccounts'),
     newListMemberAccounts,
     ListMemberAccountsResponse (ListMemberAccountsResponse'),
     newListMemberAccountsResponse,
+
+    -- ** ListPolicies (Paginated)
+    ListPolicies (ListPolicies'),
+    newListPolicies,
+    ListPoliciesResponse (ListPoliciesResponse'),
+    newListPoliciesResponse,
+
+    -- ** ListProtocolsLists (Paginated)
+    ListProtocolsLists (ListProtocolsLists'),
+    newListProtocolsLists,
+    ListProtocolsListsResponse (ListProtocolsListsResponse'),
+    newListProtocolsListsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutAppsList
+    PutAppsList (PutAppsList'),
+    newPutAppsList,
+    PutAppsListResponse (PutAppsListResponse'),
+    newPutAppsListResponse,
+
+    -- ** PutNotificationChannel
+    PutNotificationChannel (PutNotificationChannel'),
+    newPutNotificationChannel,
+    PutNotificationChannelResponse (PutNotificationChannelResponse'),
+    newPutNotificationChannelResponse,
+
+    -- ** PutPolicy
+    PutPolicy (PutPolicy'),
+    newPutPolicy,
+    PutPolicyResponse (PutPolicyResponse'),
+    newPutPolicyResponse,
+
+    -- ** PutProtocolsList
+    PutProtocolsList (PutProtocolsList'),
+    newPutProtocolsList,
+    PutProtocolsListResponse (PutProtocolsListResponse'),
+    newPutProtocolsListResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -152,60 +206,6 @@ module Amazonka.FMS
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** DeleteProtocolsList
-    DeleteProtocolsList (DeleteProtocolsList'),
-    newDeleteProtocolsList,
-    DeleteProtocolsListResponse (DeleteProtocolsListResponse'),
-    newDeleteProtocolsListResponse,
-
-    -- ** GetPolicy
-    GetPolicy (GetPolicy'),
-    newGetPolicy,
-    GetPolicyResponse (GetPolicyResponse'),
-    newGetPolicyResponse,
-
-    -- ** ListProtocolsLists (Paginated)
-    ListProtocolsLists (ListProtocolsLists'),
-    newListProtocolsLists,
-    ListProtocolsListsResponse (ListProtocolsListsResponse'),
-    newListProtocolsListsResponse,
-
-    -- ** PutProtocolsList
-    PutProtocolsList (PutProtocolsList'),
-    newPutProtocolsList,
-    PutProtocolsListResponse (PutProtocolsListResponse'),
-    newPutProtocolsListResponse,
-
-    -- ** PutAppsList
-    PutAppsList (PutAppsList'),
-    newPutAppsList,
-    PutAppsListResponse (PutAppsListResponse'),
-    newPutAppsListResponse,
-
-    -- ** DeleteAppsList
-    DeleteAppsList (DeleteAppsList'),
-    newDeleteAppsList,
-    DeleteAppsListResponse (DeleteAppsListResponse'),
-    newDeleteAppsListResponse,
-
-    -- ** ListAppsLists (Paginated)
-    ListAppsLists (ListAppsLists'),
-    newListAppsLists,
-    ListAppsListsResponse (ListAppsListsResponse'),
-    newListAppsListsResponse,
-
-    -- ** GetProtocolsList
-    GetProtocolsList (GetProtocolsList'),
-    newGetProtocolsList,
-    GetProtocolsListResponse (GetProtocolsListResponse'),
-    newGetProtocolsListResponse,
-
-    -- ** GetProtectionStatus
-    GetProtectionStatus (GetProtectionStatus'),
-    newGetProtectionStatus,
-    GetProtectionStatusResponse (GetProtectionStatusResponse'),
-    newGetProtectionStatusResponse,
 
     -- * Types
 

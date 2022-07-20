@@ -29,41 +29,41 @@ module Amazonka.AlexaBusiness
     -- * Errors
     -- $errors
 
-    -- ** SkillNotLinkedException
-    _SkillNotLinkedException,
-
-    -- ** InvalidCertificateAuthorityException
-    _InvalidCertificateAuthorityException,
-
-    -- ** DeviceNotRegisteredException
-    _DeviceNotRegisteredException,
+    -- ** NameInUseException
+    _NameInUseException,
 
     -- ** ResourceAssociatedException
     _ResourceAssociatedException,
 
-    -- ** InvalidUserStatusException
-    _InvalidUserStatusException,
-
-    -- ** InvalidDeviceException
-    _InvalidDeviceException,
-
-    -- ** InvalidServiceLinkedRoleStateException
-    _InvalidServiceLinkedRoleStateException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** NameInUseException
-    _NameInUseException,
-
     -- ** InvalidSecretsManagerResourceException
     _InvalidSecretsManagerResourceException,
+
+    -- ** InvalidUserStatusException
+    _InvalidUserStatusException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
+    -- ** InvalidServiceLinkedRoleStateException
+    _InvalidServiceLinkedRoleStateException,
+
+    -- ** SkillNotLinkedException
+    _SkillNotLinkedException,
+
+    -- ** InvalidDeviceException
+    _InvalidDeviceException,
+
     -- ** UnauthorizedException
     _UnauthorizedException,
+
+    -- ** InvalidCertificateAuthorityException
+    _InvalidCertificateAuthorityException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
@@ -71,8 +71,8 @@ module Amazonka.AlexaBusiness
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** DeviceNotRegisteredException
+    _DeviceNotRegisteredException,
 
     -- * Waiters
     -- $waiters
@@ -80,41 +80,29 @@ module Amazonka.AlexaBusiness
     -- * Operations
     -- $operations
 
-    -- ** SearchUsers (Paginated)
-    SearchUsers (SearchUsers'),
-    newSearchUsers,
-    SearchUsersResponse (SearchUsersResponse'),
-    newSearchUsersResponse,
+    -- ** ApproveSkill
+    ApproveSkill (ApproveSkill'),
+    newApproveSkill,
+    ApproveSkillResponse (ApproveSkillResponse'),
+    newApproveSkillResponse,
 
-    -- ** PutConferencePreference
-    PutConferencePreference (PutConferencePreference'),
-    newPutConferencePreference,
-    PutConferencePreferenceResponse (PutConferencePreferenceResponse'),
-    newPutConferencePreferenceResponse,
+    -- ** AssociateContactWithAddressBook
+    AssociateContactWithAddressBook (AssociateContactWithAddressBook'),
+    newAssociateContactWithAddressBook,
+    AssociateContactWithAddressBookResponse (AssociateContactWithAddressBookResponse'),
+    newAssociateContactWithAddressBookResponse,
 
-    -- ** UpdateNetworkProfile
-    UpdateNetworkProfile (UpdateNetworkProfile'),
-    newUpdateNetworkProfile,
-    UpdateNetworkProfileResponse (UpdateNetworkProfileResponse'),
-    newUpdateNetworkProfileResponse,
+    -- ** AssociateDeviceWithNetworkProfile
+    AssociateDeviceWithNetworkProfile (AssociateDeviceWithNetworkProfile'),
+    newAssociateDeviceWithNetworkProfile,
+    AssociateDeviceWithNetworkProfileResponse (AssociateDeviceWithNetworkProfileResponse'),
+    newAssociateDeviceWithNetworkProfileResponse,
 
-    -- ** DeleteNetworkProfile
-    DeleteNetworkProfile (DeleteNetworkProfile'),
-    newDeleteNetworkProfile,
-    DeleteNetworkProfileResponse (DeleteNetworkProfileResponse'),
-    newDeleteNetworkProfileResponse,
-
-    -- ** UpdateBusinessReportSchedule
-    UpdateBusinessReportSchedule (UpdateBusinessReportSchedule'),
-    newUpdateBusinessReportSchedule,
-    UpdateBusinessReportScheduleResponse (UpdateBusinessReportScheduleResponse'),
-    newUpdateBusinessReportScheduleResponse,
-
-    -- ** DeleteBusinessReportSchedule
-    DeleteBusinessReportSchedule (DeleteBusinessReportSchedule'),
-    newDeleteBusinessReportSchedule,
-    DeleteBusinessReportScheduleResponse (DeleteBusinessReportScheduleResponse'),
-    newDeleteBusinessReportScheduleResponse,
+    -- ** AssociateDeviceWithRoom
+    AssociateDeviceWithRoom (AssociateDeviceWithRoom'),
+    newAssociateDeviceWithRoom,
+    AssociateDeviceWithRoomResponse (AssociateDeviceWithRoomResponse'),
+    newAssociateDeviceWithRoomResponse,
 
     -- ** AssociateSkillGroupWithRoom
     AssociateSkillGroupWithRoom (AssociateSkillGroupWithRoom'),
@@ -122,29 +110,11 @@ module Amazonka.AlexaBusiness
     AssociateSkillGroupWithRoomResponse (AssociateSkillGroupWithRoomResponse'),
     newAssociateSkillGroupWithRoomResponse,
 
-    -- ** ListSmartHomeAppliances (Paginated)
-    ListSmartHomeAppliances (ListSmartHomeAppliances'),
-    newListSmartHomeAppliances,
-    ListSmartHomeAppliancesResponse (ListSmartHomeAppliancesResponse'),
-    newListSmartHomeAppliancesResponse,
-
-    -- ** DeleteProfile
-    DeleteProfile (DeleteProfile'),
-    newDeleteProfile,
-    DeleteProfileResponse (DeleteProfileResponse'),
-    newDeleteProfileResponse,
-
-    -- ** UpdateProfile
-    UpdateProfile (UpdateProfile'),
-    newUpdateProfile,
-    UpdateProfileResponse (UpdateProfileResponse'),
-    newUpdateProfileResponse,
-
-    -- ** SearchRooms (Paginated)
-    SearchRooms (SearchRooms'),
-    newSearchRooms,
-    SearchRoomsResponse (SearchRoomsResponse'),
-    newSearchRoomsResponse,
+    -- ** AssociateSkillWithSkillGroup
+    AssociateSkillWithSkillGroup (AssociateSkillWithSkillGroup'),
+    newAssociateSkillWithSkillGroup,
+    AssociateSkillWithSkillGroupResponse (AssociateSkillWithSkillGroupResponse'),
+    newAssociateSkillWithSkillGroupResponse,
 
     -- ** AssociateSkillWithUsers
     AssociateSkillWithUsers (AssociateSkillWithUsers'),
@@ -152,53 +122,65 @@ module Amazonka.AlexaBusiness
     AssociateSkillWithUsersResponse (AssociateSkillWithUsersResponse'),
     newAssociateSkillWithUsersResponse,
 
-    -- ** RegisterAVSDevice
-    RegisterAVSDevice (RegisterAVSDevice'),
-    newRegisterAVSDevice,
-    RegisterAVSDeviceResponse (RegisterAVSDeviceResponse'),
-    newRegisterAVSDeviceResponse,
-
-    -- ** ForgetSmartHomeAppliances
-    ForgetSmartHomeAppliances (ForgetSmartHomeAppliances'),
-    newForgetSmartHomeAppliances,
-    ForgetSmartHomeAppliancesResponse (ForgetSmartHomeAppliancesResponse'),
-    newForgetSmartHomeAppliancesResponse,
-
-    -- ** PutInvitationConfiguration
-    PutInvitationConfiguration (PutInvitationConfiguration'),
-    newPutInvitationConfiguration,
-    PutInvitationConfigurationResponse (PutInvitationConfigurationResponse'),
-    newPutInvitationConfigurationResponse,
-
-    -- ** DisassociateContactFromAddressBook
-    DisassociateContactFromAddressBook (DisassociateContactFromAddressBook'),
-    newDisassociateContactFromAddressBook,
-    DisassociateContactFromAddressBookResponse (DisassociateContactFromAddressBookResponse'),
-    newDisassociateContactFromAddressBookResponse,
-
-    -- ** GetNetworkProfile
-    GetNetworkProfile (GetNetworkProfile'),
-    newGetNetworkProfile,
-    GetNetworkProfileResponse (GetNetworkProfileResponse'),
-    newGetNetworkProfileResponse,
-
-    -- ** GetConferencePreference
-    GetConferencePreference (GetConferencePreference'),
-    newGetConferencePreference,
-    GetConferencePreferenceResponse (GetConferencePreferenceResponse'),
-    newGetConferencePreferenceResponse,
-
-    -- ** DisassociateSkillFromSkillGroup
-    DisassociateSkillFromSkillGroup (DisassociateSkillFromSkillGroup'),
-    newDisassociateSkillFromSkillGroup,
-    DisassociateSkillFromSkillGroupResponse (DisassociateSkillFromSkillGroupResponse'),
-    newDisassociateSkillFromSkillGroupResponse,
-
     -- ** CreateAddressBook
     CreateAddressBook (CreateAddressBook'),
     newCreateAddressBook,
     CreateAddressBookResponse (CreateAddressBookResponse'),
     newCreateAddressBookResponse,
+
+    -- ** CreateBusinessReportSchedule
+    CreateBusinessReportSchedule (CreateBusinessReportSchedule'),
+    newCreateBusinessReportSchedule,
+    CreateBusinessReportScheduleResponse (CreateBusinessReportScheduleResponse'),
+    newCreateBusinessReportScheduleResponse,
+
+    -- ** CreateConferenceProvider
+    CreateConferenceProvider (CreateConferenceProvider'),
+    newCreateConferenceProvider,
+    CreateConferenceProviderResponse (CreateConferenceProviderResponse'),
+    newCreateConferenceProviderResponse,
+
+    -- ** CreateContact
+    CreateContact (CreateContact'),
+    newCreateContact,
+    CreateContactResponse (CreateContactResponse'),
+    newCreateContactResponse,
+
+    -- ** CreateGatewayGroup
+    CreateGatewayGroup (CreateGatewayGroup'),
+    newCreateGatewayGroup,
+    CreateGatewayGroupResponse (CreateGatewayGroupResponse'),
+    newCreateGatewayGroupResponse,
+
+    -- ** CreateNetworkProfile
+    CreateNetworkProfile (CreateNetworkProfile'),
+    newCreateNetworkProfile,
+    CreateNetworkProfileResponse (CreateNetworkProfileResponse'),
+    newCreateNetworkProfileResponse,
+
+    -- ** CreateProfile
+    CreateProfile (CreateProfile'),
+    newCreateProfile,
+    CreateProfileResponse (CreateProfileResponse'),
+    newCreateProfileResponse,
+
+    -- ** CreateRoom
+    CreateRoom (CreateRoom'),
+    newCreateRoom,
+    CreateRoomResponse (CreateRoomResponse'),
+    newCreateRoomResponse,
+
+    -- ** CreateSkillGroup
+    CreateSkillGroup (CreateSkillGroup'),
+    newCreateSkillGroup,
+    CreateSkillGroupResponse (CreateSkillGroupResponse'),
+    newCreateSkillGroupResponse,
+
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
 
     -- ** DeleteAddressBook
     DeleteAddressBook (DeleteAddressBook'),
@@ -206,11 +188,35 @@ module Amazonka.AlexaBusiness
     DeleteAddressBookResponse (DeleteAddressBookResponse'),
     newDeleteAddressBookResponse,
 
-    -- ** UpdateAddressBook
-    UpdateAddressBook (UpdateAddressBook'),
-    newUpdateAddressBook,
-    UpdateAddressBookResponse (UpdateAddressBookResponse'),
-    newUpdateAddressBookResponse,
+    -- ** DeleteBusinessReportSchedule
+    DeleteBusinessReportSchedule (DeleteBusinessReportSchedule'),
+    newDeleteBusinessReportSchedule,
+    DeleteBusinessReportScheduleResponse (DeleteBusinessReportScheduleResponse'),
+    newDeleteBusinessReportScheduleResponse,
+
+    -- ** DeleteConferenceProvider
+    DeleteConferenceProvider (DeleteConferenceProvider'),
+    newDeleteConferenceProvider,
+    DeleteConferenceProviderResponse (DeleteConferenceProviderResponse'),
+    newDeleteConferenceProviderResponse,
+
+    -- ** DeleteContact
+    DeleteContact (DeleteContact'),
+    newDeleteContact,
+    DeleteContactResponse (DeleteContactResponse'),
+    newDeleteContactResponse,
+
+    -- ** DeleteDevice
+    DeleteDevice (DeleteDevice'),
+    newDeleteDevice,
+    DeleteDeviceResponse (DeleteDeviceResponse'),
+    newDeleteDeviceResponse,
+
+    -- ** DeleteDeviceUsageData
+    DeleteDeviceUsageData (DeleteDeviceUsageData'),
+    newDeleteDeviceUsageData,
+    DeleteDeviceUsageDataResponse (DeleteDeviceUsageDataResponse'),
+    newDeleteDeviceUsageDataResponse,
 
     -- ** DeleteGatewayGroup
     DeleteGatewayGroup (DeleteGatewayGroup'),
@@ -218,23 +224,107 @@ module Amazonka.AlexaBusiness
     DeleteGatewayGroupResponse (DeleteGatewayGroupResponse'),
     newDeleteGatewayGroupResponse,
 
-    -- ** UpdateGatewayGroup
-    UpdateGatewayGroup (UpdateGatewayGroup'),
-    newUpdateGatewayGroup,
-    UpdateGatewayGroupResponse (UpdateGatewayGroupResponse'),
-    newUpdateGatewayGroupResponse,
+    -- ** DeleteNetworkProfile
+    DeleteNetworkProfile (DeleteNetworkProfile'),
+    newDeleteNetworkProfile,
+    DeleteNetworkProfileResponse (DeleteNetworkProfileResponse'),
+    newDeleteNetworkProfileResponse,
 
-    -- ** UpdateRoom
-    UpdateRoom (UpdateRoom'),
-    newUpdateRoom,
-    UpdateRoomResponse (UpdateRoomResponse'),
-    newUpdateRoomResponse,
+    -- ** DeleteProfile
+    DeleteProfile (DeleteProfile'),
+    newDeleteProfile,
+    DeleteProfileResponse (DeleteProfileResponse'),
+    newDeleteProfileResponse,
 
     -- ** DeleteRoom
     DeleteRoom (DeleteRoom'),
     newDeleteRoom,
     DeleteRoomResponse (DeleteRoomResponse'),
     newDeleteRoomResponse,
+
+    -- ** DeleteRoomSkillParameter
+    DeleteRoomSkillParameter (DeleteRoomSkillParameter'),
+    newDeleteRoomSkillParameter,
+    DeleteRoomSkillParameterResponse (DeleteRoomSkillParameterResponse'),
+    newDeleteRoomSkillParameterResponse,
+
+    -- ** DeleteSkillAuthorization
+    DeleteSkillAuthorization (DeleteSkillAuthorization'),
+    newDeleteSkillAuthorization,
+    DeleteSkillAuthorizationResponse (DeleteSkillAuthorizationResponse'),
+    newDeleteSkillAuthorizationResponse,
+
+    -- ** DeleteSkillGroup
+    DeleteSkillGroup (DeleteSkillGroup'),
+    newDeleteSkillGroup,
+    DeleteSkillGroupResponse (DeleteSkillGroupResponse'),
+    newDeleteSkillGroupResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
+
+    -- ** DisassociateContactFromAddressBook
+    DisassociateContactFromAddressBook (DisassociateContactFromAddressBook'),
+    newDisassociateContactFromAddressBook,
+    DisassociateContactFromAddressBookResponse (DisassociateContactFromAddressBookResponse'),
+    newDisassociateContactFromAddressBookResponse,
+
+    -- ** DisassociateDeviceFromRoom
+    DisassociateDeviceFromRoom (DisassociateDeviceFromRoom'),
+    newDisassociateDeviceFromRoom,
+    DisassociateDeviceFromRoomResponse (DisassociateDeviceFromRoomResponse'),
+    newDisassociateDeviceFromRoomResponse,
+
+    -- ** DisassociateSkillFromSkillGroup
+    DisassociateSkillFromSkillGroup (DisassociateSkillFromSkillGroup'),
+    newDisassociateSkillFromSkillGroup,
+    DisassociateSkillFromSkillGroupResponse (DisassociateSkillFromSkillGroupResponse'),
+    newDisassociateSkillFromSkillGroupResponse,
+
+    -- ** DisassociateSkillFromUsers
+    DisassociateSkillFromUsers (DisassociateSkillFromUsers'),
+    newDisassociateSkillFromUsers,
+    DisassociateSkillFromUsersResponse (DisassociateSkillFromUsersResponse'),
+    newDisassociateSkillFromUsersResponse,
+
+    -- ** DisassociateSkillGroupFromRoom
+    DisassociateSkillGroupFromRoom (DisassociateSkillGroupFromRoom'),
+    newDisassociateSkillGroupFromRoom,
+    DisassociateSkillGroupFromRoomResponse (DisassociateSkillGroupFromRoomResponse'),
+    newDisassociateSkillGroupFromRoomResponse,
+
+    -- ** ForgetSmartHomeAppliances
+    ForgetSmartHomeAppliances (ForgetSmartHomeAppliances'),
+    newForgetSmartHomeAppliances,
+    ForgetSmartHomeAppliancesResponse (ForgetSmartHomeAppliancesResponse'),
+    newForgetSmartHomeAppliancesResponse,
+
+    -- ** GetAddressBook
+    GetAddressBook (GetAddressBook'),
+    newGetAddressBook,
+    GetAddressBookResponse (GetAddressBookResponse'),
+    newGetAddressBookResponse,
+
+    -- ** GetConferencePreference
+    GetConferencePreference (GetConferencePreference'),
+    newGetConferencePreference,
+    GetConferencePreferenceResponse (GetConferencePreferenceResponse'),
+    newGetConferencePreferenceResponse,
+
+    -- ** GetConferenceProvider
+    GetConferenceProvider (GetConferenceProvider'),
+    newGetConferenceProvider,
+    GetConferenceProviderResponse (GetConferenceProviderResponse'),
+    newGetConferenceProviderResponse,
+
+    -- ** GetContact
+    GetContact (GetContact'),
+    newGetContact,
+    GetContactResponse (GetContactResponse'),
+    newGetContactResponse,
 
     -- ** GetDevice
     GetDevice (GetDevice'),
@@ -248,125 +338,11 @@ module Amazonka.AlexaBusiness
     GetGatewayResponse (GetGatewayResponse'),
     newGetGatewayResponse,
 
-    -- ** ListSkillsStoreSkillsByCategory (Paginated)
-    ListSkillsStoreSkillsByCategory (ListSkillsStoreSkillsByCategory'),
-    newListSkillsStoreSkillsByCategory,
-    ListSkillsStoreSkillsByCategoryResponse (ListSkillsStoreSkillsByCategoryResponse'),
-    newListSkillsStoreSkillsByCategoryResponse,
-
-    -- ** DeleteConferenceProvider
-    DeleteConferenceProvider (DeleteConferenceProvider'),
-    newDeleteConferenceProvider,
-    DeleteConferenceProviderResponse (DeleteConferenceProviderResponse'),
-    newDeleteConferenceProviderResponse,
-
-    -- ** UpdateConferenceProvider
-    UpdateConferenceProvider (UpdateConferenceProvider'),
-    newUpdateConferenceProvider,
-    UpdateConferenceProviderResponse (UpdateConferenceProviderResponse'),
-    newUpdateConferenceProviderResponse,
-
-    -- ** GetContact
-    GetContact (GetContact'),
-    newGetContact,
-    GetContactResponse (GetContactResponse'),
-    newGetContactResponse,
-
-    -- ** ApproveSkill
-    ApproveSkill (ApproveSkill'),
-    newApproveSkill,
-    ApproveSkillResponse (ApproveSkillResponse'),
-    newApproveSkillResponse,
-
-    -- ** CreateNetworkProfile
-    CreateNetworkProfile (CreateNetworkProfile'),
-    newCreateNetworkProfile,
-    CreateNetworkProfileResponse (CreateNetworkProfileResponse'),
-    newCreateNetworkProfileResponse,
-
-    -- ** AssociateDeviceWithRoom
-    AssociateDeviceWithRoom (AssociateDeviceWithRoom'),
-    newAssociateDeviceWithRoom,
-    AssociateDeviceWithRoomResponse (AssociateDeviceWithRoomResponse'),
-    newAssociateDeviceWithRoomResponse,
-
-    -- ** GetRoomSkillParameter
-    GetRoomSkillParameter (GetRoomSkillParameter'),
-    newGetRoomSkillParameter,
-    GetRoomSkillParameterResponse (GetRoomSkillParameterResponse'),
-    newGetRoomSkillParameterResponse,
-
-    -- ** UpdateGateway
-    UpdateGateway (UpdateGateway'),
-    newUpdateGateway,
-    UpdateGatewayResponse (UpdateGatewayResponse'),
-    newUpdateGatewayResponse,
-
-    -- ** CreateBusinessReportSchedule
-    CreateBusinessReportSchedule (CreateBusinessReportSchedule'),
-    newCreateBusinessReportSchedule,
-    CreateBusinessReportScheduleResponse (CreateBusinessReportScheduleResponse'),
-    newCreateBusinessReportScheduleResponse,
-
-    -- ** DeleteContact
-    DeleteContact (DeleteContact'),
-    newDeleteContact,
-    DeleteContactResponse (DeleteContactResponse'),
-    newDeleteContactResponse,
-
-    -- ** UpdateContact
-    UpdateContact (UpdateContact'),
-    newUpdateContact,
-    UpdateContactResponse (UpdateContactResponse'),
-    newUpdateContactResponse,
-
-    -- ** GetAddressBook
-    GetAddressBook (GetAddressBook'),
-    newGetAddressBook,
-    GetAddressBookResponse (GetAddressBookResponse'),
-    newGetAddressBookResponse,
-
-    -- ** ListBusinessReportSchedules (Paginated)
-    ListBusinessReportSchedules (ListBusinessReportSchedules'),
-    newListBusinessReportSchedules,
-    ListBusinessReportSchedulesResponse (ListBusinessReportSchedulesResponse'),
-    newListBusinessReportSchedulesResponse,
-
-    -- ** DeleteDeviceUsageData
-    DeleteDeviceUsageData (DeleteDeviceUsageData'),
-    newDeleteDeviceUsageData,
-    DeleteDeviceUsageDataResponse (DeleteDeviceUsageDataResponse'),
-    newDeleteDeviceUsageDataResponse,
-
-    -- ** CreateContact
-    CreateContact (CreateContact'),
-    newCreateContact,
-    CreateContactResponse (CreateContactResponse'),
-    newCreateContactResponse,
-
-    -- ** CreateProfile
-    CreateProfile (CreateProfile'),
-    newCreateProfile,
-    CreateProfileResponse (CreateProfileResponse'),
-    newCreateProfileResponse,
-
-    -- ** DeleteSkillGroup
-    DeleteSkillGroup (DeleteSkillGroup'),
-    newDeleteSkillGroup,
-    DeleteSkillGroupResponse (DeleteSkillGroupResponse'),
-    newDeleteSkillGroupResponse,
-
-    -- ** UpdateSkillGroup
-    UpdateSkillGroup (UpdateSkillGroup'),
-    newUpdateSkillGroup,
-    UpdateSkillGroupResponse (UpdateSkillGroupResponse'),
-    newUpdateSkillGroupResponse,
-
-    -- ** StartDeviceSync
-    StartDeviceSync (StartDeviceSync'),
-    newStartDeviceSync,
-    StartDeviceSyncResponse (StartDeviceSyncResponse'),
-    newStartDeviceSyncResponse,
+    -- ** GetGatewayGroup
+    GetGatewayGroup (GetGatewayGroup'),
+    newGetGatewayGroup,
+    GetGatewayGroupResponse (GetGatewayGroupResponse'),
+    newGetGatewayGroupResponse,
 
     -- ** GetInvitationConfiguration
     GetInvitationConfiguration (GetInvitationConfiguration'),
@@ -374,23 +350,11 @@ module Amazonka.AlexaBusiness
     GetInvitationConfigurationResponse (GetInvitationConfigurationResponse'),
     newGetInvitationConfigurationResponse,
 
-    -- ** DisassociateSkillFromUsers
-    DisassociateSkillFromUsers (DisassociateSkillFromUsers'),
-    newDisassociateSkillFromUsers,
-    DisassociateSkillFromUsersResponse (DisassociateSkillFromUsersResponse'),
-    newDisassociateSkillFromUsersResponse,
-
-    -- ** SearchAddressBooks
-    SearchAddressBooks (SearchAddressBooks'),
-    newSearchAddressBooks,
-    SearchAddressBooksResponse (SearchAddressBooksResponse'),
-    newSearchAddressBooksResponse,
-
-    -- ** CreateSkillGroup
-    CreateSkillGroup (CreateSkillGroup'),
-    newCreateSkillGroup,
-    CreateSkillGroupResponse (CreateSkillGroupResponse'),
-    newCreateSkillGroupResponse,
+    -- ** GetNetworkProfile
+    GetNetworkProfile (GetNetworkProfile'),
+    newGetNetworkProfile,
+    GetNetworkProfileResponse (GetNetworkProfileResponse'),
+    newGetNetworkProfileResponse,
 
     -- ** GetProfile
     GetProfile (GetProfile'),
@@ -398,59 +362,17 @@ module Amazonka.AlexaBusiness
     GetProfileResponse (GetProfileResponse'),
     newGetProfileResponse,
 
-    -- ** DisassociateSkillGroupFromRoom
-    DisassociateSkillGroupFromRoom (DisassociateSkillGroupFromRoom'),
-    newDisassociateSkillGroupFromRoom,
-    DisassociateSkillGroupFromRoomResponse (DisassociateSkillGroupFromRoomResponse'),
-    newDisassociateSkillGroupFromRoomResponse,
+    -- ** GetRoom
+    GetRoom (GetRoom'),
+    newGetRoom,
+    GetRoomResponse (GetRoomResponse'),
+    newGetRoomResponse,
 
-    -- ** SendInvitation
-    SendInvitation (SendInvitation'),
-    newSendInvitation,
-    SendInvitationResponse (SendInvitationResponse'),
-    newSendInvitationResponse,
-
-    -- ** ListDeviceEvents (Paginated)
-    ListDeviceEvents (ListDeviceEvents'),
-    newListDeviceEvents,
-    ListDeviceEventsResponse (ListDeviceEventsResponse'),
-    newListDeviceEventsResponse,
-
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    CreateUserResponse (CreateUserResponse'),
-    newCreateUserResponse,
-
-    -- ** SearchDevices (Paginated)
-    SearchDevices (SearchDevices'),
-    newSearchDevices,
-    SearchDevicesResponse (SearchDevicesResponse'),
-    newSearchDevicesResponse,
-
-    -- ** SearchContacts
-    SearchContacts (SearchContacts'),
-    newSearchContacts,
-    SearchContactsResponse (SearchContactsResponse'),
-    newSearchContactsResponse,
-
-    -- ** SendAnnouncement
-    SendAnnouncement (SendAnnouncement'),
-    newSendAnnouncement,
-    SendAnnouncementResponse (SendAnnouncementResponse'),
-    newSendAnnouncementResponse,
-
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
-
-    -- ** SearchNetworkProfiles
-    SearchNetworkProfiles (SearchNetworkProfiles'),
-    newSearchNetworkProfiles,
-    SearchNetworkProfilesResponse (SearchNetworkProfilesResponse'),
-    newSearchNetworkProfilesResponse,
+    -- ** GetRoomSkillParameter
+    GetRoomSkillParameter (GetRoomSkillParameter'),
+    newGetRoomSkillParameter,
+    GetRoomSkillParameterResponse (GetRoomSkillParameterResponse'),
+    newGetRoomSkillParameterResponse,
 
     -- ** GetSkillGroup
     GetSkillGroup (GetSkillGroup'),
@@ -458,113 +380,11 @@ module Amazonka.AlexaBusiness
     GetSkillGroupResponse (GetSkillGroupResponse'),
     newGetSkillGroupResponse,
 
-    -- ** ListSkills (Paginated)
-    ListSkills (ListSkills'),
-    newListSkills,
-    ListSkillsResponse (ListSkillsResponse'),
-    newListSkillsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DisassociateDeviceFromRoom
-    DisassociateDeviceFromRoom (DisassociateDeviceFromRoom'),
-    newDisassociateDeviceFromRoom,
-    DisassociateDeviceFromRoomResponse (DisassociateDeviceFromRoomResponse'),
-    newDisassociateDeviceFromRoomResponse,
-
-    -- ** SearchSkillGroups (Paginated)
-    SearchSkillGroups (SearchSkillGroups'),
-    newSearchSkillGroups,
-    SearchSkillGroupsResponse (SearchSkillGroupsResponse'),
-    newSearchSkillGroupsResponse,
-
-    -- ** PutSkillAuthorization
-    PutSkillAuthorization (PutSkillAuthorization'),
-    newPutSkillAuthorization,
-    PutSkillAuthorizationResponse (PutSkillAuthorizationResponse'),
-    newPutSkillAuthorizationResponse,
-
-    -- ** ListTags (Paginated)
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
-
-    -- ** DeleteSkillAuthorization
-    DeleteSkillAuthorization (DeleteSkillAuthorization'),
-    newDeleteSkillAuthorization,
-    DeleteSkillAuthorizationResponse (DeleteSkillAuthorizationResponse'),
-    newDeleteSkillAuthorizationResponse,
-
-    -- ** AssociateDeviceWithNetworkProfile
-    AssociateDeviceWithNetworkProfile (AssociateDeviceWithNetworkProfile'),
-    newAssociateDeviceWithNetworkProfile,
-    AssociateDeviceWithNetworkProfileResponse (AssociateDeviceWithNetworkProfileResponse'),
-    newAssociateDeviceWithNetworkProfileResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateConferenceProvider
-    CreateConferenceProvider (CreateConferenceProvider'),
-    newCreateConferenceProvider,
-    CreateConferenceProviderResponse (CreateConferenceProviderResponse'),
-    newCreateConferenceProviderResponse,
-
-    -- ** ResolveRoom
-    ResolveRoom (ResolveRoom'),
-    newResolveRoom,
-    ResolveRoomResponse (ResolveRoomResponse'),
-    newResolveRoomResponse,
-
-    -- ** CreateGatewayGroup
-    CreateGatewayGroup (CreateGatewayGroup'),
-    newCreateGatewayGroup,
-    CreateGatewayGroupResponse (CreateGatewayGroupResponse'),
-    newCreateGatewayGroupResponse,
-
-    -- ** CreateRoom
-    CreateRoom (CreateRoom'),
-    newCreateRoom,
-    CreateRoomResponse (CreateRoomResponse'),
-    newCreateRoomResponse,
-
-    -- ** DeleteRoomSkillParameter
-    DeleteRoomSkillParameter (DeleteRoomSkillParameter'),
-    newDeleteRoomSkillParameter,
-    DeleteRoomSkillParameterResponse (DeleteRoomSkillParameterResponse'),
-    newDeleteRoomSkillParameterResponse,
-
-    -- ** ListGatewayGroups
-    ListGatewayGroups (ListGatewayGroups'),
-    newListGatewayGroups,
-    ListGatewayGroupsResponse (ListGatewayGroupsResponse'),
-    newListGatewayGroupsResponse,
-
-    -- ** PutRoomSkillParameter
-    PutRoomSkillParameter (PutRoomSkillParameter'),
-    newPutRoomSkillParameter,
-    PutRoomSkillParameterResponse (PutRoomSkillParameterResponse'),
-    newPutRoomSkillParameterResponse,
-
-    -- ** SearchProfiles (Paginated)
-    SearchProfiles (SearchProfiles'),
-    newSearchProfiles,
-    SearchProfilesResponse (SearchProfilesResponse'),
-    newSearchProfilesResponse,
-
-    -- ** RejectSkill
-    RejectSkill (RejectSkill'),
-    newRejectSkill,
-    RejectSkillResponse (RejectSkillResponse'),
-    newRejectSkillResponse,
+    -- ** ListBusinessReportSchedules (Paginated)
+    ListBusinessReportSchedules (ListBusinessReportSchedules'),
+    newListBusinessReportSchedules,
+    ListBusinessReportSchedulesResponse (ListBusinessReportSchedulesResponse'),
+    newListBusinessReportSchedulesResponse,
 
     -- ** ListConferenceProviders (Paginated)
     ListConferenceProviders (ListConferenceProviders'),
@@ -572,11 +392,17 @@ module Amazonka.AlexaBusiness
     ListConferenceProvidersResponse (ListConferenceProvidersResponse'),
     newListConferenceProvidersResponse,
 
-    -- ** RevokeInvitation
-    RevokeInvitation (RevokeInvitation'),
-    newRevokeInvitation,
-    RevokeInvitationResponse (RevokeInvitationResponse'),
-    newRevokeInvitationResponse,
+    -- ** ListDeviceEvents (Paginated)
+    ListDeviceEvents (ListDeviceEvents'),
+    newListDeviceEvents,
+    ListDeviceEventsResponse (ListDeviceEventsResponse'),
+    newListDeviceEventsResponse,
+
+    -- ** ListGatewayGroups
+    ListGatewayGroups (ListGatewayGroups'),
+    newListGatewayGroups,
+    ListGatewayGroupsResponse (ListGatewayGroupsResponse'),
+    newListGatewayGroupsResponse,
 
     -- ** ListGateways
     ListGateways (ListGateways'),
@@ -584,41 +410,11 @@ module Amazonka.AlexaBusiness
     ListGatewaysResponse (ListGatewaysResponse'),
     newListGatewaysResponse,
 
-    -- ** DeleteDevice
-    DeleteDevice (DeleteDevice'),
-    newDeleteDevice,
-    DeleteDeviceResponse (DeleteDeviceResponse'),
-    newDeleteDeviceResponse,
-
-    -- ** UpdateDevice
-    UpdateDevice (UpdateDevice'),
-    newUpdateDevice,
-    UpdateDeviceResponse (UpdateDeviceResponse'),
-    newUpdateDeviceResponse,
-
-    -- ** AssociateSkillWithSkillGroup
-    AssociateSkillWithSkillGroup (AssociateSkillWithSkillGroup'),
-    newAssociateSkillWithSkillGroup,
-    AssociateSkillWithSkillGroupResponse (AssociateSkillWithSkillGroupResponse'),
-    newAssociateSkillWithSkillGroupResponse,
-
-    -- ** GetConferenceProvider
-    GetConferenceProvider (GetConferenceProvider'),
-    newGetConferenceProvider,
-    GetConferenceProviderResponse (GetConferenceProviderResponse'),
-    newGetConferenceProviderResponse,
-
-    -- ** GetRoom
-    GetRoom (GetRoom'),
-    newGetRoom,
-    GetRoomResponse (GetRoomResponse'),
-    newGetRoomResponse,
-
-    -- ** GetGatewayGroup
-    GetGatewayGroup (GetGatewayGroup'),
-    newGetGatewayGroup,
-    GetGatewayGroupResponse (GetGatewayGroupResponse'),
-    newGetGatewayGroupResponse,
+    -- ** ListSkills (Paginated)
+    ListSkills (ListSkills'),
+    newListSkills,
+    ListSkillsResponse (ListSkillsResponse'),
+    newListSkillsResponse,
 
     -- ** ListSkillsStoreCategories (Paginated)
     ListSkillsStoreCategories (ListSkillsStoreCategories'),
@@ -626,17 +422,221 @@ module Amazonka.AlexaBusiness
     ListSkillsStoreCategoriesResponse (ListSkillsStoreCategoriesResponse'),
     newListSkillsStoreCategoriesResponse,
 
+    -- ** ListSkillsStoreSkillsByCategory (Paginated)
+    ListSkillsStoreSkillsByCategory (ListSkillsStoreSkillsByCategory'),
+    newListSkillsStoreSkillsByCategory,
+    ListSkillsStoreSkillsByCategoryResponse (ListSkillsStoreSkillsByCategoryResponse'),
+    newListSkillsStoreSkillsByCategoryResponse,
+
+    -- ** ListSmartHomeAppliances (Paginated)
+    ListSmartHomeAppliances (ListSmartHomeAppliances'),
+    newListSmartHomeAppliances,
+    ListSmartHomeAppliancesResponse (ListSmartHomeAppliancesResponse'),
+    newListSmartHomeAppliancesResponse,
+
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** PutConferencePreference
+    PutConferencePreference (PutConferencePreference'),
+    newPutConferencePreference,
+    PutConferencePreferenceResponse (PutConferencePreferenceResponse'),
+    newPutConferencePreferenceResponse,
+
+    -- ** PutInvitationConfiguration
+    PutInvitationConfiguration (PutInvitationConfiguration'),
+    newPutInvitationConfiguration,
+    PutInvitationConfigurationResponse (PutInvitationConfigurationResponse'),
+    newPutInvitationConfigurationResponse,
+
+    -- ** PutRoomSkillParameter
+    PutRoomSkillParameter (PutRoomSkillParameter'),
+    newPutRoomSkillParameter,
+    PutRoomSkillParameterResponse (PutRoomSkillParameterResponse'),
+    newPutRoomSkillParameterResponse,
+
+    -- ** PutSkillAuthorization
+    PutSkillAuthorization (PutSkillAuthorization'),
+    newPutSkillAuthorization,
+    PutSkillAuthorizationResponse (PutSkillAuthorizationResponse'),
+    newPutSkillAuthorizationResponse,
+
+    -- ** RegisterAVSDevice
+    RegisterAVSDevice (RegisterAVSDevice'),
+    newRegisterAVSDevice,
+    RegisterAVSDeviceResponse (RegisterAVSDeviceResponse'),
+    newRegisterAVSDeviceResponse,
+
+    -- ** RejectSkill
+    RejectSkill (RejectSkill'),
+    newRejectSkill,
+    RejectSkillResponse (RejectSkillResponse'),
+    newRejectSkillResponse,
+
+    -- ** ResolveRoom
+    ResolveRoom (ResolveRoom'),
+    newResolveRoom,
+    ResolveRoomResponse (ResolveRoomResponse'),
+    newResolveRoomResponse,
+
+    -- ** RevokeInvitation
+    RevokeInvitation (RevokeInvitation'),
+    newRevokeInvitation,
+    RevokeInvitationResponse (RevokeInvitationResponse'),
+    newRevokeInvitationResponse,
+
+    -- ** SearchAddressBooks
+    SearchAddressBooks (SearchAddressBooks'),
+    newSearchAddressBooks,
+    SearchAddressBooksResponse (SearchAddressBooksResponse'),
+    newSearchAddressBooksResponse,
+
+    -- ** SearchContacts
+    SearchContacts (SearchContacts'),
+    newSearchContacts,
+    SearchContactsResponse (SearchContactsResponse'),
+    newSearchContactsResponse,
+
+    -- ** SearchDevices (Paginated)
+    SearchDevices (SearchDevices'),
+    newSearchDevices,
+    SearchDevicesResponse (SearchDevicesResponse'),
+    newSearchDevicesResponse,
+
+    -- ** SearchNetworkProfiles
+    SearchNetworkProfiles (SearchNetworkProfiles'),
+    newSearchNetworkProfiles,
+    SearchNetworkProfilesResponse (SearchNetworkProfilesResponse'),
+    newSearchNetworkProfilesResponse,
+
+    -- ** SearchProfiles (Paginated)
+    SearchProfiles (SearchProfiles'),
+    newSearchProfiles,
+    SearchProfilesResponse (SearchProfilesResponse'),
+    newSearchProfilesResponse,
+
+    -- ** SearchRooms (Paginated)
+    SearchRooms (SearchRooms'),
+    newSearchRooms,
+    SearchRoomsResponse (SearchRoomsResponse'),
+    newSearchRoomsResponse,
+
+    -- ** SearchSkillGroups (Paginated)
+    SearchSkillGroups (SearchSkillGroups'),
+    newSearchSkillGroups,
+    SearchSkillGroupsResponse (SearchSkillGroupsResponse'),
+    newSearchSkillGroupsResponse,
+
+    -- ** SearchUsers (Paginated)
+    SearchUsers (SearchUsers'),
+    newSearchUsers,
+    SearchUsersResponse (SearchUsersResponse'),
+    newSearchUsersResponse,
+
+    -- ** SendAnnouncement
+    SendAnnouncement (SendAnnouncement'),
+    newSendAnnouncement,
+    SendAnnouncementResponse (SendAnnouncementResponse'),
+    newSendAnnouncementResponse,
+
+    -- ** SendInvitation
+    SendInvitation (SendInvitation'),
+    newSendInvitation,
+    SendInvitationResponse (SendInvitationResponse'),
+    newSendInvitationResponse,
+
+    -- ** StartDeviceSync
+    StartDeviceSync (StartDeviceSync'),
+    newStartDeviceSync,
+    StartDeviceSyncResponse (StartDeviceSyncResponse'),
+    newStartDeviceSyncResponse,
+
     -- ** StartSmartHomeApplianceDiscovery
     StartSmartHomeApplianceDiscovery (StartSmartHomeApplianceDiscovery'),
     newStartSmartHomeApplianceDiscovery,
     StartSmartHomeApplianceDiscoveryResponse (StartSmartHomeApplianceDiscoveryResponse'),
     newStartSmartHomeApplianceDiscoveryResponse,
 
-    -- ** AssociateContactWithAddressBook
-    AssociateContactWithAddressBook (AssociateContactWithAddressBook'),
-    newAssociateContactWithAddressBook,
-    AssociateContactWithAddressBookResponse (AssociateContactWithAddressBookResponse'),
-    newAssociateContactWithAddressBookResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateAddressBook
+    UpdateAddressBook (UpdateAddressBook'),
+    newUpdateAddressBook,
+    UpdateAddressBookResponse (UpdateAddressBookResponse'),
+    newUpdateAddressBookResponse,
+
+    -- ** UpdateBusinessReportSchedule
+    UpdateBusinessReportSchedule (UpdateBusinessReportSchedule'),
+    newUpdateBusinessReportSchedule,
+    UpdateBusinessReportScheduleResponse (UpdateBusinessReportScheduleResponse'),
+    newUpdateBusinessReportScheduleResponse,
+
+    -- ** UpdateConferenceProvider
+    UpdateConferenceProvider (UpdateConferenceProvider'),
+    newUpdateConferenceProvider,
+    UpdateConferenceProviderResponse (UpdateConferenceProviderResponse'),
+    newUpdateConferenceProviderResponse,
+
+    -- ** UpdateContact
+    UpdateContact (UpdateContact'),
+    newUpdateContact,
+    UpdateContactResponse (UpdateContactResponse'),
+    newUpdateContactResponse,
+
+    -- ** UpdateDevice
+    UpdateDevice (UpdateDevice'),
+    newUpdateDevice,
+    UpdateDeviceResponse (UpdateDeviceResponse'),
+    newUpdateDeviceResponse,
+
+    -- ** UpdateGateway
+    UpdateGateway (UpdateGateway'),
+    newUpdateGateway,
+    UpdateGatewayResponse (UpdateGatewayResponse'),
+    newUpdateGatewayResponse,
+
+    -- ** UpdateGatewayGroup
+    UpdateGatewayGroup (UpdateGatewayGroup'),
+    newUpdateGatewayGroup,
+    UpdateGatewayGroupResponse (UpdateGatewayGroupResponse'),
+    newUpdateGatewayGroupResponse,
+
+    -- ** UpdateNetworkProfile
+    UpdateNetworkProfile (UpdateNetworkProfile'),
+    newUpdateNetworkProfile,
+    UpdateNetworkProfileResponse (UpdateNetworkProfileResponse'),
+    newUpdateNetworkProfileResponse,
+
+    -- ** UpdateProfile
+    UpdateProfile (UpdateProfile'),
+    newUpdateProfile,
+    UpdateProfileResponse (UpdateProfileResponse'),
+    newUpdateProfileResponse,
+
+    -- ** UpdateRoom
+    UpdateRoom (UpdateRoom'),
+    newUpdateRoom,
+    UpdateRoomResponse (UpdateRoomResponse'),
+    newUpdateRoomResponse,
+
+    -- ** UpdateSkillGroup
+    UpdateSkillGroup (UpdateSkillGroup'),
+    newUpdateSkillGroup,
+    UpdateSkillGroupResponse (UpdateSkillGroupResponse'),
+    newUpdateSkillGroupResponse,
 
     -- * Types
 

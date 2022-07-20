@@ -35,8 +35,8 @@ module Amazonka.SecretsManager.RemoveRegionsFromReplication
     newRemoveRegionsFromReplicationResponse,
 
     -- * Response Lenses
-    removeRegionsFromReplicationResponse_arn,
     removeRegionsFromReplicationResponse_replicationStatus,
+    removeRegionsFromReplicationResponse_arn,
     removeRegionsFromReplicationResponse_httpStatus,
   )
 where
@@ -101,10 +101,10 @@ instance Core.AWSRequest RemoveRegionsFromReplication where
     Response.receiveJSON
       ( \s h x ->
           RemoveRegionsFromReplicationResponse'
-            Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> ( x Core..?> "ReplicationStatus"
+            Prelude.<$> ( x Core..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,11 +156,11 @@ instance Core.ToQuery RemoveRegionsFromReplication where
 
 -- | /See:/ 'newRemoveRegionsFromReplicationResponse' smart constructor.
 data RemoveRegionsFromReplicationResponse = RemoveRegionsFromReplicationResponse'
-  { -- | The secret @ARN@ removed from replication regions.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Describes the remaining replication status after you remove regions from
+  { -- | Describes the remaining replication status after you remove regions from
     -- the replication list.
     replicationStatus :: Prelude.Maybe [ReplicationStatusType],
+    -- | The secret @ARN@ removed from replication regions.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data RemoveRegionsFromReplicationResponse = RemoveRegionsFromReplicationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'removeRegionsFromReplicationResponse_arn' - The secret @ARN@ removed from replication regions.
---
 -- 'replicationStatus', 'removeRegionsFromReplicationResponse_replicationStatus' - Describes the remaining replication status after you remove regions from
 -- the replication list.
+--
+-- 'arn', 'removeRegionsFromReplicationResponse_arn' - The secret @ARN@ removed from replication regions.
 --
 -- 'httpStatus', 'removeRegionsFromReplicationResponse_httpStatus' - The response's http status code.
 newRemoveRegionsFromReplicationResponse ::
@@ -186,20 +186,20 @@ newRemoveRegionsFromReplicationResponse ::
   RemoveRegionsFromReplicationResponse
 newRemoveRegionsFromReplicationResponse pHttpStatus_ =
   RemoveRegionsFromReplicationResponse'
-    { arn =
+    { replicationStatus =
         Prelude.Nothing,
-      replicationStatus = Prelude.Nothing,
+      arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The secret @ARN@ removed from replication regions.
-removeRegionsFromReplicationResponse_arn :: Lens.Lens' RemoveRegionsFromReplicationResponse (Prelude.Maybe Prelude.Text)
-removeRegionsFromReplicationResponse_arn = Lens.lens (\RemoveRegionsFromReplicationResponse' {arn} -> arn) (\s@RemoveRegionsFromReplicationResponse' {} a -> s {arn = a} :: RemoveRegionsFromReplicationResponse)
 
 -- | Describes the remaining replication status after you remove regions from
 -- the replication list.
 removeRegionsFromReplicationResponse_replicationStatus :: Lens.Lens' RemoveRegionsFromReplicationResponse (Prelude.Maybe [ReplicationStatusType])
 removeRegionsFromReplicationResponse_replicationStatus = Lens.lens (\RemoveRegionsFromReplicationResponse' {replicationStatus} -> replicationStatus) (\s@RemoveRegionsFromReplicationResponse' {} a -> s {replicationStatus = a} :: RemoveRegionsFromReplicationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The secret @ARN@ removed from replication regions.
+removeRegionsFromReplicationResponse_arn :: Lens.Lens' RemoveRegionsFromReplicationResponse (Prelude.Maybe Prelude.Text)
+removeRegionsFromReplicationResponse_arn = Lens.lens (\RemoveRegionsFromReplicationResponse' {arn} -> arn) (\s@RemoveRegionsFromReplicationResponse' {} a -> s {arn = a} :: RemoveRegionsFromReplicationResponse)
 
 -- | The response's http status code.
 removeRegionsFromReplicationResponse_httpStatus :: Lens.Lens' RemoveRegionsFromReplicationResponse Prelude.Int
@@ -210,6 +210,6 @@ instance
     RemoveRegionsFromReplicationResponse
   where
   rnf RemoveRegionsFromReplicationResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf replicationStatus
+    Prelude.rnf replicationStatus
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpStatus

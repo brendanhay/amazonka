@@ -27,17 +27,11 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestStartInferenceScheduler $
---             newStartInferenceScheduler
+--         [ requestCreateDataset $
+--             newCreateDataset
 --
---         , requestDescribeDataset $
---             newDescribeDataset
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDescribeDataIngestionJob $
---             newDescribeDataIngestionJob
+--         , requestCreateInferenceScheduler $
+--             newCreateInferenceScheduler
 --
 --         , requestCreateModel $
 --             newCreateModel
@@ -45,68 +39,68 @@ import Test.Tasty
 --         , requestDeleteDataset $
 --             newDeleteDataset
 --
---         , requestCreateDataset $
---             newCreateDataset
+--         , requestDeleteInferenceScheduler $
+--             newDeleteInferenceScheduler
 --
 --         , requestDeleteModel $
 --             newDeleteModel
 --
---         , requestListModels $
---             newListModels
+--         , requestDescribeDataIngestionJob $
+--             newDescribeDataIngestionJob
 --
---         , requestStopInferenceScheduler $
---             newStopInferenceScheduler
---
---         , requestListDataIngestionJobs $
---             newListDataIngestionJobs
---
---         , requestDescribeModel $
---             newDescribeModel
---
---         , requestStartDataIngestionJob $
---             newStartDataIngestionJob
---
---         , requestListInferenceSchedulers $
---             newListInferenceSchedulers
---
---         , requestUpdateInferenceScheduler $
---             newUpdateInferenceScheduler
---
---         , requestDeleteInferenceScheduler $
---             newDeleteInferenceScheduler
---
---         , requestTagResource $
---             newTagResource
---
---         , requestListInferenceExecutions $
---             newListInferenceExecutions
---
---         , requestCreateInferenceScheduler $
---             newCreateInferenceScheduler
---
---         , requestListDatasets $
---             newListDatasets
---
---         , requestUntagResource $
---             newUntagResource
+--         , requestDescribeDataset $
+--             newDescribeDataset
 --
 --         , requestDescribeInferenceScheduler $
 --             newDescribeInferenceScheduler
 --
+--         , requestDescribeModel $
+--             newDescribeModel
+--
+--         , requestListDataIngestionJobs $
+--             newListDataIngestionJobs
+--
+--         , requestListDatasets $
+--             newListDatasets
+--
+--         , requestListInferenceExecutions $
+--             newListInferenceExecutions
+--
+--         , requestListInferenceSchedulers $
+--             newListInferenceSchedulers
+--
+--         , requestListModels $
+--             newListModels
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestStartDataIngestionJob $
+--             newStartDataIngestionJob
+--
+--         , requestStartInferenceScheduler $
+--             newStartInferenceScheduler
+--
+--         , requestStopInferenceScheduler $
+--             newStopInferenceScheduler
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateInferenceScheduler $
+--             newUpdateInferenceScheduler
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseStartInferenceScheduler $
---             newStartInferenceSchedulerResponse
+--         [ responseCreateDataset $
+--             newCreateDatasetResponse
 --
---         , responseDescribeDataset $
---             newDescribeDatasetResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDescribeDataIngestionJob $
---             newDescribeDataIngestionJobResponse
+--         , responseCreateInferenceScheduler $
+--             newCreateInferenceSchedulerResponse
 --
 --         , responseCreateModel $
 --             newCreateModelResponse
@@ -114,82 +108,76 @@ import Test.Tasty
 --         , responseDeleteDataset $
 --             newDeleteDatasetResponse
 --
---         , responseCreateDataset $
---             newCreateDatasetResponse
+--         , responseDeleteInferenceScheduler $
+--             newDeleteInferenceSchedulerResponse
 --
 --         , responseDeleteModel $
 --             newDeleteModelResponse
 --
---         , responseListModels $
---             newListModelsResponse
+--         , responseDescribeDataIngestionJob $
+--             newDescribeDataIngestionJobResponse
 --
---         , responseStopInferenceScheduler $
---             newStopInferenceSchedulerResponse
+--         , responseDescribeDataset $
+--             newDescribeDatasetResponse
 --
---         , responseListDataIngestionJobs $
---             newListDataIngestionJobsResponse
+--         , responseDescribeInferenceScheduler $
+--             newDescribeInferenceSchedulerResponse
 --
 --         , responseDescribeModel $
 --             newDescribeModelResponse
 --
---         , responseStartDataIngestionJob $
---             newStartDataIngestionJobResponse
---
---         , responseListInferenceSchedulers $
---             newListInferenceSchedulersResponse
---
---         , responseUpdateInferenceScheduler $
---             newUpdateInferenceSchedulerResponse
---
---         , responseDeleteInferenceScheduler $
---             newDeleteInferenceSchedulerResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseListInferenceExecutions $
---             newListInferenceExecutionsResponse
---
---         , responseCreateInferenceScheduler $
---             newCreateInferenceSchedulerResponse
+--         , responseListDataIngestionJobs $
+--             newListDataIngestionJobsResponse
 --
 --         , responseListDatasets $
 --             newListDatasetsResponse
 --
+--         , responseListInferenceExecutions $
+--             newListInferenceExecutionsResponse
+--
+--         , responseListInferenceSchedulers $
+--             newListInferenceSchedulersResponse
+--
+--         , responseListModels $
+--             newListModelsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseStartDataIngestionJob $
+--             newStartDataIngestionJobResponse
+--
+--         , responseStartInferenceScheduler $
+--             newStartInferenceSchedulerResponse
+--
+--         , responseStopInferenceScheduler $
+--             newStopInferenceSchedulerResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeInferenceScheduler $
---             newDescribeInferenceSchedulerResponse
+--         , responseUpdateInferenceScheduler $
+--             newUpdateInferenceSchedulerResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestStartInferenceScheduler :: StartInferenceScheduler -> TestTree
-requestStartInferenceScheduler =
+requestCreateDataset :: CreateDataset -> TestTree
+requestCreateDataset =
   req
-    "StartInferenceScheduler"
-    "fixture/StartInferenceScheduler.yaml"
+    "CreateDataset"
+    "fixture/CreateDataset.yaml"
 
-requestDescribeDataset :: DescribeDataset -> TestTree
-requestDescribeDataset =
+requestCreateInferenceScheduler :: CreateInferenceScheduler -> TestTree
+requestCreateInferenceScheduler =
   req
-    "DescribeDataset"
-    "fixture/DescribeDataset.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDescribeDataIngestionJob :: DescribeDataIngestionJob -> TestTree
-requestDescribeDataIngestionJob =
-  req
-    "DescribeDataIngestionJob"
-    "fixture/DescribeDataIngestionJob.yaml"
+    "CreateInferenceScheduler"
+    "fixture/CreateInferenceScheduler.yaml"
 
 requestCreateModel :: CreateModel -> TestTree
 requestCreateModel =
@@ -203,11 +191,11 @@ requestDeleteDataset =
     "DeleteDataset"
     "fixture/DeleteDataset.yaml"
 
-requestCreateDataset :: CreateDataset -> TestTree
-requestCreateDataset =
+requestDeleteInferenceScheduler :: DeleteInferenceScheduler -> TestTree
+requestDeleteInferenceScheduler =
   req
-    "CreateDataset"
-    "fixture/CreateDataset.yaml"
+    "DeleteInferenceScheduler"
+    "fixture/DeleteInferenceScheduler.yaml"
 
 requestDeleteModel :: DeleteModel -> TestTree
 requestDeleteModel =
@@ -215,83 +203,17 @@ requestDeleteModel =
     "DeleteModel"
     "fixture/DeleteModel.yaml"
 
-requestListModels :: ListModels -> TestTree
-requestListModels =
+requestDescribeDataIngestionJob :: DescribeDataIngestionJob -> TestTree
+requestDescribeDataIngestionJob =
   req
-    "ListModels"
-    "fixture/ListModels.yaml"
+    "DescribeDataIngestionJob"
+    "fixture/DescribeDataIngestionJob.yaml"
 
-requestStopInferenceScheduler :: StopInferenceScheduler -> TestTree
-requestStopInferenceScheduler =
+requestDescribeDataset :: DescribeDataset -> TestTree
+requestDescribeDataset =
   req
-    "StopInferenceScheduler"
-    "fixture/StopInferenceScheduler.yaml"
-
-requestListDataIngestionJobs :: ListDataIngestionJobs -> TestTree
-requestListDataIngestionJobs =
-  req
-    "ListDataIngestionJobs"
-    "fixture/ListDataIngestionJobs.yaml"
-
-requestDescribeModel :: DescribeModel -> TestTree
-requestDescribeModel =
-  req
-    "DescribeModel"
-    "fixture/DescribeModel.yaml"
-
-requestStartDataIngestionJob :: StartDataIngestionJob -> TestTree
-requestStartDataIngestionJob =
-  req
-    "StartDataIngestionJob"
-    "fixture/StartDataIngestionJob.yaml"
-
-requestListInferenceSchedulers :: ListInferenceSchedulers -> TestTree
-requestListInferenceSchedulers =
-  req
-    "ListInferenceSchedulers"
-    "fixture/ListInferenceSchedulers.yaml"
-
-requestUpdateInferenceScheduler :: UpdateInferenceScheduler -> TestTree
-requestUpdateInferenceScheduler =
-  req
-    "UpdateInferenceScheduler"
-    "fixture/UpdateInferenceScheduler.yaml"
-
-requestDeleteInferenceScheduler :: DeleteInferenceScheduler -> TestTree
-requestDeleteInferenceScheduler =
-  req
-    "DeleteInferenceScheduler"
-    "fixture/DeleteInferenceScheduler.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestListInferenceExecutions :: ListInferenceExecutions -> TestTree
-requestListInferenceExecutions =
-  req
-    "ListInferenceExecutions"
-    "fixture/ListInferenceExecutions.yaml"
-
-requestCreateInferenceScheduler :: CreateInferenceScheduler -> TestTree
-requestCreateInferenceScheduler =
-  req
-    "CreateInferenceScheduler"
-    "fixture/CreateInferenceScheduler.yaml"
-
-requestListDatasets :: ListDatasets -> TestTree
-requestListDatasets =
-  req
-    "ListDatasets"
-    "fixture/ListDatasets.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DescribeDataset"
+    "fixture/DescribeDataset.yaml"
 
 requestDescribeInferenceScheduler :: DescribeInferenceScheduler -> TestTree
 requestDescribeInferenceScheduler =
@@ -299,39 +221,101 @@ requestDescribeInferenceScheduler =
     "DescribeInferenceScheduler"
     "fixture/DescribeInferenceScheduler.yaml"
 
+requestDescribeModel :: DescribeModel -> TestTree
+requestDescribeModel =
+  req
+    "DescribeModel"
+    "fixture/DescribeModel.yaml"
+
+requestListDataIngestionJobs :: ListDataIngestionJobs -> TestTree
+requestListDataIngestionJobs =
+  req
+    "ListDataIngestionJobs"
+    "fixture/ListDataIngestionJobs.yaml"
+
+requestListDatasets :: ListDatasets -> TestTree
+requestListDatasets =
+  req
+    "ListDatasets"
+    "fixture/ListDatasets.yaml"
+
+requestListInferenceExecutions :: ListInferenceExecutions -> TestTree
+requestListInferenceExecutions =
+  req
+    "ListInferenceExecutions"
+    "fixture/ListInferenceExecutions.yaml"
+
+requestListInferenceSchedulers :: ListInferenceSchedulers -> TestTree
+requestListInferenceSchedulers =
+  req
+    "ListInferenceSchedulers"
+    "fixture/ListInferenceSchedulers.yaml"
+
+requestListModels :: ListModels -> TestTree
+requestListModels =
+  req
+    "ListModels"
+    "fixture/ListModels.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestStartDataIngestionJob :: StartDataIngestionJob -> TestTree
+requestStartDataIngestionJob =
+  req
+    "StartDataIngestionJob"
+    "fixture/StartDataIngestionJob.yaml"
+
+requestStartInferenceScheduler :: StartInferenceScheduler -> TestTree
+requestStartInferenceScheduler =
+  req
+    "StartInferenceScheduler"
+    "fixture/StartInferenceScheduler.yaml"
+
+requestStopInferenceScheduler :: StopInferenceScheduler -> TestTree
+requestStopInferenceScheduler =
+  req
+    "StopInferenceScheduler"
+    "fixture/StopInferenceScheduler.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateInferenceScheduler :: UpdateInferenceScheduler -> TestTree
+requestUpdateInferenceScheduler =
+  req
+    "UpdateInferenceScheduler"
+    "fixture/UpdateInferenceScheduler.yaml"
+
 -- Responses
 
-responseStartInferenceScheduler :: StartInferenceSchedulerResponse -> TestTree
-responseStartInferenceScheduler =
+responseCreateDataset :: CreateDatasetResponse -> TestTree
+responseCreateDataset =
   res
-    "StartInferenceSchedulerResponse"
-    "fixture/StartInferenceSchedulerResponse.proto"
+    "CreateDatasetResponse"
+    "fixture/CreateDatasetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
-responseDescribeDataset :: DescribeDatasetResponse -> TestTree
-responseDescribeDataset =
+responseCreateInferenceScheduler :: CreateInferenceSchedulerResponse -> TestTree
+responseCreateInferenceScheduler =
   res
-    "DescribeDatasetResponse"
-    "fixture/DescribeDatasetResponse.proto"
+    "CreateInferenceSchedulerResponse"
+    "fixture/CreateInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDescribeDataIngestionJob :: DescribeDataIngestionJobResponse -> TestTree
-responseDescribeDataIngestionJob =
-  res
-    "DescribeDataIngestionJobResponse"
-    "fixture/DescribeDataIngestionJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDataIngestionJob)
+    (Proxy.Proxy :: Proxy.Proxy CreateInferenceScheduler)
 
 responseCreateModel :: CreateModelResponse -> TestTree
 responseCreateModel =
@@ -349,13 +333,13 @@ responseDeleteDataset =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
 
-responseCreateDataset :: CreateDatasetResponse -> TestTree
-responseCreateDataset =
+responseDeleteInferenceScheduler :: DeleteInferenceSchedulerResponse -> TestTree
+responseDeleteInferenceScheduler =
   res
-    "CreateDatasetResponse"
-    "fixture/CreateDatasetResponse.proto"
+    "DeleteInferenceSchedulerResponse"
+    "fixture/DeleteInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteInferenceScheduler)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -365,29 +349,29 @@ responseDeleteModel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteModel)
 
-responseListModels :: ListModelsResponse -> TestTree
-responseListModels =
+responseDescribeDataIngestionJob :: DescribeDataIngestionJobResponse -> TestTree
+responseDescribeDataIngestionJob =
   res
-    "ListModelsResponse"
-    "fixture/ListModelsResponse.proto"
+    "DescribeDataIngestionJobResponse"
+    "fixture/DescribeDataIngestionJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListModels)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataIngestionJob)
 
-responseStopInferenceScheduler :: StopInferenceSchedulerResponse -> TestTree
-responseStopInferenceScheduler =
+responseDescribeDataset :: DescribeDatasetResponse -> TestTree
+responseDescribeDataset =
   res
-    "StopInferenceSchedulerResponse"
-    "fixture/StopInferenceSchedulerResponse.proto"
+    "DescribeDatasetResponse"
+    "fixture/DescribeDatasetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
-responseListDataIngestionJobs :: ListDataIngestionJobsResponse -> TestTree
-responseListDataIngestionJobs =
+responseDescribeInferenceScheduler :: DescribeInferenceSchedulerResponse -> TestTree
+responseDescribeInferenceScheduler =
   res
-    "ListDataIngestionJobsResponse"
-    "fixture/ListDataIngestionJobsResponse.proto"
+    "DescribeInferenceSchedulerResponse"
+    "fixture/DescribeInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDataIngestionJobs)
+    (Proxy.Proxy :: Proxy.Proxy DescribeInferenceScheduler)
 
 responseDescribeModel :: DescribeModelResponse -> TestTree
 responseDescribeModel =
@@ -397,61 +381,13 @@ responseDescribeModel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeModel)
 
-responseStartDataIngestionJob :: StartDataIngestionJobResponse -> TestTree
-responseStartDataIngestionJob =
+responseListDataIngestionJobs :: ListDataIngestionJobsResponse -> TestTree
+responseListDataIngestionJobs =
   res
-    "StartDataIngestionJobResponse"
-    "fixture/StartDataIngestionJobResponse.proto"
+    "ListDataIngestionJobsResponse"
+    "fixture/ListDataIngestionJobsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartDataIngestionJob)
-
-responseListInferenceSchedulers :: ListInferenceSchedulersResponse -> TestTree
-responseListInferenceSchedulers =
-  res
-    "ListInferenceSchedulersResponse"
-    "fixture/ListInferenceSchedulersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInferenceSchedulers)
-
-responseUpdateInferenceScheduler :: UpdateInferenceSchedulerResponse -> TestTree
-responseUpdateInferenceScheduler =
-  res
-    "UpdateInferenceSchedulerResponse"
-    "fixture/UpdateInferenceSchedulerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateInferenceScheduler)
-
-responseDeleteInferenceScheduler :: DeleteInferenceSchedulerResponse -> TestTree
-responseDeleteInferenceScheduler =
-  res
-    "DeleteInferenceSchedulerResponse"
-    "fixture/DeleteInferenceSchedulerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteInferenceScheduler)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseListInferenceExecutions :: ListInferenceExecutionsResponse -> TestTree
-responseListInferenceExecutions =
-  res
-    "ListInferenceExecutionsResponse"
-    "fixture/ListInferenceExecutionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInferenceExecutions)
-
-responseCreateInferenceScheduler :: CreateInferenceSchedulerResponse -> TestTree
-responseCreateInferenceScheduler =
-  res
-    "CreateInferenceSchedulerResponse"
-    "fixture/CreateInferenceSchedulerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy ListDataIngestionJobs)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets =
@@ -461,6 +397,70 @@ responseListDatasets =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDatasets)
 
+responseListInferenceExecutions :: ListInferenceExecutionsResponse -> TestTree
+responseListInferenceExecutions =
+  res
+    "ListInferenceExecutionsResponse"
+    "fixture/ListInferenceExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInferenceExecutions)
+
+responseListInferenceSchedulers :: ListInferenceSchedulersResponse -> TestTree
+responseListInferenceSchedulers =
+  res
+    "ListInferenceSchedulersResponse"
+    "fixture/ListInferenceSchedulersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInferenceSchedulers)
+
+responseListModels :: ListModelsResponse -> TestTree
+responseListModels =
+  res
+    "ListModelsResponse"
+    "fixture/ListModelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListModels)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseStartDataIngestionJob :: StartDataIngestionJobResponse -> TestTree
+responseStartDataIngestionJob =
+  res
+    "StartDataIngestionJobResponse"
+    "fixture/StartDataIngestionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDataIngestionJob)
+
+responseStartInferenceScheduler :: StartInferenceSchedulerResponse -> TestTree
+responseStartInferenceScheduler =
+  res
+    "StartInferenceSchedulerResponse"
+    "fixture/StartInferenceSchedulerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartInferenceScheduler)
+
+responseStopInferenceScheduler :: StopInferenceSchedulerResponse -> TestTree
+responseStopInferenceScheduler =
+  res
+    "StopInferenceSchedulerResponse"
+    "fixture/StopInferenceSchedulerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopInferenceScheduler)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -469,10 +469,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDescribeInferenceScheduler :: DescribeInferenceSchedulerResponse -> TestTree
-responseDescribeInferenceScheduler =
+responseUpdateInferenceScheduler :: UpdateInferenceSchedulerResponse -> TestTree
+responseUpdateInferenceScheduler =
   res
-    "DescribeInferenceSchedulerResponse"
-    "fixture/DescribeInferenceSchedulerResponse.proto"
+    "UpdateInferenceSchedulerResponse"
+    "fixture/UpdateInferenceSchedulerResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeInferenceScheduler)
+    (Proxy.Proxy :: Proxy.Proxy UpdateInferenceScheduler)

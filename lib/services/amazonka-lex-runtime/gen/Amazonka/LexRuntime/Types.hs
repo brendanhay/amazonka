@@ -17,17 +17,17 @@ module Amazonka.LexRuntime.Types
     defaultService,
 
     -- * Errors
-    _NotAcceptableException,
-    _DependencyFailedException,
     _UnsupportedMediaTypeException,
-    _ConflictException,
     _NotFoundException,
-    _RequestTimeoutException,
+    _DependencyFailedException,
+    _LimitExceededException,
     _LoopDetectedException,
-    _InternalFailureException,
+    _ConflictException,
     _BadGatewayException,
     _BadRequestException,
-    _LimitExceededException,
+    _RequestTimeoutException,
+    _NotAcceptableException,
+    _InternalFailureException,
 
     -- * ConfirmationStatus
     ConfirmationStatus (..),
@@ -57,8 +57,8 @@ module Amazonka.LexRuntime.Types
     -- * ActiveContextTimeToLive
     ActiveContextTimeToLive (..),
     newActiveContextTimeToLive,
-    activeContextTimeToLive_turnsToLive,
     activeContextTimeToLive_timeToLiveInSeconds,
+    activeContextTimeToLive_turnsToLive,
 
     -- * Button
     Button (..),
@@ -69,22 +69,22 @@ module Amazonka.LexRuntime.Types
     -- * DialogAction
     DialogAction (..),
     newDialogAction,
-    dialogAction_slots,
-    dialogAction_intentName,
     dialogAction_fulfillmentState,
-    dialogAction_messageFormat,
     dialogAction_message,
     dialogAction_slotToElicit,
+    dialogAction_messageFormat,
+    dialogAction_intentName,
+    dialogAction_slots,
     dialogAction_type,
 
     -- * GenericAttachment
     GenericAttachment (..),
     newGenericAttachment,
-    genericAttachment_buttons,
-    genericAttachment_subTitle,
     genericAttachment_imageUrl,
-    genericAttachment_attachmentLinkUrl,
+    genericAttachment_subTitle,
+    genericAttachment_buttons,
     genericAttachment_title,
+    genericAttachment_attachmentLinkUrl,
 
     -- * IntentConfidence
     IntentConfidence (..),
@@ -94,20 +94,20 @@ module Amazonka.LexRuntime.Types
     -- * IntentSummary
     IntentSummary (..),
     newIntentSummary,
-    intentSummary_checkpointLabel,
-    intentSummary_slots,
-    intentSummary_intentName,
     intentSummary_fulfillmentState,
     intentSummary_confirmationStatus,
+    intentSummary_checkpointLabel,
     intentSummary_slotToElicit,
+    intentSummary_intentName,
+    intentSummary_slots,
     intentSummary_dialogActionType,
 
     -- * PredictedIntent
     PredictedIntent (..),
     newPredictedIntent,
+    predictedIntent_intentName,
     predictedIntent_nluIntentConfidence,
     predictedIntent_slots,
-    predictedIntent_intentName,
 
     -- * ResponseCard
     ResponseCard (..),
@@ -119,8 +119,8 @@ module Amazonka.LexRuntime.Types
     -- * SentimentResponse
     SentimentResponse (..),
     newSentimentResponse,
-    sentimentResponse_sentimentScore,
     sentimentResponse_sentimentLabel,
+    sentimentResponse_sentimentScore,
   )
 where
 
@@ -171,35 +171,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -208,21 +181,57 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The accept header in the request does not have a valid value.
-_NotAcceptableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotAcceptableException =
+-- | The Content-Type header (@PostContent@ API) has an invalid value.
+_UnsupportedMediaTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedMediaTypeException =
   Core._MatchServiceError
     defaultService
-    "NotAcceptableException"
-    Prelude.. Core.hasStatus 406
+    "UnsupportedMediaTypeException"
+    Prelude.. Core.hasStatus 415
+
+-- | The resource (such as the Amazon Lex bot or an alias) that is referred
+-- to is not found.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
 -- exception. For example,
@@ -241,38 +250,13 @@ _DependencyFailedException =
     "DependencyFailedException"
     Prelude.. Core.hasStatus 424
 
--- | The Content-Type header (@PostContent@ API) has an invalid value.
-_UnsupportedMediaTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedMediaTypeException =
+-- | Exceeded a limit.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedMediaTypeException"
-    Prelude.. Core.hasStatus 415
-
--- | Two clients are using the same AWS account, Amazon Lex bot, and user ID.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | The resource (such as the Amazon Lex bot or an alias) that is referred
--- to is not found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The input speech is too long.
-_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestTimeoutException =
-  Core._MatchServiceError
-    defaultService
-    "RequestTimeoutException"
-    Prelude.. Core.hasStatus 408
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 429
 
 -- | This exception is not used.
 _LoopDetectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -282,13 +266,13 @@ _LoopDetectedException =
     "LoopDetectedException"
     Prelude.. Core.hasStatus 508
 
--- | Internal service error. Retry the call.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
+-- | Two clients are using the same AWS account, Amazon Lex bot, and user ID.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | Either the Amazon Lex bot is still building, or one of the dependent
 -- services (Amazon Polly, AWS Lambda) failed with an internal service
@@ -309,10 +293,26 @@ _BadRequestException =
     "BadRequestException"
     Prelude.. Core.hasStatus 400
 
--- | Exceeded a limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The input speech is too long.
+_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestTimeoutException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 429
+    "RequestTimeoutException"
+    Prelude.. Core.hasStatus 408
+
+-- | The accept header in the request does not have a valid value.
+_NotAcceptableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAcceptableException =
+  Core._MatchServiceError
+    defaultService
+    "NotAcceptableException"
+    Prelude.. Core.hasStatus 406
+
+-- | Internal service error. Retry the call.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500

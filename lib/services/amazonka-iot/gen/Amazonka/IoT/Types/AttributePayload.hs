@@ -27,12 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttributePayload' smart constructor.
 data AttributePayload = AttributePayload'
-  { -- | A JSON string containing up to three key-value pair in JSON format. For
-    -- example:
-    --
-    -- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies whether the list of attributes provided in the
+  { -- | Specifies whether the list of attributes provided in the
     -- @AttributePayload@ is merged with the attributes stored in the registry,
     -- instead of overwriting them.
     --
@@ -41,7 +36,12 @@ data AttributePayload = AttributePayload'
     --
     -- The @merge@ attribute is only valid when calling @UpdateThing@ or
     -- @UpdateThingGroup@.
-    merge :: Prelude.Maybe Prelude.Bool
+    merge :: Prelude.Maybe Prelude.Bool,
+    -- | A JSON string containing up to three key-value pair in JSON format. For
+    -- example:
+    --
+    -- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,11 +53,6 @@ data AttributePayload = AttributePayload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributes', 'attributePayload_attributes' - A JSON string containing up to three key-value pair in JSON format. For
--- example:
---
--- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
---
 -- 'merge', 'attributePayload_merge' - Specifies whether the list of attributes provided in the
 -- @AttributePayload@ is merged with the attributes stored in the registry,
 -- instead of overwriting them.
@@ -67,20 +62,18 @@ data AttributePayload = AttributePayload'
 --
 -- The @merge@ attribute is only valid when calling @UpdateThing@ or
 -- @UpdateThingGroup@.
+--
+-- 'attributes', 'attributePayload_attributes' - A JSON string containing up to three key-value pair in JSON format. For
+-- example:
+--
+-- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
 newAttributePayload ::
   AttributePayload
 newAttributePayload =
   AttributePayload'
-    { attributes = Prelude.Nothing,
-      merge = Prelude.Nothing
+    { merge = Prelude.Nothing,
+      attributes = Prelude.Nothing
     }
-
--- | A JSON string containing up to three key-value pair in JSON format. For
--- example:
---
--- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
-attributePayload_attributes :: Lens.Lens' AttributePayload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-attributePayload_attributes = Lens.lens (\AttributePayload' {attributes} -> attributes) (\s@AttributePayload' {} a -> s {attributes = a} :: AttributePayload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether the list of attributes provided in the
 -- @AttributePayload@ is merged with the attributes stored in the registry,
@@ -94,31 +87,38 @@ attributePayload_attributes = Lens.lens (\AttributePayload' {attributes} -> attr
 attributePayload_merge :: Lens.Lens' AttributePayload (Prelude.Maybe Prelude.Bool)
 attributePayload_merge = Lens.lens (\AttributePayload' {merge} -> merge) (\s@AttributePayload' {} a -> s {merge = a} :: AttributePayload)
 
+-- | A JSON string containing up to three key-value pair in JSON format. For
+-- example:
+--
+-- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
+attributePayload_attributes :: Lens.Lens' AttributePayload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+attributePayload_attributes = Lens.lens (\AttributePayload' {attributes} -> attributes) (\s@AttributePayload' {} a -> s {attributes = a} :: AttributePayload) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON AttributePayload where
   parseJSON =
     Core.withObject
       "AttributePayload"
       ( \x ->
           AttributePayload'
-            Prelude.<$> (x Core..:? "attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "merge")
+            Prelude.<$> (x Core..:? "merge")
+            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AttributePayload where
   hashWithSalt _salt AttributePayload' {..} =
-    _salt `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` merge
+    _salt `Prelude.hashWithSalt` merge
+      `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData AttributePayload where
   rnf AttributePayload' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf merge
+    Prelude.rnf merge
+      `Prelude.seq` Prelude.rnf attributes
 
 instance Core.ToJSON AttributePayload where
   toJSON AttributePayload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("attributes" Core..=) Prelude.<$> attributes,
-            ("merge" Core..=) Prelude.<$> merge
+          [ ("merge" Core..=) Prelude.<$> merge,
+            ("attributes" Core..=) Prelude.<$> attributes
           ]
       )

@@ -26,31 +26,6 @@ import Amazonka.Proton.GetServiceTemplateVersion
 import Amazonka.Proton.Lens
 import Amazonka.Proton.Types
 
--- | Polls 'Amazonka.Proton.GetEnvironment' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
-newEnvironmentDeployed :: Core.Wait GetEnvironment
-newEnvironmentDeployed =
-  Core.Wait
-    { Core._waitName = "EnvironmentDeployed",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "SUCCEEDED"
-            Core.AcceptSuccess
-            ( getEnvironmentResponse_environment
-                Prelude.. environment_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "FAILED"
-            Core.AcceptFailure
-            ( getEnvironmentResponse_environment
-                Prelude.. environment_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Amazonka.Proton.GetServiceTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.
 newServiceTemplateVersionRegistered :: Core.Wait GetServiceTemplateVersion
 newServiceTemplateVersionRegistered =
@@ -84,6 +59,31 @@ newServiceTemplateVersionRegistered =
         ]
     }
 
+-- | Polls 'Amazonka.Proton.GetEnvironment' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+newEnvironmentDeployed :: Core.Wait GetEnvironment
+newEnvironmentDeployed =
+  Core.Wait
+    { Core._waitName = "EnvironmentDeployed",
+      Core._waitAttempts = 999,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "SUCCEEDED"
+            Core.AcceptSuccess
+            ( getEnvironmentResponse_environment
+                Prelude.. environment_deploymentStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "FAILED"
+            Core.AcceptFailure
+            ( getEnvironmentResponse_environment
+                Prelude.. environment_deploymentStatus
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.Proton.GetEnvironmentTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.
 newEnvironmentTemplateVersionRegistered :: Core.Wait GetEnvironmentTemplateVersion
 newEnvironmentTemplateVersionRegistered =
@@ -112,6 +112,66 @@ newEnvironmentTemplateVersionRegistered =
             Core.AcceptFailure
             ( getEnvironmentTemplateVersionResponse_environmentTemplateVersion
                 Prelude.. environmentTemplateVersion_status
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+newServiceCreated :: Core.Wait GetService
+newServiceCreated =
+  Core.Wait
+    { Core._waitName = "ServiceCreated",
+      Core._waitAttempts = 999,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "ACTIVE"
+            Core.AcceptSuccess
+            ( getServiceResponse_service Prelude.. Lens._Just
+                Prelude.. service_status
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATE_FAILED_CLEANUP_COMPLETE"
+            Core.AcceptFailure
+            ( getServiceResponse_service Prelude.. Lens._Just
+                Prelude.. service_status
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATE_FAILED_CLEANUP_FAILED"
+            Core.AcceptFailure
+            ( getServiceResponse_service Prelude.. Lens._Just
+                Prelude.. service_status
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATE_FAILED"
+            Core.AcceptFailure
+            ( getServiceResponse_service Prelude.. Lens._Just
+                Prelude.. service_status
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+newServiceDeleted :: Core.Wait GetService
+newServiceDeleted =
+  Core.Wait
+    { Core._waitName = "ServiceDeleted",
+      Core._waitAttempts = 999,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( getServiceResponse_service Prelude.. Lens._Just
+                Prelude.. service_status
                 Prelude.. Lens.to Core.toTextCI
             )
         ]
@@ -155,27 +215,6 @@ newServiceUpdated =
             ),
           Core.matchAll
             "UPDATE_COMPLETE_CLEANUP_FAILED"
-            Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
-                Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
-newServiceDeleted :: Core.Wait GetService
-newServiceDeleted =
-  Core.Wait
-    { Core._waitName = "ServiceDeleted",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "DELETE_FAILED"
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
@@ -235,45 +274,6 @@ newServicePipelineDeployed =
                 Prelude.. service_pipeline
                 Prelude.. Lens._Just
                 Prelude.. servicePipeline_deploymentStatus
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
-newServiceCreated :: Core.Wait GetService
-newServiceCreated =
-  Core.Wait
-    { Core._waitName = "ServiceCreated",
-      Core._waitAttempts = 999,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "ACTIVE"
-            Core.AcceptSuccess
-            ( getServiceResponse_service Prelude.. Lens._Just
-                Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "CREATE_FAILED_CLEANUP_COMPLETE"
-            Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
-                Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "CREATE_FAILED_CLEANUP_FAILED"
-            Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
-                Prelude.. service_status
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "CREATE_FAILED"
-            Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
-                Prelude.. service_status
                 Prelude.. Lens.to Core.toTextCI
             )
         ]

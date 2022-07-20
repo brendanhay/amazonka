@@ -29,7 +29,10 @@ import Amazonka.Redshift.Types.Parameter
 --
 -- /See:/ 'newDefaultClusterParameters' smart constructor.
 data DefaultClusterParameters = DefaultClusterParameters'
-  { -- | A value that indicates the starting point for the next set of response
+  { -- | The name of the cluster parameter group family to which the engine
+    -- default parameters apply.
+    parameterGroupFamily :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
@@ -37,10 +40,7 @@ data DefaultClusterParameters = DefaultClusterParameters'
     -- the request.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The list of cluster default parameters.
-    parameters :: Prelude.Maybe [Parameter],
-    -- | The name of the cluster parameter group family to which the engine
-    -- default parameters apply.
-    parameterGroupFamily :: Prelude.Maybe Prelude.Text
+    parameters :: Prelude.Maybe [Parameter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,9 @@ data DefaultClusterParameters = DefaultClusterParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parameterGroupFamily', 'defaultClusterParameters_parameterGroupFamily' - The name of the cluster parameter group family to which the engine
+-- default parameters apply.
+--
 -- 'marker', 'defaultClusterParameters_marker' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
@@ -60,17 +63,20 @@ data DefaultClusterParameters = DefaultClusterParameters'
 -- the request.
 --
 -- 'parameters', 'defaultClusterParameters_parameters' - The list of cluster default parameters.
---
--- 'parameterGroupFamily', 'defaultClusterParameters_parameterGroupFamily' - The name of the cluster parameter group family to which the engine
--- default parameters apply.
 newDefaultClusterParameters ::
   DefaultClusterParameters
 newDefaultClusterParameters =
   DefaultClusterParameters'
-    { marker = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      parameterGroupFamily = Prelude.Nothing
+    { parameterGroupFamily =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
+
+-- | The name of the cluster parameter group family to which the engine
+-- default parameters apply.
+defaultClusterParameters_parameterGroupFamily :: Lens.Lens' DefaultClusterParameters (Prelude.Maybe Prelude.Text)
+defaultClusterParameters_parameterGroupFamily = Lens.lens (\DefaultClusterParameters' {parameterGroupFamily} -> parameterGroupFamily) (\s@DefaultClusterParameters' {} a -> s {parameterGroupFamily = a} :: DefaultClusterParameters)
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -85,28 +91,23 @@ defaultClusterParameters_marker = Lens.lens (\DefaultClusterParameters' {marker}
 defaultClusterParameters_parameters :: Lens.Lens' DefaultClusterParameters (Prelude.Maybe [Parameter])
 defaultClusterParameters_parameters = Lens.lens (\DefaultClusterParameters' {parameters} -> parameters) (\s@DefaultClusterParameters' {} a -> s {parameters = a} :: DefaultClusterParameters) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the cluster parameter group family to which the engine
--- default parameters apply.
-defaultClusterParameters_parameterGroupFamily :: Lens.Lens' DefaultClusterParameters (Prelude.Maybe Prelude.Text)
-defaultClusterParameters_parameterGroupFamily = Lens.lens (\DefaultClusterParameters' {parameterGroupFamily} -> parameterGroupFamily) (\s@DefaultClusterParameters' {} a -> s {parameterGroupFamily = a} :: DefaultClusterParameters)
-
 instance Core.FromXML DefaultClusterParameters where
   parseXML x =
     DefaultClusterParameters'
-      Prelude.<$> (x Core..@? "Marker")
+      Prelude.<$> (x Core..@? "ParameterGroupFamily")
+      Prelude.<*> (x Core..@? "Marker")
       Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Parameter")
                   )
-      Prelude.<*> (x Core..@? "ParameterGroupFamily")
 
 instance Prelude.Hashable DefaultClusterParameters where
   hashWithSalt _salt DefaultClusterParameters' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` parameterGroupFamily
 
 instance Prelude.NFData DefaultClusterParameters where
   rnf DefaultClusterParameters' {..} =
-    Prelude.rnf marker
+    Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf parameterGroupFamily

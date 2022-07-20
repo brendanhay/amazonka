@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKeyPairInfo' smart constructor.
 data KeyPairInfo = KeyPairInfo'
-  { -- | If you used CreateKeyPair to create the key pair:
+  { -- | Any tags applied to the key pair.
+    tags :: Prelude.Maybe [Tag],
+    -- | If you used CreateKeyPair to create the key pair:
     --
     -- -   For RSA key pairs, the key fingerprint is the SHA-1 digest of the
     --     DER encoded private key.
@@ -53,9 +55,7 @@ data KeyPairInfo = KeyPairInfo'
     -- | The name of the key pair.
     keyName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the key pair.
-    keyPairId :: Prelude.Maybe Prelude.Text,
-    -- | Any tags applied to the key pair.
-    tags :: Prelude.Maybe [Tag]
+    keyPairId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +66,8 @@ data KeyPairInfo = KeyPairInfo'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'keyPairInfo_tags' - Any tags applied to the key pair.
 --
 -- 'keyFingerprint', 'keyPairInfo_keyFingerprint' - If you used CreateKeyPair to create the key pair:
 --
@@ -90,18 +92,20 @@ data KeyPairInfo = KeyPairInfo'
 -- 'keyName', 'keyPairInfo_keyName' - The name of the key pair.
 --
 -- 'keyPairId', 'keyPairInfo_keyPairId' - The ID of the key pair.
---
--- 'tags', 'keyPairInfo_tags' - Any tags applied to the key pair.
 newKeyPairInfo ::
   KeyPairInfo
 newKeyPairInfo =
   KeyPairInfo'
-    { keyFingerprint = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      keyFingerprint = Prelude.Nothing,
       keyType = Prelude.Nothing,
       keyName = Prelude.Nothing,
-      keyPairId = Prelude.Nothing,
-      tags = Prelude.Nothing
+      keyPairId = Prelude.Nothing
     }
+
+-- | Any tags applied to the key pair.
+keyPairInfo_tags :: Lens.Lens' KeyPairInfo (Prelude.Maybe [Tag])
+keyPairInfo_tags = Lens.lens (\KeyPairInfo' {tags} -> tags) (\s@KeyPairInfo' {} a -> s {tags = a} :: KeyPairInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you used CreateKeyPair to create the key pair:
 --
@@ -135,33 +139,29 @@ keyPairInfo_keyName = Lens.lens (\KeyPairInfo' {keyName} -> keyName) (\s@KeyPair
 keyPairInfo_keyPairId :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.Text)
 keyPairInfo_keyPairId = Lens.lens (\KeyPairInfo' {keyPairId} -> keyPairId) (\s@KeyPairInfo' {} a -> s {keyPairId = a} :: KeyPairInfo)
 
--- | Any tags applied to the key pair.
-keyPairInfo_tags :: Lens.Lens' KeyPairInfo (Prelude.Maybe [Tag])
-keyPairInfo_tags = Lens.lens (\KeyPairInfo' {tags} -> tags) (\s@KeyPairInfo' {} a -> s {tags = a} :: KeyPairInfo) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromXML KeyPairInfo where
   parseXML x =
     KeyPairInfo'
-      Prelude.<$> (x Core..@? "keyFingerprint")
+      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "keyFingerprint")
       Prelude.<*> (x Core..@? "keyType")
       Prelude.<*> (x Core..@? "keyName")
       Prelude.<*> (x Core..@? "keyPairId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
-                  )
 
 instance Prelude.Hashable KeyPairInfo where
   hashWithSalt _salt KeyPairInfo' {..} =
-    _salt `Prelude.hashWithSalt` keyFingerprint
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` keyFingerprint
       `Prelude.hashWithSalt` keyType
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` keyPairId
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData KeyPairInfo where
   rnf KeyPairInfo' {..} =
-    Prelude.rnf keyFingerprint
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf keyFingerprint
       `Prelude.seq` Prelude.rnf keyType
       `Prelude.seq` Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf keyPairId
-      `Prelude.seq` Prelude.rnf tags

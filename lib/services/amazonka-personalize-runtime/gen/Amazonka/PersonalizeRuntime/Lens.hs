@@ -14,21 +14,9 @@
 module Amazonka.PersonalizeRuntime.Lens
   ( -- * Operations
 
-    -- ** GetRecommendations
-    getRecommendations_context,
-    getRecommendations_itemId,
-    getRecommendations_userId,
-    getRecommendations_numResults,
-    getRecommendations_filterArn,
-    getRecommendations_filterValues,
-    getRecommendations_campaignArn,
-    getRecommendationsResponse_recommendationId,
-    getRecommendationsResponse_itemList,
-    getRecommendationsResponse_httpStatus,
-
     -- ** GetPersonalizedRanking
-    getPersonalizedRanking_context,
     getPersonalizedRanking_filterArn,
+    getPersonalizedRanking_context,
     getPersonalizedRanking_filterValues,
     getPersonalizedRanking_campaignArn,
     getPersonalizedRanking_inputList,
@@ -36,6 +24,18 @@ module Amazonka.PersonalizeRuntime.Lens
     getPersonalizedRankingResponse_personalizedRanking,
     getPersonalizedRankingResponse_recommendationId,
     getPersonalizedRankingResponse_httpStatus,
+
+    -- ** GetRecommendations
+    getRecommendations_filterArn,
+    getRecommendations_numResults,
+    getRecommendations_context,
+    getRecommendations_userId,
+    getRecommendations_itemId,
+    getRecommendations_filterValues,
+    getRecommendations_campaignArn,
+    getRecommendationsResponse_recommendationId,
+    getRecommendationsResponse_itemList,
+    getRecommendationsResponse_httpStatus,
 
     -- * Types
 

@@ -30,9 +30,9 @@ module Amazonka.Kafka.UpdateMonitoring
     newUpdateMonitoring,
 
     -- * Request Lenses
-    updateMonitoring_enhancedMonitoring,
     updateMonitoring_openMonitoring,
     updateMonitoring_loggingInfo,
+    updateMonitoring_enhancedMonitoring,
     updateMonitoring_clusterArn,
     updateMonitoring_currentVersion,
 
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateMonitoring' smart constructor.
 data UpdateMonitoring = UpdateMonitoring'
-  { -- | Specifies which Apache Kafka metrics Amazon MSK gathers and sends to
-    -- Amazon CloudWatch for this cluster.
-    enhancedMonitoring :: Prelude.Maybe EnhancedMonitoring,
-    -- | The settings for open monitoring.
+  { -- | The settings for open monitoring.
     openMonitoring :: Prelude.Maybe OpenMonitoringInfo,
     loggingInfo :: Prelude.Maybe LoggingInfo,
+    -- | Specifies which Apache Kafka metrics Amazon MSK gathers and sends to
+    -- Amazon CloudWatch for this cluster.
+    enhancedMonitoring :: Prelude.Maybe EnhancedMonitoring,
     -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     clusterArn :: Prelude.Text,
     -- | The version of the MSK cluster to update. Cluster versions aren\'t
@@ -82,12 +82,12 @@ data UpdateMonitoring = UpdateMonitoring'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enhancedMonitoring', 'updateMonitoring_enhancedMonitoring' - Specifies which Apache Kafka metrics Amazon MSK gathers and sends to
--- Amazon CloudWatch for this cluster.
---
 -- 'openMonitoring', 'updateMonitoring_openMonitoring' - The settings for open monitoring.
 --
 -- 'loggingInfo', 'updateMonitoring_loggingInfo' - Undocumented member.
+--
+-- 'enhancedMonitoring', 'updateMonitoring_enhancedMonitoring' - Specifies which Apache Kafka metrics Amazon MSK gathers and sends to
+-- Amazon CloudWatch for this cluster.
 --
 -- 'clusterArn', 'updateMonitoring_clusterArn' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 --
@@ -103,18 +103,12 @@ newUpdateMonitoring ::
   UpdateMonitoring
 newUpdateMonitoring pClusterArn_ pCurrentVersion_ =
   UpdateMonitoring'
-    { enhancedMonitoring =
-        Prelude.Nothing,
-      openMonitoring = Prelude.Nothing,
+    { openMonitoring = Prelude.Nothing,
       loggingInfo = Prelude.Nothing,
+      enhancedMonitoring = Prelude.Nothing,
       clusterArn = pClusterArn_,
       currentVersion = pCurrentVersion_
     }
-
--- | Specifies which Apache Kafka metrics Amazon MSK gathers and sends to
--- Amazon CloudWatch for this cluster.
-updateMonitoring_enhancedMonitoring :: Lens.Lens' UpdateMonitoring (Prelude.Maybe EnhancedMonitoring)
-updateMonitoring_enhancedMonitoring = Lens.lens (\UpdateMonitoring' {enhancedMonitoring} -> enhancedMonitoring) (\s@UpdateMonitoring' {} a -> s {enhancedMonitoring = a} :: UpdateMonitoring)
 
 -- | The settings for open monitoring.
 updateMonitoring_openMonitoring :: Lens.Lens' UpdateMonitoring (Prelude.Maybe OpenMonitoringInfo)
@@ -123,6 +117,11 @@ updateMonitoring_openMonitoring = Lens.lens (\UpdateMonitoring' {openMonitoring}
 -- | Undocumented member.
 updateMonitoring_loggingInfo :: Lens.Lens' UpdateMonitoring (Prelude.Maybe LoggingInfo)
 updateMonitoring_loggingInfo = Lens.lens (\UpdateMonitoring' {loggingInfo} -> loggingInfo) (\s@UpdateMonitoring' {} a -> s {loggingInfo = a} :: UpdateMonitoring)
+
+-- | Specifies which Apache Kafka metrics Amazon MSK gathers and sends to
+-- Amazon CloudWatch for this cluster.
+updateMonitoring_enhancedMonitoring :: Lens.Lens' UpdateMonitoring (Prelude.Maybe EnhancedMonitoring)
+updateMonitoring_enhancedMonitoring = Lens.lens (\UpdateMonitoring' {enhancedMonitoring} -> enhancedMonitoring) (\s@UpdateMonitoring' {} a -> s {enhancedMonitoring = a} :: UpdateMonitoring)
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 updateMonitoring_clusterArn :: Lens.Lens' UpdateMonitoring Prelude.Text
@@ -151,17 +150,17 @@ instance Core.AWSRequest UpdateMonitoring where
 
 instance Prelude.Hashable UpdateMonitoring where
   hashWithSalt _salt UpdateMonitoring' {..} =
-    _salt `Prelude.hashWithSalt` enhancedMonitoring
-      `Prelude.hashWithSalt` openMonitoring
+    _salt `Prelude.hashWithSalt` openMonitoring
       `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` enhancedMonitoring
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` currentVersion
 
 instance Prelude.NFData UpdateMonitoring where
   rnf UpdateMonitoring' {..} =
-    Prelude.rnf enhancedMonitoring
-      `Prelude.seq` Prelude.rnf openMonitoring
+    Prelude.rnf openMonitoring
       `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf enhancedMonitoring
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf currentVersion
 
@@ -180,11 +179,11 @@ instance Core.ToJSON UpdateMonitoring where
   toJSON UpdateMonitoring' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("enhancedMonitoring" Core..=)
-              Prelude.<$> enhancedMonitoring,
-            ("openMonitoring" Core..=)
+          [ ("openMonitoring" Core..=)
               Prelude.<$> openMonitoring,
             ("loggingInfo" Core..=) Prelude.<$> loggingInfo,
+            ("enhancedMonitoring" Core..=)
+              Prelude.<$> enhancedMonitoring,
             Prelude.Just
               ("currentVersion" Core..= currentVersion)
           ]

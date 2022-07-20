@@ -29,8 +29,8 @@ module Amazonka.GuardDuty.CreateThreatIntelSet
     newCreateThreatIntelSet,
 
     -- * Request Lenses
-    createThreatIntelSet_clientToken,
     createThreatIntelSet_tags,
+    createThreatIntelSet_clientToken,
     createThreatIntelSet_detectorId,
     createThreatIntelSet_name,
     createThreatIntelSet_format,
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateThreatIntelSet' smart constructor.
 data CreateThreatIntelSet = CreateThreatIntelSet'
-  { -- | The idempotency token for the create request.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags to be added to a new threat list resource.
+  { -- | The tags to be added to a new threat list resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The idempotency token for the create request.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the detector of the GuardDuty account that you want to
     -- create a threatIntelSet for.
     detectorId :: Prelude.Text,
@@ -86,9 +86,9 @@ data CreateThreatIntelSet = CreateThreatIntelSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createThreatIntelSet_clientToken' - The idempotency token for the create request.
---
 -- 'tags', 'createThreatIntelSet_tags' - The tags to be added to a new threat list resource.
+--
+-- 'clientToken', 'createThreatIntelSet_clientToken' - The idempotency token for the create request.
 --
 -- 'detectorId', 'createThreatIntelSet_detectorId' - The unique ID of the detector of the GuardDuty account that you want to
 -- create a threatIntelSet for.
@@ -123,9 +123,8 @@ newCreateThreatIntelSet
   pLocation_
   pActivate_ =
     CreateThreatIntelSet'
-      { clientToken =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         detectorId = pDetectorId_,
         name = pName_,
         format = pFormat_,
@@ -133,13 +132,13 @@ newCreateThreatIntelSet
         activate = pActivate_
       }
 
--- | The idempotency token for the create request.
-createThreatIntelSet_clientToken :: Lens.Lens' CreateThreatIntelSet (Prelude.Maybe Prelude.Text)
-createThreatIntelSet_clientToken = Lens.lens (\CreateThreatIntelSet' {clientToken} -> clientToken) (\s@CreateThreatIntelSet' {} a -> s {clientToken = a} :: CreateThreatIntelSet)
-
 -- | The tags to be added to a new threat list resource.
 createThreatIntelSet_tags :: Lens.Lens' CreateThreatIntelSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createThreatIntelSet_tags = Lens.lens (\CreateThreatIntelSet' {tags} -> tags) (\s@CreateThreatIntelSet' {} a -> s {tags = a} :: CreateThreatIntelSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The idempotency token for the create request.
+createThreatIntelSet_clientToken :: Lens.Lens' CreateThreatIntelSet (Prelude.Maybe Prelude.Text)
+createThreatIntelSet_clientToken = Lens.lens (\CreateThreatIntelSet' {clientToken} -> clientToken) (\s@CreateThreatIntelSet' {} a -> s {clientToken = a} :: CreateThreatIntelSet)
 
 -- | The unique ID of the detector of the GuardDuty account that you want to
 -- create a threatIntelSet for.
@@ -181,8 +180,8 @@ instance Core.AWSRequest CreateThreatIntelSet where
 
 instance Prelude.Hashable CreateThreatIntelSet where
   hashWithSalt _salt CreateThreatIntelSet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` format
@@ -191,8 +190,8 @@ instance Prelude.Hashable CreateThreatIntelSet where
 
 instance Prelude.NFData CreateThreatIntelSet where
   rnf CreateThreatIntelSet' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf format
@@ -214,8 +213,8 @@ instance Core.ToJSON CreateThreatIntelSet where
   toJSON CreateThreatIntelSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("format" Core..= format),
             Prelude.Just ("location" Core..= location),

@@ -20,32 +20,32 @@ module Amazonka.Braket
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** DeviceOfflineException
-    _DeviceOfflineException,
 
     -- ** DeviceRetiredException
     _DeviceRetiredException,
 
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
+    -- ** DeviceOfflineException
+    _DeviceOfflineException,
+
+    -- ** ValidationException
+    _ValidationException,
+
     -- ** InternalServiceException
     _InternalServiceException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -53,23 +53,17 @@ module Amazonka.Braket
     -- * Operations
     -- $operations
 
-    -- ** GetQuantumTask
-    GetQuantumTask (GetQuantumTask'),
-    newGetQuantumTask,
-    GetQuantumTaskResponse (GetQuantumTaskResponse'),
-    newGetQuantumTaskResponse,
+    -- ** CancelQuantumTask
+    CancelQuantumTask (CancelQuantumTask'),
+    newCancelQuantumTask,
+    CancelQuantumTaskResponse (CancelQuantumTaskResponse'),
+    newCancelQuantumTaskResponse,
 
-    -- ** SearchQuantumTasks (Paginated)
-    SearchQuantumTasks (SearchQuantumTasks'),
-    newSearchQuantumTasks,
-    SearchQuantumTasksResponse (SearchQuantumTasksResponse'),
-    newSearchQuantumTasksResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateQuantumTask
+    CreateQuantumTask (CreateQuantumTask'),
+    newCreateQuantumTask,
+    CreateQuantumTaskResponse (CreateQuantumTaskResponse'),
+    newCreateQuantumTaskResponse,
 
     -- ** GetDevice
     GetDevice (GetDevice'),
@@ -77,17 +71,29 @@ module Amazonka.Braket
     GetDeviceResponse (GetDeviceResponse'),
     newGetDeviceResponse,
 
-    -- ** CancelQuantumTask
-    CancelQuantumTask (CancelQuantumTask'),
-    newCancelQuantumTask,
-    CancelQuantumTaskResponse (CancelQuantumTaskResponse'),
-    newCancelQuantumTaskResponse,
+    -- ** GetQuantumTask
+    GetQuantumTask (GetQuantumTask'),
+    newGetQuantumTask,
+    GetQuantumTaskResponse (GetQuantumTaskResponse'),
+    newGetQuantumTaskResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** SearchDevices (Paginated)
     SearchDevices (SearchDevices'),
     newSearchDevices,
     SearchDevicesResponse (SearchDevicesResponse'),
     newSearchDevicesResponse,
+
+    -- ** SearchQuantumTasks (Paginated)
+    SearchQuantumTasks (SearchQuantumTasks'),
+    newSearchQuantumTasks,
+    SearchQuantumTasksResponse (SearchQuantumTasksResponse'),
+    newSearchQuantumTasksResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -100,12 +106,6 @@ module Amazonka.Braket
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** CreateQuantumTask
-    CreateQuantumTask (CreateQuantumTask'),
-    newCreateQuantumTask,
-    CreateQuantumTaskResponse (CreateQuantumTaskResponse'),
-    newCreateQuantumTaskResponse,
 
     -- * Types
 

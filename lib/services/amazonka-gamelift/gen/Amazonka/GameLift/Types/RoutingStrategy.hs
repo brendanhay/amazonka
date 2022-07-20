@@ -34,7 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRoutingStrategy' smart constructor.
 data RoutingStrategy = RoutingStrategy'
-  { -- | The type of routing strategy for the alias.
+  { -- | A unique identifier for the fleet that the alias points to. This value
+    -- is the fleet ID, not the fleet ARN.
+    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | The message text to be used with a terminal routing strategy.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The type of routing strategy for the alias.
     --
     -- Possible routing types include the following:
     --
@@ -45,12 +50,7 @@ data RoutingStrategy = RoutingStrategy'
     --     be used to display a message to the user. A terminal alias throws a
     --     TerminalRoutingStrategyException with the RoutingStrategy message
     --     embedded.
-    type' :: Prelude.Maybe RoutingStrategyType,
-    -- | The message text to be used with a terminal routing strategy.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the fleet that the alias points to. This value
-    -- is the fleet ID, not the fleet ARN.
-    fleetId :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe RoutingStrategyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,6 +61,11 @@ data RoutingStrategy = RoutingStrategy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'fleetId', 'routingStrategy_fleetId' - A unique identifier for the fleet that the alias points to. This value
+-- is the fleet ID, not the fleet ARN.
+--
+-- 'message', 'routingStrategy_message' - The message text to be used with a terminal routing strategy.
 --
 -- 'type'', 'routingStrategy_type' - The type of routing strategy for the alias.
 --
@@ -73,19 +78,23 @@ data RoutingStrategy = RoutingStrategy'
 --     be used to display a message to the user. A terminal alias throws a
 --     TerminalRoutingStrategyException with the RoutingStrategy message
 --     embedded.
---
--- 'message', 'routingStrategy_message' - The message text to be used with a terminal routing strategy.
---
--- 'fleetId', 'routingStrategy_fleetId' - A unique identifier for the fleet that the alias points to. This value
--- is the fleet ID, not the fleet ARN.
 newRoutingStrategy ::
   RoutingStrategy
 newRoutingStrategy =
   RoutingStrategy'
-    { type' = Prelude.Nothing,
+    { fleetId = Prelude.Nothing,
       message = Prelude.Nothing,
-      fleetId = Prelude.Nothing
+      type' = Prelude.Nothing
     }
+
+-- | A unique identifier for the fleet that the alias points to. This value
+-- is the fleet ID, not the fleet ARN.
+routingStrategy_fleetId :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
+routingStrategy_fleetId = Lens.lens (\RoutingStrategy' {fleetId} -> fleetId) (\s@RoutingStrategy' {} a -> s {fleetId = a} :: RoutingStrategy)
+
+-- | The message text to be used with a terminal routing strategy.
+routingStrategy_message :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
+routingStrategy_message = Lens.lens (\RoutingStrategy' {message} -> message) (\s@RoutingStrategy' {} a -> s {message = a} :: RoutingStrategy)
 
 -- | The type of routing strategy for the alias.
 --
@@ -101,44 +110,35 @@ newRoutingStrategy =
 routingStrategy_type :: Lens.Lens' RoutingStrategy (Prelude.Maybe RoutingStrategyType)
 routingStrategy_type = Lens.lens (\RoutingStrategy' {type'} -> type') (\s@RoutingStrategy' {} a -> s {type' = a} :: RoutingStrategy)
 
--- | The message text to be used with a terminal routing strategy.
-routingStrategy_message :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
-routingStrategy_message = Lens.lens (\RoutingStrategy' {message} -> message) (\s@RoutingStrategy' {} a -> s {message = a} :: RoutingStrategy)
-
--- | A unique identifier for the fleet that the alias points to. This value
--- is the fleet ID, not the fleet ARN.
-routingStrategy_fleetId :: Lens.Lens' RoutingStrategy (Prelude.Maybe Prelude.Text)
-routingStrategy_fleetId = Lens.lens (\RoutingStrategy' {fleetId} -> fleetId) (\s@RoutingStrategy' {} a -> s {fleetId = a} :: RoutingStrategy)
-
 instance Core.FromJSON RoutingStrategy where
   parseJSON =
     Core.withObject
       "RoutingStrategy"
       ( \x ->
           RoutingStrategy'
-            Prelude.<$> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "FleetId")
             Prelude.<*> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable RoutingStrategy where
   hashWithSalt _salt RoutingStrategy' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` fleetId
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData RoutingStrategy where
   rnf RoutingStrategy' {..} =
-    Prelude.rnf type'
+    Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Core.ToJSON RoutingStrategy where
   toJSON RoutingStrategy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
+          [ ("FleetId" Core..=) Prelude.<$> fleetId,
             ("Message" Core..=) Prelude.<$> message,
-            ("FleetId" Core..=) Prelude.<$> fleetId
+            ("Type" Core..=) Prelude.<$> type'
           ]
       )

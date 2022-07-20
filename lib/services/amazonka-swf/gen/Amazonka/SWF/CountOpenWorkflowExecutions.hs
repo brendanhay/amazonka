@@ -61,8 +61,8 @@ module Amazonka.SWF.CountOpenWorkflowExecutions
     newCountOpenWorkflowExecutions,
 
     -- * Request Lenses
-    countOpenWorkflowExecutions_executionFilter,
     countOpenWorkflowExecutions_typeFilter,
+    countOpenWorkflowExecutions_executionFilter,
     countOpenWorkflowExecutions_tagFilter,
     countOpenWorkflowExecutions_domain,
     countOpenWorkflowExecutions_startTimeFilter,
@@ -86,17 +86,17 @@ import Amazonka.SWF.Types
 
 -- | /See:/ 'newCountOpenWorkflowExecutions' smart constructor.
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
-  { -- | If specified, only workflow executions matching the @WorkflowId@ in the
+  { -- | Specifies the type of the workflow executions to be counted.
+    --
+    -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
+    -- You can specify at most one of these in a request.
+    typeFilter :: Prelude.Maybe WorkflowTypeFilter,
+    -- | If specified, only workflow executions matching the @WorkflowId@ in the
     -- filter are counted.
     --
     -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
     -- You can specify at most one of these in a request.
     executionFilter :: Prelude.Maybe WorkflowExecutionFilter,
-    -- | Specifies the type of the workflow executions to be counted.
-    --
-    -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
-    -- You can specify at most one of these in a request.
-    typeFilter :: Prelude.Maybe WorkflowTypeFilter,
     -- | If specified, only executions that have a tag that matches the filter
     -- are counted.
     --
@@ -119,13 +119,13 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionFilter', 'countOpenWorkflowExecutions_executionFilter' - If specified, only workflow executions matching the @WorkflowId@ in the
--- filter are counted.
+-- 'typeFilter', 'countOpenWorkflowExecutions_typeFilter' - Specifies the type of the workflow executions to be counted.
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
 -- You can specify at most one of these in a request.
 --
--- 'typeFilter', 'countOpenWorkflowExecutions_typeFilter' - Specifies the type of the workflow executions to be counted.
+-- 'executionFilter', 'countOpenWorkflowExecutions_executionFilter' - If specified, only workflow executions matching the @WorkflowId@ in the
+-- filter are counted.
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
 -- You can specify at most one of these in a request.
@@ -150,13 +150,20 @@ newCountOpenWorkflowExecutions
   pDomain_
   pStartTimeFilter_ =
     CountOpenWorkflowExecutions'
-      { executionFilter =
+      { typeFilter =
           Prelude.Nothing,
-        typeFilter = Prelude.Nothing,
+        executionFilter = Prelude.Nothing,
         tagFilter = Prelude.Nothing,
         domain = pDomain_,
         startTimeFilter = pStartTimeFilter_
       }
+
+-- | Specifies the type of the workflow executions to be counted.
+--
+-- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
+-- You can specify at most one of these in a request.
+countOpenWorkflowExecutions_typeFilter :: Lens.Lens' CountOpenWorkflowExecutions (Prelude.Maybe WorkflowTypeFilter)
+countOpenWorkflowExecutions_typeFilter = Lens.lens (\CountOpenWorkflowExecutions' {typeFilter} -> typeFilter) (\s@CountOpenWorkflowExecutions' {} a -> s {typeFilter = a} :: CountOpenWorkflowExecutions)
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the
 -- filter are counted.
@@ -165,13 +172,6 @@ newCountOpenWorkflowExecutions
 -- You can specify at most one of these in a request.
 countOpenWorkflowExecutions_executionFilter :: Lens.Lens' CountOpenWorkflowExecutions (Prelude.Maybe WorkflowExecutionFilter)
 countOpenWorkflowExecutions_executionFilter = Lens.lens (\CountOpenWorkflowExecutions' {executionFilter} -> executionFilter) (\s@CountOpenWorkflowExecutions' {} a -> s {executionFilter = a} :: CountOpenWorkflowExecutions)
-
--- | Specifies the type of the workflow executions to be counted.
---
--- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
--- You can specify at most one of these in a request.
-countOpenWorkflowExecutions_typeFilter :: Lens.Lens' CountOpenWorkflowExecutions (Prelude.Maybe WorkflowTypeFilter)
-countOpenWorkflowExecutions_typeFilter = Lens.lens (\CountOpenWorkflowExecutions' {typeFilter} -> typeFilter) (\s@CountOpenWorkflowExecutions' {} a -> s {typeFilter = a} :: CountOpenWorkflowExecutions)
 
 -- | If specified, only executions that have a tag that matches the filter
 -- are counted.
@@ -201,16 +201,16 @@ instance Core.AWSRequest CountOpenWorkflowExecutions where
 
 instance Prelude.Hashable CountOpenWorkflowExecutions where
   hashWithSalt _salt CountOpenWorkflowExecutions' {..} =
-    _salt `Prelude.hashWithSalt` executionFilter
-      `Prelude.hashWithSalt` typeFilter
+    _salt `Prelude.hashWithSalt` typeFilter
+      `Prelude.hashWithSalt` executionFilter
       `Prelude.hashWithSalt` tagFilter
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` startTimeFilter
 
 instance Prelude.NFData CountOpenWorkflowExecutions where
   rnf CountOpenWorkflowExecutions' {..} =
-    Prelude.rnf executionFilter
-      `Prelude.seq` Prelude.rnf typeFilter
+    Prelude.rnf typeFilter
+      `Prelude.seq` Prelude.rnf executionFilter
       `Prelude.seq` Prelude.rnf tagFilter
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf startTimeFilter
@@ -234,9 +234,9 @@ instance Core.ToJSON CountOpenWorkflowExecutions where
   toJSON CountOpenWorkflowExecutions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("executionFilter" Core..=)
+          [ ("typeFilter" Core..=) Prelude.<$> typeFilter,
+            ("executionFilter" Core..=)
               Prelude.<$> executionFilter,
-            ("typeFilter" Core..=) Prelude.<$> typeFilter,
             ("tagFilter" Core..=) Prelude.<$> tagFilter,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just

@@ -37,8 +37,8 @@ module Amazonka.OpenSearch.ListInstanceTypeDetails
     newListInstanceTypeDetailsResponse,
 
     -- * Response Lenses
-    listInstanceTypeDetailsResponse_instanceTypeDetails,
     listInstanceTypeDetailsResponse_nextToken,
+    listInstanceTypeDetailsResponse_instanceTypeDetails,
     listInstanceTypeDetailsResponse_httpStatus,
   )
 where
@@ -112,10 +112,10 @@ instance Core.AWSRequest ListInstanceTypeDetails where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceTypeDetailsResponse'
-            Prelude.<$> ( x Core..?> "InstanceTypeDetails"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "InstanceTypeDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,8 +153,8 @@ instance Core.ToQuery ListInstanceTypeDetails where
 
 -- | /See:/ 'newListInstanceTypeDetailsResponse' smart constructor.
 data ListInstanceTypeDetailsResponse = ListInstanceTypeDetailsResponse'
-  { instanceTypeDetails :: Prelude.Maybe [InstanceTypeDetails],
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    instanceTypeDetails :: Prelude.Maybe [InstanceTypeDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,9 +168,9 @@ data ListInstanceTypeDetailsResponse = ListInstanceTypeDetailsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceTypeDetails', 'listInstanceTypeDetailsResponse_instanceTypeDetails' - Undocumented member.
---
 -- 'nextToken', 'listInstanceTypeDetailsResponse_nextToken' - Undocumented member.
+--
+-- 'instanceTypeDetails', 'listInstanceTypeDetailsResponse_instanceTypeDetails' - Undocumented member.
 --
 -- 'httpStatus', 'listInstanceTypeDetailsResponse_httpStatus' - The response's http status code.
 newListInstanceTypeDetailsResponse ::
@@ -179,19 +179,19 @@ newListInstanceTypeDetailsResponse ::
   ListInstanceTypeDetailsResponse
 newListInstanceTypeDetailsResponse pHttpStatus_ =
   ListInstanceTypeDetailsResponse'
-    { instanceTypeDetails =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      instanceTypeDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listInstanceTypeDetailsResponse_instanceTypeDetails :: Lens.Lens' ListInstanceTypeDetailsResponse (Prelude.Maybe [InstanceTypeDetails])
-listInstanceTypeDetailsResponse_instanceTypeDetails = Lens.lens (\ListInstanceTypeDetailsResponse' {instanceTypeDetails} -> instanceTypeDetails) (\s@ListInstanceTypeDetailsResponse' {} a -> s {instanceTypeDetails = a} :: ListInstanceTypeDetailsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 listInstanceTypeDetailsResponse_nextToken :: Lens.Lens' ListInstanceTypeDetailsResponse (Prelude.Maybe Prelude.Text)
 listInstanceTypeDetailsResponse_nextToken = Lens.lens (\ListInstanceTypeDetailsResponse' {nextToken} -> nextToken) (\s@ListInstanceTypeDetailsResponse' {} a -> s {nextToken = a} :: ListInstanceTypeDetailsResponse)
+
+-- | Undocumented member.
+listInstanceTypeDetailsResponse_instanceTypeDetails :: Lens.Lens' ListInstanceTypeDetailsResponse (Prelude.Maybe [InstanceTypeDetails])
+listInstanceTypeDetailsResponse_instanceTypeDetails = Lens.lens (\ListInstanceTypeDetailsResponse' {instanceTypeDetails} -> instanceTypeDetails) (\s@ListInstanceTypeDetailsResponse' {} a -> s {instanceTypeDetails = a} :: ListInstanceTypeDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInstanceTypeDetailsResponse_httpStatus :: Lens.Lens' ListInstanceTypeDetailsResponse Prelude.Int
@@ -202,6 +202,6 @@ instance
     ListInstanceTypeDetailsResponse
   where
   rnf ListInstanceTypeDetailsResponse' {..} =
-    Prelude.rnf instanceTypeDetails
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceTypeDetails
       `Prelude.seq` Prelude.rnf httpStatus

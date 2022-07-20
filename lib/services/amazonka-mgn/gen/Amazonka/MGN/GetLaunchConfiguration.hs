@@ -34,11 +34,11 @@ module Amazonka.MGN.GetLaunchConfiguration
     newLaunchConfiguration,
 
     -- * Response Lenses
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_copyTags,
     launchConfiguration_name,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
+    launchConfiguration_copyTags,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_ec2LaunchTemplateID,
     launchConfiguration_sourceServerID,
     launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,

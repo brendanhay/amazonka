@@ -36,7 +36,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobFilter' smart constructor.
 data JobFilter = JobFilter'
-  { -- | The value of the filter.
+  { -- | The name of the filter.
+    --
+    -- Specify @ResourceType@ to return export jobs of a specific resource type
+    -- (for example, @Ec2Instance@).
+    --
+    -- Specify @JobStatus@ to return export jobs with a specific status (e.g,
+    -- @Complete@).
+    name :: Prelude.Maybe JobFilterName,
+    -- | The value of the filter.
     --
     -- The valid values for this parameter are as follows, depending on what
     -- you specify for the @name@ parameter:
@@ -48,15 +56,7 @@ data JobFilter = JobFilter'
     --
     -- -   Specify @Queued@, @InProgress@, @Complete@, or @Failed@ if you
     --     specify the @name@ parameter as @JobStatus@.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the filter.
-    --
-    -- Specify @ResourceType@ to return export jobs of a specific resource type
-    -- (for example, @Ec2Instance@).
-    --
-    -- Specify @JobStatus@ to return export jobs with a specific status (e.g,
-    -- @Complete@).
-    name :: Prelude.Maybe JobFilterName
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +67,14 @@ data JobFilter = JobFilter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'name', 'jobFilter_name' - The name of the filter.
+--
+-- Specify @ResourceType@ to return export jobs of a specific resource type
+-- (for example, @Ec2Instance@).
+--
+-- Specify @JobStatus@ to return export jobs with a specific status (e.g,
+-- @Complete@).
 --
 -- 'values', 'jobFilter_values' - The value of the filter.
 --
@@ -80,21 +88,23 @@ data JobFilter = JobFilter'
 --
 -- -   Specify @Queued@, @InProgress@, @Complete@, or @Failed@ if you
 --     specify the @name@ parameter as @JobStatus@.
---
--- 'name', 'jobFilter_name' - The name of the filter.
+newJobFilter ::
+  JobFilter
+newJobFilter =
+  JobFilter'
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
+    }
+
+-- | The name of the filter.
 --
 -- Specify @ResourceType@ to return export jobs of a specific resource type
 -- (for example, @Ec2Instance@).
 --
 -- Specify @JobStatus@ to return export jobs with a specific status (e.g,
 -- @Complete@).
-newJobFilter ::
-  JobFilter
-newJobFilter =
-  JobFilter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
-    }
+jobFilter_name :: Lens.Lens' JobFilter (Prelude.Maybe JobFilterName)
+jobFilter_name = Lens.lens (\JobFilter' {name} -> name) (\s@JobFilter' {} a -> s {name = a} :: JobFilter)
 
 -- | The value of the filter.
 --
@@ -111,30 +121,20 @@ newJobFilter =
 jobFilter_values :: Lens.Lens' JobFilter (Prelude.Maybe [Prelude.Text])
 jobFilter_values = Lens.lens (\JobFilter' {values} -> values) (\s@JobFilter' {} a -> s {values = a} :: JobFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the filter.
---
--- Specify @ResourceType@ to return export jobs of a specific resource type
--- (for example, @Ec2Instance@).
---
--- Specify @JobStatus@ to return export jobs with a specific status (e.g,
--- @Complete@).
-jobFilter_name :: Lens.Lens' JobFilter (Prelude.Maybe JobFilterName)
-jobFilter_name = Lens.lens (\JobFilter' {name} -> name) (\s@JobFilter' {} a -> s {name = a} :: JobFilter)
-
 instance Prelude.Hashable JobFilter where
   hashWithSalt _salt JobFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData JobFilter where
   rnf JobFilter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON JobFilter where
   toJSON JobFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

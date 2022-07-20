@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessageResult' smart constructor.
 data MessageResult = MessageResult'
-  { -- | The status message for delivering the message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | For push notifications that are sent through the GCM channel, specifies
+  { -- | For push notifications that are sent through the GCM channel, specifies
     -- whether the endpoint\'s device registration token was updated as part of
     -- delivering the message.
     updatedToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the message that was sent.
     messageId :: Prelude.Maybe Prelude.Text,
+    -- | The status message for delivering the message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The delivery status of the message. Possible values are:
     --
     -- -   DUPLICATE - The endpoint address is a duplicate of another endpoint
@@ -76,13 +76,13 @@ data MessageResult = MessageResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'messageResult_statusMessage' - The status message for delivering the message.
---
 -- 'updatedToken', 'messageResult_updatedToken' - For push notifications that are sent through the GCM channel, specifies
 -- whether the endpoint\'s device registration token was updated as part of
 -- delivering the message.
 --
 -- 'messageId', 'messageResult_messageId' - The unique identifier for the message that was sent.
+--
+-- 'statusMessage', 'messageResult_statusMessage' - The status message for delivering the message.
 --
 -- 'deliveryStatus', 'messageResult_deliveryStatus' - The delivery status of the message. Possible values are:
 --
@@ -119,16 +119,12 @@ newMessageResult ::
   MessageResult
 newMessageResult pDeliveryStatus_ pStatusCode_ =
   MessageResult'
-    { statusMessage = Prelude.Nothing,
-      updatedToken = Prelude.Nothing,
+    { updatedToken = Prelude.Nothing,
       messageId = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       deliveryStatus = pDeliveryStatus_,
       statusCode = pStatusCode_
     }
-
--- | The status message for delivering the message.
-messageResult_statusMessage :: Lens.Lens' MessageResult (Prelude.Maybe Prelude.Text)
-messageResult_statusMessage = Lens.lens (\MessageResult' {statusMessage} -> statusMessage) (\s@MessageResult' {} a -> s {statusMessage = a} :: MessageResult)
 
 -- | For push notifications that are sent through the GCM channel, specifies
 -- whether the endpoint\'s device registration token was updated as part of
@@ -139,6 +135,10 @@ messageResult_updatedToken = Lens.lens (\MessageResult' {updatedToken} -> update
 -- | The unique identifier for the message that was sent.
 messageResult_messageId :: Lens.Lens' MessageResult (Prelude.Maybe Prelude.Text)
 messageResult_messageId = Lens.lens (\MessageResult' {messageId} -> messageId) (\s@MessageResult' {} a -> s {messageId = a} :: MessageResult)
+
+-- | The status message for delivering the message.
+messageResult_statusMessage :: Lens.Lens' MessageResult (Prelude.Maybe Prelude.Text)
+messageResult_statusMessage = Lens.lens (\MessageResult' {statusMessage} -> statusMessage) (\s@MessageResult' {} a -> s {statusMessage = a} :: MessageResult)
 
 -- | The delivery status of the message. Possible values are:
 --
@@ -178,25 +178,25 @@ instance Core.FromJSON MessageResult where
       "MessageResult"
       ( \x ->
           MessageResult'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "UpdatedToken")
+            Prelude.<$> (x Core..:? "UpdatedToken")
             Prelude.<*> (x Core..:? "MessageId")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..: "DeliveryStatus")
             Prelude.<*> (x Core..: "StatusCode")
       )
 
 instance Prelude.Hashable MessageResult where
   hashWithSalt _salt MessageResult' {..} =
-    _salt `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` updatedToken
+    _salt `Prelude.hashWithSalt` updatedToken
       `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` deliveryStatus
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData MessageResult where
   rnf MessageResult' {..} =
-    Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf updatedToken
+    Prelude.rnf updatedToken
       `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf deliveryStatus
       `Prelude.seq` Prelude.rnf statusCode

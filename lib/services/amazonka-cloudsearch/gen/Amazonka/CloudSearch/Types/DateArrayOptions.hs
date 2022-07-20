@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDateArrayOptions' smart constructor.
 data DateArrayOptions = DateArrayOptions'
-  { -- | A list of source fields to map to the field.
-    sourceFields :: Prelude.Maybe Prelude.Text,
-    -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Whether facet information can be returned for the field.
+  { -- | Whether facet information can be returned for the field.
     facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
     searchEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of source fields to map to the field.
+    sourceFields :: Prelude.Maybe Prelude.Text,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | Whether the contents of the field can be returned in the search results.
+    returnEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,34 +51,26 @@ data DateArrayOptions = DateArrayOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceFields', 'dateArrayOptions_sourceFields' - A list of source fields to map to the field.
---
--- 'returnEnabled', 'dateArrayOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
---
 -- 'facetEnabled', 'dateArrayOptions_facetEnabled' - Whether facet information can be returned for the field.
 --
 -- 'searchEnabled', 'dateArrayOptions_searchEnabled' - Whether the contents of the field are searchable.
 --
+-- 'sourceFields', 'dateArrayOptions_sourceFields' - A list of source fields to map to the field.
+--
 -- 'defaultValue', 'dateArrayOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
 -- document.
+--
+-- 'returnEnabled', 'dateArrayOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
 newDateArrayOptions ::
   DateArrayOptions
 newDateArrayOptions =
   DateArrayOptions'
-    { sourceFields = Prelude.Nothing,
-      returnEnabled = Prelude.Nothing,
-      facetEnabled = Prelude.Nothing,
+    { facetEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+      sourceFields = Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
+      returnEnabled = Prelude.Nothing
     }
-
--- | A list of source fields to map to the field.
-dateArrayOptions_sourceFields :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Text)
-dateArrayOptions_sourceFields = Lens.lens (\DateArrayOptions' {sourceFields} -> sourceFields) (\s@DateArrayOptions' {} a -> s {sourceFields = a} :: DateArrayOptions)
-
--- | Whether the contents of the field can be returned in the search results.
-dateArrayOptions_returnEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
-dateArrayOptions_returnEnabled = Lens.lens (\DateArrayOptions' {returnEnabled} -> returnEnabled) (\s@DateArrayOptions' {} a -> s {returnEnabled = a} :: DateArrayOptions)
 
 -- | Whether facet information can be returned for the field.
 dateArrayOptions_facetEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
@@ -88,42 +80,50 @@ dateArrayOptions_facetEnabled = Lens.lens (\DateArrayOptions' {facetEnabled} -> 
 dateArrayOptions_searchEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
 dateArrayOptions_searchEnabled = Lens.lens (\DateArrayOptions' {searchEnabled} -> searchEnabled) (\s@DateArrayOptions' {} a -> s {searchEnabled = a} :: DateArrayOptions)
 
+-- | A list of source fields to map to the field.
+dateArrayOptions_sourceFields :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Text)
+dateArrayOptions_sourceFields = Lens.lens (\DateArrayOptions' {sourceFields} -> sourceFields) (\s@DateArrayOptions' {} a -> s {sourceFields = a} :: DateArrayOptions)
+
 -- | A value to use for the field if the field isn\'t specified for a
 -- document.
 dateArrayOptions_defaultValue :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Text)
 dateArrayOptions_defaultValue = Lens.lens (\DateArrayOptions' {defaultValue} -> defaultValue) (\s@DateArrayOptions' {} a -> s {defaultValue = a} :: DateArrayOptions)
 
+-- | Whether the contents of the field can be returned in the search results.
+dateArrayOptions_returnEnabled :: Lens.Lens' DateArrayOptions (Prelude.Maybe Prelude.Bool)
+dateArrayOptions_returnEnabled = Lens.lens (\DateArrayOptions' {returnEnabled} -> returnEnabled) (\s@DateArrayOptions' {} a -> s {returnEnabled = a} :: DateArrayOptions)
+
 instance Core.FromXML DateArrayOptions where
   parseXML x =
     DateArrayOptions'
-      Prelude.<$> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
-      Prelude.<*> (x Core..@? "FacetEnabled")
+      Prelude.<$> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "SearchEnabled")
+      Prelude.<*> (x Core..@? "SourceFields")
       Prelude.<*> (x Core..@? "DefaultValue")
+      Prelude.<*> (x Core..@? "ReturnEnabled")
 
 instance Prelude.Hashable DateArrayOptions where
   hashWithSalt _salt DateArrayOptions' {..} =
-    _salt `Prelude.hashWithSalt` sourceFields
-      `Prelude.hashWithSalt` returnEnabled
-      `Prelude.hashWithSalt` facetEnabled
+    _salt `Prelude.hashWithSalt` facetEnabled
       `Prelude.hashWithSalt` searchEnabled
+      `Prelude.hashWithSalt` sourceFields
       `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` returnEnabled
 
 instance Prelude.NFData DateArrayOptions where
   rnf DateArrayOptions' {..} =
-    Prelude.rnf sourceFields
-      `Prelude.seq` Prelude.rnf returnEnabled
-      `Prelude.seq` Prelude.rnf facetEnabled
+    Prelude.rnf facetEnabled
       `Prelude.seq` Prelude.rnf searchEnabled
+      `Prelude.seq` Prelude.rnf sourceFields
       `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf returnEnabled
 
 instance Core.ToQuery DateArrayOptions where
   toQuery DateArrayOptions' {..} =
     Prelude.mconcat
-      [ "SourceFields" Core.=: sourceFields,
-        "ReturnEnabled" Core.=: returnEnabled,
-        "FacetEnabled" Core.=: facetEnabled,
+      [ "FacetEnabled" Core.=: facetEnabled,
         "SearchEnabled" Core.=: searchEnabled,
-        "DefaultValue" Core.=: defaultValue
+        "SourceFields" Core.=: sourceFields,
+        "DefaultValue" Core.=: defaultValue,
+        "ReturnEnabled" Core.=: returnEnabled
       ]

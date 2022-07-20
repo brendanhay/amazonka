@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCipher' smart constructor.
 data Cipher = Cipher'
-  { -- | The priority of the cipher.
-    priority :: Prelude.Maybe Prelude.Int,
-    -- | The name of the cipher.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the cipher.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The priority of the cipher.
+    priority :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,36 +42,36 @@ data Cipher = Cipher'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'priority', 'cipher_priority' - The priority of the cipher.
---
 -- 'name', 'cipher_name' - The name of the cipher.
+--
+-- 'priority', 'cipher_priority' - The priority of the cipher.
 newCipher ::
   Cipher
 newCipher =
   Cipher'
-    { priority = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      priority = Prelude.Nothing
     }
-
--- | The priority of the cipher.
-cipher_priority :: Lens.Lens' Cipher (Prelude.Maybe Prelude.Int)
-cipher_priority = Lens.lens (\Cipher' {priority} -> priority) (\s@Cipher' {} a -> s {priority = a} :: Cipher)
 
 -- | The name of the cipher.
 cipher_name :: Lens.Lens' Cipher (Prelude.Maybe Prelude.Text)
 cipher_name = Lens.lens (\Cipher' {name} -> name) (\s@Cipher' {} a -> s {name = a} :: Cipher)
 
+-- | The priority of the cipher.
+cipher_priority :: Lens.Lens' Cipher (Prelude.Maybe Prelude.Int)
+cipher_priority = Lens.lens (\Cipher' {priority} -> priority) (\s@Cipher' {} a -> s {priority = a} :: Cipher)
+
 instance Core.FromXML Cipher where
   parseXML x =
     Cipher'
-      Prelude.<$> (x Core..@? "Priority")
-      Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "Priority")
 
 instance Prelude.Hashable Cipher where
   hashWithSalt _salt Cipher' {..} =
-    _salt `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData Cipher where
   rnf Cipher' {..} =
-    Prelude.rnf priority `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf priority

@@ -29,21 +29,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMigrationTaskSummary' smart constructor.
 data MigrationTaskSummary = MigrationTaskSummary'
-  { -- | Status of the task.
-    status :: Prelude.Maybe MigrationStatus,
-    -- | The timestamp when the task was gathered.
+  { -- | The timestamp when the task was gathered.
     updateDateTime :: Prelude.Maybe Core.POSIX,
-    -- | Indication of the percentage completion of the task.
-    progressPercent :: Prelude.Maybe Prelude.Natural,
+    -- | Unique identifier that references the migration task. /Do not store
+    -- personal data in this field./
+    migrationTaskName :: Prelude.Maybe Prelude.Text,
     -- | Detail information of what is being done within the overall status
     -- state.
     statusDetail :: Prelude.Maybe Prelude.Text,
+    -- | Status of the task.
+    status :: Prelude.Maybe MigrationStatus,
     -- | An AWS resource used for access control. It should uniquely identify the
     -- migration tool as it is used for all updates made by the tool.
     progressUpdateStream :: Prelude.Maybe Prelude.Text,
-    -- | Unique identifier that references the migration task. /Do not store
-    -- personal data in this field./
-    migrationTaskName :: Prelude.Maybe Prelude.Text
+    -- | Indication of the percentage completion of the task.
+    progressPercent :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,58 +55,59 @@ data MigrationTaskSummary = MigrationTaskSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'migrationTaskSummary_status' - Status of the task.
---
 -- 'updateDateTime', 'migrationTaskSummary_updateDateTime' - The timestamp when the task was gathered.
 --
--- 'progressPercent', 'migrationTaskSummary_progressPercent' - Indication of the percentage completion of the task.
+-- 'migrationTaskName', 'migrationTaskSummary_migrationTaskName' - Unique identifier that references the migration task. /Do not store
+-- personal data in this field./
 --
 -- 'statusDetail', 'migrationTaskSummary_statusDetail' - Detail information of what is being done within the overall status
 -- state.
 --
+-- 'status', 'migrationTaskSummary_status' - Status of the task.
+--
 -- 'progressUpdateStream', 'migrationTaskSummary_progressUpdateStream' - An AWS resource used for access control. It should uniquely identify the
 -- migration tool as it is used for all updates made by the tool.
 --
--- 'migrationTaskName', 'migrationTaskSummary_migrationTaskName' - Unique identifier that references the migration task. /Do not store
--- personal data in this field./
+-- 'progressPercent', 'migrationTaskSummary_progressPercent' - Indication of the percentage completion of the task.
 newMigrationTaskSummary ::
   MigrationTaskSummary
 newMigrationTaskSummary =
   MigrationTaskSummary'
-    { status = Prelude.Nothing,
-      updateDateTime = Prelude.Nothing,
-      progressPercent = Prelude.Nothing,
+    { updateDateTime =
+        Prelude.Nothing,
+      migrationTaskName = Prelude.Nothing,
       statusDetail = Prelude.Nothing,
+      status = Prelude.Nothing,
       progressUpdateStream = Prelude.Nothing,
-      migrationTaskName = Prelude.Nothing
+      progressPercent = Prelude.Nothing
     }
-
--- | Status of the task.
-migrationTaskSummary_status :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe MigrationStatus)
-migrationTaskSummary_status = Lens.lens (\MigrationTaskSummary' {status} -> status) (\s@MigrationTaskSummary' {} a -> s {status = a} :: MigrationTaskSummary)
 
 -- | The timestamp when the task was gathered.
 migrationTaskSummary_updateDateTime :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.UTCTime)
 migrationTaskSummary_updateDateTime = Lens.lens (\MigrationTaskSummary' {updateDateTime} -> updateDateTime) (\s@MigrationTaskSummary' {} a -> s {updateDateTime = a} :: MigrationTaskSummary) Prelude.. Lens.mapping Core._Time
 
--- | Indication of the percentage completion of the task.
-migrationTaskSummary_progressPercent :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.Natural)
-migrationTaskSummary_progressPercent = Lens.lens (\MigrationTaskSummary' {progressPercent} -> progressPercent) (\s@MigrationTaskSummary' {} a -> s {progressPercent = a} :: MigrationTaskSummary)
+-- | Unique identifier that references the migration task. /Do not store
+-- personal data in this field./
+migrationTaskSummary_migrationTaskName :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.Text)
+migrationTaskSummary_migrationTaskName = Lens.lens (\MigrationTaskSummary' {migrationTaskName} -> migrationTaskName) (\s@MigrationTaskSummary' {} a -> s {migrationTaskName = a} :: MigrationTaskSummary)
 
 -- | Detail information of what is being done within the overall status
 -- state.
 migrationTaskSummary_statusDetail :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.Text)
 migrationTaskSummary_statusDetail = Lens.lens (\MigrationTaskSummary' {statusDetail} -> statusDetail) (\s@MigrationTaskSummary' {} a -> s {statusDetail = a} :: MigrationTaskSummary)
 
+-- | Status of the task.
+migrationTaskSummary_status :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe MigrationStatus)
+migrationTaskSummary_status = Lens.lens (\MigrationTaskSummary' {status} -> status) (\s@MigrationTaskSummary' {} a -> s {status = a} :: MigrationTaskSummary)
+
 -- | An AWS resource used for access control. It should uniquely identify the
 -- migration tool as it is used for all updates made by the tool.
 migrationTaskSummary_progressUpdateStream :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.Text)
 migrationTaskSummary_progressUpdateStream = Lens.lens (\MigrationTaskSummary' {progressUpdateStream} -> progressUpdateStream) (\s@MigrationTaskSummary' {} a -> s {progressUpdateStream = a} :: MigrationTaskSummary)
 
--- | Unique identifier that references the migration task. /Do not store
--- personal data in this field./
-migrationTaskSummary_migrationTaskName :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.Text)
-migrationTaskSummary_migrationTaskName = Lens.lens (\MigrationTaskSummary' {migrationTaskName} -> migrationTaskName) (\s@MigrationTaskSummary' {} a -> s {migrationTaskName = a} :: MigrationTaskSummary)
+-- | Indication of the percentage completion of the task.
+migrationTaskSummary_progressPercent :: Lens.Lens' MigrationTaskSummary (Prelude.Maybe Prelude.Natural)
+migrationTaskSummary_progressPercent = Lens.lens (\MigrationTaskSummary' {progressPercent} -> progressPercent) (\s@MigrationTaskSummary' {} a -> s {progressPercent = a} :: MigrationTaskSummary)
 
 instance Core.FromJSON MigrationTaskSummary where
   parseJSON =
@@ -114,28 +115,28 @@ instance Core.FromJSON MigrationTaskSummary where
       "MigrationTaskSummary"
       ( \x ->
           MigrationTaskSummary'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "UpdateDateTime")
-            Prelude.<*> (x Core..:? "ProgressPercent")
-            Prelude.<*> (x Core..:? "StatusDetail")
-            Prelude.<*> (x Core..:? "ProgressUpdateStream")
+            Prelude.<$> (x Core..:? "UpdateDateTime")
             Prelude.<*> (x Core..:? "MigrationTaskName")
+            Prelude.<*> (x Core..:? "StatusDetail")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "ProgressUpdateStream")
+            Prelude.<*> (x Core..:? "ProgressPercent")
       )
 
 instance Prelude.Hashable MigrationTaskSummary where
   hashWithSalt _salt MigrationTaskSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` updateDateTime
-      `Prelude.hashWithSalt` progressPercent
-      `Prelude.hashWithSalt` statusDetail
-      `Prelude.hashWithSalt` progressUpdateStream
+    _salt `Prelude.hashWithSalt` updateDateTime
       `Prelude.hashWithSalt` migrationTaskName
+      `Prelude.hashWithSalt` statusDetail
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` progressUpdateStream
+      `Prelude.hashWithSalt` progressPercent
 
 instance Prelude.NFData MigrationTaskSummary where
   rnf MigrationTaskSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf progressPercent
-      `Prelude.seq` Prelude.rnf statusDetail
-      `Prelude.seq` Prelude.rnf progressUpdateStream
+    Prelude.rnf updateDateTime
       `Prelude.seq` Prelude.rnf migrationTaskName
+      `Prelude.seq` Prelude.rnf statusDetail
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf progressUpdateStream
+      `Prelude.seq` Prelude.rnf progressPercent

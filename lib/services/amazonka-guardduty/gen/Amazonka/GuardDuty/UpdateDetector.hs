@@ -27,9 +27,9 @@ module Amazonka.GuardDuty.UpdateDetector
     newUpdateDetector,
 
     -- * Request Lenses
-    updateDetector_findingPublishingFrequency,
     updateDetector_dataSources,
     updateDetector_enable,
+    updateDetector_findingPublishingFrequency,
     updateDetector_detectorId,
 
     -- * Destructuring the Response
@@ -50,13 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDetector' smart constructor.
 data UpdateDetector = UpdateDetector'
-  { -- | An enum value that specifies how frequently findings are exported, such
-    -- as to CloudWatch Events.
-    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
-    -- | Describes which data sources will be updated.
+  { -- | Describes which data sources will be updated.
     dataSources :: Prelude.Maybe DataSourceConfigurations,
     -- | Specifies whether the detector is enabled or not enabled.
     enable :: Prelude.Maybe Prelude.Bool,
+    -- | An enum value that specifies how frequently findings are exported, such
+    -- as to CloudWatch Events.
+    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The unique ID of the detector to update.
     detectorId :: Prelude.Text
   }
@@ -70,12 +70,12 @@ data UpdateDetector = UpdateDetector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'findingPublishingFrequency', 'updateDetector_findingPublishingFrequency' - An enum value that specifies how frequently findings are exported, such
--- as to CloudWatch Events.
---
 -- 'dataSources', 'updateDetector_dataSources' - Describes which data sources will be updated.
 --
 -- 'enable', 'updateDetector_enable' - Specifies whether the detector is enabled or not enabled.
+--
+-- 'findingPublishingFrequency', 'updateDetector_findingPublishingFrequency' - An enum value that specifies how frequently findings are exported, such
+-- as to CloudWatch Events.
 --
 -- 'detectorId', 'updateDetector_detectorId' - The unique ID of the detector to update.
 newUpdateDetector ::
@@ -84,17 +84,11 @@ newUpdateDetector ::
   UpdateDetector
 newUpdateDetector pDetectorId_ =
   UpdateDetector'
-    { findingPublishingFrequency =
-        Prelude.Nothing,
-      dataSources = Prelude.Nothing,
+    { dataSources = Prelude.Nothing,
       enable = Prelude.Nothing,
+      findingPublishingFrequency = Prelude.Nothing,
       detectorId = pDetectorId_
     }
-
--- | An enum value that specifies how frequently findings are exported, such
--- as to CloudWatch Events.
-updateDetector_findingPublishingFrequency :: Lens.Lens' UpdateDetector (Prelude.Maybe FindingPublishingFrequency)
-updateDetector_findingPublishingFrequency = Lens.lens (\UpdateDetector' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@UpdateDetector' {} a -> s {findingPublishingFrequency = a} :: UpdateDetector)
 
 -- | Describes which data sources will be updated.
 updateDetector_dataSources :: Lens.Lens' UpdateDetector (Prelude.Maybe DataSourceConfigurations)
@@ -103,6 +97,11 @@ updateDetector_dataSources = Lens.lens (\UpdateDetector' {dataSources} -> dataSo
 -- | Specifies whether the detector is enabled or not enabled.
 updateDetector_enable :: Lens.Lens' UpdateDetector (Prelude.Maybe Prelude.Bool)
 updateDetector_enable = Lens.lens (\UpdateDetector' {enable} -> enable) (\s@UpdateDetector' {} a -> s {enable = a} :: UpdateDetector)
+
+-- | An enum value that specifies how frequently findings are exported, such
+-- as to CloudWatch Events.
+updateDetector_findingPublishingFrequency :: Lens.Lens' UpdateDetector (Prelude.Maybe FindingPublishingFrequency)
+updateDetector_findingPublishingFrequency = Lens.lens (\UpdateDetector' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@UpdateDetector' {} a -> s {findingPublishingFrequency = a} :: UpdateDetector)
 
 -- | The unique ID of the detector to update.
 updateDetector_detectorId :: Lens.Lens' UpdateDetector Prelude.Text
@@ -122,17 +121,16 @@ instance Core.AWSRequest UpdateDetector where
 
 instance Prelude.Hashable UpdateDetector where
   hashWithSalt _salt UpdateDetector' {..} =
-    _salt
-      `Prelude.hashWithSalt` findingPublishingFrequency
-      `Prelude.hashWithSalt` dataSources
+    _salt `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` enable
+      `Prelude.hashWithSalt` findingPublishingFrequency
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData UpdateDetector where
   rnf UpdateDetector' {..} =
-    Prelude.rnf findingPublishingFrequency
-      `Prelude.seq` Prelude.rnf dataSources
+    Prelude.rnf dataSources
       `Prelude.seq` Prelude.rnf enable
+      `Prelude.seq` Prelude.rnf findingPublishingFrequency
       `Prelude.seq` Prelude.rnf detectorId
 
 instance Core.ToHeaders UpdateDetector where
@@ -150,10 +148,10 @@ instance Core.ToJSON UpdateDetector where
   toJSON UpdateDetector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("findingPublishingFrequency" Core..=)
-              Prelude.<$> findingPublishingFrequency,
-            ("dataSources" Core..=) Prelude.<$> dataSources,
-            ("enable" Core..=) Prelude.<$> enable
+          [ ("dataSources" Core..=) Prelude.<$> dataSources,
+            ("enable" Core..=) Prelude.<$> enable,
+            ("findingPublishingFrequency" Core..=)
+              Prelude.<$> findingPublishingFrequency
           ]
       )
 

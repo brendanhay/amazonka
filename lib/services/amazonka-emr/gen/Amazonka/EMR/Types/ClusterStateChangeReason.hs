@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClusterStateChangeReason' smart constructor.
 data ClusterStateChangeReason = ClusterStateChangeReason'
-  { -- | The programmatic code for the state change reason.
-    code :: Prelude.Maybe ClusterStateChangeReasonCode,
-    -- | The descriptive message for the state change reason.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The descriptive message for the state change reason.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The programmatic code for the state change reason.
+    code :: Prelude.Maybe ClusterStateChangeReasonCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data ClusterStateChangeReason = ClusterStateChangeReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'clusterStateChangeReason_code' - The programmatic code for the state change reason.
---
 -- 'message', 'clusterStateChangeReason_message' - The descriptive message for the state change reason.
+--
+-- 'code', 'clusterStateChangeReason_code' - The programmatic code for the state change reason.
 newClusterStateChangeReason ::
   ClusterStateChangeReason
 newClusterStateChangeReason =
   ClusterStateChangeReason'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message =
+        Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The programmatic code for the state change reason.
-clusterStateChangeReason_code :: Lens.Lens' ClusterStateChangeReason (Prelude.Maybe ClusterStateChangeReasonCode)
-clusterStateChangeReason_code = Lens.lens (\ClusterStateChangeReason' {code} -> code) (\s@ClusterStateChangeReason' {} a -> s {code = a} :: ClusterStateChangeReason)
 
 -- | The descriptive message for the state change reason.
 clusterStateChangeReason_message :: Lens.Lens' ClusterStateChangeReason (Prelude.Maybe Prelude.Text)
 clusterStateChangeReason_message = Lens.lens (\ClusterStateChangeReason' {message} -> message) (\s@ClusterStateChangeReason' {} a -> s {message = a} :: ClusterStateChangeReason)
+
+-- | The programmatic code for the state change reason.
+clusterStateChangeReason_code :: Lens.Lens' ClusterStateChangeReason (Prelude.Maybe ClusterStateChangeReasonCode)
+clusterStateChangeReason_code = Lens.lens (\ClusterStateChangeReason' {code} -> code) (\s@ClusterStateChangeReason' {} a -> s {code = a} :: ClusterStateChangeReason)
 
 instance Core.FromJSON ClusterStateChangeReason where
   parseJSON =
@@ -68,15 +69,15 @@ instance Core.FromJSON ClusterStateChangeReason where
       "ClusterStateChangeReason"
       ( \x ->
           ClusterStateChangeReason'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Code")
       )
 
 instance Prelude.Hashable ClusterStateChangeReason where
   hashWithSalt _salt ClusterStateChangeReason' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData ClusterStateChangeReason where
   rnf ClusterStateChangeReason' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

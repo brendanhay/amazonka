@@ -36,14 +36,14 @@ module Amazonka.AmplifyBackend.GetBackendJob
     newGetBackendJobResponse,
 
     -- * Response Lenses
-    getBackendJobResponse_status,
     getBackendJobResponse_jobId,
-    getBackendJobResponse_operation,
-    getBackendJobResponse_error,
+    getBackendJobResponse_status,
     getBackendJobResponse_updateTime,
+    getBackendJobResponse_createTime,
+    getBackendJobResponse_error,
+    getBackendJobResponse_operation,
     getBackendJobResponse_appId,
     getBackendJobResponse_backendEnvironmentName,
-    getBackendJobResponse_createTime,
     getBackendJobResponse_httpStatus,
   )
 where
@@ -118,14 +118,14 @@ instance Core.AWSRequest GetBackendJob where
     Response.receiveJSON
       ( \s h x ->
           GetBackendJobResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "operation")
-            Prelude.<*> (x Core..?> "error")
+            Prelude.<$> (x Core..?> "jobId")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "updateTime")
+            Prelude.<*> (x Core..?> "createTime")
+            Prelude.<*> (x Core..?> "error")
+            Prelude.<*> (x Core..?> "operation")
             Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (x Core..?> "backendEnvironmentName")
-            Prelude.<*> (x Core..?> "createTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,22 +168,22 @@ instance Core.ToQuery GetBackendJob where
 
 -- | /See:/ 'newGetBackendJobResponse' smart constructor.
 data GetBackendJobResponse = GetBackendJobResponse'
-  { -- | The current status of the request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the job.
+  { -- | The ID for the job.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the operation.
-    operation :: Prelude.Maybe Prelude.Text,
-    -- | If the request fails, this error is returned.
-    error :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The time when the job was last updated.
     updateTime :: Prelude.Maybe Prelude.Text,
+    -- | The time when the job was created.
+    createTime :: Prelude.Maybe Prelude.Text,
+    -- | If the request fails, this error is returned.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The name of the operation.
+    operation :: Prelude.Maybe Prelude.Text,
     -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
     backendEnvironmentName :: Prelude.Maybe Prelude.Text,
-    -- | The time when the job was created.
-    createTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,21 +197,21 @@ data GetBackendJobResponse = GetBackendJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getBackendJobResponse_status' - The current status of the request.
---
 -- 'jobId', 'getBackendJobResponse_jobId' - The ID for the job.
 --
--- 'operation', 'getBackendJobResponse_operation' - The name of the operation.
+-- 'status', 'getBackendJobResponse_status' - The current status of the request.
+--
+-- 'updateTime', 'getBackendJobResponse_updateTime' - The time when the job was last updated.
+--
+-- 'createTime', 'getBackendJobResponse_createTime' - The time when the job was created.
 --
 -- 'error', 'getBackendJobResponse_error' - If the request fails, this error is returned.
 --
--- 'updateTime', 'getBackendJobResponse_updateTime' - The time when the job was last updated.
+-- 'operation', 'getBackendJobResponse_operation' - The name of the operation.
 --
 -- 'appId', 'getBackendJobResponse_appId' - The app ID.
 --
 -- 'backendEnvironmentName', 'getBackendJobResponse_backendEnvironmentName' - The name of the backend environment.
---
--- 'createTime', 'getBackendJobResponse_createTime' - The time when the job was created.
 --
 -- 'httpStatus', 'getBackendJobResponse_httpStatus' - The response's http status code.
 newGetBackendJobResponse ::
@@ -220,36 +220,40 @@ newGetBackendJobResponse ::
   GetBackendJobResponse
 newGetBackendJobResponse pHttpStatus_ =
   GetBackendJobResponse'
-    { status = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      operation = Prelude.Nothing,
-      error = Prelude.Nothing,
+    { jobId = Prelude.Nothing,
+      status = Prelude.Nothing,
       updateTime = Prelude.Nothing,
+      createTime = Prelude.Nothing,
+      error = Prelude.Nothing,
+      operation = Prelude.Nothing,
       appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
-      createTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current status of the request.
-getBackendJobResponse_status :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
-getBackendJobResponse_status = Lens.lens (\GetBackendJobResponse' {status} -> status) (\s@GetBackendJobResponse' {} a -> s {status = a} :: GetBackendJobResponse)
 
 -- | The ID for the job.
 getBackendJobResponse_jobId :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
 getBackendJobResponse_jobId = Lens.lens (\GetBackendJobResponse' {jobId} -> jobId) (\s@GetBackendJobResponse' {} a -> s {jobId = a} :: GetBackendJobResponse)
 
--- | The name of the operation.
-getBackendJobResponse_operation :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
-getBackendJobResponse_operation = Lens.lens (\GetBackendJobResponse' {operation} -> operation) (\s@GetBackendJobResponse' {} a -> s {operation = a} :: GetBackendJobResponse)
+-- | The current status of the request.
+getBackendJobResponse_status :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
+getBackendJobResponse_status = Lens.lens (\GetBackendJobResponse' {status} -> status) (\s@GetBackendJobResponse' {} a -> s {status = a} :: GetBackendJobResponse)
+
+-- | The time when the job was last updated.
+getBackendJobResponse_updateTime :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
+getBackendJobResponse_updateTime = Lens.lens (\GetBackendJobResponse' {updateTime} -> updateTime) (\s@GetBackendJobResponse' {} a -> s {updateTime = a} :: GetBackendJobResponse)
+
+-- | The time when the job was created.
+getBackendJobResponse_createTime :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
+getBackendJobResponse_createTime = Lens.lens (\GetBackendJobResponse' {createTime} -> createTime) (\s@GetBackendJobResponse' {} a -> s {createTime = a} :: GetBackendJobResponse)
 
 -- | If the request fails, this error is returned.
 getBackendJobResponse_error :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
 getBackendJobResponse_error = Lens.lens (\GetBackendJobResponse' {error} -> error) (\s@GetBackendJobResponse' {} a -> s {error = a} :: GetBackendJobResponse)
 
--- | The time when the job was last updated.
-getBackendJobResponse_updateTime :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
-getBackendJobResponse_updateTime = Lens.lens (\GetBackendJobResponse' {updateTime} -> updateTime) (\s@GetBackendJobResponse' {} a -> s {updateTime = a} :: GetBackendJobResponse)
+-- | The name of the operation.
+getBackendJobResponse_operation :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
+getBackendJobResponse_operation = Lens.lens (\GetBackendJobResponse' {operation} -> operation) (\s@GetBackendJobResponse' {} a -> s {operation = a} :: GetBackendJobResponse)
 
 -- | The app ID.
 getBackendJobResponse_appId :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
@@ -259,22 +263,18 @@ getBackendJobResponse_appId = Lens.lens (\GetBackendJobResponse' {appId} -> appI
 getBackendJobResponse_backendEnvironmentName :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
 getBackendJobResponse_backendEnvironmentName = Lens.lens (\GetBackendJobResponse' {backendEnvironmentName} -> backendEnvironmentName) (\s@GetBackendJobResponse' {} a -> s {backendEnvironmentName = a} :: GetBackendJobResponse)
 
--- | The time when the job was created.
-getBackendJobResponse_createTime :: Lens.Lens' GetBackendJobResponse (Prelude.Maybe Prelude.Text)
-getBackendJobResponse_createTime = Lens.lens (\GetBackendJobResponse' {createTime} -> createTime) (\s@GetBackendJobResponse' {} a -> s {createTime = a} :: GetBackendJobResponse)
-
 -- | The response's http status code.
 getBackendJobResponse_httpStatus :: Lens.Lens' GetBackendJobResponse Prelude.Int
 getBackendJobResponse_httpStatus = Lens.lens (\GetBackendJobResponse' {httpStatus} -> httpStatus) (\s@GetBackendJobResponse' {} a -> s {httpStatus = a} :: GetBackendJobResponse)
 
 instance Prelude.NFData GetBackendJobResponse where
   rnf GetBackendJobResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updateTime
+      `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
-      `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf httpStatus

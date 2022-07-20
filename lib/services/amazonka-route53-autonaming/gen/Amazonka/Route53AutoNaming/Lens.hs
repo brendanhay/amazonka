@@ -14,48 +14,70 @@
 module Amazonka.Route53AutoNaming.Lens
   ( -- * Operations
 
-    -- ** ListServices
-    listServices_filters,
-    listServices_nextToken,
-    listServices_maxResults,
-    listServicesResponse_nextToken,
-    listServicesResponse_services,
-    listServicesResponse_httpStatus,
+    -- ** CreateHttpNamespace
+    createHttpNamespace_tags,
+    createHttpNamespace_description,
+    createHttpNamespace_creatorRequestId,
+    createHttpNamespace_name,
+    createHttpNamespaceResponse_operationId,
+    createHttpNamespaceResponse_httpStatus,
+
+    -- ** CreatePrivateDnsNamespace
+    createPrivateDnsNamespace_tags,
+    createPrivateDnsNamespace_properties,
+    createPrivateDnsNamespace_description,
+    createPrivateDnsNamespace_creatorRequestId,
+    createPrivateDnsNamespace_name,
+    createPrivateDnsNamespace_vpc,
+    createPrivateDnsNamespaceResponse_operationId,
+    createPrivateDnsNamespaceResponse_httpStatus,
+
+    -- ** CreatePublicDnsNamespace
+    createPublicDnsNamespace_tags,
+    createPublicDnsNamespace_properties,
+    createPublicDnsNamespace_description,
+    createPublicDnsNamespace_creatorRequestId,
+    createPublicDnsNamespace_name,
+    createPublicDnsNamespaceResponse_operationId,
+    createPublicDnsNamespaceResponse_httpStatus,
+
+    -- ** CreateService
+    createService_tags,
+    createService_type,
+    createService_dnsConfig,
+    createService_healthCheckCustomConfig,
+    createService_description,
+    createService_creatorRequestId,
+    createService_namespaceId,
+    createService_healthCheckConfig,
+    createService_name,
+    createServiceResponse_service,
+    createServiceResponse_httpStatus,
+
+    -- ** DeleteNamespace
+    deleteNamespace_id,
+    deleteNamespaceResponse_operationId,
+    deleteNamespaceResponse_httpStatus,
 
     -- ** DeleteService
     deleteService_id,
     deleteServiceResponse_httpStatus,
 
-    -- ** UpdateService
-    updateService_id,
-    updateService_service,
-    updateServiceResponse_operationId,
-    updateServiceResponse_httpStatus,
+    -- ** DeregisterInstance
+    deregisterInstance_serviceId,
+    deregisterInstance_instanceId,
+    deregisterInstanceResponse_operationId,
+    deregisterInstanceResponse_httpStatus,
 
-    -- ** ListOperations
-    listOperations_filters,
-    listOperations_nextToken,
-    listOperations_maxResults,
-    listOperationsResponse_nextToken,
-    listOperationsResponse_operations,
-    listOperationsResponse_httpStatus,
-
-    -- ** CreateHttpNamespace
-    createHttpNamespace_creatorRequestId,
-    createHttpNamespace_description,
-    createHttpNamespace_tags,
-    createHttpNamespace_name,
-    createHttpNamespaceResponse_operationId,
-    createHttpNamespaceResponse_httpStatus,
-
-    -- ** CreatePublicDnsNamespace
-    createPublicDnsNamespace_creatorRequestId,
-    createPublicDnsNamespace_description,
-    createPublicDnsNamespace_tags,
-    createPublicDnsNamespace_properties,
-    createPublicDnsNamespace_name,
-    createPublicDnsNamespaceResponse_operationId,
-    createPublicDnsNamespaceResponse_httpStatus,
+    -- ** DiscoverInstances
+    discoverInstances_optionalParameters,
+    discoverInstances_healthStatus,
+    discoverInstances_queryParameters,
+    discoverInstances_maxResults,
+    discoverInstances_namespaceName,
+    discoverInstances_serviceName,
+    discoverInstancesResponse_instances,
+    discoverInstancesResponse_httpStatus,
 
     -- ** GetInstance
     getInstance_serviceId,
@@ -63,61 +85,66 @@ module Amazonka.Route53AutoNaming.Lens
     getInstanceResponse_instance,
     getInstanceResponse_httpStatus,
 
-    -- ** ListNamespaces
-    listNamespaces_filters,
-    listNamespaces_nextToken,
-    listNamespaces_maxResults,
-    listNamespacesResponse_namespaces,
-    listNamespacesResponse_nextToken,
-    listNamespacesResponse_httpStatus,
-
-    -- ** DeleteNamespace
-    deleteNamespace_id,
-    deleteNamespaceResponse_operationId,
-    deleteNamespaceResponse_httpStatus,
-
-    -- ** UpdatePublicDnsNamespace
-    updatePublicDnsNamespace_updaterRequestId,
-    updatePublicDnsNamespace_id,
-    updatePublicDnsNamespace_namespace,
-    updatePublicDnsNamespaceResponse_operationId,
-    updatePublicDnsNamespaceResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DiscoverInstances
-    discoverInstances_queryParameters,
-    discoverInstances_optionalParameters,
-    discoverInstances_healthStatus,
-    discoverInstances_maxResults,
-    discoverInstances_namespaceName,
-    discoverInstances_serviceName,
-    discoverInstancesResponse_instances,
-    discoverInstancesResponse_httpStatus,
-
     -- ** GetInstancesHealthStatus
-    getInstancesHealthStatus_nextToken,
     getInstancesHealthStatus_instances,
+    getInstancesHealthStatus_nextToken,
     getInstancesHealthStatus_maxResults,
     getInstancesHealthStatus_serviceId,
-    getInstancesHealthStatusResponse_status,
     getInstancesHealthStatusResponse_nextToken,
+    getInstancesHealthStatusResponse_status,
     getInstancesHealthStatusResponse_httpStatus,
-
-    -- ** UpdateHttpNamespace
-    updateHttpNamespace_updaterRequestId,
-    updateHttpNamespace_id,
-    updateHttpNamespace_namespace,
-    updateHttpNamespaceResponse_operationId,
-    updateHttpNamespaceResponse_httpStatus,
 
     -- ** GetNamespace
     getNamespace_id,
     getNamespaceResponse_namespace,
     getNamespaceResponse_httpStatus,
+
+    -- ** GetOperation
+    getOperation_operationId,
+    getOperationResponse_operation,
+    getOperationResponse_httpStatus,
+
+    -- ** GetService
+    getService_id,
+    getServiceResponse_service,
+    getServiceResponse_httpStatus,
+
+    -- ** ListInstances
+    listInstances_nextToken,
+    listInstances_maxResults,
+    listInstances_serviceId,
+    listInstancesResponse_instances,
+    listInstancesResponse_nextToken,
+    listInstancesResponse_httpStatus,
+
+    -- ** ListNamespaces
+    listNamespaces_nextToken,
+    listNamespaces_filters,
+    listNamespaces_maxResults,
+    listNamespacesResponse_nextToken,
+    listNamespacesResponse_namespaces,
+    listNamespacesResponse_httpStatus,
+
+    -- ** ListOperations
+    listOperations_nextToken,
+    listOperations_filters,
+    listOperations_maxResults,
+    listOperationsResponse_nextToken,
+    listOperationsResponse_operations,
+    listOperationsResponse_httpStatus,
+
+    -- ** ListServices
+    listServices_nextToken,
+    listServices_filters,
+    listServices_maxResults,
+    listServicesResponse_nextToken,
+    listServicesResponse_services,
+    listServicesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** RegisterInstance
     registerInstance_creatorRequestId,
@@ -132,43 +159,22 @@ module Amazonka.Route53AutoNaming.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** ListInstances
-    listInstances_nextToken,
-    listInstances_maxResults,
-    listInstances_serviceId,
-    listInstancesResponse_nextToken,
-    listInstancesResponse_instances,
-    listInstancesResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
-    -- ** GetOperation
-    getOperation_operationId,
-    getOperationResponse_operation,
-    getOperationResponse_httpStatus,
+    -- ** UpdateHttpNamespace
+    updateHttpNamespace_updaterRequestId,
+    updateHttpNamespace_id,
+    updateHttpNamespace_namespace,
+    updateHttpNamespaceResponse_operationId,
+    updateHttpNamespaceResponse_httpStatus,
 
     -- ** UpdateInstanceCustomHealthStatus
     updateInstanceCustomHealthStatus_serviceId,
     updateInstanceCustomHealthStatus_instanceId,
     updateInstanceCustomHealthStatus_status,
-
-    -- ** GetService
-    getService_id,
-    getServiceResponse_service,
-    getServiceResponse_httpStatus,
-
-    -- ** CreatePrivateDnsNamespace
-    createPrivateDnsNamespace_creatorRequestId,
-    createPrivateDnsNamespace_description,
-    createPrivateDnsNamespace_tags,
-    createPrivateDnsNamespace_properties,
-    createPrivateDnsNamespace_name,
-    createPrivateDnsNamespace_vpc,
-    createPrivateDnsNamespaceResponse_operationId,
-    createPrivateDnsNamespaceResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
 
     -- ** UpdatePrivateDnsNamespace
     updatePrivateDnsNamespace_updaterRequestId,
@@ -177,24 +183,18 @@ module Amazonka.Route53AutoNaming.Lens
     updatePrivateDnsNamespaceResponse_operationId,
     updatePrivateDnsNamespaceResponse_httpStatus,
 
-    -- ** CreateService
-    createService_healthCheckConfig,
-    createService_creatorRequestId,
-    createService_healthCheckCustomConfig,
-    createService_namespaceId,
-    createService_type,
-    createService_dnsConfig,
-    createService_description,
-    createService_tags,
-    createService_name,
-    createServiceResponse_service,
-    createServiceResponse_httpStatus,
+    -- ** UpdatePublicDnsNamespace
+    updatePublicDnsNamespace_updaterRequestId,
+    updatePublicDnsNamespace_id,
+    updatePublicDnsNamespace_namespace,
+    updatePublicDnsNamespaceResponse_operationId,
+    updatePublicDnsNamespaceResponse_httpStatus,
 
-    -- ** DeregisterInstance
-    deregisterInstance_serviceId,
-    deregisterInstance_instanceId,
-    deregisterInstanceResponse_operationId,
-    deregisterInstanceResponse_httpStatus,
+    -- ** UpdateService
+    updateService_id,
+    updateService_service,
+    updateServiceResponse_operationId,
+    updateServiceResponse_httpStatus,
 
     -- * Types
 
@@ -223,11 +223,11 @@ module Amazonka.Route53AutoNaming.Lens
     healthCheckCustomConfig_failureThreshold,
 
     -- ** HttpInstanceSummary
-    httpInstanceSummary_instanceId,
     httpInstanceSummary_namespaceName,
+    httpInstanceSummary_healthStatus,
+    httpInstanceSummary_instanceId,
     httpInstanceSummary_attributes,
     httpInstanceSummary_serviceName,
-    httpInstanceSummary_healthStatus,
 
     -- ** HttpNamespaceChange
     httpNamespaceChange_description,
@@ -241,19 +241,19 @@ module Amazonka.Route53AutoNaming.Lens
     instance_id,
 
     -- ** InstanceSummary
-    instanceSummary_attributes,
     instanceSummary_id,
+    instanceSummary_attributes,
 
     -- ** Namespace
+    namespace_name,
+    namespace_type,
+    namespace_properties,
     namespace_arn,
+    namespace_id,
+    namespace_description,
     namespace_creatorRequestId,
     namespace_createDate,
     namespace_serviceCount,
-    namespace_name,
-    namespace_id,
-    namespace_type,
-    namespace_description,
-    namespace_properties,
 
     -- ** NamespaceFilter
     namespaceFilter_condition,
@@ -265,24 +265,24 @@ module Amazonka.Route53AutoNaming.Lens
     namespaceProperties_httpProperties,
 
     -- ** NamespaceSummary
+    namespaceSummary_name,
+    namespaceSummary_type,
+    namespaceSummary_properties,
     namespaceSummary_arn,
+    namespaceSummary_id,
+    namespaceSummary_description,
     namespaceSummary_createDate,
     namespaceSummary_serviceCount,
-    namespaceSummary_name,
-    namespaceSummary_id,
-    namespaceSummary_type,
-    namespaceSummary_description,
-    namespaceSummary_properties,
 
     -- ** Operation
-    operation_status,
-    operation_updateDate,
-    operation_createDate,
-    operation_targets,
-    operation_errorCode,
-    operation_id,
     operation_type,
     operation_errorMessage,
+    operation_status,
+    operation_updateDate,
+    operation_targets,
+    operation_id,
+    operation_errorCode,
+    operation_createDate,
 
     -- ** OperationFilter
     operationFilter_condition,
@@ -294,8 +294,8 @@ module Amazonka.Route53AutoNaming.Lens
     operationSummary_id,
 
     -- ** PrivateDnsNamespaceChange
-    privateDnsNamespaceChange_description,
     privateDnsNamespaceChange_properties,
+    privateDnsNamespaceChange_description,
 
     -- ** PrivateDnsNamespaceProperties
     privateDnsNamespaceProperties_dnsProperties,
@@ -310,8 +310,8 @@ module Amazonka.Route53AutoNaming.Lens
     privateDnsPropertiesMutableChange_soa,
 
     -- ** PublicDnsNamespaceChange
-    publicDnsNamespaceChange_description,
     publicDnsNamespaceChange_properties,
+    publicDnsNamespaceChange_description,
 
     -- ** PublicDnsNamespaceProperties
     publicDnsNamespaceProperties_dnsProperties,
@@ -332,9 +332,9 @@ module Amazonka.Route53AutoNaming.Lens
     sOAChange_ttl,
 
     -- ** ServiceChange
-    serviceChange_healthCheckConfig,
     serviceChange_dnsConfig,
     serviceChange_description,
+    serviceChange_healthCheckConfig,
 
     -- ** ServiceFilter
     serviceFilter_condition,
@@ -342,30 +342,30 @@ module Amazonka.Route53AutoNaming.Lens
     serviceFilter_values,
 
     -- ** ServiceInfo
-    serviceInfo_instanceCount,
-    serviceInfo_arn,
-    serviceInfo_healthCheckConfig,
-    serviceInfo_creatorRequestId,
-    serviceInfo_createDate,
-    serviceInfo_healthCheckCustomConfig,
-    serviceInfo_namespaceId,
     serviceInfo_name,
-    serviceInfo_id,
     serviceInfo_type,
     serviceInfo_dnsConfig,
+    serviceInfo_healthCheckCustomConfig,
+    serviceInfo_arn,
+    serviceInfo_id,
     serviceInfo_description,
+    serviceInfo_creatorRequestId,
+    serviceInfo_instanceCount,
+    serviceInfo_createDate,
+    serviceInfo_namespaceId,
+    serviceInfo_healthCheckConfig,
 
     -- ** ServiceSummary
-    serviceSummary_instanceCount,
-    serviceSummary_arn,
-    serviceSummary_healthCheckConfig,
-    serviceSummary_createDate,
-    serviceSummary_healthCheckCustomConfig,
     serviceSummary_name,
-    serviceSummary_id,
     serviceSummary_type,
     serviceSummary_dnsConfig,
+    serviceSummary_healthCheckCustomConfig,
+    serviceSummary_arn,
+    serviceSummary_id,
     serviceSummary_description,
+    serviceSummary_instanceCount,
+    serviceSummary_createDate,
+    serviceSummary_healthCheckConfig,
 
     -- ** Tag
     tag_key,

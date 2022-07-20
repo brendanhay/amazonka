@@ -42,23 +42,23 @@ module Amazonka.CodeGuruProfiler
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -66,47 +66,23 @@ module Amazonka.CodeGuruProfiler
     -- * Operations
     -- $operations
 
-    -- ** GetRecommendations
-    GetRecommendations (GetRecommendations'),
-    newGetRecommendations,
-    GetRecommendationsResponse (GetRecommendationsResponse'),
-    newGetRecommendationsResponse,
-
     -- ** AddNotificationChannels
     AddNotificationChannels (AddNotificationChannels'),
     newAddNotificationChannels,
     AddNotificationChannelsResponse (AddNotificationChannelsResponse'),
     newAddNotificationChannelsResponse,
 
-    -- ** DescribeProfilingGroup
-    DescribeProfilingGroup (DescribeProfilingGroup'),
-    newDescribeProfilingGroup,
-    DescribeProfilingGroupResponse (DescribeProfilingGroupResponse'),
-    newDescribeProfilingGroupResponse,
+    -- ** BatchGetFrameMetricData
+    BatchGetFrameMetricData (BatchGetFrameMetricData'),
+    newBatchGetFrameMetricData,
+    BatchGetFrameMetricDataResponse (BatchGetFrameMetricDataResponse'),
+    newBatchGetFrameMetricDataResponse,
 
-    -- ** PutPermission
-    PutPermission (PutPermission'),
-    newPutPermission,
-    PutPermissionResponse (PutPermissionResponse'),
-    newPutPermissionResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** RemovePermission
-    RemovePermission (RemovePermission'),
-    newRemovePermission,
-    RemovePermissionResponse (RemovePermissionResponse'),
-    newRemovePermissionResponse,
-
-    -- ** SubmitFeedback
-    SubmitFeedback (SubmitFeedback'),
-    newSubmitFeedback,
-    SubmitFeedbackResponse (SubmitFeedbackResponse'),
-    newSubmitFeedbackResponse,
+    -- ** ConfigureAgent
+    ConfigureAgent (ConfigureAgent'),
+    newConfigureAgent,
+    ConfigureAgentResponse (ConfigureAgentResponse'),
+    newConfigureAgentResponse,
 
     -- ** CreateProfilingGroup
     CreateProfilingGroup (CreateProfilingGroup'),
@@ -114,23 +90,47 @@ module Amazonka.CodeGuruProfiler
     CreateProfilingGroupResponse (CreateProfilingGroupResponse'),
     newCreateProfilingGroupResponse,
 
-    -- ** RemoveNotificationChannel
-    RemoveNotificationChannel (RemoveNotificationChannel'),
-    newRemoveNotificationChannel,
-    RemoveNotificationChannelResponse (RemoveNotificationChannelResponse'),
-    newRemoveNotificationChannelResponse,
-
-    -- ** UpdateProfilingGroup
-    UpdateProfilingGroup (UpdateProfilingGroup'),
-    newUpdateProfilingGroup,
-    UpdateProfilingGroupResponse (UpdateProfilingGroupResponse'),
-    newUpdateProfilingGroupResponse,
-
     -- ** DeleteProfilingGroup
     DeleteProfilingGroup (DeleteProfilingGroup'),
     newDeleteProfilingGroup,
     DeleteProfilingGroupResponse (DeleteProfilingGroupResponse'),
     newDeleteProfilingGroupResponse,
+
+    -- ** DescribeProfilingGroup
+    DescribeProfilingGroup (DescribeProfilingGroup'),
+    newDescribeProfilingGroup,
+    DescribeProfilingGroupResponse (DescribeProfilingGroupResponse'),
+    newDescribeProfilingGroupResponse,
+
+    -- ** GetFindingsReportAccountSummary
+    GetFindingsReportAccountSummary (GetFindingsReportAccountSummary'),
+    newGetFindingsReportAccountSummary,
+    GetFindingsReportAccountSummaryResponse (GetFindingsReportAccountSummaryResponse'),
+    newGetFindingsReportAccountSummaryResponse,
+
+    -- ** GetNotificationConfiguration
+    GetNotificationConfiguration (GetNotificationConfiguration'),
+    newGetNotificationConfiguration,
+    GetNotificationConfigurationResponse (GetNotificationConfigurationResponse'),
+    newGetNotificationConfigurationResponse,
+
+    -- ** GetPolicy
+    GetPolicy (GetPolicy'),
+    newGetPolicy,
+    GetPolicyResponse (GetPolicyResponse'),
+    newGetPolicyResponse,
+
+    -- ** GetProfile
+    GetProfile (GetProfile'),
+    newGetProfile,
+    GetProfileResponse (GetProfileResponse'),
+    newGetProfileResponse,
+
+    -- ** GetRecommendations
+    GetRecommendations (GetRecommendations'),
+    newGetRecommendations,
+    GetRecommendationsResponse (GetRecommendationsResponse'),
+    newGetRecommendationsResponse,
 
     -- ** ListFindingsReports
     ListFindingsReports (ListFindingsReports'),
@@ -144,23 +144,47 @@ module Amazonka.CodeGuruProfiler
     ListProfileTimesResponse (ListProfileTimesResponse'),
     newListProfileTimesResponse,
 
+    -- ** ListProfilingGroups
+    ListProfilingGroups (ListProfilingGroups'),
+    newListProfilingGroups,
+    ListProfilingGroupsResponse (ListProfilingGroupsResponse'),
+    newListProfilingGroupsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** PostAgentProfile
     PostAgentProfile (PostAgentProfile'),
     newPostAgentProfile,
     PostAgentProfileResponse (PostAgentProfileResponse'),
     newPostAgentProfileResponse,
 
-    -- ** GetProfile
-    GetProfile (GetProfile'),
-    newGetProfile,
-    GetProfileResponse (GetProfileResponse'),
-    newGetProfileResponse,
+    -- ** PutPermission
+    PutPermission (PutPermission'),
+    newPutPermission,
+    PutPermissionResponse (PutPermissionResponse'),
+    newPutPermissionResponse,
 
-    -- ** ListProfilingGroups
-    ListProfilingGroups (ListProfilingGroups'),
-    newListProfilingGroups,
-    ListProfilingGroupsResponse (ListProfilingGroupsResponse'),
-    newListProfilingGroupsResponse,
+    -- ** RemoveNotificationChannel
+    RemoveNotificationChannel (RemoveNotificationChannel'),
+    newRemoveNotificationChannel,
+    RemoveNotificationChannelResponse (RemoveNotificationChannelResponse'),
+    newRemoveNotificationChannelResponse,
+
+    -- ** RemovePermission
+    RemovePermission (RemovePermission'),
+    newRemovePermission,
+    RemovePermissionResponse (RemovePermissionResponse'),
+    newRemovePermissionResponse,
+
+    -- ** SubmitFeedback
+    SubmitFeedback (SubmitFeedback'),
+    newSubmitFeedback,
+    SubmitFeedbackResponse (SubmitFeedbackResponse'),
+    newSubmitFeedbackResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -168,41 +192,17 @@ module Amazonka.CodeGuruProfiler
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** GetNotificationConfiguration
-    GetNotificationConfiguration (GetNotificationConfiguration'),
-    newGetNotificationConfiguration,
-    GetNotificationConfigurationResponse (GetNotificationConfigurationResponse'),
-    newGetNotificationConfigurationResponse,
-
-    -- ** BatchGetFrameMetricData
-    BatchGetFrameMetricData (BatchGetFrameMetricData'),
-    newBatchGetFrameMetricData,
-    BatchGetFrameMetricDataResponse (BatchGetFrameMetricDataResponse'),
-    newBatchGetFrameMetricDataResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetFindingsReportAccountSummary
-    GetFindingsReportAccountSummary (GetFindingsReportAccountSummary'),
-    newGetFindingsReportAccountSummary,
-    GetFindingsReportAccountSummaryResponse (GetFindingsReportAccountSummaryResponse'),
-    newGetFindingsReportAccountSummaryResponse,
-
-    -- ** GetPolicy
-    GetPolicy (GetPolicy'),
-    newGetPolicy,
-    GetPolicyResponse (GetPolicyResponse'),
-    newGetPolicyResponse,
-
-    -- ** ConfigureAgent
-    ConfigureAgent (ConfigureAgent'),
-    newConfigureAgent,
-    ConfigureAgentResponse (ConfigureAgentResponse'),
-    newConfigureAgentResponse,
+    -- ** UpdateProfilingGroup
+    UpdateProfilingGroup (UpdateProfilingGroup'),
+    newUpdateProfilingGroup,
+    UpdateProfilingGroupResponse (UpdateProfilingGroupResponse'),
+    newUpdateProfilingGroupResponse,
 
     -- * Types
 

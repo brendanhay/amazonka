@@ -29,28 +29,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationInstance' smart constructor.
 data ApplicationInstance = ApplicationInstance'
-  { -- | The application instance\'s status.
-    status :: Prelude.Maybe ApplicationInstanceStatus,
+  { -- | The application instance\'s tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The application instance\'s status description.
     statusDescription :: Prelude.Maybe Prelude.Text,
-    -- | The application instance\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The application instance\'s name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | When the application instance was created.
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | The device\'s ID.
     defaultRuntimeContextDevice :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s name.
-    defaultRuntimeContextDeviceName :: Prelude.Maybe Prelude.Text,
-    -- | The application instance\'s name.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The application instance\'s health status.
     healthStatus :: Prelude.Maybe ApplicationInstanceHealthStatus,
-    -- | The application instance\'s ID.
-    applicationInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The application instance\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The application instance\'s status.
+    status :: Prelude.Maybe ApplicationInstanceStatus,
     -- | The application instance\'s description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The application instance\'s tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The application instance\'s ID.
+    applicationInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s name.
+    defaultRuntimeContextDeviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,55 +62,55 @@ data ApplicationInstance = ApplicationInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'applicationInstance_status' - The application instance\'s status.
+-- 'tags', 'applicationInstance_tags' - The application instance\'s tags.
 --
 -- 'statusDescription', 'applicationInstance_statusDescription' - The application instance\'s status description.
 --
--- 'arn', 'applicationInstance_arn' - The application instance\'s ARN.
+-- 'name', 'applicationInstance_name' - The application instance\'s name.
 --
 -- 'createdTime', 'applicationInstance_createdTime' - When the application instance was created.
 --
 -- 'defaultRuntimeContextDevice', 'applicationInstance_defaultRuntimeContextDevice' - The device\'s ID.
 --
--- 'defaultRuntimeContextDeviceName', 'applicationInstance_defaultRuntimeContextDeviceName' - The device\'s name.
---
--- 'name', 'applicationInstance_name' - The application instance\'s name.
---
 -- 'healthStatus', 'applicationInstance_healthStatus' - The application instance\'s health status.
 --
--- 'applicationInstanceId', 'applicationInstance_applicationInstanceId' - The application instance\'s ID.
+-- 'arn', 'applicationInstance_arn' - The application instance\'s ARN.
+--
+-- 'status', 'applicationInstance_status' - The application instance\'s status.
 --
 -- 'description', 'applicationInstance_description' - The application instance\'s description.
 --
--- 'tags', 'applicationInstance_tags' - The application instance\'s tags.
+-- 'applicationInstanceId', 'applicationInstance_applicationInstanceId' - The application instance\'s ID.
+--
+-- 'defaultRuntimeContextDeviceName', 'applicationInstance_defaultRuntimeContextDeviceName' - The device\'s name.
 newApplicationInstance ::
   ApplicationInstance
 newApplicationInstance =
   ApplicationInstance'
-    { status = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       statusDescription = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       defaultRuntimeContextDevice = Prelude.Nothing,
-      defaultRuntimeContextDeviceName = Prelude.Nothing,
-      name = Prelude.Nothing,
       healthStatus = Prelude.Nothing,
-      applicationInstanceId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing
+      applicationInstanceId = Prelude.Nothing,
+      defaultRuntimeContextDeviceName = Prelude.Nothing
     }
 
--- | The application instance\'s status.
-applicationInstance_status :: Lens.Lens' ApplicationInstance (Prelude.Maybe ApplicationInstanceStatus)
-applicationInstance_status = Lens.lens (\ApplicationInstance' {status} -> status) (\s@ApplicationInstance' {} a -> s {status = a} :: ApplicationInstance)
+-- | The application instance\'s tags.
+applicationInstance_tags :: Lens.Lens' ApplicationInstance (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+applicationInstance_tags = Lens.lens (\ApplicationInstance' {tags} -> tags) (\s@ApplicationInstance' {} a -> s {tags = a} :: ApplicationInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The application instance\'s status description.
 applicationInstance_statusDescription :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
 applicationInstance_statusDescription = Lens.lens (\ApplicationInstance' {statusDescription} -> statusDescription) (\s@ApplicationInstance' {} a -> s {statusDescription = a} :: ApplicationInstance)
 
--- | The application instance\'s ARN.
-applicationInstance_arn :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
-applicationInstance_arn = Lens.lens (\ApplicationInstance' {arn} -> arn) (\s@ApplicationInstance' {} a -> s {arn = a} :: ApplicationInstance)
+-- | The application instance\'s name.
+applicationInstance_name :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
+applicationInstance_name = Lens.lens (\ApplicationInstance' {name} -> name) (\s@ApplicationInstance' {} a -> s {name = a} :: ApplicationInstance)
 
 -- | When the application instance was created.
 applicationInstance_createdTime :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.UTCTime)
@@ -120,29 +120,29 @@ applicationInstance_createdTime = Lens.lens (\ApplicationInstance' {createdTime}
 applicationInstance_defaultRuntimeContextDevice :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
 applicationInstance_defaultRuntimeContextDevice = Lens.lens (\ApplicationInstance' {defaultRuntimeContextDevice} -> defaultRuntimeContextDevice) (\s@ApplicationInstance' {} a -> s {defaultRuntimeContextDevice = a} :: ApplicationInstance)
 
--- | The device\'s name.
-applicationInstance_defaultRuntimeContextDeviceName :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
-applicationInstance_defaultRuntimeContextDeviceName = Lens.lens (\ApplicationInstance' {defaultRuntimeContextDeviceName} -> defaultRuntimeContextDeviceName) (\s@ApplicationInstance' {} a -> s {defaultRuntimeContextDeviceName = a} :: ApplicationInstance)
-
--- | The application instance\'s name.
-applicationInstance_name :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
-applicationInstance_name = Lens.lens (\ApplicationInstance' {name} -> name) (\s@ApplicationInstance' {} a -> s {name = a} :: ApplicationInstance)
-
 -- | The application instance\'s health status.
 applicationInstance_healthStatus :: Lens.Lens' ApplicationInstance (Prelude.Maybe ApplicationInstanceHealthStatus)
 applicationInstance_healthStatus = Lens.lens (\ApplicationInstance' {healthStatus} -> healthStatus) (\s@ApplicationInstance' {} a -> s {healthStatus = a} :: ApplicationInstance)
 
--- | The application instance\'s ID.
-applicationInstance_applicationInstanceId :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
-applicationInstance_applicationInstanceId = Lens.lens (\ApplicationInstance' {applicationInstanceId} -> applicationInstanceId) (\s@ApplicationInstance' {} a -> s {applicationInstanceId = a} :: ApplicationInstance)
+-- | The application instance\'s ARN.
+applicationInstance_arn :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
+applicationInstance_arn = Lens.lens (\ApplicationInstance' {arn} -> arn) (\s@ApplicationInstance' {} a -> s {arn = a} :: ApplicationInstance)
+
+-- | The application instance\'s status.
+applicationInstance_status :: Lens.Lens' ApplicationInstance (Prelude.Maybe ApplicationInstanceStatus)
+applicationInstance_status = Lens.lens (\ApplicationInstance' {status} -> status) (\s@ApplicationInstance' {} a -> s {status = a} :: ApplicationInstance)
 
 -- | The application instance\'s description.
 applicationInstance_description :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
 applicationInstance_description = Lens.lens (\ApplicationInstance' {description} -> description) (\s@ApplicationInstance' {} a -> s {description = a} :: ApplicationInstance)
 
--- | The application instance\'s tags.
-applicationInstance_tags :: Lens.Lens' ApplicationInstance (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-applicationInstance_tags = Lens.lens (\ApplicationInstance' {tags} -> tags) (\s@ApplicationInstance' {} a -> s {tags = a} :: ApplicationInstance) Prelude.. Lens.mapping Lens.coerced
+-- | The application instance\'s ID.
+applicationInstance_applicationInstanceId :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
+applicationInstance_applicationInstanceId = Lens.lens (\ApplicationInstance' {applicationInstanceId} -> applicationInstanceId) (\s@ApplicationInstance' {} a -> s {applicationInstanceId = a} :: ApplicationInstance)
+
+-- | The device\'s name.
+applicationInstance_defaultRuntimeContextDeviceName :: Lens.Lens' ApplicationInstance (Prelude.Maybe Prelude.Text)
+applicationInstance_defaultRuntimeContextDeviceName = Lens.lens (\ApplicationInstance' {defaultRuntimeContextDeviceName} -> defaultRuntimeContextDeviceName) (\s@ApplicationInstance' {} a -> s {defaultRuntimeContextDeviceName = a} :: ApplicationInstance)
 
 instance Core.FromJSON ApplicationInstance where
   parseJSON =
@@ -150,43 +150,43 @@ instance Core.FromJSON ApplicationInstance where
       "ApplicationInstance"
       ( \x ->
           ApplicationInstance'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "StatusDescription")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "DefaultRuntimeContextDevice")
-            Prelude.<*> (x Core..:? "DefaultRuntimeContextDeviceName")
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "HealthStatus")
-            Prelude.<*> (x Core..:? "ApplicationInstanceId")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ApplicationInstanceId")
+            Prelude.<*> (x Core..:? "DefaultRuntimeContextDeviceName")
       )
 
 instance Prelude.Hashable ApplicationInstance where
   hashWithSalt _salt ApplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` statusDescription
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` defaultRuntimeContextDevice
-      `Prelude.hashWithSalt` defaultRuntimeContextDeviceName
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` healthStatus
-      `Prelude.hashWithSalt` applicationInstanceId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationInstanceId
+      `Prelude.hashWithSalt` defaultRuntimeContextDeviceName
 
 instance Prelude.NFData ApplicationInstance where
   rnf ApplicationInstance' {..} =
-    Prelude.rnf status
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf statusDescription
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
-      `Prelude.seq` Prelude.rnf defaultRuntimeContextDeviceName
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf healthStatus
-      `Prelude.seq` Prelude.rnf applicationInstanceId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationInstanceId
+      `Prelude.seq` Prelude.rnf defaultRuntimeContextDeviceName

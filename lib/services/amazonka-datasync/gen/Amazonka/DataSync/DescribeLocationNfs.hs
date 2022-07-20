@@ -34,11 +34,11 @@ module Amazonka.DataSync.DescribeLocationNfs
     newDescribeLocationNfsResponse,
 
     -- * Response Lenses
-    describeLocationNfsResponse_creationTime,
-    describeLocationNfsResponse_locationUri,
     describeLocationNfsResponse_onPremConfig,
     describeLocationNfsResponse_mountOptions,
     describeLocationNfsResponse_locationArn,
+    describeLocationNfsResponse_locationUri,
+    describeLocationNfsResponse_creationTime,
     describeLocationNfsResponse_httpStatus,
   )
 where
@@ -88,11 +88,11 @@ instance Core.AWSRequest DescribeLocationNfs where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationNfsResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "OnPremConfig")
+            Prelude.<$> (x Core..?> "OnPremConfig")
             Prelude.<*> (x Core..?> "MountOptions")
             Prelude.<*> (x Core..?> "LocationArn")
+            Prelude.<*> (x Core..?> "LocationUri")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,15 +136,15 @@ instance Core.ToQuery DescribeLocationNfs where
 --
 -- /See:/ 'newDescribeLocationNfsResponse' smart constructor.
 data DescribeLocationNfsResponse = DescribeLocationNfsResponse'
-  { -- | The time that the NFS location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The URL of the source NFS location that was described.
-    locationUri :: Prelude.Maybe Prelude.Text,
-    onPremConfig :: Prelude.Maybe OnPremConfig,
+  { onPremConfig :: Prelude.Maybe OnPremConfig,
     -- | The NFS mount options that DataSync used to mount your NFS share.
     mountOptions :: Prelude.Maybe NfsMountOptions,
     -- | The Amazon Resource Name (ARN) of the NFS location that was described.
     locationArn :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the source NFS location that was described.
+    locationUri :: Prelude.Maybe Prelude.Text,
+    -- | The time that the NFS location was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,15 +158,15 @@ data DescribeLocationNfsResponse = DescribeLocationNfsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeLocationNfsResponse_creationTime' - The time that the NFS location was created.
---
--- 'locationUri', 'describeLocationNfsResponse_locationUri' - The URL of the source NFS location that was described.
---
 -- 'onPremConfig', 'describeLocationNfsResponse_onPremConfig' - Undocumented member.
 --
 -- 'mountOptions', 'describeLocationNfsResponse_mountOptions' - The NFS mount options that DataSync used to mount your NFS share.
 --
 -- 'locationArn', 'describeLocationNfsResponse_locationArn' - The Amazon Resource Name (ARN) of the NFS location that was described.
+--
+-- 'locationUri', 'describeLocationNfsResponse_locationUri' - The URL of the source NFS location that was described.
+--
+-- 'creationTime', 'describeLocationNfsResponse_creationTime' - The time that the NFS location was created.
 --
 -- 'httpStatus', 'describeLocationNfsResponse_httpStatus' - The response's http status code.
 newDescribeLocationNfsResponse ::
@@ -175,22 +175,14 @@ newDescribeLocationNfsResponse ::
   DescribeLocationNfsResponse
 newDescribeLocationNfsResponse pHttpStatus_ =
   DescribeLocationNfsResponse'
-    { creationTime =
+    { onPremConfig =
         Prelude.Nothing,
-      locationUri = Prelude.Nothing,
-      onPremConfig = Prelude.Nothing,
       mountOptions = Prelude.Nothing,
       locationArn = Prelude.Nothing,
+      locationUri = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time that the NFS location was created.
-describeLocationNfsResponse_creationTime :: Lens.Lens' DescribeLocationNfsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationNfsResponse_creationTime = Lens.lens (\DescribeLocationNfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationNfsResponse' {} a -> s {creationTime = a} :: DescribeLocationNfsResponse) Prelude.. Lens.mapping Core._Time
-
--- | The URL of the source NFS location that was described.
-describeLocationNfsResponse_locationUri :: Lens.Lens' DescribeLocationNfsResponse (Prelude.Maybe Prelude.Text)
-describeLocationNfsResponse_locationUri = Lens.lens (\DescribeLocationNfsResponse' {locationUri} -> locationUri) (\s@DescribeLocationNfsResponse' {} a -> s {locationUri = a} :: DescribeLocationNfsResponse)
 
 -- | Undocumented member.
 describeLocationNfsResponse_onPremConfig :: Lens.Lens' DescribeLocationNfsResponse (Prelude.Maybe OnPremConfig)
@@ -204,15 +196,23 @@ describeLocationNfsResponse_mountOptions = Lens.lens (\DescribeLocationNfsRespon
 describeLocationNfsResponse_locationArn :: Lens.Lens' DescribeLocationNfsResponse (Prelude.Maybe Prelude.Text)
 describeLocationNfsResponse_locationArn = Lens.lens (\DescribeLocationNfsResponse' {locationArn} -> locationArn) (\s@DescribeLocationNfsResponse' {} a -> s {locationArn = a} :: DescribeLocationNfsResponse)
 
+-- | The URL of the source NFS location that was described.
+describeLocationNfsResponse_locationUri :: Lens.Lens' DescribeLocationNfsResponse (Prelude.Maybe Prelude.Text)
+describeLocationNfsResponse_locationUri = Lens.lens (\DescribeLocationNfsResponse' {locationUri} -> locationUri) (\s@DescribeLocationNfsResponse' {} a -> s {locationUri = a} :: DescribeLocationNfsResponse)
+
+-- | The time that the NFS location was created.
+describeLocationNfsResponse_creationTime :: Lens.Lens' DescribeLocationNfsResponse (Prelude.Maybe Prelude.UTCTime)
+describeLocationNfsResponse_creationTime = Lens.lens (\DescribeLocationNfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationNfsResponse' {} a -> s {creationTime = a} :: DescribeLocationNfsResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The response's http status code.
 describeLocationNfsResponse_httpStatus :: Lens.Lens' DescribeLocationNfsResponse Prelude.Int
 describeLocationNfsResponse_httpStatus = Lens.lens (\DescribeLocationNfsResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationNfsResponse' {} a -> s {httpStatus = a} :: DescribeLocationNfsResponse)
 
 instance Prelude.NFData DescribeLocationNfsResponse where
   rnf DescribeLocationNfsResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf onPremConfig
+    Prelude.rnf onPremConfig
       `Prelude.seq` Prelude.rnf mountOptions
       `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,8 +37,8 @@ module Amazonka.Route53RecoveryReadiness.ListResourceSets
     newListResourceSetsResponse,
 
     -- * Response Lenses
-    listResourceSetsResponse_resourceSets,
     listResourceSetsResponse_nextToken,
+    listResourceSetsResponse_resourceSets,
     listResourceSetsResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest ListResourceSets where
     Response.receiveJSON
       ( \s h x ->
           ListResourceSetsResponse'
-            Prelude.<$> (x Core..?> "resourceSets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "resourceSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,11 +155,11 @@ instance Core.ToQuery ListResourceSets where
 
 -- | /See:/ 'newListResourceSetsResponse' smart constructor.
 data ListResourceSetsResponse = ListResourceSetsResponse'
-  { -- | A list of ResourceSets associated with the account
-    resourceSets :: Prelude.Maybe [ResourceSetOutput],
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of ResourceSets associated with the account
+    resourceSets :: Prelude.Maybe [ResourceSetOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,10 +173,10 @@ data ListResourceSetsResponse = ListResourceSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceSets', 'listResourceSetsResponse_resourceSets' - A list of ResourceSets associated with the account
---
 -- 'nextToken', 'listResourceSetsResponse_nextToken' - A token that can be used to resume pagination from the end of the
 -- collection.
+--
+-- 'resourceSets', 'listResourceSetsResponse_resourceSets' - A list of ResourceSets associated with the account
 --
 -- 'httpStatus', 'listResourceSetsResponse_httpStatus' - The response's http status code.
 newListResourceSetsResponse ::
@@ -185,20 +185,20 @@ newListResourceSetsResponse ::
   ListResourceSetsResponse
 newListResourceSetsResponse pHttpStatus_ =
   ListResourceSetsResponse'
-    { resourceSets =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resourceSets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of ResourceSets associated with the account
-listResourceSetsResponse_resourceSets :: Lens.Lens' ListResourceSetsResponse (Prelude.Maybe [ResourceSetOutput])
-listResourceSetsResponse_resourceSets = Lens.lens (\ListResourceSetsResponse' {resourceSets} -> resourceSets) (\s@ListResourceSetsResponse' {} a -> s {resourceSets = a} :: ListResourceSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 listResourceSetsResponse_nextToken :: Lens.Lens' ListResourceSetsResponse (Prelude.Maybe Prelude.Text)
 listResourceSetsResponse_nextToken = Lens.lens (\ListResourceSetsResponse' {nextToken} -> nextToken) (\s@ListResourceSetsResponse' {} a -> s {nextToken = a} :: ListResourceSetsResponse)
+
+-- | A list of ResourceSets associated with the account
+listResourceSetsResponse_resourceSets :: Lens.Lens' ListResourceSetsResponse (Prelude.Maybe [ResourceSetOutput])
+listResourceSetsResponse_resourceSets = Lens.lens (\ListResourceSetsResponse' {resourceSets} -> resourceSets) (\s@ListResourceSetsResponse' {} a -> s {resourceSets = a} :: ListResourceSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResourceSetsResponse_httpStatus :: Lens.Lens' ListResourceSetsResponse Prelude.Int
@@ -206,6 +206,6 @@ listResourceSetsResponse_httpStatus = Lens.lens (\ListResourceSetsResponse' {htt
 
 instance Prelude.NFData ListResourceSetsResponse where
   rnf ListResourceSetsResponse' {..} =
-    Prelude.rnf resourceSets
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceSets
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data CloudFormationStackRecordSourceInfo = CloudFormationStackRecordSourceInfo'
   { -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@).
     resourceType :: Prelude.Maybe CloudFormationStackRecordSourceType,
-    -- | The Amazon Resource Name (ARN) of the export snapshot record.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the record.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the export snapshot record.
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,30 +48,30 @@ data CloudFormationStackRecordSourceInfo = CloudFormationStackRecordSourceInfo'
 --
 -- 'resourceType', 'cloudFormationStackRecordSourceInfo_resourceType' - The Lightsail resource type (e.g., @ExportSnapshotRecord@).
 --
--- 'arn', 'cloudFormationStackRecordSourceInfo_arn' - The Amazon Resource Name (ARN) of the export snapshot record.
---
 -- 'name', 'cloudFormationStackRecordSourceInfo_name' - The name of the record.
+--
+-- 'arn', 'cloudFormationStackRecordSourceInfo_arn' - The Amazon Resource Name (ARN) of the export snapshot record.
 newCloudFormationStackRecordSourceInfo ::
   CloudFormationStackRecordSourceInfo
 newCloudFormationStackRecordSourceInfo =
   CloudFormationStackRecordSourceInfo'
     { resourceType =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
 
 -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@).
 cloudFormationStackRecordSourceInfo_resourceType :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe CloudFormationStackRecordSourceType)
 cloudFormationStackRecordSourceInfo_resourceType = Lens.lens (\CloudFormationStackRecordSourceInfo' {resourceType} -> resourceType) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {resourceType = a} :: CloudFormationStackRecordSourceInfo)
 
--- | The Amazon Resource Name (ARN) of the export snapshot record.
-cloudFormationStackRecordSourceInfo_arn :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe Prelude.Text)
-cloudFormationStackRecordSourceInfo_arn = Lens.lens (\CloudFormationStackRecordSourceInfo' {arn} -> arn) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {arn = a} :: CloudFormationStackRecordSourceInfo)
-
 -- | The name of the record.
 cloudFormationStackRecordSourceInfo_name :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe Prelude.Text)
 cloudFormationStackRecordSourceInfo_name = Lens.lens (\CloudFormationStackRecordSourceInfo' {name} -> name) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {name = a} :: CloudFormationStackRecordSourceInfo)
+
+-- | The Amazon Resource Name (ARN) of the export snapshot record.
+cloudFormationStackRecordSourceInfo_arn :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe Prelude.Text)
+cloudFormationStackRecordSourceInfo_arn = Lens.lens (\CloudFormationStackRecordSourceInfo' {arn} -> arn) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {arn = a} :: CloudFormationStackRecordSourceInfo)
 
 instance
   Core.FromJSON
@@ -83,8 +83,8 @@ instance
       ( \x ->
           CloudFormationStackRecordSourceInfo'
             Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "arn")
       )
 
 instance
@@ -95,8 +95,8 @@ instance
     _salt
     CloudFormationStackRecordSourceInfo' {..} =
       _salt `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` arn
 
 instance
   Prelude.NFData
@@ -104,5 +104,5 @@ instance
   where
   rnf CloudFormationStackRecordSourceInfo' {..} =
     Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn

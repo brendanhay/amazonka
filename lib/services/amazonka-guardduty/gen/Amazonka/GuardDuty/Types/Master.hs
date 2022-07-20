@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMaster' smart constructor.
 data Master = Master'
-  { -- | The timestamp when the invitation was sent.
+  { -- | The ID of the account used as the administrator account.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the invitation was sent.
     invitedAt :: Prelude.Maybe Prelude.Text,
     -- | The status of the relationship between the administrator and member
     -- accounts.
     relationshipStatus :: Prelude.Maybe Prelude.Text,
     -- | The value used to validate the administrator account to the member
     -- account.
-    invitationId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the account used as the administrator account.
-    accountId :: Prelude.Maybe Prelude.Text
+    invitationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,6 +48,8 @@ data Master = Master'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'master_accountId' - The ID of the account used as the administrator account.
+--
 -- 'invitedAt', 'master_invitedAt' - The timestamp when the invitation was sent.
 --
 -- 'relationshipStatus', 'master_relationshipStatus' - The status of the relationship between the administrator and member
@@ -55,17 +57,19 @@ data Master = Master'
 --
 -- 'invitationId', 'master_invitationId' - The value used to validate the administrator account to the member
 -- account.
---
--- 'accountId', 'master_accountId' - The ID of the account used as the administrator account.
 newMaster ::
   Master
 newMaster =
   Master'
-    { invitedAt = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      invitedAt = Prelude.Nothing,
       relationshipStatus = Prelude.Nothing,
-      invitationId = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      invitationId = Prelude.Nothing
     }
+
+-- | The ID of the account used as the administrator account.
+master_accountId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
+master_accountId = Lens.lens (\Master' {accountId} -> accountId) (\s@Master' {} a -> s {accountId = a} :: Master)
 
 -- | The timestamp when the invitation was sent.
 master_invitedAt :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
@@ -81,32 +85,28 @@ master_relationshipStatus = Lens.lens (\Master' {relationshipStatus} -> relation
 master_invitationId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
 master_invitationId = Lens.lens (\Master' {invitationId} -> invitationId) (\s@Master' {} a -> s {invitationId = a} :: Master)
 
--- | The ID of the account used as the administrator account.
-master_accountId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
-master_accountId = Lens.lens (\Master' {accountId} -> accountId) (\s@Master' {} a -> s {accountId = a} :: Master)
-
 instance Core.FromJSON Master where
   parseJSON =
     Core.withObject
       "Master"
       ( \x ->
           Master'
-            Prelude.<$> (x Core..:? "invitedAt")
+            Prelude.<$> (x Core..:? "accountId")
+            Prelude.<*> (x Core..:? "invitedAt")
             Prelude.<*> (x Core..:? "relationshipStatus")
             Prelude.<*> (x Core..:? "invitationId")
-            Prelude.<*> (x Core..:? "accountId")
       )
 
 instance Prelude.Hashable Master where
   hashWithSalt _salt Master' {..} =
-    _salt `Prelude.hashWithSalt` invitedAt
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` invitedAt
       `Prelude.hashWithSalt` relationshipStatus
       `Prelude.hashWithSalt` invitationId
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData Master where
   rnf Master' {..} =
-    Prelude.rnf invitedAt
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf invitedAt
       `Prelude.seq` Prelude.rnf relationshipStatus
       `Prelude.seq` Prelude.rnf invitationId
-      `Prelude.seq` Prelude.rnf accountId

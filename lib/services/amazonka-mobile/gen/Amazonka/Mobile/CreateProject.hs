@@ -27,10 +27,10 @@ module Amazonka.Mobile.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_contents,
     createProject_name,
-    createProject_region,
+    createProject_contents,
     createProject_snapshotId,
+    createProject_region,
 
     -- * Destructuring the Response
     CreateProjectResponse (..),
@@ -53,18 +53,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | ZIP or YAML file which contains configuration settings to be used when
+  { -- | Name of the project.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | ZIP or YAML file which contains configuration settings to be used when
     -- creating the project. This may be the contents of the file downloaded
     -- from the URL provided in an export project operation.
     contents :: Prelude.Maybe Prelude.ByteString,
-    -- | Name of the project.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Default region where project resources should be created.
-    region :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier for an exported snapshot of project configuration.
     -- This snapshot identifier is included in the share URL when a project is
     -- exported.
-    snapshotId :: Prelude.Maybe Prelude.Text
+    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | Default region where project resources should be created.
+    region :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,26 +76,30 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createProject_name' - Name of the project.
+--
 -- 'contents', 'createProject_contents' - ZIP or YAML file which contains configuration settings to be used when
 -- creating the project. This may be the contents of the file downloaded
 -- from the URL provided in an export project operation.
 --
--- 'name', 'createProject_name' - Name of the project.
---
--- 'region', 'createProject_region' - Default region where project resources should be created.
---
 -- 'snapshotId', 'createProject_snapshotId' - Unique identifier for an exported snapshot of project configuration.
 -- This snapshot identifier is included in the share URL when a project is
 -- exported.
+--
+-- 'region', 'createProject_region' - Default region where project resources should be created.
 newCreateProject ::
   CreateProject
 newCreateProject =
   CreateProject'
-    { contents = Prelude.Nothing,
-      name = Prelude.Nothing,
-      region = Prelude.Nothing,
-      snapshotId = Prelude.Nothing
+    { name = Prelude.Nothing,
+      contents = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      region = Prelude.Nothing
     }
+
+-- | Name of the project.
+createProject_name :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_name = Lens.lens (\CreateProject' {name} -> name) (\s@CreateProject' {} a -> s {name = a} :: CreateProject)
 
 -- | ZIP or YAML file which contains configuration settings to be used when
 -- creating the project. This may be the contents of the file downloaded
@@ -103,19 +107,15 @@ newCreateProject =
 createProject_contents :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.ByteString)
 createProject_contents = Lens.lens (\CreateProject' {contents} -> contents) (\s@CreateProject' {} a -> s {contents = a} :: CreateProject)
 
--- | Name of the project.
-createProject_name :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
-createProject_name = Lens.lens (\CreateProject' {name} -> name) (\s@CreateProject' {} a -> s {name = a} :: CreateProject)
-
--- | Default region where project resources should be created.
-createProject_region :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
-createProject_region = Lens.lens (\CreateProject' {region} -> region) (\s@CreateProject' {} a -> s {region = a} :: CreateProject)
-
 -- | Unique identifier for an exported snapshot of project configuration.
 -- This snapshot identifier is included in the share URL when a project is
 -- exported.
 createProject_snapshotId :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
 createProject_snapshotId = Lens.lens (\CreateProject' {snapshotId} -> snapshotId) (\s@CreateProject' {} a -> s {snapshotId = a} :: CreateProject)
+
+-- | Default region where project resources should be created.
+createProject_region :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_region = Lens.lens (\CreateProject' {region} -> region) (\s@CreateProject' {} a -> s {region = a} :: CreateProject)
 
 instance Core.AWSRequest CreateProject where
   type
@@ -132,17 +132,17 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` contents
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` region
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contents
       `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` region
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf contents
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf region
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contents
       `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf region
 
 instance Core.ToBody CreateProject where
   toBody CreateProject' {..} = Core.toBody contents
@@ -165,8 +165,8 @@ instance Core.ToQuery CreateProject where
   toQuery CreateProject' {..} =
     Prelude.mconcat
       [ "name" Core.=: name,
-        "region" Core.=: region,
-        "snapshotId" Core.=: snapshotId
+        "snapshotId" Core.=: snapshotId,
+        "region" Core.=: region
       ]
 
 -- | Result structure used in response to a request to create a project.

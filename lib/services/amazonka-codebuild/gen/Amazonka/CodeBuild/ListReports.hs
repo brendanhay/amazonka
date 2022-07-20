@@ -40,8 +40,8 @@ module Amazonka.CodeBuild.ListReports
     newListReportsResponse,
 
     -- * Response Lenses
-    listReportsResponse_reports,
     listReportsResponse_nextToken,
+    listReportsResponse_reports,
     listReportsResponse_httpStatus,
   )
 where
@@ -179,8 +179,8 @@ instance Core.AWSRequest ListReports where
     Response.receiveJSON
       ( \s h x ->
           ListReportsResponse'
-            Prelude.<$> (x Core..?> "reports")
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "reports")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,10 +232,7 @@ instance Core.ToQuery ListReports where
 
 -- | /See:/ 'newListReportsResponse' smart constructor.
 data ListReportsResponse = ListReportsResponse'
-  { -- | The list of returned ARNs for the reports in the current Amazon Web
-    -- Services account.
-    reports :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | During a previous call, the maximum number of items that can be returned
+  { -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
     -- batch of items in the list, call this operation again, adding the next
@@ -243,6 +240,9 @@ data ListReportsResponse = ListReportsResponse'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of returned ARNs for the reports in the current Amazon Web
+    -- Services account.
+    reports :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -256,9 +256,6 @@ data ListReportsResponse = ListReportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reports', 'listReportsResponse_reports' - The list of returned ARNs for the reports in the current Amazon Web
--- Services account.
---
 -- 'nextToken', 'listReportsResponse_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
@@ -267,6 +264,9 @@ data ListReportsResponse = ListReportsResponse'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
+-- 'reports', 'listReportsResponse_reports' - The list of returned ARNs for the reports in the current Amazon Web
+-- Services account.
+--
 -- 'httpStatus', 'listReportsResponse_httpStatus' - The response's http status code.
 newListReportsResponse ::
   -- | 'httpStatus'
@@ -274,15 +274,10 @@ newListReportsResponse ::
   ListReportsResponse
 newListReportsResponse pHttpStatus_ =
   ListReportsResponse'
-    { reports = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      reports = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of returned ARNs for the reports in the current Amazon Web
--- Services account.
-listReportsResponse_reports :: Lens.Lens' ListReportsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listReportsResponse_reports = Lens.lens (\ListReportsResponse' {reports} -> reports) (\s@ListReportsResponse' {} a -> s {reports = a} :: ListReportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -294,12 +289,17 @@ listReportsResponse_reports = Lens.lens (\ListReportsResponse' {reports} -> repo
 listReportsResponse_nextToken :: Lens.Lens' ListReportsResponse (Prelude.Maybe Prelude.Text)
 listReportsResponse_nextToken = Lens.lens (\ListReportsResponse' {nextToken} -> nextToken) (\s@ListReportsResponse' {} a -> s {nextToken = a} :: ListReportsResponse)
 
+-- | The list of returned ARNs for the reports in the current Amazon Web
+-- Services account.
+listReportsResponse_reports :: Lens.Lens' ListReportsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listReportsResponse_reports = Lens.lens (\ListReportsResponse' {reports} -> reports) (\s@ListReportsResponse' {} a -> s {reports = a} :: ListReportsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listReportsResponse_httpStatus :: Lens.Lens' ListReportsResponse Prelude.Int
 listReportsResponse_httpStatus = Lens.lens (\ListReportsResponse' {httpStatus} -> httpStatus) (\s@ListReportsResponse' {} a -> s {httpStatus = a} :: ListReportsResponse)
 
 instance Prelude.NFData ListReportsResponse where
   rnf ListReportsResponse' {..} =
-    Prelude.rnf reports
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reports
       `Prelude.seq` Prelude.rnf httpStatus

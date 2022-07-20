@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailedQueuedPurchaseDeletion' smart constructor.
 data FailedQueuedPurchaseDeletion = FailedQueuedPurchaseDeletion'
-  { -- | The error.
-    error :: Prelude.Maybe DeleteQueuedReservedInstancesError,
-    -- | The ID of the Reserved Instance.
-    reservedInstancesId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the Reserved Instance.
+    reservedInstancesId :: Prelude.Maybe Prelude.Text,
+    -- | The error.
+    error :: Prelude.Maybe DeleteQueuedReservedInstancesError
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,41 +44,41 @@ data FailedQueuedPurchaseDeletion = FailedQueuedPurchaseDeletion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'failedQueuedPurchaseDeletion_error' - The error.
---
 -- 'reservedInstancesId', 'failedQueuedPurchaseDeletion_reservedInstancesId' - The ID of the Reserved Instance.
+--
+-- 'error', 'failedQueuedPurchaseDeletion_error' - The error.
 newFailedQueuedPurchaseDeletion ::
   FailedQueuedPurchaseDeletion
 newFailedQueuedPurchaseDeletion =
   FailedQueuedPurchaseDeletion'
-    { error =
+    { reservedInstancesId =
         Prelude.Nothing,
-      reservedInstancesId = Prelude.Nothing
+      error = Prelude.Nothing
     }
-
--- | The error.
-failedQueuedPurchaseDeletion_error :: Lens.Lens' FailedQueuedPurchaseDeletion (Prelude.Maybe DeleteQueuedReservedInstancesError)
-failedQueuedPurchaseDeletion_error = Lens.lens (\FailedQueuedPurchaseDeletion' {error} -> error) (\s@FailedQueuedPurchaseDeletion' {} a -> s {error = a} :: FailedQueuedPurchaseDeletion)
 
 -- | The ID of the Reserved Instance.
 failedQueuedPurchaseDeletion_reservedInstancesId :: Lens.Lens' FailedQueuedPurchaseDeletion (Prelude.Maybe Prelude.Text)
 failedQueuedPurchaseDeletion_reservedInstancesId = Lens.lens (\FailedQueuedPurchaseDeletion' {reservedInstancesId} -> reservedInstancesId) (\s@FailedQueuedPurchaseDeletion' {} a -> s {reservedInstancesId = a} :: FailedQueuedPurchaseDeletion)
 
+-- | The error.
+failedQueuedPurchaseDeletion_error :: Lens.Lens' FailedQueuedPurchaseDeletion (Prelude.Maybe DeleteQueuedReservedInstancesError)
+failedQueuedPurchaseDeletion_error = Lens.lens (\FailedQueuedPurchaseDeletion' {error} -> error) (\s@FailedQueuedPurchaseDeletion' {} a -> s {error = a} :: FailedQueuedPurchaseDeletion)
+
 instance Core.FromXML FailedQueuedPurchaseDeletion where
   parseXML x =
     FailedQueuedPurchaseDeletion'
-      Prelude.<$> (x Core..@? "error")
-      Prelude.<*> (x Core..@? "reservedInstancesId")
+      Prelude.<$> (x Core..@? "reservedInstancesId")
+      Prelude.<*> (x Core..@? "error")
 
 instance
   Prelude.Hashable
     FailedQueuedPurchaseDeletion
   where
   hashWithSalt _salt FailedQueuedPurchaseDeletion' {..} =
-    _salt `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` reservedInstancesId
+    _salt `Prelude.hashWithSalt` reservedInstancesId
+      `Prelude.hashWithSalt` error
 
 instance Prelude.NFData FailedQueuedPurchaseDeletion where
   rnf FailedQueuedPurchaseDeletion' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf reservedInstancesId
+    Prelude.rnf reservedInstancesId
+      `Prelude.seq` Prelude.rnf error

@@ -36,8 +36,8 @@ module Amazonka.Chime.ListAppInstances
     newListAppInstancesResponse,
 
     -- * Response Lenses
-    listAppInstancesResponse_appInstances,
     listAppInstancesResponse_nextToken,
+    listAppInstancesResponse_appInstances,
     listAppInstancesResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest ListAppInstances where
     Response.receiveJSON
       ( \s h x ->
           ListAppInstancesResponse'
-            Prelude.<$> (x Core..?> "AppInstances" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "AppInstances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,11 +127,11 @@ instance Core.ToQuery ListAppInstances where
 
 -- | /See:/ 'newListAppInstancesResponse' smart constructor.
 data ListAppInstancesResponse = ListAppInstancesResponse'
-  { -- | The information for each @AppInstance@.
-    appInstances :: Prelude.Maybe [AppInstanceSummary],
-    -- | The token passed by previous API requests until the maximum number of
+  { -- | The token passed by previous API requests until the maximum number of
     -- @AppInstance@s is reached.
     nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The information for each @AppInstance@.
+    appInstances :: Prelude.Maybe [AppInstanceSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,10 +145,10 @@ data ListAppInstancesResponse = ListAppInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appInstances', 'listAppInstancesResponse_appInstances' - The information for each @AppInstance@.
---
 -- 'nextToken', 'listAppInstancesResponse_nextToken' - The token passed by previous API requests until the maximum number of
 -- @AppInstance@s is reached.
+--
+-- 'appInstances', 'listAppInstancesResponse_appInstances' - The information for each @AppInstance@.
 --
 -- 'httpStatus', 'listAppInstancesResponse_httpStatus' - The response's http status code.
 newListAppInstancesResponse ::
@@ -157,20 +157,20 @@ newListAppInstancesResponse ::
   ListAppInstancesResponse
 newListAppInstancesResponse pHttpStatus_ =
   ListAppInstancesResponse'
-    { appInstances =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      appInstances = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The information for each @AppInstance@.
-listAppInstancesResponse_appInstances :: Lens.Lens' ListAppInstancesResponse (Prelude.Maybe [AppInstanceSummary])
-listAppInstancesResponse_appInstances = Lens.lens (\ListAppInstancesResponse' {appInstances} -> appInstances) (\s@ListAppInstancesResponse' {} a -> s {appInstances = a} :: ListAppInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token passed by previous API requests until the maximum number of
 -- @AppInstance@s is reached.
 listAppInstancesResponse_nextToken :: Lens.Lens' ListAppInstancesResponse (Prelude.Maybe Prelude.Text)
 listAppInstancesResponse_nextToken = Lens.lens (\ListAppInstancesResponse' {nextToken} -> nextToken) (\s@ListAppInstancesResponse' {} a -> s {nextToken = a} :: ListAppInstancesResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The information for each @AppInstance@.
+listAppInstancesResponse_appInstances :: Lens.Lens' ListAppInstancesResponse (Prelude.Maybe [AppInstanceSummary])
+listAppInstancesResponse_appInstances = Lens.lens (\ListAppInstancesResponse' {appInstances} -> appInstances) (\s@ListAppInstancesResponse' {} a -> s {appInstances = a} :: ListAppInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAppInstancesResponse_httpStatus :: Lens.Lens' ListAppInstancesResponse Prelude.Int
@@ -178,6 +178,6 @@ listAppInstancesResponse_httpStatus = Lens.lens (\ListAppInstancesResponse' {htt
 
 instance Prelude.NFData ListAppInstancesResponse where
   rnf ListAppInstancesResponse' {..} =
-    Prelude.rnf appInstances
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf appInstances
       `Prelude.seq` Prelude.rnf httpStatus

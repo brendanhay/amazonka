@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrait' smart constructor.
 data Trait = Trait'
-  { -- | The level of confidence that Amazon Comprehend Medical has in the
+  { -- | Provides a name or contextual description about the trait.
+    name :: Prelude.Maybe AttributeName,
+    -- | The level of confidence that Amazon Comprehend Medical has in the
     -- accuracy of this trait.
-    score :: Prelude.Maybe Prelude.Double,
-    -- | Provides a name or contextual description about the trait.
-    name :: Prelude.Maybe AttributeName
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data Trait = Trait'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'trait_name' - Provides a name or contextual description about the trait.
+--
 -- 'score', 'trait_score' - The level of confidence that Amazon Comprehend Medical has in the
 -- accuracy of this trait.
---
--- 'name', 'trait_name' - Provides a name or contextual description about the trait.
 newTrait ::
   Trait
 newTrait =
   Trait'
-    { score = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      score = Prelude.Nothing
     }
+
+-- | Provides a name or contextual description about the trait.
+trait_name :: Lens.Lens' Trait (Prelude.Maybe AttributeName)
+trait_name = Lens.lens (\Trait' {name} -> name) (\s@Trait' {} a -> s {name = a} :: Trait)
 
 -- | The level of confidence that Amazon Comprehend Medical has in the
 -- accuracy of this trait.
 trait_score :: Lens.Lens' Trait (Prelude.Maybe Prelude.Double)
 trait_score = Lens.lens (\Trait' {score} -> score) (\s@Trait' {} a -> s {score = a} :: Trait)
-
--- | Provides a name or contextual description about the trait.
-trait_name :: Lens.Lens' Trait (Prelude.Maybe AttributeName)
-trait_name = Lens.lens (\Trait' {name} -> name) (\s@Trait' {} a -> s {name = a} :: Trait)
 
 instance Core.FromJSON Trait where
   parseJSON =
@@ -71,14 +71,14 @@ instance Core.FromJSON Trait where
       "Trait"
       ( \x ->
           Trait'
-            Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
       )
 
 instance Prelude.Hashable Trait where
   hashWithSalt _salt Trait' {..} =
-    _salt `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData Trait where
   rnf Trait' {..} =
-    Prelude.rnf score `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf score

@@ -27,8 +27,8 @@ module Amazonka.APIGateway.ImportDocumentationParts
     newImportDocumentationParts,
 
     -- * Request Lenses
-    importDocumentationParts_mode,
     importDocumentationParts_failOnWarnings,
+    importDocumentationParts_mode,
     importDocumentationParts_restApiId,
     importDocumentationParts_body,
 
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newImportDocumentationParts' smart constructor.
 data ImportDocumentationParts = ImportDocumentationParts'
-  { -- | A query parameter to indicate whether to overwrite (@OVERWRITE@) any
-    -- existing DocumentationParts definition or to merge (@MERGE@) the new
-    -- definition into the existing one. The default value is @MERGE@.
-    mode :: Prelude.Maybe PutMode,
-    -- | A query parameter to specify whether to rollback the documentation
+  { -- | A query parameter to specify whether to rollback the documentation
     -- importation (@true@) or not (@false@) when a warning is encountered. The
     -- default value is @false@.
     failOnWarnings :: Prelude.Maybe Prelude.Bool,
+    -- | A query parameter to indicate whether to overwrite (@OVERWRITE@) any
+    -- existing DocumentationParts definition or to merge (@MERGE@) the new
+    -- definition into the existing one. The default value is @MERGE@.
+    mode :: Prelude.Maybe PutMode,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] Raw byte array representing the to-be-imported documentation
@@ -79,13 +79,13 @@ data ImportDocumentationParts = ImportDocumentationParts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mode', 'importDocumentationParts_mode' - A query parameter to indicate whether to overwrite (@OVERWRITE@) any
--- existing DocumentationParts definition or to merge (@MERGE@) the new
--- definition into the existing one. The default value is @MERGE@.
---
 -- 'failOnWarnings', 'importDocumentationParts_failOnWarnings' - A query parameter to specify whether to rollback the documentation
 -- importation (@true@) or not (@false@) when a warning is encountered. The
 -- default value is @false@.
+--
+-- 'mode', 'importDocumentationParts_mode' - A query parameter to indicate whether to overwrite (@OVERWRITE@) any
+-- existing DocumentationParts definition or to merge (@MERGE@) the new
+-- definition into the existing one. The default value is @MERGE@.
 --
 -- 'restApiId', 'importDocumentationParts_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -99,23 +99,24 @@ newImportDocumentationParts ::
   ImportDocumentationParts
 newImportDocumentationParts pRestApiId_ pBody_ =
   ImportDocumentationParts'
-    { mode = Prelude.Nothing,
-      failOnWarnings = Prelude.Nothing,
+    { failOnWarnings =
+        Prelude.Nothing,
+      mode = Prelude.Nothing,
       restApiId = pRestApiId_,
       body = pBody_
     }
-
--- | A query parameter to indicate whether to overwrite (@OVERWRITE@) any
--- existing DocumentationParts definition or to merge (@MERGE@) the new
--- definition into the existing one. The default value is @MERGE@.
-importDocumentationParts_mode :: Lens.Lens' ImportDocumentationParts (Prelude.Maybe PutMode)
-importDocumentationParts_mode = Lens.lens (\ImportDocumentationParts' {mode} -> mode) (\s@ImportDocumentationParts' {} a -> s {mode = a} :: ImportDocumentationParts)
 
 -- | A query parameter to specify whether to rollback the documentation
 -- importation (@true@) or not (@false@) when a warning is encountered. The
 -- default value is @false@.
 importDocumentationParts_failOnWarnings :: Lens.Lens' ImportDocumentationParts (Prelude.Maybe Prelude.Bool)
 importDocumentationParts_failOnWarnings = Lens.lens (\ImportDocumentationParts' {failOnWarnings} -> failOnWarnings) (\s@ImportDocumentationParts' {} a -> s {failOnWarnings = a} :: ImportDocumentationParts)
+
+-- | A query parameter to indicate whether to overwrite (@OVERWRITE@) any
+-- existing DocumentationParts definition or to merge (@MERGE@) the new
+-- definition into the existing one. The default value is @MERGE@.
+importDocumentationParts_mode :: Lens.Lens' ImportDocumentationParts (Prelude.Maybe PutMode)
+importDocumentationParts_mode = Lens.lens (\ImportDocumentationParts' {mode} -> mode) (\s@ImportDocumentationParts' {} a -> s {mode = a} :: ImportDocumentationParts)
 
 -- | [Required] The string identifier of the associated RestApi.
 importDocumentationParts_restApiId :: Lens.Lens' ImportDocumentationParts Prelude.Text
@@ -142,15 +143,15 @@ instance Core.AWSRequest ImportDocumentationParts where
 
 instance Prelude.Hashable ImportDocumentationParts where
   hashWithSalt _salt ImportDocumentationParts' {..} =
-    _salt `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` failOnWarnings
+    _salt `Prelude.hashWithSalt` failOnWarnings
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` body
 
 instance Prelude.NFData ImportDocumentationParts where
   rnf ImportDocumentationParts' {..} =
-    Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf failOnWarnings
+    Prelude.rnf failOnWarnings
+      `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf body
 
@@ -178,8 +179,8 @@ instance Core.ToPath ImportDocumentationParts where
 instance Core.ToQuery ImportDocumentationParts where
   toQuery ImportDocumentationParts' {..} =
     Prelude.mconcat
-      [ "mode" Core.=: mode,
-        "failonwarnings" Core.=: failOnWarnings
+      [ "failonwarnings" Core.=: failOnWarnings,
+        "mode" Core.=: mode
       ]
 
 -- | A collection of the imported DocumentationPart identifiers.

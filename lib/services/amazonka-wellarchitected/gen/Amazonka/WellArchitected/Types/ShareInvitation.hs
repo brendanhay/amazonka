@@ -27,9 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newShareInvitation' smart constructor.
 data ShareInvitation = ShareInvitation'
-  { workloadId :: Prelude.Maybe Prelude.Text,
-    -- | The ID assigned to the share invitation.
-    shareInvitationId :: Prelude.Maybe Prelude.Text
+  { -- | The ID assigned to the share invitation.
+    shareInvitationId :: Prelude.Maybe Prelude.Text,
+    workloadId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,24 +41,25 @@ data ShareInvitation = ShareInvitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workloadId', 'shareInvitation_workloadId' - Undocumented member.
---
 -- 'shareInvitationId', 'shareInvitation_shareInvitationId' - The ID assigned to the share invitation.
+--
+-- 'workloadId', 'shareInvitation_workloadId' - Undocumented member.
 newShareInvitation ::
   ShareInvitation
 newShareInvitation =
   ShareInvitation'
-    { workloadId = Prelude.Nothing,
-      shareInvitationId = Prelude.Nothing
+    { shareInvitationId =
+        Prelude.Nothing,
+      workloadId = Prelude.Nothing
     }
-
--- | Undocumented member.
-shareInvitation_workloadId :: Lens.Lens' ShareInvitation (Prelude.Maybe Prelude.Text)
-shareInvitation_workloadId = Lens.lens (\ShareInvitation' {workloadId} -> workloadId) (\s@ShareInvitation' {} a -> s {workloadId = a} :: ShareInvitation)
 
 -- | The ID assigned to the share invitation.
 shareInvitation_shareInvitationId :: Lens.Lens' ShareInvitation (Prelude.Maybe Prelude.Text)
 shareInvitation_shareInvitationId = Lens.lens (\ShareInvitation' {shareInvitationId} -> shareInvitationId) (\s@ShareInvitation' {} a -> s {shareInvitationId = a} :: ShareInvitation)
+
+-- | Undocumented member.
+shareInvitation_workloadId :: Lens.Lens' ShareInvitation (Prelude.Maybe Prelude.Text)
+shareInvitation_workloadId = Lens.lens (\ShareInvitation' {workloadId} -> workloadId) (\s@ShareInvitation' {} a -> s {workloadId = a} :: ShareInvitation)
 
 instance Core.FromJSON ShareInvitation where
   parseJSON =
@@ -66,16 +67,16 @@ instance Core.FromJSON ShareInvitation where
       "ShareInvitation"
       ( \x ->
           ShareInvitation'
-            Prelude.<$> (x Core..:? "WorkloadId")
-            Prelude.<*> (x Core..:? "ShareInvitationId")
+            Prelude.<$> (x Core..:? "ShareInvitationId")
+            Prelude.<*> (x Core..:? "WorkloadId")
       )
 
 instance Prelude.Hashable ShareInvitation where
   hashWithSalt _salt ShareInvitation' {..} =
-    _salt `Prelude.hashWithSalt` workloadId
-      `Prelude.hashWithSalt` shareInvitationId
+    _salt `Prelude.hashWithSalt` shareInvitationId
+      `Prelude.hashWithSalt` workloadId
 
 instance Prelude.NFData ShareInvitation where
   rnf ShareInvitation' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf shareInvitationId
+    Prelude.rnf shareInvitationId
+      `Prelude.seq` Prelude.rnf workloadId

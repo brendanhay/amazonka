@@ -56,9 +56,9 @@ module Amazonka.SWF.ListDomains
     newListDomains,
 
     -- * Request Lenses
+    listDomains_maximumPageSize,
     listDomains_nextPageToken,
     listDomains_reverseOrder,
-    listDomains_maximumPageSize,
     listDomains_registrationStatus,
 
     -- * Destructuring the Response
@@ -81,7 +81,10 @@ import Amazonka.SWF.Types
 
 -- | /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | If @NextPageToken@ is returned there are more results available. The
+  { -- | The maximum number of results that are returned per call. Use
+    -- @nextPageToken@ to obtain further pages of results.
+    maximumPageSize :: Prelude.Maybe Prelude.Natural,
+    -- | If @NextPageToken@ is returned there are more results available. The
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
     -- Keep all other arguments unchanged. Each pagination token expires after
@@ -95,9 +98,6 @@ data ListDomains = ListDomains'
     -- the results are returned in ascending alphabetical order by @name@ of
     -- the domains.
     reverseOrder :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results that are returned per call. Use
-    -- @nextPageToken@ to obtain further pages of results.
-    maximumPageSize :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the registration status of the domains to list.
     registrationStatus :: RegistrationStatus
   }
@@ -110,6 +110,9 @@ data ListDomains = ListDomains'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maximumPageSize', 'listDomains_maximumPageSize' - The maximum number of results that are returned per call. Use
+-- @nextPageToken@ to obtain further pages of results.
 --
 -- 'nextPageToken', 'listDomains_nextPageToken' - If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -125,9 +128,6 @@ data ListDomains = ListDomains'
 -- the results are returned in ascending alphabetical order by @name@ of
 -- the domains.
 --
--- 'maximumPageSize', 'listDomains_maximumPageSize' - The maximum number of results that are returned per call. Use
--- @nextPageToken@ to obtain further pages of results.
---
 -- 'registrationStatus', 'listDomains_registrationStatus' - Specifies the registration status of the domains to list.
 newListDomains ::
   -- | 'registrationStatus'
@@ -135,11 +135,16 @@ newListDomains ::
   ListDomains
 newListDomains pRegistrationStatus_ =
   ListDomains'
-    { nextPageToken = Prelude.Nothing,
+    { maximumPageSize = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
-      maximumPageSize = Prelude.Nothing,
       registrationStatus = pRegistrationStatus_
     }
+
+-- | The maximum number of results that are returned per call. Use
+-- @nextPageToken@ to obtain further pages of results.
+listDomains_maximumPageSize :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
+listDomains_maximumPageSize = Lens.lens (\ListDomains' {maximumPageSize} -> maximumPageSize) (\s@ListDomains' {} a -> s {maximumPageSize = a} :: ListDomains)
 
 -- | If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -158,11 +163,6 @@ listDomains_nextPageToken = Lens.lens (\ListDomains' {nextPageToken} -> nextPage
 -- the domains.
 listDomains_reverseOrder :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Bool)
 listDomains_reverseOrder = Lens.lens (\ListDomains' {reverseOrder} -> reverseOrder) (\s@ListDomains' {} a -> s {reverseOrder = a} :: ListDomains)
-
--- | The maximum number of results that are returned per call. Use
--- @nextPageToken@ to obtain further pages of results.
-listDomains_maximumPageSize :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
-listDomains_maximumPageSize = Lens.lens (\ListDomains' {maximumPageSize} -> maximumPageSize) (\s@ListDomains' {} a -> s {maximumPageSize = a} :: ListDomains)
 
 -- | Specifies the registration status of the domains to list.
 listDomains_registrationStatus :: Lens.Lens' ListDomains RegistrationStatus
@@ -201,16 +201,16 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` nextPageToken
+    _salt `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` reverseOrder
-      `Prelude.hashWithSalt` maximumPageSize
       `Prelude.hashWithSalt` registrationStatus
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
-    Prelude.rnf nextPageToken
+    Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf reverseOrder
-      `Prelude.seq` Prelude.rnf maximumPageSize
       `Prelude.seq` Prelude.rnf registrationStatus
 
 instance Core.ToHeaders ListDomains where
@@ -232,10 +232,10 @@ instance Core.ToJSON ListDomains where
   toJSON ListDomains' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
-            ("maximumPageSize" Core..=)
+          [ ("maximumPageSize" Core..=)
               Prelude.<$> maximumPageSize,
+            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             Prelude.Just
               ("registrationStatus" Core..= registrationStatus)
           ]

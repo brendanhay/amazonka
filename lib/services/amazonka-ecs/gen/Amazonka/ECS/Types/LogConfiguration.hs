@@ -68,17 +68,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogConfiguration' smart constructor.
 data LogConfiguration = LogConfiguration'
-  { -- | The configuration options to send to the log driver. This parameter
+  { -- | The secrets to pass to the log configuration. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    secretOptions :: Prelude.Maybe [Secret],
+    -- | The configuration options to send to the log driver. This parameter
     -- requires version 1.19 of the Docker Remote API or greater on your
     -- container instance. To check the Docker Remote API version on your
     -- container instance, log in to your container instance and run the
     -- following command:
     -- @sudo docker version --format \'{{.Server.APIVersion}}\'@
     options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The secrets to pass to the log configuration. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
-    -- in the /Amazon Elastic Container Service Developer Guide/.
-    secretOptions :: Prelude.Maybe [Secret],
     -- | The log driver to use for the container.
     --
     -- For tasks on Fargate, the supported log drivers are @awslogs@, @splunk@,
@@ -115,16 +115,16 @@ data LogConfiguration = LogConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'secretOptions', 'logConfiguration_secretOptions' - The secrets to pass to the log configuration. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
 -- 'options', 'logConfiguration_options' - The configuration options to send to the log driver. This parameter
 -- requires version 1.19 of the Docker Remote API or greater on your
 -- container instance. To check the Docker Remote API version on your
 -- container instance, log in to your container instance and run the
 -- following command:
 -- @sudo docker version --format \'{{.Server.APIVersion}}\'@
---
--- 'secretOptions', 'logConfiguration_secretOptions' - The secrets to pass to the log configuration. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
--- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'logDriver', 'logConfiguration_logDriver' - The log driver to use for the container.
 --
@@ -156,10 +156,16 @@ newLogConfiguration ::
   LogConfiguration
 newLogConfiguration pLogDriver_ =
   LogConfiguration'
-    { options = Prelude.Nothing,
-      secretOptions = Prelude.Nothing,
+    { secretOptions = Prelude.Nothing,
+      options = Prelude.Nothing,
       logDriver = pLogDriver_
     }
+
+-- | The secrets to pass to the log configuration. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+logConfiguration_secretOptions :: Lens.Lens' LogConfiguration (Prelude.Maybe [Secret])
+logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration options to send to the log driver. This parameter
 -- requires version 1.19 of the Docker Remote API or greater on your
@@ -169,12 +175,6 @@ newLogConfiguration pLogDriver_ =
 -- @sudo docker version --format \'{{.Server.APIVersion}}\'@
 logConfiguration_options :: Lens.Lens' LogConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (\s@LogConfiguration' {} a -> s {options = a} :: LogConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The secrets to pass to the log configuration. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
--- in the /Amazon Elastic Container Service Developer Guide/.
-logConfiguration_secretOptions :: Lens.Lens' LogConfiguration (Prelude.Maybe [Secret])
-logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The log driver to use for the container.
 --
@@ -209,29 +209,29 @@ instance Core.FromJSON LogConfiguration where
       "LogConfiguration"
       ( \x ->
           LogConfiguration'
-            Prelude.<$> (x Core..:? "options" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "secretOptions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "secretOptions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "options" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "logDriver")
       )
 
 instance Prelude.Hashable LogConfiguration where
   hashWithSalt _salt LogConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` options
-      `Prelude.hashWithSalt` secretOptions
+    _salt `Prelude.hashWithSalt` secretOptions
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` logDriver
 
 instance Prelude.NFData LogConfiguration where
   rnf LogConfiguration' {..} =
-    Prelude.rnf options
-      `Prelude.seq` Prelude.rnf secretOptions
+    Prelude.rnf secretOptions
+      `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf logDriver
 
 instance Core.ToJSON LogConfiguration where
   toJSON LogConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("options" Core..=) Prelude.<$> options,
-            ("secretOptions" Core..=) Prelude.<$> secretOptions,
+          [ ("secretOptions" Core..=) Prelude.<$> secretOptions,
+            ("options" Core..=) Prelude.<$> options,
             Prelude.Just ("logDriver" Core..= logDriver)
           ]
       )

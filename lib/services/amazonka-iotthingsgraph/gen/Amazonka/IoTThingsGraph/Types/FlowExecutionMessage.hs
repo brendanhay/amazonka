@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFlowExecutionMessage' smart constructor.
 data FlowExecutionMessage = FlowExecutionMessage'
-  { -- | A string containing information about the flow event.
-    payload :: Prelude.Maybe Prelude.Text,
-    -- | The type of flow event .
+  { -- | The type of flow event .
     eventType :: Prelude.Maybe FlowExecutionEventType,
     -- | The date and time when the message was last updated.
     timestamp :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier of the message.
-    messageId :: Prelude.Maybe Prelude.Text
+    messageId :: Prelude.Maybe Prelude.Text,
+    -- | A string containing information about the flow event.
+    payload :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,22 @@ data FlowExecutionMessage = FlowExecutionMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'payload', 'flowExecutionMessage_payload' - A string containing information about the flow event.
---
 -- 'eventType', 'flowExecutionMessage_eventType' - The type of flow event .
 --
 -- 'timestamp', 'flowExecutionMessage_timestamp' - The date and time when the message was last updated.
 --
 -- 'messageId', 'flowExecutionMessage_messageId' - The unique identifier of the message.
+--
+-- 'payload', 'flowExecutionMessage_payload' - A string containing information about the flow event.
 newFlowExecutionMessage ::
   FlowExecutionMessage
 newFlowExecutionMessage =
   FlowExecutionMessage'
-    { payload = Prelude.Nothing,
-      eventType = Prelude.Nothing,
+    { eventType = Prelude.Nothing,
       timestamp = Prelude.Nothing,
-      messageId = Prelude.Nothing
+      messageId = Prelude.Nothing,
+      payload = Prelude.Nothing
     }
-
--- | A string containing information about the flow event.
-flowExecutionMessage_payload :: Lens.Lens' FlowExecutionMessage (Prelude.Maybe Prelude.Text)
-flowExecutionMessage_payload = Lens.lens (\FlowExecutionMessage' {payload} -> payload) (\s@FlowExecutionMessage' {} a -> s {payload = a} :: FlowExecutionMessage)
 
 -- | The type of flow event .
 flowExecutionMessage_eventType :: Lens.Lens' FlowExecutionMessage (Prelude.Maybe FlowExecutionEventType)
@@ -80,28 +76,32 @@ flowExecutionMessage_timestamp = Lens.lens (\FlowExecutionMessage' {timestamp} -
 flowExecutionMessage_messageId :: Lens.Lens' FlowExecutionMessage (Prelude.Maybe Prelude.Text)
 flowExecutionMessage_messageId = Lens.lens (\FlowExecutionMessage' {messageId} -> messageId) (\s@FlowExecutionMessage' {} a -> s {messageId = a} :: FlowExecutionMessage)
 
+-- | A string containing information about the flow event.
+flowExecutionMessage_payload :: Lens.Lens' FlowExecutionMessage (Prelude.Maybe Prelude.Text)
+flowExecutionMessage_payload = Lens.lens (\FlowExecutionMessage' {payload} -> payload) (\s@FlowExecutionMessage' {} a -> s {payload = a} :: FlowExecutionMessage)
+
 instance Core.FromJSON FlowExecutionMessage where
   parseJSON =
     Core.withObject
       "FlowExecutionMessage"
       ( \x ->
           FlowExecutionMessage'
-            Prelude.<$> (x Core..:? "payload")
-            Prelude.<*> (x Core..:? "eventType")
+            Prelude.<$> (x Core..:? "eventType")
             Prelude.<*> (x Core..:? "timestamp")
             Prelude.<*> (x Core..:? "messageId")
+            Prelude.<*> (x Core..:? "payload")
       )
 
 instance Prelude.Hashable FlowExecutionMessage where
   hashWithSalt _salt FlowExecutionMessage' {..} =
-    _salt `Prelude.hashWithSalt` payload
-      `Prelude.hashWithSalt` eventType
+    _salt `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` payload
 
 instance Prelude.NFData FlowExecutionMessage where
   rnf FlowExecutionMessage' {..} =
-    Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf eventType
+    Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf payload

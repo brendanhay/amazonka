@@ -29,8 +29,8 @@ module Amazonka.DataSync.ListTaskExecutions
     newListTaskExecutions,
 
     -- * Request Lenses
-    listTaskExecutions_taskArn,
     listTaskExecutions_nextToken,
+    listTaskExecutions_taskArn,
     listTaskExecutions_maxResults,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTaskExecutions' smart constructor.
 data ListTaskExecutions = ListTaskExecutions'
-  { -- | The Amazon Resource Name (ARN) of the task whose tasks you want to list.
-    taskArn :: Prelude.Maybe Prelude.Text,
-    -- | An opaque string that indicates the position at which to begin the next
+  { -- | An opaque string that indicates the position at which to begin the next
     -- list of the executed tasks.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the task whose tasks you want to list.
+    taskArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of executed tasks to list.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -73,29 +73,29 @@ data ListTaskExecutions = ListTaskExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskArn', 'listTaskExecutions_taskArn' - The Amazon Resource Name (ARN) of the task whose tasks you want to list.
---
 -- 'nextToken', 'listTaskExecutions_nextToken' - An opaque string that indicates the position at which to begin the next
 -- list of the executed tasks.
+--
+-- 'taskArn', 'listTaskExecutions_taskArn' - The Amazon Resource Name (ARN) of the task whose tasks you want to list.
 --
 -- 'maxResults', 'listTaskExecutions_maxResults' - The maximum number of executed tasks to list.
 newListTaskExecutions ::
   ListTaskExecutions
 newListTaskExecutions =
   ListTaskExecutions'
-    { taskArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      taskArn = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the task whose tasks you want to list.
-listTaskExecutions_taskArn :: Lens.Lens' ListTaskExecutions (Prelude.Maybe Prelude.Text)
-listTaskExecutions_taskArn = Lens.lens (\ListTaskExecutions' {taskArn} -> taskArn) (\s@ListTaskExecutions' {} a -> s {taskArn = a} :: ListTaskExecutions)
 
 -- | An opaque string that indicates the position at which to begin the next
 -- list of the executed tasks.
 listTaskExecutions_nextToken :: Lens.Lens' ListTaskExecutions (Prelude.Maybe Prelude.Text)
 listTaskExecutions_nextToken = Lens.lens (\ListTaskExecutions' {nextToken} -> nextToken) (\s@ListTaskExecutions' {} a -> s {nextToken = a} :: ListTaskExecutions)
+
+-- | The Amazon Resource Name (ARN) of the task whose tasks you want to list.
+listTaskExecutions_taskArn :: Lens.Lens' ListTaskExecutions (Prelude.Maybe Prelude.Text)
+listTaskExecutions_taskArn = Lens.lens (\ListTaskExecutions' {taskArn} -> taskArn) (\s@ListTaskExecutions' {} a -> s {taskArn = a} :: ListTaskExecutions)
 
 -- | The maximum number of executed tasks to list.
 listTaskExecutions_maxResults :: Lens.Lens' ListTaskExecutions (Prelude.Maybe Prelude.Natural)
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListTaskExecutions where
 
 instance Prelude.Hashable ListTaskExecutions where
   hashWithSalt _salt ListTaskExecutions' {..} =
-    _salt `Prelude.hashWithSalt` taskArn
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` taskArn
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListTaskExecutions where
   rnf ListTaskExecutions' {..} =
-    Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf taskArn
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTaskExecutions where
@@ -168,8 +168,8 @@ instance Core.ToJSON ListTaskExecutions where
   toJSON ListTaskExecutions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TaskArn" Core..=) Prelude.<$> taskArn,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("TaskArn" Core..=) Prelude.<$> taskArn,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

@@ -34,10 +34,10 @@ module Amazonka.GroundStation.GetDataflowEndpointGroup
     newGetDataflowEndpointGroupResponse,
 
     -- * Response Lenses
-    getDataflowEndpointGroupResponse_endpointsDetails,
-    getDataflowEndpointGroupResponse_dataflowEndpointGroupArn,
-    getDataflowEndpointGroupResponse_dataflowEndpointGroupId,
     getDataflowEndpointGroupResponse_tags,
+    getDataflowEndpointGroupResponse_dataflowEndpointGroupArn,
+    getDataflowEndpointGroupResponse_endpointsDetails,
+    getDataflowEndpointGroupResponse_dataflowEndpointGroupId,
     getDataflowEndpointGroupResponse_httpStatus,
   )
 where
@@ -90,12 +90,12 @@ instance Core.AWSRequest GetDataflowEndpointGroup where
     Response.receiveJSON
       ( \s h x ->
           GetDataflowEndpointGroupResponse'
-            Prelude.<$> ( x Core..?> "endpointsDetails"
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "dataflowEndpointGroupArn")
+            Prelude.<*> ( x Core..?> "endpointsDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "dataflowEndpointGroupArn")
             Prelude.<*> (x Core..?> "dataflowEndpointGroupId")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,14 +133,14 @@ instance Core.ToQuery GetDataflowEndpointGroup where
 --
 -- /See:/ 'newGetDataflowEndpointGroupResponse' smart constructor.
 data GetDataflowEndpointGroupResponse = GetDataflowEndpointGroupResponse'
-  { -- | Details of a dataflow endpoint.
-    endpointsDetails :: Prelude.Maybe [EndpointDetails],
+  { -- | Tags assigned to a dataflow endpoint group.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | ARN of a dataflow endpoint group.
     dataflowEndpointGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Details of a dataflow endpoint.
+    endpointsDetails :: Prelude.Maybe [EndpointDetails],
     -- | UUID of a dataflow endpoint group.
     dataflowEndpointGroupId :: Prelude.Maybe Prelude.Text,
-    -- | Tags assigned to a dataflow endpoint group.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,13 +154,13 @@ data GetDataflowEndpointGroupResponse = GetDataflowEndpointGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointsDetails', 'getDataflowEndpointGroupResponse_endpointsDetails' - Details of a dataflow endpoint.
+-- 'tags', 'getDataflowEndpointGroupResponse_tags' - Tags assigned to a dataflow endpoint group.
 --
 -- 'dataflowEndpointGroupArn', 'getDataflowEndpointGroupResponse_dataflowEndpointGroupArn' - ARN of a dataflow endpoint group.
 --
--- 'dataflowEndpointGroupId', 'getDataflowEndpointGroupResponse_dataflowEndpointGroupId' - UUID of a dataflow endpoint group.
+-- 'endpointsDetails', 'getDataflowEndpointGroupResponse_endpointsDetails' - Details of a dataflow endpoint.
 --
--- 'tags', 'getDataflowEndpointGroupResponse_tags' - Tags assigned to a dataflow endpoint group.
+-- 'dataflowEndpointGroupId', 'getDataflowEndpointGroupResponse_dataflowEndpointGroupId' - UUID of a dataflow endpoint group.
 --
 -- 'httpStatus', 'getDataflowEndpointGroupResponse_httpStatus' - The response's http status code.
 newGetDataflowEndpointGroupResponse ::
@@ -169,30 +169,30 @@ newGetDataflowEndpointGroupResponse ::
   GetDataflowEndpointGroupResponse
 newGetDataflowEndpointGroupResponse pHttpStatus_ =
   GetDataflowEndpointGroupResponse'
-    { endpointsDetails =
+    { tags =
         Prelude.Nothing,
       dataflowEndpointGroupArn =
         Prelude.Nothing,
+      endpointsDetails = Prelude.Nothing,
       dataflowEndpointGroupId = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Details of a dataflow endpoint.
-getDataflowEndpointGroupResponse_endpointsDetails :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe [EndpointDetails])
-getDataflowEndpointGroupResponse_endpointsDetails = Lens.lens (\GetDataflowEndpointGroupResponse' {endpointsDetails} -> endpointsDetails) (\s@GetDataflowEndpointGroupResponse' {} a -> s {endpointsDetails = a} :: GetDataflowEndpointGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Tags assigned to a dataflow endpoint group.
+getDataflowEndpointGroupResponse_tags :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDataflowEndpointGroupResponse_tags = Lens.lens (\GetDataflowEndpointGroupResponse' {tags} -> tags) (\s@GetDataflowEndpointGroupResponse' {} a -> s {tags = a} :: GetDataflowEndpointGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | ARN of a dataflow endpoint group.
 getDataflowEndpointGroupResponse_dataflowEndpointGroupArn :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe Prelude.Text)
 getDataflowEndpointGroupResponse_dataflowEndpointGroupArn = Lens.lens (\GetDataflowEndpointGroupResponse' {dataflowEndpointGroupArn} -> dataflowEndpointGroupArn) (\s@GetDataflowEndpointGroupResponse' {} a -> s {dataflowEndpointGroupArn = a} :: GetDataflowEndpointGroupResponse)
 
+-- | Details of a dataflow endpoint.
+getDataflowEndpointGroupResponse_endpointsDetails :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe [EndpointDetails])
+getDataflowEndpointGroupResponse_endpointsDetails = Lens.lens (\GetDataflowEndpointGroupResponse' {endpointsDetails} -> endpointsDetails) (\s@GetDataflowEndpointGroupResponse' {} a -> s {endpointsDetails = a} :: GetDataflowEndpointGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | UUID of a dataflow endpoint group.
 getDataflowEndpointGroupResponse_dataflowEndpointGroupId :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe Prelude.Text)
 getDataflowEndpointGroupResponse_dataflowEndpointGroupId = Lens.lens (\GetDataflowEndpointGroupResponse' {dataflowEndpointGroupId} -> dataflowEndpointGroupId) (\s@GetDataflowEndpointGroupResponse' {} a -> s {dataflowEndpointGroupId = a} :: GetDataflowEndpointGroupResponse)
-
--- | Tags assigned to a dataflow endpoint group.
-getDataflowEndpointGroupResponse_tags :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDataflowEndpointGroupResponse_tags = Lens.lens (\GetDataflowEndpointGroupResponse' {tags} -> tags) (\s@GetDataflowEndpointGroupResponse' {} a -> s {tags = a} :: GetDataflowEndpointGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDataflowEndpointGroupResponse_httpStatus :: Lens.Lens' GetDataflowEndpointGroupResponse Prelude.Int
@@ -203,8 +203,8 @@ instance
     GetDataflowEndpointGroupResponse
   where
   rnf GetDataflowEndpointGroupResponse' {..} =
-    Prelude.rnf endpointsDetails
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dataflowEndpointGroupArn
+      `Prelude.seq` Prelude.rnf endpointsDetails
       `Prelude.seq` Prelude.rnf dataflowEndpointGroupId
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,6 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data LicenseOperationFailure = LicenseOperationFailure'
   { -- | Resource type.
     resourceType :: Prelude.Maybe ResourceType,
+    -- | ID of the Amazon Web Services account that owns the resource.
+    resourceOwnerId :: Prelude.Maybe Prelude.Text,
+    -- | Error message.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Failure time.
+    failureTime :: Prelude.Maybe Core.POSIX,
     -- | The requester is \"License Manager Automated Discovery\".
     operationRequestedBy :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the resource.
@@ -38,13 +44,7 @@ data LicenseOperationFailure = LicenseOperationFailure'
     -- | Reserved.
     metadataList :: Prelude.Maybe [Metadata],
     -- | Name of the operation.
-    operationName :: Prelude.Maybe Prelude.Text,
-    -- | Failure time.
-    failureTime :: Prelude.Maybe Core.POSIX,
-    -- | Error message.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | ID of the Amazon Web Services account that owns the resource.
-    resourceOwnerId :: Prelude.Maybe Prelude.Text
+    operationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +58,12 @@ data LicenseOperationFailure = LicenseOperationFailure'
 --
 -- 'resourceType', 'licenseOperationFailure_resourceType' - Resource type.
 --
+-- 'resourceOwnerId', 'licenseOperationFailure_resourceOwnerId' - ID of the Amazon Web Services account that owns the resource.
+--
+-- 'errorMessage', 'licenseOperationFailure_errorMessage' - Error message.
+--
+-- 'failureTime', 'licenseOperationFailure_failureTime' - Failure time.
+--
 -- 'operationRequestedBy', 'licenseOperationFailure_operationRequestedBy' - The requester is \"License Manager Automated Discovery\".
 --
 -- 'resourceArn', 'licenseOperationFailure_resourceArn' - Amazon Resource Name (ARN) of the resource.
@@ -65,30 +71,36 @@ data LicenseOperationFailure = LicenseOperationFailure'
 -- 'metadataList', 'licenseOperationFailure_metadataList' - Reserved.
 --
 -- 'operationName', 'licenseOperationFailure_operationName' - Name of the operation.
---
--- 'failureTime', 'licenseOperationFailure_failureTime' - Failure time.
---
--- 'errorMessage', 'licenseOperationFailure_errorMessage' - Error message.
---
--- 'resourceOwnerId', 'licenseOperationFailure_resourceOwnerId' - ID of the Amazon Web Services account that owns the resource.
 newLicenseOperationFailure ::
   LicenseOperationFailure
 newLicenseOperationFailure =
   LicenseOperationFailure'
     { resourceType =
         Prelude.Nothing,
+      resourceOwnerId = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      failureTime = Prelude.Nothing,
       operationRequestedBy = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
       metadataList = Prelude.Nothing,
-      operationName = Prelude.Nothing,
-      failureTime = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      resourceOwnerId = Prelude.Nothing
+      operationName = Prelude.Nothing
     }
 
 -- | Resource type.
 licenseOperationFailure_resourceType :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe ResourceType)
 licenseOperationFailure_resourceType = Lens.lens (\LicenseOperationFailure' {resourceType} -> resourceType) (\s@LicenseOperationFailure' {} a -> s {resourceType = a} :: LicenseOperationFailure)
+
+-- | ID of the Amazon Web Services account that owns the resource.
+licenseOperationFailure_resourceOwnerId :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.Text)
+licenseOperationFailure_resourceOwnerId = Lens.lens (\LicenseOperationFailure' {resourceOwnerId} -> resourceOwnerId) (\s@LicenseOperationFailure' {} a -> s {resourceOwnerId = a} :: LicenseOperationFailure)
+
+-- | Error message.
+licenseOperationFailure_errorMessage :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.Text)
+licenseOperationFailure_errorMessage = Lens.lens (\LicenseOperationFailure' {errorMessage} -> errorMessage) (\s@LicenseOperationFailure' {} a -> s {errorMessage = a} :: LicenseOperationFailure)
+
+-- | Failure time.
+licenseOperationFailure_failureTime :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.UTCTime)
+licenseOperationFailure_failureTime = Lens.lens (\LicenseOperationFailure' {failureTime} -> failureTime) (\s@LicenseOperationFailure' {} a -> s {failureTime = a} :: LicenseOperationFailure) Prelude.. Lens.mapping Core._Time
 
 -- | The requester is \"License Manager Automated Discovery\".
 licenseOperationFailure_operationRequestedBy :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.Text)
@@ -106,18 +118,6 @@ licenseOperationFailure_metadataList = Lens.lens (\LicenseOperationFailure' {met
 licenseOperationFailure_operationName :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.Text)
 licenseOperationFailure_operationName = Lens.lens (\LicenseOperationFailure' {operationName} -> operationName) (\s@LicenseOperationFailure' {} a -> s {operationName = a} :: LicenseOperationFailure)
 
--- | Failure time.
-licenseOperationFailure_failureTime :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.UTCTime)
-licenseOperationFailure_failureTime = Lens.lens (\LicenseOperationFailure' {failureTime} -> failureTime) (\s@LicenseOperationFailure' {} a -> s {failureTime = a} :: LicenseOperationFailure) Prelude.. Lens.mapping Core._Time
-
--- | Error message.
-licenseOperationFailure_errorMessage :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.Text)
-licenseOperationFailure_errorMessage = Lens.lens (\LicenseOperationFailure' {errorMessage} -> errorMessage) (\s@LicenseOperationFailure' {} a -> s {errorMessage = a} :: LicenseOperationFailure)
-
--- | ID of the Amazon Web Services account that owns the resource.
-licenseOperationFailure_resourceOwnerId :: Lens.Lens' LicenseOperationFailure (Prelude.Maybe Prelude.Text)
-licenseOperationFailure_resourceOwnerId = Lens.lens (\LicenseOperationFailure' {resourceOwnerId} -> resourceOwnerId) (\s@LicenseOperationFailure' {} a -> s {resourceOwnerId = a} :: LicenseOperationFailure)
-
 instance Core.FromJSON LicenseOperationFailure where
   parseJSON =
     Core.withObject
@@ -125,33 +125,33 @@ instance Core.FromJSON LicenseOperationFailure where
       ( \x ->
           LicenseOperationFailure'
             Prelude.<$> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "ResourceOwnerId")
+            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "FailureTime")
             Prelude.<*> (x Core..:? "OperationRequestedBy")
             Prelude.<*> (x Core..:? "ResourceArn")
             Prelude.<*> (x Core..:? "MetadataList" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "OperationName")
-            Prelude.<*> (x Core..:? "FailureTime")
-            Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ResourceOwnerId")
       )
 
 instance Prelude.Hashable LicenseOperationFailure where
   hashWithSalt _salt LicenseOperationFailure' {..} =
     _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceOwnerId
+      `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` failureTime
       `Prelude.hashWithSalt` operationRequestedBy
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` metadataList
       `Prelude.hashWithSalt` operationName
-      `Prelude.hashWithSalt` failureTime
-      `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` resourceOwnerId
 
 instance Prelude.NFData LicenseOperationFailure where
   rnf LicenseOperationFailure' {..} =
     Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceOwnerId
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf failureTime
       `Prelude.seq` Prelude.rnf operationRequestedBy
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf metadataList
       `Prelude.seq` Prelude.rnf operationName
-      `Prelude.seq` Prelude.rnf failureTime
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf resourceOwnerId

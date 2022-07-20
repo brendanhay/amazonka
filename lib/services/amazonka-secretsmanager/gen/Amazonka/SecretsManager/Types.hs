@@ -17,18 +17,18 @@ module Amazonka.SecretsManager.Types
     defaultService,
 
     -- * Errors
-    _MalformedPolicyDocumentException,
-    _InvalidParameterException,
-    _InvalidRequestException,
-    _DecryptionFailure,
-    _PublicPolicyException,
-    _EncryptionFailure,
     _PreconditionNotMetException,
-    _InvalidNextTokenException,
-    _InternalServiceError,
-    _ResourceExistsException,
     _ResourceNotFoundException,
     _LimitExceededException,
+    _EncryptionFailure,
+    _PublicPolicyException,
+    _InvalidNextTokenException,
+    _InternalServiceError,
+    _DecryptionFailure,
+    _MalformedPolicyDocumentException,
+    _ResourceExistsException,
+    _InvalidRequestException,
+    _InvalidParameterException,
 
     -- * FilterNameStringType
     FilterNameStringType (..),
@@ -42,23 +42,23 @@ module Amazonka.SecretsManager.Types
     -- * Filter
     Filter (..),
     newFilter,
-    filter_values,
     filter_key,
+    filter_values,
 
     -- * ReplicaRegionType
     ReplicaRegionType (..),
     newReplicaRegionType,
-    replicaRegionType_kmsKeyId,
     replicaRegionType_region,
+    replicaRegionType_kmsKeyId,
 
     -- * ReplicationStatusType
     ReplicationStatusType (..),
     newReplicationStatusType,
+    replicationStatusType_lastAccessedDate,
     replicationStatusType_status,
+    replicationStatusType_region,
     replicationStatusType_kmsKeyId,
     replicationStatusType_statusMessage,
-    replicationStatusType_region,
-    replicationStatusType_lastAccessedDate,
 
     -- * RotationRulesType
     RotationRulesType (..),
@@ -68,43 +68,43 @@ module Amazonka.SecretsManager.Types
     -- * SecretListEntry
     SecretListEntry (..),
     newSecretListEntry,
-    secretListEntry_lastChangedDate,
-    secretListEntry_primaryRegion,
-    secretListEntry_arn,
-    secretListEntry_secretVersionsToStages,
-    secretListEntry_rotationRules,
-    secretListEntry_deletedDate,
-    secretListEntry_rotationEnabled,
-    secretListEntry_createdDate,
-    secretListEntry_kmsKeyId,
-    secretListEntry_name,
-    secretListEntry_owningService,
-    secretListEntry_lastRotatedDate,
-    secretListEntry_lastAccessedDate,
-    secretListEntry_description,
-    secretListEntry_rotationLambdaARN,
     secretListEntry_tags,
+    secretListEntry_name,
+    secretListEntry_lastAccessedDate,
+    secretListEntry_rotationLambdaARN,
+    secretListEntry_rotationRules,
+    secretListEntry_arn,
+    secretListEntry_primaryRegion,
+    secretListEntry_description,
+    secretListEntry_rotationEnabled,
+    secretListEntry_lastChangedDate,
+    secretListEntry_kmsKeyId,
+    secretListEntry_deletedDate,
+    secretListEntry_createdDate,
+    secretListEntry_secretVersionsToStages,
+    secretListEntry_lastRotatedDate,
+    secretListEntry_owningService,
 
     -- * SecretVersionsListEntry
     SecretVersionsListEntry (..),
     newSecretVersionsListEntry,
-    secretVersionsListEntry_versionId,
     secretVersionsListEntry_versionStages,
-    secretVersionsListEntry_createdDate,
-    secretVersionsListEntry_kmsKeyIds,
     secretVersionsListEntry_lastAccessedDate,
+    secretVersionsListEntry_kmsKeyIds,
+    secretVersionsListEntry_createdDate,
+    secretVersionsListEntry_versionId,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
 
     -- * ValidationErrorsEntry
     ValidationErrorsEntry (..),
     newValidationErrorsEntry,
-    validationErrorsEntry_checkName,
     validationErrorsEntry_errorMessage,
+    validationErrorsEntry_checkName,
   )
 where
 
@@ -151,35 +151,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -188,13 +161,103 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The request failed because you did not complete all the prerequisite
+-- steps.
+_PreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionNotMetException =
+  Core._MatchServiceError
+    defaultService
+    "PreconditionNotMetException"
+
+-- | We can\'t find the resource that you asked for.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The request failed because it would exceed one of the Secrets Manager
+-- internal limits.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | Secrets Manager can\'t encrypt the protected secret text using the
+-- provided KMS key. Check that the customer master key (CMK) is available,
+-- enabled, and not in an invalid state. For more information, see
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>.
+_EncryptionFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EncryptionFailure =
+  Core._MatchServiceError
+    defaultService
+    "EncryptionFailure"
+
+-- | The BlockPublicPolicy parameter is set to true and the resource policy
+-- did not prevent broad access to the secret.
+_PublicPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PublicPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "PublicPolicyException"
+
+-- | You provided an invalid @NextToken@ value.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | An error occurred on the server side.
+_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceError"
+
+-- | Secrets Manager can\'t decrypt the protected secret text using the
+-- provided KMS key.
+_DecryptionFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DecryptionFailure =
+  Core._MatchServiceError
+    defaultService
+    "DecryptionFailure"
 
 -- | You provided a resource-based policy with syntax errors.
 _MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -203,12 +266,12 @@ _MalformedPolicyDocumentException =
     defaultService
     "MalformedPolicyDocumentException"
 
--- | You provided an invalid value for a parameter.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | A resource with the ID you requested already exists.
+_ResourceExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceExistsException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "ResourceExistsException"
 
 -- | You provided a parameter value that is not valid for the current state
 -- of the resource.
@@ -227,72 +290,9 @@ _InvalidRequestException =
     defaultService
     "InvalidRequestException"
 
--- | Secrets Manager can\'t decrypt the protected secret text using the
--- provided KMS key.
-_DecryptionFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DecryptionFailure =
+-- | You provided an invalid value for a parameter.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "DecryptionFailure"
-
--- | The BlockPublicPolicy parameter is set to true and the resource policy
--- did not prevent broad access to the secret.
-_PublicPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PublicPolicyException =
-  Core._MatchServiceError
-    defaultService
-    "PublicPolicyException"
-
--- | Secrets Manager can\'t encrypt the protected secret text using the
--- provided KMS key. Check that the customer master key (CMK) is available,
--- enabled, and not in an invalid state. For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>.
-_EncryptionFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EncryptionFailure =
-  Core._MatchServiceError
-    defaultService
-    "EncryptionFailure"
-
--- | The request failed because you did not complete all the prerequisite
--- steps.
-_PreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PreconditionNotMetException =
-  Core._MatchServiceError
-    defaultService
-    "PreconditionNotMetException"
-
--- | You provided an invalid @NextToken@ value.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
--- | An error occurred on the server side.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceError"
-
--- | A resource with the ID you requested already exists.
-_ResourceExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceExistsException"
-
--- | We can\'t find the resource that you asked for.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | The request failed because it would exceed one of the Secrets Manager
--- internal limits.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
+    "InvalidParameterException"

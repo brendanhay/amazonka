@@ -34,13 +34,13 @@ module Amazonka.EMRContainers.ListVirtualClusters
     newListVirtualClusters,
 
     -- * Request Lenses
-    listVirtualClusters_states,
-    listVirtualClusters_createdAfter,
-    listVirtualClusters_containerProviderType,
     listVirtualClusters_nextToken,
-    listVirtualClusters_containerProviderId,
-    listVirtualClusters_maxResults,
     listVirtualClusters_createdBefore,
+    listVirtualClusters_containerProviderType,
+    listVirtualClusters_maxResults,
+    listVirtualClusters_containerProviderId,
+    listVirtualClusters_createdAfter,
+    listVirtualClusters_states,
 
     -- * Destructuring the Response
     ListVirtualClustersResponse (..),
@@ -62,21 +62,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVirtualClusters' smart constructor.
 data ListVirtualClusters = ListVirtualClusters'
-  { -- | The states of the requested virtual clusters.
-    states :: Prelude.Maybe [VirtualClusterState],
-    -- | The date and time after which the virtual clusters are created.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+  { -- | The token for the next set of virtual clusters to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The date and time before which the virtual clusters are created.
+    createdBefore :: Prelude.Maybe Core.POSIX,
     -- | The container provider type of the virtual cluster. EKS is the only
     -- supported type as of now.
     containerProviderType :: Prelude.Maybe ContainerProviderType,
-    -- | The token for the next set of virtual clusters to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The container provider ID of the virtual cluster.
-    containerProviderId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of virtual clusters that can be listed.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The date and time before which the virtual clusters are created.
-    createdBefore :: Prelude.Maybe Core.POSIX
+    -- | The container provider ID of the virtual cluster.
+    containerProviderId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time after which the virtual clusters are created.
+    createdAfter :: Prelude.Maybe Core.POSIX,
+    -- | The states of the requested virtual clusters.
+    states :: Prelude.Maybe [VirtualClusterState]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,61 +88,61 @@ data ListVirtualClusters = ListVirtualClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'states', 'listVirtualClusters_states' - The states of the requested virtual clusters.
+-- 'nextToken', 'listVirtualClusters_nextToken' - The token for the next set of virtual clusters to return.
 --
--- 'createdAfter', 'listVirtualClusters_createdAfter' - The date and time after which the virtual clusters are created.
+-- 'createdBefore', 'listVirtualClusters_createdBefore' - The date and time before which the virtual clusters are created.
 --
 -- 'containerProviderType', 'listVirtualClusters_containerProviderType' - The container provider type of the virtual cluster. EKS is the only
 -- supported type as of now.
 --
--- 'nextToken', 'listVirtualClusters_nextToken' - The token for the next set of virtual clusters to return.
+-- 'maxResults', 'listVirtualClusters_maxResults' - The maximum number of virtual clusters that can be listed.
 --
 -- 'containerProviderId', 'listVirtualClusters_containerProviderId' - The container provider ID of the virtual cluster.
 --
--- 'maxResults', 'listVirtualClusters_maxResults' - The maximum number of virtual clusters that can be listed.
+-- 'createdAfter', 'listVirtualClusters_createdAfter' - The date and time after which the virtual clusters are created.
 --
--- 'createdBefore', 'listVirtualClusters_createdBefore' - The date and time before which the virtual clusters are created.
+-- 'states', 'listVirtualClusters_states' - The states of the requested virtual clusters.
 newListVirtualClusters ::
   ListVirtualClusters
 newListVirtualClusters =
   ListVirtualClusters'
-    { states = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      createdBefore = Prelude.Nothing,
       containerProviderType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      containerProviderId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      createdBefore = Prelude.Nothing
+      containerProviderId = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
+      states = Prelude.Nothing
     }
 
--- | The states of the requested virtual clusters.
-listVirtualClusters_states :: Lens.Lens' ListVirtualClusters (Prelude.Maybe [VirtualClusterState])
-listVirtualClusters_states = Lens.lens (\ListVirtualClusters' {states} -> states) (\s@ListVirtualClusters' {} a -> s {states = a} :: ListVirtualClusters) Prelude.. Lens.mapping Lens.coerced
+-- | The token for the next set of virtual clusters to return.
+listVirtualClusters_nextToken :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.Text)
+listVirtualClusters_nextToken = Lens.lens (\ListVirtualClusters' {nextToken} -> nextToken) (\s@ListVirtualClusters' {} a -> s {nextToken = a} :: ListVirtualClusters)
 
--- | The date and time after which the virtual clusters are created.
-listVirtualClusters_createdAfter :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.UTCTime)
-listVirtualClusters_createdAfter = Lens.lens (\ListVirtualClusters' {createdAfter} -> createdAfter) (\s@ListVirtualClusters' {} a -> s {createdAfter = a} :: ListVirtualClusters) Prelude.. Lens.mapping Core._Time
+-- | The date and time before which the virtual clusters are created.
+listVirtualClusters_createdBefore :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.UTCTime)
+listVirtualClusters_createdBefore = Lens.lens (\ListVirtualClusters' {createdBefore} -> createdBefore) (\s@ListVirtualClusters' {} a -> s {createdBefore = a} :: ListVirtualClusters) Prelude.. Lens.mapping Core._Time
 
 -- | The container provider type of the virtual cluster. EKS is the only
 -- supported type as of now.
 listVirtualClusters_containerProviderType :: Lens.Lens' ListVirtualClusters (Prelude.Maybe ContainerProviderType)
 listVirtualClusters_containerProviderType = Lens.lens (\ListVirtualClusters' {containerProviderType} -> containerProviderType) (\s@ListVirtualClusters' {} a -> s {containerProviderType = a} :: ListVirtualClusters)
 
--- | The token for the next set of virtual clusters to return.
-listVirtualClusters_nextToken :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.Text)
-listVirtualClusters_nextToken = Lens.lens (\ListVirtualClusters' {nextToken} -> nextToken) (\s@ListVirtualClusters' {} a -> s {nextToken = a} :: ListVirtualClusters)
+-- | The maximum number of virtual clusters that can be listed.
+listVirtualClusters_maxResults :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.Int)
+listVirtualClusters_maxResults = Lens.lens (\ListVirtualClusters' {maxResults} -> maxResults) (\s@ListVirtualClusters' {} a -> s {maxResults = a} :: ListVirtualClusters)
 
 -- | The container provider ID of the virtual cluster.
 listVirtualClusters_containerProviderId :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.Text)
 listVirtualClusters_containerProviderId = Lens.lens (\ListVirtualClusters' {containerProviderId} -> containerProviderId) (\s@ListVirtualClusters' {} a -> s {containerProviderId = a} :: ListVirtualClusters)
 
--- | The maximum number of virtual clusters that can be listed.
-listVirtualClusters_maxResults :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.Int)
-listVirtualClusters_maxResults = Lens.lens (\ListVirtualClusters' {maxResults} -> maxResults) (\s@ListVirtualClusters' {} a -> s {maxResults = a} :: ListVirtualClusters)
+-- | The date and time after which the virtual clusters are created.
+listVirtualClusters_createdAfter :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.UTCTime)
+listVirtualClusters_createdAfter = Lens.lens (\ListVirtualClusters' {createdAfter} -> createdAfter) (\s@ListVirtualClusters' {} a -> s {createdAfter = a} :: ListVirtualClusters) Prelude.. Lens.mapping Core._Time
 
--- | The date and time before which the virtual clusters are created.
-listVirtualClusters_createdBefore :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.UTCTime)
-listVirtualClusters_createdBefore = Lens.lens (\ListVirtualClusters' {createdBefore} -> createdBefore) (\s@ListVirtualClusters' {} a -> s {createdBefore = a} :: ListVirtualClusters) Prelude.. Lens.mapping Core._Time
+-- | The states of the requested virtual clusters.
+listVirtualClusters_states :: Lens.Lens' ListVirtualClusters (Prelude.Maybe [VirtualClusterState])
+listVirtualClusters_states = Lens.lens (\ListVirtualClusters' {states} -> states) (\s@ListVirtualClusters' {} a -> s {states = a} :: ListVirtualClusters) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListVirtualClusters where
   page rq rs
@@ -184,23 +184,23 @@ instance Core.AWSRequest ListVirtualClusters where
 
 instance Prelude.Hashable ListVirtualClusters where
   hashWithSalt _salt ListVirtualClusters' {..} =
-    _salt `Prelude.hashWithSalt` states
-      `Prelude.hashWithSalt` createdAfter
-      `Prelude.hashWithSalt` containerProviderType
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` containerProviderId
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` containerProviderType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` containerProviderId
+      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` states
 
 instance Prelude.NFData ListVirtualClusters where
   rnf ListVirtualClusters' {..} =
-    Prelude.rnf states
-      `Prelude.seq` Prelude.rnf createdAfter
-      `Prelude.seq` Prelude.rnf containerProviderType
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf containerProviderId
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf containerProviderType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf containerProviderId
+      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf states
 
 instance Core.ToHeaders ListVirtualClusters where
   toHeaders =
@@ -219,16 +219,16 @@ instance Core.ToPath ListVirtualClusters where
 instance Core.ToQuery ListVirtualClusters where
   toQuery ListVirtualClusters' {..} =
     Prelude.mconcat
-      [ "states"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> states),
-        "createdAfter" Core.=: createdAfter,
+      [ "nextToken" Core.=: nextToken,
+        "createdBefore" Core.=: createdBefore,
         "containerProviderType"
           Core.=: containerProviderType,
-        "nextToken" Core.=: nextToken,
-        "containerProviderId" Core.=: containerProviderId,
         "maxResults" Core.=: maxResults,
-        "createdBefore" Core.=: createdBefore
+        "containerProviderId" Core.=: containerProviderId,
+        "createdAfter" Core.=: createdAfter,
+        "states"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> states)
       ]
 
 -- | /See:/ 'newListVirtualClustersResponse' smart constructor.

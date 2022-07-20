@@ -93,9 +93,9 @@ module Amazonka.S3.PutBucketReplication
     newPutBucketReplication,
 
     -- * Request Lenses
-    putBucketReplication_token,
     putBucketReplication_contentMD5,
     putBucketReplication_expectedBucketOwner,
+    putBucketReplication_token,
     putBucketReplication_bucket,
     putBucketReplication_replicationConfiguration,
 
@@ -114,9 +114,7 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutBucketReplication' smart constructor.
 data PutBucketReplication = PutBucketReplication'
-  { -- | A token to allow Object Lock to be enabled for an existing bucket.
-    token :: Prelude.Maybe Prelude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
+  { -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
@@ -129,6 +127,8 @@ data PutBucketReplication = PutBucketReplication'
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | A token to allow Object Lock to be enabled for an existing bucket.
+    token :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket
     bucket :: BucketName,
     replicationConfiguration :: ReplicationConfiguration
@@ -143,8 +143,6 @@ data PutBucketReplication = PutBucketReplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'token', 'putBucketReplication_token' - A token to allow Object Lock to be enabled for an existing bucket.
---
 -- 'contentMD5', 'putBucketReplication_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, see
@@ -157,6 +155,8 @@ data PutBucketReplication = PutBucketReplication'
 -- 'expectedBucketOwner', 'putBucketReplication_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'token', 'putBucketReplication_token' - A token to allow Object Lock to be enabled for an existing bucket.
 --
 -- 'bucket', 'putBucketReplication_bucket' - The name of the bucket
 --
@@ -171,17 +171,13 @@ newPutBucketReplication
   pBucket_
   pReplicationConfiguration_ =
     PutBucketReplication'
-      { token = Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+      { contentMD5 = Prelude.Nothing,
         expectedBucketOwner = Prelude.Nothing,
+        token = Prelude.Nothing,
         bucket = pBucket_,
         replicationConfiguration =
           pReplicationConfiguration_
       }
-
--- | A token to allow Object Lock to be enabled for an existing bucket.
-putBucketReplication_token :: Lens.Lens' PutBucketReplication (Prelude.Maybe Prelude.Text)
-putBucketReplication_token = Lens.lens (\PutBucketReplication' {token} -> token) (\s@PutBucketReplication' {} a -> s {token = a} :: PutBucketReplication)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -199,6 +195,10 @@ putBucketReplication_contentMD5 = Lens.lens (\PutBucketReplication' {contentMD5}
 -- @403 (Access Denied)@ error.
 putBucketReplication_expectedBucketOwner :: Lens.Lens' PutBucketReplication (Prelude.Maybe Prelude.Text)
 putBucketReplication_expectedBucketOwner = Lens.lens (\PutBucketReplication' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketReplication' {} a -> s {expectedBucketOwner = a} :: PutBucketReplication)
+
+-- | A token to allow Object Lock to be enabled for an existing bucket.
+putBucketReplication_token :: Lens.Lens' PutBucketReplication (Prelude.Maybe Prelude.Text)
+putBucketReplication_token = Lens.lens (\PutBucketReplication' {token} -> token) (\s@PutBucketReplication' {} a -> s {token = a} :: PutBucketReplication)
 
 -- | The name of the bucket
 putBucketReplication_bucket :: Lens.Lens' PutBucketReplication BucketName
@@ -220,17 +220,17 @@ instance Core.AWSRequest PutBucketReplication where
 
 instance Prelude.Hashable PutBucketReplication where
   hashWithSalt _salt PutBucketReplication' {..} =
-    _salt `Prelude.hashWithSalt` token
-      `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` replicationConfiguration
 
 instance Prelude.NFData PutBucketReplication where
   rnf PutBucketReplication' {..} =
-    Prelude.rnf token
-      `Prelude.seq` Prelude.rnf contentMD5
+    Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf replicationConfiguration
 
@@ -243,10 +243,10 @@ instance Core.ToElement PutBucketReplication where
 instance Core.ToHeaders PutBucketReplication where
   toHeaders PutBucketReplication' {..} =
     Prelude.mconcat
-      [ "x-amz-bucket-object-lock-token" Core.=# token,
-        "Content-MD5" Core.=# contentMD5,
+      [ "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Core.=# expectedBucketOwner,
+        "x-amz-bucket-object-lock-token" Core.=# token
       ]
 
 instance Core.ToPath PutBucketReplication where

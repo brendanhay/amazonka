@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancersConfig' smart constructor.
 data LoadBalancersConfig = LoadBalancersConfig'
-  { -- | The Classic Load Balancers.
-    classicLoadBalancersConfig :: Prelude.Maybe ClassicLoadBalancersConfig,
-    -- | The target groups.
-    targetGroupsConfig :: Prelude.Maybe TargetGroupsConfig
+  { -- | The target groups.
+    targetGroupsConfig :: Prelude.Maybe TargetGroupsConfig,
+    -- | The Classic Load Balancers.
+    classicLoadBalancersConfig :: Prelude.Maybe ClassicLoadBalancersConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,47 +46,46 @@ data LoadBalancersConfig = LoadBalancersConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'classicLoadBalancersConfig', 'loadBalancersConfig_classicLoadBalancersConfig' - The Classic Load Balancers.
---
 -- 'targetGroupsConfig', 'loadBalancersConfig_targetGroupsConfig' - The target groups.
+--
+-- 'classicLoadBalancersConfig', 'loadBalancersConfig_classicLoadBalancersConfig' - The Classic Load Balancers.
 newLoadBalancersConfig ::
   LoadBalancersConfig
 newLoadBalancersConfig =
   LoadBalancersConfig'
-    { classicLoadBalancersConfig =
+    { targetGroupsConfig =
         Prelude.Nothing,
-      targetGroupsConfig = Prelude.Nothing
+      classicLoadBalancersConfig = Prelude.Nothing
     }
-
--- | The Classic Load Balancers.
-loadBalancersConfig_classicLoadBalancersConfig :: Lens.Lens' LoadBalancersConfig (Prelude.Maybe ClassicLoadBalancersConfig)
-loadBalancersConfig_classicLoadBalancersConfig = Lens.lens (\LoadBalancersConfig' {classicLoadBalancersConfig} -> classicLoadBalancersConfig) (\s@LoadBalancersConfig' {} a -> s {classicLoadBalancersConfig = a} :: LoadBalancersConfig)
 
 -- | The target groups.
 loadBalancersConfig_targetGroupsConfig :: Lens.Lens' LoadBalancersConfig (Prelude.Maybe TargetGroupsConfig)
 loadBalancersConfig_targetGroupsConfig = Lens.lens (\LoadBalancersConfig' {targetGroupsConfig} -> targetGroupsConfig) (\s@LoadBalancersConfig' {} a -> s {targetGroupsConfig = a} :: LoadBalancersConfig)
 
+-- | The Classic Load Balancers.
+loadBalancersConfig_classicLoadBalancersConfig :: Lens.Lens' LoadBalancersConfig (Prelude.Maybe ClassicLoadBalancersConfig)
+loadBalancersConfig_classicLoadBalancersConfig = Lens.lens (\LoadBalancersConfig' {classicLoadBalancersConfig} -> classicLoadBalancersConfig) (\s@LoadBalancersConfig' {} a -> s {classicLoadBalancersConfig = a} :: LoadBalancersConfig)
+
 instance Core.FromXML LoadBalancersConfig where
   parseXML x =
     LoadBalancersConfig'
-      Prelude.<$> (x Core..@? "classicLoadBalancersConfig")
-      Prelude.<*> (x Core..@? "targetGroupsConfig")
+      Prelude.<$> (x Core..@? "targetGroupsConfig")
+      Prelude.<*> (x Core..@? "classicLoadBalancersConfig")
 
 instance Prelude.Hashable LoadBalancersConfig where
   hashWithSalt _salt LoadBalancersConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` targetGroupsConfig
       `Prelude.hashWithSalt` classicLoadBalancersConfig
-      `Prelude.hashWithSalt` targetGroupsConfig
 
 instance Prelude.NFData LoadBalancersConfig where
   rnf LoadBalancersConfig' {..} =
-    Prelude.rnf classicLoadBalancersConfig
-      `Prelude.seq` Prelude.rnf targetGroupsConfig
+    Prelude.rnf targetGroupsConfig
+      `Prelude.seq` Prelude.rnf classicLoadBalancersConfig
 
 instance Core.ToQuery LoadBalancersConfig where
   toQuery LoadBalancersConfig' {..} =
     Prelude.mconcat
-      [ "ClassicLoadBalancersConfig"
-          Core.=: classicLoadBalancersConfig,
-        "TargetGroupsConfig" Core.=: targetGroupsConfig
+      [ "TargetGroupsConfig" Core.=: targetGroupsConfig,
+        "ClassicLoadBalancersConfig"
+          Core.=: classicLoadBalancersConfig
       ]

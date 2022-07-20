@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceConfiguration' smart constructor.
 data InstanceConfiguration = InstanceConfiguration'
-  { -- | The amount of memory, in MB or GB, reserved for each instance of your
+  { -- | The number of CPU units reserved for each instance of your App Runner
+    -- service.
+    --
+    -- Default: @1 vCPU@
+    cpu :: Prelude.Maybe Prelude.Text,
+    -- | The amount of memory, in MB or GB, reserved for each instance of your
     -- App Runner service.
     --
     -- Default: @2 GB@
@@ -36,12 +41,7 @@ data InstanceConfiguration = InstanceConfiguration'
     -- | The Amazon Resource Name (ARN) of an IAM role that provides permissions
     -- to your App Runner service. These are permissions that your code needs
     -- when it calls any Amazon Web Services APIs.
-    instanceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The number of CPU units reserved for each instance of your App Runner
-    -- service.
-    --
-    -- Default: @1 vCPU@
-    cpu :: Prelude.Maybe Prelude.Text
+    instanceRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,11 @@ data InstanceConfiguration = InstanceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cpu', 'instanceConfiguration_cpu' - The number of CPU units reserved for each instance of your App Runner
+-- service.
+--
+-- Default: @1 vCPU@
+--
 -- 'memory', 'instanceConfiguration_memory' - The amount of memory, in MB or GB, reserved for each instance of your
 -- App Runner service.
 --
@@ -61,19 +66,21 @@ data InstanceConfiguration = InstanceConfiguration'
 -- 'instanceRoleArn', 'instanceConfiguration_instanceRoleArn' - The Amazon Resource Name (ARN) of an IAM role that provides permissions
 -- to your App Runner service. These are permissions that your code needs
 -- when it calls any Amazon Web Services APIs.
---
--- 'cpu', 'instanceConfiguration_cpu' - The number of CPU units reserved for each instance of your App Runner
--- service.
---
--- Default: @1 vCPU@
 newInstanceConfiguration ::
   InstanceConfiguration
 newInstanceConfiguration =
   InstanceConfiguration'
-    { memory = Prelude.Nothing,
-      instanceRoleArn = Prelude.Nothing,
-      cpu = Prelude.Nothing
+    { cpu = Prelude.Nothing,
+      memory = Prelude.Nothing,
+      instanceRoleArn = Prelude.Nothing
     }
+
+-- | The number of CPU units reserved for each instance of your App Runner
+-- service.
+--
+-- Default: @1 vCPU@
+instanceConfiguration_cpu :: Lens.Lens' InstanceConfiguration (Prelude.Maybe Prelude.Text)
+instanceConfiguration_cpu = Lens.lens (\InstanceConfiguration' {cpu} -> cpu) (\s@InstanceConfiguration' {} a -> s {cpu = a} :: InstanceConfiguration)
 
 -- | The amount of memory, in MB or GB, reserved for each instance of your
 -- App Runner service.
@@ -88,43 +95,36 @@ instanceConfiguration_memory = Lens.lens (\InstanceConfiguration' {memory} -> me
 instanceConfiguration_instanceRoleArn :: Lens.Lens' InstanceConfiguration (Prelude.Maybe Prelude.Text)
 instanceConfiguration_instanceRoleArn = Lens.lens (\InstanceConfiguration' {instanceRoleArn} -> instanceRoleArn) (\s@InstanceConfiguration' {} a -> s {instanceRoleArn = a} :: InstanceConfiguration)
 
--- | The number of CPU units reserved for each instance of your App Runner
--- service.
---
--- Default: @1 vCPU@
-instanceConfiguration_cpu :: Lens.Lens' InstanceConfiguration (Prelude.Maybe Prelude.Text)
-instanceConfiguration_cpu = Lens.lens (\InstanceConfiguration' {cpu} -> cpu) (\s@InstanceConfiguration' {} a -> s {cpu = a} :: InstanceConfiguration)
-
 instance Core.FromJSON InstanceConfiguration where
   parseJSON =
     Core.withObject
       "InstanceConfiguration"
       ( \x ->
           InstanceConfiguration'
-            Prelude.<$> (x Core..:? "Memory")
+            Prelude.<$> (x Core..:? "Cpu")
+            Prelude.<*> (x Core..:? "Memory")
             Prelude.<*> (x Core..:? "InstanceRoleArn")
-            Prelude.<*> (x Core..:? "Cpu")
       )
 
 instance Prelude.Hashable InstanceConfiguration where
   hashWithSalt _salt InstanceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` memory
+    _salt `Prelude.hashWithSalt` cpu
+      `Prelude.hashWithSalt` memory
       `Prelude.hashWithSalt` instanceRoleArn
-      `Prelude.hashWithSalt` cpu
 
 instance Prelude.NFData InstanceConfiguration where
   rnf InstanceConfiguration' {..} =
-    Prelude.rnf memory
+    Prelude.rnf cpu
+      `Prelude.seq` Prelude.rnf memory
       `Prelude.seq` Prelude.rnf instanceRoleArn
-      `Prelude.seq` Prelude.rnf cpu
 
 instance Core.ToJSON InstanceConfiguration where
   toJSON InstanceConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Memory" Core..=) Prelude.<$> memory,
+          [ ("Cpu" Core..=) Prelude.<$> cpu,
+            ("Memory" Core..=) Prelude.<$> memory,
             ("InstanceRoleArn" Core..=)
-              Prelude.<$> instanceRoleArn,
-            ("Cpu" Core..=) Prelude.<$> cpu
+              Prelude.<$> instanceRoleArn
           ]
       )

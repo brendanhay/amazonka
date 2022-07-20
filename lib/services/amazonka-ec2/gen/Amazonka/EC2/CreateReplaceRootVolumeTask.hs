@@ -34,9 +34,9 @@ module Amazonka.EC2.CreateReplaceRootVolumeTask
 
     -- * Request Lenses
     createReplaceRootVolumeTask_clientToken,
-    createReplaceRootVolumeTask_tagSpecifications,
-    createReplaceRootVolumeTask_dryRun,
     createReplaceRootVolumeTask_snapshotId,
+    createReplaceRootVolumeTask_dryRun,
+    createReplaceRootVolumeTask_tagSpecifications,
     createReplaceRootVolumeTask_instanceId,
 
     -- * Destructuring the Response
@@ -64,17 +64,17 @@ data CreateReplaceRootVolumeTask = CreateReplaceRootVolumeTask'
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the root volume replacement task.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The ID of the snapshot from which to restore the replacement root
+    -- volume. If you want to restore the volume to the initial launch state,
+    -- omit this parameter.
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the snapshot from which to restore the replacement root
-    -- volume. If you want to restore the volume to the initial launch state,
-    -- omit this parameter.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the root volume replacement task.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the instance for which to replace the root volume.
     instanceId :: Prelude.Text
   }
@@ -94,16 +94,16 @@ data CreateReplaceRootVolumeTask = CreateReplaceRootVolumeTask'
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
--- 'tagSpecifications', 'createReplaceRootVolumeTask_tagSpecifications' - The tags to apply to the root volume replacement task.
+-- 'snapshotId', 'createReplaceRootVolumeTask_snapshotId' - The ID of the snapshot from which to restore the replacement root
+-- volume. If you want to restore the volume to the initial launch state,
+-- omit this parameter.
 --
 -- 'dryRun', 'createReplaceRootVolumeTask_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'snapshotId', 'createReplaceRootVolumeTask_snapshotId' - The ID of the snapshot from which to restore the replacement root
--- volume. If you want to restore the volume to the initial launch state,
--- omit this parameter.
+-- 'tagSpecifications', 'createReplaceRootVolumeTask_tagSpecifications' - The tags to apply to the root volume replacement task.
 --
 -- 'instanceId', 'createReplaceRootVolumeTask_instanceId' - The ID of the instance for which to replace the root volume.
 newCreateReplaceRootVolumeTask ::
@@ -114,9 +114,9 @@ newCreateReplaceRootVolumeTask pInstanceId_ =
   CreateReplaceRootVolumeTask'
     { clientToken =
         Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -128,9 +128,11 @@ newCreateReplaceRootVolumeTask pInstanceId_ =
 createReplaceRootVolumeTask_clientToken :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
 createReplaceRootVolumeTask_clientToken = Lens.lens (\CreateReplaceRootVolumeTask' {clientToken} -> clientToken) (\s@CreateReplaceRootVolumeTask' {} a -> s {clientToken = a} :: CreateReplaceRootVolumeTask)
 
--- | The tags to apply to the root volume replacement task.
-createReplaceRootVolumeTask_tagSpecifications :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe [TagSpecification])
-createReplaceRootVolumeTask_tagSpecifications = Lens.lens (\CreateReplaceRootVolumeTask' {tagSpecifications} -> tagSpecifications) (\s@CreateReplaceRootVolumeTask' {} a -> s {tagSpecifications = a} :: CreateReplaceRootVolumeTask) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the snapshot from which to restore the replacement root
+-- volume. If you want to restore the volume to the initial launch state,
+-- omit this parameter.
+createReplaceRootVolumeTask_snapshotId :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
+createReplaceRootVolumeTask_snapshotId = Lens.lens (\CreateReplaceRootVolumeTask' {snapshotId} -> snapshotId) (\s@CreateReplaceRootVolumeTask' {} a -> s {snapshotId = a} :: CreateReplaceRootVolumeTask)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -139,11 +141,9 @@ createReplaceRootVolumeTask_tagSpecifications = Lens.lens (\CreateReplaceRootVol
 createReplaceRootVolumeTask_dryRun :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Bool)
 createReplaceRootVolumeTask_dryRun = Lens.lens (\CreateReplaceRootVolumeTask' {dryRun} -> dryRun) (\s@CreateReplaceRootVolumeTask' {} a -> s {dryRun = a} :: CreateReplaceRootVolumeTask)
 
--- | The ID of the snapshot from which to restore the replacement root
--- volume. If you want to restore the volume to the initial launch state,
--- omit this parameter.
-createReplaceRootVolumeTask_snapshotId :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
-createReplaceRootVolumeTask_snapshotId = Lens.lens (\CreateReplaceRootVolumeTask' {snapshotId} -> snapshotId) (\s@CreateReplaceRootVolumeTask' {} a -> s {snapshotId = a} :: CreateReplaceRootVolumeTask)
+-- | The tags to apply to the root volume replacement task.
+createReplaceRootVolumeTask_tagSpecifications :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe [TagSpecification])
+createReplaceRootVolumeTask_tagSpecifications = Lens.lens (\CreateReplaceRootVolumeTask' {tagSpecifications} -> tagSpecifications) (\s@CreateReplaceRootVolumeTask' {} a -> s {tagSpecifications = a} :: CreateReplaceRootVolumeTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the instance for which to replace the root volume.
 createReplaceRootVolumeTask_instanceId :: Lens.Lens' CreateReplaceRootVolumeTask Prelude.Text
@@ -165,17 +165,17 @@ instance Core.AWSRequest CreateReplaceRootVolumeTask where
 instance Prelude.Hashable CreateReplaceRootVolumeTask where
   hashWithSalt _salt CreateReplaceRootVolumeTask' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData CreateReplaceRootVolumeTask where
   rnf CreateReplaceRootVolumeTask' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders CreateReplaceRootVolumeTask where
@@ -194,12 +194,12 @@ instance Core.ToQuery CreateReplaceRootVolumeTask where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Core.=: clientToken,
+        "SnapshotId" Core.=: snapshotId,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
-        "SnapshotId" Core.=: snapshotId,
         "InstanceId" Core.=: instanceId
       ]
 

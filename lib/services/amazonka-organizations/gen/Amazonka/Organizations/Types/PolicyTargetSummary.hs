@@ -29,7 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyTargetSummary' smart constructor.
 data PolicyTargetSummary = PolicyTargetSummary'
-  { -- | The unique identifier (ID) of the policy target.
+  { -- | The friendly name of the policy target.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+    -- validate this parameter is a string of any of the characters in the
+    -- ASCII character range.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The type of the policy target.
+    type' :: Prelude.Maybe TargetType,
+    -- | The unique identifier (ID) of the policy target.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a target ID
     -- string requires one of the following:
@@ -49,15 +57,7 @@ data PolicyTargetSummary = PolicyTargetSummary'
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the policy target.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
-    -- validate this parameter is a string of any of the characters in the
-    -- ASCII character range.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The type of the policy target.
-    type' :: Prelude.Maybe TargetType
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,6 +68,14 @@ data PolicyTargetSummary = PolicyTargetSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'name', 'policyTargetSummary_name' - The friendly name of the policy target.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+--
+-- 'type'', 'policyTargetSummary_type' - The type of the policy target.
 --
 -- 'targetId', 'policyTargetSummary_targetId' - The unique identifier (ID) of the policy target.
 --
@@ -89,23 +97,27 @@ data PolicyTargetSummary = PolicyTargetSummary'
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
---
--- 'name', 'policyTargetSummary_name' - The friendly name of the policy target.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
--- validate this parameter is a string of any of the characters in the
--- ASCII character range.
---
--- 'type'', 'policyTargetSummary_type' - The type of the policy target.
 newPolicyTargetSummary ::
   PolicyTargetSummary
 newPolicyTargetSummary =
   PolicyTargetSummary'
-    { targetId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { name = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      targetId = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
+
+-- | The friendly name of the policy target.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+policyTargetSummary_name :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe Prelude.Text)
+policyTargetSummary_name = Lens.lens (\PolicyTargetSummary' {name} -> name) (\s@PolicyTargetSummary' {} a -> s {name = a} :: PolicyTargetSummary)
+
+-- | The type of the policy target.
+policyTargetSummary_type :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe TargetType)
+policyTargetSummary_type = Lens.lens (\PolicyTargetSummary' {type'} -> type') (\s@PolicyTargetSummary' {} a -> s {type' = a} :: PolicyTargetSummary)
 
 -- | The unique identifier (ID) of the policy target.
 --
@@ -132,40 +144,28 @@ policyTargetSummary_targetId = Lens.lens (\PolicyTargetSummary' {targetId} -> ta
 policyTargetSummary_arn :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe Prelude.Text)
 policyTargetSummary_arn = Lens.lens (\PolicyTargetSummary' {arn} -> arn) (\s@PolicyTargetSummary' {} a -> s {arn = a} :: PolicyTargetSummary)
 
--- | The friendly name of the policy target.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
--- validate this parameter is a string of any of the characters in the
--- ASCII character range.
-policyTargetSummary_name :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe Prelude.Text)
-policyTargetSummary_name = Lens.lens (\PolicyTargetSummary' {name} -> name) (\s@PolicyTargetSummary' {} a -> s {name = a} :: PolicyTargetSummary)
-
--- | The type of the policy target.
-policyTargetSummary_type :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe TargetType)
-policyTargetSummary_type = Lens.lens (\PolicyTargetSummary' {type'} -> type') (\s@PolicyTargetSummary' {} a -> s {type' = a} :: PolicyTargetSummary)
-
 instance Core.FromJSON PolicyTargetSummary where
   parseJSON =
     Core.withObject
       "PolicyTargetSummary"
       ( \x ->
           PolicyTargetSummary'
-            Prelude.<$> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "TargetId")
+            Prelude.<*> (x Core..:? "Arn")
       )
 
 instance Prelude.Hashable PolicyTargetSummary where
   hashWithSalt _salt PolicyTargetSummary' {..} =
-    _salt `Prelude.hashWithSalt` targetId
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` targetId
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData PolicyTargetSummary where
   rnf PolicyTargetSummary' {..} =
-    Prelude.rnf targetId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf targetId
+      `Prelude.seq` Prelude.rnf arn

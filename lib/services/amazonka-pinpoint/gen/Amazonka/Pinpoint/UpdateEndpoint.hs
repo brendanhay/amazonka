@@ -146,12 +146,7 @@ instance Core.ToHeaders UpdateEndpoint where
 
 instance Core.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointRequest" Core..= endpointRequest)
-          ]
-      )
+    Core.toJSON endpointRequest
 
 instance Core.ToPath UpdateEndpoint where
   toPath UpdateEndpoint' {..} =

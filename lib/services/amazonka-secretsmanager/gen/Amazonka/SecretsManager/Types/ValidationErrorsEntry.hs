@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newValidationErrorsEntry' smart constructor.
 data ValidationErrorsEntry = ValidationErrorsEntry'
-  { -- | Checks the name of the policy.
-    checkName :: Prelude.Maybe Prelude.Text,
-    -- | Displays error messages if validation encounters problems during
+  { -- | Displays error messages if validation encounters problems during
     -- validation of the resource policy.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Checks the name of the policy.
+    checkName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,27 @@ data ValidationErrorsEntry = ValidationErrorsEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'checkName', 'validationErrorsEntry_checkName' - Checks the name of the policy.
---
 -- 'errorMessage', 'validationErrorsEntry_errorMessage' - Displays error messages if validation encounters problems during
 -- validation of the resource policy.
+--
+-- 'checkName', 'validationErrorsEntry_checkName' - Checks the name of the policy.
 newValidationErrorsEntry ::
   ValidationErrorsEntry
 newValidationErrorsEntry =
   ValidationErrorsEntry'
-    { checkName = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorMessage =
+        Prelude.Nothing,
+      checkName = Prelude.Nothing
     }
-
--- | Checks the name of the policy.
-validationErrorsEntry_checkName :: Lens.Lens' ValidationErrorsEntry (Prelude.Maybe Prelude.Text)
-validationErrorsEntry_checkName = Lens.lens (\ValidationErrorsEntry' {checkName} -> checkName) (\s@ValidationErrorsEntry' {} a -> s {checkName = a} :: ValidationErrorsEntry)
 
 -- | Displays error messages if validation encounters problems during
 -- validation of the resource policy.
 validationErrorsEntry_errorMessage :: Lens.Lens' ValidationErrorsEntry (Prelude.Maybe Prelude.Text)
 validationErrorsEntry_errorMessage = Lens.lens (\ValidationErrorsEntry' {errorMessage} -> errorMessage) (\s@ValidationErrorsEntry' {} a -> s {errorMessage = a} :: ValidationErrorsEntry)
+
+-- | Checks the name of the policy.
+validationErrorsEntry_checkName :: Lens.Lens' ValidationErrorsEntry (Prelude.Maybe Prelude.Text)
+validationErrorsEntry_checkName = Lens.lens (\ValidationErrorsEntry' {checkName} -> checkName) (\s@ValidationErrorsEntry' {} a -> s {checkName = a} :: ValidationErrorsEntry)
 
 instance Core.FromJSON ValidationErrorsEntry where
   parseJSON =
@@ -70,16 +71,16 @@ instance Core.FromJSON ValidationErrorsEntry where
       "ValidationErrorsEntry"
       ( \x ->
           ValidationErrorsEntry'
-            Prelude.<$> (x Core..:? "CheckName")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "CheckName")
       )
 
 instance Prelude.Hashable ValidationErrorsEntry where
   hashWithSalt _salt ValidationErrorsEntry' {..} =
-    _salt `Prelude.hashWithSalt` checkName
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` checkName
 
 instance Prelude.NFData ValidationErrorsEntry where
   rnf ValidationErrorsEntry' {..} =
-    Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf checkName

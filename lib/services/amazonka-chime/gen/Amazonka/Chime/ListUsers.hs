@@ -33,8 +33,8 @@ module Amazonka.Chime.ListUsers
     -- * Request Lenses
     listUsers_nextToken,
     listUsers_userEmail,
-    listUsers_maxResults,
     listUsers_userType,
+    listUsers_maxResults,
     listUsers_accountId,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.Chime.ListUsers
     newListUsersResponse,
 
     -- * Response Lenses
-    listUsersResponse_users,
     listUsersResponse_nextToken,
+    listUsersResponse_users,
     listUsersResponse_httpStatus,
   )
 where
@@ -61,11 +61,11 @@ data ListUsers = ListUsers'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Optional. The user email address used to filter results. Maximum 1.
     userEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The user type.
+    userType :: Prelude.Maybe UserType,
     -- | The maximum number of results to return in a single call. Defaults to
     -- 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The user type.
-    userType :: Prelude.Maybe UserType,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text
   }
@@ -83,10 +83,10 @@ data ListUsers = ListUsers'
 --
 -- 'userEmail', 'listUsers_userEmail' - Optional. The user email address used to filter results. Maximum 1.
 --
+-- 'userType', 'listUsers_userType' - The user type.
+--
 -- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return in a single call. Defaults to
 -- 100.
---
--- 'userType', 'listUsers_userType' - The user type.
 --
 -- 'accountId', 'listUsers_accountId' - The Amazon Chime account ID.
 newListUsers ::
@@ -97,8 +97,8 @@ newListUsers pAccountId_ =
   ListUsers'
     { nextToken = Prelude.Nothing,
       userEmail = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       userType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       accountId = pAccountId_
     }
 
@@ -110,14 +110,14 @@ listUsers_nextToken = Lens.lens (\ListUsers' {nextToken} -> nextToken) (\s@ListU
 listUsers_userEmail :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
 listUsers_userEmail = Lens.lens (\ListUsers' {userEmail} -> userEmail) (\s@ListUsers' {} a -> s {userEmail = a} :: ListUsers) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The user type.
+listUsers_userType :: Lens.Lens' ListUsers (Prelude.Maybe UserType)
+listUsers_userType = Lens.lens (\ListUsers' {userType} -> userType) (\s@ListUsers' {} a -> s {userType = a} :: ListUsers)
+
 -- | The maximum number of results to return in a single call. Defaults to
 -- 100.
 listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
 listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
-
--- | The user type.
-listUsers_userType :: Lens.Lens' ListUsers (Prelude.Maybe UserType)
-listUsers_userType = Lens.lens (\ListUsers' {userType} -> userType) (\s@ListUsers' {} a -> s {userType = a} :: ListUsers)
 
 -- | The Amazon Chime account ID.
 listUsers_accountId :: Lens.Lens' ListUsers Prelude.Text
@@ -149,8 +149,8 @@ instance Core.AWSRequest ListUsers where
     Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> (x Core..?> "Users" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,16 +158,16 @@ instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userEmail
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` userType
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf userEmail
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf userType
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf accountId
 
 instance Core.ToHeaders ListUsers where
@@ -183,16 +183,16 @@ instance Core.ToQuery ListUsers where
     Prelude.mconcat
       [ "next-token" Core.=: nextToken,
         "user-email" Core.=: userEmail,
-        "max-results" Core.=: maxResults,
-        "user-type" Core.=: userType
+        "user-type" Core.=: userType,
+        "max-results" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { -- | List of users and user details.
-    users :: Prelude.Maybe [User],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of users and user details.
+    users :: Prelude.Maybe [User],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,9 +206,9 @@ data ListUsersResponse = ListUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'users', 'listUsersResponse_users' - List of users and user details.
---
 -- 'nextToken', 'listUsersResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'users', 'listUsersResponse_users' - List of users and user details.
 --
 -- 'httpStatus', 'listUsersResponse_httpStatus' - The response's http status code.
 newListUsersResponse ::
@@ -217,18 +217,18 @@ newListUsersResponse ::
   ListUsersResponse
 newListUsersResponse pHttpStatus_ =
   ListUsersResponse'
-    { users = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      users = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of users and user details.
-listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [User])
-listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 listUsersResponse_nextToken :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
 listUsersResponse_nextToken = Lens.lens (\ListUsersResponse' {nextToken} -> nextToken) (\s@ListUsersResponse' {} a -> s {nextToken = a} :: ListUsersResponse)
+
+-- | List of users and user details.
+listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [User])
+listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int
@@ -236,6 +236,6 @@ listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListUsersResponse where
   rnf ListUsersResponse' {..} =
-    Prelude.rnf users
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf users
       `Prelude.seq` Prelude.rnf httpStatus

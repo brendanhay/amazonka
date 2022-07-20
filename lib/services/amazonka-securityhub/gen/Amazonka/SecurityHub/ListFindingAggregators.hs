@@ -39,8 +39,8 @@ module Amazonka.SecurityHub.ListFindingAggregators
     newListFindingAggregatorsResponse,
 
     -- * Response Lenses
-    listFindingAggregatorsResponse_nextToken,
     listFindingAggregatorsResponse_findingAggregators,
+    listFindingAggregatorsResponse_nextToken,
     listFindingAggregatorsResponse_httpStatus,
   )
 where
@@ -126,10 +126,10 @@ instance Core.AWSRequest ListFindingAggregators where
     Response.receiveJSON
       ( \s h x ->
           ListFindingAggregatorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "FindingAggregators"
+            Prelude.<$> ( x Core..?> "FindingAggregators"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,14 +166,14 @@ instance Core.ToQuery ListFindingAggregators where
 
 -- | /See:/ 'newListFindingAggregatorsResponse' smart constructor.
 data ListFindingAggregatorsResponse = ListFindingAggregatorsResponse'
-  { -- | If there are more results, this is the token to provide in the next call
+  { -- | The list of finding aggregators. This operation currently only returns a
+    -- single result.
+    findingAggregators :: Prelude.Maybe [FindingAggregator],
+    -- | If there are more results, this is the token to provide in the next call
     -- to @ListFindingAggregators@.
     --
     -- This operation currently only returns a single result.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of finding aggregators. This operation currently only returns a
-    -- single result.
-    findingAggregators :: Prelude.Maybe [FindingAggregator],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,13 +187,13 @@ data ListFindingAggregatorsResponse = ListFindingAggregatorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'findingAggregators', 'listFindingAggregatorsResponse_findingAggregators' - The list of finding aggregators. This operation currently only returns a
+-- single result.
+--
 -- 'nextToken', 'listFindingAggregatorsResponse_nextToken' - If there are more results, this is the token to provide in the next call
 -- to @ListFindingAggregators@.
 --
 -- This operation currently only returns a single result.
---
--- 'findingAggregators', 'listFindingAggregatorsResponse_findingAggregators' - The list of finding aggregators. This operation currently only returns a
--- single result.
 --
 -- 'httpStatus', 'listFindingAggregatorsResponse_httpStatus' - The response's http status code.
 newListFindingAggregatorsResponse ::
@@ -202,11 +202,16 @@ newListFindingAggregatorsResponse ::
   ListFindingAggregatorsResponse
 newListFindingAggregatorsResponse pHttpStatus_ =
   ListFindingAggregatorsResponse'
-    { nextToken =
+    { findingAggregators =
         Prelude.Nothing,
-      findingAggregators = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of finding aggregators. This operation currently only returns a
+-- single result.
+listFindingAggregatorsResponse_findingAggregators :: Lens.Lens' ListFindingAggregatorsResponse (Prelude.Maybe [FindingAggregator])
+listFindingAggregatorsResponse_findingAggregators = Lens.lens (\ListFindingAggregatorsResponse' {findingAggregators} -> findingAggregators) (\s@ListFindingAggregatorsResponse' {} a -> s {findingAggregators = a} :: ListFindingAggregatorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more results, this is the token to provide in the next call
 -- to @ListFindingAggregators@.
@@ -214,11 +219,6 @@ newListFindingAggregatorsResponse pHttpStatus_ =
 -- This operation currently only returns a single result.
 listFindingAggregatorsResponse_nextToken :: Lens.Lens' ListFindingAggregatorsResponse (Prelude.Maybe Prelude.Text)
 listFindingAggregatorsResponse_nextToken = Lens.lens (\ListFindingAggregatorsResponse' {nextToken} -> nextToken) (\s@ListFindingAggregatorsResponse' {} a -> s {nextToken = a} :: ListFindingAggregatorsResponse)
-
--- | The list of finding aggregators. This operation currently only returns a
--- single result.
-listFindingAggregatorsResponse_findingAggregators :: Lens.Lens' ListFindingAggregatorsResponse (Prelude.Maybe [FindingAggregator])
-listFindingAggregatorsResponse_findingAggregators = Lens.lens (\ListFindingAggregatorsResponse' {findingAggregators} -> findingAggregators) (\s@ListFindingAggregatorsResponse' {} a -> s {findingAggregators = a} :: ListFindingAggregatorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFindingAggregatorsResponse_httpStatus :: Lens.Lens' ListFindingAggregatorsResponse Prelude.Int
@@ -229,6 +229,6 @@ instance
     ListFindingAggregatorsResponse
   where
   rnf ListFindingAggregatorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf findingAggregators
+    Prelude.rnf findingAggregators
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

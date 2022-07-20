@@ -40,8 +40,8 @@ module Amazonka.EC2.GetAssociatedIpv6PoolCidrs
     newGetAssociatedIpv6PoolCidrsResponse,
 
     -- * Response Lenses
-    getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations,
     getAssociatedIpv6PoolCidrsResponse_nextToken,
+    getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations,
     getAssociatedIpv6PoolCidrsResponse_httpStatus,
   )
 where
@@ -156,11 +156,11 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
     Response.receiveXML
       ( \s h x ->
           GetAssociatedIpv6PoolCidrsResponse'
-            Prelude.<$> ( x Core..@? "ipv6CidrAssociationSet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "ipv6CidrAssociationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,11 +199,11 @@ instance Core.ToQuery GetAssociatedIpv6PoolCidrs where
 
 -- | /See:/ 'newGetAssociatedIpv6PoolCidrsResponse' smart constructor.
 data GetAssociatedIpv6PoolCidrsResponse = GetAssociatedIpv6PoolCidrsResponse'
-  { -- | Information about the IPv6 CIDR block associations.
-    ipv6CidrAssociations :: Prelude.Maybe [Ipv6CidrAssociation],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the IPv6 CIDR block associations.
+    ipv6CidrAssociations :: Prelude.Maybe [Ipv6CidrAssociation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,10 +217,10 @@ data GetAssociatedIpv6PoolCidrsResponse = GetAssociatedIpv6PoolCidrsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipv6CidrAssociations', 'getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations' - Information about the IPv6 CIDR block associations.
---
 -- 'nextToken', 'getAssociatedIpv6PoolCidrsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'ipv6CidrAssociations', 'getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations' - Information about the IPv6 CIDR block associations.
 --
 -- 'httpStatus', 'getAssociatedIpv6PoolCidrsResponse_httpStatus' - The response's http status code.
 newGetAssociatedIpv6PoolCidrsResponse ::
@@ -229,20 +229,20 @@ newGetAssociatedIpv6PoolCidrsResponse ::
   GetAssociatedIpv6PoolCidrsResponse
 newGetAssociatedIpv6PoolCidrsResponse pHttpStatus_ =
   GetAssociatedIpv6PoolCidrsResponse'
-    { ipv6CidrAssociations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      ipv6CidrAssociations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the IPv6 CIDR block associations.
-getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse (Prelude.Maybe [Ipv6CidrAssociation])
-getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {ipv6CidrAssociations} -> ipv6CidrAssociations) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {ipv6CidrAssociations = a} :: GetAssociatedIpv6PoolCidrsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 getAssociatedIpv6PoolCidrsResponse_nextToken :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse (Prelude.Maybe Prelude.Text)
 getAssociatedIpv6PoolCidrsResponse_nextToken = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {nextToken} -> nextToken) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {nextToken = a} :: GetAssociatedIpv6PoolCidrsResponse)
+
+-- | Information about the IPv6 CIDR block associations.
+getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse (Prelude.Maybe [Ipv6CidrAssociation])
+getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {ipv6CidrAssociations} -> ipv6CidrAssociations) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {ipv6CidrAssociations = a} :: GetAssociatedIpv6PoolCidrsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAssociatedIpv6PoolCidrsResponse_httpStatus :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse Prelude.Int
@@ -253,6 +253,6 @@ instance
     GetAssociatedIpv6PoolCidrsResponse
   where
   rnf GetAssociatedIpv6PoolCidrsResponse' {..} =
-    Prelude.rnf ipv6CidrAssociations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ipv6CidrAssociations
       `Prelude.seq` Prelude.rnf httpStatus

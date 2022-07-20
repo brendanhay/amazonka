@@ -33,8 +33,8 @@ module Amazonka.IoT.ListJobExecutionsForJob
     newListJobExecutionsForJob,
 
     -- * Request Lenses
-    listJobExecutionsForJob_status,
     listJobExecutionsForJob_nextToken,
+    listJobExecutionsForJob_status,
     listJobExecutionsForJob_maxResults,
     listJobExecutionsForJob_jobId,
 
@@ -43,8 +43,8 @@ module Amazonka.IoT.ListJobExecutionsForJob
     newListJobExecutionsForJobResponse,
 
     -- * Response Lenses
-    listJobExecutionsForJobResponse_executionSummaries,
     listJobExecutionsForJobResponse_nextToken,
+    listJobExecutionsForJobResponse_executionSummaries,
     listJobExecutionsForJobResponse_httpStatus,
   )
 where
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobExecutionsForJob' smart constructor.
 data ListJobExecutionsForJob = ListJobExecutionsForJob'
-  { -- | The status of the job.
-    status :: Prelude.Maybe JobExecutionStatus,
-    -- | The token to retrieve the next set of results.
+  { -- | The token to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status of the job.
+    status :: Prelude.Maybe JobExecutionStatus,
     -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier you assigned to this job when it was created.
@@ -77,9 +77,9 @@ data ListJobExecutionsForJob = ListJobExecutionsForJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listJobExecutionsForJob_status' - The status of the job.
---
 -- 'nextToken', 'listJobExecutionsForJob_nextToken' - The token to retrieve the next set of results.
+--
+-- 'status', 'listJobExecutionsForJob_status' - The status of the job.
 --
 -- 'maxResults', 'listJobExecutionsForJob_maxResults' - The maximum number of results to be returned per request.
 --
@@ -90,19 +90,20 @@ newListJobExecutionsForJob ::
   ListJobExecutionsForJob
 newListJobExecutionsForJob pJobId_ =
   ListJobExecutionsForJob'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       jobId = pJobId_
     }
 
--- | The status of the job.
-listJobExecutionsForJob_status :: Lens.Lens' ListJobExecutionsForJob (Prelude.Maybe JobExecutionStatus)
-listJobExecutionsForJob_status = Lens.lens (\ListJobExecutionsForJob' {status} -> status) (\s@ListJobExecutionsForJob' {} a -> s {status = a} :: ListJobExecutionsForJob)
-
 -- | The token to retrieve the next set of results.
 listJobExecutionsForJob_nextToken :: Lens.Lens' ListJobExecutionsForJob (Prelude.Maybe Prelude.Text)
 listJobExecutionsForJob_nextToken = Lens.lens (\ListJobExecutionsForJob' {nextToken} -> nextToken) (\s@ListJobExecutionsForJob' {} a -> s {nextToken = a} :: ListJobExecutionsForJob)
+
+-- | The status of the job.
+listJobExecutionsForJob_status :: Lens.Lens' ListJobExecutionsForJob (Prelude.Maybe JobExecutionStatus)
+listJobExecutionsForJob_status = Lens.lens (\ListJobExecutionsForJob' {status} -> status) (\s@ListJobExecutionsForJob' {} a -> s {status = a} :: ListJobExecutionsForJob)
 
 -- | The maximum number of results to be returned per request.
 listJobExecutionsForJob_maxResults :: Lens.Lens' ListJobExecutionsForJob (Prelude.Maybe Prelude.Natural)
@@ -143,24 +144,24 @@ instance Core.AWSRequest ListJobExecutionsForJob where
     Response.receiveJSON
       ( \s h x ->
           ListJobExecutionsForJobResponse'
-            Prelude.<$> ( x Core..?> "executionSummaries"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "executionSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListJobExecutionsForJob where
   hashWithSalt _salt ListJobExecutionsForJob' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData ListJobExecutionsForJob where
   rnf ListJobExecutionsForJob' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
@@ -175,18 +176,18 @@ instance Core.ToPath ListJobExecutionsForJob where
 instance Core.ToQuery ListJobExecutionsForJob where
   toQuery ListJobExecutionsForJob' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "status" Core.=: status,
         "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListJobExecutionsForJobResponse' smart constructor.
 data ListJobExecutionsForJobResponse = ListJobExecutionsForJobResponse'
-  { -- | A list of job execution summaries.
-    executionSummaries :: Prelude.Maybe [JobExecutionSummaryForJob],
-    -- | The token for the next set of results, or __null__ if there are no
+  { -- | The token for the next set of results, or __null__ if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of job execution summaries.
+    executionSummaries :: Prelude.Maybe [JobExecutionSummaryForJob],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,10 +201,10 @@ data ListJobExecutionsForJobResponse = ListJobExecutionsForJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionSummaries', 'listJobExecutionsForJobResponse_executionSummaries' - A list of job execution summaries.
---
 -- 'nextToken', 'listJobExecutionsForJobResponse_nextToken' - The token for the next set of results, or __null__ if there are no
 -- additional results.
+--
+-- 'executionSummaries', 'listJobExecutionsForJobResponse_executionSummaries' - A list of job execution summaries.
 --
 -- 'httpStatus', 'listJobExecutionsForJobResponse_httpStatus' - The response's http status code.
 newListJobExecutionsForJobResponse ::
@@ -212,20 +213,20 @@ newListJobExecutionsForJobResponse ::
   ListJobExecutionsForJobResponse
 newListJobExecutionsForJobResponse pHttpStatus_ =
   ListJobExecutionsForJobResponse'
-    { executionSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      executionSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of job execution summaries.
-listJobExecutionsForJobResponse_executionSummaries :: Lens.Lens' ListJobExecutionsForJobResponse (Prelude.Maybe [JobExecutionSummaryForJob])
-listJobExecutionsForJobResponse_executionSummaries = Lens.lens (\ListJobExecutionsForJobResponse' {executionSummaries} -> executionSummaries) (\s@ListJobExecutionsForJobResponse' {} a -> s {executionSummaries = a} :: ListJobExecutionsForJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or __null__ if there are no
 -- additional results.
 listJobExecutionsForJobResponse_nextToken :: Lens.Lens' ListJobExecutionsForJobResponse (Prelude.Maybe Prelude.Text)
 listJobExecutionsForJobResponse_nextToken = Lens.lens (\ListJobExecutionsForJobResponse' {nextToken} -> nextToken) (\s@ListJobExecutionsForJobResponse' {} a -> s {nextToken = a} :: ListJobExecutionsForJobResponse)
+
+-- | A list of job execution summaries.
+listJobExecutionsForJobResponse_executionSummaries :: Lens.Lens' ListJobExecutionsForJobResponse (Prelude.Maybe [JobExecutionSummaryForJob])
+listJobExecutionsForJobResponse_executionSummaries = Lens.lens (\ListJobExecutionsForJobResponse' {executionSummaries} -> executionSummaries) (\s@ListJobExecutionsForJobResponse' {} a -> s {executionSummaries = a} :: ListJobExecutionsForJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listJobExecutionsForJobResponse_httpStatus :: Lens.Lens' ListJobExecutionsForJobResponse Prelude.Int
@@ -236,6 +237,6 @@ instance
     ListJobExecutionsForJobResponse
   where
   rnf ListJobExecutionsForJobResponse' {..} =
-    Prelude.rnf executionSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf executionSummaries
       `Prelude.seq` Prelude.rnf httpStatus

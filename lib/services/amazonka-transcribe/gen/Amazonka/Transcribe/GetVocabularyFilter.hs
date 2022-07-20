@@ -34,9 +34,9 @@ module Amazonka.Transcribe.GetVocabularyFilter
     newGetVocabularyFilterResponse,
 
     -- * Response Lenses
-    getVocabularyFilterResponse_languageCode,
     getVocabularyFilterResponse_downloadUri,
     getVocabularyFilterResponse_lastModifiedTime,
+    getVocabularyFilterResponse_languageCode,
     getVocabularyFilterResponse_vocabularyFilterName,
     getVocabularyFilterResponse_httpStatus,
   )
@@ -88,9 +88,9 @@ instance Core.AWSRequest GetVocabularyFilter where
     Response.receiveJSON
       ( \s h x ->
           GetVocabularyFilterResponse'
-            Prelude.<$> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "DownloadUri")
+            Prelude.<$> (x Core..?> "DownloadUri")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "LanguageCode")
             Prelude.<*> (x Core..?> "VocabularyFilterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,14 +137,14 @@ instance Core.ToQuery GetVocabularyFilter where
 
 -- | /See:/ 'newGetVocabularyFilterResponse' smart constructor.
 data GetVocabularyFilterResponse = GetVocabularyFilterResponse'
-  { -- | The language code of the words in the vocabulary filter.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | The URI of the list of words in the vocabulary filter. You can use this
+  { -- | The URI of the list of words in the vocabulary filter. You can use this
     -- URI to get the list of words.
     downloadUri :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the contents of the vocabulary filter were
     -- updated.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The language code of the words in the vocabulary filter.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The name of the vocabulary filter.
     vocabularyFilterName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -160,13 +160,13 @@ data GetVocabularyFilterResponse = GetVocabularyFilterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageCode', 'getVocabularyFilterResponse_languageCode' - The language code of the words in the vocabulary filter.
---
 -- 'downloadUri', 'getVocabularyFilterResponse_downloadUri' - The URI of the list of words in the vocabulary filter. You can use this
 -- URI to get the list of words.
 --
 -- 'lastModifiedTime', 'getVocabularyFilterResponse_lastModifiedTime' - The date and time that the contents of the vocabulary filter were
 -- updated.
+--
+-- 'languageCode', 'getVocabularyFilterResponse_languageCode' - The language code of the words in the vocabulary filter.
 --
 -- 'vocabularyFilterName', 'getVocabularyFilterResponse_vocabularyFilterName' - The name of the vocabulary filter.
 --
@@ -177,17 +177,13 @@ newGetVocabularyFilterResponse ::
   GetVocabularyFilterResponse
 newGetVocabularyFilterResponse pHttpStatus_ =
   GetVocabularyFilterResponse'
-    { languageCode =
+    { downloadUri =
         Prelude.Nothing,
-      downloadUri = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       vocabularyFilterName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The language code of the words in the vocabulary filter.
-getVocabularyFilterResponse_languageCode :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe LanguageCode)
-getVocabularyFilterResponse_languageCode = Lens.lens (\GetVocabularyFilterResponse' {languageCode} -> languageCode) (\s@GetVocabularyFilterResponse' {} a -> s {languageCode = a} :: GetVocabularyFilterResponse)
 
 -- | The URI of the list of words in the vocabulary filter. You can use this
 -- URI to get the list of words.
@@ -199,6 +195,10 @@ getVocabularyFilterResponse_downloadUri = Lens.lens (\GetVocabularyFilterRespons
 getVocabularyFilterResponse_lastModifiedTime :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe Prelude.UTCTime)
 getVocabularyFilterResponse_lastModifiedTime = Lens.lens (\GetVocabularyFilterResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetVocabularyFilterResponse' {} a -> s {lastModifiedTime = a} :: GetVocabularyFilterResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The language code of the words in the vocabulary filter.
+getVocabularyFilterResponse_languageCode :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe LanguageCode)
+getVocabularyFilterResponse_languageCode = Lens.lens (\GetVocabularyFilterResponse' {languageCode} -> languageCode) (\s@GetVocabularyFilterResponse' {} a -> s {languageCode = a} :: GetVocabularyFilterResponse)
+
 -- | The name of the vocabulary filter.
 getVocabularyFilterResponse_vocabularyFilterName :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
 getVocabularyFilterResponse_vocabularyFilterName = Lens.lens (\GetVocabularyFilterResponse' {vocabularyFilterName} -> vocabularyFilterName) (\s@GetVocabularyFilterResponse' {} a -> s {vocabularyFilterName = a} :: GetVocabularyFilterResponse)
@@ -209,8 +209,8 @@ getVocabularyFilterResponse_httpStatus = Lens.lens (\GetVocabularyFilterResponse
 
 instance Prelude.NFData GetVocabularyFilterResponse where
   rnf GetVocabularyFilterResponse' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf downloadUri
+    Prelude.rnf downloadUri
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf vocabularyFilterName
       `Prelude.seq` Prelude.rnf httpStatus

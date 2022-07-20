@@ -29,9 +29,9 @@ module Amazonka.WorkLink.CreateFleet
     newCreateFleet,
 
     -- * Request Lenses
-    createFleet_optimizeForEndUserLocation,
-    createFleet_displayName,
     createFleet_tags,
+    createFleet_displayName,
+    createFleet_optimizeForEndUserLocation,
     createFleet_fleetName,
 
     -- * Destructuring the Response
@@ -53,14 +53,14 @@ import Amazonka.WorkLink.Types
 
 -- | /See:/ 'newCreateFleet' smart constructor.
 data CreateFleet = CreateFleet'
-  { -- | The option to optimize for better performance by routing traffic through
+  { -- | The tags to add to the resource. A tag is a key-value pair.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The fleet name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The option to optimize for better performance by routing traffic through
     -- the closest AWS Region to users, which may be outside of your home
     -- Region.
     optimizeForEndUserLocation :: Prelude.Maybe Prelude.Bool,
-    -- | The fleet name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The tags to add to the resource. A tag is a key-value pair.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique name for the fleet.
     fleetName :: Prelude.Text
   }
@@ -74,13 +74,13 @@ data CreateFleet = CreateFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'optimizeForEndUserLocation', 'createFleet_optimizeForEndUserLocation' - The option to optimize for better performance by routing traffic through
--- the closest AWS Region to users, which may be outside of your home
--- Region.
+-- 'tags', 'createFleet_tags' - The tags to add to the resource. A tag is a key-value pair.
 --
 -- 'displayName', 'createFleet_displayName' - The fleet name to display.
 --
--- 'tags', 'createFleet_tags' - The tags to add to the resource. A tag is a key-value pair.
+-- 'optimizeForEndUserLocation', 'createFleet_optimizeForEndUserLocation' - The option to optimize for better performance by routing traffic through
+-- the closest AWS Region to users, which may be outside of your home
+-- Region.
 --
 -- 'fleetName', 'createFleet_fleetName' - A unique name for the fleet.
 newCreateFleet ::
@@ -89,26 +89,25 @@ newCreateFleet ::
   CreateFleet
 newCreateFleet pFleetName_ =
   CreateFleet'
-    { optimizeForEndUserLocation =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      optimizeForEndUserLocation = Prelude.Nothing,
       fleetName = pFleetName_
     }
+
+-- | The tags to add to the resource. A tag is a key-value pair.
+createFleet_tags :: Lens.Lens' CreateFleet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} a -> s {tags = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The fleet name to display.
+createFleet_displayName :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
+createFleet_displayName = Lens.lens (\CreateFleet' {displayName} -> displayName) (\s@CreateFleet' {} a -> s {displayName = a} :: CreateFleet)
 
 -- | The option to optimize for better performance by routing traffic through
 -- the closest AWS Region to users, which may be outside of your home
 -- Region.
 createFleet_optimizeForEndUserLocation :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Bool)
 createFleet_optimizeForEndUserLocation = Lens.lens (\CreateFleet' {optimizeForEndUserLocation} -> optimizeForEndUserLocation) (\s@CreateFleet' {} a -> s {optimizeForEndUserLocation = a} :: CreateFleet)
-
--- | The fleet name to display.
-createFleet_displayName :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
-createFleet_displayName = Lens.lens (\CreateFleet' {displayName} -> displayName) (\s@CreateFleet' {} a -> s {displayName = a} :: CreateFleet)
-
--- | The tags to add to the resource. A tag is a key-value pair.
-createFleet_tags :: Lens.Lens' CreateFleet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} a -> s {tags = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique name for the fleet.
 createFleet_fleetName :: Lens.Lens' CreateFleet Prelude.Text
@@ -127,17 +126,16 @@ instance Core.AWSRequest CreateFleet where
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =
-    _salt
-      `Prelude.hashWithSalt` optimizeForEndUserLocation
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` optimizeForEndUserLocation
       `Prelude.hashWithSalt` fleetName
 
 instance Prelude.NFData CreateFleet where
   rnf CreateFleet' {..} =
-    Prelude.rnf optimizeForEndUserLocation
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf optimizeForEndUserLocation
       `Prelude.seq` Prelude.rnf fleetName
 
 instance Core.ToHeaders CreateFleet where
@@ -155,10 +153,10 @@ instance Core.ToJSON CreateFleet where
   toJSON CreateFleet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OptimizeForEndUserLocation" Core..=)
-              Prelude.<$> optimizeForEndUserLocation,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("OptimizeForEndUserLocation" Core..=)
+              Prelude.<$> optimizeForEndUserLocation,
             Prelude.Just ("FleetName" Core..= fleetName)
           ]
       )

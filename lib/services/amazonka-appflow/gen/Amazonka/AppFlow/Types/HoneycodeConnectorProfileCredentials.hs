@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data HoneycodeConnectorProfileCredentials = HoneycodeConnectorProfileCredentials'
   { -- | The credentials used to access protected Amazon Honeycode resources.
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
     -- | The credentials used to acquire new access tokens.
-    refreshToken :: Prelude.Maybe Prelude.Text,
-    oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest
+    refreshToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,30 @@ data HoneycodeConnectorProfileCredentials = HoneycodeConnectorProfileCredentials
 --
 -- 'accessToken', 'honeycodeConnectorProfileCredentials_accessToken' - The credentials used to access protected Amazon Honeycode resources.
 --
--- 'refreshToken', 'honeycodeConnectorProfileCredentials_refreshToken' - The credentials used to acquire new access tokens.
---
 -- 'oAuthRequest', 'honeycodeConnectorProfileCredentials_oAuthRequest' - Undocumented member.
+--
+-- 'refreshToken', 'honeycodeConnectorProfileCredentials_refreshToken' - The credentials used to acquire new access tokens.
 newHoneycodeConnectorProfileCredentials ::
   HoneycodeConnectorProfileCredentials
 newHoneycodeConnectorProfileCredentials =
   HoneycodeConnectorProfileCredentials'
     { accessToken =
         Prelude.Nothing,
-      refreshToken = Prelude.Nothing,
-      oAuthRequest = Prelude.Nothing
+      oAuthRequest = Prelude.Nothing,
+      refreshToken = Prelude.Nothing
     }
 
 -- | The credentials used to access protected Amazon Honeycode resources.
 honeycodeConnectorProfileCredentials_accessToken :: Lens.Lens' HoneycodeConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
 honeycodeConnectorProfileCredentials_accessToken = Lens.lens (\HoneycodeConnectorProfileCredentials' {accessToken} -> accessToken) (\s@HoneycodeConnectorProfileCredentials' {} a -> s {accessToken = a} :: HoneycodeConnectorProfileCredentials) Prelude.. Lens.mapping Core._Sensitive
 
--- | The credentials used to acquire new access tokens.
-honeycodeConnectorProfileCredentials_refreshToken :: Lens.Lens' HoneycodeConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
-honeycodeConnectorProfileCredentials_refreshToken = Lens.lens (\HoneycodeConnectorProfileCredentials' {refreshToken} -> refreshToken) (\s@HoneycodeConnectorProfileCredentials' {} a -> s {refreshToken = a} :: HoneycodeConnectorProfileCredentials)
-
 -- | Undocumented member.
 honeycodeConnectorProfileCredentials_oAuthRequest :: Lens.Lens' HoneycodeConnectorProfileCredentials (Prelude.Maybe ConnectorOAuthRequest)
 honeycodeConnectorProfileCredentials_oAuthRequest = Lens.lens (\HoneycodeConnectorProfileCredentials' {oAuthRequest} -> oAuthRequest) (\s@HoneycodeConnectorProfileCredentials' {} a -> s {oAuthRequest = a} :: HoneycodeConnectorProfileCredentials)
+
+-- | The credentials used to acquire new access tokens.
+honeycodeConnectorProfileCredentials_refreshToken :: Lens.Lens' HoneycodeConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
+honeycodeConnectorProfileCredentials_refreshToken = Lens.lens (\HoneycodeConnectorProfileCredentials' {refreshToken} -> refreshToken) (\s@HoneycodeConnectorProfileCredentials' {} a -> s {refreshToken = a} :: HoneycodeConnectorProfileCredentials)
 
 instance
   Prelude.Hashable
@@ -79,8 +79,8 @@ instance
     _salt
     HoneycodeConnectorProfileCredentials' {..} =
       _salt `Prelude.hashWithSalt` accessToken
-        `Prelude.hashWithSalt` refreshToken
         `Prelude.hashWithSalt` oAuthRequest
+        `Prelude.hashWithSalt` refreshToken
 
 instance
   Prelude.NFData
@@ -88,8 +88,8 @@ instance
   where
   rnf HoneycodeConnectorProfileCredentials' {..} =
     Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf refreshToken
       `Prelude.seq` Prelude.rnf oAuthRequest
+      `Prelude.seq` Prelude.rnf refreshToken
 
 instance
   Core.ToJSON
@@ -99,7 +99,7 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("accessToken" Core..=) Prelude.<$> accessToken,
-            ("refreshToken" Core..=) Prelude.<$> refreshToken,
-            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest
+            ("oAuthRequest" Core..=) Prelude.<$> oAuthRequest,
+            ("refreshToken" Core..=) Prelude.<$> refreshToken
           ]
       )

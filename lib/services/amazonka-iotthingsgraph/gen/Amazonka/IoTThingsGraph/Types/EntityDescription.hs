@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntityDescription' smart constructor.
 data EntityDescription = EntityDescription'
-  { -- | The entity ARN.
+  { -- | The entity type.
+    type' :: Prelude.Maybe EntityType,
+    -- | The entity ARN.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The entity ID.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the entity was created.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The definition document of the entity.
-    definition :: Prelude.Maybe DefinitionDocument,
-    -- | The entity ID.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The entity type.
-    type' :: Prelude.Maybe EntityType
+    definition :: Prelude.Maybe DefinitionDocument
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,29 +50,37 @@ data EntityDescription = EntityDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'entityDescription_type' - The entity type.
+--
 -- 'arn', 'entityDescription_arn' - The entity ARN.
+--
+-- 'id', 'entityDescription_id' - The entity ID.
 --
 -- 'createdAt', 'entityDescription_createdAt' - The time at which the entity was created.
 --
 -- 'definition', 'entityDescription_definition' - The definition document of the entity.
---
--- 'id', 'entityDescription_id' - The entity ID.
---
--- 'type'', 'entityDescription_type' - The entity type.
 newEntityDescription ::
   EntityDescription
 newEntityDescription =
   EntityDescription'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      definition = Prelude.Nothing,
+    { type' = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
-      type' = Prelude.Nothing
+      createdAt = Prelude.Nothing,
+      definition = Prelude.Nothing
     }
+
+-- | The entity type.
+entityDescription_type :: Lens.Lens' EntityDescription (Prelude.Maybe EntityType)
+entityDescription_type = Lens.lens (\EntityDescription' {type'} -> type') (\s@EntityDescription' {} a -> s {type' = a} :: EntityDescription)
 
 -- | The entity ARN.
 entityDescription_arn :: Lens.Lens' EntityDescription (Prelude.Maybe Prelude.Text)
 entityDescription_arn = Lens.lens (\EntityDescription' {arn} -> arn) (\s@EntityDescription' {} a -> s {arn = a} :: EntityDescription)
+
+-- | The entity ID.
+entityDescription_id :: Lens.Lens' EntityDescription (Prelude.Maybe Prelude.Text)
+entityDescription_id = Lens.lens (\EntityDescription' {id} -> id) (\s@EntityDescription' {} a -> s {id = a} :: EntityDescription)
 
 -- | The time at which the entity was created.
 entityDescription_createdAt :: Lens.Lens' EntityDescription (Prelude.Maybe Prelude.UTCTime)
@@ -82,39 +90,31 @@ entityDescription_createdAt = Lens.lens (\EntityDescription' {createdAt} -> crea
 entityDescription_definition :: Lens.Lens' EntityDescription (Prelude.Maybe DefinitionDocument)
 entityDescription_definition = Lens.lens (\EntityDescription' {definition} -> definition) (\s@EntityDescription' {} a -> s {definition = a} :: EntityDescription)
 
--- | The entity ID.
-entityDescription_id :: Lens.Lens' EntityDescription (Prelude.Maybe Prelude.Text)
-entityDescription_id = Lens.lens (\EntityDescription' {id} -> id) (\s@EntityDescription' {} a -> s {id = a} :: EntityDescription)
-
--- | The entity type.
-entityDescription_type :: Lens.Lens' EntityDescription (Prelude.Maybe EntityType)
-entityDescription_type = Lens.lens (\EntityDescription' {type'} -> type') (\s@EntityDescription' {} a -> s {type' = a} :: EntityDescription)
-
 instance Core.FromJSON EntityDescription where
   parseJSON =
     Core.withObject
       "EntityDescription"
       ( \x ->
           EntityDescription'
-            Prelude.<$> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "definition")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "type")
       )
 
 instance Prelude.Hashable EntityDescription where
   hashWithSalt _salt EntityDescription' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` definition
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EntityDescription where
   rnf EntityDescription' {..} =
-    Prelude.rnf arn
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf type'

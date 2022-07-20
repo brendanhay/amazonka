@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectorModelSummary' smart constructor.
 data DetectorModelSummary = DetectorModelSummary'
-  { -- | The time the detector model was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the detector model.
+  { -- | The name of the detector model.
     detectorModelName :: Prelude.Maybe Prelude.Text,
     -- | A brief description of the detector model.
-    detectorModelDescription :: Prelude.Maybe Prelude.Text
+    detectorModelDescription :: Prelude.Maybe Prelude.Text,
+    -- | The time the detector model was created.
+    creationTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data DetectorModelSummary = DetectorModelSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'detectorModelSummary_creationTime' - The time the detector model was created.
---
 -- 'detectorModelName', 'detectorModelSummary_detectorModelName' - The name of the detector model.
 --
 -- 'detectorModelDescription', 'detectorModelSummary_detectorModelDescription' - A brief description of the detector model.
+--
+-- 'creationTime', 'detectorModelSummary_creationTime' - The time the detector model was created.
 newDetectorModelSummary ::
   DetectorModelSummary
 newDetectorModelSummary =
   DetectorModelSummary'
-    { creationTime =
+    { detectorModelName =
         Prelude.Nothing,
-      detectorModelName = Prelude.Nothing,
-      detectorModelDescription = Prelude.Nothing
+      detectorModelDescription = Prelude.Nothing,
+      creationTime = Prelude.Nothing
     }
-
--- | The time the detector model was created.
-detectorModelSummary_creationTime :: Lens.Lens' DetectorModelSummary (Prelude.Maybe Prelude.UTCTime)
-detectorModelSummary_creationTime = Lens.lens (\DetectorModelSummary' {creationTime} -> creationTime) (\s@DetectorModelSummary' {} a -> s {creationTime = a} :: DetectorModelSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the detector model.
 detectorModelSummary_detectorModelName :: Lens.Lens' DetectorModelSummary (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ detectorModelSummary_detectorModelName = Lens.lens (\DetectorModelSummary' {dete
 detectorModelSummary_detectorModelDescription :: Lens.Lens' DetectorModelSummary (Prelude.Maybe Prelude.Text)
 detectorModelSummary_detectorModelDescription = Lens.lens (\DetectorModelSummary' {detectorModelDescription} -> detectorModelDescription) (\s@DetectorModelSummary' {} a -> s {detectorModelDescription = a} :: DetectorModelSummary)
 
+-- | The time the detector model was created.
+detectorModelSummary_creationTime :: Lens.Lens' DetectorModelSummary (Prelude.Maybe Prelude.UTCTime)
+detectorModelSummary_creationTime = Lens.lens (\DetectorModelSummary' {creationTime} -> creationTime) (\s@DetectorModelSummary' {} a -> s {creationTime = a} :: DetectorModelSummary) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON DetectorModelSummary where
   parseJSON =
     Core.withObject
       "DetectorModelSummary"
       ( \x ->
           DetectorModelSummary'
-            Prelude.<$> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "detectorModelName")
+            Prelude.<$> (x Core..:? "detectorModelName")
             Prelude.<*> (x Core..:? "detectorModelDescription")
+            Prelude.<*> (x Core..:? "creationTime")
       )
 
 instance Prelude.Hashable DetectorModelSummary where
   hashWithSalt _salt DetectorModelSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` detectorModelName
+    _salt `Prelude.hashWithSalt` detectorModelName
       `Prelude.hashWithSalt` detectorModelDescription
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData DetectorModelSummary where
   rnf DetectorModelSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf detectorModelName
+    Prelude.rnf detectorModelName
       `Prelude.seq` Prelude.rnf detectorModelDescription
+      `Prelude.seq` Prelude.rnf creationTime

@@ -23,6 +23,35 @@ import Amazonka.SSMIncidents.Lens
 import Amazonka.SSMIncidents.Types
 
 -- | Polls 'Amazonka.SSMIncidents.GetReplicationSet' every 30 seconds until a successful state is reached. An error is returned after 5 failed checks.
+newWaitForReplicationSetDeleted :: Core.Wait GetReplicationSet
+newWaitForReplicationSetDeleted =
+  Core.Wait
+    { Core._waitName =
+        "WaitForReplicationSetDeleted",
+      Core._waitAttempts = 5,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETING"
+            Core.AcceptRetry
+            ( getReplicationSetResponse_replicationSet
+                Prelude.. replicationSet_status
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "FAILED"
+            Core.AcceptFailure
+            ( getReplicationSetResponse_replicationSet
+                Prelude.. replicationSet_status
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.SSMIncidents.GetReplicationSet' every 30 seconds until a successful state is reached. An error is returned after 5 failed checks.
 newWaitForReplicationSetActive :: Core.Wait GetReplicationSet
 newWaitForReplicationSetActive =
   Core.Wait
@@ -47,35 +76,6 @@ newWaitForReplicationSetActive =
             ),
           Core.matchAll
             "UPDATING"
-            Core.AcceptRetry
-            ( getReplicationSetResponse_replicationSet
-                Prelude.. replicationSet_status
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "FAILED"
-            Core.AcceptFailure
-            ( getReplicationSetResponse_replicationSet
-                Prelude.. replicationSet_status
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.SSMIncidents.GetReplicationSet' every 30 seconds until a successful state is reached. An error is returned after 5 failed checks.
-newWaitForReplicationSetDeleted :: Core.Wait GetReplicationSet
-newWaitForReplicationSetDeleted =
-  Core.Wait
-    { Core._waitName =
-        "WaitForReplicationSetDeleted",
-      Core._waitAttempts = 5,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "DELETING"
             Core.AcceptRetry
             ( getReplicationSetResponse_replicationSet
                 Prelude.. replicationSet_status

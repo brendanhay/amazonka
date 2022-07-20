@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserError' smart constructor.
 data UserError = UserError'
-  { -- | The user ID for which the action failed.
+  { -- | The error message.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The user ID for which the action failed.
     userId :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    errorCode :: Prelude.Maybe ErrorCode,
-    -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe ErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data UserError = UserError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorMessage', 'userError_errorMessage' - The error message.
+--
 -- 'userId', 'userError_userId' - The user ID for which the action failed.
 --
 -- 'errorCode', 'userError_errorCode' - The error code.
---
--- 'errorMessage', 'userError_errorMessage' - The error message.
 newUserError ::
   UserError
 newUserError =
   UserError'
-    { userId = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorMessage = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
+
+-- | The error message.
+userError_errorMessage :: Lens.Lens' UserError (Prelude.Maybe Prelude.Text)
+userError_errorMessage = Lens.lens (\UserError' {errorMessage} -> errorMessage) (\s@UserError' {} a -> s {errorMessage = a} :: UserError)
 
 -- | The user ID for which the action failed.
 userError_userId :: Lens.Lens' UserError (Prelude.Maybe Prelude.Text)
@@ -69,29 +73,25 @@ userError_userId = Lens.lens (\UserError' {userId} -> userId) (\s@UserError' {} 
 userError_errorCode :: Lens.Lens' UserError (Prelude.Maybe ErrorCode)
 userError_errorCode = Lens.lens (\UserError' {errorCode} -> errorCode) (\s@UserError' {} a -> s {errorCode = a} :: UserError)
 
--- | The error message.
-userError_errorMessage :: Lens.Lens' UserError (Prelude.Maybe Prelude.Text)
-userError_errorMessage = Lens.lens (\UserError' {errorMessage} -> errorMessage) (\s@UserError' {} a -> s {errorMessage = a} :: UserError)
-
 instance Core.FromJSON UserError where
   parseJSON =
     Core.withObject
       "UserError"
       ( \x ->
           UserError'
-            Prelude.<$> (x Core..:? "UserId")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "UserId")
             Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable UserError where
   hashWithSalt _salt UserError' {..} =
-    _salt `Prelude.hashWithSalt` userId
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData UserError where
   rnf UserError' {..} =
-    Prelude.rnf userId
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage

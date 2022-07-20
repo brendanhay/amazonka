@@ -36,8 +36,8 @@ module Amazonka.Chime.ListPhoneNumberOrders
     newListPhoneNumberOrdersResponse,
 
     -- * Response Lenses
-    listPhoneNumberOrdersResponse_phoneNumberOrders,
     listPhoneNumberOrdersResponse_nextToken,
+    listPhoneNumberOrdersResponse_phoneNumberOrders,
     listPhoneNumberOrdersResponse_httpStatus,
   )
 where
@@ -94,10 +94,10 @@ instance Core.AWSRequest ListPhoneNumberOrders where
     Response.receiveJSON
       ( \s h x ->
           ListPhoneNumberOrdersResponse'
-            Prelude.<$> ( x Core..?> "PhoneNumberOrders"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "PhoneNumberOrders"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,10 +126,10 @@ instance Core.ToQuery ListPhoneNumberOrders where
 
 -- | /See:/ 'newListPhoneNumberOrdersResponse' smart constructor.
 data ListPhoneNumberOrdersResponse = ListPhoneNumberOrdersResponse'
-  { -- | The phone number order details.
-    phoneNumberOrders :: Prelude.Maybe [PhoneNumberOrder],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The phone number order details.
+    phoneNumberOrders :: Prelude.Maybe [PhoneNumberOrder],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,9 +143,9 @@ data ListPhoneNumberOrdersResponse = ListPhoneNumberOrdersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberOrders', 'listPhoneNumberOrdersResponse_phoneNumberOrders' - The phone number order details.
---
 -- 'nextToken', 'listPhoneNumberOrdersResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'phoneNumberOrders', 'listPhoneNumberOrdersResponse_phoneNumberOrders' - The phone number order details.
 --
 -- 'httpStatus', 'listPhoneNumberOrdersResponse_httpStatus' - The response's http status code.
 newListPhoneNumberOrdersResponse ::
@@ -154,19 +154,19 @@ newListPhoneNumberOrdersResponse ::
   ListPhoneNumberOrdersResponse
 newListPhoneNumberOrdersResponse pHttpStatus_ =
   ListPhoneNumberOrdersResponse'
-    { phoneNumberOrders =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      phoneNumberOrders = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The phone number order details.
-listPhoneNumberOrdersResponse_phoneNumberOrders :: Lens.Lens' ListPhoneNumberOrdersResponse (Prelude.Maybe [PhoneNumberOrder])
-listPhoneNumberOrdersResponse_phoneNumberOrders = Lens.lens (\ListPhoneNumberOrdersResponse' {phoneNumberOrders} -> phoneNumberOrders) (\s@ListPhoneNumberOrdersResponse' {} a -> s {phoneNumberOrders = a} :: ListPhoneNumberOrdersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 listPhoneNumberOrdersResponse_nextToken :: Lens.Lens' ListPhoneNumberOrdersResponse (Prelude.Maybe Prelude.Text)
 listPhoneNumberOrdersResponse_nextToken = Lens.lens (\ListPhoneNumberOrdersResponse' {nextToken} -> nextToken) (\s@ListPhoneNumberOrdersResponse' {} a -> s {nextToken = a} :: ListPhoneNumberOrdersResponse)
+
+-- | The phone number order details.
+listPhoneNumberOrdersResponse_phoneNumberOrders :: Lens.Lens' ListPhoneNumberOrdersResponse (Prelude.Maybe [PhoneNumberOrder])
+listPhoneNumberOrdersResponse_phoneNumberOrders = Lens.lens (\ListPhoneNumberOrdersResponse' {phoneNumberOrders} -> phoneNumberOrders) (\s@ListPhoneNumberOrdersResponse' {} a -> s {phoneNumberOrders = a} :: ListPhoneNumberOrdersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPhoneNumberOrdersResponse_httpStatus :: Lens.Lens' ListPhoneNumberOrdersResponse Prelude.Int
@@ -174,6 +174,6 @@ listPhoneNumberOrdersResponse_httpStatus = Lens.lens (\ListPhoneNumberOrdersResp
 
 instance Prelude.NFData ListPhoneNumberOrdersResponse where
   rnf ListPhoneNumberOrdersResponse' {..} =
-    Prelude.rnf phoneNumberOrders
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf phoneNumberOrders
       `Prelude.seq` Prelude.rnf httpStatus

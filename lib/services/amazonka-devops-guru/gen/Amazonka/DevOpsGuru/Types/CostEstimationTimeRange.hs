@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCostEstimationTimeRange' smart constructor.
 data CostEstimationTimeRange = CostEstimationTimeRange'
-  { -- | The start time of the cost estimation.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The end time of the cost estimation.
-    endTime :: Prelude.Maybe Core.POSIX
+  { -- | The end time of the cost estimation.
+    endTime :: Prelude.Maybe Core.POSIX,
+    -- | The start time of the cost estimation.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,24 @@ data CostEstimationTimeRange = CostEstimationTimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'costEstimationTimeRange_startTime' - The start time of the cost estimation.
---
 -- 'endTime', 'costEstimationTimeRange_endTime' - The end time of the cost estimation.
+--
+-- 'startTime', 'costEstimationTimeRange_startTime' - The start time of the cost estimation.
 newCostEstimationTimeRange ::
   CostEstimationTimeRange
 newCostEstimationTimeRange =
   CostEstimationTimeRange'
-    { startTime =
-        Prelude.Nothing,
-      endTime = Prelude.Nothing
+    { endTime = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
-
--- | The start time of the cost estimation.
-costEstimationTimeRange_startTime :: Lens.Lens' CostEstimationTimeRange (Prelude.Maybe Prelude.UTCTime)
-costEstimationTimeRange_startTime = Lens.lens (\CostEstimationTimeRange' {startTime} -> startTime) (\s@CostEstimationTimeRange' {} a -> s {startTime = a} :: CostEstimationTimeRange) Prelude.. Lens.mapping Core._Time
 
 -- | The end time of the cost estimation.
 costEstimationTimeRange_endTime :: Lens.Lens' CostEstimationTimeRange (Prelude.Maybe Prelude.UTCTime)
 costEstimationTimeRange_endTime = Lens.lens (\CostEstimationTimeRange' {endTime} -> endTime) (\s@CostEstimationTimeRange' {} a -> s {endTime = a} :: CostEstimationTimeRange) Prelude.. Lens.mapping Core._Time
+
+-- | The start time of the cost estimation.
+costEstimationTimeRange_startTime :: Lens.Lens' CostEstimationTimeRange (Prelude.Maybe Prelude.UTCTime)
+costEstimationTimeRange_startTime = Lens.lens (\CostEstimationTimeRange' {startTime} -> startTime) (\s@CostEstimationTimeRange' {} a -> s {startTime = a} :: CostEstimationTimeRange) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON CostEstimationTimeRange where
   parseJSON =
@@ -68,16 +67,16 @@ instance Core.FromJSON CostEstimationTimeRange where
       "CostEstimationTimeRange"
       ( \x ->
           CostEstimationTimeRange'
-            Prelude.<$> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<$> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "StartTime")
       )
 
 instance Prelude.Hashable CostEstimationTimeRange where
   hashWithSalt _salt CostEstimationTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData CostEstimationTimeRange where
   rnf CostEstimationTimeRange' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime

@@ -40,9 +40,9 @@ module Amazonka.IAM.ListRoles
     newListRoles,
 
     -- * Request Lenses
-    listRoles_pathPrefix,
     listRoles_marker,
     listRoles_maxItems,
+    listRoles_pathPrefix,
 
     -- * Destructuring the Response
     ListRolesResponse (..),
@@ -65,20 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRoles' smart constructor.
 data ListRoles = ListRoles'
-  { -- | The path prefix for filtering the results. For example, the prefix
-    -- @\/application_abc\/component_xyz\/@ gets all roles whose path starts
-    -- with @\/application_abc\/component_xyz\/@.
-    --
-    -- This parameter is optional. If it is not included, it defaults to a
-    -- slash (\/), listing all roles. This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of either a forward slash (\/) by itself or a string that
-    -- must begin and end with forward slashes. In addition, it can contain any
-    -- ASCII character from the ! (@\\u0021@) through the DEL character
-    -- (@\\u007F@), including most punctuation characters, digits, and upper
-    -- and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
@@ -92,7 +79,20 @@ data ListRoles = ListRoles'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The path prefix for filtering the results. For example, the prefix
+    -- @\/application_abc\/component_xyz\/@ gets all roles whose path starts
+    -- with @\/application_abc\/component_xyz\/@.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/), listing all roles. This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,19 +103,6 @@ data ListRoles = ListRoles'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'pathPrefix', 'listRoles_pathPrefix' - The path prefix for filtering the results. For example, the prefix
--- @\/application_abc\/component_xyz\/@ gets all roles whose path starts
--- with @\/application_abc\/component_xyz\/@.
---
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/), listing all roles. This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
 --
 -- 'marker', 'listRoles_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -131,16 +118,8 @@ data ListRoles = ListRoles'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-newListRoles ::
-  ListRoles
-newListRoles =
-  ListRoles'
-    { pathPrefix = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
-    }
-
--- | The path prefix for filtering the results. For example, the prefix
+--
+-- 'pathPrefix', 'listRoles_pathPrefix' - The path prefix for filtering the results. For example, the prefix
 -- @\/application_abc\/component_xyz\/@ gets all roles whose path starts
 -- with @\/application_abc\/component_xyz\/@.
 --
@@ -152,8 +131,14 @@ newListRoles =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-listRoles_pathPrefix :: Lens.Lens' ListRoles (Prelude.Maybe Prelude.Text)
-listRoles_pathPrefix = Lens.lens (\ListRoles' {pathPrefix} -> pathPrefix) (\s@ListRoles' {} a -> s {pathPrefix = a} :: ListRoles)
+newListRoles ::
+  ListRoles
+newListRoles =
+  ListRoles'
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing
+    }
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -173,6 +158,21 @@ listRoles_marker = Lens.lens (\ListRoles' {marker} -> marker) (\s@ListRoles' {} 
 -- subsequent call that tells the service where to continue from.
 listRoles_maxItems :: Lens.Lens' ListRoles (Prelude.Maybe Prelude.Natural)
 listRoles_maxItems = Lens.lens (\ListRoles' {maxItems} -> maxItems) (\s@ListRoles' {} a -> s {maxItems = a} :: ListRoles)
+
+-- | The path prefix for filtering the results. For example, the prefix
+-- @\/application_abc\/component_xyz\/@ gets all roles whose path starts
+-- with @\/application_abc\/component_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all roles. This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+listRoles_pathPrefix :: Lens.Lens' ListRoles (Prelude.Maybe Prelude.Text)
+listRoles_pathPrefix = Lens.lens (\ListRoles' {pathPrefix} -> pathPrefix) (\s@ListRoles' {} a -> s {pathPrefix = a} :: ListRoles)
 
 instance Core.AWSPager ListRoles where
   page rq rs
@@ -211,15 +211,15 @@ instance Core.AWSRequest ListRoles where
 
 instance Prelude.Hashable ListRoles where
   hashWithSalt _salt ListRoles' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefix
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` pathPrefix
 
 instance Prelude.NFData ListRoles where
   rnf ListRoles' {..} =
-    Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf pathPrefix
 
 instance Core.ToHeaders ListRoles where
   toHeaders = Prelude.const Prelude.mempty
@@ -234,9 +234,9 @@ instance Core.ToQuery ListRoles where
           Core.=: ("ListRoles" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Core.=: pathPrefix,
         "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+        "MaxItems" Core.=: maxItems,
+        "PathPrefix" Core.=: pathPrefix
       ]
 
 -- | Contains the response to a successful ListRoles request.

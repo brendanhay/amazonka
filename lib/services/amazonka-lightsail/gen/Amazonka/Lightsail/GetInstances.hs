@@ -37,8 +37,8 @@ module Amazonka.Lightsail.GetInstances
     newGetInstancesResponse,
 
     -- * Response Lenses
-    getInstancesResponse_nextPageToken,
     getInstancesResponse_instances,
+    getInstancesResponse_nextPageToken,
     getInstancesResponse_httpStatus,
   )
 where
@@ -115,8 +115,8 @@ instance Core.AWSRequest GetInstances where
     Response.receiveJSON
       ( \s h x ->
           GetInstancesResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
-            Prelude.<*> (x Core..?> "instances" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "instances" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,7 +157,9 @@ instance Core.ToQuery GetInstances where
 
 -- | /See:/ 'newGetInstancesResponse' smart constructor.
 data GetInstancesResponse = GetInstancesResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An array of key-value pairs containing information about your instances.
+    instances :: Prelude.Maybe [Instance],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -165,8 +167,6 @@ data GetInstancesResponse = GetInstancesResponse'
     -- To get the next page of results, perform another @GetInstances@ request
     -- and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of key-value pairs containing information about your instances.
-    instances :: Prelude.Maybe [Instance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,6 +180,8 @@ data GetInstancesResponse = GetInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instances', 'getInstancesResponse_instances' - An array of key-value pairs containing information about your instances.
+--
 -- 'nextPageToken', 'getInstancesResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -188,8 +190,6 @@ data GetInstancesResponse = GetInstancesResponse'
 -- To get the next page of results, perform another @GetInstances@ request
 -- and specify the next page token using the @pageToken@ parameter.
 --
--- 'instances', 'getInstancesResponse_instances' - An array of key-value pairs containing information about your instances.
---
 -- 'httpStatus', 'getInstancesResponse_httpStatus' - The response's http status code.
 newGetInstancesResponse ::
   -- | 'httpStatus'
@@ -197,11 +197,14 @@ newGetInstancesResponse ::
   GetInstancesResponse
 newGetInstancesResponse pHttpStatus_ =
   GetInstancesResponse'
-    { nextPageToken =
-        Prelude.Nothing,
-      instances = Prelude.Nothing,
+    { instances = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of key-value pairs containing information about your instances.
+getInstancesResponse_instances :: Lens.Lens' GetInstancesResponse (Prelude.Maybe [Instance])
+getInstancesResponse_instances = Lens.lens (\GetInstancesResponse' {instances} -> instances) (\s@GetInstancesResponse' {} a -> s {instances = a} :: GetInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -213,16 +216,12 @@ newGetInstancesResponse pHttpStatus_ =
 getInstancesResponse_nextPageToken :: Lens.Lens' GetInstancesResponse (Prelude.Maybe Prelude.Text)
 getInstancesResponse_nextPageToken = Lens.lens (\GetInstancesResponse' {nextPageToken} -> nextPageToken) (\s@GetInstancesResponse' {} a -> s {nextPageToken = a} :: GetInstancesResponse)
 
--- | An array of key-value pairs containing information about your instances.
-getInstancesResponse_instances :: Lens.Lens' GetInstancesResponse (Prelude.Maybe [Instance])
-getInstancesResponse_instances = Lens.lens (\GetInstancesResponse' {instances} -> instances) (\s@GetInstancesResponse' {} a -> s {instances = a} :: GetInstancesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getInstancesResponse_httpStatus :: Lens.Lens' GetInstancesResponse Prelude.Int
 getInstancesResponse_httpStatus = Lens.lens (\GetInstancesResponse' {httpStatus} -> httpStatus) (\s@GetInstancesResponse' {} a -> s {httpStatus = a} :: GetInstancesResponse)
 
 instance Prelude.NFData GetInstancesResponse where
   rnf GetInstancesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf instances
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

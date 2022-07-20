@@ -27,13 +27,13 @@ module Amazonka.SESV2.SendBulkEmail
     newSendBulkEmail,
 
     -- * Request Lenses
-    sendBulkEmail_fromEmailAddress,
-    sendBulkEmail_fromEmailAddressIdentityArn,
-    sendBulkEmail_configurationSetName,
-    sendBulkEmail_feedbackForwardingEmailAddress,
     sendBulkEmail_feedbackForwardingEmailAddressIdentityArn,
-    sendBulkEmail_defaultEmailTags,
     sendBulkEmail_replyToAddresses,
+    sendBulkEmail_defaultEmailTags,
+    sendBulkEmail_fromEmailAddress,
+    sendBulkEmail_configurationSetName,
+    sendBulkEmail_fromEmailAddressIdentityArn,
+    sendBulkEmail_feedbackForwardingEmailAddress,
     sendBulkEmail_defaultContent,
     sendBulkEmail_bulkEmailEntries,
 
@@ -60,9 +60,34 @@ import Amazonka.SESV2.Types
 --
 -- /See:/ 'newSendBulkEmail' smart constructor.
 data SendBulkEmail = SendBulkEmail'
-  { -- | The email address to use as the \"From\" address for the email. The
+  { -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to use the email address specified in the
+    -- @FeedbackForwardingEmailAddress@ parameter.
+    --
+    -- For example, if the owner of example.com (which has ARN
+    -- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
+    -- policy to it that authorizes you to use feedback\@example.com, then you
+    -- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be
+    -- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
+    -- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.
+    --
+    -- For more information about sending authorization, see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+    feedbackForwardingEmailAddressIdentityArn :: Prelude.Maybe Prelude.Text,
+    -- | The \"Reply-to\" email addresses for the message. When the recipient
+    -- replies to the message, each Reply-to address receives the reply.
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | A list of tags, in the form of name\/value pairs, to apply to an email
+    -- that you send using the @SendEmail@ operation. Tags correspond to
+    -- characteristics of the email that you define, so that you can publish
+    -- email sending events.
+    defaultEmailTags :: Prelude.Maybe [MessageTag],
+    -- | The email address to use as the \"From\" address for the email. The
     -- address that you specify has to be verified.
     fromEmailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration set to use when sending the email.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the
@@ -78,34 +103,9 @@ data SendBulkEmail = SendBulkEmail'
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
     fromEmailAddressIdentityArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration set to use when sending the email.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The address that you want bounce and complaint notifications to be sent
     -- to.
     feedbackForwardingEmailAddress :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is used only for sending authorization. It is the ARN of
-    -- the identity that is associated with the sending authorization policy
-    -- that permits you to use the email address specified in the
-    -- @FeedbackForwardingEmailAddress@ parameter.
-    --
-    -- For example, if the owner of example.com (which has ARN
-    -- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
-    -- policy to it that authorizes you to use feedback\@example.com, then you
-    -- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be
-    -- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
-    -- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.
-    --
-    -- For more information about sending authorization, see the
-    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    feedbackForwardingEmailAddressIdentityArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags, in the form of name\/value pairs, to apply to an email
-    -- that you send using the @SendEmail@ operation. Tags correspond to
-    -- characteristics of the email that you define, so that you can publish
-    -- email sending events.
-    defaultEmailTags :: Prelude.Maybe [MessageTag],
-    -- | The \"Reply-to\" email addresses for the message. When the recipient
-    -- replies to the message, each Reply-to address receives the reply.
-    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | An object that contains the body of the message. You can specify a
     -- template message.
     defaultContent :: BulkEmailContent,
@@ -122,8 +122,33 @@ data SendBulkEmail = SendBulkEmail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'feedbackForwardingEmailAddressIdentityArn', 'sendBulkEmail_feedbackForwardingEmailAddressIdentityArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the
+-- @FeedbackForwardingEmailAddress@ parameter.
+--
+-- For example, if the owner of example.com (which has ARN
+-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
+-- policy to it that authorizes you to use feedback\@example.com, then you
+-- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be
+-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
+-- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+--
+-- 'replyToAddresses', 'sendBulkEmail_replyToAddresses' - The \"Reply-to\" email addresses for the message. When the recipient
+-- replies to the message, each Reply-to address receives the reply.
+--
+-- 'defaultEmailTags', 'sendBulkEmail_defaultEmailTags' - A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using the @SendEmail@ operation. Tags correspond to
+-- characteristics of the email that you define, so that you can publish
+-- email sending events.
+--
 -- 'fromEmailAddress', 'sendBulkEmail_fromEmailAddress' - The email address to use as the \"From\" address for the email. The
 -- address that you specify has to be verified.
+--
+-- 'configurationSetName', 'sendBulkEmail_configurationSetName' - The name of the configuration set to use when sending the email.
 --
 -- 'fromEmailAddressIdentityArn', 'sendBulkEmail_fromEmailAddressIdentityArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -140,33 +165,8 @@ data SendBulkEmail = SendBulkEmail'
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
--- 'configurationSetName', 'sendBulkEmail_configurationSetName' - The name of the configuration set to use when sending the email.
---
 -- 'feedbackForwardingEmailAddress', 'sendBulkEmail_feedbackForwardingEmailAddress' - The address that you want bounce and complaint notifications to be sent
 -- to.
---
--- 'feedbackForwardingEmailAddressIdentityArn', 'sendBulkEmail_feedbackForwardingEmailAddressIdentityArn' - This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the
--- @FeedbackForwardingEmailAddress@ parameter.
---
--- For example, if the owner of example.com (which has ARN
--- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
--- policy to it that authorizes you to use feedback\@example.com, then you
--- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be
--- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
--- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
--- 'defaultEmailTags', 'sendBulkEmail_defaultEmailTags' - A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using the @SendEmail@ operation. Tags correspond to
--- characteristics of the email that you define, so that you can publish
--- email sending events.
---
--- 'replyToAddresses', 'sendBulkEmail_replyToAddresses' - The \"Reply-to\" email addresses for the message. When the recipient
--- replies to the message, each Reply-to address receives the reply.
 --
 -- 'defaultContent', 'sendBulkEmail_defaultContent' - An object that contains the body of the message. You can specify a
 -- template message.
@@ -178,48 +178,17 @@ newSendBulkEmail ::
   SendBulkEmail
 newSendBulkEmail pDefaultContent_ =
   SendBulkEmail'
-    { fromEmailAddress = Prelude.Nothing,
-      fromEmailAddressIdentityArn = Prelude.Nothing,
-      configurationSetName = Prelude.Nothing,
-      feedbackForwardingEmailAddress = Prelude.Nothing,
-      feedbackForwardingEmailAddressIdentityArn =
+    { feedbackForwardingEmailAddressIdentityArn =
         Prelude.Nothing,
-      defaultEmailTags = Prelude.Nothing,
       replyToAddresses = Prelude.Nothing,
+      defaultEmailTags = Prelude.Nothing,
+      fromEmailAddress = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
+      fromEmailAddressIdentityArn = Prelude.Nothing,
+      feedbackForwardingEmailAddress = Prelude.Nothing,
       defaultContent = pDefaultContent_,
       bulkEmailEntries = Prelude.mempty
     }
-
--- | The email address to use as the \"From\" address for the email. The
--- address that you specify has to be verified.
-sendBulkEmail_fromEmailAddress :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
-sendBulkEmail_fromEmailAddress = Lens.lens (\SendBulkEmail' {fromEmailAddress} -> fromEmailAddress) (\s@SendBulkEmail' {} a -> s {fromEmailAddress = a} :: SendBulkEmail)
-
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the
--- @FromEmailAddress@ parameter.
---
--- For example, if the owner of example.com (which has ARN
--- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
--- policy to it that authorizes you to use sender\@example.com, then you
--- would specify the @FromEmailAddressIdentityArn@ to be
--- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
--- @FromEmailAddress@ to be sender\@example.com.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendBulkEmail_fromEmailAddressIdentityArn :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
-sendBulkEmail_fromEmailAddressIdentityArn = Lens.lens (\SendBulkEmail' {fromEmailAddressIdentityArn} -> fromEmailAddressIdentityArn) (\s@SendBulkEmail' {} a -> s {fromEmailAddressIdentityArn = a} :: SendBulkEmail)
-
--- | The name of the configuration set to use when sending the email.
-sendBulkEmail_configurationSetName :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
-sendBulkEmail_configurationSetName = Lens.lens (\SendBulkEmail' {configurationSetName} -> configurationSetName) (\s@SendBulkEmail' {} a -> s {configurationSetName = a} :: SendBulkEmail)
-
--- | The address that you want bounce and complaint notifications to be sent
--- to.
-sendBulkEmail_feedbackForwardingEmailAddress :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
-sendBulkEmail_feedbackForwardingEmailAddress = Lens.lens (\SendBulkEmail' {feedbackForwardingEmailAddress} -> feedbackForwardingEmailAddress) (\s@SendBulkEmail' {} a -> s {feedbackForwardingEmailAddress = a} :: SendBulkEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -238,6 +207,11 @@ sendBulkEmail_feedbackForwardingEmailAddress = Lens.lens (\SendBulkEmail' {feedb
 sendBulkEmail_feedbackForwardingEmailAddressIdentityArn :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
 sendBulkEmail_feedbackForwardingEmailAddressIdentityArn = Lens.lens (\SendBulkEmail' {feedbackForwardingEmailAddressIdentityArn} -> feedbackForwardingEmailAddressIdentityArn) (\s@SendBulkEmail' {} a -> s {feedbackForwardingEmailAddressIdentityArn = a} :: SendBulkEmail)
 
+-- | The \"Reply-to\" email addresses for the message. When the recipient
+-- replies to the message, each Reply-to address receives the reply.
+sendBulkEmail_replyToAddresses :: Lens.Lens' SendBulkEmail (Prelude.Maybe [Prelude.Text])
+sendBulkEmail_replyToAddresses = Lens.lens (\SendBulkEmail' {replyToAddresses} -> replyToAddresses) (\s@SendBulkEmail' {} a -> s {replyToAddresses = a} :: SendBulkEmail) Prelude.. Lens.mapping Lens.coerced
+
 -- | A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send using the @SendEmail@ operation. Tags correspond to
 -- characteristics of the email that you define, so that you can publish
@@ -245,10 +219,36 @@ sendBulkEmail_feedbackForwardingEmailAddressIdentityArn = Lens.lens (\SendBulkEm
 sendBulkEmail_defaultEmailTags :: Lens.Lens' SendBulkEmail (Prelude.Maybe [MessageTag])
 sendBulkEmail_defaultEmailTags = Lens.lens (\SendBulkEmail' {defaultEmailTags} -> defaultEmailTags) (\s@SendBulkEmail' {} a -> s {defaultEmailTags = a} :: SendBulkEmail) Prelude.. Lens.mapping Lens.coerced
 
--- | The \"Reply-to\" email addresses for the message. When the recipient
--- replies to the message, each Reply-to address receives the reply.
-sendBulkEmail_replyToAddresses :: Lens.Lens' SendBulkEmail (Prelude.Maybe [Prelude.Text])
-sendBulkEmail_replyToAddresses = Lens.lens (\SendBulkEmail' {replyToAddresses} -> replyToAddresses) (\s@SendBulkEmail' {} a -> s {replyToAddresses = a} :: SendBulkEmail) Prelude.. Lens.mapping Lens.coerced
+-- | The email address to use as the \"From\" address for the email. The
+-- address that you specify has to be verified.
+sendBulkEmail_fromEmailAddress :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
+sendBulkEmail_fromEmailAddress = Lens.lens (\SendBulkEmail' {fromEmailAddress} -> fromEmailAddress) (\s@SendBulkEmail' {} a -> s {fromEmailAddress = a} :: SendBulkEmail)
+
+-- | The name of the configuration set to use when sending the email.
+sendBulkEmail_configurationSetName :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
+sendBulkEmail_configurationSetName = Lens.lens (\SendBulkEmail' {configurationSetName} -> configurationSetName) (\s@SendBulkEmail' {} a -> s {configurationSetName = a} :: SendBulkEmail)
+
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the
+-- @FromEmailAddress@ parameter.
+--
+-- For example, if the owner of example.com (which has ARN
+-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
+-- policy to it that authorizes you to use sender\@example.com, then you
+-- would specify the @FromEmailAddressIdentityArn@ to be
+-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
+-- @FromEmailAddress@ to be sender\@example.com.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+sendBulkEmail_fromEmailAddressIdentityArn :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
+sendBulkEmail_fromEmailAddressIdentityArn = Lens.lens (\SendBulkEmail' {fromEmailAddressIdentityArn} -> fromEmailAddressIdentityArn) (\s@SendBulkEmail' {} a -> s {fromEmailAddressIdentityArn = a} :: SendBulkEmail)
+
+-- | The address that you want bounce and complaint notifications to be sent
+-- to.
+sendBulkEmail_feedbackForwardingEmailAddress :: Lens.Lens' SendBulkEmail (Prelude.Maybe Prelude.Text)
+sendBulkEmail_feedbackForwardingEmailAddress = Lens.lens (\SendBulkEmail' {feedbackForwardingEmailAddress} -> feedbackForwardingEmailAddress) (\s@SendBulkEmail' {} a -> s {feedbackForwardingEmailAddress = a} :: SendBulkEmail)
 
 -- | An object that contains the body of the message. You can specify a
 -- template message.
@@ -276,25 +276,27 @@ instance Core.AWSRequest SendBulkEmail where
 
 instance Prelude.Hashable SendBulkEmail where
   hashWithSalt _salt SendBulkEmail' {..} =
-    _salt `Prelude.hashWithSalt` fromEmailAddress
-      `Prelude.hashWithSalt` fromEmailAddressIdentityArn
-      `Prelude.hashWithSalt` configurationSetName
-      `Prelude.hashWithSalt` feedbackForwardingEmailAddress
+    _salt
       `Prelude.hashWithSalt` feedbackForwardingEmailAddressIdentityArn
-      `Prelude.hashWithSalt` defaultEmailTags
       `Prelude.hashWithSalt` replyToAddresses
+      `Prelude.hashWithSalt` defaultEmailTags
+      `Prelude.hashWithSalt` fromEmailAddress
+      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` fromEmailAddressIdentityArn
+      `Prelude.hashWithSalt` feedbackForwardingEmailAddress
       `Prelude.hashWithSalt` defaultContent
       `Prelude.hashWithSalt` bulkEmailEntries
 
 instance Prelude.NFData SendBulkEmail where
   rnf SendBulkEmail' {..} =
-    Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf fromEmailAddressIdentityArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddress
-      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddressIdentityArn
-      `Prelude.seq` Prelude.rnf defaultEmailTags
+    Prelude.rnf
+      feedbackForwardingEmailAddressIdentityArn
       `Prelude.seq` Prelude.rnf replyToAddresses
+      `Prelude.seq` Prelude.rnf defaultEmailTags
+      `Prelude.seq` Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf fromEmailAddressIdentityArn
+      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddress
       `Prelude.seq` Prelude.rnf defaultContent
       `Prelude.seq` Prelude.rnf bulkEmailEntries
 
@@ -313,20 +315,22 @@ instance Core.ToJSON SendBulkEmail where
   toJSON SendBulkEmail' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FromEmailAddress" Core..=)
-              Prelude.<$> fromEmailAddress,
-            ("FromEmailAddressIdentityArn" Core..=)
-              Prelude.<$> fromEmailAddressIdentityArn,
-            ("ConfigurationSetName" Core..=)
-              Prelude.<$> configurationSetName,
-            ("FeedbackForwardingEmailAddress" Core..=)
-              Prelude.<$> feedbackForwardingEmailAddress,
-            ("FeedbackForwardingEmailAddressIdentityArn" Core..=)
+          [ ( "FeedbackForwardingEmailAddressIdentityArn"
+                Core..=
+            )
               Prelude.<$> feedbackForwardingEmailAddressIdentityArn,
-            ("DefaultEmailTags" Core..=)
-              Prelude.<$> defaultEmailTags,
             ("ReplyToAddresses" Core..=)
               Prelude.<$> replyToAddresses,
+            ("DefaultEmailTags" Core..=)
+              Prelude.<$> defaultEmailTags,
+            ("FromEmailAddress" Core..=)
+              Prelude.<$> fromEmailAddress,
+            ("ConfigurationSetName" Core..=)
+              Prelude.<$> configurationSetName,
+            ("FromEmailAddressIdentityArn" Core..=)
+              Prelude.<$> fromEmailAddressIdentityArn,
+            ("FeedbackForwardingEmailAddress" Core..=)
+              Prelude.<$> feedbackForwardingEmailAddress,
             Prelude.Just
               ("DefaultContent" Core..= defaultContent),
             Prelude.Just

@@ -32,23 +32,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The canned access control list (ACL) to apply to the job results.
-    cannedACL :: Prelude.Maybe CannedACL,
-    -- | The prefix that is prepended to the results for this request.
-    prefix :: Prelude.Maybe Prelude.Text,
+  { -- | A list of grants that control access to the staged results.
+    accessControlList :: Prelude.Maybe [Grant],
     -- | The name of the Amazon S3 bucket where the job results are stored.
     bucketName :: Prelude.Maybe Prelude.Text,
-    -- | A list of grants that control access to the staged results.
-    accessControlList :: Prelude.Maybe [Grant],
-    -- | A map of metadata to store with the job results in Amazon S3.
-    userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The tag-set that is applied to the job results.
+    tagging :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Contains information about the encryption used to store the job results
     -- in Amazon S3.
     encryption :: Prelude.Maybe Encryption,
+    -- | The prefix that is prepended to the results for this request.
+    prefix :: Prelude.Maybe Prelude.Text,
     -- | The storage class used to store the job results.
     storageClass :: Prelude.Maybe StorageClass,
-    -- | The tag-set that is applied to the job results.
-    tagging :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The canned access control list (ACL) to apply to the job results.
+    cannedACL :: Prelude.Maybe CannedACL,
+    -- | A map of metadata to store with the job results in Amazon S3.
+    userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,68 +60,68 @@ data S3Location = S3Location'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cannedACL', 's3Location_cannedACL' - The canned access control list (ACL) to apply to the job results.
---
--- 'prefix', 's3Location_prefix' - The prefix that is prepended to the results for this request.
+-- 'accessControlList', 's3Location_accessControlList' - A list of grants that control access to the staged results.
 --
 -- 'bucketName', 's3Location_bucketName' - The name of the Amazon S3 bucket where the job results are stored.
 --
--- 'accessControlList', 's3Location_accessControlList' - A list of grants that control access to the staged results.
---
--- 'userMetadata', 's3Location_userMetadata' - A map of metadata to store with the job results in Amazon S3.
+-- 'tagging', 's3Location_tagging' - The tag-set that is applied to the job results.
 --
 -- 'encryption', 's3Location_encryption' - Contains information about the encryption used to store the job results
 -- in Amazon S3.
 --
+-- 'prefix', 's3Location_prefix' - The prefix that is prepended to the results for this request.
+--
 -- 'storageClass', 's3Location_storageClass' - The storage class used to store the job results.
 --
--- 'tagging', 's3Location_tagging' - The tag-set that is applied to the job results.
+-- 'cannedACL', 's3Location_cannedACL' - The canned access control list (ACL) to apply to the job results.
+--
+-- 'userMetadata', 's3Location_userMetadata' - A map of metadata to store with the job results in Amazon S3.
 newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { cannedACL = Prelude.Nothing,
-      prefix = Prelude.Nothing,
+    { accessControlList = Prelude.Nothing,
       bucketName = Prelude.Nothing,
-      accessControlList = Prelude.Nothing,
-      userMetadata = Prelude.Nothing,
+      tagging = Prelude.Nothing,
       encryption = Prelude.Nothing,
+      prefix = Prelude.Nothing,
       storageClass = Prelude.Nothing,
-      tagging = Prelude.Nothing
+      cannedACL = Prelude.Nothing,
+      userMetadata = Prelude.Nothing
     }
-
--- | The canned access control list (ACL) to apply to the job results.
-s3Location_cannedACL :: Lens.Lens' S3Location (Prelude.Maybe CannedACL)
-s3Location_cannedACL = Lens.lens (\S3Location' {cannedACL} -> cannedACL) (\s@S3Location' {} a -> s {cannedACL = a} :: S3Location)
-
--- | The prefix that is prepended to the results for this request.
-s3Location_prefix :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
-s3Location_prefix = Lens.lens (\S3Location' {prefix} -> prefix) (\s@S3Location' {} a -> s {prefix = a} :: S3Location)
-
--- | The name of the Amazon S3 bucket where the job results are stored.
-s3Location_bucketName :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
-s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@S3Location' {} a -> s {bucketName = a} :: S3Location)
 
 -- | A list of grants that control access to the staged results.
 s3Location_accessControlList :: Lens.Lens' S3Location (Prelude.Maybe [Grant])
 s3Location_accessControlList = Lens.lens (\S3Location' {accessControlList} -> accessControlList) (\s@S3Location' {} a -> s {accessControlList = a} :: S3Location) Prelude.. Lens.mapping Lens.coerced
 
--- | A map of metadata to store with the job results in Amazon S3.
-s3Location_userMetadata :: Lens.Lens' S3Location (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-s3Location_userMetadata = Lens.lens (\S3Location' {userMetadata} -> userMetadata) (\s@S3Location' {} a -> s {userMetadata = a} :: S3Location) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the Amazon S3 bucket where the job results are stored.
+s3Location_bucketName :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@S3Location' {} a -> s {bucketName = a} :: S3Location)
+
+-- | The tag-set that is applied to the job results.
+s3Location_tagging :: Lens.Lens' S3Location (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+s3Location_tagging = Lens.lens (\S3Location' {tagging} -> tagging) (\s@S3Location' {} a -> s {tagging = a} :: S3Location) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains information about the encryption used to store the job results
 -- in Amazon S3.
 s3Location_encryption :: Lens.Lens' S3Location (Prelude.Maybe Encryption)
 s3Location_encryption = Lens.lens (\S3Location' {encryption} -> encryption) (\s@S3Location' {} a -> s {encryption = a} :: S3Location)
 
+-- | The prefix that is prepended to the results for this request.
+s3Location_prefix :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_prefix = Lens.lens (\S3Location' {prefix} -> prefix) (\s@S3Location' {} a -> s {prefix = a} :: S3Location)
+
 -- | The storage class used to store the job results.
 s3Location_storageClass :: Lens.Lens' S3Location (Prelude.Maybe StorageClass)
 s3Location_storageClass = Lens.lens (\S3Location' {storageClass} -> storageClass) (\s@S3Location' {} a -> s {storageClass = a} :: S3Location)
 
--- | The tag-set that is applied to the job results.
-s3Location_tagging :: Lens.Lens' S3Location (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-s3Location_tagging = Lens.lens (\S3Location' {tagging} -> tagging) (\s@S3Location' {} a -> s {tagging = a} :: S3Location) Prelude.. Lens.mapping Lens.coerced
+-- | The canned access control list (ACL) to apply to the job results.
+s3Location_cannedACL :: Lens.Lens' S3Location (Prelude.Maybe CannedACL)
+s3Location_cannedACL = Lens.lens (\S3Location' {cannedACL} -> cannedACL) (\s@S3Location' {} a -> s {cannedACL = a} :: S3Location)
+
+-- | A map of metadata to store with the job results in Amazon S3.
+s3Location_userMetadata :: Lens.Lens' S3Location (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+s3Location_userMetadata = Lens.lens (\S3Location' {userMetadata} -> userMetadata) (\s@S3Location' {} a -> s {userMetadata = a} :: S3Location) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON S3Location where
   parseJSON =
@@ -129,52 +129,52 @@ instance Core.FromJSON S3Location where
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "CannedACL")
-            Prelude.<*> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..:? "BucketName")
-            Prelude.<*> ( x Core..:? "AccessControlList"
+            Prelude.<$> ( x Core..:? "AccessControlList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "UserMetadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Encryption")
-            Prelude.<*> (x Core..:? "StorageClass")
+            Prelude.<*> (x Core..:? "BucketName")
             Prelude.<*> (x Core..:? "Tagging" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Encryption")
+            Prelude.<*> (x Core..:? "Prefix")
+            Prelude.<*> (x Core..:? "StorageClass")
+            Prelude.<*> (x Core..:? "CannedACL")
+            Prelude.<*> (x Core..:? "UserMetadata" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` cannedACL
-      `Prelude.hashWithSalt` prefix
+    _salt `Prelude.hashWithSalt` accessControlList
       `Prelude.hashWithSalt` bucketName
-      `Prelude.hashWithSalt` accessControlList
-      `Prelude.hashWithSalt` userMetadata
-      `Prelude.hashWithSalt` encryption
-      `Prelude.hashWithSalt` storageClass
       `Prelude.hashWithSalt` tagging
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` storageClass
+      `Prelude.hashWithSalt` cannedACL
+      `Prelude.hashWithSalt` userMetadata
 
 instance Prelude.NFData S3Location where
   rnf S3Location' {..} =
-    Prelude.rnf cannedACL
-      `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf accessControlList
       `Prelude.seq` Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf userMetadata
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf storageClass
       `Prelude.seq` Prelude.rnf tagging
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf storageClass
+      `Prelude.seq` Prelude.rnf cannedACL
+      `Prelude.seq` Prelude.rnf userMetadata
 
 instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CannedACL" Core..=) Prelude.<$> cannedACL,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            ("BucketName" Core..=) Prelude.<$> bucketName,
-            ("AccessControlList" Core..=)
+          [ ("AccessControlList" Core..=)
               Prelude.<$> accessControlList,
-            ("UserMetadata" Core..=) Prelude.<$> userMetadata,
+            ("BucketName" Core..=) Prelude.<$> bucketName,
+            ("Tagging" Core..=) Prelude.<$> tagging,
             ("Encryption" Core..=) Prelude.<$> encryption,
+            ("Prefix" Core..=) Prelude.<$> prefix,
             ("StorageClass" Core..=) Prelude.<$> storageClass,
-            ("Tagging" Core..=) Prelude.<$> tagging
+            ("CannedACL" Core..=) Prelude.<$> cannedACL,
+            ("UserMetadata" Core..=) Prelude.<$> userMetadata
           ]
       )

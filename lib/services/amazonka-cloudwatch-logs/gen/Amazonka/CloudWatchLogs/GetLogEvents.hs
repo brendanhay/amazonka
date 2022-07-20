@@ -34,11 +34,11 @@ module Amazonka.CloudWatchLogs.GetLogEvents
     newGetLogEvents,
 
     -- * Request Lenses
-    getLogEvents_startTime,
-    getLogEvents_startFromHead,
     getLogEvents_nextToken,
+    getLogEvents_startFromHead,
     getLogEvents_endTime,
     getLogEvents_limit,
+    getLogEvents_startTime,
     getLogEvents_logGroupName,
     getLogEvents_logStreamName,
 
@@ -47,9 +47,9 @@ module Amazonka.CloudWatchLogs.GetLogEvents
     newGetLogEventsResponse,
 
     -- * Response Lenses
-    getLogEventsResponse_nextBackwardToken,
     getLogEventsResponse_nextForwardToken,
     getLogEventsResponse_events,
+    getLogEventsResponse_nextBackwardToken,
     getLogEventsResponse_httpStatus,
   )
 where
@@ -63,11 +63,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLogEvents' smart constructor.
 data GetLogEvents = GetLogEvents'
-  { -- | The start of the time range, expressed as the number of milliseconds
-    -- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this
-    -- time or later than this time are included. Events with a timestamp
-    -- earlier than this time are not included.
-    startTime :: Prelude.Maybe Prelude.Natural,
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | If the value is true, the earliest log events are returned first. If the
     -- value is false, the latest log events are returned first. The default
     -- value is false.
@@ -75,9 +73,6 @@ data GetLogEvents = GetLogEvents'
     -- If you are using a previous @nextForwardToken@ value as the @nextToken@
     -- in this operation, you must specify @true@ for @startFromHead@.
     startFromHead :: Prelude.Maybe Prelude.Bool,
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The end of the time range, expressed as the number of milliseconds after
     -- Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than
     -- this time are not included.
@@ -86,6 +81,11 @@ data GetLogEvents = GetLogEvents'
     -- value, the maximum is as many log events as can fit in a response size
     -- of 1 MB, up to 10,000 log events.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The start of the time range, expressed as the number of milliseconds
+    -- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this
+    -- time or later than this time are included. Events with a timestamp
+    -- earlier than this time are not included.
+    startTime :: Prelude.Maybe Prelude.Natural,
     -- | The name of the log group.
     logGroupName :: Prelude.Text,
     -- | The name of the log stream.
@@ -101,10 +101,8 @@ data GetLogEvents = GetLogEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'getLogEvents_startTime' - The start of the time range, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this
--- time or later than this time are included. Events with a timestamp
--- earlier than this time are not included.
+-- 'nextToken', 'getLogEvents_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'startFromHead', 'getLogEvents_startFromHead' - If the value is true, the earliest log events are returned first. If the
 -- value is false, the latest log events are returned first. The default
@@ -113,9 +111,6 @@ data GetLogEvents = GetLogEvents'
 -- If you are using a previous @nextForwardToken@ value as the @nextToken@
 -- in this operation, you must specify @true@ for @startFromHead@.
 --
--- 'nextToken', 'getLogEvents_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'endTime', 'getLogEvents_endTime' - The end of the time range, expressed as the number of milliseconds after
 -- Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than
 -- this time are not included.
@@ -123,6 +118,11 @@ data GetLogEvents = GetLogEvents'
 -- 'limit', 'getLogEvents_limit' - The maximum number of log events returned. If you don\'t specify a
 -- value, the maximum is as many log events as can fit in a response size
 -- of 1 MB, up to 10,000 log events.
+--
+-- 'startTime', 'getLogEvents_startTime' - The start of the time range, expressed as the number of milliseconds
+-- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this
+-- time or later than this time are included. Events with a timestamp
+-- earlier than this time are not included.
 --
 -- 'logGroupName', 'getLogEvents_logGroupName' - The name of the log group.
 --
@@ -135,21 +135,19 @@ newGetLogEvents ::
   GetLogEvents
 newGetLogEvents pLogGroupName_ pLogStreamName_ =
   GetLogEvents'
-    { startTime = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       startFromHead = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       endTime = Prelude.Nothing,
       limit = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       logGroupName = pLogGroupName_,
       logStreamName = pLogStreamName_
     }
 
--- | The start of the time range, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this
--- time or later than this time are included. Events with a timestamp
--- earlier than this time are not included.
-getLogEvents_startTime :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Natural)
-getLogEvents_startTime = Lens.lens (\GetLogEvents' {startTime} -> startTime) (\s@GetLogEvents' {} a -> s {startTime = a} :: GetLogEvents)
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+getLogEvents_nextToken :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Text)
+getLogEvents_nextToken = Lens.lens (\GetLogEvents' {nextToken} -> nextToken) (\s@GetLogEvents' {} a -> s {nextToken = a} :: GetLogEvents)
 
 -- | If the value is true, the earliest log events are returned first. If the
 -- value is false, the latest log events are returned first. The default
@@ -159,11 +157,6 @@ getLogEvents_startTime = Lens.lens (\GetLogEvents' {startTime} -> startTime) (\s
 -- in this operation, you must specify @true@ for @startFromHead@.
 getLogEvents_startFromHead :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Bool)
 getLogEvents_startFromHead = Lens.lens (\GetLogEvents' {startFromHead} -> startFromHead) (\s@GetLogEvents' {} a -> s {startFromHead = a} :: GetLogEvents)
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-getLogEvents_nextToken :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Text)
-getLogEvents_nextToken = Lens.lens (\GetLogEvents' {nextToken} -> nextToken) (\s@GetLogEvents' {} a -> s {nextToken = a} :: GetLogEvents)
 
 -- | The end of the time range, expressed as the number of milliseconds after
 -- Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than
@@ -176,6 +169,13 @@ getLogEvents_endTime = Lens.lens (\GetLogEvents' {endTime} -> endTime) (\s@GetLo
 -- of 1 MB, up to 10,000 log events.
 getLogEvents_limit :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Natural)
 getLogEvents_limit = Lens.lens (\GetLogEvents' {limit} -> limit) (\s@GetLogEvents' {} a -> s {limit = a} :: GetLogEvents)
+
+-- | The start of the time range, expressed as the number of milliseconds
+-- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this
+-- time or later than this time are included. Events with a timestamp
+-- earlier than this time are not included.
+getLogEvents_startTime :: Lens.Lens' GetLogEvents (Prelude.Maybe Prelude.Natural)
+getLogEvents_startTime = Lens.lens (\GetLogEvents' {startTime} -> startTime) (\s@GetLogEvents' {} a -> s {startTime = a} :: GetLogEvents)
 
 -- | The name of the log group.
 getLogEvents_logGroupName :: Lens.Lens' GetLogEvents Prelude.Text
@@ -192,29 +192,29 @@ instance Core.AWSRequest GetLogEvents where
     Response.receiveJSON
       ( \s h x ->
           GetLogEventsResponse'
-            Prelude.<$> (x Core..?> "nextBackwardToken")
-            Prelude.<*> (x Core..?> "nextForwardToken")
+            Prelude.<$> (x Core..?> "nextForwardToken")
             Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextBackwardToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetLogEvents where
   hashWithSalt _salt GetLogEvents' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startFromHead
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logStreamName
 
 instance Prelude.NFData GetLogEvents where
   rnf GetLogEvents' {..} =
-    Prelude.rnf startTime
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startFromHead
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf logStreamName
 
@@ -235,11 +235,11 @@ instance Core.ToJSON GetLogEvents where
   toJSON GetLogEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("startTime" Core..=) Prelude.<$> startTime,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("startFromHead" Core..=) Prelude.<$> startFromHead,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("endTime" Core..=) Prelude.<$> endTime,
             ("limit" Core..=) Prelude.<$> limit,
+            ("startTime" Core..=) Prelude.<$> startTime,
             Prelude.Just ("logGroupName" Core..= logGroupName),
             Prelude.Just
               ("logStreamName" Core..= logStreamName)
@@ -254,16 +254,16 @@ instance Core.ToQuery GetLogEvents where
 
 -- | /See:/ 'newGetLogEventsResponse' smart constructor.
 data GetLogEventsResponse = GetLogEventsResponse'
-  { -- | The token for the next set of items in the backward direction. The token
-    -- expires after 24 hours. This token is never null. If you have reached
-    -- the end of the stream, it returns the same token you passed in.
-    nextBackwardToken :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of items in the forward direction. The token
+  { -- | The token for the next set of items in the forward direction. The token
     -- expires after 24 hours. If you have reached the end of the stream, it
     -- returns the same token you passed in.
     nextForwardToken :: Prelude.Maybe Prelude.Text,
     -- | The events.
     events :: Prelude.Maybe [OutputLogEvent],
+    -- | The token for the next set of items in the backward direction. The token
+    -- expires after 24 hours. This token is never null. If you have reached
+    -- the end of the stream, it returns the same token you passed in.
+    nextBackwardToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -277,15 +277,15 @@ data GetLogEventsResponse = GetLogEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextBackwardToken', 'getLogEventsResponse_nextBackwardToken' - The token for the next set of items in the backward direction. The token
--- expires after 24 hours. This token is never null. If you have reached
--- the end of the stream, it returns the same token you passed in.
---
 -- 'nextForwardToken', 'getLogEventsResponse_nextForwardToken' - The token for the next set of items in the forward direction. The token
 -- expires after 24 hours. If you have reached the end of the stream, it
 -- returns the same token you passed in.
 --
 -- 'events', 'getLogEventsResponse_events' - The events.
+--
+-- 'nextBackwardToken', 'getLogEventsResponse_nextBackwardToken' - The token for the next set of items in the backward direction. The token
+-- expires after 24 hours. This token is never null. If you have reached
+-- the end of the stream, it returns the same token you passed in.
 --
 -- 'httpStatus', 'getLogEventsResponse_httpStatus' - The response's http status code.
 newGetLogEventsResponse ::
@@ -294,18 +294,12 @@ newGetLogEventsResponse ::
   GetLogEventsResponse
 newGetLogEventsResponse pHttpStatus_ =
   GetLogEventsResponse'
-    { nextBackwardToken =
+    { nextForwardToken =
         Prelude.Nothing,
-      nextForwardToken = Prelude.Nothing,
       events = Prelude.Nothing,
+      nextBackwardToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of items in the backward direction. The token
--- expires after 24 hours. This token is never null. If you have reached
--- the end of the stream, it returns the same token you passed in.
-getLogEventsResponse_nextBackwardToken :: Lens.Lens' GetLogEventsResponse (Prelude.Maybe Prelude.Text)
-getLogEventsResponse_nextBackwardToken = Lens.lens (\GetLogEventsResponse' {nextBackwardToken} -> nextBackwardToken) (\s@GetLogEventsResponse' {} a -> s {nextBackwardToken = a} :: GetLogEventsResponse)
 
 -- | The token for the next set of items in the forward direction. The token
 -- expires after 24 hours. If you have reached the end of the stream, it
@@ -317,13 +311,19 @@ getLogEventsResponse_nextForwardToken = Lens.lens (\GetLogEventsResponse' {nextF
 getLogEventsResponse_events :: Lens.Lens' GetLogEventsResponse (Prelude.Maybe [OutputLogEvent])
 getLogEventsResponse_events = Lens.lens (\GetLogEventsResponse' {events} -> events) (\s@GetLogEventsResponse' {} a -> s {events = a} :: GetLogEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The token for the next set of items in the backward direction. The token
+-- expires after 24 hours. This token is never null. If you have reached
+-- the end of the stream, it returns the same token you passed in.
+getLogEventsResponse_nextBackwardToken :: Lens.Lens' GetLogEventsResponse (Prelude.Maybe Prelude.Text)
+getLogEventsResponse_nextBackwardToken = Lens.lens (\GetLogEventsResponse' {nextBackwardToken} -> nextBackwardToken) (\s@GetLogEventsResponse' {} a -> s {nextBackwardToken = a} :: GetLogEventsResponse)
+
 -- | The response's http status code.
 getLogEventsResponse_httpStatus :: Lens.Lens' GetLogEventsResponse Prelude.Int
 getLogEventsResponse_httpStatus = Lens.lens (\GetLogEventsResponse' {httpStatus} -> httpStatus) (\s@GetLogEventsResponse' {} a -> s {httpStatus = a} :: GetLogEventsResponse)
 
 instance Prelude.NFData GetLogEventsResponse where
   rnf GetLogEventsResponse' {..} =
-    Prelude.rnf nextBackwardToken
-      `Prelude.seq` Prelude.rnf nextForwardToken
+    Prelude.rnf nextForwardToken
       `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf nextBackwardToken
       `Prelude.seq` Prelude.rnf httpStatus

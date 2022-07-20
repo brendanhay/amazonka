@@ -35,10 +35,10 @@ data S3OutputFormatConfig = S3OutputFormatConfig'
     -- the Amazon S3 bucket. You can name folders according to the flow
     -- frequency and date.
     prefixConfig :: Prelude.Maybe PrefixConfig,
+    aggregationConfig :: Prelude.Maybe AggregationConfig,
     -- | Indicates the file type that Amazon AppFlow places in the Amazon S3
     -- bucket.
-    fileType :: Prelude.Maybe FileType,
-    aggregationConfig :: Prelude.Maybe AggregationConfig
+    fileType :: Prelude.Maybe FileType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,18 +54,18 @@ data S3OutputFormatConfig = S3OutputFormatConfig'
 -- the Amazon S3 bucket. You can name folders according to the flow
 -- frequency and date.
 --
+-- 'aggregationConfig', 's3OutputFormatConfig_aggregationConfig' - Undocumented member.
+--
 -- 'fileType', 's3OutputFormatConfig_fileType' - Indicates the file type that Amazon AppFlow places in the Amazon S3
 -- bucket.
---
--- 'aggregationConfig', 's3OutputFormatConfig_aggregationConfig' - Undocumented member.
 newS3OutputFormatConfig ::
   S3OutputFormatConfig
 newS3OutputFormatConfig =
   S3OutputFormatConfig'
     { prefixConfig =
         Prelude.Nothing,
-      fileType = Prelude.Nothing,
-      aggregationConfig = Prelude.Nothing
+      aggregationConfig = Prelude.Nothing,
+      fileType = Prelude.Nothing
     }
 
 -- | Determines the prefix that Amazon AppFlow applies to the folder name in
@@ -74,14 +74,14 @@ newS3OutputFormatConfig =
 s3OutputFormatConfig_prefixConfig :: Lens.Lens' S3OutputFormatConfig (Prelude.Maybe PrefixConfig)
 s3OutputFormatConfig_prefixConfig = Lens.lens (\S3OutputFormatConfig' {prefixConfig} -> prefixConfig) (\s@S3OutputFormatConfig' {} a -> s {prefixConfig = a} :: S3OutputFormatConfig)
 
+-- | Undocumented member.
+s3OutputFormatConfig_aggregationConfig :: Lens.Lens' S3OutputFormatConfig (Prelude.Maybe AggregationConfig)
+s3OutputFormatConfig_aggregationConfig = Lens.lens (\S3OutputFormatConfig' {aggregationConfig} -> aggregationConfig) (\s@S3OutputFormatConfig' {} a -> s {aggregationConfig = a} :: S3OutputFormatConfig)
+
 -- | Indicates the file type that Amazon AppFlow places in the Amazon S3
 -- bucket.
 s3OutputFormatConfig_fileType :: Lens.Lens' S3OutputFormatConfig (Prelude.Maybe FileType)
 s3OutputFormatConfig_fileType = Lens.lens (\S3OutputFormatConfig' {fileType} -> fileType) (\s@S3OutputFormatConfig' {} a -> s {fileType = a} :: S3OutputFormatConfig)
-
--- | Undocumented member.
-s3OutputFormatConfig_aggregationConfig :: Lens.Lens' S3OutputFormatConfig (Prelude.Maybe AggregationConfig)
-s3OutputFormatConfig_aggregationConfig = Lens.lens (\S3OutputFormatConfig' {aggregationConfig} -> aggregationConfig) (\s@S3OutputFormatConfig' {} a -> s {aggregationConfig = a} :: S3OutputFormatConfig)
 
 instance Core.FromJSON S3OutputFormatConfig where
   parseJSON =
@@ -90,29 +90,29 @@ instance Core.FromJSON S3OutputFormatConfig where
       ( \x ->
           S3OutputFormatConfig'
             Prelude.<$> (x Core..:? "prefixConfig")
-            Prelude.<*> (x Core..:? "fileType")
             Prelude.<*> (x Core..:? "aggregationConfig")
+            Prelude.<*> (x Core..:? "fileType")
       )
 
 instance Prelude.Hashable S3OutputFormatConfig where
   hashWithSalt _salt S3OutputFormatConfig' {..} =
     _salt `Prelude.hashWithSalt` prefixConfig
-      `Prelude.hashWithSalt` fileType
       `Prelude.hashWithSalt` aggregationConfig
+      `Prelude.hashWithSalt` fileType
 
 instance Prelude.NFData S3OutputFormatConfig where
   rnf S3OutputFormatConfig' {..} =
     Prelude.rnf prefixConfig
-      `Prelude.seq` Prelude.rnf fileType
       `Prelude.seq` Prelude.rnf aggregationConfig
+      `Prelude.seq` Prelude.rnf fileType
 
 instance Core.ToJSON S3OutputFormatConfig where
   toJSON S3OutputFormatConfig' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("prefixConfig" Core..=) Prelude.<$> prefixConfig,
-            ("fileType" Core..=) Prelude.<$> fileType,
             ("aggregationConfig" Core..=)
-              Prelude.<$> aggregationConfig
+              Prelude.<$> aggregationConfig,
+            ("fileType" Core..=) Prelude.<$> fileType
           ]
       )

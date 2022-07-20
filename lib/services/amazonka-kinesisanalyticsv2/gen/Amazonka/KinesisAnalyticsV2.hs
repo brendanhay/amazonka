@@ -23,20 +23,17 @@ module Amazonka.KinesisAnalyticsV2
     -- * Errors
     -- $errors
 
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
     -- ** InvalidApplicationConfigurationException
     _InvalidApplicationConfigurationException,
-
-    -- ** ResourceProvisionedThroughputExceededException
-    _ResourceProvisionedThroughputExceededException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
 
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** TooManyTagsException
     _TooManyTagsException,
@@ -44,23 +41,26 @@ module Amazonka.KinesisAnalyticsV2
     -- ** CodeValidationException
     _CodeValidationException,
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
-
-    -- ** UnableToDetectSchemaException
-    _UnableToDetectSchemaException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** UnableToDetectSchemaException
+    _UnableToDetectSchemaException,
+
+    -- ** ResourceProvisionedThroughputExceededException
+    _ResourceProvisionedThroughputExceededException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -68,143 +68,11 @@ module Amazonka.KinesisAnalyticsV2
     -- * Operations
     -- $operations
 
-    -- ** AddApplicationOutput
-    AddApplicationOutput (AddApplicationOutput'),
-    newAddApplicationOutput,
-    AddApplicationOutputResponse (AddApplicationOutputResponse'),
-    newAddApplicationOutputResponse,
-
-    -- ** DiscoverInputSchema
-    DiscoverInputSchema (DiscoverInputSchema'),
-    newDiscoverInputSchema,
-    DiscoverInputSchemaResponse (DiscoverInputSchemaResponse'),
-    newDiscoverInputSchemaResponse,
-
-    -- ** DescribeApplication
-    DescribeApplication (DescribeApplication'),
-    newDescribeApplication,
-    DescribeApplicationResponse (DescribeApplicationResponse'),
-    newDescribeApplicationResponse,
-
-    -- ** DeleteApplicationSnapshot
-    DeleteApplicationSnapshot (DeleteApplicationSnapshot'),
-    newDeleteApplicationSnapshot,
-    DeleteApplicationSnapshotResponse (DeleteApplicationSnapshotResponse'),
-    newDeleteApplicationSnapshotResponse,
-
-    -- ** StartApplication
-    StartApplication (StartApplication'),
-    newStartApplication,
-    StartApplicationResponse (StartApplicationResponse'),
-    newStartApplicationResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DescribeApplicationVersion
-    DescribeApplicationVersion (DescribeApplicationVersion'),
-    newDescribeApplicationVersion,
-    DescribeApplicationVersionResponse (DescribeApplicationVersionResponse'),
-    newDescribeApplicationVersionResponse,
-
-    -- ** DeleteApplicationReferenceDataSource
-    DeleteApplicationReferenceDataSource (DeleteApplicationReferenceDataSource'),
-    newDeleteApplicationReferenceDataSource,
-    DeleteApplicationReferenceDataSourceResponse (DeleteApplicationReferenceDataSourceResponse'),
-    newDeleteApplicationReferenceDataSourceResponse,
-
-    -- ** CreateApplicationPresignedUrl
-    CreateApplicationPresignedUrl (CreateApplicationPresignedUrl'),
-    newCreateApplicationPresignedUrl,
-    CreateApplicationPresignedUrlResponse (CreateApplicationPresignedUrlResponse'),
-    newCreateApplicationPresignedUrlResponse,
-
-    -- ** DeleteApplication
-    DeleteApplication (DeleteApplication'),
-    newDeleteApplication,
-    DeleteApplicationResponse (DeleteApplicationResponse'),
-    newDeleteApplicationResponse,
-
-    -- ** UpdateApplication
-    UpdateApplication (UpdateApplication'),
-    newUpdateApplication,
-    UpdateApplicationResponse (UpdateApplicationResponse'),
-    newUpdateApplicationResponse,
-
-    -- ** DeleteApplicationCloudWatchLoggingOption
-    DeleteApplicationCloudWatchLoggingOption (DeleteApplicationCloudWatchLoggingOption'),
-    newDeleteApplicationCloudWatchLoggingOption,
-    DeleteApplicationCloudWatchLoggingOptionResponse (DeleteApplicationCloudWatchLoggingOptionResponse'),
-    newDeleteApplicationCloudWatchLoggingOptionResponse,
-
-    -- ** DescribeApplicationSnapshot
-    DescribeApplicationSnapshot (DescribeApplicationSnapshot'),
-    newDescribeApplicationSnapshot,
-    DescribeApplicationSnapshotResponse (DescribeApplicationSnapshotResponse'),
-    newDescribeApplicationSnapshotResponse,
-
-    -- ** DeleteApplicationVpcConfiguration
-    DeleteApplicationVpcConfiguration (DeleteApplicationVpcConfiguration'),
-    newDeleteApplicationVpcConfiguration,
-    DeleteApplicationVpcConfigurationResponse (DeleteApplicationVpcConfigurationResponse'),
-    newDeleteApplicationVpcConfigurationResponse,
-
-    -- ** AddApplicationInputProcessingConfiguration
-    AddApplicationInputProcessingConfiguration (AddApplicationInputProcessingConfiguration'),
-    newAddApplicationInputProcessingConfiguration,
-    AddApplicationInputProcessingConfigurationResponse (AddApplicationInputProcessingConfigurationResponse'),
-    newAddApplicationInputProcessingConfigurationResponse,
-
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    CreateApplicationResponse (CreateApplicationResponse'),
-    newCreateApplicationResponse,
-
-    -- ** ListApplicationVersions
-    ListApplicationVersions (ListApplicationVersions'),
-    newListApplicationVersions,
-    ListApplicationVersionsResponse (ListApplicationVersionsResponse'),
-    newListApplicationVersionsResponse,
-
-    -- ** DeleteApplicationOutput
-    DeleteApplicationOutput (DeleteApplicationOutput'),
-    newDeleteApplicationOutput,
-    DeleteApplicationOutputResponse (DeleteApplicationOutputResponse'),
-    newDeleteApplicationOutputResponse,
-
-    -- ** RollbackApplication
-    RollbackApplication (RollbackApplication'),
-    newRollbackApplication,
-    RollbackApplicationResponse (RollbackApplicationResponse'),
-    newRollbackApplicationResponse,
-
-    -- ** ListApplicationSnapshots (Paginated)
-    ListApplicationSnapshots (ListApplicationSnapshots'),
-    newListApplicationSnapshots,
-    ListApplicationSnapshotsResponse (ListApplicationSnapshotsResponse'),
-    newListApplicationSnapshotsResponse,
-
-    -- ** StopApplication
-    StopApplication (StopApplication'),
-    newStopApplication,
-    StopApplicationResponse (StopApplicationResponse'),
-    newStopApplicationResponse,
-
-    -- ** CreateApplicationSnapshot
-    CreateApplicationSnapshot (CreateApplicationSnapshot'),
-    newCreateApplicationSnapshot,
-    CreateApplicationSnapshotResponse (CreateApplicationSnapshotResponse'),
-    newCreateApplicationSnapshotResponse,
-
-    -- ** AddApplicationReferenceDataSource
-    AddApplicationReferenceDataSource (AddApplicationReferenceDataSource'),
-    newAddApplicationReferenceDataSource,
-    AddApplicationReferenceDataSourceResponse (AddApplicationReferenceDataSourceResponse'),
-    newAddApplicationReferenceDataSourceResponse,
+    -- ** AddApplicationCloudWatchLoggingOption
+    AddApplicationCloudWatchLoggingOption (AddApplicationCloudWatchLoggingOption'),
+    newAddApplicationCloudWatchLoggingOption,
+    AddApplicationCloudWatchLoggingOptionResponse (AddApplicationCloudWatchLoggingOptionResponse'),
+    newAddApplicationCloudWatchLoggingOptionResponse,
 
     -- ** AddApplicationInput
     AddApplicationInput (AddApplicationInput'),
@@ -212,29 +80,59 @@ module Amazonka.KinesisAnalyticsV2
     AddApplicationInputResponse (AddApplicationInputResponse'),
     newAddApplicationInputResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** AddApplicationInputProcessingConfiguration
+    AddApplicationInputProcessingConfiguration (AddApplicationInputProcessingConfiguration'),
+    newAddApplicationInputProcessingConfiguration,
+    AddApplicationInputProcessingConfigurationResponse (AddApplicationInputProcessingConfigurationResponse'),
+    newAddApplicationInputProcessingConfigurationResponse,
 
-    -- ** AddApplicationCloudWatchLoggingOption
-    AddApplicationCloudWatchLoggingOption (AddApplicationCloudWatchLoggingOption'),
-    newAddApplicationCloudWatchLoggingOption,
-    AddApplicationCloudWatchLoggingOptionResponse (AddApplicationCloudWatchLoggingOptionResponse'),
-    newAddApplicationCloudWatchLoggingOptionResponse,
+    -- ** AddApplicationOutput
+    AddApplicationOutput (AddApplicationOutput'),
+    newAddApplicationOutput,
+    AddApplicationOutputResponse (AddApplicationOutputResponse'),
+    newAddApplicationOutputResponse,
 
-    -- ** ListApplications (Paginated)
-    ListApplications (ListApplications'),
-    newListApplications,
-    ListApplicationsResponse (ListApplicationsResponse'),
-    newListApplicationsResponse,
+    -- ** AddApplicationReferenceDataSource
+    AddApplicationReferenceDataSource (AddApplicationReferenceDataSource'),
+    newAddApplicationReferenceDataSource,
+    AddApplicationReferenceDataSourceResponse (AddApplicationReferenceDataSourceResponse'),
+    newAddApplicationReferenceDataSourceResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** AddApplicationVpcConfiguration
+    AddApplicationVpcConfiguration (AddApplicationVpcConfiguration'),
+    newAddApplicationVpcConfiguration,
+    AddApplicationVpcConfigurationResponse (AddApplicationVpcConfigurationResponse'),
+    newAddApplicationVpcConfigurationResponse,
+
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    CreateApplicationResponse (CreateApplicationResponse'),
+    newCreateApplicationResponse,
+
+    -- ** CreateApplicationPresignedUrl
+    CreateApplicationPresignedUrl (CreateApplicationPresignedUrl'),
+    newCreateApplicationPresignedUrl,
+    CreateApplicationPresignedUrlResponse (CreateApplicationPresignedUrlResponse'),
+    newCreateApplicationPresignedUrlResponse,
+
+    -- ** CreateApplicationSnapshot
+    CreateApplicationSnapshot (CreateApplicationSnapshot'),
+    newCreateApplicationSnapshot,
+    CreateApplicationSnapshotResponse (CreateApplicationSnapshotResponse'),
+    newCreateApplicationSnapshotResponse,
+
+    -- ** DeleteApplication
+    DeleteApplication (DeleteApplication'),
+    newDeleteApplication,
+    DeleteApplicationResponse (DeleteApplicationResponse'),
+    newDeleteApplicationResponse,
+
+    -- ** DeleteApplicationCloudWatchLoggingOption
+    DeleteApplicationCloudWatchLoggingOption (DeleteApplicationCloudWatchLoggingOption'),
+    newDeleteApplicationCloudWatchLoggingOption,
+    DeleteApplicationCloudWatchLoggingOptionResponse (DeleteApplicationCloudWatchLoggingOptionResponse'),
+    newDeleteApplicationCloudWatchLoggingOptionResponse,
 
     -- ** DeleteApplicationInputProcessingConfiguration
     DeleteApplicationInputProcessingConfiguration (DeleteApplicationInputProcessingConfiguration'),
@@ -242,11 +140,113 @@ module Amazonka.KinesisAnalyticsV2
     DeleteApplicationInputProcessingConfigurationResponse (DeleteApplicationInputProcessingConfigurationResponse'),
     newDeleteApplicationInputProcessingConfigurationResponse,
 
-    -- ** AddApplicationVpcConfiguration
-    AddApplicationVpcConfiguration (AddApplicationVpcConfiguration'),
-    newAddApplicationVpcConfiguration,
-    AddApplicationVpcConfigurationResponse (AddApplicationVpcConfigurationResponse'),
-    newAddApplicationVpcConfigurationResponse,
+    -- ** DeleteApplicationOutput
+    DeleteApplicationOutput (DeleteApplicationOutput'),
+    newDeleteApplicationOutput,
+    DeleteApplicationOutputResponse (DeleteApplicationOutputResponse'),
+    newDeleteApplicationOutputResponse,
+
+    -- ** DeleteApplicationReferenceDataSource
+    DeleteApplicationReferenceDataSource (DeleteApplicationReferenceDataSource'),
+    newDeleteApplicationReferenceDataSource,
+    DeleteApplicationReferenceDataSourceResponse (DeleteApplicationReferenceDataSourceResponse'),
+    newDeleteApplicationReferenceDataSourceResponse,
+
+    -- ** DeleteApplicationSnapshot
+    DeleteApplicationSnapshot (DeleteApplicationSnapshot'),
+    newDeleteApplicationSnapshot,
+    DeleteApplicationSnapshotResponse (DeleteApplicationSnapshotResponse'),
+    newDeleteApplicationSnapshotResponse,
+
+    -- ** DeleteApplicationVpcConfiguration
+    DeleteApplicationVpcConfiguration (DeleteApplicationVpcConfiguration'),
+    newDeleteApplicationVpcConfiguration,
+    DeleteApplicationVpcConfigurationResponse (DeleteApplicationVpcConfigurationResponse'),
+    newDeleteApplicationVpcConfigurationResponse,
+
+    -- ** DescribeApplication
+    DescribeApplication (DescribeApplication'),
+    newDescribeApplication,
+    DescribeApplicationResponse (DescribeApplicationResponse'),
+    newDescribeApplicationResponse,
+
+    -- ** DescribeApplicationSnapshot
+    DescribeApplicationSnapshot (DescribeApplicationSnapshot'),
+    newDescribeApplicationSnapshot,
+    DescribeApplicationSnapshotResponse (DescribeApplicationSnapshotResponse'),
+    newDescribeApplicationSnapshotResponse,
+
+    -- ** DescribeApplicationVersion
+    DescribeApplicationVersion (DescribeApplicationVersion'),
+    newDescribeApplicationVersion,
+    DescribeApplicationVersionResponse (DescribeApplicationVersionResponse'),
+    newDescribeApplicationVersionResponse,
+
+    -- ** DiscoverInputSchema
+    DiscoverInputSchema (DiscoverInputSchema'),
+    newDiscoverInputSchema,
+    DiscoverInputSchemaResponse (DiscoverInputSchemaResponse'),
+    newDiscoverInputSchemaResponse,
+
+    -- ** ListApplicationSnapshots (Paginated)
+    ListApplicationSnapshots (ListApplicationSnapshots'),
+    newListApplicationSnapshots,
+    ListApplicationSnapshotsResponse (ListApplicationSnapshotsResponse'),
+    newListApplicationSnapshotsResponse,
+
+    -- ** ListApplicationVersions
+    ListApplicationVersions (ListApplicationVersions'),
+    newListApplicationVersions,
+    ListApplicationVersionsResponse (ListApplicationVersionsResponse'),
+    newListApplicationVersionsResponse,
+
+    -- ** ListApplications (Paginated)
+    ListApplications (ListApplications'),
+    newListApplications,
+    ListApplicationsResponse (ListApplicationsResponse'),
+    newListApplicationsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** RollbackApplication
+    RollbackApplication (RollbackApplication'),
+    newRollbackApplication,
+    RollbackApplicationResponse (RollbackApplicationResponse'),
+    newRollbackApplicationResponse,
+
+    -- ** StartApplication
+    StartApplication (StartApplication'),
+    newStartApplication,
+    StartApplicationResponse (StartApplicationResponse'),
+    newStartApplicationResponse,
+
+    -- ** StopApplication
+    StopApplication (StopApplication'),
+    newStopApplication,
+    StopApplicationResponse (StopApplicationResponse'),
+    newStopApplicationResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateApplication
+    UpdateApplication (UpdateApplication'),
+    newUpdateApplication,
+    UpdateApplicationResponse (UpdateApplicationResponse'),
+    newUpdateApplicationResponse,
 
     -- ** UpdateApplicationMaintenanceConfiguration
     UpdateApplicationMaintenanceConfiguration (UpdateApplicationMaintenanceConfiguration'),

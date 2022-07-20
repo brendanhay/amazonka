@@ -39,10 +39,10 @@ module Amazonka.Rekognition.StartFaceSearch
     newStartFaceSearch,
 
     -- * Request Lenses
+    startFaceSearch_clientRequestToken,
     startFaceSearch_faceMatchThreshold,
     startFaceSearch_jobTag,
     startFaceSearch_notificationChannel,
-    startFaceSearch_clientRequestToken,
     startFaceSearch_video,
     startFaceSearch_collectionId,
 
@@ -65,7 +65,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartFaceSearch' smart constructor.
 data StartFaceSearch = StartFaceSearch'
-  { -- | The minimum confidence in the person match to return. For example,
+  { -- | Idempotent token used to identify the start request. If you use the same
+    -- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
+    -- returned. Use @ClientRequestToken@ to prevent the same job from being
+    -- accidently started more than once.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The minimum confidence in the person match to return. For example,
     -- don\'t return any matches where confidence in matches is less than 70%.
     -- The default value is 80%.
     faceMatchThreshold :: Prelude.Maybe Prelude.Double,
@@ -80,11 +85,6 @@ data StartFaceSearch = StartFaceSearch'
     -- are using the AmazonRekognitionServiceRole permissions policy to access
     -- the topic.
     notificationChannel :: Prelude.Maybe NotificationChannel,
-    -- | Idempotent token used to identify the start request. If you use the same
-    -- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
-    -- returned. Use @ClientRequestToken@ to prevent the same job from being
-    -- accidently started more than once.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The video you want to search. The video must be stored in an Amazon S3
     -- bucket.
     video :: Video,
@@ -101,6 +101,11 @@ data StartFaceSearch = StartFaceSearch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'startFaceSearch_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
+-- returned. Use @ClientRequestToken@ to prevent the same job from being
+-- accidently started more than once.
+--
 -- 'faceMatchThreshold', 'startFaceSearch_faceMatchThreshold' - The minimum confidence in the person match to return. For example,
 -- don\'t return any matches where confidence in matches is less than 70%.
 -- The default value is 80%.
@@ -116,11 +121,6 @@ data StartFaceSearch = StartFaceSearch'
 -- are using the AmazonRekognitionServiceRole permissions policy to access
 -- the topic.
 --
--- 'clientRequestToken', 'startFaceSearch_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
--- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
--- returned. Use @ClientRequestToken@ to prevent the same job from being
--- accidently started more than once.
---
 -- 'video', 'startFaceSearch_video' - The video you want to search. The video must be stored in an Amazon S3
 -- bucket.
 --
@@ -133,14 +133,21 @@ newStartFaceSearch ::
   StartFaceSearch
 newStartFaceSearch pVideo_ pCollectionId_ =
   StartFaceSearch'
-    { faceMatchThreshold =
+    { clientRequestToken =
         Prelude.Nothing,
+      faceMatchThreshold = Prelude.Nothing,
       jobTag = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       video = pVideo_,
       collectionId = pCollectionId_
     }
+
+-- | Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
+-- returned. Use @ClientRequestToken@ to prevent the same job from being
+-- accidently started more than once.
+startFaceSearch_clientRequestToken :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Text)
+startFaceSearch_clientRequestToken = Lens.lens (\StartFaceSearch' {clientRequestToken} -> clientRequestToken) (\s@StartFaceSearch' {} a -> s {clientRequestToken = a} :: StartFaceSearch)
 
 -- | The minimum confidence in the person match to return. For example,
 -- don\'t return any matches where confidence in matches is less than 70%.
@@ -162,13 +169,6 @@ startFaceSearch_jobTag = Lens.lens (\StartFaceSearch' {jobTag} -> jobTag) (\s@St
 -- the topic.
 startFaceSearch_notificationChannel :: Lens.Lens' StartFaceSearch (Prelude.Maybe NotificationChannel)
 startFaceSearch_notificationChannel = Lens.lens (\StartFaceSearch' {notificationChannel} -> notificationChannel) (\s@StartFaceSearch' {} a -> s {notificationChannel = a} :: StartFaceSearch)
-
--- | Idempotent token used to identify the start request. If you use the same
--- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
--- returned. Use @ClientRequestToken@ to prevent the same job from being
--- accidently started more than once.
-startFaceSearch_clientRequestToken :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Text)
-startFaceSearch_clientRequestToken = Lens.lens (\StartFaceSearch' {clientRequestToken} -> clientRequestToken) (\s@StartFaceSearch' {} a -> s {clientRequestToken = a} :: StartFaceSearch)
 
 -- | The video you want to search. The video must be stored in an Amazon S3
 -- bucket.
@@ -194,19 +194,19 @@ instance Core.AWSRequest StartFaceSearch where
 
 instance Prelude.Hashable StartFaceSearch where
   hashWithSalt _salt StartFaceSearch' {..} =
-    _salt `Prelude.hashWithSalt` faceMatchThreshold
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` faceMatchThreshold
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` notificationChannel
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` video
       `Prelude.hashWithSalt` collectionId
 
 instance Prelude.NFData StartFaceSearch where
   rnf StartFaceSearch' {..} =
-    Prelude.rnf faceMatchThreshold
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf faceMatchThreshold
       `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf collectionId
 
@@ -229,13 +229,13 @@ instance Core.ToJSON StartFaceSearch where
   toJSON StartFaceSearch' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FaceMatchThreshold" Core..=)
+          [ ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            ("FaceMatchThreshold" Core..=)
               Prelude.<$> faceMatchThreshold,
             ("JobTag" Core..=) Prelude.<$> jobTag,
             ("NotificationChannel" Core..=)
               Prelude.<$> notificationChannel,
-            ("ClientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken,
             Prelude.Just ("Video" Core..= video),
             Prelude.Just ("CollectionId" Core..= collectionId)
           ]

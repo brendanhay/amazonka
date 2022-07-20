@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationSource' smart constructor.
 data RecommendationSource = RecommendationSource'
-  { -- | The Amazon Resource Name (ARN) of the recommendation source.
-    recommendationSourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The resource type of the recommendation source.
-    recommendationSourceType :: Prelude.Maybe RecommendationSourceType
+  { -- | The resource type of the recommendation source.
+    recommendationSourceType :: Prelude.Maybe RecommendationSourceType,
+    -- | The Amazon Resource Name (ARN) of the recommendation source.
+    recommendationSourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data RecommendationSource = RecommendationSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationSourceArn', 'recommendationSource_recommendationSourceArn' - The Amazon Resource Name (ARN) of the recommendation source.
---
 -- 'recommendationSourceType', 'recommendationSource_recommendationSourceType' - The resource type of the recommendation source.
+--
+-- 'recommendationSourceArn', 'recommendationSource_recommendationSourceArn' - The Amazon Resource Name (ARN) of the recommendation source.
 newRecommendationSource ::
   RecommendationSource
 newRecommendationSource =
   RecommendationSource'
-    { recommendationSourceArn =
+    { recommendationSourceType =
         Prelude.Nothing,
-      recommendationSourceType = Prelude.Nothing
+      recommendationSourceArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the recommendation source.
-recommendationSource_recommendationSourceArn :: Lens.Lens' RecommendationSource (Prelude.Maybe Prelude.Text)
-recommendationSource_recommendationSourceArn = Lens.lens (\RecommendationSource' {recommendationSourceArn} -> recommendationSourceArn) (\s@RecommendationSource' {} a -> s {recommendationSourceArn = a} :: RecommendationSource)
 
 -- | The resource type of the recommendation source.
 recommendationSource_recommendationSourceType :: Lens.Lens' RecommendationSource (Prelude.Maybe RecommendationSourceType)
 recommendationSource_recommendationSourceType = Lens.lens (\RecommendationSource' {recommendationSourceType} -> recommendationSourceType) (\s@RecommendationSource' {} a -> s {recommendationSourceType = a} :: RecommendationSource)
+
+-- | The Amazon Resource Name (ARN) of the recommendation source.
+recommendationSource_recommendationSourceArn :: Lens.Lens' RecommendationSource (Prelude.Maybe Prelude.Text)
+recommendationSource_recommendationSourceArn = Lens.lens (\RecommendationSource' {recommendationSourceArn} -> recommendationSourceArn) (\s@RecommendationSource' {} a -> s {recommendationSourceArn = a} :: RecommendationSource)
 
 instance Core.FromJSON RecommendationSource where
   parseJSON =
@@ -70,17 +70,17 @@ instance Core.FromJSON RecommendationSource where
       "RecommendationSource"
       ( \x ->
           RecommendationSource'
-            Prelude.<$> (x Core..:? "recommendationSourceArn")
-            Prelude.<*> (x Core..:? "recommendationSourceType")
+            Prelude.<$> (x Core..:? "recommendationSourceType")
+            Prelude.<*> (x Core..:? "recommendationSourceArn")
       )
 
 instance Prelude.Hashable RecommendationSource where
   hashWithSalt _salt RecommendationSource' {..} =
     _salt
-      `Prelude.hashWithSalt` recommendationSourceArn
       `Prelude.hashWithSalt` recommendationSourceType
+      `Prelude.hashWithSalt` recommendationSourceArn
 
 instance Prelude.NFData RecommendationSource where
   rnf RecommendationSource' {..} =
-    Prelude.rnf recommendationSourceArn
-      `Prelude.seq` Prelude.rnf recommendationSourceType
+    Prelude.rnf recommendationSourceType
+      `Prelude.seq` Prelude.rnf recommendationSourceArn

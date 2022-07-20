@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newItemResponse' smart constructor.
 data ItemResponse = ItemResponse'
-  { -- | The response that was received after the endpoint data was accepted.
-    endpointItemResponse :: Prelude.Maybe EndpointItemResponse,
-    -- | A multipart response object that contains a key and a value for each
+  { -- | A multipart response object that contains a key and a value for each
     -- event in the request. In each object, the event ID is the key and an
     -- EventItemResponse object is the value.
-    eventsItemResponse :: Prelude.Maybe (Prelude.HashMap Prelude.Text EventItemResponse)
+    eventsItemResponse :: Prelude.Maybe (Prelude.HashMap Prelude.Text EventItemResponse),
+    -- | The response that was received after the endpoint data was accepted.
+    endpointItemResponse :: Prelude.Maybe EndpointItemResponse
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,18 @@ data ItemResponse = ItemResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointItemResponse', 'itemResponse_endpointItemResponse' - The response that was received after the endpoint data was accepted.
---
 -- 'eventsItemResponse', 'itemResponse_eventsItemResponse' - A multipart response object that contains a key and a value for each
 -- event in the request. In each object, the event ID is the key and an
 -- EventItemResponse object is the value.
+--
+-- 'endpointItemResponse', 'itemResponse_endpointItemResponse' - The response that was received after the endpoint data was accepted.
 newItemResponse ::
   ItemResponse
 newItemResponse =
   ItemResponse'
-    { endpointItemResponse =
-        Prelude.Nothing,
-      eventsItemResponse = Prelude.Nothing
+    { eventsItemResponse = Prelude.Nothing,
+      endpointItemResponse = Prelude.Nothing
     }
-
--- | The response that was received after the endpoint data was accepted.
-itemResponse_endpointItemResponse :: Lens.Lens' ItemResponse (Prelude.Maybe EndpointItemResponse)
-itemResponse_endpointItemResponse = Lens.lens (\ItemResponse' {endpointItemResponse} -> endpointItemResponse) (\s@ItemResponse' {} a -> s {endpointItemResponse = a} :: ItemResponse)
 
 -- | A multipart response object that contains a key and a value for each
 -- event in the request. In each object, the event ID is the key and an
@@ -71,24 +66,28 @@ itemResponse_endpointItemResponse = Lens.lens (\ItemResponse' {endpointItemRespo
 itemResponse_eventsItemResponse :: Lens.Lens' ItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text EventItemResponse))
 itemResponse_eventsItemResponse = Lens.lens (\ItemResponse' {eventsItemResponse} -> eventsItemResponse) (\s@ItemResponse' {} a -> s {eventsItemResponse = a} :: ItemResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The response that was received after the endpoint data was accepted.
+itemResponse_endpointItemResponse :: Lens.Lens' ItemResponse (Prelude.Maybe EndpointItemResponse)
+itemResponse_endpointItemResponse = Lens.lens (\ItemResponse' {endpointItemResponse} -> endpointItemResponse) (\s@ItemResponse' {} a -> s {endpointItemResponse = a} :: ItemResponse)
+
 instance Core.FromJSON ItemResponse where
   parseJSON =
     Core.withObject
       "ItemResponse"
       ( \x ->
           ItemResponse'
-            Prelude.<$> (x Core..:? "EndpointItemResponse")
-            Prelude.<*> ( x Core..:? "EventsItemResponse"
+            Prelude.<$> ( x Core..:? "EventsItemResponse"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "EndpointItemResponse")
       )
 
 instance Prelude.Hashable ItemResponse where
   hashWithSalt _salt ItemResponse' {..} =
-    _salt `Prelude.hashWithSalt` endpointItemResponse
-      `Prelude.hashWithSalt` eventsItemResponse
+    _salt `Prelude.hashWithSalt` eventsItemResponse
+      `Prelude.hashWithSalt` endpointItemResponse
 
 instance Prelude.NFData ItemResponse where
   rnf ItemResponse' {..} =
-    Prelude.rnf endpointItemResponse
-      `Prelude.seq` Prelude.rnf eventsItemResponse
+    Prelude.rnf eventsItemResponse
+      `Prelude.seq` Prelude.rnf endpointItemResponse

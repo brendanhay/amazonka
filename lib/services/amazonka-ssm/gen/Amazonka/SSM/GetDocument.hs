@@ -38,19 +38,19 @@ module Amazonka.SSM.GetDocument
     newGetDocumentResponse,
 
     -- * Response Lenses
-    getDocumentResponse_status,
+    getDocumentResponse_requires,
     getDocumentResponse_documentType,
+    getDocumentResponse_name,
+    getDocumentResponse_displayName,
+    getDocumentResponse_status,
     getDocumentResponse_versionName,
+    getDocumentResponse_statusInformation,
+    getDocumentResponse_createdDate,
+    getDocumentResponse_content,
     getDocumentResponse_attachmentsContent,
     getDocumentResponse_reviewStatus,
-    getDocumentResponse_content,
-    getDocumentResponse_createdDate,
     getDocumentResponse_documentFormat,
-    getDocumentResponse_name,
     getDocumentResponse_documentVersion,
-    getDocumentResponse_displayName,
-    getDocumentResponse_statusInformation,
-    getDocumentResponse_requires,
     getDocumentResponse_httpStatus,
   )
 where
@@ -134,21 +134,21 @@ instance Core.AWSRequest GetDocument where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "Requires")
             Prelude.<*> (x Core..?> "DocumentType")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "DisplayName")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "VersionName")
+            Prelude.<*> (x Core..?> "StatusInformation")
+            Prelude.<*> (x Core..?> "CreatedDate")
+            Prelude.<*> (x Core..?> "Content")
             Prelude.<*> ( x Core..?> "AttachmentsContent"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "ReviewStatus")
-            Prelude.<*> (x Core..?> "Content")
-            Prelude.<*> (x Core..?> "CreatedDate")
             Prelude.<*> (x Core..?> "DocumentFormat")
-            Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "DocumentVersion")
-            Prelude.<*> (x Core..?> "DisplayName")
-            Prelude.<*> (x Core..?> "StatusInformation")
-            Prelude.<*> (x Core..?> "Requires")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,15 +200,34 @@ instance Core.ToQuery GetDocument where
 
 -- | /See:/ 'newGetDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-  { -- | The status of the SSM document, such as @Creating@, @Active@,
-    -- @Updating@, @Failed@, and @Deleting@.
-    status :: Prelude.Maybe DocumentStatus,
+  { -- | A list of SSM documents required by a document. For example, an
+    -- @ApplicationConfiguration@ document requires an
+    -- @ApplicationConfigurationSchema@ document.
+    requires :: Prelude.Maybe (Prelude.NonEmpty DocumentRequires),
     -- | The document type.
     documentType :: Prelude.Maybe DocumentType,
+    -- | The name of the SSM document.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the SSM document. This value can differ for each
+    -- version of the document. If you want to update this value, see
+    -- UpdateDocument.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the SSM document, such as @Creating@, @Active@,
+    -- @Updating@, @Failed@, and @Deleting@.
+    status :: Prelude.Maybe DocumentStatus,
     -- | The version of the artifact associated with the document. For example,
     -- \"Release 12, Update 6\". This value is unique across all versions of a
     -- document, and can\'t be changed.
     versionName :: Prelude.Maybe Prelude.Text,
+    -- | A message returned by Amazon Web Services Systems Manager that explains
+    -- the @Status@ value. For example, a @Failed@ status might be explained by
+    -- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
+    -- exist. Verify that the URL of the S3 bucket is correct.\"
+    statusInformation :: Prelude.Maybe Prelude.Text,
+    -- | The date the SSM document was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The contents of the SSM document.
+    content :: Prelude.Maybe Prelude.Text,
     -- | A description of the document attachments, including names, locations,
     -- sizes, and so on.
     attachmentsContent :: Prelude.Maybe [AttachmentContent],
@@ -223,29 +242,10 @@ data GetDocumentResponse = GetDocumentResponse'
     -- Only one version of an SSM document can be in review, or PENDING, at a
     -- time.
     reviewStatus :: Prelude.Maybe ReviewStatus,
-    -- | The contents of the SSM document.
-    content :: Prelude.Maybe Prelude.Text,
-    -- | The date the SSM document was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The document format, either JSON or YAML.
     documentFormat :: Prelude.Maybe DocumentFormat,
-    -- | The name of the SSM document.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the SSM document. This value can differ for each
-    -- version of the document. If you want to update this value, see
-    -- UpdateDocument.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | A message returned by Amazon Web Services Systems Manager that explains
-    -- the @Status@ value. For example, a @Failed@ status might be explained by
-    -- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
-    -- exist. Verify that the URL of the S3 bucket is correct.\"
-    statusInformation :: Prelude.Maybe Prelude.Text,
-    -- | A list of SSM documents required by a document. For example, an
-    -- @ApplicationConfiguration@ document requires an
-    -- @ApplicationConfigurationSchema@ document.
-    requires :: Prelude.Maybe (Prelude.NonEmpty DocumentRequires),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -259,14 +259,33 @@ data GetDocumentResponse = GetDocumentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getDocumentResponse_status' - The status of the SSM document, such as @Creating@, @Active@,
--- @Updating@, @Failed@, and @Deleting@.
+-- 'requires', 'getDocumentResponse_requires' - A list of SSM documents required by a document. For example, an
+-- @ApplicationConfiguration@ document requires an
+-- @ApplicationConfigurationSchema@ document.
 --
 -- 'documentType', 'getDocumentResponse_documentType' - The document type.
+--
+-- 'name', 'getDocumentResponse_name' - The name of the SSM document.
+--
+-- 'displayName', 'getDocumentResponse_displayName' - The friendly name of the SSM document. This value can differ for each
+-- version of the document. If you want to update this value, see
+-- UpdateDocument.
+--
+-- 'status', 'getDocumentResponse_status' - The status of the SSM document, such as @Creating@, @Active@,
+-- @Updating@, @Failed@, and @Deleting@.
 --
 -- 'versionName', 'getDocumentResponse_versionName' - The version of the artifact associated with the document. For example,
 -- \"Release 12, Update 6\". This value is unique across all versions of a
 -- document, and can\'t be changed.
+--
+-- 'statusInformation', 'getDocumentResponse_statusInformation' - A message returned by Amazon Web Services Systems Manager that explains
+-- the @Status@ value. For example, a @Failed@ status might be explained by
+-- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
+-- exist. Verify that the URL of the S3 bucket is correct.\"
+--
+-- 'createdDate', 'getDocumentResponse_createdDate' - The date the SSM document was created.
+--
+-- 'content', 'getDocumentResponse_content' - The contents of the SSM document.
 --
 -- 'attachmentsContent', 'getDocumentResponse_attachmentsContent' - A description of the document attachments, including names, locations,
 -- sizes, and so on.
@@ -282,28 +301,9 @@ data GetDocumentResponse = GetDocumentResponse'
 -- Only one version of an SSM document can be in review, or PENDING, at a
 -- time.
 --
--- 'content', 'getDocumentResponse_content' - The contents of the SSM document.
---
--- 'createdDate', 'getDocumentResponse_createdDate' - The date the SSM document was created.
---
 -- 'documentFormat', 'getDocumentResponse_documentFormat' - The document format, either JSON or YAML.
 --
--- 'name', 'getDocumentResponse_name' - The name of the SSM document.
---
 -- 'documentVersion', 'getDocumentResponse_documentVersion' - The document version.
---
--- 'displayName', 'getDocumentResponse_displayName' - The friendly name of the SSM document. This value can differ for each
--- version of the document. If you want to update this value, see
--- UpdateDocument.
---
--- 'statusInformation', 'getDocumentResponse_statusInformation' - A message returned by Amazon Web Services Systems Manager that explains
--- the @Status@ value. For example, a @Failed@ status might be explained by
--- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
--- exist. Verify that the URL of the S3 bucket is correct.\"
---
--- 'requires', 'getDocumentResponse_requires' - A list of SSM documents required by a document. For example, an
--- @ApplicationConfiguration@ document requires an
--- @ApplicationConfigurationSchema@ document.
 --
 -- 'httpStatus', 'getDocumentResponse_httpStatus' - The response's http status code.
 newGetDocumentResponse ::
@@ -312,36 +312,67 @@ newGetDocumentResponse ::
   GetDocumentResponse
 newGetDocumentResponse pHttpStatus_ =
   GetDocumentResponse'
-    { status = Prelude.Nothing,
+    { requires = Prelude.Nothing,
       documentType = Prelude.Nothing,
+      name = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      status = Prelude.Nothing,
       versionName = Prelude.Nothing,
+      statusInformation = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
+      content = Prelude.Nothing,
       attachmentsContent = Prelude.Nothing,
       reviewStatus = Prelude.Nothing,
-      content = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
       documentFormat = Prelude.Nothing,
-      name = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      statusInformation = Prelude.Nothing,
-      requires = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of SSM documents required by a document. For example, an
+-- @ApplicationConfiguration@ document requires an
+-- @ApplicationConfigurationSchema@ document.
+getDocumentResponse_requires :: Lens.Lens' GetDocumentResponse (Prelude.Maybe (Prelude.NonEmpty DocumentRequires))
+getDocumentResponse_requires = Lens.lens (\GetDocumentResponse' {requires} -> requires) (\s@GetDocumentResponse' {} a -> s {requires = a} :: GetDocumentResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The document type.
+getDocumentResponse_documentType :: Lens.Lens' GetDocumentResponse (Prelude.Maybe DocumentType)
+getDocumentResponse_documentType = Lens.lens (\GetDocumentResponse' {documentType} -> documentType) (\s@GetDocumentResponse' {} a -> s {documentType = a} :: GetDocumentResponse)
+
+-- | The name of the SSM document.
+getDocumentResponse_name :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
+getDocumentResponse_name = Lens.lens (\GetDocumentResponse' {name} -> name) (\s@GetDocumentResponse' {} a -> s {name = a} :: GetDocumentResponse)
+
+-- | The friendly name of the SSM document. This value can differ for each
+-- version of the document. If you want to update this value, see
+-- UpdateDocument.
+getDocumentResponse_displayName :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
+getDocumentResponse_displayName = Lens.lens (\GetDocumentResponse' {displayName} -> displayName) (\s@GetDocumentResponse' {} a -> s {displayName = a} :: GetDocumentResponse)
 
 -- | The status of the SSM document, such as @Creating@, @Active@,
 -- @Updating@, @Failed@, and @Deleting@.
 getDocumentResponse_status :: Lens.Lens' GetDocumentResponse (Prelude.Maybe DocumentStatus)
 getDocumentResponse_status = Lens.lens (\GetDocumentResponse' {status} -> status) (\s@GetDocumentResponse' {} a -> s {status = a} :: GetDocumentResponse)
 
--- | The document type.
-getDocumentResponse_documentType :: Lens.Lens' GetDocumentResponse (Prelude.Maybe DocumentType)
-getDocumentResponse_documentType = Lens.lens (\GetDocumentResponse' {documentType} -> documentType) (\s@GetDocumentResponse' {} a -> s {documentType = a} :: GetDocumentResponse)
-
 -- | The version of the artifact associated with the document. For example,
 -- \"Release 12, Update 6\". This value is unique across all versions of a
 -- document, and can\'t be changed.
 getDocumentResponse_versionName :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
 getDocumentResponse_versionName = Lens.lens (\GetDocumentResponse' {versionName} -> versionName) (\s@GetDocumentResponse' {} a -> s {versionName = a} :: GetDocumentResponse)
+
+-- | A message returned by Amazon Web Services Systems Manager that explains
+-- the @Status@ value. For example, a @Failed@ status might be explained by
+-- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
+-- exist. Verify that the URL of the S3 bucket is correct.\"
+getDocumentResponse_statusInformation :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
+getDocumentResponse_statusInformation = Lens.lens (\GetDocumentResponse' {statusInformation} -> statusInformation) (\s@GetDocumentResponse' {} a -> s {statusInformation = a} :: GetDocumentResponse)
+
+-- | The date the SSM document was created.
+getDocumentResponse_createdDate :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.UTCTime)
+getDocumentResponse_createdDate = Lens.lens (\GetDocumentResponse' {createdDate} -> createdDate) (\s@GetDocumentResponse' {} a -> s {createdDate = a} :: GetDocumentResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The contents of the SSM document.
+getDocumentResponse_content :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
+getDocumentResponse_content = Lens.lens (\GetDocumentResponse' {content} -> content) (\s@GetDocumentResponse' {} a -> s {content = a} :: GetDocumentResponse)
 
 -- | A description of the document attachments, including names, locations,
 -- sizes, and so on.
@@ -361,44 +392,13 @@ getDocumentResponse_attachmentsContent = Lens.lens (\GetDocumentResponse' {attac
 getDocumentResponse_reviewStatus :: Lens.Lens' GetDocumentResponse (Prelude.Maybe ReviewStatus)
 getDocumentResponse_reviewStatus = Lens.lens (\GetDocumentResponse' {reviewStatus} -> reviewStatus) (\s@GetDocumentResponse' {} a -> s {reviewStatus = a} :: GetDocumentResponse)
 
--- | The contents of the SSM document.
-getDocumentResponse_content :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
-getDocumentResponse_content = Lens.lens (\GetDocumentResponse' {content} -> content) (\s@GetDocumentResponse' {} a -> s {content = a} :: GetDocumentResponse)
-
--- | The date the SSM document was created.
-getDocumentResponse_createdDate :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.UTCTime)
-getDocumentResponse_createdDate = Lens.lens (\GetDocumentResponse' {createdDate} -> createdDate) (\s@GetDocumentResponse' {} a -> s {createdDate = a} :: GetDocumentResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The document format, either JSON or YAML.
 getDocumentResponse_documentFormat :: Lens.Lens' GetDocumentResponse (Prelude.Maybe DocumentFormat)
 getDocumentResponse_documentFormat = Lens.lens (\GetDocumentResponse' {documentFormat} -> documentFormat) (\s@GetDocumentResponse' {} a -> s {documentFormat = a} :: GetDocumentResponse)
 
--- | The name of the SSM document.
-getDocumentResponse_name :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
-getDocumentResponse_name = Lens.lens (\GetDocumentResponse' {name} -> name) (\s@GetDocumentResponse' {} a -> s {name = a} :: GetDocumentResponse)
-
 -- | The document version.
 getDocumentResponse_documentVersion :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
 getDocumentResponse_documentVersion = Lens.lens (\GetDocumentResponse' {documentVersion} -> documentVersion) (\s@GetDocumentResponse' {} a -> s {documentVersion = a} :: GetDocumentResponse)
-
--- | The friendly name of the SSM document. This value can differ for each
--- version of the document. If you want to update this value, see
--- UpdateDocument.
-getDocumentResponse_displayName :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
-getDocumentResponse_displayName = Lens.lens (\GetDocumentResponse' {displayName} -> displayName) (\s@GetDocumentResponse' {} a -> s {displayName = a} :: GetDocumentResponse)
-
--- | A message returned by Amazon Web Services Systems Manager that explains
--- the @Status@ value. For example, a @Failed@ status might be explained by
--- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
--- exist. Verify that the URL of the S3 bucket is correct.\"
-getDocumentResponse_statusInformation :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)
-getDocumentResponse_statusInformation = Lens.lens (\GetDocumentResponse' {statusInformation} -> statusInformation) (\s@GetDocumentResponse' {} a -> s {statusInformation = a} :: GetDocumentResponse)
-
--- | A list of SSM documents required by a document. For example, an
--- @ApplicationConfiguration@ document requires an
--- @ApplicationConfigurationSchema@ document.
-getDocumentResponse_requires :: Lens.Lens' GetDocumentResponse (Prelude.Maybe (Prelude.NonEmpty DocumentRequires))
-getDocumentResponse_requires = Lens.lens (\GetDocumentResponse' {requires} -> requires) (\s@GetDocumentResponse' {} a -> s {requires = a} :: GetDocumentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDocumentResponse_httpStatus :: Lens.Lens' GetDocumentResponse Prelude.Int
@@ -406,17 +406,17 @@ getDocumentResponse_httpStatus = Lens.lens (\GetDocumentResponse' {httpStatus} -
 
 instance Prelude.NFData GetDocumentResponse where
   rnf GetDocumentResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf requires
       `Prelude.seq` Prelude.rnf documentType
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf statusInformation
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf attachmentsContent
       `Prelude.seq` Prelude.rnf reviewStatus
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf documentFormat
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf documentVersion
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf statusInformation
-      `Prelude.seq` Prelude.rnf requires
       `Prelude.seq` Prelude.rnf httpStatus

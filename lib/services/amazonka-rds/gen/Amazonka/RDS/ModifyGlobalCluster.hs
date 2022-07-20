@@ -34,11 +34,11 @@ module Amazonka.RDS.ModifyGlobalCluster
     newModifyGlobalCluster,
 
     -- * Request Lenses
-    modifyGlobalCluster_engineVersion,
-    modifyGlobalCluster_deletionProtection,
-    modifyGlobalCluster_globalClusterIdentifier,
     modifyGlobalCluster_allowMajorVersionUpgrade,
+    modifyGlobalCluster_globalClusterIdentifier,
+    modifyGlobalCluster_deletionProtection,
     modifyGlobalCluster_newGlobalClusterIdentifier,
+    modifyGlobalCluster_engineVersion,
 
     -- * Destructuring the Response
     ModifyGlobalClusterResponse (..),
@@ -59,7 +59,43 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyGlobalCluster' smart constructor.
 data ModifyGlobalCluster = ModifyGlobalCluster'
-  { -- | The version number of the database engine to which you want to upgrade.
+  { -- | A value that indicates whether major version upgrades are allowed.
+    --
+    -- Constraints: You must allow major version upgrades when specifying a
+    -- value for the @EngineVersion@ parameter that is a different major
+    -- version than the DB cluster\'s current version.
+    --
+    -- If you upgrade the major version of a global database, the cluster and
+    -- DB instance parameter groups are set to the default parameter groups for
+    -- the new version. Apply any custom parameter groups after completing the
+    -- upgrade.
+    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The DB cluster identifier for the global cluster being modified. This
+    -- parameter isn\'t case-sensitive.
+    --
+    -- Constraints:
+    --
+    -- -   Must match the identifier of an existing global database cluster.
+    globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Indicates if the global database cluster has deletion protection
+    -- enabled. The global database cluster can\'t be deleted when deletion
+    -- protection is enabled.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The new cluster identifier for the global database cluster when
+    -- modifying a global database cluster. This value is stored as a lowercase
+    -- string.
+    --
+    -- Constraints:
+    --
+    -- -   Must contain from 1 to 63 letters, numbers, or hyphens
+    --
+    -- -   The first character must be a letter
+    --
+    -- -   Can\'t end with a hyphen or contain two consecutive hyphens
+    --
+    -- Example: @my-cluster2@
+    newGlobalClusterIdentifier' :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the database engine to which you want to upgrade.
     -- Changing this parameter results in an outage. The change is applied
     -- during the next maintenance window unless @ApplyImmediately@ is enabled.
     --
@@ -77,43 +113,7 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
     -- use the following command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | Indicates if the global database cluster has deletion protection
-    -- enabled. The global database cluster can\'t be deleted when deletion
-    -- protection is enabled.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The DB cluster identifier for the global cluster being modified. This
-    -- parameter isn\'t case-sensitive.
-    --
-    -- Constraints:
-    --
-    -- -   Must match the identifier of an existing global database cluster.
-    globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether major version upgrades are allowed.
-    --
-    -- Constraints: You must allow major version upgrades when specifying a
-    -- value for the @EngineVersion@ parameter that is a different major
-    -- version than the DB cluster\'s current version.
-    --
-    -- If you upgrade the major version of a global database, the cluster and
-    -- DB instance parameter groups are set to the default parameter groups for
-    -- the new version. Apply any custom parameter groups after completing the
-    -- upgrade.
-    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
-    -- | The new cluster identifier for the global database cluster when
-    -- modifying a global database cluster. This value is stored as a lowercase
-    -- string.
-    --
-    -- Constraints:
-    --
-    -- -   Must contain from 1 to 63 letters, numbers, or hyphens
-    --
-    -- -   The first character must be a letter
-    --
-    -- -   Can\'t end with a hyphen or contain two consecutive hyphens
-    --
-    -- Example: @my-cluster2@
-    newGlobalClusterIdentifier' :: Prelude.Maybe Prelude.Text
+    engineVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,6 +124,42 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'allowMajorVersionUpgrade', 'modifyGlobalCluster_allowMajorVersionUpgrade' - A value that indicates whether major version upgrades are allowed.
+--
+-- Constraints: You must allow major version upgrades when specifying a
+-- value for the @EngineVersion@ parameter that is a different major
+-- version than the DB cluster\'s current version.
+--
+-- If you upgrade the major version of a global database, the cluster and
+-- DB instance parameter groups are set to the default parameter groups for
+-- the new version. Apply any custom parameter groups after completing the
+-- upgrade.
+--
+-- 'globalClusterIdentifier', 'modifyGlobalCluster_globalClusterIdentifier' - The DB cluster identifier for the global cluster being modified. This
+-- parameter isn\'t case-sensitive.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing global database cluster.
+--
+-- 'deletionProtection', 'modifyGlobalCluster_deletionProtection' - Indicates if the global database cluster has deletion protection
+-- enabled. The global database cluster can\'t be deleted when deletion
+-- protection is enabled.
+--
+-- 'newGlobalClusterIdentifier'', 'modifyGlobalCluster_newGlobalClusterIdentifier' - The new cluster identifier for the global database cluster when
+-- modifying a global database cluster. This value is stored as a lowercase
+-- string.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 letters, numbers, or hyphens
+--
+-- -   The first character must be a letter
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens
+--
+-- Example: @my-cluster2@
 --
 -- 'engineVersion', 'modifyGlobalCluster_engineVersion' - The version number of the database engine to which you want to upgrade.
 -- Changing this parameter results in an outage. The change is applied
@@ -143,19 +179,19 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
 -- use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
---
--- 'deletionProtection', 'modifyGlobalCluster_deletionProtection' - Indicates if the global database cluster has deletion protection
--- enabled. The global database cluster can\'t be deleted when deletion
--- protection is enabled.
---
--- 'globalClusterIdentifier', 'modifyGlobalCluster_globalClusterIdentifier' - The DB cluster identifier for the global cluster being modified. This
--- parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   Must match the identifier of an existing global database cluster.
---
--- 'allowMajorVersionUpgrade', 'modifyGlobalCluster_allowMajorVersionUpgrade' - A value that indicates whether major version upgrades are allowed.
+newModifyGlobalCluster ::
+  ModifyGlobalCluster
+newModifyGlobalCluster =
+  ModifyGlobalCluster'
+    { allowMajorVersionUpgrade =
+        Prelude.Nothing,
+      globalClusterIdentifier = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
+      newGlobalClusterIdentifier' = Prelude.Nothing,
+      engineVersion = Prelude.Nothing
+    }
+
+-- | A value that indicates whether major version upgrades are allowed.
 --
 -- Constraints: You must allow major version upgrades when specifying a
 -- value for the @EngineVersion@ parameter that is a different major
@@ -165,8 +201,25 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
 -- DB instance parameter groups are set to the default parameter groups for
 -- the new version. Apply any custom parameter groups after completing the
 -- upgrade.
+modifyGlobalCluster_allowMajorVersionUpgrade :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Bool)
+modifyGlobalCluster_allowMajorVersionUpgrade = Lens.lens (\ModifyGlobalCluster' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyGlobalCluster' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyGlobalCluster)
+
+-- | The DB cluster identifier for the global cluster being modified. This
+-- parameter isn\'t case-sensitive.
 --
--- 'newGlobalClusterIdentifier'', 'modifyGlobalCluster_newGlobalClusterIdentifier' - The new cluster identifier for the global database cluster when
+-- Constraints:
+--
+-- -   Must match the identifier of an existing global database cluster.
+modifyGlobalCluster_globalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
+modifyGlobalCluster_globalClusterIdentifier = Lens.lens (\ModifyGlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@ModifyGlobalCluster' {} a -> s {globalClusterIdentifier = a} :: ModifyGlobalCluster)
+
+-- | Indicates if the global database cluster has deletion protection
+-- enabled. The global database cluster can\'t be deleted when deletion
+-- protection is enabled.
+modifyGlobalCluster_deletionProtection :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Bool)
+modifyGlobalCluster_deletionProtection = Lens.lens (\ModifyGlobalCluster' {deletionProtection} -> deletionProtection) (\s@ModifyGlobalCluster' {} a -> s {deletionProtection = a} :: ModifyGlobalCluster)
+
+-- | The new cluster identifier for the global database cluster when
 -- modifying a global database cluster. This value is stored as a lowercase
 -- string.
 --
@@ -179,17 +232,8 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-cluster2@
-newModifyGlobalCluster ::
-  ModifyGlobalCluster
-newModifyGlobalCluster =
-  ModifyGlobalCluster'
-    { engineVersion =
-        Prelude.Nothing,
-      deletionProtection = Prelude.Nothing,
-      globalClusterIdentifier = Prelude.Nothing,
-      allowMajorVersionUpgrade = Prelude.Nothing,
-      newGlobalClusterIdentifier' = Prelude.Nothing
-    }
+modifyGlobalCluster_newGlobalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
+modifyGlobalCluster_newGlobalClusterIdentifier = Lens.lens (\ModifyGlobalCluster' {newGlobalClusterIdentifier'} -> newGlobalClusterIdentifier') (\s@ModifyGlobalCluster' {} a -> s {newGlobalClusterIdentifier' = a} :: ModifyGlobalCluster)
 
 -- | The version number of the database engine to which you want to upgrade.
 -- Changing this parameter results in an outage. The change is applied
@@ -212,50 +256,6 @@ newModifyGlobalCluster =
 modifyGlobalCluster_engineVersion :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
 modifyGlobalCluster_engineVersion = Lens.lens (\ModifyGlobalCluster' {engineVersion} -> engineVersion) (\s@ModifyGlobalCluster' {} a -> s {engineVersion = a} :: ModifyGlobalCluster)
 
--- | Indicates if the global database cluster has deletion protection
--- enabled. The global database cluster can\'t be deleted when deletion
--- protection is enabled.
-modifyGlobalCluster_deletionProtection :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Bool)
-modifyGlobalCluster_deletionProtection = Lens.lens (\ModifyGlobalCluster' {deletionProtection} -> deletionProtection) (\s@ModifyGlobalCluster' {} a -> s {deletionProtection = a} :: ModifyGlobalCluster)
-
--- | The DB cluster identifier for the global cluster being modified. This
--- parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   Must match the identifier of an existing global database cluster.
-modifyGlobalCluster_globalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
-modifyGlobalCluster_globalClusterIdentifier = Lens.lens (\ModifyGlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@ModifyGlobalCluster' {} a -> s {globalClusterIdentifier = a} :: ModifyGlobalCluster)
-
--- | A value that indicates whether major version upgrades are allowed.
---
--- Constraints: You must allow major version upgrades when specifying a
--- value for the @EngineVersion@ parameter that is a different major
--- version than the DB cluster\'s current version.
---
--- If you upgrade the major version of a global database, the cluster and
--- DB instance parameter groups are set to the default parameter groups for
--- the new version. Apply any custom parameter groups after completing the
--- upgrade.
-modifyGlobalCluster_allowMajorVersionUpgrade :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Bool)
-modifyGlobalCluster_allowMajorVersionUpgrade = Lens.lens (\ModifyGlobalCluster' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyGlobalCluster' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyGlobalCluster)
-
--- | The new cluster identifier for the global database cluster when
--- modifying a global database cluster. This value is stored as a lowercase
--- string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 letters, numbers, or hyphens
---
--- -   The first character must be a letter
---
--- -   Can\'t end with a hyphen or contain two consecutive hyphens
---
--- Example: @my-cluster2@
-modifyGlobalCluster_newGlobalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
-modifyGlobalCluster_newGlobalClusterIdentifier = Lens.lens (\ModifyGlobalCluster' {newGlobalClusterIdentifier'} -> newGlobalClusterIdentifier') (\s@ModifyGlobalCluster' {} a -> s {newGlobalClusterIdentifier' = a} :: ModifyGlobalCluster)
-
 instance Core.AWSRequest ModifyGlobalCluster where
   type
     AWSResponse ModifyGlobalCluster =
@@ -272,19 +272,20 @@ instance Core.AWSRequest ModifyGlobalCluster where
 
 instance Prelude.Hashable ModifyGlobalCluster where
   hashWithSalt _salt ModifyGlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` deletionProtection
-      `Prelude.hashWithSalt` globalClusterIdentifier
+    _salt
       `Prelude.hashWithSalt` allowMajorVersionUpgrade
+      `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` newGlobalClusterIdentifier'
+      `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData ModifyGlobalCluster where
   rnf ModifyGlobalCluster' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf deletionProtection
+    Prelude.rnf allowMajorVersionUpgrade
       `Prelude.seq` Prelude.rnf globalClusterIdentifier
-      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf newGlobalClusterIdentifier'
+      `Prelude.seq` Prelude.rnf engineVersion
 
 instance Core.ToHeaders ModifyGlobalCluster where
   toHeaders = Prelude.const Prelude.mempty
@@ -299,14 +300,14 @@ instance Core.ToQuery ModifyGlobalCluster where
           Core.=: ("ModifyGlobalCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "EngineVersion" Core.=: engineVersion,
-        "DeletionProtection" Core.=: deletionProtection,
-        "GlobalClusterIdentifier"
-          Core.=: globalClusterIdentifier,
         "AllowMajorVersionUpgrade"
           Core.=: allowMajorVersionUpgrade,
+        "GlobalClusterIdentifier"
+          Core.=: globalClusterIdentifier,
+        "DeletionProtection" Core.=: deletionProtection,
         "NewGlobalClusterIdentifier"
-          Core.=: newGlobalClusterIdentifier'
+          Core.=: newGlobalClusterIdentifier',
+        "EngineVersion" Core.=: engineVersion
       ]
 
 -- | /See:/ 'newModifyGlobalClusterResponse' smart constructor.

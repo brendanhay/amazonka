@@ -39,9 +39,9 @@ module Amazonka.QuickSight.ListAnalyses
     newListAnalysesResponse,
 
     -- * Response Lenses
-    listAnalysesResponse_requestId,
-    listAnalysesResponse_nextToken,
     listAnalysesResponse_analysisSummaryList,
+    listAnalysesResponse_nextToken,
+    listAnalysesResponse_requestId,
     listAnalysesResponse_status,
   )
 where
@@ -127,11 +127,11 @@ instance Core.AWSRequest ListAnalyses where
     Response.receiveJSON
       ( \s h x ->
           ListAnalysesResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AnalysisSummaryList"
+            Prelude.<$> ( x Core..?> "AnalysisSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,12 +172,12 @@ instance Core.ToQuery ListAnalyses where
 
 -- | /See:/ 'newListAnalysesResponse' smart constructor.
 data ListAnalysesResponse = ListAnalysesResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | Metadata describing each of the analyses that are listed.
+    analysisSummaryList :: Prelude.Maybe [AnalysisSummary],
     -- | A pagination token that can be used in a subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Metadata describing each of the analyses that are listed.
-    analysisSummaryList :: Prelude.Maybe [AnalysisSummary],
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -191,11 +191,11 @@ data ListAnalysesResponse = ListAnalysesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listAnalysesResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'analysisSummaryList', 'listAnalysesResponse_analysisSummaryList' - Metadata describing each of the analyses that are listed.
 --
 -- 'nextToken', 'listAnalysesResponse_nextToken' - A pagination token that can be used in a subsequent request.
 --
--- 'analysisSummaryList', 'listAnalysesResponse_analysisSummaryList' - Metadata describing each of the analyses that are listed.
+-- 'requestId', 'listAnalysesResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'listAnalysesResponse_status' - The HTTP status of the request.
 newListAnalysesResponse ::
@@ -204,23 +204,24 @@ newListAnalysesResponse ::
   ListAnalysesResponse
 newListAnalysesResponse pStatus_ =
   ListAnalysesResponse'
-    { requestId = Prelude.Nothing,
+    { analysisSummaryList =
+        Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      analysisSummaryList = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-listAnalysesResponse_requestId :: Lens.Lens' ListAnalysesResponse (Prelude.Maybe Prelude.Text)
-listAnalysesResponse_requestId = Lens.lens (\ListAnalysesResponse' {requestId} -> requestId) (\s@ListAnalysesResponse' {} a -> s {requestId = a} :: ListAnalysesResponse)
+-- | Metadata describing each of the analyses that are listed.
+listAnalysesResponse_analysisSummaryList :: Lens.Lens' ListAnalysesResponse (Prelude.Maybe [AnalysisSummary])
+listAnalysesResponse_analysisSummaryList = Lens.lens (\ListAnalysesResponse' {analysisSummaryList} -> analysisSummaryList) (\s@ListAnalysesResponse' {} a -> s {analysisSummaryList = a} :: ListAnalysesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that can be used in a subsequent request.
 listAnalysesResponse_nextToken :: Lens.Lens' ListAnalysesResponse (Prelude.Maybe Prelude.Text)
 listAnalysesResponse_nextToken = Lens.lens (\ListAnalysesResponse' {nextToken} -> nextToken) (\s@ListAnalysesResponse' {} a -> s {nextToken = a} :: ListAnalysesResponse)
 
--- | Metadata describing each of the analyses that are listed.
-listAnalysesResponse_analysisSummaryList :: Lens.Lens' ListAnalysesResponse (Prelude.Maybe [AnalysisSummary])
-listAnalysesResponse_analysisSummaryList = Lens.lens (\ListAnalysesResponse' {analysisSummaryList} -> analysisSummaryList) (\s@ListAnalysesResponse' {} a -> s {analysisSummaryList = a} :: ListAnalysesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Web Services request ID for this operation.
+listAnalysesResponse_requestId :: Lens.Lens' ListAnalysesResponse (Prelude.Maybe Prelude.Text)
+listAnalysesResponse_requestId = Lens.lens (\ListAnalysesResponse' {requestId} -> requestId) (\s@ListAnalysesResponse' {} a -> s {requestId = a} :: ListAnalysesResponse)
 
 -- | The HTTP status of the request.
 listAnalysesResponse_status :: Lens.Lens' ListAnalysesResponse Prelude.Int
@@ -228,7 +229,7 @@ listAnalysesResponse_status = Lens.lens (\ListAnalysesResponse' {status} -> stat
 
 instance Prelude.NFData ListAnalysesResponse where
   rnf ListAnalysesResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf analysisSummaryList
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf analysisSummaryList
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

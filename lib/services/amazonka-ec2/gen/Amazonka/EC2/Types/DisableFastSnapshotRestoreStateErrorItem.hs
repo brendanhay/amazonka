@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDisableFastSnapshotRestoreStateErrorItem' smart constructor.
 data DisableFastSnapshotRestoreStateErrorItem = DisableFastSnapshotRestoreStateErrorItem'
-  { -- | The error.
-    error :: Prelude.Maybe DisableFastSnapshotRestoreStateError,
-    -- | The Availability Zone.
-    availabilityZone :: Prelude.Maybe Prelude.Text
+  { -- | The Availability Zone.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The error.
+    error :: Prelude.Maybe DisableFastSnapshotRestoreStateError
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,25 @@ data DisableFastSnapshotRestoreStateErrorItem = DisableFastSnapshotRestoreStateE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'disableFastSnapshotRestoreStateErrorItem_error' - The error.
---
 -- 'availabilityZone', 'disableFastSnapshotRestoreStateErrorItem_availabilityZone' - The Availability Zone.
+--
+-- 'error', 'disableFastSnapshotRestoreStateErrorItem_error' - The error.
 newDisableFastSnapshotRestoreStateErrorItem ::
   DisableFastSnapshotRestoreStateErrorItem
 newDisableFastSnapshotRestoreStateErrorItem =
   DisableFastSnapshotRestoreStateErrorItem'
-    { error =
+    { availabilityZone =
         Prelude.Nothing,
-      availabilityZone =
-        Prelude.Nothing
+      error = Prelude.Nothing
     }
-
--- | The error.
-disableFastSnapshotRestoreStateErrorItem_error :: Lens.Lens' DisableFastSnapshotRestoreStateErrorItem (Prelude.Maybe DisableFastSnapshotRestoreStateError)
-disableFastSnapshotRestoreStateErrorItem_error = Lens.lens (\DisableFastSnapshotRestoreStateErrorItem' {error} -> error) (\s@DisableFastSnapshotRestoreStateErrorItem' {} a -> s {error = a} :: DisableFastSnapshotRestoreStateErrorItem)
 
 -- | The Availability Zone.
 disableFastSnapshotRestoreStateErrorItem_availabilityZone :: Lens.Lens' DisableFastSnapshotRestoreStateErrorItem (Prelude.Maybe Prelude.Text)
 disableFastSnapshotRestoreStateErrorItem_availabilityZone = Lens.lens (\DisableFastSnapshotRestoreStateErrorItem' {availabilityZone} -> availabilityZone) (\s@DisableFastSnapshotRestoreStateErrorItem' {} a -> s {availabilityZone = a} :: DisableFastSnapshotRestoreStateErrorItem)
+
+-- | The error.
+disableFastSnapshotRestoreStateErrorItem_error :: Lens.Lens' DisableFastSnapshotRestoreStateErrorItem (Prelude.Maybe DisableFastSnapshotRestoreStateError)
+disableFastSnapshotRestoreStateErrorItem_error = Lens.lens (\DisableFastSnapshotRestoreStateErrorItem' {error} -> error) (\s@DisableFastSnapshotRestoreStateErrorItem' {} a -> s {error = a} :: DisableFastSnapshotRestoreStateErrorItem)
 
 instance
   Core.FromXML
@@ -72,8 +71,8 @@ instance
   where
   parseXML x =
     DisableFastSnapshotRestoreStateErrorItem'
-      Prelude.<$> (x Core..@? "error")
-        Prelude.<*> (x Core..@? "availabilityZone")
+      Prelude.<$> (x Core..@? "availabilityZone")
+        Prelude.<*> (x Core..@? "error")
 
 instance
   Prelude.Hashable
@@ -82,13 +81,13 @@ instance
   hashWithSalt
     _salt
     DisableFastSnapshotRestoreStateErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` error
-        `Prelude.hashWithSalt` availabilityZone
+      _salt `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` error
 
 instance
   Prelude.NFData
     DisableFastSnapshotRestoreStateErrorItem
   where
   rnf DisableFastSnapshotRestoreStateErrorItem' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf error

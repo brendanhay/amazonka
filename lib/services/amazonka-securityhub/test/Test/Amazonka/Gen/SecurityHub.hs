@@ -27,152 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestEnableOrganizationAdminAccount $
---             newEnableOrganizationAdminAccount
---
---         , requestGetAdministratorAccount $
---             newGetAdministratorAccount
---
---         , requestListOrganizationAdminAccounts $
---             newListOrganizationAdminAccounts
---
---         , requestCreateInsight $
---             newCreateInsight
---
---         , requestAcceptAdministratorInvitation $
+--         [ requestAcceptAdministratorInvitation $
 --             newAcceptAdministratorInvitation
---
---         , requestDeleteMembers $
---             newDeleteMembers
---
---         , requestDescribeHub $
---             newDescribeHub
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetInsightResults $
---             newGetInsightResults
---
---         , requestEnableImportFindingsForProduct $
---             newEnableImportFindingsForProduct
---
---         , requestDescribeStandards $
---             newDescribeStandards
---
---         , requestDescribeProducts $
---             newDescribeProducts
---
---         , requestDeleteFindingAggregator $
---             newDeleteFindingAggregator
---
---         , requestUpdateFindingAggregator $
---             newUpdateFindingAggregator
---
---         , requestListInvitations $
---             newListInvitations
---
---         , requestDeleteInvitations $
---             newDeleteInvitations
---
---         , requestGetEnabledStandards $
---             newGetEnabledStandards
---
---         , requestDeclineInvitations $
---             newDeclineInvitations
---
---         , requestUpdateActionTarget $
---             newUpdateActionTarget
---
---         , requestDeleteActionTarget $
---             newDeleteActionTarget
---
---         , requestUpdateStandardsControl $
---             newUpdateStandardsControl
---
---         , requestDescribeOrganizationConfiguration $
---             newDescribeOrganizationConfiguration
---
---         , requestDescribeActionTargets $
---             newDescribeActionTargets
---
---         , requestDisassociateMembers $
---             newDisassociateMembers
---
---         , requestListEnabledProductsForImport $
---             newListEnabledProductsForImport
---
---         , requestDescribeStandardsControls $
---             newDescribeStandardsControls
---
---         , requestListMembers $
---             newListMembers
---
---         , requestCreateMembers $
---             newCreateMembers
---
---         , requestBatchImportFindings $
---             newBatchImportFindings
---
---         , requestGetInvitationsCount $
---             newGetInvitationsCount
---
---         , requestDeleteInsight $
---             newDeleteInsight
---
---         , requestUpdateInsight $
---             newUpdateInsight
---
---         , requestDisableImportFindingsForProduct $
---             newDisableImportFindingsForProduct
---
---         , requestUpdateFindings $
---             newUpdateFindings
---
---         , requestUpdateOrganizationConfiguration $
---             newUpdateOrganizationConfiguration
---
---         , requestGetFindingAggregator $
---             newGetFindingAggregator
---
---         , requestInviteMembers $
---             newInviteMembers
---
---         , requestGetMembers $
---             newGetMembers
---
---         , requestDisableSecurityHub $
---             newDisableSecurityHub
---
---         , requestListFindingAggregators $
---             newListFindingAggregators
---
---         , requestBatchEnableStandards $
---             newBatchEnableStandards
---
---         , requestCreateFindingAggregator $
---             newCreateFindingAggregator
 --
 --         , requestBatchDisableStandards $
 --             newBatchDisableStandards
 --
---         , requestTagResource $
---             newTagResource
+--         , requestBatchEnableStandards $
+--             newBatchEnableStandards
 --
---         , requestEnableSecurityHub $
---             newEnableSecurityHub
---
---         , requestUpdateSecurityHubConfiguration $
---             newUpdateSecurityHubConfiguration
---
---         , requestGetFindings $
---             newGetFindings
---
---         , requestGetInsights $
---             newGetInsights
---
---         , requestUntagResource $
---             newUntagResource
+--         , requestBatchImportFindings $
+--             newBatchImportFindings
 --
 --         , requestBatchUpdateFindings $
 --             newBatchUpdateFindings
@@ -180,161 +45,161 @@ import Test.Tasty
 --         , requestCreateActionTarget $
 --             newCreateActionTarget
 --
---         , requestDisassociateFromAdministratorAccount $
---             newDisassociateFromAdministratorAccount
+--         , requestCreateFindingAggregator $
+--             newCreateFindingAggregator
+--
+--         , requestCreateInsight $
+--             newCreateInsight
+--
+--         , requestCreateMembers $
+--             newCreateMembers
+--
+--         , requestDeclineInvitations $
+--             newDeclineInvitations
+--
+--         , requestDeleteActionTarget $
+--             newDeleteActionTarget
+--
+--         , requestDeleteFindingAggregator $
+--             newDeleteFindingAggregator
+--
+--         , requestDeleteInsight $
+--             newDeleteInsight
+--
+--         , requestDeleteInvitations $
+--             newDeleteInvitations
+--
+--         , requestDeleteMembers $
+--             newDeleteMembers
+--
+--         , requestDescribeActionTargets $
+--             newDescribeActionTargets
+--
+--         , requestDescribeHub $
+--             newDescribeHub
+--
+--         , requestDescribeOrganizationConfiguration $
+--             newDescribeOrganizationConfiguration
+--
+--         , requestDescribeProducts $
+--             newDescribeProducts
+--
+--         , requestDescribeStandards $
+--             newDescribeStandards
+--
+--         , requestDescribeStandardsControls $
+--             newDescribeStandardsControls
+--
+--         , requestDisableImportFindingsForProduct $
+--             newDisableImportFindingsForProduct
 --
 --         , requestDisableOrganizationAdminAccount $
 --             newDisableOrganizationAdminAccount
 --
+--         , requestDisableSecurityHub $
+--             newDisableSecurityHub
+--
+--         , requestDisassociateFromAdministratorAccount $
+--             newDisassociateFromAdministratorAccount
+--
+--         , requestDisassociateMembers $
+--             newDisassociateMembers
+--
+--         , requestEnableImportFindingsForProduct $
+--             newEnableImportFindingsForProduct
+--
+--         , requestEnableOrganizationAdminAccount $
+--             newEnableOrganizationAdminAccount
+--
+--         , requestEnableSecurityHub $
+--             newEnableSecurityHub
+--
+--         , requestGetAdministratorAccount $
+--             newGetAdministratorAccount
+--
+--         , requestGetEnabledStandards $
+--             newGetEnabledStandards
+--
+--         , requestGetFindingAggregator $
+--             newGetFindingAggregator
+--
+--         , requestGetFindings $
+--             newGetFindings
+--
+--         , requestGetInsightResults $
+--             newGetInsightResults
+--
+--         , requestGetInsights $
+--             newGetInsights
+--
+--         , requestGetInvitationsCount $
+--             newGetInvitationsCount
+--
+--         , requestGetMembers $
+--             newGetMembers
+--
+--         , requestInviteMembers $
+--             newInviteMembers
+--
+--         , requestListEnabledProductsForImport $
+--             newListEnabledProductsForImport
+--
+--         , requestListFindingAggregators $
+--             newListFindingAggregators
+--
+--         , requestListInvitations $
+--             newListInvitations
+--
+--         , requestListMembers $
+--             newListMembers
+--
+--         , requestListOrganizationAdminAccounts $
+--             newListOrganizationAdminAccounts
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateActionTarget $
+--             newUpdateActionTarget
+--
+--         , requestUpdateFindingAggregator $
+--             newUpdateFindingAggregator
+--
+--         , requestUpdateFindings $
+--             newUpdateFindings
+--
+--         , requestUpdateInsight $
+--             newUpdateInsight
+--
+--         , requestUpdateOrganizationConfiguration $
+--             newUpdateOrganizationConfiguration
+--
+--         , requestUpdateSecurityHubConfiguration $
+--             newUpdateSecurityHubConfiguration
+--
+--         , requestUpdateStandardsControl $
+--             newUpdateStandardsControl
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseEnableOrganizationAdminAccount $
---             newEnableOrganizationAdminAccountResponse
---
---         , responseGetAdministratorAccount $
---             newGetAdministratorAccountResponse
---
---         , responseListOrganizationAdminAccounts $
---             newListOrganizationAdminAccountsResponse
---
---         , responseCreateInsight $
---             newCreateInsightResponse
---
---         , responseAcceptAdministratorInvitation $
+--         [ responseAcceptAdministratorInvitation $
 --             newAcceptAdministratorInvitationResponse
---
---         , responseDeleteMembers $
---             newDeleteMembersResponse
---
---         , responseDescribeHub $
---             newDescribeHubResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetInsightResults $
---             newGetInsightResultsResponse
---
---         , responseEnableImportFindingsForProduct $
---             newEnableImportFindingsForProductResponse
---
---         , responseDescribeStandards $
---             newDescribeStandardsResponse
---
---         , responseDescribeProducts $
---             newDescribeProductsResponse
---
---         , responseDeleteFindingAggregator $
---             newDeleteFindingAggregatorResponse
---
---         , responseUpdateFindingAggregator $
---             newUpdateFindingAggregatorResponse
---
---         , responseListInvitations $
---             newListInvitationsResponse
---
---         , responseDeleteInvitations $
---             newDeleteInvitationsResponse
---
---         , responseGetEnabledStandards $
---             newGetEnabledStandardsResponse
---
---         , responseDeclineInvitations $
---             newDeclineInvitationsResponse
---
---         , responseUpdateActionTarget $
---             newUpdateActionTargetResponse
---
---         , responseDeleteActionTarget $
---             newDeleteActionTargetResponse
---
---         , responseUpdateStandardsControl $
---             newUpdateStandardsControlResponse
---
---         , responseDescribeOrganizationConfiguration $
---             newDescribeOrganizationConfigurationResponse
---
---         , responseDescribeActionTargets $
---             newDescribeActionTargetsResponse
---
---         , responseDisassociateMembers $
---             newDisassociateMembersResponse
---
---         , responseListEnabledProductsForImport $
---             newListEnabledProductsForImportResponse
---
---         , responseDescribeStandardsControls $
---             newDescribeStandardsControlsResponse
---
---         , responseListMembers $
---             newListMembersResponse
---
---         , responseCreateMembers $
---             newCreateMembersResponse
---
---         , responseBatchImportFindings $
---             newBatchImportFindingsResponse
---
---         , responseGetInvitationsCount $
---             newGetInvitationsCountResponse
---
---         , responseDeleteInsight $
---             newDeleteInsightResponse
---
---         , responseUpdateInsight $
---             newUpdateInsightResponse
---
---         , responseDisableImportFindingsForProduct $
---             newDisableImportFindingsForProductResponse
---
---         , responseUpdateFindings $
---             newUpdateFindingsResponse
---
---         , responseUpdateOrganizationConfiguration $
---             newUpdateOrganizationConfigurationResponse
---
---         , responseGetFindingAggregator $
---             newGetFindingAggregatorResponse
---
---         , responseInviteMembers $
---             newInviteMembersResponse
---
---         , responseGetMembers $
---             newGetMembersResponse
---
---         , responseDisableSecurityHub $
---             newDisableSecurityHubResponse
---
---         , responseListFindingAggregators $
---             newListFindingAggregatorsResponse
---
---         , responseBatchEnableStandards $
---             newBatchEnableStandardsResponse
---
---         , responseCreateFindingAggregator $
---             newCreateFindingAggregatorResponse
 --
 --         , responseBatchDisableStandards $
 --             newBatchDisableStandardsResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseBatchEnableStandards $
+--             newBatchEnableStandardsResponse
 --
---         , responseEnableSecurityHub $
---             newEnableSecurityHubResponse
---
---         , responseUpdateSecurityHubConfiguration $
---             newUpdateSecurityHubConfigurationResponse
---
---         , responseGetFindings $
---             newGetFindingsResponse
---
---         , responseGetInsights $
---             newGetInsightsResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseBatchImportFindings $
+--             newBatchImportFindingsResponse
 --
 --         , responseBatchUpdateFindings $
 --             newBatchUpdateFindingsResponse
@@ -342,40 +207,151 @@ import Test.Tasty
 --         , responseCreateActionTarget $
 --             newCreateActionTargetResponse
 --
---         , responseDisassociateFromAdministratorAccount $
---             newDisassociateFromAdministratorAccountResponse
+--         , responseCreateFindingAggregator $
+--             newCreateFindingAggregatorResponse
+--
+--         , responseCreateInsight $
+--             newCreateInsightResponse
+--
+--         , responseCreateMembers $
+--             newCreateMembersResponse
+--
+--         , responseDeclineInvitations $
+--             newDeclineInvitationsResponse
+--
+--         , responseDeleteActionTarget $
+--             newDeleteActionTargetResponse
+--
+--         , responseDeleteFindingAggregator $
+--             newDeleteFindingAggregatorResponse
+--
+--         , responseDeleteInsight $
+--             newDeleteInsightResponse
+--
+--         , responseDeleteInvitations $
+--             newDeleteInvitationsResponse
+--
+--         , responseDeleteMembers $
+--             newDeleteMembersResponse
+--
+--         , responseDescribeActionTargets $
+--             newDescribeActionTargetsResponse
+--
+--         , responseDescribeHub $
+--             newDescribeHubResponse
+--
+--         , responseDescribeOrganizationConfiguration $
+--             newDescribeOrganizationConfigurationResponse
+--
+--         , responseDescribeProducts $
+--             newDescribeProductsResponse
+--
+--         , responseDescribeStandards $
+--             newDescribeStandardsResponse
+--
+--         , responseDescribeStandardsControls $
+--             newDescribeStandardsControlsResponse
+--
+--         , responseDisableImportFindingsForProduct $
+--             newDisableImportFindingsForProductResponse
 --
 --         , responseDisableOrganizationAdminAccount $
 --             newDisableOrganizationAdminAccountResponse
+--
+--         , responseDisableSecurityHub $
+--             newDisableSecurityHubResponse
+--
+--         , responseDisassociateFromAdministratorAccount $
+--             newDisassociateFromAdministratorAccountResponse
+--
+--         , responseDisassociateMembers $
+--             newDisassociateMembersResponse
+--
+--         , responseEnableImportFindingsForProduct $
+--             newEnableImportFindingsForProductResponse
+--
+--         , responseEnableOrganizationAdminAccount $
+--             newEnableOrganizationAdminAccountResponse
+--
+--         , responseEnableSecurityHub $
+--             newEnableSecurityHubResponse
+--
+--         , responseGetAdministratorAccount $
+--             newGetAdministratorAccountResponse
+--
+--         , responseGetEnabledStandards $
+--             newGetEnabledStandardsResponse
+--
+--         , responseGetFindingAggregator $
+--             newGetFindingAggregatorResponse
+--
+--         , responseGetFindings $
+--             newGetFindingsResponse
+--
+--         , responseGetInsightResults $
+--             newGetInsightResultsResponse
+--
+--         , responseGetInsights $
+--             newGetInsightsResponse
+--
+--         , responseGetInvitationsCount $
+--             newGetInvitationsCountResponse
+--
+--         , responseGetMembers $
+--             newGetMembersResponse
+--
+--         , responseInviteMembers $
+--             newInviteMembersResponse
+--
+--         , responseListEnabledProductsForImport $
+--             newListEnabledProductsForImportResponse
+--
+--         , responseListFindingAggregators $
+--             newListFindingAggregatorsResponse
+--
+--         , responseListInvitations $
+--             newListInvitationsResponse
+--
+--         , responseListMembers $
+--             newListMembersResponse
+--
+--         , responseListOrganizationAdminAccounts $
+--             newListOrganizationAdminAccountsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateActionTarget $
+--             newUpdateActionTargetResponse
+--
+--         , responseUpdateFindingAggregator $
+--             newUpdateFindingAggregatorResponse
+--
+--         , responseUpdateFindings $
+--             newUpdateFindingsResponse
+--
+--         , responseUpdateInsight $
+--             newUpdateInsightResponse
+--
+--         , responseUpdateOrganizationConfiguration $
+--             newUpdateOrganizationConfigurationResponse
+--
+--         , responseUpdateSecurityHubConfiguration $
+--             newUpdateSecurityHubConfigurationResponse
+--
+--         , responseUpdateStandardsControl $
+--             newUpdateStandardsControlResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestEnableOrganizationAdminAccount :: EnableOrganizationAdminAccount -> TestTree
-requestEnableOrganizationAdminAccount =
-  req
-    "EnableOrganizationAdminAccount"
-    "fixture/EnableOrganizationAdminAccount.yaml"
-
-requestGetAdministratorAccount :: GetAdministratorAccount -> TestTree
-requestGetAdministratorAccount =
-  req
-    "GetAdministratorAccount"
-    "fixture/GetAdministratorAccount.yaml"
-
-requestListOrganizationAdminAccounts :: ListOrganizationAdminAccounts -> TestTree
-requestListOrganizationAdminAccounts =
-  req
-    "ListOrganizationAdminAccounts"
-    "fixture/ListOrganizationAdminAccounts.yaml"
-
-requestCreateInsight :: CreateInsight -> TestTree
-requestCreateInsight =
-  req
-    "CreateInsight"
-    "fixture/CreateInsight.yaml"
 
 requestAcceptAdministratorInvitation :: AcceptAdministratorInvitation -> TestTree
 requestAcceptAdministratorInvitation =
@@ -383,215 +359,11 @@ requestAcceptAdministratorInvitation =
     "AcceptAdministratorInvitation"
     "fixture/AcceptAdministratorInvitation.yaml"
 
-requestDeleteMembers :: DeleteMembers -> TestTree
-requestDeleteMembers =
+requestBatchDisableStandards :: BatchDisableStandards -> TestTree
+requestBatchDisableStandards =
   req
-    "DeleteMembers"
-    "fixture/DeleteMembers.yaml"
-
-requestDescribeHub :: DescribeHub -> TestTree
-requestDescribeHub =
-  req
-    "DescribeHub"
-    "fixture/DescribeHub.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetInsightResults :: GetInsightResults -> TestTree
-requestGetInsightResults =
-  req
-    "GetInsightResults"
-    "fixture/GetInsightResults.yaml"
-
-requestEnableImportFindingsForProduct :: EnableImportFindingsForProduct -> TestTree
-requestEnableImportFindingsForProduct =
-  req
-    "EnableImportFindingsForProduct"
-    "fixture/EnableImportFindingsForProduct.yaml"
-
-requestDescribeStandards :: DescribeStandards -> TestTree
-requestDescribeStandards =
-  req
-    "DescribeStandards"
-    "fixture/DescribeStandards.yaml"
-
-requestDescribeProducts :: DescribeProducts -> TestTree
-requestDescribeProducts =
-  req
-    "DescribeProducts"
-    "fixture/DescribeProducts.yaml"
-
-requestDeleteFindingAggregator :: DeleteFindingAggregator -> TestTree
-requestDeleteFindingAggregator =
-  req
-    "DeleteFindingAggregator"
-    "fixture/DeleteFindingAggregator.yaml"
-
-requestUpdateFindingAggregator :: UpdateFindingAggregator -> TestTree
-requestUpdateFindingAggregator =
-  req
-    "UpdateFindingAggregator"
-    "fixture/UpdateFindingAggregator.yaml"
-
-requestListInvitations :: ListInvitations -> TestTree
-requestListInvitations =
-  req
-    "ListInvitations"
-    "fixture/ListInvitations.yaml"
-
-requestDeleteInvitations :: DeleteInvitations -> TestTree
-requestDeleteInvitations =
-  req
-    "DeleteInvitations"
-    "fixture/DeleteInvitations.yaml"
-
-requestGetEnabledStandards :: GetEnabledStandards -> TestTree
-requestGetEnabledStandards =
-  req
-    "GetEnabledStandards"
-    "fixture/GetEnabledStandards.yaml"
-
-requestDeclineInvitations :: DeclineInvitations -> TestTree
-requestDeclineInvitations =
-  req
-    "DeclineInvitations"
-    "fixture/DeclineInvitations.yaml"
-
-requestUpdateActionTarget :: UpdateActionTarget -> TestTree
-requestUpdateActionTarget =
-  req
-    "UpdateActionTarget"
-    "fixture/UpdateActionTarget.yaml"
-
-requestDeleteActionTarget :: DeleteActionTarget -> TestTree
-requestDeleteActionTarget =
-  req
-    "DeleteActionTarget"
-    "fixture/DeleteActionTarget.yaml"
-
-requestUpdateStandardsControl :: UpdateStandardsControl -> TestTree
-requestUpdateStandardsControl =
-  req
-    "UpdateStandardsControl"
-    "fixture/UpdateStandardsControl.yaml"
-
-requestDescribeOrganizationConfiguration :: DescribeOrganizationConfiguration -> TestTree
-requestDescribeOrganizationConfiguration =
-  req
-    "DescribeOrganizationConfiguration"
-    "fixture/DescribeOrganizationConfiguration.yaml"
-
-requestDescribeActionTargets :: DescribeActionTargets -> TestTree
-requestDescribeActionTargets =
-  req
-    "DescribeActionTargets"
-    "fixture/DescribeActionTargets.yaml"
-
-requestDisassociateMembers :: DisassociateMembers -> TestTree
-requestDisassociateMembers =
-  req
-    "DisassociateMembers"
-    "fixture/DisassociateMembers.yaml"
-
-requestListEnabledProductsForImport :: ListEnabledProductsForImport -> TestTree
-requestListEnabledProductsForImport =
-  req
-    "ListEnabledProductsForImport"
-    "fixture/ListEnabledProductsForImport.yaml"
-
-requestDescribeStandardsControls :: DescribeStandardsControls -> TestTree
-requestDescribeStandardsControls =
-  req
-    "DescribeStandardsControls"
-    "fixture/DescribeStandardsControls.yaml"
-
-requestListMembers :: ListMembers -> TestTree
-requestListMembers =
-  req
-    "ListMembers"
-    "fixture/ListMembers.yaml"
-
-requestCreateMembers :: CreateMembers -> TestTree
-requestCreateMembers =
-  req
-    "CreateMembers"
-    "fixture/CreateMembers.yaml"
-
-requestBatchImportFindings :: BatchImportFindings -> TestTree
-requestBatchImportFindings =
-  req
-    "BatchImportFindings"
-    "fixture/BatchImportFindings.yaml"
-
-requestGetInvitationsCount :: GetInvitationsCount -> TestTree
-requestGetInvitationsCount =
-  req
-    "GetInvitationsCount"
-    "fixture/GetInvitationsCount.yaml"
-
-requestDeleteInsight :: DeleteInsight -> TestTree
-requestDeleteInsight =
-  req
-    "DeleteInsight"
-    "fixture/DeleteInsight.yaml"
-
-requestUpdateInsight :: UpdateInsight -> TestTree
-requestUpdateInsight =
-  req
-    "UpdateInsight"
-    "fixture/UpdateInsight.yaml"
-
-requestDisableImportFindingsForProduct :: DisableImportFindingsForProduct -> TestTree
-requestDisableImportFindingsForProduct =
-  req
-    "DisableImportFindingsForProduct"
-    "fixture/DisableImportFindingsForProduct.yaml"
-
-requestUpdateFindings :: UpdateFindings -> TestTree
-requestUpdateFindings =
-  req
-    "UpdateFindings"
-    "fixture/UpdateFindings.yaml"
-
-requestUpdateOrganizationConfiguration :: UpdateOrganizationConfiguration -> TestTree
-requestUpdateOrganizationConfiguration =
-  req
-    "UpdateOrganizationConfiguration"
-    "fixture/UpdateOrganizationConfiguration.yaml"
-
-requestGetFindingAggregator :: GetFindingAggregator -> TestTree
-requestGetFindingAggregator =
-  req
-    "GetFindingAggregator"
-    "fixture/GetFindingAggregator.yaml"
-
-requestInviteMembers :: InviteMembers -> TestTree
-requestInviteMembers =
-  req
-    "InviteMembers"
-    "fixture/InviteMembers.yaml"
-
-requestGetMembers :: GetMembers -> TestTree
-requestGetMembers =
-  req
-    "GetMembers"
-    "fixture/GetMembers.yaml"
-
-requestDisableSecurityHub :: DisableSecurityHub -> TestTree
-requestDisableSecurityHub =
-  req
-    "DisableSecurityHub"
-    "fixture/DisableSecurityHub.yaml"
-
-requestListFindingAggregators :: ListFindingAggregators -> TestTree
-requestListFindingAggregators =
-  req
-    "ListFindingAggregators"
-    "fixture/ListFindingAggregators.yaml"
+    "BatchDisableStandards"
+    "fixture/BatchDisableStandards.yaml"
 
 requestBatchEnableStandards :: BatchEnableStandards -> TestTree
 requestBatchEnableStandards =
@@ -599,53 +371,11 @@ requestBatchEnableStandards =
     "BatchEnableStandards"
     "fixture/BatchEnableStandards.yaml"
 
-requestCreateFindingAggregator :: CreateFindingAggregator -> TestTree
-requestCreateFindingAggregator =
+requestBatchImportFindings :: BatchImportFindings -> TestTree
+requestBatchImportFindings =
   req
-    "CreateFindingAggregator"
-    "fixture/CreateFindingAggregator.yaml"
-
-requestBatchDisableStandards :: BatchDisableStandards -> TestTree
-requestBatchDisableStandards =
-  req
-    "BatchDisableStandards"
-    "fixture/BatchDisableStandards.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestEnableSecurityHub :: EnableSecurityHub -> TestTree
-requestEnableSecurityHub =
-  req
-    "EnableSecurityHub"
-    "fixture/EnableSecurityHub.yaml"
-
-requestUpdateSecurityHubConfiguration :: UpdateSecurityHubConfiguration -> TestTree
-requestUpdateSecurityHubConfiguration =
-  req
-    "UpdateSecurityHubConfiguration"
-    "fixture/UpdateSecurityHubConfiguration.yaml"
-
-requestGetFindings :: GetFindings -> TestTree
-requestGetFindings =
-  req
-    "GetFindings"
-    "fixture/GetFindings.yaml"
-
-requestGetInsights :: GetInsights -> TestTree
-requestGetInsights =
-  req
-    "GetInsights"
-    "fixture/GetInsights.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "BatchImportFindings"
+    "fixture/BatchImportFindings.yaml"
 
 requestBatchUpdateFindings :: BatchUpdateFindings -> TestTree
 requestBatchUpdateFindings =
@@ -659,11 +389,101 @@ requestCreateActionTarget =
     "CreateActionTarget"
     "fixture/CreateActionTarget.yaml"
 
-requestDisassociateFromAdministratorAccount :: DisassociateFromAdministratorAccount -> TestTree
-requestDisassociateFromAdministratorAccount =
+requestCreateFindingAggregator :: CreateFindingAggregator -> TestTree
+requestCreateFindingAggregator =
   req
-    "DisassociateFromAdministratorAccount"
-    "fixture/DisassociateFromAdministratorAccount.yaml"
+    "CreateFindingAggregator"
+    "fixture/CreateFindingAggregator.yaml"
+
+requestCreateInsight :: CreateInsight -> TestTree
+requestCreateInsight =
+  req
+    "CreateInsight"
+    "fixture/CreateInsight.yaml"
+
+requestCreateMembers :: CreateMembers -> TestTree
+requestCreateMembers =
+  req
+    "CreateMembers"
+    "fixture/CreateMembers.yaml"
+
+requestDeclineInvitations :: DeclineInvitations -> TestTree
+requestDeclineInvitations =
+  req
+    "DeclineInvitations"
+    "fixture/DeclineInvitations.yaml"
+
+requestDeleteActionTarget :: DeleteActionTarget -> TestTree
+requestDeleteActionTarget =
+  req
+    "DeleteActionTarget"
+    "fixture/DeleteActionTarget.yaml"
+
+requestDeleteFindingAggregator :: DeleteFindingAggregator -> TestTree
+requestDeleteFindingAggregator =
+  req
+    "DeleteFindingAggregator"
+    "fixture/DeleteFindingAggregator.yaml"
+
+requestDeleteInsight :: DeleteInsight -> TestTree
+requestDeleteInsight =
+  req
+    "DeleteInsight"
+    "fixture/DeleteInsight.yaml"
+
+requestDeleteInvitations :: DeleteInvitations -> TestTree
+requestDeleteInvitations =
+  req
+    "DeleteInvitations"
+    "fixture/DeleteInvitations.yaml"
+
+requestDeleteMembers :: DeleteMembers -> TestTree
+requestDeleteMembers =
+  req
+    "DeleteMembers"
+    "fixture/DeleteMembers.yaml"
+
+requestDescribeActionTargets :: DescribeActionTargets -> TestTree
+requestDescribeActionTargets =
+  req
+    "DescribeActionTargets"
+    "fixture/DescribeActionTargets.yaml"
+
+requestDescribeHub :: DescribeHub -> TestTree
+requestDescribeHub =
+  req
+    "DescribeHub"
+    "fixture/DescribeHub.yaml"
+
+requestDescribeOrganizationConfiguration :: DescribeOrganizationConfiguration -> TestTree
+requestDescribeOrganizationConfiguration =
+  req
+    "DescribeOrganizationConfiguration"
+    "fixture/DescribeOrganizationConfiguration.yaml"
+
+requestDescribeProducts :: DescribeProducts -> TestTree
+requestDescribeProducts =
+  req
+    "DescribeProducts"
+    "fixture/DescribeProducts.yaml"
+
+requestDescribeStandards :: DescribeStandards -> TestTree
+requestDescribeStandards =
+  req
+    "DescribeStandards"
+    "fixture/DescribeStandards.yaml"
+
+requestDescribeStandardsControls :: DescribeStandardsControls -> TestTree
+requestDescribeStandardsControls =
+  req
+    "DescribeStandardsControls"
+    "fixture/DescribeStandardsControls.yaml"
+
+requestDisableImportFindingsForProduct :: DisableImportFindingsForProduct -> TestTree
+requestDisableImportFindingsForProduct =
+  req
+    "DisableImportFindingsForProduct"
+    "fixture/DisableImportFindingsForProduct.yaml"
 
 requestDisableOrganizationAdminAccount :: DisableOrganizationAdminAccount -> TestTree
 requestDisableOrganizationAdminAccount =
@@ -671,39 +491,187 @@ requestDisableOrganizationAdminAccount =
     "DisableOrganizationAdminAccount"
     "fixture/DisableOrganizationAdminAccount.yaml"
 
+requestDisableSecurityHub :: DisableSecurityHub -> TestTree
+requestDisableSecurityHub =
+  req
+    "DisableSecurityHub"
+    "fixture/DisableSecurityHub.yaml"
+
+requestDisassociateFromAdministratorAccount :: DisassociateFromAdministratorAccount -> TestTree
+requestDisassociateFromAdministratorAccount =
+  req
+    "DisassociateFromAdministratorAccount"
+    "fixture/DisassociateFromAdministratorAccount.yaml"
+
+requestDisassociateMembers :: DisassociateMembers -> TestTree
+requestDisassociateMembers =
+  req
+    "DisassociateMembers"
+    "fixture/DisassociateMembers.yaml"
+
+requestEnableImportFindingsForProduct :: EnableImportFindingsForProduct -> TestTree
+requestEnableImportFindingsForProduct =
+  req
+    "EnableImportFindingsForProduct"
+    "fixture/EnableImportFindingsForProduct.yaml"
+
+requestEnableOrganizationAdminAccount :: EnableOrganizationAdminAccount -> TestTree
+requestEnableOrganizationAdminAccount =
+  req
+    "EnableOrganizationAdminAccount"
+    "fixture/EnableOrganizationAdminAccount.yaml"
+
+requestEnableSecurityHub :: EnableSecurityHub -> TestTree
+requestEnableSecurityHub =
+  req
+    "EnableSecurityHub"
+    "fixture/EnableSecurityHub.yaml"
+
+requestGetAdministratorAccount :: GetAdministratorAccount -> TestTree
+requestGetAdministratorAccount =
+  req
+    "GetAdministratorAccount"
+    "fixture/GetAdministratorAccount.yaml"
+
+requestGetEnabledStandards :: GetEnabledStandards -> TestTree
+requestGetEnabledStandards =
+  req
+    "GetEnabledStandards"
+    "fixture/GetEnabledStandards.yaml"
+
+requestGetFindingAggregator :: GetFindingAggregator -> TestTree
+requestGetFindingAggregator =
+  req
+    "GetFindingAggregator"
+    "fixture/GetFindingAggregator.yaml"
+
+requestGetFindings :: GetFindings -> TestTree
+requestGetFindings =
+  req
+    "GetFindings"
+    "fixture/GetFindings.yaml"
+
+requestGetInsightResults :: GetInsightResults -> TestTree
+requestGetInsightResults =
+  req
+    "GetInsightResults"
+    "fixture/GetInsightResults.yaml"
+
+requestGetInsights :: GetInsights -> TestTree
+requestGetInsights =
+  req
+    "GetInsights"
+    "fixture/GetInsights.yaml"
+
+requestGetInvitationsCount :: GetInvitationsCount -> TestTree
+requestGetInvitationsCount =
+  req
+    "GetInvitationsCount"
+    "fixture/GetInvitationsCount.yaml"
+
+requestGetMembers :: GetMembers -> TestTree
+requestGetMembers =
+  req
+    "GetMembers"
+    "fixture/GetMembers.yaml"
+
+requestInviteMembers :: InviteMembers -> TestTree
+requestInviteMembers =
+  req
+    "InviteMembers"
+    "fixture/InviteMembers.yaml"
+
+requestListEnabledProductsForImport :: ListEnabledProductsForImport -> TestTree
+requestListEnabledProductsForImport =
+  req
+    "ListEnabledProductsForImport"
+    "fixture/ListEnabledProductsForImport.yaml"
+
+requestListFindingAggregators :: ListFindingAggregators -> TestTree
+requestListFindingAggregators =
+  req
+    "ListFindingAggregators"
+    "fixture/ListFindingAggregators.yaml"
+
+requestListInvitations :: ListInvitations -> TestTree
+requestListInvitations =
+  req
+    "ListInvitations"
+    "fixture/ListInvitations.yaml"
+
+requestListMembers :: ListMembers -> TestTree
+requestListMembers =
+  req
+    "ListMembers"
+    "fixture/ListMembers.yaml"
+
+requestListOrganizationAdminAccounts :: ListOrganizationAdminAccounts -> TestTree
+requestListOrganizationAdminAccounts =
+  req
+    "ListOrganizationAdminAccounts"
+    "fixture/ListOrganizationAdminAccounts.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateActionTarget :: UpdateActionTarget -> TestTree
+requestUpdateActionTarget =
+  req
+    "UpdateActionTarget"
+    "fixture/UpdateActionTarget.yaml"
+
+requestUpdateFindingAggregator :: UpdateFindingAggregator -> TestTree
+requestUpdateFindingAggregator =
+  req
+    "UpdateFindingAggregator"
+    "fixture/UpdateFindingAggregator.yaml"
+
+requestUpdateFindings :: UpdateFindings -> TestTree
+requestUpdateFindings =
+  req
+    "UpdateFindings"
+    "fixture/UpdateFindings.yaml"
+
+requestUpdateInsight :: UpdateInsight -> TestTree
+requestUpdateInsight =
+  req
+    "UpdateInsight"
+    "fixture/UpdateInsight.yaml"
+
+requestUpdateOrganizationConfiguration :: UpdateOrganizationConfiguration -> TestTree
+requestUpdateOrganizationConfiguration =
+  req
+    "UpdateOrganizationConfiguration"
+    "fixture/UpdateOrganizationConfiguration.yaml"
+
+requestUpdateSecurityHubConfiguration :: UpdateSecurityHubConfiguration -> TestTree
+requestUpdateSecurityHubConfiguration =
+  req
+    "UpdateSecurityHubConfiguration"
+    "fixture/UpdateSecurityHubConfiguration.yaml"
+
+requestUpdateStandardsControl :: UpdateStandardsControl -> TestTree
+requestUpdateStandardsControl =
+  req
+    "UpdateStandardsControl"
+    "fixture/UpdateStandardsControl.yaml"
+
 -- Responses
-
-responseEnableOrganizationAdminAccount :: EnableOrganizationAdminAccountResponse -> TestTree
-responseEnableOrganizationAdminAccount =
-  res
-    "EnableOrganizationAdminAccountResponse"
-    "fixture/EnableOrganizationAdminAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy EnableOrganizationAdminAccount)
-
-responseGetAdministratorAccount :: GetAdministratorAccountResponse -> TestTree
-responseGetAdministratorAccount =
-  res
-    "GetAdministratorAccountResponse"
-    "fixture/GetAdministratorAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAdministratorAccount)
-
-responseListOrganizationAdminAccounts :: ListOrganizationAdminAccountsResponse -> TestTree
-responseListOrganizationAdminAccounts =
-  res
-    "ListOrganizationAdminAccountsResponse"
-    "fixture/ListOrganizationAdminAccountsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListOrganizationAdminAccounts)
-
-responseCreateInsight :: CreateInsightResponse -> TestTree
-responseCreateInsight =
-  res
-    "CreateInsightResponse"
-    "fixture/CreateInsightResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateInsight)
 
 responseAcceptAdministratorInvitation :: AcceptAdministratorInvitationResponse -> TestTree
 responseAcceptAdministratorInvitation =
@@ -713,285 +681,13 @@ responseAcceptAdministratorInvitation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptAdministratorInvitation)
 
-responseDeleteMembers :: DeleteMembersResponse -> TestTree
-responseDeleteMembers =
+responseBatchDisableStandards :: BatchDisableStandardsResponse -> TestTree
+responseBatchDisableStandards =
   res
-    "DeleteMembersResponse"
-    "fixture/DeleteMembersResponse.proto"
+    "BatchDisableStandardsResponse"
+    "fixture/BatchDisableStandardsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMembers)
-
-responseDescribeHub :: DescribeHubResponse -> TestTree
-responseDescribeHub =
-  res
-    "DescribeHubResponse"
-    "fixture/DescribeHubResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeHub)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetInsightResults :: GetInsightResultsResponse -> TestTree
-responseGetInsightResults =
-  res
-    "GetInsightResultsResponse"
-    "fixture/GetInsightResultsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetInsightResults)
-
-responseEnableImportFindingsForProduct :: EnableImportFindingsForProductResponse -> TestTree
-responseEnableImportFindingsForProduct =
-  res
-    "EnableImportFindingsForProductResponse"
-    "fixture/EnableImportFindingsForProductResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy EnableImportFindingsForProduct)
-
-responseDescribeStandards :: DescribeStandardsResponse -> TestTree
-responseDescribeStandards =
-  res
-    "DescribeStandardsResponse"
-    "fixture/DescribeStandardsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStandards)
-
-responseDescribeProducts :: DescribeProductsResponse -> TestTree
-responseDescribeProducts =
-  res
-    "DescribeProductsResponse"
-    "fixture/DescribeProductsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeProducts)
-
-responseDeleteFindingAggregator :: DeleteFindingAggregatorResponse -> TestTree
-responseDeleteFindingAggregator =
-  res
-    "DeleteFindingAggregatorResponse"
-    "fixture/DeleteFindingAggregatorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFindingAggregator)
-
-responseUpdateFindingAggregator :: UpdateFindingAggregatorResponse -> TestTree
-responseUpdateFindingAggregator =
-  res
-    "UpdateFindingAggregatorResponse"
-    "fixture/UpdateFindingAggregatorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFindingAggregator)
-
-responseListInvitations :: ListInvitationsResponse -> TestTree
-responseListInvitations =
-  res
-    "ListInvitationsResponse"
-    "fixture/ListInvitationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
-
-responseDeleteInvitations :: DeleteInvitationsResponse -> TestTree
-responseDeleteInvitations =
-  res
-    "DeleteInvitationsResponse"
-    "fixture/DeleteInvitationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteInvitations)
-
-responseGetEnabledStandards :: GetEnabledStandardsResponse -> TestTree
-responseGetEnabledStandards =
-  res
-    "GetEnabledStandardsResponse"
-    "fixture/GetEnabledStandardsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEnabledStandards)
-
-responseDeclineInvitations :: DeclineInvitationsResponse -> TestTree
-responseDeclineInvitations =
-  res
-    "DeclineInvitationsResponse"
-    "fixture/DeclineInvitationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeclineInvitations)
-
-responseUpdateActionTarget :: UpdateActionTargetResponse -> TestTree
-responseUpdateActionTarget =
-  res
-    "UpdateActionTargetResponse"
-    "fixture/UpdateActionTargetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateActionTarget)
-
-responseDeleteActionTarget :: DeleteActionTargetResponse -> TestTree
-responseDeleteActionTarget =
-  res
-    "DeleteActionTargetResponse"
-    "fixture/DeleteActionTargetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteActionTarget)
-
-responseUpdateStandardsControl :: UpdateStandardsControlResponse -> TestTree
-responseUpdateStandardsControl =
-  res
-    "UpdateStandardsControlResponse"
-    "fixture/UpdateStandardsControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateStandardsControl)
-
-responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
-responseDescribeOrganizationConfiguration =
-  res
-    "DescribeOrganizationConfigurationResponse"
-    "fixture/DescribeOrganizationConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConfiguration)
-
-responseDescribeActionTargets :: DescribeActionTargetsResponse -> TestTree
-responseDescribeActionTargets =
-  res
-    "DescribeActionTargetsResponse"
-    "fixture/DescribeActionTargetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeActionTargets)
-
-responseDisassociateMembers :: DisassociateMembersResponse -> TestTree
-responseDisassociateMembers =
-  res
-    "DisassociateMembersResponse"
-    "fixture/DisassociateMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateMembers)
-
-responseListEnabledProductsForImport :: ListEnabledProductsForImportResponse -> TestTree
-responseListEnabledProductsForImport =
-  res
-    "ListEnabledProductsForImportResponse"
-    "fixture/ListEnabledProductsForImportResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEnabledProductsForImport)
-
-responseDescribeStandardsControls :: DescribeStandardsControlsResponse -> TestTree
-responseDescribeStandardsControls =
-  res
-    "DescribeStandardsControlsResponse"
-    "fixture/DescribeStandardsControlsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStandardsControls)
-
-responseListMembers :: ListMembersResponse -> TestTree
-responseListMembers =
-  res
-    "ListMembersResponse"
-    "fixture/ListMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMembers)
-
-responseCreateMembers :: CreateMembersResponse -> TestTree
-responseCreateMembers =
-  res
-    "CreateMembersResponse"
-    "fixture/CreateMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateMembers)
-
-responseBatchImportFindings :: BatchImportFindingsResponse -> TestTree
-responseBatchImportFindings =
-  res
-    "BatchImportFindingsResponse"
-    "fixture/BatchImportFindingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchImportFindings)
-
-responseGetInvitationsCount :: GetInvitationsCountResponse -> TestTree
-responseGetInvitationsCount =
-  res
-    "GetInvitationsCountResponse"
-    "fixture/GetInvitationsCountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetInvitationsCount)
-
-responseDeleteInsight :: DeleteInsightResponse -> TestTree
-responseDeleteInsight =
-  res
-    "DeleteInsightResponse"
-    "fixture/DeleteInsightResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteInsight)
-
-responseUpdateInsight :: UpdateInsightResponse -> TestTree
-responseUpdateInsight =
-  res
-    "UpdateInsightResponse"
-    "fixture/UpdateInsightResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateInsight)
-
-responseDisableImportFindingsForProduct :: DisableImportFindingsForProductResponse -> TestTree
-responseDisableImportFindingsForProduct =
-  res
-    "DisableImportFindingsForProductResponse"
-    "fixture/DisableImportFindingsForProductResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisableImportFindingsForProduct)
-
-responseUpdateFindings :: UpdateFindingsResponse -> TestTree
-responseUpdateFindings =
-  res
-    "UpdateFindingsResponse"
-    "fixture/UpdateFindingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFindings)
-
-responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
-responseUpdateOrganizationConfiguration =
-  res
-    "UpdateOrganizationConfigurationResponse"
-    "fixture/UpdateOrganizationConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationConfiguration)
-
-responseGetFindingAggregator :: GetFindingAggregatorResponse -> TestTree
-responseGetFindingAggregator =
-  res
-    "GetFindingAggregatorResponse"
-    "fixture/GetFindingAggregatorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFindingAggregator)
-
-responseInviteMembers :: InviteMembersResponse -> TestTree
-responseInviteMembers =
-  res
-    "InviteMembersResponse"
-    "fixture/InviteMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy InviteMembers)
-
-responseGetMembers :: GetMembersResponse -> TestTree
-responseGetMembers =
-  res
-    "GetMembersResponse"
-    "fixture/GetMembersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMembers)
-
-responseDisableSecurityHub :: DisableSecurityHubResponse -> TestTree
-responseDisableSecurityHub =
-  res
-    "DisableSecurityHubResponse"
-    "fixture/DisableSecurityHubResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisableSecurityHub)
-
-responseListFindingAggregators :: ListFindingAggregatorsResponse -> TestTree
-responseListFindingAggregators =
-  res
-    "ListFindingAggregatorsResponse"
-    "fixture/ListFindingAggregatorsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFindingAggregators)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisableStandards)
 
 responseBatchEnableStandards :: BatchEnableStandardsResponse -> TestTree
 responseBatchEnableStandards =
@@ -1001,69 +697,13 @@ responseBatchEnableStandards =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchEnableStandards)
 
-responseCreateFindingAggregator :: CreateFindingAggregatorResponse -> TestTree
-responseCreateFindingAggregator =
+responseBatchImportFindings :: BatchImportFindingsResponse -> TestTree
+responseBatchImportFindings =
   res
-    "CreateFindingAggregatorResponse"
-    "fixture/CreateFindingAggregatorResponse.proto"
+    "BatchImportFindingsResponse"
+    "fixture/BatchImportFindingsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFindingAggregator)
-
-responseBatchDisableStandards :: BatchDisableStandardsResponse -> TestTree
-responseBatchDisableStandards =
-  res
-    "BatchDisableStandardsResponse"
-    "fixture/BatchDisableStandardsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDisableStandards)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseEnableSecurityHub :: EnableSecurityHubResponse -> TestTree
-responseEnableSecurityHub =
-  res
-    "EnableSecurityHubResponse"
-    "fixture/EnableSecurityHubResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy EnableSecurityHub)
-
-responseUpdateSecurityHubConfiguration :: UpdateSecurityHubConfigurationResponse -> TestTree
-responseUpdateSecurityHubConfiguration =
-  res
-    "UpdateSecurityHubConfigurationResponse"
-    "fixture/UpdateSecurityHubConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSecurityHubConfiguration)
-
-responseGetFindings :: GetFindingsResponse -> TestTree
-responseGetFindings =
-  res
-    "GetFindingsResponse"
-    "fixture/GetFindingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFindings)
-
-responseGetInsights :: GetInsightsResponse -> TestTree
-responseGetInsights =
-  res
-    "GetInsightsResponse"
-    "fixture/GetInsightsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetInsights)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy BatchImportFindings)
 
 responseBatchUpdateFindings :: BatchUpdateFindingsResponse -> TestTree
 responseBatchUpdateFindings =
@@ -1081,13 +721,133 @@ responseCreateActionTarget =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateActionTarget)
 
-responseDisassociateFromAdministratorAccount :: DisassociateFromAdministratorAccountResponse -> TestTree
-responseDisassociateFromAdministratorAccount =
+responseCreateFindingAggregator :: CreateFindingAggregatorResponse -> TestTree
+responseCreateFindingAggregator =
   res
-    "DisassociateFromAdministratorAccountResponse"
-    "fixture/DisassociateFromAdministratorAccountResponse.proto"
+    "CreateFindingAggregatorResponse"
+    "fixture/CreateFindingAggregatorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateFromAdministratorAccount)
+    (Proxy.Proxy :: Proxy.Proxy CreateFindingAggregator)
+
+responseCreateInsight :: CreateInsightResponse -> TestTree
+responseCreateInsight =
+  res
+    "CreateInsightResponse"
+    "fixture/CreateInsightResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateInsight)
+
+responseCreateMembers :: CreateMembersResponse -> TestTree
+responseCreateMembers =
+  res
+    "CreateMembersResponse"
+    "fixture/CreateMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMembers)
+
+responseDeclineInvitations :: DeclineInvitationsResponse -> TestTree
+responseDeclineInvitations =
+  res
+    "DeclineInvitationsResponse"
+    "fixture/DeclineInvitationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeclineInvitations)
+
+responseDeleteActionTarget :: DeleteActionTargetResponse -> TestTree
+responseDeleteActionTarget =
+  res
+    "DeleteActionTargetResponse"
+    "fixture/DeleteActionTargetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteActionTarget)
+
+responseDeleteFindingAggregator :: DeleteFindingAggregatorResponse -> TestTree
+responseDeleteFindingAggregator =
+  res
+    "DeleteFindingAggregatorResponse"
+    "fixture/DeleteFindingAggregatorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFindingAggregator)
+
+responseDeleteInsight :: DeleteInsightResponse -> TestTree
+responseDeleteInsight =
+  res
+    "DeleteInsightResponse"
+    "fixture/DeleteInsightResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteInsight)
+
+responseDeleteInvitations :: DeleteInvitationsResponse -> TestTree
+responseDeleteInvitations =
+  res
+    "DeleteInvitationsResponse"
+    "fixture/DeleteInvitationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteInvitations)
+
+responseDeleteMembers :: DeleteMembersResponse -> TestTree
+responseDeleteMembers =
+  res
+    "DeleteMembersResponse"
+    "fixture/DeleteMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMembers)
+
+responseDescribeActionTargets :: DescribeActionTargetsResponse -> TestTree
+responseDescribeActionTargets =
+  res
+    "DescribeActionTargetsResponse"
+    "fixture/DescribeActionTargetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeActionTargets)
+
+responseDescribeHub :: DescribeHubResponse -> TestTree
+responseDescribeHub =
+  res
+    "DescribeHubResponse"
+    "fixture/DescribeHubResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeHub)
+
+responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
+responseDescribeOrganizationConfiguration =
+  res
+    "DescribeOrganizationConfigurationResponse"
+    "fixture/DescribeOrganizationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConfiguration)
+
+responseDescribeProducts :: DescribeProductsResponse -> TestTree
+responseDescribeProducts =
+  res
+    "DescribeProductsResponse"
+    "fixture/DescribeProductsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeProducts)
+
+responseDescribeStandards :: DescribeStandardsResponse -> TestTree
+responseDescribeStandards =
+  res
+    "DescribeStandardsResponse"
+    "fixture/DescribeStandardsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeStandards)
+
+responseDescribeStandardsControls :: DescribeStandardsControlsResponse -> TestTree
+responseDescribeStandardsControls =
+  res
+    "DescribeStandardsControlsResponse"
+    "fixture/DescribeStandardsControlsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeStandardsControls)
+
+responseDisableImportFindingsForProduct :: DisableImportFindingsForProductResponse -> TestTree
+responseDisableImportFindingsForProduct =
+  res
+    "DisableImportFindingsForProductResponse"
+    "fixture/DisableImportFindingsForProductResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableImportFindingsForProduct)
 
 responseDisableOrganizationAdminAccount :: DisableOrganizationAdminAccountResponse -> TestTree
 responseDisableOrganizationAdminAccount =
@@ -1096,3 +856,243 @@ responseDisableOrganizationAdminAccount =
     "fixture/DisableOrganizationAdminAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisableOrganizationAdminAccount)
+
+responseDisableSecurityHub :: DisableSecurityHubResponse -> TestTree
+responseDisableSecurityHub =
+  res
+    "DisableSecurityHubResponse"
+    "fixture/DisableSecurityHubResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableSecurityHub)
+
+responseDisassociateFromAdministratorAccount :: DisassociateFromAdministratorAccountResponse -> TestTree
+responseDisassociateFromAdministratorAccount =
+  res
+    "DisassociateFromAdministratorAccountResponse"
+    "fixture/DisassociateFromAdministratorAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFromAdministratorAccount)
+
+responseDisassociateMembers :: DisassociateMembersResponse -> TestTree
+responseDisassociateMembers =
+  res
+    "DisassociateMembersResponse"
+    "fixture/DisassociateMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMembers)
+
+responseEnableImportFindingsForProduct :: EnableImportFindingsForProductResponse -> TestTree
+responseEnableImportFindingsForProduct =
+  res
+    "EnableImportFindingsForProductResponse"
+    "fixture/EnableImportFindingsForProductResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableImportFindingsForProduct)
+
+responseEnableOrganizationAdminAccount :: EnableOrganizationAdminAccountResponse -> TestTree
+responseEnableOrganizationAdminAccount =
+  res
+    "EnableOrganizationAdminAccountResponse"
+    "fixture/EnableOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableOrganizationAdminAccount)
+
+responseEnableSecurityHub :: EnableSecurityHubResponse -> TestTree
+responseEnableSecurityHub =
+  res
+    "EnableSecurityHubResponse"
+    "fixture/EnableSecurityHubResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableSecurityHub)
+
+responseGetAdministratorAccount :: GetAdministratorAccountResponse -> TestTree
+responseGetAdministratorAccount =
+  res
+    "GetAdministratorAccountResponse"
+    "fixture/GetAdministratorAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAdministratorAccount)
+
+responseGetEnabledStandards :: GetEnabledStandardsResponse -> TestTree
+responseGetEnabledStandards =
+  res
+    "GetEnabledStandardsResponse"
+    "fixture/GetEnabledStandardsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEnabledStandards)
+
+responseGetFindingAggregator :: GetFindingAggregatorResponse -> TestTree
+responseGetFindingAggregator =
+  res
+    "GetFindingAggregatorResponse"
+    "fixture/GetFindingAggregatorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFindingAggregator)
+
+responseGetFindings :: GetFindingsResponse -> TestTree
+responseGetFindings =
+  res
+    "GetFindingsResponse"
+    "fixture/GetFindingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFindings)
+
+responseGetInsightResults :: GetInsightResultsResponse -> TestTree
+responseGetInsightResults =
+  res
+    "GetInsightResultsResponse"
+    "fixture/GetInsightResultsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInsightResults)
+
+responseGetInsights :: GetInsightsResponse -> TestTree
+responseGetInsights =
+  res
+    "GetInsightsResponse"
+    "fixture/GetInsightsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInsights)
+
+responseGetInvitationsCount :: GetInvitationsCountResponse -> TestTree
+responseGetInvitationsCount =
+  res
+    "GetInvitationsCountResponse"
+    "fixture/GetInvitationsCountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInvitationsCount)
+
+responseGetMembers :: GetMembersResponse -> TestTree
+responseGetMembers =
+  res
+    "GetMembersResponse"
+    "fixture/GetMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMembers)
+
+responseInviteMembers :: InviteMembersResponse -> TestTree
+responseInviteMembers =
+  res
+    "InviteMembersResponse"
+    "fixture/InviteMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InviteMembers)
+
+responseListEnabledProductsForImport :: ListEnabledProductsForImportResponse -> TestTree
+responseListEnabledProductsForImport =
+  res
+    "ListEnabledProductsForImportResponse"
+    "fixture/ListEnabledProductsForImportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEnabledProductsForImport)
+
+responseListFindingAggregators :: ListFindingAggregatorsResponse -> TestTree
+responseListFindingAggregators =
+  res
+    "ListFindingAggregatorsResponse"
+    "fixture/ListFindingAggregatorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFindingAggregators)
+
+responseListInvitations :: ListInvitationsResponse -> TestTree
+responseListInvitations =
+  res
+    "ListInvitationsResponse"
+    "fixture/ListInvitationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
+
+responseListMembers :: ListMembersResponse -> TestTree
+responseListMembers =
+  res
+    "ListMembersResponse"
+    "fixture/ListMembersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMembers)
+
+responseListOrganizationAdminAccounts :: ListOrganizationAdminAccountsResponse -> TestTree
+responseListOrganizationAdminAccounts =
+  res
+    "ListOrganizationAdminAccountsResponse"
+    "fixture/ListOrganizationAdminAccountsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOrganizationAdminAccounts)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateActionTarget :: UpdateActionTargetResponse -> TestTree
+responseUpdateActionTarget =
+  res
+    "UpdateActionTargetResponse"
+    "fixture/UpdateActionTargetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateActionTarget)
+
+responseUpdateFindingAggregator :: UpdateFindingAggregatorResponse -> TestTree
+responseUpdateFindingAggregator =
+  res
+    "UpdateFindingAggregatorResponse"
+    "fixture/UpdateFindingAggregatorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFindingAggregator)
+
+responseUpdateFindings :: UpdateFindingsResponse -> TestTree
+responseUpdateFindings =
+  res
+    "UpdateFindingsResponse"
+    "fixture/UpdateFindingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFindings)
+
+responseUpdateInsight :: UpdateInsightResponse -> TestTree
+responseUpdateInsight =
+  res
+    "UpdateInsightResponse"
+    "fixture/UpdateInsightResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateInsight)
+
+responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
+responseUpdateOrganizationConfiguration =
+  res
+    "UpdateOrganizationConfigurationResponse"
+    "fixture/UpdateOrganizationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationConfiguration)
+
+responseUpdateSecurityHubConfiguration :: UpdateSecurityHubConfigurationResponse -> TestTree
+responseUpdateSecurityHubConfiguration =
+  res
+    "UpdateSecurityHubConfigurationResponse"
+    "fixture/UpdateSecurityHubConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSecurityHubConfiguration)
+
+responseUpdateStandardsControl :: UpdateStandardsControlResponse -> TestTree
+responseUpdateStandardsControl =
+  res
+    "UpdateStandardsControlResponse"
+    "fixture/UpdateStandardsControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStandardsControl)

@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3OutputLocation' smart constructor.
 data S3OutputLocation = S3OutputLocation'
-  { -- | The S3 bucket subfolder.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services Region of the S3 bucket.
+  { -- | The Amazon Web Services Region of the S3 bucket.
     outputS3Region :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket.
-    outputS3BucketName :: Prelude.Maybe Prelude.Text
+    outputS3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | The S3 bucket subfolder.
+    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,19 @@ data S3OutputLocation = S3OutputLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputS3KeyPrefix', 's3OutputLocation_outputS3KeyPrefix' - The S3 bucket subfolder.
---
 -- 'outputS3Region', 's3OutputLocation_outputS3Region' - The Amazon Web Services Region of the S3 bucket.
 --
 -- 'outputS3BucketName', 's3OutputLocation_outputS3BucketName' - The name of the S3 bucket.
+--
+-- 'outputS3KeyPrefix', 's3OutputLocation_outputS3KeyPrefix' - The S3 bucket subfolder.
 newS3OutputLocation ::
   S3OutputLocation
 newS3OutputLocation =
   S3OutputLocation'
-    { outputS3KeyPrefix =
-        Prelude.Nothing,
-      outputS3Region = Prelude.Nothing,
-      outputS3BucketName = Prelude.Nothing
+    { outputS3Region = Prelude.Nothing,
+      outputS3BucketName = Prelude.Nothing,
+      outputS3KeyPrefix = Prelude.Nothing
     }
-
--- | The S3 bucket subfolder.
-s3OutputLocation_outputS3KeyPrefix :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
-s3OutputLocation_outputS3KeyPrefix = Lens.lens (\S3OutputLocation' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@S3OutputLocation' {} a -> s {outputS3KeyPrefix = a} :: S3OutputLocation)
 
 -- | The Amazon Web Services Region of the S3 bucket.
 s3OutputLocation_outputS3Region :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
@@ -71,38 +66,42 @@ s3OutputLocation_outputS3Region = Lens.lens (\S3OutputLocation' {outputS3Region}
 s3OutputLocation_outputS3BucketName :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
 s3OutputLocation_outputS3BucketName = Lens.lens (\S3OutputLocation' {outputS3BucketName} -> outputS3BucketName) (\s@S3OutputLocation' {} a -> s {outputS3BucketName = a} :: S3OutputLocation)
 
+-- | The S3 bucket subfolder.
+s3OutputLocation_outputS3KeyPrefix :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
+s3OutputLocation_outputS3KeyPrefix = Lens.lens (\S3OutputLocation' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@S3OutputLocation' {} a -> s {outputS3KeyPrefix = a} :: S3OutputLocation)
+
 instance Core.FromJSON S3OutputLocation where
   parseJSON =
     Core.withObject
       "S3OutputLocation"
       ( \x ->
           S3OutputLocation'
-            Prelude.<$> (x Core..:? "OutputS3KeyPrefix")
-            Prelude.<*> (x Core..:? "OutputS3Region")
+            Prelude.<$> (x Core..:? "OutputS3Region")
             Prelude.<*> (x Core..:? "OutputS3BucketName")
+            Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
       )
 
 instance Prelude.Hashable S3OutputLocation where
   hashWithSalt _salt S3OutputLocation' {..} =
-    _salt `Prelude.hashWithSalt` outputS3KeyPrefix
-      `Prelude.hashWithSalt` outputS3Region
+    _salt `Prelude.hashWithSalt` outputS3Region
       `Prelude.hashWithSalt` outputS3BucketName
+      `Prelude.hashWithSalt` outputS3KeyPrefix
 
 instance Prelude.NFData S3OutputLocation where
   rnf S3OutputLocation' {..} =
-    Prelude.rnf outputS3KeyPrefix
-      `Prelude.seq` Prelude.rnf outputS3Region
+    Prelude.rnf outputS3Region
       `Prelude.seq` Prelude.rnf outputS3BucketName
+      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
 
 instance Core.ToJSON S3OutputLocation where
   toJSON S3OutputLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OutputS3KeyPrefix" Core..=)
-              Prelude.<$> outputS3KeyPrefix,
-            ("OutputS3Region" Core..=)
+          [ ("OutputS3Region" Core..=)
               Prelude.<$> outputS3Region,
             ("OutputS3BucketName" Core..=)
-              Prelude.<$> outputS3BucketName
+              Prelude.<$> outputS3BucketName,
+            ("OutputS3KeyPrefix" Core..=)
+              Prelude.<$> outputS3KeyPrefix
           ]
       )

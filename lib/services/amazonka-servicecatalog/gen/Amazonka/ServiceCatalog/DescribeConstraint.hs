@@ -35,8 +35,8 @@ module Amazonka.ServiceCatalog.DescribeConstraint
     newDescribeConstraintResponse,
 
     -- * Response Lenses
-    describeConstraintResponse_status,
     describeConstraintResponse_constraintDetail,
+    describeConstraintResponse_status,
     describeConstraintResponse_constraintParameters,
     describeConstraintResponse_httpStatus,
   )
@@ -115,8 +115,8 @@ instance Core.AWSRequest DescribeConstraint where
     Response.receiveJSON
       ( \s h x ->
           DescribeConstraintResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ConstraintDetail")
+            Prelude.<$> (x Core..?> "ConstraintDetail")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -164,10 +164,10 @@ instance Core.ToQuery DescribeConstraint where
 
 -- | /See:/ 'newDescribeConstraintResponse' smart constructor.
 data DescribeConstraintResponse = DescribeConstraintResponse'
-  { -- | The status of the current request.
-    status :: Prelude.Maybe RequestStatus,
-    -- | Information about the constraint.
+  { -- | Information about the constraint.
     constraintDetail :: Prelude.Maybe ConstraintDetail,
+    -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
     -- | The constraint parameters.
     constraintParameters :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -183,9 +183,9 @@ data DescribeConstraintResponse = DescribeConstraintResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeConstraintResponse_status' - The status of the current request.
---
 -- 'constraintDetail', 'describeConstraintResponse_constraintDetail' - Information about the constraint.
+--
+-- 'status', 'describeConstraintResponse_status' - The status of the current request.
 --
 -- 'constraintParameters', 'describeConstraintResponse_constraintParameters' - The constraint parameters.
 --
@@ -196,20 +196,20 @@ newDescribeConstraintResponse ::
   DescribeConstraintResponse
 newDescribeConstraintResponse pHttpStatus_ =
   DescribeConstraintResponse'
-    { status =
+    { constraintDetail =
         Prelude.Nothing,
-      constraintDetail = Prelude.Nothing,
+      status = Prelude.Nothing,
       constraintParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of the current request.
-describeConstraintResponse_status :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe RequestStatus)
-describeConstraintResponse_status = Lens.lens (\DescribeConstraintResponse' {status} -> status) (\s@DescribeConstraintResponse' {} a -> s {status = a} :: DescribeConstraintResponse)
-
 -- | Information about the constraint.
 describeConstraintResponse_constraintDetail :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe ConstraintDetail)
 describeConstraintResponse_constraintDetail = Lens.lens (\DescribeConstraintResponse' {constraintDetail} -> constraintDetail) (\s@DescribeConstraintResponse' {} a -> s {constraintDetail = a} :: DescribeConstraintResponse)
+
+-- | The status of the current request.
+describeConstraintResponse_status :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe RequestStatus)
+describeConstraintResponse_status = Lens.lens (\DescribeConstraintResponse' {status} -> status) (\s@DescribeConstraintResponse' {} a -> s {status = a} :: DescribeConstraintResponse)
 
 -- | The constraint parameters.
 describeConstraintResponse_constraintParameters :: Lens.Lens' DescribeConstraintResponse (Prelude.Maybe Prelude.Text)
@@ -221,7 +221,7 @@ describeConstraintResponse_httpStatus = Lens.lens (\DescribeConstraintResponse' 
 
 instance Prelude.NFData DescribeConstraintResponse where
   rnf DescribeConstraintResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf constraintDetail
+    Prelude.rnf constraintDetail
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf constraintParameters
       `Prelude.seq` Prelude.rnf httpStatus

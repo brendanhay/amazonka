@@ -27,8 +27,59 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteDataflowEndpointGroup $
+--         [ requestCancelContact $
+--             newCancelContact
+--
+--         , requestCreateConfig $
+--             newCreateConfig
+--
+--         , requestCreateDataflowEndpointGroup $
+--             newCreateDataflowEndpointGroup
+--
+--         , requestCreateMissionProfile $
+--             newCreateMissionProfile
+--
+--         , requestDeleteConfig $
+--             newDeleteConfig
+--
+--         , requestDeleteDataflowEndpointGroup $
 --             newDeleteDataflowEndpointGroup
+--
+--         , requestDeleteMissionProfile $
+--             newDeleteMissionProfile
+--
+--         , requestDescribeContact $
+--             newDescribeContact
+--
+--         , requestGetConfig $
+--             newGetConfig
+--
+--         , requestGetDataflowEndpointGroup $
+--             newGetDataflowEndpointGroup
+--
+--         , requestGetMinuteUsage $
+--             newGetMinuteUsage
+--
+--         , requestGetMissionProfile $
+--             newGetMissionProfile
+--
+--         , requestGetSatellite $
+--             newGetSatellite
+--
+--         , requestListConfigs $
+--             newListConfigs
+--
+--         , requestListContacts $
+--             newListContacts
+--
+--         , requestListDataflowEndpointGroups $
+--             newListDataflowEndpointGroups
+--
+--         , requestListGroundStations $
+--             newListGroundStations
+--
+--         , requestListMissionProfiles $
+--             newListMissionProfiles
 --
 --         , requestListSatellites $
 --             newListSatellites
@@ -36,77 +87,77 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
---         , requestGetMinuteUsage $
---             newGetMinuteUsage
---
---         , requestDescribeContact $
---             newDescribeContact
---
 --         , requestReserveContact $
 --             newReserveContact
---
---         , requestCreateMissionProfile $
---             newCreateMissionProfile
---
---         , requestListGroundStations $
---             newListGroundStations
---
---         , requestCreateConfig $
---             newCreateConfig
---
---         , requestListMissionProfiles $
---             newListMissionProfiles
---
---         , requestGetMissionProfile $
---             newGetMissionProfile
---
---         , requestGetConfig $
---             newGetConfig
---
---         , requestListDataflowEndpointGroups $
---             newListDataflowEndpointGroups
---
---         , requestCreateDataflowEndpointGroup $
---             newCreateDataflowEndpointGroup
---
---         , requestGetSatellite $
---             newGetSatellite
---
---         , requestGetDataflowEndpointGroup $
---             newGetDataflowEndpointGroup
 --
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestListConfigs $
---             newListConfigs
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestUpdateConfig $
 --             newUpdateConfig
 --
---         , requestDeleteConfig $
---             newDeleteConfig
---
---         , requestUntagResource $
---             newUntagResource
---
 --         , requestUpdateMissionProfile $
 --             newUpdateMissionProfile
---
---         , requestDeleteMissionProfile $
---             newDeleteMissionProfile
---
---         , requestCancelContact $
---             newCancelContact
---
---         , requestListContacts $
---             newListContacts
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteDataflowEndpointGroup $
+--         [ responseCancelContact $
+--             newContactIdResponse
+--
+--         , responseCreateConfig $
+--             newConfigIdResponse
+--
+--         , responseCreateDataflowEndpointGroup $
 --             newDataflowEndpointGroupIdResponse
+--
+--         , responseCreateMissionProfile $
+--             newMissionProfileIdResponse
+--
+--         , responseDeleteConfig $
+--             newConfigIdResponse
+--
+--         , responseDeleteDataflowEndpointGroup $
+--             newDataflowEndpointGroupIdResponse
+--
+--         , responseDeleteMissionProfile $
+--             newMissionProfileIdResponse
+--
+--         , responseDescribeContact $
+--             newDescribeContactResponse
+--
+--         , responseGetConfig $
+--             newGetConfigResponse
+--
+--         , responseGetDataflowEndpointGroup $
+--             newGetDataflowEndpointGroupResponse
+--
+--         , responseGetMinuteUsage $
+--             newGetMinuteUsageResponse
+--
+--         , responseGetMissionProfile $
+--             newGetMissionProfileResponse
+--
+--         , responseGetSatellite $
+--             newGetSatelliteResponse
+--
+--         , responseListConfigs $
+--             newListConfigsResponse
+--
+--         , responseListContacts $
+--             newListContactsResponse
+--
+--         , responseListDataflowEndpointGroups $
+--             newListDataflowEndpointGroupsResponse
+--
+--         , responseListGroundStations $
+--             newListGroundStationsResponse
+--
+--         , responseListMissionProfiles $
+--             newListMissionProfilesResponse
 --
 --         , responseListSatellites $
 --             newListSatellitesResponse
@@ -114,82 +165,133 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
---         , responseGetMinuteUsage $
---             newGetMinuteUsageResponse
---
---         , responseDescribeContact $
---             newDescribeContactResponse
---
 --         , responseReserveContact $
 --             newContactIdResponse
---
---         , responseCreateMissionProfile $
---             newMissionProfileIdResponse
---
---         , responseListGroundStations $
---             newListGroundStationsResponse
---
---         , responseCreateConfig $
---             newConfigIdResponse
---
---         , responseListMissionProfiles $
---             newListMissionProfilesResponse
---
---         , responseGetMissionProfile $
---             newGetMissionProfileResponse
---
---         , responseGetConfig $
---             newGetConfigResponse
---
---         , responseListDataflowEndpointGroups $
---             newListDataflowEndpointGroupsResponse
---
---         , responseCreateDataflowEndpointGroup $
---             newDataflowEndpointGroupIdResponse
---
---         , responseGetSatellite $
---             newGetSatelliteResponse
---
---         , responseGetDataflowEndpointGroup $
---             newGetDataflowEndpointGroupResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseListConfigs $
---             newListConfigsResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdateConfig $
 --             newConfigIdResponse
 --
---         , responseDeleteConfig $
---             newConfigIdResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
 --         , responseUpdateMissionProfile $
 --             newMissionProfileIdResponse
---
---         , responseDeleteMissionProfile $
---             newMissionProfileIdResponse
---
---         , responseCancelContact $
---             newContactIdResponse
---
---         , responseListContacts $
---             newListContactsResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
+requestCancelContact :: CancelContact -> TestTree
+requestCancelContact =
+  req
+    "CancelContact"
+    "fixture/CancelContact.yaml"
+
+requestCreateConfig :: CreateConfig -> TestTree
+requestCreateConfig =
+  req
+    "CreateConfig"
+    "fixture/CreateConfig.yaml"
+
+requestCreateDataflowEndpointGroup :: CreateDataflowEndpointGroup -> TestTree
+requestCreateDataflowEndpointGroup =
+  req
+    "CreateDataflowEndpointGroup"
+    "fixture/CreateDataflowEndpointGroup.yaml"
+
+requestCreateMissionProfile :: CreateMissionProfile -> TestTree
+requestCreateMissionProfile =
+  req
+    "CreateMissionProfile"
+    "fixture/CreateMissionProfile.yaml"
+
+requestDeleteConfig :: DeleteConfig -> TestTree
+requestDeleteConfig =
+  req
+    "DeleteConfig"
+    "fixture/DeleteConfig.yaml"
+
 requestDeleteDataflowEndpointGroup :: DeleteDataflowEndpointGroup -> TestTree
 requestDeleteDataflowEndpointGroup =
   req
     "DeleteDataflowEndpointGroup"
     "fixture/DeleteDataflowEndpointGroup.yaml"
+
+requestDeleteMissionProfile :: DeleteMissionProfile -> TestTree
+requestDeleteMissionProfile =
+  req
+    "DeleteMissionProfile"
+    "fixture/DeleteMissionProfile.yaml"
+
+requestDescribeContact :: DescribeContact -> TestTree
+requestDescribeContact =
+  req
+    "DescribeContact"
+    "fixture/DescribeContact.yaml"
+
+requestGetConfig :: GetConfig -> TestTree
+requestGetConfig =
+  req
+    "GetConfig"
+    "fixture/GetConfig.yaml"
+
+requestGetDataflowEndpointGroup :: GetDataflowEndpointGroup -> TestTree
+requestGetDataflowEndpointGroup =
+  req
+    "GetDataflowEndpointGroup"
+    "fixture/GetDataflowEndpointGroup.yaml"
+
+requestGetMinuteUsage :: GetMinuteUsage -> TestTree
+requestGetMinuteUsage =
+  req
+    "GetMinuteUsage"
+    "fixture/GetMinuteUsage.yaml"
+
+requestGetMissionProfile :: GetMissionProfile -> TestTree
+requestGetMissionProfile =
+  req
+    "GetMissionProfile"
+    "fixture/GetMissionProfile.yaml"
+
+requestGetSatellite :: GetSatellite -> TestTree
+requestGetSatellite =
+  req
+    "GetSatellite"
+    "fixture/GetSatellite.yaml"
+
+requestListConfigs :: ListConfigs -> TestTree
+requestListConfigs =
+  req
+    "ListConfigs"
+    "fixture/ListConfigs.yaml"
+
+requestListContacts :: ListContacts -> TestTree
+requestListContacts =
+  req
+    "ListContacts"
+    "fixture/ListContacts.yaml"
+
+requestListDataflowEndpointGroups :: ListDataflowEndpointGroups -> TestTree
+requestListDataflowEndpointGroups =
+  req
+    "ListDataflowEndpointGroups"
+    "fixture/ListDataflowEndpointGroups.yaml"
+
+requestListGroundStations :: ListGroundStations -> TestTree
+requestListGroundStations =
+  req
+    "ListGroundStations"
+    "fixture/ListGroundStations.yaml"
+
+requestListMissionProfiles :: ListMissionProfiles -> TestTree
+requestListMissionProfiles =
+  req
+    "ListMissionProfiles"
+    "fixture/ListMissionProfiles.yaml"
 
 requestListSatellites :: ListSatellites -> TestTree
 requestListSatellites =
@@ -203,83 +305,11 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
-requestGetMinuteUsage :: GetMinuteUsage -> TestTree
-requestGetMinuteUsage =
-  req
-    "GetMinuteUsage"
-    "fixture/GetMinuteUsage.yaml"
-
-requestDescribeContact :: DescribeContact -> TestTree
-requestDescribeContact =
-  req
-    "DescribeContact"
-    "fixture/DescribeContact.yaml"
-
 requestReserveContact :: ReserveContact -> TestTree
 requestReserveContact =
   req
     "ReserveContact"
     "fixture/ReserveContact.yaml"
-
-requestCreateMissionProfile :: CreateMissionProfile -> TestTree
-requestCreateMissionProfile =
-  req
-    "CreateMissionProfile"
-    "fixture/CreateMissionProfile.yaml"
-
-requestListGroundStations :: ListGroundStations -> TestTree
-requestListGroundStations =
-  req
-    "ListGroundStations"
-    "fixture/ListGroundStations.yaml"
-
-requestCreateConfig :: CreateConfig -> TestTree
-requestCreateConfig =
-  req
-    "CreateConfig"
-    "fixture/CreateConfig.yaml"
-
-requestListMissionProfiles :: ListMissionProfiles -> TestTree
-requestListMissionProfiles =
-  req
-    "ListMissionProfiles"
-    "fixture/ListMissionProfiles.yaml"
-
-requestGetMissionProfile :: GetMissionProfile -> TestTree
-requestGetMissionProfile =
-  req
-    "GetMissionProfile"
-    "fixture/GetMissionProfile.yaml"
-
-requestGetConfig :: GetConfig -> TestTree
-requestGetConfig =
-  req
-    "GetConfig"
-    "fixture/GetConfig.yaml"
-
-requestListDataflowEndpointGroups :: ListDataflowEndpointGroups -> TestTree
-requestListDataflowEndpointGroups =
-  req
-    "ListDataflowEndpointGroups"
-    "fixture/ListDataflowEndpointGroups.yaml"
-
-requestCreateDataflowEndpointGroup :: CreateDataflowEndpointGroup -> TestTree
-requestCreateDataflowEndpointGroup =
-  req
-    "CreateDataflowEndpointGroup"
-    "fixture/CreateDataflowEndpointGroup.yaml"
-
-requestGetSatellite :: GetSatellite -> TestTree
-requestGetSatellite =
-  req
-    "GetSatellite"
-    "fixture/GetSatellite.yaml"
-
-requestGetDataflowEndpointGroup :: GetDataflowEndpointGroup -> TestTree
-requestGetDataflowEndpointGroup =
-  req
-    "GetDataflowEndpointGroup"
-    "fixture/GetDataflowEndpointGroup.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -287,11 +317,11 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestListConfigs :: ListConfigs -> TestTree
-requestListConfigs =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "ListConfigs"
-    "fixture/ListConfigs.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateConfig :: UpdateConfig -> TestTree
 requestUpdateConfig =
@@ -299,43 +329,53 @@ requestUpdateConfig =
     "UpdateConfig"
     "fixture/UpdateConfig.yaml"
 
-requestDeleteConfig :: DeleteConfig -> TestTree
-requestDeleteConfig =
-  req
-    "DeleteConfig"
-    "fixture/DeleteConfig.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
 requestUpdateMissionProfile :: UpdateMissionProfile -> TestTree
 requestUpdateMissionProfile =
   req
     "UpdateMissionProfile"
     "fixture/UpdateMissionProfile.yaml"
 
-requestDeleteMissionProfile :: DeleteMissionProfile -> TestTree
-requestDeleteMissionProfile =
-  req
-    "DeleteMissionProfile"
-    "fixture/DeleteMissionProfile.yaml"
-
-requestCancelContact :: CancelContact -> TestTree
-requestCancelContact =
-  req
-    "CancelContact"
-    "fixture/CancelContact.yaml"
-
-requestListContacts :: ListContacts -> TestTree
-requestListContacts =
-  req
-    "ListContacts"
-    "fixture/ListContacts.yaml"
-
 -- Responses
+
+responseCancelContact :: ContactIdResponse -> TestTree
+responseCancelContact =
+  res
+    "CancelContactResponse"
+    "fixture/CancelContactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelContact)
+
+responseCreateConfig :: ConfigIdResponse -> TestTree
+responseCreateConfig =
+  res
+    "CreateConfigResponse"
+    "fixture/CreateConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateConfig)
+
+responseCreateDataflowEndpointGroup :: DataflowEndpointGroupIdResponse -> TestTree
+responseCreateDataflowEndpointGroup =
+  res
+    "CreateDataflowEndpointGroupResponse"
+    "fixture/CreateDataflowEndpointGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDataflowEndpointGroup)
+
+responseCreateMissionProfile :: MissionProfileIdResponse -> TestTree
+responseCreateMissionProfile =
+  res
+    "CreateMissionProfileResponse"
+    "fixture/CreateMissionProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMissionProfile)
+
+responseDeleteConfig :: ConfigIdResponse -> TestTree
+responseDeleteConfig =
+  res
+    "DeleteConfigResponse"
+    "fixture/DeleteConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteConfig)
 
 responseDeleteDataflowEndpointGroup :: DataflowEndpointGroupIdResponse -> TestTree
 responseDeleteDataflowEndpointGroup =
@@ -344,6 +384,102 @@ responseDeleteDataflowEndpointGroup =
     "fixture/DeleteDataflowEndpointGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDataflowEndpointGroup)
+
+responseDeleteMissionProfile :: MissionProfileIdResponse -> TestTree
+responseDeleteMissionProfile =
+  res
+    "DeleteMissionProfileResponse"
+    "fixture/DeleteMissionProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMissionProfile)
+
+responseDescribeContact :: DescribeContactResponse -> TestTree
+responseDescribeContact =
+  res
+    "DescribeContactResponse"
+    "fixture/DescribeContactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeContact)
+
+responseGetConfig :: GetConfigResponse -> TestTree
+responseGetConfig =
+  res
+    "GetConfigResponse"
+    "fixture/GetConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetConfig)
+
+responseGetDataflowEndpointGroup :: GetDataflowEndpointGroupResponse -> TestTree
+responseGetDataflowEndpointGroup =
+  res
+    "GetDataflowEndpointGroupResponse"
+    "fixture/GetDataflowEndpointGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataflowEndpointGroup)
+
+responseGetMinuteUsage :: GetMinuteUsageResponse -> TestTree
+responseGetMinuteUsage =
+  res
+    "GetMinuteUsageResponse"
+    "fixture/GetMinuteUsageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMinuteUsage)
+
+responseGetMissionProfile :: GetMissionProfileResponse -> TestTree
+responseGetMissionProfile =
+  res
+    "GetMissionProfileResponse"
+    "fixture/GetMissionProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMissionProfile)
+
+responseGetSatellite :: GetSatelliteResponse -> TestTree
+responseGetSatellite =
+  res
+    "GetSatelliteResponse"
+    "fixture/GetSatelliteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSatellite)
+
+responseListConfigs :: ListConfigsResponse -> TestTree
+responseListConfigs =
+  res
+    "ListConfigsResponse"
+    "fixture/ListConfigsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListConfigs)
+
+responseListContacts :: ListContactsResponse -> TestTree
+responseListContacts =
+  res
+    "ListContactsResponse"
+    "fixture/ListContactsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListContacts)
+
+responseListDataflowEndpointGroups :: ListDataflowEndpointGroupsResponse -> TestTree
+responseListDataflowEndpointGroups =
+  res
+    "ListDataflowEndpointGroupsResponse"
+    "fixture/ListDataflowEndpointGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataflowEndpointGroups)
+
+responseListGroundStations :: ListGroundStationsResponse -> TestTree
+responseListGroundStations =
+  res
+    "ListGroundStationsResponse"
+    "fixture/ListGroundStationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListGroundStations)
+
+responseListMissionProfiles :: ListMissionProfilesResponse -> TestTree
+responseListMissionProfiles =
+  res
+    "ListMissionProfilesResponse"
+    "fixture/ListMissionProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMissionProfiles)
 
 responseListSatellites :: ListSatellitesResponse -> TestTree
 responseListSatellites =
@@ -361,22 +497,6 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
-responseGetMinuteUsage :: GetMinuteUsageResponse -> TestTree
-responseGetMinuteUsage =
-  res
-    "GetMinuteUsageResponse"
-    "fixture/GetMinuteUsageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMinuteUsage)
-
-responseDescribeContact :: DescribeContactResponse -> TestTree
-responseDescribeContact =
-  res
-    "DescribeContactResponse"
-    "fixture/DescribeContactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeContact)
-
 responseReserveContact :: ContactIdResponse -> TestTree
 responseReserveContact =
   res
@@ -384,86 +504,6 @@ responseReserveContact =
     "fixture/ReserveContactResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ReserveContact)
-
-responseCreateMissionProfile :: MissionProfileIdResponse -> TestTree
-responseCreateMissionProfile =
-  res
-    "CreateMissionProfileResponse"
-    "fixture/CreateMissionProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateMissionProfile)
-
-responseListGroundStations :: ListGroundStationsResponse -> TestTree
-responseListGroundStations =
-  res
-    "ListGroundStationsResponse"
-    "fixture/ListGroundStationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListGroundStations)
-
-responseCreateConfig :: ConfigIdResponse -> TestTree
-responseCreateConfig =
-  res
-    "CreateConfigResponse"
-    "fixture/CreateConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateConfig)
-
-responseListMissionProfiles :: ListMissionProfilesResponse -> TestTree
-responseListMissionProfiles =
-  res
-    "ListMissionProfilesResponse"
-    "fixture/ListMissionProfilesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMissionProfiles)
-
-responseGetMissionProfile :: GetMissionProfileResponse -> TestTree
-responseGetMissionProfile =
-  res
-    "GetMissionProfileResponse"
-    "fixture/GetMissionProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMissionProfile)
-
-responseGetConfig :: GetConfigResponse -> TestTree
-responseGetConfig =
-  res
-    "GetConfigResponse"
-    "fixture/GetConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetConfig)
-
-responseListDataflowEndpointGroups :: ListDataflowEndpointGroupsResponse -> TestTree
-responseListDataflowEndpointGroups =
-  res
-    "ListDataflowEndpointGroupsResponse"
-    "fixture/ListDataflowEndpointGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDataflowEndpointGroups)
-
-responseCreateDataflowEndpointGroup :: DataflowEndpointGroupIdResponse -> TestTree
-responseCreateDataflowEndpointGroup =
-  res
-    "CreateDataflowEndpointGroupResponse"
-    "fixture/CreateDataflowEndpointGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDataflowEndpointGroup)
-
-responseGetSatellite :: GetSatelliteResponse -> TestTree
-responseGetSatellite =
-  res
-    "GetSatelliteResponse"
-    "fixture/GetSatelliteResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSatellite)
-
-responseGetDataflowEndpointGroup :: GetDataflowEndpointGroupResponse -> TestTree
-responseGetDataflowEndpointGroup =
-  res
-    "GetDataflowEndpointGroupResponse"
-    "fixture/GetDataflowEndpointGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDataflowEndpointGroup)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -473,13 +513,13 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseListConfigs :: ListConfigsResponse -> TestTree
-responseListConfigs =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "ListConfigsResponse"
-    "fixture/ListConfigsResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListConfigs)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateConfig :: ConfigIdResponse -> TestTree
 responseUpdateConfig =
@@ -489,22 +529,6 @@ responseUpdateConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateConfig)
 
-responseDeleteConfig :: ConfigIdResponse -> TestTree
-responseDeleteConfig =
-  res
-    "DeleteConfigResponse"
-    "fixture/DeleteConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteConfig)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
 responseUpdateMissionProfile :: MissionProfileIdResponse -> TestTree
 responseUpdateMissionProfile =
   res
@@ -512,27 +536,3 @@ responseUpdateMissionProfile =
     "fixture/UpdateMissionProfileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateMissionProfile)
-
-responseDeleteMissionProfile :: MissionProfileIdResponse -> TestTree
-responseDeleteMissionProfile =
-  res
-    "DeleteMissionProfileResponse"
-    "fixture/DeleteMissionProfileResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMissionProfile)
-
-responseCancelContact :: ContactIdResponse -> TestTree
-responseCancelContact =
-  res
-    "CancelContactResponse"
-    "fixture/CancelContactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelContact)
-
-responseListContacts :: ListContactsResponse -> TestTree
-responseListContacts =
-  res
-    "ListContactsResponse"
-    "fixture/ListContactsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListContacts)

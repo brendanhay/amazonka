@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDBClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
-  { -- | The Amazon Resource Name (ARN) for the cluster parameter group.
+  { -- | Provides the customer-specified description for this cluster parameter
+    -- group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the cluster parameter group.
     dbClusterParameterGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Provides the name of the parameter group family that this cluster
     -- parameter group is compatible with.
     dbParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | Provides the name of the cluster parameter group.
-    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | Provides the customer-specified description for this cluster parameter
-    -- group.
-    description :: Prelude.Maybe Prelude.Text
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,30 @@ data DBClusterParameterGroup = DBClusterParameterGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'dbClusterParameterGroup_description' - Provides the customer-specified description for this cluster parameter
+-- group.
+--
 -- 'dbClusterParameterGroupArn', 'dbClusterParameterGroup_dbClusterParameterGroupArn' - The Amazon Resource Name (ARN) for the cluster parameter group.
 --
 -- 'dbParameterGroupFamily', 'dbClusterParameterGroup_dbParameterGroupFamily' - Provides the name of the parameter group family that this cluster
 -- parameter group is compatible with.
 --
 -- 'dbClusterParameterGroupName', 'dbClusterParameterGroup_dbClusterParameterGroupName' - Provides the name of the cluster parameter group.
---
--- 'description', 'dbClusterParameterGroup_description' - Provides the customer-specified description for this cluster parameter
--- group.
 newDBClusterParameterGroup ::
   DBClusterParameterGroup
 newDBClusterParameterGroup =
   DBClusterParameterGroup'
-    { dbClusterParameterGroupArn =
+    { description =
         Prelude.Nothing,
+      dbClusterParameterGroupArn = Prelude.Nothing,
       dbParameterGroupFamily = Prelude.Nothing,
-      dbClusterParameterGroupName = Prelude.Nothing,
-      description = Prelude.Nothing
+      dbClusterParameterGroupName = Prelude.Nothing
     }
+
+-- | Provides the customer-specified description for this cluster parameter
+-- group.
+dbClusterParameterGroup_description :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
+dbClusterParameterGroup_description = Lens.lens (\DBClusterParameterGroup' {description} -> description) (\s@DBClusterParameterGroup' {} a -> s {description = a} :: DBClusterParameterGroup)
 
 -- | The Amazon Resource Name (ARN) for the cluster parameter group.
 dbClusterParameterGroup_dbClusterParameterGroupArn :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
@@ -81,30 +86,24 @@ dbClusterParameterGroup_dbParameterGroupFamily = Lens.lens (\DBClusterParameterG
 dbClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
 dbClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\DBClusterParameterGroup' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@DBClusterParameterGroup' {} a -> s {dbClusterParameterGroupName = a} :: DBClusterParameterGroup)
 
--- | Provides the customer-specified description for this cluster parameter
--- group.
-dbClusterParameterGroup_description :: Lens.Lens' DBClusterParameterGroup (Prelude.Maybe Prelude.Text)
-dbClusterParameterGroup_description = Lens.lens (\DBClusterParameterGroup' {description} -> description) (\s@DBClusterParameterGroup' {} a -> s {description = a} :: DBClusterParameterGroup)
-
 instance Core.FromXML DBClusterParameterGroup where
   parseXML x =
     DBClusterParameterGroup'
-      Prelude.<$> (x Core..@? "DBClusterParameterGroupArn")
+      Prelude.<$> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "DBClusterParameterGroupArn")
       Prelude.<*> (x Core..@? "DBParameterGroupFamily")
       Prelude.<*> (x Core..@? "DBClusterParameterGroupName")
-      Prelude.<*> (x Core..@? "Description")
 
 instance Prelude.Hashable DBClusterParameterGroup where
   hashWithSalt _salt DBClusterParameterGroup' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dbClusterParameterGroupArn
       `Prelude.hashWithSalt` dbParameterGroupFamily
       `Prelude.hashWithSalt` dbClusterParameterGroupName
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData DBClusterParameterGroup where
   rnf DBClusterParameterGroup' {..} =
-    Prelude.rnf dbClusterParameterGroupArn
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupArn
       `Prelude.seq` Prelude.rnf dbParameterGroupFamily
       `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf description

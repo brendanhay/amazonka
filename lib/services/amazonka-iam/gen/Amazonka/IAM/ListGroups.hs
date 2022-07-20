@@ -32,9 +32,9 @@ module Amazonka.IAM.ListGroups
     newListGroups,
 
     -- * Request Lenses
-    listGroups_pathPrefix,
     listGroups_marker,
     listGroups_maxItems,
+    listGroups_pathPrefix,
 
     -- * Destructuring the Response
     ListGroupsResponse (..),
@@ -57,20 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { -- | The path prefix for filtering the results. For example, the prefix
-    -- @\/division_abc\/subdivision_xyz\/@ gets all groups whose path starts
-    -- with @\/division_abc\/subdivision_xyz\/@.
-    --
-    -- This parameter is optional. If it is not included, it defaults to a
-    -- slash (\/), listing all groups. This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of either a forward slash (\/) by itself or a string that
-    -- must begin and end with forward slashes. In addition, it can contain any
-    -- ASCII character from the ! (@\\u0021@) through the DEL character
-    -- (@\\u007F@), including most punctuation characters, digits, and upper
-    -- and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
@@ -84,7 +71,20 @@ data ListGroups = ListGroups'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The path prefix for filtering the results. For example, the prefix
+    -- @\/division_abc\/subdivision_xyz\/@ gets all groups whose path starts
+    -- with @\/division_abc\/subdivision_xyz\/@.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/), listing all groups. This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,19 +95,6 @@ data ListGroups = ListGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'pathPrefix', 'listGroups_pathPrefix' - The path prefix for filtering the results. For example, the prefix
--- @\/division_abc\/subdivision_xyz\/@ gets all groups whose path starts
--- with @\/division_abc\/subdivision_xyz\/@.
---
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/), listing all groups. This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
 --
 -- 'marker', 'listGroups_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -123,16 +110,8 @@ data ListGroups = ListGroups'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-newListGroups ::
-  ListGroups
-newListGroups =
-  ListGroups'
-    { pathPrefix = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
-    }
-
--- | The path prefix for filtering the results. For example, the prefix
+--
+-- 'pathPrefix', 'listGroups_pathPrefix' - The path prefix for filtering the results. For example, the prefix
 -- @\/division_abc\/subdivision_xyz\/@ gets all groups whose path starts
 -- with @\/division_abc\/subdivision_xyz\/@.
 --
@@ -144,8 +123,14 @@ newListGroups =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-listGroups_pathPrefix :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
-listGroups_pathPrefix = Lens.lens (\ListGroups' {pathPrefix} -> pathPrefix) (\s@ListGroups' {} a -> s {pathPrefix = a} :: ListGroups)
+newListGroups ::
+  ListGroups
+newListGroups =
+  ListGroups'
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing
+    }
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -165,6 +150,21 @@ listGroups_marker = Lens.lens (\ListGroups' {marker} -> marker) (\s@ListGroups' 
 -- subsequent call that tells the service where to continue from.
 listGroups_maxItems :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Natural)
 listGroups_maxItems = Lens.lens (\ListGroups' {maxItems} -> maxItems) (\s@ListGroups' {} a -> s {maxItems = a} :: ListGroups)
+
+-- | The path prefix for filtering the results. For example, the prefix
+-- @\/division_abc\/subdivision_xyz\/@ gets all groups whose path starts
+-- with @\/division_abc\/subdivision_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all groups. This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+listGroups_pathPrefix :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
+listGroups_pathPrefix = Lens.lens (\ListGroups' {pathPrefix} -> pathPrefix) (\s@ListGroups' {} a -> s {pathPrefix = a} :: ListGroups)
 
 instance Core.AWSPager ListGroups where
   page rq rs
@@ -203,15 +203,15 @@ instance Core.AWSRequest ListGroups where
 
 instance Prelude.Hashable ListGroups where
   hashWithSalt _salt ListGroups' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefix
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` pathPrefix
 
 instance Prelude.NFData ListGroups where
   rnf ListGroups' {..} =
-    Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf pathPrefix
 
 instance Core.ToHeaders ListGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -226,9 +226,9 @@ instance Core.ToQuery ListGroups where
           Core.=: ("ListGroups" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Core.=: pathPrefix,
         "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+        "MaxItems" Core.=: maxItems,
+        "PathPrefix" Core.=: pathPrefix
       ]
 
 -- | Contains the response to a successful ListGroups request.

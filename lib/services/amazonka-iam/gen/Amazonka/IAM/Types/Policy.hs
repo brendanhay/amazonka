@@ -37,7 +37,27 @@ import qualified Amazonka.Prelude as Prelude
 data Policy = Policy'
   { -- | The friendly name (not ARN) identifying the policy.
     policyName :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags that are attached to the instance profile. For more
+    -- information about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
+    tags :: Prelude.Maybe [Tag],
+    -- | The stable and unique string identifying the policy.
+    --
+    -- For more information about IDs, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+    -- in the /IAM User Guide/.
+    policyId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the version of the policy that is set as the default
+    -- version.
+    defaultVersionId :: Prelude.Maybe Prelude.Text,
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The path to the policy.
+    --
+    -- For more information about paths, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+    -- in the /IAM User Guide/.
+    path :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- policy was last updated.
@@ -47,25 +67,18 @@ data Policy = Policy'
     -- version, this field contains the date and time when the most recent
     -- policy version was created.
     updateDate :: Prelude.Maybe Core.ISO8601,
-    -- | The stable and unique string identifying the policy.
+    -- | A friendly description of the policy.
     --
-    -- For more information about IDs, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
-    -- in the /IAM User Guide/.
-    policyId :: Prelude.Maybe Prelude.Text,
-    -- | The path to the policy.
-    --
-    -- For more information about paths, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
-    -- in the /IAM User Guide/.
-    path :: Prelude.Maybe Prelude.Text,
+    -- This element is included in the response to the GetPolicy operation. It
+    -- is not included in the response to the ListPolicies operation.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- policy was created.
     createDate :: Prelude.Maybe Core.ISO8601,
-    -- | Specifies whether the policy can be attached to an IAM user, group, or
-    -- role.
-    isAttachable :: Prelude.Maybe Prelude.Bool,
+    -- | The number of entities (users, groups, and roles) that the policy is
+    -- attached to.
+    attachmentCount :: Prelude.Maybe Prelude.Int,
     -- | The number of entities (users and roles) for which the policy is used to
     -- set the permissions boundary.
     --
@@ -73,22 +86,9 @@ data Policy = Policy'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
     -- in the /IAM User Guide/.
     permissionsBoundaryUsageCount :: Prelude.Maybe Prelude.Int,
-    -- | The identifier for the version of the policy that is set as the default
-    -- version.
-    defaultVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The number of entities (users, groups, and roles) that the policy is
-    -- attached to.
-    attachmentCount :: Prelude.Maybe Prelude.Int,
-    -- | A friendly description of the policy.
-    --
-    -- This element is included in the response to the GetPolicy operation. It
-    -- is not included in the response to the ListPolicies operation.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags that are attached to the instance profile. For more
-    -- information about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
-    -- in the /IAM User Guide/.
-    tags :: Prelude.Maybe [Tag]
+    -- | Specifies whether the policy can be attached to an IAM user, group, or
+    -- role.
+    isAttachable :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,7 +102,27 @@ data Policy = Policy'
 --
 -- 'policyName', 'policy_policyName' - The friendly name (not ARN) identifying the policy.
 --
+-- 'tags', 'policy_tags' - A list of tags that are attached to the instance profile. For more
+-- information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- 'policyId', 'policy_policyId' - The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+-- in the /IAM User Guide/.
+--
+-- 'defaultVersionId', 'policy_defaultVersionId' - The identifier for the version of the policy that is set as the default
+-- version.
+--
 -- 'arn', 'policy_arn' - Undocumented member.
+--
+-- 'path', 'policy_path' - The path to the policy.
+--
+-- For more information about paths, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+-- in the /IAM User Guide/.
 --
 -- 'updateDate', 'policy_updateDate' - The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -113,24 +133,17 @@ data Policy = Policy'
 -- version, this field contains the date and time when the most recent
 -- policy version was created.
 --
--- 'policyId', 'policy_policyId' - The stable and unique string identifying the policy.
+-- 'description', 'policy_description' - A friendly description of the policy.
 --
--- For more information about IDs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
--- in the /IAM User Guide/.
---
--- 'path', 'policy_path' - The path to the policy.
---
--- For more information about paths, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
--- in the /IAM User Guide/.
+-- This element is included in the response to the GetPolicy operation. It
+-- is not included in the response to the ListPolicies operation.
 --
 -- 'createDate', 'policy_createDate' - The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- policy was created.
 --
--- 'isAttachable', 'policy_isAttachable' - Specifies whether the policy can be attached to an IAM user, group, or
--- role.
+-- 'attachmentCount', 'policy_attachmentCount' - The number of entities (users, groups, and roles) that the policy is
+-- attached to.
 --
 -- 'permissionsBoundaryUsageCount', 'policy_permissionsBoundaryUsageCount' - The number of entities (users and roles) for which the policy is used to
 -- set the permissions boundary.
@@ -139,46 +152,61 @@ data Policy = Policy'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
 -- in the /IAM User Guide/.
 --
--- 'defaultVersionId', 'policy_defaultVersionId' - The identifier for the version of the policy that is set as the default
--- version.
---
--- 'attachmentCount', 'policy_attachmentCount' - The number of entities (users, groups, and roles) that the policy is
--- attached to.
---
--- 'description', 'policy_description' - A friendly description of the policy.
---
--- This element is included in the response to the GetPolicy operation. It
--- is not included in the response to the ListPolicies operation.
---
--- 'tags', 'policy_tags' - A list of tags that are attached to the instance profile. For more
--- information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
+-- 'isAttachable', 'policy_isAttachable' - Specifies whether the policy can be attached to an IAM user, group, or
+-- role.
 newPolicy ::
   Policy
 newPolicy =
   Policy'
     { policyName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      updateDate = Prelude.Nothing,
+      tags = Prelude.Nothing,
       policyId = Prelude.Nothing,
-      path = Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      isAttachable = Prelude.Nothing,
-      permissionsBoundaryUsageCount = Prelude.Nothing,
       defaultVersionId = Prelude.Nothing,
-      attachmentCount = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      path = Prelude.Nothing,
+      updateDate = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing
+      createDate = Prelude.Nothing,
+      attachmentCount = Prelude.Nothing,
+      permissionsBoundaryUsageCount = Prelude.Nothing,
+      isAttachable = Prelude.Nothing
     }
 
 -- | The friendly name (not ARN) identifying the policy.
 policy_policyName :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyName = Lens.lens (\Policy' {policyName} -> policyName) (\s@Policy' {} a -> s {policyName = a} :: Policy)
 
+-- | A list of tags that are attached to the instance profile. For more
+-- information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+policy_tags :: Lens.Lens' Policy (Prelude.Maybe [Tag])
+policy_tags = Lens.lens (\Policy' {tags} -> tags) (\s@Policy' {} a -> s {tags = a} :: Policy) Prelude.. Lens.mapping Lens.coerced
+
+-- | The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+-- in the /IAM User Guide/.
+policy_policyId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
+policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -> s {policyId = a} :: Policy)
+
+-- | The identifier for the version of the policy that is set as the default
+-- version.
+policy_defaultVersionId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
+policy_defaultVersionId = Lens.lens (\Policy' {defaultVersionId} -> defaultVersionId) (\s@Policy' {} a -> s {defaultVersionId = a} :: Policy)
+
 -- | Undocumented member.
 policy_arn :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_arn = Lens.lens (\Policy' {arn} -> arn) (\s@Policy' {} a -> s {arn = a} :: Policy)
+
+-- | The path to the policy.
+--
+-- For more information about paths, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
+-- in the /IAM User Guide/.
+policy_path :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
+policy_path = Lens.lens (\Policy' {path} -> path) (\s@Policy' {} a -> s {path = a} :: Policy)
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -191,21 +219,12 @@ policy_arn = Lens.lens (\Policy' {arn} -> arn) (\s@Policy' {} a -> s {arn = a} :
 policy_updateDate :: Lens.Lens' Policy (Prelude.Maybe Prelude.UTCTime)
 policy_updateDate = Lens.lens (\Policy' {updateDate} -> updateDate) (\s@Policy' {} a -> s {updateDate = a} :: Policy) Prelude.. Lens.mapping Core._Time
 
--- | The stable and unique string identifying the policy.
+-- | A friendly description of the policy.
 --
--- For more information about IDs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
--- in the /IAM User Guide/.
-policy_policyId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
-policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -> s {policyId = a} :: Policy)
-
--- | The path to the policy.
---
--- For more information about paths, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
--- in the /IAM User Guide/.
-policy_path :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
-policy_path = Lens.lens (\Policy' {path} -> path) (\s@Policy' {} a -> s {path = a} :: Policy)
+-- This element is included in the response to the GetPolicy operation. It
+-- is not included in the response to the ListPolicies operation.
+policy_description :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
+policy_description = Lens.lens (\Policy' {description} -> description) (\s@Policy' {} a -> s {description = a} :: Policy)
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -213,10 +232,10 @@ policy_path = Lens.lens (\Policy' {path} -> path) (\s@Policy' {} a -> s {path = 
 policy_createDate :: Lens.Lens' Policy (Prelude.Maybe Prelude.UTCTime)
 policy_createDate = Lens.lens (\Policy' {createDate} -> createDate) (\s@Policy' {} a -> s {createDate = a} :: Policy) Prelude.. Lens.mapping Core._Time
 
--- | Specifies whether the policy can be attached to an IAM user, group, or
--- role.
-policy_isAttachable :: Lens.Lens' Policy (Prelude.Maybe Prelude.Bool)
-policy_isAttachable = Lens.lens (\Policy' {isAttachable} -> isAttachable) (\s@Policy' {} a -> s {isAttachable = a} :: Policy)
+-- | The number of entities (users, groups, and roles) that the policy is
+-- attached to.
+policy_attachmentCount :: Lens.Lens' Policy (Prelude.Maybe Prelude.Int)
+policy_attachmentCount = Lens.lens (\Policy' {attachmentCount} -> attachmentCount) (\s@Policy' {} a -> s {attachmentCount = a} :: Policy)
 
 -- | The number of entities (users and roles) for which the policy is used to
 -- set the permissions boundary.
@@ -227,74 +246,55 @@ policy_isAttachable = Lens.lens (\Policy' {isAttachable} -> isAttachable) (\s@Po
 policy_permissionsBoundaryUsageCount :: Lens.Lens' Policy (Prelude.Maybe Prelude.Int)
 policy_permissionsBoundaryUsageCount = Lens.lens (\Policy' {permissionsBoundaryUsageCount} -> permissionsBoundaryUsageCount) (\s@Policy' {} a -> s {permissionsBoundaryUsageCount = a} :: Policy)
 
--- | The identifier for the version of the policy that is set as the default
--- version.
-policy_defaultVersionId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
-policy_defaultVersionId = Lens.lens (\Policy' {defaultVersionId} -> defaultVersionId) (\s@Policy' {} a -> s {defaultVersionId = a} :: Policy)
-
--- | The number of entities (users, groups, and roles) that the policy is
--- attached to.
-policy_attachmentCount :: Lens.Lens' Policy (Prelude.Maybe Prelude.Int)
-policy_attachmentCount = Lens.lens (\Policy' {attachmentCount} -> attachmentCount) (\s@Policy' {} a -> s {attachmentCount = a} :: Policy)
-
--- | A friendly description of the policy.
---
--- This element is included in the response to the GetPolicy operation. It
--- is not included in the response to the ListPolicies operation.
-policy_description :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
-policy_description = Lens.lens (\Policy' {description} -> description) (\s@Policy' {} a -> s {description = a} :: Policy)
-
--- | A list of tags that are attached to the instance profile. For more
--- information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
-policy_tags :: Lens.Lens' Policy (Prelude.Maybe [Tag])
-policy_tags = Lens.lens (\Policy' {tags} -> tags) (\s@Policy' {} a -> s {tags = a} :: Policy) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies whether the policy can be attached to an IAM user, group, or
+-- role.
+policy_isAttachable :: Lens.Lens' Policy (Prelude.Maybe Prelude.Bool)
+policy_isAttachable = Lens.lens (\Policy' {isAttachable} -> isAttachable) (\s@Policy' {} a -> s {isAttachable = a} :: Policy)
 
 instance Core.FromXML Policy where
   parseXML x =
     Policy'
       Prelude.<$> (x Core..@? "PolicyName")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "UpdateDate")
-      Prelude.<*> (x Core..@? "PolicyId")
-      Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "IsAttachable")
-      Prelude.<*> (x Core..@? "PermissionsBoundaryUsageCount")
-      Prelude.<*> (x Core..@? "DefaultVersionId")
-      Prelude.<*> (x Core..@? "AttachmentCount")
-      Prelude.<*> (x Core..@? "Description")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "PolicyId")
+      Prelude.<*> (x Core..@? "DefaultVersionId")
+      Prelude.<*> (x Core..@? "Arn")
+      Prelude.<*> (x Core..@? "Path")
+      Prelude.<*> (x Core..@? "UpdateDate")
+      Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "CreateDate")
+      Prelude.<*> (x Core..@? "AttachmentCount")
+      Prelude.<*> (x Core..@? "PermissionsBoundaryUsageCount")
+      Prelude.<*> (x Core..@? "IsAttachable")
 
 instance Prelude.Hashable Policy where
   hashWithSalt _salt Policy' {..} =
     _salt `Prelude.hashWithSalt` policyName
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` updateDate
-      `Prelude.hashWithSalt` policyId
-      `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` createDate
-      `Prelude.hashWithSalt` isAttachable
-      `Prelude.hashWithSalt` permissionsBoundaryUsageCount
-      `Prelude.hashWithSalt` defaultVersionId
-      `Prelude.hashWithSalt` attachmentCount
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` defaultVersionId
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` updateDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` attachmentCount
+      `Prelude.hashWithSalt` permissionsBoundaryUsageCount
+      `Prelude.hashWithSalt` isAttachable
 
 instance Prelude.NFData Policy where
   rnf Policy' {..} =
     Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf updateDate
-      `Prelude.seq` Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf isAttachable
-      `Prelude.seq` Prelude.rnf permissionsBoundaryUsageCount
-      `Prelude.seq` Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf attachmentCount
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf updateDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf attachmentCount
+      `Prelude.seq` Prelude.rnf permissionsBoundaryUsageCount
+      `Prelude.seq` Prelude.rnf isAttachable

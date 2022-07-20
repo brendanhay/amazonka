@@ -38,8 +38,8 @@ module Amazonka.EKS.ListAddons
     newListAddonsResponse,
 
     -- * Response Lenses
-    listAddonsResponse_addons,
     listAddonsResponse_nextToken,
+    listAddonsResponse_addons,
     listAddonsResponse_httpStatus,
   )
 where
@@ -166,8 +166,8 @@ instance Core.AWSRequest ListAddons where
     Response.receiveJSON
       ( \s h x ->
           ListAddonsResponse'
-            Prelude.<$> (x Core..?> "addons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "addons" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,9 +208,7 @@ instance Core.ToQuery ListAddons where
 
 -- | /See:/ 'newListAddonsResponse' smart constructor.
 data ListAddonsResponse = ListAddonsResponse'
-  { -- | A list of available add-ons.
-    addons :: Prelude.Maybe [Prelude.Text],
-    -- | The @nextToken@ value returned from a previous paginated
+  { -- | The @nextToken@ value returned from a previous paginated
     -- @ListAddonsResponse@ where @maxResults@ was used and the results
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @nextToken@ value.
@@ -219,6 +217,8 @@ data ListAddonsResponse = ListAddonsResponse'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of available add-ons.
+    addons :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,8 +232,6 @@ data ListAddonsResponse = ListAddonsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addons', 'listAddonsResponse_addons' - A list of available add-ons.
---
 -- 'nextToken', 'listAddonsResponse_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @ListAddonsResponse@ where @maxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
@@ -243,6 +241,8 @@ data ListAddonsResponse = ListAddonsResponse'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
+-- 'addons', 'listAddonsResponse_addons' - A list of available add-ons.
+--
 -- 'httpStatus', 'listAddonsResponse_httpStatus' - The response's http status code.
 newListAddonsResponse ::
   -- | 'httpStatus'
@@ -250,14 +250,10 @@ newListAddonsResponse ::
   ListAddonsResponse
 newListAddonsResponse pHttpStatus_ =
   ListAddonsResponse'
-    { addons = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      addons = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of available add-ons.
-listAddonsResponse_addons :: Lens.Lens' ListAddonsResponse (Prelude.Maybe [Prelude.Text])
-listAddonsResponse_addons = Lens.lens (\ListAddonsResponse' {addons} -> addons) (\s@ListAddonsResponse' {} a -> s {addons = a} :: ListAddonsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListAddonsResponse@ where @maxResults@ was used and the results
@@ -270,12 +266,16 @@ listAddonsResponse_addons = Lens.lens (\ListAddonsResponse' {addons} -> addons) 
 listAddonsResponse_nextToken :: Lens.Lens' ListAddonsResponse (Prelude.Maybe Prelude.Text)
 listAddonsResponse_nextToken = Lens.lens (\ListAddonsResponse' {nextToken} -> nextToken) (\s@ListAddonsResponse' {} a -> s {nextToken = a} :: ListAddonsResponse)
 
+-- | A list of available add-ons.
+listAddonsResponse_addons :: Lens.Lens' ListAddonsResponse (Prelude.Maybe [Prelude.Text])
+listAddonsResponse_addons = Lens.lens (\ListAddonsResponse' {addons} -> addons) (\s@ListAddonsResponse' {} a -> s {addons = a} :: ListAddonsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listAddonsResponse_httpStatus :: Lens.Lens' ListAddonsResponse Prelude.Int
 listAddonsResponse_httpStatus = Lens.lens (\ListAddonsResponse' {httpStatus} -> httpStatus) (\s@ListAddonsResponse' {} a -> s {httpStatus = a} :: ListAddonsResponse)
 
 instance Prelude.NFData ListAddonsResponse where
   rnf ListAddonsResponse' {..} =
-    Prelude.rnf addons
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf addons
       `Prelude.seq` Prelude.rnf httpStatus

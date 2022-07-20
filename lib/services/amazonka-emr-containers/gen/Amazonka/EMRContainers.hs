@@ -41,14 +41,14 @@ module Amazonka.EMRContainers
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -56,23 +56,11 @@ module Amazonka.EMRContainers
     -- * Operations
     -- $operations
 
-    -- ** ListManagedEndpoints (Paginated)
-    ListManagedEndpoints (ListManagedEndpoints'),
-    newListManagedEndpoints,
-    ListManagedEndpointsResponse (ListManagedEndpointsResponse'),
-    newListManagedEndpointsResponse,
-
-    -- ** CreateVirtualCluster
-    CreateVirtualCluster (CreateVirtualCluster'),
-    newCreateVirtualCluster,
-    CreateVirtualClusterResponse (CreateVirtualClusterResponse'),
-    newCreateVirtualClusterResponse,
-
-    -- ** DeleteVirtualCluster
-    DeleteVirtualCluster (DeleteVirtualCluster'),
-    newDeleteVirtualCluster,
-    DeleteVirtualClusterResponse (DeleteVirtualClusterResponse'),
-    newDeleteVirtualClusterResponse,
+    -- ** CancelJobRun
+    CancelJobRun (CancelJobRun'),
+    newCancelJobRun,
+    CancelJobRunResponse (CancelJobRunResponse'),
+    newCancelJobRunResponse,
 
     -- ** CreateManagedEndpoint
     CreateManagedEndpoint (CreateManagedEndpoint'),
@@ -80,17 +68,11 @@ module Amazonka.EMRContainers
     CreateManagedEndpointResponse (CreateManagedEndpointResponse'),
     newCreateManagedEndpointResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** CancelJobRun
-    CancelJobRun (CancelJobRun'),
-    newCancelJobRun,
-    CancelJobRunResponse (CancelJobRunResponse'),
-    newCancelJobRunResponse,
+    -- ** CreateVirtualCluster
+    CreateVirtualCluster (CreateVirtualCluster'),
+    newCreateVirtualCluster,
+    CreateVirtualClusterResponse (CreateVirtualClusterResponse'),
+    newCreateVirtualClusterResponse,
 
     -- ** DeleteManagedEndpoint
     DeleteManagedEndpoint (DeleteManagedEndpoint'),
@@ -98,29 +80,11 @@ module Amazonka.EMRContainers
     DeleteManagedEndpointResponse (DeleteManagedEndpointResponse'),
     newDeleteManagedEndpointResponse,
 
-    -- ** ListJobRuns (Paginated)
-    ListJobRuns (ListJobRuns'),
-    newListJobRuns,
-    ListJobRunsResponse (ListJobRunsResponse'),
-    newListJobRunsResponse,
-
-    -- ** ListVirtualClusters (Paginated)
-    ListVirtualClusters (ListVirtualClusters'),
-    newListVirtualClusters,
-    ListVirtualClustersResponse (ListVirtualClustersResponse'),
-    newListVirtualClustersResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DescribeManagedEndpoint
-    DescribeManagedEndpoint (DescribeManagedEndpoint'),
-    newDescribeManagedEndpoint,
-    DescribeManagedEndpointResponse (DescribeManagedEndpointResponse'),
-    newDescribeManagedEndpointResponse,
+    -- ** DeleteVirtualCluster
+    DeleteVirtualCluster (DeleteVirtualCluster'),
+    newDeleteVirtualCluster,
+    DeleteVirtualClusterResponse (DeleteVirtualClusterResponse'),
+    newDeleteVirtualClusterResponse,
 
     -- ** DescribeJobRun
     DescribeJobRun (DescribeJobRun'),
@@ -128,11 +92,11 @@ module Amazonka.EMRContainers
     DescribeJobRunResponse (DescribeJobRunResponse'),
     newDescribeJobRunResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** DescribeManagedEndpoint
+    DescribeManagedEndpoint (DescribeManagedEndpoint'),
+    newDescribeManagedEndpoint,
+    DescribeManagedEndpointResponse (DescribeManagedEndpointResponse'),
+    newDescribeManagedEndpointResponse,
 
     -- ** DescribeVirtualCluster
     DescribeVirtualCluster (DescribeVirtualCluster'),
@@ -140,11 +104,47 @@ module Amazonka.EMRContainers
     DescribeVirtualClusterResponse (DescribeVirtualClusterResponse'),
     newDescribeVirtualClusterResponse,
 
+    -- ** ListJobRuns (Paginated)
+    ListJobRuns (ListJobRuns'),
+    newListJobRuns,
+    ListJobRunsResponse (ListJobRunsResponse'),
+    newListJobRunsResponse,
+
+    -- ** ListManagedEndpoints (Paginated)
+    ListManagedEndpoints (ListManagedEndpoints'),
+    newListManagedEndpoints,
+    ListManagedEndpointsResponse (ListManagedEndpointsResponse'),
+    newListManagedEndpointsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListVirtualClusters (Paginated)
+    ListVirtualClusters (ListVirtualClusters'),
+    newListVirtualClusters,
+    ListVirtualClustersResponse (ListVirtualClustersResponse'),
+    newListVirtualClustersResponse,
+
     -- ** StartJobRun
     StartJobRun (StartJobRun'),
     newStartJobRun,
     StartJobRunResponse (StartJobRunResponse'),
     newStartJobRunResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- * Types
 

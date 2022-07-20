@@ -18,9 +18,9 @@ module Amazonka.CustomerProfiles.Types
 
     -- * Errors
     _AccessDeniedException,
-    _ThrottlingException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _ThrottlingException,
     _BadRequestException,
 
     -- * DataPullMode
@@ -69,57 +69,57 @@ module Amazonka.CustomerProfiles.Types
     Address (..),
     newAddress,
     address_address2,
-    address_state,
-    address_address4,
-    address_county,
-    address_address3,
     address_postalCode,
     address_country,
-    address_city,
-    address_address1,
+    address_county,
+    address_state,
     address_province,
+    address_address3,
+    address_city,
+    address_address4,
+    address_address1,
 
     -- * ConnectorOperator
     ConnectorOperator (..),
     newConnectorOperator,
-    connectorOperator_serviceNow,
-    connectorOperator_marketo,
-    connectorOperator_salesforce,
     connectorOperator_zendesk,
     connectorOperator_s3,
+    connectorOperator_salesforce,
+    connectorOperator_marketo,
+    connectorOperator_serviceNow,
 
     -- * DomainStats
     DomainStats (..),
     newDomainStats,
     domainStats_meteringProfileCount,
-    domainStats_totalSize,
     domainStats_profileCount,
     domainStats_objectCount,
+    domainStats_totalSize,
 
     -- * FieldSourceProfileIds
     FieldSourceProfileIds (..),
     newFieldSourceProfileIds,
-    fieldSourceProfileIds_shippingAddress,
-    fieldSourceProfileIds_mobilePhoneNumber,
-    fieldSourceProfileIds_mailingAddress,
-    fieldSourceProfileIds_middleName,
-    fieldSourceProfileIds_personalEmailAddress,
-    fieldSourceProfileIds_lastName,
-    fieldSourceProfileIds_additionalInformation,
     fieldSourceProfileIds_homePhoneNumber,
+    fieldSourceProfileIds_mailingAddress,
+    fieldSourceProfileIds_shippingAddress,
+    fieldSourceProfileIds_firstName,
+    fieldSourceProfileIds_businessPhoneNumber,
+    fieldSourceProfileIds_businessEmailAddress,
+    fieldSourceProfileIds_businessName,
+    fieldSourceProfileIds_personalEmailAddress,
+    fieldSourceProfileIds_billingAddress,
+    fieldSourceProfileIds_lastName,
+    fieldSourceProfileIds_birthDate,
     fieldSourceProfileIds_address,
     fieldSourceProfileIds_partyType,
-    fieldSourceProfileIds_businessEmailAddress,
-    fieldSourceProfileIds_attributes,
     fieldSourceProfileIds_gender,
+    fieldSourceProfileIds_mobilePhoneNumber,
+    fieldSourceProfileIds_middleName,
+    fieldSourceProfileIds_attributes,
     fieldSourceProfileIds_phoneNumber,
-    fieldSourceProfileIds_accountNumber,
+    fieldSourceProfileIds_additionalInformation,
     fieldSourceProfileIds_emailAddress,
-    fieldSourceProfileIds_firstName,
-    fieldSourceProfileIds_billingAddress,
-    fieldSourceProfileIds_businessPhoneNumber,
-    fieldSourceProfileIds_birthDate,
-    fieldSourceProfileIds_businessName,
+    fieldSourceProfileIds_accountNumber,
 
     -- * FlowDefinition
     FlowDefinition (..),
@@ -157,9 +157,9 @@ module Amazonka.CustomerProfiles.Types
     -- * ListProfileObjectTypeItem
     ListProfileObjectTypeItem (..),
     newListProfileObjectTypeItem,
+    listProfileObjectTypeItem_tags,
     listProfileObjectTypeItem_lastUpdatedAt,
     listProfileObjectTypeItem_createdAt,
-    listProfileObjectTypeItem_tags,
     listProfileObjectTypeItem_objectTypeName,
     listProfileObjectTypeItem_description,
 
@@ -173,9 +173,9 @@ module Amazonka.CustomerProfiles.Types
     -- * ListProfileObjectsItem
     ListProfileObjectsItem (..),
     newListProfileObjectsItem,
+    listProfileObjectsItem_object,
     listProfileObjectsItem_profileObjectUniqueKey,
     listProfileObjectsItem_objectTypeName,
-    listProfileObjectsItem_object,
 
     -- * MarketoSourceProperties
     MarketoSourceProperties (..),
@@ -185,8 +185,8 @@ module Amazonka.CustomerProfiles.Types
     -- * MatchItem
     MatchItem (..),
     newMatchItem,
-    matchItem_profileIds,
     matchItem_matchId,
+    matchItem_profileIds,
 
     -- * MatchingRequest
     MatchingRequest (..),
@@ -207,9 +207,9 @@ module Amazonka.CustomerProfiles.Types
     -- * ObjectTypeField
     ObjectTypeField (..),
     newObjectTypeField,
+    objectTypeField_target,
     objectTypeField_source,
     objectTypeField_contentType,
-    objectTypeField_target,
 
     -- * ObjectTypeKey
     ObjectTypeKey (..),
@@ -220,28 +220,28 @@ module Amazonka.CustomerProfiles.Types
     -- * Profile
     Profile (..),
     newProfile,
-    profile_shippingAddress,
-    profile_mobilePhoneNumber,
-    profile_mailingAddress,
-    profile_middleName,
-    profile_personalEmailAddress,
-    profile_lastName,
-    profile_additionalInformation,
     profile_homePhoneNumber,
+    profile_mailingAddress,
+    profile_shippingAddress,
+    profile_profileId,
+    profile_firstName,
+    profile_businessPhoneNumber,
+    profile_businessEmailAddress,
+    profile_businessName,
+    profile_personalEmailAddress,
+    profile_billingAddress,
+    profile_lastName,
+    profile_birthDate,
     profile_address,
     profile_partyType,
-    profile_profileId,
-    profile_businessEmailAddress,
-    profile_attributes,
     profile_gender,
+    profile_mobilePhoneNumber,
+    profile_middleName,
+    profile_attributes,
     profile_phoneNumber,
-    profile_accountNumber,
+    profile_additionalInformation,
     profile_emailAddress,
-    profile_firstName,
-    profile_billingAddress,
-    profile_businessPhoneNumber,
-    profile_birthDate,
-    profile_businessName,
+    profile_accountNumber,
 
     -- * S3SourceProperties
     S3SourceProperties (..),
@@ -252,19 +252,19 @@ module Amazonka.CustomerProfiles.Types
     -- * SalesforceSourceProperties
     SalesforceSourceProperties (..),
     newSalesforceSourceProperties,
-    salesforceSourceProperties_enableDynamicFieldUpdate,
     salesforceSourceProperties_includeDeletedRecords,
+    salesforceSourceProperties_enableDynamicFieldUpdate,
     salesforceSourceProperties_object,
 
     -- * ScheduledTriggerProperties
     ScheduledTriggerProperties (..),
     newScheduledTriggerProperties,
     scheduledTriggerProperties_scheduleEndTime,
-    scheduledTriggerProperties_scheduleOffset,
-    scheduledTriggerProperties_dataPullMode,
     scheduledTriggerProperties_scheduleStartTime,
     scheduledTriggerProperties_timezone,
+    scheduledTriggerProperties_scheduleOffset,
     scheduledTriggerProperties_firstExecutionFrom,
+    scheduledTriggerProperties_dataPullMode,
     scheduledTriggerProperties_scheduleExpression,
 
     -- * ServiceNowSourceProperties
@@ -275,11 +275,11 @@ module Amazonka.CustomerProfiles.Types
     -- * SourceConnectorProperties
     SourceConnectorProperties (..),
     newSourceConnectorProperties,
-    sourceConnectorProperties_serviceNow,
-    sourceConnectorProperties_marketo,
-    sourceConnectorProperties_salesforce,
     sourceConnectorProperties_zendesk,
     sourceConnectorProperties_s3,
+    sourceConnectorProperties_salesforce,
+    sourceConnectorProperties_marketo,
+    sourceConnectorProperties_serviceNow,
 
     -- * SourceFlowConfig
     SourceFlowConfig (..),
@@ -292,8 +292,8 @@ module Amazonka.CustomerProfiles.Types
     -- * Task
     Task (..),
     newTask,
-    task_taskProperties,
     task_connectorOperator,
+    task_taskProperties,
     task_destinationField,
     task_sourceFields,
     task_taskType,
@@ -313,15 +313,15 @@ module Amazonka.CustomerProfiles.Types
     UpdateAddress (..),
     newUpdateAddress,
     updateAddress_address2,
-    updateAddress_state,
-    updateAddress_address4,
-    updateAddress_county,
-    updateAddress_address3,
     updateAddress_postalCode,
     updateAddress_country,
-    updateAddress_city,
-    updateAddress_address1,
+    updateAddress_county,
+    updateAddress_state,
     updateAddress_province,
+    updateAddress_address3,
+    updateAddress_city,
+    updateAddress_address4,
+    updateAddress_address1,
 
     -- * ZendeskSourceProperties
     ZendeskSourceProperties (..),
@@ -406,35 +406,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -443,12 +416,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -458,14 +458,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
-
--- | You exceeded the maximum number of requests.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
 
 -- | An internal service error occurred.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -482,6 +474,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | You exceeded the maximum number of requests.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
 
 -- | The input you provided is invalid.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

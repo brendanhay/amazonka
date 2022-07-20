@@ -33,16 +33,16 @@ module Amazonka.Glue.UpdateMLTransform
     newUpdateMLTransform,
 
     -- * Request Lenses
-    updateMLTransform_numberOfWorkers,
-    updateMLTransform_workerType,
-    updateMLTransform_glueVersion,
-    updateMLTransform_role,
-    updateMLTransform_name,
-    updateMLTransform_parameters,
-    updateMLTransform_maxRetries,
-    updateMLTransform_maxCapacity,
     updateMLTransform_timeout,
+    updateMLTransform_name,
+    updateMLTransform_numberOfWorkers,
+    updateMLTransform_glueVersion,
+    updateMLTransform_workerType,
     updateMLTransform_description,
+    updateMLTransform_maxRetries,
+    updateMLTransform_role,
+    updateMLTransform_maxCapacity,
+    updateMLTransform_parameters,
     updateMLTransform_transformId,
 
     -- * Destructuring the Response
@@ -64,9 +64,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateMLTransform' smart constructor.
 data UpdateMLTransform = UpdateMLTransform'
-  { -- | The number of workers of a defined @workerType@ that are allocated when
+  { -- | The timeout for a task run for this transform in minutes. This is the
+    -- maximum time that a task run for this transform can consume resources
+    -- before it is terminated and enters @TIMEOUT@ status. The default is
+    -- 2,880 minutes (48 hours).
+    timeout :: Prelude.Maybe Prelude.Natural,
+    -- | The unique name that you gave the transform when you created it.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The number of workers of a defined @workerType@ that are allocated when
     -- this task runs.
     numberOfWorkers :: Prelude.Maybe Prelude.Int,
+    -- | This value determines which version of Glue this machine learning
+    -- transform is compatible with. Glue 1.0 is recommended for most
+    -- customers. If the value is not set, the Glue compatibility defaults to
+    -- Glue 0.9. For more information, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
+    -- in the developer guide.
+    glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The type of predefined worker that is allocated when this task runs.
     -- Accepts a value of Standard, G.1X, or G.2X.
     --
@@ -79,24 +93,14 @@ data UpdateMLTransform = UpdateMLTransform'
     -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
     --     memory and a 128GB disk, and 1 executor per worker.
     workerType :: Prelude.Maybe WorkerType,
-    -- | This value determines which version of Glue this machine learning
-    -- transform is compatible with. Glue 1.0 is recommended for most
-    -- customers. If the value is not set, the Glue compatibility defaults to
-    -- Glue 0.9. For more information, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
-    -- in the developer guide.
-    glueVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name or Amazon Resource Name (ARN) of the IAM role with the required
-    -- permissions.
-    role' :: Prelude.Maybe Prelude.Text,
-    -- | The unique name that you gave the transform when you created it.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The configuration parameters that are specific to the transform type
-    -- (algorithm) used. Conditionally dependent on the transform type.
-    parameters :: Prelude.Maybe TransformParameters,
+    -- | A description of the transform. The default is an empty string.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of times to retry a task for this transform after a
     -- task run fails.
     maxRetries :: Prelude.Maybe Prelude.Int,
+    -- | The name or Amazon Resource Name (ARN) of the IAM role with the required
+    -- permissions.
+    role' :: Prelude.Maybe Prelude.Text,
     -- | The number of Glue data processing units (DPUs) that are allocated to
     -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
     -- default is 10. A DPU is a relative measure of processing power that
@@ -107,13 +111,9 @@ data UpdateMLTransform = UpdateMLTransform'
     -- When the @WorkerType@ field is set to a value other than @Standard@, the
     -- @MaxCapacity@ field is set automatically and becomes read-only.
     maxCapacity :: Prelude.Maybe Prelude.Double,
-    -- | The timeout for a task run for this transform in minutes. This is the
-    -- maximum time that a task run for this transform can consume resources
-    -- before it is terminated and enters @TIMEOUT@ status. The default is
-    -- 2,880 minutes (48 hours).
-    timeout :: Prelude.Maybe Prelude.Natural,
-    -- | A description of the transform. The default is an empty string.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The configuration parameters that are specific to the transform type
+    -- (algorithm) used. Conditionally dependent on the transform type.
+    parameters :: Prelude.Maybe TransformParameters,
     -- | A unique identifier that was generated when the transform was created.
     transformId :: Prelude.Text
   }
@@ -127,8 +127,22 @@ data UpdateMLTransform = UpdateMLTransform'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timeout', 'updateMLTransform_timeout' - The timeout for a task run for this transform in minutes. This is the
+-- maximum time that a task run for this transform can consume resources
+-- before it is terminated and enters @TIMEOUT@ status. The default is
+-- 2,880 minutes (48 hours).
+--
+-- 'name', 'updateMLTransform_name' - The unique name that you gave the transform when you created it.
+--
 -- 'numberOfWorkers', 'updateMLTransform_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when
 -- this task runs.
+--
+-- 'glueVersion', 'updateMLTransform_glueVersion' - This value determines which version of Glue this machine learning
+-- transform is compatible with. Glue 1.0 is recommended for most
+-- customers. If the value is not set, the Glue compatibility defaults to
+-- Glue 0.9. For more information, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
+-- in the developer guide.
 --
 -- 'workerType', 'updateMLTransform_workerType' - The type of predefined worker that is allocated when this task runs.
 -- Accepts a value of Standard, G.1X, or G.2X.
@@ -142,23 +156,13 @@ data UpdateMLTransform = UpdateMLTransform'
 -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
 --     memory and a 128GB disk, and 1 executor per worker.
 --
--- 'glueVersion', 'updateMLTransform_glueVersion' - This value determines which version of Glue this machine learning
--- transform is compatible with. Glue 1.0 is recommended for most
--- customers. If the value is not set, the Glue compatibility defaults to
--- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
--- in the developer guide.
---
--- 'role'', 'updateMLTransform_role' - The name or Amazon Resource Name (ARN) of the IAM role with the required
--- permissions.
---
--- 'name', 'updateMLTransform_name' - The unique name that you gave the transform when you created it.
---
--- 'parameters', 'updateMLTransform_parameters' - The configuration parameters that are specific to the transform type
--- (algorithm) used. Conditionally dependent on the transform type.
+-- 'description', 'updateMLTransform_description' - A description of the transform. The default is an empty string.
 --
 -- 'maxRetries', 'updateMLTransform_maxRetries' - The maximum number of times to retry a task for this transform after a
 -- task run fails.
+--
+-- 'role'', 'updateMLTransform_role' - The name or Amazon Resource Name (ARN) of the IAM role with the required
+-- permissions.
 --
 -- 'maxCapacity', 'updateMLTransform_maxCapacity' - The number of Glue data processing units (DPUs) that are allocated to
 -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
@@ -170,12 +174,8 @@ data UpdateMLTransform = UpdateMLTransform'
 -- When the @WorkerType@ field is set to a value other than @Standard@, the
 -- @MaxCapacity@ field is set automatically and becomes read-only.
 --
--- 'timeout', 'updateMLTransform_timeout' - The timeout for a task run for this transform in minutes. This is the
--- maximum time that a task run for this transform can consume resources
--- before it is terminated and enters @TIMEOUT@ status. The default is
--- 2,880 minutes (48 hours).
---
--- 'description', 'updateMLTransform_description' - A description of the transform. The default is an empty string.
+-- 'parameters', 'updateMLTransform_parameters' - The configuration parameters that are specific to the transform type
+-- (algorithm) used. Conditionally dependent on the transform type.
 --
 -- 'transformId', 'updateMLTransform_transformId' - A unique identifier that was generated when the transform was created.
 newUpdateMLTransform ::
@@ -184,24 +184,43 @@ newUpdateMLTransform ::
   UpdateMLTransform
 newUpdateMLTransform pTransformId_ =
   UpdateMLTransform'
-    { numberOfWorkers =
-        Prelude.Nothing,
-      workerType = Prelude.Nothing,
-      glueVersion = Prelude.Nothing,
-      role' = Prelude.Nothing,
+    { timeout = Prelude.Nothing,
       name = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      maxRetries = Prelude.Nothing,
-      maxCapacity = Prelude.Nothing,
-      timeout = Prelude.Nothing,
+      numberOfWorkers = Prelude.Nothing,
+      glueVersion = Prelude.Nothing,
+      workerType = Prelude.Nothing,
       description = Prelude.Nothing,
+      maxRetries = Prelude.Nothing,
+      role' = Prelude.Nothing,
+      maxCapacity = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       transformId = pTransformId_
     }
+
+-- | The timeout for a task run for this transform in minutes. This is the
+-- maximum time that a task run for this transform can consume resources
+-- before it is terminated and enters @TIMEOUT@ status. The default is
+-- 2,880 minutes (48 hours).
+updateMLTransform_timeout :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Natural)
+updateMLTransform_timeout = Lens.lens (\UpdateMLTransform' {timeout} -> timeout) (\s@UpdateMLTransform' {} a -> s {timeout = a} :: UpdateMLTransform)
+
+-- | The unique name that you gave the transform when you created it.
+updateMLTransform_name :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
+updateMLTransform_name = Lens.lens (\UpdateMLTransform' {name} -> name) (\s@UpdateMLTransform' {} a -> s {name = a} :: UpdateMLTransform)
 
 -- | The number of workers of a defined @workerType@ that are allocated when
 -- this task runs.
 updateMLTransform_numberOfWorkers :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Int)
 updateMLTransform_numberOfWorkers = Lens.lens (\UpdateMLTransform' {numberOfWorkers} -> numberOfWorkers) (\s@UpdateMLTransform' {} a -> s {numberOfWorkers = a} :: UpdateMLTransform)
+
+-- | This value determines which version of Glue this machine learning
+-- transform is compatible with. Glue 1.0 is recommended for most
+-- customers. If the value is not set, the Glue compatibility defaults to
+-- Glue 0.9. For more information, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
+-- in the developer guide.
+updateMLTransform_glueVersion :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
+updateMLTransform_glueVersion = Lens.lens (\UpdateMLTransform' {glueVersion} -> glueVersion) (\s@UpdateMLTransform' {} a -> s {glueVersion = a} :: UpdateMLTransform)
 
 -- | The type of predefined worker that is allocated when this task runs.
 -- Accepts a value of Standard, G.1X, or G.2X.
@@ -217,33 +236,19 @@ updateMLTransform_numberOfWorkers = Lens.lens (\UpdateMLTransform' {numberOfWork
 updateMLTransform_workerType :: Lens.Lens' UpdateMLTransform (Prelude.Maybe WorkerType)
 updateMLTransform_workerType = Lens.lens (\UpdateMLTransform' {workerType} -> workerType) (\s@UpdateMLTransform' {} a -> s {workerType = a} :: UpdateMLTransform)
 
--- | This value determines which version of Glue this machine learning
--- transform is compatible with. Glue 1.0 is recommended for most
--- customers. If the value is not set, the Glue compatibility defaults to
--- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
--- in the developer guide.
-updateMLTransform_glueVersion :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
-updateMLTransform_glueVersion = Lens.lens (\UpdateMLTransform' {glueVersion} -> glueVersion) (\s@UpdateMLTransform' {} a -> s {glueVersion = a} :: UpdateMLTransform)
-
--- | The name or Amazon Resource Name (ARN) of the IAM role with the required
--- permissions.
-updateMLTransform_role :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
-updateMLTransform_role = Lens.lens (\UpdateMLTransform' {role'} -> role') (\s@UpdateMLTransform' {} a -> s {role' = a} :: UpdateMLTransform)
-
--- | The unique name that you gave the transform when you created it.
-updateMLTransform_name :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
-updateMLTransform_name = Lens.lens (\UpdateMLTransform' {name} -> name) (\s@UpdateMLTransform' {} a -> s {name = a} :: UpdateMLTransform)
-
--- | The configuration parameters that are specific to the transform type
--- (algorithm) used. Conditionally dependent on the transform type.
-updateMLTransform_parameters :: Lens.Lens' UpdateMLTransform (Prelude.Maybe TransformParameters)
-updateMLTransform_parameters = Lens.lens (\UpdateMLTransform' {parameters} -> parameters) (\s@UpdateMLTransform' {} a -> s {parameters = a} :: UpdateMLTransform)
+-- | A description of the transform. The default is an empty string.
+updateMLTransform_description :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
+updateMLTransform_description = Lens.lens (\UpdateMLTransform' {description} -> description) (\s@UpdateMLTransform' {} a -> s {description = a} :: UpdateMLTransform)
 
 -- | The maximum number of times to retry a task for this transform after a
 -- task run fails.
 updateMLTransform_maxRetries :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Int)
 updateMLTransform_maxRetries = Lens.lens (\UpdateMLTransform' {maxRetries} -> maxRetries) (\s@UpdateMLTransform' {} a -> s {maxRetries = a} :: UpdateMLTransform)
+
+-- | The name or Amazon Resource Name (ARN) of the IAM role with the required
+-- permissions.
+updateMLTransform_role :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
+updateMLTransform_role = Lens.lens (\UpdateMLTransform' {role'} -> role') (\s@UpdateMLTransform' {} a -> s {role' = a} :: UpdateMLTransform)
 
 -- | The number of Glue data processing units (DPUs) that are allocated to
 -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
@@ -257,16 +262,10 @@ updateMLTransform_maxRetries = Lens.lens (\UpdateMLTransform' {maxRetries} -> ma
 updateMLTransform_maxCapacity :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Double)
 updateMLTransform_maxCapacity = Lens.lens (\UpdateMLTransform' {maxCapacity} -> maxCapacity) (\s@UpdateMLTransform' {} a -> s {maxCapacity = a} :: UpdateMLTransform)
 
--- | The timeout for a task run for this transform in minutes. This is the
--- maximum time that a task run for this transform can consume resources
--- before it is terminated and enters @TIMEOUT@ status. The default is
--- 2,880 minutes (48 hours).
-updateMLTransform_timeout :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Natural)
-updateMLTransform_timeout = Lens.lens (\UpdateMLTransform' {timeout} -> timeout) (\s@UpdateMLTransform' {} a -> s {timeout = a} :: UpdateMLTransform)
-
--- | A description of the transform. The default is an empty string.
-updateMLTransform_description :: Lens.Lens' UpdateMLTransform (Prelude.Maybe Prelude.Text)
-updateMLTransform_description = Lens.lens (\UpdateMLTransform' {description} -> description) (\s@UpdateMLTransform' {} a -> s {description = a} :: UpdateMLTransform)
+-- | The configuration parameters that are specific to the transform type
+-- (algorithm) used. Conditionally dependent on the transform type.
+updateMLTransform_parameters :: Lens.Lens' UpdateMLTransform (Prelude.Maybe TransformParameters)
+updateMLTransform_parameters = Lens.lens (\UpdateMLTransform' {parameters} -> parameters) (\s@UpdateMLTransform' {} a -> s {parameters = a} :: UpdateMLTransform)
 
 -- | A unique identifier that was generated when the transform was created.
 updateMLTransform_transformId :: Lens.Lens' UpdateMLTransform Prelude.Text
@@ -287,30 +286,30 @@ instance Core.AWSRequest UpdateMLTransform where
 
 instance Prelude.Hashable UpdateMLTransform where
   hashWithSalt _salt UpdateMLTransform' {..} =
-    _salt `Prelude.hashWithSalt` numberOfWorkers
-      `Prelude.hashWithSalt` workerType
-      `Prelude.hashWithSalt` glueVersion
-      `Prelude.hashWithSalt` role'
+    _salt `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` maxRetries
-      `Prelude.hashWithSalt` maxCapacity
-      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` numberOfWorkers
+      `Prelude.hashWithSalt` glueVersion
+      `Prelude.hashWithSalt` workerType
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` maxRetries
+      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` maxCapacity
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` transformId
 
 instance Prelude.NFData UpdateMLTransform where
   rnf UpdateMLTransform' {..} =
-    Prelude.rnf numberOfWorkers
-      `Prelude.seq` Prelude.rnf workerType
-      `Prelude.seq` Prelude.rnf glueVersion
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf maxRetries
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf numberOfWorkers
+      `Prelude.seq` Prelude.rnf glueVersion
+      `Prelude.seq` Prelude.rnf workerType
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf maxRetries
+      `Prelude.seq` Prelude.rnf role'
+      `Prelude.seq` Prelude.rnf maxCapacity
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf transformId
 
 instance Core.ToHeaders UpdateMLTransform where
@@ -330,17 +329,17 @@ instance Core.ToJSON UpdateMLTransform where
   toJSON UpdateMLTransform' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NumberOfWorkers" Core..=)
-              Prelude.<$> numberOfWorkers,
-            ("WorkerType" Core..=) Prelude.<$> workerType,
-            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
-            ("Role" Core..=) Prelude.<$> role',
+          [ ("Timeout" Core..=) Prelude.<$> timeout,
             ("Name" Core..=) Prelude.<$> name,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("Timeout" Core..=) Prelude.<$> timeout,
+            ("NumberOfWorkers" Core..=)
+              Prelude.<$> numberOfWorkers,
+            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
+            ("WorkerType" Core..=) Prelude.<$> workerType,
             ("Description" Core..=) Prelude.<$> description,
+            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
+            ("Role" Core..=) Prelude.<$> role',
+            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("TransformId" Core..= transformId)
           ]
       )

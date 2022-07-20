@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
-  { -- | An optional description of the web application.
-    applicationDescription :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the web application.
+  { -- | The current state of the web application.
     applicationState :: Prelude.Maybe ApplicationState,
     -- | The date (in Unix epoch time) when the web application was created.
     applicationCreationDate :: Prelude.Maybe Prelude.Integer,
     -- | The date (in Unix epoch time) when the web application was last updated.
     applicationLastUpdateDate :: Prelude.Maybe Prelude.Integer,
+    -- | An optional description of the web application.
+    applicationDescription :: Prelude.Maybe Prelude.Text,
     -- | The unique Id of the web application.
     applicationId :: Prelude.Text,
     -- | The name of the web application.
@@ -57,13 +57,13 @@ data ApplicationSummary = ApplicationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationDescription', 'applicationSummary_applicationDescription' - An optional description of the web application.
---
 -- 'applicationState', 'applicationSummary_applicationState' - The current state of the web application.
 --
 -- 'applicationCreationDate', 'applicationSummary_applicationCreationDate' - The date (in Unix epoch time) when the web application was created.
 --
 -- 'applicationLastUpdateDate', 'applicationSummary_applicationLastUpdateDate' - The date (in Unix epoch time) when the web application was last updated.
+--
+-- 'applicationDescription', 'applicationSummary_applicationDescription' - An optional description of the web application.
 --
 -- 'applicationId', 'applicationSummary_applicationId' - The unique Id of the web application.
 --
@@ -83,19 +83,15 @@ newApplicationSummary
   pApplicationName_
   pApplicationUrl_ =
     ApplicationSummary'
-      { applicationDescription =
+      { applicationState =
           Prelude.Nothing,
-        applicationState = Prelude.Nothing,
         applicationCreationDate = Prelude.Nothing,
         applicationLastUpdateDate = Prelude.Nothing,
+        applicationDescription = Prelude.Nothing,
         applicationId = pApplicationId_,
         applicationName = pApplicationName_,
         applicationUrl = pApplicationUrl_
       }
-
--- | An optional description of the web application.
-applicationSummary_applicationDescription :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
-applicationSummary_applicationDescription = Lens.lens (\ApplicationSummary' {applicationDescription} -> applicationDescription) (\s@ApplicationSummary' {} a -> s {applicationDescription = a} :: ApplicationSummary)
 
 -- | The current state of the web application.
 applicationSummary_applicationState :: Lens.Lens' ApplicationSummary (Prelude.Maybe ApplicationState)
@@ -108,6 +104,10 @@ applicationSummary_applicationCreationDate = Lens.lens (\ApplicationSummary' {ap
 -- | The date (in Unix epoch time) when the web application was last updated.
 applicationSummary_applicationLastUpdateDate :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Integer)
 applicationSummary_applicationLastUpdateDate = Lens.lens (\ApplicationSummary' {applicationLastUpdateDate} -> applicationLastUpdateDate) (\s@ApplicationSummary' {} a -> s {applicationLastUpdateDate = a} :: ApplicationSummary)
+
+-- | An optional description of the web application.
+applicationSummary_applicationDescription :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_applicationDescription = Lens.lens (\ApplicationSummary' {applicationDescription} -> applicationDescription) (\s@ApplicationSummary' {} a -> s {applicationDescription = a} :: ApplicationSummary)
 
 -- | The unique Id of the web application.
 applicationSummary_applicationId :: Lens.Lens' ApplicationSummary Prelude.Text
@@ -127,10 +127,10 @@ instance Core.FromJSON ApplicationSummary where
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "applicationDescription")
-            Prelude.<*> (x Core..:? "applicationState")
+            Prelude.<$> (x Core..:? "applicationState")
             Prelude.<*> (x Core..:? "applicationCreationDate")
             Prelude.<*> (x Core..:? "applicationLastUpdateDate")
+            Prelude.<*> (x Core..:? "applicationDescription")
             Prelude.<*> (x Core..: "applicationId")
             Prelude.<*> (x Core..: "applicationName")
             Prelude.<*> (x Core..: "applicationUrl")
@@ -138,20 +138,20 @@ instance Core.FromJSON ApplicationSummary where
 
 instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationDescription
-      `Prelude.hashWithSalt` applicationState
+    _salt `Prelude.hashWithSalt` applicationState
       `Prelude.hashWithSalt` applicationCreationDate
       `Prelude.hashWithSalt` applicationLastUpdateDate
+      `Prelude.hashWithSalt` applicationDescription
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` applicationUrl
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf applicationState
+    Prelude.rnf applicationState
       `Prelude.seq` Prelude.rnf applicationCreationDate
       `Prelude.seq` Prelude.rnf applicationLastUpdateDate
+      `Prelude.seq` Prelude.rnf applicationDescription
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf applicationUrl

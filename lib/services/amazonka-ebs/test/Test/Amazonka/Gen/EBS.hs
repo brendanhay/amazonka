@@ -27,8 +27,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestStartSnapshot $
---             newStartSnapshot
+--         [ requestCompleteSnapshot $
+--             newCompleteSnapshot
+--
+--         , requestGetSnapshotBlock $
+--             newGetSnapshotBlock
+--
+--         , requestListChangedBlocks $
+--             newListChangedBlocks
 --
 --         , requestListSnapshotBlocks $
 --             newListSnapshotBlocks
@@ -36,20 +42,20 @@ import Test.Tasty
 --         , requestPutSnapshotBlock $
 --             newPutSnapshotBlock
 --
---         , requestListChangedBlocks $
---             newListChangedBlocks
---
---         , requestCompleteSnapshot $
---             newCompleteSnapshot
---
---         , requestGetSnapshotBlock $
---             newGetSnapshotBlock
+--         , requestStartSnapshot $
+--             newStartSnapshot
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseStartSnapshot $
---             newStartSnapshotResponse
+--         [ responseCompleteSnapshot $
+--             newCompleteSnapshotResponse
+--
+--         , responseGetSnapshotBlock $
+--             newGetSnapshotBlockResponse
+--
+--         , responseListChangedBlocks $
+--             newListChangedBlocksResponse
 --
 --         , responseListSnapshotBlocks $
 --             newListSnapshotBlocksResponse
@@ -57,37 +63,13 @@ import Test.Tasty
 --         , responsePutSnapshotBlock $
 --             newPutSnapshotBlockResponse
 --
---         , responseListChangedBlocks $
---             newListChangedBlocksResponse
---
---         , responseCompleteSnapshot $
---             newCompleteSnapshotResponse
---
---         , responseGetSnapshotBlock $
---             newGetSnapshotBlockResponse
+--         , responseStartSnapshot $
+--             newStartSnapshotResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestStartSnapshot :: StartSnapshot -> TestTree
-requestStartSnapshot =
-  req
-    "StartSnapshot"
-    "fixture/StartSnapshot.yaml"
-
-requestListSnapshotBlocks :: ListSnapshotBlocks -> TestTree
-requestListSnapshotBlocks =
-  req
-    "ListSnapshotBlocks"
-    "fixture/ListSnapshotBlocks.yaml"
-
-requestListChangedBlocks :: ListChangedBlocks -> TestTree
-requestListChangedBlocks =
-  req
-    "ListChangedBlocks"
-    "fixture/ListChangedBlocks.yaml"
 
 requestCompleteSnapshot :: CompleteSnapshot -> TestTree
 requestCompleteSnapshot =
@@ -101,15 +83,41 @@ requestGetSnapshotBlock =
     "GetSnapshotBlock"
     "fixture/GetSnapshotBlock.yaml"
 
+requestListChangedBlocks :: ListChangedBlocks -> TestTree
+requestListChangedBlocks =
+  req
+    "ListChangedBlocks"
+    "fixture/ListChangedBlocks.yaml"
+
+requestListSnapshotBlocks :: ListSnapshotBlocks -> TestTree
+requestListSnapshotBlocks =
+  req
+    "ListSnapshotBlocks"
+    "fixture/ListSnapshotBlocks.yaml"
+
+requestStartSnapshot :: StartSnapshot -> TestTree
+requestStartSnapshot =
+  req
+    "StartSnapshot"
+    "fixture/StartSnapshot.yaml"
+
 -- Responses
 
-responseStartSnapshot :: StartSnapshotResponse -> TestTree
-responseStartSnapshot =
+responseCompleteSnapshot :: CompleteSnapshotResponse -> TestTree
+responseCompleteSnapshot =
   res
-    "StartSnapshotResponse"
-    "fixture/StartSnapshotResponse.proto"
+    "CompleteSnapshotResponse"
+    "fixture/CompleteSnapshotResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy CompleteSnapshot)
+
+responseListChangedBlocks :: ListChangedBlocksResponse -> TestTree
+responseListChangedBlocks =
+  res
+    "ListChangedBlocksResponse"
+    "fixture/ListChangedBlocksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChangedBlocks)
 
 responseListSnapshotBlocks :: ListSnapshotBlocksResponse -> TestTree
 responseListSnapshotBlocks =
@@ -127,18 +135,10 @@ responsePutSnapshotBlock =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutSnapshotBlock)
 
-responseListChangedBlocks :: ListChangedBlocksResponse -> TestTree
-responseListChangedBlocks =
+responseStartSnapshot :: StartSnapshotResponse -> TestTree
+responseStartSnapshot =
   res
-    "ListChangedBlocksResponse"
-    "fixture/ListChangedBlocksResponse.proto"
+    "StartSnapshotResponse"
+    "fixture/StartSnapshotResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListChangedBlocks)
-
-responseCompleteSnapshot :: CompleteSnapshotResponse -> TestTree
-responseCompleteSnapshot =
-  res
-    "CompleteSnapshotResponse"
-    "fixture/CompleteSnapshotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CompleteSnapshot)
+    (Proxy.Proxy :: Proxy.Proxy StartSnapshot)

@@ -36,10 +36,10 @@ module Amazonka.SageMaker.DescribeAlgorithm
 
     -- * Response Lenses
     describeAlgorithmResponse_validationSpecification,
-    describeAlgorithmResponse_inferenceSpecification,
-    describeAlgorithmResponse_algorithmDescription,
     describeAlgorithmResponse_certifyForMarketplace,
+    describeAlgorithmResponse_inferenceSpecification,
     describeAlgorithmResponse_productId,
+    describeAlgorithmResponse_algorithmDescription,
     describeAlgorithmResponse_httpStatus,
     describeAlgorithmResponse_algorithmName,
     describeAlgorithmResponse_algorithmArn,
@@ -94,10 +94,10 @@ instance Core.AWSRequest DescribeAlgorithm where
       ( \s h x ->
           DescribeAlgorithmResponse'
             Prelude.<$> (x Core..?> "ValidationSpecification")
-            Prelude.<*> (x Core..?> "InferenceSpecification")
-            Prelude.<*> (x Core..?> "AlgorithmDescription")
             Prelude.<*> (x Core..?> "CertifyForMarketplace")
+            Prelude.<*> (x Core..?> "InferenceSpecification")
             Prelude.<*> (x Core..?> "ProductId")
+            Prelude.<*> (x Core..?> "AlgorithmDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "AlgorithmName")
             Prelude.<*> (x Core..:> "AlgorithmArn")
@@ -150,15 +150,15 @@ data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
   { -- | Details about configurations for one or more training jobs that Amazon
     -- SageMaker runs to test the algorithm.
     validationSpecification :: Prelude.Maybe AlgorithmValidationSpecification,
-    -- | Details about inference jobs that the algorithm runs.
-    inferenceSpecification :: Prelude.Maybe InferenceSpecification,
-    -- | A brief summary about the algorithm.
-    algorithmDescription :: Prelude.Maybe Prelude.Text,
     -- | Whether the algorithm is certified to be listed in Amazon Web Services
     -- Marketplace.
     certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
+    -- | Details about inference jobs that the algorithm runs.
+    inferenceSpecification :: Prelude.Maybe InferenceSpecification,
     -- | The product identifier of the algorithm.
     productId :: Prelude.Maybe Prelude.Text,
+    -- | A brief summary about the algorithm.
+    algorithmDescription :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the algorithm being described.
@@ -187,14 +187,14 @@ data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
 -- 'validationSpecification', 'describeAlgorithmResponse_validationSpecification' - Details about configurations for one or more training jobs that Amazon
 -- SageMaker runs to test the algorithm.
 --
--- 'inferenceSpecification', 'describeAlgorithmResponse_inferenceSpecification' - Details about inference jobs that the algorithm runs.
---
--- 'algorithmDescription', 'describeAlgorithmResponse_algorithmDescription' - A brief summary about the algorithm.
---
 -- 'certifyForMarketplace', 'describeAlgorithmResponse_certifyForMarketplace' - Whether the algorithm is certified to be listed in Amazon Web Services
 -- Marketplace.
 --
+-- 'inferenceSpecification', 'describeAlgorithmResponse_inferenceSpecification' - Details about inference jobs that the algorithm runs.
+--
 -- 'productId', 'describeAlgorithmResponse_productId' - The product identifier of the algorithm.
+--
+-- 'algorithmDescription', 'describeAlgorithmResponse_algorithmDescription' - A brief summary about the algorithm.
 --
 -- 'httpStatus', 'describeAlgorithmResponse_httpStatus' - The response's http status code.
 --
@@ -236,10 +236,10 @@ newDescribeAlgorithmResponse
     DescribeAlgorithmResponse'
       { validationSpecification =
           Prelude.Nothing,
-        inferenceSpecification = Prelude.Nothing,
-        algorithmDescription = Prelude.Nothing,
         certifyForMarketplace = Prelude.Nothing,
+        inferenceSpecification = Prelude.Nothing,
         productId = Prelude.Nothing,
+        algorithmDescription = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         algorithmName = pAlgorithmName_,
         algorithmArn = pAlgorithmArn_,
@@ -255,22 +255,22 @@ newDescribeAlgorithmResponse
 describeAlgorithmResponse_validationSpecification :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe AlgorithmValidationSpecification)
 describeAlgorithmResponse_validationSpecification = Lens.lens (\DescribeAlgorithmResponse' {validationSpecification} -> validationSpecification) (\s@DescribeAlgorithmResponse' {} a -> s {validationSpecification = a} :: DescribeAlgorithmResponse)
 
--- | Details about inference jobs that the algorithm runs.
-describeAlgorithmResponse_inferenceSpecification :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe InferenceSpecification)
-describeAlgorithmResponse_inferenceSpecification = Lens.lens (\DescribeAlgorithmResponse' {inferenceSpecification} -> inferenceSpecification) (\s@DescribeAlgorithmResponse' {} a -> s {inferenceSpecification = a} :: DescribeAlgorithmResponse)
-
--- | A brief summary about the algorithm.
-describeAlgorithmResponse_algorithmDescription :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe Prelude.Text)
-describeAlgorithmResponse_algorithmDescription = Lens.lens (\DescribeAlgorithmResponse' {algorithmDescription} -> algorithmDescription) (\s@DescribeAlgorithmResponse' {} a -> s {algorithmDescription = a} :: DescribeAlgorithmResponse)
-
 -- | Whether the algorithm is certified to be listed in Amazon Web Services
 -- Marketplace.
 describeAlgorithmResponse_certifyForMarketplace :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe Prelude.Bool)
 describeAlgorithmResponse_certifyForMarketplace = Lens.lens (\DescribeAlgorithmResponse' {certifyForMarketplace} -> certifyForMarketplace) (\s@DescribeAlgorithmResponse' {} a -> s {certifyForMarketplace = a} :: DescribeAlgorithmResponse)
 
+-- | Details about inference jobs that the algorithm runs.
+describeAlgorithmResponse_inferenceSpecification :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe InferenceSpecification)
+describeAlgorithmResponse_inferenceSpecification = Lens.lens (\DescribeAlgorithmResponse' {inferenceSpecification} -> inferenceSpecification) (\s@DescribeAlgorithmResponse' {} a -> s {inferenceSpecification = a} :: DescribeAlgorithmResponse)
+
 -- | The product identifier of the algorithm.
 describeAlgorithmResponse_productId :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe Prelude.Text)
 describeAlgorithmResponse_productId = Lens.lens (\DescribeAlgorithmResponse' {productId} -> productId) (\s@DescribeAlgorithmResponse' {} a -> s {productId = a} :: DescribeAlgorithmResponse)
+
+-- | A brief summary about the algorithm.
+describeAlgorithmResponse_algorithmDescription :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe Prelude.Text)
+describeAlgorithmResponse_algorithmDescription = Lens.lens (\DescribeAlgorithmResponse' {algorithmDescription} -> algorithmDescription) (\s@DescribeAlgorithmResponse' {} a -> s {algorithmDescription = a} :: DescribeAlgorithmResponse)
 
 -- | The response's http status code.
 describeAlgorithmResponse_httpStatus :: Lens.Lens' DescribeAlgorithmResponse Prelude.Int
@@ -303,10 +303,10 @@ describeAlgorithmResponse_algorithmStatusDetails = Lens.lens (\DescribeAlgorithm
 instance Prelude.NFData DescribeAlgorithmResponse where
   rnf DescribeAlgorithmResponse' {..} =
     Prelude.rnf validationSpecification
-      `Prelude.seq` Prelude.rnf inferenceSpecification
-      `Prelude.seq` Prelude.rnf algorithmDescription
       `Prelude.seq` Prelude.rnf certifyForMarketplace
+      `Prelude.seq` Prelude.rnf inferenceSpecification
       `Prelude.seq` Prelude.rnf productId
+      `Prelude.seq` Prelude.rnf algorithmDescription
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf algorithmName
       `Prelude.seq` Prelude.rnf algorithmArn

@@ -29,16 +29,16 @@ import Amazonka.Route53RecoveryControlConfig.Types.GatingRule
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | A gating rule verifies that a set of gating controls evaluates as true,
+  { -- | An assertion rule enforces that, when a routing control state is
+    -- changed, the criteria set by the rule configuration is met. Otherwise,
+    -- the change to the routing control is not accepted.
+    assertion :: Prelude.Maybe AssertionRule,
+    -- | A gating rule verifies that a set of gating controls evaluates as true,
     -- based on a rule configuration that you specify. If the gating rule
     -- evaluates to true, Amazon Route 53 Application Recovery Controller
     -- allows a set of routing control state changes to run and complete
     -- against the set of target controls.
-    gating :: Prelude.Maybe GatingRule,
-    -- | An assertion rule enforces that, when a routing control state is
-    -- changed, the criteria set by the rule configuration is met. Otherwise,
-    -- the change to the routing control is not accepted.
-    assertion :: Prelude.Maybe AssertionRule
+    gating :: Prelude.Maybe GatingRule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,22 +50,28 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assertion', 'rule_assertion' - An assertion rule enforces that, when a routing control state is
+-- changed, the criteria set by the rule configuration is met. Otherwise,
+-- the change to the routing control is not accepted.
+--
 -- 'gating', 'rule_gating' - A gating rule verifies that a set of gating controls evaluates as true,
 -- based on a rule configuration that you specify. If the gating rule
 -- evaluates to true, Amazon Route 53 Application Recovery Controller
 -- allows a set of routing control state changes to run and complete
 -- against the set of target controls.
---
--- 'assertion', 'rule_assertion' - An assertion rule enforces that, when a routing control state is
--- changed, the criteria set by the rule configuration is met. Otherwise,
--- the change to the routing control is not accepted.
 newRule ::
   Rule
 newRule =
   Rule'
-    { gating = Prelude.Nothing,
-      assertion = Prelude.Nothing
+    { assertion = Prelude.Nothing,
+      gating = Prelude.Nothing
     }
+
+-- | An assertion rule enforces that, when a routing control state is
+-- changed, the criteria set by the rule configuration is met. Otherwise,
+-- the change to the routing control is not accepted.
+rule_assertion :: Lens.Lens' Rule (Prelude.Maybe AssertionRule)
+rule_assertion = Lens.lens (\Rule' {assertion} -> assertion) (\s@Rule' {} a -> s {assertion = a} :: Rule)
 
 -- | A gating rule verifies that a set of gating controls evaluates as true,
 -- based on a rule configuration that you specify. If the gating rule
@@ -75,28 +81,22 @@ newRule =
 rule_gating :: Lens.Lens' Rule (Prelude.Maybe GatingRule)
 rule_gating = Lens.lens (\Rule' {gating} -> gating) (\s@Rule' {} a -> s {gating = a} :: Rule)
 
--- | An assertion rule enforces that, when a routing control state is
--- changed, the criteria set by the rule configuration is met. Otherwise,
--- the change to the routing control is not accepted.
-rule_assertion :: Lens.Lens' Rule (Prelude.Maybe AssertionRule)
-rule_assertion = Lens.lens (\Rule' {assertion} -> assertion) (\s@Rule' {} a -> s {assertion = a} :: Rule)
-
 instance Core.FromJSON Rule where
   parseJSON =
     Core.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "GATING")
-            Prelude.<*> (x Core..:? "ASSERTION")
+            Prelude.<$> (x Core..:? "ASSERTION")
+            Prelude.<*> (x Core..:? "GATING")
       )
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` gating
-      `Prelude.hashWithSalt` assertion
+    _salt `Prelude.hashWithSalt` assertion
+      `Prelude.hashWithSalt` gating
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf gating
-      `Prelude.seq` Prelude.rnf assertion
+    Prelude.rnf assertion
+      `Prelude.seq` Prelude.rnf gating

@@ -42,8 +42,8 @@ module Amazonka.IoT.ListProvisioningTemplates
     newListProvisioningTemplatesResponse,
 
     -- * Response Lenses
-    listProvisioningTemplatesResponse_templates,
     listProvisioningTemplatesResponse_nextToken,
+    listProvisioningTemplatesResponse_templates,
     listProvisioningTemplatesResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance Core.AWSRequest ListProvisioningTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListProvisioningTemplatesResponse'
-            Prelude.<$> (x Core..?> "templates" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "templates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,10 +153,10 @@ instance Core.ToQuery ListProvisioningTemplates where
 
 -- | /See:/ 'newListProvisioningTemplatesResponse' smart constructor.
 data ListProvisioningTemplatesResponse = ListProvisioningTemplatesResponse'
-  { -- | A list of fleet provisioning templates
-    templates :: Prelude.Maybe [ProvisioningTemplateSummary],
-    -- | A token to retrieve the next set of results.
+  { -- | A token to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of fleet provisioning templates
+    templates :: Prelude.Maybe [ProvisioningTemplateSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,9 +170,9 @@ data ListProvisioningTemplatesResponse = ListProvisioningTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templates', 'listProvisioningTemplatesResponse_templates' - A list of fleet provisioning templates
---
 -- 'nextToken', 'listProvisioningTemplatesResponse_nextToken' - A token to retrieve the next set of results.
+--
+-- 'templates', 'listProvisioningTemplatesResponse_templates' - A list of fleet provisioning templates
 --
 -- 'httpStatus', 'listProvisioningTemplatesResponse_httpStatus' - The response's http status code.
 newListProvisioningTemplatesResponse ::
@@ -181,19 +181,19 @@ newListProvisioningTemplatesResponse ::
   ListProvisioningTemplatesResponse
 newListProvisioningTemplatesResponse pHttpStatus_ =
   ListProvisioningTemplatesResponse'
-    { templates =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      templates = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of fleet provisioning templates
-listProvisioningTemplatesResponse_templates :: Lens.Lens' ListProvisioningTemplatesResponse (Prelude.Maybe [ProvisioningTemplateSummary])
-listProvisioningTemplatesResponse_templates = Lens.lens (\ListProvisioningTemplatesResponse' {templates} -> templates) (\s@ListProvisioningTemplatesResponse' {} a -> s {templates = a} :: ListProvisioningTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to retrieve the next set of results.
 listProvisioningTemplatesResponse_nextToken :: Lens.Lens' ListProvisioningTemplatesResponse (Prelude.Maybe Prelude.Text)
 listProvisioningTemplatesResponse_nextToken = Lens.lens (\ListProvisioningTemplatesResponse' {nextToken} -> nextToken) (\s@ListProvisioningTemplatesResponse' {} a -> s {nextToken = a} :: ListProvisioningTemplatesResponse)
+
+-- | A list of fleet provisioning templates
+listProvisioningTemplatesResponse_templates :: Lens.Lens' ListProvisioningTemplatesResponse (Prelude.Maybe [ProvisioningTemplateSummary])
+listProvisioningTemplatesResponse_templates = Lens.lens (\ListProvisioningTemplatesResponse' {templates} -> templates) (\s@ListProvisioningTemplatesResponse' {} a -> s {templates = a} :: ListProvisioningTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProvisioningTemplatesResponse_httpStatus :: Lens.Lens' ListProvisioningTemplatesResponse Prelude.Int
@@ -204,6 +204,6 @@ instance
     ListProvisioningTemplatesResponse
   where
   rnf ListProvisioningTemplatesResponse' {..} =
-    Prelude.rnf templates
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf templates
       `Prelude.seq` Prelude.rnf httpStatus

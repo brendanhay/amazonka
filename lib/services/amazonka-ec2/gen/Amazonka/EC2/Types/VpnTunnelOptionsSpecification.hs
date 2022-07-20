@@ -35,42 +35,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpnTunnelOptionsSpecification' smart constructor.
 data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
-  { -- | The number of packets in an IKE replay window.
+  { -- | The range of inside IPv6 addresses for the tunnel. Any specified CIDR
+    -- blocks must be unique across all VPN connections that use the same
+    -- transit gateway.
     --
-    -- Constraints: A value between 64 and 2048.
-    --
-    -- Default: @1024@
-    replayWindowSize :: Prelude.Maybe Prelude.Int,
-    -- | The action to take after DPD timeout occurs. Specify @restart@ to
-    -- restart the IKE initiation. Specify @clear@ to end the IKE session.
-    --
-    -- Valid Values: @clear@ | @none@ | @restart@
-    --
-    -- Default: @clear@
-    dPDTimeoutAction :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of the rekey window (determined by
-    -- @RekeyMarginTimeSeconds@) during which the rekey time is randomly
-    -- selected.
-    --
-    -- Constraints: A value between 0 and 100.
-    --
-    -- Default: @100@
-    rekeyFuzzPercentage :: Prelude.Maybe Prelude.Int,
+    -- Constraints: A size \/126 CIDR block from the local @fd00::\/8@ range.
+    tunnelInsideIpv6Cidr :: Prelude.Maybe Prelude.Text,
     -- | The lifetime for phase 1 of the IKE negotiation, in seconds.
     --
     -- Constraints: A value between 900 and 28,800.
     --
     -- Default: @28800@
     phase1LifetimeSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The IKE versions that are permitted for the VPN tunnel.
-    --
-    -- Valid values: @ikev1@ | @ikev2@
-    iKEVersions :: Prelude.Maybe [IKEVersionsRequestListValue],
-    -- | One or more integrity algorithms that are permitted for the VPN tunnel
-    -- for phase 2 IKE negotiations.
-    --
-    -- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
-    phase2IntegrityAlgorithms :: Prelude.Maybe [Phase2IntegrityAlgorithmsRequestListValue],
     -- | The lifetime for phase 2 of the IKE negotiation, in seconds.
     --
     -- Constraints: A value between 900 and 3,600. The value must be less than
@@ -79,10 +55,10 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
     -- Default: @3600@
     phase2LifetimeSeconds :: Prelude.Maybe Prelude.Int,
     -- | One or more encryption algorithms that are permitted for the VPN tunnel
-    -- for phase 1 IKE negotiations.
+    -- for phase 2 IKE negotiations.
     --
     -- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
-    phase1EncryptionAlgorithms :: Prelude.Maybe [Phase1EncryptionAlgorithmsRequestListValue],
+    phase2EncryptionAlgorithms :: Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValue],
     -- | One or more Diffie-Hellman group numbers that are permitted for the VPN
     -- tunnel for phase 1 IKE negotiations.
     --
@@ -94,6 +70,53 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
     --
     -- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
     phase1IntegrityAlgorithms :: Prelude.Maybe [Phase1IntegrityAlgorithmsRequestListValue],
+    -- | The number of seconds after which a DPD timeout occurs.
+    --
+    -- Constraints: A value between 0 and 30.
+    --
+    -- Default: @30@
+    dPDTimeoutSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The IKE versions that are permitted for the VPN tunnel.
+    --
+    -- Valid values: @ikev1@ | @ikev2@
+    iKEVersions :: Prelude.Maybe [IKEVersionsRequestListValue],
+    -- | The pre-shared key (PSK) to establish initial authentication between the
+    -- virtual private gateway and customer gateway.
+    --
+    -- Constraints: Allowed characters are alphanumeric characters, periods
+    -- (.), and underscores (_). Must be between 8 and 64 characters in length
+    -- and cannot start with zero (0).
+    preSharedKey :: Prelude.Maybe Prelude.Text,
+    -- | The action to take after DPD timeout occurs. Specify @restart@ to
+    -- restart the IKE initiation. Specify @clear@ to end the IKE session.
+    --
+    -- Valid Values: @clear@ | @none@ | @restart@
+    --
+    -- Default: @clear@
+    dPDTimeoutAction :: Prelude.Maybe Prelude.Text,
+    -- | One or more Diffie-Hellman group numbers that are permitted for the VPN
+    -- tunnel for phase 2 IKE negotiations.
+    --
+    -- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
+    -- | @21@ | @22@ | @23@ | @24@
+    phase2DHGroupNumbers :: Prelude.Maybe [Phase2DHGroupNumbersRequestListValue],
+    -- | The percentage of the rekey window (determined by
+    -- @RekeyMarginTimeSeconds@) during which the rekey time is randomly
+    -- selected.
+    --
+    -- Constraints: A value between 0 and 100.
+    --
+    -- Default: @100@
+    rekeyFuzzPercentage :: Prelude.Maybe Prelude.Int,
+    -- | The action to take when the establishing the tunnel for the VPN
+    -- connection. By default, your customer gateway device must initiate the
+    -- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
+    -- Services to initiate the IKE negotiation.
+    --
+    -- Valid Values: @add@ | @start@
+    --
+    -- Default: @add@
+    startupAction :: Prelude.Maybe Prelude.Text,
     -- | The margin time, in seconds, before the phase 2 lifetime expires, during
     -- which the Amazon Web Services side of the VPN connection performs an IKE
     -- rekey. The exact time of the rekey is randomly selected based on the
@@ -103,12 +126,16 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
     --
     -- Default: @540@
     rekeyMarginTimeSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The number of seconds after which a DPD timeout occurs.
+    -- | One or more integrity algorithms that are permitted for the VPN tunnel
+    -- for phase 2 IKE negotiations.
     --
-    -- Constraints: A value between 0 and 30.
+    -- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+    phase2IntegrityAlgorithms :: Prelude.Maybe [Phase2IntegrityAlgorithmsRequestListValue],
+    -- | One or more encryption algorithms that are permitted for the VPN tunnel
+    -- for phase 1 IKE negotiations.
     --
-    -- Default: @30@
-    dPDTimeoutSeconds :: Prelude.Maybe Prelude.Int,
+    -- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+    phase1EncryptionAlgorithms :: Prelude.Maybe [Phase1EncryptionAlgorithmsRequestListValue],
     -- | The range of inside IPv4 addresses for the tunnel. Any specified CIDR
     -- blocks must be unique across all VPN connections that use the same
     -- virtual private gateway.
@@ -130,39 +157,12 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
     --
     -- -   @169.254.169.252\/30@
     tunnelInsideCidr :: Prelude.Maybe Prelude.Text,
-    -- | The action to take when the establishing the tunnel for the VPN
-    -- connection. By default, your customer gateway device must initiate the
-    -- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
-    -- Services to initiate the IKE negotiation.
+    -- | The number of packets in an IKE replay window.
     --
-    -- Valid Values: @add@ | @start@
+    -- Constraints: A value between 64 and 2048.
     --
-    -- Default: @add@
-    startupAction :: Prelude.Maybe Prelude.Text,
-    -- | One or more encryption algorithms that are permitted for the VPN tunnel
-    -- for phase 2 IKE negotiations.
-    --
-    -- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
-    phase2EncryptionAlgorithms :: Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValue],
-    -- | One or more Diffie-Hellman group numbers that are permitted for the VPN
-    -- tunnel for phase 2 IKE negotiations.
-    --
-    -- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
-    -- | @21@ | @22@ | @23@ | @24@
-    phase2DHGroupNumbers :: Prelude.Maybe [Phase2DHGroupNumbersRequestListValue],
-    -- | The pre-shared key (PSK) to establish initial authentication between the
-    -- virtual private gateway and customer gateway.
-    --
-    -- Constraints: Allowed characters are alphanumeric characters, periods
-    -- (.), and underscores (_). Must be between 8 and 64 characters in length
-    -- and cannot start with zero (0).
-    preSharedKey :: Prelude.Maybe Prelude.Text,
-    -- | The range of inside IPv6 addresses for the tunnel. Any specified CIDR
-    -- blocks must be unique across all VPN connections that use the same
-    -- transit gateway.
-    --
-    -- Constraints: A size \/126 CIDR block from the local @fd00::\/8@ range.
-    tunnelInsideIpv6Cidr :: Prelude.Maybe Prelude.Text
+    -- Default: @1024@
+    replayWindowSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -174,41 +174,17 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replayWindowSize', 'vpnTunnelOptionsSpecification_replayWindowSize' - The number of packets in an IKE replay window.
+-- 'tunnelInsideIpv6Cidr', 'vpnTunnelOptionsSpecification_tunnelInsideIpv6Cidr' - The range of inside IPv6 addresses for the tunnel. Any specified CIDR
+-- blocks must be unique across all VPN connections that use the same
+-- transit gateway.
 --
--- Constraints: A value between 64 and 2048.
---
--- Default: @1024@
---
--- 'dPDTimeoutAction', 'vpnTunnelOptionsSpecification_dPDTimeoutAction' - The action to take after DPD timeout occurs. Specify @restart@ to
--- restart the IKE initiation. Specify @clear@ to end the IKE session.
---
--- Valid Values: @clear@ | @none@ | @restart@
---
--- Default: @clear@
---
--- 'rekeyFuzzPercentage', 'vpnTunnelOptionsSpecification_rekeyFuzzPercentage' - The percentage of the rekey window (determined by
--- @RekeyMarginTimeSeconds@) during which the rekey time is randomly
--- selected.
---
--- Constraints: A value between 0 and 100.
---
--- Default: @100@
+-- Constraints: A size \/126 CIDR block from the local @fd00::\/8@ range.
 --
 -- 'phase1LifetimeSeconds', 'vpnTunnelOptionsSpecification_phase1LifetimeSeconds' - The lifetime for phase 1 of the IKE negotiation, in seconds.
 --
 -- Constraints: A value between 900 and 28,800.
 --
 -- Default: @28800@
---
--- 'iKEVersions', 'vpnTunnelOptionsSpecification_iKEVersions' - The IKE versions that are permitted for the VPN tunnel.
---
--- Valid values: @ikev1@ | @ikev2@
---
--- 'phase2IntegrityAlgorithms', 'vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms' - One or more integrity algorithms that are permitted for the VPN tunnel
--- for phase 2 IKE negotiations.
---
--- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
 --
 -- 'phase2LifetimeSeconds', 'vpnTunnelOptionsSpecification_phase2LifetimeSeconds' - The lifetime for phase 2 of the IKE negotiation, in seconds.
 --
@@ -217,8 +193,8 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
 --
 -- Default: @3600@
 --
--- 'phase1EncryptionAlgorithms', 'vpnTunnelOptionsSpecification_phase1EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel
--- for phase 1 IKE negotiations.
+-- 'phase2EncryptionAlgorithms', 'vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel
+-- for phase 2 IKE negotiations.
 --
 -- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
 --
@@ -233,6 +209,53 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
 --
 -- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
 --
+-- 'dPDTimeoutSeconds', 'vpnTunnelOptionsSpecification_dPDTimeoutSeconds' - The number of seconds after which a DPD timeout occurs.
+--
+-- Constraints: A value between 0 and 30.
+--
+-- Default: @30@
+--
+-- 'iKEVersions', 'vpnTunnelOptionsSpecification_iKEVersions' - The IKE versions that are permitted for the VPN tunnel.
+--
+-- Valid values: @ikev1@ | @ikev2@
+--
+-- 'preSharedKey', 'vpnTunnelOptionsSpecification_preSharedKey' - The pre-shared key (PSK) to establish initial authentication between the
+-- virtual private gateway and customer gateway.
+--
+-- Constraints: Allowed characters are alphanumeric characters, periods
+-- (.), and underscores (_). Must be between 8 and 64 characters in length
+-- and cannot start with zero (0).
+--
+-- 'dPDTimeoutAction', 'vpnTunnelOptionsSpecification_dPDTimeoutAction' - The action to take after DPD timeout occurs. Specify @restart@ to
+-- restart the IKE initiation. Specify @clear@ to end the IKE session.
+--
+-- Valid Values: @clear@ | @none@ | @restart@
+--
+-- Default: @clear@
+--
+-- 'phase2DHGroupNumbers', 'vpnTunnelOptionsSpecification_phase2DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN
+-- tunnel for phase 2 IKE negotiations.
+--
+-- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
+-- | @21@ | @22@ | @23@ | @24@
+--
+-- 'rekeyFuzzPercentage', 'vpnTunnelOptionsSpecification_rekeyFuzzPercentage' - The percentage of the rekey window (determined by
+-- @RekeyMarginTimeSeconds@) during which the rekey time is randomly
+-- selected.
+--
+-- Constraints: A value between 0 and 100.
+--
+-- Default: @100@
+--
+-- 'startupAction', 'vpnTunnelOptionsSpecification_startupAction' - The action to take when the establishing the tunnel for the VPN
+-- connection. By default, your customer gateway device must initiate the
+-- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
+-- Services to initiate the IKE negotiation.
+--
+-- Valid Values: @add@ | @start@
+--
+-- Default: @add@
+--
 -- 'rekeyMarginTimeSeconds', 'vpnTunnelOptionsSpecification_rekeyMarginTimeSeconds' - The margin time, in seconds, before the phase 2 lifetime expires, during
 -- which the Amazon Web Services side of the VPN connection performs an IKE
 -- rekey. The exact time of the rekey is randomly selected based on the
@@ -242,11 +265,15 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
 --
 -- Default: @540@
 --
--- 'dPDTimeoutSeconds', 'vpnTunnelOptionsSpecification_dPDTimeoutSeconds' - The number of seconds after which a DPD timeout occurs.
+-- 'phase2IntegrityAlgorithms', 'vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms' - One or more integrity algorithms that are permitted for the VPN tunnel
+-- for phase 2 IKE negotiations.
 --
--- Constraints: A value between 0 and 30.
+-- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
 --
--- Default: @30@
+-- 'phase1EncryptionAlgorithms', 'vpnTunnelOptionsSpecification_phase1EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel
+-- for phase 1 IKE negotiations.
+--
+-- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
 --
 -- 'tunnelInsideCidr', 'vpnTunnelOptionsSpecification_tunnelInsideCidr' - The range of inside IPv4 addresses for the tunnel. Any specified CIDR
 -- blocks must be unique across all VPN connections that use the same
@@ -269,89 +296,43 @@ data VpnTunnelOptionsSpecification = VpnTunnelOptionsSpecification'
 --
 -- -   @169.254.169.252\/30@
 --
--- 'startupAction', 'vpnTunnelOptionsSpecification_startupAction' - The action to take when the establishing the tunnel for the VPN
--- connection. By default, your customer gateway device must initiate the
--- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
--- Services to initiate the IKE negotiation.
---
--- Valid Values: @add@ | @start@
---
--- Default: @add@
---
--- 'phase2EncryptionAlgorithms', 'vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms' - One or more encryption algorithms that are permitted for the VPN tunnel
--- for phase 2 IKE negotiations.
---
--- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
---
--- 'phase2DHGroupNumbers', 'vpnTunnelOptionsSpecification_phase2DHGroupNumbers' - One or more Diffie-Hellman group numbers that are permitted for the VPN
--- tunnel for phase 2 IKE negotiations.
---
--- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
--- | @21@ | @22@ | @23@ | @24@
---
--- 'preSharedKey', 'vpnTunnelOptionsSpecification_preSharedKey' - The pre-shared key (PSK) to establish initial authentication between the
--- virtual private gateway and customer gateway.
---
--- Constraints: Allowed characters are alphanumeric characters, periods
--- (.), and underscores (_). Must be between 8 and 64 characters in length
--- and cannot start with zero (0).
---
--- 'tunnelInsideIpv6Cidr', 'vpnTunnelOptionsSpecification_tunnelInsideIpv6Cidr' - The range of inside IPv6 addresses for the tunnel. Any specified CIDR
--- blocks must be unique across all VPN connections that use the same
--- transit gateway.
---
--- Constraints: A size \/126 CIDR block from the local @fd00::\/8@ range.
-newVpnTunnelOptionsSpecification ::
-  VpnTunnelOptionsSpecification
-newVpnTunnelOptionsSpecification =
-  VpnTunnelOptionsSpecification'
-    { replayWindowSize =
-        Prelude.Nothing,
-      dPDTimeoutAction = Prelude.Nothing,
-      rekeyFuzzPercentage = Prelude.Nothing,
-      phase1LifetimeSeconds = Prelude.Nothing,
-      iKEVersions = Prelude.Nothing,
-      phase2IntegrityAlgorithms = Prelude.Nothing,
-      phase2LifetimeSeconds = Prelude.Nothing,
-      phase1EncryptionAlgorithms = Prelude.Nothing,
-      phase1DHGroupNumbers = Prelude.Nothing,
-      phase1IntegrityAlgorithms = Prelude.Nothing,
-      rekeyMarginTimeSeconds = Prelude.Nothing,
-      dPDTimeoutSeconds = Prelude.Nothing,
-      tunnelInsideCidr = Prelude.Nothing,
-      startupAction = Prelude.Nothing,
-      phase2EncryptionAlgorithms = Prelude.Nothing,
-      phase2DHGroupNumbers = Prelude.Nothing,
-      preSharedKey = Prelude.Nothing,
-      tunnelInsideIpv6Cidr = Prelude.Nothing
-    }
-
--- | The number of packets in an IKE replay window.
+-- 'replayWindowSize', 'vpnTunnelOptionsSpecification_replayWindowSize' - The number of packets in an IKE replay window.
 --
 -- Constraints: A value between 64 and 2048.
 --
 -- Default: @1024@
-vpnTunnelOptionsSpecification_replayWindowSize :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
-vpnTunnelOptionsSpecification_replayWindowSize = Lens.lens (\VpnTunnelOptionsSpecification' {replayWindowSize} -> replayWindowSize) (\s@VpnTunnelOptionsSpecification' {} a -> s {replayWindowSize = a} :: VpnTunnelOptionsSpecification)
+newVpnTunnelOptionsSpecification ::
+  VpnTunnelOptionsSpecification
+newVpnTunnelOptionsSpecification =
+  VpnTunnelOptionsSpecification'
+    { tunnelInsideIpv6Cidr =
+        Prelude.Nothing,
+      phase1LifetimeSeconds = Prelude.Nothing,
+      phase2LifetimeSeconds = Prelude.Nothing,
+      phase2EncryptionAlgorithms = Prelude.Nothing,
+      phase1DHGroupNumbers = Prelude.Nothing,
+      phase1IntegrityAlgorithms = Prelude.Nothing,
+      dPDTimeoutSeconds = Prelude.Nothing,
+      iKEVersions = Prelude.Nothing,
+      preSharedKey = Prelude.Nothing,
+      dPDTimeoutAction = Prelude.Nothing,
+      phase2DHGroupNumbers = Prelude.Nothing,
+      rekeyFuzzPercentage = Prelude.Nothing,
+      startupAction = Prelude.Nothing,
+      rekeyMarginTimeSeconds = Prelude.Nothing,
+      phase2IntegrityAlgorithms = Prelude.Nothing,
+      phase1EncryptionAlgorithms = Prelude.Nothing,
+      tunnelInsideCidr = Prelude.Nothing,
+      replayWindowSize = Prelude.Nothing
+    }
 
--- | The action to take after DPD timeout occurs. Specify @restart@ to
--- restart the IKE initiation. Specify @clear@ to end the IKE session.
+-- | The range of inside IPv6 addresses for the tunnel. Any specified CIDR
+-- blocks must be unique across all VPN connections that use the same
+-- transit gateway.
 --
--- Valid Values: @clear@ | @none@ | @restart@
---
--- Default: @clear@
-vpnTunnelOptionsSpecification_dPDTimeoutAction :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
-vpnTunnelOptionsSpecification_dPDTimeoutAction = Lens.lens (\VpnTunnelOptionsSpecification' {dPDTimeoutAction} -> dPDTimeoutAction) (\s@VpnTunnelOptionsSpecification' {} a -> s {dPDTimeoutAction = a} :: VpnTunnelOptionsSpecification)
-
--- | The percentage of the rekey window (determined by
--- @RekeyMarginTimeSeconds@) during which the rekey time is randomly
--- selected.
---
--- Constraints: A value between 0 and 100.
---
--- Default: @100@
-vpnTunnelOptionsSpecification_rekeyFuzzPercentage :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
-vpnTunnelOptionsSpecification_rekeyFuzzPercentage = Lens.lens (\VpnTunnelOptionsSpecification' {rekeyFuzzPercentage} -> rekeyFuzzPercentage) (\s@VpnTunnelOptionsSpecification' {} a -> s {rekeyFuzzPercentage = a} :: VpnTunnelOptionsSpecification)
+-- Constraints: A size \/126 CIDR block from the local @fd00::\/8@ range.
+vpnTunnelOptionsSpecification_tunnelInsideIpv6Cidr :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
+vpnTunnelOptionsSpecification_tunnelInsideIpv6Cidr = Lens.lens (\VpnTunnelOptionsSpecification' {tunnelInsideIpv6Cidr} -> tunnelInsideIpv6Cidr) (\s@VpnTunnelOptionsSpecification' {} a -> s {tunnelInsideIpv6Cidr = a} :: VpnTunnelOptionsSpecification)
 
 -- | The lifetime for phase 1 of the IKE negotiation, in seconds.
 --
@@ -360,19 +341,6 @@ vpnTunnelOptionsSpecification_rekeyFuzzPercentage = Lens.lens (\VpnTunnelOptions
 -- Default: @28800@
 vpnTunnelOptionsSpecification_phase1LifetimeSeconds :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
 vpnTunnelOptionsSpecification_phase1LifetimeSeconds = Lens.lens (\VpnTunnelOptionsSpecification' {phase1LifetimeSeconds} -> phase1LifetimeSeconds) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase1LifetimeSeconds = a} :: VpnTunnelOptionsSpecification)
-
--- | The IKE versions that are permitted for the VPN tunnel.
---
--- Valid values: @ikev1@ | @ikev2@
-vpnTunnelOptionsSpecification_iKEVersions :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [IKEVersionsRequestListValue])
-vpnTunnelOptionsSpecification_iKEVersions = Lens.lens (\VpnTunnelOptionsSpecification' {iKEVersions} -> iKEVersions) (\s@VpnTunnelOptionsSpecification' {} a -> s {iKEVersions = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more integrity algorithms that are permitted for the VPN tunnel
--- for phase 2 IKE negotiations.
---
--- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
-vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2IntegrityAlgorithmsRequestListValue])
-vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase2IntegrityAlgorithms} -> phase2IntegrityAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2IntegrityAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The lifetime for phase 2 of the IKE negotiation, in seconds.
 --
@@ -384,11 +352,11 @@ vpnTunnelOptionsSpecification_phase2LifetimeSeconds :: Lens.Lens' VpnTunnelOptio
 vpnTunnelOptionsSpecification_phase2LifetimeSeconds = Lens.lens (\VpnTunnelOptionsSpecification' {phase2LifetimeSeconds} -> phase2LifetimeSeconds) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2LifetimeSeconds = a} :: VpnTunnelOptionsSpecification)
 
 -- | One or more encryption algorithms that are permitted for the VPN tunnel
--- for phase 1 IKE negotiations.
+-- for phase 2 IKE negotiations.
 --
 -- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
-vpnTunnelOptionsSpecification_phase1EncryptionAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase1EncryptionAlgorithmsRequestListValue])
-vpnTunnelOptionsSpecification_phase1EncryptionAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase1EncryptionAlgorithms} -> phase1EncryptionAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase1EncryptionAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
+vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValue])
+vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase2EncryptionAlgorithms} -> phase2EncryptionAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2EncryptionAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more Diffie-Hellman group numbers that are permitted for the VPN
 -- tunnel for phase 1 IKE negotiations.
@@ -405,6 +373,67 @@ vpnTunnelOptionsSpecification_phase1DHGroupNumbers = Lens.lens (\VpnTunnelOption
 vpnTunnelOptionsSpecification_phase1IntegrityAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase1IntegrityAlgorithmsRequestListValue])
 vpnTunnelOptionsSpecification_phase1IntegrityAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase1IntegrityAlgorithms} -> phase1IntegrityAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase1IntegrityAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
 
+-- | The number of seconds after which a DPD timeout occurs.
+--
+-- Constraints: A value between 0 and 30.
+--
+-- Default: @30@
+vpnTunnelOptionsSpecification_dPDTimeoutSeconds :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
+vpnTunnelOptionsSpecification_dPDTimeoutSeconds = Lens.lens (\VpnTunnelOptionsSpecification' {dPDTimeoutSeconds} -> dPDTimeoutSeconds) (\s@VpnTunnelOptionsSpecification' {} a -> s {dPDTimeoutSeconds = a} :: VpnTunnelOptionsSpecification)
+
+-- | The IKE versions that are permitted for the VPN tunnel.
+--
+-- Valid values: @ikev1@ | @ikev2@
+vpnTunnelOptionsSpecification_iKEVersions :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [IKEVersionsRequestListValue])
+vpnTunnelOptionsSpecification_iKEVersions = Lens.lens (\VpnTunnelOptionsSpecification' {iKEVersions} -> iKEVersions) (\s@VpnTunnelOptionsSpecification' {} a -> s {iKEVersions = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pre-shared key (PSK) to establish initial authentication between the
+-- virtual private gateway and customer gateway.
+--
+-- Constraints: Allowed characters are alphanumeric characters, periods
+-- (.), and underscores (_). Must be between 8 and 64 characters in length
+-- and cannot start with zero (0).
+vpnTunnelOptionsSpecification_preSharedKey :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
+vpnTunnelOptionsSpecification_preSharedKey = Lens.lens (\VpnTunnelOptionsSpecification' {preSharedKey} -> preSharedKey) (\s@VpnTunnelOptionsSpecification' {} a -> s {preSharedKey = a} :: VpnTunnelOptionsSpecification)
+
+-- | The action to take after DPD timeout occurs. Specify @restart@ to
+-- restart the IKE initiation. Specify @clear@ to end the IKE session.
+--
+-- Valid Values: @clear@ | @none@ | @restart@
+--
+-- Default: @clear@
+vpnTunnelOptionsSpecification_dPDTimeoutAction :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
+vpnTunnelOptionsSpecification_dPDTimeoutAction = Lens.lens (\VpnTunnelOptionsSpecification' {dPDTimeoutAction} -> dPDTimeoutAction) (\s@VpnTunnelOptionsSpecification' {} a -> s {dPDTimeoutAction = a} :: VpnTunnelOptionsSpecification)
+
+-- | One or more Diffie-Hellman group numbers that are permitted for the VPN
+-- tunnel for phase 2 IKE negotiations.
+--
+-- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
+-- | @21@ | @22@ | @23@ | @24@
+vpnTunnelOptionsSpecification_phase2DHGroupNumbers :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2DHGroupNumbersRequestListValue])
+vpnTunnelOptionsSpecification_phase2DHGroupNumbers = Lens.lens (\VpnTunnelOptionsSpecification' {phase2DHGroupNumbers} -> phase2DHGroupNumbers) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2DHGroupNumbers = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | The percentage of the rekey window (determined by
+-- @RekeyMarginTimeSeconds@) during which the rekey time is randomly
+-- selected.
+--
+-- Constraints: A value between 0 and 100.
+--
+-- Default: @100@
+vpnTunnelOptionsSpecification_rekeyFuzzPercentage :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
+vpnTunnelOptionsSpecification_rekeyFuzzPercentage = Lens.lens (\VpnTunnelOptionsSpecification' {rekeyFuzzPercentage} -> rekeyFuzzPercentage) (\s@VpnTunnelOptionsSpecification' {} a -> s {rekeyFuzzPercentage = a} :: VpnTunnelOptionsSpecification)
+
+-- | The action to take when the establishing the tunnel for the VPN
+-- connection. By default, your customer gateway device must initiate the
+-- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
+-- Services to initiate the IKE negotiation.
+--
+-- Valid Values: @add@ | @start@
+--
+-- Default: @add@
+vpnTunnelOptionsSpecification_startupAction :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
+vpnTunnelOptionsSpecification_startupAction = Lens.lens (\VpnTunnelOptionsSpecification' {startupAction} -> startupAction) (\s@VpnTunnelOptionsSpecification' {} a -> s {startupAction = a} :: VpnTunnelOptionsSpecification)
+
 -- | The margin time, in seconds, before the phase 2 lifetime expires, during
 -- which the Amazon Web Services side of the VPN connection performs an IKE
 -- rekey. The exact time of the rekey is randomly selected based on the
@@ -416,13 +445,19 @@ vpnTunnelOptionsSpecification_phase1IntegrityAlgorithms = Lens.lens (\VpnTunnelO
 vpnTunnelOptionsSpecification_rekeyMarginTimeSeconds :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
 vpnTunnelOptionsSpecification_rekeyMarginTimeSeconds = Lens.lens (\VpnTunnelOptionsSpecification' {rekeyMarginTimeSeconds} -> rekeyMarginTimeSeconds) (\s@VpnTunnelOptionsSpecification' {} a -> s {rekeyMarginTimeSeconds = a} :: VpnTunnelOptionsSpecification)
 
--- | The number of seconds after which a DPD timeout occurs.
+-- | One or more integrity algorithms that are permitted for the VPN tunnel
+-- for phase 2 IKE negotiations.
 --
--- Constraints: A value between 0 and 30.
+-- Valid values: @SHA1@ | @SHA2-256@ | @SHA2-384@ | @SHA2-512@
+vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2IntegrityAlgorithmsRequestListValue])
+vpnTunnelOptionsSpecification_phase2IntegrityAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase2IntegrityAlgorithms} -> phase2IntegrityAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2IntegrityAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more encryption algorithms that are permitted for the VPN tunnel
+-- for phase 1 IKE negotiations.
 --
--- Default: @30@
-vpnTunnelOptionsSpecification_dPDTimeoutSeconds :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
-vpnTunnelOptionsSpecification_dPDTimeoutSeconds = Lens.lens (\VpnTunnelOptionsSpecification' {dPDTimeoutSeconds} -> dPDTimeoutSeconds) (\s@VpnTunnelOptionsSpecification' {} a -> s {dPDTimeoutSeconds = a} :: VpnTunnelOptionsSpecification)
+-- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
+vpnTunnelOptionsSpecification_phase1EncryptionAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase1EncryptionAlgorithmsRequestListValue])
+vpnTunnelOptionsSpecification_phase1EncryptionAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase1EncryptionAlgorithms} -> phase1EncryptionAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase1EncryptionAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The range of inside IPv4 addresses for the tunnel. Any specified CIDR
 -- blocks must be unique across all VPN connections that use the same
@@ -447,115 +482,70 @@ vpnTunnelOptionsSpecification_dPDTimeoutSeconds = Lens.lens (\VpnTunnelOptionsSp
 vpnTunnelOptionsSpecification_tunnelInsideCidr :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
 vpnTunnelOptionsSpecification_tunnelInsideCidr = Lens.lens (\VpnTunnelOptionsSpecification' {tunnelInsideCidr} -> tunnelInsideCidr) (\s@VpnTunnelOptionsSpecification' {} a -> s {tunnelInsideCidr = a} :: VpnTunnelOptionsSpecification)
 
--- | The action to take when the establishing the tunnel for the VPN
--- connection. By default, your customer gateway device must initiate the
--- IKE negotiation and bring up the tunnel. Specify @start@ for Amazon Web
--- Services to initiate the IKE negotiation.
+-- | The number of packets in an IKE replay window.
 --
--- Valid Values: @add@ | @start@
+-- Constraints: A value between 64 and 2048.
 --
--- Default: @add@
-vpnTunnelOptionsSpecification_startupAction :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
-vpnTunnelOptionsSpecification_startupAction = Lens.lens (\VpnTunnelOptionsSpecification' {startupAction} -> startupAction) (\s@VpnTunnelOptionsSpecification' {} a -> s {startupAction = a} :: VpnTunnelOptionsSpecification)
-
--- | One or more encryption algorithms that are permitted for the VPN tunnel
--- for phase 2 IKE negotiations.
---
--- Valid values: @AES128@ | @AES256@ | @AES128-GCM-16@ | @AES256-GCM-16@
-vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2EncryptionAlgorithmsRequestListValue])
-vpnTunnelOptionsSpecification_phase2EncryptionAlgorithms = Lens.lens (\VpnTunnelOptionsSpecification' {phase2EncryptionAlgorithms} -> phase2EncryptionAlgorithms) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2EncryptionAlgorithms = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more Diffie-Hellman group numbers that are permitted for the VPN
--- tunnel for phase 2 IKE negotiations.
---
--- Valid values: @2@ | @5@ | @14@ | @15@ | @16@ | @17@ | @18@ | @19@ | @20@
--- | @21@ | @22@ | @23@ | @24@
-vpnTunnelOptionsSpecification_phase2DHGroupNumbers :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe [Phase2DHGroupNumbersRequestListValue])
-vpnTunnelOptionsSpecification_phase2DHGroupNumbers = Lens.lens (\VpnTunnelOptionsSpecification' {phase2DHGroupNumbers} -> phase2DHGroupNumbers) (\s@VpnTunnelOptionsSpecification' {} a -> s {phase2DHGroupNumbers = a} :: VpnTunnelOptionsSpecification) Prelude.. Lens.mapping Lens.coerced
-
--- | The pre-shared key (PSK) to establish initial authentication between the
--- virtual private gateway and customer gateway.
---
--- Constraints: Allowed characters are alphanumeric characters, periods
--- (.), and underscores (_). Must be between 8 and 64 characters in length
--- and cannot start with zero (0).
-vpnTunnelOptionsSpecification_preSharedKey :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
-vpnTunnelOptionsSpecification_preSharedKey = Lens.lens (\VpnTunnelOptionsSpecification' {preSharedKey} -> preSharedKey) (\s@VpnTunnelOptionsSpecification' {} a -> s {preSharedKey = a} :: VpnTunnelOptionsSpecification)
-
--- | The range of inside IPv6 addresses for the tunnel. Any specified CIDR
--- blocks must be unique across all VPN connections that use the same
--- transit gateway.
---
--- Constraints: A size \/126 CIDR block from the local @fd00::\/8@ range.
-vpnTunnelOptionsSpecification_tunnelInsideIpv6Cidr :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
-vpnTunnelOptionsSpecification_tunnelInsideIpv6Cidr = Lens.lens (\VpnTunnelOptionsSpecification' {tunnelInsideIpv6Cidr} -> tunnelInsideIpv6Cidr) (\s@VpnTunnelOptionsSpecification' {} a -> s {tunnelInsideIpv6Cidr = a} :: VpnTunnelOptionsSpecification)
+-- Default: @1024@
+vpnTunnelOptionsSpecification_replayWindowSize :: Lens.Lens' VpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
+vpnTunnelOptionsSpecification_replayWindowSize = Lens.lens (\VpnTunnelOptionsSpecification' {replayWindowSize} -> replayWindowSize) (\s@VpnTunnelOptionsSpecification' {} a -> s {replayWindowSize = a} :: VpnTunnelOptionsSpecification)
 
 instance
   Prelude.Hashable
     VpnTunnelOptionsSpecification
   where
   hashWithSalt _salt VpnTunnelOptionsSpecification' {..} =
-    _salt `Prelude.hashWithSalt` replayWindowSize
-      `Prelude.hashWithSalt` dPDTimeoutAction
-      `Prelude.hashWithSalt` rekeyFuzzPercentage
+    _salt `Prelude.hashWithSalt` tunnelInsideIpv6Cidr
       `Prelude.hashWithSalt` phase1LifetimeSeconds
-      `Prelude.hashWithSalt` iKEVersions
-      `Prelude.hashWithSalt` phase2IntegrityAlgorithms
       `Prelude.hashWithSalt` phase2LifetimeSeconds
-      `Prelude.hashWithSalt` phase1EncryptionAlgorithms
+      `Prelude.hashWithSalt` phase2EncryptionAlgorithms
       `Prelude.hashWithSalt` phase1DHGroupNumbers
       `Prelude.hashWithSalt` phase1IntegrityAlgorithms
-      `Prelude.hashWithSalt` rekeyMarginTimeSeconds
       `Prelude.hashWithSalt` dPDTimeoutSeconds
-      `Prelude.hashWithSalt` tunnelInsideCidr
-      `Prelude.hashWithSalt` startupAction
-      `Prelude.hashWithSalt` phase2EncryptionAlgorithms
-      `Prelude.hashWithSalt` phase2DHGroupNumbers
+      `Prelude.hashWithSalt` iKEVersions
       `Prelude.hashWithSalt` preSharedKey
-      `Prelude.hashWithSalt` tunnelInsideIpv6Cidr
+      `Prelude.hashWithSalt` dPDTimeoutAction
+      `Prelude.hashWithSalt` phase2DHGroupNumbers
+      `Prelude.hashWithSalt` rekeyFuzzPercentage
+      `Prelude.hashWithSalt` startupAction
+      `Prelude.hashWithSalt` rekeyMarginTimeSeconds
+      `Prelude.hashWithSalt` phase2IntegrityAlgorithms
+      `Prelude.hashWithSalt` phase1EncryptionAlgorithms
+      `Prelude.hashWithSalt` tunnelInsideCidr
+      `Prelude.hashWithSalt` replayWindowSize
 
 instance Prelude.NFData VpnTunnelOptionsSpecification where
   rnf VpnTunnelOptionsSpecification' {..} =
-    Prelude.rnf replayWindowSize
-      `Prelude.seq` Prelude.rnf dPDTimeoutAction
-      `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
+    Prelude.rnf tunnelInsideIpv6Cidr
       `Prelude.seq` Prelude.rnf phase1LifetimeSeconds
-      `Prelude.seq` Prelude.rnf iKEVersions
-      `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
       `Prelude.seq` Prelude.rnf phase2LifetimeSeconds
-      `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
+      `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
       `Prelude.seq` Prelude.rnf phase1DHGroupNumbers
       `Prelude.seq` Prelude.rnf phase1IntegrityAlgorithms
-      `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
       `Prelude.seq` Prelude.rnf dPDTimeoutSeconds
-      `Prelude.seq` Prelude.rnf tunnelInsideCidr
-      `Prelude.seq` Prelude.rnf startupAction
-      `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
-      `Prelude.seq` Prelude.rnf phase2DHGroupNumbers
+      `Prelude.seq` Prelude.rnf iKEVersions
       `Prelude.seq` Prelude.rnf preSharedKey
-      `Prelude.seq` Prelude.rnf tunnelInsideIpv6Cidr
+      `Prelude.seq` Prelude.rnf dPDTimeoutAction
+      `Prelude.seq` Prelude.rnf phase2DHGroupNumbers
+      `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
+      `Prelude.seq` Prelude.rnf startupAction
+      `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
+      `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
+      `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
+      `Prelude.seq` Prelude.rnf tunnelInsideCidr
+      `Prelude.seq` Prelude.rnf replayWindowSize
 
 instance Core.ToQuery VpnTunnelOptionsSpecification where
   toQuery VpnTunnelOptionsSpecification' {..} =
     Prelude.mconcat
-      [ "ReplayWindowSize" Core.=: replayWindowSize,
-        "DPDTimeoutAction" Core.=: dPDTimeoutAction,
-        "RekeyFuzzPercentage" Core.=: rekeyFuzzPercentage,
+      [ "TunnelInsideIpv6Cidr" Core.=: tunnelInsideIpv6Cidr,
         "Phase1LifetimeSeconds"
           Core.=: phase1LifetimeSeconds,
-        Core.toQuery
-          ( Core.toQueryList "IKEVersion"
-              Prelude.<$> iKEVersions
-          ),
-        Core.toQuery
-          ( Core.toQueryList "Phase2IntegrityAlgorithm"
-              Prelude.<$> phase2IntegrityAlgorithms
-          ),
         "Phase2LifetimeSeconds"
           Core.=: phase2LifetimeSeconds,
         Core.toQuery
-          ( Core.toQueryList "Phase1EncryptionAlgorithm"
-              Prelude.<$> phase1EncryptionAlgorithms
+          ( Core.toQueryList "Phase2EncryptionAlgorithm"
+              Prelude.<$> phase2EncryptionAlgorithms
           ),
         Core.toQuery
           ( Core.toQueryList "Phase1DHGroupNumber"
@@ -565,19 +555,29 @@ instance Core.ToQuery VpnTunnelOptionsSpecification where
           ( Core.toQueryList "Phase1IntegrityAlgorithm"
               Prelude.<$> phase1IntegrityAlgorithms
           ),
-        "RekeyMarginTimeSeconds"
-          Core.=: rekeyMarginTimeSeconds,
         "DPDTimeoutSeconds" Core.=: dPDTimeoutSeconds,
-        "TunnelInsideCidr" Core.=: tunnelInsideCidr,
-        "StartupAction" Core.=: startupAction,
         Core.toQuery
-          ( Core.toQueryList "Phase2EncryptionAlgorithm"
-              Prelude.<$> phase2EncryptionAlgorithms
+          ( Core.toQueryList "IKEVersion"
+              Prelude.<$> iKEVersions
           ),
+        "PreSharedKey" Core.=: preSharedKey,
+        "DPDTimeoutAction" Core.=: dPDTimeoutAction,
         Core.toQuery
           ( Core.toQueryList "Phase2DHGroupNumber"
               Prelude.<$> phase2DHGroupNumbers
           ),
-        "PreSharedKey" Core.=: preSharedKey,
-        "TunnelInsideIpv6Cidr" Core.=: tunnelInsideIpv6Cidr
+        "RekeyFuzzPercentage" Core.=: rekeyFuzzPercentage,
+        "StartupAction" Core.=: startupAction,
+        "RekeyMarginTimeSeconds"
+          Core.=: rekeyMarginTimeSeconds,
+        Core.toQuery
+          ( Core.toQueryList "Phase2IntegrityAlgorithm"
+              Prelude.<$> phase2IntegrityAlgorithms
+          ),
+        Core.toQuery
+          ( Core.toQueryList "Phase1EncryptionAlgorithm"
+              Prelude.<$> phase1EncryptionAlgorithms
+          ),
+        "TunnelInsideCidr" Core.=: tunnelInsideCidr,
+        "ReplayWindowSize" Core.=: replayWindowSize
       ]

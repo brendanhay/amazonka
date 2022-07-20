@@ -35,8 +35,8 @@ module Amazonka.QuickSight.DescribeFolder
     newDescribeFolderResponse,
 
     -- * Response Lenses
-    describeFolderResponse_requestId,
     describeFolderResponse_folder,
+    describeFolderResponse_requestId,
     describeFolderResponse_status,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest DescribeFolder where
     Response.receiveJSON
       ( \s h x ->
           DescribeFolderResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Folder")
+            Prelude.<$> (x Core..?> "Folder")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,10 +137,10 @@ instance Core.ToQuery DescribeFolder where
 
 -- | /See:/ 'newDescribeFolderResponse' smart constructor.
 data DescribeFolderResponse = DescribeFolderResponse'
-  { -- | The request ID.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the folder.
+  { -- | Information about the folder.
     folder :: Prelude.Maybe Folder,
+    -- | The request ID.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The status. If succeeded, the status is @SC_OK (200)@.
     status :: Prelude.Int
   }
@@ -154,9 +154,9 @@ data DescribeFolderResponse = DescribeFolderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeFolderResponse_requestId' - The request ID.
---
 -- 'folder', 'describeFolderResponse_folder' - Information about the folder.
+--
+-- 'requestId', 'describeFolderResponse_requestId' - The request ID.
 --
 -- 'status', 'describeFolderResponse_status' - The status. If succeeded, the status is @SC_OK (200)@.
 newDescribeFolderResponse ::
@@ -165,19 +165,18 @@ newDescribeFolderResponse ::
   DescribeFolderResponse
 newDescribeFolderResponse pStatus_ =
   DescribeFolderResponse'
-    { requestId =
-        Prelude.Nothing,
-      folder = Prelude.Nothing,
+    { folder = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The request ID.
-describeFolderResponse_requestId :: Lens.Lens' DescribeFolderResponse (Prelude.Maybe Prelude.Text)
-describeFolderResponse_requestId = Lens.lens (\DescribeFolderResponse' {requestId} -> requestId) (\s@DescribeFolderResponse' {} a -> s {requestId = a} :: DescribeFolderResponse)
 
 -- | Information about the folder.
 describeFolderResponse_folder :: Lens.Lens' DescribeFolderResponse (Prelude.Maybe Folder)
 describeFolderResponse_folder = Lens.lens (\DescribeFolderResponse' {folder} -> folder) (\s@DescribeFolderResponse' {} a -> s {folder = a} :: DescribeFolderResponse)
+
+-- | The request ID.
+describeFolderResponse_requestId :: Lens.Lens' DescribeFolderResponse (Prelude.Maybe Prelude.Text)
+describeFolderResponse_requestId = Lens.lens (\DescribeFolderResponse' {requestId} -> requestId) (\s@DescribeFolderResponse' {} a -> s {requestId = a} :: DescribeFolderResponse)
 
 -- | The status. If succeeded, the status is @SC_OK (200)@.
 describeFolderResponse_status :: Lens.Lens' DescribeFolderResponse Prelude.Int
@@ -185,6 +184,6 @@ describeFolderResponse_status = Lens.lens (\DescribeFolderResponse' {status} -> 
 
 instance Prelude.NFData DescribeFolderResponse where
   rnf DescribeFolderResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf folder
+    Prelude.rnf folder
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

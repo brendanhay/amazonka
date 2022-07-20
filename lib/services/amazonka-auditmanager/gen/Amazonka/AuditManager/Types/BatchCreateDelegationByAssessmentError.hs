@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 data BatchCreateDelegationByAssessmentError = BatchCreateDelegationByAssessmentError'
   { -- | The API request to batch create delegations in Audit Manager.
     createDelegationRequest :: Prelude.Maybe CreateDelegationRequest,
-    -- | The error code returned by the @BatchCreateDelegationByAssessment@ API.
-    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The error message returned by the @BatchCreateDelegationByAssessment@
     -- API.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The error code returned by the @BatchCreateDelegationByAssessment@ API.
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,32 +49,32 @@ data BatchCreateDelegationByAssessmentError = BatchCreateDelegationByAssessmentE
 --
 -- 'createDelegationRequest', 'batchCreateDelegationByAssessmentError_createDelegationRequest' - The API request to batch create delegations in Audit Manager.
 --
--- 'errorCode', 'batchCreateDelegationByAssessmentError_errorCode' - The error code returned by the @BatchCreateDelegationByAssessment@ API.
---
 -- 'errorMessage', 'batchCreateDelegationByAssessmentError_errorMessage' - The error message returned by the @BatchCreateDelegationByAssessment@
 -- API.
+--
+-- 'errorCode', 'batchCreateDelegationByAssessmentError_errorCode' - The error code returned by the @BatchCreateDelegationByAssessment@ API.
 newBatchCreateDelegationByAssessmentError ::
   BatchCreateDelegationByAssessmentError
 newBatchCreateDelegationByAssessmentError =
   BatchCreateDelegationByAssessmentError'
     { createDelegationRequest =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
 
 -- | The API request to batch create delegations in Audit Manager.
 batchCreateDelegationByAssessmentError_createDelegationRequest :: Lens.Lens' BatchCreateDelegationByAssessmentError (Prelude.Maybe CreateDelegationRequest)
 batchCreateDelegationByAssessmentError_createDelegationRequest = Lens.lens (\BatchCreateDelegationByAssessmentError' {createDelegationRequest} -> createDelegationRequest) (\s@BatchCreateDelegationByAssessmentError' {} a -> s {createDelegationRequest = a} :: BatchCreateDelegationByAssessmentError)
 
--- | The error code returned by the @BatchCreateDelegationByAssessment@ API.
-batchCreateDelegationByAssessmentError_errorCode :: Lens.Lens' BatchCreateDelegationByAssessmentError (Prelude.Maybe Prelude.Text)
-batchCreateDelegationByAssessmentError_errorCode = Lens.lens (\BatchCreateDelegationByAssessmentError' {errorCode} -> errorCode) (\s@BatchCreateDelegationByAssessmentError' {} a -> s {errorCode = a} :: BatchCreateDelegationByAssessmentError)
-
 -- | The error message returned by the @BatchCreateDelegationByAssessment@
 -- API.
 batchCreateDelegationByAssessmentError_errorMessage :: Lens.Lens' BatchCreateDelegationByAssessmentError (Prelude.Maybe Prelude.Text)
 batchCreateDelegationByAssessmentError_errorMessage = Lens.lens (\BatchCreateDelegationByAssessmentError' {errorMessage} -> errorMessage) (\s@BatchCreateDelegationByAssessmentError' {} a -> s {errorMessage = a} :: BatchCreateDelegationByAssessmentError)
+
+-- | The error code returned by the @BatchCreateDelegationByAssessment@ API.
+batchCreateDelegationByAssessmentError_errorCode :: Lens.Lens' BatchCreateDelegationByAssessmentError (Prelude.Maybe Prelude.Text)
+batchCreateDelegationByAssessmentError_errorCode = Lens.lens (\BatchCreateDelegationByAssessmentError' {errorCode} -> errorCode) (\s@BatchCreateDelegationByAssessmentError' {} a -> s {errorCode = a} :: BatchCreateDelegationByAssessmentError)
 
 instance
   Core.FromJSON
@@ -86,8 +86,8 @@ instance
       ( \x ->
           BatchCreateDelegationByAssessmentError'
             Prelude.<$> (x Core..:? "createDelegationRequest")
-            Prelude.<*> (x Core..:? "errorCode")
             Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<*> (x Core..:? "errorCode")
       )
 
 instance
@@ -99,8 +99,8 @@ instance
     BatchCreateDelegationByAssessmentError' {..} =
       _salt
         `Prelude.hashWithSalt` createDelegationRequest
-        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
@@ -108,5 +108,5 @@ instance
   where
   rnf BatchCreateDelegationByAssessmentError' {..} =
     Prelude.rnf createDelegationRequest
-      `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

@@ -30,12 +30,12 @@ data FailureDetails = FailureDetails'
   { -- | The type of Automation failure. Failure types include the following:
     -- Action, Permission, Throttling, Verification, Internal.
     failureType :: Prelude.Maybe Prelude.Text,
+    -- | Detailed information about the Automation step failure.
+    details :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The stage of the Automation execution when the failure occurred. The
     -- stages include the following: InputValidation, PreVerification,
     -- Invocation, PostVerification.
-    failureStage :: Prelude.Maybe Prelude.Text,
-    -- | Detailed information about the Automation step failure.
-    details :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    failureStage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,18 +50,18 @@ data FailureDetails = FailureDetails'
 -- 'failureType', 'failureDetails_failureType' - The type of Automation failure. Failure types include the following:
 -- Action, Permission, Throttling, Verification, Internal.
 --
+-- 'details', 'failureDetails_details' - Detailed information about the Automation step failure.
+--
 -- 'failureStage', 'failureDetails_failureStage' - The stage of the Automation execution when the failure occurred. The
 -- stages include the following: InputValidation, PreVerification,
 -- Invocation, PostVerification.
---
--- 'details', 'failureDetails_details' - Detailed information about the Automation step failure.
 newFailureDetails ::
   FailureDetails
 newFailureDetails =
   FailureDetails'
     { failureType = Prelude.Nothing,
-      failureStage = Prelude.Nothing,
-      details = Prelude.Nothing
+      details = Prelude.Nothing,
+      failureStage = Prelude.Nothing
     }
 
 -- | The type of Automation failure. Failure types include the following:
@@ -69,15 +69,15 @@ newFailureDetails =
 failureDetails_failureType :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_failureType = Lens.lens (\FailureDetails' {failureType} -> failureType) (\s@FailureDetails' {} a -> s {failureType = a} :: FailureDetails)
 
+-- | Detailed information about the Automation step failure.
+failureDetails_details :: Lens.Lens' FailureDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+failureDetails_details = Lens.lens (\FailureDetails' {details} -> details) (\s@FailureDetails' {} a -> s {details = a} :: FailureDetails) Prelude.. Lens.mapping Lens.coerced
+
 -- | The stage of the Automation execution when the failure occurred. The
 -- stages include the following: InputValidation, PreVerification,
 -- Invocation, PostVerification.
 failureDetails_failureStage :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_failureStage = Lens.lens (\FailureDetails' {failureStage} -> failureStage) (\s@FailureDetails' {} a -> s {failureStage = a} :: FailureDetails)
-
--- | Detailed information about the Automation step failure.
-failureDetails_details :: Lens.Lens' FailureDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-failureDetails_details = Lens.lens (\FailureDetails' {details} -> details) (\s@FailureDetails' {} a -> s {details = a} :: FailureDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON FailureDetails where
   parseJSON =
@@ -86,18 +86,18 @@ instance Core.FromJSON FailureDetails where
       ( \x ->
           FailureDetails'
             Prelude.<$> (x Core..:? "FailureType")
-            Prelude.<*> (x Core..:? "FailureStage")
             Prelude.<*> (x Core..:? "Details" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "FailureStage")
       )
 
 instance Prelude.Hashable FailureDetails where
   hashWithSalt _salt FailureDetails' {..} =
     _salt `Prelude.hashWithSalt` failureType
-      `Prelude.hashWithSalt` failureStage
       `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` failureStage
 
 instance Prelude.NFData FailureDetails where
   rnf FailureDetails' {..} =
     Prelude.rnf failureType
-      `Prelude.seq` Prelude.rnf failureStage
       `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf failureStage

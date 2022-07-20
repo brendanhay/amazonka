@@ -38,14 +38,14 @@ module Amazonka.AppConfig.GetDeploymentStrategy
     newDeploymentStrategy,
 
     -- * Response Lenses
-    deploymentStrategy_growthFactor,
-    deploymentStrategy_replicateTo,
     deploymentStrategy_name,
-    deploymentStrategy_id,
-    deploymentStrategy_deploymentDurationInMinutes,
-    deploymentStrategy_finalBakeTimeInMinutes,
-    deploymentStrategy_description,
     deploymentStrategy_growthType,
+    deploymentStrategy_deploymentDurationInMinutes,
+    deploymentStrategy_id,
+    deploymentStrategy_description,
+    deploymentStrategy_finalBakeTimeInMinutes,
+    deploymentStrategy_replicateTo,
+    deploymentStrategy_growthFactor,
   )
 where
 

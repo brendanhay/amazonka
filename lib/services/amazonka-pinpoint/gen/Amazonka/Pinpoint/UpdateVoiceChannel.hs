@@ -129,12 +129,7 @@ instance Core.ToHeaders UpdateVoiceChannel where
 
 instance Core.ToJSON UpdateVoiceChannel where
   toJSON UpdateVoiceChannel' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("VoiceChannelRequest" Core..= voiceChannelRequest)
-          ]
-      )
+    Core.toJSON voiceChannelRequest
 
 instance Core.ToPath UpdateVoiceChannel where
   toPath UpdateVoiceChannel' {..} =

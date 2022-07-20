@@ -30,10 +30,10 @@ module Amazonka.Proton.CreateServiceTemplateVersion
     newCreateServiceTemplateVersion,
 
     -- * Request Lenses
-    createServiceTemplateVersion_clientToken,
-    createServiceTemplateVersion_majorVersion,
-    createServiceTemplateVersion_description,
     createServiceTemplateVersion_tags,
+    createServiceTemplateVersion_majorVersion,
+    createServiceTemplateVersion_clientToken,
+    createServiceTemplateVersion_description,
     createServiceTemplateVersion_compatibleEnvironmentTemplates,
     createServiceTemplateVersion_source,
     createServiceTemplateVersion_templateName,
@@ -57,20 +57,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateServiceTemplateVersion' smart constructor.
 data CreateServiceTemplateVersion = CreateServiceTemplateVersion'
-  { -- | When included, if two identicial requests are made with the same client
-    -- token, AWS Proton returns the service template version that the first
-    -- request created.
-    clientToken :: Prelude.Maybe Prelude.Text,
+  { -- | Create tags for a new version of a service template.
+    tags :: Prelude.Maybe [Tag],
     -- | To create a new minor version of the service template, include a
     -- @majorVersion@.
     --
     -- To create a new major and minor version of the service template,
     -- /exclude/ @majorVersion@.
     majorVersion :: Prelude.Maybe Prelude.Text,
+    -- | When included, if two identicial requests are made with the same client
+    -- token, AWS Proton returns the service template version that the first
+    -- request created.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description of the new version of a service template.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Create tags for a new version of a service template.
-    tags :: Prelude.Maybe [Tag],
     -- | An array of compatible environment template objects for the new version
     -- of a service template.
     compatibleEnvironmentTemplates :: Prelude.NonEmpty CompatibleEnvironmentTemplateInput,
@@ -90,9 +90,7 @@ data CreateServiceTemplateVersion = CreateServiceTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createServiceTemplateVersion_clientToken' - When included, if two identicial requests are made with the same client
--- token, AWS Proton returns the service template version that the first
--- request created.
+-- 'tags', 'createServiceTemplateVersion_tags' - Create tags for a new version of a service template.
 --
 -- 'majorVersion', 'createServiceTemplateVersion_majorVersion' - To create a new minor version of the service template, include a
 -- @majorVersion@.
@@ -100,9 +98,11 @@ data CreateServiceTemplateVersion = CreateServiceTemplateVersion'
 -- To create a new major and minor version of the service template,
 -- /exclude/ @majorVersion@.
 --
--- 'description', 'createServiceTemplateVersion_description' - A description of the new version of a service template.
+-- 'clientToken', 'createServiceTemplateVersion_clientToken' - When included, if two identicial requests are made with the same client
+-- token, AWS Proton returns the service template version that the first
+-- request created.
 --
--- 'tags', 'createServiceTemplateVersion_tags' - Create tags for a new version of a service template.
+-- 'description', 'createServiceTemplateVersion_description' - A description of the new version of a service template.
 --
 -- 'compatibleEnvironmentTemplates', 'createServiceTemplateVersion_compatibleEnvironmentTemplates' - An array of compatible environment template objects for the new version
 -- of a service template.
@@ -124,11 +124,11 @@ newCreateServiceTemplateVersion
   pSource_
   pTemplateName_ =
     CreateServiceTemplateVersion'
-      { clientToken =
+      { tags =
           Prelude.Nothing,
         majorVersion = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
         compatibleEnvironmentTemplates =
           Lens.coerced
             Lens.# pCompatibleEnvironmentTemplates_,
@@ -136,11 +136,9 @@ newCreateServiceTemplateVersion
         templateName = pTemplateName_
       }
 
--- | When included, if two identicial requests are made with the same client
--- token, AWS Proton returns the service template version that the first
--- request created.
-createServiceTemplateVersion_clientToken :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-createServiceTemplateVersion_clientToken = Lens.lens (\CreateServiceTemplateVersion' {clientToken} -> clientToken) (\s@CreateServiceTemplateVersion' {} a -> s {clientToken = a} :: CreateServiceTemplateVersion)
+-- | Create tags for a new version of a service template.
+createServiceTemplateVersion_tags :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe [Tag])
+createServiceTemplateVersion_tags = Lens.lens (\CreateServiceTemplateVersion' {tags} -> tags) (\s@CreateServiceTemplateVersion' {} a -> s {tags = a} :: CreateServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | To create a new minor version of the service template, include a
 -- @majorVersion@.
@@ -150,13 +148,15 @@ createServiceTemplateVersion_clientToken = Lens.lens (\CreateServiceTemplateVers
 createServiceTemplateVersion_majorVersion :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
 createServiceTemplateVersion_majorVersion = Lens.lens (\CreateServiceTemplateVersion' {majorVersion} -> majorVersion) (\s@CreateServiceTemplateVersion' {} a -> s {majorVersion = a} :: CreateServiceTemplateVersion)
 
+-- | When included, if two identicial requests are made with the same client
+-- token, AWS Proton returns the service template version that the first
+-- request created.
+createServiceTemplateVersion_clientToken :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
+createServiceTemplateVersion_clientToken = Lens.lens (\CreateServiceTemplateVersion' {clientToken} -> clientToken) (\s@CreateServiceTemplateVersion' {} a -> s {clientToken = a} :: CreateServiceTemplateVersion)
+
 -- | A description of the new version of a service template.
 createServiceTemplateVersion_description :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
 createServiceTemplateVersion_description = Lens.lens (\CreateServiceTemplateVersion' {description} -> description) (\s@CreateServiceTemplateVersion' {} a -> s {description = a} :: CreateServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
-
--- | Create tags for a new version of a service template.
-createServiceTemplateVersion_tags :: Lens.Lens' CreateServiceTemplateVersion (Prelude.Maybe [Tag])
-createServiceTemplateVersion_tags = Lens.lens (\CreateServiceTemplateVersion' {tags} -> tags) (\s@CreateServiceTemplateVersion' {} a -> s {tags = a} :: CreateServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of compatible environment template objects for the new version
 -- of a service template.
@@ -190,20 +190,20 @@ instance
     CreateServiceTemplateVersion
   where
   hashWithSalt _salt CreateServiceTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` majorVersion
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` compatibleEnvironmentTemplates
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData CreateServiceTemplateVersion where
   rnf CreateServiceTemplateVersion' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf templateName
@@ -227,10 +227,10 @@ instance Core.ToJSON CreateServiceTemplateVersion where
   toJSON CreateServiceTemplateVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("majorVersion" Core..=) Prelude.<$> majorVersion,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "compatibleEnvironmentTemplates"
                   Core..= compatibleEnvironmentTemplates

@@ -146,14 +146,7 @@ instance
 
 instance Core.ToJSON UpdateRecommenderConfiguration' where
   toJSON UpdateRecommenderConfiguration'' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "UpdateRecommenderConfiguration"
-                  Core..= updateRecommenderConfiguration
-              )
-          ]
-      )
+    Core.toJSON updateRecommenderConfiguration
 
 instance Core.ToPath UpdateRecommenderConfiguration' where
   toPath UpdateRecommenderConfiguration'' {..} =

@@ -32,14 +32,14 @@ module Amazonka.SSM.CreateDocument
     newCreateDocument,
 
     -- * Request Lenses
+    createDocument_tags,
+    createDocument_requires,
     createDocument_documentType,
+    createDocument_displayName,
+    createDocument_targetType,
     createDocument_attachments,
     createDocument_versionName,
-    createDocument_targetType,
     createDocument_documentFormat,
-    createDocument_displayName,
-    createDocument_requires,
-    createDocument_tags,
     createDocument_content,
     createDocument_name,
 
@@ -62,43 +62,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateDocument' smart constructor.
 data CreateDocument = CreateDocument'
-  { -- | The type of document to create.
-    documentType :: Prelude.Maybe DocumentType,
-    -- | A list of key-value pairs that describe attachments to a version of a
-    -- document.
-    attachments :: Prelude.Maybe [AttachmentsSource],
-    -- | An optional field specifying the version of the artifact you are
-    -- creating with the document. For example, \"Release 12, Update 6\". This
-    -- value is unique across all versions of a document, and can\'t be
-    -- changed.
-    versionName :: Prelude.Maybe Prelude.Text,
-    -- | Specify a target type to define the kinds of resources the document can
-    -- run on. For example, to run a document on EC2 instances, specify the
-    -- following value: @\/AWS::EC2::Instance@. If you specify a value of
-    -- \'\/\' the document can run on all types of resources. If you don\'t
-    -- specify a value, the document can\'t run on any resources. For a list of
-    -- valid resource types, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
-    -- in the /CloudFormation User Guide/.
-    targetType :: Prelude.Maybe Prelude.Text,
-    -- | Specify the document format for the request. The document format can be
-    -- JSON, YAML, or TEXT. JSON is the default format.
-    documentFormat :: Prelude.Maybe DocumentFormat,
-    -- | An optional field where you can specify a friendly name for the SSM
-    -- document. This value can differ for each version of the document. You
-    -- can update this value at a later time using the UpdateDocument
-    -- operation.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | A list of SSM documents required by a document. This parameter is used
-    -- exclusively by AppConfig. When a user creates an AppConfig configuration
-    -- in an SSM document, the user must also specify a required document for
-    -- validation purposes. In this case, an @ApplicationConfiguration@
-    -- document requires an @ApplicationConfigurationSchema@ document for
-    -- validation purposes. For more information, see
-    -- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
-    -- in the /AppConfig User Guide/.
-    requires :: Prelude.Maybe (Prelude.NonEmpty DocumentRequires),
-    -- | Optional metadata that you assign to a resource. Tags enable you to
+  { -- | Optional metadata that you assign to a resource. Tags enable you to
     -- categorize a resource in different ways, such as by purpose, owner, or
     -- environment. For example, you might want to tag an SSM document to
     -- identify the types of targets or the environment where it will run. In
@@ -111,6 +75,42 @@ data CreateDocument = CreateDocument'
     -- To add tags to an existing SSM document, use the AddTagsToResource
     -- operation.
     tags :: Prelude.Maybe [Tag],
+    -- | A list of SSM documents required by a document. This parameter is used
+    -- exclusively by AppConfig. When a user creates an AppConfig configuration
+    -- in an SSM document, the user must also specify a required document for
+    -- validation purposes. In this case, an @ApplicationConfiguration@
+    -- document requires an @ApplicationConfigurationSchema@ document for
+    -- validation purposes. For more information, see
+    -- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
+    -- in the /AppConfig User Guide/.
+    requires :: Prelude.Maybe (Prelude.NonEmpty DocumentRequires),
+    -- | The type of document to create.
+    documentType :: Prelude.Maybe DocumentType,
+    -- | An optional field where you can specify a friendly name for the SSM
+    -- document. This value can differ for each version of the document. You
+    -- can update this value at a later time using the UpdateDocument
+    -- operation.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | Specify a target type to define the kinds of resources the document can
+    -- run on. For example, to run a document on EC2 instances, specify the
+    -- following value: @\/AWS::EC2::Instance@. If you specify a value of
+    -- \'\/\' the document can run on all types of resources. If you don\'t
+    -- specify a value, the document can\'t run on any resources. For a list of
+    -- valid resource types, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+    -- in the /CloudFormation User Guide/.
+    targetType :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pairs that describe attachments to a version of a
+    -- document.
+    attachments :: Prelude.Maybe [AttachmentsSource],
+    -- | An optional field specifying the version of the artifact you are
+    -- creating with the document. For example, \"Release 12, Update 6\". This
+    -- value is unique across all versions of a document, and can\'t be
+    -- changed.
+    versionName :: Prelude.Maybe Prelude.Text,
+    -- | Specify the document format for the request. The document format can be
+    -- JSON, YAML, or TEXT. JSON is the default format.
+    documentFormat :: Prelude.Maybe DocumentFormat,
     -- | The content for the new SSM document in JSON or YAML format. We
     -- recommend storing the contents for your new document in an external JSON
     -- or YAML file and referencing the file in a command.
@@ -146,42 +146,6 @@ data CreateDocument = CreateDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documentType', 'createDocument_documentType' - The type of document to create.
---
--- 'attachments', 'createDocument_attachments' - A list of key-value pairs that describe attachments to a version of a
--- document.
---
--- 'versionName', 'createDocument_versionName' - An optional field specifying the version of the artifact you are
--- creating with the document. For example, \"Release 12, Update 6\". This
--- value is unique across all versions of a document, and can\'t be
--- changed.
---
--- 'targetType', 'createDocument_targetType' - Specify a target type to define the kinds of resources the document can
--- run on. For example, to run a document on EC2 instances, specify the
--- following value: @\/AWS::EC2::Instance@. If you specify a value of
--- \'\/\' the document can run on all types of resources. If you don\'t
--- specify a value, the document can\'t run on any resources. For a list of
--- valid resource types, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
--- in the /CloudFormation User Guide/.
---
--- 'documentFormat', 'createDocument_documentFormat' - Specify the document format for the request. The document format can be
--- JSON, YAML, or TEXT. JSON is the default format.
---
--- 'displayName', 'createDocument_displayName' - An optional field where you can specify a friendly name for the SSM
--- document. This value can differ for each version of the document. You
--- can update this value at a later time using the UpdateDocument
--- operation.
---
--- 'requires', 'createDocument_requires' - A list of SSM documents required by a document. This parameter is used
--- exclusively by AppConfig. When a user creates an AppConfig configuration
--- in an SSM document, the user must also specify a required document for
--- validation purposes. In this case, an @ApplicationConfiguration@
--- document requires an @ApplicationConfigurationSchema@ document for
--- validation purposes. For more information, see
--- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
--- in the /AppConfig User Guide/.
---
 -- 'tags', 'createDocument_tags' - Optional metadata that you assign to a resource. Tags enable you to
 -- categorize a resource in different ways, such as by purpose, owner, or
 -- environment. For example, you might want to tag an SSM document to
@@ -194,6 +158,42 @@ data CreateDocument = CreateDocument'
 --
 -- To add tags to an existing SSM document, use the AddTagsToResource
 -- operation.
+--
+-- 'requires', 'createDocument_requires' - A list of SSM documents required by a document. This parameter is used
+-- exclusively by AppConfig. When a user creates an AppConfig configuration
+-- in an SSM document, the user must also specify a required document for
+-- validation purposes. In this case, an @ApplicationConfiguration@
+-- document requires an @ApplicationConfigurationSchema@ document for
+-- validation purposes. For more information, see
+-- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
+-- in the /AppConfig User Guide/.
+--
+-- 'documentType', 'createDocument_documentType' - The type of document to create.
+--
+-- 'displayName', 'createDocument_displayName' - An optional field where you can specify a friendly name for the SSM
+-- document. This value can differ for each version of the document. You
+-- can update this value at a later time using the UpdateDocument
+-- operation.
+--
+-- 'targetType', 'createDocument_targetType' - Specify a target type to define the kinds of resources the document can
+-- run on. For example, to run a document on EC2 instances, specify the
+-- following value: @\/AWS::EC2::Instance@. If you specify a value of
+-- \'\/\' the document can run on all types of resources. If you don\'t
+-- specify a value, the document can\'t run on any resources. For a list of
+-- valid resource types, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the /CloudFormation User Guide/.
+--
+-- 'attachments', 'createDocument_attachments' - A list of key-value pairs that describe attachments to a version of a
+-- document.
+--
+-- 'versionName', 'createDocument_versionName' - An optional field specifying the version of the artifact you are
+-- creating with the document. For example, \"Release 12, Update 6\". This
+-- value is unique across all versions of a document, and can\'t be
+-- changed.
+--
+-- 'documentFormat', 'createDocument_documentFormat' - Specify the document format for the request. The document format can be
+-- JSON, YAML, or TEXT. JSON is the default format.
 --
 -- 'content', 'createDocument_content' - The content for the new SSM document in JSON or YAML format. We
 -- recommend storing the contents for your new document in an external JSON
@@ -226,67 +226,17 @@ newCreateDocument ::
   CreateDocument
 newCreateDocument pContent_ pName_ =
   CreateDocument'
-    { documentType = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      requires = Prelude.Nothing,
+      documentType = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      targetType = Prelude.Nothing,
       attachments = Prelude.Nothing,
       versionName = Prelude.Nothing,
-      targetType = Prelude.Nothing,
       documentFormat = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      requires = Prelude.Nothing,
-      tags = Prelude.Nothing,
       content = pContent_,
       name = pName_
     }
-
--- | The type of document to create.
-createDocument_documentType :: Lens.Lens' CreateDocument (Prelude.Maybe DocumentType)
-createDocument_documentType = Lens.lens (\CreateDocument' {documentType} -> documentType) (\s@CreateDocument' {} a -> s {documentType = a} :: CreateDocument)
-
--- | A list of key-value pairs that describe attachments to a version of a
--- document.
-createDocument_attachments :: Lens.Lens' CreateDocument (Prelude.Maybe [AttachmentsSource])
-createDocument_attachments = Lens.lens (\CreateDocument' {attachments} -> attachments) (\s@CreateDocument' {} a -> s {attachments = a} :: CreateDocument) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional field specifying the version of the artifact you are
--- creating with the document. For example, \"Release 12, Update 6\". This
--- value is unique across all versions of a document, and can\'t be
--- changed.
-createDocument_versionName :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
-createDocument_versionName = Lens.lens (\CreateDocument' {versionName} -> versionName) (\s@CreateDocument' {} a -> s {versionName = a} :: CreateDocument)
-
--- | Specify a target type to define the kinds of resources the document can
--- run on. For example, to run a document on EC2 instances, specify the
--- following value: @\/AWS::EC2::Instance@. If you specify a value of
--- \'\/\' the document can run on all types of resources. If you don\'t
--- specify a value, the document can\'t run on any resources. For a list of
--- valid resource types, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
--- in the /CloudFormation User Guide/.
-createDocument_targetType :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
-createDocument_targetType = Lens.lens (\CreateDocument' {targetType} -> targetType) (\s@CreateDocument' {} a -> s {targetType = a} :: CreateDocument)
-
--- | Specify the document format for the request. The document format can be
--- JSON, YAML, or TEXT. JSON is the default format.
-createDocument_documentFormat :: Lens.Lens' CreateDocument (Prelude.Maybe DocumentFormat)
-createDocument_documentFormat = Lens.lens (\CreateDocument' {documentFormat} -> documentFormat) (\s@CreateDocument' {} a -> s {documentFormat = a} :: CreateDocument)
-
--- | An optional field where you can specify a friendly name for the SSM
--- document. This value can differ for each version of the document. You
--- can update this value at a later time using the UpdateDocument
--- operation.
-createDocument_displayName :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
-createDocument_displayName = Lens.lens (\CreateDocument' {displayName} -> displayName) (\s@CreateDocument' {} a -> s {displayName = a} :: CreateDocument)
-
--- | A list of SSM documents required by a document. This parameter is used
--- exclusively by AppConfig. When a user creates an AppConfig configuration
--- in an SSM document, the user must also specify a required document for
--- validation purposes. In this case, an @ApplicationConfiguration@
--- document requires an @ApplicationConfigurationSchema@ document for
--- validation purposes. For more information, see
--- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
--- in the /AppConfig User Guide/.
-createDocument_requires :: Lens.Lens' CreateDocument (Prelude.Maybe (Prelude.NonEmpty DocumentRequires))
-createDocument_requires = Lens.lens (\CreateDocument' {requires} -> requires) (\s@CreateDocument' {} a -> s {requires = a} :: CreateDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional metadata that you assign to a resource. Tags enable you to
 -- categorize a resource in different ways, such as by purpose, owner, or
@@ -302,6 +252,56 @@ createDocument_requires = Lens.lens (\CreateDocument' {requires} -> requires) (\
 -- operation.
 createDocument_tags :: Lens.Lens' CreateDocument (Prelude.Maybe [Tag])
 createDocument_tags = Lens.lens (\CreateDocument' {tags} -> tags) (\s@CreateDocument' {} a -> s {tags = a} :: CreateDocument) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of SSM documents required by a document. This parameter is used
+-- exclusively by AppConfig. When a user creates an AppConfig configuration
+-- in an SSM document, the user must also specify a required document for
+-- validation purposes. In this case, an @ApplicationConfiguration@
+-- document requires an @ApplicationConfigurationSchema@ document for
+-- validation purposes. For more information, see
+-- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
+-- in the /AppConfig User Guide/.
+createDocument_requires :: Lens.Lens' CreateDocument (Prelude.Maybe (Prelude.NonEmpty DocumentRequires))
+createDocument_requires = Lens.lens (\CreateDocument' {requires} -> requires) (\s@CreateDocument' {} a -> s {requires = a} :: CreateDocument) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of document to create.
+createDocument_documentType :: Lens.Lens' CreateDocument (Prelude.Maybe DocumentType)
+createDocument_documentType = Lens.lens (\CreateDocument' {documentType} -> documentType) (\s@CreateDocument' {} a -> s {documentType = a} :: CreateDocument)
+
+-- | An optional field where you can specify a friendly name for the SSM
+-- document. This value can differ for each version of the document. You
+-- can update this value at a later time using the UpdateDocument
+-- operation.
+createDocument_displayName :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
+createDocument_displayName = Lens.lens (\CreateDocument' {displayName} -> displayName) (\s@CreateDocument' {} a -> s {displayName = a} :: CreateDocument)
+
+-- | Specify a target type to define the kinds of resources the document can
+-- run on. For example, to run a document on EC2 instances, specify the
+-- following value: @\/AWS::EC2::Instance@. If you specify a value of
+-- \'\/\' the document can run on all types of resources. If you don\'t
+-- specify a value, the document can\'t run on any resources. For a list of
+-- valid resource types, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the /CloudFormation User Guide/.
+createDocument_targetType :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
+createDocument_targetType = Lens.lens (\CreateDocument' {targetType} -> targetType) (\s@CreateDocument' {} a -> s {targetType = a} :: CreateDocument)
+
+-- | A list of key-value pairs that describe attachments to a version of a
+-- document.
+createDocument_attachments :: Lens.Lens' CreateDocument (Prelude.Maybe [AttachmentsSource])
+createDocument_attachments = Lens.lens (\CreateDocument' {attachments} -> attachments) (\s@CreateDocument' {} a -> s {attachments = a} :: CreateDocument) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional field specifying the version of the artifact you are
+-- creating with the document. For example, \"Release 12, Update 6\". This
+-- value is unique across all versions of a document, and can\'t be
+-- changed.
+createDocument_versionName :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
+createDocument_versionName = Lens.lens (\CreateDocument' {versionName} -> versionName) (\s@CreateDocument' {} a -> s {versionName = a} :: CreateDocument)
+
+-- | Specify the document format for the request. The document format can be
+-- JSON, YAML, or TEXT. JSON is the default format.
+createDocument_documentFormat :: Lens.Lens' CreateDocument (Prelude.Maybe DocumentFormat)
+createDocument_documentFormat = Lens.lens (\CreateDocument' {documentFormat} -> documentFormat) (\s@CreateDocument' {} a -> s {documentFormat = a} :: CreateDocument)
 
 -- | The content for the new SSM document in JSON or YAML format. We
 -- recommend storing the contents for your new document in an external JSON
@@ -346,27 +346,27 @@ instance Core.AWSRequest CreateDocument where
 
 instance Prelude.Hashable CreateDocument where
   hashWithSalt _salt CreateDocument' {..} =
-    _salt `Prelude.hashWithSalt` documentType
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` requires
+      `Prelude.hashWithSalt` documentType
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` versionName
-      `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` documentFormat
-      `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` requires
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateDocument where
   rnf CreateDocument' {..} =
-    Prelude.rnf documentType
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf requires
+      `Prelude.seq` Prelude.rnf documentType
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf attachments
       `Prelude.seq` Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf documentFormat
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf requires
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf name
 
@@ -387,15 +387,15 @@ instance Core.ToJSON CreateDocument where
   toJSON CreateDocument' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DocumentType" Core..=) Prelude.<$> documentType,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Requires" Core..=) Prelude.<$> requires,
+            ("DocumentType" Core..=) Prelude.<$> documentType,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("TargetType" Core..=) Prelude.<$> targetType,
             ("Attachments" Core..=) Prelude.<$> attachments,
             ("VersionName" Core..=) Prelude.<$> versionName,
-            ("TargetType" Core..=) Prelude.<$> targetType,
             ("DocumentFormat" Core..=)
               Prelude.<$> documentFormat,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("Requires" Core..=) Prelude.<$> requires,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Content" Core..= content),
             Prelude.Just ("Name" Core..= name)
           ]

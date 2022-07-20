@@ -37,8 +37,8 @@ module Amazonka.DeviceFarm.ListTests
     newListTestsResponse,
 
     -- * Response Lenses
-    listTestsResponse_tests,
     listTestsResponse_nextToken,
+    listTestsResponse_tests,
     listTestsResponse_httpStatus,
   )
 where
@@ -122,8 +122,8 @@ instance Core.AWSRequest ListTests where
     Response.receiveJSON
       ( \s h x ->
           ListTestsResponse'
-            Prelude.<$> (x Core..?> "tests" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "tests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,12 +170,12 @@ instance Core.ToQuery ListTests where
 --
 -- /See:/ 'newListTestsResponse' smart constructor.
 data ListTestsResponse = ListTestsResponse'
-  { -- | Information about the tests.
-    tests :: Prelude.Maybe [Test],
-    -- | If the number of items that are returned is significantly large, this is
+  { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the tests.
+    tests :: Prelude.Maybe [Test],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,11 +189,11 @@ data ListTestsResponse = ListTestsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tests', 'listTestsResponse_tests' - Information about the tests.
---
 -- 'nextToken', 'listTestsResponse_nextToken' - If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
+--
+-- 'tests', 'listTestsResponse_tests' - Information about the tests.
 --
 -- 'httpStatus', 'listTestsResponse_httpStatus' - The response's http status code.
 newListTestsResponse ::
@@ -202,14 +202,10 @@ newListTestsResponse ::
   ListTestsResponse
 newListTestsResponse pHttpStatus_ =
   ListTestsResponse'
-    { tests = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      tests = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the tests.
-listTestsResponse_tests :: Lens.Lens' ListTestsResponse (Prelude.Maybe [Test])
-listTestsResponse_tests = Lens.lens (\ListTestsResponse' {tests} -> tests) (\s@ListTestsResponse' {} a -> s {tests = a} :: ListTestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
@@ -217,12 +213,16 @@ listTestsResponse_tests = Lens.lens (\ListTestsResponse' {tests} -> tests) (\s@L
 listTestsResponse_nextToken :: Lens.Lens' ListTestsResponse (Prelude.Maybe Prelude.Text)
 listTestsResponse_nextToken = Lens.lens (\ListTestsResponse' {nextToken} -> nextToken) (\s@ListTestsResponse' {} a -> s {nextToken = a} :: ListTestsResponse)
 
+-- | Information about the tests.
+listTestsResponse_tests :: Lens.Lens' ListTestsResponse (Prelude.Maybe [Test])
+listTestsResponse_tests = Lens.lens (\ListTestsResponse' {tests} -> tests) (\s@ListTestsResponse' {} a -> s {tests = a} :: ListTestsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listTestsResponse_httpStatus :: Lens.Lens' ListTestsResponse Prelude.Int
 listTestsResponse_httpStatus = Lens.lens (\ListTestsResponse' {httpStatus} -> httpStatus) (\s@ListTestsResponse' {} a -> s {httpStatus = a} :: ListTestsResponse)
 
 instance Prelude.NFData ListTestsResponse where
   rnf ListTestsResponse' {..} =
-    Prelude.rnf tests
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tests
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsClusterClusterSettingsDetails' smart constructor.
 data AwsEcsClusterClusterSettingsDetails = AwsEcsClusterClusterSettingsDetails'
-  { -- | The value of the setting.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the setting.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the setting.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The value of the setting.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsEcsClusterClusterSettingsDetails = AwsEcsClusterClusterSettingsDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'awsEcsClusterClusterSettingsDetails_value' - The value of the setting.
---
 -- 'name', 'awsEcsClusterClusterSettingsDetails_name' - The name of the setting.
+--
+-- 'value', 'awsEcsClusterClusterSettingsDetails_value' - The value of the setting.
 newAwsEcsClusterClusterSettingsDetails ::
   AwsEcsClusterClusterSettingsDetails
 newAwsEcsClusterClusterSettingsDetails =
   AwsEcsClusterClusterSettingsDetails'
-    { value =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing
+      value = Prelude.Nothing
     }
-
--- | The value of the setting.
-awsEcsClusterClusterSettingsDetails_value :: Lens.Lens' AwsEcsClusterClusterSettingsDetails (Prelude.Maybe Prelude.Text)
-awsEcsClusterClusterSettingsDetails_value = Lens.lens (\AwsEcsClusterClusterSettingsDetails' {value} -> value) (\s@AwsEcsClusterClusterSettingsDetails' {} a -> s {value = a} :: AwsEcsClusterClusterSettingsDetails)
 
 -- | The name of the setting.
 awsEcsClusterClusterSettingsDetails_name :: Lens.Lens' AwsEcsClusterClusterSettingsDetails (Prelude.Maybe Prelude.Text)
 awsEcsClusterClusterSettingsDetails_name = Lens.lens (\AwsEcsClusterClusterSettingsDetails' {name} -> name) (\s@AwsEcsClusterClusterSettingsDetails' {} a -> s {name = a} :: AwsEcsClusterClusterSettingsDetails)
+
+-- | The value of the setting.
+awsEcsClusterClusterSettingsDetails_value :: Lens.Lens' AwsEcsClusterClusterSettingsDetails (Prelude.Maybe Prelude.Text)
+awsEcsClusterClusterSettingsDetails_value = Lens.lens (\AwsEcsClusterClusterSettingsDetails' {value} -> value) (\s@AwsEcsClusterClusterSettingsDetails' {} a -> s {value = a} :: AwsEcsClusterClusterSettingsDetails)
 
 instance
   Core.FromJSON
@@ -72,7 +72,7 @@ instance
       "AwsEcsClusterClusterSettingsDetails"
       ( \x ->
           AwsEcsClusterClusterSettingsDetails'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
       )
 
 instance
@@ -82,15 +82,15 @@ instance
   hashWithSalt
     _salt
     AwsEcsClusterClusterSettingsDetails' {..} =
-      _salt `Prelude.hashWithSalt` value
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     AwsEcsClusterClusterSettingsDetails
   where
   rnf AwsEcsClusterClusterSettingsDetails' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance
   Core.ToJSON
@@ -99,7 +99,7 @@ instance
   toJSON AwsEcsClusterClusterSettingsDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

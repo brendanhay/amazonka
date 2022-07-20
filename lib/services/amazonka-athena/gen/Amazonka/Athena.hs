@@ -37,14 +37,8 @@ module Amazonka.Athena
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** MetadataException
     _MetadataException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
 
     -- ** InternalServerException
     _InternalServerException,
@@ -52,95 +46,17 @@ module Amazonka.Athena
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** ListDatabases (Paginated)
-    ListDatabases (ListDatabases'),
-    newListDatabases,
-    ListDatabasesResponse (ListDatabasesResponse'),
-    newListDatabasesResponse,
-
-    -- ** CreatePreparedStatement
-    CreatePreparedStatement (CreatePreparedStatement'),
-    newCreatePreparedStatement,
-    CreatePreparedStatementResponse (CreatePreparedStatementResponse'),
-    newCreatePreparedStatementResponse,
-
-    -- ** DeleteWorkGroup
-    DeleteWorkGroup (DeleteWorkGroup'),
-    newDeleteWorkGroup,
-    DeleteWorkGroupResponse (DeleteWorkGroupResponse'),
-    newDeleteWorkGroupResponse,
-
-    -- ** UpdateWorkGroup
-    UpdateWorkGroup (UpdateWorkGroup'),
-    newUpdateWorkGroup,
-    UpdateWorkGroupResponse (UpdateWorkGroupResponse'),
-    newUpdateWorkGroupResponse,
-
-    -- ** GetNamedQuery
-    GetNamedQuery (GetNamedQuery'),
-    newGetNamedQuery,
-    GetNamedQueryResponse (GetNamedQueryResponse'),
-    newGetNamedQueryResponse,
-
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DeleteDataCatalog
-    DeleteDataCatalog (DeleteDataCatalog'),
-    newDeleteDataCatalog,
-    DeleteDataCatalogResponse (DeleteDataCatalogResponse'),
-    newDeleteDataCatalogResponse,
-
-    -- ** UpdateDataCatalog
-    UpdateDataCatalog (UpdateDataCatalog'),
-    newUpdateDataCatalog,
-    UpdateDataCatalogResponse (UpdateDataCatalogResponse'),
-    newUpdateDataCatalogResponse,
-
-    -- ** ListDataCatalogs (Paginated)
-    ListDataCatalogs (ListDataCatalogs'),
-    newListDataCatalogs,
-    ListDataCatalogsResponse (ListDataCatalogsResponse'),
-    newListDataCatalogsResponse,
-
-    -- ** CreateNamedQuery
-    CreateNamedQuery (CreateNamedQuery'),
-    newCreateNamedQuery,
-    CreateNamedQueryResponse (CreateNamedQueryResponse'),
-    newCreateNamedQueryResponse,
-
-    -- ** GetTableMetadata
-    GetTableMetadata (GetTableMetadata'),
-    newGetTableMetadata,
-    GetTableMetadataResponse (GetTableMetadataResponse'),
-    newGetTableMetadataResponse,
-
-    -- ** ListNamedQueries (Paginated)
-    ListNamedQueries (ListNamedQueries'),
-    newListNamedQueries,
-    ListNamedQueriesResponse (ListNamedQueriesResponse'),
-    newListNamedQueriesResponse,
-
-    -- ** DeleteNamedQuery
-    DeleteNamedQuery (DeleteNamedQuery'),
-    newDeleteNamedQuery,
-    DeleteNamedQueryResponse (DeleteNamedQueryResponse'),
-    newDeleteNamedQueryResponse,
-
-    -- ** StartQueryExecution
-    StartQueryExecution (StartQueryExecution'),
-    newStartQueryExecution,
-    StartQueryExecutionResponse (StartQueryExecutionResponse'),
-    newStartQueryExecutionResponse,
 
     -- ** BatchGetNamedQuery
     BatchGetNamedQuery (BatchGetNamedQuery'),
@@ -148,17 +64,11 @@ module Amazonka.Athena
     BatchGetNamedQueryResponse (BatchGetNamedQueryResponse'),
     newBatchGetNamedQueryResponse,
 
-    -- ** GetQueryExecution
-    GetQueryExecution (GetQueryExecution'),
-    newGetQueryExecution,
-    GetQueryExecutionResponse (GetQueryExecutionResponse'),
-    newGetQueryExecutionResponse,
-
-    -- ** ListPreparedStatements
-    ListPreparedStatements (ListPreparedStatements'),
-    newListPreparedStatements,
-    ListPreparedStatementsResponse (ListPreparedStatementsResponse'),
-    newListPreparedStatementsResponse,
+    -- ** BatchGetQueryExecution
+    BatchGetQueryExecution (BatchGetQueryExecution'),
+    newBatchGetQueryExecution,
+    BatchGetQueryExecutionResponse (BatchGetQueryExecutionResponse'),
+    newBatchGetQueryExecutionResponse,
 
     -- ** CreateDataCatalog
     CreateDataCatalog (CreateDataCatalog'),
@@ -166,11 +76,17 @@ module Amazonka.Athena
     CreateDataCatalogResponse (CreateDataCatalogResponse'),
     newCreateDataCatalogResponse,
 
-    -- ** ListWorkGroups
-    ListWorkGroups (ListWorkGroups'),
-    newListWorkGroups,
-    ListWorkGroupsResponse (ListWorkGroupsResponse'),
-    newListWorkGroupsResponse,
+    -- ** CreateNamedQuery
+    CreateNamedQuery (CreateNamedQuery'),
+    newCreateNamedQuery,
+    CreateNamedQueryResponse (CreateNamedQueryResponse'),
+    newCreateNamedQueryResponse,
+
+    -- ** CreatePreparedStatement
+    CreatePreparedStatement (CreatePreparedStatement'),
+    newCreatePreparedStatement,
+    CreatePreparedStatementResponse (CreatePreparedStatementResponse'),
+    newCreatePreparedStatementResponse,
 
     -- ** CreateWorkGroup
     CreateWorkGroup (CreateWorkGroup'),
@@ -178,11 +94,89 @@ module Amazonka.Athena
     CreateWorkGroupResponse (CreateWorkGroupResponse'),
     newCreateWorkGroupResponse,
 
-    -- ** BatchGetQueryExecution
-    BatchGetQueryExecution (BatchGetQueryExecution'),
-    newBatchGetQueryExecution,
-    BatchGetQueryExecutionResponse (BatchGetQueryExecutionResponse'),
-    newBatchGetQueryExecutionResponse,
+    -- ** DeleteDataCatalog
+    DeleteDataCatalog (DeleteDataCatalog'),
+    newDeleteDataCatalog,
+    DeleteDataCatalogResponse (DeleteDataCatalogResponse'),
+    newDeleteDataCatalogResponse,
+
+    -- ** DeleteNamedQuery
+    DeleteNamedQuery (DeleteNamedQuery'),
+    newDeleteNamedQuery,
+    DeleteNamedQueryResponse (DeleteNamedQueryResponse'),
+    newDeleteNamedQueryResponse,
+
+    -- ** DeletePreparedStatement
+    DeletePreparedStatement (DeletePreparedStatement'),
+    newDeletePreparedStatement,
+    DeletePreparedStatementResponse (DeletePreparedStatementResponse'),
+    newDeletePreparedStatementResponse,
+
+    -- ** DeleteWorkGroup
+    DeleteWorkGroup (DeleteWorkGroup'),
+    newDeleteWorkGroup,
+    DeleteWorkGroupResponse (DeleteWorkGroupResponse'),
+    newDeleteWorkGroupResponse,
+
+    -- ** GetDataCatalog
+    GetDataCatalog (GetDataCatalog'),
+    newGetDataCatalog,
+    GetDataCatalogResponse (GetDataCatalogResponse'),
+    newGetDataCatalogResponse,
+
+    -- ** GetDatabase
+    GetDatabase (GetDatabase'),
+    newGetDatabase,
+    GetDatabaseResponse (GetDatabaseResponse'),
+    newGetDatabaseResponse,
+
+    -- ** GetNamedQuery
+    GetNamedQuery (GetNamedQuery'),
+    newGetNamedQuery,
+    GetNamedQueryResponse (GetNamedQueryResponse'),
+    newGetNamedQueryResponse,
+
+    -- ** GetPreparedStatement
+    GetPreparedStatement (GetPreparedStatement'),
+    newGetPreparedStatement,
+    GetPreparedStatementResponse (GetPreparedStatementResponse'),
+    newGetPreparedStatementResponse,
+
+    -- ** GetQueryExecution
+    GetQueryExecution (GetQueryExecution'),
+    newGetQueryExecution,
+    GetQueryExecutionResponse (GetQueryExecutionResponse'),
+    newGetQueryExecutionResponse,
+
+    -- ** GetQueryResults (Paginated)
+    GetQueryResults (GetQueryResults'),
+    newGetQueryResults,
+    GetQueryResultsResponse (GetQueryResultsResponse'),
+    newGetQueryResultsResponse,
+
+    -- ** GetTableMetadata
+    GetTableMetadata (GetTableMetadata'),
+    newGetTableMetadata,
+    GetTableMetadataResponse (GetTableMetadataResponse'),
+    newGetTableMetadataResponse,
+
+    -- ** GetWorkGroup
+    GetWorkGroup (GetWorkGroup'),
+    newGetWorkGroup,
+    GetWorkGroupResponse (GetWorkGroupResponse'),
+    newGetWorkGroupResponse,
+
+    -- ** ListDataCatalogs (Paginated)
+    ListDataCatalogs (ListDataCatalogs'),
+    newListDataCatalogs,
+    ListDataCatalogsResponse (ListDataCatalogsResponse'),
+    newListDataCatalogsResponse,
+
+    -- ** ListDatabases (Paginated)
+    ListDatabases (ListDatabases'),
+    newListDatabases,
+    ListDatabasesResponse (ListDatabasesResponse'),
+    newListDatabasesResponse,
 
     -- ** ListEngineVersions
     ListEngineVersions (ListEngineVersions'),
@@ -190,11 +184,47 @@ module Amazonka.Athena
     ListEngineVersionsResponse (ListEngineVersionsResponse'),
     newListEngineVersionsResponse,
 
-    -- ** GetDataCatalog
-    GetDataCatalog (GetDataCatalog'),
-    newGetDataCatalog,
-    GetDataCatalogResponse (GetDataCatalogResponse'),
-    newGetDataCatalogResponse,
+    -- ** ListNamedQueries (Paginated)
+    ListNamedQueries (ListNamedQueries'),
+    newListNamedQueries,
+    ListNamedQueriesResponse (ListNamedQueriesResponse'),
+    newListNamedQueriesResponse,
+
+    -- ** ListPreparedStatements
+    ListPreparedStatements (ListPreparedStatements'),
+    newListPreparedStatements,
+    ListPreparedStatementsResponse (ListPreparedStatementsResponse'),
+    newListPreparedStatementsResponse,
+
+    -- ** ListQueryExecutions (Paginated)
+    ListQueryExecutions (ListQueryExecutions'),
+    newListQueryExecutions,
+    ListQueryExecutionsResponse (ListQueryExecutionsResponse'),
+    newListQueryExecutionsResponse,
+
+    -- ** ListTableMetadata (Paginated)
+    ListTableMetadata (ListTableMetadata'),
+    newListTableMetadata,
+    ListTableMetadataResponse (ListTableMetadataResponse'),
+    newListTableMetadataResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListWorkGroups
+    ListWorkGroups (ListWorkGroups'),
+    newListWorkGroups,
+    ListWorkGroupsResponse (ListWorkGroupsResponse'),
+    newListWorkGroupsResponse,
+
+    -- ** StartQueryExecution
+    StartQueryExecution (StartQueryExecution'),
+    newStartQueryExecution,
+    StartQueryExecutionResponse (StartQueryExecutionResponse'),
+    newStartQueryExecutionResponse,
 
     -- ** StopQueryExecution
     StopQueryExecution (StopQueryExecution'),
@@ -208,59 +238,29 @@ module Amazonka.Athena
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** GetWorkGroup
-    GetWorkGroup (GetWorkGroup'),
-    newGetWorkGroup,
-    GetWorkGroupResponse (GetWorkGroupResponse'),
-    newGetWorkGroupResponse,
-
-    -- ** GetDatabase
-    GetDatabase (GetDatabase'),
-    newGetDatabase,
-    GetDatabaseResponse (GetDatabaseResponse'),
-    newGetDatabaseResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetPreparedStatement
-    GetPreparedStatement (GetPreparedStatement'),
-    newGetPreparedStatement,
-    GetPreparedStatementResponse (GetPreparedStatementResponse'),
-    newGetPreparedStatementResponse,
-
-    -- ** GetQueryResults (Paginated)
-    GetQueryResults (GetQueryResults'),
-    newGetQueryResults,
-    GetQueryResultsResponse (GetQueryResultsResponse'),
-    newGetQueryResultsResponse,
-
-    -- ** ListTableMetadata (Paginated)
-    ListTableMetadata (ListTableMetadata'),
-    newListTableMetadata,
-    ListTableMetadataResponse (ListTableMetadataResponse'),
-    newListTableMetadataResponse,
-
-    -- ** ListQueryExecutions (Paginated)
-    ListQueryExecutions (ListQueryExecutions'),
-    newListQueryExecutions,
-    ListQueryExecutionsResponse (ListQueryExecutionsResponse'),
-    newListQueryExecutionsResponse,
-
-    -- ** DeletePreparedStatement
-    DeletePreparedStatement (DeletePreparedStatement'),
-    newDeletePreparedStatement,
-    DeletePreparedStatementResponse (DeletePreparedStatementResponse'),
-    newDeletePreparedStatementResponse,
+    -- ** UpdateDataCatalog
+    UpdateDataCatalog (UpdateDataCatalog'),
+    newUpdateDataCatalog,
+    UpdateDataCatalogResponse (UpdateDataCatalogResponse'),
+    newUpdateDataCatalogResponse,
 
     -- ** UpdatePreparedStatement
     UpdatePreparedStatement (UpdatePreparedStatement'),
     newUpdatePreparedStatement,
     UpdatePreparedStatementResponse (UpdatePreparedStatementResponse'),
     newUpdatePreparedStatementResponse,
+
+    -- ** UpdateWorkGroup
+    UpdateWorkGroup (UpdateWorkGroup'),
+    newUpdateWorkGroup,
+    UpdateWorkGroupResponse (UpdateWorkGroupResponse'),
+    newUpdateWorkGroupResponse,
 
     -- * Types
 

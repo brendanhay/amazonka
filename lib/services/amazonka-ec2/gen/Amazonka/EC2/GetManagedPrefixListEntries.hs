@@ -40,8 +40,8 @@ module Amazonka.EC2.GetManagedPrefixListEntries
     newGetManagedPrefixListEntriesResponse,
 
     -- * Response Lenses
-    getManagedPrefixListEntriesResponse_entries,
     getManagedPrefixListEntriesResponse_nextToken,
+    getManagedPrefixListEntriesResponse_entries,
     getManagedPrefixListEntriesResponse_httpStatus,
   )
 where
@@ -168,10 +168,10 @@ instance Core.AWSRequest GetManagedPrefixListEntries where
     Response.receiveXML
       ( \s h x ->
           GetManagedPrefixListEntriesResponse'
-            Prelude.<$> ( x Core..@? "entrySet" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "entrySet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,11 +215,11 @@ instance Core.ToQuery GetManagedPrefixListEntries where
 
 -- | /See:/ 'newGetManagedPrefixListEntriesResponse' smart constructor.
 data GetManagedPrefixListEntriesResponse = GetManagedPrefixListEntriesResponse'
-  { -- | Information about the prefix list entries.
-    entries :: Prelude.Maybe [PrefixListEntry],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the prefix list entries.
+    entries :: Prelude.Maybe [PrefixListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,10 +233,10 @@ data GetManagedPrefixListEntriesResponse = GetManagedPrefixListEntriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entries', 'getManagedPrefixListEntriesResponse_entries' - Information about the prefix list entries.
---
 -- 'nextToken', 'getManagedPrefixListEntriesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'entries', 'getManagedPrefixListEntriesResponse_entries' - Information about the prefix list entries.
 --
 -- 'httpStatus', 'getManagedPrefixListEntriesResponse_httpStatus' - The response's http status code.
 newGetManagedPrefixListEntriesResponse ::
@@ -245,20 +245,20 @@ newGetManagedPrefixListEntriesResponse ::
   GetManagedPrefixListEntriesResponse
 newGetManagedPrefixListEntriesResponse pHttpStatus_ =
   GetManagedPrefixListEntriesResponse'
-    { entries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      entries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the prefix list entries.
-getManagedPrefixListEntriesResponse_entries :: Lens.Lens' GetManagedPrefixListEntriesResponse (Prelude.Maybe [PrefixListEntry])
-getManagedPrefixListEntriesResponse_entries = Lens.lens (\GetManagedPrefixListEntriesResponse' {entries} -> entries) (\s@GetManagedPrefixListEntriesResponse' {} a -> s {entries = a} :: GetManagedPrefixListEntriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 getManagedPrefixListEntriesResponse_nextToken :: Lens.Lens' GetManagedPrefixListEntriesResponse (Prelude.Maybe Prelude.Text)
 getManagedPrefixListEntriesResponse_nextToken = Lens.lens (\GetManagedPrefixListEntriesResponse' {nextToken} -> nextToken) (\s@GetManagedPrefixListEntriesResponse' {} a -> s {nextToken = a} :: GetManagedPrefixListEntriesResponse)
+
+-- | Information about the prefix list entries.
+getManagedPrefixListEntriesResponse_entries :: Lens.Lens' GetManagedPrefixListEntriesResponse (Prelude.Maybe [PrefixListEntry])
+getManagedPrefixListEntriesResponse_entries = Lens.lens (\GetManagedPrefixListEntriesResponse' {entries} -> entries) (\s@GetManagedPrefixListEntriesResponse' {} a -> s {entries = a} :: GetManagedPrefixListEntriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getManagedPrefixListEntriesResponse_httpStatus :: Lens.Lens' GetManagedPrefixListEntriesResponse Prelude.Int
@@ -269,6 +269,6 @@ instance
     GetManagedPrefixListEntriesResponse
   where
   rnf GetManagedPrefixListEntriesResponse' {..} =
-    Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf entries
       `Prelude.seq` Prelude.rnf httpStatus

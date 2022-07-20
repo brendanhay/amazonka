@@ -31,7 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAggregatedProfileTime' smart constructor.
 data AggregatedProfileTime = AggregatedProfileTime'
-  { -- | The aggregation period. This indicates the period during which an
+  { -- | The time that aggregation of posted agent profiles for a profiling group
+    -- starts. The aggregation profile contains profiles posted by the agent
+    -- starting at this time for an aggregation period specified by the
+    -- @period@ property of the @AggregatedProfileTime@ object.
+    --
+    -- Specify @start@ using the ISO 8601 format. For example,
+    -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
+    -- 1:15:02 PM UTC.
+    start :: Prelude.Maybe Core.POSIX,
+    -- | The aggregation period. This indicates the period during which an
     -- aggregation profile collects posted agent profiles for a profiling
     -- group. Use one of three valid durations that are specified using the ISO
     -- 8601 format.
@@ -41,16 +50,7 @@ data AggregatedProfileTime = AggregatedProfileTime'
     -- -   @PT1H@ — 1 hour
     --
     -- -   @PT5M@ — 5 minutes
-    period :: Prelude.Maybe AggregationPeriod,
-    -- | The time that aggregation of posted agent profiles for a profiling group
-    -- starts. The aggregation profile contains profiles posted by the agent
-    -- starting at this time for an aggregation period specified by the
-    -- @period@ property of the @AggregatedProfileTime@ object.
-    --
-    -- Specify @start@ using the ISO 8601 format. For example,
-    -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
-    -- 1:15:02 PM UTC.
-    start :: Prelude.Maybe Core.POSIX
+    period :: Prelude.Maybe AggregationPeriod
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,15 @@ data AggregatedProfileTime = AggregatedProfileTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'start', 'aggregatedProfileTime_start' - The time that aggregation of posted agent profiles for a profiling group
+-- starts. The aggregation profile contains profiles posted by the agent
+-- starting at this time for an aggregation period specified by the
+-- @period@ property of the @AggregatedProfileTime@ object.
+--
+-- Specify @start@ using the ISO 8601 format. For example,
+-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
+-- 1:15:02 PM UTC.
+--
 -- 'period', 'aggregatedProfileTime_period' - The aggregation period. This indicates the period during which an
 -- aggregation profile collects posted agent profiles for a profiling
 -- group. Use one of three valid durations that are specified using the ISO
@@ -72,8 +81,15 @@ data AggregatedProfileTime = AggregatedProfileTime'
 -- -   @PT1H@ — 1 hour
 --
 -- -   @PT5M@ — 5 minutes
---
--- 'start', 'aggregatedProfileTime_start' - The time that aggregation of posted agent profiles for a profiling group
+newAggregatedProfileTime ::
+  AggregatedProfileTime
+newAggregatedProfileTime =
+  AggregatedProfileTime'
+    { start = Prelude.Nothing,
+      period = Prelude.Nothing
+    }
+
+-- | The time that aggregation of posted agent profiles for a profiling group
 -- starts. The aggregation profile contains profiles posted by the agent
 -- starting at this time for an aggregation period specified by the
 -- @period@ property of the @AggregatedProfileTime@ object.
@@ -81,13 +97,8 @@ data AggregatedProfileTime = AggregatedProfileTime'
 -- Specify @start@ using the ISO 8601 format. For example,
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
-newAggregatedProfileTime ::
-  AggregatedProfileTime
-newAggregatedProfileTime =
-  AggregatedProfileTime'
-    { period = Prelude.Nothing,
-      start = Prelude.Nothing
-    }
+aggregatedProfileTime_start :: Lens.Lens' AggregatedProfileTime (Prelude.Maybe Prelude.UTCTime)
+aggregatedProfileTime_start = Lens.lens (\AggregatedProfileTime' {start} -> start) (\s@AggregatedProfileTime' {} a -> s {start = a} :: AggregatedProfileTime) Prelude.. Lens.mapping Core._Time
 
 -- | The aggregation period. This indicates the period during which an
 -- aggregation profile collects posted agent profiles for a profiling
@@ -102,32 +113,21 @@ newAggregatedProfileTime =
 aggregatedProfileTime_period :: Lens.Lens' AggregatedProfileTime (Prelude.Maybe AggregationPeriod)
 aggregatedProfileTime_period = Lens.lens (\AggregatedProfileTime' {period} -> period) (\s@AggregatedProfileTime' {} a -> s {period = a} :: AggregatedProfileTime)
 
--- | The time that aggregation of posted agent profiles for a profiling group
--- starts. The aggregation profile contains profiles posted by the agent
--- starting at this time for an aggregation period specified by the
--- @period@ property of the @AggregatedProfileTime@ object.
---
--- Specify @start@ using the ISO 8601 format. For example,
--- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
--- 1:15:02 PM UTC.
-aggregatedProfileTime_start :: Lens.Lens' AggregatedProfileTime (Prelude.Maybe Prelude.UTCTime)
-aggregatedProfileTime_start = Lens.lens (\AggregatedProfileTime' {start} -> start) (\s@AggregatedProfileTime' {} a -> s {start = a} :: AggregatedProfileTime) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON AggregatedProfileTime where
   parseJSON =
     Core.withObject
       "AggregatedProfileTime"
       ( \x ->
           AggregatedProfileTime'
-            Prelude.<$> (x Core..:? "period")
-            Prelude.<*> (x Core..:? "start")
+            Prelude.<$> (x Core..:? "start")
+            Prelude.<*> (x Core..:? "period")
       )
 
 instance Prelude.Hashable AggregatedProfileTime where
   hashWithSalt _salt AggregatedProfileTime' {..} =
-    _salt `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` start
+    _salt `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` period
 
 instance Prelude.NFData AggregatedProfileTime where
   rnf AggregatedProfileTime' {..} =
-    Prelude.rnf period `Prelude.seq` Prelude.rnf start
+    Prelude.rnf start `Prelude.seq` Prelude.rnf period

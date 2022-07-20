@@ -34,6 +34,8 @@ data AwsAutoScalingAutoScalingGroupDetails = AwsAutoScalingAutoScalingGroupDetai
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     createdTime :: Prelude.Maybe Prelude.Text,
+    -- | The list of load balancers associated with the group.
+    loadBalancerNames :: Prelude.Maybe [Prelude.Text],
     -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
     -- before it checks the health status of an EC2 instance that has come into
     -- service.
@@ -41,9 +43,7 @@ data AwsAutoScalingAutoScalingGroupDetails = AwsAutoScalingAutoScalingGroupDetai
     -- | The name of the launch configuration.
     launchConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | The service to use for the health checks.
-    healthCheckType :: Prelude.Maybe Prelude.Text,
-    -- | The list of load balancers associated with the group.
-    loadBalancerNames :: Prelude.Maybe [Prelude.Text]
+    healthCheckType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,8 @@ data AwsAutoScalingAutoScalingGroupDetails = AwsAutoScalingAutoScalingGroupDetai
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
+-- 'loadBalancerNames', 'awsAutoScalingAutoScalingGroupDetails_loadBalancerNames' - The list of load balancers associated with the group.
+--
 -- 'healthCheckGracePeriod', 'awsAutoScalingAutoScalingGroupDetails_healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
 -- before it checks the health status of an EC2 instance that has come into
 -- service.
@@ -69,20 +71,18 @@ data AwsAutoScalingAutoScalingGroupDetails = AwsAutoScalingAutoScalingGroupDetai
 -- 'launchConfigurationName', 'awsAutoScalingAutoScalingGroupDetails_launchConfigurationName' - The name of the launch configuration.
 --
 -- 'healthCheckType', 'awsAutoScalingAutoScalingGroupDetails_healthCheckType' - The service to use for the health checks.
---
--- 'loadBalancerNames', 'awsAutoScalingAutoScalingGroupDetails_loadBalancerNames' - The list of load balancers associated with the group.
 newAwsAutoScalingAutoScalingGroupDetails ::
   AwsAutoScalingAutoScalingGroupDetails
 newAwsAutoScalingAutoScalingGroupDetails =
   AwsAutoScalingAutoScalingGroupDetails'
     { createdTime =
         Prelude.Nothing,
+      loadBalancerNames = Prelude.Nothing,
       healthCheckGracePeriod =
         Prelude.Nothing,
       launchConfigurationName =
         Prelude.Nothing,
-      healthCheckType = Prelude.Nothing,
-      loadBalancerNames = Prelude.Nothing
+      healthCheckType = Prelude.Nothing
     }
 
 -- | Indicates when the auto scaling group was created.
@@ -93,6 +93,10 @@ newAwsAutoScalingAutoScalingGroupDetails =
 -- @2020-03-22T13:22:13.933Z@.
 awsAutoScalingAutoScalingGroupDetails_createdTime :: Lens.Lens' AwsAutoScalingAutoScalingGroupDetails (Prelude.Maybe Prelude.Text)
 awsAutoScalingAutoScalingGroupDetails_createdTime = Lens.lens (\AwsAutoScalingAutoScalingGroupDetails' {createdTime} -> createdTime) (\s@AwsAutoScalingAutoScalingGroupDetails' {} a -> s {createdTime = a} :: AwsAutoScalingAutoScalingGroupDetails)
+
+-- | The list of load balancers associated with the group.
+awsAutoScalingAutoScalingGroupDetails_loadBalancerNames :: Lens.Lens' AwsAutoScalingAutoScalingGroupDetails (Prelude.Maybe [Prelude.Text])
+awsAutoScalingAutoScalingGroupDetails_loadBalancerNames = Lens.lens (\AwsAutoScalingAutoScalingGroupDetails' {loadBalancerNames} -> loadBalancerNames) (\s@AwsAutoScalingAutoScalingGroupDetails' {} a -> s {loadBalancerNames = a} :: AwsAutoScalingAutoScalingGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
 -- before it checks the health status of an EC2 instance that has come into
@@ -108,10 +112,6 @@ awsAutoScalingAutoScalingGroupDetails_launchConfigurationName = Lens.lens (\AwsA
 awsAutoScalingAutoScalingGroupDetails_healthCheckType :: Lens.Lens' AwsAutoScalingAutoScalingGroupDetails (Prelude.Maybe Prelude.Text)
 awsAutoScalingAutoScalingGroupDetails_healthCheckType = Lens.lens (\AwsAutoScalingAutoScalingGroupDetails' {healthCheckType} -> healthCheckType) (\s@AwsAutoScalingAutoScalingGroupDetails' {} a -> s {healthCheckType = a} :: AwsAutoScalingAutoScalingGroupDetails)
 
--- | The list of load balancers associated with the group.
-awsAutoScalingAutoScalingGroupDetails_loadBalancerNames :: Lens.Lens' AwsAutoScalingAutoScalingGroupDetails (Prelude.Maybe [Prelude.Text])
-awsAutoScalingAutoScalingGroupDetails_loadBalancerNames = Lens.lens (\AwsAutoScalingAutoScalingGroupDetails' {loadBalancerNames} -> loadBalancerNames) (\s@AwsAutoScalingAutoScalingGroupDetails' {} a -> s {loadBalancerNames = a} :: AwsAutoScalingAutoScalingGroupDetails) Prelude.. Lens.mapping Lens.coerced
-
 instance
   Core.FromJSON
     AwsAutoScalingAutoScalingGroupDetails
@@ -122,12 +122,12 @@ instance
       ( \x ->
           AwsAutoScalingAutoScalingGroupDetails'
             Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "HealthCheckGracePeriod")
-            Prelude.<*> (x Core..:? "LaunchConfigurationName")
-            Prelude.<*> (x Core..:? "HealthCheckType")
             Prelude.<*> ( x Core..:? "LoadBalancerNames"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "HealthCheckGracePeriod")
+            Prelude.<*> (x Core..:? "LaunchConfigurationName")
+            Prelude.<*> (x Core..:? "HealthCheckType")
       )
 
 instance
@@ -138,10 +138,10 @@ instance
     _salt
     AwsAutoScalingAutoScalingGroupDetails' {..} =
       _salt `Prelude.hashWithSalt` createdTime
+        `Prelude.hashWithSalt` loadBalancerNames
         `Prelude.hashWithSalt` healthCheckGracePeriod
         `Prelude.hashWithSalt` launchConfigurationName
         `Prelude.hashWithSalt` healthCheckType
-        `Prelude.hashWithSalt` loadBalancerNames
 
 instance
   Prelude.NFData
@@ -149,10 +149,10 @@ instance
   where
   rnf AwsAutoScalingAutoScalingGroupDetails' {..} =
     Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf loadBalancerNames
       `Prelude.seq` Prelude.rnf healthCheckGracePeriod
       `Prelude.seq` Prelude.rnf launchConfigurationName
       `Prelude.seq` Prelude.rnf healthCheckType
-      `Prelude.seq` Prelude.rnf loadBalancerNames
 
 instance
   Core.ToJSON
@@ -162,13 +162,13 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("CreatedTime" Core..=) Prelude.<$> createdTime,
+            ("LoadBalancerNames" Core..=)
+              Prelude.<$> loadBalancerNames,
             ("HealthCheckGracePeriod" Core..=)
               Prelude.<$> healthCheckGracePeriod,
             ("LaunchConfigurationName" Core..=)
               Prelude.<$> launchConfigurationName,
             ("HealthCheckType" Core..=)
-              Prelude.<$> healthCheckType,
-            ("LoadBalancerNames" Core..=)
-              Prelude.<$> loadBalancerNames
+              Prelude.<$> healthCheckType
           ]
       )

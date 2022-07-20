@@ -32,20 +32,20 @@ module Amazonka.SageMakerFeatureStoreRuntime
     -- * Errors
     -- $errors
 
+    -- ** ResourceNotFound
+    _ResourceNotFound,
+
     -- ** AccessForbidden
     _AccessForbidden,
 
     -- ** ServiceUnavailable
     _ServiceUnavailable,
 
-    -- ** InternalFailure
-    _InternalFailure,
-
     -- ** ValidationError
     _ValidationError,
 
-    -- ** ResourceNotFound
-    _ResourceNotFound,
+    -- ** InternalFailure
+    _InternalFailure,
 
     -- * Waiters
     -- $waiters
@@ -53,11 +53,11 @@ module Amazonka.SageMakerFeatureStoreRuntime
     -- * Operations
     -- $operations
 
-    -- ** PutRecord
-    PutRecord (PutRecord'),
-    newPutRecord,
-    PutRecordResponse (PutRecordResponse'),
-    newPutRecordResponse,
+    -- ** BatchGetRecord
+    BatchGetRecord (BatchGetRecord'),
+    newBatchGetRecord,
+    BatchGetRecordResponse (BatchGetRecordResponse'),
+    newBatchGetRecordResponse,
 
     -- ** DeleteRecord
     DeleteRecord (DeleteRecord'),
@@ -65,17 +65,17 @@ module Amazonka.SageMakerFeatureStoreRuntime
     DeleteRecordResponse (DeleteRecordResponse'),
     newDeleteRecordResponse,
 
-    -- ** BatchGetRecord
-    BatchGetRecord (BatchGetRecord'),
-    newBatchGetRecord,
-    BatchGetRecordResponse (BatchGetRecordResponse'),
-    newBatchGetRecordResponse,
-
     -- ** GetRecord
     GetRecord (GetRecord'),
     newGetRecord,
     GetRecordResponse (GetRecordResponse'),
     newGetRecordResponse,
+
+    -- ** PutRecord
+    PutRecord (PutRecord'),
+    newPutRecord,
+    PutRecordResponse (PutRecordResponse'),
+    newPutRecordResponse,
 
     -- * Types
 

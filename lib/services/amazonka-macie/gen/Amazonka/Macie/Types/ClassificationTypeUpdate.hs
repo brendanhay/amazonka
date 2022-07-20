@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClassificationTypeUpdate' smart constructor.
 data ClassificationTypeUpdate = ClassificationTypeUpdate'
-  { -- | A continuous classification of the objects that are added to a specified
+  { -- | A one-time classification of all of the existing objects in a specified
+    -- S3 bucket.
+    oneTime :: Prelude.Maybe S3OneTimeClassificationType,
+    -- | A continuous classification of the objects that are added to a specified
     -- S3 bucket. Amazon Macie Classic begins performing continuous
     -- classification after a bucket is successfully associated with Macie
     -- Classic.
-    continuous :: Prelude.Maybe S3ContinuousClassificationType,
-    -- | A one-time classification of all of the existing objects in a specified
-    -- S3 bucket.
-    oneTime :: Prelude.Maybe S3OneTimeClassificationType
+    continuous :: Prelude.Maybe S3ContinuousClassificationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,21 +50,26 @@ data ClassificationTypeUpdate = ClassificationTypeUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'oneTime', 'classificationTypeUpdate_oneTime' - A one-time classification of all of the existing objects in a specified
+-- S3 bucket.
+--
 -- 'continuous', 'classificationTypeUpdate_continuous' - A continuous classification of the objects that are added to a specified
 -- S3 bucket. Amazon Macie Classic begins performing continuous
 -- classification after a bucket is successfully associated with Macie
 -- Classic.
---
--- 'oneTime', 'classificationTypeUpdate_oneTime' - A one-time classification of all of the existing objects in a specified
--- S3 bucket.
 newClassificationTypeUpdate ::
   ClassificationTypeUpdate
 newClassificationTypeUpdate =
   ClassificationTypeUpdate'
-    { continuous =
+    { oneTime =
         Prelude.Nothing,
-      oneTime = Prelude.Nothing
+      continuous = Prelude.Nothing
     }
+
+-- | A one-time classification of all of the existing objects in a specified
+-- S3 bucket.
+classificationTypeUpdate_oneTime :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3OneTimeClassificationType)
+classificationTypeUpdate_oneTime = Lens.lens (\ClassificationTypeUpdate' {oneTime} -> oneTime) (\s@ClassificationTypeUpdate' {} a -> s {oneTime = a} :: ClassificationTypeUpdate)
 
 -- | A continuous classification of the objects that are added to a specified
 -- S3 bucket. Amazon Macie Classic begins performing continuous
@@ -73,26 +78,21 @@ newClassificationTypeUpdate =
 classificationTypeUpdate_continuous :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3ContinuousClassificationType)
 classificationTypeUpdate_continuous = Lens.lens (\ClassificationTypeUpdate' {continuous} -> continuous) (\s@ClassificationTypeUpdate' {} a -> s {continuous = a} :: ClassificationTypeUpdate)
 
--- | A one-time classification of all of the existing objects in a specified
--- S3 bucket.
-classificationTypeUpdate_oneTime :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3OneTimeClassificationType)
-classificationTypeUpdate_oneTime = Lens.lens (\ClassificationTypeUpdate' {oneTime} -> oneTime) (\s@ClassificationTypeUpdate' {} a -> s {oneTime = a} :: ClassificationTypeUpdate)
-
 instance Prelude.Hashable ClassificationTypeUpdate where
   hashWithSalt _salt ClassificationTypeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` continuous
-      `Prelude.hashWithSalt` oneTime
+    _salt `Prelude.hashWithSalt` oneTime
+      `Prelude.hashWithSalt` continuous
 
 instance Prelude.NFData ClassificationTypeUpdate where
   rnf ClassificationTypeUpdate' {..} =
-    Prelude.rnf continuous
-      `Prelude.seq` Prelude.rnf oneTime
+    Prelude.rnf oneTime
+      `Prelude.seq` Prelude.rnf continuous
 
 instance Core.ToJSON ClassificationTypeUpdate where
   toJSON ClassificationTypeUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("continuous" Core..=) Prelude.<$> continuous,
-            ("oneTime" Core..=) Prelude.<$> oneTime
+          [ ("oneTime" Core..=) Prelude.<$> oneTime,
+            ("continuous" Core..=) Prelude.<$> continuous
           ]
       )

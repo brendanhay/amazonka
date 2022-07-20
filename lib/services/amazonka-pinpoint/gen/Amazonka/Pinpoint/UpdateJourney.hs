@@ -142,12 +142,7 @@ instance Core.ToHeaders UpdateJourney where
 
 instance Core.ToJSON UpdateJourney where
   toJSON UpdateJourney' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WriteJourneyRequest" Core..= writeJourneyRequest)
-          ]
-      )
+    Core.toJSON writeJourneyRequest
 
 instance Core.ToPath UpdateJourney where
   toPath UpdateJourney' {..} =

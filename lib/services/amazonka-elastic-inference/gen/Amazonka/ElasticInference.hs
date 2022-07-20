@@ -34,23 +34,29 @@ module Amazonka.ElasticInference
     -- * Operations
     -- $operations
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** DescribeAcceleratorOfferings
     DescribeAcceleratorOfferings (DescribeAcceleratorOfferings'),
     newDescribeAcceleratorOfferings,
     DescribeAcceleratorOfferingsResponse (DescribeAcceleratorOfferingsResponse'),
     newDescribeAcceleratorOfferingsResponse,
 
+    -- ** DescribeAcceleratorTypes
+    DescribeAcceleratorTypes (DescribeAcceleratorTypes'),
+    newDescribeAcceleratorTypes,
+    DescribeAcceleratorTypesResponse (DescribeAcceleratorTypesResponse'),
+    newDescribeAcceleratorTypesResponse,
+
     -- ** DescribeAccelerators (Paginated)
     DescribeAccelerators (DescribeAccelerators'),
     newDescribeAccelerators,
     DescribeAcceleratorsResponse (DescribeAcceleratorsResponse'),
     newDescribeAcceleratorsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -63,12 +69,6 @@ module Amazonka.ElasticInference
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** DescribeAcceleratorTypes
-    DescribeAcceleratorTypes (DescribeAcceleratorTypes'),
-    newDescribeAcceleratorTypes,
-    DescribeAcceleratorTypesResponse (DescribeAcceleratorTypesResponse'),
-    newDescribeAcceleratorTypesResponse,
 
     -- * Types
 

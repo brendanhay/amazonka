@@ -38,45 +38,44 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMpeg2Settings' smart constructor.
 data Mpeg2Settings = Mpeg2Settings'
-  { -- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field
-    -- first).
-    scanType :: Prelude.Maybe Mpeg2ScanType,
-    -- | Determines how MediaLive inserts timecodes in the output video. For
-    -- detailed information about setting up the input and the output for a
-    -- timecode, see the section on \\\"MediaLive Features - Timecode
-    -- configuration\\\" in the MediaLive User Guide. DISABLED: do not include
-    -- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.
-    timecodeInsertion :: Prelude.Maybe Mpeg2TimecodeInsertionBehavior,
+  { -- | Relates to the GOP structure. Specifies whether the gopSize is specified
+    -- in frames or seconds. If you do not plan to change the default gopSize,
+    -- leave the default. If you specify SECONDS, MediaLive will internally
+    -- convert the gop size to a frame count.
+    gopSizeUnits :: Prelude.Maybe Mpeg2GopSizeUnits,
     -- | Indicates the AFD values that MediaLive will write into the video
     -- encode. If you do not know what AFD signaling is, or if your downstream
     -- system has not given you guidance, choose AUTO. AUTO: MediaLive will try
     -- to preserve the input AFD value (in cases where multiple AFD values are
     -- valid). FIXED: MediaLive will use the value you specify in fixedAFD.
     afdSignaling :: Prelude.Maybe AfdSignaling,
-    -- | Relates to the GOP structure. The GOP size (keyframe interval) in the
-    -- units specified in gopSizeUnits. If you do not know what GOP is, use the
-    -- default. If gopSizeUnits is frames, then the gopSize must be an integer
-    -- and must be greater than or equal to 1. If gopSizeUnits is seconds, the
-    -- gopSize must be greater than 0, but does not need to be an integer.
-    gopSize :: Prelude.Maybe Prelude.Double,
-    -- | Relates to the GOP structure. Specifies whether the gopSize is specified
-    -- in frames or seconds. If you do not plan to change the default gopSize,
-    -- leave the default. If you specify SECONDS, MediaLive will internally
-    -- convert the gop size to a frame count.
-    gopSizeUnits :: Prelude.Maybe Mpeg2GopSizeUnits,
+    -- | Complete this field only when afdSignaling is set to FIXED. Enter the
+    -- AFD value (4 bits) to write on all frames of the video encode.
+    fixedAfd :: Prelude.Maybe FixedAfd,
+    -- | Choose the type of color space conversion to apply to the output. For
+    -- detailed information on setting up both the input and the output to
+    -- obtain the desired color space in the output, see the section on
+    -- \\\"MediaLive Features - Video - color space\\\" in the MediaLive User
+    -- Guide. PASSTHROUGH: Keep the color space of the input content - do not
+    -- convert it. AUTO:Convert all content that is SD to rec 601, and convert
+    -- all content that is HD to rec 709.
+    colorSpace :: Prelude.Maybe Mpeg2ColorSpace,
+    -- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field
+    -- first).
+    scanType :: Prelude.Maybe Mpeg2ScanType,
     -- | Relates to the GOP structure. If you do not know what GOP is, use the
     -- default. FIXED: Set the number of B-frames in each sub-GOP to the value
     -- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames
     -- in each sub-GOP, to improve visual quality.
     subgopLength :: Prelude.Maybe Mpeg2SubGopLength,
-    -- | Sets the pixel aspect ratio for the encode.
-    displayAspectRatio :: Prelude.Maybe Mpeg2DisplayRatio,
-    -- | Relates to the GOP structure. The number of B-frames between reference
-    -- frames. If you do not know what a B-frame is, use the default.
-    gopNumBFrames :: Prelude.Maybe Prelude.Natural,
-    -- | Complete this field only when afdSignaling is set to FIXED. Enter the
-    -- AFD value (4 bits) to write on all frames of the video encode.
-    fixedAfd :: Prelude.Maybe FixedAfd,
+    -- | MPEG2: default is open GOP.
+    gopClosedCadence :: Prelude.Maybe Prelude.Natural,
+    -- | Determines how MediaLive inserts timecodes in the output video. For
+    -- detailed information about setting up the input and the output for a
+    -- timecode, see the section on \\\"MediaLive Features - Timecode
+    -- configuration\\\" in the MediaLive User Guide. DISABLED: do not include
+    -- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.
+    timecodeInsertion :: Prelude.Maybe Mpeg2TimecodeInsertionBehavior,
     -- | Optionally specify a noise reduction filter, which can improve quality
     -- of compressed content. If you do not choose a filter, no filter will be
     -- applied. TEMPORAL: This filter is useful for both source content that is
@@ -92,21 +91,22 @@ data Mpeg2Settings = Mpeg2Settings'
     -- describes the color space that applies to the video (the colorSpace
     -- field). We recommend that you insert the metadata.
     colorMetadata :: Prelude.Maybe Mpeg2ColorMetadata,
+    -- | Relates to the GOP structure. The number of B-frames between reference
+    -- frames. If you do not know what a B-frame is, use the default.
+    gopNumBFrames :: Prelude.Maybe Prelude.Natural,
+    -- | Sets the pixel aspect ratio for the encode.
+    displayAspectRatio :: Prelude.Maybe Mpeg2DisplayRatio,
     -- | Choose Off to disable adaptive quantization. Or choose another value to
     -- enable the quantizer and set its strength. The strengths are: Auto, Off,
     -- Low, Medium, High. When you enable this field, MediaLive allows
     -- intra-frame quantizers to vary, which might improve visual quality.
     adaptiveQuantization :: Prelude.Maybe Mpeg2AdaptiveQuantization,
-    -- | MPEG2: default is open GOP.
-    gopClosedCadence :: Prelude.Maybe Prelude.Natural,
-    -- | Choose the type of color space conversion to apply to the output. For
-    -- detailed information on setting up both the input and the output to
-    -- obtain the desired color space in the output, see the section on
-    -- \\\"MediaLive Features - Video - color space\\\" in the MediaLive User
-    -- Guide. PASSTHROUGH: Keep the color space of the input content - do not
-    -- convert it. AUTO:Convert all content that is SD to rec 601, and convert
-    -- all content that is HD to rec 709.
-    colorSpace :: Prelude.Maybe Mpeg2ColorSpace,
+    -- | Relates to the GOP structure. The GOP size (keyframe interval) in the
+    -- units specified in gopSizeUnits. If you do not know what GOP is, use the
+    -- default. If gopSizeUnits is frames, then the gopSize must be an integer
+    -- and must be greater than or equal to 1. If gopSizeUnits is seconds, the
+    -- gopSize must be greater than 0, but does not need to be an integer.
+    gopSize :: Prelude.Maybe Prelude.Double,
     -- | The framerate numerator. For example, 24000. The framerate is the
     -- numerator divided by the denominator. For example, 24000 \/ 1001 =
     -- 23.976 FPS.
@@ -126,14 +126,10 @@ data Mpeg2Settings = Mpeg2Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scanType', 'mpeg2Settings_scanType' - Set the scan type of the output to PROGRESSIVE or INTERLACED (top field
--- first).
---
--- 'timecodeInsertion', 'mpeg2Settings_timecodeInsertion' - Determines how MediaLive inserts timecodes in the output video. For
--- detailed information about setting up the input and the output for a
--- timecode, see the section on \\\"MediaLive Features - Timecode
--- configuration\\\" in the MediaLive User Guide. DISABLED: do not include
--- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.
+-- 'gopSizeUnits', 'mpeg2Settings_gopSizeUnits' - Relates to the GOP structure. Specifies whether the gopSize is specified
+-- in frames or seconds. If you do not plan to change the default gopSize,
+-- leave the default. If you specify SECONDS, MediaLive will internally
+-- convert the gop size to a frame count.
 --
 -- 'afdSignaling', 'mpeg2Settings_afdSignaling' - Indicates the AFD values that MediaLive will write into the video
 -- encode. If you do not know what AFD signaling is, or if your downstream
@@ -141,29 +137,32 @@ data Mpeg2Settings = Mpeg2Settings'
 -- to preserve the input AFD value (in cases where multiple AFD values are
 -- valid). FIXED: MediaLive will use the value you specify in fixedAFD.
 --
--- 'gopSize', 'mpeg2Settings_gopSize' - Relates to the GOP structure. The GOP size (keyframe interval) in the
--- units specified in gopSizeUnits. If you do not know what GOP is, use the
--- default. If gopSizeUnits is frames, then the gopSize must be an integer
--- and must be greater than or equal to 1. If gopSizeUnits is seconds, the
--- gopSize must be greater than 0, but does not need to be an integer.
+-- 'fixedAfd', 'mpeg2Settings_fixedAfd' - Complete this field only when afdSignaling is set to FIXED. Enter the
+-- AFD value (4 bits) to write on all frames of the video encode.
 --
--- 'gopSizeUnits', 'mpeg2Settings_gopSizeUnits' - Relates to the GOP structure. Specifies whether the gopSize is specified
--- in frames or seconds. If you do not plan to change the default gopSize,
--- leave the default. If you specify SECONDS, MediaLive will internally
--- convert the gop size to a frame count.
+-- 'colorSpace', 'mpeg2Settings_colorSpace' - Choose the type of color space conversion to apply to the output. For
+-- detailed information on setting up both the input and the output to
+-- obtain the desired color space in the output, see the section on
+-- \\\"MediaLive Features - Video - color space\\\" in the MediaLive User
+-- Guide. PASSTHROUGH: Keep the color space of the input content - do not
+-- convert it. AUTO:Convert all content that is SD to rec 601, and convert
+-- all content that is HD to rec 709.
+--
+-- 'scanType', 'mpeg2Settings_scanType' - Set the scan type of the output to PROGRESSIVE or INTERLACED (top field
+-- first).
 --
 -- 'subgopLength', 'mpeg2Settings_subgopLength' - Relates to the GOP structure. If you do not know what GOP is, use the
 -- default. FIXED: Set the number of B-frames in each sub-GOP to the value
 -- in gopNumBFrames. DYNAMIC: Let MediaLive optimize the number of B-frames
 -- in each sub-GOP, to improve visual quality.
 --
--- 'displayAspectRatio', 'mpeg2Settings_displayAspectRatio' - Sets the pixel aspect ratio for the encode.
+-- 'gopClosedCadence', 'mpeg2Settings_gopClosedCadence' - MPEG2: default is open GOP.
 --
--- 'gopNumBFrames', 'mpeg2Settings_gopNumBFrames' - Relates to the GOP structure. The number of B-frames between reference
--- frames. If you do not know what a B-frame is, use the default.
---
--- 'fixedAfd', 'mpeg2Settings_fixedAfd' - Complete this field only when afdSignaling is set to FIXED. Enter the
--- AFD value (4 bits) to write on all frames of the video encode.
+-- 'timecodeInsertion', 'mpeg2Settings_timecodeInsertion' - Determines how MediaLive inserts timecodes in the output video. For
+-- detailed information about setting up the input and the output for a
+-- timecode, see the section on \\\"MediaLive Features - Timecode
+-- configuration\\\" in the MediaLive User Guide. DISABLED: do not include
+-- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.
 --
 -- 'filterSettings', 'mpeg2Settings_filterSettings' - Optionally specify a noise reduction filter, which can improve quality
 -- of compressed content. If you do not choose a filter, no filter will be
@@ -180,20 +179,21 @@ data Mpeg2Settings = Mpeg2Settings'
 -- describes the color space that applies to the video (the colorSpace
 -- field). We recommend that you insert the metadata.
 --
+-- 'gopNumBFrames', 'mpeg2Settings_gopNumBFrames' - Relates to the GOP structure. The number of B-frames between reference
+-- frames. If you do not know what a B-frame is, use the default.
+--
+-- 'displayAspectRatio', 'mpeg2Settings_displayAspectRatio' - Sets the pixel aspect ratio for the encode.
+--
 -- 'adaptiveQuantization', 'mpeg2Settings_adaptiveQuantization' - Choose Off to disable adaptive quantization. Or choose another value to
 -- enable the quantizer and set its strength. The strengths are: Auto, Off,
 -- Low, Medium, High. When you enable this field, MediaLive allows
 -- intra-frame quantizers to vary, which might improve visual quality.
 --
--- 'gopClosedCadence', 'mpeg2Settings_gopClosedCadence' - MPEG2: default is open GOP.
---
--- 'colorSpace', 'mpeg2Settings_colorSpace' - Choose the type of color space conversion to apply to the output. For
--- detailed information on setting up both the input and the output to
--- obtain the desired color space in the output, see the section on
--- \\\"MediaLive Features - Video - color space\\\" in the MediaLive User
--- Guide. PASSTHROUGH: Keep the color space of the input content - do not
--- convert it. AUTO:Convert all content that is SD to rec 601, and convert
--- all content that is HD to rec 709.
+-- 'gopSize', 'mpeg2Settings_gopSize' - Relates to the GOP structure. The GOP size (keyframe interval) in the
+-- units specified in gopSizeUnits. If you do not know what GOP is, use the
+-- default. If gopSizeUnits is frames, then the gopSize must be an integer
+-- and must be greater than or equal to 1. If gopSizeUnits is seconds, the
+-- gopSize must be greater than 0, but does not need to be an integer.
 --
 -- 'framerateNumerator', 'mpeg2Settings_framerateNumerator' - The framerate numerator. For example, 24000. The framerate is the
 -- numerator divided by the denominator. For example, 24000 \/ 1001 =
@@ -212,36 +212,30 @@ newMpeg2Settings
   pFramerateNumerator_
   pFramerateDenominator_ =
     Mpeg2Settings'
-      { scanType = Prelude.Nothing,
-        timecodeInsertion = Prelude.Nothing,
+      { gopSizeUnits = Prelude.Nothing,
         afdSignaling = Prelude.Nothing,
-        gopSize = Prelude.Nothing,
-        gopSizeUnits = Prelude.Nothing,
-        subgopLength = Prelude.Nothing,
-        displayAspectRatio = Prelude.Nothing,
-        gopNumBFrames = Prelude.Nothing,
         fixedAfd = Prelude.Nothing,
+        colorSpace = Prelude.Nothing,
+        scanType = Prelude.Nothing,
+        subgopLength = Prelude.Nothing,
+        gopClosedCadence = Prelude.Nothing,
+        timecodeInsertion = Prelude.Nothing,
         filterSettings = Prelude.Nothing,
         colorMetadata = Prelude.Nothing,
+        gopNumBFrames = Prelude.Nothing,
+        displayAspectRatio = Prelude.Nothing,
         adaptiveQuantization = Prelude.Nothing,
-        gopClosedCadence = Prelude.Nothing,
-        colorSpace = Prelude.Nothing,
+        gopSize = Prelude.Nothing,
         framerateNumerator = pFramerateNumerator_,
         framerateDenominator = pFramerateDenominator_
       }
 
--- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field
--- first).
-mpeg2Settings_scanType :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2ScanType)
-mpeg2Settings_scanType = Lens.lens (\Mpeg2Settings' {scanType} -> scanType) (\s@Mpeg2Settings' {} a -> s {scanType = a} :: Mpeg2Settings)
-
--- | Determines how MediaLive inserts timecodes in the output video. For
--- detailed information about setting up the input and the output for a
--- timecode, see the section on \\\"MediaLive Features - Timecode
--- configuration\\\" in the MediaLive User Guide. DISABLED: do not include
--- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.
-mpeg2Settings_timecodeInsertion :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2TimecodeInsertionBehavior)
-mpeg2Settings_timecodeInsertion = Lens.lens (\Mpeg2Settings' {timecodeInsertion} -> timecodeInsertion) (\s@Mpeg2Settings' {} a -> s {timecodeInsertion = a} :: Mpeg2Settings)
+-- | Relates to the GOP structure. Specifies whether the gopSize is specified
+-- in frames or seconds. If you do not plan to change the default gopSize,
+-- leave the default. If you specify SECONDS, MediaLive will internally
+-- convert the gop size to a frame count.
+mpeg2Settings_gopSizeUnits :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2GopSizeUnits)
+mpeg2Settings_gopSizeUnits = Lens.lens (\Mpeg2Settings' {gopSizeUnits} -> gopSizeUnits) (\s@Mpeg2Settings' {} a -> s {gopSizeUnits = a} :: Mpeg2Settings)
 
 -- | Indicates the AFD values that MediaLive will write into the video
 -- encode. If you do not know what AFD signaling is, or if your downstream
@@ -251,20 +245,25 @@ mpeg2Settings_timecodeInsertion = Lens.lens (\Mpeg2Settings' {timecodeInsertion}
 mpeg2Settings_afdSignaling :: Lens.Lens' Mpeg2Settings (Prelude.Maybe AfdSignaling)
 mpeg2Settings_afdSignaling = Lens.lens (\Mpeg2Settings' {afdSignaling} -> afdSignaling) (\s@Mpeg2Settings' {} a -> s {afdSignaling = a} :: Mpeg2Settings)
 
--- | Relates to the GOP structure. The GOP size (keyframe interval) in the
--- units specified in gopSizeUnits. If you do not know what GOP is, use the
--- default. If gopSizeUnits is frames, then the gopSize must be an integer
--- and must be greater than or equal to 1. If gopSizeUnits is seconds, the
--- gopSize must be greater than 0, but does not need to be an integer.
-mpeg2Settings_gopSize :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Double)
-mpeg2Settings_gopSize = Lens.lens (\Mpeg2Settings' {gopSize} -> gopSize) (\s@Mpeg2Settings' {} a -> s {gopSize = a} :: Mpeg2Settings)
+-- | Complete this field only when afdSignaling is set to FIXED. Enter the
+-- AFD value (4 bits) to write on all frames of the video encode.
+mpeg2Settings_fixedAfd :: Lens.Lens' Mpeg2Settings (Prelude.Maybe FixedAfd)
+mpeg2Settings_fixedAfd = Lens.lens (\Mpeg2Settings' {fixedAfd} -> fixedAfd) (\s@Mpeg2Settings' {} a -> s {fixedAfd = a} :: Mpeg2Settings)
 
--- | Relates to the GOP structure. Specifies whether the gopSize is specified
--- in frames or seconds. If you do not plan to change the default gopSize,
--- leave the default. If you specify SECONDS, MediaLive will internally
--- convert the gop size to a frame count.
-mpeg2Settings_gopSizeUnits :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2GopSizeUnits)
-mpeg2Settings_gopSizeUnits = Lens.lens (\Mpeg2Settings' {gopSizeUnits} -> gopSizeUnits) (\s@Mpeg2Settings' {} a -> s {gopSizeUnits = a} :: Mpeg2Settings)
+-- | Choose the type of color space conversion to apply to the output. For
+-- detailed information on setting up both the input and the output to
+-- obtain the desired color space in the output, see the section on
+-- \\\"MediaLive Features - Video - color space\\\" in the MediaLive User
+-- Guide. PASSTHROUGH: Keep the color space of the input content - do not
+-- convert it. AUTO:Convert all content that is SD to rec 601, and convert
+-- all content that is HD to rec 709.
+mpeg2Settings_colorSpace :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2ColorSpace)
+mpeg2Settings_colorSpace = Lens.lens (\Mpeg2Settings' {colorSpace} -> colorSpace) (\s@Mpeg2Settings' {} a -> s {colorSpace = a} :: Mpeg2Settings)
+
+-- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field
+-- first).
+mpeg2Settings_scanType :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2ScanType)
+mpeg2Settings_scanType = Lens.lens (\Mpeg2Settings' {scanType} -> scanType) (\s@Mpeg2Settings' {} a -> s {scanType = a} :: Mpeg2Settings)
 
 -- | Relates to the GOP structure. If you do not know what GOP is, use the
 -- default. FIXED: Set the number of B-frames in each sub-GOP to the value
@@ -273,19 +272,17 @@ mpeg2Settings_gopSizeUnits = Lens.lens (\Mpeg2Settings' {gopSizeUnits} -> gopSiz
 mpeg2Settings_subgopLength :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2SubGopLength)
 mpeg2Settings_subgopLength = Lens.lens (\Mpeg2Settings' {subgopLength} -> subgopLength) (\s@Mpeg2Settings' {} a -> s {subgopLength = a} :: Mpeg2Settings)
 
--- | Sets the pixel aspect ratio for the encode.
-mpeg2Settings_displayAspectRatio :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2DisplayRatio)
-mpeg2Settings_displayAspectRatio = Lens.lens (\Mpeg2Settings' {displayAspectRatio} -> displayAspectRatio) (\s@Mpeg2Settings' {} a -> s {displayAspectRatio = a} :: Mpeg2Settings)
+-- | MPEG2: default is open GOP.
+mpeg2Settings_gopClosedCadence :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_gopClosedCadence = Lens.lens (\Mpeg2Settings' {gopClosedCadence} -> gopClosedCadence) (\s@Mpeg2Settings' {} a -> s {gopClosedCadence = a} :: Mpeg2Settings)
 
--- | Relates to the GOP structure. The number of B-frames between reference
--- frames. If you do not know what a B-frame is, use the default.
-mpeg2Settings_gopNumBFrames :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
-mpeg2Settings_gopNumBFrames = Lens.lens (\Mpeg2Settings' {gopNumBFrames} -> gopNumBFrames) (\s@Mpeg2Settings' {} a -> s {gopNumBFrames = a} :: Mpeg2Settings)
-
--- | Complete this field only when afdSignaling is set to FIXED. Enter the
--- AFD value (4 bits) to write on all frames of the video encode.
-mpeg2Settings_fixedAfd :: Lens.Lens' Mpeg2Settings (Prelude.Maybe FixedAfd)
-mpeg2Settings_fixedAfd = Lens.lens (\Mpeg2Settings' {fixedAfd} -> fixedAfd) (\s@Mpeg2Settings' {} a -> s {fixedAfd = a} :: Mpeg2Settings)
+-- | Determines how MediaLive inserts timecodes in the output video. For
+-- detailed information about setting up the input and the output for a
+-- timecode, see the section on \\\"MediaLive Features - Timecode
+-- configuration\\\" in the MediaLive User Guide. DISABLED: do not include
+-- timecodes. GOP_TIMECODE: Include timecode metadata in the GOP header.
+mpeg2Settings_timecodeInsertion :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2TimecodeInsertionBehavior)
+mpeg2Settings_timecodeInsertion = Lens.lens (\Mpeg2Settings' {timecodeInsertion} -> timecodeInsertion) (\s@Mpeg2Settings' {} a -> s {timecodeInsertion = a} :: Mpeg2Settings)
 
 -- | Optionally specify a noise reduction filter, which can improve quality
 -- of compressed content. If you do not choose a filter, no filter will be
@@ -306,6 +303,15 @@ mpeg2Settings_filterSettings = Lens.lens (\Mpeg2Settings' {filterSettings} -> fi
 mpeg2Settings_colorMetadata :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2ColorMetadata)
 mpeg2Settings_colorMetadata = Lens.lens (\Mpeg2Settings' {colorMetadata} -> colorMetadata) (\s@Mpeg2Settings' {} a -> s {colorMetadata = a} :: Mpeg2Settings)
 
+-- | Relates to the GOP structure. The number of B-frames between reference
+-- frames. If you do not know what a B-frame is, use the default.
+mpeg2Settings_gopNumBFrames :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_gopNumBFrames = Lens.lens (\Mpeg2Settings' {gopNumBFrames} -> gopNumBFrames) (\s@Mpeg2Settings' {} a -> s {gopNumBFrames = a} :: Mpeg2Settings)
+
+-- | Sets the pixel aspect ratio for the encode.
+mpeg2Settings_displayAspectRatio :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2DisplayRatio)
+mpeg2Settings_displayAspectRatio = Lens.lens (\Mpeg2Settings' {displayAspectRatio} -> displayAspectRatio) (\s@Mpeg2Settings' {} a -> s {displayAspectRatio = a} :: Mpeg2Settings)
+
 -- | Choose Off to disable adaptive quantization. Or choose another value to
 -- enable the quantizer and set its strength. The strengths are: Auto, Off,
 -- Low, Medium, High. When you enable this field, MediaLive allows
@@ -313,19 +319,13 @@ mpeg2Settings_colorMetadata = Lens.lens (\Mpeg2Settings' {colorMetadata} -> colo
 mpeg2Settings_adaptiveQuantization :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2AdaptiveQuantization)
 mpeg2Settings_adaptiveQuantization = Lens.lens (\Mpeg2Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@Mpeg2Settings' {} a -> s {adaptiveQuantization = a} :: Mpeg2Settings)
 
--- | MPEG2: default is open GOP.
-mpeg2Settings_gopClosedCadence :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
-mpeg2Settings_gopClosedCadence = Lens.lens (\Mpeg2Settings' {gopClosedCadence} -> gopClosedCadence) (\s@Mpeg2Settings' {} a -> s {gopClosedCadence = a} :: Mpeg2Settings)
-
--- | Choose the type of color space conversion to apply to the output. For
--- detailed information on setting up both the input and the output to
--- obtain the desired color space in the output, see the section on
--- \\\"MediaLive Features - Video - color space\\\" in the MediaLive User
--- Guide. PASSTHROUGH: Keep the color space of the input content - do not
--- convert it. AUTO:Convert all content that is SD to rec 601, and convert
--- all content that is HD to rec 709.
-mpeg2Settings_colorSpace :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2ColorSpace)
-mpeg2Settings_colorSpace = Lens.lens (\Mpeg2Settings' {colorSpace} -> colorSpace) (\s@Mpeg2Settings' {} a -> s {colorSpace = a} :: Mpeg2Settings)
+-- | Relates to the GOP structure. The GOP size (keyframe interval) in the
+-- units specified in gopSizeUnits. If you do not know what GOP is, use the
+-- default. If gopSizeUnits is frames, then the gopSize must be an integer
+-- and must be greater than or equal to 1. If gopSizeUnits is seconds, the
+-- gopSize must be greater than 0, but does not need to be an integer.
+mpeg2Settings_gopSize :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Double)
+mpeg2Settings_gopSize = Lens.lens (\Mpeg2Settings' {gopSize} -> gopSize) (\s@Mpeg2Settings' {} a -> s {gopSize = a} :: Mpeg2Settings)
 
 -- | The framerate numerator. For example, 24000. The framerate is the
 -- numerator divided by the denominator. For example, 24000 \/ 1001 =
@@ -345,59 +345,59 @@ instance Core.FromJSON Mpeg2Settings where
       "Mpeg2Settings"
       ( \x ->
           Mpeg2Settings'
-            Prelude.<$> (x Core..:? "scanType")
-            Prelude.<*> (x Core..:? "timecodeInsertion")
+            Prelude.<$> (x Core..:? "gopSizeUnits")
             Prelude.<*> (x Core..:? "afdSignaling")
-            Prelude.<*> (x Core..:? "gopSize")
-            Prelude.<*> (x Core..:? "gopSizeUnits")
-            Prelude.<*> (x Core..:? "subgopLength")
-            Prelude.<*> (x Core..:? "displayAspectRatio")
-            Prelude.<*> (x Core..:? "gopNumBFrames")
             Prelude.<*> (x Core..:? "fixedAfd")
+            Prelude.<*> (x Core..:? "colorSpace")
+            Prelude.<*> (x Core..:? "scanType")
+            Prelude.<*> (x Core..:? "subgopLength")
+            Prelude.<*> (x Core..:? "gopClosedCadence")
+            Prelude.<*> (x Core..:? "timecodeInsertion")
             Prelude.<*> (x Core..:? "filterSettings")
             Prelude.<*> (x Core..:? "colorMetadata")
+            Prelude.<*> (x Core..:? "gopNumBFrames")
+            Prelude.<*> (x Core..:? "displayAspectRatio")
             Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "gopClosedCadence")
-            Prelude.<*> (x Core..:? "colorSpace")
+            Prelude.<*> (x Core..:? "gopSize")
             Prelude.<*> (x Core..: "framerateNumerator")
             Prelude.<*> (x Core..: "framerateDenominator")
       )
 
 instance Prelude.Hashable Mpeg2Settings where
   hashWithSalt _salt Mpeg2Settings' {..} =
-    _salt `Prelude.hashWithSalt` scanType
-      `Prelude.hashWithSalt` timecodeInsertion
+    _salt `Prelude.hashWithSalt` gopSizeUnits
       `Prelude.hashWithSalt` afdSignaling
-      `Prelude.hashWithSalt` gopSize
-      `Prelude.hashWithSalt` gopSizeUnits
-      `Prelude.hashWithSalt` subgopLength
-      `Prelude.hashWithSalt` displayAspectRatio
-      `Prelude.hashWithSalt` gopNumBFrames
       `Prelude.hashWithSalt` fixedAfd
+      `Prelude.hashWithSalt` colorSpace
+      `Prelude.hashWithSalt` scanType
+      `Prelude.hashWithSalt` subgopLength
+      `Prelude.hashWithSalt` gopClosedCadence
+      `Prelude.hashWithSalt` timecodeInsertion
       `Prelude.hashWithSalt` filterSettings
       `Prelude.hashWithSalt` colorMetadata
+      `Prelude.hashWithSalt` gopNumBFrames
+      `Prelude.hashWithSalt` displayAspectRatio
       `Prelude.hashWithSalt` adaptiveQuantization
-      `Prelude.hashWithSalt` gopClosedCadence
-      `Prelude.hashWithSalt` colorSpace
+      `Prelude.hashWithSalt` gopSize
       `Prelude.hashWithSalt` framerateNumerator
       `Prelude.hashWithSalt` framerateDenominator
 
 instance Prelude.NFData Mpeg2Settings where
   rnf Mpeg2Settings' {..} =
-    Prelude.rnf scanType
-      `Prelude.seq` Prelude.rnf timecodeInsertion
+    Prelude.rnf gopSizeUnits
       `Prelude.seq` Prelude.rnf afdSignaling
-      `Prelude.seq` Prelude.rnf gopSize
-      `Prelude.seq` Prelude.rnf gopSizeUnits
-      `Prelude.seq` Prelude.rnf subgopLength
-      `Prelude.seq` Prelude.rnf displayAspectRatio
-      `Prelude.seq` Prelude.rnf gopNumBFrames
       `Prelude.seq` Prelude.rnf fixedAfd
+      `Prelude.seq` Prelude.rnf colorSpace
+      `Prelude.seq` Prelude.rnf scanType
+      `Prelude.seq` Prelude.rnf subgopLength
+      `Prelude.seq` Prelude.rnf gopClosedCadence
+      `Prelude.seq` Prelude.rnf timecodeInsertion
       `Prelude.seq` Prelude.rnf filterSettings
       `Prelude.seq` Prelude.rnf colorMetadata
+      `Prelude.seq` Prelude.rnf gopNumBFrames
+      `Prelude.seq` Prelude.rnf displayAspectRatio
       `Prelude.seq` Prelude.rnf adaptiveQuantization
-      `Prelude.seq` Prelude.rnf gopClosedCadence
-      `Prelude.seq` Prelude.rnf colorSpace
+      `Prelude.seq` Prelude.rnf gopSize
       `Prelude.seq` Prelude.rnf framerateNumerator
       `Prelude.seq` Prelude.rnf framerateDenominator
 
@@ -405,25 +405,25 @@ instance Core.ToJSON Mpeg2Settings where
   toJSON Mpeg2Settings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("scanType" Core..=) Prelude.<$> scanType,
+          [ ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
+            ("afdSignaling" Core..=) Prelude.<$> afdSignaling,
+            ("fixedAfd" Core..=) Prelude.<$> fixedAfd,
+            ("colorSpace" Core..=) Prelude.<$> colorSpace,
+            ("scanType" Core..=) Prelude.<$> scanType,
+            ("subgopLength" Core..=) Prelude.<$> subgopLength,
+            ("gopClosedCadence" Core..=)
+              Prelude.<$> gopClosedCadence,
             ("timecodeInsertion" Core..=)
               Prelude.<$> timecodeInsertion,
-            ("afdSignaling" Core..=) Prelude.<$> afdSignaling,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
-            ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
-            ("subgopLength" Core..=) Prelude.<$> subgopLength,
-            ("displayAspectRatio" Core..=)
-              Prelude.<$> displayAspectRatio,
-            ("gopNumBFrames" Core..=) Prelude.<$> gopNumBFrames,
-            ("fixedAfd" Core..=) Prelude.<$> fixedAfd,
             ("filterSettings" Core..=)
               Prelude.<$> filterSettings,
             ("colorMetadata" Core..=) Prelude.<$> colorMetadata,
+            ("gopNumBFrames" Core..=) Prelude.<$> gopNumBFrames,
+            ("displayAspectRatio" Core..=)
+              Prelude.<$> displayAspectRatio,
             ("adaptiveQuantization" Core..=)
               Prelude.<$> adaptiveQuantization,
-            ("gopClosedCadence" Core..=)
-              Prelude.<$> gopClosedCadence,
-            ("colorSpace" Core..=) Prelude.<$> colorSpace,
+            ("gopSize" Core..=) Prelude.<$> gopSize,
             Prelude.Just
               ("framerateNumerator" Core..= framerateNumerator),
             Prelude.Just

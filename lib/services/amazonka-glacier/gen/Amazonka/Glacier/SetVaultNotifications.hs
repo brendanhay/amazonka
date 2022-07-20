@@ -172,12 +172,7 @@ instance Core.ToHeaders SetVaultNotifications where
 
 instance Core.ToJSON SetVaultNotifications where
   toJSON SetVaultNotifications' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ ("vaultNotificationConfig" Core..=)
-              Prelude.<$> vaultNotificationConfig
-          ]
-      )
+    Core.toJSON vaultNotificationConfig
 
 instance Core.ToPath SetVaultNotifications where
   toPath SetVaultNotifications' {..} =

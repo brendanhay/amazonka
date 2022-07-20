@@ -27,9 +27,9 @@ module Amazonka.SageMaker.CreatePipeline
     newCreatePipeline,
 
     -- * Request Lenses
+    createPipeline_tags,
     createPipeline_pipelineDisplayName,
     createPipeline_pipelineDescription,
-    createPipeline_tags,
     createPipeline_pipelineName,
     createPipeline_pipelineDefinition,
     createPipeline_clientRequestToken,
@@ -54,12 +54,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { -- | The display name of the pipeline.
+  { -- | A list of tags to apply to the created pipeline.
+    tags :: Prelude.Maybe [Tag],
+    -- | The display name of the pipeline.
     pipelineDisplayName :: Prelude.Maybe Prelude.Text,
     -- | A description of the pipeline.
     pipelineDescription :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to apply to the created pipeline.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the pipeline.
     pipelineName :: Prelude.Text,
     -- | The JSON pipeline definition of the pipeline.
@@ -82,11 +82,11 @@ data CreatePipeline = CreatePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createPipeline_tags' - A list of tags to apply to the created pipeline.
+--
 -- 'pipelineDisplayName', 'createPipeline_pipelineDisplayName' - The display name of the pipeline.
 --
 -- 'pipelineDescription', 'createPipeline_pipelineDescription' - A description of the pipeline.
---
--- 'tags', 'createPipeline_tags' - A list of tags to apply to the created pipeline.
 --
 -- 'pipelineName', 'createPipeline_pipelineName' - The name of the pipeline.
 --
@@ -114,15 +114,18 @@ newCreatePipeline
   pClientRequestToken_
   pRoleArn_ =
     CreatePipeline'
-      { pipelineDisplayName =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        pipelineDisplayName = Prelude.Nothing,
         pipelineDescription = Prelude.Nothing,
-        tags = Prelude.Nothing,
         pipelineName = pPipelineName_,
         pipelineDefinition = pPipelineDefinition_,
         clientRequestToken = pClientRequestToken_,
         roleArn = pRoleArn_
       }
+
+-- | A list of tags to apply to the created pipeline.
+createPipeline_tags :: Lens.Lens' CreatePipeline (Prelude.Maybe [Tag])
+createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | The display name of the pipeline.
 createPipeline_pipelineDisplayName :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
@@ -131,10 +134,6 @@ createPipeline_pipelineDisplayName = Lens.lens (\CreatePipeline' {pipelineDispla
 -- | A description of the pipeline.
 createPipeline_pipelineDescription :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
 createPipeline_pipelineDescription = Lens.lens (\CreatePipeline' {pipelineDescription} -> pipelineDescription) (\s@CreatePipeline' {} a -> s {pipelineDescription = a} :: CreatePipeline)
-
--- | A list of tags to apply to the created pipeline.
-createPipeline_tags :: Lens.Lens' CreatePipeline (Prelude.Maybe [Tag])
-createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the pipeline.
 createPipeline_pipelineName :: Lens.Lens' CreatePipeline Prelude.Text
@@ -170,9 +169,9 @@ instance Core.AWSRequest CreatePipeline where
 
 instance Prelude.Hashable CreatePipeline where
   hashWithSalt _salt CreatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` pipelineDisplayName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pipelineDisplayName
       `Prelude.hashWithSalt` pipelineDescription
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` pipelineDefinition
       `Prelude.hashWithSalt` clientRequestToken
@@ -180,9 +179,9 @@ instance Prelude.Hashable CreatePipeline where
 
 instance Prelude.NFData CreatePipeline where
   rnf CreatePipeline' {..} =
-    Prelude.rnf pipelineDisplayName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pipelineDisplayName
       `Prelude.seq` Prelude.rnf pipelineDescription
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf pipelineDefinition
       `Prelude.seq` Prelude.rnf clientRequestToken
@@ -205,11 +204,11 @@ instance Core.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PipelineDisplayName" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("PipelineDisplayName" Core..=)
               Prelude.<$> pipelineDisplayName,
             ("PipelineDescription" Core..=)
               Prelude.<$> pipelineDescription,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("PipelineName" Core..= pipelineName),
             Prelude.Just
               ("PipelineDefinition" Core..= pipelineDefinition),

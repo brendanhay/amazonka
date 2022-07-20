@@ -40,53 +40,47 @@ module Amazonka.SSOOIDC
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** InvalidScopeException
-    _InvalidScopeException,
-
-    -- ** UnsupportedGrantTypeException
-    _UnsupportedGrantTypeException,
+    -- ** InvalidGrantException
+    _InvalidGrantException,
 
     -- ** InvalidClientException
     _InvalidClientException,
 
-    -- ** InvalidClientMetadataException
-    _InvalidClientMetadataException,
+    -- ** UnsupportedGrantTypeException
+    _UnsupportedGrantTypeException,
 
-    -- ** UnauthorizedClientException
-    _UnauthorizedClientException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
-    -- ** SlowDownException
-    _SlowDownException,
+    -- ** ExpiredTokenException
+    _ExpiredTokenException,
 
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** InvalidGrantException
-    _InvalidGrantException,
+    -- ** SlowDownException
+    _SlowDownException,
+
+    -- ** InvalidClientMetadataException
+    _InvalidClientMetadataException,
+
+    -- ** InvalidScopeException
+    _InvalidScopeException,
 
     -- ** AuthorizationPendingException
     _AuthorizationPendingException,
 
-    -- ** ExpiredTokenException
-    _ExpiredTokenException,
+    -- ** UnauthorizedClientException
+    _UnauthorizedClientException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** StartDeviceAuthorization
-    StartDeviceAuthorization (StartDeviceAuthorization'),
-    newStartDeviceAuthorization,
-    StartDeviceAuthorizationResponse (StartDeviceAuthorizationResponse'),
-    newStartDeviceAuthorizationResponse,
 
     -- ** CreateToken
     CreateToken (CreateToken'),
@@ -99,6 +93,12 @@ module Amazonka.SSOOIDC
     newRegisterClient,
     RegisterClientResponse (RegisterClientResponse'),
     newRegisterClientResponse,
+
+    -- ** StartDeviceAuthorization
+    StartDeviceAuthorization (StartDeviceAuthorization'),
+    newStartDeviceAuthorization,
+    StartDeviceAuthorizationResponse (StartDeviceAuthorizationResponse'),
+    newStartDeviceAuthorizationResponse,
 
     -- * Types
   )

@@ -28,7 +28,9 @@ import Amazonka.ServiceQuotas.Types.ErrorCode
 --
 -- /See:/ 'newErrorReason' smart constructor.
 data ErrorReason = ErrorReason'
-  { -- | Service Quotas returns the following error values:
+  { -- | The error message.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Service Quotas returns the following error values:
     --
     -- -   @DEPENDENCY_ACCESS_DENIED_ERROR@ - The caller does not have the
     --     required permissions to complete the action. To resolve the error,
@@ -41,9 +43,7 @@ data ErrorReason = ErrorReason'
     --
     -- -   @SERVICE_QUOTA_NOT_AVAILABLE_ERROR@ - There was an error in Service
     --     Quotas.
-    errorCode :: Prelude.Maybe ErrorCode,
-    -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe ErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,8 @@ data ErrorReason = ErrorReason'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'errorMessage', 'errorReason_errorMessage' - The error message.
 --
 -- 'errorCode', 'errorReason_errorCode' - Service Quotas returns the following error values:
 --
@@ -68,15 +70,17 @@ data ErrorReason = ErrorReason'
 --
 -- -   @SERVICE_QUOTA_NOT_AVAILABLE_ERROR@ - There was an error in Service
 --     Quotas.
---
--- 'errorMessage', 'errorReason_errorMessage' - The error message.
 newErrorReason ::
   ErrorReason
 newErrorReason =
   ErrorReason'
-    { errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorMessage = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
+
+-- | The error message.
+errorReason_errorMessage :: Lens.Lens' ErrorReason (Prelude.Maybe Prelude.Text)
+errorReason_errorMessage = Lens.lens (\ErrorReason' {errorMessage} -> errorMessage) (\s@ErrorReason' {} a -> s {errorMessage = a} :: ErrorReason)
 
 -- | Service Quotas returns the following error values:
 --
@@ -94,26 +98,22 @@ newErrorReason =
 errorReason_errorCode :: Lens.Lens' ErrorReason (Prelude.Maybe ErrorCode)
 errorReason_errorCode = Lens.lens (\ErrorReason' {errorCode} -> errorCode) (\s@ErrorReason' {} a -> s {errorCode = a} :: ErrorReason)
 
--- | The error message.
-errorReason_errorMessage :: Lens.Lens' ErrorReason (Prelude.Maybe Prelude.Text)
-errorReason_errorMessage = Lens.lens (\ErrorReason' {errorMessage} -> errorMessage) (\s@ErrorReason' {} a -> s {errorMessage = a} :: ErrorReason)
-
 instance Core.FromJSON ErrorReason where
   parseJSON =
     Core.withObject
       "ErrorReason"
       ( \x ->
           ErrorReason'
-            Prelude.<$> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
 instance Prelude.Hashable ErrorReason where
   hashWithSalt _salt ErrorReason' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData ErrorReason where
   rnf ErrorReason' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode

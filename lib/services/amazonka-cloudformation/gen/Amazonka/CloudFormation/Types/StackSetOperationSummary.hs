@@ -30,7 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStackSetOperationSummary' smart constructor.
 data StackSetOperationSummary = StackSetOperationSummary'
-  { -- | The overall status of the operation.
+  { -- | The time at which the stack set operation ended, across all accounts and
+    -- Regions specified. Note that this doesn\'t necessarily mean that the
+    -- stack set operation was successful, or even attempted, in each account
+    -- or Region.
+    endTimestamp :: Prelude.Maybe Core.ISO8601,
+    -- | The unique ID of the stack set operation.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The overall status of the operation.
     --
     -- -   @FAILED@: The operation exceeded the specified failure tolerance.
     --     The failure tolerance value that you\'ve set for an operation is
@@ -58,16 +65,6 @@ data StackSetOperationSummary = StackSetOperationSummary'
     --     specified stacks without exceeding the failure tolerance for the
     --     operation.
     status :: Prelude.Maybe StackSetOperationStatus,
-    -- | The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
-    -- delete operations affect only the specified stack instances that are
-    -- associated with the specified stack set. Update operations affect both
-    -- the stack set itself as well as /all/ associated stack set instances.
-    action :: Prelude.Maybe StackSetOperationAction,
-    -- | The time at which the stack set operation ended, across all accounts and
-    -- Regions specified. Note that this doesn\'t necessarily mean that the
-    -- stack set operation was successful, or even attempted, in each account
-    -- or Region.
-    endTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The time at which the operation was initiated. Note that the creation
     -- times for the stack set operation might differ from the creation time of
     -- the individual stacks themselves. This is because CloudFormation needs
@@ -75,8 +72,11 @@ data StackSetOperationSummary = StackSetOperationSummary'
     -- work to the requested Regions, before actually creating the first
     -- stacks.
     creationTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The unique ID of the stack set operation.
-    operationId :: Prelude.Maybe Prelude.Text
+    -- | The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
+    -- delete operations affect only the specified stack instances that are
+    -- associated with the specified stack set. Update operations affect both
+    -- the stack set itself as well as /all/ associated stack set instances.
+    action :: Prelude.Maybe StackSetOperationAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,6 +87,13 @@ data StackSetOperationSummary = StackSetOperationSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'endTimestamp', 'stackSetOperationSummary_endTimestamp' - The time at which the stack set operation ended, across all accounts and
+-- Regions specified. Note that this doesn\'t necessarily mean that the
+-- stack set operation was successful, or even attempted, in each account
+-- or Region.
+--
+-- 'operationId', 'stackSetOperationSummary_operationId' - The unique ID of the stack set operation.
 --
 -- 'status', 'stackSetOperationSummary_status' - The overall status of the operation.
 --
@@ -116,16 +123,6 @@ data StackSetOperationSummary = StackSetOperationSummary'
 --     specified stacks without exceeding the failure tolerance for the
 --     operation.
 --
--- 'action', 'stackSetOperationSummary_action' - The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
--- delete operations affect only the specified stack instances that are
--- associated with the specified stack set. Update operations affect both
--- the stack set itself as well as /all/ associated stack set instances.
---
--- 'endTimestamp', 'stackSetOperationSummary_endTimestamp' - The time at which the stack set operation ended, across all accounts and
--- Regions specified. Note that this doesn\'t necessarily mean that the
--- stack set operation was successful, or even attempted, in each account
--- or Region.
---
 -- 'creationTimestamp', 'stackSetOperationSummary_creationTimestamp' - The time at which the operation was initiated. Note that the creation
 -- times for the stack set operation might differ from the creation time of
 -- the individual stacks themselves. This is because CloudFormation needs
@@ -133,17 +130,32 @@ data StackSetOperationSummary = StackSetOperationSummary'
 -- work to the requested Regions, before actually creating the first
 -- stacks.
 --
--- 'operationId', 'stackSetOperationSummary_operationId' - The unique ID of the stack set operation.
+-- 'action', 'stackSetOperationSummary_action' - The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
+-- delete operations affect only the specified stack instances that are
+-- associated with the specified stack set. Update operations affect both
+-- the stack set itself as well as /all/ associated stack set instances.
 newStackSetOperationSummary ::
   StackSetOperationSummary
 newStackSetOperationSummary =
   StackSetOperationSummary'
-    { status = Prelude.Nothing,
-      action = Prelude.Nothing,
-      endTimestamp = Prelude.Nothing,
+    { endTimestamp =
+        Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      status = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
-      operationId = Prelude.Nothing
+      action = Prelude.Nothing
     }
+
+-- | The time at which the stack set operation ended, across all accounts and
+-- Regions specified. Note that this doesn\'t necessarily mean that the
+-- stack set operation was successful, or even attempted, in each account
+-- or Region.
+stackSetOperationSummary_endTimestamp :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.UTCTime)
+stackSetOperationSummary_endTimestamp = Lens.lens (\StackSetOperationSummary' {endTimestamp} -> endTimestamp) (\s@StackSetOperationSummary' {} a -> s {endTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The unique ID of the stack set operation.
+stackSetOperationSummary_operationId :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.Text)
+stackSetOperationSummary_operationId = Lens.lens (\StackSetOperationSummary' {operationId} -> operationId) (\s@StackSetOperationSummary' {} a -> s {operationId = a} :: StackSetOperationSummary)
 
 -- | The overall status of the operation.
 --
@@ -175,20 +187,6 @@ newStackSetOperationSummary =
 stackSetOperationSummary_status :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationStatus)
 stackSetOperationSummary_status = Lens.lens (\StackSetOperationSummary' {status} -> status) (\s@StackSetOperationSummary' {} a -> s {status = a} :: StackSetOperationSummary)
 
--- | The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
--- delete operations affect only the specified stack instances that are
--- associated with the specified stack set. Update operations affect both
--- the stack set itself as well as /all/ associated stack set instances.
-stackSetOperationSummary_action :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationAction)
-stackSetOperationSummary_action = Lens.lens (\StackSetOperationSummary' {action} -> action) (\s@StackSetOperationSummary' {} a -> s {action = a} :: StackSetOperationSummary)
-
--- | The time at which the stack set operation ended, across all accounts and
--- Regions specified. Note that this doesn\'t necessarily mean that the
--- stack set operation was successful, or even attempted, in each account
--- or Region.
-stackSetOperationSummary_endTimestamp :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.UTCTime)
-stackSetOperationSummary_endTimestamp = Lens.lens (\StackSetOperationSummary' {endTimestamp} -> endTimestamp) (\s@StackSetOperationSummary' {} a -> s {endTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Core._Time
-
 -- | The time at which the operation was initiated. Note that the creation
 -- times for the stack set operation might differ from the creation time of
 -- the individual stacks themselves. This is because CloudFormation needs
@@ -198,31 +196,34 @@ stackSetOperationSummary_endTimestamp = Lens.lens (\StackSetOperationSummary' {e
 stackSetOperationSummary_creationTimestamp :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.UTCTime)
 stackSetOperationSummary_creationTimestamp = Lens.lens (\StackSetOperationSummary' {creationTimestamp} -> creationTimestamp) (\s@StackSetOperationSummary' {} a -> s {creationTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Core._Time
 
--- | The unique ID of the stack set operation.
-stackSetOperationSummary_operationId :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.Text)
-stackSetOperationSummary_operationId = Lens.lens (\StackSetOperationSummary' {operationId} -> operationId) (\s@StackSetOperationSummary' {} a -> s {operationId = a} :: StackSetOperationSummary)
+-- | The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
+-- delete operations affect only the specified stack instances that are
+-- associated with the specified stack set. Update operations affect both
+-- the stack set itself as well as /all/ associated stack set instances.
+stackSetOperationSummary_action :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationAction)
+stackSetOperationSummary_action = Lens.lens (\StackSetOperationSummary' {action} -> action) (\s@StackSetOperationSummary' {} a -> s {action = a} :: StackSetOperationSummary)
 
 instance Core.FromXML StackSetOperationSummary where
   parseXML x =
     StackSetOperationSummary'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "Action")
-      Prelude.<*> (x Core..@? "EndTimestamp")
-      Prelude.<*> (x Core..@? "CreationTimestamp")
+      Prelude.<$> (x Core..@? "EndTimestamp")
       Prelude.<*> (x Core..@? "OperationId")
+      Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "CreationTimestamp")
+      Prelude.<*> (x Core..@? "Action")
 
 instance Prelude.Hashable StackSetOperationSummary where
   hashWithSalt _salt StackSetOperationSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` endTimestamp
-      `Prelude.hashWithSalt` creationTimestamp
+    _salt `Prelude.hashWithSalt` endTimestamp
       `Prelude.hashWithSalt` operationId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` action
 
 instance Prelude.NFData StackSetOperationSummary where
   rnf StackSetOperationSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf endTimestamp
-      `Prelude.seq` Prelude.rnf creationTimestamp
+    Prelude.rnf endTimestamp
       `Prelude.seq` Prelude.rnf operationId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf action

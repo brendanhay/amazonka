@@ -17,12 +17,12 @@ module Amazonka.HealthLake.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ThrottlingException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * CmkType
     CmkType (..),
@@ -42,18 +42,18 @@ module Amazonka.HealthLake.Types
     -- * DatastoreFilter
     DatastoreFilter (..),
     newDatastoreFilter,
-    datastoreFilter_createdAfter,
-    datastoreFilter_datastoreName,
-    datastoreFilter_datastoreStatus,
     datastoreFilter_createdBefore,
+    datastoreFilter_datastoreName,
+    datastoreFilter_createdAfter,
+    datastoreFilter_datastoreStatus,
 
     -- * DatastoreProperties
     DatastoreProperties (..),
     newDatastoreProperties,
-    datastoreProperties_sseConfiguration,
-    datastoreProperties_createdAt,
     datastoreProperties_datastoreName,
+    datastoreProperties_sseConfiguration,
     datastoreProperties_preloadDataConfig,
+    datastoreProperties_createdAt,
     datastoreProperties_datastoreId,
     datastoreProperties_datastoreArn,
     datastoreProperties_datastoreStatus,
@@ -63,10 +63,10 @@ module Amazonka.HealthLake.Types
     -- * ExportJobProperties
     ExportJobProperties (..),
     newExportJobProperties,
-    exportJobProperties_jobName,
-    exportJobProperties_endTime,
-    exportJobProperties_dataAccessRoleArn,
     exportJobProperties_message,
+    exportJobProperties_jobName,
+    exportJobProperties_dataAccessRoleArn,
+    exportJobProperties_endTime,
     exportJobProperties_jobId,
     exportJobProperties_jobStatus,
     exportJobProperties_submitTime,
@@ -76,11 +76,11 @@ module Amazonka.HealthLake.Types
     -- * ImportJobProperties
     ImportJobProperties (..),
     newImportJobProperties,
-    importJobProperties_jobOutputDataConfig,
-    importJobProperties_jobName,
-    importJobProperties_endTime,
-    importJobProperties_dataAccessRoleArn,
     importJobProperties_message,
+    importJobProperties_jobName,
+    importJobProperties_jobOutputDataConfig,
+    importJobProperties_dataAccessRoleArn,
+    importJobProperties_endTime,
     importJobProperties_jobId,
     importJobProperties_jobStatus,
     importJobProperties_submitTime,
@@ -174,35 +174,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -211,20 +184,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The user input parameter was invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
 
 -- | Access is denied. Your account is not authorized to perform this
 -- operation.
@@ -233,6 +226,20 @@ _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
+
+-- | Unknown error occurs in the service.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+
+-- | The requested Data Store was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
 -- | The Data Store is in a transition state and the user requested action
 -- can not be performed.
@@ -250,16 +257,9 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
 
--- | Unknown error occurs in the service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The user input parameter was invalid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-
--- | The requested Data Store was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
+    "ValidationException"

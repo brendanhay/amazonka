@@ -33,10 +33,10 @@ import Amazonka.Rekognition.Types.StreamProcessorStatus
 --
 -- /See:/ 'newStreamProcessor' smart constructor.
 data StreamProcessor = StreamProcessor'
-  { -- | Current status of the Amazon Rekognition stream processor.
-    status :: Prelude.Maybe StreamProcessorStatus,
-    -- | Name of the Amazon Rekognition stream processor.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | Name of the Amazon Rekognition stream processor.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Current status of the Amazon Rekognition stream processor.
+    status :: Prelude.Maybe StreamProcessorStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,24 @@ data StreamProcessor = StreamProcessor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'streamProcessor_status' - Current status of the Amazon Rekognition stream processor.
---
 -- 'name', 'streamProcessor_name' - Name of the Amazon Rekognition stream processor.
+--
+-- 'status', 'streamProcessor_status' - Current status of the Amazon Rekognition stream processor.
 newStreamProcessor ::
   StreamProcessor
 newStreamProcessor =
   StreamProcessor'
-    { status = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | Current status of the Amazon Rekognition stream processor.
-streamProcessor_status :: Lens.Lens' StreamProcessor (Prelude.Maybe StreamProcessorStatus)
-streamProcessor_status = Lens.lens (\StreamProcessor' {status} -> status) (\s@StreamProcessor' {} a -> s {status = a} :: StreamProcessor)
 
 -- | Name of the Amazon Rekognition stream processor.
 streamProcessor_name :: Lens.Lens' StreamProcessor (Prelude.Maybe Prelude.Text)
 streamProcessor_name = Lens.lens (\StreamProcessor' {name} -> name) (\s@StreamProcessor' {} a -> s {name = a} :: StreamProcessor)
+
+-- | Current status of the Amazon Rekognition stream processor.
+streamProcessor_status :: Lens.Lens' StreamProcessor (Prelude.Maybe StreamProcessorStatus)
+streamProcessor_status = Lens.lens (\StreamProcessor' {status} -> status) (\s@StreamProcessor' {} a -> s {status = a} :: StreamProcessor)
 
 instance Core.FromJSON StreamProcessor where
   parseJSON =
@@ -73,15 +73,15 @@ instance Core.FromJSON StreamProcessor where
       "StreamProcessor"
       ( \x ->
           StreamProcessor'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Status")
       )
 
 instance Prelude.Hashable StreamProcessor where
   hashWithSalt _salt StreamProcessor' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData StreamProcessor where
   rnf StreamProcessor' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf status

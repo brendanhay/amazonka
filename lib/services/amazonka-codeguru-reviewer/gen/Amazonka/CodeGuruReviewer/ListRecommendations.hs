@@ -36,8 +36,8 @@ module Amazonka.CodeGuruReviewer.ListRecommendations
     newListRecommendationsResponse,
 
     -- * Response Lenses
-    listRecommendationsResponse_nextToken,
     listRecommendationsResponse_recommendationSummaries,
+    listRecommendationsResponse_nextToken,
     listRecommendationsResponse_httpStatus,
   )
 where
@@ -114,10 +114,10 @@ instance Core.AWSRequest ListRecommendations where
     Response.receiveJSON
       ( \s h x ->
           ListRecommendationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RecommendationSummaries"
+            Prelude.<$> ( x Core..?> "RecommendationSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,10 +161,10 @@ instance Core.ToQuery ListRecommendations where
 
 -- | /See:/ 'newListRecommendationsResponse' smart constructor.
 data ListRecommendationsResponse = ListRecommendationsResponse'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of recommendations for the requested code review.
+  { -- | List of recommendations for the requested code review.
     recommendationSummaries :: Prelude.Maybe [RecommendationSummary],
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data ListRecommendationsResponse = ListRecommendationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecommendationsResponse_nextToken' - Pagination token.
---
 -- 'recommendationSummaries', 'listRecommendationsResponse_recommendationSummaries' - List of recommendations for the requested code review.
+--
+-- 'nextToken', 'listRecommendationsResponse_nextToken' - Pagination token.
 --
 -- 'httpStatus', 'listRecommendationsResponse_httpStatus' - The response's http status code.
 newListRecommendationsResponse ::
@@ -189,19 +189,19 @@ newListRecommendationsResponse ::
   ListRecommendationsResponse
 newListRecommendationsResponse pHttpStatus_ =
   ListRecommendationsResponse'
-    { nextToken =
+    { recommendationSummaries =
         Prelude.Nothing,
-      recommendationSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Pagination token.
-listRecommendationsResponse_nextToken :: Lens.Lens' ListRecommendationsResponse (Prelude.Maybe Prelude.Text)
-listRecommendationsResponse_nextToken = Lens.lens (\ListRecommendationsResponse' {nextToken} -> nextToken) (\s@ListRecommendationsResponse' {} a -> s {nextToken = a} :: ListRecommendationsResponse)
 
 -- | List of recommendations for the requested code review.
 listRecommendationsResponse_recommendationSummaries :: Lens.Lens' ListRecommendationsResponse (Prelude.Maybe [RecommendationSummary])
 listRecommendationsResponse_recommendationSummaries = Lens.lens (\ListRecommendationsResponse' {recommendationSummaries} -> recommendationSummaries) (\s@ListRecommendationsResponse' {} a -> s {recommendationSummaries = a} :: ListRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Pagination token.
+listRecommendationsResponse_nextToken :: Lens.Lens' ListRecommendationsResponse (Prelude.Maybe Prelude.Text)
+listRecommendationsResponse_nextToken = Lens.lens (\ListRecommendationsResponse' {nextToken} -> nextToken) (\s@ListRecommendationsResponse' {} a -> s {nextToken = a} :: ListRecommendationsResponse)
 
 -- | The response's http status code.
 listRecommendationsResponse_httpStatus :: Lens.Lens' ListRecommendationsResponse Prelude.Int
@@ -209,6 +209,6 @@ listRecommendationsResponse_httpStatus = Lens.lens (\ListRecommendationsResponse
 
 instance Prelude.NFData ListRecommendationsResponse where
   rnf ListRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationSummaries
+    Prelude.rnf recommendationSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

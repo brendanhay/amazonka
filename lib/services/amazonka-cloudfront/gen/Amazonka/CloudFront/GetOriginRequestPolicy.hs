@@ -45,8 +45,8 @@ module Amazonka.CloudFront.GetOriginRequestPolicy
     newGetOriginRequestPolicyResponse,
 
     -- * Response Lenses
-    getOriginRequestPolicyResponse_eTag,
     getOriginRequestPolicyResponse_originRequestPolicy,
+    getOriginRequestPolicyResponse_eTag,
     getOriginRequestPolicyResponse_httpStatus,
   )
 where
@@ -109,8 +109,8 @@ instance Core.AWSRequest GetOriginRequestPolicy where
     Response.receiveXML
       ( \s h x ->
           GetOriginRequestPolicyResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,10 +134,10 @@ instance Core.ToQuery GetOriginRequestPolicy where
 
 -- | /See:/ 'newGetOriginRequestPolicyResponse' smart constructor.
 data GetOriginRequestPolicyResponse = GetOriginRequestPolicyResponse'
-  { -- | The current version of the origin request policy.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The origin request policy.
+  { -- | The origin request policy.
     originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
+    -- | The current version of the origin request policy.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,9 +151,9 @@ data GetOriginRequestPolicyResponse = GetOriginRequestPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'getOriginRequestPolicyResponse_eTag' - The current version of the origin request policy.
---
 -- 'originRequestPolicy', 'getOriginRequestPolicyResponse_originRequestPolicy' - The origin request policy.
+--
+-- 'eTag', 'getOriginRequestPolicyResponse_eTag' - The current version of the origin request policy.
 --
 -- 'httpStatus', 'getOriginRequestPolicyResponse_httpStatus' - The response's http status code.
 newGetOriginRequestPolicyResponse ::
@@ -162,19 +162,19 @@ newGetOriginRequestPolicyResponse ::
   GetOriginRequestPolicyResponse
 newGetOriginRequestPolicyResponse pHttpStatus_ =
   GetOriginRequestPolicyResponse'
-    { eTag =
+    { originRequestPolicy =
         Prelude.Nothing,
-      originRequestPolicy = Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current version of the origin request policy.
-getOriginRequestPolicyResponse_eTag :: Lens.Lens' GetOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
-getOriginRequestPolicyResponse_eTag = Lens.lens (\GetOriginRequestPolicyResponse' {eTag} -> eTag) (\s@GetOriginRequestPolicyResponse' {} a -> s {eTag = a} :: GetOriginRequestPolicyResponse)
 
 -- | The origin request policy.
 getOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' GetOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
 getOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\GetOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@GetOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: GetOriginRequestPolicyResponse)
+
+-- | The current version of the origin request policy.
+getOriginRequestPolicyResponse_eTag :: Lens.Lens' GetOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
+getOriginRequestPolicyResponse_eTag = Lens.lens (\GetOriginRequestPolicyResponse' {eTag} -> eTag) (\s@GetOriginRequestPolicyResponse' {} a -> s {eTag = a} :: GetOriginRequestPolicyResponse)
 
 -- | The response's http status code.
 getOriginRequestPolicyResponse_httpStatus :: Lens.Lens' GetOriginRequestPolicyResponse Prelude.Int
@@ -185,6 +185,6 @@ instance
     GetOriginRequestPolicyResponse
   where
   rnf GetOriginRequestPolicyResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf originRequestPolicy
+    Prelude.rnf originRequestPolicy
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

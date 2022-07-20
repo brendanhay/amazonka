@@ -31,8 +31,8 @@ module Amazonka.DMS.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_resourceArn,
     listTagsForResource_resourceArnList,
+    listTagsForResource_resourceArn,
 
     -- * Destructuring the Response
     ListTagsForResourceResponse (..),
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) string that uniquely identifies the DMS
-    -- resource to list tags for. This returns a list of keys (names of tags)
-    -- created for the resource and their associated tag values.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | List of ARNs that identify multiple DMS resources that you want to list
+  { -- | List of ARNs that identify multiple DMS resources that you want to list
     -- tags for. This returns a list of keys (tag names) and their associated
     -- tag values. It also returns each tag\'s associated @ResourceArn@ value,
     -- which is the ARN of the resource for which each listed tag is created.
-    resourceArnList :: Prelude.Maybe [Prelude.Text]
+    resourceArnList :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the DMS
+    -- resource to list tags for. This returns a list of keys (names of tags)
+    -- created for the resource and their associated tag values.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,27 +75,22 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) string that uniquely identifies the DMS
--- resource to list tags for. This returns a list of keys (names of tags)
--- created for the resource and their associated tag values.
---
 -- 'resourceArnList', 'listTagsForResource_resourceArnList' - List of ARNs that identify multiple DMS resources that you want to list
 -- tags for. This returns a list of keys (tag names) and their associated
 -- tag values. It also returns each tag\'s associated @ResourceArn@ value,
 -- which is the ARN of the resource for which each listed tag is created.
+--
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) string that uniquely identifies the DMS
+-- resource to list tags for. This returns a list of keys (names of tags)
+-- created for the resource and their associated tag values.
 newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource =
   ListTagsForResource'
-    { resourceArn = Prelude.Nothing,
-      resourceArnList = Prelude.Nothing
+    { resourceArnList =
+        Prelude.Nothing,
+      resourceArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) string that uniquely identifies the DMS
--- resource to list tags for. This returns a list of keys (names of tags)
--- created for the resource and their associated tag values.
-listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
-listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
 -- | List of ARNs that identify multiple DMS resources that you want to list
 -- tags for. This returns a list of keys (tag names) and their associated
@@ -103,6 +98,12 @@ listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn}
 -- which is the ARN of the resource for which each listed tag is created.
 listTagsForResource_resourceArnList :: Lens.Lens' ListTagsForResource (Prelude.Maybe [Prelude.Text])
 listTagsForResource_resourceArnList = Lens.lens (\ListTagsForResource' {resourceArnList} -> resourceArnList) (\s@ListTagsForResource' {} a -> s {resourceArnList = a} :: ListTagsForResource) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the DMS
+-- resource to list tags for. This returns a list of keys (names of tags)
+-- created for the resource and their associated tag values.
+listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
+listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
 instance Core.AWSRequest ListTagsForResource where
   type
@@ -119,13 +120,13 @@ instance Core.AWSRequest ListTagsForResource where
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` resourceArnList
+    _salt `Prelude.hashWithSalt` resourceArnList
+      `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf resourceArnList
+    Prelude.rnf resourceArnList
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Core.ToHeaders ListTagsForResource where
   toHeaders =
@@ -146,9 +147,9 @@ instance Core.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceArn" Core..=) Prelude.<$> resourceArn,
-            ("ResourceArnList" Core..=)
-              Prelude.<$> resourceArnList
+          [ ("ResourceArnList" Core..=)
+              Prelude.<$> resourceArnList,
+            ("ResourceArn" Core..=) Prelude.<$> resourceArn
           ]
       )
 

@@ -27,12 +27,12 @@ module Amazonka.AlexaBusiness.UpdateNetworkProfile
     newUpdateNetworkProfile,
 
     -- * Request Lenses
-    updateNetworkProfile_networkProfileName,
-    updateNetworkProfile_currentPassword,
-    updateNetworkProfile_nextPassword,
+    updateNetworkProfile_certificateAuthorityArn,
     updateNetworkProfile_description,
     updateNetworkProfile_trustAnchors,
-    updateNetworkProfile_certificateAuthorityArn,
+    updateNetworkProfile_currentPassword,
+    updateNetworkProfile_nextPassword,
+    updateNetworkProfile_networkProfileName,
     updateNetworkProfile_networkProfileArn,
 
     -- * Destructuring the Response
@@ -53,24 +53,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateNetworkProfile' smart constructor.
 data UpdateNetworkProfile = UpdateNetworkProfile'
-  { -- | The name of the network profile associated with a device.
-    networkProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The current password of the Wi-Fi network.
-    currentPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The next, or subsequent, password of the Wi-Fi network. This password is
-    -- asynchronously transmitted to the device and is used when the password
-    -- of the network changes to NextPassword.
-    nextPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+  { -- | The ARN of the Private Certificate Authority (PCA) created in AWS
+    -- Certificate Manager (ACM). This is used to issue certificates to the
+    -- devices.
+    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about a device\'s network profile.
     description :: Prelude.Maybe Prelude.Text,
     -- | The root certificate(s) of your authentication server that will be
     -- installed on your devices and used to trust your authentication server
     -- during EAP negotiation.
     trustAnchors :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The ARN of the Private Certificate Authority (PCA) created in AWS
-    -- Certificate Manager (ACM). This is used to issue certificates to the
-    -- devices.
-    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    -- | The current password of the Wi-Fi network.
+    currentPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The next, or subsequent, password of the Wi-Fi network. This password is
+    -- asynchronously transmitted to the device and is used when the password
+    -- of the network changes to NextPassword.
+    nextPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The name of the network profile associated with a device.
+    networkProfileName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network profile associated with a device.
     networkProfileArn :: Prelude.Text
   }
@@ -84,13 +84,9 @@ data UpdateNetworkProfile = UpdateNetworkProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkProfileName', 'updateNetworkProfile_networkProfileName' - The name of the network profile associated with a device.
---
--- 'currentPassword', 'updateNetworkProfile_currentPassword' - The current password of the Wi-Fi network.
---
--- 'nextPassword', 'updateNetworkProfile_nextPassword' - The next, or subsequent, password of the Wi-Fi network. This password is
--- asynchronously transmitted to the device and is used when the password
--- of the network changes to NextPassword.
+-- 'certificateAuthorityArn', 'updateNetworkProfile_certificateAuthorityArn' - The ARN of the Private Certificate Authority (PCA) created in AWS
+-- Certificate Manager (ACM). This is used to issue certificates to the
+-- devices.
 --
 -- 'description', 'updateNetworkProfile_description' - Detailed information about a device\'s network profile.
 --
@@ -98,9 +94,13 @@ data UpdateNetworkProfile = UpdateNetworkProfile'
 -- installed on your devices and used to trust your authentication server
 -- during EAP negotiation.
 --
--- 'certificateAuthorityArn', 'updateNetworkProfile_certificateAuthorityArn' - The ARN of the Private Certificate Authority (PCA) created in AWS
--- Certificate Manager (ACM). This is used to issue certificates to the
--- devices.
+-- 'currentPassword', 'updateNetworkProfile_currentPassword' - The current password of the Wi-Fi network.
+--
+-- 'nextPassword', 'updateNetworkProfile_nextPassword' - The next, or subsequent, password of the Wi-Fi network. This password is
+-- asynchronously transmitted to the device and is used when the password
+-- of the network changes to NextPassword.
+--
+-- 'networkProfileName', 'updateNetworkProfile_networkProfileName' - The name of the network profile associated with a device.
 --
 -- 'networkProfileArn', 'updateNetworkProfile_networkProfileArn' - The ARN of the network profile associated with a device.
 newUpdateNetworkProfile ::
@@ -109,29 +109,21 @@ newUpdateNetworkProfile ::
   UpdateNetworkProfile
 newUpdateNetworkProfile pNetworkProfileArn_ =
   UpdateNetworkProfile'
-    { networkProfileName =
+    { certificateAuthorityArn =
         Prelude.Nothing,
-      currentPassword = Prelude.Nothing,
-      nextPassword = Prelude.Nothing,
       description = Prelude.Nothing,
       trustAnchors = Prelude.Nothing,
-      certificateAuthorityArn = Prelude.Nothing,
+      currentPassword = Prelude.Nothing,
+      nextPassword = Prelude.Nothing,
+      networkProfileName = Prelude.Nothing,
       networkProfileArn = pNetworkProfileArn_
     }
 
--- | The name of the network profile associated with a device.
-updateNetworkProfile_networkProfileName :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
-updateNetworkProfile_networkProfileName = Lens.lens (\UpdateNetworkProfile' {networkProfileName} -> networkProfileName) (\s@UpdateNetworkProfile' {} a -> s {networkProfileName = a} :: UpdateNetworkProfile)
-
--- | The current password of the Wi-Fi network.
-updateNetworkProfile_currentPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
-updateNetworkProfile_currentPassword = Lens.lens (\UpdateNetworkProfile' {currentPassword} -> currentPassword) (\s@UpdateNetworkProfile' {} a -> s {currentPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Core._Sensitive
-
--- | The next, or subsequent, password of the Wi-Fi network. This password is
--- asynchronously transmitted to the device and is used when the password
--- of the network changes to NextPassword.
-updateNetworkProfile_nextPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
-updateNetworkProfile_nextPassword = Lens.lens (\UpdateNetworkProfile' {nextPassword} -> nextPassword) (\s@UpdateNetworkProfile' {} a -> s {nextPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+-- | The ARN of the Private Certificate Authority (PCA) created in AWS
+-- Certificate Manager (ACM). This is used to issue certificates to the
+-- devices.
+updateNetworkProfile_certificateAuthorityArn :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
+updateNetworkProfile_certificateAuthorityArn = Lens.lens (\UpdateNetworkProfile' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@UpdateNetworkProfile' {} a -> s {certificateAuthorityArn = a} :: UpdateNetworkProfile)
 
 -- | Detailed information about a device\'s network profile.
 updateNetworkProfile_description :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
@@ -143,11 +135,19 @@ updateNetworkProfile_description = Lens.lens (\UpdateNetworkProfile' {descriptio
 updateNetworkProfile_trustAnchors :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateNetworkProfile_trustAnchors = Lens.lens (\UpdateNetworkProfile' {trustAnchors} -> trustAnchors) (\s@UpdateNetworkProfile' {} a -> s {trustAnchors = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the Private Certificate Authority (PCA) created in AWS
--- Certificate Manager (ACM). This is used to issue certificates to the
--- devices.
-updateNetworkProfile_certificateAuthorityArn :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
-updateNetworkProfile_certificateAuthorityArn = Lens.lens (\UpdateNetworkProfile' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@UpdateNetworkProfile' {} a -> s {certificateAuthorityArn = a} :: UpdateNetworkProfile)
+-- | The current password of the Wi-Fi network.
+updateNetworkProfile_currentPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
+updateNetworkProfile_currentPassword = Lens.lens (\UpdateNetworkProfile' {currentPassword} -> currentPassword) (\s@UpdateNetworkProfile' {} a -> s {currentPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The next, or subsequent, password of the Wi-Fi network. This password is
+-- asynchronously transmitted to the device and is used when the password
+-- of the network changes to NextPassword.
+updateNetworkProfile_nextPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
+updateNetworkProfile_nextPassword = Lens.lens (\UpdateNetworkProfile' {nextPassword} -> nextPassword) (\s@UpdateNetworkProfile' {} a -> s {nextPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The name of the network profile associated with a device.
+updateNetworkProfile_networkProfileName :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
+updateNetworkProfile_networkProfileName = Lens.lens (\UpdateNetworkProfile' {networkProfileName} -> networkProfileName) (\s@UpdateNetworkProfile' {} a -> s {networkProfileName = a} :: UpdateNetworkProfile)
 
 -- | The ARN of the network profile associated with a device.
 updateNetworkProfile_networkProfileArn :: Lens.Lens' UpdateNetworkProfile Prelude.Text
@@ -167,22 +167,23 @@ instance Core.AWSRequest UpdateNetworkProfile where
 
 instance Prelude.Hashable UpdateNetworkProfile where
   hashWithSalt _salt UpdateNetworkProfile' {..} =
-    _salt `Prelude.hashWithSalt` networkProfileName
-      `Prelude.hashWithSalt` currentPassword
-      `Prelude.hashWithSalt` nextPassword
+    _salt
+      `Prelude.hashWithSalt` certificateAuthorityArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` trustAnchors
-      `Prelude.hashWithSalt` certificateAuthorityArn
+      `Prelude.hashWithSalt` currentPassword
+      `Prelude.hashWithSalt` nextPassword
+      `Prelude.hashWithSalt` networkProfileName
       `Prelude.hashWithSalt` networkProfileArn
 
 instance Prelude.NFData UpdateNetworkProfile where
   rnf UpdateNetworkProfile' {..} =
-    Prelude.rnf networkProfileName
-      `Prelude.seq` Prelude.rnf currentPassword
-      `Prelude.seq` Prelude.rnf nextPassword
+    Prelude.rnf certificateAuthorityArn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf trustAnchors
-      `Prelude.seq` Prelude.rnf certificateAuthorityArn
+      `Prelude.seq` Prelude.rnf currentPassword
+      `Prelude.seq` Prelude.rnf nextPassword
+      `Prelude.seq` Prelude.rnf networkProfileName
       `Prelude.seq` Prelude.rnf networkProfileArn
 
 instance Core.ToHeaders UpdateNetworkProfile where
@@ -204,15 +205,15 @@ instance Core.ToJSON UpdateNetworkProfile where
   toJSON UpdateNetworkProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NetworkProfileName" Core..=)
-              Prelude.<$> networkProfileName,
+          [ ("CertificateAuthorityArn" Core..=)
+              Prelude.<$> certificateAuthorityArn,
+            ("Description" Core..=) Prelude.<$> description,
+            ("TrustAnchors" Core..=) Prelude.<$> trustAnchors,
             ("CurrentPassword" Core..=)
               Prelude.<$> currentPassword,
             ("NextPassword" Core..=) Prelude.<$> nextPassword,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TrustAnchors" Core..=) Prelude.<$> trustAnchors,
-            ("CertificateAuthorityArn" Core..=)
-              Prelude.<$> certificateAuthorityArn,
+            ("NetworkProfileName" Core..=)
+              Prelude.<$> networkProfileName,
             Prelude.Just
               ("NetworkProfileArn" Core..= networkProfileArn)
           ]

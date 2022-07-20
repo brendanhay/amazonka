@@ -39,22 +39,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEncoderSettings' smart constructor.
 data EncoderSettings = EncoderSettings'
-  { -- | Settings for caption decriptions
-    captionDescriptions :: Prelude.Maybe [CaptionDescription],
-    -- | Event-wide configuration settings for ad avail insertion.
-    availConfiguration :: Prelude.Maybe AvailConfiguration,
-    -- | Feature Activations
-    featureActivations :: Prelude.Maybe FeatureActivations,
-    -- | Nielsen configuration settings.
-    nielsenConfiguration :: Prelude.Maybe NielsenConfiguration,
+  { -- | Configuration settings that apply to the event as a whole.
+    globalConfiguration :: Prelude.Maybe GlobalConfiguration,
     -- | Settings for ad avail blanking.
     availBlanking :: Prelude.Maybe AvailBlanking,
-    -- | Configuration settings that apply to the event as a whole.
-    globalConfiguration :: Prelude.Maybe GlobalConfiguration,
+    -- | Feature Activations
+    featureActivations :: Prelude.Maybe FeatureActivations,
     -- | Settings for motion graphics.
     motionGraphicsConfiguration :: Prelude.Maybe MotionGraphicsConfiguration,
+    -- | Settings for caption decriptions
+    captionDescriptions :: Prelude.Maybe [CaptionDescription],
     -- | Settings for blackout slate.
     blackoutSlate :: Prelude.Maybe BlackoutSlate,
+    -- | Nielsen configuration settings.
+    nielsenConfiguration :: Prelude.Maybe NielsenConfiguration,
+    -- | Event-wide configuration settings for ad avail insertion.
+    availConfiguration :: Prelude.Maybe AvailConfiguration,
     videoDescriptions :: [VideoDescription],
     audioDescriptions :: [AudioDescription],
     outputGroups :: [OutputGroup],
@@ -72,21 +72,21 @@ data EncoderSettings = EncoderSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'captionDescriptions', 'encoderSettings_captionDescriptions' - Settings for caption decriptions
---
--- 'availConfiguration', 'encoderSettings_availConfiguration' - Event-wide configuration settings for ad avail insertion.
---
--- 'featureActivations', 'encoderSettings_featureActivations' - Feature Activations
---
--- 'nielsenConfiguration', 'encoderSettings_nielsenConfiguration' - Nielsen configuration settings.
+-- 'globalConfiguration', 'encoderSettings_globalConfiguration' - Configuration settings that apply to the event as a whole.
 --
 -- 'availBlanking', 'encoderSettings_availBlanking' - Settings for ad avail blanking.
 --
--- 'globalConfiguration', 'encoderSettings_globalConfiguration' - Configuration settings that apply to the event as a whole.
+-- 'featureActivations', 'encoderSettings_featureActivations' - Feature Activations
 --
 -- 'motionGraphicsConfiguration', 'encoderSettings_motionGraphicsConfiguration' - Settings for motion graphics.
 --
+-- 'captionDescriptions', 'encoderSettings_captionDescriptions' - Settings for caption decriptions
+--
 -- 'blackoutSlate', 'encoderSettings_blackoutSlate' - Settings for blackout slate.
+--
+-- 'nielsenConfiguration', 'encoderSettings_nielsenConfiguration' - Nielsen configuration settings.
+--
+-- 'availConfiguration', 'encoderSettings_availConfiguration' - Event-wide configuration settings for ad avail insertion.
 --
 -- 'videoDescriptions', 'encoderSettings_videoDescriptions' - Undocumented member.
 --
@@ -102,52 +102,52 @@ newEncoderSettings ::
   EncoderSettings
 newEncoderSettings pTimecodeConfig_ =
   EncoderSettings'
-    { captionDescriptions =
+    { globalConfiguration =
         Prelude.Nothing,
-      availConfiguration = Prelude.Nothing,
-      featureActivations = Prelude.Nothing,
-      nielsenConfiguration = Prelude.Nothing,
       availBlanking = Prelude.Nothing,
-      globalConfiguration = Prelude.Nothing,
+      featureActivations = Prelude.Nothing,
       motionGraphicsConfiguration = Prelude.Nothing,
+      captionDescriptions = Prelude.Nothing,
       blackoutSlate = Prelude.Nothing,
+      nielsenConfiguration = Prelude.Nothing,
+      availConfiguration = Prelude.Nothing,
       videoDescriptions = Prelude.mempty,
       audioDescriptions = Prelude.mempty,
       outputGroups = Prelude.mempty,
       timecodeConfig = pTimecodeConfig_
     }
 
--- | Settings for caption decriptions
-encoderSettings_captionDescriptions :: Lens.Lens' EncoderSettings (Prelude.Maybe [CaptionDescription])
-encoderSettings_captionDescriptions = Lens.lens (\EncoderSettings' {captionDescriptions} -> captionDescriptions) (\s@EncoderSettings' {} a -> s {captionDescriptions = a} :: EncoderSettings) Prelude.. Lens.mapping Lens.coerced
-
--- | Event-wide configuration settings for ad avail insertion.
-encoderSettings_availConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe AvailConfiguration)
-encoderSettings_availConfiguration = Lens.lens (\EncoderSettings' {availConfiguration} -> availConfiguration) (\s@EncoderSettings' {} a -> s {availConfiguration = a} :: EncoderSettings)
-
--- | Feature Activations
-encoderSettings_featureActivations :: Lens.Lens' EncoderSettings (Prelude.Maybe FeatureActivations)
-encoderSettings_featureActivations = Lens.lens (\EncoderSettings' {featureActivations} -> featureActivations) (\s@EncoderSettings' {} a -> s {featureActivations = a} :: EncoderSettings)
-
--- | Nielsen configuration settings.
-encoderSettings_nielsenConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe NielsenConfiguration)
-encoderSettings_nielsenConfiguration = Lens.lens (\EncoderSettings' {nielsenConfiguration} -> nielsenConfiguration) (\s@EncoderSettings' {} a -> s {nielsenConfiguration = a} :: EncoderSettings)
+-- | Configuration settings that apply to the event as a whole.
+encoderSettings_globalConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe GlobalConfiguration)
+encoderSettings_globalConfiguration = Lens.lens (\EncoderSettings' {globalConfiguration} -> globalConfiguration) (\s@EncoderSettings' {} a -> s {globalConfiguration = a} :: EncoderSettings)
 
 -- | Settings for ad avail blanking.
 encoderSettings_availBlanking :: Lens.Lens' EncoderSettings (Prelude.Maybe AvailBlanking)
 encoderSettings_availBlanking = Lens.lens (\EncoderSettings' {availBlanking} -> availBlanking) (\s@EncoderSettings' {} a -> s {availBlanking = a} :: EncoderSettings)
 
--- | Configuration settings that apply to the event as a whole.
-encoderSettings_globalConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe GlobalConfiguration)
-encoderSettings_globalConfiguration = Lens.lens (\EncoderSettings' {globalConfiguration} -> globalConfiguration) (\s@EncoderSettings' {} a -> s {globalConfiguration = a} :: EncoderSettings)
+-- | Feature Activations
+encoderSettings_featureActivations :: Lens.Lens' EncoderSettings (Prelude.Maybe FeatureActivations)
+encoderSettings_featureActivations = Lens.lens (\EncoderSettings' {featureActivations} -> featureActivations) (\s@EncoderSettings' {} a -> s {featureActivations = a} :: EncoderSettings)
 
 -- | Settings for motion graphics.
 encoderSettings_motionGraphicsConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe MotionGraphicsConfiguration)
 encoderSettings_motionGraphicsConfiguration = Lens.lens (\EncoderSettings' {motionGraphicsConfiguration} -> motionGraphicsConfiguration) (\s@EncoderSettings' {} a -> s {motionGraphicsConfiguration = a} :: EncoderSettings)
 
+-- | Settings for caption decriptions
+encoderSettings_captionDescriptions :: Lens.Lens' EncoderSettings (Prelude.Maybe [CaptionDescription])
+encoderSettings_captionDescriptions = Lens.lens (\EncoderSettings' {captionDescriptions} -> captionDescriptions) (\s@EncoderSettings' {} a -> s {captionDescriptions = a} :: EncoderSettings) Prelude.. Lens.mapping Lens.coerced
+
 -- | Settings for blackout slate.
 encoderSettings_blackoutSlate :: Lens.Lens' EncoderSettings (Prelude.Maybe BlackoutSlate)
 encoderSettings_blackoutSlate = Lens.lens (\EncoderSettings' {blackoutSlate} -> blackoutSlate) (\s@EncoderSettings' {} a -> s {blackoutSlate = a} :: EncoderSettings)
+
+-- | Nielsen configuration settings.
+encoderSettings_nielsenConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe NielsenConfiguration)
+encoderSettings_nielsenConfiguration = Lens.lens (\EncoderSettings' {nielsenConfiguration} -> nielsenConfiguration) (\s@EncoderSettings' {} a -> s {nielsenConfiguration = a} :: EncoderSettings)
+
+-- | Event-wide configuration settings for ad avail insertion.
+encoderSettings_availConfiguration :: Lens.Lens' EncoderSettings (Prelude.Maybe AvailConfiguration)
+encoderSettings_availConfiguration = Lens.lens (\EncoderSettings' {availConfiguration} -> availConfiguration) (\s@EncoderSettings' {} a -> s {availConfiguration = a} :: EncoderSettings)
 
 -- | Undocumented member.
 encoderSettings_videoDescriptions :: Lens.Lens' EncoderSettings [VideoDescription]
@@ -172,16 +172,16 @@ instance Core.FromJSON EncoderSettings where
       "EncoderSettings"
       ( \x ->
           EncoderSettings'
-            Prelude.<$> ( x Core..:? "captionDescriptions"
+            Prelude.<$> (x Core..:? "globalConfiguration")
+            Prelude.<*> (x Core..:? "availBlanking")
+            Prelude.<*> (x Core..:? "featureActivations")
+            Prelude.<*> (x Core..:? "motionGraphicsConfiguration")
+            Prelude.<*> ( x Core..:? "captionDescriptions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "availConfiguration")
-            Prelude.<*> (x Core..:? "featureActivations")
-            Prelude.<*> (x Core..:? "nielsenConfiguration")
-            Prelude.<*> (x Core..:? "availBlanking")
-            Prelude.<*> (x Core..:? "globalConfiguration")
-            Prelude.<*> (x Core..:? "motionGraphicsConfiguration")
             Prelude.<*> (x Core..:? "blackoutSlate")
+            Prelude.<*> (x Core..:? "nielsenConfiguration")
+            Prelude.<*> (x Core..:? "availConfiguration")
             Prelude.<*> ( x Core..:? "videoDescriptions"
                             Core..!= Prelude.mempty
                         )
@@ -194,14 +194,14 @@ instance Core.FromJSON EncoderSettings where
 
 instance Prelude.Hashable EncoderSettings where
   hashWithSalt _salt EncoderSettings' {..} =
-    _salt `Prelude.hashWithSalt` captionDescriptions
-      `Prelude.hashWithSalt` availConfiguration
-      `Prelude.hashWithSalt` featureActivations
-      `Prelude.hashWithSalt` nielsenConfiguration
+    _salt `Prelude.hashWithSalt` globalConfiguration
       `Prelude.hashWithSalt` availBlanking
-      `Prelude.hashWithSalt` globalConfiguration
+      `Prelude.hashWithSalt` featureActivations
       `Prelude.hashWithSalt` motionGraphicsConfiguration
+      `Prelude.hashWithSalt` captionDescriptions
       `Prelude.hashWithSalt` blackoutSlate
+      `Prelude.hashWithSalt` nielsenConfiguration
+      `Prelude.hashWithSalt` availConfiguration
       `Prelude.hashWithSalt` videoDescriptions
       `Prelude.hashWithSalt` audioDescriptions
       `Prelude.hashWithSalt` outputGroups
@@ -209,14 +209,14 @@ instance Prelude.Hashable EncoderSettings where
 
 instance Prelude.NFData EncoderSettings where
   rnf EncoderSettings' {..} =
-    Prelude.rnf captionDescriptions
-      `Prelude.seq` Prelude.rnf availConfiguration
-      `Prelude.seq` Prelude.rnf featureActivations
-      `Prelude.seq` Prelude.rnf nielsenConfiguration
+    Prelude.rnf globalConfiguration
       `Prelude.seq` Prelude.rnf availBlanking
-      `Prelude.seq` Prelude.rnf globalConfiguration
+      `Prelude.seq` Prelude.rnf featureActivations
       `Prelude.seq` Prelude.rnf motionGraphicsConfiguration
+      `Prelude.seq` Prelude.rnf captionDescriptions
       `Prelude.seq` Prelude.rnf blackoutSlate
+      `Prelude.seq` Prelude.rnf nielsenConfiguration
+      `Prelude.seq` Prelude.rnf availConfiguration
       `Prelude.seq` Prelude.rnf videoDescriptions
       `Prelude.seq` Prelude.rnf audioDescriptions
       `Prelude.seq` Prelude.rnf outputGroups
@@ -226,20 +226,20 @@ instance Core.ToJSON EncoderSettings where
   toJSON EncoderSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("captionDescriptions" Core..=)
-              Prelude.<$> captionDescriptions,
-            ("availConfiguration" Core..=)
-              Prelude.<$> availConfiguration,
+          [ ("globalConfiguration" Core..=)
+              Prelude.<$> globalConfiguration,
+            ("availBlanking" Core..=) Prelude.<$> availBlanking,
             ("featureActivations" Core..=)
               Prelude.<$> featureActivations,
-            ("nielsenConfiguration" Core..=)
-              Prelude.<$> nielsenConfiguration,
-            ("availBlanking" Core..=) Prelude.<$> availBlanking,
-            ("globalConfiguration" Core..=)
-              Prelude.<$> globalConfiguration,
             ("motionGraphicsConfiguration" Core..=)
               Prelude.<$> motionGraphicsConfiguration,
+            ("captionDescriptions" Core..=)
+              Prelude.<$> captionDescriptions,
             ("blackoutSlate" Core..=) Prelude.<$> blackoutSlate,
+            ("nielsenConfiguration" Core..=)
+              Prelude.<$> nielsenConfiguration,
+            ("availConfiguration" Core..=)
+              Prelude.<$> availConfiguration,
             Prelude.Just
               ("videoDescriptions" Core..= videoDescriptions),
             Prelude.Just

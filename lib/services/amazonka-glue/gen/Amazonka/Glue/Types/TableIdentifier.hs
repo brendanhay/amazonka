@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableIdentifier' smart constructor.
 data TableIdentifier = TableIdentifier'
-  { -- | The ID of the Data Catalog in which the table resides.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the target table.
+  { -- | The name of the target table.
     name :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database that contains the target table.
-    databaseName :: Prelude.Maybe Prelude.Text
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Data Catalog in which the table resides.
+    catalogId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,23 +44,19 @@ data TableIdentifier = TableIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'tableIdentifier_catalogId' - The ID of the Data Catalog in which the table resides.
---
 -- 'name', 'tableIdentifier_name' - The name of the target table.
 --
 -- 'databaseName', 'tableIdentifier_databaseName' - The name of the catalog database that contains the target table.
+--
+-- 'catalogId', 'tableIdentifier_catalogId' - The ID of the Data Catalog in which the table resides.
 newTableIdentifier ::
   TableIdentifier
 newTableIdentifier =
   TableIdentifier'
-    { catalogId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      databaseName = Prelude.Nothing
+    { name = Prelude.Nothing,
+      databaseName = Prelude.Nothing,
+      catalogId = Prelude.Nothing
     }
-
--- | The ID of the Data Catalog in which the table resides.
-tableIdentifier_catalogId :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
-tableIdentifier_catalogId = Lens.lens (\TableIdentifier' {catalogId} -> catalogId) (\s@TableIdentifier' {} a -> s {catalogId = a} :: TableIdentifier)
 
 -- | The name of the target table.
 tableIdentifier_name :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
@@ -70,35 +66,39 @@ tableIdentifier_name = Lens.lens (\TableIdentifier' {name} -> name) (\s@TableIde
 tableIdentifier_databaseName :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
 tableIdentifier_databaseName = Lens.lens (\TableIdentifier' {databaseName} -> databaseName) (\s@TableIdentifier' {} a -> s {databaseName = a} :: TableIdentifier)
 
+-- | The ID of the Data Catalog in which the table resides.
+tableIdentifier_catalogId :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
+tableIdentifier_catalogId = Lens.lens (\TableIdentifier' {catalogId} -> catalogId) (\s@TableIdentifier' {} a -> s {catalogId = a} :: TableIdentifier)
+
 instance Core.FromJSON TableIdentifier where
   parseJSON =
     Core.withObject
       "TableIdentifier"
       ( \x ->
           TableIdentifier'
-            Prelude.<$> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "DatabaseName")
+            Prelude.<*> (x Core..:? "CatalogId")
       )
 
 instance Prelude.Hashable TableIdentifier where
   hashWithSalt _salt TableIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` catalogId
 
 instance Prelude.NFData TableIdentifier where
   rnf TableIdentifier' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf catalogId
 
 instance Core.ToJSON TableIdentifier where
   toJSON TableIdentifier' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("Name" Core..=) Prelude.<$> name,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName,
+            ("CatalogId" Core..=) Prelude.<$> catalogId
           ]
       )

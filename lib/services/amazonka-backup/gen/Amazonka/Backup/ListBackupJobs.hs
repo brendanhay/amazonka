@@ -29,23 +29,23 @@ module Amazonka.Backup.ListBackupJobs
     newListBackupJobs,
 
     -- * Request Lenses
-    listBackupJobs_byResourceArn,
-    listBackupJobs_byCreatedAfter,
     listBackupJobs_byAccountId,
-    listBackupJobs_byCreatedBefore,
-    listBackupJobs_byBackupVaultName,
-    listBackupJobs_byResourceType,
     listBackupJobs_nextToken,
-    listBackupJobs_byState,
+    listBackupJobs_byCreatedAfter,
+    listBackupJobs_byResourceType,
+    listBackupJobs_byCreatedBefore,
     listBackupJobs_maxResults,
+    listBackupJobs_byState,
+    listBackupJobs_byBackupVaultName,
+    listBackupJobs_byResourceArn,
 
     -- * Destructuring the Response
     ListBackupJobsResponse (..),
     newListBackupJobsResponse,
 
     -- * Response Lenses
-    listBackupJobsResponse_backupJobs,
     listBackupJobsResponse_nextToken,
+    listBackupJobsResponse_backupJobs,
     listBackupJobsResponse_httpStatus,
   )
 where
@@ -59,25 +59,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBackupJobs' smart constructor.
 data ListBackupJobs = ListBackupJobs'
-  { -- | Returns only backup jobs that match the specified resource Amazon
-    -- Resource Name (ARN).
-    byResourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Returns only backup jobs that were created after the specified date.
-    byCreatedAfter :: Prelude.Maybe Core.POSIX,
-    -- | The account ID to list the jobs from. Returns only backup jobs
+  { -- | The account ID to list the jobs from. Returns only backup jobs
     -- associated with the specified account ID.
     --
     -- If used from an Organizations management account, passing @*@ returns
     -- all jobs across the organization.
     byAccountId :: Prelude.Maybe Prelude.Text,
-    -- | Returns only backup jobs that were created before the specified date.
-    byCreatedBefore :: Prelude.Maybe Core.POSIX,
-    -- | Returns only backup jobs that will be stored in the specified backup
-    -- vault. Backup vaults are identified by names that are unique to the
-    -- account used to create them and the Amazon Web Services Region where
-    -- they are created. They consist of lowercase letters, numbers, and
-    -- hyphens.
-    byBackupVaultName :: Prelude.Maybe Prelude.Text,
+    -- | The next item following a partial list of returned items. For example,
+    -- if a request is made to return @maxResults@ number of items, @NextToken@
+    -- allows you to return more items in your list starting at the location
+    -- pointed to by the next token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns only backup jobs that were created after the specified date.
+    byCreatedAfter :: Prelude.Maybe Core.POSIX,
     -- | Returns only backup jobs for the specified resources:
     --
     -- -   @DynamoDB@ for Amazon DynamoDB
@@ -94,15 +88,21 @@ data ListBackupJobs = ListBackupJobs'
     --
     -- -   @Storage Gateway@ for Storage Gateway
     byResourceType :: Prelude.Maybe Prelude.Text,
-    -- | The next item following a partial list of returned items. For example,
-    -- if a request is made to return @maxResults@ number of items, @NextToken@
-    -- allows you to return more items in your list starting at the location
-    -- pointed to by the next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns only backup jobs that were created before the specified date.
+    byCreatedBefore :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of items to be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Returns only backup jobs that are in the specified state.
     byState :: Prelude.Maybe BackupJobState,
-    -- | The maximum number of items to be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | Returns only backup jobs that will be stored in the specified backup
+    -- vault. Backup vaults are identified by names that are unique to the
+    -- account used to create them and the Amazon Web Services Region where
+    -- they are created. They consist of lowercase letters, numbers, and
+    -- hyphens.
+    byBackupVaultName :: Prelude.Maybe Prelude.Text,
+    -- | Returns only backup jobs that match the specified resource Amazon
+    -- Resource Name (ARN).
+    byResourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,24 +114,18 @@ data ListBackupJobs = ListBackupJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'byResourceArn', 'listBackupJobs_byResourceArn' - Returns only backup jobs that match the specified resource Amazon
--- Resource Name (ARN).
---
--- 'byCreatedAfter', 'listBackupJobs_byCreatedAfter' - Returns only backup jobs that were created after the specified date.
---
 -- 'byAccountId', 'listBackupJobs_byAccountId' - The account ID to list the jobs from. Returns only backup jobs
 -- associated with the specified account ID.
 --
 -- If used from an Organizations management account, passing @*@ returns
 -- all jobs across the organization.
 --
--- 'byCreatedBefore', 'listBackupJobs_byCreatedBefore' - Returns only backup jobs that were created before the specified date.
+-- 'nextToken', 'listBackupJobs_nextToken' - The next item following a partial list of returned items. For example,
+-- if a request is made to return @maxResults@ number of items, @NextToken@
+-- allows you to return more items in your list starting at the location
+-- pointed to by the next token.
 --
--- 'byBackupVaultName', 'listBackupJobs_byBackupVaultName' - Returns only backup jobs that will be stored in the specified backup
--- vault. Backup vaults are identified by names that are unique to the
--- account used to create them and the Amazon Web Services Region where
--- they are created. They consist of lowercase letters, numbers, and
--- hyphens.
+-- 'byCreatedAfter', 'listBackupJobs_byCreatedAfter' - Returns only backup jobs that were created after the specified date.
 --
 -- 'byResourceType', 'listBackupJobs_byResourceType' - Returns only backup jobs for the specified resources:
 --
@@ -149,37 +143,34 @@ data ListBackupJobs = ListBackupJobs'
 --
 -- -   @Storage Gateway@ for Storage Gateway
 --
--- 'nextToken', 'listBackupJobs_nextToken' - The next item following a partial list of returned items. For example,
--- if a request is made to return @maxResults@ number of items, @NextToken@
--- allows you to return more items in your list starting at the location
--- pointed to by the next token.
+-- 'byCreatedBefore', 'listBackupJobs_byCreatedBefore' - Returns only backup jobs that were created before the specified date.
+--
+-- 'maxResults', 'listBackupJobs_maxResults' - The maximum number of items to be returned.
 --
 -- 'byState', 'listBackupJobs_byState' - Returns only backup jobs that are in the specified state.
 --
--- 'maxResults', 'listBackupJobs_maxResults' - The maximum number of items to be returned.
+-- 'byBackupVaultName', 'listBackupJobs_byBackupVaultName' - Returns only backup jobs that will be stored in the specified backup
+-- vault. Backup vaults are identified by names that are unique to the
+-- account used to create them and the Amazon Web Services Region where
+-- they are created. They consist of lowercase letters, numbers, and
+-- hyphens.
+--
+-- 'byResourceArn', 'listBackupJobs_byResourceArn' - Returns only backup jobs that match the specified resource Amazon
+-- Resource Name (ARN).
 newListBackupJobs ::
   ListBackupJobs
 newListBackupJobs =
   ListBackupJobs'
-    { byResourceArn = Prelude.Nothing,
-      byCreatedAfter = Prelude.Nothing,
-      byAccountId = Prelude.Nothing,
-      byCreatedBefore = Prelude.Nothing,
-      byBackupVaultName = Prelude.Nothing,
-      byResourceType = Prelude.Nothing,
+    { byAccountId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      byCreatedAfter = Prelude.Nothing,
+      byResourceType = Prelude.Nothing,
+      byCreatedBefore = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       byState = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      byBackupVaultName = Prelude.Nothing,
+      byResourceArn = Prelude.Nothing
     }
-
--- | Returns only backup jobs that match the specified resource Amazon
--- Resource Name (ARN).
-listBackupJobs_byResourceArn :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
-listBackupJobs_byResourceArn = Lens.lens (\ListBackupJobs' {byResourceArn} -> byResourceArn) (\s@ListBackupJobs' {} a -> s {byResourceArn = a} :: ListBackupJobs)
-
--- | Returns only backup jobs that were created after the specified date.
-listBackupJobs_byCreatedAfter :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
-listBackupJobs_byCreatedAfter = Lens.lens (\ListBackupJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListBackupJobs' {} a -> s {byCreatedAfter = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
 
 -- | The account ID to list the jobs from. Returns only backup jobs
 -- associated with the specified account ID.
@@ -189,17 +180,16 @@ listBackupJobs_byCreatedAfter = Lens.lens (\ListBackupJobs' {byCreatedAfter} -> 
 listBackupJobs_byAccountId :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
 listBackupJobs_byAccountId = Lens.lens (\ListBackupJobs' {byAccountId} -> byAccountId) (\s@ListBackupJobs' {} a -> s {byAccountId = a} :: ListBackupJobs)
 
--- | Returns only backup jobs that were created before the specified date.
-listBackupJobs_byCreatedBefore :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
-listBackupJobs_byCreatedBefore = Lens.lens (\ListBackupJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListBackupJobs' {} a -> s {byCreatedBefore = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
+-- | The next item following a partial list of returned items. For example,
+-- if a request is made to return @maxResults@ number of items, @NextToken@
+-- allows you to return more items in your list starting at the location
+-- pointed to by the next token.
+listBackupJobs_nextToken :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
+listBackupJobs_nextToken = Lens.lens (\ListBackupJobs' {nextToken} -> nextToken) (\s@ListBackupJobs' {} a -> s {nextToken = a} :: ListBackupJobs)
 
--- | Returns only backup jobs that will be stored in the specified backup
--- vault. Backup vaults are identified by names that are unique to the
--- account used to create them and the Amazon Web Services Region where
--- they are created. They consist of lowercase letters, numbers, and
--- hyphens.
-listBackupJobs_byBackupVaultName :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
-listBackupJobs_byBackupVaultName = Lens.lens (\ListBackupJobs' {byBackupVaultName} -> byBackupVaultName) (\s@ListBackupJobs' {} a -> s {byBackupVaultName = a} :: ListBackupJobs)
+-- | Returns only backup jobs that were created after the specified date.
+listBackupJobs_byCreatedAfter :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
+listBackupJobs_byCreatedAfter = Lens.lens (\ListBackupJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListBackupJobs' {} a -> s {byCreatedAfter = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
 
 -- | Returns only backup jobs for the specified resources:
 --
@@ -219,20 +209,30 @@ listBackupJobs_byBackupVaultName = Lens.lens (\ListBackupJobs' {byBackupVaultNam
 listBackupJobs_byResourceType :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
 listBackupJobs_byResourceType = Lens.lens (\ListBackupJobs' {byResourceType} -> byResourceType) (\s@ListBackupJobs' {} a -> s {byResourceType = a} :: ListBackupJobs)
 
--- | The next item following a partial list of returned items. For example,
--- if a request is made to return @maxResults@ number of items, @NextToken@
--- allows you to return more items in your list starting at the location
--- pointed to by the next token.
-listBackupJobs_nextToken :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
-listBackupJobs_nextToken = Lens.lens (\ListBackupJobs' {nextToken} -> nextToken) (\s@ListBackupJobs' {} a -> s {nextToken = a} :: ListBackupJobs)
+-- | Returns only backup jobs that were created before the specified date.
+listBackupJobs_byCreatedBefore :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.UTCTime)
+listBackupJobs_byCreatedBefore = Lens.lens (\ListBackupJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListBackupJobs' {} a -> s {byCreatedBefore = a} :: ListBackupJobs) Prelude.. Lens.mapping Core._Time
+
+-- | The maximum number of items to be returned.
+listBackupJobs_maxResults :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Natural)
+listBackupJobs_maxResults = Lens.lens (\ListBackupJobs' {maxResults} -> maxResults) (\s@ListBackupJobs' {} a -> s {maxResults = a} :: ListBackupJobs)
 
 -- | Returns only backup jobs that are in the specified state.
 listBackupJobs_byState :: Lens.Lens' ListBackupJobs (Prelude.Maybe BackupJobState)
 listBackupJobs_byState = Lens.lens (\ListBackupJobs' {byState} -> byState) (\s@ListBackupJobs' {} a -> s {byState = a} :: ListBackupJobs)
 
--- | The maximum number of items to be returned.
-listBackupJobs_maxResults :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Natural)
-listBackupJobs_maxResults = Lens.lens (\ListBackupJobs' {maxResults} -> maxResults) (\s@ListBackupJobs' {} a -> s {maxResults = a} :: ListBackupJobs)
+-- | Returns only backup jobs that will be stored in the specified backup
+-- vault. Backup vaults are identified by names that are unique to the
+-- account used to create them and the Amazon Web Services Region where
+-- they are created. They consist of lowercase letters, numbers, and
+-- hyphens.
+listBackupJobs_byBackupVaultName :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
+listBackupJobs_byBackupVaultName = Lens.lens (\ListBackupJobs' {byBackupVaultName} -> byBackupVaultName) (\s@ListBackupJobs' {} a -> s {byBackupVaultName = a} :: ListBackupJobs)
+
+-- | Returns only backup jobs that match the specified resource Amazon
+-- Resource Name (ARN).
+listBackupJobs_byResourceArn :: Lens.Lens' ListBackupJobs (Prelude.Maybe Prelude.Text)
+listBackupJobs_byResourceArn = Lens.lens (\ListBackupJobs' {byResourceArn} -> byResourceArn) (\s@ListBackupJobs' {} a -> s {byResourceArn = a} :: ListBackupJobs)
 
 instance Core.AWSRequest ListBackupJobs where
   type
@@ -243,34 +243,34 @@ instance Core.AWSRequest ListBackupJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBackupJobsResponse'
-            Prelude.<$> (x Core..?> "BackupJobs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "BackupJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBackupJobs where
   hashWithSalt _salt ListBackupJobs' {..} =
-    _salt `Prelude.hashWithSalt` byResourceArn
-      `Prelude.hashWithSalt` byCreatedAfter
-      `Prelude.hashWithSalt` byAccountId
-      `Prelude.hashWithSalt` byCreatedBefore
-      `Prelude.hashWithSalt` byBackupVaultName
-      `Prelude.hashWithSalt` byResourceType
+    _salt `Prelude.hashWithSalt` byAccountId
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` byState
+      `Prelude.hashWithSalt` byCreatedAfter
+      `Prelude.hashWithSalt` byResourceType
+      `Prelude.hashWithSalt` byCreatedBefore
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` byState
+      `Prelude.hashWithSalt` byBackupVaultName
+      `Prelude.hashWithSalt` byResourceArn
 
 instance Prelude.NFData ListBackupJobs where
   rnf ListBackupJobs' {..} =
-    Prelude.rnf byResourceArn
-      `Prelude.seq` Prelude.rnf byCreatedAfter
-      `Prelude.seq` Prelude.rnf byAccountId
-      `Prelude.seq` Prelude.rnf byCreatedBefore
-      `Prelude.seq` Prelude.rnf byBackupVaultName
-      `Prelude.seq` Prelude.rnf byResourceType
+    Prelude.rnf byAccountId
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf byState
+      `Prelude.seq` Prelude.rnf byCreatedAfter
+      `Prelude.seq` Prelude.rnf byResourceType
+      `Prelude.seq` Prelude.rnf byCreatedBefore
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf byState
+      `Prelude.seq` Prelude.rnf byBackupVaultName
+      `Prelude.seq` Prelude.rnf byResourceArn
 
 instance Core.ToHeaders ListBackupJobs where
   toHeaders =
@@ -289,27 +289,27 @@ instance Core.ToPath ListBackupJobs where
 instance Core.ToQuery ListBackupJobs where
   toQuery ListBackupJobs' {..} =
     Prelude.mconcat
-      [ "resourceArn" Core.=: byResourceArn,
-        "createdAfter" Core.=: byCreatedAfter,
-        "accountId" Core.=: byAccountId,
-        "createdBefore" Core.=: byCreatedBefore,
-        "backupVaultName" Core.=: byBackupVaultName,
-        "resourceType" Core.=: byResourceType,
+      [ "accountId" Core.=: byAccountId,
         "nextToken" Core.=: nextToken,
+        "createdAfter" Core.=: byCreatedAfter,
+        "resourceType" Core.=: byResourceType,
+        "createdBefore" Core.=: byCreatedBefore,
+        "maxResults" Core.=: maxResults,
         "state" Core.=: byState,
-        "maxResults" Core.=: maxResults
+        "backupVaultName" Core.=: byBackupVaultName,
+        "resourceArn" Core.=: byResourceArn
       ]
 
 -- | /See:/ 'newListBackupJobsResponse' smart constructor.
 data ListBackupJobsResponse = ListBackupJobsResponse'
-  { -- | An array of structures containing metadata about your backup jobs
-    -- returned in JSON format.
-    backupJobs :: Prelude.Maybe [BackupJob],
-    -- | The next item following a partial list of returned items. For example,
+  { -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures containing metadata about your backup jobs
+    -- returned in JSON format.
+    backupJobs :: Prelude.Maybe [BackupJob],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -323,13 +323,13 @@ data ListBackupJobsResponse = ListBackupJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupJobs', 'listBackupJobsResponse_backupJobs' - An array of structures containing metadata about your backup jobs
--- returned in JSON format.
---
 -- 'nextToken', 'listBackupJobsResponse_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
+--
+-- 'backupJobs', 'listBackupJobsResponse_backupJobs' - An array of structures containing metadata about your backup jobs
+-- returned in JSON format.
 --
 -- 'httpStatus', 'listBackupJobsResponse_httpStatus' - The response's http status code.
 newListBackupJobsResponse ::
@@ -338,16 +338,11 @@ newListBackupJobsResponse ::
   ListBackupJobsResponse
 newListBackupJobsResponse pHttpStatus_ =
   ListBackupJobsResponse'
-    { backupJobs =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      backupJobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of structures containing metadata about your backup jobs
--- returned in JSON format.
-listBackupJobsResponse_backupJobs :: Lens.Lens' ListBackupJobsResponse (Prelude.Maybe [BackupJob])
-listBackupJobsResponse_backupJobs = Lens.lens (\ListBackupJobsResponse' {backupJobs} -> backupJobs) (\s@ListBackupJobsResponse' {} a -> s {backupJobs = a} :: ListBackupJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -356,12 +351,17 @@ listBackupJobsResponse_backupJobs = Lens.lens (\ListBackupJobsResponse' {backupJ
 listBackupJobsResponse_nextToken :: Lens.Lens' ListBackupJobsResponse (Prelude.Maybe Prelude.Text)
 listBackupJobsResponse_nextToken = Lens.lens (\ListBackupJobsResponse' {nextToken} -> nextToken) (\s@ListBackupJobsResponse' {} a -> s {nextToken = a} :: ListBackupJobsResponse)
 
+-- | An array of structures containing metadata about your backup jobs
+-- returned in JSON format.
+listBackupJobsResponse_backupJobs :: Lens.Lens' ListBackupJobsResponse (Prelude.Maybe [BackupJob])
+listBackupJobsResponse_backupJobs = Lens.lens (\ListBackupJobsResponse' {backupJobs} -> backupJobs) (\s@ListBackupJobsResponse' {} a -> s {backupJobs = a} :: ListBackupJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listBackupJobsResponse_httpStatus :: Lens.Lens' ListBackupJobsResponse Prelude.Int
 listBackupJobsResponse_httpStatus = Lens.lens (\ListBackupJobsResponse' {httpStatus} -> httpStatus) (\s@ListBackupJobsResponse' {} a -> s {httpStatus = a} :: ListBackupJobsResponse)
 
 instance Prelude.NFData ListBackupJobsResponse where
   rnf ListBackupJobsResponse' {..} =
-    Prelude.rnf backupJobs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf backupJobs
       `Prelude.seq` Prelude.rnf httpStatus

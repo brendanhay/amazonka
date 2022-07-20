@@ -37,8 +37,8 @@ module Amazonka.IoTSiteWise.ListPortals
     newListPortalsResponse,
 
     -- * Response Lenses
-    listPortalsResponse_portalSummaries,
     listPortalsResponse_nextToken,
+    listPortalsResponse_portalSummaries,
     listPortalsResponse_httpStatus,
   )
 where
@@ -119,10 +119,10 @@ instance Core.AWSRequest ListPortals where
     Response.receiveJSON
       ( \s h x ->
           ListPortalsResponse'
-            Prelude.<$> ( x Core..?> "portalSummaries"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "portalSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,11 +159,11 @@ instance Core.ToQuery ListPortals where
 
 -- | /See:/ 'newListPortalsResponse' smart constructor.
 data ListPortalsResponse = ListPortalsResponse'
-  { -- | A list that summarizes each portal.
-    portalSummaries :: Prelude.Maybe [PortalSummary],
-    -- | The token for the next set of results, or null if there are no
+  { -- | The token for the next set of results, or null if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list that summarizes each portal.
+    portalSummaries :: Prelude.Maybe [PortalSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,10 +177,10 @@ data ListPortalsResponse = ListPortalsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portalSummaries', 'listPortalsResponse_portalSummaries' - A list that summarizes each portal.
---
 -- 'nextToken', 'listPortalsResponse_nextToken' - The token for the next set of results, or null if there are no
 -- additional results.
+--
+-- 'portalSummaries', 'listPortalsResponse_portalSummaries' - A list that summarizes each portal.
 --
 -- 'httpStatus', 'listPortalsResponse_httpStatus' - The response's http status code.
 newListPortalsResponse ::
@@ -189,20 +189,19 @@ newListPortalsResponse ::
   ListPortalsResponse
 newListPortalsResponse pHttpStatus_ =
   ListPortalsResponse'
-    { portalSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      portalSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list that summarizes each portal.
-listPortalsResponse_portalSummaries :: Lens.Lens' ListPortalsResponse (Prelude.Maybe [PortalSummary])
-listPortalsResponse_portalSummaries = Lens.lens (\ListPortalsResponse' {portalSummaries} -> portalSummaries) (\s@ListPortalsResponse' {} a -> s {portalSummaries = a} :: ListPortalsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no
 -- additional results.
 listPortalsResponse_nextToken :: Lens.Lens' ListPortalsResponse (Prelude.Maybe Prelude.Text)
 listPortalsResponse_nextToken = Lens.lens (\ListPortalsResponse' {nextToken} -> nextToken) (\s@ListPortalsResponse' {} a -> s {nextToken = a} :: ListPortalsResponse)
+
+-- | A list that summarizes each portal.
+listPortalsResponse_portalSummaries :: Lens.Lens' ListPortalsResponse (Prelude.Maybe [PortalSummary])
+listPortalsResponse_portalSummaries = Lens.lens (\ListPortalsResponse' {portalSummaries} -> portalSummaries) (\s@ListPortalsResponse' {} a -> s {portalSummaries = a} :: ListPortalsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPortalsResponse_httpStatus :: Lens.Lens' ListPortalsResponse Prelude.Int
@@ -210,6 +209,6 @@ listPortalsResponse_httpStatus = Lens.lens (\ListPortalsResponse' {httpStatus} -
 
 instance Prelude.NFData ListPortalsResponse where
   rnf ListPortalsResponse' {..} =
-    Prelude.rnf portalSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf portalSummaries
       `Prelude.seq` Prelude.rnf httpStatus

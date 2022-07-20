@@ -14,74 +14,95 @@
 module Amazonka.ComputeOptimizer.Lens
   ( -- * Operations
 
-    -- ** ExportEBSVolumeRecommendations
-    exportEBSVolumeRecommendations_accountIds,
-    exportEBSVolumeRecommendations_fileFormat,
-    exportEBSVolumeRecommendations_filters,
-    exportEBSVolumeRecommendations_fieldsToExport,
-    exportEBSVolumeRecommendations_includeMemberAccounts,
-    exportEBSVolumeRecommendations_s3DestinationConfig,
-    exportEBSVolumeRecommendationsResponse_jobId,
-    exportEBSVolumeRecommendationsResponse_s3Destination,
-    exportEBSVolumeRecommendationsResponse_httpStatus,
-
-    -- ** GetRecommendationSummaries
-    getRecommendationSummaries_accountIds,
-    getRecommendationSummaries_nextToken,
-    getRecommendationSummaries_maxResults,
-    getRecommendationSummariesResponse_nextToken,
-    getRecommendationSummariesResponse_recommendationSummaries,
-    getRecommendationSummariesResponse_httpStatus,
+    -- ** DescribeRecommendationExportJobs
+    describeRecommendationExportJobs_nextToken,
+    describeRecommendationExportJobs_filters,
+    describeRecommendationExportJobs_maxResults,
+    describeRecommendationExportJobs_jobIds,
+    describeRecommendationExportJobsResponse_nextToken,
+    describeRecommendationExportJobsResponse_recommendationExportJobs,
+    describeRecommendationExportJobsResponse_httpStatus,
 
     -- ** ExportAutoScalingGroupRecommendations
     exportAutoScalingGroupRecommendations_accountIds,
-    exportAutoScalingGroupRecommendations_fileFormat,
-    exportAutoScalingGroupRecommendations_filters,
-    exportAutoScalingGroupRecommendations_fieldsToExport,
-    exportAutoScalingGroupRecommendations_includeMemberAccounts,
     exportAutoScalingGroupRecommendations_recommendationPreferences,
+    exportAutoScalingGroupRecommendations_filters,
+    exportAutoScalingGroupRecommendations_includeMemberAccounts,
+    exportAutoScalingGroupRecommendations_fileFormat,
+    exportAutoScalingGroupRecommendations_fieldsToExport,
     exportAutoScalingGroupRecommendations_s3DestinationConfig,
     exportAutoScalingGroupRecommendationsResponse_jobId,
     exportAutoScalingGroupRecommendationsResponse_s3Destination,
     exportAutoScalingGroupRecommendationsResponse_httpStatus,
 
+    -- ** ExportEBSVolumeRecommendations
+    exportEBSVolumeRecommendations_accountIds,
+    exportEBSVolumeRecommendations_filters,
+    exportEBSVolumeRecommendations_includeMemberAccounts,
+    exportEBSVolumeRecommendations_fileFormat,
+    exportEBSVolumeRecommendations_fieldsToExport,
+    exportEBSVolumeRecommendations_s3DestinationConfig,
+    exportEBSVolumeRecommendationsResponse_jobId,
+    exportEBSVolumeRecommendationsResponse_s3Destination,
+    exportEBSVolumeRecommendationsResponse_httpStatus,
+
+    -- ** ExportEC2InstanceRecommendations
+    exportEC2InstanceRecommendations_accountIds,
+    exportEC2InstanceRecommendations_recommendationPreferences,
+    exportEC2InstanceRecommendations_filters,
+    exportEC2InstanceRecommendations_includeMemberAccounts,
+    exportEC2InstanceRecommendations_fileFormat,
+    exportEC2InstanceRecommendations_fieldsToExport,
+    exportEC2InstanceRecommendations_s3DestinationConfig,
+    exportEC2InstanceRecommendationsResponse_jobId,
+    exportEC2InstanceRecommendationsResponse_s3Destination,
+    exportEC2InstanceRecommendationsResponse_httpStatus,
+
+    -- ** ExportLambdaFunctionRecommendations
+    exportLambdaFunctionRecommendations_accountIds,
+    exportLambdaFunctionRecommendations_filters,
+    exportLambdaFunctionRecommendations_includeMemberAccounts,
+    exportLambdaFunctionRecommendations_fileFormat,
+    exportLambdaFunctionRecommendations_fieldsToExport,
+    exportLambdaFunctionRecommendations_s3DestinationConfig,
+    exportLambdaFunctionRecommendationsResponse_jobId,
+    exportLambdaFunctionRecommendationsResponse_s3Destination,
+    exportLambdaFunctionRecommendationsResponse_httpStatus,
+
+    -- ** GetAutoScalingGroupRecommendations
+    getAutoScalingGroupRecommendations_accountIds,
+    getAutoScalingGroupRecommendations_nextToken,
+    getAutoScalingGroupRecommendations_recommendationPreferences,
+    getAutoScalingGroupRecommendations_filters,
+    getAutoScalingGroupRecommendations_maxResults,
+    getAutoScalingGroupRecommendations_autoScalingGroupArns,
+    getAutoScalingGroupRecommendationsResponse_nextToken,
+    getAutoScalingGroupRecommendationsResponse_errors,
+    getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations,
+    getAutoScalingGroupRecommendationsResponse_httpStatus,
+
+    -- ** GetEBSVolumeRecommendations
+    getEBSVolumeRecommendations_accountIds,
+    getEBSVolumeRecommendations_nextToken,
+    getEBSVolumeRecommendations_filters,
+    getEBSVolumeRecommendations_maxResults,
+    getEBSVolumeRecommendations_volumeArns,
+    getEBSVolumeRecommendationsResponse_nextToken,
+    getEBSVolumeRecommendationsResponse_errors,
+    getEBSVolumeRecommendationsResponse_volumeRecommendations,
+    getEBSVolumeRecommendationsResponse_httpStatus,
+
     -- ** GetEC2InstanceRecommendations
     getEC2InstanceRecommendations_accountIds,
-    getEC2InstanceRecommendations_filters,
-    getEC2InstanceRecommendations_recommendationPreferences,
     getEC2InstanceRecommendations_nextToken,
-    getEC2InstanceRecommendations_instanceArns,
+    getEC2InstanceRecommendations_recommendationPreferences,
+    getEC2InstanceRecommendations_filters,
     getEC2InstanceRecommendations_maxResults,
+    getEC2InstanceRecommendations_instanceArns,
+    getEC2InstanceRecommendationsResponse_instanceRecommendations,
     getEC2InstanceRecommendationsResponse_nextToken,
     getEC2InstanceRecommendationsResponse_errors,
-    getEC2InstanceRecommendationsResponse_instanceRecommendations,
     getEC2InstanceRecommendationsResponse_httpStatus,
-
-    -- ** GetLambdaFunctionRecommendations
-    getLambdaFunctionRecommendations_functionArns,
-    getLambdaFunctionRecommendations_accountIds,
-    getLambdaFunctionRecommendations_filters,
-    getLambdaFunctionRecommendations_nextToken,
-    getLambdaFunctionRecommendations_maxResults,
-    getLambdaFunctionRecommendationsResponse_nextToken,
-    getLambdaFunctionRecommendationsResponse_lambdaFunctionRecommendations,
-    getLambdaFunctionRecommendationsResponse_httpStatus,
-
-    -- ** UpdateEnrollmentStatus
-    updateEnrollmentStatus_includeMemberAccounts,
-    updateEnrollmentStatus_status,
-    updateEnrollmentStatusResponse_status,
-    updateEnrollmentStatusResponse_statusReason,
-    updateEnrollmentStatusResponse_httpStatus,
-
-    -- ** DescribeRecommendationExportJobs
-    describeRecommendationExportJobs_filters,
-    describeRecommendationExportJobs_nextToken,
-    describeRecommendationExportJobs_maxResults,
-    describeRecommendationExportJobs_jobIds,
-    describeRecommendationExportJobsResponse_recommendationExportJobs,
-    describeRecommendationExportJobsResponse_nextToken,
-    describeRecommendationExportJobsResponse_httpStatus,
 
     -- ** GetEC2RecommendationProjectedMetrics
     getEC2RecommendationProjectedMetrics_recommendationPreferences,
@@ -93,218 +114,197 @@ module Amazonka.ComputeOptimizer.Lens
     getEC2RecommendationProjectedMetricsResponse_recommendedOptionProjectedMetrics,
     getEC2RecommendationProjectedMetricsResponse_httpStatus,
 
-    -- ** GetEnrollmentStatusesForOrganization
-    getEnrollmentStatusesForOrganization_filters,
-    getEnrollmentStatusesForOrganization_nextToken,
-    getEnrollmentStatusesForOrganization_maxResults,
-    getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses,
-    getEnrollmentStatusesForOrganizationResponse_nextToken,
-    getEnrollmentStatusesForOrganizationResponse_httpStatus,
-
-    -- ** GetEBSVolumeRecommendations
-    getEBSVolumeRecommendations_accountIds,
-    getEBSVolumeRecommendations_filters,
-    getEBSVolumeRecommendations_nextToken,
-    getEBSVolumeRecommendations_volumeArns,
-    getEBSVolumeRecommendations_maxResults,
-    getEBSVolumeRecommendationsResponse_nextToken,
-    getEBSVolumeRecommendationsResponse_volumeRecommendations,
-    getEBSVolumeRecommendationsResponse_errors,
-    getEBSVolumeRecommendationsResponse_httpStatus,
-
-    -- ** ExportLambdaFunctionRecommendations
-    exportLambdaFunctionRecommendations_accountIds,
-    exportLambdaFunctionRecommendations_fileFormat,
-    exportLambdaFunctionRecommendations_filters,
-    exportLambdaFunctionRecommendations_fieldsToExport,
-    exportLambdaFunctionRecommendations_includeMemberAccounts,
-    exportLambdaFunctionRecommendations_s3DestinationConfig,
-    exportLambdaFunctionRecommendationsResponse_jobId,
-    exportLambdaFunctionRecommendationsResponse_s3Destination,
-    exportLambdaFunctionRecommendationsResponse_httpStatus,
-
-    -- ** ExportEC2InstanceRecommendations
-    exportEC2InstanceRecommendations_accountIds,
-    exportEC2InstanceRecommendations_fileFormat,
-    exportEC2InstanceRecommendations_filters,
-    exportEC2InstanceRecommendations_fieldsToExport,
-    exportEC2InstanceRecommendations_includeMemberAccounts,
-    exportEC2InstanceRecommendations_recommendationPreferences,
-    exportEC2InstanceRecommendations_s3DestinationConfig,
-    exportEC2InstanceRecommendationsResponse_jobId,
-    exportEC2InstanceRecommendationsResponse_s3Destination,
-    exportEC2InstanceRecommendationsResponse_httpStatus,
-
     -- ** GetEnrollmentStatus
+    getEnrollmentStatusResponse_lastUpdatedTimestamp,
+    getEnrollmentStatusResponse_statusReason,
     getEnrollmentStatusResponse_status,
     getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn,
     getEnrollmentStatusResponse_memberAccountsEnrolled,
-    getEnrollmentStatusResponse_statusReason,
-    getEnrollmentStatusResponse_lastUpdatedTimestamp,
     getEnrollmentStatusResponse_httpStatus,
 
-    -- ** GetAutoScalingGroupRecommendations
-    getAutoScalingGroupRecommendations_accountIds,
-    getAutoScalingGroupRecommendations_filters,
-    getAutoScalingGroupRecommendations_autoScalingGroupArns,
-    getAutoScalingGroupRecommendations_recommendationPreferences,
-    getAutoScalingGroupRecommendations_nextToken,
-    getAutoScalingGroupRecommendations_maxResults,
-    getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations,
-    getAutoScalingGroupRecommendationsResponse_nextToken,
-    getAutoScalingGroupRecommendationsResponse_errors,
-    getAutoScalingGroupRecommendationsResponse_httpStatus,
+    -- ** GetEnrollmentStatusesForOrganization
+    getEnrollmentStatusesForOrganization_nextToken,
+    getEnrollmentStatusesForOrganization_filters,
+    getEnrollmentStatusesForOrganization_maxResults,
+    getEnrollmentStatusesForOrganizationResponse_nextToken,
+    getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses,
+    getEnrollmentStatusesForOrganizationResponse_httpStatus,
+
+    -- ** GetLambdaFunctionRecommendations
+    getLambdaFunctionRecommendations_accountIds,
+    getLambdaFunctionRecommendations_nextToken,
+    getLambdaFunctionRecommendations_filters,
+    getLambdaFunctionRecommendations_maxResults,
+    getLambdaFunctionRecommendations_functionArns,
+    getLambdaFunctionRecommendationsResponse_nextToken,
+    getLambdaFunctionRecommendationsResponse_lambdaFunctionRecommendations,
+    getLambdaFunctionRecommendationsResponse_httpStatus,
+
+    -- ** GetRecommendationSummaries
+    getRecommendationSummaries_accountIds,
+    getRecommendationSummaries_nextToken,
+    getRecommendationSummaries_maxResults,
+    getRecommendationSummariesResponse_recommendationSummaries,
+    getRecommendationSummariesResponse_nextToken,
+    getRecommendationSummariesResponse_httpStatus,
+
+    -- ** UpdateEnrollmentStatus
+    updateEnrollmentStatus_includeMemberAccounts,
+    updateEnrollmentStatus_status,
+    updateEnrollmentStatusResponse_statusReason,
+    updateEnrollmentStatusResponse_status,
+    updateEnrollmentStatusResponse_httpStatus,
 
     -- * Types
 
     -- ** AccountEnrollmentStatus
+    accountEnrollmentStatus_lastUpdatedTimestamp,
+    accountEnrollmentStatus_statusReason,
     accountEnrollmentStatus_status,
     accountEnrollmentStatus_accountId,
-    accountEnrollmentStatus_statusReason,
-    accountEnrollmentStatus_lastUpdatedTimestamp,
 
     -- ** AutoScalingGroupConfiguration
-    autoScalingGroupConfiguration_maxSize,
     autoScalingGroupConfiguration_instanceType,
-    autoScalingGroupConfiguration_desiredCapacity,
     autoScalingGroupConfiguration_minSize,
+    autoScalingGroupConfiguration_maxSize,
+    autoScalingGroupConfiguration_desiredCapacity,
 
     -- ** AutoScalingGroupRecommendation
-    autoScalingGroupRecommendation_finding,
-    autoScalingGroupRecommendation_lastRefreshTimestamp,
-    autoScalingGroupRecommendation_currentConfiguration,
-    autoScalingGroupRecommendation_accountId,
-    autoScalingGroupRecommendation_autoScalingGroupName,
-    autoScalingGroupRecommendation_utilizationMetrics,
     autoScalingGroupRecommendation_autoScalingGroupArn,
     autoScalingGroupRecommendation_recommendationOptions,
+    autoScalingGroupRecommendation_lastRefreshTimestamp,
+    autoScalingGroupRecommendation_currentConfiguration,
     autoScalingGroupRecommendation_lookBackPeriodInDays,
+    autoScalingGroupRecommendation_autoScalingGroupName,
+    autoScalingGroupRecommendation_accountId,
+    autoScalingGroupRecommendation_utilizationMetrics,
+    autoScalingGroupRecommendation_finding,
 
     -- ** AutoScalingGroupRecommendationOption
     autoScalingGroupRecommendationOption_performanceRisk,
-    autoScalingGroupRecommendationOption_projectedUtilizationMetrics,
     autoScalingGroupRecommendationOption_configuration,
     autoScalingGroupRecommendationOption_rank,
+    autoScalingGroupRecommendationOption_projectedUtilizationMetrics,
 
     -- ** EBSFilter
-    eBSFilter_values,
     eBSFilter_name,
+    eBSFilter_values,
 
     -- ** EBSUtilizationMetric
-    eBSUtilizationMetric_value,
     eBSUtilizationMetric_name,
     eBSUtilizationMetric_statistic,
+    eBSUtilizationMetric_value,
 
     -- ** EnrollmentFilter
-    enrollmentFilter_values,
     enrollmentFilter_name,
+    enrollmentFilter_values,
 
     -- ** ExportDestination
     exportDestination_s3,
 
     -- ** Filter
-    filter_values,
     filter_name,
+    filter_values,
 
     -- ** GetRecommendationError
-    getRecommendationError_identifier,
-    getRecommendationError_code,
     getRecommendationError_message,
+    getRecommendationError_code,
+    getRecommendationError_identifier,
 
     -- ** InstanceRecommendation
-    instanceRecommendation_instanceArn,
-    instanceRecommendation_finding,
-    instanceRecommendation_currentInstanceType,
-    instanceRecommendation_lastRefreshTimestamp,
-    instanceRecommendation_accountId,
     instanceRecommendation_findingReasonCodes,
-    instanceRecommendation_recommendationSources,
-    instanceRecommendation_utilizationMetrics,
     instanceRecommendation_instanceName,
     instanceRecommendation_recommendationOptions,
+    instanceRecommendation_lastRefreshTimestamp,
+    instanceRecommendation_instanceArn,
     instanceRecommendation_lookBackPeriodInDays,
+    instanceRecommendation_accountId,
+    instanceRecommendation_recommendationSources,
+    instanceRecommendation_currentInstanceType,
+    instanceRecommendation_utilizationMetrics,
+    instanceRecommendation_finding,
 
     -- ** InstanceRecommendationOption
-    instanceRecommendationOption_platformDifferences,
     instanceRecommendationOption_performanceRisk,
-    instanceRecommendationOption_projectedUtilizationMetrics,
-    instanceRecommendationOption_instanceType,
+    instanceRecommendationOption_platformDifferences,
     instanceRecommendationOption_rank,
+    instanceRecommendationOption_instanceType,
+    instanceRecommendationOption_projectedUtilizationMetrics,
 
     -- ** JobFilter
-    jobFilter_values,
     jobFilter_name,
+    jobFilter_values,
 
     -- ** LambdaFunctionMemoryProjectedMetric
-    lambdaFunctionMemoryProjectedMetric_value,
     lambdaFunctionMemoryProjectedMetric_name,
     lambdaFunctionMemoryProjectedMetric_statistic,
+    lambdaFunctionMemoryProjectedMetric_value,
 
     -- ** LambdaFunctionMemoryRecommendationOption
     lambdaFunctionMemoryRecommendationOption_memorySize,
-    lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics,
     lambdaFunctionMemoryRecommendationOption_rank,
+    lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics,
 
     -- ** LambdaFunctionRecommendation
-    lambdaFunctionRecommendation_functionArn,
-    lambdaFunctionRecommendation_finding,
-    lambdaFunctionRecommendation_currentMemorySize,
-    lambdaFunctionRecommendation_lastRefreshTimestamp,
-    lambdaFunctionRecommendation_accountId,
     lambdaFunctionRecommendation_findingReasonCodes,
+    lambdaFunctionRecommendation_functionArn,
+    lambdaFunctionRecommendation_currentMemorySize,
+    lambdaFunctionRecommendation_numberOfInvocations,
+    lambdaFunctionRecommendation_lastRefreshTimestamp,
+    lambdaFunctionRecommendation_functionVersion,
+    lambdaFunctionRecommendation_lookbackPeriodInDays,
+    lambdaFunctionRecommendation_accountId,
     lambdaFunctionRecommendation_utilizationMetrics,
     lambdaFunctionRecommendation_memorySizeRecommendationOptions,
-    lambdaFunctionRecommendation_functionVersion,
-    lambdaFunctionRecommendation_numberOfInvocations,
-    lambdaFunctionRecommendation_lookbackPeriodInDays,
+    lambdaFunctionRecommendation_finding,
 
     -- ** LambdaFunctionRecommendationFilter
-    lambdaFunctionRecommendationFilter_values,
     lambdaFunctionRecommendationFilter_name,
+    lambdaFunctionRecommendationFilter_values,
 
     -- ** LambdaFunctionUtilizationMetric
-    lambdaFunctionUtilizationMetric_value,
     lambdaFunctionUtilizationMetric_name,
     lambdaFunctionUtilizationMetric_statistic,
+    lambdaFunctionUtilizationMetric_value,
 
     -- ** ProjectedMetric
-    projectedMetric_values,
     projectedMetric_name,
     projectedMetric_timestamps,
+    projectedMetric_values,
 
     -- ** ReasonCodeSummary
-    reasonCodeSummary_value,
     reasonCodeSummary_name,
+    reasonCodeSummary_value,
 
     -- ** RecommendationExportJob
-    recommendationExportJob_failureReason,
     recommendationExportJob_destination,
-    recommendationExportJob_status,
-    recommendationExportJob_jobId,
-    recommendationExportJob_resourceType,
-    recommendationExportJob_creationTimestamp,
     recommendationExportJob_lastUpdatedTimestamp,
+    recommendationExportJob_resourceType,
+    recommendationExportJob_jobId,
+    recommendationExportJob_status,
+    recommendationExportJob_creationTimestamp,
+    recommendationExportJob_failureReason,
 
     -- ** RecommendationPreferences
     recommendationPreferences_cpuVendorArchitectures,
 
     -- ** RecommendationSource
-    recommendationSource_recommendationSourceArn,
     recommendationSource_recommendationSourceType,
+    recommendationSource_recommendationSourceArn,
 
     -- ** RecommendationSummary
-    recommendationSummary_accountId,
-    recommendationSummary_summaries,
     recommendationSummary_recommendationResourceType,
+    recommendationSummary_summaries,
+    recommendationSummary_accountId,
 
     -- ** RecommendedOptionProjectedMetric
-    recommendedOptionProjectedMetric_recommendedInstanceType,
-    recommendedOptionProjectedMetric_projectedMetrics,
     recommendedOptionProjectedMetric_rank,
+    recommendedOptionProjectedMetric_projectedMetrics,
+    recommendedOptionProjectedMetric_recommendedInstanceType,
 
     -- ** S3Destination
-    s3Destination_bucket,
     s3Destination_key,
+    s3Destination_bucket,
     s3Destination_metadataKey,
 
     -- ** S3DestinationConfig
@@ -312,32 +312,32 @@ module Amazonka.ComputeOptimizer.Lens
     s3DestinationConfig_keyPrefix,
 
     -- ** Summary
+    summary_name,
     summary_reasonCodeSummaries,
     summary_value,
-    summary_name,
 
     -- ** UtilizationMetric
-    utilizationMetric_value,
     utilizationMetric_name,
     utilizationMetric_statistic,
+    utilizationMetric_value,
 
     -- ** VolumeConfiguration
+    volumeConfiguration_volumeBurstThroughput,
+    volumeConfiguration_volumeType,
     volumeConfiguration_volumeSize,
     volumeConfiguration_volumeBaselineIOPS,
-    volumeConfiguration_volumeBurstIOPS,
-    volumeConfiguration_volumeType,
-    volumeConfiguration_volumeBurstThroughput,
     volumeConfiguration_volumeBaselineThroughput,
+    volumeConfiguration_volumeBurstIOPS,
 
     -- ** VolumeRecommendation
-    volumeRecommendation_finding,
-    volumeRecommendation_volumeArn,
     volumeRecommendation_lastRefreshTimestamp,
     volumeRecommendation_currentConfiguration,
+    volumeRecommendation_volumeArn,
+    volumeRecommendation_lookBackPeriodInDays,
     volumeRecommendation_accountId,
     volumeRecommendation_utilizationMetrics,
     volumeRecommendation_volumeRecommendationOptions,
-    volumeRecommendation_lookBackPeriodInDays,
+    volumeRecommendation_finding,
 
     -- ** VolumeRecommendationOption
     volumeRecommendationOption_performanceRisk,

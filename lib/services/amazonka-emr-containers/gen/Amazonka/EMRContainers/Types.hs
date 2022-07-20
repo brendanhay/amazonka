@@ -17,9 +17,9 @@ module Amazonka.EMRContainers.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _ValidationException,
 
     -- * ContainerProviderType
     ContainerProviderType (..),
@@ -48,15 +48,15 @@ module Amazonka.EMRContainers.Types
     -- * Configuration
     Configuration (..),
     newConfiguration,
-    configuration_configurations,
     configuration_properties,
+    configuration_configurations,
     configuration_classification,
 
     -- * ConfigurationOverrides
     ConfigurationOverrides (..),
     newConfigurationOverrides,
-    configurationOverrides_monitoringConfiguration,
     configurationOverrides_applicationConfiguration,
+    configurationOverrides_monitoringConfiguration,
 
     -- * ContainerInfo
     ContainerInfo (..),
@@ -78,23 +78,23 @@ module Amazonka.EMRContainers.Types
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
-    endpoint_failureReason,
-    endpoint_state,
-    endpoint_arn,
-    endpoint_createdAt,
-    endpoint_subnetIds,
-    endpoint_stateDetails,
-    endpoint_certificateArn,
-    endpoint_executionRoleArn,
-    endpoint_securityGroup,
-    endpoint_configurationOverrides,
-    endpoint_name,
-    endpoint_releaseLabel,
-    endpoint_id,
-    endpoint_type,
-    endpoint_serverUrl,
-    endpoint_virtualClusterId,
     endpoint_tags,
+    endpoint_name,
+    endpoint_type,
+    endpoint_stateDetails,
+    endpoint_securityGroup,
+    endpoint_releaseLabel,
+    endpoint_arn,
+    endpoint_state,
+    endpoint_serverUrl,
+    endpoint_id,
+    endpoint_certificateArn,
+    endpoint_configurationOverrides,
+    endpoint_virtualClusterId,
+    endpoint_executionRoleArn,
+    endpoint_subnetIds,
+    endpoint_createdAt,
+    endpoint_failureReason,
 
     -- * JobDriver
     JobDriver (..),
@@ -104,22 +104,22 @@ module Amazonka.EMRContainers.Types
     -- * JobRun
     JobRun (..),
     newJobRun,
-    jobRun_failureReason,
-    jobRun_state,
-    jobRun_clientToken,
-    jobRun_arn,
-    jobRun_createdAt,
-    jobRun_stateDetails,
-    jobRun_createdBy,
-    jobRun_executionRoleArn,
-    jobRun_jobDriver,
-    jobRun_configurationOverrides,
-    jobRun_finishedAt,
-    jobRun_name,
-    jobRun_releaseLabel,
-    jobRun_id,
-    jobRun_virtualClusterId,
     jobRun_tags,
+    jobRun_name,
+    jobRun_clientToken,
+    jobRun_stateDetails,
+    jobRun_finishedAt,
+    jobRun_jobDriver,
+    jobRun_releaseLabel,
+    jobRun_arn,
+    jobRun_state,
+    jobRun_id,
+    jobRun_configurationOverrides,
+    jobRun_virtualClusterId,
+    jobRun_executionRoleArn,
+    jobRun_createdBy,
+    jobRun_createdAt,
+    jobRun_failureReason,
 
     -- * MonitoringConfiguration
     MonitoringConfiguration (..),
@@ -136,20 +136,20 @@ module Amazonka.EMRContainers.Types
     -- * SparkSubmitJobDriver
     SparkSubmitJobDriver (..),
     newSparkSubmitJobDriver,
-    sparkSubmitJobDriver_sparkSubmitParameters,
     sparkSubmitJobDriver_entryPointArguments,
+    sparkSubmitJobDriver_sparkSubmitParameters,
     sparkSubmitJobDriver_entryPoint,
 
     -- * VirtualCluster
     VirtualCluster (..),
     newVirtualCluster,
-    virtualCluster_state,
-    virtualCluster_arn,
-    virtualCluster_createdAt,
-    virtualCluster_name,
-    virtualCluster_id,
-    virtualCluster_containerProvider,
     virtualCluster_tags,
+    virtualCluster_name,
+    virtualCluster_containerProvider,
+    virtualCluster_arn,
+    virtualCluster_state,
+    virtualCluster_id,
+    virtualCluster_createdAt,
   )
 where
 
@@ -203,35 +203,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -240,21 +213,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | There are invalid parameters in the client request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | This is an internal server exception.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -270,4 +262,12 @@ _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 400
+
+-- | There are invalid parameters in the client request.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
     Prelude.. Core.hasStatus 400

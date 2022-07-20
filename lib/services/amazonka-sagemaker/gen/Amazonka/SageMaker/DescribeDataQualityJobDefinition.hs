@@ -34,9 +34,9 @@ module Amazonka.SageMaker.DescribeDataQualityJobDefinition
     newDescribeDataQualityJobDefinitionResponse,
 
     -- * Response Lenses
+    describeDataQualityJobDefinitionResponse_networkConfig,
     describeDataQualityJobDefinitionResponse_dataQualityBaselineConfig,
     describeDataQualityJobDefinitionResponse_stoppingCondition,
-    describeDataQualityJobDefinitionResponse_networkConfig,
     describeDataQualityJobDefinitionResponse_httpStatus,
     describeDataQualityJobDefinitionResponse_jobDefinitionArn,
     describeDataQualityJobDefinitionResponse_jobDefinitionName,
@@ -99,9 +99,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDataQualityJobDefinitionResponse'
-            Prelude.<$> (x Core..?> "DataQualityBaselineConfig")
+            Prelude.<$> (x Core..?> "NetworkConfig")
+            Prelude.<*> (x Core..?> "DataQualityBaselineConfig")
             Prelude.<*> (x Core..?> "StoppingCondition")
-            Prelude.<*> (x Core..?> "NetworkConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "JobDefinitionArn")
             Prelude.<*> (x Core..:> "JobDefinitionName")
@@ -167,12 +167,12 @@ instance
 
 -- | /See:/ 'newDescribeDataQualityJobDefinitionResponse' smart constructor.
 data DescribeDataQualityJobDefinitionResponse = DescribeDataQualityJobDefinitionResponse'
-  { -- | The constraints and baselines for the data quality monitoring job
+  { -- | The networking configuration for the data quality monitoring job.
+    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
+    -- | The constraints and baselines for the data quality monitoring job
     -- definition.
     dataQualityBaselineConfig :: Prelude.Maybe DataQualityBaselineConfig,
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
-    -- | The networking configuration for the data quality monitoring job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the data quality monitoring job
@@ -204,12 +204,12 @@ data DescribeDataQualityJobDefinitionResponse = DescribeDataQualityJobDefinition
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkConfig', 'describeDataQualityJobDefinitionResponse_networkConfig' - The networking configuration for the data quality monitoring job.
+--
 -- 'dataQualityBaselineConfig', 'describeDataQualityJobDefinitionResponse_dataQualityBaselineConfig' - The constraints and baselines for the data quality monitoring job
 -- definition.
 --
 -- 'stoppingCondition', 'describeDataQualityJobDefinitionResponse_stoppingCondition' - Undocumented member.
---
--- 'networkConfig', 'describeDataQualityJobDefinitionResponse_networkConfig' - The networking configuration for the data quality monitoring job.
 --
 -- 'httpStatus', 'describeDataQualityJobDefinitionResponse_httpStatus' - The response's http status code.
 --
@@ -263,11 +263,12 @@ newDescribeDataQualityJobDefinitionResponse
   pJobResources_
   pRoleArn_ =
     DescribeDataQualityJobDefinitionResponse'
-      { dataQualityBaselineConfig =
+      { networkConfig =
+          Prelude.Nothing,
+        dataQualityBaselineConfig =
           Prelude.Nothing,
         stoppingCondition =
           Prelude.Nothing,
-        networkConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         jobDefinitionArn =
           pJobDefinitionArn_,
@@ -286,6 +287,10 @@ newDescribeDataQualityJobDefinitionResponse
         roleArn = pRoleArn_
       }
 
+-- | The networking configuration for the data quality monitoring job.
+describeDataQualityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeDataQualityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
+describeDataQualityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeDataQualityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeDataQualityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeDataQualityJobDefinitionResponse)
+
 -- | The constraints and baselines for the data quality monitoring job
 -- definition.
 describeDataQualityJobDefinitionResponse_dataQualityBaselineConfig :: Lens.Lens' DescribeDataQualityJobDefinitionResponse (Prelude.Maybe DataQualityBaselineConfig)
@@ -294,10 +299,6 @@ describeDataQualityJobDefinitionResponse_dataQualityBaselineConfig = Lens.lens (
 -- | Undocumented member.
 describeDataQualityJobDefinitionResponse_stoppingCondition :: Lens.Lens' DescribeDataQualityJobDefinitionResponse (Prelude.Maybe MonitoringStoppingCondition)
 describeDataQualityJobDefinitionResponse_stoppingCondition = Lens.lens (\DescribeDataQualityJobDefinitionResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeDataQualityJobDefinitionResponse' {} a -> s {stoppingCondition = a} :: DescribeDataQualityJobDefinitionResponse)
-
--- | The networking configuration for the data quality monitoring job.
-describeDataQualityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeDataQualityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
-describeDataQualityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeDataQualityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeDataQualityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeDataQualityJobDefinitionResponse)
 
 -- | The response's http status code.
 describeDataQualityJobDefinitionResponse_httpStatus :: Lens.Lens' DescribeDataQualityJobDefinitionResponse Prelude.Int
@@ -344,9 +345,9 @@ instance
     DescribeDataQualityJobDefinitionResponse
   where
   rnf DescribeDataQualityJobDefinitionResponse' {..} =
-    Prelude.rnf dataQualityBaselineConfig
+    Prelude.rnf networkConfig
+      `Prelude.seq` Prelude.rnf dataQualityBaselineConfig
       `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf networkConfig
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobDefinitionArn
       `Prelude.seq` Prelude.rnf jobDefinitionName

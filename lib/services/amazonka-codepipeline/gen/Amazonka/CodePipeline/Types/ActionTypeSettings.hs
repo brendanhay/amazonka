@@ -32,12 +32,6 @@ data ActionTypeSettings = ActionTypeSettings'
     -- service.
     thirdPartyConfigurationUrl :: Prelude.Maybe Prelude.Text,
     -- | The URL returned to the AWS CodePipeline console that contains a link to
-    -- the top-level landing page for the external system, such as the console
-    -- page for AWS CodeDeploy. This link is shown on the pipeline view page in
-    -- the AWS CodePipeline console and provides a link to the execution entity
-    -- of the external action.
-    executionUrlTemplate :: Prelude.Maybe Prelude.Text,
-    -- | The URL returned to the AWS CodePipeline console that contains a link to
     -- the page where customers can update or change the configuration of the
     -- external action.
     revisionUrlTemplate :: Prelude.Maybe Prelude.Text,
@@ -45,7 +39,13 @@ data ActionTypeSettings = ActionTypeSettings'
     -- link to the resources of the external system, such as the configuration
     -- page for an AWS CodeDeploy deployment group. This link is provided as
     -- part of the action display in the pipeline.
-    entityUrlTemplate :: Prelude.Maybe Prelude.Text
+    entityUrlTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The URL returned to the AWS CodePipeline console that contains a link to
+    -- the top-level landing page for the external system, such as the console
+    -- page for AWS CodeDeploy. This link is shown on the pipeline view page in
+    -- the AWS CodePipeline console and provides a link to the execution entity
+    -- of the external action.
+    executionUrlTemplate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,12 +61,6 @@ data ActionTypeSettings = ActionTypeSettings'
 -- service and perform initial configuration of the action provided by that
 -- service.
 --
--- 'executionUrlTemplate', 'actionTypeSettings_executionUrlTemplate' - The URL returned to the AWS CodePipeline console that contains a link to
--- the top-level landing page for the external system, such as the console
--- page for AWS CodeDeploy. This link is shown on the pipeline view page in
--- the AWS CodePipeline console and provides a link to the execution entity
--- of the external action.
---
 -- 'revisionUrlTemplate', 'actionTypeSettings_revisionUrlTemplate' - The URL returned to the AWS CodePipeline console that contains a link to
 -- the page where customers can update or change the configuration of the
 -- external action.
@@ -75,15 +69,21 @@ data ActionTypeSettings = ActionTypeSettings'
 -- link to the resources of the external system, such as the configuration
 -- page for an AWS CodeDeploy deployment group. This link is provided as
 -- part of the action display in the pipeline.
+--
+-- 'executionUrlTemplate', 'actionTypeSettings_executionUrlTemplate' - The URL returned to the AWS CodePipeline console that contains a link to
+-- the top-level landing page for the external system, such as the console
+-- page for AWS CodeDeploy. This link is shown on the pipeline view page in
+-- the AWS CodePipeline console and provides a link to the execution entity
+-- of the external action.
 newActionTypeSettings ::
   ActionTypeSettings
 newActionTypeSettings =
   ActionTypeSettings'
     { thirdPartyConfigurationUrl =
         Prelude.Nothing,
-      executionUrlTemplate = Prelude.Nothing,
       revisionUrlTemplate = Prelude.Nothing,
-      entityUrlTemplate = Prelude.Nothing
+      entityUrlTemplate = Prelude.Nothing,
+      executionUrlTemplate = Prelude.Nothing
     }
 
 -- | The URL of a sign-up page where users can sign up for an external
@@ -91,14 +91,6 @@ newActionTypeSettings =
 -- service.
 actionTypeSettings_thirdPartyConfigurationUrl :: Lens.Lens' ActionTypeSettings (Prelude.Maybe Prelude.Text)
 actionTypeSettings_thirdPartyConfigurationUrl = Lens.lens (\ActionTypeSettings' {thirdPartyConfigurationUrl} -> thirdPartyConfigurationUrl) (\s@ActionTypeSettings' {} a -> s {thirdPartyConfigurationUrl = a} :: ActionTypeSettings)
-
--- | The URL returned to the AWS CodePipeline console that contains a link to
--- the top-level landing page for the external system, such as the console
--- page for AWS CodeDeploy. This link is shown on the pipeline view page in
--- the AWS CodePipeline console and provides a link to the execution entity
--- of the external action.
-actionTypeSettings_executionUrlTemplate :: Lens.Lens' ActionTypeSettings (Prelude.Maybe Prelude.Text)
-actionTypeSettings_executionUrlTemplate = Lens.lens (\ActionTypeSettings' {executionUrlTemplate} -> executionUrlTemplate) (\s@ActionTypeSettings' {} a -> s {executionUrlTemplate = a} :: ActionTypeSettings)
 
 -- | The URL returned to the AWS CodePipeline console that contains a link to
 -- the page where customers can update or change the configuration of the
@@ -113,6 +105,14 @@ actionTypeSettings_revisionUrlTemplate = Lens.lens (\ActionTypeSettings' {revisi
 actionTypeSettings_entityUrlTemplate :: Lens.Lens' ActionTypeSettings (Prelude.Maybe Prelude.Text)
 actionTypeSettings_entityUrlTemplate = Lens.lens (\ActionTypeSettings' {entityUrlTemplate} -> entityUrlTemplate) (\s@ActionTypeSettings' {} a -> s {entityUrlTemplate = a} :: ActionTypeSettings)
 
+-- | The URL returned to the AWS CodePipeline console that contains a link to
+-- the top-level landing page for the external system, such as the console
+-- page for AWS CodeDeploy. This link is shown on the pipeline view page in
+-- the AWS CodePipeline console and provides a link to the execution entity
+-- of the external action.
+actionTypeSettings_executionUrlTemplate :: Lens.Lens' ActionTypeSettings (Prelude.Maybe Prelude.Text)
+actionTypeSettings_executionUrlTemplate = Lens.lens (\ActionTypeSettings' {executionUrlTemplate} -> executionUrlTemplate) (\s@ActionTypeSettings' {} a -> s {executionUrlTemplate = a} :: ActionTypeSettings)
+
 instance Core.FromJSON ActionTypeSettings where
   parseJSON =
     Core.withObject
@@ -120,25 +120,25 @@ instance Core.FromJSON ActionTypeSettings where
       ( \x ->
           ActionTypeSettings'
             Prelude.<$> (x Core..:? "thirdPartyConfigurationUrl")
-            Prelude.<*> (x Core..:? "executionUrlTemplate")
             Prelude.<*> (x Core..:? "revisionUrlTemplate")
             Prelude.<*> (x Core..:? "entityUrlTemplate")
+            Prelude.<*> (x Core..:? "executionUrlTemplate")
       )
 
 instance Prelude.Hashable ActionTypeSettings where
   hashWithSalt _salt ActionTypeSettings' {..} =
     _salt
       `Prelude.hashWithSalt` thirdPartyConfigurationUrl
-      `Prelude.hashWithSalt` executionUrlTemplate
       `Prelude.hashWithSalt` revisionUrlTemplate
       `Prelude.hashWithSalt` entityUrlTemplate
+      `Prelude.hashWithSalt` executionUrlTemplate
 
 instance Prelude.NFData ActionTypeSettings where
   rnf ActionTypeSettings' {..} =
     Prelude.rnf thirdPartyConfigurationUrl
-      `Prelude.seq` Prelude.rnf executionUrlTemplate
       `Prelude.seq` Prelude.rnf revisionUrlTemplate
       `Prelude.seq` Prelude.rnf entityUrlTemplate
+      `Prelude.seq` Prelude.rnf executionUrlTemplate
 
 instance Core.ToJSON ActionTypeSettings where
   toJSON ActionTypeSettings' {..} =
@@ -146,11 +146,11 @@ instance Core.ToJSON ActionTypeSettings where
       ( Prelude.catMaybes
           [ ("thirdPartyConfigurationUrl" Core..=)
               Prelude.<$> thirdPartyConfigurationUrl,
-            ("executionUrlTemplate" Core..=)
-              Prelude.<$> executionUrlTemplate,
             ("revisionUrlTemplate" Core..=)
               Prelude.<$> revisionUrlTemplate,
             ("entityUrlTemplate" Core..=)
-              Prelude.<$> entityUrlTemplate
+              Prelude.<$> entityUrlTemplate,
+            ("executionUrlTemplate" Core..=)
+              Prelude.<$> executionUrlTemplate
           ]
       )

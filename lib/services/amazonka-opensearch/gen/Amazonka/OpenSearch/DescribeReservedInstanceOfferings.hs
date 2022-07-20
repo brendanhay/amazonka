@@ -28,8 +28,8 @@ module Amazonka.OpenSearch.DescribeReservedInstanceOfferings
 
     -- * Request Lenses
     describeReservedInstanceOfferings_nextToken,
-    describeReservedInstanceOfferings_reservedInstanceOfferingId,
     describeReservedInstanceOfferings_maxResults,
+    describeReservedInstanceOfferings_reservedInstanceOfferingId,
 
     -- * Destructuring the Response
     DescribeReservedInstanceOfferingsResponse (..),
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 data DescribeReservedInstanceOfferings = DescribeReservedInstanceOfferings'
   { -- | Provides an identifier to allow retrieval of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Set this value to limit the number of results returned. If not
+    -- specified, defaults to 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The offering identifier filter value. Use this parameter to show only
     -- the available offering that matches the specified reservation
     -- identifier.
-    reservedInstanceOfferingId :: Prelude.Maybe Prelude.Text,
-    -- | Set this value to limit the number of results returned. If not
-    -- specified, defaults to 100.
-    maxResults :: Prelude.Maybe Prelude.Int
+    reservedInstanceOfferingId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,37 +75,37 @@ data DescribeReservedInstanceOfferings = DescribeReservedInstanceOfferings'
 --
 -- 'nextToken', 'describeReservedInstanceOfferings_nextToken' - Provides an identifier to allow retrieval of paginated results.
 --
+-- 'maxResults', 'describeReservedInstanceOfferings_maxResults' - Set this value to limit the number of results returned. If not
+-- specified, defaults to 100.
+--
 -- 'reservedInstanceOfferingId', 'describeReservedInstanceOfferings_reservedInstanceOfferingId' - The offering identifier filter value. Use this parameter to show only
 -- the available offering that matches the specified reservation
 -- identifier.
---
--- 'maxResults', 'describeReservedInstanceOfferings_maxResults' - Set this value to limit the number of results returned. If not
--- specified, defaults to 100.
 newDescribeReservedInstanceOfferings ::
   DescribeReservedInstanceOfferings
 newDescribeReservedInstanceOfferings =
   DescribeReservedInstanceOfferings'
     { nextToken =
         Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       reservedInstanceOfferingId =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 describeReservedInstanceOfferings_nextToken :: Lens.Lens' DescribeReservedInstanceOfferings (Prelude.Maybe Prelude.Text)
 describeReservedInstanceOfferings_nextToken = Lens.lens (\DescribeReservedInstanceOfferings' {nextToken} -> nextToken) (\s@DescribeReservedInstanceOfferings' {} a -> s {nextToken = a} :: DescribeReservedInstanceOfferings)
 
+-- | Set this value to limit the number of results returned. If not
+-- specified, defaults to 100.
+describeReservedInstanceOfferings_maxResults :: Lens.Lens' DescribeReservedInstanceOfferings (Prelude.Maybe Prelude.Int)
+describeReservedInstanceOfferings_maxResults = Lens.lens (\DescribeReservedInstanceOfferings' {maxResults} -> maxResults) (\s@DescribeReservedInstanceOfferings' {} a -> s {maxResults = a} :: DescribeReservedInstanceOfferings)
+
 -- | The offering identifier filter value. Use this parameter to show only
 -- the available offering that matches the specified reservation
 -- identifier.
 describeReservedInstanceOfferings_reservedInstanceOfferingId :: Lens.Lens' DescribeReservedInstanceOfferings (Prelude.Maybe Prelude.Text)
 describeReservedInstanceOfferings_reservedInstanceOfferingId = Lens.lens (\DescribeReservedInstanceOfferings' {reservedInstanceOfferingId} -> reservedInstanceOfferingId) (\s@DescribeReservedInstanceOfferings' {} a -> s {reservedInstanceOfferingId = a} :: DescribeReservedInstanceOfferings)
-
--- | Set this value to limit the number of results returned. If not
--- specified, defaults to 100.
-describeReservedInstanceOfferings_maxResults :: Lens.Lens' DescribeReservedInstanceOfferings (Prelude.Maybe Prelude.Int)
-describeReservedInstanceOfferings_maxResults = Lens.lens (\DescribeReservedInstanceOfferings' {maxResults} -> maxResults) (\s@DescribeReservedInstanceOfferings' {} a -> s {maxResults = a} :: DescribeReservedInstanceOfferings)
 
 instance
   Core.AWSRequest
@@ -134,8 +134,8 @@ instance
     _salt
     DescribeReservedInstanceOfferings' {..} =
       _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` reservedInstanceOfferingId
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` reservedInstanceOfferingId
 
 instance
   Prelude.NFData
@@ -143,8 +143,8 @@ instance
   where
   rnf DescribeReservedInstanceOfferings' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
 
 instance
   Core.ToHeaders
@@ -167,8 +167,8 @@ instance
   toQuery DescribeReservedInstanceOfferings' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "offeringId" Core.=: reservedInstanceOfferingId,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "offeringId" Core.=: reservedInstanceOfferingId
       ]
 
 -- | Container for results from @DescribeReservedInstanceOfferings@

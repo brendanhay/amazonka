@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConversationLogsResponse' smart constructor.
 data ConversationLogsResponse = ConversationLogsResponse'
-  { -- | The Amazon Resource Name (ARN) of the IAM role used to write your logs
-    -- to CloudWatch Logs or an S3 bucket.
-    iamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The settings for your conversation logs. You can log text, audio, or
+  { -- | The settings for your conversation logs. You can log text, audio, or
     -- both.
-    logSettings :: Prelude.Maybe [LogSettingsResponse]
+    logSettings :: Prelude.Maybe [LogSettingsResponse],
+    -- | The Amazon Resource Name (ARN) of the IAM role used to write your logs
+    -- to CloudWatch Logs or an S3 bucket.
+    iamRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data ConversationLogsResponse = ConversationLogsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iamRoleArn', 'conversationLogsResponse_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role used to write your logs
--- to CloudWatch Logs or an S3 bucket.
---
 -- 'logSettings', 'conversationLogsResponse_logSettings' - The settings for your conversation logs. You can log text, audio, or
 -- both.
+--
+-- 'iamRoleArn', 'conversationLogsResponse_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role used to write your logs
+-- to CloudWatch Logs or an S3 bucket.
 newConversationLogsResponse ::
   ConversationLogsResponse
 newConversationLogsResponse =
   ConversationLogsResponse'
-    { iamRoleArn =
+    { logSettings =
         Prelude.Nothing,
-      logSettings = Prelude.Nothing
+      iamRoleArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the IAM role used to write your logs
--- to CloudWatch Logs or an S3 bucket.
-conversationLogsResponse_iamRoleArn :: Lens.Lens' ConversationLogsResponse (Prelude.Maybe Prelude.Text)
-conversationLogsResponse_iamRoleArn = Lens.lens (\ConversationLogsResponse' {iamRoleArn} -> iamRoleArn) (\s@ConversationLogsResponse' {} a -> s {iamRoleArn = a} :: ConversationLogsResponse)
 
 -- | The settings for your conversation logs. You can log text, audio, or
 -- both.
 conversationLogsResponse_logSettings :: Lens.Lens' ConversationLogsResponse (Prelude.Maybe [LogSettingsResponse])
 conversationLogsResponse_logSettings = Lens.lens (\ConversationLogsResponse' {logSettings} -> logSettings) (\s@ConversationLogsResponse' {} a -> s {logSettings = a} :: ConversationLogsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the IAM role used to write your logs
+-- to CloudWatch Logs or an S3 bucket.
+conversationLogsResponse_iamRoleArn :: Lens.Lens' ConversationLogsResponse (Prelude.Maybe Prelude.Text)
+conversationLogsResponse_iamRoleArn = Lens.lens (\ConversationLogsResponse' {iamRoleArn} -> iamRoleArn) (\s@ConversationLogsResponse' {} a -> s {iamRoleArn = a} :: ConversationLogsResponse)
 
 instance Core.FromJSON ConversationLogsResponse where
   parseJSON =
@@ -75,16 +75,16 @@ instance Core.FromJSON ConversationLogsResponse where
       "ConversationLogsResponse"
       ( \x ->
           ConversationLogsResponse'
-            Prelude.<$> (x Core..:? "iamRoleArn")
-            Prelude.<*> (x Core..:? "logSettings" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "logSettings" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "iamRoleArn")
       )
 
 instance Prelude.Hashable ConversationLogsResponse where
   hashWithSalt _salt ConversationLogsResponse' {..} =
-    _salt `Prelude.hashWithSalt` iamRoleArn
-      `Prelude.hashWithSalt` logSettings
+    _salt `Prelude.hashWithSalt` logSettings
+      `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData ConversationLogsResponse where
   rnf ConversationLogsResponse' {..} =
-    Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf logSettings
+    Prelude.rnf logSettings
+      `Prelude.seq` Prelude.rnf iamRoleArn

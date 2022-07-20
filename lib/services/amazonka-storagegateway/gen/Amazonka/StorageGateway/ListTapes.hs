@@ -40,9 +40,9 @@ module Amazonka.StorageGateway.ListTapes
     newListTapes,
 
     -- * Request Lenses
+    listTapes_tapeARNs,
     listTapes_marker,
     listTapes_limit,
-    listTapes_tapeARNs,
 
     -- * Destructuring the Response
     ListTapesResponse (..),
@@ -72,13 +72,13 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newListTapes' smart constructor.
 data ListTapes = ListTapes'
-  { -- | A string that indicates the position at which to begin the returned list
+  { tapeARNs :: Prelude.Maybe [Prelude.Text],
+    -- | A string that indicates the position at which to begin the returned list
     -- of tapes.
     marker :: Prelude.Maybe Prelude.Text,
     -- | An optional number limit for the tapes in the list returned by this
     -- call.
-    limit :: Prelude.Maybe Prelude.Natural,
-    tapeARNs :: Prelude.Maybe [Prelude.Text]
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,21 +90,25 @@ data ListTapes = ListTapes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tapeARNs', 'listTapes_tapeARNs' - Undocumented member.
+--
 -- 'marker', 'listTapes_marker' - A string that indicates the position at which to begin the returned list
 -- of tapes.
 --
 -- 'limit', 'listTapes_limit' - An optional number limit for the tapes in the list returned by this
 -- call.
---
--- 'tapeARNs', 'listTapes_tapeARNs' - Undocumented member.
 newListTapes ::
   ListTapes
 newListTapes =
   ListTapes'
-    { marker = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      tapeARNs = Prelude.Nothing
+    { tapeARNs = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listTapes_tapeARNs :: Lens.Lens' ListTapes (Prelude.Maybe [Prelude.Text])
+listTapes_tapeARNs = Lens.lens (\ListTapes' {tapeARNs} -> tapeARNs) (\s@ListTapes' {} a -> s {tapeARNs = a} :: ListTapes) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that indicates the position at which to begin the returned list
 -- of tapes.
@@ -115,10 +119,6 @@ listTapes_marker = Lens.lens (\ListTapes' {marker} -> marker) (\s@ListTapes' {} 
 -- call.
 listTapes_limit :: Lens.Lens' ListTapes (Prelude.Maybe Prelude.Natural)
 listTapes_limit = Lens.lens (\ListTapes' {limit} -> limit) (\s@ListTapes' {} a -> s {limit = a} :: ListTapes)
-
--- | Undocumented member.
-listTapes_tapeARNs :: Lens.Lens' ListTapes (Prelude.Maybe [Prelude.Text])
-listTapes_tapeARNs = Lens.lens (\ListTapes' {tapeARNs} -> tapeARNs) (\s@ListTapes' {} a -> s {tapeARNs = a} :: ListTapes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListTapes where
   page rq rs
@@ -153,15 +153,15 @@ instance Core.AWSRequest ListTapes where
 
 instance Prelude.Hashable ListTapes where
   hashWithSalt _salt ListTapes' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` tapeARNs
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` tapeARNs
 
 instance Prelude.NFData ListTapes where
   rnf ListTapes' {..} =
-    Prelude.rnf marker
+    Prelude.rnf tapeARNs
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf tapeARNs
 
 instance Core.ToHeaders ListTapes where
   toHeaders =
@@ -182,9 +182,9 @@ instance Core.ToJSON ListTapes where
   toJSON ListTapes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("TapeARNs" Core..=) Prelude.<$> tapeARNs
+          [ ("TapeARNs" Core..=) Prelude.<$> tapeARNs,
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 

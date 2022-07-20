@@ -38,8 +38,8 @@ module Amazonka.QuickSight.ListGroupMemberships
     newListGroupMembershipsResponse,
 
     -- * Response Lenses
-    listGroupMembershipsResponse_requestId,
     listGroupMembershipsResponse_nextToken,
+    listGroupMembershipsResponse_requestId,
     listGroupMembershipsResponse_groupMemberList,
     listGroupMembershipsResponse_status,
   )
@@ -139,8 +139,8 @@ instance Core.AWSRequest ListGroupMemberships where
     Response.receiveJSON
       ( \s h x ->
           ListGroupMembershipsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> ( x Core..?> "GroupMemberList"
                             Core..!@ Prelude.mempty
                         )
@@ -195,10 +195,10 @@ instance Core.ToQuery ListGroupMemberships where
 
 -- | /See:/ 'newListGroupMembershipsResponse' smart constructor.
 data ListGroupMembershipsResponse = ListGroupMembershipsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | A pagination token that can be used in a subsequent request.
+  { -- | A pagination token that can be used in a subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The list of the members of the group.
     groupMemberList :: Prelude.Maybe [GroupMember],
     -- | The HTTP status of the request.
@@ -214,9 +214,9 @@ data ListGroupMembershipsResponse = ListGroupMembershipsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listGroupMembershipsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'nextToken', 'listGroupMembershipsResponse_nextToken' - A pagination token that can be used in a subsequent request.
+--
+-- 'requestId', 'listGroupMembershipsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'groupMemberList', 'listGroupMembershipsResponse_groupMemberList' - The list of the members of the group.
 --
@@ -227,20 +227,20 @@ newListGroupMembershipsResponse ::
   ListGroupMembershipsResponse
 newListGroupMembershipsResponse pStatus_ =
   ListGroupMembershipsResponse'
-    { requestId =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       groupMemberList = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-listGroupMembershipsResponse_requestId :: Lens.Lens' ListGroupMembershipsResponse (Prelude.Maybe Prelude.Text)
-listGroupMembershipsResponse_requestId = Lens.lens (\ListGroupMembershipsResponse' {requestId} -> requestId) (\s@ListGroupMembershipsResponse' {} a -> s {requestId = a} :: ListGroupMembershipsResponse)
-
 -- | A pagination token that can be used in a subsequent request.
 listGroupMembershipsResponse_nextToken :: Lens.Lens' ListGroupMembershipsResponse (Prelude.Maybe Prelude.Text)
 listGroupMembershipsResponse_nextToken = Lens.lens (\ListGroupMembershipsResponse' {nextToken} -> nextToken) (\s@ListGroupMembershipsResponse' {} a -> s {nextToken = a} :: ListGroupMembershipsResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+listGroupMembershipsResponse_requestId :: Lens.Lens' ListGroupMembershipsResponse (Prelude.Maybe Prelude.Text)
+listGroupMembershipsResponse_requestId = Lens.lens (\ListGroupMembershipsResponse' {requestId} -> requestId) (\s@ListGroupMembershipsResponse' {} a -> s {requestId = a} :: ListGroupMembershipsResponse)
 
 -- | The list of the members of the group.
 listGroupMembershipsResponse_groupMemberList :: Lens.Lens' ListGroupMembershipsResponse (Prelude.Maybe [GroupMember])
@@ -252,7 +252,7 @@ listGroupMembershipsResponse_status = Lens.lens (\ListGroupMembershipsResponse' 
 
 instance Prelude.NFData ListGroupMembershipsResponse where
   rnf ListGroupMembershipsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf groupMemberList
       `Prelude.seq` Prelude.rnf status

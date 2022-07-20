@@ -27,31 +27,25 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetRecommendations $
---             newGetRecommendations
---
---         , requestGetPersonalizedRanking $
+--         [ requestGetPersonalizedRanking $
 --             newGetPersonalizedRanking
+--
+--         , requestGetRecommendations $
+--             newGetRecommendations
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetRecommendations $
---             newGetRecommendationsResponse
---
---         , responseGetPersonalizedRanking $
+--         [ responseGetPersonalizedRanking $
 --             newGetPersonalizedRankingResponse
+--
+--         , responseGetRecommendations $
+--             newGetRecommendationsResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetRecommendations :: GetRecommendations -> TestTree
-requestGetRecommendations =
-  req
-    "GetRecommendations"
-    "fixture/GetRecommendations.yaml"
 
 requestGetPersonalizedRanking :: GetPersonalizedRanking -> TestTree
 requestGetPersonalizedRanking =
@@ -59,15 +53,13 @@ requestGetPersonalizedRanking =
     "GetPersonalizedRanking"
     "fixture/GetPersonalizedRanking.yaml"
 
--- Responses
+requestGetRecommendations :: GetRecommendations -> TestTree
+requestGetRecommendations =
+  req
+    "GetRecommendations"
+    "fixture/GetRecommendations.yaml"
 
-responseGetRecommendations :: GetRecommendationsResponse -> TestTree
-responseGetRecommendations =
-  res
-    "GetRecommendationsResponse"
-    "fixture/GetRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)
+-- Responses
 
 responseGetPersonalizedRanking :: GetPersonalizedRankingResponse -> TestTree
 responseGetPersonalizedRanking =
@@ -76,3 +68,11 @@ responseGetPersonalizedRanking =
     "fixture/GetPersonalizedRankingResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetPersonalizedRanking)
+
+responseGetRecommendations :: GetRecommendationsResponse -> TestTree
+responseGetRecommendations =
+  res
+    "GetRecommendationsResponse"
+    "fixture/GetRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)

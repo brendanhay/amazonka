@@ -80,22 +80,22 @@ module Amazonka.SageMaker.CreateTrainingJob
     newCreateTrainingJob,
 
     -- * Request Lenses
-    createTrainingJob_environment,
-    createTrainingJob_debugHookConfig,
-    createTrainingJob_checkpointConfig,
-    createTrainingJob_retryStrategy,
-    createTrainingJob_profilerConfig,
-    createTrainingJob_enableNetworkIsolation,
-    createTrainingJob_experimentConfig,
-    createTrainingJob_debugRuleConfigurations,
-    createTrainingJob_enableManagedSpotTraining,
-    createTrainingJob_hyperParameters,
-    createTrainingJob_inputDataConfig,
-    createTrainingJob_profilerRuleConfigurations,
-    createTrainingJob_vpcConfig,
-    createTrainingJob_enableInterContainerTrafficEncryption,
-    createTrainingJob_tensorBoardOutputConfig,
     createTrainingJob_tags,
+    createTrainingJob_profilerConfig,
+    createTrainingJob_enableManagedSpotTraining,
+    createTrainingJob_environment,
+    createTrainingJob_retryStrategy,
+    createTrainingJob_vpcConfig,
+    createTrainingJob_enableNetworkIsolation,
+    createTrainingJob_profilerRuleConfigurations,
+    createTrainingJob_experimentConfig,
+    createTrainingJob_checkpointConfig,
+    createTrainingJob_debugHookConfig,
+    createTrainingJob_enableInterContainerTrafficEncryption,
+    createTrainingJob_debugRuleConfigurations,
+    createTrainingJob_tensorBoardOutputConfig,
+    createTrainingJob_inputDataConfig,
+    createTrainingJob_hyperParameters,
     createTrainingJob_trainingJobName,
     createTrainingJob_algorithmSpecification,
     createTrainingJob_roleArn,
@@ -122,27 +122,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateTrainingJob' smart constructor.
 data CreateTrainingJob = CreateTrainingJob'
-  { -- | The environment variables to set in the Docker container.
-    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    debugHookConfig :: Prelude.Maybe DebugHookConfig,
-    -- | Contains information about the output location for managed spot training
-    -- checkpoint data.
-    checkpointConfig :: Prelude.Maybe CheckpointConfig,
-    -- | The number of times to retry the job when the job fails due to an
-    -- @InternalServerError@.
-    retryStrategy :: Prelude.Maybe RetryStrategy,
+  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+    tags :: Prelude.Maybe [Tag],
     profilerConfig :: Prelude.Maybe ProfilerConfig,
-    -- | Isolates the training container. No inbound or outbound network calls
-    -- can be made, except for calls between peers within a training cluster
-    -- for distributed training. If you enable network isolation for training
-    -- jobs that are configured to use a VPC, Amazon SageMaker downloads and
-    -- uploads customer data and model artifacts through the specified VPC, but
-    -- the training container does not have network access.
-    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
-    experimentConfig :: Prelude.Maybe ExperimentConfig,
-    -- | Configuration information for Debugger rules for debugging output
-    -- tensors.
-    debugRuleConfigurations :: Prelude.Maybe [DebugRuleConfiguration],
     -- | To train models using managed spot training, choose @True@. Managed spot
     -- training provides a fully managed and scalable infrastructure for
     -- training machine learning models. this option is useful when training
@@ -155,16 +140,43 @@ data CreateTrainingJob = CreateTrainingJob'
     -- They can be used to see when managed spot training jobs are running,
     -- interrupted, resumed, or completed.
     enableManagedSpotTraining :: Prelude.Maybe Prelude.Bool,
-    -- | Algorithm-specific parameters that influence the quality of the model.
-    -- You set hyperparameters before you start the learning process. For a
-    -- list of hyperparameters for each training algorithm provided by Amazon
-    -- SageMaker, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
-    --
-    -- You can specify a maximum of 100 hyperparameters. Each hyperparameter is
-    -- a key-value pair. Each key and value is limited to 256 characters, as
-    -- specified by the @Length Constraint@.
-    hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The environment variables to set in the Docker container.
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The number of times to retry the job when the job fails due to an
+    -- @InternalServerError@.
+    retryStrategy :: Prelude.Maybe RetryStrategy,
+    -- | A VpcConfig object that specifies the VPC that you want your training
+    -- job to connect to. Control access to and from your training container by
+    -- configuring the VPC. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
+    vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | Isolates the training container. No inbound or outbound network calls
+    -- can be made, except for calls between peers within a training cluster
+    -- for distributed training. If you enable network isolation for training
+    -- jobs that are configured to use a VPC, Amazon SageMaker downloads and
+    -- uploads customer data and model artifacts through the specified VPC, but
+    -- the training container does not have network access.
+    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
+    -- | Configuration information for Debugger rules for profiling system and
+    -- framework metrics.
+    profilerRuleConfigurations :: Prelude.Maybe [ProfilerRuleConfiguration],
+    experimentConfig :: Prelude.Maybe ExperimentConfig,
+    -- | Contains information about the output location for managed spot training
+    -- checkpoint data.
+    checkpointConfig :: Prelude.Maybe CheckpointConfig,
+    debugHookConfig :: Prelude.Maybe DebugHookConfig,
+    -- | To encrypt all communications between ML compute instances in
+    -- distributed training, choose @True@. Encryption provides greater
+    -- security for distributed training, but training might take longer. How
+    -- long it takes depends on the amount of communication between compute
+    -- instances, especially if you use a deep learning algorithm in
+    -- distributed training. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job>.
+    enableInterContainerTrafficEncryption :: Prelude.Maybe Prelude.Bool,
+    -- | Configuration information for Debugger rules for debugging output
+    -- tensors.
+    debugRuleConfigurations :: Prelude.Maybe [DebugRuleConfiguration],
+    tensorBoardOutputConfig :: Prelude.Maybe TensorBoardOutputConfig,
     -- | An array of @Channel@ objects. Each channel is a named input source.
     -- @InputDataConfig@ describes the input data and its location.
     --
@@ -182,28 +194,16 @@ data CreateTrainingJob = CreateTrainingJob'
     -- will be made available as input streams. They do not need to be
     -- downloaded.
     inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
-    -- | Configuration information for Debugger rules for profiling system and
-    -- framework metrics.
-    profilerRuleConfigurations :: Prelude.Maybe [ProfilerRuleConfiguration],
-    -- | A VpcConfig object that specifies the VPC that you want your training
-    -- job to connect to. Control access to and from your training container by
-    -- configuring the VPC. For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
-    vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | To encrypt all communications between ML compute instances in
-    -- distributed training, choose @True@. Encryption provides greater
-    -- security for distributed training, but training might take longer. How
-    -- long it takes depends on the amount of communication between compute
-    -- instances, especially if you use a deep learning algorithm in
-    -- distributed training. For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job>.
-    enableInterContainerTrafficEncryption :: Prelude.Maybe Prelude.Bool,
-    tensorBoardOutputConfig :: Prelude.Maybe TensorBoardOutputConfig,
-    -- | An array of key-value pairs. You can use tags to categorize your Amazon
-    -- Web Services resources in different ways, for example, by purpose,
-    -- owner, or environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-    tags :: Prelude.Maybe [Tag],
+    -- | Algorithm-specific parameters that influence the quality of the model.
+    -- You set hyperparameters before you start the learning process. For a
+    -- list of hyperparameters for each training algorithm provided by Amazon
+    -- SageMaker, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
+    --
+    -- You can specify a maximum of 100 hyperparameters. Each hyperparameter is
+    -- a key-value pair. Each key and value is limited to 256 characters, as
+    -- specified by the @Length Constraint@.
+    hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the training job. The name must be unique within an Amazon
     -- Web Services Region in an Amazon Web Services account.
     trainingJobName :: Prelude.Text,
@@ -262,29 +262,12 @@ data CreateTrainingJob = CreateTrainingJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environment', 'createTrainingJob_environment' - The environment variables to set in the Docker container.
---
--- 'debugHookConfig', 'createTrainingJob_debugHookConfig' - Undocumented member.
---
--- 'checkpointConfig', 'createTrainingJob_checkpointConfig' - Contains information about the output location for managed spot training
--- checkpoint data.
---
--- 'retryStrategy', 'createTrainingJob_retryStrategy' - The number of times to retry the job when the job fails due to an
--- @InternalServerError@.
+-- 'tags', 'createTrainingJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'profilerConfig', 'createTrainingJob_profilerConfig' - Undocumented member.
---
--- 'enableNetworkIsolation', 'createTrainingJob_enableNetworkIsolation' - Isolates the training container. No inbound or outbound network calls
--- can be made, except for calls between peers within a training cluster
--- for distributed training. If you enable network isolation for training
--- jobs that are configured to use a VPC, Amazon SageMaker downloads and
--- uploads customer data and model artifacts through the specified VPC, but
--- the training container does not have network access.
---
--- 'experimentConfig', 'createTrainingJob_experimentConfig' - Undocumented member.
---
--- 'debugRuleConfigurations', 'createTrainingJob_debugRuleConfigurations' - Configuration information for Debugger rules for debugging output
--- tensors.
 --
 -- 'enableManagedSpotTraining', 'createTrainingJob_enableManagedSpotTraining' - To train models using managed spot training, choose @True@. Managed spot
 -- training provides a fully managed and scalable infrastructure for
@@ -298,15 +281,45 @@ data CreateTrainingJob = CreateTrainingJob'
 -- They can be used to see when managed spot training jobs are running,
 -- interrupted, resumed, or completed.
 --
--- 'hyperParameters', 'createTrainingJob_hyperParameters' - Algorithm-specific parameters that influence the quality of the model.
--- You set hyperparameters before you start the learning process. For a
--- list of hyperparameters for each training algorithm provided by Amazon
--- SageMaker, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
+-- 'environment', 'createTrainingJob_environment' - The environment variables to set in the Docker container.
 --
--- You can specify a maximum of 100 hyperparameters. Each hyperparameter is
--- a key-value pair. Each key and value is limited to 256 characters, as
--- specified by the @Length Constraint@.
+-- 'retryStrategy', 'createTrainingJob_retryStrategy' - The number of times to retry the job when the job fails due to an
+-- @InternalServerError@.
+--
+-- 'vpcConfig', 'createTrainingJob_vpcConfig' - A VpcConfig object that specifies the VPC that you want your training
+-- job to connect to. Control access to and from your training container by
+-- configuring the VPC. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
+--
+-- 'enableNetworkIsolation', 'createTrainingJob_enableNetworkIsolation' - Isolates the training container. No inbound or outbound network calls
+-- can be made, except for calls between peers within a training cluster
+-- for distributed training. If you enable network isolation for training
+-- jobs that are configured to use a VPC, Amazon SageMaker downloads and
+-- uploads customer data and model artifacts through the specified VPC, but
+-- the training container does not have network access.
+--
+-- 'profilerRuleConfigurations', 'createTrainingJob_profilerRuleConfigurations' - Configuration information for Debugger rules for profiling system and
+-- framework metrics.
+--
+-- 'experimentConfig', 'createTrainingJob_experimentConfig' - Undocumented member.
+--
+-- 'checkpointConfig', 'createTrainingJob_checkpointConfig' - Contains information about the output location for managed spot training
+-- checkpoint data.
+--
+-- 'debugHookConfig', 'createTrainingJob_debugHookConfig' - Undocumented member.
+--
+-- 'enableInterContainerTrafficEncryption', 'createTrainingJob_enableInterContainerTrafficEncryption' - To encrypt all communications between ML compute instances in
+-- distributed training, choose @True@. Encryption provides greater
+-- security for distributed training, but training might take longer. How
+-- long it takes depends on the amount of communication between compute
+-- instances, especially if you use a deep learning algorithm in
+-- distributed training. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job>.
+--
+-- 'debugRuleConfigurations', 'createTrainingJob_debugRuleConfigurations' - Configuration information for Debugger rules for debugging output
+-- tensors.
+--
+-- 'tensorBoardOutputConfig', 'createTrainingJob_tensorBoardOutputConfig' - Undocumented member.
 --
 -- 'inputDataConfig', 'createTrainingJob_inputDataConfig' - An array of @Channel@ objects. Each channel is a named input source.
 -- @InputDataConfig@ describes the input data and its location.
@@ -325,28 +338,15 @@ data CreateTrainingJob = CreateTrainingJob'
 -- will be made available as input streams. They do not need to be
 -- downloaded.
 --
--- 'profilerRuleConfigurations', 'createTrainingJob_profilerRuleConfigurations' - Configuration information for Debugger rules for profiling system and
--- framework metrics.
+-- 'hyperParameters', 'createTrainingJob_hyperParameters' - Algorithm-specific parameters that influence the quality of the model.
+-- You set hyperparameters before you start the learning process. For a
+-- list of hyperparameters for each training algorithm provided by Amazon
+-- SageMaker, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
 --
--- 'vpcConfig', 'createTrainingJob_vpcConfig' - A VpcConfig object that specifies the VPC that you want your training
--- job to connect to. Control access to and from your training container by
--- configuring the VPC. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
---
--- 'enableInterContainerTrafficEncryption', 'createTrainingJob_enableInterContainerTrafficEncryption' - To encrypt all communications between ML compute instances in
--- distributed training, choose @True@. Encryption provides greater
--- security for distributed training, but training might take longer. How
--- long it takes depends on the amount of communication between compute
--- instances, especially if you use a deep learning algorithm in
--- distributed training. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job>.
---
--- 'tensorBoardOutputConfig', 'createTrainingJob_tensorBoardOutputConfig' - Undocumented member.
---
--- 'tags', 'createTrainingJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+-- You can specify a maximum of 100 hyperparameters. Each hyperparameter is
+-- a key-value pair. Each key and value is limited to 256 characters, as
+-- specified by the @Length Constraint@.
 --
 -- 'trainingJobName', 'createTrainingJob_trainingJobName' - The name of the training job. The name must be unique within an Amazon
 -- Web Services Region in an Amazon Web Services account.
@@ -416,23 +416,23 @@ newCreateTrainingJob
   pResourceConfig_
   pStoppingCondition_ =
     CreateTrainingJob'
-      { environment = Prelude.Nothing,
-        debugHookConfig = Prelude.Nothing,
-        checkpointConfig = Prelude.Nothing,
-        retryStrategy = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         profilerConfig = Prelude.Nothing,
-        enableNetworkIsolation = Prelude.Nothing,
-        experimentConfig = Prelude.Nothing,
-        debugRuleConfigurations = Prelude.Nothing,
         enableManagedSpotTraining = Prelude.Nothing,
-        hyperParameters = Prelude.Nothing,
-        inputDataConfig = Prelude.Nothing,
-        profilerRuleConfigurations = Prelude.Nothing,
+        environment = Prelude.Nothing,
+        retryStrategy = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
+        enableNetworkIsolation = Prelude.Nothing,
+        profilerRuleConfigurations = Prelude.Nothing,
+        experimentConfig = Prelude.Nothing,
+        checkpointConfig = Prelude.Nothing,
+        debugHookConfig = Prelude.Nothing,
         enableInterContainerTrafficEncryption =
           Prelude.Nothing,
+        debugRuleConfigurations = Prelude.Nothing,
         tensorBoardOutputConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        inputDataConfig = Prelude.Nothing,
+        hyperParameters = Prelude.Nothing,
         trainingJobName = pTrainingJobName_,
         algorithmSpecification = pAlgorithmSpecification_,
         roleArn = pRoleArn_,
@@ -441,45 +441,16 @@ newCreateTrainingJob
         stoppingCondition = pStoppingCondition_
       }
 
--- | The environment variables to set in the Docker container.
-createTrainingJob_environment :: Lens.Lens' CreateTrainingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTrainingJob_environment = Lens.lens (\CreateTrainingJob' {environment} -> environment) (\s@CreateTrainingJob' {} a -> s {environment = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-createTrainingJob_debugHookConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe DebugHookConfig)
-createTrainingJob_debugHookConfig = Lens.lens (\CreateTrainingJob' {debugHookConfig} -> debugHookConfig) (\s@CreateTrainingJob' {} a -> s {debugHookConfig = a} :: CreateTrainingJob)
-
--- | Contains information about the output location for managed spot training
--- checkpoint data.
-createTrainingJob_checkpointConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe CheckpointConfig)
-createTrainingJob_checkpointConfig = Lens.lens (\CreateTrainingJob' {checkpointConfig} -> checkpointConfig) (\s@CreateTrainingJob' {} a -> s {checkpointConfig = a} :: CreateTrainingJob)
-
--- | The number of times to retry the job when the job fails due to an
--- @InternalServerError@.
-createTrainingJob_retryStrategy :: Lens.Lens' CreateTrainingJob (Prelude.Maybe RetryStrategy)
-createTrainingJob_retryStrategy = Lens.lens (\CreateTrainingJob' {retryStrategy} -> retryStrategy) (\s@CreateTrainingJob' {} a -> s {retryStrategy = a} :: CreateTrainingJob)
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+createTrainingJob_tags :: Lens.Lens' CreateTrainingJob (Prelude.Maybe [Tag])
+createTrainingJob_tags = Lens.lens (\CreateTrainingJob' {tags} -> tags) (\s@CreateTrainingJob' {} a -> s {tags = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createTrainingJob_profilerConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe ProfilerConfig)
 createTrainingJob_profilerConfig = Lens.lens (\CreateTrainingJob' {profilerConfig} -> profilerConfig) (\s@CreateTrainingJob' {} a -> s {profilerConfig = a} :: CreateTrainingJob)
-
--- | Isolates the training container. No inbound or outbound network calls
--- can be made, except for calls between peers within a training cluster
--- for distributed training. If you enable network isolation for training
--- jobs that are configured to use a VPC, Amazon SageMaker downloads and
--- uploads customer data and model artifacts through the specified VPC, but
--- the training container does not have network access.
-createTrainingJob_enableNetworkIsolation :: Lens.Lens' CreateTrainingJob (Prelude.Maybe Prelude.Bool)
-createTrainingJob_enableNetworkIsolation = Lens.lens (\CreateTrainingJob' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@CreateTrainingJob' {} a -> s {enableNetworkIsolation = a} :: CreateTrainingJob)
-
--- | Undocumented member.
-createTrainingJob_experimentConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe ExperimentConfig)
-createTrainingJob_experimentConfig = Lens.lens (\CreateTrainingJob' {experimentConfig} -> experimentConfig) (\s@CreateTrainingJob' {} a -> s {experimentConfig = a} :: CreateTrainingJob)
-
--- | Configuration information for Debugger rules for debugging output
--- tensors.
-createTrainingJob_debugRuleConfigurations :: Lens.Lens' CreateTrainingJob (Prelude.Maybe [DebugRuleConfiguration])
-createTrainingJob_debugRuleConfigurations = Lens.lens (\CreateTrainingJob' {debugRuleConfigurations} -> debugRuleConfigurations) (\s@CreateTrainingJob' {} a -> s {debugRuleConfigurations = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | To train models using managed spot training, choose @True@. Managed spot
 -- training provides a fully managed and scalable infrastructure for
@@ -495,17 +466,67 @@ createTrainingJob_debugRuleConfigurations = Lens.lens (\CreateTrainingJob' {debu
 createTrainingJob_enableManagedSpotTraining :: Lens.Lens' CreateTrainingJob (Prelude.Maybe Prelude.Bool)
 createTrainingJob_enableManagedSpotTraining = Lens.lens (\CreateTrainingJob' {enableManagedSpotTraining} -> enableManagedSpotTraining) (\s@CreateTrainingJob' {} a -> s {enableManagedSpotTraining = a} :: CreateTrainingJob)
 
--- | Algorithm-specific parameters that influence the quality of the model.
--- You set hyperparameters before you start the learning process. For a
--- list of hyperparameters for each training algorithm provided by Amazon
--- SageMaker, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
---
--- You can specify a maximum of 100 hyperparameters. Each hyperparameter is
--- a key-value pair. Each key and value is limited to 256 characters, as
--- specified by the @Length Constraint@.
-createTrainingJob_hyperParameters :: Lens.Lens' CreateTrainingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTrainingJob_hyperParameters = Lens.lens (\CreateTrainingJob' {hyperParameters} -> hyperParameters) (\s@CreateTrainingJob' {} a -> s {hyperParameters = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
+-- | The environment variables to set in the Docker container.
+createTrainingJob_environment :: Lens.Lens' CreateTrainingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTrainingJob_environment = Lens.lens (\CreateTrainingJob' {environment} -> environment) (\s@CreateTrainingJob' {} a -> s {environment = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of times to retry the job when the job fails due to an
+-- @InternalServerError@.
+createTrainingJob_retryStrategy :: Lens.Lens' CreateTrainingJob (Prelude.Maybe RetryStrategy)
+createTrainingJob_retryStrategy = Lens.lens (\CreateTrainingJob' {retryStrategy} -> retryStrategy) (\s@CreateTrainingJob' {} a -> s {retryStrategy = a} :: CreateTrainingJob)
+
+-- | A VpcConfig object that specifies the VPC that you want your training
+-- job to connect to. Control access to and from your training container by
+-- configuring the VPC. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
+createTrainingJob_vpcConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe VpcConfig)
+createTrainingJob_vpcConfig = Lens.lens (\CreateTrainingJob' {vpcConfig} -> vpcConfig) (\s@CreateTrainingJob' {} a -> s {vpcConfig = a} :: CreateTrainingJob)
+
+-- | Isolates the training container. No inbound or outbound network calls
+-- can be made, except for calls between peers within a training cluster
+-- for distributed training. If you enable network isolation for training
+-- jobs that are configured to use a VPC, Amazon SageMaker downloads and
+-- uploads customer data and model artifacts through the specified VPC, but
+-- the training container does not have network access.
+createTrainingJob_enableNetworkIsolation :: Lens.Lens' CreateTrainingJob (Prelude.Maybe Prelude.Bool)
+createTrainingJob_enableNetworkIsolation = Lens.lens (\CreateTrainingJob' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@CreateTrainingJob' {} a -> s {enableNetworkIsolation = a} :: CreateTrainingJob)
+
+-- | Configuration information for Debugger rules for profiling system and
+-- framework metrics.
+createTrainingJob_profilerRuleConfigurations :: Lens.Lens' CreateTrainingJob (Prelude.Maybe [ProfilerRuleConfiguration])
+createTrainingJob_profilerRuleConfigurations = Lens.lens (\CreateTrainingJob' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@CreateTrainingJob' {} a -> s {profilerRuleConfigurations = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+createTrainingJob_experimentConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe ExperimentConfig)
+createTrainingJob_experimentConfig = Lens.lens (\CreateTrainingJob' {experimentConfig} -> experimentConfig) (\s@CreateTrainingJob' {} a -> s {experimentConfig = a} :: CreateTrainingJob)
+
+-- | Contains information about the output location for managed spot training
+-- checkpoint data.
+createTrainingJob_checkpointConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe CheckpointConfig)
+createTrainingJob_checkpointConfig = Lens.lens (\CreateTrainingJob' {checkpointConfig} -> checkpointConfig) (\s@CreateTrainingJob' {} a -> s {checkpointConfig = a} :: CreateTrainingJob)
+
+-- | Undocumented member.
+createTrainingJob_debugHookConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe DebugHookConfig)
+createTrainingJob_debugHookConfig = Lens.lens (\CreateTrainingJob' {debugHookConfig} -> debugHookConfig) (\s@CreateTrainingJob' {} a -> s {debugHookConfig = a} :: CreateTrainingJob)
+
+-- | To encrypt all communications between ML compute instances in
+-- distributed training, choose @True@. Encryption provides greater
+-- security for distributed training, but training might take longer. How
+-- long it takes depends on the amount of communication between compute
+-- instances, especially if you use a deep learning algorithm in
+-- distributed training. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job>.
+createTrainingJob_enableInterContainerTrafficEncryption :: Lens.Lens' CreateTrainingJob (Prelude.Maybe Prelude.Bool)
+createTrainingJob_enableInterContainerTrafficEncryption = Lens.lens (\CreateTrainingJob' {enableInterContainerTrafficEncryption} -> enableInterContainerTrafficEncryption) (\s@CreateTrainingJob' {} a -> s {enableInterContainerTrafficEncryption = a} :: CreateTrainingJob)
+
+-- | Configuration information for Debugger rules for debugging output
+-- tensors.
+createTrainingJob_debugRuleConfigurations :: Lens.Lens' CreateTrainingJob (Prelude.Maybe [DebugRuleConfiguration])
+createTrainingJob_debugRuleConfigurations = Lens.lens (\CreateTrainingJob' {debugRuleConfigurations} -> debugRuleConfigurations) (\s@CreateTrainingJob' {} a -> s {debugRuleConfigurations = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+createTrainingJob_tensorBoardOutputConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe TensorBoardOutputConfig)
+createTrainingJob_tensorBoardOutputConfig = Lens.lens (\CreateTrainingJob' {tensorBoardOutputConfig} -> tensorBoardOutputConfig) (\s@CreateTrainingJob' {} a -> s {tensorBoardOutputConfig = a} :: CreateTrainingJob)
 
 -- | An array of @Channel@ objects. Each channel is a named input source.
 -- @InputDataConfig@ describes the input data and its location.
@@ -526,38 +547,17 @@ createTrainingJob_hyperParameters = Lens.lens (\CreateTrainingJob' {hyperParamet
 createTrainingJob_inputDataConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe (Prelude.NonEmpty Channel))
 createTrainingJob_inputDataConfig = Lens.lens (\CreateTrainingJob' {inputDataConfig} -> inputDataConfig) (\s@CreateTrainingJob' {} a -> s {inputDataConfig = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
 
--- | Configuration information for Debugger rules for profiling system and
--- framework metrics.
-createTrainingJob_profilerRuleConfigurations :: Lens.Lens' CreateTrainingJob (Prelude.Maybe [ProfilerRuleConfiguration])
-createTrainingJob_profilerRuleConfigurations = Lens.lens (\CreateTrainingJob' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@CreateTrainingJob' {} a -> s {profilerRuleConfigurations = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
-
--- | A VpcConfig object that specifies the VPC that you want your training
--- job to connect to. Control access to and from your training container by
--- configuring the VPC. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
-createTrainingJob_vpcConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe VpcConfig)
-createTrainingJob_vpcConfig = Lens.lens (\CreateTrainingJob' {vpcConfig} -> vpcConfig) (\s@CreateTrainingJob' {} a -> s {vpcConfig = a} :: CreateTrainingJob)
-
--- | To encrypt all communications between ML compute instances in
--- distributed training, choose @True@. Encryption provides greater
--- security for distributed training, but training might take longer. How
--- long it takes depends on the amount of communication between compute
--- instances, especially if you use a deep learning algorithm in
--- distributed training. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job>.
-createTrainingJob_enableInterContainerTrafficEncryption :: Lens.Lens' CreateTrainingJob (Prelude.Maybe Prelude.Bool)
-createTrainingJob_enableInterContainerTrafficEncryption = Lens.lens (\CreateTrainingJob' {enableInterContainerTrafficEncryption} -> enableInterContainerTrafficEncryption) (\s@CreateTrainingJob' {} a -> s {enableInterContainerTrafficEncryption = a} :: CreateTrainingJob)
-
--- | Undocumented member.
-createTrainingJob_tensorBoardOutputConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe TensorBoardOutputConfig)
-createTrainingJob_tensorBoardOutputConfig = Lens.lens (\CreateTrainingJob' {tensorBoardOutputConfig} -> tensorBoardOutputConfig) (\s@CreateTrainingJob' {} a -> s {tensorBoardOutputConfig = a} :: CreateTrainingJob)
-
--- | An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-createTrainingJob_tags :: Lens.Lens' CreateTrainingJob (Prelude.Maybe [Tag])
-createTrainingJob_tags = Lens.lens (\CreateTrainingJob' {tags} -> tags) (\s@CreateTrainingJob' {} a -> s {tags = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
+-- | Algorithm-specific parameters that influence the quality of the model.
+-- You set hyperparameters before you start the learning process. For a
+-- list of hyperparameters for each training algorithm provided by Amazon
+-- SageMaker, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
+--
+-- You can specify a maximum of 100 hyperparameters. Each hyperparameter is
+-- a key-value pair. Each key and value is limited to 256 characters, as
+-- specified by the @Length Constraint@.
+createTrainingJob_hyperParameters :: Lens.Lens' CreateTrainingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTrainingJob_hyperParameters = Lens.lens (\CreateTrainingJob' {hyperParameters} -> hyperParameters) (\s@CreateTrainingJob' {} a -> s {hyperParameters = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the training job. The name must be unique within an Amazon
 -- Web Services Region in an Amazon Web Services account.
@@ -633,22 +633,22 @@ instance Core.AWSRequest CreateTrainingJob where
 
 instance Prelude.Hashable CreateTrainingJob where
   hashWithSalt _salt CreateTrainingJob' {..} =
-    _salt `Prelude.hashWithSalt` environment
-      `Prelude.hashWithSalt` debugHookConfig
-      `Prelude.hashWithSalt` checkpointConfig
-      `Prelude.hashWithSalt` retryStrategy
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` profilerConfig
-      `Prelude.hashWithSalt` enableNetworkIsolation
-      `Prelude.hashWithSalt` experimentConfig
-      `Prelude.hashWithSalt` debugRuleConfigurations
       `Prelude.hashWithSalt` enableManagedSpotTraining
-      `Prelude.hashWithSalt` hyperParameters
-      `Prelude.hashWithSalt` inputDataConfig
-      `Prelude.hashWithSalt` profilerRuleConfigurations
+      `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` retryStrategy
       `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` enableNetworkIsolation
+      `Prelude.hashWithSalt` profilerRuleConfigurations
+      `Prelude.hashWithSalt` experimentConfig
+      `Prelude.hashWithSalt` checkpointConfig
+      `Prelude.hashWithSalt` debugHookConfig
       `Prelude.hashWithSalt` enableInterContainerTrafficEncryption
+      `Prelude.hashWithSalt` debugRuleConfigurations
       `Prelude.hashWithSalt` tensorBoardOutputConfig
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` hyperParameters
       `Prelude.hashWithSalt` trainingJobName
       `Prelude.hashWithSalt` algorithmSpecification
       `Prelude.hashWithSalt` roleArn
@@ -658,23 +658,23 @@ instance Prelude.Hashable CreateTrainingJob where
 
 instance Prelude.NFData CreateTrainingJob where
   rnf CreateTrainingJob' {..} =
-    Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf debugHookConfig
-      `Prelude.seq` Prelude.rnf checkpointConfig
-      `Prelude.seq` Prelude.rnf retryStrategy
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf profilerConfig
-      `Prelude.seq` Prelude.rnf enableNetworkIsolation
-      `Prelude.seq` Prelude.rnf experimentConfig
-      `Prelude.seq` Prelude.rnf debugRuleConfigurations
       `Prelude.seq` Prelude.rnf enableManagedSpotTraining
-      `Prelude.seq` Prelude.rnf hyperParameters
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf profilerRuleConfigurations
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf retryStrategy
       `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf enableNetworkIsolation
+      `Prelude.seq` Prelude.rnf profilerRuleConfigurations
+      `Prelude.seq` Prelude.rnf experimentConfig
+      `Prelude.seq` Prelude.rnf checkpointConfig
+      `Prelude.seq` Prelude.rnf debugHookConfig
       `Prelude.seq` Prelude.rnf
         enableInterContainerTrafficEncryption
+      `Prelude.seq` Prelude.rnf debugRuleConfigurations
       `Prelude.seq` Prelude.rnf tensorBoardOutputConfig
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf hyperParameters
       `Prelude.seq` Prelude.rnf trainingJobName
       `Prelude.seq` Prelude.rnf algorithmSpecification
       `Prelude.seq` Prelude.rnf roleArn
@@ -702,34 +702,34 @@ instance Core.ToJSON CreateTrainingJob where
   toJSON CreateTrainingJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Environment" Core..=) Prelude.<$> environment,
-            ("DebugHookConfig" Core..=)
-              Prelude.<$> debugHookConfig,
-            ("CheckpointConfig" Core..=)
-              Prelude.<$> checkpointConfig,
-            ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ProfilerConfig" Core..=)
               Prelude.<$> profilerConfig,
-            ("EnableNetworkIsolation" Core..=)
-              Prelude.<$> enableNetworkIsolation,
-            ("ExperimentConfig" Core..=)
-              Prelude.<$> experimentConfig,
-            ("DebugRuleConfigurations" Core..=)
-              Prelude.<$> debugRuleConfigurations,
             ("EnableManagedSpotTraining" Core..=)
               Prelude.<$> enableManagedSpotTraining,
-            ("HyperParameters" Core..=)
-              Prelude.<$> hyperParameters,
-            ("InputDataConfig" Core..=)
-              Prelude.<$> inputDataConfig,
+            ("Environment" Core..=) Prelude.<$> environment,
+            ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("EnableNetworkIsolation" Core..=)
+              Prelude.<$> enableNetworkIsolation,
             ("ProfilerRuleConfigurations" Core..=)
               Prelude.<$> profilerRuleConfigurations,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("ExperimentConfig" Core..=)
+              Prelude.<$> experimentConfig,
+            ("CheckpointConfig" Core..=)
+              Prelude.<$> checkpointConfig,
+            ("DebugHookConfig" Core..=)
+              Prelude.<$> debugHookConfig,
             ("EnableInterContainerTrafficEncryption" Core..=)
               Prelude.<$> enableInterContainerTrafficEncryption,
+            ("DebugRuleConfigurations" Core..=)
+              Prelude.<$> debugRuleConfigurations,
             ("TensorBoardOutputConfig" Core..=)
               Prelude.<$> tensorBoardOutputConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("InputDataConfig" Core..=)
+              Prelude.<$> inputDataConfig,
+            ("HyperParameters" Core..=)
+              Prelude.<$> hyperParameters,
             Prelude.Just
               ("TrainingJobName" Core..= trainingJobName),
             Prelude.Just

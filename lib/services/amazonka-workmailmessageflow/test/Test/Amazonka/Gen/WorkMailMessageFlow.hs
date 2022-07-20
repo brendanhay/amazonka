@@ -27,37 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutRawMessageContent $
---             newPutRawMessageContent
---
---         , requestGetRawMessageContent $
+--         [ requestGetRawMessageContent $
 --             newGetRawMessageContent
+--
+--         , requestPutRawMessageContent $
+--             newPutRawMessageContent
 --
 --           ]
 
 --     , testGroup "response"
---         [ responsePutRawMessageContent $
---             newPutRawMessageContentResponse
---
---         , responseGetRawMessageContent $
+--         [ responseGetRawMessageContent $
 --             newGetRawMessageContentResponse
+--
+--         , responsePutRawMessageContent $
+--             newPutRawMessageContentResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestPutRawMessageContent :: PutRawMessageContent -> TestTree
-requestPutRawMessageContent =
-  req
-    "PutRawMessageContent"
-    "fixture/PutRawMessageContent.yaml"
-
 requestGetRawMessageContent :: GetRawMessageContent -> TestTree
 requestGetRawMessageContent =
   req
     "GetRawMessageContent"
     "fixture/GetRawMessageContent.yaml"
+
+requestPutRawMessageContent :: PutRawMessageContent -> TestTree
+requestPutRawMessageContent =
+  req
+    "PutRawMessageContent"
+    "fixture/PutRawMessageContent.yaml"
 
 -- Responses
 

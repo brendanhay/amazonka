@@ -28,10 +28,10 @@ import Amazonka.SavingsPlans.Types.SavingsPlanRatePropertyKey
 --
 -- /See:/ 'newSavingsPlanRateProperty' smart constructor.
 data SavingsPlanRateProperty = SavingsPlanRateProperty'
-  { -- | The property value.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The property name.
-    name :: Prelude.Maybe SavingsPlanRatePropertyKey
+  { -- | The property name.
+    name :: Prelude.Maybe SavingsPlanRatePropertyKey,
+    -- | The property value.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data SavingsPlanRateProperty = SavingsPlanRateProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'savingsPlanRateProperty_value' - The property value.
---
 -- 'name', 'savingsPlanRateProperty_name' - The property name.
+--
+-- 'value', 'savingsPlanRateProperty_value' - The property value.
 newSavingsPlanRateProperty ::
   SavingsPlanRateProperty
 newSavingsPlanRateProperty =
   SavingsPlanRateProperty'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The property value.
-savingsPlanRateProperty_value :: Lens.Lens' SavingsPlanRateProperty (Prelude.Maybe Prelude.Text)
-savingsPlanRateProperty_value = Lens.lens (\SavingsPlanRateProperty' {value} -> value) (\s@SavingsPlanRateProperty' {} a -> s {value = a} :: SavingsPlanRateProperty)
 
 -- | The property name.
 savingsPlanRateProperty_name :: Lens.Lens' SavingsPlanRateProperty (Prelude.Maybe SavingsPlanRatePropertyKey)
 savingsPlanRateProperty_name = Lens.lens (\SavingsPlanRateProperty' {name} -> name) (\s@SavingsPlanRateProperty' {} a -> s {name = a} :: SavingsPlanRateProperty)
+
+-- | The property value.
+savingsPlanRateProperty_value :: Lens.Lens' SavingsPlanRateProperty (Prelude.Maybe Prelude.Text)
+savingsPlanRateProperty_value = Lens.lens (\SavingsPlanRateProperty' {value} -> value) (\s@SavingsPlanRateProperty' {} a -> s {value = a} :: SavingsPlanRateProperty)
 
 instance Core.FromJSON SavingsPlanRateProperty where
   parseJSON =
@@ -68,14 +68,14 @@ instance Core.FromJSON SavingsPlanRateProperty where
       "SavingsPlanRateProperty"
       ( \x ->
           SavingsPlanRateProperty'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable SavingsPlanRateProperty where
   hashWithSalt _salt SavingsPlanRateProperty' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SavingsPlanRateProperty where
   rnf SavingsPlanRateProperty' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value

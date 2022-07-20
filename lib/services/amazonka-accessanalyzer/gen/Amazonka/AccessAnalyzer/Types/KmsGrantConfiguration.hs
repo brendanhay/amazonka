@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKmsGrantConfiguration' smart constructor.
 data KmsGrantConfiguration = KmsGrantConfiguration'
-  { -- | The principal that is given permission to retire the grant by using
-    -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html RetireGrant>
-    -- operation.
-    retiringPrincipal :: Prelude.Maybe Prelude.Text,
-    -- | Use this structure to propose allowing
+  { -- | Use this structure to propose allowing
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
     -- in the grant only when the operation request includes the specified
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context encryption context>.
     constraints :: Prelude.Maybe KmsGrantConstraints,
+    -- | The principal that is given permission to retire the grant by using
+    -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html RetireGrant>
+    -- operation.
+    retiringPrincipal :: Prelude.Maybe Prelude.Text,
     -- | The principal that is given permission to perform the operations that
     -- the grant permits.
     granteePrincipal :: Prelude.Text,
@@ -59,14 +59,14 @@ data KmsGrantConfiguration = KmsGrantConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retiringPrincipal', 'kmsGrantConfiguration_retiringPrincipal' - The principal that is given permission to retire the grant by using
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html RetireGrant>
--- operation.
---
 -- 'constraints', 'kmsGrantConfiguration_constraints' - Use this structure to propose allowing
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
 -- in the grant only when the operation request includes the specified
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context encryption context>.
+--
+-- 'retiringPrincipal', 'kmsGrantConfiguration_retiringPrincipal' - The principal that is given permission to retire the grant by using
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html RetireGrant>
+-- operation.
 --
 -- 'granteePrincipal', 'kmsGrantConfiguration_granteePrincipal' - The principal that is given permission to perform the operations that
 -- the grant permits.
@@ -86,19 +86,13 @@ newKmsGrantConfiguration
   pGranteePrincipal_
   pIssuingAccount_ =
     KmsGrantConfiguration'
-      { retiringPrincipal =
+      { constraints =
           Prelude.Nothing,
-        constraints = Prelude.Nothing,
+        retiringPrincipal = Prelude.Nothing,
         granteePrincipal = pGranteePrincipal_,
         issuingAccount = pIssuingAccount_,
         operations = Prelude.mempty
       }
-
--- | The principal that is given permission to retire the grant by using
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html RetireGrant>
--- operation.
-kmsGrantConfiguration_retiringPrincipal :: Lens.Lens' KmsGrantConfiguration (Prelude.Maybe Prelude.Text)
-kmsGrantConfiguration_retiringPrincipal = Lens.lens (\KmsGrantConfiguration' {retiringPrincipal} -> retiringPrincipal) (\s@KmsGrantConfiguration' {} a -> s {retiringPrincipal = a} :: KmsGrantConfiguration)
 
 -- | Use this structure to propose allowing
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
@@ -106,6 +100,12 @@ kmsGrantConfiguration_retiringPrincipal = Lens.lens (\KmsGrantConfiguration' {re
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context encryption context>.
 kmsGrantConfiguration_constraints :: Lens.Lens' KmsGrantConfiguration (Prelude.Maybe KmsGrantConstraints)
 kmsGrantConfiguration_constraints = Lens.lens (\KmsGrantConfiguration' {constraints} -> constraints) (\s@KmsGrantConfiguration' {} a -> s {constraints = a} :: KmsGrantConfiguration)
+
+-- | The principal that is given permission to retire the grant by using
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html RetireGrant>
+-- operation.
+kmsGrantConfiguration_retiringPrincipal :: Lens.Lens' KmsGrantConfiguration (Prelude.Maybe Prelude.Text)
+kmsGrantConfiguration_retiringPrincipal = Lens.lens (\KmsGrantConfiguration' {retiringPrincipal} -> retiringPrincipal) (\s@KmsGrantConfiguration' {} a -> s {retiringPrincipal = a} :: KmsGrantConfiguration)
 
 -- | The principal that is given permission to perform the operations that
 -- the grant permits.
@@ -128,8 +128,8 @@ instance Core.FromJSON KmsGrantConfiguration where
       "KmsGrantConfiguration"
       ( \x ->
           KmsGrantConfiguration'
-            Prelude.<$> (x Core..:? "retiringPrincipal")
-            Prelude.<*> (x Core..:? "constraints")
+            Prelude.<$> (x Core..:? "constraints")
+            Prelude.<*> (x Core..:? "retiringPrincipal")
             Prelude.<*> (x Core..: "granteePrincipal")
             Prelude.<*> (x Core..: "issuingAccount")
             Prelude.<*> (x Core..:? "operations" Core..!= Prelude.mempty)
@@ -137,16 +137,16 @@ instance Core.FromJSON KmsGrantConfiguration where
 
 instance Prelude.Hashable KmsGrantConfiguration where
   hashWithSalt _salt KmsGrantConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` retiringPrincipal
-      `Prelude.hashWithSalt` constraints
+    _salt `Prelude.hashWithSalt` constraints
+      `Prelude.hashWithSalt` retiringPrincipal
       `Prelude.hashWithSalt` granteePrincipal
       `Prelude.hashWithSalt` issuingAccount
       `Prelude.hashWithSalt` operations
 
 instance Prelude.NFData KmsGrantConfiguration where
   rnf KmsGrantConfiguration' {..} =
-    Prelude.rnf retiringPrincipal
-      `Prelude.seq` Prelude.rnf constraints
+    Prelude.rnf constraints
+      `Prelude.seq` Prelude.rnf retiringPrincipal
       `Prelude.seq` Prelude.rnf granteePrincipal
       `Prelude.seq` Prelude.rnf issuingAccount
       `Prelude.seq` Prelude.rnf operations
@@ -155,9 +155,9 @@ instance Core.ToJSON KmsGrantConfiguration where
   toJSON KmsGrantConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("retiringPrincipal" Core..=)
+          [ ("constraints" Core..=) Prelude.<$> constraints,
+            ("retiringPrincipal" Core..=)
               Prelude.<$> retiringPrincipal,
-            ("constraints" Core..=) Prelude.<$> constraints,
             Prelude.Just
               ("granteePrincipal" Core..= granteePrincipal),
             Prelude.Just

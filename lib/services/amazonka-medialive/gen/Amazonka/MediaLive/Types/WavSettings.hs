@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 data WavSettings = WavSettings'
   { -- | Bits per sample.
     bitDepth :: Prelude.Maybe Prelude.Double,
+    -- | Sample rate in Hz.
+    sampleRate :: Prelude.Maybe Prelude.Double,
     -- | The audio coding mode for the WAV audio. The mode determines the number
     -- of channels in the audio.
-    codingMode :: Prelude.Maybe WavCodingMode,
-    -- | Sample rate in Hz.
-    sampleRate :: Prelude.Maybe Prelude.Double
+    codingMode :: Prelude.Maybe WavCodingMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,31 @@ data WavSettings = WavSettings'
 --
 -- 'bitDepth', 'wavSettings_bitDepth' - Bits per sample.
 --
+-- 'sampleRate', 'wavSettings_sampleRate' - Sample rate in Hz.
+--
 -- 'codingMode', 'wavSettings_codingMode' - The audio coding mode for the WAV audio. The mode determines the number
 -- of channels in the audio.
---
--- 'sampleRate', 'wavSettings_sampleRate' - Sample rate in Hz.
 newWavSettings ::
   WavSettings
 newWavSettings =
   WavSettings'
     { bitDepth = Prelude.Nothing,
-      codingMode = Prelude.Nothing,
-      sampleRate = Prelude.Nothing
+      sampleRate = Prelude.Nothing,
+      codingMode = Prelude.Nothing
     }
 
 -- | Bits per sample.
 wavSettings_bitDepth :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Double)
 wavSettings_bitDepth = Lens.lens (\WavSettings' {bitDepth} -> bitDepth) (\s@WavSettings' {} a -> s {bitDepth = a} :: WavSettings)
 
+-- | Sample rate in Hz.
+wavSettings_sampleRate :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Double)
+wavSettings_sampleRate = Lens.lens (\WavSettings' {sampleRate} -> sampleRate) (\s@WavSettings' {} a -> s {sampleRate = a} :: WavSettings)
+
 -- | The audio coding mode for the WAV audio. The mode determines the number
 -- of channels in the audio.
 wavSettings_codingMode :: Lens.Lens' WavSettings (Prelude.Maybe WavCodingMode)
 wavSettings_codingMode = Lens.lens (\WavSettings' {codingMode} -> codingMode) (\s@WavSettings' {} a -> s {codingMode = a} :: WavSettings)
-
--- | Sample rate in Hz.
-wavSettings_sampleRate :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Double)
-wavSettings_sampleRate = Lens.lens (\WavSettings' {sampleRate} -> sampleRate) (\s@WavSettings' {} a -> s {sampleRate = a} :: WavSettings)
 
 instance Core.FromJSON WavSettings where
   parseJSON =
@@ -81,28 +81,28 @@ instance Core.FromJSON WavSettings where
       ( \x ->
           WavSettings'
             Prelude.<$> (x Core..:? "bitDepth")
-            Prelude.<*> (x Core..:? "codingMode")
             Prelude.<*> (x Core..:? "sampleRate")
+            Prelude.<*> (x Core..:? "codingMode")
       )
 
 instance Prelude.Hashable WavSettings where
   hashWithSalt _salt WavSettings' {..} =
     _salt `Prelude.hashWithSalt` bitDepth
-      `Prelude.hashWithSalt` codingMode
       `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` codingMode
 
 instance Prelude.NFData WavSettings where
   rnf WavSettings' {..} =
     Prelude.rnf bitDepth
-      `Prelude.seq` Prelude.rnf codingMode
       `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf codingMode
 
 instance Core.ToJSON WavSettings where
   toJSON WavSettings' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("bitDepth" Core..=) Prelude.<$> bitDepth,
-            ("codingMode" Core..=) Prelude.<$> codingMode,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate
+            ("sampleRate" Core..=) Prelude.<$> sampleRate,
+            ("codingMode" Core..=) Prelude.<$> codingMode
           ]
       )

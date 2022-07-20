@@ -40,9 +40,9 @@ module Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
     newDescribeInstanceAccessControlAttributeConfigurationResponse,
 
     -- * Response Lenses
-    describeInstanceAccessControlAttributeConfigurationResponse_status,
     describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration,
     describeInstanceAccessControlAttributeConfigurationResponse_statusReason,
+    describeInstanceAccessControlAttributeConfigurationResponse_status,
     describeInstanceAccessControlAttributeConfigurationResponse_httpStatus,
   )
 where
@@ -98,11 +98,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceAccessControlAttributeConfigurationResponse'
-            Prelude.<$> (x Core..?> "Status")
-              Prelude.<*> ( x
-                              Core..?> "InstanceAccessControlAttributeConfiguration"
-                          )
+            Prelude.<$> ( x
+                            Core..?> "InstanceAccessControlAttributeConfiguration"
+                        )
               Prelude.<*> (x Core..?> "StatusReason")
+              Prelude.<*> (x Core..?> "Status")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,14 +166,14 @@ instance
 
 -- | /See:/ 'newDescribeInstanceAccessControlAttributeConfigurationResponse' smart constructor.
 data DescribeInstanceAccessControlAttributeConfigurationResponse = DescribeInstanceAccessControlAttributeConfigurationResponse'
-  { -- | The status of the attribute configuration process.
-    status :: Prelude.Maybe InstanceAccessControlAttributeConfigurationStatus,
-    -- | Gets the list of Amazon Web Services SSO identity store attributes that
+  { -- | Gets the list of Amazon Web Services SSO identity store attributes that
     -- have been added to your ABAC configuration.
     instanceAccessControlAttributeConfiguration :: Prelude.Maybe InstanceAccessControlAttributeConfiguration,
     -- | Provides more details about the current status of the specified
     -- attribute.
     statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The status of the attribute configuration process.
+    status :: Prelude.Maybe InstanceAccessControlAttributeConfigurationStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,13 +187,13 @@ data DescribeInstanceAccessControlAttributeConfigurationResponse = DescribeInsta
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeInstanceAccessControlAttributeConfigurationResponse_status' - The status of the attribute configuration process.
---
 -- 'instanceAccessControlAttributeConfiguration', 'describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration' - Gets the list of Amazon Web Services SSO identity store attributes that
 -- have been added to your ABAC configuration.
 --
 -- 'statusReason', 'describeInstanceAccessControlAttributeConfigurationResponse_statusReason' - Provides more details about the current status of the specified
 -- attribute.
+--
+-- 'status', 'describeInstanceAccessControlAttributeConfigurationResponse_status' - The status of the attribute configuration process.
 --
 -- 'httpStatus', 'describeInstanceAccessControlAttributeConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeInstanceAccessControlAttributeConfigurationResponse ::
@@ -203,19 +203,15 @@ newDescribeInstanceAccessControlAttributeConfigurationResponse ::
 newDescribeInstanceAccessControlAttributeConfigurationResponse
   pHttpStatus_ =
     DescribeInstanceAccessControlAttributeConfigurationResponse'
-      { status =
-          Prelude.Nothing,
-        instanceAccessControlAttributeConfiguration =
+      { instanceAccessControlAttributeConfiguration =
           Prelude.Nothing,
         statusReason =
+          Prelude.Nothing,
+        status =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
-
--- | The status of the attribute configuration process.
-describeInstanceAccessControlAttributeConfigurationResponse_status :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse (Prelude.Maybe InstanceAccessControlAttributeConfigurationStatus)
-describeInstanceAccessControlAttributeConfigurationResponse_status = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {status} -> status) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {status = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
 
 -- | Gets the list of Amazon Web Services SSO identity store attributes that
 -- have been added to your ABAC configuration.
@@ -227,6 +223,10 @@ describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessContro
 describeInstanceAccessControlAttributeConfigurationResponse_statusReason :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeInstanceAccessControlAttributeConfigurationResponse_statusReason = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {statusReason} -> statusReason) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {statusReason = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
 
+-- | The status of the attribute configuration process.
+describeInstanceAccessControlAttributeConfigurationResponse_status :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse (Prelude.Maybe InstanceAccessControlAttributeConfigurationStatus)
+describeInstanceAccessControlAttributeConfigurationResponse_status = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {status} -> status) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {status = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
+
 -- | The response's http status code.
 describeInstanceAccessControlAttributeConfigurationResponse_httpStatus :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse Prelude.Int
 describeInstanceAccessControlAttributeConfigurationResponse_httpStatus = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
@@ -237,8 +237,8 @@ instance
   where
   rnf
     DescribeInstanceAccessControlAttributeConfigurationResponse' {..} =
-      Prelude.rnf status
-        `Prelude.seq` Prelude.rnf
-          instanceAccessControlAttributeConfiguration
+      Prelude.rnf
+        instanceAccessControlAttributeConfiguration
         `Prelude.seq` Prelude.rnf statusReason
+        `Prelude.seq` Prelude.rnf status
         `Prelude.seq` Prelude.rnf httpStatus

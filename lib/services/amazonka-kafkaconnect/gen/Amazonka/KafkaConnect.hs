@@ -17,29 +17,29 @@ module Amazonka.KafkaConnect
     -- * Errors
     -- $errors
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** InternalServerErrorException
     _InternalServerErrorException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** ForbiddenException
+    _ForbiddenException,
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** BadRequestException
     _BadRequestException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -47,17 +47,23 @@ module Amazonka.KafkaConnect
     -- * Operations
     -- $operations
 
-    -- ** ListWorkerConfigurations (Paginated)
-    ListWorkerConfigurations (ListWorkerConfigurations'),
-    newListWorkerConfigurations,
-    ListWorkerConfigurationsResponse (ListWorkerConfigurationsResponse'),
-    newListWorkerConfigurationsResponse,
+    -- ** CreateConnector
+    CreateConnector (CreateConnector'),
+    newCreateConnector,
+    CreateConnectorResponse (CreateConnectorResponse'),
+    newCreateConnectorResponse,
 
-    -- ** DescribeCustomPlugin
-    DescribeCustomPlugin (DescribeCustomPlugin'),
-    newDescribeCustomPlugin,
-    DescribeCustomPluginResponse (DescribeCustomPluginResponse'),
-    newDescribeCustomPluginResponse,
+    -- ** CreateCustomPlugin
+    CreateCustomPlugin (CreateCustomPlugin'),
+    newCreateCustomPlugin,
+    CreateCustomPluginResponse (CreateCustomPluginResponse'),
+    newCreateCustomPluginResponse,
+
+    -- ** CreateWorkerConfiguration
+    CreateWorkerConfiguration (CreateWorkerConfiguration'),
+    newCreateWorkerConfiguration,
+    CreateWorkerConfigurationResponse (CreateWorkerConfigurationResponse'),
+    newCreateWorkerConfigurationResponse,
 
     -- ** DeleteConnector
     DeleteConnector (DeleteConnector'),
@@ -65,17 +71,23 @@ module Amazonka.KafkaConnect
     DeleteConnectorResponse (DeleteConnectorResponse'),
     newDeleteConnectorResponse,
 
-    -- ** UpdateConnector
-    UpdateConnector (UpdateConnector'),
-    newUpdateConnector,
-    UpdateConnectorResponse (UpdateConnectorResponse'),
-    newUpdateConnectorResponse,
+    -- ** DescribeConnector
+    DescribeConnector (DescribeConnector'),
+    newDescribeConnector,
+    DescribeConnectorResponse (DescribeConnectorResponse'),
+    newDescribeConnectorResponse,
 
-    -- ** CreateWorkerConfiguration
-    CreateWorkerConfiguration (CreateWorkerConfiguration'),
-    newCreateWorkerConfiguration,
-    CreateWorkerConfigurationResponse (CreateWorkerConfigurationResponse'),
-    newCreateWorkerConfigurationResponse,
+    -- ** DescribeCustomPlugin
+    DescribeCustomPlugin (DescribeCustomPlugin'),
+    newDescribeCustomPlugin,
+    DescribeCustomPluginResponse (DescribeCustomPluginResponse'),
+    newDescribeCustomPluginResponse,
+
+    -- ** DescribeWorkerConfiguration
+    DescribeWorkerConfiguration (DescribeWorkerConfiguration'),
+    newDescribeWorkerConfiguration,
+    DescribeWorkerConfigurationResponse (DescribeWorkerConfigurationResponse'),
+    newDescribeWorkerConfigurationResponse,
 
     -- ** ListConnectors (Paginated)
     ListConnectors (ListConnectors'),
@@ -89,29 +101,17 @@ module Amazonka.KafkaConnect
     ListCustomPluginsResponse (ListCustomPluginsResponse'),
     newListCustomPluginsResponse,
 
-    -- ** CreateConnector
-    CreateConnector (CreateConnector'),
-    newCreateConnector,
-    CreateConnectorResponse (CreateConnectorResponse'),
-    newCreateConnectorResponse,
+    -- ** ListWorkerConfigurations (Paginated)
+    ListWorkerConfigurations (ListWorkerConfigurations'),
+    newListWorkerConfigurations,
+    ListWorkerConfigurationsResponse (ListWorkerConfigurationsResponse'),
+    newListWorkerConfigurationsResponse,
 
-    -- ** DescribeWorkerConfiguration
-    DescribeWorkerConfiguration (DescribeWorkerConfiguration'),
-    newDescribeWorkerConfiguration,
-    DescribeWorkerConfigurationResponse (DescribeWorkerConfigurationResponse'),
-    newDescribeWorkerConfigurationResponse,
-
-    -- ** DescribeConnector
-    DescribeConnector (DescribeConnector'),
-    newDescribeConnector,
-    DescribeConnectorResponse (DescribeConnectorResponse'),
-    newDescribeConnectorResponse,
-
-    -- ** CreateCustomPlugin
-    CreateCustomPlugin (CreateCustomPlugin'),
-    newCreateCustomPlugin,
-    CreateCustomPluginResponse (CreateCustomPluginResponse'),
-    newCreateCustomPluginResponse,
+    -- ** UpdateConnector
+    UpdateConnector (UpdateConnector'),
+    newUpdateConnector,
+    UpdateConnectorResponse (UpdateConnectorResponse'),
+    newUpdateConnectorResponse,
 
     -- * Types
 

@@ -31,17 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputClipping' smart constructor.
 data InputClipping = InputClipping'
-  { -- | Set End timecode (EndTimecode) to the end of the portion of the input
-    -- you are clipping. The frame corresponding to the End timecode value is
-    -- included in the clip. Start timecode or End timecode may be left blank,
-    -- but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the
-    -- hour, MM is the minute, SS is the second, and FF is the frame number.
-    -- When choosing this value, take into account your setting for timecode
-    -- source under input settings (InputTimecodeSource). For example, if you
-    -- have embedded timecodes that start at 01:00:00:00 and you want your clip
-    -- to end six minutes into the video, use 01:06:00:00.
-    endTimecode :: Prelude.Maybe Prelude.Text,
-    -- | Set Start timecode (StartTimecode) to the beginning of the portion of
+  { -- | Set Start timecode (StartTimecode) to the beginning of the portion of
     -- the input you are clipping. The frame corresponding to the Start
     -- timecode value is included in the clip. Start timecode or End timecode
     -- may be left blank, but not both. Use the format HH:MM:SS:FF or
@@ -50,7 +40,17 @@ data InputClipping = InputClipping'
     -- your setting for Input timecode source. For example, if you have
     -- embedded timecodes that start at 01:00:00:00 and you want your clip to
     -- begin five minutes into the video, use 01:05:00:00.
-    startTimecode :: Prelude.Maybe Prelude.Text
+    startTimecode :: Prelude.Maybe Prelude.Text,
+    -- | Set End timecode (EndTimecode) to the end of the portion of the input
+    -- you are clipping. The frame corresponding to the End timecode value is
+    -- included in the clip. Start timecode or End timecode may be left blank,
+    -- but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the
+    -- hour, MM is the minute, SS is the second, and FF is the frame number.
+    -- When choosing this value, take into account your setting for timecode
+    -- source under input settings (InputTimecodeSource). For example, if you
+    -- have embedded timecodes that start at 01:00:00:00 and you want your clip
+    -- to end six minutes into the video, use 01:06:00:00.
+    endTimecode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,16 +62,6 @@ data InputClipping = InputClipping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endTimecode', 'inputClipping_endTimecode' - Set End timecode (EndTimecode) to the end of the portion of the input
--- you are clipping. The frame corresponding to the End timecode value is
--- included in the clip. Start timecode or End timecode may be left blank,
--- but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the
--- hour, MM is the minute, SS is the second, and FF is the frame number.
--- When choosing this value, take into account your setting for timecode
--- source under input settings (InputTimecodeSource). For example, if you
--- have embedded timecodes that start at 01:00:00:00 and you want your clip
--- to end six minutes into the video, use 01:06:00:00.
---
 -- 'startTimecode', 'inputClipping_startTimecode' - Set Start timecode (StartTimecode) to the beginning of the portion of
 -- the input you are clipping. The frame corresponding to the Start
 -- timecode value is included in the clip. Start timecode or End timecode
@@ -81,15 +71,8 @@ data InputClipping = InputClipping'
 -- your setting for Input timecode source. For example, if you have
 -- embedded timecodes that start at 01:00:00:00 and you want your clip to
 -- begin five minutes into the video, use 01:05:00:00.
-newInputClipping ::
-  InputClipping
-newInputClipping =
-  InputClipping'
-    { endTimecode = Prelude.Nothing,
-      startTimecode = Prelude.Nothing
-    }
-
--- | Set End timecode (EndTimecode) to the end of the portion of the input
+--
+-- 'endTimecode', 'inputClipping_endTimecode' - Set End timecode (EndTimecode) to the end of the portion of the input
 -- you are clipping. The frame corresponding to the End timecode value is
 -- included in the clip. Start timecode or End timecode may be left blank,
 -- but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the
@@ -98,8 +81,13 @@ newInputClipping =
 -- source under input settings (InputTimecodeSource). For example, if you
 -- have embedded timecodes that start at 01:00:00:00 and you want your clip
 -- to end six minutes into the video, use 01:06:00:00.
-inputClipping_endTimecode :: Lens.Lens' InputClipping (Prelude.Maybe Prelude.Text)
-inputClipping_endTimecode = Lens.lens (\InputClipping' {endTimecode} -> endTimecode) (\s@InputClipping' {} a -> s {endTimecode = a} :: InputClipping)
+newInputClipping ::
+  InputClipping
+newInputClipping =
+  InputClipping'
+    { startTimecode = Prelude.Nothing,
+      endTimecode = Prelude.Nothing
+    }
 
 -- | Set Start timecode (StartTimecode) to the beginning of the portion of
 -- the input you are clipping. The frame corresponding to the Start
@@ -113,31 +101,43 @@ inputClipping_endTimecode = Lens.lens (\InputClipping' {endTimecode} -> endTimec
 inputClipping_startTimecode :: Lens.Lens' InputClipping (Prelude.Maybe Prelude.Text)
 inputClipping_startTimecode = Lens.lens (\InputClipping' {startTimecode} -> startTimecode) (\s@InputClipping' {} a -> s {startTimecode = a} :: InputClipping)
 
+-- | Set End timecode (EndTimecode) to the end of the portion of the input
+-- you are clipping. The frame corresponding to the End timecode value is
+-- included in the clip. Start timecode or End timecode may be left blank,
+-- but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the
+-- hour, MM is the minute, SS is the second, and FF is the frame number.
+-- When choosing this value, take into account your setting for timecode
+-- source under input settings (InputTimecodeSource). For example, if you
+-- have embedded timecodes that start at 01:00:00:00 and you want your clip
+-- to end six minutes into the video, use 01:06:00:00.
+inputClipping_endTimecode :: Lens.Lens' InputClipping (Prelude.Maybe Prelude.Text)
+inputClipping_endTimecode = Lens.lens (\InputClipping' {endTimecode} -> endTimecode) (\s@InputClipping' {} a -> s {endTimecode = a} :: InputClipping)
+
 instance Core.FromJSON InputClipping where
   parseJSON =
     Core.withObject
       "InputClipping"
       ( \x ->
           InputClipping'
-            Prelude.<$> (x Core..:? "endTimecode")
-            Prelude.<*> (x Core..:? "startTimecode")
+            Prelude.<$> (x Core..:? "startTimecode")
+            Prelude.<*> (x Core..:? "endTimecode")
       )
 
 instance Prelude.Hashable InputClipping where
   hashWithSalt _salt InputClipping' {..} =
-    _salt `Prelude.hashWithSalt` endTimecode
-      `Prelude.hashWithSalt` startTimecode
+    _salt `Prelude.hashWithSalt` startTimecode
+      `Prelude.hashWithSalt` endTimecode
 
 instance Prelude.NFData InputClipping where
   rnf InputClipping' {..} =
-    Prelude.rnf endTimecode
-      `Prelude.seq` Prelude.rnf startTimecode
+    Prelude.rnf startTimecode
+      `Prelude.seq` Prelude.rnf endTimecode
 
 instance Core.ToJSON InputClipping where
   toJSON InputClipping' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("endTimecode" Core..=) Prelude.<$> endTimecode,
-            ("startTimecode" Core..=) Prelude.<$> startTimecode
+          [ ("startTimecode" Core..=) Prelude.<$> startTimecode,
+            ("endTimecode" Core..=) Prelude.<$> endTimecode
           ]
       )

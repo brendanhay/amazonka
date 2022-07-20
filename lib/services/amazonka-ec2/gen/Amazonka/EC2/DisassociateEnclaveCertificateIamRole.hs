@@ -32,9 +32,9 @@ module Amazonka.EC2.DisassociateEnclaveCertificateIamRole
     newDisassociateEnclaveCertificateIamRole,
 
     -- * Request Lenses
-    disassociateEnclaveCertificateIamRole_certificateArn,
-    disassociateEnclaveCertificateIamRole_dryRun,
     disassociateEnclaveCertificateIamRole_roleArn,
+    disassociateEnclaveCertificateIamRole_dryRun,
+    disassociateEnclaveCertificateIamRole_certificateArn,
 
     -- * Destructuring the Response
     DisassociateEnclaveCertificateIamRoleResponse (..),
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateEnclaveCertificateIamRole' smart constructor.
 data DisassociateEnclaveCertificateIamRole = DisassociateEnclaveCertificateIamRole'
-  { -- | The ARN of the ACM certificate from which to disassociate the IAM role.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the IAM role to disassociate.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the IAM role to disassociate.
-    roleArn :: Prelude.Maybe Prelude.Text
+    -- | The ARN of the ACM certificate from which to disassociate the IAM role.
+    certificateArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,27 +75,27 @@ data DisassociateEnclaveCertificateIamRole = DisassociateEnclaveCertificateIamRo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateArn', 'disassociateEnclaveCertificateIamRole_certificateArn' - The ARN of the ACM certificate from which to disassociate the IAM role.
+-- 'roleArn', 'disassociateEnclaveCertificateIamRole_roleArn' - The ARN of the IAM role to disassociate.
 --
 -- 'dryRun', 'disassociateEnclaveCertificateIamRole_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'roleArn', 'disassociateEnclaveCertificateIamRole_roleArn' - The ARN of the IAM role to disassociate.
+-- 'certificateArn', 'disassociateEnclaveCertificateIamRole_certificateArn' - The ARN of the ACM certificate from which to disassociate the IAM role.
 newDisassociateEnclaveCertificateIamRole ::
   DisassociateEnclaveCertificateIamRole
 newDisassociateEnclaveCertificateIamRole =
   DisassociateEnclaveCertificateIamRole'
-    { certificateArn =
+    { roleArn =
         Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+      certificateArn = Prelude.Nothing
     }
 
--- | The ARN of the ACM certificate from which to disassociate the IAM role.
-disassociateEnclaveCertificateIamRole_certificateArn :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
-disassociateEnclaveCertificateIamRole_certificateArn = Lens.lens (\DisassociateEnclaveCertificateIamRole' {certificateArn} -> certificateArn) (\s@DisassociateEnclaveCertificateIamRole' {} a -> s {certificateArn = a} :: DisassociateEnclaveCertificateIamRole)
+-- | The ARN of the IAM role to disassociate.
+disassociateEnclaveCertificateIamRole_roleArn :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
+disassociateEnclaveCertificateIamRole_roleArn = Lens.lens (\DisassociateEnclaveCertificateIamRole' {roleArn} -> roleArn) (\s@DisassociateEnclaveCertificateIamRole' {} a -> s {roleArn = a} :: DisassociateEnclaveCertificateIamRole)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -104,9 +104,9 @@ disassociateEnclaveCertificateIamRole_certificateArn = Lens.lens (\DisassociateE
 disassociateEnclaveCertificateIamRole_dryRun :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Bool)
 disassociateEnclaveCertificateIamRole_dryRun = Lens.lens (\DisassociateEnclaveCertificateIamRole' {dryRun} -> dryRun) (\s@DisassociateEnclaveCertificateIamRole' {} a -> s {dryRun = a} :: DisassociateEnclaveCertificateIamRole)
 
--- | The ARN of the IAM role to disassociate.
-disassociateEnclaveCertificateIamRole_roleArn :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
-disassociateEnclaveCertificateIamRole_roleArn = Lens.lens (\DisassociateEnclaveCertificateIamRole' {roleArn} -> roleArn) (\s@DisassociateEnclaveCertificateIamRole' {} a -> s {roleArn = a} :: DisassociateEnclaveCertificateIamRole)
+-- | The ARN of the ACM certificate from which to disassociate the IAM role.
+disassociateEnclaveCertificateIamRole_certificateArn :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
+disassociateEnclaveCertificateIamRole_certificateArn = Lens.lens (\DisassociateEnclaveCertificateIamRole' {certificateArn} -> certificateArn) (\s@DisassociateEnclaveCertificateIamRole' {} a -> s {certificateArn = a} :: DisassociateEnclaveCertificateIamRole)
 
 instance
   Core.AWSRequest
@@ -132,18 +132,18 @@ instance
   hashWithSalt
     _salt
     DisassociateEnclaveCertificateIamRole' {..} =
-      _salt `Prelude.hashWithSalt` certificateArn
+      _salt `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` dryRun
-        `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` certificateArn
 
 instance
   Prelude.NFData
     DisassociateEnclaveCertificateIamRole
   where
   rnf DisassociateEnclaveCertificateIamRole' {..} =
-    Prelude.rnf certificateArn
+    Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf certificateArn
 
 instance
   Core.ToHeaders
@@ -169,9 +169,9 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "CertificateArn" Core.=: certificateArn,
+        "RoleArn" Core.=: roleArn,
         "DryRun" Core.=: dryRun,
-        "RoleArn" Core.=: roleArn
+        "CertificateArn" Core.=: certificateArn
       ]
 
 -- | /See:/ 'newDisassociateEnclaveCertificateIamRoleResponse' smart constructor.

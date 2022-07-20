@@ -39,8 +39,8 @@ module Amazonka.CodePipeline.ListActionExecutions
     newListActionExecutionsResponse,
 
     -- * Response Lenses
-    listActionExecutionsResponse_actionExecutionDetails,
     listActionExecutionsResponse_nextToken,
+    listActionExecutionsResponse_actionExecutionDetails,
     listActionExecutionsResponse_httpStatus,
   )
 where
@@ -166,10 +166,10 @@ instance Core.AWSRequest ListActionExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListActionExecutionsResponse'
-            Prelude.<$> ( x Core..?> "actionExecutionDetails"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "actionExecutionDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,14 +221,14 @@ instance Core.ToQuery ListActionExecutions where
 
 -- | /See:/ 'newListActionExecutionsResponse' smart constructor.
 data ListActionExecutionsResponse = ListActionExecutionsResponse'
-  { -- | The details for a list of recent executions, such as action execution
-    -- ID.
-    actionExecutionDetails :: Prelude.Maybe [ActionExecutionDetail],
-    -- | If the amount of returned information is significantly large, an
+  { -- | If the amount of returned information is significantly large, an
     -- identifier is also returned and can be used in a subsequent
     -- @ListActionExecutions@ call to return the next set of action executions
     -- in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The details for a list of recent executions, such as action execution
+    -- ID.
+    actionExecutionDetails :: Prelude.Maybe [ActionExecutionDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,13 +242,13 @@ data ListActionExecutionsResponse = ListActionExecutionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionExecutionDetails', 'listActionExecutionsResponse_actionExecutionDetails' - The details for a list of recent executions, such as action execution
--- ID.
---
 -- 'nextToken', 'listActionExecutionsResponse_nextToken' - If the amount of returned information is significantly large, an
 -- identifier is also returned and can be used in a subsequent
 -- @ListActionExecutions@ call to return the next set of action executions
 -- in the list.
+--
+-- 'actionExecutionDetails', 'listActionExecutionsResponse_actionExecutionDetails' - The details for a list of recent executions, such as action execution
+-- ID.
 --
 -- 'httpStatus', 'listActionExecutionsResponse_httpStatus' - The response's http status code.
 newListActionExecutionsResponse ::
@@ -257,16 +257,11 @@ newListActionExecutionsResponse ::
   ListActionExecutionsResponse
 newListActionExecutionsResponse pHttpStatus_ =
   ListActionExecutionsResponse'
-    { actionExecutionDetails =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      actionExecutionDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The details for a list of recent executions, such as action execution
--- ID.
-listActionExecutionsResponse_actionExecutionDetails :: Lens.Lens' ListActionExecutionsResponse (Prelude.Maybe [ActionExecutionDetail])
-listActionExecutionsResponse_actionExecutionDetails = Lens.lens (\ListActionExecutionsResponse' {actionExecutionDetails} -> actionExecutionDetails) (\s@ListActionExecutionsResponse' {} a -> s {actionExecutionDetails = a} :: ListActionExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the amount of returned information is significantly large, an
 -- identifier is also returned and can be used in a subsequent
@@ -275,12 +270,17 @@ listActionExecutionsResponse_actionExecutionDetails = Lens.lens (\ListActionExec
 listActionExecutionsResponse_nextToken :: Lens.Lens' ListActionExecutionsResponse (Prelude.Maybe Prelude.Text)
 listActionExecutionsResponse_nextToken = Lens.lens (\ListActionExecutionsResponse' {nextToken} -> nextToken) (\s@ListActionExecutionsResponse' {} a -> s {nextToken = a} :: ListActionExecutionsResponse)
 
+-- | The details for a list of recent executions, such as action execution
+-- ID.
+listActionExecutionsResponse_actionExecutionDetails :: Lens.Lens' ListActionExecutionsResponse (Prelude.Maybe [ActionExecutionDetail])
+listActionExecutionsResponse_actionExecutionDetails = Lens.lens (\ListActionExecutionsResponse' {actionExecutionDetails} -> actionExecutionDetails) (\s@ListActionExecutionsResponse' {} a -> s {actionExecutionDetails = a} :: ListActionExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listActionExecutionsResponse_httpStatus :: Lens.Lens' ListActionExecutionsResponse Prelude.Int
 listActionExecutionsResponse_httpStatus = Lens.lens (\ListActionExecutionsResponse' {httpStatus} -> httpStatus) (\s@ListActionExecutionsResponse' {} a -> s {httpStatus = a} :: ListActionExecutionsResponse)
 
 instance Prelude.NFData ListActionExecutionsResponse where
   rnf ListActionExecutionsResponse' {..} =
-    Prelude.rnf actionExecutionDetails
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf actionExecutionDetails
       `Prelude.seq` Prelude.rnf httpStatus

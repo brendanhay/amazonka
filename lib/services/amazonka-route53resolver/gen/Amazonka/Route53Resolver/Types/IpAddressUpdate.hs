@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpAddressUpdate' smart constructor.
 data IpAddressUpdate = IpAddressUpdate'
-  { -- | The ID of the subnet that includes the IP address that you want to
+  { -- | /Only when removing an IP address from a Resolver endpoint/: The ID of
+    -- the IP address that you want to remove. To get this ID, use
+    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
+    ipId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet that includes the IP address that you want to
     -- update. To get this ID, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The new IP address.
-    ip :: Prelude.Maybe Prelude.Text,
-    -- | /Only when removing an IP address from a Resolver endpoint/: The ID of
-    -- the IP address that you want to remove. To get this ID, use
-    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
-    ipId :: Prelude.Maybe Prelude.Text
+    ip :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,23 +50,29 @@ data IpAddressUpdate = IpAddressUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipId', 'ipAddressUpdate_ipId' - /Only when removing an IP address from a Resolver endpoint/: The ID of
+-- the IP address that you want to remove. To get this ID, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
+--
 -- 'subnetId', 'ipAddressUpdate_subnetId' - The ID of the subnet that includes the IP address that you want to
 -- update. To get this ID, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
 --
 -- 'ip', 'ipAddressUpdate_ip' - The new IP address.
---
--- 'ipId', 'ipAddressUpdate_ipId' - /Only when removing an IP address from a Resolver endpoint/: The ID of
--- the IP address that you want to remove. To get this ID, use
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
 newIpAddressUpdate ::
   IpAddressUpdate
 newIpAddressUpdate =
   IpAddressUpdate'
-    { subnetId = Prelude.Nothing,
-      ip = Prelude.Nothing,
-      ipId = Prelude.Nothing
+    { ipId = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      ip = Prelude.Nothing
     }
+
+-- | /Only when removing an IP address from a Resolver endpoint/: The ID of
+-- the IP address that you want to remove. To get this ID, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
+ipAddressUpdate_ipId :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
+ipAddressUpdate_ipId = Lens.lens (\IpAddressUpdate' {ipId} -> ipId) (\s@IpAddressUpdate' {} a -> s {ipId = a} :: IpAddressUpdate)
 
 -- | The ID of the subnet that includes the IP address that you want to
 -- update. To get this ID, use
@@ -78,30 +84,24 @@ ipAddressUpdate_subnetId = Lens.lens (\IpAddressUpdate' {subnetId} -> subnetId) 
 ipAddressUpdate_ip :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
 ipAddressUpdate_ip = Lens.lens (\IpAddressUpdate' {ip} -> ip) (\s@IpAddressUpdate' {} a -> s {ip = a} :: IpAddressUpdate)
 
--- | /Only when removing an IP address from a Resolver endpoint/: The ID of
--- the IP address that you want to remove. To get this ID, use
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
-ipAddressUpdate_ipId :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
-ipAddressUpdate_ipId = Lens.lens (\IpAddressUpdate' {ipId} -> ipId) (\s@IpAddressUpdate' {} a -> s {ipId = a} :: IpAddressUpdate)
-
 instance Prelude.Hashable IpAddressUpdate where
   hashWithSalt _salt IpAddressUpdate' {..} =
-    _salt `Prelude.hashWithSalt` subnetId
+    _salt `Prelude.hashWithSalt` ipId
+      `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` ip
-      `Prelude.hashWithSalt` ipId
 
 instance Prelude.NFData IpAddressUpdate where
   rnf IpAddressUpdate' {..} =
-    Prelude.rnf subnetId
+    Prelude.rnf ipId
+      `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf ipId
 
 instance Core.ToJSON IpAddressUpdate where
   toJSON IpAddressUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("Ip" Core..=) Prelude.<$> ip,
-            ("IpId" Core..=) Prelude.<$> ipId
+          [ ("IpId" Core..=) Prelude.<$> ipId,
+            ("SubnetId" Core..=) Prelude.<$> subnetId,
+            ("Ip" Core..=) Prelude.<$> ip
           ]
       )

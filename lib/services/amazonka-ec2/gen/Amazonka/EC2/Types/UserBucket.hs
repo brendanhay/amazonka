@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserBucket' smart constructor.
 data UserBucket = UserBucket'
-  { -- | The file name of the disk image.
-    s3Key :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon S3 bucket where the disk image is located.
-    s3Bucket :: Prelude.Maybe Prelude.Text
+  { -- | The name of the Amazon S3 bucket where the disk image is located.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | The file name of the disk image.
+    s3Key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,36 +43,36 @@ data UserBucket = UserBucket'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Key', 'userBucket_s3Key' - The file name of the disk image.
---
 -- 's3Bucket', 'userBucket_s3Bucket' - The name of the Amazon S3 bucket where the disk image is located.
+--
+-- 's3Key', 'userBucket_s3Key' - The file name of the disk image.
 newUserBucket ::
   UserBucket
 newUserBucket =
   UserBucket'
-    { s3Key = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing
+    { s3Bucket = Prelude.Nothing,
+      s3Key = Prelude.Nothing
     }
-
--- | The file name of the disk image.
-userBucket_s3Key :: Lens.Lens' UserBucket (Prelude.Maybe Prelude.Text)
-userBucket_s3Key = Lens.lens (\UserBucket' {s3Key} -> s3Key) (\s@UserBucket' {} a -> s {s3Key = a} :: UserBucket)
 
 -- | The name of the Amazon S3 bucket where the disk image is located.
 userBucket_s3Bucket :: Lens.Lens' UserBucket (Prelude.Maybe Prelude.Text)
 userBucket_s3Bucket = Lens.lens (\UserBucket' {s3Bucket} -> s3Bucket) (\s@UserBucket' {} a -> s {s3Bucket = a} :: UserBucket)
 
+-- | The file name of the disk image.
+userBucket_s3Key :: Lens.Lens' UserBucket (Prelude.Maybe Prelude.Text)
+userBucket_s3Key = Lens.lens (\UserBucket' {s3Key} -> s3Key) (\s@UserBucket' {} a -> s {s3Key = a} :: UserBucket)
+
 instance Prelude.Hashable UserBucket where
   hashWithSalt _salt UserBucket' {..} =
-    _salt `Prelude.hashWithSalt` s3Key
-      `Prelude.hashWithSalt` s3Bucket
+    _salt `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3Key
 
 instance Prelude.NFData UserBucket where
   rnf UserBucket' {..} =
-    Prelude.rnf s3Key
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3Key
 
 instance Core.ToQuery UserBucket where
   toQuery UserBucket' {..} =
     Prelude.mconcat
-      ["S3Key" Core.=: s3Key, "S3Bucket" Core.=: s3Bucket]
+      ["S3Bucket" Core.=: s3Bucket, "S3Key" Core.=: s3Key]

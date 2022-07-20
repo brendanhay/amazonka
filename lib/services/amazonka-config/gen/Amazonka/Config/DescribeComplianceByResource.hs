@@ -56,8 +56,8 @@ module Amazonka.Config.DescribeComplianceByResource
     -- * Request Lenses
     describeComplianceByResource_resourceId,
     describeComplianceByResource_resourceType,
-    describeComplianceByResource_complianceTypes,
     describeComplianceByResource_nextToken,
+    describeComplianceByResource_complianceTypes,
     describeComplianceByResource_limit,
 
     -- * Destructuring the Response
@@ -65,8 +65,8 @@ module Amazonka.Config.DescribeComplianceByResource
     newDescribeComplianceByResourceResponse,
 
     -- * Response Lenses
-    describeComplianceByResourceResponse_complianceByResources,
     describeComplianceByResourceResponse_nextToken,
+    describeComplianceByResourceResponse_complianceByResources,
     describeComplianceByResourceResponse_httpStatus,
   )
 where
@@ -91,14 +91,14 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
     -- can specify that the resource type is an Amazon Web Services account by
     -- specifying @AWS::::Account@.
     resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
     -- @INSUFFICIENT_DATA@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
-    -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
     -- specify 0, Config uses the default.
@@ -123,13 +123,13 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
 -- can specify that the resource type is an Amazon Web Services account by
 -- specifying @AWS::::Account@.
 --
+-- 'nextToken', 'describeComplianceByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+--
 -- 'complianceTypes', 'describeComplianceByResource_complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @INSUFFICIENT_DATA@.
---
--- 'nextToken', 'describeComplianceByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
 --
 -- 'limit', 'describeComplianceByResource_limit' - The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
@@ -141,8 +141,8 @@ newDescribeComplianceByResource =
     { resourceId =
         Prelude.Nothing,
       resourceType = Prelude.Nothing,
-      complianceTypes = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      complianceTypes = Prelude.Nothing,
       limit = Prelude.Nothing
     }
 
@@ -159,17 +159,17 @@ describeComplianceByResource_resourceId = Lens.lens (\DescribeComplianceByResour
 describeComplianceByResource_resourceType :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
 describeComplianceByResource_resourceType = Lens.lens (\DescribeComplianceByResource' {resourceType} -> resourceType) (\s@DescribeComplianceByResource' {} a -> s {resourceType = a} :: DescribeComplianceByResource)
 
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeComplianceByResource_nextToken :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
+describeComplianceByResource_nextToken = Lens.lens (\DescribeComplianceByResource' {nextToken} -> nextToken) (\s@DescribeComplianceByResource' {} a -> s {nextToken = a} :: DescribeComplianceByResource)
+
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @INSUFFICIENT_DATA@.
 describeComplianceByResource_complianceTypes :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe [ComplianceType])
 describeComplianceByResource_complianceTypes = Lens.lens (\DescribeComplianceByResource' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByResource' {} a -> s {complianceTypes = a} :: DescribeComplianceByResource) Prelude.. Lens.mapping Lens.coerced
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describeComplianceByResource_nextToken :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
-describeComplianceByResource_nextToken = Lens.lens (\DescribeComplianceByResource' {nextToken} -> nextToken) (\s@DescribeComplianceByResource' {} a -> s {nextToken = a} :: DescribeComplianceByResource)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
@@ -208,10 +208,10 @@ instance Core.AWSRequest DescribeComplianceByResource where
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByResourceResponse'
-            Prelude.<$> ( x Core..?> "ComplianceByResources"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ComplianceByResources"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,16 +222,16 @@ instance
   hashWithSalt _salt DescribeComplianceByResource' {..} =
     _salt `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` complianceTypes
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` complianceTypes
       `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData DescribeComplianceByResource where
   rnf DescribeComplianceByResource' {..} =
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf complianceTypes
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf complianceTypes
       `Prelude.seq` Prelude.rnf limit
 
 instance Core.ToHeaders DescribeComplianceByResource where
@@ -255,9 +255,9 @@ instance Core.ToJSON DescribeComplianceByResource where
       ( Prelude.catMaybes
           [ ("ResourceId" Core..=) Prelude.<$> resourceId,
             ("ResourceType" Core..=) Prelude.<$> resourceType,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("ComplianceTypes" Core..=)
               Prelude.<$> complianceTypes,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -272,12 +272,12 @@ instance Core.ToQuery DescribeComplianceByResource where
 --
 -- /See:/ 'newDescribeComplianceByResourceResponse' smart constructor.
 data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse'
-  { -- | Indicates whether the specified Amazon Web Services resource complies
-    -- with all of the Config rules that evaluate it.
-    complianceByResources :: Prelude.Maybe [ComplianceByResource],
-    -- | The string that you use in a subsequent request to get the next page of
+  { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the specified Amazon Web Services resource complies
+    -- with all of the Config rules that evaluate it.
+    complianceByResources :: Prelude.Maybe [ComplianceByResource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -291,11 +291,11 @@ data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'complianceByResources', 'describeComplianceByResourceResponse_complianceByResources' - Indicates whether the specified Amazon Web Services resource complies
--- with all of the Config rules that evaluate it.
---
 -- 'nextToken', 'describeComplianceByResourceResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
+--
+-- 'complianceByResources', 'describeComplianceByResourceResponse_complianceByResources' - Indicates whether the specified Amazon Web Services resource complies
+-- with all of the Config rules that evaluate it.
 --
 -- 'httpStatus', 'describeComplianceByResourceResponse_httpStatus' - The response's http status code.
 newDescribeComplianceByResourceResponse ::
@@ -304,21 +304,22 @@ newDescribeComplianceByResourceResponse ::
   DescribeComplianceByResourceResponse
 newDescribeComplianceByResourceResponse pHttpStatus_ =
   DescribeComplianceByResourceResponse'
-    { complianceByResources =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      complianceByResources =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Indicates whether the specified Amazon Web Services resource complies
--- with all of the Config rules that evaluate it.
-describeComplianceByResourceResponse_complianceByResources :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe [ComplianceByResource])
-describeComplianceByResourceResponse_complianceByResources = Lens.lens (\DescribeComplianceByResourceResponse' {complianceByResources} -> complianceByResources) (\s@DescribeComplianceByResourceResponse' {} a -> s {complianceByResources = a} :: DescribeComplianceByResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 describeComplianceByResourceResponse_nextToken :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe Prelude.Text)
 describeComplianceByResourceResponse_nextToken = Lens.lens (\DescribeComplianceByResourceResponse' {nextToken} -> nextToken) (\s@DescribeComplianceByResourceResponse' {} a -> s {nextToken = a} :: DescribeComplianceByResourceResponse)
+
+-- | Indicates whether the specified Amazon Web Services resource complies
+-- with all of the Config rules that evaluate it.
+describeComplianceByResourceResponse_complianceByResources :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe [ComplianceByResource])
+describeComplianceByResourceResponse_complianceByResources = Lens.lens (\DescribeComplianceByResourceResponse' {complianceByResources} -> complianceByResources) (\s@DescribeComplianceByResourceResponse' {} a -> s {complianceByResources = a} :: DescribeComplianceByResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeComplianceByResourceResponse_httpStatus :: Lens.Lens' DescribeComplianceByResourceResponse Prelude.Int
@@ -329,6 +330,6 @@ instance
     DescribeComplianceByResourceResponse
   where
   rnf DescribeComplianceByResourceResponse' {..} =
-    Prelude.rnf complianceByResources
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf complianceByResources
       `Prelude.seq` Prelude.rnf httpStatus

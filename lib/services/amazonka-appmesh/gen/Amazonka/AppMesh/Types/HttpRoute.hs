@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHttpRoute' smart constructor.
 data HttpRoute = HttpRoute'
-  { -- | An object that represents a retry policy.
-    retryPolicy :: Prelude.Maybe HttpRetryPolicy,
-    -- | An object that represents types of timeouts.
+  { -- | An object that represents types of timeouts.
     timeout :: Prelude.Maybe HttpTimeout,
+    -- | An object that represents a retry policy.
+    retryPolicy :: Prelude.Maybe HttpRetryPolicy,
     -- | An object that represents the action to take if a match is determined.
     action :: HttpRouteAction,
     -- | An object that represents the criteria for determining a request match.
@@ -50,9 +50,9 @@ data HttpRoute = HttpRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retryPolicy', 'httpRoute_retryPolicy' - An object that represents a retry policy.
---
 -- 'timeout', 'httpRoute_timeout' - An object that represents types of timeouts.
+--
+-- 'retryPolicy', 'httpRoute_retryPolicy' - An object that represents a retry policy.
 --
 -- 'action', 'httpRoute_action' - An object that represents the action to take if a match is determined.
 --
@@ -65,19 +65,19 @@ newHttpRoute ::
   HttpRoute
 newHttpRoute pAction_ pMatch_ =
   HttpRoute'
-    { retryPolicy = Prelude.Nothing,
-      timeout = Prelude.Nothing,
+    { timeout = Prelude.Nothing,
+      retryPolicy = Prelude.Nothing,
       action = pAction_,
       match = pMatch_
     }
 
--- | An object that represents a retry policy.
-httpRoute_retryPolicy :: Lens.Lens' HttpRoute (Prelude.Maybe HttpRetryPolicy)
-httpRoute_retryPolicy = Lens.lens (\HttpRoute' {retryPolicy} -> retryPolicy) (\s@HttpRoute' {} a -> s {retryPolicy = a} :: HttpRoute)
-
 -- | An object that represents types of timeouts.
 httpRoute_timeout :: Lens.Lens' HttpRoute (Prelude.Maybe HttpTimeout)
 httpRoute_timeout = Lens.lens (\HttpRoute' {timeout} -> timeout) (\s@HttpRoute' {} a -> s {timeout = a} :: HttpRoute)
+
+-- | An object that represents a retry policy.
+httpRoute_retryPolicy :: Lens.Lens' HttpRoute (Prelude.Maybe HttpRetryPolicy)
+httpRoute_retryPolicy = Lens.lens (\HttpRoute' {retryPolicy} -> retryPolicy) (\s@HttpRoute' {} a -> s {retryPolicy = a} :: HttpRoute)
 
 -- | An object that represents the action to take if a match is determined.
 httpRoute_action :: Lens.Lens' HttpRoute HttpRouteAction
@@ -93,23 +93,23 @@ instance Core.FromJSON HttpRoute where
       "HttpRoute"
       ( \x ->
           HttpRoute'
-            Prelude.<$> (x Core..:? "retryPolicy")
-            Prelude.<*> (x Core..:? "timeout")
+            Prelude.<$> (x Core..:? "timeout")
+            Prelude.<*> (x Core..:? "retryPolicy")
             Prelude.<*> (x Core..: "action")
             Prelude.<*> (x Core..: "match")
       )
 
 instance Prelude.Hashable HttpRoute where
   hashWithSalt _salt HttpRoute' {..} =
-    _salt `Prelude.hashWithSalt` retryPolicy
-      `Prelude.hashWithSalt` timeout
+    _salt `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` retryPolicy
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` match
 
 instance Prelude.NFData HttpRoute where
   rnf HttpRoute' {..} =
-    Prelude.rnf retryPolicy
-      `Prelude.seq` Prelude.rnf timeout
+    Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf retryPolicy
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf match
 
@@ -117,8 +117,8 @@ instance Core.ToJSON HttpRoute where
   toJSON HttpRoute' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("retryPolicy" Core..=) Prelude.<$> retryPolicy,
-            ("timeout" Core..=) Prelude.<$> timeout,
+          [ ("timeout" Core..=) Prelude.<$> timeout,
+            ("retryPolicy" Core..=) Prelude.<$> retryPolicy,
             Prelude.Just ("action" Core..= action),
             Prelude.Just ("match" Core..= match)
           ]

@@ -41,14 +41,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAggregateConformancePackCompliance' smart constructor.
 data AggregateConformancePackCompliance = AggregateConformancePackCompliance'
-  { -- | Total number of compliant rules, noncompliant rules, and the rules that
+  { -- | The number of noncompliant Config Rules.
+    nonCompliantRuleCount :: Prelude.Maybe Prelude.Int,
+    -- | Total number of compliant rules, noncompliant rules, and the rules that
     -- do not have any applicable resources to evaluate upon resulting in
     -- insufficient data.
     totalRuleCount :: Prelude.Maybe Prelude.Int,
     -- | The number of compliant Config Rules.
     compliantRuleCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of noncompliant Config Rules.
-    nonCompliantRuleCount :: Prelude.Maybe Prelude.Int,
     -- | The compliance status of the conformance pack.
     complianceType :: Prelude.Maybe ConformancePackComplianceType
   }
@@ -62,25 +62,29 @@ data AggregateConformancePackCompliance = AggregateConformancePackCompliance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nonCompliantRuleCount', 'aggregateConformancePackCompliance_nonCompliantRuleCount' - The number of noncompliant Config Rules.
+--
 -- 'totalRuleCount', 'aggregateConformancePackCompliance_totalRuleCount' - Total number of compliant rules, noncompliant rules, and the rules that
 -- do not have any applicable resources to evaluate upon resulting in
 -- insufficient data.
 --
 -- 'compliantRuleCount', 'aggregateConformancePackCompliance_compliantRuleCount' - The number of compliant Config Rules.
 --
--- 'nonCompliantRuleCount', 'aggregateConformancePackCompliance_nonCompliantRuleCount' - The number of noncompliant Config Rules.
---
 -- 'complianceType', 'aggregateConformancePackCompliance_complianceType' - The compliance status of the conformance pack.
 newAggregateConformancePackCompliance ::
   AggregateConformancePackCompliance
 newAggregateConformancePackCompliance =
   AggregateConformancePackCompliance'
-    { totalRuleCount =
+    { nonCompliantRuleCount =
         Prelude.Nothing,
+      totalRuleCount = Prelude.Nothing,
       compliantRuleCount = Prelude.Nothing,
-      nonCompliantRuleCount = Prelude.Nothing,
       complianceType = Prelude.Nothing
     }
+
+-- | The number of noncompliant Config Rules.
+aggregateConformancePackCompliance_nonCompliantRuleCount :: Lens.Lens' AggregateConformancePackCompliance (Prelude.Maybe Prelude.Int)
+aggregateConformancePackCompliance_nonCompliantRuleCount = Lens.lens (\AggregateConformancePackCompliance' {nonCompliantRuleCount} -> nonCompliantRuleCount) (\s@AggregateConformancePackCompliance' {} a -> s {nonCompliantRuleCount = a} :: AggregateConformancePackCompliance)
 
 -- | Total number of compliant rules, noncompliant rules, and the rules that
 -- do not have any applicable resources to evaluate upon resulting in
@@ -91,10 +95,6 @@ aggregateConformancePackCompliance_totalRuleCount = Lens.lens (\AggregateConform
 -- | The number of compliant Config Rules.
 aggregateConformancePackCompliance_compliantRuleCount :: Lens.Lens' AggregateConformancePackCompliance (Prelude.Maybe Prelude.Int)
 aggregateConformancePackCompliance_compliantRuleCount = Lens.lens (\AggregateConformancePackCompliance' {compliantRuleCount} -> compliantRuleCount) (\s@AggregateConformancePackCompliance' {} a -> s {compliantRuleCount = a} :: AggregateConformancePackCompliance)
-
--- | The number of noncompliant Config Rules.
-aggregateConformancePackCompliance_nonCompliantRuleCount :: Lens.Lens' AggregateConformancePackCompliance (Prelude.Maybe Prelude.Int)
-aggregateConformancePackCompliance_nonCompliantRuleCount = Lens.lens (\AggregateConformancePackCompliance' {nonCompliantRuleCount} -> nonCompliantRuleCount) (\s@AggregateConformancePackCompliance' {} a -> s {nonCompliantRuleCount = a} :: AggregateConformancePackCompliance)
 
 -- | The compliance status of the conformance pack.
 aggregateConformancePackCompliance_complianceType :: Lens.Lens' AggregateConformancePackCompliance (Prelude.Maybe ConformancePackComplianceType)
@@ -109,9 +109,9 @@ instance
       "AggregateConformancePackCompliance"
       ( \x ->
           AggregateConformancePackCompliance'
-            Prelude.<$> (x Core..:? "TotalRuleCount")
+            Prelude.<$> (x Core..:? "NonCompliantRuleCount")
+            Prelude.<*> (x Core..:? "TotalRuleCount")
             Prelude.<*> (x Core..:? "CompliantRuleCount")
-            Prelude.<*> (x Core..:? "NonCompliantRuleCount")
             Prelude.<*> (x Core..:? "ComplianceType")
       )
 
@@ -122,9 +122,9 @@ instance
   hashWithSalt
     _salt
     AggregateConformancePackCompliance' {..} =
-      _salt `Prelude.hashWithSalt` totalRuleCount
+      _salt `Prelude.hashWithSalt` nonCompliantRuleCount
+        `Prelude.hashWithSalt` totalRuleCount
         `Prelude.hashWithSalt` compliantRuleCount
-        `Prelude.hashWithSalt` nonCompliantRuleCount
         `Prelude.hashWithSalt` complianceType
 
 instance
@@ -132,7 +132,7 @@ instance
     AggregateConformancePackCompliance
   where
   rnf AggregateConformancePackCompliance' {..} =
-    Prelude.rnf totalRuleCount
+    Prelude.rnf nonCompliantRuleCount
+      `Prelude.seq` Prelude.rnf totalRuleCount
       `Prelude.seq` Prelude.rnf compliantRuleCount
-      `Prelude.seq` Prelude.rnf nonCompliantRuleCount
       `Prelude.seq` Prelude.rnf complianceType

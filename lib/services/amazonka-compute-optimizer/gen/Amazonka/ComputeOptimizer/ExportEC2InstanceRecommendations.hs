@@ -38,11 +38,11 @@ module Amazonka.ComputeOptimizer.ExportEC2InstanceRecommendations
 
     -- * Request Lenses
     exportEC2InstanceRecommendations_accountIds,
-    exportEC2InstanceRecommendations_fileFormat,
-    exportEC2InstanceRecommendations_filters,
-    exportEC2InstanceRecommendations_fieldsToExport,
-    exportEC2InstanceRecommendations_includeMemberAccounts,
     exportEC2InstanceRecommendations_recommendationPreferences,
+    exportEC2InstanceRecommendations_filters,
+    exportEC2InstanceRecommendations_includeMemberAccounts,
+    exportEC2InstanceRecommendations_fileFormat,
+    exportEC2InstanceRecommendations_fieldsToExport,
     exportEC2InstanceRecommendations_s3DestinationConfig,
 
     -- * Destructuring the Response
@@ -80,18 +80,12 @@ data ExportEC2InstanceRecommendations = ExportEC2InstanceRecommendations'
     --
     -- You can specify multiple account IDs per request.
     accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | The format of the export file.
-    --
-    -- The only export file format currently supported is @Csv@.
-    fileFormat :: Prelude.Maybe FileFormat,
+    -- | An object to specify the preferences for the Amazon EC2 instance
+    -- recommendations to export.
+    recommendationPreferences :: Prelude.Maybe RecommendationPreferences,
     -- | An array of objects to specify a filter that exports a more specific set
     -- of instance recommendations.
     filters :: Prelude.Maybe [Filter],
-    -- | The recommendations data to include in the export file. For more
-    -- information about the fields that can be exported, see
-    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
-    -- in the /Compute Optimizer User Guide/.
-    fieldsToExport :: Prelude.Maybe [ExportableInstanceField],
     -- | Indicates whether to include recommendations for resources in all member
     -- accounts of the organization if your account is the management account
     -- of an organization.
@@ -108,9 +102,15 @@ data ExportEC2InstanceRecommendations = ExportEC2InstanceRecommendations'
     -- Recommendations for member accounts are not included in the export if
     -- this parameter, or the account IDs parameter, is omitted.
     includeMemberAccounts :: Prelude.Maybe Prelude.Bool,
-    -- | An object to specify the preferences for the Amazon EC2 instance
-    -- recommendations to export.
-    recommendationPreferences :: Prelude.Maybe RecommendationPreferences,
+    -- | The format of the export file.
+    --
+    -- The only export file format currently supported is @Csv@.
+    fileFormat :: Prelude.Maybe FileFormat,
+    -- | The recommendations data to include in the export file. For more
+    -- information about the fields that can be exported, see
+    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+    -- in the /Compute Optimizer User Guide/.
+    fieldsToExport :: Prelude.Maybe [ExportableInstanceField],
     -- | An object to specify the destination Amazon Simple Storage Service
     -- (Amazon S3) bucket name and key prefix for the export job.
     --
@@ -151,17 +151,11 @@ data ExportEC2InstanceRecommendations = ExportEC2InstanceRecommendations'
 --
 -- You can specify multiple account IDs per request.
 --
--- 'fileFormat', 'exportEC2InstanceRecommendations_fileFormat' - The format of the export file.
---
--- The only export file format currently supported is @Csv@.
+-- 'recommendationPreferences', 'exportEC2InstanceRecommendations_recommendationPreferences' - An object to specify the preferences for the Amazon EC2 instance
+-- recommendations to export.
 --
 -- 'filters', 'exportEC2InstanceRecommendations_filters' - An array of objects to specify a filter that exports a more specific set
 -- of instance recommendations.
---
--- 'fieldsToExport', 'exportEC2InstanceRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more
--- information about the fields that can be exported, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
--- in the /Compute Optimizer User Guide/.
 --
 -- 'includeMemberAccounts', 'exportEC2InstanceRecommendations_includeMemberAccounts' - Indicates whether to include recommendations for resources in all member
 -- accounts of the organization if your account is the management account
@@ -179,8 +173,14 @@ data ExportEC2InstanceRecommendations = ExportEC2InstanceRecommendations'
 -- Recommendations for member accounts are not included in the export if
 -- this parameter, or the account IDs parameter, is omitted.
 --
--- 'recommendationPreferences', 'exportEC2InstanceRecommendations_recommendationPreferences' - An object to specify the preferences for the Amazon EC2 instance
--- recommendations to export.
+-- 'fileFormat', 'exportEC2InstanceRecommendations_fileFormat' - The format of the export file.
+--
+-- The only export file format currently supported is @Csv@.
+--
+-- 'fieldsToExport', 'exportEC2InstanceRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more
+-- information about the fields that can be exported, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+-- in the /Compute Optimizer User Guide/.
 --
 -- 's3DestinationConfig', 'exportEC2InstanceRecommendations_s3DestinationConfig' - An object to specify the destination Amazon Simple Storage Service
 -- (Amazon S3) bucket name and key prefix for the export job.
@@ -204,12 +204,12 @@ newExportEC2InstanceRecommendations
     ExportEC2InstanceRecommendations'
       { accountIds =
           Prelude.Nothing,
-        fileFormat = Prelude.Nothing,
-        filters = Prelude.Nothing,
-        fieldsToExport = Prelude.Nothing,
-        includeMemberAccounts = Prelude.Nothing,
         recommendationPreferences =
           Prelude.Nothing,
+        filters = Prelude.Nothing,
+        includeMemberAccounts = Prelude.Nothing,
+        fileFormat = Prelude.Nothing,
+        fieldsToExport = Prelude.Nothing,
         s3DestinationConfig =
           pS3DestinationConfig_
       }
@@ -231,23 +231,15 @@ newExportEC2InstanceRecommendations
 exportEC2InstanceRecommendations_accountIds :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe [Prelude.Text])
 exportEC2InstanceRecommendations_accountIds = Lens.lens (\ExportEC2InstanceRecommendations' {accountIds} -> accountIds) (\s@ExportEC2InstanceRecommendations' {} a -> s {accountIds = a} :: ExportEC2InstanceRecommendations) Prelude.. Lens.mapping Lens.coerced
 
--- | The format of the export file.
---
--- The only export file format currently supported is @Csv@.
-exportEC2InstanceRecommendations_fileFormat :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe FileFormat)
-exportEC2InstanceRecommendations_fileFormat = Lens.lens (\ExportEC2InstanceRecommendations' {fileFormat} -> fileFormat) (\s@ExportEC2InstanceRecommendations' {} a -> s {fileFormat = a} :: ExportEC2InstanceRecommendations)
+-- | An object to specify the preferences for the Amazon EC2 instance
+-- recommendations to export.
+exportEC2InstanceRecommendations_recommendationPreferences :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe RecommendationPreferences)
+exportEC2InstanceRecommendations_recommendationPreferences = Lens.lens (\ExportEC2InstanceRecommendations' {recommendationPreferences} -> recommendationPreferences) (\s@ExportEC2InstanceRecommendations' {} a -> s {recommendationPreferences = a} :: ExportEC2InstanceRecommendations)
 
 -- | An array of objects to specify a filter that exports a more specific set
 -- of instance recommendations.
 exportEC2InstanceRecommendations_filters :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe [Filter])
 exportEC2InstanceRecommendations_filters = Lens.lens (\ExportEC2InstanceRecommendations' {filters} -> filters) (\s@ExportEC2InstanceRecommendations' {} a -> s {filters = a} :: ExportEC2InstanceRecommendations) Prelude.. Lens.mapping Lens.coerced
-
--- | The recommendations data to include in the export file. For more
--- information about the fields that can be exported, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
--- in the /Compute Optimizer User Guide/.
-exportEC2InstanceRecommendations_fieldsToExport :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe [ExportableInstanceField])
-exportEC2InstanceRecommendations_fieldsToExport = Lens.lens (\ExportEC2InstanceRecommendations' {fieldsToExport} -> fieldsToExport) (\s@ExportEC2InstanceRecommendations' {} a -> s {fieldsToExport = a} :: ExportEC2InstanceRecommendations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether to include recommendations for resources in all member
 -- accounts of the organization if your account is the management account
@@ -267,10 +259,18 @@ exportEC2InstanceRecommendations_fieldsToExport = Lens.lens (\ExportEC2InstanceR
 exportEC2InstanceRecommendations_includeMemberAccounts :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe Prelude.Bool)
 exportEC2InstanceRecommendations_includeMemberAccounts = Lens.lens (\ExportEC2InstanceRecommendations' {includeMemberAccounts} -> includeMemberAccounts) (\s@ExportEC2InstanceRecommendations' {} a -> s {includeMemberAccounts = a} :: ExportEC2InstanceRecommendations)
 
--- | An object to specify the preferences for the Amazon EC2 instance
--- recommendations to export.
-exportEC2InstanceRecommendations_recommendationPreferences :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe RecommendationPreferences)
-exportEC2InstanceRecommendations_recommendationPreferences = Lens.lens (\ExportEC2InstanceRecommendations' {recommendationPreferences} -> recommendationPreferences) (\s@ExportEC2InstanceRecommendations' {} a -> s {recommendationPreferences = a} :: ExportEC2InstanceRecommendations)
+-- | The format of the export file.
+--
+-- The only export file format currently supported is @Csv@.
+exportEC2InstanceRecommendations_fileFormat :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe FileFormat)
+exportEC2InstanceRecommendations_fileFormat = Lens.lens (\ExportEC2InstanceRecommendations' {fileFormat} -> fileFormat) (\s@ExportEC2InstanceRecommendations' {} a -> s {fileFormat = a} :: ExportEC2InstanceRecommendations)
+
+-- | The recommendations data to include in the export file. For more
+-- information about the fields that can be exported, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+-- in the /Compute Optimizer User Guide/.
+exportEC2InstanceRecommendations_fieldsToExport :: Lens.Lens' ExportEC2InstanceRecommendations (Prelude.Maybe [ExportableInstanceField])
+exportEC2InstanceRecommendations_fieldsToExport = Lens.lens (\ExportEC2InstanceRecommendations' {fieldsToExport} -> fieldsToExport) (\s@ExportEC2InstanceRecommendations' {} a -> s {fieldsToExport = a} :: ExportEC2InstanceRecommendations) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object to specify the destination Amazon Simple Storage Service
 -- (Amazon S3) bucket name and key prefix for the export job.
@@ -313,11 +313,11 @@ instance
     _salt
     ExportEC2InstanceRecommendations' {..} =
       _salt `Prelude.hashWithSalt` accountIds
-        `Prelude.hashWithSalt` fileFormat
-        `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` fieldsToExport
-        `Prelude.hashWithSalt` includeMemberAccounts
         `Prelude.hashWithSalt` recommendationPreferences
+        `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` includeMemberAccounts
+        `Prelude.hashWithSalt` fileFormat
+        `Prelude.hashWithSalt` fieldsToExport
         `Prelude.hashWithSalt` s3DestinationConfig
 
 instance
@@ -326,11 +326,11 @@ instance
   where
   rnf ExportEC2InstanceRecommendations' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf fileFormat
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf fieldsToExport
-      `Prelude.seq` Prelude.rnf includeMemberAccounts
       `Prelude.seq` Prelude.rnf recommendationPreferences
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf includeMemberAccounts
+      `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf fieldsToExport
       `Prelude.seq` Prelude.rnf s3DestinationConfig
 
 instance
@@ -356,14 +356,14 @@ instance Core.ToJSON ExportEC2InstanceRecommendations where
     Core.object
       ( Prelude.catMaybes
           [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("fileFormat" Core..=) Prelude.<$> fileFormat,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("fieldsToExport" Core..=)
-              Prelude.<$> fieldsToExport,
-            ("includeMemberAccounts" Core..=)
-              Prelude.<$> includeMemberAccounts,
             ("recommendationPreferences" Core..=)
               Prelude.<$> recommendationPreferences,
+            ("filters" Core..=) Prelude.<$> filters,
+            ("includeMemberAccounts" Core..=)
+              Prelude.<$> includeMemberAccounts,
+            ("fileFormat" Core..=) Prelude.<$> fileFormat,
+            ("fieldsToExport" Core..=)
+              Prelude.<$> fieldsToExport,
             Prelude.Just
               ("s3DestinationConfig" Core..= s3DestinationConfig)
           ]

@@ -37,8 +37,8 @@ module Amazonka.SSOAdmin.ListInstances
     newListInstancesResponse,
 
     -- * Response Lenses
-    listInstancesResponse_nextToken,
     listInstancesResponse_instances,
+    listInstancesResponse_nextToken,
     listInstancesResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest ListInstances where
     Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Instances" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Instances" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,11 +164,11 @@ instance Core.ToQuery ListInstances where
 
 -- | /See:/ 'newListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | Lists the SSO instances that the caller has access to.
+    instances :: Prelude.Maybe [InstanceMetadata],
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Lists the SSO instances that the caller has access to.
-    instances :: Prelude.Maybe [InstanceMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,10 +182,10 @@ data ListInstancesResponse = ListInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instances', 'listInstancesResponse_instances' - Lists the SSO instances that the caller has access to.
+--
 -- 'nextToken', 'listInstancesResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'instances', 'listInstancesResponse_instances' - Lists the SSO instances that the caller has access to.
 --
 -- 'httpStatus', 'listInstancesResponse_httpStatus' - The response's http status code.
 newListInstancesResponse ::
@@ -194,19 +194,19 @@ newListInstancesResponse ::
   ListInstancesResponse
 newListInstancesResponse pHttpStatus_ =
   ListInstancesResponse'
-    { nextToken = Prelude.Nothing,
-      instances = Prelude.Nothing,
+    { instances = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Lists the SSO instances that the caller has access to.
+listInstancesResponse_instances :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceMetadata])
+listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Prelude.Maybe Prelude.Text)
 listInstancesResponse_nextToken = Lens.lens (\ListInstancesResponse' {nextToken} -> nextToken) (\s@ListInstancesResponse' {} a -> s {nextToken = a} :: ListInstancesResponse)
-
--- | Lists the SSO instances that the caller has access to.
-listInstancesResponse_instances :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceMetadata])
-listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Prelude.Int
@@ -214,6 +214,6 @@ listInstancesResponse_httpStatus = Lens.lens (\ListInstancesResponse' {httpStatu
 
 instance Prelude.NFData ListInstancesResponse where
   rnf ListInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instances
+    Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

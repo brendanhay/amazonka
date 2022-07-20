@@ -38,12 +38,12 @@ module Amazonka.Greengrass.GetFunctionDefinitionVersion
     newGetFunctionDefinitionVersionResponse,
 
     -- * Response Lenses
-    getFunctionDefinitionVersionResponse_definition,
-    getFunctionDefinitionVersionResponse_arn,
     getFunctionDefinitionVersionResponse_nextToken,
+    getFunctionDefinitionVersionResponse_arn,
+    getFunctionDefinitionVersionResponse_id,
     getFunctionDefinitionVersionResponse_creationTimestamp,
     getFunctionDefinitionVersionResponse_version,
-    getFunctionDefinitionVersionResponse_id,
+    getFunctionDefinitionVersionResponse_definition,
     getFunctionDefinitionVersionResponse_httpStatus,
   )
 where
@@ -135,12 +135,12 @@ instance Core.AWSRequest GetFunctionDefinitionVersion where
     Response.receiveJSON
       ( \s h x ->
           GetFunctionDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Definition")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "CreationTimestamp")
             Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,20 +185,20 @@ instance Core.ToQuery GetFunctionDefinitionVersion where
 
 -- | /See:/ 'newGetFunctionDefinitionVersionResponse' smart constructor.
 data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse'
-  { -- | Information on the definition.
-    definition :: Prelude.Maybe FunctionDefinitionVersion,
-    -- | The ARN of the function definition version.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the function definition version.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the function definition version.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the function definition
     -- version was created.
     creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The version of the function definition version.
     version :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the function definition version.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | Information on the definition.
+    definition :: Prelude.Maybe FunctionDefinitionVersion,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,19 +212,19 @@ data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'definition', 'getFunctionDefinitionVersionResponse_definition' - Information on the definition.
+-- 'nextToken', 'getFunctionDefinitionVersionResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
 --
 -- 'arn', 'getFunctionDefinitionVersionResponse_arn' - The ARN of the function definition version.
 --
--- 'nextToken', 'getFunctionDefinitionVersionResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
--- additional results.
+-- 'id', 'getFunctionDefinitionVersionResponse_id' - The ID of the function definition version.
 --
 -- 'creationTimestamp', 'getFunctionDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the function definition
 -- version was created.
 --
 -- 'version', 'getFunctionDefinitionVersionResponse_version' - The version of the function definition version.
 --
--- 'id', 'getFunctionDefinitionVersionResponse_id' - The ID of the function definition version.
+-- 'definition', 'getFunctionDefinitionVersionResponse_definition' - Information on the definition.
 --
 -- 'httpStatus', 'getFunctionDefinitionVersionResponse_httpStatus' - The response's http status code.
 newGetFunctionDefinitionVersionResponse ::
@@ -233,28 +233,28 @@ newGetFunctionDefinitionVersionResponse ::
   GetFunctionDefinitionVersionResponse
 newGetFunctionDefinitionVersionResponse pHttpStatus_ =
   GetFunctionDefinitionVersionResponse'
-    { definition =
+    { nextToken =
         Prelude.Nothing,
       arn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      id = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
       version = Prelude.Nothing,
-      id = Prelude.Nothing,
+      definition = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information on the definition.
-getFunctionDefinitionVersionResponse_definition :: Lens.Lens' GetFunctionDefinitionVersionResponse (Prelude.Maybe FunctionDefinitionVersion)
-getFunctionDefinitionVersionResponse_definition = Lens.lens (\GetFunctionDefinitionVersionResponse' {definition} -> definition) (\s@GetFunctionDefinitionVersionResponse' {} a -> s {definition = a} :: GetFunctionDefinitionVersionResponse)
-
--- | The ARN of the function definition version.
-getFunctionDefinitionVersionResponse_arn :: Lens.Lens' GetFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-getFunctionDefinitionVersionResponse_arn = Lens.lens (\GetFunctionDefinitionVersionResponse' {arn} -> arn) (\s@GetFunctionDefinitionVersionResponse' {} a -> s {arn = a} :: GetFunctionDefinitionVersionResponse)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 getFunctionDefinitionVersionResponse_nextToken :: Lens.Lens' GetFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getFunctionDefinitionVersionResponse_nextToken = Lens.lens (\GetFunctionDefinitionVersionResponse' {nextToken} -> nextToken) (\s@GetFunctionDefinitionVersionResponse' {} a -> s {nextToken = a} :: GetFunctionDefinitionVersionResponse)
+
+-- | The ARN of the function definition version.
+getFunctionDefinitionVersionResponse_arn :: Lens.Lens' GetFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getFunctionDefinitionVersionResponse_arn = Lens.lens (\GetFunctionDefinitionVersionResponse' {arn} -> arn) (\s@GetFunctionDefinitionVersionResponse' {} a -> s {arn = a} :: GetFunctionDefinitionVersionResponse)
+
+-- | The ID of the function definition version.
+getFunctionDefinitionVersionResponse_id :: Lens.Lens' GetFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getFunctionDefinitionVersionResponse_id = Lens.lens (\GetFunctionDefinitionVersionResponse' {id} -> id) (\s@GetFunctionDefinitionVersionResponse' {} a -> s {id = a} :: GetFunctionDefinitionVersionResponse)
 
 -- | The time, in milliseconds since the epoch, when the function definition
 -- version was created.
@@ -265,9 +265,9 @@ getFunctionDefinitionVersionResponse_creationTimestamp = Lens.lens (\GetFunction
 getFunctionDefinitionVersionResponse_version :: Lens.Lens' GetFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getFunctionDefinitionVersionResponse_version = Lens.lens (\GetFunctionDefinitionVersionResponse' {version} -> version) (\s@GetFunctionDefinitionVersionResponse' {} a -> s {version = a} :: GetFunctionDefinitionVersionResponse)
 
--- | The ID of the function definition version.
-getFunctionDefinitionVersionResponse_id :: Lens.Lens' GetFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-getFunctionDefinitionVersionResponse_id = Lens.lens (\GetFunctionDefinitionVersionResponse' {id} -> id) (\s@GetFunctionDefinitionVersionResponse' {} a -> s {id = a} :: GetFunctionDefinitionVersionResponse)
+-- | Information on the definition.
+getFunctionDefinitionVersionResponse_definition :: Lens.Lens' GetFunctionDefinitionVersionResponse (Prelude.Maybe FunctionDefinitionVersion)
+getFunctionDefinitionVersionResponse_definition = Lens.lens (\GetFunctionDefinitionVersionResponse' {definition} -> definition) (\s@GetFunctionDefinitionVersionResponse' {} a -> s {definition = a} :: GetFunctionDefinitionVersionResponse)
 
 -- | The response's http status code.
 getFunctionDefinitionVersionResponse_httpStatus :: Lens.Lens' GetFunctionDefinitionVersionResponse Prelude.Int
@@ -278,10 +278,10 @@ instance
     GetFunctionDefinitionVersionResponse
   where
   rnf GetFunctionDefinitionVersionResponse' {..} =
-    Prelude.rnf definition
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf httpStatus

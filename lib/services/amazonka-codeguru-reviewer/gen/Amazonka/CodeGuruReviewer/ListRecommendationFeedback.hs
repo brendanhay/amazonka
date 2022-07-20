@@ -30,10 +30,10 @@ module Amazonka.CodeGuruReviewer.ListRecommendationFeedback
     newListRecommendationFeedback,
 
     -- * Request Lenses
-    listRecommendationFeedback_userIds,
     listRecommendationFeedback_nextToken,
     listRecommendationFeedback_recommendationIds,
     listRecommendationFeedback_maxResults,
+    listRecommendationFeedback_userIds,
     listRecommendationFeedback_codeReviewArn,
 
     -- * Destructuring the Response
@@ -56,17 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecommendationFeedback' smart constructor.
 data ListRecommendationFeedback = ListRecommendationFeedback'
-  { -- | An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
-    -- Use this ID to query the recommendation feedback for a code review from
-    -- that user.
-    --
-    -- The @UserId@ is an IAM principal that can be specified as an Amazon Web
-    -- Services account ID or an Amazon Resource Name (ARN). For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal>
-    -- in the /Amazon Web Services Identity and Access Management User Guide/.
-    userIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | If @nextToken@ is returned, there are more results available. The value
+  { -- | If @nextToken@ is returned, there are more results available. The value
     -- of nextToken is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged.
@@ -76,6 +66,16 @@ data ListRecommendationFeedback = ListRecommendationFeedback'
     -- | The maximum number of results that are returned per call. The default is
     -- 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
+    -- Use this ID to query the recommendation feedback for a code review from
+    -- that user.
+    --
+    -- The @UserId@ is an IAM principal that can be specified as an Amazon Web
+    -- Services account ID or an Amazon Resource Name (ARN). For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal>
+    -- in the /Amazon Web Services Identity and Access Management User Guide/.
+    userIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
     -- object.
@@ -91,16 +91,6 @@ data ListRecommendationFeedback = ListRecommendationFeedback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userIds', 'listRecommendationFeedback_userIds' - An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
--- Use this ID to query the recommendation feedback for a code review from
--- that user.
---
--- The @UserId@ is an IAM principal that can be specified as an Amazon Web
--- Services account ID or an Amazon Resource Name (ARN). For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal>
--- in the /Amazon Web Services Identity and Access Management User Guide/.
---
 -- 'nextToken', 'listRecommendationFeedback_nextToken' - If @nextToken@ is returned, there are more results available. The value
 -- of nextToken is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
@@ -111,6 +101,16 @@ data ListRecommendationFeedback = ListRecommendationFeedback'
 -- 'maxResults', 'listRecommendationFeedback_maxResults' - The maximum number of results that are returned per call. The default is
 -- 100.
 --
+-- 'userIds', 'listRecommendationFeedback_userIds' - An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
+-- Use this ID to query the recommendation feedback for a code review from
+-- that user.
+--
+-- The @UserId@ is an IAM principal that can be specified as an Amazon Web
+-- Services account ID or an Amazon Resource Name (ARN). For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal>
+-- in the /Amazon Web Services Identity and Access Management User Guide/.
+--
 -- 'codeReviewArn', 'listRecommendationFeedback_codeReviewArn' - The Amazon Resource Name (ARN) of the
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
 -- object.
@@ -120,25 +120,13 @@ newListRecommendationFeedback ::
   ListRecommendationFeedback
 newListRecommendationFeedback pCodeReviewArn_ =
   ListRecommendationFeedback'
-    { userIds =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       recommendationIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      userIds = Prelude.Nothing,
       codeReviewArn = pCodeReviewArn_
     }
-
--- | An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
--- Use this ID to query the recommendation feedback for a code review from
--- that user.
---
--- The @UserId@ is an IAM principal that can be specified as an Amazon Web
--- Services account ID or an Amazon Resource Name (ARN). For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal>
--- in the /Amazon Web Services Identity and Access Management User Guide/.
-listRecommendationFeedback_userIds :: Lens.Lens' ListRecommendationFeedback (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listRecommendationFeedback_userIds = Lens.lens (\ListRecommendationFeedback' {userIds} -> userIds) (\s@ListRecommendationFeedback' {} a -> s {userIds = a} :: ListRecommendationFeedback) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @nextToken@ is returned, there are more results available. The value
 -- of nextToken is a unique pagination token for each page. Make the call
@@ -155,6 +143,18 @@ listRecommendationFeedback_recommendationIds = Lens.lens (\ListRecommendationFee
 -- 100.
 listRecommendationFeedback_maxResults :: Lens.Lens' ListRecommendationFeedback (Prelude.Maybe Prelude.Natural)
 listRecommendationFeedback_maxResults = Lens.lens (\ListRecommendationFeedback' {maxResults} -> maxResults) (\s@ListRecommendationFeedback' {} a -> s {maxResults = a} :: ListRecommendationFeedback)
+
+-- | An Amazon Web Services user\'s account ID or Amazon Resource Name (ARN).
+-- Use this ID to query the recommendation feedback for a code review from
+-- that user.
+--
+-- The @UserId@ is an IAM principal that can be specified as an Amazon Web
+-- Services account ID or an Amazon Resource Name (ARN). For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying Specifying a Principal>
+-- in the /Amazon Web Services Identity and Access Management User Guide/.
+listRecommendationFeedback_userIds :: Lens.Lens' ListRecommendationFeedback (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listRecommendationFeedback_userIds = Lens.lens (\ListRecommendationFeedback' {userIds} -> userIds) (\s@ListRecommendationFeedback' {} a -> s {userIds = a} :: ListRecommendationFeedback) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
@@ -180,18 +180,18 @@ instance Core.AWSRequest ListRecommendationFeedback where
 
 instance Prelude.Hashable ListRecommendationFeedback where
   hashWithSalt _salt ListRecommendationFeedback' {..} =
-    _salt `Prelude.hashWithSalt` userIds
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` recommendationIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` userIds
       `Prelude.hashWithSalt` codeReviewArn
 
 instance Prelude.NFData ListRecommendationFeedback where
   rnf ListRecommendationFeedback' {..} =
-    Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf recommendationIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf userIds
       `Prelude.seq` Prelude.rnf codeReviewArn
 
 instance Core.ToHeaders ListRecommendationFeedback where
@@ -216,16 +216,16 @@ instance Core.ToPath ListRecommendationFeedback where
 instance Core.ToQuery ListRecommendationFeedback where
   toQuery ListRecommendationFeedback' {..} =
     Prelude.mconcat
-      [ "UserIds"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> userIds),
-        "NextToken" Core.=: nextToken,
+      [ "NextToken" Core.=: nextToken,
         "RecommendationIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> recommendationIds
             ),
-        "MaxResults" Core.=: maxResults
+        "MaxResults" Core.=: maxResults,
+        "UserIds"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> userIds)
       ]
 
 -- | /See:/ 'newListRecommendationFeedbackResponse' smart constructor.

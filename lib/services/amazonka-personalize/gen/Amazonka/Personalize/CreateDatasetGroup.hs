@@ -73,8 +73,8 @@ module Amazonka.Personalize.CreateDatasetGroup
     newCreateDatasetGroup,
 
     -- * Request Lenses
-    createDatasetGroup_kmsKeyArn,
     createDatasetGroup_roleArn,
+    createDatasetGroup_kmsKeyArn,
     createDatasetGroup_name,
 
     -- * Destructuring the Response
@@ -96,13 +96,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatasetGroup' smart constructor.
 data CreateDatasetGroup = CreateDatasetGroup'
-  { -- | The Amazon Resource Name (ARN) of a Key Management Service (KMS) key
-    -- used to encrypt the datasets.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Identity and Access Management (IAM) role that has
+  { -- | The ARN of the Identity and Access Management (IAM) role that has
     -- permissions to access the Key Management Service (KMS) key. Supplying an
     -- IAM role is only valid when also specifying a KMS key.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a Key Management Service (KMS) key
+    -- used to encrypt the datasets.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The name for the new dataset group.
     name :: Prelude.Text
   }
@@ -116,12 +116,12 @@ data CreateDatasetGroup = CreateDatasetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 'createDatasetGroup_kmsKeyArn' - The Amazon Resource Name (ARN) of a Key Management Service (KMS) key
--- used to encrypt the datasets.
---
 -- 'roleArn', 'createDatasetGroup_roleArn' - The ARN of the Identity and Access Management (IAM) role that has
 -- permissions to access the Key Management Service (KMS) key. Supplying an
 -- IAM role is only valid when also specifying a KMS key.
+--
+-- 'kmsKeyArn', 'createDatasetGroup_kmsKeyArn' - The Amazon Resource Name (ARN) of a Key Management Service (KMS) key
+-- used to encrypt the datasets.
 --
 -- 'name', 'createDatasetGroup_name' - The name for the new dataset group.
 newCreateDatasetGroup ::
@@ -130,21 +130,21 @@ newCreateDatasetGroup ::
   CreateDatasetGroup
 newCreateDatasetGroup pName_ =
   CreateDatasetGroup'
-    { kmsKeyArn = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
       name = pName_
     }
-
--- | The Amazon Resource Name (ARN) of a Key Management Service (KMS) key
--- used to encrypt the datasets.
-createDatasetGroup_kmsKeyArn :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe Prelude.Text)
-createDatasetGroup_kmsKeyArn = Lens.lens (\CreateDatasetGroup' {kmsKeyArn} -> kmsKeyArn) (\s@CreateDatasetGroup' {} a -> s {kmsKeyArn = a} :: CreateDatasetGroup)
 
 -- | The ARN of the Identity and Access Management (IAM) role that has
 -- permissions to access the Key Management Service (KMS) key. Supplying an
 -- IAM role is only valid when also specifying a KMS key.
 createDatasetGroup_roleArn :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe Prelude.Text)
 createDatasetGroup_roleArn = Lens.lens (\CreateDatasetGroup' {roleArn} -> roleArn) (\s@CreateDatasetGroup' {} a -> s {roleArn = a} :: CreateDatasetGroup)
+
+-- | The Amazon Resource Name (ARN) of a Key Management Service (KMS) key
+-- used to encrypt the datasets.
+createDatasetGroup_kmsKeyArn :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe Prelude.Text)
+createDatasetGroup_kmsKeyArn = Lens.lens (\CreateDatasetGroup' {kmsKeyArn} -> kmsKeyArn) (\s@CreateDatasetGroup' {} a -> s {kmsKeyArn = a} :: CreateDatasetGroup)
 
 -- | The name for the new dataset group.
 createDatasetGroup_name :: Lens.Lens' CreateDatasetGroup Prelude.Text
@@ -165,14 +165,14 @@ instance Core.AWSRequest CreateDatasetGroup where
 
 instance Prelude.Hashable CreateDatasetGroup where
   hashWithSalt _salt CreateDatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
-      `Prelude.hashWithSalt` roleArn
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateDatasetGroup where
   rnf CreateDatasetGroup' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateDatasetGroup where
@@ -194,8 +194,8 @@ instance Core.ToJSON CreateDatasetGroup where
   toJSON CreateDatasetGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
+          [ ("roleArn" Core..=) Prelude.<$> roleArn,
+            ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
             Prelude.Just ("name" Core..= name)
           ]
       )

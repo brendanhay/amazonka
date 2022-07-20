@@ -29,8 +29,8 @@ module Amazonka.CloudDirectory.ListObjectPolicies
     newListObjectPolicies,
 
     -- * Request Lenses
-    listObjectPolicies_consistencyLevel,
     listObjectPolicies_nextToken,
+    listObjectPolicies_consistencyLevel,
     listObjectPolicies_maxResults,
     listObjectPolicies_directoryArn,
     listObjectPolicies_objectReference,
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListObjectPolicies' smart constructor.
 data ListObjectPolicies = ListObjectPolicies'
-  { -- | Represents the manner and timing in which the successful write or update
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Represents the manner and timing in which the successful write or update
     -- of an object is reflected in a subsequent read operation of that same
     -- object.
     consistencyLevel :: Prelude.Maybe ConsistencyLevel,
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -80,11 +80,11 @@ data ListObjectPolicies = ListObjectPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listObjectPolicies_nextToken' - The pagination token.
+--
 -- 'consistencyLevel', 'listObjectPolicies_consistencyLevel' - Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
---
--- 'nextToken', 'listObjectPolicies_nextToken' - The pagination token.
 --
 -- 'maxResults', 'listObjectPolicies_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
@@ -103,23 +103,22 @@ newListObjectPolicies
   pDirectoryArn_
   pObjectReference_ =
     ListObjectPolicies'
-      { consistencyLevel =
-          Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+      { nextToken = Prelude.Nothing,
+        consistencyLevel = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
+
+-- | The pagination token.
+listObjectPolicies_nextToken :: Lens.Lens' ListObjectPolicies (Prelude.Maybe Prelude.Text)
+listObjectPolicies_nextToken = Lens.lens (\ListObjectPolicies' {nextToken} -> nextToken) (\s@ListObjectPolicies' {} a -> s {nextToken = a} :: ListObjectPolicies)
 
 -- | Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
 listObjectPolicies_consistencyLevel :: Lens.Lens' ListObjectPolicies (Prelude.Maybe ConsistencyLevel)
 listObjectPolicies_consistencyLevel = Lens.lens (\ListObjectPolicies' {consistencyLevel} -> consistencyLevel) (\s@ListObjectPolicies' {} a -> s {consistencyLevel = a} :: ListObjectPolicies)
-
--- | The pagination token.
-listObjectPolicies_nextToken :: Lens.Lens' ListObjectPolicies (Prelude.Maybe Prelude.Text)
-listObjectPolicies_nextToken = Lens.lens (\ListObjectPolicies' {nextToken} -> nextToken) (\s@ListObjectPolicies' {} a -> s {nextToken = a} :: ListObjectPolicies)
 
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
@@ -175,16 +174,16 @@ instance Core.AWSRequest ListObjectPolicies where
 
 instance Prelude.Hashable ListObjectPolicies where
   hashWithSalt _salt ListObjectPolicies' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData ListObjectPolicies where
   rnf ListObjectPolicies' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf consistencyLevel
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference

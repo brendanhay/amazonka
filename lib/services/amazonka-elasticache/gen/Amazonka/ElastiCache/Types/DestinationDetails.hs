@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestinationDetails' smart constructor.
 data DestinationDetails = DestinationDetails'
-  { -- | The configuration details of the CloudWatch Logs destination.
-    cloudWatchLogsDetails :: Prelude.Maybe CloudWatchLogsDestinationDetails,
-    -- | The configuration details of the Kinesis Data Firehose destination.
-    kinesisFirehoseDetails :: Prelude.Maybe KinesisFirehoseDestinationDetails
+  { -- | The configuration details of the Kinesis Data Firehose destination.
+    kinesisFirehoseDetails :: Prelude.Maybe KinesisFirehoseDestinationDetails,
+    -- | The configuration details of the CloudWatch Logs destination.
+    cloudWatchLogsDetails :: Prelude.Maybe CloudWatchLogsDestinationDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,47 +45,47 @@ data DestinationDetails = DestinationDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cloudWatchLogsDetails', 'destinationDetails_cloudWatchLogsDetails' - The configuration details of the CloudWatch Logs destination.
---
 -- 'kinesisFirehoseDetails', 'destinationDetails_kinesisFirehoseDetails' - The configuration details of the Kinesis Data Firehose destination.
+--
+-- 'cloudWatchLogsDetails', 'destinationDetails_cloudWatchLogsDetails' - The configuration details of the CloudWatch Logs destination.
 newDestinationDetails ::
   DestinationDetails
 newDestinationDetails =
   DestinationDetails'
-    { cloudWatchLogsDetails =
+    { kinesisFirehoseDetails =
         Prelude.Nothing,
-      kinesisFirehoseDetails = Prelude.Nothing
+      cloudWatchLogsDetails = Prelude.Nothing
     }
-
--- | The configuration details of the CloudWatch Logs destination.
-destinationDetails_cloudWatchLogsDetails :: Lens.Lens' DestinationDetails (Prelude.Maybe CloudWatchLogsDestinationDetails)
-destinationDetails_cloudWatchLogsDetails = Lens.lens (\DestinationDetails' {cloudWatchLogsDetails} -> cloudWatchLogsDetails) (\s@DestinationDetails' {} a -> s {cloudWatchLogsDetails = a} :: DestinationDetails)
 
 -- | The configuration details of the Kinesis Data Firehose destination.
 destinationDetails_kinesisFirehoseDetails :: Lens.Lens' DestinationDetails (Prelude.Maybe KinesisFirehoseDestinationDetails)
 destinationDetails_kinesisFirehoseDetails = Lens.lens (\DestinationDetails' {kinesisFirehoseDetails} -> kinesisFirehoseDetails) (\s@DestinationDetails' {} a -> s {kinesisFirehoseDetails = a} :: DestinationDetails)
 
+-- | The configuration details of the CloudWatch Logs destination.
+destinationDetails_cloudWatchLogsDetails :: Lens.Lens' DestinationDetails (Prelude.Maybe CloudWatchLogsDestinationDetails)
+destinationDetails_cloudWatchLogsDetails = Lens.lens (\DestinationDetails' {cloudWatchLogsDetails} -> cloudWatchLogsDetails) (\s@DestinationDetails' {} a -> s {cloudWatchLogsDetails = a} :: DestinationDetails)
+
 instance Core.FromXML DestinationDetails where
   parseXML x =
     DestinationDetails'
-      Prelude.<$> (x Core..@? "CloudWatchLogsDetails")
-      Prelude.<*> (x Core..@? "KinesisFirehoseDetails")
+      Prelude.<$> (x Core..@? "KinesisFirehoseDetails")
+      Prelude.<*> (x Core..@? "CloudWatchLogsDetails")
 
 instance Prelude.Hashable DestinationDetails where
   hashWithSalt _salt DestinationDetails' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogsDetails
-      `Prelude.hashWithSalt` kinesisFirehoseDetails
+    _salt `Prelude.hashWithSalt` kinesisFirehoseDetails
+      `Prelude.hashWithSalt` cloudWatchLogsDetails
 
 instance Prelude.NFData DestinationDetails where
   rnf DestinationDetails' {..} =
-    Prelude.rnf cloudWatchLogsDetails
-      `Prelude.seq` Prelude.rnf kinesisFirehoseDetails
+    Prelude.rnf kinesisFirehoseDetails
+      `Prelude.seq` Prelude.rnf cloudWatchLogsDetails
 
 instance Core.ToQuery DestinationDetails where
   toQuery DestinationDetails' {..} =
     Prelude.mconcat
-      [ "CloudWatchLogsDetails"
-          Core.=: cloudWatchLogsDetails,
-        "KinesisFirehoseDetails"
-          Core.=: kinesisFirehoseDetails
+      [ "KinesisFirehoseDetails"
+          Core.=: kinesisFirehoseDetails,
+        "CloudWatchLogsDetails"
+          Core.=: cloudWatchLogsDetails
       ]

@@ -39,31 +39,31 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationDetail' smart constructor.
 data ApplicationDetail = ApplicationDetail'
-  { -- | Description of the application.
-    applicationDescription :: Prelude.Maybe Prelude.Text,
-    -- | Describes the application output configuration. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
-    outputDescriptions :: Prelude.Maybe [OutputDescription],
-    -- | Describes the CloudWatch log streams that are configured to receive
-    -- application messages. For more information about using CloudWatch log
-    -- streams with Amazon Kinesis Analytics applications, see
-    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
-    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
-    -- | Describes reference data sources configured for the application. For
+  { -- | Describes reference data sources configured for the application. For
     -- more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
     referenceDataSourceDescriptions :: Prelude.Maybe [ReferenceDataSourceDescription],
     -- | Describes the application input configuration. For more information, see
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
     inputDescriptions :: Prelude.Maybe [InputDescription],
+    -- | Time stamp when the application was last updated.
+    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | Time stamp when the application version was created.
+    createTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | Describes the CloudWatch log streams that are configured to receive
+    -- application messages. For more information about using CloudWatch log
+    -- streams with Amazon Kinesis Analytics applications, see
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
+    cloudWatchLoggingOptionDescriptions :: Prelude.Maybe [CloudWatchLoggingOptionDescription],
     -- | Returns the application code that you provided to perform data analysis
     -- on any of the in-application streams in your application.
     applicationCode :: Prelude.Maybe Prelude.Text,
-    -- | Time stamp when the application version was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | Time stamp when the application was last updated.
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | Description of the application.
+    applicationDescription :: Prelude.Maybe Prelude.Text,
+    -- | Describes the application output configuration. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
+    outputDescriptions :: Prelude.Maybe [OutputDescription],
     -- | Name of the application.
     applicationName :: Prelude.Text,
     -- | ARN of the application.
@@ -83,17 +83,6 @@ data ApplicationDetail = ApplicationDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationDescription', 'applicationDetail_applicationDescription' - Description of the application.
---
--- 'outputDescriptions', 'applicationDetail_outputDescriptions' - Describes the application output configuration. For more information,
--- see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
---
--- 'cloudWatchLoggingOptionDescriptions', 'applicationDetail_cloudWatchLoggingOptionDescriptions' - Describes the CloudWatch log streams that are configured to receive
--- application messages. For more information about using CloudWatch log
--- streams with Amazon Kinesis Analytics applications, see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
---
 -- 'referenceDataSourceDescriptions', 'applicationDetail_referenceDataSourceDescriptions' - Describes reference data sources configured for the application. For
 -- more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
@@ -101,12 +90,23 @@ data ApplicationDetail = ApplicationDetail'
 -- 'inputDescriptions', 'applicationDetail_inputDescriptions' - Describes the application input configuration. For more information, see
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
 --
--- 'applicationCode', 'applicationDetail_applicationCode' - Returns the application code that you provided to perform data analysis
--- on any of the in-application streams in your application.
+-- 'lastUpdateTimestamp', 'applicationDetail_lastUpdateTimestamp' - Time stamp when the application was last updated.
 --
 -- 'createTimestamp', 'applicationDetail_createTimestamp' - Time stamp when the application version was created.
 --
--- 'lastUpdateTimestamp', 'applicationDetail_lastUpdateTimestamp' - Time stamp when the application was last updated.
+-- 'cloudWatchLoggingOptionDescriptions', 'applicationDetail_cloudWatchLoggingOptionDescriptions' - Describes the CloudWatch log streams that are configured to receive
+-- application messages. For more information about using CloudWatch log
+-- streams with Amazon Kinesis Analytics applications, see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
+--
+-- 'applicationCode', 'applicationDetail_applicationCode' - Returns the application code that you provided to perform data analysis
+-- on any of the in-application streams in your application.
+--
+-- 'applicationDescription', 'applicationDetail_applicationDescription' - Description of the application.
+--
+-- 'outputDescriptions', 'applicationDetail_outputDescriptions' - Describes the application output configuration. For more information,
+-- see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
 --
 -- 'applicationName', 'applicationDetail_applicationName' - Name of the application.
 --
@@ -131,38 +131,21 @@ newApplicationDetail
   pApplicationStatus_
   pApplicationVersionId_ =
     ApplicationDetail'
-      { applicationDescription =
+      { referenceDataSourceDescriptions =
           Prelude.Nothing,
-        outputDescriptions = Prelude.Nothing,
+        inputDescriptions = Prelude.Nothing,
+        lastUpdateTimestamp = Prelude.Nothing,
+        createTimestamp = Prelude.Nothing,
         cloudWatchLoggingOptionDescriptions =
           Prelude.Nothing,
-        referenceDataSourceDescriptions = Prelude.Nothing,
-        inputDescriptions = Prelude.Nothing,
         applicationCode = Prelude.Nothing,
-        createTimestamp = Prelude.Nothing,
-        lastUpdateTimestamp = Prelude.Nothing,
+        applicationDescription = Prelude.Nothing,
+        outputDescriptions = Prelude.Nothing,
         applicationName = pApplicationName_,
         applicationARN = pApplicationARN_,
         applicationStatus = pApplicationStatus_,
         applicationVersionId = pApplicationVersionId_
       }
-
--- | Description of the application.
-applicationDetail_applicationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
-applicationDetail_applicationDescription = Lens.lens (\ApplicationDetail' {applicationDescription} -> applicationDescription) (\s@ApplicationDetail' {} a -> s {applicationDescription = a} :: ApplicationDetail)
-
--- | Describes the application output configuration. For more information,
--- see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
-applicationDetail_outputDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [OutputDescription])
-applicationDetail_outputDescriptions = Lens.lens (\ApplicationDetail' {outputDescriptions} -> outputDescriptions) (\s@ApplicationDetail' {} a -> s {outputDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens.coerced
-
--- | Describes the CloudWatch log streams that are configured to receive
--- application messages. For more information about using CloudWatch log
--- streams with Amazon Kinesis Analytics applications, see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
-applicationDetail_cloudWatchLoggingOptionDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [CloudWatchLoggingOptionDescription])
-applicationDetail_cloudWatchLoggingOptionDescriptions = Lens.lens (\ApplicationDetail' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@ApplicationDetail' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes reference data sources configured for the application. For
 -- more information, see
@@ -175,18 +158,35 @@ applicationDetail_referenceDataSourceDescriptions = Lens.lens (\ApplicationDetai
 applicationDetail_inputDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [InputDescription])
 applicationDetail_inputDescriptions = Lens.lens (\ApplicationDetail' {inputDescriptions} -> inputDescriptions) (\s@ApplicationDetail' {} a -> s {inputDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | Returns the application code that you provided to perform data analysis
--- on any of the in-application streams in your application.
-applicationDetail_applicationCode :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
-applicationDetail_applicationCode = Lens.lens (\ApplicationDetail' {applicationCode} -> applicationCode) (\s@ApplicationDetail' {} a -> s {applicationCode = a} :: ApplicationDetail)
+-- | Time stamp when the application was last updated.
+applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
+applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Time stamp when the application version was created.
 applicationDetail_createTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
 applicationDetail_createTimestamp = Lens.lens (\ApplicationDetail' {createTimestamp} -> createTimestamp) (\s@ApplicationDetail' {} a -> s {createTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
 
--- | Time stamp when the application was last updated.
-applicationDetail_lastUpdateTimestamp :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.UTCTime)
-applicationDetail_lastUpdateTimestamp = Lens.lens (\ApplicationDetail' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ApplicationDetail' {} a -> s {lastUpdateTimestamp = a} :: ApplicationDetail) Prelude.. Lens.mapping Core._Time
+-- | Describes the CloudWatch log streams that are configured to receive
+-- application messages. For more information about using CloudWatch log
+-- streams with Amazon Kinesis Analytics applications, see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs>.
+applicationDetail_cloudWatchLoggingOptionDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [CloudWatchLoggingOptionDescription])
+applicationDetail_cloudWatchLoggingOptionDescriptions = Lens.lens (\ApplicationDetail' {cloudWatchLoggingOptionDescriptions} -> cloudWatchLoggingOptionDescriptions) (\s@ApplicationDetail' {} a -> s {cloudWatchLoggingOptionDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returns the application code that you provided to perform data analysis
+-- on any of the in-application streams in your application.
+applicationDetail_applicationCode :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
+applicationDetail_applicationCode = Lens.lens (\ApplicationDetail' {applicationCode} -> applicationCode) (\s@ApplicationDetail' {} a -> s {applicationCode = a} :: ApplicationDetail)
+
+-- | Description of the application.
+applicationDetail_applicationDescription :: Lens.Lens' ApplicationDetail (Prelude.Maybe Prelude.Text)
+applicationDetail_applicationDescription = Lens.lens (\ApplicationDetail' {applicationDescription} -> applicationDescription) (\s@ApplicationDetail' {} a -> s {applicationDescription = a} :: ApplicationDetail)
+
+-- | Describes the application output configuration. For more information,
+-- see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
+applicationDetail_outputDescriptions :: Lens.Lens' ApplicationDetail (Prelude.Maybe [OutputDescription])
+applicationDetail_outputDescriptions = Lens.lens (\ApplicationDetail' {outputDescriptions} -> outputDescriptions) (\s@ApplicationDetail' {} a -> s {outputDescriptions = a} :: ApplicationDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | Name of the application.
 applicationDetail_applicationName :: Lens.Lens' ApplicationDetail Prelude.Text
@@ -210,22 +210,22 @@ instance Core.FromJSON ApplicationDetail where
       "ApplicationDetail"
       ( \x ->
           ApplicationDetail'
-            Prelude.<$> (x Core..:? "ApplicationDescription")
-            Prelude.<*> ( x Core..:? "OutputDescriptions"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "CloudWatchLoggingOptionDescriptions"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "ReferenceDataSourceDescriptions"
+            Prelude.<$> ( x Core..:? "ReferenceDataSourceDescriptions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "InputDescriptions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ApplicationCode")
-            Prelude.<*> (x Core..:? "CreateTimestamp")
             Prelude.<*> (x Core..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Core..:? "CreateTimestamp")
+            Prelude.<*> ( x Core..:? "CloudWatchLoggingOptionDescriptions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ApplicationCode")
+            Prelude.<*> (x Core..:? "ApplicationDescription")
+            Prelude.<*> ( x Core..:? "OutputDescriptions"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..: "ApplicationName")
             Prelude.<*> (x Core..: "ApplicationARN")
             Prelude.<*> (x Core..: "ApplicationStatus")
@@ -234,14 +234,15 @@ instance Core.FromJSON ApplicationDetail where
 
 instance Prelude.Hashable ApplicationDetail where
   hashWithSalt _salt ApplicationDetail' {..} =
-    _salt `Prelude.hashWithSalt` applicationDescription
-      `Prelude.hashWithSalt` outputDescriptions
-      `Prelude.hashWithSalt` cloudWatchLoggingOptionDescriptions
+    _salt
       `Prelude.hashWithSalt` referenceDataSourceDescriptions
       `Prelude.hashWithSalt` inputDescriptions
-      `Prelude.hashWithSalt` applicationCode
-      `Prelude.hashWithSalt` createTimestamp
       `Prelude.hashWithSalt` lastUpdateTimestamp
+      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionDescriptions
+      `Prelude.hashWithSalt` applicationCode
+      `Prelude.hashWithSalt` applicationDescription
+      `Prelude.hashWithSalt` outputDescriptions
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` applicationARN
       `Prelude.hashWithSalt` applicationStatus
@@ -249,14 +250,14 @@ instance Prelude.Hashable ApplicationDetail where
 
 instance Prelude.NFData ApplicationDetail where
   rnf ApplicationDetail' {..} =
-    Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf outputDescriptions
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
-      `Prelude.seq` Prelude.rnf referenceDataSourceDescriptions
+    Prelude.rnf referenceDataSourceDescriptions
       `Prelude.seq` Prelude.rnf inputDescriptions
-      `Prelude.seq` Prelude.rnf applicationCode
-      `Prelude.seq` Prelude.rnf createTimestamp
       `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionDescriptions
+      `Prelude.seq` Prelude.rnf applicationCode
+      `Prelude.seq` Prelude.rnf applicationDescription
+      `Prelude.seq` Prelude.rnf outputDescriptions
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf applicationARN
       `Prelude.seq` Prelude.rnf applicationStatus

@@ -30,23 +30,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackendAPIResourceConfig' smart constructor.
 data BackendAPIResourceConfig = BackendAPIResourceConfig'
-  { -- | The API name used to interact with the data model, configured as a part
-    -- of your Amplify project.
-    apiName :: Prelude.Maybe Prelude.Text,
-    -- | The service used to provision and interact with the data model.
-    service :: Prelude.Maybe Prelude.Text,
-    -- | The definition of the data model in the annotated transform of the
-    -- GraphQL schema.
-    transformSchema :: Prelude.Maybe Prelude.Text,
-    -- | Additional authentication methods used to interact with your data
+  { -- | Additional authentication methods used to interact with your data
     -- models.
     additionalAuthTypes :: Prelude.Maybe [BackendAPIAuthType],
     -- | The conflict resolution strategy for your data stored in the data
     -- models.
     conflictResolution :: Prelude.Maybe BackendAPIConflictResolution,
+    -- | The service used to provision and interact with the data model.
+    service :: Prelude.Maybe Prelude.Text,
+    -- | The definition of the data model in the annotated transform of the
+    -- GraphQL schema.
+    transformSchema :: Prelude.Maybe Prelude.Text,
     -- | The default authentication type for interacting with the configured data
     -- models in your Amplify project.
-    defaultAuthType :: Prelude.Maybe BackendAPIAuthType
+    defaultAuthType :: Prelude.Maybe BackendAPIAuthType,
+    -- | The API name used to interact with the data model, configured as a part
+    -- of your Amplify project.
+    apiName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,48 +58,34 @@ data BackendAPIResourceConfig = BackendAPIResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'apiName', 'backendAPIResourceConfig_apiName' - The API name used to interact with the data model, configured as a part
--- of your Amplify project.
---
--- 'service', 'backendAPIResourceConfig_service' - The service used to provision and interact with the data model.
---
--- 'transformSchema', 'backendAPIResourceConfig_transformSchema' - The definition of the data model in the annotated transform of the
--- GraphQL schema.
---
 -- 'additionalAuthTypes', 'backendAPIResourceConfig_additionalAuthTypes' - Additional authentication methods used to interact with your data
 -- models.
 --
 -- 'conflictResolution', 'backendAPIResourceConfig_conflictResolution' - The conflict resolution strategy for your data stored in the data
 -- models.
 --
+-- 'service', 'backendAPIResourceConfig_service' - The service used to provision and interact with the data model.
+--
+-- 'transformSchema', 'backendAPIResourceConfig_transformSchema' - The definition of the data model in the annotated transform of the
+-- GraphQL schema.
+--
 -- 'defaultAuthType', 'backendAPIResourceConfig_defaultAuthType' - The default authentication type for interacting with the configured data
 -- models in your Amplify project.
+--
+-- 'apiName', 'backendAPIResourceConfig_apiName' - The API name used to interact with the data model, configured as a part
+-- of your Amplify project.
 newBackendAPIResourceConfig ::
   BackendAPIResourceConfig
 newBackendAPIResourceConfig =
   BackendAPIResourceConfig'
-    { apiName =
+    { additionalAuthTypes =
         Prelude.Nothing,
+      conflictResolution = Prelude.Nothing,
       service = Prelude.Nothing,
       transformSchema = Prelude.Nothing,
-      additionalAuthTypes = Prelude.Nothing,
-      conflictResolution = Prelude.Nothing,
-      defaultAuthType = Prelude.Nothing
+      defaultAuthType = Prelude.Nothing,
+      apiName = Prelude.Nothing
     }
-
--- | The API name used to interact with the data model, configured as a part
--- of your Amplify project.
-backendAPIResourceConfig_apiName :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe Prelude.Text)
-backendAPIResourceConfig_apiName = Lens.lens (\BackendAPIResourceConfig' {apiName} -> apiName) (\s@BackendAPIResourceConfig' {} a -> s {apiName = a} :: BackendAPIResourceConfig)
-
--- | The service used to provision and interact with the data model.
-backendAPIResourceConfig_service :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe Prelude.Text)
-backendAPIResourceConfig_service = Lens.lens (\BackendAPIResourceConfig' {service} -> service) (\s@BackendAPIResourceConfig' {} a -> s {service = a} :: BackendAPIResourceConfig)
-
--- | The definition of the data model in the annotated transform of the
--- GraphQL schema.
-backendAPIResourceConfig_transformSchema :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe Prelude.Text)
-backendAPIResourceConfig_transformSchema = Lens.lens (\BackendAPIResourceConfig' {transformSchema} -> transformSchema) (\s@BackendAPIResourceConfig' {} a -> s {transformSchema = a} :: BackendAPIResourceConfig)
 
 -- | Additional authentication methods used to interact with your data
 -- models.
@@ -111,10 +97,24 @@ backendAPIResourceConfig_additionalAuthTypes = Lens.lens (\BackendAPIResourceCon
 backendAPIResourceConfig_conflictResolution :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe BackendAPIConflictResolution)
 backendAPIResourceConfig_conflictResolution = Lens.lens (\BackendAPIResourceConfig' {conflictResolution} -> conflictResolution) (\s@BackendAPIResourceConfig' {} a -> s {conflictResolution = a} :: BackendAPIResourceConfig)
 
+-- | The service used to provision and interact with the data model.
+backendAPIResourceConfig_service :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe Prelude.Text)
+backendAPIResourceConfig_service = Lens.lens (\BackendAPIResourceConfig' {service} -> service) (\s@BackendAPIResourceConfig' {} a -> s {service = a} :: BackendAPIResourceConfig)
+
+-- | The definition of the data model in the annotated transform of the
+-- GraphQL schema.
+backendAPIResourceConfig_transformSchema :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe Prelude.Text)
+backendAPIResourceConfig_transformSchema = Lens.lens (\BackendAPIResourceConfig' {transformSchema} -> transformSchema) (\s@BackendAPIResourceConfig' {} a -> s {transformSchema = a} :: BackendAPIResourceConfig)
+
 -- | The default authentication type for interacting with the configured data
 -- models in your Amplify project.
 backendAPIResourceConfig_defaultAuthType :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe BackendAPIAuthType)
 backendAPIResourceConfig_defaultAuthType = Lens.lens (\BackendAPIResourceConfig' {defaultAuthType} -> defaultAuthType) (\s@BackendAPIResourceConfig' {} a -> s {defaultAuthType = a} :: BackendAPIResourceConfig)
+
+-- | The API name used to interact with the data model, configured as a part
+-- of your Amplify project.
+backendAPIResourceConfig_apiName :: Lens.Lens' BackendAPIResourceConfig (Prelude.Maybe Prelude.Text)
+backendAPIResourceConfig_apiName = Lens.lens (\BackendAPIResourceConfig' {apiName} -> apiName) (\s@BackendAPIResourceConfig' {} a -> s {apiName = a} :: BackendAPIResourceConfig)
 
 instance Core.FromJSON BackendAPIResourceConfig where
   parseJSON =
@@ -122,47 +122,47 @@ instance Core.FromJSON BackendAPIResourceConfig where
       "BackendAPIResourceConfig"
       ( \x ->
           BackendAPIResourceConfig'
-            Prelude.<$> (x Core..:? "apiName")
-            Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "transformSchema")
-            Prelude.<*> ( x Core..:? "additionalAuthTypes"
+            Prelude.<$> ( x Core..:? "additionalAuthTypes"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "conflictResolution")
+            Prelude.<*> (x Core..:? "service")
+            Prelude.<*> (x Core..:? "transformSchema")
             Prelude.<*> (x Core..:? "defaultAuthType")
+            Prelude.<*> (x Core..:? "apiName")
       )
 
 instance Prelude.Hashable BackendAPIResourceConfig where
   hashWithSalt _salt BackendAPIResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` apiName
+    _salt `Prelude.hashWithSalt` additionalAuthTypes
+      `Prelude.hashWithSalt` conflictResolution
       `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` transformSchema
-      `Prelude.hashWithSalt` additionalAuthTypes
-      `Prelude.hashWithSalt` conflictResolution
       `Prelude.hashWithSalt` defaultAuthType
+      `Prelude.hashWithSalt` apiName
 
 instance Prelude.NFData BackendAPIResourceConfig where
   rnf BackendAPIResourceConfig' {..} =
-    Prelude.rnf apiName
+    Prelude.rnf additionalAuthTypes
+      `Prelude.seq` Prelude.rnf conflictResolution
       `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf transformSchema
-      `Prelude.seq` Prelude.rnf additionalAuthTypes
-      `Prelude.seq` Prelude.rnf conflictResolution
       `Prelude.seq` Prelude.rnf defaultAuthType
+      `Prelude.seq` Prelude.rnf apiName
 
 instance Core.ToJSON BackendAPIResourceConfig where
   toJSON BackendAPIResourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("apiName" Core..=) Prelude.<$> apiName,
-            ("service" Core..=) Prelude.<$> service,
-            ("transformSchema" Core..=)
-              Prelude.<$> transformSchema,
-            ("additionalAuthTypes" Core..=)
+          [ ("additionalAuthTypes" Core..=)
               Prelude.<$> additionalAuthTypes,
             ("conflictResolution" Core..=)
               Prelude.<$> conflictResolution,
+            ("service" Core..=) Prelude.<$> service,
+            ("transformSchema" Core..=)
+              Prelude.<$> transformSchema,
             ("defaultAuthType" Core..=)
-              Prelude.<$> defaultAuthType
+              Prelude.<$> defaultAuthType,
+            ("apiName" Core..=) Prelude.<$> apiName
           ]
       )

@@ -27,17 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAcceleratorAttributes' smart constructor.
 data AcceleratorAttributes = AcceleratorAttributes'
-  { -- | The prefix for the location in the Amazon S3 bucket for the flow logs.
-    -- Attribute is required if @FlowLogsEnabled@ is @true@.
-    --
-    -- If you don’t specify a prefix, the flow logs are stored in the root of
-    -- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
-    -- file bucket folder structure will include a double slash (\/\/), like
-    -- the following:
-    --
-    -- s3-bucket_name\/\/AWSLogs\/aws_account_id
-    flowLogsS3Prefix :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether flow logs are enabled. The default value is false. If
+  { -- | Indicates whether flow logs are enabled. The default value is false. If
     -- the value is true, @FlowLogsS3Bucket@ and @FlowLogsS3Prefix@ must be
     -- specified.
     --
@@ -49,7 +39,17 @@ data AcceleratorAttributes = AcceleratorAttributes'
     -- required if @FlowLogsEnabled@ is @true@. The bucket must exist and have
     -- a bucket policy that grants AWS Global Accelerator permission to write
     -- to the bucket.
-    flowLogsS3Bucket :: Prelude.Maybe Prelude.Text
+    flowLogsS3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | The prefix for the location in the Amazon S3 bucket for the flow logs.
+    -- Attribute is required if @FlowLogsEnabled@ is @true@.
+    --
+    -- If you don’t specify a prefix, the flow logs are stored in the root of
+    -- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
+    -- file bucket folder structure will include a double slash (\/\/), like
+    -- the following:
+    --
+    -- s3-bucket_name\/\/AWSLogs\/aws_account_id
+    flowLogsS3Prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,16 +60,6 @@ data AcceleratorAttributes = AcceleratorAttributes'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'flowLogsS3Prefix', 'acceleratorAttributes_flowLogsS3Prefix' - The prefix for the location in the Amazon S3 bucket for the flow logs.
--- Attribute is required if @FlowLogsEnabled@ is @true@.
---
--- If you don’t specify a prefix, the flow logs are stored in the root of
--- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
--- file bucket folder structure will include a double slash (\/\/), like
--- the following:
---
--- s3-bucket_name\/\/AWSLogs\/aws_account_id
 --
 -- 'flowLogsEnabled', 'acceleratorAttributes_flowLogsEnabled' - Indicates whether flow logs are enabled. The default value is false. If
 -- the value is true, @FlowLogsS3Bucket@ and @FlowLogsS3Prefix@ must be
@@ -83,17 +73,8 @@ data AcceleratorAttributes = AcceleratorAttributes'
 -- required if @FlowLogsEnabled@ is @true@. The bucket must exist and have
 -- a bucket policy that grants AWS Global Accelerator permission to write
 -- to the bucket.
-newAcceleratorAttributes ::
-  AcceleratorAttributes
-newAcceleratorAttributes =
-  AcceleratorAttributes'
-    { flowLogsS3Prefix =
-        Prelude.Nothing,
-      flowLogsEnabled = Prelude.Nothing,
-      flowLogsS3Bucket = Prelude.Nothing
-    }
-
--- | The prefix for the location in the Amazon S3 bucket for the flow logs.
+--
+-- 'flowLogsS3Prefix', 'acceleratorAttributes_flowLogsS3Prefix' - The prefix for the location in the Amazon S3 bucket for the flow logs.
 -- Attribute is required if @FlowLogsEnabled@ is @true@.
 --
 -- If you don’t specify a prefix, the flow logs are stored in the root of
@@ -102,8 +83,15 @@ newAcceleratorAttributes =
 -- the following:
 --
 -- s3-bucket_name\/\/AWSLogs\/aws_account_id
-acceleratorAttributes_flowLogsS3Prefix :: Lens.Lens' AcceleratorAttributes (Prelude.Maybe Prelude.Text)
-acceleratorAttributes_flowLogsS3Prefix = Lens.lens (\AcceleratorAttributes' {flowLogsS3Prefix} -> flowLogsS3Prefix) (\s@AcceleratorAttributes' {} a -> s {flowLogsS3Prefix = a} :: AcceleratorAttributes)
+newAcceleratorAttributes ::
+  AcceleratorAttributes
+newAcceleratorAttributes =
+  AcceleratorAttributes'
+    { flowLogsEnabled =
+        Prelude.Nothing,
+      flowLogsS3Bucket = Prelude.Nothing,
+      flowLogsS3Prefix = Prelude.Nothing
+    }
 
 -- | Indicates whether flow logs are enabled. The default value is false. If
 -- the value is true, @FlowLogsS3Bucket@ and @FlowLogsS3Prefix@ must be
@@ -122,25 +110,37 @@ acceleratorAttributes_flowLogsEnabled = Lens.lens (\AcceleratorAttributes' {flow
 acceleratorAttributes_flowLogsS3Bucket :: Lens.Lens' AcceleratorAttributes (Prelude.Maybe Prelude.Text)
 acceleratorAttributes_flowLogsS3Bucket = Lens.lens (\AcceleratorAttributes' {flowLogsS3Bucket} -> flowLogsS3Bucket) (\s@AcceleratorAttributes' {} a -> s {flowLogsS3Bucket = a} :: AcceleratorAttributes)
 
+-- | The prefix for the location in the Amazon S3 bucket for the flow logs.
+-- Attribute is required if @FlowLogsEnabled@ is @true@.
+--
+-- If you don’t specify a prefix, the flow logs are stored in the root of
+-- the bucket. If you specify slash (\/) for the S3 bucket prefix, the log
+-- file bucket folder structure will include a double slash (\/\/), like
+-- the following:
+--
+-- s3-bucket_name\/\/AWSLogs\/aws_account_id
+acceleratorAttributes_flowLogsS3Prefix :: Lens.Lens' AcceleratorAttributes (Prelude.Maybe Prelude.Text)
+acceleratorAttributes_flowLogsS3Prefix = Lens.lens (\AcceleratorAttributes' {flowLogsS3Prefix} -> flowLogsS3Prefix) (\s@AcceleratorAttributes' {} a -> s {flowLogsS3Prefix = a} :: AcceleratorAttributes)
+
 instance Core.FromJSON AcceleratorAttributes where
   parseJSON =
     Core.withObject
       "AcceleratorAttributes"
       ( \x ->
           AcceleratorAttributes'
-            Prelude.<$> (x Core..:? "FlowLogsS3Prefix")
-            Prelude.<*> (x Core..:? "FlowLogsEnabled")
+            Prelude.<$> (x Core..:? "FlowLogsEnabled")
             Prelude.<*> (x Core..:? "FlowLogsS3Bucket")
+            Prelude.<*> (x Core..:? "FlowLogsS3Prefix")
       )
 
 instance Prelude.Hashable AcceleratorAttributes where
   hashWithSalt _salt AcceleratorAttributes' {..} =
-    _salt `Prelude.hashWithSalt` flowLogsS3Prefix
-      `Prelude.hashWithSalt` flowLogsEnabled
+    _salt `Prelude.hashWithSalt` flowLogsEnabled
       `Prelude.hashWithSalt` flowLogsS3Bucket
+      `Prelude.hashWithSalt` flowLogsS3Prefix
 
 instance Prelude.NFData AcceleratorAttributes where
   rnf AcceleratorAttributes' {..} =
-    Prelude.rnf flowLogsS3Prefix
-      `Prelude.seq` Prelude.rnf flowLogsEnabled
+    Prelude.rnf flowLogsEnabled
       `Prelude.seq` Prelude.rnf flowLogsS3Bucket
+      `Prelude.seq` Prelude.rnf flowLogsS3Prefix

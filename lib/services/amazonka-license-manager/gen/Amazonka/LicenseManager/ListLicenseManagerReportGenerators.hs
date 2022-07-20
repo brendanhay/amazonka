@@ -27,8 +27,8 @@ module Amazonka.LicenseManager.ListLicenseManagerReportGenerators
     newListLicenseManagerReportGenerators,
 
     -- * Request Lenses
-    listLicenseManagerReportGenerators_filters,
     listLicenseManagerReportGenerators_nextToken,
+    listLicenseManagerReportGenerators_filters,
     listLicenseManagerReportGenerators_maxResults,
 
     -- * Destructuring the Response
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLicenseManagerReportGenerators' smart constructor.
 data ListLicenseManagerReportGenerators = ListLicenseManagerReportGenerators'
-  { -- | Filters to scope the results. The following filters are supported:
+  { -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters to scope the results. The following filters are supported:
     --
     -- -   @LicenseConfigurationArn@
     filters :: Prelude.Maybe [Filter],
-    -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -70,32 +70,32 @@ data ListLicenseManagerReportGenerators = ListLicenseManagerReportGenerators'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listLicenseManagerReportGenerators_nextToken' - Token for the next set of results.
+--
 -- 'filters', 'listLicenseManagerReportGenerators_filters' - Filters to scope the results. The following filters are supported:
 --
 -- -   @LicenseConfigurationArn@
---
--- 'nextToken', 'listLicenseManagerReportGenerators_nextToken' - Token for the next set of results.
 --
 -- 'maxResults', 'listLicenseManagerReportGenerators_maxResults' - Maximum number of results to return in a single call.
 newListLicenseManagerReportGenerators ::
   ListLicenseManagerReportGenerators
 newListLicenseManagerReportGenerators =
   ListLicenseManagerReportGenerators'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Token for the next set of results.
+listLicenseManagerReportGenerators_nextToken :: Lens.Lens' ListLicenseManagerReportGenerators (Prelude.Maybe Prelude.Text)
+listLicenseManagerReportGenerators_nextToken = Lens.lens (\ListLicenseManagerReportGenerators' {nextToken} -> nextToken) (\s@ListLicenseManagerReportGenerators' {} a -> s {nextToken = a} :: ListLicenseManagerReportGenerators)
 
 -- | Filters to scope the results. The following filters are supported:
 --
 -- -   @LicenseConfigurationArn@
 listLicenseManagerReportGenerators_filters :: Lens.Lens' ListLicenseManagerReportGenerators (Prelude.Maybe [Filter])
 listLicenseManagerReportGenerators_filters = Lens.lens (\ListLicenseManagerReportGenerators' {filters} -> filters) (\s@ListLicenseManagerReportGenerators' {} a -> s {filters = a} :: ListLicenseManagerReportGenerators) Prelude.. Lens.mapping Lens.coerced
-
--- | Token for the next set of results.
-listLicenseManagerReportGenerators_nextToken :: Lens.Lens' ListLicenseManagerReportGenerators (Prelude.Maybe Prelude.Text)
-listLicenseManagerReportGenerators_nextToken = Lens.lens (\ListLicenseManagerReportGenerators' {nextToken} -> nextToken) (\s@ListLicenseManagerReportGenerators' {} a -> s {nextToken = a} :: ListLicenseManagerReportGenerators)
 
 -- | Maximum number of results to return in a single call.
 listLicenseManagerReportGenerators_maxResults :: Lens.Lens' ListLicenseManagerReportGenerators (Prelude.Maybe Prelude.Natural)
@@ -127,8 +127,8 @@ instance
   hashWithSalt
     _salt
     ListLicenseManagerReportGenerators' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
 
 instance
@@ -136,8 +136,8 @@ instance
     ListLicenseManagerReportGenerators
   where
   rnf ListLicenseManagerReportGenerators' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
@@ -165,8 +165,8 @@ instance
   toJSON ListLicenseManagerReportGenerators' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

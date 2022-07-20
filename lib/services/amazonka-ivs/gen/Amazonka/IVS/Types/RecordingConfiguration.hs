@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecordingConfiguration' smart constructor.
 data RecordingConfiguration = RecordingConfiguration'
-  { -- | Recording-configuration name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Recording-configuration name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Recording-configuration ARN.
     arn :: Prelude.Text,
     -- | A complex type that contains information about where recorded video will
@@ -53,9 +53,9 @@ data RecordingConfiguration = RecordingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'recordingConfiguration_name' - Recording-configuration name. The value does not need to be unique.
---
 -- 'tags', 'recordingConfiguration_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+--
+-- 'name', 'recordingConfiguration_name' - Recording-configuration name. The value does not need to be unique.
 --
 -- 'arn', 'recordingConfiguration_arn' - Recording-configuration ARN.
 --
@@ -78,21 +78,21 @@ newRecordingConfiguration
   pDestinationConfiguration_
   pState_ =
     RecordingConfiguration'
-      { name = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        name = Prelude.Nothing,
         arn = pArn_,
         destinationConfiguration =
           pDestinationConfiguration_,
         state = pState_
       }
 
--- | Recording-configuration name. The value does not need to be unique.
-recordingConfiguration_name :: Lens.Lens' RecordingConfiguration (Prelude.Maybe Prelude.Text)
-recordingConfiguration_name = Lens.lens (\RecordingConfiguration' {name} -> name) (\s@RecordingConfiguration' {} a -> s {name = a} :: RecordingConfiguration)
-
 -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
 recordingConfiguration_tags :: Lens.Lens' RecordingConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 recordingConfiguration_tags = Lens.lens (\RecordingConfiguration' {tags} -> tags) (\s@RecordingConfiguration' {} a -> s {tags = a} :: RecordingConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Recording-configuration name. The value does not need to be unique.
+recordingConfiguration_name :: Lens.Lens' RecordingConfiguration (Prelude.Maybe Prelude.Text)
+recordingConfiguration_name = Lens.lens (\RecordingConfiguration' {name} -> name) (\s@RecordingConfiguration' {} a -> s {name = a} :: RecordingConfiguration)
 
 -- | Recording-configuration ARN.
 recordingConfiguration_arn :: Lens.Lens' RecordingConfiguration Prelude.Text
@@ -115,8 +115,8 @@ instance Core.FromJSON RecordingConfiguration where
       "RecordingConfiguration"
       ( \x ->
           RecordingConfiguration'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "destinationConfiguration")
             Prelude.<*> (x Core..: "state")
@@ -124,16 +124,16 @@ instance Core.FromJSON RecordingConfiguration where
 
 instance Prelude.Hashable RecordingConfiguration where
   hashWithSalt _salt RecordingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` destinationConfiguration
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData RecordingConfiguration where
   rnf RecordingConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf destinationConfiguration
       `Prelude.seq` Prelude.rnf state

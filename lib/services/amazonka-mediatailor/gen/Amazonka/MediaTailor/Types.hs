@@ -52,16 +52,16 @@ module Amazonka.MediaTailor.Types
     -- * AccessConfiguration
     AccessConfiguration (..),
     newAccessConfiguration,
-    accessConfiguration_accessType,
     accessConfiguration_secretsManagerAccessTokenConfiguration,
+    accessConfiguration_accessType,
 
     -- * AdBreak
     AdBreak (..),
     newAdBreak,
-    adBreak_spliceInsertMessage,
     adBreak_messageType,
-    adBreak_slate,
     adBreak_offsetMillis,
+    adBreak_spliceInsertMessage,
+    adBreak_slate,
 
     -- * AdMarkerPassthrough
     AdMarkerPassthrough (..),
@@ -86,14 +86,14 @@ module Amazonka.MediaTailor.Types
     -- * AvailSuppression
     AvailSuppression (..),
     newAvailSuppression,
-    availSuppression_value,
     availSuppression_mode,
+    availSuppression_value,
 
     -- * Bumper
     Bumper (..),
     newBumper,
-    bumper_endUrl,
     bumper_startUrl,
+    bumper_endUrl,
 
     -- * CdnConfiguration
     CdnConfiguration (..),
@@ -104,10 +104,10 @@ module Amazonka.MediaTailor.Types
     -- * Channel
     Channel (..),
     newChannel,
-    channel_creationTime,
-    channel_lastModifiedTime,
-    channel_fillerSlate,
     channel_tags,
+    channel_fillerSlate,
+    channel_lastModifiedTime,
+    channel_creationTime,
     channel_channelState,
     channel_channelName,
     channel_outputs,
@@ -118,22 +118,22 @@ module Amazonka.MediaTailor.Types
     DashConfiguration (..),
     newDashConfiguration,
     dashConfiguration_manifestEndpointPrefix,
-    dashConfiguration_originManifestType,
     dashConfiguration_mpdLocation,
+    dashConfiguration_originManifestType,
 
     -- * DashConfigurationForPut
     DashConfigurationForPut (..),
     newDashConfigurationForPut,
-    dashConfigurationForPut_originManifestType,
     dashConfigurationForPut_mpdLocation,
+    dashConfigurationForPut_originManifestType,
 
     -- * DashPlaylistSettings
     DashPlaylistSettings (..),
     newDashPlaylistSettings,
-    dashPlaylistSettings_minBufferTimeSeconds,
-    dashPlaylistSettings_minUpdatePeriodSeconds,
     dashPlaylistSettings_suggestedPresentationDelaySeconds,
     dashPlaylistSettings_manifestWindowSeconds,
+    dashPlaylistSettings_minUpdatePeriodSeconds,
+    dashPlaylistSettings_minBufferTimeSeconds,
 
     -- * DefaultSegmentDeliveryConfiguration
     DefaultSegmentDeliveryConfiguration (..),
@@ -181,38 +181,38 @@ module Amazonka.MediaTailor.Types
     -- * PlaybackConfiguration
     PlaybackConfiguration (..),
     newPlaybackConfiguration,
-    playbackConfiguration_playbackEndpointPrefix,
-    playbackConfiguration_hlsConfiguration,
-    playbackConfiguration_personalizationThresholdSeconds,
-    playbackConfiguration_playbackConfigurationArn,
-    playbackConfiguration_availSuppression,
-    playbackConfiguration_bumper,
-    playbackConfiguration_adDecisionServerUrl,
-    playbackConfiguration_videoContentSourceUrl,
-    playbackConfiguration_dashConfiguration,
-    playbackConfiguration_manifestProcessingRules,
-    playbackConfiguration_logConfiguration,
-    playbackConfiguration_livePreRollConfiguration,
-    playbackConfiguration_name,
-    playbackConfiguration_sessionInitializationEndpointPrefix,
-    playbackConfiguration_configurationAliases,
-    playbackConfiguration_transcodeProfileName,
     playbackConfiguration_tags,
-    playbackConfiguration_slateAdUrl,
+    playbackConfiguration_name,
+    playbackConfiguration_configurationAliases,
+    playbackConfiguration_logConfiguration,
+    playbackConfiguration_sessionInitializationEndpointPrefix,
     playbackConfiguration_cdnConfiguration,
+    playbackConfiguration_bumper,
+    playbackConfiguration_manifestProcessingRules,
+    playbackConfiguration_livePreRollConfiguration,
+    playbackConfiguration_dashConfiguration,
+    playbackConfiguration_adDecisionServerUrl,
+    playbackConfiguration_transcodeProfileName,
+    playbackConfiguration_videoContentSourceUrl,
+    playbackConfiguration_playbackConfigurationArn,
+    playbackConfiguration_hlsConfiguration,
+    playbackConfiguration_slateAdUrl,
+    playbackConfiguration_availSuppression,
+    playbackConfiguration_playbackEndpointPrefix,
+    playbackConfiguration_personalizationThresholdSeconds,
 
     -- * PrefetchConsumption
     PrefetchConsumption (..),
     newPrefetchConsumption,
-    prefetchConsumption_startTime,
     prefetchConsumption_availMatchingCriteria,
+    prefetchConsumption_startTime,
     prefetchConsumption_endTime,
 
     -- * PrefetchRetrieval
     PrefetchRetrieval (..),
     newPrefetchRetrieval,
-    prefetchRetrieval_startTime,
     prefetchRetrieval_dynamicVariables,
+    prefetchRetrieval_startTime,
     prefetchRetrieval_endTime,
 
     -- * PrefetchSchedule
@@ -245,10 +245,10 @@ module Amazonka.MediaTailor.Types
     -- * ScheduleAdBreak
     ScheduleAdBreak (..),
     newScheduleAdBreak,
-    scheduleAdBreak_sourceLocationName,
-    scheduleAdBreak_approximateDurationSeconds,
-    scheduleAdBreak_vodSourceName,
     scheduleAdBreak_approximateStartTime,
+    scheduleAdBreak_vodSourceName,
+    scheduleAdBreak_approximateDurationSeconds,
+    scheduleAdBreak_sourceLocationName,
 
     -- * ScheduleConfiguration
     ScheduleConfiguration (..),
@@ -258,10 +258,10 @@ module Amazonka.MediaTailor.Types
     -- * ScheduleEntry
     ScheduleEntry (..),
     newScheduleEntry,
-    scheduleEntry_scheduleAdBreaks,
-    scheduleEntry_approximateDurationSeconds,
     scheduleEntry_approximateStartTime,
+    scheduleEntry_approximateDurationSeconds,
     scheduleEntry_scheduleEntryType,
+    scheduleEntry_scheduleAdBreaks,
     scheduleEntry_vodSourceName,
     scheduleEntry_channelName,
     scheduleEntry_sourceLocationName,
@@ -272,23 +272,23 @@ module Amazonka.MediaTailor.Types
     SecretsManagerAccessTokenConfiguration (..),
     newSecretsManagerAccessTokenConfiguration,
     secretsManagerAccessTokenConfiguration_headerName,
-    secretsManagerAccessTokenConfiguration_secretStringKey,
     secretsManagerAccessTokenConfiguration_secretArn,
+    secretsManagerAccessTokenConfiguration_secretStringKey,
 
     -- * SlateSource
     SlateSource (..),
     newSlateSource,
-    slateSource_sourceLocationName,
     slateSource_vodSourceName,
+    slateSource_sourceLocationName,
 
     -- * SourceLocation
     SourceLocation (..),
     newSourceLocation,
-    sourceLocation_creationTime,
-    sourceLocation_lastModifiedTime,
+    sourceLocation_tags,
     sourceLocation_accessConfiguration,
     sourceLocation_defaultSegmentDeliveryConfiguration,
-    sourceLocation_tags,
+    sourceLocation_lastModifiedTime,
+    sourceLocation_creationTime,
     sourceLocation_sourceLocationName,
     sourceLocation_httpConfiguration,
     sourceLocation_arn,
@@ -296,25 +296,25 @@ module Amazonka.MediaTailor.Types
     -- * SpliceInsertMessage
     SpliceInsertMessage (..),
     newSpliceInsertMessage,
-    spliceInsertMessage_availNum,
-    spliceInsertMessage_uniqueProgramId,
     spliceInsertMessage_availsExpected,
     spliceInsertMessage_spliceEventId,
+    spliceInsertMessage_availNum,
+    spliceInsertMessage_uniqueProgramId,
 
     -- * Transition
     Transition (..),
     newTransition,
-    transition_scheduledStartTimeMillis,
     transition_relativeProgram,
+    transition_scheduledStartTimeMillis,
     transition_type,
     transition_relativePosition,
 
     -- * VodSource
     VodSource (..),
     newVodSource,
-    vodSource_creationTime,
-    vodSource_lastModifiedTime,
     vodSource_tags,
+    vodSource_lastModifiedTime,
+    vodSource_creationTime,
     vodSource_vodSourceName,
     vodSource_sourceLocationName,
     vodSource_httpPackageConfigurations,
@@ -398,35 +398,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -435,12 +408,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Invalid request parameters.

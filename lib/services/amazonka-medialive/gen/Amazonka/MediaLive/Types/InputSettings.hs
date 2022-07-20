@@ -37,7 +37,29 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputSettings' smart constructor.
 data InputSettings = InputSettings'
-  { -- | Informs which video elementary stream to decode for input types that
+  { -- | Enable or disable the deblock filter when filtering.
+    deblockFilter :: Prelude.Maybe InputDeblockFilter,
+    -- | Used to select the caption input to use for inputs that have multiple
+    -- available.
+    captionSelectors :: Prelude.Maybe [CaptionSelector],
+    -- | Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+    filterStrength :: Prelude.Maybe Prelude.Natural,
+    -- | Input settings.
+    networkInputSettings :: Prelude.Maybe NetworkInputSettings,
+    -- | Turns on the filter for this input. MPEG-2 inputs have the deblocking
+    -- filter enabled by default. 1) auto - filtering will be applied depending
+    -- on input type\/quality 2) disabled - no filtering will be applied to the
+    -- input 3) forced - filtering will be applied regardless of input type
+    inputFilter :: Prelude.Maybe InputFilter,
+    -- | Used to select the audio stream to decode for inputs that have multiple
+    -- available.
+    audioSelectors :: Prelude.Maybe [AudioSelector],
+    -- | Loop input if it is a file. This allows a file input to be streamed
+    -- indefinitely.
+    sourceEndBehavior :: Prelude.Maybe InputSourceEndBehavior,
+    -- | Enable or disable the denoise filter when filtering.
+    denoiseFilter :: Prelude.Maybe InputDenoiseFilter,
+    -- | Informs which video elementary stream to decode for input types that
     -- have multiple available.
     videoSelector :: Prelude.Maybe VideoSelector,
     -- | Specifies whether to extract applicable ancillary data from a SMPTE-2038
@@ -45,29 +67,7 @@ data InputSettings = InputSettings'
     -- and SCTE-104 messages. - PREFER: Extract from SMPTE-2038 if present in
     -- this input, otherwise extract from another source (if any). - IGNORE:
     -- Never extract any ancillary data from SMPTE-2038.
-    smpte2038DataPreference :: Prelude.Maybe Smpte2038DataPreference,
-    -- | Input settings.
-    networkInputSettings :: Prelude.Maybe NetworkInputSettings,
-    -- | Used to select the audio stream to decode for inputs that have multiple
-    -- available.
-    audioSelectors :: Prelude.Maybe [AudioSelector],
-    -- | Enable or disable the deblock filter when filtering.
-    deblockFilter :: Prelude.Maybe InputDeblockFilter,
-    -- | Enable or disable the denoise filter when filtering.
-    denoiseFilter :: Prelude.Maybe InputDenoiseFilter,
-    -- | Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-    filterStrength :: Prelude.Maybe Prelude.Natural,
-    -- | Used to select the caption input to use for inputs that have multiple
-    -- available.
-    captionSelectors :: Prelude.Maybe [CaptionSelector],
-    -- | Turns on the filter for this input. MPEG-2 inputs have the deblocking
-    -- filter enabled by default. 1) auto - filtering will be applied depending
-    -- on input type\/quality 2) disabled - no filtering will be applied to the
-    -- input 3) forced - filtering will be applied regardless of input type
-    inputFilter :: Prelude.Maybe InputFilter,
-    -- | Loop input if it is a file. This allows a file input to be streamed
-    -- indefinitely.
-    sourceEndBehavior :: Prelude.Maybe InputSourceEndBehavior
+    smpte2038DataPreference :: Prelude.Maybe Smpte2038DataPreference
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +79,28 @@ data InputSettings = InputSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deblockFilter', 'inputSettings_deblockFilter' - Enable or disable the deblock filter when filtering.
+--
+-- 'captionSelectors', 'inputSettings_captionSelectors' - Used to select the caption input to use for inputs that have multiple
+-- available.
+--
+-- 'filterStrength', 'inputSettings_filterStrength' - Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+--
+-- 'networkInputSettings', 'inputSettings_networkInputSettings' - Input settings.
+--
+-- 'inputFilter', 'inputSettings_inputFilter' - Turns on the filter for this input. MPEG-2 inputs have the deblocking
+-- filter enabled by default. 1) auto - filtering will be applied depending
+-- on input type\/quality 2) disabled - no filtering will be applied to the
+-- input 3) forced - filtering will be applied regardless of input type
+--
+-- 'audioSelectors', 'inputSettings_audioSelectors' - Used to select the audio stream to decode for inputs that have multiple
+-- available.
+--
+-- 'sourceEndBehavior', 'inputSettings_sourceEndBehavior' - Loop input if it is a file. This allows a file input to be streamed
+-- indefinitely.
+--
+-- 'denoiseFilter', 'inputSettings_denoiseFilter' - Enable or disable the denoise filter when filtering.
+--
 -- 'videoSelector', 'inputSettings_videoSelector' - Informs which video elementary stream to decode for input types that
 -- have multiple available.
 --
@@ -87,43 +109,59 @@ data InputSettings = InputSettings'
 -- and SCTE-104 messages. - PREFER: Extract from SMPTE-2038 if present in
 -- this input, otherwise extract from another source (if any). - IGNORE:
 -- Never extract any ancillary data from SMPTE-2038.
---
--- 'networkInputSettings', 'inputSettings_networkInputSettings' - Input settings.
---
--- 'audioSelectors', 'inputSettings_audioSelectors' - Used to select the audio stream to decode for inputs that have multiple
--- available.
---
--- 'deblockFilter', 'inputSettings_deblockFilter' - Enable or disable the deblock filter when filtering.
---
--- 'denoiseFilter', 'inputSettings_denoiseFilter' - Enable or disable the denoise filter when filtering.
---
--- 'filterStrength', 'inputSettings_filterStrength' - Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
---
--- 'captionSelectors', 'inputSettings_captionSelectors' - Used to select the caption input to use for inputs that have multiple
--- available.
---
--- 'inputFilter', 'inputSettings_inputFilter' - Turns on the filter for this input. MPEG-2 inputs have the deblocking
--- filter enabled by default. 1) auto - filtering will be applied depending
--- on input type\/quality 2) disabled - no filtering will be applied to the
--- input 3) forced - filtering will be applied regardless of input type
---
--- 'sourceEndBehavior', 'inputSettings_sourceEndBehavior' - Loop input if it is a file. This allows a file input to be streamed
--- indefinitely.
 newInputSettings ::
   InputSettings
 newInputSettings =
   InputSettings'
-    { videoSelector = Prelude.Nothing,
-      smpte2038DataPreference = Prelude.Nothing,
-      networkInputSettings = Prelude.Nothing,
-      audioSelectors = Prelude.Nothing,
-      deblockFilter = Prelude.Nothing,
-      denoiseFilter = Prelude.Nothing,
-      filterStrength = Prelude.Nothing,
+    { deblockFilter = Prelude.Nothing,
       captionSelectors = Prelude.Nothing,
+      filterStrength = Prelude.Nothing,
+      networkInputSettings = Prelude.Nothing,
       inputFilter = Prelude.Nothing,
-      sourceEndBehavior = Prelude.Nothing
+      audioSelectors = Prelude.Nothing,
+      sourceEndBehavior = Prelude.Nothing,
+      denoiseFilter = Prelude.Nothing,
+      videoSelector = Prelude.Nothing,
+      smpte2038DataPreference = Prelude.Nothing
     }
+
+-- | Enable or disable the deblock filter when filtering.
+inputSettings_deblockFilter :: Lens.Lens' InputSettings (Prelude.Maybe InputDeblockFilter)
+inputSettings_deblockFilter = Lens.lens (\InputSettings' {deblockFilter} -> deblockFilter) (\s@InputSettings' {} a -> s {deblockFilter = a} :: InputSettings)
+
+-- | Used to select the caption input to use for inputs that have multiple
+-- available.
+inputSettings_captionSelectors :: Lens.Lens' InputSettings (Prelude.Maybe [CaptionSelector])
+inputSettings_captionSelectors = Lens.lens (\InputSettings' {captionSelectors} -> captionSelectors) (\s@InputSettings' {} a -> s {captionSelectors = a} :: InputSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+inputSettings_filterStrength :: Lens.Lens' InputSettings (Prelude.Maybe Prelude.Natural)
+inputSettings_filterStrength = Lens.lens (\InputSettings' {filterStrength} -> filterStrength) (\s@InputSettings' {} a -> s {filterStrength = a} :: InputSettings)
+
+-- | Input settings.
+inputSettings_networkInputSettings :: Lens.Lens' InputSettings (Prelude.Maybe NetworkInputSettings)
+inputSettings_networkInputSettings = Lens.lens (\InputSettings' {networkInputSettings} -> networkInputSettings) (\s@InputSettings' {} a -> s {networkInputSettings = a} :: InputSettings)
+
+-- | Turns on the filter for this input. MPEG-2 inputs have the deblocking
+-- filter enabled by default. 1) auto - filtering will be applied depending
+-- on input type\/quality 2) disabled - no filtering will be applied to the
+-- input 3) forced - filtering will be applied regardless of input type
+inputSettings_inputFilter :: Lens.Lens' InputSettings (Prelude.Maybe InputFilter)
+inputSettings_inputFilter = Lens.lens (\InputSettings' {inputFilter} -> inputFilter) (\s@InputSettings' {} a -> s {inputFilter = a} :: InputSettings)
+
+-- | Used to select the audio stream to decode for inputs that have multiple
+-- available.
+inputSettings_audioSelectors :: Lens.Lens' InputSettings (Prelude.Maybe [AudioSelector])
+inputSettings_audioSelectors = Lens.lens (\InputSettings' {audioSelectors} -> audioSelectors) (\s@InputSettings' {} a -> s {audioSelectors = a} :: InputSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | Loop input if it is a file. This allows a file input to be streamed
+-- indefinitely.
+inputSettings_sourceEndBehavior :: Lens.Lens' InputSettings (Prelude.Maybe InputSourceEndBehavior)
+inputSettings_sourceEndBehavior = Lens.lens (\InputSettings' {sourceEndBehavior} -> sourceEndBehavior) (\s@InputSettings' {} a -> s {sourceEndBehavior = a} :: InputSettings)
+
+-- | Enable or disable the denoise filter when filtering.
+inputSettings_denoiseFilter :: Lens.Lens' InputSettings (Prelude.Maybe InputDenoiseFilter)
+inputSettings_denoiseFilter = Lens.lens (\InputSettings' {denoiseFilter} -> denoiseFilter) (\s@InputSettings' {} a -> s {denoiseFilter = a} :: InputSettings)
 
 -- | Informs which video elementary stream to decode for input types that
 -- have multiple available.
@@ -138,109 +176,71 @@ inputSettings_videoSelector = Lens.lens (\InputSettings' {videoSelector} -> vide
 inputSettings_smpte2038DataPreference :: Lens.Lens' InputSettings (Prelude.Maybe Smpte2038DataPreference)
 inputSettings_smpte2038DataPreference = Lens.lens (\InputSettings' {smpte2038DataPreference} -> smpte2038DataPreference) (\s@InputSettings' {} a -> s {smpte2038DataPreference = a} :: InputSettings)
 
--- | Input settings.
-inputSettings_networkInputSettings :: Lens.Lens' InputSettings (Prelude.Maybe NetworkInputSettings)
-inputSettings_networkInputSettings = Lens.lens (\InputSettings' {networkInputSettings} -> networkInputSettings) (\s@InputSettings' {} a -> s {networkInputSettings = a} :: InputSettings)
-
--- | Used to select the audio stream to decode for inputs that have multiple
--- available.
-inputSettings_audioSelectors :: Lens.Lens' InputSettings (Prelude.Maybe [AudioSelector])
-inputSettings_audioSelectors = Lens.lens (\InputSettings' {audioSelectors} -> audioSelectors) (\s@InputSettings' {} a -> s {audioSelectors = a} :: InputSettings) Prelude.. Lens.mapping Lens.coerced
-
--- | Enable or disable the deblock filter when filtering.
-inputSettings_deblockFilter :: Lens.Lens' InputSettings (Prelude.Maybe InputDeblockFilter)
-inputSettings_deblockFilter = Lens.lens (\InputSettings' {deblockFilter} -> deblockFilter) (\s@InputSettings' {} a -> s {deblockFilter = a} :: InputSettings)
-
--- | Enable or disable the denoise filter when filtering.
-inputSettings_denoiseFilter :: Lens.Lens' InputSettings (Prelude.Maybe InputDenoiseFilter)
-inputSettings_denoiseFilter = Lens.lens (\InputSettings' {denoiseFilter} -> denoiseFilter) (\s@InputSettings' {} a -> s {denoiseFilter = a} :: InputSettings)
-
--- | Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-inputSettings_filterStrength :: Lens.Lens' InputSettings (Prelude.Maybe Prelude.Natural)
-inputSettings_filterStrength = Lens.lens (\InputSettings' {filterStrength} -> filterStrength) (\s@InputSettings' {} a -> s {filterStrength = a} :: InputSettings)
-
--- | Used to select the caption input to use for inputs that have multiple
--- available.
-inputSettings_captionSelectors :: Lens.Lens' InputSettings (Prelude.Maybe [CaptionSelector])
-inputSettings_captionSelectors = Lens.lens (\InputSettings' {captionSelectors} -> captionSelectors) (\s@InputSettings' {} a -> s {captionSelectors = a} :: InputSettings) Prelude.. Lens.mapping Lens.coerced
-
--- | Turns on the filter for this input. MPEG-2 inputs have the deblocking
--- filter enabled by default. 1) auto - filtering will be applied depending
--- on input type\/quality 2) disabled - no filtering will be applied to the
--- input 3) forced - filtering will be applied regardless of input type
-inputSettings_inputFilter :: Lens.Lens' InputSettings (Prelude.Maybe InputFilter)
-inputSettings_inputFilter = Lens.lens (\InputSettings' {inputFilter} -> inputFilter) (\s@InputSettings' {} a -> s {inputFilter = a} :: InputSettings)
-
--- | Loop input if it is a file. This allows a file input to be streamed
--- indefinitely.
-inputSettings_sourceEndBehavior :: Lens.Lens' InputSettings (Prelude.Maybe InputSourceEndBehavior)
-inputSettings_sourceEndBehavior = Lens.lens (\InputSettings' {sourceEndBehavior} -> sourceEndBehavior) (\s@InputSettings' {} a -> s {sourceEndBehavior = a} :: InputSettings)
-
 instance Core.FromJSON InputSettings where
   parseJSON =
     Core.withObject
       "InputSettings"
       ( \x ->
           InputSettings'
-            Prelude.<$> (x Core..:? "videoSelector")
-            Prelude.<*> (x Core..:? "smpte2038DataPreference")
-            Prelude.<*> (x Core..:? "networkInputSettings")
-            Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "deblockFilter")
-            Prelude.<*> (x Core..:? "denoiseFilter")
-            Prelude.<*> (x Core..:? "filterStrength")
+            Prelude.<$> (x Core..:? "deblockFilter")
             Prelude.<*> ( x Core..:? "captionSelectors"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "filterStrength")
+            Prelude.<*> (x Core..:? "networkInputSettings")
             Prelude.<*> (x Core..:? "inputFilter")
+            Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "sourceEndBehavior")
+            Prelude.<*> (x Core..:? "denoiseFilter")
+            Prelude.<*> (x Core..:? "videoSelector")
+            Prelude.<*> (x Core..:? "smpte2038DataPreference")
       )
 
 instance Prelude.Hashable InputSettings where
   hashWithSalt _salt InputSettings' {..} =
-    _salt `Prelude.hashWithSalt` videoSelector
-      `Prelude.hashWithSalt` smpte2038DataPreference
-      `Prelude.hashWithSalt` networkInputSettings
-      `Prelude.hashWithSalt` audioSelectors
-      `Prelude.hashWithSalt` deblockFilter
-      `Prelude.hashWithSalt` denoiseFilter
-      `Prelude.hashWithSalt` filterStrength
+    _salt `Prelude.hashWithSalt` deblockFilter
       `Prelude.hashWithSalt` captionSelectors
+      `Prelude.hashWithSalt` filterStrength
+      `Prelude.hashWithSalt` networkInputSettings
       `Prelude.hashWithSalt` inputFilter
+      `Prelude.hashWithSalt` audioSelectors
       `Prelude.hashWithSalt` sourceEndBehavior
+      `Prelude.hashWithSalt` denoiseFilter
+      `Prelude.hashWithSalt` videoSelector
+      `Prelude.hashWithSalt` smpte2038DataPreference
 
 instance Prelude.NFData InputSettings where
   rnf InputSettings' {..} =
-    Prelude.rnf videoSelector
-      `Prelude.seq` Prelude.rnf smpte2038DataPreference
-      `Prelude.seq` Prelude.rnf networkInputSettings
-      `Prelude.seq` Prelude.rnf audioSelectors
-      `Prelude.seq` Prelude.rnf deblockFilter
-      `Prelude.seq` Prelude.rnf denoiseFilter
-      `Prelude.seq` Prelude.rnf filterStrength
+    Prelude.rnf deblockFilter
       `Prelude.seq` Prelude.rnf captionSelectors
+      `Prelude.seq` Prelude.rnf filterStrength
+      `Prelude.seq` Prelude.rnf networkInputSettings
       `Prelude.seq` Prelude.rnf inputFilter
+      `Prelude.seq` Prelude.rnf audioSelectors
       `Prelude.seq` Prelude.rnf sourceEndBehavior
+      `Prelude.seq` Prelude.rnf denoiseFilter
+      `Prelude.seq` Prelude.rnf videoSelector
+      `Prelude.seq` Prelude.rnf smpte2038DataPreference
 
 instance Core.ToJSON InputSettings where
   toJSON InputSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("videoSelector" Core..=) Prelude.<$> videoSelector,
-            ("smpte2038DataPreference" Core..=)
-              Prelude.<$> smpte2038DataPreference,
-            ("networkInputSettings" Core..=)
-              Prelude.<$> networkInputSettings,
-            ("audioSelectors" Core..=)
-              Prelude.<$> audioSelectors,
-            ("deblockFilter" Core..=) Prelude.<$> deblockFilter,
-            ("denoiseFilter" Core..=) Prelude.<$> denoiseFilter,
-            ("filterStrength" Core..=)
-              Prelude.<$> filterStrength,
+          [ ("deblockFilter" Core..=) Prelude.<$> deblockFilter,
             ("captionSelectors" Core..=)
               Prelude.<$> captionSelectors,
+            ("filterStrength" Core..=)
+              Prelude.<$> filterStrength,
+            ("networkInputSettings" Core..=)
+              Prelude.<$> networkInputSettings,
             ("inputFilter" Core..=) Prelude.<$> inputFilter,
+            ("audioSelectors" Core..=)
+              Prelude.<$> audioSelectors,
             ("sourceEndBehavior" Core..=)
-              Prelude.<$> sourceEndBehavior
+              Prelude.<$> sourceEndBehavior,
+            ("denoiseFilter" Core..=) Prelude.<$> denoiseFilter,
+            ("videoSelector" Core..=) Prelude.<$> videoSelector,
+            ("smpte2038DataPreference" Core..=)
+              Prelude.<$> smpte2038DataPreference
           ]
       )

@@ -31,9 +31,9 @@ module Amazonka.Nimble.UpdateStudio
 
     -- * Request Lenses
     updateStudio_clientToken,
-    updateStudio_userRoleArn,
-    updateStudio_displayName,
     updateStudio_adminRoleArn,
+    updateStudio_displayName,
+    updateStudio_userRoleArn,
     updateStudio_studioId,
 
     -- * Destructuring the Response
@@ -66,14 +66,14 @@ data UpdateStudio = UpdateStudio'
     -- parameters are different, the retry fails with a ValidationException
     -- error.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that Studio Users will assume when logging in to the Nimble
-    -- Studio portal.
-    userRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | A friendly name for the studio.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that Studio Admins will assume when logging in to the
     -- Nimble Studio portal.
     adminRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | A friendly name for the studio.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The IAM role that Studio Users will assume when logging in to the Nimble
+    -- Studio portal.
+    userRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -96,13 +96,13 @@ data UpdateStudio = UpdateStudio'
 -- parameters are different, the retry fails with a ValidationException
 -- error.
 --
--- 'userRoleArn', 'updateStudio_userRoleArn' - The IAM role that Studio Users will assume when logging in to the Nimble
--- Studio portal.
+-- 'adminRoleArn', 'updateStudio_adminRoleArn' - The IAM role that Studio Admins will assume when logging in to the
+-- Nimble Studio portal.
 --
 -- 'displayName', 'updateStudio_displayName' - A friendly name for the studio.
 --
--- 'adminRoleArn', 'updateStudio_adminRoleArn' - The IAM role that Studio Admins will assume when logging in to the
--- Nimble Studio portal.
+-- 'userRoleArn', 'updateStudio_userRoleArn' - The IAM role that Studio Users will assume when logging in to the Nimble
+-- Studio portal.
 --
 -- 'studioId', 'updateStudio_studioId' - The studio ID.
 newUpdateStudio ::
@@ -112,9 +112,9 @@ newUpdateStudio ::
 newUpdateStudio pStudioId_ =
   UpdateStudio'
     { clientToken = Prelude.Nothing,
-      userRoleArn = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       adminRoleArn = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      userRoleArn = Prelude.Nothing,
       studioId = pStudioId_
     }
 
@@ -129,19 +129,19 @@ newUpdateStudio pStudioId_ =
 updateStudio_clientToken :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
 updateStudio_clientToken = Lens.lens (\UpdateStudio' {clientToken} -> clientToken) (\s@UpdateStudio' {} a -> s {clientToken = a} :: UpdateStudio)
 
--- | The IAM role that Studio Users will assume when logging in to the Nimble
--- Studio portal.
-updateStudio_userRoleArn :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
-updateStudio_userRoleArn = Lens.lens (\UpdateStudio' {userRoleArn} -> userRoleArn) (\s@UpdateStudio' {} a -> s {userRoleArn = a} :: UpdateStudio)
+-- | The IAM role that Studio Admins will assume when logging in to the
+-- Nimble Studio portal.
+updateStudio_adminRoleArn :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
+updateStudio_adminRoleArn = Lens.lens (\UpdateStudio' {adminRoleArn} -> adminRoleArn) (\s@UpdateStudio' {} a -> s {adminRoleArn = a} :: UpdateStudio)
 
 -- | A friendly name for the studio.
 updateStudio_displayName :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
 updateStudio_displayName = Lens.lens (\UpdateStudio' {displayName} -> displayName) (\s@UpdateStudio' {} a -> s {displayName = a} :: UpdateStudio)
 
--- | The IAM role that Studio Admins will assume when logging in to the
--- Nimble Studio portal.
-updateStudio_adminRoleArn :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
-updateStudio_adminRoleArn = Lens.lens (\UpdateStudio' {adminRoleArn} -> adminRoleArn) (\s@UpdateStudio' {} a -> s {adminRoleArn = a} :: UpdateStudio)
+-- | The IAM role that Studio Users will assume when logging in to the Nimble
+-- Studio portal.
+updateStudio_userRoleArn :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
+updateStudio_userRoleArn = Lens.lens (\UpdateStudio' {userRoleArn} -> userRoleArn) (\s@UpdateStudio' {} a -> s {userRoleArn = a} :: UpdateStudio)
 
 -- | The studio ID.
 updateStudio_studioId :: Lens.Lens' UpdateStudio Prelude.Text
@@ -161,17 +161,17 @@ instance Core.AWSRequest UpdateStudio where
 instance Prelude.Hashable UpdateStudio where
   hashWithSalt _salt UpdateStudio' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` userRoleArn
-      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` adminRoleArn
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` userRoleArn
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData UpdateStudio where
   rnf UpdateStudio' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf userRoleArn
-      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf adminRoleArn
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf userRoleArn
       `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders UpdateStudio where
@@ -186,9 +186,9 @@ instance Core.ToJSON UpdateStudio where
   toJSON UpdateStudio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("userRoleArn" Core..=) Prelude.<$> userRoleArn,
+          [ ("adminRoleArn" Core..=) Prelude.<$> adminRoleArn,
             ("displayName" Core..=) Prelude.<$> displayName,
-            ("adminRoleArn" Core..=) Prelude.<$> adminRoleArn
+            ("userRoleArn" Core..=) Prelude.<$> userRoleArn
           ]
       )
 

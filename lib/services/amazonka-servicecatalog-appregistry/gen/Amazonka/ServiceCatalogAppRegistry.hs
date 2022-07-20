@@ -23,20 +23,20 @@ module Amazonka.ServiceCatalogAppRegistry
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -49,6 +49,84 @@ module Amazonka.ServiceCatalogAppRegistry
     newAssociateAttributeGroup,
     AssociateAttributeGroupResponse (AssociateAttributeGroupResponse'),
     newAssociateAttributeGroupResponse,
+
+    -- ** AssociateResource
+    AssociateResource (AssociateResource'),
+    newAssociateResource,
+    AssociateResourceResponse (AssociateResourceResponse'),
+    newAssociateResourceResponse,
+
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    CreateApplicationResponse (CreateApplicationResponse'),
+    newCreateApplicationResponse,
+
+    -- ** CreateAttributeGroup
+    CreateAttributeGroup (CreateAttributeGroup'),
+    newCreateAttributeGroup,
+    CreateAttributeGroupResponse (CreateAttributeGroupResponse'),
+    newCreateAttributeGroupResponse,
+
+    -- ** DeleteApplication
+    DeleteApplication (DeleteApplication'),
+    newDeleteApplication,
+    DeleteApplicationResponse (DeleteApplicationResponse'),
+    newDeleteApplicationResponse,
+
+    -- ** DeleteAttributeGroup
+    DeleteAttributeGroup (DeleteAttributeGroup'),
+    newDeleteAttributeGroup,
+    DeleteAttributeGroupResponse (DeleteAttributeGroupResponse'),
+    newDeleteAttributeGroupResponse,
+
+    -- ** DisassociateAttributeGroup
+    DisassociateAttributeGroup (DisassociateAttributeGroup'),
+    newDisassociateAttributeGroup,
+    DisassociateAttributeGroupResponse (DisassociateAttributeGroupResponse'),
+    newDisassociateAttributeGroupResponse,
+
+    -- ** DisassociateResource
+    DisassociateResource (DisassociateResource'),
+    newDisassociateResource,
+    DisassociateResourceResponse (DisassociateResourceResponse'),
+    newDisassociateResourceResponse,
+
+    -- ** GetApplication
+    GetApplication (GetApplication'),
+    newGetApplication,
+    GetApplicationResponse (GetApplicationResponse'),
+    newGetApplicationResponse,
+
+    -- ** GetAssociatedResource
+    GetAssociatedResource (GetAssociatedResource'),
+    newGetAssociatedResource,
+    GetAssociatedResourceResponse (GetAssociatedResourceResponse'),
+    newGetAssociatedResourceResponse,
+
+    -- ** GetAttributeGroup
+    GetAttributeGroup (GetAttributeGroup'),
+    newGetAttributeGroup,
+    GetAttributeGroupResponse (GetAttributeGroupResponse'),
+    newGetAttributeGroupResponse,
+
+    -- ** ListApplications (Paginated)
+    ListApplications (ListApplications'),
+    newListApplications,
+    ListApplicationsResponse (ListApplicationsResponse'),
+    newListApplicationsResponse,
+
+    -- ** ListAssociatedAttributeGroups (Paginated)
+    ListAssociatedAttributeGroups (ListAssociatedAttributeGroups'),
+    newListAssociatedAttributeGroups,
+    ListAssociatedAttributeGroupsResponse (ListAssociatedAttributeGroupsResponse'),
+    newListAssociatedAttributeGroupsResponse,
+
+    -- ** ListAssociatedResources (Paginated)
+    ListAssociatedResources (ListAssociatedResources'),
+    newListAssociatedResources,
+    ListAssociatedResourcesResponse (ListAssociatedResourcesResponse'),
+    newListAssociatedResourcesResponse,
 
     -- ** ListAttributeGroups (Paginated)
     ListAttributeGroups (ListAttributeGroups'),
@@ -68,11 +146,17 @@ module Amazonka.ServiceCatalogAppRegistry
     SyncResourceResponse (SyncResourceResponse'),
     newSyncResourceResponse,
 
-    -- ** DeleteApplication
-    DeleteApplication (DeleteApplication'),
-    newDeleteApplication,
-    DeleteApplicationResponse (DeleteApplicationResponse'),
-    newDeleteApplicationResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdateApplication
     UpdateApplication (UpdateApplication'),
@@ -80,95 +164,11 @@ module Amazonka.ServiceCatalogAppRegistry
     UpdateApplicationResponse (UpdateApplicationResponse'),
     newUpdateApplicationResponse,
 
-    -- ** AssociateResource
-    AssociateResource (AssociateResource'),
-    newAssociateResource,
-    AssociateResourceResponse (AssociateResourceResponse'),
-    newAssociateResourceResponse,
-
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    CreateApplicationResponse (CreateApplicationResponse'),
-    newCreateApplicationResponse,
-
-    -- ** DisassociateAttributeGroup
-    DisassociateAttributeGroup (DisassociateAttributeGroup'),
-    newDisassociateAttributeGroup,
-    DisassociateAttributeGroupResponse (DisassociateAttributeGroupResponse'),
-    newDisassociateAttributeGroupResponse,
-
-    -- ** GetApplication
-    GetApplication (GetApplication'),
-    newGetApplication,
-    GetApplicationResponse (GetApplicationResponse'),
-    newGetApplicationResponse,
-
-    -- ** GetAssociatedResource
-    GetAssociatedResource (GetAssociatedResource'),
-    newGetAssociatedResource,
-    GetAssociatedResourceResponse (GetAssociatedResourceResponse'),
-    newGetAssociatedResourceResponse,
-
-    -- ** CreateAttributeGroup
-    CreateAttributeGroup (CreateAttributeGroup'),
-    newCreateAttributeGroup,
-    CreateAttributeGroupResponse (CreateAttributeGroupResponse'),
-    newCreateAttributeGroupResponse,
-
-    -- ** DeleteAttributeGroup
-    DeleteAttributeGroup (DeleteAttributeGroup'),
-    newDeleteAttributeGroup,
-    DeleteAttributeGroupResponse (DeleteAttributeGroupResponse'),
-    newDeleteAttributeGroupResponse,
-
     -- ** UpdateAttributeGroup
     UpdateAttributeGroup (UpdateAttributeGroup'),
     newUpdateAttributeGroup,
     UpdateAttributeGroupResponse (UpdateAttributeGroupResponse'),
     newUpdateAttributeGroupResponse,
-
-    -- ** ListAssociatedAttributeGroups (Paginated)
-    ListAssociatedAttributeGroups (ListAssociatedAttributeGroups'),
-    newListAssociatedAttributeGroups,
-    ListAssociatedAttributeGroupsResponse (ListAssociatedAttributeGroupsResponse'),
-    newListAssociatedAttributeGroupsResponse,
-
-    -- ** GetAttributeGroup
-    GetAttributeGroup (GetAttributeGroup'),
-    newGetAttributeGroup,
-    GetAttributeGroupResponse (GetAttributeGroupResponse'),
-    newGetAttributeGroupResponse,
-
-    -- ** DisassociateResource
-    DisassociateResource (DisassociateResource'),
-    newDisassociateResource,
-    DisassociateResourceResponse (DisassociateResourceResponse'),
-    newDisassociateResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListAssociatedResources (Paginated)
-    ListAssociatedResources (ListAssociatedResources'),
-    newListAssociatedResources,
-    ListAssociatedResourcesResponse (ListAssociatedResourcesResponse'),
-    newListAssociatedResourcesResponse,
-
-    -- ** ListApplications (Paginated)
-    ListApplications (ListApplications'),
-    newListApplications,
-    ListApplicationsResponse (ListApplicationsResponse'),
-    newListApplicationsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
 
     -- * Types
 

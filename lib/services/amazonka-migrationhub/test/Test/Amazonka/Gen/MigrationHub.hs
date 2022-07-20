@@ -27,11 +27,32 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAssociateDiscoveredResource $
+--         [ requestAssociateCreatedArtifact $
+--             newAssociateCreatedArtifact
+--
+--         , requestAssociateDiscoveredResource $
 --             newAssociateDiscoveredResource
 --
 --         , requestCreateProgressUpdateStream $
 --             newCreateProgressUpdateStream
+--
+--         , requestDeleteProgressUpdateStream $
+--             newDeleteProgressUpdateStream
+--
+--         , requestDescribeApplicationState $
+--             newDescribeApplicationState
+--
+--         , requestDescribeMigrationTask $
+--             newDescribeMigrationTask
+--
+--         , requestDisassociateCreatedArtifact $
+--             newDisassociateCreatedArtifact
+--
+--         , requestDisassociateDiscoveredResource $
+--             newDisassociateDiscoveredResource
+--
+--         , requestImportMigrationTask $
+--             newImportMigrationTask
 --
 --         , requestListApplicationStates $
 --             newListApplicationStates
@@ -39,53 +60,53 @@ import Test.Tasty
 --         , requestListCreatedArtifacts $
 --             newListCreatedArtifacts
 --
---         , requestDisassociateDiscoveredResource $
---             newDisassociateDiscoveredResource
---
---         , requestNotifyApplicationState $
---             newNotifyApplicationState
---
---         , requestDeleteProgressUpdateStream $
---             newDeleteProgressUpdateStream
---
---         , requestListProgressUpdateStreams $
---             newListProgressUpdateStreams
---
---         , requestDisassociateCreatedArtifact $
---             newDisassociateCreatedArtifact
---
---         , requestImportMigrationTask $
---             newImportMigrationTask
---
---         , requestDescribeMigrationTask $
---             newDescribeMigrationTask
---
---         , requestPutResourceAttributes $
---             newPutResourceAttributes
---
---         , requestAssociateCreatedArtifact $
---             newAssociateCreatedArtifact
---
---         , requestNotifyMigrationTaskState $
---             newNotifyMigrationTaskState
---
---         , requestDescribeApplicationState $
---             newDescribeApplicationState
+--         , requestListDiscoveredResources $
+--             newListDiscoveredResources
 --
 --         , requestListMigrationTasks $
 --             newListMigrationTasks
 --
---         , requestListDiscoveredResources $
---             newListDiscoveredResources
+--         , requestListProgressUpdateStreams $
+--             newListProgressUpdateStreams
+--
+--         , requestNotifyApplicationState $
+--             newNotifyApplicationState
+--
+--         , requestNotifyMigrationTaskState $
+--             newNotifyMigrationTaskState
+--
+--         , requestPutResourceAttributes $
+--             newPutResourceAttributes
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseAssociateDiscoveredResource $
+--         [ responseAssociateCreatedArtifact $
+--             newAssociateCreatedArtifactResponse
+--
+--         , responseAssociateDiscoveredResource $
 --             newAssociateDiscoveredResourceResponse
 --
 --         , responseCreateProgressUpdateStream $
 --             newCreateProgressUpdateStreamResponse
+--
+--         , responseDeleteProgressUpdateStream $
+--             newDeleteProgressUpdateStreamResponse
+--
+--         , responseDescribeApplicationState $
+--             newDescribeApplicationStateResponse
+--
+--         , responseDescribeMigrationTask $
+--             newDescribeMigrationTaskResponse
+--
+--         , responseDisassociateCreatedArtifact $
+--             newDisassociateCreatedArtifactResponse
+--
+--         , responseDisassociateDiscoveredResource $
+--             newDisassociateDiscoveredResourceResponse
+--
+--         , responseImportMigrationTask $
+--             newImportMigrationTaskResponse
 --
 --         , responseListApplicationStates $
 --             newListApplicationStatesResponse
@@ -93,49 +114,34 @@ import Test.Tasty
 --         , responseListCreatedArtifacts $
 --             newListCreatedArtifactsResponse
 --
---         , responseDisassociateDiscoveredResource $
---             newDisassociateDiscoveredResourceResponse
---
---         , responseNotifyApplicationState $
---             newNotifyApplicationStateResponse
---
---         , responseDeleteProgressUpdateStream $
---             newDeleteProgressUpdateStreamResponse
---
---         , responseListProgressUpdateStreams $
---             newListProgressUpdateStreamsResponse
---
---         , responseDisassociateCreatedArtifact $
---             newDisassociateCreatedArtifactResponse
---
---         , responseImportMigrationTask $
---             newImportMigrationTaskResponse
---
---         , responseDescribeMigrationTask $
---             newDescribeMigrationTaskResponse
---
---         , responsePutResourceAttributes $
---             newPutResourceAttributesResponse
---
---         , responseAssociateCreatedArtifact $
---             newAssociateCreatedArtifactResponse
---
---         , responseNotifyMigrationTaskState $
---             newNotifyMigrationTaskStateResponse
---
---         , responseDescribeApplicationState $
---             newDescribeApplicationStateResponse
+--         , responseListDiscoveredResources $
+--             newListDiscoveredResourcesResponse
 --
 --         , responseListMigrationTasks $
 --             newListMigrationTasksResponse
 --
---         , responseListDiscoveredResources $
---             newListDiscoveredResourcesResponse
+--         , responseListProgressUpdateStreams $
+--             newListProgressUpdateStreamsResponse
+--
+--         , responseNotifyApplicationState $
+--             newNotifyApplicationStateResponse
+--
+--         , responseNotifyMigrationTaskState $
+--             newNotifyMigrationTaskStateResponse
+--
+--         , responsePutResourceAttributes $
+--             newPutResourceAttributesResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestAssociateCreatedArtifact :: AssociateCreatedArtifact -> TestTree
+requestAssociateCreatedArtifact =
+  req
+    "AssociateCreatedArtifact"
+    "fixture/AssociateCreatedArtifact.yaml"
 
 requestAssociateDiscoveredResource :: AssociateDiscoveredResource -> TestTree
 requestAssociateDiscoveredResource =
@@ -149,6 +155,42 @@ requestCreateProgressUpdateStream =
     "CreateProgressUpdateStream"
     "fixture/CreateProgressUpdateStream.yaml"
 
+requestDeleteProgressUpdateStream :: DeleteProgressUpdateStream -> TestTree
+requestDeleteProgressUpdateStream =
+  req
+    "DeleteProgressUpdateStream"
+    "fixture/DeleteProgressUpdateStream.yaml"
+
+requestDescribeApplicationState :: DescribeApplicationState -> TestTree
+requestDescribeApplicationState =
+  req
+    "DescribeApplicationState"
+    "fixture/DescribeApplicationState.yaml"
+
+requestDescribeMigrationTask :: DescribeMigrationTask -> TestTree
+requestDescribeMigrationTask =
+  req
+    "DescribeMigrationTask"
+    "fixture/DescribeMigrationTask.yaml"
+
+requestDisassociateCreatedArtifact :: DisassociateCreatedArtifact -> TestTree
+requestDisassociateCreatedArtifact =
+  req
+    "DisassociateCreatedArtifact"
+    "fixture/DisassociateCreatedArtifact.yaml"
+
+requestDisassociateDiscoveredResource :: DisassociateDiscoveredResource -> TestTree
+requestDisassociateDiscoveredResource =
+  req
+    "DisassociateDiscoveredResource"
+    "fixture/DisassociateDiscoveredResource.yaml"
+
+requestImportMigrationTask :: ImportMigrationTask -> TestTree
+requestImportMigrationTask =
+  req
+    "ImportMigrationTask"
+    "fixture/ImportMigrationTask.yaml"
+
 requestListApplicationStates :: ListApplicationStates -> TestTree
 requestListApplicationStates =
   req
@@ -161,71 +203,11 @@ requestListCreatedArtifacts =
     "ListCreatedArtifacts"
     "fixture/ListCreatedArtifacts.yaml"
 
-requestDisassociateDiscoveredResource :: DisassociateDiscoveredResource -> TestTree
-requestDisassociateDiscoveredResource =
+requestListDiscoveredResources :: ListDiscoveredResources -> TestTree
+requestListDiscoveredResources =
   req
-    "DisassociateDiscoveredResource"
-    "fixture/DisassociateDiscoveredResource.yaml"
-
-requestNotifyApplicationState :: NotifyApplicationState -> TestTree
-requestNotifyApplicationState =
-  req
-    "NotifyApplicationState"
-    "fixture/NotifyApplicationState.yaml"
-
-requestDeleteProgressUpdateStream :: DeleteProgressUpdateStream -> TestTree
-requestDeleteProgressUpdateStream =
-  req
-    "DeleteProgressUpdateStream"
-    "fixture/DeleteProgressUpdateStream.yaml"
-
-requestListProgressUpdateStreams :: ListProgressUpdateStreams -> TestTree
-requestListProgressUpdateStreams =
-  req
-    "ListProgressUpdateStreams"
-    "fixture/ListProgressUpdateStreams.yaml"
-
-requestDisassociateCreatedArtifact :: DisassociateCreatedArtifact -> TestTree
-requestDisassociateCreatedArtifact =
-  req
-    "DisassociateCreatedArtifact"
-    "fixture/DisassociateCreatedArtifact.yaml"
-
-requestImportMigrationTask :: ImportMigrationTask -> TestTree
-requestImportMigrationTask =
-  req
-    "ImportMigrationTask"
-    "fixture/ImportMigrationTask.yaml"
-
-requestDescribeMigrationTask :: DescribeMigrationTask -> TestTree
-requestDescribeMigrationTask =
-  req
-    "DescribeMigrationTask"
-    "fixture/DescribeMigrationTask.yaml"
-
-requestPutResourceAttributes :: PutResourceAttributes -> TestTree
-requestPutResourceAttributes =
-  req
-    "PutResourceAttributes"
-    "fixture/PutResourceAttributes.yaml"
-
-requestAssociateCreatedArtifact :: AssociateCreatedArtifact -> TestTree
-requestAssociateCreatedArtifact =
-  req
-    "AssociateCreatedArtifact"
-    "fixture/AssociateCreatedArtifact.yaml"
-
-requestNotifyMigrationTaskState :: NotifyMigrationTaskState -> TestTree
-requestNotifyMigrationTaskState =
-  req
-    "NotifyMigrationTaskState"
-    "fixture/NotifyMigrationTaskState.yaml"
-
-requestDescribeApplicationState :: DescribeApplicationState -> TestTree
-requestDescribeApplicationState =
-  req
-    "DescribeApplicationState"
-    "fixture/DescribeApplicationState.yaml"
+    "ListDiscoveredResources"
+    "fixture/ListDiscoveredResources.yaml"
 
 requestListMigrationTasks :: ListMigrationTasks -> TestTree
 requestListMigrationTasks =
@@ -233,13 +215,39 @@ requestListMigrationTasks =
     "ListMigrationTasks"
     "fixture/ListMigrationTasks.yaml"
 
-requestListDiscoveredResources :: ListDiscoveredResources -> TestTree
-requestListDiscoveredResources =
+requestListProgressUpdateStreams :: ListProgressUpdateStreams -> TestTree
+requestListProgressUpdateStreams =
   req
-    "ListDiscoveredResources"
-    "fixture/ListDiscoveredResources.yaml"
+    "ListProgressUpdateStreams"
+    "fixture/ListProgressUpdateStreams.yaml"
+
+requestNotifyApplicationState :: NotifyApplicationState -> TestTree
+requestNotifyApplicationState =
+  req
+    "NotifyApplicationState"
+    "fixture/NotifyApplicationState.yaml"
+
+requestNotifyMigrationTaskState :: NotifyMigrationTaskState -> TestTree
+requestNotifyMigrationTaskState =
+  req
+    "NotifyMigrationTaskState"
+    "fixture/NotifyMigrationTaskState.yaml"
+
+requestPutResourceAttributes :: PutResourceAttributes -> TestTree
+requestPutResourceAttributes =
+  req
+    "PutResourceAttributes"
+    "fixture/PutResourceAttributes.yaml"
 
 -- Responses
+
+responseAssociateCreatedArtifact :: AssociateCreatedArtifactResponse -> TestTree
+responseAssociateCreatedArtifact =
+  res
+    "AssociateCreatedArtifactResponse"
+    "fixture/AssociateCreatedArtifactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateCreatedArtifact)
 
 responseAssociateDiscoveredResource :: AssociateDiscoveredResourceResponse -> TestTree
 responseAssociateDiscoveredResource =
@@ -257,6 +265,54 @@ responseCreateProgressUpdateStream =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateProgressUpdateStream)
 
+responseDeleteProgressUpdateStream :: DeleteProgressUpdateStreamResponse -> TestTree
+responseDeleteProgressUpdateStream =
+  res
+    "DeleteProgressUpdateStreamResponse"
+    "fixture/DeleteProgressUpdateStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProgressUpdateStream)
+
+responseDescribeApplicationState :: DescribeApplicationStateResponse -> TestTree
+responseDescribeApplicationState =
+  res
+    "DescribeApplicationStateResponse"
+    "fixture/DescribeApplicationStateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationState)
+
+responseDescribeMigrationTask :: DescribeMigrationTaskResponse -> TestTree
+responseDescribeMigrationTask =
+  res
+    "DescribeMigrationTaskResponse"
+    "fixture/DescribeMigrationTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMigrationTask)
+
+responseDisassociateCreatedArtifact :: DisassociateCreatedArtifactResponse -> TestTree
+responseDisassociateCreatedArtifact =
+  res
+    "DisassociateCreatedArtifactResponse"
+    "fixture/DisassociateCreatedArtifactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateCreatedArtifact)
+
+responseDisassociateDiscoveredResource :: DisassociateDiscoveredResourceResponse -> TestTree
+responseDisassociateDiscoveredResource =
+  res
+    "DisassociateDiscoveredResourceResponse"
+    "fixture/DisassociateDiscoveredResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDiscoveredResource)
+
+responseImportMigrationTask :: ImportMigrationTaskResponse -> TestTree
+responseImportMigrationTask =
+  res
+    "ImportMigrationTaskResponse"
+    "fixture/ImportMigrationTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportMigrationTask)
+
 responseListApplicationStates :: ListApplicationStatesResponse -> TestTree
 responseListApplicationStates =
   res
@@ -273,93 +329,13 @@ responseListCreatedArtifacts =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCreatedArtifacts)
 
-responseDisassociateDiscoveredResource :: DisassociateDiscoveredResourceResponse -> TestTree
-responseDisassociateDiscoveredResource =
+responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
+responseListDiscoveredResources =
   res
-    "DisassociateDiscoveredResourceResponse"
-    "fixture/DisassociateDiscoveredResourceResponse.proto"
+    "ListDiscoveredResourcesResponse"
+    "fixture/ListDiscoveredResourcesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateDiscoveredResource)
-
-responseNotifyApplicationState :: NotifyApplicationStateResponse -> TestTree
-responseNotifyApplicationState =
-  res
-    "NotifyApplicationStateResponse"
-    "fixture/NotifyApplicationStateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy NotifyApplicationState)
-
-responseDeleteProgressUpdateStream :: DeleteProgressUpdateStreamResponse -> TestTree
-responseDeleteProgressUpdateStream =
-  res
-    "DeleteProgressUpdateStreamResponse"
-    "fixture/DeleteProgressUpdateStreamResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteProgressUpdateStream)
-
-responseListProgressUpdateStreams :: ListProgressUpdateStreamsResponse -> TestTree
-responseListProgressUpdateStreams =
-  res
-    "ListProgressUpdateStreamsResponse"
-    "fixture/ListProgressUpdateStreamsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProgressUpdateStreams)
-
-responseDisassociateCreatedArtifact :: DisassociateCreatedArtifactResponse -> TestTree
-responseDisassociateCreatedArtifact =
-  res
-    "DisassociateCreatedArtifactResponse"
-    "fixture/DisassociateCreatedArtifactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateCreatedArtifact)
-
-responseImportMigrationTask :: ImportMigrationTaskResponse -> TestTree
-responseImportMigrationTask =
-  res
-    "ImportMigrationTaskResponse"
-    "fixture/ImportMigrationTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ImportMigrationTask)
-
-responseDescribeMigrationTask :: DescribeMigrationTaskResponse -> TestTree
-responseDescribeMigrationTask =
-  res
-    "DescribeMigrationTaskResponse"
-    "fixture/DescribeMigrationTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeMigrationTask)
-
-responsePutResourceAttributes :: PutResourceAttributesResponse -> TestTree
-responsePutResourceAttributes =
-  res
-    "PutResourceAttributesResponse"
-    "fixture/PutResourceAttributesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutResourceAttributes)
-
-responseAssociateCreatedArtifact :: AssociateCreatedArtifactResponse -> TestTree
-responseAssociateCreatedArtifact =
-  res
-    "AssociateCreatedArtifactResponse"
-    "fixture/AssociateCreatedArtifactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateCreatedArtifact)
-
-responseNotifyMigrationTaskState :: NotifyMigrationTaskStateResponse -> TestTree
-responseNotifyMigrationTaskState =
-  res
-    "NotifyMigrationTaskStateResponse"
-    "fixture/NotifyMigrationTaskStateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy NotifyMigrationTaskState)
-
-responseDescribeApplicationState :: DescribeApplicationStateResponse -> TestTree
-responseDescribeApplicationState =
-  res
-    "DescribeApplicationStateResponse"
-    "fixture/DescribeApplicationStateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationState)
+    (Proxy.Proxy :: Proxy.Proxy ListDiscoveredResources)
 
 responseListMigrationTasks :: ListMigrationTasksResponse -> TestTree
 responseListMigrationTasks =
@@ -369,10 +345,34 @@ responseListMigrationTasks =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListMigrationTasks)
 
-responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
-responseListDiscoveredResources =
+responseListProgressUpdateStreams :: ListProgressUpdateStreamsResponse -> TestTree
+responseListProgressUpdateStreams =
   res
-    "ListDiscoveredResourcesResponse"
-    "fixture/ListDiscoveredResourcesResponse.proto"
+    "ListProgressUpdateStreamsResponse"
+    "fixture/ListProgressUpdateStreamsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDiscoveredResources)
+    (Proxy.Proxy :: Proxy.Proxy ListProgressUpdateStreams)
+
+responseNotifyApplicationState :: NotifyApplicationStateResponse -> TestTree
+responseNotifyApplicationState =
+  res
+    "NotifyApplicationStateResponse"
+    "fixture/NotifyApplicationStateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy NotifyApplicationState)
+
+responseNotifyMigrationTaskState :: NotifyMigrationTaskStateResponse -> TestTree
+responseNotifyMigrationTaskState =
+  res
+    "NotifyMigrationTaskStateResponse"
+    "fixture/NotifyMigrationTaskStateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy NotifyMigrationTaskState)
+
+responsePutResourceAttributes :: PutResourceAttributesResponse -> TestTree
+responsePutResourceAttributes =
+  res
+    "PutResourceAttributesResponse"
+    "fixture/PutResourceAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourceAttributes)

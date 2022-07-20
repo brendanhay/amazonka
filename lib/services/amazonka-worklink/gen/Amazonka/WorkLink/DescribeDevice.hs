@@ -35,14 +35,14 @@ module Amazonka.WorkLink.DescribeDevice
     newDescribeDeviceResponse,
 
     -- * Response Lenses
+    describeDeviceResponse_operatingSystem,
+    describeDeviceResponse_operatingSystemVersion,
+    describeDeviceResponse_model,
+    describeDeviceResponse_firstAccessedTime,
+    describeDeviceResponse_username,
+    describeDeviceResponse_lastAccessedTime,
     describeDeviceResponse_status,
     describeDeviceResponse_manufacturer,
-    describeDeviceResponse_lastAccessedTime,
-    describeDeviceResponse_operatingSystem,
-    describeDeviceResponse_username,
-    describeDeviceResponse_model,
-    describeDeviceResponse_operatingSystemVersion,
-    describeDeviceResponse_firstAccessedTime,
     describeDeviceResponse_patchLevel,
     describeDeviceResponse_httpStatus,
   )
@@ -104,14 +104,14 @@ instance Core.AWSRequest DescribeDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Manufacturer")
-            Prelude.<*> (x Core..?> "LastAccessedTime")
-            Prelude.<*> (x Core..?> "OperatingSystem")
-            Prelude.<*> (x Core..?> "Username")
-            Prelude.<*> (x Core..?> "Model")
+            Prelude.<$> (x Core..?> "OperatingSystem")
             Prelude.<*> (x Core..?> "OperatingSystemVersion")
+            Prelude.<*> (x Core..?> "Model")
             Prelude.<*> (x Core..?> "FirstAccessedTime")
+            Prelude.<*> (x Core..?> "Username")
+            Prelude.<*> (x Core..?> "LastAccessedTime")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "Manufacturer")
             Prelude.<*> (x Core..?> "PatchLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -154,22 +154,22 @@ instance Core.ToQuery DescribeDevice where
 
 -- | /See:/ 'newDescribeDeviceResponse' smart constructor.
 data DescribeDeviceResponse = DescribeDeviceResponse'
-  { -- | The current state of the device.
+  { -- | The operating system of the device.
+    operatingSystem :: Prelude.Maybe Prelude.Text,
+    -- | The operating system version of the device.
+    operatingSystemVersion :: Prelude.Maybe Prelude.Text,
+    -- | The model of the device.
+    model :: Prelude.Maybe Prelude.Text,
+    -- | The date that the device first signed in to Amazon WorkLink.
+    firstAccessedTime :: Prelude.Maybe Core.POSIX,
+    -- | The user name associated with the device.
+    username :: Prelude.Maybe Prelude.Text,
+    -- | The date that the device last accessed Amazon WorkLink.
+    lastAccessedTime :: Prelude.Maybe Core.POSIX,
+    -- | The current state of the device.
     status :: Prelude.Maybe DeviceStatus,
     -- | The manufacturer of the device.
     manufacturer :: Prelude.Maybe Prelude.Text,
-    -- | The date that the device last accessed Amazon WorkLink.
-    lastAccessedTime :: Prelude.Maybe Core.POSIX,
-    -- | The operating system of the device.
-    operatingSystem :: Prelude.Maybe Prelude.Text,
-    -- | The user name associated with the device.
-    username :: Prelude.Maybe Prelude.Text,
-    -- | The model of the device.
-    model :: Prelude.Maybe Prelude.Text,
-    -- | The operating system version of the device.
-    operatingSystemVersion :: Prelude.Maybe Prelude.Text,
-    -- | The date that the device first signed in to Amazon WorkLink.
-    firstAccessedTime :: Prelude.Maybe Core.POSIX,
     -- | The operating system patch level of the device.
     patchLevel :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -185,21 +185,21 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeDeviceResponse_status' - The current state of the device.
---
--- 'manufacturer', 'describeDeviceResponse_manufacturer' - The manufacturer of the device.
---
--- 'lastAccessedTime', 'describeDeviceResponse_lastAccessedTime' - The date that the device last accessed Amazon WorkLink.
---
 -- 'operatingSystem', 'describeDeviceResponse_operatingSystem' - The operating system of the device.
---
--- 'username', 'describeDeviceResponse_username' - The user name associated with the device.
---
--- 'model', 'describeDeviceResponse_model' - The model of the device.
 --
 -- 'operatingSystemVersion', 'describeDeviceResponse_operatingSystemVersion' - The operating system version of the device.
 --
+-- 'model', 'describeDeviceResponse_model' - The model of the device.
+--
 -- 'firstAccessedTime', 'describeDeviceResponse_firstAccessedTime' - The date that the device first signed in to Amazon WorkLink.
+--
+-- 'username', 'describeDeviceResponse_username' - The user name associated with the device.
+--
+-- 'lastAccessedTime', 'describeDeviceResponse_lastAccessedTime' - The date that the device last accessed Amazon WorkLink.
+--
+-- 'status', 'describeDeviceResponse_status' - The current state of the device.
+--
+-- 'manufacturer', 'describeDeviceResponse_manufacturer' - The manufacturer of the device.
 --
 -- 'patchLevel', 'describeDeviceResponse_patchLevel' - The operating system patch level of the device.
 --
@@ -210,17 +210,42 @@ newDescribeDeviceResponse ::
   DescribeDeviceResponse
 newDescribeDeviceResponse pHttpStatus_ =
   DescribeDeviceResponse'
-    { status = Prelude.Nothing,
-      manufacturer = Prelude.Nothing,
-      lastAccessedTime = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
-      username = Prelude.Nothing,
-      model = Prelude.Nothing,
+    { operatingSystem =
+        Prelude.Nothing,
       operatingSystemVersion = Prelude.Nothing,
+      model = Prelude.Nothing,
       firstAccessedTime = Prelude.Nothing,
+      username = Prelude.Nothing,
+      lastAccessedTime = Prelude.Nothing,
+      status = Prelude.Nothing,
+      manufacturer = Prelude.Nothing,
       patchLevel = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The operating system of the device.
+describeDeviceResponse_operatingSystem :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_operatingSystem = Lens.lens (\DescribeDeviceResponse' {operatingSystem} -> operatingSystem) (\s@DescribeDeviceResponse' {} a -> s {operatingSystem = a} :: DescribeDeviceResponse)
+
+-- | The operating system version of the device.
+describeDeviceResponse_operatingSystemVersion :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_operatingSystemVersion = Lens.lens (\DescribeDeviceResponse' {operatingSystemVersion} -> operatingSystemVersion) (\s@DescribeDeviceResponse' {} a -> s {operatingSystemVersion = a} :: DescribeDeviceResponse)
+
+-- | The model of the device.
+describeDeviceResponse_model :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_model = Lens.lens (\DescribeDeviceResponse' {model} -> model) (\s@DescribeDeviceResponse' {} a -> s {model = a} :: DescribeDeviceResponse)
+
+-- | The date that the device first signed in to Amazon WorkLink.
+describeDeviceResponse_firstAccessedTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
+describeDeviceResponse_firstAccessedTime = Lens.lens (\DescribeDeviceResponse' {firstAccessedTime} -> firstAccessedTime) (\s@DescribeDeviceResponse' {} a -> s {firstAccessedTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The user name associated with the device.
+describeDeviceResponse_username :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_username = Lens.lens (\DescribeDeviceResponse' {username} -> username) (\s@DescribeDeviceResponse' {} a -> s {username = a} :: DescribeDeviceResponse)
+
+-- | The date that the device last accessed Amazon WorkLink.
+describeDeviceResponse_lastAccessedTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
+describeDeviceResponse_lastAccessedTime = Lens.lens (\DescribeDeviceResponse' {lastAccessedTime} -> lastAccessedTime) (\s@DescribeDeviceResponse' {} a -> s {lastAccessedTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The current state of the device.
 describeDeviceResponse_status :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceStatus)
@@ -229,30 +254,6 @@ describeDeviceResponse_status = Lens.lens (\DescribeDeviceResponse' {status} -> 
 -- | The manufacturer of the device.
 describeDeviceResponse_manufacturer :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_manufacturer = Lens.lens (\DescribeDeviceResponse' {manufacturer} -> manufacturer) (\s@DescribeDeviceResponse' {} a -> s {manufacturer = a} :: DescribeDeviceResponse)
-
--- | The date that the device last accessed Amazon WorkLink.
-describeDeviceResponse_lastAccessedTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_lastAccessedTime = Lens.lens (\DescribeDeviceResponse' {lastAccessedTime} -> lastAccessedTime) (\s@DescribeDeviceResponse' {} a -> s {lastAccessedTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
-
--- | The operating system of the device.
-describeDeviceResponse_operatingSystem :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_operatingSystem = Lens.lens (\DescribeDeviceResponse' {operatingSystem} -> operatingSystem) (\s@DescribeDeviceResponse' {} a -> s {operatingSystem = a} :: DescribeDeviceResponse)
-
--- | The user name associated with the device.
-describeDeviceResponse_username :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_username = Lens.lens (\DescribeDeviceResponse' {username} -> username) (\s@DescribeDeviceResponse' {} a -> s {username = a} :: DescribeDeviceResponse)
-
--- | The model of the device.
-describeDeviceResponse_model :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_model = Lens.lens (\DescribeDeviceResponse' {model} -> model) (\s@DescribeDeviceResponse' {} a -> s {model = a} :: DescribeDeviceResponse)
-
--- | The operating system version of the device.
-describeDeviceResponse_operatingSystemVersion :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_operatingSystemVersion = Lens.lens (\DescribeDeviceResponse' {operatingSystemVersion} -> operatingSystemVersion) (\s@DescribeDeviceResponse' {} a -> s {operatingSystemVersion = a} :: DescribeDeviceResponse)
-
--- | The date that the device first signed in to Amazon WorkLink.
-describeDeviceResponse_firstAccessedTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_firstAccessedTime = Lens.lens (\DescribeDeviceResponse' {firstAccessedTime} -> firstAccessedTime) (\s@DescribeDeviceResponse' {} a -> s {firstAccessedTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The operating system patch level of the device.
 describeDeviceResponse_patchLevel :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
@@ -264,13 +265,13 @@ describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpSta
 
 instance Prelude.NFData DescribeDeviceResponse where
   rnf DescribeDeviceResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf manufacturer
-      `Prelude.seq` Prelude.rnf lastAccessedTime
-      `Prelude.seq` Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf model
+    Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf operatingSystemVersion
+      `Prelude.seq` Prelude.rnf model
       `Prelude.seq` Prelude.rnf firstAccessedTime
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf lastAccessedTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf manufacturer
       `Prelude.seq` Prelude.rnf patchLevel
       `Prelude.seq` Prelude.rnf httpStatus

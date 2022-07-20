@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEncryptionConfig' smart constructor.
 data EncryptionConfig = EncryptionConfig'
-  { -- | Specifies the resources to be encrypted. The only supported value is
-    -- \"secrets\".
-    resources :: Prelude.Maybe [Prelude.Text],
-    -- | Key Management Service (KMS) key. Either the ARN or the alias can be
+  { -- | Key Management Service (KMS) key. Either the ARN or the alias can be
     -- used.
-    provider :: Prelude.Maybe Provider
+    provider :: Prelude.Maybe Provider,
+    -- | Specifies the resources to be encrypted. The only supported value is
+    -- \"secrets\".
+    resources :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,28 @@ data EncryptionConfig = EncryptionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'encryptionConfig_resources' - Specifies the resources to be encrypted. The only supported value is
--- \"secrets\".
---
 -- 'provider', 'encryptionConfig_provider' - Key Management Service (KMS) key. Either the ARN or the alias can be
 -- used.
+--
+-- 'resources', 'encryptionConfig_resources' - Specifies the resources to be encrypted. The only supported value is
+-- \"secrets\".
 newEncryptionConfig ::
   EncryptionConfig
 newEncryptionConfig =
   EncryptionConfig'
-    { resources = Prelude.Nothing,
-      provider = Prelude.Nothing
+    { provider = Prelude.Nothing,
+      resources = Prelude.Nothing
     }
-
--- | Specifies the resources to be encrypted. The only supported value is
--- \"secrets\".
-encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Prelude.Maybe [Prelude.Text])
-encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | Key Management Service (KMS) key. Either the ARN or the alias can be
 -- used.
 encryptionConfig_provider :: Lens.Lens' EncryptionConfig (Prelude.Maybe Provider)
 encryptionConfig_provider = Lens.lens (\EncryptionConfig' {provider} -> provider) (\s@EncryptionConfig' {} a -> s {provider = a} :: EncryptionConfig)
+
+-- | Specifies the resources to be encrypted. The only supported value is
+-- \"secrets\".
+encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Prelude.Maybe [Prelude.Text])
+encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EncryptionConfig where
   parseJSON =
@@ -74,25 +74,25 @@ instance Core.FromJSON EncryptionConfig where
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            Prelude.<$> (x Core..:? "resources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "provider")
+            Prelude.<$> (x Core..:? "provider")
+            Prelude.<*> (x Core..:? "resources" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EncryptionConfig where
   hashWithSalt _salt EncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` resources
-      `Prelude.hashWithSalt` provider
+    _salt `Prelude.hashWithSalt` provider
+      `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData EncryptionConfig where
   rnf EncryptionConfig' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf provider
+    Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf resources
 
 instance Core.ToJSON EncryptionConfig where
   toJSON EncryptionConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("resources" Core..=) Prelude.<$> resources,
-            ("provider" Core..=) Prelude.<$> provider
+          [ ("provider" Core..=) Prelude.<$> provider,
+            ("resources" Core..=) Prelude.<$> resources
           ]
       )

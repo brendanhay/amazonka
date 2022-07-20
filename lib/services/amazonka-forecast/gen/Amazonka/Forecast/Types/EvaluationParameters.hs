@@ -30,7 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvaluationParameters' smart constructor.
 data EvaluationParameters = EvaluationParameters'
-  { -- | The point from the end of the dataset where you want to split the data
+  { -- | The number of times to split the input data. The default is 1. Valid
+    -- values are 1 through 5.
+    numberOfBacktestWindows :: Prelude.Maybe Prelude.Int,
+    -- | The point from the end of the dataset where you want to split the data
     -- for model training and testing (evaluation). Specify the value as the
     -- number of data points. The default is the value of the forecast horizon.
     -- @BackTestWindowOffset@ can be used to mimic a past virtual forecast
@@ -39,10 +42,7 @@ data EvaluationParameters = EvaluationParameters'
     --
     -- @ForecastHorizon@ \<= @BackTestWindowOffset@ \< 1\/2 *
     -- TARGET_TIME_SERIES dataset length
-    backTestWindowOffset :: Prelude.Maybe Prelude.Int,
-    -- | The number of times to split the input data. The default is 1. Valid
-    -- values are 1 through 5.
-    numberOfBacktestWindows :: Prelude.Maybe Prelude.Int
+    backTestWindowOffset :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,9 @@ data EvaluationParameters = EvaluationParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'numberOfBacktestWindows', 'evaluationParameters_numberOfBacktestWindows' - The number of times to split the input data. The default is 1. Valid
+-- values are 1 through 5.
+--
 -- 'backTestWindowOffset', 'evaluationParameters_backTestWindowOffset' - The point from the end of the dataset where you want to split the data
 -- for model training and testing (evaluation). Specify the value as the
 -- number of data points. The default is the value of the forecast horizon.
@@ -63,17 +66,19 @@ data EvaluationParameters = EvaluationParameters'
 --
 -- @ForecastHorizon@ \<= @BackTestWindowOffset@ \< 1\/2 *
 -- TARGET_TIME_SERIES dataset length
---
--- 'numberOfBacktestWindows', 'evaluationParameters_numberOfBacktestWindows' - The number of times to split the input data. The default is 1. Valid
--- values are 1 through 5.
 newEvaluationParameters ::
   EvaluationParameters
 newEvaluationParameters =
   EvaluationParameters'
-    { backTestWindowOffset =
+    { numberOfBacktestWindows =
         Prelude.Nothing,
-      numberOfBacktestWindows = Prelude.Nothing
+      backTestWindowOffset = Prelude.Nothing
     }
+
+-- | The number of times to split the input data. The default is 1. Valid
+-- values are 1 through 5.
+evaluationParameters_numberOfBacktestWindows :: Lens.Lens' EvaluationParameters (Prelude.Maybe Prelude.Int)
+evaluationParameters_numberOfBacktestWindows = Lens.lens (\EvaluationParameters' {numberOfBacktestWindows} -> numberOfBacktestWindows) (\s@EvaluationParameters' {} a -> s {numberOfBacktestWindows = a} :: EvaluationParameters)
 
 -- | The point from the end of the dataset where you want to split the data
 -- for model training and testing (evaluation). Specify the value as the
@@ -87,38 +92,34 @@ newEvaluationParameters =
 evaluationParameters_backTestWindowOffset :: Lens.Lens' EvaluationParameters (Prelude.Maybe Prelude.Int)
 evaluationParameters_backTestWindowOffset = Lens.lens (\EvaluationParameters' {backTestWindowOffset} -> backTestWindowOffset) (\s@EvaluationParameters' {} a -> s {backTestWindowOffset = a} :: EvaluationParameters)
 
--- | The number of times to split the input data. The default is 1. Valid
--- values are 1 through 5.
-evaluationParameters_numberOfBacktestWindows :: Lens.Lens' EvaluationParameters (Prelude.Maybe Prelude.Int)
-evaluationParameters_numberOfBacktestWindows = Lens.lens (\EvaluationParameters' {numberOfBacktestWindows} -> numberOfBacktestWindows) (\s@EvaluationParameters' {} a -> s {numberOfBacktestWindows = a} :: EvaluationParameters)
-
 instance Core.FromJSON EvaluationParameters where
   parseJSON =
     Core.withObject
       "EvaluationParameters"
       ( \x ->
           EvaluationParameters'
-            Prelude.<$> (x Core..:? "BackTestWindowOffset")
-            Prelude.<*> (x Core..:? "NumberOfBacktestWindows")
+            Prelude.<$> (x Core..:? "NumberOfBacktestWindows")
+            Prelude.<*> (x Core..:? "BackTestWindowOffset")
       )
 
 instance Prelude.Hashable EvaluationParameters where
   hashWithSalt _salt EvaluationParameters' {..} =
-    _salt `Prelude.hashWithSalt` backTestWindowOffset
+    _salt
       `Prelude.hashWithSalt` numberOfBacktestWindows
+      `Prelude.hashWithSalt` backTestWindowOffset
 
 instance Prelude.NFData EvaluationParameters where
   rnf EvaluationParameters' {..} =
-    Prelude.rnf backTestWindowOffset
-      `Prelude.seq` Prelude.rnf numberOfBacktestWindows
+    Prelude.rnf numberOfBacktestWindows
+      `Prelude.seq` Prelude.rnf backTestWindowOffset
 
 instance Core.ToJSON EvaluationParameters where
   toJSON EvaluationParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BackTestWindowOffset" Core..=)
-              Prelude.<$> backTestWindowOffset,
-            ("NumberOfBacktestWindows" Core..=)
-              Prelude.<$> numberOfBacktestWindows
+          [ ("NumberOfBacktestWindows" Core..=)
+              Prelude.<$> numberOfBacktestWindows,
+            ("BackTestWindowOffset" Core..=)
+              Prelude.<$> backTestWindowOffset
           ]
       )

@@ -27,67 +27,55 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDetectDocumentText $
---             newDetectDocumentText
---
---         , requestStartDocumentAnalysis $
---             newStartDocumentAnalysis
---
---         , requestAnalyzeDocument $
+--         [ requestAnalyzeDocument $
 --             newAnalyzeDocument
---
---         , requestGetDocumentTextDetection $
---             newGetDocumentTextDetection
 --
 --         , requestAnalyzeExpense $
 --             newAnalyzeExpense
 --
---         , requestStartDocumentTextDetection $
---             newStartDocumentTextDetection
+--         , requestDetectDocumentText $
+--             newDetectDocumentText
 --
 --         , requestGetDocumentAnalysis $
 --             newGetDocumentAnalysis
 --
+--         , requestGetDocumentTextDetection $
+--             newGetDocumentTextDetection
+--
+--         , requestStartDocumentAnalysis $
+--             newStartDocumentAnalysis
+--
+--         , requestStartDocumentTextDetection $
+--             newStartDocumentTextDetection
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDetectDocumentText $
---             newDetectDocumentTextResponse
---
---         , responseStartDocumentAnalysis $
---             newStartDocumentAnalysisResponse
---
---         , responseAnalyzeDocument $
+--         [ responseAnalyzeDocument $
 --             newAnalyzeDocumentResponse
---
---         , responseGetDocumentTextDetection $
---             newGetDocumentTextDetectionResponse
 --
 --         , responseAnalyzeExpense $
 --             newAnalyzeExpenseResponse
 --
---         , responseStartDocumentTextDetection $
---             newStartDocumentTextDetectionResponse
+--         , responseDetectDocumentText $
+--             newDetectDocumentTextResponse
 --
 --         , responseGetDocumentAnalysis $
 --             newGetDocumentAnalysisResponse
+--
+--         , responseGetDocumentTextDetection $
+--             newGetDocumentTextDetectionResponse
+--
+--         , responseStartDocumentAnalysis $
+--             newStartDocumentAnalysisResponse
+--
+--         , responseStartDocumentTextDetection $
+--             newStartDocumentTextDetectionResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDetectDocumentText :: DetectDocumentText -> TestTree
-requestDetectDocumentText =
-  req
-    "DetectDocumentText"
-    "fixture/DetectDocumentText.yaml"
-
-requestStartDocumentAnalysis :: StartDocumentAnalysis -> TestTree
-requestStartDocumentAnalysis =
-  req
-    "StartDocumentAnalysis"
-    "fixture/StartDocumentAnalysis.yaml"
 
 requestAnalyzeDocument :: AnalyzeDocument -> TestTree
 requestAnalyzeDocument =
@@ -95,23 +83,17 @@ requestAnalyzeDocument =
     "AnalyzeDocument"
     "fixture/AnalyzeDocument.yaml"
 
-requestGetDocumentTextDetection :: GetDocumentTextDetection -> TestTree
-requestGetDocumentTextDetection =
-  req
-    "GetDocumentTextDetection"
-    "fixture/GetDocumentTextDetection.yaml"
-
 requestAnalyzeExpense :: AnalyzeExpense -> TestTree
 requestAnalyzeExpense =
   req
     "AnalyzeExpense"
     "fixture/AnalyzeExpense.yaml"
 
-requestStartDocumentTextDetection :: StartDocumentTextDetection -> TestTree
-requestStartDocumentTextDetection =
+requestDetectDocumentText :: DetectDocumentText -> TestTree
+requestDetectDocumentText =
   req
-    "StartDocumentTextDetection"
-    "fixture/StartDocumentTextDetection.yaml"
+    "DetectDocumentText"
+    "fixture/DetectDocumentText.yaml"
 
 requestGetDocumentAnalysis :: GetDocumentAnalysis -> TestTree
 requestGetDocumentAnalysis =
@@ -119,23 +101,25 @@ requestGetDocumentAnalysis =
     "GetDocumentAnalysis"
     "fixture/GetDocumentAnalysis.yaml"
 
+requestGetDocumentTextDetection :: GetDocumentTextDetection -> TestTree
+requestGetDocumentTextDetection =
+  req
+    "GetDocumentTextDetection"
+    "fixture/GetDocumentTextDetection.yaml"
+
+requestStartDocumentAnalysis :: StartDocumentAnalysis -> TestTree
+requestStartDocumentAnalysis =
+  req
+    "StartDocumentAnalysis"
+    "fixture/StartDocumentAnalysis.yaml"
+
+requestStartDocumentTextDetection :: StartDocumentTextDetection -> TestTree
+requestStartDocumentTextDetection =
+  req
+    "StartDocumentTextDetection"
+    "fixture/StartDocumentTextDetection.yaml"
+
 -- Responses
-
-responseDetectDocumentText :: DetectDocumentTextResponse -> TestTree
-responseDetectDocumentText =
-  res
-    "DetectDocumentTextResponse"
-    "fixture/DetectDocumentTextResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DetectDocumentText)
-
-responseStartDocumentAnalysis :: StartDocumentAnalysisResponse -> TestTree
-responseStartDocumentAnalysis =
-  res
-    "StartDocumentAnalysisResponse"
-    "fixture/StartDocumentAnalysisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartDocumentAnalysis)
 
 responseAnalyzeDocument :: AnalyzeDocumentResponse -> TestTree
 responseAnalyzeDocument =
@@ -145,14 +129,6 @@ responseAnalyzeDocument =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AnalyzeDocument)
 
-responseGetDocumentTextDetection :: GetDocumentTextDetectionResponse -> TestTree
-responseGetDocumentTextDetection =
-  res
-    "GetDocumentTextDetectionResponse"
-    "fixture/GetDocumentTextDetectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDocumentTextDetection)
-
 responseAnalyzeExpense :: AnalyzeExpenseResponse -> TestTree
 responseAnalyzeExpense =
   res
@@ -161,13 +137,13 @@ responseAnalyzeExpense =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AnalyzeExpense)
 
-responseStartDocumentTextDetection :: StartDocumentTextDetectionResponse -> TestTree
-responseStartDocumentTextDetection =
+responseDetectDocumentText :: DetectDocumentTextResponse -> TestTree
+responseDetectDocumentText =
   res
-    "StartDocumentTextDetectionResponse"
-    "fixture/StartDocumentTextDetectionResponse.proto"
+    "DetectDocumentTextResponse"
+    "fixture/DetectDocumentTextResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartDocumentTextDetection)
+    (Proxy.Proxy :: Proxy.Proxy DetectDocumentText)
 
 responseGetDocumentAnalysis :: GetDocumentAnalysisResponse -> TestTree
 responseGetDocumentAnalysis =
@@ -176,3 +152,27 @@ responseGetDocumentAnalysis =
     "fixture/GetDocumentAnalysisResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDocumentAnalysis)
+
+responseGetDocumentTextDetection :: GetDocumentTextDetectionResponse -> TestTree
+responseGetDocumentTextDetection =
+  res
+    "GetDocumentTextDetectionResponse"
+    "fixture/GetDocumentTextDetectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDocumentTextDetection)
+
+responseStartDocumentAnalysis :: StartDocumentAnalysisResponse -> TestTree
+responseStartDocumentAnalysis =
+  res
+    "StartDocumentAnalysisResponse"
+    "fixture/StartDocumentAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDocumentAnalysis)
+
+responseStartDocumentTextDetection :: StartDocumentTextDetectionResponse -> TestTree
+responseStartDocumentTextDetection =
+  res
+    "StartDocumentTextDetectionResponse"
+    "fixture/StartDocumentTextDetectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDocumentTextDetection)

@@ -36,8 +36,8 @@ module Amazonka.AppFlow.StopFlow
     newStopFlowResponse,
 
     -- * Response Lenses
-    stopFlowResponse_flowArn,
     stopFlowResponse_flowStatus,
+    stopFlowResponse_flowArn,
     stopFlowResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest StopFlow where
     Response.receiveJSON
       ( \s h x ->
           StopFlowResponse'
-            Prelude.<$> (x Core..?> "flowArn")
-            Prelude.<*> (x Core..?> "flowStatus")
+            Prelude.<$> (x Core..?> "flowStatus")
+            Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,10 +124,10 @@ instance Core.ToQuery StopFlow where
 
 -- | /See:/ 'newStopFlowResponse' smart constructor.
 data StopFlowResponse = StopFlowResponse'
-  { -- | The flow\'s Amazon Resource Name (ARN).
-    flowArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the current status of the flow.
+  { -- | Indicates the current status of the flow.
     flowStatus :: Prelude.Maybe FlowStatus,
+    -- | The flow\'s Amazon Resource Name (ARN).
+    flowArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,9 +141,9 @@ data StopFlowResponse = StopFlowResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flowArn', 'stopFlowResponse_flowArn' - The flow\'s Amazon Resource Name (ARN).
---
 -- 'flowStatus', 'stopFlowResponse_flowStatus' - Indicates the current status of the flow.
+--
+-- 'flowArn', 'stopFlowResponse_flowArn' - The flow\'s Amazon Resource Name (ARN).
 --
 -- 'httpStatus', 'stopFlowResponse_httpStatus' - The response's http status code.
 newStopFlowResponse ::
@@ -152,18 +152,18 @@ newStopFlowResponse ::
   StopFlowResponse
 newStopFlowResponse pHttpStatus_ =
   StopFlowResponse'
-    { flowArn = Prelude.Nothing,
-      flowStatus = Prelude.Nothing,
+    { flowStatus = Prelude.Nothing,
+      flowArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The flow\'s Amazon Resource Name (ARN).
-stopFlowResponse_flowArn :: Lens.Lens' StopFlowResponse (Prelude.Maybe Prelude.Text)
-stopFlowResponse_flowArn = Lens.lens (\StopFlowResponse' {flowArn} -> flowArn) (\s@StopFlowResponse' {} a -> s {flowArn = a} :: StopFlowResponse)
 
 -- | Indicates the current status of the flow.
 stopFlowResponse_flowStatus :: Lens.Lens' StopFlowResponse (Prelude.Maybe FlowStatus)
 stopFlowResponse_flowStatus = Lens.lens (\StopFlowResponse' {flowStatus} -> flowStatus) (\s@StopFlowResponse' {} a -> s {flowStatus = a} :: StopFlowResponse)
+
+-- | The flow\'s Amazon Resource Name (ARN).
+stopFlowResponse_flowArn :: Lens.Lens' StopFlowResponse (Prelude.Maybe Prelude.Text)
+stopFlowResponse_flowArn = Lens.lens (\StopFlowResponse' {flowArn} -> flowArn) (\s@StopFlowResponse' {} a -> s {flowArn = a} :: StopFlowResponse)
 
 -- | The response's http status code.
 stopFlowResponse_httpStatus :: Lens.Lens' StopFlowResponse Prelude.Int
@@ -171,6 +171,6 @@ stopFlowResponse_httpStatus = Lens.lens (\StopFlowResponse' {httpStatus} -> http
 
 instance Prelude.NFData StopFlowResponse where
   rnf StopFlowResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf flowStatus
+    Prelude.rnf flowStatus
+      `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf httpStatus

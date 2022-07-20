@@ -27,10 +27,10 @@ module Amazonka.AuditManager.GetChangeLogs
     newGetChangeLogs,
 
     -- * Request Lenses
-    getChangeLogs_controlSetId,
-    getChangeLogs_nextToken,
     getChangeLogs_controlId,
+    getChangeLogs_nextToken,
     getChangeLogs_maxResults,
+    getChangeLogs_controlSetId,
     getChangeLogs_assessmentId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.AuditManager.GetChangeLogs
     newGetChangeLogsResponse,
 
     -- * Response Lenses
-    getChangeLogsResponse_changeLogs,
     getChangeLogsResponse_nextToken,
+    getChangeLogsResponse_changeLogs,
     getChangeLogsResponse_httpStatus,
   )
 where
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetChangeLogs' smart constructor.
 data GetChangeLogs = GetChangeLogs'
-  { -- | The identifier for the specified control set.
-    controlSetId :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier for the specified control.
+    controlId :: Prelude.Maybe Prelude.Text,
     -- | The pagination token used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified control.
-    controlId :: Prelude.Maybe Prelude.Text,
     -- | Represents the maximum number of results per page, or per API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier for the specified control set.
+    controlSetId :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the specified assessment.
     assessmentId :: Prelude.Text
   }
@@ -75,14 +75,14 @@ data GetChangeLogs = GetChangeLogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlSetId', 'getChangeLogs_controlSetId' - The identifier for the specified control set.
+-- 'controlId', 'getChangeLogs_controlId' - The identifier for the specified control.
 --
 -- 'nextToken', 'getChangeLogs_nextToken' - The pagination token used to fetch the next set of results.
 --
--- 'controlId', 'getChangeLogs_controlId' - The identifier for the specified control.
---
 -- 'maxResults', 'getChangeLogs_maxResults' - Represents the maximum number of results per page, or per API request
 -- call.
+--
+-- 'controlSetId', 'getChangeLogs_controlSetId' - The identifier for the specified control set.
 --
 -- 'assessmentId', 'getChangeLogs_assessmentId' - The identifier for the specified assessment.
 newGetChangeLogs ::
@@ -91,29 +91,29 @@ newGetChangeLogs ::
   GetChangeLogs
 newGetChangeLogs pAssessmentId_ =
   GetChangeLogs'
-    { controlSetId = Prelude.Nothing,
+    { controlId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      controlId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      controlSetId = Prelude.Nothing,
       assessmentId = pAssessmentId_
     }
-
--- | The identifier for the specified control set.
-getChangeLogs_controlSetId :: Lens.Lens' GetChangeLogs (Prelude.Maybe Prelude.Text)
-getChangeLogs_controlSetId = Lens.lens (\GetChangeLogs' {controlSetId} -> controlSetId) (\s@GetChangeLogs' {} a -> s {controlSetId = a} :: GetChangeLogs)
-
--- | The pagination token used to fetch the next set of results.
-getChangeLogs_nextToken :: Lens.Lens' GetChangeLogs (Prelude.Maybe Prelude.Text)
-getChangeLogs_nextToken = Lens.lens (\GetChangeLogs' {nextToken} -> nextToken) (\s@GetChangeLogs' {} a -> s {nextToken = a} :: GetChangeLogs)
 
 -- | The identifier for the specified control.
 getChangeLogs_controlId :: Lens.Lens' GetChangeLogs (Prelude.Maybe Prelude.Text)
 getChangeLogs_controlId = Lens.lens (\GetChangeLogs' {controlId} -> controlId) (\s@GetChangeLogs' {} a -> s {controlId = a} :: GetChangeLogs)
 
+-- | The pagination token used to fetch the next set of results.
+getChangeLogs_nextToken :: Lens.Lens' GetChangeLogs (Prelude.Maybe Prelude.Text)
+getChangeLogs_nextToken = Lens.lens (\GetChangeLogs' {nextToken} -> nextToken) (\s@GetChangeLogs' {} a -> s {nextToken = a} :: GetChangeLogs)
+
 -- | Represents the maximum number of results per page, or per API request
 -- call.
 getChangeLogs_maxResults :: Lens.Lens' GetChangeLogs (Prelude.Maybe Prelude.Natural)
 getChangeLogs_maxResults = Lens.lens (\GetChangeLogs' {maxResults} -> maxResults) (\s@GetChangeLogs' {} a -> s {maxResults = a} :: GetChangeLogs)
+
+-- | The identifier for the specified control set.
+getChangeLogs_controlSetId :: Lens.Lens' GetChangeLogs (Prelude.Maybe Prelude.Text)
+getChangeLogs_controlSetId = Lens.lens (\GetChangeLogs' {controlSetId} -> controlSetId) (\s@GetChangeLogs' {} a -> s {controlSetId = a} :: GetChangeLogs)
 
 -- | The identifier for the specified assessment.
 getChangeLogs_assessmentId :: Lens.Lens' GetChangeLogs Prelude.Text
@@ -128,25 +128,25 @@ instance Core.AWSRequest GetChangeLogs where
     Response.receiveJSON
       ( \s h x ->
           GetChangeLogsResponse'
-            Prelude.<$> (x Core..?> "changeLogs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "changeLogs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetChangeLogs where
   hashWithSalt _salt GetChangeLogs' {..} =
-    _salt `Prelude.hashWithSalt` controlSetId
+    _salt `Prelude.hashWithSalt` controlId
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` controlId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` assessmentId
 
 instance Prelude.NFData GetChangeLogs where
   rnf GetChangeLogs' {..} =
-    Prelude.rnf controlSetId
+    Prelude.rnf controlId
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controlId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf controlSetId
       `Prelude.seq` Prelude.rnf assessmentId
 
 instance Core.ToHeaders GetChangeLogs where
@@ -171,18 +171,18 @@ instance Core.ToPath GetChangeLogs where
 instance Core.ToQuery GetChangeLogs where
   toQuery GetChangeLogs' {..} =
     Prelude.mconcat
-      [ "controlSetId" Core.=: controlSetId,
+      [ "controlId" Core.=: controlId,
         "nextToken" Core.=: nextToken,
-        "controlId" Core.=: controlId,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "controlSetId" Core.=: controlSetId
       ]
 
 -- | /See:/ 'newGetChangeLogsResponse' smart constructor.
 data GetChangeLogsResponse = GetChangeLogsResponse'
-  { -- | The list of user activity for the control.
-    changeLogs :: Prelude.Maybe [ChangeLog],
-    -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of user activity for the control.
+    changeLogs :: Prelude.Maybe [ChangeLog],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,9 +196,9 @@ data GetChangeLogsResponse = GetChangeLogsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'changeLogs', 'getChangeLogsResponse_changeLogs' - The list of user activity for the control.
---
 -- 'nextToken', 'getChangeLogsResponse_nextToken' - The pagination token used to fetch the next set of results.
+--
+-- 'changeLogs', 'getChangeLogsResponse_changeLogs' - The list of user activity for the control.
 --
 -- 'httpStatus', 'getChangeLogsResponse_httpStatus' - The response's http status code.
 newGetChangeLogsResponse ::
@@ -207,19 +207,18 @@ newGetChangeLogsResponse ::
   GetChangeLogsResponse
 newGetChangeLogsResponse pHttpStatus_ =
   GetChangeLogsResponse'
-    { changeLogs =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      changeLogs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of user activity for the control.
-getChangeLogsResponse_changeLogs :: Lens.Lens' GetChangeLogsResponse (Prelude.Maybe [ChangeLog])
-getChangeLogsResponse_changeLogs = Lens.lens (\GetChangeLogsResponse' {changeLogs} -> changeLogs) (\s@GetChangeLogsResponse' {} a -> s {changeLogs = a} :: GetChangeLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to fetch the next set of results.
 getChangeLogsResponse_nextToken :: Lens.Lens' GetChangeLogsResponse (Prelude.Maybe Prelude.Text)
 getChangeLogsResponse_nextToken = Lens.lens (\GetChangeLogsResponse' {nextToken} -> nextToken) (\s@GetChangeLogsResponse' {} a -> s {nextToken = a} :: GetChangeLogsResponse)
+
+-- | The list of user activity for the control.
+getChangeLogsResponse_changeLogs :: Lens.Lens' GetChangeLogsResponse (Prelude.Maybe [ChangeLog])
+getChangeLogsResponse_changeLogs = Lens.lens (\GetChangeLogsResponse' {changeLogs} -> changeLogs) (\s@GetChangeLogsResponse' {} a -> s {changeLogs = a} :: GetChangeLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getChangeLogsResponse_httpStatus :: Lens.Lens' GetChangeLogsResponse Prelude.Int
@@ -227,6 +226,6 @@ getChangeLogsResponse_httpStatus = Lens.lens (\GetChangeLogsResponse' {httpStatu
 
 instance Prelude.NFData GetChangeLogsResponse where
   rnf GetChangeLogsResponse' {..} =
-    Prelude.rnf changeLogs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf changeLogs
       `Prelude.seq` Prelude.rnf httpStatus

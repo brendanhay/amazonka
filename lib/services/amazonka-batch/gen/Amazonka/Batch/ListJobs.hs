@@ -40,10 +40,10 @@ module Amazonka.Batch.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_filters,
     listJobs_nextToken,
-    listJobs_multiNodeJobId,
     listJobs_jobStatus,
+    listJobs_multiNodeJobId,
+    listJobs_filters,
     listJobs_arrayJobId,
     listJobs_jobQueue,
     listJobs_maxResults,
@@ -70,7 +70,26 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | The filter to apply to the query. Only one filter can be used at a time.
+  { -- | The @nextToken@ value returned from a previous paginated @ListJobs@
+    -- request where @maxResults@ was used and the results exceeded the value
+    -- of that parameter. Pagination continues from the end of the previous
+    -- results that returned the @nextToken@ value. This value is @null@ when
+    -- there are no more results to return.
+    --
+    -- This token should be treated as an opaque identifier that\'s only used
+    -- to retrieve the next items in a list and not for other programmatic
+    -- purposes.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The job status used to filter jobs in the specified queue. If the
+    -- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+    -- and jobs with any status are returned. If you don\'t specify a status,
+    -- only @RUNNING@ jobs are returned.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | The job ID for a multi-node parallel job. Specifying a multi-node
+    -- parallel job ID with this parameter lists all nodes that are associated
+    -- with the specified job.
+    multiNodeJobId :: Prelude.Maybe Prelude.Text,
+    -- | The filter to apply to the query. Only one filter can be used at a time.
     -- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
     -- apply to child jobs in an array or multi-node parallel (MNP) jobs. The
     -- results are sorted by the @createdAt@ field, with the most recent jobs
@@ -113,25 +132,6 @@ data ListJobs = ListJobs'
     --     string representation of the number of seconds since 00:00:00 UTC
     --     (midnight) on January 1, 1970.
     filters :: Prelude.Maybe [KeyValuesPair],
-    -- | The @nextToken@ value returned from a previous paginated @ListJobs@
-    -- request where @maxResults@ was used and the results exceeded the value
-    -- of that parameter. Pagination continues from the end of the previous
-    -- results that returned the @nextToken@ value. This value is @null@ when
-    -- there are no more results to return.
-    --
-    -- This token should be treated as an opaque identifier that\'s only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The job ID for a multi-node parallel job. Specifying a multi-node
-    -- parallel job ID with this parameter lists all nodes that are associated
-    -- with the specified job.
-    multiNodeJobId :: Prelude.Maybe Prelude.Text,
-    -- | The job status used to filter jobs in the specified queue. If the
-    -- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
-    -- and jobs with any status are returned. If you don\'t specify a status,
-    -- only @RUNNING@ jobs are returned.
-    jobStatus :: Prelude.Maybe JobStatus,
     -- | The job ID for an array job. Specifying an array job ID with this
     -- parameter lists all child jobs from within the specified array.
     arrayJobId :: Prelude.Maybe Prelude.Text,
@@ -157,6 +157,25 @@ data ListJobs = ListJobs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listJobs_nextToken' - The @nextToken@ value returned from a previous paginated @ListJobs@
+-- request where @maxResults@ was used and the results exceeded the value
+-- of that parameter. Pagination continues from the end of the previous
+-- results that returned the @nextToken@ value. This value is @null@ when
+-- there are no more results to return.
+--
+-- This token should be treated as an opaque identifier that\'s only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
+--
+-- 'jobStatus', 'listJobs_jobStatus' - The job status used to filter jobs in the specified queue. If the
+-- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+-- and jobs with any status are returned. If you don\'t specify a status,
+-- only @RUNNING@ jobs are returned.
+--
+-- 'multiNodeJobId', 'listJobs_multiNodeJobId' - The job ID for a multi-node parallel job. Specifying a multi-node
+-- parallel job ID with this parameter lists all nodes that are associated
+-- with the specified job.
 --
 -- 'filters', 'listJobs_filters' - The filter to apply to the query. Only one filter can be used at a time.
 -- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
@@ -201,25 +220,6 @@ data ListJobs = ListJobs'
 --     string representation of the number of seconds since 00:00:00 UTC
 --     (midnight) on January 1, 1970.
 --
--- 'nextToken', 'listJobs_nextToken' - The @nextToken@ value returned from a previous paginated @ListJobs@
--- request where @maxResults@ was used and the results exceeded the value
--- of that parameter. Pagination continues from the end of the previous
--- results that returned the @nextToken@ value. This value is @null@ when
--- there are no more results to return.
---
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
---
--- 'multiNodeJobId', 'listJobs_multiNodeJobId' - The job ID for a multi-node parallel job. Specifying a multi-node
--- parallel job ID with this parameter lists all nodes that are associated
--- with the specified job.
---
--- 'jobStatus', 'listJobs_jobStatus' - The job status used to filter jobs in the specified queue. If the
--- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
--- and jobs with any status are returned. If you don\'t specify a status,
--- only @RUNNING@ jobs are returned.
---
 -- 'arrayJobId', 'listJobs_arrayJobId' - The job ID for an array job. Specifying an array job ID with this
 -- parameter lists all child jobs from within the specified array.
 --
@@ -238,14 +238,39 @@ newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      multiNodeJobId = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
+      multiNodeJobId = Prelude.Nothing,
+      filters = Prelude.Nothing,
       arrayJobId = Prelude.Nothing,
       jobQueue = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The @nextToken@ value returned from a previous paginated @ListJobs@
+-- request where @maxResults@ was used and the results exceeded the value
+-- of that parameter. Pagination continues from the end of the previous
+-- results that returned the @nextToken@ value. This value is @null@ when
+-- there are no more results to return.
+--
+-- This token should be treated as an opaque identifier that\'s only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
+listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
+
+-- | The job status used to filter jobs in the specified queue. If the
+-- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+-- and jobs with any status are returned. If you don\'t specify a status,
+-- only @RUNNING@ jobs are returned.
+listJobs_jobStatus :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
+listJobs_jobStatus = Lens.lens (\ListJobs' {jobStatus} -> jobStatus) (\s@ListJobs' {} a -> s {jobStatus = a} :: ListJobs)
+
+-- | The job ID for a multi-node parallel job. Specifying a multi-node
+-- parallel job ID with this parameter lists all nodes that are associated
+-- with the specified job.
+listJobs_multiNodeJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_multiNodeJobId = Lens.lens (\ListJobs' {multiNodeJobId} -> multiNodeJobId) (\s@ListJobs' {} a -> s {multiNodeJobId = a} :: ListJobs)
 
 -- | The filter to apply to the query. Only one filter can be used at a time.
 -- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
@@ -291,31 +316,6 @@ newListJobs =
 --     (midnight) on January 1, 1970.
 listJobs_filters :: Lens.Lens' ListJobs (Prelude.Maybe [KeyValuesPair])
 listJobs_filters = Lens.lens (\ListJobs' {filters} -> filters) (\s@ListJobs' {} a -> s {filters = a} :: ListJobs) Prelude.. Lens.mapping Lens.coerced
-
--- | The @nextToken@ value returned from a previous paginated @ListJobs@
--- request where @maxResults@ was used and the results exceeded the value
--- of that parameter. Pagination continues from the end of the previous
--- results that returned the @nextToken@ value. This value is @null@ when
--- there are no more results to return.
---
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
-listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
-
--- | The job ID for a multi-node parallel job. Specifying a multi-node
--- parallel job ID with this parameter lists all nodes that are associated
--- with the specified job.
-listJobs_multiNodeJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_multiNodeJobId = Lens.lens (\ListJobs' {multiNodeJobId} -> multiNodeJobId) (\s@ListJobs' {} a -> s {multiNodeJobId = a} :: ListJobs)
-
--- | The job status used to filter jobs in the specified queue. If the
--- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
--- and jobs with any status are returned. If you don\'t specify a status,
--- only @RUNNING@ jobs are returned.
-listJobs_jobStatus :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
-listJobs_jobStatus = Lens.lens (\ListJobs' {jobStatus} -> jobStatus) (\s@ListJobs' {} a -> s {jobStatus = a} :: ListJobs)
 
 -- | The job ID for an array job. Specifying an array job ID with this
 -- parameter lists all child jobs from within the specified array.
@@ -371,20 +371,20 @@ instance Core.AWSRequest ListJobs where
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` multiNodeJobId
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` multiNodeJobId
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` arrayJobId
       `Prelude.hashWithSalt` jobQueue
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf multiNodeJobId
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf multiNodeJobId
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf arrayJobId
       `Prelude.seq` Prelude.rnf jobQueue
       `Prelude.seq` Prelude.rnf maxResults
@@ -404,11 +404,11 @@ instance Core.ToJSON ListJobs where
   toJSON ListJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("jobStatus" Core..=) Prelude.<$> jobStatus,
             ("multiNodeJobId" Core..=)
               Prelude.<$> multiNodeJobId,
-            ("jobStatus" Core..=) Prelude.<$> jobStatus,
+            ("filters" Core..=) Prelude.<$> filters,
             ("arrayJobId" Core..=) Prelude.<$> arrayJobId,
             ("jobQueue" Core..=) Prelude.<$> jobQueue,
             ("maxResults" Core..=) Prelude.<$> maxResults

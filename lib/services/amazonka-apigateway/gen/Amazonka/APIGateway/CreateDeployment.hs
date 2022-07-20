@@ -28,14 +28,14 @@ module Amazonka.APIGateway.CreateDeployment
     newCreateDeployment,
 
     -- * Request Lenses
-    createDeployment_stageDescription,
-    createDeployment_variables,
+    createDeployment_stageName,
+    createDeployment_cacheClusterEnabled,
+    createDeployment_description,
     createDeployment_tracingEnabled,
     createDeployment_cacheClusterSize,
     createDeployment_canarySettings,
-    createDeployment_cacheClusterEnabled,
-    createDeployment_stageName,
-    createDeployment_description,
+    createDeployment_variables,
+    createDeployment_stageDescription,
     createDeployment_restApiId,
 
     -- * Destructuring the Response
@@ -43,10 +43,10 @@ module Amazonka.APIGateway.CreateDeployment
     newDeployment,
 
     -- * Response Lenses
-    deployment_apiSummary,
-    deployment_createdDate,
-    deployment_id,
     deployment_description,
+    deployment_id,
+    deployment_createdDate,
+    deployment_apiSummary,
   )
 where
 
@@ -61,14 +61,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { -- | The description of the Stage resource for the Deployment resource to
-    -- create.
-    stageDescription :: Prelude.Maybe Prelude.Text,
-    -- | A map that defines the stage variables for the Stage resource that is
-    -- associated with the new deployment. Variable names can have alphanumeric
-    -- and underscore characters, and the values must match
-    -- @[A-Za-z0-9-._~:\/?#&=,]+@.
-    variables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The name of the Stage resource for the Deployment resource to create.
+    stageName :: Prelude.Maybe Prelude.Text,
+    -- | Enables a cache cluster for the Stage resource specified in the input.
+    cacheClusterEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The description for the Deployment resource to create.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether active tracing with X-ray is enabled for the Stage.
     tracingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the cache cluster size for the Stage resource specified in the
@@ -77,12 +75,14 @@ data CreateDeployment = CreateDeployment'
     -- | The input configuration for the canary deployment when the deployment is
     -- a canary release deployment.
     canarySettings :: Prelude.Maybe DeploymentCanarySettings,
-    -- | Enables a cache cluster for the Stage resource specified in the input.
-    cacheClusterEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the Stage resource for the Deployment resource to create.
-    stageName :: Prelude.Maybe Prelude.Text,
-    -- | The description for the Deployment resource to create.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | A map that defines the stage variables for the Stage resource that is
+    -- associated with the new deployment. Variable names can have alphanumeric
+    -- and underscore characters, and the values must match
+    -- @[A-Za-z0-9-._~:\/?#&=,]+@.
+    variables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the Stage resource for the Deployment resource to
+    -- create.
+    stageDescription :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -96,13 +96,11 @@ data CreateDeployment = CreateDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stageDescription', 'createDeployment_stageDescription' - The description of the Stage resource for the Deployment resource to
--- create.
+-- 'stageName', 'createDeployment_stageName' - The name of the Stage resource for the Deployment resource to create.
 --
--- 'variables', 'createDeployment_variables' - A map that defines the stage variables for the Stage resource that is
--- associated with the new deployment. Variable names can have alphanumeric
--- and underscore characters, and the values must match
--- @[A-Za-z0-9-._~:\/?#&=,]+@.
+-- 'cacheClusterEnabled', 'createDeployment_cacheClusterEnabled' - Enables a cache cluster for the Stage resource specified in the input.
+--
+-- 'description', 'createDeployment_description' - The description for the Deployment resource to create.
 --
 -- 'tracingEnabled', 'createDeployment_tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the Stage.
 --
@@ -112,11 +110,13 @@ data CreateDeployment = CreateDeployment'
 -- 'canarySettings', 'createDeployment_canarySettings' - The input configuration for the canary deployment when the deployment is
 -- a canary release deployment.
 --
--- 'cacheClusterEnabled', 'createDeployment_cacheClusterEnabled' - Enables a cache cluster for the Stage resource specified in the input.
+-- 'variables', 'createDeployment_variables' - A map that defines the stage variables for the Stage resource that is
+-- associated with the new deployment. Variable names can have alphanumeric
+-- and underscore characters, and the values must match
+-- @[A-Za-z0-9-._~:\/?#&=,]+@.
 --
--- 'stageName', 'createDeployment_stageName' - The name of the Stage resource for the Deployment resource to create.
---
--- 'description', 'createDeployment_description' - The description for the Deployment resource to create.
+-- 'stageDescription', 'createDeployment_stageDescription' - The description of the Stage resource for the Deployment resource to
+-- create.
 --
 -- 'restApiId', 'createDeployment_restApiId' - [Required] The string identifier of the associated RestApi.
 newCreateDeployment ::
@@ -125,29 +125,28 @@ newCreateDeployment ::
   CreateDeployment
 newCreateDeployment pRestApiId_ =
   CreateDeployment'
-    { stageDescription =
-        Prelude.Nothing,
-      variables = Prelude.Nothing,
+    { stageName = Prelude.Nothing,
+      cacheClusterEnabled = Prelude.Nothing,
+      description = Prelude.Nothing,
       tracingEnabled = Prelude.Nothing,
       cacheClusterSize = Prelude.Nothing,
       canarySettings = Prelude.Nothing,
-      cacheClusterEnabled = Prelude.Nothing,
-      stageName = Prelude.Nothing,
-      description = Prelude.Nothing,
+      variables = Prelude.Nothing,
+      stageDescription = Prelude.Nothing,
       restApiId = pRestApiId_
     }
 
--- | The description of the Stage resource for the Deployment resource to
--- create.
-createDeployment_stageDescription :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
-createDeployment_stageDescription = Lens.lens (\CreateDeployment' {stageDescription} -> stageDescription) (\s@CreateDeployment' {} a -> s {stageDescription = a} :: CreateDeployment)
+-- | The name of the Stage resource for the Deployment resource to create.
+createDeployment_stageName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_stageName = Lens.lens (\CreateDeployment' {stageName} -> stageName) (\s@CreateDeployment' {} a -> s {stageName = a} :: CreateDeployment)
 
--- | A map that defines the stage variables for the Stage resource that is
--- associated with the new deployment. Variable names can have alphanumeric
--- and underscore characters, and the values must match
--- @[A-Za-z0-9-._~:\/?#&=,]+@.
-createDeployment_variables :: Lens.Lens' CreateDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDeployment_variables = Lens.lens (\CreateDeployment' {variables} -> variables) (\s@CreateDeployment' {} a -> s {variables = a} :: CreateDeployment) Prelude.. Lens.mapping Lens.coerced
+-- | Enables a cache cluster for the Stage resource specified in the input.
+createDeployment_cacheClusterEnabled :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
+createDeployment_cacheClusterEnabled = Lens.lens (\CreateDeployment' {cacheClusterEnabled} -> cacheClusterEnabled) (\s@CreateDeployment' {} a -> s {cacheClusterEnabled = a} :: CreateDeployment)
+
+-- | The description for the Deployment resource to create.
+createDeployment_description :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_description = Lens.lens (\CreateDeployment' {description} -> description) (\s@CreateDeployment' {} a -> s {description = a} :: CreateDeployment)
 
 -- | Specifies whether active tracing with X-ray is enabled for the Stage.
 createDeployment_tracingEnabled :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
@@ -163,17 +162,17 @@ createDeployment_cacheClusterSize = Lens.lens (\CreateDeployment' {cacheClusterS
 createDeployment_canarySettings :: Lens.Lens' CreateDeployment (Prelude.Maybe DeploymentCanarySettings)
 createDeployment_canarySettings = Lens.lens (\CreateDeployment' {canarySettings} -> canarySettings) (\s@CreateDeployment' {} a -> s {canarySettings = a} :: CreateDeployment)
 
--- | Enables a cache cluster for the Stage resource specified in the input.
-createDeployment_cacheClusterEnabled :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
-createDeployment_cacheClusterEnabled = Lens.lens (\CreateDeployment' {cacheClusterEnabled} -> cacheClusterEnabled) (\s@CreateDeployment' {} a -> s {cacheClusterEnabled = a} :: CreateDeployment)
+-- | A map that defines the stage variables for the Stage resource that is
+-- associated with the new deployment. Variable names can have alphanumeric
+-- and underscore characters, and the values must match
+-- @[A-Za-z0-9-._~:\/?#&=,]+@.
+createDeployment_variables :: Lens.Lens' CreateDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDeployment_variables = Lens.lens (\CreateDeployment' {variables} -> variables) (\s@CreateDeployment' {} a -> s {variables = a} :: CreateDeployment) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the Stage resource for the Deployment resource to create.
-createDeployment_stageName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
-createDeployment_stageName = Lens.lens (\CreateDeployment' {stageName} -> stageName) (\s@CreateDeployment' {} a -> s {stageName = a} :: CreateDeployment)
-
--- | The description for the Deployment resource to create.
-createDeployment_description :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
-createDeployment_description = Lens.lens (\CreateDeployment' {description} -> description) (\s@CreateDeployment' {} a -> s {description = a} :: CreateDeployment)
+-- | The description of the Stage resource for the Deployment resource to
+-- create.
+createDeployment_stageDescription :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_stageDescription = Lens.lens (\CreateDeployment' {stageDescription} -> stageDescription) (\s@CreateDeployment' {} a -> s {stageDescription = a} :: CreateDeployment)
 
 -- | [Required] The string identifier of the associated RestApi.
 createDeployment_restApiId :: Lens.Lens' CreateDeployment Prelude.Text
@@ -188,26 +187,26 @@ instance Core.AWSRequest CreateDeployment where
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =
-    _salt `Prelude.hashWithSalt` stageDescription
-      `Prelude.hashWithSalt` variables
+    _salt `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` cacheClusterEnabled
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tracingEnabled
       `Prelude.hashWithSalt` cacheClusterSize
       `Prelude.hashWithSalt` canarySettings
-      `Prelude.hashWithSalt` cacheClusterEnabled
-      `Prelude.hashWithSalt` stageName
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` variables
+      `Prelude.hashWithSalt` stageDescription
       `Prelude.hashWithSalt` restApiId
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf stageDescription
-      `Prelude.seq` Prelude.rnf variables
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf cacheClusterEnabled
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf tracingEnabled
       `Prelude.seq` Prelude.rnf cacheClusterSize
       `Prelude.seq` Prelude.rnf canarySettings
-      `Prelude.seq` Prelude.rnf cacheClusterEnabled
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf variables
+      `Prelude.seq` Prelude.rnf stageDescription
       `Prelude.seq` Prelude.rnf restApiId
 
 instance Core.ToHeaders CreateDeployment where
@@ -223,19 +222,19 @@ instance Core.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("stageDescription" Core..=)
-              Prelude.<$> stageDescription,
-            ("variables" Core..=) Prelude.<$> variables,
+          [ ("stageName" Core..=) Prelude.<$> stageName,
+            ("cacheClusterEnabled" Core..=)
+              Prelude.<$> cacheClusterEnabled,
+            ("description" Core..=) Prelude.<$> description,
             ("tracingEnabled" Core..=)
               Prelude.<$> tracingEnabled,
             ("cacheClusterSize" Core..=)
               Prelude.<$> cacheClusterSize,
             ("canarySettings" Core..=)
               Prelude.<$> canarySettings,
-            ("cacheClusterEnabled" Core..=)
-              Prelude.<$> cacheClusterEnabled,
-            ("stageName" Core..=) Prelude.<$> stageName,
-            ("description" Core..=) Prelude.<$> description
+            ("variables" Core..=) Prelude.<$> variables,
+            ("stageDescription" Core..=)
+              Prelude.<$> stageDescription
           ]
       )
 

@@ -30,16 +30,16 @@ module Amazonka.SageMaker.ListStudioLifecycleConfigs
     newListStudioLifecycleConfigs,
 
     -- * Request Lenses
-    listStudioLifecycleConfigs_nameContains,
-    listStudioLifecycleConfigs_creationTimeAfter,
-    listStudioLifecycleConfigs_modifiedTimeAfter,
-    listStudioLifecycleConfigs_nextToken,
-    listStudioLifecycleConfigs_sortOrder,
-    listStudioLifecycleConfigs_creationTimeBefore,
-    listStudioLifecycleConfigs_modifiedTimeBefore,
     listStudioLifecycleConfigs_appTypeEquals,
-    listStudioLifecycleConfigs_maxResults,
+    listStudioLifecycleConfigs_sortOrder,
+    listStudioLifecycleConfigs_nextToken,
+    listStudioLifecycleConfigs_nameContains,
+    listStudioLifecycleConfigs_creationTimeBefore,
     listStudioLifecycleConfigs_sortBy,
+    listStudioLifecycleConfigs_modifiedTimeBefore,
+    listStudioLifecycleConfigs_modifiedTimeAfter,
+    listStudioLifecycleConfigs_maxResults,
+    listStudioLifecycleConfigs_creationTimeAfter,
 
     -- * Destructuring the Response
     ListStudioLifecycleConfigsResponse (..),
@@ -61,35 +61,35 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListStudioLifecycleConfigs' smart constructor.
 data ListStudioLifecycleConfigs = ListStudioLifecycleConfigs'
-  { -- | A string in the Lifecycle Configuration name. This filter returns only
-    -- Lifecycle Configurations whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only Lifecycle Configurations created on or after
-    -- the specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | A filter that returns only Lifecycle Configurations modified after the
-    -- specified time.
-    modifiedTimeAfter :: Prelude.Maybe Core.POSIX,
+  { -- | A parameter to search for the App Type to which the Lifecycle
+    -- Configuration is attached.
+    appTypeEquals :: Prelude.Maybe StudioLifecycleConfigAppType,
+    -- | The sort order. The default value is Descending.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the previous call to ListStudioLifecycleConfigs didn\'t return the
     -- full set of Lifecycle Configurations, the call returns a token for
     -- getting the next set of Lifecycle Configurations.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sort order. The default value is Descending.
-    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A string in the Lifecycle Configuration name. This filter returns only
+    -- Lifecycle Configurations whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only Lifecycle Configurations created on or before
     -- the specified time.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The property used to sort results. The default value is CreationTime.
+    sortBy :: Prelude.Maybe StudioLifecycleConfigSortKey,
     -- | A filter that returns only Lifecycle Configurations modified before the
     -- specified time.
     modifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | A parameter to search for the App Type to which the Lifecycle
-    -- Configuration is attached.
-    appTypeEquals :: Prelude.Maybe StudioLifecycleConfigAppType,
+    -- | A filter that returns only Lifecycle Configurations modified after the
+    -- specified time.
+    modifiedTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of Studio Lifecycle Configurations to return in the
     -- response. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The property used to sort results. The default value is CreationTime.
-    sortBy :: Prelude.Maybe StudioLifecycleConfigSortKey
+    -- | A filter that returns only Lifecycle Configurations created on or after
+    -- the specified time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,65 +101,59 @@ data ListStudioLifecycleConfigs = ListStudioLifecycleConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nameContains', 'listStudioLifecycleConfigs_nameContains' - A string in the Lifecycle Configuration name. This filter returns only
--- Lifecycle Configurations whose name contains the specified string.
+-- 'appTypeEquals', 'listStudioLifecycleConfigs_appTypeEquals' - A parameter to search for the App Type to which the Lifecycle
+-- Configuration is attached.
 --
--- 'creationTimeAfter', 'listStudioLifecycleConfigs_creationTimeAfter' - A filter that returns only Lifecycle Configurations created on or after
--- the specified time.
---
--- 'modifiedTimeAfter', 'listStudioLifecycleConfigs_modifiedTimeAfter' - A filter that returns only Lifecycle Configurations modified after the
--- specified time.
+-- 'sortOrder', 'listStudioLifecycleConfigs_sortOrder' - The sort order. The default value is Descending.
 --
 -- 'nextToken', 'listStudioLifecycleConfigs_nextToken' - If the previous call to ListStudioLifecycleConfigs didn\'t return the
 -- full set of Lifecycle Configurations, the call returns a token for
 -- getting the next set of Lifecycle Configurations.
 --
--- 'sortOrder', 'listStudioLifecycleConfigs_sortOrder' - The sort order. The default value is Descending.
+-- 'nameContains', 'listStudioLifecycleConfigs_nameContains' - A string in the Lifecycle Configuration name. This filter returns only
+-- Lifecycle Configurations whose name contains the specified string.
 --
 -- 'creationTimeBefore', 'listStudioLifecycleConfigs_creationTimeBefore' - A filter that returns only Lifecycle Configurations created on or before
 -- the specified time.
 --
+-- 'sortBy', 'listStudioLifecycleConfigs_sortBy' - The property used to sort results. The default value is CreationTime.
+--
 -- 'modifiedTimeBefore', 'listStudioLifecycleConfigs_modifiedTimeBefore' - A filter that returns only Lifecycle Configurations modified before the
 -- specified time.
 --
--- 'appTypeEquals', 'listStudioLifecycleConfigs_appTypeEquals' - A parameter to search for the App Type to which the Lifecycle
--- Configuration is attached.
+-- 'modifiedTimeAfter', 'listStudioLifecycleConfigs_modifiedTimeAfter' - A filter that returns only Lifecycle Configurations modified after the
+-- specified time.
 --
 -- 'maxResults', 'listStudioLifecycleConfigs_maxResults' - The maximum number of Studio Lifecycle Configurations to return in the
 -- response. The default value is 10.
 --
--- 'sortBy', 'listStudioLifecycleConfigs_sortBy' - The property used to sort results. The default value is CreationTime.
+-- 'creationTimeAfter', 'listStudioLifecycleConfigs_creationTimeAfter' - A filter that returns only Lifecycle Configurations created on or after
+-- the specified time.
 newListStudioLifecycleConfigs ::
   ListStudioLifecycleConfigs
 newListStudioLifecycleConfigs =
   ListStudioLifecycleConfigs'
-    { nameContains =
+    { appTypeEquals =
         Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
-      modifiedTimeAfter = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       modifiedTimeBefore = Prelude.Nothing,
-      appTypeEquals = Prelude.Nothing,
+      modifiedTimeAfter = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      creationTimeAfter = Prelude.Nothing
     }
 
--- | A string in the Lifecycle Configuration name. This filter returns only
--- Lifecycle Configurations whose name contains the specified string.
-listStudioLifecycleConfigs_nameContains :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.Text)
-listStudioLifecycleConfigs_nameContains = Lens.lens (\ListStudioLifecycleConfigs' {nameContains} -> nameContains) (\s@ListStudioLifecycleConfigs' {} a -> s {nameContains = a} :: ListStudioLifecycleConfigs)
+-- | A parameter to search for the App Type to which the Lifecycle
+-- Configuration is attached.
+listStudioLifecycleConfigs_appTypeEquals :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe StudioLifecycleConfigAppType)
+listStudioLifecycleConfigs_appTypeEquals = Lens.lens (\ListStudioLifecycleConfigs' {appTypeEquals} -> appTypeEquals) (\s@ListStudioLifecycleConfigs' {} a -> s {appTypeEquals = a} :: ListStudioLifecycleConfigs)
 
--- | A filter that returns only Lifecycle Configurations created on or after
--- the specified time.
-listStudioLifecycleConfigs_creationTimeAfter :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
-listStudioLifecycleConfigs_creationTimeAfter = Lens.lens (\ListStudioLifecycleConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListStudioLifecycleConfigs' {} a -> s {creationTimeAfter = a} :: ListStudioLifecycleConfigs) Prelude.. Lens.mapping Core._Time
-
--- | A filter that returns only Lifecycle Configurations modified after the
--- specified time.
-listStudioLifecycleConfigs_modifiedTimeAfter :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
-listStudioLifecycleConfigs_modifiedTimeAfter = Lens.lens (\ListStudioLifecycleConfigs' {modifiedTimeAfter} -> modifiedTimeAfter) (\s@ListStudioLifecycleConfigs' {} a -> s {modifiedTimeAfter = a} :: ListStudioLifecycleConfigs) Prelude.. Lens.mapping Core._Time
+-- | The sort order. The default value is Descending.
+listStudioLifecycleConfigs_sortOrder :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe SortOrder)
+listStudioLifecycleConfigs_sortOrder = Lens.lens (\ListStudioLifecycleConfigs' {sortOrder} -> sortOrder) (\s@ListStudioLifecycleConfigs' {} a -> s {sortOrder = a} :: ListStudioLifecycleConfigs)
 
 -- | If the previous call to ListStudioLifecycleConfigs didn\'t return the
 -- full set of Lifecycle Configurations, the call returns a token for
@@ -167,33 +161,39 @@ listStudioLifecycleConfigs_modifiedTimeAfter = Lens.lens (\ListStudioLifecycleCo
 listStudioLifecycleConfigs_nextToken :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.Text)
 listStudioLifecycleConfigs_nextToken = Lens.lens (\ListStudioLifecycleConfigs' {nextToken} -> nextToken) (\s@ListStudioLifecycleConfigs' {} a -> s {nextToken = a} :: ListStudioLifecycleConfigs)
 
--- | The sort order. The default value is Descending.
-listStudioLifecycleConfigs_sortOrder :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe SortOrder)
-listStudioLifecycleConfigs_sortOrder = Lens.lens (\ListStudioLifecycleConfigs' {sortOrder} -> sortOrder) (\s@ListStudioLifecycleConfigs' {} a -> s {sortOrder = a} :: ListStudioLifecycleConfigs)
+-- | A string in the Lifecycle Configuration name. This filter returns only
+-- Lifecycle Configurations whose name contains the specified string.
+listStudioLifecycleConfigs_nameContains :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.Text)
+listStudioLifecycleConfigs_nameContains = Lens.lens (\ListStudioLifecycleConfigs' {nameContains} -> nameContains) (\s@ListStudioLifecycleConfigs' {} a -> s {nameContains = a} :: ListStudioLifecycleConfigs)
 
 -- | A filter that returns only Lifecycle Configurations created on or before
 -- the specified time.
 listStudioLifecycleConfigs_creationTimeBefore :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
 listStudioLifecycleConfigs_creationTimeBefore = Lens.lens (\ListStudioLifecycleConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListStudioLifecycleConfigs' {} a -> s {creationTimeBefore = a} :: ListStudioLifecycleConfigs) Prelude.. Lens.mapping Core._Time
 
+-- | The property used to sort results. The default value is CreationTime.
+listStudioLifecycleConfigs_sortBy :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe StudioLifecycleConfigSortKey)
+listStudioLifecycleConfigs_sortBy = Lens.lens (\ListStudioLifecycleConfigs' {sortBy} -> sortBy) (\s@ListStudioLifecycleConfigs' {} a -> s {sortBy = a} :: ListStudioLifecycleConfigs)
+
 -- | A filter that returns only Lifecycle Configurations modified before the
 -- specified time.
 listStudioLifecycleConfigs_modifiedTimeBefore :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
 listStudioLifecycleConfigs_modifiedTimeBefore = Lens.lens (\ListStudioLifecycleConfigs' {modifiedTimeBefore} -> modifiedTimeBefore) (\s@ListStudioLifecycleConfigs' {} a -> s {modifiedTimeBefore = a} :: ListStudioLifecycleConfigs) Prelude.. Lens.mapping Core._Time
 
--- | A parameter to search for the App Type to which the Lifecycle
--- Configuration is attached.
-listStudioLifecycleConfigs_appTypeEquals :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe StudioLifecycleConfigAppType)
-listStudioLifecycleConfigs_appTypeEquals = Lens.lens (\ListStudioLifecycleConfigs' {appTypeEquals} -> appTypeEquals) (\s@ListStudioLifecycleConfigs' {} a -> s {appTypeEquals = a} :: ListStudioLifecycleConfigs)
+-- | A filter that returns only Lifecycle Configurations modified after the
+-- specified time.
+listStudioLifecycleConfigs_modifiedTimeAfter :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
+listStudioLifecycleConfigs_modifiedTimeAfter = Lens.lens (\ListStudioLifecycleConfigs' {modifiedTimeAfter} -> modifiedTimeAfter) (\s@ListStudioLifecycleConfigs' {} a -> s {modifiedTimeAfter = a} :: ListStudioLifecycleConfigs) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of Studio Lifecycle Configurations to return in the
 -- response. The default value is 10.
 listStudioLifecycleConfigs_maxResults :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.Natural)
 listStudioLifecycleConfigs_maxResults = Lens.lens (\ListStudioLifecycleConfigs' {maxResults} -> maxResults) (\s@ListStudioLifecycleConfigs' {} a -> s {maxResults = a} :: ListStudioLifecycleConfigs)
 
--- | The property used to sort results. The default value is CreationTime.
-listStudioLifecycleConfigs_sortBy :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe StudioLifecycleConfigSortKey)
-listStudioLifecycleConfigs_sortBy = Lens.lens (\ListStudioLifecycleConfigs' {sortBy} -> sortBy) (\s@ListStudioLifecycleConfigs' {} a -> s {sortBy = a} :: ListStudioLifecycleConfigs)
+-- | A filter that returns only Lifecycle Configurations created on or after
+-- the specified time.
+listStudioLifecycleConfigs_creationTimeAfter :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
+listStudioLifecycleConfigs_creationTimeAfter = Lens.lens (\ListStudioLifecycleConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListStudioLifecycleConfigs' {} a -> s {creationTimeAfter = a} :: ListStudioLifecycleConfigs) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListStudioLifecycleConfigs where
   page rq rs
@@ -235,29 +235,29 @@ instance Core.AWSRequest ListStudioLifecycleConfigs where
 
 instance Prelude.Hashable ListStudioLifecycleConfigs where
   hashWithSalt _salt ListStudioLifecycleConfigs' {..} =
-    _salt `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` creationTimeAfter
-      `Prelude.hashWithSalt` modifiedTimeAfter
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` appTypeEquals
       `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` modifiedTimeBefore
-      `Prelude.hashWithSalt` appTypeEquals
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` modifiedTimeBefore
+      `Prelude.hashWithSalt` modifiedTimeAfter
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListStudioLifecycleConfigs where
   rnf ListStudioLifecycleConfigs' {..} =
-    Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf modifiedTimeAfter
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf appTypeEquals
       `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf modifiedTimeBefore
-      `Prelude.seq` Prelude.rnf appTypeEquals
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf modifiedTimeBefore
+      `Prelude.seq` Prelude.rnf modifiedTimeAfter
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Core.ToHeaders ListStudioLifecycleConfigs where
   toHeaders =
@@ -278,20 +278,20 @@ instance Core.ToJSON ListStudioLifecycleConfigs where
   toJSON ListStudioLifecycleConfigs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter,
-            ("ModifiedTimeAfter" Core..=)
-              Prelude.<$> modifiedTimeAfter,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("AppTypeEquals" Core..=) Prelude.<$> appTypeEquals,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("NameContains" Core..=) Prelude.<$> nameContains,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("ModifiedTimeBefore" Core..=)
               Prelude.<$> modifiedTimeBefore,
-            ("AppTypeEquals" Core..=) Prelude.<$> appTypeEquals,
+            ("ModifiedTimeAfter" Core..=)
+              Prelude.<$> modifiedTimeAfter,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter
           ]
       )
 

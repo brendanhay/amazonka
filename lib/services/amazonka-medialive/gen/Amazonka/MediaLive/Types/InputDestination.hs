@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputDestination' smart constructor.
 data InputDestination = InputDestination'
-  { -- | This represents the endpoint that the customer stream will be pushed to.
-    url :: Prelude.Maybe Prelude.Text,
+  { -- | The port number for the input.
+    port :: Prelude.Maybe Prelude.Text,
+    vpc :: Prelude.Maybe InputDestinationVpc,
     -- | The system-generated static IP address of endpoint. It remains fixed for
     -- the lifetime of the input.
     ip :: Prelude.Maybe Prelude.Text,
-    vpc :: Prelude.Maybe InputDestinationVpc,
-    -- | The port number for the input.
-    port :: Prelude.Maybe Prelude.Text
+    -- | This represents the endpoint that the customer stream will be pushed to.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,40 +47,40 @@ data InputDestination = InputDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'inputDestination_url' - This represents the endpoint that the customer stream will be pushed to.
+-- 'port', 'inputDestination_port' - The port number for the input.
+--
+-- 'vpc', 'inputDestination_vpc' - Undocumented member.
 --
 -- 'ip', 'inputDestination_ip' - The system-generated static IP address of endpoint. It remains fixed for
 -- the lifetime of the input.
 --
--- 'vpc', 'inputDestination_vpc' - Undocumented member.
---
--- 'port', 'inputDestination_port' - The port number for the input.
+-- 'url', 'inputDestination_url' - This represents the endpoint that the customer stream will be pushed to.
 newInputDestination ::
   InputDestination
 newInputDestination =
   InputDestination'
-    { url = Prelude.Nothing,
-      ip = Prelude.Nothing,
+    { port = Prelude.Nothing,
       vpc = Prelude.Nothing,
-      port = Prelude.Nothing
+      ip = Prelude.Nothing,
+      url = Prelude.Nothing
     }
 
--- | This represents the endpoint that the customer stream will be pushed to.
-inputDestination_url :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
-inputDestination_url = Lens.lens (\InputDestination' {url} -> url) (\s@InputDestination' {} a -> s {url = a} :: InputDestination)
+-- | The port number for the input.
+inputDestination_port :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
+inputDestination_port = Lens.lens (\InputDestination' {port} -> port) (\s@InputDestination' {} a -> s {port = a} :: InputDestination)
+
+-- | Undocumented member.
+inputDestination_vpc :: Lens.Lens' InputDestination (Prelude.Maybe InputDestinationVpc)
+inputDestination_vpc = Lens.lens (\InputDestination' {vpc} -> vpc) (\s@InputDestination' {} a -> s {vpc = a} :: InputDestination)
 
 -- | The system-generated static IP address of endpoint. It remains fixed for
 -- the lifetime of the input.
 inputDestination_ip :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
 inputDestination_ip = Lens.lens (\InputDestination' {ip} -> ip) (\s@InputDestination' {} a -> s {ip = a} :: InputDestination)
 
--- | Undocumented member.
-inputDestination_vpc :: Lens.Lens' InputDestination (Prelude.Maybe InputDestinationVpc)
-inputDestination_vpc = Lens.lens (\InputDestination' {vpc} -> vpc) (\s@InputDestination' {} a -> s {vpc = a} :: InputDestination)
-
--- | The port number for the input.
-inputDestination_port :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
-inputDestination_port = Lens.lens (\InputDestination' {port} -> port) (\s@InputDestination' {} a -> s {port = a} :: InputDestination)
+-- | This represents the endpoint that the customer stream will be pushed to.
+inputDestination_url :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
+inputDestination_url = Lens.lens (\InputDestination' {url} -> url) (\s@InputDestination' {} a -> s {url = a} :: InputDestination)
 
 instance Core.FromJSON InputDestination where
   parseJSON =
@@ -88,22 +88,22 @@ instance Core.FromJSON InputDestination where
       "InputDestination"
       ( \x ->
           InputDestination'
-            Prelude.<$> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "ip")
+            Prelude.<$> (x Core..:? "port")
             Prelude.<*> (x Core..:? "vpc")
-            Prelude.<*> (x Core..:? "port")
+            Prelude.<*> (x Core..:? "ip")
+            Prelude.<*> (x Core..:? "url")
       )
 
 instance Prelude.Hashable InputDestination where
   hashWithSalt _salt InputDestination' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` ip
+    _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` vpc
-      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData InputDestination where
   rnf InputDestination' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf ip
+    Prelude.rnf port
       `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf ip
+      `Prelude.seq` Prelude.rnf url

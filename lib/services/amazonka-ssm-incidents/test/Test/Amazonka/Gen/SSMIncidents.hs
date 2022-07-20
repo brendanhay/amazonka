@@ -27,29 +27,29 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteReplicationSet $
---             newDeleteReplicationSet
+--         [ requestCreateReplicationSet $
+--             newCreateReplicationSet
 --
---         , requestUpdateReplicationSet $
---             newUpdateReplicationSet
+--         , requestCreateResponsePlan $
+--             newCreateResponsePlan
 --
---         , requestListReplicationSets $
---             newListReplicationSets
---
---         , requestUpdateIncidentRecord $
---             newUpdateIncidentRecord
+--         , requestCreateTimelineEvent $
+--             newCreateTimelineEvent
 --
 --         , requestDeleteIncidentRecord $
 --             newDeleteIncidentRecord
 --
---         , requestCreateReplicationSet $
---             newCreateReplicationSet
+--         , requestDeleteReplicationSet $
+--             newDeleteReplicationSet
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
 --
---         , requestGetResourcePolicies $
---             newGetResourcePolicies
+--         , requestDeleteResponsePlan $
+--             newDeleteResponsePlan
+--
+--         , requestDeleteTimelineEvent $
+--             newDeleteTimelineEvent
 --
 --         , requestGetIncidentRecord $
 --             newGetIncidentRecord
@@ -57,89 +57,89 @@ import Test.Tasty
 --         , requestGetReplicationSet $
 --             newGetReplicationSet
 --
---         , requestListRelatedItems $
---             newListRelatedItems
---
---         , requestUpdateDeletionProtection $
---             newUpdateDeletionProtection
+--         , requestGetResourcePolicies $
+--             newGetResourcePolicies
 --
 --         , requestGetResponsePlan $
 --             newGetResponsePlan
 --
---         , requestCreateResponsePlan $
---             newCreateResponsePlan
+--         , requestGetTimelineEvent $
+--             newGetTimelineEvent
 --
 --         , requestListIncidentRecords $
 --             newListIncidentRecords
 --
---         , requestUpdateRelatedItems $
---             newUpdateRelatedItems
+--         , requestListRelatedItems $
+--             newListRelatedItems
 --
---         , requestTagResource $
---             newTagResource
---
---         , requestPutResourcePolicy $
---             newPutResourcePolicy
---
---         , requestDeleteResourcePolicy $
---             newDeleteResourcePolicy
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestCreateTimelineEvent $
---             newCreateTimelineEvent
---
---         , requestListTimelineEvents $
---             newListTimelineEvents
---
---         , requestStartIncident $
---             newStartIncident
---
---         , requestDeleteTimelineEvent $
---             newDeleteTimelineEvent
---
---         , requestUpdateTimelineEvent $
---             newUpdateTimelineEvent
+--         , requestListReplicationSets $
+--             newListReplicationSets
 --
 --         , requestListResponsePlans $
 --             newListResponsePlans
 --
---         , requestGetTimelineEvent $
---             newGetTimelineEvent
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListTimelineEvents $
+--             newListTimelineEvents
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
+--         , requestStartIncident $
+--             newStartIncident
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateDeletionProtection $
+--             newUpdateDeletionProtection
+--
+--         , requestUpdateIncidentRecord $
+--             newUpdateIncidentRecord
+--
+--         , requestUpdateRelatedItems $
+--             newUpdateRelatedItems
+--
+--         , requestUpdateReplicationSet $
+--             newUpdateReplicationSet
 --
 --         , requestUpdateResponsePlan $
 --             newUpdateResponsePlan
 --
---         , requestDeleteResponsePlan $
---             newDeleteResponsePlan
+--         , requestUpdateTimelineEvent $
+--             newUpdateTimelineEvent
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteReplicationSet $
---             newDeleteReplicationSetResponse
+--         [ responseCreateReplicationSet $
+--             newCreateReplicationSetResponse
 --
---         , responseUpdateReplicationSet $
---             newUpdateReplicationSetResponse
+--         , responseCreateResponsePlan $
+--             newCreateResponsePlanResponse
 --
---         , responseListReplicationSets $
---             newListReplicationSetsResponse
---
---         , responseUpdateIncidentRecord $
---             newUpdateIncidentRecordResponse
+--         , responseCreateTimelineEvent $
+--             newCreateTimelineEventResponse
 --
 --         , responseDeleteIncidentRecord $
 --             newDeleteIncidentRecordResponse
 --
---         , responseCreateReplicationSet $
---             newCreateReplicationSetResponse
+--         , responseDeleteReplicationSet $
+--             newDeleteReplicationSetResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
 --
---         , responseGetResourcePolicies $
---             newGetResourcePoliciesResponse
+--         , responseDeleteResponsePlan $
+--             newDeleteResponsePlanResponse
+--
+--         , responseDeleteTimelineEvent $
+--             newDeleteTimelineEventResponse
 --
 --         , responseGetIncidentRecord $
 --             newGetIncidentRecordResponse
@@ -147,97 +147,67 @@ import Test.Tasty
 --         , responseGetReplicationSet $
 --             newGetReplicationSetResponse
 --
---         , responseListRelatedItems $
---             newListRelatedItemsResponse
---
---         , responseUpdateDeletionProtection $
---             newUpdateDeletionProtectionResponse
+--         , responseGetResourcePolicies $
+--             newGetResourcePoliciesResponse
 --
 --         , responseGetResponsePlan $
 --             newGetResponsePlanResponse
 --
---         , responseCreateResponsePlan $
---             newCreateResponsePlanResponse
+--         , responseGetTimelineEvent $
+--             newGetTimelineEventResponse
 --
 --         , responseListIncidentRecords $
 --             newListIncidentRecordsResponse
 --
---         , responseUpdateRelatedItems $
---             newUpdateRelatedItemsResponse
+--         , responseListRelatedItems $
+--             newListRelatedItemsResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responsePutResourcePolicy $
---             newPutResourcePolicyResponse
---
---         , responseDeleteResourcePolicy $
---             newDeleteResourcePolicyResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseCreateTimelineEvent $
---             newCreateTimelineEventResponse
---
---         , responseListTimelineEvents $
---             newListTimelineEventsResponse
---
---         , responseStartIncident $
---             newStartIncidentResponse
---
---         , responseDeleteTimelineEvent $
---             newDeleteTimelineEventResponse
---
---         , responseUpdateTimelineEvent $
---             newUpdateTimelineEventResponse
+--         , responseListReplicationSets $
+--             newListReplicationSetsResponse
 --
 --         , responseListResponsePlans $
 --             newListResponsePlansResponse
 --
---         , responseGetTimelineEvent $
---             newGetTimelineEventResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListTimelineEvents $
+--             newListTimelineEventsResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
+--
+--         , responseStartIncident $
+--             newStartIncidentResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateDeletionProtection $
+--             newUpdateDeletionProtectionResponse
+--
+--         , responseUpdateIncidentRecord $
+--             newUpdateIncidentRecordResponse
+--
+--         , responseUpdateRelatedItems $
+--             newUpdateRelatedItemsResponse
+--
+--         , responseUpdateReplicationSet $
+--             newUpdateReplicationSetResponse
 --
 --         , responseUpdateResponsePlan $
 --             newUpdateResponsePlanResponse
 --
---         , responseDeleteResponsePlan $
---             newDeleteResponsePlanResponse
+--         , responseUpdateTimelineEvent $
+--             newUpdateTimelineEventResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDeleteReplicationSet :: DeleteReplicationSet -> TestTree
-requestDeleteReplicationSet =
-  req
-    "DeleteReplicationSet"
-    "fixture/DeleteReplicationSet.yaml"
-
-requestUpdateReplicationSet :: UpdateReplicationSet -> TestTree
-requestUpdateReplicationSet =
-  req
-    "UpdateReplicationSet"
-    "fixture/UpdateReplicationSet.yaml"
-
-requestListReplicationSets :: ListReplicationSets -> TestTree
-requestListReplicationSets =
-  req
-    "ListReplicationSets"
-    "fixture/ListReplicationSets.yaml"
-
-requestUpdateIncidentRecord :: UpdateIncidentRecord -> TestTree
-requestUpdateIncidentRecord =
-  req
-    "UpdateIncidentRecord"
-    "fixture/UpdateIncidentRecord.yaml"
-
-requestDeleteIncidentRecord :: DeleteIncidentRecord -> TestTree
-requestDeleteIncidentRecord =
-  req
-    "DeleteIncidentRecord"
-    "fixture/DeleteIncidentRecord.yaml"
 
 requestCreateReplicationSet :: CreateReplicationSet -> TestTree
 requestCreateReplicationSet =
@@ -245,17 +215,47 @@ requestCreateReplicationSet =
     "CreateReplicationSet"
     "fixture/CreateReplicationSet.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestCreateResponsePlan :: CreateResponsePlan -> TestTree
+requestCreateResponsePlan =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "CreateResponsePlan"
+    "fixture/CreateResponsePlan.yaml"
 
-requestGetResourcePolicies :: GetResourcePolicies -> TestTree
-requestGetResourcePolicies =
+requestCreateTimelineEvent :: CreateTimelineEvent -> TestTree
+requestCreateTimelineEvent =
   req
-    "GetResourcePolicies"
-    "fixture/GetResourcePolicies.yaml"
+    "CreateTimelineEvent"
+    "fixture/CreateTimelineEvent.yaml"
+
+requestDeleteIncidentRecord :: DeleteIncidentRecord -> TestTree
+requestDeleteIncidentRecord =
+  req
+    "DeleteIncidentRecord"
+    "fixture/DeleteIncidentRecord.yaml"
+
+requestDeleteReplicationSet :: DeleteReplicationSet -> TestTree
+requestDeleteReplicationSet =
+  req
+    "DeleteReplicationSet"
+    "fixture/DeleteReplicationSet.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
+requestDeleteResponsePlan :: DeleteResponsePlan -> TestTree
+requestDeleteResponsePlan =
+  req
+    "DeleteResponsePlan"
+    "fixture/DeleteResponsePlan.yaml"
+
+requestDeleteTimelineEvent :: DeleteTimelineEvent -> TestTree
+requestDeleteTimelineEvent =
+  req
+    "DeleteTimelineEvent"
+    "fixture/DeleteTimelineEvent.yaml"
 
 requestGetIncidentRecord :: GetIncidentRecord -> TestTree
 requestGetIncidentRecord =
@@ -269,17 +269,11 @@ requestGetReplicationSet =
     "GetReplicationSet"
     "fixture/GetReplicationSet.yaml"
 
-requestListRelatedItems :: ListRelatedItems -> TestTree
-requestListRelatedItems =
+requestGetResourcePolicies :: GetResourcePolicies -> TestTree
+requestGetResourcePolicies =
   req
-    "ListRelatedItems"
-    "fixture/ListRelatedItems.yaml"
-
-requestUpdateDeletionProtection :: UpdateDeletionProtection -> TestTree
-requestUpdateDeletionProtection =
-  req
-    "UpdateDeletionProtection"
-    "fixture/UpdateDeletionProtection.yaml"
+    "GetResourcePolicies"
+    "fixture/GetResourcePolicies.yaml"
 
 requestGetResponsePlan :: GetResponsePlan -> TestTree
 requestGetResponsePlan =
@@ -287,11 +281,11 @@ requestGetResponsePlan =
     "GetResponsePlan"
     "fixture/GetResponsePlan.yaml"
 
-requestCreateResponsePlan :: CreateResponsePlan -> TestTree
-requestCreateResponsePlan =
+requestGetTimelineEvent :: GetTimelineEvent -> TestTree
+requestGetTimelineEvent =
   req
-    "CreateResponsePlan"
-    "fixture/CreateResponsePlan.yaml"
+    "GetTimelineEvent"
+    "fixture/GetTimelineEvent.yaml"
 
 requestListIncidentRecords :: ListIncidentRecords -> TestTree
 requestListIncidentRecords =
@@ -299,65 +293,17 @@ requestListIncidentRecords =
     "ListIncidentRecords"
     "fixture/ListIncidentRecords.yaml"
 
-requestUpdateRelatedItems :: UpdateRelatedItems -> TestTree
-requestUpdateRelatedItems =
+requestListRelatedItems :: ListRelatedItems -> TestTree
+requestListRelatedItems =
   req
-    "UpdateRelatedItems"
-    "fixture/UpdateRelatedItems.yaml"
+    "ListRelatedItems"
+    "fixture/ListRelatedItems.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestListReplicationSets :: ListReplicationSets -> TestTree
+requestListReplicationSets =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestPutResourcePolicy :: PutResourcePolicy -> TestTree
-requestPutResourcePolicy =
-  req
-    "PutResourcePolicy"
-    "fixture/PutResourcePolicy.yaml"
-
-requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
-requestDeleteResourcePolicy =
-  req
-    "DeleteResourcePolicy"
-    "fixture/DeleteResourcePolicy.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestCreateTimelineEvent :: CreateTimelineEvent -> TestTree
-requestCreateTimelineEvent =
-  req
-    "CreateTimelineEvent"
-    "fixture/CreateTimelineEvent.yaml"
-
-requestListTimelineEvents :: ListTimelineEvents -> TestTree
-requestListTimelineEvents =
-  req
-    "ListTimelineEvents"
-    "fixture/ListTimelineEvents.yaml"
-
-requestStartIncident :: StartIncident -> TestTree
-requestStartIncident =
-  req
-    "StartIncident"
-    "fixture/StartIncident.yaml"
-
-requestDeleteTimelineEvent :: DeleteTimelineEvent -> TestTree
-requestDeleteTimelineEvent =
-  req
-    "DeleteTimelineEvent"
-    "fixture/DeleteTimelineEvent.yaml"
-
-requestUpdateTimelineEvent :: UpdateTimelineEvent -> TestTree
-requestUpdateTimelineEvent =
-  req
-    "UpdateTimelineEvent"
-    "fixture/UpdateTimelineEvent.yaml"
+    "ListReplicationSets"
+    "fixture/ListReplicationSets.yaml"
 
 requestListResponsePlans :: ListResponsePlans -> TestTree
 requestListResponsePlans =
@@ -365,11 +311,65 @@ requestListResponsePlans =
     "ListResponsePlans"
     "fixture/ListResponsePlans.yaml"
 
-requestGetTimelineEvent :: GetTimelineEvent -> TestTree
-requestGetTimelineEvent =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "GetTimelineEvent"
-    "fixture/GetTimelineEvent.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListTimelineEvents :: ListTimelineEvents -> TestTree
+requestListTimelineEvents =
+  req
+    "ListTimelineEvents"
+    "fixture/ListTimelineEvents.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
+requestStartIncident :: StartIncident -> TestTree
+requestStartIncident =
+  req
+    "StartIncident"
+    "fixture/StartIncident.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateDeletionProtection :: UpdateDeletionProtection -> TestTree
+requestUpdateDeletionProtection =
+  req
+    "UpdateDeletionProtection"
+    "fixture/UpdateDeletionProtection.yaml"
+
+requestUpdateIncidentRecord :: UpdateIncidentRecord -> TestTree
+requestUpdateIncidentRecord =
+  req
+    "UpdateIncidentRecord"
+    "fixture/UpdateIncidentRecord.yaml"
+
+requestUpdateRelatedItems :: UpdateRelatedItems -> TestTree
+requestUpdateRelatedItems =
+  req
+    "UpdateRelatedItems"
+    "fixture/UpdateRelatedItems.yaml"
+
+requestUpdateReplicationSet :: UpdateReplicationSet -> TestTree
+requestUpdateReplicationSet =
+  req
+    "UpdateReplicationSet"
+    "fixture/UpdateReplicationSet.yaml"
 
 requestUpdateResponsePlan :: UpdateResponsePlan -> TestTree
 requestUpdateResponsePlan =
@@ -377,53 +377,13 @@ requestUpdateResponsePlan =
     "UpdateResponsePlan"
     "fixture/UpdateResponsePlan.yaml"
 
-requestDeleteResponsePlan :: DeleteResponsePlan -> TestTree
-requestDeleteResponsePlan =
+requestUpdateTimelineEvent :: UpdateTimelineEvent -> TestTree
+requestUpdateTimelineEvent =
   req
-    "DeleteResponsePlan"
-    "fixture/DeleteResponsePlan.yaml"
+    "UpdateTimelineEvent"
+    "fixture/UpdateTimelineEvent.yaml"
 
 -- Responses
-
-responseDeleteReplicationSet :: DeleteReplicationSetResponse -> TestTree
-responseDeleteReplicationSet =
-  res
-    "DeleteReplicationSetResponse"
-    "fixture/DeleteReplicationSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteReplicationSet)
-
-responseUpdateReplicationSet :: UpdateReplicationSetResponse -> TestTree
-responseUpdateReplicationSet =
-  res
-    "UpdateReplicationSetResponse"
-    "fixture/UpdateReplicationSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateReplicationSet)
-
-responseListReplicationSets :: ListReplicationSetsResponse -> TestTree
-responseListReplicationSets =
-  res
-    "ListReplicationSetsResponse"
-    "fixture/ListReplicationSetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReplicationSets)
-
-responseUpdateIncidentRecord :: UpdateIncidentRecordResponse -> TestTree
-responseUpdateIncidentRecord =
-  res
-    "UpdateIncidentRecordResponse"
-    "fixture/UpdateIncidentRecordResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateIncidentRecord)
-
-responseDeleteIncidentRecord :: DeleteIncidentRecordResponse -> TestTree
-responseDeleteIncidentRecord =
-  res
-    "DeleteIncidentRecordResponse"
-    "fixture/DeleteIncidentRecordResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteIncidentRecord)
 
 responseCreateReplicationSet :: CreateReplicationSetResponse -> TestTree
 responseCreateReplicationSet =
@@ -433,21 +393,61 @@ responseCreateReplicationSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateReplicationSet)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseCreateResponsePlan :: CreateResponsePlanResponse -> TestTree
+responseCreateResponsePlan =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "CreateResponsePlanResponse"
+    "fixture/CreateResponsePlanResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateResponsePlan)
 
-responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
-responseGetResourcePolicies =
+responseCreateTimelineEvent :: CreateTimelineEventResponse -> TestTree
+responseCreateTimelineEvent =
   res
-    "GetResourcePoliciesResponse"
-    "fixture/GetResourcePoliciesResponse.proto"
+    "CreateTimelineEventResponse"
+    "fixture/CreateTimelineEventResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicies)
+    (Proxy.Proxy :: Proxy.Proxy CreateTimelineEvent)
+
+responseDeleteIncidentRecord :: DeleteIncidentRecordResponse -> TestTree
+responseDeleteIncidentRecord =
+  res
+    "DeleteIncidentRecordResponse"
+    "fixture/DeleteIncidentRecordResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIncidentRecord)
+
+responseDeleteReplicationSet :: DeleteReplicationSetResponse -> TestTree
+responseDeleteReplicationSet =
+  res
+    "DeleteReplicationSetResponse"
+    "fixture/DeleteReplicationSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteReplicationSet)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
+
+responseDeleteResponsePlan :: DeleteResponsePlanResponse -> TestTree
+responseDeleteResponsePlan =
+  res
+    "DeleteResponsePlanResponse"
+    "fixture/DeleteResponsePlanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResponsePlan)
+
+responseDeleteTimelineEvent :: DeleteTimelineEventResponse -> TestTree
+responseDeleteTimelineEvent =
+  res
+    "DeleteTimelineEventResponse"
+    "fixture/DeleteTimelineEventResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTimelineEvent)
 
 responseGetIncidentRecord :: GetIncidentRecordResponse -> TestTree
 responseGetIncidentRecord =
@@ -465,21 +465,13 @@ responseGetReplicationSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetReplicationSet)
 
-responseListRelatedItems :: ListRelatedItemsResponse -> TestTree
-responseListRelatedItems =
+responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
+responseGetResourcePolicies =
   res
-    "ListRelatedItemsResponse"
-    "fixture/ListRelatedItemsResponse.proto"
+    "GetResourcePoliciesResponse"
+    "fixture/GetResourcePoliciesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRelatedItems)
-
-responseUpdateDeletionProtection :: UpdateDeletionProtectionResponse -> TestTree
-responseUpdateDeletionProtection =
-  res
-    "UpdateDeletionProtectionResponse"
-    "fixture/UpdateDeletionProtectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDeletionProtection)
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicies)
 
 responseGetResponsePlan :: GetResponsePlanResponse -> TestTree
 responseGetResponsePlan =
@@ -489,13 +481,13 @@ responseGetResponsePlan =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResponsePlan)
 
-responseCreateResponsePlan :: CreateResponsePlanResponse -> TestTree
-responseCreateResponsePlan =
+responseGetTimelineEvent :: GetTimelineEventResponse -> TestTree
+responseGetTimelineEvent =
   res
-    "CreateResponsePlanResponse"
-    "fixture/CreateResponsePlanResponse.proto"
+    "GetTimelineEventResponse"
+    "fixture/GetTimelineEventResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateResponsePlan)
+    (Proxy.Proxy :: Proxy.Proxy GetTimelineEvent)
 
 responseListIncidentRecords :: ListIncidentRecordsResponse -> TestTree
 responseListIncidentRecords =
@@ -505,85 +497,21 @@ responseListIncidentRecords =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListIncidentRecords)
 
-responseUpdateRelatedItems :: UpdateRelatedItemsResponse -> TestTree
-responseUpdateRelatedItems =
+responseListRelatedItems :: ListRelatedItemsResponse -> TestTree
+responseListRelatedItems =
   res
-    "UpdateRelatedItemsResponse"
-    "fixture/UpdateRelatedItemsResponse.proto"
+    "ListRelatedItemsResponse"
+    "fixture/ListRelatedItemsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRelatedItems)
+    (Proxy.Proxy :: Proxy.Proxy ListRelatedItems)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseListReplicationSets :: ListReplicationSetsResponse -> TestTree
+responseListReplicationSets =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "ListReplicationSetsResponse"
+    "fixture/ListReplicationSetsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
-responsePutResourcePolicy =
-  res
-    "PutResourcePolicyResponse"
-    "fixture/PutResourcePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
-
-responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
-responseDeleteResourcePolicy =
-  res
-    "DeleteResourcePolicyResponse"
-    "fixture/DeleteResourcePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseCreateTimelineEvent :: CreateTimelineEventResponse -> TestTree
-responseCreateTimelineEvent =
-  res
-    "CreateTimelineEventResponse"
-    "fixture/CreateTimelineEventResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTimelineEvent)
-
-responseListTimelineEvents :: ListTimelineEventsResponse -> TestTree
-responseListTimelineEvents =
-  res
-    "ListTimelineEventsResponse"
-    "fixture/ListTimelineEventsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTimelineEvents)
-
-responseStartIncident :: StartIncidentResponse -> TestTree
-responseStartIncident =
-  res
-    "StartIncidentResponse"
-    "fixture/StartIncidentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartIncident)
-
-responseDeleteTimelineEvent :: DeleteTimelineEventResponse -> TestTree
-responseDeleteTimelineEvent =
-  res
-    "DeleteTimelineEventResponse"
-    "fixture/DeleteTimelineEventResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTimelineEvent)
-
-responseUpdateTimelineEvent :: UpdateTimelineEventResponse -> TestTree
-responseUpdateTimelineEvent =
-  res
-    "UpdateTimelineEventResponse"
-    "fixture/UpdateTimelineEventResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTimelineEvent)
+    (Proxy.Proxy :: Proxy.Proxy ListReplicationSets)
 
 responseListResponsePlans :: ListResponsePlansResponse -> TestTree
 responseListResponsePlans =
@@ -593,13 +521,85 @@ responseListResponsePlans =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListResponsePlans)
 
-responseGetTimelineEvent :: GetTimelineEventResponse -> TestTree
-responseGetTimelineEvent =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "GetTimelineEventResponse"
-    "fixture/GetTimelineEventResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetTimelineEvent)
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTimelineEvents :: ListTimelineEventsResponse -> TestTree
+responseListTimelineEvents =
+  res
+    "ListTimelineEventsResponse"
+    "fixture/ListTimelineEventsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTimelineEvents)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
+
+responseStartIncident :: StartIncidentResponse -> TestTree
+responseStartIncident =
+  res
+    "StartIncidentResponse"
+    "fixture/StartIncidentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartIncident)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateDeletionProtection :: UpdateDeletionProtectionResponse -> TestTree
+responseUpdateDeletionProtection =
+  res
+    "UpdateDeletionProtectionResponse"
+    "fixture/UpdateDeletionProtectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDeletionProtection)
+
+responseUpdateIncidentRecord :: UpdateIncidentRecordResponse -> TestTree
+responseUpdateIncidentRecord =
+  res
+    "UpdateIncidentRecordResponse"
+    "fixture/UpdateIncidentRecordResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateIncidentRecord)
+
+responseUpdateRelatedItems :: UpdateRelatedItemsResponse -> TestTree
+responseUpdateRelatedItems =
+  res
+    "UpdateRelatedItemsResponse"
+    "fixture/UpdateRelatedItemsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRelatedItems)
+
+responseUpdateReplicationSet :: UpdateReplicationSetResponse -> TestTree
+responseUpdateReplicationSet =
+  res
+    "UpdateReplicationSetResponse"
+    "fixture/UpdateReplicationSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateReplicationSet)
 
 responseUpdateResponsePlan :: UpdateResponsePlanResponse -> TestTree
 responseUpdateResponsePlan =
@@ -609,10 +609,10 @@ responseUpdateResponsePlan =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateResponsePlan)
 
-responseDeleteResponsePlan :: DeleteResponsePlanResponse -> TestTree
-responseDeleteResponsePlan =
+responseUpdateTimelineEvent :: UpdateTimelineEventResponse -> TestTree
+responseUpdateTimelineEvent =
   res
-    "DeleteResponsePlanResponse"
-    "fixture/DeleteResponsePlanResponse.proto"
+    "UpdateTimelineEventResponse"
+    "fixture/UpdateTimelineEventResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteResponsePlan)
+    (Proxy.Proxy :: Proxy.Proxy UpdateTimelineEvent)

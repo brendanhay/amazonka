@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHttpGatewayRouteRewrite' smart constructor.
 data HttpGatewayRouteRewrite = HttpGatewayRouteRewrite'
-  { -- | The host name to rewrite.
-    hostname :: Prelude.Maybe GatewayRouteHostnameRewrite,
-    -- | The path to rewrite.
+  { -- | The path to rewrite.
     path :: Prelude.Maybe HttpGatewayRoutePathRewrite,
+    -- | The host name to rewrite.
+    hostname :: Prelude.Maybe GatewayRouteHostnameRewrite,
     -- | The specified beginning characters to rewrite.
     prefix :: Prelude.Maybe HttpGatewayRoutePrefixRewrite
   }
@@ -47,28 +47,27 @@ data HttpGatewayRouteRewrite = HttpGatewayRouteRewrite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostname', 'httpGatewayRouteRewrite_hostname' - The host name to rewrite.
---
 -- 'path', 'httpGatewayRouteRewrite_path' - The path to rewrite.
+--
+-- 'hostname', 'httpGatewayRouteRewrite_hostname' - The host name to rewrite.
 --
 -- 'prefix', 'httpGatewayRouteRewrite_prefix' - The specified beginning characters to rewrite.
 newHttpGatewayRouteRewrite ::
   HttpGatewayRouteRewrite
 newHttpGatewayRouteRewrite =
   HttpGatewayRouteRewrite'
-    { hostname =
-        Prelude.Nothing,
-      path = Prelude.Nothing,
+    { path = Prelude.Nothing,
+      hostname = Prelude.Nothing,
       prefix = Prelude.Nothing
     }
-
--- | The host name to rewrite.
-httpGatewayRouteRewrite_hostname :: Lens.Lens' HttpGatewayRouteRewrite (Prelude.Maybe GatewayRouteHostnameRewrite)
-httpGatewayRouteRewrite_hostname = Lens.lens (\HttpGatewayRouteRewrite' {hostname} -> hostname) (\s@HttpGatewayRouteRewrite' {} a -> s {hostname = a} :: HttpGatewayRouteRewrite)
 
 -- | The path to rewrite.
 httpGatewayRouteRewrite_path :: Lens.Lens' HttpGatewayRouteRewrite (Prelude.Maybe HttpGatewayRoutePathRewrite)
 httpGatewayRouteRewrite_path = Lens.lens (\HttpGatewayRouteRewrite' {path} -> path) (\s@HttpGatewayRouteRewrite' {} a -> s {path = a} :: HttpGatewayRouteRewrite)
+
+-- | The host name to rewrite.
+httpGatewayRouteRewrite_hostname :: Lens.Lens' HttpGatewayRouteRewrite (Prelude.Maybe GatewayRouteHostnameRewrite)
+httpGatewayRouteRewrite_hostname = Lens.lens (\HttpGatewayRouteRewrite' {hostname} -> hostname) (\s@HttpGatewayRouteRewrite' {} a -> s {hostname = a} :: HttpGatewayRouteRewrite)
 
 -- | The specified beginning characters to rewrite.
 httpGatewayRouteRewrite_prefix :: Lens.Lens' HttpGatewayRouteRewrite (Prelude.Maybe HttpGatewayRoutePrefixRewrite)
@@ -80,29 +79,29 @@ instance Core.FromJSON HttpGatewayRouteRewrite where
       "HttpGatewayRouteRewrite"
       ( \x ->
           HttpGatewayRouteRewrite'
-            Prelude.<$> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "path")
+            Prelude.<$> (x Core..:? "path")
+            Prelude.<*> (x Core..:? "hostname")
             Prelude.<*> (x Core..:? "prefix")
       )
 
 instance Prelude.Hashable HttpGatewayRouteRewrite where
   hashWithSalt _salt HttpGatewayRouteRewrite' {..} =
-    _salt `Prelude.hashWithSalt` hostname
-      `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` prefix
 
 instance Prelude.NFData HttpGatewayRouteRewrite where
   rnf HttpGatewayRouteRewrite' {..} =
-    Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToJSON HttpGatewayRouteRewrite where
   toJSON HttpGatewayRouteRewrite' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("hostname" Core..=) Prelude.<$> hostname,
-            ("path" Core..=) Prelude.<$> path,
+          [ ("path" Core..=) Prelude.<$> path,
+            ("hostname" Core..=) Prelude.<$> hostname,
             ("prefix" Core..=) Prelude.<$> prefix
           ]
       )

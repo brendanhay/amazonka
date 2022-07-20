@@ -38,11 +38,11 @@ module Amazonka.ComputeOptimizer.GetEnrollmentStatus
     newGetEnrollmentStatusResponse,
 
     -- * Response Lenses
+    getEnrollmentStatusResponse_lastUpdatedTimestamp,
+    getEnrollmentStatusResponse_statusReason,
     getEnrollmentStatusResponse_status,
     getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn,
     getEnrollmentStatusResponse_memberAccountsEnrolled,
-    getEnrollmentStatusResponse_statusReason,
-    getEnrollmentStatusResponse_lastUpdatedTimestamp,
     getEnrollmentStatusResponse_httpStatus,
   )
 where
@@ -77,11 +77,11 @@ instance Core.AWSRequest GetEnrollmentStatus where
     Response.receiveJSON
       ( \s h x ->
           GetEnrollmentStatusResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Core..?> "lastUpdatedTimestamp")
+            Prelude.<*> (x Core..?> "statusReason")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "numberOfMemberAccountsOptedIn")
             Prelude.<*> (x Core..?> "memberAccountsEnrolled")
-            Prelude.<*> (x Core..?> "statusReason")
-            Prelude.<*> (x Core..?> "lastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,7 +118,16 @@ instance Core.ToQuery GetEnrollmentStatus where
 
 -- | /See:/ 'newGetEnrollmentStatusResponse' smart constructor.
 data GetEnrollmentStatusResponse = GetEnrollmentStatusResponse'
-  { -- | The enrollment status of the account.
+  { -- | The Unix epoch timestamp, in seconds, of when the account enrollment
+    -- status was last updated.
+    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The reason for the enrollment status of the account.
+    --
+    -- For example, an account might show a status of @Pending@ because member
+    -- accounts of an organization require more time to be enrolled in the
+    -- service.
+    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The enrollment status of the account.
     status :: Prelude.Maybe Status,
     -- | The count of organization member accounts that are opted in to the
     -- service, if your account is an organization management account.
@@ -126,15 +135,6 @@ data GetEnrollmentStatusResponse = GetEnrollmentStatusResponse'
     -- | Confirms the enrollment status of member accounts of the organization,
     -- if the account is a management account of an organization.
     memberAccountsEnrolled :: Prelude.Maybe Prelude.Bool,
-    -- | The reason for the enrollment status of the account.
-    --
-    -- For example, an account might show a status of @Pending@ because member
-    -- accounts of an organization require more time to be enrolled in the
-    -- service.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The Unix epoch timestamp, in seconds, of when the account enrollment
-    -- status was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,6 +148,15 @@ data GetEnrollmentStatusResponse = GetEnrollmentStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastUpdatedTimestamp', 'getEnrollmentStatusResponse_lastUpdatedTimestamp' - The Unix epoch timestamp, in seconds, of when the account enrollment
+-- status was last updated.
+--
+-- 'statusReason', 'getEnrollmentStatusResponse_statusReason' - The reason for the enrollment status of the account.
+--
+-- For example, an account might show a status of @Pending@ because member
+-- accounts of an organization require more time to be enrolled in the
+-- service.
+--
 -- 'status', 'getEnrollmentStatusResponse_status' - The enrollment status of the account.
 --
 -- 'numberOfMemberAccountsOptedIn', 'getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn' - The count of organization member accounts that are opted in to the
@@ -156,15 +165,6 @@ data GetEnrollmentStatusResponse = GetEnrollmentStatusResponse'
 -- 'memberAccountsEnrolled', 'getEnrollmentStatusResponse_memberAccountsEnrolled' - Confirms the enrollment status of member accounts of the organization,
 -- if the account is a management account of an organization.
 --
--- 'statusReason', 'getEnrollmentStatusResponse_statusReason' - The reason for the enrollment status of the account.
---
--- For example, an account might show a status of @Pending@ because member
--- accounts of an organization require more time to be enrolled in the
--- service.
---
--- 'lastUpdatedTimestamp', 'getEnrollmentStatusResponse_lastUpdatedTimestamp' - The Unix epoch timestamp, in seconds, of when the account enrollment
--- status was last updated.
---
 -- 'httpStatus', 'getEnrollmentStatusResponse_httpStatus' - The response's http status code.
 newGetEnrollmentStatusResponse ::
   -- | 'httpStatus'
@@ -172,15 +172,28 @@ newGetEnrollmentStatusResponse ::
   GetEnrollmentStatusResponse
 newGetEnrollmentStatusResponse pHttpStatus_ =
   GetEnrollmentStatusResponse'
-    { status =
+    { lastUpdatedTimestamp =
         Prelude.Nothing,
+      statusReason = Prelude.Nothing,
+      status = Prelude.Nothing,
       numberOfMemberAccountsOptedIn =
         Prelude.Nothing,
       memberAccountsEnrolled = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Unix epoch timestamp, in seconds, of when the account enrollment
+-- status was last updated.
+getEnrollmentStatusResponse_lastUpdatedTimestamp :: Lens.Lens' GetEnrollmentStatusResponse (Prelude.Maybe Prelude.UTCTime)
+getEnrollmentStatusResponse_lastUpdatedTimestamp = Lens.lens (\GetEnrollmentStatusResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetEnrollmentStatusResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetEnrollmentStatusResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The reason for the enrollment status of the account.
+--
+-- For example, an account might show a status of @Pending@ because member
+-- accounts of an organization require more time to be enrolled in the
+-- service.
+getEnrollmentStatusResponse_statusReason :: Lens.Lens' GetEnrollmentStatusResponse (Prelude.Maybe Prelude.Text)
+getEnrollmentStatusResponse_statusReason = Lens.lens (\GetEnrollmentStatusResponse' {statusReason} -> statusReason) (\s@GetEnrollmentStatusResponse' {} a -> s {statusReason = a} :: GetEnrollmentStatusResponse)
 
 -- | The enrollment status of the account.
 getEnrollmentStatusResponse_status :: Lens.Lens' GetEnrollmentStatusResponse (Prelude.Maybe Status)
@@ -196,28 +209,15 @@ getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn = Lens.lens (\GetEnrol
 getEnrollmentStatusResponse_memberAccountsEnrolled :: Lens.Lens' GetEnrollmentStatusResponse (Prelude.Maybe Prelude.Bool)
 getEnrollmentStatusResponse_memberAccountsEnrolled = Lens.lens (\GetEnrollmentStatusResponse' {memberAccountsEnrolled} -> memberAccountsEnrolled) (\s@GetEnrollmentStatusResponse' {} a -> s {memberAccountsEnrolled = a} :: GetEnrollmentStatusResponse)
 
--- | The reason for the enrollment status of the account.
---
--- For example, an account might show a status of @Pending@ because member
--- accounts of an organization require more time to be enrolled in the
--- service.
-getEnrollmentStatusResponse_statusReason :: Lens.Lens' GetEnrollmentStatusResponse (Prelude.Maybe Prelude.Text)
-getEnrollmentStatusResponse_statusReason = Lens.lens (\GetEnrollmentStatusResponse' {statusReason} -> statusReason) (\s@GetEnrollmentStatusResponse' {} a -> s {statusReason = a} :: GetEnrollmentStatusResponse)
-
--- | The Unix epoch timestamp, in seconds, of when the account enrollment
--- status was last updated.
-getEnrollmentStatusResponse_lastUpdatedTimestamp :: Lens.Lens' GetEnrollmentStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getEnrollmentStatusResponse_lastUpdatedTimestamp = Lens.lens (\GetEnrollmentStatusResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetEnrollmentStatusResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetEnrollmentStatusResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The response's http status code.
 getEnrollmentStatusResponse_httpStatus :: Lens.Lens' GetEnrollmentStatusResponse Prelude.Int
 getEnrollmentStatusResponse_httpStatus = Lens.lens (\GetEnrollmentStatusResponse' {httpStatus} -> httpStatus) (\s@GetEnrollmentStatusResponse' {} a -> s {httpStatus = a} :: GetEnrollmentStatusResponse)
 
 instance Prelude.NFData GetEnrollmentStatusResponse where
   rnf GetEnrollmentStatusResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf numberOfMemberAccountsOptedIn
       `Prelude.seq` Prelude.rnf memberAccountsEnrolled
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf httpStatus

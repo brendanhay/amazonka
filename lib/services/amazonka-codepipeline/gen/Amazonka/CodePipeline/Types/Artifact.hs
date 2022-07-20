@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newArtifact' smart constructor.
 data Artifact = Artifact'
-  { -- | The location of an artifact.
-    location :: Prelude.Maybe ArtifactLocation,
-    -- | The artifact\'s name.
+  { -- | The artifact\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The artifact\'s revision ID. Depending on the type of object, this could
     -- be a commit ID (GitHub) or a revision ID (Amazon S3).
-    revision :: Prelude.Maybe Prelude.Text
+    revision :: Prelude.Maybe Prelude.Text,
+    -- | The location of an artifact.
+    location :: Prelude.Maybe ArtifactLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,20 @@ data Artifact = Artifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'artifact_location' - The location of an artifact.
---
 -- 'name', 'artifact_name' - The artifact\'s name.
 --
 -- 'revision', 'artifact_revision' - The artifact\'s revision ID. Depending on the type of object, this could
 -- be a commit ID (GitHub) or a revision ID (Amazon S3).
+--
+-- 'location', 'artifact_location' - The location of an artifact.
 newArtifact ::
   Artifact
 newArtifact =
   Artifact'
-    { location = Prelude.Nothing,
-      name = Prelude.Nothing,
-      revision = Prelude.Nothing
+    { name = Prelude.Nothing,
+      revision = Prelude.Nothing,
+      location = Prelude.Nothing
     }
-
--- | The location of an artifact.
-artifact_location :: Lens.Lens' Artifact (Prelude.Maybe ArtifactLocation)
-artifact_location = Lens.lens (\Artifact' {location} -> location) (\s@Artifact' {} a -> s {location = a} :: Artifact)
 
 -- | The artifact\'s name.
 artifact_name :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
@@ -75,25 +71,29 @@ artifact_name = Lens.lens (\Artifact' {name} -> name) (\s@Artifact' {} a -> s {n
 artifact_revision :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
 artifact_revision = Lens.lens (\Artifact' {revision} -> revision) (\s@Artifact' {} a -> s {revision = a} :: Artifact)
 
+-- | The location of an artifact.
+artifact_location :: Lens.Lens' Artifact (Prelude.Maybe ArtifactLocation)
+artifact_location = Lens.lens (\Artifact' {location} -> location) (\s@Artifact' {} a -> s {location = a} :: Artifact)
+
 instance Core.FromJSON Artifact where
   parseJSON =
     Core.withObject
       "Artifact"
       ( \x ->
           Artifact'
-            Prelude.<$> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "revision")
+            Prelude.<*> (x Core..:? "location")
       )
 
 instance Prelude.Hashable Artifact where
   hashWithSalt _salt Artifact' {..} =
-    _salt `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` location
 
 instance Prelude.NFData Artifact where
   rnf Artifact' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf location

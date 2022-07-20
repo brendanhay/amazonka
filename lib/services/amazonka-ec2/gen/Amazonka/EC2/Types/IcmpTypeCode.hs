@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIcmpTypeCode' smart constructor.
 data IcmpTypeCode = IcmpTypeCode'
-  { -- | The ICMP code. A value of -1 means all codes for the specified ICMP
+  { -- | The ICMP type. A value of -1 means all types.
+    type' :: Prelude.Maybe Prelude.Int,
+    -- | The ICMP code. A value of -1 means all codes for the specified ICMP
     -- type.
-    code :: Prelude.Maybe Prelude.Int,
-    -- | The ICMP type. A value of -1 means all types.
-    type' :: Prelude.Maybe Prelude.Int
+    code :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,42 +44,42 @@ data IcmpTypeCode = IcmpTypeCode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'icmpTypeCode_type' - The ICMP type. A value of -1 means all types.
+--
 -- 'code', 'icmpTypeCode_code' - The ICMP code. A value of -1 means all codes for the specified ICMP
 -- type.
---
--- 'type'', 'icmpTypeCode_type' - The ICMP type. A value of -1 means all types.
 newIcmpTypeCode ::
   IcmpTypeCode
 newIcmpTypeCode =
   IcmpTypeCode'
-    { code = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      code = Prelude.Nothing
     }
+
+-- | The ICMP type. A value of -1 means all types.
+icmpTypeCode_type :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
+icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode' {} a -> s {type' = a} :: IcmpTypeCode)
 
 -- | The ICMP code. A value of -1 means all codes for the specified ICMP
 -- type.
 icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
 icmpTypeCode_code = Lens.lens (\IcmpTypeCode' {code} -> code) (\s@IcmpTypeCode' {} a -> s {code = a} :: IcmpTypeCode)
 
--- | The ICMP type. A value of -1 means all types.
-icmpTypeCode_type :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
-icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode' {} a -> s {type' = a} :: IcmpTypeCode)
-
 instance Core.FromXML IcmpTypeCode where
   parseXML x =
     IcmpTypeCode'
-      Prelude.<$> (x Core..@? "code") Prelude.<*> (x Core..@? "type")
+      Prelude.<$> (x Core..@? "type") Prelude.<*> (x Core..@? "code")
 
 instance Prelude.Hashable IcmpTypeCode where
   hashWithSalt _salt IcmpTypeCode' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData IcmpTypeCode where
   rnf IcmpTypeCode' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf code
 
 instance Core.ToQuery IcmpTypeCode where
   toQuery IcmpTypeCode' {..} =
     Prelude.mconcat
-      ["Code" Core.=: code, "Type" Core.=: type']
+      ["Type" Core.=: type', "Code" Core.=: code]

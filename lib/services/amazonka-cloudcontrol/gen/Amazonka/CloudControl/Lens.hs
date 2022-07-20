@@ -14,94 +14,94 @@
 module Amazonka.CloudControl.Lens
   ( -- * Operations
 
+    -- ** CancelResourceRequest
+    cancelResourceRequest_requestToken,
+    cancelResourceRequestResponse_progressEvent,
+    cancelResourceRequestResponse_httpStatus,
+
+    -- ** CreateResource
+    createResource_clientToken,
+    createResource_roleArn,
+    createResource_typeVersionId,
+    createResource_typeName,
+    createResource_desiredState,
+    createResourceResponse_progressEvent,
+    createResourceResponse_httpStatus,
+
+    -- ** DeleteResource
+    deleteResource_clientToken,
+    deleteResource_roleArn,
+    deleteResource_typeVersionId,
+    deleteResource_typeName,
+    deleteResource_identifier,
+    deleteResourceResponse_progressEvent,
+    deleteResourceResponse_httpStatus,
+
     -- ** GetResource
-    getResource_typeVersionId,
     getResource_roleArn,
+    getResource_typeVersionId,
     getResource_typeName,
     getResource_identifier,
     getResourceResponse_typeName,
     getResourceResponse_resourceDescription,
     getResourceResponse_httpStatus,
 
+    -- ** GetResourceRequestStatus
+    getResourceRequestStatus_requestToken,
+    getResourceRequestStatusResponse_progressEvent,
+    getResourceRequestStatusResponse_httpStatus,
+
     -- ** ListResourceRequests
     listResourceRequests_nextToken,
-    listResourceRequests_resourceRequestStatusFilter,
     listResourceRequests_maxResults,
-    listResourceRequestsResponse_resourceRequestStatusSummaries,
+    listResourceRequests_resourceRequestStatusFilter,
     listResourceRequestsResponse_nextToken,
+    listResourceRequestsResponse_resourceRequestStatusSummaries,
     listResourceRequestsResponse_httpStatus,
 
-    -- ** CancelResourceRequest
-    cancelResourceRequest_requestToken,
-    cancelResourceRequestResponse_progressEvent,
-    cancelResourceRequestResponse_httpStatus,
-
-    -- ** DeleteResource
-    deleteResource_clientToken,
-    deleteResource_typeVersionId,
-    deleteResource_roleArn,
-    deleteResource_typeName,
-    deleteResource_identifier,
-    deleteResourceResponse_progressEvent,
-    deleteResourceResponse_httpStatus,
+    -- ** ListResources
+    listResources_resourceModel,
+    listResources_nextToken,
+    listResources_roleArn,
+    listResources_maxResults,
+    listResources_typeVersionId,
+    listResources_typeName,
+    listResourcesResponse_nextToken,
+    listResourcesResponse_resourceDescriptions,
+    listResourcesResponse_typeName,
+    listResourcesResponse_httpStatus,
 
     -- ** UpdateResource
     updateResource_clientToken,
-    updateResource_typeVersionId,
     updateResource_roleArn,
+    updateResource_typeVersionId,
     updateResource_typeName,
     updateResource_identifier,
     updateResource_patchDocument,
     updateResourceResponse_progressEvent,
     updateResourceResponse_httpStatus,
 
-    -- ** ListResources
-    listResources_resourceModel,
-    listResources_nextToken,
-    listResources_typeVersionId,
-    listResources_maxResults,
-    listResources_roleArn,
-    listResources_typeName,
-    listResourcesResponse_resourceDescriptions,
-    listResourcesResponse_typeName,
-    listResourcesResponse_nextToken,
-    listResourcesResponse_httpStatus,
-
-    -- ** CreateResource
-    createResource_clientToken,
-    createResource_typeVersionId,
-    createResource_roleArn,
-    createResource_typeName,
-    createResource_desiredState,
-    createResourceResponse_progressEvent,
-    createResourceResponse_httpStatus,
-
-    -- ** GetResourceRequestStatus
-    getResourceRequestStatus_requestToken,
-    getResourceRequestStatusResponse_progressEvent,
-    getResourceRequestStatusResponse_httpStatus,
-
     -- * Types
 
     -- ** ProgressEvent
     progressEvent_retryAfter,
+    progressEvent_resourceModel,
+    progressEvent_operationStatus,
     progressEvent_typeName,
     progressEvent_requestToken,
-    progressEvent_resourceModel,
-    progressEvent_operation,
     progressEvent_identifier,
-    progressEvent_operationStatus,
+    progressEvent_errorCode,
     progressEvent_eventTime,
     progressEvent_statusMessage,
-    progressEvent_errorCode,
+    progressEvent_operation,
 
     -- ** ResourceDescription
-    resourceDescription_identifier,
     resourceDescription_properties,
+    resourceDescription_identifier,
 
     -- ** ResourceRequestStatusFilter
-    resourceRequestStatusFilter_operationStatuses,
     resourceRequestStatusFilter_operations,
+    resourceRequestStatusFilter_operationStatuses,
   )
 where
 

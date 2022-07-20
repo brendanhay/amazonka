@@ -29,8 +29,8 @@ module Amazonka.SESV2.PutConfigurationSetDeliveryOptions
     newPutConfigurationSetDeliveryOptions,
 
     -- * Request Lenses
-    putConfigurationSetDeliveryOptions_sendingPoolName,
     putConfigurationSetDeliveryOptions_tlsPolicy,
+    putConfigurationSetDeliveryOptions_sendingPoolName,
     putConfigurationSetDeliveryOptions_configurationSetName,
 
     -- * Destructuring the Response
@@ -53,15 +53,15 @@ import Amazonka.SESV2.Types
 --
 -- /See:/ 'newPutConfigurationSetDeliveryOptions' smart constructor.
 data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
-  { -- | The name of the dedicated IP pool to associate with the configuration
-    -- set.
-    sendingPoolName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether messages that use the configuration set are required
+  { -- | Specifies whether messages that use the configuration set are required
     -- to use Transport Layer Security (TLS). If the value is @Require@,
     -- messages are only delivered if a TLS connection can be established. If
     -- the value is @Optional@, messages can be delivered in plain text if a
     -- TLS connection can\'t be established.
     tlsPolicy :: Prelude.Maybe TlsPolicy,
+    -- | The name of the dedicated IP pool to associate with the configuration
+    -- set.
+    sendingPoolName :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration set to associate with a dedicated IP pool.
     configurationSetName :: Prelude.Text
   }
@@ -75,14 +75,14 @@ data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sendingPoolName', 'putConfigurationSetDeliveryOptions_sendingPoolName' - The name of the dedicated IP pool to associate with the configuration
--- set.
---
 -- 'tlsPolicy', 'putConfigurationSetDeliveryOptions_tlsPolicy' - Specifies whether messages that use the configuration set are required
 -- to use Transport Layer Security (TLS). If the value is @Require@,
 -- messages are only delivered if a TLS connection can be established. If
 -- the value is @Optional@, messages can be delivered in plain text if a
 -- TLS connection can\'t be established.
+--
+-- 'sendingPoolName', 'putConfigurationSetDeliveryOptions_sendingPoolName' - The name of the dedicated IP pool to associate with the configuration
+-- set.
 --
 -- 'configurationSetName', 'putConfigurationSetDeliveryOptions_configurationSetName' - The name of the configuration set to associate with a dedicated IP pool.
 newPutConfigurationSetDeliveryOptions ::
@@ -92,17 +92,12 @@ newPutConfigurationSetDeliveryOptions ::
 newPutConfigurationSetDeliveryOptions
   pConfigurationSetName_ =
     PutConfigurationSetDeliveryOptions'
-      { sendingPoolName =
+      { tlsPolicy =
           Prelude.Nothing,
-        tlsPolicy = Prelude.Nothing,
+        sendingPoolName = Prelude.Nothing,
         configurationSetName =
           pConfigurationSetName_
       }
-
--- | The name of the dedicated IP pool to associate with the configuration
--- set.
-putConfigurationSetDeliveryOptions_sendingPoolName :: Lens.Lens' PutConfigurationSetDeliveryOptions (Prelude.Maybe Prelude.Text)
-putConfigurationSetDeliveryOptions_sendingPoolName = Lens.lens (\PutConfigurationSetDeliveryOptions' {sendingPoolName} -> sendingPoolName) (\s@PutConfigurationSetDeliveryOptions' {} a -> s {sendingPoolName = a} :: PutConfigurationSetDeliveryOptions)
 
 -- | Specifies whether messages that use the configuration set are required
 -- to use Transport Layer Security (TLS). If the value is @Require@,
@@ -111,6 +106,11 @@ putConfigurationSetDeliveryOptions_sendingPoolName = Lens.lens (\PutConfiguratio
 -- TLS connection can\'t be established.
 putConfigurationSetDeliveryOptions_tlsPolicy :: Lens.Lens' PutConfigurationSetDeliveryOptions (Prelude.Maybe TlsPolicy)
 putConfigurationSetDeliveryOptions_tlsPolicy = Lens.lens (\PutConfigurationSetDeliveryOptions' {tlsPolicy} -> tlsPolicy) (\s@PutConfigurationSetDeliveryOptions' {} a -> s {tlsPolicy = a} :: PutConfigurationSetDeliveryOptions)
+
+-- | The name of the dedicated IP pool to associate with the configuration
+-- set.
+putConfigurationSetDeliveryOptions_sendingPoolName :: Lens.Lens' PutConfigurationSetDeliveryOptions (Prelude.Maybe Prelude.Text)
+putConfigurationSetDeliveryOptions_sendingPoolName = Lens.lens (\PutConfigurationSetDeliveryOptions' {sendingPoolName} -> sendingPoolName) (\s@PutConfigurationSetDeliveryOptions' {} a -> s {sendingPoolName = a} :: PutConfigurationSetDeliveryOptions)
 
 -- | The name of the configuration set to associate with a dedicated IP pool.
 putConfigurationSetDeliveryOptions_configurationSetName :: Lens.Lens' PutConfigurationSetDeliveryOptions Prelude.Text
@@ -138,8 +138,8 @@ instance
   hashWithSalt
     _salt
     PutConfigurationSetDeliveryOptions' {..} =
-      _salt `Prelude.hashWithSalt` sendingPoolName
-        `Prelude.hashWithSalt` tlsPolicy
+      _salt `Prelude.hashWithSalt` tlsPolicy
+        `Prelude.hashWithSalt` sendingPoolName
         `Prelude.hashWithSalt` configurationSetName
 
 instance
@@ -147,8 +147,8 @@ instance
     PutConfigurationSetDeliveryOptions
   where
   rnf PutConfigurationSetDeliveryOptions' {..} =
-    Prelude.rnf sendingPoolName
-      `Prelude.seq` Prelude.rnf tlsPolicy
+    Prelude.rnf tlsPolicy
+      `Prelude.seq` Prelude.rnf sendingPoolName
       `Prelude.seq` Prelude.rnf configurationSetName
 
 instance
@@ -172,9 +172,9 @@ instance
   toJSON PutConfigurationSetDeliveryOptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SendingPoolName" Core..=)
-              Prelude.<$> sendingPoolName,
-            ("TlsPolicy" Core..=) Prelude.<$> tlsPolicy
+          [ ("TlsPolicy" Core..=) Prelude.<$> tlsPolicy,
+            ("SendingPoolName" Core..=)
+              Prelude.<$> sendingPoolName
           ]
       )
 

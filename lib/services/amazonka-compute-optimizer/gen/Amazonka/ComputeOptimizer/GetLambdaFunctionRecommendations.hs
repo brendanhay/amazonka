@@ -32,11 +32,11 @@ module Amazonka.ComputeOptimizer.GetLambdaFunctionRecommendations
     newGetLambdaFunctionRecommendations,
 
     -- * Request Lenses
-    getLambdaFunctionRecommendations_functionArns,
     getLambdaFunctionRecommendations_accountIds,
-    getLambdaFunctionRecommendations_filters,
     getLambdaFunctionRecommendations_nextToken,
+    getLambdaFunctionRecommendations_filters,
     getLambdaFunctionRecommendations_maxResults,
+    getLambdaFunctionRecommendations_functionArns,
 
     -- * Destructuring the Response
     GetLambdaFunctionRecommendationsResponse (..),
@@ -58,7 +58,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLambdaFunctionRecommendations' smart constructor.
 data GetLambdaFunctionRecommendations = GetLambdaFunctionRecommendations'
-  { -- | The Amazon Resource Name (ARN) of the functions for which to return
+  { -- | The ID of the Amazon Web Services account for which to return function
+    -- recommendations.
+    --
+    -- If your account is the management account of an organization, use this
+    -- parameter to specify the member account for which you want to return
+    -- function recommendations.
+    --
+    -- Only one account ID can be specified per request.
+    accountIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token to advance to the next page of function recommendations.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects to specify a filter that returns a more specific
+    -- list of function recommendations.
+    filters :: Prelude.Maybe [LambdaFunctionRecommendationFilter],
+    -- | The maximum number of function recommendations to return with a single
+    -- request.
+    --
+    -- To retrieve the remaining results, make another request with the
+    -- returned @nextToken@ value.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the functions for which to return
     -- recommendations.
     --
     -- You can specify a qualified or unqualified ARN. If you specify an
@@ -69,27 +89,7 @@ data GetLambdaFunctionRecommendations = GetLambdaFunctionRecommendations'
     -- version. For more information about using function versions, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using Using versions>
     -- in the /Lambda Developer Guide/.
-    functionArns :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the Amazon Web Services account for which to return function
-    -- recommendations.
-    --
-    -- If your account is the management account of an organization, use this
-    -- parameter to specify the member account for which you want to return
-    -- function recommendations.
-    --
-    -- Only one account ID can be specified per request.
-    accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | An array of objects to specify a filter that returns a more specific
-    -- list of function recommendations.
-    filters :: Prelude.Maybe [LambdaFunctionRecommendationFilter],
-    -- | The token to advance to the next page of function recommendations.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of function recommendations to return with a single
-    -- request.
-    --
-    -- To retrieve the remaining results, make another request with the
-    -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    functionArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,6 +100,26 @@ data GetLambdaFunctionRecommendations = GetLambdaFunctionRecommendations'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'accountIds', 'getLambdaFunctionRecommendations_accountIds' - The ID of the Amazon Web Services account for which to return function
+-- recommendations.
+--
+-- If your account is the management account of an organization, use this
+-- parameter to specify the member account for which you want to return
+-- function recommendations.
+--
+-- Only one account ID can be specified per request.
+--
+-- 'nextToken', 'getLambdaFunctionRecommendations_nextToken' - The token to advance to the next page of function recommendations.
+--
+-- 'filters', 'getLambdaFunctionRecommendations_filters' - An array of objects to specify a filter that returns a more specific
+-- list of function recommendations.
+--
+-- 'maxResults', 'getLambdaFunctionRecommendations_maxResults' - The maximum number of function recommendations to return with a single
+-- request.
+--
+-- To retrieve the remaining results, make another request with the
+-- returned @nextToken@ value.
 --
 -- 'functionArns', 'getLambdaFunctionRecommendations_functionArns' - The Amazon Resource Name (ARN) of the functions for which to return
 -- recommendations.
@@ -112,8 +132,19 @@ data GetLambdaFunctionRecommendations = GetLambdaFunctionRecommendations'
 -- version. For more information about using function versions, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using Using versions>
 -- in the /Lambda Developer Guide/.
---
--- 'accountIds', 'getLambdaFunctionRecommendations_accountIds' - The ID of the Amazon Web Services account for which to return function
+newGetLambdaFunctionRecommendations ::
+  GetLambdaFunctionRecommendations
+newGetLambdaFunctionRecommendations =
+  GetLambdaFunctionRecommendations'
+    { accountIds =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      functionArns = Prelude.Nothing
+    }
+
+-- | The ID of the Amazon Web Services account for which to return function
 -- recommendations.
 --
 -- If your account is the management account of an organization, use this
@@ -121,28 +152,25 @@ data GetLambdaFunctionRecommendations = GetLambdaFunctionRecommendations'
 -- function recommendations.
 --
 -- Only one account ID can be specified per request.
---
--- 'filters', 'getLambdaFunctionRecommendations_filters' - An array of objects to specify a filter that returns a more specific
+getLambdaFunctionRecommendations_accountIds :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe [Prelude.Text])
+getLambdaFunctionRecommendations_accountIds = Lens.lens (\GetLambdaFunctionRecommendations' {accountIds} -> accountIds) (\s@GetLambdaFunctionRecommendations' {} a -> s {accountIds = a} :: GetLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to advance to the next page of function recommendations.
+getLambdaFunctionRecommendations_nextToken :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe Prelude.Text)
+getLambdaFunctionRecommendations_nextToken = Lens.lens (\GetLambdaFunctionRecommendations' {nextToken} -> nextToken) (\s@GetLambdaFunctionRecommendations' {} a -> s {nextToken = a} :: GetLambdaFunctionRecommendations)
+
+-- | An array of objects to specify a filter that returns a more specific
 -- list of function recommendations.
---
--- 'nextToken', 'getLambdaFunctionRecommendations_nextToken' - The token to advance to the next page of function recommendations.
---
--- 'maxResults', 'getLambdaFunctionRecommendations_maxResults' - The maximum number of function recommendations to return with a single
+getLambdaFunctionRecommendations_filters :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe [LambdaFunctionRecommendationFilter])
+getLambdaFunctionRecommendations_filters = Lens.lens (\GetLambdaFunctionRecommendations' {filters} -> filters) (\s@GetLambdaFunctionRecommendations' {} a -> s {filters = a} :: GetLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of function recommendations to return with a single
 -- request.
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
-newGetLambdaFunctionRecommendations ::
-  GetLambdaFunctionRecommendations
-newGetLambdaFunctionRecommendations =
-  GetLambdaFunctionRecommendations'
-    { functionArns =
-        Prelude.Nothing,
-      accountIds = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
+getLambdaFunctionRecommendations_maxResults :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe Prelude.Int)
+getLambdaFunctionRecommendations_maxResults = Lens.lens (\GetLambdaFunctionRecommendations' {maxResults} -> maxResults) (\s@GetLambdaFunctionRecommendations' {} a -> s {maxResults = a} :: GetLambdaFunctionRecommendations)
 
 -- | The Amazon Resource Name (ARN) of the functions for which to return
 -- recommendations.
@@ -157,34 +185,6 @@ newGetLambdaFunctionRecommendations =
 -- in the /Lambda Developer Guide/.
 getLambdaFunctionRecommendations_functionArns :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe [Prelude.Text])
 getLambdaFunctionRecommendations_functionArns = Lens.lens (\GetLambdaFunctionRecommendations' {functionArns} -> functionArns) (\s@GetLambdaFunctionRecommendations' {} a -> s {functionArns = a} :: GetLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the Amazon Web Services account for which to return function
--- recommendations.
---
--- If your account is the management account of an organization, use this
--- parameter to specify the member account for which you want to return
--- function recommendations.
---
--- Only one account ID can be specified per request.
-getLambdaFunctionRecommendations_accountIds :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe [Prelude.Text])
-getLambdaFunctionRecommendations_accountIds = Lens.lens (\GetLambdaFunctionRecommendations' {accountIds} -> accountIds) (\s@GetLambdaFunctionRecommendations' {} a -> s {accountIds = a} :: GetLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of objects to specify a filter that returns a more specific
--- list of function recommendations.
-getLambdaFunctionRecommendations_filters :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe [LambdaFunctionRecommendationFilter])
-getLambdaFunctionRecommendations_filters = Lens.lens (\GetLambdaFunctionRecommendations' {filters} -> filters) (\s@GetLambdaFunctionRecommendations' {} a -> s {filters = a} :: GetLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to advance to the next page of function recommendations.
-getLambdaFunctionRecommendations_nextToken :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe Prelude.Text)
-getLambdaFunctionRecommendations_nextToken = Lens.lens (\GetLambdaFunctionRecommendations' {nextToken} -> nextToken) (\s@GetLambdaFunctionRecommendations' {} a -> s {nextToken = a} :: GetLambdaFunctionRecommendations)
-
--- | The maximum number of function recommendations to return with a single
--- request.
---
--- To retrieve the remaining results, make another request with the
--- returned @nextToken@ value.
-getLambdaFunctionRecommendations_maxResults :: Lens.Lens' GetLambdaFunctionRecommendations (Prelude.Maybe Prelude.Int)
-getLambdaFunctionRecommendations_maxResults = Lens.lens (\GetLambdaFunctionRecommendations' {maxResults} -> maxResults) (\s@GetLambdaFunctionRecommendations' {} a -> s {maxResults = a} :: GetLambdaFunctionRecommendations)
 
 instance
   Core.AWSRequest
@@ -212,22 +212,22 @@ instance
   hashWithSalt
     _salt
     GetLambdaFunctionRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` functionArns
-        `Prelude.hashWithSalt` accountIds
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` accountIds
         `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` functionArns
 
 instance
   Prelude.NFData
     GetLambdaFunctionRecommendations
   where
   rnf GetLambdaFunctionRecommendations' {..} =
-    Prelude.rnf functionArns
-      `Prelude.seq` Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf functionArns
 
 instance
   Core.ToHeaders
@@ -251,11 +251,11 @@ instance Core.ToJSON GetLambdaFunctionRecommendations where
   toJSON GetLambdaFunctionRecommendations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("functionArns" Core..=) Prelude.<$> functionArns,
-            ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("filters" Core..=) Prelude.<$> filters,
+          [ ("accountIds" Core..=) Prelude.<$> accountIds,
             ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("filters" Core..=) Prelude.<$> filters,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("functionArns" Core..=) Prelude.<$> functionArns
           ]
       )
 

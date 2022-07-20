@@ -36,8 +36,8 @@ module Amazonka.Glue.GetBlueprintRuns
     newGetBlueprintRunsResponse,
 
     -- * Response Lenses
-    getBlueprintRunsResponse_blueprintRuns,
     getBlueprintRunsResponse_nextToken,
+    getBlueprintRunsResponse_blueprintRuns,
     getBlueprintRunsResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance Core.AWSRequest GetBlueprintRuns where
     Response.receiveJSON
       ( \s h x ->
           GetBlueprintRunsResponse'
-            Prelude.<$> (x Core..?> "BlueprintRuns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "BlueprintRuns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,10 +154,10 @@ instance Core.ToQuery GetBlueprintRuns where
 
 -- | /See:/ 'newGetBlueprintRunsResponse' smart constructor.
 data GetBlueprintRunsResponse = GetBlueprintRunsResponse'
-  { -- | Returns a list of @BlueprintRun@ objects.
-    blueprintRuns :: Prelude.Maybe [BlueprintRun],
-    -- | A continuation token, if not all blueprint runs have been returned.
+  { -- | A continuation token, if not all blueprint runs have been returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns a list of @BlueprintRun@ objects.
+    blueprintRuns :: Prelude.Maybe [BlueprintRun],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,9 +171,9 @@ data GetBlueprintRunsResponse = GetBlueprintRunsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blueprintRuns', 'getBlueprintRunsResponse_blueprintRuns' - Returns a list of @BlueprintRun@ objects.
---
 -- 'nextToken', 'getBlueprintRunsResponse_nextToken' - A continuation token, if not all blueprint runs have been returned.
+--
+-- 'blueprintRuns', 'getBlueprintRunsResponse_blueprintRuns' - Returns a list of @BlueprintRun@ objects.
 --
 -- 'httpStatus', 'getBlueprintRunsResponse_httpStatus' - The response's http status code.
 newGetBlueprintRunsResponse ::
@@ -182,19 +182,19 @@ newGetBlueprintRunsResponse ::
   GetBlueprintRunsResponse
 newGetBlueprintRunsResponse pHttpStatus_ =
   GetBlueprintRunsResponse'
-    { blueprintRuns =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      blueprintRuns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns a list of @BlueprintRun@ objects.
-getBlueprintRunsResponse_blueprintRuns :: Lens.Lens' GetBlueprintRunsResponse (Prelude.Maybe [BlueprintRun])
-getBlueprintRunsResponse_blueprintRuns = Lens.lens (\GetBlueprintRunsResponse' {blueprintRuns} -> blueprintRuns) (\s@GetBlueprintRunsResponse' {} a -> s {blueprintRuns = a} :: GetBlueprintRunsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if not all blueprint runs have been returned.
 getBlueprintRunsResponse_nextToken :: Lens.Lens' GetBlueprintRunsResponse (Prelude.Maybe Prelude.Text)
 getBlueprintRunsResponse_nextToken = Lens.lens (\GetBlueprintRunsResponse' {nextToken} -> nextToken) (\s@GetBlueprintRunsResponse' {} a -> s {nextToken = a} :: GetBlueprintRunsResponse)
+
+-- | Returns a list of @BlueprintRun@ objects.
+getBlueprintRunsResponse_blueprintRuns :: Lens.Lens' GetBlueprintRunsResponse (Prelude.Maybe [BlueprintRun])
+getBlueprintRunsResponse_blueprintRuns = Lens.lens (\GetBlueprintRunsResponse' {blueprintRuns} -> blueprintRuns) (\s@GetBlueprintRunsResponse' {} a -> s {blueprintRuns = a} :: GetBlueprintRunsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBlueprintRunsResponse_httpStatus :: Lens.Lens' GetBlueprintRunsResponse Prelude.Int
@@ -202,6 +202,6 @@ getBlueprintRunsResponse_httpStatus = Lens.lens (\GetBlueprintRunsResponse' {htt
 
 instance Prelude.NFData GetBlueprintRunsResponse where
   rnf GetBlueprintRunsResponse' {..} =
-    Prelude.rnf blueprintRuns
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf blueprintRuns
       `Prelude.seq` Prelude.rnf httpStatus

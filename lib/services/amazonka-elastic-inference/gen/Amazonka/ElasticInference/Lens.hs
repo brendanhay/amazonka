@@ -14,25 +14,29 @@
 module Amazonka.ElasticInference.Lens
   ( -- * Operations
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
     -- ** DescribeAcceleratorOfferings
     describeAcceleratorOfferings_acceleratorTypes,
     describeAcceleratorOfferings_locationType,
     describeAcceleratorOfferingsResponse_acceleratorTypeOfferings,
     describeAcceleratorOfferingsResponse_httpStatus,
 
+    -- ** DescribeAcceleratorTypes
+    describeAcceleratorTypesResponse_acceleratorTypes,
+    describeAcceleratorTypesResponse_httpStatus,
+
     -- ** DescribeAccelerators
-    describeAccelerators_filters,
     describeAccelerators_nextToken,
-    describeAccelerators_maxResults,
     describeAccelerators_acceleratorIds,
+    describeAccelerators_filters,
+    describeAccelerators_maxResults,
     describeAcceleratorsResponse_acceleratorSet,
     describeAcceleratorsResponse_nextToken,
     describeAcceleratorsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -44,16 +48,12 @@ module Amazonka.ElasticInference.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DescribeAcceleratorTypes
-    describeAcceleratorTypesResponse_acceleratorTypes,
-    describeAcceleratorTypesResponse_httpStatus,
-
     -- * Types
 
     -- ** AcceleratorType
-    acceleratorType_throughputInfo,
     acceleratorType_memoryInfo,
     acceleratorType_acceleratorTypeName,
+    acceleratorType_throughputInfo,
 
     -- ** AcceleratorTypeOffering
     acceleratorTypeOffering_acceleratorType,
@@ -61,22 +61,22 @@ module Amazonka.ElasticInference.Lens
     acceleratorTypeOffering_locationType,
 
     -- ** ElasticInferenceAccelerator
-    elasticInferenceAccelerator_acceleratorType,
-    elasticInferenceAccelerator_acceleratorId,
-    elasticInferenceAccelerator_attachedResource,
     elasticInferenceAccelerator_acceleratorHealth,
+    elasticInferenceAccelerator_acceleratorType,
     elasticInferenceAccelerator_availabilityZone,
+    elasticInferenceAccelerator_attachedResource,
+    elasticInferenceAccelerator_acceleratorId,
 
     -- ** ElasticInferenceAcceleratorHealth
     elasticInferenceAcceleratorHealth_status,
 
     -- ** Filter
-    filter_values,
     filter_name,
+    filter_values,
 
     -- ** KeyValuePair
-    keyValuePair_value,
     keyValuePair_key,
+    keyValuePair_value,
 
     -- ** MemoryInfo
     memoryInfo_sizeInMiB,

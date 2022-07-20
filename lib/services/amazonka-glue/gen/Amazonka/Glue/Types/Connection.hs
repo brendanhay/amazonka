@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnection' smart constructor.
 data Connection = Connection'
-  { -- | The time that this connection definition was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The user, group, or role that last updated this connection definition.
-    lastUpdatedBy :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the connection definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The type of the connection. Currently, SFTP is not supported.
+    connectionType :: Prelude.Maybe ConnectionType,
     -- | These key-value pairs define parameters for the connection:
     --
     -- -   @HOST@ - The host URI: either the fully qualified domain name (FQDN)
@@ -144,20 +144,20 @@ data Connection = Connection'
     --     Kafka client key password (if the user has the Glue encrypt
     --     passwords setting selected).
     connectionProperties :: Prelude.Maybe (Prelude.HashMap ConnectionPropertyKey Prelude.Text),
-    -- | The last time that this connection definition was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | A list of criteria that can be used in selecting this connection.
-    matchCriteria :: Prelude.Maybe [Prelude.Text],
     -- | A map of physical connection requirements, such as virtual private cloud
     -- (VPC) and @SecurityGroup@, that are needed to make this connection
     -- successfully.
     physicalConnectionRequirements :: Prelude.Maybe PhysicalConnectionRequirements,
-    -- | The name of the connection definition.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The last time that this connection definition was updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
     -- | The description of the connection.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The type of the connection. Currently, SFTP is not supported.
-    connectionType :: Prelude.Maybe ConnectionType
+    -- | A list of criteria that can be used in selecting this connection.
+    matchCriteria :: Prelude.Maybe [Prelude.Text],
+    -- | The time that this connection definition was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The user, group, or role that last updated this connection definition.
+    lastUpdatedBy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -169,9 +169,9 @@ data Connection = Connection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'connection_creationTime' - The time that this connection definition was created.
+-- 'name', 'connection_name' - The name of the connection definition.
 --
--- 'lastUpdatedBy', 'connection_lastUpdatedBy' - The user, group, or role that last updated this connection definition.
+-- 'connectionType', 'connection_connectionType' - The type of the connection. Currently, SFTP is not supported.
 --
 -- 'connectionProperties', 'connection_connectionProperties' - These key-value pairs define parameters for the connection:
 --
@@ -283,41 +283,41 @@ data Connection = Connection'
 --     Kafka client key password (if the user has the Glue encrypt
 --     passwords setting selected).
 --
--- 'lastUpdatedTime', 'connection_lastUpdatedTime' - The last time that this connection definition was updated.
---
--- 'matchCriteria', 'connection_matchCriteria' - A list of criteria that can be used in selecting this connection.
---
 -- 'physicalConnectionRequirements', 'connection_physicalConnectionRequirements' - A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to make this connection
 -- successfully.
 --
--- 'name', 'connection_name' - The name of the connection definition.
+-- 'lastUpdatedTime', 'connection_lastUpdatedTime' - The last time that this connection definition was updated.
 --
 -- 'description', 'connection_description' - The description of the connection.
 --
--- 'connectionType', 'connection_connectionType' - The type of the connection. Currently, SFTP is not supported.
+-- 'matchCriteria', 'connection_matchCriteria' - A list of criteria that can be used in selecting this connection.
+--
+-- 'creationTime', 'connection_creationTime' - The time that this connection definition was created.
+--
+-- 'lastUpdatedBy', 'connection_lastUpdatedBy' - The user, group, or role that last updated this connection definition.
 newConnection ::
   Connection
 newConnection =
   Connection'
-    { creationTime = Prelude.Nothing,
-      lastUpdatedBy = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      connectionType = Prelude.Nothing,
       connectionProperties = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
-      matchCriteria = Prelude.Nothing,
       physicalConnectionRequirements = Prelude.Nothing,
-      name = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       description = Prelude.Nothing,
-      connectionType = Prelude.Nothing
+      matchCriteria = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      lastUpdatedBy = Prelude.Nothing
     }
 
--- | The time that this connection definition was created.
-connection_creationTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
+-- | The name of the connection definition.
+connection_name :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_name = Lens.lens (\Connection' {name} -> name) (\s@Connection' {} a -> s {name = a} :: Connection)
 
--- | The user, group, or role that last updated this connection definition.
-connection_lastUpdatedBy :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
-connection_lastUpdatedBy = Lens.lens (\Connection' {lastUpdatedBy} -> lastUpdatedBy) (\s@Connection' {} a -> s {lastUpdatedBy = a} :: Connection)
+-- | The type of the connection. Currently, SFTP is not supported.
+connection_connectionType :: Lens.Lens' Connection (Prelude.Maybe ConnectionType)
+connection_connectionType = Lens.lens (\Connection' {connectionType} -> connectionType) (\s@Connection' {} a -> s {connectionType = a} :: Connection)
 
 -- | These key-value pairs define parameters for the connection:
 --
@@ -431,31 +431,31 @@ connection_lastUpdatedBy = Lens.lens (\Connection' {lastUpdatedBy} -> lastUpdate
 connection_connectionProperties :: Lens.Lens' Connection (Prelude.Maybe (Prelude.HashMap ConnectionPropertyKey Prelude.Text))
 connection_connectionProperties = Lens.lens (\Connection' {connectionProperties} -> connectionProperties) (\s@Connection' {} a -> s {connectionProperties = a} :: Connection) Prelude.. Lens.mapping Lens.coerced
 
--- | The last time that this connection definition was updated.
-connection_lastUpdatedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_lastUpdatedTime = Lens.lens (\Connection' {lastUpdatedTime} -> lastUpdatedTime) (\s@Connection' {} a -> s {lastUpdatedTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
-
--- | A list of criteria that can be used in selecting this connection.
-connection_matchCriteria :: Lens.Lens' Connection (Prelude.Maybe [Prelude.Text])
-connection_matchCriteria = Lens.lens (\Connection' {matchCriteria} -> matchCriteria) (\s@Connection' {} a -> s {matchCriteria = a} :: Connection) Prelude.. Lens.mapping Lens.coerced
-
 -- | A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to make this connection
 -- successfully.
 connection_physicalConnectionRequirements :: Lens.Lens' Connection (Prelude.Maybe PhysicalConnectionRequirements)
 connection_physicalConnectionRequirements = Lens.lens (\Connection' {physicalConnectionRequirements} -> physicalConnectionRequirements) (\s@Connection' {} a -> s {physicalConnectionRequirements = a} :: Connection)
 
--- | The name of the connection definition.
-connection_name :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
-connection_name = Lens.lens (\Connection' {name} -> name) (\s@Connection' {} a -> s {name = a} :: Connection)
+-- | The last time that this connection definition was updated.
+connection_lastUpdatedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
+connection_lastUpdatedTime = Lens.lens (\Connection' {lastUpdatedTime} -> lastUpdatedTime) (\s@Connection' {} a -> s {lastUpdatedTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the connection.
 connection_description :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_description = Lens.lens (\Connection' {description} -> description) (\s@Connection' {} a -> s {description = a} :: Connection)
 
--- | The type of the connection. Currently, SFTP is not supported.
-connection_connectionType :: Lens.Lens' Connection (Prelude.Maybe ConnectionType)
-connection_connectionType = Lens.lens (\Connection' {connectionType} -> connectionType) (\s@Connection' {} a -> s {connectionType = a} :: Connection)
+-- | A list of criteria that can be used in selecting this connection.
+connection_matchCriteria :: Lens.Lens' Connection (Prelude.Maybe [Prelude.Text])
+connection_matchCriteria = Lens.lens (\Connection' {matchCriteria} -> matchCriteria) (\s@Connection' {} a -> s {matchCriteria = a} :: Connection) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time that this connection definition was created.
+connection_creationTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
+connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Prelude.. Lens.mapping Core._Time
+
+-- | The user, group, or role that last updated this connection definition.
+connection_lastUpdatedBy :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_lastUpdatedBy = Lens.lens (\Connection' {lastUpdatedBy} -> lastUpdatedBy) (\s@Connection' {} a -> s {lastUpdatedBy = a} :: Connection)
 
 instance Core.FromJSON Connection where
   parseJSON =
@@ -463,39 +463,39 @@ instance Core.FromJSON Connection where
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastUpdatedBy")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ConnectionType")
             Prelude.<*> ( x Core..:? "ConnectionProperties"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "MatchCriteria" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "PhysicalConnectionRequirements")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ConnectionType")
+            Prelude.<*> (x Core..:? "MatchCriteria" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "LastUpdatedBy")
       )
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` lastUpdatedBy
-      `Prelude.hashWithSalt` connectionProperties
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` matchCriteria
-      `Prelude.hashWithSalt` physicalConnectionRequirements
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectionType
+      `Prelude.hashWithSalt` connectionProperties
+      `Prelude.hashWithSalt` physicalConnectionRequirements
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` matchCriteria
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastUpdatedBy
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdatedBy
-      `Prelude.seq` Prelude.rnf connectionProperties
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf matchCriteria
-      `Prelude.seq` Prelude.rnf physicalConnectionRequirements
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf connectionType
+      `Prelude.seq` Prelude.rnf connectionProperties
+      `Prelude.seq` Prelude.rnf physicalConnectionRequirements
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf matchCriteria
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdatedBy

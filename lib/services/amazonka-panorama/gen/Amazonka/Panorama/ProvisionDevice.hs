@@ -30,9 +30,9 @@ module Amazonka.Panorama.ProvisionDevice
     newProvisionDevice,
 
     -- * Request Lenses
-    provisionDevice_description,
-    provisionDevice_networkingConfiguration,
     provisionDevice_tags,
+    provisionDevice_networkingConfiguration,
+    provisionDevice_description,
     provisionDevice_name,
 
     -- * Destructuring the Response
@@ -40,9 +40,9 @@ module Amazonka.Panorama.ProvisionDevice
     newProvisionDeviceResponse,
 
     -- * Response Lenses
-    provisionDeviceResponse_certificates,
     provisionDeviceResponse_deviceId,
     provisionDeviceResponse_iotThingName,
+    provisionDeviceResponse_certificates,
     provisionDeviceResponse_httpStatus,
     provisionDeviceResponse_arn,
     provisionDeviceResponse_status,
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newProvisionDevice' smart constructor.
 data ProvisionDevice = ProvisionDevice'
-  { -- | A description for the device.
-    description :: Prelude.Maybe Prelude.Text,
+  { -- | Tags for the device.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A networking configuration for the device.
     networkingConfiguration :: Prelude.Maybe NetworkPayload,
-    -- | Tags for the device.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description for the device.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A name for the device.
     name :: Prelude.Text
   }
@@ -77,11 +77,11 @@ data ProvisionDevice = ProvisionDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'provisionDevice_description' - A description for the device.
+-- 'tags', 'provisionDevice_tags' - Tags for the device.
 --
 -- 'networkingConfiguration', 'provisionDevice_networkingConfiguration' - A networking configuration for the device.
 --
--- 'tags', 'provisionDevice_tags' - Tags for the device.
+-- 'description', 'provisionDevice_description' - A description for the device.
 --
 -- 'name', 'provisionDevice_name' - A name for the device.
 newProvisionDevice ::
@@ -90,23 +90,23 @@ newProvisionDevice ::
   ProvisionDevice
 newProvisionDevice pName_ =
   ProvisionDevice'
-    { description = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       networkingConfiguration = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_
     }
 
--- | A description for the device.
-provisionDevice_description :: Lens.Lens' ProvisionDevice (Prelude.Maybe Prelude.Text)
-provisionDevice_description = Lens.lens (\ProvisionDevice' {description} -> description) (\s@ProvisionDevice' {} a -> s {description = a} :: ProvisionDevice)
+-- | Tags for the device.
+provisionDevice_tags :: Lens.Lens' ProvisionDevice (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+provisionDevice_tags = Lens.lens (\ProvisionDevice' {tags} -> tags) (\s@ProvisionDevice' {} a -> s {tags = a} :: ProvisionDevice) Prelude.. Lens.mapping Lens.coerced
 
 -- | A networking configuration for the device.
 provisionDevice_networkingConfiguration :: Lens.Lens' ProvisionDevice (Prelude.Maybe NetworkPayload)
 provisionDevice_networkingConfiguration = Lens.lens (\ProvisionDevice' {networkingConfiguration} -> networkingConfiguration) (\s@ProvisionDevice' {} a -> s {networkingConfiguration = a} :: ProvisionDevice)
 
--- | Tags for the device.
-provisionDevice_tags :: Lens.Lens' ProvisionDevice (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-provisionDevice_tags = Lens.lens (\ProvisionDevice' {tags} -> tags) (\s@ProvisionDevice' {} a -> s {tags = a} :: ProvisionDevice) Prelude.. Lens.mapping Lens.coerced
+-- | A description for the device.
+provisionDevice_description :: Lens.Lens' ProvisionDevice (Prelude.Maybe Prelude.Text)
+provisionDevice_description = Lens.lens (\ProvisionDevice' {description} -> description) (\s@ProvisionDevice' {} a -> s {description = a} :: ProvisionDevice)
 
 -- | A name for the device.
 provisionDevice_name :: Lens.Lens' ProvisionDevice Prelude.Text
@@ -121,9 +121,9 @@ instance Core.AWSRequest ProvisionDevice where
     Response.receiveJSON
       ( \s h x ->
           ProvisionDeviceResponse'
-            Prelude.<$> (x Core..?> "Certificates")
-            Prelude.<*> (x Core..?> "DeviceId")
+            Prelude.<$> (x Core..?> "DeviceId")
             Prelude.<*> (x Core..?> "IotThingName")
+            Prelude.<*> (x Core..?> "Certificates")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Arn")
             Prelude.<*> (x Core..:> "Status")
@@ -131,16 +131,16 @@ instance Core.AWSRequest ProvisionDevice where
 
 instance Prelude.Hashable ProvisionDevice where
   hashWithSalt _salt ProvisionDevice' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` networkingConfiguration
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ProvisionDevice where
   rnf ProvisionDevice' {..} =
-    Prelude.rnf description
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf networkingConfiguration
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders ProvisionDevice where
@@ -158,10 +158,10 @@ instance Core.ToJSON ProvisionDevice where
   toJSON ProvisionDevice' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("NetworkingConfiguration" Core..=)
               Prelude.<$> networkingConfiguration,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Name" Core..= name)
           ]
       )
@@ -174,12 +174,12 @@ instance Core.ToQuery ProvisionDevice where
 
 -- | /See:/ 'newProvisionDeviceResponse' smart constructor.
 data ProvisionDeviceResponse = ProvisionDeviceResponse'
-  { -- | The device\'s configuration bundle.
-    certificates :: Prelude.Maybe Core.Base64,
-    -- | The device\'s ID.
+  { -- | The device\'s ID.
     deviceId :: Prelude.Maybe Prelude.Text,
     -- | The device\'s IoT thing name.
     iotThingName :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s configuration bundle.
+    certificates :: Prelude.Maybe Core.Base64,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The device\'s ARN.
@@ -197,15 +197,15 @@ data ProvisionDeviceResponse = ProvisionDeviceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceId', 'provisionDeviceResponse_deviceId' - The device\'s ID.
+--
+-- 'iotThingName', 'provisionDeviceResponse_iotThingName' - The device\'s IoT thing name.
+--
 -- 'certificates', 'provisionDeviceResponse_certificates' - The device\'s configuration bundle.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'deviceId', 'provisionDeviceResponse_deviceId' - The device\'s ID.
---
--- 'iotThingName', 'provisionDeviceResponse_iotThingName' - The device\'s IoT thing name.
 --
 -- 'httpStatus', 'provisionDeviceResponse_httpStatus' - The response's http status code.
 --
@@ -225,22 +225,14 @@ newProvisionDeviceResponse
   pArn_
   pStatus_ =
     ProvisionDeviceResponse'
-      { certificates =
+      { deviceId =
           Prelude.Nothing,
-        deviceId = Prelude.Nothing,
         iotThingName = Prelude.Nothing,
+        certificates = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         arn = pArn_,
         status = pStatus_
       }
-
--- | The device\'s configuration bundle.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
-provisionDeviceResponse_certificates :: Lens.Lens' ProvisionDeviceResponse (Prelude.Maybe Prelude.ByteString)
-provisionDeviceResponse_certificates = Lens.lens (\ProvisionDeviceResponse' {certificates} -> certificates) (\s@ProvisionDeviceResponse' {} a -> s {certificates = a} :: ProvisionDeviceResponse) Prelude.. Lens.mapping Core._Base64
 
 -- | The device\'s ID.
 provisionDeviceResponse_deviceId :: Lens.Lens' ProvisionDeviceResponse (Prelude.Maybe Prelude.Text)
@@ -249,6 +241,14 @@ provisionDeviceResponse_deviceId = Lens.lens (\ProvisionDeviceResponse' {deviceI
 -- | The device\'s IoT thing name.
 provisionDeviceResponse_iotThingName :: Lens.Lens' ProvisionDeviceResponse (Prelude.Maybe Prelude.Text)
 provisionDeviceResponse_iotThingName = Lens.lens (\ProvisionDeviceResponse' {iotThingName} -> iotThingName) (\s@ProvisionDeviceResponse' {} a -> s {iotThingName = a} :: ProvisionDeviceResponse)
+
+-- | The device\'s configuration bundle.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+provisionDeviceResponse_certificates :: Lens.Lens' ProvisionDeviceResponse (Prelude.Maybe Prelude.ByteString)
+provisionDeviceResponse_certificates = Lens.lens (\ProvisionDeviceResponse' {certificates} -> certificates) (\s@ProvisionDeviceResponse' {} a -> s {certificates = a} :: ProvisionDeviceResponse) Prelude.. Lens.mapping Core._Base64
 
 -- | The response's http status code.
 provisionDeviceResponse_httpStatus :: Lens.Lens' ProvisionDeviceResponse Prelude.Int
@@ -264,9 +264,9 @@ provisionDeviceResponse_status = Lens.lens (\ProvisionDeviceResponse' {status} -
 
 instance Prelude.NFData ProvisionDeviceResponse where
   rnf ProvisionDeviceResponse' {..} =
-    Prelude.rnf certificates
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf iotThingName
+      `Prelude.seq` Prelude.rnf certificates
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status

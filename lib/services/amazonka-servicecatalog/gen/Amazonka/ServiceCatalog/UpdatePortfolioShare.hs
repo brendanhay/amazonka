@@ -44,9 +44,9 @@ module Amazonka.ServiceCatalog.UpdatePortfolioShare
 
     -- * Request Lenses
     updatePortfolioShare_accountId,
-    updatePortfolioShare_shareTagOptions,
-    updatePortfolioShare_acceptLanguage,
     updatePortfolioShare_organizationNode,
+    updatePortfolioShare_acceptLanguage,
+    updatePortfolioShare_shareTagOptions,
     updatePortfolioShare_portfolioId,
 
     -- * Destructuring the Response
@@ -72,10 +72,7 @@ data UpdatePortfolioShare = UpdatePortfolioShare'
   { -- | The AWS Account Id of the recipient account. This field is required when
     -- updating an external account to account type share.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | A flag to enable or disable TagOptions sharing for the portfolio share.
-    -- If this field is not provided, the current state of TagOptions sharing
-    -- on the portfolio share will not be modified.
-    shareTagOptions :: Prelude.Maybe Prelude.Bool,
+    organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -84,7 +81,10 @@ data UpdatePortfolioShare = UpdatePortfolioShare'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    organizationNode :: Prelude.Maybe OrganizationNode,
+    -- | A flag to enable or disable TagOptions sharing for the portfolio share.
+    -- If this field is not provided, the current state of TagOptions sharing
+    -- on the portfolio share will not be modified.
+    shareTagOptions :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier of the portfolio for which the share will be
     -- updated.
     portfolioId :: Prelude.Text
@@ -102,9 +102,7 @@ data UpdatePortfolioShare = UpdatePortfolioShare'
 -- 'accountId', 'updatePortfolioShare_accountId' - The AWS Account Id of the recipient account. This field is required when
 -- updating an external account to account type share.
 --
--- 'shareTagOptions', 'updatePortfolioShare_shareTagOptions' - A flag to enable or disable TagOptions sharing for the portfolio share.
--- If this field is not provided, the current state of TagOptions sharing
--- on the portfolio share will not be modified.
+-- 'organizationNode', 'updatePortfolioShare_organizationNode' - Undocumented member.
 --
 -- 'acceptLanguage', 'updatePortfolioShare_acceptLanguage' - The language code.
 --
@@ -114,7 +112,9 @@ data UpdatePortfolioShare = UpdatePortfolioShare'
 --
 -- -   @zh@ - Chinese
 --
--- 'organizationNode', 'updatePortfolioShare_organizationNode' - Undocumented member.
+-- 'shareTagOptions', 'updatePortfolioShare_shareTagOptions' - A flag to enable or disable TagOptions sharing for the portfolio share.
+-- If this field is not provided, the current state of TagOptions sharing
+-- on the portfolio share will not be modified.
 --
 -- 'portfolioId', 'updatePortfolioShare_portfolioId' - The unique identifier of the portfolio for which the share will be
 -- updated.
@@ -125,9 +125,9 @@ newUpdatePortfolioShare ::
 newUpdatePortfolioShare pPortfolioId_ =
   UpdatePortfolioShare'
     { accountId = Prelude.Nothing,
-      shareTagOptions = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
       organizationNode = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
+      shareTagOptions = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
 
@@ -136,11 +136,9 @@ newUpdatePortfolioShare pPortfolioId_ =
 updatePortfolioShare_accountId :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe Prelude.Text)
 updatePortfolioShare_accountId = Lens.lens (\UpdatePortfolioShare' {accountId} -> accountId) (\s@UpdatePortfolioShare' {} a -> s {accountId = a} :: UpdatePortfolioShare)
 
--- | A flag to enable or disable TagOptions sharing for the portfolio share.
--- If this field is not provided, the current state of TagOptions sharing
--- on the portfolio share will not be modified.
-updatePortfolioShare_shareTagOptions :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe Prelude.Bool)
-updatePortfolioShare_shareTagOptions = Lens.lens (\UpdatePortfolioShare' {shareTagOptions} -> shareTagOptions) (\s@UpdatePortfolioShare' {} a -> s {shareTagOptions = a} :: UpdatePortfolioShare)
+-- | Undocumented member.
+updatePortfolioShare_organizationNode :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe OrganizationNode)
+updatePortfolioShare_organizationNode = Lens.lens (\UpdatePortfolioShare' {organizationNode} -> organizationNode) (\s@UpdatePortfolioShare' {} a -> s {organizationNode = a} :: UpdatePortfolioShare)
 
 -- | The language code.
 --
@@ -152,9 +150,11 @@ updatePortfolioShare_shareTagOptions = Lens.lens (\UpdatePortfolioShare' {shareT
 updatePortfolioShare_acceptLanguage :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe Prelude.Text)
 updatePortfolioShare_acceptLanguage = Lens.lens (\UpdatePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@UpdatePortfolioShare' {} a -> s {acceptLanguage = a} :: UpdatePortfolioShare)
 
--- | Undocumented member.
-updatePortfolioShare_organizationNode :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe OrganizationNode)
-updatePortfolioShare_organizationNode = Lens.lens (\UpdatePortfolioShare' {organizationNode} -> organizationNode) (\s@UpdatePortfolioShare' {} a -> s {organizationNode = a} :: UpdatePortfolioShare)
+-- | A flag to enable or disable TagOptions sharing for the portfolio share.
+-- If this field is not provided, the current state of TagOptions sharing
+-- on the portfolio share will not be modified.
+updatePortfolioShare_shareTagOptions :: Lens.Lens' UpdatePortfolioShare (Prelude.Maybe Prelude.Bool)
+updatePortfolioShare_shareTagOptions = Lens.lens (\UpdatePortfolioShare' {shareTagOptions} -> shareTagOptions) (\s@UpdatePortfolioShare' {} a -> s {shareTagOptions = a} :: UpdatePortfolioShare)
 
 -- | The unique identifier of the portfolio for which the share will be
 -- updated.
@@ -178,17 +178,17 @@ instance Core.AWSRequest UpdatePortfolioShare where
 instance Prelude.Hashable UpdatePortfolioShare where
   hashWithSalt _salt UpdatePortfolioShare' {..} =
     _salt `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` shareTagOptions
-      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` organizationNode
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` shareTagOptions
       `Prelude.hashWithSalt` portfolioId
 
 instance Prelude.NFData UpdatePortfolioShare where
   rnf UpdatePortfolioShare' {..} =
     Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf shareTagOptions
-      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf organizationNode
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf shareTagOptions
       `Prelude.seq` Prelude.rnf portfolioId
 
 instance Core.ToHeaders UpdatePortfolioShare where
@@ -211,12 +211,12 @@ instance Core.ToJSON UpdatePortfolioShare where
     Core.object
       ( Prelude.catMaybes
           [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("ShareTagOptions" Core..=)
-              Prelude.<$> shareTagOptions,
-            ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
             ("OrganizationNode" Core..=)
               Prelude.<$> organizationNode,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            ("ShareTagOptions" Core..=)
+              Prelude.<$> shareTagOptions,
             Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )

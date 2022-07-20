@@ -29,10 +29,10 @@ import Amazonka.QuickSight.Types.MarginStyle
 --
 -- /See:/ 'newTileLayoutStyle' smart constructor.
 data TileLayoutStyle = TileLayoutStyle'
-  { -- | The margin settings that apply around the outside edge of sheets.
-    margin :: Prelude.Maybe MarginStyle,
-    -- | The gutter settings that apply between tiles.
-    gutter :: Prelude.Maybe GutterStyle
+  { -- | The gutter settings that apply between tiles.
+    gutter :: Prelude.Maybe GutterStyle,
+    -- | The margin settings that apply around the outside edge of sheets.
+    margin :: Prelude.Maybe MarginStyle
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data TileLayoutStyle = TileLayoutStyle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'margin', 'tileLayoutStyle_margin' - The margin settings that apply around the outside edge of sheets.
---
 -- 'gutter', 'tileLayoutStyle_gutter' - The gutter settings that apply between tiles.
+--
+-- 'margin', 'tileLayoutStyle_margin' - The margin settings that apply around the outside edge of sheets.
 newTileLayoutStyle ::
   TileLayoutStyle
 newTileLayoutStyle =
   TileLayoutStyle'
-    { margin = Prelude.Nothing,
-      gutter = Prelude.Nothing
+    { gutter = Prelude.Nothing,
+      margin = Prelude.Nothing
     }
-
--- | The margin settings that apply around the outside edge of sheets.
-tileLayoutStyle_margin :: Lens.Lens' TileLayoutStyle (Prelude.Maybe MarginStyle)
-tileLayoutStyle_margin = Lens.lens (\TileLayoutStyle' {margin} -> margin) (\s@TileLayoutStyle' {} a -> s {margin = a} :: TileLayoutStyle)
 
 -- | The gutter settings that apply between tiles.
 tileLayoutStyle_gutter :: Lens.Lens' TileLayoutStyle (Prelude.Maybe GutterStyle)
 tileLayoutStyle_gutter = Lens.lens (\TileLayoutStyle' {gutter} -> gutter) (\s@TileLayoutStyle' {} a -> s {gutter = a} :: TileLayoutStyle)
+
+-- | The margin settings that apply around the outside edge of sheets.
+tileLayoutStyle_margin :: Lens.Lens' TileLayoutStyle (Prelude.Maybe MarginStyle)
+tileLayoutStyle_margin = Lens.lens (\TileLayoutStyle' {margin} -> margin) (\s@TileLayoutStyle' {} a -> s {margin = a} :: TileLayoutStyle)
 
 instance Core.FromJSON TileLayoutStyle where
   parseJSON =
@@ -69,24 +69,24 @@ instance Core.FromJSON TileLayoutStyle where
       "TileLayoutStyle"
       ( \x ->
           TileLayoutStyle'
-            Prelude.<$> (x Core..:? "Margin")
-            Prelude.<*> (x Core..:? "Gutter")
+            Prelude.<$> (x Core..:? "Gutter")
+            Prelude.<*> (x Core..:? "Margin")
       )
 
 instance Prelude.Hashable TileLayoutStyle where
   hashWithSalt _salt TileLayoutStyle' {..} =
-    _salt `Prelude.hashWithSalt` margin
-      `Prelude.hashWithSalt` gutter
+    _salt `Prelude.hashWithSalt` gutter
+      `Prelude.hashWithSalt` margin
 
 instance Prelude.NFData TileLayoutStyle where
   rnf TileLayoutStyle' {..} =
-    Prelude.rnf margin `Prelude.seq` Prelude.rnf gutter
+    Prelude.rnf gutter `Prelude.seq` Prelude.rnf margin
 
 instance Core.ToJSON TileLayoutStyle where
   toJSON TileLayoutStyle' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Margin" Core..=) Prelude.<$> margin,
-            ("Gutter" Core..=) Prelude.<$> gutter
+          [ ("Gutter" Core..=) Prelude.<$> gutter,
+            ("Margin" Core..=) Prelude.<$> margin
           ]
       )

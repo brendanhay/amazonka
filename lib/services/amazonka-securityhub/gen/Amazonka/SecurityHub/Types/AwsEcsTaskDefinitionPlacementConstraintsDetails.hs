@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionPlacementConstraintsDetails' smart constructor.
 data AwsEcsTaskDefinitionPlacementConstraintsDetails = AwsEcsTaskDefinitionPlacementConstraintsDetails'
-  { -- | A cluster query language expression to apply to the constraint.
-    expression :: Prelude.Maybe Prelude.Text,
-    -- | The type of constraint.
-    type' :: Prelude.Maybe Prelude.Text
+  { -- | The type of constraint.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | A cluster query language expression to apply to the constraint.
+    expression :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,26 @@ data AwsEcsTaskDefinitionPlacementConstraintsDetails = AwsEcsTaskDefinitionPlace
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expression', 'awsEcsTaskDefinitionPlacementConstraintsDetails_expression' - A cluster query language expression to apply to the constraint.
---
 -- 'type'', 'awsEcsTaskDefinitionPlacementConstraintsDetails_type' - The type of constraint.
+--
+-- 'expression', 'awsEcsTaskDefinitionPlacementConstraintsDetails_expression' - A cluster query language expression to apply to the constraint.
 newAwsEcsTaskDefinitionPlacementConstraintsDetails ::
   AwsEcsTaskDefinitionPlacementConstraintsDetails
 newAwsEcsTaskDefinitionPlacementConstraintsDetails =
   AwsEcsTaskDefinitionPlacementConstraintsDetails'
-    { expression =
+    { type' =
         Prelude.Nothing,
-      type' = Prelude.Nothing
+      expression =
+        Prelude.Nothing
     }
-
--- | A cluster query language expression to apply to the constraint.
-awsEcsTaskDefinitionPlacementConstraintsDetails_expression :: Lens.Lens' AwsEcsTaskDefinitionPlacementConstraintsDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionPlacementConstraintsDetails_expression = Lens.lens (\AwsEcsTaskDefinitionPlacementConstraintsDetails' {expression} -> expression) (\s@AwsEcsTaskDefinitionPlacementConstraintsDetails' {} a -> s {expression = a} :: AwsEcsTaskDefinitionPlacementConstraintsDetails)
 
 -- | The type of constraint.
 awsEcsTaskDefinitionPlacementConstraintsDetails_type :: Lens.Lens' AwsEcsTaskDefinitionPlacementConstraintsDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionPlacementConstraintsDetails_type = Lens.lens (\AwsEcsTaskDefinitionPlacementConstraintsDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionPlacementConstraintsDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionPlacementConstraintsDetails)
+
+-- | A cluster query language expression to apply to the constraint.
+awsEcsTaskDefinitionPlacementConstraintsDetails_expression :: Lens.Lens' AwsEcsTaskDefinitionPlacementConstraintsDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionPlacementConstraintsDetails_expression = Lens.lens (\AwsEcsTaskDefinitionPlacementConstraintsDetails' {expression} -> expression) (\s@AwsEcsTaskDefinitionPlacementConstraintsDetails' {} a -> s {expression = a} :: AwsEcsTaskDefinitionPlacementConstraintsDetails)
 
 instance
   Core.FromJSON
@@ -71,8 +72,8 @@ instance
       "AwsEcsTaskDefinitionPlacementConstraintsDetails"
       ( \x ->
           AwsEcsTaskDefinitionPlacementConstraintsDetails'
-            Prelude.<$> (x Core..:? "Expression")
-              Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+              Prelude.<*> (x Core..:? "Expression")
       )
 
 instance
@@ -82,8 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionPlacementConstraintsDetails' {..} =
-      _salt `Prelude.hashWithSalt` expression
-        `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` expression
 
 instance
   Prelude.NFData
@@ -91,8 +92,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionPlacementConstraintsDetails' {..} =
-      Prelude.rnf expression
-        `Prelude.seq` Prelude.rnf type'
+      Prelude.rnf type'
+        `Prelude.seq` Prelude.rnf expression
 
 instance
   Core.ToJSON
@@ -102,7 +103,7 @@ instance
     AwsEcsTaskDefinitionPlacementConstraintsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Expression" Core..=) Prelude.<$> expression,
-              ("Type" Core..=) Prelude.<$> type'
+            [ ("Type" Core..=) Prelude.<$> type',
+              ("Expression" Core..=) Prelude.<$> expression
             ]
         )

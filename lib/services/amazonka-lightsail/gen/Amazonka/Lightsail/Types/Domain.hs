@@ -31,30 +31,30 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomain' smart constructor.
 data Domain = Domain'
-  { -- | The resource type.
+  { -- | The tag keys and optional values for the resource. For more information
+    -- about tags in Lightsail, see the
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+    tags :: Prelude.Maybe [Tag],
+    -- | The resource type.
     resourceType :: Prelude.Maybe ResourceType,
-    -- | An array of key-value pairs containing information about the domain
-    -- entries.
-    domainEntries :: Prelude.Maybe [DomainEntry],
+    -- | The name of the domain.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the domain recordset (e.g.,
     -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The date when the domain recordset was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The AWS Region and Availability Zones where the domain recordset was
     -- created.
     location :: Prelude.Maybe ResourceLocation,
-    -- | The name of the domain.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | An array of key-value pairs containing information about the domain
+    -- entries.
+    domainEntries :: Prelude.Maybe [DomainEntry],
     -- | The support code. Include this code in your email to support when you
     -- have questions about an instance or another resource in Lightsail. This
     -- code enables our support team to look up your Lightsail information more
     -- easily.
     supportCode :: Prelude.Maybe Prelude.Text,
-    -- | The tag keys and optional values for the resource. For more information
-    -- about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
-    tags :: Prelude.Maybe [Tag]
+    -- | The date when the domain recordset was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,69 +66,71 @@ data Domain = Domain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'domain_tags' - The tag keys and optional values for the resource. For more information
+-- about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+--
 -- 'resourceType', 'domain_resourceType' - The resource type.
 --
--- 'domainEntries', 'domain_domainEntries' - An array of key-value pairs containing information about the domain
--- entries.
+-- 'name', 'domain_name' - The name of the domain.
 --
 -- 'arn', 'domain_arn' - The Amazon Resource Name (ARN) of the domain recordset (e.g.,
 -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
 --
--- 'createdAt', 'domain_createdAt' - The date when the domain recordset was created.
---
 -- 'location', 'domain_location' - The AWS Region and Availability Zones where the domain recordset was
 -- created.
 --
--- 'name', 'domain_name' - The name of the domain.
+-- 'domainEntries', 'domain_domainEntries' - An array of key-value pairs containing information about the domain
+-- entries.
 --
 -- 'supportCode', 'domain_supportCode' - The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
 -- code enables our support team to look up your Lightsail information more
 -- easily.
 --
--- 'tags', 'domain_tags' - The tag keys and optional values for the resource. For more information
--- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+-- 'createdAt', 'domain_createdAt' - The date when the domain recordset was created.
 newDomain ::
   Domain
 newDomain =
   Domain'
-    { resourceType = Prelude.Nothing,
-      domainEntries = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      location = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      location = Prelude.Nothing,
+      domainEntries = Prelude.Nothing,
       supportCode = Prelude.Nothing,
-      tags = Prelude.Nothing
+      createdAt = Prelude.Nothing
     }
+
+-- | The tag keys and optional values for the resource. For more information
+-- about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+domain_tags :: Lens.Lens' Domain (Prelude.Maybe [Tag])
+domain_tags = Lens.lens (\Domain' {tags} -> tags) (\s@Domain' {} a -> s {tags = a} :: Domain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resource type.
 domain_resourceType :: Lens.Lens' Domain (Prelude.Maybe ResourceType)
 domain_resourceType = Lens.lens (\Domain' {resourceType} -> resourceType) (\s@Domain' {} a -> s {resourceType = a} :: Domain)
 
--- | An array of key-value pairs containing information about the domain
--- entries.
-domain_domainEntries :: Lens.Lens' Domain (Prelude.Maybe [DomainEntry])
-domain_domainEntries = Lens.lens (\Domain' {domainEntries} -> domainEntries) (\s@Domain' {} a -> s {domainEntries = a} :: Domain) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the domain.
+domain_name :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
+domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = a} :: Domain)
 
 -- | The Amazon Resource Name (ARN) of the domain recordset (e.g.,
 -- @arn:aws:lightsail:global:123456789101:Domain\/824cede0-abc7-4f84-8dbc-12345EXAMPLE@).
 domain_arn :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_arn = Lens.lens (\Domain' {arn} -> arn) (\s@Domain' {} a -> s {arn = a} :: Domain)
 
--- | The date when the domain recordset was created.
-domain_createdAt :: Lens.Lens' Domain (Prelude.Maybe Prelude.UTCTime)
-domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Prelude.. Lens.mapping Core._Time
-
 -- | The AWS Region and Availability Zones where the domain recordset was
 -- created.
 domain_location :: Lens.Lens' Domain (Prelude.Maybe ResourceLocation)
 domain_location = Lens.lens (\Domain' {location} -> location) (\s@Domain' {} a -> s {location = a} :: Domain)
 
--- | The name of the domain.
-domain_name :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
-domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = a} :: Domain)
+-- | An array of key-value pairs containing information about the domain
+-- entries.
+domain_domainEntries :: Lens.Lens' Domain (Prelude.Maybe [DomainEntry])
+domain_domainEntries = Lens.lens (\Domain' {domainEntries} -> domainEntries) (\s@Domain' {} a -> s {domainEntries = a} :: Domain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The support code. Include this code in your email to support when you
 -- have questions about an instance or another resource in Lightsail. This
@@ -137,11 +139,9 @@ domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = 
 domain_supportCode :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_supportCode = Lens.lens (\Domain' {supportCode} -> supportCode) (\s@Domain' {} a -> s {supportCode = a} :: Domain)
 
--- | The tag keys and optional values for the resource. For more information
--- about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
-domain_tags :: Lens.Lens' Domain (Prelude.Maybe [Tag])
-domain_tags = Lens.lens (\Domain' {tags} -> tags) (\s@Domain' {} a -> s {tags = a} :: Domain) Prelude.. Lens.mapping Lens.coerced
+-- | The date when the domain recordset was created.
+domain_createdAt :: Lens.Lens' Domain (Prelude.Maybe Prelude.UTCTime)
+domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Domain where
   parseJSON =
@@ -149,34 +149,34 @@ instance Core.FromJSON Domain where
       "Domain"
       ( \x ->
           Domain'
-            Prelude.<$> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "domainEntries" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "location")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "domainEntries" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "supportCode")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable Domain where
   hashWithSalt _salt Domain' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` domainEntries
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` location
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` domainEntries
       `Prelude.hashWithSalt` supportCode
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData Domain where
   rnf Domain' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf domainEntries
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf domainEntries
       `Prelude.seq` Prelude.rnf supportCode
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createdAt

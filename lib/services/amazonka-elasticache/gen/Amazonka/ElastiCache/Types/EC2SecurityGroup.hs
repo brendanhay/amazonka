@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEC2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { -- | The status of the Amazon EC2 security group.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon account ID of the Amazon EC2 security group owner.
+  { -- | The Amazon account ID of the Amazon EC2 security group owner.
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the Amazon EC2 security group.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EC2 security group.
     eC2SecurityGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,28 @@ data EC2SecurityGroup = EC2SecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'eC2SecurityGroup_status' - The status of the Amazon EC2 security group.
---
 -- 'eC2SecurityGroupOwnerId', 'eC2SecurityGroup_eC2SecurityGroupOwnerId' - The Amazon account ID of the Amazon EC2 security group owner.
+--
+-- 'status', 'eC2SecurityGroup_status' - The status of the Amazon EC2 security group.
 --
 -- 'eC2SecurityGroupName', 'eC2SecurityGroup_eC2SecurityGroupName' - The name of the Amazon EC2 security group.
 newEC2SecurityGroup ::
   EC2SecurityGroup
 newEC2SecurityGroup =
   EC2SecurityGroup'
-    { status = Prelude.Nothing,
-      eC2SecurityGroupOwnerId = Prelude.Nothing,
+    { eC2SecurityGroupOwnerId =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       eC2SecurityGroupName = Prelude.Nothing
     }
-
--- | The status of the Amazon EC2 security group.
-eC2SecurityGroup_status :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
-eC2SecurityGroup_status = Lens.lens (\EC2SecurityGroup' {status} -> status) (\s@EC2SecurityGroup' {} a -> s {status = a} :: EC2SecurityGroup)
 
 -- | The Amazon account ID of the Amazon EC2 security group owner.
 eC2SecurityGroup_eC2SecurityGroupOwnerId :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
 eC2SecurityGroup_eC2SecurityGroupOwnerId = Lens.lens (\EC2SecurityGroup' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@EC2SecurityGroup' {} a -> s {eC2SecurityGroupOwnerId = a} :: EC2SecurityGroup)
+
+-- | The status of the Amazon EC2 security group.
+eC2SecurityGroup_status :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
+eC2SecurityGroup_status = Lens.lens (\EC2SecurityGroup' {status} -> status) (\s@EC2SecurityGroup' {} a -> s {status = a} :: EC2SecurityGroup)
 
 -- | The name of the Amazon EC2 security group.
 eC2SecurityGroup_eC2SecurityGroupName :: Lens.Lens' EC2SecurityGroup (Prelude.Maybe Prelude.Text)
@@ -74,18 +75,19 @@ eC2SecurityGroup_eC2SecurityGroupName = Lens.lens (\EC2SecurityGroup' {eC2Securi
 instance Core.FromXML EC2SecurityGroup where
   parseXML x =
     EC2SecurityGroup'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "EC2SecurityGroupOwnerId")
+      Prelude.<$> (x Core..@? "EC2SecurityGroupOwnerId")
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "EC2SecurityGroupName")
 
 instance Prelude.Hashable EC2SecurityGroup where
   hashWithSalt _salt EC2SecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
       `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` eC2SecurityGroupName
 
 instance Prelude.NFData EC2SecurityGroup where
   rnf EC2SecurityGroup' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
+    Prelude.rnf eC2SecurityGroupOwnerId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf eC2SecurityGroupName

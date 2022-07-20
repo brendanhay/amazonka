@@ -27,11 +27,11 @@ module Amazonka.WorkDocs.CreateComment
     newCreateComment,
 
     -- * Request Lenses
-    createComment_notifyCollaborators,
-    createComment_authenticationToken,
-    createComment_visibility,
     createComment_threadId,
+    createComment_notifyCollaborators,
+    createComment_visibility,
     createComment_parentId,
+    createComment_authenticationToken,
     createComment_documentId,
     createComment_versionId,
     createComment_text,
@@ -55,21 +55,21 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newCreateComment' smart constructor.
 data CreateComment = CreateComment'
-  { -- | Set this parameter to TRUE to send an email out to the document
+  { -- | The ID of the root comment in the thread.
+    threadId :: Prelude.Maybe Prelude.Text,
+    -- | Set this parameter to TRUE to send an email out to the document
     -- collaborators after the comment is created.
     notifyCollaborators :: Prelude.Maybe Prelude.Bool,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The visibility of the comment. Options are either PRIVATE, where the
     -- comment is visible only to the comment author and document owner and
     -- co-owners, or PUBLIC, where the comment is visible to document owners,
     -- co-owners, and contributors.
     visibility :: Prelude.Maybe CommentVisibilityType,
-    -- | The ID of the root comment in the thread.
-    threadId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the parent comment.
     parentId :: Prelude.Maybe Prelude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text,
     -- | The ID of the document version.
@@ -87,20 +87,20 @@ data CreateComment = CreateComment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'threadId', 'createComment_threadId' - The ID of the root comment in the thread.
+--
 -- 'notifyCollaborators', 'createComment_notifyCollaborators' - Set this parameter to TRUE to send an email out to the document
 -- collaborators after the comment is created.
---
--- 'authenticationToken', 'createComment_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
 --
 -- 'visibility', 'createComment_visibility' - The visibility of the comment. Options are either PRIVATE, where the
 -- comment is visible only to the comment author and document owner and
 -- co-owners, or PUBLIC, where the comment is visible to document owners,
 -- co-owners, and contributors.
 --
--- 'threadId', 'createComment_threadId' - The ID of the root comment in the thread.
---
 -- 'parentId', 'createComment_parentId' - The ID of the parent comment.
+--
+-- 'authenticationToken', 'createComment_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
 --
 -- 'documentId', 'createComment_documentId' - The ID of the document.
 --
@@ -117,26 +117,24 @@ newCreateComment ::
   CreateComment
 newCreateComment pDocumentId_ pVersionId_ pText_ =
   CreateComment'
-    { notifyCollaborators =
-        Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
+    { threadId = Prelude.Nothing,
+      notifyCollaborators = Prelude.Nothing,
       visibility = Prelude.Nothing,
-      threadId = Prelude.Nothing,
       parentId = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_,
       text = Core._Sensitive Lens.# pText_
     }
 
+-- | The ID of the root comment in the thread.
+createComment_threadId :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
+createComment_threadId = Lens.lens (\CreateComment' {threadId} -> threadId) (\s@CreateComment' {} a -> s {threadId = a} :: CreateComment)
+
 -- | Set this parameter to TRUE to send an email out to the document
 -- collaborators after the comment is created.
 createComment_notifyCollaborators :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Bool)
 createComment_notifyCollaborators = Lens.lens (\CreateComment' {notifyCollaborators} -> notifyCollaborators) (\s@CreateComment' {} a -> s {notifyCollaborators = a} :: CreateComment)
-
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
-createComment_authenticationToken :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
-createComment_authenticationToken = Lens.lens (\CreateComment' {authenticationToken} -> authenticationToken) (\s@CreateComment' {} a -> s {authenticationToken = a} :: CreateComment) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The visibility of the comment. Options are either PRIVATE, where the
 -- comment is visible only to the comment author and document owner and
@@ -145,13 +143,14 @@ createComment_authenticationToken = Lens.lens (\CreateComment' {authenticationTo
 createComment_visibility :: Lens.Lens' CreateComment (Prelude.Maybe CommentVisibilityType)
 createComment_visibility = Lens.lens (\CreateComment' {visibility} -> visibility) (\s@CreateComment' {} a -> s {visibility = a} :: CreateComment)
 
--- | The ID of the root comment in the thread.
-createComment_threadId :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
-createComment_threadId = Lens.lens (\CreateComment' {threadId} -> threadId) (\s@CreateComment' {} a -> s {threadId = a} :: CreateComment)
-
 -- | The ID of the parent comment.
 createComment_parentId :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
 createComment_parentId = Lens.lens (\CreateComment' {parentId} -> parentId) (\s@CreateComment' {} a -> s {parentId = a} :: CreateComment)
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+createComment_authenticationToken :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
+createComment_authenticationToken = Lens.lens (\CreateComment' {authenticationToken} -> authenticationToken) (\s@CreateComment' {} a -> s {authenticationToken = a} :: CreateComment) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the document.
 createComment_documentId :: Lens.Lens' CreateComment Prelude.Text
@@ -180,22 +179,22 @@ instance Core.AWSRequest CreateComment where
 
 instance Prelude.Hashable CreateComment where
   hashWithSalt _salt CreateComment' {..} =
-    _salt `Prelude.hashWithSalt` notifyCollaborators
-      `Prelude.hashWithSalt` authenticationToken
+    _salt `Prelude.hashWithSalt` threadId
+      `Prelude.hashWithSalt` notifyCollaborators
       `Prelude.hashWithSalt` visibility
-      `Prelude.hashWithSalt` threadId
       `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData CreateComment where
   rnf CreateComment' {..} =
-    Prelude.rnf notifyCollaborators
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf threadId
+      `Prelude.seq` Prelude.rnf notifyCollaborators
       `Prelude.seq` Prelude.rnf visibility
-      `Prelude.seq` Prelude.rnf threadId
       `Prelude.seq` Prelude.rnf parentId
+      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf text
@@ -212,10 +211,10 @@ instance Core.ToJSON CreateComment where
   toJSON CreateComment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotifyCollaborators" Core..=)
+          [ ("ThreadId" Core..=) Prelude.<$> threadId,
+            ("NotifyCollaborators" Core..=)
               Prelude.<$> notifyCollaborators,
             ("Visibility" Core..=) Prelude.<$> visibility,
-            ("ThreadId" Core..=) Prelude.<$> threadId,
             ("ParentId" Core..=) Prelude.<$> parentId,
             Prelude.Just ("Text" Core..= text)
           ]

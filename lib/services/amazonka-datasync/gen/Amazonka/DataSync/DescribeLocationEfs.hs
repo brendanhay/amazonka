@@ -35,10 +35,10 @@ module Amazonka.DataSync.DescribeLocationEfs
     newDescribeLocationEfsResponse,
 
     -- * Response Lenses
-    describeLocationEfsResponse_creationTime,
-    describeLocationEfsResponse_locationUri,
     describeLocationEfsResponse_locationArn,
     describeLocationEfsResponse_ec2Config,
+    describeLocationEfsResponse_locationUri,
+    describeLocationEfsResponse_creationTime,
     describeLocationEfsResponse_httpStatus,
   )
 where
@@ -88,10 +88,10 @@ instance Core.AWSRequest DescribeLocationEfs where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationEfsResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "LocationUri")
-            Prelude.<*> (x Core..?> "LocationArn")
+            Prelude.<$> (x Core..?> "LocationArn")
             Prelude.<*> (x Core..?> "Ec2Config")
+            Prelude.<*> (x Core..?> "LocationUri")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,13 +135,13 @@ instance Core.ToQuery DescribeLocationEfs where
 --
 -- /See:/ 'newDescribeLocationEfsResponse' smart constructor.
 data DescribeLocationEfsResponse = DescribeLocationEfsResponse'
-  { -- | The time that the EFS location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The URL of the EFS location that was described.
-    locationUri :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the EFS location that was described.
+  { -- | The Amazon Resource Name (ARN) of the EFS location that was described.
     locationArn :: Prelude.Maybe Prelude.Text,
     ec2Config :: Prelude.Maybe Ec2Config,
+    -- | The URL of the EFS location that was described.
+    locationUri :: Prelude.Maybe Prelude.Text,
+    -- | The time that the EFS location was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,13 +155,13 @@ data DescribeLocationEfsResponse = DescribeLocationEfsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeLocationEfsResponse_creationTime' - The time that the EFS location was created.
---
--- 'locationUri', 'describeLocationEfsResponse_locationUri' - The URL of the EFS location that was described.
---
 -- 'locationArn', 'describeLocationEfsResponse_locationArn' - The Amazon Resource Name (ARN) of the EFS location that was described.
 --
 -- 'ec2Config', 'describeLocationEfsResponse_ec2Config' - Undocumented member.
+--
+-- 'locationUri', 'describeLocationEfsResponse_locationUri' - The URL of the EFS location that was described.
+--
+-- 'creationTime', 'describeLocationEfsResponse_creationTime' - The time that the EFS location was created.
 --
 -- 'httpStatus', 'describeLocationEfsResponse_httpStatus' - The response's http status code.
 newDescribeLocationEfsResponse ::
@@ -170,21 +170,13 @@ newDescribeLocationEfsResponse ::
   DescribeLocationEfsResponse
 newDescribeLocationEfsResponse pHttpStatus_ =
   DescribeLocationEfsResponse'
-    { creationTime =
+    { locationArn =
         Prelude.Nothing,
-      locationUri = Prelude.Nothing,
-      locationArn = Prelude.Nothing,
       ec2Config = Prelude.Nothing,
+      locationUri = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time that the EFS location was created.
-describeLocationEfsResponse_creationTime :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationEfsResponse_creationTime = Lens.lens (\DescribeLocationEfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationEfsResponse' {} a -> s {creationTime = a} :: DescribeLocationEfsResponse) Prelude.. Lens.mapping Core._Time
-
--- | The URL of the EFS location that was described.
-describeLocationEfsResponse_locationUri :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
-describeLocationEfsResponse_locationUri = Lens.lens (\DescribeLocationEfsResponse' {locationUri} -> locationUri) (\s@DescribeLocationEfsResponse' {} a -> s {locationUri = a} :: DescribeLocationEfsResponse)
 
 -- | The Amazon Resource Name (ARN) of the EFS location that was described.
 describeLocationEfsResponse_locationArn :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
@@ -194,14 +186,22 @@ describeLocationEfsResponse_locationArn = Lens.lens (\DescribeLocationEfsRespons
 describeLocationEfsResponse_ec2Config :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Ec2Config)
 describeLocationEfsResponse_ec2Config = Lens.lens (\DescribeLocationEfsResponse' {ec2Config} -> ec2Config) (\s@DescribeLocationEfsResponse' {} a -> s {ec2Config = a} :: DescribeLocationEfsResponse)
 
+-- | The URL of the EFS location that was described.
+describeLocationEfsResponse_locationUri :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
+describeLocationEfsResponse_locationUri = Lens.lens (\DescribeLocationEfsResponse' {locationUri} -> locationUri) (\s@DescribeLocationEfsResponse' {} a -> s {locationUri = a} :: DescribeLocationEfsResponse)
+
+-- | The time that the EFS location was created.
+describeLocationEfsResponse_creationTime :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.UTCTime)
+describeLocationEfsResponse_creationTime = Lens.lens (\DescribeLocationEfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationEfsResponse' {} a -> s {creationTime = a} :: DescribeLocationEfsResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The response's http status code.
 describeLocationEfsResponse_httpStatus :: Lens.Lens' DescribeLocationEfsResponse Prelude.Int
 describeLocationEfsResponse_httpStatus = Lens.lens (\DescribeLocationEfsResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationEfsResponse' {} a -> s {httpStatus = a} :: DescribeLocationEfsResponse)
 
 instance Prelude.NFData DescribeLocationEfsResponse where
   rnf DescribeLocationEfsResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf locationArn
+    Prelude.rnf locationArn
       `Prelude.seq` Prelude.rnf ec2Config
+      `Prelude.seq` Prelude.rnf locationUri
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

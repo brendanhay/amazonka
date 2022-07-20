@@ -29,9 +29,9 @@ module Amazonka.ComprehendMedical.StartRxNormInferenceJob
     newStartRxNormInferenceJob,
 
     -- * Request Lenses
-    startRxNormInferenceJob_kmsKey,
-    startRxNormInferenceJob_jobName,
     startRxNormInferenceJob_clientRequestToken,
+    startRxNormInferenceJob_jobName,
+    startRxNormInferenceJob_kmsKey,
     startRxNormInferenceJob_inputDataConfig,
     startRxNormInferenceJob_outputDataConfig,
     startRxNormInferenceJob_dataAccessRoleArn,
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartRxNormInferenceJob' smart constructor.
 data StartRxNormInferenceJob = StartRxNormInferenceJob'
-  { -- | An AWS Key Management Service key to encrypt your output files. If you
-    -- do not specify a key, the files are written in plain text.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the request. If you don\'t set the client
+  { -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend Medical generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the job.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | An AWS Key Management Service key to encrypt your output files. If you
+    -- do not specify a key, the files are written in plain text.
+    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
@@ -87,13 +87,13 @@ data StartRxNormInferenceJob = StartRxNormInferenceJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKey', 'startRxNormInferenceJob_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you
--- do not specify a key, the files are written in plain text.
+-- 'clientRequestToken', 'startRxNormInferenceJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend Medical generates one.
 --
 -- 'jobName', 'startRxNormInferenceJob_jobName' - The identifier of the job.
 --
--- 'clientRequestToken', 'startRxNormInferenceJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- 'kmsKey', 'startRxNormInferenceJob_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you
+-- do not specify a key, the files are written in plain text.
 --
 -- 'inputDataConfig', 'startRxNormInferenceJob_inputDataConfig' - Specifies the format and location of the input data for the job.
 --
@@ -122,28 +122,29 @@ newStartRxNormInferenceJob
   pDataAccessRoleArn_
   pLanguageCode_ =
     StartRxNormInferenceJob'
-      { kmsKey = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         jobName = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+        kmsKey = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         languageCode = pLanguageCode_
       }
 
--- | An AWS Key Management Service key to encrypt your output files. If you
--- do not specify a key, the files are written in plain text.
-startRxNormInferenceJob_kmsKey :: Lens.Lens' StartRxNormInferenceJob (Prelude.Maybe Prelude.Text)
-startRxNormInferenceJob_kmsKey = Lens.lens (\StartRxNormInferenceJob' {kmsKey} -> kmsKey) (\s@StartRxNormInferenceJob' {} a -> s {kmsKey = a} :: StartRxNormInferenceJob)
+-- | A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend Medical generates one.
+startRxNormInferenceJob_clientRequestToken :: Lens.Lens' StartRxNormInferenceJob (Prelude.Maybe Prelude.Text)
+startRxNormInferenceJob_clientRequestToken = Lens.lens (\StartRxNormInferenceJob' {clientRequestToken} -> clientRequestToken) (\s@StartRxNormInferenceJob' {} a -> s {clientRequestToken = a} :: StartRxNormInferenceJob)
 
 -- | The identifier of the job.
 startRxNormInferenceJob_jobName :: Lens.Lens' StartRxNormInferenceJob (Prelude.Maybe Prelude.Text)
 startRxNormInferenceJob_jobName = Lens.lens (\StartRxNormInferenceJob' {jobName} -> jobName) (\s@StartRxNormInferenceJob' {} a -> s {jobName = a} :: StartRxNormInferenceJob)
 
--- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
-startRxNormInferenceJob_clientRequestToken :: Lens.Lens' StartRxNormInferenceJob (Prelude.Maybe Prelude.Text)
-startRxNormInferenceJob_clientRequestToken = Lens.lens (\StartRxNormInferenceJob' {clientRequestToken} -> clientRequestToken) (\s@StartRxNormInferenceJob' {} a -> s {clientRequestToken = a} :: StartRxNormInferenceJob)
+-- | An AWS Key Management Service key to encrypt your output files. If you
+-- do not specify a key, the files are written in plain text.
+startRxNormInferenceJob_kmsKey :: Lens.Lens' StartRxNormInferenceJob (Prelude.Maybe Prelude.Text)
+startRxNormInferenceJob_kmsKey = Lens.lens (\StartRxNormInferenceJob' {kmsKey} -> kmsKey) (\s@StartRxNormInferenceJob' {} a -> s {kmsKey = a} :: StartRxNormInferenceJob)
 
 -- | Specifies the format and location of the input data for the job.
 startRxNormInferenceJob_inputDataConfig :: Lens.Lens' StartRxNormInferenceJob InputDataConfig
@@ -180,9 +181,9 @@ instance Core.AWSRequest StartRxNormInferenceJob where
 
 instance Prelude.Hashable StartRxNormInferenceJob where
   hashWithSalt _salt StartRxNormInferenceJob' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` outputDataConfig
       `Prelude.hashWithSalt` dataAccessRoleArn
@@ -190,9 +191,9 @@ instance Prelude.Hashable StartRxNormInferenceJob where
 
 instance Prelude.NFData StartRxNormInferenceJob where
   rnf StartRxNormInferenceJob' {..} =
-    Prelude.rnf kmsKey
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
@@ -217,10 +218,10 @@ instance Core.ToJSON StartRxNormInferenceJob where
   toJSON StartRxNormInferenceJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
             Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
             Prelude.Just

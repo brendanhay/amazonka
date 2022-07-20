@@ -19,20 +19,20 @@ module Amazonka.Transcribe
     -- * Errors
     -- $errors
 
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** BadRequestException
     _BadRequestException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -40,227 +40,11 @@ module Amazonka.Transcribe
     -- * Operations
     -- $operations
 
-    -- ** ListLanguageModels
-    ListLanguageModels (ListLanguageModels'),
-    newListLanguageModels,
-    ListLanguageModelsResponse (ListLanguageModelsResponse'),
-    newListLanguageModelsResponse,
-
-    -- ** GetVocabulary
-    GetVocabulary (GetVocabulary'),
-    newGetVocabulary,
-    GetVocabularyResponse (GetVocabularyResponse'),
-    newGetVocabularyResponse,
-
-    -- ** DeleteLanguageModel
-    DeleteLanguageModel (DeleteLanguageModel'),
-    newDeleteLanguageModel,
-    DeleteLanguageModelResponse (DeleteLanguageModelResponse'),
-    newDeleteLanguageModelResponse,
-
-    -- ** GetTranscriptionJob
-    GetTranscriptionJob (GetTranscriptionJob'),
-    newGetTranscriptionJob,
-    GetTranscriptionJobResponse (GetTranscriptionJobResponse'),
-    newGetTranscriptionJobResponse,
-
-    -- ** StartMedicalTranscriptionJob
-    StartMedicalTranscriptionJob (StartMedicalTranscriptionJob'),
-    newStartMedicalTranscriptionJob,
-    StartMedicalTranscriptionJobResponse (StartMedicalTranscriptionJobResponse'),
-    newStartMedicalTranscriptionJobResponse,
-
-    -- ** ListCallAnalyticsJobs
-    ListCallAnalyticsJobs (ListCallAnalyticsJobs'),
-    newListCallAnalyticsJobs,
-    ListCallAnalyticsJobsResponse (ListCallAnalyticsJobsResponse'),
-    newListCallAnalyticsJobsResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetCallAnalyticsCategory
-    GetCallAnalyticsCategory (GetCallAnalyticsCategory'),
-    newGetCallAnalyticsCategory,
-    GetCallAnalyticsCategoryResponse (GetCallAnalyticsCategoryResponse'),
-    newGetCallAnalyticsCategoryResponse,
-
-    -- ** DeleteMedicalVocabulary
-    DeleteMedicalVocabulary (DeleteMedicalVocabulary'),
-    newDeleteMedicalVocabulary,
-    DeleteMedicalVocabularyResponse (DeleteMedicalVocabularyResponse'),
-    newDeleteMedicalVocabularyResponse,
-
-    -- ** UpdateMedicalVocabulary
-    UpdateMedicalVocabulary (UpdateMedicalVocabulary'),
-    newUpdateMedicalVocabulary,
-    UpdateMedicalVocabularyResponse (UpdateMedicalVocabularyResponse'),
-    newUpdateMedicalVocabularyResponse,
-
     -- ** CreateCallAnalyticsCategory
     CreateCallAnalyticsCategory (CreateCallAnalyticsCategory'),
     newCreateCallAnalyticsCategory,
     CreateCallAnalyticsCategoryResponse (CreateCallAnalyticsCategoryResponse'),
     newCreateCallAnalyticsCategoryResponse,
-
-    -- ** DeleteTranscriptionJob
-    DeleteTranscriptionJob (DeleteTranscriptionJob'),
-    newDeleteTranscriptionJob,
-    DeleteTranscriptionJobResponse (DeleteTranscriptionJobResponse'),
-    newDeleteTranscriptionJobResponse,
-
-    -- ** DescribeLanguageModel
-    DescribeLanguageModel (DescribeLanguageModel'),
-    newDescribeLanguageModel,
-    DescribeLanguageModelResponse (DescribeLanguageModelResponse'),
-    newDescribeLanguageModelResponse,
-
-    -- ** ListCallAnalyticsCategories
-    ListCallAnalyticsCategories (ListCallAnalyticsCategories'),
-    newListCallAnalyticsCategories,
-    ListCallAnalyticsCategoriesResponse (ListCallAnalyticsCategoriesResponse'),
-    newListCallAnalyticsCategoriesResponse,
-
-    -- ** DeleteMedicalTranscriptionJob
-    DeleteMedicalTranscriptionJob (DeleteMedicalTranscriptionJob'),
-    newDeleteMedicalTranscriptionJob,
-    DeleteMedicalTranscriptionJobResponse (DeleteMedicalTranscriptionJobResponse'),
-    newDeleteMedicalTranscriptionJobResponse,
-
-    -- ** DeleteVocabulary
-    DeleteVocabulary (DeleteVocabulary'),
-    newDeleteVocabulary,
-    DeleteVocabularyResponse (DeleteVocabularyResponse'),
-    newDeleteVocabularyResponse,
-
-    -- ** StartCallAnalyticsJob
-    StartCallAnalyticsJob (StartCallAnalyticsJob'),
-    newStartCallAnalyticsJob,
-    StartCallAnalyticsJobResponse (StartCallAnalyticsJobResponse'),
-    newStartCallAnalyticsJobResponse,
-
-    -- ** UpdateVocabulary
-    UpdateVocabulary (UpdateVocabulary'),
-    newUpdateVocabulary,
-    UpdateVocabularyResponse (UpdateVocabularyResponse'),
-    newUpdateVocabularyResponse,
-
-    -- ** CreateVocabularyFilter
-    CreateVocabularyFilter (CreateVocabularyFilter'),
-    newCreateVocabularyFilter,
-    CreateVocabularyFilterResponse (CreateVocabularyFilterResponse'),
-    newCreateVocabularyFilterResponse,
-
-    -- ** GetMedicalTranscriptionJob
-    GetMedicalTranscriptionJob (GetMedicalTranscriptionJob'),
-    newGetMedicalTranscriptionJob,
-    GetMedicalTranscriptionJobResponse (GetMedicalTranscriptionJobResponse'),
-    newGetMedicalTranscriptionJobResponse,
-
-    -- ** GetVocabularyFilter
-    GetVocabularyFilter (GetVocabularyFilter'),
-    newGetVocabularyFilter,
-    GetVocabularyFilterResponse (GetVocabularyFilterResponse'),
-    newGetVocabularyFilterResponse,
-
-    -- ** GetMedicalVocabulary
-    GetMedicalVocabulary (GetMedicalVocabulary'),
-    newGetMedicalVocabulary,
-    GetMedicalVocabularyResponse (GetMedicalVocabularyResponse'),
-    newGetMedicalVocabularyResponse,
-
-    -- ** DeleteCallAnalyticsJob
-    DeleteCallAnalyticsJob (DeleteCallAnalyticsJob'),
-    newDeleteCallAnalyticsJob,
-    DeleteCallAnalyticsJobResponse (DeleteCallAnalyticsJobResponse'),
-    newDeleteCallAnalyticsJobResponse,
-
-    -- ** CreateMedicalVocabulary
-    CreateMedicalVocabulary (CreateMedicalVocabulary'),
-    newCreateMedicalVocabulary,
-    CreateMedicalVocabularyResponse (CreateMedicalVocabularyResponse'),
-    newCreateMedicalVocabularyResponse,
-
-    -- ** ListMedicalVocabularies
-    ListMedicalVocabularies (ListMedicalVocabularies'),
-    newListMedicalVocabularies,
-    ListMedicalVocabulariesResponse (ListMedicalVocabulariesResponse'),
-    newListMedicalVocabulariesResponse,
-
-    -- ** DeleteCallAnalyticsCategory
-    DeleteCallAnalyticsCategory (DeleteCallAnalyticsCategory'),
-    newDeleteCallAnalyticsCategory,
-    DeleteCallAnalyticsCategoryResponse (DeleteCallAnalyticsCategoryResponse'),
-    newDeleteCallAnalyticsCategoryResponse,
-
-    -- ** UpdateCallAnalyticsCategory
-    UpdateCallAnalyticsCategory (UpdateCallAnalyticsCategory'),
-    newUpdateCallAnalyticsCategory,
-    UpdateCallAnalyticsCategoryResponse (UpdateCallAnalyticsCategoryResponse'),
-    newUpdateCallAnalyticsCategoryResponse,
-
-    -- ** GetCallAnalyticsJob
-    GetCallAnalyticsJob (GetCallAnalyticsJob'),
-    newGetCallAnalyticsJob,
-    GetCallAnalyticsJobResponse (GetCallAnalyticsJobResponse'),
-    newGetCallAnalyticsJobResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListTranscriptionJobs
-    ListTranscriptionJobs (ListTranscriptionJobs'),
-    newListTranscriptionJobs,
-    ListTranscriptionJobsResponse (ListTranscriptionJobsResponse'),
-    newListTranscriptionJobsResponse,
-
-    -- ** ListMedicalTranscriptionJobs
-    ListMedicalTranscriptionJobs (ListMedicalTranscriptionJobs'),
-    newListMedicalTranscriptionJobs,
-    ListMedicalTranscriptionJobsResponse (ListMedicalTranscriptionJobsResponse'),
-    newListMedicalTranscriptionJobsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DeleteVocabularyFilter
-    DeleteVocabularyFilter (DeleteVocabularyFilter'),
-    newDeleteVocabularyFilter,
-    DeleteVocabularyFilterResponse (DeleteVocabularyFilterResponse'),
-    newDeleteVocabularyFilterResponse,
-
-    -- ** ListVocabularyFilters
-    ListVocabularyFilters (ListVocabularyFilters'),
-    newListVocabularyFilters,
-    ListVocabularyFiltersResponse (ListVocabularyFiltersResponse'),
-    newListVocabularyFiltersResponse,
-
-    -- ** UpdateVocabularyFilter
-    UpdateVocabularyFilter (UpdateVocabularyFilter'),
-    newUpdateVocabularyFilter,
-    UpdateVocabularyFilterResponse (UpdateVocabularyFilterResponse'),
-    newUpdateVocabularyFilterResponse,
-
-    -- ** ListVocabularies
-    ListVocabularies (ListVocabularies'),
-    newListVocabularies,
-    ListVocabulariesResponse (ListVocabulariesResponse'),
-    newListVocabulariesResponse,
-
-    -- ** CreateVocabulary
-    CreateVocabulary (CreateVocabulary'),
-    newCreateVocabulary,
-    CreateVocabularyResponse (CreateVocabularyResponse'),
-    newCreateVocabularyResponse,
 
     -- ** CreateLanguageModel
     CreateLanguageModel (CreateLanguageModel'),
@@ -268,11 +52,227 @@ module Amazonka.Transcribe
     CreateLanguageModelResponse (CreateLanguageModelResponse'),
     newCreateLanguageModelResponse,
 
+    -- ** CreateMedicalVocabulary
+    CreateMedicalVocabulary (CreateMedicalVocabulary'),
+    newCreateMedicalVocabulary,
+    CreateMedicalVocabularyResponse (CreateMedicalVocabularyResponse'),
+    newCreateMedicalVocabularyResponse,
+
+    -- ** CreateVocabulary
+    CreateVocabulary (CreateVocabulary'),
+    newCreateVocabulary,
+    CreateVocabularyResponse (CreateVocabularyResponse'),
+    newCreateVocabularyResponse,
+
+    -- ** CreateVocabularyFilter
+    CreateVocabularyFilter (CreateVocabularyFilter'),
+    newCreateVocabularyFilter,
+    CreateVocabularyFilterResponse (CreateVocabularyFilterResponse'),
+    newCreateVocabularyFilterResponse,
+
+    -- ** DeleteCallAnalyticsCategory
+    DeleteCallAnalyticsCategory (DeleteCallAnalyticsCategory'),
+    newDeleteCallAnalyticsCategory,
+    DeleteCallAnalyticsCategoryResponse (DeleteCallAnalyticsCategoryResponse'),
+    newDeleteCallAnalyticsCategoryResponse,
+
+    -- ** DeleteCallAnalyticsJob
+    DeleteCallAnalyticsJob (DeleteCallAnalyticsJob'),
+    newDeleteCallAnalyticsJob,
+    DeleteCallAnalyticsJobResponse (DeleteCallAnalyticsJobResponse'),
+    newDeleteCallAnalyticsJobResponse,
+
+    -- ** DeleteLanguageModel
+    DeleteLanguageModel (DeleteLanguageModel'),
+    newDeleteLanguageModel,
+    DeleteLanguageModelResponse (DeleteLanguageModelResponse'),
+    newDeleteLanguageModelResponse,
+
+    -- ** DeleteMedicalTranscriptionJob
+    DeleteMedicalTranscriptionJob (DeleteMedicalTranscriptionJob'),
+    newDeleteMedicalTranscriptionJob,
+    DeleteMedicalTranscriptionJobResponse (DeleteMedicalTranscriptionJobResponse'),
+    newDeleteMedicalTranscriptionJobResponse,
+
+    -- ** DeleteMedicalVocabulary
+    DeleteMedicalVocabulary (DeleteMedicalVocabulary'),
+    newDeleteMedicalVocabulary,
+    DeleteMedicalVocabularyResponse (DeleteMedicalVocabularyResponse'),
+    newDeleteMedicalVocabularyResponse,
+
+    -- ** DeleteTranscriptionJob
+    DeleteTranscriptionJob (DeleteTranscriptionJob'),
+    newDeleteTranscriptionJob,
+    DeleteTranscriptionJobResponse (DeleteTranscriptionJobResponse'),
+    newDeleteTranscriptionJobResponse,
+
+    -- ** DeleteVocabulary
+    DeleteVocabulary (DeleteVocabulary'),
+    newDeleteVocabulary,
+    DeleteVocabularyResponse (DeleteVocabularyResponse'),
+    newDeleteVocabularyResponse,
+
+    -- ** DeleteVocabularyFilter
+    DeleteVocabularyFilter (DeleteVocabularyFilter'),
+    newDeleteVocabularyFilter,
+    DeleteVocabularyFilterResponse (DeleteVocabularyFilterResponse'),
+    newDeleteVocabularyFilterResponse,
+
+    -- ** DescribeLanguageModel
+    DescribeLanguageModel (DescribeLanguageModel'),
+    newDescribeLanguageModel,
+    DescribeLanguageModelResponse (DescribeLanguageModelResponse'),
+    newDescribeLanguageModelResponse,
+
+    -- ** GetCallAnalyticsCategory
+    GetCallAnalyticsCategory (GetCallAnalyticsCategory'),
+    newGetCallAnalyticsCategory,
+    GetCallAnalyticsCategoryResponse (GetCallAnalyticsCategoryResponse'),
+    newGetCallAnalyticsCategoryResponse,
+
+    -- ** GetCallAnalyticsJob
+    GetCallAnalyticsJob (GetCallAnalyticsJob'),
+    newGetCallAnalyticsJob,
+    GetCallAnalyticsJobResponse (GetCallAnalyticsJobResponse'),
+    newGetCallAnalyticsJobResponse,
+
+    -- ** GetMedicalTranscriptionJob
+    GetMedicalTranscriptionJob (GetMedicalTranscriptionJob'),
+    newGetMedicalTranscriptionJob,
+    GetMedicalTranscriptionJobResponse (GetMedicalTranscriptionJobResponse'),
+    newGetMedicalTranscriptionJobResponse,
+
+    -- ** GetMedicalVocabulary
+    GetMedicalVocabulary (GetMedicalVocabulary'),
+    newGetMedicalVocabulary,
+    GetMedicalVocabularyResponse (GetMedicalVocabularyResponse'),
+    newGetMedicalVocabularyResponse,
+
+    -- ** GetTranscriptionJob
+    GetTranscriptionJob (GetTranscriptionJob'),
+    newGetTranscriptionJob,
+    GetTranscriptionJobResponse (GetTranscriptionJobResponse'),
+    newGetTranscriptionJobResponse,
+
+    -- ** GetVocabulary
+    GetVocabulary (GetVocabulary'),
+    newGetVocabulary,
+    GetVocabularyResponse (GetVocabularyResponse'),
+    newGetVocabularyResponse,
+
+    -- ** GetVocabularyFilter
+    GetVocabularyFilter (GetVocabularyFilter'),
+    newGetVocabularyFilter,
+    GetVocabularyFilterResponse (GetVocabularyFilterResponse'),
+    newGetVocabularyFilterResponse,
+
+    -- ** ListCallAnalyticsCategories
+    ListCallAnalyticsCategories (ListCallAnalyticsCategories'),
+    newListCallAnalyticsCategories,
+    ListCallAnalyticsCategoriesResponse (ListCallAnalyticsCategoriesResponse'),
+    newListCallAnalyticsCategoriesResponse,
+
+    -- ** ListCallAnalyticsJobs
+    ListCallAnalyticsJobs (ListCallAnalyticsJobs'),
+    newListCallAnalyticsJobs,
+    ListCallAnalyticsJobsResponse (ListCallAnalyticsJobsResponse'),
+    newListCallAnalyticsJobsResponse,
+
+    -- ** ListLanguageModels
+    ListLanguageModels (ListLanguageModels'),
+    newListLanguageModels,
+    ListLanguageModelsResponse (ListLanguageModelsResponse'),
+    newListLanguageModelsResponse,
+
+    -- ** ListMedicalTranscriptionJobs
+    ListMedicalTranscriptionJobs (ListMedicalTranscriptionJobs'),
+    newListMedicalTranscriptionJobs,
+    ListMedicalTranscriptionJobsResponse (ListMedicalTranscriptionJobsResponse'),
+    newListMedicalTranscriptionJobsResponse,
+
+    -- ** ListMedicalVocabularies
+    ListMedicalVocabularies (ListMedicalVocabularies'),
+    newListMedicalVocabularies,
+    ListMedicalVocabulariesResponse (ListMedicalVocabulariesResponse'),
+    newListMedicalVocabulariesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListTranscriptionJobs
+    ListTranscriptionJobs (ListTranscriptionJobs'),
+    newListTranscriptionJobs,
+    ListTranscriptionJobsResponse (ListTranscriptionJobsResponse'),
+    newListTranscriptionJobsResponse,
+
+    -- ** ListVocabularies
+    ListVocabularies (ListVocabularies'),
+    newListVocabularies,
+    ListVocabulariesResponse (ListVocabulariesResponse'),
+    newListVocabulariesResponse,
+
+    -- ** ListVocabularyFilters
+    ListVocabularyFilters (ListVocabularyFilters'),
+    newListVocabularyFilters,
+    ListVocabularyFiltersResponse (ListVocabularyFiltersResponse'),
+    newListVocabularyFiltersResponse,
+
+    -- ** StartCallAnalyticsJob
+    StartCallAnalyticsJob (StartCallAnalyticsJob'),
+    newStartCallAnalyticsJob,
+    StartCallAnalyticsJobResponse (StartCallAnalyticsJobResponse'),
+    newStartCallAnalyticsJobResponse,
+
+    -- ** StartMedicalTranscriptionJob
+    StartMedicalTranscriptionJob (StartMedicalTranscriptionJob'),
+    newStartMedicalTranscriptionJob,
+    StartMedicalTranscriptionJobResponse (StartMedicalTranscriptionJobResponse'),
+    newStartMedicalTranscriptionJobResponse,
+
     -- ** StartTranscriptionJob
     StartTranscriptionJob (StartTranscriptionJob'),
     newStartTranscriptionJob,
     StartTranscriptionJobResponse (StartTranscriptionJobResponse'),
     newStartTranscriptionJobResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateCallAnalyticsCategory
+    UpdateCallAnalyticsCategory (UpdateCallAnalyticsCategory'),
+    newUpdateCallAnalyticsCategory,
+    UpdateCallAnalyticsCategoryResponse (UpdateCallAnalyticsCategoryResponse'),
+    newUpdateCallAnalyticsCategoryResponse,
+
+    -- ** UpdateMedicalVocabulary
+    UpdateMedicalVocabulary (UpdateMedicalVocabulary'),
+    newUpdateMedicalVocabulary,
+    UpdateMedicalVocabularyResponse (UpdateMedicalVocabularyResponse'),
+    newUpdateMedicalVocabularyResponse,
+
+    -- ** UpdateVocabulary
+    UpdateVocabulary (UpdateVocabulary'),
+    newUpdateVocabulary,
+    UpdateVocabularyResponse (UpdateVocabularyResponse'),
+    newUpdateVocabularyResponse,
+
+    -- ** UpdateVocabularyFilter
+    UpdateVocabularyFilter (UpdateVocabularyFilter'),
+    newUpdateVocabularyFilter,
+    UpdateVocabularyFilterResponse (UpdateVocabularyFilterResponse'),
+    newUpdateVocabularyFilterResponse,
 
     -- * Types
 

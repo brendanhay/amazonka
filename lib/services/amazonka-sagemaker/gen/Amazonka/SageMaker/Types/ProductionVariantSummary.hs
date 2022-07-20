@@ -31,20 +31,20 @@ import Amazonka.SageMaker.Types.DeployedImage
 --
 -- /See:/ 'newProductionVariantSummary' smart constructor.
 data ProductionVariantSummary = ProductionVariantSummary'
-  { -- | The number of instances requested in the
-    -- @UpdateEndpointWeightsAndCapacities@ request.
-    desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
-    -- | The requested weight, as specified in the
+  { -- | The requested weight, as specified in the
     -- @UpdateEndpointWeightsAndCapacities@ request.
     desiredWeight :: Prelude.Maybe Prelude.Double,
+    -- | The number of instances requested in the
+    -- @UpdateEndpointWeightsAndCapacities@ request.
+    desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
     -- | The weight associated with the variant.
     currentWeight :: Prelude.Maybe Prelude.Double,
-    -- | The number of instances associated with the variant.
-    currentInstanceCount :: Prelude.Maybe Prelude.Natural,
     -- | An array of @DeployedImage@ objects that specify the Amazon EC2
     -- Container Registry paths of the inference images deployed on instances
     -- of this @ProductionVariant@.
     deployedImages :: Prelude.Maybe [DeployedImage],
+    -- | The number of instances associated with the variant.
+    currentInstanceCount :: Prelude.Maybe Prelude.Natural,
     -- | The name of the variant.
     variantName :: Prelude.Text
   }
@@ -58,19 +58,19 @@ data ProductionVariantSummary = ProductionVariantSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'desiredInstanceCount', 'productionVariantSummary_desiredInstanceCount' - The number of instances requested in the
+-- 'desiredWeight', 'productionVariantSummary_desiredWeight' - The requested weight, as specified in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
 --
--- 'desiredWeight', 'productionVariantSummary_desiredWeight' - The requested weight, as specified in the
+-- 'desiredInstanceCount', 'productionVariantSummary_desiredInstanceCount' - The number of instances requested in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
 --
 -- 'currentWeight', 'productionVariantSummary_currentWeight' - The weight associated with the variant.
 --
--- 'currentInstanceCount', 'productionVariantSummary_currentInstanceCount' - The number of instances associated with the variant.
---
 -- 'deployedImages', 'productionVariantSummary_deployedImages' - An array of @DeployedImage@ objects that specify the Amazon EC2
 -- Container Registry paths of the inference images deployed on instances
 -- of this @ProductionVariant@.
+--
+-- 'currentInstanceCount', 'productionVariantSummary_currentInstanceCount' - The number of instances associated with the variant.
 --
 -- 'variantName', 'productionVariantSummary_variantName' - The name of the variant.
 newProductionVariantSummary ::
@@ -79,38 +79,38 @@ newProductionVariantSummary ::
   ProductionVariantSummary
 newProductionVariantSummary pVariantName_ =
   ProductionVariantSummary'
-    { desiredInstanceCount =
+    { desiredWeight =
         Prelude.Nothing,
-      desiredWeight = Prelude.Nothing,
+      desiredInstanceCount = Prelude.Nothing,
       currentWeight = Prelude.Nothing,
-      currentInstanceCount = Prelude.Nothing,
       deployedImages = Prelude.Nothing,
+      currentInstanceCount = Prelude.Nothing,
       variantName = pVariantName_
     }
-
--- | The number of instances requested in the
--- @UpdateEndpointWeightsAndCapacities@ request.
-productionVariantSummary_desiredInstanceCount :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Natural)
-productionVariantSummary_desiredInstanceCount = Lens.lens (\ProductionVariantSummary' {desiredInstanceCount} -> desiredInstanceCount) (\s@ProductionVariantSummary' {} a -> s {desiredInstanceCount = a} :: ProductionVariantSummary)
 
 -- | The requested weight, as specified in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
 productionVariantSummary_desiredWeight :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Double)
 productionVariantSummary_desiredWeight = Lens.lens (\ProductionVariantSummary' {desiredWeight} -> desiredWeight) (\s@ProductionVariantSummary' {} a -> s {desiredWeight = a} :: ProductionVariantSummary)
 
+-- | The number of instances requested in the
+-- @UpdateEndpointWeightsAndCapacities@ request.
+productionVariantSummary_desiredInstanceCount :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Natural)
+productionVariantSummary_desiredInstanceCount = Lens.lens (\ProductionVariantSummary' {desiredInstanceCount} -> desiredInstanceCount) (\s@ProductionVariantSummary' {} a -> s {desiredInstanceCount = a} :: ProductionVariantSummary)
+
 -- | The weight associated with the variant.
 productionVariantSummary_currentWeight :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Double)
 productionVariantSummary_currentWeight = Lens.lens (\ProductionVariantSummary' {currentWeight} -> currentWeight) (\s@ProductionVariantSummary' {} a -> s {currentWeight = a} :: ProductionVariantSummary)
-
--- | The number of instances associated with the variant.
-productionVariantSummary_currentInstanceCount :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Natural)
-productionVariantSummary_currentInstanceCount = Lens.lens (\ProductionVariantSummary' {currentInstanceCount} -> currentInstanceCount) (\s@ProductionVariantSummary' {} a -> s {currentInstanceCount = a} :: ProductionVariantSummary)
 
 -- | An array of @DeployedImage@ objects that specify the Amazon EC2
 -- Container Registry paths of the inference images deployed on instances
 -- of this @ProductionVariant@.
 productionVariantSummary_deployedImages :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe [DeployedImage])
 productionVariantSummary_deployedImages = Lens.lens (\ProductionVariantSummary' {deployedImages} -> deployedImages) (\s@ProductionVariantSummary' {} a -> s {deployedImages = a} :: ProductionVariantSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of instances associated with the variant.
+productionVariantSummary_currentInstanceCount :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Natural)
+productionVariantSummary_currentInstanceCount = Lens.lens (\ProductionVariantSummary' {currentInstanceCount} -> currentInstanceCount) (\s@ProductionVariantSummary' {} a -> s {currentInstanceCount = a} :: ProductionVariantSummary)
 
 -- | The name of the variant.
 productionVariantSummary_variantName :: Lens.Lens' ProductionVariantSummary Prelude.Text
@@ -122,28 +122,28 @@ instance Core.FromJSON ProductionVariantSummary where
       "ProductionVariantSummary"
       ( \x ->
           ProductionVariantSummary'
-            Prelude.<$> (x Core..:? "DesiredInstanceCount")
-            Prelude.<*> (x Core..:? "DesiredWeight")
+            Prelude.<$> (x Core..:? "DesiredWeight")
+            Prelude.<*> (x Core..:? "DesiredInstanceCount")
             Prelude.<*> (x Core..:? "CurrentWeight")
-            Prelude.<*> (x Core..:? "CurrentInstanceCount")
             Prelude.<*> (x Core..:? "DeployedImages" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CurrentInstanceCount")
             Prelude.<*> (x Core..: "VariantName")
       )
 
 instance Prelude.Hashable ProductionVariantSummary where
   hashWithSalt _salt ProductionVariantSummary' {..} =
-    _salt `Prelude.hashWithSalt` desiredInstanceCount
-      `Prelude.hashWithSalt` desiredWeight
+    _salt `Prelude.hashWithSalt` desiredWeight
+      `Prelude.hashWithSalt` desiredInstanceCount
       `Prelude.hashWithSalt` currentWeight
-      `Prelude.hashWithSalt` currentInstanceCount
       `Prelude.hashWithSalt` deployedImages
+      `Prelude.hashWithSalt` currentInstanceCount
       `Prelude.hashWithSalt` variantName
 
 instance Prelude.NFData ProductionVariantSummary where
   rnf ProductionVariantSummary' {..} =
-    Prelude.rnf desiredInstanceCount
-      `Prelude.seq` Prelude.rnf desiredWeight
+    Prelude.rnf desiredWeight
+      `Prelude.seq` Prelude.rnf desiredInstanceCount
       `Prelude.seq` Prelude.rnf currentWeight
-      `Prelude.seq` Prelude.rnf currentInstanceCount
       `Prelude.seq` Prelude.rnf deployedImages
+      `Prelude.seq` Prelude.rnf currentInstanceCount
       `Prelude.seq` Prelude.rnf variantName

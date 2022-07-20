@@ -96,8 +96,9 @@ data ScheduledAction = ScheduledAction'
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
     scalableDimension :: Prelude.Maybe ScalableDimension,
-    -- | The date and time that the action is scheduled to begin, in UTC.
-    startTime :: Prelude.Maybe Core.POSIX,
+    -- | The time zone used when referring to the date and time of a scheduled
+    -- action, when the scheduled action uses an at or cron expression.
+    timezone :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the action is scheduled to end, in UTC.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The new minimum and maximum capacity. You can set both values or just
@@ -106,9 +107,8 @@ data ScheduledAction = ScheduledAction'
     -- If the current capacity is above the maximum capacity, Application Auto
     -- Scaling scales in to the maximum capacity.
     scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
-    -- | The time zone used when referring to the date and time of a scheduled
-    -- action, when the scheduled action uses an at or cron expression.
-    timezone :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the action is scheduled to begin, in UTC.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the scheduled action.
     scheduledActionName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the scheduled action.
@@ -288,7 +288,8 @@ data ScheduledAction = ScheduledAction'
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
 --
--- 'startTime', 'scheduledAction_startTime' - The date and time that the action is scheduled to begin, in UTC.
+-- 'timezone', 'scheduledAction_timezone' - The time zone used when referring to the date and time of a scheduled
+-- action, when the scheduled action uses an at or cron expression.
 --
 -- 'endTime', 'scheduledAction_endTime' - The date and time that the action is scheduled to end, in UTC.
 --
@@ -298,8 +299,7 @@ data ScheduledAction = ScheduledAction'
 -- If the current capacity is above the maximum capacity, Application Auto
 -- Scaling scales in to the maximum capacity.
 --
--- 'timezone', 'scheduledAction_timezone' - The time zone used when referring to the date and time of a scheduled
--- action, when the scheduled action uses an at or cron expression.
+-- 'startTime', 'scheduledAction_startTime' - The date and time that the action is scheduled to begin, in UTC.
 --
 -- 'scheduledActionName', 'scheduledAction_scheduledActionName' - The name of the scheduled action.
 --
@@ -426,10 +426,10 @@ newScheduledAction
     ScheduledAction'
       { scalableDimension =
           Prelude.Nothing,
-        startTime = Prelude.Nothing,
+        timezone = Prelude.Nothing,
         endTime = Prelude.Nothing,
         scalableTargetAction = Prelude.Nothing,
-        timezone = Prelude.Nothing,
+        startTime = Prelude.Nothing,
         scheduledActionName = pScheduledActionName_,
         scheduledActionARN = pScheduledActionARN_,
         serviceNamespace = pServiceNamespace_,
@@ -506,9 +506,10 @@ newScheduledAction
 scheduledAction_scalableDimension :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableDimension)
 scheduledAction_scalableDimension = Lens.lens (\ScheduledAction' {scalableDimension} -> scalableDimension) (\s@ScheduledAction' {} a -> s {scalableDimension = a} :: ScheduledAction)
 
--- | The date and time that the action is scheduled to begin, in UTC.
-scheduledAction_startTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
-scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Prelude.. Lens.mapping Core._Time
+-- | The time zone used when referring to the date and time of a scheduled
+-- action, when the scheduled action uses an at or cron expression.
+scheduledAction_timezone :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.Text)
+scheduledAction_timezone = Lens.lens (\ScheduledAction' {timezone} -> timezone) (\s@ScheduledAction' {} a -> s {timezone = a} :: ScheduledAction)
 
 -- | The date and time that the action is scheduled to end, in UTC.
 scheduledAction_endTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
@@ -522,10 +523,9 @@ scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s
 scheduledAction_scalableTargetAction :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableTargetAction)
 scheduledAction_scalableTargetAction = Lens.lens (\ScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@ScheduledAction' {} a -> s {scalableTargetAction = a} :: ScheduledAction)
 
--- | The time zone used when referring to the date and time of a scheduled
--- action, when the scheduled action uses an at or cron expression.
-scheduledAction_timezone :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.Text)
-scheduledAction_timezone = Lens.lens (\ScheduledAction' {timezone} -> timezone) (\s@ScheduledAction' {} a -> s {timezone = a} :: ScheduledAction)
+-- | The date and time that the action is scheduled to begin, in UTC.
+scheduledAction_startTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
+scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the scheduled action.
 scheduledAction_scheduledActionName :: Lens.Lens' ScheduledAction Prelude.Text
@@ -648,10 +648,10 @@ instance Core.FromJSON ScheduledAction where
       ( \x ->
           ScheduledAction'
             Prelude.<$> (x Core..:? "ScalableDimension")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "Timezone")
             Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "ScalableTargetAction")
-            Prelude.<*> (x Core..:? "Timezone")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..: "ScheduledActionName")
             Prelude.<*> (x Core..: "ScheduledActionARN")
             Prelude.<*> (x Core..: "ServiceNamespace")
@@ -663,10 +663,10 @@ instance Core.FromJSON ScheduledAction where
 instance Prelude.Hashable ScheduledAction where
   hashWithSalt _salt ScheduledAction' {..} =
     _salt `Prelude.hashWithSalt` scalableDimension
-      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` timezone
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` scalableTargetAction
-      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` scheduledActionName
       `Prelude.hashWithSalt` scheduledActionARN
       `Prelude.hashWithSalt` serviceNamespace
@@ -677,10 +677,10 @@ instance Prelude.Hashable ScheduledAction where
 instance Prelude.NFData ScheduledAction where
   rnf ScheduledAction' {..} =
     Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf timezone
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf scalableTargetAction
-      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf scheduledActionName
       `Prelude.seq` Prelude.rnf scheduledActionARN
       `Prelude.seq` Prelude.rnf serviceNamespace

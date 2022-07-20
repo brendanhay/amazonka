@@ -28,7 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputCaptions' smart constructor.
 data InputCaptions = InputCaptions'
-  { -- | A policy that determines how Elastic Transcoder handles the existence of
+  { -- | Source files for the input sidecar captions used during the transcoding
+    -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
+    captionSources :: Prelude.Maybe [CaptionSource],
+    -- | A policy that determines how Elastic Transcoder handles the existence of
     -- multiple captions.
     --
     -- -   __MergeOverride:__ Elastic Transcoder transcodes both embedded and
@@ -48,10 +51,7 @@ data InputCaptions = InputCaptions'
     --     captions that you specify in @CaptionSources@.
     --
     -- @MergePolicy@ cannot be null.
-    mergePolicy :: Prelude.Maybe Prelude.Text,
-    -- | Source files for the input sidecar captions used during the transcoding
-    -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-    captionSources :: Prelude.Maybe [CaptionSource]
+    mergePolicy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,9 @@ data InputCaptions = InputCaptions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'captionSources', 'inputCaptions_captionSources' - Source files for the input sidecar captions used during the transcoding
+-- process. To omit all sidecar captions, leave @CaptionSources@ blank.
 --
 -- 'mergePolicy', 'inputCaptions_mergePolicy' - A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions.
@@ -83,16 +86,18 @@ data InputCaptions = InputCaptions'
 --     captions that you specify in @CaptionSources@.
 --
 -- @MergePolicy@ cannot be null.
---
--- 'captionSources', 'inputCaptions_captionSources' - Source files for the input sidecar captions used during the transcoding
--- process. To omit all sidecar captions, leave @CaptionSources@ blank.
 newInputCaptions ::
   InputCaptions
 newInputCaptions =
   InputCaptions'
-    { mergePolicy = Prelude.Nothing,
-      captionSources = Prelude.Nothing
+    { captionSources = Prelude.Nothing,
+      mergePolicy = Prelude.Nothing
     }
+
+-- | Source files for the input sidecar captions used during the transcoding
+-- process. To omit all sidecar captions, leave @CaptionSources@ blank.
+inputCaptions_captionSources :: Lens.Lens' InputCaptions (Prelude.Maybe [CaptionSource])
+inputCaptions_captionSources = Lens.lens (\InputCaptions' {captionSources} -> captionSources) (\s@InputCaptions' {} a -> s {captionSources = a} :: InputCaptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions.
@@ -117,39 +122,32 @@ newInputCaptions =
 inputCaptions_mergePolicy :: Lens.Lens' InputCaptions (Prelude.Maybe Prelude.Text)
 inputCaptions_mergePolicy = Lens.lens (\InputCaptions' {mergePolicy} -> mergePolicy) (\s@InputCaptions' {} a -> s {mergePolicy = a} :: InputCaptions)
 
--- | Source files for the input sidecar captions used during the transcoding
--- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-inputCaptions_captionSources :: Lens.Lens' InputCaptions (Prelude.Maybe [CaptionSource])
-inputCaptions_captionSources = Lens.lens (\InputCaptions' {captionSources} -> captionSources) (\s@InputCaptions' {} a -> s {captionSources = a} :: InputCaptions) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON InputCaptions where
   parseJSON =
     Core.withObject
       "InputCaptions"
       ( \x ->
           InputCaptions'
-            Prelude.<$> (x Core..:? "MergePolicy")
-            Prelude.<*> ( x Core..:? "CaptionSources"
-                            Core..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Core..:? "CaptionSources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "MergePolicy")
       )
 
 instance Prelude.Hashable InputCaptions where
   hashWithSalt _salt InputCaptions' {..} =
-    _salt `Prelude.hashWithSalt` mergePolicy
-      `Prelude.hashWithSalt` captionSources
+    _salt `Prelude.hashWithSalt` captionSources
+      `Prelude.hashWithSalt` mergePolicy
 
 instance Prelude.NFData InputCaptions where
   rnf InputCaptions' {..} =
-    Prelude.rnf mergePolicy
-      `Prelude.seq` Prelude.rnf captionSources
+    Prelude.rnf captionSources
+      `Prelude.seq` Prelude.rnf mergePolicy
 
 instance Core.ToJSON InputCaptions where
   toJSON InputCaptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MergePolicy" Core..=) Prelude.<$> mergePolicy,
-            ("CaptionSources" Core..=)
-              Prelude.<$> captionSources
+          [ ("CaptionSources" Core..=)
+              Prelude.<$> captionSources,
+            ("MergePolicy" Core..=) Prelude.<$> mergePolicy
           ]
       )

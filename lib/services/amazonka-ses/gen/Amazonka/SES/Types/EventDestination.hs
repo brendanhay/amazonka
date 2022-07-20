@@ -43,20 +43,20 @@ import Amazonka.SES.Types.SNSDestination
 --
 -- /See:/ 'newEventDestination' smart constructor.
 data EventDestination = EventDestination'
-  { -- | Sets whether Amazon SES publishes events to this destination when you
+  { -- | An object that contains the topic ARN associated with an Amazon Simple
+    -- Notification Service (Amazon SNS) event destination.
+    sNSDestination :: Prelude.Maybe SNSDestination,
+    -- | Sets whether Amazon SES publishes events to this destination when you
     -- send an email with the associated configuration set. Set to @true@ to
     -- enable publishing to this destination; set to @false@ to prevent
     -- publishing to this destination. The default value is @false@.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | An object that contains the delivery stream ARN and the IAM role ARN
-    -- associated with an Amazon Kinesis Firehose event destination.
-    kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
     -- | An object that contains the names, default values, and sources of the
     -- dimensions associated with an Amazon CloudWatch event destination.
     cloudWatchDestination :: Prelude.Maybe CloudWatchDestination,
-    -- | An object that contains the topic ARN associated with an Amazon Simple
-    -- Notification Service (Amazon SNS) event destination.
-    sNSDestination :: Prelude.Maybe SNSDestination,
+    -- | An object that contains the delivery stream ARN and the IAM role ARN
+    -- associated with an Amazon Kinesis Firehose event destination.
+    kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
     -- | The name of the event destination. The name must:
     --
     -- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
@@ -77,19 +77,19 @@ data EventDestination = EventDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sNSDestination', 'eventDestination_sNSDestination' - An object that contains the topic ARN associated with an Amazon Simple
+-- Notification Service (Amazon SNS) event destination.
+--
 -- 'enabled', 'eventDestination_enabled' - Sets whether Amazon SES publishes events to this destination when you
 -- send an email with the associated configuration set. Set to @true@ to
 -- enable publishing to this destination; set to @false@ to prevent
 -- publishing to this destination. The default value is @false@.
 --
--- 'kinesisFirehoseDestination', 'eventDestination_kinesisFirehoseDestination' - An object that contains the delivery stream ARN and the IAM role ARN
--- associated with an Amazon Kinesis Firehose event destination.
---
 -- 'cloudWatchDestination', 'eventDestination_cloudWatchDestination' - An object that contains the names, default values, and sources of the
 -- dimensions associated with an Amazon CloudWatch event destination.
 --
--- 'sNSDestination', 'eventDestination_sNSDestination' - An object that contains the topic ARN associated with an Amazon Simple
--- Notification Service (Amazon SNS) event destination.
+-- 'kinesisFirehoseDestination', 'eventDestination_kinesisFirehoseDestination' - An object that contains the delivery stream ARN and the IAM role ARN
+-- associated with an Amazon Kinesis Firehose event destination.
 --
 -- 'name', 'eventDestination_name' - The name of the event destination. The name must:
 --
@@ -105,13 +105,18 @@ newEventDestination ::
   EventDestination
 newEventDestination pName_ =
   EventDestination'
-    { enabled = Prelude.Nothing,
-      kinesisFirehoseDestination = Prelude.Nothing,
+    { sNSDestination = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       cloudWatchDestination = Prelude.Nothing,
-      sNSDestination = Prelude.Nothing,
+      kinesisFirehoseDestination = Prelude.Nothing,
       name = pName_,
       matchingEventTypes = Prelude.mempty
     }
+
+-- | An object that contains the topic ARN associated with an Amazon Simple
+-- Notification Service (Amazon SNS) event destination.
+eventDestination_sNSDestination :: Lens.Lens' EventDestination (Prelude.Maybe SNSDestination)
+eventDestination_sNSDestination = Lens.lens (\EventDestination' {sNSDestination} -> sNSDestination) (\s@EventDestination' {} a -> s {sNSDestination = a} :: EventDestination)
 
 -- | Sets whether Amazon SES publishes events to this destination when you
 -- send an email with the associated configuration set. Set to @true@ to
@@ -120,20 +125,15 @@ newEventDestination pName_ =
 eventDestination_enabled :: Lens.Lens' EventDestination (Prelude.Maybe Prelude.Bool)
 eventDestination_enabled = Lens.lens (\EventDestination' {enabled} -> enabled) (\s@EventDestination' {} a -> s {enabled = a} :: EventDestination)
 
--- | An object that contains the delivery stream ARN and the IAM role ARN
--- associated with an Amazon Kinesis Firehose event destination.
-eventDestination_kinesisFirehoseDestination :: Lens.Lens' EventDestination (Prelude.Maybe KinesisFirehoseDestination)
-eventDestination_kinesisFirehoseDestination = Lens.lens (\EventDestination' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@EventDestination' {} a -> s {kinesisFirehoseDestination = a} :: EventDestination)
-
 -- | An object that contains the names, default values, and sources of the
 -- dimensions associated with an Amazon CloudWatch event destination.
 eventDestination_cloudWatchDestination :: Lens.Lens' EventDestination (Prelude.Maybe CloudWatchDestination)
 eventDestination_cloudWatchDestination = Lens.lens (\EventDestination' {cloudWatchDestination} -> cloudWatchDestination) (\s@EventDestination' {} a -> s {cloudWatchDestination = a} :: EventDestination)
 
--- | An object that contains the topic ARN associated with an Amazon Simple
--- Notification Service (Amazon SNS) event destination.
-eventDestination_sNSDestination :: Lens.Lens' EventDestination (Prelude.Maybe SNSDestination)
-eventDestination_sNSDestination = Lens.lens (\EventDestination' {sNSDestination} -> sNSDestination) (\s@EventDestination' {} a -> s {sNSDestination = a} :: EventDestination)
+-- | An object that contains the delivery stream ARN and the IAM role ARN
+-- associated with an Amazon Kinesis Firehose event destination.
+eventDestination_kinesisFirehoseDestination :: Lens.Lens' EventDestination (Prelude.Maybe KinesisFirehoseDestination)
+eventDestination_kinesisFirehoseDestination = Lens.lens (\EventDestination' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@EventDestination' {} a -> s {kinesisFirehoseDestination = a} :: EventDestination)
 
 -- | The name of the event destination. The name must:
 --
@@ -151,10 +151,10 @@ eventDestination_matchingEventTypes = Lens.lens (\EventDestination' {matchingEve
 instance Core.FromXML EventDestination where
   parseXML x =
     EventDestination'
-      Prelude.<$> (x Core..@? "Enabled")
-      Prelude.<*> (x Core..@? "KinesisFirehoseDestination")
+      Prelude.<$> (x Core..@? "SNSDestination")
+      Prelude.<*> (x Core..@? "Enabled")
       Prelude.<*> (x Core..@? "CloudWatchDestination")
-      Prelude.<*> (x Core..@? "SNSDestination")
+      Prelude.<*> (x Core..@? "KinesisFirehoseDestination")
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> ( x Core..@? "MatchingEventTypes"
                       Core..!@ Prelude.mempty
@@ -163,31 +163,31 @@ instance Core.FromXML EventDestination where
 
 instance Prelude.Hashable EventDestination where
   hashWithSalt _salt EventDestination' {..} =
-    _salt `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` kinesisFirehoseDestination
+    _salt `Prelude.hashWithSalt` sNSDestination
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` cloudWatchDestination
-      `Prelude.hashWithSalt` sNSDestination
+      `Prelude.hashWithSalt` kinesisFirehoseDestination
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` matchingEventTypes
 
 instance Prelude.NFData EventDestination where
   rnf EventDestination' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
+    Prelude.rnf sNSDestination
+      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf cloudWatchDestination
-      `Prelude.seq` Prelude.rnf sNSDestination
+      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf matchingEventTypes
 
 instance Core.ToQuery EventDestination where
   toQuery EventDestination' {..} =
     Prelude.mconcat
-      [ "Enabled" Core.=: enabled,
-        "KinesisFirehoseDestination"
-          Core.=: kinesisFirehoseDestination,
+      [ "SNSDestination" Core.=: sNSDestination,
+        "Enabled" Core.=: enabled,
         "CloudWatchDestination"
           Core.=: cloudWatchDestination,
-        "SNSDestination" Core.=: sNSDestination,
+        "KinesisFirehoseDestination"
+          Core.=: kinesisFirehoseDestination,
         "Name" Core.=: name,
         "MatchingEventTypes"
           Core.=: Core.toQueryList "member" matchingEventTypes

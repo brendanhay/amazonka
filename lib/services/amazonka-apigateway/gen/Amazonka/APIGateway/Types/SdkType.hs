@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSdkType' smart constructor.
 data SdkType = SdkType'
-  { -- | The user-friendly name of an SdkType instance.
-    friendlyName :: Prelude.Maybe Prelude.Text,
-    -- | A list of configuration properties of an SdkType.
-    configurationProperties :: Prelude.Maybe [SdkConfigurationProperty],
+  { -- | The description of an SdkType.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of an SdkType instance.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The description of an SdkType.
-    description :: Prelude.Maybe Prelude.Text
+    -- | The user-friendly name of an SdkType instance.
+    friendlyName :: Prelude.Maybe Prelude.Text,
+    -- | A list of configuration properties of an SdkType.
+    configurationProperties :: Prelude.Maybe [SdkConfigurationProperty]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,22 +47,30 @@ data SdkType = SdkType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'friendlyName', 'sdkType_friendlyName' - The user-friendly name of an SdkType instance.
---
--- 'configurationProperties', 'sdkType_configurationProperties' - A list of configuration properties of an SdkType.
+-- 'description', 'sdkType_description' - The description of an SdkType.
 --
 -- 'id', 'sdkType_id' - The identifier of an SdkType instance.
 --
--- 'description', 'sdkType_description' - The description of an SdkType.
+-- 'friendlyName', 'sdkType_friendlyName' - The user-friendly name of an SdkType instance.
+--
+-- 'configurationProperties', 'sdkType_configurationProperties' - A list of configuration properties of an SdkType.
 newSdkType ::
   SdkType
 newSdkType =
   SdkType'
-    { friendlyName = Prelude.Nothing,
-      configurationProperties = Prelude.Nothing,
+    { description = Prelude.Nothing,
       id = Prelude.Nothing,
-      description = Prelude.Nothing
+      friendlyName = Prelude.Nothing,
+      configurationProperties = Prelude.Nothing
     }
+
+-- | The description of an SdkType.
+sdkType_description :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
+sdkType_description = Lens.lens (\SdkType' {description} -> description) (\s@SdkType' {} a -> s {description = a} :: SdkType)
+
+-- | The identifier of an SdkType instance.
+sdkType_id :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
+sdkType_id = Lens.lens (\SdkType' {id} -> id) (\s@SdkType' {} a -> s {id = a} :: SdkType)
 
 -- | The user-friendly name of an SdkType instance.
 sdkType_friendlyName :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
@@ -72,38 +80,30 @@ sdkType_friendlyName = Lens.lens (\SdkType' {friendlyName} -> friendlyName) (\s@
 sdkType_configurationProperties :: Lens.Lens' SdkType (Prelude.Maybe [SdkConfigurationProperty])
 sdkType_configurationProperties = Lens.lens (\SdkType' {configurationProperties} -> configurationProperties) (\s@SdkType' {} a -> s {configurationProperties = a} :: SdkType) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of an SdkType instance.
-sdkType_id :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
-sdkType_id = Lens.lens (\SdkType' {id} -> id) (\s@SdkType' {} a -> s {id = a} :: SdkType)
-
--- | The description of an SdkType.
-sdkType_description :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
-sdkType_description = Lens.lens (\SdkType' {description} -> description) (\s@SdkType' {} a -> s {description = a} :: SdkType)
-
 instance Core.FromJSON SdkType where
   parseJSON =
     Core.withObject
       "SdkType"
       ( \x ->
           SdkType'
-            Prelude.<$> (x Core..:? "friendlyName")
+            Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "friendlyName")
             Prelude.<*> ( x Core..:? "configurationProperties"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable SdkType where
   hashWithSalt _salt SdkType' {..} =
-    _salt `Prelude.hashWithSalt` friendlyName
-      `Prelude.hashWithSalt` configurationProperties
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` friendlyName
+      `Prelude.hashWithSalt` configurationProperties
 
 instance Prelude.NFData SdkType where
   rnf SdkType' {..} =
-    Prelude.rnf friendlyName
-      `Prelude.seq` Prelude.rnf configurationProperties
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf friendlyName
+      `Prelude.seq` Prelude.rnf configurationProperties

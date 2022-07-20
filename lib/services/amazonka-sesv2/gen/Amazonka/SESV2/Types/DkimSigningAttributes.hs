@@ -29,7 +29,10 @@ import Amazonka.SESV2.Types.DkimSigningKeyLength
 --
 -- /See:/ 'newDkimSigningAttributes' smart constructor.
 data DkimSigningAttributes = DkimSigningAttributes'
-  { -- | [Easy DKIM] The key length of the future DKIM key pair to be generated.
+  { -- | [Bring Your Own DKIM] A string that\'s used to identify a public key in
+    -- the DNS configuration for a domain.
+    domainSigningSelector :: Prelude.Maybe Prelude.Text,
+    -- | [Easy DKIM] The key length of the future DKIM key pair to be generated.
     -- This can be changed at most once per day.
     nextSigningKeyLength :: Prelude.Maybe DkimSigningKeyLength,
     -- | [Bring Your Own DKIM] A private key that\'s used to generate a DKIM
@@ -37,10 +40,7 @@ data DkimSigningAttributes = DkimSigningAttributes'
     --
     -- The private key must use 1024 or 2048-bit RSA encryption, and must be
     -- encoded using base64 encoding.
-    domainSigningPrivateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | [Bring Your Own DKIM] A string that\'s used to identify a public key in
-    -- the DNS configuration for a domain.
-    domainSigningSelector :: Prelude.Maybe Prelude.Text
+    domainSigningPrivateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,9 @@ data DkimSigningAttributes = DkimSigningAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainSigningSelector', 'dkimSigningAttributes_domainSigningSelector' - [Bring Your Own DKIM] A string that\'s used to identify a public key in
+-- the DNS configuration for a domain.
+--
 -- 'nextSigningKeyLength', 'dkimSigningAttributes_nextSigningKeyLength' - [Easy DKIM] The key length of the future DKIM key pair to be generated.
 -- This can be changed at most once per day.
 --
@@ -60,18 +63,20 @@ data DkimSigningAttributes = DkimSigningAttributes'
 --
 -- The private key must use 1024 or 2048-bit RSA encryption, and must be
 -- encoded using base64 encoding.
---
--- 'domainSigningSelector', 'dkimSigningAttributes_domainSigningSelector' - [Bring Your Own DKIM] A string that\'s used to identify a public key in
--- the DNS configuration for a domain.
 newDkimSigningAttributes ::
   DkimSigningAttributes
 newDkimSigningAttributes =
   DkimSigningAttributes'
-    { nextSigningKeyLength =
+    { domainSigningSelector =
         Prelude.Nothing,
-      domainSigningPrivateKey = Prelude.Nothing,
-      domainSigningSelector = Prelude.Nothing
+      nextSigningKeyLength = Prelude.Nothing,
+      domainSigningPrivateKey = Prelude.Nothing
     }
+
+-- | [Bring Your Own DKIM] A string that\'s used to identify a public key in
+-- the DNS configuration for a domain.
+dkimSigningAttributes_domainSigningSelector :: Lens.Lens' DkimSigningAttributes (Prelude.Maybe Prelude.Text)
+dkimSigningAttributes_domainSigningSelector = Lens.lens (\DkimSigningAttributes' {domainSigningSelector} -> domainSigningSelector) (\s@DkimSigningAttributes' {} a -> s {domainSigningSelector = a} :: DkimSigningAttributes)
 
 -- | [Easy DKIM] The key length of the future DKIM key pair to be generated.
 -- This can be changed at most once per day.
@@ -86,32 +91,27 @@ dkimSigningAttributes_nextSigningKeyLength = Lens.lens (\DkimSigningAttributes' 
 dkimSigningAttributes_domainSigningPrivateKey :: Lens.Lens' DkimSigningAttributes (Prelude.Maybe Prelude.Text)
 dkimSigningAttributes_domainSigningPrivateKey = Lens.lens (\DkimSigningAttributes' {domainSigningPrivateKey} -> domainSigningPrivateKey) (\s@DkimSigningAttributes' {} a -> s {domainSigningPrivateKey = a} :: DkimSigningAttributes) Prelude.. Lens.mapping Core._Sensitive
 
--- | [Bring Your Own DKIM] A string that\'s used to identify a public key in
--- the DNS configuration for a domain.
-dkimSigningAttributes_domainSigningSelector :: Lens.Lens' DkimSigningAttributes (Prelude.Maybe Prelude.Text)
-dkimSigningAttributes_domainSigningSelector = Lens.lens (\DkimSigningAttributes' {domainSigningSelector} -> domainSigningSelector) (\s@DkimSigningAttributes' {} a -> s {domainSigningSelector = a} :: DkimSigningAttributes)
-
 instance Prelude.Hashable DkimSigningAttributes where
   hashWithSalt _salt DkimSigningAttributes' {..} =
-    _salt `Prelude.hashWithSalt` nextSigningKeyLength
+    _salt `Prelude.hashWithSalt` domainSigningSelector
+      `Prelude.hashWithSalt` nextSigningKeyLength
       `Prelude.hashWithSalt` domainSigningPrivateKey
-      `Prelude.hashWithSalt` domainSigningSelector
 
 instance Prelude.NFData DkimSigningAttributes where
   rnf DkimSigningAttributes' {..} =
-    Prelude.rnf nextSigningKeyLength
+    Prelude.rnf domainSigningSelector
+      `Prelude.seq` Prelude.rnf nextSigningKeyLength
       `Prelude.seq` Prelude.rnf domainSigningPrivateKey
-      `Prelude.seq` Prelude.rnf domainSigningSelector
 
 instance Core.ToJSON DkimSigningAttributes where
   toJSON DkimSigningAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextSigningKeyLength" Core..=)
+          [ ("DomainSigningSelector" Core..=)
+              Prelude.<$> domainSigningSelector,
+            ("NextSigningKeyLength" Core..=)
               Prelude.<$> nextSigningKeyLength,
             ("DomainSigningPrivateKey" Core..=)
-              Prelude.<$> domainSigningPrivateKey,
-            ("DomainSigningSelector" Core..=)
-              Prelude.<$> domainSigningSelector
+              Prelude.<$> domainSigningPrivateKey
           ]
       )

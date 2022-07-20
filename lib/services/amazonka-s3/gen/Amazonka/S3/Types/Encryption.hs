@@ -29,16 +29,16 @@ import Amazonka.S3.Types.ServerSideEncryption
 --
 -- /See:/ 'newEncryption' smart constructor.
 data Encryption = Encryption'
-  { -- | If the encryption type is @aws:kms@, this optional value specifies the
+  { -- | If the encryption type is @aws:kms@, this optional value can be used to
+    -- specify the encryption context for the restore results.
+    kmsContext :: Prelude.Maybe Prelude.Text,
+    -- | If the encryption type is @aws:kms@, this optional value specifies the
     -- ID of the symmetric customer managed key to use for encryption of job
     -- results. Amazon S3 only supports symmetric keys. For more information,
     -- see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | If the encryption type is @aws:kms@, this optional value can be used to
-    -- specify the encryption context for the restore results.
-    kmsContext :: Prelude.Maybe Prelude.Text,
     -- | The server-side encryption algorithm used when storing job results in
     -- Amazon S3 (for example, AES256, aws:kms).
     encryptionType :: ServerSideEncryption
@@ -53,15 +53,15 @@ data Encryption = Encryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'kmsContext', 'encryption_kmsContext' - If the encryption type is @aws:kms@, this optional value can be used to
+-- specify the encryption context for the restore results.
+--
 -- 'kmsKeyId', 'encryption_kmsKeyId' - If the encryption type is @aws:kms@, this optional value specifies the
 -- ID of the symmetric customer managed key to use for encryption of job
 -- results. Amazon S3 only supports symmetric keys. For more information,
 -- see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
---
--- 'kmsContext', 'encryption_kmsContext' - If the encryption type is @aws:kms@, this optional value can be used to
--- specify the encryption context for the restore results.
 --
 -- 'encryptionType', 'encryption_encryptionType' - The server-side encryption algorithm used when storing job results in
 -- Amazon S3 (for example, AES256, aws:kms).
@@ -71,10 +71,15 @@ newEncryption ::
   Encryption
 newEncryption pEncryptionType_ =
   Encryption'
-    { kmsKeyId = Prelude.Nothing,
-      kmsContext = Prelude.Nothing,
+    { kmsContext = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       encryptionType = pEncryptionType_
     }
+
+-- | If the encryption type is @aws:kms@, this optional value can be used to
+-- specify the encryption context for the restore results.
+encryption_kmsContext :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
+encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@Encryption' {} a -> s {kmsContext = a} :: Encryption)
 
 -- | If the encryption type is @aws:kms@, this optional value specifies the
 -- ID of the symmetric customer managed key to use for encryption of job
@@ -85,11 +90,6 @@ newEncryption pEncryptionType_ =
 encryption_kmsKeyId :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_kmsKeyId = Lens.lens (\Encryption' {kmsKeyId} -> kmsKeyId) (\s@Encryption' {} a -> s {kmsKeyId = a} :: Encryption) Prelude.. Lens.mapping Core._Sensitive
 
--- | If the encryption type is @aws:kms@, this optional value can be used to
--- specify the encryption context for the restore results.
-encryption_kmsContext :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
-encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@Encryption' {} a -> s {kmsContext = a} :: Encryption)
-
 -- | The server-side encryption algorithm used when storing job results in
 -- Amazon S3 (for example, AES256, aws:kms).
 encryption_encryptionType :: Lens.Lens' Encryption ServerSideEncryption
@@ -97,20 +97,20 @@ encryption_encryptionType = Lens.lens (\Encryption' {encryptionType} -> encrypti
 
 instance Prelude.Hashable Encryption where
   hashWithSalt _salt Encryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` kmsContext
+    _salt `Prelude.hashWithSalt` kmsContext
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` encryptionType
 
 instance Prelude.NFData Encryption where
   rnf Encryption' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf kmsContext
+    Prelude.rnf kmsContext
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf encryptionType
 
 instance Core.ToXML Encryption where
   toXML Encryption' {..} =
     Prelude.mconcat
-      [ "KMSKeyId" Core.@= kmsKeyId,
-        "KMSContext" Core.@= kmsContext,
+      [ "KMSContext" Core.@= kmsContext,
+        "KMSKeyId" Core.@= kmsKeyId,
         "EncryptionType" Core.@= encryptionType
       ]

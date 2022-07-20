@@ -34,10 +34,10 @@ data Meeting = Meeting'
     -- @eu-north-1@, @eu-south-1@, @eu-west-1@, @eu-west-2@, @eu-west-3@,
     -- @sa-east-1@, @us-east-1@, @us-east-2@, @us-west-1@, @us-west-2@.
     mediaRegion :: Prelude.Maybe Prelude.Text,
-    -- | The media placement for the meeting.
-    mediaPlacement :: Prelude.Maybe MediaPlacement,
     -- | The external meeting ID.
     externalMeetingId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The media placement for the meeting.
+    mediaPlacement :: Prelude.Maybe MediaPlacement,
     -- | The Amazon Chime SDK meeting ID.
     meetingId :: Prelude.Maybe Prelude.Text
   }
@@ -57,9 +57,9 @@ data Meeting = Meeting'
 -- @eu-north-1@, @eu-south-1@, @eu-west-1@, @eu-west-2@, @eu-west-3@,
 -- @sa-east-1@, @us-east-1@, @us-east-2@, @us-west-1@, @us-west-2@.
 --
--- 'mediaPlacement', 'meeting_mediaPlacement' - The media placement for the meeting.
---
 -- 'externalMeetingId', 'meeting_externalMeetingId' - The external meeting ID.
+--
+-- 'mediaPlacement', 'meeting_mediaPlacement' - The media placement for the meeting.
 --
 -- 'meetingId', 'meeting_meetingId' - The Amazon Chime SDK meeting ID.
 newMeeting ::
@@ -67,8 +67,8 @@ newMeeting ::
 newMeeting =
   Meeting'
     { mediaRegion = Prelude.Nothing,
-      mediaPlacement = Prelude.Nothing,
       externalMeetingId = Prelude.Nothing,
+      mediaPlacement = Prelude.Nothing,
       meetingId = Prelude.Nothing
     }
 
@@ -80,13 +80,13 @@ newMeeting =
 meeting_mediaRegion :: Lens.Lens' Meeting (Prelude.Maybe Prelude.Text)
 meeting_mediaRegion = Lens.lens (\Meeting' {mediaRegion} -> mediaRegion) (\s@Meeting' {} a -> s {mediaRegion = a} :: Meeting)
 
--- | The media placement for the meeting.
-meeting_mediaPlacement :: Lens.Lens' Meeting (Prelude.Maybe MediaPlacement)
-meeting_mediaPlacement = Lens.lens (\Meeting' {mediaPlacement} -> mediaPlacement) (\s@Meeting' {} a -> s {mediaPlacement = a} :: Meeting)
-
 -- | The external meeting ID.
 meeting_externalMeetingId :: Lens.Lens' Meeting (Prelude.Maybe Prelude.Text)
 meeting_externalMeetingId = Lens.lens (\Meeting' {externalMeetingId} -> externalMeetingId) (\s@Meeting' {} a -> s {externalMeetingId = a} :: Meeting) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The media placement for the meeting.
+meeting_mediaPlacement :: Lens.Lens' Meeting (Prelude.Maybe MediaPlacement)
+meeting_mediaPlacement = Lens.lens (\Meeting' {mediaPlacement} -> mediaPlacement) (\s@Meeting' {} a -> s {mediaPlacement = a} :: Meeting)
 
 -- | The Amazon Chime SDK meeting ID.
 meeting_meetingId :: Lens.Lens' Meeting (Prelude.Maybe Prelude.Text)
@@ -99,21 +99,21 @@ instance Core.FromJSON Meeting where
       ( \x ->
           Meeting'
             Prelude.<$> (x Core..:? "MediaRegion")
-            Prelude.<*> (x Core..:? "MediaPlacement")
             Prelude.<*> (x Core..:? "ExternalMeetingId")
+            Prelude.<*> (x Core..:? "MediaPlacement")
             Prelude.<*> (x Core..:? "MeetingId")
       )
 
 instance Prelude.Hashable Meeting where
   hashWithSalt _salt Meeting' {..} =
     _salt `Prelude.hashWithSalt` mediaRegion
-      `Prelude.hashWithSalt` mediaPlacement
       `Prelude.hashWithSalt` externalMeetingId
+      `Prelude.hashWithSalt` mediaPlacement
       `Prelude.hashWithSalt` meetingId
 
 instance Prelude.NFData Meeting where
   rnf Meeting' {..} =
     Prelude.rnf mediaRegion
-      `Prelude.seq` Prelude.rnf mediaPlacement
       `Prelude.seq` Prelude.rnf externalMeetingId
+      `Prelude.seq` Prelude.rnf mediaPlacement
       `Prelude.seq` Prelude.rnf meetingId

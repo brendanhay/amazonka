@@ -27,175 +27,151 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetRepositoryPolicy $
---             newGetRepositoryPolicy
---
---         , requestPutRegistryCatalogData $
---             newPutRegistryCatalogData
+--         [ requestBatchCheckLayerAvailability $
+--             newBatchCheckLayerAvailability
 --
 --         , requestBatchDeleteImage $
 --             newBatchDeleteImage
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestBatchCheckLayerAvailability $
---             newBatchCheckLayerAvailability
---
---         , requestPutRepositoryCatalogData $
---             newPutRepositoryCatalogData
---
---         , requestDeleteRepositoryPolicy $
---             newDeleteRepositoryPolicy
+--         , requestCompleteLayerUpload $
+--             newCompleteLayerUpload
 --
 --         , requestCreateRepository $
 --             newCreateRepository
 --
---         , requestDescribeRegistries $
---             newDescribeRegistries
+--         , requestDeleteRepository $
+--             newDeleteRepository
 --
---         , requestCompleteLayerUpload $
---             newCompleteLayerUpload
---
---         , requestDescribeRepositories $
---             newDescribeRepositories
---
---         , requestUploadLayerPart $
---             newUploadLayerPart
---
---         , requestGetRepositoryCatalogData $
---             newGetRepositoryCatalogData
---
---         , requestGetRegistryCatalogData $
---             newGetRegistryCatalogData
---
---         , requestTagResource $
---             newTagResource
---
---         , requestSetRepositoryPolicy $
---             newSetRepositoryPolicy
---
---         , requestInitiateLayerUpload $
---             newInitiateLayerUpload
---
---         , requestUntagResource $
---             newUntagResource
+--         , requestDeleteRepositoryPolicy $
+--             newDeleteRepositoryPolicy
 --
 --         , requestDescribeImageTags $
 --             newDescribeImageTags
 --
---         , requestDeleteRepository $
---             newDeleteRepository
+--         , requestDescribeImages $
+--             newDescribeImages
 --
---         , requestPutImage $
---             newPutImage
+--         , requestDescribeRegistries $
+--             newDescribeRegistries
+--
+--         , requestDescribeRepositories $
+--             newDescribeRepositories
 --
 --         , requestGetAuthorizationToken $
 --             newGetAuthorizationToken
 --
---         , requestDescribeImages $
---             newDescribeImages
+--         , requestGetRegistryCatalogData $
+--             newGetRegistryCatalogData
+--
+--         , requestGetRepositoryCatalogData $
+--             newGetRepositoryCatalogData
+--
+--         , requestGetRepositoryPolicy $
+--             newGetRepositoryPolicy
+--
+--         , requestInitiateLayerUpload $
+--             newInitiateLayerUpload
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutImage $
+--             newPutImage
+--
+--         , requestPutRegistryCatalogData $
+--             newPutRegistryCatalogData
+--
+--         , requestPutRepositoryCatalogData $
+--             newPutRepositoryCatalogData
+--
+--         , requestSetRepositoryPolicy $
+--             newSetRepositoryPolicy
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUploadLayerPart $
+--             newUploadLayerPart
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetRepositoryPolicy $
---             newGetRepositoryPolicyResponse
---
---         , responsePutRegistryCatalogData $
---             newPutRegistryCatalogDataResponse
+--         [ responseBatchCheckLayerAvailability $
+--             newBatchCheckLayerAvailabilityResponse
 --
 --         , responseBatchDeleteImage $
 --             newBatchDeleteImageResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseBatchCheckLayerAvailability $
---             newBatchCheckLayerAvailabilityResponse
---
---         , responsePutRepositoryCatalogData $
---             newPutRepositoryCatalogDataResponse
---
---         , responseDeleteRepositoryPolicy $
---             newDeleteRepositoryPolicyResponse
+--         , responseCompleteLayerUpload $
+--             newCompleteLayerUploadResponse
 --
 --         , responseCreateRepository $
 --             newCreateRepositoryResponse
 --
---         , responseDescribeRegistries $
---             newDescribeRegistriesResponse
+--         , responseDeleteRepository $
+--             newDeleteRepositoryResponse
 --
---         , responseCompleteLayerUpload $
---             newCompleteLayerUploadResponse
---
---         , responseDescribeRepositories $
---             newDescribeRepositoriesResponse
---
---         , responseUploadLayerPart $
---             newUploadLayerPartResponse
---
---         , responseGetRepositoryCatalogData $
---             newGetRepositoryCatalogDataResponse
---
---         , responseGetRegistryCatalogData $
---             newGetRegistryCatalogDataResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseSetRepositoryPolicy $
---             newSetRepositoryPolicyResponse
---
---         , responseInitiateLayerUpload $
---             newInitiateLayerUploadResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDeleteRepositoryPolicy $
+--             newDeleteRepositoryPolicyResponse
 --
 --         , responseDescribeImageTags $
 --             newDescribeImageTagsResponse
 --
---         , responseDeleteRepository $
---             newDeleteRepositoryResponse
+--         , responseDescribeImages $
+--             newDescribeImagesResponse
 --
---         , responsePutImage $
---             newPutImageResponse
+--         , responseDescribeRegistries $
+--             newDescribeRegistriesResponse
+--
+--         , responseDescribeRepositories $
+--             newDescribeRepositoriesResponse
 --
 --         , responseGetAuthorizationToken $
 --             newGetAuthorizationTokenResponse
 --
---         , responseDescribeImages $
---             newDescribeImagesResponse
+--         , responseGetRegistryCatalogData $
+--             newGetRegistryCatalogDataResponse
+--
+--         , responseGetRepositoryCatalogData $
+--             newGetRepositoryCatalogDataResponse
+--
+--         , responseGetRepositoryPolicy $
+--             newGetRepositoryPolicyResponse
+--
+--         , responseInitiateLayerUpload $
+--             newInitiateLayerUploadResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutImage $
+--             newPutImageResponse
+--
+--         , responsePutRegistryCatalogData $
+--             newPutRegistryCatalogDataResponse
+--
+--         , responsePutRepositoryCatalogData $
+--             newPutRepositoryCatalogDataResponse
+--
+--         , responseSetRepositoryPolicy $
+--             newSetRepositoryPolicyResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUploadLayerPart $
+--             newUploadLayerPartResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetRepositoryPolicy :: GetRepositoryPolicy -> TestTree
-requestGetRepositoryPolicy =
-  req
-    "GetRepositoryPolicy"
-    "fixture/GetRepositoryPolicy.yaml"
-
-requestPutRegistryCatalogData :: PutRegistryCatalogData -> TestTree
-requestPutRegistryCatalogData =
-  req
-    "PutRegistryCatalogData"
-    "fixture/PutRegistryCatalogData.yaml"
-
-requestBatchDeleteImage :: BatchDeleteImage -> TestTree
-requestBatchDeleteImage =
-  req
-    "BatchDeleteImage"
-    "fixture/BatchDeleteImage.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
 
 requestBatchCheckLayerAvailability :: BatchCheckLayerAvailability -> TestTree
 requestBatchCheckLayerAvailability =
@@ -203,29 +179,11 @@ requestBatchCheckLayerAvailability =
     "BatchCheckLayerAvailability"
     "fixture/BatchCheckLayerAvailability.yaml"
 
-requestPutRepositoryCatalogData :: PutRepositoryCatalogData -> TestTree
-requestPutRepositoryCatalogData =
+requestBatchDeleteImage :: BatchDeleteImage -> TestTree
+requestBatchDeleteImage =
   req
-    "PutRepositoryCatalogData"
-    "fixture/PutRepositoryCatalogData.yaml"
-
-requestDeleteRepositoryPolicy :: DeleteRepositoryPolicy -> TestTree
-requestDeleteRepositoryPolicy =
-  req
-    "DeleteRepositoryPolicy"
-    "fixture/DeleteRepositoryPolicy.yaml"
-
-requestCreateRepository :: CreateRepository -> TestTree
-requestCreateRepository =
-  req
-    "CreateRepository"
-    "fixture/CreateRepository.yaml"
-
-requestDescribeRegistries :: DescribeRegistries -> TestTree
-requestDescribeRegistries =
-  req
-    "DescribeRegistries"
-    "fixture/DescribeRegistries.yaml"
+    "BatchDeleteImage"
+    "fixture/BatchDeleteImage.yaml"
 
 requestCompleteLayerUpload :: CompleteLayerUpload -> TestTree
 requestCompleteLayerUpload =
@@ -233,59 +191,11 @@ requestCompleteLayerUpload =
     "CompleteLayerUpload"
     "fixture/CompleteLayerUpload.yaml"
 
-requestDescribeRepositories :: DescribeRepositories -> TestTree
-requestDescribeRepositories =
+requestCreateRepository :: CreateRepository -> TestTree
+requestCreateRepository =
   req
-    "DescribeRepositories"
-    "fixture/DescribeRepositories.yaml"
-
-requestUploadLayerPart :: UploadLayerPart -> TestTree
-requestUploadLayerPart =
-  req
-    "UploadLayerPart"
-    "fixture/UploadLayerPart.yaml"
-
-requestGetRepositoryCatalogData :: GetRepositoryCatalogData -> TestTree
-requestGetRepositoryCatalogData =
-  req
-    "GetRepositoryCatalogData"
-    "fixture/GetRepositoryCatalogData.yaml"
-
-requestGetRegistryCatalogData :: GetRegistryCatalogData -> TestTree
-requestGetRegistryCatalogData =
-  req
-    "GetRegistryCatalogData"
-    "fixture/GetRegistryCatalogData.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestSetRepositoryPolicy :: SetRepositoryPolicy -> TestTree
-requestSetRepositoryPolicy =
-  req
-    "SetRepositoryPolicy"
-    "fixture/SetRepositoryPolicy.yaml"
-
-requestInitiateLayerUpload :: InitiateLayerUpload -> TestTree
-requestInitiateLayerUpload =
-  req
-    "InitiateLayerUpload"
-    "fixture/InitiateLayerUpload.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestDescribeImageTags :: DescribeImageTags -> TestTree
-requestDescribeImageTags =
-  req
-    "DescribeImageTags"
-    "fixture/DescribeImageTags.yaml"
+    "CreateRepository"
+    "fixture/CreateRepository.yaml"
 
 requestDeleteRepository :: DeleteRepository -> TestTree
 requestDeleteRepository =
@@ -293,17 +203,17 @@ requestDeleteRepository =
     "DeleteRepository"
     "fixture/DeleteRepository.yaml"
 
-requestPutImage :: PutImage -> TestTree
-requestPutImage =
+requestDeleteRepositoryPolicy :: DeleteRepositoryPolicy -> TestTree
+requestDeleteRepositoryPolicy =
   req
-    "PutImage"
-    "fixture/PutImage.yaml"
+    "DeleteRepositoryPolicy"
+    "fixture/DeleteRepositoryPolicy.yaml"
 
-requestGetAuthorizationToken :: GetAuthorizationToken -> TestTree
-requestGetAuthorizationToken =
+requestDescribeImageTags :: DescribeImageTags -> TestTree
+requestDescribeImageTags =
   req
-    "GetAuthorizationToken"
-    "fixture/GetAuthorizationToken.yaml"
+    "DescribeImageTags"
+    "fixture/DescribeImageTags.yaml"
 
 requestDescribeImages :: DescribeImages -> TestTree
 requestDescribeImages =
@@ -311,39 +221,97 @@ requestDescribeImages =
     "DescribeImages"
     "fixture/DescribeImages.yaml"
 
+requestDescribeRegistries :: DescribeRegistries -> TestTree
+requestDescribeRegistries =
+  req
+    "DescribeRegistries"
+    "fixture/DescribeRegistries.yaml"
+
+requestDescribeRepositories :: DescribeRepositories -> TestTree
+requestDescribeRepositories =
+  req
+    "DescribeRepositories"
+    "fixture/DescribeRepositories.yaml"
+
+requestGetAuthorizationToken :: GetAuthorizationToken -> TestTree
+requestGetAuthorizationToken =
+  req
+    "GetAuthorizationToken"
+    "fixture/GetAuthorizationToken.yaml"
+
+requestGetRegistryCatalogData :: GetRegistryCatalogData -> TestTree
+requestGetRegistryCatalogData =
+  req
+    "GetRegistryCatalogData"
+    "fixture/GetRegistryCatalogData.yaml"
+
+requestGetRepositoryCatalogData :: GetRepositoryCatalogData -> TestTree
+requestGetRepositoryCatalogData =
+  req
+    "GetRepositoryCatalogData"
+    "fixture/GetRepositoryCatalogData.yaml"
+
+requestGetRepositoryPolicy :: GetRepositoryPolicy -> TestTree
+requestGetRepositoryPolicy =
+  req
+    "GetRepositoryPolicy"
+    "fixture/GetRepositoryPolicy.yaml"
+
+requestInitiateLayerUpload :: InitiateLayerUpload -> TestTree
+requestInitiateLayerUpload =
+  req
+    "InitiateLayerUpload"
+    "fixture/InitiateLayerUpload.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutImage :: PutImage -> TestTree
+requestPutImage =
+  req
+    "PutImage"
+    "fixture/PutImage.yaml"
+
+requestPutRegistryCatalogData :: PutRegistryCatalogData -> TestTree
+requestPutRegistryCatalogData =
+  req
+    "PutRegistryCatalogData"
+    "fixture/PutRegistryCatalogData.yaml"
+
+requestPutRepositoryCatalogData :: PutRepositoryCatalogData -> TestTree
+requestPutRepositoryCatalogData =
+  req
+    "PutRepositoryCatalogData"
+    "fixture/PutRepositoryCatalogData.yaml"
+
+requestSetRepositoryPolicy :: SetRepositoryPolicy -> TestTree
+requestSetRepositoryPolicy =
+  req
+    "SetRepositoryPolicy"
+    "fixture/SetRepositoryPolicy.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUploadLayerPart :: UploadLayerPart -> TestTree
+requestUploadLayerPart =
+  req
+    "UploadLayerPart"
+    "fixture/UploadLayerPart.yaml"
+
 -- Responses
-
-responseGetRepositoryPolicy :: GetRepositoryPolicyResponse -> TestTree
-responseGetRepositoryPolicy =
-  res
-    "GetRepositoryPolicyResponse"
-    "fixture/GetRepositoryPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRepositoryPolicy)
-
-responsePutRegistryCatalogData :: PutRegistryCatalogDataResponse -> TestTree
-responsePutRegistryCatalogData =
-  res
-    "PutRegistryCatalogDataResponse"
-    "fixture/PutRegistryCatalogDataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutRegistryCatalogData)
-
-responseBatchDeleteImage :: BatchDeleteImageResponse -> TestTree
-responseBatchDeleteImage =
-  res
-    "BatchDeleteImageResponse"
-    "fixture/BatchDeleteImageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDeleteImage)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseBatchCheckLayerAvailability :: BatchCheckLayerAvailabilityResponse -> TestTree
 responseBatchCheckLayerAvailability =
@@ -353,37 +321,13 @@ responseBatchCheckLayerAvailability =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchCheckLayerAvailability)
 
-responsePutRepositoryCatalogData :: PutRepositoryCatalogDataResponse -> TestTree
-responsePutRepositoryCatalogData =
+responseBatchDeleteImage :: BatchDeleteImageResponse -> TestTree
+responseBatchDeleteImage =
   res
-    "PutRepositoryCatalogDataResponse"
-    "fixture/PutRepositoryCatalogDataResponse.proto"
+    "BatchDeleteImageResponse"
+    "fixture/BatchDeleteImageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutRepositoryCatalogData)
-
-responseDeleteRepositoryPolicy :: DeleteRepositoryPolicyResponse -> TestTree
-responseDeleteRepositoryPolicy =
-  res
-    "DeleteRepositoryPolicyResponse"
-    "fixture/DeleteRepositoryPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRepositoryPolicy)
-
-responseCreateRepository :: CreateRepositoryResponse -> TestTree
-responseCreateRepository =
-  res
-    "CreateRepositoryResponse"
-    "fixture/CreateRepositoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRepository)
-
-responseDescribeRegistries :: DescribeRegistriesResponse -> TestTree
-responseDescribeRegistries =
-  res
-    "DescribeRegistriesResponse"
-    "fixture/DescribeRegistriesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRegistries)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteImage)
 
 responseCompleteLayerUpload :: CompleteLayerUploadResponse -> TestTree
 responseCompleteLayerUpload =
@@ -393,77 +337,13 @@ responseCompleteLayerUpload =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CompleteLayerUpload)
 
-responseDescribeRepositories :: DescribeRepositoriesResponse -> TestTree
-responseDescribeRepositories =
+responseCreateRepository :: CreateRepositoryResponse -> TestTree
+responseCreateRepository =
   res
-    "DescribeRepositoriesResponse"
-    "fixture/DescribeRepositoriesResponse.proto"
+    "CreateRepositoryResponse"
+    "fixture/CreateRepositoryResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRepositories)
-
-responseUploadLayerPart :: UploadLayerPartResponse -> TestTree
-responseUploadLayerPart =
-  res
-    "UploadLayerPartResponse"
-    "fixture/UploadLayerPartResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UploadLayerPart)
-
-responseGetRepositoryCatalogData :: GetRepositoryCatalogDataResponse -> TestTree
-responseGetRepositoryCatalogData =
-  res
-    "GetRepositoryCatalogDataResponse"
-    "fixture/GetRepositoryCatalogDataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRepositoryCatalogData)
-
-responseGetRegistryCatalogData :: GetRegistryCatalogDataResponse -> TestTree
-responseGetRegistryCatalogData =
-  res
-    "GetRegistryCatalogDataResponse"
-    "fixture/GetRegistryCatalogDataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRegistryCatalogData)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseSetRepositoryPolicy :: SetRepositoryPolicyResponse -> TestTree
-responseSetRepositoryPolicy =
-  res
-    "SetRepositoryPolicyResponse"
-    "fixture/SetRepositoryPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SetRepositoryPolicy)
-
-responseInitiateLayerUpload :: InitiateLayerUploadResponse -> TestTree
-responseInitiateLayerUpload =
-  res
-    "InitiateLayerUploadResponse"
-    "fixture/InitiateLayerUploadResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy InitiateLayerUpload)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseDescribeImageTags :: DescribeImageTagsResponse -> TestTree
-responseDescribeImageTags =
-  res
-    "DescribeImageTagsResponse"
-    "fixture/DescribeImageTagsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeImageTags)
+    (Proxy.Proxy :: Proxy.Proxy CreateRepository)
 
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
 responseDeleteRepository =
@@ -473,13 +353,45 @@ responseDeleteRepository =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteRepository)
 
-responsePutImage :: PutImageResponse -> TestTree
-responsePutImage =
+responseDeleteRepositoryPolicy :: DeleteRepositoryPolicyResponse -> TestTree
+responseDeleteRepositoryPolicy =
   res
-    "PutImageResponse"
-    "fixture/PutImageResponse.proto"
+    "DeleteRepositoryPolicyResponse"
+    "fixture/DeleteRepositoryPolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutImage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepositoryPolicy)
+
+responseDescribeImageTags :: DescribeImageTagsResponse -> TestTree
+responseDescribeImageTags =
+  res
+    "DescribeImageTagsResponse"
+    "fixture/DescribeImageTagsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeImageTags)
+
+responseDescribeImages :: DescribeImagesResponse -> TestTree
+responseDescribeImages =
+  res
+    "DescribeImagesResponse"
+    "fixture/DescribeImagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeImages)
+
+responseDescribeRegistries :: DescribeRegistriesResponse -> TestTree
+responseDescribeRegistries =
+  res
+    "DescribeRegistriesResponse"
+    "fixture/DescribeRegistriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRegistries)
+
+responseDescribeRepositories :: DescribeRepositoriesResponse -> TestTree
+responseDescribeRepositories =
+  res
+    "DescribeRepositoriesResponse"
+    "fixture/DescribeRepositoriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRepositories)
 
 responseGetAuthorizationToken :: GetAuthorizationTokenResponse -> TestTree
 responseGetAuthorizationToken =
@@ -489,10 +401,98 @@ responseGetAuthorizationToken =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAuthorizationToken)
 
-responseDescribeImages :: DescribeImagesResponse -> TestTree
-responseDescribeImages =
+responseGetRegistryCatalogData :: GetRegistryCatalogDataResponse -> TestTree
+responseGetRegistryCatalogData =
   res
-    "DescribeImagesResponse"
-    "fixture/DescribeImagesResponse.proto"
+    "GetRegistryCatalogDataResponse"
+    "fixture/GetRegistryCatalogDataResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeImages)
+    (Proxy.Proxy :: Proxy.Proxy GetRegistryCatalogData)
+
+responseGetRepositoryCatalogData :: GetRepositoryCatalogDataResponse -> TestTree
+responseGetRepositoryCatalogData =
+  res
+    "GetRepositoryCatalogDataResponse"
+    "fixture/GetRepositoryCatalogDataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryCatalogData)
+
+responseGetRepositoryPolicy :: GetRepositoryPolicyResponse -> TestTree
+responseGetRepositoryPolicy =
+  res
+    "GetRepositoryPolicyResponse"
+    "fixture/GetRepositoryPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryPolicy)
+
+responseInitiateLayerUpload :: InitiateLayerUploadResponse -> TestTree
+responseInitiateLayerUpload =
+  res
+    "InitiateLayerUploadResponse"
+    "fixture/InitiateLayerUploadResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InitiateLayerUpload)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutImage :: PutImageResponse -> TestTree
+responsePutImage =
+  res
+    "PutImageResponse"
+    "fixture/PutImageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutImage)
+
+responsePutRegistryCatalogData :: PutRegistryCatalogDataResponse -> TestTree
+responsePutRegistryCatalogData =
+  res
+    "PutRegistryCatalogDataResponse"
+    "fixture/PutRegistryCatalogDataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRegistryCatalogData)
+
+responsePutRepositoryCatalogData :: PutRepositoryCatalogDataResponse -> TestTree
+responsePutRepositoryCatalogData =
+  res
+    "PutRepositoryCatalogDataResponse"
+    "fixture/PutRepositoryCatalogDataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRepositoryCatalogData)
+
+responseSetRepositoryPolicy :: SetRepositoryPolicyResponse -> TestTree
+responseSetRepositoryPolicy =
+  res
+    "SetRepositoryPolicyResponse"
+    "fixture/SetRepositoryPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SetRepositoryPolicy)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUploadLayerPart :: UploadLayerPartResponse -> TestTree
+responseUploadLayerPart =
+  res
+    "UploadLayerPartResponse"
+    "fixture/UploadLayerPartResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UploadLayerPart)

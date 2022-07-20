@@ -38,19 +38,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConditionalSplitActivity' smart constructor.
 data ConditionalSplitActivity = ConditionalSplitActivity'
-  { -- | The amount of time to wait before determining whether the conditions are
+  { -- | The conditions that define the paths for the activity, and the
+    -- relationship between the conditions.
+    condition :: Prelude.Maybe Condition,
+    -- | The unique identifier for the activity to perform if the conditions
+    -- aren\'t met.
+    falseActivity :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time to wait before determining whether the conditions are
     -- met, or the date and time when Amazon Pinpoint determines whether the
     -- conditions are met.
     evaluationWaitTime :: Prelude.Maybe WaitTime,
     -- | The unique identifier for the activity to perform if the conditions are
     -- met.
-    trueActivity :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the activity to perform if the conditions
-    -- aren\'t met.
-    falseActivity :: Prelude.Maybe Prelude.Text,
-    -- | The conditions that define the paths for the activity, and the
-    -- relationship between the conditions.
-    condition :: Prelude.Maybe Condition
+    trueActivity :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,28 +62,38 @@ data ConditionalSplitActivity = ConditionalSplitActivity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'condition', 'conditionalSplitActivity_condition' - The conditions that define the paths for the activity, and the
+-- relationship between the conditions.
+--
+-- 'falseActivity', 'conditionalSplitActivity_falseActivity' - The unique identifier for the activity to perform if the conditions
+-- aren\'t met.
+--
 -- 'evaluationWaitTime', 'conditionalSplitActivity_evaluationWaitTime' - The amount of time to wait before determining whether the conditions are
 -- met, or the date and time when Amazon Pinpoint determines whether the
 -- conditions are met.
 --
 -- 'trueActivity', 'conditionalSplitActivity_trueActivity' - The unique identifier for the activity to perform if the conditions are
 -- met.
---
--- 'falseActivity', 'conditionalSplitActivity_falseActivity' - The unique identifier for the activity to perform if the conditions
--- aren\'t met.
---
--- 'condition', 'conditionalSplitActivity_condition' - The conditions that define the paths for the activity, and the
--- relationship between the conditions.
 newConditionalSplitActivity ::
   ConditionalSplitActivity
 newConditionalSplitActivity =
   ConditionalSplitActivity'
-    { evaluationWaitTime =
+    { condition =
         Prelude.Nothing,
-      trueActivity = Prelude.Nothing,
       falseActivity = Prelude.Nothing,
-      condition = Prelude.Nothing
+      evaluationWaitTime = Prelude.Nothing,
+      trueActivity = Prelude.Nothing
     }
+
+-- | The conditions that define the paths for the activity, and the
+-- relationship between the conditions.
+conditionalSplitActivity_condition :: Lens.Lens' ConditionalSplitActivity (Prelude.Maybe Condition)
+conditionalSplitActivity_condition = Lens.lens (\ConditionalSplitActivity' {condition} -> condition) (\s@ConditionalSplitActivity' {} a -> s {condition = a} :: ConditionalSplitActivity)
+
+-- | The unique identifier for the activity to perform if the conditions
+-- aren\'t met.
+conditionalSplitActivity_falseActivity :: Lens.Lens' ConditionalSplitActivity (Prelude.Maybe Prelude.Text)
+conditionalSplitActivity_falseActivity = Lens.lens (\ConditionalSplitActivity' {falseActivity} -> falseActivity) (\s@ConditionalSplitActivity' {} a -> s {falseActivity = a} :: ConditionalSplitActivity)
 
 -- | The amount of time to wait before determining whether the conditions are
 -- met, or the date and time when Amazon Pinpoint determines whether the
@@ -96,50 +106,40 @@ conditionalSplitActivity_evaluationWaitTime = Lens.lens (\ConditionalSplitActivi
 conditionalSplitActivity_trueActivity :: Lens.Lens' ConditionalSplitActivity (Prelude.Maybe Prelude.Text)
 conditionalSplitActivity_trueActivity = Lens.lens (\ConditionalSplitActivity' {trueActivity} -> trueActivity) (\s@ConditionalSplitActivity' {} a -> s {trueActivity = a} :: ConditionalSplitActivity)
 
--- | The unique identifier for the activity to perform if the conditions
--- aren\'t met.
-conditionalSplitActivity_falseActivity :: Lens.Lens' ConditionalSplitActivity (Prelude.Maybe Prelude.Text)
-conditionalSplitActivity_falseActivity = Lens.lens (\ConditionalSplitActivity' {falseActivity} -> falseActivity) (\s@ConditionalSplitActivity' {} a -> s {falseActivity = a} :: ConditionalSplitActivity)
-
--- | The conditions that define the paths for the activity, and the
--- relationship between the conditions.
-conditionalSplitActivity_condition :: Lens.Lens' ConditionalSplitActivity (Prelude.Maybe Condition)
-conditionalSplitActivity_condition = Lens.lens (\ConditionalSplitActivity' {condition} -> condition) (\s@ConditionalSplitActivity' {} a -> s {condition = a} :: ConditionalSplitActivity)
-
 instance Core.FromJSON ConditionalSplitActivity where
   parseJSON =
     Core.withObject
       "ConditionalSplitActivity"
       ( \x ->
           ConditionalSplitActivity'
-            Prelude.<$> (x Core..:? "EvaluationWaitTime")
-            Prelude.<*> (x Core..:? "TrueActivity")
+            Prelude.<$> (x Core..:? "Condition")
             Prelude.<*> (x Core..:? "FalseActivity")
-            Prelude.<*> (x Core..:? "Condition")
+            Prelude.<*> (x Core..:? "EvaluationWaitTime")
+            Prelude.<*> (x Core..:? "TrueActivity")
       )
 
 instance Prelude.Hashable ConditionalSplitActivity where
   hashWithSalt _salt ConditionalSplitActivity' {..} =
-    _salt `Prelude.hashWithSalt` evaluationWaitTime
-      `Prelude.hashWithSalt` trueActivity
+    _salt `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` falseActivity
-      `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` evaluationWaitTime
+      `Prelude.hashWithSalt` trueActivity
 
 instance Prelude.NFData ConditionalSplitActivity where
   rnf ConditionalSplitActivity' {..} =
-    Prelude.rnf evaluationWaitTime
-      `Prelude.seq` Prelude.rnf trueActivity
+    Prelude.rnf condition
       `Prelude.seq` Prelude.rnf falseActivity
-      `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf evaluationWaitTime
+      `Prelude.seq` Prelude.rnf trueActivity
 
 instance Core.ToJSON ConditionalSplitActivity where
   toJSON ConditionalSplitActivity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EvaluationWaitTime" Core..=)
-              Prelude.<$> evaluationWaitTime,
-            ("TrueActivity" Core..=) Prelude.<$> trueActivity,
+          [ ("Condition" Core..=) Prelude.<$> condition,
             ("FalseActivity" Core..=) Prelude.<$> falseActivity,
-            ("Condition" Core..=) Prelude.<$> condition
+            ("EvaluationWaitTime" Core..=)
+              Prelude.<$> evaluationWaitTime,
+            ("TrueActivity" Core..=) Prelude.<$> trueActivity
           ]
       )

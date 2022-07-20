@@ -28,12 +28,12 @@ import Amazonka.SageMaker.Types.TrainingJobStatus
 --
 -- /See:/ 'newTrainingJobSummary' smart constructor.
 data TrainingJobSummary = TrainingJobSummary'
-  { -- | A timestamp that shows when the training job ended. This field is set
+  { -- | Timestamp when the training job was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | A timestamp that shows when the training job ended. This field is set
     -- only if the training job has one of the terminal statuses (@Completed@,
     -- @Failed@, or @Stopped@).
     trainingEndTime :: Prelude.Maybe Core.POSIX,
-    -- | Timestamp when the training job was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the training job that you want a summary for.
     trainingJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the training job.
@@ -53,11 +53,11 @@ data TrainingJobSummary = TrainingJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastModifiedTime', 'trainingJobSummary_lastModifiedTime' - Timestamp when the training job was last modified.
+--
 -- 'trainingEndTime', 'trainingJobSummary_trainingEndTime' - A timestamp that shows when the training job ended. This field is set
 -- only if the training job has one of the terminal statuses (@Completed@,
 -- @Failed@, or @Stopped@).
---
--- 'lastModifiedTime', 'trainingJobSummary_lastModifiedTime' - Timestamp when the training job was last modified.
 --
 -- 'trainingJobName', 'trainingJobSummary_trainingJobName' - The name of the training job that you want a summary for.
 --
@@ -82,24 +82,24 @@ newTrainingJobSummary
   pCreationTime_
   pTrainingJobStatus_ =
     TrainingJobSummary'
-      { trainingEndTime =
+      { lastModifiedTime =
           Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
+        trainingEndTime = Prelude.Nothing,
         trainingJobName = pTrainingJobName_,
         trainingJobArn = pTrainingJobArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
         trainingJobStatus = pTrainingJobStatus_
       }
 
+-- | Timestamp when the training job was last modified.
+trainingJobSummary_lastModifiedTime :: Lens.Lens' TrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
+trainingJobSummary_lastModifiedTime = Lens.lens (\TrainingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TrainingJobSummary' {} a -> s {lastModifiedTime = a} :: TrainingJobSummary) Prelude.. Lens.mapping Core._Time
+
 -- | A timestamp that shows when the training job ended. This field is set
 -- only if the training job has one of the terminal statuses (@Completed@,
 -- @Failed@, or @Stopped@).
 trainingJobSummary_trainingEndTime :: Lens.Lens' TrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
 trainingJobSummary_trainingEndTime = Lens.lens (\TrainingJobSummary' {trainingEndTime} -> trainingEndTime) (\s@TrainingJobSummary' {} a -> s {trainingEndTime = a} :: TrainingJobSummary) Prelude.. Lens.mapping Core._Time
-
--- | Timestamp when the training job was last modified.
-trainingJobSummary_lastModifiedTime :: Lens.Lens' TrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
-trainingJobSummary_lastModifiedTime = Lens.lens (\TrainingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TrainingJobSummary' {} a -> s {lastModifiedTime = a} :: TrainingJobSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the training job that you want a summary for.
 trainingJobSummary_trainingJobName :: Lens.Lens' TrainingJobSummary Prelude.Text
@@ -123,8 +123,8 @@ instance Core.FromJSON TrainingJobSummary where
       "TrainingJobSummary"
       ( \x ->
           TrainingJobSummary'
-            Prelude.<$> (x Core..:? "TrainingEndTime")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "TrainingEndTime")
             Prelude.<*> (x Core..: "TrainingJobName")
             Prelude.<*> (x Core..: "TrainingJobArn")
             Prelude.<*> (x Core..: "CreationTime")
@@ -133,8 +133,8 @@ instance Core.FromJSON TrainingJobSummary where
 
 instance Prelude.Hashable TrainingJobSummary where
   hashWithSalt _salt TrainingJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` trainingEndTime
-      `Prelude.hashWithSalt` lastModifiedTime
+    _salt `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` trainingEndTime
       `Prelude.hashWithSalt` trainingJobName
       `Prelude.hashWithSalt` trainingJobArn
       `Prelude.hashWithSalt` creationTime
@@ -142,8 +142,8 @@ instance Prelude.Hashable TrainingJobSummary where
 
 instance Prelude.NFData TrainingJobSummary where
   rnf TrainingJobSummary' {..} =
-    Prelude.rnf trainingEndTime
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf trainingEndTime
       `Prelude.seq` Prelude.rnf trainingJobName
       `Prelude.seq` Prelude.rnf trainingJobArn
       `Prelude.seq` Prelude.rnf creationTime

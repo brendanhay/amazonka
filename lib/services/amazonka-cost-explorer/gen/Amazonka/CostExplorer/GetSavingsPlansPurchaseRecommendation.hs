@@ -29,9 +29,9 @@ module Amazonka.CostExplorer.GetSavingsPlansPurchaseRecommendation
 
     -- * Request Lenses
     getSavingsPlansPurchaseRecommendation_nextPageToken,
-    getSavingsPlansPurchaseRecommendation_accountScope,
     getSavingsPlansPurchaseRecommendation_filter,
     getSavingsPlansPurchaseRecommendation_pageSize,
+    getSavingsPlansPurchaseRecommendation_accountScope,
     getSavingsPlansPurchaseRecommendation_savingsPlansType,
     getSavingsPlansPurchaseRecommendation_termInYears,
     getSavingsPlansPurchaseRecommendation_paymentOption,
@@ -62,12 +62,6 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | The account scope that you want your recommendations for. Amazon Web
-    -- Services calculates recommendations including the management account and
-    -- member accounts if the value is set to @PAYER@. If the value is
-    -- @LINKED@, recommendations are calculated for individual member accounts
-    -- only.
-    accountScope :: Prelude.Maybe AccountScope,
     -- | You can filter your recommendations by Account ID with the
     -- @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account
     -- ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated
@@ -84,6 +78,12 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
     -- | The number of recommendations that you want returned in a single
     -- response object.
     pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The account scope that you want your recommendations for. Amazon Web
+    -- Services calculates recommendations including the management account and
+    -- member accounts if the value is set to @PAYER@. If the value is
+    -- @LINKED@, recommendations are calculated for individual member accounts
+    -- only.
+    accountScope :: Prelude.Maybe AccountScope,
     -- | The Savings Plans recommendation type requested.
     savingsPlansType :: SupportedSavingsPlansType,
     -- | The savings plan recommendation term used to generate these
@@ -108,12 +108,6 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 --
--- 'accountScope', 'getSavingsPlansPurchaseRecommendation_accountScope' - The account scope that you want your recommendations for. Amazon Web
--- Services calculates recommendations including the management account and
--- member accounts if the value is set to @PAYER@. If the value is
--- @LINKED@, recommendations are calculated for individual member accounts
--- only.
---
 -- 'filter'', 'getSavingsPlansPurchaseRecommendation_filter' - You can filter your recommendations by Account ID with the
 -- @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account
 -- ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated
@@ -129,6 +123,12 @@ data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendati
 --
 -- 'pageSize', 'getSavingsPlansPurchaseRecommendation_pageSize' - The number of recommendations that you want returned in a single
 -- response object.
+--
+-- 'accountScope', 'getSavingsPlansPurchaseRecommendation_accountScope' - The account scope that you want your recommendations for. Amazon Web
+-- Services calculates recommendations including the management account and
+-- member accounts if the value is set to @PAYER@. If the value is
+-- @LINKED@, recommendations are calculated for individual member accounts
+-- only.
 --
 -- 'savingsPlansType', 'getSavingsPlansPurchaseRecommendation_savingsPlansType' - The Savings Plans recommendation type requested.
 --
@@ -156,9 +156,9 @@ newGetSavingsPlansPurchaseRecommendation
     GetSavingsPlansPurchaseRecommendation'
       { nextPageToken =
           Prelude.Nothing,
-        accountScope = Prelude.Nothing,
         filter' = Prelude.Nothing,
         pageSize = Prelude.Nothing,
+        accountScope = Prelude.Nothing,
         savingsPlansType =
           pSavingsPlansType_,
         termInYears = pTermInYears_,
@@ -172,14 +172,6 @@ newGetSavingsPlansPurchaseRecommendation
 -- results than the maximum page size.
 getSavingsPlansPurchaseRecommendation_nextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe Prelude.Text)
 getSavingsPlansPurchaseRecommendation_nextPageToken = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {nextPageToken} -> nextPageToken) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {nextPageToken = a} :: GetSavingsPlansPurchaseRecommendation)
-
--- | The account scope that you want your recommendations for. Amazon Web
--- Services calculates recommendations including the management account and
--- member accounts if the value is set to @PAYER@. If the value is
--- @LINKED@, recommendations are calculated for individual member accounts
--- only.
-getSavingsPlansPurchaseRecommendation_accountScope :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe AccountScope)
-getSavingsPlansPurchaseRecommendation_accountScope = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {accountScope} -> accountScope) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {accountScope = a} :: GetSavingsPlansPurchaseRecommendation)
 
 -- | You can filter your recommendations by Account ID with the
 -- @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account
@@ -200,6 +192,14 @@ getSavingsPlansPurchaseRecommendation_filter = Lens.lens (\GetSavingsPlansPurcha
 -- response object.
 getSavingsPlansPurchaseRecommendation_pageSize :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe Prelude.Natural)
 getSavingsPlansPurchaseRecommendation_pageSize = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {pageSize} -> pageSize) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {pageSize = a} :: GetSavingsPlansPurchaseRecommendation)
+
+-- | The account scope that you want your recommendations for. Amazon Web
+-- Services calculates recommendations including the management account and
+-- member accounts if the value is set to @PAYER@. If the value is
+-- @LINKED@, recommendations are calculated for individual member accounts
+-- only.
+getSavingsPlansPurchaseRecommendation_accountScope :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Prelude.Maybe AccountScope)
+getSavingsPlansPurchaseRecommendation_accountScope = Lens.lens (\GetSavingsPlansPurchaseRecommendation' {accountScope} -> accountScope) (\s@GetSavingsPlansPurchaseRecommendation' {} a -> s {accountScope = a} :: GetSavingsPlansPurchaseRecommendation)
 
 -- | The Savings Plans recommendation type requested.
 getSavingsPlansPurchaseRecommendation_savingsPlansType :: Lens.Lens' GetSavingsPlansPurchaseRecommendation SupportedSavingsPlansType
@@ -245,9 +245,9 @@ instance
     _salt
     GetSavingsPlansPurchaseRecommendation' {..} =
       _salt `Prelude.hashWithSalt` nextPageToken
-        `Prelude.hashWithSalt` accountScope
         `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` accountScope
         `Prelude.hashWithSalt` savingsPlansType
         `Prelude.hashWithSalt` termInYears
         `Prelude.hashWithSalt` paymentOption
@@ -259,9 +259,9 @@ instance
   where
   rnf GetSavingsPlansPurchaseRecommendation' {..} =
     Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf accountScope
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf accountScope
       `Prelude.seq` Prelude.rnf savingsPlansType
       `Prelude.seq` Prelude.rnf termInYears
       `Prelude.seq` Prelude.rnf paymentOption
@@ -293,9 +293,9 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("AccountScope" Core..=) Prelude.<$> accountScope,
             ("Filter" Core..=) Prelude.<$> filter',
             ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AccountScope" Core..=) Prelude.<$> accountScope,
             Prelude.Just
               ("SavingsPlansType" Core..= savingsPlansType),
             Prelude.Just ("TermInYears" Core..= termInYears),

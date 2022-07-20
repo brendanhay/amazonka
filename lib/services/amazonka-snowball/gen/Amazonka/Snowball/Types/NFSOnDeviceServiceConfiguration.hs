@@ -29,12 +29,12 @@ import Amazonka.Snowball.Types.StorageUnit
 --
 -- /See:/ 'newNFSOnDeviceServiceConfiguration' smart constructor.
 data NFSOnDeviceServiceConfiguration = NFSOnDeviceServiceConfiguration'
-  { -- | The maximum NFS storage for one Snowball Family device.
-    storageLimit :: Prelude.Maybe Prelude.Natural,
-    -- | The scale unit of the NFS storage on the device.
+  { -- | The scale unit of the NFS storage on the device.
     --
     -- Valid values: TB.
-    storageUnit :: Prelude.Maybe StorageUnit
+    storageUnit :: Prelude.Maybe StorageUnit,
+    -- | The maximum NFS storage for one Snowball Family device.
+    storageLimit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data NFSOnDeviceServiceConfiguration = NFSOnDeviceServiceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageLimit', 'nFSOnDeviceServiceConfiguration_storageLimit' - The maximum NFS storage for one Snowball Family device.
---
 -- 'storageUnit', 'nFSOnDeviceServiceConfiguration_storageUnit' - The scale unit of the NFS storage on the device.
 --
 -- Valid values: TB.
+--
+-- 'storageLimit', 'nFSOnDeviceServiceConfiguration_storageLimit' - The maximum NFS storage for one Snowball Family device.
 newNFSOnDeviceServiceConfiguration ::
   NFSOnDeviceServiceConfiguration
 newNFSOnDeviceServiceConfiguration =
   NFSOnDeviceServiceConfiguration'
-    { storageLimit =
+    { storageUnit =
         Prelude.Nothing,
-      storageUnit = Prelude.Nothing
+      storageLimit = Prelude.Nothing
     }
-
--- | The maximum NFS storage for one Snowball Family device.
-nFSOnDeviceServiceConfiguration_storageLimit :: Lens.Lens' NFSOnDeviceServiceConfiguration (Prelude.Maybe Prelude.Natural)
-nFSOnDeviceServiceConfiguration_storageLimit = Lens.lens (\NFSOnDeviceServiceConfiguration' {storageLimit} -> storageLimit) (\s@NFSOnDeviceServiceConfiguration' {} a -> s {storageLimit = a} :: NFSOnDeviceServiceConfiguration)
 
 -- | The scale unit of the NFS storage on the device.
 --
 -- Valid values: TB.
 nFSOnDeviceServiceConfiguration_storageUnit :: Lens.Lens' NFSOnDeviceServiceConfiguration (Prelude.Maybe StorageUnit)
 nFSOnDeviceServiceConfiguration_storageUnit = Lens.lens (\NFSOnDeviceServiceConfiguration' {storageUnit} -> storageUnit) (\s@NFSOnDeviceServiceConfiguration' {} a -> s {storageUnit = a} :: NFSOnDeviceServiceConfiguration)
+
+-- | The maximum NFS storage for one Snowball Family device.
+nFSOnDeviceServiceConfiguration_storageLimit :: Lens.Lens' NFSOnDeviceServiceConfiguration (Prelude.Maybe Prelude.Natural)
+nFSOnDeviceServiceConfiguration_storageLimit = Lens.lens (\NFSOnDeviceServiceConfiguration' {storageLimit} -> storageLimit) (\s@NFSOnDeviceServiceConfiguration' {} a -> s {storageLimit = a} :: NFSOnDeviceServiceConfiguration)
 
 instance
   Core.FromJSON
@@ -79,8 +79,8 @@ instance
       "NFSOnDeviceServiceConfiguration"
       ( \x ->
           NFSOnDeviceServiceConfiguration'
-            Prelude.<$> (x Core..:? "StorageLimit")
-            Prelude.<*> (x Core..:? "StorageUnit")
+            Prelude.<$> (x Core..:? "StorageUnit")
+            Prelude.<*> (x Core..:? "StorageLimit")
       )
 
 instance
@@ -90,22 +90,22 @@ instance
   hashWithSalt
     _salt
     NFSOnDeviceServiceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` storageLimit
-        `Prelude.hashWithSalt` storageUnit
+      _salt `Prelude.hashWithSalt` storageUnit
+        `Prelude.hashWithSalt` storageLimit
 
 instance
   Prelude.NFData
     NFSOnDeviceServiceConfiguration
   where
   rnf NFSOnDeviceServiceConfiguration' {..} =
-    Prelude.rnf storageLimit
-      `Prelude.seq` Prelude.rnf storageUnit
+    Prelude.rnf storageUnit
+      `Prelude.seq` Prelude.rnf storageLimit
 
 instance Core.ToJSON NFSOnDeviceServiceConfiguration where
   toJSON NFSOnDeviceServiceConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StorageLimit" Core..=) Prelude.<$> storageLimit,
-            ("StorageUnit" Core..=) Prelude.<$> storageUnit
+          [ ("StorageUnit" Core..=) Prelude.<$> storageUnit,
+            ("StorageLimit" Core..=) Prelude.<$> storageLimit
           ]
       )

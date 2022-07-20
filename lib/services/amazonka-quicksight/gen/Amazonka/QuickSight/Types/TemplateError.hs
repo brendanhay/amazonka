@@ -28,10 +28,10 @@ import Amazonka.QuickSight.Types.TemplateErrorType
 --
 -- /See:/ 'newTemplateError' smart constructor.
 data TemplateError = TemplateError'
-  { -- | Type of error.
-    type' :: Prelude.Maybe TemplateErrorType,
-    -- | Description of the error type.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | Description of the error type.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | Type of error.
+    type' :: Prelude.Maybe TemplateErrorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data TemplateError = TemplateError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'templateError_type' - Type of error.
---
 -- 'message', 'templateError_message' - Description of the error type.
+--
+-- 'type'', 'templateError_type' - Type of error.
 newTemplateError ::
   TemplateError
 newTemplateError =
   TemplateError'
-    { type' = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | Type of error.
-templateError_type :: Lens.Lens' TemplateError (Prelude.Maybe TemplateErrorType)
-templateError_type = Lens.lens (\TemplateError' {type'} -> type') (\s@TemplateError' {} a -> s {type' = a} :: TemplateError)
 
 -- | Description of the error type.
 templateError_message :: Lens.Lens' TemplateError (Prelude.Maybe Prelude.Text)
 templateError_message = Lens.lens (\TemplateError' {message} -> message) (\s@TemplateError' {} a -> s {message = a} :: TemplateError)
+
+-- | Type of error.
+templateError_type :: Lens.Lens' TemplateError (Prelude.Maybe TemplateErrorType)
+templateError_type = Lens.lens (\TemplateError' {type'} -> type') (\s@TemplateError' {} a -> s {type' = a} :: TemplateError)
 
 instance Core.FromJSON TemplateError where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON TemplateError where
       "TemplateError"
       ( \x ->
           TemplateError'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable TemplateError where
   hashWithSalt _salt TemplateError' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData TemplateError where
   rnf TemplateError' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf type'

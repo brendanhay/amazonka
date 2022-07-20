@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails = AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails'
-  { -- | The value for the specified resource type.
+  { -- | The type of resource to assign to a container.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The value for the specified resource type.
     --
     -- For @GPU@, the value is the number of physical GPUs the Amazon ECS
     -- container agent reserves for the container.
     --
     -- For @InferenceAccelerator@, the value should match the @DeviceName@
     -- attribute of an entry in @InferenceAccelerators@.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The type of resource to assign to a container.
-    type' :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,6 +48,8 @@ data AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails = AwsEc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type' - The type of resource to assign to a container.
+--
 -- 'value', 'awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_value' - The value for the specified resource type.
 --
 -- For @GPU@, the value is the number of physical GPUs the Amazon ECS
@@ -55,17 +57,19 @@ data AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails = AwsEc
 --
 -- For @InferenceAccelerator@, the value should match the @DeviceName@
 -- attribute of an entry in @InferenceAccelerators@.
---
--- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type' - The type of resource to assign to a container.
 newAwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
 newAwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails =
   AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails'
-    { value =
+    { type' =
         Prelude.Nothing,
-      type' =
+      value =
         Prelude.Nothing
     }
+
+-- | The type of resource to assign to a container.
+awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails)
 
 -- | The value for the specified resource type.
 --
@@ -77,10 +81,6 @@ newAwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails =
 awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_value :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_value = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {value} -> value) (\s@AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {} a -> s {value = a} :: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails)
 
--- | The type of resource to assign to a container.
-awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails)
-
 instance
   Core.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
@@ -90,7 +90,7 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
       )
 
 instance
@@ -100,8 +100,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {..} =
-      _salt `Prelude.hashWithSalt` value
-        `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
@@ -109,7 +109,7 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {..} =
-      Prelude.rnf value `Prelude.seq` Prelude.rnf type'
+      Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance
   Core.ToJSON
@@ -119,7 +119,7 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Value" Core..=) Prelude.<$> value,
-              ("Type" Core..=) Prelude.<$> type'
+            [ ("Type" Core..=) Prelude.<$> type',
+              ("Value" Core..=) Prelude.<$> value
             ]
         )

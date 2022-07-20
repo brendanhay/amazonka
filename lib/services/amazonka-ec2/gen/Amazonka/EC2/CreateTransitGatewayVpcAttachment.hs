@@ -34,9 +34,9 @@ module Amazonka.EC2.CreateTransitGatewayVpcAttachment
     newCreateTransitGatewayVpcAttachment,
 
     -- * Request Lenses
-    createTransitGatewayVpcAttachment_tagSpecifications,
-    createTransitGatewayVpcAttachment_options,
     createTransitGatewayVpcAttachment_dryRun,
+    createTransitGatewayVpcAttachment_options,
+    createTransitGatewayVpcAttachment_tagSpecifications,
     createTransitGatewayVpcAttachment_transitGatewayId,
     createTransitGatewayVpcAttachment_vpcId,
     createTransitGatewayVpcAttachment_subnetIds,
@@ -60,15 +60,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayVpcAttachment' smart constructor.
 data CreateTransitGatewayVpcAttachment = CreateTransitGatewayVpcAttachment'
-  { -- | The tags to apply to the VPC attachment.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The VPC attachment options.
-    options :: Prelude.Maybe CreateTransitGatewayVpcAttachmentRequestOptions,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The VPC attachment options.
+    options :: Prelude.Maybe CreateTransitGatewayVpcAttachmentRequestOptions,
+    -- | The tags to apply to the VPC attachment.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the transit gateway.
     transitGatewayId :: Prelude.Text,
     -- | The ID of the VPC.
@@ -89,14 +89,14 @@ data CreateTransitGatewayVpcAttachment = CreateTransitGatewayVpcAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createTransitGatewayVpcAttachment_tagSpecifications' - The tags to apply to the VPC attachment.
---
--- 'options', 'createTransitGatewayVpcAttachment_options' - The VPC attachment options.
---
 -- 'dryRun', 'createTransitGatewayVpcAttachment_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'options', 'createTransitGatewayVpcAttachment_options' - The VPC attachment options.
+--
+-- 'tagSpecifications', 'createTransitGatewayVpcAttachment_tagSpecifications' - The tags to apply to the VPC attachment.
 --
 -- 'transitGatewayId', 'createTransitGatewayVpcAttachment_transitGatewayId' - The ID of the transit gateway.
 --
@@ -116,22 +116,14 @@ newCreateTransitGatewayVpcAttachment
   pTransitGatewayId_
   pVpcId_ =
     CreateTransitGatewayVpcAttachment'
-      { tagSpecifications =
+      { dryRun =
           Prelude.Nothing,
         options = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
         transitGatewayId = pTransitGatewayId_,
         vpcId = pVpcId_,
         subnetIds = Prelude.mempty
       }
-
--- | The tags to apply to the VPC attachment.
-createTransitGatewayVpcAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayVpcAttachment (Prelude.Maybe [TagSpecification])
-createTransitGatewayVpcAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayVpcAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens.coerced
-
--- | The VPC attachment options.
-createTransitGatewayVpcAttachment_options :: Lens.Lens' CreateTransitGatewayVpcAttachment (Prelude.Maybe CreateTransitGatewayVpcAttachmentRequestOptions)
-createTransitGatewayVpcAttachment_options = Lens.lens (\CreateTransitGatewayVpcAttachment' {options} -> options) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {options = a} :: CreateTransitGatewayVpcAttachment)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -139,6 +131,14 @@ createTransitGatewayVpcAttachment_options = Lens.lens (\CreateTransitGatewayVpcA
 -- Otherwise, it is @UnauthorizedOperation@.
 createTransitGatewayVpcAttachment_dryRun :: Lens.Lens' CreateTransitGatewayVpcAttachment (Prelude.Maybe Prelude.Bool)
 createTransitGatewayVpcAttachment_dryRun = Lens.lens (\CreateTransitGatewayVpcAttachment' {dryRun} -> dryRun) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {dryRun = a} :: CreateTransitGatewayVpcAttachment)
+
+-- | The VPC attachment options.
+createTransitGatewayVpcAttachment_options :: Lens.Lens' CreateTransitGatewayVpcAttachment (Prelude.Maybe CreateTransitGatewayVpcAttachmentRequestOptions)
+createTransitGatewayVpcAttachment_options = Lens.lens (\CreateTransitGatewayVpcAttachment' {options} -> options) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {options = a} :: CreateTransitGatewayVpcAttachment)
+
+-- | The tags to apply to the VPC attachment.
+createTransitGatewayVpcAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayVpcAttachment (Prelude.Maybe [TagSpecification])
+createTransitGatewayVpcAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayVpcAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the transit gateway.
 createTransitGatewayVpcAttachment_transitGatewayId :: Lens.Lens' CreateTransitGatewayVpcAttachment Prelude.Text
@@ -178,9 +178,9 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayVpcAttachment' {..} =
-      _salt `Prelude.hashWithSalt` tagSpecifications
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` options
-        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` transitGatewayId
         `Prelude.hashWithSalt` vpcId
         `Prelude.hashWithSalt` subnetIds
@@ -190,9 +190,9 @@ instance
     CreateTransitGatewayVpcAttachment
   where
   rnf CreateTransitGatewayVpcAttachment' {..} =
-    Prelude.rnf tagSpecifications
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf transitGatewayId
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetIds
@@ -221,12 +221,12 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Options" Core.=: options,
         Core.toQuery
           ( Core.toQueryList "TagSpecifications"
               Prelude.<$> tagSpecifications
           ),
-        "Options" Core.=: options,
-        "DryRun" Core.=: dryRun,
         "TransitGatewayId" Core.=: transitGatewayId,
         "VpcId" Core.=: vpcId,
         Core.toQueryList "SubnetIds" subnetIds

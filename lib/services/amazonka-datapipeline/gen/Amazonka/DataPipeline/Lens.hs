@@ -14,36 +14,47 @@
 module Amazonka.DataPipeline.Lens
   ( -- * Operations
 
-    -- ** DescribePipelines
-    describePipelines_pipelineIds,
-    describePipelinesResponse_httpStatus,
-    describePipelinesResponse_pipelineDescriptionList,
+    -- ** ActivatePipeline
+    activatePipeline_startTimestamp,
+    activatePipeline_parameterValues,
+    activatePipeline_pipelineId,
+    activatePipelineResponse_httpStatus,
 
-    -- ** QueryObjects
-    queryObjects_query,
-    queryObjects_marker,
-    queryObjects_limit,
-    queryObjects_pipelineId,
-    queryObjects_sphere,
-    queryObjectsResponse_hasMoreResults,
-    queryObjectsResponse_ids,
-    queryObjectsResponse_marker,
-    queryObjectsResponse_httpStatus,
+    -- ** AddTags
+    addTags_pipelineId,
+    addTags_tags,
+    addTagsResponse_httpStatus,
 
-    -- ** RemoveTags
-    removeTags_pipelineId,
-    removeTags_tagKeys,
-    removeTagsResponse_httpStatus,
+    -- ** CreatePipeline
+    createPipeline_tags,
+    createPipeline_description,
+    createPipeline_name,
+    createPipeline_uniqueId,
+    createPipelineResponse_httpStatus,
+    createPipelineResponse_pipelineId,
+
+    -- ** DeactivatePipeline
+    deactivatePipeline_cancelActive,
+    deactivatePipeline_pipelineId,
+    deactivatePipelineResponse_httpStatus,
 
     -- ** DeletePipeline
     deletePipeline_pipelineId,
 
-    -- ** ListPipelines
-    listPipelines_marker,
-    listPipelinesResponse_hasMoreResults,
-    listPipelinesResponse_marker,
-    listPipelinesResponse_httpStatus,
-    listPipelinesResponse_pipelineIdList,
+    -- ** DescribeObjects
+    describeObjects_marker,
+    describeObjects_evaluateExpressions,
+    describeObjects_pipelineId,
+    describeObjects_objectIds,
+    describeObjectsResponse_marker,
+    describeObjectsResponse_hasMoreResults,
+    describeObjectsResponse_httpStatus,
+    describeObjectsResponse_pipelineObjects,
+
+    -- ** DescribePipelines
+    describePipelines_pipelineIds,
+    describePipelinesResponse_httpStatus,
+    describePipelinesResponse_pipelineDescriptionList,
 
     -- ** EvaluateExpression
     evaluateExpression_pipelineId,
@@ -55,81 +66,28 @@ module Amazonka.DataPipeline.Lens
     -- ** GetPipelineDefinition
     getPipelineDefinition_version,
     getPipelineDefinition_pipelineId,
+    getPipelineDefinitionResponse_parameterValues,
     getPipelineDefinitionResponse_pipelineObjects,
     getPipelineDefinitionResponse_parameterObjects,
-    getPipelineDefinitionResponse_parameterValues,
     getPipelineDefinitionResponse_httpStatus,
 
+    -- ** ListPipelines
+    listPipelines_marker,
+    listPipelinesResponse_marker,
+    listPipelinesResponse_hasMoreResults,
+    listPipelinesResponse_httpStatus,
+    listPipelinesResponse_pipelineIdList,
+
     -- ** PollForTask
-    pollForTask_hostname,
     pollForTask_instanceIdentity,
+    pollForTask_hostname,
     pollForTask_workerGroup,
     pollForTaskResponse_taskObject,
     pollForTaskResponse_httpStatus,
 
-    -- ** DeactivatePipeline
-    deactivatePipeline_cancelActive,
-    deactivatePipeline_pipelineId,
-    deactivatePipelineResponse_httpStatus,
-
-    -- ** AddTags
-    addTags_pipelineId,
-    addTags_tags,
-    addTagsResponse_httpStatus,
-
-    -- ** DescribeObjects
-    describeObjects_evaluateExpressions,
-    describeObjects_marker,
-    describeObjects_pipelineId,
-    describeObjects_objectIds,
-    describeObjectsResponse_hasMoreResults,
-    describeObjectsResponse_marker,
-    describeObjectsResponse_httpStatus,
-    describeObjectsResponse_pipelineObjects,
-
-    -- ** ReportTaskRunnerHeartbeat
-    reportTaskRunnerHeartbeat_hostname,
-    reportTaskRunnerHeartbeat_workerGroup,
-    reportTaskRunnerHeartbeat_taskrunnerId,
-    reportTaskRunnerHeartbeatResponse_httpStatus,
-    reportTaskRunnerHeartbeatResponse_terminate,
-
-    -- ** ActivatePipeline
-    activatePipeline_startTimestamp,
-    activatePipeline_parameterValues,
-    activatePipeline_pipelineId,
-    activatePipelineResponse_httpStatus,
-
-    -- ** SetTaskStatus
-    setTaskStatus_errorStackTrace,
-    setTaskStatus_errorId,
-    setTaskStatus_errorMessage,
-    setTaskStatus_taskId,
-    setTaskStatus_taskStatus,
-    setTaskStatusResponse_httpStatus,
-
-    -- ** SetStatus
-    setStatus_pipelineId,
-    setStatus_objectIds,
-    setStatus_status,
-
-    -- ** ReportTaskProgress
-    reportTaskProgress_fields,
-    reportTaskProgress_taskId,
-    reportTaskProgressResponse_httpStatus,
-    reportTaskProgressResponse_canceled,
-
-    -- ** CreatePipeline
-    createPipeline_description,
-    createPipeline_tags,
-    createPipeline_name,
-    createPipeline_uniqueId,
-    createPipelineResponse_httpStatus,
-    createPipelineResponse_pipelineId,
-
     -- ** PutPipelineDefinition
-    putPipelineDefinition_parameterObjects,
     putPipelineDefinition_parameterValues,
+    putPipelineDefinition_parameterObjects,
     putPipelineDefinition_pipelineId,
     putPipelineDefinition_pipelineObjects,
     putPipelineDefinitionResponse_validationErrors,
@@ -137,9 +95,51 @@ module Amazonka.DataPipeline.Lens
     putPipelineDefinitionResponse_httpStatus,
     putPipelineDefinitionResponse_errored,
 
+    -- ** QueryObjects
+    queryObjects_marker,
+    queryObjects_limit,
+    queryObjects_query,
+    queryObjects_pipelineId,
+    queryObjects_sphere,
+    queryObjectsResponse_marker,
+    queryObjectsResponse_ids,
+    queryObjectsResponse_hasMoreResults,
+    queryObjectsResponse_httpStatus,
+
+    -- ** RemoveTags
+    removeTags_pipelineId,
+    removeTags_tagKeys,
+    removeTagsResponse_httpStatus,
+
+    -- ** ReportTaskProgress
+    reportTaskProgress_fields,
+    reportTaskProgress_taskId,
+    reportTaskProgressResponse_httpStatus,
+    reportTaskProgressResponse_canceled,
+
+    -- ** ReportTaskRunnerHeartbeat
+    reportTaskRunnerHeartbeat_workerGroup,
+    reportTaskRunnerHeartbeat_hostname,
+    reportTaskRunnerHeartbeat_taskrunnerId,
+    reportTaskRunnerHeartbeatResponse_httpStatus,
+    reportTaskRunnerHeartbeatResponse_terminate,
+
+    -- ** SetStatus
+    setStatus_pipelineId,
+    setStatus_objectIds,
+    setStatus_status,
+
+    -- ** SetTaskStatus
+    setTaskStatus_errorMessage,
+    setTaskStatus_errorId,
+    setTaskStatus_errorStackTrace,
+    setTaskStatus_taskId,
+    setTaskStatus_taskStatus,
+    setTaskStatusResponse_httpStatus,
+
     -- ** ValidatePipelineDefinition
-    validatePipelineDefinition_parameterObjects,
     validatePipelineDefinition_parameterValues,
+    validatePipelineDefinition_parameterObjects,
     validatePipelineDefinition_pipelineId,
     validatePipelineDefinition_pipelineObjects,
     validatePipelineDefinitionResponse_validationErrors,
@@ -155,12 +155,12 @@ module Amazonka.DataPipeline.Lens
     field_key,
 
     -- ** InstanceIdentity
-    instanceIdentity_signature,
     instanceIdentity_document,
+    instanceIdentity_signature,
 
     -- ** Operator
-    operator_values,
     operator_type,
+    operator_values,
 
     -- ** ParameterAttribute
     parameterAttribute_key,
@@ -175,8 +175,8 @@ module Amazonka.DataPipeline.Lens
     parameterValue_stringValue,
 
     -- ** PipelineDescription
-    pipelineDescription_description,
     pipelineDescription_tags,
+    pipelineDescription_description,
     pipelineDescription_pipelineId,
     pipelineDescription_name,
     pipelineDescription_fields,
@@ -194,17 +194,17 @@ module Amazonka.DataPipeline.Lens
     query_selectors,
 
     -- ** Selector
-    selector_operator,
     selector_fieldName,
+    selector_operator,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** TaskObject
-    taskObject_pipelineId,
     taskObject_attemptId,
     taskObject_taskId,
+    taskObject_pipelineId,
     taskObject_objects,
 
     -- ** ValidationError
@@ -212,8 +212,8 @@ module Amazonka.DataPipeline.Lens
     validationError_errors,
 
     -- ** ValidationWarning
-    validationWarning_warnings,
     validationWarning_id,
+    validationWarning_warnings,
   )
 where
 

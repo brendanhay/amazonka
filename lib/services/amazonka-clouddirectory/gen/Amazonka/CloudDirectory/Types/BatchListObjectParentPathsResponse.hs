@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchListObjectParentPathsResponse' smart constructor.
 data BatchListObjectParentPathsResponse = BatchListObjectParentPathsResponse'
-  { -- | Returns the path to the @ObjectIdentifiers@ that are associated with the
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns the path to the @ObjectIdentifiers@ that are associated with the
     -- directory.
-    pathToObjectIdentifiersList :: Prelude.Maybe [PathToObjectIdentifiers],
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text
+    pathToObjectIdentifiersList :: Prelude.Maybe [PathToObjectIdentifiers]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,28 @@ data BatchListObjectParentPathsResponse = BatchListObjectParentPathsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'batchListObjectParentPathsResponse_nextToken' - The pagination token.
+--
 -- 'pathToObjectIdentifiersList', 'batchListObjectParentPathsResponse_pathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ that are associated with the
 -- directory.
---
--- 'nextToken', 'batchListObjectParentPathsResponse_nextToken' - The pagination token.
 newBatchListObjectParentPathsResponse ::
   BatchListObjectParentPathsResponse
 newBatchListObjectParentPathsResponse =
   BatchListObjectParentPathsResponse'
-    { pathToObjectIdentifiersList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      pathToObjectIdentifiersList =
+        Prelude.Nothing
     }
+
+-- | The pagination token.
+batchListObjectParentPathsResponse_nextToken :: Lens.Lens' BatchListObjectParentPathsResponse (Prelude.Maybe Prelude.Text)
+batchListObjectParentPathsResponse_nextToken = Lens.lens (\BatchListObjectParentPathsResponse' {nextToken} -> nextToken) (\s@BatchListObjectParentPathsResponse' {} a -> s {nextToken = a} :: BatchListObjectParentPathsResponse)
 
 -- | Returns the path to the @ObjectIdentifiers@ that are associated with the
 -- directory.
 batchListObjectParentPathsResponse_pathToObjectIdentifiersList :: Lens.Lens' BatchListObjectParentPathsResponse (Prelude.Maybe [PathToObjectIdentifiers])
 batchListObjectParentPathsResponse_pathToObjectIdentifiersList = Lens.lens (\BatchListObjectParentPathsResponse' {pathToObjectIdentifiersList} -> pathToObjectIdentifiersList) (\s@BatchListObjectParentPathsResponse' {} a -> s {pathToObjectIdentifiersList = a} :: BatchListObjectParentPathsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The pagination token.
-batchListObjectParentPathsResponse_nextToken :: Lens.Lens' BatchListObjectParentPathsResponse (Prelude.Maybe Prelude.Text)
-batchListObjectParentPathsResponse_nextToken = Lens.lens (\BatchListObjectParentPathsResponse' {nextToken} -> nextToken) (\s@BatchListObjectParentPathsResponse' {} a -> s {nextToken = a} :: BatchListObjectParentPathsResponse)
 
 instance
   Core.FromJSON
@@ -75,10 +76,10 @@ instance
       "BatchListObjectParentPathsResponse"
       ( \x ->
           BatchListObjectParentPathsResponse'
-            Prelude.<$> ( x Core..:? "PathToObjectIdentifiersList"
+            Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<*> ( x Core..:? "PathToObjectIdentifiersList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "NextToken")
       )
 
 instance
@@ -88,14 +89,13 @@ instance
   hashWithSalt
     _salt
     BatchListObjectParentPathsResponse' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` pathToObjectIdentifiersList
-        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     BatchListObjectParentPathsResponse
   where
   rnf BatchListObjectParentPathsResponse' {..} =
-    Prelude.rnf pathToObjectIdentifiersList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pathToObjectIdentifiersList

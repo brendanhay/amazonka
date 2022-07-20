@@ -29,9 +29,7 @@ import Amazonka.RobOMaker.Types.S3KeyOutput
 --
 -- /See:/ 'newDataSource' smart constructor.
 data DataSource = DataSource'
-  { -- | The list of S3 keys identifying the data source files.
-    s3Keys :: Prelude.Maybe [S3KeyOutput],
-    -- | The location where your files are mounted in the container image.
+  { -- | The location where your files are mounted in the container image.
     --
     -- If you\'ve specified the @type@ of the data source as an @Archive@, you
     -- must provide an Amazon S3 object key to your archive. The object key
@@ -45,6 +43,8 @@ data DataSource = DataSource'
     -- provide the Amazon S3 path to the file that you\'re using as your data
     -- source.
     destination :: Prelude.Maybe Prelude.Text,
+    -- | The S3 bucket where the data files are located.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The name of the data source.
     name :: Prelude.Maybe Prelude.Text,
     -- | The data type for the data source that you\'re using for your container
@@ -53,8 +53,8 @@ data DataSource = DataSource'
     --
     -- If you don\'t specify a field, the default value is @File@.
     type' :: Prelude.Maybe DataSourceType,
-    -- | The S3 bucket where the data files are located.
-    s3Bucket :: Prelude.Maybe Prelude.Text
+    -- | The list of S3 keys identifying the data source files.
+    s3Keys :: Prelude.Maybe [S3KeyOutput]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,8 +65,6 @@ data DataSource = DataSource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 's3Keys', 'dataSource_s3Keys' - The list of S3 keys identifying the data source files.
 --
 -- 'destination', 'dataSource_destination' - The location where your files are mounted in the container image.
 --
@@ -82,6 +80,8 @@ data DataSource = DataSource'
 -- provide the Amazon S3 path to the file that you\'re using as your data
 -- source.
 --
+-- 's3Bucket', 'dataSource_s3Bucket' - The S3 bucket where the data files are located.
+--
 -- 'name', 'dataSource_name' - The name of the data source.
 --
 -- 'type'', 'dataSource_type' - The data type for the data source that you\'re using for your container
@@ -90,21 +90,17 @@ data DataSource = DataSource'
 --
 -- If you don\'t specify a field, the default value is @File@.
 --
--- 's3Bucket', 'dataSource_s3Bucket' - The S3 bucket where the data files are located.
+-- 's3Keys', 'dataSource_s3Keys' - The list of S3 keys identifying the data source files.
 newDataSource ::
   DataSource
 newDataSource =
   DataSource'
-    { s3Keys = Prelude.Nothing,
-      destination = Prelude.Nothing,
+    { destination = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
       name = Prelude.Nothing,
       type' = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing
+      s3Keys = Prelude.Nothing
     }
-
--- | The list of S3 keys identifying the data source files.
-dataSource_s3Keys :: Lens.Lens' DataSource (Prelude.Maybe [S3KeyOutput])
-dataSource_s3Keys = Lens.lens (\DataSource' {s3Keys} -> s3Keys) (\s@DataSource' {} a -> s {s3Keys = a} :: DataSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The location where your files are mounted in the container image.
 --
@@ -122,6 +118,10 @@ dataSource_s3Keys = Lens.lens (\DataSource' {s3Keys} -> s3Keys) (\s@DataSource' 
 dataSource_destination :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_destination = Lens.lens (\DataSource' {destination} -> destination) (\s@DataSource' {} a -> s {destination = a} :: DataSource)
 
+-- | The S3 bucket where the data files are located.
+dataSource_s3Bucket :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
+dataSource_s3Bucket = Lens.lens (\DataSource' {s3Bucket} -> s3Bucket) (\s@DataSource' {} a -> s {s3Bucket = a} :: DataSource)
+
 -- | The name of the data source.
 dataSource_name :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_name = Lens.lens (\DataSource' {name} -> name) (\s@DataSource' {} a -> s {name = a} :: DataSource)
@@ -134,9 +134,9 @@ dataSource_name = Lens.lens (\DataSource' {name} -> name) (\s@DataSource' {} a -
 dataSource_type :: Lens.Lens' DataSource (Prelude.Maybe DataSourceType)
 dataSource_type = Lens.lens (\DataSource' {type'} -> type') (\s@DataSource' {} a -> s {type' = a} :: DataSource)
 
--- | The S3 bucket where the data files are located.
-dataSource_s3Bucket :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
-dataSource_s3Bucket = Lens.lens (\DataSource' {s3Bucket} -> s3Bucket) (\s@DataSource' {} a -> s {s3Bucket = a} :: DataSource)
+-- | The list of S3 keys identifying the data source files.
+dataSource_s3Keys :: Lens.Lens' DataSource (Prelude.Maybe [S3KeyOutput])
+dataSource_s3Keys = Lens.lens (\DataSource' {s3Keys} -> s3Keys) (\s@DataSource' {} a -> s {s3Keys = a} :: DataSource) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON DataSource where
   parseJSON =
@@ -144,25 +144,25 @@ instance Core.FromJSON DataSource where
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "s3Keys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "destination")
+            Prelude.<$> (x Core..:? "destination")
+            Prelude.<*> (x Core..:? "s3Bucket")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "s3Bucket")
+            Prelude.<*> (x Core..:? "s3Keys" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DataSource where
   hashWithSalt _salt DataSource' {..} =
-    _salt `Prelude.hashWithSalt` s3Keys
-      `Prelude.hashWithSalt` destination
+    _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3Keys
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf s3Keys
-      `Prelude.seq` Prelude.rnf destination
+    Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3Keys

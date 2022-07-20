@@ -27,18 +27,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetector' smart constructor.
 data Detector = Detector'
-  { -- | Timestamp of when the detector was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
+  { -- | Timestamp of when the detector was created.
+    createdTime :: Prelude.Maybe Prelude.Text,
     -- | The detector ARN.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Timestamp of when the detector was created.
-    createdTime :: Prelude.Maybe Prelude.Text,
+    -- | The detector description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Timestamp of when the detector was last updated.
+    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
     -- | The name of the event type.
     eventTypeName :: Prelude.Maybe Prelude.Text,
     -- | The detector ID.
-    detectorId :: Prelude.Maybe Prelude.Text,
-    -- | The detector description.
-    description :: Prelude.Maybe Prelude.Text
+    detectorId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,40 +50,44 @@ data Detector = Detector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'detector_lastUpdatedTime' - Timestamp of when the detector was last updated.
+-- 'createdTime', 'detector_createdTime' - Timestamp of when the detector was created.
 --
 -- 'arn', 'detector_arn' - The detector ARN.
 --
--- 'createdTime', 'detector_createdTime' - Timestamp of when the detector was created.
+-- 'description', 'detector_description' - The detector description.
+--
+-- 'lastUpdatedTime', 'detector_lastUpdatedTime' - Timestamp of when the detector was last updated.
 --
 -- 'eventTypeName', 'detector_eventTypeName' - The name of the event type.
 --
 -- 'detectorId', 'detector_detectorId' - The detector ID.
---
--- 'description', 'detector_description' - The detector description.
 newDetector ::
   Detector
 newDetector =
   Detector'
-    { lastUpdatedTime = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
       arn = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+      description = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       eventTypeName = Prelude.Nothing,
-      detectorId = Prelude.Nothing,
-      description = Prelude.Nothing
+      detectorId = Prelude.Nothing
     }
 
--- | Timestamp of when the detector was last updated.
-detector_lastUpdatedTime :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
-detector_lastUpdatedTime = Lens.lens (\Detector' {lastUpdatedTime} -> lastUpdatedTime) (\s@Detector' {} a -> s {lastUpdatedTime = a} :: Detector)
+-- | Timestamp of when the detector was created.
+detector_createdTime :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
+detector_createdTime = Lens.lens (\Detector' {createdTime} -> createdTime) (\s@Detector' {} a -> s {createdTime = a} :: Detector)
 
 -- | The detector ARN.
 detector_arn :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
 detector_arn = Lens.lens (\Detector' {arn} -> arn) (\s@Detector' {} a -> s {arn = a} :: Detector)
 
--- | Timestamp of when the detector was created.
-detector_createdTime :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
-detector_createdTime = Lens.lens (\Detector' {createdTime} -> createdTime) (\s@Detector' {} a -> s {createdTime = a} :: Detector)
+-- | The detector description.
+detector_description :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
+detector_description = Lens.lens (\Detector' {description} -> description) (\s@Detector' {} a -> s {description = a} :: Detector)
+
+-- | Timestamp of when the detector was last updated.
+detector_lastUpdatedTime :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
+detector_lastUpdatedTime = Lens.lens (\Detector' {lastUpdatedTime} -> lastUpdatedTime) (\s@Detector' {} a -> s {lastUpdatedTime = a} :: Detector)
 
 -- | The name of the event type.
 detector_eventTypeName :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
@@ -93,38 +97,34 @@ detector_eventTypeName = Lens.lens (\Detector' {eventTypeName} -> eventTypeName)
 detector_detectorId :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
 detector_detectorId = Lens.lens (\Detector' {detectorId} -> detectorId) (\s@Detector' {} a -> s {detectorId = a} :: Detector)
 
--- | The detector description.
-detector_description :: Lens.Lens' Detector (Prelude.Maybe Prelude.Text)
-detector_description = Lens.lens (\Detector' {description} -> description) (\s@Detector' {} a -> s {description = a} :: Detector)
-
 instance Core.FromJSON Detector where
   parseJSON =
     Core.withObject
       "Detector"
       ( \x ->
           Detector'
-            Prelude.<$> (x Core..:? "lastUpdatedTime")
+            Prelude.<$> (x Core..:? "createdTime")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdTime")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "lastUpdatedTime")
             Prelude.<*> (x Core..:? "eventTypeName")
             Prelude.<*> (x Core..:? "detectorId")
-            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable Detector where
   hashWithSalt _salt Detector' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTime
+    _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` eventTypeName
       `Prelude.hashWithSalt` detectorId
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData Detector where
   rnf Detector' {..} =
-    Prelude.rnf lastUpdatedTime
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf eventTypeName
       `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf description

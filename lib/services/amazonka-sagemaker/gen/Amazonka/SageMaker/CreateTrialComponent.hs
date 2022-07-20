@@ -40,15 +40,15 @@ module Amazonka.SageMaker.CreateTrialComponent
     newCreateTrialComponent,
 
     -- * Request Lenses
+    createTrialComponent_tags,
     createTrialComponent_metadataProperties,
+    createTrialComponent_displayName,
     createTrialComponent_status,
     createTrialComponent_outputArtifacts,
-    createTrialComponent_startTime,
     createTrialComponent_endTime,
-    createTrialComponent_parameters,
-    createTrialComponent_displayName,
     createTrialComponent_inputArtifacts,
-    createTrialComponent_tags,
+    createTrialComponent_startTime,
+    createTrialComponent_parameters,
     createTrialComponent_trialComponentName,
 
     -- * Destructuring the Response
@@ -70,7 +70,14 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateTrialComponent' smart constructor.
 data CreateTrialComponent = CreateTrialComponent'
-  { metadataProperties :: Prelude.Maybe MetadataProperties,
+  { -- | A list of tags to associate with the component. You can use Search API
+    -- to search on the tags.
+    tags :: Prelude.Maybe [Tag],
+    metadataProperties :: Prelude.Maybe MetadataProperties,
+    -- | The name of the component as displayed. The name doesn\'t need to be
+    -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
+    -- displayed.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The status of the component. States include:
     --
     -- -   InProgress
@@ -82,22 +89,15 @@ data CreateTrialComponent = CreateTrialComponent'
     -- | The output artifacts for the component. Examples of output artifacts are
     -- metrics, snapshots, logs, and images.
     outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
-    -- | When the component started.
-    startTime :: Prelude.Maybe Core.POSIX,
     -- | When the component ended.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | The hyperparameters for the component.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
-    -- | The name of the component as displayed. The name doesn\'t need to be
-    -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
-    -- displayed.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | The input artifacts for the component. Examples of input artifacts are
     -- datasets, algorithms, hyperparameters, source code, and instance types.
     inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
-    -- | A list of tags to associate with the component. You can use Search API
-    -- to search on the tags.
-    tags :: Prelude.Maybe [Tag],
+    -- | When the component started.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | The hyperparameters for the component.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The name of the component. The name must be unique in your Amazon Web
     -- Services account and is not case-sensitive.
     trialComponentName :: Prelude.Text
@@ -112,7 +112,14 @@ data CreateTrialComponent = CreateTrialComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createTrialComponent_tags' - A list of tags to associate with the component. You can use Search API
+-- to search on the tags.
+--
 -- 'metadataProperties', 'createTrialComponent_metadataProperties' - Undocumented member.
+--
+-- 'displayName', 'createTrialComponent_displayName' - The name of the component as displayed. The name doesn\'t need to be
+-- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
+-- displayed.
 --
 -- 'status', 'createTrialComponent_status' - The status of the component. States include:
 --
@@ -125,21 +132,14 @@ data CreateTrialComponent = CreateTrialComponent'
 -- 'outputArtifacts', 'createTrialComponent_outputArtifacts' - The output artifacts for the component. Examples of output artifacts are
 -- metrics, snapshots, logs, and images.
 --
--- 'startTime', 'createTrialComponent_startTime' - When the component started.
---
 -- 'endTime', 'createTrialComponent_endTime' - When the component ended.
---
--- 'parameters', 'createTrialComponent_parameters' - The hyperparameters for the component.
---
--- 'displayName', 'createTrialComponent_displayName' - The name of the component as displayed. The name doesn\'t need to be
--- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
--- displayed.
 --
 -- 'inputArtifacts', 'createTrialComponent_inputArtifacts' - The input artifacts for the component. Examples of input artifacts are
 -- datasets, algorithms, hyperparameters, source code, and instance types.
 --
--- 'tags', 'createTrialComponent_tags' - A list of tags to associate with the component. You can use Search API
--- to search on the tags.
+-- 'startTime', 'createTrialComponent_startTime' - When the component started.
+--
+-- 'parameters', 'createTrialComponent_parameters' - The hyperparameters for the component.
 --
 -- 'trialComponentName', 'createTrialComponent_trialComponentName' - The name of the component. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -149,22 +149,32 @@ newCreateTrialComponent ::
   CreateTrialComponent
 newCreateTrialComponent pTrialComponentName_ =
   CreateTrialComponent'
-    { metadataProperties =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      metadataProperties = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       status = Prelude.Nothing,
       outputArtifacts = Prelude.Nothing,
-      startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       trialComponentName = pTrialComponentName_
     }
+
+-- | A list of tags to associate with the component. You can use Search API
+-- to search on the tags.
+createTrialComponent_tags :: Lens.Lens' CreateTrialComponent (Prelude.Maybe [Tag])
+createTrialComponent_tags = Lens.lens (\CreateTrialComponent' {tags} -> tags) (\s@CreateTrialComponent' {} a -> s {tags = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createTrialComponent_metadataProperties :: Lens.Lens' CreateTrialComponent (Prelude.Maybe MetadataProperties)
 createTrialComponent_metadataProperties = Lens.lens (\CreateTrialComponent' {metadataProperties} -> metadataProperties) (\s@CreateTrialComponent' {} a -> s {metadataProperties = a} :: CreateTrialComponent)
+
+-- | The name of the component as displayed. The name doesn\'t need to be
+-- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
+-- displayed.
+createTrialComponent_displayName :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.Text)
+createTrialComponent_displayName = Lens.lens (\CreateTrialComponent' {displayName} -> displayName) (\s@CreateTrialComponent' {} a -> s {displayName = a} :: CreateTrialComponent)
 
 -- | The status of the component. States include:
 --
@@ -181,33 +191,22 @@ createTrialComponent_status = Lens.lens (\CreateTrialComponent' {status} -> stat
 createTrialComponent_outputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
 createTrialComponent_outputArtifacts = Lens.lens (\CreateTrialComponent' {outputArtifacts} -> outputArtifacts) (\s@CreateTrialComponent' {} a -> s {outputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
--- | When the component started.
-createTrialComponent_startTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
-createTrialComponent_startTime = Lens.lens (\CreateTrialComponent' {startTime} -> startTime) (\s@CreateTrialComponent' {} a -> s {startTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Core._Time
-
 -- | When the component ended.
 createTrialComponent_endTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
 createTrialComponent_endTime = Lens.lens (\CreateTrialComponent' {endTime} -> endTime) (\s@CreateTrialComponent' {} a -> s {endTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Core._Time
-
--- | The hyperparameters for the component.
-createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
-createTrialComponent_parameters = Lens.lens (\CreateTrialComponent' {parameters} -> parameters) (\s@CreateTrialComponent' {} a -> s {parameters = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the component as displayed. The name doesn\'t need to be
--- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
--- displayed.
-createTrialComponent_displayName :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.Text)
-createTrialComponent_displayName = Lens.lens (\CreateTrialComponent' {displayName} -> displayName) (\s@CreateTrialComponent' {} a -> s {displayName = a} :: CreateTrialComponent)
 
 -- | The input artifacts for the component. Examples of input artifacts are
 -- datasets, algorithms, hyperparameters, source code, and instance types.
 createTrialComponent_inputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
 createTrialComponent_inputArtifacts = Lens.lens (\CreateTrialComponent' {inputArtifacts} -> inputArtifacts) (\s@CreateTrialComponent' {} a -> s {inputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of tags to associate with the component. You can use Search API
--- to search on the tags.
-createTrialComponent_tags :: Lens.Lens' CreateTrialComponent (Prelude.Maybe [Tag])
-createTrialComponent_tags = Lens.lens (\CreateTrialComponent' {tags} -> tags) (\s@CreateTrialComponent' {} a -> s {tags = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
+-- | When the component started.
+createTrialComponent_startTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
+createTrialComponent_startTime = Lens.lens (\CreateTrialComponent' {startTime} -> startTime) (\s@CreateTrialComponent' {} a -> s {startTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Core._Time
+
+-- | The hyperparameters for the component.
+createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
+createTrialComponent_parameters = Lens.lens (\CreateTrialComponent' {parameters} -> parameters) (\s@CreateTrialComponent' {} a -> s {parameters = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the component. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -229,28 +228,28 @@ instance Core.AWSRequest CreateTrialComponent where
 
 instance Prelude.Hashable CreateTrialComponent where
   hashWithSalt _salt CreateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` metadataProperties
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` metadataProperties
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` outputArtifacts
-      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` inputArtifacts
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` trialComponentName
 
 instance Prelude.NFData CreateTrialComponent where
   rnf CreateTrialComponent' {..} =
-    Prelude.rnf metadataProperties
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf outputArtifacts
-      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf inputArtifacts
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf trialComponentName
 
 instance Core.ToHeaders CreateTrialComponent where
@@ -272,18 +271,18 @@ instance Core.ToJSON CreateTrialComponent where
   toJSON CreateTrialComponent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MetadataProperties" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("MetadataProperties" Core..=)
               Prelude.<$> metadataProperties,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("Status" Core..=) Prelude.<$> status,
             ("OutputArtifacts" Core..=)
               Prelude.<$> outputArtifacts,
-            ("StartTime" Core..=) Prelude.<$> startTime,
             ("EndTime" Core..=) Prelude.<$> endTime,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("InputArtifacts" Core..=)
               Prelude.<$> inputArtifacts,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("StartTime" Core..=) Prelude.<$> startTime,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just
               ("TrialComponentName" Core..= trialComponentName)
           ]

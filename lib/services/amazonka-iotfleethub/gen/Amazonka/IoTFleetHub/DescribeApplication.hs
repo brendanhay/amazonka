@@ -38,10 +38,10 @@ module Amazonka.IoTFleetHub.DescribeApplication
     newDescribeApplicationResponse,
 
     -- * Response Lenses
-    describeApplicationResponse_applicationDescription,
+    describeApplicationResponse_tags,
     describeApplicationResponse_ssoClientId,
     describeApplicationResponse_errorMessage,
-    describeApplicationResponse_tags,
+    describeApplicationResponse_applicationDescription,
     describeApplicationResponse_httpStatus,
     describeApplicationResponse_applicationId,
     describeApplicationResponse_applicationArn,
@@ -100,10 +100,10 @@ instance Core.AWSRequest DescribeApplication where
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationResponse'
-            Prelude.<$> (x Core..?> "applicationDescription")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ssoClientId")
             Prelude.<*> (x Core..?> "errorMessage")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "applicationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "applicationId")
             Prelude.<*> (x Core..:> "applicationArn")
@@ -144,16 +144,16 @@ instance Core.ToQuery DescribeApplication where
 
 -- | /See:/ 'newDescribeApplicationResponse' smart constructor.
 data DescribeApplicationResponse = DescribeApplicationResponse'
-  { -- | An optional description of the web application.
-    applicationDescription :: Prelude.Maybe Prelude.Text,
+  { -- | A set of key\/value pairs that you can use to manage the web application
+    -- resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Id of the single sign-on client that you use to authenticate and
     -- authorize users on the web application.
     ssoClientId :: Prelude.Maybe Prelude.Text,
     -- | A message indicating why the @DescribeApplication@ API failed.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | A set of key\/value pairs that you can use to manage the web application
-    -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description of the web application.
+    applicationDescription :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique Id of the web application.
@@ -184,15 +184,15 @@ data DescribeApplicationResponse = DescribeApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationDescription', 'describeApplicationResponse_applicationDescription' - An optional description of the web application.
+-- 'tags', 'describeApplicationResponse_tags' - A set of key\/value pairs that you can use to manage the web application
+-- resource.
 --
 -- 'ssoClientId', 'describeApplicationResponse_ssoClientId' - The Id of the single sign-on client that you use to authenticate and
 -- authorize users on the web application.
 --
 -- 'errorMessage', 'describeApplicationResponse_errorMessage' - A message indicating why the @DescribeApplication@ API failed.
 --
--- 'tags', 'describeApplicationResponse_tags' - A set of key\/value pairs that you can use to manage the web application
--- resource.
+-- 'applicationDescription', 'describeApplicationResponse_applicationDescription' - An optional description of the web application.
 --
 -- 'httpStatus', 'describeApplicationResponse_httpStatus' - The response's http status code.
 --
@@ -243,11 +243,11 @@ newDescribeApplicationResponse
   pApplicationLastUpdateDate_
   pRoleArn_ =
     DescribeApplicationResponse'
-      { applicationDescription =
+      { tags =
           Prelude.Nothing,
         ssoClientId = Prelude.Nothing,
         errorMessage = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        applicationDescription = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         applicationId = pApplicationId_,
         applicationArn = pApplicationArn_,
@@ -261,9 +261,10 @@ newDescribeApplicationResponse
         roleArn = pRoleArn_
       }
 
--- | An optional description of the web application.
-describeApplicationResponse_applicationDescription :: Lens.Lens' DescribeApplicationResponse (Prelude.Maybe Prelude.Text)
-describeApplicationResponse_applicationDescription = Lens.lens (\DescribeApplicationResponse' {applicationDescription} -> applicationDescription) (\s@DescribeApplicationResponse' {} a -> s {applicationDescription = a} :: DescribeApplicationResponse)
+-- | A set of key\/value pairs that you can use to manage the web application
+-- resource.
+describeApplicationResponse_tags :: Lens.Lens' DescribeApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeApplicationResponse_tags = Lens.lens (\DescribeApplicationResponse' {tags} -> tags) (\s@DescribeApplicationResponse' {} a -> s {tags = a} :: DescribeApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Id of the single sign-on client that you use to authenticate and
 -- authorize users on the web application.
@@ -274,10 +275,9 @@ describeApplicationResponse_ssoClientId = Lens.lens (\DescribeApplicationRespons
 describeApplicationResponse_errorMessage :: Lens.Lens' DescribeApplicationResponse (Prelude.Maybe Prelude.Text)
 describeApplicationResponse_errorMessage = Lens.lens (\DescribeApplicationResponse' {errorMessage} -> errorMessage) (\s@DescribeApplicationResponse' {} a -> s {errorMessage = a} :: DescribeApplicationResponse)
 
--- | A set of key\/value pairs that you can use to manage the web application
--- resource.
-describeApplicationResponse_tags :: Lens.Lens' DescribeApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeApplicationResponse_tags = Lens.lens (\DescribeApplicationResponse' {tags} -> tags) (\s@DescribeApplicationResponse' {} a -> s {tags = a} :: DescribeApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | An optional description of the web application.
+describeApplicationResponse_applicationDescription :: Lens.Lens' DescribeApplicationResponse (Prelude.Maybe Prelude.Text)
+describeApplicationResponse_applicationDescription = Lens.lens (\DescribeApplicationResponse' {applicationDescription} -> applicationDescription) (\s@DescribeApplicationResponse' {} a -> s {applicationDescription = a} :: DescribeApplicationResponse)
 
 -- | The response's http status code.
 describeApplicationResponse_httpStatus :: Lens.Lens' DescribeApplicationResponse Prelude.Int
@@ -318,10 +318,10 @@ describeApplicationResponse_roleArn = Lens.lens (\DescribeApplicationResponse' {
 
 instance Prelude.NFData DescribeApplicationResponse where
   rnf DescribeApplicationResponse' {..} =
-    Prelude.rnf applicationDescription
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ssoClientId
       `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationDescription
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf applicationArn

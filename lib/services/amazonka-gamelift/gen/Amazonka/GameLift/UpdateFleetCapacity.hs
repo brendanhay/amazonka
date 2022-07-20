@@ -76,10 +76,10 @@ module Amazonka.GameLift.UpdateFleetCapacity
     newUpdateFleetCapacity,
 
     -- * Request Lenses
-    updateFleetCapacity_location,
-    updateFleetCapacity_maxSize,
-    updateFleetCapacity_minSize,
     updateFleetCapacity_desiredInstances,
+    updateFleetCapacity_location,
+    updateFleetCapacity_minSize,
+    updateFleetCapacity_maxSize,
     updateFleetCapacity_fleetId,
 
     -- * Destructuring the Response
@@ -87,9 +87,9 @@ module Amazonka.GameLift.UpdateFleetCapacity
     newUpdateFleetCapacityResponse,
 
     -- * Response Lenses
+    updateFleetCapacityResponse_fleetId,
     updateFleetCapacityResponse_location,
     updateFleetCapacityResponse_fleetArn,
-    updateFleetCapacityResponse_fleetId,
     updateFleetCapacityResponse_httpStatus,
   )
 where
@@ -105,19 +105,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateFleetCapacity' smart constructor.
 data UpdateFleetCapacity = UpdateFleetCapacity'
-  { -- | The name of a remote location to update fleet capacity settings for, in
-    -- the form of an AWS Region code such as @us-west-2@.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of instances that are allowed in the specified fleet
-    -- location. If this parameter is not set, the default is 1.
-    maxSize :: Prelude.Maybe Prelude.Natural,
-    -- | The minimum number of instances that are allowed in the specified fleet
-    -- location. If this parameter is not set, the default is 0.
-    minSize :: Prelude.Maybe Prelude.Natural,
-    -- | The number of EC2 instances you want to maintain in the specified fleet
+  { -- | The number of EC2 instances you want to maintain in the specified fleet
     -- location. This value must fall between the minimum and maximum size
     -- limits.
     desiredInstances :: Prelude.Maybe Prelude.Natural,
+    -- | The name of a remote location to update fleet capacity settings for, in
+    -- the form of an AWS Region code such as @us-west-2@.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The minimum number of instances that are allowed in the specified fleet
+    -- location. If this parameter is not set, the default is 0.
+    minSize :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of instances that are allowed in the specified fleet
+    -- location. If this parameter is not set, the default is 1.
+    maxSize :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for the fleet to update capacity settings for. You
     -- can use either the fleet ID or ARN value.
     fleetId :: Prelude.Text
@@ -132,18 +132,18 @@ data UpdateFleetCapacity = UpdateFleetCapacity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'desiredInstances', 'updateFleetCapacity_desiredInstances' - The number of EC2 instances you want to maintain in the specified fleet
+-- location. This value must fall between the minimum and maximum size
+-- limits.
+--
 -- 'location', 'updateFleetCapacity_location' - The name of a remote location to update fleet capacity settings for, in
 -- the form of an AWS Region code such as @us-west-2@.
---
--- 'maxSize', 'updateFleetCapacity_maxSize' - The maximum number of instances that are allowed in the specified fleet
--- location. If this parameter is not set, the default is 1.
 --
 -- 'minSize', 'updateFleetCapacity_minSize' - The minimum number of instances that are allowed in the specified fleet
 -- location. If this parameter is not set, the default is 0.
 --
--- 'desiredInstances', 'updateFleetCapacity_desiredInstances' - The number of EC2 instances you want to maintain in the specified fleet
--- location. This value must fall between the minimum and maximum size
--- limits.
+-- 'maxSize', 'updateFleetCapacity_maxSize' - The maximum number of instances that are allowed in the specified fleet
+-- location. If this parameter is not set, the default is 1.
 --
 -- 'fleetId', 'updateFleetCapacity_fleetId' - A unique identifier for the fleet to update capacity settings for. You
 -- can use either the fleet ID or ARN value.
@@ -153,33 +153,34 @@ newUpdateFleetCapacity ::
   UpdateFleetCapacity
 newUpdateFleetCapacity pFleetId_ =
   UpdateFleetCapacity'
-    { location = Prelude.Nothing,
-      maxSize = Prelude.Nothing,
+    { desiredInstances =
+        Prelude.Nothing,
+      location = Prelude.Nothing,
       minSize = Prelude.Nothing,
-      desiredInstances = Prelude.Nothing,
+      maxSize = Prelude.Nothing,
       fleetId = pFleetId_
     }
-
--- | The name of a remote location to update fleet capacity settings for, in
--- the form of an AWS Region code such as @us-west-2@.
-updateFleetCapacity_location :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Text)
-updateFleetCapacity_location = Lens.lens (\UpdateFleetCapacity' {location} -> location) (\s@UpdateFleetCapacity' {} a -> s {location = a} :: UpdateFleetCapacity)
-
--- | The maximum number of instances that are allowed in the specified fleet
--- location. If this parameter is not set, the default is 1.
-updateFleetCapacity_maxSize :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Natural)
-updateFleetCapacity_maxSize = Lens.lens (\UpdateFleetCapacity' {maxSize} -> maxSize) (\s@UpdateFleetCapacity' {} a -> s {maxSize = a} :: UpdateFleetCapacity)
-
--- | The minimum number of instances that are allowed in the specified fleet
--- location. If this parameter is not set, the default is 0.
-updateFleetCapacity_minSize :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Natural)
-updateFleetCapacity_minSize = Lens.lens (\UpdateFleetCapacity' {minSize} -> minSize) (\s@UpdateFleetCapacity' {} a -> s {minSize = a} :: UpdateFleetCapacity)
 
 -- | The number of EC2 instances you want to maintain in the specified fleet
 -- location. This value must fall between the minimum and maximum size
 -- limits.
 updateFleetCapacity_desiredInstances :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Natural)
 updateFleetCapacity_desiredInstances = Lens.lens (\UpdateFleetCapacity' {desiredInstances} -> desiredInstances) (\s@UpdateFleetCapacity' {} a -> s {desiredInstances = a} :: UpdateFleetCapacity)
+
+-- | The name of a remote location to update fleet capacity settings for, in
+-- the form of an AWS Region code such as @us-west-2@.
+updateFleetCapacity_location :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Text)
+updateFleetCapacity_location = Lens.lens (\UpdateFleetCapacity' {location} -> location) (\s@UpdateFleetCapacity' {} a -> s {location = a} :: UpdateFleetCapacity)
+
+-- | The minimum number of instances that are allowed in the specified fleet
+-- location. If this parameter is not set, the default is 0.
+updateFleetCapacity_minSize :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Natural)
+updateFleetCapacity_minSize = Lens.lens (\UpdateFleetCapacity' {minSize} -> minSize) (\s@UpdateFleetCapacity' {} a -> s {minSize = a} :: UpdateFleetCapacity)
+
+-- | The maximum number of instances that are allowed in the specified fleet
+-- location. If this parameter is not set, the default is 1.
+updateFleetCapacity_maxSize :: Lens.Lens' UpdateFleetCapacity (Prelude.Maybe Prelude.Natural)
+updateFleetCapacity_maxSize = Lens.lens (\UpdateFleetCapacity' {maxSize} -> maxSize) (\s@UpdateFleetCapacity' {} a -> s {maxSize = a} :: UpdateFleetCapacity)
 
 -- | A unique identifier for the fleet to update capacity settings for. You
 -- can use either the fleet ID or ARN value.
@@ -195,26 +196,26 @@ instance Core.AWSRequest UpdateFleetCapacity where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetCapacityResponse'
-            Prelude.<$> (x Core..?> "Location")
+            Prelude.<$> (x Core..?> "FleetId")
+            Prelude.<*> (x Core..?> "Location")
             Prelude.<*> (x Core..?> "FleetArn")
-            Prelude.<*> (x Core..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateFleetCapacity where
   hashWithSalt _salt UpdateFleetCapacity' {..} =
-    _salt `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` maxSize
+    _salt `Prelude.hashWithSalt` desiredInstances
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` minSize
-      `Prelude.hashWithSalt` desiredInstances
+      `Prelude.hashWithSalt` maxSize
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData UpdateFleetCapacity where
   rnf UpdateFleetCapacity' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf maxSize
+    Prelude.rnf desiredInstances
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf desiredInstances
+      `Prelude.seq` Prelude.rnf maxSize
       `Prelude.seq` Prelude.rnf fleetId
 
 instance Core.ToHeaders UpdateFleetCapacity where
@@ -236,11 +237,11 @@ instance Core.ToJSON UpdateFleetCapacity where
   toJSON UpdateFleetCapacity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Location" Core..=) Prelude.<$> location,
-            ("MaxSize" Core..=) Prelude.<$> maxSize,
-            ("MinSize" Core..=) Prelude.<$> minSize,
-            ("DesiredInstances" Core..=)
+          [ ("DesiredInstances" Core..=)
               Prelude.<$> desiredInstances,
+            ("Location" Core..=) Prelude.<$> location,
+            ("MinSize" Core..=) Prelude.<$> minSize,
+            ("MaxSize" Core..=) Prelude.<$> maxSize,
             Prelude.Just ("FleetId" Core..= fleetId)
           ]
       )
@@ -255,7 +256,9 @@ instance Core.ToQuery UpdateFleetCapacity where
 --
 -- /See:/ 'newUpdateFleetCapacityResponse' smart constructor.
 data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
-  { -- | The remote location being updated, expressed as an AWS Region code, such
+  { -- | A unique identifier for the fleet that was updated.
+    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | The remote location being updated, expressed as an AWS Region code, such
     -- as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
@@ -264,8 +267,6 @@ data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
     -- it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the fleet that was updated.
-    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -279,6 +280,8 @@ data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fleetId', 'updateFleetCapacityResponse_fleetId' - A unique identifier for the fleet that was updated.
+--
 -- 'location', 'updateFleetCapacityResponse_location' - The remote location being updated, expressed as an AWS Region code, such
 -- as @us-west-2@.
 --
@@ -288,8 +291,6 @@ data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
 -- it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
--- 'fleetId', 'updateFleetCapacityResponse_fleetId' - A unique identifier for the fleet that was updated.
---
 -- 'httpStatus', 'updateFleetCapacityResponse_httpStatus' - The response's http status code.
 newUpdateFleetCapacityResponse ::
   -- | 'httpStatus'
@@ -297,12 +298,16 @@ newUpdateFleetCapacityResponse ::
   UpdateFleetCapacityResponse
 newUpdateFleetCapacityResponse pHttpStatus_ =
   UpdateFleetCapacityResponse'
-    { location =
+    { fleetId =
         Prelude.Nothing,
+      location = Prelude.Nothing,
       fleetArn = Prelude.Nothing,
-      fleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A unique identifier for the fleet that was updated.
+updateFleetCapacityResponse_fleetId :: Lens.Lens' UpdateFleetCapacityResponse (Prelude.Maybe Prelude.Text)
+updateFleetCapacityResponse_fleetId = Lens.lens (\UpdateFleetCapacityResponse' {fleetId} -> fleetId) (\s@UpdateFleetCapacityResponse' {} a -> s {fleetId = a} :: UpdateFleetCapacityResponse)
 
 -- | The remote location being updated, expressed as an AWS Region code, such
 -- as @us-west-2@.
@@ -317,17 +322,13 @@ updateFleetCapacityResponse_location = Lens.lens (\UpdateFleetCapacityResponse' 
 updateFleetCapacityResponse_fleetArn :: Lens.Lens' UpdateFleetCapacityResponse (Prelude.Maybe Prelude.Text)
 updateFleetCapacityResponse_fleetArn = Lens.lens (\UpdateFleetCapacityResponse' {fleetArn} -> fleetArn) (\s@UpdateFleetCapacityResponse' {} a -> s {fleetArn = a} :: UpdateFleetCapacityResponse)
 
--- | A unique identifier for the fleet that was updated.
-updateFleetCapacityResponse_fleetId :: Lens.Lens' UpdateFleetCapacityResponse (Prelude.Maybe Prelude.Text)
-updateFleetCapacityResponse_fleetId = Lens.lens (\UpdateFleetCapacityResponse' {fleetId} -> fleetId) (\s@UpdateFleetCapacityResponse' {} a -> s {fleetId = a} :: UpdateFleetCapacityResponse)
-
 -- | The response's http status code.
 updateFleetCapacityResponse_httpStatus :: Lens.Lens' UpdateFleetCapacityResponse Prelude.Int
 updateFleetCapacityResponse_httpStatus = Lens.lens (\UpdateFleetCapacityResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetCapacityResponse' {} a -> s {httpStatus = a} :: UpdateFleetCapacityResponse)
 
 instance Prelude.NFData UpdateFleetCapacityResponse where
   rnf UpdateFleetCapacityResponse' {..} =
-    Prelude.rnf location
+    Prelude.rnf fleetId
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf fleetArn
-      `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf httpStatus

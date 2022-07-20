@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'
-  { -- | Environment variable key-value pairs.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text))),
-    -- | Error messages for environment variables that couldn\'t be applied.
-    error :: Prelude.Maybe EnvironmentError
+  { -- | Error messages for environment variables that couldn\'t be applied.
+    error :: Prelude.Maybe EnvironmentError,
+    -- | Environment variable key-value pairs.
+    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data EnvironmentResponse = EnvironmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variables', 'environmentResponse_variables' - Environment variable key-value pairs.
---
 -- 'error', 'environmentResponse_error' - Error messages for environment variables that couldn\'t be applied.
+--
+-- 'variables', 'environmentResponse_variables' - Environment variable key-value pairs.
 newEnvironmentResponse ::
   EnvironmentResponse
 newEnvironmentResponse =
   EnvironmentResponse'
-    { variables = Prelude.Nothing,
-      error = Prelude.Nothing
+    { error = Prelude.Nothing,
+      variables = Prelude.Nothing
     }
-
--- | Environment variable key-value pairs.
-environmentResponse_variables :: Lens.Lens' EnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environmentResponse_variables = Lens.lens (\EnvironmentResponse' {variables} -> variables) (\s@EnvironmentResponse' {} a -> s {variables = a} :: EnvironmentResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | Error messages for environment variables that couldn\'t be applied.
 environmentResponse_error :: Lens.Lens' EnvironmentResponse (Prelude.Maybe EnvironmentError)
 environmentResponse_error = Lens.lens (\EnvironmentResponse' {error} -> error) (\s@EnvironmentResponse' {} a -> s {error = a} :: EnvironmentResponse)
+
+-- | Environment variable key-value pairs.
+environmentResponse_variables :: Lens.Lens' EnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+environmentResponse_variables = Lens.lens (\EnvironmentResponse' {variables} -> variables) (\s@EnvironmentResponse' {} a -> s {variables = a} :: EnvironmentResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 instance Core.FromJSON EnvironmentResponse where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON EnvironmentResponse where
       "EnvironmentResponse"
       ( \x ->
           EnvironmentResponse'
-            Prelude.<$> (x Core..:? "Variables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Core..:? "Error")
+            Prelude.<*> (x Core..:? "Variables" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EnvironmentResponse where
   hashWithSalt _salt EnvironmentResponse' {..} =
-    _salt `Prelude.hashWithSalt` variables
-      `Prelude.hashWithSalt` error
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` variables
 
 instance Prelude.NFData EnvironmentResponse where
   rnf EnvironmentResponse' {..} =
-    Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf variables

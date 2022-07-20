@@ -35,8 +35,8 @@ module Amazonka.CloudFormation.RegisterPublisher
     newRegisterPublisher,
 
     -- * Request Lenses
-    registerPublisher_connectionArn,
     registerPublisher_acceptTermsAndConditions,
+    registerPublisher_connectionArn,
 
     -- * Destructuring the Response
     RegisterPublisherResponse (..),
@@ -57,22 +57,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterPublisher' smart constructor.
 data RegisterPublisher = RegisterPublisher'
-  { -- | If you are using a Bitbucket or GitHub account for identity
-    -- verification, the Amazon Resource Name (ARN) for your connection to that
-    -- account.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs Registering your account to publish CloudFormation extensions>
-    -- in the /CloudFormation CLI User Guide/.
-    connectionArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether you accept the
+  { -- | Whether you accept the
     -- <https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf Terms and Conditions>
     -- for publishing extensions in the CloudFormation registry. You must
     -- accept the terms and conditions in order to register to publish public
     -- extensions to the CloudFormation registry.
     --
     -- The default is @false@.
-    acceptTermsAndConditions :: Prelude.Maybe Prelude.Bool
+    acceptTermsAndConditions :: Prelude.Maybe Prelude.Bool,
+    -- | If you are using a Bitbucket or GitHub account for identity
+    -- verification, the Amazon Resource Name (ARN) for your connection to that
+    -- account.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs Registering your account to publish CloudFormation extensions>
+    -- in the /CloudFormation CLI User Guide/.
+    connectionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,14 +84,6 @@ data RegisterPublisher = RegisterPublisher'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionArn', 'registerPublisher_connectionArn' - If you are using a Bitbucket or GitHub account for identity
--- verification, the Amazon Resource Name (ARN) for your connection to that
--- account.
---
--- For more information, see
--- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs Registering your account to publish CloudFormation extensions>
--- in the /CloudFormation CLI User Guide/.
---
 -- 'acceptTermsAndConditions', 'registerPublisher_acceptTermsAndConditions' - Whether you accept the
 -- <https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf Terms and Conditions>
 -- for publishing extensions in the CloudFormation registry. You must
@@ -99,23 +91,22 @@ data RegisterPublisher = RegisterPublisher'
 -- extensions to the CloudFormation registry.
 --
 -- The default is @false@.
-newRegisterPublisher ::
-  RegisterPublisher
-newRegisterPublisher =
-  RegisterPublisher'
-    { connectionArn = Prelude.Nothing,
-      acceptTermsAndConditions = Prelude.Nothing
-    }
-
--- | If you are using a Bitbucket or GitHub account for identity
+--
+-- 'connectionArn', 'registerPublisher_connectionArn' - If you are using a Bitbucket or GitHub account for identity
 -- verification, the Amazon Resource Name (ARN) for your connection to that
 -- account.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs Registering your account to publish CloudFormation extensions>
 -- in the /CloudFormation CLI User Guide/.
-registerPublisher_connectionArn :: Lens.Lens' RegisterPublisher (Prelude.Maybe Prelude.Text)
-registerPublisher_connectionArn = Lens.lens (\RegisterPublisher' {connectionArn} -> connectionArn) (\s@RegisterPublisher' {} a -> s {connectionArn = a} :: RegisterPublisher)
+newRegisterPublisher ::
+  RegisterPublisher
+newRegisterPublisher =
+  RegisterPublisher'
+    { acceptTermsAndConditions =
+        Prelude.Nothing,
+      connectionArn = Prelude.Nothing
+    }
 
 -- | Whether you accept the
 -- <https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf Terms and Conditions>
@@ -126,6 +117,16 @@ registerPublisher_connectionArn = Lens.lens (\RegisterPublisher' {connectionArn}
 -- The default is @false@.
 registerPublisher_acceptTermsAndConditions :: Lens.Lens' RegisterPublisher (Prelude.Maybe Prelude.Bool)
 registerPublisher_acceptTermsAndConditions = Lens.lens (\RegisterPublisher' {acceptTermsAndConditions} -> acceptTermsAndConditions) (\s@RegisterPublisher' {} a -> s {acceptTermsAndConditions = a} :: RegisterPublisher)
+
+-- | If you are using a Bitbucket or GitHub account for identity
+-- verification, the Amazon Resource Name (ARN) for your connection to that
+-- account.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs Registering your account to publish CloudFormation extensions>
+-- in the /CloudFormation CLI User Guide/.
+registerPublisher_connectionArn :: Lens.Lens' RegisterPublisher (Prelude.Maybe Prelude.Text)
+registerPublisher_connectionArn = Lens.lens (\RegisterPublisher' {connectionArn} -> connectionArn) (\s@RegisterPublisher' {} a -> s {connectionArn = a} :: RegisterPublisher)
 
 instance Core.AWSRequest RegisterPublisher where
   type
@@ -143,13 +144,14 @@ instance Core.AWSRequest RegisterPublisher where
 
 instance Prelude.Hashable RegisterPublisher where
   hashWithSalt _salt RegisterPublisher' {..} =
-    _salt `Prelude.hashWithSalt` connectionArn
+    _salt
       `Prelude.hashWithSalt` acceptTermsAndConditions
+      `Prelude.hashWithSalt` connectionArn
 
 instance Prelude.NFData RegisterPublisher where
   rnf RegisterPublisher' {..} =
-    Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf acceptTermsAndConditions
+    Prelude.rnf acceptTermsAndConditions
+      `Prelude.seq` Prelude.rnf connectionArn
 
 instance Core.ToHeaders RegisterPublisher where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,9 +166,9 @@ instance Core.ToQuery RegisterPublisher where
           Core.=: ("RegisterPublisher" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "ConnectionArn" Core.=: connectionArn,
         "AcceptTermsAndConditions"
-          Core.=: acceptTermsAndConditions
+          Core.=: acceptTermsAndConditions,
+        "ConnectionArn" Core.=: connectionArn
       ]
 
 -- | /See:/ 'newRegisterPublisherResponse' smart constructor.

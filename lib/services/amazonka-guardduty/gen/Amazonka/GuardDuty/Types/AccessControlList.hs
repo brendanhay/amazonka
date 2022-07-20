@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessControlList' smart constructor.
 data AccessControlList = AccessControlList'
-  { -- | A value that indicates whether public write access for the bucket is
+  { -- | A value that indicates whether public read access for the bucket is
     -- enabled through an Access Control List (ACL).
-    allowsPublicWriteAccess :: Prelude.Maybe Prelude.Bool,
-    -- | A value that indicates whether public read access for the bucket is
+    allowsPublicReadAccess :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether public write access for the bucket is
     -- enabled through an Access Control List (ACL).
-    allowsPublicReadAccess :: Prelude.Maybe Prelude.Bool
+    allowsPublicWriteAccess :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data AccessControlList = AccessControlList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowsPublicWriteAccess', 'accessControlList_allowsPublicWriteAccess' - A value that indicates whether public write access for the bucket is
+-- 'allowsPublicReadAccess', 'accessControlList_allowsPublicReadAccess' - A value that indicates whether public read access for the bucket is
 -- enabled through an Access Control List (ACL).
 --
--- 'allowsPublicReadAccess', 'accessControlList_allowsPublicReadAccess' - A value that indicates whether public read access for the bucket is
+-- 'allowsPublicWriteAccess', 'accessControlList_allowsPublicWriteAccess' - A value that indicates whether public write access for the bucket is
 -- enabled through an Access Control List (ACL).
 newAccessControlList ::
   AccessControlList
 newAccessControlList =
   AccessControlList'
-    { allowsPublicWriteAccess =
+    { allowsPublicReadAccess =
         Prelude.Nothing,
-      allowsPublicReadAccess = Prelude.Nothing
+      allowsPublicWriteAccess = Prelude.Nothing
     }
-
--- | A value that indicates whether public write access for the bucket is
--- enabled through an Access Control List (ACL).
-accessControlList_allowsPublicWriteAccess :: Lens.Lens' AccessControlList (Prelude.Maybe Prelude.Bool)
-accessControlList_allowsPublicWriteAccess = Lens.lens (\AccessControlList' {allowsPublicWriteAccess} -> allowsPublicWriteAccess) (\s@AccessControlList' {} a -> s {allowsPublicWriteAccess = a} :: AccessControlList)
 
 -- | A value that indicates whether public read access for the bucket is
 -- enabled through an Access Control List (ACL).
 accessControlList_allowsPublicReadAccess :: Lens.Lens' AccessControlList (Prelude.Maybe Prelude.Bool)
 accessControlList_allowsPublicReadAccess = Lens.lens (\AccessControlList' {allowsPublicReadAccess} -> allowsPublicReadAccess) (\s@AccessControlList' {} a -> s {allowsPublicReadAccess = a} :: AccessControlList)
+
+-- | A value that indicates whether public write access for the bucket is
+-- enabled through an Access Control List (ACL).
+accessControlList_allowsPublicWriteAccess :: Lens.Lens' AccessControlList (Prelude.Maybe Prelude.Bool)
+accessControlList_allowsPublicWriteAccess = Lens.lens (\AccessControlList' {allowsPublicWriteAccess} -> allowsPublicWriteAccess) (\s@AccessControlList' {} a -> s {allowsPublicWriteAccess = a} :: AccessControlList)
 
 instance Core.FromJSON AccessControlList where
   parseJSON =
@@ -75,17 +75,16 @@ instance Core.FromJSON AccessControlList where
       "AccessControlList"
       ( \x ->
           AccessControlList'
-            Prelude.<$> (x Core..:? "allowsPublicWriteAccess")
-            Prelude.<*> (x Core..:? "allowsPublicReadAccess")
+            Prelude.<$> (x Core..:? "allowsPublicReadAccess")
+            Prelude.<*> (x Core..:? "allowsPublicWriteAccess")
       )
 
 instance Prelude.Hashable AccessControlList where
   hashWithSalt _salt AccessControlList' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` allowsPublicReadAccess
       `Prelude.hashWithSalt` allowsPublicWriteAccess
-      `Prelude.hashWithSalt` allowsPublicReadAccess
 
 instance Prelude.NFData AccessControlList where
   rnf AccessControlList' {..} =
-    Prelude.rnf allowsPublicWriteAccess
-      `Prelude.seq` Prelude.rnf allowsPublicReadAccess
+    Prelude.rnf allowsPublicReadAccess
+      `Prelude.seq` Prelude.rnf allowsPublicWriteAccess

@@ -31,11 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBucketCountByEncryptionType' smart constructor.
 data BucketCountByEncryptionType = BucketCountByEncryptionType'
-  { -- | The total number of buckets that Amazon Macie doesn\'t have current
-    -- encryption metadata for. Macie can\'t provide current data about the
-    -- default encryption settings for these buckets.
-    unknown :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that use an Amazon S3 managed key to encrypt
+  { -- | The total number of buckets that use an Amazon S3 managed key to encrypt
     -- new objects by default. These buckets use Amazon S3 managed encryption
     -- (SSE-S3) by default.
     s3Managed :: Prelude.Maybe Prelude.Integer,
@@ -45,7 +41,11 @@ data BucketCountByEncryptionType = BucketCountByEncryptionType'
     -- | The total number of buckets that use an KMS key to encrypt new objects
     -- by default, either an Amazon Web Services managed key or a customer
     -- managed key. These buckets use KMS encryption (SSE-KMS) by default.
-    kmsManaged :: Prelude.Maybe Prelude.Integer
+    kmsManaged :: Prelude.Maybe Prelude.Integer,
+    -- | The total number of buckets that Amazon Macie doesn\'t have current
+    -- encryption metadata for. Macie can\'t provide current data about the
+    -- default encryption settings for these buckets.
+    unknown :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,10 +57,6 @@ data BucketCountByEncryptionType = BucketCountByEncryptionType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unknown', 'bucketCountByEncryptionType_unknown' - The total number of buckets that Amazon Macie doesn\'t have current
--- encryption metadata for. Macie can\'t provide current data about the
--- default encryption settings for these buckets.
---
 -- 's3Managed', 'bucketCountByEncryptionType_s3Managed' - The total number of buckets that use an Amazon S3 managed key to encrypt
 -- new objects by default. These buckets use Amazon S3 managed encryption
 -- (SSE-S3) by default.
@@ -71,22 +67,20 @@ data BucketCountByEncryptionType = BucketCountByEncryptionType'
 -- 'kmsManaged', 'bucketCountByEncryptionType_kmsManaged' - The total number of buckets that use an KMS key to encrypt new objects
 -- by default, either an Amazon Web Services managed key or a customer
 -- managed key. These buckets use KMS encryption (SSE-KMS) by default.
+--
+-- 'unknown', 'bucketCountByEncryptionType_unknown' - The total number of buckets that Amazon Macie doesn\'t have current
+-- encryption metadata for. Macie can\'t provide current data about the
+-- default encryption settings for these buckets.
 newBucketCountByEncryptionType ::
   BucketCountByEncryptionType
 newBucketCountByEncryptionType =
   BucketCountByEncryptionType'
-    { unknown =
+    { s3Managed =
         Prelude.Nothing,
-      s3Managed = Prelude.Nothing,
       unencrypted = Prelude.Nothing,
-      kmsManaged = Prelude.Nothing
+      kmsManaged = Prelude.Nothing,
+      unknown = Prelude.Nothing
     }
-
--- | The total number of buckets that Amazon Macie doesn\'t have current
--- encryption metadata for. Macie can\'t provide current data about the
--- default encryption settings for these buckets.
-bucketCountByEncryptionType_unknown :: Lens.Lens' BucketCountByEncryptionType (Prelude.Maybe Prelude.Integer)
-bucketCountByEncryptionType_unknown = Lens.lens (\BucketCountByEncryptionType' {unknown} -> unknown) (\s@BucketCountByEncryptionType' {} a -> s {unknown = a} :: BucketCountByEncryptionType)
 
 -- | The total number of buckets that use an Amazon S3 managed key to encrypt
 -- new objects by default. These buckets use Amazon S3 managed encryption
@@ -105,28 +99,34 @@ bucketCountByEncryptionType_unencrypted = Lens.lens (\BucketCountByEncryptionTyp
 bucketCountByEncryptionType_kmsManaged :: Lens.Lens' BucketCountByEncryptionType (Prelude.Maybe Prelude.Integer)
 bucketCountByEncryptionType_kmsManaged = Lens.lens (\BucketCountByEncryptionType' {kmsManaged} -> kmsManaged) (\s@BucketCountByEncryptionType' {} a -> s {kmsManaged = a} :: BucketCountByEncryptionType)
 
+-- | The total number of buckets that Amazon Macie doesn\'t have current
+-- encryption metadata for. Macie can\'t provide current data about the
+-- default encryption settings for these buckets.
+bucketCountByEncryptionType_unknown :: Lens.Lens' BucketCountByEncryptionType (Prelude.Maybe Prelude.Integer)
+bucketCountByEncryptionType_unknown = Lens.lens (\BucketCountByEncryptionType' {unknown} -> unknown) (\s@BucketCountByEncryptionType' {} a -> s {unknown = a} :: BucketCountByEncryptionType)
+
 instance Core.FromJSON BucketCountByEncryptionType where
   parseJSON =
     Core.withObject
       "BucketCountByEncryptionType"
       ( \x ->
           BucketCountByEncryptionType'
-            Prelude.<$> (x Core..:? "unknown")
-            Prelude.<*> (x Core..:? "s3Managed")
+            Prelude.<$> (x Core..:? "s3Managed")
             Prelude.<*> (x Core..:? "unencrypted")
             Prelude.<*> (x Core..:? "kmsManaged")
+            Prelude.<*> (x Core..:? "unknown")
       )
 
 instance Prelude.Hashable BucketCountByEncryptionType where
   hashWithSalt _salt BucketCountByEncryptionType' {..} =
-    _salt `Prelude.hashWithSalt` unknown
-      `Prelude.hashWithSalt` s3Managed
+    _salt `Prelude.hashWithSalt` s3Managed
       `Prelude.hashWithSalt` unencrypted
       `Prelude.hashWithSalt` kmsManaged
+      `Prelude.hashWithSalt` unknown
 
 instance Prelude.NFData BucketCountByEncryptionType where
   rnf BucketCountByEncryptionType' {..} =
-    Prelude.rnf unknown
-      `Prelude.seq` Prelude.rnf s3Managed
+    Prelude.rnf s3Managed
       `Prelude.seq` Prelude.rnf unencrypted
       `Prelude.seq` Prelude.rnf kmsManaged
+      `Prelude.seq` Prelude.rnf unknown

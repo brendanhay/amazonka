@@ -27,23 +27,50 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListServices $
---             newListServices
+--         [ requestAssociateServiceQuotaTemplate $
+--             newAssociateServiceQuotaTemplate
 --
---         , requestListAWSDefaultServiceQuotas $
---             newListAWSDefaultServiceQuotas
+--         , requestDeleteServiceQuotaIncreaseRequestFromTemplate $
+--             newDeleteServiceQuotaIncreaseRequestFromTemplate
+--
+--         , requestDisassociateServiceQuotaTemplate $
+--             newDisassociateServiceQuotaTemplate
+--
+--         , requestGetAWSDefaultServiceQuota $
+--             newGetAWSDefaultServiceQuota
 --
 --         , requestGetAssociationForServiceQuotaTemplate $
 --             newGetAssociationForServiceQuotaTemplate
 --
---         , requestAssociateServiceQuotaTemplate $
---             newAssociateServiceQuotaTemplate
---
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestGetRequestedServiceQuotaChange $
+--             newGetRequestedServiceQuotaChange
 --
 --         , requestGetServiceQuota $
 --             newGetServiceQuota
+--
+--         , requestGetServiceQuotaIncreaseRequestFromTemplate $
+--             newGetServiceQuotaIncreaseRequestFromTemplate
+--
+--         , requestListAWSDefaultServiceQuotas $
+--             newListAWSDefaultServiceQuotas
+--
+--         , requestListRequestedServiceQuotaChangeHistory $
+--             newListRequestedServiceQuotaChangeHistory
+--
+--         , requestListRequestedServiceQuotaChangeHistoryByQuota $
+--             newListRequestedServiceQuotaChangeHistoryByQuota
+--
+--         , requestListServiceQuotaIncreaseRequestsInTemplate $
+--             newListServiceQuotaIncreaseRequestsInTemplate
+--
+--         , requestListServiceQuotas $
+--             newListServiceQuotas
+--
+--         , requestListServices $
+--             newListServices
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestPutServiceQuotaIncreaseRequestIntoTemplate $
 --             newPutServiceQuotaIncreaseRequestIntoTemplate
@@ -51,59 +78,59 @@ import Test.Tasty
 --         , requestRequestServiceQuotaIncrease $
 --             newRequestServiceQuotaIncrease
 --
---         , requestGetServiceQuotaIncreaseRequestFromTemplate $
---             newGetServiceQuotaIncreaseRequestFromTemplate
---
---         , requestDisassociateServiceQuotaTemplate $
---             newDisassociateServiceQuotaTemplate
---
---         , requestDeleteServiceQuotaIncreaseRequestFromTemplate $
---             newDeleteServiceQuotaIncreaseRequestFromTemplate
---
---         , requestListServiceQuotas $
---             newListServiceQuotas
---
---         , requestListRequestedServiceQuotaChangeHistory $
---             newListRequestedServiceQuotaChangeHistory
---
---         , requestListServiceQuotaIncreaseRequestsInTemplate $
---             newListServiceQuotaIncreaseRequestsInTemplate
---
 --         , requestTagResource $
 --             newTagResource
---
---         , requestListRequestedServiceQuotaChangeHistoryByQuota $
---             newListRequestedServiceQuotaChangeHistoryByQuota
---
---         , requestGetRequestedServiceQuotaChange $
---             newGetRequestedServiceQuotaChange
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetAWSDefaultServiceQuota $
---             newGetAWSDefaultServiceQuota
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListServices $
---             newListServicesResponse
+--         [ responseAssociateServiceQuotaTemplate $
+--             newAssociateServiceQuotaTemplateResponse
 --
---         , responseListAWSDefaultServiceQuotas $
---             newListAWSDefaultServiceQuotasResponse
+--         , responseDeleteServiceQuotaIncreaseRequestFromTemplate $
+--             newDeleteServiceQuotaIncreaseRequestFromTemplateResponse
+--
+--         , responseDisassociateServiceQuotaTemplate $
+--             newDisassociateServiceQuotaTemplateResponse
+--
+--         , responseGetAWSDefaultServiceQuota $
+--             newGetAWSDefaultServiceQuotaResponse
 --
 --         , responseGetAssociationForServiceQuotaTemplate $
 --             newGetAssociationForServiceQuotaTemplateResponse
 --
---         , responseAssociateServiceQuotaTemplate $
---             newAssociateServiceQuotaTemplateResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseGetRequestedServiceQuotaChange $
+--             newGetRequestedServiceQuotaChangeResponse
 --
 --         , responseGetServiceQuota $
 --             newGetServiceQuotaResponse
+--
+--         , responseGetServiceQuotaIncreaseRequestFromTemplate $
+--             newGetServiceQuotaIncreaseRequestFromTemplateResponse
+--
+--         , responseListAWSDefaultServiceQuotas $
+--             newListAWSDefaultServiceQuotasResponse
+--
+--         , responseListRequestedServiceQuotaChangeHistory $
+--             newListRequestedServiceQuotaChangeHistoryResponse
+--
+--         , responseListRequestedServiceQuotaChangeHistoryByQuota $
+--             newListRequestedServiceQuotaChangeHistoryByQuotaResponse
+--
+--         , responseListServiceQuotaIncreaseRequestsInTemplate $
+--             newListServiceQuotaIncreaseRequestsInTemplateResponse
+--
+--         , responseListServiceQuotas $
+--             newListServiceQuotasResponse
+--
+--         , responseListServices $
+--             newListServicesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responsePutServiceQuotaIncreaseRequestIntoTemplate $
 --             newPutServiceQuotaIncreaseRequestIntoTemplateResponse
@@ -111,61 +138,16 @@ import Test.Tasty
 --         , responseRequestServiceQuotaIncrease $
 --             newRequestServiceQuotaIncreaseResponse
 --
---         , responseGetServiceQuotaIncreaseRequestFromTemplate $
---             newGetServiceQuotaIncreaseRequestFromTemplateResponse
---
---         , responseDisassociateServiceQuotaTemplate $
---             newDisassociateServiceQuotaTemplateResponse
---
---         , responseDeleteServiceQuotaIncreaseRequestFromTemplate $
---             newDeleteServiceQuotaIncreaseRequestFromTemplateResponse
---
---         , responseListServiceQuotas $
---             newListServiceQuotasResponse
---
---         , responseListRequestedServiceQuotaChangeHistory $
---             newListRequestedServiceQuotaChangeHistoryResponse
---
---         , responseListServiceQuotaIncreaseRequestsInTemplate $
---             newListServiceQuotaIncreaseRequestsInTemplateResponse
---
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseListRequestedServiceQuotaChangeHistoryByQuota $
---             newListRequestedServiceQuotaChangeHistoryByQuotaResponse
---
---         , responseGetRequestedServiceQuotaChange $
---             newGetRequestedServiceQuotaChangeResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
---
---         , responseGetAWSDefaultServiceQuota $
---             newGetAWSDefaultServiceQuotaResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListServices :: ListServices -> TestTree
-requestListServices =
-  req
-    "ListServices"
-    "fixture/ListServices.yaml"
-
-requestListAWSDefaultServiceQuotas :: ListAWSDefaultServiceQuotas -> TestTree
-requestListAWSDefaultServiceQuotas =
-  req
-    "ListAWSDefaultServiceQuotas"
-    "fixture/ListAWSDefaultServiceQuotas.yaml"
-
-requestGetAssociationForServiceQuotaTemplate :: GetAssociationForServiceQuotaTemplate -> TestTree
-requestGetAssociationForServiceQuotaTemplate =
-  req
-    "GetAssociationForServiceQuotaTemplate"
-    "fixture/GetAssociationForServiceQuotaTemplate.yaml"
 
 requestAssociateServiceQuotaTemplate :: AssociateServiceQuotaTemplate -> TestTree
 requestAssociateServiceQuotaTemplate =
@@ -173,17 +155,89 @@ requestAssociateServiceQuotaTemplate =
     "AssociateServiceQuotaTemplate"
     "fixture/AssociateServiceQuotaTemplate.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestDeleteServiceQuotaIncreaseRequestFromTemplate :: DeleteServiceQuotaIncreaseRequestFromTemplate -> TestTree
+requestDeleteServiceQuotaIncreaseRequestFromTemplate =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "DeleteServiceQuotaIncreaseRequestFromTemplate"
+    "fixture/DeleteServiceQuotaIncreaseRequestFromTemplate.yaml"
+
+requestDisassociateServiceQuotaTemplate :: DisassociateServiceQuotaTemplate -> TestTree
+requestDisassociateServiceQuotaTemplate =
+  req
+    "DisassociateServiceQuotaTemplate"
+    "fixture/DisassociateServiceQuotaTemplate.yaml"
+
+requestGetAWSDefaultServiceQuota :: GetAWSDefaultServiceQuota -> TestTree
+requestGetAWSDefaultServiceQuota =
+  req
+    "GetAWSDefaultServiceQuota"
+    "fixture/GetAWSDefaultServiceQuota.yaml"
+
+requestGetAssociationForServiceQuotaTemplate :: GetAssociationForServiceQuotaTemplate -> TestTree
+requestGetAssociationForServiceQuotaTemplate =
+  req
+    "GetAssociationForServiceQuotaTemplate"
+    "fixture/GetAssociationForServiceQuotaTemplate.yaml"
+
+requestGetRequestedServiceQuotaChange :: GetRequestedServiceQuotaChange -> TestTree
+requestGetRequestedServiceQuotaChange =
+  req
+    "GetRequestedServiceQuotaChange"
+    "fixture/GetRequestedServiceQuotaChange.yaml"
 
 requestGetServiceQuota :: GetServiceQuota -> TestTree
 requestGetServiceQuota =
   req
     "GetServiceQuota"
     "fixture/GetServiceQuota.yaml"
+
+requestGetServiceQuotaIncreaseRequestFromTemplate :: GetServiceQuotaIncreaseRequestFromTemplate -> TestTree
+requestGetServiceQuotaIncreaseRequestFromTemplate =
+  req
+    "GetServiceQuotaIncreaseRequestFromTemplate"
+    "fixture/GetServiceQuotaIncreaseRequestFromTemplate.yaml"
+
+requestListAWSDefaultServiceQuotas :: ListAWSDefaultServiceQuotas -> TestTree
+requestListAWSDefaultServiceQuotas =
+  req
+    "ListAWSDefaultServiceQuotas"
+    "fixture/ListAWSDefaultServiceQuotas.yaml"
+
+requestListRequestedServiceQuotaChangeHistory :: ListRequestedServiceQuotaChangeHistory -> TestTree
+requestListRequestedServiceQuotaChangeHistory =
+  req
+    "ListRequestedServiceQuotaChangeHistory"
+    "fixture/ListRequestedServiceQuotaChangeHistory.yaml"
+
+requestListRequestedServiceQuotaChangeHistoryByQuota :: ListRequestedServiceQuotaChangeHistoryByQuota -> TestTree
+requestListRequestedServiceQuotaChangeHistoryByQuota =
+  req
+    "ListRequestedServiceQuotaChangeHistoryByQuota"
+    "fixture/ListRequestedServiceQuotaChangeHistoryByQuota.yaml"
+
+requestListServiceQuotaIncreaseRequestsInTemplate :: ListServiceQuotaIncreaseRequestsInTemplate -> TestTree
+requestListServiceQuotaIncreaseRequestsInTemplate =
+  req
+    "ListServiceQuotaIncreaseRequestsInTemplate"
+    "fixture/ListServiceQuotaIncreaseRequestsInTemplate.yaml"
+
+requestListServiceQuotas :: ListServiceQuotas -> TestTree
+requestListServiceQuotas =
+  req
+    "ListServiceQuotas"
+    "fixture/ListServiceQuotas.yaml"
+
+requestListServices :: ListServices -> TestTree
+requestListServices =
+  req
+    "ListServices"
+    "fixture/ListServices.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestPutServiceQuotaIncreaseRequestIntoTemplate :: PutServiceQuotaIncreaseRequestIntoTemplate -> TestTree
 requestPutServiceQuotaIncreaseRequestIntoTemplate =
@@ -197,59 +251,11 @@ requestRequestServiceQuotaIncrease =
     "RequestServiceQuotaIncrease"
     "fixture/RequestServiceQuotaIncrease.yaml"
 
-requestGetServiceQuotaIncreaseRequestFromTemplate :: GetServiceQuotaIncreaseRequestFromTemplate -> TestTree
-requestGetServiceQuotaIncreaseRequestFromTemplate =
-  req
-    "GetServiceQuotaIncreaseRequestFromTemplate"
-    "fixture/GetServiceQuotaIncreaseRequestFromTemplate.yaml"
-
-requestDisassociateServiceQuotaTemplate :: DisassociateServiceQuotaTemplate -> TestTree
-requestDisassociateServiceQuotaTemplate =
-  req
-    "DisassociateServiceQuotaTemplate"
-    "fixture/DisassociateServiceQuotaTemplate.yaml"
-
-requestDeleteServiceQuotaIncreaseRequestFromTemplate :: DeleteServiceQuotaIncreaseRequestFromTemplate -> TestTree
-requestDeleteServiceQuotaIncreaseRequestFromTemplate =
-  req
-    "DeleteServiceQuotaIncreaseRequestFromTemplate"
-    "fixture/DeleteServiceQuotaIncreaseRequestFromTemplate.yaml"
-
-requestListServiceQuotas :: ListServiceQuotas -> TestTree
-requestListServiceQuotas =
-  req
-    "ListServiceQuotas"
-    "fixture/ListServiceQuotas.yaml"
-
-requestListRequestedServiceQuotaChangeHistory :: ListRequestedServiceQuotaChangeHistory -> TestTree
-requestListRequestedServiceQuotaChangeHistory =
-  req
-    "ListRequestedServiceQuotaChangeHistory"
-    "fixture/ListRequestedServiceQuotaChangeHistory.yaml"
-
-requestListServiceQuotaIncreaseRequestsInTemplate :: ListServiceQuotaIncreaseRequestsInTemplate -> TestTree
-requestListServiceQuotaIncreaseRequestsInTemplate =
-  req
-    "ListServiceQuotaIncreaseRequestsInTemplate"
-    "fixture/ListServiceQuotaIncreaseRequestsInTemplate.yaml"
-
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
-
-requestListRequestedServiceQuotaChangeHistoryByQuota :: ListRequestedServiceQuotaChangeHistoryByQuota -> TestTree
-requestListRequestedServiceQuotaChangeHistoryByQuota =
-  req
-    "ListRequestedServiceQuotaChangeHistoryByQuota"
-    "fixture/ListRequestedServiceQuotaChangeHistoryByQuota.yaml"
-
-requestGetRequestedServiceQuotaChange :: GetRequestedServiceQuotaChange -> TestTree
-requestGetRequestedServiceQuotaChange =
-  req
-    "GetRequestedServiceQuotaChange"
-    "fixture/GetRequestedServiceQuotaChange.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -257,37 +263,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetAWSDefaultServiceQuota :: GetAWSDefaultServiceQuota -> TestTree
-requestGetAWSDefaultServiceQuota =
-  req
-    "GetAWSDefaultServiceQuota"
-    "fixture/GetAWSDefaultServiceQuota.yaml"
-
 -- Responses
-
-responseListServices :: ListServicesResponse -> TestTree
-responseListServices =
-  res
-    "ListServicesResponse"
-    "fixture/ListServicesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListServices)
-
-responseListAWSDefaultServiceQuotas :: ListAWSDefaultServiceQuotasResponse -> TestTree
-responseListAWSDefaultServiceQuotas =
-  res
-    "ListAWSDefaultServiceQuotasResponse"
-    "fixture/ListAWSDefaultServiceQuotasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAWSDefaultServiceQuotas)
-
-responseGetAssociationForServiceQuotaTemplate :: GetAssociationForServiceQuotaTemplateResponse -> TestTree
-responseGetAssociationForServiceQuotaTemplate =
-  res
-    "GetAssociationForServiceQuotaTemplateResponse"
-    "fixture/GetAssociationForServiceQuotaTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAssociationForServiceQuotaTemplate)
 
 responseAssociateServiceQuotaTemplate :: AssociateServiceQuotaTemplateResponse -> TestTree
 responseAssociateServiceQuotaTemplate =
@@ -297,13 +273,45 @@ responseAssociateServiceQuotaTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateServiceQuotaTemplate)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseDeleteServiceQuotaIncreaseRequestFromTemplate :: DeleteServiceQuotaIncreaseRequestFromTemplateResponse -> TestTree
+responseDeleteServiceQuotaIncreaseRequestFromTemplate =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "DeleteServiceQuotaIncreaseRequestFromTemplateResponse"
+    "fixture/DeleteServiceQuotaIncreaseRequestFromTemplateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteServiceQuotaIncreaseRequestFromTemplate)
+
+responseDisassociateServiceQuotaTemplate :: DisassociateServiceQuotaTemplateResponse -> TestTree
+responseDisassociateServiceQuotaTemplate =
+  res
+    "DisassociateServiceQuotaTemplateResponse"
+    "fixture/DisassociateServiceQuotaTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateServiceQuotaTemplate)
+
+responseGetAWSDefaultServiceQuota :: GetAWSDefaultServiceQuotaResponse -> TestTree
+responseGetAWSDefaultServiceQuota =
+  res
+    "GetAWSDefaultServiceQuotaResponse"
+    "fixture/GetAWSDefaultServiceQuotaResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAWSDefaultServiceQuota)
+
+responseGetAssociationForServiceQuotaTemplate :: GetAssociationForServiceQuotaTemplateResponse -> TestTree
+responseGetAssociationForServiceQuotaTemplate =
+  res
+    "GetAssociationForServiceQuotaTemplateResponse"
+    "fixture/GetAssociationForServiceQuotaTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAssociationForServiceQuotaTemplate)
+
+responseGetRequestedServiceQuotaChange :: GetRequestedServiceQuotaChangeResponse -> TestTree
+responseGetRequestedServiceQuotaChange =
+  res
+    "GetRequestedServiceQuotaChangeResponse"
+    "fixture/GetRequestedServiceQuotaChangeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRequestedServiceQuotaChange)
 
 responseGetServiceQuota :: GetServiceQuotaResponse -> TestTree
 responseGetServiceQuota =
@@ -312,6 +320,70 @@ responseGetServiceQuota =
     "fixture/GetServiceQuotaResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetServiceQuota)
+
+responseGetServiceQuotaIncreaseRequestFromTemplate :: GetServiceQuotaIncreaseRequestFromTemplateResponse -> TestTree
+responseGetServiceQuotaIncreaseRequestFromTemplate =
+  res
+    "GetServiceQuotaIncreaseRequestFromTemplateResponse"
+    "fixture/GetServiceQuotaIncreaseRequestFromTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetServiceQuotaIncreaseRequestFromTemplate)
+
+responseListAWSDefaultServiceQuotas :: ListAWSDefaultServiceQuotasResponse -> TestTree
+responseListAWSDefaultServiceQuotas =
+  res
+    "ListAWSDefaultServiceQuotasResponse"
+    "fixture/ListAWSDefaultServiceQuotasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAWSDefaultServiceQuotas)
+
+responseListRequestedServiceQuotaChangeHistory :: ListRequestedServiceQuotaChangeHistoryResponse -> TestTree
+responseListRequestedServiceQuotaChangeHistory =
+  res
+    "ListRequestedServiceQuotaChangeHistoryResponse"
+    "fixture/ListRequestedServiceQuotaChangeHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRequestedServiceQuotaChangeHistory)
+
+responseListRequestedServiceQuotaChangeHistoryByQuota :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse -> TestTree
+responseListRequestedServiceQuotaChangeHistoryByQuota =
+  res
+    "ListRequestedServiceQuotaChangeHistoryByQuotaResponse"
+    "fixture/ListRequestedServiceQuotaChangeHistoryByQuotaResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRequestedServiceQuotaChangeHistoryByQuota)
+
+responseListServiceQuotaIncreaseRequestsInTemplate :: ListServiceQuotaIncreaseRequestsInTemplateResponse -> TestTree
+responseListServiceQuotaIncreaseRequestsInTemplate =
+  res
+    "ListServiceQuotaIncreaseRequestsInTemplateResponse"
+    "fixture/ListServiceQuotaIncreaseRequestsInTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServiceQuotaIncreaseRequestsInTemplate)
+
+responseListServiceQuotas :: ListServiceQuotasResponse -> TestTree
+responseListServiceQuotas =
+  res
+    "ListServiceQuotasResponse"
+    "fixture/ListServiceQuotasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServiceQuotas)
+
+responseListServices :: ListServicesResponse -> TestTree
+responseListServices =
+  res
+    "ListServicesResponse"
+    "fixture/ListServicesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServices)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responsePutServiceQuotaIncreaseRequestIntoTemplate :: PutServiceQuotaIncreaseRequestIntoTemplateResponse -> TestTree
 responsePutServiceQuotaIncreaseRequestIntoTemplate =
@@ -329,54 +401,6 @@ responseRequestServiceQuotaIncrease =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RequestServiceQuotaIncrease)
 
-responseGetServiceQuotaIncreaseRequestFromTemplate :: GetServiceQuotaIncreaseRequestFromTemplateResponse -> TestTree
-responseGetServiceQuotaIncreaseRequestFromTemplate =
-  res
-    "GetServiceQuotaIncreaseRequestFromTemplateResponse"
-    "fixture/GetServiceQuotaIncreaseRequestFromTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetServiceQuotaIncreaseRequestFromTemplate)
-
-responseDisassociateServiceQuotaTemplate :: DisassociateServiceQuotaTemplateResponse -> TestTree
-responseDisassociateServiceQuotaTemplate =
-  res
-    "DisassociateServiceQuotaTemplateResponse"
-    "fixture/DisassociateServiceQuotaTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateServiceQuotaTemplate)
-
-responseDeleteServiceQuotaIncreaseRequestFromTemplate :: DeleteServiceQuotaIncreaseRequestFromTemplateResponse -> TestTree
-responseDeleteServiceQuotaIncreaseRequestFromTemplate =
-  res
-    "DeleteServiceQuotaIncreaseRequestFromTemplateResponse"
-    "fixture/DeleteServiceQuotaIncreaseRequestFromTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteServiceQuotaIncreaseRequestFromTemplate)
-
-responseListServiceQuotas :: ListServiceQuotasResponse -> TestTree
-responseListServiceQuotas =
-  res
-    "ListServiceQuotasResponse"
-    "fixture/ListServiceQuotasResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListServiceQuotas)
-
-responseListRequestedServiceQuotaChangeHistory :: ListRequestedServiceQuotaChangeHistoryResponse -> TestTree
-responseListRequestedServiceQuotaChangeHistory =
-  res
-    "ListRequestedServiceQuotaChangeHistoryResponse"
-    "fixture/ListRequestedServiceQuotaChangeHistoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRequestedServiceQuotaChangeHistory)
-
-responseListServiceQuotaIncreaseRequestsInTemplate :: ListServiceQuotaIncreaseRequestsInTemplateResponse -> TestTree
-responseListServiceQuotaIncreaseRequestsInTemplate =
-  res
-    "ListServiceQuotaIncreaseRequestsInTemplateResponse"
-    "fixture/ListServiceQuotaIncreaseRequestsInTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListServiceQuotaIncreaseRequestsInTemplate)
-
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -385,22 +409,6 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseListRequestedServiceQuotaChangeHistoryByQuota :: ListRequestedServiceQuotaChangeHistoryByQuotaResponse -> TestTree
-responseListRequestedServiceQuotaChangeHistoryByQuota =
-  res
-    "ListRequestedServiceQuotaChangeHistoryByQuotaResponse"
-    "fixture/ListRequestedServiceQuotaChangeHistoryByQuotaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRequestedServiceQuotaChangeHistoryByQuota)
-
-responseGetRequestedServiceQuotaChange :: GetRequestedServiceQuotaChangeResponse -> TestTree
-responseGetRequestedServiceQuotaChange =
-  res
-    "GetRequestedServiceQuotaChangeResponse"
-    "fixture/GetRequestedServiceQuotaChangeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRequestedServiceQuotaChange)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -408,11 +416,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseGetAWSDefaultServiceQuota :: GetAWSDefaultServiceQuotaResponse -> TestTree
-responseGetAWSDefaultServiceQuota =
-  res
-    "GetAWSDefaultServiceQuotaResponse"
-    "fixture/GetAWSDefaultServiceQuotaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAWSDefaultServiceQuota)

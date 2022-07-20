@@ -33,10 +33,10 @@ module Amazonka.EC2.DescribeNetworkAcls
     newDescribeNetworkAcls,
 
     -- * Request Lenses
-    describeNetworkAcls_filters,
     describeNetworkAcls_nextToken,
-    describeNetworkAcls_networkAclIds,
+    describeNetworkAcls_filters,
     describeNetworkAcls_dryRun,
+    describeNetworkAcls_networkAclIds,
     describeNetworkAcls_maxResults,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.EC2.DescribeNetworkAcls
     newDescribeNetworkAclsResponse,
 
     -- * Response Lenses
-    describeNetworkAclsResponse_networkAcls,
     describeNetworkAclsResponse_nextToken,
+    describeNetworkAclsResponse_networkAcls,
     describeNetworkAclsResponse_httpStatus,
   )
 where
@@ -59,7 +59,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeNetworkAcls' smart constructor.
 data DescribeNetworkAcls = DescribeNetworkAcls'
-  { -- | One or more filters.
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @association.association-id@ - The ID of an association ID for the
     --     ACL.
@@ -113,17 +115,15 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
     --
     -- -   @vpc-id@ - The ID of the VPC for the network ACL.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more network ACL IDs.
-    --
-    -- Default: Describes all your network ACLs.
-    networkAclIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more network ACL IDs.
+    --
+    -- Default: Describes all your network ACLs.
+    networkAclIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -138,6 +138,8 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeNetworkAcls_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeNetworkAcls_filters' - One or more filters.
 --
@@ -193,16 +195,14 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
 --
 -- -   @vpc-id@ - The ID of the VPC for the network ACL.
 --
--- 'nextToken', 'describeNetworkAcls_nextToken' - The token for the next page of results.
---
--- 'networkAclIds', 'describeNetworkAcls_networkAclIds' - One or more network ACL IDs.
---
--- Default: Describes all your network ACLs.
---
 -- 'dryRun', 'describeNetworkAcls_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'networkAclIds', 'describeNetworkAcls_networkAclIds' - One or more network ACL IDs.
+--
+-- Default: Describes all your network ACLs.
 --
 -- 'maxResults', 'describeNetworkAcls_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -211,12 +211,16 @@ newDescribeNetworkAcls ::
   DescribeNetworkAcls
 newDescribeNetworkAcls =
   DescribeNetworkAcls'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      networkAclIds = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      networkAclIds = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeNetworkAcls_nextToken :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Text)
+describeNetworkAcls_nextToken = Lens.lens (\DescribeNetworkAcls' {nextToken} -> nextToken) (\s@DescribeNetworkAcls' {} a -> s {nextToken = a} :: DescribeNetworkAcls)
 
 -- | One or more filters.
 --
@@ -274,22 +278,18 @@ newDescribeNetworkAcls =
 describeNetworkAcls_filters :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe [Filter])
 describeNetworkAcls_filters = Lens.lens (\DescribeNetworkAcls' {filters} -> filters) (\s@DescribeNetworkAcls' {} a -> s {filters = a} :: DescribeNetworkAcls) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next page of results.
-describeNetworkAcls_nextToken :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Text)
-describeNetworkAcls_nextToken = Lens.lens (\DescribeNetworkAcls' {nextToken} -> nextToken) (\s@DescribeNetworkAcls' {} a -> s {nextToken = a} :: DescribeNetworkAcls)
-
--- | One or more network ACL IDs.
---
--- Default: Describes all your network ACLs.
-describeNetworkAcls_networkAclIds :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe [Prelude.Text])
-describeNetworkAcls_networkAclIds = Lens.lens (\DescribeNetworkAcls' {networkAclIds} -> networkAclIds) (\s@DescribeNetworkAcls' {} a -> s {networkAclIds = a} :: DescribeNetworkAcls) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeNetworkAcls_dryRun :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Bool)
 describeNetworkAcls_dryRun = Lens.lens (\DescribeNetworkAcls' {dryRun} -> dryRun) (\s@DescribeNetworkAcls' {} a -> s {dryRun = a} :: DescribeNetworkAcls)
+
+-- | One or more network ACL IDs.
+--
+-- Default: Describes all your network ACLs.
+describeNetworkAcls_networkAclIds :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe [Prelude.Text])
+describeNetworkAcls_networkAclIds = Lens.lens (\DescribeNetworkAcls' {networkAclIds} -> networkAclIds) (\s@DescribeNetworkAcls' {} a -> s {networkAclIds = a} :: DescribeNetworkAcls) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -328,27 +328,27 @@ instance Core.AWSRequest DescribeNetworkAcls where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkAclsResponse'
-            Prelude.<$> ( x Core..@? "networkAclSet" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "networkAclSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeNetworkAcls where
   hashWithSalt _salt DescribeNetworkAcls' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` networkAclIds
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` networkAclIds
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeNetworkAcls where
   rnf DescribeNetworkAcls' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkAclIds
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkAclIds
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeNetworkAcls where
@@ -364,24 +364,24 @@ instance Core.ToQuery DescribeNetworkAcls where
           Core.=: ("DescribeNetworkAcls" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "NetworkAclId"
               Prelude.<$> networkAclIds
           ),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeNetworkAclsResponse' smart constructor.
 data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse'
-  { -- | Information about one or more network ACLs.
-    networkAcls :: Prelude.Maybe [NetworkAcl],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about one or more network ACLs.
+    networkAcls :: Prelude.Maybe [NetworkAcl],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -395,10 +395,10 @@ data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkAcls', 'describeNetworkAclsResponse_networkAcls' - Information about one or more network ACLs.
---
 -- 'nextToken', 'describeNetworkAclsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'networkAcls', 'describeNetworkAclsResponse_networkAcls' - Information about one or more network ACLs.
 --
 -- 'httpStatus', 'describeNetworkAclsResponse_httpStatus' - The response's http status code.
 newDescribeNetworkAclsResponse ::
@@ -407,20 +407,20 @@ newDescribeNetworkAclsResponse ::
   DescribeNetworkAclsResponse
 newDescribeNetworkAclsResponse pHttpStatus_ =
   DescribeNetworkAclsResponse'
-    { networkAcls =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      networkAcls = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about one or more network ACLs.
-describeNetworkAclsResponse_networkAcls :: Lens.Lens' DescribeNetworkAclsResponse (Prelude.Maybe [NetworkAcl])
-describeNetworkAclsResponse_networkAcls = Lens.lens (\DescribeNetworkAclsResponse' {networkAcls} -> networkAcls) (\s@DescribeNetworkAclsResponse' {} a -> s {networkAcls = a} :: DescribeNetworkAclsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeNetworkAclsResponse_nextToken :: Lens.Lens' DescribeNetworkAclsResponse (Prelude.Maybe Prelude.Text)
 describeNetworkAclsResponse_nextToken = Lens.lens (\DescribeNetworkAclsResponse' {nextToken} -> nextToken) (\s@DescribeNetworkAclsResponse' {} a -> s {nextToken = a} :: DescribeNetworkAclsResponse)
+
+-- | Information about one or more network ACLs.
+describeNetworkAclsResponse_networkAcls :: Lens.Lens' DescribeNetworkAclsResponse (Prelude.Maybe [NetworkAcl])
+describeNetworkAclsResponse_networkAcls = Lens.lens (\DescribeNetworkAclsResponse' {networkAcls} -> networkAcls) (\s@DescribeNetworkAclsResponse' {} a -> s {networkAcls = a} :: DescribeNetworkAclsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNetworkAclsResponse_httpStatus :: Lens.Lens' DescribeNetworkAclsResponse Prelude.Int
@@ -428,6 +428,6 @@ describeNetworkAclsResponse_httpStatus = Lens.lens (\DescribeNetworkAclsResponse
 
 instance Prelude.NFData DescribeNetworkAclsResponse where
   rnf DescribeNetworkAclsResponse' {..} =
-    Prelude.rnf networkAcls
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf networkAcls
       `Prelude.seq` Prelude.rnf httpStatus

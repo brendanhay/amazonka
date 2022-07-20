@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExportTaskExecutionInfo' smart constructor.
 data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
-  { -- | The creation time of the export task, expressed as the number of
+  { -- | The completion time of the export task, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-    creationTime :: Prelude.Maybe Prelude.Natural,
-    -- | The completion time of the export task, expressed as the number of
+    completionTime :: Prelude.Maybe Prelude.Natural,
+    -- | The creation time of the export task, expressed as the number of
     -- milliseconds after Jan 1, 1970 00:00:00 UTC.
-    completionTime :: Prelude.Maybe Prelude.Natural
+    creationTime :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,29 +44,29 @@ data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'exportTaskExecutionInfo_creationTime' - The creation time of the export task, expressed as the number of
+-- 'completionTime', 'exportTaskExecutionInfo_completionTime' - The completion time of the export task, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
--- 'completionTime', 'exportTaskExecutionInfo_completionTime' - The completion time of the export task, expressed as the number of
+-- 'creationTime', 'exportTaskExecutionInfo_creationTime' - The creation time of the export task, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC.
 newExportTaskExecutionInfo ::
   ExportTaskExecutionInfo
 newExportTaskExecutionInfo =
   ExportTaskExecutionInfo'
-    { creationTime =
+    { completionTime =
         Prelude.Nothing,
-      completionTime = Prelude.Nothing
+      creationTime = Prelude.Nothing
     }
-
--- | The creation time of the export task, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC.
-exportTaskExecutionInfo_creationTime :: Lens.Lens' ExportTaskExecutionInfo (Prelude.Maybe Prelude.Natural)
-exportTaskExecutionInfo_creationTime = Lens.lens (\ExportTaskExecutionInfo' {creationTime} -> creationTime) (\s@ExportTaskExecutionInfo' {} a -> s {creationTime = a} :: ExportTaskExecutionInfo)
 
 -- | The completion time of the export task, expressed as the number of
 -- milliseconds after Jan 1, 1970 00:00:00 UTC.
 exportTaskExecutionInfo_completionTime :: Lens.Lens' ExportTaskExecutionInfo (Prelude.Maybe Prelude.Natural)
 exportTaskExecutionInfo_completionTime = Lens.lens (\ExportTaskExecutionInfo' {completionTime} -> completionTime) (\s@ExportTaskExecutionInfo' {} a -> s {completionTime = a} :: ExportTaskExecutionInfo)
+
+-- | The creation time of the export task, expressed as the number of
+-- milliseconds after Jan 1, 1970 00:00:00 UTC.
+exportTaskExecutionInfo_creationTime :: Lens.Lens' ExportTaskExecutionInfo (Prelude.Maybe Prelude.Natural)
+exportTaskExecutionInfo_creationTime = Lens.lens (\ExportTaskExecutionInfo' {creationTime} -> creationTime) (\s@ExportTaskExecutionInfo' {} a -> s {creationTime = a} :: ExportTaskExecutionInfo)
 
 instance Core.FromJSON ExportTaskExecutionInfo where
   parseJSON =
@@ -74,16 +74,16 @@ instance Core.FromJSON ExportTaskExecutionInfo where
       "ExportTaskExecutionInfo"
       ( \x ->
           ExportTaskExecutionInfo'
-            Prelude.<$> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "completionTime")
+            Prelude.<$> (x Core..:? "completionTime")
+            Prelude.<*> (x Core..:? "creationTime")
       )
 
 instance Prelude.Hashable ExportTaskExecutionInfo where
   hashWithSalt _salt ExportTaskExecutionInfo' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` completionTime
+    _salt `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData ExportTaskExecutionInfo where
   rnf ExportTaskExecutionInfo' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf completionTime
+    Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf creationTime

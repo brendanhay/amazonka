@@ -38,8 +38,8 @@ module Amazonka.DeviceFarm.ListNetworkProfiles
     newListNetworkProfilesResponse,
 
     -- * Response Lenses
-    listNetworkProfilesResponse_networkProfiles,
     listNetworkProfilesResponse_nextToken,
+    listNetworkProfilesResponse_networkProfiles,
     listNetworkProfilesResponse_httpStatus,
   )
 where
@@ -141,10 +141,10 @@ instance Core.AWSRequest ListNetworkProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkProfilesResponse'
-            Prelude.<$> ( x Core..?> "networkProfiles"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "networkProfiles"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,12 +193,12 @@ instance Core.ToQuery ListNetworkProfiles where
 
 -- | /See:/ 'newListNetworkProfilesResponse' smart constructor.
 data ListNetworkProfilesResponse = ListNetworkProfilesResponse'
-  { -- | A list of the available network profiles.
-    networkProfiles :: Prelude.Maybe [NetworkProfile],
-    -- | An identifier that was returned from the previous call to this
+  { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the available network profiles.
+    networkProfiles :: Prelude.Maybe [NetworkProfile],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,11 +212,11 @@ data ListNetworkProfilesResponse = ListNetworkProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkProfiles', 'listNetworkProfilesResponse_networkProfiles' - A list of the available network profiles.
---
 -- 'nextToken', 'listNetworkProfilesResponse_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
+--
+-- 'networkProfiles', 'listNetworkProfilesResponse_networkProfiles' - A list of the available network profiles.
 --
 -- 'httpStatus', 'listNetworkProfilesResponse_httpStatus' - The response's http status code.
 newListNetworkProfilesResponse ::
@@ -225,15 +225,11 @@ newListNetworkProfilesResponse ::
   ListNetworkProfilesResponse
 newListNetworkProfilesResponse pHttpStatus_ =
   ListNetworkProfilesResponse'
-    { networkProfiles =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      networkProfiles = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the available network profiles.
-listNetworkProfilesResponse_networkProfiles :: Lens.Lens' ListNetworkProfilesResponse (Prelude.Maybe [NetworkProfile])
-listNetworkProfilesResponse_networkProfiles = Lens.lens (\ListNetworkProfilesResponse' {networkProfiles} -> networkProfiles) (\s@ListNetworkProfilesResponse' {} a -> s {networkProfiles = a} :: ListNetworkProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
@@ -241,12 +237,16 @@ listNetworkProfilesResponse_networkProfiles = Lens.lens (\ListNetworkProfilesRes
 listNetworkProfilesResponse_nextToken :: Lens.Lens' ListNetworkProfilesResponse (Prelude.Maybe Prelude.Text)
 listNetworkProfilesResponse_nextToken = Lens.lens (\ListNetworkProfilesResponse' {nextToken} -> nextToken) (\s@ListNetworkProfilesResponse' {} a -> s {nextToken = a} :: ListNetworkProfilesResponse)
 
+-- | A list of the available network profiles.
+listNetworkProfilesResponse_networkProfiles :: Lens.Lens' ListNetworkProfilesResponse (Prelude.Maybe [NetworkProfile])
+listNetworkProfilesResponse_networkProfiles = Lens.lens (\ListNetworkProfilesResponse' {networkProfiles} -> networkProfiles) (\s@ListNetworkProfilesResponse' {} a -> s {networkProfiles = a} :: ListNetworkProfilesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listNetworkProfilesResponse_httpStatus :: Lens.Lens' ListNetworkProfilesResponse Prelude.Int
 listNetworkProfilesResponse_httpStatus = Lens.lens (\ListNetworkProfilesResponse' {httpStatus} -> httpStatus) (\s@ListNetworkProfilesResponse' {} a -> s {httpStatus = a} :: ListNetworkProfilesResponse)
 
 instance Prelude.NFData ListNetworkProfilesResponse where
   rnf ListNetworkProfilesResponse' {..} =
-    Prelude.rnf networkProfiles
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf networkProfiles
       `Prelude.seq` Prelude.rnf httpStatus

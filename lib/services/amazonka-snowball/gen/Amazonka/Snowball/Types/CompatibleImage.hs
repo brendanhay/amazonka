@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCompatibleImage' smart constructor.
 data CompatibleImage = CompatibleImage'
-  { -- | The optional name of a compatible image.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for an individual Snow device AMI.
-    amiId :: Prelude.Maybe Prelude.Text
+  { -- | The unique identifier for an individual Snow device AMI.
+    amiId :: Prelude.Maybe Prelude.Text,
+    -- | The optional name of a compatible image.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data CompatibleImage = CompatibleImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'compatibleImage_name' - The optional name of a compatible image.
---
 -- 'amiId', 'compatibleImage_amiId' - The unique identifier for an individual Snow device AMI.
+--
+-- 'name', 'compatibleImage_name' - The optional name of a compatible image.
 newCompatibleImage ::
   CompatibleImage
 newCompatibleImage =
   CompatibleImage'
-    { name = Prelude.Nothing,
-      amiId = Prelude.Nothing
+    { amiId = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The optional name of a compatible image.
-compatibleImage_name :: Lens.Lens' CompatibleImage (Prelude.Maybe Prelude.Text)
-compatibleImage_name = Lens.lens (\CompatibleImage' {name} -> name) (\s@CompatibleImage' {} a -> s {name = a} :: CompatibleImage)
 
 -- | The unique identifier for an individual Snow device AMI.
 compatibleImage_amiId :: Lens.Lens' CompatibleImage (Prelude.Maybe Prelude.Text)
 compatibleImage_amiId = Lens.lens (\CompatibleImage' {amiId} -> amiId) (\s@CompatibleImage' {} a -> s {amiId = a} :: CompatibleImage)
+
+-- | The optional name of a compatible image.
+compatibleImage_name :: Lens.Lens' CompatibleImage (Prelude.Maybe Prelude.Text)
+compatibleImage_name = Lens.lens (\CompatibleImage' {name} -> name) (\s@CompatibleImage' {} a -> s {name = a} :: CompatibleImage)
 
 instance Core.FromJSON CompatibleImage where
   parseJSON =
@@ -70,14 +70,14 @@ instance Core.FromJSON CompatibleImage where
       "CompatibleImage"
       ( \x ->
           CompatibleImage'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "AmiId")
+            Prelude.<$> (x Core..:? "AmiId") Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable CompatibleImage where
   hashWithSalt _salt CompatibleImage' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` amiId
+    _salt `Prelude.hashWithSalt` amiId
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CompatibleImage where
   rnf CompatibleImage' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf amiId
+    Prelude.rnf amiId `Prelude.seq` Prelude.rnf name

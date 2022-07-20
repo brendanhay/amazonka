@@ -49,8 +49,8 @@ module Amazonka.NetworkFirewall.DeleteFirewall
     newDeleteFirewallResponse,
 
     -- * Response Lenses
-    deleteFirewallResponse_firewallStatus,
     deleteFirewallResponse_firewall,
+    deleteFirewallResponse_firewallStatus,
     deleteFirewallResponse_httpStatus,
   )
 where
@@ -122,8 +122,8 @@ instance Core.AWSRequest DeleteFirewall where
     Response.receiveJSON
       ( \s h x ->
           DeleteFirewallResponse'
-            Prelude.<$> (x Core..?> "FirewallStatus")
-            Prelude.<*> (x Core..?> "Firewall")
+            Prelude.<$> (x Core..?> "Firewall")
+            Prelude.<*> (x Core..?> "FirewallStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,8 +169,8 @@ instance Core.ToQuery DeleteFirewall where
 
 -- | /See:/ 'newDeleteFirewallResponse' smart constructor.
 data DeleteFirewallResponse = DeleteFirewallResponse'
-  { firewallStatus :: Prelude.Maybe FirewallStatus,
-    firewall :: Prelude.Maybe Firewall,
+  { firewall :: Prelude.Maybe Firewall,
+    firewallStatus :: Prelude.Maybe FirewallStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data DeleteFirewallResponse = DeleteFirewallResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallStatus', 'deleteFirewallResponse_firewallStatus' - Undocumented member.
---
 -- 'firewall', 'deleteFirewallResponse_firewall' - Undocumented member.
+--
+-- 'firewallStatus', 'deleteFirewallResponse_firewallStatus' - Undocumented member.
 --
 -- 'httpStatus', 'deleteFirewallResponse_httpStatus' - The response's http status code.
 newDeleteFirewallResponse ::
@@ -195,19 +195,18 @@ newDeleteFirewallResponse ::
   DeleteFirewallResponse
 newDeleteFirewallResponse pHttpStatus_ =
   DeleteFirewallResponse'
-    { firewallStatus =
-        Prelude.Nothing,
-      firewall = Prelude.Nothing,
+    { firewall = Prelude.Nothing,
+      firewallStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteFirewallResponse_firewallStatus :: Lens.Lens' DeleteFirewallResponse (Prelude.Maybe FirewallStatus)
-deleteFirewallResponse_firewallStatus = Lens.lens (\DeleteFirewallResponse' {firewallStatus} -> firewallStatus) (\s@DeleteFirewallResponse' {} a -> s {firewallStatus = a} :: DeleteFirewallResponse)
-
--- | Undocumented member.
 deleteFirewallResponse_firewall :: Lens.Lens' DeleteFirewallResponse (Prelude.Maybe Firewall)
 deleteFirewallResponse_firewall = Lens.lens (\DeleteFirewallResponse' {firewall} -> firewall) (\s@DeleteFirewallResponse' {} a -> s {firewall = a} :: DeleteFirewallResponse)
+
+-- | Undocumented member.
+deleteFirewallResponse_firewallStatus :: Lens.Lens' DeleteFirewallResponse (Prelude.Maybe FirewallStatus)
+deleteFirewallResponse_firewallStatus = Lens.lens (\DeleteFirewallResponse' {firewallStatus} -> firewallStatus) (\s@DeleteFirewallResponse' {} a -> s {firewallStatus = a} :: DeleteFirewallResponse)
 
 -- | The response's http status code.
 deleteFirewallResponse_httpStatus :: Lens.Lens' DeleteFirewallResponse Prelude.Int
@@ -215,6 +214,6 @@ deleteFirewallResponse_httpStatus = Lens.lens (\DeleteFirewallResponse' {httpSta
 
 instance Prelude.NFData DeleteFirewallResponse where
   rnf DeleteFirewallResponse' {..} =
-    Prelude.rnf firewallStatus
-      `Prelude.seq` Prelude.rnf firewall
+    Prelude.rnf firewall
+      `Prelude.seq` Prelude.rnf firewallStatus
       `Prelude.seq` Prelude.rnf httpStatus

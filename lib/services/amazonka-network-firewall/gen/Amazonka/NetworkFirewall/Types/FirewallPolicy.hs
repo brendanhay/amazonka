@@ -41,17 +41,17 @@ data FirewallPolicy = FirewallPolicy'
     -- rules. The stateful rule groups that you use in your policy must have
     -- stateful rule options settings that are compatible with these settings.
     statefulEngineOptions :: Prelude.Maybe StatefulEngineOptions,
+    -- | The custom action definitions that are available for use in the firewall
+    -- policy\'s @StatelessDefaultActions@ setting. You name each custom action
+    -- that you define, and then you can use it by name in your default actions
+    -- specifications.
+    statelessCustomActions :: Prelude.Maybe [CustomAction],
     -- | References to the stateful rule groups that are used in the policy.
     -- These define the inspection criteria in stateful rules.
     statefulRuleGroupReferences :: Prelude.Maybe [StatefulRuleGroupReference],
     -- | References to the stateless rule groups that are used in the policy.
     -- These define the matching criteria in stateless rules.
     statelessRuleGroupReferences :: Prelude.Maybe [StatelessRuleGroupReference],
-    -- | The custom action definitions that are available for use in the firewall
-    -- policy\'s @StatelessDefaultActions@ setting. You name each custom action
-    -- that you define, and then you can use it by name in your default actions
-    -- specifications.
-    statelessCustomActions :: Prelude.Maybe [CustomAction],
     -- | The default actions to take on a packet that doesn\'t match any stateful
     -- rules.
     statefulDefaultActions :: Prelude.Maybe [Prelude.Text],
@@ -96,16 +96,16 @@ data FirewallPolicy = FirewallPolicy'
 -- rules. The stateful rule groups that you use in your policy must have
 -- stateful rule options settings that are compatible with these settings.
 --
+-- 'statelessCustomActions', 'firewallPolicy_statelessCustomActions' - The custom action definitions that are available for use in the firewall
+-- policy\'s @StatelessDefaultActions@ setting. You name each custom action
+-- that you define, and then you can use it by name in your default actions
+-- specifications.
+--
 -- 'statefulRuleGroupReferences', 'firewallPolicy_statefulRuleGroupReferences' - References to the stateful rule groups that are used in the policy.
 -- These define the inspection criteria in stateful rules.
 --
 -- 'statelessRuleGroupReferences', 'firewallPolicy_statelessRuleGroupReferences' - References to the stateless rule groups that are used in the policy.
 -- These define the matching criteria in stateless rules.
---
--- 'statelessCustomActions', 'firewallPolicy_statelessCustomActions' - The custom action definitions that are available for use in the firewall
--- policy\'s @StatelessDefaultActions@ setting. You name each custom action
--- that you define, and then you can use it by name in your default actions
--- specifications.
 --
 -- 'statefulDefaultActions', 'firewallPolicy_statefulDefaultActions' - The default actions to take on a packet that doesn\'t match any stateful
 -- rules.
@@ -141,9 +141,9 @@ newFirewallPolicy =
   FirewallPolicy'
     { statefulEngineOptions =
         Prelude.Nothing,
+      statelessCustomActions = Prelude.Nothing,
       statefulRuleGroupReferences = Prelude.Nothing,
       statelessRuleGroupReferences = Prelude.Nothing,
-      statelessCustomActions = Prelude.Nothing,
       statefulDefaultActions = Prelude.Nothing,
       statelessDefaultActions = Prelude.mempty,
       statelessFragmentDefaultActions = Prelude.mempty
@@ -155,6 +155,13 @@ newFirewallPolicy =
 firewallPolicy_statefulEngineOptions :: Lens.Lens' FirewallPolicy (Prelude.Maybe StatefulEngineOptions)
 firewallPolicy_statefulEngineOptions = Lens.lens (\FirewallPolicy' {statefulEngineOptions} -> statefulEngineOptions) (\s@FirewallPolicy' {} a -> s {statefulEngineOptions = a} :: FirewallPolicy)
 
+-- | The custom action definitions that are available for use in the firewall
+-- policy\'s @StatelessDefaultActions@ setting. You name each custom action
+-- that you define, and then you can use it by name in your default actions
+-- specifications.
+firewallPolicy_statelessCustomActions :: Lens.Lens' FirewallPolicy (Prelude.Maybe [CustomAction])
+firewallPolicy_statelessCustomActions = Lens.lens (\FirewallPolicy' {statelessCustomActions} -> statelessCustomActions) (\s@FirewallPolicy' {} a -> s {statelessCustomActions = a} :: FirewallPolicy) Prelude.. Lens.mapping Lens.coerced
+
 -- | References to the stateful rule groups that are used in the policy.
 -- These define the inspection criteria in stateful rules.
 firewallPolicy_statefulRuleGroupReferences :: Lens.Lens' FirewallPolicy (Prelude.Maybe [StatefulRuleGroupReference])
@@ -164,13 +171,6 @@ firewallPolicy_statefulRuleGroupReferences = Lens.lens (\FirewallPolicy' {statef
 -- These define the matching criteria in stateless rules.
 firewallPolicy_statelessRuleGroupReferences :: Lens.Lens' FirewallPolicy (Prelude.Maybe [StatelessRuleGroupReference])
 firewallPolicy_statelessRuleGroupReferences = Lens.lens (\FirewallPolicy' {statelessRuleGroupReferences} -> statelessRuleGroupReferences) (\s@FirewallPolicy' {} a -> s {statelessRuleGroupReferences = a} :: FirewallPolicy) Prelude.. Lens.mapping Lens.coerced
-
--- | The custom action definitions that are available for use in the firewall
--- policy\'s @StatelessDefaultActions@ setting. You name each custom action
--- that you define, and then you can use it by name in your default actions
--- specifications.
-firewallPolicy_statelessCustomActions :: Lens.Lens' FirewallPolicy (Prelude.Maybe [CustomAction])
-firewallPolicy_statelessCustomActions = Lens.lens (\FirewallPolicy' {statelessCustomActions} -> statelessCustomActions) (\s@FirewallPolicy' {} a -> s {statelessCustomActions = a} :: FirewallPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default actions to take on a packet that doesn\'t match any stateful
 -- rules.
@@ -214,13 +214,13 @@ instance Core.FromJSON FirewallPolicy where
       ( \x ->
           FirewallPolicy'
             Prelude.<$> (x Core..:? "StatefulEngineOptions")
+            Prelude.<*> ( x Core..:? "StatelessCustomActions"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Core..:? "StatefulRuleGroupReferences"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "StatelessRuleGroupReferences"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "StatelessCustomActions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "StatefulDefaultActions"
@@ -237,9 +237,9 @@ instance Core.FromJSON FirewallPolicy where
 instance Prelude.Hashable FirewallPolicy where
   hashWithSalt _salt FirewallPolicy' {..} =
     _salt `Prelude.hashWithSalt` statefulEngineOptions
+      `Prelude.hashWithSalt` statelessCustomActions
       `Prelude.hashWithSalt` statefulRuleGroupReferences
       `Prelude.hashWithSalt` statelessRuleGroupReferences
-      `Prelude.hashWithSalt` statelessCustomActions
       `Prelude.hashWithSalt` statefulDefaultActions
       `Prelude.hashWithSalt` statelessDefaultActions
       `Prelude.hashWithSalt` statelessFragmentDefaultActions
@@ -247,9 +247,9 @@ instance Prelude.Hashable FirewallPolicy where
 instance Prelude.NFData FirewallPolicy where
   rnf FirewallPolicy' {..} =
     Prelude.rnf statefulEngineOptions
+      `Prelude.seq` Prelude.rnf statelessCustomActions
       `Prelude.seq` Prelude.rnf statefulRuleGroupReferences
       `Prelude.seq` Prelude.rnf statelessRuleGroupReferences
-      `Prelude.seq` Prelude.rnf statelessCustomActions
       `Prelude.seq` Prelude.rnf statefulDefaultActions
       `Prelude.seq` Prelude.rnf statelessDefaultActions
       `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
@@ -260,12 +260,12 @@ instance Core.ToJSON FirewallPolicy where
       ( Prelude.catMaybes
           [ ("StatefulEngineOptions" Core..=)
               Prelude.<$> statefulEngineOptions,
+            ("StatelessCustomActions" Core..=)
+              Prelude.<$> statelessCustomActions,
             ("StatefulRuleGroupReferences" Core..=)
               Prelude.<$> statefulRuleGroupReferences,
             ("StatelessRuleGroupReferences" Core..=)
               Prelude.<$> statelessRuleGroupReferences,
-            ("StatelessCustomActions" Core..=)
-              Prelude.<$> statelessCustomActions,
             ("StatefulDefaultActions" Core..=)
               Prelude.<$> statefulDefaultActions,
             Prelude.Just

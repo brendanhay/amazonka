@@ -36,8 +36,8 @@ module Amazonka.WorkLink.ListDevices
     newListDevicesResponse,
 
     -- * Response Lenses
-    listDevicesResponse_nextToken,
     listDevicesResponse_devices,
+    listDevicesResponse_nextToken,
     listDevicesResponse_httpStatus,
   )
 where
@@ -106,8 +106,8 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,11 +152,11 @@ instance Core.ToQuery ListDevices where
 
 -- | /See:/ 'newListDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | Information about the devices.
+    devices :: Prelude.Maybe [DeviceSummary],
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the devices.
-    devices :: Prelude.Maybe [DeviceSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,10 +170,10 @@ data ListDevicesResponse = ListDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'devices', 'listDevicesResponse_devices' - Information about the devices.
+--
 -- 'nextToken', 'listDevicesResponse_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation. If there are no more pages, this value is null.
---
--- 'devices', 'listDevicesResponse_devices' - Information about the devices.
 --
 -- 'httpStatus', 'listDevicesResponse_httpStatus' - The response's http status code.
 newListDevicesResponse ::
@@ -182,19 +182,19 @@ newListDevicesResponse ::
   ListDevicesResponse
 newListDevicesResponse pHttpStatus_ =
   ListDevicesResponse'
-    { nextToken = Prelude.Nothing,
-      devices = Prelude.Nothing,
+    { devices = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the devices.
+listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Prelude.Maybe [DeviceSummary])
+listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation. If there are no more pages, this value is null.
 listDevicesResponse_nextToken :: Lens.Lens' ListDevicesResponse (Prelude.Maybe Prelude.Text)
 listDevicesResponse_nextToken = Lens.lens (\ListDevicesResponse' {nextToken} -> nextToken) (\s@ListDevicesResponse' {} a -> s {nextToken = a} :: ListDevicesResponse)
-
--- | Information about the devices.
-listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Prelude.Maybe [DeviceSummary])
-listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDevicesResponse_httpStatus :: Lens.Lens' ListDevicesResponse Prelude.Int
@@ -202,6 +202,6 @@ listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -
 
 instance Prelude.NFData ListDevicesResponse where
   rnf ListDevicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

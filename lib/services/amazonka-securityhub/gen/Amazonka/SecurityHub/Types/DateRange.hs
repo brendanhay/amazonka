@@ -28,10 +28,10 @@ import Amazonka.SecurityHub.Types.DateRangeUnit
 --
 -- /See:/ 'newDateRange' smart constructor.
 data DateRange = DateRange'
-  { -- | A date range value for the date filter.
-    value :: Prelude.Maybe Prelude.Int,
-    -- | A date range unit for the date filter.
-    unit :: Prelude.Maybe DateRangeUnit
+  { -- | A date range unit for the date filter.
+    unit :: Prelude.Maybe DateRangeUnit,
+    -- | A date range value for the date filter.
+    value :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data DateRange = DateRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'dateRange_value' - A date range value for the date filter.
---
 -- 'unit', 'dateRange_unit' - A date range unit for the date filter.
+--
+-- 'value', 'dateRange_value' - A date range value for the date filter.
 newDateRange ::
   DateRange
 newDateRange =
   DateRange'
-    { value = Prelude.Nothing,
-      unit = Prelude.Nothing
+    { unit = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | A date range value for the date filter.
-dateRange_value :: Lens.Lens' DateRange (Prelude.Maybe Prelude.Int)
-dateRange_value = Lens.lens (\DateRange' {value} -> value) (\s@DateRange' {} a -> s {value = a} :: DateRange)
 
 -- | A date range unit for the date filter.
 dateRange_unit :: Lens.Lens' DateRange (Prelude.Maybe DateRangeUnit)
 dateRange_unit = Lens.lens (\DateRange' {unit} -> unit) (\s@DateRange' {} a -> s {unit = a} :: DateRange)
+
+-- | A date range value for the date filter.
+dateRange_value :: Lens.Lens' DateRange (Prelude.Maybe Prelude.Int)
+dateRange_value = Lens.lens (\DateRange' {value} -> value) (\s@DateRange' {} a -> s {value = a} :: DateRange)
 
 instance Core.FromJSON DateRange where
   parseJSON =
@@ -68,23 +68,23 @@ instance Core.FromJSON DateRange where
       "DateRange"
       ( \x ->
           DateRange'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Unit")
+            Prelude.<$> (x Core..:? "Unit") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable DateRange where
   hashWithSalt _salt DateRange' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` unit
+    _salt `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DateRange where
   rnf DateRange' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf unit `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON DateRange where
   toJSON DateRange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Unit" Core..=) Prelude.<$> unit
+          [ ("Unit" Core..=) Prelude.<$> unit,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

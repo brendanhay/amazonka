@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsServicePlacementConstraintsDetails' smart constructor.
 data AwsEcsServicePlacementConstraintsDetails = AwsEcsServicePlacementConstraintsDetails'
-  { -- | A cluster query language expression to apply to the constraint. You
-    -- cannot specify an expression if the constraint type is
-    -- @distinctInstance@.
-    expression :: Prelude.Maybe Prelude.Text,
-    -- | The type of constraint. Use @distinctInstance@ to run each task in a
+  { -- | The type of constraint. Use @distinctInstance@ to run each task in a
     -- particular group on a different container instance. Use @memberOf@ to
     -- restrict the selection to a group of valid candidates.
     --
     -- Valid values: @distinctInstance@ | @memberOf@
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | A cluster query language expression to apply to the constraint. You
+    -- cannot specify an expression if the constraint type is
+    -- @distinctInstance@.
+    expression :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,23 @@ data AwsEcsServicePlacementConstraintsDetails = AwsEcsServicePlacementConstraint
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expression', 'awsEcsServicePlacementConstraintsDetails_expression' - A cluster query language expression to apply to the constraint. You
--- cannot specify an expression if the constraint type is
--- @distinctInstance@.
---
 -- 'type'', 'awsEcsServicePlacementConstraintsDetails_type' - The type of constraint. Use @distinctInstance@ to run each task in a
 -- particular group on a different container instance. Use @memberOf@ to
 -- restrict the selection to a group of valid candidates.
 --
 -- Valid values: @distinctInstance@ | @memberOf@
+--
+-- 'expression', 'awsEcsServicePlacementConstraintsDetails_expression' - A cluster query language expression to apply to the constraint. You
+-- cannot specify an expression if the constraint type is
+-- @distinctInstance@.
 newAwsEcsServicePlacementConstraintsDetails ::
   AwsEcsServicePlacementConstraintsDetails
 newAwsEcsServicePlacementConstraintsDetails =
   AwsEcsServicePlacementConstraintsDetails'
-    { expression =
+    { type' =
         Prelude.Nothing,
-      type' = Prelude.Nothing
+      expression = Prelude.Nothing
     }
-
--- | A cluster query language expression to apply to the constraint. You
--- cannot specify an expression if the constraint type is
--- @distinctInstance@.
-awsEcsServicePlacementConstraintsDetails_expression :: Lens.Lens' AwsEcsServicePlacementConstraintsDetails (Prelude.Maybe Prelude.Text)
-awsEcsServicePlacementConstraintsDetails_expression = Lens.lens (\AwsEcsServicePlacementConstraintsDetails' {expression} -> expression) (\s@AwsEcsServicePlacementConstraintsDetails' {} a -> s {expression = a} :: AwsEcsServicePlacementConstraintsDetails)
 
 -- | The type of constraint. Use @distinctInstance@ to run each task in a
 -- particular group on a different container instance. Use @memberOf@ to
@@ -79,6 +73,12 @@ awsEcsServicePlacementConstraintsDetails_expression = Lens.lens (\AwsEcsServiceP
 -- Valid values: @distinctInstance@ | @memberOf@
 awsEcsServicePlacementConstraintsDetails_type :: Lens.Lens' AwsEcsServicePlacementConstraintsDetails (Prelude.Maybe Prelude.Text)
 awsEcsServicePlacementConstraintsDetails_type = Lens.lens (\AwsEcsServicePlacementConstraintsDetails' {type'} -> type') (\s@AwsEcsServicePlacementConstraintsDetails' {} a -> s {type' = a} :: AwsEcsServicePlacementConstraintsDetails)
+
+-- | A cluster query language expression to apply to the constraint. You
+-- cannot specify an expression if the constraint type is
+-- @distinctInstance@.
+awsEcsServicePlacementConstraintsDetails_expression :: Lens.Lens' AwsEcsServicePlacementConstraintsDetails (Prelude.Maybe Prelude.Text)
+awsEcsServicePlacementConstraintsDetails_expression = Lens.lens (\AwsEcsServicePlacementConstraintsDetails' {expression} -> expression) (\s@AwsEcsServicePlacementConstraintsDetails' {} a -> s {expression = a} :: AwsEcsServicePlacementConstraintsDetails)
 
 instance
   Core.FromJSON
@@ -89,8 +89,8 @@ instance
       "AwsEcsServicePlacementConstraintsDetails"
       ( \x ->
           AwsEcsServicePlacementConstraintsDetails'
-            Prelude.<$> (x Core..:? "Expression")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Expression")
       )
 
 instance
@@ -100,16 +100,16 @@ instance
   hashWithSalt
     _salt
     AwsEcsServicePlacementConstraintsDetails' {..} =
-      _salt `Prelude.hashWithSalt` expression
-        `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` expression
 
 instance
   Prelude.NFData
     AwsEcsServicePlacementConstraintsDetails
   where
   rnf AwsEcsServicePlacementConstraintsDetails' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf expression
 
 instance
   Core.ToJSON
@@ -118,7 +118,7 @@ instance
   toJSON AwsEcsServicePlacementConstraintsDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Expression" Core..=) Prelude.<$> expression,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("Expression" Core..=) Prelude.<$> expression
           ]
       )

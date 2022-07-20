@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateExperimentTemplateTargetInput' smart constructor.
 data CreateExperimentTemplateTargetInput = CreateExperimentTemplateTargetInput'
-  { -- | The tags for the target resources.
-    resourceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The filters to apply to identify target resources using specific
+  { -- | The filters to apply to identify target resources using specific
     -- attributes.
     filters :: Prelude.Maybe [ExperimentTemplateTargetInputFilter],
+    -- | The tags for the target resources.
+    resourceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Names (ARNs) of the resources.
     resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | The AWS resource type. The resource type must be supported for the
@@ -65,10 +65,10 @@ data CreateExperimentTemplateTargetInput = CreateExperimentTemplateTargetInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceTags', 'createExperimentTemplateTargetInput_resourceTags' - The tags for the target resources.
---
 -- 'filters', 'createExperimentTemplateTargetInput_filters' - The filters to apply to identify target resources using specific
 -- attributes.
+--
+-- 'resourceTags', 'createExperimentTemplateTargetInput_resourceTags' - The tags for the target resources.
 --
 -- 'resourceArns', 'createExperimentTemplateTargetInput_resourceArns' - The Amazon Resource Names (ARNs) of the resources.
 --
@@ -98,22 +98,22 @@ newCreateExperimentTemplateTargetInput
   pResourceType_
   pSelectionMode_ =
     CreateExperimentTemplateTargetInput'
-      { resourceTags =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
+        resourceTags = Prelude.Nothing,
         resourceArns = Prelude.Nothing,
         resourceType = pResourceType_,
         selectionMode = pSelectionMode_
       }
 
--- | The tags for the target resources.
-createExperimentTemplateTargetInput_resourceTags :: Lens.Lens' CreateExperimentTemplateTargetInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createExperimentTemplateTargetInput_resourceTags = Lens.lens (\CreateExperimentTemplateTargetInput' {resourceTags} -> resourceTags) (\s@CreateExperimentTemplateTargetInput' {} a -> s {resourceTags = a} :: CreateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
-
 -- | The filters to apply to identify target resources using specific
 -- attributes.
 createExperimentTemplateTargetInput_filters :: Lens.Lens' CreateExperimentTemplateTargetInput (Prelude.Maybe [ExperimentTemplateTargetInputFilter])
 createExperimentTemplateTargetInput_filters = Lens.lens (\CreateExperimentTemplateTargetInput' {filters} -> filters) (\s@CreateExperimentTemplateTargetInput' {} a -> s {filters = a} :: CreateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags for the target resources.
+createExperimentTemplateTargetInput_resourceTags :: Lens.Lens' CreateExperimentTemplateTargetInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createExperimentTemplateTargetInput_resourceTags = Lens.lens (\CreateExperimentTemplateTargetInput' {resourceTags} -> resourceTags) (\s@CreateExperimentTemplateTargetInput' {} a -> s {resourceTags = a} :: CreateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Names (ARNs) of the resources.
 createExperimentTemplateTargetInput_resourceArns :: Lens.Lens' CreateExperimentTemplateTargetInput (Prelude.Maybe [Prelude.Text])
@@ -147,8 +147,8 @@ instance
   hashWithSalt
     _salt
     CreateExperimentTemplateTargetInput' {..} =
-      _salt `Prelude.hashWithSalt` resourceTags
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` resourceTags
         `Prelude.hashWithSalt` resourceArns
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` selectionMode
@@ -158,8 +158,8 @@ instance
     CreateExperimentTemplateTargetInput
   where
   rnf CreateExperimentTemplateTargetInput' {..} =
-    Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf resourceArns
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf selectionMode
@@ -171,8 +171,8 @@ instance
   toJSON CreateExperimentTemplateTargetInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("resourceTags" Core..=) Prelude.<$> resourceTags,
-            ("filters" Core..=) Prelude.<$> filters,
+          [ ("filters" Core..=) Prelude.<$> filters,
+            ("resourceTags" Core..=) Prelude.<$> resourceTags,
             ("resourceArns" Core..=) Prelude.<$> resourceArns,
             Prelude.Just ("resourceType" Core..= resourceType),
             Prelude.Just

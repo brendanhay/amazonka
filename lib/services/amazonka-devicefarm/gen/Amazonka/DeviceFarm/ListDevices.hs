@@ -29,17 +29,17 @@ module Amazonka.DeviceFarm.ListDevices
     newListDevices,
 
     -- * Request Lenses
-    listDevices_arn,
-    listDevices_filters,
     listDevices_nextToken,
+    listDevices_filters,
+    listDevices_arn,
 
     -- * Destructuring the Response
     ListDevicesResponse (..),
     newListDevicesResponse,
 
     -- * Response Lenses
-    listDevicesResponse_nextToken,
     listDevicesResponse_devices,
+    listDevicesResponse_nextToken,
     listDevicesResponse_httpStatus,
   )
 where
@@ -55,8 +55,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListDevices' smart constructor.
 data ListDevices = ListDevices'
-  { -- | The Amazon Resource Name (ARN) of the project.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Used to select a set of devices. A filter is made up of an attribute, an
     -- operator, and one or more values.
     --
@@ -125,10 +127,8 @@ data ListDevices = ListDevices'
     --         values: AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
     --         TEMPORARY_NOT_AVAILABLE.
     filters :: Prelude.Maybe [DeviceFilter],
-    -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
-    -- list.
-    nextToken :: Prelude.Maybe Prelude.Text
+    -- | The Amazon Resource Name (ARN) of the project.
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -140,7 +140,9 @@ data ListDevices = ListDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'listDevices_arn' - The Amazon Resource Name (ARN) of the project.
+-- 'nextToken', 'listDevices_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
 --
 -- 'filters', 'listDevices_filters' - Used to select a set of devices. A filter is made up of an attribute, an
 -- operator, and one or more values.
@@ -210,21 +212,21 @@ data ListDevices = ListDevices'
 --         values: AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
 --         TEMPORARY_NOT_AVAILABLE.
 --
--- 'nextToken', 'listDevices_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- 'arn', 'listDevices_arn' - The Amazon Resource Name (ARN) of the project.
 newListDevices ::
   ListDevices
 newListDevices =
   ListDevices'
-    { arn = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      arn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the project.
-listDevices_arn :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
-listDevices_arn = Lens.lens (\ListDevices' {arn} -> arn) (\s@ListDevices' {} a -> s {arn = a} :: ListDevices)
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listDevices_nextToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
+listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@ListDevices' {} a -> s {nextToken = a} :: ListDevices)
 
 -- | Used to select a set of devices. A filter is made up of an attribute, an
 -- operator, and one or more values.
@@ -296,11 +298,9 @@ listDevices_arn = Lens.lens (\ListDevices' {arn} -> arn) (\s@ListDevices' {} a -
 listDevices_filters :: Lens.Lens' ListDevices (Prelude.Maybe [DeviceFilter])
 listDevices_filters = Lens.lens (\ListDevices' {filters} -> filters) (\s@ListDevices' {} a -> s {filters = a} :: ListDevices) Prelude.. Lens.mapping Lens.coerced
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
-listDevices_nextToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
-listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@ListDevices' {} a -> s {nextToken = a} :: ListDevices)
+-- | The Amazon Resource Name (ARN) of the project.
+listDevices_arn :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
+listDevices_arn = Lens.lens (\ListDevices' {arn} -> arn) (\s@ListDevices' {} a -> s {arn = a} :: ListDevices)
 
 instance Core.AWSPager ListDevices where
   page rq rs
@@ -328,22 +328,22 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "devices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListDevices where
   rnf ListDevices' {..} =
-    Prelude.rnf arn
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders ListDevices where
   toHeaders =
@@ -364,9 +364,9 @@ instance Core.ToJSON ListDevices where
   toJSON ListDevices' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("arn" Core..=) Prelude.<$> arn,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("filters" Core..=) Prelude.<$> filters,
-            ("nextToken" Core..=) Prelude.<$> nextToken
+            ("arn" Core..=) Prelude.<$> arn
           ]
       )
 
@@ -380,12 +380,12 @@ instance Core.ToQuery ListDevices where
 --
 -- /See:/ 'newListDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-  { -- | If the number of items that are returned is significantly large, this is
+  { -- | Information about the devices.
+    devices :: Prelude.Maybe [Device],
+    -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the devices.
-    devices :: Prelude.Maybe [Device],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -399,11 +399,11 @@ data ListDevicesResponse = ListDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'devices', 'listDevicesResponse_devices' - Information about the devices.
+--
 -- 'nextToken', 'listDevicesResponse_nextToken' - If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
---
--- 'devices', 'listDevicesResponse_devices' - Information about the devices.
 --
 -- 'httpStatus', 'listDevicesResponse_httpStatus' - The response's http status code.
 newListDevicesResponse ::
@@ -412,10 +412,14 @@ newListDevicesResponse ::
   ListDevicesResponse
 newListDevicesResponse pHttpStatus_ =
   ListDevicesResponse'
-    { nextToken = Prelude.Nothing,
-      devices = Prelude.Nothing,
+    { devices = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the devices.
+listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Prelude.Maybe [Device])
+listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
@@ -423,16 +427,12 @@ newListDevicesResponse pHttpStatus_ =
 listDevicesResponse_nextToken :: Lens.Lens' ListDevicesResponse (Prelude.Maybe Prelude.Text)
 listDevicesResponse_nextToken = Lens.lens (\ListDevicesResponse' {nextToken} -> nextToken) (\s@ListDevicesResponse' {} a -> s {nextToken = a} :: ListDevicesResponse)
 
--- | Information about the devices.
-listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Prelude.Maybe [Device])
-listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listDevicesResponse_httpStatus :: Lens.Lens' ListDevicesResponse Prelude.Int
 listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -> httpStatus) (\s@ListDevicesResponse' {} a -> s {httpStatus = a} :: ListDevicesResponse)
 
 instance Prelude.NFData ListDevicesResponse where
   rnf ListDevicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

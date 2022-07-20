@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | The minimum and maximum parameters that are associated with the rule.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The type of attribute validation rule.
-    type' :: Prelude.Maybe RuleType
+  { -- | The type of attribute validation rule.
+    type' :: Prelude.Maybe RuleType,
+    -- | The minimum and maximum parameters that are associated with the rule.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameters', 'rule_parameters' - The minimum and maximum parameters that are associated with the rule.
---
 -- 'type'', 'rule_type' - The type of attribute validation rule.
+--
+-- 'parameters', 'rule_parameters' - The minimum and maximum parameters that are associated with the rule.
 newRule ::
   Rule
 newRule =
   Rule'
-    { parameters = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
-
--- | The minimum and maximum parameters that are associated with the rule.
-rule_parameters :: Lens.Lens' Rule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-rule_parameters = Lens.lens (\Rule' {parameters} -> parameters) (\s@Rule' {} a -> s {parameters = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of attribute validation rule.
 rule_type :: Lens.Lens' Rule (Prelude.Maybe RuleType)
 rule_type = Lens.lens (\Rule' {type'} -> type') (\s@Rule' {} a -> s {type' = a} :: Rule)
+
+-- | The minimum and maximum parameters that are associated with the rule.
+rule_parameters :: Lens.Lens' Rule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+rule_parameters = Lens.lens (\Rule' {parameters} -> parameters) (\s@Rule' {} a -> s {parameters = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Rule where
   parseJSON =
@@ -69,25 +69,25 @@ instance Core.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToJSON Rule where
   toJSON Rule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("Parameters" Core..=) Prelude.<$> parameters
           ]
       )

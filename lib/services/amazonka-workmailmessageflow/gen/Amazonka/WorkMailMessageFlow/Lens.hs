@@ -14,15 +14,15 @@
 module Amazonka.WorkMailMessageFlow.Lens
   ( -- * Operations
 
-    -- ** PutRawMessageContent
-    putRawMessageContent_messageId,
-    putRawMessageContent_content,
-    putRawMessageContentResponse_httpStatus,
-
     -- ** GetRawMessageContent
     getRawMessageContent_messageId,
     getRawMessageContentResponse_httpStatus,
     getRawMessageContentResponse_messageContent,
+
+    -- ** PutRawMessageContent
+    putRawMessageContent_messageId,
+    putRawMessageContent_content,
+    putRawMessageContentResponse_httpStatus,
 
     -- * Types
 

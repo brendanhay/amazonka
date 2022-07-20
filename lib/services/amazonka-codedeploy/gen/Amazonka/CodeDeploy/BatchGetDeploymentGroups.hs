@@ -35,8 +35,8 @@ module Amazonka.CodeDeploy.BatchGetDeploymentGroups
     newBatchGetDeploymentGroupsResponse,
 
     -- * Response Lenses
-    batchGetDeploymentGroupsResponse_deploymentGroupsInfo,
     batchGetDeploymentGroupsResponse_errorMessage,
+    batchGetDeploymentGroupsResponse_deploymentGroupsInfo,
     batchGetDeploymentGroupsResponse_httpStatus,
   )
 where
@@ -101,10 +101,10 @@ instance Core.AWSRequest BatchGetDeploymentGroups where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentGroupsResponse'
-            Prelude.<$> ( x Core..?> "deploymentGroupsInfo"
+            Prelude.<$> (x Core..?> "errorMessage")
+            Prelude.<*> ( x Core..?> "deploymentGroupsInfo"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "errorMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,10 +156,10 @@ instance Core.ToQuery BatchGetDeploymentGroups where
 --
 -- /See:/ 'newBatchGetDeploymentGroupsResponse' smart constructor.
 data BatchGetDeploymentGroupsResponse = BatchGetDeploymentGroupsResponse'
-  { -- | Information about the deployment groups.
-    deploymentGroupsInfo :: Prelude.Maybe [DeploymentGroupInfo],
-    -- | Information about errors that might have occurred during the API call.
+  { -- | Information about errors that might have occurred during the API call.
     errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Information about the deployment groups.
+    deploymentGroupsInfo :: Prelude.Maybe [DeploymentGroupInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +173,9 @@ data BatchGetDeploymentGroupsResponse = BatchGetDeploymentGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentGroupsInfo', 'batchGetDeploymentGroupsResponse_deploymentGroupsInfo' - Information about the deployment groups.
---
 -- 'errorMessage', 'batchGetDeploymentGroupsResponse_errorMessage' - Information about errors that might have occurred during the API call.
+--
+-- 'deploymentGroupsInfo', 'batchGetDeploymentGroupsResponse_deploymentGroupsInfo' - Information about the deployment groups.
 --
 -- 'httpStatus', 'batchGetDeploymentGroupsResponse_httpStatus' - The response's http status code.
 newBatchGetDeploymentGroupsResponse ::
@@ -184,19 +184,19 @@ newBatchGetDeploymentGroupsResponse ::
   BatchGetDeploymentGroupsResponse
 newBatchGetDeploymentGroupsResponse pHttpStatus_ =
   BatchGetDeploymentGroupsResponse'
-    { deploymentGroupsInfo =
+    { errorMessage =
         Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
+      deploymentGroupsInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the deployment groups.
-batchGetDeploymentGroupsResponse_deploymentGroupsInfo :: Lens.Lens' BatchGetDeploymentGroupsResponse (Prelude.Maybe [DeploymentGroupInfo])
-batchGetDeploymentGroupsResponse_deploymentGroupsInfo = Lens.lens (\BatchGetDeploymentGroupsResponse' {deploymentGroupsInfo} -> deploymentGroupsInfo) (\s@BatchGetDeploymentGroupsResponse' {} a -> s {deploymentGroupsInfo = a} :: BatchGetDeploymentGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about errors that might have occurred during the API call.
 batchGetDeploymentGroupsResponse_errorMessage :: Lens.Lens' BatchGetDeploymentGroupsResponse (Prelude.Maybe Prelude.Text)
 batchGetDeploymentGroupsResponse_errorMessage = Lens.lens (\BatchGetDeploymentGroupsResponse' {errorMessage} -> errorMessage) (\s@BatchGetDeploymentGroupsResponse' {} a -> s {errorMessage = a} :: BatchGetDeploymentGroupsResponse)
+
+-- | Information about the deployment groups.
+batchGetDeploymentGroupsResponse_deploymentGroupsInfo :: Lens.Lens' BatchGetDeploymentGroupsResponse (Prelude.Maybe [DeploymentGroupInfo])
+batchGetDeploymentGroupsResponse_deploymentGroupsInfo = Lens.lens (\BatchGetDeploymentGroupsResponse' {deploymentGroupsInfo} -> deploymentGroupsInfo) (\s@BatchGetDeploymentGroupsResponse' {} a -> s {deploymentGroupsInfo = a} :: BatchGetDeploymentGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetDeploymentGroupsResponse_httpStatus :: Lens.Lens' BatchGetDeploymentGroupsResponse Prelude.Int
@@ -207,6 +207,6 @@ instance
     BatchGetDeploymentGroupsResponse
   where
   rnf BatchGetDeploymentGroupsResponse' {..} =
-    Prelude.rnf deploymentGroupsInfo
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf deploymentGroupsInfo
       `Prelude.seq` Prelude.rnf httpStatus

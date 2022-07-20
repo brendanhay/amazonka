@@ -46,7 +46,14 @@ import Amazonka.WAFRegional.Types.WafRuleType
 --
 -- /See:/ 'newActivatedRule' smart constructor.
 data ActivatedRule = ActivatedRule'
-  { -- | Use the @OverrideAction@ to test your @RuleGroup@.
+  { -- | The rule type, either @REGULAR@, as defined by Rule, @RATE_BASED@, as
+    -- defined by RateBasedRule, or @GROUP@, as defined by RuleGroup. The
+    -- default is REGULAR. Although this field is optional, be aware that if
+    -- you try to add a RATE_BASED rule to a web ACL without setting the type,
+    -- the UpdateWebACL request will fail because the request tries to add a
+    -- REGULAR rule with the specified ID, which does not exist.
+    type' :: Prelude.Maybe WafRuleType,
+    -- | Use the @OverrideAction@ to test your @RuleGroup@.
     --
     -- Any rule in a @RuleGroup@ can potentially block a request. If you set
     -- the @OverrideAction@ to @None@, the @RuleGroup@ will block a request if
@@ -121,13 +128,6 @@ data ActivatedRule = ActivatedRule'
     --         just removed, and @ExcludedRules@ should contain the rules that
     --         you want to exclude.
     excludedRules :: Prelude.Maybe [ExcludedRule],
-    -- | The rule type, either @REGULAR@, as defined by Rule, @RATE_BASED@, as
-    -- defined by RateBasedRule, or @GROUP@, as defined by RuleGroup. The
-    -- default is REGULAR. Although this field is optional, be aware that if
-    -- you try to add a RATE_BASED rule to a web ACL without setting the type,
-    -- the UpdateWebACL request will fail because the request tries to add a
-    -- REGULAR rule with the specified ID, which does not exist.
-    type' :: Prelude.Maybe WafRuleType,
     -- | Specifies the order in which the @Rules@ in a @WebACL@ are evaluated.
     -- Rules with a lower value for @Priority@ are evaluated before @Rules@
     -- with a higher value. The value must be a unique integer. If you add
@@ -151,6 +151,13 @@ data ActivatedRule = ActivatedRule'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'type'', 'activatedRule_type' - The rule type, either @REGULAR@, as defined by Rule, @RATE_BASED@, as
+-- defined by RateBasedRule, or @GROUP@, as defined by RuleGroup. The
+-- default is REGULAR. Although this field is optional, be aware that if
+-- you try to add a RATE_BASED rule to a web ACL without setting the type,
+-- the UpdateWebACL request will fail because the request tries to add a
+-- REGULAR rule with the specified ID, which does not exist.
 --
 -- 'overrideAction', 'activatedRule_overrideAction' - Use the @OverrideAction@ to test your @RuleGroup@.
 --
@@ -227,13 +234,6 @@ data ActivatedRule = ActivatedRule'
 --         just removed, and @ExcludedRules@ should contain the rules that
 --         you want to exclude.
 --
--- 'type'', 'activatedRule_type' - The rule type, either @REGULAR@, as defined by Rule, @RATE_BASED@, as
--- defined by RateBasedRule, or @GROUP@, as defined by RuleGroup. The
--- default is REGULAR. Although this field is optional, be aware that if
--- you try to add a RATE_BASED rule to a web ACL without setting the type,
--- the UpdateWebACL request will fail because the request tries to add a
--- REGULAR rule with the specified ID, which does not exist.
---
 -- 'priority', 'activatedRule_priority' - Specifies the order in which the @Rules@ in a @WebACL@ are evaluated.
 -- Rules with a lower value for @Priority@ are evaluated before @Rules@
 -- with a higher value. The value must be a unique integer. If you add
@@ -254,13 +254,22 @@ newActivatedRule ::
   ActivatedRule
 newActivatedRule pPriority_ pRuleId_ =
   ActivatedRule'
-    { overrideAction = Prelude.Nothing,
+    { type' = Prelude.Nothing,
+      overrideAction = Prelude.Nothing,
       action = Prelude.Nothing,
       excludedRules = Prelude.Nothing,
-      type' = Prelude.Nothing,
       priority = pPriority_,
       ruleId = pRuleId_
     }
+
+-- | The rule type, either @REGULAR@, as defined by Rule, @RATE_BASED@, as
+-- defined by RateBasedRule, or @GROUP@, as defined by RuleGroup. The
+-- default is REGULAR. Although this field is optional, be aware that if
+-- you try to add a RATE_BASED rule to a web ACL without setting the type,
+-- the UpdateWebACL request will fail because the request tries to add a
+-- REGULAR rule with the specified ID, which does not exist.
+activatedRule_type :: Lens.Lens' ActivatedRule (Prelude.Maybe WafRuleType)
+activatedRule_type = Lens.lens (\ActivatedRule' {type'} -> type') (\s@ActivatedRule' {} a -> s {type' = a} :: ActivatedRule)
 
 -- | Use the @OverrideAction@ to test your @RuleGroup@.
 --
@@ -343,15 +352,6 @@ activatedRule_action = Lens.lens (\ActivatedRule' {action} -> action) (\s@Activa
 activatedRule_excludedRules :: Lens.Lens' ActivatedRule (Prelude.Maybe [ExcludedRule])
 activatedRule_excludedRules = Lens.lens (\ActivatedRule' {excludedRules} -> excludedRules) (\s@ActivatedRule' {} a -> s {excludedRules = a} :: ActivatedRule) Prelude.. Lens.mapping Lens.coerced
 
--- | The rule type, either @REGULAR@, as defined by Rule, @RATE_BASED@, as
--- defined by RateBasedRule, or @GROUP@, as defined by RuleGroup. The
--- default is REGULAR. Although this field is optional, be aware that if
--- you try to add a RATE_BASED rule to a web ACL without setting the type,
--- the UpdateWebACL request will fail because the request tries to add a
--- REGULAR rule with the specified ID, which does not exist.
-activatedRule_type :: Lens.Lens' ActivatedRule (Prelude.Maybe WafRuleType)
-activatedRule_type = Lens.lens (\ActivatedRule' {type'} -> type') (\s@ActivatedRule' {} a -> s {type' = a} :: ActivatedRule)
-
 -- | Specifies the order in which the @Rules@ in a @WebACL@ are evaluated.
 -- Rules with a lower value for @Priority@ are evaluated before @Rules@
 -- with a higher value. The value must be a unique integer. If you add
@@ -375,29 +375,29 @@ instance Core.FromJSON ActivatedRule where
       "ActivatedRule"
       ( \x ->
           ActivatedRule'
-            Prelude.<$> (x Core..:? "OverrideAction")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "OverrideAction")
             Prelude.<*> (x Core..:? "Action")
             Prelude.<*> (x Core..:? "ExcludedRules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..: "Priority")
             Prelude.<*> (x Core..: "RuleId")
       )
 
 instance Prelude.Hashable ActivatedRule where
   hashWithSalt _salt ActivatedRule' {..} =
-    _salt `Prelude.hashWithSalt` overrideAction
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` overrideAction
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` excludedRules
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` ruleId
 
 instance Prelude.NFData ActivatedRule where
   rnf ActivatedRule' {..} =
-    Prelude.rnf overrideAction
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf overrideAction
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf excludedRules
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf ruleId
 
@@ -405,11 +405,11 @@ instance Core.ToJSON ActivatedRule where
   toJSON ActivatedRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OverrideAction" Core..=)
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("OverrideAction" Core..=)
               Prelude.<$> overrideAction,
             ("Action" Core..=) Prelude.<$> action,
             ("ExcludedRules" Core..=) Prelude.<$> excludedRules,
-            ("Type" Core..=) Prelude.<$> type',
             Prelude.Just ("Priority" Core..= priority),
             Prelude.Just ("RuleId" Core..= ruleId)
           ]

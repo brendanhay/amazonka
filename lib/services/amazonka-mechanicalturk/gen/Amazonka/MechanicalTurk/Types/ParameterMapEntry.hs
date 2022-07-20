@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameterMapEntry' smart constructor.
 data ParameterMapEntry = ParameterMapEntry'
-  { -- | The list of answers to the question specified in the MapEntry Key
-    -- element. The Worker must match all values in order for the answer to be
-    -- scored correctly.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The QuestionID from the HIT that is used to identify which question
+  { -- | The QuestionID from the HIT that is used to identify which question
     -- requires Mechanical Turk to score as part of the
     -- ScoreMyKnownAnswers\/2011-09-01 Review Policy.
-    key :: Prelude.Maybe Prelude.Text
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The list of answers to the question specified in the MapEntry Key
+    -- element. The Worker must match all values in order for the answer to be
+    -- scored correctly.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,20 @@ data ParameterMapEntry = ParameterMapEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'parameterMapEntry_values' - The list of answers to the question specified in the MapEntry Key
--- element. The Worker must match all values in order for the answer to be
--- scored correctly.
---
 -- 'key', 'parameterMapEntry_key' - The QuestionID from the HIT that is used to identify which question
 -- requires Mechanical Turk to score as part of the
 -- ScoreMyKnownAnswers\/2011-09-01 Review Policy.
+--
+-- 'values', 'parameterMapEntry_values' - The list of answers to the question specified in the MapEntry Key
+-- element. The Worker must match all values in order for the answer to be
+-- scored correctly.
 newParameterMapEntry ::
   ParameterMapEntry
 newParameterMapEntry =
   ParameterMapEntry'
-    { values = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The list of answers to the question specified in the MapEntry Key
--- element. The Worker must match all values in order for the answer to be
--- scored correctly.
-parameterMapEntry_values :: Lens.Lens' ParameterMapEntry (Prelude.Maybe [Prelude.Text])
-parameterMapEntry_values = Lens.lens (\ParameterMapEntry' {values} -> values) (\s@ParameterMapEntry' {} a -> s {values = a} :: ParameterMapEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The QuestionID from the HIT that is used to identify which question
 -- requires Mechanical Turk to score as part of the
@@ -74,30 +68,36 @@ parameterMapEntry_values = Lens.lens (\ParameterMapEntry' {values} -> values) (\
 parameterMapEntry_key :: Lens.Lens' ParameterMapEntry (Prelude.Maybe Prelude.Text)
 parameterMapEntry_key = Lens.lens (\ParameterMapEntry' {key} -> key) (\s@ParameterMapEntry' {} a -> s {key = a} :: ParameterMapEntry)
 
+-- | The list of answers to the question specified in the MapEntry Key
+-- element. The Worker must match all values in order for the answer to be
+-- scored correctly.
+parameterMapEntry_values :: Lens.Lens' ParameterMapEntry (Prelude.Maybe [Prelude.Text])
+parameterMapEntry_values = Lens.lens (\ParameterMapEntry' {values} -> values) (\s@ParameterMapEntry' {} a -> s {values = a} :: ParameterMapEntry) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON ParameterMapEntry where
   parseJSON =
     Core.withObject
       "ParameterMapEntry"
       ( \x ->
           ParameterMapEntry'
-            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ParameterMapEntry where
   hashWithSalt _salt ParameterMapEntry' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ParameterMapEntry where
   rnf ParameterMapEntry' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON ParameterMapEntry where
   toJSON ParameterMapEntry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

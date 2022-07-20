@@ -53,8 +53,8 @@ module Amazonka.IoTData.ListRetainedMessages
     newListRetainedMessagesResponse,
 
     -- * Response Lenses
-    listRetainedMessagesResponse_retainedTopics,
     listRetainedMessagesResponse_nextToken,
+    listRetainedMessagesResponse_retainedTopics,
     listRetainedMessagesResponse_httpStatus,
   )
 where
@@ -139,8 +139,8 @@ instance Core.AWSRequest ListRetainedMessages where
     Response.receiveJSON
       ( \s h x ->
           ListRetainedMessagesResponse'
-            Prelude.<$> (x Core..?> "retainedTopics" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "retainedTopics" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,12 +169,12 @@ instance Core.ToQuery ListRetainedMessages where
 
 -- | /See:/ 'newListRetainedMessagesResponse' smart constructor.
 data ListRetainedMessagesResponse = ListRetainedMessagesResponse'
-  { -- | A summary list the account\'s retained messages. The information
-    -- returned doesn\'t include the message payloads of the retained messages.
-    retainedTopics :: Prelude.Maybe [RetainedMessageSummary],
-    -- | The token for the next set of results, or null if there are no
+  { -- | The token for the next set of results, or null if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A summary list the account\'s retained messages. The information
+    -- returned doesn\'t include the message payloads of the retained messages.
+    retainedTopics :: Prelude.Maybe [RetainedMessageSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,11 +188,11 @@ data ListRetainedMessagesResponse = ListRetainedMessagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retainedTopics', 'listRetainedMessagesResponse_retainedTopics' - A summary list the account\'s retained messages. The information
--- returned doesn\'t include the message payloads of the retained messages.
---
 -- 'nextToken', 'listRetainedMessagesResponse_nextToken' - The token for the next set of results, or null if there are no
 -- additional results.
+--
+-- 'retainedTopics', 'listRetainedMessagesResponse_retainedTopics' - A summary list the account\'s retained messages. The information
+-- returned doesn\'t include the message payloads of the retained messages.
 --
 -- 'httpStatus', 'listRetainedMessagesResponse_httpStatus' - The response's http status code.
 newListRetainedMessagesResponse ::
@@ -201,21 +201,21 @@ newListRetainedMessagesResponse ::
   ListRetainedMessagesResponse
 newListRetainedMessagesResponse pHttpStatus_ =
   ListRetainedMessagesResponse'
-    { retainedTopics =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      retainedTopics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A summary list the account\'s retained messages. The information
--- returned doesn\'t include the message payloads of the retained messages.
-listRetainedMessagesResponse_retainedTopics :: Lens.Lens' ListRetainedMessagesResponse (Prelude.Maybe [RetainedMessageSummary])
-listRetainedMessagesResponse_retainedTopics = Lens.lens (\ListRetainedMessagesResponse' {retainedTopics} -> retainedTopics) (\s@ListRetainedMessagesResponse' {} a -> s {retainedTopics = a} :: ListRetainedMessagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no
 -- additional results.
 listRetainedMessagesResponse_nextToken :: Lens.Lens' ListRetainedMessagesResponse (Prelude.Maybe Prelude.Text)
 listRetainedMessagesResponse_nextToken = Lens.lens (\ListRetainedMessagesResponse' {nextToken} -> nextToken) (\s@ListRetainedMessagesResponse' {} a -> s {nextToken = a} :: ListRetainedMessagesResponse)
+
+-- | A summary list the account\'s retained messages. The information
+-- returned doesn\'t include the message payloads of the retained messages.
+listRetainedMessagesResponse_retainedTopics :: Lens.Lens' ListRetainedMessagesResponse (Prelude.Maybe [RetainedMessageSummary])
+listRetainedMessagesResponse_retainedTopics = Lens.lens (\ListRetainedMessagesResponse' {retainedTopics} -> retainedTopics) (\s@ListRetainedMessagesResponse' {} a -> s {retainedTopics = a} :: ListRetainedMessagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRetainedMessagesResponse_httpStatus :: Lens.Lens' ListRetainedMessagesResponse Prelude.Int
@@ -223,6 +223,6 @@ listRetainedMessagesResponse_httpStatus = Lens.lens (\ListRetainedMessagesRespon
 
 instance Prelude.NFData ListRetainedMessagesResponse where
   rnf ListRetainedMessagesResponse' {..} =
-    Prelude.rnf retainedTopics
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf retainedTopics
       `Prelude.seq` Prelude.rnf httpStatus

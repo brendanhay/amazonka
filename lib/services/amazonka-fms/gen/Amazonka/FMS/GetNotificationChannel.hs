@@ -32,8 +32,8 @@ module Amazonka.FMS.GetNotificationChannel
     newGetNotificationChannelResponse,
 
     -- * Response Lenses
-    getNotificationChannelResponse_snsTopicArn,
     getNotificationChannelResponse_snsRoleName,
+    getNotificationChannelResponse_snsTopicArn,
     getNotificationChannelResponse_httpStatus,
   )
 where
@@ -68,8 +68,8 @@ instance Core.AWSRequest GetNotificationChannel where
     Response.receiveJSON
       ( \s h x ->
           GetNotificationChannelResponse'
-            Prelude.<$> (x Core..?> "SnsTopicArn")
-            Prelude.<*> (x Core..?> "SnsRoleName")
+            Prelude.<$> (x Core..?> "SnsRoleName")
+            Prelude.<*> (x Core..?> "SnsTopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,10 +106,10 @@ instance Core.ToQuery GetNotificationChannel where
 
 -- | /See:/ 'newGetNotificationChannelResponse' smart constructor.
 data GetNotificationChannelResponse = GetNotificationChannelResponse'
-  { -- | The SNS topic that records Firewall Manager activity.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that is used by Firewall Manager to record activity to SNS.
+  { -- | The IAM role that is used by Firewall Manager to record activity to SNS.
     snsRoleName :: Prelude.Maybe Prelude.Text,
+    -- | The SNS topic that records Firewall Manager activity.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -123,9 +123,9 @@ data GetNotificationChannelResponse = GetNotificationChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snsTopicArn', 'getNotificationChannelResponse_snsTopicArn' - The SNS topic that records Firewall Manager activity.
---
 -- 'snsRoleName', 'getNotificationChannelResponse_snsRoleName' - The IAM role that is used by Firewall Manager to record activity to SNS.
+--
+-- 'snsTopicArn', 'getNotificationChannelResponse_snsTopicArn' - The SNS topic that records Firewall Manager activity.
 --
 -- 'httpStatus', 'getNotificationChannelResponse_httpStatus' - The response's http status code.
 newGetNotificationChannelResponse ::
@@ -134,19 +134,19 @@ newGetNotificationChannelResponse ::
   GetNotificationChannelResponse
 newGetNotificationChannelResponse pHttpStatus_ =
   GetNotificationChannelResponse'
-    { snsTopicArn =
+    { snsRoleName =
         Prelude.Nothing,
-      snsRoleName = Prelude.Nothing,
+      snsTopicArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The SNS topic that records Firewall Manager activity.
-getNotificationChannelResponse_snsTopicArn :: Lens.Lens' GetNotificationChannelResponse (Prelude.Maybe Prelude.Text)
-getNotificationChannelResponse_snsTopicArn = Lens.lens (\GetNotificationChannelResponse' {snsTopicArn} -> snsTopicArn) (\s@GetNotificationChannelResponse' {} a -> s {snsTopicArn = a} :: GetNotificationChannelResponse)
 
 -- | The IAM role that is used by Firewall Manager to record activity to SNS.
 getNotificationChannelResponse_snsRoleName :: Lens.Lens' GetNotificationChannelResponse (Prelude.Maybe Prelude.Text)
 getNotificationChannelResponse_snsRoleName = Lens.lens (\GetNotificationChannelResponse' {snsRoleName} -> snsRoleName) (\s@GetNotificationChannelResponse' {} a -> s {snsRoleName = a} :: GetNotificationChannelResponse)
+
+-- | The SNS topic that records Firewall Manager activity.
+getNotificationChannelResponse_snsTopicArn :: Lens.Lens' GetNotificationChannelResponse (Prelude.Maybe Prelude.Text)
+getNotificationChannelResponse_snsTopicArn = Lens.lens (\GetNotificationChannelResponse' {snsTopicArn} -> snsTopicArn) (\s@GetNotificationChannelResponse' {} a -> s {snsTopicArn = a} :: GetNotificationChannelResponse)
 
 -- | The response's http status code.
 getNotificationChannelResponse_httpStatus :: Lens.Lens' GetNotificationChannelResponse Prelude.Int
@@ -157,6 +157,6 @@ instance
     GetNotificationChannelResponse
   where
   rnf GetNotificationChannelResponse' {..} =
-    Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf snsRoleName
+    Prelude.rnf snsRoleName
+      `Prelude.seq` Prelude.rnf snsTopicArn
       `Prelude.seq` Prelude.rnf httpStatus

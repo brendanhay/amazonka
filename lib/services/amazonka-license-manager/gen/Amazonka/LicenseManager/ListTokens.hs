@@ -27,9 +27,9 @@ module Amazonka.LicenseManager.ListTokens
     newListTokens,
 
     -- * Request Lenses
-    listTokens_tokenIds,
-    listTokens_filters,
     listTokens_nextToken,
+    listTokens_filters,
+    listTokens_tokenIds,
     listTokens_maxResults,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.LicenseManager.ListTokens
     newListTokensResponse,
 
     -- * Response Lenses
-    listTokensResponse_tokens,
     listTokensResponse_nextToken,
+    listTokensResponse_tokens,
     listTokensResponse_httpStatus,
   )
 where
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTokens' smart constructor.
 data ListTokens = ListTokens'
-  { -- | Token IDs.
-    tokenIds :: Prelude.Maybe [Prelude.Text],
+  { -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters to scope the results. The following filter is supported:
     --
     -- -   @LicenseArns@
     filters :: Prelude.Maybe [Filter],
-    -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Token IDs.
+    tokenIds :: Prelude.Maybe [Prelude.Text],
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -73,28 +73,28 @@ data ListTokens = ListTokens'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tokenIds', 'listTokens_tokenIds' - Token IDs.
+-- 'nextToken', 'listTokens_nextToken' - Token for the next set of results.
 --
 -- 'filters', 'listTokens_filters' - Filters to scope the results. The following filter is supported:
 --
 -- -   @LicenseArns@
 --
--- 'nextToken', 'listTokens_nextToken' - Token for the next set of results.
+-- 'tokenIds', 'listTokens_tokenIds' - Token IDs.
 --
 -- 'maxResults', 'listTokens_maxResults' - Maximum number of results to return in a single call.
 newListTokens ::
   ListTokens
 newListTokens =
   ListTokens'
-    { tokenIds = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      tokenIds = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | Token IDs.
-listTokens_tokenIds :: Lens.Lens' ListTokens (Prelude.Maybe [Prelude.Text])
-listTokens_tokenIds = Lens.lens (\ListTokens' {tokenIds} -> tokenIds) (\s@ListTokens' {} a -> s {tokenIds = a} :: ListTokens) Prelude.. Lens.mapping Lens.coerced
+-- | Token for the next set of results.
+listTokens_nextToken :: Lens.Lens' ListTokens (Prelude.Maybe Prelude.Text)
+listTokens_nextToken = Lens.lens (\ListTokens' {nextToken} -> nextToken) (\s@ListTokens' {} a -> s {nextToken = a} :: ListTokens)
 
 -- | Filters to scope the results. The following filter is supported:
 --
@@ -102,9 +102,9 @@ listTokens_tokenIds = Lens.lens (\ListTokens' {tokenIds} -> tokenIds) (\s@ListTo
 listTokens_filters :: Lens.Lens' ListTokens (Prelude.Maybe [Filter])
 listTokens_filters = Lens.lens (\ListTokens' {filters} -> filters) (\s@ListTokens' {} a -> s {filters = a} :: ListTokens) Prelude.. Lens.mapping Lens.coerced
 
--- | Token for the next set of results.
-listTokens_nextToken :: Lens.Lens' ListTokens (Prelude.Maybe Prelude.Text)
-listTokens_nextToken = Lens.lens (\ListTokens' {nextToken} -> nextToken) (\s@ListTokens' {} a -> s {nextToken = a} :: ListTokens)
+-- | Token IDs.
+listTokens_tokenIds :: Lens.Lens' ListTokens (Prelude.Maybe [Prelude.Text])
+listTokens_tokenIds = Lens.lens (\ListTokens' {tokenIds} -> tokenIds) (\s@ListTokens' {} a -> s {tokenIds = a} :: ListTokens) Prelude.. Lens.mapping Lens.coerced
 
 -- | Maximum number of results to return in a single call.
 listTokens_maxResults :: Lens.Lens' ListTokens (Prelude.Maybe Prelude.Natural)
@@ -117,23 +117,23 @@ instance Core.AWSRequest ListTokens where
     Response.receiveJSON
       ( \s h x ->
           ListTokensResponse'
-            Prelude.<$> (x Core..?> "Tokens" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Tokens" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTokens where
   hashWithSalt _salt ListTokens' {..} =
-    _salt `Prelude.hashWithSalt` tokenIds
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` tokenIds
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListTokens where
   rnf ListTokens' {..} =
-    Prelude.rnf tokenIds
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tokenIds
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTokens where
@@ -155,9 +155,9 @@ instance Core.ToJSON ListTokens where
   toJSON ListTokens' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TokenIds" Core..=) Prelude.<$> tokenIds,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("TokenIds" Core..=) Prelude.<$> tokenIds,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -170,10 +170,10 @@ instance Core.ToQuery ListTokens where
 
 -- | /See:/ 'newListTokensResponse' smart constructor.
 data ListTokensResponse = ListTokensResponse'
-  { -- | Received token details.
-    tokens :: Prelude.Maybe [TokenData],
-    -- | Token for the next set of results.
+  { -- | Token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Received token details.
+    tokens :: Prelude.Maybe [TokenData],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,9 +187,9 @@ data ListTokensResponse = ListTokensResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tokens', 'listTokensResponse_tokens' - Received token details.
---
 -- 'nextToken', 'listTokensResponse_nextToken' - Token for the next set of results.
+--
+-- 'tokens', 'listTokensResponse_tokens' - Received token details.
 --
 -- 'httpStatus', 'listTokensResponse_httpStatus' - The response's http status code.
 newListTokensResponse ::
@@ -198,18 +198,18 @@ newListTokensResponse ::
   ListTokensResponse
 newListTokensResponse pHttpStatus_ =
   ListTokensResponse'
-    { tokens = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      tokens = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Received token details.
-listTokensResponse_tokens :: Lens.Lens' ListTokensResponse (Prelude.Maybe [TokenData])
-listTokensResponse_tokens = Lens.lens (\ListTokensResponse' {tokens} -> tokens) (\s@ListTokensResponse' {} a -> s {tokens = a} :: ListTokensResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Token for the next set of results.
 listTokensResponse_nextToken :: Lens.Lens' ListTokensResponse (Prelude.Maybe Prelude.Text)
 listTokensResponse_nextToken = Lens.lens (\ListTokensResponse' {nextToken} -> nextToken) (\s@ListTokensResponse' {} a -> s {nextToken = a} :: ListTokensResponse)
+
+-- | Received token details.
+listTokensResponse_tokens :: Lens.Lens' ListTokensResponse (Prelude.Maybe [TokenData])
+listTokensResponse_tokens = Lens.lens (\ListTokensResponse' {tokens} -> tokens) (\s@ListTokensResponse' {} a -> s {tokens = a} :: ListTokensResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTokensResponse_httpStatus :: Lens.Lens' ListTokensResponse Prelude.Int
@@ -217,6 +217,6 @@ listTokensResponse_httpStatus = Lens.lens (\ListTokensResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTokensResponse where
   rnf ListTokensResponse' {..} =
-    Prelude.rnf tokens
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tokens
       `Prelude.seq` Prelude.rnf httpStatus

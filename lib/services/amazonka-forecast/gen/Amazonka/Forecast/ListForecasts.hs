@@ -33,8 +33,8 @@ module Amazonka.Forecast.ListForecasts
     newListForecasts,
 
     -- * Request Lenses
-    listForecasts_filters,
     listForecasts_nextToken,
+    listForecasts_filters,
     listForecasts_maxResults,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.Forecast.ListForecasts
     newListForecastsResponse,
 
     -- * Response Lenses
-    listForecastsResponse_forecasts,
     listForecastsResponse_nextToken,
+    listForecastsResponse_forecasts,
     listForecastsResponse_httpStatus,
   )
 where
@@ -57,7 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListForecasts' smart constructor.
 data ListForecasts = ListForecasts'
-  { -- | An array of filters. For each filter, you provide a condition and a
+  { -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of filters. For each filter, you provide a condition and a
     -- match statement. The condition is either @IS@ or @IS_NOT@, which
     -- specifies whether to include or exclude the forecasts that match the
     -- statement from the list, respectively. The match statement consists of a
@@ -79,10 +83,6 @@ data ListForecasts = ListForecasts'
     --
     -- @\"Filters\": [ { \"Condition\": \"IS_NOT\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
     filters :: Prelude.Maybe [Filter],
-    -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of items to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -95,6 +95,10 @@ data ListForecasts = ListForecasts'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listForecasts_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listForecasts_filters' - An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -118,19 +122,21 @@ data ListForecasts = ListForecasts'
 --
 -- @\"Filters\": [ { \"Condition\": \"IS_NOT\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
 --
--- 'nextToken', 'listForecasts_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
---
 -- 'maxResults', 'listForecasts_maxResults' - The number of items to return in the response.
 newListForecasts ::
   ListForecasts
 newListForecasts =
   ListForecasts'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+listForecasts_nextToken :: Lens.Lens' ListForecasts (Prelude.Maybe Prelude.Text)
+listForecasts_nextToken = Lens.lens (\ListForecasts' {nextToken} -> nextToken) (\s@ListForecasts' {} a -> s {nextToken = a} :: ListForecasts)
 
 -- | An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -155,12 +161,6 @@ newListForecasts =
 -- @\"Filters\": [ { \"Condition\": \"IS_NOT\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
 listForecasts_filters :: Lens.Lens' ListForecasts (Prelude.Maybe [Filter])
 listForecasts_filters = Lens.lens (\ListForecasts' {filters} -> filters) (\s@ListForecasts' {} a -> s {filters = a} :: ListForecasts) Prelude.. Lens.mapping Lens.coerced
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-listForecasts_nextToken :: Lens.Lens' ListForecasts (Prelude.Maybe Prelude.Text)
-listForecasts_nextToken = Lens.lens (\ListForecasts' {nextToken} -> nextToken) (\s@ListForecasts' {} a -> s {nextToken = a} :: ListForecasts)
 
 -- | The number of items to return in the response.
 listForecasts_maxResults :: Lens.Lens' ListForecasts (Prelude.Maybe Prelude.Natural)
@@ -194,21 +194,21 @@ instance Core.AWSRequest ListForecasts where
     Response.receiveJSON
       ( \s h x ->
           ListForecastsResponse'
-            Prelude.<$> (x Core..?> "Forecasts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Forecasts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListForecasts where
   hashWithSalt _salt ListForecasts' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListForecasts where
   rnf ListForecasts' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListForecasts where
@@ -230,8 +230,8 @@ instance Core.ToJSON ListForecasts where
   toJSON ListForecasts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -244,11 +244,11 @@ instance Core.ToQuery ListForecasts where
 
 -- | /See:/ 'newListForecastsResponse' smart constructor.
 data ListForecastsResponse = ListForecastsResponse'
-  { -- | An array of objects that summarize each forecast\'s properties.
-    forecasts :: Prelude.Maybe [ForecastSummary],
-    -- | If the response is truncated, Amazon Forecast returns this token. To
+  { -- | If the response is truncated, Amazon Forecast returns this token. To
     -- retrieve the next set of results, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that summarize each forecast\'s properties.
+    forecasts :: Prelude.Maybe [ForecastSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,10 +262,10 @@ data ListForecastsResponse = ListForecastsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'forecasts', 'listForecastsResponse_forecasts' - An array of objects that summarize each forecast\'s properties.
---
 -- 'nextToken', 'listForecastsResponse_nextToken' - If the response is truncated, Amazon Forecast returns this token. To
 -- retrieve the next set of results, use the token in the next request.
+--
+-- 'forecasts', 'listForecastsResponse_forecasts' - An array of objects that summarize each forecast\'s properties.
 --
 -- 'httpStatus', 'listForecastsResponse_httpStatus' - The response's http status code.
 newListForecastsResponse ::
@@ -274,19 +274,19 @@ newListForecastsResponse ::
   ListForecastsResponse
 newListForecastsResponse pHttpStatus_ =
   ListForecastsResponse'
-    { forecasts = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      forecasts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that summarize each forecast\'s properties.
-listForecastsResponse_forecasts :: Lens.Lens' ListForecastsResponse (Prelude.Maybe [ForecastSummary])
-listForecastsResponse_forecasts = Lens.lens (\ListForecastsResponse' {forecasts} -> forecasts) (\s@ListForecastsResponse' {} a -> s {forecasts = a} :: ListForecastsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Forecast returns this token. To
 -- retrieve the next set of results, use the token in the next request.
 listForecastsResponse_nextToken :: Lens.Lens' ListForecastsResponse (Prelude.Maybe Prelude.Text)
 listForecastsResponse_nextToken = Lens.lens (\ListForecastsResponse' {nextToken} -> nextToken) (\s@ListForecastsResponse' {} a -> s {nextToken = a} :: ListForecastsResponse)
+
+-- | An array of objects that summarize each forecast\'s properties.
+listForecastsResponse_forecasts :: Lens.Lens' ListForecastsResponse (Prelude.Maybe [ForecastSummary])
+listForecastsResponse_forecasts = Lens.lens (\ListForecastsResponse' {forecasts} -> forecasts) (\s@ListForecastsResponse' {} a -> s {forecasts = a} :: ListForecastsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listForecastsResponse_httpStatus :: Lens.Lens' ListForecastsResponse Prelude.Int
@@ -294,6 +294,6 @@ listForecastsResponse_httpStatus = Lens.lens (\ListForecastsResponse' {httpStatu
 
 instance Prelude.NFData ListForecastsResponse where
   rnf ListForecastsResponse' {..} =
-    Prelude.rnf forecasts
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf forecasts
       `Prelude.seq` Prelude.rnf httpStatus

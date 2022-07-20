@@ -26,23 +26,23 @@ module Amazonka.Panorama
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -50,41 +50,17 @@ module Amazonka.Panorama
     -- * Operations
     -- $operations
 
-    -- ** UpdateDeviceMetadata
-    UpdateDeviceMetadata (UpdateDeviceMetadata'),
-    newUpdateDeviceMetadata,
-    UpdateDeviceMetadataResponse (UpdateDeviceMetadataResponse'),
-    newUpdateDeviceMetadataResponse,
-
-    -- ** DescribeApplicationInstanceDetails
-    DescribeApplicationInstanceDetails (DescribeApplicationInstanceDetails'),
-    newDescribeApplicationInstanceDetails,
-    DescribeApplicationInstanceDetailsResponse (DescribeApplicationInstanceDetailsResponse'),
-    newDescribeApplicationInstanceDetailsResponse,
-
     -- ** CreateApplicationInstance
     CreateApplicationInstance (CreateApplicationInstance'),
     newCreateApplicationInstance,
     CreateApplicationInstanceResponse (CreateApplicationInstanceResponse'),
     newCreateApplicationInstanceResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** RemoveApplicationInstance
-    RemoveApplicationInstance (RemoveApplicationInstance'),
-    newRemoveApplicationInstance,
-    RemoveApplicationInstanceResponse (RemoveApplicationInstanceResponse'),
-    newRemoveApplicationInstanceResponse,
-
-    -- ** ListDevicesJobs
-    ListDevicesJobs (ListDevicesJobs'),
-    newListDevicesJobs,
-    ListDevicesJobsResponse (ListDevicesJobsResponse'),
-    newListDevicesJobsResponse,
+    -- ** CreateJobForDevices
+    CreateJobForDevices (CreateJobForDevices'),
+    newCreateJobForDevices,
+    CreateJobForDevicesResponse (CreateJobForDevicesResponse'),
+    newCreateJobForDevicesResponse,
 
     -- ** CreateNodeFromTemplateJob
     CreateNodeFromTemplateJob (CreateNodeFromTemplateJob'),
@@ -92,35 +68,11 @@ module Amazonka.Panorama
     CreateNodeFromTemplateJobResponse (CreateNodeFromTemplateJobResponse'),
     newCreateNodeFromTemplateJobResponse,
 
-    -- ** DeregisterPackageVersion
-    DeregisterPackageVersion (DeregisterPackageVersion'),
-    newDeregisterPackageVersion,
-    DeregisterPackageVersionResponse (DeregisterPackageVersionResponse'),
-    newDeregisterPackageVersionResponse,
-
-    -- ** ListPackages
-    ListPackages (ListPackages'),
-    newListPackages,
-    ListPackagesResponse (ListPackagesResponse'),
-    newListPackagesResponse,
-
-    -- ** DescribeApplicationInstance
-    DescribeApplicationInstance (DescribeApplicationInstance'),
-    newDescribeApplicationInstance,
-    DescribeApplicationInstanceResponse (DescribeApplicationInstanceResponse'),
-    newDescribeApplicationInstanceResponse,
-
-    -- ** RegisterPackageVersion
-    RegisterPackageVersion (RegisterPackageVersion'),
-    newRegisterPackageVersion,
-    RegisterPackageVersionResponse (RegisterPackageVersionResponse'),
-    newRegisterPackageVersionResponse,
-
-    -- ** DescribeNodeFromTemplateJob
-    DescribeNodeFromTemplateJob (DescribeNodeFromTemplateJob'),
-    newDescribeNodeFromTemplateJob,
-    DescribeNodeFromTemplateJobResponse (DescribeNodeFromTemplateJobResponse'),
-    newDescribeNodeFromTemplateJobResponse,
+    -- ** CreatePackage
+    CreatePackage (CreatePackage'),
+    newCreatePackage,
+    CreatePackageResponse (CreatePackageResponse'),
+    newCreatePackageResponse,
 
     -- ** CreatePackageImportJob
     CreatePackageImportJob (CreatePackageImportJob'),
@@ -128,29 +80,35 @@ module Amazonka.Panorama
     CreatePackageImportJobResponse (CreatePackageImportJobResponse'),
     newCreatePackageImportJobResponse,
 
-    -- ** DescribePackage
-    DescribePackage (DescribePackage'),
-    newDescribePackage,
-    DescribePackageResponse (DescribePackageResponse'),
-    newDescribePackageResponse,
+    -- ** DeleteDevice
+    DeleteDevice (DeleteDevice'),
+    newDeleteDevice,
+    DeleteDeviceResponse (DeleteDeviceResponse'),
+    newDeleteDeviceResponse,
 
-    -- ** ListApplicationInstances
-    ListApplicationInstances (ListApplicationInstances'),
-    newListApplicationInstances,
-    ListApplicationInstancesResponse (ListApplicationInstancesResponse'),
-    newListApplicationInstancesResponse,
+    -- ** DeletePackage
+    DeletePackage (DeletePackage'),
+    newDeletePackage,
+    DeletePackageResponse (DeletePackageResponse'),
+    newDeletePackageResponse,
 
-    -- ** DescribeDeviceJob
-    DescribeDeviceJob (DescribeDeviceJob'),
-    newDescribeDeviceJob,
-    DescribeDeviceJobResponse (DescribeDeviceJobResponse'),
-    newDescribeDeviceJobResponse,
+    -- ** DeregisterPackageVersion
+    DeregisterPackageVersion (DeregisterPackageVersion'),
+    newDeregisterPackageVersion,
+    DeregisterPackageVersionResponse (DeregisterPackageVersionResponse'),
+    newDeregisterPackageVersionResponse,
 
-    -- ** DescribePackageImportJob
-    DescribePackageImportJob (DescribePackageImportJob'),
-    newDescribePackageImportJob,
-    DescribePackageImportJobResponse (DescribePackageImportJobResponse'),
-    newDescribePackageImportJobResponse,
+    -- ** DescribeApplicationInstance
+    DescribeApplicationInstance (DescribeApplicationInstance'),
+    newDescribeApplicationInstance,
+    DescribeApplicationInstanceResponse (DescribeApplicationInstanceResponse'),
+    newDescribeApplicationInstanceResponse,
+
+    -- ** DescribeApplicationInstanceDetails
+    DescribeApplicationInstanceDetails (DescribeApplicationInstanceDetails'),
+    newDescribeApplicationInstanceDetails,
+    DescribeApplicationInstanceDetailsResponse (DescribeApplicationInstanceDetailsResponse'),
+    newDescribeApplicationInstanceDetailsResponse,
 
     -- ** DescribeDevice
     DescribeDevice (DescribeDevice'),
@@ -158,11 +116,11 @@ module Amazonka.Panorama
     DescribeDeviceResponse (DescribeDeviceResponse'),
     newDescribeDeviceResponse,
 
-    -- ** DescribePackageVersion
-    DescribePackageVersion (DescribePackageVersion'),
-    newDescribePackageVersion,
-    DescribePackageVersionResponse (DescribePackageVersionResponse'),
-    newDescribePackageVersionResponse,
+    -- ** DescribeDeviceJob
+    DescribeDeviceJob (DescribeDeviceJob'),
+    newDescribeDeviceJob,
+    DescribeDeviceJobResponse (DescribeDeviceJobResponse'),
+    newDescribeDeviceJobResponse,
 
     -- ** DescribeNode
     DescribeNode (DescribeNode'),
@@ -170,17 +128,29 @@ module Amazonka.Panorama
     DescribeNodeResponse (DescribeNodeResponse'),
     newDescribeNodeResponse,
 
-    -- ** ListNodeFromTemplateJobs
-    ListNodeFromTemplateJobs (ListNodeFromTemplateJobs'),
-    newListNodeFromTemplateJobs,
-    ListNodeFromTemplateJobsResponse (ListNodeFromTemplateJobsResponse'),
-    newListNodeFromTemplateJobsResponse,
+    -- ** DescribeNodeFromTemplateJob
+    DescribeNodeFromTemplateJob (DescribeNodeFromTemplateJob'),
+    newDescribeNodeFromTemplateJob,
+    DescribeNodeFromTemplateJobResponse (DescribeNodeFromTemplateJobResponse'),
+    newDescribeNodeFromTemplateJobResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DescribePackage
+    DescribePackage (DescribePackage'),
+    newDescribePackage,
+    DescribePackageResponse (DescribePackageResponse'),
+    newDescribePackageResponse,
+
+    -- ** DescribePackageImportJob
+    DescribePackageImportJob (DescribePackageImportJob'),
+    newDescribePackageImportJob,
+    DescribePackageImportJobResponse (DescribePackageImportJobResponse'),
+    newDescribePackageImportJobResponse,
+
+    -- ** DescribePackageVersion
+    DescribePackageVersion (DescribePackageVersion'),
+    newDescribePackageVersion,
+    DescribePackageVersionResponse (DescribePackageVersionResponse'),
+    newDescribePackageVersionResponse,
 
     -- ** ListApplicationInstanceDependencies
     ListApplicationInstanceDependencies (ListApplicationInstanceDependencies'),
@@ -194,47 +164,11 @@ module Amazonka.Panorama
     ListApplicationInstanceNodeInstancesResponse (ListApplicationInstanceNodeInstancesResponse'),
     newListApplicationInstanceNodeInstancesResponse,
 
-    -- ** CreateJobForDevices
-    CreateJobForDevices (CreateJobForDevices'),
-    newCreateJobForDevices,
-    CreateJobForDevicesResponse (CreateJobForDevicesResponse'),
-    newCreateJobForDevicesResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DeletePackage
-    DeletePackage (DeletePackage'),
-    newDeletePackage,
-    DeletePackageResponse (DeletePackageResponse'),
-    newDeletePackageResponse,
-
-    -- ** CreatePackage
-    CreatePackage (CreatePackage'),
-    newCreatePackage,
-    CreatePackageResponse (CreatePackageResponse'),
-    newCreatePackageResponse,
-
-    -- ** ProvisionDevice
-    ProvisionDevice (ProvisionDevice'),
-    newProvisionDevice,
-    ProvisionDeviceResponse (ProvisionDeviceResponse'),
-    newProvisionDeviceResponse,
-
-    -- ** DeleteDevice
-    DeleteDevice (DeleteDevice'),
-    newDeleteDevice,
-    DeleteDeviceResponse (DeleteDeviceResponse'),
-    newDeleteDeviceResponse,
-
-    -- ** ListNodes
-    ListNodes (ListNodes'),
-    newListNodes,
-    ListNodesResponse (ListNodesResponse'),
-    newListNodesResponse,
+    -- ** ListApplicationInstances
+    ListApplicationInstances (ListApplicationInstances'),
+    newListApplicationInstances,
+    ListApplicationInstancesResponse (ListApplicationInstancesResponse'),
+    newListApplicationInstancesResponse,
 
     -- ** ListDevices
     ListDevices (ListDevices'),
@@ -242,11 +176,77 @@ module Amazonka.Panorama
     ListDevicesResponse (ListDevicesResponse'),
     newListDevicesResponse,
 
+    -- ** ListDevicesJobs
+    ListDevicesJobs (ListDevicesJobs'),
+    newListDevicesJobs,
+    ListDevicesJobsResponse (ListDevicesJobsResponse'),
+    newListDevicesJobsResponse,
+
+    -- ** ListNodeFromTemplateJobs
+    ListNodeFromTemplateJobs (ListNodeFromTemplateJobs'),
+    newListNodeFromTemplateJobs,
+    ListNodeFromTemplateJobsResponse (ListNodeFromTemplateJobsResponse'),
+    newListNodeFromTemplateJobsResponse,
+
+    -- ** ListNodes
+    ListNodes (ListNodes'),
+    newListNodes,
+    ListNodesResponse (ListNodesResponse'),
+    newListNodesResponse,
+
     -- ** ListPackageImportJobs
     ListPackageImportJobs (ListPackageImportJobs'),
     newListPackageImportJobs,
     ListPackageImportJobsResponse (ListPackageImportJobsResponse'),
     newListPackageImportJobsResponse,
+
+    -- ** ListPackages
+    ListPackages (ListPackages'),
+    newListPackages,
+    ListPackagesResponse (ListPackagesResponse'),
+    newListPackagesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ProvisionDevice
+    ProvisionDevice (ProvisionDevice'),
+    newProvisionDevice,
+    ProvisionDeviceResponse (ProvisionDeviceResponse'),
+    newProvisionDeviceResponse,
+
+    -- ** RegisterPackageVersion
+    RegisterPackageVersion (RegisterPackageVersion'),
+    newRegisterPackageVersion,
+    RegisterPackageVersionResponse (RegisterPackageVersionResponse'),
+    newRegisterPackageVersionResponse,
+
+    -- ** RemoveApplicationInstance
+    RemoveApplicationInstance (RemoveApplicationInstance'),
+    newRemoveApplicationInstance,
+    RemoveApplicationInstanceResponse (RemoveApplicationInstanceResponse'),
+    newRemoveApplicationInstanceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateDeviceMetadata
+    UpdateDeviceMetadata (UpdateDeviceMetadata'),
+    newUpdateDeviceMetadata,
+    UpdateDeviceMetadataResponse (UpdateDeviceMetadataResponse'),
+    newUpdateDeviceMetadataResponse,
 
     -- * Types
 

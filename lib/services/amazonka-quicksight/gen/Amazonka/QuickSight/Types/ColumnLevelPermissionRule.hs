@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumnLevelPermissionRule' smart constructor.
 data ColumnLevelPermissionRule = ColumnLevelPermissionRule'
-  { -- | An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or
+  { -- | An array of column names.
+    columnNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or
     -- groups.
-    principals :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | An array of column names.
-    columnNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    principals :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,27 @@ data ColumnLevelPermissionRule = ColumnLevelPermissionRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'columnNames', 'columnLevelPermissionRule_columnNames' - An array of column names.
+--
 -- 'principals', 'columnLevelPermissionRule_principals' - An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or
 -- groups.
---
--- 'columnNames', 'columnLevelPermissionRule_columnNames' - An array of column names.
 newColumnLevelPermissionRule ::
   ColumnLevelPermissionRule
 newColumnLevelPermissionRule =
   ColumnLevelPermissionRule'
-    { principals =
+    { columnNames =
         Prelude.Nothing,
-      columnNames = Prelude.Nothing
+      principals = Prelude.Nothing
     }
+
+-- | An array of column names.
+columnLevelPermissionRule_columnNames :: Lens.Lens' ColumnLevelPermissionRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+columnLevelPermissionRule_columnNames = Lens.lens (\ColumnLevelPermissionRule' {columnNames} -> columnNames) (\s@ColumnLevelPermissionRule' {} a -> s {columnNames = a} :: ColumnLevelPermissionRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or
 -- groups.
 columnLevelPermissionRule_principals :: Lens.Lens' ColumnLevelPermissionRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 columnLevelPermissionRule_principals = Lens.lens (\ColumnLevelPermissionRule' {principals} -> principals) (\s@ColumnLevelPermissionRule' {} a -> s {principals = a} :: ColumnLevelPermissionRule) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of column names.
-columnLevelPermissionRule_columnNames :: Lens.Lens' ColumnLevelPermissionRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-columnLevelPermissionRule_columnNames = Lens.lens (\ColumnLevelPermissionRule' {columnNames} -> columnNames) (\s@ColumnLevelPermissionRule' {} a -> s {columnNames = a} :: ColumnLevelPermissionRule) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ColumnLevelPermissionRule where
   parseJSON =
@@ -75,25 +75,25 @@ instance Core.FromJSON ColumnLevelPermissionRule where
       "ColumnLevelPermissionRule"
       ( \x ->
           ColumnLevelPermissionRule'
-            Prelude.<$> (x Core..:? "Principals")
-            Prelude.<*> (x Core..:? "ColumnNames")
+            Prelude.<$> (x Core..:? "ColumnNames")
+            Prelude.<*> (x Core..:? "Principals")
       )
 
 instance Prelude.Hashable ColumnLevelPermissionRule where
   hashWithSalt _salt ColumnLevelPermissionRule' {..} =
-    _salt `Prelude.hashWithSalt` principals
-      `Prelude.hashWithSalt` columnNames
+    _salt `Prelude.hashWithSalt` columnNames
+      `Prelude.hashWithSalt` principals
 
 instance Prelude.NFData ColumnLevelPermissionRule where
   rnf ColumnLevelPermissionRule' {..} =
-    Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf columnNames
+    Prelude.rnf columnNames
+      `Prelude.seq` Prelude.rnf principals
 
 instance Core.ToJSON ColumnLevelPermissionRule where
   toJSON ColumnLevelPermissionRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Principals" Core..=) Prelude.<$> principals,
-            ("ColumnNames" Core..=) Prelude.<$> columnNames
+          [ ("ColumnNames" Core..=) Prelude.<$> columnNames,
+            ("Principals" Core..=) Prelude.<$> principals
           ]
       )

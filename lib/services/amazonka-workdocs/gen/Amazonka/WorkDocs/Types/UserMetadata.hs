@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserMetadata' smart constructor.
 data UserMetadata = UserMetadata'
-  { -- | The given name of the user before a rename operation.
-    givenName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the user.
+  { -- | The name of the user.
     username :: Prelude.Maybe Prelude.Text,
-    -- | The email address of the user.
-    emailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The given name of the user before a rename operation.
+    givenName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the user.
     id :: Prelude.Maybe Prelude.Text,
     -- | The surname of the user.
-    surname :: Prelude.Maybe Prelude.Text
+    surname :: Prelude.Maybe Prelude.Text,
+    -- | The email address of the user.
+    emailAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,37 +48,33 @@ data UserMetadata = UserMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'givenName', 'userMetadata_givenName' - The given name of the user before a rename operation.
---
 -- 'username', 'userMetadata_username' - The name of the user.
 --
--- 'emailAddress', 'userMetadata_emailAddress' - The email address of the user.
+-- 'givenName', 'userMetadata_givenName' - The given name of the user before a rename operation.
 --
 -- 'id', 'userMetadata_id' - The ID of the user.
 --
 -- 'surname', 'userMetadata_surname' - The surname of the user.
+--
+-- 'emailAddress', 'userMetadata_emailAddress' - The email address of the user.
 newUserMetadata ::
   UserMetadata
 newUserMetadata =
   UserMetadata'
-    { givenName = Prelude.Nothing,
-      username = Prelude.Nothing,
-      emailAddress = Prelude.Nothing,
+    { username = Prelude.Nothing,
+      givenName = Prelude.Nothing,
       id = Prelude.Nothing,
-      surname = Prelude.Nothing
+      surname = Prelude.Nothing,
+      emailAddress = Prelude.Nothing
     }
-
--- | The given name of the user before a rename operation.
-userMetadata_givenName :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
-userMetadata_givenName = Lens.lens (\UserMetadata' {givenName} -> givenName) (\s@UserMetadata' {} a -> s {givenName = a} :: UserMetadata)
 
 -- | The name of the user.
 userMetadata_username :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
 userMetadata_username = Lens.lens (\UserMetadata' {username} -> username) (\s@UserMetadata' {} a -> s {username = a} :: UserMetadata)
 
--- | The email address of the user.
-userMetadata_emailAddress :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
-userMetadata_emailAddress = Lens.lens (\UserMetadata' {emailAddress} -> emailAddress) (\s@UserMetadata' {} a -> s {emailAddress = a} :: UserMetadata)
+-- | The given name of the user before a rename operation.
+userMetadata_givenName :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
+userMetadata_givenName = Lens.lens (\UserMetadata' {givenName} -> givenName) (\s@UserMetadata' {} a -> s {givenName = a} :: UserMetadata)
 
 -- | The ID of the user.
 userMetadata_id :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
@@ -88,31 +84,35 @@ userMetadata_id = Lens.lens (\UserMetadata' {id} -> id) (\s@UserMetadata' {} a -
 userMetadata_surname :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
 userMetadata_surname = Lens.lens (\UserMetadata' {surname} -> surname) (\s@UserMetadata' {} a -> s {surname = a} :: UserMetadata)
 
+-- | The email address of the user.
+userMetadata_emailAddress :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
+userMetadata_emailAddress = Lens.lens (\UserMetadata' {emailAddress} -> emailAddress) (\s@UserMetadata' {} a -> s {emailAddress = a} :: UserMetadata)
+
 instance Core.FromJSON UserMetadata where
   parseJSON =
     Core.withObject
       "UserMetadata"
       ( \x ->
           UserMetadata'
-            Prelude.<$> (x Core..:? "GivenName")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "EmailAddress")
+            Prelude.<$> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "GivenName")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Surname")
+            Prelude.<*> (x Core..:? "EmailAddress")
       )
 
 instance Prelude.Hashable UserMetadata where
   hashWithSalt _salt UserMetadata' {..} =
-    _salt `Prelude.hashWithSalt` givenName
-      `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` emailAddress
+    _salt `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` givenName
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` surname
+      `Prelude.hashWithSalt` emailAddress
 
 instance Prelude.NFData UserMetadata where
   rnf UserMetadata' {..} =
-    Prelude.rnf givenName
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf emailAddress
+    Prelude.rnf username
+      `Prelude.seq` Prelude.rnf givenName
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf surname
+      `Prelude.seq` Prelude.rnf emailAddress

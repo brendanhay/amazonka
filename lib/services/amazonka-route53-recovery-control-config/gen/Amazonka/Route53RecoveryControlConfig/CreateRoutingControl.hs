@@ -35,8 +35,8 @@ module Amazonka.Route53RecoveryControlConfig.CreateRoutingControl
     newCreateRoutingControl,
 
     -- * Request Lenses
-    createRoutingControl_controlPanelArn,
     createRoutingControl_clientToken,
+    createRoutingControl_controlPanelArn,
     createRoutingControl_clusterArn,
     createRoutingControl_routingControlName,
 
@@ -61,11 +61,11 @@ import Amazonka.Route53RecoveryControlConfig.Types
 --
 -- /See:/ 'newCreateRoutingControl' smart constructor.
 data CreateRoutingControl = CreateRoutingControl'
-  { -- | The Amazon Resource Name (ARN) of the control panel that includes the
+  { -- | Unique client idempotency token.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the control panel that includes the
     -- routing control.
     controlPanelArn :: Prelude.Maybe Prelude.Text,
-    -- | Unique client idempotency token.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the cluster that includes the routing
     -- control.
     clusterArn :: Prelude.Text,
@@ -82,10 +82,10 @@ data CreateRoutingControl = CreateRoutingControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createRoutingControl_clientToken' - Unique client idempotency token.
+--
 -- 'controlPanelArn', 'createRoutingControl_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel that includes the
 -- routing control.
---
--- 'clientToken', 'createRoutingControl_clientToken' - Unique client idempotency token.
 --
 -- 'clusterArn', 'createRoutingControl_clusterArn' - The Amazon Resource Name (ARN) of the cluster that includes the routing
 -- control.
@@ -101,21 +101,21 @@ newCreateRoutingControl
   pClusterArn_
   pRoutingControlName_ =
     CreateRoutingControl'
-      { controlPanelArn =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        controlPanelArn = Prelude.Nothing,
         clusterArn = pClusterArn_,
         routingControlName = pRoutingControlName_
       }
+
+-- | Unique client idempotency token.
+createRoutingControl_clientToken :: Lens.Lens' CreateRoutingControl (Prelude.Maybe Prelude.Text)
+createRoutingControl_clientToken = Lens.lens (\CreateRoutingControl' {clientToken} -> clientToken) (\s@CreateRoutingControl' {} a -> s {clientToken = a} :: CreateRoutingControl)
 
 -- | The Amazon Resource Name (ARN) of the control panel that includes the
 -- routing control.
 createRoutingControl_controlPanelArn :: Lens.Lens' CreateRoutingControl (Prelude.Maybe Prelude.Text)
 createRoutingControl_controlPanelArn = Lens.lens (\CreateRoutingControl' {controlPanelArn} -> controlPanelArn) (\s@CreateRoutingControl' {} a -> s {controlPanelArn = a} :: CreateRoutingControl)
-
--- | Unique client idempotency token.
-createRoutingControl_clientToken :: Lens.Lens' CreateRoutingControl (Prelude.Maybe Prelude.Text)
-createRoutingControl_clientToken = Lens.lens (\CreateRoutingControl' {clientToken} -> clientToken) (\s@CreateRoutingControl' {} a -> s {clientToken = a} :: CreateRoutingControl)
 
 -- | The Amazon Resource Name (ARN) of the cluster that includes the routing
 -- control.
@@ -141,15 +141,15 @@ instance Core.AWSRequest CreateRoutingControl where
 
 instance Prelude.Hashable CreateRoutingControl where
   hashWithSalt _salt CreateRoutingControl' {..} =
-    _salt `Prelude.hashWithSalt` controlPanelArn
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` routingControlName
 
 instance Prelude.NFData CreateRoutingControl where
   rnf CreateRoutingControl' {..} =
-    Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf controlPanelArn
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf routingControlName
 
@@ -168,9 +168,9 @@ instance Core.ToJSON CreateRoutingControl where
   toJSON CreateRoutingControl' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ControlPanelArn" Core..=)
+          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("ControlPanelArn" Core..=)
               Prelude.<$> controlPanelArn,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("ClusterArn" Core..= clusterArn),
             Prelude.Just
               ("RoutingControlName" Core..= routingControlName)

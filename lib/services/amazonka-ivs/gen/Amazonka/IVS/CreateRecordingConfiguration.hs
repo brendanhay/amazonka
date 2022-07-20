@@ -40,8 +40,8 @@ module Amazonka.IVS.CreateRecordingConfiguration
     newCreateRecordingConfiguration,
 
     -- * Request Lenses
-    createRecordingConfiguration_name,
     createRecordingConfiguration_tags,
+    createRecordingConfiguration_name,
     createRecordingConfiguration_destinationConfiguration,
 
     -- * Destructuring the Response
@@ -63,10 +63,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRecordingConfiguration' smart constructor.
 data CreateRecordingConfiguration = CreateRecordingConfiguration'
-  { -- | Recording-configuration name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Recording-configuration name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A complex type that contains a destination configuration for where
     -- recorded video will be stored.
     destinationConfiguration :: DestinationConfiguration
@@ -81,9 +81,9 @@ data CreateRecordingConfiguration = CreateRecordingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createRecordingConfiguration_name' - Recording-configuration name. The value does not need to be unique.
---
 -- 'tags', 'createRecordingConfiguration_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+--
+-- 'name', 'createRecordingConfiguration_name' - Recording-configuration name. The value does not need to be unique.
 --
 -- 'destinationConfiguration', 'createRecordingConfiguration_destinationConfiguration' - A complex type that contains a destination configuration for where
 -- recorded video will be stored.
@@ -94,20 +94,20 @@ newCreateRecordingConfiguration ::
 newCreateRecordingConfiguration
   pDestinationConfiguration_ =
     CreateRecordingConfiguration'
-      { name =
+      { tags =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
+        name = Prelude.Nothing,
         destinationConfiguration =
           pDestinationConfiguration_
       }
 
--- | Recording-configuration name. The value does not need to be unique.
-createRecordingConfiguration_name :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe Prelude.Text)
-createRecordingConfiguration_name = Lens.lens (\CreateRecordingConfiguration' {name} -> name) (\s@CreateRecordingConfiguration' {} a -> s {name = a} :: CreateRecordingConfiguration)
-
 -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
 createRecordingConfiguration_tags :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRecordingConfiguration_tags = Lens.lens (\CreateRecordingConfiguration' {tags} -> tags) (\s@CreateRecordingConfiguration' {} a -> s {tags = a} :: CreateRecordingConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Recording-configuration name. The value does not need to be unique.
+createRecordingConfiguration_name :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe Prelude.Text)
+createRecordingConfiguration_name = Lens.lens (\CreateRecordingConfiguration' {name} -> name) (\s@CreateRecordingConfiguration' {} a -> s {name = a} :: CreateRecordingConfiguration)
 
 -- | A complex type that contains a destination configuration for where
 -- recorded video will be stored.
@@ -132,14 +132,14 @@ instance
     CreateRecordingConfiguration
   where
   hashWithSalt _salt CreateRecordingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` destinationConfiguration
 
 instance Prelude.NFData CreateRecordingConfiguration where
   rnf CreateRecordingConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf destinationConfiguration
 
 instance Core.ToHeaders CreateRecordingConfiguration where
@@ -157,8 +157,8 @@ instance Core.ToJSON CreateRecordingConfiguration where
   toJSON CreateRecordingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("name" Core..=) Prelude.<$> name,
             Prelude.Just
               ( "destinationConfiguration"
                   Core..= destinationConfiguration

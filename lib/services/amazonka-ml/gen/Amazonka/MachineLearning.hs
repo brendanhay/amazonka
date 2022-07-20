@@ -19,23 +19,14 @@ module Amazonka.MachineLearning
     -- * Errors
     -- $errors
 
-    -- ** InvalidTagException
-    _InvalidTagException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
-
-    -- ** TagLimitExceededException
-    _TagLimitExceededException,
-
     -- ** PredictorNotMountedException
     _PredictorNotMountedException,
+
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -43,41 +34,50 @@ module Amazonka.MachineLearning
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
     -- * Waiters
     -- $waiters
-
-    -- ** MLModelAvailable
-    newMLModelAvailable,
-
-    -- ** BatchPredictionAvailable
-    newBatchPredictionAvailable,
-
-    -- ** DataSourceAvailable
-    newDataSourceAvailable,
 
     -- ** EvaluationAvailable
     newEvaluationAvailable,
 
+    -- ** MLModelAvailable
+    newMLModelAvailable,
+
+    -- ** DataSourceAvailable
+    newDataSourceAvailable,
+
+    -- ** BatchPredictionAvailable
+    newBatchPredictionAvailable,
+
     -- * Operations
     -- $operations
 
-    -- ** UpdateDataSource
-    UpdateDataSource (UpdateDataSource'),
-    newUpdateDataSource,
-    UpdateDataSourceResponse (UpdateDataSourceResponse'),
-    newUpdateDataSourceResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
 
-    -- ** DeleteDataSource
-    DeleteDataSource (DeleteDataSource'),
-    newDeleteDataSource,
-    DeleteDataSourceResponse (DeleteDataSourceResponse'),
-    newDeleteDataSourceResponse,
+    -- ** CreateBatchPrediction
+    CreateBatchPrediction (CreateBatchPrediction'),
+    newCreateBatchPrediction,
+    CreateBatchPredictionResponse (CreateBatchPredictionResponse'),
+    newCreateBatchPredictionResponse,
 
-    -- ** DescribeTags
-    DescribeTags (DescribeTags'),
-    newDescribeTags,
-    DescribeTagsResponse (DescribeTagsResponse'),
-    newDescribeTagsResponse,
+    -- ** CreateDataSourceFromRDS
+    CreateDataSourceFromRDS (CreateDataSourceFromRDS'),
+    newCreateDataSourceFromRDS,
+    CreateDataSourceFromRDSResponse (CreateDataSourceFromRDSResponse'),
+    newCreateDataSourceFromRDSResponse,
 
     -- ** CreateDataSourceFromRedshift
     CreateDataSourceFromRedshift (CreateDataSourceFromRedshift'),
@@ -91,17 +91,23 @@ module Amazonka.MachineLearning
     CreateDataSourceFromS3Response (CreateDataSourceFromS3Response'),
     newCreateDataSourceFromS3Response,
 
+    -- ** CreateEvaluation
+    CreateEvaluation (CreateEvaluation'),
+    newCreateEvaluation,
+    CreateEvaluationResponse (CreateEvaluationResponse'),
+    newCreateEvaluationResponse,
+
     -- ** CreateMLModel
     CreateMLModel (CreateMLModel'),
     newCreateMLModel,
     CreateMLModelResponse (CreateMLModelResponse'),
     newCreateMLModelResponse,
 
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
+    -- ** CreateRealtimeEndpoint
+    CreateRealtimeEndpoint (CreateRealtimeEndpoint'),
+    newCreateRealtimeEndpoint,
+    CreateRealtimeEndpointResponse (CreateRealtimeEndpointResponse'),
+    newCreateRealtimeEndpointResponse,
 
     -- ** DeleteBatchPrediction
     DeleteBatchPrediction (DeleteBatchPrediction'),
@@ -109,29 +115,11 @@ module Amazonka.MachineLearning
     DeleteBatchPredictionResponse (DeleteBatchPredictionResponse'),
     newDeleteBatchPredictionResponse,
 
-    -- ** UpdateBatchPrediction
-    UpdateBatchPrediction (UpdateBatchPrediction'),
-    newUpdateBatchPrediction,
-    UpdateBatchPredictionResponse (UpdateBatchPredictionResponse'),
-    newUpdateBatchPredictionResponse,
-
-    -- ** GetMLModel
-    GetMLModel (GetMLModel'),
-    newGetMLModel,
-    GetMLModelResponse (GetMLModelResponse'),
-    newGetMLModelResponse,
-
-    -- ** GetDataSource
-    GetDataSource (GetDataSource'),
-    newGetDataSource,
-    GetDataSourceResponse (GetDataSourceResponse'),
-    newGetDataSourceResponse,
-
-    -- ** UpdateEvaluation
-    UpdateEvaluation (UpdateEvaluation'),
-    newUpdateEvaluation,
-    UpdateEvaluationResponse (UpdateEvaluationResponse'),
-    newUpdateEvaluationResponse,
+    -- ** DeleteDataSource
+    DeleteDataSource (DeleteDataSource'),
+    newDeleteDataSource,
+    DeleteDataSourceResponse (DeleteDataSourceResponse'),
+    newDeleteDataSourceResponse,
 
     -- ** DeleteEvaluation
     DeleteEvaluation (DeleteEvaluation'),
@@ -145,17 +133,17 @@ module Amazonka.MachineLearning
     DeleteMLModelResponse (DeleteMLModelResponse'),
     newDeleteMLModelResponse,
 
-    -- ** UpdateMLModel
-    UpdateMLModel (UpdateMLModel'),
-    newUpdateMLModel,
-    UpdateMLModelResponse (UpdateMLModelResponse'),
-    newUpdateMLModelResponse,
+    -- ** DeleteRealtimeEndpoint
+    DeleteRealtimeEndpoint (DeleteRealtimeEndpoint'),
+    newDeleteRealtimeEndpoint,
+    DeleteRealtimeEndpointResponse (DeleteRealtimeEndpointResponse'),
+    newDeleteRealtimeEndpointResponse,
 
-    -- ** GetBatchPrediction
-    GetBatchPrediction (GetBatchPrediction'),
-    newGetBatchPrediction,
-    GetBatchPredictionResponse (GetBatchPredictionResponse'),
-    newGetBatchPredictionResponse,
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
 
     -- ** DescribeBatchPredictions (Paginated)
     DescribeBatchPredictions (DescribeBatchPredictions'),
@@ -163,41 +151,11 @@ module Amazonka.MachineLearning
     DescribeBatchPredictionsResponse (DescribeBatchPredictionsResponse'),
     newDescribeBatchPredictionsResponse,
 
-    -- ** CreateDataSourceFromRDS
-    CreateDataSourceFromRDS (CreateDataSourceFromRDS'),
-    newCreateDataSourceFromRDS,
-    CreateDataSourceFromRDSResponse (CreateDataSourceFromRDSResponse'),
-    newCreateDataSourceFromRDSResponse,
-
-    -- ** CreateEvaluation
-    CreateEvaluation (CreateEvaluation'),
-    newCreateEvaluation,
-    CreateEvaluationResponse (CreateEvaluationResponse'),
-    newCreateEvaluationResponse,
-
-    -- ** Predict
-    Predict (Predict'),
-    newPredict,
-    PredictResponse (PredictResponse'),
-    newPredictResponse,
-
-    -- ** DeleteRealtimeEndpoint
-    DeleteRealtimeEndpoint (DeleteRealtimeEndpoint'),
-    newDeleteRealtimeEndpoint,
-    DeleteRealtimeEndpointResponse (DeleteRealtimeEndpointResponse'),
-    newDeleteRealtimeEndpointResponse,
-
-    -- ** CreateBatchPrediction
-    CreateBatchPrediction (CreateBatchPrediction'),
-    newCreateBatchPrediction,
-    CreateBatchPredictionResponse (CreateBatchPredictionResponse'),
-    newCreateBatchPredictionResponse,
-
-    -- ** GetEvaluation
-    GetEvaluation (GetEvaluation'),
-    newGetEvaluation,
-    GetEvaluationResponse (GetEvaluationResponse'),
-    newGetEvaluationResponse,
+    -- ** DescribeDataSources (Paginated)
+    DescribeDataSources (DescribeDataSources'),
+    newDescribeDataSources,
+    DescribeDataSourcesResponse (DescribeDataSourcesResponse'),
+    newDescribeDataSourcesResponse,
 
     -- ** DescribeEvaluations (Paginated)
     DescribeEvaluations (DescribeEvaluations'),
@@ -205,29 +163,71 @@ module Amazonka.MachineLearning
     DescribeEvaluationsResponse (DescribeEvaluationsResponse'),
     newDescribeEvaluationsResponse,
 
-    -- ** CreateRealtimeEndpoint
-    CreateRealtimeEndpoint (CreateRealtimeEndpoint'),
-    newCreateRealtimeEndpoint,
-    CreateRealtimeEndpointResponse (CreateRealtimeEndpointResponse'),
-    newCreateRealtimeEndpointResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
     -- ** DescribeMLModels (Paginated)
     DescribeMLModels (DescribeMLModels'),
     newDescribeMLModels,
     DescribeMLModelsResponse (DescribeMLModelsResponse'),
     newDescribeMLModelsResponse,
 
-    -- ** DescribeDataSources (Paginated)
-    DescribeDataSources (DescribeDataSources'),
-    newDescribeDataSources,
-    DescribeDataSourcesResponse (DescribeDataSourcesResponse'),
-    newDescribeDataSourcesResponse,
+    -- ** DescribeTags
+    DescribeTags (DescribeTags'),
+    newDescribeTags,
+    DescribeTagsResponse (DescribeTagsResponse'),
+    newDescribeTagsResponse,
+
+    -- ** GetBatchPrediction
+    GetBatchPrediction (GetBatchPrediction'),
+    newGetBatchPrediction,
+    GetBatchPredictionResponse (GetBatchPredictionResponse'),
+    newGetBatchPredictionResponse,
+
+    -- ** GetDataSource
+    GetDataSource (GetDataSource'),
+    newGetDataSource,
+    GetDataSourceResponse (GetDataSourceResponse'),
+    newGetDataSourceResponse,
+
+    -- ** GetEvaluation
+    GetEvaluation (GetEvaluation'),
+    newGetEvaluation,
+    GetEvaluationResponse (GetEvaluationResponse'),
+    newGetEvaluationResponse,
+
+    -- ** GetMLModel
+    GetMLModel (GetMLModel'),
+    newGetMLModel,
+    GetMLModelResponse (GetMLModelResponse'),
+    newGetMLModelResponse,
+
+    -- ** Predict
+    Predict (Predict'),
+    newPredict,
+    PredictResponse (PredictResponse'),
+    newPredictResponse,
+
+    -- ** UpdateBatchPrediction
+    UpdateBatchPrediction (UpdateBatchPrediction'),
+    newUpdateBatchPrediction,
+    UpdateBatchPredictionResponse (UpdateBatchPredictionResponse'),
+    newUpdateBatchPredictionResponse,
+
+    -- ** UpdateDataSource
+    UpdateDataSource (UpdateDataSource'),
+    newUpdateDataSource,
+    UpdateDataSourceResponse (UpdateDataSourceResponse'),
+    newUpdateDataSourceResponse,
+
+    -- ** UpdateEvaluation
+    UpdateEvaluation (UpdateEvaluation'),
+    newUpdateEvaluation,
+    UpdateEvaluationResponse (UpdateEvaluationResponse'),
+    newUpdateEvaluationResponse,
+
+    -- ** UpdateMLModel
+    UpdateMLModel (UpdateMLModel'),
+    newUpdateMLModel,
+    UpdateMLModelResponse (UpdateMLModelResponse'),
+    newUpdateMLModelResponse,
 
     -- * Types
 

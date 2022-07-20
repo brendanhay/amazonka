@@ -30,10 +30,10 @@ module Amazonka.Lambda.ListEventSourceMappings
     newListEventSourceMappings,
 
     -- * Request Lenses
-    listEventSourceMappings_eventSourceArn,
     listEventSourceMappings_marker,
-    listEventSourceMappings_maxItems,
     listEventSourceMappings_functionName,
+    listEventSourceMappings_maxItems,
+    listEventSourceMappings_eventSourceArn,
 
     -- * Destructuring the Response
     ListEventSourceMappingsResponse (..),
@@ -55,24 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventSourceMappings' smart constructor.
 data ListEventSourceMappings = ListEventSourceMappings'
-  { -- | The Amazon Resource Name (ARN) of the event source.
-    --
-    -- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
-    --     consumer.
-    --
-    -- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
-    --
-    -- -   __Amazon Simple Queue Service__ - The ARN of the queue.
-    --
-    -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
-    --     cluster.
-    eventSourceArn :: Prelude.Maybe Prelude.Text,
-    -- | A pagination token returned by a previous call.
+  { -- | A pagination token returned by a previous call.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of event source mappings to return. Note that
-    -- ListEventSourceMappings returns a maximum of 100 items in each response,
-    -- even if you set the number higher.
-    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -89,7 +73,23 @@ data ListEventSourceMappings = ListEventSourceMappings'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it\'s limited to 64 characters in length.
-    functionName :: Prelude.Maybe Prelude.Text
+    functionName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of event source mappings to return. Note that
+    -- ListEventSourceMappings returns a maximum of 100 items in each response,
+    -- even if you set the number higher.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the event source.
+    --
+    -- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
+    --     consumer.
+    --
+    -- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
+    --
+    -- -   __Amazon Simple Queue Service__ - The ARN of the queue.
+    --
+    -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
+    --     cluster.
+    eventSourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,23 +101,7 @@ data ListEventSourceMappings = ListEventSourceMappings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventSourceArn', 'listEventSourceMappings_eventSourceArn' - The Amazon Resource Name (ARN) of the event source.
---
--- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
---     consumer.
---
--- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
---
--- -   __Amazon Simple Queue Service__ - The ARN of the queue.
---
--- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
---     cluster.
---
 -- 'marker', 'listEventSourceMappings_marker' - A pagination token returned by a previous call.
---
--- 'maxItems', 'listEventSourceMappings_maxItems' - The maximum number of event source mappings to return. Note that
--- ListEventSourceMappings returns a maximum of 100 items in each response,
--- even if you set the number higher.
 --
 -- 'functionName', 'listEventSourceMappings_functionName' - The name of the Lambda function.
 --
@@ -135,18 +119,12 @@ data ListEventSourceMappings = ListEventSourceMappings'
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it\'s limited to 64 characters in length.
-newListEventSourceMappings ::
-  ListEventSourceMappings
-newListEventSourceMappings =
-  ListEventSourceMappings'
-    { eventSourceArn =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      functionName = Prelude.Nothing
-    }
-
--- | The Amazon Resource Name (ARN) of the event source.
+--
+-- 'maxItems', 'listEventSourceMappings_maxItems' - The maximum number of event source mappings to return. Note that
+-- ListEventSourceMappings returns a maximum of 100 items in each response,
+-- even if you set the number higher.
+--
+-- 'eventSourceArn', 'listEventSourceMappings_eventSourceArn' - The Amazon Resource Name (ARN) of the event source.
 --
 -- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
 --     consumer.
@@ -157,18 +135,19 @@ newListEventSourceMappings =
 --
 -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
 --     cluster.
-listEventSourceMappings_eventSourceArn :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
-listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {eventSourceArn} -> eventSourceArn) (\s@ListEventSourceMappings' {} a -> s {eventSourceArn = a} :: ListEventSourceMappings)
+newListEventSourceMappings ::
+  ListEventSourceMappings
+newListEventSourceMappings =
+  ListEventSourceMappings'
+    { marker = Prelude.Nothing,
+      functionName = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      eventSourceArn = Prelude.Nothing
+    }
 
 -- | A pagination token returned by a previous call.
 listEventSourceMappings_marker :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_marker = Lens.lens (\ListEventSourceMappings' {marker} -> marker) (\s@ListEventSourceMappings' {} a -> s {marker = a} :: ListEventSourceMappings)
-
--- | The maximum number of event source mappings to return. Note that
--- ListEventSourceMappings returns a maximum of 100 items in each response,
--- even if you set the number higher.
-listEventSourceMappings_maxItems :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Natural)
-listEventSourceMappings_maxItems = Lens.lens (\ListEventSourceMappings' {maxItems} -> maxItems) (\s@ListEventSourceMappings' {} a -> s {maxItems = a} :: ListEventSourceMappings)
 
 -- | The name of the Lambda function.
 --
@@ -188,6 +167,26 @@ listEventSourceMappings_maxItems = Lens.lens (\ListEventSourceMappings' {maxItem
 -- the function name, it\'s limited to 64 characters in length.
 listEventSourceMappings_functionName :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
 listEventSourceMappings_functionName = Lens.lens (\ListEventSourceMappings' {functionName} -> functionName) (\s@ListEventSourceMappings' {} a -> s {functionName = a} :: ListEventSourceMappings)
+
+-- | The maximum number of event source mappings to return. Note that
+-- ListEventSourceMappings returns a maximum of 100 items in each response,
+-- even if you set the number higher.
+listEventSourceMappings_maxItems :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Natural)
+listEventSourceMappings_maxItems = Lens.lens (\ListEventSourceMappings' {maxItems} -> maxItems) (\s@ListEventSourceMappings' {} a -> s {maxItems = a} :: ListEventSourceMappings)
+
+-- | The Amazon Resource Name (ARN) of the event source.
+--
+-- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
+--     consumer.
+--
+-- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
+--
+-- -   __Amazon Simple Queue Service__ - The ARN of the queue.
+--
+-- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
+--     cluster.
+listEventSourceMappings_eventSourceArn :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
+listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {eventSourceArn} -> eventSourceArn) (\s@ListEventSourceMappings' {} a -> s {eventSourceArn = a} :: ListEventSourceMappings)
 
 instance Core.AWSPager ListEventSourceMappings where
   page rq rs
@@ -229,17 +228,17 @@ instance Core.AWSRequest ListEventSourceMappings where
 
 instance Prelude.Hashable ListEventSourceMappings where
   hashWithSalt _salt ListEventSourceMappings' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceArn
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` maxItems
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` functionName
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` eventSourceArn
 
 instance Prelude.NFData ListEventSourceMappings where
   rnf ListEventSourceMappings' {..} =
-    Prelude.rnf eventSourceArn
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf functionName
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf eventSourceArn
 
 instance Core.ToHeaders ListEventSourceMappings where
   toHeaders = Prelude.const Prelude.mempty
@@ -251,10 +250,10 @@ instance Core.ToPath ListEventSourceMappings where
 instance Core.ToQuery ListEventSourceMappings where
   toQuery ListEventSourceMappings' {..} =
     Prelude.mconcat
-      [ "EventSourceArn" Core.=: eventSourceArn,
-        "Marker" Core.=: marker,
+      [ "Marker" Core.=: marker,
+        "FunctionName" Core.=: functionName,
         "MaxItems" Core.=: maxItems,
-        "FunctionName" Core.=: functionName
+        "EventSourceArn" Core.=: eventSourceArn
       ]
 
 -- | /See:/ 'newListEventSourceMappingsResponse' smart constructor.

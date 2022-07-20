@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newLaunchConfiguration' smart constructor.
 data LaunchConfiguration = LaunchConfiguration'
-  { -- | Configure EC2 lauch configuration template ID.
-    ec2LaunchTemplateID :: Prelude.Maybe Prelude.Text,
+  { -- | Configure launch configuration name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Configure launch configuration Target instance type right sizing method.
     targetInstanceTypeRightSizingMethod :: Prelude.Maybe TargetInstanceTypeRightSizingMethod,
-    -- | Configure launch dispostion for launch configuration.
-    launchDisposition :: Prelude.Maybe LaunchDisposition,
     -- | Copy Tags during Launch Configuration.
     copyTags :: Prelude.Maybe Prelude.Bool,
-    -- | Configure launch configuration name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | Configure launch dispostion for launch configuration.
+    launchDisposition :: Prelude.Maybe LaunchDisposition,
+    -- | Configure EC2 lauch configuration template ID.
+    ec2LaunchTemplateID :: Prelude.Maybe Prelude.Text,
     -- | Configure launch configuration Source Server ID.
     sourceServerID :: Prelude.Maybe Prelude.Text,
     -- | Configure launch configuration OS licensing.
@@ -55,15 +55,15 @@ data LaunchConfiguration = LaunchConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ec2LaunchTemplateID', 'launchConfiguration_ec2LaunchTemplateID' - Configure EC2 lauch configuration template ID.
+-- 'name', 'launchConfiguration_name' - Configure launch configuration name.
 --
 -- 'targetInstanceTypeRightSizingMethod', 'launchConfiguration_targetInstanceTypeRightSizingMethod' - Configure launch configuration Target instance type right sizing method.
 --
--- 'launchDisposition', 'launchConfiguration_launchDisposition' - Configure launch dispostion for launch configuration.
---
 -- 'copyTags', 'launchConfiguration_copyTags' - Copy Tags during Launch Configuration.
 --
--- 'name', 'launchConfiguration_name' - Configure launch configuration name.
+-- 'launchDisposition', 'launchConfiguration_launchDisposition' - Configure launch dispostion for launch configuration.
+--
+-- 'ec2LaunchTemplateID', 'launchConfiguration_ec2LaunchTemplateID' - Configure EC2 lauch configuration template ID.
 --
 -- 'sourceServerID', 'launchConfiguration_sourceServerID' - Configure launch configuration Source Server ID.
 --
@@ -74,37 +74,36 @@ newLaunchConfiguration ::
   LaunchConfiguration
 newLaunchConfiguration =
   LaunchConfiguration'
-    { ec2LaunchTemplateID =
-        Prelude.Nothing,
+    { name = Prelude.Nothing,
       targetInstanceTypeRightSizingMethod =
         Prelude.Nothing,
-      launchDisposition = Prelude.Nothing,
       copyTags = Prelude.Nothing,
-      name = Prelude.Nothing,
+      launchDisposition = Prelude.Nothing,
+      ec2LaunchTemplateID = Prelude.Nothing,
       sourceServerID = Prelude.Nothing,
       licensing = Prelude.Nothing,
       copyPrivateIp = Prelude.Nothing
     }
 
--- | Configure EC2 lauch configuration template ID.
-launchConfiguration_ec2LaunchTemplateID :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
-launchConfiguration_ec2LaunchTemplateID = Lens.lens (\LaunchConfiguration' {ec2LaunchTemplateID} -> ec2LaunchTemplateID) (\s@LaunchConfiguration' {} a -> s {ec2LaunchTemplateID = a} :: LaunchConfiguration)
+-- | Configure launch configuration name.
+launchConfiguration_name :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
+launchConfiguration_name = Lens.lens (\LaunchConfiguration' {name} -> name) (\s@LaunchConfiguration' {} a -> s {name = a} :: LaunchConfiguration)
 
 -- | Configure launch configuration Target instance type right sizing method.
 launchConfiguration_targetInstanceTypeRightSizingMethod :: Lens.Lens' LaunchConfiguration (Prelude.Maybe TargetInstanceTypeRightSizingMethod)
 launchConfiguration_targetInstanceTypeRightSizingMethod = Lens.lens (\LaunchConfiguration' {targetInstanceTypeRightSizingMethod} -> targetInstanceTypeRightSizingMethod) (\s@LaunchConfiguration' {} a -> s {targetInstanceTypeRightSizingMethod = a} :: LaunchConfiguration)
 
--- | Configure launch dispostion for launch configuration.
-launchConfiguration_launchDisposition :: Lens.Lens' LaunchConfiguration (Prelude.Maybe LaunchDisposition)
-launchConfiguration_launchDisposition = Lens.lens (\LaunchConfiguration' {launchDisposition} -> launchDisposition) (\s@LaunchConfiguration' {} a -> s {launchDisposition = a} :: LaunchConfiguration)
-
 -- | Copy Tags during Launch Configuration.
 launchConfiguration_copyTags :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Bool)
 launchConfiguration_copyTags = Lens.lens (\LaunchConfiguration' {copyTags} -> copyTags) (\s@LaunchConfiguration' {} a -> s {copyTags = a} :: LaunchConfiguration)
 
--- | Configure launch configuration name.
-launchConfiguration_name :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
-launchConfiguration_name = Lens.lens (\LaunchConfiguration' {name} -> name) (\s@LaunchConfiguration' {} a -> s {name = a} :: LaunchConfiguration)
+-- | Configure launch dispostion for launch configuration.
+launchConfiguration_launchDisposition :: Lens.Lens' LaunchConfiguration (Prelude.Maybe LaunchDisposition)
+launchConfiguration_launchDisposition = Lens.lens (\LaunchConfiguration' {launchDisposition} -> launchDisposition) (\s@LaunchConfiguration' {} a -> s {launchDisposition = a} :: LaunchConfiguration)
+
+-- | Configure EC2 lauch configuration template ID.
+launchConfiguration_ec2LaunchTemplateID :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
+launchConfiguration_ec2LaunchTemplateID = Lens.lens (\LaunchConfiguration' {ec2LaunchTemplateID} -> ec2LaunchTemplateID) (\s@LaunchConfiguration' {} a -> s {ec2LaunchTemplateID = a} :: LaunchConfiguration)
 
 -- | Configure launch configuration Source Server ID.
 launchConfiguration_sourceServerID :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
@@ -124,11 +123,11 @@ instance Core.FromJSON LaunchConfiguration where
       "LaunchConfiguration"
       ( \x ->
           LaunchConfiguration'
-            Prelude.<$> (x Core..:? "ec2LaunchTemplateID")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "targetInstanceTypeRightSizingMethod")
-            Prelude.<*> (x Core..:? "launchDisposition")
             Prelude.<*> (x Core..:? "copyTags")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "launchDisposition")
+            Prelude.<*> (x Core..:? "ec2LaunchTemplateID")
             Prelude.<*> (x Core..:? "sourceServerID")
             Prelude.<*> (x Core..:? "licensing")
             Prelude.<*> (x Core..:? "copyPrivateIp")
@@ -136,22 +135,22 @@ instance Core.FromJSON LaunchConfiguration where
 
 instance Prelude.Hashable LaunchConfiguration where
   hashWithSalt _salt LaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ec2LaunchTemplateID
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetInstanceTypeRightSizingMethod
-      `Prelude.hashWithSalt` launchDisposition
       `Prelude.hashWithSalt` copyTags
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` launchDisposition
+      `Prelude.hashWithSalt` ec2LaunchTemplateID
       `Prelude.hashWithSalt` sourceServerID
       `Prelude.hashWithSalt` licensing
       `Prelude.hashWithSalt` copyPrivateIp
 
 instance Prelude.NFData LaunchConfiguration where
   rnf LaunchConfiguration' {..} =
-    Prelude.rnf ec2LaunchTemplateID
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf targetInstanceTypeRightSizingMethod
-      `Prelude.seq` Prelude.rnf launchDisposition
       `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf launchDisposition
+      `Prelude.seq` Prelude.rnf ec2LaunchTemplateID
       `Prelude.seq` Prelude.rnf sourceServerID
       `Prelude.seq` Prelude.rnf licensing
       `Prelude.seq` Prelude.rnf copyPrivateIp

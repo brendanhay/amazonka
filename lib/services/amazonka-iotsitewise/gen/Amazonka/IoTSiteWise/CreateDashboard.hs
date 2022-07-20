@@ -27,9 +27,9 @@ module Amazonka.IoTSiteWise.CreateDashboard
     newCreateDashboard,
 
     -- * Request Lenses
-    createDashboard_clientToken,
-    createDashboard_dashboardDescription,
     createDashboard_tags,
+    createDashboard_dashboardDescription,
+    createDashboard_clientToken,
     createDashboard_projectId,
     createDashboard_dashboardName,
     createDashboard_dashboardDefinition,
@@ -54,17 +54,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDashboard' smart constructor.
 data CreateDashboard = CreateDashboard'
-  { -- | A unique case-sensitive identifier that you can provide to ensure the
-    -- idempotency of the request. Don\'t reuse this client token if a new
-    -- idempotent request is required.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the dashboard.
-    dashboardDescription :: Prelude.Maybe Prelude.Text,
-    -- | A list of key-value pairs that contain metadata for the dashboard. For
+  { -- | A list of key-value pairs that contain metadata for the dashboard. For
     -- more information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
     -- in the /IoT SiteWise User Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description for the dashboard.
+    dashboardDescription :: Prelude.Maybe Prelude.Text,
+    -- | A unique case-sensitive identifier that you can provide to ensure the
+    -- idempotency of the request. Don\'t reuse this client token if a new
+    -- idempotent request is required.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the project in which to create the dashboard.
     projectId :: Prelude.Text,
     -- | A friendly name for the dashboard.
@@ -85,16 +85,16 @@ data CreateDashboard = CreateDashboard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createDashboard_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
---
--- 'dashboardDescription', 'createDashboard_dashboardDescription' - A description for the dashboard.
---
 -- 'tags', 'createDashboard_tags' - A list of key-value pairs that contain metadata for the dashboard. For
 -- more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html Tagging your IoT SiteWise resources>
 -- in the /IoT SiteWise User Guide/.
+--
+-- 'dashboardDescription', 'createDashboard_dashboardDescription' - A description for the dashboard.
+--
+-- 'clientToken', 'createDashboard_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
 --
 -- 'projectId', 'createDashboard_projectId' - The ID of the project in which to create the dashboard.
 --
@@ -117,23 +117,13 @@ newCreateDashboard
   pDashboardName_
   pDashboardDefinition_ =
     CreateDashboard'
-      { clientToken = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         dashboardDescription = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         projectId = pProjectId_,
         dashboardName = pDashboardName_,
         dashboardDefinition = pDashboardDefinition_
       }
-
--- | A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
-createDashboard_clientToken :: Lens.Lens' CreateDashboard (Prelude.Maybe Prelude.Text)
-createDashboard_clientToken = Lens.lens (\CreateDashboard' {clientToken} -> clientToken) (\s@CreateDashboard' {} a -> s {clientToken = a} :: CreateDashboard)
-
--- | A description for the dashboard.
-createDashboard_dashboardDescription :: Lens.Lens' CreateDashboard (Prelude.Maybe Prelude.Text)
-createDashboard_dashboardDescription = Lens.lens (\CreateDashboard' {dashboardDescription} -> dashboardDescription) (\s@CreateDashboard' {} a -> s {dashboardDescription = a} :: CreateDashboard)
 
 -- | A list of key-value pairs that contain metadata for the dashboard. For
 -- more information, see
@@ -141,6 +131,16 @@ createDashboard_dashboardDescription = Lens.lens (\CreateDashboard' {dashboardDe
 -- in the /IoT SiteWise User Guide/.
 createDashboard_tags :: Lens.Lens' CreateDashboard (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createDashboard_tags = Lens.lens (\CreateDashboard' {tags} -> tags) (\s@CreateDashboard' {} a -> s {tags = a} :: CreateDashboard) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description for the dashboard.
+createDashboard_dashboardDescription :: Lens.Lens' CreateDashboard (Prelude.Maybe Prelude.Text)
+createDashboard_dashboardDescription = Lens.lens (\CreateDashboard' {dashboardDescription} -> dashboardDescription) (\s@CreateDashboard' {} a -> s {dashboardDescription = a} :: CreateDashboard)
+
+-- | A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+createDashboard_clientToken :: Lens.Lens' CreateDashboard (Prelude.Maybe Prelude.Text)
+createDashboard_clientToken = Lens.lens (\CreateDashboard' {clientToken} -> clientToken) (\s@CreateDashboard' {} a -> s {clientToken = a} :: CreateDashboard)
 
 -- | The ID of the project in which to create the dashboard.
 createDashboard_projectId :: Lens.Lens' CreateDashboard Prelude.Text
@@ -173,18 +173,18 @@ instance Core.AWSRequest CreateDashboard where
 
 instance Prelude.Hashable CreateDashboard where
   hashWithSalt _salt CreateDashboard' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dashboardDescription
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` projectId
       `Prelude.hashWithSalt` dashboardName
       `Prelude.hashWithSalt` dashboardDefinition
 
 instance Prelude.NFData CreateDashboard where
   rnf CreateDashboard' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dashboardDescription
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf projectId
       `Prelude.seq` Prelude.rnf dashboardName
       `Prelude.seq` Prelude.rnf dashboardDefinition
@@ -204,10 +204,10 @@ instance Core.ToJSON CreateDashboard where
   toJSON CreateDashboard' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("dashboardDescription" Core..=)
               Prelude.<$> dashboardDescription,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("projectId" Core..= projectId),
             Prelude.Just ("dashboardName" Core..= dashboardName),
             Prelude.Just

@@ -31,8 +31,8 @@ module Amazonka.IoT.CreateRoleAlias
     newCreateRoleAlias,
 
     -- * Request Lenses
-    createRoleAlias_credentialDurationSeconds,
     createRoleAlias_tags,
+    createRoleAlias_credentialDurationSeconds,
     createRoleAlias_roleAlias,
     createRoleAlias_roleArn,
 
@@ -41,8 +41,8 @@ module Amazonka.IoT.CreateRoleAlias
     newCreateRoleAliasResponse,
 
     -- * Response Lenses
-    createRoleAliasResponse_roleAliasArn,
     createRoleAliasResponse_roleAlias,
+    createRoleAliasResponse_roleAliasArn,
     createRoleAliasResponse_httpStatus,
   )
 where
@@ -56,10 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRoleAlias' smart constructor.
 data CreateRoleAlias = CreateRoleAlias'
-  { -- | How long (in seconds) the credentials will be valid. The default value
-    -- is 3,600 seconds.
-    credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | Metadata which can be used to manage the role alias.
+  { -- | Metadata which can be used to manage the role alias.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
     --
@@ -69,6 +66,9 @@ data CreateRoleAlias = CreateRoleAlias'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
+    -- | How long (in seconds) the credentials will be valid. The default value
+    -- is 3,600 seconds.
+    credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The role alias that points to a role ARN. This allows you to change the
     -- role without having to update the device.
     roleAlias :: Prelude.Text,
@@ -85,9 +85,6 @@ data CreateRoleAlias = CreateRoleAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'credentialDurationSeconds', 'createRoleAlias_credentialDurationSeconds' - How long (in seconds) the credentials will be valid. The default value
--- is 3,600 seconds.
---
 -- 'tags', 'createRoleAlias_tags' - Metadata which can be used to manage the role alias.
 --
 -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -97,6 +94,9 @@ data CreateRoleAlias = CreateRoleAlias'
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
+--
+-- 'credentialDurationSeconds', 'createRoleAlias_credentialDurationSeconds' - How long (in seconds) the credentials will be valid. The default value
+-- is 3,600 seconds.
 --
 -- 'roleAlias', 'createRoleAlias_roleAlias' - The role alias that points to a role ARN. This allows you to change the
 -- role without having to update the device.
@@ -110,17 +110,11 @@ newCreateRoleAlias ::
   CreateRoleAlias
 newCreateRoleAlias pRoleAlias_ pRoleArn_ =
   CreateRoleAlias'
-    { credentialDurationSeconds =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      credentialDurationSeconds = Prelude.Nothing,
       roleAlias = pRoleAlias_,
       roleArn = pRoleArn_
     }
-
--- | How long (in seconds) the credentials will be valid. The default value
--- is 3,600 seconds.
-createRoleAlias_credentialDurationSeconds :: Lens.Lens' CreateRoleAlias (Prelude.Maybe Prelude.Natural)
-createRoleAlias_credentialDurationSeconds = Lens.lens (\CreateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@CreateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: CreateRoleAlias)
 
 -- | Metadata which can be used to manage the role alias.
 --
@@ -133,6 +127,11 @@ createRoleAlias_credentialDurationSeconds = Lens.lens (\CreateRoleAlias' {creden
 -- \"key1=value1&key2=value2...\"
 createRoleAlias_tags :: Lens.Lens' CreateRoleAlias (Prelude.Maybe [Tag])
 createRoleAlias_tags = Lens.lens (\CreateRoleAlias' {tags} -> tags) (\s@CreateRoleAlias' {} a -> s {tags = a} :: CreateRoleAlias) Prelude.. Lens.mapping Lens.coerced
+
+-- | How long (in seconds) the credentials will be valid. The default value
+-- is 3,600 seconds.
+createRoleAlias_credentialDurationSeconds :: Lens.Lens' CreateRoleAlias (Prelude.Maybe Prelude.Natural)
+createRoleAlias_credentialDurationSeconds = Lens.lens (\CreateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@CreateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: CreateRoleAlias)
 
 -- | The role alias that points to a role ARN. This allows you to change the
 -- role without having to update the device.
@@ -152,23 +151,22 @@ instance Core.AWSRequest CreateRoleAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateRoleAliasResponse'
-            Prelude.<$> (x Core..?> "roleAliasArn")
-            Prelude.<*> (x Core..?> "roleAlias")
+            Prelude.<$> (x Core..?> "roleAlias")
+            Prelude.<*> (x Core..?> "roleAliasArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateRoleAlias where
   hashWithSalt _salt CreateRoleAlias' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` credentialDurationSeconds
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` roleAlias
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CreateRoleAlias where
   rnf CreateRoleAlias' {..} =
-    Prelude.rnf credentialDurationSeconds
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf credentialDurationSeconds
       `Prelude.seq` Prelude.rnf roleAlias
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -179,9 +177,9 @@ instance Core.ToJSON CreateRoleAlias where
   toJSON CreateRoleAlias' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("credentialDurationSeconds" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("credentialDurationSeconds" Core..=)
               Prelude.<$> credentialDurationSeconds,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )
@@ -196,10 +194,10 @@ instance Core.ToQuery CreateRoleAlias where
 
 -- | /See:/ 'newCreateRoleAliasResponse' smart constructor.
 data CreateRoleAliasResponse = CreateRoleAliasResponse'
-  { -- | The role alias ARN.
-    roleAliasArn :: Prelude.Maybe Prelude.Text,
-    -- | The role alias.
+  { -- | The role alias.
     roleAlias :: Prelude.Maybe Prelude.Text,
+    -- | The role alias ARN.
+    roleAliasArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,9 +211,9 @@ data CreateRoleAliasResponse = CreateRoleAliasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleAliasArn', 'createRoleAliasResponse_roleAliasArn' - The role alias ARN.
---
 -- 'roleAlias', 'createRoleAliasResponse_roleAlias' - The role alias.
+--
+-- 'roleAliasArn', 'createRoleAliasResponse_roleAliasArn' - The role alias ARN.
 --
 -- 'httpStatus', 'createRoleAliasResponse_httpStatus' - The response's http status code.
 newCreateRoleAliasResponse ::
@@ -224,19 +222,19 @@ newCreateRoleAliasResponse ::
   CreateRoleAliasResponse
 newCreateRoleAliasResponse pHttpStatus_ =
   CreateRoleAliasResponse'
-    { roleAliasArn =
+    { roleAlias =
         Prelude.Nothing,
-      roleAlias = Prelude.Nothing,
+      roleAliasArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The role alias ARN.
-createRoleAliasResponse_roleAliasArn :: Lens.Lens' CreateRoleAliasResponse (Prelude.Maybe Prelude.Text)
-createRoleAliasResponse_roleAliasArn = Lens.lens (\CreateRoleAliasResponse' {roleAliasArn} -> roleAliasArn) (\s@CreateRoleAliasResponse' {} a -> s {roleAliasArn = a} :: CreateRoleAliasResponse)
 
 -- | The role alias.
 createRoleAliasResponse_roleAlias :: Lens.Lens' CreateRoleAliasResponse (Prelude.Maybe Prelude.Text)
 createRoleAliasResponse_roleAlias = Lens.lens (\CreateRoleAliasResponse' {roleAlias} -> roleAlias) (\s@CreateRoleAliasResponse' {} a -> s {roleAlias = a} :: CreateRoleAliasResponse)
+
+-- | The role alias ARN.
+createRoleAliasResponse_roleAliasArn :: Lens.Lens' CreateRoleAliasResponse (Prelude.Maybe Prelude.Text)
+createRoleAliasResponse_roleAliasArn = Lens.lens (\CreateRoleAliasResponse' {roleAliasArn} -> roleAliasArn) (\s@CreateRoleAliasResponse' {} a -> s {roleAliasArn = a} :: CreateRoleAliasResponse)
 
 -- | The response's http status code.
 createRoleAliasResponse_httpStatus :: Lens.Lens' CreateRoleAliasResponse Prelude.Int
@@ -244,6 +242,6 @@ createRoleAliasResponse_httpStatus = Lens.lens (\CreateRoleAliasResponse' {httpS
 
 instance Prelude.NFData CreateRoleAliasResponse where
   rnf CreateRoleAliasResponse' {..} =
-    Prelude.rnf roleAliasArn
-      `Prelude.seq` Prelude.rnf roleAlias
+    Prelude.rnf roleAlias
+      `Prelude.seq` Prelude.rnf roleAliasArn
       `Prelude.seq` Prelude.rnf httpStatus

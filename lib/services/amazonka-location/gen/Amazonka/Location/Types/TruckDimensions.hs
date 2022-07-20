@@ -35,14 +35,14 @@ data TruckDimensions = TruckDimensions'
     --
     -- -   For example, @15.5@.
     length :: Prelude.Maybe Prelude.Double,
-    -- | The height of the truck.
-    --
-    -- -   For example, @4.5@.
-    height :: Prelude.Maybe Prelude.Double,
     -- | The width of the truck.
     --
     -- -   For example, @4.5@.
     width :: Prelude.Maybe Prelude.Double,
+    -- | The height of the truck.
+    --
+    -- -   For example, @4.5@.
+    height :: Prelude.Maybe Prelude.Double,
     -- | Specifies the unit of measurement for the truck dimensions.
     --
     -- Default Value: @Meters@
@@ -62,11 +62,11 @@ data TruckDimensions = TruckDimensions'
 --
 -- -   For example, @15.5@.
 --
--- 'height', 'truckDimensions_height' - The height of the truck.
+-- 'width', 'truckDimensions_width' - The width of the truck.
 --
 -- -   For example, @4.5@.
 --
--- 'width', 'truckDimensions_width' - The width of the truck.
+-- 'height', 'truckDimensions_height' - The height of the truck.
 --
 -- -   For example, @4.5@.
 --
@@ -78,8 +78,8 @@ newTruckDimensions ::
 newTruckDimensions =
   TruckDimensions'
     { length = Prelude.Nothing,
-      height = Prelude.Nothing,
       width = Prelude.Nothing,
+      height = Prelude.Nothing,
       unit = Prelude.Nothing
     }
 
@@ -89,17 +89,17 @@ newTruckDimensions =
 truckDimensions_length :: Lens.Lens' TruckDimensions (Prelude.Maybe Prelude.Double)
 truckDimensions_length = Lens.lens (\TruckDimensions' {length} -> length) (\s@TruckDimensions' {} a -> s {length = a} :: TruckDimensions)
 
--- | The height of the truck.
---
--- -   For example, @4.5@.
-truckDimensions_height :: Lens.Lens' TruckDimensions (Prelude.Maybe Prelude.Double)
-truckDimensions_height = Lens.lens (\TruckDimensions' {height} -> height) (\s@TruckDimensions' {} a -> s {height = a} :: TruckDimensions)
-
 -- | The width of the truck.
 --
 -- -   For example, @4.5@.
 truckDimensions_width :: Lens.Lens' TruckDimensions (Prelude.Maybe Prelude.Double)
 truckDimensions_width = Lens.lens (\TruckDimensions' {width} -> width) (\s@TruckDimensions' {} a -> s {width = a} :: TruckDimensions)
+
+-- | The height of the truck.
+--
+-- -   For example, @4.5@.
+truckDimensions_height :: Lens.Lens' TruckDimensions (Prelude.Maybe Prelude.Double)
+truckDimensions_height = Lens.lens (\TruckDimensions' {height} -> height) (\s@TruckDimensions' {} a -> s {height = a} :: TruckDimensions)
 
 -- | Specifies the unit of measurement for the truck dimensions.
 --
@@ -110,15 +110,15 @@ truckDimensions_unit = Lens.lens (\TruckDimensions' {unit} -> unit) (\s@TruckDim
 instance Prelude.Hashable TruckDimensions where
   hashWithSalt _salt TruckDimensions' {..} =
     _salt `Prelude.hashWithSalt` length
-      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` width
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData TruckDimensions where
   rnf TruckDimensions' {..} =
     Prelude.rnf length
-      `Prelude.seq` Prelude.rnf height
       `Prelude.seq` Prelude.rnf width
+      `Prelude.seq` Prelude.rnf height
       `Prelude.seq` Prelude.rnf unit
 
 instance Core.ToJSON TruckDimensions where
@@ -126,8 +126,8 @@ instance Core.ToJSON TruckDimensions where
     Core.object
       ( Prelude.catMaybes
           [ ("Length" Core..=) Prelude.<$> length,
-            ("Height" Core..=) Prelude.<$> height,
             ("Width" Core..=) Prelude.<$> width,
+            ("Height" Core..=) Prelude.<$> height,
             ("Unit" Core..=) Prelude.<$> unit
           ]
       )

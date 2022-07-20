@@ -30,16 +30,16 @@ import Amazonka.Textract.Types.ExpenseType
 --
 -- /See:/ 'newExpenseField' smart constructor.
 data ExpenseField = ExpenseField'
-  { -- | The explicitly stated label of a detected element.
-    labelDetection :: Prelude.Maybe ExpenseDetection,
-    -- | The value of a detected element. Present in explicit and implicit
-    -- elements.
-    valueDetection :: Prelude.Maybe ExpenseDetection,
-    -- | The implied label of a detected element. Present alongside
+  { -- | The implied label of a detected element. Present alongside
     -- LabelDetection for explicit elements.
     type' :: Prelude.Maybe ExpenseType,
     -- | The page number the value was detected on.
-    pageNumber :: Prelude.Maybe Prelude.Natural
+    pageNumber :: Prelude.Maybe Prelude.Natural,
+    -- | The explicitly stated label of a detected element.
+    labelDetection :: Prelude.Maybe ExpenseDetection,
+    -- | The value of a detected element. Present in explicit and implicit
+    -- elements.
+    valueDetection :: Prelude.Maybe ExpenseDetection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,33 +51,24 @@ data ExpenseField = ExpenseField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'labelDetection', 'expenseField_labelDetection' - The explicitly stated label of a detected element.
---
--- 'valueDetection', 'expenseField_valueDetection' - The value of a detected element. Present in explicit and implicit
--- elements.
---
 -- 'type'', 'expenseField_type' - The implied label of a detected element. Present alongside
 -- LabelDetection for explicit elements.
 --
 -- 'pageNumber', 'expenseField_pageNumber' - The page number the value was detected on.
+--
+-- 'labelDetection', 'expenseField_labelDetection' - The explicitly stated label of a detected element.
+--
+-- 'valueDetection', 'expenseField_valueDetection' - The value of a detected element. Present in explicit and implicit
+-- elements.
 newExpenseField ::
   ExpenseField
 newExpenseField =
   ExpenseField'
-    { labelDetection = Prelude.Nothing,
-      valueDetection = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      pageNumber = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      pageNumber = Prelude.Nothing,
+      labelDetection = Prelude.Nothing,
+      valueDetection = Prelude.Nothing
     }
-
--- | The explicitly stated label of a detected element.
-expenseField_labelDetection :: Lens.Lens' ExpenseField (Prelude.Maybe ExpenseDetection)
-expenseField_labelDetection = Lens.lens (\ExpenseField' {labelDetection} -> labelDetection) (\s@ExpenseField' {} a -> s {labelDetection = a} :: ExpenseField)
-
--- | The value of a detected element. Present in explicit and implicit
--- elements.
-expenseField_valueDetection :: Lens.Lens' ExpenseField (Prelude.Maybe ExpenseDetection)
-expenseField_valueDetection = Lens.lens (\ExpenseField' {valueDetection} -> valueDetection) (\s@ExpenseField' {} a -> s {valueDetection = a} :: ExpenseField)
 
 -- | The implied label of a detected element. Present alongside
 -- LabelDetection for explicit elements.
@@ -88,28 +79,37 @@ expenseField_type = Lens.lens (\ExpenseField' {type'} -> type') (\s@ExpenseField
 expenseField_pageNumber :: Lens.Lens' ExpenseField (Prelude.Maybe Prelude.Natural)
 expenseField_pageNumber = Lens.lens (\ExpenseField' {pageNumber} -> pageNumber) (\s@ExpenseField' {} a -> s {pageNumber = a} :: ExpenseField)
 
+-- | The explicitly stated label of a detected element.
+expenseField_labelDetection :: Lens.Lens' ExpenseField (Prelude.Maybe ExpenseDetection)
+expenseField_labelDetection = Lens.lens (\ExpenseField' {labelDetection} -> labelDetection) (\s@ExpenseField' {} a -> s {labelDetection = a} :: ExpenseField)
+
+-- | The value of a detected element. Present in explicit and implicit
+-- elements.
+expenseField_valueDetection :: Lens.Lens' ExpenseField (Prelude.Maybe ExpenseDetection)
+expenseField_valueDetection = Lens.lens (\ExpenseField' {valueDetection} -> valueDetection) (\s@ExpenseField' {} a -> s {valueDetection = a} :: ExpenseField)
+
 instance Core.FromJSON ExpenseField where
   parseJSON =
     Core.withObject
       "ExpenseField"
       ( \x ->
           ExpenseField'
-            Prelude.<$> (x Core..:? "LabelDetection")
-            Prelude.<*> (x Core..:? "ValueDetection")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "PageNumber")
+            Prelude.<*> (x Core..:? "LabelDetection")
+            Prelude.<*> (x Core..:? "ValueDetection")
       )
 
 instance Prelude.Hashable ExpenseField where
   hashWithSalt _salt ExpenseField' {..} =
-    _salt `Prelude.hashWithSalt` labelDetection
-      `Prelude.hashWithSalt` valueDetection
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` pageNumber
+      `Prelude.hashWithSalt` labelDetection
+      `Prelude.hashWithSalt` valueDetection
 
 instance Prelude.NFData ExpenseField where
   rnf ExpenseField' {..} =
-    Prelude.rnf labelDetection
-      `Prelude.seq` Prelude.rnf valueDetection
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf pageNumber
+      `Prelude.seq` Prelude.rnf labelDetection
+      `Prelude.seq` Prelude.rnf valueDetection

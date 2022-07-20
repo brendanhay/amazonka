@@ -28,18 +28,18 @@ import Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect
 --
 -- /See:/ 'newMobileDeviceAccessOverride' smart constructor.
 data MobileDeviceAccessOverride = MobileDeviceAccessOverride'
-  { -- | The effect of the override, @ALLOW@ or @DENY@.
+  { -- | The device to which the override applies.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The effect of the override, @ALLOW@ or @DENY@.
     effect :: Prelude.Maybe MobileDeviceAccessRuleEffect,
+    -- | A description of the override.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The WorkMail user to which the access override applies.
     userId :: Prelude.Maybe Prelude.Text,
     -- | The date the override was first created.
     dateCreated :: Prelude.Maybe Core.POSIX,
     -- | The date the override was last modified.
-    dateModified :: Prelude.Maybe Core.POSIX,
-    -- | The device to which the override applies.
-    deviceId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the override.
-    description :: Prelude.Maybe Prelude.Text
+    dateModified :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,33 +51,41 @@ data MobileDeviceAccessOverride = MobileDeviceAccessOverride'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceId', 'mobileDeviceAccessOverride_deviceId' - The device to which the override applies.
+--
 -- 'effect', 'mobileDeviceAccessOverride_effect' - The effect of the override, @ALLOW@ or @DENY@.
+--
+-- 'description', 'mobileDeviceAccessOverride_description' - A description of the override.
 --
 -- 'userId', 'mobileDeviceAccessOverride_userId' - The WorkMail user to which the access override applies.
 --
 -- 'dateCreated', 'mobileDeviceAccessOverride_dateCreated' - The date the override was first created.
 --
 -- 'dateModified', 'mobileDeviceAccessOverride_dateModified' - The date the override was last modified.
---
--- 'deviceId', 'mobileDeviceAccessOverride_deviceId' - The device to which the override applies.
---
--- 'description', 'mobileDeviceAccessOverride_description' - A description of the override.
 newMobileDeviceAccessOverride ::
   MobileDeviceAccessOverride
 newMobileDeviceAccessOverride =
   MobileDeviceAccessOverride'
-    { effect =
+    { deviceId =
         Prelude.Nothing,
+      effect = Prelude.Nothing,
+      description = Prelude.Nothing,
       userId = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
-      dateModified = Prelude.Nothing,
-      deviceId = Prelude.Nothing,
-      description = Prelude.Nothing
+      dateModified = Prelude.Nothing
     }
+
+-- | The device to which the override applies.
+mobileDeviceAccessOverride_deviceId :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe Prelude.Text)
+mobileDeviceAccessOverride_deviceId = Lens.lens (\MobileDeviceAccessOverride' {deviceId} -> deviceId) (\s@MobileDeviceAccessOverride' {} a -> s {deviceId = a} :: MobileDeviceAccessOverride)
 
 -- | The effect of the override, @ALLOW@ or @DENY@.
 mobileDeviceAccessOverride_effect :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe MobileDeviceAccessRuleEffect)
 mobileDeviceAccessOverride_effect = Lens.lens (\MobileDeviceAccessOverride' {effect} -> effect) (\s@MobileDeviceAccessOverride' {} a -> s {effect = a} :: MobileDeviceAccessOverride)
+
+-- | A description of the override.
+mobileDeviceAccessOverride_description :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe Prelude.Text)
+mobileDeviceAccessOverride_description = Lens.lens (\MobileDeviceAccessOverride' {description} -> description) (\s@MobileDeviceAccessOverride' {} a -> s {description = a} :: MobileDeviceAccessOverride)
 
 -- | The WorkMail user to which the access override applies.
 mobileDeviceAccessOverride_userId :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe Prelude.Text)
@@ -91,42 +99,34 @@ mobileDeviceAccessOverride_dateCreated = Lens.lens (\MobileDeviceAccessOverride'
 mobileDeviceAccessOverride_dateModified :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe Prelude.UTCTime)
 mobileDeviceAccessOverride_dateModified = Lens.lens (\MobileDeviceAccessOverride' {dateModified} -> dateModified) (\s@MobileDeviceAccessOverride' {} a -> s {dateModified = a} :: MobileDeviceAccessOverride) Prelude.. Lens.mapping Core._Time
 
--- | The device to which the override applies.
-mobileDeviceAccessOverride_deviceId :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe Prelude.Text)
-mobileDeviceAccessOverride_deviceId = Lens.lens (\MobileDeviceAccessOverride' {deviceId} -> deviceId) (\s@MobileDeviceAccessOverride' {} a -> s {deviceId = a} :: MobileDeviceAccessOverride)
-
--- | A description of the override.
-mobileDeviceAccessOverride_description :: Lens.Lens' MobileDeviceAccessOverride (Prelude.Maybe Prelude.Text)
-mobileDeviceAccessOverride_description = Lens.lens (\MobileDeviceAccessOverride' {description} -> description) (\s@MobileDeviceAccessOverride' {} a -> s {description = a} :: MobileDeviceAccessOverride)
-
 instance Core.FromJSON MobileDeviceAccessOverride where
   parseJSON =
     Core.withObject
       "MobileDeviceAccessOverride"
       ( \x ->
           MobileDeviceAccessOverride'
-            Prelude.<$> (x Core..:? "Effect")
+            Prelude.<$> (x Core..:? "DeviceId")
+            Prelude.<*> (x Core..:? "Effect")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "UserId")
             Prelude.<*> (x Core..:? "DateCreated")
             Prelude.<*> (x Core..:? "DateModified")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable MobileDeviceAccessOverride where
   hashWithSalt _salt MobileDeviceAccessOverride' {..} =
-    _salt `Prelude.hashWithSalt` effect
+    _salt `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` effect
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateModified
-      `Prelude.hashWithSalt` deviceId
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData MobileDeviceAccessOverride where
   rnf MobileDeviceAccessOverride' {..} =
-    Prelude.rnf effect
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf dateCreated
       `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf description

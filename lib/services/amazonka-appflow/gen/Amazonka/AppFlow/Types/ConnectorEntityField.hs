@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectorEntityField' smart constructor.
 data ConnectorEntityField = ConnectorEntityField'
-  { -- | The properties that can be applied to a field when the connector is
-    -- being used as a source.
-    sourceProperties :: Prelude.Maybe SourceFieldProperties,
-    -- | Contains details regarding the supported @FieldType@, including the
-    -- corresponding @filterOperators@ and @supportedValues@.
-    supportedFieldTypeDetails :: Prelude.Maybe SupportedFieldTypeDetails,
+  { -- | The label applied to a connector entity field.
+    label :: Prelude.Maybe Prelude.Text,
+    -- | A description of the connector entity field.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The properties applied to a field when the connector is being used as a
     -- destination.
     destinationProperties :: Prelude.Maybe DestinationFieldProperties,
-    -- | A description of the connector entity field.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The label applied to a connector entity field.
-    label :: Prelude.Maybe Prelude.Text,
+    -- | Contains details regarding the supported @FieldType@, including the
+    -- corresponding @filterOperators@ and @supportedValues@.
+    supportedFieldTypeDetails :: Prelude.Maybe SupportedFieldTypeDetails,
+    -- | The properties that can be applied to a field when the connector is
+    -- being used as a source.
+    sourceProperties :: Prelude.Maybe SourceFieldProperties,
     -- | The unique identifier of the connector field.
     identifier :: Prelude.Text
   }
@@ -58,18 +58,18 @@ data ConnectorEntityField = ConnectorEntityField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceProperties', 'connectorEntityField_sourceProperties' - The properties that can be applied to a field when the connector is
--- being used as a source.
+-- 'label', 'connectorEntityField_label' - The label applied to a connector entity field.
 --
--- 'supportedFieldTypeDetails', 'connectorEntityField_supportedFieldTypeDetails' - Contains details regarding the supported @FieldType@, including the
--- corresponding @filterOperators@ and @supportedValues@.
+-- 'description', 'connectorEntityField_description' - A description of the connector entity field.
 --
 -- 'destinationProperties', 'connectorEntityField_destinationProperties' - The properties applied to a field when the connector is being used as a
 -- destination.
 --
--- 'description', 'connectorEntityField_description' - A description of the connector entity field.
+-- 'supportedFieldTypeDetails', 'connectorEntityField_supportedFieldTypeDetails' - Contains details regarding the supported @FieldType@, including the
+-- corresponding @filterOperators@ and @supportedValues@.
 --
--- 'label', 'connectorEntityField_label' - The label applied to a connector entity field.
+-- 'sourceProperties', 'connectorEntityField_sourceProperties' - The properties that can be applied to a field when the connector is
+-- being used as a source.
 --
 -- 'identifier', 'connectorEntityField_identifier' - The unique identifier of the connector field.
 newConnectorEntityField ::
@@ -78,37 +78,36 @@ newConnectorEntityField ::
   ConnectorEntityField
 newConnectorEntityField pIdentifier_ =
   ConnectorEntityField'
-    { sourceProperties =
-        Prelude.Nothing,
-      supportedFieldTypeDetails = Prelude.Nothing,
-      destinationProperties = Prelude.Nothing,
+    { label = Prelude.Nothing,
       description = Prelude.Nothing,
-      label = Prelude.Nothing,
+      destinationProperties = Prelude.Nothing,
+      supportedFieldTypeDetails = Prelude.Nothing,
+      sourceProperties = Prelude.Nothing,
       identifier = pIdentifier_
     }
 
--- | The properties that can be applied to a field when the connector is
--- being used as a source.
-connectorEntityField_sourceProperties :: Lens.Lens' ConnectorEntityField (Prelude.Maybe SourceFieldProperties)
-connectorEntityField_sourceProperties = Lens.lens (\ConnectorEntityField' {sourceProperties} -> sourceProperties) (\s@ConnectorEntityField' {} a -> s {sourceProperties = a} :: ConnectorEntityField)
+-- | The label applied to a connector entity field.
+connectorEntityField_label :: Lens.Lens' ConnectorEntityField (Prelude.Maybe Prelude.Text)
+connectorEntityField_label = Lens.lens (\ConnectorEntityField' {label} -> label) (\s@ConnectorEntityField' {} a -> s {label = a} :: ConnectorEntityField)
 
--- | Contains details regarding the supported @FieldType@, including the
--- corresponding @filterOperators@ and @supportedValues@.
-connectorEntityField_supportedFieldTypeDetails :: Lens.Lens' ConnectorEntityField (Prelude.Maybe SupportedFieldTypeDetails)
-connectorEntityField_supportedFieldTypeDetails = Lens.lens (\ConnectorEntityField' {supportedFieldTypeDetails} -> supportedFieldTypeDetails) (\s@ConnectorEntityField' {} a -> s {supportedFieldTypeDetails = a} :: ConnectorEntityField)
+-- | A description of the connector entity field.
+connectorEntityField_description :: Lens.Lens' ConnectorEntityField (Prelude.Maybe Prelude.Text)
+connectorEntityField_description = Lens.lens (\ConnectorEntityField' {description} -> description) (\s@ConnectorEntityField' {} a -> s {description = a} :: ConnectorEntityField)
 
 -- | The properties applied to a field when the connector is being used as a
 -- destination.
 connectorEntityField_destinationProperties :: Lens.Lens' ConnectorEntityField (Prelude.Maybe DestinationFieldProperties)
 connectorEntityField_destinationProperties = Lens.lens (\ConnectorEntityField' {destinationProperties} -> destinationProperties) (\s@ConnectorEntityField' {} a -> s {destinationProperties = a} :: ConnectorEntityField)
 
--- | A description of the connector entity field.
-connectorEntityField_description :: Lens.Lens' ConnectorEntityField (Prelude.Maybe Prelude.Text)
-connectorEntityField_description = Lens.lens (\ConnectorEntityField' {description} -> description) (\s@ConnectorEntityField' {} a -> s {description = a} :: ConnectorEntityField)
+-- | Contains details regarding the supported @FieldType@, including the
+-- corresponding @filterOperators@ and @supportedValues@.
+connectorEntityField_supportedFieldTypeDetails :: Lens.Lens' ConnectorEntityField (Prelude.Maybe SupportedFieldTypeDetails)
+connectorEntityField_supportedFieldTypeDetails = Lens.lens (\ConnectorEntityField' {supportedFieldTypeDetails} -> supportedFieldTypeDetails) (\s@ConnectorEntityField' {} a -> s {supportedFieldTypeDetails = a} :: ConnectorEntityField)
 
--- | The label applied to a connector entity field.
-connectorEntityField_label :: Lens.Lens' ConnectorEntityField (Prelude.Maybe Prelude.Text)
-connectorEntityField_label = Lens.lens (\ConnectorEntityField' {label} -> label) (\s@ConnectorEntityField' {} a -> s {label = a} :: ConnectorEntityField)
+-- | The properties that can be applied to a field when the connector is
+-- being used as a source.
+connectorEntityField_sourceProperties :: Lens.Lens' ConnectorEntityField (Prelude.Maybe SourceFieldProperties)
+connectorEntityField_sourceProperties = Lens.lens (\ConnectorEntityField' {sourceProperties} -> sourceProperties) (\s@ConnectorEntityField' {} a -> s {sourceProperties = a} :: ConnectorEntityField)
 
 -- | The unique identifier of the connector field.
 connectorEntityField_identifier :: Lens.Lens' ConnectorEntityField Prelude.Text
@@ -120,28 +119,28 @@ instance Core.FromJSON ConnectorEntityField where
       "ConnectorEntityField"
       ( \x ->
           ConnectorEntityField'
-            Prelude.<$> (x Core..:? "sourceProperties")
-            Prelude.<*> (x Core..:? "supportedFieldTypeDetails")
-            Prelude.<*> (x Core..:? "destinationProperties")
+            Prelude.<$> (x Core..:? "label")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "label")
+            Prelude.<*> (x Core..:? "destinationProperties")
+            Prelude.<*> (x Core..:? "supportedFieldTypeDetails")
+            Prelude.<*> (x Core..:? "sourceProperties")
             Prelude.<*> (x Core..: "identifier")
       )
 
 instance Prelude.Hashable ConnectorEntityField where
   hashWithSalt _salt ConnectorEntityField' {..} =
-    _salt `Prelude.hashWithSalt` sourceProperties
-      `Prelude.hashWithSalt` supportedFieldTypeDetails
-      `Prelude.hashWithSalt` destinationProperties
+    _salt `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` destinationProperties
+      `Prelude.hashWithSalt` supportedFieldTypeDetails
+      `Prelude.hashWithSalt` sourceProperties
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData ConnectorEntityField where
   rnf ConnectorEntityField' {..} =
-    Prelude.rnf sourceProperties
-      `Prelude.seq` Prelude.rnf supportedFieldTypeDetails
-      `Prelude.seq` Prelude.rnf destinationProperties
+    Prelude.rnf label
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf destinationProperties
+      `Prelude.seq` Prelude.rnf supportedFieldTypeDetails
+      `Prelude.seq` Prelude.rnf sourceProperties
       `Prelude.seq` Prelude.rnf identifier

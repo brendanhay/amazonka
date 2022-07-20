@@ -54,12 +54,12 @@ module Amazonka.EKS.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
-    createCluster_kubernetesNetworkConfig,
-    createCluster_version,
     createCluster_encryptionConfig,
+    createCluster_tags,
     createCluster_clientRequestToken,
     createCluster_logging,
-    createCluster_tags,
+    createCluster_kubernetesNetworkConfig,
+    createCluster_version,
     createCluster_name,
     createCluster_roleArn,
     createCluster_resourcesVpcConfig,
@@ -83,13 +83,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | The Kubernetes network configuration for the cluster.
-    kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigRequest,
-    -- | The desired Kubernetes version for your cluster. If you don\'t specify a
-    -- value here, the latest version available in Amazon EKS is used.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The encryption configuration for the cluster.
+  { -- | The encryption configuration for the cluster.
     encryptionConfig :: Prelude.Maybe [EncryptionConfig],
+    -- | The metadata to apply to the cluster to assist with categorization and
+    -- organization. Each tag consists of a key and an optional value, both of
+    -- which you define.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -103,10 +102,11 @@ data CreateCluster = CreateCluster'
     -- apply to exported control plane logs. For more information, see
     -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
     logging :: Prelude.Maybe Logging,
-    -- | The metadata to apply to the cluster to assist with categorization and
-    -- organization. Each tag consists of a key and an optional value, both of
-    -- which you define.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Kubernetes network configuration for the cluster.
+    kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigRequest,
+    -- | The desired Kubernetes version for your cluster. If you don\'t specify a
+    -- value here, the latest version available in Amazon EKS is used.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The unique name to give to your cluster.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that provides permissions
@@ -136,12 +136,11 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kubernetesNetworkConfig', 'createCluster_kubernetesNetworkConfig' - The Kubernetes network configuration for the cluster.
---
--- 'version', 'createCluster_version' - The desired Kubernetes version for your cluster. If you don\'t specify a
--- value here, the latest version available in Amazon EKS is used.
---
 -- 'encryptionConfig', 'createCluster_encryptionConfig' - The encryption configuration for the cluster.
+--
+-- 'tags', 'createCluster_tags' - The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value, both of
+-- which you define.
 --
 -- 'clientRequestToken', 'createCluster_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -156,9 +155,10 @@ data CreateCluster = CreateCluster'
 -- apply to exported control plane logs. For more information, see
 -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 --
--- 'tags', 'createCluster_tags' - The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
+-- 'kubernetesNetworkConfig', 'createCluster_kubernetesNetworkConfig' - The Kubernetes network configuration for the cluster.
+--
+-- 'version', 'createCluster_version' - The desired Kubernetes version for your cluster. If you don\'t specify a
+-- value here, the latest version available in Amazon EKS is used.
 --
 -- 'name', 'createCluster_name' - The unique name to give to your cluster.
 --
@@ -190,30 +190,26 @@ newCreateCluster
   pRoleArn_
   pResourcesVpcConfig_ =
     CreateCluster'
-      { kubernetesNetworkConfig =
-          Prelude.Nothing,
-        version = Prelude.Nothing,
-        encryptionConfig = Prelude.Nothing,
+      { encryptionConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         logging = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        kubernetesNetworkConfig = Prelude.Nothing,
+        version = Prelude.Nothing,
         name = pName_,
         roleArn = pRoleArn_,
         resourcesVpcConfig = pResourcesVpcConfig_
       }
 
--- | The Kubernetes network configuration for the cluster.
-createCluster_kubernetesNetworkConfig :: Lens.Lens' CreateCluster (Prelude.Maybe KubernetesNetworkConfigRequest)
-createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNetworkConfig} -> kubernetesNetworkConfig) (\s@CreateCluster' {} a -> s {kubernetesNetworkConfig = a} :: CreateCluster)
-
--- | The desired Kubernetes version for your cluster. If you don\'t specify a
--- value here, the latest version available in Amazon EKS is used.
-createCluster_version :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_version = Lens.lens (\CreateCluster' {version} -> version) (\s@CreateCluster' {} a -> s {version = a} :: CreateCluster)
-
 -- | The encryption configuration for the cluster.
 createCluster_encryptionConfig :: Lens.Lens' CreateCluster (Prelude.Maybe [EncryptionConfig])
 createCluster_encryptionConfig = Lens.lens (\CreateCluster' {encryptionConfig} -> encryptionConfig) (\s@CreateCluster' {} a -> s {encryptionConfig = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value, both of
+-- which you define.
+createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -232,11 +228,14 @@ createCluster_clientRequestToken = Lens.lens (\CreateCluster' {clientRequestToke
 createCluster_logging :: Lens.Lens' CreateCluster (Prelude.Maybe Logging)
 createCluster_logging = Lens.lens (\CreateCluster' {logging} -> logging) (\s@CreateCluster' {} a -> s {logging = a} :: CreateCluster)
 
--- | The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
-createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
+-- | The Kubernetes network configuration for the cluster.
+createCluster_kubernetesNetworkConfig :: Lens.Lens' CreateCluster (Prelude.Maybe KubernetesNetworkConfigRequest)
+createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNetworkConfig} -> kubernetesNetworkConfig) (\s@CreateCluster' {} a -> s {kubernetesNetworkConfig = a} :: CreateCluster)
+
+-- | The desired Kubernetes version for your cluster. If you don\'t specify a
+-- value here, the latest version available in Amazon EKS is used.
+createCluster_version :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_version = Lens.lens (\CreateCluster' {version} -> version) (\s@CreateCluster' {} a -> s {version = a} :: CreateCluster)
 
 -- | The unique name to give to your cluster.
 createCluster_name :: Lens.Lens' CreateCluster Prelude.Text
@@ -277,25 +276,24 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt
-      `Prelude.hashWithSalt` kubernetesNetworkConfig
-      `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` encryptionConfig
+    _salt `Prelude.hashWithSalt` encryptionConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` logging
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kubernetesNetworkConfig
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` resourcesVpcConfig
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf kubernetesNetworkConfig
-      `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf encryptionConfig
+    Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kubernetesNetworkConfig
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf resourcesVpcConfig
@@ -315,15 +313,15 @@ instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("kubernetesNetworkConfig" Core..=)
-              Prelude.<$> kubernetesNetworkConfig,
-            ("version" Core..=) Prelude.<$> version,
-            ("encryptionConfig" Core..=)
+          [ ("encryptionConfig" Core..=)
               Prelude.<$> encryptionConfig,
+            ("tags" Core..=) Prelude.<$> tags,
             ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("logging" Core..=) Prelude.<$> logging,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("kubernetesNetworkConfig" Core..=)
+              Prelude.<$> kubernetesNetworkConfig,
+            ("version" Core..=) Prelude.<$> version,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("roleArn" Core..= roleArn),
             Prelude.Just

@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEngineVersionInfo' smart constructor.
 data EngineVersionInfo = EngineVersionInfo'
-  { -- | The engine version
-    engineVersion :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies the name of the parameter group family to which the engine
+    -- default parameters apply.
+    parameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | The patched engine version
     enginePatchVersion :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name of the parameter group family to which the engine
-    -- default parameters apply.
-    parameterGroupFamily :: Prelude.Maybe Prelude.Text
+    -- | The engine version
+    engineVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,33 +45,34 @@ data EngineVersionInfo = EngineVersionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'engineVersionInfo_engineVersion' - The engine version
+-- 'parameterGroupFamily', 'engineVersionInfo_parameterGroupFamily' - Specifies the name of the parameter group family to which the engine
+-- default parameters apply.
 --
 -- 'enginePatchVersion', 'engineVersionInfo_enginePatchVersion' - The patched engine version
 --
--- 'parameterGroupFamily', 'engineVersionInfo_parameterGroupFamily' - Specifies the name of the parameter group family to which the engine
--- default parameters apply.
+-- 'engineVersion', 'engineVersionInfo_engineVersion' - The engine version
 newEngineVersionInfo ::
   EngineVersionInfo
 newEngineVersionInfo =
   EngineVersionInfo'
-    { engineVersion = Prelude.Nothing,
+    { parameterGroupFamily =
+        Prelude.Nothing,
       enginePatchVersion = Prelude.Nothing,
-      parameterGroupFamily = Prelude.Nothing
+      engineVersion = Prelude.Nothing
     }
-
--- | The engine version
-engineVersionInfo_engineVersion :: Lens.Lens' EngineVersionInfo (Prelude.Maybe Prelude.Text)
-engineVersionInfo_engineVersion = Lens.lens (\EngineVersionInfo' {engineVersion} -> engineVersion) (\s@EngineVersionInfo' {} a -> s {engineVersion = a} :: EngineVersionInfo)
-
--- | The patched engine version
-engineVersionInfo_enginePatchVersion :: Lens.Lens' EngineVersionInfo (Prelude.Maybe Prelude.Text)
-engineVersionInfo_enginePatchVersion = Lens.lens (\EngineVersionInfo' {enginePatchVersion} -> enginePatchVersion) (\s@EngineVersionInfo' {} a -> s {enginePatchVersion = a} :: EngineVersionInfo)
 
 -- | Specifies the name of the parameter group family to which the engine
 -- default parameters apply.
 engineVersionInfo_parameterGroupFamily :: Lens.Lens' EngineVersionInfo (Prelude.Maybe Prelude.Text)
 engineVersionInfo_parameterGroupFamily = Lens.lens (\EngineVersionInfo' {parameterGroupFamily} -> parameterGroupFamily) (\s@EngineVersionInfo' {} a -> s {parameterGroupFamily = a} :: EngineVersionInfo)
+
+-- | The patched engine version
+engineVersionInfo_enginePatchVersion :: Lens.Lens' EngineVersionInfo (Prelude.Maybe Prelude.Text)
+engineVersionInfo_enginePatchVersion = Lens.lens (\EngineVersionInfo' {enginePatchVersion} -> enginePatchVersion) (\s@EngineVersionInfo' {} a -> s {enginePatchVersion = a} :: EngineVersionInfo)
+
+-- | The engine version
+engineVersionInfo_engineVersion :: Lens.Lens' EngineVersionInfo (Prelude.Maybe Prelude.Text)
+engineVersionInfo_engineVersion = Lens.lens (\EngineVersionInfo' {engineVersion} -> engineVersion) (\s@EngineVersionInfo' {} a -> s {engineVersion = a} :: EngineVersionInfo)
 
 instance Core.FromJSON EngineVersionInfo where
   parseJSON =
@@ -79,19 +80,19 @@ instance Core.FromJSON EngineVersionInfo where
       "EngineVersionInfo"
       ( \x ->
           EngineVersionInfo'
-            Prelude.<$> (x Core..:? "EngineVersion")
+            Prelude.<$> (x Core..:? "ParameterGroupFamily")
             Prelude.<*> (x Core..:? "EnginePatchVersion")
-            Prelude.<*> (x Core..:? "ParameterGroupFamily")
+            Prelude.<*> (x Core..:? "EngineVersion")
       )
 
 instance Prelude.Hashable EngineVersionInfo where
   hashWithSalt _salt EngineVersionInfo' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
+    _salt `Prelude.hashWithSalt` parameterGroupFamily
       `Prelude.hashWithSalt` enginePatchVersion
-      `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData EngineVersionInfo where
   rnf EngineVersionInfo' {..} =
-    Prelude.rnf engineVersion
+    Prelude.rnf parameterGroupFamily
       `Prelude.seq` Prelude.rnf enginePatchVersion
-      `Prelude.seq` Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf engineVersion

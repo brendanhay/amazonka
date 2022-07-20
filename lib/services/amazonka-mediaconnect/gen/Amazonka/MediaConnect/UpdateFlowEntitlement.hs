@@ -29,10 +29,10 @@ module Amazonka.MediaConnect.UpdateFlowEntitlement
     newUpdateFlowEntitlement,
 
     -- * Request Lenses
-    updateFlowEntitlement_encryption,
     updateFlowEntitlement_entitlementStatus,
     updateFlowEntitlement_description,
     updateFlowEntitlement_subscribers,
+    updateFlowEntitlement_encryption,
     updateFlowEntitlement_flowArn,
     updateFlowEntitlement_entitlementArn,
 
@@ -41,8 +41,8 @@ module Amazonka.MediaConnect.UpdateFlowEntitlement
     newUpdateFlowEntitlementResponse,
 
     -- * Response Lenses
-    updateFlowEntitlementResponse_flowArn,
     updateFlowEntitlementResponse_entitlement,
+    updateFlowEntitlementResponse_flowArn,
     updateFlowEntitlementResponse_httpStatus,
   )
 where
@@ -58,10 +58,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateFlowEntitlement' smart constructor.
 data UpdateFlowEntitlement = UpdateFlowEntitlement'
-  { -- | The type of encryption that will be used on the output associated with
-    -- this entitlement.
-    encryption :: Prelude.Maybe UpdateEncryption,
-    -- | An indication of whether you want to enable the entitlement to allow
+  { -- | An indication of whether you want to enable the entitlement to allow
     -- access, or disable it to stop streaming content to the subscriber’s flow
     -- temporarily. If you don’t specify the entitlementStatus field in your
     -- request, MediaConnect leaves the value unchanged.
@@ -74,6 +71,9 @@ data UpdateFlowEntitlement = UpdateFlowEntitlement'
     -- receiving accounts (subscribers) will be allowed to create their own
     -- flow using your content as the source.
     subscribers :: Prelude.Maybe [Prelude.Text],
+    -- | The type of encryption that will be used on the output associated with
+    -- this entitlement.
+    encryption :: Prelude.Maybe UpdateEncryption,
     -- | The flow that is associated with the entitlement that you want to
     -- update.
     flowArn :: Prelude.Text,
@@ -90,9 +90,6 @@ data UpdateFlowEntitlement = UpdateFlowEntitlement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryption', 'updateFlowEntitlement_encryption' - The type of encryption that will be used on the output associated with
--- this entitlement.
---
 -- 'entitlementStatus', 'updateFlowEntitlement_entitlementStatus' - An indication of whether you want to enable the entitlement to allow
 -- access, or disable it to stop streaming content to the subscriber’s flow
 -- temporarily. If you don’t specify the entitlementStatus field in your
@@ -106,6 +103,9 @@ data UpdateFlowEntitlement = UpdateFlowEntitlement'
 -- receiving accounts (subscribers) will be allowed to create their own
 -- flow using your content as the source.
 --
+-- 'encryption', 'updateFlowEntitlement_encryption' - The type of encryption that will be used on the output associated with
+-- this entitlement.
+--
 -- 'flowArn', 'updateFlowEntitlement_flowArn' - The flow that is associated with the entitlement that you want to
 -- update.
 --
@@ -118,19 +118,14 @@ newUpdateFlowEntitlement ::
   UpdateFlowEntitlement
 newUpdateFlowEntitlement pFlowArn_ pEntitlementArn_ =
   UpdateFlowEntitlement'
-    { encryption =
+    { entitlementStatus =
         Prelude.Nothing,
-      entitlementStatus = Prelude.Nothing,
       description = Prelude.Nothing,
       subscribers = Prelude.Nothing,
+      encryption = Prelude.Nothing,
       flowArn = pFlowArn_,
       entitlementArn = pEntitlementArn_
     }
-
--- | The type of encryption that will be used on the output associated with
--- this entitlement.
-updateFlowEntitlement_encryption :: Lens.Lens' UpdateFlowEntitlement (Prelude.Maybe UpdateEncryption)
-updateFlowEntitlement_encryption = Lens.lens (\UpdateFlowEntitlement' {encryption} -> encryption) (\s@UpdateFlowEntitlement' {} a -> s {encryption = a} :: UpdateFlowEntitlement)
 
 -- | An indication of whether you want to enable the entitlement to allow
 -- access, or disable it to stop streaming content to the subscriber’s flow
@@ -151,6 +146,11 @@ updateFlowEntitlement_description = Lens.lens (\UpdateFlowEntitlement' {descript
 updateFlowEntitlement_subscribers :: Lens.Lens' UpdateFlowEntitlement (Prelude.Maybe [Prelude.Text])
 updateFlowEntitlement_subscribers = Lens.lens (\UpdateFlowEntitlement' {subscribers} -> subscribers) (\s@UpdateFlowEntitlement' {} a -> s {subscribers = a} :: UpdateFlowEntitlement) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of encryption that will be used on the output associated with
+-- this entitlement.
+updateFlowEntitlement_encryption :: Lens.Lens' UpdateFlowEntitlement (Prelude.Maybe UpdateEncryption)
+updateFlowEntitlement_encryption = Lens.lens (\UpdateFlowEntitlement' {encryption} -> encryption) (\s@UpdateFlowEntitlement' {} a -> s {encryption = a} :: UpdateFlowEntitlement)
+
 -- | The flow that is associated with the entitlement that you want to
 -- update.
 updateFlowEntitlement_flowArn :: Lens.Lens' UpdateFlowEntitlement Prelude.Text
@@ -169,26 +169,26 @@ instance Core.AWSRequest UpdateFlowEntitlement where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowEntitlementResponse'
-            Prelude.<$> (x Core..?> "flowArn")
-            Prelude.<*> (x Core..?> "entitlement")
+            Prelude.<$> (x Core..?> "entitlement")
+            Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateFlowEntitlement where
   hashWithSalt _salt UpdateFlowEntitlement' {..} =
-    _salt `Prelude.hashWithSalt` encryption
-      `Prelude.hashWithSalt` entitlementStatus
+    _salt `Prelude.hashWithSalt` entitlementStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` entitlementArn
 
 instance Prelude.NFData UpdateFlowEntitlement where
   rnf UpdateFlowEntitlement' {..} =
-    Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf entitlementStatus
+    Prelude.rnf entitlementStatus
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf entitlementArn
 
@@ -207,11 +207,11 @@ instance Core.ToJSON UpdateFlowEntitlement where
   toJSON UpdateFlowEntitlement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("encryption" Core..=) Prelude.<$> encryption,
-            ("entitlementStatus" Core..=)
+          [ ("entitlementStatus" Core..=)
               Prelude.<$> entitlementStatus,
             ("description" Core..=) Prelude.<$> description,
-            ("subscribers" Core..=) Prelude.<$> subscribers
+            ("subscribers" Core..=) Prelude.<$> subscribers,
+            ("encryption" Core..=) Prelude.<$> encryption
           ]
       )
 
@@ -229,10 +229,10 @@ instance Core.ToQuery UpdateFlowEntitlement where
 
 -- | /See:/ 'newUpdateFlowEntitlementResponse' smart constructor.
 data UpdateFlowEntitlementResponse = UpdateFlowEntitlementResponse'
-  { -- | The ARN of the flow that this entitlement was granted on.
-    flowArn :: Prelude.Maybe Prelude.Text,
-    -- | The new configuration of the entitlement that you updated.
+  { -- | The new configuration of the entitlement that you updated.
     entitlement :: Prelude.Maybe Entitlement,
+    -- | The ARN of the flow that this entitlement was granted on.
+    flowArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,9 +246,9 @@ data UpdateFlowEntitlementResponse = UpdateFlowEntitlementResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flowArn', 'updateFlowEntitlementResponse_flowArn' - The ARN of the flow that this entitlement was granted on.
---
 -- 'entitlement', 'updateFlowEntitlementResponse_entitlement' - The new configuration of the entitlement that you updated.
+--
+-- 'flowArn', 'updateFlowEntitlementResponse_flowArn' - The ARN of the flow that this entitlement was granted on.
 --
 -- 'httpStatus', 'updateFlowEntitlementResponse_httpStatus' - The response's http status code.
 newUpdateFlowEntitlementResponse ::
@@ -257,19 +257,19 @@ newUpdateFlowEntitlementResponse ::
   UpdateFlowEntitlementResponse
 newUpdateFlowEntitlementResponse pHttpStatus_ =
   UpdateFlowEntitlementResponse'
-    { flowArn =
+    { entitlement =
         Prelude.Nothing,
-      entitlement = Prelude.Nothing,
+      flowArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the flow that this entitlement was granted on.
-updateFlowEntitlementResponse_flowArn :: Lens.Lens' UpdateFlowEntitlementResponse (Prelude.Maybe Prelude.Text)
-updateFlowEntitlementResponse_flowArn = Lens.lens (\UpdateFlowEntitlementResponse' {flowArn} -> flowArn) (\s@UpdateFlowEntitlementResponse' {} a -> s {flowArn = a} :: UpdateFlowEntitlementResponse)
 
 -- | The new configuration of the entitlement that you updated.
 updateFlowEntitlementResponse_entitlement :: Lens.Lens' UpdateFlowEntitlementResponse (Prelude.Maybe Entitlement)
 updateFlowEntitlementResponse_entitlement = Lens.lens (\UpdateFlowEntitlementResponse' {entitlement} -> entitlement) (\s@UpdateFlowEntitlementResponse' {} a -> s {entitlement = a} :: UpdateFlowEntitlementResponse)
+
+-- | The ARN of the flow that this entitlement was granted on.
+updateFlowEntitlementResponse_flowArn :: Lens.Lens' UpdateFlowEntitlementResponse (Prelude.Maybe Prelude.Text)
+updateFlowEntitlementResponse_flowArn = Lens.lens (\UpdateFlowEntitlementResponse' {flowArn} -> flowArn) (\s@UpdateFlowEntitlementResponse' {} a -> s {flowArn = a} :: UpdateFlowEntitlementResponse)
 
 -- | The response's http status code.
 updateFlowEntitlementResponse_httpStatus :: Lens.Lens' UpdateFlowEntitlementResponse Prelude.Int
@@ -277,6 +277,6 @@ updateFlowEntitlementResponse_httpStatus = Lens.lens (\UpdateFlowEntitlementResp
 
 instance Prelude.NFData UpdateFlowEntitlementResponse where
   rnf UpdateFlowEntitlementResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf entitlement
+    Prelude.rnf entitlement
+      `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSnowflakeDestinationProperties' smart constructor.
 data SnowflakeDestinationProperties = SnowflakeDestinationProperties'
-  { -- | The object key for the destination bucket in which Amazon AppFlow places
-    -- the files.
-    bucketPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The settings that determine how Amazon AppFlow handles an error when
+  { -- | The settings that determine how Amazon AppFlow handles an error when
     -- placing data in the Snowflake destination. For example, this setting
     -- would determine if the flow should fail after one insertion error, or
     -- continue and attempt to insert every record regardless of the initial
     -- failure. @ErrorHandlingConfig@ is a part of the destination connector
     -- details.
     errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
+    -- | The object key for the destination bucket in which Amazon AppFlow places
+    -- the files.
+    bucketPrefix :: Prelude.Maybe Prelude.Text,
     -- | The object specified in the Snowflake flow destination.
     object' :: Prelude.Text,
     -- | The intermediate bucket that Amazon AppFlow uses when moving data into
@@ -55,15 +55,15 @@ data SnowflakeDestinationProperties = SnowflakeDestinationProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketPrefix', 'snowflakeDestinationProperties_bucketPrefix' - The object key for the destination bucket in which Amazon AppFlow places
--- the files.
---
 -- 'errorHandlingConfig', 'snowflakeDestinationProperties_errorHandlingConfig' - The settings that determine how Amazon AppFlow handles an error when
 -- placing data in the Snowflake destination. For example, this setting
 -- would determine if the flow should fail after one insertion error, or
 -- continue and attempt to insert every record regardless of the initial
 -- failure. @ErrorHandlingConfig@ is a part of the destination connector
 -- details.
+--
+-- 'bucketPrefix', 'snowflakeDestinationProperties_bucketPrefix' - The object key for the destination bucket in which Amazon AppFlow places
+-- the files.
 --
 -- 'object'', 'snowflakeDestinationProperties_object' - The object specified in the Snowflake flow destination.
 --
@@ -79,18 +79,13 @@ newSnowflakeDestinationProperties
   pObject_
   pIntermediateBucketName_ =
     SnowflakeDestinationProperties'
-      { bucketPrefix =
+      { errorHandlingConfig =
           Prelude.Nothing,
-        errorHandlingConfig = Prelude.Nothing,
+        bucketPrefix = Prelude.Nothing,
         object' = pObject_,
         intermediateBucketName =
           pIntermediateBucketName_
       }
-
--- | The object key for the destination bucket in which Amazon AppFlow places
--- the files.
-snowflakeDestinationProperties_bucketPrefix :: Lens.Lens' SnowflakeDestinationProperties (Prelude.Maybe Prelude.Text)
-snowflakeDestinationProperties_bucketPrefix = Lens.lens (\SnowflakeDestinationProperties' {bucketPrefix} -> bucketPrefix) (\s@SnowflakeDestinationProperties' {} a -> s {bucketPrefix = a} :: SnowflakeDestinationProperties)
 
 -- | The settings that determine how Amazon AppFlow handles an error when
 -- placing data in the Snowflake destination. For example, this setting
@@ -100,6 +95,11 @@ snowflakeDestinationProperties_bucketPrefix = Lens.lens (\SnowflakeDestinationPr
 -- details.
 snowflakeDestinationProperties_errorHandlingConfig :: Lens.Lens' SnowflakeDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
 snowflakeDestinationProperties_errorHandlingConfig = Lens.lens (\SnowflakeDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@SnowflakeDestinationProperties' {} a -> s {errorHandlingConfig = a} :: SnowflakeDestinationProperties)
+
+-- | The object key for the destination bucket in which Amazon AppFlow places
+-- the files.
+snowflakeDestinationProperties_bucketPrefix :: Lens.Lens' SnowflakeDestinationProperties (Prelude.Maybe Prelude.Text)
+snowflakeDestinationProperties_bucketPrefix = Lens.lens (\SnowflakeDestinationProperties' {bucketPrefix} -> bucketPrefix) (\s@SnowflakeDestinationProperties' {} a -> s {bucketPrefix = a} :: SnowflakeDestinationProperties)
 
 -- | The object specified in the Snowflake flow destination.
 snowflakeDestinationProperties_object :: Lens.Lens' SnowflakeDestinationProperties Prelude.Text
@@ -116,8 +116,8 @@ instance Core.FromJSON SnowflakeDestinationProperties where
       "SnowflakeDestinationProperties"
       ( \x ->
           SnowflakeDestinationProperties'
-            Prelude.<$> (x Core..:? "bucketPrefix")
-            Prelude.<*> (x Core..:? "errorHandlingConfig")
+            Prelude.<$> (x Core..:? "errorHandlingConfig")
+            Prelude.<*> (x Core..:? "bucketPrefix")
             Prelude.<*> (x Core..: "object")
             Prelude.<*> (x Core..: "intermediateBucketName")
       )
@@ -129,8 +129,8 @@ instance
   hashWithSalt
     _salt
     SnowflakeDestinationProperties' {..} =
-      _salt `Prelude.hashWithSalt` bucketPrefix
-        `Prelude.hashWithSalt` errorHandlingConfig
+      _salt `Prelude.hashWithSalt` errorHandlingConfig
+        `Prelude.hashWithSalt` bucketPrefix
         `Prelude.hashWithSalt` object'
         `Prelude.hashWithSalt` intermediateBucketName
 
@@ -139,8 +139,8 @@ instance
     SnowflakeDestinationProperties
   where
   rnf SnowflakeDestinationProperties' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf errorHandlingConfig
+    Prelude.rnf errorHandlingConfig
+      `Prelude.seq` Prelude.rnf bucketPrefix
       `Prelude.seq` Prelude.rnf object'
       `Prelude.seq` Prelude.rnf intermediateBucketName
 
@@ -148,9 +148,9 @@ instance Core.ToJSON SnowflakeDestinationProperties where
   toJSON SnowflakeDestinationProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
-            ("errorHandlingConfig" Core..=)
+          [ ("errorHandlingConfig" Core..=)
               Prelude.<$> errorHandlingConfig,
+            ("bucketPrefix" Core..=) Prelude.<$> bucketPrefix,
             Prelude.Just ("object" Core..= object'),
             Prelude.Just
               ( "intermediateBucketName"

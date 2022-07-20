@@ -31,8 +31,8 @@ module Amazonka.CodeGuruProfiler.GetFindingsReportAccountSummary
 
     -- * Request Lenses
     getFindingsReportAccountSummary_nextToken,
-    getFindingsReportAccountSummary_dailyReportsOnly,
     getFindingsReportAccountSummary_maxResults,
+    getFindingsReportAccountSummary_dailyReportsOnly,
 
     -- * Destructuring the Response
     GetFindingsReportAccountSummaryResponse (..),
@@ -66,11 +66,6 @@ data GetFindingsReportAccountSummary = GetFindingsReportAccountSummary'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A @Boolean@ value indicating whether to only return reports from daily
-    -- profiles. If set to @True@, only analysis data from daily profiles is
-    -- returned. If set to @False@, analysis data is returned from smaller time
-    -- windows (for example, one hour).
-    dailyReportsOnly :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results returned by
     -- @ GetFindingsReportAccountSummary@ in paginated output. When this
     -- parameter is used, @GetFindingsReportAccountSummary@ only returns
@@ -78,7 +73,12 @@ data GetFindingsReportAccountSummary = GetFindingsReportAccountSummary'
     -- element. The remaining results of the initial request can be seen by
     -- sending another @GetFindingsReportAccountSummary@ request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A @Boolean@ value indicating whether to only return reports from daily
+    -- profiles. If set to @True@, only analysis data from daily profiles is
+    -- returned. If set to @False@, analysis data is returned from smaller time
+    -- windows (for example, one hour).
+    dailyReportsOnly :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,11 +100,6 @@ data GetFindingsReportAccountSummary = GetFindingsReportAccountSummary'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
--- 'dailyReportsOnly', 'getFindingsReportAccountSummary_dailyReportsOnly' - A @Boolean@ value indicating whether to only return reports from daily
--- profiles. If set to @True@, only analysis data from daily profiles is
--- returned. If set to @False@, analysis data is returned from smaller time
--- windows (for example, one hour).
---
 -- 'maxResults', 'getFindingsReportAccountSummary_maxResults' - The maximum number of results returned by
 -- @ GetFindingsReportAccountSummary@ in paginated output. When this
 -- parameter is used, @GetFindingsReportAccountSummary@ only returns
@@ -112,14 +107,19 @@ data GetFindingsReportAccountSummary = GetFindingsReportAccountSummary'
 -- element. The remaining results of the initial request can be seen by
 -- sending another @GetFindingsReportAccountSummary@ request with the
 -- returned @nextToken@ value.
+--
+-- 'dailyReportsOnly', 'getFindingsReportAccountSummary_dailyReportsOnly' - A @Boolean@ value indicating whether to only return reports from daily
+-- profiles. If set to @True@, only analysis data from daily profiles is
+-- returned. If set to @False@, analysis data is returned from smaller time
+-- windows (for example, one hour).
 newGetFindingsReportAccountSummary ::
   GetFindingsReportAccountSummary
 newGetFindingsReportAccountSummary =
   GetFindingsReportAccountSummary'
     { nextToken =
         Prelude.Nothing,
-      dailyReportsOnly = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      dailyReportsOnly = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated
@@ -134,13 +134,6 @@ newGetFindingsReportAccountSummary =
 getFindingsReportAccountSummary_nextToken :: Lens.Lens' GetFindingsReportAccountSummary (Prelude.Maybe Prelude.Text)
 getFindingsReportAccountSummary_nextToken = Lens.lens (\GetFindingsReportAccountSummary' {nextToken} -> nextToken) (\s@GetFindingsReportAccountSummary' {} a -> s {nextToken = a} :: GetFindingsReportAccountSummary)
 
--- | A @Boolean@ value indicating whether to only return reports from daily
--- profiles. If set to @True@, only analysis data from daily profiles is
--- returned. If set to @False@, analysis data is returned from smaller time
--- windows (for example, one hour).
-getFindingsReportAccountSummary_dailyReportsOnly :: Lens.Lens' GetFindingsReportAccountSummary (Prelude.Maybe Prelude.Bool)
-getFindingsReportAccountSummary_dailyReportsOnly = Lens.lens (\GetFindingsReportAccountSummary' {dailyReportsOnly} -> dailyReportsOnly) (\s@GetFindingsReportAccountSummary' {} a -> s {dailyReportsOnly = a} :: GetFindingsReportAccountSummary)
-
 -- | The maximum number of results returned by
 -- @ GetFindingsReportAccountSummary@ in paginated output. When this
 -- parameter is used, @GetFindingsReportAccountSummary@ only returns
@@ -150,6 +143,13 @@ getFindingsReportAccountSummary_dailyReportsOnly = Lens.lens (\GetFindingsReport
 -- returned @nextToken@ value.
 getFindingsReportAccountSummary_maxResults :: Lens.Lens' GetFindingsReportAccountSummary (Prelude.Maybe Prelude.Natural)
 getFindingsReportAccountSummary_maxResults = Lens.lens (\GetFindingsReportAccountSummary' {maxResults} -> maxResults) (\s@GetFindingsReportAccountSummary' {} a -> s {maxResults = a} :: GetFindingsReportAccountSummary)
+
+-- | A @Boolean@ value indicating whether to only return reports from daily
+-- profiles. If set to @True@, only analysis data from daily profiles is
+-- returned. If set to @False@, analysis data is returned from smaller time
+-- windows (for example, one hour).
+getFindingsReportAccountSummary_dailyReportsOnly :: Lens.Lens' GetFindingsReportAccountSummary (Prelude.Maybe Prelude.Bool)
+getFindingsReportAccountSummary_dailyReportsOnly = Lens.lens (\GetFindingsReportAccountSummary' {dailyReportsOnly} -> dailyReportsOnly) (\s@GetFindingsReportAccountSummary' {} a -> s {dailyReportsOnly = a} :: GetFindingsReportAccountSummary)
 
 instance
   Core.AWSRequest
@@ -178,8 +178,8 @@ instance
     _salt
     GetFindingsReportAccountSummary' {..} =
       _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` dailyReportsOnly
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` dailyReportsOnly
 
 instance
   Prelude.NFData
@@ -187,8 +187,8 @@ instance
   where
   rnf GetFindingsReportAccountSummary' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dailyReportsOnly
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf dailyReportsOnly
 
 instance
   Core.ToHeaders
@@ -211,8 +211,8 @@ instance Core.ToQuery GetFindingsReportAccountSummary where
   toQuery GetFindingsReportAccountSummary' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "dailyReportsOnly" Core.=: dailyReportsOnly,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "dailyReportsOnly" Core.=: dailyReportsOnly
       ]
 
 -- | The structure representing the GetFindingsReportAccountSummaryResponse.

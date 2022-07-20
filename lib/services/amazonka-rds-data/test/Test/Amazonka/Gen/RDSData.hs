@@ -27,55 +27,43 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestRollbackTransaction $
---             newRollbackTransaction
+--         [ requestBatchExecuteStatement $
+--             newBatchExecuteStatement
 --
 --         , requestBeginTransaction $
 --             newBeginTransaction
 --
---         , requestBatchExecuteStatement $
---             newBatchExecuteStatement
+--         , requestCommitTransaction $
+--             newCommitTransaction
 --
 --         , requestExecuteStatement $
 --             newExecuteStatement
 --
---         , requestCommitTransaction $
---             newCommitTransaction
+--         , requestRollbackTransaction $
+--             newRollbackTransaction
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseRollbackTransaction $
---             newRollbackTransactionResponse
+--         [ responseBatchExecuteStatement $
+--             newBatchExecuteStatementResponse
 --
 --         , responseBeginTransaction $
 --             newBeginTransactionResponse
 --
---         , responseBatchExecuteStatement $
---             newBatchExecuteStatementResponse
+--         , responseCommitTransaction $
+--             newCommitTransactionResponse
 --
 --         , responseExecuteStatement $
 --             newExecuteStatementResponse
 --
---         , responseCommitTransaction $
---             newCommitTransactionResponse
+--         , responseRollbackTransaction $
+--             newRollbackTransactionResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestRollbackTransaction :: RollbackTransaction -> TestTree
-requestRollbackTransaction =
-  req
-    "RollbackTransaction"
-    "fixture/RollbackTransaction.yaml"
-
-requestBeginTransaction :: BeginTransaction -> TestTree
-requestBeginTransaction =
-  req
-    "BeginTransaction"
-    "fixture/BeginTransaction.yaml"
 
 requestBatchExecuteStatement :: BatchExecuteStatement -> TestTree
 requestBatchExecuteStatement =
@@ -83,11 +71,11 @@ requestBatchExecuteStatement =
     "BatchExecuteStatement"
     "fixture/BatchExecuteStatement.yaml"
 
-requestExecuteStatement :: ExecuteStatement -> TestTree
-requestExecuteStatement =
+requestBeginTransaction :: BeginTransaction -> TestTree
+requestBeginTransaction =
   req
-    "ExecuteStatement"
-    "fixture/ExecuteStatement.yaml"
+    "BeginTransaction"
+    "fixture/BeginTransaction.yaml"
 
 requestCommitTransaction :: CommitTransaction -> TestTree
 requestCommitTransaction =
@@ -95,23 +83,19 @@ requestCommitTransaction =
     "CommitTransaction"
     "fixture/CommitTransaction.yaml"
 
+requestExecuteStatement :: ExecuteStatement -> TestTree
+requestExecuteStatement =
+  req
+    "ExecuteStatement"
+    "fixture/ExecuteStatement.yaml"
+
+requestRollbackTransaction :: RollbackTransaction -> TestTree
+requestRollbackTransaction =
+  req
+    "RollbackTransaction"
+    "fixture/RollbackTransaction.yaml"
+
 -- Responses
-
-responseRollbackTransaction :: RollbackTransactionResponse -> TestTree
-responseRollbackTransaction =
-  res
-    "RollbackTransactionResponse"
-    "fixture/RollbackTransactionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RollbackTransaction)
-
-responseBeginTransaction :: BeginTransactionResponse -> TestTree
-responseBeginTransaction =
-  res
-    "BeginTransactionResponse"
-    "fixture/BeginTransactionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BeginTransaction)
 
 responseBatchExecuteStatement :: BatchExecuteStatementResponse -> TestTree
 responseBatchExecuteStatement =
@@ -121,13 +105,13 @@ responseBatchExecuteStatement =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchExecuteStatement)
 
-responseExecuteStatement :: ExecuteStatementResponse -> TestTree
-responseExecuteStatement =
+responseBeginTransaction :: BeginTransactionResponse -> TestTree
+responseBeginTransaction =
   res
-    "ExecuteStatementResponse"
-    "fixture/ExecuteStatementResponse.proto"
+    "BeginTransactionResponse"
+    "fixture/BeginTransactionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
+    (Proxy.Proxy :: Proxy.Proxy BeginTransaction)
 
 responseCommitTransaction :: CommitTransactionResponse -> TestTree
 responseCommitTransaction =
@@ -136,3 +120,19 @@ responseCommitTransaction =
     "fixture/CommitTransactionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CommitTransaction)
+
+responseExecuteStatement :: ExecuteStatementResponse -> TestTree
+responseExecuteStatement =
+  res
+    "ExecuteStatementResponse"
+    "fixture/ExecuteStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
+
+responseRollbackTransaction :: RollbackTransactionResponse -> TestTree
+responseRollbackTransaction =
+  res
+    "RollbackTransactionResponse"
+    "fixture/RollbackTransactionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RollbackTransaction)

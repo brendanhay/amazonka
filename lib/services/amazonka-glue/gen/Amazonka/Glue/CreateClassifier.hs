@@ -29,9 +29,9 @@ module Amazonka.Glue.CreateClassifier
     newCreateClassifier,
 
     -- * Request Lenses
-    createClassifier_grokClassifier,
-    createClassifier_xMLClassifier,
     createClassifier_csvClassifier,
+    createClassifier_xMLClassifier,
+    createClassifier_grokClassifier,
     createClassifier_jsonClassifier,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateClassifier' smart constructor.
 data CreateClassifier = CreateClassifier'
-  { -- | A @GrokClassifier@ object specifying the classifier to create.
-    grokClassifier :: Prelude.Maybe CreateGrokClassifierRequest,
+  { -- | A @CsvClassifier@ object specifying the classifier to create.
+    csvClassifier :: Prelude.Maybe CreateCsvClassifierRequest,
     -- | An @XMLClassifier@ object specifying the classifier to create.
     xMLClassifier :: Prelude.Maybe CreateXMLClassifierRequest,
-    -- | A @CsvClassifier@ object specifying the classifier to create.
-    csvClassifier :: Prelude.Maybe CreateCsvClassifierRequest,
+    -- | A @GrokClassifier@ object specifying the classifier to create.
+    grokClassifier :: Prelude.Maybe CreateGrokClassifierRequest,
     -- | A @JsonClassifier@ object specifying the classifier to create.
     jsonClassifier :: Prelude.Maybe CreateJsonClassifierRequest
   }
@@ -71,34 +71,34 @@ data CreateClassifier = CreateClassifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grokClassifier', 'createClassifier_grokClassifier' - A @GrokClassifier@ object specifying the classifier to create.
+-- 'csvClassifier', 'createClassifier_csvClassifier' - A @CsvClassifier@ object specifying the classifier to create.
 --
 -- 'xMLClassifier', 'createClassifier_xMLClassifier' - An @XMLClassifier@ object specifying the classifier to create.
 --
--- 'csvClassifier', 'createClassifier_csvClassifier' - A @CsvClassifier@ object specifying the classifier to create.
+-- 'grokClassifier', 'createClassifier_grokClassifier' - A @GrokClassifier@ object specifying the classifier to create.
 --
 -- 'jsonClassifier', 'createClassifier_jsonClassifier' - A @JsonClassifier@ object specifying the classifier to create.
 newCreateClassifier ::
   CreateClassifier
 newCreateClassifier =
   CreateClassifier'
-    { grokClassifier = Prelude.Nothing,
+    { csvClassifier = Prelude.Nothing,
       xMLClassifier = Prelude.Nothing,
-      csvClassifier = Prelude.Nothing,
+      grokClassifier = Prelude.Nothing,
       jsonClassifier = Prelude.Nothing
     }
 
--- | A @GrokClassifier@ object specifying the classifier to create.
-createClassifier_grokClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateGrokClassifierRequest)
-createClassifier_grokClassifier = Lens.lens (\CreateClassifier' {grokClassifier} -> grokClassifier) (\s@CreateClassifier' {} a -> s {grokClassifier = a} :: CreateClassifier)
+-- | A @CsvClassifier@ object specifying the classifier to create.
+createClassifier_csvClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateCsvClassifierRequest)
+createClassifier_csvClassifier = Lens.lens (\CreateClassifier' {csvClassifier} -> csvClassifier) (\s@CreateClassifier' {} a -> s {csvClassifier = a} :: CreateClassifier)
 
 -- | An @XMLClassifier@ object specifying the classifier to create.
 createClassifier_xMLClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateXMLClassifierRequest)
 createClassifier_xMLClassifier = Lens.lens (\CreateClassifier' {xMLClassifier} -> xMLClassifier) (\s@CreateClassifier' {} a -> s {xMLClassifier = a} :: CreateClassifier)
 
--- | A @CsvClassifier@ object specifying the classifier to create.
-createClassifier_csvClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateCsvClassifierRequest)
-createClassifier_csvClassifier = Lens.lens (\CreateClassifier' {csvClassifier} -> csvClassifier) (\s@CreateClassifier' {} a -> s {csvClassifier = a} :: CreateClassifier)
+-- | A @GrokClassifier@ object specifying the classifier to create.
+createClassifier_grokClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateGrokClassifierRequest)
+createClassifier_grokClassifier = Lens.lens (\CreateClassifier' {grokClassifier} -> grokClassifier) (\s@CreateClassifier' {} a -> s {grokClassifier = a} :: CreateClassifier)
 
 -- | A @JsonClassifier@ object specifying the classifier to create.
 createClassifier_jsonClassifier :: Lens.Lens' CreateClassifier (Prelude.Maybe CreateJsonClassifierRequest)
@@ -118,16 +118,16 @@ instance Core.AWSRequest CreateClassifier where
 
 instance Prelude.Hashable CreateClassifier where
   hashWithSalt _salt CreateClassifier' {..} =
-    _salt `Prelude.hashWithSalt` grokClassifier
+    _salt `Prelude.hashWithSalt` csvClassifier
       `Prelude.hashWithSalt` xMLClassifier
-      `Prelude.hashWithSalt` csvClassifier
+      `Prelude.hashWithSalt` grokClassifier
       `Prelude.hashWithSalt` jsonClassifier
 
 instance Prelude.NFData CreateClassifier where
   rnf CreateClassifier' {..} =
-    Prelude.rnf grokClassifier
+    Prelude.rnf csvClassifier
       `Prelude.seq` Prelude.rnf xMLClassifier
-      `Prelude.seq` Prelude.rnf csvClassifier
+      `Prelude.seq` Prelude.rnf grokClassifier
       `Prelude.seq` Prelude.rnf jsonClassifier
 
 instance Core.ToHeaders CreateClassifier where
@@ -147,10 +147,10 @@ instance Core.ToJSON CreateClassifier where
   toJSON CreateClassifier' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrokClassifier" Core..=)
-              Prelude.<$> grokClassifier,
+          [ ("CsvClassifier" Core..=) Prelude.<$> csvClassifier,
             ("XMLClassifier" Core..=) Prelude.<$> xMLClassifier,
-            ("CsvClassifier" Core..=) Prelude.<$> csvClassifier,
+            ("GrokClassifier" Core..=)
+              Prelude.<$> grokClassifier,
             ("JsonClassifier" Core..=)
               Prelude.<$> jsonClassifier
           ]

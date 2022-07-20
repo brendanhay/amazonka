@@ -31,10 +31,10 @@ module Amazonka.CodeArtifact.ListPackageVersionAssets
     newListPackageVersionAssets,
 
     -- * Request Lenses
-    listPackageVersionAssets_namespace,
-    listPackageVersionAssets_domainOwner,
     listPackageVersionAssets_nextToken,
     listPackageVersionAssets_maxResults,
+    listPackageVersionAssets_domainOwner,
+    listPackageVersionAssets_namespace,
     listPackageVersionAssets_domain,
     listPackageVersionAssets_repository,
     listPackageVersionAssets_format,
@@ -46,13 +46,13 @@ module Amazonka.CodeArtifact.ListPackageVersionAssets
     newListPackageVersionAssetsResponse,
 
     -- * Response Lenses
-    listPackageVersionAssetsResponse_format,
-    listPackageVersionAssetsResponse_namespace,
-    listPackageVersionAssetsResponse_versionRevision,
     listPackageVersionAssetsResponse_nextToken,
-    listPackageVersionAssetsResponse_version,
+    listPackageVersionAssetsResponse_versionRevision,
+    listPackageVersionAssetsResponse_format,
     listPackageVersionAssetsResponse_package,
     listPackageVersionAssetsResponse_assets,
+    listPackageVersionAssetsResponse_namespace,
+    listPackageVersionAssetsResponse_version,
     listPackageVersionAssetsResponse_httpStatus,
   )
 where
@@ -66,7 +66,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPackageVersionAssets' smart constructor.
 data ListPackageVersionAssets = ListPackageVersionAssets'
-  { -- | The namespace of the package. The package component that specifies its
+  { -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The 12-digit account number of the AWS account that owns the domain. It
+    -- does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
     -- -   The namespace of a Maven package is its @groupId@.
@@ -76,15 +85,6 @@ data ListPackageVersionAssets = ListPackageVersionAssets'
     -- -   A Python package does not contain a corresponding component, so
     --     Python packages do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the domain that contains the repository associated with the
     -- package version assets.
     domain :: Prelude.Text,
@@ -117,6 +117,15 @@ data ListPackageVersionAssets = ListPackageVersionAssets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listPackageVersionAssets_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+--
+-- 'maxResults', 'listPackageVersionAssets_maxResults' - The maximum number of results to return per page.
+--
+-- 'domainOwner', 'listPackageVersionAssets_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+--
 -- 'namespace', 'listPackageVersionAssets_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
 --
@@ -126,15 +135,6 @@ data ListPackageVersionAssets = ListPackageVersionAssets'
 --
 -- -   A Python package does not contain a corresponding component, so
 --     Python packages do not have a namespace.
---
--- 'domainOwner', 'listPackageVersionAssets_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
---
--- 'nextToken', 'listPackageVersionAssets_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
--- 'maxResults', 'listPackageVersionAssets_maxResults' - The maximum number of results to return per page.
 --
 -- 'domain', 'listPackageVersionAssets_domain' - The name of the domain that contains the repository associated with the
 -- package version assets.
@@ -175,17 +175,32 @@ newListPackageVersionAssets
   pPackage_
   pPackageVersion_ =
     ListPackageVersionAssets'
-      { namespace =
+      { nextToken =
           Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
-        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        domainOwner = Prelude.Nothing,
+        namespace = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         format = pFormat_,
         package = pPackage_,
         packageVersion = pPackageVersion_
       }
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+listPackageVersionAssets_nextToken :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Text)
+listPackageVersionAssets_nextToken = Lens.lens (\ListPackageVersionAssets' {nextToken} -> nextToken) (\s@ListPackageVersionAssets' {} a -> s {nextToken = a} :: ListPackageVersionAssets)
+
+-- | The maximum number of results to return per page.
+listPackageVersionAssets_maxResults :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Natural)
+listPackageVersionAssets_maxResults = Lens.lens (\ListPackageVersionAssets' {maxResults} -> maxResults) (\s@ListPackageVersionAssets' {} a -> s {maxResults = a} :: ListPackageVersionAssets)
+
+-- | The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+listPackageVersionAssets_domainOwner :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Text)
+listPackageVersionAssets_domainOwner = Lens.lens (\ListPackageVersionAssets' {domainOwner} -> domainOwner) (\s@ListPackageVersionAssets' {} a -> s {domainOwner = a} :: ListPackageVersionAssets)
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -198,21 +213,6 @@ newListPackageVersionAssets
 --     Python packages do not have a namespace.
 listPackageVersionAssets_namespace :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Text)
 listPackageVersionAssets_namespace = Lens.lens (\ListPackageVersionAssets' {namespace} -> namespace) (\s@ListPackageVersionAssets' {} a -> s {namespace = a} :: ListPackageVersionAssets)
-
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
-listPackageVersionAssets_domainOwner :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Text)
-listPackageVersionAssets_domainOwner = Lens.lens (\ListPackageVersionAssets' {domainOwner} -> domainOwner) (\s@ListPackageVersionAssets' {} a -> s {domainOwner = a} :: ListPackageVersionAssets)
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-listPackageVersionAssets_nextToken :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Text)
-listPackageVersionAssets_nextToken = Lens.lens (\ListPackageVersionAssets' {nextToken} -> nextToken) (\s@ListPackageVersionAssets' {} a -> s {nextToken = a} :: ListPackageVersionAssets)
-
--- | The maximum number of results to return per page.
-listPackageVersionAssets_maxResults :: Lens.Lens' ListPackageVersionAssets (Prelude.Maybe Prelude.Natural)
-listPackageVersionAssets_maxResults = Lens.lens (\ListPackageVersionAssets' {maxResults} -> maxResults) (\s@ListPackageVersionAssets' {} a -> s {maxResults = a} :: ListPackageVersionAssets)
 
 -- | The name of the domain that contains the repository associated with the
 -- package version assets.
@@ -276,22 +276,22 @@ instance Core.AWSRequest ListPackageVersionAssets where
     Response.receiveJSON
       ( \s h x ->
           ListPackageVersionAssetsResponse'
-            Prelude.<$> (x Core..?> "format")
-            Prelude.<*> (x Core..?> "namespace")
+            Prelude.<$> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "versionRevision")
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Core..?> "format")
             Prelude.<*> (x Core..?> "package")
             Prelude.<*> (x Core..?> "assets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "namespace")
+            Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListPackageVersionAssets where
   hashWithSalt _salt ListPackageVersionAssets' {..} =
-    _salt `Prelude.hashWithSalt` namespace
-      `Prelude.hashWithSalt` domainOwner
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` format
@@ -300,10 +300,10 @@ instance Prelude.Hashable ListPackageVersionAssets where
 
 instance Prelude.NFData ListPackageVersionAssets where
   rnf ListPackageVersionAssets' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
@@ -330,10 +330,10 @@ instance Core.ToPath ListPackageVersionAssets where
 instance Core.ToQuery ListPackageVersionAssets where
   toQuery ListPackageVersionAssets' {..} =
     Prelude.mconcat
-      [ "namespace" Core.=: namespace,
-        "domain-owner" Core.=: domainOwner,
-        "next-token" Core.=: nextToken,
+      [ "next-token" Core.=: nextToken,
         "max-results" Core.=: maxResults,
+        "domain-owner" Core.=: domainOwner,
+        "namespace" Core.=: namespace,
         "domain" Core.=: domain,
         "repository" Core.=: repository,
         "format" Core.=: format,
@@ -343,9 +343,21 @@ instance Core.ToQuery ListPackageVersionAssets where
 
 -- | /See:/ 'newListPackageVersionAssetsResponse' smart constructor.
 data ListPackageVersionAssetsResponse = ListPackageVersionAssetsResponse'
-  { -- | The format of the package that contains the returned package version
+  { -- | If there are additional results, this is the token for the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The current revision associated with the package version.
+    versionRevision :: Prelude.Maybe Prelude.Text,
+    -- | The format of the package that contains the returned package version
     -- assets.
     format :: Prelude.Maybe PackageFormat,
+    -- | The name of the package that contains the returned package version
+    -- assets.
+    package :: Prelude.Maybe Prelude.Text,
+    -- | The returned list of
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html AssetSummary>
+    -- objects.
+    assets :: Prelude.Maybe [AssetSummary],
     -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
@@ -356,20 +368,8 @@ data ListPackageVersionAssetsResponse = ListPackageVersionAssetsResponse'
     -- -   A Python package does not contain a corresponding component, so
     --     Python packages do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The current revision associated with the package version.
-    versionRevision :: Prelude.Maybe Prelude.Text,
-    -- | If there are additional results, this is the token for the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The version of the package associated with the returned assets.
     version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the package that contains the returned package version
-    -- assets.
-    package :: Prelude.Maybe Prelude.Text,
-    -- | The returned list of
-    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html AssetSummary>
-    -- objects.
-    assets :: Prelude.Maybe [AssetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -383,8 +383,20 @@ data ListPackageVersionAssetsResponse = ListPackageVersionAssetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listPackageVersionAssetsResponse_nextToken' - If there are additional results, this is the token for the next set of
+-- results.
+--
+-- 'versionRevision', 'listPackageVersionAssetsResponse_versionRevision' - The current revision associated with the package version.
+--
 -- 'format', 'listPackageVersionAssetsResponse_format' - The format of the package that contains the returned package version
 -- assets.
+--
+-- 'package', 'listPackageVersionAssetsResponse_package' - The name of the package that contains the returned package version
+-- assets.
+--
+-- 'assets', 'listPackageVersionAssetsResponse_assets' - The returned list of
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html AssetSummary>
+-- objects.
 --
 -- 'namespace', 'listPackageVersionAssetsResponse_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -396,19 +408,7 @@ data ListPackageVersionAssetsResponse = ListPackageVersionAssetsResponse'
 -- -   A Python package does not contain a corresponding component, so
 --     Python packages do not have a namespace.
 --
--- 'versionRevision', 'listPackageVersionAssetsResponse_versionRevision' - The current revision associated with the package version.
---
--- 'nextToken', 'listPackageVersionAssetsResponse_nextToken' - If there are additional results, this is the token for the next set of
--- results.
---
 -- 'version', 'listPackageVersionAssetsResponse_version' - The version of the package associated with the returned assets.
---
--- 'package', 'listPackageVersionAssetsResponse_package' - The name of the package that contains the returned package version
--- assets.
---
--- 'assets', 'listPackageVersionAssetsResponse_assets' - The returned list of
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html AssetSummary>
--- objects.
 --
 -- 'httpStatus', 'listPackageVersionAssetsResponse_httpStatus' - The response's http status code.
 newListPackageVersionAssetsResponse ::
@@ -417,21 +417,41 @@ newListPackageVersionAssetsResponse ::
   ListPackageVersionAssetsResponse
 newListPackageVersionAssetsResponse pHttpStatus_ =
   ListPackageVersionAssetsResponse'
-    { format =
+    { nextToken =
         Prelude.Nothing,
-      namespace = Prelude.Nothing,
       versionRevision = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      version = Prelude.Nothing,
+      format = Prelude.Nothing,
       package = Prelude.Nothing,
       assets = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If there are additional results, this is the token for the next set of
+-- results.
+listPackageVersionAssetsResponse_nextToken :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
+listPackageVersionAssetsResponse_nextToken = Lens.lens (\ListPackageVersionAssetsResponse' {nextToken} -> nextToken) (\s@ListPackageVersionAssetsResponse' {} a -> s {nextToken = a} :: ListPackageVersionAssetsResponse)
+
+-- | The current revision associated with the package version.
+listPackageVersionAssetsResponse_versionRevision :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
+listPackageVersionAssetsResponse_versionRevision = Lens.lens (\ListPackageVersionAssetsResponse' {versionRevision} -> versionRevision) (\s@ListPackageVersionAssetsResponse' {} a -> s {versionRevision = a} :: ListPackageVersionAssetsResponse)
 
 -- | The format of the package that contains the returned package version
 -- assets.
 listPackageVersionAssetsResponse_format :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe PackageFormat)
 listPackageVersionAssetsResponse_format = Lens.lens (\ListPackageVersionAssetsResponse' {format} -> format) (\s@ListPackageVersionAssetsResponse' {} a -> s {format = a} :: ListPackageVersionAssetsResponse)
+
+-- | The name of the package that contains the returned package version
+-- assets.
+listPackageVersionAssetsResponse_package :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
+listPackageVersionAssetsResponse_package = Lens.lens (\ListPackageVersionAssetsResponse' {package} -> package) (\s@ListPackageVersionAssetsResponse' {} a -> s {package = a} :: ListPackageVersionAssetsResponse)
+
+-- | The returned list of
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html AssetSummary>
+-- objects.
+listPackageVersionAssetsResponse_assets :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe [AssetSummary])
+listPackageVersionAssetsResponse_assets = Lens.lens (\ListPackageVersionAssetsResponse' {assets} -> assets) (\s@ListPackageVersionAssetsResponse' {} a -> s {assets = a} :: ListPackageVersionAssetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -445,29 +465,9 @@ listPackageVersionAssetsResponse_format = Lens.lens (\ListPackageVersionAssetsRe
 listPackageVersionAssetsResponse_namespace :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionAssetsResponse_namespace = Lens.lens (\ListPackageVersionAssetsResponse' {namespace} -> namespace) (\s@ListPackageVersionAssetsResponse' {} a -> s {namespace = a} :: ListPackageVersionAssetsResponse)
 
--- | The current revision associated with the package version.
-listPackageVersionAssetsResponse_versionRevision :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
-listPackageVersionAssetsResponse_versionRevision = Lens.lens (\ListPackageVersionAssetsResponse' {versionRevision} -> versionRevision) (\s@ListPackageVersionAssetsResponse' {} a -> s {versionRevision = a} :: ListPackageVersionAssetsResponse)
-
--- | If there are additional results, this is the token for the next set of
--- results.
-listPackageVersionAssetsResponse_nextToken :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
-listPackageVersionAssetsResponse_nextToken = Lens.lens (\ListPackageVersionAssetsResponse' {nextToken} -> nextToken) (\s@ListPackageVersionAssetsResponse' {} a -> s {nextToken = a} :: ListPackageVersionAssetsResponse)
-
 -- | The version of the package associated with the returned assets.
 listPackageVersionAssetsResponse_version :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionAssetsResponse_version = Lens.lens (\ListPackageVersionAssetsResponse' {version} -> version) (\s@ListPackageVersionAssetsResponse' {} a -> s {version = a} :: ListPackageVersionAssetsResponse)
-
--- | The name of the package that contains the returned package version
--- assets.
-listPackageVersionAssetsResponse_package :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe Prelude.Text)
-listPackageVersionAssetsResponse_package = Lens.lens (\ListPackageVersionAssetsResponse' {package} -> package) (\s@ListPackageVersionAssetsResponse' {} a -> s {package = a} :: ListPackageVersionAssetsResponse)
-
--- | The returned list of
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html AssetSummary>
--- objects.
-listPackageVersionAssetsResponse_assets :: Lens.Lens' ListPackageVersionAssetsResponse (Prelude.Maybe [AssetSummary])
-listPackageVersionAssetsResponse_assets = Lens.lens (\ListPackageVersionAssetsResponse' {assets} -> assets) (\s@ListPackageVersionAssetsResponse' {} a -> s {assets = a} :: ListPackageVersionAssetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPackageVersionAssetsResponse_httpStatus :: Lens.Lens' ListPackageVersionAssetsResponse Prelude.Int
@@ -478,11 +478,11 @@ instance
     ListPackageVersionAssetsResponse
   where
   rnf ListPackageVersionAssetsResponse' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf versionRevision
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf package
       `Prelude.seq` Prelude.rnf assets
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,6 +34,9 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
     -- job. If you specify a value for this parameter, do not specify a value
     -- for @TrainingImage@.
     algorithmName :: Prelude.Maybe Prelude.Text,
+    -- | An array of MetricDefinition objects that specify the metrics that the
+    -- algorithm emits.
+    metricDefinitions :: Prelude.Maybe [MetricDefinition],
     -- | The registry path of the Docker image that contains the training
     -- algorithm. For information about Docker registry paths for built-in
     -- algorithms, see
@@ -43,9 +46,6 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
     -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
     trainingImage :: Prelude.Maybe Prelude.Text,
-    -- | An array of MetricDefinition objects that specify the metrics that the
-    -- algorithm emits.
-    metricDefinitions :: Prelude.Maybe [MetricDefinition],
     trainingInputMode :: TrainingInputMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,6 +62,9 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
 -- job. If you specify a value for this parameter, do not specify a value
 -- for @TrainingImage@.
 --
+-- 'metricDefinitions', 'hyperParameterAlgorithmSpecification_metricDefinitions' - An array of MetricDefinition objects that specify the metrics that the
+-- algorithm emits.
+--
 -- 'trainingImage', 'hyperParameterAlgorithmSpecification_trainingImage' - The registry path of the Docker image that contains the training
 -- algorithm. For information about Docker registry paths for built-in
 -- algorithms, see
@@ -70,9 +73,6 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
 -- @registry\/repository[\@digest]@ image path formats. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
---
--- 'metricDefinitions', 'hyperParameterAlgorithmSpecification_metricDefinitions' - An array of MetricDefinition objects that specify the metrics that the
--- algorithm emits.
 --
 -- 'trainingInputMode', 'hyperParameterAlgorithmSpecification_trainingInputMode' - Undocumented member.
 newHyperParameterAlgorithmSpecification ::
@@ -84,8 +84,8 @@ newHyperParameterAlgorithmSpecification
     HyperParameterAlgorithmSpecification'
       { algorithmName =
           Prelude.Nothing,
-        trainingImage = Prelude.Nothing,
         metricDefinitions = Prelude.Nothing,
+        trainingImage = Prelude.Nothing,
         trainingInputMode =
           pTrainingInputMode_
       }
@@ -95,6 +95,11 @@ newHyperParameterAlgorithmSpecification
 -- for @TrainingImage@.
 hyperParameterAlgorithmSpecification_algorithmName :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe Prelude.Text)
 hyperParameterAlgorithmSpecification_algorithmName = Lens.lens (\HyperParameterAlgorithmSpecification' {algorithmName} -> algorithmName) (\s@HyperParameterAlgorithmSpecification' {} a -> s {algorithmName = a} :: HyperParameterAlgorithmSpecification)
+
+-- | An array of MetricDefinition objects that specify the metrics that the
+-- algorithm emits.
+hyperParameterAlgorithmSpecification_metricDefinitions :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe [MetricDefinition])
+hyperParameterAlgorithmSpecification_metricDefinitions = Lens.lens (\HyperParameterAlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@HyperParameterAlgorithmSpecification' {} a -> s {metricDefinitions = a} :: HyperParameterAlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The registry path of the Docker image that contains the training
 -- algorithm. For information about Docker registry paths for built-in
@@ -106,11 +111,6 @@ hyperParameterAlgorithmSpecification_algorithmName = Lens.lens (\HyperParameterA
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
 hyperParameterAlgorithmSpecification_trainingImage :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe Prelude.Text)
 hyperParameterAlgorithmSpecification_trainingImage = Lens.lens (\HyperParameterAlgorithmSpecification' {trainingImage} -> trainingImage) (\s@HyperParameterAlgorithmSpecification' {} a -> s {trainingImage = a} :: HyperParameterAlgorithmSpecification)
-
--- | An array of MetricDefinition objects that specify the metrics that the
--- algorithm emits.
-hyperParameterAlgorithmSpecification_metricDefinitions :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe [MetricDefinition])
-hyperParameterAlgorithmSpecification_metricDefinitions = Lens.lens (\HyperParameterAlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@HyperParameterAlgorithmSpecification' {} a -> s {metricDefinitions = a} :: HyperParameterAlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 hyperParameterAlgorithmSpecification_trainingInputMode :: Lens.Lens' HyperParameterAlgorithmSpecification TrainingInputMode
@@ -126,10 +126,10 @@ instance
       ( \x ->
           HyperParameterAlgorithmSpecification'
             Prelude.<$> (x Core..:? "AlgorithmName")
-            Prelude.<*> (x Core..:? "TrainingImage")
             Prelude.<*> ( x Core..:? "MetricDefinitions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "TrainingImage")
             Prelude.<*> (x Core..: "TrainingInputMode")
       )
 
@@ -141,8 +141,8 @@ instance
     _salt
     HyperParameterAlgorithmSpecification' {..} =
       _salt `Prelude.hashWithSalt` algorithmName
-        `Prelude.hashWithSalt` trainingImage
         `Prelude.hashWithSalt` metricDefinitions
+        `Prelude.hashWithSalt` trainingImage
         `Prelude.hashWithSalt` trainingInputMode
 
 instance
@@ -151,8 +151,8 @@ instance
   where
   rnf HyperParameterAlgorithmSpecification' {..} =
     Prelude.rnf algorithmName
-      `Prelude.seq` Prelude.rnf trainingImage
       `Prelude.seq` Prelude.rnf metricDefinitions
+      `Prelude.seq` Prelude.rnf trainingImage
       `Prelude.seq` Prelude.rnf trainingInputMode
 
 instance
@@ -163,9 +163,9 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
-            ("TrainingImage" Core..=) Prelude.<$> trainingImage,
             ("MetricDefinitions" Core..=)
               Prelude.<$> metricDefinitions,
+            ("TrainingImage" Core..=) Prelude.<$> trainingImage,
             Prelude.Just
               ("TrainingInputMode" Core..= trainingInputMode)
           ]

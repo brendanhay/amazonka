@@ -39,12 +39,12 @@ module Amazonka.StepFunctions.DescribeExecution
     newDescribeExecutionResponse,
 
     -- * Response Lenses
+    describeExecutionResponse_name,
     describeExecutionResponse_stopDate,
     describeExecutionResponse_inputDetails,
-    describeExecutionResponse_input,
-    describeExecutionResponse_name,
-    describeExecutionResponse_output,
     describeExecutionResponse_outputDetails,
+    describeExecutionResponse_input,
+    describeExecutionResponse_output,
     describeExecutionResponse_traceHeader,
     describeExecutionResponse_httpStatus,
     describeExecutionResponse_executionArn,
@@ -97,12 +97,12 @@ instance Core.AWSRequest DescribeExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeExecutionResponse'
-            Prelude.<$> (x Core..?> "stopDate")
+            Prelude.<$> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "stopDate")
             Prelude.<*> (x Core..?> "inputDetails")
-            Prelude.<*> (x Core..?> "input")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "output")
             Prelude.<*> (x Core..?> "outputDetails")
+            Prelude.<*> (x Core..?> "input")
+            Prelude.<*> (x Core..?> "output")
             Prelude.<*> (x Core..?> "traceHeader")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "executionArn")
@@ -148,14 +148,7 @@ instance Core.ToQuery DescribeExecution where
 
 -- | /See:/ 'newDescribeExecutionResponse' smart constructor.
 data DescribeExecutionResponse = DescribeExecutionResponse'
-  { -- | If the execution has already ended, the date the execution stopped.
-    stopDate :: Prelude.Maybe Core.POSIX,
-    inputDetails :: Prelude.Maybe CloudWatchEventsExecutionDataDetails,
-    -- | The string that contains the JSON input data of the execution. Length
-    -- constraints apply to the payload size, and are expressed as bytes in
-    -- UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the execution.
+  { -- | The name of the execution.
     --
     -- A name must /not/ contain:
     --
@@ -172,13 +165,20 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
     name :: Prelude.Maybe Prelude.Text,
+    -- | If the execution has already ended, the date the execution stopped.
+    stopDate :: Prelude.Maybe Core.POSIX,
+    inputDetails :: Prelude.Maybe CloudWatchEventsExecutionDataDetails,
+    outputDetails :: Prelude.Maybe CloudWatchEventsExecutionDataDetails,
+    -- | The string that contains the JSON input data of the execution. Length
+    -- constraints apply to the payload size, and are expressed as bytes in
+    -- UTF-8 encoding.
+    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The JSON output data of the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
     --
     -- This field is set only if the execution succeeds. If the execution
     -- fails, this field is null.
     output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    outputDetails :: Prelude.Maybe CloudWatchEventsExecutionDataDetails,
     -- | The AWS X-Ray trace header that was passed to the execution.
     traceHeader :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -202,14 +202,6 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stopDate', 'describeExecutionResponse_stopDate' - If the execution has already ended, the date the execution stopped.
---
--- 'inputDetails', 'describeExecutionResponse_inputDetails' - Undocumented member.
---
--- 'input', 'describeExecutionResponse_input' - The string that contains the JSON input data of the execution. Length
--- constraints apply to the payload size, and are expressed as bytes in
--- UTF-8 encoding.
---
 -- 'name', 'describeExecutionResponse_name' - The name of the execution.
 --
 -- A name must /not/ contain:
@@ -227,13 +219,21 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
 --
+-- 'stopDate', 'describeExecutionResponse_stopDate' - If the execution has already ended, the date the execution stopped.
+--
+-- 'inputDetails', 'describeExecutionResponse_inputDetails' - Undocumented member.
+--
+-- 'outputDetails', 'describeExecutionResponse_outputDetails' - Undocumented member.
+--
+-- 'input', 'describeExecutionResponse_input' - The string that contains the JSON input data of the execution. Length
+-- constraints apply to the payload size, and are expressed as bytes in
+-- UTF-8 encoding.
+--
 -- 'output', 'describeExecutionResponse_output' - The JSON output data of the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 --
 -- This field is set only if the execution succeeds. If the execution
 -- fails, this field is null.
---
--- 'outputDetails', 'describeExecutionResponse_outputDetails' - Undocumented member.
 --
 -- 'traceHeader', 'describeExecutionResponse_traceHeader' - The AWS X-Ray trace header that was passed to the execution.
 --
@@ -265,13 +265,12 @@ newDescribeExecutionResponse
   pStatus_
   pStartDate_ =
     DescribeExecutionResponse'
-      { stopDate =
-          Prelude.Nothing,
+      { name = Prelude.Nothing,
+        stopDate = Prelude.Nothing,
         inputDetails = Prelude.Nothing,
-        input = Prelude.Nothing,
-        name = Prelude.Nothing,
-        output = Prelude.Nothing,
         outputDetails = Prelude.Nothing,
+        input = Prelude.Nothing,
+        output = Prelude.Nothing,
         traceHeader = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         executionArn = pExecutionArn_,
@@ -279,20 +278,6 @@ newDescribeExecutionResponse
         status = pStatus_,
         startDate = Core._Time Lens.# pStartDate_
       }
-
--- | If the execution has already ended, the date the execution stopped.
-describeExecutionResponse_stopDate :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeExecutionResponse_stopDate = Lens.lens (\DescribeExecutionResponse' {stopDate} -> stopDate) (\s@DescribeExecutionResponse' {} a -> s {stopDate = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Time
-
--- | Undocumented member.
-describeExecutionResponse_inputDetails :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe CloudWatchEventsExecutionDataDetails)
-describeExecutionResponse_inputDetails = Lens.lens (\DescribeExecutionResponse' {inputDetails} -> inputDetails) (\s@DescribeExecutionResponse' {} a -> s {inputDetails = a} :: DescribeExecutionResponse)
-
--- | The string that contains the JSON input data of the execution. Length
--- constraints apply to the payload size, and are expressed as bytes in
--- UTF-8 encoding.
-describeExecutionResponse_input :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
-describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input} -> input) (\s@DescribeExecutionResponse' {} a -> s {input = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the execution.
 --
@@ -313,6 +298,24 @@ describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input}
 describeExecutionResponse_name :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
 describeExecutionResponse_name = Lens.lens (\DescribeExecutionResponse' {name} -> name) (\s@DescribeExecutionResponse' {} a -> s {name = a} :: DescribeExecutionResponse)
 
+-- | If the execution has already ended, the date the execution stopped.
+describeExecutionResponse_stopDate :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
+describeExecutionResponse_stopDate = Lens.lens (\DescribeExecutionResponse' {stopDate} -> stopDate) (\s@DescribeExecutionResponse' {} a -> s {stopDate = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+describeExecutionResponse_inputDetails :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe CloudWatchEventsExecutionDataDetails)
+describeExecutionResponse_inputDetails = Lens.lens (\DescribeExecutionResponse' {inputDetails} -> inputDetails) (\s@DescribeExecutionResponse' {} a -> s {inputDetails = a} :: DescribeExecutionResponse)
+
+-- | Undocumented member.
+describeExecutionResponse_outputDetails :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe CloudWatchEventsExecutionDataDetails)
+describeExecutionResponse_outputDetails = Lens.lens (\DescribeExecutionResponse' {outputDetails} -> outputDetails) (\s@DescribeExecutionResponse' {} a -> s {outputDetails = a} :: DescribeExecutionResponse)
+
+-- | The string that contains the JSON input data of the execution. Length
+-- constraints apply to the payload size, and are expressed as bytes in
+-- UTF-8 encoding.
+describeExecutionResponse_input :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
+describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input} -> input) (\s@DescribeExecutionResponse' {} a -> s {input = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+
 -- | The JSON output data of the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 --
@@ -320,10 +323,6 @@ describeExecutionResponse_name = Lens.lens (\DescribeExecutionResponse' {name} -
 -- fails, this field is null.
 describeExecutionResponse_output :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
 describeExecutionResponse_output = Lens.lens (\DescribeExecutionResponse' {output} -> output) (\s@DescribeExecutionResponse' {} a -> s {output = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
-
--- | Undocumented member.
-describeExecutionResponse_outputDetails :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe CloudWatchEventsExecutionDataDetails)
-describeExecutionResponse_outputDetails = Lens.lens (\DescribeExecutionResponse' {outputDetails} -> outputDetails) (\s@DescribeExecutionResponse' {} a -> s {outputDetails = a} :: DescribeExecutionResponse)
 
 -- | The AWS X-Ray trace header that was passed to the execution.
 describeExecutionResponse_traceHeader :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
@@ -351,12 +350,12 @@ describeExecutionResponse_startDate = Lens.lens (\DescribeExecutionResponse' {st
 
 instance Prelude.NFData DescribeExecutionResponse where
   rnf DescribeExecutionResponse' {..} =
-    Prelude.rnf stopDate
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf stopDate
       `Prelude.seq` Prelude.rnf inputDetails
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf output
       `Prelude.seq` Prelude.rnf outputDetails
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf output
       `Prelude.seq` Prelude.rnf traceHeader
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf executionArn

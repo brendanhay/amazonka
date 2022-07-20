@@ -32,9 +32,9 @@ module Amazonka.Organizations.UpdatePolicy
     newUpdatePolicy,
 
     -- * Request Lenses
-    updatePolicy_content,
     updatePolicy_name,
     updatePolicy_description,
+    updatePolicy_content,
     updatePolicy_policyId,
 
     -- * Destructuring the Response
@@ -56,13 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
-  { -- | If provided, the new content for the policy. The text must be correctly
-    -- formatted JSON that complies with the syntax for the policy\'s type. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
-    -- in the /AWS Organizations User Guide./
-    content :: Prelude.Maybe Prelude.Text,
-    -- | If provided, the new name for the policy.
+  { -- | If provided, the new name for the policy.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
@@ -70,6 +64,12 @@ data UpdatePolicy = UpdatePolicy'
     name :: Prelude.Maybe Prelude.Text,
     -- | If provided, the new description for the policy.
     description :: Prelude.Maybe Prelude.Text,
+    -- | If provided, the new content for the policy. The text must be correctly
+    -- formatted JSON that complies with the syntax for the policy\'s type. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
+    -- in the /AWS Organizations User Guide./
+    content :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the policy that you want to update.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
@@ -87,12 +87,6 @@ data UpdatePolicy = UpdatePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'content', 'updatePolicy_content' - If provided, the new content for the policy. The text must be correctly
--- formatted JSON that complies with the syntax for the policy\'s type. For
--- more information, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
--- in the /AWS Organizations User Guide./
---
 -- 'name', 'updatePolicy_name' - If provided, the new name for the policy.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
@@ -100,6 +94,12 @@ data UpdatePolicy = UpdatePolicy'
 -- ASCII character range.
 --
 -- 'description', 'updatePolicy_description' - If provided, the new description for the policy.
+--
+-- 'content', 'updatePolicy_content' - If provided, the new content for the policy. The text must be correctly
+-- formatted JSON that complies with the syntax for the policy\'s type. For
+-- more information, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
+-- in the /AWS Organizations User Guide./
 --
 -- 'policyId', 'updatePolicy_policyId' - The unique identifier (ID) of the policy that you want to update.
 --
@@ -112,19 +112,11 @@ newUpdatePolicy ::
   UpdatePolicy
 newUpdatePolicy pPolicyId_ =
   UpdatePolicy'
-    { content = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       description = Prelude.Nothing,
+      content = Prelude.Nothing,
       policyId = pPolicyId_
     }
-
--- | If provided, the new content for the policy. The text must be correctly
--- formatted JSON that complies with the syntax for the policy\'s type. For
--- more information, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
--- in the /AWS Organizations User Guide./
-updatePolicy_content :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
-updatePolicy_content = Lens.lens (\UpdatePolicy' {content} -> content) (\s@UpdatePolicy' {} a -> s {content = a} :: UpdatePolicy)
 
 -- | If provided, the new name for the policy.
 --
@@ -137,6 +129,14 @@ updatePolicy_name = Lens.lens (\UpdatePolicy' {name} -> name) (\s@UpdatePolicy' 
 -- | If provided, the new description for the policy.
 updatePolicy_description :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
 updatePolicy_description = Lens.lens (\UpdatePolicy' {description} -> description) (\s@UpdatePolicy' {} a -> s {description = a} :: UpdatePolicy)
+
+-- | If provided, the new content for the policy. The text must be correctly
+-- formatted JSON that complies with the syntax for the policy\'s type. For
+-- more information, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
+-- in the /AWS Organizations User Guide./
+updatePolicy_content :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
+updatePolicy_content = Lens.lens (\UpdatePolicy' {content} -> content) (\s@UpdatePolicy' {} a -> s {content = a} :: UpdatePolicy)
 
 -- | The unique identifier (ID) of the policy that you want to update.
 --
@@ -159,16 +159,16 @@ instance Core.AWSRequest UpdatePolicy where
 
 instance Prelude.Hashable UpdatePolicy where
   hashWithSalt _salt UpdatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` content
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` policyId
 
 instance Prelude.NFData UpdatePolicy where
   rnf UpdatePolicy' {..} =
-    Prelude.rnf content
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf policyId
 
 instance Core.ToHeaders UpdatePolicy where
@@ -190,9 +190,9 @@ instance Core.ToJSON UpdatePolicy where
   toJSON UpdatePolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Content" Core..=) Prelude.<$> content,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("Description" Core..=) Prelude.<$> description,
+            ("Content" Core..=) Prelude.<$> content,
             Prelude.Just ("PolicyId" Core..= policyId)
           ]
       )

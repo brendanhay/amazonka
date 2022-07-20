@@ -70,9 +70,9 @@ module Amazonka.Route53.CreateHostedZone
     newCreateHostedZone,
 
     -- * Request Lenses
-    createHostedZone_delegationSetId,
-    createHostedZone_vpc,
     createHostedZone_hostedZoneConfig,
+    createHostedZone_vpc,
+    createHostedZone_delegationSetId,
     createHostedZone_name,
     createHostedZone_callerReference,
 
@@ -102,21 +102,7 @@ import Amazonka.Route53.Types
 --
 -- /See:/ 'newCreateHostedZone' smart constructor.
 data CreateHostedZone = CreateHostedZone'
-  { -- | If you want to associate a reusable delegation set with this hosted
-    -- zone, the ID that Amazon Route 53 assigned to the reusable delegation
-    -- set when you created it. For more information about reusable delegation
-    -- sets, see
-    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html CreateReusableDelegationSet>.
-    delegationSetId :: Prelude.Maybe ResourceId,
-    -- | (Private hosted zones only) A complex type that contains information
-    -- about the Amazon VPC that you\'re associating with this hosted zone.
-    --
-    -- You can specify only one Amazon VPC when you create a private hosted
-    -- zone. To associate additional Amazon VPCs with the hosted zone, use
-    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AssociateVPCWithHostedZone>
-    -- after you create a hosted zone.
-    vpc :: Prelude.Maybe VPC,
-    -- | (Optional) A complex type that contains the following optional values:
+  { -- | (Optional) A complex type that contains the following optional values:
     --
     -- -   For public and private hosted zones, an optional comment
     --
@@ -125,6 +111,20 @@ data CreateHostedZone = CreateHostedZone'
     -- If you don\'t specify a comment or the @PrivateZone@ element, omit
     -- @HostedZoneConfig@ and the other elements.
     hostedZoneConfig :: Prelude.Maybe HostedZoneConfig,
+    -- | (Private hosted zones only) A complex type that contains information
+    -- about the Amazon VPC that you\'re associating with this hosted zone.
+    --
+    -- You can specify only one Amazon VPC when you create a private hosted
+    -- zone. To associate additional Amazon VPCs with the hosted zone, use
+    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AssociateVPCWithHostedZone>
+    -- after you create a hosted zone.
+    vpc :: Prelude.Maybe VPC,
+    -- | If you want to associate a reusable delegation set with this hosted
+    -- zone, the ID that Amazon Route 53 assigned to the reusable delegation
+    -- set when you created it. For more information about reusable delegation
+    -- sets, see
+    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html CreateReusableDelegationSet>.
+    delegationSetId :: Prelude.Maybe ResourceId,
     -- | The name of the domain. Specify a fully qualified domain name, for
     -- example, /www.example.com/. The trailing dot is optional; Amazon Route
     -- 53 assumes that the domain name is fully qualified. This means that
@@ -154,11 +154,14 @@ data CreateHostedZone = CreateHostedZone'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'delegationSetId', 'createHostedZone_delegationSetId' - If you want to associate a reusable delegation set with this hosted
--- zone, the ID that Amazon Route 53 assigned to the reusable delegation
--- set when you created it. For more information about reusable delegation
--- sets, see
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html CreateReusableDelegationSet>.
+-- 'hostedZoneConfig', 'createHostedZone_hostedZoneConfig' - (Optional) A complex type that contains the following optional values:
+--
+-- -   For public and private hosted zones, an optional comment
+--
+-- -   For private hosted zones, an optional @PrivateZone@ element
+--
+-- If you don\'t specify a comment or the @PrivateZone@ element, omit
+-- @HostedZoneConfig@ and the other elements.
 --
 -- 'vpc', 'createHostedZone_vpc' - (Private hosted zones only) A complex type that contains information
 -- about the Amazon VPC that you\'re associating with this hosted zone.
@@ -168,14 +171,11 @@ data CreateHostedZone = CreateHostedZone'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AssociateVPCWithHostedZone>
 -- after you create a hosted zone.
 --
--- 'hostedZoneConfig', 'createHostedZone_hostedZoneConfig' - (Optional) A complex type that contains the following optional values:
---
--- -   For public and private hosted zones, an optional comment
---
--- -   For private hosted zones, an optional @PrivateZone@ element
---
--- If you don\'t specify a comment or the @PrivateZone@ element, omit
--- @HostedZoneConfig@ and the other elements.
+-- 'delegationSetId', 'createHostedZone_delegationSetId' - If you want to associate a reusable delegation set with this hosted
+-- zone, the ID that Amazon Route 53 assigned to the reusable delegation
+-- set when you created it. For more information about reusable delegation
+-- sets, see
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html CreateReusableDelegationSet>.
 --
 -- 'name', 'createHostedZone_name' - The name of the domain. Specify a fully qualified domain name, for
 -- example, /www.example.com/. The trailing dot is optional; Amazon Route
@@ -202,31 +202,13 @@ newCreateHostedZone ::
   CreateHostedZone
 newCreateHostedZone pName_ pCallerReference_ =
   CreateHostedZone'
-    { delegationSetId =
+    { hostedZoneConfig =
         Prelude.Nothing,
       vpc = Prelude.Nothing,
-      hostedZoneConfig = Prelude.Nothing,
+      delegationSetId = Prelude.Nothing,
       name = pName_,
       callerReference = pCallerReference_
     }
-
--- | If you want to associate a reusable delegation set with this hosted
--- zone, the ID that Amazon Route 53 assigned to the reusable delegation
--- set when you created it. For more information about reusable delegation
--- sets, see
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html CreateReusableDelegationSet>.
-createHostedZone_delegationSetId :: Lens.Lens' CreateHostedZone (Prelude.Maybe ResourceId)
-createHostedZone_delegationSetId = Lens.lens (\CreateHostedZone' {delegationSetId} -> delegationSetId) (\s@CreateHostedZone' {} a -> s {delegationSetId = a} :: CreateHostedZone)
-
--- | (Private hosted zones only) A complex type that contains information
--- about the Amazon VPC that you\'re associating with this hosted zone.
---
--- You can specify only one Amazon VPC when you create a private hosted
--- zone. To associate additional Amazon VPCs with the hosted zone, use
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AssociateVPCWithHostedZone>
--- after you create a hosted zone.
-createHostedZone_vpc :: Lens.Lens' CreateHostedZone (Prelude.Maybe VPC)
-createHostedZone_vpc = Lens.lens (\CreateHostedZone' {vpc} -> vpc) (\s@CreateHostedZone' {} a -> s {vpc = a} :: CreateHostedZone)
 
 -- | (Optional) A complex type that contains the following optional values:
 --
@@ -238,6 +220,24 @@ createHostedZone_vpc = Lens.lens (\CreateHostedZone' {vpc} -> vpc) (\s@CreateHos
 -- @HostedZoneConfig@ and the other elements.
 createHostedZone_hostedZoneConfig :: Lens.Lens' CreateHostedZone (Prelude.Maybe HostedZoneConfig)
 createHostedZone_hostedZoneConfig = Lens.lens (\CreateHostedZone' {hostedZoneConfig} -> hostedZoneConfig) (\s@CreateHostedZone' {} a -> s {hostedZoneConfig = a} :: CreateHostedZone)
+
+-- | (Private hosted zones only) A complex type that contains information
+-- about the Amazon VPC that you\'re associating with this hosted zone.
+--
+-- You can specify only one Amazon VPC when you create a private hosted
+-- zone. To associate additional Amazon VPCs with the hosted zone, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AssociateVPCWithHostedZone>
+-- after you create a hosted zone.
+createHostedZone_vpc :: Lens.Lens' CreateHostedZone (Prelude.Maybe VPC)
+createHostedZone_vpc = Lens.lens (\CreateHostedZone' {vpc} -> vpc) (\s@CreateHostedZone' {} a -> s {vpc = a} :: CreateHostedZone)
+
+-- | If you want to associate a reusable delegation set with this hosted
+-- zone, the ID that Amazon Route 53 assigned to the reusable delegation
+-- set when you created it. For more information about reusable delegation
+-- sets, see
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html CreateReusableDelegationSet>.
+createHostedZone_delegationSetId :: Lens.Lens' CreateHostedZone (Prelude.Maybe ResourceId)
+createHostedZone_delegationSetId = Lens.lens (\CreateHostedZone' {delegationSetId} -> delegationSetId) (\s@CreateHostedZone' {} a -> s {delegationSetId = a} :: CreateHostedZone)
 
 -- | The name of the domain. Specify a fully qualified domain name, for
 -- example, /www.example.com/. The trailing dot is optional; Amazon Route
@@ -280,17 +280,17 @@ instance Core.AWSRequest CreateHostedZone where
 
 instance Prelude.Hashable CreateHostedZone where
   hashWithSalt _salt CreateHostedZone' {..} =
-    _salt `Prelude.hashWithSalt` delegationSetId
+    _salt `Prelude.hashWithSalt` hostedZoneConfig
       `Prelude.hashWithSalt` vpc
-      `Prelude.hashWithSalt` hostedZoneConfig
+      `Prelude.hashWithSalt` delegationSetId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` callerReference
 
 instance Prelude.NFData CreateHostedZone where
   rnf CreateHostedZone' {..} =
-    Prelude.rnf delegationSetId
+    Prelude.rnf hostedZoneConfig
       `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf hostedZoneConfig
+      `Prelude.seq` Prelude.rnf delegationSetId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf callerReference
 
@@ -311,9 +311,9 @@ instance Core.ToQuery CreateHostedZone where
 instance Core.ToXML CreateHostedZone where
   toXML CreateHostedZone' {..} =
     Prelude.mconcat
-      [ "DelegationSetId" Core.@= delegationSetId,
+      [ "HostedZoneConfig" Core.@= hostedZoneConfig,
         "VPC" Core.@= vpc,
-        "HostedZoneConfig" Core.@= hostedZoneConfig,
+        "DelegationSetId" Core.@= delegationSetId,
         "Name" Core.@= name,
         "CallerReference" Core.@= callerReference
       ]

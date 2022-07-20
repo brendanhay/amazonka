@@ -28,15 +28,15 @@ module Amazonka.ImageBuilder.CreateContainerRecipe
     newCreateContainerRecipe,
 
     -- * Request Lenses
-    createContainerRecipe_dockerfileTemplateData,
-    createContainerRecipe_imageOsVersionOverride,
-    createContainerRecipe_workingDirectory,
-    createContainerRecipe_dockerfileTemplateUri,
-    createContainerRecipe_kmsKeyId,
-    createContainerRecipe_platformOverride,
-    createContainerRecipe_description,
     createContainerRecipe_tags,
     createContainerRecipe_instanceConfiguration,
+    createContainerRecipe_description,
+    createContainerRecipe_platformOverride,
+    createContainerRecipe_kmsKeyId,
+    createContainerRecipe_imageOsVersionOverride,
+    createContainerRecipe_dockerfileTemplateData,
+    createContainerRecipe_dockerfileTemplateUri,
+    createContainerRecipe_workingDirectory,
     createContainerRecipe_containerType,
     createContainerRecipe_name,
     createContainerRecipe_semanticVersion,
@@ -50,8 +50,8 @@ module Amazonka.ImageBuilder.CreateContainerRecipe
     newCreateContainerRecipeResponse,
 
     -- * Response Lenses
-    createContainerRecipeResponse_requestId,
     createContainerRecipeResponse_clientToken,
+    createContainerRecipeResponse_requestId,
     createContainerRecipeResponse_containerRecipeArn,
     createContainerRecipeResponse_httpStatus,
   )
@@ -66,27 +66,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateContainerRecipe' smart constructor.
 data CreateContainerRecipe = CreateContainerRecipe'
-  { -- | The Dockerfile template used to build your image as an inline data blob.
-    dockerfileTemplateData :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the operating system version for the base image.
-    imageOsVersionOverride :: Prelude.Maybe Prelude.Text,
-    -- | The working directory for use during build and test workflows.
-    workingDirectory :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 URI for the Dockerfile that will be used to build your
-    -- container image.
-    dockerfileTemplateUri :: Prelude.Maybe Prelude.Text,
-    -- | Identifies which KMS key is used to encrypt the container image.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the operating system platform when you use a custom base
-    -- image.
-    platformOverride :: Prelude.Maybe Platform,
-    -- | The description of the container recipe.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Tags that are attached to the container recipe.
+  { -- | Tags that are attached to the container recipe.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A group of options that can be used to configure an instance for
     -- building and testing container images.
     instanceConfiguration :: Prelude.Maybe InstanceConfiguration,
+    -- | The description of the container recipe.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the operating system platform when you use a custom base
+    -- image.
+    platformOverride :: Prelude.Maybe Platform,
+    -- | Identifies which KMS key is used to encrypt the container image.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the operating system version for the base image.
+    imageOsVersionOverride :: Prelude.Maybe Prelude.Text,
+    -- | The Dockerfile template used to build your image as an inline data blob.
+    dockerfileTemplateData :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 URI for the Dockerfile that will be used to build your
+    -- container image.
+    dockerfileTemplateUri :: Prelude.Maybe Prelude.Text,
+    -- | The working directory for use during build and test workflows.
+    workingDirectory :: Prelude.Maybe Prelude.Text,
     -- | The type of container to create.
     containerType :: ContainerType,
     -- | The name of the container recipe.
@@ -127,26 +127,26 @@ data CreateContainerRecipe = CreateContainerRecipe'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dockerfileTemplateData', 'createContainerRecipe_dockerfileTemplateData' - The Dockerfile template used to build your image as an inline data blob.
---
--- 'imageOsVersionOverride', 'createContainerRecipe_imageOsVersionOverride' - Specifies the operating system version for the base image.
---
--- 'workingDirectory', 'createContainerRecipe_workingDirectory' - The working directory for use during build and test workflows.
---
--- 'dockerfileTemplateUri', 'createContainerRecipe_dockerfileTemplateUri' - The Amazon S3 URI for the Dockerfile that will be used to build your
--- container image.
---
--- 'kmsKeyId', 'createContainerRecipe_kmsKeyId' - Identifies which KMS key is used to encrypt the container image.
---
--- 'platformOverride', 'createContainerRecipe_platformOverride' - Specifies the operating system platform when you use a custom base
--- image.
---
--- 'description', 'createContainerRecipe_description' - The description of the container recipe.
---
 -- 'tags', 'createContainerRecipe_tags' - Tags that are attached to the container recipe.
 --
 -- 'instanceConfiguration', 'createContainerRecipe_instanceConfiguration' - A group of options that can be used to configure an instance for
 -- building and testing container images.
+--
+-- 'description', 'createContainerRecipe_description' - The description of the container recipe.
+--
+-- 'platformOverride', 'createContainerRecipe_platformOverride' - Specifies the operating system platform when you use a custom base
+-- image.
+--
+-- 'kmsKeyId', 'createContainerRecipe_kmsKeyId' - Identifies which KMS key is used to encrypt the container image.
+--
+-- 'imageOsVersionOverride', 'createContainerRecipe_imageOsVersionOverride' - Specifies the operating system version for the base image.
+--
+-- 'dockerfileTemplateData', 'createContainerRecipe_dockerfileTemplateData' - The Dockerfile template used to build your image as an inline data blob.
+--
+-- 'dockerfileTemplateUri', 'createContainerRecipe_dockerfileTemplateUri' - The Amazon S3 URI for the Dockerfile that will be used to build your
+-- container image.
+--
+-- 'workingDirectory', 'createContainerRecipe_workingDirectory' - The working directory for use during build and test workflows.
 --
 -- 'containerType', 'createContainerRecipe_containerType' - The type of container to create.
 --
@@ -201,16 +201,15 @@ newCreateContainerRecipe
   pTargetRepository_
   pClientToken_ =
     CreateContainerRecipe'
-      { dockerfileTemplateData =
-          Prelude.Nothing,
-        imageOsVersionOverride = Prelude.Nothing,
-        workingDirectory = Prelude.Nothing,
-        dockerfileTemplateUri = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        platformOverride = Prelude.Nothing,
-        description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         instanceConfiguration = Prelude.Nothing,
+        description = Prelude.Nothing,
+        platformOverride = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        imageOsVersionOverride = Prelude.Nothing,
+        dockerfileTemplateData = Prelude.Nothing,
+        dockerfileTemplateUri = Prelude.Nothing,
+        workingDirectory = Prelude.Nothing,
         containerType = pContainerType_,
         name = pName_,
         semanticVersion = pSemanticVersion_,
@@ -220,36 +219,6 @@ newCreateContainerRecipe
         clientToken = pClientToken_
       }
 
--- | The Dockerfile template used to build your image as an inline data blob.
-createContainerRecipe_dockerfileTemplateData :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
-createContainerRecipe_dockerfileTemplateData = Lens.lens (\CreateContainerRecipe' {dockerfileTemplateData} -> dockerfileTemplateData) (\s@CreateContainerRecipe' {} a -> s {dockerfileTemplateData = a} :: CreateContainerRecipe)
-
--- | Specifies the operating system version for the base image.
-createContainerRecipe_imageOsVersionOverride :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
-createContainerRecipe_imageOsVersionOverride = Lens.lens (\CreateContainerRecipe' {imageOsVersionOverride} -> imageOsVersionOverride) (\s@CreateContainerRecipe' {} a -> s {imageOsVersionOverride = a} :: CreateContainerRecipe)
-
--- | The working directory for use during build and test workflows.
-createContainerRecipe_workingDirectory :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
-createContainerRecipe_workingDirectory = Lens.lens (\CreateContainerRecipe' {workingDirectory} -> workingDirectory) (\s@CreateContainerRecipe' {} a -> s {workingDirectory = a} :: CreateContainerRecipe)
-
--- | The Amazon S3 URI for the Dockerfile that will be used to build your
--- container image.
-createContainerRecipe_dockerfileTemplateUri :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
-createContainerRecipe_dockerfileTemplateUri = Lens.lens (\CreateContainerRecipe' {dockerfileTemplateUri} -> dockerfileTemplateUri) (\s@CreateContainerRecipe' {} a -> s {dockerfileTemplateUri = a} :: CreateContainerRecipe)
-
--- | Identifies which KMS key is used to encrypt the container image.
-createContainerRecipe_kmsKeyId :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
-createContainerRecipe_kmsKeyId = Lens.lens (\CreateContainerRecipe' {kmsKeyId} -> kmsKeyId) (\s@CreateContainerRecipe' {} a -> s {kmsKeyId = a} :: CreateContainerRecipe)
-
--- | Specifies the operating system platform when you use a custom base
--- image.
-createContainerRecipe_platformOverride :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Platform)
-createContainerRecipe_platformOverride = Lens.lens (\CreateContainerRecipe' {platformOverride} -> platformOverride) (\s@CreateContainerRecipe' {} a -> s {platformOverride = a} :: CreateContainerRecipe)
-
--- | The description of the container recipe.
-createContainerRecipe_description :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
-createContainerRecipe_description = Lens.lens (\CreateContainerRecipe' {description} -> description) (\s@CreateContainerRecipe' {} a -> s {description = a} :: CreateContainerRecipe)
-
 -- | Tags that are attached to the container recipe.
 createContainerRecipe_tags :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createContainerRecipe_tags = Lens.lens (\CreateContainerRecipe' {tags} -> tags) (\s@CreateContainerRecipe' {} a -> s {tags = a} :: CreateContainerRecipe) Prelude.. Lens.mapping Lens.coerced
@@ -258,6 +227,36 @@ createContainerRecipe_tags = Lens.lens (\CreateContainerRecipe' {tags} -> tags) 
 -- building and testing container images.
 createContainerRecipe_instanceConfiguration :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe InstanceConfiguration)
 createContainerRecipe_instanceConfiguration = Lens.lens (\CreateContainerRecipe' {instanceConfiguration} -> instanceConfiguration) (\s@CreateContainerRecipe' {} a -> s {instanceConfiguration = a} :: CreateContainerRecipe)
+
+-- | The description of the container recipe.
+createContainerRecipe_description :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
+createContainerRecipe_description = Lens.lens (\CreateContainerRecipe' {description} -> description) (\s@CreateContainerRecipe' {} a -> s {description = a} :: CreateContainerRecipe)
+
+-- | Specifies the operating system platform when you use a custom base
+-- image.
+createContainerRecipe_platformOverride :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Platform)
+createContainerRecipe_platformOverride = Lens.lens (\CreateContainerRecipe' {platformOverride} -> platformOverride) (\s@CreateContainerRecipe' {} a -> s {platformOverride = a} :: CreateContainerRecipe)
+
+-- | Identifies which KMS key is used to encrypt the container image.
+createContainerRecipe_kmsKeyId :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
+createContainerRecipe_kmsKeyId = Lens.lens (\CreateContainerRecipe' {kmsKeyId} -> kmsKeyId) (\s@CreateContainerRecipe' {} a -> s {kmsKeyId = a} :: CreateContainerRecipe)
+
+-- | Specifies the operating system version for the base image.
+createContainerRecipe_imageOsVersionOverride :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
+createContainerRecipe_imageOsVersionOverride = Lens.lens (\CreateContainerRecipe' {imageOsVersionOverride} -> imageOsVersionOverride) (\s@CreateContainerRecipe' {} a -> s {imageOsVersionOverride = a} :: CreateContainerRecipe)
+
+-- | The Dockerfile template used to build your image as an inline data blob.
+createContainerRecipe_dockerfileTemplateData :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
+createContainerRecipe_dockerfileTemplateData = Lens.lens (\CreateContainerRecipe' {dockerfileTemplateData} -> dockerfileTemplateData) (\s@CreateContainerRecipe' {} a -> s {dockerfileTemplateData = a} :: CreateContainerRecipe)
+
+-- | The Amazon S3 URI for the Dockerfile that will be used to build your
+-- container image.
+createContainerRecipe_dockerfileTemplateUri :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
+createContainerRecipe_dockerfileTemplateUri = Lens.lens (\CreateContainerRecipe' {dockerfileTemplateUri} -> dockerfileTemplateUri) (\s@CreateContainerRecipe' {} a -> s {dockerfileTemplateUri = a} :: CreateContainerRecipe)
+
+-- | The working directory for use during build and test workflows.
+createContainerRecipe_workingDirectory :: Lens.Lens' CreateContainerRecipe (Prelude.Maybe Prelude.Text)
+createContainerRecipe_workingDirectory = Lens.lens (\CreateContainerRecipe' {workingDirectory} -> workingDirectory) (\s@CreateContainerRecipe' {} a -> s {workingDirectory = a} :: CreateContainerRecipe)
 
 -- | The type of container to create.
 createContainerRecipe_containerType :: Lens.Lens' CreateContainerRecipe ContainerType
@@ -311,23 +310,23 @@ instance Core.AWSRequest CreateContainerRecipe where
     Response.receiveJSON
       ( \s h x ->
           CreateContainerRecipeResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "clientToken")
+            Prelude.<$> (x Core..?> "clientToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (x Core..?> "containerRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateContainerRecipe where
   hashWithSalt _salt CreateContainerRecipe' {..} =
-    _salt `Prelude.hashWithSalt` dockerfileTemplateData
-      `Prelude.hashWithSalt` imageOsVersionOverride
-      `Prelude.hashWithSalt` workingDirectory
-      `Prelude.hashWithSalt` dockerfileTemplateUri
-      `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` platformOverride
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` platformOverride
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` imageOsVersionOverride
+      `Prelude.hashWithSalt` dockerfileTemplateData
+      `Prelude.hashWithSalt` dockerfileTemplateUri
+      `Prelude.hashWithSalt` workingDirectory
       `Prelude.hashWithSalt` containerType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` semanticVersion
@@ -338,15 +337,15 @@ instance Prelude.Hashable CreateContainerRecipe where
 
 instance Prelude.NFData CreateContainerRecipe where
   rnf CreateContainerRecipe' {..} =
-    Prelude.rnf dockerfileTemplateData
-      `Prelude.seq` Prelude.rnf imageOsVersionOverride
-      `Prelude.seq` Prelude.rnf workingDirectory
-      `Prelude.seq` Prelude.rnf dockerfileTemplateUri
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf platformOverride
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf platformOverride
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf imageOsVersionOverride
+      `Prelude.seq` Prelude.rnf dockerfileTemplateData
+      `Prelude.seq` Prelude.rnf dockerfileTemplateUri
+      `Prelude.seq` Prelude.rnf workingDirectory
       `Prelude.seq` Prelude.rnf containerType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf semanticVersion
@@ -370,21 +369,21 @@ instance Core.ToJSON CreateContainerRecipe where
   toJSON CreateContainerRecipe' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("dockerfileTemplateData" Core..=)
-              Prelude.<$> dockerfileTemplateData,
-            ("imageOsVersionOverride" Core..=)
-              Prelude.<$> imageOsVersionOverride,
-            ("workingDirectory" Core..=)
-              Prelude.<$> workingDirectory,
-            ("dockerfileTemplateUri" Core..=)
-              Prelude.<$> dockerfileTemplateUri,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("platformOverride" Core..=)
-              Prelude.<$> platformOverride,
-            ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("instanceConfiguration" Core..=)
               Prelude.<$> instanceConfiguration,
+            ("description" Core..=) Prelude.<$> description,
+            ("platformOverride" Core..=)
+              Prelude.<$> platformOverride,
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("imageOsVersionOverride" Core..=)
+              Prelude.<$> imageOsVersionOverride,
+            ("dockerfileTemplateData" Core..=)
+              Prelude.<$> dockerfileTemplateData,
+            ("dockerfileTemplateUri" Core..=)
+              Prelude.<$> dockerfileTemplateUri,
+            ("workingDirectory" Core..=)
+              Prelude.<$> workingDirectory,
             Prelude.Just ("containerType" Core..= containerType),
             Prelude.Just ("name" Core..= name),
             Prelude.Just
@@ -405,10 +404,10 @@ instance Core.ToQuery CreateContainerRecipe where
 
 -- | /See:/ 'newCreateContainerRecipeResponse' smart constructor.
 data CreateContainerRecipeResponse = CreateContainerRecipeResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The client token used to make this request idempotent.
+  { -- | The client token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | Returns the Amazon Resource Name (ARN) of the container recipe that the
     -- request created.
     containerRecipeArn :: Prelude.Maybe Prelude.Text,
@@ -425,9 +424,9 @@ data CreateContainerRecipeResponse = CreateContainerRecipeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'createContainerRecipeResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'clientToken', 'createContainerRecipeResponse_clientToken' - The client token used to make this request idempotent.
+--
+-- 'requestId', 'createContainerRecipeResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'containerRecipeArn', 'createContainerRecipeResponse_containerRecipeArn' - Returns the Amazon Resource Name (ARN) of the container recipe that the
 -- request created.
@@ -439,20 +438,20 @@ newCreateContainerRecipeResponse ::
   CreateContainerRecipeResponse
 newCreateContainerRecipeResponse pHttpStatus_ =
   CreateContainerRecipeResponse'
-    { requestId =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       containerRecipeArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The request ID that uniquely identifies this request.
-createContainerRecipeResponse_requestId :: Lens.Lens' CreateContainerRecipeResponse (Prelude.Maybe Prelude.Text)
-createContainerRecipeResponse_requestId = Lens.lens (\CreateContainerRecipeResponse' {requestId} -> requestId) (\s@CreateContainerRecipeResponse' {} a -> s {requestId = a} :: CreateContainerRecipeResponse)
-
 -- | The client token used to make this request idempotent.
 createContainerRecipeResponse_clientToken :: Lens.Lens' CreateContainerRecipeResponse (Prelude.Maybe Prelude.Text)
 createContainerRecipeResponse_clientToken = Lens.lens (\CreateContainerRecipeResponse' {clientToken} -> clientToken) (\s@CreateContainerRecipeResponse' {} a -> s {clientToken = a} :: CreateContainerRecipeResponse)
+
+-- | The request ID that uniquely identifies this request.
+createContainerRecipeResponse_requestId :: Lens.Lens' CreateContainerRecipeResponse (Prelude.Maybe Prelude.Text)
+createContainerRecipeResponse_requestId = Lens.lens (\CreateContainerRecipeResponse' {requestId} -> requestId) (\s@CreateContainerRecipeResponse' {} a -> s {requestId = a} :: CreateContainerRecipeResponse)
 
 -- | Returns the Amazon Resource Name (ARN) of the container recipe that the
 -- request created.
@@ -465,7 +464,7 @@ createContainerRecipeResponse_httpStatus = Lens.lens (\CreateContainerRecipeResp
 
 instance Prelude.NFData CreateContainerRecipeResponse where
   rnf CreateContainerRecipeResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf containerRecipeArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { -- | The number of documents successfully processed during a translation job.
-    translatedDocumentsCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of documents that could not be processed during a translation
+  { -- | The number of documents that could not be processed during a translation
     -- job.
     documentsWithErrorsCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of documents successfully processed during a translation job.
+    translatedDocumentsCount :: Prelude.Maybe Prelude.Int,
     -- | The number of documents used as input in a translation job.
     inputDocumentsCount :: Prelude.Maybe Prelude.Int
   }
@@ -46,30 +46,30 @@ data JobDetails = JobDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'translatedDocumentsCount', 'jobDetails_translatedDocumentsCount' - The number of documents successfully processed during a translation job.
---
 -- 'documentsWithErrorsCount', 'jobDetails_documentsWithErrorsCount' - The number of documents that could not be processed during a translation
 -- job.
+--
+-- 'translatedDocumentsCount', 'jobDetails_translatedDocumentsCount' - The number of documents successfully processed during a translation job.
 --
 -- 'inputDocumentsCount', 'jobDetails_inputDocumentsCount' - The number of documents used as input in a translation job.
 newJobDetails ::
   JobDetails
 newJobDetails =
   JobDetails'
-    { translatedDocumentsCount =
+    { documentsWithErrorsCount =
         Prelude.Nothing,
-      documentsWithErrorsCount = Prelude.Nothing,
+      translatedDocumentsCount = Prelude.Nothing,
       inputDocumentsCount = Prelude.Nothing
     }
-
--- | The number of documents successfully processed during a translation job.
-jobDetails_translatedDocumentsCount :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Int)
-jobDetails_translatedDocumentsCount = Lens.lens (\JobDetails' {translatedDocumentsCount} -> translatedDocumentsCount) (\s@JobDetails' {} a -> s {translatedDocumentsCount = a} :: JobDetails)
 
 -- | The number of documents that could not be processed during a translation
 -- job.
 jobDetails_documentsWithErrorsCount :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Int)
 jobDetails_documentsWithErrorsCount = Lens.lens (\JobDetails' {documentsWithErrorsCount} -> documentsWithErrorsCount) (\s@JobDetails' {} a -> s {documentsWithErrorsCount = a} :: JobDetails)
+
+-- | The number of documents successfully processed during a translation job.
+jobDetails_translatedDocumentsCount :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Int)
+jobDetails_translatedDocumentsCount = Lens.lens (\JobDetails' {translatedDocumentsCount} -> translatedDocumentsCount) (\s@JobDetails' {} a -> s {translatedDocumentsCount = a} :: JobDetails)
 
 -- | The number of documents used as input in a translation job.
 jobDetails_inputDocumentsCount :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Int)
@@ -81,20 +81,20 @@ instance Core.FromJSON JobDetails where
       "JobDetails"
       ( \x ->
           JobDetails'
-            Prelude.<$> (x Core..:? "TranslatedDocumentsCount")
-            Prelude.<*> (x Core..:? "DocumentsWithErrorsCount")
+            Prelude.<$> (x Core..:? "DocumentsWithErrorsCount")
+            Prelude.<*> (x Core..:? "TranslatedDocumentsCount")
             Prelude.<*> (x Core..:? "InputDocumentsCount")
       )
 
 instance Prelude.Hashable JobDetails where
   hashWithSalt _salt JobDetails' {..} =
     _salt
-      `Prelude.hashWithSalt` translatedDocumentsCount
       `Prelude.hashWithSalt` documentsWithErrorsCount
+      `Prelude.hashWithSalt` translatedDocumentsCount
       `Prelude.hashWithSalt` inputDocumentsCount
 
 instance Prelude.NFData JobDetails where
   rnf JobDetails' {..} =
-    Prelude.rnf translatedDocumentsCount
-      `Prelude.seq` Prelude.rnf documentsWithErrorsCount
+    Prelude.rnf documentsWithErrorsCount
+      `Prelude.seq` Prelude.rnf translatedDocumentsCount
       `Prelude.seq` Prelude.rnf inputDocumentsCount

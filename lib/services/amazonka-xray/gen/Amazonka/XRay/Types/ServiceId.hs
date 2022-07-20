@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceId' smart constructor.
 data ServiceId = ServiceId'
-  { accountId :: Prelude.Maybe Prelude.Text,
+  { name :: Prelude.Maybe Prelude.Text,
+    type' :: Prelude.Maybe Prelude.Text,
     names :: Prelude.Maybe [Prelude.Text],
-    name :: Prelude.Maybe Prelude.Text,
-    type' :: Prelude.Maybe Prelude.Text
+    accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,30 +42,22 @@ data ServiceId = ServiceId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'serviceId_accountId' -
---
--- 'names', 'serviceId_names' -
---
 -- 'name', 'serviceId_name' -
 --
 -- 'type'', 'serviceId_type' -
+--
+-- 'names', 'serviceId_names' -
+--
+-- 'accountId', 'serviceId_accountId' -
 newServiceId ::
   ServiceId
 newServiceId =
   ServiceId'
-    { accountId = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      type' = Prelude.Nothing,
       names = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing
+      accountId = Prelude.Nothing
     }
-
--- |
-serviceId_accountId :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
-serviceId_accountId = Lens.lens (\ServiceId' {accountId} -> accountId) (\s@ServiceId' {} a -> s {accountId = a} :: ServiceId)
-
--- |
-serviceId_names :: Lens.Lens' ServiceId (Prelude.Maybe [Prelude.Text])
-serviceId_names = Lens.lens (\ServiceId' {names} -> names) (\s@ServiceId' {} a -> s {names = a} :: ServiceId) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 serviceId_name :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
@@ -75,28 +67,36 @@ serviceId_name = Lens.lens (\ServiceId' {name} -> name) (\s@ServiceId' {} a -> s
 serviceId_type :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
 serviceId_type = Lens.lens (\ServiceId' {type'} -> type') (\s@ServiceId' {} a -> s {type' = a} :: ServiceId)
 
+-- |
+serviceId_names :: Lens.Lens' ServiceId (Prelude.Maybe [Prelude.Text])
+serviceId_names = Lens.lens (\ServiceId' {names} -> names) (\s@ServiceId' {} a -> s {names = a} :: ServiceId) Prelude.. Lens.mapping Lens.coerced
+
+-- |
+serviceId_accountId :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
+serviceId_accountId = Lens.lens (\ServiceId' {accountId} -> accountId) (\s@ServiceId' {} a -> s {accountId = a} :: ServiceId)
+
 instance Core.FromJSON ServiceId where
   parseJSON =
     Core.withObject
       "ServiceId"
       ( \x ->
           ServiceId'
-            Prelude.<$> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AccountId")
       )
 
 instance Prelude.Hashable ServiceId where
   hashWithSalt _salt ServiceId' {..} =
-    _salt `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` names
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData ServiceId where
   rnf ServiceId' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf accountId

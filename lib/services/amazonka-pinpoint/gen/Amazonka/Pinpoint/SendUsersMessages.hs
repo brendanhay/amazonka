@@ -127,14 +127,7 @@ instance Core.ToHeaders SendUsersMessages where
 
 instance Core.ToJSON SendUsersMessages where
   toJSON SendUsersMessages' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "SendUsersMessageRequest"
-                  Core..= sendUsersMessageRequest
-              )
-          ]
-      )
+    Core.toJSON sendUsersMessageRequest
 
 instance Core.ToPath SendUsersMessages where
   toPath SendUsersMessages' {..} =

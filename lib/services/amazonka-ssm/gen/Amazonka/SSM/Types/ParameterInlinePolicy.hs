@@ -31,13 +31,13 @@ data ParameterInlinePolicy = ParameterInlinePolicy'
     -- Services Systems Manager, supports the following policy types:
     -- Expiration, ExpirationNotification, and NoChangeNotification.
     policyType :: Prelude.Maybe Prelude.Text,
+    -- | The JSON text of the policy.
+    policyText :: Prelude.Maybe Prelude.Text,
     -- | The status of the policy. Policies report the following statuses:
     -- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
     -- policy was applied), Failed (the policy wasn\'t applied), or InProgress
     -- (the policy is being applied now).
-    policyStatus :: Prelude.Maybe Prelude.Text,
-    -- | The JSON text of the policy.
-    policyText :: Prelude.Maybe Prelude.Text
+    policyStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,20 +53,20 @@ data ParameterInlinePolicy = ParameterInlinePolicy'
 -- Services Systems Manager, supports the following policy types:
 -- Expiration, ExpirationNotification, and NoChangeNotification.
 --
+-- 'policyText', 'parameterInlinePolicy_policyText' - The JSON text of the policy.
+--
 -- 'policyStatus', 'parameterInlinePolicy_policyStatus' - The status of the policy. Policies report the following statuses:
 -- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
 -- policy was applied), Failed (the policy wasn\'t applied), or InProgress
 -- (the policy is being applied now).
---
--- 'policyText', 'parameterInlinePolicy_policyText' - The JSON text of the policy.
 newParameterInlinePolicy ::
   ParameterInlinePolicy
 newParameterInlinePolicy =
   ParameterInlinePolicy'
     { policyType =
         Prelude.Nothing,
-      policyStatus = Prelude.Nothing,
-      policyText = Prelude.Nothing
+      policyText = Prelude.Nothing,
+      policyStatus = Prelude.Nothing
     }
 
 -- | The type of policy. Parameter Store, a capablility of Amazon Web
@@ -75,16 +75,16 @@ newParameterInlinePolicy =
 parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyType = Lens.lens (\ParameterInlinePolicy' {policyType} -> policyType) (\s@ParameterInlinePolicy' {} a -> s {policyType = a} :: ParameterInlinePolicy)
 
+-- | The JSON text of the policy.
+parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
+parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyText} -> policyText) (\s@ParameterInlinePolicy' {} a -> s {policyText = a} :: ParameterInlinePolicy)
+
 -- | The status of the policy. Policies report the following statuses:
 -- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
 -- policy was applied), Failed (the policy wasn\'t applied), or InProgress
 -- (the policy is being applied now).
 parameterInlinePolicy_policyStatus :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyStatus = Lens.lens (\ParameterInlinePolicy' {policyStatus} -> policyStatus) (\s@ParameterInlinePolicy' {} a -> s {policyStatus = a} :: ParameterInlinePolicy)
-
--- | The JSON text of the policy.
-parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
-parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyText} -> policyText) (\s@ParameterInlinePolicy' {} a -> s {policyText = a} :: ParameterInlinePolicy)
 
 instance Core.FromJSON ParameterInlinePolicy where
   parseJSON =
@@ -93,18 +93,18 @@ instance Core.FromJSON ParameterInlinePolicy where
       ( \x ->
           ParameterInlinePolicy'
             Prelude.<$> (x Core..:? "PolicyType")
-            Prelude.<*> (x Core..:? "PolicyStatus")
             Prelude.<*> (x Core..:? "PolicyText")
+            Prelude.<*> (x Core..:? "PolicyStatus")
       )
 
 instance Prelude.Hashable ParameterInlinePolicy where
   hashWithSalt _salt ParameterInlinePolicy' {..} =
     _salt `Prelude.hashWithSalt` policyType
-      `Prelude.hashWithSalt` policyStatus
       `Prelude.hashWithSalt` policyText
+      `Prelude.hashWithSalt` policyStatus
 
 instance Prelude.NFData ParameterInlinePolicy where
   rnf ParameterInlinePolicy' {..} =
     Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf policyStatus
       `Prelude.seq` Prelude.rnf policyText
+      `Prelude.seq` Prelude.rnf policyStatus

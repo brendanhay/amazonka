@@ -28,11 +28,11 @@ module Amazonka.Comprehend.StartSentimentDetectionJob
     newStartSentimentDetectionJob,
 
     -- * Request Lenses
-    startSentimentDetectionJob_jobName,
-    startSentimentDetectionJob_vpcConfig,
-    startSentimentDetectionJob_volumeKmsKeyId,
-    startSentimentDetectionJob_clientRequestToken,
     startSentimentDetectionJob_tags,
+    startSentimentDetectionJob_clientRequestToken,
+    startSentimentDetectionJob_vpcConfig,
+    startSentimentDetectionJob_jobName,
+    startSentimentDetectionJob_volumeKmsKeyId,
     startSentimentDetectionJob_inputDataConfig,
     startSentimentDetectionJob_outputDataConfig,
     startSentimentDetectionJob_dataAccessRoleArn,
@@ -43,9 +43,9 @@ module Amazonka.Comprehend.StartSentimentDetectionJob
     newStartSentimentDetectionJobResponse,
 
     -- * Response Lenses
+    startSentimentDetectionJobResponse_jobStatus,
     startSentimentDetectionJobResponse_jobId,
     startSentimentDetectionJobResponse_jobArn,
-    startSentimentDetectionJobResponse_jobStatus,
     startSentimentDetectionJobResponse_httpStatus,
   )
 where
@@ -59,13 +59,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartSentimentDetectionJob' smart constructor.
 data StartSentimentDetectionJob = StartSentimentDetectionJob'
-  { -- | The identifier of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
+  { -- | Tags to be associated with the sentiment detection job. A tag is a
+    -- key-value pair that adds metadata to a resource used by Amazon
+    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
+    -- | A unique identifier for the request. If you don\'t set the client
+    -- request token, Amazon Comprehend generates one.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Configuration parameters for an optional private Virtual Private Cloud
     -- (VPC) containing the resources you are using for your sentiment
     -- detection job. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | The identifier of the job.
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -76,14 +84,6 @@ data StartSentimentDetectionJob = StartSentimentDetectionJob'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the sentiment detection job. A tag is a
-    -- key-value pair that adds metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
-    tags :: Prelude.Maybe [Tag],
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
@@ -108,12 +108,20 @@ data StartSentimentDetectionJob = StartSentimentDetectionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobName', 'startSentimentDetectionJob_jobName' - The identifier of the job.
+-- 'tags', 'startSentimentDetectionJob_tags' - Tags to be associated with the sentiment detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+--
+-- 'clientRequestToken', 'startSentimentDetectionJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend generates one.
 --
 -- 'vpcConfig', 'startSentimentDetectionJob_vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your sentiment
 -- detection job. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+--
+-- 'jobName', 'startSentimentDetectionJob_jobName' - The identifier of the job.
 --
 -- 'volumeKmsKeyId', 'startSentimentDetectionJob_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -124,14 +132,6 @@ data StartSentimentDetectionJob = StartSentimentDetectionJob'
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
---
--- 'clientRequestToken', 'startSentimentDetectionJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend generates one.
---
--- 'tags', 'startSentimentDetectionJob_tags' - Tags to be associated with the sentiment detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
 --
 -- 'inputDataConfig', 'startSentimentDetectionJob_inputDataConfig' - Specifies the format and location of the input data for the job.
 --
@@ -161,21 +161,28 @@ newStartSentimentDetectionJob
   pDataAccessRoleArn_
   pLanguageCode_ =
     StartSentimentDetectionJob'
-      { jobName =
-          Prelude.Nothing,
-        vpcConfig = Prelude.Nothing,
-        volumeKmsKeyId = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        vpcConfig = Prelude.Nothing,
+        jobName = Prelude.Nothing,
+        volumeKmsKeyId = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         languageCode = pLanguageCode_
       }
 
--- | The identifier of the job.
-startSentimentDetectionJob_jobName :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe Prelude.Text)
-startSentimentDetectionJob_jobName = Lens.lens (\StartSentimentDetectionJob' {jobName} -> jobName) (\s@StartSentimentDetectionJob' {} a -> s {jobName = a} :: StartSentimentDetectionJob)
+-- | Tags to be associated with the sentiment detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+startSentimentDetectionJob_tags :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe [Tag])
+startSentimentDetectionJob_tags = Lens.lens (\StartSentimentDetectionJob' {tags} -> tags) (\s@StartSentimentDetectionJob' {} a -> s {tags = a} :: StartSentimentDetectionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend generates one.
+startSentimentDetectionJob_clientRequestToken :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe Prelude.Text)
+startSentimentDetectionJob_clientRequestToken = Lens.lens (\StartSentimentDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartSentimentDetectionJob' {} a -> s {clientRequestToken = a} :: StartSentimentDetectionJob)
 
 -- | Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your sentiment
@@ -183,6 +190,10 @@ startSentimentDetectionJob_jobName = Lens.lens (\StartSentimentDetectionJob' {jo
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 startSentimentDetectionJob_vpcConfig :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe VpcConfig)
 startSentimentDetectionJob_vpcConfig = Lens.lens (\StartSentimentDetectionJob' {vpcConfig} -> vpcConfig) (\s@StartSentimentDetectionJob' {} a -> s {vpcConfig = a} :: StartSentimentDetectionJob)
+
+-- | The identifier of the job.
+startSentimentDetectionJob_jobName :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe Prelude.Text)
+startSentimentDetectionJob_jobName = Lens.lens (\StartSentimentDetectionJob' {jobName} -> jobName) (\s@StartSentimentDetectionJob' {} a -> s {jobName = a} :: StartSentimentDetectionJob)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -195,18 +206,6 @@ startSentimentDetectionJob_vpcConfig = Lens.lens (\StartSentimentDetectionJob' {
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 startSentimentDetectionJob_volumeKmsKeyId :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe Prelude.Text)
 startSentimentDetectionJob_volumeKmsKeyId = Lens.lens (\StartSentimentDetectionJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartSentimentDetectionJob' {} a -> s {volumeKmsKeyId = a} :: StartSentimentDetectionJob)
-
--- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend generates one.
-startSentimentDetectionJob_clientRequestToken :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe Prelude.Text)
-startSentimentDetectionJob_clientRequestToken = Lens.lens (\StartSentimentDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartSentimentDetectionJob' {} a -> s {clientRequestToken = a} :: StartSentimentDetectionJob)
-
--- | Tags to be associated with the sentiment detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
-startSentimentDetectionJob_tags :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe [Tag])
-startSentimentDetectionJob_tags = Lens.lens (\StartSentimentDetectionJob' {tags} -> tags) (\s@StartSentimentDetectionJob' {} a -> s {tags = a} :: StartSentimentDetectionJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the format and location of the input data for the job.
 startSentimentDetectionJob_inputDataConfig :: Lens.Lens' StartSentimentDetectionJob InputDataConfig
@@ -238,19 +237,19 @@ instance Core.AWSRequest StartSentimentDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StartSentimentDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (x Core..?> "JobArn")
-            Prelude.<*> (x Core..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable StartSentimentDetectionJob where
   hashWithSalt _salt StartSentimentDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` volumeKmsKeyId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` outputDataConfig
       `Prelude.hashWithSalt` dataAccessRoleArn
@@ -258,11 +257,11 @@ instance Prelude.Hashable StartSentimentDetectionJob where
 
 instance Prelude.NFData StartSentimentDetectionJob where
   rnf StartSentimentDetectionJob' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
@@ -287,13 +286,13 @@ instance Core.ToJSON StartSentimentDetectionJob where
   toJSON StartSentimentDetectionJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobName" Core..=) Prelude.<$> jobName,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Core..=)
-              Prelude.<$> volumeKmsKeyId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId,
             Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
             Prelude.Just
@@ -312,7 +311,19 @@ instance Core.ToQuery StartSentimentDetectionJob where
 
 -- | /See:/ 'newStartSentimentDetectionJobResponse' smart constructor.
 data StartSentimentDetectionJobResponse = StartSentimentDetectionJobResponse'
-  { -- | The identifier generated for the job. To get the status of a job, use
+  { -- | The status of the job.
+    --
+    -- -   SUBMITTED - The job has been received and is queued for processing.
+    --
+    -- -   IN_PROGRESS - Amazon Comprehend is processing the job.
+    --
+    -- -   COMPLETED - The job was successfully completed and the output is
+    --     available.
+    --
+    -- -   FAILED - The job did not complete. To get details, use the
+    --     operation.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | The identifier generated for the job. To get the status of a job, use
     -- this identifier with the operation.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the sentiment detection job. It is a
@@ -325,18 +336,6 @@ data StartSentimentDetectionJobResponse = StartSentimentDetectionJobResponse'
     --
     -- @arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job\/1234abcd12ab34cd56ef1234567890ab@
     jobArn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the job.
-    --
-    -- -   SUBMITTED - The job has been received and is queued for processing.
-    --
-    -- -   IN_PROGRESS - Amazon Comprehend is processing the job.
-    --
-    -- -   COMPLETED - The job was successfully completed and the output is
-    --     available.
-    --
-    -- -   FAILED - The job did not complete. To get details, use the
-    --     operation.
-    jobStatus :: Prelude.Maybe JobStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -349,6 +348,18 @@ data StartSentimentDetectionJobResponse = StartSentimentDetectionJobResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'jobStatus', 'startSentimentDetectionJobResponse_jobStatus' - The status of the job.
+--
+-- -   SUBMITTED - The job has been received and is queued for processing.
+--
+-- -   IN_PROGRESS - Amazon Comprehend is processing the job.
+--
+-- -   COMPLETED - The job was successfully completed and the output is
+--     available.
+--
+-- -   FAILED - The job did not complete. To get details, use the
+--     operation.
 --
 -- 'jobId', 'startSentimentDetectionJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.
@@ -363,7 +374,21 @@ data StartSentimentDetectionJobResponse = StartSentimentDetectionJobResponse'
 --
 -- @arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job\/1234abcd12ab34cd56ef1234567890ab@
 --
--- 'jobStatus', 'startSentimentDetectionJobResponse_jobStatus' - The status of the job.
+-- 'httpStatus', 'startSentimentDetectionJobResponse_httpStatus' - The response's http status code.
+newStartSentimentDetectionJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartSentimentDetectionJobResponse
+newStartSentimentDetectionJobResponse pHttpStatus_ =
+  StartSentimentDetectionJobResponse'
+    { jobStatus =
+        Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The status of the job.
 --
 -- -   SUBMITTED - The job has been received and is queued for processing.
 --
@@ -374,20 +399,8 @@ data StartSentimentDetectionJobResponse = StartSentimentDetectionJobResponse'
 --
 -- -   FAILED - The job did not complete. To get details, use the
 --     operation.
---
--- 'httpStatus', 'startSentimentDetectionJobResponse_httpStatus' - The response's http status code.
-newStartSentimentDetectionJobResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  StartSentimentDetectionJobResponse
-newStartSentimentDetectionJobResponse pHttpStatus_ =
-  StartSentimentDetectionJobResponse'
-    { jobId =
-        Prelude.Nothing,
-      jobArn = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
+startSentimentDetectionJobResponse_jobStatus :: Lens.Lens' StartSentimentDetectionJobResponse (Prelude.Maybe JobStatus)
+startSentimentDetectionJobResponse_jobStatus = Lens.lens (\StartSentimentDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartSentimentDetectionJobResponse' {} a -> s {jobStatus = a} :: StartSentimentDetectionJobResponse)
 
 -- | The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.
@@ -406,20 +419,6 @@ startSentimentDetectionJobResponse_jobId = Lens.lens (\StartSentimentDetectionJo
 startSentimentDetectionJobResponse_jobArn :: Lens.Lens' StartSentimentDetectionJobResponse (Prelude.Maybe Prelude.Text)
 startSentimentDetectionJobResponse_jobArn = Lens.lens (\StartSentimentDetectionJobResponse' {jobArn} -> jobArn) (\s@StartSentimentDetectionJobResponse' {} a -> s {jobArn = a} :: StartSentimentDetectionJobResponse)
 
--- | The status of the job.
---
--- -   SUBMITTED - The job has been received and is queued for processing.
---
--- -   IN_PROGRESS - Amazon Comprehend is processing the job.
---
--- -   COMPLETED - The job was successfully completed and the output is
---     available.
---
--- -   FAILED - The job did not complete. To get details, use the
---     operation.
-startSentimentDetectionJobResponse_jobStatus :: Lens.Lens' StartSentimentDetectionJobResponse (Prelude.Maybe JobStatus)
-startSentimentDetectionJobResponse_jobStatus = Lens.lens (\StartSentimentDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartSentimentDetectionJobResponse' {} a -> s {jobStatus = a} :: StartSentimentDetectionJobResponse)
-
 -- | The response's http status code.
 startSentimentDetectionJobResponse_httpStatus :: Lens.Lens' StartSentimentDetectionJobResponse Prelude.Int
 startSentimentDetectionJobResponse_httpStatus = Lens.lens (\StartSentimentDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StartSentimentDetectionJobResponse' {} a -> s {httpStatus = a} :: StartSentimentDetectionJobResponse)
@@ -429,7 +428,7 @@ instance
     StartSentimentDetectionJobResponse
   where
   rnf StartSentimentDetectionJobResponse' {..} =
-    Prelude.rnf jobId
+    Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

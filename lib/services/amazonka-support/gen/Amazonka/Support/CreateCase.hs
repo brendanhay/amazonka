@@ -60,13 +60,13 @@ module Amazonka.Support.CreateCase
     newCreateCase,
 
     -- * Request Lenses
-    createCase_severityCode,
-    createCase_issueType,
     createCase_ccEmailAddresses,
-    createCase_language,
+    createCase_issueType,
     createCase_categoryCode,
     createCase_serviceCode,
     createCase_attachmentSetId,
+    createCase_language,
+    createCase_severityCode,
     createCase_subject,
     createCase_communicationBody,
 
@@ -89,7 +89,30 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newCreateCase' smart constructor.
 data CreateCase = CreateCase'
-  { -- | A value that indicates the urgency of the case. This value determines
+  { -- | A list of email addresses that AWS Support copies on case
+    -- correspondence. AWS Support identifies the account that creates the case
+    -- when you specify your AWS credentials in an HTTP POST method or use the
+    -- <http://aws.amazon.com/tools/ AWS SDKs>.
+    ccEmailAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | The type of issue for the case. You can specify @customer-service@ or
+    -- @technical@. If you don\'t specify a value, the default is @technical@.
+    issueType :: Prelude.Maybe Prelude.Text,
+    -- | The category of problem for the support case. You also use the
+    -- DescribeServices operation to get the category code for a service. Each
+    -- AWS service defines its own set of category codes.
+    categoryCode :: Prelude.Maybe Prelude.Text,
+    -- | The code for the AWS service. You can use the DescribeServices operation
+    -- to get the possible @serviceCode@ values.
+    serviceCode :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a set of one or more attachments for the case. Create the set
+    -- by using the AddAttachmentsToSet operation.
+    attachmentSetId :: Prelude.Maybe Prelude.Text,
+    -- | The language in which AWS Support handles the case. You must specify the
+    -- ISO 639-1 code for the @language@ parameter if you want support in that
+    -- language. Currently, English (\"en\") and Japanese (\"ja\") are
+    -- supported.
+    language :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates the urgency of the case. This value determines
     -- the response time according to your service level agreement with AWS
     -- Support. You can use the DescribeSeverityLevels operation to get the
     -- possible values for @severityCode@.
@@ -101,29 +124,6 @@ data CreateCase = CreateCase'
     -- The availability of severity levels depends on the support plan for the
     -- AWS account.
     severityCode :: Prelude.Maybe Prelude.Text,
-    -- | The type of issue for the case. You can specify @customer-service@ or
-    -- @technical@. If you don\'t specify a value, the default is @technical@.
-    issueType :: Prelude.Maybe Prelude.Text,
-    -- | A list of email addresses that AWS Support copies on case
-    -- correspondence. AWS Support identifies the account that creates the case
-    -- when you specify your AWS credentials in an HTTP POST method or use the
-    -- <http://aws.amazon.com/tools/ AWS SDKs>.
-    ccEmailAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | The language in which AWS Support handles the case. You must specify the
-    -- ISO 639-1 code for the @language@ parameter if you want support in that
-    -- language. Currently, English (\"en\") and Japanese (\"ja\") are
-    -- supported.
-    language :: Prelude.Maybe Prelude.Text,
-    -- | The category of problem for the support case. You also use the
-    -- DescribeServices operation to get the category code for a service. Each
-    -- AWS service defines its own set of category codes.
-    categoryCode :: Prelude.Maybe Prelude.Text,
-    -- | The code for the AWS service. You can use the DescribeServices operation
-    -- to get the possible @serviceCode@ values.
-    serviceCode :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a set of one or more attachments for the case. Create the set
-    -- by using the AddAttachmentsToSet operation.
-    attachmentSetId :: Prelude.Maybe Prelude.Text,
     -- | The title of the support case. The title appears in the __Subject__
     -- field on the AWS Support Center
     -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
@@ -145,6 +145,29 @@ data CreateCase = CreateCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ccEmailAddresses', 'createCase_ccEmailAddresses' - A list of email addresses that AWS Support copies on case
+-- correspondence. AWS Support identifies the account that creates the case
+-- when you specify your AWS credentials in an HTTP POST method or use the
+-- <http://aws.amazon.com/tools/ AWS SDKs>.
+--
+-- 'issueType', 'createCase_issueType' - The type of issue for the case. You can specify @customer-service@ or
+-- @technical@. If you don\'t specify a value, the default is @technical@.
+--
+-- 'categoryCode', 'createCase_categoryCode' - The category of problem for the support case. You also use the
+-- DescribeServices operation to get the category code for a service. Each
+-- AWS service defines its own set of category codes.
+--
+-- 'serviceCode', 'createCase_serviceCode' - The code for the AWS service. You can use the DescribeServices operation
+-- to get the possible @serviceCode@ values.
+--
+-- 'attachmentSetId', 'createCase_attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set
+-- by using the AddAttachmentsToSet operation.
+--
+-- 'language', 'createCase_language' - The language in which AWS Support handles the case. You must specify the
+-- ISO 639-1 code for the @language@ parameter if you want support in that
+-- language. Currently, English (\"en\") and Japanese (\"ja\") are
+-- supported.
+--
 -- 'severityCode', 'createCase_severityCode' - A value that indicates the urgency of the case. This value determines
 -- the response time according to your service level agreement with AWS
 -- Support. You can use the DescribeSeverityLevels operation to get the
@@ -156,29 +179,6 @@ data CreateCase = CreateCase'
 --
 -- The availability of severity levels depends on the support plan for the
 -- AWS account.
---
--- 'issueType', 'createCase_issueType' - The type of issue for the case. You can specify @customer-service@ or
--- @technical@. If you don\'t specify a value, the default is @technical@.
---
--- 'ccEmailAddresses', 'createCase_ccEmailAddresses' - A list of email addresses that AWS Support copies on case
--- correspondence. AWS Support identifies the account that creates the case
--- when you specify your AWS credentials in an HTTP POST method or use the
--- <http://aws.amazon.com/tools/ AWS SDKs>.
---
--- 'language', 'createCase_language' - The language in which AWS Support handles the case. You must specify the
--- ISO 639-1 code for the @language@ parameter if you want support in that
--- language. Currently, English (\"en\") and Japanese (\"ja\") are
--- supported.
---
--- 'categoryCode', 'createCase_categoryCode' - The category of problem for the support case. You also use the
--- DescribeServices operation to get the category code for a service. Each
--- AWS service defines its own set of category codes.
---
--- 'serviceCode', 'createCase_serviceCode' - The code for the AWS service. You can use the DescribeServices operation
--- to get the possible @serviceCode@ values.
---
--- 'attachmentSetId', 'createCase_attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set
--- by using the AddAttachmentsToSet operation.
 --
 -- 'subject', 'createCase_subject' - The title of the support case. The title appears in the __Subject__
 -- field on the AWS Support Center
@@ -197,35 +197,16 @@ newCreateCase ::
   CreateCase
 newCreateCase pSubject_ pCommunicationBody_ =
   CreateCase'
-    { severityCode = Prelude.Nothing,
+    { ccEmailAddresses = Prelude.Nothing,
       issueType = Prelude.Nothing,
-      ccEmailAddresses = Prelude.Nothing,
-      language = Prelude.Nothing,
       categoryCode = Prelude.Nothing,
       serviceCode = Prelude.Nothing,
       attachmentSetId = Prelude.Nothing,
+      language = Prelude.Nothing,
+      severityCode = Prelude.Nothing,
       subject = pSubject_,
       communicationBody = pCommunicationBody_
     }
-
--- | A value that indicates the urgency of the case. This value determines
--- the response time according to your service level agreement with AWS
--- Support. You can use the DescribeSeverityLevels operation to get the
--- possible values for @severityCode@.
---
--- For more information, see SeverityLevel and
--- <https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity>
--- in the /AWS Support User Guide/.
---
--- The availability of severity levels depends on the support plan for the
--- AWS account.
-createCase_severityCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
-createCase_severityCode = Lens.lens (\CreateCase' {severityCode} -> severityCode) (\s@CreateCase' {} a -> s {severityCode = a} :: CreateCase)
-
--- | The type of issue for the case. You can specify @customer-service@ or
--- @technical@. If you don\'t specify a value, the default is @technical@.
-createCase_issueType :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
-createCase_issueType = Lens.lens (\CreateCase' {issueType} -> issueType) (\s@CreateCase' {} a -> s {issueType = a} :: CreateCase)
 
 -- | A list of email addresses that AWS Support copies on case
 -- correspondence. AWS Support identifies the account that creates the case
@@ -234,12 +215,10 @@ createCase_issueType = Lens.lens (\CreateCase' {issueType} -> issueType) (\s@Cre
 createCase_ccEmailAddresses :: Lens.Lens' CreateCase (Prelude.Maybe [Prelude.Text])
 createCase_ccEmailAddresses = Lens.lens (\CreateCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@CreateCase' {} a -> s {ccEmailAddresses = a} :: CreateCase) Prelude.. Lens.mapping Lens.coerced
 
--- | The language in which AWS Support handles the case. You must specify the
--- ISO 639-1 code for the @language@ parameter if you want support in that
--- language. Currently, English (\"en\") and Japanese (\"ja\") are
--- supported.
-createCase_language :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
-createCase_language = Lens.lens (\CreateCase' {language} -> language) (\s@CreateCase' {} a -> s {language = a} :: CreateCase)
+-- | The type of issue for the case. You can specify @customer-service@ or
+-- @technical@. If you don\'t specify a value, the default is @technical@.
+createCase_issueType :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_issueType = Lens.lens (\CreateCase' {issueType} -> issueType) (\s@CreateCase' {} a -> s {issueType = a} :: CreateCase)
 
 -- | The category of problem for the support case. You also use the
 -- DescribeServices operation to get the category code for a service. Each
@@ -256,6 +235,27 @@ createCase_serviceCode = Lens.lens (\CreateCase' {serviceCode} -> serviceCode) (
 -- by using the AddAttachmentsToSet operation.
 createCase_attachmentSetId :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_attachmentSetId = Lens.lens (\CreateCase' {attachmentSetId} -> attachmentSetId) (\s@CreateCase' {} a -> s {attachmentSetId = a} :: CreateCase)
+
+-- | The language in which AWS Support handles the case. You must specify the
+-- ISO 639-1 code for the @language@ parameter if you want support in that
+-- language. Currently, English (\"en\") and Japanese (\"ja\") are
+-- supported.
+createCase_language :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_language = Lens.lens (\CreateCase' {language} -> language) (\s@CreateCase' {} a -> s {language = a} :: CreateCase)
+
+-- | A value that indicates the urgency of the case. This value determines
+-- the response time according to your service level agreement with AWS
+-- Support. You can use the DescribeSeverityLevels operation to get the
+-- possible values for @severityCode@.
+--
+-- For more information, see SeverityLevel and
+-- <https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity>
+-- in the /AWS Support User Guide/.
+--
+-- The availability of severity levels depends on the support plan for the
+-- AWS account.
+createCase_severityCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_severityCode = Lens.lens (\CreateCase' {severityCode} -> severityCode) (\s@CreateCase' {} a -> s {severityCode = a} :: CreateCase)
 
 -- | The title of the support case. The title appears in the __Subject__
 -- field on the AWS Support Center
@@ -284,25 +284,25 @@ instance Core.AWSRequest CreateCase where
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =
-    _salt `Prelude.hashWithSalt` severityCode
+    _salt `Prelude.hashWithSalt` ccEmailAddresses
       `Prelude.hashWithSalt` issueType
-      `Prelude.hashWithSalt` ccEmailAddresses
-      `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` categoryCode
       `Prelude.hashWithSalt` serviceCode
       `Prelude.hashWithSalt` attachmentSetId
+      `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` severityCode
       `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` communicationBody
 
 instance Prelude.NFData CreateCase where
   rnf CreateCase' {..} =
-    Prelude.rnf severityCode
+    Prelude.rnf ccEmailAddresses
       `Prelude.seq` Prelude.rnf issueType
-      `Prelude.seq` Prelude.rnf ccEmailAddresses
-      `Prelude.seq` Prelude.rnf language
       `Prelude.seq` Prelude.rnf categoryCode
       `Prelude.seq` Prelude.rnf serviceCode
       `Prelude.seq` Prelude.rnf attachmentSetId
+      `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf severityCode
       `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf communicationBody
 
@@ -325,15 +325,15 @@ instance Core.ToJSON CreateCase where
   toJSON CreateCase' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("severityCode" Core..=) Prelude.<$> severityCode,
-            ("issueType" Core..=) Prelude.<$> issueType,
-            ("ccEmailAddresses" Core..=)
+          [ ("ccEmailAddresses" Core..=)
               Prelude.<$> ccEmailAddresses,
-            ("language" Core..=) Prelude.<$> language,
+            ("issueType" Core..=) Prelude.<$> issueType,
             ("categoryCode" Core..=) Prelude.<$> categoryCode,
             ("serviceCode" Core..=) Prelude.<$> serviceCode,
             ("attachmentSetId" Core..=)
               Prelude.<$> attachmentSetId,
+            ("language" Core..=) Prelude.<$> language,
+            ("severityCode" Core..=) Prelude.<$> severityCode,
             Prelude.Just ("subject" Core..= subject),
             Prelude.Just
               ("communicationBody" Core..= communicationBody)

@@ -29,12 +29,12 @@ module Amazonka.DataSync.CreateLocationObjectStorage
     newCreateLocationObjectStorage,
 
     -- * Request Lenses
-    createLocationObjectStorage_serverPort,
+    createLocationObjectStorage_tags,
     createLocationObjectStorage_serverProtocol,
+    createLocationObjectStorage_serverPort,
+    createLocationObjectStorage_accessKey,
     createLocationObjectStorage_secretKey,
     createLocationObjectStorage_subdirectory,
-    createLocationObjectStorage_accessKey,
-    createLocationObjectStorage_tags,
     createLocationObjectStorage_serverHostname,
     createLocationObjectStorage_bucketName,
     createLocationObjectStorage_agentArns,
@@ -60,14 +60,23 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLocationObjectStorage' smart constructor.
 data CreateLocationObjectStorage = CreateLocationObjectStorage'
-  { -- | The port that your self-managed object storage server accepts inbound
+  { -- | The key-value pair that represents the tag that you want to add to the
+    -- location. The value can be an empty string. We recommend using tags to
+    -- name your resources.
+    tags :: Prelude.Maybe [TagListEntry],
+    -- | The protocol that the object storage server uses to communicate. Valid
+    -- values are HTTP or HTTPS.
+    serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
+    -- | The port that your self-managed object storage server accepts inbound
     -- network traffic on. The server port is set by default to TCP 80 (HTTP)
     -- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
     -- object storage server requires one.
     serverPort :: Prelude.Maybe Prelude.Natural,
-    -- | The protocol that the object storage server uses to communicate. Valid
-    -- values are HTTP or HTTPS.
-    serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
+    -- | Optional. The access key is used if credentials are required to access
+    -- the self-managed object storage server. If your object storage requires
+    -- a user name and password to authenticate, use @AccessKey@ and
+    -- @SecretKey@ to provide the user name and password, respectively.
+    accessKey :: Prelude.Maybe Prelude.Text,
     -- | Optional. The secret key is used if credentials are required to access
     -- the self-managed object storage server. If your object storage requires
     -- a user name and password to authenticate, use @AccessKey@ and
@@ -76,15 +85,6 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
     -- | The subdirectory in the self-managed object storage server that is used
     -- to read data from.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | Optional. The access key is used if credentials are required to access
-    -- the self-managed object storage server. If your object storage requires
-    -- a user name and password to authenticate, use @AccessKey@ and
-    -- @SecretKey@ to provide the user name and password, respectively.
-    accessKey :: Prelude.Maybe Prelude.Text,
-    -- | The key-value pair that represents the tag that you want to add to the
-    -- location. The value can be an empty string. We recommend using tags to
-    -- name your resources.
-    tags :: Prelude.Maybe [TagListEntry],
     -- | The name of the self-managed object storage server. This value is the IP
     -- address or Domain Name Service (DNS) name of the object storage server.
     -- An agent uses this host name to mount the object storage server in a
@@ -107,13 +107,22 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createLocationObjectStorage_tags' - The key-value pair that represents the tag that you want to add to the
+-- location. The value can be an empty string. We recommend using tags to
+-- name your resources.
+--
+-- 'serverProtocol', 'createLocationObjectStorage_serverProtocol' - The protocol that the object storage server uses to communicate. Valid
+-- values are HTTP or HTTPS.
+--
 -- 'serverPort', 'createLocationObjectStorage_serverPort' - The port that your self-managed object storage server accepts inbound
 -- network traffic on. The server port is set by default to TCP 80 (HTTP)
 -- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
 -- object storage server requires one.
 --
--- 'serverProtocol', 'createLocationObjectStorage_serverProtocol' - The protocol that the object storage server uses to communicate. Valid
--- values are HTTP or HTTPS.
+-- 'accessKey', 'createLocationObjectStorage_accessKey' - Optional. The access key is used if credentials are required to access
+-- the self-managed object storage server. If your object storage requires
+-- a user name and password to authenticate, use @AccessKey@ and
+-- @SecretKey@ to provide the user name and password, respectively.
 --
 -- 'secretKey', 'createLocationObjectStorage_secretKey' - Optional. The secret key is used if credentials are required to access
 -- the self-managed object storage server. If your object storage requires
@@ -122,15 +131,6 @@ data CreateLocationObjectStorage = CreateLocationObjectStorage'
 --
 -- 'subdirectory', 'createLocationObjectStorage_subdirectory' - The subdirectory in the self-managed object storage server that is used
 -- to read data from.
---
--- 'accessKey', 'createLocationObjectStorage_accessKey' - Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
---
--- 'tags', 'createLocationObjectStorage_tags' - The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
 --
 -- 'serverHostname', 'createLocationObjectStorage_serverHostname' - The name of the self-managed object storage server. This value is the IP
 -- address or Domain Name Service (DNS) name of the object storage server.
@@ -155,17 +155,28 @@ newCreateLocationObjectStorage
   pBucketName_
   pAgentArns_ =
     CreateLocationObjectStorage'
-      { serverPort =
+      { tags =
           Prelude.Nothing,
         serverProtocol = Prelude.Nothing,
+        serverPort = Prelude.Nothing,
+        accessKey = Prelude.Nothing,
         secretKey = Prelude.Nothing,
         subdirectory = Prelude.Nothing,
-        accessKey = Prelude.Nothing,
-        tags = Prelude.Nothing,
         serverHostname = pServerHostname_,
         bucketName = pBucketName_,
         agentArns = Lens.coerced Lens.# pAgentArns_
       }
+
+-- | The key-value pair that represents the tag that you want to add to the
+-- location. The value can be an empty string. We recommend using tags to
+-- name your resources.
+createLocationObjectStorage_tags :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe [TagListEntry])
+createLocationObjectStorage_tags = Lens.lens (\CreateLocationObjectStorage' {tags} -> tags) (\s@CreateLocationObjectStorage' {} a -> s {tags = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
+
+-- | The protocol that the object storage server uses to communicate. Valid
+-- values are HTTP or HTTPS.
+createLocationObjectStorage_serverProtocol :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
+createLocationObjectStorage_serverProtocol = Lens.lens (\CreateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@CreateLocationObjectStorage' {} a -> s {serverProtocol = a} :: CreateLocationObjectStorage)
 
 -- | The port that your self-managed object storage server accepts inbound
 -- network traffic on. The server port is set by default to TCP 80 (HTTP)
@@ -174,10 +185,12 @@ newCreateLocationObjectStorage
 createLocationObjectStorage_serverPort :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Natural)
 createLocationObjectStorage_serverPort = Lens.lens (\CreateLocationObjectStorage' {serverPort} -> serverPort) (\s@CreateLocationObjectStorage' {} a -> s {serverPort = a} :: CreateLocationObjectStorage)
 
--- | The protocol that the object storage server uses to communicate. Valid
--- values are HTTP or HTTPS.
-createLocationObjectStorage_serverProtocol :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
-createLocationObjectStorage_serverProtocol = Lens.lens (\CreateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@CreateLocationObjectStorage' {} a -> s {serverProtocol = a} :: CreateLocationObjectStorage)
+-- | Optional. The access key is used if credentials are required to access
+-- the self-managed object storage server. If your object storage requires
+-- a user name and password to authenticate, use @AccessKey@ and
+-- @SecretKey@ to provide the user name and password, respectively.
+createLocationObjectStorage_accessKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
+createLocationObjectStorage_accessKey = Lens.lens (\CreateLocationObjectStorage' {accessKey} -> accessKey) (\s@CreateLocationObjectStorage' {} a -> s {accessKey = a} :: CreateLocationObjectStorage)
 
 -- | Optional. The secret key is used if credentials are required to access
 -- the self-managed object storage server. If your object storage requires
@@ -190,19 +203,6 @@ createLocationObjectStorage_secretKey = Lens.lens (\CreateLocationObjectStorage'
 -- to read data from.
 createLocationObjectStorage_subdirectory :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 createLocationObjectStorage_subdirectory = Lens.lens (\CreateLocationObjectStorage' {subdirectory} -> subdirectory) (\s@CreateLocationObjectStorage' {} a -> s {subdirectory = a} :: CreateLocationObjectStorage)
-
--- | Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
-createLocationObjectStorage_accessKey :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe Prelude.Text)
-createLocationObjectStorage_accessKey = Lens.lens (\CreateLocationObjectStorage' {accessKey} -> accessKey) (\s@CreateLocationObjectStorage' {} a -> s {accessKey = a} :: CreateLocationObjectStorage)
-
--- | The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
-createLocationObjectStorage_tags :: Lens.Lens' CreateLocationObjectStorage (Prelude.Maybe [TagListEntry])
-createLocationObjectStorage_tags = Lens.lens (\CreateLocationObjectStorage' {tags} -> tags) (\s@CreateLocationObjectStorage' {} a -> s {tags = a} :: CreateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the self-managed object storage server. This value is the IP
 -- address or Domain Name Service (DNS) name of the object storage server.
@@ -236,24 +236,24 @@ instance Core.AWSRequest CreateLocationObjectStorage where
 
 instance Prelude.Hashable CreateLocationObjectStorage where
   hashWithSalt _salt CreateLocationObjectStorage' {..} =
-    _salt `Prelude.hashWithSalt` serverPort
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverProtocol
+      `Prelude.hashWithSalt` serverPort
+      `Prelude.hashWithSalt` accessKey
       `Prelude.hashWithSalt` secretKey
       `Prelude.hashWithSalt` subdirectory
-      `Prelude.hashWithSalt` accessKey
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverHostname
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` agentArns
 
 instance Prelude.NFData CreateLocationObjectStorage where
   rnf CreateLocationObjectStorage' {..} =
-    Prelude.rnf serverPort
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf serverPort
+      `Prelude.seq` Prelude.rnf accessKey
       `Prelude.seq` Prelude.rnf secretKey
       `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf accessKey
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverHostname
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf agentArns
@@ -277,13 +277,13 @@ instance Core.ToJSON CreateLocationObjectStorage where
   toJSON CreateLocationObjectStorage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ServerPort" Core..=) Prelude.<$> serverPort,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ServerProtocol" Core..=)
               Prelude.<$> serverProtocol,
+            ("ServerPort" Core..=) Prelude.<$> serverPort,
+            ("AccessKey" Core..=) Prelude.<$> accessKey,
             ("SecretKey" Core..=) Prelude.<$> secretKey,
             ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            ("AccessKey" Core..=) Prelude.<$> accessKey,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("ServerHostname" Core..= serverHostname),
             Prelude.Just ("BucketName" Core..= bucketName),

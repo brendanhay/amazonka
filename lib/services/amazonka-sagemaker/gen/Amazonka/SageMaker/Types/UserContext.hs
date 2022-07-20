@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserContext' smart constructor.
 data UserContext = UserContext'
-  { -- | The name of the user\'s profile.
-    userProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the user\'s profile.
+  { -- | The Amazon Resource Name (ARN) of the user\'s profile.
     userProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the user\'s profile.
+    userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The domain associated with the user.
     domainId :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data UserContext = UserContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userProfileName', 'userContext_userProfileName' - The name of the user\'s profile.
---
 -- 'userProfileArn', 'userContext_userProfileArn' - The Amazon Resource Name (ARN) of the user\'s profile.
+--
+-- 'userProfileName', 'userContext_userProfileName' - The name of the user\'s profile.
 --
 -- 'domainId', 'userContext_domainId' - The domain associated with the user.
 newUserContext ::
   UserContext
 newUserContext =
   UserContext'
-    { userProfileName = Prelude.Nothing,
-      userProfileArn = Prelude.Nothing,
+    { userProfileArn = Prelude.Nothing,
+      userProfileName = Prelude.Nothing,
       domainId = Prelude.Nothing
     }
-
--- | The name of the user\'s profile.
-userContext_userProfileName :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
-userContext_userProfileName = Lens.lens (\UserContext' {userProfileName} -> userProfileName) (\s@UserContext' {} a -> s {userProfileName = a} :: UserContext)
 
 -- | The Amazon Resource Name (ARN) of the user\'s profile.
 userContext_userProfileArn :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
 userContext_userProfileArn = Lens.lens (\UserContext' {userProfileArn} -> userProfileArn) (\s@UserContext' {} a -> s {userProfileArn = a} :: UserContext)
+
+-- | The name of the user\'s profile.
+userContext_userProfileName :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
+userContext_userProfileName = Lens.lens (\UserContext' {userProfileName} -> userProfileName) (\s@UserContext' {} a -> s {userProfileName = a} :: UserContext)
 
 -- | The domain associated with the user.
 userContext_domainId :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
@@ -77,19 +77,19 @@ instance Core.FromJSON UserContext where
       "UserContext"
       ( \x ->
           UserContext'
-            Prelude.<$> (x Core..:? "UserProfileName")
-            Prelude.<*> (x Core..:? "UserProfileArn")
+            Prelude.<$> (x Core..:? "UserProfileArn")
+            Prelude.<*> (x Core..:? "UserProfileName")
             Prelude.<*> (x Core..:? "DomainId")
       )
 
 instance Prelude.Hashable UserContext where
   hashWithSalt _salt UserContext' {..} =
-    _salt `Prelude.hashWithSalt` userProfileName
-      `Prelude.hashWithSalt` userProfileArn
+    _salt `Prelude.hashWithSalt` userProfileArn
+      `Prelude.hashWithSalt` userProfileName
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData UserContext where
   rnf UserContext' {..} =
-    Prelude.rnf userProfileName
-      `Prelude.seq` Prelude.rnf userProfileArn
+    Prelude.rnf userProfileArn
+      `Prelude.seq` Prelude.rnf userProfileName
       `Prelude.seq` Prelude.rnf domainId

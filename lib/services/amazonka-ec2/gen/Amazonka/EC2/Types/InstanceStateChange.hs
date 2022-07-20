@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceStateChange' smart constructor.
 data InstanceStateChange = InstanceStateChange'
-  { -- | The ID of the instance.
+  { -- | The previous state of the instance.
+    previousState :: Prelude.Maybe InstanceState,
+    -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the instance.
-    currentState :: Prelude.Maybe InstanceState,
-    -- | The previous state of the instance.
-    previousState :: Prelude.Maybe InstanceState
+    currentState :: Prelude.Maybe InstanceState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,24 @@ data InstanceStateChange = InstanceStateChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'previousState', 'instanceStateChange_previousState' - The previous state of the instance.
+--
 -- 'instanceId', 'instanceStateChange_instanceId' - The ID of the instance.
 --
 -- 'currentState', 'instanceStateChange_currentState' - The current state of the instance.
---
--- 'previousState', 'instanceStateChange_previousState' - The previous state of the instance.
 newInstanceStateChange ::
   InstanceStateChange
 newInstanceStateChange =
   InstanceStateChange'
-    { instanceId = Prelude.Nothing,
-      currentState = Prelude.Nothing,
-      previousState = Prelude.Nothing
+    { previousState =
+        Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      currentState = Prelude.Nothing
     }
+
+-- | The previous state of the instance.
+instanceStateChange_previousState :: Lens.Lens' InstanceStateChange (Prelude.Maybe InstanceState)
+instanceStateChange_previousState = Lens.lens (\InstanceStateChange' {previousState} -> previousState) (\s@InstanceStateChange' {} a -> s {previousState = a} :: InstanceStateChange)
 
 -- | The ID of the instance.
 instanceStateChange_instanceId :: Lens.Lens' InstanceStateChange (Prelude.Maybe Prelude.Text)
@@ -68,25 +73,21 @@ instanceStateChange_instanceId = Lens.lens (\InstanceStateChange' {instanceId} -
 instanceStateChange_currentState :: Lens.Lens' InstanceStateChange (Prelude.Maybe InstanceState)
 instanceStateChange_currentState = Lens.lens (\InstanceStateChange' {currentState} -> currentState) (\s@InstanceStateChange' {} a -> s {currentState = a} :: InstanceStateChange)
 
--- | The previous state of the instance.
-instanceStateChange_previousState :: Lens.Lens' InstanceStateChange (Prelude.Maybe InstanceState)
-instanceStateChange_previousState = Lens.lens (\InstanceStateChange' {previousState} -> previousState) (\s@InstanceStateChange' {} a -> s {previousState = a} :: InstanceStateChange)
-
 instance Core.FromXML InstanceStateChange where
   parseXML x =
     InstanceStateChange'
-      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<$> (x Core..@? "previousState")
+      Prelude.<*> (x Core..@? "instanceId")
       Prelude.<*> (x Core..@? "currentState")
-      Prelude.<*> (x Core..@? "previousState")
 
 instance Prelude.Hashable InstanceStateChange where
   hashWithSalt _salt InstanceStateChange' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` previousState
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` currentState
-      `Prelude.hashWithSalt` previousState
 
 instance Prelude.NFData InstanceStateChange where
   rnf InstanceStateChange' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf previousState
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf currentState
-      `Prelude.seq` Prelude.rnf previousState

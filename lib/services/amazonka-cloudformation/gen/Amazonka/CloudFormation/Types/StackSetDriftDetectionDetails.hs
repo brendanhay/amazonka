@@ -40,25 +40,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStackSetDriftDetectionDetails' smart constructor.
 data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
-  { -- | Most recent time when CloudFormation performed a drift detection
-    -- operation on the stack set. This value will be @NULL@ for any stack set
-    -- on which drift detection has not yet been performed.
-    lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The total number of stack instances belonging to this stack set.
-    --
-    -- The total number of stack instances is equal to the total of:
-    --
-    -- -   Stack instances that match the stack set configuration.
-    --
-    -- -   Stack instances that have drifted from the stack set configuration.
-    --
-    -- -   Stack instances where the drift detection operation has failed.
-    --
-    -- -   Stack instances currently being checked for drift.
-    totalStackInstancesCount :: Prelude.Maybe Prelude.Natural,
-    -- | The number of stack instances that are currently being checked for
+  { -- | The number of stack instances that are currently being checked for
     -- drift.
     inProgressStackInstancesCount :: Prelude.Maybe Prelude.Natural,
+    -- | The number of stack instances for which the drift detection operation
+    -- failed.
+    failedStackInstancesCount :: Prelude.Maybe Prelude.Natural,
     -- | The number of stack instances that have drifted from the expected
     -- template and parameter configuration of the stack set. A stack instance
     -- is considered to have drifted if one or more of the resources in the
@@ -96,12 +83,25 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
     -- -   @IN_SYNC@: All of the stack instances belonging to the stack set
     --     stack match from the expected template and parameter configuration.
     driftStatus :: Prelude.Maybe StackSetDriftStatus,
-    -- | The number of stack instances for which the drift detection operation
-    -- failed.
-    failedStackInstancesCount :: Prelude.Maybe Prelude.Natural,
+    -- | The total number of stack instances belonging to this stack set.
+    --
+    -- The total number of stack instances is equal to the total of:
+    --
+    -- -   Stack instances that match the stack set configuration.
+    --
+    -- -   Stack instances that have drifted from the stack set configuration.
+    --
+    -- -   Stack instances where the drift detection operation has failed.
+    --
+    -- -   Stack instances currently being checked for drift.
+    totalStackInstancesCount :: Prelude.Maybe Prelude.Natural,
     -- | The number of stack instances which match the expected template and
     -- parameter configuration of the stack set.
-    inSyncStackInstancesCount :: Prelude.Maybe Prelude.Natural
+    inSyncStackInstancesCount :: Prelude.Maybe Prelude.Natural,
+    -- | Most recent time when CloudFormation performed a drift detection
+    -- operation on the stack set. This value will be @NULL@ for any stack set
+    -- on which drift detection has not yet been performed.
+    lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,24 +113,11 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastDriftCheckTimestamp', 'stackSetDriftDetectionDetails_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
--- operation on the stack set. This value will be @NULL@ for any stack set
--- on which drift detection has not yet been performed.
---
--- 'totalStackInstancesCount', 'stackSetDriftDetectionDetails_totalStackInstancesCount' - The total number of stack instances belonging to this stack set.
---
--- The total number of stack instances is equal to the total of:
---
--- -   Stack instances that match the stack set configuration.
---
--- -   Stack instances that have drifted from the stack set configuration.
---
--- -   Stack instances where the drift detection operation has failed.
---
--- -   Stack instances currently being checked for drift.
---
 -- 'inProgressStackInstancesCount', 'stackSetDriftDetectionDetails_inProgressStackInstancesCount' - The number of stack instances that are currently being checked for
 -- drift.
+--
+-- 'failedStackInstancesCount', 'stackSetDriftDetectionDetails_failedStackInstancesCount' - The number of stack instances for which the drift detection operation
+-- failed.
 --
 -- 'driftedStackInstancesCount', 'stackSetDriftDetectionDetails_driftedStackInstancesCount' - The number of stack instances that have drifted from the expected
 -- template and parameter configuration of the stack set. A stack instance
@@ -169,34 +156,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
 -- -   @IN_SYNC@: All of the stack instances belonging to the stack set
 --     stack match from the expected template and parameter configuration.
 --
--- 'failedStackInstancesCount', 'stackSetDriftDetectionDetails_failedStackInstancesCount' - The number of stack instances for which the drift detection operation
--- failed.
---
--- 'inSyncStackInstancesCount', 'stackSetDriftDetectionDetails_inSyncStackInstancesCount' - The number of stack instances which match the expected template and
--- parameter configuration of the stack set.
-newStackSetDriftDetectionDetails ::
-  StackSetDriftDetectionDetails
-newStackSetDriftDetectionDetails =
-  StackSetDriftDetectionDetails'
-    { lastDriftCheckTimestamp =
-        Prelude.Nothing,
-      totalStackInstancesCount = Prelude.Nothing,
-      inProgressStackInstancesCount =
-        Prelude.Nothing,
-      driftedStackInstancesCount = Prelude.Nothing,
-      driftDetectionStatus = Prelude.Nothing,
-      driftStatus = Prelude.Nothing,
-      failedStackInstancesCount = Prelude.Nothing,
-      inSyncStackInstancesCount = Prelude.Nothing
-    }
-
--- | Most recent time when CloudFormation performed a drift detection
--- operation on the stack set. This value will be @NULL@ for any stack set
--- on which drift detection has not yet been performed.
-stackSetDriftDetectionDetails_lastDriftCheckTimestamp :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.UTCTime)
-stackSetDriftDetectionDetails_lastDriftCheckTimestamp = Lens.lens (\StackSetDriftDetectionDetails' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetDriftDetectionDetails' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetDriftDetectionDetails) Prelude.. Lens.mapping Core._Time
-
--- | The total number of stack instances belonging to this stack set.
+-- 'totalStackInstancesCount', 'stackSetDriftDetectionDetails_totalStackInstancesCount' - The total number of stack instances belonging to this stack set.
 --
 -- The total number of stack instances is equal to the total of:
 --
@@ -207,13 +167,37 @@ stackSetDriftDetectionDetails_lastDriftCheckTimestamp = Lens.lens (\StackSetDrif
 -- -   Stack instances where the drift detection operation has failed.
 --
 -- -   Stack instances currently being checked for drift.
-stackSetDriftDetectionDetails_totalStackInstancesCount :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.Natural)
-stackSetDriftDetectionDetails_totalStackInstancesCount = Lens.lens (\StackSetDriftDetectionDetails' {totalStackInstancesCount} -> totalStackInstancesCount) (\s@StackSetDriftDetectionDetails' {} a -> s {totalStackInstancesCount = a} :: StackSetDriftDetectionDetails)
+--
+-- 'inSyncStackInstancesCount', 'stackSetDriftDetectionDetails_inSyncStackInstancesCount' - The number of stack instances which match the expected template and
+-- parameter configuration of the stack set.
+--
+-- 'lastDriftCheckTimestamp', 'stackSetDriftDetectionDetails_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
+-- operation on the stack set. This value will be @NULL@ for any stack set
+-- on which drift detection has not yet been performed.
+newStackSetDriftDetectionDetails ::
+  StackSetDriftDetectionDetails
+newStackSetDriftDetectionDetails =
+  StackSetDriftDetectionDetails'
+    { inProgressStackInstancesCount =
+        Prelude.Nothing,
+      failedStackInstancesCount = Prelude.Nothing,
+      driftedStackInstancesCount = Prelude.Nothing,
+      driftDetectionStatus = Prelude.Nothing,
+      driftStatus = Prelude.Nothing,
+      totalStackInstancesCount = Prelude.Nothing,
+      inSyncStackInstancesCount = Prelude.Nothing,
+      lastDriftCheckTimestamp = Prelude.Nothing
+    }
 
 -- | The number of stack instances that are currently being checked for
 -- drift.
 stackSetDriftDetectionDetails_inProgressStackInstancesCount :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.Natural)
 stackSetDriftDetectionDetails_inProgressStackInstancesCount = Lens.lens (\StackSetDriftDetectionDetails' {inProgressStackInstancesCount} -> inProgressStackInstancesCount) (\s@StackSetDriftDetectionDetails' {} a -> s {inProgressStackInstancesCount = a} :: StackSetDriftDetectionDetails)
+
+-- | The number of stack instances for which the drift detection operation
+-- failed.
+stackSetDriftDetectionDetails_failedStackInstancesCount :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.Natural)
+stackSetDriftDetectionDetails_failedStackInstancesCount = Lens.lens (\StackSetDriftDetectionDetails' {failedStackInstancesCount} -> failedStackInstancesCount) (\s@StackSetDriftDetectionDetails' {} a -> s {failedStackInstancesCount = a} :: StackSetDriftDetectionDetails)
 
 -- | The number of stack instances that have drifted from the expected
 -- template and parameter configuration of the stack set. A stack instance
@@ -258,27 +242,42 @@ stackSetDriftDetectionDetails_driftDetectionStatus = Lens.lens (\StackSetDriftDe
 stackSetDriftDetectionDetails_driftStatus :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe StackSetDriftStatus)
 stackSetDriftDetectionDetails_driftStatus = Lens.lens (\StackSetDriftDetectionDetails' {driftStatus} -> driftStatus) (\s@StackSetDriftDetectionDetails' {} a -> s {driftStatus = a} :: StackSetDriftDetectionDetails)
 
--- | The number of stack instances for which the drift detection operation
--- failed.
-stackSetDriftDetectionDetails_failedStackInstancesCount :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.Natural)
-stackSetDriftDetectionDetails_failedStackInstancesCount = Lens.lens (\StackSetDriftDetectionDetails' {failedStackInstancesCount} -> failedStackInstancesCount) (\s@StackSetDriftDetectionDetails' {} a -> s {failedStackInstancesCount = a} :: StackSetDriftDetectionDetails)
+-- | The total number of stack instances belonging to this stack set.
+--
+-- The total number of stack instances is equal to the total of:
+--
+-- -   Stack instances that match the stack set configuration.
+--
+-- -   Stack instances that have drifted from the stack set configuration.
+--
+-- -   Stack instances where the drift detection operation has failed.
+--
+-- -   Stack instances currently being checked for drift.
+stackSetDriftDetectionDetails_totalStackInstancesCount :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.Natural)
+stackSetDriftDetectionDetails_totalStackInstancesCount = Lens.lens (\StackSetDriftDetectionDetails' {totalStackInstancesCount} -> totalStackInstancesCount) (\s@StackSetDriftDetectionDetails' {} a -> s {totalStackInstancesCount = a} :: StackSetDriftDetectionDetails)
 
 -- | The number of stack instances which match the expected template and
 -- parameter configuration of the stack set.
 stackSetDriftDetectionDetails_inSyncStackInstancesCount :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.Natural)
 stackSetDriftDetectionDetails_inSyncStackInstancesCount = Lens.lens (\StackSetDriftDetectionDetails' {inSyncStackInstancesCount} -> inSyncStackInstancesCount) (\s@StackSetDriftDetectionDetails' {} a -> s {inSyncStackInstancesCount = a} :: StackSetDriftDetectionDetails)
 
+-- | Most recent time when CloudFormation performed a drift detection
+-- operation on the stack set. This value will be @NULL@ for any stack set
+-- on which drift detection has not yet been performed.
+stackSetDriftDetectionDetails_lastDriftCheckTimestamp :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.UTCTime)
+stackSetDriftDetectionDetails_lastDriftCheckTimestamp = Lens.lens (\StackSetDriftDetectionDetails' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetDriftDetectionDetails' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetDriftDetectionDetails) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromXML StackSetDriftDetectionDetails where
   parseXML x =
     StackSetDriftDetectionDetails'
-      Prelude.<$> (x Core..@? "LastDriftCheckTimestamp")
-      Prelude.<*> (x Core..@? "TotalStackInstancesCount")
-      Prelude.<*> (x Core..@? "InProgressStackInstancesCount")
+      Prelude.<$> (x Core..@? "InProgressStackInstancesCount")
+      Prelude.<*> (x Core..@? "FailedStackInstancesCount")
       Prelude.<*> (x Core..@? "DriftedStackInstancesCount")
       Prelude.<*> (x Core..@? "DriftDetectionStatus")
       Prelude.<*> (x Core..@? "DriftStatus")
-      Prelude.<*> (x Core..@? "FailedStackInstancesCount")
+      Prelude.<*> (x Core..@? "TotalStackInstancesCount")
       Prelude.<*> (x Core..@? "InSyncStackInstancesCount")
+      Prelude.<*> (x Core..@? "LastDriftCheckTimestamp")
 
 instance
   Prelude.Hashable
@@ -286,22 +285,22 @@ instance
   where
   hashWithSalt _salt StackSetDriftDetectionDetails' {..} =
     _salt
-      `Prelude.hashWithSalt` lastDriftCheckTimestamp
-      `Prelude.hashWithSalt` totalStackInstancesCount
       `Prelude.hashWithSalt` inProgressStackInstancesCount
+      `Prelude.hashWithSalt` failedStackInstancesCount
       `Prelude.hashWithSalt` driftedStackInstancesCount
       `Prelude.hashWithSalt` driftDetectionStatus
       `Prelude.hashWithSalt` driftStatus
-      `Prelude.hashWithSalt` failedStackInstancesCount
+      `Prelude.hashWithSalt` totalStackInstancesCount
       `Prelude.hashWithSalt` inSyncStackInstancesCount
+      `Prelude.hashWithSalt` lastDriftCheckTimestamp
 
 instance Prelude.NFData StackSetDriftDetectionDetails where
   rnf StackSetDriftDetectionDetails' {..} =
-    Prelude.rnf lastDriftCheckTimestamp
-      `Prelude.seq` Prelude.rnf totalStackInstancesCount
-      `Prelude.seq` Prelude.rnf inProgressStackInstancesCount
+    Prelude.rnf inProgressStackInstancesCount
+      `Prelude.seq` Prelude.rnf failedStackInstancesCount
       `Prelude.seq` Prelude.rnf driftedStackInstancesCount
       `Prelude.seq` Prelude.rnf driftDetectionStatus
       `Prelude.seq` Prelude.rnf driftStatus
-      `Prelude.seq` Prelude.rnf failedStackInstancesCount
+      `Prelude.seq` Prelude.rnf totalStackInstancesCount
       `Prelude.seq` Prelude.rnf inSyncStackInstancesCount
+      `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp

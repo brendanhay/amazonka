@@ -30,19 +30,19 @@ module Amazonka.EC2.DescribeTransitGatewayVpcAttachments
     newDescribeTransitGatewayVpcAttachments,
 
     -- * Request Lenses
-    describeTransitGatewayVpcAttachments_filters,
     describeTransitGatewayVpcAttachments_nextToken,
-    describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds,
+    describeTransitGatewayVpcAttachments_filters,
     describeTransitGatewayVpcAttachments_dryRun,
     describeTransitGatewayVpcAttachments_maxResults,
+    describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds,
 
     -- * Destructuring the Response
     DescribeTransitGatewayVpcAttachmentsResponse (..),
     newDescribeTransitGatewayVpcAttachmentsResponse,
 
     -- * Response Lenses
-    describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments,
     describeTransitGatewayVpcAttachmentsResponse_nextToken,
+    describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments,
     describeTransitGatewayVpcAttachmentsResponse_httpStatus,
   )
 where
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTransitGatewayVpcAttachments' smart constructor.
 data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments'
-  { -- | One or more filters. The possible values are:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. The possible values are:
     --
     -- -   @state@ - The state of the attachment. Valid values are @available@
     --     | @deleted@ | @deleting@ | @failed@ | @failing@ |
@@ -69,10 +71,6 @@ data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments
     --
     -- -   @vpc-id@ - The ID of the VPC.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the attachments.
-    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -81,7 +79,9 @@ data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The IDs of the attachments.
+    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,6 +92,8 @@ data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeTransitGatewayVpcAttachments_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeTransitGatewayVpcAttachments_filters' - One or more filters. The possible values are:
 --
@@ -106,10 +108,6 @@ data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments
 --
 -- -   @vpc-id@ - The ID of the VPC.
 --
--- 'nextToken', 'describeTransitGatewayVpcAttachments_nextToken' - The token for the next page of results.
---
--- 'transitGatewayAttachmentIds', 'describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.
---
 -- 'dryRun', 'describeTransitGatewayVpcAttachments_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -118,18 +116,24 @@ data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments
 -- 'maxResults', 'describeTransitGatewayVpcAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'transitGatewayAttachmentIds', 'describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.
 newDescribeTransitGatewayVpcAttachments ::
   DescribeTransitGatewayVpcAttachments
 newDescribeTransitGatewayVpcAttachments =
   DescribeTransitGatewayVpcAttachments'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      transitGatewayAttachmentIds =
-        Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      transitGatewayAttachmentIds =
+        Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeTransitGatewayVpcAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe Prelude.Text)
+describeTransitGatewayVpcAttachments_nextToken = Lens.lens (\DescribeTransitGatewayVpcAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayVpcAttachments)
 
 -- | One or more filters. The possible values are:
 --
@@ -146,14 +150,6 @@ newDescribeTransitGatewayVpcAttachments =
 describeTransitGatewayVpcAttachments_filters :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe [Filter])
 describeTransitGatewayVpcAttachments_filters = Lens.lens (\DescribeTransitGatewayVpcAttachments' {filters} -> filters) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {filters = a} :: DescribeTransitGatewayVpcAttachments) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next page of results.
-describeTransitGatewayVpcAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe Prelude.Text)
-describeTransitGatewayVpcAttachments_nextToken = Lens.lens (\DescribeTransitGatewayVpcAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayVpcAttachments)
-
--- | The IDs of the attachments.
-describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe [Prelude.Text])
-describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayVpcAttachments' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayVpcAttachments) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -166,6 +162,10 @@ describeTransitGatewayVpcAttachments_dryRun = Lens.lens (\DescribeTransitGateway
 -- value.
 describeTransitGatewayVpcAttachments_maxResults :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe Prelude.Natural)
 describeTransitGatewayVpcAttachments_maxResults = Lens.lens (\DescribeTransitGatewayVpcAttachments' {maxResults} -> maxResults) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {maxResults = a} :: DescribeTransitGatewayVpcAttachments)
+
+-- | The IDs of the attachments.
+describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe [Prelude.Text])
+describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayVpcAttachments' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayVpcAttachments) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -204,11 +204,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewayVpcAttachmentsResponse'
-            Prelude.<$> ( x Core..@? "transitGatewayVpcAttachments"
-                            Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
-                        )
-              Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "transitGatewayVpcAttachments"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,22 +219,22 @@ instance
   hashWithSalt
     _salt
     DescribeTransitGatewayVpcAttachments' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` transitGatewayAttachmentIds
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` transitGatewayAttachmentIds
 
 instance
   Prelude.NFData
     DescribeTransitGatewayVpcAttachments
   where
   rnf DescribeTransitGatewayVpcAttachments' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
 
 instance
   Core.ToHeaders
@@ -260,24 +260,24 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayAttachmentIds"
               Prelude.<$> transitGatewayAttachmentIds
-          ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          )
       ]
 
 -- | /See:/ 'newDescribeTransitGatewayVpcAttachmentsResponse' smart constructor.
 data DescribeTransitGatewayVpcAttachmentsResponse = DescribeTransitGatewayVpcAttachmentsResponse'
-  { -- | Information about the VPC attachments.
-    transitGatewayVpcAttachments :: Prelude.Maybe [TransitGatewayVpcAttachment],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the VPC attachments.
+    transitGatewayVpcAttachments :: Prelude.Maybe [TransitGatewayVpcAttachment],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -291,10 +291,10 @@ data DescribeTransitGatewayVpcAttachmentsResponse = DescribeTransitGatewayVpcAtt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayVpcAttachments', 'describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments' - Information about the VPC attachments.
---
 -- 'nextToken', 'describeTransitGatewayVpcAttachmentsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'transitGatewayVpcAttachments', 'describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments' - Information about the VPC attachments.
 --
 -- 'httpStatus', 'describeTransitGatewayVpcAttachmentsResponse_httpStatus' - The response's http status code.
 newDescribeTransitGatewayVpcAttachmentsResponse ::
@@ -304,20 +304,21 @@ newDescribeTransitGatewayVpcAttachmentsResponse ::
 newDescribeTransitGatewayVpcAttachmentsResponse
   pHttpStatus_ =
     DescribeTransitGatewayVpcAttachmentsResponse'
-      { transitGatewayVpcAttachments =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        transitGatewayVpcAttachments =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the VPC attachments.
-describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments :: Lens.Lens' DescribeTransitGatewayVpcAttachmentsResponse (Prelude.Maybe [TransitGatewayVpcAttachment])
-describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments = Lens.lens (\DescribeTransitGatewayVpcAttachmentsResponse' {transitGatewayVpcAttachments} -> transitGatewayVpcAttachments) (\s@DescribeTransitGatewayVpcAttachmentsResponse' {} a -> s {transitGatewayVpcAttachments = a} :: DescribeTransitGatewayVpcAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeTransitGatewayVpcAttachmentsResponse_nextToken :: Lens.Lens' DescribeTransitGatewayVpcAttachmentsResponse (Prelude.Maybe Prelude.Text)
 describeTransitGatewayVpcAttachmentsResponse_nextToken = Lens.lens (\DescribeTransitGatewayVpcAttachmentsResponse' {nextToken} -> nextToken) (\s@DescribeTransitGatewayVpcAttachmentsResponse' {} a -> s {nextToken = a} :: DescribeTransitGatewayVpcAttachmentsResponse)
+
+-- | Information about the VPC attachments.
+describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments :: Lens.Lens' DescribeTransitGatewayVpcAttachmentsResponse (Prelude.Maybe [TransitGatewayVpcAttachment])
+describeTransitGatewayVpcAttachmentsResponse_transitGatewayVpcAttachments = Lens.lens (\DescribeTransitGatewayVpcAttachmentsResponse' {transitGatewayVpcAttachments} -> transitGatewayVpcAttachments) (\s@DescribeTransitGatewayVpcAttachmentsResponse' {} a -> s {transitGatewayVpcAttachments = a} :: DescribeTransitGatewayVpcAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTransitGatewayVpcAttachmentsResponse_httpStatus :: Lens.Lens' DescribeTransitGatewayVpcAttachmentsResponse Prelude.Int
@@ -328,6 +329,6 @@ instance
     DescribeTransitGatewayVpcAttachmentsResponse
   where
   rnf DescribeTransitGatewayVpcAttachmentsResponse' {..} =
-    Prelude.rnf transitGatewayVpcAttachments
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf transitGatewayVpcAttachments
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,12 +30,12 @@ import Amazonka.QuickSight.Types.JoinInstruction
 --
 -- /See:/ 'newLogicalTableSource' smart constructor.
 data LogicalTableSource = LogicalTableSource'
-  { -- | The Amazon Resource Number (ARN) of the parent dataset.
-    dataSetArn :: Prelude.Maybe Prelude.Text,
+  { -- | Physical table ID.
+    physicalTableId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the result of a join of two logical tables.
     joinInstruction :: Prelude.Maybe JoinInstruction,
-    -- | Physical table ID.
-    physicalTableId :: Prelude.Maybe Prelude.Text
+    -- | The Amazon Resource Number (ARN) of the parent dataset.
+    dataSetArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,31 +47,32 @@ data LogicalTableSource = LogicalTableSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSetArn', 'logicalTableSource_dataSetArn' - The Amazon Resource Number (ARN) of the parent dataset.
+-- 'physicalTableId', 'logicalTableSource_physicalTableId' - Physical table ID.
 --
 -- 'joinInstruction', 'logicalTableSource_joinInstruction' - Specifies the result of a join of two logical tables.
 --
--- 'physicalTableId', 'logicalTableSource_physicalTableId' - Physical table ID.
+-- 'dataSetArn', 'logicalTableSource_dataSetArn' - The Amazon Resource Number (ARN) of the parent dataset.
 newLogicalTableSource ::
   LogicalTableSource
 newLogicalTableSource =
   LogicalTableSource'
-    { dataSetArn = Prelude.Nothing,
+    { physicalTableId =
+        Prelude.Nothing,
       joinInstruction = Prelude.Nothing,
-      physicalTableId = Prelude.Nothing
+      dataSetArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Number (ARN) of the parent dataset.
-logicalTableSource_dataSetArn :: Lens.Lens' LogicalTableSource (Prelude.Maybe Prelude.Text)
-logicalTableSource_dataSetArn = Lens.lens (\LogicalTableSource' {dataSetArn} -> dataSetArn) (\s@LogicalTableSource' {} a -> s {dataSetArn = a} :: LogicalTableSource)
+-- | Physical table ID.
+logicalTableSource_physicalTableId :: Lens.Lens' LogicalTableSource (Prelude.Maybe Prelude.Text)
+logicalTableSource_physicalTableId = Lens.lens (\LogicalTableSource' {physicalTableId} -> physicalTableId) (\s@LogicalTableSource' {} a -> s {physicalTableId = a} :: LogicalTableSource)
 
 -- | Specifies the result of a join of two logical tables.
 logicalTableSource_joinInstruction :: Lens.Lens' LogicalTableSource (Prelude.Maybe JoinInstruction)
 logicalTableSource_joinInstruction = Lens.lens (\LogicalTableSource' {joinInstruction} -> joinInstruction) (\s@LogicalTableSource' {} a -> s {joinInstruction = a} :: LogicalTableSource)
 
--- | Physical table ID.
-logicalTableSource_physicalTableId :: Lens.Lens' LogicalTableSource (Prelude.Maybe Prelude.Text)
-logicalTableSource_physicalTableId = Lens.lens (\LogicalTableSource' {physicalTableId} -> physicalTableId) (\s@LogicalTableSource' {} a -> s {physicalTableId = a} :: LogicalTableSource)
+-- | The Amazon Resource Number (ARN) of the parent dataset.
+logicalTableSource_dataSetArn :: Lens.Lens' LogicalTableSource (Prelude.Maybe Prelude.Text)
+logicalTableSource_dataSetArn = Lens.lens (\LogicalTableSource' {dataSetArn} -> dataSetArn) (\s@LogicalTableSource' {} a -> s {dataSetArn = a} :: LogicalTableSource)
 
 instance Core.FromJSON LogicalTableSource where
   parseJSON =
@@ -79,31 +80,31 @@ instance Core.FromJSON LogicalTableSource where
       "LogicalTableSource"
       ( \x ->
           LogicalTableSource'
-            Prelude.<$> (x Core..:? "DataSetArn")
+            Prelude.<$> (x Core..:? "PhysicalTableId")
             Prelude.<*> (x Core..:? "JoinInstruction")
-            Prelude.<*> (x Core..:? "PhysicalTableId")
+            Prelude.<*> (x Core..:? "DataSetArn")
       )
 
 instance Prelude.Hashable LogicalTableSource where
   hashWithSalt _salt LogicalTableSource' {..} =
-    _salt `Prelude.hashWithSalt` dataSetArn
+    _salt `Prelude.hashWithSalt` physicalTableId
       `Prelude.hashWithSalt` joinInstruction
-      `Prelude.hashWithSalt` physicalTableId
+      `Prelude.hashWithSalt` dataSetArn
 
 instance Prelude.NFData LogicalTableSource where
   rnf LogicalTableSource' {..} =
-    Prelude.rnf dataSetArn
+    Prelude.rnf physicalTableId
       `Prelude.seq` Prelude.rnf joinInstruction
-      `Prelude.seq` Prelude.rnf physicalTableId
+      `Prelude.seq` Prelude.rnf dataSetArn
 
 instance Core.ToJSON LogicalTableSource where
   toJSON LogicalTableSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataSetArn" Core..=) Prelude.<$> dataSetArn,
+          [ ("PhysicalTableId" Core..=)
+              Prelude.<$> physicalTableId,
             ("JoinInstruction" Core..=)
               Prelude.<$> joinInstruction,
-            ("PhysicalTableId" Core..=)
-              Prelude.<$> physicalTableId
+            ("DataSetArn" Core..=) Prelude.<$> dataSetArn
           ]
       )

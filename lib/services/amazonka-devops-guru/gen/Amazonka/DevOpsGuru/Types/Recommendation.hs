@@ -30,20 +30,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendation' smart constructor.
 data Recommendation = Recommendation'
-  { -- | A hyperlink to information to help you address the problem.
+  { -- | The name of the recommendation.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A hyperlink to information to help you address the problem.
     link :: Prelude.Maybe Prelude.Text,
+    -- | A description of the problem.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Anomalies that are related to the problem. Use these Anomalies to learn
     -- more about what\'s happening and to help address the issue.
     relatedAnomalies :: Prelude.Maybe [RecommendationRelatedAnomaly],
     -- | The reason DevOps Guru flagged the anomalous behavior as a problem.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The name of the recommendation.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Events that are related to the problem. Use these events to learn more
     -- about what\'s happening and to help address the issue.
-    relatedEvents :: Prelude.Maybe [RecommendationRelatedEvent],
-    -- | A description of the problem.
-    description :: Prelude.Maybe Prelude.Text
+    relatedEvents :: Prelude.Maybe [RecommendationRelatedEvent]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,34 +55,42 @@ data Recommendation = Recommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'recommendation_name' - The name of the recommendation.
+--
 -- 'link', 'recommendation_link' - A hyperlink to information to help you address the problem.
+--
+-- 'description', 'recommendation_description' - A description of the problem.
 --
 -- 'relatedAnomalies', 'recommendation_relatedAnomalies' - Anomalies that are related to the problem. Use these Anomalies to learn
 -- more about what\'s happening and to help address the issue.
 --
 -- 'reason', 'recommendation_reason' - The reason DevOps Guru flagged the anomalous behavior as a problem.
 --
--- 'name', 'recommendation_name' - The name of the recommendation.
---
 -- 'relatedEvents', 'recommendation_relatedEvents' - Events that are related to the problem. Use these events to learn more
 -- about what\'s happening and to help address the issue.
---
--- 'description', 'recommendation_description' - A description of the problem.
 newRecommendation ::
   Recommendation
 newRecommendation =
   Recommendation'
-    { link = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      link = Prelude.Nothing,
+      description = Prelude.Nothing,
       relatedAnomalies = Prelude.Nothing,
       reason = Prelude.Nothing,
-      name = Prelude.Nothing,
-      relatedEvents = Prelude.Nothing,
-      description = Prelude.Nothing
+      relatedEvents = Prelude.Nothing
     }
+
+-- | The name of the recommendation.
+recommendation_name :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
+recommendation_name = Lens.lens (\Recommendation' {name} -> name) (\s@Recommendation' {} a -> s {name = a} :: Recommendation)
 
 -- | A hyperlink to information to help you address the problem.
 recommendation_link :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
 recommendation_link = Lens.lens (\Recommendation' {link} -> link) (\s@Recommendation' {} a -> s {link = a} :: Recommendation)
+
+-- | A description of the problem.
+recommendation_description :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
+recommendation_description = Lens.lens (\Recommendation' {description} -> description) (\s@Recommendation' {} a -> s {description = a} :: Recommendation)
 
 -- | Anomalies that are related to the problem. Use these Anomalies to learn
 -- more about what\'s happening and to help address the issue.
@@ -93,18 +101,10 @@ recommendation_relatedAnomalies = Lens.lens (\Recommendation' {relatedAnomalies}
 recommendation_reason :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
 recommendation_reason = Lens.lens (\Recommendation' {reason} -> reason) (\s@Recommendation' {} a -> s {reason = a} :: Recommendation)
 
--- | The name of the recommendation.
-recommendation_name :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
-recommendation_name = Lens.lens (\Recommendation' {name} -> name) (\s@Recommendation' {} a -> s {name = a} :: Recommendation)
-
 -- | Events that are related to the problem. Use these events to learn more
 -- about what\'s happening and to help address the issue.
 recommendation_relatedEvents :: Lens.Lens' Recommendation (Prelude.Maybe [RecommendationRelatedEvent])
 recommendation_relatedEvents = Lens.lens (\Recommendation' {relatedEvents} -> relatedEvents) (\s@Recommendation' {} a -> s {relatedEvents = a} :: Recommendation) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of the problem.
-recommendation_description :: Lens.Lens' Recommendation (Prelude.Maybe Prelude.Text)
-recommendation_description = Lens.lens (\Recommendation' {description} -> description) (\s@Recommendation' {} a -> s {description = a} :: Recommendation)
 
 instance Core.FromJSON Recommendation where
   parseJSON =
@@ -112,30 +112,30 @@ instance Core.FromJSON Recommendation where
       "Recommendation"
       ( \x ->
           Recommendation'
-            Prelude.<$> (x Core..:? "Link")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Link")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> ( x Core..:? "RelatedAnomalies"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "RelatedEvents" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable Recommendation where
   hashWithSalt _salt Recommendation' {..} =
-    _salt `Prelude.hashWithSalt` link
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` link
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` relatedAnomalies
       `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` relatedEvents
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData Recommendation where
   rnf Recommendation' {..} =
-    Prelude.rnf link
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf link
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf relatedAnomalies
       `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf relatedEvents
-      `Prelude.seq` Prelude.rnf description

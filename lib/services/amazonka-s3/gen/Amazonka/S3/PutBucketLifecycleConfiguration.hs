@@ -95,8 +95,8 @@ module Amazonka.S3.PutBucketLifecycleConfiguration
     newPutBucketLifecycleConfiguration,
 
     -- * Request Lenses
-    putBucketLifecycleConfiguration_lifecycleConfiguration,
     putBucketLifecycleConfiguration_expectedBucketOwner,
+    putBucketLifecycleConfiguration_lifecycleConfiguration,
     putBucketLifecycleConfiguration_bucket,
 
     -- * Destructuring the Response
@@ -114,12 +114,12 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutBucketLifecycleConfiguration' smart constructor.
 data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
-  { -- | Container for lifecycle rules. You can add as many as 1,000 rules.
-    lifecycleConfiguration :: Prelude.Maybe BucketLifecycleConfiguration,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | Container for lifecycle rules. You can add as many as 1,000 rules.
+    lifecycleConfiguration :: Prelude.Maybe BucketLifecycleConfiguration,
     -- | The name of the bucket for which to set the configuration.
     bucket :: BucketName
   }
@@ -133,11 +133,11 @@ data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lifecycleConfiguration', 'putBucketLifecycleConfiguration_lifecycleConfiguration' - Container for lifecycle rules. You can add as many as 1,000 rules.
---
 -- 'expectedBucketOwner', 'putBucketLifecycleConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'lifecycleConfiguration', 'putBucketLifecycleConfiguration_lifecycleConfiguration' - Container for lifecycle rules. You can add as many as 1,000 rules.
 --
 -- 'bucket', 'putBucketLifecycleConfiguration_bucket' - The name of the bucket for which to set the configuration.
 newPutBucketLifecycleConfiguration ::
@@ -146,21 +146,21 @@ newPutBucketLifecycleConfiguration ::
   PutBucketLifecycleConfiguration
 newPutBucketLifecycleConfiguration pBucket_ =
   PutBucketLifecycleConfiguration'
-    { lifecycleConfiguration =
+    { expectedBucketOwner =
         Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
+      lifecycleConfiguration = Prelude.Nothing,
       bucket = pBucket_
     }
-
--- | Container for lifecycle rules. You can add as many as 1,000 rules.
-putBucketLifecycleConfiguration_lifecycleConfiguration :: Lens.Lens' PutBucketLifecycleConfiguration (Prelude.Maybe BucketLifecycleConfiguration)
-putBucketLifecycleConfiguration_lifecycleConfiguration = Lens.lens (\PutBucketLifecycleConfiguration' {lifecycleConfiguration} -> lifecycleConfiguration) (\s@PutBucketLifecycleConfiguration' {} a -> s {lifecycleConfiguration = a} :: PutBucketLifecycleConfiguration)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketLifecycleConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketLifecycleConfiguration (Prelude.Maybe Prelude.Text)
 putBucketLifecycleConfiguration_expectedBucketOwner = Lens.lens (\PutBucketLifecycleConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketLifecycleConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketLifecycleConfiguration)
+
+-- | Container for lifecycle rules. You can add as many as 1,000 rules.
+putBucketLifecycleConfiguration_lifecycleConfiguration :: Lens.Lens' PutBucketLifecycleConfiguration (Prelude.Maybe BucketLifecycleConfiguration)
+putBucketLifecycleConfiguration_lifecycleConfiguration = Lens.lens (\PutBucketLifecycleConfiguration' {lifecycleConfiguration} -> lifecycleConfiguration) (\s@PutBucketLifecycleConfiguration' {} a -> s {lifecycleConfiguration = a} :: PutBucketLifecycleConfiguration)
 
 -- | The name of the bucket for which to set the configuration.
 putBucketLifecycleConfiguration_bucket :: Lens.Lens' PutBucketLifecycleConfiguration BucketName
@@ -188,8 +188,8 @@ instance
   hashWithSalt
     _salt
     PutBucketLifecycleConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` lifecycleConfiguration
-        `Prelude.hashWithSalt` expectedBucketOwner
+      _salt `Prelude.hashWithSalt` expectedBucketOwner
+        `Prelude.hashWithSalt` lifecycleConfiguration
         `Prelude.hashWithSalt` bucket
 
 instance
@@ -197,8 +197,8 @@ instance
     PutBucketLifecycleConfiguration
   where
   rnf PutBucketLifecycleConfiguration' {..} =
-    Prelude.rnf lifecycleConfiguration
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf lifecycleConfiguration
       `Prelude.seq` Prelude.rnf bucket
 
 instance

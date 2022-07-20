@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDefinition' smart constructor.
 data Definition = Definition'
-  { -- | The service control policies (SCPs) action definition details.
+  { -- | The AWS Systems Manager (SSM) action definition details.
+    ssmActionDefinition :: Prelude.Maybe SsmActionDefinition,
+    -- | The service control policies (SCPs) action definition details.
     scpActionDefinition :: Prelude.Maybe ScpActionDefinition,
     -- | The AWS Identity and Access Management (IAM) action definition details.
-    iamActionDefinition :: Prelude.Maybe IamActionDefinition,
-    -- | The AWS Systems Manager (SSM) action definition details.
-    ssmActionDefinition :: Prelude.Maybe SsmActionDefinition
+    iamActionDefinition :: Prelude.Maybe IamActionDefinition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data Definition = Definition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ssmActionDefinition', 'definition_ssmActionDefinition' - The AWS Systems Manager (SSM) action definition details.
+--
 -- 'scpActionDefinition', 'definition_scpActionDefinition' - The service control policies (SCPs) action definition details.
 --
 -- 'iamActionDefinition', 'definition_iamActionDefinition' - The AWS Identity and Access Management (IAM) action definition details.
---
--- 'ssmActionDefinition', 'definition_ssmActionDefinition' - The AWS Systems Manager (SSM) action definition details.
 newDefinition ::
   Definition
 newDefinition =
   Definition'
-    { scpActionDefinition = Prelude.Nothing,
-      iamActionDefinition = Prelude.Nothing,
-      ssmActionDefinition = Prelude.Nothing
+    { ssmActionDefinition = Prelude.Nothing,
+      scpActionDefinition = Prelude.Nothing,
+      iamActionDefinition = Prelude.Nothing
     }
+
+-- | The AWS Systems Manager (SSM) action definition details.
+definition_ssmActionDefinition :: Lens.Lens' Definition (Prelude.Maybe SsmActionDefinition)
+definition_ssmActionDefinition = Lens.lens (\Definition' {ssmActionDefinition} -> ssmActionDefinition) (\s@Definition' {} a -> s {ssmActionDefinition = a} :: Definition)
 
 -- | The service control policies (SCPs) action definition details.
 definition_scpActionDefinition :: Lens.Lens' Definition (Prelude.Maybe ScpActionDefinition)
@@ -69,42 +73,38 @@ definition_scpActionDefinition = Lens.lens (\Definition' {scpActionDefinition} -
 definition_iamActionDefinition :: Lens.Lens' Definition (Prelude.Maybe IamActionDefinition)
 definition_iamActionDefinition = Lens.lens (\Definition' {iamActionDefinition} -> iamActionDefinition) (\s@Definition' {} a -> s {iamActionDefinition = a} :: Definition)
 
--- | The AWS Systems Manager (SSM) action definition details.
-definition_ssmActionDefinition :: Lens.Lens' Definition (Prelude.Maybe SsmActionDefinition)
-definition_ssmActionDefinition = Lens.lens (\Definition' {ssmActionDefinition} -> ssmActionDefinition) (\s@Definition' {} a -> s {ssmActionDefinition = a} :: Definition)
-
 instance Core.FromJSON Definition where
   parseJSON =
     Core.withObject
       "Definition"
       ( \x ->
           Definition'
-            Prelude.<$> (x Core..:? "ScpActionDefinition")
+            Prelude.<$> (x Core..:? "SsmActionDefinition")
+            Prelude.<*> (x Core..:? "ScpActionDefinition")
             Prelude.<*> (x Core..:? "IamActionDefinition")
-            Prelude.<*> (x Core..:? "SsmActionDefinition")
       )
 
 instance Prelude.Hashable Definition where
   hashWithSalt _salt Definition' {..} =
-    _salt `Prelude.hashWithSalt` scpActionDefinition
+    _salt `Prelude.hashWithSalt` ssmActionDefinition
+      `Prelude.hashWithSalt` scpActionDefinition
       `Prelude.hashWithSalt` iamActionDefinition
-      `Prelude.hashWithSalt` ssmActionDefinition
 
 instance Prelude.NFData Definition where
   rnf Definition' {..} =
-    Prelude.rnf scpActionDefinition
+    Prelude.rnf ssmActionDefinition
+      `Prelude.seq` Prelude.rnf scpActionDefinition
       `Prelude.seq` Prelude.rnf iamActionDefinition
-      `Prelude.seq` Prelude.rnf ssmActionDefinition
 
 instance Core.ToJSON Definition where
   toJSON Definition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ScpActionDefinition" Core..=)
+          [ ("SsmActionDefinition" Core..=)
+              Prelude.<$> ssmActionDefinition,
+            ("ScpActionDefinition" Core..=)
               Prelude.<$> scpActionDefinition,
             ("IamActionDefinition" Core..=)
-              Prelude.<$> iamActionDefinition,
-            ("SsmActionDefinition" Core..=)
-              Prelude.<$> ssmActionDefinition
+              Prelude.<$> iamActionDefinition
           ]
       )

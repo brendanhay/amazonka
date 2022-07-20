@@ -28,7 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { -- | The status of the RDS event notification subscription.
+  { -- | The time the RDS event notification subscription was created.
+    subscriptionCreationTime :: Prelude.Maybe Prelude.Text,
+    -- | The RDS event notification subscription Id.
+    custSubscriptionId :: Prelude.Maybe Prelude.Text,
+    -- | A list of source IDs for the RDS event notification subscription.
+    sourceIdsList :: Prelude.Maybe [Prelude.Text],
+    -- | The status of the RDS event notification subscription.
     --
     -- Constraints:
     --
@@ -39,26 +45,20 @@ data EventSubscription = EventSubscription'
     -- to post to the SNS topic. The status \"topic-not-exist\" indicates that
     -- the topic was deleted after the subscription was created.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services customer account associated with the RDS event
-    -- notification subscription.
-    customerAwsId :: Prelude.Maybe Prelude.Text,
-    -- | The RDS event notification subscription Id.
-    custSubscriptionId :: Prelude.Maybe Prelude.Text,
-    -- | The topic ARN of the RDS event notification subscription.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the event subscription.
-    eventSubscriptionArn :: Prelude.Maybe Prelude.Text,
+    -- | The source type for the RDS event notification subscription.
+    sourceType :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating if the subscription is enabled. True
     -- indicates the subscription is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The source type for the RDS event notification subscription.
-    sourceType :: Prelude.Maybe Prelude.Text,
-    -- | The time the RDS event notification subscription was created.
-    subscriptionCreationTime :: Prelude.Maybe Prelude.Text,
+    -- | The topic ARN of the RDS event notification subscription.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | A list of event categories for the RDS event notification subscription.
     eventCategoriesList :: Prelude.Maybe [Prelude.Text],
-    -- | A list of source IDs for the RDS event notification subscription.
-    sourceIdsList :: Prelude.Maybe [Prelude.Text]
+    -- | The Amazon Resource Name (ARN) for the event subscription.
+    eventSubscriptionArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services customer account associated with the RDS event
+    -- notification subscription.
+    customerAwsId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +69,12 @@ data EventSubscription = EventSubscription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'subscriptionCreationTime', 'eventSubscription_subscriptionCreationTime' - The time the RDS event notification subscription was created.
+--
+-- 'custSubscriptionId', 'eventSubscription_custSubscriptionId' - The RDS event notification subscription Id.
+--
+-- 'sourceIdsList', 'eventSubscription_sourceIdsList' - A list of source IDs for the RDS event notification subscription.
 --
 -- 'status', 'eventSubscription_status' - The status of the RDS event notification subscription.
 --
@@ -81,40 +87,47 @@ data EventSubscription = EventSubscription'
 -- to post to the SNS topic. The status \"topic-not-exist\" indicates that
 -- the topic was deleted after the subscription was created.
 --
--- 'customerAwsId', 'eventSubscription_customerAwsId' - The Amazon Web Services customer account associated with the RDS event
--- notification subscription.
---
--- 'custSubscriptionId', 'eventSubscription_custSubscriptionId' - The RDS event notification subscription Id.
---
--- 'snsTopicArn', 'eventSubscription_snsTopicArn' - The topic ARN of the RDS event notification subscription.
---
--- 'eventSubscriptionArn', 'eventSubscription_eventSubscriptionArn' - The Amazon Resource Name (ARN) for the event subscription.
+-- 'sourceType', 'eventSubscription_sourceType' - The source type for the RDS event notification subscription.
 --
 -- 'enabled', 'eventSubscription_enabled' - A Boolean value indicating if the subscription is enabled. True
 -- indicates the subscription is enabled.
 --
--- 'sourceType', 'eventSubscription_sourceType' - The source type for the RDS event notification subscription.
---
--- 'subscriptionCreationTime', 'eventSubscription_subscriptionCreationTime' - The time the RDS event notification subscription was created.
+-- 'snsTopicArn', 'eventSubscription_snsTopicArn' - The topic ARN of the RDS event notification subscription.
 --
 -- 'eventCategoriesList', 'eventSubscription_eventCategoriesList' - A list of event categories for the RDS event notification subscription.
 --
--- 'sourceIdsList', 'eventSubscription_sourceIdsList' - A list of source IDs for the RDS event notification subscription.
+-- 'eventSubscriptionArn', 'eventSubscription_eventSubscriptionArn' - The Amazon Resource Name (ARN) for the event subscription.
+--
+-- 'customerAwsId', 'eventSubscription_customerAwsId' - The Amazon Web Services customer account associated with the RDS event
+-- notification subscription.
 newEventSubscription ::
   EventSubscription
 newEventSubscription =
   EventSubscription'
-    { status = Prelude.Nothing,
-      customerAwsId = Prelude.Nothing,
+    { subscriptionCreationTime =
+        Prelude.Nothing,
       custSubscriptionId = Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
-      eventSubscriptionArn = Prelude.Nothing,
-      enabled = Prelude.Nothing,
+      sourceIdsList = Prelude.Nothing,
+      status = Prelude.Nothing,
       sourceType = Prelude.Nothing,
-      subscriptionCreationTime = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      snsTopicArn = Prelude.Nothing,
       eventCategoriesList = Prelude.Nothing,
-      sourceIdsList = Prelude.Nothing
+      eventSubscriptionArn = Prelude.Nothing,
+      customerAwsId = Prelude.Nothing
     }
+
+-- | The time the RDS event notification subscription was created.
+eventSubscription_subscriptionCreationTime :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
+eventSubscription_subscriptionCreationTime = Lens.lens (\EventSubscription' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@EventSubscription' {} a -> s {subscriptionCreationTime = a} :: EventSubscription)
+
+-- | The RDS event notification subscription Id.
+eventSubscription_custSubscriptionId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
+eventSubscription_custSubscriptionId = Lens.lens (\EventSubscription' {custSubscriptionId} -> custSubscriptionId) (\s@EventSubscription' {} a -> s {custSubscriptionId = a} :: EventSubscription)
+
+-- | A list of source IDs for the RDS event notification subscription.
+eventSubscription_sourceIdsList :: Lens.Lens' EventSubscription (Prelude.Maybe [Prelude.Text])
+eventSubscription_sourceIdsList = Lens.lens (\EventSubscription' {sourceIdsList} -> sourceIdsList) (\s@EventSubscription' {} a -> s {sourceIdsList = a} :: EventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the RDS event notification subscription.
 --
@@ -129,85 +142,74 @@ newEventSubscription =
 eventSubscription_status :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
 eventSubscription_status = Lens.lens (\EventSubscription' {status} -> status) (\s@EventSubscription' {} a -> s {status = a} :: EventSubscription)
 
--- | The Amazon Web Services customer account associated with the RDS event
--- notification subscription.
-eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
-eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
-
--- | The RDS event notification subscription Id.
-eventSubscription_custSubscriptionId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
-eventSubscription_custSubscriptionId = Lens.lens (\EventSubscription' {custSubscriptionId} -> custSubscriptionId) (\s@EventSubscription' {} a -> s {custSubscriptionId = a} :: EventSubscription)
-
--- | The topic ARN of the RDS event notification subscription.
-eventSubscription_snsTopicArn :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
-eventSubscription_snsTopicArn = Lens.lens (\EventSubscription' {snsTopicArn} -> snsTopicArn) (\s@EventSubscription' {} a -> s {snsTopicArn = a} :: EventSubscription)
-
--- | The Amazon Resource Name (ARN) for the event subscription.
-eventSubscription_eventSubscriptionArn :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
-eventSubscription_eventSubscriptionArn = Lens.lens (\EventSubscription' {eventSubscriptionArn} -> eventSubscriptionArn) (\s@EventSubscription' {} a -> s {eventSubscriptionArn = a} :: EventSubscription)
+-- | The source type for the RDS event notification subscription.
+eventSubscription_sourceType :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
+eventSubscription_sourceType = Lens.lens (\EventSubscription' {sourceType} -> sourceType) (\s@EventSubscription' {} a -> s {sourceType = a} :: EventSubscription)
 
 -- | A Boolean value indicating if the subscription is enabled. True
 -- indicates the subscription is enabled.
 eventSubscription_enabled :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Bool)
 eventSubscription_enabled = Lens.lens (\EventSubscription' {enabled} -> enabled) (\s@EventSubscription' {} a -> s {enabled = a} :: EventSubscription)
 
--- | The source type for the RDS event notification subscription.
-eventSubscription_sourceType :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
-eventSubscription_sourceType = Lens.lens (\EventSubscription' {sourceType} -> sourceType) (\s@EventSubscription' {} a -> s {sourceType = a} :: EventSubscription)
-
--- | The time the RDS event notification subscription was created.
-eventSubscription_subscriptionCreationTime :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
-eventSubscription_subscriptionCreationTime = Lens.lens (\EventSubscription' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@EventSubscription' {} a -> s {subscriptionCreationTime = a} :: EventSubscription)
+-- | The topic ARN of the RDS event notification subscription.
+eventSubscription_snsTopicArn :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
+eventSubscription_snsTopicArn = Lens.lens (\EventSubscription' {snsTopicArn} -> snsTopicArn) (\s@EventSubscription' {} a -> s {snsTopicArn = a} :: EventSubscription)
 
 -- | A list of event categories for the RDS event notification subscription.
 eventSubscription_eventCategoriesList :: Lens.Lens' EventSubscription (Prelude.Maybe [Prelude.Text])
 eventSubscription_eventCategoriesList = Lens.lens (\EventSubscription' {eventCategoriesList} -> eventCategoriesList) (\s@EventSubscription' {} a -> s {eventCategoriesList = a} :: EventSubscription) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of source IDs for the RDS event notification subscription.
-eventSubscription_sourceIdsList :: Lens.Lens' EventSubscription (Prelude.Maybe [Prelude.Text])
-eventSubscription_sourceIdsList = Lens.lens (\EventSubscription' {sourceIdsList} -> sourceIdsList) (\s@EventSubscription' {} a -> s {sourceIdsList = a} :: EventSubscription) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) for the event subscription.
+eventSubscription_eventSubscriptionArn :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
+eventSubscription_eventSubscriptionArn = Lens.lens (\EventSubscription' {eventSubscriptionArn} -> eventSubscriptionArn) (\s@EventSubscription' {} a -> s {eventSubscriptionArn = a} :: EventSubscription)
+
+-- | The Amazon Web Services customer account associated with the RDS event
+-- notification subscription.
+eventSubscription_customerAwsId :: Lens.Lens' EventSubscription (Prelude.Maybe Prelude.Text)
+eventSubscription_customerAwsId = Lens.lens (\EventSubscription' {customerAwsId} -> customerAwsId) (\s@EventSubscription' {} a -> s {customerAwsId = a} :: EventSubscription)
 
 instance Core.FromXML EventSubscription where
   parseXML x =
     EventSubscription'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "CustomerAwsId")
+      Prelude.<$> (x Core..@? "SubscriptionCreationTime")
       Prelude.<*> (x Core..@? "CustSubscriptionId")
-      Prelude.<*> (x Core..@? "SnsTopicArn")
-      Prelude.<*> (x Core..@? "EventSubscriptionArn")
-      Prelude.<*> (x Core..@? "Enabled")
+      Prelude.<*> ( x Core..@? "SourceIdsList" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "SourceId")
+                  )
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "SourceType")
-      Prelude.<*> (x Core..@? "SubscriptionCreationTime")
+      Prelude.<*> (x Core..@? "Enabled")
+      Prelude.<*> (x Core..@? "SnsTopicArn")
       Prelude.<*> ( x Core..@? "EventCategoriesList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "EventCategory")
                   )
-      Prelude.<*> ( x Core..@? "SourceIdsList" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "SourceId")
-                  )
+      Prelude.<*> (x Core..@? "EventSubscriptionArn")
+      Prelude.<*> (x Core..@? "CustomerAwsId")
 
 instance Prelude.Hashable EventSubscription where
   hashWithSalt _salt EventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` customerAwsId
-      `Prelude.hashWithSalt` custSubscriptionId
-      `Prelude.hashWithSalt` snsTopicArn
-      `Prelude.hashWithSalt` eventSubscriptionArn
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` sourceType
+    _salt
       `Prelude.hashWithSalt` subscriptionCreationTime
-      `Prelude.hashWithSalt` eventCategoriesList
+      `Prelude.hashWithSalt` custSubscriptionId
       `Prelude.hashWithSalt` sourceIdsList
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` snsTopicArn
+      `Prelude.hashWithSalt` eventCategoriesList
+      `Prelude.hashWithSalt` eventSubscriptionArn
+      `Prelude.hashWithSalt` customerAwsId
 
 instance Prelude.NFData EventSubscription where
   rnf EventSubscription' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf customerAwsId
+    Prelude.rnf subscriptionCreationTime
       `Prelude.seq` Prelude.rnf custSubscriptionId
-      `Prelude.seq` Prelude.rnf snsTopicArn
-      `Prelude.seq` Prelude.rnf eventSubscriptionArn
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf subscriptionCreationTime
-      `Prelude.seq` Prelude.rnf eventCategoriesList
       `Prelude.seq` Prelude.rnf sourceIdsList
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf snsTopicArn
+      `Prelude.seq` Prelude.rnf eventCategoriesList
+      `Prelude.seq` Prelude.rnf eventSubscriptionArn
+      `Prelude.seq` Prelude.rnf customerAwsId

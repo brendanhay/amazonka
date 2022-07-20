@@ -28,8 +28,8 @@ module Amazonka.AlexaBusiness.PutInvitationConfiguration
     newPutInvitationConfiguration,
 
     -- * Request Lenses
-    putInvitationConfiguration_contactEmail,
     putInvitationConfiguration_privateSkillIds,
+    putInvitationConfiguration_contactEmail,
     putInvitationConfiguration_organizationName,
 
     -- * Destructuring the Response
@@ -50,12 +50,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutInvitationConfiguration' smart constructor.
 data PutInvitationConfiguration = PutInvitationConfiguration'
-  { -- | The email ID of the organization or individual contact that the enrolled
-    -- user can use.
-    contactEmail :: Prelude.Maybe Prelude.Text,
-    -- | The list of private skill IDs that you want to recommend to the user to
+  { -- | The list of private skill IDs that you want to recommend to the user to
     -- enable in the invitation.
     privateSkillIds :: Prelude.Maybe [Prelude.Text],
+    -- | The email ID of the organization or individual contact that the enrolled
+    -- user can use.
+    contactEmail :: Prelude.Maybe Prelude.Text,
     -- | The name of the organization sending the enrollment invite to a user.
     organizationName :: Prelude.Text
   }
@@ -69,11 +69,11 @@ data PutInvitationConfiguration = PutInvitationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contactEmail', 'putInvitationConfiguration_contactEmail' - The email ID of the organization or individual contact that the enrolled
--- user can use.
---
 -- 'privateSkillIds', 'putInvitationConfiguration_privateSkillIds' - The list of private skill IDs that you want to recommend to the user to
 -- enable in the invitation.
+--
+-- 'contactEmail', 'putInvitationConfiguration_contactEmail' - The email ID of the organization or individual contact that the enrolled
+-- user can use.
 --
 -- 'organizationName', 'putInvitationConfiguration_organizationName' - The name of the organization sending the enrollment invite to a user.
 newPutInvitationConfiguration ::
@@ -82,21 +82,21 @@ newPutInvitationConfiguration ::
   PutInvitationConfiguration
 newPutInvitationConfiguration pOrganizationName_ =
   PutInvitationConfiguration'
-    { contactEmail =
+    { privateSkillIds =
         Prelude.Nothing,
-      privateSkillIds = Prelude.Nothing,
+      contactEmail = Prelude.Nothing,
       organizationName = pOrganizationName_
     }
-
--- | The email ID of the organization or individual contact that the enrolled
--- user can use.
-putInvitationConfiguration_contactEmail :: Lens.Lens' PutInvitationConfiguration (Prelude.Maybe Prelude.Text)
-putInvitationConfiguration_contactEmail = Lens.lens (\PutInvitationConfiguration' {contactEmail} -> contactEmail) (\s@PutInvitationConfiguration' {} a -> s {contactEmail = a} :: PutInvitationConfiguration)
 
 -- | The list of private skill IDs that you want to recommend to the user to
 -- enable in the invitation.
 putInvitationConfiguration_privateSkillIds :: Lens.Lens' PutInvitationConfiguration (Prelude.Maybe [Prelude.Text])
 putInvitationConfiguration_privateSkillIds = Lens.lens (\PutInvitationConfiguration' {privateSkillIds} -> privateSkillIds) (\s@PutInvitationConfiguration' {} a -> s {privateSkillIds = a} :: PutInvitationConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The email ID of the organization or individual contact that the enrolled
+-- user can use.
+putInvitationConfiguration_contactEmail :: Lens.Lens' PutInvitationConfiguration (Prelude.Maybe Prelude.Text)
+putInvitationConfiguration_contactEmail = Lens.lens (\PutInvitationConfiguration' {contactEmail} -> contactEmail) (\s@PutInvitationConfiguration' {} a -> s {contactEmail = a} :: PutInvitationConfiguration)
 
 -- | The name of the organization sending the enrollment invite to a user.
 putInvitationConfiguration_organizationName :: Lens.Lens' PutInvitationConfiguration Prelude.Text
@@ -116,14 +116,14 @@ instance Core.AWSRequest PutInvitationConfiguration where
 
 instance Prelude.Hashable PutInvitationConfiguration where
   hashWithSalt _salt PutInvitationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` contactEmail
-      `Prelude.hashWithSalt` privateSkillIds
+    _salt `Prelude.hashWithSalt` privateSkillIds
+      `Prelude.hashWithSalt` contactEmail
       `Prelude.hashWithSalt` organizationName
 
 instance Prelude.NFData PutInvitationConfiguration where
   rnf PutInvitationConfiguration' {..} =
-    Prelude.rnf contactEmail
-      `Prelude.seq` Prelude.rnf privateSkillIds
+    Prelude.rnf privateSkillIds
+      `Prelude.seq` Prelude.rnf contactEmail
       `Prelude.seq` Prelude.rnf organizationName
 
 instance Core.ToHeaders PutInvitationConfiguration where
@@ -145,9 +145,9 @@ instance Core.ToJSON PutInvitationConfiguration where
   toJSON PutInvitationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ContactEmail" Core..=) Prelude.<$> contactEmail,
-            ("PrivateSkillIds" Core..=)
+          [ ("PrivateSkillIds" Core..=)
               Prelude.<$> privateSkillIds,
+            ("ContactEmail" Core..=) Prelude.<$> contactEmail,
             Prelude.Just
               ("OrganizationName" Core..= organizationName)
           ]

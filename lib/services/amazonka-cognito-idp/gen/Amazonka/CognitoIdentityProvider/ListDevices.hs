@@ -36,8 +36,8 @@ module Amazonka.CognitoIdentityProvider.ListDevices
     newListDevicesResponse,
 
     -- * Response Lenses
-    listDevicesResponse_paginationToken,
     listDevicesResponse_devices,
+    listDevicesResponse_paginationToken,
     listDevicesResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,10 +158,10 @@ instance Core.ToQuery ListDevices where
 --
 -- /See:/ 'newListDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-  { -- | The pagination token for the list device response.
-    paginationToken :: Prelude.Maybe Prelude.Text,
-    -- | The devices returned in the list devices response.
+  { -- | The devices returned in the list devices response.
     devices :: Prelude.Maybe [DeviceType],
+    -- | The pagination token for the list device response.
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data ListDevicesResponse = ListDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'paginationToken', 'listDevicesResponse_paginationToken' - The pagination token for the list device response.
---
 -- 'devices', 'listDevicesResponse_devices' - The devices returned in the list devices response.
+--
+-- 'paginationToken', 'listDevicesResponse_paginationToken' - The pagination token for the list device response.
 --
 -- 'httpStatus', 'listDevicesResponse_httpStatus' - The response's http status code.
 newListDevicesResponse ::
@@ -186,19 +186,18 @@ newListDevicesResponse ::
   ListDevicesResponse
 newListDevicesResponse pHttpStatus_ =
   ListDevicesResponse'
-    { paginationToken =
-        Prelude.Nothing,
-      devices = Prelude.Nothing,
+    { devices = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token for the list device response.
-listDevicesResponse_paginationToken :: Lens.Lens' ListDevicesResponse (Prelude.Maybe Prelude.Text)
-listDevicesResponse_paginationToken = Lens.lens (\ListDevicesResponse' {paginationToken} -> paginationToken) (\s@ListDevicesResponse' {} a -> s {paginationToken = a} :: ListDevicesResponse)
 
 -- | The devices returned in the list devices response.
 listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Prelude.Maybe [DeviceType])
 listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token for the list device response.
+listDevicesResponse_paginationToken :: Lens.Lens' ListDevicesResponse (Prelude.Maybe Prelude.Text)
+listDevicesResponse_paginationToken = Lens.lens (\ListDevicesResponse' {paginationToken} -> paginationToken) (\s@ListDevicesResponse' {} a -> s {paginationToken = a} :: ListDevicesResponse)
 
 -- | The response's http status code.
 listDevicesResponse_httpStatus :: Lens.Lens' ListDevicesResponse Prelude.Int
@@ -206,6 +205,6 @@ listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -
 
 instance Prelude.NFData ListDevicesResponse where
   rnf ListDevicesResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf httpStatus

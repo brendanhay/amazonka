@@ -27,10 +27,10 @@ module Amazonka.AuditManager.UpdateControl
     newUpdateControl,
 
     -- * Request Lenses
-    updateControl_testingInformation,
     updateControl_actionPlanInstructions,
-    updateControl_actionPlanTitle,
     updateControl_description,
+    updateControl_actionPlanTitle,
+    updateControl_testingInformation,
     updateControl_controlId,
     updateControl_name,
     updateControl_controlMappingSources,
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateControl' smart constructor.
 data UpdateControl = UpdateControl'
-  { -- | The steps that to follow to determine if the control has been satisfied.
-    testingInformation :: Prelude.Maybe Prelude.Text,
-    -- | The recommended actions to carry out if the control is not fulfilled.
+  { -- | The recommended actions to carry out if the control is not fulfilled.
     actionPlanInstructions :: Prelude.Maybe Prelude.Text,
-    -- | The title of the action plan for remediating the control.
-    actionPlanTitle :: Prelude.Maybe Prelude.Text,
     -- | The optional description of the control.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The title of the action plan for remediating the control.
+    actionPlanTitle :: Prelude.Maybe Prelude.Text,
+    -- | The steps that to follow to determine if the control has been satisfied.
+    testingInformation :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the specified control.
     controlId :: Prelude.Text,
     -- | The name of the control to be updated.
@@ -79,13 +79,13 @@ data UpdateControl = UpdateControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'testingInformation', 'updateControl_testingInformation' - The steps that to follow to determine if the control has been satisfied.
---
 -- 'actionPlanInstructions', 'updateControl_actionPlanInstructions' - The recommended actions to carry out if the control is not fulfilled.
+--
+-- 'description', 'updateControl_description' - The optional description of the control.
 --
 -- 'actionPlanTitle', 'updateControl_actionPlanTitle' - The title of the action plan for remediating the control.
 --
--- 'description', 'updateControl_description' - The optional description of the control.
+-- 'testingInformation', 'updateControl_testingInformation' - The steps that to follow to determine if the control has been satisfied.
 --
 -- 'controlId', 'updateControl_controlId' - The identifier for the specified control.
 --
@@ -105,32 +105,32 @@ newUpdateControl
   pName_
   pControlMappingSources_ =
     UpdateControl'
-      { testingInformation =
+      { actionPlanInstructions =
           Prelude.Nothing,
-        actionPlanInstructions = Prelude.Nothing,
-        actionPlanTitle = Prelude.Nothing,
         description = Prelude.Nothing,
+        actionPlanTitle = Prelude.Nothing,
+        testingInformation = Prelude.Nothing,
         controlId = pControlId_,
         name = pName_,
         controlMappingSources =
           Lens.coerced Lens.# pControlMappingSources_
       }
 
--- | The steps that to follow to determine if the control has been satisfied.
-updateControl_testingInformation :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
-updateControl_testingInformation = Lens.lens (\UpdateControl' {testingInformation} -> testingInformation) (\s@UpdateControl' {} a -> s {testingInformation = a} :: UpdateControl)
-
 -- | The recommended actions to carry out if the control is not fulfilled.
 updateControl_actionPlanInstructions :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
 updateControl_actionPlanInstructions = Lens.lens (\UpdateControl' {actionPlanInstructions} -> actionPlanInstructions) (\s@UpdateControl' {} a -> s {actionPlanInstructions = a} :: UpdateControl)
+
+-- | The optional description of the control.
+updateControl_description :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
+updateControl_description = Lens.lens (\UpdateControl' {description} -> description) (\s@UpdateControl' {} a -> s {description = a} :: UpdateControl)
 
 -- | The title of the action plan for remediating the control.
 updateControl_actionPlanTitle :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
 updateControl_actionPlanTitle = Lens.lens (\UpdateControl' {actionPlanTitle} -> actionPlanTitle) (\s@UpdateControl' {} a -> s {actionPlanTitle = a} :: UpdateControl)
 
--- | The optional description of the control.
-updateControl_description :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
-updateControl_description = Lens.lens (\UpdateControl' {description} -> description) (\s@UpdateControl' {} a -> s {description = a} :: UpdateControl)
+-- | The steps that to follow to determine if the control has been satisfied.
+updateControl_testingInformation :: Lens.Lens' UpdateControl (Prelude.Maybe Prelude.Text)
+updateControl_testingInformation = Lens.lens (\UpdateControl' {testingInformation} -> testingInformation) (\s@UpdateControl' {} a -> s {testingInformation = a} :: UpdateControl)
 
 -- | The identifier for the specified control.
 updateControl_controlId :: Lens.Lens' UpdateControl Prelude.Text
@@ -159,20 +159,20 @@ instance Core.AWSRequest UpdateControl where
 
 instance Prelude.Hashable UpdateControl where
   hashWithSalt _salt UpdateControl' {..} =
-    _salt `Prelude.hashWithSalt` testingInformation
-      `Prelude.hashWithSalt` actionPlanInstructions
-      `Prelude.hashWithSalt` actionPlanTitle
+    _salt `Prelude.hashWithSalt` actionPlanInstructions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` actionPlanTitle
+      `Prelude.hashWithSalt` testingInformation
       `Prelude.hashWithSalt` controlId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` controlMappingSources
 
 instance Prelude.NFData UpdateControl where
   rnf UpdateControl' {..} =
-    Prelude.rnf testingInformation
-      `Prelude.seq` Prelude.rnf actionPlanInstructions
-      `Prelude.seq` Prelude.rnf actionPlanTitle
+    Prelude.rnf actionPlanInstructions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf actionPlanTitle
+      `Prelude.seq` Prelude.rnf testingInformation
       `Prelude.seq` Prelude.rnf controlId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf controlMappingSources
@@ -192,13 +192,13 @@ instance Core.ToJSON UpdateControl where
   toJSON UpdateControl' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("testingInformation" Core..=)
-              Prelude.<$> testingInformation,
-            ("actionPlanInstructions" Core..=)
+          [ ("actionPlanInstructions" Core..=)
               Prelude.<$> actionPlanInstructions,
+            ("description" Core..=) Prelude.<$> description,
             ("actionPlanTitle" Core..=)
               Prelude.<$> actionPlanTitle,
-            ("description" Core..=) Prelude.<$> description,
+            ("testingInformation" Core..=)
+              Prelude.<$> testingInformation,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ( "controlMappingSources"

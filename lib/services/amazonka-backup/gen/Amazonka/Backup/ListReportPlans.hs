@@ -36,8 +36,8 @@ module Amazonka.Backup.ListReportPlans
     newListReportPlansResponse,
 
     -- * Response Lenses
-    listReportPlansResponse_reportPlans,
     listReportPlansResponse_nextToken,
+    listReportPlansResponse_reportPlans,
     listReportPlansResponse_httpStatus,
   )
 where
@@ -103,8 +103,8 @@ instance Core.AWSRequest ListReportPlans where
     Response.receiveJSON
       ( \s h x ->
           ListReportPlansResponse'
-            Prelude.<$> (x Core..?> "ReportPlans" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ReportPlans" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,16 +141,16 @@ instance Core.ToQuery ListReportPlans where
 
 -- | /See:/ 'newListReportPlansResponse' smart constructor.
 data ListReportPlansResponse = ListReportPlansResponse'
-  { -- | A list of your report plans with detailed information for each plan.
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of your report plans with detailed information for each plan.
     -- This information includes the Amazon Resource Name (ARN), report plan
     -- name, description, settings, delivery channel, deployment status,
     -- creation time, and last times the report plan attempted to and
     -- successfully ran.
     reportPlans :: Prelude.Maybe [ReportPlan],
-    -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
-    -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,15 +164,15 @@ data ListReportPlansResponse = ListReportPlansResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listReportPlansResponse_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
 -- 'reportPlans', 'listReportPlansResponse_reportPlans' - A list of your report plans with detailed information for each plan.
 -- This information includes the Amazon Resource Name (ARN), report plan
 -- name, description, settings, delivery channel, deployment status,
 -- creation time, and last times the report plan attempted to and
 -- successfully ran.
---
--- 'nextToken', 'listReportPlansResponse_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
 --
 -- 'httpStatus', 'listReportPlansResponse_httpStatus' - The response's http status code.
 newListReportPlansResponse ::
@@ -181,11 +181,17 @@ newListReportPlansResponse ::
   ListReportPlansResponse
 newListReportPlansResponse pHttpStatus_ =
   ListReportPlansResponse'
-    { reportPlans =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      reportPlans = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listReportPlansResponse_nextToken :: Lens.Lens' ListReportPlansResponse (Prelude.Maybe Prelude.Text)
+listReportPlansResponse_nextToken = Lens.lens (\ListReportPlansResponse' {nextToken} -> nextToken) (\s@ListReportPlansResponse' {} a -> s {nextToken = a} :: ListReportPlansResponse)
 
 -- | A list of your report plans with detailed information for each plan.
 -- This information includes the Amazon Resource Name (ARN), report plan
@@ -195,18 +201,12 @@ newListReportPlansResponse pHttpStatus_ =
 listReportPlansResponse_reportPlans :: Lens.Lens' ListReportPlansResponse (Prelude.Maybe [ReportPlan])
 listReportPlansResponse_reportPlans = Lens.lens (\ListReportPlansResponse' {reportPlans} -> reportPlans) (\s@ListReportPlansResponse' {} a -> s {reportPlans = a} :: ListReportPlansResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
-listReportPlansResponse_nextToken :: Lens.Lens' ListReportPlansResponse (Prelude.Maybe Prelude.Text)
-listReportPlansResponse_nextToken = Lens.lens (\ListReportPlansResponse' {nextToken} -> nextToken) (\s@ListReportPlansResponse' {} a -> s {nextToken = a} :: ListReportPlansResponse)
-
 -- | The response's http status code.
 listReportPlansResponse_httpStatus :: Lens.Lens' ListReportPlansResponse Prelude.Int
 listReportPlansResponse_httpStatus = Lens.lens (\ListReportPlansResponse' {httpStatus} -> httpStatus) (\s@ListReportPlansResponse' {} a -> s {httpStatus = a} :: ListReportPlansResponse)
 
 instance Prelude.NFData ListReportPlansResponse where
   rnf ListReportPlansResponse' {..} =
-    Prelude.rnf reportPlans
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf reportPlans
       `Prelude.seq` Prelude.rnf httpStatus

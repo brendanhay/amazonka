@@ -29,10 +29,10 @@ import Amazonka.SSM.Types.PatchBaselineIdentity
 --
 -- /See:/ 'newPatchGroupPatchBaselineMapping' smart constructor.
 data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
-  { -- | The patch baseline the patch group is registered with.
-    baselineIdentity :: Prelude.Maybe PatchBaselineIdentity,
-    -- | The name of the patch group registered with the patch baseline.
-    patchGroup :: Prelude.Maybe Prelude.Text
+  { -- | The name of the patch group registered with the patch baseline.
+    patchGroup :: Prelude.Maybe Prelude.Text,
+    -- | The patch baseline the patch group is registered with.
+    baselineIdentity :: Prelude.Maybe PatchBaselineIdentity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'baselineIdentity', 'patchGroupPatchBaselineMapping_baselineIdentity' - The patch baseline the patch group is registered with.
---
 -- 'patchGroup', 'patchGroupPatchBaselineMapping_patchGroup' - The name of the patch group registered with the patch baseline.
+--
+-- 'baselineIdentity', 'patchGroupPatchBaselineMapping_baselineIdentity' - The patch baseline the patch group is registered with.
 newPatchGroupPatchBaselineMapping ::
   PatchGroupPatchBaselineMapping
 newPatchGroupPatchBaselineMapping =
   PatchGroupPatchBaselineMapping'
-    { baselineIdentity =
+    { patchGroup =
         Prelude.Nothing,
-      patchGroup = Prelude.Nothing
+      baselineIdentity = Prelude.Nothing
     }
-
--- | The patch baseline the patch group is registered with.
-patchGroupPatchBaselineMapping_baselineIdentity :: Lens.Lens' PatchGroupPatchBaselineMapping (Prelude.Maybe PatchBaselineIdentity)
-patchGroupPatchBaselineMapping_baselineIdentity = Lens.lens (\PatchGroupPatchBaselineMapping' {baselineIdentity} -> baselineIdentity) (\s@PatchGroupPatchBaselineMapping' {} a -> s {baselineIdentity = a} :: PatchGroupPatchBaselineMapping)
 
 -- | The name of the patch group registered with the patch baseline.
 patchGroupPatchBaselineMapping_patchGroup :: Lens.Lens' PatchGroupPatchBaselineMapping (Prelude.Maybe Prelude.Text)
 patchGroupPatchBaselineMapping_patchGroup = Lens.lens (\PatchGroupPatchBaselineMapping' {patchGroup} -> patchGroup) (\s@PatchGroupPatchBaselineMapping' {} a -> s {patchGroup = a} :: PatchGroupPatchBaselineMapping)
+
+-- | The patch baseline the patch group is registered with.
+patchGroupPatchBaselineMapping_baselineIdentity :: Lens.Lens' PatchGroupPatchBaselineMapping (Prelude.Maybe PatchBaselineIdentity)
+patchGroupPatchBaselineMapping_baselineIdentity = Lens.lens (\PatchGroupPatchBaselineMapping' {baselineIdentity} -> baselineIdentity) (\s@PatchGroupPatchBaselineMapping' {} a -> s {baselineIdentity = a} :: PatchGroupPatchBaselineMapping)
 
 instance Core.FromJSON PatchGroupPatchBaselineMapping where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON PatchGroupPatchBaselineMapping where
       "PatchGroupPatchBaselineMapping"
       ( \x ->
           PatchGroupPatchBaselineMapping'
-            Prelude.<$> (x Core..:? "BaselineIdentity")
-            Prelude.<*> (x Core..:? "PatchGroup")
+            Prelude.<$> (x Core..:? "PatchGroup")
+            Prelude.<*> (x Core..:? "BaselineIdentity")
       )
 
 instance
@@ -81,13 +81,13 @@ instance
   hashWithSalt
     _salt
     PatchGroupPatchBaselineMapping' {..} =
-      _salt `Prelude.hashWithSalt` baselineIdentity
-        `Prelude.hashWithSalt` patchGroup
+      _salt `Prelude.hashWithSalt` patchGroup
+        `Prelude.hashWithSalt` baselineIdentity
 
 instance
   Prelude.NFData
     PatchGroupPatchBaselineMapping
   where
   rnf PatchGroupPatchBaselineMapping' {..} =
-    Prelude.rnf baselineIdentity
-      `Prelude.seq` Prelude.rnf patchGroup
+    Prelude.rnf patchGroup
+      `Prelude.seq` Prelude.rnf baselineIdentity

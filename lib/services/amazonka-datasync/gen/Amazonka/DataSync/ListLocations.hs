@@ -34,8 +34,8 @@ module Amazonka.DataSync.ListLocations
     newListLocations,
 
     -- * Request Lenses
-    listLocations_filters,
     listLocations_nextToken,
+    listLocations_filters,
     listLocations_maxResults,
 
     -- * Destructuring the Response
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListLocations' smart constructor.
 data ListLocations = ListLocations'
-  { -- | You can use API filters to narrow down the list of resources returned by
+  { -- | An opaque string that indicates the position at which to begin the next
+    -- list of locations.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | You can use API filters to narrow down the list of resources returned by
     -- @ListLocations@. For example, to retrieve all tasks on a specific source
     -- location, you can use @ListLocations@ with filter name @LocationType S3@
     -- and @Operator Equals@.
     filters :: Prelude.Maybe [LocationFilter],
-    -- | An opaque string that indicates the position at which to begin the next
-    -- list of locations.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of locations to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -81,23 +81,28 @@ data ListLocations = ListLocations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listLocations_nextToken' - An opaque string that indicates the position at which to begin the next
+-- list of locations.
+--
 -- 'filters', 'listLocations_filters' - You can use API filters to narrow down the list of resources returned by
 -- @ListLocations@. For example, to retrieve all tasks on a specific source
 -- location, you can use @ListLocations@ with filter name @LocationType S3@
 -- and @Operator Equals@.
---
--- 'nextToken', 'listLocations_nextToken' - An opaque string that indicates the position at which to begin the next
--- list of locations.
 --
 -- 'maxResults', 'listLocations_maxResults' - The maximum number of locations to return.
 newListLocations ::
   ListLocations
 newListLocations =
   ListLocations'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | An opaque string that indicates the position at which to begin the next
+-- list of locations.
+listLocations_nextToken :: Lens.Lens' ListLocations (Prelude.Maybe Prelude.Text)
+listLocations_nextToken = Lens.lens (\ListLocations' {nextToken} -> nextToken) (\s@ListLocations' {} a -> s {nextToken = a} :: ListLocations)
 
 -- | You can use API filters to narrow down the list of resources returned by
 -- @ListLocations@. For example, to retrieve all tasks on a specific source
@@ -105,11 +110,6 @@ newListLocations =
 -- and @Operator Equals@.
 listLocations_filters :: Lens.Lens' ListLocations (Prelude.Maybe [LocationFilter])
 listLocations_filters = Lens.lens (\ListLocations' {filters} -> filters) (\s@ListLocations' {} a -> s {filters = a} :: ListLocations) Prelude.. Lens.mapping Lens.coerced
-
--- | An opaque string that indicates the position at which to begin the next
--- list of locations.
-listLocations_nextToken :: Lens.Lens' ListLocations (Prelude.Maybe Prelude.Text)
-listLocations_nextToken = Lens.lens (\ListLocations' {nextToken} -> nextToken) (\s@ListLocations' {} a -> s {nextToken = a} :: ListLocations)
 
 -- | The maximum number of locations to return.
 listLocations_maxResults :: Lens.Lens' ListLocations (Prelude.Maybe Prelude.Natural)
@@ -150,14 +150,14 @@ instance Core.AWSRequest ListLocations where
 
 instance Prelude.Hashable ListLocations where
   hashWithSalt _salt ListLocations' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListLocations where
   rnf ListLocations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListLocations where
@@ -177,8 +177,8 @@ instance Core.ToJSON ListLocations where
   toJSON ListLocations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

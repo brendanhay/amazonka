@@ -14,33 +14,33 @@
 module Amazonka.SageMakerRuntime.Lens
   ( -- * Operations
 
+    -- ** InvokeEndpoint
+    invokeEndpoint_targetContainerHostname,
+    invokeEndpoint_accept,
+    invokeEndpoint_targetVariant,
+    invokeEndpoint_customAttributes,
+    invokeEndpoint_targetModel,
+    invokeEndpoint_inferenceId,
+    invokeEndpoint_contentType,
+    invokeEndpoint_endpointName,
+    invokeEndpoint_body,
+    invokeEndpointResponse_customAttributes,
+    invokeEndpointResponse_invokedProductionVariant,
+    invokeEndpointResponse_contentType,
+    invokeEndpointResponse_httpStatus,
+    invokeEndpointResponse_body,
+
     -- ** InvokeEndpointAsync
     invokeEndpointAsync_accept,
     invokeEndpointAsync_customAttributes,
-    invokeEndpointAsync_inferenceId,
     invokeEndpointAsync_requestTTLSeconds,
+    invokeEndpointAsync_inferenceId,
     invokeEndpointAsync_contentType,
     invokeEndpointAsync_endpointName,
     invokeEndpointAsync_inputLocation,
     invokeEndpointAsyncResponse_outputLocation,
     invokeEndpointAsyncResponse_inferenceId,
     invokeEndpointAsyncResponse_httpStatus,
-
-    -- ** InvokeEndpoint
-    invokeEndpoint_accept,
-    invokeEndpoint_targetModel,
-    invokeEndpoint_customAttributes,
-    invokeEndpoint_inferenceId,
-    invokeEndpoint_targetVariant,
-    invokeEndpoint_contentType,
-    invokeEndpoint_targetContainerHostname,
-    invokeEndpoint_endpointName,
-    invokeEndpoint_body,
-    invokeEndpointResponse_invokedProductionVariant,
-    invokeEndpointResponse_customAttributes,
-    invokeEndpointResponse_contentType,
-    invokeEndpointResponse_httpStatus,
-    invokeEndpointResponse_body,
 
     -- * Types
   )

@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFilters' smart constructor.
 data Filters = Filters'
-  { -- | Specify one or more algorithms that can be used to generate key pairs.
+  { -- | Specify one or more ExtendedKeyUsage extension values.
+    extendedKeyUsage :: Prelude.Maybe [ExtendedKeyUsageName],
+    -- | Specify one or more algorithms that can be used to generate key pairs.
     --
     -- Default filtering returns only @RSA_1024@ and @RSA_2048@ certificates
     -- that have at least one domain. To return other certificate types,
@@ -40,9 +42,7 @@ data Filters = Filters'
     -- and @RSA_4096@ certificates.
     keyTypes :: Prelude.Maybe [KeyAlgorithm],
     -- | Specify one or more KeyUsage extension values.
-    keyUsage :: Prelude.Maybe [KeyUsageName],
-    -- | Specify one or more ExtendedKeyUsage extension values.
-    extendedKeyUsage :: Prelude.Maybe [ExtendedKeyUsageName]
+    keyUsage :: Prelude.Maybe [KeyUsageName]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,8 @@ data Filters = Filters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'extendedKeyUsage', 'filters_extendedKeyUsage' - Specify one or more ExtendedKeyUsage extension values.
+--
 -- 'keyTypes', 'filters_keyTypes' - Specify one or more algorithms that can be used to generate key pairs.
 --
 -- Default filtering returns only @RSA_1024@ and @RSA_2048@ certificates
@@ -63,16 +65,18 @@ data Filters = Filters'
 -- and @RSA_4096@ certificates.
 --
 -- 'keyUsage', 'filters_keyUsage' - Specify one or more KeyUsage extension values.
---
--- 'extendedKeyUsage', 'filters_extendedKeyUsage' - Specify one or more ExtendedKeyUsage extension values.
 newFilters ::
   Filters
 newFilters =
   Filters'
-    { keyTypes = Prelude.Nothing,
-      keyUsage = Prelude.Nothing,
-      extendedKeyUsage = Prelude.Nothing
+    { extendedKeyUsage = Prelude.Nothing,
+      keyTypes = Prelude.Nothing,
+      keyUsage = Prelude.Nothing
     }
+
+-- | Specify one or more ExtendedKeyUsage extension values.
+filters_extendedKeyUsage :: Lens.Lens' Filters (Prelude.Maybe [ExtendedKeyUsageName])
+filters_extendedKeyUsage = Lens.lens (\Filters' {extendedKeyUsage} -> extendedKeyUsage) (\s@Filters' {} a -> s {extendedKeyUsage = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify one or more algorithms that can be used to generate key pairs.
 --
@@ -88,29 +92,25 @@ filters_keyTypes = Lens.lens (\Filters' {keyTypes} -> keyTypes) (\s@Filters' {} 
 filters_keyUsage :: Lens.Lens' Filters (Prelude.Maybe [KeyUsageName])
 filters_keyUsage = Lens.lens (\Filters' {keyUsage} -> keyUsage) (\s@Filters' {} a -> s {keyUsage = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
 
--- | Specify one or more ExtendedKeyUsage extension values.
-filters_extendedKeyUsage :: Lens.Lens' Filters (Prelude.Maybe [ExtendedKeyUsageName])
-filters_extendedKeyUsage = Lens.lens (\Filters' {extendedKeyUsage} -> extendedKeyUsage) (\s@Filters' {} a -> s {extendedKeyUsage = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
-
 instance Prelude.Hashable Filters where
   hashWithSalt _salt Filters' {..} =
-    _salt `Prelude.hashWithSalt` keyTypes
+    _salt `Prelude.hashWithSalt` extendedKeyUsage
+      `Prelude.hashWithSalt` keyTypes
       `Prelude.hashWithSalt` keyUsage
-      `Prelude.hashWithSalt` extendedKeyUsage
 
 instance Prelude.NFData Filters where
   rnf Filters' {..} =
-    Prelude.rnf keyTypes
+    Prelude.rnf extendedKeyUsage
+      `Prelude.seq` Prelude.rnf keyTypes
       `Prelude.seq` Prelude.rnf keyUsage
-      `Prelude.seq` Prelude.rnf extendedKeyUsage
 
 instance Core.ToJSON Filters where
   toJSON Filters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("keyTypes" Core..=) Prelude.<$> keyTypes,
-            ("keyUsage" Core..=) Prelude.<$> keyUsage,
-            ("extendedKeyUsage" Core..=)
-              Prelude.<$> extendedKeyUsage
+          [ ("extendedKeyUsage" Core..=)
+              Prelude.<$> extendedKeyUsage,
+            ("keyTypes" Core..=) Prelude.<$> keyTypes,
+            ("keyUsage" Core..=) Prelude.<$> keyUsage
           ]
       )

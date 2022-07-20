@@ -29,9 +29,9 @@ module Amazonka.KinesisVideo.CreateSignalingChannel
     newCreateSignalingChannel,
 
     -- * Request Lenses
+    createSignalingChannel_tags,
     createSignalingChannel_singleMasterConfiguration,
     createSignalingChannel_channelType,
-    createSignalingChannel_tags,
     createSignalingChannel_channelName,
 
     -- * Destructuring the Response
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSignalingChannel' smart constructor.
 data CreateSignalingChannel = CreateSignalingChannel'
-  { -- | A structure containing the configuration for the @SINGLE_MASTER@ channel
+  { -- | A set of tags (key-value pairs) that you want to associate with this
+    -- channel.
+    tags :: Prelude.Maybe [Tag],
+    -- | A structure containing the configuration for the @SINGLE_MASTER@ channel
     -- type.
     singleMasterConfiguration :: Prelude.Maybe SingleMasterConfiguration,
     -- | A type of the signaling channel that you are creating. Currently,
     -- @SINGLE_MASTER@ is the only supported channel type.
     channelType :: Prelude.Maybe ChannelType,
-    -- | A set of tags (key-value pairs) that you want to associate with this
-    -- channel.
-    tags :: Prelude.Maybe [Tag],
     -- | A name for the signaling channel that you are creating. It must be
     -- unique for each AWS account and AWS Region.
     channelName :: Prelude.Text
@@ -76,14 +76,14 @@ data CreateSignalingChannel = CreateSignalingChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createSignalingChannel_tags' - A set of tags (key-value pairs) that you want to associate with this
+-- channel.
+--
 -- 'singleMasterConfiguration', 'createSignalingChannel_singleMasterConfiguration' - A structure containing the configuration for the @SINGLE_MASTER@ channel
 -- type.
 --
 -- 'channelType', 'createSignalingChannel_channelType' - A type of the signaling channel that you are creating. Currently,
 -- @SINGLE_MASTER@ is the only supported channel type.
---
--- 'tags', 'createSignalingChannel_tags' - A set of tags (key-value pairs) that you want to associate with this
--- channel.
 --
 -- 'channelName', 'createSignalingChannel_channelName' - A name for the signaling channel that you are creating. It must be
 -- unique for each AWS account and AWS Region.
@@ -93,12 +93,16 @@ newCreateSignalingChannel ::
   CreateSignalingChannel
 newCreateSignalingChannel pChannelName_ =
   CreateSignalingChannel'
-    { singleMasterConfiguration =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      singleMasterConfiguration = Prelude.Nothing,
       channelType = Prelude.Nothing,
-      tags = Prelude.Nothing,
       channelName = pChannelName_
     }
+
+-- | A set of tags (key-value pairs) that you want to associate with this
+-- channel.
+createSignalingChannel_tags :: Lens.Lens' CreateSignalingChannel (Prelude.Maybe [Tag])
+createSignalingChannel_tags = Lens.lens (\CreateSignalingChannel' {tags} -> tags) (\s@CreateSignalingChannel' {} a -> s {tags = a} :: CreateSignalingChannel) Prelude.. Lens.mapping Lens.coerced
 
 -- | A structure containing the configuration for the @SINGLE_MASTER@ channel
 -- type.
@@ -109,11 +113,6 @@ createSignalingChannel_singleMasterConfiguration = Lens.lens (\CreateSignalingCh
 -- @SINGLE_MASTER@ is the only supported channel type.
 createSignalingChannel_channelType :: Lens.Lens' CreateSignalingChannel (Prelude.Maybe ChannelType)
 createSignalingChannel_channelType = Lens.lens (\CreateSignalingChannel' {channelType} -> channelType) (\s@CreateSignalingChannel' {} a -> s {channelType = a} :: CreateSignalingChannel)
-
--- | A set of tags (key-value pairs) that you want to associate with this
--- channel.
-createSignalingChannel_tags :: Lens.Lens' CreateSignalingChannel (Prelude.Maybe [Tag])
-createSignalingChannel_tags = Lens.lens (\CreateSignalingChannel' {tags} -> tags) (\s@CreateSignalingChannel' {} a -> s {tags = a} :: CreateSignalingChannel) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the signaling channel that you are creating. It must be
 -- unique for each AWS account and AWS Region.
@@ -135,17 +134,16 @@ instance Core.AWSRequest CreateSignalingChannel where
 
 instance Prelude.Hashable CreateSignalingChannel where
   hashWithSalt _salt CreateSignalingChannel' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` singleMasterConfiguration
       `Prelude.hashWithSalt` channelType
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` channelName
 
 instance Prelude.NFData CreateSignalingChannel where
   rnf CreateSignalingChannel' {..} =
-    Prelude.rnf singleMasterConfiguration
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf singleMasterConfiguration
       `Prelude.seq` Prelude.rnf channelType
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf channelName
 
 instance Core.ToHeaders CreateSignalingChannel where
@@ -155,10 +153,10 @@ instance Core.ToJSON CreateSignalingChannel where
   toJSON CreateSignalingChannel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SingleMasterConfiguration" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("SingleMasterConfiguration" Core..=)
               Prelude.<$> singleMasterConfiguration,
             ("ChannelType" Core..=) Prelude.<$> channelType,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ChannelName" Core..= channelName)
           ]
       )

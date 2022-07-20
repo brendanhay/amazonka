@@ -37,19 +37,19 @@ module Amazonka.EFS.DescribeMountTargets
     newDescribeMountTargets,
 
     -- * Request Lenses
-    describeMountTargets_accessPointId,
-    describeMountTargets_fileSystemId,
     describeMountTargets_marker,
-    describeMountTargets_maxItems,
     describeMountTargets_mountTargetId,
+    describeMountTargets_maxItems,
+    describeMountTargets_fileSystemId,
+    describeMountTargets_accessPointId,
 
     -- * Destructuring the Response
     DescribeMountTargetsResponse (..),
     newDescribeMountTargetsResponse,
 
     -- * Response Lenses
-    describeMountTargetsResponse_mountTargets,
     describeMountTargetsResponse_marker,
+    describeMountTargetsResponse_mountTargets,
     describeMountTargetsResponse_nextMarker,
     describeMountTargetsResponse_httpStatus,
   )
@@ -66,29 +66,29 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeMountTargets' smart constructor.
 data DescribeMountTargets = DescribeMountTargets'
-  { -- | (Optional) The ID of the access point whose mount targets that you want
-    -- to list. It must be included in your request if a @FileSystemId@ or
-    -- @MountTargetId@ is not included in your request. Accepts either an
-    -- access point ID or ARN as input.
-    accessPointId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) ID of the file system whose mount targets you want to list
-    -- (String). It must be included in your request if an @AccessPointId@ or
-    -- @MountTargetId@ is not included. Accepts either a file system ID or ARN
-    -- as input.
-    fileSystemId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Opaque pagination token returned from a previous
+  { -- | (Optional) Opaque pagination token returned from a previous
     -- @DescribeMountTargets@ operation (String). If present, it specifies to
     -- continue the list from where the previous returning call left off.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) ID of the mount target that you want to have described
+    -- (String). It must be included in your request if @FileSystemId@ is not
+    -- included. Accepts either a mount target ID or ARN as input.
+    mountTargetId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Maximum number of mount targets to return in the response.
     -- Currently, this number is automatically set to 10, and other values are
     -- ignored. The response is paginated at 100 per page if you have more than
     -- 100 mount targets.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | (Optional) ID of the mount target that you want to have described
-    -- (String). It must be included in your request if @FileSystemId@ is not
-    -- included. Accepts either a mount target ID or ARN as input.
-    mountTargetId :: Prelude.Maybe Prelude.Text
+    -- | (Optional) ID of the file system whose mount targets you want to list
+    -- (String). It must be included in your request if an @AccessPointId@ or
+    -- @MountTargetId@ is not included. Accepts either a file system ID or ARN
+    -- as input.
+    fileSystemId :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The ID of the access point whose mount targets that you want
+    -- to list. It must be included in your request if a @FileSystemId@ or
+    -- @MountTargetId@ is not included in your request. Accepts either an
+    -- access point ID or ARN as input.
+    accessPointId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,59 +100,50 @@ data DescribeMountTargets = DescribeMountTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessPointId', 'describeMountTargets_accessPointId' - (Optional) The ID of the access point whose mount targets that you want
--- to list. It must be included in your request if a @FileSystemId@ or
--- @MountTargetId@ is not included in your request. Accepts either an
--- access point ID or ARN as input.
---
--- 'fileSystemId', 'describeMountTargets_fileSystemId' - (Optional) ID of the file system whose mount targets you want to list
--- (String). It must be included in your request if an @AccessPointId@ or
--- @MountTargetId@ is not included. Accepts either a file system ID or ARN
--- as input.
---
 -- 'marker', 'describeMountTargets_marker' - (Optional) Opaque pagination token returned from a previous
 -- @DescribeMountTargets@ operation (String). If present, it specifies to
 -- continue the list from where the previous returning call left off.
+--
+-- 'mountTargetId', 'describeMountTargets_mountTargetId' - (Optional) ID of the mount target that you want to have described
+-- (String). It must be included in your request if @FileSystemId@ is not
+-- included. Accepts either a mount target ID or ARN as input.
 --
 -- 'maxItems', 'describeMountTargets_maxItems' - (Optional) Maximum number of mount targets to return in the response.
 -- Currently, this number is automatically set to 10, and other values are
 -- ignored. The response is paginated at 100 per page if you have more than
 -- 100 mount targets.
 --
--- 'mountTargetId', 'describeMountTargets_mountTargetId' - (Optional) ID of the mount target that you want to have described
--- (String). It must be included in your request if @FileSystemId@ is not
--- included. Accepts either a mount target ID or ARN as input.
+-- 'fileSystemId', 'describeMountTargets_fileSystemId' - (Optional) ID of the file system whose mount targets you want to list
+-- (String). It must be included in your request if an @AccessPointId@ or
+-- @MountTargetId@ is not included. Accepts either a file system ID or ARN
+-- as input.
+--
+-- 'accessPointId', 'describeMountTargets_accessPointId' - (Optional) The ID of the access point whose mount targets that you want
+-- to list. It must be included in your request if a @FileSystemId@ or
+-- @MountTargetId@ is not included in your request. Accepts either an
+-- access point ID or ARN as input.
 newDescribeMountTargets ::
   DescribeMountTargets
 newDescribeMountTargets =
   DescribeMountTargets'
-    { accessPointId =
-        Prelude.Nothing,
-      fileSystemId = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      mountTargetId = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      mountTargetId = Prelude.Nothing
+      fileSystemId = Prelude.Nothing,
+      accessPointId = Prelude.Nothing
     }
-
--- | (Optional) The ID of the access point whose mount targets that you want
--- to list. It must be included in your request if a @FileSystemId@ or
--- @MountTargetId@ is not included in your request. Accepts either an
--- access point ID or ARN as input.
-describeMountTargets_accessPointId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
-describeMountTargets_accessPointId = Lens.lens (\DescribeMountTargets' {accessPointId} -> accessPointId) (\s@DescribeMountTargets' {} a -> s {accessPointId = a} :: DescribeMountTargets)
-
--- | (Optional) ID of the file system whose mount targets you want to list
--- (String). It must be included in your request if an @AccessPointId@ or
--- @MountTargetId@ is not included. Accepts either a file system ID or ARN
--- as input.
-describeMountTargets_fileSystemId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
-describeMountTargets_fileSystemId = Lens.lens (\DescribeMountTargets' {fileSystemId} -> fileSystemId) (\s@DescribeMountTargets' {} a -> s {fileSystemId = a} :: DescribeMountTargets)
 
 -- | (Optional) Opaque pagination token returned from a previous
 -- @DescribeMountTargets@ operation (String). If present, it specifies to
 -- continue the list from where the previous returning call left off.
 describeMountTargets_marker :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
 describeMountTargets_marker = Lens.lens (\DescribeMountTargets' {marker} -> marker) (\s@DescribeMountTargets' {} a -> s {marker = a} :: DescribeMountTargets)
+
+-- | (Optional) ID of the mount target that you want to have described
+-- (String). It must be included in your request if @FileSystemId@ is not
+-- included. Accepts either a mount target ID or ARN as input.
+describeMountTargets_mountTargetId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
+describeMountTargets_mountTargetId = Lens.lens (\DescribeMountTargets' {mountTargetId} -> mountTargetId) (\s@DescribeMountTargets' {} a -> s {mountTargetId = a} :: DescribeMountTargets)
 
 -- | (Optional) Maximum number of mount targets to return in the response.
 -- Currently, this number is automatically set to 10, and other values are
@@ -161,11 +152,19 @@ describeMountTargets_marker = Lens.lens (\DescribeMountTargets' {marker} -> mark
 describeMountTargets_maxItems :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Natural)
 describeMountTargets_maxItems = Lens.lens (\DescribeMountTargets' {maxItems} -> maxItems) (\s@DescribeMountTargets' {} a -> s {maxItems = a} :: DescribeMountTargets)
 
--- | (Optional) ID of the mount target that you want to have described
--- (String). It must be included in your request if @FileSystemId@ is not
--- included. Accepts either a mount target ID or ARN as input.
-describeMountTargets_mountTargetId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
-describeMountTargets_mountTargetId = Lens.lens (\DescribeMountTargets' {mountTargetId} -> mountTargetId) (\s@DescribeMountTargets' {} a -> s {mountTargetId = a} :: DescribeMountTargets)
+-- | (Optional) ID of the file system whose mount targets you want to list
+-- (String). It must be included in your request if an @AccessPointId@ or
+-- @MountTargetId@ is not included. Accepts either a file system ID or ARN
+-- as input.
+describeMountTargets_fileSystemId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
+describeMountTargets_fileSystemId = Lens.lens (\DescribeMountTargets' {fileSystemId} -> fileSystemId) (\s@DescribeMountTargets' {} a -> s {fileSystemId = a} :: DescribeMountTargets)
+
+-- | (Optional) The ID of the access point whose mount targets that you want
+-- to list. It must be included in your request if a @FileSystemId@ or
+-- @MountTargetId@ is not included in your request. Accepts either an
+-- access point ID or ARN as input.
+describeMountTargets_accessPointId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
+describeMountTargets_accessPointId = Lens.lens (\DescribeMountTargets' {accessPointId} -> accessPointId) (\s@DescribeMountTargets' {} a -> s {accessPointId = a} :: DescribeMountTargets)
 
 instance Core.AWSPager DescribeMountTargets where
   page rq rs
@@ -198,27 +197,27 @@ instance Core.AWSRequest DescribeMountTargets where
     Response.receiveJSON
       ( \s h x ->
           DescribeMountTargetsResponse'
-            Prelude.<$> (x Core..?> "MountTargets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "MountTargets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeMountTargets where
   hashWithSalt _salt DescribeMountTargets' {..} =
-    _salt `Prelude.hashWithSalt` accessPointId
-      `Prelude.hashWithSalt` fileSystemId
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` maxItems
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` mountTargetId
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` accessPointId
 
 instance Prelude.NFData DescribeMountTargets where
   rnf DescribeMountTargets' {..} =
-    Prelude.rnf accessPointId
-      `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf mountTargetId
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf accessPointId
 
 instance Core.ToHeaders DescribeMountTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -229,23 +228,23 @@ instance Core.ToPath DescribeMountTargets where
 instance Core.ToQuery DescribeMountTargets where
   toQuery DescribeMountTargets' {..} =
     Prelude.mconcat
-      [ "AccessPointId" Core.=: accessPointId,
-        "FileSystemId" Core.=: fileSystemId,
-        "Marker" Core.=: marker,
+      [ "Marker" Core.=: marker,
+        "MountTargetId" Core.=: mountTargetId,
         "MaxItems" Core.=: maxItems,
-        "MountTargetId" Core.=: mountTargetId
+        "FileSystemId" Core.=: fileSystemId,
+        "AccessPointId" Core.=: accessPointId
       ]
 
 -- |
 --
 -- /See:/ 'newDescribeMountTargetsResponse' smart constructor.
 data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
-  { -- | Returns the file system\'s mount targets as an array of
-    -- @MountTargetDescription@ objects.
-    mountTargets :: Prelude.Maybe [MountTargetDescription],
-    -- | If the request included the @Marker@, the response returns that value in
+  { -- | If the request included the @Marker@, the response returns that value in
     -- this field.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Returns the file system\'s mount targets as an array of
+    -- @MountTargetDescription@ objects.
+    mountTargets :: Prelude.Maybe [MountTargetDescription],
     -- | If a value is present, there are more mount targets to return. In a
     -- subsequent request, you can provide @Marker@ in your request with this
     -- value to retrieve the next set of mount targets.
@@ -263,11 +262,11 @@ data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mountTargets', 'describeMountTargetsResponse_mountTargets' - Returns the file system\'s mount targets as an array of
--- @MountTargetDescription@ objects.
---
 -- 'marker', 'describeMountTargetsResponse_marker' - If the request included the @Marker@, the response returns that value in
 -- this field.
+--
+-- 'mountTargets', 'describeMountTargetsResponse_mountTargets' - Returns the file system\'s mount targets as an array of
+-- @MountTargetDescription@ objects.
 --
 -- 'nextMarker', 'describeMountTargetsResponse_nextMarker' - If a value is present, there are more mount targets to return. In a
 -- subsequent request, you can provide @Marker@ in your request with this
@@ -280,22 +279,22 @@ newDescribeMountTargetsResponse ::
   DescribeMountTargetsResponse
 newDescribeMountTargetsResponse pHttpStatus_ =
   DescribeMountTargetsResponse'
-    { mountTargets =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      mountTargets = Prelude.Nothing,
       nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns the file system\'s mount targets as an array of
--- @MountTargetDescription@ objects.
-describeMountTargetsResponse_mountTargets :: Lens.Lens' DescribeMountTargetsResponse (Prelude.Maybe [MountTargetDescription])
-describeMountTargetsResponse_mountTargets = Lens.lens (\DescribeMountTargetsResponse' {mountTargets} -> mountTargets) (\s@DescribeMountTargetsResponse' {} a -> s {mountTargets = a} :: DescribeMountTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the request included the @Marker@, the response returns that value in
 -- this field.
 describeMountTargetsResponse_marker :: Lens.Lens' DescribeMountTargetsResponse (Prelude.Maybe Prelude.Text)
 describeMountTargetsResponse_marker = Lens.lens (\DescribeMountTargetsResponse' {marker} -> marker) (\s@DescribeMountTargetsResponse' {} a -> s {marker = a} :: DescribeMountTargetsResponse)
+
+-- | Returns the file system\'s mount targets as an array of
+-- @MountTargetDescription@ objects.
+describeMountTargetsResponse_mountTargets :: Lens.Lens' DescribeMountTargetsResponse (Prelude.Maybe [MountTargetDescription])
+describeMountTargetsResponse_mountTargets = Lens.lens (\DescribeMountTargetsResponse' {mountTargets} -> mountTargets) (\s@DescribeMountTargetsResponse' {} a -> s {mountTargets = a} :: DescribeMountTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a value is present, there are more mount targets to return. In a
 -- subsequent request, you can provide @Marker@ in your request with this
@@ -309,7 +308,7 @@ describeMountTargetsResponse_httpStatus = Lens.lens (\DescribeMountTargetsRespon
 
 instance Prelude.NFData DescribeMountTargetsResponse where
   rnf DescribeMountTargetsResponse' {..} =
-    Prelude.rnf mountTargets
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf mountTargets
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf httpStatus

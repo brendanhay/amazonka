@@ -14,330 +14,36 @@
 module Amazonka.SESV2.Lens
   ( -- * Operations
 
-    -- ** GetConfigurationSet
-    getConfigurationSet_configurationSetName,
-    getConfigurationSetResponse_sendingOptions,
-    getConfigurationSetResponse_configurationSetName,
-    getConfigurationSetResponse_deliveryOptions,
-    getConfigurationSetResponse_trackingOptions,
-    getConfigurationSetResponse_reputationOptions,
-    getConfigurationSetResponse_tags,
-    getConfigurationSetResponse_suppressionOptions,
-    getConfigurationSetResponse_httpStatus,
+    -- ** CreateConfigurationSet
+    createConfigurationSet_tags,
+    createConfigurationSet_reputationOptions,
+    createConfigurationSet_deliveryOptions,
+    createConfigurationSet_trackingOptions,
+    createConfigurationSet_suppressionOptions,
+    createConfigurationSet_sendingOptions,
+    createConfigurationSet_configurationSetName,
+    createConfigurationSetResponse_httpStatus,
 
-    -- ** GetImportJob
-    getImportJob_jobId,
-    getImportJobResponse_processedRecordsCount,
-    getImportJobResponse_jobId,
-    getImportJobResponse_importDataSource,
-    getImportJobResponse_completedTimestamp,
-    getImportJobResponse_failureInfo,
-    getImportJobResponse_importDestination,
-    getImportJobResponse_jobStatus,
-    getImportJobResponse_failedRecordsCount,
-    getImportJobResponse_createdTimestamp,
-    getImportJobResponse_httpStatus,
-
-    -- ** PutConfigurationSetTrackingOptions
-    putConfigurationSetTrackingOptions_customRedirectDomain,
-    putConfigurationSetTrackingOptions_configurationSetName,
-    putConfigurationSetTrackingOptionsResponse_httpStatus,
-
-    -- ** PutEmailIdentityDkimSigningAttributes
-    putEmailIdentityDkimSigningAttributes_signingAttributes,
-    putEmailIdentityDkimSigningAttributes_emailIdentity,
-    putEmailIdentityDkimSigningAttributes_signingAttributesOrigin,
-    putEmailIdentityDkimSigningAttributesResponse_dkimStatus,
-    putEmailIdentityDkimSigningAttributesResponse_dkimTokens,
-    putEmailIdentityDkimSigningAttributesResponse_httpStatus,
-
-    -- ** PutEmailIdentityDkimAttributes
-    putEmailIdentityDkimAttributes_signingEnabled,
-    putEmailIdentityDkimAttributes_emailIdentity,
-    putEmailIdentityDkimAttributesResponse_httpStatus,
-
-    -- ** PutConfigurationSetDeliveryOptions
-    putConfigurationSetDeliveryOptions_sendingPoolName,
-    putConfigurationSetDeliveryOptions_tlsPolicy,
-    putConfigurationSetDeliveryOptions_configurationSetName,
-    putConfigurationSetDeliveryOptionsResponse_httpStatus,
-
-    -- ** ListDedicatedIpPools
-    listDedicatedIpPools_nextToken,
-    listDedicatedIpPools_pageSize,
-    listDedicatedIpPoolsResponse_dedicatedIpPools,
-    listDedicatedIpPoolsResponse_nextToken,
-    listDedicatedIpPoolsResponse_httpStatus,
-
-    -- ** GetDomainDeliverabilityCampaign
-    getDomainDeliverabilityCampaign_campaignId,
-    getDomainDeliverabilityCampaignResponse_httpStatus,
-    getDomainDeliverabilityCampaignResponse_domainDeliverabilityCampaign,
-
-    -- ** GetDedicatedIps
-    getDedicatedIps_poolName,
-    getDedicatedIps_nextToken,
-    getDedicatedIps_pageSize,
-    getDedicatedIpsResponse_nextToken,
-    getDedicatedIpsResponse_dedicatedIps,
-    getDedicatedIpsResponse_httpStatus,
-
-    -- ** PutConfigurationSetSendingOptions
-    putConfigurationSetSendingOptions_sendingEnabled,
-    putConfigurationSetSendingOptions_configurationSetName,
-    putConfigurationSetSendingOptionsResponse_httpStatus,
-
-    -- ** DeleteCustomVerificationEmailTemplate
-    deleteCustomVerificationEmailTemplate_templateName,
-    deleteCustomVerificationEmailTemplateResponse_httpStatus,
-
-    -- ** UpdateCustomVerificationEmailTemplate
-    updateCustomVerificationEmailTemplate_templateName,
-    updateCustomVerificationEmailTemplate_fromEmailAddress,
-    updateCustomVerificationEmailTemplate_templateSubject,
-    updateCustomVerificationEmailTemplate_templateContent,
-    updateCustomVerificationEmailTemplate_successRedirectionURL,
-    updateCustomVerificationEmailTemplate_failureRedirectionURL,
-    updateCustomVerificationEmailTemplateResponse_httpStatus,
-
-    -- ** CreateDedicatedIpPool
-    createDedicatedIpPool_tags,
-    createDedicatedIpPool_poolName,
-    createDedicatedIpPoolResponse_httpStatus,
-
-    -- ** SendCustomVerificationEmail
-    sendCustomVerificationEmail_configurationSetName,
-    sendCustomVerificationEmail_emailAddress,
-    sendCustomVerificationEmail_templateName,
-    sendCustomVerificationEmailResponse_messageId,
-    sendCustomVerificationEmailResponse_httpStatus,
-
-    -- ** GetSuppressedDestination
-    getSuppressedDestination_emailAddress,
-    getSuppressedDestinationResponse_httpStatus,
-    getSuppressedDestinationResponse_suppressedDestination,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tags,
-
-    -- ** GetEmailTemplate
-    getEmailTemplate_templateName,
-    getEmailTemplateResponse_httpStatus,
-    getEmailTemplateResponse_templateName,
-    getEmailTemplateResponse_templateContent,
-
-    -- ** ListSuppressedDestinations
-    listSuppressedDestinations_reasons,
-    listSuppressedDestinations_endDate,
-    listSuppressedDestinations_startDate,
-    listSuppressedDestinations_nextToken,
-    listSuppressedDestinations_pageSize,
-    listSuppressedDestinationsResponse_nextToken,
-    listSuppressedDestinationsResponse_suppressedDestinationSummaries,
-    listSuppressedDestinationsResponse_httpStatus,
-
-    -- ** PutEmailIdentityFeedbackAttributes
-    putEmailIdentityFeedbackAttributes_emailForwardingEnabled,
-    putEmailIdentityFeedbackAttributes_emailIdentity,
-    putEmailIdentityFeedbackAttributesResponse_httpStatus,
-
-    -- ** ListEmailTemplates
-    listEmailTemplates_nextToken,
-    listEmailTemplates_pageSize,
-    listEmailTemplatesResponse_templatesMetadata,
-    listEmailTemplatesResponse_nextToken,
-    listEmailTemplatesResponse_httpStatus,
-
-    -- ** PutConfigurationSetReputationOptions
-    putConfigurationSetReputationOptions_reputationMetricsEnabled,
-    putConfigurationSetReputationOptions_configurationSetName,
-    putConfigurationSetReputationOptionsResponse_httpStatus,
-
-    -- ** PutDedicatedIpInPool
-    putDedicatedIpInPool_ip,
-    putDedicatedIpInPool_destinationPoolName,
-    putDedicatedIpInPoolResponse_httpStatus,
-
-    -- ** CreateEmailTemplate
-    createEmailTemplate_templateName,
-    createEmailTemplate_templateContent,
-    createEmailTemplateResponse_httpStatus,
-
-    -- ** PutAccountSendingAttributes
-    putAccountSendingAttributes_sendingEnabled,
-    putAccountSendingAttributesResponse_httpStatus,
-
-    -- ** UpdateConfigurationSetEventDestination
-    updateConfigurationSetEventDestination_configurationSetName,
-    updateConfigurationSetEventDestination_eventDestinationName,
-    updateConfigurationSetEventDestination_eventDestination,
-    updateConfigurationSetEventDestinationResponse_httpStatus,
-
-    -- ** DeleteConfigurationSetEventDestination
-    deleteConfigurationSetEventDestination_configurationSetName,
-    deleteConfigurationSetEventDestination_eventDestinationName,
-    deleteConfigurationSetEventDestinationResponse_httpStatus,
-
-    -- ** ListConfigurationSets
-    listConfigurationSets_nextToken,
-    listConfigurationSets_pageSize,
-    listConfigurationSetsResponse_configurationSets,
-    listConfigurationSetsResponse_nextToken,
-    listConfigurationSetsResponse_httpStatus,
-
-    -- ** DeleteEmailIdentity
-    deleteEmailIdentity_emailIdentity,
-    deleteEmailIdentityResponse_httpStatus,
-
-    -- ** DeleteContactList
-    deleteContactList_contactListName,
-    deleteContactListResponse_httpStatus,
-
-    -- ** UpdateContactList
-    updateContactList_topics,
-    updateContactList_description,
-    updateContactList_contactListName,
-    updateContactListResponse_httpStatus,
-
-    -- ** ListImportJobs
-    listImportJobs_nextToken,
-    listImportJobs_pageSize,
-    listImportJobs_importDestinationType,
-    listImportJobsResponse_importJobs,
-    listImportJobsResponse_nextToken,
-    listImportJobsResponse_httpStatus,
-
-    -- ** DeleteConfigurationSet
-    deleteConfigurationSet_configurationSetName,
-    deleteConfigurationSetResponse_httpStatus,
-
-    -- ** CreateEmailIdentity
-    createEmailIdentity_configurationSetName,
-    createEmailIdentity_dkimSigningAttributes,
-    createEmailIdentity_tags,
-    createEmailIdentity_emailIdentity,
-    createEmailIdentityResponse_dkimAttributes,
-    createEmailIdentityResponse_verifiedForSendingStatus,
-    createEmailIdentityResponse_identityType,
-    createEmailIdentityResponse_httpStatus,
-
-    -- ** GetBlacklistReports
-    getBlacklistReports_blacklistItemNames,
-    getBlacklistReportsResponse_httpStatus,
-    getBlacklistReportsResponse_blacklistReport,
-
-    -- ** CreateContactList
-    createContactList_topics,
-    createContactList_description,
-    createContactList_tags,
-    createContactList_contactListName,
-    createContactListResponse_httpStatus,
-
-    -- ** ListEmailIdentities
-    listEmailIdentities_nextToken,
-    listEmailIdentities_pageSize,
-    listEmailIdentitiesResponse_nextToken,
-    listEmailIdentitiesResponse_emailIdentities,
-    listEmailIdentitiesResponse_httpStatus,
-
-    -- ** GetContact
-    getContact_contactListName,
-    getContact_emailAddress,
-    getContactResponse_unsubscribeAll,
-    getContactResponse_attributesData,
-    getContactResponse_topicDefaultPreferences,
-    getContactResponse_emailAddress,
-    getContactResponse_contactListName,
-    getContactResponse_createdTimestamp,
-    getContactResponse_lastUpdatedTimestamp,
-    getContactResponse_topicPreferences,
-    getContactResponse_httpStatus,
-
-    -- ** DeleteContact
-    deleteContact_contactListName,
-    deleteContact_emailAddress,
-    deleteContactResponse_httpStatus,
-
-    -- ** UpdateContact
-    updateContact_unsubscribeAll,
-    updateContact_attributesData,
-    updateContact_topicPreferences,
-    updateContact_contactListName,
-    updateContact_emailAddress,
-    updateContactResponse_httpStatus,
-
-    -- ** GetContactList
-    getContactList_contactListName,
-    getContactListResponse_topics,
-    getContactListResponse_contactListName,
-    getContactListResponse_createdTimestamp,
-    getContactListResponse_description,
-    getContactListResponse_tags,
-    getContactListResponse_lastUpdatedTimestamp,
-    getContactListResponse_httpStatus,
-
-    -- ** GetDedicatedIp
-    getDedicatedIp_ip,
-    getDedicatedIpResponse_dedicatedIp,
-    getDedicatedIpResponse_httpStatus,
+    -- ** CreateConfigurationSetEventDestination
+    createConfigurationSetEventDestination_configurationSetName,
+    createConfigurationSetEventDestination_eventDestinationName,
+    createConfigurationSetEventDestination_eventDestination,
+    createConfigurationSetEventDestinationResponse_httpStatus,
 
     -- ** CreateContact
     createContact_unsubscribeAll,
-    createContact_attributesData,
     createContact_topicPreferences,
+    createContact_attributesData,
     createContact_contactListName,
     createContact_emailAddress,
     createContactResponse_httpStatus,
 
-    -- ** GetEmailIdentity
-    getEmailIdentity_emailIdentity,
-    getEmailIdentityResponse_dkimAttributes,
-    getEmailIdentityResponse_verifiedForSendingStatus,
-    getEmailIdentityResponse_configurationSetName,
-    getEmailIdentityResponse_identityType,
-    getEmailIdentityResponse_mailFromAttributes,
-    getEmailIdentityResponse_feedbackForwardingStatus,
-    getEmailIdentityResponse_policies,
-    getEmailIdentityResponse_tags,
-    getEmailIdentityResponse_httpStatus,
-
-    -- ** GetConfigurationSetEventDestinations
-    getConfigurationSetEventDestinations_configurationSetName,
-    getConfigurationSetEventDestinationsResponse_eventDestinations,
-    getConfigurationSetEventDestinationsResponse_httpStatus,
-
-    -- ** ListCustomVerificationEmailTemplates
-    listCustomVerificationEmailTemplates_nextToken,
-    listCustomVerificationEmailTemplates_pageSize,
-    listCustomVerificationEmailTemplatesResponse_nextToken,
-    listCustomVerificationEmailTemplatesResponse_customVerificationEmailTemplates,
-    listCustomVerificationEmailTemplatesResponse_httpStatus,
-
-    -- ** GetAccount
-    getAccountResponse_enforcementStatus,
-    getAccountResponse_dedicatedIpAutoWarmupEnabled,
-    getAccountResponse_sendQuota,
-    getAccountResponse_productionAccessEnabled,
-    getAccountResponse_details,
-    getAccountResponse_suppressionAttributes,
-    getAccountResponse_sendingEnabled,
-    getAccountResponse_httpStatus,
-
-    -- ** DeleteDedicatedIpPool
-    deleteDedicatedIpPool_poolName,
-    deleteDedicatedIpPoolResponse_httpStatus,
-
-    -- ** GetEmailIdentityPolicies
-    getEmailIdentityPolicies_emailIdentity,
-    getEmailIdentityPoliciesResponse_policies,
-    getEmailIdentityPoliciesResponse_httpStatus,
-
-    -- ** PutConfigurationSetSuppressionOptions
-    putConfigurationSetSuppressionOptions_suppressedReasons,
-    putConfigurationSetSuppressionOptions_configurationSetName,
-    putConfigurationSetSuppressionOptionsResponse_httpStatus,
+    -- ** CreateContactList
+    createContactList_tags,
+    createContactList_description,
+    createContactList_topics,
+    createContactList_contactListName,
+    createContactListResponse_httpStatus,
 
     -- ** CreateCustomVerificationEmailTemplate
     createCustomVerificationEmailTemplate_templateName,
@@ -348,23 +54,188 @@ module Amazonka.SESV2.Lens
     createCustomVerificationEmailTemplate_failureRedirectionURL,
     createCustomVerificationEmailTemplateResponse_httpStatus,
 
-    -- ** PutAccountDetails
-    putAccountDetails_contactLanguage,
-    putAccountDetails_productionAccessEnabled,
-    putAccountDetails_additionalContactEmailAddresses,
-    putAccountDetails_mailType,
-    putAccountDetails_websiteURL,
-    putAccountDetails_useCaseDescription,
-    putAccountDetailsResponse_httpStatus,
+    -- ** CreateDedicatedIpPool
+    createDedicatedIpPool_tags,
+    createDedicatedIpPool_poolName,
+    createDedicatedIpPoolResponse_httpStatus,
+
+    -- ** CreateDeliverabilityTestReport
+    createDeliverabilityTestReport_tags,
+    createDeliverabilityTestReport_reportName,
+    createDeliverabilityTestReport_fromEmailAddress,
+    createDeliverabilityTestReport_content,
+    createDeliverabilityTestReportResponse_httpStatus,
+    createDeliverabilityTestReportResponse_reportId,
+    createDeliverabilityTestReportResponse_deliverabilityTestStatus,
+
+    -- ** CreateEmailIdentity
+    createEmailIdentity_tags,
+    createEmailIdentity_configurationSetName,
+    createEmailIdentity_dkimSigningAttributes,
+    createEmailIdentity_emailIdentity,
+    createEmailIdentityResponse_verifiedForSendingStatus,
+    createEmailIdentityResponse_dkimAttributes,
+    createEmailIdentityResponse_identityType,
+    createEmailIdentityResponse_httpStatus,
+
+    -- ** CreateEmailIdentityPolicy
+    createEmailIdentityPolicy_emailIdentity,
+    createEmailIdentityPolicy_policyName,
+    createEmailIdentityPolicy_policy,
+    createEmailIdentityPolicyResponse_httpStatus,
+
+    -- ** CreateEmailTemplate
+    createEmailTemplate_templateName,
+    createEmailTemplate_templateContent,
+    createEmailTemplateResponse_httpStatus,
+
+    -- ** CreateImportJob
+    createImportJob_importDestination,
+    createImportJob_importDataSource,
+    createImportJobResponse_jobId,
+    createImportJobResponse_httpStatus,
+
+    -- ** DeleteConfigurationSet
+    deleteConfigurationSet_configurationSetName,
+    deleteConfigurationSetResponse_httpStatus,
+
+    -- ** DeleteConfigurationSetEventDestination
+    deleteConfigurationSetEventDestination_configurationSetName,
+    deleteConfigurationSetEventDestination_eventDestinationName,
+    deleteConfigurationSetEventDestinationResponse_httpStatus,
+
+    -- ** DeleteContact
+    deleteContact_contactListName,
+    deleteContact_emailAddress,
+    deleteContactResponse_httpStatus,
+
+    -- ** DeleteContactList
+    deleteContactList_contactListName,
+    deleteContactListResponse_httpStatus,
+
+    -- ** DeleteCustomVerificationEmailTemplate
+    deleteCustomVerificationEmailTemplate_templateName,
+    deleteCustomVerificationEmailTemplateResponse_httpStatus,
+
+    -- ** DeleteDedicatedIpPool
+    deleteDedicatedIpPool_poolName,
+    deleteDedicatedIpPoolResponse_httpStatus,
+
+    -- ** DeleteEmailIdentity
+    deleteEmailIdentity_emailIdentity,
+    deleteEmailIdentityResponse_httpStatus,
+
+    -- ** DeleteEmailIdentityPolicy
+    deleteEmailIdentityPolicy_emailIdentity,
+    deleteEmailIdentityPolicy_policyName,
+    deleteEmailIdentityPolicyResponse_httpStatus,
+
+    -- ** DeleteEmailTemplate
+    deleteEmailTemplate_templateName,
+    deleteEmailTemplateResponse_httpStatus,
 
     -- ** DeleteSuppressedDestination
     deleteSuppressedDestination_emailAddress,
     deleteSuppressedDestinationResponse_httpStatus,
 
-    -- ** PutSuppressedDestination
-    putSuppressedDestination_emailAddress,
-    putSuppressedDestination_reason,
-    putSuppressedDestinationResponse_httpStatus,
+    -- ** GetAccount
+    getAccountResponse_sendingEnabled,
+    getAccountResponse_suppressionAttributes,
+    getAccountResponse_enforcementStatus,
+    getAccountResponse_productionAccessEnabled,
+    getAccountResponse_details,
+    getAccountResponse_dedicatedIpAutoWarmupEnabled,
+    getAccountResponse_sendQuota,
+    getAccountResponse_httpStatus,
+
+    -- ** GetBlacklistReports
+    getBlacklistReports_blacklistItemNames,
+    getBlacklistReportsResponse_httpStatus,
+    getBlacklistReportsResponse_blacklistReport,
+
+    -- ** GetConfigurationSet
+    getConfigurationSet_configurationSetName,
+    getConfigurationSetResponse_tags,
+    getConfigurationSetResponse_reputationOptions,
+    getConfigurationSetResponse_configurationSetName,
+    getConfigurationSetResponse_deliveryOptions,
+    getConfigurationSetResponse_trackingOptions,
+    getConfigurationSetResponse_suppressionOptions,
+    getConfigurationSetResponse_sendingOptions,
+    getConfigurationSetResponse_httpStatus,
+
+    -- ** GetConfigurationSetEventDestinations
+    getConfigurationSetEventDestinations_configurationSetName,
+    getConfigurationSetEventDestinationsResponse_eventDestinations,
+    getConfigurationSetEventDestinationsResponse_httpStatus,
+
+    -- ** GetContact
+    getContact_contactListName,
+    getContact_emailAddress,
+    getContactResponse_lastUpdatedTimestamp,
+    getContactResponse_unsubscribeAll,
+    getContactResponse_topicPreferences,
+    getContactResponse_createdTimestamp,
+    getContactResponse_topicDefaultPreferences,
+    getContactResponse_emailAddress,
+    getContactResponse_attributesData,
+    getContactResponse_contactListName,
+    getContactResponse_httpStatus,
+
+    -- ** GetContactList
+    getContactList_contactListName,
+    getContactListResponse_tags,
+    getContactListResponse_lastUpdatedTimestamp,
+    getContactListResponse_createdTimestamp,
+    getContactListResponse_description,
+    getContactListResponse_topics,
+    getContactListResponse_contactListName,
+    getContactListResponse_httpStatus,
+
+    -- ** GetCustomVerificationEmailTemplate
+    getCustomVerificationEmailTemplate_templateName,
+    getCustomVerificationEmailTemplateResponse_templateName,
+    getCustomVerificationEmailTemplateResponse_successRedirectionURL,
+    getCustomVerificationEmailTemplateResponse_fromEmailAddress,
+    getCustomVerificationEmailTemplateResponse_templateContent,
+    getCustomVerificationEmailTemplateResponse_templateSubject,
+    getCustomVerificationEmailTemplateResponse_failureRedirectionURL,
+    getCustomVerificationEmailTemplateResponse_httpStatus,
+
+    -- ** GetDedicatedIp
+    getDedicatedIp_ip,
+    getDedicatedIpResponse_dedicatedIp,
+    getDedicatedIpResponse_httpStatus,
+
+    -- ** GetDedicatedIps
+    getDedicatedIps_nextToken,
+    getDedicatedIps_pageSize,
+    getDedicatedIps_poolName,
+    getDedicatedIpsResponse_nextToken,
+    getDedicatedIpsResponse_dedicatedIps,
+    getDedicatedIpsResponse_httpStatus,
+
+    -- ** GetDeliverabilityDashboardOptions
+    getDeliverabilityDashboardOptionsResponse_accountStatus,
+    getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
+    getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains,
+    getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate,
+    getDeliverabilityDashboardOptionsResponse_httpStatus,
+    getDeliverabilityDashboardOptionsResponse_dashboardEnabled,
+
+    -- ** GetDeliverabilityTestReport
+    getDeliverabilityTestReport_reportId,
+    getDeliverabilityTestReportResponse_tags,
+    getDeliverabilityTestReportResponse_message,
+    getDeliverabilityTestReportResponse_httpStatus,
+    getDeliverabilityTestReportResponse_deliverabilityTestReport,
+    getDeliverabilityTestReportResponse_overallPlacement,
+    getDeliverabilityTestReportResponse_ispPlacements,
+
+    -- ** GetDomainDeliverabilityCampaign
+    getDomainDeliverabilityCampaign_campaignId,
+    getDomainDeliverabilityCampaignResponse_httpStatus,
+    getDomainDeliverabilityCampaignResponse_domainDeliverabilityCampaign,
 
     -- ** GetDomainStatisticsReport
     getDomainStatisticsReport_domain,
@@ -374,32 +245,90 @@ module Amazonka.SESV2.Lens
     getDomainStatisticsReportResponse_overallVolume,
     getDomainStatisticsReportResponse_dailyVolumes,
 
-    -- ** DeleteEmailTemplate
-    deleteEmailTemplate_templateName,
-    deleteEmailTemplateResponse_httpStatus,
+    -- ** GetEmailIdentity
+    getEmailIdentity_emailIdentity,
+    getEmailIdentityResponse_tags,
+    getEmailIdentityResponse_verifiedForSendingStatus,
+    getEmailIdentityResponse_feedbackForwardingStatus,
+    getEmailIdentityResponse_mailFromAttributes,
+    getEmailIdentityResponse_configurationSetName,
+    getEmailIdentityResponse_policies,
+    getEmailIdentityResponse_dkimAttributes,
+    getEmailIdentityResponse_identityType,
+    getEmailIdentityResponse_httpStatus,
 
-    -- ** UpdateEmailTemplate
-    updateEmailTemplate_templateName,
-    updateEmailTemplate_templateContent,
-    updateEmailTemplateResponse_httpStatus,
+    -- ** GetEmailIdentityPolicies
+    getEmailIdentityPolicies_emailIdentity,
+    getEmailIdentityPoliciesResponse_policies,
+    getEmailIdentityPoliciesResponse_httpStatus,
 
-    -- ** GetDeliverabilityDashboardOptions
-    getDeliverabilityDashboardOptionsResponse_accountStatus,
-    getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate,
-    getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains,
-    getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
-    getDeliverabilityDashboardOptionsResponse_httpStatus,
-    getDeliverabilityDashboardOptionsResponse_dashboardEnabled,
+    -- ** GetEmailTemplate
+    getEmailTemplate_templateName,
+    getEmailTemplateResponse_httpStatus,
+    getEmailTemplateResponse_templateName,
+    getEmailTemplateResponse_templateContent,
 
-    -- ** GetCustomVerificationEmailTemplate
-    getCustomVerificationEmailTemplate_templateName,
-    getCustomVerificationEmailTemplateResponse_fromEmailAddress,
-    getCustomVerificationEmailTemplateResponse_templateName,
-    getCustomVerificationEmailTemplateResponse_failureRedirectionURL,
-    getCustomVerificationEmailTemplateResponse_templateSubject,
-    getCustomVerificationEmailTemplateResponse_successRedirectionURL,
-    getCustomVerificationEmailTemplateResponse_templateContent,
-    getCustomVerificationEmailTemplateResponse_httpStatus,
+    -- ** GetImportJob
+    getImportJob_jobId,
+    getImportJobResponse_jobStatus,
+    getImportJobResponse_createdTimestamp,
+    getImportJobResponse_jobId,
+    getImportJobResponse_importDestination,
+    getImportJobResponse_failureInfo,
+    getImportJobResponse_failedRecordsCount,
+    getImportJobResponse_processedRecordsCount,
+    getImportJobResponse_completedTimestamp,
+    getImportJobResponse_importDataSource,
+    getImportJobResponse_httpStatus,
+
+    -- ** GetSuppressedDestination
+    getSuppressedDestination_emailAddress,
+    getSuppressedDestinationResponse_httpStatus,
+    getSuppressedDestinationResponse_suppressedDestination,
+
+    -- ** ListConfigurationSets
+    listConfigurationSets_nextToken,
+    listConfigurationSets_pageSize,
+    listConfigurationSetsResponse_nextToken,
+    listConfigurationSetsResponse_configurationSets,
+    listConfigurationSetsResponse_httpStatus,
+
+    -- ** ListContactLists
+    listContactLists_nextToken,
+    listContactLists_pageSize,
+    listContactListsResponse_nextToken,
+    listContactListsResponse_contactLists,
+    listContactListsResponse_httpStatus,
+
+    -- ** ListContacts
+    listContacts_nextToken,
+    listContacts_filter,
+    listContacts_pageSize,
+    listContacts_contactListName,
+    listContactsResponse_nextToken,
+    listContactsResponse_contacts,
+    listContactsResponse_httpStatus,
+
+    -- ** ListCustomVerificationEmailTemplates
+    listCustomVerificationEmailTemplates_nextToken,
+    listCustomVerificationEmailTemplates_pageSize,
+    listCustomVerificationEmailTemplatesResponse_customVerificationEmailTemplates,
+    listCustomVerificationEmailTemplatesResponse_nextToken,
+    listCustomVerificationEmailTemplatesResponse_httpStatus,
+
+    -- ** ListDedicatedIpPools
+    listDedicatedIpPools_nextToken,
+    listDedicatedIpPools_pageSize,
+    listDedicatedIpPoolsResponse_nextToken,
+    listDedicatedIpPoolsResponse_dedicatedIpPools,
+    listDedicatedIpPoolsResponse_httpStatus,
+
+    -- ** ListDeliverabilityTestReports
+    listDeliverabilityTestReports_nextToken,
+    listDeliverabilityTestReports_pageSize,
+    listDeliverabilityTestReportsResponse_nextToken,
+    listDeliverabilityTestReportsResponse_httpStatus,
+    listDeliverabilityTestReportsResponse_deliverabilityTestReports,
 
     -- ** ListDomainDeliverabilityCampaigns
     listDomainDeliverabilityCampaigns_nextToken,
@@ -411,73 +340,127 @@ module Amazonka.SESV2.Lens
     listDomainDeliverabilityCampaignsResponse_httpStatus,
     listDomainDeliverabilityCampaignsResponse_domainDeliverabilityCampaigns,
 
-    -- ** SendBulkEmail
-    sendBulkEmail_fromEmailAddress,
-    sendBulkEmail_fromEmailAddressIdentityArn,
-    sendBulkEmail_configurationSetName,
-    sendBulkEmail_feedbackForwardingEmailAddress,
-    sendBulkEmail_feedbackForwardingEmailAddressIdentityArn,
-    sendBulkEmail_defaultEmailTags,
-    sendBulkEmail_replyToAddresses,
-    sendBulkEmail_defaultContent,
-    sendBulkEmail_bulkEmailEntries,
-    sendBulkEmailResponse_httpStatus,
-    sendBulkEmailResponse_bulkEmailEntryResults,
+    -- ** ListEmailIdentities
+    listEmailIdentities_nextToken,
+    listEmailIdentities_pageSize,
+    listEmailIdentitiesResponse_nextToken,
+    listEmailIdentitiesResponse_emailIdentities,
+    listEmailIdentitiesResponse_httpStatus,
 
-    -- ** TestRenderEmailTemplate
-    testRenderEmailTemplate_templateName,
-    testRenderEmailTemplate_templateData,
-    testRenderEmailTemplateResponse_httpStatus,
-    testRenderEmailTemplateResponse_renderedTemplate,
+    -- ** ListEmailTemplates
+    listEmailTemplates_nextToken,
+    listEmailTemplates_pageSize,
+    listEmailTemplatesResponse_nextToken,
+    listEmailTemplatesResponse_templatesMetadata,
+    listEmailTemplatesResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** ListImportJobs
+    listImportJobs_nextToken,
+    listImportJobs_pageSize,
+    listImportJobs_importDestinationType,
+    listImportJobsResponse_nextToken,
+    listImportJobsResponse_importJobs,
+    listImportJobsResponse_httpStatus,
 
-    -- ** SendEmail
-    sendEmail_fromEmailAddress,
-    sendEmail_destination,
-    sendEmail_fromEmailAddressIdentityArn,
-    sendEmail_configurationSetName,
-    sendEmail_listManagementOptions,
-    sendEmail_emailTags,
-    sendEmail_feedbackForwardingEmailAddress,
-    sendEmail_feedbackForwardingEmailAddressIdentityArn,
-    sendEmail_replyToAddresses,
-    sendEmail_content,
-    sendEmailResponse_messageId,
-    sendEmailResponse_httpStatus,
+    -- ** ListSuppressedDestinations
+    listSuppressedDestinations_nextToken,
+    listSuppressedDestinations_endDate,
+    listSuppressedDestinations_pageSize,
+    listSuppressedDestinations_startDate,
+    listSuppressedDestinations_reasons,
+    listSuppressedDestinationsResponse_nextToken,
+    listSuppressedDestinationsResponse_suppressedDestinationSummaries,
+    listSuppressedDestinationsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tags,
+
+    -- ** PutAccountDedicatedIpWarmupAttributes
+    putAccountDedicatedIpWarmupAttributes_autoWarmupEnabled,
+    putAccountDedicatedIpWarmupAttributesResponse_httpStatus,
+
+    -- ** PutAccountDetails
+    putAccountDetails_contactLanguage,
+    putAccountDetails_productionAccessEnabled,
+    putAccountDetails_additionalContactEmailAddresses,
+    putAccountDetails_mailType,
+    putAccountDetails_websiteURL,
+    putAccountDetails_useCaseDescription,
+    putAccountDetailsResponse_httpStatus,
+
+    -- ** PutAccountSendingAttributes
+    putAccountSendingAttributes_sendingEnabled,
+    putAccountSendingAttributesResponse_httpStatus,
+
+    -- ** PutAccountSuppressionAttributes
+    putAccountSuppressionAttributes_suppressedReasons,
+    putAccountSuppressionAttributesResponse_httpStatus,
+
+    -- ** PutConfigurationSetDeliveryOptions
+    putConfigurationSetDeliveryOptions_tlsPolicy,
+    putConfigurationSetDeliveryOptions_sendingPoolName,
+    putConfigurationSetDeliveryOptions_configurationSetName,
+    putConfigurationSetDeliveryOptionsResponse_httpStatus,
+
+    -- ** PutConfigurationSetReputationOptions
+    putConfigurationSetReputationOptions_reputationMetricsEnabled,
+    putConfigurationSetReputationOptions_configurationSetName,
+    putConfigurationSetReputationOptionsResponse_httpStatus,
+
+    -- ** PutConfigurationSetSendingOptions
+    putConfigurationSetSendingOptions_sendingEnabled,
+    putConfigurationSetSendingOptions_configurationSetName,
+    putConfigurationSetSendingOptionsResponse_httpStatus,
+
+    -- ** PutConfigurationSetSuppressionOptions
+    putConfigurationSetSuppressionOptions_suppressedReasons,
+    putConfigurationSetSuppressionOptions_configurationSetName,
+    putConfigurationSetSuppressionOptionsResponse_httpStatus,
+
+    -- ** PutConfigurationSetTrackingOptions
+    putConfigurationSetTrackingOptions_customRedirectDomain,
+    putConfigurationSetTrackingOptions_configurationSetName,
+    putConfigurationSetTrackingOptionsResponse_httpStatus,
+
+    -- ** PutDedicatedIpInPool
+    putDedicatedIpInPool_ip,
+    putDedicatedIpInPool_destinationPoolName,
+    putDedicatedIpInPoolResponse_httpStatus,
 
     -- ** PutDedicatedIpWarmupAttributes
     putDedicatedIpWarmupAttributes_ip,
     putDedicatedIpWarmupAttributes_warmupPercentage,
     putDedicatedIpWarmupAttributesResponse_httpStatus,
 
-    -- ** DeleteEmailIdentityPolicy
-    deleteEmailIdentityPolicy_emailIdentity,
-    deleteEmailIdentityPolicy_policyName,
-    deleteEmailIdentityPolicyResponse_httpStatus,
+    -- ** PutDeliverabilityDashboardOption
+    putDeliverabilityDashboardOption_subscribedDomains,
+    putDeliverabilityDashboardOption_dashboardEnabled,
+    putDeliverabilityDashboardOptionResponse_httpStatus,
 
-    -- ** UpdateEmailIdentityPolicy
-    updateEmailIdentityPolicy_emailIdentity,
-    updateEmailIdentityPolicy_policyName,
-    updateEmailIdentityPolicy_policy,
-    updateEmailIdentityPolicyResponse_httpStatus,
+    -- ** PutEmailIdentityConfigurationSetAttributes
+    putEmailIdentityConfigurationSetAttributes_configurationSetName,
+    putEmailIdentityConfigurationSetAttributes_emailIdentity,
+    putEmailIdentityConfigurationSetAttributesResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** PutEmailIdentityDkimAttributes
+    putEmailIdentityDkimAttributes_signingEnabled,
+    putEmailIdentityDkimAttributes_emailIdentity,
+    putEmailIdentityDkimAttributesResponse_httpStatus,
 
-    -- ** CreateDeliverabilityTestReport
-    createDeliverabilityTestReport_reportName,
-    createDeliverabilityTestReport_tags,
-    createDeliverabilityTestReport_fromEmailAddress,
-    createDeliverabilityTestReport_content,
-    createDeliverabilityTestReportResponse_httpStatus,
-    createDeliverabilityTestReportResponse_reportId,
-    createDeliverabilityTestReportResponse_deliverabilityTestStatus,
+    -- ** PutEmailIdentityDkimSigningAttributes
+    putEmailIdentityDkimSigningAttributes_signingAttributes,
+    putEmailIdentityDkimSigningAttributes_emailIdentity,
+    putEmailIdentityDkimSigningAttributes_signingAttributesOrigin,
+    putEmailIdentityDkimSigningAttributesResponse_dkimStatus,
+    putEmailIdentityDkimSigningAttributesResponse_dkimTokens,
+    putEmailIdentityDkimSigningAttributesResponse_httpStatus,
+
+    -- ** PutEmailIdentityFeedbackAttributes
+    putEmailIdentityFeedbackAttributes_emailForwardingEnabled,
+    putEmailIdentityFeedbackAttributes_emailIdentity,
+    putEmailIdentityFeedbackAttributesResponse_httpStatus,
 
     -- ** PutEmailIdentityMailFromAttributes
     putEmailIdentityMailFromAttributes_mailFromDomain,
@@ -485,102 +468,119 @@ module Amazonka.SESV2.Lens
     putEmailIdentityMailFromAttributes_emailIdentity,
     putEmailIdentityMailFromAttributesResponse_httpStatus,
 
-    -- ** ListContactLists
-    listContactLists_nextToken,
-    listContactLists_pageSize,
-    listContactListsResponse_nextToken,
-    listContactListsResponse_contactLists,
-    listContactListsResponse_httpStatus,
+    -- ** PutSuppressedDestination
+    putSuppressedDestination_emailAddress,
+    putSuppressedDestination_reason,
+    putSuppressedDestinationResponse_httpStatus,
 
-    -- ** CreateEmailIdentityPolicy
-    createEmailIdentityPolicy_emailIdentity,
-    createEmailIdentityPolicy_policyName,
-    createEmailIdentityPolicy_policy,
-    createEmailIdentityPolicyResponse_httpStatus,
+    -- ** SendBulkEmail
+    sendBulkEmail_feedbackForwardingEmailAddressIdentityArn,
+    sendBulkEmail_replyToAddresses,
+    sendBulkEmail_defaultEmailTags,
+    sendBulkEmail_fromEmailAddress,
+    sendBulkEmail_configurationSetName,
+    sendBulkEmail_fromEmailAddressIdentityArn,
+    sendBulkEmail_feedbackForwardingEmailAddress,
+    sendBulkEmail_defaultContent,
+    sendBulkEmail_bulkEmailEntries,
+    sendBulkEmailResponse_httpStatus,
+    sendBulkEmailResponse_bulkEmailEntryResults,
 
-    -- ** CreateConfigurationSetEventDestination
-    createConfigurationSetEventDestination_configurationSetName,
-    createConfigurationSetEventDestination_eventDestinationName,
-    createConfigurationSetEventDestination_eventDestination,
-    createConfigurationSetEventDestinationResponse_httpStatus,
+    -- ** SendCustomVerificationEmail
+    sendCustomVerificationEmail_configurationSetName,
+    sendCustomVerificationEmail_emailAddress,
+    sendCustomVerificationEmail_templateName,
+    sendCustomVerificationEmailResponse_messageId,
+    sendCustomVerificationEmailResponse_httpStatus,
 
-    -- ** PutEmailIdentityConfigurationSetAttributes
-    putEmailIdentityConfigurationSetAttributes_configurationSetName,
-    putEmailIdentityConfigurationSetAttributes_emailIdentity,
-    putEmailIdentityConfigurationSetAttributesResponse_httpStatus,
+    -- ** SendEmail
+    sendEmail_destination,
+    sendEmail_feedbackForwardingEmailAddressIdentityArn,
+    sendEmail_replyToAddresses,
+    sendEmail_emailTags,
+    sendEmail_fromEmailAddress,
+    sendEmail_configurationSetName,
+    sendEmail_fromEmailAddressIdentityArn,
+    sendEmail_feedbackForwardingEmailAddress,
+    sendEmail_listManagementOptions,
+    sendEmail_content,
+    sendEmailResponse_messageId,
+    sendEmailResponse_httpStatus,
 
-    -- ** PutAccountSuppressionAttributes
-    putAccountSuppressionAttributes_suppressedReasons,
-    putAccountSuppressionAttributesResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
-    -- ** CreateImportJob
-    createImportJob_importDestination,
-    createImportJob_importDataSource,
-    createImportJobResponse_jobId,
-    createImportJobResponse_httpStatus,
+    -- ** TestRenderEmailTemplate
+    testRenderEmailTemplate_templateName,
+    testRenderEmailTemplate_templateData,
+    testRenderEmailTemplateResponse_httpStatus,
+    testRenderEmailTemplateResponse_renderedTemplate,
 
-    -- ** ListDeliverabilityTestReports
-    listDeliverabilityTestReports_nextToken,
-    listDeliverabilityTestReports_pageSize,
-    listDeliverabilityTestReportsResponse_nextToken,
-    listDeliverabilityTestReportsResponse_httpStatus,
-    listDeliverabilityTestReportsResponse_deliverabilityTestReports,
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
-    -- ** CreateConfigurationSet
-    createConfigurationSet_sendingOptions,
-    createConfigurationSet_deliveryOptions,
-    createConfigurationSet_trackingOptions,
-    createConfigurationSet_reputationOptions,
-    createConfigurationSet_tags,
-    createConfigurationSet_suppressionOptions,
-    createConfigurationSet_configurationSetName,
-    createConfigurationSetResponse_httpStatus,
+    -- ** UpdateConfigurationSetEventDestination
+    updateConfigurationSetEventDestination_configurationSetName,
+    updateConfigurationSetEventDestination_eventDestinationName,
+    updateConfigurationSetEventDestination_eventDestination,
+    updateConfigurationSetEventDestinationResponse_httpStatus,
 
-    -- ** GetDeliverabilityTestReport
-    getDeliverabilityTestReport_reportId,
-    getDeliverabilityTestReportResponse_message,
-    getDeliverabilityTestReportResponse_tags,
-    getDeliverabilityTestReportResponse_httpStatus,
-    getDeliverabilityTestReportResponse_deliverabilityTestReport,
-    getDeliverabilityTestReportResponse_overallPlacement,
-    getDeliverabilityTestReportResponse_ispPlacements,
+    -- ** UpdateContact
+    updateContact_unsubscribeAll,
+    updateContact_topicPreferences,
+    updateContact_attributesData,
+    updateContact_contactListName,
+    updateContact_emailAddress,
+    updateContactResponse_httpStatus,
 
-    -- ** PutDeliverabilityDashboardOption
-    putDeliverabilityDashboardOption_subscribedDomains,
-    putDeliverabilityDashboardOption_dashboardEnabled,
-    putDeliverabilityDashboardOptionResponse_httpStatus,
+    -- ** UpdateContactList
+    updateContactList_description,
+    updateContactList_topics,
+    updateContactList_contactListName,
+    updateContactListResponse_httpStatus,
 
-    -- ** PutAccountDedicatedIpWarmupAttributes
-    putAccountDedicatedIpWarmupAttributes_autoWarmupEnabled,
-    putAccountDedicatedIpWarmupAttributesResponse_httpStatus,
+    -- ** UpdateCustomVerificationEmailTemplate
+    updateCustomVerificationEmailTemplate_templateName,
+    updateCustomVerificationEmailTemplate_fromEmailAddress,
+    updateCustomVerificationEmailTemplate_templateSubject,
+    updateCustomVerificationEmailTemplate_templateContent,
+    updateCustomVerificationEmailTemplate_successRedirectionURL,
+    updateCustomVerificationEmailTemplate_failureRedirectionURL,
+    updateCustomVerificationEmailTemplateResponse_httpStatus,
 
-    -- ** ListContacts
-    listContacts_nextToken,
-    listContacts_filter,
-    listContacts_pageSize,
-    listContacts_contactListName,
-    listContactsResponse_nextToken,
-    listContactsResponse_contacts,
-    listContactsResponse_httpStatus,
+    -- ** UpdateEmailIdentityPolicy
+    updateEmailIdentityPolicy_emailIdentity,
+    updateEmailIdentityPolicy_policyName,
+    updateEmailIdentityPolicy_policy,
+    updateEmailIdentityPolicyResponse_httpStatus,
+
+    -- ** UpdateEmailTemplate
+    updateEmailTemplate_templateName,
+    updateEmailTemplate_templateContent,
+    updateEmailTemplateResponse_httpStatus,
 
     -- * Types
 
     -- ** AccountDetails
-    accountDetails_reviewDetails,
     accountDetails_mailType,
-    accountDetails_useCaseDescription,
     accountDetails_contactLanguage,
-    accountDetails_additionalContactEmailAddresses,
+    accountDetails_useCaseDescription,
+    accountDetails_reviewDetails,
     accountDetails_websiteURL,
+    accountDetails_additionalContactEmailAddresses,
 
     -- ** BlacklistEntry
     blacklistEntry_listingTime,
-    blacklistEntry_rblName,
     blacklistEntry_description,
+    blacklistEntry_rblName,
 
     -- ** Body
-    body_text,
     body_html,
+    body_text,
 
     -- ** BulkEmailContent
     bulkEmailContent_template,
@@ -591,9 +591,9 @@ module Amazonka.SESV2.Lens
     bulkEmailEntry_destination,
 
     -- ** BulkEmailEntryResult
+    bulkEmailEntryResult_messageId,
     bulkEmailEntryResult_status,
     bulkEmailEntryResult_error,
-    bulkEmailEntryResult_messageId,
 
     -- ** CloudWatchDestination
     cloudWatchDestination_dimensionConfigurations,
@@ -604,15 +604,15 @@ module Amazonka.SESV2.Lens
     cloudWatchDimensionConfiguration_defaultDimensionValue,
 
     -- ** Contact
+    contact_lastUpdatedTimestamp,
     contact_unsubscribeAll,
+    contact_topicPreferences,
     contact_topicDefaultPreferences,
     contact_emailAddress,
-    contact_lastUpdatedTimestamp,
-    contact_topicPreferences,
 
     -- ** ContactList
-    contactList_contactListName,
     contactList_lastUpdatedTimestamp,
+    contactList_contactListName,
 
     -- ** ContactListDestination
     contactListDestination_contactListName,
@@ -623,16 +623,16 @@ module Amazonka.SESV2.Lens
     content_data,
 
     -- ** CustomVerificationEmailTemplateMetadata
-    customVerificationEmailTemplateMetadata_fromEmailAddress,
     customVerificationEmailTemplateMetadata_templateName,
-    customVerificationEmailTemplateMetadata_failureRedirectionURL,
-    customVerificationEmailTemplateMetadata_templateSubject,
     customVerificationEmailTemplateMetadata_successRedirectionURL,
+    customVerificationEmailTemplateMetadata_fromEmailAddress,
+    customVerificationEmailTemplateMetadata_templateSubject,
+    customVerificationEmailTemplateMetadata_failureRedirectionURL,
 
     -- ** DailyVolume
-    dailyVolume_domainIspPlacements,
-    dailyVolume_startDate,
     dailyVolume_volumeStatistics,
+    dailyVolume_startDate,
+    dailyVolume_domainIspPlacements,
 
     -- ** DedicatedIp
     dedicatedIp_poolName,
@@ -641,73 +641,73 @@ module Amazonka.SESV2.Lens
     dedicatedIp_warmupPercentage,
 
     -- ** DeliverabilityTestReport
-    deliverabilityTestReport_subject,
-    deliverabilityTestReport_fromEmailAddress,
-    deliverabilityTestReport_createDate,
-    deliverabilityTestReport_reportId,
     deliverabilityTestReport_reportName,
+    deliverabilityTestReport_fromEmailAddress,
+    deliverabilityTestReport_reportId,
+    deliverabilityTestReport_createDate,
     deliverabilityTestReport_deliverabilityTestStatus,
+    deliverabilityTestReport_subject,
 
     -- ** DeliveryOptions
-    deliveryOptions_sendingPoolName,
     deliveryOptions_tlsPolicy,
+    deliveryOptions_sendingPoolName,
 
     -- ** Destination
-    destination_bccAddresses,
     destination_ccAddresses,
+    destination_bccAddresses,
     destination_toAddresses,
 
     -- ** DkimAttributes
-    dkimAttributes_status,
-    dkimAttributes_nextSigningKeyLength,
-    dkimAttributes_tokens,
-    dkimAttributes_signingEnabled,
-    dkimAttributes_currentSigningKeyLength,
-    dkimAttributes_lastKeyGenerationTimestamp,
     dkimAttributes_signingAttributesOrigin,
+    dkimAttributes_tokens,
+    dkimAttributes_currentSigningKeyLength,
+    dkimAttributes_status,
+    dkimAttributes_signingEnabled,
+    dkimAttributes_lastKeyGenerationTimestamp,
+    dkimAttributes_nextSigningKeyLength,
 
     -- ** DkimSigningAttributes
+    dkimSigningAttributes_domainSigningSelector,
     dkimSigningAttributes_nextSigningKeyLength,
     dkimSigningAttributes_domainSigningPrivateKey,
-    dkimSigningAttributes_domainSigningSelector,
 
     -- ** DomainDeliverabilityCampaign
-    domainDeliverabilityCampaign_spamCount,
-    domainDeliverabilityCampaign_subject,
-    domainDeliverabilityCampaign_esps,
+    domainDeliverabilityCampaign_inboxCount,
+    domainDeliverabilityCampaign_campaignId,
     domainDeliverabilityCampaign_fromAddress,
     domainDeliverabilityCampaign_deleteRate,
-    domainDeliverabilityCampaign_campaignId,
-    domainDeliverabilityCampaign_sendingIps,
-    domainDeliverabilityCampaign_firstSeenDateTime,
-    domainDeliverabilityCampaign_inboxCount,
-    domainDeliverabilityCampaign_readDeleteRate,
-    domainDeliverabilityCampaign_projectedVolume,
-    domainDeliverabilityCampaign_imageUrl,
-    domainDeliverabilityCampaign_readRate,
     domainDeliverabilityCampaign_lastSeenDateTime,
+    domainDeliverabilityCampaign_sendingIps,
+    domainDeliverabilityCampaign_imageUrl,
+    domainDeliverabilityCampaign_esps,
+    domainDeliverabilityCampaign_projectedVolume,
+    domainDeliverabilityCampaign_readDeleteRate,
+    domainDeliverabilityCampaign_spamCount,
+    domainDeliverabilityCampaign_subject,
+    domainDeliverabilityCampaign_firstSeenDateTime,
+    domainDeliverabilityCampaign_readRate,
 
     -- ** DomainDeliverabilityTrackingOption
     domainDeliverabilityTrackingOption_domain,
-    domainDeliverabilityTrackingOption_subscriptionStartDate,
     domainDeliverabilityTrackingOption_inboxPlacementTrackingOption,
+    domainDeliverabilityTrackingOption_subscriptionStartDate,
 
     -- ** DomainIspPlacement
-    domainIspPlacement_spamPercentage,
     domainIspPlacement_inboxRawCount,
-    domainIspPlacement_ispName,
+    domainIspPlacement_spamPercentage,
     domainIspPlacement_inboxPercentage,
     domainIspPlacement_spamRawCount,
+    domainIspPlacement_ispName,
 
     -- ** EmailContent
-    emailContent_raw,
     emailContent_simple,
+    emailContent_raw,
     emailContent_template,
 
     -- ** EmailTemplateContent
+    emailTemplateContent_html,
     emailTemplateContent_subject,
     emailTemplateContent_text,
-    emailTemplateContent_html,
 
     -- ** EmailTemplateMetadata
     emailTemplateMetadata_templateName,
@@ -715,29 +715,29 @@ module Amazonka.SESV2.Lens
 
     -- ** EventDestination
     eventDestination_pinpointDestination,
-    eventDestination_enabled,
-    eventDestination_kinesisFirehoseDestination,
-    eventDestination_cloudWatchDestination,
     eventDestination_snsDestination,
+    eventDestination_enabled,
+    eventDestination_cloudWatchDestination,
+    eventDestination_kinesisFirehoseDestination,
     eventDestination_name,
     eventDestination_matchingEventTypes,
 
     -- ** EventDestinationDefinition
     eventDestinationDefinition_matchingEventTypes,
     eventDestinationDefinition_pinpointDestination,
-    eventDestinationDefinition_enabled,
-    eventDestinationDefinition_kinesisFirehoseDestination,
-    eventDestinationDefinition_cloudWatchDestination,
     eventDestinationDefinition_snsDestination,
+    eventDestinationDefinition_enabled,
+    eventDestinationDefinition_cloudWatchDestination,
+    eventDestinationDefinition_kinesisFirehoseDestination,
 
     -- ** FailureInfo
-    failureInfo_failedRecordsS3Url,
     failureInfo_errorMessage,
+    failureInfo_failedRecordsS3Url,
 
     -- ** IdentityInfo
-    identityInfo_identityType,
-    identityInfo_identityName,
     identityInfo_sendingEnabled,
+    identityInfo_identityName,
+    identityInfo_identityType,
 
     -- ** ImportDataSource
     importDataSource_s3Url,
@@ -748,10 +748,10 @@ module Amazonka.SESV2.Lens
     importDestination_contactListDestination,
 
     -- ** ImportJobSummary
-    importJobSummary_jobId,
-    importJobSummary_importDestination,
     importJobSummary_jobStatus,
     importJobSummary_createdTimestamp,
+    importJobSummary_jobId,
+    importJobSummary_importDestination,
 
     -- ** InboxPlacementTrackingOption
     inboxPlacementTrackingOption_trackedIsps,
@@ -787,18 +787,18 @@ module Amazonka.SESV2.Lens
     messageTag_value,
 
     -- ** OverallVolume
-    overallVolume_domainIspPlacements,
     overallVolume_volumeStatistics,
     overallVolume_readRatePercent,
+    overallVolume_domainIspPlacements,
 
     -- ** PinpointDestination
     pinpointDestination_applicationArn,
 
     -- ** PlacementStatistics
     placementStatistics_missingPercentage,
-    placementStatistics_spamPercentage,
-    placementStatistics_spfPercentage,
     placementStatistics_dkimPercentage,
+    placementStatistics_spfPercentage,
+    placementStatistics_spamPercentage,
     placementStatistics_inboxPercentage,
 
     -- ** RawMessage
@@ -811,17 +811,17 @@ module Amazonka.SESV2.Lens
     replacementTemplate_replacementTemplateData,
 
     -- ** ReputationOptions
-    reputationOptions_lastFreshStart,
     reputationOptions_reputationMetricsEnabled,
+    reputationOptions_lastFreshStart,
 
     -- ** ReviewDetails
-    reviewDetails_status,
     reviewDetails_caseId,
+    reviewDetails_status,
 
     -- ** SendQuota
-    sendQuota_maxSendRate,
-    sendQuota_sentLast24Hours,
     sendQuota_max24HourSend,
+    sendQuota_sentLast24Hours,
+    sendQuota_maxSendRate,
 
     -- ** SendingOptions
     sendingOptions_sendingEnabled,
@@ -859,8 +859,8 @@ module Amazonka.SESV2.Lens
 
     -- ** Template
     template_templateName,
-    template_templateArn,
     template_templateData,
+    template_templateArn,
 
     -- ** Topic
     topic_description,
@@ -882,8 +882,8 @@ module Amazonka.SESV2.Lens
     -- ** VolumeStatistics
     volumeStatistics_inboxRawCount,
     volumeStatistics_projectedSpam,
-    volumeStatistics_projectedInbox,
     volumeStatistics_spamRawCount,
+    volumeStatistics_projectedInbox,
   )
 where
 

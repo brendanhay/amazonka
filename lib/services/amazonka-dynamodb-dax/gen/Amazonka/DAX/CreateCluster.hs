@@ -28,16 +28,16 @@ module Amazonka.DAX.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
-    createCluster_securityGroupIds,
-    createCluster_sSESpecification,
+    createCluster_tags,
     createCluster_subnetGroupName,
-    createCluster_clusterEndpointEncryptionType,
-    createCluster_preferredMaintenanceWindow,
+    createCluster_parameterGroupName,
+    createCluster_securityGroupIds,
     createCluster_availabilityZones,
     createCluster_description,
+    createCluster_sSESpecification,
     createCluster_notificationTopicArn,
-    createCluster_tags,
-    createCluster_parameterGroupName,
+    createCluster_clusterEndpointEncryptionType,
+    createCluster_preferredMaintenanceWindow,
     createCluster_clusterName,
     createCluster_nodeType,
     createCluster_replicationFactor,
@@ -62,20 +62,37 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | A list of security group IDs to be assigned to each node in the DAX
-    -- cluster. (Each of the security group ID is system-generated.)
-    --
-    -- If this parameter is not specified, DAX assigns the default VPC security
-    -- group to each node.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | Represents the settings used to enable server-side encryption on the
-    -- cluster.
-    sSESpecification :: Prelude.Maybe SSESpecification,
+  { -- | A set of tags to associate with the DAX cluster.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the subnet group to be used for the replication group.
     --
     -- DAX clusters can only run in an Amazon VPC environment. All of the
     -- subnets that you specify in a subnet group must exist in the same VPC.
     subnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The parameter group to be associated with the DAX cluster.
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A list of security group IDs to be assigned to each node in the DAX
+    -- cluster. (Each of the security group ID is system-generated.)
+    --
+    -- If this parameter is not specified, DAX assigns the default VPC security
+    -- group to each node.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The Availability Zones (AZs) in which the cluster nodes will reside
+    -- after the cluster has been created or updated. If provided, the length
+    -- of this list must equal the @ReplicationFactor@ parameter. If you omit
+    -- this parameter, DAX will spread the nodes across Availability Zones for
+    -- the highest availability.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | A description of the cluster.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Represents the settings used to enable server-side encryption on the
+    -- cluster.
+    sSESpecification :: Prelude.Maybe SSESpecification,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+    -- notifications will be sent.
+    --
+    -- The Amazon SNS topic owner must be same as the DAX cluster owner.
+    notificationTopicArn :: Prelude.Maybe Prelude.Text,
     -- | The type of encryption the cluster\'s endpoint should support. Values
     -- are:
     --
@@ -108,23 +125,6 @@ data CreateCluster = CreateCluster'
     -- modify a cache cluster, DAX assigns a 60-minute maintenance window on a
     -- randomly selected day of the week.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zones (AZs) in which the cluster nodes will reside
-    -- after the cluster has been created or updated. If provided, the length
-    -- of this list must equal the @ReplicationFactor@ parameter. If you omit
-    -- this parameter, DAX will spread the nodes across Availability Zones for
-    -- the highest availability.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | A description of the cluster.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
-    -- notifications will be sent.
-    --
-    -- The Amazon SNS topic owner must be same as the DAX cluster owner.
-    notificationTopicArn :: Prelude.Maybe Prelude.Text,
-    -- | A set of tags to associate with the DAX cluster.
-    tags :: Prelude.Maybe [Tag],
-    -- | The parameter group to be associated with the DAX cluster.
-    parameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier. This parameter is stored as a lowercase string.
     --
     -- __Constraints:__
@@ -162,19 +162,36 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createCluster_tags' - A set of tags to associate with the DAX cluster.
+--
+-- 'subnetGroupName', 'createCluster_subnetGroupName' - The name of the subnet group to be used for the replication group.
+--
+-- DAX clusters can only run in an Amazon VPC environment. All of the
+-- subnets that you specify in a subnet group must exist in the same VPC.
+--
+-- 'parameterGroupName', 'createCluster_parameterGroupName' - The parameter group to be associated with the DAX cluster.
+--
 -- 'securityGroupIds', 'createCluster_securityGroupIds' - A list of security group IDs to be assigned to each node in the DAX
 -- cluster. (Each of the security group ID is system-generated.)
 --
 -- If this parameter is not specified, DAX assigns the default VPC security
 -- group to each node.
 --
+-- 'availabilityZones', 'createCluster_availabilityZones' - The Availability Zones (AZs) in which the cluster nodes will reside
+-- after the cluster has been created or updated. If provided, the length
+-- of this list must equal the @ReplicationFactor@ parameter. If you omit
+-- this parameter, DAX will spread the nodes across Availability Zones for
+-- the highest availability.
+--
+-- 'description', 'createCluster_description' - A description of the cluster.
+--
 -- 'sSESpecification', 'createCluster_sSESpecification' - Represents the settings used to enable server-side encryption on the
 -- cluster.
 --
--- 'subnetGroupName', 'createCluster_subnetGroupName' - The name of the subnet group to be used for the replication group.
+-- 'notificationTopicArn', 'createCluster_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+-- notifications will be sent.
 --
--- DAX clusters can only run in an Amazon VPC environment. All of the
--- subnets that you specify in a subnet group must exist in the same VPC.
+-- The Amazon SNS topic owner must be same as the DAX cluster owner.
 --
 -- 'clusterEndpointEncryptionType', 'createCluster_clusterEndpointEncryptionType' - The type of encryption the cluster\'s endpoint should support. Values
 -- are:
@@ -207,23 +224,6 @@ data CreateCluster = CreateCluster'
 -- If you don\'t specify a preferred maintenance window when you create or
 -- modify a cache cluster, DAX assigns a 60-minute maintenance window on a
 -- randomly selected day of the week.
---
--- 'availabilityZones', 'createCluster_availabilityZones' - The Availability Zones (AZs) in which the cluster nodes will reside
--- after the cluster has been created or updated. If provided, the length
--- of this list must equal the @ReplicationFactor@ parameter. If you omit
--- this parameter, DAX will spread the nodes across Availability Zones for
--- the highest availability.
---
--- 'description', 'createCluster_description' - A description of the cluster.
---
--- 'notificationTopicArn', 'createCluster_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which
--- notifications will be sent.
---
--- The Amazon SNS topic owner must be same as the DAX cluster owner.
---
--- 'tags', 'createCluster_tags' - A set of tags to associate with the DAX cluster.
---
--- 'parameterGroupName', 'createCluster_parameterGroupName' - The parameter group to be associated with the DAX cluster.
 --
 -- 'clusterName', 'createCluster_clusterName' - The cluster identifier. This parameter is stored as a lowercase string.
 --
@@ -266,21 +266,36 @@ newCreateCluster
   pReplicationFactor_
   pIamRoleArn_ =
     CreateCluster'
-      { securityGroupIds = Prelude.Nothing,
-        sSESpecification = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         subnetGroupName = Prelude.Nothing,
-        clusterEndpointEncryptionType = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
+        parameterGroupName = Prelude.Nothing,
+        securityGroupIds = Prelude.Nothing,
         availabilityZones = Prelude.Nothing,
         description = Prelude.Nothing,
+        sSESpecification = Prelude.Nothing,
         notificationTopicArn = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        parameterGroupName = Prelude.Nothing,
+        clusterEndpointEncryptionType = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
         clusterName = pClusterName_,
         nodeType = pNodeType_,
         replicationFactor = pReplicationFactor_,
         iamRoleArn = pIamRoleArn_
       }
+
+-- | A set of tags to associate with the DAX cluster.
+createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the subnet group to be used for the replication group.
+--
+-- DAX clusters can only run in an Amazon VPC environment. All of the
+-- subnets that you specify in a subnet group must exist in the same VPC.
+createCluster_subnetGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_subnetGroupName = Lens.lens (\CreateCluster' {subnetGroupName} -> subnetGroupName) (\s@CreateCluster' {} a -> s {subnetGroupName = a} :: CreateCluster)
+
+-- | The parameter group to be associated with the DAX cluster.
+createCluster_parameterGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_parameterGroupName = Lens.lens (\CreateCluster' {parameterGroupName} -> parameterGroupName) (\s@CreateCluster' {} a -> s {parameterGroupName = a} :: CreateCluster)
 
 -- | A list of security group IDs to be assigned to each node in the DAX
 -- cluster. (Each of the security group ID is system-generated.)
@@ -290,17 +305,29 @@ newCreateCluster
 createCluster_securityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
 createCluster_securityGroupIds = Lens.lens (\CreateCluster' {securityGroupIds} -> securityGroupIds) (\s@CreateCluster' {} a -> s {securityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Availability Zones (AZs) in which the cluster nodes will reside
+-- after the cluster has been created or updated. If provided, the length
+-- of this list must equal the @ReplicationFactor@ parameter. If you omit
+-- this parameter, DAX will spread the nodes across Availability Zones for
+-- the highest availability.
+createCluster_availabilityZones :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_availabilityZones = Lens.lens (\CreateCluster' {availabilityZones} -> availabilityZones) (\s@CreateCluster' {} a -> s {availabilityZones = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the cluster.
+createCluster_description :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_description = Lens.lens (\CreateCluster' {description} -> description) (\s@CreateCluster' {} a -> s {description = a} :: CreateCluster)
+
 -- | Represents the settings used to enable server-side encryption on the
 -- cluster.
 createCluster_sSESpecification :: Lens.Lens' CreateCluster (Prelude.Maybe SSESpecification)
 createCluster_sSESpecification = Lens.lens (\CreateCluster' {sSESpecification} -> sSESpecification) (\s@CreateCluster' {} a -> s {sSESpecification = a} :: CreateCluster)
 
--- | The name of the subnet group to be used for the replication group.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+-- notifications will be sent.
 --
--- DAX clusters can only run in an Amazon VPC environment. All of the
--- subnets that you specify in a subnet group must exist in the same VPC.
-createCluster_subnetGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_subnetGroupName = Lens.lens (\CreateCluster' {subnetGroupName} -> subnetGroupName) (\s@CreateCluster' {} a -> s {subnetGroupName = a} :: CreateCluster)
+-- The Amazon SNS topic owner must be same as the DAX cluster owner.
+createCluster_notificationTopicArn :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_notificationTopicArn = Lens.lens (\CreateCluster' {notificationTopicArn} -> notificationTopicArn) (\s@CreateCluster' {} a -> s {notificationTopicArn = a} :: CreateCluster)
 
 -- | The type of encryption the cluster\'s endpoint should support. Values
 -- are:
@@ -337,33 +364,6 @@ createCluster_clusterEndpointEncryptionType = Lens.lens (\CreateCluster' {cluste
 -- randomly selected day of the week.
 createCluster_preferredMaintenanceWindow :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_preferredMaintenanceWindow = Lens.lens (\CreateCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateCluster' {} a -> s {preferredMaintenanceWindow = a} :: CreateCluster)
-
--- | The Availability Zones (AZs) in which the cluster nodes will reside
--- after the cluster has been created or updated. If provided, the length
--- of this list must equal the @ReplicationFactor@ parameter. If you omit
--- this parameter, DAX will spread the nodes across Availability Zones for
--- the highest availability.
-createCluster_availabilityZones :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
-createCluster_availabilityZones = Lens.lens (\CreateCluster' {availabilityZones} -> availabilityZones) (\s@CreateCluster' {} a -> s {availabilityZones = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of the cluster.
-createCluster_description :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_description = Lens.lens (\CreateCluster' {description} -> description) (\s@CreateCluster' {} a -> s {description = a} :: CreateCluster)
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
--- notifications will be sent.
---
--- The Amazon SNS topic owner must be same as the DAX cluster owner.
-createCluster_notificationTopicArn :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_notificationTopicArn = Lens.lens (\CreateCluster' {notificationTopicArn} -> notificationTopicArn) (\s@CreateCluster' {} a -> s {notificationTopicArn = a} :: CreateCluster)
-
--- | A set of tags to associate with the DAX cluster.
-createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
-createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | The parameter group to be associated with the DAX cluster.
-createCluster_parameterGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_parameterGroupName = Lens.lens (\CreateCluster' {parameterGroupName} -> parameterGroupName) (\s@CreateCluster' {} a -> s {parameterGroupName = a} :: CreateCluster)
 
 -- | The cluster identifier. This parameter is stored as a lowercase string.
 --
@@ -414,16 +414,16 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` sSESpecification
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subnetGroupName
-      `Prelude.hashWithSalt` clusterEndpointEncryptionType
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` sSESpecification
       `Prelude.hashWithSalt` notificationTopicArn
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` clusterEndpointEncryptionType
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` replicationFactor
@@ -431,16 +431,16 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf sSESpecification
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf subnetGroupName
-      `Prelude.seq` Prelude.rnf clusterEndpointEncryptionType
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sSESpecification
       `Prelude.seq` Prelude.rnf notificationTopicArn
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf clusterEndpointEncryptionType
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf nodeType
       `Prelude.seq` Prelude.rnf replicationFactor
@@ -463,24 +463,24 @@ instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
-              Prelude.<$> securityGroupIds,
-            ("SSESpecification" Core..=)
-              Prelude.<$> sSESpecification,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("SubnetGroupName" Core..=)
               Prelude.<$> subnetGroupName,
+            ("ParameterGroupName" Core..=)
+              Prelude.<$> parameterGroupName,
+            ("SecurityGroupIds" Core..=)
+              Prelude.<$> securityGroupIds,
+            ("AvailabilityZones" Core..=)
+              Prelude.<$> availabilityZones,
+            ("Description" Core..=) Prelude.<$> description,
+            ("SSESpecification" Core..=)
+              Prelude.<$> sSESpecification,
+            ("NotificationTopicArn" Core..=)
+              Prelude.<$> notificationTopicArn,
             ("ClusterEndpointEncryptionType" Core..=)
               Prelude.<$> clusterEndpointEncryptionType,
             ("PreferredMaintenanceWindow" Core..=)
               Prelude.<$> preferredMaintenanceWindow,
-            ("AvailabilityZones" Core..=)
-              Prelude.<$> availabilityZones,
-            ("Description" Core..=) Prelude.<$> description,
-            ("NotificationTopicArn" Core..=)
-              Prelude.<$> notificationTopicArn,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("ParameterGroupName" Core..=)
-              Prelude.<$> parameterGroupName,
             Prelude.Just ("ClusterName" Core..= clusterName),
             Prelude.Just ("NodeType" Core..= nodeType),
             Prelude.Just

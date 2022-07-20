@@ -35,8 +35,8 @@ module Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration
     newConfigureLogsForPlaybackConfigurationResponse,
 
     -- * Response Lenses
-    configureLogsForPlaybackConfigurationResponse_playbackConfigurationName,
     configureLogsForPlaybackConfigurationResponse_percentEnabled,
+    configureLogsForPlaybackConfigurationResponse_playbackConfigurationName,
     configureLogsForPlaybackConfigurationResponse_httpStatus,
   )
 where
@@ -131,8 +131,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ConfigureLogsForPlaybackConfigurationResponse'
-            Prelude.<$> (x Core..?> "PlaybackConfigurationName")
-              Prelude.<*> (x Core..?> "PercentEnabled")
+            Prelude.<$> (x Core..?> "PercentEnabled")
+              Prelude.<*> (x Core..?> "PlaybackConfigurationName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,11 +200,11 @@ instance
 
 -- | /See:/ 'newConfigureLogsForPlaybackConfigurationResponse' smart constructor.
 data ConfigureLogsForPlaybackConfigurationResponse = ConfigureLogsForPlaybackConfigurationResponse'
-  { -- | The name of the playback configuration.
-    playbackConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of session logs that MediaTailor sends to your Cloudwatch
+  { -- | The percentage of session logs that MediaTailor sends to your Cloudwatch
     -- Logs account.
     percentEnabled :: Prelude.Maybe Prelude.Int,
+    -- | The name of the playback configuration.
+    playbackConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,10 +218,10 @@ data ConfigureLogsForPlaybackConfigurationResponse = ConfigureLogsForPlaybackCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playbackConfigurationName', 'configureLogsForPlaybackConfigurationResponse_playbackConfigurationName' - The name of the playback configuration.
---
 -- 'percentEnabled', 'configureLogsForPlaybackConfigurationResponse_percentEnabled' - The percentage of session logs that MediaTailor sends to your Cloudwatch
 -- Logs account.
+--
+-- 'playbackConfigurationName', 'configureLogsForPlaybackConfigurationResponse_playbackConfigurationName' - The name of the playback configuration.
 --
 -- 'httpStatus', 'configureLogsForPlaybackConfigurationResponse_httpStatus' - The response's http status code.
 newConfigureLogsForPlaybackConfigurationResponse ::
@@ -231,21 +231,21 @@ newConfigureLogsForPlaybackConfigurationResponse ::
 newConfigureLogsForPlaybackConfigurationResponse
   pHttpStatus_ =
     ConfigureLogsForPlaybackConfigurationResponse'
-      { playbackConfigurationName =
+      { percentEnabled =
           Prelude.Nothing,
-        percentEnabled =
+        playbackConfigurationName =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The name of the playback configuration.
-configureLogsForPlaybackConfigurationResponse_playbackConfigurationName :: Lens.Lens' ConfigureLogsForPlaybackConfigurationResponse (Prelude.Maybe Prelude.Text)
-configureLogsForPlaybackConfigurationResponse_playbackConfigurationName = Lens.lens (\ConfigureLogsForPlaybackConfigurationResponse' {playbackConfigurationName} -> playbackConfigurationName) (\s@ConfigureLogsForPlaybackConfigurationResponse' {} a -> s {playbackConfigurationName = a} :: ConfigureLogsForPlaybackConfigurationResponse)
 
 -- | The percentage of session logs that MediaTailor sends to your Cloudwatch
 -- Logs account.
 configureLogsForPlaybackConfigurationResponse_percentEnabled :: Lens.Lens' ConfigureLogsForPlaybackConfigurationResponse (Prelude.Maybe Prelude.Int)
 configureLogsForPlaybackConfigurationResponse_percentEnabled = Lens.lens (\ConfigureLogsForPlaybackConfigurationResponse' {percentEnabled} -> percentEnabled) (\s@ConfigureLogsForPlaybackConfigurationResponse' {} a -> s {percentEnabled = a} :: ConfigureLogsForPlaybackConfigurationResponse)
+
+-- | The name of the playback configuration.
+configureLogsForPlaybackConfigurationResponse_playbackConfigurationName :: Lens.Lens' ConfigureLogsForPlaybackConfigurationResponse (Prelude.Maybe Prelude.Text)
+configureLogsForPlaybackConfigurationResponse_playbackConfigurationName = Lens.lens (\ConfigureLogsForPlaybackConfigurationResponse' {playbackConfigurationName} -> playbackConfigurationName) (\s@ConfigureLogsForPlaybackConfigurationResponse' {} a -> s {playbackConfigurationName = a} :: ConfigureLogsForPlaybackConfigurationResponse)
 
 -- | The response's http status code.
 configureLogsForPlaybackConfigurationResponse_httpStatus :: Lens.Lens' ConfigureLogsForPlaybackConfigurationResponse Prelude.Int
@@ -257,6 +257,6 @@ instance
   where
   rnf
     ConfigureLogsForPlaybackConfigurationResponse' {..} =
-      Prelude.rnf playbackConfigurationName
-        `Prelude.seq` Prelude.rnf percentEnabled
+      Prelude.rnf percentEnabled
+        `Prelude.seq` Prelude.rnf playbackConfigurationName
         `Prelude.seq` Prelude.rnf httpStatus

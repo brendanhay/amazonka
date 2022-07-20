@@ -36,20 +36,11 @@ module Amazonka.ComputeOptimizer
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** OptInRequiredException
-    _OptInRequiredException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** MissingAuthenticationToken
-    _MissingAuthenticationToken,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** InternalServerException
     _InternalServerException,
+
+    -- ** OptInRequiredException
+    _OptInRequiredException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
@@ -60,47 +51,20 @@ module Amazonka.ComputeOptimizer
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** MissingAuthenticationToken
+    _MissingAuthenticationToken,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** ExportEBSVolumeRecommendations
-    ExportEBSVolumeRecommendations (ExportEBSVolumeRecommendations'),
-    newExportEBSVolumeRecommendations,
-    ExportEBSVolumeRecommendationsResponse (ExportEBSVolumeRecommendationsResponse'),
-    newExportEBSVolumeRecommendationsResponse,
-
-    -- ** GetRecommendationSummaries
-    GetRecommendationSummaries (GetRecommendationSummaries'),
-    newGetRecommendationSummaries,
-    GetRecommendationSummariesResponse (GetRecommendationSummariesResponse'),
-    newGetRecommendationSummariesResponse,
-
-    -- ** ExportAutoScalingGroupRecommendations
-    ExportAutoScalingGroupRecommendations (ExportAutoScalingGroupRecommendations'),
-    newExportAutoScalingGroupRecommendations,
-    ExportAutoScalingGroupRecommendationsResponse (ExportAutoScalingGroupRecommendationsResponse'),
-    newExportAutoScalingGroupRecommendationsResponse,
-
-    -- ** GetEC2InstanceRecommendations
-    GetEC2InstanceRecommendations (GetEC2InstanceRecommendations'),
-    newGetEC2InstanceRecommendations,
-    GetEC2InstanceRecommendationsResponse (GetEC2InstanceRecommendationsResponse'),
-    newGetEC2InstanceRecommendationsResponse,
-
-    -- ** GetLambdaFunctionRecommendations
-    GetLambdaFunctionRecommendations (GetLambdaFunctionRecommendations'),
-    newGetLambdaFunctionRecommendations,
-    GetLambdaFunctionRecommendationsResponse (GetLambdaFunctionRecommendationsResponse'),
-    newGetLambdaFunctionRecommendationsResponse,
-
-    -- ** UpdateEnrollmentStatus
-    UpdateEnrollmentStatus (UpdateEnrollmentStatus'),
-    newUpdateEnrollmentStatus,
-    UpdateEnrollmentStatusResponse (UpdateEnrollmentStatusResponse'),
-    newUpdateEnrollmentStatusResponse,
 
     -- ** DescribeRecommendationExportJobs
     DescribeRecommendationExportJobs (DescribeRecommendationExportJobs'),
@@ -108,29 +72,17 @@ module Amazonka.ComputeOptimizer
     DescribeRecommendationExportJobsResponse (DescribeRecommendationExportJobsResponse'),
     newDescribeRecommendationExportJobsResponse,
 
-    -- ** GetEC2RecommendationProjectedMetrics
-    GetEC2RecommendationProjectedMetrics (GetEC2RecommendationProjectedMetrics'),
-    newGetEC2RecommendationProjectedMetrics,
-    GetEC2RecommendationProjectedMetricsResponse (GetEC2RecommendationProjectedMetricsResponse'),
-    newGetEC2RecommendationProjectedMetricsResponse,
+    -- ** ExportAutoScalingGroupRecommendations
+    ExportAutoScalingGroupRecommendations (ExportAutoScalingGroupRecommendations'),
+    newExportAutoScalingGroupRecommendations,
+    ExportAutoScalingGroupRecommendationsResponse (ExportAutoScalingGroupRecommendationsResponse'),
+    newExportAutoScalingGroupRecommendationsResponse,
 
-    -- ** GetEnrollmentStatusesForOrganization
-    GetEnrollmentStatusesForOrganization (GetEnrollmentStatusesForOrganization'),
-    newGetEnrollmentStatusesForOrganization,
-    GetEnrollmentStatusesForOrganizationResponse (GetEnrollmentStatusesForOrganizationResponse'),
-    newGetEnrollmentStatusesForOrganizationResponse,
-
-    -- ** GetEBSVolumeRecommendations
-    GetEBSVolumeRecommendations (GetEBSVolumeRecommendations'),
-    newGetEBSVolumeRecommendations,
-    GetEBSVolumeRecommendationsResponse (GetEBSVolumeRecommendationsResponse'),
-    newGetEBSVolumeRecommendationsResponse,
-
-    -- ** ExportLambdaFunctionRecommendations
-    ExportLambdaFunctionRecommendations (ExportLambdaFunctionRecommendations'),
-    newExportLambdaFunctionRecommendations,
-    ExportLambdaFunctionRecommendationsResponse (ExportLambdaFunctionRecommendationsResponse'),
-    newExportLambdaFunctionRecommendationsResponse,
+    -- ** ExportEBSVolumeRecommendations
+    ExportEBSVolumeRecommendations (ExportEBSVolumeRecommendations'),
+    newExportEBSVolumeRecommendations,
+    ExportEBSVolumeRecommendationsResponse (ExportEBSVolumeRecommendationsResponse'),
+    newExportEBSVolumeRecommendationsResponse,
 
     -- ** ExportEC2InstanceRecommendations
     ExportEC2InstanceRecommendations (ExportEC2InstanceRecommendations'),
@@ -138,17 +90,65 @@ module Amazonka.ComputeOptimizer
     ExportEC2InstanceRecommendationsResponse (ExportEC2InstanceRecommendationsResponse'),
     newExportEC2InstanceRecommendationsResponse,
 
-    -- ** GetEnrollmentStatus
-    GetEnrollmentStatus (GetEnrollmentStatus'),
-    newGetEnrollmentStatus,
-    GetEnrollmentStatusResponse (GetEnrollmentStatusResponse'),
-    newGetEnrollmentStatusResponse,
+    -- ** ExportLambdaFunctionRecommendations
+    ExportLambdaFunctionRecommendations (ExportLambdaFunctionRecommendations'),
+    newExportLambdaFunctionRecommendations,
+    ExportLambdaFunctionRecommendationsResponse (ExportLambdaFunctionRecommendationsResponse'),
+    newExportLambdaFunctionRecommendationsResponse,
 
     -- ** GetAutoScalingGroupRecommendations
     GetAutoScalingGroupRecommendations (GetAutoScalingGroupRecommendations'),
     newGetAutoScalingGroupRecommendations,
     GetAutoScalingGroupRecommendationsResponse (GetAutoScalingGroupRecommendationsResponse'),
     newGetAutoScalingGroupRecommendationsResponse,
+
+    -- ** GetEBSVolumeRecommendations
+    GetEBSVolumeRecommendations (GetEBSVolumeRecommendations'),
+    newGetEBSVolumeRecommendations,
+    GetEBSVolumeRecommendationsResponse (GetEBSVolumeRecommendationsResponse'),
+    newGetEBSVolumeRecommendationsResponse,
+
+    -- ** GetEC2InstanceRecommendations
+    GetEC2InstanceRecommendations (GetEC2InstanceRecommendations'),
+    newGetEC2InstanceRecommendations,
+    GetEC2InstanceRecommendationsResponse (GetEC2InstanceRecommendationsResponse'),
+    newGetEC2InstanceRecommendationsResponse,
+
+    -- ** GetEC2RecommendationProjectedMetrics
+    GetEC2RecommendationProjectedMetrics (GetEC2RecommendationProjectedMetrics'),
+    newGetEC2RecommendationProjectedMetrics,
+    GetEC2RecommendationProjectedMetricsResponse (GetEC2RecommendationProjectedMetricsResponse'),
+    newGetEC2RecommendationProjectedMetricsResponse,
+
+    -- ** GetEnrollmentStatus
+    GetEnrollmentStatus (GetEnrollmentStatus'),
+    newGetEnrollmentStatus,
+    GetEnrollmentStatusResponse (GetEnrollmentStatusResponse'),
+    newGetEnrollmentStatusResponse,
+
+    -- ** GetEnrollmentStatusesForOrganization
+    GetEnrollmentStatusesForOrganization (GetEnrollmentStatusesForOrganization'),
+    newGetEnrollmentStatusesForOrganization,
+    GetEnrollmentStatusesForOrganizationResponse (GetEnrollmentStatusesForOrganizationResponse'),
+    newGetEnrollmentStatusesForOrganizationResponse,
+
+    -- ** GetLambdaFunctionRecommendations
+    GetLambdaFunctionRecommendations (GetLambdaFunctionRecommendations'),
+    newGetLambdaFunctionRecommendations,
+    GetLambdaFunctionRecommendationsResponse (GetLambdaFunctionRecommendationsResponse'),
+    newGetLambdaFunctionRecommendationsResponse,
+
+    -- ** GetRecommendationSummaries
+    GetRecommendationSummaries (GetRecommendationSummaries'),
+    newGetRecommendationSummaries,
+    GetRecommendationSummariesResponse (GetRecommendationSummariesResponse'),
+    newGetRecommendationSummariesResponse,
+
+    -- ** UpdateEnrollmentStatus
+    UpdateEnrollmentStatus (UpdateEnrollmentStatus'),
+    newUpdateEnrollmentStatus,
+    UpdateEnrollmentStatusResponse (UpdateEnrollmentStatusResponse'),
+    newUpdateEnrollmentStatusResponse,
 
     -- * Types
 

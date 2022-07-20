@@ -33,12 +33,12 @@ data VolumeStatistics = VolumeStatistics'
     -- | An estimate of the percentage of emails sent from the current domain
     -- that will arrive in recipients\' spam or junk mail folders.
     projectedSpam :: Prelude.Maybe Prelude.Integer,
-    -- | An estimate of the percentage of emails sent from the current domain
-    -- that will arrive in recipients\' inboxes.
-    projectedInbox :: Prelude.Maybe Prelude.Integer,
     -- | The total number of emails that arrived in recipients\' spam or junk
     -- mail folders.
-    spamRawCount :: Prelude.Maybe Prelude.Integer
+    spamRawCount :: Prelude.Maybe Prelude.Integer,
+    -- | An estimate of the percentage of emails sent from the current domain
+    -- that will arrive in recipients\' inboxes.
+    projectedInbox :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,19 +55,19 @@ data VolumeStatistics = VolumeStatistics'
 -- 'projectedSpam', 'volumeStatistics_projectedSpam' - An estimate of the percentage of emails sent from the current domain
 -- that will arrive in recipients\' spam or junk mail folders.
 --
--- 'projectedInbox', 'volumeStatistics_projectedInbox' - An estimate of the percentage of emails sent from the current domain
--- that will arrive in recipients\' inboxes.
---
 -- 'spamRawCount', 'volumeStatistics_spamRawCount' - The total number of emails that arrived in recipients\' spam or junk
 -- mail folders.
+--
+-- 'projectedInbox', 'volumeStatistics_projectedInbox' - An estimate of the percentage of emails sent from the current domain
+-- that will arrive in recipients\' inboxes.
 newVolumeStatistics ::
   VolumeStatistics
 newVolumeStatistics =
   VolumeStatistics'
     { inboxRawCount = Prelude.Nothing,
       projectedSpam = Prelude.Nothing,
-      projectedInbox = Prelude.Nothing,
-      spamRawCount = Prelude.Nothing
+      spamRawCount = Prelude.Nothing,
+      projectedInbox = Prelude.Nothing
     }
 
 -- | The total number of emails that arrived in recipients\' inboxes.
@@ -79,15 +79,15 @@ volumeStatistics_inboxRawCount = Lens.lens (\VolumeStatistics' {inboxRawCount} -
 volumeStatistics_projectedSpam :: Lens.Lens' VolumeStatistics (Prelude.Maybe Prelude.Integer)
 volumeStatistics_projectedSpam = Lens.lens (\VolumeStatistics' {projectedSpam} -> projectedSpam) (\s@VolumeStatistics' {} a -> s {projectedSpam = a} :: VolumeStatistics)
 
--- | An estimate of the percentage of emails sent from the current domain
--- that will arrive in recipients\' inboxes.
-volumeStatistics_projectedInbox :: Lens.Lens' VolumeStatistics (Prelude.Maybe Prelude.Integer)
-volumeStatistics_projectedInbox = Lens.lens (\VolumeStatistics' {projectedInbox} -> projectedInbox) (\s@VolumeStatistics' {} a -> s {projectedInbox = a} :: VolumeStatistics)
-
 -- | The total number of emails that arrived in recipients\' spam or junk
 -- mail folders.
 volumeStatistics_spamRawCount :: Lens.Lens' VolumeStatistics (Prelude.Maybe Prelude.Integer)
 volumeStatistics_spamRawCount = Lens.lens (\VolumeStatistics' {spamRawCount} -> spamRawCount) (\s@VolumeStatistics' {} a -> s {spamRawCount = a} :: VolumeStatistics)
+
+-- | An estimate of the percentage of emails sent from the current domain
+-- that will arrive in recipients\' inboxes.
+volumeStatistics_projectedInbox :: Lens.Lens' VolumeStatistics (Prelude.Maybe Prelude.Integer)
+volumeStatistics_projectedInbox = Lens.lens (\VolumeStatistics' {projectedInbox} -> projectedInbox) (\s@VolumeStatistics' {} a -> s {projectedInbox = a} :: VolumeStatistics)
 
 instance Core.FromJSON VolumeStatistics where
   parseJSON =
@@ -97,20 +97,20 @@ instance Core.FromJSON VolumeStatistics where
           VolumeStatistics'
             Prelude.<$> (x Core..:? "InboxRawCount")
             Prelude.<*> (x Core..:? "ProjectedSpam")
-            Prelude.<*> (x Core..:? "ProjectedInbox")
             Prelude.<*> (x Core..:? "SpamRawCount")
+            Prelude.<*> (x Core..:? "ProjectedInbox")
       )
 
 instance Prelude.Hashable VolumeStatistics where
   hashWithSalt _salt VolumeStatistics' {..} =
     _salt `Prelude.hashWithSalt` inboxRawCount
       `Prelude.hashWithSalt` projectedSpam
-      `Prelude.hashWithSalt` projectedInbox
       `Prelude.hashWithSalt` spamRawCount
+      `Prelude.hashWithSalt` projectedInbox
 
 instance Prelude.NFData VolumeStatistics where
   rnf VolumeStatistics' {..} =
     Prelude.rnf inboxRawCount
       `Prelude.seq` Prelude.rnf projectedSpam
-      `Prelude.seq` Prelude.rnf projectedInbox
       `Prelude.seq` Prelude.rnf spamRawCount
+      `Prelude.seq` Prelude.rnf projectedInbox

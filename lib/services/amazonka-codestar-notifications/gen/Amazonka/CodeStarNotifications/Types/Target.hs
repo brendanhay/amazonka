@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTarget' smart constructor.
 data Target = Target'
-  { -- | The target type. Can be an Amazon SNS topic.
-    targetType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the SNS topic.
-    targetAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+  { -- | The Amazon Resource Name (ARN) of the SNS topic.
+    targetAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The target type. Can be an Amazon SNS topic.
+    targetType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -42,40 +42,40 @@ data Target = Target'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetType', 'target_targetType' - The target type. Can be an Amazon SNS topic.
---
 -- 'targetAddress', 'target_targetAddress' - The Amazon Resource Name (ARN) of the SNS topic.
+--
+-- 'targetType', 'target_targetType' - The target type. Can be an Amazon SNS topic.
 newTarget ::
   Target
 newTarget =
   Target'
-    { targetType = Prelude.Nothing,
-      targetAddress = Prelude.Nothing
+    { targetAddress = Prelude.Nothing,
+      targetType = Prelude.Nothing
     }
-
--- | The target type. Can be an Amazon SNS topic.
-target_targetType :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
-target_targetType = Lens.lens (\Target' {targetType} -> targetType) (\s@Target' {} a -> s {targetType = a} :: Target)
 
 -- | The Amazon Resource Name (ARN) of the SNS topic.
 target_targetAddress :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_targetAddress = Lens.lens (\Target' {targetAddress} -> targetAddress) (\s@Target' {} a -> s {targetAddress = a} :: Target) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The target type. Can be an Amazon SNS topic.
+target_targetType :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
+target_targetType = Lens.lens (\Target' {targetType} -> targetType) (\s@Target' {} a -> s {targetType = a} :: Target)
+
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` targetType
-      `Prelude.hashWithSalt` targetAddress
+    _salt `Prelude.hashWithSalt` targetAddress
+      `Prelude.hashWithSalt` targetType
 
 instance Prelude.NFData Target where
   rnf Target' {..} =
-    Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf targetAddress
+    Prelude.rnf targetAddress
+      `Prelude.seq` Prelude.rnf targetType
 
 instance Core.ToJSON Target where
   toJSON Target' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TargetType" Core..=) Prelude.<$> targetType,
-            ("TargetAddress" Core..=) Prelude.<$> targetAddress
+          [ ("TargetAddress" Core..=) Prelude.<$> targetAddress,
+            ("TargetType" Core..=) Prelude.<$> targetType
           ]
       )

@@ -30,53 +30,53 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProfile' smart constructor.
 data Profile = Profile'
-  { -- | The customer’s shipping address.
-    shippingAddress :: Prelude.Maybe Address,
-    -- | The customer’s mobile phone number.
-    mobilePhoneNumber :: Prelude.Maybe Prelude.Text,
+  { -- | The customer’s home phone number.
+    homePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The customer’s mailing address.
     mailingAddress :: Prelude.Maybe Address,
-    -- | The customer’s middle name.
-    middleName :: Prelude.Maybe Prelude.Text,
+    -- | The customer’s shipping address.
+    shippingAddress :: Prelude.Maybe Address,
+    -- | The unique identifier of a customer profile.
+    profileId :: Prelude.Maybe Prelude.Text,
+    -- | The customer’s first name.
+    firstName :: Prelude.Maybe Prelude.Text,
+    -- | The customer’s home phone number.
+    businessPhoneNumber :: Prelude.Maybe Prelude.Text,
+    -- | The customer’s business email address.
+    businessEmailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The name of the customer’s business.
+    businessName :: Prelude.Maybe Prelude.Text,
     -- | The customer’s personal email address.
     personalEmailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The customer’s billing address.
+    billingAddress :: Prelude.Maybe Address,
     -- | The customer’s last name.
     lastName :: Prelude.Maybe Prelude.Text,
-    -- | Any additional information relevant to the customer’s profile.
-    additionalInformation :: Prelude.Maybe Prelude.Text,
-    -- | The customer’s home phone number.
-    homePhoneNumber :: Prelude.Maybe Prelude.Text,
+    -- | The customer’s birth date.
+    birthDate :: Prelude.Maybe Prelude.Text,
     -- | A generic address associated with the customer that is not mailing,
     -- shipping, or billing.
     address :: Prelude.Maybe Address,
     -- | The type of profile used to describe the customer.
     partyType :: Prelude.Maybe PartyType,
-    -- | The unique identifier of a customer profile.
-    profileId :: Prelude.Maybe Prelude.Text,
-    -- | The customer’s business email address.
-    businessEmailAddress :: Prelude.Maybe Prelude.Text,
-    -- | A key value pair of attributes of a customer profile.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The gender with which the customer identifies.
     gender :: Prelude.Maybe Gender,
+    -- | The customer’s mobile phone number.
+    mobilePhoneNumber :: Prelude.Maybe Prelude.Text,
+    -- | The customer’s middle name.
+    middleName :: Prelude.Maybe Prelude.Text,
+    -- | A key value pair of attributes of a customer profile.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The customer\'s phone number, which has not been specified as a mobile,
     -- home, or business number.
     phoneNumber :: Prelude.Maybe Prelude.Text,
-    -- | A unique account number that you have given to the customer.
-    accountNumber :: Prelude.Maybe Prelude.Text,
+    -- | Any additional information relevant to the customer’s profile.
+    additionalInformation :: Prelude.Maybe Prelude.Text,
     -- | The customer’s email address, which has not been specified as a personal
     -- or business address.
     emailAddress :: Prelude.Maybe Prelude.Text,
-    -- | The customer’s first name.
-    firstName :: Prelude.Maybe Prelude.Text,
-    -- | The customer’s billing address.
-    billingAddress :: Prelude.Maybe Address,
-    -- | The customer’s home phone number.
-    businessPhoneNumber :: Prelude.Maybe Prelude.Text,
-    -- | The customer’s birth date.
-    birthDate :: Prelude.Maybe Prelude.Text,
-    -- | The name of the customer’s business.
-    businessName :: Prelude.Maybe Prelude.Text
+    -- | A unique account number that you have given to the customer.
+    accountNumber :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,111 +88,127 @@ data Profile = Profile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'shippingAddress', 'profile_shippingAddress' - The customer’s shipping address.
---
--- 'mobilePhoneNumber', 'profile_mobilePhoneNumber' - The customer’s mobile phone number.
+-- 'homePhoneNumber', 'profile_homePhoneNumber' - The customer’s home phone number.
 --
 -- 'mailingAddress', 'profile_mailingAddress' - The customer’s mailing address.
 --
--- 'middleName', 'profile_middleName' - The customer’s middle name.
+-- 'shippingAddress', 'profile_shippingAddress' - The customer’s shipping address.
+--
+-- 'profileId', 'profile_profileId' - The unique identifier of a customer profile.
+--
+-- 'firstName', 'profile_firstName' - The customer’s first name.
+--
+-- 'businessPhoneNumber', 'profile_businessPhoneNumber' - The customer’s home phone number.
+--
+-- 'businessEmailAddress', 'profile_businessEmailAddress' - The customer’s business email address.
+--
+-- 'businessName', 'profile_businessName' - The name of the customer’s business.
 --
 -- 'personalEmailAddress', 'profile_personalEmailAddress' - The customer’s personal email address.
 --
+-- 'billingAddress', 'profile_billingAddress' - The customer’s billing address.
+--
 -- 'lastName', 'profile_lastName' - The customer’s last name.
 --
--- 'additionalInformation', 'profile_additionalInformation' - Any additional information relevant to the customer’s profile.
---
--- 'homePhoneNumber', 'profile_homePhoneNumber' - The customer’s home phone number.
+-- 'birthDate', 'profile_birthDate' - The customer’s birth date.
 --
 -- 'address', 'profile_address' - A generic address associated with the customer that is not mailing,
 -- shipping, or billing.
 --
 -- 'partyType', 'profile_partyType' - The type of profile used to describe the customer.
 --
--- 'profileId', 'profile_profileId' - The unique identifier of a customer profile.
+-- 'gender', 'profile_gender' - The gender with which the customer identifies.
 --
--- 'businessEmailAddress', 'profile_businessEmailAddress' - The customer’s business email address.
+-- 'mobilePhoneNumber', 'profile_mobilePhoneNumber' - The customer’s mobile phone number.
+--
+-- 'middleName', 'profile_middleName' - The customer’s middle name.
 --
 -- 'attributes', 'profile_attributes' - A key value pair of attributes of a customer profile.
---
--- 'gender', 'profile_gender' - The gender with which the customer identifies.
 --
 -- 'phoneNumber', 'profile_phoneNumber' - The customer\'s phone number, which has not been specified as a mobile,
 -- home, or business number.
 --
--- 'accountNumber', 'profile_accountNumber' - A unique account number that you have given to the customer.
+-- 'additionalInformation', 'profile_additionalInformation' - Any additional information relevant to the customer’s profile.
 --
 -- 'emailAddress', 'profile_emailAddress' - The customer’s email address, which has not been specified as a personal
 -- or business address.
 --
--- 'firstName', 'profile_firstName' - The customer’s first name.
---
--- 'billingAddress', 'profile_billingAddress' - The customer’s billing address.
---
--- 'businessPhoneNumber', 'profile_businessPhoneNumber' - The customer’s home phone number.
---
--- 'birthDate', 'profile_birthDate' - The customer’s birth date.
---
--- 'businessName', 'profile_businessName' - The name of the customer’s business.
+-- 'accountNumber', 'profile_accountNumber' - A unique account number that you have given to the customer.
 newProfile ::
   Profile
 newProfile =
   Profile'
-    { shippingAddress = Prelude.Nothing,
-      mobilePhoneNumber = Prelude.Nothing,
+    { homePhoneNumber = Prelude.Nothing,
       mailingAddress = Prelude.Nothing,
-      middleName = Prelude.Nothing,
+      shippingAddress = Prelude.Nothing,
+      profileId = Prelude.Nothing,
+      firstName = Prelude.Nothing,
+      businessPhoneNumber = Prelude.Nothing,
+      businessEmailAddress = Prelude.Nothing,
+      businessName = Prelude.Nothing,
       personalEmailAddress = Prelude.Nothing,
+      billingAddress = Prelude.Nothing,
       lastName = Prelude.Nothing,
-      additionalInformation = Prelude.Nothing,
-      homePhoneNumber = Prelude.Nothing,
+      birthDate = Prelude.Nothing,
       address = Prelude.Nothing,
       partyType = Prelude.Nothing,
-      profileId = Prelude.Nothing,
-      businessEmailAddress = Prelude.Nothing,
-      attributes = Prelude.Nothing,
       gender = Prelude.Nothing,
+      mobilePhoneNumber = Prelude.Nothing,
+      middleName = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       phoneNumber = Prelude.Nothing,
-      accountNumber = Prelude.Nothing,
+      additionalInformation = Prelude.Nothing,
       emailAddress = Prelude.Nothing,
-      firstName = Prelude.Nothing,
-      billingAddress = Prelude.Nothing,
-      businessPhoneNumber = Prelude.Nothing,
-      birthDate = Prelude.Nothing,
-      businessName = Prelude.Nothing
+      accountNumber = Prelude.Nothing
     }
 
--- | The customer’s shipping address.
-profile_shippingAddress :: Lens.Lens' Profile (Prelude.Maybe Address)
-profile_shippingAddress = Lens.lens (\Profile' {shippingAddress} -> shippingAddress) (\s@Profile' {} a -> s {shippingAddress = a} :: Profile)
-
--- | The customer’s mobile phone number.
-profile_mobilePhoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_mobilePhoneNumber = Lens.lens (\Profile' {mobilePhoneNumber} -> mobilePhoneNumber) (\s@Profile' {} a -> s {mobilePhoneNumber = a} :: Profile)
+-- | The customer’s home phone number.
+profile_homePhoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_homePhoneNumber = Lens.lens (\Profile' {homePhoneNumber} -> homePhoneNumber) (\s@Profile' {} a -> s {homePhoneNumber = a} :: Profile)
 
 -- | The customer’s mailing address.
 profile_mailingAddress :: Lens.Lens' Profile (Prelude.Maybe Address)
 profile_mailingAddress = Lens.lens (\Profile' {mailingAddress} -> mailingAddress) (\s@Profile' {} a -> s {mailingAddress = a} :: Profile)
 
--- | The customer’s middle name.
-profile_middleName :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_middleName = Lens.lens (\Profile' {middleName} -> middleName) (\s@Profile' {} a -> s {middleName = a} :: Profile)
+-- | The customer’s shipping address.
+profile_shippingAddress :: Lens.Lens' Profile (Prelude.Maybe Address)
+profile_shippingAddress = Lens.lens (\Profile' {shippingAddress} -> shippingAddress) (\s@Profile' {} a -> s {shippingAddress = a} :: Profile)
+
+-- | The unique identifier of a customer profile.
+profile_profileId :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_profileId = Lens.lens (\Profile' {profileId} -> profileId) (\s@Profile' {} a -> s {profileId = a} :: Profile)
+
+-- | The customer’s first name.
+profile_firstName :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_firstName = Lens.lens (\Profile' {firstName} -> firstName) (\s@Profile' {} a -> s {firstName = a} :: Profile)
+
+-- | The customer’s home phone number.
+profile_businessPhoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_businessPhoneNumber = Lens.lens (\Profile' {businessPhoneNumber} -> businessPhoneNumber) (\s@Profile' {} a -> s {businessPhoneNumber = a} :: Profile)
+
+-- | The customer’s business email address.
+profile_businessEmailAddress :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_businessEmailAddress = Lens.lens (\Profile' {businessEmailAddress} -> businessEmailAddress) (\s@Profile' {} a -> s {businessEmailAddress = a} :: Profile)
+
+-- | The name of the customer’s business.
+profile_businessName :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_businessName = Lens.lens (\Profile' {businessName} -> businessName) (\s@Profile' {} a -> s {businessName = a} :: Profile)
 
 -- | The customer’s personal email address.
 profile_personalEmailAddress :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_personalEmailAddress = Lens.lens (\Profile' {personalEmailAddress} -> personalEmailAddress) (\s@Profile' {} a -> s {personalEmailAddress = a} :: Profile)
 
+-- | The customer’s billing address.
+profile_billingAddress :: Lens.Lens' Profile (Prelude.Maybe Address)
+profile_billingAddress = Lens.lens (\Profile' {billingAddress} -> billingAddress) (\s@Profile' {} a -> s {billingAddress = a} :: Profile)
+
 -- | The customer’s last name.
 profile_lastName :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_lastName = Lens.lens (\Profile' {lastName} -> lastName) (\s@Profile' {} a -> s {lastName = a} :: Profile)
 
--- | Any additional information relevant to the customer’s profile.
-profile_additionalInformation :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_additionalInformation = Lens.lens (\Profile' {additionalInformation} -> additionalInformation) (\s@Profile' {} a -> s {additionalInformation = a} :: Profile)
-
--- | The customer’s home phone number.
-profile_homePhoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_homePhoneNumber = Lens.lens (\Profile' {homePhoneNumber} -> homePhoneNumber) (\s@Profile' {} a -> s {homePhoneNumber = a} :: Profile)
+-- | The customer’s birth date.
+profile_birthDate :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_birthDate = Lens.lens (\Profile' {birthDate} -> birthDate) (\s@Profile' {} a -> s {birthDate = a} :: Profile)
 
 -- | A generic address associated with the customer that is not mailing,
 -- shipping, or billing.
@@ -203,55 +219,39 @@ profile_address = Lens.lens (\Profile' {address} -> address) (\s@Profile' {} a -
 profile_partyType :: Lens.Lens' Profile (Prelude.Maybe PartyType)
 profile_partyType = Lens.lens (\Profile' {partyType} -> partyType) (\s@Profile' {} a -> s {partyType = a} :: Profile)
 
--- | The unique identifier of a customer profile.
-profile_profileId :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_profileId = Lens.lens (\Profile' {profileId} -> profileId) (\s@Profile' {} a -> s {profileId = a} :: Profile)
+-- | The gender with which the customer identifies.
+profile_gender :: Lens.Lens' Profile (Prelude.Maybe Gender)
+profile_gender = Lens.lens (\Profile' {gender} -> gender) (\s@Profile' {} a -> s {gender = a} :: Profile)
 
--- | The customer’s business email address.
-profile_businessEmailAddress :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_businessEmailAddress = Lens.lens (\Profile' {businessEmailAddress} -> businessEmailAddress) (\s@Profile' {} a -> s {businessEmailAddress = a} :: Profile)
+-- | The customer’s mobile phone number.
+profile_mobilePhoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_mobilePhoneNumber = Lens.lens (\Profile' {mobilePhoneNumber} -> mobilePhoneNumber) (\s@Profile' {} a -> s {mobilePhoneNumber = a} :: Profile)
+
+-- | The customer’s middle name.
+profile_middleName :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_middleName = Lens.lens (\Profile' {middleName} -> middleName) (\s@Profile' {} a -> s {middleName = a} :: Profile)
 
 -- | A key value pair of attributes of a customer profile.
 profile_attributes :: Lens.Lens' Profile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 profile_attributes = Lens.lens (\Profile' {attributes} -> attributes) (\s@Profile' {} a -> s {attributes = a} :: Profile) Prelude.. Lens.mapping Lens.coerced
-
--- | The gender with which the customer identifies.
-profile_gender :: Lens.Lens' Profile (Prelude.Maybe Gender)
-profile_gender = Lens.lens (\Profile' {gender} -> gender) (\s@Profile' {} a -> s {gender = a} :: Profile)
 
 -- | The customer\'s phone number, which has not been specified as a mobile,
 -- home, or business number.
 profile_phoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_phoneNumber = Lens.lens (\Profile' {phoneNumber} -> phoneNumber) (\s@Profile' {} a -> s {phoneNumber = a} :: Profile)
 
--- | A unique account number that you have given to the customer.
-profile_accountNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_accountNumber = Lens.lens (\Profile' {accountNumber} -> accountNumber) (\s@Profile' {} a -> s {accountNumber = a} :: Profile)
+-- | Any additional information relevant to the customer’s profile.
+profile_additionalInformation :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_additionalInformation = Lens.lens (\Profile' {additionalInformation} -> additionalInformation) (\s@Profile' {} a -> s {additionalInformation = a} :: Profile)
 
 -- | The customer’s email address, which has not been specified as a personal
 -- or business address.
 profile_emailAddress :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_emailAddress = Lens.lens (\Profile' {emailAddress} -> emailAddress) (\s@Profile' {} a -> s {emailAddress = a} :: Profile)
 
--- | The customer’s first name.
-profile_firstName :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_firstName = Lens.lens (\Profile' {firstName} -> firstName) (\s@Profile' {} a -> s {firstName = a} :: Profile)
-
--- | The customer’s billing address.
-profile_billingAddress :: Lens.Lens' Profile (Prelude.Maybe Address)
-profile_billingAddress = Lens.lens (\Profile' {billingAddress} -> billingAddress) (\s@Profile' {} a -> s {billingAddress = a} :: Profile)
-
--- | The customer’s home phone number.
-profile_businessPhoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_businessPhoneNumber = Lens.lens (\Profile' {businessPhoneNumber} -> businessPhoneNumber) (\s@Profile' {} a -> s {businessPhoneNumber = a} :: Profile)
-
--- | The customer’s birth date.
-profile_birthDate :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_birthDate = Lens.lens (\Profile' {birthDate} -> birthDate) (\s@Profile' {} a -> s {birthDate = a} :: Profile)
-
--- | The name of the customer’s business.
-profile_businessName :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
-profile_businessName = Lens.lens (\Profile' {businessName} -> businessName) (\s@Profile' {} a -> s {businessName = a} :: Profile)
+-- | A unique account number that you have given to the customer.
+profile_accountNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_accountNumber = Lens.lens (\Profile' {accountNumber} -> accountNumber) (\s@Profile' {} a -> s {accountNumber = a} :: Profile)
 
 instance Core.FromJSON Profile where
   parseJSON =
@@ -259,77 +259,77 @@ instance Core.FromJSON Profile where
       "Profile"
       ( \x ->
           Profile'
-            Prelude.<$> (x Core..:? "ShippingAddress")
-            Prelude.<*> (x Core..:? "MobilePhoneNumber")
+            Prelude.<$> (x Core..:? "HomePhoneNumber")
             Prelude.<*> (x Core..:? "MailingAddress")
-            Prelude.<*> (x Core..:? "MiddleName")
+            Prelude.<*> (x Core..:? "ShippingAddress")
+            Prelude.<*> (x Core..:? "ProfileId")
+            Prelude.<*> (x Core..:? "FirstName")
+            Prelude.<*> (x Core..:? "BusinessPhoneNumber")
+            Prelude.<*> (x Core..:? "BusinessEmailAddress")
+            Prelude.<*> (x Core..:? "BusinessName")
             Prelude.<*> (x Core..:? "PersonalEmailAddress")
+            Prelude.<*> (x Core..:? "BillingAddress")
             Prelude.<*> (x Core..:? "LastName")
-            Prelude.<*> (x Core..:? "AdditionalInformation")
-            Prelude.<*> (x Core..:? "HomePhoneNumber")
+            Prelude.<*> (x Core..:? "BirthDate")
             Prelude.<*> (x Core..:? "Address")
             Prelude.<*> (x Core..:? "PartyType")
-            Prelude.<*> (x Core..:? "ProfileId")
-            Prelude.<*> (x Core..:? "BusinessEmailAddress")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Gender")
+            Prelude.<*> (x Core..:? "MobilePhoneNumber")
+            Prelude.<*> (x Core..:? "MiddleName")
+            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "PhoneNumber")
-            Prelude.<*> (x Core..:? "AccountNumber")
+            Prelude.<*> (x Core..:? "AdditionalInformation")
             Prelude.<*> (x Core..:? "EmailAddress")
-            Prelude.<*> (x Core..:? "FirstName")
-            Prelude.<*> (x Core..:? "BillingAddress")
-            Prelude.<*> (x Core..:? "BusinessPhoneNumber")
-            Prelude.<*> (x Core..:? "BirthDate")
-            Prelude.<*> (x Core..:? "BusinessName")
+            Prelude.<*> (x Core..:? "AccountNumber")
       )
 
 instance Prelude.Hashable Profile where
   hashWithSalt _salt Profile' {..} =
-    _salt `Prelude.hashWithSalt` shippingAddress
-      `Prelude.hashWithSalt` mobilePhoneNumber
+    _salt `Prelude.hashWithSalt` homePhoneNumber
       `Prelude.hashWithSalt` mailingAddress
-      `Prelude.hashWithSalt` middleName
+      `Prelude.hashWithSalt` shippingAddress
+      `Prelude.hashWithSalt` profileId
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` businessPhoneNumber
+      `Prelude.hashWithSalt` businessEmailAddress
+      `Prelude.hashWithSalt` businessName
       `Prelude.hashWithSalt` personalEmailAddress
+      `Prelude.hashWithSalt` billingAddress
       `Prelude.hashWithSalt` lastName
-      `Prelude.hashWithSalt` additionalInformation
-      `Prelude.hashWithSalt` homePhoneNumber
+      `Prelude.hashWithSalt` birthDate
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` partyType
-      `Prelude.hashWithSalt` profileId
-      `Prelude.hashWithSalt` businessEmailAddress
-      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` mobilePhoneNumber
+      `Prelude.hashWithSalt` middleName
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` phoneNumber
-      `Prelude.hashWithSalt` accountNumber
+      `Prelude.hashWithSalt` additionalInformation
       `Prelude.hashWithSalt` emailAddress
-      `Prelude.hashWithSalt` firstName
-      `Prelude.hashWithSalt` billingAddress
-      `Prelude.hashWithSalt` businessPhoneNumber
-      `Prelude.hashWithSalt` birthDate
-      `Prelude.hashWithSalt` businessName
+      `Prelude.hashWithSalt` accountNumber
 
 instance Prelude.NFData Profile where
   rnf Profile' {..} =
-    Prelude.rnf shippingAddress
-      `Prelude.seq` Prelude.rnf mobilePhoneNumber
+    Prelude.rnf homePhoneNumber
       `Prelude.seq` Prelude.rnf mailingAddress
-      `Prelude.seq` Prelude.rnf middleName
+      `Prelude.seq` Prelude.rnf shippingAddress
+      `Prelude.seq` Prelude.rnf profileId
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf businessPhoneNumber
+      `Prelude.seq` Prelude.rnf businessEmailAddress
+      `Prelude.seq` Prelude.rnf businessName
       `Prelude.seq` Prelude.rnf personalEmailAddress
+      `Prelude.seq` Prelude.rnf billingAddress
       `Prelude.seq` Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf additionalInformation
-      `Prelude.seq` Prelude.rnf homePhoneNumber
+      `Prelude.seq` Prelude.rnf birthDate
       `Prelude.seq` Prelude.rnf address
       `Prelude.seq` Prelude.rnf partyType
-      `Prelude.seq` Prelude.rnf profileId
-      `Prelude.seq` Prelude.rnf businessEmailAddress
-      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf mobilePhoneNumber
+      `Prelude.seq` Prelude.rnf middleName
+      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf accountNumber
-      `Prelude.seq` Prelude.rnf emailAddress
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf billingAddress
       `Prelude.seq` Prelude.rnf
-        businessPhoneNumber
-      `Prelude.seq` Prelude.rnf birthDate
-      `Prelude.seq` Prelude.rnf businessName
+        additionalInformation
+      `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf accountNumber

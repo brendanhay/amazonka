@@ -38,8 +38,8 @@ module Amazonka.Chime.BatchCreateAttendee
     newBatchCreateAttendeeResponse,
 
     -- * Response Lenses
-    batchCreateAttendeeResponse_attendees,
     batchCreateAttendeeResponse_errors,
+    batchCreateAttendeeResponse_attendees,
     batchCreateAttendeeResponse_httpStatus,
   )
 where
@@ -98,8 +98,8 @@ instance Core.AWSRequest BatchCreateAttendee where
     Response.receiveJSON
       ( \s h x ->
           BatchCreateAttendeeResponse'
-            Prelude.<$> (x Core..?> "Attendees" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Attendees" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,12 +135,12 @@ instance Core.ToQuery BatchCreateAttendee where
 
 -- | /See:/ 'newBatchCreateAttendeeResponse' smart constructor.
 data BatchCreateAttendeeResponse = BatchCreateAttendeeResponse'
-  { -- | The attendee information, including attendees IDs and join tokens.
-    attendees :: Prelude.Maybe [Attendee],
-    -- | If the action fails for one or more of the attendees in the request, a
+  { -- | If the action fails for one or more of the attendees in the request, a
     -- list of the attendees is returned, along with error codes and error
     -- messages.
     errors :: Prelude.Maybe [CreateAttendeeError],
+    -- | The attendee information, including attendees IDs and join tokens.
+    attendees :: Prelude.Maybe [Attendee],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,11 +154,11 @@ data BatchCreateAttendeeResponse = BatchCreateAttendeeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attendees', 'batchCreateAttendeeResponse_attendees' - The attendee information, including attendees IDs and join tokens.
---
 -- 'errors', 'batchCreateAttendeeResponse_errors' - If the action fails for one or more of the attendees in the request, a
 -- list of the attendees is returned, along with error codes and error
 -- messages.
+--
+-- 'attendees', 'batchCreateAttendeeResponse_attendees' - The attendee information, including attendees IDs and join tokens.
 --
 -- 'httpStatus', 'batchCreateAttendeeResponse_httpStatus' - The response's http status code.
 newBatchCreateAttendeeResponse ::
@@ -167,15 +167,11 @@ newBatchCreateAttendeeResponse ::
   BatchCreateAttendeeResponse
 newBatchCreateAttendeeResponse pHttpStatus_ =
   BatchCreateAttendeeResponse'
-    { attendees =
+    { errors =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
+      attendees = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The attendee information, including attendees IDs and join tokens.
-batchCreateAttendeeResponse_attendees :: Lens.Lens' BatchCreateAttendeeResponse (Prelude.Maybe [Attendee])
-batchCreateAttendeeResponse_attendees = Lens.lens (\BatchCreateAttendeeResponse' {attendees} -> attendees) (\s@BatchCreateAttendeeResponse' {} a -> s {attendees = a} :: BatchCreateAttendeeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the action fails for one or more of the attendees in the request, a
 -- list of the attendees is returned, along with error codes and error
@@ -183,12 +179,16 @@ batchCreateAttendeeResponse_attendees = Lens.lens (\BatchCreateAttendeeResponse'
 batchCreateAttendeeResponse_errors :: Lens.Lens' BatchCreateAttendeeResponse (Prelude.Maybe [CreateAttendeeError])
 batchCreateAttendeeResponse_errors = Lens.lens (\BatchCreateAttendeeResponse' {errors} -> errors) (\s@BatchCreateAttendeeResponse' {} a -> s {errors = a} :: BatchCreateAttendeeResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The attendee information, including attendees IDs and join tokens.
+batchCreateAttendeeResponse_attendees :: Lens.Lens' BatchCreateAttendeeResponse (Prelude.Maybe [Attendee])
+batchCreateAttendeeResponse_attendees = Lens.lens (\BatchCreateAttendeeResponse' {attendees} -> attendees) (\s@BatchCreateAttendeeResponse' {} a -> s {attendees = a} :: BatchCreateAttendeeResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 batchCreateAttendeeResponse_httpStatus :: Lens.Lens' BatchCreateAttendeeResponse Prelude.Int
 batchCreateAttendeeResponse_httpStatus = Lens.lens (\BatchCreateAttendeeResponse' {httpStatus} -> httpStatus) (\s@BatchCreateAttendeeResponse' {} a -> s {httpStatus = a} :: BatchCreateAttendeeResponse)
 
 instance Prelude.NFData BatchCreateAttendeeResponse where
   rnf BatchCreateAttendeeResponse' {..} =
-    Prelude.rnf attendees
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf attendees
       `Prelude.seq` Prelude.rnf httpStatus

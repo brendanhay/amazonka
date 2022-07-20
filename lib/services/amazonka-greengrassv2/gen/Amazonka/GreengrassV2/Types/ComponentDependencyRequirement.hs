@@ -29,7 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentDependencyRequirement' smart constructor.
 data ComponentDependencyRequirement = ComponentDependencyRequirement'
-  { -- | The type of this dependency. Choose from the following options:
+  { -- | The component version requirement for the component dependency.
+    --
+    -- IoT Greengrass V2 uses semantic version constraints. For more
+    -- information, see <https://semver.org/ Semantic Versioning>.
+    versionRequirement :: Prelude.Maybe Prelude.Text,
+    -- | The type of this dependency. Choose from the following options:
     --
     -- -   @SOFT@ – The component doesn\'t restart if the dependency changes
     --     state.
@@ -37,12 +42,7 @@ data ComponentDependencyRequirement = ComponentDependencyRequirement'
     -- -   @HARD@ – The component restarts if the dependency changes state.
     --
     -- Default: @HARD@
-    dependencyType :: Prelude.Maybe ComponentDependencyType,
-    -- | The component version requirement for the component dependency.
-    --
-    -- IoT Greengrass V2 uses semantic version constraints. For more
-    -- information, see <https://semver.org/ Semantic Versioning>.
-    versionRequirement :: Prelude.Maybe Prelude.Text
+    dependencyType :: Prelude.Maybe ComponentDependencyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,11 @@ data ComponentDependencyRequirement = ComponentDependencyRequirement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'versionRequirement', 'componentDependencyRequirement_versionRequirement' - The component version requirement for the component dependency.
+--
+-- IoT Greengrass V2 uses semantic version constraints. For more
+-- information, see <https://semver.org/ Semantic Versioning>.
+--
 -- 'dependencyType', 'componentDependencyRequirement_dependencyType' - The type of this dependency. Choose from the following options:
 --
 -- -   @SOFT@ – The component doesn\'t restart if the dependency changes
@@ -62,19 +67,21 @@ data ComponentDependencyRequirement = ComponentDependencyRequirement'
 -- -   @HARD@ – The component restarts if the dependency changes state.
 --
 -- Default: @HARD@
---
--- 'versionRequirement', 'componentDependencyRequirement_versionRequirement' - The component version requirement for the component dependency.
---
--- IoT Greengrass V2 uses semantic version constraints. For more
--- information, see <https://semver.org/ Semantic Versioning>.
 newComponentDependencyRequirement ::
   ComponentDependencyRequirement
 newComponentDependencyRequirement =
   ComponentDependencyRequirement'
-    { dependencyType =
+    { versionRequirement =
         Prelude.Nothing,
-      versionRequirement = Prelude.Nothing
+      dependencyType = Prelude.Nothing
     }
+
+-- | The component version requirement for the component dependency.
+--
+-- IoT Greengrass V2 uses semantic version constraints. For more
+-- information, see <https://semver.org/ Semantic Versioning>.
+componentDependencyRequirement_versionRequirement :: Lens.Lens' ComponentDependencyRequirement (Prelude.Maybe Prelude.Text)
+componentDependencyRequirement_versionRequirement = Lens.lens (\ComponentDependencyRequirement' {versionRequirement} -> versionRequirement) (\s@ComponentDependencyRequirement' {} a -> s {versionRequirement = a} :: ComponentDependencyRequirement)
 
 -- | The type of this dependency. Choose from the following options:
 --
@@ -87,13 +94,6 @@ newComponentDependencyRequirement =
 componentDependencyRequirement_dependencyType :: Lens.Lens' ComponentDependencyRequirement (Prelude.Maybe ComponentDependencyType)
 componentDependencyRequirement_dependencyType = Lens.lens (\ComponentDependencyRequirement' {dependencyType} -> dependencyType) (\s@ComponentDependencyRequirement' {} a -> s {dependencyType = a} :: ComponentDependencyRequirement)
 
--- | The component version requirement for the component dependency.
---
--- IoT Greengrass V2 uses semantic version constraints. For more
--- information, see <https://semver.org/ Semantic Versioning>.
-componentDependencyRequirement_versionRequirement :: Lens.Lens' ComponentDependencyRequirement (Prelude.Maybe Prelude.Text)
-componentDependencyRequirement_versionRequirement = Lens.lens (\ComponentDependencyRequirement' {versionRequirement} -> versionRequirement) (\s@ComponentDependencyRequirement' {} a -> s {versionRequirement = a} :: ComponentDependencyRequirement)
-
 instance
   Prelude.Hashable
     ComponentDependencyRequirement
@@ -101,24 +101,24 @@ instance
   hashWithSalt
     _salt
     ComponentDependencyRequirement' {..} =
-      _salt `Prelude.hashWithSalt` dependencyType
-        `Prelude.hashWithSalt` versionRequirement
+      _salt `Prelude.hashWithSalt` versionRequirement
+        `Prelude.hashWithSalt` dependencyType
 
 instance
   Prelude.NFData
     ComponentDependencyRequirement
   where
   rnf ComponentDependencyRequirement' {..} =
-    Prelude.rnf dependencyType
-      `Prelude.seq` Prelude.rnf versionRequirement
+    Prelude.rnf versionRequirement
+      `Prelude.seq` Prelude.rnf dependencyType
 
 instance Core.ToJSON ComponentDependencyRequirement where
   toJSON ComponentDependencyRequirement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("dependencyType" Core..=)
-              Prelude.<$> dependencyType,
-            ("versionRequirement" Core..=)
-              Prelude.<$> versionRequirement
+          [ ("versionRequirement" Core..=)
+              Prelude.<$> versionRequirement,
+            ("dependencyType" Core..=)
+              Prelude.<$> dependencyType
           ]
       )

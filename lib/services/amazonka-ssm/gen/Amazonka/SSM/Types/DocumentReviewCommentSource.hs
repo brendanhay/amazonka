@@ -28,12 +28,12 @@ import Amazonka.SSM.Types.DocumentReviewCommentType
 --
 -- /See:/ 'newDocumentReviewCommentSource' smart constructor.
 data DocumentReviewCommentSource = DocumentReviewCommentSource'
-  { -- | The content of a comment entered by a user who requests a review of a
-    -- new document version, or who reviews the new version.
-    content :: Prelude.Maybe Prelude.Text,
-    -- | The type of information added to a review request. Currently, only the
+  { -- | The type of information added to a review request. Currently, only the
     -- value @Comment@ is supported.
-    type' :: Prelude.Maybe DocumentReviewCommentType
+    type' :: Prelude.Maybe DocumentReviewCommentType,
+    -- | The content of a comment entered by a user who requests a review of a
+    -- new document version, or who reviews the new version.
+    content :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data DocumentReviewCommentSource = DocumentReviewCommentSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'content', 'documentReviewCommentSource_content' - The content of a comment entered by a user who requests a review of a
--- new document version, or who reviews the new version.
---
 -- 'type'', 'documentReviewCommentSource_type' - The type of information added to a review request. Currently, only the
 -- value @Comment@ is supported.
+--
+-- 'content', 'documentReviewCommentSource_content' - The content of a comment entered by a user who requests a review of a
+-- new document version, or who reviews the new version.
 newDocumentReviewCommentSource ::
   DocumentReviewCommentSource
 newDocumentReviewCommentSource =
   DocumentReviewCommentSource'
-    { content =
+    { type' =
         Prelude.Nothing,
-      type' = Prelude.Nothing
+      content = Prelude.Nothing
     }
-
--- | The content of a comment entered by a user who requests a review of a
--- new document version, or who reviews the new version.
-documentReviewCommentSource_content :: Lens.Lens' DocumentReviewCommentSource (Prelude.Maybe Prelude.Text)
-documentReviewCommentSource_content = Lens.lens (\DocumentReviewCommentSource' {content} -> content) (\s@DocumentReviewCommentSource' {} a -> s {content = a} :: DocumentReviewCommentSource)
 
 -- | The type of information added to a review request. Currently, only the
 -- value @Comment@ is supported.
 documentReviewCommentSource_type :: Lens.Lens' DocumentReviewCommentSource (Prelude.Maybe DocumentReviewCommentType)
 documentReviewCommentSource_type = Lens.lens (\DocumentReviewCommentSource' {type'} -> type') (\s@DocumentReviewCommentSource' {} a -> s {type' = a} :: DocumentReviewCommentSource)
+
+-- | The content of a comment entered by a user who requests a review of a
+-- new document version, or who reviews the new version.
+documentReviewCommentSource_content :: Lens.Lens' DocumentReviewCommentSource (Prelude.Maybe Prelude.Text)
+documentReviewCommentSource_content = Lens.lens (\DocumentReviewCommentSource' {content} -> content) (\s@DocumentReviewCommentSource' {} a -> s {content = a} :: DocumentReviewCommentSource)
 
 instance Core.FromJSON DocumentReviewCommentSource where
   parseJSON =
@@ -75,24 +75,24 @@ instance Core.FromJSON DocumentReviewCommentSource where
       "DocumentReviewCommentSource"
       ( \x ->
           DocumentReviewCommentSource'
-            Prelude.<$> (x Core..:? "Content")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Content")
       )
 
 instance Prelude.Hashable DocumentReviewCommentSource where
   hashWithSalt _salt DocumentReviewCommentSource' {..} =
-    _salt `Prelude.hashWithSalt` content
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` content
 
 instance Prelude.NFData DocumentReviewCommentSource where
   rnf DocumentReviewCommentSource' {..} =
-    Prelude.rnf content `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf content
 
 instance Core.ToJSON DocumentReviewCommentSource where
   toJSON DocumentReviewCommentSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Content" Core..=) Prelude.<$> content,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("Content" Core..=) Prelude.<$> content
           ]
       )

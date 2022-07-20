@@ -27,12 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsIamInstanceProfileRole' smart constructor.
 data AwsIamInstanceProfileRole = AwsIamInstanceProfileRole'
-  { -- | The policy that grants an entity permission to assume the role.
-    assumeRolePolicyDocument :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the role.
+    roleName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the role.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The path to the role.
     path :: Prelude.Maybe Prelude.Text,
+    -- | The policy that grants an entity permission to assume the role.
+    assumeRolePolicyDocument :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the role was created.
     --
     -- Uses the @date-time@ format specified in
@@ -40,8 +42,6 @@ data AwsIamInstanceProfileRole = AwsIamInstanceProfileRole'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
-    -- | The name of the role.
-    roleName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the role.
     roleId :: Prelude.Maybe Prelude.Text
   }
@@ -55,11 +55,13 @@ data AwsIamInstanceProfileRole = AwsIamInstanceProfileRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assumeRolePolicyDocument', 'awsIamInstanceProfileRole_assumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
+-- 'roleName', 'awsIamInstanceProfileRole_roleName' - The name of the role.
 --
 -- 'arn', 'awsIamInstanceProfileRole_arn' - The ARN of the role.
 --
 -- 'path', 'awsIamInstanceProfileRole_path' - The path to the role.
+--
+-- 'assumeRolePolicyDocument', 'awsIamInstanceProfileRole_assumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
 --
 -- 'createDate', 'awsIamInstanceProfileRole_createDate' - Indicates when the role was created.
 --
@@ -68,25 +70,23 @@ data AwsIamInstanceProfileRole = AwsIamInstanceProfileRole'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'roleName', 'awsIamInstanceProfileRole_roleName' - The name of the role.
---
 -- 'roleId', 'awsIamInstanceProfileRole_roleId' - The identifier of the role.
 newAwsIamInstanceProfileRole ::
   AwsIamInstanceProfileRole
 newAwsIamInstanceProfileRole =
   AwsIamInstanceProfileRole'
-    { assumeRolePolicyDocument =
+    { roleName =
         Prelude.Nothing,
       arn = Prelude.Nothing,
       path = Prelude.Nothing,
+      assumeRolePolicyDocument = Prelude.Nothing,
       createDate = Prelude.Nothing,
-      roleName = Prelude.Nothing,
       roleId = Prelude.Nothing
     }
 
--- | The policy that grants an entity permission to assume the role.
-awsIamInstanceProfileRole_assumeRolePolicyDocument :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
-awsIamInstanceProfileRole_assumeRolePolicyDocument = Lens.lens (\AwsIamInstanceProfileRole' {assumeRolePolicyDocument} -> assumeRolePolicyDocument) (\s@AwsIamInstanceProfileRole' {} a -> s {assumeRolePolicyDocument = a} :: AwsIamInstanceProfileRole)
+-- | The name of the role.
+awsIamInstanceProfileRole_roleName :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
+awsIamInstanceProfileRole_roleName = Lens.lens (\AwsIamInstanceProfileRole' {roleName} -> roleName) (\s@AwsIamInstanceProfileRole' {} a -> s {roleName = a} :: AwsIamInstanceProfileRole)
 
 -- | The ARN of the role.
 awsIamInstanceProfileRole_arn :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
@@ -96,6 +96,10 @@ awsIamInstanceProfileRole_arn = Lens.lens (\AwsIamInstanceProfileRole' {arn} -> 
 awsIamInstanceProfileRole_path :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
 awsIamInstanceProfileRole_path = Lens.lens (\AwsIamInstanceProfileRole' {path} -> path) (\s@AwsIamInstanceProfileRole' {} a -> s {path = a} :: AwsIamInstanceProfileRole)
 
+-- | The policy that grants an entity permission to assume the role.
+awsIamInstanceProfileRole_assumeRolePolicyDocument :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
+awsIamInstanceProfileRole_assumeRolePolicyDocument = Lens.lens (\AwsIamInstanceProfileRole' {assumeRolePolicyDocument} -> assumeRolePolicyDocument) (\s@AwsIamInstanceProfileRole' {} a -> s {assumeRolePolicyDocument = a} :: AwsIamInstanceProfileRole)
+
 -- | Indicates when the role was created.
 --
 -- Uses the @date-time@ format specified in
@@ -104,10 +108,6 @@ awsIamInstanceProfileRole_path = Lens.lens (\AwsIamInstanceProfileRole' {path} -
 -- @2020-03-22T13:22:13.933Z@.
 awsIamInstanceProfileRole_createDate :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
 awsIamInstanceProfileRole_createDate = Lens.lens (\AwsIamInstanceProfileRole' {createDate} -> createDate) (\s@AwsIamInstanceProfileRole' {} a -> s {createDate = a} :: AwsIamInstanceProfileRole)
-
--- | The name of the role.
-awsIamInstanceProfileRole_roleName :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
-awsIamInstanceProfileRole_roleName = Lens.lens (\AwsIamInstanceProfileRole' {roleName} -> roleName) (\s@AwsIamInstanceProfileRole' {} a -> s {roleName = a} :: AwsIamInstanceProfileRole)
 
 -- | The identifier of the role.
 awsIamInstanceProfileRole_roleId :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
@@ -119,43 +119,42 @@ instance Core.FromJSON AwsIamInstanceProfileRole where
       "AwsIamInstanceProfileRole"
       ( \x ->
           AwsIamInstanceProfileRole'
-            Prelude.<$> (x Core..:? "AssumeRolePolicyDocument")
+            Prelude.<$> (x Core..:? "RoleName")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Path")
+            Prelude.<*> (x Core..:? "AssumeRolePolicyDocument")
             Prelude.<*> (x Core..:? "CreateDate")
-            Prelude.<*> (x Core..:? "RoleName")
             Prelude.<*> (x Core..:? "RoleId")
       )
 
 instance Prelude.Hashable AwsIamInstanceProfileRole where
   hashWithSalt _salt AwsIamInstanceProfileRole' {..} =
-    _salt
-      `Prelude.hashWithSalt` assumeRolePolicyDocument
+    _salt `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` assumeRolePolicyDocument
       `Prelude.hashWithSalt` createDate
-      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` roleId
 
 instance Prelude.NFData AwsIamInstanceProfileRole where
   rnf AwsIamInstanceProfileRole' {..} =
-    Prelude.rnf assumeRolePolicyDocument
+    Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf assumeRolePolicyDocument
       `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf roleId
 
 instance Core.ToJSON AwsIamInstanceProfileRole where
   toJSON AwsIamInstanceProfileRole' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssumeRolePolicyDocument" Core..=)
-              Prelude.<$> assumeRolePolicyDocument,
+          [ ("RoleName" Core..=) Prelude.<$> roleName,
             ("Arn" Core..=) Prelude.<$> arn,
             ("Path" Core..=) Prelude.<$> path,
+            ("AssumeRolePolicyDocument" Core..=)
+              Prelude.<$> assumeRolePolicyDocument,
             ("CreateDate" Core..=) Prelude.<$> createDate,
-            ("RoleName" Core..=) Prelude.<$> roleName,
             ("RoleId" Core..=) Prelude.<$> roleId
           ]
       )

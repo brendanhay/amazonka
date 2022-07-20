@@ -27,265 +27,199 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListAssistantAssociations $
---             newListAssistantAssociations
---
---         , requestGetRecommendations $
---             newGetRecommendations
---
---         , requestSearchContent $
---             newSearchContent
---
---         , requestRemoveKnowledgeBaseTemplateUri $
---             newRemoveKnowledgeBaseTemplateUri
---
---         , requestGetAssistant $
---             newGetAssistant
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListAssistants $
---             newListAssistants
---
---         , requestUpdateKnowledgeBaseTemplateUri $
---             newUpdateKnowledgeBaseTemplateUri
---
---         , requestListContents $
---             newListContents
---
---         , requestDeleteContent $
---             newDeleteContent
---
---         , requestUpdateContent $
---             newUpdateContent
---
---         , requestCreateAssistant $
+--         [ requestCreateAssistant $
 --             newCreateAssistant
---
---         , requestGetContentSummary $
---             newGetContentSummary
---
---         , requestNotifyRecommendationsReceived $
---             newNotifyRecommendationsReceived
---
---         , requestDeleteAssistantAssociation $
---             newDeleteAssistantAssociation
---
---         , requestGetContent $
---             newGetContent
---
---         , requestStartContentUpload $
---             newStartContentUpload
---
---         , requestCreateSession $
---             newCreateSession
---
---         , requestCreateContent $
---             newCreateContent
---
---         , requestDeleteAssistant $
---             newDeleteAssistant
---
---         , requestGetSession $
---             newGetSession
---
---         , requestTagResource $
---             newTagResource
---
---         , requestCreateKnowledgeBase $
---             newCreateKnowledgeBase
---
---         , requestGetAssistantAssociation $
---             newGetAssistantAssociation
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestSearchSessions $
---             newSearchSessions
---
---         , requestListKnowledgeBases $
---             newListKnowledgeBases
---
---         , requestQueryAssistant $
---             newQueryAssistant
---
---         , requestDeleteKnowledgeBase $
---             newDeleteKnowledgeBase
 --
 --         , requestCreateAssistantAssociation $
 --             newCreateAssistantAssociation
 --
+--         , requestCreateContent $
+--             newCreateContent
+--
+--         , requestCreateKnowledgeBase $
+--             newCreateKnowledgeBase
+--
+--         , requestCreateSession $
+--             newCreateSession
+--
+--         , requestDeleteAssistant $
+--             newDeleteAssistant
+--
+--         , requestDeleteAssistantAssociation $
+--             newDeleteAssistantAssociation
+--
+--         , requestDeleteContent $
+--             newDeleteContent
+--
+--         , requestDeleteKnowledgeBase $
+--             newDeleteKnowledgeBase
+--
+--         , requestGetAssistant $
+--             newGetAssistant
+--
+--         , requestGetAssistantAssociation $
+--             newGetAssistantAssociation
+--
+--         , requestGetContent $
+--             newGetContent
+--
+--         , requestGetContentSummary $
+--             newGetContentSummary
+--
 --         , requestGetKnowledgeBase $
 --             newGetKnowledgeBase
+--
+--         , requestGetRecommendations $
+--             newGetRecommendations
+--
+--         , requestGetSession $
+--             newGetSession
+--
+--         , requestListAssistantAssociations $
+--             newListAssistantAssociations
+--
+--         , requestListAssistants $
+--             newListAssistants
+--
+--         , requestListContents $
+--             newListContents
+--
+--         , requestListKnowledgeBases $
+--             newListKnowledgeBases
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestNotifyRecommendationsReceived $
+--             newNotifyRecommendationsReceived
+--
+--         , requestQueryAssistant $
+--             newQueryAssistant
+--
+--         , requestRemoveKnowledgeBaseTemplateUri $
+--             newRemoveKnowledgeBaseTemplateUri
+--
+--         , requestSearchContent $
+--             newSearchContent
+--
+--         , requestSearchSessions $
+--             newSearchSessions
+--
+--         , requestStartContentUpload $
+--             newStartContentUpload
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateContent $
+--             newUpdateContent
+--
+--         , requestUpdateKnowledgeBaseTemplateUri $
+--             newUpdateKnowledgeBaseTemplateUri
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListAssistantAssociations $
---             newListAssistantAssociationsResponse
---
---         , responseGetRecommendations $
---             newGetRecommendationsResponse
---
---         , responseSearchContent $
---             newSearchContentResponse
---
---         , responseRemoveKnowledgeBaseTemplateUri $
---             newRemoveKnowledgeBaseTemplateUriResponse
---
---         , responseGetAssistant $
---             newGetAssistantResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListAssistants $
---             newListAssistantsResponse
---
---         , responseUpdateKnowledgeBaseTemplateUri $
---             newUpdateKnowledgeBaseTemplateUriResponse
---
---         , responseListContents $
---             newListContentsResponse
---
---         , responseDeleteContent $
---             newDeleteContentResponse
---
---         , responseUpdateContent $
---             newUpdateContentResponse
---
---         , responseCreateAssistant $
+--         [ responseCreateAssistant $
 --             newCreateAssistantResponse
---
---         , responseGetContentSummary $
---             newGetContentSummaryResponse
---
---         , responseNotifyRecommendationsReceived $
---             newNotifyRecommendationsReceivedResponse
---
---         , responseDeleteAssistantAssociation $
---             newDeleteAssistantAssociationResponse
---
---         , responseGetContent $
---             newGetContentResponse
---
---         , responseStartContentUpload $
---             newStartContentUploadResponse
---
---         , responseCreateSession $
---             newCreateSessionResponse
---
---         , responseCreateContent $
---             newCreateContentResponse
---
---         , responseDeleteAssistant $
---             newDeleteAssistantResponse
---
---         , responseGetSession $
---             newGetSessionResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseCreateKnowledgeBase $
---             newCreateKnowledgeBaseResponse
---
---         , responseGetAssistantAssociation $
---             newGetAssistantAssociationResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseSearchSessions $
---             newSearchSessionsResponse
---
---         , responseListKnowledgeBases $
---             newListKnowledgeBasesResponse
---
---         , responseQueryAssistant $
---             newQueryAssistantResponse
---
---         , responseDeleteKnowledgeBase $
---             newDeleteKnowledgeBaseResponse
 --
 --         , responseCreateAssistantAssociation $
 --             newCreateAssistantAssociationResponse
 --
+--         , responseCreateContent $
+--             newCreateContentResponse
+--
+--         , responseCreateKnowledgeBase $
+--             newCreateKnowledgeBaseResponse
+--
+--         , responseCreateSession $
+--             newCreateSessionResponse
+--
+--         , responseDeleteAssistant $
+--             newDeleteAssistantResponse
+--
+--         , responseDeleteAssistantAssociation $
+--             newDeleteAssistantAssociationResponse
+--
+--         , responseDeleteContent $
+--             newDeleteContentResponse
+--
+--         , responseDeleteKnowledgeBase $
+--             newDeleteKnowledgeBaseResponse
+--
+--         , responseGetAssistant $
+--             newGetAssistantResponse
+--
+--         , responseGetAssistantAssociation $
+--             newGetAssistantAssociationResponse
+--
+--         , responseGetContent $
+--             newGetContentResponse
+--
+--         , responseGetContentSummary $
+--             newGetContentSummaryResponse
+--
 --         , responseGetKnowledgeBase $
 --             newGetKnowledgeBaseResponse
+--
+--         , responseGetRecommendations $
+--             newGetRecommendationsResponse
+--
+--         , responseGetSession $
+--             newGetSessionResponse
+--
+--         , responseListAssistantAssociations $
+--             newListAssistantAssociationsResponse
+--
+--         , responseListAssistants $
+--             newListAssistantsResponse
+--
+--         , responseListContents $
+--             newListContentsResponse
+--
+--         , responseListKnowledgeBases $
+--             newListKnowledgeBasesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseNotifyRecommendationsReceived $
+--             newNotifyRecommendationsReceivedResponse
+--
+--         , responseQueryAssistant $
+--             newQueryAssistantResponse
+--
+--         , responseRemoveKnowledgeBaseTemplateUri $
+--             newRemoveKnowledgeBaseTemplateUriResponse
+--
+--         , responseSearchContent $
+--             newSearchContentResponse
+--
+--         , responseSearchSessions $
+--             newSearchSessionsResponse
+--
+--         , responseStartContentUpload $
+--             newStartContentUploadResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateContent $
+--             newUpdateContentResponse
+--
+--         , responseUpdateKnowledgeBaseTemplateUri $
+--             newUpdateKnowledgeBaseTemplateUriResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListAssistantAssociations :: ListAssistantAssociations -> TestTree
-requestListAssistantAssociations =
-  req
-    "ListAssistantAssociations"
-    "fixture/ListAssistantAssociations.yaml"
-
-requestGetRecommendations :: GetRecommendations -> TestTree
-requestGetRecommendations =
-  req
-    "GetRecommendations"
-    "fixture/GetRecommendations.yaml"
-
-requestSearchContent :: SearchContent -> TestTree
-requestSearchContent =
-  req
-    "SearchContent"
-    "fixture/SearchContent.yaml"
-
-requestRemoveKnowledgeBaseTemplateUri :: RemoveKnowledgeBaseTemplateUri -> TestTree
-requestRemoveKnowledgeBaseTemplateUri =
-  req
-    "RemoveKnowledgeBaseTemplateUri"
-    "fixture/RemoveKnowledgeBaseTemplateUri.yaml"
-
-requestGetAssistant :: GetAssistant -> TestTree
-requestGetAssistant =
-  req
-    "GetAssistant"
-    "fixture/GetAssistant.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListAssistants :: ListAssistants -> TestTree
-requestListAssistants =
-  req
-    "ListAssistants"
-    "fixture/ListAssistants.yaml"
-
-requestUpdateKnowledgeBaseTemplateUri :: UpdateKnowledgeBaseTemplateUri -> TestTree
-requestUpdateKnowledgeBaseTemplateUri =
-  req
-    "UpdateKnowledgeBaseTemplateUri"
-    "fixture/UpdateKnowledgeBaseTemplateUri.yaml"
-
-requestListContents :: ListContents -> TestTree
-requestListContents =
-  req
-    "ListContents"
-    "fixture/ListContents.yaml"
-
-requestDeleteContent :: DeleteContent -> TestTree
-requestDeleteContent =
-  req
-    "DeleteContent"
-    "fixture/DeleteContent.yaml"
-
-requestUpdateContent :: UpdateContent -> TestTree
-requestUpdateContent =
-  req
-    "UpdateContent"
-    "fixture/UpdateContent.yaml"
 
 requestCreateAssistant :: CreateAssistant -> TestTree
 requestCreateAssistant =
@@ -293,41 +227,11 @@ requestCreateAssistant =
     "CreateAssistant"
     "fixture/CreateAssistant.yaml"
 
-requestGetContentSummary :: GetContentSummary -> TestTree
-requestGetContentSummary =
+requestCreateAssistantAssociation :: CreateAssistantAssociation -> TestTree
+requestCreateAssistantAssociation =
   req
-    "GetContentSummary"
-    "fixture/GetContentSummary.yaml"
-
-requestNotifyRecommendationsReceived :: NotifyRecommendationsReceived -> TestTree
-requestNotifyRecommendationsReceived =
-  req
-    "NotifyRecommendationsReceived"
-    "fixture/NotifyRecommendationsReceived.yaml"
-
-requestDeleteAssistantAssociation :: DeleteAssistantAssociation -> TestTree
-requestDeleteAssistantAssociation =
-  req
-    "DeleteAssistantAssociation"
-    "fixture/DeleteAssistantAssociation.yaml"
-
-requestGetContent :: GetContent -> TestTree
-requestGetContent =
-  req
-    "GetContent"
-    "fixture/GetContent.yaml"
-
-requestStartContentUpload :: StartContentUpload -> TestTree
-requestStartContentUpload =
-  req
-    "StartContentUpload"
-    "fixture/StartContentUpload.yaml"
-
-requestCreateSession :: CreateSession -> TestTree
-requestCreateSession =
-  req
-    "CreateSession"
-    "fixture/CreateSession.yaml"
+    "CreateAssistantAssociation"
+    "fixture/CreateAssistantAssociation.yaml"
 
 requestCreateContent :: CreateContent -> TestTree
 requestCreateContent =
@@ -335,59 +239,35 @@ requestCreateContent =
     "CreateContent"
     "fixture/CreateContent.yaml"
 
-requestDeleteAssistant :: DeleteAssistant -> TestTree
-requestDeleteAssistant =
-  req
-    "DeleteAssistant"
-    "fixture/DeleteAssistant.yaml"
-
-requestGetSession :: GetSession -> TestTree
-requestGetSession =
-  req
-    "GetSession"
-    "fixture/GetSession.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
 requestCreateKnowledgeBase :: CreateKnowledgeBase -> TestTree
 requestCreateKnowledgeBase =
   req
     "CreateKnowledgeBase"
     "fixture/CreateKnowledgeBase.yaml"
 
-requestGetAssistantAssociation :: GetAssistantAssociation -> TestTree
-requestGetAssistantAssociation =
+requestCreateSession :: CreateSession -> TestTree
+requestCreateSession =
   req
-    "GetAssistantAssociation"
-    "fixture/GetAssistantAssociation.yaml"
+    "CreateSession"
+    "fixture/CreateSession.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteAssistant :: DeleteAssistant -> TestTree
+requestDeleteAssistant =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DeleteAssistant"
+    "fixture/DeleteAssistant.yaml"
 
-requestSearchSessions :: SearchSessions -> TestTree
-requestSearchSessions =
+requestDeleteAssistantAssociation :: DeleteAssistantAssociation -> TestTree
+requestDeleteAssistantAssociation =
   req
-    "SearchSessions"
-    "fixture/SearchSessions.yaml"
+    "DeleteAssistantAssociation"
+    "fixture/DeleteAssistantAssociation.yaml"
 
-requestListKnowledgeBases :: ListKnowledgeBases -> TestTree
-requestListKnowledgeBases =
+requestDeleteContent :: DeleteContent -> TestTree
+requestDeleteContent =
   req
-    "ListKnowledgeBases"
-    "fixture/ListKnowledgeBases.yaml"
-
-requestQueryAssistant :: QueryAssistant -> TestTree
-requestQueryAssistant =
-  req
-    "QueryAssistant"
-    "fixture/QueryAssistant.yaml"
+    "DeleteContent"
+    "fixture/DeleteContent.yaml"
 
 requestDeleteKnowledgeBase :: DeleteKnowledgeBase -> TestTree
 requestDeleteKnowledgeBase =
@@ -395,11 +275,29 @@ requestDeleteKnowledgeBase =
     "DeleteKnowledgeBase"
     "fixture/DeleteKnowledgeBase.yaml"
 
-requestCreateAssistantAssociation :: CreateAssistantAssociation -> TestTree
-requestCreateAssistantAssociation =
+requestGetAssistant :: GetAssistant -> TestTree
+requestGetAssistant =
   req
-    "CreateAssistantAssociation"
-    "fixture/CreateAssistantAssociation.yaml"
+    "GetAssistant"
+    "fixture/GetAssistant.yaml"
+
+requestGetAssistantAssociation :: GetAssistantAssociation -> TestTree
+requestGetAssistantAssociation =
+  req
+    "GetAssistantAssociation"
+    "fixture/GetAssistantAssociation.yaml"
+
+requestGetContent :: GetContent -> TestTree
+requestGetContent =
+  req
+    "GetContent"
+    "fixture/GetContent.yaml"
+
+requestGetContentSummary :: GetContentSummary -> TestTree
+requestGetContentSummary =
+  req
+    "GetContentSummary"
+    "fixture/GetContentSummary.yaml"
 
 requestGetKnowledgeBase :: GetKnowledgeBase -> TestTree
 requestGetKnowledgeBase =
@@ -407,95 +305,109 @@ requestGetKnowledgeBase =
     "GetKnowledgeBase"
     "fixture/GetKnowledgeBase.yaml"
 
+requestGetRecommendations :: GetRecommendations -> TestTree
+requestGetRecommendations =
+  req
+    "GetRecommendations"
+    "fixture/GetRecommendations.yaml"
+
+requestGetSession :: GetSession -> TestTree
+requestGetSession =
+  req
+    "GetSession"
+    "fixture/GetSession.yaml"
+
+requestListAssistantAssociations :: ListAssistantAssociations -> TestTree
+requestListAssistantAssociations =
+  req
+    "ListAssistantAssociations"
+    "fixture/ListAssistantAssociations.yaml"
+
+requestListAssistants :: ListAssistants -> TestTree
+requestListAssistants =
+  req
+    "ListAssistants"
+    "fixture/ListAssistants.yaml"
+
+requestListContents :: ListContents -> TestTree
+requestListContents =
+  req
+    "ListContents"
+    "fixture/ListContents.yaml"
+
+requestListKnowledgeBases :: ListKnowledgeBases -> TestTree
+requestListKnowledgeBases =
+  req
+    "ListKnowledgeBases"
+    "fixture/ListKnowledgeBases.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestNotifyRecommendationsReceived :: NotifyRecommendationsReceived -> TestTree
+requestNotifyRecommendationsReceived =
+  req
+    "NotifyRecommendationsReceived"
+    "fixture/NotifyRecommendationsReceived.yaml"
+
+requestQueryAssistant :: QueryAssistant -> TestTree
+requestQueryAssistant =
+  req
+    "QueryAssistant"
+    "fixture/QueryAssistant.yaml"
+
+requestRemoveKnowledgeBaseTemplateUri :: RemoveKnowledgeBaseTemplateUri -> TestTree
+requestRemoveKnowledgeBaseTemplateUri =
+  req
+    "RemoveKnowledgeBaseTemplateUri"
+    "fixture/RemoveKnowledgeBaseTemplateUri.yaml"
+
+requestSearchContent :: SearchContent -> TestTree
+requestSearchContent =
+  req
+    "SearchContent"
+    "fixture/SearchContent.yaml"
+
+requestSearchSessions :: SearchSessions -> TestTree
+requestSearchSessions =
+  req
+    "SearchSessions"
+    "fixture/SearchSessions.yaml"
+
+requestStartContentUpload :: StartContentUpload -> TestTree
+requestStartContentUpload =
+  req
+    "StartContentUpload"
+    "fixture/StartContentUpload.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateContent :: UpdateContent -> TestTree
+requestUpdateContent =
+  req
+    "UpdateContent"
+    "fixture/UpdateContent.yaml"
+
+requestUpdateKnowledgeBaseTemplateUri :: UpdateKnowledgeBaseTemplateUri -> TestTree
+requestUpdateKnowledgeBaseTemplateUri =
+  req
+    "UpdateKnowledgeBaseTemplateUri"
+    "fixture/UpdateKnowledgeBaseTemplateUri.yaml"
+
 -- Responses
-
-responseListAssistantAssociations :: ListAssistantAssociationsResponse -> TestTree
-responseListAssistantAssociations =
-  res
-    "ListAssistantAssociationsResponse"
-    "fixture/ListAssistantAssociationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssistantAssociations)
-
-responseGetRecommendations :: GetRecommendationsResponse -> TestTree
-responseGetRecommendations =
-  res
-    "GetRecommendationsResponse"
-    "fixture/GetRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)
-
-responseSearchContent :: SearchContentResponse -> TestTree
-responseSearchContent =
-  res
-    "SearchContentResponse"
-    "fixture/SearchContentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchContent)
-
-responseRemoveKnowledgeBaseTemplateUri :: RemoveKnowledgeBaseTemplateUriResponse -> TestTree
-responseRemoveKnowledgeBaseTemplateUri =
-  res
-    "RemoveKnowledgeBaseTemplateUriResponse"
-    "fixture/RemoveKnowledgeBaseTemplateUriResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveKnowledgeBaseTemplateUri)
-
-responseGetAssistant :: GetAssistantResponse -> TestTree
-responseGetAssistant =
-  res
-    "GetAssistantResponse"
-    "fixture/GetAssistantResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAssistant)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListAssistants :: ListAssistantsResponse -> TestTree
-responseListAssistants =
-  res
-    "ListAssistantsResponse"
-    "fixture/ListAssistantsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssistants)
-
-responseUpdateKnowledgeBaseTemplateUri :: UpdateKnowledgeBaseTemplateUriResponse -> TestTree
-responseUpdateKnowledgeBaseTemplateUri =
-  res
-    "UpdateKnowledgeBaseTemplateUriResponse"
-    "fixture/UpdateKnowledgeBaseTemplateUriResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateKnowledgeBaseTemplateUri)
-
-responseListContents :: ListContentsResponse -> TestTree
-responseListContents =
-  res
-    "ListContentsResponse"
-    "fixture/ListContentsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListContents)
-
-responseDeleteContent :: DeleteContentResponse -> TestTree
-responseDeleteContent =
-  res
-    "DeleteContentResponse"
-    "fixture/DeleteContentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteContent)
-
-responseUpdateContent :: UpdateContentResponse -> TestTree
-responseUpdateContent =
-  res
-    "UpdateContentResponse"
-    "fixture/UpdateContentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateContent)
 
 responseCreateAssistant :: CreateAssistantResponse -> TestTree
 responseCreateAssistant =
@@ -505,53 +417,13 @@ responseCreateAssistant =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAssistant)
 
-responseGetContentSummary :: GetContentSummaryResponse -> TestTree
-responseGetContentSummary =
+responseCreateAssistantAssociation :: CreateAssistantAssociationResponse -> TestTree
+responseCreateAssistantAssociation =
   res
-    "GetContentSummaryResponse"
-    "fixture/GetContentSummaryResponse.proto"
+    "CreateAssistantAssociationResponse"
+    "fixture/CreateAssistantAssociationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetContentSummary)
-
-responseNotifyRecommendationsReceived :: NotifyRecommendationsReceivedResponse -> TestTree
-responseNotifyRecommendationsReceived =
-  res
-    "NotifyRecommendationsReceivedResponse"
-    "fixture/NotifyRecommendationsReceivedResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy NotifyRecommendationsReceived)
-
-responseDeleteAssistantAssociation :: DeleteAssistantAssociationResponse -> TestTree
-responseDeleteAssistantAssociation =
-  res
-    "DeleteAssistantAssociationResponse"
-    "fixture/DeleteAssistantAssociationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAssistantAssociation)
-
-responseGetContent :: GetContentResponse -> TestTree
-responseGetContent =
-  res
-    "GetContentResponse"
-    "fixture/GetContentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetContent)
-
-responseStartContentUpload :: StartContentUploadResponse -> TestTree
-responseStartContentUpload =
-  res
-    "StartContentUploadResponse"
-    "fixture/StartContentUploadResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartContentUpload)
-
-responseCreateSession :: CreateSessionResponse -> TestTree
-responseCreateSession =
-  res
-    "CreateSessionResponse"
-    "fixture/CreateSessionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSession)
+    (Proxy.Proxy :: Proxy.Proxy CreateAssistantAssociation)
 
 responseCreateContent :: CreateContentResponse -> TestTree
 responseCreateContent =
@@ -561,30 +433,6 @@ responseCreateContent =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateContent)
 
-responseDeleteAssistant :: DeleteAssistantResponse -> TestTree
-responseDeleteAssistant =
-  res
-    "DeleteAssistantResponse"
-    "fixture/DeleteAssistantResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAssistant)
-
-responseGetSession :: GetSessionResponse -> TestTree
-responseGetSession =
-  res
-    "GetSessionResponse"
-    "fixture/GetSessionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSession)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
 responseCreateKnowledgeBase :: CreateKnowledgeBaseResponse -> TestTree
 responseCreateKnowledgeBase =
   res
@@ -593,45 +441,37 @@ responseCreateKnowledgeBase =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateKnowledgeBase)
 
-responseGetAssistantAssociation :: GetAssistantAssociationResponse -> TestTree
-responseGetAssistantAssociation =
+responseCreateSession :: CreateSessionResponse -> TestTree
+responseCreateSession =
   res
-    "GetAssistantAssociationResponse"
-    "fixture/GetAssistantAssociationResponse.proto"
+    "CreateSessionResponse"
+    "fixture/CreateSessionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAssistantAssociation)
+    (Proxy.Proxy :: Proxy.Proxy CreateSession)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDeleteAssistant :: DeleteAssistantResponse -> TestTree
+responseDeleteAssistant =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DeleteAssistantResponse"
+    "fixture/DeleteAssistantResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssistant)
 
-responseSearchSessions :: SearchSessionsResponse -> TestTree
-responseSearchSessions =
+responseDeleteAssistantAssociation :: DeleteAssistantAssociationResponse -> TestTree
+responseDeleteAssistantAssociation =
   res
-    "SearchSessionsResponse"
-    "fixture/SearchSessionsResponse.proto"
+    "DeleteAssistantAssociationResponse"
+    "fixture/DeleteAssistantAssociationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchSessions)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssistantAssociation)
 
-responseListKnowledgeBases :: ListKnowledgeBasesResponse -> TestTree
-responseListKnowledgeBases =
+responseDeleteContent :: DeleteContentResponse -> TestTree
+responseDeleteContent =
   res
-    "ListKnowledgeBasesResponse"
-    "fixture/ListKnowledgeBasesResponse.proto"
+    "DeleteContentResponse"
+    "fixture/DeleteContentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListKnowledgeBases)
-
-responseQueryAssistant :: QueryAssistantResponse -> TestTree
-responseQueryAssistant =
-  res
-    "QueryAssistantResponse"
-    "fixture/QueryAssistantResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy QueryAssistant)
+    (Proxy.Proxy :: Proxy.Proxy DeleteContent)
 
 responseDeleteKnowledgeBase :: DeleteKnowledgeBaseResponse -> TestTree
 responseDeleteKnowledgeBase =
@@ -641,13 +481,37 @@ responseDeleteKnowledgeBase =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteKnowledgeBase)
 
-responseCreateAssistantAssociation :: CreateAssistantAssociationResponse -> TestTree
-responseCreateAssistantAssociation =
+responseGetAssistant :: GetAssistantResponse -> TestTree
+responseGetAssistant =
   res
-    "CreateAssistantAssociationResponse"
-    "fixture/CreateAssistantAssociationResponse.proto"
+    "GetAssistantResponse"
+    "fixture/GetAssistantResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAssistantAssociation)
+    (Proxy.Proxy :: Proxy.Proxy GetAssistant)
+
+responseGetAssistantAssociation :: GetAssistantAssociationResponse -> TestTree
+responseGetAssistantAssociation =
+  res
+    "GetAssistantAssociationResponse"
+    "fixture/GetAssistantAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAssistantAssociation)
+
+responseGetContent :: GetContentResponse -> TestTree
+responseGetContent =
+  res
+    "GetContentResponse"
+    "fixture/GetContentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContent)
+
+responseGetContentSummary :: GetContentSummaryResponse -> TestTree
+responseGetContentSummary =
+  res
+    "GetContentSummaryResponse"
+    "fixture/GetContentSummaryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContentSummary)
 
 responseGetKnowledgeBase :: GetKnowledgeBaseResponse -> TestTree
 responseGetKnowledgeBase =
@@ -656,3 +520,139 @@ responseGetKnowledgeBase =
     "fixture/GetKnowledgeBaseResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetKnowledgeBase)
+
+responseGetRecommendations :: GetRecommendationsResponse -> TestTree
+responseGetRecommendations =
+  res
+    "GetRecommendationsResponse"
+    "fixture/GetRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)
+
+responseGetSession :: GetSessionResponse -> TestTree
+responseGetSession =
+  res
+    "GetSessionResponse"
+    "fixture/GetSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSession)
+
+responseListAssistantAssociations :: ListAssistantAssociationsResponse -> TestTree
+responseListAssistantAssociations =
+  res
+    "ListAssistantAssociationsResponse"
+    "fixture/ListAssistantAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssistantAssociations)
+
+responseListAssistants :: ListAssistantsResponse -> TestTree
+responseListAssistants =
+  res
+    "ListAssistantsResponse"
+    "fixture/ListAssistantsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssistants)
+
+responseListContents :: ListContentsResponse -> TestTree
+responseListContents =
+  res
+    "ListContentsResponse"
+    "fixture/ListContentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListContents)
+
+responseListKnowledgeBases :: ListKnowledgeBasesResponse -> TestTree
+responseListKnowledgeBases =
+  res
+    "ListKnowledgeBasesResponse"
+    "fixture/ListKnowledgeBasesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListKnowledgeBases)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseNotifyRecommendationsReceived :: NotifyRecommendationsReceivedResponse -> TestTree
+responseNotifyRecommendationsReceived =
+  res
+    "NotifyRecommendationsReceivedResponse"
+    "fixture/NotifyRecommendationsReceivedResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy NotifyRecommendationsReceived)
+
+responseQueryAssistant :: QueryAssistantResponse -> TestTree
+responseQueryAssistant =
+  res
+    "QueryAssistantResponse"
+    "fixture/QueryAssistantResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy QueryAssistant)
+
+responseRemoveKnowledgeBaseTemplateUri :: RemoveKnowledgeBaseTemplateUriResponse -> TestTree
+responseRemoveKnowledgeBaseTemplateUri =
+  res
+    "RemoveKnowledgeBaseTemplateUriResponse"
+    "fixture/RemoveKnowledgeBaseTemplateUriResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveKnowledgeBaseTemplateUri)
+
+responseSearchContent :: SearchContentResponse -> TestTree
+responseSearchContent =
+  res
+    "SearchContentResponse"
+    "fixture/SearchContentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchContent)
+
+responseSearchSessions :: SearchSessionsResponse -> TestTree
+responseSearchSessions =
+  res
+    "SearchSessionsResponse"
+    "fixture/SearchSessionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchSessions)
+
+responseStartContentUpload :: StartContentUploadResponse -> TestTree
+responseStartContentUpload =
+  res
+    "StartContentUploadResponse"
+    "fixture/StartContentUploadResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartContentUpload)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateContent :: UpdateContentResponse -> TestTree
+responseUpdateContent =
+  res
+    "UpdateContentResponse"
+    "fixture/UpdateContentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateContent)
+
+responseUpdateKnowledgeBaseTemplateUri :: UpdateKnowledgeBaseTemplateUriResponse -> TestTree
+responseUpdateKnowledgeBaseTemplateUri =
+  res
+    "UpdateKnowledgeBaseTemplateUriResponse"
+    "fixture/UpdateKnowledgeBaseTemplateUriResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateKnowledgeBaseTemplateUri)

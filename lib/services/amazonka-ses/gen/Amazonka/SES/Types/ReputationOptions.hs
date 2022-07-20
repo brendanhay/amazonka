@@ -28,19 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReputationOptions' smart constructor.
 data ReputationOptions = ReputationOptions'
-  { -- | The date and time at which the reputation metrics for the configuration
-    -- set were last reset. Resetting these metrics is known as a /fresh
-    -- start/.
-    --
-    -- When you disable email sending for a configuration set using
-    -- UpdateConfigurationSetSendingEnabled and later re-enable it, the
-    -- reputation metrics for the configuration set (but not for the entire
-    -- Amazon SES account) are reset.
-    --
-    -- If email sending for the configuration set has never been disabled and
-    -- later re-enabled, the value of this attribute is @null@.
-    lastFreshStart :: Prelude.Maybe Core.ISO8601,
-    -- | Describes whether or not Amazon SES publishes reputation metrics for the
+  { -- | Describes whether or not Amazon SES publishes reputation metrics for the
     -- configuration set, such as bounce and complaint rates, to Amazon
     -- CloudWatch.
     --
@@ -54,7 +42,19 @@ data ReputationOptions = ReputationOptions'
     -- SES will not send emails that use the configuration set. The default
     -- value is @true@. You can change this setting using
     -- UpdateConfigurationSetSendingEnabled.
-    sendingEnabled :: Prelude.Maybe Prelude.Bool
+    sendingEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time at which the reputation metrics for the configuration
+    -- set were last reset. Resetting these metrics is known as a /fresh
+    -- start/.
+    --
+    -- When you disable email sending for a configuration set using
+    -- UpdateConfigurationSetSendingEnabled and later re-enable it, the
+    -- reputation metrics for the configuration set (but not for the entire
+    -- Amazon SES account) are reset.
+    --
+    -- If email sending for the configuration set has never been disabled and
+    -- later re-enabled, the value of this attribute is @null@.
+    lastFreshStart :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,18 +65,6 @@ data ReputationOptions = ReputationOptions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'lastFreshStart', 'reputationOptions_lastFreshStart' - The date and time at which the reputation metrics for the configuration
--- set were last reset. Resetting these metrics is known as a /fresh
--- start/.
---
--- When you disable email sending for a configuration set using
--- UpdateConfigurationSetSendingEnabled and later re-enable it, the
--- reputation metrics for the configuration set (but not for the entire
--- Amazon SES account) are reset.
---
--- If email sending for the configuration set has never been disabled and
--- later re-enabled, the value of this attribute is @null@.
 --
 -- 'reputationMetricsEnabled', 'reputationOptions_reputationMetricsEnabled' - Describes whether or not Amazon SES publishes reputation metrics for the
 -- configuration set, such as bounce and complaint rates, to Amazon
@@ -92,17 +80,8 @@ data ReputationOptions = ReputationOptions'
 -- SES will not send emails that use the configuration set. The default
 -- value is @true@. You can change this setting using
 -- UpdateConfigurationSetSendingEnabled.
-newReputationOptions ::
-  ReputationOptions
-newReputationOptions =
-  ReputationOptions'
-    { lastFreshStart =
-        Prelude.Nothing,
-      reputationMetricsEnabled = Prelude.Nothing,
-      sendingEnabled = Prelude.Nothing
-    }
-
--- | The date and time at which the reputation metrics for the configuration
+--
+-- 'lastFreshStart', 'reputationOptions_lastFreshStart' - The date and time at which the reputation metrics for the configuration
 -- set were last reset. Resetting these metrics is known as a /fresh
 -- start/.
 --
@@ -113,8 +92,15 @@ newReputationOptions =
 --
 -- If email sending for the configuration set has never been disabled and
 -- later re-enabled, the value of this attribute is @null@.
-reputationOptions_lastFreshStart :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.UTCTime)
-reputationOptions_lastFreshStart = Lens.lens (\ReputationOptions' {lastFreshStart} -> lastFreshStart) (\s@ReputationOptions' {} a -> s {lastFreshStart = a} :: ReputationOptions) Prelude.. Lens.mapping Core._Time
+newReputationOptions ::
+  ReputationOptions
+newReputationOptions =
+  ReputationOptions'
+    { reputationMetricsEnabled =
+        Prelude.Nothing,
+      sendingEnabled = Prelude.Nothing,
+      lastFreshStart = Prelude.Nothing
+    }
 
 -- | Describes whether or not Amazon SES publishes reputation metrics for the
 -- configuration set, such as bounce and complaint rates, to Amazon
@@ -135,21 +121,36 @@ reputationOptions_reputationMetricsEnabled = Lens.lens (\ReputationOptions' {rep
 reputationOptions_sendingEnabled :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.Bool)
 reputationOptions_sendingEnabled = Lens.lens (\ReputationOptions' {sendingEnabled} -> sendingEnabled) (\s@ReputationOptions' {} a -> s {sendingEnabled = a} :: ReputationOptions)
 
+-- | The date and time at which the reputation metrics for the configuration
+-- set were last reset. Resetting these metrics is known as a /fresh
+-- start/.
+--
+-- When you disable email sending for a configuration set using
+-- UpdateConfigurationSetSendingEnabled and later re-enable it, the
+-- reputation metrics for the configuration set (but not for the entire
+-- Amazon SES account) are reset.
+--
+-- If email sending for the configuration set has never been disabled and
+-- later re-enabled, the value of this attribute is @null@.
+reputationOptions_lastFreshStart :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.UTCTime)
+reputationOptions_lastFreshStart = Lens.lens (\ReputationOptions' {lastFreshStart} -> lastFreshStart) (\s@ReputationOptions' {} a -> s {lastFreshStart = a} :: ReputationOptions) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromXML ReputationOptions where
   parseXML x =
     ReputationOptions'
-      Prelude.<$> (x Core..@? "LastFreshStart")
-      Prelude.<*> (x Core..@? "ReputationMetricsEnabled")
+      Prelude.<$> (x Core..@? "ReputationMetricsEnabled")
       Prelude.<*> (x Core..@? "SendingEnabled")
+      Prelude.<*> (x Core..@? "LastFreshStart")
 
 instance Prelude.Hashable ReputationOptions where
   hashWithSalt _salt ReputationOptions' {..} =
-    _salt `Prelude.hashWithSalt` lastFreshStart
+    _salt
       `Prelude.hashWithSalt` reputationMetricsEnabled
       `Prelude.hashWithSalt` sendingEnabled
+      `Prelude.hashWithSalt` lastFreshStart
 
 instance Prelude.NFData ReputationOptions where
   rnf ReputationOptions' {..} =
-    Prelude.rnf lastFreshStart
-      `Prelude.seq` Prelude.rnf reputationMetricsEnabled
+    Prelude.rnf reputationMetricsEnabled
       `Prelude.seq` Prelude.rnf sendingEnabled
+      `Prelude.seq` Prelude.rnf lastFreshStart

@@ -31,8 +31,8 @@ module Amazonka.Backup.ListBackupPlans
 
     -- * Request Lenses
     listBackupPlans_nextToken,
-    listBackupPlans_maxResults,
     listBackupPlans_includeDeleted,
+    listBackupPlans_maxResults,
 
     -- * Destructuring the Response
     ListBackupPlansResponse (..),
@@ -59,11 +59,11 @@ data ListBackupPlans = ListBackupPlans'
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A Boolean value with a default value of @FALSE@ that returns deleted
     -- backup plans when set to @TRUE@.
-    includeDeleted :: Prelude.Maybe Prelude.Bool
+    includeDeleted :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of items to be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,17 +80,17 @@ data ListBackupPlans = ListBackupPlans'
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
 --
--- 'maxResults', 'listBackupPlans_maxResults' - The maximum number of items to be returned.
---
 -- 'includeDeleted', 'listBackupPlans_includeDeleted' - A Boolean value with a default value of @FALSE@ that returns deleted
 -- backup plans when set to @TRUE@.
+--
+-- 'maxResults', 'listBackupPlans_maxResults' - The maximum number of items to be returned.
 newListBackupPlans ::
   ListBackupPlans
 newListBackupPlans =
   ListBackupPlans'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      includeDeleted = Prelude.Nothing
+      includeDeleted = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The next item following a partial list of returned items. For example,
@@ -100,14 +100,14 @@ newListBackupPlans =
 listBackupPlans_nextToken :: Lens.Lens' ListBackupPlans (Prelude.Maybe Prelude.Text)
 listBackupPlans_nextToken = Lens.lens (\ListBackupPlans' {nextToken} -> nextToken) (\s@ListBackupPlans' {} a -> s {nextToken = a} :: ListBackupPlans)
 
--- | The maximum number of items to be returned.
-listBackupPlans_maxResults :: Lens.Lens' ListBackupPlans (Prelude.Maybe Prelude.Natural)
-listBackupPlans_maxResults = Lens.lens (\ListBackupPlans' {maxResults} -> maxResults) (\s@ListBackupPlans' {} a -> s {maxResults = a} :: ListBackupPlans)
-
 -- | A Boolean value with a default value of @FALSE@ that returns deleted
 -- backup plans when set to @TRUE@.
 listBackupPlans_includeDeleted :: Lens.Lens' ListBackupPlans (Prelude.Maybe Prelude.Bool)
 listBackupPlans_includeDeleted = Lens.lens (\ListBackupPlans' {includeDeleted} -> includeDeleted) (\s@ListBackupPlans' {} a -> s {includeDeleted = a} :: ListBackupPlans)
+
+-- | The maximum number of items to be returned.
+listBackupPlans_maxResults :: Lens.Lens' ListBackupPlans (Prelude.Maybe Prelude.Natural)
+listBackupPlans_maxResults = Lens.lens (\ListBackupPlans' {maxResults} -> maxResults) (\s@ListBackupPlans' {} a -> s {maxResults = a} :: ListBackupPlans)
 
 instance Core.AWSRequest ListBackupPlans where
   type
@@ -128,14 +128,14 @@ instance Core.AWSRequest ListBackupPlans where
 instance Prelude.Hashable ListBackupPlans where
   hashWithSalt _salt ListBackupPlans' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` includeDeleted
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListBackupPlans where
   rnf ListBackupPlans' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf includeDeleted
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBackupPlans where
   toHeaders =
@@ -155,8 +155,8 @@ instance Core.ToQuery ListBackupPlans where
   toQuery ListBackupPlans' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "includeDeleted" Core.=: includeDeleted
+        "includeDeleted" Core.=: includeDeleted,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListBackupPlansResponse' smart constructor.

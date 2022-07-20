@@ -30,25 +30,25 @@ import Amazonka.SecurityHub.Types.PortRangeFromTo
 --
 -- /See:/ 'newAwsEc2NetworkAclEntry' smart constructor.
 data AwsEc2NetworkAclEntry = AwsEc2NetworkAclEntry'
-  { -- | The IPV6 network range for which to deny or allow access.
-    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | The Internet Control Message Protocol (ICMP) type and code for which to
+  { -- | The Internet Control Message Protocol (ICMP) type and code for which to
     -- deny or allow access.
     icmpTypeCode :: Prelude.Maybe IcmpTypeCode,
+    -- | Whether the rule is an egress rule. An egress rule is a rule that
+    -- applies to traffic that leaves the subnet.
+    egress :: Prelude.Maybe Prelude.Bool,
+    -- | For TCP or UDP protocols, the range of ports that the rule applies to.
+    portRange :: Prelude.Maybe PortRangeFromTo,
     -- | The rule number. The rules are processed in order by their number.
     ruleNumber :: Prelude.Maybe Prelude.Int,
+    -- | The IPV4 network range for which to deny or allow access.
+    cidrBlock :: Prelude.Maybe Prelude.Text,
     -- | Whether the rule is used to allow access or deny access.
     ruleAction :: Prelude.Maybe Prelude.Text,
     -- | The protocol that the rule applies to. To deny or allow access to all
     -- protocols, use the value -1.
     protocol :: Prelude.Maybe Prelude.Text,
-    -- | For TCP or UDP protocols, the range of ports that the rule applies to.
-    portRange :: Prelude.Maybe PortRangeFromTo,
-    -- | The IPV4 network range for which to deny or allow access.
-    cidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | Whether the rule is an egress rule. An egress rule is a rule that
-    -- applies to traffic that leaves the subnet.
-    egress :: Prelude.Maybe Prelude.Bool
+    -- | The IPV6 network range for which to deny or allow access.
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,51 +60,60 @@ data AwsEc2NetworkAclEntry = AwsEc2NetworkAclEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipv6CidrBlock', 'awsEc2NetworkAclEntry_ipv6CidrBlock' - The IPV6 network range for which to deny or allow access.
---
 -- 'icmpTypeCode', 'awsEc2NetworkAclEntry_icmpTypeCode' - The Internet Control Message Protocol (ICMP) type and code for which to
 -- deny or allow access.
 --
+-- 'egress', 'awsEc2NetworkAclEntry_egress' - Whether the rule is an egress rule. An egress rule is a rule that
+-- applies to traffic that leaves the subnet.
+--
+-- 'portRange', 'awsEc2NetworkAclEntry_portRange' - For TCP or UDP protocols, the range of ports that the rule applies to.
+--
 -- 'ruleNumber', 'awsEc2NetworkAclEntry_ruleNumber' - The rule number. The rules are processed in order by their number.
+--
+-- 'cidrBlock', 'awsEc2NetworkAclEntry_cidrBlock' - The IPV4 network range for which to deny or allow access.
 --
 -- 'ruleAction', 'awsEc2NetworkAclEntry_ruleAction' - Whether the rule is used to allow access or deny access.
 --
 -- 'protocol', 'awsEc2NetworkAclEntry_protocol' - The protocol that the rule applies to. To deny or allow access to all
 -- protocols, use the value -1.
 --
--- 'portRange', 'awsEc2NetworkAclEntry_portRange' - For TCP or UDP protocols, the range of ports that the rule applies to.
---
--- 'cidrBlock', 'awsEc2NetworkAclEntry_cidrBlock' - The IPV4 network range for which to deny or allow access.
---
--- 'egress', 'awsEc2NetworkAclEntry_egress' - Whether the rule is an egress rule. An egress rule is a rule that
--- applies to traffic that leaves the subnet.
+-- 'ipv6CidrBlock', 'awsEc2NetworkAclEntry_ipv6CidrBlock' - The IPV6 network range for which to deny or allow access.
 newAwsEc2NetworkAclEntry ::
   AwsEc2NetworkAclEntry
 newAwsEc2NetworkAclEntry =
   AwsEc2NetworkAclEntry'
-    { ipv6CidrBlock =
+    { icmpTypeCode =
         Prelude.Nothing,
-      icmpTypeCode = Prelude.Nothing,
+      egress = Prelude.Nothing,
+      portRange = Prelude.Nothing,
       ruleNumber = Prelude.Nothing,
+      cidrBlock = Prelude.Nothing,
       ruleAction = Prelude.Nothing,
       protocol = Prelude.Nothing,
-      portRange = Prelude.Nothing,
-      cidrBlock = Prelude.Nothing,
-      egress = Prelude.Nothing
+      ipv6CidrBlock = Prelude.Nothing
     }
-
--- | The IPV6 network range for which to deny or allow access.
-awsEc2NetworkAclEntry_ipv6CidrBlock :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Text)
-awsEc2NetworkAclEntry_ipv6CidrBlock = Lens.lens (\AwsEc2NetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@AwsEc2NetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: AwsEc2NetworkAclEntry)
 
 -- | The Internet Control Message Protocol (ICMP) type and code for which to
 -- deny or allow access.
 awsEc2NetworkAclEntry_icmpTypeCode :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe IcmpTypeCode)
 awsEc2NetworkAclEntry_icmpTypeCode = Lens.lens (\AwsEc2NetworkAclEntry' {icmpTypeCode} -> icmpTypeCode) (\s@AwsEc2NetworkAclEntry' {} a -> s {icmpTypeCode = a} :: AwsEc2NetworkAclEntry)
 
+-- | Whether the rule is an egress rule. An egress rule is a rule that
+-- applies to traffic that leaves the subnet.
+awsEc2NetworkAclEntry_egress :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Bool)
+awsEc2NetworkAclEntry_egress = Lens.lens (\AwsEc2NetworkAclEntry' {egress} -> egress) (\s@AwsEc2NetworkAclEntry' {} a -> s {egress = a} :: AwsEc2NetworkAclEntry)
+
+-- | For TCP or UDP protocols, the range of ports that the rule applies to.
+awsEc2NetworkAclEntry_portRange :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe PortRangeFromTo)
+awsEc2NetworkAclEntry_portRange = Lens.lens (\AwsEc2NetworkAclEntry' {portRange} -> portRange) (\s@AwsEc2NetworkAclEntry' {} a -> s {portRange = a} :: AwsEc2NetworkAclEntry)
+
 -- | The rule number. The rules are processed in order by their number.
 awsEc2NetworkAclEntry_ruleNumber :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Int)
 awsEc2NetworkAclEntry_ruleNumber = Lens.lens (\AwsEc2NetworkAclEntry' {ruleNumber} -> ruleNumber) (\s@AwsEc2NetworkAclEntry' {} a -> s {ruleNumber = a} :: AwsEc2NetworkAclEntry)
+
+-- | The IPV4 network range for which to deny or allow access.
+awsEc2NetworkAclEntry_cidrBlock :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Text)
+awsEc2NetworkAclEntry_cidrBlock = Lens.lens (\AwsEc2NetworkAclEntry' {cidrBlock} -> cidrBlock) (\s@AwsEc2NetworkAclEntry' {} a -> s {cidrBlock = a} :: AwsEc2NetworkAclEntry)
 
 -- | Whether the rule is used to allow access or deny access.
 awsEc2NetworkAclEntry_ruleAction :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Text)
@@ -115,18 +124,9 @@ awsEc2NetworkAclEntry_ruleAction = Lens.lens (\AwsEc2NetworkAclEntry' {ruleActio
 awsEc2NetworkAclEntry_protocol :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Text)
 awsEc2NetworkAclEntry_protocol = Lens.lens (\AwsEc2NetworkAclEntry' {protocol} -> protocol) (\s@AwsEc2NetworkAclEntry' {} a -> s {protocol = a} :: AwsEc2NetworkAclEntry)
 
--- | For TCP or UDP protocols, the range of ports that the rule applies to.
-awsEc2NetworkAclEntry_portRange :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe PortRangeFromTo)
-awsEc2NetworkAclEntry_portRange = Lens.lens (\AwsEc2NetworkAclEntry' {portRange} -> portRange) (\s@AwsEc2NetworkAclEntry' {} a -> s {portRange = a} :: AwsEc2NetworkAclEntry)
-
--- | The IPV4 network range for which to deny or allow access.
-awsEc2NetworkAclEntry_cidrBlock :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Text)
-awsEc2NetworkAclEntry_cidrBlock = Lens.lens (\AwsEc2NetworkAclEntry' {cidrBlock} -> cidrBlock) (\s@AwsEc2NetworkAclEntry' {} a -> s {cidrBlock = a} :: AwsEc2NetworkAclEntry)
-
--- | Whether the rule is an egress rule. An egress rule is a rule that
--- applies to traffic that leaves the subnet.
-awsEc2NetworkAclEntry_egress :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Bool)
-awsEc2NetworkAclEntry_egress = Lens.lens (\AwsEc2NetworkAclEntry' {egress} -> egress) (\s@AwsEc2NetworkAclEntry' {} a -> s {egress = a} :: AwsEc2NetworkAclEntry)
+-- | The IPV6 network range for which to deny or allow access.
+awsEc2NetworkAclEntry_ipv6CidrBlock :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Text)
+awsEc2NetworkAclEntry_ipv6CidrBlock = Lens.lens (\AwsEc2NetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@AwsEc2NetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: AwsEc2NetworkAclEntry)
 
 instance Core.FromJSON AwsEc2NetworkAclEntry where
   parseJSON =
@@ -134,49 +134,49 @@ instance Core.FromJSON AwsEc2NetworkAclEntry where
       "AwsEc2NetworkAclEntry"
       ( \x ->
           AwsEc2NetworkAclEntry'
-            Prelude.<$> (x Core..:? "Ipv6CidrBlock")
-            Prelude.<*> (x Core..:? "IcmpTypeCode")
+            Prelude.<$> (x Core..:? "IcmpTypeCode")
+            Prelude.<*> (x Core..:? "Egress")
+            Prelude.<*> (x Core..:? "PortRange")
             Prelude.<*> (x Core..:? "RuleNumber")
+            Prelude.<*> (x Core..:? "CidrBlock")
             Prelude.<*> (x Core..:? "RuleAction")
             Prelude.<*> (x Core..:? "Protocol")
-            Prelude.<*> (x Core..:? "PortRange")
-            Prelude.<*> (x Core..:? "CidrBlock")
-            Prelude.<*> (x Core..:? "Egress")
+            Prelude.<*> (x Core..:? "Ipv6CidrBlock")
       )
 
 instance Prelude.Hashable AwsEc2NetworkAclEntry where
   hashWithSalt _salt AwsEc2NetworkAclEntry' {..} =
-    _salt `Prelude.hashWithSalt` ipv6CidrBlock
-      `Prelude.hashWithSalt` icmpTypeCode
+    _salt `Prelude.hashWithSalt` icmpTypeCode
+      `Prelude.hashWithSalt` egress
+      `Prelude.hashWithSalt` portRange
       `Prelude.hashWithSalt` ruleNumber
+      `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` ruleAction
       `Prelude.hashWithSalt` protocol
-      `Prelude.hashWithSalt` portRange
-      `Prelude.hashWithSalt` cidrBlock
-      `Prelude.hashWithSalt` egress
+      `Prelude.hashWithSalt` ipv6CidrBlock
 
 instance Prelude.NFData AwsEc2NetworkAclEntry where
   rnf AwsEc2NetworkAclEntry' {..} =
-    Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf icmpTypeCode
+    Prelude.rnf icmpTypeCode
+      `Prelude.seq` Prelude.rnf egress
+      `Prelude.seq` Prelude.rnf portRange
       `Prelude.seq` Prelude.rnf ruleNumber
+      `Prelude.seq` Prelude.rnf cidrBlock
       `Prelude.seq` Prelude.rnf ruleAction
       `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf portRange
-      `Prelude.seq` Prelude.rnf cidrBlock
-      `Prelude.seq` Prelude.rnf egress
+      `Prelude.seq` Prelude.rnf ipv6CidrBlock
 
 instance Core.ToJSON AwsEc2NetworkAclEntry where
   toJSON AwsEc2NetworkAclEntry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Ipv6CidrBlock" Core..=) Prelude.<$> ipv6CidrBlock,
-            ("IcmpTypeCode" Core..=) Prelude.<$> icmpTypeCode,
+          [ ("IcmpTypeCode" Core..=) Prelude.<$> icmpTypeCode,
+            ("Egress" Core..=) Prelude.<$> egress,
+            ("PortRange" Core..=) Prelude.<$> portRange,
             ("RuleNumber" Core..=) Prelude.<$> ruleNumber,
+            ("CidrBlock" Core..=) Prelude.<$> cidrBlock,
             ("RuleAction" Core..=) Prelude.<$> ruleAction,
             ("Protocol" Core..=) Prelude.<$> protocol,
-            ("PortRange" Core..=) Prelude.<$> portRange,
-            ("CidrBlock" Core..=) Prelude.<$> cidrBlock,
-            ("Egress" Core..=) Prelude.<$> egress
+            ("Ipv6CidrBlock" Core..=) Prelude.<$> ipv6CidrBlock
           ]
       )

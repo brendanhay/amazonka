@@ -28,8 +28,8 @@ module Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup
 
     -- * Request Lenses
     updateAttributeGroup_name,
-    updateAttributeGroup_attributes,
     updateAttributeGroup_description,
+    updateAttributeGroup_attributes,
     updateAttributeGroup_attributeGroup,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ data UpdateAttributeGroup = UpdateAttributeGroup'
   { -- | The new name of the attribute group. The name must be unique in the
     -- region in which you are updating the attribute group.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The description of the attribute group that the user provides.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A JSON string in the form of nested key-value pairs that represent the
     -- attributes in the group and describes an application and its components.
     attributes :: Prelude.Maybe Prelude.Text,
-    -- | The description of the attribute group that the user provides.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name or ID of the attribute group that holds the attributes to
     -- describe the application.
     attributeGroup :: Prelude.Text
@@ -76,10 +76,10 @@ data UpdateAttributeGroup = UpdateAttributeGroup'
 -- 'name', 'updateAttributeGroup_name' - The new name of the attribute group. The name must be unique in the
 -- region in which you are updating the attribute group.
 --
+-- 'description', 'updateAttributeGroup_description' - The description of the attribute group that the user provides.
+--
 -- 'attributes', 'updateAttributeGroup_attributes' - A JSON string in the form of nested key-value pairs that represent the
 -- attributes in the group and describes an application and its components.
---
--- 'description', 'updateAttributeGroup_description' - The description of the attribute group that the user provides.
 --
 -- 'attributeGroup', 'updateAttributeGroup_attributeGroup' - The name or ID of the attribute group that holds the attributes to
 -- describe the application.
@@ -90,8 +90,8 @@ newUpdateAttributeGroup ::
 newUpdateAttributeGroup pAttributeGroup_ =
   UpdateAttributeGroup'
     { name = Prelude.Nothing,
-      attributes = Prelude.Nothing,
       description = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       attributeGroup = pAttributeGroup_
     }
 
@@ -100,14 +100,14 @@ newUpdateAttributeGroup pAttributeGroup_ =
 updateAttributeGroup_name :: Lens.Lens' UpdateAttributeGroup (Prelude.Maybe Prelude.Text)
 updateAttributeGroup_name = Lens.lens (\UpdateAttributeGroup' {name} -> name) (\s@UpdateAttributeGroup' {} a -> s {name = a} :: UpdateAttributeGroup)
 
+-- | The description of the attribute group that the user provides.
+updateAttributeGroup_description :: Lens.Lens' UpdateAttributeGroup (Prelude.Maybe Prelude.Text)
+updateAttributeGroup_description = Lens.lens (\UpdateAttributeGroup' {description} -> description) (\s@UpdateAttributeGroup' {} a -> s {description = a} :: UpdateAttributeGroup)
+
 -- | A JSON string in the form of nested key-value pairs that represent the
 -- attributes in the group and describes an application and its components.
 updateAttributeGroup_attributes :: Lens.Lens' UpdateAttributeGroup (Prelude.Maybe Prelude.Text)
 updateAttributeGroup_attributes = Lens.lens (\UpdateAttributeGroup' {attributes} -> attributes) (\s@UpdateAttributeGroup' {} a -> s {attributes = a} :: UpdateAttributeGroup)
-
--- | The description of the attribute group that the user provides.
-updateAttributeGroup_description :: Lens.Lens' UpdateAttributeGroup (Prelude.Maybe Prelude.Text)
-updateAttributeGroup_description = Lens.lens (\UpdateAttributeGroup' {description} -> description) (\s@UpdateAttributeGroup' {} a -> s {description = a} :: UpdateAttributeGroup)
 
 -- | The name or ID of the attribute group that holds the attributes to
 -- describe the application.
@@ -130,15 +130,15 @@ instance Core.AWSRequest UpdateAttributeGroup where
 instance Prelude.Hashable UpdateAttributeGroup where
   hashWithSalt _salt UpdateAttributeGroup' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` attributeGroup
 
 instance Prelude.NFData UpdateAttributeGroup where
   rnf UpdateAttributeGroup' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf attributeGroup
 
 instance Core.ToHeaders UpdateAttributeGroup where
@@ -157,8 +157,8 @@ instance Core.ToJSON UpdateAttributeGroup where
     Core.object
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
-            ("attributes" Core..=) Prelude.<$> attributes,
-            ("description" Core..=) Prelude.<$> description
+            ("description" Core..=) Prelude.<$> description,
+            ("attributes" Core..=) Prelude.<$> attributes
           ]
       )
 

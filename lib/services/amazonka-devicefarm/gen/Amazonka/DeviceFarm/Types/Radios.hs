@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRadios' smart constructor.
 data Radios = Radios'
-  { -- | True if NFC is enabled at the beginning of the test. Otherwise, false.
-    nfc :: Prelude.Maybe Prelude.Bool,
-    -- | True if GPS is enabled at the beginning of the test. Otherwise, false.
+  { -- | True if GPS is enabled at the beginning of the test. Otherwise, false.
     gps :: Prelude.Maybe Prelude.Bool,
+    -- | True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
+    wifi :: Prelude.Maybe Prelude.Bool,
     -- | True if Bluetooth is enabled at the beginning of the test. Otherwise,
     -- false.
     bluetooth :: Prelude.Maybe Prelude.Bool,
-    -- | True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
-    wifi :: Prelude.Maybe Prelude.Bool
+    -- | True if NFC is enabled at the beginning of the test. Otherwise, false.
+    nfc :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,40 +48,40 @@ data Radios = Radios'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nfc', 'radios_nfc' - True if NFC is enabled at the beginning of the test. Otherwise, false.
---
 -- 'gps', 'radios_gps' - True if GPS is enabled at the beginning of the test. Otherwise, false.
+--
+-- 'wifi', 'radios_wifi' - True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
 --
 -- 'bluetooth', 'radios_bluetooth' - True if Bluetooth is enabled at the beginning of the test. Otherwise,
 -- false.
 --
--- 'wifi', 'radios_wifi' - True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
+-- 'nfc', 'radios_nfc' - True if NFC is enabled at the beginning of the test. Otherwise, false.
 newRadios ::
   Radios
 newRadios =
   Radios'
-    { nfc = Prelude.Nothing,
-      gps = Prelude.Nothing,
+    { gps = Prelude.Nothing,
+      wifi = Prelude.Nothing,
       bluetooth = Prelude.Nothing,
-      wifi = Prelude.Nothing
+      nfc = Prelude.Nothing
     }
-
--- | True if NFC is enabled at the beginning of the test. Otherwise, false.
-radios_nfc :: Lens.Lens' Radios (Prelude.Maybe Prelude.Bool)
-radios_nfc = Lens.lens (\Radios' {nfc} -> nfc) (\s@Radios' {} a -> s {nfc = a} :: Radios)
 
 -- | True if GPS is enabled at the beginning of the test. Otherwise, false.
 radios_gps :: Lens.Lens' Radios (Prelude.Maybe Prelude.Bool)
 radios_gps = Lens.lens (\Radios' {gps} -> gps) (\s@Radios' {} a -> s {gps = a} :: Radios)
+
+-- | True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
+radios_wifi :: Lens.Lens' Radios (Prelude.Maybe Prelude.Bool)
+radios_wifi = Lens.lens (\Radios' {wifi} -> wifi) (\s@Radios' {} a -> s {wifi = a} :: Radios)
 
 -- | True if Bluetooth is enabled at the beginning of the test. Otherwise,
 -- false.
 radios_bluetooth :: Lens.Lens' Radios (Prelude.Maybe Prelude.Bool)
 radios_bluetooth = Lens.lens (\Radios' {bluetooth} -> bluetooth) (\s@Radios' {} a -> s {bluetooth = a} :: Radios)
 
--- | True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
-radios_wifi :: Lens.Lens' Radios (Prelude.Maybe Prelude.Bool)
-radios_wifi = Lens.lens (\Radios' {wifi} -> wifi) (\s@Radios' {} a -> s {wifi = a} :: Radios)
+-- | True if NFC is enabled at the beginning of the test. Otherwise, false.
+radios_nfc :: Lens.Lens' Radios (Prelude.Maybe Prelude.Bool)
+radios_nfc = Lens.lens (\Radios' {nfc} -> nfc) (\s@Radios' {} a -> s {nfc = a} :: Radios)
 
 instance Core.FromJSON Radios where
   parseJSON =
@@ -89,33 +89,33 @@ instance Core.FromJSON Radios where
       "Radios"
       ( \x ->
           Radios'
-            Prelude.<$> (x Core..:? "nfc")
-            Prelude.<*> (x Core..:? "gps")
-            Prelude.<*> (x Core..:? "bluetooth")
+            Prelude.<$> (x Core..:? "gps")
             Prelude.<*> (x Core..:? "wifi")
+            Prelude.<*> (x Core..:? "bluetooth")
+            Prelude.<*> (x Core..:? "nfc")
       )
 
 instance Prelude.Hashable Radios where
   hashWithSalt _salt Radios' {..} =
-    _salt `Prelude.hashWithSalt` nfc
-      `Prelude.hashWithSalt` gps
-      `Prelude.hashWithSalt` bluetooth
+    _salt `Prelude.hashWithSalt` gps
       `Prelude.hashWithSalt` wifi
+      `Prelude.hashWithSalt` bluetooth
+      `Prelude.hashWithSalt` nfc
 
 instance Prelude.NFData Radios where
   rnf Radios' {..} =
-    Prelude.rnf nfc
-      `Prelude.seq` Prelude.rnf gps
-      `Prelude.seq` Prelude.rnf bluetooth
+    Prelude.rnf gps
       `Prelude.seq` Prelude.rnf wifi
+      `Prelude.seq` Prelude.rnf bluetooth
+      `Prelude.seq` Prelude.rnf nfc
 
 instance Core.ToJSON Radios where
   toJSON Radios' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nfc" Core..=) Prelude.<$> nfc,
-            ("gps" Core..=) Prelude.<$> gps,
+          [ ("gps" Core..=) Prelude.<$> gps,
+            ("wifi" Core..=) Prelude.<$> wifi,
             ("bluetooth" Core..=) Prelude.<$> bluetooth,
-            ("wifi" Core..=) Prelude.<$> wifi
+            ("nfc" Core..=) Prelude.<$> nfc
           ]
       )

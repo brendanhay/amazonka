@@ -47,23 +47,6 @@ data ForwardedValues = ForwardedValues'
   { -- | This field is deprecated. We recommend that you use a cache policy or an
     -- origin request policy instead of this field.
     --
-    -- If you want to include query strings in the cache key, use a cache
-    -- policy. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
-    -- in the /Amazon CloudFront Developer Guide/.
-    --
-    -- If you want to send query strings to the origin but not include them in
-    -- the cache key, use an origin request policy. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy Creating origin request policies>
-    -- in the /Amazon CloudFront Developer Guide/.
-    --
-    -- A complex type that contains information about the query string
-    -- parameters that you want CloudFront to use for caching for this cache
-    -- behavior.
-    queryStringCacheKeys :: Prelude.Maybe QueryStringCacheKeys,
-    -- | This field is deprecated. We recommend that you use a cache policy or an
-    -- origin request policy instead of this field.
-    --
     -- If you want to include headers in the cache key, use a cache policy. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
@@ -84,6 +67,23 @@ data ForwardedValues = ForwardedValues'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html Caching Content Based on Request Headers>
     -- in the /Amazon CloudFront Developer Guide/.
     headers :: Prelude.Maybe Headers,
+    -- | This field is deprecated. We recommend that you use a cache policy or an
+    -- origin request policy instead of this field.
+    --
+    -- If you want to include query strings in the cache key, use a cache
+    -- policy. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
+    -- in the /Amazon CloudFront Developer Guide/.
+    --
+    -- If you want to send query strings to the origin but not include them in
+    -- the cache key, use an origin request policy. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy Creating origin request policies>
+    -- in the /Amazon CloudFront Developer Guide/.
+    --
+    -- A complex type that contains information about the query string
+    -- parameters that you want CloudFront to use for caching for this cache
+    -- behavior.
+    queryStringCacheKeys :: Prelude.Maybe QueryStringCacheKeys,
     -- | This field is deprecated. We recommend that you use a cache policy or an
     -- origin request policy instead of this field.
     --
@@ -153,23 +153,6 @@ data ForwardedValues = ForwardedValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryStringCacheKeys', 'forwardedValues_queryStringCacheKeys' - This field is deprecated. We recommend that you use a cache policy or an
--- origin request policy instead of this field.
---
--- If you want to include query strings in the cache key, use a cache
--- policy. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
--- in the /Amazon CloudFront Developer Guide/.
---
--- If you want to send query strings to the origin but not include them in
--- the cache key, use an origin request policy. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy Creating origin request policies>
--- in the /Amazon CloudFront Developer Guide/.
---
--- A complex type that contains information about the query string
--- parameters that you want CloudFront to use for caching for this cache
--- behavior.
---
 -- 'headers', 'forwardedValues_headers' - This field is deprecated. We recommend that you use a cache policy or an
 -- origin request policy instead of this field.
 --
@@ -192,6 +175,23 @@ data ForwardedValues = ForwardedValues'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html Caching Content Based on Request Headers>
 -- in the /Amazon CloudFront Developer Guide/.
+--
+-- 'queryStringCacheKeys', 'forwardedValues_queryStringCacheKeys' - This field is deprecated. We recommend that you use a cache policy or an
+-- origin request policy instead of this field.
+--
+-- If you want to include query strings in the cache key, use a cache
+-- policy. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
+-- in the /Amazon CloudFront Developer Guide/.
+--
+-- If you want to send query strings to the origin but not include them in
+-- the cache key, use an origin request policy. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy Creating origin request policies>
+-- in the /Amazon CloudFront Developer Guide/.
+--
+-- A complex type that contains information about the query string
+-- parameters that you want CloudFront to use for caching for this cache
+-- behavior.
 --
 -- 'queryString', 'forwardedValues_queryString' - This field is deprecated. We recommend that you use a cache policy or an
 -- origin request policy instead of this field.
@@ -258,31 +258,11 @@ newForwardedValues ::
   ForwardedValues
 newForwardedValues pQueryString_ pCookies_ =
   ForwardedValues'
-    { queryStringCacheKeys =
-        Prelude.Nothing,
-      headers = Prelude.Nothing,
+    { headers = Prelude.Nothing,
+      queryStringCacheKeys = Prelude.Nothing,
       queryString = pQueryString_,
       cookies = pCookies_
     }
-
--- | This field is deprecated. We recommend that you use a cache policy or an
--- origin request policy instead of this field.
---
--- If you want to include query strings in the cache key, use a cache
--- policy. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
--- in the /Amazon CloudFront Developer Guide/.
---
--- If you want to send query strings to the origin but not include them in
--- the cache key, use an origin request policy. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy Creating origin request policies>
--- in the /Amazon CloudFront Developer Guide/.
---
--- A complex type that contains information about the query string
--- parameters that you want CloudFront to use for caching for this cache
--- behavior.
-forwardedValues_queryStringCacheKeys :: Lens.Lens' ForwardedValues (Prelude.Maybe QueryStringCacheKeys)
-forwardedValues_queryStringCacheKeys = Lens.lens (\ForwardedValues' {queryStringCacheKeys} -> queryStringCacheKeys) (\s@ForwardedValues' {} a -> s {queryStringCacheKeys = a} :: ForwardedValues)
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
 -- origin request policy instead of this field.
@@ -308,6 +288,25 @@ forwardedValues_queryStringCacheKeys = Lens.lens (\ForwardedValues' {queryString
 -- in the /Amazon CloudFront Developer Guide/.
 forwardedValues_headers :: Lens.Lens' ForwardedValues (Prelude.Maybe Headers)
 forwardedValues_headers = Lens.lens (\ForwardedValues' {headers} -> headers) (\s@ForwardedValues' {} a -> s {headers = a} :: ForwardedValues)
+
+-- | This field is deprecated. We recommend that you use a cache policy or an
+-- origin request policy instead of this field.
+--
+-- If you want to include query strings in the cache key, use a cache
+-- policy. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
+-- in the /Amazon CloudFront Developer Guide/.
+--
+-- If you want to send query strings to the origin but not include them in
+-- the cache key, use an origin request policy. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy Creating origin request policies>
+-- in the /Amazon CloudFront Developer Guide/.
+--
+-- A complex type that contains information about the query string
+-- parameters that you want CloudFront to use for caching for this cache
+-- behavior.
+forwardedValues_queryStringCacheKeys :: Lens.Lens' ForwardedValues (Prelude.Maybe QueryStringCacheKeys)
+forwardedValues_queryStringCacheKeys = Lens.lens (\ForwardedValues' {queryStringCacheKeys} -> queryStringCacheKeys) (\s@ForwardedValues' {} a -> s {queryStringCacheKeys = a} :: ForwardedValues)
 
 -- | This field is deprecated. We recommend that you use a cache policy or an
 -- origin request policy instead of this field.
@@ -374,30 +373,30 @@ forwardedValues_cookies = Lens.lens (\ForwardedValues' {cookies} -> cookies) (\s
 instance Core.FromXML ForwardedValues where
   parseXML x =
     ForwardedValues'
-      Prelude.<$> (x Core..@? "QueryStringCacheKeys")
-      Prelude.<*> (x Core..@? "Headers")
+      Prelude.<$> (x Core..@? "Headers")
+      Prelude.<*> (x Core..@? "QueryStringCacheKeys")
       Prelude.<*> (x Core..@ "QueryString")
       Prelude.<*> (x Core..@ "Cookies")
 
 instance Prelude.Hashable ForwardedValues where
   hashWithSalt _salt ForwardedValues' {..} =
-    _salt `Prelude.hashWithSalt` queryStringCacheKeys
-      `Prelude.hashWithSalt` headers
+    _salt `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` queryStringCacheKeys
       `Prelude.hashWithSalt` queryString
       `Prelude.hashWithSalt` cookies
 
 instance Prelude.NFData ForwardedValues where
   rnf ForwardedValues' {..} =
-    Prelude.rnf queryStringCacheKeys
-      `Prelude.seq` Prelude.rnf headers
+    Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf queryStringCacheKeys
       `Prelude.seq` Prelude.rnf queryString
       `Prelude.seq` Prelude.rnf cookies
 
 instance Core.ToXML ForwardedValues where
   toXML ForwardedValues' {..} =
     Prelude.mconcat
-      [ "QueryStringCacheKeys" Core.@= queryStringCacheKeys,
-        "Headers" Core.@= headers,
+      [ "Headers" Core.@= headers,
+        "QueryStringCacheKeys" Core.@= queryStringCacheKeys,
         "QueryString" Core.@= queryString,
         "Cookies" Core.@= cookies
       ]

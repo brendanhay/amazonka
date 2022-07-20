@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataset' smart constructor.
 data Dataset = Dataset'
-  { -- | Date when the dataset was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | Number of records in this dataset.
+  { -- | Number of records in this dataset.
     numRecords :: Prelude.Maybe Prelude.Integer,
+    -- | Date when the dataset was last modified.
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | Total size in bytes of the records in this dataset.
     dataStorage :: Prelude.Maybe Prelude.Integer,
     -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
@@ -59,9 +59,9 @@ data Dataset = Dataset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'dataset_lastModifiedDate' - Date when the dataset was last modified.
---
 -- 'numRecords', 'dataset_numRecords' - Number of records in this dataset.
+--
+-- 'lastModifiedDate', 'dataset_lastModifiedDate' - Date when the dataset was last modified.
 --
 -- 'dataStorage', 'dataset_dataStorage' - Total size in bytes of the records in this dataset.
 --
@@ -79,8 +79,8 @@ newDataset ::
   Dataset
 newDataset =
   Dataset'
-    { lastModifiedDate = Prelude.Nothing,
-      numRecords = Prelude.Nothing,
+    { numRecords = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       dataStorage = Prelude.Nothing,
       datasetName = Prelude.Nothing,
       creationDate = Prelude.Nothing,
@@ -88,13 +88,13 @@ newDataset =
       identityId = Prelude.Nothing
     }
 
--- | Date when the dataset was last modified.
-dataset_lastModifiedDate :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
-dataset_lastModifiedDate = Lens.lens (\Dataset' {lastModifiedDate} -> lastModifiedDate) (\s@Dataset' {} a -> s {lastModifiedDate = a} :: Dataset) Prelude.. Lens.mapping Core._Time
-
 -- | Number of records in this dataset.
 dataset_numRecords :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Integer)
 dataset_numRecords = Lens.lens (\Dataset' {numRecords} -> numRecords) (\s@Dataset' {} a -> s {numRecords = a} :: Dataset)
+
+-- | Date when the dataset was last modified.
+dataset_lastModifiedDate :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
+dataset_lastModifiedDate = Lens.lens (\Dataset' {lastModifiedDate} -> lastModifiedDate) (\s@Dataset' {} a -> s {lastModifiedDate = a} :: Dataset) Prelude.. Lens.mapping Core._Time
 
 -- | Total size in bytes of the records in this dataset.
 dataset_dataStorage :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Integer)
@@ -125,8 +125,8 @@ instance Core.FromJSON Dataset where
       "Dataset"
       ( \x ->
           Dataset'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "NumRecords")
+            Prelude.<$> (x Core..:? "NumRecords")
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "DataStorage")
             Prelude.<*> (x Core..:? "DatasetName")
             Prelude.<*> (x Core..:? "CreationDate")
@@ -136,8 +136,8 @@ instance Core.FromJSON Dataset where
 
 instance Prelude.Hashable Dataset where
   hashWithSalt _salt Dataset' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` numRecords
+    _salt `Prelude.hashWithSalt` numRecords
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` dataStorage
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` creationDate
@@ -146,8 +146,8 @@ instance Prelude.Hashable Dataset where
 
 instance Prelude.NFData Dataset where
   rnf Dataset' {..} =
-    Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf numRecords
+    Prelude.rnf numRecords
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf dataStorage
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf creationDate

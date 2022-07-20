@@ -44,9 +44,9 @@ module Amazonka.Lightsail.PutAlarm
 
     -- * Request Lenses
     putAlarm_treatMissingData,
-    putAlarm_contactProtocols,
     putAlarm_datapointsToAlarm,
     putAlarm_notificationEnabled,
+    putAlarm_contactProtocols,
     putAlarm_notificationTriggers,
     putAlarm_alarmName,
     putAlarm_metricName,
@@ -94,6 +94,15 @@ data PutAlarm = PutAlarm'
     -- If @treatMissingData@ is not specified, the default behavior of
     -- @missing@ is used.
     treatMissingData :: Prelude.Maybe TreatMissingData,
+    -- | The number of data points that must be not within the specified
+    -- threshold to trigger the alarm. If you are setting an \"M out of N\"
+    -- alarm, this value (@datapointsToAlarm@) is the M.
+    datapointsToAlarm :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the alarm is enabled.
+    --
+    -- Notifications are enabled by default if you don\'t specify this
+    -- parameter.
+    notificationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The contact protocols to use for the alarm, such as @Email@, @SMS@ (text
     -- messaging), or both.
     --
@@ -109,15 +118,6 @@ data PutAlarm = PutAlarm'
     -- Use the @CreateContactMethod@ action to configure a contact protocol in
     -- an AWS Region.
     contactProtocols :: Prelude.Maybe [ContactProtocol],
-    -- | The number of data points that must be not within the specified
-    -- threshold to trigger the alarm. If you are setting an \"M out of N\"
-    -- alarm, this value (@datapointsToAlarm@) is the M.
-    datapointsToAlarm :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the alarm is enabled.
-    --
-    -- Notifications are enabled by default if you don\'t specify this
-    -- parameter.
-    notificationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The alarm states that trigger a notification.
     --
     -- An alarm has the following possible states:
@@ -230,6 +230,15 @@ data PutAlarm = PutAlarm'
 -- If @treatMissingData@ is not specified, the default behavior of
 -- @missing@ is used.
 --
+-- 'datapointsToAlarm', 'putAlarm_datapointsToAlarm' - The number of data points that must be not within the specified
+-- threshold to trigger the alarm. If you are setting an \"M out of N\"
+-- alarm, this value (@datapointsToAlarm@) is the M.
+--
+-- 'notificationEnabled', 'putAlarm_notificationEnabled' - Indicates whether the alarm is enabled.
+--
+-- Notifications are enabled by default if you don\'t specify this
+-- parameter.
+--
 -- 'contactProtocols', 'putAlarm_contactProtocols' - The contact protocols to use for the alarm, such as @Email@, @SMS@ (text
 -- messaging), or both.
 --
@@ -244,15 +253,6 @@ data PutAlarm = PutAlarm'
 --
 -- Use the @CreateContactMethod@ action to configure a contact protocol in
 -- an AWS Region.
---
--- 'datapointsToAlarm', 'putAlarm_datapointsToAlarm' - The number of data points that must be not within the specified
--- threshold to trigger the alarm. If you are setting an \"M out of N\"
--- alarm, this value (@datapointsToAlarm@) is the M.
---
--- 'notificationEnabled', 'putAlarm_notificationEnabled' - Indicates whether the alarm is enabled.
---
--- Notifications are enabled by default if you don\'t specify this
--- parameter.
 --
 -- 'notificationTriggers', 'putAlarm_notificationTriggers' - The alarm states that trigger a notification.
 --
@@ -357,9 +357,9 @@ newPutAlarm
   pEvaluationPeriods_ =
     PutAlarm'
       { treatMissingData = Prelude.Nothing,
-        contactProtocols = Prelude.Nothing,
         datapointsToAlarm = Prelude.Nothing,
         notificationEnabled = Prelude.Nothing,
+        contactProtocols = Prelude.Nothing,
         notificationTriggers = Prelude.Nothing,
         alarmName = pAlarmName_,
         metricName = pMetricName_,
@@ -391,6 +391,19 @@ newPutAlarm
 putAlarm_treatMissingData :: Lens.Lens' PutAlarm (Prelude.Maybe TreatMissingData)
 putAlarm_treatMissingData = Lens.lens (\PutAlarm' {treatMissingData} -> treatMissingData) (\s@PutAlarm' {} a -> s {treatMissingData = a} :: PutAlarm)
 
+-- | The number of data points that must be not within the specified
+-- threshold to trigger the alarm. If you are setting an \"M out of N\"
+-- alarm, this value (@datapointsToAlarm@) is the M.
+putAlarm_datapointsToAlarm :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Int)
+putAlarm_datapointsToAlarm = Lens.lens (\PutAlarm' {datapointsToAlarm} -> datapointsToAlarm) (\s@PutAlarm' {} a -> s {datapointsToAlarm = a} :: PutAlarm)
+
+-- | Indicates whether the alarm is enabled.
+--
+-- Notifications are enabled by default if you don\'t specify this
+-- parameter.
+putAlarm_notificationEnabled :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Bool)
+putAlarm_notificationEnabled = Lens.lens (\PutAlarm' {notificationEnabled} -> notificationEnabled) (\s@PutAlarm' {} a -> s {notificationEnabled = a} :: PutAlarm)
+
 -- | The contact protocols to use for the alarm, such as @Email@, @SMS@ (text
 -- messaging), or both.
 --
@@ -407,19 +420,6 @@ putAlarm_treatMissingData = Lens.lens (\PutAlarm' {treatMissingData} -> treatMis
 -- an AWS Region.
 putAlarm_contactProtocols :: Lens.Lens' PutAlarm (Prelude.Maybe [ContactProtocol])
 putAlarm_contactProtocols = Lens.lens (\PutAlarm' {contactProtocols} -> contactProtocols) (\s@PutAlarm' {} a -> s {contactProtocols = a} :: PutAlarm) Prelude.. Lens.mapping Lens.coerced
-
--- | The number of data points that must be not within the specified
--- threshold to trigger the alarm. If you are setting an \"M out of N\"
--- alarm, this value (@datapointsToAlarm@) is the M.
-putAlarm_datapointsToAlarm :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Int)
-putAlarm_datapointsToAlarm = Lens.lens (\PutAlarm' {datapointsToAlarm} -> datapointsToAlarm) (\s@PutAlarm' {} a -> s {datapointsToAlarm = a} :: PutAlarm)
-
--- | Indicates whether the alarm is enabled.
---
--- Notifications are enabled by default if you don\'t specify this
--- parameter.
-putAlarm_notificationEnabled :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Bool)
-putAlarm_notificationEnabled = Lens.lens (\PutAlarm' {notificationEnabled} -> notificationEnabled) (\s@PutAlarm' {} a -> s {notificationEnabled = a} :: PutAlarm)
 
 -- | The alarm states that trigger a notification.
 --
@@ -530,9 +530,9 @@ instance Core.AWSRequest PutAlarm where
 instance Prelude.Hashable PutAlarm where
   hashWithSalt _salt PutAlarm' {..} =
     _salt `Prelude.hashWithSalt` treatMissingData
-      `Prelude.hashWithSalt` contactProtocols
       `Prelude.hashWithSalt` datapointsToAlarm
       `Prelude.hashWithSalt` notificationEnabled
+      `Prelude.hashWithSalt` contactProtocols
       `Prelude.hashWithSalt` notificationTriggers
       `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` metricName
@@ -544,9 +544,9 @@ instance Prelude.Hashable PutAlarm where
 instance Prelude.NFData PutAlarm where
   rnf PutAlarm' {..} =
     Prelude.rnf treatMissingData
-      `Prelude.seq` Prelude.rnf contactProtocols
       `Prelude.seq` Prelude.rnf datapointsToAlarm
       `Prelude.seq` Prelude.rnf notificationEnabled
+      `Prelude.seq` Prelude.rnf contactProtocols
       `Prelude.seq` Prelude.rnf notificationTriggers
       `Prelude.seq` Prelude.rnf alarmName
       `Prelude.seq` Prelude.rnf metricName
@@ -576,12 +576,12 @@ instance Core.ToJSON PutAlarm where
       ( Prelude.catMaybes
           [ ("treatMissingData" Core..=)
               Prelude.<$> treatMissingData,
-            ("contactProtocols" Core..=)
-              Prelude.<$> contactProtocols,
             ("datapointsToAlarm" Core..=)
               Prelude.<$> datapointsToAlarm,
             ("notificationEnabled" Core..=)
               Prelude.<$> notificationEnabled,
+            ("contactProtocols" Core..=)
+              Prelude.<$> contactProtocols,
             ("notificationTriggers" Core..=)
               Prelude.<$> notificationTriggers,
             Prelude.Just ("alarmName" Core..= alarmName),

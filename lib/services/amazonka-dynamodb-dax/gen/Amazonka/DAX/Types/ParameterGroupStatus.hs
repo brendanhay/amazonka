@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameterGroupStatus' smart constructor.
 data ParameterGroupStatus = ParameterGroupStatus'
-  { -- | The node IDs of one or more nodes to be rebooted.
-    nodeIdsToReboot :: Prelude.Maybe [Prelude.Text],
+  { -- | The name of the parameter group.
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The status of parameter updates.
     parameterApplyStatus :: Prelude.Maybe Prelude.Text,
-    -- | The name of the parameter group.
-    parameterGroupName :: Prelude.Maybe Prelude.Text
+    -- | The node IDs of one or more nodes to be rebooted.
+    nodeIdsToReboot :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,32 +44,32 @@ data ParameterGroupStatus = ParameterGroupStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeIdsToReboot', 'parameterGroupStatus_nodeIdsToReboot' - The node IDs of one or more nodes to be rebooted.
+-- 'parameterGroupName', 'parameterGroupStatus_parameterGroupName' - The name of the parameter group.
 --
 -- 'parameterApplyStatus', 'parameterGroupStatus_parameterApplyStatus' - The status of parameter updates.
 --
--- 'parameterGroupName', 'parameterGroupStatus_parameterGroupName' - The name of the parameter group.
+-- 'nodeIdsToReboot', 'parameterGroupStatus_nodeIdsToReboot' - The node IDs of one or more nodes to be rebooted.
 newParameterGroupStatus ::
   ParameterGroupStatus
 newParameterGroupStatus =
   ParameterGroupStatus'
-    { nodeIdsToReboot =
+    { parameterGroupName =
         Prelude.Nothing,
       parameterApplyStatus = Prelude.Nothing,
-      parameterGroupName = Prelude.Nothing
+      nodeIdsToReboot = Prelude.Nothing
     }
 
--- | The node IDs of one or more nodes to be rebooted.
-parameterGroupStatus_nodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe [Prelude.Text])
-parameterGroupStatus_nodeIdsToReboot = Lens.lens (\ParameterGroupStatus' {nodeIdsToReboot} -> nodeIdsToReboot) (\s@ParameterGroupStatus' {} a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the parameter group.
+parameterGroupStatus_parameterGroupName :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe Prelude.Text)
+parameterGroupStatus_parameterGroupName = Lens.lens (\ParameterGroupStatus' {parameterGroupName} -> parameterGroupName) (\s@ParameterGroupStatus' {} a -> s {parameterGroupName = a} :: ParameterGroupStatus)
 
 -- | The status of parameter updates.
 parameterGroupStatus_parameterApplyStatus :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe Prelude.Text)
 parameterGroupStatus_parameterApplyStatus = Lens.lens (\ParameterGroupStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@ParameterGroupStatus' {} a -> s {parameterApplyStatus = a} :: ParameterGroupStatus)
 
--- | The name of the parameter group.
-parameterGroupStatus_parameterGroupName :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe Prelude.Text)
-parameterGroupStatus_parameterGroupName = Lens.lens (\ParameterGroupStatus' {parameterGroupName} -> parameterGroupName) (\s@ParameterGroupStatus' {} a -> s {parameterGroupName = a} :: ParameterGroupStatus)
+-- | The node IDs of one or more nodes to be rebooted.
+parameterGroupStatus_nodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe [Prelude.Text])
+parameterGroupStatus_nodeIdsToReboot = Lens.lens (\ParameterGroupStatus' {nodeIdsToReboot} -> nodeIdsToReboot) (\s@ParameterGroupStatus' {} a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ParameterGroupStatus where
   parseJSON =
@@ -77,21 +77,21 @@ instance Core.FromJSON ParameterGroupStatus where
       "ParameterGroupStatus"
       ( \x ->
           ParameterGroupStatus'
-            Prelude.<$> ( x Core..:? "NodeIdsToReboot"
+            Prelude.<$> (x Core..:? "ParameterGroupName")
+            Prelude.<*> (x Core..:? "ParameterApplyStatus")
+            Prelude.<*> ( x Core..:? "NodeIdsToReboot"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ParameterApplyStatus")
-            Prelude.<*> (x Core..:? "ParameterGroupName")
       )
 
 instance Prelude.Hashable ParameterGroupStatus where
   hashWithSalt _salt ParameterGroupStatus' {..} =
-    _salt `Prelude.hashWithSalt` nodeIdsToReboot
+    _salt `Prelude.hashWithSalt` parameterGroupName
       `Prelude.hashWithSalt` parameterApplyStatus
-      `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` nodeIdsToReboot
 
 instance Prelude.NFData ParameterGroupStatus where
   rnf ParameterGroupStatus' {..} =
-    Prelude.rnf nodeIdsToReboot
+    Prelude.rnf parameterGroupName
       `Prelude.seq` Prelude.rnf parameterApplyStatus
-      `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf nodeIdsToReboot

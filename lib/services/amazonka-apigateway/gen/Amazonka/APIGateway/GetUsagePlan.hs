@@ -34,14 +34,14 @@ module Amazonka.APIGateway.GetUsagePlan
     newUsagePlan,
 
     -- * Response Lenses
-    usagePlan_apiStages,
+    usagePlan_tags,
     usagePlan_name,
-    usagePlan_id,
-    usagePlan_throttle,
     usagePlan_quota,
     usagePlan_description,
     usagePlan_productCode,
-    usagePlan_tags,
+    usagePlan_id,
+    usagePlan_throttle,
+    usagePlan_apiStages,
   )
 where
 

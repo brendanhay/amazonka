@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 data TransactWriteItem = TransactWriteItem'
   { -- | A request to perform a check item operation.
     conditionCheck :: Prelude.Maybe ConditionCheck,
-    -- | A request to perform a @PutItem@ operation.
-    put :: Prelude.Maybe Put,
     -- | A request to perform a @DeleteItem@ operation.
     delete' :: Prelude.Maybe Delete,
+    -- | A request to perform a @PutItem@ operation.
+    put :: Prelude.Maybe Put,
     -- | A request to perform an @UpdateItem@ operation.
     update :: Prelude.Maybe Update
   }
@@ -54,9 +54,9 @@ data TransactWriteItem = TransactWriteItem'
 --
 -- 'conditionCheck', 'transactWriteItem_conditionCheck' - A request to perform a check item operation.
 --
--- 'put', 'transactWriteItem_put' - A request to perform a @PutItem@ operation.
---
 -- 'delete'', 'transactWriteItem_delete' - A request to perform a @DeleteItem@ operation.
+--
+-- 'put', 'transactWriteItem_put' - A request to perform a @PutItem@ operation.
 --
 -- 'update', 'transactWriteItem_update' - A request to perform an @UpdateItem@ operation.
 newTransactWriteItem ::
@@ -65,8 +65,8 @@ newTransactWriteItem =
   TransactWriteItem'
     { conditionCheck =
         Prelude.Nothing,
-      put = Prelude.Nothing,
       delete' = Prelude.Nothing,
+      put = Prelude.Nothing,
       update = Prelude.Nothing
     }
 
@@ -74,13 +74,13 @@ newTransactWriteItem =
 transactWriteItem_conditionCheck :: Lens.Lens' TransactWriteItem (Prelude.Maybe ConditionCheck)
 transactWriteItem_conditionCheck = Lens.lens (\TransactWriteItem' {conditionCheck} -> conditionCheck) (\s@TransactWriteItem' {} a -> s {conditionCheck = a} :: TransactWriteItem)
 
--- | A request to perform a @PutItem@ operation.
-transactWriteItem_put :: Lens.Lens' TransactWriteItem (Prelude.Maybe Put)
-transactWriteItem_put = Lens.lens (\TransactWriteItem' {put} -> put) (\s@TransactWriteItem' {} a -> s {put = a} :: TransactWriteItem)
-
 -- | A request to perform a @DeleteItem@ operation.
 transactWriteItem_delete :: Lens.Lens' TransactWriteItem (Prelude.Maybe Delete)
 transactWriteItem_delete = Lens.lens (\TransactWriteItem' {delete'} -> delete') (\s@TransactWriteItem' {} a -> s {delete' = a} :: TransactWriteItem)
+
+-- | A request to perform a @PutItem@ operation.
+transactWriteItem_put :: Lens.Lens' TransactWriteItem (Prelude.Maybe Put)
+transactWriteItem_put = Lens.lens (\TransactWriteItem' {put} -> put) (\s@TransactWriteItem' {} a -> s {put = a} :: TransactWriteItem)
 
 -- | A request to perform an @UpdateItem@ operation.
 transactWriteItem_update :: Lens.Lens' TransactWriteItem (Prelude.Maybe Update)
@@ -89,15 +89,15 @@ transactWriteItem_update = Lens.lens (\TransactWriteItem' {update} -> update) (\
 instance Prelude.Hashable TransactWriteItem where
   hashWithSalt _salt TransactWriteItem' {..} =
     _salt `Prelude.hashWithSalt` conditionCheck
-      `Prelude.hashWithSalt` put
       `Prelude.hashWithSalt` delete'
+      `Prelude.hashWithSalt` put
       `Prelude.hashWithSalt` update
 
 instance Prelude.NFData TransactWriteItem where
   rnf TransactWriteItem' {..} =
     Prelude.rnf conditionCheck
-      `Prelude.seq` Prelude.rnf put
       `Prelude.seq` Prelude.rnf delete'
+      `Prelude.seq` Prelude.rnf put
       `Prelude.seq` Prelude.rnf update
 
 instance Core.ToJSON TransactWriteItem where
@@ -106,8 +106,8 @@ instance Core.ToJSON TransactWriteItem where
       ( Prelude.catMaybes
           [ ("ConditionCheck" Core..=)
               Prelude.<$> conditionCheck,
-            ("Put" Core..=) Prelude.<$> put,
             ("Delete" Core..=) Prelude.<$> delete',
+            ("Put" Core..=) Prelude.<$> put,
             ("Update" Core..=) Prelude.<$> update
           ]
       )

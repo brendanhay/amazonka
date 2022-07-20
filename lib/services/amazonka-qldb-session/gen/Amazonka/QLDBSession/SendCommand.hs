@@ -42,27 +42,27 @@ module Amazonka.QLDBSession.SendCommand
     newSendCommand,
 
     -- * Request Lenses
-    sendCommand_fetchPage,
-    sendCommand_sessionToken,
     sendCommand_abortTransaction,
+    sendCommand_sessionToken,
+    sendCommand_executeStatement,
     sendCommand_endSession,
     sendCommand_startTransaction,
-    sendCommand_executeStatement,
-    sendCommand_commitTransaction,
     sendCommand_startSession,
+    sendCommand_commitTransaction,
+    sendCommand_fetchPage,
 
     -- * Destructuring the Response
     SendCommandResponse (..),
     newSendCommandResponse,
 
     -- * Response Lenses
-    sendCommandResponse_fetchPage,
     sendCommandResponse_abortTransaction,
+    sendCommandResponse_executeStatement,
     sendCommandResponse_endSession,
     sendCommandResponse_startTransaction,
-    sendCommandResponse_executeStatement,
-    sendCommandResponse_commitTransaction,
     sendCommandResponse_startSession,
+    sendCommandResponse_commitTransaction,
+    sendCommandResponse_fetchPage,
     sendCommandResponse_httpStatus,
   )
 where
@@ -76,8 +76,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSendCommand' smart constructor.
 data SendCommand = SendCommand'
-  { -- | Command to fetch a page.
-    fetchPage :: Prelude.Maybe FetchPageRequest,
+  { -- | Command to abort the current transaction.
+    abortTransaction :: Prelude.Maybe AbortTransactionRequest,
     -- | Specifies the session token for the current command. A session token is
     -- constant throughout the life of the session.
     --
@@ -85,19 +85,19 @@ data SendCommand = SendCommand'
     -- @SessionToken@ is required for every subsequent command that is issued
     -- during the current session.
     sessionToken :: Prelude.Maybe Prelude.Text,
-    -- | Command to abort the current transaction.
-    abortTransaction :: Prelude.Maybe AbortTransactionRequest,
+    -- | Command to execute a statement in the specified transaction.
+    executeStatement :: Prelude.Maybe ExecuteStatementRequest,
     -- | Command to end the current session.
     endSession :: Prelude.Maybe EndSessionRequest,
     -- | Command to start a new transaction.
     startTransaction :: Prelude.Maybe StartTransactionRequest,
-    -- | Command to execute a statement in the specified transaction.
-    executeStatement :: Prelude.Maybe ExecuteStatementRequest,
-    -- | Command to commit the specified transaction.
-    commitTransaction :: Prelude.Maybe CommitTransactionRequest,
     -- | Command to start a new session. A session token is obtained as part of
     -- the response.
-    startSession :: Prelude.Maybe StartSessionRequest
+    startSession :: Prelude.Maybe StartSessionRequest,
+    -- | Command to commit the specified transaction.
+    commitTransaction :: Prelude.Maybe CommitTransactionRequest,
+    -- | Command to fetch a page.
+    fetchPage :: Prelude.Maybe FetchPageRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,7 +109,7 @@ data SendCommand = SendCommand'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fetchPage', 'sendCommand_fetchPage' - Command to fetch a page.
+-- 'abortTransaction', 'sendCommand_abortTransaction' - Command to abort the current transaction.
 --
 -- 'sessionToken', 'sendCommand_sessionToken' - Specifies the session token for the current command. A session token is
 -- constant throughout the life of the session.
@@ -118,35 +118,35 @@ data SendCommand = SendCommand'
 -- @SessionToken@ is required for every subsequent command that is issued
 -- during the current session.
 --
--- 'abortTransaction', 'sendCommand_abortTransaction' - Command to abort the current transaction.
+-- 'executeStatement', 'sendCommand_executeStatement' - Command to execute a statement in the specified transaction.
 --
 -- 'endSession', 'sendCommand_endSession' - Command to end the current session.
 --
 -- 'startTransaction', 'sendCommand_startTransaction' - Command to start a new transaction.
 --
--- 'executeStatement', 'sendCommand_executeStatement' - Command to execute a statement in the specified transaction.
+-- 'startSession', 'sendCommand_startSession' - Command to start a new session. A session token is obtained as part of
+-- the response.
 --
 -- 'commitTransaction', 'sendCommand_commitTransaction' - Command to commit the specified transaction.
 --
--- 'startSession', 'sendCommand_startSession' - Command to start a new session. A session token is obtained as part of
--- the response.
+-- 'fetchPage', 'sendCommand_fetchPage' - Command to fetch a page.
 newSendCommand ::
   SendCommand
 newSendCommand =
   SendCommand'
-    { fetchPage = Prelude.Nothing,
+    { abortTransaction = Prelude.Nothing,
       sessionToken = Prelude.Nothing,
-      abortTransaction = Prelude.Nothing,
+      executeStatement = Prelude.Nothing,
       endSession = Prelude.Nothing,
       startTransaction = Prelude.Nothing,
-      executeStatement = Prelude.Nothing,
+      startSession = Prelude.Nothing,
       commitTransaction = Prelude.Nothing,
-      startSession = Prelude.Nothing
+      fetchPage = Prelude.Nothing
     }
 
--- | Command to fetch a page.
-sendCommand_fetchPage :: Lens.Lens' SendCommand (Prelude.Maybe FetchPageRequest)
-sendCommand_fetchPage = Lens.lens (\SendCommand' {fetchPage} -> fetchPage) (\s@SendCommand' {} a -> s {fetchPage = a} :: SendCommand)
+-- | Command to abort the current transaction.
+sendCommand_abortTransaction :: Lens.Lens' SendCommand (Prelude.Maybe AbortTransactionRequest)
+sendCommand_abortTransaction = Lens.lens (\SendCommand' {abortTransaction} -> abortTransaction) (\s@SendCommand' {} a -> s {abortTransaction = a} :: SendCommand)
 
 -- | Specifies the session token for the current command. A session token is
 -- constant throughout the life of the session.
@@ -157,9 +157,9 @@ sendCommand_fetchPage = Lens.lens (\SendCommand' {fetchPage} -> fetchPage) (\s@S
 sendCommand_sessionToken :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
 sendCommand_sessionToken = Lens.lens (\SendCommand' {sessionToken} -> sessionToken) (\s@SendCommand' {} a -> s {sessionToken = a} :: SendCommand)
 
--- | Command to abort the current transaction.
-sendCommand_abortTransaction :: Lens.Lens' SendCommand (Prelude.Maybe AbortTransactionRequest)
-sendCommand_abortTransaction = Lens.lens (\SendCommand' {abortTransaction} -> abortTransaction) (\s@SendCommand' {} a -> s {abortTransaction = a} :: SendCommand)
+-- | Command to execute a statement in the specified transaction.
+sendCommand_executeStatement :: Lens.Lens' SendCommand (Prelude.Maybe ExecuteStatementRequest)
+sendCommand_executeStatement = Lens.lens (\SendCommand' {executeStatement} -> executeStatement) (\s@SendCommand' {} a -> s {executeStatement = a} :: SendCommand)
 
 -- | Command to end the current session.
 sendCommand_endSession :: Lens.Lens' SendCommand (Prelude.Maybe EndSessionRequest)
@@ -169,18 +169,18 @@ sendCommand_endSession = Lens.lens (\SendCommand' {endSession} -> endSession) (\
 sendCommand_startTransaction :: Lens.Lens' SendCommand (Prelude.Maybe StartTransactionRequest)
 sendCommand_startTransaction = Lens.lens (\SendCommand' {startTransaction} -> startTransaction) (\s@SendCommand' {} a -> s {startTransaction = a} :: SendCommand)
 
--- | Command to execute a statement in the specified transaction.
-sendCommand_executeStatement :: Lens.Lens' SendCommand (Prelude.Maybe ExecuteStatementRequest)
-sendCommand_executeStatement = Lens.lens (\SendCommand' {executeStatement} -> executeStatement) (\s@SendCommand' {} a -> s {executeStatement = a} :: SendCommand)
+-- | Command to start a new session. A session token is obtained as part of
+-- the response.
+sendCommand_startSession :: Lens.Lens' SendCommand (Prelude.Maybe StartSessionRequest)
+sendCommand_startSession = Lens.lens (\SendCommand' {startSession} -> startSession) (\s@SendCommand' {} a -> s {startSession = a} :: SendCommand)
 
 -- | Command to commit the specified transaction.
 sendCommand_commitTransaction :: Lens.Lens' SendCommand (Prelude.Maybe CommitTransactionRequest)
 sendCommand_commitTransaction = Lens.lens (\SendCommand' {commitTransaction} -> commitTransaction) (\s@SendCommand' {} a -> s {commitTransaction = a} :: SendCommand)
 
--- | Command to start a new session. A session token is obtained as part of
--- the response.
-sendCommand_startSession :: Lens.Lens' SendCommand (Prelude.Maybe StartSessionRequest)
-sendCommand_startSession = Lens.lens (\SendCommand' {startSession} -> startSession) (\s@SendCommand' {} a -> s {startSession = a} :: SendCommand)
+-- | Command to fetch a page.
+sendCommand_fetchPage :: Lens.Lens' SendCommand (Prelude.Maybe FetchPageRequest)
+sendCommand_fetchPage = Lens.lens (\SendCommand' {fetchPage} -> fetchPage) (\s@SendCommand' {} a -> s {fetchPage = a} :: SendCommand)
 
 instance Core.AWSRequest SendCommand where
   type AWSResponse SendCommand = SendCommandResponse
@@ -189,37 +189,37 @@ instance Core.AWSRequest SendCommand where
     Response.receiveJSON
       ( \s h x ->
           SendCommandResponse'
-            Prelude.<$> (x Core..?> "FetchPage")
-            Prelude.<*> (x Core..?> "AbortTransaction")
+            Prelude.<$> (x Core..?> "AbortTransaction")
+            Prelude.<*> (x Core..?> "ExecuteStatement")
             Prelude.<*> (x Core..?> "EndSession")
             Prelude.<*> (x Core..?> "StartTransaction")
-            Prelude.<*> (x Core..?> "ExecuteStatement")
-            Prelude.<*> (x Core..?> "CommitTransaction")
             Prelude.<*> (x Core..?> "StartSession")
+            Prelude.<*> (x Core..?> "CommitTransaction")
+            Prelude.<*> (x Core..?> "FetchPage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SendCommand where
   hashWithSalt _salt SendCommand' {..} =
-    _salt `Prelude.hashWithSalt` fetchPage
+    _salt `Prelude.hashWithSalt` abortTransaction
       `Prelude.hashWithSalt` sessionToken
-      `Prelude.hashWithSalt` abortTransaction
+      `Prelude.hashWithSalt` executeStatement
       `Prelude.hashWithSalt` endSession
       `Prelude.hashWithSalt` startTransaction
-      `Prelude.hashWithSalt` executeStatement
-      `Prelude.hashWithSalt` commitTransaction
       `Prelude.hashWithSalt` startSession
+      `Prelude.hashWithSalt` commitTransaction
+      `Prelude.hashWithSalt` fetchPage
 
 instance Prelude.NFData SendCommand where
   rnf SendCommand' {..} =
-    Prelude.rnf fetchPage
+    Prelude.rnf abortTransaction
       `Prelude.seq` Prelude.rnf sessionToken
-      `Prelude.seq` Prelude.rnf abortTransaction
+      `Prelude.seq` Prelude.rnf executeStatement
       `Prelude.seq` Prelude.rnf endSession
       `Prelude.seq` Prelude.rnf startTransaction
-      `Prelude.seq` Prelude.rnf executeStatement
-      `Prelude.seq` Prelude.rnf commitTransaction
       `Prelude.seq` Prelude.rnf startSession
+      `Prelude.seq` Prelude.rnf commitTransaction
+      `Prelude.seq` Prelude.rnf fetchPage
 
 instance Core.ToHeaders SendCommand where
   toHeaders =
@@ -238,18 +238,18 @@ instance Core.ToJSON SendCommand where
   toJSON SendCommand' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FetchPage" Core..=) Prelude.<$> fetchPage,
-            ("SessionToken" Core..=) Prelude.<$> sessionToken,
-            ("AbortTransaction" Core..=)
+          [ ("AbortTransaction" Core..=)
               Prelude.<$> abortTransaction,
+            ("SessionToken" Core..=) Prelude.<$> sessionToken,
+            ("ExecuteStatement" Core..=)
+              Prelude.<$> executeStatement,
             ("EndSession" Core..=) Prelude.<$> endSession,
             ("StartTransaction" Core..=)
               Prelude.<$> startTransaction,
-            ("ExecuteStatement" Core..=)
-              Prelude.<$> executeStatement,
+            ("StartSession" Core..=) Prelude.<$> startSession,
             ("CommitTransaction" Core..=)
               Prelude.<$> commitTransaction,
-            ("StartSession" Core..=) Prelude.<$> startSession
+            ("FetchPage" Core..=) Prelude.<$> fetchPage
           ]
       )
 
@@ -261,22 +261,22 @@ instance Core.ToQuery SendCommand where
 
 -- | /See:/ 'newSendCommandResponse' smart constructor.
 data SendCommandResponse = SendCommandResponse'
-  { -- | Contains the details of the fetched page.
-    fetchPage :: Prelude.Maybe FetchPageResult,
-    -- | Contains the details of the aborted transaction.
+  { -- | Contains the details of the aborted transaction.
     abortTransaction :: Prelude.Maybe AbortTransactionResult,
+    -- | Contains the details of the executed statement.
+    executeStatement :: Prelude.Maybe ExecuteStatementResult,
     -- | Contains the details of the ended session.
     endSession :: Prelude.Maybe EndSessionResult,
     -- | Contains the details of the started transaction.
     startTransaction :: Prelude.Maybe StartTransactionResult,
-    -- | Contains the details of the executed statement.
-    executeStatement :: Prelude.Maybe ExecuteStatementResult,
-    -- | Contains the details of the committed transaction.
-    commitTransaction :: Prelude.Maybe CommitTransactionResult,
     -- | Contains the details of the started session that includes a session
     -- token. This @SessionToken@ is required for every subsequent command that
     -- is issued during the current session.
     startSession :: Prelude.Maybe StartSessionResult,
+    -- | Contains the details of the committed transaction.
+    commitTransaction :: Prelude.Maybe CommitTransactionResult,
+    -- | Contains the details of the fetched page.
+    fetchPage :: Prelude.Maybe FetchPageResult,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -290,21 +290,21 @@ data SendCommandResponse = SendCommandResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fetchPage', 'sendCommandResponse_fetchPage' - Contains the details of the fetched page.
---
 -- 'abortTransaction', 'sendCommandResponse_abortTransaction' - Contains the details of the aborted transaction.
+--
+-- 'executeStatement', 'sendCommandResponse_executeStatement' - Contains the details of the executed statement.
 --
 -- 'endSession', 'sendCommandResponse_endSession' - Contains the details of the ended session.
 --
 -- 'startTransaction', 'sendCommandResponse_startTransaction' - Contains the details of the started transaction.
 --
--- 'executeStatement', 'sendCommandResponse_executeStatement' - Contains the details of the executed statement.
---
--- 'commitTransaction', 'sendCommandResponse_commitTransaction' - Contains the details of the committed transaction.
---
 -- 'startSession', 'sendCommandResponse_startSession' - Contains the details of the started session that includes a session
 -- token. This @SessionToken@ is required for every subsequent command that
 -- is issued during the current session.
+--
+-- 'commitTransaction', 'sendCommandResponse_commitTransaction' - Contains the details of the committed transaction.
+--
+-- 'fetchPage', 'sendCommandResponse_fetchPage' - Contains the details of the fetched page.
 --
 -- 'httpStatus', 'sendCommandResponse_httpStatus' - The response's http status code.
 newSendCommandResponse ::
@@ -313,23 +313,24 @@ newSendCommandResponse ::
   SendCommandResponse
 newSendCommandResponse pHttpStatus_ =
   SendCommandResponse'
-    { fetchPage = Prelude.Nothing,
-      abortTransaction = Prelude.Nothing,
+    { abortTransaction =
+        Prelude.Nothing,
+      executeStatement = Prelude.Nothing,
       endSession = Prelude.Nothing,
       startTransaction = Prelude.Nothing,
-      executeStatement = Prelude.Nothing,
-      commitTransaction = Prelude.Nothing,
       startSession = Prelude.Nothing,
+      commitTransaction = Prelude.Nothing,
+      fetchPage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains the details of the fetched page.
-sendCommandResponse_fetchPage :: Lens.Lens' SendCommandResponse (Prelude.Maybe FetchPageResult)
-sendCommandResponse_fetchPage = Lens.lens (\SendCommandResponse' {fetchPage} -> fetchPage) (\s@SendCommandResponse' {} a -> s {fetchPage = a} :: SendCommandResponse)
 
 -- | Contains the details of the aborted transaction.
 sendCommandResponse_abortTransaction :: Lens.Lens' SendCommandResponse (Prelude.Maybe AbortTransactionResult)
 sendCommandResponse_abortTransaction = Lens.lens (\SendCommandResponse' {abortTransaction} -> abortTransaction) (\s@SendCommandResponse' {} a -> s {abortTransaction = a} :: SendCommandResponse)
+
+-- | Contains the details of the executed statement.
+sendCommandResponse_executeStatement :: Lens.Lens' SendCommandResponse (Prelude.Maybe ExecuteStatementResult)
+sendCommandResponse_executeStatement = Lens.lens (\SendCommandResponse' {executeStatement} -> executeStatement) (\s@SendCommandResponse' {} a -> s {executeStatement = a} :: SendCommandResponse)
 
 -- | Contains the details of the ended session.
 sendCommandResponse_endSession :: Lens.Lens' SendCommandResponse (Prelude.Maybe EndSessionResult)
@@ -339,19 +340,19 @@ sendCommandResponse_endSession = Lens.lens (\SendCommandResponse' {endSession} -
 sendCommandResponse_startTransaction :: Lens.Lens' SendCommandResponse (Prelude.Maybe StartTransactionResult)
 sendCommandResponse_startTransaction = Lens.lens (\SendCommandResponse' {startTransaction} -> startTransaction) (\s@SendCommandResponse' {} a -> s {startTransaction = a} :: SendCommandResponse)
 
--- | Contains the details of the executed statement.
-sendCommandResponse_executeStatement :: Lens.Lens' SendCommandResponse (Prelude.Maybe ExecuteStatementResult)
-sendCommandResponse_executeStatement = Lens.lens (\SendCommandResponse' {executeStatement} -> executeStatement) (\s@SendCommandResponse' {} a -> s {executeStatement = a} :: SendCommandResponse)
-
--- | Contains the details of the committed transaction.
-sendCommandResponse_commitTransaction :: Lens.Lens' SendCommandResponse (Prelude.Maybe CommitTransactionResult)
-sendCommandResponse_commitTransaction = Lens.lens (\SendCommandResponse' {commitTransaction} -> commitTransaction) (\s@SendCommandResponse' {} a -> s {commitTransaction = a} :: SendCommandResponse)
-
 -- | Contains the details of the started session that includes a session
 -- token. This @SessionToken@ is required for every subsequent command that
 -- is issued during the current session.
 sendCommandResponse_startSession :: Lens.Lens' SendCommandResponse (Prelude.Maybe StartSessionResult)
 sendCommandResponse_startSession = Lens.lens (\SendCommandResponse' {startSession} -> startSession) (\s@SendCommandResponse' {} a -> s {startSession = a} :: SendCommandResponse)
+
+-- | Contains the details of the committed transaction.
+sendCommandResponse_commitTransaction :: Lens.Lens' SendCommandResponse (Prelude.Maybe CommitTransactionResult)
+sendCommandResponse_commitTransaction = Lens.lens (\SendCommandResponse' {commitTransaction} -> commitTransaction) (\s@SendCommandResponse' {} a -> s {commitTransaction = a} :: SendCommandResponse)
+
+-- | Contains the details of the fetched page.
+sendCommandResponse_fetchPage :: Lens.Lens' SendCommandResponse (Prelude.Maybe FetchPageResult)
+sendCommandResponse_fetchPage = Lens.lens (\SendCommandResponse' {fetchPage} -> fetchPage) (\s@SendCommandResponse' {} a -> s {fetchPage = a} :: SendCommandResponse)
 
 -- | The response's http status code.
 sendCommandResponse_httpStatus :: Lens.Lens' SendCommandResponse Prelude.Int
@@ -359,11 +360,11 @@ sendCommandResponse_httpStatus = Lens.lens (\SendCommandResponse' {httpStatus} -
 
 instance Prelude.NFData SendCommandResponse where
   rnf SendCommandResponse' {..} =
-    Prelude.rnf fetchPage
-      `Prelude.seq` Prelude.rnf abortTransaction
+    Prelude.rnf abortTransaction
+      `Prelude.seq` Prelude.rnf executeStatement
       `Prelude.seq` Prelude.rnf endSession
       `Prelude.seq` Prelude.rnf startTransaction
-      `Prelude.seq` Prelude.rnf executeStatement
-      `Prelude.seq` Prelude.rnf commitTransaction
       `Prelude.seq` Prelude.rnf startSession
+      `Prelude.seq` Prelude.rnf commitTransaction
+      `Prelude.seq` Prelude.rnf fetchPage
       `Prelude.seq` Prelude.rnf httpStatus

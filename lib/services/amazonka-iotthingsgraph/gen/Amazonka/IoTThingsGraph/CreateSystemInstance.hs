@@ -47,11 +47,11 @@ module Amazonka.IoTThingsGraph.CreateSystemInstance
     newCreateSystemInstance,
 
     -- * Request Lenses
-    createSystemInstance_metricsConfiguration,
-    createSystemInstance_greengrassGroupName,
-    createSystemInstance_flowActionsRoleArn,
-    createSystemInstance_s3BucketName,
     createSystemInstance_tags,
+    createSystemInstance_s3BucketName,
+    createSystemInstance_greengrassGroupName,
+    createSystemInstance_metricsConfiguration,
+    createSystemInstance_flowActionsRoleArn,
     createSystemInstance_definition,
     createSystemInstance_target,
 
@@ -74,24 +74,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSystemInstance' smart constructor.
 data CreateSystemInstance = CreateSystemInstance'
-  { metricsConfiguration :: Prelude.Maybe MetricsConfiguration,
+  { -- | Metadata, consisting of key-value pairs, that can be used to categorize
+    -- your system instances.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name of the Amazon Simple Storage Service bucket that will be used
+    -- to store and deploy the system instance\'s resource file. This value is
+    -- required if the value of the @target@ parameter is @GREENGRASS@.
+    s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The name of the Greengrass group where the system instance will be
     -- deployed. This value is required if the value of the @target@ parameter
     -- is @GREENGRASS@.
     greengrassGroupName :: Prelude.Maybe Prelude.Text,
+    metricsConfiguration :: Prelude.Maybe MetricsConfiguration,
     -- | The ARN of the IAM role that AWS IoT Things Graph will assume when it
     -- executes the flow. This role must have read and write access to AWS
     -- Lambda and AWS IoT and any other AWS services that the flow uses when it
     -- executes. This value is required if the value of the @target@ parameter
     -- is @CLOUD@.
     flowActionsRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon Simple Storage Service bucket that will be used
-    -- to store and deploy the system instance\'s resource file. This value is
-    -- required if the value of the @target@ parameter is @GREENGRASS@.
-    s3BucketName :: Prelude.Maybe Prelude.Text,
-    -- | Metadata, consisting of key-value pairs, that can be used to categorize
-    -- your system instances.
-    tags :: Prelude.Maybe [Tag],
     definition :: DefinitionDocument,
     -- | The target type of the deployment. Valid values are @GREENGRASS@ and
     -- @CLOUD@.
@@ -107,24 +107,24 @@ data CreateSystemInstance = CreateSystemInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricsConfiguration', 'createSystemInstance_metricsConfiguration' - Undocumented member.
+-- 'tags', 'createSystemInstance_tags' - Metadata, consisting of key-value pairs, that can be used to categorize
+-- your system instances.
+--
+-- 's3BucketName', 'createSystemInstance_s3BucketName' - The name of the Amazon Simple Storage Service bucket that will be used
+-- to store and deploy the system instance\'s resource file. This value is
+-- required if the value of the @target@ parameter is @GREENGRASS@.
 --
 -- 'greengrassGroupName', 'createSystemInstance_greengrassGroupName' - The name of the Greengrass group where the system instance will be
 -- deployed. This value is required if the value of the @target@ parameter
 -- is @GREENGRASS@.
+--
+-- 'metricsConfiguration', 'createSystemInstance_metricsConfiguration' - Undocumented member.
 --
 -- 'flowActionsRoleArn', 'createSystemInstance_flowActionsRoleArn' - The ARN of the IAM role that AWS IoT Things Graph will assume when it
 -- executes the flow. This role must have read and write access to AWS
 -- Lambda and AWS IoT and any other AWS services that the flow uses when it
 -- executes. This value is required if the value of the @target@ parameter
 -- is @CLOUD@.
---
--- 's3BucketName', 'createSystemInstance_s3BucketName' - The name of the Amazon Simple Storage Service bucket that will be used
--- to store and deploy the system instance\'s resource file. This value is
--- required if the value of the @target@ parameter is @GREENGRASS@.
---
--- 'tags', 'createSystemInstance_tags' - Metadata, consisting of key-value pairs, that can be used to categorize
--- your system instances.
 --
 -- 'definition', 'createSystemInstance_definition' - Undocumented member.
 --
@@ -138,25 +138,35 @@ newCreateSystemInstance ::
   CreateSystemInstance
 newCreateSystemInstance pDefinition_ pTarget_ =
   CreateSystemInstance'
-    { metricsConfiguration =
-        Prelude.Nothing,
-      greengrassGroupName = Prelude.Nothing,
-      flowActionsRoleArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       s3BucketName = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      greengrassGroupName = Prelude.Nothing,
+      metricsConfiguration = Prelude.Nothing,
+      flowActionsRoleArn = Prelude.Nothing,
       definition = pDefinition_,
       target = pTarget_
     }
 
--- | Undocumented member.
-createSystemInstance_metricsConfiguration :: Lens.Lens' CreateSystemInstance (Prelude.Maybe MetricsConfiguration)
-createSystemInstance_metricsConfiguration = Lens.lens (\CreateSystemInstance' {metricsConfiguration} -> metricsConfiguration) (\s@CreateSystemInstance' {} a -> s {metricsConfiguration = a} :: CreateSystemInstance)
+-- | Metadata, consisting of key-value pairs, that can be used to categorize
+-- your system instances.
+createSystemInstance_tags :: Lens.Lens' CreateSystemInstance (Prelude.Maybe [Tag])
+createSystemInstance_tags = Lens.lens (\CreateSystemInstance' {tags} -> tags) (\s@CreateSystemInstance' {} a -> s {tags = a} :: CreateSystemInstance) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the Amazon Simple Storage Service bucket that will be used
+-- to store and deploy the system instance\'s resource file. This value is
+-- required if the value of the @target@ parameter is @GREENGRASS@.
+createSystemInstance_s3BucketName :: Lens.Lens' CreateSystemInstance (Prelude.Maybe Prelude.Text)
+createSystemInstance_s3BucketName = Lens.lens (\CreateSystemInstance' {s3BucketName} -> s3BucketName) (\s@CreateSystemInstance' {} a -> s {s3BucketName = a} :: CreateSystemInstance)
 
 -- | The name of the Greengrass group where the system instance will be
 -- deployed. This value is required if the value of the @target@ parameter
 -- is @GREENGRASS@.
 createSystemInstance_greengrassGroupName :: Lens.Lens' CreateSystemInstance (Prelude.Maybe Prelude.Text)
 createSystemInstance_greengrassGroupName = Lens.lens (\CreateSystemInstance' {greengrassGroupName} -> greengrassGroupName) (\s@CreateSystemInstance' {} a -> s {greengrassGroupName = a} :: CreateSystemInstance)
+
+-- | Undocumented member.
+createSystemInstance_metricsConfiguration :: Lens.Lens' CreateSystemInstance (Prelude.Maybe MetricsConfiguration)
+createSystemInstance_metricsConfiguration = Lens.lens (\CreateSystemInstance' {metricsConfiguration} -> metricsConfiguration) (\s@CreateSystemInstance' {} a -> s {metricsConfiguration = a} :: CreateSystemInstance)
 
 -- | The ARN of the IAM role that AWS IoT Things Graph will assume when it
 -- executes the flow. This role must have read and write access to AWS
@@ -165,17 +175,6 @@ createSystemInstance_greengrassGroupName = Lens.lens (\CreateSystemInstance' {gr
 -- is @CLOUD@.
 createSystemInstance_flowActionsRoleArn :: Lens.Lens' CreateSystemInstance (Prelude.Maybe Prelude.Text)
 createSystemInstance_flowActionsRoleArn = Lens.lens (\CreateSystemInstance' {flowActionsRoleArn} -> flowActionsRoleArn) (\s@CreateSystemInstance' {} a -> s {flowActionsRoleArn = a} :: CreateSystemInstance)
-
--- | The name of the Amazon Simple Storage Service bucket that will be used
--- to store and deploy the system instance\'s resource file. This value is
--- required if the value of the @target@ parameter is @GREENGRASS@.
-createSystemInstance_s3BucketName :: Lens.Lens' CreateSystemInstance (Prelude.Maybe Prelude.Text)
-createSystemInstance_s3BucketName = Lens.lens (\CreateSystemInstance' {s3BucketName} -> s3BucketName) (\s@CreateSystemInstance' {} a -> s {s3BucketName = a} :: CreateSystemInstance)
-
--- | Metadata, consisting of key-value pairs, that can be used to categorize
--- your system instances.
-createSystemInstance_tags :: Lens.Lens' CreateSystemInstance (Prelude.Maybe [Tag])
-createSystemInstance_tags = Lens.lens (\CreateSystemInstance' {tags} -> tags) (\s@CreateSystemInstance' {} a -> s {tags = a} :: CreateSystemInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createSystemInstance_definition :: Lens.Lens' CreateSystemInstance DefinitionDocument
@@ -201,21 +200,21 @@ instance Core.AWSRequest CreateSystemInstance where
 
 instance Prelude.Hashable CreateSystemInstance where
   hashWithSalt _salt CreateSystemInstance' {..} =
-    _salt `Prelude.hashWithSalt` metricsConfiguration
-      `Prelude.hashWithSalt` greengrassGroupName
-      `Prelude.hashWithSalt` flowActionsRoleArn
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` s3BucketName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` greengrassGroupName
+      `Prelude.hashWithSalt` metricsConfiguration
+      `Prelude.hashWithSalt` flowActionsRoleArn
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData CreateSystemInstance where
   rnf CreateSystemInstance' {..} =
-    Prelude.rnf metricsConfiguration
-      `Prelude.seq` Prelude.rnf greengrassGroupName
-      `Prelude.seq` Prelude.rnf flowActionsRoleArn
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf s3BucketName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf greengrassGroupName
+      `Prelude.seq` Prelude.rnf metricsConfiguration
+      `Prelude.seq` Prelude.rnf flowActionsRoleArn
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf target
 
@@ -238,14 +237,14 @@ instance Core.ToJSON CreateSystemInstance where
   toJSON CreateSystemInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("metricsConfiguration" Core..=)
-              Prelude.<$> metricsConfiguration,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("s3BucketName" Core..=) Prelude.<$> s3BucketName,
             ("greengrassGroupName" Core..=)
               Prelude.<$> greengrassGroupName,
+            ("metricsConfiguration" Core..=)
+              Prelude.<$> metricsConfiguration,
             ("flowActionsRoleArn" Core..=)
               Prelude.<$> flowActionsRoleArn,
-            ("s3BucketName" Core..=) Prelude.<$> s3BucketName,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("definition" Core..= definition),
             Prelude.Just ("target" Core..= target)
           ]

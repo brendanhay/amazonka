@@ -72,10 +72,10 @@ module Amazonka.SageMaker.CreateDomain
     newCreateDomain,
 
     -- * Request Lenses
-    createDomain_homeEfsFileSystemKmsKeyId,
-    createDomain_kmsKeyId,
-    createDomain_appNetworkAccessType,
     createDomain_tags,
+    createDomain_kmsKeyId,
+    createDomain_homeEfsFileSystemKmsKeyId,
+    createDomain_appNetworkAccessType,
     createDomain_domainName,
     createDomain_authMode,
     createDomain_defaultUserSettings,
@@ -102,12 +102,19 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { -- | This member is deprecated and replaced with @KmsKeyId@.
-    homeEfsFileSystemKmsKeyId :: Prelude.Maybe Prelude.Text,
+  { -- | Tags to associated with the Domain. Each tag consists of a key and an
+    -- optional value. Tag keys must be unique per resource. Tags are
+    -- searchable using the @Search@ API.
+    --
+    -- Tags that you specify for the Domain are also added to all Apps that the
+    -- Domain launches.
+    tags :: Prelude.Maybe [Tag],
     -- | SageMaker uses Amazon Web Services KMS to encrypt the EFS volume
     -- attached to the domain with an Amazon Web Services managed key by
     -- default. For more control, specify a customer managed key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | This member is deprecated and replaced with @KmsKeyId@.
+    homeEfsFileSystemKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the VPC used for non-EFS traffic. The default value is
     -- @PublicInternetOnly@.
     --
@@ -117,13 +124,6 @@ data CreateDomain = CreateDomain'
     -- -   @VpcOnly@ - All Studio traffic is through the specified VPC and
     --     subnets
     appNetworkAccessType :: Prelude.Maybe AppNetworkAccessType,
-    -- | Tags to associated with the Domain. Each tag consists of a key and an
-    -- optional value. Tag keys must be unique per resource. Tags are
-    -- searchable using the @Search@ API.
-    --
-    -- Tags that you specify for the Domain are also added to all Apps that the
-    -- Domain launches.
-    tags :: Prelude.Maybe [Tag],
     -- | A name for the domain.
     domainName :: Prelude.Text,
     -- | The mode of authentication that members use to access the domain.
@@ -152,11 +152,18 @@ data CreateDomain = CreateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'homeEfsFileSystemKmsKeyId', 'createDomain_homeEfsFileSystemKmsKeyId' - This member is deprecated and replaced with @KmsKeyId@.
+-- 'tags', 'createDomain_tags' - Tags to associated with the Domain. Each tag consists of a key and an
+-- optional value. Tag keys must be unique per resource. Tags are
+-- searchable using the @Search@ API.
+--
+-- Tags that you specify for the Domain are also added to all Apps that the
+-- Domain launches.
 --
 -- 'kmsKeyId', 'createDomain_kmsKeyId' - SageMaker uses Amazon Web Services KMS to encrypt the EFS volume
 -- attached to the domain with an Amazon Web Services managed key by
 -- default. For more control, specify a customer managed key.
+--
+-- 'homeEfsFileSystemKmsKeyId', 'createDomain_homeEfsFileSystemKmsKeyId' - This member is deprecated and replaced with @KmsKeyId@.
 --
 -- 'appNetworkAccessType', 'createDomain_appNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is
 -- @PublicInternetOnly@.
@@ -166,13 +173,6 @@ data CreateDomain = CreateDomain'
 --
 -- -   @VpcOnly@ - All Studio traffic is through the specified VPC and
 --     subnets
---
--- 'tags', 'createDomain_tags' - Tags to associated with the Domain. Each tag consists of a key and an
--- optional value. Tag keys must be unique per resource. Tags are
--- searchable using the @Search@ API.
---
--- Tags that you specify for the Domain are also added to all Apps that the
--- Domain launches.
 --
 -- 'domainName', 'createDomain_domainName' - A name for the domain.
 --
@@ -209,11 +209,10 @@ newCreateDomain
   pSubnetIds_
   pVpcId_ =
     CreateDomain'
-      { homeEfsFileSystemKmsKeyId =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        homeEfsFileSystemKmsKeyId = Prelude.Nothing,
         appNetworkAccessType = Prelude.Nothing,
-        tags = Prelude.Nothing,
         domainName = pDomainName_,
         authMode = pAuthMode_,
         defaultUserSettings = pDefaultUserSettings_,
@@ -221,15 +220,24 @@ newCreateDomain
         vpcId = pVpcId_
       }
 
--- | This member is deprecated and replaced with @KmsKeyId@.
-createDomain_homeEfsFileSystemKmsKeyId :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
-createDomain_homeEfsFileSystemKmsKeyId = Lens.lens (\CreateDomain' {homeEfsFileSystemKmsKeyId} -> homeEfsFileSystemKmsKeyId) (\s@CreateDomain' {} a -> s {homeEfsFileSystemKmsKeyId = a} :: CreateDomain)
+-- | Tags to associated with the Domain. Each tag consists of a key and an
+-- optional value. Tag keys must be unique per resource. Tags are
+-- searchable using the @Search@ API.
+--
+-- Tags that you specify for the Domain are also added to all Apps that the
+-- Domain launches.
+createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
+createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | SageMaker uses Amazon Web Services KMS to encrypt the EFS volume
 -- attached to the domain with an Amazon Web Services managed key by
 -- default. For more control, specify a customer managed key.
 createDomain_kmsKeyId :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_kmsKeyId = Lens.lens (\CreateDomain' {kmsKeyId} -> kmsKeyId) (\s@CreateDomain' {} a -> s {kmsKeyId = a} :: CreateDomain)
+
+-- | This member is deprecated and replaced with @KmsKeyId@.
+createDomain_homeEfsFileSystemKmsKeyId :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
+createDomain_homeEfsFileSystemKmsKeyId = Lens.lens (\CreateDomain' {homeEfsFileSystemKmsKeyId} -> homeEfsFileSystemKmsKeyId) (\s@CreateDomain' {} a -> s {homeEfsFileSystemKmsKeyId = a} :: CreateDomain)
 
 -- | Specifies the VPC used for non-EFS traffic. The default value is
 -- @PublicInternetOnly@.
@@ -241,15 +249,6 @@ createDomain_kmsKeyId = Lens.lens (\CreateDomain' {kmsKeyId} -> kmsKeyId) (\s@Cr
 --     subnets
 createDomain_appNetworkAccessType :: Lens.Lens' CreateDomain (Prelude.Maybe AppNetworkAccessType)
 createDomain_appNetworkAccessType = Lens.lens (\CreateDomain' {appNetworkAccessType} -> appNetworkAccessType) (\s@CreateDomain' {} a -> s {appNetworkAccessType = a} :: CreateDomain)
-
--- | Tags to associated with the Domain. Each tag consists of a key and an
--- optional value. Tag keys must be unique per resource. Tags are
--- searchable using the @Search@ API.
---
--- Tags that you specify for the Domain are also added to all Apps that the
--- Domain launches.
-createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
-createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the domain.
 createDomain_domainName :: Lens.Lens' CreateDomain Prelude.Text
@@ -292,11 +291,10 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt
-      `Prelude.hashWithSalt` homeEfsFileSystemKmsKeyId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` homeEfsFileSystemKmsKeyId
       `Prelude.hashWithSalt` appNetworkAccessType
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` authMode
       `Prelude.hashWithSalt` defaultUserSettings
@@ -305,10 +303,10 @@ instance Prelude.Hashable CreateDomain where
 
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
-    Prelude.rnf homeEfsFileSystemKmsKeyId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf homeEfsFileSystemKmsKeyId
       `Prelude.seq` Prelude.rnf appNetworkAccessType
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf authMode
       `Prelude.seq` Prelude.rnf defaultUserSettings
@@ -332,12 +330,12 @@ instance Core.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("HomeEfsFileSystemKmsKeyId" Core..=)
-              Prelude.<$> homeEfsFileSystemKmsKeyId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("HomeEfsFileSystemKmsKeyId" Core..=)
+              Prelude.<$> homeEfsFileSystemKmsKeyId,
             ("AppNetworkAccessType" Core..=)
               Prelude.<$> appNetworkAccessType,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("DomainName" Core..= domainName),
             Prelude.Just ("AuthMode" Core..= authMode),
             Prelude.Just

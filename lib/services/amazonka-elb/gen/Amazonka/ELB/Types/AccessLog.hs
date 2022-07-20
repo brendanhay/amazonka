@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessLog' smart constructor.
 data AccessLog = AccessLog'
-  { -- | The interval for publishing the access logs. You can specify an interval
-    -- of either 5 minutes or 60 minutes.
-    --
-    -- Default: 60 minutes
-    emitInterval :: Prelude.Maybe Prelude.Int,
-    -- | The logical hierarchy you created for your Amazon S3 bucket, for example
+  { -- | The logical hierarchy you created for your Amazon S3 bucket, for example
     -- @my-bucket-prefix\/prod@. If the prefix is not provided, the log is
     -- placed at the root level of the bucket.
     s3BucketPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket where the access logs are stored.
     s3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | The interval for publishing the access logs. You can specify an interval
+    -- of either 5 minutes or 60 minutes.
+    --
+    -- Default: 60 minutes
+    emitInterval :: Prelude.Maybe Prelude.Int,
     -- | Specifies whether access logs are enabled for the load balancer.
     enabled :: Prelude.Bool
   }
@@ -52,16 +52,16 @@ data AccessLog = AccessLog'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emitInterval', 'accessLog_emitInterval' - The interval for publishing the access logs. You can specify an interval
--- of either 5 minutes or 60 minutes.
---
--- Default: 60 minutes
---
 -- 's3BucketPrefix', 'accessLog_s3BucketPrefix' - The logical hierarchy you created for your Amazon S3 bucket, for example
 -- @my-bucket-prefix\/prod@. If the prefix is not provided, the log is
 -- placed at the root level of the bucket.
 --
 -- 's3BucketName', 'accessLog_s3BucketName' - The name of the Amazon S3 bucket where the access logs are stored.
+--
+-- 'emitInterval', 'accessLog_emitInterval' - The interval for publishing the access logs. You can specify an interval
+-- of either 5 minutes or 60 minutes.
+--
+-- Default: 60 minutes
 --
 -- 'enabled', 'accessLog_enabled' - Specifies whether access logs are enabled for the load balancer.
 newAccessLog ::
@@ -70,18 +70,11 @@ newAccessLog ::
   AccessLog
 newAccessLog pEnabled_ =
   AccessLog'
-    { emitInterval = Prelude.Nothing,
-      s3BucketPrefix = Prelude.Nothing,
+    { s3BucketPrefix = Prelude.Nothing,
       s3BucketName = Prelude.Nothing,
+      emitInterval = Prelude.Nothing,
       enabled = pEnabled_
     }
-
--- | The interval for publishing the access logs. You can specify an interval
--- of either 5 minutes or 60 minutes.
---
--- Default: 60 minutes
-accessLog_emitInterval :: Lens.Lens' AccessLog (Prelude.Maybe Prelude.Int)
-accessLog_emitInterval = Lens.lens (\AccessLog' {emitInterval} -> emitInterval) (\s@AccessLog' {} a -> s {emitInterval = a} :: AccessLog)
 
 -- | The logical hierarchy you created for your Amazon S3 bucket, for example
 -- @my-bucket-prefix\/prod@. If the prefix is not provided, the log is
@@ -93,6 +86,13 @@ accessLog_s3BucketPrefix = Lens.lens (\AccessLog' {s3BucketPrefix} -> s3BucketPr
 accessLog_s3BucketName :: Lens.Lens' AccessLog (Prelude.Maybe Prelude.Text)
 accessLog_s3BucketName = Lens.lens (\AccessLog' {s3BucketName} -> s3BucketName) (\s@AccessLog' {} a -> s {s3BucketName = a} :: AccessLog)
 
+-- | The interval for publishing the access logs. You can specify an interval
+-- of either 5 minutes or 60 minutes.
+--
+-- Default: 60 minutes
+accessLog_emitInterval :: Lens.Lens' AccessLog (Prelude.Maybe Prelude.Int)
+accessLog_emitInterval = Lens.lens (\AccessLog' {emitInterval} -> emitInterval) (\s@AccessLog' {} a -> s {emitInterval = a} :: AccessLog)
+
 -- | Specifies whether access logs are enabled for the load balancer.
 accessLog_enabled :: Lens.Lens' AccessLog Prelude.Bool
 accessLog_enabled = Lens.lens (\AccessLog' {enabled} -> enabled) (\s@AccessLog' {} a -> s {enabled = a} :: AccessLog)
@@ -100,30 +100,30 @@ accessLog_enabled = Lens.lens (\AccessLog' {enabled} -> enabled) (\s@AccessLog' 
 instance Core.FromXML AccessLog where
   parseXML x =
     AccessLog'
-      Prelude.<$> (x Core..@? "EmitInterval")
-      Prelude.<*> (x Core..@? "S3BucketPrefix")
+      Prelude.<$> (x Core..@? "S3BucketPrefix")
       Prelude.<*> (x Core..@? "S3BucketName")
+      Prelude.<*> (x Core..@? "EmitInterval")
       Prelude.<*> (x Core..@ "Enabled")
 
 instance Prelude.Hashable AccessLog where
   hashWithSalt _salt AccessLog' {..} =
-    _salt `Prelude.hashWithSalt` emitInterval
-      `Prelude.hashWithSalt` s3BucketPrefix
+    _salt `Prelude.hashWithSalt` s3BucketPrefix
       `Prelude.hashWithSalt` s3BucketName
+      `Prelude.hashWithSalt` emitInterval
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData AccessLog where
   rnf AccessLog' {..} =
-    Prelude.rnf emitInterval
-      `Prelude.seq` Prelude.rnf s3BucketPrefix
+    Prelude.rnf s3BucketPrefix
       `Prelude.seq` Prelude.rnf s3BucketName
+      `Prelude.seq` Prelude.rnf emitInterval
       `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToQuery AccessLog where
   toQuery AccessLog' {..} =
     Prelude.mconcat
-      [ "EmitInterval" Core.=: emitInterval,
-        "S3BucketPrefix" Core.=: s3BucketPrefix,
+      [ "S3BucketPrefix" Core.=: s3BucketPrefix,
         "S3BucketName" Core.=: s3BucketName,
+        "EmitInterval" Core.=: emitInterval,
         "Enabled" Core.=: enabled
       ]

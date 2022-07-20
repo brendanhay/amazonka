@@ -12,27 +12,18 @@ module Amazonka.Auth.STS where
 import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.Exception
 import Amazonka.Env (Env, Env' (..))
-import Amazonka.HTTP (retryRequest)
 import Amazonka.Lens (throwingM, (^.))
 import Amazonka.Prelude
 import qualified Amazonka.STS as STS
 import qualified Amazonka.STS.AssumeRole as STS
 import qualified Amazonka.STS.AssumeRoleWithWebIdentity as STS
-import Amazonka.Send (sendUnsigned)
-import qualified Control.Exception as Exception
+import Amazonka.Send (send, sendUnsigned)
 import Control.Monad.Trans.Resource (runResourceT)
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
 import qualified Data.UUID as UUID
 import qualified Data.UUID.V4 as UUID
-import qualified Network.HTTP.Client as Client
 import qualified System.Environment as Environment
-
--- NOTE: The implementations in this file are ugly because they must
--- use primitive operations from Amazonka.HTTP to avoid circular
--- module dependencies. If you are writing your own functions in this
--- vein, you will have access to 'Amazonka.send', which should make
--- things nicer.
 
 -- | Assume a role using the @sts:AssumeRole@ API.
 --
@@ -53,15 +44,8 @@ fromAssumedRole ::
 fromAssumedRole roleArn roleSessionName env = do
   let getCredentials = do
         let assumeRole = STS.newAssumeRole roleArn roleSessionName
-        eResponse <- runResourceT $ retryRequest env assumeRole
-        clientResponse <- either (liftIO . Exception.throwIO) pure eResponse
-        let mCredentials =
-              Client.responseBody clientResponse
-                ^. STS.assumeRoleResponse_credentials
-        case mCredentials of
-          Nothing ->
-            fail "sts:AssumeRole returned no credentials."
-          Just c -> pure c
+        resp <- runResourceT $ send env assumeRole
+        pure $ resp ^. STS.assumeRoleResponse_credentials
   auth <- liftIO $ fetchAuthInBackground getCredentials
   pure env {envAuth = Identity auth}
 
@@ -100,12 +84,7 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
                 token
 
         resp <- runResourceT $ sendUnsigned env assumeRoleWithWebIdentity
-        let mCreds =
-              resp ^. STS.assumeRoleWithWebIdentityResponse_credentials
-        case mCreds of
-          Nothing ->
-            fail "sts:AssumeRoleWithWebIdentity returned no credentials."
-          Just c -> pure c
+        pure $ resp ^. STS.assumeRoleWithWebIdentityResponse_credentials
 
   -- As the credentials from STS are temporary, we start a thread that is able
   -- to fetch new ones automatically on expiry.

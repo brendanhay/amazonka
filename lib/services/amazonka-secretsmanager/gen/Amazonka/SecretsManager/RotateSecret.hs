@@ -87,9 +87,9 @@ module Amazonka.SecretsManager.RotateSecret
     newRotateSecret,
 
     -- * Request Lenses
-    rotateSecret_rotationRules,
-    rotateSecret_clientRequestToken,
     rotateSecret_rotationLambdaARN,
+    rotateSecret_clientRequestToken,
+    rotateSecret_rotationRules,
     rotateSecret_secretId,
 
     -- * Destructuring the Response
@@ -97,9 +97,9 @@ module Amazonka.SecretsManager.RotateSecret
     newRotateSecretResponse,
 
     -- * Response Lenses
-    rotateSecretResponse_versionId,
-    rotateSecretResponse_arn,
     rotateSecretResponse_name,
+    rotateSecretResponse_arn,
+    rotateSecretResponse_versionId,
     rotateSecretResponse_httpStatus,
   )
 where
@@ -113,8 +113,9 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newRotateSecret' smart constructor.
 data RotateSecret = RotateSecret'
-  { -- | A structure that defines the rotation configuration for this secret.
-    rotationRules :: Prelude.Maybe RotationRulesType,
+  { -- | (Optional) Specifies the ARN of the Lambda function that can rotate the
+    -- secret.
+    rotationLambdaARN :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies a unique identifier for the new version of the
     -- secret that helps ensure idempotency.
     --
@@ -137,9 +138,8 @@ data RotateSecret = RotateSecret'
     -- function\'s processing. This value becomes the @VersionId@ of the new
     -- version.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Specifies the ARN of the Lambda function that can rotate the
-    -- secret.
-    rotationLambdaARN :: Prelude.Maybe Prelude.Text,
+    -- | A structure that defines the rotation configuration for this secret.
+    rotationRules :: Prelude.Maybe RotationRulesType,
     -- | Specifies the secret that you want to rotate. You can specify either the
     -- Amazon Resource Name (ARN) or the friendly name of the secret.
     --
@@ -157,7 +157,8 @@ data RotateSecret = RotateSecret'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rotationRules', 'rotateSecret_rotationRules' - A structure that defines the rotation configuration for this secret.
+-- 'rotationLambdaARN', 'rotateSecret_rotationLambdaARN' - (Optional) Specifies the ARN of the Lambda function that can rotate the
+-- secret.
 --
 -- 'clientRequestToken', 'rotateSecret_clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the
 -- secret that helps ensure idempotency.
@@ -181,8 +182,7 @@ data RotateSecret = RotateSecret'
 -- function\'s processing. This value becomes the @VersionId@ of the new
 -- version.
 --
--- 'rotationLambdaARN', 'rotateSecret_rotationLambdaARN' - (Optional) Specifies the ARN of the Lambda function that can rotate the
--- secret.
+-- 'rotationRules', 'rotateSecret_rotationRules' - A structure that defines the rotation configuration for this secret.
 --
 -- 'secretId', 'rotateSecret_secretId' - Specifies the secret that you want to rotate. You can specify either the
 -- Amazon Resource Name (ARN) or the friendly name of the secret.
@@ -195,15 +195,16 @@ newRotateSecret ::
   RotateSecret
 newRotateSecret pSecretId_ =
   RotateSecret'
-    { rotationRules = Prelude.Nothing,
+    { rotationLambdaARN = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      rotationLambdaARN = Prelude.Nothing,
+      rotationRules = Prelude.Nothing,
       secretId = pSecretId_
     }
 
--- | A structure that defines the rotation configuration for this secret.
-rotateSecret_rotationRules :: Lens.Lens' RotateSecret (Prelude.Maybe RotationRulesType)
-rotateSecret_rotationRules = Lens.lens (\RotateSecret' {rotationRules} -> rotationRules) (\s@RotateSecret' {} a -> s {rotationRules = a} :: RotateSecret)
+-- | (Optional) Specifies the ARN of the Lambda function that can rotate the
+-- secret.
+rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
+rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -> rotationLambdaARN) (\s@RotateSecret' {} a -> s {rotationLambdaARN = a} :: RotateSecret)
 
 -- | (Optional) Specifies a unique identifier for the new version of the
 -- secret that helps ensure idempotency.
@@ -229,10 +230,9 @@ rotateSecret_rotationRules = Lens.lens (\RotateSecret' {rotationRules} -> rotati
 rotateSecret_clientRequestToken :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
 rotateSecret_clientRequestToken = Lens.lens (\RotateSecret' {clientRequestToken} -> clientRequestToken) (\s@RotateSecret' {} a -> s {clientRequestToken = a} :: RotateSecret)
 
--- | (Optional) Specifies the ARN of the Lambda function that can rotate the
--- secret.
-rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
-rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -> rotationLambdaARN) (\s@RotateSecret' {} a -> s {rotationLambdaARN = a} :: RotateSecret)
+-- | A structure that defines the rotation configuration for this secret.
+rotateSecret_rotationRules :: Lens.Lens' RotateSecret (Prelude.Maybe RotationRulesType)
+rotateSecret_rotationRules = Lens.lens (\RotateSecret' {rotationRules} -> rotationRules) (\s@RotateSecret' {} a -> s {rotationRules = a} :: RotateSecret)
 
 -- | Specifies the secret that you want to rotate. You can specify either the
 -- Amazon Resource Name (ARN) or the friendly name of the secret.
@@ -249,24 +249,24 @@ instance Core.AWSRequest RotateSecret where
     Response.receiveJSON
       ( \s h x ->
           RotateSecretResponse'
-            Prelude.<$> (x Core..?> "VersionId")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RotateSecret where
   hashWithSalt _salt RotateSecret' {..} =
-    _salt `Prelude.hashWithSalt` rotationRules
+    _salt `Prelude.hashWithSalt` rotationLambdaARN
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` rotationLambdaARN
+      `Prelude.hashWithSalt` rotationRules
       `Prelude.hashWithSalt` secretId
 
 instance Prelude.NFData RotateSecret where
   rnf RotateSecret' {..} =
-    Prelude.rnf rotationRules
+    Prelude.rnf rotationLambdaARN
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf rotationLambdaARN
+      `Prelude.seq` Prelude.rnf rotationRules
       `Prelude.seq` Prelude.rnf secretId
 
 instance Core.ToHeaders RotateSecret where
@@ -288,11 +288,11 @@ instance Core.ToJSON RotateSecret where
   toJSON RotateSecret' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RotationRules" Core..=) Prelude.<$> rotationRules,
+          [ ("RotationLambdaARN" Core..=)
+              Prelude.<$> rotationLambdaARN,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("RotationLambdaARN" Core..=)
-              Prelude.<$> rotationLambdaARN,
+            ("RotationRules" Core..=) Prelude.<$> rotationRules,
             Prelude.Just ("SecretId" Core..= secretId)
           ]
       )
@@ -305,13 +305,13 @@ instance Core.ToQuery RotateSecret where
 
 -- | /See:/ 'newRotateSecretResponse' smart constructor.
 data RotateSecretResponse = RotateSecretResponse'
-  { -- | The ID of the new version of the secret created by the rotation started
-    -- by this request.
-    versionId :: Prelude.Maybe Prelude.Text,
+  { -- | The friendly name of the secret.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the new version of the secret created by the rotation started
+    -- by this request.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -325,12 +325,12 @@ data RotateSecretResponse = RotateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'rotateSecretResponse_versionId' - The ID of the new version of the secret created by the rotation started
--- by this request.
+-- 'name', 'rotateSecretResponse_name' - The friendly name of the secret.
 --
 -- 'arn', 'rotateSecretResponse_arn' - The ARN of the secret.
 --
--- 'name', 'rotateSecretResponse_name' - The friendly name of the secret.
+-- 'versionId', 'rotateSecretResponse_versionId' - The ID of the new version of the secret created by the rotation started
+-- by this request.
 --
 -- 'httpStatus', 'rotateSecretResponse_httpStatus' - The response's http status code.
 newRotateSecretResponse ::
@@ -339,24 +339,24 @@ newRotateSecretResponse ::
   RotateSecretResponse
 newRotateSecretResponse pHttpStatus_ =
   RotateSecretResponse'
-    { versionId = Prelude.Nothing,
+    { name = Prelude.Nothing,
       arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the new version of the secret created by the rotation started
--- by this request.
-rotateSecretResponse_versionId :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
-rotateSecretResponse_versionId = Lens.lens (\RotateSecretResponse' {versionId} -> versionId) (\s@RotateSecretResponse' {} a -> s {versionId = a} :: RotateSecretResponse)
+-- | The friendly name of the secret.
+rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
+rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\s@RotateSecretResponse' {} a -> s {name = a} :: RotateSecretResponse)
 
 -- | The ARN of the secret.
 rotateSecretResponse_arn :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
 rotateSecretResponse_arn = Lens.lens (\RotateSecretResponse' {arn} -> arn) (\s@RotateSecretResponse' {} a -> s {arn = a} :: RotateSecretResponse)
 
--- | The friendly name of the secret.
-rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
-rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\s@RotateSecretResponse' {} a -> s {name = a} :: RotateSecretResponse)
+-- | The ID of the new version of the secret created by the rotation started
+-- by this request.
+rotateSecretResponse_versionId :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
+rotateSecretResponse_versionId = Lens.lens (\RotateSecretResponse' {versionId} -> versionId) (\s@RotateSecretResponse' {} a -> s {versionId = a} :: RotateSecretResponse)
 
 -- | The response's http status code.
 rotateSecretResponse_httpStatus :: Lens.Lens' RotateSecretResponse Prelude.Int
@@ -364,7 +364,7 @@ rotateSecretResponse_httpStatus = Lens.lens (\RotateSecretResponse' {httpStatus}
 
 instance Prelude.NFData RotateSecretResponse where
   rnf RotateSecretResponse' {..} =
-    Prelude.rnf versionId
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

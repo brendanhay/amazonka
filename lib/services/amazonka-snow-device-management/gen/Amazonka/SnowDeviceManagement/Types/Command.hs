@@ -29,10 +29,10 @@ import Amazonka.SnowDeviceManagement.Types.Unlock
 --
 -- /See:/ 'newCommand' smart constructor.
 data Command = Command'
-  { -- | Unlocks the device.
-    unlock :: Prelude.Maybe Unlock,
-    -- | Reboots the device.
-    reboot :: Prelude.Maybe Reboot
+  { -- | Reboots the device.
+    reboot :: Prelude.Maybe Reboot,
+    -- | Unlocks the device.
+    unlock :: Prelude.Maybe Unlock
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,39 +44,39 @@ data Command = Command'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unlock', 'command_unlock' - Unlocks the device.
---
 -- 'reboot', 'command_reboot' - Reboots the device.
+--
+-- 'unlock', 'command_unlock' - Unlocks the device.
 newCommand ::
   Command
 newCommand =
   Command'
-    { unlock = Prelude.Nothing,
-      reboot = Prelude.Nothing
+    { reboot = Prelude.Nothing,
+      unlock = Prelude.Nothing
     }
-
--- | Unlocks the device.
-command_unlock :: Lens.Lens' Command (Prelude.Maybe Unlock)
-command_unlock = Lens.lens (\Command' {unlock} -> unlock) (\s@Command' {} a -> s {unlock = a} :: Command)
 
 -- | Reboots the device.
 command_reboot :: Lens.Lens' Command (Prelude.Maybe Reboot)
 command_reboot = Lens.lens (\Command' {reboot} -> reboot) (\s@Command' {} a -> s {reboot = a} :: Command)
 
+-- | Unlocks the device.
+command_unlock :: Lens.Lens' Command (Prelude.Maybe Unlock)
+command_unlock = Lens.lens (\Command' {unlock} -> unlock) (\s@Command' {} a -> s {unlock = a} :: Command)
+
 instance Prelude.Hashable Command where
   hashWithSalt _salt Command' {..} =
-    _salt `Prelude.hashWithSalt` unlock
-      `Prelude.hashWithSalt` reboot
+    _salt `Prelude.hashWithSalt` reboot
+      `Prelude.hashWithSalt` unlock
 
 instance Prelude.NFData Command where
   rnf Command' {..} =
-    Prelude.rnf unlock `Prelude.seq` Prelude.rnf reboot
+    Prelude.rnf reboot `Prelude.seq` Prelude.rnf unlock
 
 instance Core.ToJSON Command where
   toJSON Command' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("unlock" Core..=) Prelude.<$> unlock,
-            ("reboot" Core..=) Prelude.<$> reboot
+          [ ("reboot" Core..=) Prelude.<$> reboot,
+            ("unlock" Core..=) Prelude.<$> unlock
           ]
       )

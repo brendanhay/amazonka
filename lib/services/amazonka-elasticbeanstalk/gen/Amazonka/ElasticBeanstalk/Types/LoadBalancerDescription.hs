@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
-  { -- | The name of the LoadBalancer.
+  { -- | A list of Listeners used by the LoadBalancer.
+    listeners :: Prelude.Maybe [Listener],
+    -- | The name of the LoadBalancer.
     loadBalancerName :: Prelude.Maybe Prelude.Text,
     -- | The domain name of the LoadBalancer.
-    domain :: Prelude.Maybe Prelude.Text,
-    -- | A list of Listeners used by the LoadBalancer.
-    listeners :: Prelude.Maybe [Listener]
+    domain :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,24 @@ data LoadBalancerDescription = LoadBalancerDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'listeners', 'loadBalancerDescription_listeners' - A list of Listeners used by the LoadBalancer.
+--
 -- 'loadBalancerName', 'loadBalancerDescription_loadBalancerName' - The name of the LoadBalancer.
 --
 -- 'domain', 'loadBalancerDescription_domain' - The domain name of the LoadBalancer.
---
--- 'listeners', 'loadBalancerDescription_listeners' - A list of Listeners used by the LoadBalancer.
 newLoadBalancerDescription ::
   LoadBalancerDescription
 newLoadBalancerDescription =
   LoadBalancerDescription'
-    { loadBalancerName =
+    { listeners =
         Prelude.Nothing,
-      domain = Prelude.Nothing,
-      listeners = Prelude.Nothing
+      loadBalancerName = Prelude.Nothing,
+      domain = Prelude.Nothing
     }
+
+-- | A list of Listeners used by the LoadBalancer.
+loadBalancerDescription_listeners :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Listener])
+loadBalancerDescription_listeners = Lens.lens (\LoadBalancerDescription' {listeners} -> listeners) (\s@LoadBalancerDescription' {} a -> s {listeners = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the LoadBalancer.
 loadBalancerDescription_loadBalancerName :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
@@ -68,27 +72,23 @@ loadBalancerDescription_loadBalancerName = Lens.lens (\LoadBalancerDescription' 
 loadBalancerDescription_domain :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_domain = Lens.lens (\LoadBalancerDescription' {domain} -> domain) (\s@LoadBalancerDescription' {} a -> s {domain = a} :: LoadBalancerDescription)
 
--- | A list of Listeners used by the LoadBalancer.
-loadBalancerDescription_listeners :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Listener])
-loadBalancerDescription_listeners = Lens.lens (\LoadBalancerDescription' {listeners} -> listeners) (\s@LoadBalancerDescription' {} a -> s {listeners = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
-      Prelude.<$> (x Core..@? "LoadBalancerName")
-      Prelude.<*> (x Core..@? "Domain")
-      Prelude.<*> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Listeners" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "LoadBalancerName")
+      Prelude.<*> (x Core..@? "Domain")
 
 instance Prelude.Hashable LoadBalancerDescription where
   hashWithSalt _salt LoadBalancerDescription' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt `Prelude.hashWithSalt` listeners
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` domain
-      `Prelude.hashWithSalt` listeners
 
 instance Prelude.NFData LoadBalancerDescription where
   rnf LoadBalancerDescription' {..} =
-    Prelude.rnf loadBalancerName
+    Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf listeners

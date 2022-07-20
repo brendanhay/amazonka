@@ -50,13 +50,13 @@ module Amazonka.EC2.CreateVpcEndpointServiceConfiguration
     newCreateVpcEndpointServiceConfiguration,
 
     -- * Request Lenses
-    createVpcEndpointServiceConfiguration_networkLoadBalancerArns,
     createVpcEndpointServiceConfiguration_clientToken,
-    createVpcEndpointServiceConfiguration_tagSpecifications,
     createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns,
     createVpcEndpointServiceConfiguration_acceptanceRequired,
-    createVpcEndpointServiceConfiguration_privateDnsName,
     createVpcEndpointServiceConfiguration_dryRun,
+    createVpcEndpointServiceConfiguration_networkLoadBalancerArns,
+    createVpcEndpointServiceConfiguration_privateDnsName,
+    createVpcEndpointServiceConfiguration_tagSpecifications,
 
     -- * Destructuring the Response
     CreateVpcEndpointServiceConfigurationResponse (..),
@@ -78,29 +78,29 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVpcEndpointServiceConfiguration' smart constructor.
 data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfiguration'
-  { -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
-    -- for your service.
-    networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags to associate with the service.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
     gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether requests from service consumers to create an endpoint
     -- to your service must be accepted. To accept a request, use
     -- AcceptVpcEndpointConnections.
     acceptanceRequired :: Prelude.Maybe Prelude.Bool,
-    -- | (Interface endpoint configuration) The private DNS name to assign to the
-    -- VPC endpoint service.
-    privateDnsName :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
+    -- for your service.
+    networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    -- | (Interface endpoint configuration) The private DNS name to assign to the
+    -- VPC endpoint service.
+    privateDnsName :: Prelude.Maybe Prelude.Text,
+    -- | The tags to associate with the service.
+    tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,14 +112,9 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkLoadBalancerArns', 'createVpcEndpointServiceConfiguration_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Network Load Balancers
--- for your service.
---
 -- 'clientToken', 'createVpcEndpointServiceConfiguration_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
---
--- 'tagSpecifications', 'createVpcEndpointServiceConfiguration_tagSpecifications' - The tags to associate with the service.
 --
 -- 'gatewayLoadBalancerArns', 'createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
 --
@@ -127,42 +122,39 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
 -- to your service must be accepted. To accept a request, use
 -- AcceptVpcEndpointConnections.
 --
--- 'privateDnsName', 'createVpcEndpointServiceConfiguration_privateDnsName' - (Interface endpoint configuration) The private DNS name to assign to the
--- VPC endpoint service.
---
 -- 'dryRun', 'createVpcEndpointServiceConfiguration_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'networkLoadBalancerArns', 'createVpcEndpointServiceConfiguration_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Network Load Balancers
+-- for your service.
+--
+-- 'privateDnsName', 'createVpcEndpointServiceConfiguration_privateDnsName' - (Interface endpoint configuration) The private DNS name to assign to the
+-- VPC endpoint service.
+--
+-- 'tagSpecifications', 'createVpcEndpointServiceConfiguration_tagSpecifications' - The tags to associate with the service.
 newCreateVpcEndpointServiceConfiguration ::
   CreateVpcEndpointServiceConfiguration
 newCreateVpcEndpointServiceConfiguration =
   CreateVpcEndpointServiceConfiguration'
-    { networkLoadBalancerArns =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
       gatewayLoadBalancerArns =
         Prelude.Nothing,
       acceptanceRequired = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      networkLoadBalancerArns =
+        Prelude.Nothing,
       privateDnsName = Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      tagSpecifications = Prelude.Nothing
     }
-
--- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
--- for your service.
-createVpcEndpointServiceConfiguration_networkLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
-createVpcEndpointServiceConfiguration_networkLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {networkLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 createVpcEndpointServiceConfiguration_clientToken :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
 createVpcEndpointServiceConfiguration_clientToken = Lens.lens (\CreateVpcEndpointServiceConfiguration' {clientToken} -> clientToken) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {clientToken = a} :: CreateVpcEndpointServiceConfiguration)
-
--- | The tags to associate with the service.
-createVpcEndpointServiceConfiguration_tagSpecifications :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [TagSpecification])
-createVpcEndpointServiceConfiguration_tagSpecifications = Lens.lens (\CreateVpcEndpointServiceConfiguration' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {tagSpecifications = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
 createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
@@ -174,17 +166,26 @@ createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\Crea
 createVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 createVpcEndpointServiceConfiguration_acceptanceRequired = Lens.lens (\CreateVpcEndpointServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {acceptanceRequired = a} :: CreateVpcEndpointServiceConfiguration)
 
--- | (Interface endpoint configuration) The private DNS name to assign to the
--- VPC endpoint service.
-createVpcEndpointServiceConfiguration_privateDnsName :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
-createVpcEndpointServiceConfiguration_privateDnsName = Lens.lens (\CreateVpcEndpointServiceConfiguration' {privateDnsName} -> privateDnsName) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {privateDnsName = a} :: CreateVpcEndpointServiceConfiguration)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 createVpcEndpointServiceConfiguration_dryRun :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 createVpcEndpointServiceConfiguration_dryRun = Lens.lens (\CreateVpcEndpointServiceConfiguration' {dryRun} -> dryRun) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {dryRun = a} :: CreateVpcEndpointServiceConfiguration)
+
+-- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
+-- for your service.
+createVpcEndpointServiceConfiguration_networkLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+createVpcEndpointServiceConfiguration_networkLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {networkLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | (Interface endpoint configuration) The private DNS name to assign to the
+-- VPC endpoint service.
+createVpcEndpointServiceConfiguration_privateDnsName :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
+createVpcEndpointServiceConfiguration_privateDnsName = Lens.lens (\CreateVpcEndpointServiceConfiguration' {privateDnsName} -> privateDnsName) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {privateDnsName = a} :: CreateVpcEndpointServiceConfiguration)
+
+-- | The tags to associate with the service.
+createVpcEndpointServiceConfiguration_tagSpecifications :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [TagSpecification])
+createVpcEndpointServiceConfiguration_tagSpecifications = Lens.lens (\CreateVpcEndpointServiceConfiguration' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {tagSpecifications = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -211,27 +212,26 @@ instance
   hashWithSalt
     _salt
     CreateVpcEndpointServiceConfiguration' {..} =
-      _salt
-        `Prelude.hashWithSalt` networkLoadBalancerArns
-        `Prelude.hashWithSalt` clientToken
-        `Prelude.hashWithSalt` tagSpecifications
+      _salt `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` gatewayLoadBalancerArns
         `Prelude.hashWithSalt` acceptanceRequired
-        `Prelude.hashWithSalt` privateDnsName
         `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` networkLoadBalancerArns
+        `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` tagSpecifications
 
 instance
   Prelude.NFData
     CreateVpcEndpointServiceConfiguration
   where
   rnf CreateVpcEndpointServiceConfiguration' {..} =
-    Prelude.rnf networkLoadBalancerArns
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tagSpecifications
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
       `Prelude.seq` Prelude.rnf acceptanceRequired
-      `Prelude.seq` Prelude.rnf privateDnsName
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf networkLoadBalancerArns
+      `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance
   Core.ToHeaders
@@ -257,22 +257,22 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "NetworkLoadBalancerArn"
-              Prelude.<$> networkLoadBalancerArns
-          ),
         "ClientToken" Core.=: clientToken,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
-          ),
         Core.toQuery
           ( Core.toQueryList "GatewayLoadBalancerArn"
               Prelude.<$> gatewayLoadBalancerArns
           ),
         "AcceptanceRequired" Core.=: acceptanceRequired,
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "NetworkLoadBalancerArn"
+              Prelude.<$> networkLoadBalancerArns
+          ),
         "PrivateDnsName" Core.=: privateDnsName,
-        "DryRun" Core.=: dryRun
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          )
       ]
 
 -- | /See:/ 'newCreateVpcEndpointServiceConfigurationResponse' smart constructor.

@@ -17,12 +17,12 @@ module Amazonka.Panorama.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ValidationException,
 
     -- * ApplicationInstanceHealthStatus
     ApplicationInstanceHealthStatus (..),
@@ -84,35 +84,35 @@ module Amazonka.Panorama.Types
     -- * ApplicationInstance
     ApplicationInstance (..),
     newApplicationInstance,
-    applicationInstance_status,
+    applicationInstance_tags,
     applicationInstance_statusDescription,
-    applicationInstance_arn,
+    applicationInstance_name,
     applicationInstance_createdTime,
     applicationInstance_defaultRuntimeContextDevice,
-    applicationInstance_defaultRuntimeContextDeviceName,
-    applicationInstance_name,
     applicationInstance_healthStatus,
-    applicationInstance_applicationInstanceId,
+    applicationInstance_arn,
+    applicationInstance_status,
     applicationInstance_description,
-    applicationInstance_tags,
+    applicationInstance_applicationInstanceId,
+    applicationInstance_defaultRuntimeContextDeviceName,
 
     -- * Device
     Device (..),
     newDevice,
-    device_lastUpdatedTime,
-    device_provisioningStatus,
-    device_createdTime,
     device_name,
-    device_deviceId,
+    device_createdTime,
     device_leaseExpirationTime,
+    device_provisioningStatus,
+    device_deviceId,
+    device_lastUpdatedTime,
 
     -- * DeviceJob
     DeviceJob (..),
     newDeviceJob,
-    deviceJob_jobId,
     deviceJob_createdTime,
-    deviceJob_deviceName,
     deviceJob_deviceId,
+    deviceJob_deviceName,
+    deviceJob_jobId,
 
     -- * DeviceJobConfig
     DeviceJobConfig (..),
@@ -128,15 +128,15 @@ module Amazonka.Panorama.Types
     -- * EthernetStatus
     EthernetStatus (..),
     newEthernetStatus,
-    ethernetStatus_ipAddress,
-    ethernetStatus_connectionStatus,
     ethernetStatus_hwAddress,
+    ethernetStatus_connectionStatus,
+    ethernetStatus_ipAddress,
 
     -- * Job
     Job (..),
     newJob,
-    job_jobId,
     job_deviceId,
+    job_jobId,
 
     -- * JobResourceTags
     JobResourceTags (..),
@@ -157,21 +157,21 @@ module Amazonka.Panorama.Types
     -- * NetworkPayload
     NetworkPayload (..),
     newNetworkPayload,
-    networkPayload_ethernet1,
     networkPayload_ethernet0,
+    networkPayload_ethernet1,
 
     -- * NetworkStatus
     NetworkStatus (..),
     newNetworkStatus,
-    networkStatus_ethernet1Status,
     networkStatus_ethernet0Status,
+    networkStatus_ethernet1Status,
 
     -- * Node
     Node (..),
     newNode,
     node_packageArn,
-    node_ownerAccount,
     node_description,
+    node_ownerAccount,
     node_nodeId,
     node_name,
     node_category,
@@ -184,30 +184,30 @@ module Amazonka.Panorama.Types
     -- * NodeFromTemplateJob
     NodeFromTemplateJob (..),
     newNodeFromTemplateJob,
-    nodeFromTemplateJob_status,
-    nodeFromTemplateJob_jobId,
-    nodeFromTemplateJob_createdTime,
     nodeFromTemplateJob_templateType,
+    nodeFromTemplateJob_createdTime,
+    nodeFromTemplateJob_jobId,
+    nodeFromTemplateJob_status,
     nodeFromTemplateJob_nodeName,
     nodeFromTemplateJob_statusMessage,
 
     -- * NodeInputPort
     NodeInputPort (..),
     newNodeInputPort,
-    nodeInputPort_maxConnections,
     nodeInputPort_name,
-    nodeInputPort_defaultValue,
     nodeInputPort_type,
+    nodeInputPort_defaultValue,
     nodeInputPort_description,
+    nodeInputPort_maxConnections,
 
     -- * NodeInstance
     NodeInstance (..),
     newNodeInstance,
-    nodeInstance_packageName,
-    nodeInstance_packageVersion,
-    nodeInstance_packagePatchVersion,
-    nodeInstance_nodeName,
     nodeInstance_nodeId,
+    nodeInstance_packageName,
+    nodeInstance_packagePatchVersion,
+    nodeInstance_packageVersion,
+    nodeInstance_nodeName,
     nodeInstance_nodeInstanceId,
     nodeInstance_currentStatus,
 
@@ -238,12 +238,12 @@ module Amazonka.Panorama.Types
     -- * PackageImportJob
     PackageImportJob (..),
     newPackageImportJob,
-    packageImportJob_status,
-    packageImportJob_jobType,
-    packageImportJob_lastUpdatedTime,
-    packageImportJob_jobId,
     packageImportJob_createdTime,
+    packageImportJob_jobId,
+    packageImportJob_status,
+    packageImportJob_lastUpdatedTime,
     packageImportJob_statusMessage,
+    packageImportJob_jobType,
 
     -- * PackageImportJobInputConfig
     PackageImportJobInputConfig (..),
@@ -266,11 +266,11 @@ module Amazonka.Panorama.Types
     -- * PackageListItem
     PackageListItem (..),
     newPackageListItem,
-    packageListItem_packageId,
-    packageListItem_arn,
-    packageListItem_createdTime,
-    packageListItem_packageName,
     packageListItem_tags,
+    packageListItem_packageName,
+    packageListItem_createdTime,
+    packageListItem_arn,
+    packageListItem_packageId,
 
     -- * PackageObject
     PackageObject (..),
@@ -397,35 +397,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -434,21 +407,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The request contains an invalid parameter value.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | The requestor does not have permission to access the target action or
 -- resource.
@@ -459,13 +451,13 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The target resource is in use.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | An internal error occurred.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | The request would cause a limit to be exceeded.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -475,14 +467,6 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | An internal error occurred.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
 -- | The target resource was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -490,3 +474,19 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The target resource is in use.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The request contains an invalid parameter value.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

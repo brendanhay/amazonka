@@ -48,15 +48,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobLogs' smart constructor.
 data JobLogs = JobLogs'
-  { -- | A link to an Amazon S3 presigned URL where the job failure log is
+  { -- | A link to an Amazon S3 presigned URL where the job success log is
+    -- located.
+    jobSuccessLogURI :: Prelude.Maybe Prelude.Text,
+    -- | A link to an Amazon S3 presigned URL where the job failure log is
     -- located.
     jobFailureLogURI :: Prelude.Maybe Prelude.Text,
     -- | A link to an Amazon S3 presigned URL where the job completion report is
     -- located.
-    jobCompletionReportURI :: Prelude.Maybe Prelude.Text,
-    -- | A link to an Amazon S3 presigned URL where the job success log is
-    -- located.
-    jobSuccessLogURI :: Prelude.Maybe Prelude.Text
+    jobCompletionReportURI :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,22 +68,27 @@ data JobLogs = JobLogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobSuccessLogURI', 'jobLogs_jobSuccessLogURI' - A link to an Amazon S3 presigned URL where the job success log is
+-- located.
+--
 -- 'jobFailureLogURI', 'jobLogs_jobFailureLogURI' - A link to an Amazon S3 presigned URL where the job failure log is
 -- located.
 --
 -- 'jobCompletionReportURI', 'jobLogs_jobCompletionReportURI' - A link to an Amazon S3 presigned URL where the job completion report is
 -- located.
---
--- 'jobSuccessLogURI', 'jobLogs_jobSuccessLogURI' - A link to an Amazon S3 presigned URL where the job success log is
--- located.
 newJobLogs ::
   JobLogs
 newJobLogs =
   JobLogs'
-    { jobFailureLogURI = Prelude.Nothing,
-      jobCompletionReportURI = Prelude.Nothing,
-      jobSuccessLogURI = Prelude.Nothing
+    { jobSuccessLogURI = Prelude.Nothing,
+      jobFailureLogURI = Prelude.Nothing,
+      jobCompletionReportURI = Prelude.Nothing
     }
+
+-- | A link to an Amazon S3 presigned URL where the job success log is
+-- located.
+jobLogs_jobSuccessLogURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
+jobLogs_jobSuccessLogURI = Lens.lens (\JobLogs' {jobSuccessLogURI} -> jobSuccessLogURI) (\s@JobLogs' {} a -> s {jobSuccessLogURI = a} :: JobLogs)
 
 -- | A link to an Amazon S3 presigned URL where the job failure log is
 -- located.
@@ -95,30 +100,25 @@ jobLogs_jobFailureLogURI = Lens.lens (\JobLogs' {jobFailureLogURI} -> jobFailure
 jobLogs_jobCompletionReportURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
 jobLogs_jobCompletionReportURI = Lens.lens (\JobLogs' {jobCompletionReportURI} -> jobCompletionReportURI) (\s@JobLogs' {} a -> s {jobCompletionReportURI = a} :: JobLogs)
 
--- | A link to an Amazon S3 presigned URL where the job success log is
--- located.
-jobLogs_jobSuccessLogURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
-jobLogs_jobSuccessLogURI = Lens.lens (\JobLogs' {jobSuccessLogURI} -> jobSuccessLogURI) (\s@JobLogs' {} a -> s {jobSuccessLogURI = a} :: JobLogs)
-
 instance Core.FromJSON JobLogs where
   parseJSON =
     Core.withObject
       "JobLogs"
       ( \x ->
           JobLogs'
-            Prelude.<$> (x Core..:? "JobFailureLogURI")
+            Prelude.<$> (x Core..:? "JobSuccessLogURI")
+            Prelude.<*> (x Core..:? "JobFailureLogURI")
             Prelude.<*> (x Core..:? "JobCompletionReportURI")
-            Prelude.<*> (x Core..:? "JobSuccessLogURI")
       )
 
 instance Prelude.Hashable JobLogs where
   hashWithSalt _salt JobLogs' {..} =
-    _salt `Prelude.hashWithSalt` jobFailureLogURI
+    _salt `Prelude.hashWithSalt` jobSuccessLogURI
+      `Prelude.hashWithSalt` jobFailureLogURI
       `Prelude.hashWithSalt` jobCompletionReportURI
-      `Prelude.hashWithSalt` jobSuccessLogURI
 
 instance Prelude.NFData JobLogs where
   rnf JobLogs' {..} =
-    Prelude.rnf jobFailureLogURI
+    Prelude.rnf jobSuccessLogURI
+      `Prelude.seq` Prelude.rnf jobFailureLogURI
       `Prelude.seq` Prelude.rnf jobCompletionReportURI
-      `Prelude.seq` Prelude.rnf jobSuccessLogURI

@@ -33,8 +33,8 @@ module Amazonka.IoT.ListBillingGroups
     newListBillingGroups,
 
     -- * Request Lenses
-    listBillingGroups_namePrefixFilter,
     listBillingGroups_nextToken,
+    listBillingGroups_namePrefixFilter,
     listBillingGroups_maxResults,
 
     -- * Destructuring the Response
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBillingGroups' smart constructor.
 data ListBillingGroups = ListBillingGroups'
-  { -- | Limit the results to billing groups whose names have the given prefix.
-    namePrefixFilter :: Prelude.Maybe Prelude.Text,
-    -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Limit the results to billing groups whose names have the given prefix.
+    namePrefixFilter :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per request.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -76,32 +76,31 @@ data ListBillingGroups = ListBillingGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namePrefixFilter', 'listBillingGroups_namePrefixFilter' - Limit the results to billing groups whose names have the given prefix.
---
 -- 'nextToken', 'listBillingGroups_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
+--
+-- 'namePrefixFilter', 'listBillingGroups_namePrefixFilter' - Limit the results to billing groups whose names have the given prefix.
 --
 -- 'maxResults', 'listBillingGroups_maxResults' - The maximum number of results to return per request.
 newListBillingGroups ::
   ListBillingGroups
 newListBillingGroups =
   ListBillingGroups'
-    { namePrefixFilter =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      namePrefixFilter = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Limit the results to billing groups whose names have the given prefix.
-listBillingGroups_namePrefixFilter :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
-listBillingGroups_namePrefixFilter = Lens.lens (\ListBillingGroups' {namePrefixFilter} -> namePrefixFilter) (\s@ListBillingGroups' {} a -> s {namePrefixFilter = a} :: ListBillingGroups)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listBillingGroups_nextToken :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
 listBillingGroups_nextToken = Lens.lens (\ListBillingGroups' {nextToken} -> nextToken) (\s@ListBillingGroups' {} a -> s {nextToken = a} :: ListBillingGroups)
+
+-- | Limit the results to billing groups whose names have the given prefix.
+listBillingGroups_namePrefixFilter :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
+listBillingGroups_namePrefixFilter = Lens.lens (\ListBillingGroups' {namePrefixFilter} -> namePrefixFilter) (\s@ListBillingGroups' {} a -> s {namePrefixFilter = a} :: ListBillingGroups)
 
 -- | The maximum number of results to return per request.
 listBillingGroups_maxResults :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Natural)
@@ -145,14 +144,14 @@ instance Core.AWSRequest ListBillingGroups where
 
 instance Prelude.Hashable ListBillingGroups where
   hashWithSalt _salt ListBillingGroups' {..} =
-    _salt `Prelude.hashWithSalt` namePrefixFilter
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` namePrefixFilter
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListBillingGroups where
   rnf ListBillingGroups' {..} =
-    Prelude.rnf namePrefixFilter
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf namePrefixFilter
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListBillingGroups where
@@ -164,8 +163,8 @@ instance Core.ToPath ListBillingGroups where
 instance Core.ToQuery ListBillingGroups where
   toQuery ListBillingGroups' {..} =
     Prelude.mconcat
-      [ "namePrefixFilter" Core.=: namePrefixFilter,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "namePrefixFilter" Core.=: namePrefixFilter,
         "maxResults" Core.=: maxResults
       ]
 

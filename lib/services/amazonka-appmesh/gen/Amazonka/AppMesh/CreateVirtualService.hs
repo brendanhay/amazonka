@@ -37,9 +37,9 @@ module Amazonka.AppMesh.CreateVirtualService
     newCreateVirtualService,
 
     -- * Request Lenses
+    createVirtualService_tags,
     createVirtualService_clientToken,
     createVirtualService_meshOwner,
-    createVirtualService_tags,
     createVirtualService_meshName,
     createVirtualService_spec,
     createVirtualService_virtualServiceName,
@@ -65,7 +65,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateVirtualService' smart constructor.
 data CreateVirtualService = CreateVirtualService'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Optional metadata that you can apply to the virtual service to assist
+    -- with categorization and organization. Each tag consists of a key and an
+    -- optional value, both of which you define. Tag keys can have a maximum
+    -- character length of 128 characters, and tag values can have a maximum
+    -- length of 256 characters.
+    tags :: Prelude.Maybe [TagRef],
+    -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -75,12 +81,6 @@ data CreateVirtualService = CreateVirtualService'
     -- more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you can apply to the virtual service to assist
-    -- with categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you define. Tag keys can have a maximum
-    -- character length of 128 characters, and tag values can have a maximum
-    -- length of 256 characters.
-    tags :: Prelude.Maybe [TagRef],
     -- | The name of the service mesh to create the virtual service in.
     meshName :: Prelude.Text,
     -- | The virtual service specification to apply.
@@ -98,6 +98,12 @@ data CreateVirtualService = CreateVirtualService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createVirtualService_tags' - Optional metadata that you can apply to the virtual service to assist
+-- with categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+--
 -- 'clientToken', 'createVirtualService_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
@@ -107,12 +113,6 @@ data CreateVirtualService = CreateVirtualService'
 -- your account before you can create the resource in the service mesh. For
 -- more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
---
--- 'tags', 'createVirtualService_tags' - Optional metadata that you can apply to the virtual service to assist
--- with categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
 --
 -- 'meshName', 'createVirtualService_meshName' - The name of the service mesh to create the virtual service in.
 --
@@ -132,14 +132,21 @@ newCreateVirtualService
   pSpec_
   pVirtualServiceName_ =
     CreateVirtualService'
-      { clientToken =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         meshOwner = Prelude.Nothing,
-        tags = Prelude.Nothing,
         meshName = pMeshName_,
         spec = pSpec_,
         virtualServiceName = pVirtualServiceName_
       }
+
+-- | Optional metadata that you can apply to the virtual service to assist
+-- with categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+createVirtualService_tags :: Lens.Lens' CreateVirtualService (Prelude.Maybe [TagRef])
+createVirtualService_tags = Lens.lens (\CreateVirtualService' {tags} -> tags) (\s@CreateVirtualService' {} a -> s {tags = a} :: CreateVirtualService) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
@@ -154,14 +161,6 @@ createVirtualService_clientToken = Lens.lens (\CreateVirtualService' {clientToke
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 createVirtualService_meshOwner :: Lens.Lens' CreateVirtualService (Prelude.Maybe Prelude.Text)
 createVirtualService_meshOwner = Lens.lens (\CreateVirtualService' {meshOwner} -> meshOwner) (\s@CreateVirtualService' {} a -> s {meshOwner = a} :: CreateVirtualService)
-
--- | Optional metadata that you can apply to the virtual service to assist
--- with categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
-createVirtualService_tags :: Lens.Lens' CreateVirtualService (Prelude.Maybe [TagRef])
-createVirtualService_tags = Lens.lens (\CreateVirtualService' {tags} -> tags) (\s@CreateVirtualService' {} a -> s {tags = a} :: CreateVirtualService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the service mesh to create the virtual service in.
 createVirtualService_meshName :: Lens.Lens' CreateVirtualService Prelude.Text
@@ -190,18 +189,18 @@ instance Core.AWSRequest CreateVirtualService where
 
 instance Prelude.Hashable CreateVirtualService where
   hashWithSalt _salt CreateVirtualService' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` virtualServiceName
 
 instance Prelude.NFData CreateVirtualService where
   rnf CreateVirtualService' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualServiceName
@@ -221,8 +220,8 @@ instance Core.ToJSON CreateVirtualService where
   toJSON CreateVirtualService' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("spec" Core..= spec),
             Prelude.Just
               ("virtualServiceName" Core..= virtualServiceName)

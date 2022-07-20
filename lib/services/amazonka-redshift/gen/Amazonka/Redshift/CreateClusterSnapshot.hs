@@ -32,8 +32,8 @@ module Amazonka.Redshift.CreateClusterSnapshot
     newCreateClusterSnapshot,
 
     -- * Request Lenses
-    createClusterSnapshot_manualSnapshotRetentionPeriod,
     createClusterSnapshot_tags,
+    createClusterSnapshot_manualSnapshotRetentionPeriod,
     createClusterSnapshot_snapshotIdentifier,
     createClusterSnapshot_clusterIdentifier,
 
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateClusterSnapshot' smart constructor.
 data CreateClusterSnapshot = CreateClusterSnapshot'
-  { -- | The number of days that a manual snapshot is retained. If the value is
+  { -- | A list of tag instances.
+    tags :: Prelude.Maybe [Tag],
+    -- | The number of days that a manual snapshot is retained. If the value is
     -- -1, the manual snapshot is retained indefinitely.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
     --
     -- The default value is -1.
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the snapshot that you are requesting. This
     -- identifier must be unique for all snapshots within the Amazon Web
     -- Services account.
@@ -96,14 +96,14 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createClusterSnapshot_tags' - A list of tag instances.
+--
 -- 'manualSnapshotRetentionPeriod', 'createClusterSnapshot_manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is
 -- -1, the manual snapshot is retained indefinitely.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
 -- The default value is -1.
---
--- 'tags', 'createClusterSnapshot_tags' - A list of tag instances.
 --
 -- 'snapshotIdentifier', 'createClusterSnapshot_snapshotIdentifier' - A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the Amazon Web
@@ -132,12 +132,15 @@ newCreateClusterSnapshot
   pSnapshotIdentifier_
   pClusterIdentifier_ =
     CreateClusterSnapshot'
-      { manualSnapshotRetentionPeriod =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        manualSnapshotRetentionPeriod = Prelude.Nothing,
         snapshotIdentifier = pSnapshotIdentifier_,
         clusterIdentifier = pClusterIdentifier_
       }
+
+-- | A list of tag instances.
+createClusterSnapshot_tags :: Lens.Lens' CreateClusterSnapshot (Prelude.Maybe [Tag])
+createClusterSnapshot_tags = Lens.lens (\CreateClusterSnapshot' {tags} -> tags) (\s@CreateClusterSnapshot' {} a -> s {tags = a} :: CreateClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of days that a manual snapshot is retained. If the value is
 -- -1, the manual snapshot is retained indefinitely.
@@ -147,10 +150,6 @@ newCreateClusterSnapshot
 -- The default value is -1.
 createClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' CreateClusterSnapshot (Prelude.Maybe Prelude.Int)
 createClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\CreateClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CreateClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: CreateClusterSnapshot)
-
--- | A list of tag instances.
-createClusterSnapshot_tags :: Lens.Lens' CreateClusterSnapshot (Prelude.Maybe [Tag])
-createClusterSnapshot_tags = Lens.lens (\CreateClusterSnapshot' {tags} -> tags) (\s@CreateClusterSnapshot' {} a -> s {tags = a} :: CreateClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the Amazon Web
@@ -190,16 +189,15 @@ instance Core.AWSRequest CreateClusterSnapshot where
 
 instance Prelude.Hashable CreateClusterSnapshot where
   hashWithSalt _salt CreateClusterSnapshot' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` clusterIdentifier
 
 instance Prelude.NFData CreateClusterSnapshot where
   rnf CreateClusterSnapshot' {..} =
-    Prelude.rnf manualSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
       `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
@@ -216,11 +214,11 @@ instance Core.ToQuery CreateClusterSnapshot where
           Core.=: ("CreateClusterSnapshot" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ManualSnapshotRetentionPeriod"
-          Core.=: manualSnapshotRetentionPeriod,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
+        "ManualSnapshotRetentionPeriod"
+          Core.=: manualSnapshotRetentionPeriod,
         "SnapshotIdentifier" Core.=: snapshotIdentifier,
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]

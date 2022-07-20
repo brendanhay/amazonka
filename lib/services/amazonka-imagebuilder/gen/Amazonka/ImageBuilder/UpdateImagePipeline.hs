@@ -32,14 +32,14 @@ module Amazonka.ImageBuilder.UpdateImagePipeline
     newUpdateImagePipeline,
 
     -- * Request Lenses
-    updateImagePipeline_status,
-    updateImagePipeline_containerRecipeArn,
-    updateImagePipeline_imageTestsConfiguration,
-    updateImagePipeline_schedule,
     updateImagePipeline_enhancedImageMetadataEnabled,
-    updateImagePipeline_distributionConfigurationArn,
+    updateImagePipeline_schedule,
+    updateImagePipeline_imageTestsConfiguration,
     updateImagePipeline_imageRecipeArn,
+    updateImagePipeline_status,
     updateImagePipeline_description,
+    updateImagePipeline_containerRecipeArn,
+    updateImagePipeline_distributionConfigurationArn,
     updateImagePipeline_imagePipelineArn,
     updateImagePipeline_infrastructureConfigurationArn,
     updateImagePipeline_clientToken,
@@ -49,8 +49,8 @@ module Amazonka.ImageBuilder.UpdateImagePipeline
     newUpdateImagePipelineResponse,
 
     -- * Response Lenses
-    updateImagePipelineResponse_requestId,
     updateImagePipelineResponse_clientToken,
+    updateImagePipelineResponse_requestId,
     updateImagePipelineResponse_imagePipelineArn,
     updateImagePipelineResponse_httpStatus,
   )
@@ -65,28 +65,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateImagePipeline' smart constructor.
 data UpdateImagePipeline = UpdateImagePipeline'
-  { -- | The status of the image pipeline.
-    status :: Prelude.Maybe PipelineStatus,
-    -- | The Amazon Resource Name (ARN) of the container pipeline to update.
-    containerRecipeArn :: Prelude.Maybe Prelude.Text,
-    -- | The image test configuration of the image pipeline.
-    imageTestsConfiguration :: Prelude.Maybe ImageTestsConfiguration,
-    -- | The schedule of the image pipeline.
-    schedule :: Prelude.Maybe Schedule,
-    -- | Collects additional information about the image being created, including
+  { -- | Collects additional information about the image being created, including
     -- the operating system (OS) version and package list. This information is
     -- used to enhance the overall experience of using EC2 Image Builder.
     -- Enabled by default.
     enhancedImageMetadataEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The schedule of the image pipeline.
+    schedule :: Prelude.Maybe Schedule,
+    -- | The image test configuration of the image pipeline.
+    imageTestsConfiguration :: Prelude.Maybe ImageTestsConfiguration,
+    -- | The Amazon Resource Name (ARN) of the image recipe that will be used to
+    -- configure images updated by this image pipeline.
+    imageRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the image pipeline.
+    status :: Prelude.Maybe PipelineStatus,
+    -- | The description of the image pipeline.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the container pipeline to update.
+    containerRecipeArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the distribution configuration that
     -- will be used to configure and distribute images updated by this image
     -- pipeline.
     distributionConfigurationArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image recipe that will be used to
-    -- configure images updated by this image pipeline.
-    imageRecipeArn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the image pipeline.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image pipeline that you want to
     -- update.
     imagePipelineArn :: Prelude.Text,
@@ -106,27 +106,27 @@ data UpdateImagePipeline = UpdateImagePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'updateImagePipeline_status' - The status of the image pipeline.
---
--- 'containerRecipeArn', 'updateImagePipeline_containerRecipeArn' - The Amazon Resource Name (ARN) of the container pipeline to update.
---
--- 'imageTestsConfiguration', 'updateImagePipeline_imageTestsConfiguration' - The image test configuration of the image pipeline.
---
--- 'schedule', 'updateImagePipeline_schedule' - The schedule of the image pipeline.
---
 -- 'enhancedImageMetadataEnabled', 'updateImagePipeline_enhancedImageMetadataEnabled' - Collects additional information about the image being created, including
 -- the operating system (OS) version and package list. This information is
 -- used to enhance the overall experience of using EC2 Image Builder.
 -- Enabled by default.
 --
--- 'distributionConfigurationArn', 'updateImagePipeline_distributionConfigurationArn' - The Amazon Resource Name (ARN) of the distribution configuration that
--- will be used to configure and distribute images updated by this image
--- pipeline.
+-- 'schedule', 'updateImagePipeline_schedule' - The schedule of the image pipeline.
+--
+-- 'imageTestsConfiguration', 'updateImagePipeline_imageTestsConfiguration' - The image test configuration of the image pipeline.
 --
 -- 'imageRecipeArn', 'updateImagePipeline_imageRecipeArn' - The Amazon Resource Name (ARN) of the image recipe that will be used to
 -- configure images updated by this image pipeline.
 --
+-- 'status', 'updateImagePipeline_status' - The status of the image pipeline.
+--
 -- 'description', 'updateImagePipeline_description' - The description of the image pipeline.
+--
+-- 'containerRecipeArn', 'updateImagePipeline_containerRecipeArn' - The Amazon Resource Name (ARN) of the container pipeline to update.
+--
+-- 'distributionConfigurationArn', 'updateImagePipeline_distributionConfigurationArn' - The Amazon Resource Name (ARN) of the distribution configuration that
+-- will be used to configure and distribute images updated by this image
+-- pipeline.
 --
 -- 'imagePipelineArn', 'updateImagePipeline_imagePipelineArn' - The Amazon Resource Name (ARN) of the image pipeline that you want to
 -- update.
@@ -148,35 +148,20 @@ newUpdateImagePipeline
   pInfrastructureConfigurationArn_
   pClientToken_ =
     UpdateImagePipeline'
-      { status = Prelude.Nothing,
-        containerRecipeArn = Prelude.Nothing,
-        imageTestsConfiguration = Prelude.Nothing,
+      { enhancedImageMetadataEnabled =
+          Prelude.Nothing,
         schedule = Prelude.Nothing,
-        enhancedImageMetadataEnabled = Prelude.Nothing,
-        distributionConfigurationArn = Prelude.Nothing,
+        imageTestsConfiguration = Prelude.Nothing,
         imageRecipeArn = Prelude.Nothing,
+        status = Prelude.Nothing,
         description = Prelude.Nothing,
+        containerRecipeArn = Prelude.Nothing,
+        distributionConfigurationArn = Prelude.Nothing,
         imagePipelineArn = pImagePipelineArn_,
         infrastructureConfigurationArn =
           pInfrastructureConfigurationArn_,
         clientToken = pClientToken_
       }
-
--- | The status of the image pipeline.
-updateImagePipeline_status :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe PipelineStatus)
-updateImagePipeline_status = Lens.lens (\UpdateImagePipeline' {status} -> status) (\s@UpdateImagePipeline' {} a -> s {status = a} :: UpdateImagePipeline)
-
--- | The Amazon Resource Name (ARN) of the container pipeline to update.
-updateImagePipeline_containerRecipeArn :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Prelude.Text)
-updateImagePipeline_containerRecipeArn = Lens.lens (\UpdateImagePipeline' {containerRecipeArn} -> containerRecipeArn) (\s@UpdateImagePipeline' {} a -> s {containerRecipeArn = a} :: UpdateImagePipeline)
-
--- | The image test configuration of the image pipeline.
-updateImagePipeline_imageTestsConfiguration :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe ImageTestsConfiguration)
-updateImagePipeline_imageTestsConfiguration = Lens.lens (\UpdateImagePipeline' {imageTestsConfiguration} -> imageTestsConfiguration) (\s@UpdateImagePipeline' {} a -> s {imageTestsConfiguration = a} :: UpdateImagePipeline)
-
--- | The schedule of the image pipeline.
-updateImagePipeline_schedule :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Schedule)
-updateImagePipeline_schedule = Lens.lens (\UpdateImagePipeline' {schedule} -> schedule) (\s@UpdateImagePipeline' {} a -> s {schedule = a} :: UpdateImagePipeline)
 
 -- | Collects additional information about the image being created, including
 -- the operating system (OS) version and package list. This information is
@@ -185,20 +170,36 @@ updateImagePipeline_schedule = Lens.lens (\UpdateImagePipeline' {schedule} -> sc
 updateImagePipeline_enhancedImageMetadataEnabled :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Prelude.Bool)
 updateImagePipeline_enhancedImageMetadataEnabled = Lens.lens (\UpdateImagePipeline' {enhancedImageMetadataEnabled} -> enhancedImageMetadataEnabled) (\s@UpdateImagePipeline' {} a -> s {enhancedImageMetadataEnabled = a} :: UpdateImagePipeline)
 
--- | The Amazon Resource Name (ARN) of the distribution configuration that
--- will be used to configure and distribute images updated by this image
--- pipeline.
-updateImagePipeline_distributionConfigurationArn :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Prelude.Text)
-updateImagePipeline_distributionConfigurationArn = Lens.lens (\UpdateImagePipeline' {distributionConfigurationArn} -> distributionConfigurationArn) (\s@UpdateImagePipeline' {} a -> s {distributionConfigurationArn = a} :: UpdateImagePipeline)
+-- | The schedule of the image pipeline.
+updateImagePipeline_schedule :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Schedule)
+updateImagePipeline_schedule = Lens.lens (\UpdateImagePipeline' {schedule} -> schedule) (\s@UpdateImagePipeline' {} a -> s {schedule = a} :: UpdateImagePipeline)
+
+-- | The image test configuration of the image pipeline.
+updateImagePipeline_imageTestsConfiguration :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe ImageTestsConfiguration)
+updateImagePipeline_imageTestsConfiguration = Lens.lens (\UpdateImagePipeline' {imageTestsConfiguration} -> imageTestsConfiguration) (\s@UpdateImagePipeline' {} a -> s {imageTestsConfiguration = a} :: UpdateImagePipeline)
 
 -- | The Amazon Resource Name (ARN) of the image recipe that will be used to
 -- configure images updated by this image pipeline.
 updateImagePipeline_imageRecipeArn :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Prelude.Text)
 updateImagePipeline_imageRecipeArn = Lens.lens (\UpdateImagePipeline' {imageRecipeArn} -> imageRecipeArn) (\s@UpdateImagePipeline' {} a -> s {imageRecipeArn = a} :: UpdateImagePipeline)
 
+-- | The status of the image pipeline.
+updateImagePipeline_status :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe PipelineStatus)
+updateImagePipeline_status = Lens.lens (\UpdateImagePipeline' {status} -> status) (\s@UpdateImagePipeline' {} a -> s {status = a} :: UpdateImagePipeline)
+
 -- | The description of the image pipeline.
 updateImagePipeline_description :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Prelude.Text)
 updateImagePipeline_description = Lens.lens (\UpdateImagePipeline' {description} -> description) (\s@UpdateImagePipeline' {} a -> s {description = a} :: UpdateImagePipeline)
+
+-- | The Amazon Resource Name (ARN) of the container pipeline to update.
+updateImagePipeline_containerRecipeArn :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Prelude.Text)
+updateImagePipeline_containerRecipeArn = Lens.lens (\UpdateImagePipeline' {containerRecipeArn} -> containerRecipeArn) (\s@UpdateImagePipeline' {} a -> s {containerRecipeArn = a} :: UpdateImagePipeline)
+
+-- | The Amazon Resource Name (ARN) of the distribution configuration that
+-- will be used to configure and distribute images updated by this image
+-- pipeline.
+updateImagePipeline_distributionConfigurationArn :: Lens.Lens' UpdateImagePipeline (Prelude.Maybe Prelude.Text)
+updateImagePipeline_distributionConfigurationArn = Lens.lens (\UpdateImagePipeline' {distributionConfigurationArn} -> distributionConfigurationArn) (\s@UpdateImagePipeline' {} a -> s {distributionConfigurationArn = a} :: UpdateImagePipeline)
 
 -- | The Amazon Resource Name (ARN) of the image pipeline that you want to
 -- update.
@@ -223,36 +224,37 @@ instance Core.AWSRequest UpdateImagePipeline where
     Response.receiveJSON
       ( \s h x ->
           UpdateImagePipelineResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "clientToken")
+            Prelude.<$> (x Core..?> "clientToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (x Core..?> "imagePipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateImagePipeline where
   hashWithSalt _salt UpdateImagePipeline' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` containerRecipeArn
-      `Prelude.hashWithSalt` imageTestsConfiguration
-      `Prelude.hashWithSalt` schedule
+    _salt
       `Prelude.hashWithSalt` enhancedImageMetadataEnabled
-      `Prelude.hashWithSalt` distributionConfigurationArn
+      `Prelude.hashWithSalt` schedule
+      `Prelude.hashWithSalt` imageTestsConfiguration
       `Prelude.hashWithSalt` imageRecipeArn
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` containerRecipeArn
+      `Prelude.hashWithSalt` distributionConfigurationArn
       `Prelude.hashWithSalt` imagePipelineArn
       `Prelude.hashWithSalt` infrastructureConfigurationArn
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData UpdateImagePipeline where
   rnf UpdateImagePipeline' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf containerRecipeArn
-      `Prelude.seq` Prelude.rnf imageTestsConfiguration
+    Prelude.rnf enhancedImageMetadataEnabled
       `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf enhancedImageMetadataEnabled
-      `Prelude.seq` Prelude.rnf distributionConfigurationArn
+      `Prelude.seq` Prelude.rnf imageTestsConfiguration
       `Prelude.seq` Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf containerRecipeArn
+      `Prelude.seq` Prelude.rnf distributionConfigurationArn
       `Prelude.seq` Prelude.rnf imagePipelineArn
       `Prelude.seq` Prelude.rnf infrastructureConfigurationArn
       `Prelude.seq` Prelude.rnf clientToken
@@ -272,19 +274,19 @@ instance Core.ToJSON UpdateImagePipeline where
   toJSON UpdateImagePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("containerRecipeArn" Core..=)
-              Prelude.<$> containerRecipeArn,
+          [ ("enhancedImageMetadataEnabled" Core..=)
+              Prelude.<$> enhancedImageMetadataEnabled,
+            ("schedule" Core..=) Prelude.<$> schedule,
             ("imageTestsConfiguration" Core..=)
               Prelude.<$> imageTestsConfiguration,
-            ("schedule" Core..=) Prelude.<$> schedule,
-            ("enhancedImageMetadataEnabled" Core..=)
-              Prelude.<$> enhancedImageMetadataEnabled,
-            ("distributionConfigurationArn" Core..=)
-              Prelude.<$> distributionConfigurationArn,
             ("imageRecipeArn" Core..=)
               Prelude.<$> imageRecipeArn,
+            ("status" Core..=) Prelude.<$> status,
             ("description" Core..=) Prelude.<$> description,
+            ("containerRecipeArn" Core..=)
+              Prelude.<$> containerRecipeArn,
+            ("distributionConfigurationArn" Core..=)
+              Prelude.<$> distributionConfigurationArn,
             Prelude.Just
               ("imagePipelineArn" Core..= imagePipelineArn),
             Prelude.Just
@@ -303,10 +305,10 @@ instance Core.ToQuery UpdateImagePipeline where
 
 -- | /See:/ 'newUpdateImagePipelineResponse' smart constructor.
 data UpdateImagePipelineResponse = UpdateImagePipelineResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token used to make this request idempotent.
+  { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image pipeline that was updated by
     -- this request.
     imagePipelineArn :: Prelude.Maybe Prelude.Text,
@@ -323,9 +325,9 @@ data UpdateImagePipelineResponse = UpdateImagePipelineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateImagePipelineResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'clientToken', 'updateImagePipelineResponse_clientToken' - The idempotency token used to make this request idempotent.
+--
+-- 'requestId', 'updateImagePipelineResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'imagePipelineArn', 'updateImagePipelineResponse_imagePipelineArn' - The Amazon Resource Name (ARN) of the image pipeline that was updated by
 -- this request.
@@ -337,20 +339,20 @@ newUpdateImagePipelineResponse ::
   UpdateImagePipelineResponse
 newUpdateImagePipelineResponse pHttpStatus_ =
   UpdateImagePipelineResponse'
-    { requestId =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       imagePipelineArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The request ID that uniquely identifies this request.
-updateImagePipelineResponse_requestId :: Lens.Lens' UpdateImagePipelineResponse (Prelude.Maybe Prelude.Text)
-updateImagePipelineResponse_requestId = Lens.lens (\UpdateImagePipelineResponse' {requestId} -> requestId) (\s@UpdateImagePipelineResponse' {} a -> s {requestId = a} :: UpdateImagePipelineResponse)
-
 -- | The idempotency token used to make this request idempotent.
 updateImagePipelineResponse_clientToken :: Lens.Lens' UpdateImagePipelineResponse (Prelude.Maybe Prelude.Text)
 updateImagePipelineResponse_clientToken = Lens.lens (\UpdateImagePipelineResponse' {clientToken} -> clientToken) (\s@UpdateImagePipelineResponse' {} a -> s {clientToken = a} :: UpdateImagePipelineResponse)
+
+-- | The request ID that uniquely identifies this request.
+updateImagePipelineResponse_requestId :: Lens.Lens' UpdateImagePipelineResponse (Prelude.Maybe Prelude.Text)
+updateImagePipelineResponse_requestId = Lens.lens (\UpdateImagePipelineResponse' {requestId} -> requestId) (\s@UpdateImagePipelineResponse' {} a -> s {requestId = a} :: UpdateImagePipelineResponse)
 
 -- | The Amazon Resource Name (ARN) of the image pipeline that was updated by
 -- this request.
@@ -363,7 +365,7 @@ updateImagePipelineResponse_httpStatus = Lens.lens (\UpdateImagePipelineResponse
 
 instance Prelude.NFData UpdateImagePipelineResponse where
   rnf UpdateImagePipelineResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imagePipelineArn
       `Prelude.seq` Prelude.rnf httpStatus

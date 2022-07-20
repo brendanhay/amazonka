@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntitiesDetectionJobFilter' smart constructor.
 data EntitiesDetectionJobFilter = EntitiesDetectionJobFilter'
-  { -- | Filters the list of jobs based on the time that the job was submitted
-    -- for processing. Returns only jobs submitted after the specified time.
-    -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX,
+  { -- | Filters the list of jobs based on job status. Returns only jobs with the
+    -- specified status.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | Filters on the name of the job.
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
     submitTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Filters on the name of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | Filters the list of jobs based on job status. Returns only jobs with the
-    -- specified status.
-    jobStatus :: Prelude.Maybe JobStatus
+    -- | Filters the list of jobs based on the time that the job was submitted
+    -- for processing. Returns only jobs submitted after the specified time.
+    -- Jobs are returned in descending order, newest to oldest.
+    submitTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,34 +53,37 @@ data EntitiesDetectionJobFilter = EntitiesDetectionJobFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'submitTimeAfter', 'entitiesDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted after the specified time.
--- Jobs are returned in descending order, newest to oldest.
+-- 'jobStatus', 'entitiesDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
+--
+-- 'jobName', 'entitiesDetectionJobFilter_jobName' - Filters on the name of the job.
 --
 -- 'submitTimeBefore', 'entitiesDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
 --
--- 'jobName', 'entitiesDetectionJobFilter_jobName' - Filters on the name of the job.
---
--- 'jobStatus', 'entitiesDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
+-- 'submitTimeAfter', 'entitiesDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted after the specified time.
+-- Jobs are returned in descending order, newest to oldest.
 newEntitiesDetectionJobFilter ::
   EntitiesDetectionJobFilter
 newEntitiesDetectionJobFilter =
   EntitiesDetectionJobFilter'
-    { submitTimeAfter =
+    { jobStatus =
         Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
       jobName = Prelude.Nothing,
-      jobStatus = Prelude.Nothing
+      submitTimeBefore = Prelude.Nothing,
+      submitTimeAfter = Prelude.Nothing
     }
 
--- | Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted after the specified time.
--- Jobs are returned in descending order, newest to oldest.
-entitiesDetectionJobFilter_submitTimeAfter :: Lens.Lens' EntitiesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-entitiesDetectionJobFilter_submitTimeAfter = Lens.lens (\EntitiesDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EntitiesDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: EntitiesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+-- | Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
+entitiesDetectionJobFilter_jobStatus :: Lens.Lens' EntitiesDetectionJobFilter (Prelude.Maybe JobStatus)
+entitiesDetectionJobFilter_jobStatus = Lens.lens (\EntitiesDetectionJobFilter' {jobStatus} -> jobStatus) (\s@EntitiesDetectionJobFilter' {} a -> s {jobStatus = a} :: EntitiesDetectionJobFilter)
+
+-- | Filters on the name of the job.
+entitiesDetectionJobFilter_jobName :: Lens.Lens' EntitiesDetectionJobFilter (Prelude.Maybe Prelude.Text)
+entitiesDetectionJobFilter_jobName = Lens.lens (\EntitiesDetectionJobFilter' {jobName} -> jobName) (\s@EntitiesDetectionJobFilter' {} a -> s {jobName = a} :: EntitiesDetectionJobFilter)
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
@@ -88,38 +91,35 @@ entitiesDetectionJobFilter_submitTimeAfter = Lens.lens (\EntitiesDetectionJobFil
 entitiesDetectionJobFilter_submitTimeBefore :: Lens.Lens' EntitiesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
 entitiesDetectionJobFilter_submitTimeBefore = Lens.lens (\EntitiesDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@EntitiesDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: EntitiesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
--- | Filters on the name of the job.
-entitiesDetectionJobFilter_jobName :: Lens.Lens' EntitiesDetectionJobFilter (Prelude.Maybe Prelude.Text)
-entitiesDetectionJobFilter_jobName = Lens.lens (\EntitiesDetectionJobFilter' {jobName} -> jobName) (\s@EntitiesDetectionJobFilter' {} a -> s {jobName = a} :: EntitiesDetectionJobFilter)
-
--- | Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
-entitiesDetectionJobFilter_jobStatus :: Lens.Lens' EntitiesDetectionJobFilter (Prelude.Maybe JobStatus)
-entitiesDetectionJobFilter_jobStatus = Lens.lens (\EntitiesDetectionJobFilter' {jobStatus} -> jobStatus) (\s@EntitiesDetectionJobFilter' {} a -> s {jobStatus = a} :: EntitiesDetectionJobFilter)
+-- | Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted after the specified time.
+-- Jobs are returned in descending order, newest to oldest.
+entitiesDetectionJobFilter_submitTimeAfter :: Lens.Lens' EntitiesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
+entitiesDetectionJobFilter_submitTimeAfter = Lens.lens (\EntitiesDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EntitiesDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: EntitiesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
 instance Prelude.Hashable EntitiesDetectionJobFilter where
   hashWithSalt _salt EntitiesDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` submitTimeAfter
-      `Prelude.hashWithSalt` submitTimeBefore
+    _salt `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` submitTimeBefore
+      `Prelude.hashWithSalt` submitTimeAfter
 
 instance Prelude.NFData EntitiesDetectionJobFilter where
   rnf EntitiesDetectionJobFilter' {..} =
-    Prelude.rnf submitTimeAfter
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf submitTimeBefore
+      `Prelude.seq` Prelude.rnf submitTimeAfter
 
 instance Core.ToJSON EntitiesDetectionJobFilter where
   toJSON EntitiesDetectionJobFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SubmitTimeAfter" Core..=)
-              Prelude.<$> submitTimeAfter,
+          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
+            ("JobName" Core..=) Prelude.<$> jobName,
             ("SubmitTimeBefore" Core..=)
               Prelude.<$> submitTimeBefore,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("JobStatus" Core..=) Prelude.<$> jobStatus
+            ("SubmitTimeAfter" Core..=)
+              Prelude.<$> submitTimeAfter
           ]
       )

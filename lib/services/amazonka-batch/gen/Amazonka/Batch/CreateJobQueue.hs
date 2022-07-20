@@ -35,8 +35,8 @@ module Amazonka.Batch.CreateJobQueue
     newCreateJobQueue,
 
     -- * Request Lenses
-    createJobQueue_state,
     createJobQueue_tags,
+    createJobQueue_state,
     createJobQueue_jobQueueName,
     createJobQueue_priority,
     createJobQueue_computeEnvironmentOrder,
@@ -63,16 +63,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateJobQueue' smart constructor.
 data CreateJobQueue = CreateJobQueue'
-  { -- | The state of the job queue. If the job queue state is @ENABLED@, it is
-    -- able to accept jobs. If the job queue state is @DISABLED@, new jobs
-    -- can\'t be added to the queue, but jobs already in the queue can finish.
-    state :: Prelude.Maybe JQState,
-    -- | The tags that you apply to the job queue to help you categorize and
+  { -- | The tags that you apply to the job queue to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
     -- in /Batch User Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The state of the job queue. If the job queue state is @ENABLED@, it is
+    -- able to accept jobs. If the job queue state is @DISABLED@, new jobs
+    -- can\'t be added to the queue, but jobs already in the queue can finish.
+    state :: Prelude.Maybe JQState,
     -- | The name of the job queue. Up to 128 letters (uppercase and lowercase),
     -- numbers, and underscores are allowed.
     jobQueueName :: Prelude.Text,
@@ -109,15 +109,15 @@ data CreateJobQueue = CreateJobQueue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'createJobQueue_state' - The state of the job queue. If the job queue state is @ENABLED@, it is
--- able to accept jobs. If the job queue state is @DISABLED@, new jobs
--- can\'t be added to the queue, but jobs already in the queue can finish.
---
 -- 'tags', 'createJobQueue_tags' - The tags that you apply to the job queue to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
 -- in /Batch User Guide/.
+--
+-- 'state', 'createJobQueue_state' - The state of the job queue. If the job queue state is @ENABLED@, it is
+-- able to accept jobs. If the job queue state is @DISABLED@, new jobs
+-- can\'t be added to the queue, but jobs already in the queue can finish.
 --
 -- 'jobQueueName', 'createJobQueue_jobQueueName' - The name of the job queue. Up to 128 letters (uppercase and lowercase),
 -- numbers, and underscores are allowed.
@@ -151,18 +151,12 @@ newCreateJobQueue ::
   CreateJobQueue
 newCreateJobQueue pJobQueueName_ pPriority_ =
   CreateJobQueue'
-    { state = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      state = Prelude.Nothing,
       jobQueueName = pJobQueueName_,
       priority = pPriority_,
       computeEnvironmentOrder = Prelude.mempty
     }
-
--- | The state of the job queue. If the job queue state is @ENABLED@, it is
--- able to accept jobs. If the job queue state is @DISABLED@, new jobs
--- can\'t be added to the queue, but jobs already in the queue can finish.
-createJobQueue_state :: Lens.Lens' CreateJobQueue (Prelude.Maybe JQState)
-createJobQueue_state = Lens.lens (\CreateJobQueue' {state} -> state) (\s@CreateJobQueue' {} a -> s {state = a} :: CreateJobQueue)
 
 -- | The tags that you apply to the job queue to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
@@ -171,6 +165,12 @@ createJobQueue_state = Lens.lens (\CreateJobQueue' {state} -> state) (\s@CreateJ
 -- in /Batch User Guide/.
 createJobQueue_tags :: Lens.Lens' CreateJobQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJobQueue_tags = Lens.lens (\CreateJobQueue' {tags} -> tags) (\s@CreateJobQueue' {} a -> s {tags = a} :: CreateJobQueue) Prelude.. Lens.mapping Lens.coerced
+
+-- | The state of the job queue. If the job queue state is @ENABLED@, it is
+-- able to accept jobs. If the job queue state is @DISABLED@, new jobs
+-- can\'t be added to the queue, but jobs already in the queue can finish.
+createJobQueue_state :: Lens.Lens' CreateJobQueue (Prelude.Maybe JQState)
+createJobQueue_state = Lens.lens (\CreateJobQueue' {state} -> state) (\s@CreateJobQueue' {} a -> s {state = a} :: CreateJobQueue)
 
 -- | The name of the job queue. Up to 128 letters (uppercase and lowercase),
 -- numbers, and underscores are allowed.
@@ -219,16 +219,16 @@ instance Core.AWSRequest CreateJobQueue where
 
 instance Prelude.Hashable CreateJobQueue where
   hashWithSalt _salt CreateJobQueue' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` jobQueueName
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` computeEnvironmentOrder
 
 instance Prelude.NFData CreateJobQueue where
   rnf CreateJobQueue' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf jobQueueName
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf computeEnvironmentOrder
@@ -248,8 +248,8 @@ instance Core.ToJSON CreateJobQueue where
   toJSON CreateJobQueue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("state" Core..=) Prelude.<$> state,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("state" Core..=) Prelude.<$> state,
             Prelude.Just ("jobQueueName" Core..= jobQueueName),
             Prelude.Just ("priority" Core..= priority),
             Prelude.Just

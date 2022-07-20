@@ -29,7 +29,9 @@ import Amazonka.QuickSight.Types.Edition
 --
 -- /See:/ 'newAccountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-  { -- | The edition of Amazon QuickSight that you\'re currently subscribed to:
+  { -- | The main notification email for your Amazon QuickSight subscription.
+    notificationEmail :: Prelude.Maybe Prelude.Text,
+    -- | The edition of Amazon QuickSight that you\'re currently subscribed to:
     -- Enterprise edition or Standard edition.
     edition :: Prelude.Maybe Edition,
     -- | The \"account name\" you provided for the Amazon QuickSight subscription
@@ -39,9 +41,7 @@ data AccountSettings = AccountSettings'
     accountName :: Prelude.Maybe Prelude.Text,
     -- | The default Amazon QuickSight namespace for your Amazon Web Services
     -- account.
-    defaultNamespace :: Prelude.Maybe Prelude.Text,
-    -- | The main notification email for your Amazon QuickSight subscription.
-    notificationEmail :: Prelude.Maybe Prelude.Text
+    defaultNamespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,8 @@ data AccountSettings = AccountSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'notificationEmail', 'accountSettings_notificationEmail' - The main notification email for your Amazon QuickSight subscription.
+--
 -- 'edition', 'accountSettings_edition' - The edition of Amazon QuickSight that you\'re currently subscribed to:
 -- Enterprise edition or Standard edition.
 --
@@ -63,17 +65,20 @@ data AccountSettings = AccountSettings'
 --
 -- 'defaultNamespace', 'accountSettings_defaultNamespace' - The default Amazon QuickSight namespace for your Amazon Web Services
 -- account.
---
--- 'notificationEmail', 'accountSettings_notificationEmail' - The main notification email for your Amazon QuickSight subscription.
 newAccountSettings ::
   AccountSettings
 newAccountSettings =
   AccountSettings'
-    { edition = Prelude.Nothing,
+    { notificationEmail =
+        Prelude.Nothing,
+      edition = Prelude.Nothing,
       accountName = Prelude.Nothing,
-      defaultNamespace = Prelude.Nothing,
-      notificationEmail = Prelude.Nothing
+      defaultNamespace = Prelude.Nothing
     }
+
+-- | The main notification email for your Amazon QuickSight subscription.
+accountSettings_notificationEmail :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
+accountSettings_notificationEmail = Lens.lens (\AccountSettings' {notificationEmail} -> notificationEmail) (\s@AccountSettings' {} a -> s {notificationEmail = a} :: AccountSettings)
 
 -- | The edition of Amazon QuickSight that you\'re currently subscribed to:
 -- Enterprise edition or Standard edition.
@@ -92,32 +97,28 @@ accountSettings_accountName = Lens.lens (\AccountSettings' {accountName} -> acco
 accountSettings_defaultNamespace :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
 accountSettings_defaultNamespace = Lens.lens (\AccountSettings' {defaultNamespace} -> defaultNamespace) (\s@AccountSettings' {} a -> s {defaultNamespace = a} :: AccountSettings)
 
--- | The main notification email for your Amazon QuickSight subscription.
-accountSettings_notificationEmail :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
-accountSettings_notificationEmail = Lens.lens (\AccountSettings' {notificationEmail} -> notificationEmail) (\s@AccountSettings' {} a -> s {notificationEmail = a} :: AccountSettings)
-
 instance Core.FromJSON AccountSettings where
   parseJSON =
     Core.withObject
       "AccountSettings"
       ( \x ->
           AccountSettings'
-            Prelude.<$> (x Core..:? "Edition")
+            Prelude.<$> (x Core..:? "NotificationEmail")
+            Prelude.<*> (x Core..:? "Edition")
             Prelude.<*> (x Core..:? "AccountName")
             Prelude.<*> (x Core..:? "DefaultNamespace")
-            Prelude.<*> (x Core..:? "NotificationEmail")
       )
 
 instance Prelude.Hashable AccountSettings where
   hashWithSalt _salt AccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` edition
+    _salt `Prelude.hashWithSalt` notificationEmail
+      `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` defaultNamespace
-      `Prelude.hashWithSalt` notificationEmail
 
 instance Prelude.NFData AccountSettings where
   rnf AccountSettings' {..} =
-    Prelude.rnf edition
+    Prelude.rnf notificationEmail
+      `Prelude.seq` Prelude.rnf edition
       `Prelude.seq` Prelude.rnf accountName
       `Prelude.seq` Prelude.rnf defaultNamespace
-      `Prelude.seq` Prelude.rnf notificationEmail

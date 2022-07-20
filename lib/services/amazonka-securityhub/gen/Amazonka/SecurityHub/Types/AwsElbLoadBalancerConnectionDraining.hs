@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElbLoadBalancerConnectionDraining' smart constructor.
 data AwsElbLoadBalancerConnectionDraining = AwsElbLoadBalancerConnectionDraining'
-  { -- | Indicates whether connection draining is enabled for the load balancer.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum time, in seconds, to keep the existing connections open
+  { -- | The maximum time, in seconds, to keep the existing connections open
     -- before deregistering the instances.
-    timeout :: Prelude.Maybe Prelude.Int
+    timeout :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether connection draining is enabled for the load balancer.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data AwsElbLoadBalancerConnectionDraining = AwsElbLoadBalancerConnectionDraining
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'awsElbLoadBalancerConnectionDraining_enabled' - Indicates whether connection draining is enabled for the load balancer.
---
 -- 'timeout', 'awsElbLoadBalancerConnectionDraining_timeout' - The maximum time, in seconds, to keep the existing connections open
 -- before deregistering the instances.
+--
+-- 'enabled', 'awsElbLoadBalancerConnectionDraining_enabled' - Indicates whether connection draining is enabled for the load balancer.
 newAwsElbLoadBalancerConnectionDraining ::
   AwsElbLoadBalancerConnectionDraining
 newAwsElbLoadBalancerConnectionDraining =
   AwsElbLoadBalancerConnectionDraining'
-    { enabled =
+    { timeout =
         Prelude.Nothing,
-      timeout = Prelude.Nothing
+      enabled = Prelude.Nothing
     }
-
--- | Indicates whether connection draining is enabled for the load balancer.
-awsElbLoadBalancerConnectionDraining_enabled :: Lens.Lens' AwsElbLoadBalancerConnectionDraining (Prelude.Maybe Prelude.Bool)
-awsElbLoadBalancerConnectionDraining_enabled = Lens.lens (\AwsElbLoadBalancerConnectionDraining' {enabled} -> enabled) (\s@AwsElbLoadBalancerConnectionDraining' {} a -> s {enabled = a} :: AwsElbLoadBalancerConnectionDraining)
 
 -- | The maximum time, in seconds, to keep the existing connections open
 -- before deregistering the instances.
 awsElbLoadBalancerConnectionDraining_timeout :: Lens.Lens' AwsElbLoadBalancerConnectionDraining (Prelude.Maybe Prelude.Int)
 awsElbLoadBalancerConnectionDraining_timeout = Lens.lens (\AwsElbLoadBalancerConnectionDraining' {timeout} -> timeout) (\s@AwsElbLoadBalancerConnectionDraining' {} a -> s {timeout = a} :: AwsElbLoadBalancerConnectionDraining)
+
+-- | Indicates whether connection draining is enabled for the load balancer.
+awsElbLoadBalancerConnectionDraining_enabled :: Lens.Lens' AwsElbLoadBalancerConnectionDraining (Prelude.Maybe Prelude.Bool)
+awsElbLoadBalancerConnectionDraining_enabled = Lens.lens (\AwsElbLoadBalancerConnectionDraining' {enabled} -> enabled) (\s@AwsElbLoadBalancerConnectionDraining' {} a -> s {enabled = a} :: AwsElbLoadBalancerConnectionDraining)
 
 instance
   Core.FromJSON
@@ -75,8 +75,8 @@ instance
       "AwsElbLoadBalancerConnectionDraining"
       ( \x ->
           AwsElbLoadBalancerConnectionDraining'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "Timeout")
+            Prelude.<$> (x Core..:? "Timeout")
+            Prelude.<*> (x Core..:? "Enabled")
       )
 
 instance
@@ -86,16 +86,16 @@ instance
   hashWithSalt
     _salt
     AwsElbLoadBalancerConnectionDraining' {..} =
-      _salt `Prelude.hashWithSalt` enabled
-        `Prelude.hashWithSalt` timeout
+      _salt `Prelude.hashWithSalt` timeout
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsElbLoadBalancerConnectionDraining
   where
   rnf AwsElbLoadBalancerConnectionDraining' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf timeout
+    Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf enabled
 
 instance
   Core.ToJSON
@@ -104,7 +104,7 @@ instance
   toJSON AwsElbLoadBalancerConnectionDraining' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("Timeout" Core..=) Prelude.<$> timeout
+          [ ("Timeout" Core..=) Prelude.<$> timeout,
+            ("Enabled" Core..=) Prelude.<$> enabled
           ]
       )

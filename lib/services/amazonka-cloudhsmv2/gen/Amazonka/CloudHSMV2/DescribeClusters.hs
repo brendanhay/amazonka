@@ -36,8 +36,8 @@ module Amazonka.CloudHSMV2.DescribeClusters
     newDescribeClusters,
 
     -- * Request Lenses
-    describeClusters_filters,
     describeClusters_nextToken,
+    describeClusters_filters,
     describeClusters_maxResults,
 
     -- * Destructuring the Response
@@ -60,7 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { -- | One or more filters to limit the items returned in the response.
+  { -- | The @NextToken@ value that you received in the previous response. Use
+    -- this value to get more clusters.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters to limit the items returned in the response.
     --
     -- Use the @clusterIds@ filter to return only the specified clusters.
     -- Specify clusters by their cluster identifier (ID).
@@ -72,9 +75,6 @@ data DescribeClusters = DescribeClusters'
     -- Use the @states@ filter to return only clusters that match the specified
     -- state.
     filters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The @NextToken@ value that you received in the previous response. Use
-    -- this value to get more clusters.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of clusters to return in the response. When there are
     -- more clusters than the number you specify, the response contains a
     -- @NextToken@ value.
@@ -90,6 +90,9 @@ data DescribeClusters = DescribeClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeClusters_nextToken' - The @NextToken@ value that you received in the previous response. Use
+-- this value to get more clusters.
+--
 -- 'filters', 'describeClusters_filters' - One or more filters to limit the items returned in the response.
 --
 -- Use the @clusterIds@ filter to return only the specified clusters.
@@ -102,9 +105,6 @@ data DescribeClusters = DescribeClusters'
 -- Use the @states@ filter to return only clusters that match the specified
 -- state.
 --
--- 'nextToken', 'describeClusters_nextToken' - The @NextToken@ value that you received in the previous response. Use
--- this value to get more clusters.
---
 -- 'maxResults', 'describeClusters_maxResults' - The maximum number of clusters to return in the response. When there are
 -- more clusters than the number you specify, the response contains a
 -- @NextToken@ value.
@@ -112,10 +112,15 @@ newDescribeClusters ::
   DescribeClusters
 newDescribeClusters =
   DescribeClusters'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The @NextToken@ value that you received in the previous response. Use
+-- this value to get more clusters.
+describeClusters_nextToken :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
+describeClusters_nextToken = Lens.lens (\DescribeClusters' {nextToken} -> nextToken) (\s@DescribeClusters' {} a -> s {nextToken = a} :: DescribeClusters)
 
 -- | One or more filters to limit the items returned in the response.
 --
@@ -130,11 +135,6 @@ newDescribeClusters =
 -- state.
 describeClusters_filters :: Lens.Lens' DescribeClusters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 describeClusters_filters = Lens.lens (\DescribeClusters' {filters} -> filters) (\s@DescribeClusters' {} a -> s {filters = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
-
--- | The @NextToken@ value that you received in the previous response. Use
--- this value to get more clusters.
-describeClusters_nextToken :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
-describeClusters_nextToken = Lens.lens (\DescribeClusters' {nextToken} -> nextToken) (\s@DescribeClusters' {} a -> s {nextToken = a} :: DescribeClusters)
 
 -- | The maximum number of clusters to return in the response. When there are
 -- more clusters than the number you specify, the response contains a
@@ -180,14 +180,14 @@ instance Core.AWSRequest DescribeClusters where
 
 instance Prelude.Hashable DescribeClusters where
   hashWithSalt _salt DescribeClusters' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeClusters where
   rnf DescribeClusters' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeClusters where
@@ -209,8 +209,8 @@ instance Core.ToJSON DescribeClusters where
   toJSON DescribeClusters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

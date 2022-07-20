@@ -27,9 +27,9 @@ module Amazonka.FraudDetector.CreateVariable
     newCreateVariable,
 
     -- * Request Lenses
+    createVariable_tags,
     createVariable_variableType,
     createVariable_description,
-    createVariable_tags,
     createVariable_name,
     createVariable_dataType,
     createVariable_dataSource,
@@ -53,7 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVariable' smart constructor.
 data CreateVariable = CreateVariable'
-  { -- | The variable type. For more information see
+  { -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
+    -- | The variable type. For more information see
     -- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
     --
     -- Valid Values:
@@ -61,8 +63,6 @@ data CreateVariable = CreateVariable'
     variableType :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the variable.
     name :: Prelude.Text,
     -- | The data type.
@@ -82,6 +82,8 @@ data CreateVariable = CreateVariable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createVariable_tags' - A collection of key and value pairs.
+--
 -- 'variableType', 'createVariable_variableType' - The variable type. For more information see
 -- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
 --
@@ -89,8 +91,6 @@ data CreateVariable = CreateVariable'
 -- @AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT@
 --
 -- 'description', 'createVariable_description' - The description.
---
--- 'tags', 'createVariable_tags' - A collection of key and value pairs.
 --
 -- 'name', 'createVariable_name' - The name of the variable.
 --
@@ -115,14 +115,18 @@ newCreateVariable
   pDataSource_
   pDefaultValue_ =
     CreateVariable'
-      { variableType = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        variableType = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
         name = pName_,
         dataType = pDataType_,
         dataSource = pDataSource_,
         defaultValue = pDefaultValue_
       }
+
+-- | A collection of key and value pairs.
+createVariable_tags :: Lens.Lens' CreateVariable (Prelude.Maybe [Tag])
+createVariable_tags = Lens.lens (\CreateVariable' {tags} -> tags) (\s@CreateVariable' {} a -> s {tags = a} :: CreateVariable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The variable type. For more information see
 -- <https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types Variable types>.
@@ -135,10 +139,6 @@ createVariable_variableType = Lens.lens (\CreateVariable' {variableType} -> vari
 -- | The description.
 createVariable_description :: Lens.Lens' CreateVariable (Prelude.Maybe Prelude.Text)
 createVariable_description = Lens.lens (\CreateVariable' {description} -> description) (\s@CreateVariable' {} a -> s {description = a} :: CreateVariable)
-
--- | A collection of key and value pairs.
-createVariable_tags :: Lens.Lens' CreateVariable (Prelude.Maybe [Tag])
-createVariable_tags = Lens.lens (\CreateVariable' {tags} -> tags) (\s@CreateVariable' {} a -> s {tags = a} :: CreateVariable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the variable.
 createVariable_name :: Lens.Lens' CreateVariable Prelude.Text
@@ -170,9 +170,9 @@ instance Core.AWSRequest CreateVariable where
 
 instance Prelude.Hashable CreateVariable where
   hashWithSalt _salt CreateVariable' {..} =
-    _salt `Prelude.hashWithSalt` variableType
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` variableType
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` dataSource
@@ -180,9 +180,9 @@ instance Prelude.Hashable CreateVariable where
 
 instance Prelude.NFData CreateVariable where
   rnf CreateVariable' {..} =
-    Prelude.rnf variableType
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf variableType
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf dataSource
@@ -207,9 +207,9 @@ instance Core.ToJSON CreateVariable where
   toJSON CreateVariable' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("variableType" Core..=) Prelude.<$> variableType,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("variableType" Core..=) Prelude.<$> variableType,
             ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("dataType" Core..= dataType),
             Prelude.Just ("dataSource" Core..= dataSource),

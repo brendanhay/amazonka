@@ -34,22 +34,22 @@ module Amazonka.KafkaConnect.DescribeConnector
     newDescribeConnectorResponse,
 
     -- * Response Lenses
+    describeConnectorResponse_connectorDescription,
+    describeConnectorResponse_kafkaClusterEncryptionInTransit,
+    describeConnectorResponse_kafkaConnectVersion,
+    describeConnectorResponse_serviceExecutionRoleArn,
+    describeConnectorResponse_connectorArn,
+    describeConnectorResponse_plugins,
+    describeConnectorResponse_kafkaClusterClientAuthentication,
+    describeConnectorResponse_currentVersion,
+    describeConnectorResponse_logDelivery,
+    describeConnectorResponse_connectorName,
     describeConnectorResponse_creationTime,
     describeConnectorResponse_kafkaCluster,
-    describeConnectorResponse_kafkaConnectVersion,
-    describeConnectorResponse_logDelivery,
-    describeConnectorResponse_currentVersion,
     describeConnectorResponse_connectorConfiguration,
-    describeConnectorResponse_workerConfiguration,
-    describeConnectorResponse_connectorArn,
-    describeConnectorResponse_connectorName,
-    describeConnectorResponse_connectorState,
     describeConnectorResponse_capacity,
-    describeConnectorResponse_plugins,
-    describeConnectorResponse_connectorDescription,
-    describeConnectorResponse_kafkaClusterClientAuthentication,
-    describeConnectorResponse_kafkaClusterEncryptionInTransit,
-    describeConnectorResponse_serviceExecutionRoleArn,
+    describeConnectorResponse_connectorState,
+    describeConnectorResponse_workerConfiguration,
     describeConnectorResponse_httpStatus,
   )
 where
@@ -100,24 +100,24 @@ instance Core.AWSRequest DescribeConnector where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectorResponse'
-            Prelude.<$> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "kafkaCluster")
+            Prelude.<$> (x Core..?> "connectorDescription")
+            Prelude.<*> (x Core..?> "kafkaClusterEncryptionInTransit")
             Prelude.<*> (x Core..?> "kafkaConnectVersion")
-            Prelude.<*> (x Core..?> "logDelivery")
+            Prelude.<*> (x Core..?> "serviceExecutionRoleArn")
+            Prelude.<*> (x Core..?> "connectorArn")
+            Prelude.<*> (x Core..?> "plugins" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "kafkaClusterClientAuthentication")
             Prelude.<*> (x Core..?> "currentVersion")
+            Prelude.<*> (x Core..?> "logDelivery")
+            Prelude.<*> (x Core..?> "connectorName")
+            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<*> (x Core..?> "kafkaCluster")
             Prelude.<*> ( x Core..?> "connectorConfiguration"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "workerConfiguration")
-            Prelude.<*> (x Core..?> "connectorArn")
-            Prelude.<*> (x Core..?> "connectorName")
-            Prelude.<*> (x Core..?> "connectorState")
             Prelude.<*> (x Core..?> "capacity")
-            Prelude.<*> (x Core..?> "plugins" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "connectorDescription")
-            Prelude.<*> (x Core..?> "kafkaClusterClientAuthentication")
-            Prelude.<*> (x Core..?> "kafkaClusterEncryptionInTransit")
-            Prelude.<*> (x Core..?> "serviceExecutionRoleArn")
+            Prelude.<*> (x Core..?> "connectorState")
+            Prelude.<*> (x Core..?> "workerConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,43 +149,43 @@ instance Core.ToQuery DescribeConnector where
 
 -- | /See:/ 'newDescribeConnectorResponse' smart constructor.
 data DescribeConnectorResponse = DescribeConnectorResponse'
-  { -- | The time the connector was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The Apache Kafka cluster that the connector is connected to.
-    kafkaCluster :: Prelude.Maybe KafkaClusterDescription,
+  { -- | A summary description of the connector.
+    connectorDescription :: Prelude.Maybe Prelude.Text,
+    -- | Details of encryption in transit to the Apache Kafka cluster.
+    kafkaClusterEncryptionInTransit :: Prelude.Maybe KafkaClusterEncryptionInTransitDescription,
     -- | The version of Kafka Connect. It has to be compatible with both the
     -- Apache Kafka cluster\'s version and the plugins.
     kafkaConnectVersion :: Prelude.Maybe Prelude.Text,
-    -- | Details about delivering logs to Amazon CloudWatch Logs.
-    logDelivery :: Prelude.Maybe LogDeliveryDescription,
-    -- | The current version of the connector.
-    currentVersion :: Prelude.Maybe Prelude.Text,
-    -- | A map of keys to values that represent the configuration for the
-    -- connector.
-    connectorConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies which worker configuration was used for the connector.
-    workerConfiguration :: Prelude.Maybe WorkerConfigurationDescription,
-    -- | The Amazon Resource Name (ARN) of the connector.
-    connectorArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the connector.
-    connectorName :: Prelude.Maybe Prelude.Text,
-    -- | The state of the connector.
-    connectorState :: Prelude.Maybe ConnectorState,
-    -- | Information about the capacity of the connector, whether it is auto
-    -- scaled or provisioned.
-    capacity :: Prelude.Maybe CapacityDescription,
-    -- | Specifies which plugins were used for this connector.
-    plugins :: Prelude.Maybe [PluginDescription],
-    -- | A summary description of the connector.
-    connectorDescription :: Prelude.Maybe Prelude.Text,
-    -- | The type of client authentication used to connect to the Apache Kafka
-    -- cluster. The value is NONE when no client authentication is used.
-    kafkaClusterClientAuthentication :: Prelude.Maybe KafkaClusterClientAuthenticationDescription,
-    -- | Details of encryption in transit to the Apache Kafka cluster.
-    kafkaClusterEncryptionInTransit :: Prelude.Maybe KafkaClusterEncryptionInTransitDescription,
     -- | The Amazon Resource Name (ARN) of the IAM role used by the connector to
     -- access Amazon Web Services resources.
     serviceExecutionRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the connector.
+    connectorArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies which plugins were used for this connector.
+    plugins :: Prelude.Maybe [PluginDescription],
+    -- | The type of client authentication used to connect to the Apache Kafka
+    -- cluster. The value is NONE when no client authentication is used.
+    kafkaClusterClientAuthentication :: Prelude.Maybe KafkaClusterClientAuthenticationDescription,
+    -- | The current version of the connector.
+    currentVersion :: Prelude.Maybe Prelude.Text,
+    -- | Details about delivering logs to Amazon CloudWatch Logs.
+    logDelivery :: Prelude.Maybe LogDeliveryDescription,
+    -- | The name of the connector.
+    connectorName :: Prelude.Maybe Prelude.Text,
+    -- | The time the connector was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The Apache Kafka cluster that the connector is connected to.
+    kafkaCluster :: Prelude.Maybe KafkaClusterDescription,
+    -- | A map of keys to values that represent the configuration for the
+    -- connector.
+    connectorConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Information about the capacity of the connector, whether it is auto
+    -- scaled or provisioned.
+    capacity :: Prelude.Maybe CapacityDescription,
+    -- | The state of the connector.
+    connectorState :: Prelude.Maybe ConnectorState,
+    -- | Specifies which worker configuration was used for the connector.
+    workerConfiguration :: Prelude.Maybe WorkerConfigurationDescription,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,42 +199,42 @@ data DescribeConnectorResponse = DescribeConnectorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeConnectorResponse_creationTime' - The time the connector was created.
+-- 'connectorDescription', 'describeConnectorResponse_connectorDescription' - A summary description of the connector.
 --
--- 'kafkaCluster', 'describeConnectorResponse_kafkaCluster' - The Apache Kafka cluster that the connector is connected to.
+-- 'kafkaClusterEncryptionInTransit', 'describeConnectorResponse_kafkaClusterEncryptionInTransit' - Details of encryption in transit to the Apache Kafka cluster.
 --
 -- 'kafkaConnectVersion', 'describeConnectorResponse_kafkaConnectVersion' - The version of Kafka Connect. It has to be compatible with both the
 -- Apache Kafka cluster\'s version and the plugins.
 --
--- 'logDelivery', 'describeConnectorResponse_logDelivery' - Details about delivering logs to Amazon CloudWatch Logs.
---
--- 'currentVersion', 'describeConnectorResponse_currentVersion' - The current version of the connector.
---
--- 'connectorConfiguration', 'describeConnectorResponse_connectorConfiguration' - A map of keys to values that represent the configuration for the
--- connector.
---
--- 'workerConfiguration', 'describeConnectorResponse_workerConfiguration' - Specifies which worker configuration was used for the connector.
+-- 'serviceExecutionRoleArn', 'describeConnectorResponse_serviceExecutionRoleArn' - The Amazon Resource Name (ARN) of the IAM role used by the connector to
+-- access Amazon Web Services resources.
 --
 -- 'connectorArn', 'describeConnectorResponse_connectorArn' - The Amazon Resource Name (ARN) of the connector.
 --
--- 'connectorName', 'describeConnectorResponse_connectorName' - The name of the connector.
---
--- 'connectorState', 'describeConnectorResponse_connectorState' - The state of the connector.
---
--- 'capacity', 'describeConnectorResponse_capacity' - Information about the capacity of the connector, whether it is auto
--- scaled or provisioned.
---
 -- 'plugins', 'describeConnectorResponse_plugins' - Specifies which plugins were used for this connector.
---
--- 'connectorDescription', 'describeConnectorResponse_connectorDescription' - A summary description of the connector.
 --
 -- 'kafkaClusterClientAuthentication', 'describeConnectorResponse_kafkaClusterClientAuthentication' - The type of client authentication used to connect to the Apache Kafka
 -- cluster. The value is NONE when no client authentication is used.
 --
--- 'kafkaClusterEncryptionInTransit', 'describeConnectorResponse_kafkaClusterEncryptionInTransit' - Details of encryption in transit to the Apache Kafka cluster.
+-- 'currentVersion', 'describeConnectorResponse_currentVersion' - The current version of the connector.
 --
--- 'serviceExecutionRoleArn', 'describeConnectorResponse_serviceExecutionRoleArn' - The Amazon Resource Name (ARN) of the IAM role used by the connector to
--- access Amazon Web Services resources.
+-- 'logDelivery', 'describeConnectorResponse_logDelivery' - Details about delivering logs to Amazon CloudWatch Logs.
+--
+-- 'connectorName', 'describeConnectorResponse_connectorName' - The name of the connector.
+--
+-- 'creationTime', 'describeConnectorResponse_creationTime' - The time the connector was created.
+--
+-- 'kafkaCluster', 'describeConnectorResponse_kafkaCluster' - The Apache Kafka cluster that the connector is connected to.
+--
+-- 'connectorConfiguration', 'describeConnectorResponse_connectorConfiguration' - A map of keys to values that represent the configuration for the
+-- connector.
+--
+-- 'capacity', 'describeConnectorResponse_capacity' - Information about the capacity of the connector, whether it is auto
+-- scaled or provisioned.
+--
+-- 'connectorState', 'describeConnectorResponse_connectorState' - The state of the connector.
+--
+-- 'workerConfiguration', 'describeConnectorResponse_workerConfiguration' - Specifies which worker configuration was used for the connector.
 --
 -- 'httpStatus', 'describeConnectorResponse_httpStatus' - The response's http status code.
 newDescribeConnectorResponse ::
@@ -243,27 +243,70 @@ newDescribeConnectorResponse ::
   DescribeConnectorResponse
 newDescribeConnectorResponse pHttpStatus_ =
   DescribeConnectorResponse'
-    { creationTime =
-        Prelude.Nothing,
-      kafkaCluster = Prelude.Nothing,
-      kafkaConnectVersion = Prelude.Nothing,
-      logDelivery = Prelude.Nothing,
-      currentVersion = Prelude.Nothing,
-      connectorConfiguration = Prelude.Nothing,
-      workerConfiguration = Prelude.Nothing,
-      connectorArn = Prelude.Nothing,
-      connectorName = Prelude.Nothing,
-      connectorState = Prelude.Nothing,
-      capacity = Prelude.Nothing,
-      plugins = Prelude.Nothing,
-      connectorDescription = Prelude.Nothing,
-      kafkaClusterClientAuthentication =
+    { connectorDescription =
         Prelude.Nothing,
       kafkaClusterEncryptionInTransit =
         Prelude.Nothing,
+      kafkaConnectVersion = Prelude.Nothing,
       serviceExecutionRoleArn = Prelude.Nothing,
+      connectorArn = Prelude.Nothing,
+      plugins = Prelude.Nothing,
+      kafkaClusterClientAuthentication =
+        Prelude.Nothing,
+      currentVersion = Prelude.Nothing,
+      logDelivery = Prelude.Nothing,
+      connectorName = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      kafkaCluster = Prelude.Nothing,
+      connectorConfiguration = Prelude.Nothing,
+      capacity = Prelude.Nothing,
+      connectorState = Prelude.Nothing,
+      workerConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A summary description of the connector.
+describeConnectorResponse_connectorDescription :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
+describeConnectorResponse_connectorDescription = Lens.lens (\DescribeConnectorResponse' {connectorDescription} -> connectorDescription) (\s@DescribeConnectorResponse' {} a -> s {connectorDescription = a} :: DescribeConnectorResponse)
+
+-- | Details of encryption in transit to the Apache Kafka cluster.
+describeConnectorResponse_kafkaClusterEncryptionInTransit :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe KafkaClusterEncryptionInTransitDescription)
+describeConnectorResponse_kafkaClusterEncryptionInTransit = Lens.lens (\DescribeConnectorResponse' {kafkaClusterEncryptionInTransit} -> kafkaClusterEncryptionInTransit) (\s@DescribeConnectorResponse' {} a -> s {kafkaClusterEncryptionInTransit = a} :: DescribeConnectorResponse)
+
+-- | The version of Kafka Connect. It has to be compatible with both the
+-- Apache Kafka cluster\'s version and the plugins.
+describeConnectorResponse_kafkaConnectVersion :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
+describeConnectorResponse_kafkaConnectVersion = Lens.lens (\DescribeConnectorResponse' {kafkaConnectVersion} -> kafkaConnectVersion) (\s@DescribeConnectorResponse' {} a -> s {kafkaConnectVersion = a} :: DescribeConnectorResponse)
+
+-- | The Amazon Resource Name (ARN) of the IAM role used by the connector to
+-- access Amazon Web Services resources.
+describeConnectorResponse_serviceExecutionRoleArn :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
+describeConnectorResponse_serviceExecutionRoleArn = Lens.lens (\DescribeConnectorResponse' {serviceExecutionRoleArn} -> serviceExecutionRoleArn) (\s@DescribeConnectorResponse' {} a -> s {serviceExecutionRoleArn = a} :: DescribeConnectorResponse)
+
+-- | The Amazon Resource Name (ARN) of the connector.
+describeConnectorResponse_connectorArn :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
+describeConnectorResponse_connectorArn = Lens.lens (\DescribeConnectorResponse' {connectorArn} -> connectorArn) (\s@DescribeConnectorResponse' {} a -> s {connectorArn = a} :: DescribeConnectorResponse)
+
+-- | Specifies which plugins were used for this connector.
+describeConnectorResponse_plugins :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe [PluginDescription])
+describeConnectorResponse_plugins = Lens.lens (\DescribeConnectorResponse' {plugins} -> plugins) (\s@DescribeConnectorResponse' {} a -> s {plugins = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of client authentication used to connect to the Apache Kafka
+-- cluster. The value is NONE when no client authentication is used.
+describeConnectorResponse_kafkaClusterClientAuthentication :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe KafkaClusterClientAuthenticationDescription)
+describeConnectorResponse_kafkaClusterClientAuthentication = Lens.lens (\DescribeConnectorResponse' {kafkaClusterClientAuthentication} -> kafkaClusterClientAuthentication) (\s@DescribeConnectorResponse' {} a -> s {kafkaClusterClientAuthentication = a} :: DescribeConnectorResponse)
+
+-- | The current version of the connector.
+describeConnectorResponse_currentVersion :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
+describeConnectorResponse_currentVersion = Lens.lens (\DescribeConnectorResponse' {currentVersion} -> currentVersion) (\s@DescribeConnectorResponse' {} a -> s {currentVersion = a} :: DescribeConnectorResponse)
+
+-- | Details about delivering logs to Amazon CloudWatch Logs.
+describeConnectorResponse_logDelivery :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe LogDeliveryDescription)
+describeConnectorResponse_logDelivery = Lens.lens (\DescribeConnectorResponse' {logDelivery} -> logDelivery) (\s@DescribeConnectorResponse' {} a -> s {logDelivery = a} :: DescribeConnectorResponse)
+
+-- | The name of the connector.
+describeConnectorResponse_connectorName :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
+describeConnectorResponse_connectorName = Lens.lens (\DescribeConnectorResponse' {connectorName} -> connectorName) (\s@DescribeConnectorResponse' {} a -> s {connectorName = a} :: DescribeConnectorResponse)
 
 -- | The time the connector was created.
 describeConnectorResponse_creationTime :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.UTCTime)
@@ -273,66 +316,23 @@ describeConnectorResponse_creationTime = Lens.lens (\DescribeConnectorResponse' 
 describeConnectorResponse_kafkaCluster :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe KafkaClusterDescription)
 describeConnectorResponse_kafkaCluster = Lens.lens (\DescribeConnectorResponse' {kafkaCluster} -> kafkaCluster) (\s@DescribeConnectorResponse' {} a -> s {kafkaCluster = a} :: DescribeConnectorResponse)
 
--- | The version of Kafka Connect. It has to be compatible with both the
--- Apache Kafka cluster\'s version and the plugins.
-describeConnectorResponse_kafkaConnectVersion :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
-describeConnectorResponse_kafkaConnectVersion = Lens.lens (\DescribeConnectorResponse' {kafkaConnectVersion} -> kafkaConnectVersion) (\s@DescribeConnectorResponse' {} a -> s {kafkaConnectVersion = a} :: DescribeConnectorResponse)
-
--- | Details about delivering logs to Amazon CloudWatch Logs.
-describeConnectorResponse_logDelivery :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe LogDeliveryDescription)
-describeConnectorResponse_logDelivery = Lens.lens (\DescribeConnectorResponse' {logDelivery} -> logDelivery) (\s@DescribeConnectorResponse' {} a -> s {logDelivery = a} :: DescribeConnectorResponse)
-
--- | The current version of the connector.
-describeConnectorResponse_currentVersion :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
-describeConnectorResponse_currentVersion = Lens.lens (\DescribeConnectorResponse' {currentVersion} -> currentVersion) (\s@DescribeConnectorResponse' {} a -> s {currentVersion = a} :: DescribeConnectorResponse)
-
 -- | A map of keys to values that represent the configuration for the
 -- connector.
 describeConnectorResponse_connectorConfiguration :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeConnectorResponse_connectorConfiguration = Lens.lens (\DescribeConnectorResponse' {connectorConfiguration} -> connectorConfiguration) (\s@DescribeConnectorResponse' {} a -> s {connectorConfiguration = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies which worker configuration was used for the connector.
-describeConnectorResponse_workerConfiguration :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe WorkerConfigurationDescription)
-describeConnectorResponse_workerConfiguration = Lens.lens (\DescribeConnectorResponse' {workerConfiguration} -> workerConfiguration) (\s@DescribeConnectorResponse' {} a -> s {workerConfiguration = a} :: DescribeConnectorResponse)
-
--- | The Amazon Resource Name (ARN) of the connector.
-describeConnectorResponse_connectorArn :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
-describeConnectorResponse_connectorArn = Lens.lens (\DescribeConnectorResponse' {connectorArn} -> connectorArn) (\s@DescribeConnectorResponse' {} a -> s {connectorArn = a} :: DescribeConnectorResponse)
-
--- | The name of the connector.
-describeConnectorResponse_connectorName :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
-describeConnectorResponse_connectorName = Lens.lens (\DescribeConnectorResponse' {connectorName} -> connectorName) (\s@DescribeConnectorResponse' {} a -> s {connectorName = a} :: DescribeConnectorResponse)
-
--- | The state of the connector.
-describeConnectorResponse_connectorState :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe ConnectorState)
-describeConnectorResponse_connectorState = Lens.lens (\DescribeConnectorResponse' {connectorState} -> connectorState) (\s@DescribeConnectorResponse' {} a -> s {connectorState = a} :: DescribeConnectorResponse)
 
 -- | Information about the capacity of the connector, whether it is auto
 -- scaled or provisioned.
 describeConnectorResponse_capacity :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe CapacityDescription)
 describeConnectorResponse_capacity = Lens.lens (\DescribeConnectorResponse' {capacity} -> capacity) (\s@DescribeConnectorResponse' {} a -> s {capacity = a} :: DescribeConnectorResponse)
 
--- | Specifies which plugins were used for this connector.
-describeConnectorResponse_plugins :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe [PluginDescription])
-describeConnectorResponse_plugins = Lens.lens (\DescribeConnectorResponse' {plugins} -> plugins) (\s@DescribeConnectorResponse' {} a -> s {plugins = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The state of the connector.
+describeConnectorResponse_connectorState :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe ConnectorState)
+describeConnectorResponse_connectorState = Lens.lens (\DescribeConnectorResponse' {connectorState} -> connectorState) (\s@DescribeConnectorResponse' {} a -> s {connectorState = a} :: DescribeConnectorResponse)
 
--- | A summary description of the connector.
-describeConnectorResponse_connectorDescription :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
-describeConnectorResponse_connectorDescription = Lens.lens (\DescribeConnectorResponse' {connectorDescription} -> connectorDescription) (\s@DescribeConnectorResponse' {} a -> s {connectorDescription = a} :: DescribeConnectorResponse)
-
--- | The type of client authentication used to connect to the Apache Kafka
--- cluster. The value is NONE when no client authentication is used.
-describeConnectorResponse_kafkaClusterClientAuthentication :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe KafkaClusterClientAuthenticationDescription)
-describeConnectorResponse_kafkaClusterClientAuthentication = Lens.lens (\DescribeConnectorResponse' {kafkaClusterClientAuthentication} -> kafkaClusterClientAuthentication) (\s@DescribeConnectorResponse' {} a -> s {kafkaClusterClientAuthentication = a} :: DescribeConnectorResponse)
-
--- | Details of encryption in transit to the Apache Kafka cluster.
-describeConnectorResponse_kafkaClusterEncryptionInTransit :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe KafkaClusterEncryptionInTransitDescription)
-describeConnectorResponse_kafkaClusterEncryptionInTransit = Lens.lens (\DescribeConnectorResponse' {kafkaClusterEncryptionInTransit} -> kafkaClusterEncryptionInTransit) (\s@DescribeConnectorResponse' {} a -> s {kafkaClusterEncryptionInTransit = a} :: DescribeConnectorResponse)
-
--- | The Amazon Resource Name (ARN) of the IAM role used by the connector to
--- access Amazon Web Services resources.
-describeConnectorResponse_serviceExecutionRoleArn :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
-describeConnectorResponse_serviceExecutionRoleArn = Lens.lens (\DescribeConnectorResponse' {serviceExecutionRoleArn} -> serviceExecutionRoleArn) (\s@DescribeConnectorResponse' {} a -> s {serviceExecutionRoleArn = a} :: DescribeConnectorResponse)
+-- | Specifies which worker configuration was used for the connector.
+describeConnectorResponse_workerConfiguration :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe WorkerConfigurationDescription)
+describeConnectorResponse_workerConfiguration = Lens.lens (\DescribeConnectorResponse' {workerConfiguration} -> workerConfiguration) (\s@DescribeConnectorResponse' {} a -> s {workerConfiguration = a} :: DescribeConnectorResponse)
 
 -- | The response's http status code.
 describeConnectorResponse_httpStatus :: Lens.Lens' DescribeConnectorResponse Prelude.Int
@@ -340,22 +340,20 @@ describeConnectorResponse_httpStatus = Lens.lens (\DescribeConnectorResponse' {h
 
 instance Prelude.NFData DescribeConnectorResponse where
   rnf DescribeConnectorResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf kafkaCluster
+    Prelude.rnf connectorDescription
+      `Prelude.seq` Prelude.rnf kafkaClusterEncryptionInTransit
       `Prelude.seq` Prelude.rnf kafkaConnectVersion
-      `Prelude.seq` Prelude.rnf logDelivery
-      `Prelude.seq` Prelude.rnf currentVersion
-      `Prelude.seq` Prelude.rnf connectorConfiguration
-      `Prelude.seq` Prelude.rnf workerConfiguration
-      `Prelude.seq` Prelude.rnf connectorArn
-      `Prelude.seq` Prelude.rnf connectorName
-      `Prelude.seq` Prelude.rnf connectorState
-      `Prelude.seq` Prelude.rnf capacity
-      `Prelude.seq` Prelude.rnf plugins
-      `Prelude.seq` Prelude.rnf connectorDescription
-      `Prelude.seq` Prelude.rnf
-        kafkaClusterClientAuthentication
-      `Prelude.seq` Prelude.rnf
-        kafkaClusterEncryptionInTransit
       `Prelude.seq` Prelude.rnf serviceExecutionRoleArn
+      `Prelude.seq` Prelude.rnf connectorArn
+      `Prelude.seq` Prelude.rnf plugins
+      `Prelude.seq` Prelude.rnf kafkaClusterClientAuthentication
+      `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf logDelivery
+      `Prelude.seq` Prelude.rnf connectorName
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf kafkaCluster
+      `Prelude.seq` Prelude.rnf connectorConfiguration
+      `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf connectorState
+      `Prelude.seq` Prelude.rnf workerConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

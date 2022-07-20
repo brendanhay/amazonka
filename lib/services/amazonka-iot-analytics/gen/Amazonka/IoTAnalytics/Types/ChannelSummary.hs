@@ -29,10 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelSummary' smart constructor.
 data ChannelSummary = ChannelSummary'
-  { -- | When the channel was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The name of the channel.
+    channelName :: Prelude.Maybe Prelude.Text,
+    -- | Where channel data is stored.
+    channelStorage :: Prelude.Maybe ChannelStorageSummary,
     -- | The status of the channel.
     status :: Prelude.Maybe ChannelStatus,
+    -- | When the channel was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The last time the channel was updated.
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The last time when a new message arrived in the channel.
     --
     -- IoT Analytics updates this value at most once per minute for one
@@ -40,13 +46,7 @@ data ChannelSummary = ChannelSummary'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the channel.
-    channelName :: Prelude.Maybe Prelude.Text,
-    -- | Where channel data is stored.
-    channelStorage :: Prelude.Maybe ChannelStorageSummary,
-    -- | The last time the channel was updated.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastMessageArrivalTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,9 +58,15 @@ data ChannelSummary = ChannelSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'channelSummary_creationTime' - When the channel was created.
+-- 'channelName', 'channelSummary_channelName' - The name of the channel.
+--
+-- 'channelStorage', 'channelSummary_channelStorage' - Where channel data is stored.
 --
 -- 'status', 'channelSummary_status' - The status of the channel.
+--
+-- 'creationTime', 'channelSummary_creationTime' - When the channel was created.
+--
+-- 'lastUpdateTime', 'channelSummary_lastUpdateTime' - The last time the channel was updated.
 --
 -- 'lastMessageArrivalTime', 'channelSummary_lastMessageArrivalTime' - The last time when a new message arrived in the channel.
 --
@@ -69,31 +75,37 @@ data ChannelSummary = ChannelSummary'
 --
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
---
--- 'channelName', 'channelSummary_channelName' - The name of the channel.
---
--- 'channelStorage', 'channelSummary_channelStorage' - Where channel data is stored.
---
--- 'lastUpdateTime', 'channelSummary_lastUpdateTime' - The last time the channel was updated.
 newChannelSummary ::
   ChannelSummary
 newChannelSummary =
   ChannelSummary'
-    { creationTime = Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastMessageArrivalTime = Prelude.Nothing,
-      channelName = Prelude.Nothing,
+    { channelName = Prelude.Nothing,
       channelStorage = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing
+      status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      lastMessageArrivalTime = Prelude.Nothing
     }
+
+-- | The name of the channel.
+channelSummary_channelName :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
+channelSummary_channelName = Lens.lens (\ChannelSummary' {channelName} -> channelName) (\s@ChannelSummary' {} a -> s {channelName = a} :: ChannelSummary)
+
+-- | Where channel data is stored.
+channelSummary_channelStorage :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStorageSummary)
+channelSummary_channelStorage = Lens.lens (\ChannelSummary' {channelStorage} -> channelStorage) (\s@ChannelSummary' {} a -> s {channelStorage = a} :: ChannelSummary)
+
+-- | The status of the channel.
+channelSummary_status :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStatus)
+channelSummary_status = Lens.lens (\ChannelSummary' {status} -> status) (\s@ChannelSummary' {} a -> s {status = a} :: ChannelSummary)
 
 -- | When the channel was created.
 channelSummary_creationTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
 channelSummary_creationTime = Lens.lens (\ChannelSummary' {creationTime} -> creationTime) (\s@ChannelSummary' {} a -> s {creationTime = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
 
--- | The status of the channel.
-channelSummary_status :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStatus)
-channelSummary_status = Lens.lens (\ChannelSummary' {status} -> status) (\s@ChannelSummary' {} a -> s {status = a} :: ChannelSummary)
+-- | The last time the channel was updated.
+channelSummary_lastUpdateTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
+channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ChannelSummary' {} a -> s {lastUpdateTime = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The last time when a new message arrived in the channel.
 --
@@ -105,46 +117,34 @@ channelSummary_status = Lens.lens (\ChannelSummary' {status} -> status) (\s@Chan
 channelSummary_lastMessageArrivalTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
 channelSummary_lastMessageArrivalTime = Lens.lens (\ChannelSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@ChannelSummary' {} a -> s {lastMessageArrivalTime = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
 
--- | The name of the channel.
-channelSummary_channelName :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
-channelSummary_channelName = Lens.lens (\ChannelSummary' {channelName} -> channelName) (\s@ChannelSummary' {} a -> s {channelName = a} :: ChannelSummary)
-
--- | Where channel data is stored.
-channelSummary_channelStorage :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStorageSummary)
-channelSummary_channelStorage = Lens.lens (\ChannelSummary' {channelStorage} -> channelStorage) (\s@ChannelSummary' {} a -> s {channelStorage = a} :: ChannelSummary)
-
--- | The last time the channel was updated.
-channelSummary_lastUpdateTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ChannelSummary' {} a -> s {lastUpdateTime = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON ChannelSummary where
   parseJSON =
     Core.withObject
       "ChannelSummary"
       ( \x ->
           ChannelSummary'
-            Prelude.<$> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastMessageArrivalTime")
-            Prelude.<*> (x Core..:? "channelName")
+            Prelude.<$> (x Core..:? "channelName")
             Prelude.<*> (x Core..:? "channelStorage")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "creationTime")
             Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<*> (x Core..:? "lastMessageArrivalTime")
       )
 
 instance Prelude.Hashable ChannelSummary where
   hashWithSalt _salt ChannelSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastMessageArrivalTime
-      `Prelude.hashWithSalt` channelName
+    _salt `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` channelStorage
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` lastMessageArrivalTime
 
 instance Prelude.NFData ChannelSummary where
   rnf ChannelSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastMessageArrivalTime
-      `Prelude.seq` Prelude.rnf channelName
+    Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf channelStorage
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf lastMessageArrivalTime

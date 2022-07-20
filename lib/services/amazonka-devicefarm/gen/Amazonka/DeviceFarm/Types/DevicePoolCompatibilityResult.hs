@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDevicePoolCompatibilityResult' smart constructor.
 data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
-  { -- | The device (phone or tablet) to return information about.
-    device :: Prelude.Maybe Device,
-    -- | Whether the result was compatible with the device pool.
+  { -- | Whether the result was compatible with the device pool.
     compatible :: Prelude.Maybe Prelude.Bool,
+    -- | The device (phone or tablet) to return information about.
+    device :: Prelude.Maybe Device,
     -- | Information about the compatibility.
     incompatibilityMessages :: Prelude.Maybe [IncompatibilityMessage]
   }
@@ -46,28 +46,28 @@ data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'device', 'devicePoolCompatibilityResult_device' - The device (phone or tablet) to return information about.
---
 -- 'compatible', 'devicePoolCompatibilityResult_compatible' - Whether the result was compatible with the device pool.
+--
+-- 'device', 'devicePoolCompatibilityResult_device' - The device (phone or tablet) to return information about.
 --
 -- 'incompatibilityMessages', 'devicePoolCompatibilityResult_incompatibilityMessages' - Information about the compatibility.
 newDevicePoolCompatibilityResult ::
   DevicePoolCompatibilityResult
 newDevicePoolCompatibilityResult =
   DevicePoolCompatibilityResult'
-    { device =
+    { compatible =
         Prelude.Nothing,
-      compatible = Prelude.Nothing,
+      device = Prelude.Nothing,
       incompatibilityMessages = Prelude.Nothing
     }
-
--- | The device (phone or tablet) to return information about.
-devicePoolCompatibilityResult_device :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe Device)
-devicePoolCompatibilityResult_device = Lens.lens (\DevicePoolCompatibilityResult' {device} -> device) (\s@DevicePoolCompatibilityResult' {} a -> s {device = a} :: DevicePoolCompatibilityResult)
 
 -- | Whether the result was compatible with the device pool.
 devicePoolCompatibilityResult_compatible :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe Prelude.Bool)
 devicePoolCompatibilityResult_compatible = Lens.lens (\DevicePoolCompatibilityResult' {compatible} -> compatible) (\s@DevicePoolCompatibilityResult' {} a -> s {compatible = a} :: DevicePoolCompatibilityResult)
+
+-- | The device (phone or tablet) to return information about.
+devicePoolCompatibilityResult_device :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe Device)
+devicePoolCompatibilityResult_device = Lens.lens (\DevicePoolCompatibilityResult' {device} -> device) (\s@DevicePoolCompatibilityResult' {} a -> s {device = a} :: DevicePoolCompatibilityResult)
 
 -- | Information about the compatibility.
 devicePoolCompatibilityResult_incompatibilityMessages :: Lens.Lens' DevicePoolCompatibilityResult (Prelude.Maybe [IncompatibilityMessage])
@@ -79,8 +79,8 @@ instance Core.FromJSON DevicePoolCompatibilityResult where
       "DevicePoolCompatibilityResult"
       ( \x ->
           DevicePoolCompatibilityResult'
-            Prelude.<$> (x Core..:? "device")
-            Prelude.<*> (x Core..:? "compatible")
+            Prelude.<$> (x Core..:? "compatible")
+            Prelude.<*> (x Core..:? "device")
             Prelude.<*> ( x Core..:? "incompatibilityMessages"
                             Core..!= Prelude.mempty
                         )
@@ -91,12 +91,12 @@ instance
     DevicePoolCompatibilityResult
   where
   hashWithSalt _salt DevicePoolCompatibilityResult' {..} =
-    _salt `Prelude.hashWithSalt` device
-      `Prelude.hashWithSalt` compatible
+    _salt `Prelude.hashWithSalt` compatible
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` incompatibilityMessages
 
 instance Prelude.NFData DevicePoolCompatibilityResult where
   rnf DevicePoolCompatibilityResult' {..} =
-    Prelude.rnf device
-      `Prelude.seq` Prelude.rnf compatible
+    Prelude.rnf compatible
+      `Prelude.seq` Prelude.rnf device
       `Prelude.seq` Prelude.rnf incompatibilityMessages

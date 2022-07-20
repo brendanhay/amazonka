@@ -39,10 +39,10 @@ module Amazonka.AmplifyBackend.CreateBackend
     newCreateBackendResponse,
 
     -- * Response Lenses
-    createBackendResponse_status,
     createBackendResponse_jobId,
-    createBackendResponse_operation,
+    createBackendResponse_status,
     createBackendResponse_error,
+    createBackendResponse_operation,
     createBackendResponse_appId,
     createBackendResponse_backendEnvironmentName,
     createBackendResponse_httpStatus,
@@ -139,10 +139,10 @@ instance Core.AWSRequest CreateBackend where
     Response.receiveJSON
       ( \s h x ->
           CreateBackendResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "jobId")
-            Prelude.<*> (x Core..?> "operation")
+            Prelude.<$> (x Core..?> "jobId")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "error")
+            Prelude.<*> (x Core..?> "operation")
             Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,14 +199,14 @@ instance Core.ToQuery CreateBackend where
 
 -- | /See:/ 'newCreateBackendResponse' smart constructor.
 data CreateBackendResponse = CreateBackendResponse'
-  { -- | The current status of the request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the job.
+  { -- | The ID for the job.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the operation.
-    operation :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | If the request fails, this error is returned.
     error :: Prelude.Maybe Prelude.Text,
+    -- | The name of the operation.
+    operation :: Prelude.Maybe Prelude.Text,
     -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
@@ -224,13 +224,13 @@ data CreateBackendResponse = CreateBackendResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'createBackendResponse_status' - The current status of the request.
---
 -- 'jobId', 'createBackendResponse_jobId' - The ID for the job.
 --
--- 'operation', 'createBackendResponse_operation' - The name of the operation.
+-- 'status', 'createBackendResponse_status' - The current status of the request.
 --
 -- 'error', 'createBackendResponse_error' - If the request fails, this error is returned.
+--
+-- 'operation', 'createBackendResponse_operation' - The name of the operation.
 --
 -- 'appId', 'createBackendResponse_appId' - The app ID.
 --
@@ -243,30 +243,30 @@ newCreateBackendResponse ::
   CreateBackendResponse
 newCreateBackendResponse pHttpStatus_ =
   CreateBackendResponse'
-    { status = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      operation = Prelude.Nothing,
+    { jobId = Prelude.Nothing,
+      status = Prelude.Nothing,
       error = Prelude.Nothing,
+      operation = Prelude.Nothing,
       appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The current status of the request.
-createBackendResponse_status :: Lens.Lens' CreateBackendResponse (Prelude.Maybe Prelude.Text)
-createBackendResponse_status = Lens.lens (\CreateBackendResponse' {status} -> status) (\s@CreateBackendResponse' {} a -> s {status = a} :: CreateBackendResponse)
-
 -- | The ID for the job.
 createBackendResponse_jobId :: Lens.Lens' CreateBackendResponse (Prelude.Maybe Prelude.Text)
 createBackendResponse_jobId = Lens.lens (\CreateBackendResponse' {jobId} -> jobId) (\s@CreateBackendResponse' {} a -> s {jobId = a} :: CreateBackendResponse)
 
--- | The name of the operation.
-createBackendResponse_operation :: Lens.Lens' CreateBackendResponse (Prelude.Maybe Prelude.Text)
-createBackendResponse_operation = Lens.lens (\CreateBackendResponse' {operation} -> operation) (\s@CreateBackendResponse' {} a -> s {operation = a} :: CreateBackendResponse)
+-- | The current status of the request.
+createBackendResponse_status :: Lens.Lens' CreateBackendResponse (Prelude.Maybe Prelude.Text)
+createBackendResponse_status = Lens.lens (\CreateBackendResponse' {status} -> status) (\s@CreateBackendResponse' {} a -> s {status = a} :: CreateBackendResponse)
 
 -- | If the request fails, this error is returned.
 createBackendResponse_error :: Lens.Lens' CreateBackendResponse (Prelude.Maybe Prelude.Text)
 createBackendResponse_error = Lens.lens (\CreateBackendResponse' {error} -> error) (\s@CreateBackendResponse' {} a -> s {error = a} :: CreateBackendResponse)
+
+-- | The name of the operation.
+createBackendResponse_operation :: Lens.Lens' CreateBackendResponse (Prelude.Maybe Prelude.Text)
+createBackendResponse_operation = Lens.lens (\CreateBackendResponse' {operation} -> operation) (\s@CreateBackendResponse' {} a -> s {operation = a} :: CreateBackendResponse)
 
 -- | The app ID.
 createBackendResponse_appId :: Lens.Lens' CreateBackendResponse (Prelude.Maybe Prelude.Text)
@@ -282,10 +282,10 @@ createBackendResponse_httpStatus = Lens.lens (\CreateBackendResponse' {httpStatu
 
 instance Prelude.NFData CreateBackendResponse where
   rnf CreateBackendResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf operation
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
       `Prelude.seq` Prelude.rnf httpStatus

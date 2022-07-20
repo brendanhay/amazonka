@@ -29,8 +29,8 @@ module Amazonka.Route53AutoNaming.ListOperations
     newListOperations,
 
     -- * Request Lenses
-    listOperations_filters,
     listOperations_nextToken,
+    listOperations_filters,
     listOperations_maxResults,
 
     -- * Destructuring the Response
@@ -53,14 +53,7 @@ import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newListOperations' smart constructor.
 data ListOperations = ListOperations'
-  { -- | A complex type that contains specifications for the operations that you
-    -- want to list, for example, operations that you started between a
-    -- specified start date and end date.
-    --
-    -- If you specify more than one filter, an operation must match all filters
-    -- to be returned by @ListOperations@.
-    filters :: Prelude.Maybe [OperationFilter],
-    -- | For the first @ListOperations@ request, omit this value.
+  { -- | For the first @ListOperations@ request, omit this value.
     --
     -- If the response contains @NextToken@, submit another @ListOperations@
     -- request to get the next group of results. Specify the value of
@@ -72,6 +65,13 @@ data ListOperations = ListOperations'
     -- subsequent groups of @MaxResults@ operations do contain operations that
     -- match the criteria.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A complex type that contains specifications for the operations that you
+    -- want to list, for example, operations that you started between a
+    -- specified start date and end date.
+    --
+    -- If you specify more than one filter, an operation must match all filters
+    -- to be returned by @ListOperations@.
+    filters :: Prelude.Maybe [OperationFilter],
     -- | The maximum number of items that you want Cloud Map to return in the
     -- response to a @ListOperations@ request. If you don\'t specify a value
     -- for @MaxResults@, Cloud Map returns up to 100 operations.
@@ -87,13 +87,6 @@ data ListOperations = ListOperations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listOperations_filters' - A complex type that contains specifications for the operations that you
--- want to list, for example, operations that you started between a
--- specified start date and end date.
---
--- If you specify more than one filter, an operation must match all filters
--- to be returned by @ListOperations@.
---
 -- 'nextToken', 'listOperations_nextToken' - For the first @ListOperations@ request, omit this value.
 --
 -- If the response contains @NextToken@, submit another @ListOperations@
@@ -106,6 +99,13 @@ data ListOperations = ListOperations'
 -- subsequent groups of @MaxResults@ operations do contain operations that
 -- match the criteria.
 --
+-- 'filters', 'listOperations_filters' - A complex type that contains specifications for the operations that you
+-- want to list, for example, operations that you started between a
+-- specified start date and end date.
+--
+-- If you specify more than one filter, an operation must match all filters
+-- to be returned by @ListOperations@.
+--
 -- 'maxResults', 'listOperations_maxResults' - The maximum number of items that you want Cloud Map to return in the
 -- response to a @ListOperations@ request. If you don\'t specify a value
 -- for @MaxResults@, Cloud Map returns up to 100 operations.
@@ -113,19 +113,10 @@ newListOperations ::
   ListOperations
 newListOperations =
   ListOperations'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | A complex type that contains specifications for the operations that you
--- want to list, for example, operations that you started between a
--- specified start date and end date.
---
--- If you specify more than one filter, an operation must match all filters
--- to be returned by @ListOperations@.
-listOperations_filters :: Lens.Lens' ListOperations (Prelude.Maybe [OperationFilter])
-listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@ListOperations' {} a -> s {filters = a} :: ListOperations) Prelude.. Lens.mapping Lens.coerced
 
 -- | For the first @ListOperations@ request, omit this value.
 --
@@ -140,6 +131,15 @@ listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@L
 -- match the criteria.
 listOperations_nextToken :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
 listOperations_nextToken = Lens.lens (\ListOperations' {nextToken} -> nextToken) (\s@ListOperations' {} a -> s {nextToken = a} :: ListOperations)
+
+-- | A complex type that contains specifications for the operations that you
+-- want to list, for example, operations that you started between a
+-- specified start date and end date.
+--
+-- If you specify more than one filter, an operation must match all filters
+-- to be returned by @ListOperations@.
+listOperations_filters :: Lens.Lens' ListOperations (Prelude.Maybe [OperationFilter])
+listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@ListOperations' {} a -> s {filters = a} :: ListOperations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items that you want Cloud Map to return in the
 -- response to a @ListOperations@ request. If you don\'t specify a value
@@ -184,14 +184,14 @@ instance Core.AWSRequest ListOperations where
 
 instance Prelude.Hashable ListOperations where
   hashWithSalt _salt ListOperations' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListOperations where
   rnf ListOperations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListOperations where
@@ -213,8 +213,8 @@ instance Core.ToJSON ListOperations where
   toJSON ListOperations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

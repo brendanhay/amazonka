@@ -38,8 +38,8 @@ module Amazonka.CloudWatchEvents.ListPartnerEventSources
     newListPartnerEventSourcesResponse,
 
     -- * Response Lenses
-    listPartnerEventSourcesResponse_partnerEventSources,
     listPartnerEventSourcesResponse_nextToken,
+    listPartnerEventSourcesResponse_partnerEventSources,
     listPartnerEventSourcesResponse_httpStatus,
   )
 where
@@ -120,10 +120,10 @@ instance Core.AWSRequest ListPartnerEventSources where
     Response.receiveJSON
       ( \s h x ->
           ListPartnerEventSourcesResponse'
-            Prelude.<$> ( x Core..?> "PartnerEventSources"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "PartnerEventSources"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,11 +172,11 @@ instance Core.ToQuery ListPartnerEventSources where
 
 -- | /See:/ 'newListPartnerEventSourcesResponse' smart constructor.
 data ListPartnerEventSourcesResponse = ListPartnerEventSourcesResponse'
-  { -- | The list of partner event sources returned by the operation.
-    partnerEventSources :: Prelude.Maybe [PartnerEventSource],
-    -- | A token you can use in a subsequent operation to retrieve the next set
+  { -- | A token you can use in a subsequent operation to retrieve the next set
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of partner event sources returned by the operation.
+    partnerEventSources :: Prelude.Maybe [PartnerEventSource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,10 +190,10 @@ data ListPartnerEventSourcesResponse = ListPartnerEventSourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partnerEventSources', 'listPartnerEventSourcesResponse_partnerEventSources' - The list of partner event sources returned by the operation.
---
 -- 'nextToken', 'listPartnerEventSourcesResponse_nextToken' - A token you can use in a subsequent operation to retrieve the next set
 -- of results.
+--
+-- 'partnerEventSources', 'listPartnerEventSourcesResponse_partnerEventSources' - The list of partner event sources returned by the operation.
 --
 -- 'httpStatus', 'listPartnerEventSourcesResponse_httpStatus' - The response's http status code.
 newListPartnerEventSourcesResponse ::
@@ -202,20 +202,20 @@ newListPartnerEventSourcesResponse ::
   ListPartnerEventSourcesResponse
 newListPartnerEventSourcesResponse pHttpStatus_ =
   ListPartnerEventSourcesResponse'
-    { partnerEventSources =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      partnerEventSources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of partner event sources returned by the operation.
-listPartnerEventSourcesResponse_partnerEventSources :: Lens.Lens' ListPartnerEventSourcesResponse (Prelude.Maybe [PartnerEventSource])
-listPartnerEventSourcesResponse_partnerEventSources = Lens.lens (\ListPartnerEventSourcesResponse' {partnerEventSources} -> partnerEventSources) (\s@ListPartnerEventSourcesResponse' {} a -> s {partnerEventSources = a} :: ListPartnerEventSourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token you can use in a subsequent operation to retrieve the next set
 -- of results.
 listPartnerEventSourcesResponse_nextToken :: Lens.Lens' ListPartnerEventSourcesResponse (Prelude.Maybe Prelude.Text)
 listPartnerEventSourcesResponse_nextToken = Lens.lens (\ListPartnerEventSourcesResponse' {nextToken} -> nextToken) (\s@ListPartnerEventSourcesResponse' {} a -> s {nextToken = a} :: ListPartnerEventSourcesResponse)
+
+-- | The list of partner event sources returned by the operation.
+listPartnerEventSourcesResponse_partnerEventSources :: Lens.Lens' ListPartnerEventSourcesResponse (Prelude.Maybe [PartnerEventSource])
+listPartnerEventSourcesResponse_partnerEventSources = Lens.lens (\ListPartnerEventSourcesResponse' {partnerEventSources} -> partnerEventSources) (\s@ListPartnerEventSourcesResponse' {} a -> s {partnerEventSources = a} :: ListPartnerEventSourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPartnerEventSourcesResponse_httpStatus :: Lens.Lens' ListPartnerEventSourcesResponse Prelude.Int
@@ -226,6 +226,6 @@ instance
     ListPartnerEventSourcesResponse
   where
   rnf ListPartnerEventSourcesResponse' {..} =
-    Prelude.rnf partnerEventSources
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf partnerEventSources
       `Prelude.seq` Prelude.rnf httpStatus

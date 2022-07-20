@@ -39,12 +39,12 @@ module Amazonka.EC2.DescribeScheduledInstanceAvailability
     newDescribeScheduledInstanceAvailability,
 
     -- * Request Lenses
-    describeScheduledInstanceAvailability_minSlotDurationInHours,
-    describeScheduledInstanceAvailability_filters,
     describeScheduledInstanceAvailability_nextToken,
-    describeScheduledInstanceAvailability_maxSlotDurationInHours,
+    describeScheduledInstanceAvailability_filters,
     describeScheduledInstanceAvailability_dryRun,
     describeScheduledInstanceAvailability_maxResults,
+    describeScheduledInstanceAvailability_maxSlotDurationInHours,
+    describeScheduledInstanceAvailability_minSlotDurationInHours,
     describeScheduledInstanceAvailability_firstSlotStartTimeRange,
     describeScheduledInstanceAvailability_recurrence,
 
@@ -53,8 +53,8 @@ module Amazonka.EC2.DescribeScheduledInstanceAvailability
     newDescribeScheduledInstanceAvailabilityResponse,
 
     -- * Response Lenses
-    describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet,
     describeScheduledInstanceAvailabilityResponse_nextToken,
+    describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet,
     describeScheduledInstanceAvailabilityResponse_httpStatus,
   )
 where
@@ -70,11 +70,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeScheduledInstanceAvailability' smart constructor.
 data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailability'
-  { -- | The minimum available duration, in hours. The minimum required duration
-    -- is 1,200 hours per year. For example, the minimum daily schedule is 4
-    -- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
-    -- schedule is 100 hours.
-    minSlotDurationInHours :: Prelude.Maybe Prelude.Int,
+  { -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone (for example,
@@ -87,11 +84,6 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     --
     -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum available duration, in hours. This value must be greater
-    -- than @MinSlotDurationInHours@ and less than 1,720.
-    maxSlotDurationInHours :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -102,6 +94,14 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum available duration, in hours. This value must be greater
+    -- than @MinSlotDurationInHours@ and less than 1,720.
+    maxSlotDurationInHours :: Prelude.Maybe Prelude.Int,
+    -- | The minimum available duration, in hours. The minimum required duration
+    -- is 1,200 hours per year. For example, the minimum daily schedule is 4
+    -- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
+    -- schedule is 100 hours.
+    minSlotDurationInHours :: Prelude.Maybe Prelude.Int,
     -- | The time period for the first schedule to start.
     firstSlotStartTimeRange :: SlotDateTimeRangeRequest,
     -- | The schedule recurrence.
@@ -117,10 +117,7 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minSlotDurationInHours', 'describeScheduledInstanceAvailability_minSlotDurationInHours' - The minimum available duration, in hours. The minimum required duration
--- is 1,200 hours per year. For example, the minimum daily schedule is 4
--- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
--- schedule is 100 hours.
+-- 'nextToken', 'describeScheduledInstanceAvailability_nextToken' - The token for the next set of results.
 --
 -- 'filters', 'describeScheduledInstanceAvailability_filters' - The filters.
 --
@@ -134,11 +131,6 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 --
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
 --
--- 'nextToken', 'describeScheduledInstanceAvailability_nextToken' - The token for the next set of results.
---
--- 'maxSlotDurationInHours', 'describeScheduledInstanceAvailability_maxSlotDurationInHours' - The maximum available duration, in hours. This value must be greater
--- than @MinSlotDurationInHours@ and less than 1,720.
---
 -- 'dryRun', 'describeScheduledInstanceAvailability_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -148,6 +140,14 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 -- be between 5 and 300. The default value is 300. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'maxSlotDurationInHours', 'describeScheduledInstanceAvailability_maxSlotDurationInHours' - The maximum available duration, in hours. This value must be greater
+-- than @MinSlotDurationInHours@ and less than 1,720.
+--
+-- 'minSlotDurationInHours', 'describeScheduledInstanceAvailability_minSlotDurationInHours' - The minimum available duration, in hours. The minimum required duration
+-- is 1,200 hours per year. For example, the minimum daily schedule is 4
+-- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
+-- schedule is 100 hours.
 --
 -- 'firstSlotStartTimeRange', 'describeScheduledInstanceAvailability_firstSlotStartTimeRange' - The time period for the first schedule to start.
 --
@@ -162,25 +162,23 @@ newDescribeScheduledInstanceAvailability
   pFirstSlotStartTimeRange_
   pRecurrence_ =
     DescribeScheduledInstanceAvailability'
-      { minSlotDurationInHours =
+      { nextToken =
           Prelude.Nothing,
         filters = Prelude.Nothing,
-        nextToken = Prelude.Nothing,
-        maxSlotDurationInHours =
-          Prelude.Nothing,
         dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        maxSlotDurationInHours =
+          Prelude.Nothing,
+        minSlotDurationInHours =
+          Prelude.Nothing,
         firstSlotStartTimeRange =
           pFirstSlotStartTimeRange_,
         recurrence = pRecurrence_
       }
 
--- | The minimum available duration, in hours. The minimum required duration
--- is 1,200 hours per year. For example, the minimum daily schedule is 4
--- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
--- schedule is 100 hours.
-describeScheduledInstanceAvailability_minSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
-describeScheduledInstanceAvailability_minSlotDurationInHours = Lens.lens (\DescribeScheduledInstanceAvailability' {minSlotDurationInHours} -> minSlotDurationInHours) (\s@DescribeScheduledInstanceAvailability' {} a -> s {minSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
+-- | The token for the next set of results.
+describeScheduledInstanceAvailability_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
+describeScheduledInstanceAvailability_nextToken = Lens.lens (\DescribeScheduledInstanceAvailability' {nextToken} -> nextToken) (\s@DescribeScheduledInstanceAvailability' {} a -> s {nextToken = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The filters.
 --
@@ -196,15 +194,6 @@ describeScheduledInstanceAvailability_minSlotDurationInHours = Lens.lens (\Descr
 describeScheduledInstanceAvailability_filters :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe [Filter])
 describeScheduledInstanceAvailability_filters = Lens.lens (\DescribeScheduledInstanceAvailability' {filters} -> filters) (\s@DescribeScheduledInstanceAvailability' {} a -> s {filters = a} :: DescribeScheduledInstanceAvailability) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next set of results.
-describeScheduledInstanceAvailability_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
-describeScheduledInstanceAvailability_nextToken = Lens.lens (\DescribeScheduledInstanceAvailability' {nextToken} -> nextToken) (\s@DescribeScheduledInstanceAvailability' {} a -> s {nextToken = a} :: DescribeScheduledInstanceAvailability)
-
--- | The maximum available duration, in hours. This value must be greater
--- than @MinSlotDurationInHours@ and less than 1,720.
-describeScheduledInstanceAvailability_maxSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
-describeScheduledInstanceAvailability_maxSlotDurationInHours = Lens.lens (\DescribeScheduledInstanceAvailability' {maxSlotDurationInHours} -> maxSlotDurationInHours) (\s@DescribeScheduledInstanceAvailability' {} a -> s {maxSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -218,6 +207,18 @@ describeScheduledInstanceAvailability_dryRun = Lens.lens (\DescribeScheduledInst
 -- value.
 describeScheduledInstanceAvailability_maxResults :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Natural)
 describeScheduledInstanceAvailability_maxResults = Lens.lens (\DescribeScheduledInstanceAvailability' {maxResults} -> maxResults) (\s@DescribeScheduledInstanceAvailability' {} a -> s {maxResults = a} :: DescribeScheduledInstanceAvailability)
+
+-- | The maximum available duration, in hours. This value must be greater
+-- than @MinSlotDurationInHours@ and less than 1,720.
+describeScheduledInstanceAvailability_maxSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
+describeScheduledInstanceAvailability_maxSlotDurationInHours = Lens.lens (\DescribeScheduledInstanceAvailability' {maxSlotDurationInHours} -> maxSlotDurationInHours) (\s@DescribeScheduledInstanceAvailability' {} a -> s {maxSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
+
+-- | The minimum available duration, in hours. The minimum required duration
+-- is 1,200 hours per year. For example, the minimum daily schedule is 4
+-- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
+-- schedule is 100 hours.
+describeScheduledInstanceAvailability_minSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
+describeScheduledInstanceAvailability_minSlotDurationInHours = Lens.lens (\DescribeScheduledInstanceAvailability' {minSlotDurationInHours} -> minSlotDurationInHours) (\s@DescribeScheduledInstanceAvailability' {} a -> s {minSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The time period for the first schedule to start.
 describeScheduledInstanceAvailability_firstSlotStartTimeRange :: Lens.Lens' DescribeScheduledInstanceAvailability SlotDateTimeRangeRequest
@@ -265,11 +266,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeScheduledInstanceAvailabilityResponse'
-            Prelude.<$> ( x Core..@? "scheduledInstanceAvailabilitySet"
-                            Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
-                        )
-              Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "scheduledInstanceAvailabilitySet"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -280,12 +281,12 @@ instance
   hashWithSalt
     _salt
     DescribeScheduledInstanceAvailability' {..} =
-      _salt `Prelude.hashWithSalt` minSlotDurationInHours
+      _salt `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxSlotDurationInHours
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` maxSlotDurationInHours
+        `Prelude.hashWithSalt` minSlotDurationInHours
         `Prelude.hashWithSalt` firstSlotStartTimeRange
         `Prelude.hashWithSalt` recurrence
 
@@ -294,12 +295,12 @@ instance
     DescribeScheduledInstanceAvailability
   where
   rnf DescribeScheduledInstanceAvailability' {..} =
-    Prelude.rnf minSlotDurationInHours
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxSlotDurationInHours
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf maxSlotDurationInHours
+      `Prelude.seq` Prelude.rnf minSlotDurationInHours
       `Prelude.seq` Prelude.rnf firstSlotStartTimeRange
       `Prelude.seq` Prelude.rnf recurrence
 
@@ -327,15 +328,15 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "MinSlotDurationInHours"
-          Core.=: minSlotDurationInHours,
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
-        "MaxSlotDurationInHours"
-          Core.=: maxSlotDurationInHours,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
+        "MaxSlotDurationInHours"
+          Core.=: maxSlotDurationInHours,
+        "MinSlotDurationInHours"
+          Core.=: minSlotDurationInHours,
         "FirstSlotStartTimeRange"
           Core.=: firstSlotStartTimeRange,
         "Recurrence" Core.=: recurrence
@@ -345,11 +346,11 @@ instance
 --
 -- /See:/ 'newDescribeScheduledInstanceAvailabilityResponse' smart constructor.
 data DescribeScheduledInstanceAvailabilityResponse = DescribeScheduledInstanceAvailabilityResponse'
-  { -- | Information about the available Scheduled Instances.
-    scheduledInstanceAvailabilitySet :: Prelude.Maybe [ScheduledInstanceAvailability],
-    -- | The token required to retrieve the next set of results. This value is
+  { -- | The token required to retrieve the next set of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the available Scheduled Instances.
+    scheduledInstanceAvailabilitySet :: Prelude.Maybe [ScheduledInstanceAvailability],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -363,10 +364,10 @@ data DescribeScheduledInstanceAvailabilityResponse = DescribeScheduledInstanceAv
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduledInstanceAvailabilitySet', 'describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet' - Information about the available Scheduled Instances.
---
 -- 'nextToken', 'describeScheduledInstanceAvailabilityResponse_nextToken' - The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'scheduledInstanceAvailabilitySet', 'describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet' - Information about the available Scheduled Instances.
 --
 -- 'httpStatus', 'describeScheduledInstanceAvailabilityResponse_httpStatus' - The response's http status code.
 newDescribeScheduledInstanceAvailabilityResponse ::
@@ -376,20 +377,21 @@ newDescribeScheduledInstanceAvailabilityResponse ::
 newDescribeScheduledInstanceAvailabilityResponse
   pHttpStatus_ =
     DescribeScheduledInstanceAvailabilityResponse'
-      { scheduledInstanceAvailabilitySet =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        scheduledInstanceAvailabilitySet =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the available Scheduled Instances.
-describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Prelude.Maybe [ScheduledInstanceAvailability])
-describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet = Lens.lens (\DescribeScheduledInstanceAvailabilityResponse' {scheduledInstanceAvailabilitySet} -> scheduledInstanceAvailabilitySet) (\s@DescribeScheduledInstanceAvailabilityResponse' {} a -> s {scheduledInstanceAvailabilitySet = a} :: DescribeScheduledInstanceAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
 describeScheduledInstanceAvailabilityResponse_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Prelude.Maybe Prelude.Text)
 describeScheduledInstanceAvailabilityResponse_nextToken = Lens.lens (\DescribeScheduledInstanceAvailabilityResponse' {nextToken} -> nextToken) (\s@DescribeScheduledInstanceAvailabilityResponse' {} a -> s {nextToken = a} :: DescribeScheduledInstanceAvailabilityResponse)
+
+-- | Information about the available Scheduled Instances.
+describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse (Prelude.Maybe [ScheduledInstanceAvailability])
+describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet = Lens.lens (\DescribeScheduledInstanceAvailabilityResponse' {scheduledInstanceAvailabilitySet} -> scheduledInstanceAvailabilitySet) (\s@DescribeScheduledInstanceAvailabilityResponse' {} a -> s {scheduledInstanceAvailabilitySet = a} :: DescribeScheduledInstanceAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeScheduledInstanceAvailabilityResponse_httpStatus :: Lens.Lens' DescribeScheduledInstanceAvailabilityResponse Prelude.Int
@@ -401,6 +403,6 @@ instance
   where
   rnf
     DescribeScheduledInstanceAvailabilityResponse' {..} =
-      Prelude.rnf scheduledInstanceAvailabilitySet
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf scheduledInstanceAvailabilitySet
         `Prelude.seq` Prelude.rnf httpStatus

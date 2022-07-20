@@ -36,8 +36,8 @@ module Amazonka.Kafka.DeleteCluster
     newDeleteClusterResponse,
 
     -- * Response Lenses
-    deleteClusterResponse_state,
     deleteClusterResponse_clusterArn,
+    deleteClusterResponse_state,
     deleteClusterResponse_httpStatus,
   )
 where
@@ -96,8 +96,8 @@ instance Core.AWSRequest DeleteCluster where
     Response.receiveJSON
       ( \s h x ->
           DeleteClusterResponse'
-            Prelude.<$> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "clusterArn")
+            Prelude.<$> (x Core..?> "clusterArn")
+            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,11 +134,11 @@ instance Core.ToQuery DeleteCluster where
 
 -- | /See:/ 'newDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
-  { -- | The state of the cluster. The possible states are ACTIVE, CREATING,
+  { -- | The Amazon Resource Name (ARN) of the cluster.
+    clusterArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the cluster. The possible states are ACTIVE, CREATING,
     -- DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.
     state :: Prelude.Maybe ClusterState,
-    -- | The Amazon Resource Name (ARN) of the cluster.
-    clusterArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,10 +152,10 @@ data DeleteClusterResponse = DeleteClusterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterArn', 'deleteClusterResponse_clusterArn' - The Amazon Resource Name (ARN) of the cluster.
+--
 -- 'state', 'deleteClusterResponse_state' - The state of the cluster. The possible states are ACTIVE, CREATING,
 -- DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.
---
--- 'clusterArn', 'deleteClusterResponse_clusterArn' - The Amazon Resource Name (ARN) of the cluster.
 --
 -- 'httpStatus', 'deleteClusterResponse_httpStatus' - The response's http status code.
 newDeleteClusterResponse ::
@@ -164,19 +164,20 @@ newDeleteClusterResponse ::
   DeleteClusterResponse
 newDeleteClusterResponse pHttpStatus_ =
   DeleteClusterResponse'
-    { state = Prelude.Nothing,
-      clusterArn = Prelude.Nothing,
+    { clusterArn =
+        Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the cluster.
+deleteClusterResponse_clusterArn :: Lens.Lens' DeleteClusterResponse (Prelude.Maybe Prelude.Text)
+deleteClusterResponse_clusterArn = Lens.lens (\DeleteClusterResponse' {clusterArn} -> clusterArn) (\s@DeleteClusterResponse' {} a -> s {clusterArn = a} :: DeleteClusterResponse)
 
 -- | The state of the cluster. The possible states are ACTIVE, CREATING,
 -- DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.
 deleteClusterResponse_state :: Lens.Lens' DeleteClusterResponse (Prelude.Maybe ClusterState)
 deleteClusterResponse_state = Lens.lens (\DeleteClusterResponse' {state} -> state) (\s@DeleteClusterResponse' {} a -> s {state = a} :: DeleteClusterResponse)
-
--- | The Amazon Resource Name (ARN) of the cluster.
-deleteClusterResponse_clusterArn :: Lens.Lens' DeleteClusterResponse (Prelude.Maybe Prelude.Text)
-deleteClusterResponse_clusterArn = Lens.lens (\DeleteClusterResponse' {clusterArn} -> clusterArn) (\s@DeleteClusterResponse' {} a -> s {clusterArn = a} :: DeleteClusterResponse)
 
 -- | The response's http status code.
 deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Prelude.Int
@@ -184,6 +185,6 @@ deleteClusterResponse_httpStatus = Lens.lens (\DeleteClusterResponse' {httpStatu
 
 instance Prelude.NFData DeleteClusterResponse where
   rnf DeleteClusterResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf clusterArn
+    Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

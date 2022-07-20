@@ -32,14 +32,14 @@ data ProtectedResource = ProtectedResource'
     -- (Amazon RDS) database. For Windows Volume Shadow Copy Service (VSS)
     -- backups, the only supported resource type is Amazon EC2.
     resourceType :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+    -- format of the ARN depends on the resource type.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time a resource was last backed up, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @LastBackupTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    lastBackupTime :: Prelude.Maybe Core.POSIX,
-    -- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
-    -- format of the ARN depends on the resource type.
-    resourceArn :: Prelude.Maybe Prelude.Text
+    lastBackupTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,20 +56,20 @@ data ProtectedResource = ProtectedResource'
 -- (Amazon RDS) database. For Windows Volume Shadow Copy Service (VSS)
 -- backups, the only supported resource type is Amazon EC2.
 --
+-- 'resourceArn', 'protectedResource_resourceArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+-- format of the ARN depends on the resource type.
+--
 -- 'lastBackupTime', 'protectedResource_lastBackupTime' - The date and time a resource was last backed up, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @LastBackupTime@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
---
--- 'resourceArn', 'protectedResource_resourceArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The
--- format of the ARN depends on the resource type.
 newProtectedResource ::
   ProtectedResource
 newProtectedResource =
   ProtectedResource'
     { resourceType = Prelude.Nothing,
-      lastBackupTime = Prelude.Nothing,
-      resourceArn = Prelude.Nothing
+      resourceArn = Prelude.Nothing,
+      lastBackupTime = Prelude.Nothing
     }
 
 -- | The type of Amazon Web Services resource; for example, an Amazon Elastic
@@ -79,17 +79,17 @@ newProtectedResource =
 protectedResource_resourceType :: Lens.Lens' ProtectedResource (Prelude.Maybe Prelude.Text)
 protectedResource_resourceType = Lens.lens (\ProtectedResource' {resourceType} -> resourceType) (\s@ProtectedResource' {} a -> s {resourceType = a} :: ProtectedResource)
 
+-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+-- format of the ARN depends on the resource type.
+protectedResource_resourceArn :: Lens.Lens' ProtectedResource (Prelude.Maybe Prelude.Text)
+protectedResource_resourceArn = Lens.lens (\ProtectedResource' {resourceArn} -> resourceArn) (\s@ProtectedResource' {} a -> s {resourceArn = a} :: ProtectedResource)
+
 -- | The date and time a resource was last backed up, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @LastBackupTime@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 protectedResource_lastBackupTime :: Lens.Lens' ProtectedResource (Prelude.Maybe Prelude.UTCTime)
 protectedResource_lastBackupTime = Lens.lens (\ProtectedResource' {lastBackupTime} -> lastBackupTime) (\s@ProtectedResource' {} a -> s {lastBackupTime = a} :: ProtectedResource) Prelude.. Lens.mapping Core._Time
-
--- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
--- format of the ARN depends on the resource type.
-protectedResource_resourceArn :: Lens.Lens' ProtectedResource (Prelude.Maybe Prelude.Text)
-protectedResource_resourceArn = Lens.lens (\ProtectedResource' {resourceArn} -> resourceArn) (\s@ProtectedResource' {} a -> s {resourceArn = a} :: ProtectedResource)
 
 instance Core.FromJSON ProtectedResource where
   parseJSON =
@@ -98,18 +98,18 @@ instance Core.FromJSON ProtectedResource where
       ( \x ->
           ProtectedResource'
             Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "LastBackupTime")
             Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<*> (x Core..:? "LastBackupTime")
       )
 
 instance Prelude.Hashable ProtectedResource where
   hashWithSalt _salt ProtectedResource' {..} =
     _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` lastBackupTime
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` lastBackupTime
 
 instance Prelude.NFData ProtectedResource where
   rnf ProtectedResource' {..} =
     Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf lastBackupTime
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf lastBackupTime

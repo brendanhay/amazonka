@@ -32,8 +32,8 @@ module Amazonka.CodeBuild.ListSharedReportGroups
     -- * Request Lenses
     listSharedReportGroups_sortOrder,
     listSharedReportGroups_nextToken,
-    listSharedReportGroups_maxResults,
     listSharedReportGroups_sortBy,
+    listSharedReportGroups_maxResults,
 
     -- * Destructuring the Response
     ListSharedReportGroupsResponse (..),
@@ -69,10 +69,6 @@ data ListSharedReportGroups = ListSharedReportGroups'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of paginated shared report groups per response. Use
-    -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
-    -- objects. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The criterion to be used to list report groups shared with the current
     -- Amazon Web Services account or user. Valid values include:
     --
@@ -80,7 +76,11 @@ data ListSharedReportGroups = ListSharedReportGroups'
     --
     -- -   @MODIFIED_TIME@: List based on when information about the shared
     --     report group was last changed.
-    sortBy :: Prelude.Maybe SharedResourceSortByType
+    sortBy :: Prelude.Maybe SharedResourceSortByType,
+    -- | The maximum number of paginated shared report groups per response. Use
+    -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+    -- objects. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,10 +106,6 @@ data ListSharedReportGroups = ListSharedReportGroups'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
--- 'maxResults', 'listSharedReportGroups_maxResults' - The maximum number of paginated shared report groups per response. Use
--- @nextToken@ to iterate pages in the list of returned @ReportGroup@
--- objects. The default value is 100.
---
 -- 'sortBy', 'listSharedReportGroups_sortBy' - The criterion to be used to list report groups shared with the current
 -- Amazon Web Services account or user. Valid values include:
 --
@@ -117,6 +113,10 @@ data ListSharedReportGroups = ListSharedReportGroups'
 --
 -- -   @MODIFIED_TIME@: List based on when information about the shared
 --     report group was last changed.
+--
+-- 'maxResults', 'listSharedReportGroups_maxResults' - The maximum number of paginated shared report groups per response. Use
+-- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+-- objects. The default value is 100.
 newListSharedReportGroups ::
   ListSharedReportGroups
 newListSharedReportGroups =
@@ -124,8 +124,8 @@ newListSharedReportGroups =
     { sortOrder =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The order in which to list shared report groups. Valid values include:
@@ -146,12 +146,6 @@ listSharedReportGroups_sortOrder = Lens.lens (\ListSharedReportGroups' {sortOrde
 listSharedReportGroups_nextToken :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe Prelude.Text)
 listSharedReportGroups_nextToken = Lens.lens (\ListSharedReportGroups' {nextToken} -> nextToken) (\s@ListSharedReportGroups' {} a -> s {nextToken = a} :: ListSharedReportGroups)
 
--- | The maximum number of paginated shared report groups per response. Use
--- @nextToken@ to iterate pages in the list of returned @ReportGroup@
--- objects. The default value is 100.
-listSharedReportGroups_maxResults :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe Prelude.Natural)
-listSharedReportGroups_maxResults = Lens.lens (\ListSharedReportGroups' {maxResults} -> maxResults) (\s@ListSharedReportGroups' {} a -> s {maxResults = a} :: ListSharedReportGroups)
-
 -- | The criterion to be used to list report groups shared with the current
 -- Amazon Web Services account or user. Valid values include:
 --
@@ -161,6 +155,12 @@ listSharedReportGroups_maxResults = Lens.lens (\ListSharedReportGroups' {maxResu
 --     report group was last changed.
 listSharedReportGroups_sortBy :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe SharedResourceSortByType)
 listSharedReportGroups_sortBy = Lens.lens (\ListSharedReportGroups' {sortBy} -> sortBy) (\s@ListSharedReportGroups' {} a -> s {sortBy = a} :: ListSharedReportGroups)
+
+-- | The maximum number of paginated shared report groups per response. Use
+-- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+-- objects. The default value is 100.
+listSharedReportGroups_maxResults :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe Prelude.Natural)
+listSharedReportGroups_maxResults = Lens.lens (\ListSharedReportGroups' {maxResults} -> maxResults) (\s@ListSharedReportGroups' {} a -> s {maxResults = a} :: ListSharedReportGroups)
 
 instance Core.AWSPager ListSharedReportGroups where
   page rq rs
@@ -203,15 +203,15 @@ instance Prelude.Hashable ListSharedReportGroups where
   hashWithSalt _salt ListSharedReportGroups' {..} =
     _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListSharedReportGroups where
   rnf ListSharedReportGroups' {..} =
     Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSharedReportGroups where
   toHeaders =
@@ -234,8 +234,8 @@ instance Core.ToJSON ListSharedReportGroups where
       ( Prelude.catMaybes
           [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("sortBy" Core..=) Prelude.<$> sortBy
+            ("sortBy" Core..=) Prelude.<$> sortBy,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 data Distribution = Distribution'
   { -- | The specific AMI settings; for example, launch permissions or AMI tags.
     amiDistributionConfiguration :: Prelude.Maybe AmiDistributionConfiguration,
-    -- | A group of launchTemplateConfiguration settings that apply to image
-    -- distribution for specified accounts.
-    launchTemplateConfigurations :: Prelude.Maybe (Prelude.NonEmpty LaunchTemplateConfiguration),
     -- | The License Manager Configuration to associate with the AMI in the
     -- specified Region.
     licenseConfigurationArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A group of launchTemplateConfiguration settings that apply to image
+    -- distribution for specified accounts.
+    launchTemplateConfigurations :: Prelude.Maybe (Prelude.NonEmpty LaunchTemplateConfiguration),
     -- | Container distribution settings for encryption, licensing, and sharing
     -- in a specific Region.
     containerDistributionConfiguration :: Prelude.Maybe ContainerDistributionConfiguration,
@@ -56,11 +56,11 @@ data Distribution = Distribution'
 --
 -- 'amiDistributionConfiguration', 'distribution_amiDistributionConfiguration' - The specific AMI settings; for example, launch permissions or AMI tags.
 --
--- 'launchTemplateConfigurations', 'distribution_launchTemplateConfigurations' - A group of launchTemplateConfiguration settings that apply to image
--- distribution for specified accounts.
---
 -- 'licenseConfigurationArns', 'distribution_licenseConfigurationArns' - The License Manager Configuration to associate with the AMI in the
 -- specified Region.
+--
+-- 'launchTemplateConfigurations', 'distribution_launchTemplateConfigurations' - A group of launchTemplateConfiguration settings that apply to image
+-- distribution for specified accounts.
 --
 -- 'containerDistributionConfiguration', 'distribution_containerDistributionConfiguration' - Container distribution settings for encryption, licensing, and sharing
 -- in a specific Region.
@@ -74,8 +74,8 @@ newDistribution pRegion_ =
   Distribution'
     { amiDistributionConfiguration =
         Prelude.Nothing,
-      launchTemplateConfigurations = Prelude.Nothing,
       licenseConfigurationArns = Prelude.Nothing,
+      launchTemplateConfigurations = Prelude.Nothing,
       containerDistributionConfiguration = Prelude.Nothing,
       region = pRegion_
     }
@@ -84,15 +84,15 @@ newDistribution pRegion_ =
 distribution_amiDistributionConfiguration :: Lens.Lens' Distribution (Prelude.Maybe AmiDistributionConfiguration)
 distribution_amiDistributionConfiguration = Lens.lens (\Distribution' {amiDistributionConfiguration} -> amiDistributionConfiguration) (\s@Distribution' {} a -> s {amiDistributionConfiguration = a} :: Distribution)
 
--- | A group of launchTemplateConfiguration settings that apply to image
--- distribution for specified accounts.
-distribution_launchTemplateConfigurations :: Lens.Lens' Distribution (Prelude.Maybe (Prelude.NonEmpty LaunchTemplateConfiguration))
-distribution_launchTemplateConfigurations = Lens.lens (\Distribution' {launchTemplateConfigurations} -> launchTemplateConfigurations) (\s@Distribution' {} a -> s {launchTemplateConfigurations = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
-
 -- | The License Manager Configuration to associate with the AMI in the
 -- specified Region.
 distribution_licenseConfigurationArns :: Lens.Lens' Distribution (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 distribution_licenseConfigurationArns = Lens.lens (\Distribution' {licenseConfigurationArns} -> licenseConfigurationArns) (\s@Distribution' {} a -> s {licenseConfigurationArns = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
+
+-- | A group of launchTemplateConfiguration settings that apply to image
+-- distribution for specified accounts.
+distribution_launchTemplateConfigurations :: Lens.Lens' Distribution (Prelude.Maybe (Prelude.NonEmpty LaunchTemplateConfiguration))
+distribution_launchTemplateConfigurations = Lens.lens (\Distribution' {launchTemplateConfigurations} -> launchTemplateConfigurations) (\s@Distribution' {} a -> s {launchTemplateConfigurations = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | Container distribution settings for encryption, licensing, and sharing
 -- in a specific Region.
@@ -110,8 +110,8 @@ instance Core.FromJSON Distribution where
       ( \x ->
           Distribution'
             Prelude.<$> (x Core..:? "amiDistributionConfiguration")
-            Prelude.<*> (x Core..:? "launchTemplateConfigurations")
             Prelude.<*> (x Core..:? "licenseConfigurationArns")
+            Prelude.<*> (x Core..:? "launchTemplateConfigurations")
             Prelude.<*> (x Core..:? "containerDistributionConfiguration")
             Prelude.<*> (x Core..: "region")
       )
@@ -120,16 +120,16 @@ instance Prelude.Hashable Distribution where
   hashWithSalt _salt Distribution' {..} =
     _salt
       `Prelude.hashWithSalt` amiDistributionConfiguration
-      `Prelude.hashWithSalt` launchTemplateConfigurations
       `Prelude.hashWithSalt` licenseConfigurationArns
+      `Prelude.hashWithSalt` launchTemplateConfigurations
       `Prelude.hashWithSalt` containerDistributionConfiguration
       `Prelude.hashWithSalt` region
 
 instance Prelude.NFData Distribution where
   rnf Distribution' {..} =
     Prelude.rnf amiDistributionConfiguration
-      `Prelude.seq` Prelude.rnf launchTemplateConfigurations
       `Prelude.seq` Prelude.rnf licenseConfigurationArns
+      `Prelude.seq` Prelude.rnf launchTemplateConfigurations
       `Prelude.seq` Prelude.rnf containerDistributionConfiguration
       `Prelude.seq` Prelude.rnf region
 
@@ -139,10 +139,10 @@ instance Core.ToJSON Distribution where
       ( Prelude.catMaybes
           [ ("amiDistributionConfiguration" Core..=)
               Prelude.<$> amiDistributionConfiguration,
-            ("launchTemplateConfigurations" Core..=)
-              Prelude.<$> launchTemplateConfigurations,
             ("licenseConfigurationArns" Core..=)
               Prelude.<$> licenseConfigurationArns,
+            ("launchTemplateConfigurations" Core..=)
+              Prelude.<$> launchTemplateConfigurations,
             ("containerDistributionConfiguration" Core..=)
               Prelude.<$> containerDistributionConfiguration,
             Prelude.Just ("region" Core..= region)

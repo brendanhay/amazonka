@@ -28,32 +28,32 @@ import Amazonka.WorkMail.Types.AccessControlRuleEffect
 --
 -- /See:/ 'newAccessControlRule' smart constructor.
 data AccessControlRule = AccessControlRule'
-  { -- | The rule effect.
-    effect :: Prelude.Maybe AccessControlRuleEffect,
-    -- | User IDs to include in the rule.
-    userIds :: Prelude.Maybe [Prelude.Text],
-    -- | Access protocol actions to include in the rule. Valid values include
-    -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
-    -- and @WebMail@.
-    actions :: Prelude.Maybe [Prelude.Text],
-    -- | The date that the rule was created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
-    -- | The rule name.
+  { -- | The rule name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | User IDs to exclude from the rule.
-    notUserIds :: Prelude.Maybe [Prelude.Text],
-    -- | The date that the rule was modified.
-    dateModified :: Prelude.Maybe Core.POSIX,
-    -- | IPv4 CIDR ranges to include in the rule.
-    ipRanges :: Prelude.Maybe [Prelude.Text],
     -- | IPv4 CIDR ranges to exclude from the rule.
     notIpRanges :: Prelude.Maybe [Prelude.Text],
+    -- | The rule effect.
+    effect :: Prelude.Maybe AccessControlRuleEffect,
     -- | Access protocol actions to exclude from the rule. Valid values include
     -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
     -- and @WebMail@.
     notActions :: Prelude.Maybe [Prelude.Text],
     -- | The rule description.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The date that the rule was created.
+    dateCreated :: Prelude.Maybe Core.POSIX,
+    -- | IPv4 CIDR ranges to include in the rule.
+    ipRanges :: Prelude.Maybe [Prelude.Text],
+    -- | The date that the rule was modified.
+    dateModified :: Prelude.Maybe Core.POSIX,
+    -- | User IDs to include in the rule.
+    userIds :: Prelude.Maybe [Prelude.Text],
+    -- | User IDs to exclude from the rule.
+    notUserIds :: Prelude.Maybe [Prelude.Text],
+    -- | Access protocol actions to include in the rule. Valid values include
+    -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
+    -- and @WebMail@.
+    actions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,85 +65,59 @@ data AccessControlRule = AccessControlRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'effect', 'accessControlRule_effect' - The rule effect.
---
--- 'userIds', 'accessControlRule_userIds' - User IDs to include in the rule.
---
--- 'actions', 'accessControlRule_actions' - Access protocol actions to include in the rule. Valid values include
--- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
--- and @WebMail@.
---
--- 'dateCreated', 'accessControlRule_dateCreated' - The date that the rule was created.
---
 -- 'name', 'accessControlRule_name' - The rule name.
 --
--- 'notUserIds', 'accessControlRule_notUserIds' - User IDs to exclude from the rule.
---
--- 'dateModified', 'accessControlRule_dateModified' - The date that the rule was modified.
---
--- 'ipRanges', 'accessControlRule_ipRanges' - IPv4 CIDR ranges to include in the rule.
---
 -- 'notIpRanges', 'accessControlRule_notIpRanges' - IPv4 CIDR ranges to exclude from the rule.
+--
+-- 'effect', 'accessControlRule_effect' - The rule effect.
 --
 -- 'notActions', 'accessControlRule_notActions' - Access protocol actions to exclude from the rule. Valid values include
 -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
 -- and @WebMail@.
 --
 -- 'description', 'accessControlRule_description' - The rule description.
+--
+-- 'dateCreated', 'accessControlRule_dateCreated' - The date that the rule was created.
+--
+-- 'ipRanges', 'accessControlRule_ipRanges' - IPv4 CIDR ranges to include in the rule.
+--
+-- 'dateModified', 'accessControlRule_dateModified' - The date that the rule was modified.
+--
+-- 'userIds', 'accessControlRule_userIds' - User IDs to include in the rule.
+--
+-- 'notUserIds', 'accessControlRule_notUserIds' - User IDs to exclude from the rule.
+--
+-- 'actions', 'accessControlRule_actions' - Access protocol actions to include in the rule. Valid values include
+-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
+-- and @WebMail@.
 newAccessControlRule ::
   AccessControlRule
 newAccessControlRule =
   AccessControlRule'
-    { effect = Prelude.Nothing,
-      userIds = Prelude.Nothing,
-      actions = Prelude.Nothing,
-      dateCreated = Prelude.Nothing,
-      name = Prelude.Nothing,
-      notUserIds = Prelude.Nothing,
-      dateModified = Prelude.Nothing,
-      ipRanges = Prelude.Nothing,
+    { name = Prelude.Nothing,
       notIpRanges = Prelude.Nothing,
+      effect = Prelude.Nothing,
       notActions = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      dateCreated = Prelude.Nothing,
+      ipRanges = Prelude.Nothing,
+      dateModified = Prelude.Nothing,
+      userIds = Prelude.Nothing,
+      notUserIds = Prelude.Nothing,
+      actions = Prelude.Nothing
     }
-
--- | The rule effect.
-accessControlRule_effect :: Lens.Lens' AccessControlRule (Prelude.Maybe AccessControlRuleEffect)
-accessControlRule_effect = Lens.lens (\AccessControlRule' {effect} -> effect) (\s@AccessControlRule' {} a -> s {effect = a} :: AccessControlRule)
-
--- | User IDs to include in the rule.
-accessControlRule_userIds :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
-accessControlRule_userIds = Lens.lens (\AccessControlRule' {userIds} -> userIds) (\s@AccessControlRule' {} a -> s {userIds = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
-
--- | Access protocol actions to include in the rule. Valid values include
--- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
--- and @WebMail@.
-accessControlRule_actions :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
-accessControlRule_actions = Lens.lens (\AccessControlRule' {actions} -> actions) (\s@AccessControlRule' {} a -> s {actions = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
-
--- | The date that the rule was created.
-accessControlRule_dateCreated :: Lens.Lens' AccessControlRule (Prelude.Maybe Prelude.UTCTime)
-accessControlRule_dateCreated = Lens.lens (\AccessControlRule' {dateCreated} -> dateCreated) (\s@AccessControlRule' {} a -> s {dateCreated = a} :: AccessControlRule) Prelude.. Lens.mapping Core._Time
 
 -- | The rule name.
 accessControlRule_name :: Lens.Lens' AccessControlRule (Prelude.Maybe Prelude.Text)
 accessControlRule_name = Lens.lens (\AccessControlRule' {name} -> name) (\s@AccessControlRule' {} a -> s {name = a} :: AccessControlRule)
 
--- | User IDs to exclude from the rule.
-accessControlRule_notUserIds :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
-accessControlRule_notUserIds = Lens.lens (\AccessControlRule' {notUserIds} -> notUserIds) (\s@AccessControlRule' {} a -> s {notUserIds = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
-
--- | The date that the rule was modified.
-accessControlRule_dateModified :: Lens.Lens' AccessControlRule (Prelude.Maybe Prelude.UTCTime)
-accessControlRule_dateModified = Lens.lens (\AccessControlRule' {dateModified} -> dateModified) (\s@AccessControlRule' {} a -> s {dateModified = a} :: AccessControlRule) Prelude.. Lens.mapping Core._Time
-
--- | IPv4 CIDR ranges to include in the rule.
-accessControlRule_ipRanges :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
-accessControlRule_ipRanges = Lens.lens (\AccessControlRule' {ipRanges} -> ipRanges) (\s@AccessControlRule' {} a -> s {ipRanges = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
-
 -- | IPv4 CIDR ranges to exclude from the rule.
 accessControlRule_notIpRanges :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
 accessControlRule_notIpRanges = Lens.lens (\AccessControlRule' {notIpRanges} -> notIpRanges) (\s@AccessControlRule' {} a -> s {notIpRanges = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The rule effect.
+accessControlRule_effect :: Lens.Lens' AccessControlRule (Prelude.Maybe AccessControlRuleEffect)
+accessControlRule_effect = Lens.lens (\AccessControlRule' {effect} -> effect) (\s@AccessControlRule' {} a -> s {effect = a} :: AccessControlRule)
 
 -- | Access protocol actions to exclude from the rule. Valid values include
 -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
@@ -155,49 +129,75 @@ accessControlRule_notActions = Lens.lens (\AccessControlRule' {notActions} -> no
 accessControlRule_description :: Lens.Lens' AccessControlRule (Prelude.Maybe Prelude.Text)
 accessControlRule_description = Lens.lens (\AccessControlRule' {description} -> description) (\s@AccessControlRule' {} a -> s {description = a} :: AccessControlRule)
 
+-- | The date that the rule was created.
+accessControlRule_dateCreated :: Lens.Lens' AccessControlRule (Prelude.Maybe Prelude.UTCTime)
+accessControlRule_dateCreated = Lens.lens (\AccessControlRule' {dateCreated} -> dateCreated) (\s@AccessControlRule' {} a -> s {dateCreated = a} :: AccessControlRule) Prelude.. Lens.mapping Core._Time
+
+-- | IPv4 CIDR ranges to include in the rule.
+accessControlRule_ipRanges :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
+accessControlRule_ipRanges = Lens.lens (\AccessControlRule' {ipRanges} -> ipRanges) (\s@AccessControlRule' {} a -> s {ipRanges = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date that the rule was modified.
+accessControlRule_dateModified :: Lens.Lens' AccessControlRule (Prelude.Maybe Prelude.UTCTime)
+accessControlRule_dateModified = Lens.lens (\AccessControlRule' {dateModified} -> dateModified) (\s@AccessControlRule' {} a -> s {dateModified = a} :: AccessControlRule) Prelude.. Lens.mapping Core._Time
+
+-- | User IDs to include in the rule.
+accessControlRule_userIds :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
+accessControlRule_userIds = Lens.lens (\AccessControlRule' {userIds} -> userIds) (\s@AccessControlRule' {} a -> s {userIds = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | User IDs to exclude from the rule.
+accessControlRule_notUserIds :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
+accessControlRule_notUserIds = Lens.lens (\AccessControlRule' {notUserIds} -> notUserIds) (\s@AccessControlRule' {} a -> s {notUserIds = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Access protocol actions to include in the rule. Valid values include
+-- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
+-- and @WebMail@.
+accessControlRule_actions :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
+accessControlRule_actions = Lens.lens (\AccessControlRule' {actions} -> actions) (\s@AccessControlRule' {} a -> s {actions = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON AccessControlRule where
   parseJSON =
     Core.withObject
       "AccessControlRule"
       ( \x ->
           AccessControlRule'
-            Prelude.<$> (x Core..:? "Effect")
-            Prelude.<*> (x Core..:? "UserIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "NotUserIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DateModified")
-            Prelude.<*> (x Core..:? "IpRanges" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "NotIpRanges" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Effect")
             Prelude.<*> (x Core..:? "NotActions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "DateCreated")
+            Prelude.<*> (x Core..:? "IpRanges" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DateModified")
+            Prelude.<*> (x Core..:? "UserIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "NotUserIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AccessControlRule where
   hashWithSalt _salt AccessControlRule' {..} =
-    _salt `Prelude.hashWithSalt` effect
-      `Prelude.hashWithSalt` userIds
-      `Prelude.hashWithSalt` actions
-      `Prelude.hashWithSalt` dateCreated
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` notUserIds
-      `Prelude.hashWithSalt` dateModified
-      `Prelude.hashWithSalt` ipRanges
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` notIpRanges
+      `Prelude.hashWithSalt` effect
       `Prelude.hashWithSalt` notActions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` ipRanges
+      `Prelude.hashWithSalt` dateModified
+      `Prelude.hashWithSalt` userIds
+      `Prelude.hashWithSalt` notUserIds
+      `Prelude.hashWithSalt` actions
 
 instance Prelude.NFData AccessControlRule where
   rnf AccessControlRule' {..} =
-    Prelude.rnf effect
-      `Prelude.seq` Prelude.rnf userIds
-      `Prelude.seq` Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notUserIds
-      `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf ipRanges
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf notIpRanges
+      `Prelude.seq` Prelude.rnf effect
       `Prelude.seq` Prelude.rnf notActions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf dateModified
+      `Prelude.seq` Prelude.rnf userIds
+      `Prelude.seq` Prelude.rnf notUserIds
+      `Prelude.seq` Prelude.rnf actions

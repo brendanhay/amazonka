@@ -27,29 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListStatements $
---             newListStatements
---
---         , requestListDatabases $
---             newListDatabases
---
---         , requestListSchemas $
---             newListSchemas
---
---         , requestDescribeStatement $
---             newDescribeStatement
+--         [ requestBatchExecuteStatement $
+--             newBatchExecuteStatement
 --
 --         , requestCancelStatement $
 --             newCancelStatement
 --
+--         , requestDescribeStatement $
+--             newDescribeStatement
+--
 --         , requestDescribeTable $
 --             newDescribeTable
---
---         , requestBatchExecuteStatement $
---             newBatchExecuteStatement
---
---         , requestListTables $
---             newListTables
 --
 --         , requestExecuteStatement $
 --             newExecuteStatement
@@ -57,32 +45,32 @@ import Test.Tasty
 --         , requestGetStatementResult $
 --             newGetStatementResult
 --
+--         , requestListDatabases $
+--             newListDatabases
+--
+--         , requestListSchemas $
+--             newListSchemas
+--
+--         , requestListStatements $
+--             newListStatements
+--
+--         , requestListTables $
+--             newListTables
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseListStatements $
---             newListStatementsResponse
---
---         , responseListDatabases $
---             newListDatabasesResponse
---
---         , responseListSchemas $
---             newListSchemasResponse
---
---         , responseDescribeStatement $
---             newDescribeStatementResponse
+--         [ responseBatchExecuteStatement $
+--             newBatchExecuteStatementResponse
 --
 --         , responseCancelStatement $
 --             newCancelStatementResponse
 --
+--         , responseDescribeStatement $
+--             newDescribeStatementResponse
+--
 --         , responseDescribeTable $
 --             newDescribeTableResponse
---
---         , responseBatchExecuteStatement $
---             newBatchExecuteStatementResponse
---
---         , responseListTables $
---             newListTablesResponse
 --
 --         , responseExecuteStatement $
 --             newExecuteStatementResponse
@@ -90,46 +78,22 @@ import Test.Tasty
 --         , responseGetStatementResult $
 --             newGetStatementResultResponse
 --
+--         , responseListDatabases $
+--             newListDatabasesResponse
+--
+--         , responseListSchemas $
+--             newListSchemasResponse
+--
+--         , responseListStatements $
+--             newListStatementsResponse
+--
+--         , responseListTables $
+--             newListTablesResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestListStatements :: ListStatements -> TestTree
-requestListStatements =
-  req
-    "ListStatements"
-    "fixture/ListStatements.yaml"
-
-requestListDatabases :: ListDatabases -> TestTree
-requestListDatabases =
-  req
-    "ListDatabases"
-    "fixture/ListDatabases.yaml"
-
-requestListSchemas :: ListSchemas -> TestTree
-requestListSchemas =
-  req
-    "ListSchemas"
-    "fixture/ListSchemas.yaml"
-
-requestDescribeStatement :: DescribeStatement -> TestTree
-requestDescribeStatement =
-  req
-    "DescribeStatement"
-    "fixture/DescribeStatement.yaml"
-
-requestCancelStatement :: CancelStatement -> TestTree
-requestCancelStatement =
-  req
-    "CancelStatement"
-    "fixture/CancelStatement.yaml"
-
-requestDescribeTable :: DescribeTable -> TestTree
-requestDescribeTable =
-  req
-    "DescribeTable"
-    "fixture/DescribeTable.yaml"
 
 requestBatchExecuteStatement :: BatchExecuteStatement -> TestTree
 requestBatchExecuteStatement =
@@ -137,11 +101,23 @@ requestBatchExecuteStatement =
     "BatchExecuteStatement"
     "fixture/BatchExecuteStatement.yaml"
 
-requestListTables :: ListTables -> TestTree
-requestListTables =
+requestCancelStatement :: CancelStatement -> TestTree
+requestCancelStatement =
   req
-    "ListTables"
-    "fixture/ListTables.yaml"
+    "CancelStatement"
+    "fixture/CancelStatement.yaml"
+
+requestDescribeStatement :: DescribeStatement -> TestTree
+requestDescribeStatement =
+  req
+    "DescribeStatement"
+    "fixture/DescribeStatement.yaml"
+
+requestDescribeTable :: DescribeTable -> TestTree
+requestDescribeTable =
+  req
+    "DescribeTable"
+    "fixture/DescribeTable.yaml"
 
 requestExecuteStatement :: ExecuteStatement -> TestTree
 requestExecuteStatement =
@@ -155,15 +131,79 @@ requestGetStatementResult =
     "GetStatementResult"
     "fixture/GetStatementResult.yaml"
 
+requestListDatabases :: ListDatabases -> TestTree
+requestListDatabases =
+  req
+    "ListDatabases"
+    "fixture/ListDatabases.yaml"
+
+requestListSchemas :: ListSchemas -> TestTree
+requestListSchemas =
+  req
+    "ListSchemas"
+    "fixture/ListSchemas.yaml"
+
+requestListStatements :: ListStatements -> TestTree
+requestListStatements =
+  req
+    "ListStatements"
+    "fixture/ListStatements.yaml"
+
+requestListTables :: ListTables -> TestTree
+requestListTables =
+  req
+    "ListTables"
+    "fixture/ListTables.yaml"
+
 -- Responses
 
-responseListStatements :: ListStatementsResponse -> TestTree
-responseListStatements =
+responseBatchExecuteStatement :: BatchExecuteStatementResponse -> TestTree
+responseBatchExecuteStatement =
   res
-    "ListStatementsResponse"
-    "fixture/ListStatementsResponse.proto"
+    "BatchExecuteStatementResponse"
+    "fixture/BatchExecuteStatementResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListStatements)
+    (Proxy.Proxy :: Proxy.Proxy BatchExecuteStatement)
+
+responseCancelStatement :: CancelStatementResponse -> TestTree
+responseCancelStatement =
+  res
+    "CancelStatementResponse"
+    "fixture/CancelStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelStatement)
+
+responseDescribeStatement :: DescribeStatementResponse -> TestTree
+responseDescribeStatement =
+  res
+    "DescribeStatementResponse"
+    "fixture/DescribeStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeStatement)
+
+responseDescribeTable :: DescribeTableResponse -> TestTree
+responseDescribeTable =
+  res
+    "DescribeTableResponse"
+    "fixture/DescribeTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTable)
+
+responseExecuteStatement :: ExecuteStatementResponse -> TestTree
+responseExecuteStatement =
+  res
+    "ExecuteStatementResponse"
+    "fixture/ExecuteStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
+
+responseGetStatementResult :: GetStatementResultResponse -> TestTree
+responseGetStatementResult =
+  res
+    "GetStatementResultResponse"
+    "fixture/GetStatementResultResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStatementResult)
 
 responseListDatabases :: ListDatabasesResponse -> TestTree
 responseListDatabases =
@@ -181,37 +221,13 @@ responseListSchemas =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSchemas)
 
-responseDescribeStatement :: DescribeStatementResponse -> TestTree
-responseDescribeStatement =
+responseListStatements :: ListStatementsResponse -> TestTree
+responseListStatements =
   res
-    "DescribeStatementResponse"
-    "fixture/DescribeStatementResponse.proto"
+    "ListStatementsResponse"
+    "fixture/ListStatementsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStatement)
-
-responseCancelStatement :: CancelStatementResponse -> TestTree
-responseCancelStatement =
-  res
-    "CancelStatementResponse"
-    "fixture/CancelStatementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelStatement)
-
-responseDescribeTable :: DescribeTableResponse -> TestTree
-responseDescribeTable =
-  res
-    "DescribeTableResponse"
-    "fixture/DescribeTableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTable)
-
-responseBatchExecuteStatement :: BatchExecuteStatementResponse -> TestTree
-responseBatchExecuteStatement =
-  res
-    "BatchExecuteStatementResponse"
-    "fixture/BatchExecuteStatementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchExecuteStatement)
+    (Proxy.Proxy :: Proxy.Proxy ListStatements)
 
 responseListTables :: ListTablesResponse -> TestTree
 responseListTables =
@@ -220,19 +236,3 @@ responseListTables =
     "fixture/ListTablesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTables)
-
-responseExecuteStatement :: ExecuteStatementResponse -> TestTree
-responseExecuteStatement =
-  res
-    "ExecuteStatementResponse"
-    "fixture/ExecuteStatementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
-
-responseGetStatementResult :: GetStatementResultResponse -> TestTree
-responseGetStatementResult =
-  res
-    "GetStatementResultResponse"
-    "fixture/GetStatementResultResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetStatementResult)

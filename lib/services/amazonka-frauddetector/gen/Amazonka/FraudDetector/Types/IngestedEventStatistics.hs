@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 data IngestedEventStatistics = IngestedEventStatistics'
   { -- | The total size of the stored events.
     eventDataSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The newest stored event.
-    mostRecentEvent :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of when the stored event was last updated.
     lastUpdatedTime :: Prelude.Maybe Prelude.Text,
     -- | The number of stored events.
     numberOfEvents :: Prelude.Maybe Prelude.Integer,
+    -- | The newest stored event.
+    mostRecentEvent :: Prelude.Maybe Prelude.Text,
     -- | The oldest stored event.
     leastRecentEvent :: Prelude.Maybe Prelude.Text
   }
@@ -50,11 +50,11 @@ data IngestedEventStatistics = IngestedEventStatistics'
 --
 -- 'eventDataSizeInBytes', 'ingestedEventStatistics_eventDataSizeInBytes' - The total size of the stored events.
 --
--- 'mostRecentEvent', 'ingestedEventStatistics_mostRecentEvent' - The newest stored event.
---
 -- 'lastUpdatedTime', 'ingestedEventStatistics_lastUpdatedTime' - Timestamp of when the stored event was last updated.
 --
 -- 'numberOfEvents', 'ingestedEventStatistics_numberOfEvents' - The number of stored events.
+--
+-- 'mostRecentEvent', 'ingestedEventStatistics_mostRecentEvent' - The newest stored event.
 --
 -- 'leastRecentEvent', 'ingestedEventStatistics_leastRecentEvent' - The oldest stored event.
 newIngestedEventStatistics ::
@@ -63,19 +63,15 @@ newIngestedEventStatistics =
   IngestedEventStatistics'
     { eventDataSizeInBytes =
         Prelude.Nothing,
-      mostRecentEvent = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
       numberOfEvents = Prelude.Nothing,
+      mostRecentEvent = Prelude.Nothing,
       leastRecentEvent = Prelude.Nothing
     }
 
 -- | The total size of the stored events.
 ingestedEventStatistics_eventDataSizeInBytes :: Lens.Lens' IngestedEventStatistics (Prelude.Maybe Prelude.Integer)
 ingestedEventStatistics_eventDataSizeInBytes = Lens.lens (\IngestedEventStatistics' {eventDataSizeInBytes} -> eventDataSizeInBytes) (\s@IngestedEventStatistics' {} a -> s {eventDataSizeInBytes = a} :: IngestedEventStatistics)
-
--- | The newest stored event.
-ingestedEventStatistics_mostRecentEvent :: Lens.Lens' IngestedEventStatistics (Prelude.Maybe Prelude.Text)
-ingestedEventStatistics_mostRecentEvent = Lens.lens (\IngestedEventStatistics' {mostRecentEvent} -> mostRecentEvent) (\s@IngestedEventStatistics' {} a -> s {mostRecentEvent = a} :: IngestedEventStatistics)
 
 -- | Timestamp of when the stored event was last updated.
 ingestedEventStatistics_lastUpdatedTime :: Lens.Lens' IngestedEventStatistics (Prelude.Maybe Prelude.Text)
@@ -84,6 +80,10 @@ ingestedEventStatistics_lastUpdatedTime = Lens.lens (\IngestedEventStatistics' {
 -- | The number of stored events.
 ingestedEventStatistics_numberOfEvents :: Lens.Lens' IngestedEventStatistics (Prelude.Maybe Prelude.Integer)
 ingestedEventStatistics_numberOfEvents = Lens.lens (\IngestedEventStatistics' {numberOfEvents} -> numberOfEvents) (\s@IngestedEventStatistics' {} a -> s {numberOfEvents = a} :: IngestedEventStatistics)
+
+-- | The newest stored event.
+ingestedEventStatistics_mostRecentEvent :: Lens.Lens' IngestedEventStatistics (Prelude.Maybe Prelude.Text)
+ingestedEventStatistics_mostRecentEvent = Lens.lens (\IngestedEventStatistics' {mostRecentEvent} -> mostRecentEvent) (\s@IngestedEventStatistics' {} a -> s {mostRecentEvent = a} :: IngestedEventStatistics)
 
 -- | The oldest stored event.
 ingestedEventStatistics_leastRecentEvent :: Lens.Lens' IngestedEventStatistics (Prelude.Maybe Prelude.Text)
@@ -96,24 +96,24 @@ instance Core.FromJSON IngestedEventStatistics where
       ( \x ->
           IngestedEventStatistics'
             Prelude.<$> (x Core..:? "eventDataSizeInBytes")
-            Prelude.<*> (x Core..:? "mostRecentEvent")
             Prelude.<*> (x Core..:? "lastUpdatedTime")
             Prelude.<*> (x Core..:? "numberOfEvents")
+            Prelude.<*> (x Core..:? "mostRecentEvent")
             Prelude.<*> (x Core..:? "leastRecentEvent")
       )
 
 instance Prelude.Hashable IngestedEventStatistics where
   hashWithSalt _salt IngestedEventStatistics' {..} =
     _salt `Prelude.hashWithSalt` eventDataSizeInBytes
-      `Prelude.hashWithSalt` mostRecentEvent
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` numberOfEvents
+      `Prelude.hashWithSalt` mostRecentEvent
       `Prelude.hashWithSalt` leastRecentEvent
 
 instance Prelude.NFData IngestedEventStatistics where
   rnf IngestedEventStatistics' {..} =
     Prelude.rnf eventDataSizeInBytes
-      `Prelude.seq` Prelude.rnf mostRecentEvent
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf numberOfEvents
+      `Prelude.seq` Prelude.rnf mostRecentEvent
       `Prelude.seq` Prelude.rnf leastRecentEvent

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMultiplexSettings' smart constructor.
 data MultiplexSettings = MultiplexSettings'
-  { -- | Maximum video buffer delay in milliseconds.
-    maximumVideoBufferDelayMilliseconds :: Prelude.Maybe Prelude.Natural,
-    -- | Transport stream reserved bit rate.
+  { -- | Transport stream reserved bit rate.
     transportStreamReservedBitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Maximum video buffer delay in milliseconds.
+    maximumVideoBufferDelayMilliseconds :: Prelude.Maybe Prelude.Natural,
     -- | Transport stream bit rate.
     transportStreamBitrate :: Prelude.Natural,
     -- | Transport stream ID.
@@ -46,9 +46,9 @@ data MultiplexSettings = MultiplexSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maximumVideoBufferDelayMilliseconds', 'multiplexSettings_maximumVideoBufferDelayMilliseconds' - Maximum video buffer delay in milliseconds.
---
 -- 'transportStreamReservedBitrate', 'multiplexSettings_transportStreamReservedBitrate' - Transport stream reserved bit rate.
+--
+-- 'maximumVideoBufferDelayMilliseconds', 'multiplexSettings_maximumVideoBufferDelayMilliseconds' - Maximum video buffer delay in milliseconds.
 --
 -- 'transportStreamBitrate', 'multiplexSettings_transportStreamBitrate' - Transport stream bit rate.
 --
@@ -63,20 +63,21 @@ newMultiplexSettings
   pTransportStreamBitrate_
   pTransportStreamId_ =
     MultiplexSettings'
-      { maximumVideoBufferDelayMilliseconds =
+      { transportStreamReservedBitrate =
           Prelude.Nothing,
-        transportStreamReservedBitrate = Prelude.Nothing,
+        maximumVideoBufferDelayMilliseconds =
+          Prelude.Nothing,
         transportStreamBitrate = pTransportStreamBitrate_,
         transportStreamId = pTransportStreamId_
       }
 
--- | Maximum video buffer delay in milliseconds.
-multiplexSettings_maximumVideoBufferDelayMilliseconds :: Lens.Lens' MultiplexSettings (Prelude.Maybe Prelude.Natural)
-multiplexSettings_maximumVideoBufferDelayMilliseconds = Lens.lens (\MultiplexSettings' {maximumVideoBufferDelayMilliseconds} -> maximumVideoBufferDelayMilliseconds) (\s@MultiplexSettings' {} a -> s {maximumVideoBufferDelayMilliseconds = a} :: MultiplexSettings)
-
 -- | Transport stream reserved bit rate.
 multiplexSettings_transportStreamReservedBitrate :: Lens.Lens' MultiplexSettings (Prelude.Maybe Prelude.Natural)
 multiplexSettings_transportStreamReservedBitrate = Lens.lens (\MultiplexSettings' {transportStreamReservedBitrate} -> transportStreamReservedBitrate) (\s@MultiplexSettings' {} a -> s {transportStreamReservedBitrate = a} :: MultiplexSettings)
+
+-- | Maximum video buffer delay in milliseconds.
+multiplexSettings_maximumVideoBufferDelayMilliseconds :: Lens.Lens' MultiplexSettings (Prelude.Maybe Prelude.Natural)
+multiplexSettings_maximumVideoBufferDelayMilliseconds = Lens.lens (\MultiplexSettings' {maximumVideoBufferDelayMilliseconds} -> maximumVideoBufferDelayMilliseconds) (\s@MultiplexSettings' {} a -> s {maximumVideoBufferDelayMilliseconds = a} :: MultiplexSettings)
 
 -- | Transport stream bit rate.
 multiplexSettings_transportStreamBitrate :: Lens.Lens' MultiplexSettings Prelude.Natural
@@ -92,8 +93,8 @@ instance Core.FromJSON MultiplexSettings where
       "MultiplexSettings"
       ( \x ->
           MultiplexSettings'
-            Prelude.<$> (x Core..:? "maximumVideoBufferDelayMilliseconds")
-            Prelude.<*> (x Core..:? "transportStreamReservedBitrate")
+            Prelude.<$> (x Core..:? "transportStreamReservedBitrate")
+            Prelude.<*> (x Core..:? "maximumVideoBufferDelayMilliseconds")
             Prelude.<*> (x Core..: "transportStreamBitrate")
             Prelude.<*> (x Core..: "transportStreamId")
       )
@@ -101,15 +102,15 @@ instance Core.FromJSON MultiplexSettings where
 instance Prelude.Hashable MultiplexSettings where
   hashWithSalt _salt MultiplexSettings' {..} =
     _salt
-      `Prelude.hashWithSalt` maximumVideoBufferDelayMilliseconds
       `Prelude.hashWithSalt` transportStreamReservedBitrate
+      `Prelude.hashWithSalt` maximumVideoBufferDelayMilliseconds
       `Prelude.hashWithSalt` transportStreamBitrate
       `Prelude.hashWithSalt` transportStreamId
 
 instance Prelude.NFData MultiplexSettings where
   rnf MultiplexSettings' {..} =
-    Prelude.rnf maximumVideoBufferDelayMilliseconds
-      `Prelude.seq` Prelude.rnf transportStreamReservedBitrate
+    Prelude.rnf transportStreamReservedBitrate
+      `Prelude.seq` Prelude.rnf maximumVideoBufferDelayMilliseconds
       `Prelude.seq` Prelude.rnf transportStreamBitrate
       `Prelude.seq` Prelude.rnf transportStreamId
 
@@ -117,10 +118,10 @@ instance Core.ToJSON MultiplexSettings where
   toJSON MultiplexSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maximumVideoBufferDelayMilliseconds" Core..=)
-              Prelude.<$> maximumVideoBufferDelayMilliseconds,
-            ("transportStreamReservedBitrate" Core..=)
+          [ ("transportStreamReservedBitrate" Core..=)
               Prelude.<$> transportStreamReservedBitrate,
+            ("maximumVideoBufferDelayMilliseconds" Core..=)
+              Prelude.<$> maximumVideoBufferDelayMilliseconds,
             Prelude.Just
               ( "transportStreamBitrate"
                   Core..= transportStreamBitrate

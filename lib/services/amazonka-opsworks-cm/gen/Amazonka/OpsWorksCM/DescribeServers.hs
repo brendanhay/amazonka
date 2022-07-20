@@ -37,8 +37,8 @@ module Amazonka.OpsWorksCM.DescribeServers
     newDescribeServers,
 
     -- * Request Lenses
-    describeServers_serverName,
     describeServers_nextToken,
+    describeServers_serverName,
     describeServers_maxResults,
 
     -- * Destructuring the Response
@@ -61,10 +61,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeServers' smart constructor.
 data DescribeServers = DescribeServers'
-  { -- | Describes the server with the specified ServerName.
-    serverName :: Prelude.Maybe Prelude.Text,
-    -- | This is not currently implemented for @DescribeServers@ requests.
+  { -- | This is not currently implemented for @DescribeServers@ requests.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Describes the server with the specified ServerName.
+    serverName :: Prelude.Maybe Prelude.Text,
     -- | This is not currently implemented for @DescribeServers@ requests.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -78,27 +78,27 @@ data DescribeServers = DescribeServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverName', 'describeServers_serverName' - Describes the server with the specified ServerName.
---
 -- 'nextToken', 'describeServers_nextToken' - This is not currently implemented for @DescribeServers@ requests.
+--
+-- 'serverName', 'describeServers_serverName' - Describes the server with the specified ServerName.
 --
 -- 'maxResults', 'describeServers_maxResults' - This is not currently implemented for @DescribeServers@ requests.
 newDescribeServers ::
   DescribeServers
 newDescribeServers =
   DescribeServers'
-    { serverName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      serverName = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | Describes the server with the specified ServerName.
-describeServers_serverName :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Text)
-describeServers_serverName = Lens.lens (\DescribeServers' {serverName} -> serverName) (\s@DescribeServers' {} a -> s {serverName = a} :: DescribeServers)
 
 -- | This is not currently implemented for @DescribeServers@ requests.
 describeServers_nextToken :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Text)
 describeServers_nextToken = Lens.lens (\DescribeServers' {nextToken} -> nextToken) (\s@DescribeServers' {} a -> s {nextToken = a} :: DescribeServers)
+
+-- | Describes the server with the specified ServerName.
+describeServers_serverName :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Text)
+describeServers_serverName = Lens.lens (\DescribeServers' {serverName} -> serverName) (\s@DescribeServers' {} a -> s {serverName = a} :: DescribeServers)
 
 -- | This is not currently implemented for @DescribeServers@ requests.
 describeServers_maxResults :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Natural)
@@ -141,14 +141,14 @@ instance Core.AWSRequest DescribeServers where
 
 instance Prelude.Hashable DescribeServers where
   hashWithSalt _salt DescribeServers' {..} =
-    _salt `Prelude.hashWithSalt` serverName
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` serverName
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeServers where
   rnf DescribeServers' {..} =
-    Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf serverName
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeServers where
@@ -170,8 +170,8 @@ instance Core.ToJSON DescribeServers where
   toJSON DescribeServers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ServerName" Core..=) Prelude.<$> serverName,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ServerName" Core..=) Prelude.<$> serverName,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

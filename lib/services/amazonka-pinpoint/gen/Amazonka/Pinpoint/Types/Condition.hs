@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCondition' smart constructor.
 data Condition = Condition'
-  { -- | Specifies how to handle multiple conditions for the activity. For
+  { -- | The conditions to evaluate for the activity.
+    conditions :: Prelude.Maybe [SimpleCondition],
+    -- | Specifies how to handle multiple conditions for the activity. For
     -- example, if you specify two conditions for an activity, whether both or
     -- only one of the conditions must be met for the activity to be performed.
-    operator :: Prelude.Maybe Operator,
-    -- | The conditions to evaluate for the activity.
-    conditions :: Prelude.Maybe [SimpleCondition]
+    operator :: Prelude.Maybe Operator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,18 +47,22 @@ data Condition = Condition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'conditions', 'condition_conditions' - The conditions to evaluate for the activity.
+--
 -- 'operator', 'condition_operator' - Specifies how to handle multiple conditions for the activity. For
 -- example, if you specify two conditions for an activity, whether both or
 -- only one of the conditions must be met for the activity to be performed.
---
--- 'conditions', 'condition_conditions' - The conditions to evaluate for the activity.
 newCondition ::
   Condition
 newCondition =
   Condition'
-    { operator = Prelude.Nothing,
-      conditions = Prelude.Nothing
+    { conditions = Prelude.Nothing,
+      operator = Prelude.Nothing
     }
+
+-- | The conditions to evaluate for the activity.
+condition_conditions :: Lens.Lens' Condition (Prelude.Maybe [SimpleCondition])
+condition_conditions = Lens.lens (\Condition' {conditions} -> conditions) (\s@Condition' {} a -> s {conditions = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies how to handle multiple conditions for the activity. For
 -- example, if you specify two conditions for an activity, whether both or
@@ -66,35 +70,31 @@ newCondition =
 condition_operator :: Lens.Lens' Condition (Prelude.Maybe Operator)
 condition_operator = Lens.lens (\Condition' {operator} -> operator) (\s@Condition' {} a -> s {operator = a} :: Condition)
 
--- | The conditions to evaluate for the activity.
-condition_conditions :: Lens.Lens' Condition (Prelude.Maybe [SimpleCondition])
-condition_conditions = Lens.lens (\Condition' {conditions} -> conditions) (\s@Condition' {} a -> s {conditions = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON Condition where
   parseJSON =
     Core.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Core..:? "Operator")
-            Prelude.<*> (x Core..:? "Conditions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Conditions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Operator")
       )
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` operator
-      `Prelude.hashWithSalt` conditions
+    _salt `Prelude.hashWithSalt` conditions
+      `Prelude.hashWithSalt` operator
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf conditions
+    Prelude.rnf conditions
+      `Prelude.seq` Prelude.rnf operator
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Operator" Core..=) Prelude.<$> operator,
-            ("Conditions" Core..=) Prelude.<$> conditions
+          [ ("Conditions" Core..=) Prelude.<$> conditions,
+            ("Operator" Core..=) Prelude.<$> operator
           ]
       )

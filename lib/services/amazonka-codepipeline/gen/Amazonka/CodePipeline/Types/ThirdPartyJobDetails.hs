@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThirdPartyJobDetails' smart constructor.
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
-  { -- | The data to be returned by the third party job worker.
-    data' :: Prelude.Maybe ThirdPartyJobData,
-    -- | The identifier used to identify the job details in AWS CodePipeline.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | A system-generated random number that AWS CodePipeline uses to ensure
+  { -- | A system-generated random number that AWS CodePipeline uses to ensure
     -- that the job is being worked on by only one job worker. Use this number
     -- in an AcknowledgeThirdPartyJob request.
-    nonce :: Prelude.Maybe Prelude.Text
+    nonce :: Prelude.Maybe Prelude.Text,
+    -- | The identifier used to identify the job details in AWS CodePipeline.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The data to be returned by the third party job worker.
+    data' :: Prelude.Maybe ThirdPartyJobData
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,21 @@ data ThirdPartyJobDetails = ThirdPartyJobDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'data'', 'thirdPartyJobDetails_data' - The data to be returned by the third party job worker.
---
--- 'id', 'thirdPartyJobDetails_id' - The identifier used to identify the job details in AWS CodePipeline.
---
 -- 'nonce', 'thirdPartyJobDetails_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. Use this number
 -- in an AcknowledgeThirdPartyJob request.
+--
+-- 'id', 'thirdPartyJobDetails_id' - The identifier used to identify the job details in AWS CodePipeline.
+--
+-- 'data'', 'thirdPartyJobDetails_data' - The data to be returned by the third party job worker.
 newThirdPartyJobDetails ::
   ThirdPartyJobDetails
 newThirdPartyJobDetails =
   ThirdPartyJobDetails'
-    { data' = Prelude.Nothing,
+    { nonce = Prelude.Nothing,
       id = Prelude.Nothing,
-      nonce = Prelude.Nothing
+      data' = Prelude.Nothing
     }
-
--- | The data to be returned by the third party job worker.
-thirdPartyJobDetails_data :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe ThirdPartyJobData)
-thirdPartyJobDetails_data = Lens.lens (\ThirdPartyJobDetails' {data'} -> data') (\s@ThirdPartyJobDetails' {} a -> s {data' = a} :: ThirdPartyJobDetails)
-
--- | The identifier used to identify the job details in AWS CodePipeline.
-thirdPartyJobDetails_id :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe Prelude.Text)
-thirdPartyJobDetails_id = Lens.lens (\ThirdPartyJobDetails' {id} -> id) (\s@ThirdPartyJobDetails' {} a -> s {id = a} :: ThirdPartyJobDetails)
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. Use this number
@@ -78,25 +70,33 @@ thirdPartyJobDetails_id = Lens.lens (\ThirdPartyJobDetails' {id} -> id) (\s@Thir
 thirdPartyJobDetails_nonce :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe Prelude.Text)
 thirdPartyJobDetails_nonce = Lens.lens (\ThirdPartyJobDetails' {nonce} -> nonce) (\s@ThirdPartyJobDetails' {} a -> s {nonce = a} :: ThirdPartyJobDetails)
 
+-- | The identifier used to identify the job details in AWS CodePipeline.
+thirdPartyJobDetails_id :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe Prelude.Text)
+thirdPartyJobDetails_id = Lens.lens (\ThirdPartyJobDetails' {id} -> id) (\s@ThirdPartyJobDetails' {} a -> s {id = a} :: ThirdPartyJobDetails)
+
+-- | The data to be returned by the third party job worker.
+thirdPartyJobDetails_data :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe ThirdPartyJobData)
+thirdPartyJobDetails_data = Lens.lens (\ThirdPartyJobDetails' {data'} -> data') (\s@ThirdPartyJobDetails' {} a -> s {data' = a} :: ThirdPartyJobDetails)
+
 instance Core.FromJSON ThirdPartyJobDetails where
   parseJSON =
     Core.withObject
       "ThirdPartyJobDetails"
       ( \x ->
           ThirdPartyJobDetails'
-            Prelude.<$> (x Core..:? "data")
+            Prelude.<$> (x Core..:? "nonce")
             Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "nonce")
+            Prelude.<*> (x Core..:? "data")
       )
 
 instance Prelude.Hashable ThirdPartyJobDetails where
   hashWithSalt _salt ThirdPartyJobDetails' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt `Prelude.hashWithSalt` nonce
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` nonce
+      `Prelude.hashWithSalt` data'
 
 instance Prelude.NFData ThirdPartyJobDetails where
   rnf ThirdPartyJobDetails' {..} =
-    Prelude.rnf data'
+    Prelude.rnf nonce
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf nonce
+      `Prelude.seq` Prelude.rnf data'

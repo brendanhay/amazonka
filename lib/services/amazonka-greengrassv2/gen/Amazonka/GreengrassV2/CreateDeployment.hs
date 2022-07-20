@@ -44,12 +44,12 @@ module Amazonka.GreengrassV2.CreateDeployment
     newCreateDeployment,
 
     -- * Request Lenses
-    createDeployment_components,
+    createDeployment_tags,
     createDeployment_clientToken,
-    createDeployment_deploymentPolicies,
     createDeployment_iotJobConfiguration,
     createDeployment_deploymentName,
-    createDeployment_tags,
+    createDeployment_deploymentPolicies,
+    createDeployment_components,
     createDeployment_targetArn,
 
     -- * Destructuring the Response
@@ -57,9 +57,9 @@ module Amazonka.GreengrassV2.CreateDeployment
     newCreateDeploymentResponse,
 
     -- * Response Lenses
-    createDeploymentResponse_deploymentId,
-    createDeploymentResponse_iotJobId,
     createDeploymentResponse_iotJobArn,
+    createDeploymentResponse_iotJobId,
+    createDeploymentResponse_deploymentId,
     createDeploymentResponse_httpStatus,
   )
 where
@@ -73,10 +73,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { -- | The components to deploy. This is a dictionary, where each key is the
-    -- name of a component, and each key\'s value is the version and
-    -- configuration to deploy for that component.
-    components :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDeploymentSpecification),
+  { -- | A list of key-value pairs that contain metadata for the resource. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
+    -- in the /IoT Greengrass V2 Developer Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, case-sensitive identifier that you can provide to ensure that
     -- the request is idempotent. Idempotency means that the request is
     -- successfully processed only once, even if you send the request multiple
@@ -86,20 +87,19 @@ data CreateDeployment = CreateDeployment'
     -- request. IoT Greengrass V2 caches successful responses for idempotent
     -- requests for up to 8 hours.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The deployment policies for the deployment. These policies define how
-    -- the deployment updates components and handles failure.
-    deploymentPolicies :: Prelude.Maybe DeploymentPolicies,
     -- | The job configuration for the deployment configuration. The job
     -- configuration specifies the rollout, timeout, and stop configurations
     -- for the deployment configuration.
     iotJobConfiguration :: Prelude.Maybe DeploymentIoTJobConfiguration,
     -- | The name of the deployment.
     deploymentName :: Prelude.Maybe Prelude.Text,
-    -- | A list of key-value pairs that contain metadata for the resource. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
-    -- in the /IoT Greengrass V2 Developer Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The deployment policies for the deployment. These policies define how
+    -- the deployment updates components and handles failure.
+    deploymentPolicies :: Prelude.Maybe DeploymentPolicies,
+    -- | The components to deploy. This is a dictionary, where each key is the
+    -- name of a component, and each key\'s value is the version and
+    -- configuration to deploy for that component.
+    components :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDeploymentSpecification),
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- of the target IoT thing or thing group.
@@ -115,9 +115,10 @@ data CreateDeployment = CreateDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'components', 'createDeployment_components' - The components to deploy. This is a dictionary, where each key is the
--- name of a component, and each key\'s value is the version and
--- configuration to deploy for that component.
+-- 'tags', 'createDeployment_tags' - A list of key-value pairs that contain metadata for the resource. For
+-- more information, see
+-- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
+-- in the /IoT Greengrass V2 Developer Guide/.
 --
 -- 'clientToken', 'createDeployment_clientToken' - A unique, case-sensitive identifier that you can provide to ensure that
 -- the request is idempotent. Idempotency means that the request is
@@ -128,19 +129,18 @@ data CreateDeployment = CreateDeployment'
 -- request. IoT Greengrass V2 caches successful responses for idempotent
 -- requests for up to 8 hours.
 --
--- 'deploymentPolicies', 'createDeployment_deploymentPolicies' - The deployment policies for the deployment. These policies define how
--- the deployment updates components and handles failure.
---
 -- 'iotJobConfiguration', 'createDeployment_iotJobConfiguration' - The job configuration for the deployment configuration. The job
 -- configuration specifies the rollout, timeout, and stop configurations
 -- for the deployment configuration.
 --
 -- 'deploymentName', 'createDeployment_deploymentName' - The name of the deployment.
 --
--- 'tags', 'createDeployment_tags' - A list of key-value pairs that contain metadata for the resource. For
--- more information, see
--- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
--- in the /IoT Greengrass V2 Developer Guide/.
+-- 'deploymentPolicies', 'createDeployment_deploymentPolicies' - The deployment policies for the deployment. These policies define how
+-- the deployment updates components and handles failure.
+--
+-- 'components', 'createDeployment_components' - The components to deploy. This is a dictionary, where each key is the
+-- name of a component, and each key\'s value is the version and
+-- configuration to deploy for that component.
 --
 -- 'targetArn', 'createDeployment_targetArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -151,20 +151,21 @@ newCreateDeployment ::
   CreateDeployment
 newCreateDeployment pTargetArn_ =
   CreateDeployment'
-    { components = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      deploymentPolicies = Prelude.Nothing,
       iotJobConfiguration = Prelude.Nothing,
       deploymentName = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      deploymentPolicies = Prelude.Nothing,
+      components = Prelude.Nothing,
       targetArn = pTargetArn_
     }
 
--- | The components to deploy. This is a dictionary, where each key is the
--- name of a component, and each key\'s value is the version and
--- configuration to deploy for that component.
-createDeployment_components :: Lens.Lens' CreateDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDeploymentSpecification))
-createDeployment_components = Lens.lens (\CreateDeployment' {components} -> components) (\s@CreateDeployment' {} a -> s {components = a} :: CreateDeployment) Prelude.. Lens.mapping Lens.coerced
+-- | A list of key-value pairs that contain metadata for the resource. For
+-- more information, see
+-- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
+-- in the /IoT Greengrass V2 Developer Guide/.
+createDeployment_tags :: Lens.Lens' CreateDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDeployment_tags = Lens.lens (\CreateDeployment' {tags} -> tags) (\s@CreateDeployment' {} a -> s {tags = a} :: CreateDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you can provide to ensure that
 -- the request is idempotent. Idempotency means that the request is
@@ -177,11 +178,6 @@ createDeployment_components = Lens.lens (\CreateDeployment' {components} -> comp
 createDeployment_clientToken :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_clientToken = Lens.lens (\CreateDeployment' {clientToken} -> clientToken) (\s@CreateDeployment' {} a -> s {clientToken = a} :: CreateDeployment)
 
--- | The deployment policies for the deployment. These policies define how
--- the deployment updates components and handles failure.
-createDeployment_deploymentPolicies :: Lens.Lens' CreateDeployment (Prelude.Maybe DeploymentPolicies)
-createDeployment_deploymentPolicies = Lens.lens (\CreateDeployment' {deploymentPolicies} -> deploymentPolicies) (\s@CreateDeployment' {} a -> s {deploymentPolicies = a} :: CreateDeployment)
-
 -- | The job configuration for the deployment configuration. The job
 -- configuration specifies the rollout, timeout, and stop configurations
 -- for the deployment configuration.
@@ -192,12 +188,16 @@ createDeployment_iotJobConfiguration = Lens.lens (\CreateDeployment' {iotJobConf
 createDeployment_deploymentName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_deploymentName = Lens.lens (\CreateDeployment' {deploymentName} -> deploymentName) (\s@CreateDeployment' {} a -> s {deploymentName = a} :: CreateDeployment)
 
--- | A list of key-value pairs that contain metadata for the resource. For
--- more information, see
--- <https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html Tag your resources>
--- in the /IoT Greengrass V2 Developer Guide/.
-createDeployment_tags :: Lens.Lens' CreateDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDeployment_tags = Lens.lens (\CreateDeployment' {tags} -> tags) (\s@CreateDeployment' {} a -> s {tags = a} :: CreateDeployment) Prelude.. Lens.mapping Lens.coerced
+-- | The deployment policies for the deployment. These policies define how
+-- the deployment updates components and handles failure.
+createDeployment_deploymentPolicies :: Lens.Lens' CreateDeployment (Prelude.Maybe DeploymentPolicies)
+createDeployment_deploymentPolicies = Lens.lens (\CreateDeployment' {deploymentPolicies} -> deploymentPolicies) (\s@CreateDeployment' {} a -> s {deploymentPolicies = a} :: CreateDeployment)
+
+-- | The components to deploy. This is a dictionary, where each key is the
+-- name of a component, and each key\'s value is the version and
+-- configuration to deploy for that component.
+createDeployment_components :: Lens.Lens' CreateDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDeploymentSpecification))
+createDeployment_components = Lens.lens (\CreateDeployment' {components} -> components) (\s@CreateDeployment' {} a -> s {components = a} :: CreateDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -214,30 +214,30 @@ instance Core.AWSRequest CreateDeployment where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            Prelude.<$> (x Core..?> "deploymentId")
+            Prelude.<$> (x Core..?> "iotJobArn")
             Prelude.<*> (x Core..?> "iotJobId")
-            Prelude.<*> (x Core..?> "iotJobArn")
+            Prelude.<*> (x Core..?> "deploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =
-    _salt `Prelude.hashWithSalt` components
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` deploymentPolicies
       `Prelude.hashWithSalt` iotJobConfiguration
       `Prelude.hashWithSalt` deploymentName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deploymentPolicies
+      `Prelude.hashWithSalt` components
       `Prelude.hashWithSalt` targetArn
 
 instance Prelude.NFData CreateDeployment where
   rnf CreateDeployment' {..} =
-    Prelude.rnf components
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf deploymentPolicies
       `Prelude.seq` Prelude.rnf iotJobConfiguration
       `Prelude.seq` Prelude.rnf deploymentName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf deploymentPolicies
+      `Prelude.seq` Prelude.rnf components
       `Prelude.seq` Prelude.rnf targetArn
 
 instance Core.ToHeaders CreateDeployment where
@@ -255,15 +255,15 @@ instance Core.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("components" Core..=) Prelude.<$> components,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("deploymentPolicies" Core..=)
-              Prelude.<$> deploymentPolicies,
             ("iotJobConfiguration" Core..=)
               Prelude.<$> iotJobConfiguration,
             ("deploymentName" Core..=)
               Prelude.<$> deploymentName,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("deploymentPolicies" Core..=)
+              Prelude.<$> deploymentPolicies,
+            ("components" Core..=) Prelude.<$> components,
             Prelude.Just ("targetArn" Core..= targetArn)
           ]
       )
@@ -276,14 +276,14 @@ instance Core.ToQuery CreateDeployment where
 
 -- | /See:/ 'newCreateDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-  { -- | The ID of the deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the IoT job that applies the deployment to target devices.
-    iotJobId :: Prelude.Maybe Prelude.Text,
-    -- | The
+  { -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- of the IoT job that applies the deployment to target devices.
     iotJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the IoT job that applies the deployment to target devices.
+    iotJobId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -297,13 +297,13 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentId', 'createDeploymentResponse_deploymentId' - The ID of the deployment.
---
--- 'iotJobId', 'createDeploymentResponse_iotJobId' - The ID of the IoT job that applies the deployment to target devices.
---
 -- 'iotJobArn', 'createDeploymentResponse_iotJobArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the IoT job that applies the deployment to target devices.
+--
+-- 'iotJobId', 'createDeploymentResponse_iotJobId' - The ID of the IoT job that applies the deployment to target devices.
+--
+-- 'deploymentId', 'createDeploymentResponse_deploymentId' - The ID of the deployment.
 --
 -- 'httpStatus', 'createDeploymentResponse_httpStatus' - The response's http status code.
 newCreateDeploymentResponse ::
@@ -312,20 +312,12 @@ newCreateDeploymentResponse ::
   CreateDeploymentResponse
 newCreateDeploymentResponse pHttpStatus_ =
   CreateDeploymentResponse'
-    { deploymentId =
+    { iotJobArn =
         Prelude.Nothing,
       iotJobId = Prelude.Nothing,
-      iotJobArn = Prelude.Nothing,
+      deploymentId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the deployment.
-createDeploymentResponse_deploymentId :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.Text)
-createDeploymentResponse_deploymentId = Lens.lens (\CreateDeploymentResponse' {deploymentId} -> deploymentId) (\s@CreateDeploymentResponse' {} a -> s {deploymentId = a} :: CreateDeploymentResponse)
-
--- | The ID of the IoT job that applies the deployment to target devices.
-createDeploymentResponse_iotJobId :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.Text)
-createDeploymentResponse_iotJobId = Lens.lens (\CreateDeploymentResponse' {iotJobId} -> iotJobId) (\s@CreateDeploymentResponse' {} a -> s {iotJobId = a} :: CreateDeploymentResponse)
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -333,13 +325,21 @@ createDeploymentResponse_iotJobId = Lens.lens (\CreateDeploymentResponse' {iotJo
 createDeploymentResponse_iotJobArn :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.Text)
 createDeploymentResponse_iotJobArn = Lens.lens (\CreateDeploymentResponse' {iotJobArn} -> iotJobArn) (\s@CreateDeploymentResponse' {} a -> s {iotJobArn = a} :: CreateDeploymentResponse)
 
+-- | The ID of the IoT job that applies the deployment to target devices.
+createDeploymentResponse_iotJobId :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.Text)
+createDeploymentResponse_iotJobId = Lens.lens (\CreateDeploymentResponse' {iotJobId} -> iotJobId) (\s@CreateDeploymentResponse' {} a -> s {iotJobId = a} :: CreateDeploymentResponse)
+
+-- | The ID of the deployment.
+createDeploymentResponse_deploymentId :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.Text)
+createDeploymentResponse_deploymentId = Lens.lens (\CreateDeploymentResponse' {deploymentId} -> deploymentId) (\s@CreateDeploymentResponse' {} a -> s {deploymentId = a} :: CreateDeploymentResponse)
+
 -- | The response's http status code.
 createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Prelude.Int
 createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentResponse' {} a -> s {httpStatus = a} :: CreateDeploymentResponse)
 
 instance Prelude.NFData CreateDeploymentResponse where
   rnf CreateDeploymentResponse' {..} =
-    Prelude.rnf deploymentId
+    Prelude.rnf iotJobArn
       `Prelude.seq` Prelude.rnf iotJobId
-      `Prelude.seq` Prelude.rnf iotJobArn
+      `Prelude.seq` Prelude.rnf deploymentId
       `Prelude.seq` Prelude.rnf httpStatus

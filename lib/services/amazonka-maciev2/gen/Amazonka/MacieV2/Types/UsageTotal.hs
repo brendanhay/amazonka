@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageTotal' smart constructor.
 data UsageTotal = UsageTotal'
-  { -- | The type of currency that the value for the metric (estimatedCost) is
-    -- reported in.
-    currency :: Prelude.Maybe Currency,
-    -- | The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
+  { -- | The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
     -- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
     -- S3 objects to detect sensitive data.
     type' :: Prelude.Maybe UsageType,
+    -- | The type of currency that the value for the metric (estimatedCost) is
+    -- reported in.
+    currency :: Prelude.Maybe Currency,
     -- | The estimated value for the metric.
     estimatedCost :: Prelude.Maybe Prelude.Text
   }
@@ -52,33 +52,33 @@ data UsageTotal = UsageTotal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'currency', 'usageTotal_currency' - The type of currency that the value for the metric (estimatedCost) is
--- reported in.
---
 -- 'type'', 'usageTotal_type' - The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
 -- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
 -- S3 objects to detect sensitive data.
+--
+-- 'currency', 'usageTotal_currency' - The type of currency that the value for the metric (estimatedCost) is
+-- reported in.
 --
 -- 'estimatedCost', 'usageTotal_estimatedCost' - The estimated value for the metric.
 newUsageTotal ::
   UsageTotal
 newUsageTotal =
   UsageTotal'
-    { currency = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { type' = Prelude.Nothing,
+      currency = Prelude.Nothing,
       estimatedCost = Prelude.Nothing
     }
-
--- | The type of currency that the value for the metric (estimatedCost) is
--- reported in.
-usageTotal_currency :: Lens.Lens' UsageTotal (Prelude.Maybe Currency)
-usageTotal_currency = Lens.lens (\UsageTotal' {currency} -> currency) (\s@UsageTotal' {} a -> s {currency = a} :: UsageTotal)
 
 -- | The name of the metric. Possible values are: DATA_INVENTORY_EVALUATION,
 -- for monitoring S3 buckets; and, SENSITIVE_DATA_DISCOVERY, for analyzing
 -- S3 objects to detect sensitive data.
 usageTotal_type :: Lens.Lens' UsageTotal (Prelude.Maybe UsageType)
 usageTotal_type = Lens.lens (\UsageTotal' {type'} -> type') (\s@UsageTotal' {} a -> s {type' = a} :: UsageTotal)
+
+-- | The type of currency that the value for the metric (estimatedCost) is
+-- reported in.
+usageTotal_currency :: Lens.Lens' UsageTotal (Prelude.Maybe Currency)
+usageTotal_currency = Lens.lens (\UsageTotal' {currency} -> currency) (\s@UsageTotal' {} a -> s {currency = a} :: UsageTotal)
 
 -- | The estimated value for the metric.
 usageTotal_estimatedCost :: Lens.Lens' UsageTotal (Prelude.Maybe Prelude.Text)
@@ -90,19 +90,19 @@ instance Core.FromJSON UsageTotal where
       "UsageTotal"
       ( \x ->
           UsageTotal'
-            Prelude.<$> (x Core..:? "currency")
-            Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "currency")
             Prelude.<*> (x Core..:? "estimatedCost")
       )
 
 instance Prelude.Hashable UsageTotal where
   hashWithSalt _salt UsageTotal' {..} =
-    _salt `Prelude.hashWithSalt` currency
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` estimatedCost
 
 instance Prelude.NFData UsageTotal where
   rnf UsageTotal' {..} =
-    Prelude.rnf currency
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf currency
       `Prelude.seq` Prelude.rnf estimatedCost

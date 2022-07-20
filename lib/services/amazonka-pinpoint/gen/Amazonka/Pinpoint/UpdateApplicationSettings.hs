@@ -129,14 +129,7 @@ instance Core.ToHeaders UpdateApplicationSettings where
 
 instance Core.ToJSON UpdateApplicationSettings where
   toJSON UpdateApplicationSettings' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "WriteApplicationSettingsRequest"
-                  Core..= writeApplicationSettingsRequest
-              )
-          ]
-      )
+    Core.toJSON writeApplicationSettingsRequest
 
 instance Core.ToPath UpdateApplicationSettings where
   toPath UpdateApplicationSettings' {..} =

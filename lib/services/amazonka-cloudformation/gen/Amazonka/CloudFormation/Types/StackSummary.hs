@@ -29,7 +29,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStackSummary' smart constructor.
 data StackSummary = StackSummary'
-  { -- | The time the stack was last updated. This field will only be returned if
+  { -- | The time the stack was deleted.
+    deletionTime :: Prelude.Maybe Core.ISO8601,
+    -- | Unique stack identifier.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | Success\/Failure message associated with the stack status.
+    stackStatusReason :: Prelude.Maybe Prelude.Text,
+    -- | For nested stacks--stacks created as resources for another stack--the
+    -- stack ID of the direct parent of this stack. For the first level of
+    -- nested stacks, the root stack is also the parent stack.
+    --
+    -- For more information, see
+    -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
+    -- in the /CloudFormation User Guide/.
+    parentId :: Prelude.Maybe Prelude.Text,
+    -- | The time the stack was last updated. This field will only be returned if
     -- the stack has been updated at least once.
     lastUpdatedTime :: Prelude.Maybe Core.ISO8601,
     -- | For nested stacks--stacks created as resources for another stack--the
@@ -40,28 +54,14 @@ data StackSummary = StackSummary'
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
     -- in the /CloudFormation User Guide/.
     rootId :: Prelude.Maybe Prelude.Text,
-    -- | Success\/Failure message associated with the stack status.
-    stackStatusReason :: Prelude.Maybe Prelude.Text,
-    -- | The template description of the template used to create the stack.
-    templateDescription :: Prelude.Maybe Prelude.Text,
     -- | Summarizes information on whether a stack\'s actual configuration
     -- differs, or has /drifted/, from it\'s expected configuration, as defined
     -- in the stack template and any values specified as template parameters.
     -- For more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
     driftInformation :: Prelude.Maybe StackDriftInformationSummary,
-    -- | The time the stack was deleted.
-    deletionTime :: Prelude.Maybe Core.ISO8601,
-    -- | Unique stack identifier.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | For nested stacks--stacks created as resources for another stack--the
-    -- stack ID of the direct parent of this stack. For the first level of
-    -- nested stacks, the root stack is also the parent stack.
-    --
-    -- For more information, see
-    -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
-    -- in the /CloudFormation User Guide/.
-    parentId :: Prelude.Maybe Prelude.Text,
+    -- | The template description of the template used to create the stack.
+    templateDescription :: Prelude.Maybe Prelude.Text,
     -- | The name associated with the stack.
     stackName :: Prelude.Text,
     -- | The time the stack was created.
@@ -79,6 +79,20 @@ data StackSummary = StackSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deletionTime', 'stackSummary_deletionTime' - The time the stack was deleted.
+--
+-- 'stackId', 'stackSummary_stackId' - Unique stack identifier.
+--
+-- 'stackStatusReason', 'stackSummary_stackStatusReason' - Success\/Failure message associated with the stack status.
+--
+-- 'parentId', 'stackSummary_parentId' - For nested stacks--stacks created as resources for another stack--the
+-- stack ID of the direct parent of this stack. For the first level of
+-- nested stacks, the root stack is also the parent stack.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
+-- in the /CloudFormation User Guide/.
+--
 -- 'lastUpdatedTime', 'stackSummary_lastUpdatedTime' - The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
 --
@@ -90,27 +104,13 @@ data StackSummary = StackSummary'
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
 -- in the /CloudFormation User Guide/.
 --
--- 'stackStatusReason', 'stackSummary_stackStatusReason' - Success\/Failure message associated with the stack status.
---
--- 'templateDescription', 'stackSummary_templateDescription' - The template description of the template used to create the stack.
---
 -- 'driftInformation', 'stackSummary_driftInformation' - Summarizes information on whether a stack\'s actual configuration
 -- differs, or has /drifted/, from it\'s expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
 --
--- 'deletionTime', 'stackSummary_deletionTime' - The time the stack was deleted.
---
--- 'stackId', 'stackSummary_stackId' - Unique stack identifier.
---
--- 'parentId', 'stackSummary_parentId' - For nested stacks--stacks created as resources for another stack--the
--- stack ID of the direct parent of this stack. For the first level of
--- nested stacks, the root stack is also the parent stack.
---
--- For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
--- in the /CloudFormation User Guide/.
+-- 'templateDescription', 'stackSummary_templateDescription' - The template description of the template used to create the stack.
 --
 -- 'stackName', 'stackSummary_stackName' - The name associated with the stack.
 --
@@ -130,18 +130,40 @@ newStackSummary
   pCreationTime_
   pStackStatus_ =
     StackSummary'
-      { lastUpdatedTime = Prelude.Nothing,
-        rootId = Prelude.Nothing,
-        stackStatusReason = Prelude.Nothing,
-        templateDescription = Prelude.Nothing,
-        driftInformation = Prelude.Nothing,
-        deletionTime = Prelude.Nothing,
+      { deletionTime = Prelude.Nothing,
         stackId = Prelude.Nothing,
+        stackStatusReason = Prelude.Nothing,
         parentId = Prelude.Nothing,
+        lastUpdatedTime = Prelude.Nothing,
+        rootId = Prelude.Nothing,
+        driftInformation = Prelude.Nothing,
+        templateDescription = Prelude.Nothing,
         stackName = pStackName_,
         creationTime = Core._Time Lens.# pCreationTime_,
         stackStatus = pStackStatus_
       }
+
+-- | The time the stack was deleted.
+stackSummary_deletionTime :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.UTCTime)
+stackSummary_deletionTime = Lens.lens (\StackSummary' {deletionTime} -> deletionTime) (\s@StackSummary' {} a -> s {deletionTime = a} :: StackSummary) Prelude.. Lens.mapping Core._Time
+
+-- | Unique stack identifier.
+stackSummary_stackId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
+stackSummary_stackId = Lens.lens (\StackSummary' {stackId} -> stackId) (\s@StackSummary' {} a -> s {stackId = a} :: StackSummary)
+
+-- | Success\/Failure message associated with the stack status.
+stackSummary_stackStatusReason :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
+stackSummary_stackStatusReason = Lens.lens (\StackSummary' {stackStatusReason} -> stackStatusReason) (\s@StackSummary' {} a -> s {stackStatusReason = a} :: StackSummary)
+
+-- | For nested stacks--stacks created as resources for another stack--the
+-- stack ID of the direct parent of this stack. For the first level of
+-- nested stacks, the root stack is also the parent stack.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
+-- in the /CloudFormation User Guide/.
+stackSummary_parentId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
+stackSummary_parentId = Lens.lens (\StackSummary' {parentId} -> parentId) (\s@StackSummary' {} a -> s {parentId = a} :: StackSummary)
 
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
@@ -158,14 +180,6 @@ stackSummary_lastUpdatedTime = Lens.lens (\StackSummary' {lastUpdatedTime} -> la
 stackSummary_rootId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_rootId = Lens.lens (\StackSummary' {rootId} -> rootId) (\s@StackSummary' {} a -> s {rootId = a} :: StackSummary)
 
--- | Success\/Failure message associated with the stack status.
-stackSummary_stackStatusReason :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
-stackSummary_stackStatusReason = Lens.lens (\StackSummary' {stackStatusReason} -> stackStatusReason) (\s@StackSummary' {} a -> s {stackStatusReason = a} :: StackSummary)
-
--- | The template description of the template used to create the stack.
-stackSummary_templateDescription :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
-stackSummary_templateDescription = Lens.lens (\StackSummary' {templateDescription} -> templateDescription) (\s@StackSummary' {} a -> s {templateDescription = a} :: StackSummary)
-
 -- | Summarizes information on whether a stack\'s actual configuration
 -- differs, or has /drifted/, from it\'s expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
@@ -174,23 +188,9 @@ stackSummary_templateDescription = Lens.lens (\StackSummary' {templateDescriptio
 stackSummary_driftInformation :: Lens.Lens' StackSummary (Prelude.Maybe StackDriftInformationSummary)
 stackSummary_driftInformation = Lens.lens (\StackSummary' {driftInformation} -> driftInformation) (\s@StackSummary' {} a -> s {driftInformation = a} :: StackSummary)
 
--- | The time the stack was deleted.
-stackSummary_deletionTime :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.UTCTime)
-stackSummary_deletionTime = Lens.lens (\StackSummary' {deletionTime} -> deletionTime) (\s@StackSummary' {} a -> s {deletionTime = a} :: StackSummary) Prelude.. Lens.mapping Core._Time
-
--- | Unique stack identifier.
-stackSummary_stackId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
-stackSummary_stackId = Lens.lens (\StackSummary' {stackId} -> stackId) (\s@StackSummary' {} a -> s {stackId = a} :: StackSummary)
-
--- | For nested stacks--stacks created as resources for another stack--the
--- stack ID of the direct parent of this stack. For the first level of
--- nested stacks, the root stack is also the parent stack.
---
--- For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks>
--- in the /CloudFormation User Guide/.
-stackSummary_parentId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
-stackSummary_parentId = Lens.lens (\StackSummary' {parentId} -> parentId) (\s@StackSummary' {} a -> s {parentId = a} :: StackSummary)
+-- | The template description of the template used to create the stack.
+stackSummary_templateDescription :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
+stackSummary_templateDescription = Lens.lens (\StackSummary' {templateDescription} -> templateDescription) (\s@StackSummary' {} a -> s {templateDescription = a} :: StackSummary)
 
 -- | The name associated with the stack.
 stackSummary_stackName :: Lens.Lens' StackSummary Prelude.Text
@@ -207,42 +207,42 @@ stackSummary_stackStatus = Lens.lens (\StackSummary' {stackStatus} -> stackStatu
 instance Core.FromXML StackSummary where
   parseXML x =
     StackSummary'
-      Prelude.<$> (x Core..@? "LastUpdatedTime")
-      Prelude.<*> (x Core..@? "RootId")
-      Prelude.<*> (x Core..@? "StackStatusReason")
-      Prelude.<*> (x Core..@? "TemplateDescription")
-      Prelude.<*> (x Core..@? "DriftInformation")
-      Prelude.<*> (x Core..@? "DeletionTime")
+      Prelude.<$> (x Core..@? "DeletionTime")
       Prelude.<*> (x Core..@? "StackId")
+      Prelude.<*> (x Core..@? "StackStatusReason")
       Prelude.<*> (x Core..@? "ParentId")
+      Prelude.<*> (x Core..@? "LastUpdatedTime")
+      Prelude.<*> (x Core..@? "RootId")
+      Prelude.<*> (x Core..@? "DriftInformation")
+      Prelude.<*> (x Core..@? "TemplateDescription")
       Prelude.<*> (x Core..@ "StackName")
       Prelude.<*> (x Core..@ "CreationTime")
       Prelude.<*> (x Core..@ "StackStatus")
 
 instance Prelude.Hashable StackSummary where
   hashWithSalt _salt StackSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` rootId
-      `Prelude.hashWithSalt` stackStatusReason
-      `Prelude.hashWithSalt` templateDescription
-      `Prelude.hashWithSalt` driftInformation
-      `Prelude.hashWithSalt` deletionTime
+    _salt `Prelude.hashWithSalt` deletionTime
       `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` stackStatusReason
       `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` rootId
+      `Prelude.hashWithSalt` driftInformation
+      `Prelude.hashWithSalt` templateDescription
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` stackStatus
 
 instance Prelude.NFData StackSummary where
   rnf StackSummary' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf rootId
-      `Prelude.seq` Prelude.rnf stackStatusReason
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf driftInformation
-      `Prelude.seq` Prelude.rnf deletionTime
+    Prelude.rnf deletionTime
       `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf stackStatusReason
       `Prelude.seq` Prelude.rnf parentId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf rootId
+      `Prelude.seq` Prelude.rnf driftInformation
+      `Prelude.seq` Prelude.rnf templateDescription
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf stackStatus

@@ -39,11 +39,11 @@ module Amazonka.SSM.CreateActivation
     newCreateActivation,
 
     -- * Request Lenses
+    createActivation_tags,
     createActivation_defaultInstanceName,
+    createActivation_description,
     createActivation_registrationLimit,
     createActivation_expirationDate,
-    createActivation_description,
-    createActivation_tags,
     createActivation_iamRole,
 
     -- * Destructuring the Response
@@ -66,26 +66,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateActivation' smart constructor.
 data CreateActivation = CreateActivation'
-  { -- | The name of the registered, managed instance as it will appear in the
-    -- Amazon Web Services Systems Manager console or when you use the Amazon
-    -- Web Services command line tools to list Systems Manager resources.
-    --
-    -- Don\'t enter personally identifiable information in this field.
-    defaultInstanceName :: Prelude.Maybe Prelude.Text,
-    -- | Specify the maximum number of managed instances you want to register.
-    -- The default value is @1@.
-    registrationLimit :: Prelude.Maybe Prelude.Natural,
-    -- | The date by which this activation request should expire, in timestamp
-    -- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
-    -- days in advance. If you don\'t provide an expiration date, the
-    -- activation code expires in 24 hours.
-    expirationDate :: Prelude.Maybe Core.POSIX,
-    -- | A user-defined description of the resource that you want to register
-    -- with Systems Manager.
-    --
-    -- Don\'t enter personally identifiable information in this field.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you assign to a resource. Tags enable you to
+  { -- | Optional metadata that you assign to a resource. Tags enable you to
     -- categorize a resource in different ways, such as by purpose, owner, or
     -- environment. For example, you might want to tag an activation to
     -- identify which servers or virtual machines (VMs) in your on-premises
@@ -110,6 +91,25 @@ data CreateActivation = CreateActivation'
     -- information about how to remove tags from your managed instances, see
     -- RemoveTagsFromResource.
     tags :: Prelude.Maybe [Tag],
+    -- | The name of the registered, managed instance as it will appear in the
+    -- Amazon Web Services Systems Manager console or when you use the Amazon
+    -- Web Services command line tools to list Systems Manager resources.
+    --
+    -- Don\'t enter personally identifiable information in this field.
+    defaultInstanceName :: Prelude.Maybe Prelude.Text,
+    -- | A user-defined description of the resource that you want to register
+    -- with Systems Manager.
+    --
+    -- Don\'t enter personally identifiable information in this field.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specify the maximum number of managed instances you want to register.
+    -- The default value is @1@.
+    registrationLimit :: Prelude.Maybe Prelude.Natural,
+    -- | The date by which this activation request should expire, in timestamp
+    -- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
+    -- days in advance. If you don\'t provide an expiration date, the
+    -- activation code expires in 24 hours.
+    expirationDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the Identity and Access Management (IAM) role that you want
     -- to assign to the managed instance. This IAM role must provide AssumeRole
     -- permissions for the Amazon Web Services Systems Manager service
@@ -127,25 +127,6 @@ data CreateActivation = CreateActivation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'defaultInstanceName', 'createActivation_defaultInstanceName' - The name of the registered, managed instance as it will appear in the
--- Amazon Web Services Systems Manager console or when you use the Amazon
--- Web Services command line tools to list Systems Manager resources.
---
--- Don\'t enter personally identifiable information in this field.
---
--- 'registrationLimit', 'createActivation_registrationLimit' - Specify the maximum number of managed instances you want to register.
--- The default value is @1@.
---
--- 'expirationDate', 'createActivation_expirationDate' - The date by which this activation request should expire, in timestamp
--- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
--- days in advance. If you don\'t provide an expiration date, the
--- activation code expires in 24 hours.
---
--- 'description', 'createActivation_description' - A user-defined description of the resource that you want to register
--- with Systems Manager.
---
--- Don\'t enter personally identifiable information in this field.
 --
 -- 'tags', 'createActivation_tags' - Optional metadata that you assign to a resource. Tags enable you to
 -- categorize a resource in different ways, such as by purpose, owner, or
@@ -172,6 +153,25 @@ data CreateActivation = CreateActivation'
 -- information about how to remove tags from your managed instances, see
 -- RemoveTagsFromResource.
 --
+-- 'defaultInstanceName', 'createActivation_defaultInstanceName' - The name of the registered, managed instance as it will appear in the
+-- Amazon Web Services Systems Manager console or when you use the Amazon
+-- Web Services command line tools to list Systems Manager resources.
+--
+-- Don\'t enter personally identifiable information in this field.
+--
+-- 'description', 'createActivation_description' - A user-defined description of the resource that you want to register
+-- with Systems Manager.
+--
+-- Don\'t enter personally identifiable information in this field.
+--
+-- 'registrationLimit', 'createActivation_registrationLimit' - Specify the maximum number of managed instances you want to register.
+-- The default value is @1@.
+--
+-- 'expirationDate', 'createActivation_expirationDate' - The date by which this activation request should expire, in timestamp
+-- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
+-- days in advance. If you don\'t provide an expiration date, the
+-- activation code expires in 24 hours.
+--
 -- 'iamRole', 'createActivation_iamRole' - The name of the Identity and Access Management (IAM) role that you want
 -- to assign to the managed instance. This IAM role must provide AssumeRole
 -- permissions for the Amazon Web Services Systems Manager service
@@ -184,41 +184,13 @@ newCreateActivation ::
   CreateActivation
 newCreateActivation pIamRole_ =
   CreateActivation'
-    { defaultInstanceName =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      defaultInstanceName = Prelude.Nothing,
+      description = Prelude.Nothing,
       registrationLimit = Prelude.Nothing,
       expirationDate = Prelude.Nothing,
-      description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       iamRole = pIamRole_
     }
-
--- | The name of the registered, managed instance as it will appear in the
--- Amazon Web Services Systems Manager console or when you use the Amazon
--- Web Services command line tools to list Systems Manager resources.
---
--- Don\'t enter personally identifiable information in this field.
-createActivation_defaultInstanceName :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Text)
-createActivation_defaultInstanceName = Lens.lens (\CreateActivation' {defaultInstanceName} -> defaultInstanceName) (\s@CreateActivation' {} a -> s {defaultInstanceName = a} :: CreateActivation)
-
--- | Specify the maximum number of managed instances you want to register.
--- The default value is @1@.
-createActivation_registrationLimit :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Natural)
-createActivation_registrationLimit = Lens.lens (\CreateActivation' {registrationLimit} -> registrationLimit) (\s@CreateActivation' {} a -> s {registrationLimit = a} :: CreateActivation)
-
--- | The date by which this activation request should expire, in timestamp
--- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
--- days in advance. If you don\'t provide an expiration date, the
--- activation code expires in 24 hours.
-createActivation_expirationDate :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.UTCTime)
-createActivation_expirationDate = Lens.lens (\CreateActivation' {expirationDate} -> expirationDate) (\s@CreateActivation' {} a -> s {expirationDate = a} :: CreateActivation) Prelude.. Lens.mapping Core._Time
-
--- | A user-defined description of the resource that you want to register
--- with Systems Manager.
---
--- Don\'t enter personally identifiable information in this field.
-createActivation_description :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Text)
-createActivation_description = Lens.lens (\CreateActivation' {description} -> description) (\s@CreateActivation' {} a -> s {description = a} :: CreateActivation)
 
 -- | Optional metadata that you assign to a resource. Tags enable you to
 -- categorize a resource in different ways, such as by purpose, owner, or
@@ -247,6 +219,33 @@ createActivation_description = Lens.lens (\CreateActivation' {description} -> de
 createActivation_tags :: Lens.Lens' CreateActivation (Prelude.Maybe [Tag])
 createActivation_tags = Lens.lens (\CreateActivation' {tags} -> tags) (\s@CreateActivation' {} a -> s {tags = a} :: CreateActivation) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the registered, managed instance as it will appear in the
+-- Amazon Web Services Systems Manager console or when you use the Amazon
+-- Web Services command line tools to list Systems Manager resources.
+--
+-- Don\'t enter personally identifiable information in this field.
+createActivation_defaultInstanceName :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Text)
+createActivation_defaultInstanceName = Lens.lens (\CreateActivation' {defaultInstanceName} -> defaultInstanceName) (\s@CreateActivation' {} a -> s {defaultInstanceName = a} :: CreateActivation)
+
+-- | A user-defined description of the resource that you want to register
+-- with Systems Manager.
+--
+-- Don\'t enter personally identifiable information in this field.
+createActivation_description :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Text)
+createActivation_description = Lens.lens (\CreateActivation' {description} -> description) (\s@CreateActivation' {} a -> s {description = a} :: CreateActivation)
+
+-- | Specify the maximum number of managed instances you want to register.
+-- The default value is @1@.
+createActivation_registrationLimit :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.Natural)
+createActivation_registrationLimit = Lens.lens (\CreateActivation' {registrationLimit} -> registrationLimit) (\s@CreateActivation' {} a -> s {registrationLimit = a} :: CreateActivation)
+
+-- | The date by which this activation request should expire, in timestamp
+-- format, such as \"2021-07-07T00:00:00\". You can specify a date up to 30
+-- days in advance. If you don\'t provide an expiration date, the
+-- activation code expires in 24 hours.
+createActivation_expirationDate :: Lens.Lens' CreateActivation (Prelude.Maybe Prelude.UTCTime)
+createActivation_expirationDate = Lens.lens (\CreateActivation' {expirationDate} -> expirationDate) (\s@CreateActivation' {} a -> s {expirationDate = a} :: CreateActivation) Prelude.. Lens.mapping Core._Time
+
 -- | The name of the Identity and Access Management (IAM) role that you want
 -- to assign to the managed instance. This IAM role must provide AssumeRole
 -- permissions for the Amazon Web Services Systems Manager service
@@ -272,20 +271,20 @@ instance Core.AWSRequest CreateActivation where
 
 instance Prelude.Hashable CreateActivation where
   hashWithSalt _salt CreateActivation' {..} =
-    _salt `Prelude.hashWithSalt` defaultInstanceName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` defaultInstanceName
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` registrationLimit
       `Prelude.hashWithSalt` expirationDate
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` iamRole
 
 instance Prelude.NFData CreateActivation where
   rnf CreateActivation' {..} =
-    Prelude.rnf defaultInstanceName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultInstanceName
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf registrationLimit
       `Prelude.seq` Prelude.rnf expirationDate
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf iamRole
 
 instance Core.ToHeaders CreateActivation where
@@ -305,14 +304,14 @@ instance Core.ToJSON CreateActivation where
   toJSON CreateActivation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultInstanceName" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DefaultInstanceName" Core..=)
               Prelude.<$> defaultInstanceName,
+            ("Description" Core..=) Prelude.<$> description,
             ("RegistrationLimit" Core..=)
               Prelude.<$> registrationLimit,
             ("ExpirationDate" Core..=)
               Prelude.<$> expirationDate,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("IamRole" Core..= iamRole)
           ]
       )

@@ -39,8 +39,8 @@ module Amazonka.ElasticBeanstalk.DescribeInstancesHealth
     newDescribeInstancesHealthResponse,
 
     -- * Response Lenses
-    describeInstancesHealthResponse_instanceHealthList,
     describeInstancesHealthResponse_nextToken,
+    describeInstancesHealthResponse_instanceHealthList,
     describeInstancesHealthResponse_refreshedAt,
     describeInstancesHealthResponse_httpStatus,
   )
@@ -126,11 +126,11 @@ instance Core.AWSRequest DescribeInstancesHealth where
       "DescribeInstancesHealthResult"
       ( \s h x ->
           DescribeInstancesHealthResponse'
-            Prelude.<$> ( x Core..@? "InstanceHealthList"
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "InstanceHealthList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (x Core..@? "RefreshedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -177,14 +177,14 @@ instance Core.ToQuery DescribeInstancesHealth where
 --
 -- /See:/ 'newDescribeInstancesHealthResponse' smart constructor.
 data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
-  { -- | Detailed health information about each instance.
+  { -- | Pagination token for the next page of results, if available.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Detailed health information about each instance.
     --
     -- The output differs slightly between Linux and Windows environments.
     -- There is a difference in the members that are supported under the
     -- @\<CPUUtilization>@ type.
     instanceHealthList :: Prelude.Maybe [SingleInstanceHealth],
-    -- | Pagination token for the next page of results, if available.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the health information was retrieved.
     refreshedAt :: Prelude.Maybe Core.ISO8601,
     -- | The response's http status code.
@@ -200,13 +200,13 @@ data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeInstancesHealthResponse_nextToken' - Pagination token for the next page of results, if available.
+--
 -- 'instanceHealthList', 'describeInstancesHealthResponse_instanceHealthList' - Detailed health information about each instance.
 --
 -- The output differs slightly between Linux and Windows environments.
 -- There is a difference in the members that are supported under the
 -- @\<CPUUtilization>@ type.
---
--- 'nextToken', 'describeInstancesHealthResponse_nextToken' - Pagination token for the next page of results, if available.
 --
 -- 'refreshedAt', 'describeInstancesHealthResponse_refreshedAt' - The date and time that the health information was retrieved.
 --
@@ -217,12 +217,16 @@ newDescribeInstancesHealthResponse ::
   DescribeInstancesHealthResponse
 newDescribeInstancesHealthResponse pHttpStatus_ =
   DescribeInstancesHealthResponse'
-    { instanceHealthList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      instanceHealthList = Prelude.Nothing,
       refreshedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Pagination token for the next page of results, if available.
+describeInstancesHealthResponse_nextToken :: Lens.Lens' DescribeInstancesHealthResponse (Prelude.Maybe Prelude.Text)
+describeInstancesHealthResponse_nextToken = Lens.lens (\DescribeInstancesHealthResponse' {nextToken} -> nextToken) (\s@DescribeInstancesHealthResponse' {} a -> s {nextToken = a} :: DescribeInstancesHealthResponse)
 
 -- | Detailed health information about each instance.
 --
@@ -231,10 +235,6 @@ newDescribeInstancesHealthResponse pHttpStatus_ =
 -- @\<CPUUtilization>@ type.
 describeInstancesHealthResponse_instanceHealthList :: Lens.Lens' DescribeInstancesHealthResponse (Prelude.Maybe [SingleInstanceHealth])
 describeInstancesHealthResponse_instanceHealthList = Lens.lens (\DescribeInstancesHealthResponse' {instanceHealthList} -> instanceHealthList) (\s@DescribeInstancesHealthResponse' {} a -> s {instanceHealthList = a} :: DescribeInstancesHealthResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Pagination token for the next page of results, if available.
-describeInstancesHealthResponse_nextToken :: Lens.Lens' DescribeInstancesHealthResponse (Prelude.Maybe Prelude.Text)
-describeInstancesHealthResponse_nextToken = Lens.lens (\DescribeInstancesHealthResponse' {nextToken} -> nextToken) (\s@DescribeInstancesHealthResponse' {} a -> s {nextToken = a} :: DescribeInstancesHealthResponse)
 
 -- | The date and time that the health information was retrieved.
 describeInstancesHealthResponse_refreshedAt :: Lens.Lens' DescribeInstancesHealthResponse (Prelude.Maybe Prelude.UTCTime)
@@ -249,7 +249,7 @@ instance
     DescribeInstancesHealthResponse
   where
   rnf DescribeInstancesHealthResponse' {..} =
-    Prelude.rnf instanceHealthList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf instanceHealthList
       `Prelude.seq` Prelude.rnf refreshedAt
       `Prelude.seq` Prelude.rnf httpStatus

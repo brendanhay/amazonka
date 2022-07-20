@@ -40,8 +40,8 @@ module Amazonka.EMR.DescribeReleaseLabel
 
     -- * Response Lenses
     describeReleaseLabelResponse_nextToken,
-    describeReleaseLabelResponse_releaseLabel,
     describeReleaseLabelResponse_applications,
+    describeReleaseLabelResponse_releaseLabel,
     describeReleaseLabelResponse_httpStatus,
   )
 where
@@ -108,8 +108,8 @@ instance Core.AWSRequest DescribeReleaseLabel where
       ( \s h x ->
           DescribeReleaseLabelResponse'
             Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ReleaseLabel")
             Prelude.<*> (x Core..?> "Applications" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ReleaseLabel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,12 +160,12 @@ instance Core.ToQuery DescribeReleaseLabel where
 data DescribeReleaseLabelResponse = DescribeReleaseLabelResponse'
   { -- | The pagination token. Reserved for future use. Currently set to null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The target release label described in the response.
-    releaseLabel :: Prelude.Maybe Prelude.Text,
     -- | The list of applications available for the target release label. @Name@
     -- is the name of the application. @Version@ is the concise version of the
     -- application.
     applications :: Prelude.Maybe [SimplifiedApplication],
+    -- | The target release label described in the response.
+    releaseLabel :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,11 +181,11 @@ data DescribeReleaseLabelResponse = DescribeReleaseLabelResponse'
 --
 -- 'nextToken', 'describeReleaseLabelResponse_nextToken' - The pagination token. Reserved for future use. Currently set to null.
 --
--- 'releaseLabel', 'describeReleaseLabelResponse_releaseLabel' - The target release label described in the response.
---
 -- 'applications', 'describeReleaseLabelResponse_applications' - The list of applications available for the target release label. @Name@
 -- is the name of the application. @Version@ is the concise version of the
 -- application.
+--
+-- 'releaseLabel', 'describeReleaseLabelResponse_releaseLabel' - The target release label described in the response.
 --
 -- 'httpStatus', 'describeReleaseLabelResponse_httpStatus' - The response's http status code.
 newDescribeReleaseLabelResponse ::
@@ -196,8 +196,8 @@ newDescribeReleaseLabelResponse pHttpStatus_ =
   DescribeReleaseLabelResponse'
     { nextToken =
         Prelude.Nothing,
-      releaseLabel = Prelude.Nothing,
       applications = Prelude.Nothing,
+      releaseLabel = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -205,15 +205,15 @@ newDescribeReleaseLabelResponse pHttpStatus_ =
 describeReleaseLabelResponse_nextToken :: Lens.Lens' DescribeReleaseLabelResponse (Prelude.Maybe Prelude.Text)
 describeReleaseLabelResponse_nextToken = Lens.lens (\DescribeReleaseLabelResponse' {nextToken} -> nextToken) (\s@DescribeReleaseLabelResponse' {} a -> s {nextToken = a} :: DescribeReleaseLabelResponse)
 
--- | The target release label described in the response.
-describeReleaseLabelResponse_releaseLabel :: Lens.Lens' DescribeReleaseLabelResponse (Prelude.Maybe Prelude.Text)
-describeReleaseLabelResponse_releaseLabel = Lens.lens (\DescribeReleaseLabelResponse' {releaseLabel} -> releaseLabel) (\s@DescribeReleaseLabelResponse' {} a -> s {releaseLabel = a} :: DescribeReleaseLabelResponse)
-
 -- | The list of applications available for the target release label. @Name@
 -- is the name of the application. @Version@ is the concise version of the
 -- application.
 describeReleaseLabelResponse_applications :: Lens.Lens' DescribeReleaseLabelResponse (Prelude.Maybe [SimplifiedApplication])
 describeReleaseLabelResponse_applications = Lens.lens (\DescribeReleaseLabelResponse' {applications} -> applications) (\s@DescribeReleaseLabelResponse' {} a -> s {applications = a} :: DescribeReleaseLabelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The target release label described in the response.
+describeReleaseLabelResponse_releaseLabel :: Lens.Lens' DescribeReleaseLabelResponse (Prelude.Maybe Prelude.Text)
+describeReleaseLabelResponse_releaseLabel = Lens.lens (\DescribeReleaseLabelResponse' {releaseLabel} -> releaseLabel) (\s@DescribeReleaseLabelResponse' {} a -> s {releaseLabel = a} :: DescribeReleaseLabelResponse)
 
 -- | The response's http status code.
 describeReleaseLabelResponse_httpStatus :: Lens.Lens' DescribeReleaseLabelResponse Prelude.Int
@@ -222,6 +222,6 @@ describeReleaseLabelResponse_httpStatus = Lens.lens (\DescribeReleaseLabelRespon
 instance Prelude.NFData DescribeReleaseLabelResponse where
   rnf DescribeReleaseLabelResponse' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf releaseLabel
       `Prelude.seq` Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf releaseLabel
       `Prelude.seq` Prelude.rnf httpStatus

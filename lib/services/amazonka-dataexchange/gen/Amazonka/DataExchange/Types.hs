@@ -17,13 +17,13 @@ module Amazonka.DataExchange.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceLimitExceededException,
-    _ThrottlingException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ServiceLimitExceededException,
+    _ValidationException,
 
     -- * AssetType
     AssetType (..),
@@ -116,8 +116,8 @@ module Amazonka.DataExchange.Types
     -- * Details
     Details (..),
     newDetails,
-    details_importAssetFromSignedUrlJobErrorDetails,
     details_importAssetsFromS3JobErrorDetails,
+    details_importAssetFromSignedUrlJobErrorDetails,
 
     -- * Event
     Event (..),
@@ -144,8 +144,8 @@ module Amazonka.DataExchange.Types
     -- * ExportAssetToSignedUrlResponseDetails
     ExportAssetToSignedUrlResponseDetails (..),
     newExportAssetToSignedUrlResponseDetails,
-    exportAssetToSignedUrlResponseDetails_signedUrl,
     exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt,
+    exportAssetToSignedUrlResponseDetails_signedUrl,
     exportAssetToSignedUrlResponseDetails_dataSetId,
     exportAssetToSignedUrlResponseDetails_assetId,
     exportAssetToSignedUrlResponseDetails_revisionId,
@@ -176,8 +176,8 @@ module Amazonka.DataExchange.Types
     -- * ExportRevisionsToS3ResponseDetails
     ExportRevisionsToS3ResponseDetails (..),
     newExportRevisionsToS3ResponseDetails,
-    exportRevisionsToS3ResponseDetails_encryption,
     exportRevisionsToS3ResponseDetails_eventActionArn,
+    exportRevisionsToS3ResponseDetails_encryption,
     exportRevisionsToS3ResponseDetails_revisionDestinations,
     exportRevisionsToS3ResponseDetails_dataSetId,
 
@@ -203,8 +203,8 @@ module Amazonka.DataExchange.Types
     -- * ImportAssetFromSignedUrlResponseDetails
     ImportAssetFromSignedUrlResponseDetails (..),
     newImportAssetFromSignedUrlResponseDetails,
-    importAssetFromSignedUrlResponseDetails_signedUrl,
     importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt,
+    importAssetFromSignedUrlResponseDetails_signedUrl,
     importAssetFromSignedUrlResponseDetails_md5Hash,
     importAssetFromSignedUrlResponseDetails_dataSetId,
     importAssetFromSignedUrlResponseDetails_assetName,
@@ -254,10 +254,10 @@ module Amazonka.DataExchange.Types
     JobError (..),
     newJobError,
     jobError_resourceId,
-    jobError_limitName,
     jobError_resourceType,
-    jobError_details,
     jobError_limitValue,
+    jobError_limitName,
+    jobError_details,
     jobError_message,
     jobError_code,
 
@@ -279,22 +279,22 @@ module Amazonka.DataExchange.Types
     -- * RequestDetails
     RequestDetails (..),
     newRequestDetails,
-    requestDetails_exportAssetsToS3,
-    requestDetails_exportRevisionsToS3,
     requestDetails_importAssetFromSignedUrl,
     requestDetails_importAssetsFromRedshiftDataShares,
-    requestDetails_importAssetsFromS3,
     requestDetails_exportAssetToSignedUrl,
+    requestDetails_exportRevisionsToS3,
+    requestDetails_exportAssetsToS3,
+    requestDetails_importAssetsFromS3,
 
     -- * ResponseDetails
     ResponseDetails (..),
     newResponseDetails,
-    responseDetails_exportAssetsToS3,
-    responseDetails_exportRevisionsToS3,
     responseDetails_importAssetFromSignedUrl,
     responseDetails_importAssetsFromRedshiftDataShares,
-    responseDetails_importAssetsFromS3,
     responseDetails_exportAssetToSignedUrl,
+    responseDetails_exportRevisionsToS3,
+    responseDetails_exportAssetsToS3,
+    responseDetails_importAssetsFromS3,
 
     -- * RevisionDestinationEntry
     RevisionDestinationEntry (..),
@@ -307,8 +307,8 @@ module Amazonka.DataExchange.Types
     RevisionEntry (..),
     newRevisionEntry,
     revisionEntry_sourceId,
-    revisionEntry_finalized,
     revisionEntry_comment,
+    revisionEntry_finalized,
     revisionEntry_createdAt,
     revisionEntry_dataSetId,
     revisionEntry_id,
@@ -402,35 +402,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -439,21 +412,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The request was invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | Access to the resource is denied.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -462,31 +454,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
-
--- | The request couldn\'t be completed because it conflicted with the
--- current state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | The request has exceeded the quotas imposed by the service.
-_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceLimitExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The limit on the number of requests per second was exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
 
 -- | An exception occurred with the service.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -503,3 +470,36 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request couldn\'t be completed because it conflicted with the
+-- current state of the resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The limit on the number of requests per second was exceeded.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | The request has exceeded the quotas imposed by the service.
+_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceLimitExceededException"
+    Prelude.. Core.hasStatus 402
+
+-- | The request was invalid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

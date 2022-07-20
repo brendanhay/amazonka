@@ -27,8 +27,8 @@ module Amazonka.SageMaker.UpdateArtifact
     newUpdateArtifact,
 
     -- * Request Lenses
-    updateArtifact_propertiesToRemove,
     updateArtifact_artifactName,
+    updateArtifact_propertiesToRemove,
     updateArtifact_properties,
     updateArtifact_artifactArn,
 
@@ -51,10 +51,10 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateArtifact' smart constructor.
 data UpdateArtifact = UpdateArtifact'
-  { -- | A list of properties to remove.
-    propertiesToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | The new name for the artifact.
+  { -- | The new name for the artifact.
     artifactName :: Prelude.Maybe Prelude.Text,
+    -- | A list of properties to remove.
+    propertiesToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The new list of properties. Overwrites the current property list.
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the artifact to update.
@@ -70,9 +70,9 @@ data UpdateArtifact = UpdateArtifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'propertiesToRemove', 'updateArtifact_propertiesToRemove' - A list of properties to remove.
---
 -- 'artifactName', 'updateArtifact_artifactName' - The new name for the artifact.
+--
+-- 'propertiesToRemove', 'updateArtifact_propertiesToRemove' - A list of properties to remove.
 --
 -- 'properties', 'updateArtifact_properties' - The new list of properties. Overwrites the current property list.
 --
@@ -83,20 +83,19 @@ newUpdateArtifact ::
   UpdateArtifact
 newUpdateArtifact pArtifactArn_ =
   UpdateArtifact'
-    { propertiesToRemove =
-        Prelude.Nothing,
-      artifactName = Prelude.Nothing,
+    { artifactName = Prelude.Nothing,
+      propertiesToRemove = Prelude.Nothing,
       properties = Prelude.Nothing,
       artifactArn = pArtifactArn_
     }
 
--- | A list of properties to remove.
-updateArtifact_propertiesToRemove :: Lens.Lens' UpdateArtifact (Prelude.Maybe [Prelude.Text])
-updateArtifact_propertiesToRemove = Lens.lens (\UpdateArtifact' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateArtifact' {} a -> s {propertiesToRemove = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens.coerced
-
 -- | The new name for the artifact.
 updateArtifact_artifactName :: Lens.Lens' UpdateArtifact (Prelude.Maybe Prelude.Text)
 updateArtifact_artifactName = Lens.lens (\UpdateArtifact' {artifactName} -> artifactName) (\s@UpdateArtifact' {} a -> s {artifactName = a} :: UpdateArtifact)
+
+-- | A list of properties to remove.
+updateArtifact_propertiesToRemove :: Lens.Lens' UpdateArtifact (Prelude.Maybe [Prelude.Text])
+updateArtifact_propertiesToRemove = Lens.lens (\UpdateArtifact' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateArtifact' {} a -> s {propertiesToRemove = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new list of properties. Overwrites the current property list.
 updateArtifact_properties :: Lens.Lens' UpdateArtifact (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -121,15 +120,15 @@ instance Core.AWSRequest UpdateArtifact where
 
 instance Prelude.Hashable UpdateArtifact where
   hashWithSalt _salt UpdateArtifact' {..} =
-    _salt `Prelude.hashWithSalt` propertiesToRemove
-      `Prelude.hashWithSalt` artifactName
+    _salt `Prelude.hashWithSalt` artifactName
+      `Prelude.hashWithSalt` propertiesToRemove
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` artifactArn
 
 instance Prelude.NFData UpdateArtifact where
   rnf UpdateArtifact' {..} =
-    Prelude.rnf propertiesToRemove
-      `Prelude.seq` Prelude.rnf artifactName
+    Prelude.rnf artifactName
+      `Prelude.seq` Prelude.rnf propertiesToRemove
       `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf artifactArn
 
@@ -150,9 +149,9 @@ instance Core.ToJSON UpdateArtifact where
   toJSON UpdateArtifact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PropertiesToRemove" Core..=)
+          [ ("ArtifactName" Core..=) Prelude.<$> artifactName,
+            ("PropertiesToRemove" Core..=)
               Prelude.<$> propertiesToRemove,
-            ("ArtifactName" Core..=) Prelude.<$> artifactName,
             ("Properties" Core..=) Prelude.<$> properties,
             Prelude.Just ("ArtifactArn" Core..= artifactArn)
           ]

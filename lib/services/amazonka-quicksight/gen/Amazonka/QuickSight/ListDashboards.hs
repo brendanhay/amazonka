@@ -38,9 +38,9 @@ module Amazonka.QuickSight.ListDashboards
     newListDashboardsResponse,
 
     -- * Response Lenses
-    listDashboardsResponse_requestId,
-    listDashboardsResponse_nextToken,
     listDashboardsResponse_dashboardSummaryList,
+    listDashboardsResponse_nextToken,
+    listDashboardsResponse_requestId,
     listDashboardsResponse_status,
   )
 where
@@ -135,11 +135,11 @@ instance Core.AWSRequest ListDashboards where
     Response.receiveJSON
       ( \s h x ->
           ListDashboardsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DashboardSummaryList"
+            Prelude.<$> ( x Core..?> "DashboardSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,15 +180,15 @@ instance Core.ToQuery ListDashboards where
 
 -- | /See:/ 'newListDashboardsResponse' smart constructor.
 data ListDashboardsResponse = ListDashboardsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results, or null if there are no more
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A structure that contains all of the dashboards in your Amazon Web
+  { -- | A structure that contains all of the dashboards in your Amazon Web
     -- Services account. This structure provides basic information about the
     -- dashboards.
     dashboardSummaryList :: Prelude.Maybe [DashboardSummary],
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -202,14 +202,14 @@ data ListDashboardsResponse = ListDashboardsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'listDashboardsResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'dashboardSummaryList', 'listDashboardsResponse_dashboardSummaryList' - A structure that contains all of the dashboards in your Amazon Web
+-- Services account. This structure provides basic information about the
+-- dashboards.
 --
 -- 'nextToken', 'listDashboardsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
--- 'dashboardSummaryList', 'listDashboardsResponse_dashboardSummaryList' - A structure that contains all of the dashboards in your Amazon Web
--- Services account. This structure provides basic information about the
--- dashboards.
+-- 'requestId', 'listDashboardsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'listDashboardsResponse_status' - The HTTP status of the request.
 newListDashboardsResponse ::
@@ -218,21 +218,12 @@ newListDashboardsResponse ::
   ListDashboardsResponse
 newListDashboardsResponse pStatus_ =
   ListDashboardsResponse'
-    { requestId =
+    { dashboardSummaryList =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      dashboardSummaryList = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-listDashboardsResponse_requestId :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe Prelude.Text)
-listDashboardsResponse_requestId = Lens.lens (\ListDashboardsResponse' {requestId} -> requestId) (\s@ListDashboardsResponse' {} a -> s {requestId = a} :: ListDashboardsResponse)
-
--- | The token for the next set of results, or null if there are no more
--- results.
-listDashboardsResponse_nextToken :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe Prelude.Text)
-listDashboardsResponse_nextToken = Lens.lens (\ListDashboardsResponse' {nextToken} -> nextToken) (\s@ListDashboardsResponse' {} a -> s {nextToken = a} :: ListDashboardsResponse)
 
 -- | A structure that contains all of the dashboards in your Amazon Web
 -- Services account. This structure provides basic information about the
@@ -240,13 +231,22 @@ listDashboardsResponse_nextToken = Lens.lens (\ListDashboardsResponse' {nextToke
 listDashboardsResponse_dashboardSummaryList :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe [DashboardSummary])
 listDashboardsResponse_dashboardSummaryList = Lens.lens (\ListDashboardsResponse' {dashboardSummaryList} -> dashboardSummaryList) (\s@ListDashboardsResponse' {} a -> s {dashboardSummaryList = a} :: ListDashboardsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The token for the next set of results, or null if there are no more
+-- results.
+listDashboardsResponse_nextToken :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe Prelude.Text)
+listDashboardsResponse_nextToken = Lens.lens (\ListDashboardsResponse' {nextToken} -> nextToken) (\s@ListDashboardsResponse' {} a -> s {nextToken = a} :: ListDashboardsResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+listDashboardsResponse_requestId :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe Prelude.Text)
+listDashboardsResponse_requestId = Lens.lens (\ListDashboardsResponse' {requestId} -> requestId) (\s@ListDashboardsResponse' {} a -> s {requestId = a} :: ListDashboardsResponse)
+
 -- | The HTTP status of the request.
 listDashboardsResponse_status :: Lens.Lens' ListDashboardsResponse Prelude.Int
 listDashboardsResponse_status = Lens.lens (\ListDashboardsResponse' {status} -> status) (\s@ListDashboardsResponse' {} a -> s {status = a} :: ListDashboardsResponse)
 
 instance Prelude.NFData ListDashboardsResponse where
   rnf ListDashboardsResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf dashboardSummaryList
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dashboardSummaryList
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

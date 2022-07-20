@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReputationOptions' smart constructor.
 data ReputationOptions = ReputationOptions'
-  { -- | The date and time (in Unix time) when the reputation metrics were last
+  { -- | If @true@, tracking of reputation metrics is enabled for the
+    -- configuration set. If @false@, tracking of reputation metrics is
+    -- disabled for the configuration set.
+    reputationMetricsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time (in Unix time) when the reputation metrics were last
     -- given a fresh start. When your account is given a fresh start, your
     -- reputation metrics are calculated starting from the date of the fresh
     -- start.
-    lastFreshStart :: Prelude.Maybe Core.POSIX,
-    -- | If @true@, tracking of reputation metrics is enabled for the
-    -- configuration set. If @false@, tracking of reputation metrics is
-    -- disabled for the configuration set.
-    reputationMetricsEnabled :: Prelude.Maybe Prelude.Bool
+    lastFreshStart :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,28 @@ data ReputationOptions = ReputationOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reputationMetricsEnabled', 'reputationOptions_reputationMetricsEnabled' - If @true@, tracking of reputation metrics is enabled for the
+-- configuration set. If @false@, tracking of reputation metrics is
+-- disabled for the configuration set.
+--
 -- 'lastFreshStart', 'reputationOptions_lastFreshStart' - The date and time (in Unix time) when the reputation metrics were last
 -- given a fresh start. When your account is given a fresh start, your
 -- reputation metrics are calculated starting from the date of the fresh
 -- start.
---
--- 'reputationMetricsEnabled', 'reputationOptions_reputationMetricsEnabled' - If @true@, tracking of reputation metrics is enabled for the
--- configuration set. If @false@, tracking of reputation metrics is
--- disabled for the configuration set.
 newReputationOptions ::
   ReputationOptions
 newReputationOptions =
   ReputationOptions'
-    { lastFreshStart =
+    { reputationMetricsEnabled =
         Prelude.Nothing,
-      reputationMetricsEnabled = Prelude.Nothing
+      lastFreshStart = Prelude.Nothing
     }
+
+-- | If @true@, tracking of reputation metrics is enabled for the
+-- configuration set. If @false@, tracking of reputation metrics is
+-- disabled for the configuration set.
+reputationOptions_reputationMetricsEnabled :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.Bool)
+reputationOptions_reputationMetricsEnabled = Lens.lens (\ReputationOptions' {reputationMetricsEnabled} -> reputationMetricsEnabled) (\s@ReputationOptions' {} a -> s {reputationMetricsEnabled = a} :: ReputationOptions)
 
 -- | The date and time (in Unix time) when the reputation metrics were last
 -- given a fresh start. When your account is given a fresh start, your
@@ -72,39 +78,34 @@ newReputationOptions =
 reputationOptions_lastFreshStart :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.UTCTime)
 reputationOptions_lastFreshStart = Lens.lens (\ReputationOptions' {lastFreshStart} -> lastFreshStart) (\s@ReputationOptions' {} a -> s {lastFreshStart = a} :: ReputationOptions) Prelude.. Lens.mapping Core._Time
 
--- | If @true@, tracking of reputation metrics is enabled for the
--- configuration set. If @false@, tracking of reputation metrics is
--- disabled for the configuration set.
-reputationOptions_reputationMetricsEnabled :: Lens.Lens' ReputationOptions (Prelude.Maybe Prelude.Bool)
-reputationOptions_reputationMetricsEnabled = Lens.lens (\ReputationOptions' {reputationMetricsEnabled} -> reputationMetricsEnabled) (\s@ReputationOptions' {} a -> s {reputationMetricsEnabled = a} :: ReputationOptions)
-
 instance Core.FromJSON ReputationOptions where
   parseJSON =
     Core.withObject
       "ReputationOptions"
       ( \x ->
           ReputationOptions'
-            Prelude.<$> (x Core..:? "LastFreshStart")
-            Prelude.<*> (x Core..:? "ReputationMetricsEnabled")
+            Prelude.<$> (x Core..:? "ReputationMetricsEnabled")
+            Prelude.<*> (x Core..:? "LastFreshStart")
       )
 
 instance Prelude.Hashable ReputationOptions where
   hashWithSalt _salt ReputationOptions' {..} =
-    _salt `Prelude.hashWithSalt` lastFreshStart
+    _salt
       `Prelude.hashWithSalt` reputationMetricsEnabled
+      `Prelude.hashWithSalt` lastFreshStart
 
 instance Prelude.NFData ReputationOptions where
   rnf ReputationOptions' {..} =
-    Prelude.rnf lastFreshStart
-      `Prelude.seq` Prelude.rnf reputationMetricsEnabled
+    Prelude.rnf reputationMetricsEnabled
+      `Prelude.seq` Prelude.rnf lastFreshStart
 
 instance Core.ToJSON ReputationOptions where
   toJSON ReputationOptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LastFreshStart" Core..=)
-              Prelude.<$> lastFreshStart,
-            ("ReputationMetricsEnabled" Core..=)
-              Prelude.<$> reputationMetricsEnabled
+          [ ("ReputationMetricsEnabled" Core..=)
+              Prelude.<$> reputationMetricsEnabled,
+            ("LastFreshStart" Core..=)
+              Prelude.<$> lastFreshStart
           ]
       )

@@ -29,11 +29,11 @@ import Amazonka.Rekognition.Types.BoundingBox
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
-  { -- | The position of the label instance on the image.
-    boundingBox :: Prelude.Maybe BoundingBox,
-    -- | The confidence that Amazon Rekognition has in the accuracy of the
+  { -- | The confidence that Amazon Rekognition has in the accuracy of the
     -- bounding box.
-    confidence :: Prelude.Maybe Prelude.Double
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | The position of the label instance on the image.
+    boundingBox :: Prelude.Maybe BoundingBox
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data Instance = Instance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'boundingBox', 'instance_boundingBox' - The position of the label instance on the image.
---
 -- 'confidence', 'instance_confidence' - The confidence that Amazon Rekognition has in the accuracy of the
 -- bounding box.
+--
+-- 'boundingBox', 'instance_boundingBox' - The position of the label instance on the image.
 newInstance ::
   Instance
 newInstance =
   Instance'
-    { boundingBox = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      boundingBox = Prelude.Nothing
     }
-
--- | The position of the label instance on the image.
-instance_boundingBox :: Lens.Lens' Instance (Prelude.Maybe BoundingBox)
-instance_boundingBox = Lens.lens (\Instance' {boundingBox} -> boundingBox) (\s@Instance' {} a -> s {boundingBox = a} :: Instance)
 
 -- | The confidence that Amazon Rekognition has in the accuracy of the
 -- bounding box.
 instance_confidence :: Lens.Lens' Instance (Prelude.Maybe Prelude.Double)
 instance_confidence = Lens.lens (\Instance' {confidence} -> confidence) (\s@Instance' {} a -> s {confidence = a} :: Instance)
+
+-- | The position of the label instance on the image.
+instance_boundingBox :: Lens.Lens' Instance (Prelude.Maybe BoundingBox)
+instance_boundingBox = Lens.lens (\Instance' {boundingBox} -> boundingBox) (\s@Instance' {} a -> s {boundingBox = a} :: Instance)
 
 instance Core.FromJSON Instance where
   parseJSON =
@@ -72,16 +72,16 @@ instance Core.FromJSON Instance where
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Core..:? "BoundingBox")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "BoundingBox")
       )
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` boundingBox
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf boundingBox

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubnet' smart constructor.
 data Subnet = Subnet'
-  { -- | The unique identifier for the subnet.
-    identifier :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone where the subnet resides
-    availabilityZone :: Prelude.Maybe AvailabilityZone
+  { -- | The Availability Zone where the subnet resides
+    availabilityZone :: Prelude.Maybe AvailabilityZone,
+    -- | The unique identifier for the subnet.
+    identifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Subnet = Subnet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identifier', 'subnet_identifier' - The unique identifier for the subnet.
---
 -- 'availabilityZone', 'subnet_availabilityZone' - The Availability Zone where the subnet resides
+--
+-- 'identifier', 'subnet_identifier' - The unique identifier for the subnet.
 newSubnet ::
   Subnet
 newSubnet =
   Subnet'
-    { identifier = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing
+    { availabilityZone = Prelude.Nothing,
+      identifier = Prelude.Nothing
     }
-
--- | The unique identifier for the subnet.
-subnet_identifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
-subnet_identifier = Lens.lens (\Subnet' {identifier} -> identifier) (\s@Subnet' {} a -> s {identifier = a} :: Subnet)
 
 -- | The Availability Zone where the subnet resides
 subnet_availabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
 subnet_availabilityZone = Lens.lens (\Subnet' {availabilityZone} -> availabilityZone) (\s@Subnet' {} a -> s {availabilityZone = a} :: Subnet)
+
+-- | The unique identifier for the subnet.
+subnet_identifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
+subnet_identifier = Lens.lens (\Subnet' {identifier} -> identifier) (\s@Subnet' {} a -> s {identifier = a} :: Subnet)
 
 instance Core.FromJSON Subnet where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON Subnet where
       "Subnet"
       ( \x ->
           Subnet'
-            Prelude.<$> (x Core..:? "Identifier")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
+            Prelude.<$> (x Core..:? "AvailabilityZone")
+            Prelude.<*> (x Core..:? "Identifier")
       )
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =
-    _salt `Prelude.hashWithSalt` identifier
-      `Prelude.hashWithSalt` availabilityZone
+    _salt `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData Subnet where
   rnf Subnet' {..} =
-    Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf identifier

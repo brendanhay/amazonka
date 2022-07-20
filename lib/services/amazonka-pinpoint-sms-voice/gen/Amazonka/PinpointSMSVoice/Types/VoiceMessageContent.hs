@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVoiceMessageContent' smart constructor.
 data VoiceMessageContent = VoiceMessageContent'
-  { callInstructionsMessage :: Prelude.Maybe CallInstructionsMessageType,
-    sSMLMessage :: Prelude.Maybe SSMLMessageType,
+  { sSMLMessage :: Prelude.Maybe SSMLMessageType,
+    callInstructionsMessage :: Prelude.Maybe CallInstructionsMessageType,
     plainTextMessage :: Prelude.Maybe PlainTextMessageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,28 +45,27 @@ data VoiceMessageContent = VoiceMessageContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callInstructionsMessage', 'voiceMessageContent_callInstructionsMessage' - Undocumented member.
---
 -- 'sSMLMessage', 'voiceMessageContent_sSMLMessage' - Undocumented member.
+--
+-- 'callInstructionsMessage', 'voiceMessageContent_callInstructionsMessage' - Undocumented member.
 --
 -- 'plainTextMessage', 'voiceMessageContent_plainTextMessage' - Undocumented member.
 newVoiceMessageContent ::
   VoiceMessageContent
 newVoiceMessageContent =
   VoiceMessageContent'
-    { callInstructionsMessage =
-        Prelude.Nothing,
-      sSMLMessage = Prelude.Nothing,
+    { sSMLMessage = Prelude.Nothing,
+      callInstructionsMessage = Prelude.Nothing,
       plainTextMessage = Prelude.Nothing
     }
 
 -- | Undocumented member.
-voiceMessageContent_callInstructionsMessage :: Lens.Lens' VoiceMessageContent (Prelude.Maybe CallInstructionsMessageType)
-voiceMessageContent_callInstructionsMessage = Lens.lens (\VoiceMessageContent' {callInstructionsMessage} -> callInstructionsMessage) (\s@VoiceMessageContent' {} a -> s {callInstructionsMessage = a} :: VoiceMessageContent)
-
--- | Undocumented member.
 voiceMessageContent_sSMLMessage :: Lens.Lens' VoiceMessageContent (Prelude.Maybe SSMLMessageType)
 voiceMessageContent_sSMLMessage = Lens.lens (\VoiceMessageContent' {sSMLMessage} -> sSMLMessage) (\s@VoiceMessageContent' {} a -> s {sSMLMessage = a} :: VoiceMessageContent)
+
+-- | Undocumented member.
+voiceMessageContent_callInstructionsMessage :: Lens.Lens' VoiceMessageContent (Prelude.Maybe CallInstructionsMessageType)
+voiceMessageContent_callInstructionsMessage = Lens.lens (\VoiceMessageContent' {callInstructionsMessage} -> callInstructionsMessage) (\s@VoiceMessageContent' {} a -> s {callInstructionsMessage = a} :: VoiceMessageContent)
 
 -- | Undocumented member.
 voiceMessageContent_plainTextMessage :: Lens.Lens' VoiceMessageContent (Prelude.Maybe PlainTextMessageType)
@@ -74,24 +73,23 @@ voiceMessageContent_plainTextMessage = Lens.lens (\VoiceMessageContent' {plainTe
 
 instance Prelude.Hashable VoiceMessageContent where
   hashWithSalt _salt VoiceMessageContent' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` sSMLMessage
       `Prelude.hashWithSalt` callInstructionsMessage
-      `Prelude.hashWithSalt` sSMLMessage
       `Prelude.hashWithSalt` plainTextMessage
 
 instance Prelude.NFData VoiceMessageContent where
   rnf VoiceMessageContent' {..} =
-    Prelude.rnf callInstructionsMessage
-      `Prelude.seq` Prelude.rnf sSMLMessage
+    Prelude.rnf sSMLMessage
+      `Prelude.seq` Prelude.rnf callInstructionsMessage
       `Prelude.seq` Prelude.rnf plainTextMessage
 
 instance Core.ToJSON VoiceMessageContent where
   toJSON VoiceMessageContent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CallInstructionsMessage" Core..=)
+          [ ("SSMLMessage" Core..=) Prelude.<$> sSMLMessage,
+            ("CallInstructionsMessage" Core..=)
               Prelude.<$> callInstructionsMessage,
-            ("SSMLMessage" Core..=) Prelude.<$> sSMLMessage,
             ("PlainTextMessage" Core..=)
               Prelude.<$> plainTextMessage
           ]

@@ -29,19 +29,19 @@ import Amazonka.SecurityHub.Types.AwsDynamoDbTableReplicaGlobalSecondaryIndex
 --
 -- /See:/ 'newAwsDynamoDbTableReplica' smart constructor.
 data AwsDynamoDbTableReplica = AwsDynamoDbTableReplica'
-  { -- | The current status of the replica.
-    replicaStatus :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Region where the replica is located.
-    regionName :: Prelude.Maybe Prelude.Text,
-    -- | Detailed information about the replica status.
-    replicaStatusDescription :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the KMS key that will be used for KMS encryption for
+  { -- | The identifier of the KMS key that will be used for KMS encryption for
     -- the replica.
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
     -- | Replica-specific configuration for the provisioned throughput.
     provisionedThroughputOverride :: Prelude.Maybe AwsDynamoDbTableProvisionedThroughputOverride,
+    -- | The name of the Region where the replica is located.
+    regionName :: Prelude.Maybe Prelude.Text,
+    -- | Detailed information about the replica status.
+    replicaStatusDescription :: Prelude.Maybe Prelude.Text,
     -- | List of global secondary indexes for the replica.
-    globalSecondaryIndexes :: Prelude.Maybe [AwsDynamoDbTableReplicaGlobalSecondaryIndex]
+    globalSecondaryIndexes :: Prelude.Maybe [AwsDynamoDbTableReplicaGlobalSecondaryIndex],
+    -- | The current status of the replica.
+    replicaStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,42 +53,30 @@ data AwsDynamoDbTableReplica = AwsDynamoDbTableReplica'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicaStatus', 'awsDynamoDbTableReplica_replicaStatus' - The current status of the replica.
---
--- 'regionName', 'awsDynamoDbTableReplica_regionName' - The name of the Region where the replica is located.
---
--- 'replicaStatusDescription', 'awsDynamoDbTableReplica_replicaStatusDescription' - Detailed information about the replica status.
---
 -- 'kmsMasterKeyId', 'awsDynamoDbTableReplica_kmsMasterKeyId' - The identifier of the KMS key that will be used for KMS encryption for
 -- the replica.
 --
 -- 'provisionedThroughputOverride', 'awsDynamoDbTableReplica_provisionedThroughputOverride' - Replica-specific configuration for the provisioned throughput.
 --
+-- 'regionName', 'awsDynamoDbTableReplica_regionName' - The name of the Region where the replica is located.
+--
+-- 'replicaStatusDescription', 'awsDynamoDbTableReplica_replicaStatusDescription' - Detailed information about the replica status.
+--
 -- 'globalSecondaryIndexes', 'awsDynamoDbTableReplica_globalSecondaryIndexes' - List of global secondary indexes for the replica.
+--
+-- 'replicaStatus', 'awsDynamoDbTableReplica_replicaStatus' - The current status of the replica.
 newAwsDynamoDbTableReplica ::
   AwsDynamoDbTableReplica
 newAwsDynamoDbTableReplica =
   AwsDynamoDbTableReplica'
-    { replicaStatus =
+    { kmsMasterKeyId =
         Prelude.Nothing,
+      provisionedThroughputOverride = Prelude.Nothing,
       regionName = Prelude.Nothing,
       replicaStatusDescription = Prelude.Nothing,
-      kmsMasterKeyId = Prelude.Nothing,
-      provisionedThroughputOverride = Prelude.Nothing,
-      globalSecondaryIndexes = Prelude.Nothing
+      globalSecondaryIndexes = Prelude.Nothing,
+      replicaStatus = Prelude.Nothing
     }
-
--- | The current status of the replica.
-awsDynamoDbTableReplica_replicaStatus :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableReplica_replicaStatus = Lens.lens (\AwsDynamoDbTableReplica' {replicaStatus} -> replicaStatus) (\s@AwsDynamoDbTableReplica' {} a -> s {replicaStatus = a} :: AwsDynamoDbTableReplica)
-
--- | The name of the Region where the replica is located.
-awsDynamoDbTableReplica_regionName :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableReplica_regionName = Lens.lens (\AwsDynamoDbTableReplica' {regionName} -> regionName) (\s@AwsDynamoDbTableReplica' {} a -> s {regionName = a} :: AwsDynamoDbTableReplica)
-
--- | Detailed information about the replica status.
-awsDynamoDbTableReplica_replicaStatusDescription :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableReplica_replicaStatusDescription = Lens.lens (\AwsDynamoDbTableReplica' {replicaStatusDescription} -> replicaStatusDescription) (\s@AwsDynamoDbTableReplica' {} a -> s {replicaStatusDescription = a} :: AwsDynamoDbTableReplica)
 
 -- | The identifier of the KMS key that will be used for KMS encryption for
 -- the replica.
@@ -99,9 +87,21 @@ awsDynamoDbTableReplica_kmsMasterKeyId = Lens.lens (\AwsDynamoDbTableReplica' {k
 awsDynamoDbTableReplica_provisionedThroughputOverride :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe AwsDynamoDbTableProvisionedThroughputOverride)
 awsDynamoDbTableReplica_provisionedThroughputOverride = Lens.lens (\AwsDynamoDbTableReplica' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@AwsDynamoDbTableReplica' {} a -> s {provisionedThroughputOverride = a} :: AwsDynamoDbTableReplica)
 
+-- | The name of the Region where the replica is located.
+awsDynamoDbTableReplica_regionName :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableReplica_regionName = Lens.lens (\AwsDynamoDbTableReplica' {regionName} -> regionName) (\s@AwsDynamoDbTableReplica' {} a -> s {regionName = a} :: AwsDynamoDbTableReplica)
+
+-- | Detailed information about the replica status.
+awsDynamoDbTableReplica_replicaStatusDescription :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableReplica_replicaStatusDescription = Lens.lens (\AwsDynamoDbTableReplica' {replicaStatusDescription} -> replicaStatusDescription) (\s@AwsDynamoDbTableReplica' {} a -> s {replicaStatusDescription = a} :: AwsDynamoDbTableReplica)
+
 -- | List of global secondary indexes for the replica.
 awsDynamoDbTableReplica_globalSecondaryIndexes :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe [AwsDynamoDbTableReplicaGlobalSecondaryIndex])
 awsDynamoDbTableReplica_globalSecondaryIndexes = Lens.lens (\AwsDynamoDbTableReplica' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@AwsDynamoDbTableReplica' {} a -> s {globalSecondaryIndexes = a} :: AwsDynamoDbTableReplica) Prelude.. Lens.mapping Lens.coerced
+
+-- | The current status of the replica.
+awsDynamoDbTableReplica_replicaStatus :: Lens.Lens' AwsDynamoDbTableReplica (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableReplica_replicaStatus = Lens.lens (\AwsDynamoDbTableReplica' {replicaStatus} -> replicaStatus) (\s@AwsDynamoDbTableReplica' {} a -> s {replicaStatus = a} :: AwsDynamoDbTableReplica)
 
 instance Core.FromJSON AwsDynamoDbTableReplica where
   parseJSON =
@@ -109,47 +109,47 @@ instance Core.FromJSON AwsDynamoDbTableReplica where
       "AwsDynamoDbTableReplica"
       ( \x ->
           AwsDynamoDbTableReplica'
-            Prelude.<$> (x Core..:? "ReplicaStatus")
+            Prelude.<$> (x Core..:? "KmsMasterKeyId")
+            Prelude.<*> (x Core..:? "ProvisionedThroughputOverride")
             Prelude.<*> (x Core..:? "RegionName")
             Prelude.<*> (x Core..:? "ReplicaStatusDescription")
-            Prelude.<*> (x Core..:? "KmsMasterKeyId")
-            Prelude.<*> (x Core..:? "ProvisionedThroughputOverride")
             Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ReplicaStatus")
       )
 
 instance Prelude.Hashable AwsDynamoDbTableReplica where
   hashWithSalt _salt AwsDynamoDbTableReplica' {..} =
-    _salt `Prelude.hashWithSalt` replicaStatus
+    _salt `Prelude.hashWithSalt` kmsMasterKeyId
+      `Prelude.hashWithSalt` provisionedThroughputOverride
       `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` replicaStatusDescription
-      `Prelude.hashWithSalt` kmsMasterKeyId
-      `Prelude.hashWithSalt` provisionedThroughputOverride
       `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` replicaStatus
 
 instance Prelude.NFData AwsDynamoDbTableReplica where
   rnf AwsDynamoDbTableReplica' {..} =
-    Prelude.rnf replicaStatus
+    Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
       `Prelude.seq` Prelude.rnf regionName
       `Prelude.seq` Prelude.rnf replicaStatusDescription
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
       `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf replicaStatus
 
 instance Core.ToJSON AwsDynamoDbTableReplica where
   toJSON AwsDynamoDbTableReplica' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReplicaStatus" Core..=) Prelude.<$> replicaStatus,
-            ("RegionName" Core..=) Prelude.<$> regionName,
-            ("ReplicaStatusDescription" Core..=)
-              Prelude.<$> replicaStatusDescription,
-            ("KmsMasterKeyId" Core..=)
+          [ ("KmsMasterKeyId" Core..=)
               Prelude.<$> kmsMasterKeyId,
             ("ProvisionedThroughputOverride" Core..=)
               Prelude.<$> provisionedThroughputOverride,
+            ("RegionName" Core..=) Prelude.<$> regionName,
+            ("ReplicaStatusDescription" Core..=)
+              Prelude.<$> replicaStatusDescription,
             ("GlobalSecondaryIndexes" Core..=)
-              Prelude.<$> globalSecondaryIndexes
+              Prelude.<$> globalSecondaryIndexes,
+            ("ReplicaStatus" Core..=) Prelude.<$> replicaStatus
           ]
       )

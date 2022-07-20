@@ -30,8 +30,8 @@ module Amazonka.Nimble.CreateStreamingSessionStream
     newCreateStreamingSessionStream,
 
     -- * Request Lenses
-    createStreamingSessionStream_expirationInSeconds,
     createStreamingSessionStream_clientToken,
+    createStreamingSessionStream_expirationInSeconds,
     createStreamingSessionStream_studioId,
     createStreamingSessionStream_sessionId,
 
@@ -56,9 +56,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateStreamingSessionStream' smart constructor.
 data CreateStreamingSessionStream = CreateStreamingSessionStream'
-  { -- | The expiration time in seconds.
-    expirationInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | To make an idempotent API request using one of these actions, specify a
+  { -- | To make an idempotent API request using one of these actions, specify a
     -- client token in the request. You should not reuse the same client token
     -- for other API requests. If you retry a request that completed
     -- successfully using the same client token and the same parameters, the
@@ -67,6 +65,8 @@ data CreateStreamingSessionStream = CreateStreamingSessionStream'
     -- parameters are different, the retry fails with a ValidationException
     -- error.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The expiration time in seconds.
+    expirationInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The studio ID.
     studioId :: Prelude.Text,
     -- | The session ID.
@@ -82,8 +82,6 @@ data CreateStreamingSessionStream = CreateStreamingSessionStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expirationInSeconds', 'createStreamingSessionStream_expirationInSeconds' - The expiration time in seconds.
---
 -- 'clientToken', 'createStreamingSessionStream_clientToken' - To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
 -- for other API requests. If you retry a request that completed
@@ -92,6 +90,8 @@ data CreateStreamingSessionStream = CreateStreamingSessionStream'
 -- successful request using the same client token, but one or more of the
 -- parameters are different, the retry fails with a ValidationException
 -- error.
+--
+-- 'expirationInSeconds', 'createStreamingSessionStream_expirationInSeconds' - The expiration time in seconds.
 --
 -- 'studioId', 'createStreamingSessionStream_studioId' - The studio ID.
 --
@@ -106,16 +106,12 @@ newCreateStreamingSessionStream
   pStudioId_
   pSessionId_ =
     CreateStreamingSessionStream'
-      { expirationInSeconds =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        expirationInSeconds = Prelude.Nothing,
         studioId = pStudioId_,
         sessionId = pSessionId_
       }
-
--- | The expiration time in seconds.
-createStreamingSessionStream_expirationInSeconds :: Lens.Lens' CreateStreamingSessionStream (Prelude.Maybe Prelude.Natural)
-createStreamingSessionStream_expirationInSeconds = Lens.lens (\CreateStreamingSessionStream' {expirationInSeconds} -> expirationInSeconds) (\s@CreateStreamingSessionStream' {} a -> s {expirationInSeconds = a} :: CreateStreamingSessionStream)
 
 -- | To make an idempotent API request using one of these actions, specify a
 -- client token in the request. You should not reuse the same client token
@@ -127,6 +123,10 @@ createStreamingSessionStream_expirationInSeconds = Lens.lens (\CreateStreamingSe
 -- error.
 createStreamingSessionStream_clientToken :: Lens.Lens' CreateStreamingSessionStream (Prelude.Maybe Prelude.Text)
 createStreamingSessionStream_clientToken = Lens.lens (\CreateStreamingSessionStream' {clientToken} -> clientToken) (\s@CreateStreamingSessionStream' {} a -> s {clientToken = a} :: CreateStreamingSessionStream)
+
+-- | The expiration time in seconds.
+createStreamingSessionStream_expirationInSeconds :: Lens.Lens' CreateStreamingSessionStream (Prelude.Maybe Prelude.Natural)
+createStreamingSessionStream_expirationInSeconds = Lens.lens (\CreateStreamingSessionStream' {expirationInSeconds} -> expirationInSeconds) (\s@CreateStreamingSessionStream' {} a -> s {expirationInSeconds = a} :: CreateStreamingSessionStream)
 
 -- | The studio ID.
 createStreamingSessionStream_studioId :: Lens.Lens' CreateStreamingSessionStream Prelude.Text
@@ -154,15 +154,15 @@ instance
     CreateStreamingSessionStream
   where
   hashWithSalt _salt CreateStreamingSessionStream' {..} =
-    _salt `Prelude.hashWithSalt` expirationInSeconds
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` expirationInSeconds
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` sessionId
 
 instance Prelude.NFData CreateStreamingSessionStream where
   rnf CreateStreamingSessionStream' {..} =
-    Prelude.rnf expirationInSeconds
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf expirationInSeconds
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf sessionId
 

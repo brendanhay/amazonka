@@ -33,9 +33,9 @@ module Amazonka.RDS.CreateCustomAvailabilityZone
     newCreateCustomAvailabilityZone,
 
     -- * Request Lenses
-    createCustomAvailabilityZone_vpnTunnelOriginatorIP,
-    createCustomAvailabilityZone_newVpnTunnelName,
     createCustomAvailabilityZone_existingVpnId,
+    createCustomAvailabilityZone_newVpnTunnelName,
+    createCustomAvailabilityZone_vpnTunnelOriginatorIP,
     createCustomAvailabilityZone_customAvailabilityZoneName,
 
     -- * Destructuring the Response
@@ -59,19 +59,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateCustomAvailabilityZone' smart constructor.
 data CreateCustomAvailabilityZone = CreateCustomAvailabilityZone'
-  { -- | The IP address of network traffic from your on-premises data center. A
-    -- custom AZ receives the network traffic.
-    --
-    -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
-    vpnTunnelOriginatorIP :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of an existing virtual private network (VPN) between the Amazon
+    -- RDS website and the VMware vSphere cluster.
+    existingVpnId :: Prelude.Maybe Prelude.Text,
     -- | The name of a new VPN tunnel between the Amazon RDS website and the
     -- VMware vSphere cluster.
     --
     -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
     newVpnTunnelName' :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an existing virtual private network (VPN) between the Amazon
-    -- RDS website and the VMware vSphere cluster.
-    existingVpnId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address of network traffic from your on-premises data center. A
+    -- custom AZ receives the network traffic.
+    --
+    -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
+    vpnTunnelOriginatorIP :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom Availability Zone (AZ).
     customAvailabilityZoneName :: Prelude.Text
   }
@@ -85,18 +85,18 @@ data CreateCustomAvailabilityZone = CreateCustomAvailabilityZone'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpnTunnelOriginatorIP', 'createCustomAvailabilityZone_vpnTunnelOriginatorIP' - The IP address of network traffic from your on-premises data center. A
--- custom AZ receives the network traffic.
---
--- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
+-- 'existingVpnId', 'createCustomAvailabilityZone_existingVpnId' - The ID of an existing virtual private network (VPN) between the Amazon
+-- RDS website and the VMware vSphere cluster.
 --
 -- 'newVpnTunnelName'', 'createCustomAvailabilityZone_newVpnTunnelName' - The name of a new VPN tunnel between the Amazon RDS website and the
 -- VMware vSphere cluster.
 --
 -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
 --
--- 'existingVpnId', 'createCustomAvailabilityZone_existingVpnId' - The ID of an existing virtual private network (VPN) between the Amazon
--- RDS website and the VMware vSphere cluster.
+-- 'vpnTunnelOriginatorIP', 'createCustomAvailabilityZone_vpnTunnelOriginatorIP' - The IP address of network traffic from your on-premises data center. A
+-- custom AZ receives the network traffic.
+--
+-- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
 --
 -- 'customAvailabilityZoneName', 'createCustomAvailabilityZone_customAvailabilityZoneName' - The name of the custom Availability Zone (AZ).
 newCreateCustomAvailabilityZone ::
@@ -106,20 +106,18 @@ newCreateCustomAvailabilityZone ::
 newCreateCustomAvailabilityZone
   pCustomAvailabilityZoneName_ =
     CreateCustomAvailabilityZone'
-      { vpnTunnelOriginatorIP =
+      { existingVpnId =
           Prelude.Nothing,
         newVpnTunnelName' = Prelude.Nothing,
-        existingVpnId = Prelude.Nothing,
+        vpnTunnelOriginatorIP = Prelude.Nothing,
         customAvailabilityZoneName =
           pCustomAvailabilityZoneName_
       }
 
--- | The IP address of network traffic from your on-premises data center. A
--- custom AZ receives the network traffic.
---
--- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
-createCustomAvailabilityZone_vpnTunnelOriginatorIP :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
-createCustomAvailabilityZone_vpnTunnelOriginatorIP = Lens.lens (\CreateCustomAvailabilityZone' {vpnTunnelOriginatorIP} -> vpnTunnelOriginatorIP) (\s@CreateCustomAvailabilityZone' {} a -> s {vpnTunnelOriginatorIP = a} :: CreateCustomAvailabilityZone)
+-- | The ID of an existing virtual private network (VPN) between the Amazon
+-- RDS website and the VMware vSphere cluster.
+createCustomAvailabilityZone_existingVpnId :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
+createCustomAvailabilityZone_existingVpnId = Lens.lens (\CreateCustomAvailabilityZone' {existingVpnId} -> existingVpnId) (\s@CreateCustomAvailabilityZone' {} a -> s {existingVpnId = a} :: CreateCustomAvailabilityZone)
 
 -- | The name of a new VPN tunnel between the Amazon RDS website and the
 -- VMware vSphere cluster.
@@ -128,10 +126,12 @@ createCustomAvailabilityZone_vpnTunnelOriginatorIP = Lens.lens (\CreateCustomAva
 createCustomAvailabilityZone_newVpnTunnelName :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
 createCustomAvailabilityZone_newVpnTunnelName = Lens.lens (\CreateCustomAvailabilityZone' {newVpnTunnelName'} -> newVpnTunnelName') (\s@CreateCustomAvailabilityZone' {} a -> s {newVpnTunnelName' = a} :: CreateCustomAvailabilityZone)
 
--- | The ID of an existing virtual private network (VPN) between the Amazon
--- RDS website and the VMware vSphere cluster.
-createCustomAvailabilityZone_existingVpnId :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
-createCustomAvailabilityZone_existingVpnId = Lens.lens (\CreateCustomAvailabilityZone' {existingVpnId} -> existingVpnId) (\s@CreateCustomAvailabilityZone' {} a -> s {existingVpnId = a} :: CreateCustomAvailabilityZone)
+-- | The IP address of network traffic from your on-premises data center. A
+-- custom AZ receives the network traffic.
+--
+-- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
+createCustomAvailabilityZone_vpnTunnelOriginatorIP :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
+createCustomAvailabilityZone_vpnTunnelOriginatorIP = Lens.lens (\CreateCustomAvailabilityZone' {vpnTunnelOriginatorIP} -> vpnTunnelOriginatorIP) (\s@CreateCustomAvailabilityZone' {} a -> s {vpnTunnelOriginatorIP = a} :: CreateCustomAvailabilityZone)
 
 -- | The name of the custom Availability Zone (AZ).
 createCustomAvailabilityZone_customAvailabilityZoneName :: Lens.Lens' CreateCustomAvailabilityZone Prelude.Text
@@ -156,16 +156,16 @@ instance
     CreateCustomAvailabilityZone
   where
   hashWithSalt _salt CreateCustomAvailabilityZone' {..} =
-    _salt `Prelude.hashWithSalt` vpnTunnelOriginatorIP
+    _salt `Prelude.hashWithSalt` existingVpnId
       `Prelude.hashWithSalt` newVpnTunnelName'
-      `Prelude.hashWithSalt` existingVpnId
+      `Prelude.hashWithSalt` vpnTunnelOriginatorIP
       `Prelude.hashWithSalt` customAvailabilityZoneName
 
 instance Prelude.NFData CreateCustomAvailabilityZone where
   rnf CreateCustomAvailabilityZone' {..} =
-    Prelude.rnf vpnTunnelOriginatorIP
+    Prelude.rnf existingVpnId
       `Prelude.seq` Prelude.rnf newVpnTunnelName'
-      `Prelude.seq` Prelude.rnf existingVpnId
+      `Prelude.seq` Prelude.rnf vpnTunnelOriginatorIP
       `Prelude.seq` Prelude.rnf customAvailabilityZoneName
 
 instance Core.ToHeaders CreateCustomAvailabilityZone where
@@ -183,10 +183,10 @@ instance Core.ToQuery CreateCustomAvailabilityZone where
                   ),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "ExistingVpnId" Core.=: existingVpnId,
+        "NewVpnTunnelName" Core.=: newVpnTunnelName',
         "VpnTunnelOriginatorIP"
           Core.=: vpnTunnelOriginatorIP,
-        "NewVpnTunnelName" Core.=: newVpnTunnelName',
-        "ExistingVpnId" Core.=: existingVpnId,
         "CustomAvailabilityZoneName"
           Core.=: customAvailabilityZoneName
       ]

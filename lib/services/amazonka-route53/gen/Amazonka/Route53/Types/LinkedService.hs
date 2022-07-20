@@ -31,15 +31,15 @@ import Amazonka.Route53.Internal
 --
 -- /See:/ 'newLinkedService' smart constructor.
 data LinkedService = LinkedService'
-  { -- | If the health check or hosted zone was created by another service, the
-    -- service that created the resource. When a resource is created by another
-    -- service, you can\'t edit or delete it using Amazon Route 53.
-    servicePrincipal :: Prelude.Maybe Prelude.Text,
-    -- | If the health check or hosted zone was created by another service, an
+  { -- | If the health check or hosted zone was created by another service, an
     -- optional description that can be provided by the other service. When a
     -- resource is created by another service, you can\'t edit or delete it
     -- using Amazon Route 53.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | If the health check or hosted zone was created by another service, the
+    -- service that created the resource. When a resource is created by another
+    -- service, you can\'t edit or delete it using Amazon Route 53.
+    servicePrincipal :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,27 +51,21 @@ data LinkedService = LinkedService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'servicePrincipal', 'linkedService_servicePrincipal' - If the health check or hosted zone was created by another service, the
--- service that created the resource. When a resource is created by another
--- service, you can\'t edit or delete it using Amazon Route 53.
---
 -- 'description', 'linkedService_description' - If the health check or hosted zone was created by another service, an
 -- optional description that can be provided by the other service. When a
 -- resource is created by another service, you can\'t edit or delete it
 -- using Amazon Route 53.
+--
+-- 'servicePrincipal', 'linkedService_servicePrincipal' - If the health check or hosted zone was created by another service, the
+-- service that created the resource. When a resource is created by another
+-- service, you can\'t edit or delete it using Amazon Route 53.
 newLinkedService ::
   LinkedService
 newLinkedService =
   LinkedService'
-    { servicePrincipal = Prelude.Nothing,
-      description = Prelude.Nothing
+    { description = Prelude.Nothing,
+      servicePrincipal = Prelude.Nothing
     }
-
--- | If the health check or hosted zone was created by another service, the
--- service that created the resource. When a resource is created by another
--- service, you can\'t edit or delete it using Amazon Route 53.
-linkedService_servicePrincipal :: Lens.Lens' LinkedService (Prelude.Maybe Prelude.Text)
-linkedService_servicePrincipal = Lens.lens (\LinkedService' {servicePrincipal} -> servicePrincipal) (\s@LinkedService' {} a -> s {servicePrincipal = a} :: LinkedService)
 
 -- | If the health check or hosted zone was created by another service, an
 -- optional description that can be provided by the other service. When a
@@ -80,18 +74,24 @@ linkedService_servicePrincipal = Lens.lens (\LinkedService' {servicePrincipal} -
 linkedService_description :: Lens.Lens' LinkedService (Prelude.Maybe Prelude.Text)
 linkedService_description = Lens.lens (\LinkedService' {description} -> description) (\s@LinkedService' {} a -> s {description = a} :: LinkedService)
 
+-- | If the health check or hosted zone was created by another service, the
+-- service that created the resource. When a resource is created by another
+-- service, you can\'t edit or delete it using Amazon Route 53.
+linkedService_servicePrincipal :: Lens.Lens' LinkedService (Prelude.Maybe Prelude.Text)
+linkedService_servicePrincipal = Lens.lens (\LinkedService' {servicePrincipal} -> servicePrincipal) (\s@LinkedService' {} a -> s {servicePrincipal = a} :: LinkedService)
+
 instance Core.FromXML LinkedService where
   parseXML x =
     LinkedService'
-      Prelude.<$> (x Core..@? "ServicePrincipal")
-      Prelude.<*> (x Core..@? "Description")
+      Prelude.<$> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "ServicePrincipal")
 
 instance Prelude.Hashable LinkedService where
   hashWithSalt _salt LinkedService' {..} =
-    _salt `Prelude.hashWithSalt` servicePrincipal
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` servicePrincipal
 
 instance Prelude.NFData LinkedService where
   rnf LinkedService' {..} =
-    Prelude.rnf servicePrincipal
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf servicePrincipal

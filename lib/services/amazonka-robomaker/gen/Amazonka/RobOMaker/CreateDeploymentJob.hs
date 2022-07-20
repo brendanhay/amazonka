@@ -35,8 +35,8 @@ module Amazonka.RobOMaker.CreateDeploymentJob
     newCreateDeploymentJob,
 
     -- * Request Lenses
-    createDeploymentJob_deploymentConfig,
     createDeploymentJob_tags,
+    createDeploymentJob_deploymentConfig,
     createDeploymentJob_clientRequestToken,
     createDeploymentJob_fleet,
     createDeploymentJob_deploymentApplicationConfigs,
@@ -46,15 +46,15 @@ module Amazonka.RobOMaker.CreateDeploymentJob
     newCreateDeploymentJobResponse,
 
     -- * Response Lenses
-    createDeploymentJobResponse_failureReason,
-    createDeploymentJobResponse_status,
-    createDeploymentJobResponse_deploymentApplicationConfigs,
-    createDeploymentJobResponse_arn,
-    createDeploymentJobResponse_createdAt,
-    createDeploymentJobResponse_failureCode,
-    createDeploymentJobResponse_deploymentConfig,
-    createDeploymentJobResponse_fleet,
     createDeploymentJobResponse_tags,
+    createDeploymentJobResponse_deploymentApplicationConfigs,
+    createDeploymentJobResponse_failureCode,
+    createDeploymentJobResponse_fleet,
+    createDeploymentJobResponse_arn,
+    createDeploymentJobResponse_status,
+    createDeploymentJobResponse_deploymentConfig,
+    createDeploymentJobResponse_createdAt,
+    createDeploymentJobResponse_failureReason,
     createDeploymentJobResponse_httpStatus,
   )
 where
@@ -68,11 +68,11 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newCreateDeploymentJob' smart constructor.
 data CreateDeploymentJob = CreateDeploymentJob'
-  { -- | The requested deployment configuration.
-    deploymentConfig :: Prelude.Maybe DeploymentConfig,
-    -- | A map that contains tag keys and tag values that are attached to the
+  { -- | A map that contains tag keys and tag values that are attached to the
     -- deployment job.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The requested deployment configuration.
+    deploymentConfig :: Prelude.Maybe DeploymentConfig,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Text,
@@ -91,10 +91,10 @@ data CreateDeploymentJob = CreateDeploymentJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentConfig', 'createDeploymentJob_deploymentConfig' - The requested deployment configuration.
---
 -- 'tags', 'createDeploymentJob_tags' - A map that contains tag keys and tag values that are attached to the
 -- deployment job.
+--
+-- 'deploymentConfig', 'createDeploymentJob_deploymentConfig' - The requested deployment configuration.
 --
 -- 'clientRequestToken', 'createDeploymentJob_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -115,23 +115,22 @@ newCreateDeploymentJob
   pFleet_
   pDeploymentApplicationConfigs_ =
     CreateDeploymentJob'
-      { deploymentConfig =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        deploymentConfig = Prelude.Nothing,
         clientRequestToken = pClientRequestToken_,
         fleet = pFleet_,
         deploymentApplicationConfigs =
           Lens.coerced Lens.# pDeploymentApplicationConfigs_
       }
 
--- | The requested deployment configuration.
-createDeploymentJob_deploymentConfig :: Lens.Lens' CreateDeploymentJob (Prelude.Maybe DeploymentConfig)
-createDeploymentJob_deploymentConfig = Lens.lens (\CreateDeploymentJob' {deploymentConfig} -> deploymentConfig) (\s@CreateDeploymentJob' {} a -> s {deploymentConfig = a} :: CreateDeploymentJob)
-
 -- | A map that contains tag keys and tag values that are attached to the
 -- deployment job.
 createDeploymentJob_tags :: Lens.Lens' CreateDeploymentJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createDeploymentJob_tags = Lens.lens (\CreateDeploymentJob' {tags} -> tags) (\s@CreateDeploymentJob' {} a -> s {tags = a} :: CreateDeploymentJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The requested deployment configuration.
+createDeploymentJob_deploymentConfig :: Lens.Lens' CreateDeploymentJob (Prelude.Maybe DeploymentConfig)
+createDeploymentJob_deploymentConfig = Lens.lens (\CreateDeploymentJob' {deploymentConfig} -> deploymentConfig) (\s@CreateDeploymentJob' {} a -> s {deploymentConfig = a} :: CreateDeploymentJob)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -155,30 +154,30 @@ instance Core.AWSRequest CreateDeploymentJob where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentJobResponse'
-            Prelude.<$> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "status")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "deploymentApplicationConfigs")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (x Core..?> "failureCode")
-            Prelude.<*> (x Core..?> "deploymentConfig")
             Prelude.<*> (x Core..?> "fleet")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "deploymentConfig")
+            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDeploymentJob where
   hashWithSalt _salt CreateDeploymentJob' {..} =
-    _salt `Prelude.hashWithSalt` deploymentConfig
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` deploymentConfig
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fleet
       `Prelude.hashWithSalt` deploymentApplicationConfigs
 
 instance Prelude.NFData CreateDeploymentJob where
   rnf CreateDeploymentJob' {..} =
-    Prelude.rnf deploymentConfig
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf deploymentConfig
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf fleet
       `Prelude.seq` Prelude.rnf deploymentApplicationConfigs
@@ -198,9 +197,9 @@ instance Core.ToJSON CreateDeploymentJob where
   toJSON CreateDeploymentJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deploymentConfig" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("deploymentConfig" Core..=)
               Prelude.<$> deploymentConfig,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("clientRequestToken" Core..= clientRequestToken),
             Prelude.Just ("fleet" Core..= fleet),
@@ -219,16 +218,10 @@ instance Core.ToQuery CreateDeploymentJob where
 
 -- | /See:/ 'newCreateDeploymentJobResponse' smart constructor.
 data CreateDeploymentJobResponse = CreateDeploymentJobResponse'
-  { -- | The failure reason of the deployment job if it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The status of the deployment job.
-    status :: Prelude.Maybe DeploymentStatus,
+  { -- | The list of all tags added to the deployment job.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The deployment application configuration.
     deploymentApplicationConfigs :: Prelude.Maybe (Prelude.NonEmpty DeploymentApplicationConfig),
-    -- | The Amazon Resource Name (ARN) of the deployment job.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the fleet was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The failure code of the simulation job if it failed:
     --
     -- [BadPermissionError]
@@ -277,12 +270,18 @@ data CreateDeploymentJobResponse = CreateDeploymentJobResponse'
     --     There is no response from the robot. It might not be powered on or
     --     connected to the internet.
     failureCode :: Prelude.Maybe DeploymentJobErrorCode,
-    -- | The deployment configuration.
-    deploymentConfig :: Prelude.Maybe DeploymentConfig,
     -- | The target fleet for the deployment job.
     fleet :: Prelude.Maybe Prelude.Text,
-    -- | The list of all tags added to the deployment job.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the deployment job.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the deployment job.
+    status :: Prelude.Maybe DeploymentStatus,
+    -- | The deployment configuration.
+    deploymentConfig :: Prelude.Maybe DeploymentConfig,
+    -- | The time, in milliseconds since the epoch, when the fleet was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The failure reason of the deployment job if it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -296,15 +295,9 @@ data CreateDeploymentJobResponse = CreateDeploymentJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'createDeploymentJobResponse_failureReason' - The failure reason of the deployment job if it failed.
---
--- 'status', 'createDeploymentJobResponse_status' - The status of the deployment job.
+-- 'tags', 'createDeploymentJobResponse_tags' - The list of all tags added to the deployment job.
 --
 -- 'deploymentApplicationConfigs', 'createDeploymentJobResponse_deploymentApplicationConfigs' - The deployment application configuration.
---
--- 'arn', 'createDeploymentJobResponse_arn' - The Amazon Resource Name (ARN) of the deployment job.
---
--- 'createdAt', 'createDeploymentJobResponse_createdAt' - The time, in milliseconds since the epoch, when the fleet was created.
 --
 -- 'failureCode', 'createDeploymentJobResponse_failureCode' - The failure code of the simulation job if it failed:
 --
@@ -354,11 +347,17 @@ data CreateDeploymentJobResponse = CreateDeploymentJobResponse'
 --     There is no response from the robot. It might not be powered on or
 --     connected to the internet.
 --
--- 'deploymentConfig', 'createDeploymentJobResponse_deploymentConfig' - The deployment configuration.
---
 -- 'fleet', 'createDeploymentJobResponse_fleet' - The target fleet for the deployment job.
 --
--- 'tags', 'createDeploymentJobResponse_tags' - The list of all tags added to the deployment job.
+-- 'arn', 'createDeploymentJobResponse_arn' - The Amazon Resource Name (ARN) of the deployment job.
+--
+-- 'status', 'createDeploymentJobResponse_status' - The status of the deployment job.
+--
+-- 'deploymentConfig', 'createDeploymentJobResponse_deploymentConfig' - The deployment configuration.
+--
+-- 'createdAt', 'createDeploymentJobResponse_createdAt' - The time, in milliseconds since the epoch, when the fleet was created.
+--
+-- 'failureReason', 'createDeploymentJobResponse_failureReason' - The failure reason of the deployment job if it failed.
 --
 -- 'httpStatus', 'createDeploymentJobResponse_httpStatus' - The response's http status code.
 newCreateDeploymentJobResponse ::
@@ -367,38 +366,26 @@ newCreateDeploymentJobResponse ::
   CreateDeploymentJobResponse
 newCreateDeploymentJobResponse pHttpStatus_ =
   CreateDeploymentJobResponse'
-    { failureReason =
+    { tags =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       deploymentApplicationConfigs = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       failureCode = Prelude.Nothing,
-      deploymentConfig = Prelude.Nothing,
       fleet = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      deploymentConfig = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The failure reason of the deployment job if it failed.
-createDeploymentJobResponse_failureReason :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe Prelude.Text)
-createDeploymentJobResponse_failureReason = Lens.lens (\CreateDeploymentJobResponse' {failureReason} -> failureReason) (\s@CreateDeploymentJobResponse' {} a -> s {failureReason = a} :: CreateDeploymentJobResponse)
-
--- | The status of the deployment job.
-createDeploymentJobResponse_status :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe DeploymentStatus)
-createDeploymentJobResponse_status = Lens.lens (\CreateDeploymentJobResponse' {status} -> status) (\s@CreateDeploymentJobResponse' {} a -> s {status = a} :: CreateDeploymentJobResponse)
+-- | The list of all tags added to the deployment job.
+createDeploymentJobResponse_tags :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDeploymentJobResponse_tags = Lens.lens (\CreateDeploymentJobResponse' {tags} -> tags) (\s@CreateDeploymentJobResponse' {} a -> s {tags = a} :: CreateDeploymentJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The deployment application configuration.
 createDeploymentJobResponse_deploymentApplicationConfigs :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe (Prelude.NonEmpty DeploymentApplicationConfig))
 createDeploymentJobResponse_deploymentApplicationConfigs = Lens.lens (\CreateDeploymentJobResponse' {deploymentApplicationConfigs} -> deploymentApplicationConfigs) (\s@CreateDeploymentJobResponse' {} a -> s {deploymentApplicationConfigs = a} :: CreateDeploymentJobResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the deployment job.
-createDeploymentJobResponse_arn :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe Prelude.Text)
-createDeploymentJobResponse_arn = Lens.lens (\CreateDeploymentJobResponse' {arn} -> arn) (\s@CreateDeploymentJobResponse' {} a -> s {arn = a} :: CreateDeploymentJobResponse)
-
--- | The time, in milliseconds since the epoch, when the fleet was created.
-createDeploymentJobResponse_createdAt :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe Prelude.UTCTime)
-createDeploymentJobResponse_createdAt = Lens.lens (\CreateDeploymentJobResponse' {createdAt} -> createdAt) (\s@CreateDeploymentJobResponse' {} a -> s {createdAt = a} :: CreateDeploymentJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The failure code of the simulation job if it failed:
 --
@@ -450,17 +437,29 @@ createDeploymentJobResponse_createdAt = Lens.lens (\CreateDeploymentJobResponse'
 createDeploymentJobResponse_failureCode :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe DeploymentJobErrorCode)
 createDeploymentJobResponse_failureCode = Lens.lens (\CreateDeploymentJobResponse' {failureCode} -> failureCode) (\s@CreateDeploymentJobResponse' {} a -> s {failureCode = a} :: CreateDeploymentJobResponse)
 
--- | The deployment configuration.
-createDeploymentJobResponse_deploymentConfig :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe DeploymentConfig)
-createDeploymentJobResponse_deploymentConfig = Lens.lens (\CreateDeploymentJobResponse' {deploymentConfig} -> deploymentConfig) (\s@CreateDeploymentJobResponse' {} a -> s {deploymentConfig = a} :: CreateDeploymentJobResponse)
-
 -- | The target fleet for the deployment job.
 createDeploymentJobResponse_fleet :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe Prelude.Text)
 createDeploymentJobResponse_fleet = Lens.lens (\CreateDeploymentJobResponse' {fleet} -> fleet) (\s@CreateDeploymentJobResponse' {} a -> s {fleet = a} :: CreateDeploymentJobResponse)
 
--- | The list of all tags added to the deployment job.
-createDeploymentJobResponse_tags :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDeploymentJobResponse_tags = Lens.lens (\CreateDeploymentJobResponse' {tags} -> tags) (\s@CreateDeploymentJobResponse' {} a -> s {tags = a} :: CreateDeploymentJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the deployment job.
+createDeploymentJobResponse_arn :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe Prelude.Text)
+createDeploymentJobResponse_arn = Lens.lens (\CreateDeploymentJobResponse' {arn} -> arn) (\s@CreateDeploymentJobResponse' {} a -> s {arn = a} :: CreateDeploymentJobResponse)
+
+-- | The status of the deployment job.
+createDeploymentJobResponse_status :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe DeploymentStatus)
+createDeploymentJobResponse_status = Lens.lens (\CreateDeploymentJobResponse' {status} -> status) (\s@CreateDeploymentJobResponse' {} a -> s {status = a} :: CreateDeploymentJobResponse)
+
+-- | The deployment configuration.
+createDeploymentJobResponse_deploymentConfig :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe DeploymentConfig)
+createDeploymentJobResponse_deploymentConfig = Lens.lens (\CreateDeploymentJobResponse' {deploymentConfig} -> deploymentConfig) (\s@CreateDeploymentJobResponse' {} a -> s {deploymentConfig = a} :: CreateDeploymentJobResponse)
+
+-- | The time, in milliseconds since the epoch, when the fleet was created.
+createDeploymentJobResponse_createdAt :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe Prelude.UTCTime)
+createDeploymentJobResponse_createdAt = Lens.lens (\CreateDeploymentJobResponse' {createdAt} -> createdAt) (\s@CreateDeploymentJobResponse' {} a -> s {createdAt = a} :: CreateDeploymentJobResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The failure reason of the deployment job if it failed.
+createDeploymentJobResponse_failureReason :: Lens.Lens' CreateDeploymentJobResponse (Prelude.Maybe Prelude.Text)
+createDeploymentJobResponse_failureReason = Lens.lens (\CreateDeploymentJobResponse' {failureReason} -> failureReason) (\s@CreateDeploymentJobResponse' {} a -> s {failureReason = a} :: CreateDeploymentJobResponse)
 
 -- | The response's http status code.
 createDeploymentJobResponse_httpStatus :: Lens.Lens' CreateDeploymentJobResponse Prelude.Int
@@ -468,13 +467,13 @@ createDeploymentJobResponse_httpStatus = Lens.lens (\CreateDeploymentJobResponse
 
 instance Prelude.NFData CreateDeploymentJobResponse where
   rnf CreateDeploymentJobResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf deploymentApplicationConfigs
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf deploymentConfig
       `Prelude.seq` Prelude.rnf fleet
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus

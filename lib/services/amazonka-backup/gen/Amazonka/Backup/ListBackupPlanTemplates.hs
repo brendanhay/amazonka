@@ -36,8 +36,8 @@ module Amazonka.Backup.ListBackupPlanTemplates
     newListBackupPlanTemplatesResponse,
 
     -- * Response Lenses
-    listBackupPlanTemplatesResponse_backupPlanTemplatesList,
     listBackupPlanTemplatesResponse_nextToken,
+    listBackupPlanTemplatesResponse_backupPlanTemplatesList,
     listBackupPlanTemplatesResponse_httpStatus,
   )
 where
@@ -104,10 +104,10 @@ instance Core.AWSRequest ListBackupPlanTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListBackupPlanTemplatesResponse'
-            Prelude.<$> ( x Core..?> "BackupPlanTemplatesList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "BackupPlanTemplatesList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,14 +144,14 @@ instance Core.ToQuery ListBackupPlanTemplates where
 
 -- | /See:/ 'newListBackupPlanTemplatesResponse' smart constructor.
 data ListBackupPlanTemplatesResponse = ListBackupPlanTemplatesResponse'
-  { -- | An array of template list items containing metadata about your saved
-    -- templates.
-    backupPlanTemplatesList :: Prelude.Maybe [BackupPlanTemplatesListMember],
-    -- | The next item following a partial list of returned items. For example,
+  { -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of template list items containing metadata about your saved
+    -- templates.
+    backupPlanTemplatesList :: Prelude.Maybe [BackupPlanTemplatesListMember],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,13 +165,13 @@ data ListBackupPlanTemplatesResponse = ListBackupPlanTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupPlanTemplatesList', 'listBackupPlanTemplatesResponse_backupPlanTemplatesList' - An array of template list items containing metadata about your saved
--- templates.
---
 -- 'nextToken', 'listBackupPlanTemplatesResponse_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
+--
+-- 'backupPlanTemplatesList', 'listBackupPlanTemplatesResponse_backupPlanTemplatesList' - An array of template list items containing metadata about your saved
+-- templates.
 --
 -- 'httpStatus', 'listBackupPlanTemplatesResponse_httpStatus' - The response's http status code.
 newListBackupPlanTemplatesResponse ::
@@ -180,16 +180,11 @@ newListBackupPlanTemplatesResponse ::
   ListBackupPlanTemplatesResponse
 newListBackupPlanTemplatesResponse pHttpStatus_ =
   ListBackupPlanTemplatesResponse'
-    { backupPlanTemplatesList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      backupPlanTemplatesList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of template list items containing metadata about your saved
--- templates.
-listBackupPlanTemplatesResponse_backupPlanTemplatesList :: Lens.Lens' ListBackupPlanTemplatesResponse (Prelude.Maybe [BackupPlanTemplatesListMember])
-listBackupPlanTemplatesResponse_backupPlanTemplatesList = Lens.lens (\ListBackupPlanTemplatesResponse' {backupPlanTemplatesList} -> backupPlanTemplatesList) (\s@ListBackupPlanTemplatesResponse' {} a -> s {backupPlanTemplatesList = a} :: ListBackupPlanTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -197,6 +192,11 @@ listBackupPlanTemplatesResponse_backupPlanTemplatesList = Lens.lens (\ListBackup
 -- pointed to by the next token.
 listBackupPlanTemplatesResponse_nextToken :: Lens.Lens' ListBackupPlanTemplatesResponse (Prelude.Maybe Prelude.Text)
 listBackupPlanTemplatesResponse_nextToken = Lens.lens (\ListBackupPlanTemplatesResponse' {nextToken} -> nextToken) (\s@ListBackupPlanTemplatesResponse' {} a -> s {nextToken = a} :: ListBackupPlanTemplatesResponse)
+
+-- | An array of template list items containing metadata about your saved
+-- templates.
+listBackupPlanTemplatesResponse_backupPlanTemplatesList :: Lens.Lens' ListBackupPlanTemplatesResponse (Prelude.Maybe [BackupPlanTemplatesListMember])
+listBackupPlanTemplatesResponse_backupPlanTemplatesList = Lens.lens (\ListBackupPlanTemplatesResponse' {backupPlanTemplatesList} -> backupPlanTemplatesList) (\s@ListBackupPlanTemplatesResponse' {} a -> s {backupPlanTemplatesList = a} :: ListBackupPlanTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBackupPlanTemplatesResponse_httpStatus :: Lens.Lens' ListBackupPlanTemplatesResponse Prelude.Int
@@ -207,6 +207,6 @@ instance
     ListBackupPlanTemplatesResponse
   where
   rnf ListBackupPlanTemplatesResponse' {..} =
-    Prelude.rnf backupPlanTemplatesList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf backupPlanTemplatesList
       `Prelude.seq` Prelude.rnf httpStatus

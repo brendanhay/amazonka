@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolume' smart constructor.
 data Volume = Volume'
-  { -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
-    -- numbers, hyphens, and underscores are allowed. This name is referenced
-    -- in the @sourceVolume@ parameter of container definition @mountPoints@.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is specified when you are using an Amazon Elastic File
+  { -- | This parameter is specified when you are using an Amazon Elastic File
     -- System file system for job storage. Jobs that are running on Fargate
     -- resources must specify a @platformVersion@ of at least @1.4.0@.
     efsVolumeConfiguration :: Prelude.Maybe EFSVolumeConfiguration,
+    -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
+    -- numbers, hyphens, and underscores are allowed. This name is referenced
+    -- in the @sourceVolume@ parameter of container definition @mountPoints@.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The contents of the @host@ parameter determine whether your data volume
     -- persists on the host container instance and where it is stored. If the
     -- host parameter is empty, then the Docker daemon assigns a host path for
@@ -57,13 +57,13 @@ data Volume = Volume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'volume_name' - The name of the volume. Up to 255 letters (uppercase and lowercase),
--- numbers, hyphens, and underscores are allowed. This name is referenced
--- in the @sourceVolume@ parameter of container definition @mountPoints@.
---
 -- 'efsVolumeConfiguration', 'volume_efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File
 -- System file system for job storage. Jobs that are running on Fargate
 -- resources must specify a @platformVersion@ of at least @1.4.0@.
+--
+-- 'name', 'volume_name' - The name of the volume. Up to 255 letters (uppercase and lowercase),
+-- numbers, hyphens, and underscores are allowed. This name is referenced
+-- in the @sourceVolume@ parameter of container definition @mountPoints@.
 --
 -- 'host', 'volume_host' - The contents of the @host@ parameter determine whether your data volume
 -- persists on the host container instance and where it is stored. If the
@@ -77,22 +77,22 @@ newVolume ::
   Volume
 newVolume =
   Volume'
-    { name = Prelude.Nothing,
-      efsVolumeConfiguration = Prelude.Nothing,
+    { efsVolumeConfiguration = Prelude.Nothing,
+      name = Prelude.Nothing,
       host = Prelude.Nothing
     }
-
--- | The name of the volume. Up to 255 letters (uppercase and lowercase),
--- numbers, hyphens, and underscores are allowed. This name is referenced
--- in the @sourceVolume@ parameter of container definition @mountPoints@.
-volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
-volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 -- | This parameter is specified when you are using an Amazon Elastic File
 -- System file system for job storage. Jobs that are running on Fargate
 -- resources must specify a @platformVersion@ of at least @1.4.0@.
 volume_efsVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe EFSVolumeConfiguration)
 volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@Volume' {} a -> s {efsVolumeConfiguration = a} :: Volume)
+
+-- | The name of the volume. Up to 255 letters (uppercase and lowercase),
+-- numbers, hyphens, and underscores are allowed. This name is referenced
+-- in the @sourceVolume@ parameter of container definition @mountPoints@.
+volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
+volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 -- | The contents of the @host@ parameter determine whether your data volume
 -- persists on the host container instance and where it is stored. If the
@@ -111,30 +111,30 @@ instance Core.FromJSON Volume where
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "efsVolumeConfiguration")
+            Prelude.<$> (x Core..:? "efsVolumeConfiguration")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "host")
       )
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` efsVolumeConfiguration
+    _salt `Prelude.hashWithSalt` efsVolumeConfiguration
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` host
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf efsVolumeConfiguration
+    Prelude.rnf efsVolumeConfiguration
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf host
 
 instance Core.ToJSON Volume where
   toJSON Volume' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("efsVolumeConfiguration" Core..=)
+          [ ("efsVolumeConfiguration" Core..=)
               Prelude.<$> efsVolumeConfiguration,
+            ("name" Core..=) Prelude.<$> name,
             ("host" Core..=) Prelude.<$> host
           ]
       )

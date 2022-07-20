@@ -33,9 +33,9 @@ module Amazonka.CodeDeploy.ListOnPremisesInstances
     newListOnPremisesInstances,
 
     -- * Request Lenses
-    listOnPremisesInstances_tagFilters,
     listOnPremisesInstances_nextToken,
     listOnPremisesInstances_registrationStatus,
+    listOnPremisesInstances_tagFilters,
 
     -- * Destructuring the Response
     ListOnPremisesInstancesResponse (..),
@@ -59,10 +59,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListOnPremisesInstances' smart constructor.
 data ListOnPremisesInstances = ListOnPremisesInstances'
-  { -- | The on-premises instance tags that are used to restrict the on-premises
-    -- instance names returned.
-    tagFilters :: Prelude.Maybe [TagFilter],
-    -- | An identifier returned from the previous list on-premises instances
+  { -- | An identifier returned from the previous list on-premises instances
     -- call. It can be used to return the next set of on-premises instances in
     -- the list.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -73,7 +70,10 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
     --
     -- -   @Registered@: Include registered on-premises instances in the
     --     resulting list.
-    registrationStatus :: Prelude.Maybe RegistrationStatus
+    registrationStatus :: Prelude.Maybe RegistrationStatus,
+    -- | The on-premises instance tags that are used to restrict the on-premises
+    -- instance names returned.
+    tagFilters :: Prelude.Maybe [TagFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,9 +84,6 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tagFilters', 'listOnPremisesInstances_tagFilters' - The on-premises instance tags that are used to restrict the on-premises
--- instance names returned.
 --
 -- 'nextToken', 'listOnPremisesInstances_nextToken' - An identifier returned from the previous list on-premises instances
 -- call. It can be used to return the next set of on-premises instances in
@@ -99,20 +96,18 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
 --
 -- -   @Registered@: Include registered on-premises instances in the
 --     resulting list.
+--
+-- 'tagFilters', 'listOnPremisesInstances_tagFilters' - The on-premises instance tags that are used to restrict the on-premises
+-- instance names returned.
 newListOnPremisesInstances ::
   ListOnPremisesInstances
 newListOnPremisesInstances =
   ListOnPremisesInstances'
-    { tagFilters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      registrationStatus = Prelude.Nothing
+      registrationStatus = Prelude.Nothing,
+      tagFilters = Prelude.Nothing
     }
-
--- | The on-premises instance tags that are used to restrict the on-premises
--- instance names returned.
-listOnPremisesInstances_tagFilters :: Lens.Lens' ListOnPremisesInstances (Prelude.Maybe [TagFilter])
-listOnPremisesInstances_tagFilters = Lens.lens (\ListOnPremisesInstances' {tagFilters} -> tagFilters) (\s@ListOnPremisesInstances' {} a -> s {tagFilters = a} :: ListOnPremisesInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier returned from the previous list on-premises instances
 -- call. It can be used to return the next set of on-premises instances in
@@ -129,6 +124,11 @@ listOnPremisesInstances_nextToken = Lens.lens (\ListOnPremisesInstances' {nextTo
 --     resulting list.
 listOnPremisesInstances_registrationStatus :: Lens.Lens' ListOnPremisesInstances (Prelude.Maybe RegistrationStatus)
 listOnPremisesInstances_registrationStatus = Lens.lens (\ListOnPremisesInstances' {registrationStatus} -> registrationStatus) (\s@ListOnPremisesInstances' {} a -> s {registrationStatus = a} :: ListOnPremisesInstances)
+
+-- | The on-premises instance tags that are used to restrict the on-premises
+-- instance names returned.
+listOnPremisesInstances_tagFilters :: Lens.Lens' ListOnPremisesInstances (Prelude.Maybe [TagFilter])
+listOnPremisesInstances_tagFilters = Lens.lens (\ListOnPremisesInstances' {tagFilters} -> tagFilters) (\s@ListOnPremisesInstances' {} a -> s {tagFilters = a} :: ListOnPremisesInstances) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListOnPremisesInstances where
   page rq rs
@@ -168,15 +168,15 @@ instance Core.AWSRequest ListOnPremisesInstances where
 
 instance Prelude.Hashable ListOnPremisesInstances where
   hashWithSalt _salt ListOnPremisesInstances' {..} =
-    _salt `Prelude.hashWithSalt` tagFilters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registrationStatus
+      `Prelude.hashWithSalt` tagFilters
 
 instance Prelude.NFData ListOnPremisesInstances where
   rnf ListOnPremisesInstances' {..} =
-    Prelude.rnf tagFilters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf registrationStatus
+      `Prelude.seq` Prelude.rnf tagFilters
 
 instance Core.ToHeaders ListOnPremisesInstances where
   toHeaders =
@@ -197,10 +197,10 @@ instance Core.ToJSON ListOnPremisesInstances where
   toJSON ListOnPremisesInstances' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tagFilters" Core..=) Prelude.<$> tagFilters,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("registrationStatus" Core..=)
-              Prelude.<$> registrationStatus
+              Prelude.<$> registrationStatus,
+            ("tagFilters" Core..=) Prelude.<$> tagFilters
           ]
       )
 

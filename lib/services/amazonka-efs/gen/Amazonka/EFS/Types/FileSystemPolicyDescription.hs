@@ -25,10 +25,10 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newFileSystemPolicyDescription' smart constructor.
 data FileSystemPolicyDescription = FileSystemPolicyDescription'
-  { -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
-    fileSystemId :: Prelude.Maybe Prelude.Text,
-    -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
-    policy :: Prelude.Maybe Prelude.Text
+  { -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
+    policy :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
+    fileSystemId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -40,25 +40,25 @@ data FileSystemPolicyDescription = FileSystemPolicyDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileSystemId', 'fileSystemPolicyDescription_fileSystemId' - Specifies the EFS file system to which the @FileSystemPolicy@ applies.
---
 -- 'policy', 'fileSystemPolicyDescription_policy' - The JSON formatted @FileSystemPolicy@ for the EFS file system.
+--
+-- 'fileSystemId', 'fileSystemPolicyDescription_fileSystemId' - Specifies the EFS file system to which the @FileSystemPolicy@ applies.
 newFileSystemPolicyDescription ::
   FileSystemPolicyDescription
 newFileSystemPolicyDescription =
   FileSystemPolicyDescription'
-    { fileSystemId =
+    { policy =
         Prelude.Nothing,
-      policy = Prelude.Nothing
+      fileSystemId = Prelude.Nothing
     }
-
--- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
-fileSystemPolicyDescription_fileSystemId :: Lens.Lens' FileSystemPolicyDescription (Prelude.Maybe Prelude.Text)
-fileSystemPolicyDescription_fileSystemId = Lens.lens (\FileSystemPolicyDescription' {fileSystemId} -> fileSystemId) (\s@FileSystemPolicyDescription' {} a -> s {fileSystemId = a} :: FileSystemPolicyDescription)
 
 -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
 fileSystemPolicyDescription_policy :: Lens.Lens' FileSystemPolicyDescription (Prelude.Maybe Prelude.Text)
 fileSystemPolicyDescription_policy = Lens.lens (\FileSystemPolicyDescription' {policy} -> policy) (\s@FileSystemPolicyDescription' {} a -> s {policy = a} :: FileSystemPolicyDescription)
+
+-- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
+fileSystemPolicyDescription_fileSystemId :: Lens.Lens' FileSystemPolicyDescription (Prelude.Maybe Prelude.Text)
+fileSystemPolicyDescription_fileSystemId = Lens.lens (\FileSystemPolicyDescription' {fileSystemId} -> fileSystemId) (\s@FileSystemPolicyDescription' {} a -> s {fileSystemId = a} :: FileSystemPolicyDescription)
 
 instance Core.FromJSON FileSystemPolicyDescription where
   parseJSON =
@@ -66,16 +66,16 @@ instance Core.FromJSON FileSystemPolicyDescription where
       "FileSystemPolicyDescription"
       ( \x ->
           FileSystemPolicyDescription'
-            Prelude.<$> (x Core..:? "FileSystemId")
-            Prelude.<*> (x Core..:? "Policy")
+            Prelude.<$> (x Core..:? "Policy")
+            Prelude.<*> (x Core..:? "FileSystemId")
       )
 
 instance Prelude.Hashable FileSystemPolicyDescription where
   hashWithSalt _salt FileSystemPolicyDescription' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
-      `Prelude.hashWithSalt` policy
+    _salt `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData FileSystemPolicyDescription where
   rnf FileSystemPolicyDescription' {..} =
-    Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf fileSystemId

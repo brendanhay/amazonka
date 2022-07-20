@@ -29,8 +29,8 @@ module Amazonka.LookoutEquipment.ListDatasets
 
     -- * Request Lenses
     listDatasets_nextToken,
-    listDatasets_datasetNameBeginsWith,
     listDatasets_maxResults,
+    listDatasets_datasetNameBeginsWith,
 
     -- * Destructuring the Response
     ListDatasetsResponse (..),
@@ -55,10 +55,10 @@ data ListDatasets = ListDatasets'
   { -- | An opaque pagination token indicating where to continue the listing of
     -- datasets.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The beginning of the name of the datasets to be listed.
-    datasetNameBeginsWith :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum number of datasets to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The beginning of the name of the datasets to be listed.
+    datasetNameBeginsWith :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,16 +73,16 @@ data ListDatasets = ListDatasets'
 -- 'nextToken', 'listDatasets_nextToken' - An opaque pagination token indicating where to continue the listing of
 -- datasets.
 --
--- 'datasetNameBeginsWith', 'listDatasets_datasetNameBeginsWith' - The beginning of the name of the datasets to be listed.
---
 -- 'maxResults', 'listDatasets_maxResults' - Specifies the maximum number of datasets to list.
+--
+-- 'datasetNameBeginsWith', 'listDatasets_datasetNameBeginsWith' - The beginning of the name of the datasets to be listed.
 newListDatasets ::
   ListDatasets
 newListDatasets =
   ListDatasets'
     { nextToken = Prelude.Nothing,
-      datasetNameBeginsWith = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      datasetNameBeginsWith = Prelude.Nothing
     }
 
 -- | An opaque pagination token indicating where to continue the listing of
@@ -90,13 +90,13 @@ newListDatasets =
 listDatasets_nextToken :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
 listDatasets_nextToken = Lens.lens (\ListDatasets' {nextToken} -> nextToken) (\s@ListDatasets' {} a -> s {nextToken = a} :: ListDatasets)
 
--- | The beginning of the name of the datasets to be listed.
-listDatasets_datasetNameBeginsWith :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
-listDatasets_datasetNameBeginsWith = Lens.lens (\ListDatasets' {datasetNameBeginsWith} -> datasetNameBeginsWith) (\s@ListDatasets' {} a -> s {datasetNameBeginsWith = a} :: ListDatasets)
-
 -- | Specifies the maximum number of datasets to list.
 listDatasets_maxResults :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Natural)
 listDatasets_maxResults = Lens.lens (\ListDatasets' {maxResults} -> maxResults) (\s@ListDatasets' {} a -> s {maxResults = a} :: ListDatasets)
+
+-- | The beginning of the name of the datasets to be listed.
+listDatasets_datasetNameBeginsWith :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
+listDatasets_datasetNameBeginsWith = Lens.lens (\ListDatasets' {datasetNameBeginsWith} -> datasetNameBeginsWith) (\s@ListDatasets' {} a -> s {datasetNameBeginsWith = a} :: ListDatasets)
 
 instance Core.AWSRequest ListDatasets where
   type AWSResponse ListDatasets = ListDatasetsResponse
@@ -115,14 +115,14 @@ instance Core.AWSRequest ListDatasets where
 instance Prelude.Hashable ListDatasets where
   hashWithSalt _salt ListDatasets' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` datasetNameBeginsWith
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` datasetNameBeginsWith
 
 instance Prelude.NFData ListDatasets where
   rnf ListDatasets' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetNameBeginsWith
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf datasetNameBeginsWith
 
 instance Core.ToHeaders ListDatasets where
   toHeaders =
@@ -144,9 +144,9 @@ instance Core.ToJSON ListDatasets where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("DatasetNameBeginsWith" Core..=)
-              Prelude.<$> datasetNameBeginsWith,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+              Prelude.<$> datasetNameBeginsWith
           ]
       )
 

@@ -37,8 +37,8 @@ module Amazonka.GroundStation.ListSatellites
     newListSatellitesResponse,
 
     -- * Response Lenses
-    listSatellitesResponse_satellites,
     listSatellitesResponse_nextToken,
+    listSatellitesResponse_satellites,
     listSatellitesResponse_httpStatus,
   )
 where
@@ -121,8 +121,8 @@ instance Core.AWSRequest ListSatellites where
     Response.receiveJSON
       ( \s h x ->
           ListSatellitesResponse'
-            Prelude.<$> (x Core..?> "satellites" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "satellites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,11 +161,11 @@ instance Core.ToQuery ListSatellites where
 --
 -- /See:/ 'newListSatellitesResponse' smart constructor.
 data ListSatellitesResponse = ListSatellitesResponse'
-  { -- | List of satellites.
-    satellites :: Prelude.Maybe [SatelliteListItem],
-    -- | Next token that can be supplied in the next call to get the next page of
+  { -- | Next token that can be supplied in the next call to get the next page of
     -- satellites.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of satellites.
+    satellites :: Prelude.Maybe [SatelliteListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,10 +179,10 @@ data ListSatellitesResponse = ListSatellitesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'satellites', 'listSatellitesResponse_satellites' - List of satellites.
---
 -- 'nextToken', 'listSatellitesResponse_nextToken' - Next token that can be supplied in the next call to get the next page of
 -- satellites.
+--
+-- 'satellites', 'listSatellitesResponse_satellites' - List of satellites.
 --
 -- 'httpStatus', 'listSatellitesResponse_httpStatus' - The response's http status code.
 newListSatellitesResponse ::
@@ -191,20 +191,20 @@ newListSatellitesResponse ::
   ListSatellitesResponse
 newListSatellitesResponse pHttpStatus_ =
   ListSatellitesResponse'
-    { satellites =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      satellites = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of satellites.
-listSatellitesResponse_satellites :: Lens.Lens' ListSatellitesResponse (Prelude.Maybe [SatelliteListItem])
-listSatellitesResponse_satellites = Lens.lens (\ListSatellitesResponse' {satellites} -> satellites) (\s@ListSatellitesResponse' {} a -> s {satellites = a} :: ListSatellitesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Next token that can be supplied in the next call to get the next page of
 -- satellites.
 listSatellitesResponse_nextToken :: Lens.Lens' ListSatellitesResponse (Prelude.Maybe Prelude.Text)
 listSatellitesResponse_nextToken = Lens.lens (\ListSatellitesResponse' {nextToken} -> nextToken) (\s@ListSatellitesResponse' {} a -> s {nextToken = a} :: ListSatellitesResponse)
+
+-- | List of satellites.
+listSatellitesResponse_satellites :: Lens.Lens' ListSatellitesResponse (Prelude.Maybe [SatelliteListItem])
+listSatellitesResponse_satellites = Lens.lens (\ListSatellitesResponse' {satellites} -> satellites) (\s@ListSatellitesResponse' {} a -> s {satellites = a} :: ListSatellitesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSatellitesResponse_httpStatus :: Lens.Lens' ListSatellitesResponse Prelude.Int
@@ -212,6 +212,6 @@ listSatellitesResponse_httpStatus = Lens.lens (\ListSatellitesResponse' {httpSta
 
 instance Prelude.NFData ListSatellitesResponse where
   rnf ListSatellitesResponse' {..} =
-    Prelude.rnf satellites
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf satellites
       `Prelude.seq` Prelude.rnf httpStatus

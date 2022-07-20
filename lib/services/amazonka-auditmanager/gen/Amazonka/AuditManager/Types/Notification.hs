@@ -29,22 +29,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotification' smart constructor.
 data Notification = Notification'
-  { -- | Specifies the name of the control set that the notification is about.
+  { -- | The identifier for the specified assessment.
+    assessmentId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the related assessment.
+    assessmentName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the notification.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the notification.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The sender of the notification.
+    source :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the name of the control set that the notification is about.
     controlSetName :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the specified control set.
     controlSetId :: Prelude.Maybe Prelude.Text,
     -- | The time when the notification was sent.
-    eventTime :: Prelude.Maybe Core.POSIX,
-    -- | The sender of the notification.
-    source :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the notification.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified assessment.
-    assessmentId :: Prelude.Maybe Prelude.Text,
-    -- | The description of the notification.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the related assessment.
-    assessmentName :: Prelude.Maybe Prelude.Text
+    eventTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,34 +56,54 @@ data Notification = Notification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assessmentId', 'notification_assessmentId' - The identifier for the specified assessment.
+--
+-- 'assessmentName', 'notification_assessmentName' - The name of the related assessment.
+--
+-- 'description', 'notification_description' - The description of the notification.
+--
+-- 'id', 'notification_id' - The unique identifier for the notification.
+--
+-- 'source', 'notification_source' - The sender of the notification.
+--
 -- 'controlSetName', 'notification_controlSetName' - Specifies the name of the control set that the notification is about.
 --
 -- 'controlSetId', 'notification_controlSetId' - The identifier for the specified control set.
 --
 -- 'eventTime', 'notification_eventTime' - The time when the notification was sent.
---
--- 'source', 'notification_source' - The sender of the notification.
---
--- 'id', 'notification_id' - The unique identifier for the notification.
---
--- 'assessmentId', 'notification_assessmentId' - The identifier for the specified assessment.
---
--- 'description', 'notification_description' - The description of the notification.
---
--- 'assessmentName', 'notification_assessmentName' - The name of the related assessment.
 newNotification ::
   Notification
 newNotification =
   Notification'
-    { controlSetName = Prelude.Nothing,
-      controlSetId = Prelude.Nothing,
-      eventTime = Prelude.Nothing,
-      source = Prelude.Nothing,
-      id = Prelude.Nothing,
-      assessmentId = Prelude.Nothing,
+    { assessmentId = Prelude.Nothing,
+      assessmentName = Prelude.Nothing,
       description = Prelude.Nothing,
-      assessmentName = Prelude.Nothing
+      id = Prelude.Nothing,
+      source = Prelude.Nothing,
+      controlSetName = Prelude.Nothing,
+      controlSetId = Prelude.Nothing,
+      eventTime = Prelude.Nothing
     }
+
+-- | The identifier for the specified assessment.
+notification_assessmentId :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
+notification_assessmentId = Lens.lens (\Notification' {assessmentId} -> assessmentId) (\s@Notification' {} a -> s {assessmentId = a} :: Notification)
+
+-- | The name of the related assessment.
+notification_assessmentName :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
+notification_assessmentName = Lens.lens (\Notification' {assessmentName} -> assessmentName) (\s@Notification' {} a -> s {assessmentName = a} :: Notification)
+
+-- | The description of the notification.
+notification_description :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
+notification_description = Lens.lens (\Notification' {description} -> description) (\s@Notification' {} a -> s {description = a} :: Notification)
+
+-- | The unique identifier for the notification.
+notification_id :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
+notification_id = Lens.lens (\Notification' {id} -> id) (\s@Notification' {} a -> s {id = a} :: Notification)
+
+-- | The sender of the notification.
+notification_source :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
+notification_source = Lens.lens (\Notification' {source} -> source) (\s@Notification' {} a -> s {source = a} :: Notification)
 
 -- | Specifies the name of the control set that the notification is about.
 notification_controlSetName :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
@@ -97,60 +117,40 @@ notification_controlSetId = Lens.lens (\Notification' {controlSetId} -> controlS
 notification_eventTime :: Lens.Lens' Notification (Prelude.Maybe Prelude.UTCTime)
 notification_eventTime = Lens.lens (\Notification' {eventTime} -> eventTime) (\s@Notification' {} a -> s {eventTime = a} :: Notification) Prelude.. Lens.mapping Core._Time
 
--- | The sender of the notification.
-notification_source :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
-notification_source = Lens.lens (\Notification' {source} -> source) (\s@Notification' {} a -> s {source = a} :: Notification)
-
--- | The unique identifier for the notification.
-notification_id :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
-notification_id = Lens.lens (\Notification' {id} -> id) (\s@Notification' {} a -> s {id = a} :: Notification)
-
--- | The identifier for the specified assessment.
-notification_assessmentId :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
-notification_assessmentId = Lens.lens (\Notification' {assessmentId} -> assessmentId) (\s@Notification' {} a -> s {assessmentId = a} :: Notification)
-
--- | The description of the notification.
-notification_description :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
-notification_description = Lens.lens (\Notification' {description} -> description) (\s@Notification' {} a -> s {description = a} :: Notification)
-
--- | The name of the related assessment.
-notification_assessmentName :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
-notification_assessmentName = Lens.lens (\Notification' {assessmentName} -> assessmentName) (\s@Notification' {} a -> s {assessmentName = a} :: Notification)
-
 instance Core.FromJSON Notification where
   parseJSON =
     Core.withObject
       "Notification"
       ( \x ->
           Notification'
-            Prelude.<$> (x Core..:? "controlSetName")
+            Prelude.<$> (x Core..:? "assessmentId")
+            Prelude.<*> (x Core..:? "assessmentName")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "source")
+            Prelude.<*> (x Core..:? "controlSetName")
             Prelude.<*> (x Core..:? "controlSetId")
             Prelude.<*> (x Core..:? "eventTime")
-            Prelude.<*> (x Core..:? "source")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "assessmentId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "assessmentName")
       )
 
 instance Prelude.Hashable Notification where
   hashWithSalt _salt Notification' {..} =
-    _salt `Prelude.hashWithSalt` controlSetName
+    _salt `Prelude.hashWithSalt` assessmentId
+      `Prelude.hashWithSalt` assessmentName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` controlSetName
       `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` eventTime
-      `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` assessmentId
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` assessmentName
 
 instance Prelude.NFData Notification where
   rnf Notification' {..} =
-    Prelude.rnf controlSetName
+    Prelude.rnf assessmentId
+      `Prelude.seq` Prelude.rnf assessmentName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf controlSetName
       `Prelude.seq` Prelude.rnf controlSetId
       `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf assessmentId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf assessmentName

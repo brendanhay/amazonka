@@ -28,10 +28,10 @@ import Amazonka.S3.Internal
 --
 -- /See:/ 'newCopyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
-  { -- | Entity tag of the object.
-    eTag :: Prelude.Maybe ETag,
-    -- | Date and time at which the object was uploaded.
-    lastModified :: Prelude.Maybe Core.ISO8601
+  { -- | Date and time at which the object was uploaded.
+    lastModified :: Prelude.Maybe Core.ISO8601,
+    -- | Entity tag of the object.
+    eTag :: Prelude.Maybe ETag
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,37 +43,37 @@ data CopyPartResult = CopyPartResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'copyPartResult_eTag' - Entity tag of the object.
---
 -- 'lastModified', 'copyPartResult_lastModified' - Date and time at which the object was uploaded.
+--
+-- 'eTag', 'copyPartResult_eTag' - Entity tag of the object.
 newCopyPartResult ::
   CopyPartResult
 newCopyPartResult =
   CopyPartResult'
-    { eTag = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+    { lastModified = Prelude.Nothing,
+      eTag = Prelude.Nothing
     }
-
--- | Entity tag of the object.
-copyPartResult_eTag :: Lens.Lens' CopyPartResult (Prelude.Maybe ETag)
-copyPartResult_eTag = Lens.lens (\CopyPartResult' {eTag} -> eTag) (\s@CopyPartResult' {} a -> s {eTag = a} :: CopyPartResult)
 
 -- | Date and time at which the object was uploaded.
 copyPartResult_lastModified :: Lens.Lens' CopyPartResult (Prelude.Maybe Prelude.UTCTime)
 copyPartResult_lastModified = Lens.lens (\CopyPartResult' {lastModified} -> lastModified) (\s@CopyPartResult' {} a -> s {lastModified = a} :: CopyPartResult) Prelude.. Lens.mapping Core._Time
 
+-- | Entity tag of the object.
+copyPartResult_eTag :: Lens.Lens' CopyPartResult (Prelude.Maybe ETag)
+copyPartResult_eTag = Lens.lens (\CopyPartResult' {eTag} -> eTag) (\s@CopyPartResult' {} a -> s {eTag = a} :: CopyPartResult)
+
 instance Core.FromXML CopyPartResult where
   parseXML x =
     CopyPartResult'
-      Prelude.<$> (x Core..@? "ETag")
-      Prelude.<*> (x Core..@? "LastModified")
+      Prelude.<$> (x Core..@? "LastModified")
+      Prelude.<*> (x Core..@? "ETag")
 
 instance Prelude.Hashable CopyPartResult where
   hashWithSalt _salt CopyPartResult' {..} =
-    _salt `Prelude.hashWithSalt` eTag
-      `Prelude.hashWithSalt` lastModified
+    _salt `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` eTag
 
 instance Prelude.NFData CopyPartResult where
   rnf CopyPartResult' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf lastModified
+    Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf eTag

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLexBot' smart constructor.
 data LexBot = LexBot'
-  { -- | The Region that the Amazon Lex bot was created in.
-    lexRegion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon Lex bot.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the Amazon Lex bot.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Region that the Amazon Lex bot was created in.
+    lexRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data LexBot = LexBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lexRegion', 'lexBot_lexRegion' - The Region that the Amazon Lex bot was created in.
---
 -- 'name', 'lexBot_name' - The name of the Amazon Lex bot.
+--
+-- 'lexRegion', 'lexBot_lexRegion' - The Region that the Amazon Lex bot was created in.
 newLexBot ::
   LexBot
 newLexBot =
   LexBot'
-    { lexRegion = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      lexRegion = Prelude.Nothing
     }
-
--- | The Region that the Amazon Lex bot was created in.
-lexBot_lexRegion :: Lens.Lens' LexBot (Prelude.Maybe Prelude.Text)
-lexBot_lexRegion = Lens.lens (\LexBot' {lexRegion} -> lexRegion) (\s@LexBot' {} a -> s {lexRegion = a} :: LexBot)
 
 -- | The name of the Amazon Lex bot.
 lexBot_name :: Lens.Lens' LexBot (Prelude.Maybe Prelude.Text)
 lexBot_name = Lens.lens (\LexBot' {name} -> name) (\s@LexBot' {} a -> s {name = a} :: LexBot)
+
+-- | The Region that the Amazon Lex bot was created in.
+lexBot_lexRegion :: Lens.Lens' LexBot (Prelude.Maybe Prelude.Text)
+lexBot_lexRegion = Lens.lens (\LexBot' {lexRegion} -> lexRegion) (\s@LexBot' {} a -> s {lexRegion = a} :: LexBot)
 
 instance Core.FromJSON LexBot where
   parseJSON =
@@ -67,25 +67,25 @@ instance Core.FromJSON LexBot where
       "LexBot"
       ( \x ->
           LexBot'
-            Prelude.<$> (x Core..:? "LexRegion")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "LexRegion")
       )
 
 instance Prelude.Hashable LexBot where
   hashWithSalt _salt LexBot' {..} =
-    _salt `Prelude.hashWithSalt` lexRegion
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` lexRegion
 
 instance Prelude.NFData LexBot where
   rnf LexBot' {..} =
-    Prelude.rnf lexRegion
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf lexRegion
 
 instance Core.ToJSON LexBot where
   toJSON LexBot' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LexRegion" Core..=) Prelude.<$> lexRegion,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("LexRegion" Core..=) Prelude.<$> lexRegion
           ]
       )

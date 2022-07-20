@@ -48,8 +48,8 @@ module Amazonka.ResourceGroups.Tag
     newTagResponse,
 
     -- * Response Lenses
-    tagResponse_arn,
     tagResponse_tags,
+    tagResponse_arn,
     tagResponse_httpStatus,
   )
 where
@@ -106,8 +106,8 @@ instance Core.AWSRequest Tag where
     Response.receiveJSON
       ( \s h x ->
           TagResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,10 +140,10 @@ instance Core.ToQuery Tag where
 
 -- | /See:/ 'newTagResponse' smart constructor.
 data TagResponse = TagResponse'
-  { -- | The ARN of the tagged resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The tags that have been added to the specified resource group.
+  { -- | The tags that have been added to the specified resource group.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ARN of the tagged resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,9 +157,9 @@ data TagResponse = TagResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'tagResponse_arn' - The ARN of the tagged resource.
---
 -- 'tags', 'tagResponse_tags' - The tags that have been added to the specified resource group.
+--
+-- 'arn', 'tagResponse_arn' - The ARN of the tagged resource.
 --
 -- 'httpStatus', 'tagResponse_httpStatus' - The response's http status code.
 newTagResponse ::
@@ -168,18 +168,18 @@ newTagResponse ::
   TagResponse
 newTagResponse pHttpStatus_ =
   TagResponse'
-    { arn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the tagged resource.
-tagResponse_arn :: Lens.Lens' TagResponse (Prelude.Maybe Prelude.Text)
-tagResponse_arn = Lens.lens (\TagResponse' {arn} -> arn) (\s@TagResponse' {} a -> s {arn = a} :: TagResponse)
 
 -- | The tags that have been added to the specified resource group.
 tagResponse_tags :: Lens.Lens' TagResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 tagResponse_tags = Lens.lens (\TagResponse' {tags} -> tags) (\s@TagResponse' {} a -> s {tags = a} :: TagResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the tagged resource.
+tagResponse_arn :: Lens.Lens' TagResponse (Prelude.Maybe Prelude.Text)
+tagResponse_arn = Lens.lens (\TagResponse' {arn} -> arn) (\s@TagResponse' {} a -> s {arn = a} :: TagResponse)
 
 -- | The response's http status code.
 tagResponse_httpStatus :: Lens.Lens' TagResponse Prelude.Int
@@ -187,6 +187,6 @@ tagResponse_httpStatus = Lens.lens (\TagResponse' {httpStatus} -> httpStatus) (\
 
 instance Prelude.NFData TagResponse where
   rnf TagResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpStatus

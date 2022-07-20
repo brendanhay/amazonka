@@ -30,27 +30,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservedElasticsearchInstanceOffering' smart constructor.
 data ReservedElasticsearchInstanceOffering = ReservedElasticsearchInstanceOffering'
-  { -- | The currency code for the reserved Elasticsearch instance offering.
-    currencyCode :: Prelude.Maybe Prelude.Text,
-    -- | The Elasticsearch reserved instance offering identifier.
-    reservedElasticsearchInstanceOfferingId :: Prelude.Maybe Prelude.Text,
+  { -- | The charge to your account regardless of whether you are creating any
+    -- domains using the instance offering.
+    recurringCharges :: Prelude.Maybe [RecurringCharge],
     -- | The Elasticsearch instance type offered by the reserved instance
     -- offering.
     elasticsearchInstanceType :: Prelude.Maybe ESPartitionInstanceType,
-    -- | The charge to your account regardless of whether you are creating any
-    -- domains using the instance offering.
-    recurringCharges :: Prelude.Maybe [RecurringCharge],
-    -- | The rate you are charged for each hour the domain that is using the
-    -- offering is running.
-    usagePrice :: Prelude.Maybe Prelude.Double,
-    -- | The upfront fixed charge you will pay to purchase the specific reserved
-    -- Elasticsearch instance offering.
-    fixedPrice :: Prelude.Maybe Prelude.Double,
     -- | The duration, in seconds, for which the offering will reserve the
     -- Elasticsearch instance.
     duration :: Prelude.Maybe Prelude.Int,
+    -- | The currency code for the reserved Elasticsearch instance offering.
+    currencyCode :: Prelude.Maybe Prelude.Text,
+    -- | The Elasticsearch reserved instance offering identifier.
+    reservedElasticsearchInstanceOfferingId :: Prelude.Maybe Prelude.Text,
+    -- | The upfront fixed charge you will pay to purchase the specific reserved
+    -- Elasticsearch instance offering.
+    fixedPrice :: Prelude.Maybe Prelude.Double,
     -- | Payment option for the reserved Elasticsearch instance offering
-    paymentOption :: Prelude.Maybe ReservedElasticsearchInstancePaymentOption
+    paymentOption :: Prelude.Maybe ReservedElasticsearchInstancePaymentOption,
+    -- | The rate you are charged for each hour the domain that is using the
+    -- offering is running.
+    usagePrice :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,42 +62,57 @@ data ReservedElasticsearchInstanceOffering = ReservedElasticsearchInstanceOfferi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'currencyCode', 'reservedElasticsearchInstanceOffering_currencyCode' - The currency code for the reserved Elasticsearch instance offering.
---
--- 'reservedElasticsearchInstanceOfferingId', 'reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId' - The Elasticsearch reserved instance offering identifier.
+-- 'recurringCharges', 'reservedElasticsearchInstanceOffering_recurringCharges' - The charge to your account regardless of whether you are creating any
+-- domains using the instance offering.
 --
 -- 'elasticsearchInstanceType', 'reservedElasticsearchInstanceOffering_elasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance
 -- offering.
 --
--- 'recurringCharges', 'reservedElasticsearchInstanceOffering_recurringCharges' - The charge to your account regardless of whether you are creating any
--- domains using the instance offering.
+-- 'duration', 'reservedElasticsearchInstanceOffering_duration' - The duration, in seconds, for which the offering will reserve the
+-- Elasticsearch instance.
 --
--- 'usagePrice', 'reservedElasticsearchInstanceOffering_usagePrice' - The rate you are charged for each hour the domain that is using the
--- offering is running.
+-- 'currencyCode', 'reservedElasticsearchInstanceOffering_currencyCode' - The currency code for the reserved Elasticsearch instance offering.
+--
+-- 'reservedElasticsearchInstanceOfferingId', 'reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId' - The Elasticsearch reserved instance offering identifier.
 --
 -- 'fixedPrice', 'reservedElasticsearchInstanceOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved
 -- Elasticsearch instance offering.
 --
--- 'duration', 'reservedElasticsearchInstanceOffering_duration' - The duration, in seconds, for which the offering will reserve the
--- Elasticsearch instance.
---
 -- 'paymentOption', 'reservedElasticsearchInstanceOffering_paymentOption' - Payment option for the reserved Elasticsearch instance offering
+--
+-- 'usagePrice', 'reservedElasticsearchInstanceOffering_usagePrice' - The rate you are charged for each hour the domain that is using the
+-- offering is running.
 newReservedElasticsearchInstanceOffering ::
   ReservedElasticsearchInstanceOffering
 newReservedElasticsearchInstanceOffering =
   ReservedElasticsearchInstanceOffering'
-    { currencyCode =
-        Prelude.Nothing,
-      reservedElasticsearchInstanceOfferingId =
+    { recurringCharges =
         Prelude.Nothing,
       elasticsearchInstanceType =
         Prelude.Nothing,
-      recurringCharges = Prelude.Nothing,
-      usagePrice = Prelude.Nothing,
-      fixedPrice = Prelude.Nothing,
       duration = Prelude.Nothing,
-      paymentOption = Prelude.Nothing
+      currencyCode = Prelude.Nothing,
+      reservedElasticsearchInstanceOfferingId =
+        Prelude.Nothing,
+      fixedPrice = Prelude.Nothing,
+      paymentOption = Prelude.Nothing,
+      usagePrice = Prelude.Nothing
     }
+
+-- | The charge to your account regardless of whether you are creating any
+-- domains using the instance offering.
+reservedElasticsearchInstanceOffering_recurringCharges :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe [RecurringCharge])
+reservedElasticsearchInstanceOffering_recurringCharges = Lens.lens (\ReservedElasticsearchInstanceOffering' {recurringCharges} -> recurringCharges) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {recurringCharges = a} :: ReservedElasticsearchInstanceOffering) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Elasticsearch instance type offered by the reserved instance
+-- offering.
+reservedElasticsearchInstanceOffering_elasticsearchInstanceType :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe ESPartitionInstanceType)
+reservedElasticsearchInstanceOffering_elasticsearchInstanceType = Lens.lens (\ReservedElasticsearchInstanceOffering' {elasticsearchInstanceType} -> elasticsearchInstanceType) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {elasticsearchInstanceType = a} :: ReservedElasticsearchInstanceOffering)
+
+-- | The duration, in seconds, for which the offering will reserve the
+-- Elasticsearch instance.
+reservedElasticsearchInstanceOffering_duration :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe Prelude.Int)
+reservedElasticsearchInstanceOffering_duration = Lens.lens (\ReservedElasticsearchInstanceOffering' {duration} -> duration) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {duration = a} :: ReservedElasticsearchInstanceOffering)
 
 -- | The currency code for the reserved Elasticsearch instance offering.
 reservedElasticsearchInstanceOffering_currencyCode :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe Prelude.Text)
@@ -107,34 +122,19 @@ reservedElasticsearchInstanceOffering_currencyCode = Lens.lens (\ReservedElastic
 reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe Prelude.Text)
 reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId = Lens.lens (\ReservedElasticsearchInstanceOffering' {reservedElasticsearchInstanceOfferingId} -> reservedElasticsearchInstanceOfferingId) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {reservedElasticsearchInstanceOfferingId = a} :: ReservedElasticsearchInstanceOffering)
 
--- | The Elasticsearch instance type offered by the reserved instance
--- offering.
-reservedElasticsearchInstanceOffering_elasticsearchInstanceType :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe ESPartitionInstanceType)
-reservedElasticsearchInstanceOffering_elasticsearchInstanceType = Lens.lens (\ReservedElasticsearchInstanceOffering' {elasticsearchInstanceType} -> elasticsearchInstanceType) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {elasticsearchInstanceType = a} :: ReservedElasticsearchInstanceOffering)
-
--- | The charge to your account regardless of whether you are creating any
--- domains using the instance offering.
-reservedElasticsearchInstanceOffering_recurringCharges :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe [RecurringCharge])
-reservedElasticsearchInstanceOffering_recurringCharges = Lens.lens (\ReservedElasticsearchInstanceOffering' {recurringCharges} -> recurringCharges) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {recurringCharges = a} :: ReservedElasticsearchInstanceOffering) Prelude.. Lens.mapping Lens.coerced
-
--- | The rate you are charged for each hour the domain that is using the
--- offering is running.
-reservedElasticsearchInstanceOffering_usagePrice :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe Prelude.Double)
-reservedElasticsearchInstanceOffering_usagePrice = Lens.lens (\ReservedElasticsearchInstanceOffering' {usagePrice} -> usagePrice) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {usagePrice = a} :: ReservedElasticsearchInstanceOffering)
-
 -- | The upfront fixed charge you will pay to purchase the specific reserved
 -- Elasticsearch instance offering.
 reservedElasticsearchInstanceOffering_fixedPrice :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe Prelude.Double)
 reservedElasticsearchInstanceOffering_fixedPrice = Lens.lens (\ReservedElasticsearchInstanceOffering' {fixedPrice} -> fixedPrice) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {fixedPrice = a} :: ReservedElasticsearchInstanceOffering)
 
--- | The duration, in seconds, for which the offering will reserve the
--- Elasticsearch instance.
-reservedElasticsearchInstanceOffering_duration :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe Prelude.Int)
-reservedElasticsearchInstanceOffering_duration = Lens.lens (\ReservedElasticsearchInstanceOffering' {duration} -> duration) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {duration = a} :: ReservedElasticsearchInstanceOffering)
-
 -- | Payment option for the reserved Elasticsearch instance offering
 reservedElasticsearchInstanceOffering_paymentOption :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe ReservedElasticsearchInstancePaymentOption)
 reservedElasticsearchInstanceOffering_paymentOption = Lens.lens (\ReservedElasticsearchInstanceOffering' {paymentOption} -> paymentOption) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {paymentOption = a} :: ReservedElasticsearchInstanceOffering)
+
+-- | The rate you are charged for each hour the domain that is using the
+-- offering is running.
+reservedElasticsearchInstanceOffering_usagePrice :: Lens.Lens' ReservedElasticsearchInstanceOffering (Prelude.Maybe Prelude.Double)
+reservedElasticsearchInstanceOffering_usagePrice = Lens.lens (\ReservedElasticsearchInstanceOffering' {usagePrice} -> usagePrice) (\s@ReservedElasticsearchInstanceOffering' {} a -> s {usagePrice = a} :: ReservedElasticsearchInstanceOffering)
 
 instance
   Core.FromJSON
@@ -145,18 +145,18 @@ instance
       "ReservedElasticsearchInstanceOffering"
       ( \x ->
           ReservedElasticsearchInstanceOffering'
-            Prelude.<$> (x Core..:? "CurrencyCode")
+            Prelude.<$> ( x Core..:? "RecurringCharges"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ElasticsearchInstanceType")
+            Prelude.<*> (x Core..:? "Duration")
+            Prelude.<*> (x Core..:? "CurrencyCode")
             Prelude.<*> ( x
                             Core..:? "ReservedElasticsearchInstanceOfferingId"
                         )
-            Prelude.<*> (x Core..:? "ElasticsearchInstanceType")
-            Prelude.<*> ( x Core..:? "RecurringCharges"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "UsagePrice")
             Prelude.<*> (x Core..:? "FixedPrice")
-            Prelude.<*> (x Core..:? "Duration")
             Prelude.<*> (x Core..:? "PaymentOption")
+            Prelude.<*> (x Core..:? "UsagePrice")
       )
 
 instance
@@ -166,25 +166,25 @@ instance
   hashWithSalt
     _salt
     ReservedElasticsearchInstanceOffering' {..} =
-      _salt `Prelude.hashWithSalt` currencyCode
-        `Prelude.hashWithSalt` reservedElasticsearchInstanceOfferingId
+      _salt `Prelude.hashWithSalt` recurringCharges
         `Prelude.hashWithSalt` elasticsearchInstanceType
-        `Prelude.hashWithSalt` recurringCharges
-        `Prelude.hashWithSalt` usagePrice
-        `Prelude.hashWithSalt` fixedPrice
         `Prelude.hashWithSalt` duration
+        `Prelude.hashWithSalt` currencyCode
+        `Prelude.hashWithSalt` reservedElasticsearchInstanceOfferingId
+        `Prelude.hashWithSalt` fixedPrice
         `Prelude.hashWithSalt` paymentOption
+        `Prelude.hashWithSalt` usagePrice
 
 instance
   Prelude.NFData
     ReservedElasticsearchInstanceOffering
   where
   rnf ReservedElasticsearchInstanceOffering' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceOfferingId
+    Prelude.rnf recurringCharges
       `Prelude.seq` Prelude.rnf elasticsearchInstanceType
-      `Prelude.seq` Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf usagePrice
-      `Prelude.seq` Prelude.rnf fixedPrice
       `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceOfferingId
+      `Prelude.seq` Prelude.rnf fixedPrice
       `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf usagePrice

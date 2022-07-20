@@ -27,8 +27,8 @@ module Amazonka.IoTWireless.UpdateWirelessDevice
     newUpdateWirelessDevice,
 
     -- * Request Lenses
-    updateWirelessDevice_loRaWAN,
     updateWirelessDevice_name,
+    updateWirelessDevice_loRaWAN,
     updateWirelessDevice_destinationName,
     updateWirelessDevice_description,
     updateWirelessDevice_id,
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWirelessDevice' smart constructor.
 data UpdateWirelessDevice = UpdateWirelessDevice'
-  { -- | The updated wireless device\'s configuration.
-    loRaWAN :: Prelude.Maybe LoRaWANUpdateDevice,
-    -- | The new name of the resource.
+  { -- | The new name of the resource.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The updated wireless device\'s configuration.
+    loRaWAN :: Prelude.Maybe LoRaWANUpdateDevice,
     -- | The name of the new destination for the device.
     destinationName :: Prelude.Maybe Prelude.Text,
     -- | A new description of the resource.
@@ -72,9 +72,9 @@ data UpdateWirelessDevice = UpdateWirelessDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loRaWAN', 'updateWirelessDevice_loRaWAN' - The updated wireless device\'s configuration.
---
 -- 'name', 'updateWirelessDevice_name' - The new name of the resource.
+--
+-- 'loRaWAN', 'updateWirelessDevice_loRaWAN' - The updated wireless device\'s configuration.
 --
 -- 'destinationName', 'updateWirelessDevice_destinationName' - The name of the new destination for the device.
 --
@@ -87,20 +87,20 @@ newUpdateWirelessDevice ::
   UpdateWirelessDevice
 newUpdateWirelessDevice pId_ =
   UpdateWirelessDevice'
-    { loRaWAN = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      loRaWAN = Prelude.Nothing,
       destinationName = Prelude.Nothing,
       description = Prelude.Nothing,
       id = pId_
     }
 
--- | The updated wireless device\'s configuration.
-updateWirelessDevice_loRaWAN :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe LoRaWANUpdateDevice)
-updateWirelessDevice_loRaWAN = Lens.lens (\UpdateWirelessDevice' {loRaWAN} -> loRaWAN) (\s@UpdateWirelessDevice' {} a -> s {loRaWAN = a} :: UpdateWirelessDevice)
-
 -- | The new name of the resource.
 updateWirelessDevice_name :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe Prelude.Text)
 updateWirelessDevice_name = Lens.lens (\UpdateWirelessDevice' {name} -> name) (\s@UpdateWirelessDevice' {} a -> s {name = a} :: UpdateWirelessDevice)
+
+-- | The updated wireless device\'s configuration.
+updateWirelessDevice_loRaWAN :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe LoRaWANUpdateDevice)
+updateWirelessDevice_loRaWAN = Lens.lens (\UpdateWirelessDevice' {loRaWAN} -> loRaWAN) (\s@UpdateWirelessDevice' {} a -> s {loRaWAN = a} :: UpdateWirelessDevice)
 
 -- | The name of the new destination for the device.
 updateWirelessDevice_destinationName :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe Prelude.Text)
@@ -128,16 +128,16 @@ instance Core.AWSRequest UpdateWirelessDevice where
 
 instance Prelude.Hashable UpdateWirelessDevice where
   hashWithSalt _salt UpdateWirelessDevice' {..} =
-    _salt `Prelude.hashWithSalt` loRaWAN
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateWirelessDevice where
   rnf UpdateWirelessDevice' {..} =
-    Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf destinationName
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
@@ -149,8 +149,8 @@ instance Core.ToJSON UpdateWirelessDevice where
   toJSON UpdateWirelessDevice' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
             ("DestinationName" Core..=)
               Prelude.<$> destinationName,
             ("Description" Core..=) Prelude.<$> description

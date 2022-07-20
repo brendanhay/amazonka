@@ -35,12 +35,12 @@ module Amazonka.SESV2.GetContactList
     newGetContactListResponse,
 
     -- * Response Lenses
-    getContactListResponse_topics,
-    getContactListResponse_contactListName,
-    getContactListResponse_createdTimestamp,
-    getContactListResponse_description,
     getContactListResponse_tags,
     getContactListResponse_lastUpdatedTimestamp,
+    getContactListResponse_createdTimestamp,
+    getContactListResponse_description,
+    getContactListResponse_topics,
+    getContactListResponse_contactListName,
     getContactListResponse_httpStatus,
   )
 where
@@ -91,12 +91,12 @@ instance Core.AWSRequest GetContactList where
     Response.receiveJSON
       ( \s h x ->
           GetContactListResponse'
-            Prelude.<$> (x Core..?> "Topics" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ContactListName")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "CreatedTimestamp")
             Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
+            Prelude.<*> (x Core..?> "Topics" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ContactListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,19 +130,19 @@ instance Core.ToQuery GetContactList where
 
 -- | /See:/ 'newGetContactListResponse' smart constructor.
 data GetContactListResponse = GetContactListResponse'
-  { -- | An interest group, theme, or label within a list. A contact list can
-    -- have multiple topics.
-    topics :: Prelude.Maybe [Topic],
-    -- | The name of the contact list.
-    contactListName :: Prelude.Maybe Prelude.Text,
+  { -- | The tags associated with a contact list.
+    tags :: Prelude.Maybe [Tag],
+    -- | A timestamp noting the last time the contact list was updated.
+    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | A timestamp noting when the contact list was created.
     createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | A description of what the contact list is about.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with a contact list.
-    tags :: Prelude.Maybe [Tag],
-    -- | A timestamp noting the last time the contact list was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | An interest group, theme, or label within a list. A contact list can
+    -- have multiple topics.
+    topics :: Prelude.Maybe [Topic],
+    -- | The name of the contact list.
+    contactListName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,18 +156,18 @@ data GetContactListResponse = GetContactListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'topics', 'getContactListResponse_topics' - An interest group, theme, or label within a list. A contact list can
--- have multiple topics.
+-- 'tags', 'getContactListResponse_tags' - The tags associated with a contact list.
 --
--- 'contactListName', 'getContactListResponse_contactListName' - The name of the contact list.
+-- 'lastUpdatedTimestamp', 'getContactListResponse_lastUpdatedTimestamp' - A timestamp noting the last time the contact list was updated.
 --
 -- 'createdTimestamp', 'getContactListResponse_createdTimestamp' - A timestamp noting when the contact list was created.
 --
 -- 'description', 'getContactListResponse_description' - A description of what the contact list is about.
 --
--- 'tags', 'getContactListResponse_tags' - The tags associated with a contact list.
+-- 'topics', 'getContactListResponse_topics' - An interest group, theme, or label within a list. A contact list can
+-- have multiple topics.
 --
--- 'lastUpdatedTimestamp', 'getContactListResponse_lastUpdatedTimestamp' - A timestamp noting the last time the contact list was updated.
+-- 'contactListName', 'getContactListResponse_contactListName' - The name of the contact list.
 --
 -- 'httpStatus', 'getContactListResponse_httpStatus' - The response's http status code.
 newGetContactListResponse ::
@@ -176,14 +176,30 @@ newGetContactListResponse ::
   GetContactListResponse
 newGetContactListResponse pHttpStatus_ =
   GetContactListResponse'
-    { topics = Prelude.Nothing,
-      contactListName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
+      topics = Prelude.Nothing,
+      contactListName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The tags associated with a contact list.
+getContactListResponse_tags :: Lens.Lens' GetContactListResponse (Prelude.Maybe [Tag])
+getContactListResponse_tags = Lens.lens (\GetContactListResponse' {tags} -> tags) (\s@GetContactListResponse' {} a -> s {tags = a} :: GetContactListResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A timestamp noting the last time the contact list was updated.
+getContactListResponse_lastUpdatedTimestamp :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.UTCTime)
+getContactListResponse_lastUpdatedTimestamp = Lens.lens (\GetContactListResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetContactListResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetContactListResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A timestamp noting when the contact list was created.
+getContactListResponse_createdTimestamp :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.UTCTime)
+getContactListResponse_createdTimestamp = Lens.lens (\GetContactListResponse' {createdTimestamp} -> createdTimestamp) (\s@GetContactListResponse' {} a -> s {createdTimestamp = a} :: GetContactListResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A description of what the contact list is about.
+getContactListResponse_description :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.Text)
+getContactListResponse_description = Lens.lens (\GetContactListResponse' {description} -> description) (\s@GetContactListResponse' {} a -> s {description = a} :: GetContactListResponse)
 
 -- | An interest group, theme, or label within a list. A contact list can
 -- have multiple topics.
@@ -194,32 +210,16 @@ getContactListResponse_topics = Lens.lens (\GetContactListResponse' {topics} -> 
 getContactListResponse_contactListName :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.Text)
 getContactListResponse_contactListName = Lens.lens (\GetContactListResponse' {contactListName} -> contactListName) (\s@GetContactListResponse' {} a -> s {contactListName = a} :: GetContactListResponse)
 
--- | A timestamp noting when the contact list was created.
-getContactListResponse_createdTimestamp :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.UTCTime)
-getContactListResponse_createdTimestamp = Lens.lens (\GetContactListResponse' {createdTimestamp} -> createdTimestamp) (\s@GetContactListResponse' {} a -> s {createdTimestamp = a} :: GetContactListResponse) Prelude.. Lens.mapping Core._Time
-
--- | A description of what the contact list is about.
-getContactListResponse_description :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.Text)
-getContactListResponse_description = Lens.lens (\GetContactListResponse' {description} -> description) (\s@GetContactListResponse' {} a -> s {description = a} :: GetContactListResponse)
-
--- | The tags associated with a contact list.
-getContactListResponse_tags :: Lens.Lens' GetContactListResponse (Prelude.Maybe [Tag])
-getContactListResponse_tags = Lens.lens (\GetContactListResponse' {tags} -> tags) (\s@GetContactListResponse' {} a -> s {tags = a} :: GetContactListResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A timestamp noting the last time the contact list was updated.
-getContactListResponse_lastUpdatedTimestamp :: Lens.Lens' GetContactListResponse (Prelude.Maybe Prelude.UTCTime)
-getContactListResponse_lastUpdatedTimestamp = Lens.lens (\GetContactListResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetContactListResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetContactListResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The response's http status code.
 getContactListResponse_httpStatus :: Lens.Lens' GetContactListResponse Prelude.Int
 getContactListResponse_httpStatus = Lens.lens (\GetContactListResponse' {httpStatus} -> httpStatus) (\s@GetContactListResponse' {} a -> s {httpStatus = a} :: GetContactListResponse)
 
 instance Prelude.NFData GetContactListResponse where
   rnf GetContactListResponse' {..} =
-    Prelude.rnf topics
-      `Prelude.seq` Prelude.rnf contactListName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf topics
+      `Prelude.seq` Prelude.rnf contactListName
       `Prelude.seq` Prelude.rnf httpStatus

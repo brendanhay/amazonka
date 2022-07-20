@@ -63,32 +63,32 @@ module Amazonka.Budgets
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
     -- ** ExpiredNextTokenException
     _ExpiredNextTokenException,
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ResourceLockedException
-    _ResourceLockedException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** DuplicateRecordException
     _DuplicateRecordException,
 
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ResourceLockedException
+    _ResourceLockedException,
+
     -- ** CreationLimitExceededException
     _CreationLimitExceededException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -96,17 +96,35 @@ module Amazonka.Budgets
     -- * Operations
     -- $operations
 
+    -- ** CreateBudget
+    CreateBudget (CreateBudget'),
+    newCreateBudget,
+    CreateBudgetResponse (CreateBudgetResponse'),
+    newCreateBudgetResponse,
+
     -- ** CreateBudgetAction
     CreateBudgetAction (CreateBudgetAction'),
     newCreateBudgetAction,
     CreateBudgetActionResponse (CreateBudgetActionResponse'),
     newCreateBudgetActionResponse,
 
-    -- ** UpdateBudgetAction
-    UpdateBudgetAction (UpdateBudgetAction'),
-    newUpdateBudgetAction,
-    UpdateBudgetActionResponse (UpdateBudgetActionResponse'),
-    newUpdateBudgetActionResponse,
+    -- ** CreateNotification
+    CreateNotification (CreateNotification'),
+    newCreateNotification,
+    CreateNotificationResponse (CreateNotificationResponse'),
+    newCreateNotificationResponse,
+
+    -- ** CreateSubscriber
+    CreateSubscriber (CreateSubscriber'),
+    newCreateSubscriber,
+    CreateSubscriberResponse (CreateSubscriberResponse'),
+    newCreateSubscriberResponse,
+
+    -- ** DeleteBudget
+    DeleteBudget (DeleteBudget'),
+    newDeleteBudget,
+    DeleteBudgetResponse (DeleteBudgetResponse'),
+    newDeleteBudgetResponse,
 
     -- ** DeleteBudgetAction
     DeleteBudgetAction (DeleteBudgetAction'),
@@ -114,17 +132,53 @@ module Amazonka.Budgets
     DeleteBudgetActionResponse (DeleteBudgetActionResponse'),
     newDeleteBudgetActionResponse,
 
-    -- ** DescribeSubscribersForNotification (Paginated)
-    DescribeSubscribersForNotification (DescribeSubscribersForNotification'),
-    newDescribeSubscribersForNotification,
-    DescribeSubscribersForNotificationResponse (DescribeSubscribersForNotificationResponse'),
-    newDescribeSubscribersForNotificationResponse,
+    -- ** DeleteNotification
+    DeleteNotification (DeleteNotification'),
+    newDeleteNotification,
+    DeleteNotificationResponse (DeleteNotificationResponse'),
+    newDeleteNotificationResponse,
 
-    -- ** DescribeNotificationsForBudget (Paginated)
-    DescribeNotificationsForBudget (DescribeNotificationsForBudget'),
-    newDescribeNotificationsForBudget,
-    DescribeNotificationsForBudgetResponse (DescribeNotificationsForBudgetResponse'),
-    newDescribeNotificationsForBudgetResponse,
+    -- ** DeleteSubscriber
+    DeleteSubscriber (DeleteSubscriber'),
+    newDeleteSubscriber,
+    DeleteSubscriberResponse (DeleteSubscriberResponse'),
+    newDeleteSubscriberResponse,
+
+    -- ** DescribeBudget
+    DescribeBudget (DescribeBudget'),
+    newDescribeBudget,
+    DescribeBudgetResponse (DescribeBudgetResponse'),
+    newDescribeBudgetResponse,
+
+    -- ** DescribeBudgetAction
+    DescribeBudgetAction (DescribeBudgetAction'),
+    newDescribeBudgetAction,
+    DescribeBudgetActionResponse (DescribeBudgetActionResponse'),
+    newDescribeBudgetActionResponse,
+
+    -- ** DescribeBudgetActionHistories (Paginated)
+    DescribeBudgetActionHistories (DescribeBudgetActionHistories'),
+    newDescribeBudgetActionHistories,
+    DescribeBudgetActionHistoriesResponse (DescribeBudgetActionHistoriesResponse'),
+    newDescribeBudgetActionHistoriesResponse,
+
+    -- ** DescribeBudgetActionsForAccount (Paginated)
+    DescribeBudgetActionsForAccount (DescribeBudgetActionsForAccount'),
+    newDescribeBudgetActionsForAccount,
+    DescribeBudgetActionsForAccountResponse (DescribeBudgetActionsForAccountResponse'),
+    newDescribeBudgetActionsForAccountResponse,
+
+    -- ** DescribeBudgetActionsForBudget (Paginated)
+    DescribeBudgetActionsForBudget (DescribeBudgetActionsForBudget'),
+    newDescribeBudgetActionsForBudget,
+    DescribeBudgetActionsForBudgetResponse (DescribeBudgetActionsForBudgetResponse'),
+    newDescribeBudgetActionsForBudgetResponse,
+
+    -- ** DescribeBudgetPerformanceHistory (Paginated)
+    DescribeBudgetPerformanceHistory (DescribeBudgetPerformanceHistory'),
+    newDescribeBudgetPerformanceHistory,
+    DescribeBudgetPerformanceHistoryResponse (DescribeBudgetPerformanceHistoryResponse'),
+    newDescribeBudgetPerformanceHistoryResponse,
 
     -- ** DescribeBudgets (Paginated)
     DescribeBudgets (DescribeBudgets'),
@@ -132,11 +186,17 @@ module Amazonka.Budgets
     DescribeBudgetsResponse (DescribeBudgetsResponse'),
     newDescribeBudgetsResponse,
 
-    -- ** CreateSubscriber
-    CreateSubscriber (CreateSubscriber'),
-    newCreateSubscriber,
-    CreateSubscriberResponse (CreateSubscriberResponse'),
-    newCreateSubscriberResponse,
+    -- ** DescribeNotificationsForBudget (Paginated)
+    DescribeNotificationsForBudget (DescribeNotificationsForBudget'),
+    newDescribeNotificationsForBudget,
+    DescribeNotificationsForBudgetResponse (DescribeNotificationsForBudgetResponse'),
+    newDescribeNotificationsForBudgetResponse,
+
+    -- ** DescribeSubscribersForNotification (Paginated)
+    DescribeSubscribersForNotification (DescribeSubscribersForNotification'),
+    newDescribeSubscribersForNotification,
+    DescribeSubscribersForNotificationResponse (DescribeSubscribersForNotificationResponse'),
+    newDescribeSubscribersForNotificationResponse,
 
     -- ** ExecuteBudgetAction
     ExecuteBudgetAction (ExecuteBudgetAction'),
@@ -150,17 +210,11 @@ module Amazonka.Budgets
     UpdateBudgetResponse (UpdateBudgetResponse'),
     newUpdateBudgetResponse,
 
-    -- ** DeleteBudget
-    DeleteBudget (DeleteBudget'),
-    newDeleteBudget,
-    DeleteBudgetResponse (DeleteBudgetResponse'),
-    newDeleteBudgetResponse,
-
-    -- ** DeleteNotification
-    DeleteNotification (DeleteNotification'),
-    newDeleteNotification,
-    DeleteNotificationResponse (DeleteNotificationResponse'),
-    newDeleteNotificationResponse,
+    -- ** UpdateBudgetAction
+    UpdateBudgetAction (UpdateBudgetAction'),
+    newUpdateBudgetAction,
+    UpdateBudgetActionResponse (UpdateBudgetActionResponse'),
+    newUpdateBudgetActionResponse,
 
     -- ** UpdateNotification
     UpdateNotification (UpdateNotification'),
@@ -168,65 +222,11 @@ module Amazonka.Budgets
     UpdateNotificationResponse (UpdateNotificationResponse'),
     newUpdateNotificationResponse,
 
-    -- ** DescribeBudgetActionsForAccount (Paginated)
-    DescribeBudgetActionsForAccount (DescribeBudgetActionsForAccount'),
-    newDescribeBudgetActionsForAccount,
-    DescribeBudgetActionsForAccountResponse (DescribeBudgetActionsForAccountResponse'),
-    newDescribeBudgetActionsForAccountResponse,
-
-    -- ** DescribeBudgetPerformanceHistory (Paginated)
-    DescribeBudgetPerformanceHistory (DescribeBudgetPerformanceHistory'),
-    newDescribeBudgetPerformanceHistory,
-    DescribeBudgetPerformanceHistoryResponse (DescribeBudgetPerformanceHistoryResponse'),
-    newDescribeBudgetPerformanceHistoryResponse,
-
-    -- ** DescribeBudgetActionHistories (Paginated)
-    DescribeBudgetActionHistories (DescribeBudgetActionHistories'),
-    newDescribeBudgetActionHistories,
-    DescribeBudgetActionHistoriesResponse (DescribeBudgetActionHistoriesResponse'),
-    newDescribeBudgetActionHistoriesResponse,
-
-    -- ** DescribeBudget
-    DescribeBudget (DescribeBudget'),
-    newDescribeBudget,
-    DescribeBudgetResponse (DescribeBudgetResponse'),
-    newDescribeBudgetResponse,
-
     -- ** UpdateSubscriber
     UpdateSubscriber (UpdateSubscriber'),
     newUpdateSubscriber,
     UpdateSubscriberResponse (UpdateSubscriberResponse'),
     newUpdateSubscriberResponse,
-
-    -- ** DeleteSubscriber
-    DeleteSubscriber (DeleteSubscriber'),
-    newDeleteSubscriber,
-    DeleteSubscriberResponse (DeleteSubscriberResponse'),
-    newDeleteSubscriberResponse,
-
-    -- ** DescribeBudgetActionsForBudget (Paginated)
-    DescribeBudgetActionsForBudget (DescribeBudgetActionsForBudget'),
-    newDescribeBudgetActionsForBudget,
-    DescribeBudgetActionsForBudgetResponse (DescribeBudgetActionsForBudgetResponse'),
-    newDescribeBudgetActionsForBudgetResponse,
-
-    -- ** DescribeBudgetAction
-    DescribeBudgetAction (DescribeBudgetAction'),
-    newDescribeBudgetAction,
-    DescribeBudgetActionResponse (DescribeBudgetActionResponse'),
-    newDescribeBudgetActionResponse,
-
-    -- ** CreateBudget
-    CreateBudget (CreateBudget'),
-    newCreateBudget,
-    CreateBudgetResponse (CreateBudgetResponse'),
-    newCreateBudgetResponse,
-
-    -- ** CreateNotification
-    CreateNotification (CreateNotification'),
-    newCreateNotification,
-    CreateNotificationResponse (CreateNotificationResponse'),
-    newCreateNotificationResponse,
 
     -- * Types
 

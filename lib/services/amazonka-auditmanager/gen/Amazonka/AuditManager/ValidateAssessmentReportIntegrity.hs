@@ -34,11 +34,11 @@ module Amazonka.AuditManager.ValidateAssessmentReportIntegrity
     newValidateAssessmentReportIntegrityResponse,
 
     -- * Response Lenses
-    validateAssessmentReportIntegrityResponse_signatureValid,
     validateAssessmentReportIntegrityResponse_validationErrors,
-    validateAssessmentReportIntegrityResponse_signatureDateTime,
+    validateAssessmentReportIntegrityResponse_signatureValid,
     validateAssessmentReportIntegrityResponse_signatureAlgorithm,
     validateAssessmentReportIntegrityResponse_signatureKeyId,
+    validateAssessmentReportIntegrityResponse_signatureDateTime,
     validateAssessmentReportIntegrityResponse_httpStatus,
   )
 where
@@ -95,13 +95,13 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ValidateAssessmentReportIntegrityResponse'
-            Prelude.<$> (x Core..?> "signatureValid")
-              Prelude.<*> ( x Core..?> "validationErrors"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Core..?> "signatureDateTime")
+            Prelude.<$> ( x Core..?> "validationErrors"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "signatureValid")
               Prelude.<*> (x Core..?> "signatureAlgorithm")
               Prelude.<*> (x Core..?> "signatureKeyId")
+              Prelude.<*> (x Core..?> "signatureDateTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,18 +161,18 @@ instance
 
 -- | /See:/ 'newValidateAssessmentReportIntegrityResponse' smart constructor.
 data ValidateAssessmentReportIntegrityResponse = ValidateAssessmentReportIntegrityResponse'
-  { -- | Specifies whether the signature key is valid.
-    signatureValid :: Prelude.Maybe Prelude.Bool,
-    -- | Represents any errors that occurred when validating the assessment
+  { -- | Represents any errors that occurred when validating the assessment
     -- report.
     validationErrors :: Prelude.Maybe [Prelude.Text],
-    -- | The date and time signature that specifies when the assessment report
-    -- was created.
-    signatureDateTime :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the signature key is valid.
+    signatureValid :: Prelude.Maybe Prelude.Bool,
     -- | The signature algorithm used to code sign the assessment report file.
     signatureAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the validation signature key.
     signatureKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time signature that specifies when the assessment report
+    -- was created.
+    signatureDateTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,17 +186,17 @@ data ValidateAssessmentReportIntegrityResponse = ValidateAssessmentReportIntegri
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signatureValid', 'validateAssessmentReportIntegrityResponse_signatureValid' - Specifies whether the signature key is valid.
---
 -- 'validationErrors', 'validateAssessmentReportIntegrityResponse_validationErrors' - Represents any errors that occurred when validating the assessment
 -- report.
 --
--- 'signatureDateTime', 'validateAssessmentReportIntegrityResponse_signatureDateTime' - The date and time signature that specifies when the assessment report
--- was created.
+-- 'signatureValid', 'validateAssessmentReportIntegrityResponse_signatureValid' - Specifies whether the signature key is valid.
 --
 -- 'signatureAlgorithm', 'validateAssessmentReportIntegrityResponse_signatureAlgorithm' - The signature algorithm used to code sign the assessment report file.
 --
 -- 'signatureKeyId', 'validateAssessmentReportIntegrityResponse_signatureKeyId' - The unique identifier for the validation signature key.
+--
+-- 'signatureDateTime', 'validateAssessmentReportIntegrityResponse_signatureDateTime' - The date and time signature that specifies when the assessment report
+-- was created.
 --
 -- 'httpStatus', 'validateAssessmentReportIntegrityResponse_httpStatus' - The response's http status code.
 newValidateAssessmentReportIntegrityResponse ::
@@ -206,31 +206,25 @@ newValidateAssessmentReportIntegrityResponse ::
 newValidateAssessmentReportIntegrityResponse
   pHttpStatus_ =
     ValidateAssessmentReportIntegrityResponse'
-      { signatureValid =
+      { validationErrors =
           Prelude.Nothing,
-        validationErrors =
-          Prelude.Nothing,
-        signatureDateTime =
-          Prelude.Nothing,
+        signatureValid = Prelude.Nothing,
         signatureAlgorithm =
           Prelude.Nothing,
         signatureKeyId = Prelude.Nothing,
+        signatureDateTime =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Specifies whether the signature key is valid.
-validateAssessmentReportIntegrityResponse_signatureValid :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe Prelude.Bool)
-validateAssessmentReportIntegrityResponse_signatureValid = Lens.lens (\ValidateAssessmentReportIntegrityResponse' {signatureValid} -> signatureValid) (\s@ValidateAssessmentReportIntegrityResponse' {} a -> s {signatureValid = a} :: ValidateAssessmentReportIntegrityResponse)
 
 -- | Represents any errors that occurred when validating the assessment
 -- report.
 validateAssessmentReportIntegrityResponse_validationErrors :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe [Prelude.Text])
 validateAssessmentReportIntegrityResponse_validationErrors = Lens.lens (\ValidateAssessmentReportIntegrityResponse' {validationErrors} -> validationErrors) (\s@ValidateAssessmentReportIntegrityResponse' {} a -> s {validationErrors = a} :: ValidateAssessmentReportIntegrityResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The date and time signature that specifies when the assessment report
--- was created.
-validateAssessmentReportIntegrityResponse_signatureDateTime :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe Prelude.Text)
-validateAssessmentReportIntegrityResponse_signatureDateTime = Lens.lens (\ValidateAssessmentReportIntegrityResponse' {signatureDateTime} -> signatureDateTime) (\s@ValidateAssessmentReportIntegrityResponse' {} a -> s {signatureDateTime = a} :: ValidateAssessmentReportIntegrityResponse)
+-- | Specifies whether the signature key is valid.
+validateAssessmentReportIntegrityResponse_signatureValid :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe Prelude.Bool)
+validateAssessmentReportIntegrityResponse_signatureValid = Lens.lens (\ValidateAssessmentReportIntegrityResponse' {signatureValid} -> signatureValid) (\s@ValidateAssessmentReportIntegrityResponse' {} a -> s {signatureValid = a} :: ValidateAssessmentReportIntegrityResponse)
 
 -- | The signature algorithm used to code sign the assessment report file.
 validateAssessmentReportIntegrityResponse_signatureAlgorithm :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe Prelude.Text)
@@ -239,6 +233,11 @@ validateAssessmentReportIntegrityResponse_signatureAlgorithm = Lens.lens (\Valid
 -- | The unique identifier for the validation signature key.
 validateAssessmentReportIntegrityResponse_signatureKeyId :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe Prelude.Text)
 validateAssessmentReportIntegrityResponse_signatureKeyId = Lens.lens (\ValidateAssessmentReportIntegrityResponse' {signatureKeyId} -> signatureKeyId) (\s@ValidateAssessmentReportIntegrityResponse' {} a -> s {signatureKeyId = a} :: ValidateAssessmentReportIntegrityResponse)
+
+-- | The date and time signature that specifies when the assessment report
+-- was created.
+validateAssessmentReportIntegrityResponse_signatureDateTime :: Lens.Lens' ValidateAssessmentReportIntegrityResponse (Prelude.Maybe Prelude.Text)
+validateAssessmentReportIntegrityResponse_signatureDateTime = Lens.lens (\ValidateAssessmentReportIntegrityResponse' {signatureDateTime} -> signatureDateTime) (\s@ValidateAssessmentReportIntegrityResponse' {} a -> s {signatureDateTime = a} :: ValidateAssessmentReportIntegrityResponse)
 
 -- | The response's http status code.
 validateAssessmentReportIntegrityResponse_httpStatus :: Lens.Lens' ValidateAssessmentReportIntegrityResponse Prelude.Int
@@ -249,9 +248,9 @@ instance
     ValidateAssessmentReportIntegrityResponse
   where
   rnf ValidateAssessmentReportIntegrityResponse' {..} =
-    Prelude.rnf signatureValid
-      `Prelude.seq` Prelude.rnf validationErrors
-      `Prelude.seq` Prelude.rnf signatureDateTime
+    Prelude.rnf validationErrors
+      `Prelude.seq` Prelude.rnf signatureValid
       `Prelude.seq` Prelude.rnf signatureAlgorithm
       `Prelude.seq` Prelude.rnf signatureKeyId
+      `Prelude.seq` Prelude.rnf signatureDateTime
       `Prelude.seq` Prelude.rnf httpStatus

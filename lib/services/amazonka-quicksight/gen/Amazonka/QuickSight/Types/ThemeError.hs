@@ -28,10 +28,10 @@ import Amazonka.QuickSight.Types.ThemeErrorType
 --
 -- /See:/ 'newThemeError' smart constructor.
 data ThemeError = ThemeError'
-  { -- | The type of error.
-    type' :: Prelude.Maybe ThemeErrorType,
-    -- | The error message.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The error message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The type of error.
+    type' :: Prelude.Maybe ThemeErrorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ThemeError = ThemeError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'themeError_type' - The type of error.
---
 -- 'message', 'themeError_message' - The error message.
+--
+-- 'type'', 'themeError_type' - The type of error.
 newThemeError ::
   ThemeError
 newThemeError =
   ThemeError'
-    { type' = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of error.
-themeError_type :: Lens.Lens' ThemeError (Prelude.Maybe ThemeErrorType)
-themeError_type = Lens.lens (\ThemeError' {type'} -> type') (\s@ThemeError' {} a -> s {type' = a} :: ThemeError)
 
 -- | The error message.
 themeError_message :: Lens.Lens' ThemeError (Prelude.Maybe Prelude.Text)
 themeError_message = Lens.lens (\ThemeError' {message} -> message) (\s@ThemeError' {} a -> s {message = a} :: ThemeError)
+
+-- | The type of error.
+themeError_type :: Lens.Lens' ThemeError (Prelude.Maybe ThemeErrorType)
+themeError_type = Lens.lens (\ThemeError' {type'} -> type') (\s@ThemeError' {} a -> s {type' = a} :: ThemeError)
 
 instance Core.FromJSON ThemeError where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON ThemeError where
       "ThemeError"
       ( \x ->
           ThemeError'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable ThemeError where
   hashWithSalt _salt ThemeError' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ThemeError where
   rnf ThemeError' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf type'

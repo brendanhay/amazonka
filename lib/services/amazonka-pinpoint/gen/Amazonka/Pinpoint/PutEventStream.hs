@@ -126,12 +126,7 @@ instance Core.ToHeaders PutEventStream where
 
 instance Core.ToJSON PutEventStream where
   toJSON PutEventStream' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WriteEventStream" Core..= writeEventStream)
-          ]
-      )
+    Core.toJSON writeEventStream
 
 instance Core.ToPath PutEventStream where
   toPath PutEventStream' {..} =

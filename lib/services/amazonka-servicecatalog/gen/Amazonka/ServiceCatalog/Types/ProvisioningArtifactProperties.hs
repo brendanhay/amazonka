@@ -29,10 +29,7 @@ import Amazonka.ServiceCatalog.Types.ProvisioningArtifactType
 --
 -- /See:/ 'newProvisioningArtifactProperties' smart constructor.
 data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
-  { -- | If set to true, AWS Service Catalog stops validating the specified
-    -- provisioning artifact even if it is invalid.
-    disableTemplateValidation :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the provisioning artifact (for example, v1 v2beta). No
+  { -- | The name of the provisioning artifact (for example, v1 v2beta). No
     -- spaces are allowed.
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of provisioning artifact.
@@ -43,6 +40,9 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
     --
     -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
     type' :: Prelude.Maybe ProvisioningArtifactType,
+    -- | If set to true, AWS Service Catalog stops validating the specified
+    -- provisioning artifact even if it is invalid.
+    disableTemplateValidation :: Prelude.Maybe Prelude.Bool,
     -- | The description of the provisioning artifact, including how it differs
     -- from the previous provisioning artifact.
     description :: Prelude.Maybe Prelude.Text,
@@ -70,9 +70,6 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disableTemplateValidation', 'provisioningArtifactProperties_disableTemplateValidation' - If set to true, AWS Service Catalog stops validating the specified
--- provisioning artifact even if it is invalid.
---
 -- 'name', 'provisioningArtifactProperties_name' - The name of the provisioning artifact (for example, v1 v2beta). No
 -- spaces are allowed.
 --
@@ -83,6 +80,9 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 -- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
 --
 -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+--
+-- 'disableTemplateValidation', 'provisioningArtifactProperties_disableTemplateValidation' - If set to true, AWS Service Catalog stops validating the specified
+-- provisioning artifact even if it is invalid.
 --
 -- 'description', 'provisioningArtifactProperties_description' - The description of the provisioning artifact, including how it differs
 -- from the previous provisioning artifact.
@@ -103,18 +103,13 @@ newProvisioningArtifactProperties ::
   ProvisioningArtifactProperties
 newProvisioningArtifactProperties =
   ProvisioningArtifactProperties'
-    { disableTemplateValidation =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing,
       type' = Prelude.Nothing,
+      disableTemplateValidation = Prelude.Nothing,
       description = Prelude.Nothing,
       info = Prelude.mempty
     }
-
--- | If set to true, AWS Service Catalog stops validating the specified
--- provisioning artifact even if it is invalid.
-provisioningArtifactProperties_disableTemplateValidation :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Bool)
-provisioningArtifactProperties_disableTemplateValidation = Lens.lens (\ProvisioningArtifactProperties' {disableTemplateValidation} -> disableTemplateValidation) (\s@ProvisioningArtifactProperties' {} a -> s {disableTemplateValidation = a} :: ProvisioningArtifactProperties)
 
 -- | The name of the provisioning artifact (for example, v1 v2beta). No
 -- spaces are allowed.
@@ -130,6 +125,11 @@ provisioningArtifactProperties_name = Lens.lens (\ProvisioningArtifactProperties
 -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
 provisioningArtifactProperties_type :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe ProvisioningArtifactType)
 provisioningArtifactProperties_type = Lens.lens (\ProvisioningArtifactProperties' {type'} -> type') (\s@ProvisioningArtifactProperties' {} a -> s {type' = a} :: ProvisioningArtifactProperties)
+
+-- | If set to true, AWS Service Catalog stops validating the specified
+-- provisioning artifact even if it is invalid.
+provisioningArtifactProperties_disableTemplateValidation :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Bool)
+provisioningArtifactProperties_disableTemplateValidation = Lens.lens (\ProvisioningArtifactProperties' {disableTemplateValidation} -> disableTemplateValidation) (\s@ProvisioningArtifactProperties' {} a -> s {disableTemplateValidation = a} :: ProvisioningArtifactProperties)
 
 -- | The description of the provisioning artifact, including how it differs
 -- from the previous provisioning artifact.
@@ -158,10 +158,9 @@ instance
   hashWithSalt
     _salt
     ProvisioningArtifactProperties' {..} =
-      _salt
-        `Prelude.hashWithSalt` disableTemplateValidation
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` disableTemplateValidation
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` info
 
@@ -170,9 +169,9 @@ instance
     ProvisioningArtifactProperties
   where
   rnf ProvisioningArtifactProperties' {..} =
-    Prelude.rnf disableTemplateValidation
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf disableTemplateValidation
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf info
 
@@ -180,10 +179,10 @@ instance Core.ToJSON ProvisioningArtifactProperties where
   toJSON ProvisioningArtifactProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DisableTemplateValidation" Core..=)
-              Prelude.<$> disableTemplateValidation,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("Type" Core..=) Prelude.<$> type',
+            ("DisableTemplateValidation" Core..=)
+              Prelude.<$> disableTemplateValidation,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Info" Core..= info)
           ]

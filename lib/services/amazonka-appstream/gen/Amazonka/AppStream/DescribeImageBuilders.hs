@@ -40,8 +40,8 @@ module Amazonka.AppStream.DescribeImageBuilders
     newDescribeImageBuildersResponse,
 
     -- * Response Lenses
-    describeImageBuildersResponse_imageBuilders,
     describeImageBuildersResponse_nextToken,
+    describeImageBuildersResponse_imageBuilders,
     describeImageBuildersResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest DescribeImageBuilders where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageBuildersResponse'
-            Prelude.<$> (x Core..?> "ImageBuilders" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ImageBuilders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,11 +182,11 @@ instance Core.ToQuery DescribeImageBuilders where
 
 -- | /See:/ 'newDescribeImageBuildersResponse' smart constructor.
 data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
-  { -- | Information about the image builders.
-    imageBuilders :: Prelude.Maybe [ImageBuilder],
-    -- | The pagination token to use to retrieve the next page of results for
+  { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the image builders.
+    imageBuilders :: Prelude.Maybe [ImageBuilder],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,10 +200,10 @@ data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageBuilders', 'describeImageBuildersResponse_imageBuilders' - Information about the image builders.
---
 -- 'nextToken', 'describeImageBuildersResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
+--
+-- 'imageBuilders', 'describeImageBuildersResponse_imageBuilders' - Information about the image builders.
 --
 -- 'httpStatus', 'describeImageBuildersResponse_httpStatus' - The response's http status code.
 newDescribeImageBuildersResponse ::
@@ -212,20 +212,20 @@ newDescribeImageBuildersResponse ::
   DescribeImageBuildersResponse
 newDescribeImageBuildersResponse pHttpStatus_ =
   DescribeImageBuildersResponse'
-    { imageBuilders =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      imageBuilders = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the image builders.
-describeImageBuildersResponse_imageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe [ImageBuilder])
-describeImageBuildersResponse_imageBuilders = Lens.lens (\DescribeImageBuildersResponse' {imageBuilders} -> imageBuilders) (\s@DescribeImageBuildersResponse' {} a -> s {imageBuilders = a} :: DescribeImageBuildersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 describeImageBuildersResponse_nextToken :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe Prelude.Text)
 describeImageBuildersResponse_nextToken = Lens.lens (\DescribeImageBuildersResponse' {nextToken} -> nextToken) (\s@DescribeImageBuildersResponse' {} a -> s {nextToken = a} :: DescribeImageBuildersResponse)
+
+-- | Information about the image builders.
+describeImageBuildersResponse_imageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe [ImageBuilder])
+describeImageBuildersResponse_imageBuilders = Lens.lens (\DescribeImageBuildersResponse' {imageBuilders} -> imageBuilders) (\s@DescribeImageBuildersResponse' {} a -> s {imageBuilders = a} :: DescribeImageBuildersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeImageBuildersResponse_httpStatus :: Lens.Lens' DescribeImageBuildersResponse Prelude.Int
@@ -233,6 +233,6 @@ describeImageBuildersResponse_httpStatus = Lens.lens (\DescribeImageBuildersResp
 
 instance Prelude.NFData DescribeImageBuildersResponse where
   rnf DescribeImageBuildersResponse' {..} =
-    Prelude.rnf imageBuilders
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf imageBuilders
       `Prelude.seq` Prelude.rnf httpStatus

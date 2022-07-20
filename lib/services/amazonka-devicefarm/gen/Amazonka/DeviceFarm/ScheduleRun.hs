@@ -27,11 +27,11 @@ module Amazonka.DeviceFarm.ScheduleRun
     newScheduleRun,
 
     -- * Request Lenses
-    scheduleRun_executionConfiguration,
-    scheduleRun_deviceSelectionConfiguration,
-    scheduleRun_appArn,
     scheduleRun_name,
+    scheduleRun_deviceSelectionConfiguration,
     scheduleRun_configuration,
+    scheduleRun_executionConfiguration,
+    scheduleRun_appArn,
     scheduleRun_devicePoolArn,
     scheduleRun_projectArn,
     scheduleRun_test,
@@ -57,22 +57,22 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newScheduleRun' smart constructor.
 data ScheduleRun = ScheduleRun'
-  { -- | Specifies configuration information about a test run, such as the
-    -- execution timeout (in minutes).
-    executionConfiguration :: Prelude.Maybe ExecutionConfiguration,
+  { -- | The name for the run to be scheduled.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The filter criteria used to dynamically select a set of devices for a
     -- test run and the maximum number of devices to be included in the run.
     --
     -- Either __@devicePoolArn@__ or __@deviceSelectionConfiguration@__ is
     -- required in a request.
     deviceSelectionConfiguration :: Prelude.Maybe DeviceSelectionConfiguration,
+    -- | Information about the settings for the run to be scheduled.
+    configuration :: Prelude.Maybe ScheduleRunConfiguration,
+    -- | Specifies configuration information about a test run, such as the
+    -- execution timeout (in minutes).
+    executionConfiguration :: Prelude.Maybe ExecutionConfiguration,
     -- | The ARN of an application package to run tests against, created with
     -- CreateUpload. See ListUploads.
     appArn :: Prelude.Maybe Prelude.Text,
-    -- | The name for the run to be scheduled.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Information about the settings for the run to be scheduled.
-    configuration :: Prelude.Maybe ScheduleRunConfiguration,
     -- | The ARN of the device pool for the run to be scheduled.
     devicePoolArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the project for the run to be scheduled.
@@ -90,8 +90,7 @@ data ScheduleRun = ScheduleRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionConfiguration', 'scheduleRun_executionConfiguration' - Specifies configuration information about a test run, such as the
--- execution timeout (in minutes).
+-- 'name', 'scheduleRun_name' - The name for the run to be scheduled.
 --
 -- 'deviceSelectionConfiguration', 'scheduleRun_deviceSelectionConfiguration' - The filter criteria used to dynamically select a set of devices for a
 -- test run and the maximum number of devices to be included in the run.
@@ -99,12 +98,13 @@ data ScheduleRun = ScheduleRun'
 -- Either __@devicePoolArn@__ or __@deviceSelectionConfiguration@__ is
 -- required in a request.
 --
+-- 'configuration', 'scheduleRun_configuration' - Information about the settings for the run to be scheduled.
+--
+-- 'executionConfiguration', 'scheduleRun_executionConfiguration' - Specifies configuration information about a test run, such as the
+-- execution timeout (in minutes).
+--
 -- 'appArn', 'scheduleRun_appArn' - The ARN of an application package to run tests against, created with
 -- CreateUpload. See ListUploads.
---
--- 'name', 'scheduleRun_name' - The name for the run to be scheduled.
---
--- 'configuration', 'scheduleRun_configuration' - Information about the settings for the run to be scheduled.
 --
 -- 'devicePoolArn', 'scheduleRun_devicePoolArn' - The ARN of the device pool for the run to be scheduled.
 --
@@ -119,21 +119,19 @@ newScheduleRun ::
   ScheduleRun
 newScheduleRun pProjectArn_ pTest_ =
   ScheduleRun'
-    { executionConfiguration =
-        Prelude.Nothing,
+    { name = Prelude.Nothing,
       deviceSelectionConfiguration = Prelude.Nothing,
-      appArn = Prelude.Nothing,
-      name = Prelude.Nothing,
       configuration = Prelude.Nothing,
+      executionConfiguration = Prelude.Nothing,
+      appArn = Prelude.Nothing,
       devicePoolArn = Prelude.Nothing,
       projectArn = pProjectArn_,
       test = pTest_
     }
 
--- | Specifies configuration information about a test run, such as the
--- execution timeout (in minutes).
-scheduleRun_executionConfiguration :: Lens.Lens' ScheduleRun (Prelude.Maybe ExecutionConfiguration)
-scheduleRun_executionConfiguration = Lens.lens (\ScheduleRun' {executionConfiguration} -> executionConfiguration) (\s@ScheduleRun' {} a -> s {executionConfiguration = a} :: ScheduleRun)
+-- | The name for the run to be scheduled.
+scheduleRun_name :: Lens.Lens' ScheduleRun (Prelude.Maybe Prelude.Text)
+scheduleRun_name = Lens.lens (\ScheduleRun' {name} -> name) (\s@ScheduleRun' {} a -> s {name = a} :: ScheduleRun)
 
 -- | The filter criteria used to dynamically select a set of devices for a
 -- test run and the maximum number of devices to be included in the run.
@@ -143,18 +141,19 @@ scheduleRun_executionConfiguration = Lens.lens (\ScheduleRun' {executionConfigur
 scheduleRun_deviceSelectionConfiguration :: Lens.Lens' ScheduleRun (Prelude.Maybe DeviceSelectionConfiguration)
 scheduleRun_deviceSelectionConfiguration = Lens.lens (\ScheduleRun' {deviceSelectionConfiguration} -> deviceSelectionConfiguration) (\s@ScheduleRun' {} a -> s {deviceSelectionConfiguration = a} :: ScheduleRun)
 
+-- | Information about the settings for the run to be scheduled.
+scheduleRun_configuration :: Lens.Lens' ScheduleRun (Prelude.Maybe ScheduleRunConfiguration)
+scheduleRun_configuration = Lens.lens (\ScheduleRun' {configuration} -> configuration) (\s@ScheduleRun' {} a -> s {configuration = a} :: ScheduleRun)
+
+-- | Specifies configuration information about a test run, such as the
+-- execution timeout (in minutes).
+scheduleRun_executionConfiguration :: Lens.Lens' ScheduleRun (Prelude.Maybe ExecutionConfiguration)
+scheduleRun_executionConfiguration = Lens.lens (\ScheduleRun' {executionConfiguration} -> executionConfiguration) (\s@ScheduleRun' {} a -> s {executionConfiguration = a} :: ScheduleRun)
+
 -- | The ARN of an application package to run tests against, created with
 -- CreateUpload. See ListUploads.
 scheduleRun_appArn :: Lens.Lens' ScheduleRun (Prelude.Maybe Prelude.Text)
 scheduleRun_appArn = Lens.lens (\ScheduleRun' {appArn} -> appArn) (\s@ScheduleRun' {} a -> s {appArn = a} :: ScheduleRun)
-
--- | The name for the run to be scheduled.
-scheduleRun_name :: Lens.Lens' ScheduleRun (Prelude.Maybe Prelude.Text)
-scheduleRun_name = Lens.lens (\ScheduleRun' {name} -> name) (\s@ScheduleRun' {} a -> s {name = a} :: ScheduleRun)
-
--- | Information about the settings for the run to be scheduled.
-scheduleRun_configuration :: Lens.Lens' ScheduleRun (Prelude.Maybe ScheduleRunConfiguration)
-scheduleRun_configuration = Lens.lens (\ScheduleRun' {configuration} -> configuration) (\s@ScheduleRun' {} a -> s {configuration = a} :: ScheduleRun)
 
 -- | The ARN of the device pool for the run to be scheduled.
 scheduleRun_devicePoolArn :: Lens.Lens' ScheduleRun (Prelude.Maybe Prelude.Text)
@@ -181,22 +180,22 @@ instance Core.AWSRequest ScheduleRun where
 
 instance Prelude.Hashable ScheduleRun where
   hashWithSalt _salt ScheduleRun' {..} =
-    _salt `Prelude.hashWithSalt` executionConfiguration
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` deviceSelectionConfiguration
-      `Prelude.hashWithSalt` appArn
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` executionConfiguration
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` devicePoolArn
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` test
 
 instance Prelude.NFData ScheduleRun where
   rnf ScheduleRun' {..} =
-    Prelude.rnf executionConfiguration
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf deviceSelectionConfiguration
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf executionConfiguration
+      `Prelude.seq` Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf devicePoolArn
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf test
@@ -220,13 +219,13 @@ instance Core.ToJSON ScheduleRun where
   toJSON ScheduleRun' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("executionConfiguration" Core..=)
-              Prelude.<$> executionConfiguration,
+          [ ("name" Core..=) Prelude.<$> name,
             ("deviceSelectionConfiguration" Core..=)
               Prelude.<$> deviceSelectionConfiguration,
-            ("appArn" Core..=) Prelude.<$> appArn,
-            ("name" Core..=) Prelude.<$> name,
             ("configuration" Core..=) Prelude.<$> configuration,
+            ("executionConfiguration" Core..=)
+              Prelude.<$> executionConfiguration,
+            ("appArn" Core..=) Prelude.<$> appArn,
             ("devicePoolArn" Core..=) Prelude.<$> devicePoolArn,
             Prelude.Just ("projectArn" Core..= projectArn),
             Prelude.Just ("test" Core..= test)

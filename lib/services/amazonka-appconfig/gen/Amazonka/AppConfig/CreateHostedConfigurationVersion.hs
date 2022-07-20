@@ -39,10 +39,10 @@ module Amazonka.AppConfig.CreateHostedConfigurationVersion
     newHostedConfigurationVersion,
 
     -- * Response Lenses
-    hostedConfigurationVersion_content,
+    hostedConfigurationVersion_description,
     hostedConfigurationVersion_versionNumber,
     hostedConfigurationVersion_applicationId,
-    hostedConfigurationVersion_description,
+    hostedConfigurationVersion_content,
     hostedConfigurationVersion_configurationProfileId,
     hostedConfigurationVersion_contentType,
   )
@@ -172,10 +172,10 @@ instance
     Response.receiveBytes
       ( \s h x ->
           HostedConfigurationVersion'
-            Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<$> (h Core..#? "Description")
             Prelude.<*> (h Core..#? "Version-Number")
             Prelude.<*> (h Core..#? "Application-Id")
-            Prelude.<*> (h Core..#? "Description")
+            Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (h Core..#? "Configuration-Profile-Id")
             Prelude.<*> (h Core..#? "Content-Type")
       )

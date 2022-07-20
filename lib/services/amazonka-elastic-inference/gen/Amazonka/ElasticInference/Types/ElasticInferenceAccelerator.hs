@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newElasticInferenceAccelerator' smart constructor.
 data ElasticInferenceAccelerator = ElasticInferenceAccelerator'
-  { -- | The type of the Elastic Inference Accelerator.
+  { -- | The health of the Elastic Inference Accelerator.
+    acceleratorHealth :: Prelude.Maybe ElasticInferenceAcceleratorHealth,
+    -- | The type of the Elastic Inference Accelerator.
     acceleratorType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Elastic Inference Accelerator.
-    acceleratorId :: Prelude.Maybe Prelude.Text,
+    -- | The availability zone where the Elastic Inference Accelerator is
+    -- present.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource that the Elastic Inference Accelerator is
     -- attached to.
     attachedResource :: Prelude.Maybe Prelude.Text,
-    -- | The health of the Elastic Inference Accelerator.
-    acceleratorHealth :: Prelude.Maybe ElasticInferenceAcceleratorHealth,
-    -- | The availability zone where the Elastic Inference Accelerator is
-    -- present.
-    availabilityZone :: Prelude.Maybe Prelude.Text
+    -- | The ID of the Elastic Inference Accelerator.
+    acceleratorId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,50 +51,50 @@ data ElasticInferenceAccelerator = ElasticInferenceAccelerator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'acceleratorHealth', 'elasticInferenceAccelerator_acceleratorHealth' - The health of the Elastic Inference Accelerator.
+--
 -- 'acceleratorType', 'elasticInferenceAccelerator_acceleratorType' - The type of the Elastic Inference Accelerator.
 --
--- 'acceleratorId', 'elasticInferenceAccelerator_acceleratorId' - The ID of the Elastic Inference Accelerator.
+-- 'availabilityZone', 'elasticInferenceAccelerator_availabilityZone' - The availability zone where the Elastic Inference Accelerator is
+-- present.
 --
 -- 'attachedResource', 'elasticInferenceAccelerator_attachedResource' - The ARN of the resource that the Elastic Inference Accelerator is
 -- attached to.
 --
--- 'acceleratorHealth', 'elasticInferenceAccelerator_acceleratorHealth' - The health of the Elastic Inference Accelerator.
---
--- 'availabilityZone', 'elasticInferenceAccelerator_availabilityZone' - The availability zone where the Elastic Inference Accelerator is
--- present.
+-- 'acceleratorId', 'elasticInferenceAccelerator_acceleratorId' - The ID of the Elastic Inference Accelerator.
 newElasticInferenceAccelerator ::
   ElasticInferenceAccelerator
 newElasticInferenceAccelerator =
   ElasticInferenceAccelerator'
-    { acceleratorType =
+    { acceleratorHealth =
         Prelude.Nothing,
-      acceleratorId = Prelude.Nothing,
+      acceleratorType = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
       attachedResource = Prelude.Nothing,
-      acceleratorHealth = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing
+      acceleratorId = Prelude.Nothing
     }
+
+-- | The health of the Elastic Inference Accelerator.
+elasticInferenceAccelerator_acceleratorHealth :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe ElasticInferenceAcceleratorHealth)
+elasticInferenceAccelerator_acceleratorHealth = Lens.lens (\ElasticInferenceAccelerator' {acceleratorHealth} -> acceleratorHealth) (\s@ElasticInferenceAccelerator' {} a -> s {acceleratorHealth = a} :: ElasticInferenceAccelerator)
 
 -- | The type of the Elastic Inference Accelerator.
 elasticInferenceAccelerator_acceleratorType :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe Prelude.Text)
 elasticInferenceAccelerator_acceleratorType = Lens.lens (\ElasticInferenceAccelerator' {acceleratorType} -> acceleratorType) (\s@ElasticInferenceAccelerator' {} a -> s {acceleratorType = a} :: ElasticInferenceAccelerator)
 
--- | The ID of the Elastic Inference Accelerator.
-elasticInferenceAccelerator_acceleratorId :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe Prelude.Text)
-elasticInferenceAccelerator_acceleratorId = Lens.lens (\ElasticInferenceAccelerator' {acceleratorId} -> acceleratorId) (\s@ElasticInferenceAccelerator' {} a -> s {acceleratorId = a} :: ElasticInferenceAccelerator)
+-- | The availability zone where the Elastic Inference Accelerator is
+-- present.
+elasticInferenceAccelerator_availabilityZone :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe Prelude.Text)
+elasticInferenceAccelerator_availabilityZone = Lens.lens (\ElasticInferenceAccelerator' {availabilityZone} -> availabilityZone) (\s@ElasticInferenceAccelerator' {} a -> s {availabilityZone = a} :: ElasticInferenceAccelerator)
 
 -- | The ARN of the resource that the Elastic Inference Accelerator is
 -- attached to.
 elasticInferenceAccelerator_attachedResource :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe Prelude.Text)
 elasticInferenceAccelerator_attachedResource = Lens.lens (\ElasticInferenceAccelerator' {attachedResource} -> attachedResource) (\s@ElasticInferenceAccelerator' {} a -> s {attachedResource = a} :: ElasticInferenceAccelerator)
 
--- | The health of the Elastic Inference Accelerator.
-elasticInferenceAccelerator_acceleratorHealth :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe ElasticInferenceAcceleratorHealth)
-elasticInferenceAccelerator_acceleratorHealth = Lens.lens (\ElasticInferenceAccelerator' {acceleratorHealth} -> acceleratorHealth) (\s@ElasticInferenceAccelerator' {} a -> s {acceleratorHealth = a} :: ElasticInferenceAccelerator)
-
--- | The availability zone where the Elastic Inference Accelerator is
--- present.
-elasticInferenceAccelerator_availabilityZone :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe Prelude.Text)
-elasticInferenceAccelerator_availabilityZone = Lens.lens (\ElasticInferenceAccelerator' {availabilityZone} -> availabilityZone) (\s@ElasticInferenceAccelerator' {} a -> s {availabilityZone = a} :: ElasticInferenceAccelerator)
+-- | The ID of the Elastic Inference Accelerator.
+elasticInferenceAccelerator_acceleratorId :: Lens.Lens' ElasticInferenceAccelerator (Prelude.Maybe Prelude.Text)
+elasticInferenceAccelerator_acceleratorId = Lens.lens (\ElasticInferenceAccelerator' {acceleratorId} -> acceleratorId) (\s@ElasticInferenceAccelerator' {} a -> s {acceleratorId = a} :: ElasticInferenceAccelerator)
 
 instance Core.FromJSON ElasticInferenceAccelerator where
   parseJSON =
@@ -102,25 +102,25 @@ instance Core.FromJSON ElasticInferenceAccelerator where
       "ElasticInferenceAccelerator"
       ( \x ->
           ElasticInferenceAccelerator'
-            Prelude.<$> (x Core..:? "acceleratorType")
-            Prelude.<*> (x Core..:? "acceleratorId")
-            Prelude.<*> (x Core..:? "attachedResource")
-            Prelude.<*> (x Core..:? "acceleratorHealth")
+            Prelude.<$> (x Core..:? "acceleratorHealth")
+            Prelude.<*> (x Core..:? "acceleratorType")
             Prelude.<*> (x Core..:? "availabilityZone")
+            Prelude.<*> (x Core..:? "attachedResource")
+            Prelude.<*> (x Core..:? "acceleratorId")
       )
 
 instance Prelude.Hashable ElasticInferenceAccelerator where
   hashWithSalt _salt ElasticInferenceAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorType
-      `Prelude.hashWithSalt` acceleratorId
-      `Prelude.hashWithSalt` attachedResource
-      `Prelude.hashWithSalt` acceleratorHealth
+    _salt `Prelude.hashWithSalt` acceleratorHealth
+      `Prelude.hashWithSalt` acceleratorType
       `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` attachedResource
+      `Prelude.hashWithSalt` acceleratorId
 
 instance Prelude.NFData ElasticInferenceAccelerator where
   rnf ElasticInferenceAccelerator' {..} =
-    Prelude.rnf acceleratorType
-      `Prelude.seq` Prelude.rnf acceleratorId
-      `Prelude.seq` Prelude.rnf attachedResource
-      `Prelude.seq` Prelude.rnf acceleratorHealth
+    Prelude.rnf acceleratorHealth
+      `Prelude.seq` Prelude.rnf acceleratorType
       `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf attachedResource
+      `Prelude.seq` Prelude.rnf acceleratorId

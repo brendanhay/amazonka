@@ -32,25 +32,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyComplianceDetail' smart constructor.
 data PolicyComplianceDetail = PolicyComplianceDetail'
-  { -- | A timestamp that indicates when the returned information should be
-    -- considered out of date.
-    expiredAt :: Prelude.Maybe Core.POSIX,
+  { -- | Indicates if over 100 resources are noncompliant with the Firewall
+    -- Manager policy.
+    evaluationLimitExceeded :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Firewall Manager policy.
     policyId :: Prelude.Maybe Prelude.Text,
     -- | An array of resources that aren\'t protected by the WAF or Shield
     -- Advanced policy or that aren\'t in compliance with the security group
     -- policy.
     violators :: Prelude.Maybe [ComplianceViolator],
-    -- | Indicates if over 100 resources are noncompliant with the Firewall
-    -- Manager policy.
-    evaluationLimitExceeded :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Web Services account that created the Firewall Manager
+    -- policy.
+    policyOwner :: Prelude.Maybe Prelude.Text,
     -- | Details about problems with dependent services, such as WAF or Config,
     -- and the error message received that indicates the problem with the
     -- service.
     issueInfoMap :: Prelude.Maybe (Prelude.HashMap DependentServiceName Prelude.Text),
-    -- | The Amazon Web Services account that created the Firewall Manager
-    -- policy.
-    policyOwner :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that indicates when the returned information should be
+    -- considered out of date.
+    expiredAt :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Web Services account ID.
     memberAccount :: Prelude.Maybe Prelude.Text
   }
@@ -64,8 +64,8 @@ data PolicyComplianceDetail = PolicyComplianceDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expiredAt', 'policyComplianceDetail_expiredAt' - A timestamp that indicates when the returned information should be
--- considered out of date.
+-- 'evaluationLimitExceeded', 'policyComplianceDetail_evaluationLimitExceeded' - Indicates if over 100 resources are noncompliant with the Firewall
+-- Manager policy.
 --
 -- 'policyId', 'policyComplianceDetail_policyId' - The ID of the Firewall Manager policy.
 --
@@ -73,35 +73,35 @@ data PolicyComplianceDetail = PolicyComplianceDetail'
 -- Advanced policy or that aren\'t in compliance with the security group
 -- policy.
 --
--- 'evaluationLimitExceeded', 'policyComplianceDetail_evaluationLimitExceeded' - Indicates if over 100 resources are noncompliant with the Firewall
--- Manager policy.
+-- 'policyOwner', 'policyComplianceDetail_policyOwner' - The Amazon Web Services account that created the Firewall Manager
+-- policy.
 --
 -- 'issueInfoMap', 'policyComplianceDetail_issueInfoMap' - Details about problems with dependent services, such as WAF or Config,
 -- and the error message received that indicates the problem with the
 -- service.
 --
--- 'policyOwner', 'policyComplianceDetail_policyOwner' - The Amazon Web Services account that created the Firewall Manager
--- policy.
+-- 'expiredAt', 'policyComplianceDetail_expiredAt' - A timestamp that indicates when the returned information should be
+-- considered out of date.
 --
 -- 'memberAccount', 'policyComplianceDetail_memberAccount' - The Amazon Web Services account ID.
 newPolicyComplianceDetail ::
   PolicyComplianceDetail
 newPolicyComplianceDetail =
   PolicyComplianceDetail'
-    { expiredAt =
+    { evaluationLimitExceeded =
         Prelude.Nothing,
       policyId = Prelude.Nothing,
       violators = Prelude.Nothing,
-      evaluationLimitExceeded = Prelude.Nothing,
-      issueInfoMap = Prelude.Nothing,
       policyOwner = Prelude.Nothing,
+      issueInfoMap = Prelude.Nothing,
+      expiredAt = Prelude.Nothing,
       memberAccount = Prelude.Nothing
     }
 
--- | A timestamp that indicates when the returned information should be
--- considered out of date.
-policyComplianceDetail_expiredAt :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.UTCTime)
-policyComplianceDetail_expiredAt = Lens.lens (\PolicyComplianceDetail' {expiredAt} -> expiredAt) (\s@PolicyComplianceDetail' {} a -> s {expiredAt = a} :: PolicyComplianceDetail) Prelude.. Lens.mapping Core._Time
+-- | Indicates if over 100 resources are noncompliant with the Firewall
+-- Manager policy.
+policyComplianceDetail_evaluationLimitExceeded :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Bool)
+policyComplianceDetail_evaluationLimitExceeded = Lens.lens (\PolicyComplianceDetail' {evaluationLimitExceeded} -> evaluationLimitExceeded) (\s@PolicyComplianceDetail' {} a -> s {evaluationLimitExceeded = a} :: PolicyComplianceDetail)
 
 -- | The ID of the Firewall Manager policy.
 policyComplianceDetail_policyId :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Text)
@@ -113,10 +113,10 @@ policyComplianceDetail_policyId = Lens.lens (\PolicyComplianceDetail' {policyId}
 policyComplianceDetail_violators :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe [ComplianceViolator])
 policyComplianceDetail_violators = Lens.lens (\PolicyComplianceDetail' {violators} -> violators) (\s@PolicyComplianceDetail' {} a -> s {violators = a} :: PolicyComplianceDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates if over 100 resources are noncompliant with the Firewall
--- Manager policy.
-policyComplianceDetail_evaluationLimitExceeded :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Bool)
-policyComplianceDetail_evaluationLimitExceeded = Lens.lens (\PolicyComplianceDetail' {evaluationLimitExceeded} -> evaluationLimitExceeded) (\s@PolicyComplianceDetail' {} a -> s {evaluationLimitExceeded = a} :: PolicyComplianceDetail)
+-- | The Amazon Web Services account that created the Firewall Manager
+-- policy.
+policyComplianceDetail_policyOwner :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Text)
+policyComplianceDetail_policyOwner = Lens.lens (\PolicyComplianceDetail' {policyOwner} -> policyOwner) (\s@PolicyComplianceDetail' {} a -> s {policyOwner = a} :: PolicyComplianceDetail)
 
 -- | Details about problems with dependent services, such as WAF or Config,
 -- and the error message received that indicates the problem with the
@@ -124,10 +124,10 @@ policyComplianceDetail_evaluationLimitExceeded = Lens.lens (\PolicyComplianceDet
 policyComplianceDetail_issueInfoMap :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe (Prelude.HashMap DependentServiceName Prelude.Text))
 policyComplianceDetail_issueInfoMap = Lens.lens (\PolicyComplianceDetail' {issueInfoMap} -> issueInfoMap) (\s@PolicyComplianceDetail' {} a -> s {issueInfoMap = a} :: PolicyComplianceDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services account that created the Firewall Manager
--- policy.
-policyComplianceDetail_policyOwner :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Text)
-policyComplianceDetail_policyOwner = Lens.lens (\PolicyComplianceDetail' {policyOwner} -> policyOwner) (\s@PolicyComplianceDetail' {} a -> s {policyOwner = a} :: PolicyComplianceDetail)
+-- | A timestamp that indicates when the returned information should be
+-- considered out of date.
+policyComplianceDetail_expiredAt :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.UTCTime)
+policyComplianceDetail_expiredAt = Lens.lens (\PolicyComplianceDetail' {expiredAt} -> expiredAt) (\s@PolicyComplianceDetail' {} a -> s {expiredAt = a} :: PolicyComplianceDetail) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Web Services account ID.
 policyComplianceDetail_memberAccount :: Lens.Lens' PolicyComplianceDetail (Prelude.Maybe Prelude.Text)
@@ -139,31 +139,32 @@ instance Core.FromJSON PolicyComplianceDetail where
       "PolicyComplianceDetail"
       ( \x ->
           PolicyComplianceDetail'
-            Prelude.<$> (x Core..:? "ExpiredAt")
+            Prelude.<$> (x Core..:? "EvaluationLimitExceeded")
             Prelude.<*> (x Core..:? "PolicyId")
             Prelude.<*> (x Core..:? "Violators" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EvaluationLimitExceeded")
-            Prelude.<*> (x Core..:? "IssueInfoMap" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "PolicyOwner")
+            Prelude.<*> (x Core..:? "IssueInfoMap" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ExpiredAt")
             Prelude.<*> (x Core..:? "MemberAccount")
       )
 
 instance Prelude.Hashable PolicyComplianceDetail where
   hashWithSalt _salt PolicyComplianceDetail' {..} =
-    _salt `Prelude.hashWithSalt` expiredAt
+    _salt
+      `Prelude.hashWithSalt` evaluationLimitExceeded
       `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` violators
-      `Prelude.hashWithSalt` evaluationLimitExceeded
-      `Prelude.hashWithSalt` issueInfoMap
       `Prelude.hashWithSalt` policyOwner
+      `Prelude.hashWithSalt` issueInfoMap
+      `Prelude.hashWithSalt` expiredAt
       `Prelude.hashWithSalt` memberAccount
 
 instance Prelude.NFData PolicyComplianceDetail where
   rnf PolicyComplianceDetail' {..} =
-    Prelude.rnf expiredAt
+    Prelude.rnf evaluationLimitExceeded
       `Prelude.seq` Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf violators
-      `Prelude.seq` Prelude.rnf evaluationLimitExceeded
-      `Prelude.seq` Prelude.rnf issueInfoMap
       `Prelude.seq` Prelude.rnf policyOwner
+      `Prelude.seq` Prelude.rnf issueInfoMap
+      `Prelude.seq` Prelude.rnf expiredAt
       `Prelude.seq` Prelude.rnf memberAccount

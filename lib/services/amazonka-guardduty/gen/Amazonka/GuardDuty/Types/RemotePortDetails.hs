@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRemotePortDetails' smart constructor.
 data RemotePortDetails = RemotePortDetails'
-  { -- | The port name of the remote connection.
-    portName :: Prelude.Maybe Prelude.Text,
-    -- | The port number of the remote connection.
-    port :: Prelude.Maybe Prelude.Int
+  { -- | The port number of the remote connection.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The port name of the remote connection.
+    portName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data RemotePortDetails = RemotePortDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portName', 'remotePortDetails_portName' - The port name of the remote connection.
---
 -- 'port', 'remotePortDetails_port' - The port number of the remote connection.
+--
+-- 'portName', 'remotePortDetails_portName' - The port name of the remote connection.
 newRemotePortDetails ::
   RemotePortDetails
 newRemotePortDetails =
   RemotePortDetails'
-    { portName = Prelude.Nothing,
-      port = Prelude.Nothing
+    { port = Prelude.Nothing,
+      portName = Prelude.Nothing
     }
-
--- | The port name of the remote connection.
-remotePortDetails_portName :: Lens.Lens' RemotePortDetails (Prelude.Maybe Prelude.Text)
-remotePortDetails_portName = Lens.lens (\RemotePortDetails' {portName} -> portName) (\s@RemotePortDetails' {} a -> s {portName = a} :: RemotePortDetails)
 
 -- | The port number of the remote connection.
 remotePortDetails_port :: Lens.Lens' RemotePortDetails (Prelude.Maybe Prelude.Int)
 remotePortDetails_port = Lens.lens (\RemotePortDetails' {port} -> port) (\s@RemotePortDetails' {} a -> s {port = a} :: RemotePortDetails)
+
+-- | The port name of the remote connection.
+remotePortDetails_portName :: Lens.Lens' RemotePortDetails (Prelude.Maybe Prelude.Text)
+remotePortDetails_portName = Lens.lens (\RemotePortDetails' {portName} -> portName) (\s@RemotePortDetails' {} a -> s {portName = a} :: RemotePortDetails)
 
 instance Core.FromJSON RemotePortDetails where
   parseJSON =
@@ -67,15 +67,15 @@ instance Core.FromJSON RemotePortDetails where
       "RemotePortDetails"
       ( \x ->
           RemotePortDetails'
-            Prelude.<$> (x Core..:? "portName")
-            Prelude.<*> (x Core..:? "port")
+            Prelude.<$> (x Core..:? "port")
+            Prelude.<*> (x Core..:? "portName")
       )
 
 instance Prelude.Hashable RemotePortDetails where
   hashWithSalt _salt RemotePortDetails' {..} =
-    _salt `Prelude.hashWithSalt` portName
-      `Prelude.hashWithSalt` port
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` portName
 
 instance Prelude.NFData RemotePortDetails where
   rnf RemotePortDetails' {..} =
-    Prelude.rnf portName `Prelude.seq` Prelude.rnf port
+    Prelude.rnf port `Prelude.seq` Prelude.rnf portName

@@ -29,9 +29,9 @@ module Amazonka.ECRPublic.DescribeImageTags
     newDescribeImageTags,
 
     -- * Request Lenses
-    describeImageTags_registryId,
     describeImageTags_nextToken,
     describeImageTags_maxResults,
+    describeImageTags_registryId,
     describeImageTags_repositoryName,
 
     -- * Destructuring the Response
@@ -54,11 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImageTags' smart constructor.
 data DescribeImageTags = DescribeImageTags'
-  { -- | The AWS account ID associated with the public registry that contains the
-    -- repository in which to describe images. If you do not specify a
-    -- registry, the default public registry is assumed.
-    registryId :: Prelude.Maybe Prelude.Text,
-    -- | The @nextToken@ value returned from a previous paginated
+  { -- | The @nextToken@ value returned from a previous paginated
     -- @DescribeImageTags@ request where @maxResults@ was used and the results
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @nextToken@ value. This value
@@ -75,6 +71,10 @@ data DescribeImageTags = DescribeImageTags'
     -- results and a @nextToken@ value, if applicable. This option cannot be
     -- used when you specify images with @imageIds@.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The AWS account ID associated with the public registry that contains the
+    -- repository in which to describe images. If you do not specify a
+    -- registry, the default public registry is assumed.
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that contains the image tag details to
     -- describe.
     repositoryName :: Prelude.Text
@@ -88,10 +88,6 @@ data DescribeImageTags = DescribeImageTags'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'registryId', 'describeImageTags_registryId' - The AWS account ID associated with the public registry that contains the
--- repository in which to describe images. If you do not specify a
--- registry, the default public registry is assumed.
 --
 -- 'nextToken', 'describeImageTags_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @DescribeImageTags@ request where @maxResults@ was used and the results
@@ -110,6 +106,10 @@ data DescribeImageTags = DescribeImageTags'
 -- results and a @nextToken@ value, if applicable. This option cannot be
 -- used when you specify images with @imageIds@.
 --
+-- 'registryId', 'describeImageTags_registryId' - The AWS account ID associated with the public registry that contains the
+-- repository in which to describe images. If you do not specify a
+-- registry, the default public registry is assumed.
+--
 -- 'repositoryName', 'describeImageTags_repositoryName' - The name of the repository that contains the image tag details to
 -- describe.
 newDescribeImageTags ::
@@ -118,17 +118,11 @@ newDescribeImageTags ::
   DescribeImageTags
 newDescribeImageTags pRepositoryName_ =
   DescribeImageTags'
-    { registryId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      registryId = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
-
--- | The AWS account ID associated with the public registry that contains the
--- repository in which to describe images. If you do not specify a
--- registry, the default public registry is assumed.
-describeImageTags_registryId :: Lens.Lens' DescribeImageTags (Prelude.Maybe Prelude.Text)
-describeImageTags_registryId = Lens.lens (\DescribeImageTags' {registryId} -> registryId) (\s@DescribeImageTags' {} a -> s {registryId = a} :: DescribeImageTags)
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @DescribeImageTags@ request where @maxResults@ was used and the results
@@ -150,6 +144,12 @@ describeImageTags_nextToken = Lens.lens (\DescribeImageTags' {nextToken} -> next
 -- used when you specify images with @imageIds@.
 describeImageTags_maxResults :: Lens.Lens' DescribeImageTags (Prelude.Maybe Prelude.Natural)
 describeImageTags_maxResults = Lens.lens (\DescribeImageTags' {maxResults} -> maxResults) (\s@DescribeImageTags' {} a -> s {maxResults = a} :: DescribeImageTags)
+
+-- | The AWS account ID associated with the public registry that contains the
+-- repository in which to describe images. If you do not specify a
+-- registry, the default public registry is assumed.
+describeImageTags_registryId :: Lens.Lens' DescribeImageTags (Prelude.Maybe Prelude.Text)
+describeImageTags_registryId = Lens.lens (\DescribeImageTags' {registryId} -> registryId) (\s@DescribeImageTags' {} a -> s {registryId = a} :: DescribeImageTags)
 
 -- | The name of the repository that contains the image tag details to
 -- describe.
@@ -196,16 +196,16 @@ instance Core.AWSRequest DescribeImageTags where
 
 instance Prelude.Hashable DescribeImageTags where
   hashWithSalt _salt DescribeImageTags' {..} =
-    _salt `Prelude.hashWithSalt` registryId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData DescribeImageTags where
   rnf DescribeImageTags' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToHeaders DescribeImageTags where
@@ -227,9 +227,9 @@ instance Core.ToJSON DescribeImageTags where
   toJSON DescribeImageTags' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("registryId" Core..=) Prelude.<$> registryId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("registryId" Core..=) Prelude.<$> registryId,
             Prelude.Just
               ("repositoryName" Core..= repositoryName)
           ]

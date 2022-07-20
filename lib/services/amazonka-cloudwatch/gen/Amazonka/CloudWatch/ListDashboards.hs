@@ -37,16 +37,16 @@ module Amazonka.CloudWatch.ListDashboards
     newListDashboards,
 
     -- * Request Lenses
-    listDashboards_dashboardNamePrefix,
     listDashboards_nextToken,
+    listDashboards_dashboardNamePrefix,
 
     -- * Destructuring the Response
     ListDashboardsResponse (..),
     newListDashboardsResponse,
 
     -- * Response Lenses
-    listDashboardsResponse_dashboardEntries,
     listDashboardsResponse_nextToken,
+    listDashboardsResponse_dashboardEntries,
     listDashboardsResponse_httpStatus,
   )
 where
@@ -60,13 +60,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDashboards' smart constructor.
 data ListDashboards = ListDashboards'
-  { -- | If you specify this parameter, only the dashboards with names starting
+  { -- | The token returned by a previous call to indicate that there is more
+    -- data available.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | If you specify this parameter, only the dashboards with names starting
     -- with the specified string are listed. The maximum length is 255, and
     -- valid characters are A-Z, a-z, 0-9, \".\", \"-\", and \"_\".
-    dashboardNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | The token returned by a previous call to indicate that there is more
-    -- data available.
-    nextToken :: Prelude.Maybe Prelude.Text
+    dashboardNamePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,31 +78,30 @@ data ListDashboards = ListDashboards'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listDashboards_nextToken' - The token returned by a previous call to indicate that there is more
+-- data available.
+--
 -- 'dashboardNamePrefix', 'listDashboards_dashboardNamePrefix' - If you specify this parameter, only the dashboards with names starting
 -- with the specified string are listed. The maximum length is 255, and
 -- valid characters are A-Z, a-z, 0-9, \".\", \"-\", and \"_\".
---
--- 'nextToken', 'listDashboards_nextToken' - The token returned by a previous call to indicate that there is more
--- data available.
 newListDashboards ::
   ListDashboards
 newListDashboards =
   ListDashboards'
-    { dashboardNamePrefix =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      dashboardNamePrefix = Prelude.Nothing
     }
+
+-- | The token returned by a previous call to indicate that there is more
+-- data available.
+listDashboards_nextToken :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Text)
+listDashboards_nextToken = Lens.lens (\ListDashboards' {nextToken} -> nextToken) (\s@ListDashboards' {} a -> s {nextToken = a} :: ListDashboards)
 
 -- | If you specify this parameter, only the dashboards with names starting
 -- with the specified string are listed. The maximum length is 255, and
 -- valid characters are A-Z, a-z, 0-9, \".\", \"-\", and \"_\".
 listDashboards_dashboardNamePrefix :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Text)
 listDashboards_dashboardNamePrefix = Lens.lens (\ListDashboards' {dashboardNamePrefix} -> dashboardNamePrefix) (\s@ListDashboards' {} a -> s {dashboardNamePrefix = a} :: ListDashboards)
-
--- | The token returned by a previous call to indicate that there is more
--- data available.
-listDashboards_nextToken :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Text)
-listDashboards_nextToken = Lens.lens (\ListDashboards' {nextToken} -> nextToken) (\s@ListDashboards' {} a -> s {nextToken = a} :: ListDashboards)
 
 instance Core.AWSPager ListDashboards where
   page rq rs
@@ -135,23 +134,23 @@ instance Core.AWSRequest ListDashboards where
       "ListDashboardsResult"
       ( \s h x ->
           ListDashboardsResponse'
-            Prelude.<$> ( x Core..@? "DashboardEntries"
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "DashboardEntries"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDashboards where
   hashWithSalt _salt ListDashboards' {..} =
-    _salt `Prelude.hashWithSalt` dashboardNamePrefix
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` dashboardNamePrefix
 
 instance Prelude.NFData ListDashboards where
   rnf ListDashboards' {..} =
-    Prelude.rnf dashboardNamePrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dashboardNamePrefix
 
 instance Core.ToHeaders ListDashboards where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,16 +165,16 @@ instance Core.ToQuery ListDashboards where
           Core.=: ("ListDashboards" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "DashboardNamePrefix" Core.=: dashboardNamePrefix,
-        "NextToken" Core.=: nextToken
+        "NextToken" Core.=: nextToken,
+        "DashboardNamePrefix" Core.=: dashboardNamePrefix
       ]
 
 -- | /See:/ 'newListDashboardsResponse' smart constructor.
 data ListDashboardsResponse = ListDashboardsResponse'
-  { -- | The list of matching dashboards.
-    dashboardEntries :: Prelude.Maybe [DashboardEntry],
-    -- | The token that marks the start of the next batch of returned results.
+  { -- | The token that marks the start of the next batch of returned results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of matching dashboards.
+    dashboardEntries :: Prelude.Maybe [DashboardEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +188,9 @@ data ListDashboardsResponse = ListDashboardsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dashboardEntries', 'listDashboardsResponse_dashboardEntries' - The list of matching dashboards.
---
 -- 'nextToken', 'listDashboardsResponse_nextToken' - The token that marks the start of the next batch of returned results.
+--
+-- 'dashboardEntries', 'listDashboardsResponse_dashboardEntries' - The list of matching dashboards.
 --
 -- 'httpStatus', 'listDashboardsResponse_httpStatus' - The response's http status code.
 newListDashboardsResponse ::
@@ -200,19 +199,19 @@ newListDashboardsResponse ::
   ListDashboardsResponse
 newListDashboardsResponse pHttpStatus_ =
   ListDashboardsResponse'
-    { dashboardEntries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      dashboardEntries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of matching dashboards.
-listDashboardsResponse_dashboardEntries :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe [DashboardEntry])
-listDashboardsResponse_dashboardEntries = Lens.lens (\ListDashboardsResponse' {dashboardEntries} -> dashboardEntries) (\s@ListDashboardsResponse' {} a -> s {dashboardEntries = a} :: ListDashboardsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that marks the start of the next batch of returned results.
 listDashboardsResponse_nextToken :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe Prelude.Text)
 listDashboardsResponse_nextToken = Lens.lens (\ListDashboardsResponse' {nextToken} -> nextToken) (\s@ListDashboardsResponse' {} a -> s {nextToken = a} :: ListDashboardsResponse)
+
+-- | The list of matching dashboards.
+listDashboardsResponse_dashboardEntries :: Lens.Lens' ListDashboardsResponse (Prelude.Maybe [DashboardEntry])
+listDashboardsResponse_dashboardEntries = Lens.lens (\ListDashboardsResponse' {dashboardEntries} -> dashboardEntries) (\s@ListDashboardsResponse' {} a -> s {dashboardEntries = a} :: ListDashboardsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDashboardsResponse_httpStatus :: Lens.Lens' ListDashboardsResponse Prelude.Int
@@ -220,6 +219,6 @@ listDashboardsResponse_httpStatus = Lens.lens (\ListDashboardsResponse' {httpSta
 
 instance Prelude.NFData ListDashboardsResponse where
   rnf ListDashboardsResponse' {..} =
-    Prelude.rnf dashboardEntries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf dashboardEntries
       `Prelude.seq` Prelude.rnf httpStatus

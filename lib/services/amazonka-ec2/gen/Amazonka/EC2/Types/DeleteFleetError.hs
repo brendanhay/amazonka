@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFleetError' smart constructor.
 data DeleteFleetError = DeleteFleetError'
-  { -- | The error code.
-    code :: Prelude.Maybe DeleteFleetErrorCode,
-    -- | The description for the error code.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The description for the error code.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    code :: Prelude.Maybe DeleteFleetErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,36 +44,36 @@ data DeleteFleetError = DeleteFleetError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'deleteFleetError_code' - The error code.
---
 -- 'message', 'deleteFleetError_message' - The description for the error code.
+--
+-- 'code', 'deleteFleetError_code' - The error code.
 newDeleteFleetError ::
   DeleteFleetError
 newDeleteFleetError =
   DeleteFleetError'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The error code.
-deleteFleetError_code :: Lens.Lens' DeleteFleetError (Prelude.Maybe DeleteFleetErrorCode)
-deleteFleetError_code = Lens.lens (\DeleteFleetError' {code} -> code) (\s@DeleteFleetError' {} a -> s {code = a} :: DeleteFleetError)
 
 -- | The description for the error code.
 deleteFleetError_message :: Lens.Lens' DeleteFleetError (Prelude.Maybe Prelude.Text)
 deleteFleetError_message = Lens.lens (\DeleteFleetError' {message} -> message) (\s@DeleteFleetError' {} a -> s {message = a} :: DeleteFleetError)
 
+-- | The error code.
+deleteFleetError_code :: Lens.Lens' DeleteFleetError (Prelude.Maybe DeleteFleetErrorCode)
+deleteFleetError_code = Lens.lens (\DeleteFleetError' {code} -> code) (\s@DeleteFleetError' {} a -> s {code = a} :: DeleteFleetError)
+
 instance Core.FromXML DeleteFleetError where
   parseXML x =
     DeleteFleetError'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance Prelude.Hashable DeleteFleetError where
   hashWithSalt _salt DeleteFleetError' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData DeleteFleetError where
   rnf DeleteFleetError' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

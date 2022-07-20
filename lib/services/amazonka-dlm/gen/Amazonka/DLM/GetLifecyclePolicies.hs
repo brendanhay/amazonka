@@ -30,9 +30,9 @@ module Amazonka.DLM.GetLifecyclePolicies
     newGetLifecyclePolicies,
 
     -- * Request Lenses
-    getLifecyclePolicies_state,
-    getLifecyclePolicies_targetTags,
     getLifecyclePolicies_tagsToAdd,
+    getLifecyclePolicies_targetTags,
+    getLifecyclePolicies_state,
     getLifecyclePolicies_policyIds,
     getLifecyclePolicies_resourceTypes,
 
@@ -55,19 +55,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLifecyclePolicies' smart constructor.
 data GetLifecyclePolicies = GetLifecyclePolicies'
-  { -- | The activation state.
-    state :: Prelude.Maybe GettablePolicyStateValues,
-    -- | The target tag for a policy.
-    --
-    -- Tags are strings in the format @key=value@.
-    targetTags :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The tags to add to objects created by the policy.
+  { -- | The tags to add to objects created by the policy.
     --
     -- Tags are strings in the format @key=value@.
     --
     -- These user-defined tags are added in addition to the Amazon Web
     -- Services-added lifecycle tags.
     tagsToAdd :: Prelude.Maybe [Prelude.Text],
+    -- | The target tag for a policy.
+    --
+    -- Tags are strings in the format @key=value@.
+    targetTags :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The activation state.
+    state :: Prelude.Maybe GettablePolicyStateValues,
     -- | The identifiers of the data lifecycle policies.
     policyIds :: Prelude.Maybe [Prelude.Text],
     -- | The resource type.
@@ -83,18 +83,18 @@ data GetLifecyclePolicies = GetLifecyclePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'getLifecyclePolicies_state' - The activation state.
---
--- 'targetTags', 'getLifecyclePolicies_targetTags' - The target tag for a policy.
---
--- Tags are strings in the format @key=value@.
---
 -- 'tagsToAdd', 'getLifecyclePolicies_tagsToAdd' - The tags to add to objects created by the policy.
 --
 -- Tags are strings in the format @key=value@.
 --
 -- These user-defined tags are added in addition to the Amazon Web
 -- Services-added lifecycle tags.
+--
+-- 'targetTags', 'getLifecyclePolicies_targetTags' - The target tag for a policy.
+--
+-- Tags are strings in the format @key=value@.
+--
+-- 'state', 'getLifecyclePolicies_state' - The activation state.
 --
 -- 'policyIds', 'getLifecyclePolicies_policyIds' - The identifiers of the data lifecycle policies.
 --
@@ -103,22 +103,12 @@ newGetLifecyclePolicies ::
   GetLifecyclePolicies
 newGetLifecyclePolicies =
   GetLifecyclePolicies'
-    { state = Prelude.Nothing,
+    { tagsToAdd = Prelude.Nothing,
       targetTags = Prelude.Nothing,
-      tagsToAdd = Prelude.Nothing,
+      state = Prelude.Nothing,
       policyIds = Prelude.Nothing,
       resourceTypes = Prelude.Nothing
     }
-
--- | The activation state.
-getLifecyclePolicies_state :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe GettablePolicyStateValues)
-getLifecyclePolicies_state = Lens.lens (\GetLifecyclePolicies' {state} -> state) (\s@GetLifecyclePolicies' {} a -> s {state = a} :: GetLifecyclePolicies)
-
--- | The target tag for a policy.
---
--- Tags are strings in the format @key=value@.
-getLifecyclePolicies_targetTags :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getLifecyclePolicies_targetTags = Lens.lens (\GetLifecyclePolicies' {targetTags} -> targetTags) (\s@GetLifecyclePolicies' {} a -> s {targetTags = a} :: GetLifecyclePolicies) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tags to add to objects created by the policy.
 --
@@ -128,6 +118,16 @@ getLifecyclePolicies_targetTags = Lens.lens (\GetLifecyclePolicies' {targetTags}
 -- Services-added lifecycle tags.
 getLifecyclePolicies_tagsToAdd :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe [Prelude.Text])
 getLifecyclePolicies_tagsToAdd = Lens.lens (\GetLifecyclePolicies' {tagsToAdd} -> tagsToAdd) (\s@GetLifecyclePolicies' {} a -> s {tagsToAdd = a} :: GetLifecyclePolicies) Prelude.. Lens.mapping Lens.coerced
+
+-- | The target tag for a policy.
+--
+-- Tags are strings in the format @key=value@.
+getLifecyclePolicies_targetTags :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getLifecyclePolicies_targetTags = Lens.lens (\GetLifecyclePolicies' {targetTags} -> targetTags) (\s@GetLifecyclePolicies' {} a -> s {targetTags = a} :: GetLifecyclePolicies) Prelude.. Lens.mapping Lens.coerced
+
+-- | The activation state.
+getLifecyclePolicies_state :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe GettablePolicyStateValues)
+getLifecyclePolicies_state = Lens.lens (\GetLifecyclePolicies' {state} -> state) (\s@GetLifecyclePolicies' {} a -> s {state = a} :: GetLifecyclePolicies)
 
 -- | The identifiers of the data lifecycle policies.
 getLifecyclePolicies_policyIds :: Lens.Lens' GetLifecyclePolicies (Prelude.Maybe [Prelude.Text])
@@ -152,17 +152,17 @@ instance Core.AWSRequest GetLifecyclePolicies where
 
 instance Prelude.Hashable GetLifecyclePolicies where
   hashWithSalt _salt GetLifecyclePolicies' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` tagsToAdd
       `Prelude.hashWithSalt` targetTags
-      `Prelude.hashWithSalt` tagsToAdd
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` policyIds
       `Prelude.hashWithSalt` resourceTypes
 
 instance Prelude.NFData GetLifecyclePolicies where
   rnf GetLifecyclePolicies' {..} =
-    Prelude.rnf state
+    Prelude.rnf tagsToAdd
       `Prelude.seq` Prelude.rnf targetTags
-      `Prelude.seq` Prelude.rnf tagsToAdd
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf policyIds
       `Prelude.seq` Prelude.rnf resourceTypes
 
@@ -183,13 +183,13 @@ instance Core.ToPath GetLifecyclePolicies where
 instance Core.ToQuery GetLifecyclePolicies where
   toQuery GetLifecyclePolicies' {..} =
     Prelude.mconcat
-      [ "state" Core.=: state,
+      [ "tagsToAdd"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tagsToAdd),
         "targetTags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> targetTags),
-        "tagsToAdd"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tagsToAdd),
+        "state" Core.=: state,
         "policyIds"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> policyIds),

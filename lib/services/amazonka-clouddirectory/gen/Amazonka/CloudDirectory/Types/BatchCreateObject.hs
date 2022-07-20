@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchCreateObject' smart constructor.
 data BatchCreateObject = BatchCreateObject'
-  { -- | If specified, the parent reference to which this object will be
+  { -- | The batch reference name. See
+    -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
+    -- for more information.
+    batchReferenceName :: Prelude.Maybe Prelude.Text,
+    -- | If specified, the parent reference to which this object will be
     -- attached.
     parentReference :: Prelude.Maybe ObjectReference,
     -- | The name of the link.
     linkName :: Prelude.Maybe Prelude.Text,
-    -- | The batch reference name. See
-    -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
-    -- for more information.
-    batchReferenceName :: Prelude.Maybe Prelude.Text,
     -- | A list of @FacetArns@ that will be associated with the object. For more
     -- information, see arns.
     schemaFacet :: [SchemaFacet],
@@ -56,14 +56,14 @@ data BatchCreateObject = BatchCreateObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'batchReferenceName', 'batchCreateObject_batchReferenceName' - The batch reference name. See
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
+-- for more information.
+--
 -- 'parentReference', 'batchCreateObject_parentReference' - If specified, the parent reference to which this object will be
 -- attached.
 --
 -- 'linkName', 'batchCreateObject_linkName' - The name of the link.
---
--- 'batchReferenceName', 'batchCreateObject_batchReferenceName' - The batch reference name. See
--- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
--- for more information.
 --
 -- 'schemaFacet', 'batchCreateObject_schemaFacet' - A list of @FacetArns@ that will be associated with the object. For more
 -- information, see arns.
@@ -74,13 +74,19 @@ newBatchCreateObject ::
   BatchCreateObject
 newBatchCreateObject =
   BatchCreateObject'
-    { parentReference =
+    { batchReferenceName =
         Prelude.Nothing,
+      parentReference = Prelude.Nothing,
       linkName = Prelude.Nothing,
-      batchReferenceName = Prelude.Nothing,
       schemaFacet = Prelude.mempty,
       objectAttributeList = Prelude.mempty
     }
+
+-- | The batch reference name. See
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
+-- for more information.
+batchCreateObject_batchReferenceName :: Lens.Lens' BatchCreateObject (Prelude.Maybe Prelude.Text)
+batchCreateObject_batchReferenceName = Lens.lens (\BatchCreateObject' {batchReferenceName} -> batchReferenceName) (\s@BatchCreateObject' {} a -> s {batchReferenceName = a} :: BatchCreateObject)
 
 -- | If specified, the parent reference to which this object will be
 -- attached.
@@ -90,12 +96,6 @@ batchCreateObject_parentReference = Lens.lens (\BatchCreateObject' {parentRefere
 -- | The name of the link.
 batchCreateObject_linkName :: Lens.Lens' BatchCreateObject (Prelude.Maybe Prelude.Text)
 batchCreateObject_linkName = Lens.lens (\BatchCreateObject' {linkName} -> linkName) (\s@BatchCreateObject' {} a -> s {linkName = a} :: BatchCreateObject)
-
--- | The batch reference name. See
--- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
--- for more information.
-batchCreateObject_batchReferenceName :: Lens.Lens' BatchCreateObject (Prelude.Maybe Prelude.Text)
-batchCreateObject_batchReferenceName = Lens.lens (\BatchCreateObject' {batchReferenceName} -> batchReferenceName) (\s@BatchCreateObject' {} a -> s {batchReferenceName = a} :: BatchCreateObject)
 
 -- | A list of @FacetArns@ that will be associated with the object. For more
 -- information, see arns.
@@ -109,17 +109,17 @@ batchCreateObject_objectAttributeList = Lens.lens (\BatchCreateObject' {objectAt
 
 instance Prelude.Hashable BatchCreateObject where
   hashWithSalt _salt BatchCreateObject' {..} =
-    _salt `Prelude.hashWithSalt` parentReference
+    _salt `Prelude.hashWithSalt` batchReferenceName
+      `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` linkName
-      `Prelude.hashWithSalt` batchReferenceName
       `Prelude.hashWithSalt` schemaFacet
       `Prelude.hashWithSalt` objectAttributeList
 
 instance Prelude.NFData BatchCreateObject where
   rnf BatchCreateObject' {..} =
-    Prelude.rnf parentReference
+    Prelude.rnf batchReferenceName
+      `Prelude.seq` Prelude.rnf parentReference
       `Prelude.seq` Prelude.rnf linkName
-      `Prelude.seq` Prelude.rnf batchReferenceName
       `Prelude.seq` Prelude.rnf schemaFacet
       `Prelude.seq` Prelude.rnf objectAttributeList
 
@@ -127,11 +127,11 @@ instance Core.ToJSON BatchCreateObject where
   toJSON BatchCreateObject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParentReference" Core..=)
+          [ ("BatchReferenceName" Core..=)
+              Prelude.<$> batchReferenceName,
+            ("ParentReference" Core..=)
               Prelude.<$> parentReference,
             ("LinkName" Core..=) Prelude.<$> linkName,
-            ("BatchReferenceName" Core..=)
-              Prelude.<$> batchReferenceName,
             Prelude.Just ("SchemaFacet" Core..= schemaFacet),
             Prelude.Just
               ("ObjectAttributeList" Core..= objectAttributeList)

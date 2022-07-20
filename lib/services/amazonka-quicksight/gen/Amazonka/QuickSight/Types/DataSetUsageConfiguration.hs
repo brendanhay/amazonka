@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSetUsageConfiguration' smart constructor.
 data DataSetUsageConfiguration = DataSetUsageConfiguration'
-  { -- | An option that controls whether a child dataset that\'s stored in
-    -- QuickSight can use this dataset as a source.
-    disableUseAsImportedSource :: Prelude.Maybe Prelude.Bool,
-    -- | An option that controls whether a child dataset of a direct query can
+  { -- | An option that controls whether a child dataset of a direct query can
     -- use this dataset as a source.
-    disableUseAsDirectQuerySource :: Prelude.Maybe Prelude.Bool
+    disableUseAsDirectQuerySource :: Prelude.Maybe Prelude.Bool,
+    -- | An option that controls whether a child dataset that\'s stored in
+    -- QuickSight can use this dataset as a source.
+    disableUseAsImportedSource :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data DataSetUsageConfiguration = DataSetUsageConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disableUseAsImportedSource', 'dataSetUsageConfiguration_disableUseAsImportedSource' - An option that controls whether a child dataset that\'s stored in
--- QuickSight can use this dataset as a source.
---
 -- 'disableUseAsDirectQuerySource', 'dataSetUsageConfiguration_disableUseAsDirectQuerySource' - An option that controls whether a child dataset of a direct query can
 -- use this dataset as a source.
+--
+-- 'disableUseAsImportedSource', 'dataSetUsageConfiguration_disableUseAsImportedSource' - An option that controls whether a child dataset that\'s stored in
+-- QuickSight can use this dataset as a source.
 newDataSetUsageConfiguration ::
   DataSetUsageConfiguration
 newDataSetUsageConfiguration =
   DataSetUsageConfiguration'
-    { disableUseAsImportedSource =
+    { disableUseAsDirectQuerySource =
         Prelude.Nothing,
-      disableUseAsDirectQuerySource = Prelude.Nothing
+      disableUseAsImportedSource = Prelude.Nothing
     }
-
--- | An option that controls whether a child dataset that\'s stored in
--- QuickSight can use this dataset as a source.
-dataSetUsageConfiguration_disableUseAsImportedSource :: Lens.Lens' DataSetUsageConfiguration (Prelude.Maybe Prelude.Bool)
-dataSetUsageConfiguration_disableUseAsImportedSource = Lens.lens (\DataSetUsageConfiguration' {disableUseAsImportedSource} -> disableUseAsImportedSource) (\s@DataSetUsageConfiguration' {} a -> s {disableUseAsImportedSource = a} :: DataSetUsageConfiguration)
 
 -- | An option that controls whether a child dataset of a direct query can
 -- use this dataset as a source.
 dataSetUsageConfiguration_disableUseAsDirectQuerySource :: Lens.Lens' DataSetUsageConfiguration (Prelude.Maybe Prelude.Bool)
 dataSetUsageConfiguration_disableUseAsDirectQuerySource = Lens.lens (\DataSetUsageConfiguration' {disableUseAsDirectQuerySource} -> disableUseAsDirectQuerySource) (\s@DataSetUsageConfiguration' {} a -> s {disableUseAsDirectQuerySource = a} :: DataSetUsageConfiguration)
+
+-- | An option that controls whether a child dataset that\'s stored in
+-- QuickSight can use this dataset as a source.
+dataSetUsageConfiguration_disableUseAsImportedSource :: Lens.Lens' DataSetUsageConfiguration (Prelude.Maybe Prelude.Bool)
+dataSetUsageConfiguration_disableUseAsImportedSource = Lens.lens (\DataSetUsageConfiguration' {disableUseAsImportedSource} -> disableUseAsImportedSource) (\s@DataSetUsageConfiguration' {} a -> s {disableUseAsImportedSource = a} :: DataSetUsageConfiguration)
 
 instance Core.FromJSON DataSetUsageConfiguration where
   parseJSON =
@@ -75,28 +75,28 @@ instance Core.FromJSON DataSetUsageConfiguration where
       "DataSetUsageConfiguration"
       ( \x ->
           DataSetUsageConfiguration'
-            Prelude.<$> (x Core..:? "DisableUseAsImportedSource")
-            Prelude.<*> (x Core..:? "DisableUseAsDirectQuerySource")
+            Prelude.<$> (x Core..:? "DisableUseAsDirectQuerySource")
+            Prelude.<*> (x Core..:? "DisableUseAsImportedSource")
       )
 
 instance Prelude.Hashable DataSetUsageConfiguration where
   hashWithSalt _salt DataSetUsageConfiguration' {..} =
     _salt
-      `Prelude.hashWithSalt` disableUseAsImportedSource
       `Prelude.hashWithSalt` disableUseAsDirectQuerySource
+      `Prelude.hashWithSalt` disableUseAsImportedSource
 
 instance Prelude.NFData DataSetUsageConfiguration where
   rnf DataSetUsageConfiguration' {..} =
-    Prelude.rnf disableUseAsImportedSource
-      `Prelude.seq` Prelude.rnf disableUseAsDirectQuerySource
+    Prelude.rnf disableUseAsDirectQuerySource
+      `Prelude.seq` Prelude.rnf disableUseAsImportedSource
 
 instance Core.ToJSON DataSetUsageConfiguration where
   toJSON DataSetUsageConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DisableUseAsImportedSource" Core..=)
-              Prelude.<$> disableUseAsImportedSource,
-            ("DisableUseAsDirectQuerySource" Core..=)
-              Prelude.<$> disableUseAsDirectQuerySource
+          [ ("DisableUseAsDirectQuerySource" Core..=)
+              Prelude.<$> disableUseAsDirectQuerySource,
+            ("DisableUseAsImportedSource" Core..=)
+              Prelude.<$> disableUseAsImportedSource
           ]
       )

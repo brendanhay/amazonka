@@ -27,9 +27,9 @@ module Amazonka.IoTWireless.CreateWirelessGatewayTaskDefinition
     newCreateWirelessGatewayTaskDefinition,
 
     -- * Request Lenses
+    createWirelessGatewayTaskDefinition_tags,
     createWirelessGatewayTaskDefinition_name,
     createWirelessGatewayTaskDefinition_clientRequestToken,
-    createWirelessGatewayTaskDefinition_tags,
     createWirelessGatewayTaskDefinition_update,
     createWirelessGatewayTaskDefinition_autoCreateTasks,
 
@@ -53,16 +53,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWirelessGatewayTaskDefinition' smart constructor.
 data CreateWirelessGatewayTaskDefinition = CreateWirelessGatewayTaskDefinition'
-  { -- | The name of the new resource.
+  { -- | The tags to attach to the specified resource. Tags are metadata that you
+    -- can use to manage a resource.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name of the new resource.
     name :: Prelude.Maybe Prelude.Text,
     -- | Each resource must have a unique client request token. If you try to
     -- create a new resource with the same token as a resource that already
     -- exists, an exception occurs. If you omit this value, AWS SDKs will
     -- automatically generate a unique client request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags to attach to the specified resource. Tags are metadata that you
-    -- can use to manage a resource.
-    tags :: Prelude.Maybe [Tag],
     -- | Information about the gateways to update.
     update :: Prelude.Maybe UpdateWirelessGatewayTaskCreate,
     -- | Whether to automatically create tasks using this task definition for all
@@ -80,15 +80,15 @@ data CreateWirelessGatewayTaskDefinition = CreateWirelessGatewayTaskDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createWirelessGatewayTaskDefinition_tags' - The tags to attach to the specified resource. Tags are metadata that you
+-- can use to manage a resource.
+--
 -- 'name', 'createWirelessGatewayTaskDefinition_name' - The name of the new resource.
 --
 -- 'clientRequestToken', 'createWirelessGatewayTaskDefinition_clientRequestToken' - Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
 -- exists, an exception occurs. If you omit this value, AWS SDKs will
 -- automatically generate a unique client request.
---
--- 'tags', 'createWirelessGatewayTaskDefinition_tags' - The tags to attach to the specified resource. Tags are metadata that you
--- can use to manage a resource.
 --
 -- 'update', 'createWirelessGatewayTaskDefinition_update' - Information about the gateways to update.
 --
@@ -102,13 +102,18 @@ newCreateWirelessGatewayTaskDefinition ::
 newCreateWirelessGatewayTaskDefinition
   pAutoCreateTasks_ =
     CreateWirelessGatewayTaskDefinition'
-      { name =
+      { tags =
           Prelude.Nothing,
+        name = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
-        tags = Prelude.Nothing,
         update = Prelude.Nothing,
         autoCreateTasks = pAutoCreateTasks_
       }
+
+-- | The tags to attach to the specified resource. Tags are metadata that you
+-- can use to manage a resource.
+createWirelessGatewayTaskDefinition_tags :: Lens.Lens' CreateWirelessGatewayTaskDefinition (Prelude.Maybe [Tag])
+createWirelessGatewayTaskDefinition_tags = Lens.lens (\CreateWirelessGatewayTaskDefinition' {tags} -> tags) (\s@CreateWirelessGatewayTaskDefinition' {} a -> s {tags = a} :: CreateWirelessGatewayTaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new resource.
 createWirelessGatewayTaskDefinition_name :: Lens.Lens' CreateWirelessGatewayTaskDefinition (Prelude.Maybe Prelude.Text)
@@ -120,11 +125,6 @@ createWirelessGatewayTaskDefinition_name = Lens.lens (\CreateWirelessGatewayTask
 -- automatically generate a unique client request.
 createWirelessGatewayTaskDefinition_clientRequestToken :: Lens.Lens' CreateWirelessGatewayTaskDefinition (Prelude.Maybe Prelude.Text)
 createWirelessGatewayTaskDefinition_clientRequestToken = Lens.lens (\CreateWirelessGatewayTaskDefinition' {clientRequestToken} -> clientRequestToken) (\s@CreateWirelessGatewayTaskDefinition' {} a -> s {clientRequestToken = a} :: CreateWirelessGatewayTaskDefinition)
-
--- | The tags to attach to the specified resource. Tags are metadata that you
--- can use to manage a resource.
-createWirelessGatewayTaskDefinition_tags :: Lens.Lens' CreateWirelessGatewayTaskDefinition (Prelude.Maybe [Tag])
-createWirelessGatewayTaskDefinition_tags = Lens.lens (\CreateWirelessGatewayTaskDefinition' {tags} -> tags) (\s@CreateWirelessGatewayTaskDefinition' {} a -> s {tags = a} :: CreateWirelessGatewayTaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the gateways to update.
 createWirelessGatewayTaskDefinition_update :: Lens.Lens' CreateWirelessGatewayTaskDefinition (Prelude.Maybe UpdateWirelessGatewayTaskCreate)
@@ -159,9 +159,9 @@ instance
   hashWithSalt
     _salt
     CreateWirelessGatewayTaskDefinition' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` clientRequestToken
-        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` update
         `Prelude.hashWithSalt` autoCreateTasks
 
@@ -170,9 +170,9 @@ instance
     CreateWirelessGatewayTaskDefinition
   where
   rnf CreateWirelessGatewayTaskDefinition' {..} =
-    Prelude.rnf name
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf update
       `Prelude.seq` Prelude.rnf autoCreateTasks
 
@@ -189,10 +189,10 @@ instance
   toJSON CreateWirelessGatewayTaskDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Name" Core..=) Prelude.<$> name,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("Update" Core..=) Prelude.<$> update,
             Prelude.Just
               ("AutoCreateTasks" Core..= autoCreateTasks)

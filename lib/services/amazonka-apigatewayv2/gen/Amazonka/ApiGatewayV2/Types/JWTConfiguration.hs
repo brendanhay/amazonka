@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJWTConfiguration' smart constructor.
 data JWTConfiguration = JWTConfiguration'
-  { -- | A list of the intended recipients of the JWT. A valid JWT must provide
-    -- an aud that matches at least one entry in this list. See
-    -- <https://tools.ietf.org/html/rfc7519#section-4.1.3 RFC 7519>. Supported
-    -- only for HTTP APIs.
-    audience :: Prelude.Maybe [Prelude.Text],
-    -- | The base domain of the identity provider that issues JSON Web Tokens.
+  { -- | The base domain of the identity provider that issues JSON Web Tokens.
     -- For example, an Amazon Cognito user pool has the following format:
     -- https:\/\/cognito-idp.{region}.amazonaws.com\/{userPoolId} . Required
     -- for the JWT authorizer type. Supported only for HTTP APIs.
-    issuer :: Prelude.Maybe Prelude.Text
+    issuer :: Prelude.Maybe Prelude.Text,
+    -- | A list of the intended recipients of the JWT. A valid JWT must provide
+    -- an aud that matches at least one entry in this list. See
+    -- <https://tools.ietf.org/html/rfc7519#section-4.1.3 RFC 7519>. Supported
+    -- only for HTTP APIs.
+    audience :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,22 @@ data JWTConfiguration = JWTConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'audience', 'jWTConfiguration_audience' - A list of the intended recipients of the JWT. A valid JWT must provide
--- an aud that matches at least one entry in this list. See
--- <https://tools.ietf.org/html/rfc7519#section-4.1.3 RFC 7519>. Supported
--- only for HTTP APIs.
---
 -- 'issuer', 'jWTConfiguration_issuer' - The base domain of the identity provider that issues JSON Web Tokens.
 -- For example, an Amazon Cognito user pool has the following format:
 -- https:\/\/cognito-idp.{region}.amazonaws.com\/{userPoolId} . Required
 -- for the JWT authorizer type. Supported only for HTTP APIs.
+--
+-- 'audience', 'jWTConfiguration_audience' - A list of the intended recipients of the JWT. A valid JWT must provide
+-- an aud that matches at least one entry in this list. See
+-- <https://tools.ietf.org/html/rfc7519#section-4.1.3 RFC 7519>. Supported
+-- only for HTTP APIs.
 newJWTConfiguration ::
   JWTConfiguration
 newJWTConfiguration =
   JWTConfiguration'
-    { audience = Prelude.Nothing,
-      issuer = Prelude.Nothing
+    { issuer = Prelude.Nothing,
+      audience = Prelude.Nothing
     }
-
--- | A list of the intended recipients of the JWT. A valid JWT must provide
--- an aud that matches at least one entry in this list. See
--- <https://tools.ietf.org/html/rfc7519#section-4.1.3 RFC 7519>. Supported
--- only for HTTP APIs.
-jWTConfiguration_audience :: Lens.Lens' JWTConfiguration (Prelude.Maybe [Prelude.Text])
-jWTConfiguration_audience = Lens.lens (\JWTConfiguration' {audience} -> audience) (\s@JWTConfiguration' {} a -> s {audience = a} :: JWTConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The base domain of the identity provider that issues JSON Web Tokens.
 -- For example, an Amazon Cognito user pool has the following format:
@@ -80,31 +73,38 @@ jWTConfiguration_audience = Lens.lens (\JWTConfiguration' {audience} -> audience
 jWTConfiguration_issuer :: Lens.Lens' JWTConfiguration (Prelude.Maybe Prelude.Text)
 jWTConfiguration_issuer = Lens.lens (\JWTConfiguration' {issuer} -> issuer) (\s@JWTConfiguration' {} a -> s {issuer = a} :: JWTConfiguration)
 
+-- | A list of the intended recipients of the JWT. A valid JWT must provide
+-- an aud that matches at least one entry in this list. See
+-- <https://tools.ietf.org/html/rfc7519#section-4.1.3 RFC 7519>. Supported
+-- only for HTTP APIs.
+jWTConfiguration_audience :: Lens.Lens' JWTConfiguration (Prelude.Maybe [Prelude.Text])
+jWTConfiguration_audience = Lens.lens (\JWTConfiguration' {audience} -> audience) (\s@JWTConfiguration' {} a -> s {audience = a} :: JWTConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON JWTConfiguration where
   parseJSON =
     Core.withObject
       "JWTConfiguration"
       ( \x ->
           JWTConfiguration'
-            Prelude.<$> (x Core..:? "audience" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "issuer")
+            Prelude.<$> (x Core..:? "issuer")
+            Prelude.<*> (x Core..:? "audience" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JWTConfiguration where
   hashWithSalt _salt JWTConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` audience
-      `Prelude.hashWithSalt` issuer
+    _salt `Prelude.hashWithSalt` issuer
+      `Prelude.hashWithSalt` audience
 
 instance Prelude.NFData JWTConfiguration where
   rnf JWTConfiguration' {..} =
-    Prelude.rnf audience
-      `Prelude.seq` Prelude.rnf issuer
+    Prelude.rnf issuer
+      `Prelude.seq` Prelude.rnf audience
 
 instance Core.ToJSON JWTConfiguration where
   toJSON JWTConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("audience" Core..=) Prelude.<$> audience,
-            ("issuer" Core..=) Prelude.<$> issuer
+          [ ("issuer" Core..=) Prelude.<$> issuer,
+            ("audience" Core..=) Prelude.<$> audience
           ]
       )

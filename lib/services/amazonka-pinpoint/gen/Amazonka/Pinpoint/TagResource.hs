@@ -110,11 +110,7 @@ instance Core.ToHeaders TagResource where
       )
 
 instance Core.ToJSON TagResource where
-  toJSON TagResource' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TagsModel" Core..= tagsModel)]
-      )
+  toJSON TagResource' {..} = Core.toJSON tagsModel
 
 instance Core.ToPath TagResource where
   toPath TagResource' {..} =

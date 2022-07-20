@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCredential' smart constructor.
 data Credential = Credential'
-  { -- | The RFC2617 compliant user name associated with the SIP credentials, in
+  { -- | The RFC2617 compliant password associated with the SIP credentials, in
     -- US-ASCII format.
-    username :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The RFC2617 compliant password associated with the SIP credentials, in
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The RFC2617 compliant user name associated with the SIP credentials, in
     -- US-ASCII format.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    username :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,44 +45,44 @@ data Credential = Credential'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'credential_username' - The RFC2617 compliant user name associated with the SIP credentials, in
+-- 'password', 'credential_password' - The RFC2617 compliant password associated with the SIP credentials, in
 -- US-ASCII format.
 --
--- 'password', 'credential_password' - The RFC2617 compliant password associated with the SIP credentials, in
+-- 'username', 'credential_username' - The RFC2617 compliant user name associated with the SIP credentials, in
 -- US-ASCII format.
 newCredential ::
   Credential
 newCredential =
   Credential'
-    { username = Prelude.Nothing,
-      password = Prelude.Nothing
+    { password = Prelude.Nothing,
+      username = Prelude.Nothing
     }
-
--- | The RFC2617 compliant user name associated with the SIP credentials, in
--- US-ASCII format.
-credential_username :: Lens.Lens' Credential (Prelude.Maybe Prelude.Text)
-credential_username = Lens.lens (\Credential' {username} -> username) (\s@Credential' {} a -> s {username = a} :: Credential) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The RFC2617 compliant password associated with the SIP credentials, in
 -- US-ASCII format.
 credential_password :: Lens.Lens' Credential (Prelude.Maybe Prelude.Text)
 credential_password = Lens.lens (\Credential' {password} -> password) (\s@Credential' {} a -> s {password = a} :: Credential) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The RFC2617 compliant user name associated with the SIP credentials, in
+-- US-ASCII format.
+credential_username :: Lens.Lens' Credential (Prelude.Maybe Prelude.Text)
+credential_username = Lens.lens (\Credential' {username} -> username) (\s@Credential' {} a -> s {username = a} :: Credential) Prelude.. Lens.mapping Core._Sensitive
+
 instance Prelude.Hashable Credential where
   hashWithSalt _salt Credential' {..} =
-    _salt `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` password
+    _salt `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` username
 
 instance Prelude.NFData Credential where
   rnf Credential' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf password
+      `Prelude.seq` Prelude.rnf username
 
 instance Core.ToJSON Credential where
   toJSON Credential' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Username" Core..=) Prelude.<$> username,
-            ("Password" Core..=) Prelude.<$> password
+          [ ("Password" Core..=) Prelude.<$> password,
+            ("Username" Core..=) Prelude.<$> username
           ]
       )

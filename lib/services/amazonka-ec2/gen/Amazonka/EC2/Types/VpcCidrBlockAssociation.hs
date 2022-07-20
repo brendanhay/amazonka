@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcCidrBlockAssociation' smart constructor.
 data VpcCidrBlockAssociation = VpcCidrBlockAssociation'
-  { -- | The association ID for the IPv4 CIDR block.
-    associationId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the state of the CIDR block.
+  { -- | Information about the state of the CIDR block.
     cidrBlockState :: Prelude.Maybe VpcCidrBlockState,
     -- | The IPv4 CIDR block.
-    cidrBlock :: Prelude.Maybe Prelude.Text
+    cidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The association ID for the IPv4 CIDR block.
+    associationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,20 @@ data VpcCidrBlockAssociation = VpcCidrBlockAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associationId', 'vpcCidrBlockAssociation_associationId' - The association ID for the IPv4 CIDR block.
---
 -- 'cidrBlockState', 'vpcCidrBlockAssociation_cidrBlockState' - Information about the state of the CIDR block.
 --
 -- 'cidrBlock', 'vpcCidrBlockAssociation_cidrBlock' - The IPv4 CIDR block.
+--
+-- 'associationId', 'vpcCidrBlockAssociation_associationId' - The association ID for the IPv4 CIDR block.
 newVpcCidrBlockAssociation ::
   VpcCidrBlockAssociation
 newVpcCidrBlockAssociation =
   VpcCidrBlockAssociation'
-    { associationId =
+    { cidrBlockState =
         Prelude.Nothing,
-      cidrBlockState = Prelude.Nothing,
-      cidrBlock = Prelude.Nothing
+      cidrBlock = Prelude.Nothing,
+      associationId = Prelude.Nothing
     }
-
--- | The association ID for the IPv4 CIDR block.
-vpcCidrBlockAssociation_associationId :: Lens.Lens' VpcCidrBlockAssociation (Prelude.Maybe Prelude.Text)
-vpcCidrBlockAssociation_associationId = Lens.lens (\VpcCidrBlockAssociation' {associationId} -> associationId) (\s@VpcCidrBlockAssociation' {} a -> s {associationId = a} :: VpcCidrBlockAssociation)
 
 -- | Information about the state of the CIDR block.
 vpcCidrBlockAssociation_cidrBlockState :: Lens.Lens' VpcCidrBlockAssociation (Prelude.Maybe VpcCidrBlockState)
@@ -73,21 +69,25 @@ vpcCidrBlockAssociation_cidrBlockState = Lens.lens (\VpcCidrBlockAssociation' {c
 vpcCidrBlockAssociation_cidrBlock :: Lens.Lens' VpcCidrBlockAssociation (Prelude.Maybe Prelude.Text)
 vpcCidrBlockAssociation_cidrBlock = Lens.lens (\VpcCidrBlockAssociation' {cidrBlock} -> cidrBlock) (\s@VpcCidrBlockAssociation' {} a -> s {cidrBlock = a} :: VpcCidrBlockAssociation)
 
+-- | The association ID for the IPv4 CIDR block.
+vpcCidrBlockAssociation_associationId :: Lens.Lens' VpcCidrBlockAssociation (Prelude.Maybe Prelude.Text)
+vpcCidrBlockAssociation_associationId = Lens.lens (\VpcCidrBlockAssociation' {associationId} -> associationId) (\s@VpcCidrBlockAssociation' {} a -> s {associationId = a} :: VpcCidrBlockAssociation)
+
 instance Core.FromXML VpcCidrBlockAssociation where
   parseXML x =
     VpcCidrBlockAssociation'
-      Prelude.<$> (x Core..@? "associationId")
-      Prelude.<*> (x Core..@? "cidrBlockState")
+      Prelude.<$> (x Core..@? "cidrBlockState")
       Prelude.<*> (x Core..@? "cidrBlock")
+      Prelude.<*> (x Core..@? "associationId")
 
 instance Prelude.Hashable VpcCidrBlockAssociation where
   hashWithSalt _salt VpcCidrBlockAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
-      `Prelude.hashWithSalt` cidrBlockState
+    _salt `Prelude.hashWithSalt` cidrBlockState
       `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData VpcCidrBlockAssociation where
   rnf VpcCidrBlockAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf cidrBlockState
+    Prelude.rnf cidrBlockState
       `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf associationId

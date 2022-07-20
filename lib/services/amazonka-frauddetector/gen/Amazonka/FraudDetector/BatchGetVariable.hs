@@ -34,8 +34,8 @@ module Amazonka.FraudDetector.BatchGetVariable
     newBatchGetVariableResponse,
 
     -- * Response Lenses
-    batchGetVariableResponse_variables,
     batchGetVariableResponse_errors,
+    batchGetVariableResponse_variables,
     batchGetVariableResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest BatchGetVariable where
     Response.receiveJSON
       ( \s h x ->
           BatchGetVariableResponse'
-            Prelude.<$> (x Core..?> "variables" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "variables" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,10 +128,10 @@ instance Core.ToQuery BatchGetVariable where
 
 -- | /See:/ 'newBatchGetVariableResponse' smart constructor.
 data BatchGetVariableResponse = BatchGetVariableResponse'
-  { -- | The returned variables.
-    variables :: Prelude.Maybe [Variable],
-    -- | The errors from the request.
+  { -- | The errors from the request.
     errors :: Prelude.Maybe [BatchGetVariableError],
+    -- | The returned variables.
+    variables :: Prelude.Maybe [Variable],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,9 +145,9 @@ data BatchGetVariableResponse = BatchGetVariableResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variables', 'batchGetVariableResponse_variables' - The returned variables.
---
 -- 'errors', 'batchGetVariableResponse_errors' - The errors from the request.
+--
+-- 'variables', 'batchGetVariableResponse_variables' - The returned variables.
 --
 -- 'httpStatus', 'batchGetVariableResponse_httpStatus' - The response's http status code.
 newBatchGetVariableResponse ::
@@ -156,19 +156,18 @@ newBatchGetVariableResponse ::
   BatchGetVariableResponse
 newBatchGetVariableResponse pHttpStatus_ =
   BatchGetVariableResponse'
-    { variables =
-        Prelude.Nothing,
-      errors = Prelude.Nothing,
+    { errors = Prelude.Nothing,
+      variables = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The returned variables.
-batchGetVariableResponse_variables :: Lens.Lens' BatchGetVariableResponse (Prelude.Maybe [Variable])
-batchGetVariableResponse_variables = Lens.lens (\BatchGetVariableResponse' {variables} -> variables) (\s@BatchGetVariableResponse' {} a -> s {variables = a} :: BatchGetVariableResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The errors from the request.
 batchGetVariableResponse_errors :: Lens.Lens' BatchGetVariableResponse (Prelude.Maybe [BatchGetVariableError])
 batchGetVariableResponse_errors = Lens.lens (\BatchGetVariableResponse' {errors} -> errors) (\s@BatchGetVariableResponse' {} a -> s {errors = a} :: BatchGetVariableResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The returned variables.
+batchGetVariableResponse_variables :: Lens.Lens' BatchGetVariableResponse (Prelude.Maybe [Variable])
+batchGetVariableResponse_variables = Lens.lens (\BatchGetVariableResponse' {variables} -> variables) (\s@BatchGetVariableResponse' {} a -> s {variables = a} :: BatchGetVariableResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetVariableResponse_httpStatus :: Lens.Lens' BatchGetVariableResponse Prelude.Int
@@ -176,6 +175,6 @@ batchGetVariableResponse_httpStatus = Lens.lens (\BatchGetVariableResponse' {htt
 
 instance Prelude.NFData BatchGetVariableResponse where
   rnf BatchGetVariableResponse' {..} =
-    Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf variables
       `Prelude.seq` Prelude.rnf httpStatus

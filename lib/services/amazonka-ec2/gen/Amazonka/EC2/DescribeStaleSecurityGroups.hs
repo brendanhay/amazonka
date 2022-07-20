@@ -42,8 +42,8 @@ module Amazonka.EC2.DescribeStaleSecurityGroups
     newDescribeStaleSecurityGroupsResponse,
 
     -- * Response Lenses
-    describeStaleSecurityGroupsResponse_staleSecurityGroupSet,
     describeStaleSecurityGroupsResponse_nextToken,
+    describeStaleSecurityGroupsResponse_staleSecurityGroupSet,
     describeStaleSecurityGroupsResponse_httpStatus,
   )
 where
@@ -161,11 +161,11 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
     Response.receiveXML
       ( \s h x ->
           DescribeStaleSecurityGroupsResponse'
-            Prelude.<$> ( x Core..@? "staleSecurityGroupSet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "staleSecurityGroupSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,11 +206,11 @@ instance Core.ToQuery DescribeStaleSecurityGroups where
 
 -- | /See:/ 'newDescribeStaleSecurityGroupsResponse' smart constructor.
 data DescribeStaleSecurityGroupsResponse = DescribeStaleSecurityGroupsResponse'
-  { -- | Information about the stale security groups.
-    staleSecurityGroupSet :: Prelude.Maybe [StaleSecurityGroup],
-    -- | The token to use when requesting the next set of items. If there are no
+  { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the stale security groups.
+    staleSecurityGroupSet :: Prelude.Maybe [StaleSecurityGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,10 +224,10 @@ data DescribeStaleSecurityGroupsResponse = DescribeStaleSecurityGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'staleSecurityGroupSet', 'describeStaleSecurityGroupsResponse_staleSecurityGroupSet' - Information about the stale security groups.
---
 -- 'nextToken', 'describeStaleSecurityGroupsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
+--
+-- 'staleSecurityGroupSet', 'describeStaleSecurityGroupsResponse_staleSecurityGroupSet' - Information about the stale security groups.
 --
 -- 'httpStatus', 'describeStaleSecurityGroupsResponse_httpStatus' - The response's http status code.
 newDescribeStaleSecurityGroupsResponse ::
@@ -236,20 +236,21 @@ newDescribeStaleSecurityGroupsResponse ::
   DescribeStaleSecurityGroupsResponse
 newDescribeStaleSecurityGroupsResponse pHttpStatus_ =
   DescribeStaleSecurityGroupsResponse'
-    { staleSecurityGroupSet =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      staleSecurityGroupSet =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the stale security groups.
-describeStaleSecurityGroupsResponse_staleSecurityGroupSet :: Lens.Lens' DescribeStaleSecurityGroupsResponse (Prelude.Maybe [StaleSecurityGroup])
-describeStaleSecurityGroupsResponse_staleSecurityGroupSet = Lens.lens (\DescribeStaleSecurityGroupsResponse' {staleSecurityGroupSet} -> staleSecurityGroupSet) (\s@DescribeStaleSecurityGroupsResponse' {} a -> s {staleSecurityGroupSet = a} :: DescribeStaleSecurityGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeStaleSecurityGroupsResponse_nextToken :: Lens.Lens' DescribeStaleSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
 describeStaleSecurityGroupsResponse_nextToken = Lens.lens (\DescribeStaleSecurityGroupsResponse' {nextToken} -> nextToken) (\s@DescribeStaleSecurityGroupsResponse' {} a -> s {nextToken = a} :: DescribeStaleSecurityGroupsResponse)
+
+-- | Information about the stale security groups.
+describeStaleSecurityGroupsResponse_staleSecurityGroupSet :: Lens.Lens' DescribeStaleSecurityGroupsResponse (Prelude.Maybe [StaleSecurityGroup])
+describeStaleSecurityGroupsResponse_staleSecurityGroupSet = Lens.lens (\DescribeStaleSecurityGroupsResponse' {staleSecurityGroupSet} -> staleSecurityGroupSet) (\s@DescribeStaleSecurityGroupsResponse' {} a -> s {staleSecurityGroupSet = a} :: DescribeStaleSecurityGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStaleSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeStaleSecurityGroupsResponse Prelude.Int
@@ -260,6 +261,6 @@ instance
     DescribeStaleSecurityGroupsResponse
   where
   rnf DescribeStaleSecurityGroupsResponse' {..} =
-    Prelude.rnf staleSecurityGroupSet
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf staleSecurityGroupSet
       `Prelude.seq` Prelude.rnf httpStatus

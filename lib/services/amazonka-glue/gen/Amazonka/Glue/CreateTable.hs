@@ -27,8 +27,8 @@ module Amazonka.Glue.CreateTable
     newCreateTable,
 
     -- * Request Lenses
-    createTable_partitionIndexes,
     createTable_catalogId,
+    createTable_partitionIndexes,
     createTable_databaseName,
     createTable_tableInput,
 
@@ -50,12 +50,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTable' smart constructor.
 data CreateTable = CreateTable'
-  { -- | A list of partition indexes, @PartitionIndex@ structures, to create in
-    -- the table.
-    partitionIndexes :: Prelude.Maybe [PartitionIndex],
-    -- | The ID of the Data Catalog in which to create the @Table@. If none is
+  { -- | The ID of the Data Catalog in which to create the @Table@. If none is
     -- supplied, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A list of partition indexes, @PartitionIndex@ structures, to create in
+    -- the table.
+    partitionIndexes :: Prelude.Maybe [PartitionIndex],
     -- | The catalog database in which to create the new table. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text,
@@ -73,11 +73,11 @@ data CreateTable = CreateTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partitionIndexes', 'createTable_partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in
--- the table.
---
 -- 'catalogId', 'createTable_catalogId' - The ID of the Data Catalog in which to create the @Table@. If none is
 -- supplied, the Amazon Web Services account ID is used by default.
+--
+-- 'partitionIndexes', 'createTable_partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in
+-- the table.
 --
 -- 'databaseName', 'createTable_databaseName' - The catalog database in which to create the new table. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -92,21 +92,21 @@ newCreateTable ::
   CreateTable
 newCreateTable pDatabaseName_ pTableInput_ =
   CreateTable'
-    { partitionIndexes = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      partitionIndexes = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableInput = pTableInput_
     }
-
--- | A list of partition indexes, @PartitionIndex@ structures, to create in
--- the table.
-createTable_partitionIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [PartitionIndex])
-createTable_partitionIndexes = Lens.lens (\CreateTable' {partitionIndexes} -> partitionIndexes) (\s@CreateTable' {} a -> s {partitionIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Data Catalog in which to create the @Table@. If none is
 -- supplied, the Amazon Web Services account ID is used by default.
 createTable_catalogId :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Text)
 createTable_catalogId = Lens.lens (\CreateTable' {catalogId} -> catalogId) (\s@CreateTable' {} a -> s {catalogId = a} :: CreateTable)
+
+-- | A list of partition indexes, @PartitionIndex@ structures, to create in
+-- the table.
+createTable_partitionIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [PartitionIndex])
+createTable_partitionIndexes = Lens.lens (\CreateTable' {partitionIndexes} -> partitionIndexes) (\s@CreateTable' {} a -> s {partitionIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The catalog database in which to create the new table. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -130,15 +130,15 @@ instance Core.AWSRequest CreateTable where
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =
-    _salt `Prelude.hashWithSalt` partitionIndexes
-      `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` partitionIndexes
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableInput
 
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
-    Prelude.rnf partitionIndexes
-      `Prelude.seq` Prelude.rnf catalogId
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf partitionIndexes
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableInput
 
@@ -159,9 +159,9 @@ instance Core.ToJSON CreateTable where
   toJSON CreateTable' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PartitionIndexes" Core..=)
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("PartitionIndexes" Core..=)
               Prelude.<$> partitionIndexes,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("TableInput" Core..= tableInput)
           ]

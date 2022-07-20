@@ -27,8 +27,8 @@ module Amazonka.AuditManager.CreateAssessment
     newCreateAssessment,
 
     -- * Request Lenses
-    createAssessment_description,
     createAssessment_tags,
+    createAssessment_description,
     createAssessment_name,
     createAssessment_assessmentReportsDestination,
     createAssessment_scope,
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAssessment' smart constructor.
 data CreateAssessment = CreateAssessment'
-  { -- | The optional description of the assessment to be created.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with the assessment.
+  { -- | The tags associated with the assessment.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The optional description of the assessment to be created.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the assessment to be created.
     name :: Prelude.Text,
     -- | The assessment report storage destination for the specified assessment
@@ -79,9 +79,9 @@ data CreateAssessment = CreateAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createAssessment_description' - The optional description of the assessment to be created.
---
 -- 'tags', 'createAssessment_tags' - The tags associated with the assessment.
+--
+-- 'description', 'createAssessment_description' - The optional description of the assessment to be created.
 --
 -- 'name', 'createAssessment_name' - The name of the assessment to be created.
 --
@@ -109,8 +109,8 @@ newCreateAssessment
   pScope_
   pFrameworkId_ =
     CreateAssessment'
-      { description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         name = pName_,
         assessmentReportsDestination =
           pAssessmentReportsDestination_,
@@ -119,13 +119,13 @@ newCreateAssessment
         frameworkId = pFrameworkId_
       }
 
--- | The optional description of the assessment to be created.
-createAssessment_description :: Lens.Lens' CreateAssessment (Prelude.Maybe Prelude.Text)
-createAssessment_description = Lens.lens (\CreateAssessment' {description} -> description) (\s@CreateAssessment' {} a -> s {description = a} :: CreateAssessment)
-
 -- | The tags associated with the assessment.
 createAssessment_tags :: Lens.Lens' CreateAssessment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAssessment_tags = Lens.lens (\CreateAssessment' {tags} -> tags) (\s@CreateAssessment' {} a -> s {tags = a} :: CreateAssessment) Prelude.. Lens.mapping Lens.coerced
+
+-- | The optional description of the assessment to be created.
+createAssessment_description :: Lens.Lens' CreateAssessment (Prelude.Maybe Prelude.Text)
+createAssessment_description = Lens.lens (\CreateAssessment' {description} -> description) (\s@CreateAssessment' {} a -> s {description = a} :: CreateAssessment)
 
 -- | The name of the assessment to be created.
 createAssessment_name :: Lens.Lens' CreateAssessment Prelude.Text
@@ -163,8 +163,8 @@ instance Core.AWSRequest CreateAssessment where
 
 instance Prelude.Hashable CreateAssessment where
   hashWithSalt _salt CreateAssessment' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` assessmentReportsDestination
       `Prelude.hashWithSalt` scope
@@ -173,8 +173,8 @@ instance Prelude.Hashable CreateAssessment where
 
 instance Prelude.NFData CreateAssessment where
   rnf CreateAssessment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf assessmentReportsDestination
       `Prelude.seq` Prelude.rnf scope
@@ -196,8 +196,8 @@ instance Core.ToJSON CreateAssessment where
   toJSON CreateAssessment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ( "assessmentReportsDestination"

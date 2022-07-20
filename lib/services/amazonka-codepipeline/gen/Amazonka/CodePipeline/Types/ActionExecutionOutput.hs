@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionExecutionOutput' smart constructor.
 data ActionExecutionOutput = ActionExecutionOutput'
-  { -- | The outputVariables field shows the key-value pairs that were output as
-    -- part of that execution.
-    outputVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Details of output artifacts of the action that correspond to the action
+  { -- | Details of output artifacts of the action that correspond to the action
     -- execution.
     outputArtifacts :: Prelude.Maybe [ArtifactDetail],
     -- | Execution result information listed in the output details for an action
     -- execution.
-    executionResult :: Prelude.Maybe ActionExecutionResult
+    executionResult :: Prelude.Maybe ActionExecutionResult,
+    -- | The outputVariables field shows the key-value pairs that were output as
+    -- part of that execution.
+    outputVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,28 +50,23 @@ data ActionExecutionOutput = ActionExecutionOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputVariables', 'actionExecutionOutput_outputVariables' - The outputVariables field shows the key-value pairs that were output as
--- part of that execution.
---
 -- 'outputArtifacts', 'actionExecutionOutput_outputArtifacts' - Details of output artifacts of the action that correspond to the action
 -- execution.
 --
 -- 'executionResult', 'actionExecutionOutput_executionResult' - Execution result information listed in the output details for an action
 -- execution.
+--
+-- 'outputVariables', 'actionExecutionOutput_outputVariables' - The outputVariables field shows the key-value pairs that were output as
+-- part of that execution.
 newActionExecutionOutput ::
   ActionExecutionOutput
 newActionExecutionOutput =
   ActionExecutionOutput'
-    { outputVariables =
+    { outputArtifacts =
         Prelude.Nothing,
-      outputArtifacts = Prelude.Nothing,
-      executionResult = Prelude.Nothing
+      executionResult = Prelude.Nothing,
+      outputVariables = Prelude.Nothing
     }
-
--- | The outputVariables field shows the key-value pairs that were output as
--- part of that execution.
-actionExecutionOutput_outputVariables :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-actionExecutionOutput_outputVariables = Lens.lens (\ActionExecutionOutput' {outputVariables} -> outputVariables) (\s@ActionExecutionOutput' {} a -> s {outputVariables = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | Details of output artifacts of the action that correspond to the action
 -- execution.
@@ -83,29 +78,34 @@ actionExecutionOutput_outputArtifacts = Lens.lens (\ActionExecutionOutput' {outp
 actionExecutionOutput_executionResult :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe ActionExecutionResult)
 actionExecutionOutput_executionResult = Lens.lens (\ActionExecutionOutput' {executionResult} -> executionResult) (\s@ActionExecutionOutput' {} a -> s {executionResult = a} :: ActionExecutionOutput)
 
+-- | The outputVariables field shows the key-value pairs that were output as
+-- part of that execution.
+actionExecutionOutput_outputVariables :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+actionExecutionOutput_outputVariables = Lens.lens (\ActionExecutionOutput' {outputVariables} -> outputVariables) (\s@ActionExecutionOutput' {} a -> s {outputVariables = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON ActionExecutionOutput where
   parseJSON =
     Core.withObject
       "ActionExecutionOutput"
       ( \x ->
           ActionExecutionOutput'
-            Prelude.<$> ( x Core..:? "outputVariables"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Core..:? "outputArtifacts"
+            Prelude.<$> ( x Core..:? "outputArtifacts"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "executionResult")
+            Prelude.<*> ( x Core..:? "outputVariables"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable ActionExecutionOutput where
   hashWithSalt _salt ActionExecutionOutput' {..} =
-    _salt `Prelude.hashWithSalt` outputVariables
-      `Prelude.hashWithSalt` outputArtifacts
+    _salt `Prelude.hashWithSalt` outputArtifacts
       `Prelude.hashWithSalt` executionResult
+      `Prelude.hashWithSalt` outputVariables
 
 instance Prelude.NFData ActionExecutionOutput where
   rnf ActionExecutionOutput' {..} =
-    Prelude.rnf outputVariables
-      `Prelude.seq` Prelude.rnf outputArtifacts
+    Prelude.rnf outputArtifacts
       `Prelude.seq` Prelude.rnf executionResult
+      `Prelude.seq` Prelude.rnf outputVariables

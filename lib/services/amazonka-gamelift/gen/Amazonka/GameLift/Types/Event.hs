@@ -37,17 +37,6 @@ import qualified Amazonka.Prelude as Prelude
 data Event = Event'
   { -- | A unique identifier for an event resource, such as a fleet ID.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | Location of stored logs with additional detail that is related to the
-    -- event. This is useful for debugging issues. The URL is valid for 15
-    -- minutes. You can also access fleet creation logs through the GameLift
-    -- console.
-    preSignedLogUrl :: Prelude.Maybe Prelude.Text,
-    -- | Time stamp indicating when this event occurred. Format is a number
-    -- expressed in Unix time as milliseconds (for example
-    -- @\"1469498468.057\"@).
-    eventTime :: Prelude.Maybe Core.POSIX,
-    -- | Additional information related to the event.
-    message :: Prelude.Maybe Prelude.Text,
     -- | The type of event being logged.
     --
     -- __Fleet creation events (ordered by fleet creation activity):__
@@ -151,8 +140,19 @@ data Event = Event'
     --
     -- -   GENERIC_EVENT -- An unspecified event has occurred.
     eventCode :: Prelude.Maybe EventCode,
+    -- | Additional information related to the event.
+    message :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a fleet event.
-    eventId :: Prelude.Maybe Prelude.Text
+    eventId :: Prelude.Maybe Prelude.Text,
+    -- | Time stamp indicating when this event occurred. Format is a number
+    -- expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
+    eventTime :: Prelude.Maybe Core.POSIX,
+    -- | Location of stored logs with additional detail that is related to the
+    -- event. This is useful for debugging issues. The URL is valid for 15
+    -- minutes. You can also access fleet creation logs through the GameLift
+    -- console.
+    preSignedLogUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -165,17 +165,6 @@ data Event = Event'
 -- for backwards compatibility:
 --
 -- 'resourceId', 'event_resourceId' - A unique identifier for an event resource, such as a fleet ID.
---
--- 'preSignedLogUrl', 'event_preSignedLogUrl' - Location of stored logs with additional detail that is related to the
--- event. This is useful for debugging issues. The URL is valid for 15
--- minutes. You can also access fleet creation logs through the GameLift
--- console.
---
--- 'eventTime', 'event_eventTime' - Time stamp indicating when this event occurred. Format is a number
--- expressed in Unix time as milliseconds (for example
--- @\"1469498468.057\"@).
---
--- 'message', 'event_message' - Additional information related to the event.
 --
 -- 'eventCode', 'event_eventCode' - The type of event being logged.
 --
@@ -280,39 +269,33 @@ data Event = Event'
 --
 -- -   GENERIC_EVENT -- An unspecified event has occurred.
 --
+-- 'message', 'event_message' - Additional information related to the event.
+--
 -- 'eventId', 'event_eventId' - A unique identifier for a fleet event.
+--
+-- 'eventTime', 'event_eventTime' - Time stamp indicating when this event occurred. Format is a number
+-- expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+--
+-- 'preSignedLogUrl', 'event_preSignedLogUrl' - Location of stored logs with additional detail that is related to the
+-- event. This is useful for debugging issues. The URL is valid for 15
+-- minutes. You can also access fleet creation logs through the GameLift
+-- console.
 newEvent ::
   Event
 newEvent =
   Event'
     { resourceId = Prelude.Nothing,
-      preSignedLogUrl = Prelude.Nothing,
-      eventTime = Prelude.Nothing,
-      message = Prelude.Nothing,
       eventCode = Prelude.Nothing,
-      eventId = Prelude.Nothing
+      message = Prelude.Nothing,
+      eventId = Prelude.Nothing,
+      eventTime = Prelude.Nothing,
+      preSignedLogUrl = Prelude.Nothing
     }
 
 -- | A unique identifier for an event resource, such as a fleet ID.
 event_resourceId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_resourceId = Lens.lens (\Event' {resourceId} -> resourceId) (\s@Event' {} a -> s {resourceId = a} :: Event)
-
--- | Location of stored logs with additional detail that is related to the
--- event. This is useful for debugging issues. The URL is valid for 15
--- minutes. You can also access fleet creation logs through the GameLift
--- console.
-event_preSignedLogUrl :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_preSignedLogUrl = Lens.lens (\Event' {preSignedLogUrl} -> preSignedLogUrl) (\s@Event' {} a -> s {preSignedLogUrl = a} :: Event)
-
--- | Time stamp indicating when this event occurred. Format is a number
--- expressed in Unix time as milliseconds (for example
--- @\"1469498468.057\"@).
-event_eventTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Core._Time
-
--- | Additional information related to the event.
-event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
 
 -- | The type of event being logged.
 --
@@ -419,9 +402,26 @@ event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {m
 event_eventCode :: Lens.Lens' Event (Prelude.Maybe EventCode)
 event_eventCode = Lens.lens (\Event' {eventCode} -> eventCode) (\s@Event' {} a -> s {eventCode = a} :: Event)
 
+-- | Additional information related to the event.
+event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
+
 -- | A unique identifier for a fleet event.
 event_eventId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventId = Lens.lens (\Event' {eventId} -> eventId) (\s@Event' {} a -> s {eventId = a} :: Event)
+
+-- | Time stamp indicating when this event occurred. Format is a number
+-- expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+event_eventTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+
+-- | Location of stored logs with additional detail that is related to the
+-- event. This is useful for debugging issues. The URL is valid for 15
+-- minutes. You can also access fleet creation logs through the GameLift
+-- console.
+event_preSignedLogUrl :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_preSignedLogUrl = Lens.lens (\Event' {preSignedLogUrl} -> preSignedLogUrl) (\s@Event' {} a -> s {preSignedLogUrl = a} :: Event)
 
 instance Core.FromJSON Event where
   parseJSON =
@@ -430,27 +430,27 @@ instance Core.FromJSON Event where
       ( \x ->
           Event'
             Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "PreSignedLogUrl")
-            Prelude.<*> (x Core..:? "EventTime")
-            Prelude.<*> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "EventCode")
+            Prelude.<*> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "EventId")
+            Prelude.<*> (x Core..:? "EventTime")
+            Prelude.<*> (x Core..:? "PreSignedLogUrl")
       )
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
     _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` preSignedLogUrl
-      `Prelude.hashWithSalt` eventTime
-      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` eventCode
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` eventId
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` preSignedLogUrl
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
     Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf preSignedLogUrl
-      `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf eventCode
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf preSignedLogUrl

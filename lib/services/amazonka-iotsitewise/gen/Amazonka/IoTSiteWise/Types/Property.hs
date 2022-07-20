@@ -30,11 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProperty' smart constructor.
 data Property = Property'
-  { -- | The asset property\'s notification topic and state. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
-    notification :: Prelude.Maybe PropertyNotification,
-    -- | The alias that identifies the property, such as an OPC-UA server data
+  { -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
     -- information, see
@@ -43,6 +39,10 @@ data Property = Property'
     alias :: Prelude.Maybe Prelude.Text,
     -- | The property type (see @PropertyType@). A property contains one type.
     type' :: Prelude.Maybe PropertyType,
+    -- | The asset property\'s notification topic and state. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
+    notification :: Prelude.Maybe PropertyNotification,
     -- | The unit (such as @Newtons@ or @RPM@) of the asset property.
     unit :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset property.
@@ -62,10 +62,6 @@ data Property = Property'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notification', 'property_notification' - The asset property\'s notification topic and state. For more
--- information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
---
 -- 'alias', 'property_alias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
 -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -74,6 +70,10 @@ data Property = Property'
 -- in the /IoT SiteWise User Guide/.
 --
 -- 'type'', 'property_type' - The property type (see @PropertyType@). A property contains one type.
+--
+-- 'notification', 'property_notification' - The asset property\'s notification topic and state. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
 --
 -- 'unit', 'property_unit' - The unit (such as @Newtons@ or @RPM@) of the asset property.
 --
@@ -92,20 +92,14 @@ newProperty ::
   Property
 newProperty pId_ pName_ pDataType_ =
   Property'
-    { notification = Prelude.Nothing,
-      alias = Prelude.Nothing,
+    { alias = Prelude.Nothing,
       type' = Prelude.Nothing,
+      notification = Prelude.Nothing,
       unit = Prelude.Nothing,
       id = pId_,
       name = pName_,
       dataType = pDataType_
     }
-
--- | The asset property\'s notification topic and state. For more
--- information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
-property_notification :: Lens.Lens' Property (Prelude.Maybe PropertyNotification)
-property_notification = Lens.lens (\Property' {notification} -> notification) (\s@Property' {} a -> s {notification = a} :: Property)
 
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -119,6 +113,12 @@ property_alias = Lens.lens (\Property' {alias} -> alias) (\s@Property' {} a -> s
 -- | The property type (see @PropertyType@). A property contains one type.
 property_type :: Lens.Lens' Property (Prelude.Maybe PropertyType)
 property_type = Lens.lens (\Property' {type'} -> type') (\s@Property' {} a -> s {type' = a} :: Property)
+
+-- | The asset property\'s notification topic and state. For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
+property_notification :: Lens.Lens' Property (Prelude.Maybe PropertyNotification)
+property_notification = Lens.lens (\Property' {notification} -> notification) (\s@Property' {} a -> s {notification = a} :: Property)
 
 -- | The unit (such as @Newtons@ or @RPM@) of the asset property.
 property_unit :: Lens.Lens' Property (Prelude.Maybe Prelude.Text)
@@ -142,9 +142,9 @@ instance Core.FromJSON Property where
       "Property"
       ( \x ->
           Property'
-            Prelude.<$> (x Core..:? "notification")
-            Prelude.<*> (x Core..:? "alias")
+            Prelude.<$> (x Core..:? "alias")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "notification")
             Prelude.<*> (x Core..:? "unit")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "name")
@@ -153,9 +153,9 @@ instance Core.FromJSON Property where
 
 instance Prelude.Hashable Property where
   hashWithSalt _salt Property' {..} =
-    _salt `Prelude.hashWithSalt` notification
-      `Prelude.hashWithSalt` alias
+    _salt `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` notification
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
@@ -163,9 +163,9 @@ instance Prelude.Hashable Property where
 
 instance Prelude.NFData Property where
   rnf Property' {..} =
-    Prelude.rnf notification
-      `Prelude.seq` Prelude.rnf alias
+    Prelude.rnf alias
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf notification
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name

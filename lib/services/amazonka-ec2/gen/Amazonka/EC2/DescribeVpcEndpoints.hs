@@ -29,8 +29,8 @@ module Amazonka.EC2.DescribeVpcEndpoints
     newDescribeVpcEndpoints,
 
     -- * Request Lenses
-    describeVpcEndpoints_filters,
     describeVpcEndpoints_nextToken,
+    describeVpcEndpoints_filters,
     describeVpcEndpoints_vpcEndpointIds,
     describeVpcEndpoints_dryRun,
     describeVpcEndpoints_maxResults,
@@ -57,7 +57,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeVpcEndpoints' smart constructor.
 data DescribeVpcEndpoints = DescribeVpcEndpoints'
-  { -- | One or more filters.
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a prior call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @service-name@ - The name of the service.
     --
@@ -82,9 +85,6 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next set of items to return. (You received this token
-    -- from a prior call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more endpoint IDs.
     vpcEndpointIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
@@ -109,6 +109,9 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeVpcEndpoints_nextToken' - The token for the next set of items to return. (You received this token
+-- from a prior call.)
 --
 -- 'filters', 'describeVpcEndpoints_filters' - One or more filters.
 --
@@ -135,9 +138,6 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
--- 'nextToken', 'describeVpcEndpoints_nextToken' - The token for the next set of items to return. (You received this token
--- from a prior call.)
---
 -- 'vpcEndpointIds', 'describeVpcEndpoints_vpcEndpointIds' - One or more endpoint IDs.
 --
 -- 'dryRun', 'describeVpcEndpoints_dryRun' - Checks whether you have the required permissions for the action, without
@@ -155,12 +155,17 @@ newDescribeVpcEndpoints ::
   DescribeVpcEndpoints
 newDescribeVpcEndpoints =
   DescribeVpcEndpoints'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       vpcEndpointIds = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next set of items to return. (You received this token
+-- from a prior call.)
+describeVpcEndpoints_nextToken :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe Prelude.Text)
+describeVpcEndpoints_nextToken = Lens.lens (\DescribeVpcEndpoints' {nextToken} -> nextToken) (\s@DescribeVpcEndpoints' {} a -> s {nextToken = a} :: DescribeVpcEndpoints)
 
 -- | One or more filters.
 --
@@ -188,11 +193,6 @@ newDescribeVpcEndpoints =
 --     regardless of the tag value.
 describeVpcEndpoints_filters :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe [Filter])
 describeVpcEndpoints_filters = Lens.lens (\DescribeVpcEndpoints' {filters} -> filters) (\s@DescribeVpcEndpoints' {} a -> s {filters = a} :: DescribeVpcEndpoints) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next set of items to return. (You received this token
--- from a prior call.)
-describeVpcEndpoints_nextToken :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe Prelude.Text)
-describeVpcEndpoints_nextToken = Lens.lens (\DescribeVpcEndpoints' {nextToken} -> nextToken) (\s@DescribeVpcEndpoints' {} a -> s {nextToken = a} :: DescribeVpcEndpoints)
 
 -- | One or more endpoint IDs.
 describeVpcEndpoints_vpcEndpointIds :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe [Prelude.Text])
@@ -254,16 +254,16 @@ instance Core.AWSRequest DescribeVpcEndpoints where
 
 instance Prelude.Hashable DescribeVpcEndpoints where
   hashWithSalt _salt DescribeVpcEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` vpcEndpointIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeVpcEndpoints where
   rnf DescribeVpcEndpoints' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf vpcEndpointIds
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
@@ -281,9 +281,9 @@ instance Core.ToQuery DescribeVpcEndpoints where
           Core.=: ("DescribeVpcEndpoints" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         Core.toQuery
           ( Core.toQueryList "VpcEndpointId"
               Prelude.<$> vpcEndpointIds

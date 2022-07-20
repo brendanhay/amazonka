@@ -27,23 +27,26 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDescribeSavingsPlanRates $
---             newDescribeSavingsPlanRates
+--         [ requestCreateSavingsPlan $
+--             newCreateSavingsPlan
 --
 --         , requestDeleteQueuedSavingsPlan $
 --             newDeleteQueuedSavingsPlan
 --
---         , requestCreateSavingsPlan $
---             newCreateSavingsPlan
+--         , requestDescribeSavingsPlanRates $
+--             newDescribeSavingsPlanRates
+--
+--         , requestDescribeSavingsPlans $
+--             newDescribeSavingsPlans
+--
+--         , requestDescribeSavingsPlansOfferingRates $
+--             newDescribeSavingsPlansOfferingRates
 --
 --         , requestDescribeSavingsPlansOfferings $
 --             newDescribeSavingsPlansOfferings
 --
---         , requestDescribeSavingsPlans $
---             newDescribeSavingsPlans
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestTagResource $
 --             newTagResource
@@ -51,29 +54,29 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDescribeSavingsPlansOfferingRates $
---             newDescribeSavingsPlansOfferingRates
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDescribeSavingsPlanRates $
---             newDescribeSavingsPlanRatesResponse
+--         [ responseCreateSavingsPlan $
+--             newCreateSavingsPlanResponse
 --
 --         , responseDeleteQueuedSavingsPlan $
 --             newDeleteQueuedSavingsPlanResponse
 --
---         , responseCreateSavingsPlan $
---             newCreateSavingsPlanResponse
+--         , responseDescribeSavingsPlanRates $
+--             newDescribeSavingsPlanRatesResponse
+--
+--         , responseDescribeSavingsPlans $
+--             newDescribeSavingsPlansResponse
+--
+--         , responseDescribeSavingsPlansOfferingRates $
+--             newDescribeSavingsPlansOfferingRatesResponse
 --
 --         , responseDescribeSavingsPlansOfferings $
 --             newDescribeSavingsPlansOfferingsResponse
 --
---         , responseDescribeSavingsPlans $
---             newDescribeSavingsPlansResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -81,31 +84,10 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeSavingsPlansOfferingRates $
---             newDescribeSavingsPlansOfferingRatesResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDescribeSavingsPlanRates :: DescribeSavingsPlanRates -> TestTree
-requestDescribeSavingsPlanRates =
-  req
-    "DescribeSavingsPlanRates"
-    "fixture/DescribeSavingsPlanRates.yaml"
-
-requestDeleteQueuedSavingsPlan :: DeleteQueuedSavingsPlan -> TestTree
-requestDeleteQueuedSavingsPlan =
-  req
-    "DeleteQueuedSavingsPlan"
-    "fixture/DeleteQueuedSavingsPlan.yaml"
 
 requestCreateSavingsPlan :: CreateSavingsPlan -> TestTree
 requestCreateSavingsPlan =
@@ -113,17 +95,41 @@ requestCreateSavingsPlan =
     "CreateSavingsPlan"
     "fixture/CreateSavingsPlan.yaml"
 
-requestDescribeSavingsPlansOfferings :: DescribeSavingsPlansOfferings -> TestTree
-requestDescribeSavingsPlansOfferings =
+requestDeleteQueuedSavingsPlan :: DeleteQueuedSavingsPlan -> TestTree
+requestDeleteQueuedSavingsPlan =
   req
-    "DescribeSavingsPlansOfferings"
-    "fixture/DescribeSavingsPlansOfferings.yaml"
+    "DeleteQueuedSavingsPlan"
+    "fixture/DeleteQueuedSavingsPlan.yaml"
+
+requestDescribeSavingsPlanRates :: DescribeSavingsPlanRates -> TestTree
+requestDescribeSavingsPlanRates =
+  req
+    "DescribeSavingsPlanRates"
+    "fixture/DescribeSavingsPlanRates.yaml"
 
 requestDescribeSavingsPlans :: DescribeSavingsPlans -> TestTree
 requestDescribeSavingsPlans =
   req
     "DescribeSavingsPlans"
     "fixture/DescribeSavingsPlans.yaml"
+
+requestDescribeSavingsPlansOfferingRates :: DescribeSavingsPlansOfferingRates -> TestTree
+requestDescribeSavingsPlansOfferingRates =
+  req
+    "DescribeSavingsPlansOfferingRates"
+    "fixture/DescribeSavingsPlansOfferingRates.yaml"
+
+requestDescribeSavingsPlansOfferings :: DescribeSavingsPlansOfferings -> TestTree
+requestDescribeSavingsPlansOfferings =
+  req
+    "DescribeSavingsPlansOfferings"
+    "fixture/DescribeSavingsPlansOfferings.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -137,37 +143,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDescribeSavingsPlansOfferingRates :: DescribeSavingsPlansOfferingRates -> TestTree
-requestDescribeSavingsPlansOfferingRates =
-  req
-    "DescribeSavingsPlansOfferingRates"
-    "fixture/DescribeSavingsPlansOfferingRates.yaml"
-
 -- Responses
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDescribeSavingsPlanRates :: DescribeSavingsPlanRatesResponse -> TestTree
-responseDescribeSavingsPlanRates =
-  res
-    "DescribeSavingsPlanRatesResponse"
-    "fixture/DescribeSavingsPlanRatesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlanRates)
-
-responseDeleteQueuedSavingsPlan :: DeleteQueuedSavingsPlanResponse -> TestTree
-responseDeleteQueuedSavingsPlan =
-  res
-    "DeleteQueuedSavingsPlanResponse"
-    "fixture/DeleteQueuedSavingsPlanResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteQueuedSavingsPlan)
 
 responseCreateSavingsPlan :: CreateSavingsPlanResponse -> TestTree
 responseCreateSavingsPlan =
@@ -177,13 +153,21 @@ responseCreateSavingsPlan =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSavingsPlan)
 
-responseDescribeSavingsPlansOfferings :: DescribeSavingsPlansOfferingsResponse -> TestTree
-responseDescribeSavingsPlansOfferings =
+responseDeleteQueuedSavingsPlan :: DeleteQueuedSavingsPlanResponse -> TestTree
+responseDeleteQueuedSavingsPlan =
   res
-    "DescribeSavingsPlansOfferingsResponse"
-    "fixture/DescribeSavingsPlansOfferingsResponse.proto"
+    "DeleteQueuedSavingsPlanResponse"
+    "fixture/DeleteQueuedSavingsPlanResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlansOfferings)
+    (Proxy.Proxy :: Proxy.Proxy DeleteQueuedSavingsPlan)
+
+responseDescribeSavingsPlanRates :: DescribeSavingsPlanRatesResponse -> TestTree
+responseDescribeSavingsPlanRates =
+  res
+    "DescribeSavingsPlanRatesResponse"
+    "fixture/DescribeSavingsPlanRatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlanRates)
 
 responseDescribeSavingsPlans :: DescribeSavingsPlansResponse -> TestTree
 responseDescribeSavingsPlans =
@@ -192,6 +176,30 @@ responseDescribeSavingsPlans =
     "fixture/DescribeSavingsPlansResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlans)
+
+responseDescribeSavingsPlansOfferingRates :: DescribeSavingsPlansOfferingRatesResponse -> TestTree
+responseDescribeSavingsPlansOfferingRates =
+  res
+    "DescribeSavingsPlansOfferingRatesResponse"
+    "fixture/DescribeSavingsPlansOfferingRatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlansOfferingRates)
+
+responseDescribeSavingsPlansOfferings :: DescribeSavingsPlansOfferingsResponse -> TestTree
+responseDescribeSavingsPlansOfferings =
+  res
+    "DescribeSavingsPlansOfferingsResponse"
+    "fixture/DescribeSavingsPlansOfferingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlansOfferings)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -208,11 +216,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseDescribeSavingsPlansOfferingRates :: DescribeSavingsPlansOfferingRatesResponse -> TestTree
-responseDescribeSavingsPlansOfferingRates =
-  res
-    "DescribeSavingsPlansOfferingRatesResponse"
-    "fixture/DescribeSavingsPlansOfferingRatesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSavingsPlansOfferingRates)

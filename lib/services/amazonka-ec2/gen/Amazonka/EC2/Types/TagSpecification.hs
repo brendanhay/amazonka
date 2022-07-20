@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagSpecification' smart constructor.
 data TagSpecification = TagSpecification'
-  { -- | The type of resource to tag on creation.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The tags to apply to the resource.
-    tags :: Prelude.Maybe [Tag]
+  { -- | The tags to apply to the resource.
+    tags :: Prelude.Maybe [Tag],
+    -- | The type of resource to tag on creation.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,47 +45,47 @@ data TagSpecification = TagSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'tagSpecification_resourceType' - The type of resource to tag on creation.
---
 -- 'tags', 'tagSpecification_tags' - The tags to apply to the resource.
+--
+-- 'resourceType', 'tagSpecification_resourceType' - The type of resource to tag on creation.
 newTagSpecification ::
   TagSpecification
 newTagSpecification =
   TagSpecification'
-    { resourceType = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
-
--- | The type of resource to tag on creation.
-tagSpecification_resourceType :: Lens.Lens' TagSpecification (Prelude.Maybe ResourceType)
-tagSpecification_resourceType = Lens.lens (\TagSpecification' {resourceType} -> resourceType) (\s@TagSpecification' {} a -> s {resourceType = a} :: TagSpecification)
 
 -- | The tags to apply to the resource.
 tagSpecification_tags :: Lens.Lens' TagSpecification (Prelude.Maybe [Tag])
 tagSpecification_tags = Lens.lens (\TagSpecification' {tags} -> tags) (\s@TagSpecification' {} a -> s {tags = a} :: TagSpecification) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of resource to tag on creation.
+tagSpecification_resourceType :: Lens.Lens' TagSpecification (Prelude.Maybe ResourceType)
+tagSpecification_resourceType = Lens.lens (\TagSpecification' {resourceType} -> resourceType) (\s@TagSpecification' {} a -> s {resourceType = a} :: TagSpecification)
+
 instance Core.FromXML TagSpecification where
   parseXML x =
     TagSpecification'
-      Prelude.<$> (x Core..@? "resourceType")
-      Prelude.<*> ( x Core..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "resourceType")
 
 instance Prelude.Hashable TagSpecification where
   hashWithSalt _salt TagSpecification' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData TagSpecification where
   rnf TagSpecification' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Core.ToQuery TagSpecification where
   toQuery TagSpecification' {..} =
     Prelude.mconcat
-      [ "ResourceType" Core.=: resourceType,
-        Core.toQuery
-          (Core.toQueryList "Tag" Prelude.<$> tags)
+      [ Core.toQuery
+          (Core.toQueryList "Tag" Prelude.<$> tags),
+        "ResourceType" Core.=: resourceType
       ]

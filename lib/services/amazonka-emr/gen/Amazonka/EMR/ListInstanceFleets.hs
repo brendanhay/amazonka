@@ -40,8 +40,8 @@ module Amazonka.EMR.ListInstanceFleets
     newListInstanceFleetsResponse,
 
     -- * Response Lenses
-    listInstanceFleetsResponse_instanceFleets,
     listInstanceFleetsResponse_marker,
+    listInstanceFleetsResponse_instanceFleets,
     listInstanceFleetsResponse_httpStatus,
   )
 where
@@ -122,8 +122,8 @@ instance Core.AWSRequest ListInstanceFleets where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceFleetsResponse'
-            Prelude.<$> (x Core..?> "InstanceFleets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "InstanceFleets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,10 +169,10 @@ instance Core.ToQuery ListInstanceFleets where
 
 -- | /See:/ 'newListInstanceFleetsResponse' smart constructor.
 data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
-  { -- | The list of instance fleets for the cluster and given filters.
-    instanceFleets :: Prelude.Maybe [InstanceFleet],
-    -- | The pagination token that indicates the next set of results to retrieve.
+  { -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The list of instance fleets for the cluster and given filters.
+    instanceFleets :: Prelude.Maybe [InstanceFleet],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,9 +186,9 @@ data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceFleets', 'listInstanceFleetsResponse_instanceFleets' - The list of instance fleets for the cluster and given filters.
---
 -- 'marker', 'listInstanceFleetsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'instanceFleets', 'listInstanceFleetsResponse_instanceFleets' - The list of instance fleets for the cluster and given filters.
 --
 -- 'httpStatus', 'listInstanceFleetsResponse_httpStatus' - The response's http status code.
 newListInstanceFleetsResponse ::
@@ -197,19 +197,19 @@ newListInstanceFleetsResponse ::
   ListInstanceFleetsResponse
 newListInstanceFleetsResponse pHttpStatus_ =
   ListInstanceFleetsResponse'
-    { instanceFleets =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      instanceFleets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of instance fleets for the cluster and given filters.
-listInstanceFleetsResponse_instanceFleets :: Lens.Lens' ListInstanceFleetsResponse (Prelude.Maybe [InstanceFleet])
-listInstanceFleetsResponse_instanceFleets = Lens.lens (\ListInstanceFleetsResponse' {instanceFleets} -> instanceFleets) (\s@ListInstanceFleetsResponse' {} a -> s {instanceFleets = a} :: ListInstanceFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that indicates the next set of results to retrieve.
 listInstanceFleetsResponse_marker :: Lens.Lens' ListInstanceFleetsResponse (Prelude.Maybe Prelude.Text)
 listInstanceFleetsResponse_marker = Lens.lens (\ListInstanceFleetsResponse' {marker} -> marker) (\s@ListInstanceFleetsResponse' {} a -> s {marker = a} :: ListInstanceFleetsResponse)
+
+-- | The list of instance fleets for the cluster and given filters.
+listInstanceFleetsResponse_instanceFleets :: Lens.Lens' ListInstanceFleetsResponse (Prelude.Maybe [InstanceFleet])
+listInstanceFleetsResponse_instanceFleets = Lens.lens (\ListInstanceFleetsResponse' {instanceFleets} -> instanceFleets) (\s@ListInstanceFleetsResponse' {} a -> s {instanceFleets = a} :: ListInstanceFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInstanceFleetsResponse_httpStatus :: Lens.Lens' ListInstanceFleetsResponse Prelude.Int
@@ -217,6 +217,6 @@ listInstanceFleetsResponse_httpStatus = Lens.lens (\ListInstanceFleetsResponse' 
 
 instance Prelude.NFData ListInstanceFleetsResponse where
   rnf ListInstanceFleetsResponse' {..} =
-    Prelude.rnf instanceFleets
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf instanceFleets
       `Prelude.seq` Prelude.rnf httpStatus

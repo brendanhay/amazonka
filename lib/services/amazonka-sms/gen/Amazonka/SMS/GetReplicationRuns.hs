@@ -38,9 +38,9 @@ module Amazonka.SMS.GetReplicationRuns
     newGetReplicationRunsResponse,
 
     -- * Response Lenses
-    getReplicationRunsResponse_replicationJob,
-    getReplicationRunsResponse_nextToken,
     getReplicationRunsResponse_replicationRunList,
+    getReplicationRunsResponse_nextToken,
+    getReplicationRunsResponse_replicationJob,
     getReplicationRunsResponse_httpStatus,
   )
 where
@@ -136,11 +136,11 @@ instance Core.AWSRequest GetReplicationRuns where
     Response.receiveJSON
       ( \s h x ->
           GetReplicationRunsResponse'
-            Prelude.<$> (x Core..?> "replicationJob")
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "replicationRunList"
+            Prelude.<$> ( x Core..?> "replicationRunList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "replicationJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,13 +190,13 @@ instance Core.ToQuery GetReplicationRuns where
 
 -- | /See:/ 'newGetReplicationRunsResponse' smart constructor.
 data GetReplicationRunsResponse = GetReplicationRunsResponse'
-  { -- | Information about the replication job.
-    replicationJob :: Prelude.Maybe ReplicationJob,
+  { -- | Information about the replication runs.
+    replicationRunList :: Prelude.Maybe [ReplicationRun],
     -- | The token required to retrieve the next set of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the replication runs.
-    replicationRunList :: Prelude.Maybe [ReplicationRun],
+    -- | Information about the replication job.
+    replicationJob :: Prelude.Maybe ReplicationJob,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,12 +210,12 @@ data GetReplicationRunsResponse = GetReplicationRunsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationJob', 'getReplicationRunsResponse_replicationJob' - Information about the replication job.
+-- 'replicationRunList', 'getReplicationRunsResponse_replicationRunList' - Information about the replication runs.
 --
 -- 'nextToken', 'getReplicationRunsResponse_nextToken' - The token required to retrieve the next set of results. This value is
 -- null when there are no more results to return.
 --
--- 'replicationRunList', 'getReplicationRunsResponse_replicationRunList' - Information about the replication runs.
+-- 'replicationJob', 'getReplicationRunsResponse_replicationJob' - Information about the replication job.
 --
 -- 'httpStatus', 'getReplicationRunsResponse_httpStatus' - The response's http status code.
 newGetReplicationRunsResponse ::
@@ -224,25 +224,25 @@ newGetReplicationRunsResponse ::
   GetReplicationRunsResponse
 newGetReplicationRunsResponse pHttpStatus_ =
   GetReplicationRunsResponse'
-    { replicationJob =
+    { replicationRunList =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      replicationRunList = Prelude.Nothing,
+      replicationJob = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Information about the replication job.
-getReplicationRunsResponse_replicationJob :: Lens.Lens' GetReplicationRunsResponse (Prelude.Maybe ReplicationJob)
-getReplicationRunsResponse_replicationJob = Lens.lens (\GetReplicationRunsResponse' {replicationJob} -> replicationJob) (\s@GetReplicationRunsResponse' {} a -> s {replicationJob = a} :: GetReplicationRunsResponse)
+-- | Information about the replication runs.
+getReplicationRunsResponse_replicationRunList :: Lens.Lens' GetReplicationRunsResponse (Prelude.Maybe [ReplicationRun])
+getReplicationRunsResponse_replicationRunList = Lens.lens (\GetReplicationRunsResponse' {replicationRunList} -> replicationRunList) (\s@GetReplicationRunsResponse' {} a -> s {replicationRunList = a} :: GetReplicationRunsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token required to retrieve the next set of results. This value is
 -- null when there are no more results to return.
 getReplicationRunsResponse_nextToken :: Lens.Lens' GetReplicationRunsResponse (Prelude.Maybe Prelude.Text)
 getReplicationRunsResponse_nextToken = Lens.lens (\GetReplicationRunsResponse' {nextToken} -> nextToken) (\s@GetReplicationRunsResponse' {} a -> s {nextToken = a} :: GetReplicationRunsResponse)
 
--- | Information about the replication runs.
-getReplicationRunsResponse_replicationRunList :: Lens.Lens' GetReplicationRunsResponse (Prelude.Maybe [ReplicationRun])
-getReplicationRunsResponse_replicationRunList = Lens.lens (\GetReplicationRunsResponse' {replicationRunList} -> replicationRunList) (\s@GetReplicationRunsResponse' {} a -> s {replicationRunList = a} :: GetReplicationRunsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Information about the replication job.
+getReplicationRunsResponse_replicationJob :: Lens.Lens' GetReplicationRunsResponse (Prelude.Maybe ReplicationJob)
+getReplicationRunsResponse_replicationJob = Lens.lens (\GetReplicationRunsResponse' {replicationJob} -> replicationJob) (\s@GetReplicationRunsResponse' {} a -> s {replicationJob = a} :: GetReplicationRunsResponse)
 
 -- | The response's http status code.
 getReplicationRunsResponse_httpStatus :: Lens.Lens' GetReplicationRunsResponse Prelude.Int
@@ -250,7 +250,7 @@ getReplicationRunsResponse_httpStatus = Lens.lens (\GetReplicationRunsResponse' 
 
 instance Prelude.NFData GetReplicationRunsResponse where
   rnf GetReplicationRunsResponse' {..} =
-    Prelude.rnf replicationJob
+    Prelude.rnf replicationRunList
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replicationRunList
+      `Prelude.seq` Prelude.rnf replicationJob
       `Prelude.seq` Prelude.rnf httpStatus

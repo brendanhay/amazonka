@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateParam' smart constructor.
 data UpdateParam = UpdateParam'
-  { -- | The value of the keys submitted as part of an update request.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The keys associated with an update request.
-    type' :: Prelude.Maybe UpdateParamType
+  { -- | The keys associated with an update request.
+    type' :: Prelude.Maybe UpdateParamType,
+    -- | The value of the keys submitted as part of an update request.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data UpdateParam = UpdateParam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'updateParam_value' - The value of the keys submitted as part of an update request.
---
 -- 'type'', 'updateParam_type' - The keys associated with an update request.
+--
+-- 'value', 'updateParam_value' - The value of the keys submitted as part of an update request.
 newUpdateParam ::
   UpdateParam
 newUpdateParam =
   UpdateParam'
-    { value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the keys submitted as part of an update request.
-updateParam_value :: Lens.Lens' UpdateParam (Prelude.Maybe Prelude.Text)
-updateParam_value = Lens.lens (\UpdateParam' {value} -> value) (\s@UpdateParam' {} a -> s {value = a} :: UpdateParam)
 
 -- | The keys associated with an update request.
 updateParam_type :: Lens.Lens' UpdateParam (Prelude.Maybe UpdateParamType)
 updateParam_type = Lens.lens (\UpdateParam' {type'} -> type') (\s@UpdateParam' {} a -> s {type' = a} :: UpdateParam)
+
+-- | The value of the keys submitted as part of an update request.
+updateParam_value :: Lens.Lens' UpdateParam (Prelude.Maybe Prelude.Text)
+updateParam_value = Lens.lens (\UpdateParam' {value} -> value) (\s@UpdateParam' {} a -> s {value = a} :: UpdateParam)
 
 instance Core.FromJSON UpdateParam where
   parseJSON =
@@ -68,14 +68,14 @@ instance Core.FromJSON UpdateParam where
       "UpdateParam"
       ( \x ->
           UpdateParam'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "type")
+            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable UpdateParam where
   hashWithSalt _salt UpdateParam' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UpdateParam where
   rnf UpdateParam' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value

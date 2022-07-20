@@ -27,10 +27,10 @@ module Amazonka.AuditManager.UpdateSettings
     newUpdateSettings,
 
     -- * Request Lenses
+    updateSettings_defaultProcessOwners,
+    updateSettings_snsTopic,
     updateSettings_kmsKey,
     updateSettings_defaultAssessmentReportsDestination,
-    updateSettings_snsTopic,
-    updateSettings_defaultProcessOwners,
 
     -- * Destructuring the Response
     UpdateSettingsResponse (..),
@@ -51,15 +51,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSettings' smart constructor.
 data UpdateSettings = UpdateSettings'
-  { -- | The KMS key details.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The default storage destination for assessment reports.
-    defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
+  { -- | A list of the default audit owners.
+    defaultProcessOwners :: Prelude.Maybe [Role],
     -- | The Amazon Simple Notification Service (Amazon SNS) topic to which Audit
     -- Manager sends notifications.
     snsTopic :: Prelude.Maybe Prelude.Text,
-    -- | A list of the default audit owners.
-    defaultProcessOwners :: Prelude.Maybe [Role]
+    -- | The KMS key details.
+    kmsKey :: Prelude.Maybe Prelude.Text,
+    -- | The default storage destination for assessment reports.
+    defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,24 +71,34 @@ data UpdateSettings = UpdateSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKey', 'updateSettings_kmsKey' - The KMS key details.
---
--- 'defaultAssessmentReportsDestination', 'updateSettings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
+-- 'defaultProcessOwners', 'updateSettings_defaultProcessOwners' - A list of the default audit owners.
 --
 -- 'snsTopic', 'updateSettings_snsTopic' - The Amazon Simple Notification Service (Amazon SNS) topic to which Audit
 -- Manager sends notifications.
 --
--- 'defaultProcessOwners', 'updateSettings_defaultProcessOwners' - A list of the default audit owners.
+-- 'kmsKey', 'updateSettings_kmsKey' - The KMS key details.
+--
+-- 'defaultAssessmentReportsDestination', 'updateSettings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
 newUpdateSettings ::
   UpdateSettings
 newUpdateSettings =
   UpdateSettings'
-    { kmsKey = Prelude.Nothing,
-      defaultAssessmentReportsDestination =
+    { defaultProcessOwners =
         Prelude.Nothing,
       snsTopic = Prelude.Nothing,
-      defaultProcessOwners = Prelude.Nothing
+      kmsKey = Prelude.Nothing,
+      defaultAssessmentReportsDestination =
+        Prelude.Nothing
     }
+
+-- | A list of the default audit owners.
+updateSettings_defaultProcessOwners :: Lens.Lens' UpdateSettings (Prelude.Maybe [Role])
+updateSettings_defaultProcessOwners = Lens.lens (\UpdateSettings' {defaultProcessOwners} -> defaultProcessOwners) (\s@UpdateSettings' {} a -> s {defaultProcessOwners = a} :: UpdateSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Simple Notification Service (Amazon SNS) topic to which Audit
+-- Manager sends notifications.
+updateSettings_snsTopic :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Text)
+updateSettings_snsTopic = Lens.lens (\UpdateSettings' {snsTopic} -> snsTopic) (\s@UpdateSettings' {} a -> s {snsTopic = a} :: UpdateSettings)
 
 -- | The KMS key details.
 updateSettings_kmsKey :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Text)
@@ -97,15 +107,6 @@ updateSettings_kmsKey = Lens.lens (\UpdateSettings' {kmsKey} -> kmsKey) (\s@Upda
 -- | The default storage destination for assessment reports.
 updateSettings_defaultAssessmentReportsDestination :: Lens.Lens' UpdateSettings (Prelude.Maybe AssessmentReportsDestination)
 updateSettings_defaultAssessmentReportsDestination = Lens.lens (\UpdateSettings' {defaultAssessmentReportsDestination} -> defaultAssessmentReportsDestination) (\s@UpdateSettings' {} a -> s {defaultAssessmentReportsDestination = a} :: UpdateSettings)
-
--- | The Amazon Simple Notification Service (Amazon SNS) topic to which Audit
--- Manager sends notifications.
-updateSettings_snsTopic :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Text)
-updateSettings_snsTopic = Lens.lens (\UpdateSettings' {snsTopic} -> snsTopic) (\s@UpdateSettings' {} a -> s {snsTopic = a} :: UpdateSettings)
-
--- | A list of the default audit owners.
-updateSettings_defaultProcessOwners :: Lens.Lens' UpdateSettings (Prelude.Maybe [Role])
-updateSettings_defaultProcessOwners = Lens.lens (\UpdateSettings' {defaultProcessOwners} -> defaultProcessOwners) (\s@UpdateSettings' {} a -> s {defaultProcessOwners = a} :: UpdateSettings) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest UpdateSettings where
   type
@@ -122,17 +123,17 @@ instance Core.AWSRequest UpdateSettings where
 
 instance Prelude.Hashable UpdateSettings where
   hashWithSalt _salt UpdateSettings' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` defaultAssessmentReportsDestination
+    _salt `Prelude.hashWithSalt` defaultProcessOwners
       `Prelude.hashWithSalt` snsTopic
-      `Prelude.hashWithSalt` defaultProcessOwners
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` defaultAssessmentReportsDestination
 
 instance Prelude.NFData UpdateSettings where
   rnf UpdateSettings' {..} =
-    Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination
+    Prelude.rnf defaultProcessOwners
       `Prelude.seq` Prelude.rnf snsTopic
-      `Prelude.seq` Prelude.rnf defaultProcessOwners
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination
 
 instance Core.ToHeaders UpdateSettings where
   toHeaders =
@@ -149,12 +150,12 @@ instance Core.ToJSON UpdateSettings where
   toJSON UpdateSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("kmsKey" Core..=) Prelude.<$> kmsKey,
-            ("defaultAssessmentReportsDestination" Core..=)
-              Prelude.<$> defaultAssessmentReportsDestination,
+          [ ("defaultProcessOwners" Core..=)
+              Prelude.<$> defaultProcessOwners,
             ("snsTopic" Core..=) Prelude.<$> snsTopic,
-            ("defaultProcessOwners" Core..=)
-              Prelude.<$> defaultProcessOwners
+            ("kmsKey" Core..=) Prelude.<$> kmsKey,
+            ("defaultAssessmentReportsDestination" Core..=)
+              Prelude.<$> defaultAssessmentReportsDestination
           ]
       )
 

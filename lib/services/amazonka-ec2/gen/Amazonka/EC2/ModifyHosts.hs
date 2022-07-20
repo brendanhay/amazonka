@@ -37,10 +37,10 @@ module Amazonka.EC2.ModifyHosts
     newModifyHosts,
 
     -- * Request Lenses
-    modifyHosts_instanceFamily,
-    modifyHosts_instanceType,
-    modifyHosts_hostRecovery,
     modifyHosts_autoPlacement,
+    modifyHosts_hostRecovery,
+    modifyHosts_instanceType,
+    modifyHosts_instanceFamily,
     modifyHosts_hostIds,
 
     -- * Destructuring the Response
@@ -63,15 +63,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
-  { -- | Specifies the instance family to be supported by the Dedicated Host.
-    -- Specify this parameter to modify a Dedicated Host to support multiple
-    -- instance types within its current instance family.
-    --
-    -- If you want to modify a Dedicated Host to support a specific instance
-    -- type only, omit this parameter and specify __InstanceType__ instead. You
-    -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
-    -- request.
-    instanceFamily :: Prelude.Maybe Prelude.Text,
+  { -- | Specify whether to enable or disable auto-placement.
+    autoPlacement :: Prelude.Maybe AutoPlacement,
+    -- | Indicates whether to enable or disable host recovery for the Dedicated
+    -- Host. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
+    -- in the /Amazon EC2 User Guide/.
+    hostRecovery :: Prelude.Maybe HostRecovery,
     -- | Specifies the instance type to be supported by the Dedicated Host.
     -- Specify this parameter to modify a Dedicated Host to support only a
     -- specific instance type.
@@ -81,13 +79,15 @@ data ModifyHosts = ModifyHosts'
     -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
     -- __InstanceFamily__ in the same request.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to enable or disable host recovery for the Dedicated
-    -- Host. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
-    -- in the /Amazon EC2 User Guide/.
-    hostRecovery :: Prelude.Maybe HostRecovery,
-    -- | Specify whether to enable or disable auto-placement.
-    autoPlacement :: Prelude.Maybe AutoPlacement,
+    -- | Specifies the instance family to be supported by the Dedicated Host.
+    -- Specify this parameter to modify a Dedicated Host to support multiple
+    -- instance types within its current instance family.
+    --
+    -- If you want to modify a Dedicated Host to support a specific instance
+    -- type only, omit this parameter and specify __InstanceType__ instead. You
+    -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
+    -- request.
+    instanceFamily :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the Dedicated Hosts to modify.
     hostIds :: [Prelude.Text]
   }
@@ -101,14 +101,12 @@ data ModifyHosts = ModifyHosts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceFamily', 'modifyHosts_instanceFamily' - Specifies the instance family to be supported by the Dedicated Host.
--- Specify this parameter to modify a Dedicated Host to support multiple
--- instance types within its current instance family.
+-- 'autoPlacement', 'modifyHosts_autoPlacement' - Specify whether to enable or disable auto-placement.
 --
--- If you want to modify a Dedicated Host to support a specific instance
--- type only, omit this parameter and specify __InstanceType__ instead. You
--- cannot specify __InstanceFamily__ and __InstanceType__ in the same
--- request.
+-- 'hostRecovery', 'modifyHosts_hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated
+-- Host. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'instanceType', 'modifyHosts_instanceType' - Specifies the instance type to be supported by the Dedicated Host.
 -- Specify this parameter to modify a Dedicated Host to support only a
@@ -119,26 +117,7 @@ data ModifyHosts = ModifyHosts'
 -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
 -- __InstanceFamily__ in the same request.
 --
--- 'hostRecovery', 'modifyHosts_hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated
--- Host. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
--- in the /Amazon EC2 User Guide/.
---
--- 'autoPlacement', 'modifyHosts_autoPlacement' - Specify whether to enable or disable auto-placement.
---
--- 'hostIds', 'modifyHosts_hostIds' - The IDs of the Dedicated Hosts to modify.
-newModifyHosts ::
-  ModifyHosts
-newModifyHosts =
-  ModifyHosts'
-    { instanceFamily = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      hostRecovery = Prelude.Nothing,
-      autoPlacement = Prelude.Nothing,
-      hostIds = Prelude.mempty
-    }
-
--- | Specifies the instance family to be supported by the Dedicated Host.
+-- 'instanceFamily', 'modifyHosts_instanceFamily' - Specifies the instance family to be supported by the Dedicated Host.
 -- Specify this parameter to modify a Dedicated Host to support multiple
 -- instance types within its current instance family.
 --
@@ -146,8 +125,29 @@ newModifyHosts =
 -- type only, omit this parameter and specify __InstanceType__ instead. You
 -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
 -- request.
-modifyHosts_instanceFamily :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
-modifyHosts_instanceFamily = Lens.lens (\ModifyHosts' {instanceFamily} -> instanceFamily) (\s@ModifyHosts' {} a -> s {instanceFamily = a} :: ModifyHosts)
+--
+-- 'hostIds', 'modifyHosts_hostIds' - The IDs of the Dedicated Hosts to modify.
+newModifyHosts ::
+  ModifyHosts
+newModifyHosts =
+  ModifyHosts'
+    { autoPlacement = Prelude.Nothing,
+      hostRecovery = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      instanceFamily = Prelude.Nothing,
+      hostIds = Prelude.mempty
+    }
+
+-- | Specify whether to enable or disable auto-placement.
+modifyHosts_autoPlacement :: Lens.Lens' ModifyHosts (Prelude.Maybe AutoPlacement)
+modifyHosts_autoPlacement = Lens.lens (\ModifyHosts' {autoPlacement} -> autoPlacement) (\s@ModifyHosts' {} a -> s {autoPlacement = a} :: ModifyHosts)
+
+-- | Indicates whether to enable or disable host recovery for the Dedicated
+-- Host. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
+-- in the /Amazon EC2 User Guide/.
+modifyHosts_hostRecovery :: Lens.Lens' ModifyHosts (Prelude.Maybe HostRecovery)
+modifyHosts_hostRecovery = Lens.lens (\ModifyHosts' {hostRecovery} -> hostRecovery) (\s@ModifyHosts' {} a -> s {hostRecovery = a} :: ModifyHosts)
 
 -- | Specifies the instance type to be supported by the Dedicated Host.
 -- Specify this parameter to modify a Dedicated Host to support only a
@@ -160,16 +160,16 @@ modifyHosts_instanceFamily = Lens.lens (\ModifyHosts' {instanceFamily} -> instan
 modifyHosts_instanceType :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
 modifyHosts_instanceType = Lens.lens (\ModifyHosts' {instanceType} -> instanceType) (\s@ModifyHosts' {} a -> s {instanceType = a} :: ModifyHosts)
 
--- | Indicates whether to enable or disable host recovery for the Dedicated
--- Host. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
--- in the /Amazon EC2 User Guide/.
-modifyHosts_hostRecovery :: Lens.Lens' ModifyHosts (Prelude.Maybe HostRecovery)
-modifyHosts_hostRecovery = Lens.lens (\ModifyHosts' {hostRecovery} -> hostRecovery) (\s@ModifyHosts' {} a -> s {hostRecovery = a} :: ModifyHosts)
-
--- | Specify whether to enable or disable auto-placement.
-modifyHosts_autoPlacement :: Lens.Lens' ModifyHosts (Prelude.Maybe AutoPlacement)
-modifyHosts_autoPlacement = Lens.lens (\ModifyHosts' {autoPlacement} -> autoPlacement) (\s@ModifyHosts' {} a -> s {autoPlacement = a} :: ModifyHosts)
+-- | Specifies the instance family to be supported by the Dedicated Host.
+-- Specify this parameter to modify a Dedicated Host to support multiple
+-- instance types within its current instance family.
+--
+-- If you want to modify a Dedicated Host to support a specific instance
+-- type only, omit this parameter and specify __InstanceType__ instead. You
+-- cannot specify __InstanceFamily__ and __InstanceType__ in the same
+-- request.
+modifyHosts_instanceFamily :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
+modifyHosts_instanceFamily = Lens.lens (\ModifyHosts' {instanceFamily} -> instanceFamily) (\s@ModifyHosts' {} a -> s {instanceFamily = a} :: ModifyHosts)
 
 -- | The IDs of the Dedicated Hosts to modify.
 modifyHosts_hostIds :: Lens.Lens' ModifyHosts [Prelude.Text]
@@ -193,18 +193,18 @@ instance Core.AWSRequest ModifyHosts where
 
 instance Prelude.Hashable ModifyHosts where
   hashWithSalt _salt ModifyHosts' {..} =
-    _salt `Prelude.hashWithSalt` instanceFamily
-      `Prelude.hashWithSalt` instanceType
+    _salt `Prelude.hashWithSalt` autoPlacement
       `Prelude.hashWithSalt` hostRecovery
-      `Prelude.hashWithSalt` autoPlacement
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` instanceFamily
       `Prelude.hashWithSalt` hostIds
 
 instance Prelude.NFData ModifyHosts where
   rnf ModifyHosts' {..} =
-    Prelude.rnf instanceFamily
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf autoPlacement
       `Prelude.seq` Prelude.rnf hostRecovery
-      `Prelude.seq` Prelude.rnf autoPlacement
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf instanceFamily
       `Prelude.seq` Prelude.rnf hostIds
 
 instance Core.ToHeaders ModifyHosts where
@@ -220,10 +220,10 @@ instance Core.ToQuery ModifyHosts where
           Core.=: ("ModifyHosts" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "InstanceFamily" Core.=: instanceFamily,
-        "InstanceType" Core.=: instanceType,
-        "HostRecovery" Core.=: hostRecovery,
         "AutoPlacement" Core.=: autoPlacement,
+        "HostRecovery" Core.=: hostRecovery,
+        "InstanceType" Core.=: instanceType,
+        "InstanceFamily" Core.=: instanceFamily,
         Core.toQueryList "HostId" hostIds
       ]
 

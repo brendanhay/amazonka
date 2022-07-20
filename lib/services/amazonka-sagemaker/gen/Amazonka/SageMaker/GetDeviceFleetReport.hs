@@ -34,12 +34,12 @@ module Amazonka.SageMaker.GetDeviceFleetReport
     newGetDeviceFleetReportResponse,
 
     -- * Response Lenses
+    getDeviceFleetReportResponse_modelStats,
+    getDeviceFleetReportResponse_description,
     getDeviceFleetReportResponse_agentVersions,
     getDeviceFleetReportResponse_reportGenerated,
     getDeviceFleetReportResponse_deviceStats,
     getDeviceFleetReportResponse_outputConfig,
-    getDeviceFleetReportResponse_description,
-    getDeviceFleetReportResponse_modelStats,
     getDeviceFleetReportResponse_httpStatus,
     getDeviceFleetReportResponse_deviceFleetArn,
     getDeviceFleetReportResponse_deviceFleetName,
@@ -92,12 +92,12 @@ instance Core.AWSRequest GetDeviceFleetReport where
     Response.receiveJSON
       ( \s h x ->
           GetDeviceFleetReportResponse'
-            Prelude.<$> (x Core..?> "AgentVersions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ModelStats" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "AgentVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ReportGenerated")
             Prelude.<*> (x Core..?> "DeviceStats")
             Prelude.<*> (x Core..?> "OutputConfig")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "ModelStats" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DeviceFleetArn")
             Prelude.<*> (x Core..:> "DeviceFleetName")
@@ -143,7 +143,11 @@ instance Core.ToQuery GetDeviceFleetReport where
 
 -- | /See:/ 'newGetDeviceFleetReportResponse' smart constructor.
 data GetDeviceFleetReportResponse = GetDeviceFleetReportResponse'
-  { -- | The versions of Edge Manager agent deployed on the fleet.
+  { -- | Status of model on device.
+    modelStats :: Prelude.Maybe [EdgeModelStat],
+    -- | Description of the fleet.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The versions of Edge Manager agent deployed on the fleet.
     agentVersions :: Prelude.Maybe [AgentVersion],
     -- | Timestamp of when the report was generated.
     reportGenerated :: Prelude.Maybe Core.POSIX,
@@ -151,10 +155,6 @@ data GetDeviceFleetReportResponse = GetDeviceFleetReportResponse'
     deviceStats :: Prelude.Maybe DeviceStats,
     -- | The output configuration for storing sample data collected by the fleet.
     outputConfig :: Prelude.Maybe EdgeOutputConfig,
-    -- | Description of the fleet.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Status of model on device.
-    modelStats :: Prelude.Maybe [EdgeModelStat],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the device.
@@ -172,6 +172,10 @@ data GetDeviceFleetReportResponse = GetDeviceFleetReportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'modelStats', 'getDeviceFleetReportResponse_modelStats' - Status of model on device.
+--
+-- 'description', 'getDeviceFleetReportResponse_description' - Description of the fleet.
+--
 -- 'agentVersions', 'getDeviceFleetReportResponse_agentVersions' - The versions of Edge Manager agent deployed on the fleet.
 --
 -- 'reportGenerated', 'getDeviceFleetReportResponse_reportGenerated' - Timestamp of when the report was generated.
@@ -179,10 +183,6 @@ data GetDeviceFleetReportResponse = GetDeviceFleetReportResponse'
 -- 'deviceStats', 'getDeviceFleetReportResponse_deviceStats' - Status of devices.
 --
 -- 'outputConfig', 'getDeviceFleetReportResponse_outputConfig' - The output configuration for storing sample data collected by the fleet.
---
--- 'description', 'getDeviceFleetReportResponse_description' - Description of the fleet.
---
--- 'modelStats', 'getDeviceFleetReportResponse_modelStats' - Status of model on device.
 --
 -- 'httpStatus', 'getDeviceFleetReportResponse_httpStatus' - The response's http status code.
 --
@@ -202,17 +202,25 @@ newGetDeviceFleetReportResponse
   pDeviceFleetArn_
   pDeviceFleetName_ =
     GetDeviceFleetReportResponse'
-      { agentVersions =
+      { modelStats =
           Prelude.Nothing,
+        description = Prelude.Nothing,
+        agentVersions = Prelude.Nothing,
         reportGenerated = Prelude.Nothing,
         deviceStats = Prelude.Nothing,
         outputConfig = Prelude.Nothing,
-        description = Prelude.Nothing,
-        modelStats = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         deviceFleetArn = pDeviceFleetArn_,
         deviceFleetName = pDeviceFleetName_
       }
+
+-- | Status of model on device.
+getDeviceFleetReportResponse_modelStats :: Lens.Lens' GetDeviceFleetReportResponse (Prelude.Maybe [EdgeModelStat])
+getDeviceFleetReportResponse_modelStats = Lens.lens (\GetDeviceFleetReportResponse' {modelStats} -> modelStats) (\s@GetDeviceFleetReportResponse' {} a -> s {modelStats = a} :: GetDeviceFleetReportResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Description of the fleet.
+getDeviceFleetReportResponse_description :: Lens.Lens' GetDeviceFleetReportResponse (Prelude.Maybe Prelude.Text)
+getDeviceFleetReportResponse_description = Lens.lens (\GetDeviceFleetReportResponse' {description} -> description) (\s@GetDeviceFleetReportResponse' {} a -> s {description = a} :: GetDeviceFleetReportResponse)
 
 -- | The versions of Edge Manager agent deployed on the fleet.
 getDeviceFleetReportResponse_agentVersions :: Lens.Lens' GetDeviceFleetReportResponse (Prelude.Maybe [AgentVersion])
@@ -230,14 +238,6 @@ getDeviceFleetReportResponse_deviceStats = Lens.lens (\GetDeviceFleetReportRespo
 getDeviceFleetReportResponse_outputConfig :: Lens.Lens' GetDeviceFleetReportResponse (Prelude.Maybe EdgeOutputConfig)
 getDeviceFleetReportResponse_outputConfig = Lens.lens (\GetDeviceFleetReportResponse' {outputConfig} -> outputConfig) (\s@GetDeviceFleetReportResponse' {} a -> s {outputConfig = a} :: GetDeviceFleetReportResponse)
 
--- | Description of the fleet.
-getDeviceFleetReportResponse_description :: Lens.Lens' GetDeviceFleetReportResponse (Prelude.Maybe Prelude.Text)
-getDeviceFleetReportResponse_description = Lens.lens (\GetDeviceFleetReportResponse' {description} -> description) (\s@GetDeviceFleetReportResponse' {} a -> s {description = a} :: GetDeviceFleetReportResponse)
-
--- | Status of model on device.
-getDeviceFleetReportResponse_modelStats :: Lens.Lens' GetDeviceFleetReportResponse (Prelude.Maybe [EdgeModelStat])
-getDeviceFleetReportResponse_modelStats = Lens.lens (\GetDeviceFleetReportResponse' {modelStats} -> modelStats) (\s@GetDeviceFleetReportResponse' {} a -> s {modelStats = a} :: GetDeviceFleetReportResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getDeviceFleetReportResponse_httpStatus :: Lens.Lens' GetDeviceFleetReportResponse Prelude.Int
 getDeviceFleetReportResponse_httpStatus = Lens.lens (\GetDeviceFleetReportResponse' {httpStatus} -> httpStatus) (\s@GetDeviceFleetReportResponse' {} a -> s {httpStatus = a} :: GetDeviceFleetReportResponse)
@@ -252,12 +252,12 @@ getDeviceFleetReportResponse_deviceFleetName = Lens.lens (\GetDeviceFleetReportR
 
 instance Prelude.NFData GetDeviceFleetReportResponse where
   rnf GetDeviceFleetReportResponse' {..} =
-    Prelude.rnf agentVersions
+    Prelude.rnf modelStats
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf agentVersions
       `Prelude.seq` Prelude.rnf reportGenerated
       `Prelude.seq` Prelude.rnf deviceStats
       `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf modelStats
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf deviceFleetArn
       `Prelude.seq` Prelude.rnf deviceFleetName

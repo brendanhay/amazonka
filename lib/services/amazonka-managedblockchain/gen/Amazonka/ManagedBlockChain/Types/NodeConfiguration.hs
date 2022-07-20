@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNodeConfiguration' smart constructor.
 data NodeConfiguration = NodeConfiguration'
-  { -- | Configuration properties for logging events associated with a peer node
-    -- on a Hyperledger Fabric network on Managed Blockchain.
-    logPublishingConfiguration :: Prelude.Maybe NodeLogPublishingConfiguration,
+  { -- | The Availability Zone in which the node exists. Required for Ethereum
+    -- nodes.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The state database that the node uses. Values are @LevelDB@ or
     -- @CouchDB@. When using an Amazon Managed Blockchain network with
     -- Hyperledger Fabric version 1.4 or later, the default is @CouchDB@.
     --
     -- Applies only to Hyperledger Fabric.
     stateDB :: Prelude.Maybe StateDBType,
-    -- | The Availability Zone in which the node exists. Required for Ethereum
-    -- nodes.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | Configuration properties for logging events associated with a peer node
+    -- on a Hyperledger Fabric network on Managed Blockchain.
+    logPublishingConfiguration :: Prelude.Maybe NodeLogPublishingConfiguration,
     -- | The Amazon Managed Blockchain instance type for the node.
     instanceType :: Prelude.Text
   }
@@ -54,8 +54,8 @@ data NodeConfiguration = NodeConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logPublishingConfiguration', 'nodeConfiguration_logPublishingConfiguration' - Configuration properties for logging events associated with a peer node
--- on a Hyperledger Fabric network on Managed Blockchain.
+-- 'availabilityZone', 'nodeConfiguration_availabilityZone' - The Availability Zone in which the node exists. Required for Ethereum
+-- nodes.
 --
 -- 'stateDB', 'nodeConfiguration_stateDB' - The state database that the node uses. Values are @LevelDB@ or
 -- @CouchDB@. When using an Amazon Managed Blockchain network with
@@ -63,8 +63,8 @@ data NodeConfiguration = NodeConfiguration'
 --
 -- Applies only to Hyperledger Fabric.
 --
--- 'availabilityZone', 'nodeConfiguration_availabilityZone' - The Availability Zone in which the node exists. Required for Ethereum
--- nodes.
+-- 'logPublishingConfiguration', 'nodeConfiguration_logPublishingConfiguration' - Configuration properties for logging events associated with a peer node
+-- on a Hyperledger Fabric network on Managed Blockchain.
 --
 -- 'instanceType', 'nodeConfiguration_instanceType' - The Amazon Managed Blockchain instance type for the node.
 newNodeConfiguration ::
@@ -73,17 +73,17 @@ newNodeConfiguration ::
   NodeConfiguration
 newNodeConfiguration pInstanceType_ =
   NodeConfiguration'
-    { logPublishingConfiguration =
+    { availabilityZone =
         Prelude.Nothing,
       stateDB = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
+      logPublishingConfiguration = Prelude.Nothing,
       instanceType = pInstanceType_
     }
 
--- | Configuration properties for logging events associated with a peer node
--- on a Hyperledger Fabric network on Managed Blockchain.
-nodeConfiguration_logPublishingConfiguration :: Lens.Lens' NodeConfiguration (Prelude.Maybe NodeLogPublishingConfiguration)
-nodeConfiguration_logPublishingConfiguration = Lens.lens (\NodeConfiguration' {logPublishingConfiguration} -> logPublishingConfiguration) (\s@NodeConfiguration' {} a -> s {logPublishingConfiguration = a} :: NodeConfiguration)
+-- | The Availability Zone in which the node exists. Required for Ethereum
+-- nodes.
+nodeConfiguration_availabilityZone :: Lens.Lens' NodeConfiguration (Prelude.Maybe Prelude.Text)
+nodeConfiguration_availabilityZone = Lens.lens (\NodeConfiguration' {availabilityZone} -> availabilityZone) (\s@NodeConfiguration' {} a -> s {availabilityZone = a} :: NodeConfiguration)
 
 -- | The state database that the node uses. Values are @LevelDB@ or
 -- @CouchDB@. When using an Amazon Managed Blockchain network with
@@ -93,10 +93,10 @@ nodeConfiguration_logPublishingConfiguration = Lens.lens (\NodeConfiguration' {l
 nodeConfiguration_stateDB :: Lens.Lens' NodeConfiguration (Prelude.Maybe StateDBType)
 nodeConfiguration_stateDB = Lens.lens (\NodeConfiguration' {stateDB} -> stateDB) (\s@NodeConfiguration' {} a -> s {stateDB = a} :: NodeConfiguration)
 
--- | The Availability Zone in which the node exists. Required for Ethereum
--- nodes.
-nodeConfiguration_availabilityZone :: Lens.Lens' NodeConfiguration (Prelude.Maybe Prelude.Text)
-nodeConfiguration_availabilityZone = Lens.lens (\NodeConfiguration' {availabilityZone} -> availabilityZone) (\s@NodeConfiguration' {} a -> s {availabilityZone = a} :: NodeConfiguration)
+-- | Configuration properties for logging events associated with a peer node
+-- on a Hyperledger Fabric network on Managed Blockchain.
+nodeConfiguration_logPublishingConfiguration :: Lens.Lens' NodeConfiguration (Prelude.Maybe NodeLogPublishingConfiguration)
+nodeConfiguration_logPublishingConfiguration = Lens.lens (\NodeConfiguration' {logPublishingConfiguration} -> logPublishingConfiguration) (\s@NodeConfiguration' {} a -> s {logPublishingConfiguration = a} :: NodeConfiguration)
 
 -- | The Amazon Managed Blockchain instance type for the node.
 nodeConfiguration_instanceType :: Lens.Lens' NodeConfiguration Prelude.Text
@@ -104,28 +104,27 @@ nodeConfiguration_instanceType = Lens.lens (\NodeConfiguration' {instanceType} -
 
 instance Prelude.Hashable NodeConfiguration where
   hashWithSalt _salt NodeConfiguration' {..} =
-    _salt
-      `Prelude.hashWithSalt` logPublishingConfiguration
+    _salt `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` stateDB
-      `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` logPublishingConfiguration
       `Prelude.hashWithSalt` instanceType
 
 instance Prelude.NFData NodeConfiguration where
   rnf NodeConfiguration' {..} =
-    Prelude.rnf logPublishingConfiguration
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf stateDB
-      `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf logPublishingConfiguration
       `Prelude.seq` Prelude.rnf instanceType
 
 instance Core.ToJSON NodeConfiguration where
   toJSON NodeConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LogPublishingConfiguration" Core..=)
-              Prelude.<$> logPublishingConfiguration,
-            ("StateDB" Core..=) Prelude.<$> stateDB,
-            ("AvailabilityZone" Core..=)
+          [ ("AvailabilityZone" Core..=)
               Prelude.<$> availabilityZone,
+            ("StateDB" Core..=) Prelude.<$> stateDB,
+            ("LogPublishingConfiguration" Core..=)
+              Prelude.<$> logPublishingConfiguration,
             Prelude.Just ("InstanceType" Core..= instanceType)
           ]
       )

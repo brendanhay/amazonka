@@ -50,25 +50,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExpectedAttributeValue' smart constructor.
 data ExpectedAttributeValue = ExpectedAttributeValue'
-  { -- | One or more values to evaluate against the supplied attribute. The
-    -- number of values in the list depends on the @ComparisonOperator@ being
-    -- used.
-    --
-    -- For type Number, value comparisons are numeric.
-    --
-    -- String value comparisons for greater than, equals, or less than are
-    -- based on ASCII character code values. For example, @a@ is greater than
-    -- @A@, and @a@ is greater than @B@. For a list of code values, see
-    -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
-    --
-    -- For Binary, DynamoDB treats each byte of the binary data as unsigned
-    -- when it compares binary values.
-    --
-    -- For information on specifying data types in JSON, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    attributeValueList :: Prelude.Maybe [AttributeValue],
-    -- | Causes DynamoDB to evaluate the value before attempting a conditional
+  { -- | Causes DynamoDB to evaluate the value before attempting a conditional
     -- operation:
     --
     -- -   If @Exists@ is @true@, DynamoDB will check to see if that attribute
@@ -95,15 +77,24 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
     --     expect an attribute to have a value, while also expecting it not to
     --     exist.)
     exists :: Prelude.Maybe Prelude.Bool,
-    -- | Represents the data for the expected attribute.
+    -- | One or more values to evaluate against the supplied attribute. The
+    -- number of values in the list depends on the @ComparisonOperator@ being
+    -- used.
     --
-    -- Each attribute value is described as a name-value pair. The name is the
-    -- data type, and the value is the data itself.
+    -- For type Number, value comparisons are numeric.
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
+    -- String value comparisons for greater than, equals, or less than are
+    -- based on ASCII character code values. For example, @a@ is greater than
+    -- @A@, and @a@ is greater than @B@. For a list of code values, see
+    -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+    --
+    -- For Binary, DynamoDB treats each byte of the binary data as unsigned
+    -- when it compares binary values.
+    --
+    -- For information on specifying data types in JSON, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
     -- in the /Amazon DynamoDB Developer Guide/.
-    value :: Prelude.Maybe AttributeValue,
+    attributeValueList :: Prelude.Maybe [AttributeValue],
     -- | A comparator for evaluating attributes in the @AttributeValueList@. For
     -- example, equals, greater than, less than, etc.
     --
@@ -251,7 +242,16 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
     --     not match. For example, @{\"S\":\"6\"}@ does not compare to
     --     @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not compare to
     --     @{\"NS\":[\"6\", \"2\", \"1\"]}@
-    comparisonOperator :: Prelude.Maybe ComparisonOperator
+    comparisonOperator :: Prelude.Maybe ComparisonOperator,
+    -- | Represents the data for the expected attribute.
+    --
+    -- Each attribute value is described as a name-value pair. The name is the
+    -- data type, and the value is the data itself.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    value :: Prelude.Maybe AttributeValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -262,24 +262,6 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'attributeValueList', 'expectedAttributeValue_attributeValueList' - One or more values to evaluate against the supplied attribute. The
--- number of values in the list depends on the @ComparisonOperator@ being
--- used.
---
--- For type Number, value comparisons are numeric.
---
--- String value comparisons for greater than, equals, or less than are
--- based on ASCII character code values. For example, @a@ is greater than
--- @A@, and @a@ is greater than @B@. For a list of code values, see
--- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
---
--- For Binary, DynamoDB treats each byte of the binary data as unsigned
--- when it compares binary values.
---
--- For information on specifying data types in JSON, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
--- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'exists', 'expectedAttributeValue_exists' - Causes DynamoDB to evaluate the value before attempting a conditional
 -- operation:
@@ -308,13 +290,22 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
 --     expect an attribute to have a value, while also expecting it not to
 --     exist.)
 --
--- 'value', 'expectedAttributeValue_value' - Represents the data for the expected attribute.
+-- 'attributeValueList', 'expectedAttributeValue_attributeValueList' - One or more values to evaluate against the supplied attribute. The
+-- number of values in the list depends on the @ComparisonOperator@ being
+-- used.
 --
--- Each attribute value is described as a name-value pair. The name is the
--- data type, and the value is the data itself.
+-- For type Number, value comparisons are numeric.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
+-- String value comparisons for greater than, equals, or less than are
+-- based on ASCII character code values. For example, @a@ is greater than
+-- @A@, and @a@ is greater than @B@. For a list of code values, see
+-- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+--
+-- For Binary, DynamoDB treats each byte of the binary data as unsigned
+-- when it compares binary values.
+--
+-- For information on specifying data types in JSON, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'comparisonOperator', 'expectedAttributeValue_comparisonOperator' - A comparator for evaluating attributes in the @AttributeValueList@. For
@@ -464,36 +455,24 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
 --     not match. For example, @{\"S\":\"6\"}@ does not compare to
 --     @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not compare to
 --     @{\"NS\":[\"6\", \"2\", \"1\"]}@
+--
+-- 'value', 'expectedAttributeValue_value' - Represents the data for the expected attribute.
+--
+-- Each attribute value is described as a name-value pair. The name is the
+-- data type, and the value is the data itself.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
+-- in the /Amazon DynamoDB Developer Guide/.
 newExpectedAttributeValue ::
   ExpectedAttributeValue
 newExpectedAttributeValue =
   ExpectedAttributeValue'
-    { attributeValueList =
-        Prelude.Nothing,
-      exists = Prelude.Nothing,
-      value = Prelude.Nothing,
-      comparisonOperator = Prelude.Nothing
+    { exists = Prelude.Nothing,
+      attributeValueList = Prelude.Nothing,
+      comparisonOperator = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | One or more values to evaluate against the supplied attribute. The
--- number of values in the list depends on the @ComparisonOperator@ being
--- used.
---
--- For type Number, value comparisons are numeric.
---
--- String value comparisons for greater than, equals, or less than are
--- based on ASCII character code values. For example, @a@ is greater than
--- @A@, and @a@ is greater than @B@. For a list of code values, see
--- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
---
--- For Binary, DynamoDB treats each byte of the binary data as unsigned
--- when it compares binary values.
---
--- For information on specifying data types in JSON, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
--- in the /Amazon DynamoDB Developer Guide/.
-expectedAttributeValue_attributeValueList :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe [AttributeValue])
-expectedAttributeValue_attributeValueList = Lens.lens (\ExpectedAttributeValue' {attributeValueList} -> attributeValueList) (\s@ExpectedAttributeValue' {} a -> s {attributeValueList = a} :: ExpectedAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
 -- operation:
@@ -524,16 +503,25 @@ expectedAttributeValue_attributeValueList = Lens.lens (\ExpectedAttributeValue' 
 expectedAttributeValue_exists :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe Prelude.Bool)
 expectedAttributeValue_exists = Lens.lens (\ExpectedAttributeValue' {exists} -> exists) (\s@ExpectedAttributeValue' {} a -> s {exists = a} :: ExpectedAttributeValue)
 
--- | Represents the data for the expected attribute.
+-- | One or more values to evaluate against the supplied attribute. The
+-- number of values in the list depends on the @ComparisonOperator@ being
+-- used.
 --
--- Each attribute value is described as a name-value pair. The name is the
--- data type, and the value is the data itself.
+-- For type Number, value comparisons are numeric.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
+-- String value comparisons for greater than, equals, or less than are
+-- based on ASCII character code values. For example, @a@ is greater than
+-- @A@, and @a@ is greater than @B@. For a list of code values, see
+-- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+--
+-- For Binary, DynamoDB treats each byte of the binary data as unsigned
+-- when it compares binary values.
+--
+-- For information on specifying data types in JSON, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
 -- in the /Amazon DynamoDB Developer Guide/.
-expectedAttributeValue_value :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe AttributeValue)
-expectedAttributeValue_value = Lens.lens (\ExpectedAttributeValue' {value} -> value) (\s@ExpectedAttributeValue' {} a -> s {value = a} :: ExpectedAttributeValue)
+expectedAttributeValue_attributeValueList :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe [AttributeValue])
+expectedAttributeValue_attributeValueList = Lens.lens (\ExpectedAttributeValue' {attributeValueList} -> attributeValueList) (\s@ExpectedAttributeValue' {} a -> s {attributeValueList = a} :: ExpectedAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | A comparator for evaluating attributes in the @AttributeValueList@. For
 -- example, equals, greater than, less than, etc.
@@ -685,29 +673,40 @@ expectedAttributeValue_value = Lens.lens (\ExpectedAttributeValue' {value} -> va
 expectedAttributeValue_comparisonOperator :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe ComparisonOperator)
 expectedAttributeValue_comparisonOperator = Lens.lens (\ExpectedAttributeValue' {comparisonOperator} -> comparisonOperator) (\s@ExpectedAttributeValue' {} a -> s {comparisonOperator = a} :: ExpectedAttributeValue)
 
+-- | Represents the data for the expected attribute.
+--
+-- Each attribute value is described as a name-value pair. The name is the
+-- data type, and the value is the data itself.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
+-- in the /Amazon DynamoDB Developer Guide/.
+expectedAttributeValue_value :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe AttributeValue)
+expectedAttributeValue_value = Lens.lens (\ExpectedAttributeValue' {value} -> value) (\s@ExpectedAttributeValue' {} a -> s {value = a} :: ExpectedAttributeValue)
+
 instance Prelude.Hashable ExpectedAttributeValue where
   hashWithSalt _salt ExpectedAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` attributeValueList
-      `Prelude.hashWithSalt` exists
-      `Prelude.hashWithSalt` value
+    _salt `Prelude.hashWithSalt` exists
+      `Prelude.hashWithSalt` attributeValueList
       `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ExpectedAttributeValue where
   rnf ExpectedAttributeValue' {..} =
-    Prelude.rnf attributeValueList
-      `Prelude.seq` Prelude.rnf exists
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf exists
+      `Prelude.seq` Prelude.rnf attributeValueList
       `Prelude.seq` Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ExpectedAttributeValue where
   toJSON ExpectedAttributeValue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AttributeValueList" Core..=)
+          [ ("Exists" Core..=) Prelude.<$> exists,
+            ("AttributeValueList" Core..=)
               Prelude.<$> attributeValueList,
-            ("Exists" Core..=) Prelude.<$> exists,
-            ("Value" Core..=) Prelude.<$> value,
             ("ComparisonOperator" Core..=)
-              Prelude.<$> comparisonOperator
+              Prelude.<$> comparisonOperator,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

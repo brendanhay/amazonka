@@ -28,10 +28,10 @@ module Amazonka.Connect.StartTaskContact
 
     -- * Request Lenses
     startTaskContact_clientToken,
-    startTaskContact_references,
-    startTaskContact_previousContactId,
-    startTaskContact_attributes,
     startTaskContact_description,
+    startTaskContact_references,
+    startTaskContact_attributes,
+    startTaskContact_previousContactId,
     startTaskContact_instanceId,
     startTaskContact_contactFlowId,
     startTaskContact_name,
@@ -58,11 +58,12 @@ data StartTaskContact = StartTaskContact'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description of the task that is shown to an agent in the Contact
+    -- Control Panel (CCP).
+    description :: Prelude.Maybe Prelude.Text,
     -- | A formatted URL that is shown to an agent in the Contact Control Panel
     -- (CCP).
     references :: Prelude.Maybe (Prelude.HashMap Prelude.Text Reference),
-    -- | The identifier of the previous chat, voice, or task contact.
-    previousContactId :: Prelude.Maybe Prelude.Text,
     -- | A custom key-value pair using an attribute map. The attributes are
     -- standard Amazon Connect attributes, and can be accessed in contact flows
     -- just like any other contact attributes.
@@ -71,9 +72,8 @@ data StartTaskContact = StartTaskContact'
     -- contact. Attribute keys can include only alphanumeric, dash, and
     -- underscore characters.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description of the task that is shown to an agent in the Contact
-    -- Control Panel (CCP).
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the previous chat, voice, or task contact.
+    previousContactId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -103,10 +103,11 @@ data StartTaskContact = StartTaskContact'
 -- 'clientToken', 'startTaskContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
+-- 'description', 'startTaskContact_description' - A description of the task that is shown to an agent in the Contact
+-- Control Panel (CCP).
+--
 -- 'references', 'startTaskContact_references' - A formatted URL that is shown to an agent in the Contact Control Panel
 -- (CCP).
---
--- 'previousContactId', 'startTaskContact_previousContactId' - The identifier of the previous chat, voice, or task contact.
 --
 -- 'attributes', 'startTaskContact_attributes' - A custom key-value pair using an attribute map. The attributes are
 -- standard Amazon Connect attributes, and can be accessed in contact flows
@@ -116,8 +117,7 @@ data StartTaskContact = StartTaskContact'
 -- contact. Attribute keys can include only alphanumeric, dash, and
 -- underscore characters.
 --
--- 'description', 'startTaskContact_description' - A description of the task that is shown to an agent in the Contact
--- Control Panel (CCP).
+-- 'previousContactId', 'startTaskContact_previousContactId' - The identifier of the previous chat, voice, or task contact.
 --
 -- 'instanceId', 'startTaskContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -147,10 +147,10 @@ newStartTaskContact
   pName_ =
     StartTaskContact'
       { clientToken = Prelude.Nothing,
-        references = Prelude.Nothing,
-        previousContactId = Prelude.Nothing,
-        attributes = Prelude.Nothing,
         description = Prelude.Nothing,
+        references = Prelude.Nothing,
+        attributes = Prelude.Nothing,
+        previousContactId = Prelude.Nothing,
         instanceId = pInstanceId_,
         contactFlowId = pContactFlowId_,
         name = pName_
@@ -161,14 +161,15 @@ newStartTaskContact
 startTaskContact_clientToken :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
 startTaskContact_clientToken = Lens.lens (\StartTaskContact' {clientToken} -> clientToken) (\s@StartTaskContact' {} a -> s {clientToken = a} :: StartTaskContact)
 
+-- | A description of the task that is shown to an agent in the Contact
+-- Control Panel (CCP).
+startTaskContact_description :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
+startTaskContact_description = Lens.lens (\StartTaskContact' {description} -> description) (\s@StartTaskContact' {} a -> s {description = a} :: StartTaskContact)
+
 -- | A formatted URL that is shown to an agent in the Contact Control Panel
 -- (CCP).
 startTaskContact_references :: Lens.Lens' StartTaskContact (Prelude.Maybe (Prelude.HashMap Prelude.Text Reference))
 startTaskContact_references = Lens.lens (\StartTaskContact' {references} -> references) (\s@StartTaskContact' {} a -> s {references = a} :: StartTaskContact) Prelude.. Lens.mapping Lens.coerced
-
--- | The identifier of the previous chat, voice, or task contact.
-startTaskContact_previousContactId :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
-startTaskContact_previousContactId = Lens.lens (\StartTaskContact' {previousContactId} -> previousContactId) (\s@StartTaskContact' {} a -> s {previousContactId = a} :: StartTaskContact)
 
 -- | A custom key-value pair using an attribute map. The attributes are
 -- standard Amazon Connect attributes, and can be accessed in contact flows
@@ -180,10 +181,9 @@ startTaskContact_previousContactId = Lens.lens (\StartTaskContact' {previousCont
 startTaskContact_attributes :: Lens.Lens' StartTaskContact (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startTaskContact_attributes = Lens.lens (\StartTaskContact' {attributes} -> attributes) (\s@StartTaskContact' {} a -> s {attributes = a} :: StartTaskContact) Prelude.. Lens.mapping Lens.coerced
 
--- | A description of the task that is shown to an agent in the Contact
--- Control Panel (CCP).
-startTaskContact_description :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
-startTaskContact_description = Lens.lens (\StartTaskContact' {description} -> description) (\s@StartTaskContact' {} a -> s {description = a} :: StartTaskContact)
+-- | The identifier of the previous chat, voice, or task contact.
+startTaskContact_previousContactId :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
+startTaskContact_previousContactId = Lens.lens (\StartTaskContact' {previousContactId} -> previousContactId) (\s@StartTaskContact' {} a -> s {previousContactId = a} :: StartTaskContact)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -222,10 +222,10 @@ instance Core.AWSRequest StartTaskContact where
 instance Prelude.Hashable StartTaskContact where
   hashWithSalt _salt StartTaskContact' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` references
-      `Prelude.hashWithSalt` previousContactId
-      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` references
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` previousContactId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
       `Prelude.hashWithSalt` name
@@ -233,10 +233,10 @@ instance Prelude.Hashable StartTaskContact where
 instance Prelude.NFData StartTaskContact where
   rnf StartTaskContact' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf references
-      `Prelude.seq` Prelude.rnf previousContactId
-      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf references
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf previousContactId
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactFlowId
       `Prelude.seq` Prelude.rnf name
@@ -257,11 +257,11 @@ instance Core.ToJSON StartTaskContact where
     Core.object
       ( Prelude.catMaybes
           [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("Description" Core..=) Prelude.<$> description,
             ("References" Core..=) Prelude.<$> references,
+            ("Attributes" Core..=) Prelude.<$> attributes,
             ("PreviousContactId" Core..=)
               Prelude.<$> previousContactId,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("InstanceId" Core..= instanceId),
             Prelude.Just ("ContactFlowId" Core..= contactFlowId),
             Prelude.Just ("Name" Core..= name)

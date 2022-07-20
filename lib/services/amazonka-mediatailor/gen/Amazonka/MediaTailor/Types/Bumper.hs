@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBumper' smart constructor.
 data Bumper = Bumper'
-  { -- | The URL for the end bumper asset.
-    endUrl :: Prelude.Maybe Prelude.Text,
-    -- | The URL for the start bumper asset.
-    startUrl :: Prelude.Maybe Prelude.Text
+  { -- | The URL for the start bumper asset.
+    startUrl :: Prelude.Maybe Prelude.Text,
+    -- | The URL for the end bumper asset.
+    endUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Bumper = Bumper'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endUrl', 'bumper_endUrl' - The URL for the end bumper asset.
---
 -- 'startUrl', 'bumper_startUrl' - The URL for the start bumper asset.
+--
+-- 'endUrl', 'bumper_endUrl' - The URL for the end bumper asset.
 newBumper ::
   Bumper
 newBumper =
   Bumper'
-    { endUrl = Prelude.Nothing,
-      startUrl = Prelude.Nothing
+    { startUrl = Prelude.Nothing,
+      endUrl = Prelude.Nothing
     }
-
--- | The URL for the end bumper asset.
-bumper_endUrl :: Lens.Lens' Bumper (Prelude.Maybe Prelude.Text)
-bumper_endUrl = Lens.lens (\Bumper' {endUrl} -> endUrl) (\s@Bumper' {} a -> s {endUrl = a} :: Bumper)
 
 -- | The URL for the start bumper asset.
 bumper_startUrl :: Lens.Lens' Bumper (Prelude.Maybe Prelude.Text)
 bumper_startUrl = Lens.lens (\Bumper' {startUrl} -> startUrl) (\s@Bumper' {} a -> s {startUrl = a} :: Bumper)
+
+-- | The URL for the end bumper asset.
+bumper_endUrl :: Lens.Lens' Bumper (Prelude.Maybe Prelude.Text)
+bumper_endUrl = Lens.lens (\Bumper' {endUrl} -> endUrl) (\s@Bumper' {} a -> s {endUrl = a} :: Bumper)
 
 instance Core.FromJSON Bumper where
   parseJSON =
@@ -70,25 +70,25 @@ instance Core.FromJSON Bumper where
       "Bumper"
       ( \x ->
           Bumper'
-            Prelude.<$> (x Core..:? "EndUrl")
-            Prelude.<*> (x Core..:? "StartUrl")
+            Prelude.<$> (x Core..:? "StartUrl")
+            Prelude.<*> (x Core..:? "EndUrl")
       )
 
 instance Prelude.Hashable Bumper where
   hashWithSalt _salt Bumper' {..} =
-    _salt `Prelude.hashWithSalt` endUrl
-      `Prelude.hashWithSalt` startUrl
+    _salt `Prelude.hashWithSalt` startUrl
+      `Prelude.hashWithSalt` endUrl
 
 instance Prelude.NFData Bumper where
   rnf Bumper' {..} =
-    Prelude.rnf endUrl
-      `Prelude.seq` Prelude.rnf startUrl
+    Prelude.rnf startUrl
+      `Prelude.seq` Prelude.rnf endUrl
 
 instance Core.ToJSON Bumper where
   toJSON Bumper' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EndUrl" Core..=) Prelude.<$> endUrl,
-            ("StartUrl" Core..=) Prelude.<$> startUrl
+          [ ("StartUrl" Core..=) Prelude.<$> startUrl,
+            ("EndUrl" Core..=) Prelude.<$> endUrl
           ]
       )

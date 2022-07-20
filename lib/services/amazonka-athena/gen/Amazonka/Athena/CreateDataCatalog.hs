@@ -29,9 +29,9 @@ module Amazonka.Athena.CreateDataCatalog
     newCreateDataCatalog,
 
     -- * Request Lenses
-    createDataCatalog_parameters,
-    createDataCatalog_description,
     createDataCatalog_tags,
+    createDataCatalog_description,
+    createDataCatalog_parameters,
     createDataCatalog_name,
     createDataCatalog_type,
 
@@ -53,7 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataCatalog' smart constructor.
 data CreateDataCatalog = CreateDataCatalog'
-  { -- | Specifies the Lambda function or functions to use for creating the data
+  { -- | A list of comma separated tags to add to the data catalog that is
+    -- created.
+    tags :: Prelude.Maybe [Tag],
+    -- | A description of the data catalog to be created.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the Lambda function or functions to use for creating the data
     -- catalog. This is a mapping whose values depend on the catalog type.
     --
     -- -   For the @HIVE@ data catalog type, use the following syntax. The
@@ -95,11 +100,6 @@ data CreateDataCatalog = CreateDataCatalog'
     --         creating new Glue data catalogs results in an @INVALID_INPUT@
     --         error.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description of the data catalog to be created.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of comma separated tags to add to the data catalog that is
-    -- created.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the data catalog to create. The catalog name must be unique
     -- for the Amazon Web Services account and can use a maximum of 128
     -- alphanumeric, underscore, at sign, or hyphen characters.
@@ -118,6 +118,11 @@ data CreateDataCatalog = CreateDataCatalog'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createDataCatalog_tags' - A list of comma separated tags to add to the data catalog that is
+-- created.
+--
+-- 'description', 'createDataCatalog_description' - A description of the data catalog to be created.
 --
 -- 'parameters', 'createDataCatalog_parameters' - Specifies the Lambda function or functions to use for creating the data
 -- catalog. This is a mapping whose values depend on the catalog type.
@@ -161,11 +166,6 @@ data CreateDataCatalog = CreateDataCatalog'
 --         creating new Glue data catalogs results in an @INVALID_INPUT@
 --         error.
 --
--- 'description', 'createDataCatalog_description' - A description of the data catalog to be created.
---
--- 'tags', 'createDataCatalog_tags' - A list of comma separated tags to add to the data catalog that is
--- created.
---
 -- 'name', 'createDataCatalog_name' - The name of the data catalog to create. The catalog name must be unique
 -- for the Amazon Web Services account and can use a maximum of 128
 -- alphanumeric, underscore, at sign, or hyphen characters.
@@ -181,12 +181,21 @@ newCreateDataCatalog ::
   CreateDataCatalog
 newCreateDataCatalog pName_ pType_ =
   CreateDataCatalog'
-    { parameters = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
+
+-- | A list of comma separated tags to add to the data catalog that is
+-- created.
+createDataCatalog_tags :: Lens.Lens' CreateDataCatalog (Prelude.Maybe [Tag])
+createDataCatalog_tags = Lens.lens (\CreateDataCatalog' {tags} -> tags) (\s@CreateDataCatalog' {} a -> s {tags = a} :: CreateDataCatalog) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the data catalog to be created.
+createDataCatalog_description :: Lens.Lens' CreateDataCatalog (Prelude.Maybe Prelude.Text)
+createDataCatalog_description = Lens.lens (\CreateDataCatalog' {description} -> description) (\s@CreateDataCatalog' {} a -> s {description = a} :: CreateDataCatalog)
 
 -- | Specifies the Lambda function or functions to use for creating the data
 -- catalog. This is a mapping whose values depend on the catalog type.
@@ -232,15 +241,6 @@ newCreateDataCatalog pName_ pType_ =
 createDataCatalog_parameters :: Lens.Lens' CreateDataCatalog (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createDataCatalog_parameters = Lens.lens (\CreateDataCatalog' {parameters} -> parameters) (\s@CreateDataCatalog' {} a -> s {parameters = a} :: CreateDataCatalog) Prelude.. Lens.mapping Lens.coerced
 
--- | A description of the data catalog to be created.
-createDataCatalog_description :: Lens.Lens' CreateDataCatalog (Prelude.Maybe Prelude.Text)
-createDataCatalog_description = Lens.lens (\CreateDataCatalog' {description} -> description) (\s@CreateDataCatalog' {} a -> s {description = a} :: CreateDataCatalog)
-
--- | A list of comma separated tags to add to the data catalog that is
--- created.
-createDataCatalog_tags :: Lens.Lens' CreateDataCatalog (Prelude.Maybe [Tag])
-createDataCatalog_tags = Lens.lens (\CreateDataCatalog' {tags} -> tags) (\s@CreateDataCatalog' {} a -> s {tags = a} :: CreateDataCatalog) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the data catalog to create. The catalog name must be unique
 -- for the Amazon Web Services account and can use a maximum of 128
 -- alphanumeric, underscore, at sign, or hyphen characters.
@@ -267,17 +267,17 @@ instance Core.AWSRequest CreateDataCatalog where
 
 instance Prelude.Hashable CreateDataCatalog where
   hashWithSalt _salt CreateDataCatalog' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateDataCatalog where
   rnf CreateDataCatalog' {..} =
-    Prelude.rnf parameters
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
@@ -300,9 +300,9 @@ instance Core.ToJSON CreateDataCatalog where
   toJSON CreateDataCatalog' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Type" Core..= type')
           ]

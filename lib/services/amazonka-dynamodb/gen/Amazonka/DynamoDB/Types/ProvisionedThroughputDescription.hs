@@ -36,21 +36,21 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
     -- of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent
     -- @ReadCapacityUnits@ per second.
     readCapacityUnits :: Prelude.Maybe Prelude.Natural,
-    -- | The date and time of the last provisioned throughput decrease for this
-    -- table.
-    lastDecreaseDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The maximum number of writes consumed per second before DynamoDB returns
-    -- a @ThrottlingException@.
-    writeCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The number of provisioned throughput decreases for this table during
     -- this UTC calendar day. For current maximums on provisioned throughput
     -- decreases, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
     -- in the /Amazon DynamoDB Developer Guide/.
     numberOfDecreasesToday :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of writes consumed per second before DynamoDB returns
+    -- a @ThrottlingException@.
+    writeCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The date and time of the last provisioned throughput increase for this
     -- table.
-    lastIncreaseDateTime :: Prelude.Maybe Core.POSIX
+    lastIncreaseDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The date and time of the last provisioned throughput decrease for this
+    -- table.
+    lastDecreaseDateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,19 +68,19 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
 -- of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent
 -- @ReadCapacityUnits@ per second.
 --
--- 'lastDecreaseDateTime', 'provisionedThroughputDescription_lastDecreaseDateTime' - The date and time of the last provisioned throughput decrease for this
--- table.
---
--- 'writeCapacityUnits', 'provisionedThroughputDescription_writeCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns
--- a @ThrottlingException@.
---
 -- 'numberOfDecreasesToday', 'provisionedThroughputDescription_numberOfDecreasesToday' - The number of provisioned throughput decreases for this table during
 -- this UTC calendar day. For current maximums on provisioned throughput
 -- decreases, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
+-- 'writeCapacityUnits', 'provisionedThroughputDescription_writeCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns
+-- a @ThrottlingException@.
+--
 -- 'lastIncreaseDateTime', 'provisionedThroughputDescription_lastIncreaseDateTime' - The date and time of the last provisioned throughput increase for this
+-- table.
+--
+-- 'lastDecreaseDateTime', 'provisionedThroughputDescription_lastDecreaseDateTime' - The date and time of the last provisioned throughput decrease for this
 -- table.
 newProvisionedThroughputDescription ::
   ProvisionedThroughputDescription
@@ -88,10 +88,10 @@ newProvisionedThroughputDescription =
   ProvisionedThroughputDescription'
     { readCapacityUnits =
         Prelude.Nothing,
-      lastDecreaseDateTime = Prelude.Nothing,
-      writeCapacityUnits = Prelude.Nothing,
       numberOfDecreasesToday = Prelude.Nothing,
-      lastIncreaseDateTime = Prelude.Nothing
+      writeCapacityUnits = Prelude.Nothing,
+      lastIncreaseDateTime = Prelude.Nothing,
+      lastDecreaseDateTime = Prelude.Nothing
     }
 
 -- | The maximum number of strongly consistent reads consumed per second
@@ -102,16 +102,6 @@ newProvisionedThroughputDescription =
 provisionedThroughputDescription_readCapacityUnits :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.Natural)
 provisionedThroughputDescription_readCapacityUnits = Lens.lens (\ProvisionedThroughputDescription' {readCapacityUnits} -> readCapacityUnits) (\s@ProvisionedThroughputDescription' {} a -> s {readCapacityUnits = a} :: ProvisionedThroughputDescription)
 
--- | The date and time of the last provisioned throughput decrease for this
--- table.
-provisionedThroughputDescription_lastDecreaseDateTime :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.UTCTime)
-provisionedThroughputDescription_lastDecreaseDateTime = Lens.lens (\ProvisionedThroughputDescription' {lastDecreaseDateTime} -> lastDecreaseDateTime) (\s@ProvisionedThroughputDescription' {} a -> s {lastDecreaseDateTime = a} :: ProvisionedThroughputDescription) Prelude.. Lens.mapping Core._Time
-
--- | The maximum number of writes consumed per second before DynamoDB returns
--- a @ThrottlingException@.
-provisionedThroughputDescription_writeCapacityUnits :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.Natural)
-provisionedThroughputDescription_writeCapacityUnits = Lens.lens (\ProvisionedThroughputDescription' {writeCapacityUnits} -> writeCapacityUnits) (\s@ProvisionedThroughputDescription' {} a -> s {writeCapacityUnits = a} :: ProvisionedThroughputDescription)
-
 -- | The number of provisioned throughput decreases for this table during
 -- this UTC calendar day. For current maximums on provisioned throughput
 -- decreases, see
@@ -120,10 +110,20 @@ provisionedThroughputDescription_writeCapacityUnits = Lens.lens (\ProvisionedThr
 provisionedThroughputDescription_numberOfDecreasesToday :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.Natural)
 provisionedThroughputDescription_numberOfDecreasesToday = Lens.lens (\ProvisionedThroughputDescription' {numberOfDecreasesToday} -> numberOfDecreasesToday) (\s@ProvisionedThroughputDescription' {} a -> s {numberOfDecreasesToday = a} :: ProvisionedThroughputDescription)
 
+-- | The maximum number of writes consumed per second before DynamoDB returns
+-- a @ThrottlingException@.
+provisionedThroughputDescription_writeCapacityUnits :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.Natural)
+provisionedThroughputDescription_writeCapacityUnits = Lens.lens (\ProvisionedThroughputDescription' {writeCapacityUnits} -> writeCapacityUnits) (\s@ProvisionedThroughputDescription' {} a -> s {writeCapacityUnits = a} :: ProvisionedThroughputDescription)
+
 -- | The date and time of the last provisioned throughput increase for this
 -- table.
 provisionedThroughputDescription_lastIncreaseDateTime :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.UTCTime)
 provisionedThroughputDescription_lastIncreaseDateTime = Lens.lens (\ProvisionedThroughputDescription' {lastIncreaseDateTime} -> lastIncreaseDateTime) (\s@ProvisionedThroughputDescription' {} a -> s {lastIncreaseDateTime = a} :: ProvisionedThroughputDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time of the last provisioned throughput decrease for this
+-- table.
+provisionedThroughputDescription_lastDecreaseDateTime :: Lens.Lens' ProvisionedThroughputDescription (Prelude.Maybe Prelude.UTCTime)
+provisionedThroughputDescription_lastDecreaseDateTime = Lens.lens (\ProvisionedThroughputDescription' {lastDecreaseDateTime} -> lastDecreaseDateTime) (\s@ProvisionedThroughputDescription' {} a -> s {lastDecreaseDateTime = a} :: ProvisionedThroughputDescription) Prelude.. Lens.mapping Core._Time
 
 instance
   Core.FromJSON
@@ -135,10 +135,10 @@ instance
       ( \x ->
           ProvisionedThroughputDescription'
             Prelude.<$> (x Core..:? "ReadCapacityUnits")
-            Prelude.<*> (x Core..:? "LastDecreaseDateTime")
-            Prelude.<*> (x Core..:? "WriteCapacityUnits")
             Prelude.<*> (x Core..:? "NumberOfDecreasesToday")
+            Prelude.<*> (x Core..:? "WriteCapacityUnits")
             Prelude.<*> (x Core..:? "LastIncreaseDateTime")
+            Prelude.<*> (x Core..:? "LastDecreaseDateTime")
       )
 
 instance
@@ -149,10 +149,10 @@ instance
     _salt
     ProvisionedThroughputDescription' {..} =
       _salt `Prelude.hashWithSalt` readCapacityUnits
-        `Prelude.hashWithSalt` lastDecreaseDateTime
-        `Prelude.hashWithSalt` writeCapacityUnits
         `Prelude.hashWithSalt` numberOfDecreasesToday
+        `Prelude.hashWithSalt` writeCapacityUnits
         `Prelude.hashWithSalt` lastIncreaseDateTime
+        `Prelude.hashWithSalt` lastDecreaseDateTime
 
 instance
   Prelude.NFData
@@ -160,7 +160,7 @@ instance
   where
   rnf ProvisionedThroughputDescription' {..} =
     Prelude.rnf readCapacityUnits
-      `Prelude.seq` Prelude.rnf lastDecreaseDateTime
-      `Prelude.seq` Prelude.rnf writeCapacityUnits
       `Prelude.seq` Prelude.rnf numberOfDecreasesToday
+      `Prelude.seq` Prelude.rnf writeCapacityUnits
       `Prelude.seq` Prelude.rnf lastIncreaseDateTime
+      `Prelude.seq` Prelude.rnf lastDecreaseDateTime

@@ -27,74 +27,80 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateTask $
---             newUpdateTask
+--         [ requestCancelTaskExecution $
+--             newCancelTaskExecution
 --
---         , requestDescribeAgent $
---             newDescribeAgent
---
---         , requestDeleteTask $
---             newDeleteTask
---
---         , requestDescribeLocationSmb $
---             newDescribeLocationSmb
---
---         , requestListLocations $
---             newListLocations
---
---         , requestCreateLocationNfs $
---             newCreateLocationNfs
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDescribeLocationFsxWindows $
---             newDescribeLocationFsxWindows
---
---         , requestCreateLocationObjectStorage $
---             newCreateLocationObjectStorage
---
---         , requestDescribeTask $
---             newDescribeTask
---
---         , requestDescribeLocationS3 $
---             newDescribeLocationS3
---
---         , requestListAgents $
---             newListAgents
---
---         , requestUpdateLocationSmb $
---             newUpdateLocationSmb
---
---         , requestDeleteAgent $
---             newDeleteAgent
---
---         , requestUpdateAgent $
---             newUpdateAgent
---
---         , requestCreateLocationFsxWindows $
---             newCreateLocationFsxWindows
---
---         , requestListTaskExecutions $
---             newListTaskExecutions
---
---         , requestUpdateTaskExecution $
---             newUpdateTaskExecution
---
---         , requestCreateLocationS3 $
---             newCreateLocationS3
---
---         , requestCreateTask $
---             newCreateTask
+--         , requestCreateAgent $
+--             newCreateAgent
 --
 --         , requestCreateLocationEfs $
 --             newCreateLocationEfs
 --
---         , requestDescribeLocationObjectStorage $
---             newDescribeLocationObjectStorage
+--         , requestCreateLocationFsxWindows $
+--             newCreateLocationFsxWindows
+--
+--         , requestCreateLocationNfs $
+--             newCreateLocationNfs
+--
+--         , requestCreateLocationObjectStorage $
+--             newCreateLocationObjectStorage
+--
+--         , requestCreateLocationS3 $
+--             newCreateLocationS3
+--
+--         , requestCreateLocationSmb $
+--             newCreateLocationSmb
+--
+--         , requestCreateTask $
+--             newCreateTask
+--
+--         , requestDeleteAgent $
+--             newDeleteAgent
 --
 --         , requestDeleteLocation $
 --             newDeleteLocation
+--
+--         , requestDeleteTask $
+--             newDeleteTask
+--
+--         , requestDescribeAgent $
+--             newDescribeAgent
+--
+--         , requestDescribeLocationEfs $
+--             newDescribeLocationEfs
+--
+--         , requestDescribeLocationFsxWindows $
+--             newDescribeLocationFsxWindows
+--
+--         , requestDescribeLocationNfs $
+--             newDescribeLocationNfs
+--
+--         , requestDescribeLocationObjectStorage $
+--             newDescribeLocationObjectStorage
+--
+--         , requestDescribeLocationS3 $
+--             newDescribeLocationS3
+--
+--         , requestDescribeLocationSmb $
+--             newDescribeLocationSmb
+--
+--         , requestDescribeTask $
+--             newDescribeTask
+--
+--         , requestDescribeTaskExecution $
+--             newDescribeTaskExecution
+--
+--         , requestListAgents $
+--             newListAgents
+--
+--         , requestListLocations $
+--             newListLocations
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListTaskExecutions $
+--             newListTaskExecutions
 --
 --         , requestListTasks $
 --             newListTasks
@@ -102,107 +108,107 @@ import Test.Tasty
 --         , requestStartTaskExecution $
 --             newStartTaskExecution
 --
---         , requestUpdateLocationNfs $
---             newUpdateLocationNfs
---
---         , requestDescribeTaskExecution $
---             newDescribeTaskExecution
---
---         , requestCreateLocationSmb $
---             newCreateLocationSmb
---
---         , requestCreateAgent $
---             newCreateAgent
---
---         , requestUpdateLocationObjectStorage $
---             newUpdateLocationObjectStorage
---
---         , requestDescribeLocationEfs $
---             newDescribeLocationEfs
---
 --         , requestTagResource $
 --             newTagResource
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDescribeLocationNfs $
---             newDescribeLocationNfs
+--         , requestUpdateAgent $
+--             newUpdateAgent
 --
---         , requestCancelTaskExecution $
---             newCancelTaskExecution
+--         , requestUpdateLocationNfs $
+--             newUpdateLocationNfs
+--
+--         , requestUpdateLocationObjectStorage $
+--             newUpdateLocationObjectStorage
+--
+--         , requestUpdateLocationSmb $
+--             newUpdateLocationSmb
+--
+--         , requestUpdateTask $
+--             newUpdateTask
+--
+--         , requestUpdateTaskExecution $
+--             newUpdateTaskExecution
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateTask $
---             newUpdateTaskResponse
+--         [ responseCancelTaskExecution $
+--             newCancelTaskExecutionResponse
 --
---         , responseDescribeAgent $
---             newDescribeAgentResponse
---
---         , responseDeleteTask $
---             newDeleteTaskResponse
---
---         , responseDescribeLocationSmb $
---             newDescribeLocationSmbResponse
---
---         , responseListLocations $
---             newListLocationsResponse
---
---         , responseCreateLocationNfs $
---             newCreateLocationNfsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDescribeLocationFsxWindows $
---             newDescribeLocationFsxWindowsResponse
---
---         , responseCreateLocationObjectStorage $
---             newCreateLocationObjectStorageResponse
---
---         , responseDescribeTask $
---             newDescribeTaskResponse
---
---         , responseDescribeLocationS3 $
---             newDescribeLocationS3Response
---
---         , responseListAgents $
---             newListAgentsResponse
---
---         , responseUpdateLocationSmb $
---             newUpdateLocationSmbResponse
---
---         , responseDeleteAgent $
---             newDeleteAgentResponse
---
---         , responseUpdateAgent $
---             newUpdateAgentResponse
---
---         , responseCreateLocationFsxWindows $
---             newCreateLocationFsxWindowsResponse
---
---         , responseListTaskExecutions $
---             newListTaskExecutionsResponse
---
---         , responseUpdateTaskExecution $
---             newUpdateTaskExecutionResponse
---
---         , responseCreateLocationS3 $
---             newCreateLocationS3Response
---
---         , responseCreateTask $
---             newCreateTaskResponse
+--         , responseCreateAgent $
+--             newCreateAgentResponse
 --
 --         , responseCreateLocationEfs $
 --             newCreateLocationEfsResponse
 --
---         , responseDescribeLocationObjectStorage $
---             newDescribeLocationObjectStorageResponse
+--         , responseCreateLocationFsxWindows $
+--             newCreateLocationFsxWindowsResponse
+--
+--         , responseCreateLocationNfs $
+--             newCreateLocationNfsResponse
+--
+--         , responseCreateLocationObjectStorage $
+--             newCreateLocationObjectStorageResponse
+--
+--         , responseCreateLocationS3 $
+--             newCreateLocationS3Response
+--
+--         , responseCreateLocationSmb $
+--             newCreateLocationSmbResponse
+--
+--         , responseCreateTask $
+--             newCreateTaskResponse
+--
+--         , responseDeleteAgent $
+--             newDeleteAgentResponse
 --
 --         , responseDeleteLocation $
 --             newDeleteLocationResponse
+--
+--         , responseDeleteTask $
+--             newDeleteTaskResponse
+--
+--         , responseDescribeAgent $
+--             newDescribeAgentResponse
+--
+--         , responseDescribeLocationEfs $
+--             newDescribeLocationEfsResponse
+--
+--         , responseDescribeLocationFsxWindows $
+--             newDescribeLocationFsxWindowsResponse
+--
+--         , responseDescribeLocationNfs $
+--             newDescribeLocationNfsResponse
+--
+--         , responseDescribeLocationObjectStorage $
+--             newDescribeLocationObjectStorageResponse
+--
+--         , responseDescribeLocationS3 $
+--             newDescribeLocationS3Response
+--
+--         , responseDescribeLocationSmb $
+--             newDescribeLocationSmbResponse
+--
+--         , responseDescribeTask $
+--             newDescribeTaskResponse
+--
+--         , responseDescribeTaskExecution $
+--             newDescribeTaskExecutionResponse
+--
+--         , responseListAgents $
+--             newListAgentsResponse
+--
+--         , responseListLocations $
+--             newListLocationsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListTaskExecutions $
+--             newListTaskExecutionsResponse
 --
 --         , responseListTasks $
 --             newListTasksResponse
@@ -210,160 +216,46 @@ import Test.Tasty
 --         , responseStartTaskExecution $
 --             newStartTaskExecutionResponse
 --
---         , responseUpdateLocationNfs $
---             newUpdateLocationNfsResponse
---
---         , responseDescribeTaskExecution $
---             newDescribeTaskExecutionResponse
---
---         , responseCreateLocationSmb $
---             newCreateLocationSmbResponse
---
---         , responseCreateAgent $
---             newCreateAgentResponse
---
---         , responseUpdateLocationObjectStorage $
---             newUpdateLocationObjectStorageResponse
---
---         , responseDescribeLocationEfs $
---             newDescribeLocationEfsResponse
---
 --         , responseTagResource $
 --             newTagResourceResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeLocationNfs $
---             newDescribeLocationNfsResponse
+--         , responseUpdateAgent $
+--             newUpdateAgentResponse
 --
---         , responseCancelTaskExecution $
---             newCancelTaskExecutionResponse
+--         , responseUpdateLocationNfs $
+--             newUpdateLocationNfsResponse
+--
+--         , responseUpdateLocationObjectStorage $
+--             newUpdateLocationObjectStorageResponse
+--
+--         , responseUpdateLocationSmb $
+--             newUpdateLocationSmbResponse
+--
+--         , responseUpdateTask $
+--             newUpdateTaskResponse
+--
+--         , responseUpdateTaskExecution $
+--             newUpdateTaskExecutionResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestUpdateTask :: UpdateTask -> TestTree
-requestUpdateTask =
+requestCancelTaskExecution :: CancelTaskExecution -> TestTree
+requestCancelTaskExecution =
   req
-    "UpdateTask"
-    "fixture/UpdateTask.yaml"
+    "CancelTaskExecution"
+    "fixture/CancelTaskExecution.yaml"
 
-requestDescribeAgent :: DescribeAgent -> TestTree
-requestDescribeAgent =
+requestCreateAgent :: CreateAgent -> TestTree
+requestCreateAgent =
   req
-    "DescribeAgent"
-    "fixture/DescribeAgent.yaml"
-
-requestDeleteTask :: DeleteTask -> TestTree
-requestDeleteTask =
-  req
-    "DeleteTask"
-    "fixture/DeleteTask.yaml"
-
-requestDescribeLocationSmb :: DescribeLocationSmb -> TestTree
-requestDescribeLocationSmb =
-  req
-    "DescribeLocationSmb"
-    "fixture/DescribeLocationSmb.yaml"
-
-requestListLocations :: ListLocations -> TestTree
-requestListLocations =
-  req
-    "ListLocations"
-    "fixture/ListLocations.yaml"
-
-requestCreateLocationNfs :: CreateLocationNfs -> TestTree
-requestCreateLocationNfs =
-  req
-    "CreateLocationNfs"
-    "fixture/CreateLocationNfs.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDescribeLocationFsxWindows :: DescribeLocationFsxWindows -> TestTree
-requestDescribeLocationFsxWindows =
-  req
-    "DescribeLocationFsxWindows"
-    "fixture/DescribeLocationFsxWindows.yaml"
-
-requestCreateLocationObjectStorage :: CreateLocationObjectStorage -> TestTree
-requestCreateLocationObjectStorage =
-  req
-    "CreateLocationObjectStorage"
-    "fixture/CreateLocationObjectStorage.yaml"
-
-requestDescribeTask :: DescribeTask -> TestTree
-requestDescribeTask =
-  req
-    "DescribeTask"
-    "fixture/DescribeTask.yaml"
-
-requestDescribeLocationS3 :: DescribeLocationS3 -> TestTree
-requestDescribeLocationS3 =
-  req
-    "DescribeLocationS3"
-    "fixture/DescribeLocationS3.yaml"
-
-requestListAgents :: ListAgents -> TestTree
-requestListAgents =
-  req
-    "ListAgents"
-    "fixture/ListAgents.yaml"
-
-requestUpdateLocationSmb :: UpdateLocationSmb -> TestTree
-requestUpdateLocationSmb =
-  req
-    "UpdateLocationSmb"
-    "fixture/UpdateLocationSmb.yaml"
-
-requestDeleteAgent :: DeleteAgent -> TestTree
-requestDeleteAgent =
-  req
-    "DeleteAgent"
-    "fixture/DeleteAgent.yaml"
-
-requestUpdateAgent :: UpdateAgent -> TestTree
-requestUpdateAgent =
-  req
-    "UpdateAgent"
-    "fixture/UpdateAgent.yaml"
-
-requestCreateLocationFsxWindows :: CreateLocationFsxWindows -> TestTree
-requestCreateLocationFsxWindows =
-  req
-    "CreateLocationFsxWindows"
-    "fixture/CreateLocationFsxWindows.yaml"
-
-requestListTaskExecutions :: ListTaskExecutions -> TestTree
-requestListTaskExecutions =
-  req
-    "ListTaskExecutions"
-    "fixture/ListTaskExecutions.yaml"
-
-requestUpdateTaskExecution :: UpdateTaskExecution -> TestTree
-requestUpdateTaskExecution =
-  req
-    "UpdateTaskExecution"
-    "fixture/UpdateTaskExecution.yaml"
-
-requestCreateLocationS3 :: CreateLocationS3 -> TestTree
-requestCreateLocationS3 =
-  req
-    "CreateLocationS3"
-    "fixture/CreateLocationS3.yaml"
-
-requestCreateTask :: CreateTask -> TestTree
-requestCreateTask =
-  req
-    "CreateTask"
-    "fixture/CreateTask.yaml"
+    "CreateAgent"
+    "fixture/CreateAgent.yaml"
 
 requestCreateLocationEfs :: CreateLocationEfs -> TestTree
 requestCreateLocationEfs =
@@ -371,17 +263,137 @@ requestCreateLocationEfs =
     "CreateLocationEfs"
     "fixture/CreateLocationEfs.yaml"
 
-requestDescribeLocationObjectStorage :: DescribeLocationObjectStorage -> TestTree
-requestDescribeLocationObjectStorage =
+requestCreateLocationFsxWindows :: CreateLocationFsxWindows -> TestTree
+requestCreateLocationFsxWindows =
   req
-    "DescribeLocationObjectStorage"
-    "fixture/DescribeLocationObjectStorage.yaml"
+    "CreateLocationFsxWindows"
+    "fixture/CreateLocationFsxWindows.yaml"
+
+requestCreateLocationNfs :: CreateLocationNfs -> TestTree
+requestCreateLocationNfs =
+  req
+    "CreateLocationNfs"
+    "fixture/CreateLocationNfs.yaml"
+
+requestCreateLocationObjectStorage :: CreateLocationObjectStorage -> TestTree
+requestCreateLocationObjectStorage =
+  req
+    "CreateLocationObjectStorage"
+    "fixture/CreateLocationObjectStorage.yaml"
+
+requestCreateLocationS3 :: CreateLocationS3 -> TestTree
+requestCreateLocationS3 =
+  req
+    "CreateLocationS3"
+    "fixture/CreateLocationS3.yaml"
+
+requestCreateLocationSmb :: CreateLocationSmb -> TestTree
+requestCreateLocationSmb =
+  req
+    "CreateLocationSmb"
+    "fixture/CreateLocationSmb.yaml"
+
+requestCreateTask :: CreateTask -> TestTree
+requestCreateTask =
+  req
+    "CreateTask"
+    "fixture/CreateTask.yaml"
+
+requestDeleteAgent :: DeleteAgent -> TestTree
+requestDeleteAgent =
+  req
+    "DeleteAgent"
+    "fixture/DeleteAgent.yaml"
 
 requestDeleteLocation :: DeleteLocation -> TestTree
 requestDeleteLocation =
   req
     "DeleteLocation"
     "fixture/DeleteLocation.yaml"
+
+requestDeleteTask :: DeleteTask -> TestTree
+requestDeleteTask =
+  req
+    "DeleteTask"
+    "fixture/DeleteTask.yaml"
+
+requestDescribeAgent :: DescribeAgent -> TestTree
+requestDescribeAgent =
+  req
+    "DescribeAgent"
+    "fixture/DescribeAgent.yaml"
+
+requestDescribeLocationEfs :: DescribeLocationEfs -> TestTree
+requestDescribeLocationEfs =
+  req
+    "DescribeLocationEfs"
+    "fixture/DescribeLocationEfs.yaml"
+
+requestDescribeLocationFsxWindows :: DescribeLocationFsxWindows -> TestTree
+requestDescribeLocationFsxWindows =
+  req
+    "DescribeLocationFsxWindows"
+    "fixture/DescribeLocationFsxWindows.yaml"
+
+requestDescribeLocationNfs :: DescribeLocationNfs -> TestTree
+requestDescribeLocationNfs =
+  req
+    "DescribeLocationNfs"
+    "fixture/DescribeLocationNfs.yaml"
+
+requestDescribeLocationObjectStorage :: DescribeLocationObjectStorage -> TestTree
+requestDescribeLocationObjectStorage =
+  req
+    "DescribeLocationObjectStorage"
+    "fixture/DescribeLocationObjectStorage.yaml"
+
+requestDescribeLocationS3 :: DescribeLocationS3 -> TestTree
+requestDescribeLocationS3 =
+  req
+    "DescribeLocationS3"
+    "fixture/DescribeLocationS3.yaml"
+
+requestDescribeLocationSmb :: DescribeLocationSmb -> TestTree
+requestDescribeLocationSmb =
+  req
+    "DescribeLocationSmb"
+    "fixture/DescribeLocationSmb.yaml"
+
+requestDescribeTask :: DescribeTask -> TestTree
+requestDescribeTask =
+  req
+    "DescribeTask"
+    "fixture/DescribeTask.yaml"
+
+requestDescribeTaskExecution :: DescribeTaskExecution -> TestTree
+requestDescribeTaskExecution =
+  req
+    "DescribeTaskExecution"
+    "fixture/DescribeTaskExecution.yaml"
+
+requestListAgents :: ListAgents -> TestTree
+requestListAgents =
+  req
+    "ListAgents"
+    "fixture/ListAgents.yaml"
+
+requestListLocations :: ListLocations -> TestTree
+requestListLocations =
+  req
+    "ListLocations"
+    "fixture/ListLocations.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListTaskExecutions :: ListTaskExecutions -> TestTree
+requestListTaskExecutions =
+  req
+    "ListTaskExecutions"
+    "fixture/ListTaskExecutions.yaml"
 
 requestListTasks :: ListTasks -> TestTree
 requestListTasks =
@@ -395,42 +407,6 @@ requestStartTaskExecution =
     "StartTaskExecution"
     "fixture/StartTaskExecution.yaml"
 
-requestUpdateLocationNfs :: UpdateLocationNfs -> TestTree
-requestUpdateLocationNfs =
-  req
-    "UpdateLocationNfs"
-    "fixture/UpdateLocationNfs.yaml"
-
-requestDescribeTaskExecution :: DescribeTaskExecution -> TestTree
-requestDescribeTaskExecution =
-  req
-    "DescribeTaskExecution"
-    "fixture/DescribeTaskExecution.yaml"
-
-requestCreateLocationSmb :: CreateLocationSmb -> TestTree
-requestCreateLocationSmb =
-  req
-    "CreateLocationSmb"
-    "fixture/CreateLocationSmb.yaml"
-
-requestCreateAgent :: CreateAgent -> TestTree
-requestCreateAgent =
-  req
-    "CreateAgent"
-    "fixture/CreateAgent.yaml"
-
-requestUpdateLocationObjectStorage :: UpdateLocationObjectStorage -> TestTree
-requestUpdateLocationObjectStorage =
-  req
-    "UpdateLocationObjectStorage"
-    "fixture/UpdateLocationObjectStorage.yaml"
-
-requestDescribeLocationEfs :: DescribeLocationEfs -> TestTree
-requestDescribeLocationEfs =
-  req
-    "DescribeLocationEfs"
-    "fixture/DescribeLocationEfs.yaml"
-
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -443,179 +419,59 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDescribeLocationNfs :: DescribeLocationNfs -> TestTree
-requestDescribeLocationNfs =
+requestUpdateAgent :: UpdateAgent -> TestTree
+requestUpdateAgent =
   req
-    "DescribeLocationNfs"
-    "fixture/DescribeLocationNfs.yaml"
+    "UpdateAgent"
+    "fixture/UpdateAgent.yaml"
 
-requestCancelTaskExecution :: CancelTaskExecution -> TestTree
-requestCancelTaskExecution =
+requestUpdateLocationNfs :: UpdateLocationNfs -> TestTree
+requestUpdateLocationNfs =
   req
-    "CancelTaskExecution"
-    "fixture/CancelTaskExecution.yaml"
+    "UpdateLocationNfs"
+    "fixture/UpdateLocationNfs.yaml"
+
+requestUpdateLocationObjectStorage :: UpdateLocationObjectStorage -> TestTree
+requestUpdateLocationObjectStorage =
+  req
+    "UpdateLocationObjectStorage"
+    "fixture/UpdateLocationObjectStorage.yaml"
+
+requestUpdateLocationSmb :: UpdateLocationSmb -> TestTree
+requestUpdateLocationSmb =
+  req
+    "UpdateLocationSmb"
+    "fixture/UpdateLocationSmb.yaml"
+
+requestUpdateTask :: UpdateTask -> TestTree
+requestUpdateTask =
+  req
+    "UpdateTask"
+    "fixture/UpdateTask.yaml"
+
+requestUpdateTaskExecution :: UpdateTaskExecution -> TestTree
+requestUpdateTaskExecution =
+  req
+    "UpdateTaskExecution"
+    "fixture/UpdateTaskExecution.yaml"
 
 -- Responses
 
-responseUpdateTask :: UpdateTaskResponse -> TestTree
-responseUpdateTask =
+responseCancelTaskExecution :: CancelTaskExecutionResponse -> TestTree
+responseCancelTaskExecution =
   res
-    "UpdateTaskResponse"
-    "fixture/UpdateTaskResponse.proto"
+    "CancelTaskExecutionResponse"
+    "fixture/CancelTaskExecutionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTask)
+    (Proxy.Proxy :: Proxy.Proxy CancelTaskExecution)
 
-responseDescribeAgent :: DescribeAgentResponse -> TestTree
-responseDescribeAgent =
+responseCreateAgent :: CreateAgentResponse -> TestTree
+responseCreateAgent =
   res
-    "DescribeAgentResponse"
-    "fixture/DescribeAgentResponse.proto"
+    "CreateAgentResponse"
+    "fixture/CreateAgentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAgent)
-
-responseDeleteTask :: DeleteTaskResponse -> TestTree
-responseDeleteTask =
-  res
-    "DeleteTaskResponse"
-    "fixture/DeleteTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTask)
-
-responseDescribeLocationSmb :: DescribeLocationSmbResponse -> TestTree
-responseDescribeLocationSmb =
-  res
-    "DescribeLocationSmbResponse"
-    "fixture/DescribeLocationSmbResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLocationSmb)
-
-responseListLocations :: ListLocationsResponse -> TestTree
-responseListLocations =
-  res
-    "ListLocationsResponse"
-    "fixture/ListLocationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLocations)
-
-responseCreateLocationNfs :: CreateLocationNfsResponse -> TestTree
-responseCreateLocationNfs =
-  res
-    "CreateLocationNfsResponse"
-    "fixture/CreateLocationNfsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLocationNfs)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDescribeLocationFsxWindows :: DescribeLocationFsxWindowsResponse -> TestTree
-responseDescribeLocationFsxWindows =
-  res
-    "DescribeLocationFsxWindowsResponse"
-    "fixture/DescribeLocationFsxWindowsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLocationFsxWindows)
-
-responseCreateLocationObjectStorage :: CreateLocationObjectStorageResponse -> TestTree
-responseCreateLocationObjectStorage =
-  res
-    "CreateLocationObjectStorageResponse"
-    "fixture/CreateLocationObjectStorageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLocationObjectStorage)
-
-responseDescribeTask :: DescribeTaskResponse -> TestTree
-responseDescribeTask =
-  res
-    "DescribeTaskResponse"
-    "fixture/DescribeTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTask)
-
-responseDescribeLocationS3 :: DescribeLocationS3Response -> TestTree
-responseDescribeLocationS3 =
-  res
-    "DescribeLocationS3Response"
-    "fixture/DescribeLocationS3Response.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLocationS3)
-
-responseListAgents :: ListAgentsResponse -> TestTree
-responseListAgents =
-  res
-    "ListAgentsResponse"
-    "fixture/ListAgentsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAgents)
-
-responseUpdateLocationSmb :: UpdateLocationSmbResponse -> TestTree
-responseUpdateLocationSmb =
-  res
-    "UpdateLocationSmbResponse"
-    "fixture/UpdateLocationSmbResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLocationSmb)
-
-responseDeleteAgent :: DeleteAgentResponse -> TestTree
-responseDeleteAgent =
-  res
-    "DeleteAgentResponse"
-    "fixture/DeleteAgentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAgent)
-
-responseUpdateAgent :: UpdateAgentResponse -> TestTree
-responseUpdateAgent =
-  res
-    "UpdateAgentResponse"
-    "fixture/UpdateAgentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAgent)
-
-responseCreateLocationFsxWindows :: CreateLocationFsxWindowsResponse -> TestTree
-responseCreateLocationFsxWindows =
-  res
-    "CreateLocationFsxWindowsResponse"
-    "fixture/CreateLocationFsxWindowsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLocationFsxWindows)
-
-responseListTaskExecutions :: ListTaskExecutionsResponse -> TestTree
-responseListTaskExecutions =
-  res
-    "ListTaskExecutionsResponse"
-    "fixture/ListTaskExecutionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTaskExecutions)
-
-responseUpdateTaskExecution :: UpdateTaskExecutionResponse -> TestTree
-responseUpdateTaskExecution =
-  res
-    "UpdateTaskExecutionResponse"
-    "fixture/UpdateTaskExecutionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTaskExecution)
-
-responseCreateLocationS3 :: CreateLocationS3Response -> TestTree
-responseCreateLocationS3 =
-  res
-    "CreateLocationS3Response"
-    "fixture/CreateLocationS3Response.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLocationS3)
-
-responseCreateTask :: CreateTaskResponse -> TestTree
-responseCreateTask =
-  res
-    "CreateTaskResponse"
-    "fixture/CreateTaskResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTask)
+    (Proxy.Proxy :: Proxy.Proxy CreateAgent)
 
 responseCreateLocationEfs :: CreateLocationEfsResponse -> TestTree
 responseCreateLocationEfs =
@@ -625,13 +481,61 @@ responseCreateLocationEfs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateLocationEfs)
 
-responseDescribeLocationObjectStorage :: DescribeLocationObjectStorageResponse -> TestTree
-responseDescribeLocationObjectStorage =
+responseCreateLocationFsxWindows :: CreateLocationFsxWindowsResponse -> TestTree
+responseCreateLocationFsxWindows =
   res
-    "DescribeLocationObjectStorageResponse"
-    "fixture/DescribeLocationObjectStorageResponse.proto"
+    "CreateLocationFsxWindowsResponse"
+    "fixture/CreateLocationFsxWindowsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLocationObjectStorage)
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationFsxWindows)
+
+responseCreateLocationNfs :: CreateLocationNfsResponse -> TestTree
+responseCreateLocationNfs =
+  res
+    "CreateLocationNfsResponse"
+    "fixture/CreateLocationNfsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationNfs)
+
+responseCreateLocationObjectStorage :: CreateLocationObjectStorageResponse -> TestTree
+responseCreateLocationObjectStorage =
+  res
+    "CreateLocationObjectStorageResponse"
+    "fixture/CreateLocationObjectStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationObjectStorage)
+
+responseCreateLocationS3 :: CreateLocationS3Response -> TestTree
+responseCreateLocationS3 =
+  res
+    "CreateLocationS3Response"
+    "fixture/CreateLocationS3Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationS3)
+
+responseCreateLocationSmb :: CreateLocationSmbResponse -> TestTree
+responseCreateLocationSmb =
+  res
+    "CreateLocationSmbResponse"
+    "fixture/CreateLocationSmbResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocationSmb)
+
+responseCreateTask :: CreateTaskResponse -> TestTree
+responseCreateTask =
+  res
+    "CreateTaskResponse"
+    "fixture/CreateTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTask)
+
+responseDeleteAgent :: DeleteAgentResponse -> TestTree
+responseDeleteAgent =
+  res
+    "DeleteAgentResponse"
+    "fixture/DeleteAgentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAgent)
 
 responseDeleteLocation :: DeleteLocationResponse -> TestTree
 responseDeleteLocation =
@@ -640,6 +544,118 @@ responseDeleteLocation =
     "fixture/DeleteLocationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteLocation)
+
+responseDeleteTask :: DeleteTaskResponse -> TestTree
+responseDeleteTask =
+  res
+    "DeleteTaskResponse"
+    "fixture/DeleteTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTask)
+
+responseDescribeAgent :: DescribeAgentResponse -> TestTree
+responseDescribeAgent =
+  res
+    "DescribeAgentResponse"
+    "fixture/DescribeAgentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAgent)
+
+responseDescribeLocationEfs :: DescribeLocationEfsResponse -> TestTree
+responseDescribeLocationEfs =
+  res
+    "DescribeLocationEfsResponse"
+    "fixture/DescribeLocationEfsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationEfs)
+
+responseDescribeLocationFsxWindows :: DescribeLocationFsxWindowsResponse -> TestTree
+responseDescribeLocationFsxWindows =
+  res
+    "DescribeLocationFsxWindowsResponse"
+    "fixture/DescribeLocationFsxWindowsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationFsxWindows)
+
+responseDescribeLocationNfs :: DescribeLocationNfsResponse -> TestTree
+responseDescribeLocationNfs =
+  res
+    "DescribeLocationNfsResponse"
+    "fixture/DescribeLocationNfsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationNfs)
+
+responseDescribeLocationObjectStorage :: DescribeLocationObjectStorageResponse -> TestTree
+responseDescribeLocationObjectStorage =
+  res
+    "DescribeLocationObjectStorageResponse"
+    "fixture/DescribeLocationObjectStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationObjectStorage)
+
+responseDescribeLocationS3 :: DescribeLocationS3Response -> TestTree
+responseDescribeLocationS3 =
+  res
+    "DescribeLocationS3Response"
+    "fixture/DescribeLocationS3Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationS3)
+
+responseDescribeLocationSmb :: DescribeLocationSmbResponse -> TestTree
+responseDescribeLocationSmb =
+  res
+    "DescribeLocationSmbResponse"
+    "fixture/DescribeLocationSmbResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLocationSmb)
+
+responseDescribeTask :: DescribeTaskResponse -> TestTree
+responseDescribeTask =
+  res
+    "DescribeTaskResponse"
+    "fixture/DescribeTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTask)
+
+responseDescribeTaskExecution :: DescribeTaskExecutionResponse -> TestTree
+responseDescribeTaskExecution =
+  res
+    "DescribeTaskExecutionResponse"
+    "fixture/DescribeTaskExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTaskExecution)
+
+responseListAgents :: ListAgentsResponse -> TestTree
+responseListAgents =
+  res
+    "ListAgentsResponse"
+    "fixture/ListAgentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAgents)
+
+responseListLocations :: ListLocationsResponse -> TestTree
+responseListLocations =
+  res
+    "ListLocationsResponse"
+    "fixture/ListLocationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLocations)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTaskExecutions :: ListTaskExecutionsResponse -> TestTree
+responseListTaskExecutions =
+  res
+    "ListTaskExecutionsResponse"
+    "fixture/ListTaskExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTaskExecutions)
 
 responseListTasks :: ListTasksResponse -> TestTree
 responseListTasks =
@@ -657,54 +673,6 @@ responseStartTaskExecution =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartTaskExecution)
 
-responseUpdateLocationNfs :: UpdateLocationNfsResponse -> TestTree
-responseUpdateLocationNfs =
-  res
-    "UpdateLocationNfsResponse"
-    "fixture/UpdateLocationNfsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLocationNfs)
-
-responseDescribeTaskExecution :: DescribeTaskExecutionResponse -> TestTree
-responseDescribeTaskExecution =
-  res
-    "DescribeTaskExecutionResponse"
-    "fixture/DescribeTaskExecutionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTaskExecution)
-
-responseCreateLocationSmb :: CreateLocationSmbResponse -> TestTree
-responseCreateLocationSmb =
-  res
-    "CreateLocationSmbResponse"
-    "fixture/CreateLocationSmbResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateLocationSmb)
-
-responseCreateAgent :: CreateAgentResponse -> TestTree
-responseCreateAgent =
-  res
-    "CreateAgentResponse"
-    "fixture/CreateAgentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAgent)
-
-responseUpdateLocationObjectStorage :: UpdateLocationObjectStorageResponse -> TestTree
-responseUpdateLocationObjectStorage =
-  res
-    "UpdateLocationObjectStorageResponse"
-    "fixture/UpdateLocationObjectStorageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateLocationObjectStorage)
-
-responseDescribeLocationEfs :: DescribeLocationEfsResponse -> TestTree
-responseDescribeLocationEfs =
-  res
-    "DescribeLocationEfsResponse"
-    "fixture/DescribeLocationEfsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLocationEfs)
-
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -721,18 +689,50 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDescribeLocationNfs :: DescribeLocationNfsResponse -> TestTree
-responseDescribeLocationNfs =
+responseUpdateAgent :: UpdateAgentResponse -> TestTree
+responseUpdateAgent =
   res
-    "DescribeLocationNfsResponse"
-    "fixture/DescribeLocationNfsResponse.proto"
+    "UpdateAgentResponse"
+    "fixture/UpdateAgentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLocationNfs)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAgent)
 
-responseCancelTaskExecution :: CancelTaskExecutionResponse -> TestTree
-responseCancelTaskExecution =
+responseUpdateLocationNfs :: UpdateLocationNfsResponse -> TestTree
+responseUpdateLocationNfs =
   res
-    "CancelTaskExecutionResponse"
-    "fixture/CancelTaskExecutionResponse.proto"
+    "UpdateLocationNfsResponse"
+    "fixture/UpdateLocationNfsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelTaskExecution)
+    (Proxy.Proxy :: Proxy.Proxy UpdateLocationNfs)
+
+responseUpdateLocationObjectStorage :: UpdateLocationObjectStorageResponse -> TestTree
+responseUpdateLocationObjectStorage =
+  res
+    "UpdateLocationObjectStorageResponse"
+    "fixture/UpdateLocationObjectStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLocationObjectStorage)
+
+responseUpdateLocationSmb :: UpdateLocationSmbResponse -> TestTree
+responseUpdateLocationSmb =
+  res
+    "UpdateLocationSmbResponse"
+    "fixture/UpdateLocationSmbResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLocationSmb)
+
+responseUpdateTask :: UpdateTaskResponse -> TestTree
+responseUpdateTask =
+  res
+    "UpdateTaskResponse"
+    "fixture/UpdateTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTask)
+
+responseUpdateTaskExecution :: UpdateTaskExecutionResponse -> TestTree
+responseUpdateTaskExecution =
+  res
+    "UpdateTaskExecutionResponse"
+    "fixture/UpdateTaskExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTaskExecution)

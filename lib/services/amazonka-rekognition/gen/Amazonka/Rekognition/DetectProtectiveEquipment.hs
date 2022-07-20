@@ -75,8 +75,8 @@ module Amazonka.Rekognition.DetectProtectiveEquipment
     newDetectProtectiveEquipmentResponse,
 
     -- * Response Lenses
-    detectProtectiveEquipmentResponse_summary,
     detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion,
+    detectProtectiveEquipmentResponse_summary,
     detectProtectiveEquipmentResponse_persons,
     detectProtectiveEquipmentResponse_httpStatus,
   )
@@ -143,8 +143,8 @@ instance Core.AWSRequest DetectProtectiveEquipment where
     Response.receiveJSON
       ( \s h x ->
           DetectProtectiveEquipmentResponse'
-            Prelude.<$> (x Core..?> "Summary")
-            Prelude.<*> (x Core..?> "ProtectiveEquipmentModelVersion")
+            Prelude.<$> (x Core..?> "ProtectiveEquipmentModelVersion")
+            Prelude.<*> (x Core..?> "Summary")
             Prelude.<*> (x Core..?> "Persons" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -193,12 +193,12 @@ instance Core.ToQuery DetectProtectiveEquipment where
 
 -- | /See:/ 'newDetectProtectiveEquipmentResponse' smart constructor.
 data DetectProtectiveEquipmentResponse = DetectProtectiveEquipmentResponse'
-  { -- | Summary information for the types of PPE specified in the
-    -- @SummarizationAttributes@ input parameter.
-    summary :: Prelude.Maybe ProtectiveEquipmentSummary,
-    -- | The version number of the PPE detection model used to detect PPE in the
+  { -- | The version number of the PPE detection model used to detect PPE in the
     -- image.
     protectiveEquipmentModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | Summary information for the types of PPE specified in the
+    -- @SummarizationAttributes@ input parameter.
+    summary :: Prelude.Maybe ProtectiveEquipmentSummary,
     -- | An array of persons detected in the image (including persons not wearing
     -- PPE).
     persons :: Prelude.Maybe [ProtectiveEquipmentPerson],
@@ -215,11 +215,11 @@ data DetectProtectiveEquipmentResponse = DetectProtectiveEquipmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'summary', 'detectProtectiveEquipmentResponse_summary' - Summary information for the types of PPE specified in the
--- @SummarizationAttributes@ input parameter.
---
 -- 'protectiveEquipmentModelVersion', 'detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion' - The version number of the PPE detection model used to detect PPE in the
 -- image.
+--
+-- 'summary', 'detectProtectiveEquipmentResponse_summary' - Summary information for the types of PPE specified in the
+-- @SummarizationAttributes@ input parameter.
 --
 -- 'persons', 'detectProtectiveEquipmentResponse_persons' - An array of persons detected in the image (including persons not wearing
 -- PPE).
@@ -231,23 +231,22 @@ newDetectProtectiveEquipmentResponse ::
   DetectProtectiveEquipmentResponse
 newDetectProtectiveEquipmentResponse pHttpStatus_ =
   DetectProtectiveEquipmentResponse'
-    { summary =
+    { protectiveEquipmentModelVersion =
         Prelude.Nothing,
-      protectiveEquipmentModelVersion =
-        Prelude.Nothing,
+      summary = Prelude.Nothing,
       persons = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Summary information for the types of PPE specified in the
--- @SummarizationAttributes@ input parameter.
-detectProtectiveEquipmentResponse_summary :: Lens.Lens' DetectProtectiveEquipmentResponse (Prelude.Maybe ProtectiveEquipmentSummary)
-detectProtectiveEquipmentResponse_summary = Lens.lens (\DetectProtectiveEquipmentResponse' {summary} -> summary) (\s@DetectProtectiveEquipmentResponse' {} a -> s {summary = a} :: DetectProtectiveEquipmentResponse)
 
 -- | The version number of the PPE detection model used to detect PPE in the
 -- image.
 detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion :: Lens.Lens' DetectProtectiveEquipmentResponse (Prelude.Maybe Prelude.Text)
 detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion = Lens.lens (\DetectProtectiveEquipmentResponse' {protectiveEquipmentModelVersion} -> protectiveEquipmentModelVersion) (\s@DetectProtectiveEquipmentResponse' {} a -> s {protectiveEquipmentModelVersion = a} :: DetectProtectiveEquipmentResponse)
+
+-- | Summary information for the types of PPE specified in the
+-- @SummarizationAttributes@ input parameter.
+detectProtectiveEquipmentResponse_summary :: Lens.Lens' DetectProtectiveEquipmentResponse (Prelude.Maybe ProtectiveEquipmentSummary)
+detectProtectiveEquipmentResponse_summary = Lens.lens (\DetectProtectiveEquipmentResponse' {summary} -> summary) (\s@DetectProtectiveEquipmentResponse' {} a -> s {summary = a} :: DetectProtectiveEquipmentResponse)
 
 -- | An array of persons detected in the image (including persons not wearing
 -- PPE).
@@ -263,7 +262,7 @@ instance
     DetectProtectiveEquipmentResponse
   where
   rnf DetectProtectiveEquipmentResponse' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf protectiveEquipmentModelVersion
+    Prelude.rnf protectiveEquipmentModelVersion
+      `Prelude.seq` Prelude.rnf summary
       `Prelude.seq` Prelude.rnf persons
       `Prelude.seq` Prelude.rnf httpStatus

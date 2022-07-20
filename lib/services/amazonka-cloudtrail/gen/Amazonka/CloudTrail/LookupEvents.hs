@@ -66,12 +66,12 @@ module Amazonka.CloudTrail.LookupEvents
     newLookupEvents,
 
     -- * Request Lenses
-    lookupEvents_eventCategory,
-    lookupEvents_startTime,
-    lookupEvents_lookupAttributes,
     lookupEvents_nextToken,
+    lookupEvents_lookupAttributes,
     lookupEvents_endTime,
     lookupEvents_maxResults,
+    lookupEvents_startTime,
+    lookupEvents_eventCategory,
 
     -- * Destructuring the Response
     LookupEventsResponse (..),
@@ -95,31 +95,31 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newLookupEvents' smart constructor.
 data LookupEvents = LookupEvents'
-  { -- | Specifies the event category. If you do not specify an event category,
-    -- events of the category are not returned in the response. For example, if
-    -- you do not specify @insight@ as the value of @EventCategory@, no
-    -- Insights events are returned.
-    eventCategory :: Prelude.Maybe EventCategory,
-    -- | Specifies that only events that occur after or at the specified time are
-    -- returned. If the specified start time is after the specified end time,
-    -- an error is returned.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | Contains a list of lookup attributes. Currently the list can contain
-    -- only one item.
-    lookupAttributes :: Prelude.Maybe [LookupAttribute],
-    -- | The token to use to get the next page of results after a previous API
+  { -- | The token to use to get the next page of results after a previous API
     -- call. This token must be passed in with the same parameters that were
     -- specified in the the original call. For example, if the original call
     -- specified an AttributeKey of \'Username\' with a value of \'root\', the
     -- call with NextToken should include those same parameters.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Contains a list of lookup attributes. Currently the list can contain
+    -- only one item.
+    lookupAttributes :: Prelude.Maybe [LookupAttribute],
     -- | Specifies that only events that occur before or at the specified time
     -- are returned. If the specified end time is before the specified start
     -- time, an error is returned.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The number of events to return. Possible values are 1 through 50. The
     -- default is 50.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies that only events that occur after or at the specified time are
+    -- returned. If the specified start time is after the specified end time,
+    -- an error is returned.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | Specifies the event category. If you do not specify an event category,
+    -- events of the category are not returned in the response. For example, if
+    -- you do not specify @insight@ as the value of @EventCategory@, no
+    -- Insights events are returned.
+    eventCategory :: Prelude.Maybe EventCategory
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,23 +131,14 @@ data LookupEvents = LookupEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventCategory', 'lookupEvents_eventCategory' - Specifies the event category. If you do not specify an event category,
--- events of the category are not returned in the response. For example, if
--- you do not specify @insight@ as the value of @EventCategory@, no
--- Insights events are returned.
---
--- 'startTime', 'lookupEvents_startTime' - Specifies that only events that occur after or at the specified time are
--- returned. If the specified start time is after the specified end time,
--- an error is returned.
---
--- 'lookupAttributes', 'lookupEvents_lookupAttributes' - Contains a list of lookup attributes. Currently the list can contain
--- only one item.
---
 -- 'nextToken', 'lookupEvents_nextToken' - The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
 -- specified in the the original call. For example, if the original call
 -- specified an AttributeKey of \'Username\' with a value of \'root\', the
 -- call with NextToken should include those same parameters.
+--
+-- 'lookupAttributes', 'lookupEvents_lookupAttributes' - Contains a list of lookup attributes. Currently the list can contain
+-- only one item.
 --
 -- 'endTime', 'lookupEvents_endTime' - Specifies that only events that occur before or at the specified time
 -- are returned. If the specified end time is before the specified start
@@ -155,35 +146,26 @@ data LookupEvents = LookupEvents'
 --
 -- 'maxResults', 'lookupEvents_maxResults' - The number of events to return. Possible values are 1 through 50. The
 -- default is 50.
+--
+-- 'startTime', 'lookupEvents_startTime' - Specifies that only events that occur after or at the specified time are
+-- returned. If the specified start time is after the specified end time,
+-- an error is returned.
+--
+-- 'eventCategory', 'lookupEvents_eventCategory' - Specifies the event category. If you do not specify an event category,
+-- events of the category are not returned in the response. For example, if
+-- you do not specify @insight@ as the value of @EventCategory@, no
+-- Insights events are returned.
 newLookupEvents ::
   LookupEvents
 newLookupEvents =
   LookupEvents'
-    { eventCategory = Prelude.Nothing,
-      startTime = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       lookupAttributes = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      eventCategory = Prelude.Nothing
     }
-
--- | Specifies the event category. If you do not specify an event category,
--- events of the category are not returned in the response. For example, if
--- you do not specify @insight@ as the value of @EventCategory@, no
--- Insights events are returned.
-lookupEvents_eventCategory :: Lens.Lens' LookupEvents (Prelude.Maybe EventCategory)
-lookupEvents_eventCategory = Lens.lens (\LookupEvents' {eventCategory} -> eventCategory) (\s@LookupEvents' {} a -> s {eventCategory = a} :: LookupEvents)
-
--- | Specifies that only events that occur after or at the specified time are
--- returned. If the specified start time is after the specified end time,
--- an error is returned.
-lookupEvents_startTime :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.UTCTime)
-lookupEvents_startTime = Lens.lens (\LookupEvents' {startTime} -> startTime) (\s@LookupEvents' {} a -> s {startTime = a} :: LookupEvents) Prelude.. Lens.mapping Core._Time
-
--- | Contains a list of lookup attributes. Currently the list can contain
--- only one item.
-lookupEvents_lookupAttributes :: Lens.Lens' LookupEvents (Prelude.Maybe [LookupAttribute])
-lookupEvents_lookupAttributes = Lens.lens (\LookupEvents' {lookupAttributes} -> lookupAttributes) (\s@LookupEvents' {} a -> s {lookupAttributes = a} :: LookupEvents) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
@@ -192,6 +174,11 @@ lookupEvents_lookupAttributes = Lens.lens (\LookupEvents' {lookupAttributes} -> 
 -- call with NextToken should include those same parameters.
 lookupEvents_nextToken :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.Text)
 lookupEvents_nextToken = Lens.lens (\LookupEvents' {nextToken} -> nextToken) (\s@LookupEvents' {} a -> s {nextToken = a} :: LookupEvents)
+
+-- | Contains a list of lookup attributes. Currently the list can contain
+-- only one item.
+lookupEvents_lookupAttributes :: Lens.Lens' LookupEvents (Prelude.Maybe [LookupAttribute])
+lookupEvents_lookupAttributes = Lens.lens (\LookupEvents' {lookupAttributes} -> lookupAttributes) (\s@LookupEvents' {} a -> s {lookupAttributes = a} :: LookupEvents) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies that only events that occur before or at the specified time
 -- are returned. If the specified end time is before the specified start
@@ -203,6 +190,19 @@ lookupEvents_endTime = Lens.lens (\LookupEvents' {endTime} -> endTime) (\s@Looku
 -- default is 50.
 lookupEvents_maxResults :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.Natural)
 lookupEvents_maxResults = Lens.lens (\LookupEvents' {maxResults} -> maxResults) (\s@LookupEvents' {} a -> s {maxResults = a} :: LookupEvents)
+
+-- | Specifies that only events that occur after or at the specified time are
+-- returned. If the specified start time is after the specified end time,
+-- an error is returned.
+lookupEvents_startTime :: Lens.Lens' LookupEvents (Prelude.Maybe Prelude.UTCTime)
+lookupEvents_startTime = Lens.lens (\LookupEvents' {startTime} -> startTime) (\s@LookupEvents' {} a -> s {startTime = a} :: LookupEvents) Prelude.. Lens.mapping Core._Time
+
+-- | Specifies the event category. If you do not specify an event category,
+-- events of the category are not returned in the response. For example, if
+-- you do not specify @insight@ as the value of @EventCategory@, no
+-- Insights events are returned.
+lookupEvents_eventCategory :: Lens.Lens' LookupEvents (Prelude.Maybe EventCategory)
+lookupEvents_eventCategory = Lens.lens (\LookupEvents' {eventCategory} -> eventCategory) (\s@LookupEvents' {} a -> s {eventCategory = a} :: LookupEvents)
 
 instance Core.AWSPager LookupEvents where
   page rq rs
@@ -237,21 +237,21 @@ instance Core.AWSRequest LookupEvents where
 
 instance Prelude.Hashable LookupEvents where
   hashWithSalt _salt LookupEvents' {..} =
-    _salt `Prelude.hashWithSalt` eventCategory
-      `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` lookupAttributes
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` eventCategory
 
 instance Prelude.NFData LookupEvents where
   rnf LookupEvents' {..} =
-    Prelude.rnf eventCategory
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf lookupAttributes
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf eventCategory
 
 instance Core.ToHeaders LookupEvents where
   toHeaders =
@@ -272,13 +272,13 @@ instance Core.ToJSON LookupEvents where
   toJSON LookupEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EventCategory" Core..=) Prelude.<$> eventCategory,
-            ("StartTime" Core..=) Prelude.<$> startTime,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("LookupAttributes" Core..=)
               Prelude.<$> lookupAttributes,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("EndTime" Core..=) Prelude.<$> endTime,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("StartTime" Core..=) Prelude.<$> startTime,
+            ("EventCategory" Core..=) Prelude.<$> eventCategory
           ]
       )
 

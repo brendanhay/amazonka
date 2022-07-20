@@ -20,26 +20,26 @@ module Amazonka.Location
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -47,23 +47,53 @@ module Amazonka.Location
     -- * Operations
     -- $operations
 
+    -- ** AssociateTrackerConsumer
+    AssociateTrackerConsumer (AssociateTrackerConsumer'),
+    newAssociateTrackerConsumer,
+    AssociateTrackerConsumerResponse (AssociateTrackerConsumerResponse'),
+    newAssociateTrackerConsumerResponse,
+
+    -- ** BatchDeleteDevicePositionHistory
+    BatchDeleteDevicePositionHistory (BatchDeleteDevicePositionHistory'),
+    newBatchDeleteDevicePositionHistory,
+    BatchDeleteDevicePositionHistoryResponse (BatchDeleteDevicePositionHistoryResponse'),
+    newBatchDeleteDevicePositionHistoryResponse,
+
+    -- ** BatchDeleteGeofence
+    BatchDeleteGeofence (BatchDeleteGeofence'),
+    newBatchDeleteGeofence,
+    BatchDeleteGeofenceResponse (BatchDeleteGeofenceResponse'),
+    newBatchDeleteGeofenceResponse,
+
+    -- ** BatchEvaluateGeofences
+    BatchEvaluateGeofences (BatchEvaluateGeofences'),
+    newBatchEvaluateGeofences,
+    BatchEvaluateGeofencesResponse (BatchEvaluateGeofencesResponse'),
+    newBatchEvaluateGeofencesResponse,
+
+    -- ** BatchGetDevicePosition
+    BatchGetDevicePosition (BatchGetDevicePosition'),
+    newBatchGetDevicePosition,
+    BatchGetDevicePositionResponse (BatchGetDevicePositionResponse'),
+    newBatchGetDevicePositionResponse,
+
+    -- ** BatchPutGeofence
+    BatchPutGeofence (BatchPutGeofence'),
+    newBatchPutGeofence,
+    BatchPutGeofenceResponse (BatchPutGeofenceResponse'),
+    newBatchPutGeofenceResponse,
+
     -- ** BatchUpdateDevicePosition
     BatchUpdateDevicePosition (BatchUpdateDevicePosition'),
     newBatchUpdateDevicePosition,
     BatchUpdateDevicePositionResponse (BatchUpdateDevicePositionResponse'),
     newBatchUpdateDevicePositionResponse,
 
-    -- ** DeleteRouteCalculator
-    DeleteRouteCalculator (DeleteRouteCalculator'),
-    newDeleteRouteCalculator,
-    DeleteRouteCalculatorResponse (DeleteRouteCalculatorResponse'),
-    newDeleteRouteCalculatorResponse,
-
-    -- ** UpdateRouteCalculator
-    UpdateRouteCalculator (UpdateRouteCalculator'),
-    newUpdateRouteCalculator,
-    UpdateRouteCalculatorResponse (UpdateRouteCalculatorResponse'),
-    newUpdateRouteCalculatorResponse,
+    -- ** CalculateRoute
+    CalculateRoute (CalculateRoute'),
+    newCalculateRoute,
+    CalculateRouteResponse (CalculateRouteResponse'),
+    newCalculateRouteResponse,
 
     -- ** CreateGeofenceCollection
     CreateGeofenceCollection (CreateGeofenceCollection'),
@@ -71,11 +101,23 @@ module Amazonka.Location
     CreateGeofenceCollectionResponse (CreateGeofenceCollectionResponse'),
     newCreateGeofenceCollectionResponse,
 
-    -- ** ListRouteCalculators (Paginated)
-    ListRouteCalculators (ListRouteCalculators'),
-    newListRouteCalculators,
-    ListRouteCalculatorsResponse (ListRouteCalculatorsResponse'),
-    newListRouteCalculatorsResponse,
+    -- ** CreateMap
+    CreateMap (CreateMap'),
+    newCreateMap,
+    CreateMapResponse (CreateMapResponse'),
+    newCreateMapResponse,
+
+    -- ** CreatePlaceIndex
+    CreatePlaceIndex (CreatePlaceIndex'),
+    newCreatePlaceIndex,
+    CreatePlaceIndexResponse (CreatePlaceIndexResponse'),
+    newCreatePlaceIndexResponse,
+
+    -- ** CreateRouteCalculator
+    CreateRouteCalculator (CreateRouteCalculator'),
+    newCreateRouteCalculator,
+    CreateRouteCalculatorResponse (CreateRouteCalculatorResponse'),
+    newCreateRouteCalculatorResponse,
 
     -- ** CreateTracker
     CreateTracker (CreateTracker'),
@@ -83,29 +125,35 @@ module Amazonka.Location
     CreateTrackerResponse (CreateTrackerResponse'),
     newCreateTrackerResponse,
 
-    -- ** ListTrackerConsumers (Paginated)
-    ListTrackerConsumers (ListTrackerConsumers'),
-    newListTrackerConsumers,
-    ListTrackerConsumersResponse (ListTrackerConsumersResponse'),
-    newListTrackerConsumersResponse,
+    -- ** DeleteGeofenceCollection
+    DeleteGeofenceCollection (DeleteGeofenceCollection'),
+    newDeleteGeofenceCollection,
+    DeleteGeofenceCollectionResponse (DeleteGeofenceCollectionResponse'),
+    newDeleteGeofenceCollectionResponse,
 
-    -- ** GetDevicePosition
-    GetDevicePosition (GetDevicePosition'),
-    newGetDevicePosition,
-    GetDevicePositionResponse (GetDevicePositionResponse'),
-    newGetDevicePositionResponse,
+    -- ** DeleteMap
+    DeleteMap (DeleteMap'),
+    newDeleteMap,
+    DeleteMapResponse (DeleteMapResponse'),
+    newDeleteMapResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** DeletePlaceIndex
+    DeletePlaceIndex (DeletePlaceIndex'),
+    newDeletePlaceIndex,
+    DeletePlaceIndexResponse (DeletePlaceIndexResponse'),
+    newDeletePlaceIndexResponse,
 
-    -- ** SearchPlaceIndexForText
-    SearchPlaceIndexForText (SearchPlaceIndexForText'),
-    newSearchPlaceIndexForText,
-    SearchPlaceIndexForTextResponse (SearchPlaceIndexForTextResponse'),
-    newSearchPlaceIndexForTextResponse,
+    -- ** DeleteRouteCalculator
+    DeleteRouteCalculator (DeleteRouteCalculator'),
+    newDeleteRouteCalculator,
+    DeleteRouteCalculatorResponse (DeleteRouteCalculatorResponse'),
+    newDeleteRouteCalculatorResponse,
+
+    -- ** DeleteTracker
+    DeleteTracker (DeleteTracker'),
+    newDeleteTracker,
+    DeleteTrackerResponse (DeleteTrackerResponse'),
+    newDeleteTrackerResponse,
 
     -- ** DescribeGeofenceCollection
     DescribeGeofenceCollection (DescribeGeofenceCollection'),
@@ -113,23 +161,17 @@ module Amazonka.Location
     DescribeGeofenceCollectionResponse (DescribeGeofenceCollectionResponse'),
     newDescribeGeofenceCollectionResponse,
 
-    -- ** ListMaps (Paginated)
-    ListMaps (ListMaps'),
-    newListMaps,
-    ListMapsResponse (ListMapsResponse'),
-    newListMapsResponse,
+    -- ** DescribeMap
+    DescribeMap (DescribeMap'),
+    newDescribeMap,
+    DescribeMapResponse (DescribeMapResponse'),
+    newDescribeMapResponse,
 
-    -- ** GetMapSprites
-    GetMapSprites (GetMapSprites'),
-    newGetMapSprites,
-    GetMapSpritesResponse (GetMapSpritesResponse'),
-    newGetMapSpritesResponse,
-
-    -- ** CreateMap
-    CreateMap (CreateMap'),
-    newCreateMap,
-    CreateMapResponse (CreateMapResponse'),
-    newCreateMapResponse,
+    -- ** DescribePlaceIndex
+    DescribePlaceIndex (DescribePlaceIndex'),
+    newDescribePlaceIndex,
+    DescribePlaceIndexResponse (DescribePlaceIndexResponse'),
+    newDescribePlaceIndexResponse,
 
     -- ** DescribeRouteCalculator
     DescribeRouteCalculator (DescribeRouteCalculator'),
@@ -137,11 +179,47 @@ module Amazonka.Location
     DescribeRouteCalculatorResponse (DescribeRouteCalculatorResponse'),
     newDescribeRouteCalculatorResponse,
 
-    -- ** BatchGetDevicePosition
-    BatchGetDevicePosition (BatchGetDevicePosition'),
-    newBatchGetDevicePosition,
-    BatchGetDevicePositionResponse (BatchGetDevicePositionResponse'),
-    newBatchGetDevicePositionResponse,
+    -- ** DescribeTracker
+    DescribeTracker (DescribeTracker'),
+    newDescribeTracker,
+    DescribeTrackerResponse (DescribeTrackerResponse'),
+    newDescribeTrackerResponse,
+
+    -- ** DisassociateTrackerConsumer
+    DisassociateTrackerConsumer (DisassociateTrackerConsumer'),
+    newDisassociateTrackerConsumer,
+    DisassociateTrackerConsumerResponse (DisassociateTrackerConsumerResponse'),
+    newDisassociateTrackerConsumerResponse,
+
+    -- ** GetDevicePosition
+    GetDevicePosition (GetDevicePosition'),
+    newGetDevicePosition,
+    GetDevicePositionResponse (GetDevicePositionResponse'),
+    newGetDevicePositionResponse,
+
+    -- ** GetDevicePositionHistory (Paginated)
+    GetDevicePositionHistory (GetDevicePositionHistory'),
+    newGetDevicePositionHistory,
+    GetDevicePositionHistoryResponse (GetDevicePositionHistoryResponse'),
+    newGetDevicePositionHistoryResponse,
+
+    -- ** GetGeofence
+    GetGeofence (GetGeofence'),
+    newGetGeofence,
+    GetGeofenceResponse (GetGeofenceResponse'),
+    newGetGeofenceResponse,
+
+    -- ** GetMapGlyphs
+    GetMapGlyphs (GetMapGlyphs'),
+    newGetMapGlyphs,
+    GetMapGlyphsResponse (GetMapGlyphsResponse'),
+    newGetMapGlyphsResponse,
+
+    -- ** GetMapSprites
+    GetMapSprites (GetMapSprites'),
+    newGetMapSprites,
+    GetMapSpritesResponse (GetMapSpritesResponse'),
+    newGetMapSpritesResponse,
 
     -- ** GetMapStyleDescriptor
     GetMapStyleDescriptor (GetMapStyleDescriptor'),
@@ -155,53 +233,17 @@ module Amazonka.Location
     GetMapTileResponse (GetMapTileResponse'),
     newGetMapTileResponse,
 
+    -- ** ListDevicePositions (Paginated)
+    ListDevicePositions (ListDevicePositions'),
+    newListDevicePositions,
+    ListDevicePositionsResponse (ListDevicePositionsResponse'),
+    newListDevicePositionsResponse,
+
     -- ** ListGeofenceCollections (Paginated)
     ListGeofenceCollections (ListGeofenceCollections'),
     newListGeofenceCollections,
     ListGeofenceCollectionsResponse (ListGeofenceCollectionsResponse'),
     newListGeofenceCollectionsResponse,
-
-    -- ** DeleteGeofenceCollection
-    DeleteGeofenceCollection (DeleteGeofenceCollection'),
-    newDeleteGeofenceCollection,
-    DeleteGeofenceCollectionResponse (DeleteGeofenceCollectionResponse'),
-    newDeleteGeofenceCollectionResponse,
-
-    -- ** UpdateGeofenceCollection
-    UpdateGeofenceCollection (UpdateGeofenceCollection'),
-    newUpdateGeofenceCollection,
-    UpdateGeofenceCollectionResponse (UpdateGeofenceCollectionResponse'),
-    newUpdateGeofenceCollectionResponse,
-
-    -- ** ListTrackers (Paginated)
-    ListTrackers (ListTrackers'),
-    newListTrackers,
-    ListTrackersResponse (ListTrackersResponse'),
-    newListTrackersResponse,
-
-    -- ** DeletePlaceIndex
-    DeletePlaceIndex (DeletePlaceIndex'),
-    newDeletePlaceIndex,
-    DeletePlaceIndexResponse (DeletePlaceIndexResponse'),
-    newDeletePlaceIndexResponse,
-
-    -- ** UpdatePlaceIndex
-    UpdatePlaceIndex (UpdatePlaceIndex'),
-    newUpdatePlaceIndex,
-    UpdatePlaceIndexResponse (UpdatePlaceIndexResponse'),
-    newUpdatePlaceIndexResponse,
-
-    -- ** DisassociateTrackerConsumer
-    DisassociateTrackerConsumer (DisassociateTrackerConsumer'),
-    newDisassociateTrackerConsumer,
-    DisassociateTrackerConsumerResponse (DisassociateTrackerConsumerResponse'),
-    newDisassociateTrackerConsumerResponse,
-
-    -- ** PutGeofence
-    PutGeofence (PutGeofence'),
-    newPutGeofence,
-    PutGeofenceResponse (PutGeofenceResponse'),
-    newPutGeofenceResponse,
 
     -- ** ListGeofences (Paginated)
     ListGeofences (ListGeofences'),
@@ -209,101 +251,11 @@ module Amazonka.Location
     ListGeofencesResponse (ListGeofencesResponse'),
     newListGeofencesResponse,
 
-    -- ** AssociateTrackerConsumer
-    AssociateTrackerConsumer (AssociateTrackerConsumer'),
-    newAssociateTrackerConsumer,
-    AssociateTrackerConsumerResponse (AssociateTrackerConsumerResponse'),
-    newAssociateTrackerConsumerResponse,
-
-    -- ** BatchEvaluateGeofences
-    BatchEvaluateGeofences (BatchEvaluateGeofences'),
-    newBatchEvaluateGeofences,
-    BatchEvaluateGeofencesResponse (BatchEvaluateGeofencesResponse'),
-    newBatchEvaluateGeofencesResponse,
-
-    -- ** CalculateRoute
-    CalculateRoute (CalculateRoute'),
-    newCalculateRoute,
-    CalculateRouteResponse (CalculateRouteResponse'),
-    newCalculateRouteResponse,
-
-    -- ** DeleteMap
-    DeleteMap (DeleteMap'),
-    newDeleteMap,
-    DeleteMapResponse (DeleteMapResponse'),
-    newDeleteMapResponse,
-
-    -- ** UpdateMap
-    UpdateMap (UpdateMap'),
-    newUpdateMap,
-    UpdateMapResponse (UpdateMapResponse'),
-    newUpdateMapResponse,
-
-    -- ** GetDevicePositionHistory (Paginated)
-    GetDevicePositionHistory (GetDevicePositionHistory'),
-    newGetDevicePositionHistory,
-    GetDevicePositionHistoryResponse (GetDevicePositionHistoryResponse'),
-    newGetDevicePositionHistoryResponse,
-
-    -- ** DescribeTracker
-    DescribeTracker (DescribeTracker'),
-    newDescribeTracker,
-    DescribeTrackerResponse (DescribeTrackerResponse'),
-    newDescribeTrackerResponse,
-
-    -- ** DescribePlaceIndex
-    DescribePlaceIndex (DescribePlaceIndex'),
-    newDescribePlaceIndex,
-    DescribePlaceIndexResponse (DescribePlaceIndexResponse'),
-    newDescribePlaceIndexResponse,
-
-    -- ** GetGeofence
-    GetGeofence (GetGeofence'),
-    newGetGeofence,
-    GetGeofenceResponse (GetGeofenceResponse'),
-    newGetGeofenceResponse,
-
-    -- ** ListDevicePositions (Paginated)
-    ListDevicePositions (ListDevicePositions'),
-    newListDevicePositions,
-    ListDevicePositionsResponse (ListDevicePositionsResponse'),
-    newListDevicePositionsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetMapGlyphs
-    GetMapGlyphs (GetMapGlyphs'),
-    newGetMapGlyphs,
-    GetMapGlyphsResponse (GetMapGlyphsResponse'),
-    newGetMapGlyphsResponse,
-
-    -- ** BatchPutGeofence
-    BatchPutGeofence (BatchPutGeofence'),
-    newBatchPutGeofence,
-    BatchPutGeofenceResponse (BatchPutGeofenceResponse'),
-    newBatchPutGeofenceResponse,
-
-    -- ** BatchDeleteGeofence
-    BatchDeleteGeofence (BatchDeleteGeofence'),
-    newBatchDeleteGeofence,
-    BatchDeleteGeofenceResponse (BatchDeleteGeofenceResponse'),
-    newBatchDeleteGeofenceResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** BatchDeleteDevicePositionHistory
-    BatchDeleteDevicePositionHistory (BatchDeleteDevicePositionHistory'),
-    newBatchDeleteDevicePositionHistory,
-    BatchDeleteDevicePositionHistoryResponse (BatchDeleteDevicePositionHistoryResponse'),
-    newBatchDeleteDevicePositionHistoryResponse,
+    -- ** ListMaps (Paginated)
+    ListMaps (ListMaps'),
+    newListMaps,
+    ListMapsResponse (ListMapsResponse'),
+    newListMapsResponse,
 
     -- ** ListPlaceIndexes (Paginated)
     ListPlaceIndexes (ListPlaceIndexes'),
@@ -311,41 +263,89 @@ module Amazonka.Location
     ListPlaceIndexesResponse (ListPlaceIndexesResponse'),
     newListPlaceIndexesResponse,
 
+    -- ** ListRouteCalculators (Paginated)
+    ListRouteCalculators (ListRouteCalculators'),
+    newListRouteCalculators,
+    ListRouteCalculatorsResponse (ListRouteCalculatorsResponse'),
+    newListRouteCalculatorsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListTrackerConsumers (Paginated)
+    ListTrackerConsumers (ListTrackerConsumers'),
+    newListTrackerConsumers,
+    ListTrackerConsumersResponse (ListTrackerConsumersResponse'),
+    newListTrackerConsumersResponse,
+
+    -- ** ListTrackers (Paginated)
+    ListTrackers (ListTrackers'),
+    newListTrackers,
+    ListTrackersResponse (ListTrackersResponse'),
+    newListTrackersResponse,
+
+    -- ** PutGeofence
+    PutGeofence (PutGeofence'),
+    newPutGeofence,
+    PutGeofenceResponse (PutGeofenceResponse'),
+    newPutGeofenceResponse,
+
     -- ** SearchPlaceIndexForPosition
     SearchPlaceIndexForPosition (SearchPlaceIndexForPosition'),
     newSearchPlaceIndexForPosition,
     SearchPlaceIndexForPositionResponse (SearchPlaceIndexForPositionResponse'),
     newSearchPlaceIndexForPositionResponse,
 
-    -- ** DeleteTracker
-    DeleteTracker (DeleteTracker'),
-    newDeleteTracker,
-    DeleteTrackerResponse (DeleteTrackerResponse'),
-    newDeleteTrackerResponse,
+    -- ** SearchPlaceIndexForText
+    SearchPlaceIndexForText (SearchPlaceIndexForText'),
+    newSearchPlaceIndexForText,
+    SearchPlaceIndexForTextResponse (SearchPlaceIndexForTextResponse'),
+    newSearchPlaceIndexForTextResponse,
 
-    -- ** CreatePlaceIndex
-    CreatePlaceIndex (CreatePlaceIndex'),
-    newCreatePlaceIndex,
-    CreatePlaceIndexResponse (CreatePlaceIndexResponse'),
-    newCreatePlaceIndexResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateGeofenceCollection
+    UpdateGeofenceCollection (UpdateGeofenceCollection'),
+    newUpdateGeofenceCollection,
+    UpdateGeofenceCollectionResponse (UpdateGeofenceCollectionResponse'),
+    newUpdateGeofenceCollectionResponse,
+
+    -- ** UpdateMap
+    UpdateMap (UpdateMap'),
+    newUpdateMap,
+    UpdateMapResponse (UpdateMapResponse'),
+    newUpdateMapResponse,
+
+    -- ** UpdatePlaceIndex
+    UpdatePlaceIndex (UpdatePlaceIndex'),
+    newUpdatePlaceIndex,
+    UpdatePlaceIndexResponse (UpdatePlaceIndexResponse'),
+    newUpdatePlaceIndexResponse,
+
+    -- ** UpdateRouteCalculator
+    UpdateRouteCalculator (UpdateRouteCalculator'),
+    newUpdateRouteCalculator,
+    UpdateRouteCalculatorResponse (UpdateRouteCalculatorResponse'),
+    newUpdateRouteCalculatorResponse,
 
     -- ** UpdateTracker
     UpdateTracker (UpdateTracker'),
     newUpdateTracker,
     UpdateTrackerResponse (UpdateTrackerResponse'),
     newUpdateTrackerResponse,
-
-    -- ** CreateRouteCalculator
-    CreateRouteCalculator (CreateRouteCalculator'),
-    newCreateRouteCalculator,
-    CreateRouteCalculatorResponse (CreateRouteCalculatorResponse'),
-    newCreateRouteCalculatorResponse,
-
-    -- ** DescribeMap
-    DescribeMap (DescribeMap'),
-    newDescribeMap,
-    DescribeMapResponse (DescribeMapResponse'),
-    newDescribeMapResponse,
 
     -- * Types
 

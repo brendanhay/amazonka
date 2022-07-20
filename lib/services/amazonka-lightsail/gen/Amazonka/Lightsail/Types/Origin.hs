@@ -35,15 +35,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrigin' smart constructor.
 data Origin = Origin'
-  { -- | The AWS Region name of the origin resource.
-    regionName :: Prelude.Maybe RegionName,
-    -- | The resource type of the origin resource (e.g., /Instance/).
+  { -- | The resource type of the origin resource (e.g., /Instance/).
     resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the origin resource.
     name :: Prelude.Maybe Prelude.Text,
     -- | The protocol that your Amazon Lightsail distribution uses when
     -- establishing a connection with your origin to pull content.
-    protocolPolicy :: Prelude.Maybe OriginProtocolPolicyEnum
+    protocolPolicy :: Prelude.Maybe OriginProtocolPolicyEnum,
+    -- | The AWS Region name of the origin resource.
+    regionName :: Prelude.Maybe RegionName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,27 +55,23 @@ data Origin = Origin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionName', 'origin_regionName' - The AWS Region name of the origin resource.
---
 -- 'resourceType', 'origin_resourceType' - The resource type of the origin resource (e.g., /Instance/).
 --
 -- 'name', 'origin_name' - The name of the origin resource.
 --
 -- 'protocolPolicy', 'origin_protocolPolicy' - The protocol that your Amazon Lightsail distribution uses when
 -- establishing a connection with your origin to pull content.
+--
+-- 'regionName', 'origin_regionName' - The AWS Region name of the origin resource.
 newOrigin ::
   Origin
 newOrigin =
   Origin'
-    { regionName = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
+    { resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
-      protocolPolicy = Prelude.Nothing
+      protocolPolicy = Prelude.Nothing,
+      regionName = Prelude.Nothing
     }
-
--- | The AWS Region name of the origin resource.
-origin_regionName :: Lens.Lens' Origin (Prelude.Maybe RegionName)
-origin_regionName = Lens.lens (\Origin' {regionName} -> regionName) (\s@Origin' {} a -> s {regionName = a} :: Origin)
 
 -- | The resource type of the origin resource (e.g., /Instance/).
 origin_resourceType :: Lens.Lens' Origin (Prelude.Maybe ResourceType)
@@ -90,28 +86,32 @@ origin_name = Lens.lens (\Origin' {name} -> name) (\s@Origin' {} a -> s {name = 
 origin_protocolPolicy :: Lens.Lens' Origin (Prelude.Maybe OriginProtocolPolicyEnum)
 origin_protocolPolicy = Lens.lens (\Origin' {protocolPolicy} -> protocolPolicy) (\s@Origin' {} a -> s {protocolPolicy = a} :: Origin)
 
+-- | The AWS Region name of the origin resource.
+origin_regionName :: Lens.Lens' Origin (Prelude.Maybe RegionName)
+origin_regionName = Lens.lens (\Origin' {regionName} -> regionName) (\s@Origin' {} a -> s {regionName = a} :: Origin)
+
 instance Core.FromJSON Origin where
   parseJSON =
     Core.withObject
       "Origin"
       ( \x ->
           Origin'
-            Prelude.<$> (x Core..:? "regionName")
-            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<$> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "protocolPolicy")
+            Prelude.<*> (x Core..:? "regionName")
       )
 
 instance Prelude.Hashable Origin where
   hashWithSalt _salt Origin' {..} =
-    _salt `Prelude.hashWithSalt` regionName
-      `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` protocolPolicy
+      `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData Origin where
   rnf Origin' {..} =
-    Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf protocolPolicy
+      `Prelude.seq` Prelude.rnf regionName

@@ -32,11 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionTypeExecutor' smart constructor.
 data ActionTypeExecutor = ActionTypeExecutor'
-  { -- | The timeout in seconds for the job. An action execution can have
-    -- multiple jobs. This is the timeout for a single job, not the entire
-    -- action execution.
-    jobTimeout :: Prelude.Maybe Prelude.Natural,
-    -- | The policy statement that specifies the permissions in the CodePipeline
+  { -- | The policy statement that specifies the permissions in the CodePipeline
     -- customer’s account that are needed to successfully run an action.
     --
     -- To grant permission to another account, specify the account ID as the
@@ -46,6 +42,10 @@ data ActionTypeExecutor = ActionTypeExecutor'
     -- The size of the passed JSON policy document cannot exceed 2048
     -- characters.
     policyStatementsTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The timeout in seconds for the job. An action execution can have
+    -- multiple jobs. This is the timeout for a single job, not the entire
+    -- action execution.
+    jobTimeout :: Prelude.Maybe Prelude.Natural,
     -- | The action configuration properties for the action type. These
     -- properties are specified in the action definition when the action type
     -- is created.
@@ -64,10 +64,6 @@ data ActionTypeExecutor = ActionTypeExecutor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobTimeout', 'actionTypeExecutor_jobTimeout' - The timeout in seconds for the job. An action execution can have
--- multiple jobs. This is the timeout for a single job, not the entire
--- action execution.
---
 -- 'policyStatementsTemplate', 'actionTypeExecutor_policyStatementsTemplate' - The policy statement that specifies the permissions in the CodePipeline
 -- customer’s account that are needed to successfully run an action.
 --
@@ -77,6 +73,10 @@ data ActionTypeExecutor = ActionTypeExecutor'
 --
 -- The size of the passed JSON policy document cannot exceed 2048
 -- characters.
+--
+-- 'jobTimeout', 'actionTypeExecutor_jobTimeout' - The timeout in seconds for the job. An action execution can have
+-- multiple jobs. This is the timeout for a single job, not the entire
+-- action execution.
 --
 -- 'configuration', 'actionTypeExecutor_configuration' - The action configuration properties for the action type. These
 -- properties are specified in the action definition when the action type
@@ -92,17 +92,12 @@ newActionTypeExecutor ::
   ActionTypeExecutor
 newActionTypeExecutor pConfiguration_ pType_ =
   ActionTypeExecutor'
-    { jobTimeout = Prelude.Nothing,
-      policyStatementsTemplate = Prelude.Nothing,
+    { policyStatementsTemplate =
+        Prelude.Nothing,
+      jobTimeout = Prelude.Nothing,
       configuration = pConfiguration_,
       type' = pType_
     }
-
--- | The timeout in seconds for the job. An action execution can have
--- multiple jobs. This is the timeout for a single job, not the entire
--- action execution.
-actionTypeExecutor_jobTimeout :: Lens.Lens' ActionTypeExecutor (Prelude.Maybe Prelude.Natural)
-actionTypeExecutor_jobTimeout = Lens.lens (\ActionTypeExecutor' {jobTimeout} -> jobTimeout) (\s@ActionTypeExecutor' {} a -> s {jobTimeout = a} :: ActionTypeExecutor)
 
 -- | The policy statement that specifies the permissions in the CodePipeline
 -- customer’s account that are needed to successfully run an action.
@@ -115,6 +110,12 @@ actionTypeExecutor_jobTimeout = Lens.lens (\ActionTypeExecutor' {jobTimeout} -> 
 -- characters.
 actionTypeExecutor_policyStatementsTemplate :: Lens.Lens' ActionTypeExecutor (Prelude.Maybe Prelude.Text)
 actionTypeExecutor_policyStatementsTemplate = Lens.lens (\ActionTypeExecutor' {policyStatementsTemplate} -> policyStatementsTemplate) (\s@ActionTypeExecutor' {} a -> s {policyStatementsTemplate = a} :: ActionTypeExecutor)
+
+-- | The timeout in seconds for the job. An action execution can have
+-- multiple jobs. This is the timeout for a single job, not the entire
+-- action execution.
+actionTypeExecutor_jobTimeout :: Lens.Lens' ActionTypeExecutor (Prelude.Maybe Prelude.Natural)
+actionTypeExecutor_jobTimeout = Lens.lens (\ActionTypeExecutor' {jobTimeout} -> jobTimeout) (\s@ActionTypeExecutor' {} a -> s {jobTimeout = a} :: ActionTypeExecutor)
 
 -- | The action configuration properties for the action type. These
 -- properties are specified in the action definition when the action type
@@ -133,23 +134,24 @@ instance Core.FromJSON ActionTypeExecutor where
       "ActionTypeExecutor"
       ( \x ->
           ActionTypeExecutor'
-            Prelude.<$> (x Core..:? "jobTimeout")
-            Prelude.<*> (x Core..:? "policyStatementsTemplate")
+            Prelude.<$> (x Core..:? "policyStatementsTemplate")
+            Prelude.<*> (x Core..:? "jobTimeout")
             Prelude.<*> (x Core..: "configuration")
             Prelude.<*> (x Core..: "type")
       )
 
 instance Prelude.Hashable ActionTypeExecutor where
   hashWithSalt _salt ActionTypeExecutor' {..} =
-    _salt `Prelude.hashWithSalt` jobTimeout
+    _salt
       `Prelude.hashWithSalt` policyStatementsTemplate
+      `Prelude.hashWithSalt` jobTimeout
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ActionTypeExecutor where
   rnf ActionTypeExecutor' {..} =
-    Prelude.rnf jobTimeout
-      `Prelude.seq` Prelude.rnf policyStatementsTemplate
+    Prelude.rnf policyStatementsTemplate
+      `Prelude.seq` Prelude.rnf jobTimeout
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf type'
 
@@ -157,9 +159,9 @@ instance Core.ToJSON ActionTypeExecutor where
   toJSON ActionTypeExecutor' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("jobTimeout" Core..=) Prelude.<$> jobTimeout,
-            ("policyStatementsTemplate" Core..=)
+          [ ("policyStatementsTemplate" Core..=)
               Prelude.<$> policyStatementsTemplate,
+            ("jobTimeout" Core..=) Prelude.<$> jobTimeout,
             Prelude.Just ("configuration" Core..= configuration),
             Prelude.Just ("type" Core..= type')
           ]

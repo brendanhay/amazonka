@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFirehoseLogDeliveryDescription' smart constructor.
 data FirehoseLogDeliveryDescription = FirehoseLogDeliveryDescription'
-  { -- | Specifies whether connector logs get delivered to Amazon Kinesis Data
-    -- Firehose.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the Kinesis Data Firehose delivery stream that is the
+  { -- | The name of the Kinesis Data Firehose delivery stream that is the
     -- destination for log delivery.
-    deliveryStream :: Prelude.Maybe Prelude.Text
+    deliveryStream :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether connector logs get delivered to Amazon Kinesis Data
+    -- Firehose.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data FirehoseLogDeliveryDescription = FirehoseLogDeliveryDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'firehoseLogDeliveryDescription_enabled' - Specifies whether connector logs get delivered to Amazon Kinesis Data
--- Firehose.
---
 -- 'deliveryStream', 'firehoseLogDeliveryDescription_deliveryStream' - The name of the Kinesis Data Firehose delivery stream that is the
 -- destination for log delivery.
+--
+-- 'enabled', 'firehoseLogDeliveryDescription_enabled' - Specifies whether connector logs get delivered to Amazon Kinesis Data
+-- Firehose.
 newFirehoseLogDeliveryDescription ::
   FirehoseLogDeliveryDescription
 newFirehoseLogDeliveryDescription =
   FirehoseLogDeliveryDescription'
-    { enabled =
+    { deliveryStream =
         Prelude.Nothing,
-      deliveryStream = Prelude.Nothing
+      enabled = Prelude.Nothing
     }
-
--- | Specifies whether connector logs get delivered to Amazon Kinesis Data
--- Firehose.
-firehoseLogDeliveryDescription_enabled :: Lens.Lens' FirehoseLogDeliveryDescription (Prelude.Maybe Prelude.Bool)
-firehoseLogDeliveryDescription_enabled = Lens.lens (\FirehoseLogDeliveryDescription' {enabled} -> enabled) (\s@FirehoseLogDeliveryDescription' {} a -> s {enabled = a} :: FirehoseLogDeliveryDescription)
 
 -- | The name of the Kinesis Data Firehose delivery stream that is the
 -- destination for log delivery.
 firehoseLogDeliveryDescription_deliveryStream :: Lens.Lens' FirehoseLogDeliveryDescription (Prelude.Maybe Prelude.Text)
 firehoseLogDeliveryDescription_deliveryStream = Lens.lens (\FirehoseLogDeliveryDescription' {deliveryStream} -> deliveryStream) (\s@FirehoseLogDeliveryDescription' {} a -> s {deliveryStream = a} :: FirehoseLogDeliveryDescription)
+
+-- | Specifies whether connector logs get delivered to Amazon Kinesis Data
+-- Firehose.
+firehoseLogDeliveryDescription_enabled :: Lens.Lens' FirehoseLogDeliveryDescription (Prelude.Maybe Prelude.Bool)
+firehoseLogDeliveryDescription_enabled = Lens.lens (\FirehoseLogDeliveryDescription' {enabled} -> enabled) (\s@FirehoseLogDeliveryDescription' {} a -> s {enabled = a} :: FirehoseLogDeliveryDescription)
 
 instance Core.FromJSON FirehoseLogDeliveryDescription where
   parseJSON =
@@ -75,8 +75,8 @@ instance Core.FromJSON FirehoseLogDeliveryDescription where
       "FirehoseLogDeliveryDescription"
       ( \x ->
           FirehoseLogDeliveryDescription'
-            Prelude.<$> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "deliveryStream")
+            Prelude.<$> (x Core..:? "deliveryStream")
+            Prelude.<*> (x Core..:? "enabled")
       )
 
 instance
@@ -86,13 +86,13 @@ instance
   hashWithSalt
     _salt
     FirehoseLogDeliveryDescription' {..} =
-      _salt `Prelude.hashWithSalt` enabled
-        `Prelude.hashWithSalt` deliveryStream
+      _salt `Prelude.hashWithSalt` deliveryStream
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     FirehoseLogDeliveryDescription
   where
   rnf FirehoseLogDeliveryDescription' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf deliveryStream
+    Prelude.rnf deliveryStream
+      `Prelude.seq` Prelude.rnf enabled

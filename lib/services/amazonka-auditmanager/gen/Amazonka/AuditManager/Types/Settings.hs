@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSettings' smart constructor.
 data Settings = Settings'
-  { -- | The KMS key details.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The default storage destination for assessment reports.
-    defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
+  { -- | The designated default audit owners.
+    defaultProcessOwners :: Prelude.Maybe [Role],
     -- | The designated Amazon Simple Notification Service (Amazon SNS) topic.
     snsTopic :: Prelude.Maybe Prelude.Text,
-    -- | The designated default audit owners.
-    defaultProcessOwners :: Prelude.Maybe [Role],
     -- | Specifies whether Organizations is enabled.
-    isAwsOrgEnabled :: Prelude.Maybe Prelude.Bool
+    isAwsOrgEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The KMS key details.
+    kmsKey :: Prelude.Maybe Prelude.Text,
+    -- | The default storage destination for assessment reports.
+    defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,38 @@ data Settings = Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKey', 'settings_kmsKey' - The KMS key details.
---
--- 'defaultAssessmentReportsDestination', 'settings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
+-- 'defaultProcessOwners', 'settings_defaultProcessOwners' - The designated default audit owners.
 --
 -- 'snsTopic', 'settings_snsTopic' - The designated Amazon Simple Notification Service (Amazon SNS) topic.
 --
--- 'defaultProcessOwners', 'settings_defaultProcessOwners' - The designated default audit owners.
---
 -- 'isAwsOrgEnabled', 'settings_isAwsOrgEnabled' - Specifies whether Organizations is enabled.
+--
+-- 'kmsKey', 'settings_kmsKey' - The KMS key details.
+--
+-- 'defaultAssessmentReportsDestination', 'settings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
 newSettings ::
   Settings
 newSettings =
   Settings'
-    { kmsKey = Prelude.Nothing,
-      defaultAssessmentReportsDestination =
-        Prelude.Nothing,
+    { defaultProcessOwners = Prelude.Nothing,
       snsTopic = Prelude.Nothing,
-      defaultProcessOwners = Prelude.Nothing,
-      isAwsOrgEnabled = Prelude.Nothing
+      isAwsOrgEnabled = Prelude.Nothing,
+      kmsKey = Prelude.Nothing,
+      defaultAssessmentReportsDestination =
+        Prelude.Nothing
     }
+
+-- | The designated default audit owners.
+settings_defaultProcessOwners :: Lens.Lens' Settings (Prelude.Maybe [Role])
+settings_defaultProcessOwners = Lens.lens (\Settings' {defaultProcessOwners} -> defaultProcessOwners) (\s@Settings' {} a -> s {defaultProcessOwners = a} :: Settings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The designated Amazon Simple Notification Service (Amazon SNS) topic.
+settings_snsTopic :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
+settings_snsTopic = Lens.lens (\Settings' {snsTopic} -> snsTopic) (\s@Settings' {} a -> s {snsTopic = a} :: Settings)
+
+-- | Specifies whether Organizations is enabled.
+settings_isAwsOrgEnabled :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
+settings_isAwsOrgEnabled = Lens.lens (\Settings' {isAwsOrgEnabled} -> isAwsOrgEnabled) (\s@Settings' {} a -> s {isAwsOrgEnabled = a} :: Settings)
 
 -- | The KMS key details.
 settings_kmsKey :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
@@ -79,45 +91,33 @@ settings_kmsKey = Lens.lens (\Settings' {kmsKey} -> kmsKey) (\s@Settings' {} a -
 settings_defaultAssessmentReportsDestination :: Lens.Lens' Settings (Prelude.Maybe AssessmentReportsDestination)
 settings_defaultAssessmentReportsDestination = Lens.lens (\Settings' {defaultAssessmentReportsDestination} -> defaultAssessmentReportsDestination) (\s@Settings' {} a -> s {defaultAssessmentReportsDestination = a} :: Settings)
 
--- | The designated Amazon Simple Notification Service (Amazon SNS) topic.
-settings_snsTopic :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
-settings_snsTopic = Lens.lens (\Settings' {snsTopic} -> snsTopic) (\s@Settings' {} a -> s {snsTopic = a} :: Settings)
-
--- | The designated default audit owners.
-settings_defaultProcessOwners :: Lens.Lens' Settings (Prelude.Maybe [Role])
-settings_defaultProcessOwners = Lens.lens (\Settings' {defaultProcessOwners} -> defaultProcessOwners) (\s@Settings' {} a -> s {defaultProcessOwners = a} :: Settings) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies whether Organizations is enabled.
-settings_isAwsOrgEnabled :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
-settings_isAwsOrgEnabled = Lens.lens (\Settings' {isAwsOrgEnabled} -> isAwsOrgEnabled) (\s@Settings' {} a -> s {isAwsOrgEnabled = a} :: Settings)
-
 instance Core.FromJSON Settings where
   parseJSON =
     Core.withObject
       "Settings"
       ( \x ->
           Settings'
-            Prelude.<$> (x Core..:? "kmsKey")
-            Prelude.<*> (x Core..:? "defaultAssessmentReportsDestination")
-            Prelude.<*> (x Core..:? "snsTopic")
-            Prelude.<*> ( x Core..:? "defaultProcessOwners"
+            Prelude.<$> ( x Core..:? "defaultProcessOwners"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "snsTopic")
             Prelude.<*> (x Core..:? "isAwsOrgEnabled")
+            Prelude.<*> (x Core..:? "kmsKey")
+            Prelude.<*> (x Core..:? "defaultAssessmentReportsDestination")
       )
 
 instance Prelude.Hashable Settings where
   hashWithSalt _salt Settings' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` defaultAssessmentReportsDestination
+    _salt `Prelude.hashWithSalt` defaultProcessOwners
       `Prelude.hashWithSalt` snsTopic
-      `Prelude.hashWithSalt` defaultProcessOwners
       `Prelude.hashWithSalt` isAwsOrgEnabled
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` defaultAssessmentReportsDestination
 
 instance Prelude.NFData Settings where
   rnf Settings' {..} =
-    Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination
+    Prelude.rnf defaultProcessOwners
       `Prelude.seq` Prelude.rnf snsTopic
-      `Prelude.seq` Prelude.rnf defaultProcessOwners
       `Prelude.seq` Prelude.rnf isAwsOrgEnabled
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination

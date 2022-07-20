@@ -29,15 +29,15 @@ import Amazonka.SageMaker.Types.ResourceSpec
 --
 -- /See:/ 'newKernelGatewayAppSettings' smart constructor.
 data KernelGatewayAppSettings = KernelGatewayAppSettings'
-  { -- | The default instance type and the Amazon Resource Name (ARN) of the
+  { -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
+    -- to the the user profile or domain.
+    lifecycleConfigArns :: Prelude.Maybe [Prelude.Text],
+    -- | The default instance type and the Amazon Resource Name (ARN) of the
     -- default SageMaker image used by the KernelGateway app.
     defaultResourceSpec :: Prelude.Maybe ResourceSpec,
     -- | A list of custom SageMaker images that are configured to run as a
     -- KernelGateway app.
-    customImages :: Prelude.Maybe [CustomImage],
-    -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
-    -- to the the user profile or domain.
-    lifecycleConfigArns :: Prelude.Maybe [Prelude.Text]
+    customImages :: Prelude.Maybe [CustomImage]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,28 @@ data KernelGatewayAppSettings = KernelGatewayAppSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lifecycleConfigArns', 'kernelGatewayAppSettings_lifecycleConfigArns' - The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
+-- to the the user profile or domain.
+--
 -- 'defaultResourceSpec', 'kernelGatewayAppSettings_defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the KernelGateway app.
 --
 -- 'customImages', 'kernelGatewayAppSettings_customImages' - A list of custom SageMaker images that are configured to run as a
 -- KernelGateway app.
---
--- 'lifecycleConfigArns', 'kernelGatewayAppSettings_lifecycleConfigArns' - The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
--- to the the user profile or domain.
 newKernelGatewayAppSettings ::
   KernelGatewayAppSettings
 newKernelGatewayAppSettings =
   KernelGatewayAppSettings'
-    { defaultResourceSpec =
+    { lifecycleConfigArns =
         Prelude.Nothing,
-      customImages = Prelude.Nothing,
-      lifecycleConfigArns = Prelude.Nothing
+      defaultResourceSpec = Prelude.Nothing,
+      customImages = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
+-- to the the user profile or domain.
+kernelGatewayAppSettings_lifecycleConfigArns :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [Prelude.Text])
+kernelGatewayAppSettings_lifecycleConfigArns = Lens.lens (\KernelGatewayAppSettings' {lifecycleConfigArns} -> lifecycleConfigArns) (\s@KernelGatewayAppSettings' {} a -> s {lifecycleConfigArns = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the KernelGateway app.
@@ -77,44 +82,39 @@ kernelGatewayAppSettings_defaultResourceSpec = Lens.lens (\KernelGatewayAppSetti
 kernelGatewayAppSettings_customImages :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [CustomImage])
 kernelGatewayAppSettings_customImages = Lens.lens (\KernelGatewayAppSettings' {customImages} -> customImages) (\s@KernelGatewayAppSettings' {} a -> s {customImages = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
--- to the the user profile or domain.
-kernelGatewayAppSettings_lifecycleConfigArns :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [Prelude.Text])
-kernelGatewayAppSettings_lifecycleConfigArns = Lens.lens (\KernelGatewayAppSettings' {lifecycleConfigArns} -> lifecycleConfigArns) (\s@KernelGatewayAppSettings' {} a -> s {lifecycleConfigArns = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON KernelGatewayAppSettings where
   parseJSON =
     Core.withObject
       "KernelGatewayAppSettings"
       ( \x ->
           KernelGatewayAppSettings'
-            Prelude.<$> (x Core..:? "DefaultResourceSpec")
-            Prelude.<*> (x Core..:? "CustomImages" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "LifecycleConfigArns"
+            Prelude.<$> ( x Core..:? "LifecycleConfigArns"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "DefaultResourceSpec")
+            Prelude.<*> (x Core..:? "CustomImages" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable KernelGatewayAppSettings where
   hashWithSalt _salt KernelGatewayAppSettings' {..} =
-    _salt `Prelude.hashWithSalt` defaultResourceSpec
+    _salt `Prelude.hashWithSalt` lifecycleConfigArns
+      `Prelude.hashWithSalt` defaultResourceSpec
       `Prelude.hashWithSalt` customImages
-      `Prelude.hashWithSalt` lifecycleConfigArns
 
 instance Prelude.NFData KernelGatewayAppSettings where
   rnf KernelGatewayAppSettings' {..} =
-    Prelude.rnf defaultResourceSpec
+    Prelude.rnf lifecycleConfigArns
+      `Prelude.seq` Prelude.rnf defaultResourceSpec
       `Prelude.seq` Prelude.rnf customImages
-      `Prelude.seq` Prelude.rnf lifecycleConfigArns
 
 instance Core.ToJSON KernelGatewayAppSettings where
   toJSON KernelGatewayAppSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultResourceSpec" Core..=)
+          [ ("LifecycleConfigArns" Core..=)
+              Prelude.<$> lifecycleConfigArns,
+            ("DefaultResourceSpec" Core..=)
               Prelude.<$> defaultResourceSpec,
-            ("CustomImages" Core..=) Prelude.<$> customImages,
-            ("LifecycleConfigArns" Core..=)
-              Prelude.<$> lifecycleConfigArns
+            ("CustomImages" Core..=) Prelude.<$> customImages
           ]
       )

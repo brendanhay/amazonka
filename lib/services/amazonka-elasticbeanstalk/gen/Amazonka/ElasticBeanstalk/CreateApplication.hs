@@ -28,9 +28,9 @@ module Amazonka.ElasticBeanstalk.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
+    createApplication_tags,
     createApplication_resourceLifecycleConfig,
     createApplication_description,
-    createApplication_tags,
     createApplication_applicationName,
 
     -- * Destructuring the Response
@@ -53,16 +53,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | Specifies an application resource lifecycle configuration to prevent
-    -- your application from accumulating too many versions.
-    resourceLifecycleConfig :: Prelude.Maybe ApplicationResourceLifecycleConfig,
-    -- | Your description of the application.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the tags applied to the application.
+  { -- | Specifies the tags applied to the application.
     --
     -- Elastic Beanstalk applies these tags only to the application.
     -- Environments that you create in the application don\'t inherit the tags.
     tags :: Prelude.Maybe [Tag],
+    -- | Specifies an application resource lifecycle configuration to prevent
+    -- your application from accumulating too many versions.
+    resourceLifecycleConfig :: Prelude.Maybe ApplicationResourceLifecycleConfig,
+    -- | Your description of the application.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the application. Must be unique within your account.
     applicationName :: Prelude.Text
   }
@@ -76,15 +76,15 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceLifecycleConfig', 'createApplication_resourceLifecycleConfig' - Specifies an application resource lifecycle configuration to prevent
--- your application from accumulating too many versions.
---
--- 'description', 'createApplication_description' - Your description of the application.
---
 -- 'tags', 'createApplication_tags' - Specifies the tags applied to the application.
 --
 -- Elastic Beanstalk applies these tags only to the application.
 -- Environments that you create in the application don\'t inherit the tags.
+--
+-- 'resourceLifecycleConfig', 'createApplication_resourceLifecycleConfig' - Specifies an application resource lifecycle configuration to prevent
+-- your application from accumulating too many versions.
+--
+-- 'description', 'createApplication_description' - Your description of the application.
 --
 -- 'applicationName', 'createApplication_applicationName' - The name of the application. Must be unique within your account.
 newCreateApplication ::
@@ -93,12 +93,18 @@ newCreateApplication ::
   CreateApplication
 newCreateApplication pApplicationName_ =
   CreateApplication'
-    { resourceLifecycleConfig =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      resourceLifecycleConfig = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       applicationName = pApplicationName_
     }
+
+-- | Specifies the tags applied to the application.
+--
+-- Elastic Beanstalk applies these tags only to the application.
+-- Environments that you create in the application don\'t inherit the tags.
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies an application resource lifecycle configuration to prevent
 -- your application from accumulating too many versions.
@@ -108,13 +114,6 @@ createApplication_resourceLifecycleConfig = Lens.lens (\CreateApplication' {reso
 -- | Your description of the application.
 createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
-
--- | Specifies the tags applied to the application.
---
--- Elastic Beanstalk applies these tags only to the application.
--- Environments that you create in the application don\'t inherit the tags.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the application. Must be unique within your account.
 createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
@@ -132,17 +131,16 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceLifecycleConfig
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf resourceLifecycleConfig
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceLifecycleConfig
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationName
 
 instance Core.ToHeaders CreateApplication where
@@ -158,11 +156,11 @@ instance Core.ToQuery CreateApplication where
           Core.=: ("CreateApplication" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ResourceLifecycleConfig"
-          Core.=: resourceLifecycleConfig,
-        "Description" Core.=: description,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
+        "ResourceLifecycleConfig"
+          Core.=: resourceLifecycleConfig,
+        "Description" Core.=: description,
         "ApplicationName" Core.=: applicationName
       ]

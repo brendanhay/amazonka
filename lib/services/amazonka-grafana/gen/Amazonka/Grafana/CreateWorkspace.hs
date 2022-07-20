@@ -34,15 +34,15 @@ module Amazonka.Grafana.CreateWorkspace
     newCreateWorkspace,
 
     -- * Request Lenses
-    createWorkspace_workspaceRoleArn,
     createWorkspace_clientToken,
-    createWorkspace_workspaceDataSources,
-    createWorkspace_workspaceNotificationDestinations,
-    createWorkspace_workspaceName,
     createWorkspace_organizationRoleName,
-    createWorkspace_workspaceDescription,
-    createWorkspace_stackSetName,
     createWorkspace_workspaceOrganizationalUnits,
+    createWorkspace_stackSetName,
+    createWorkspace_workspaceRoleArn,
+    createWorkspace_workspaceNotificationDestinations,
+    createWorkspace_workspaceDataSources,
+    createWorkspace_workspaceName,
+    createWorkspace_workspaceDescription,
     createWorkspace_accountAccessType,
     createWorkspace_authenticationProviders,
     createWorkspace_permissionType,
@@ -66,16 +66,32 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkspace' smart constructor.
 data CreateWorkspace = CreateWorkspace'
-  { -- | The workspace needs an IAM role that grants permissions to the Amazon
+  { -- | A unique, case-sensitive, user-provided identifier to ensure the
+    -- idempotency of the request.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of an IAM role that already exists to use with Organizations to
+    -- access Amazon Web Services data sources and notification channels in
+    -- other accounts in an organization.
+    organizationRoleName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Specifies the organizational units that this workspace is allowed to use
+    -- data sources from, if this workspace is in an account that is part of an
+    -- organization.
+    workspaceOrganizationalUnits :: Prelude.Maybe (Core.Sensitive [Prelude.Text]),
+    -- | The name of the CloudFormation stack set to use to generate IAM roles to
+    -- be used for this workspace.
+    stackSetName :: Prelude.Maybe Prelude.Text,
+    -- | The workspace needs an IAM role that grants permissions to the Amazon
     -- Web Services resources that the workspace will view data from. If you
     -- already have a role that you want to use, specify it here. If you omit
     -- this field and you specify some Amazon Web Services resources in
     -- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
     -- role with the necessary permissions is automatically created.
     workspaceRoleArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A unique, case-sensitive, user-provided identifier to ensure the
-    -- idempotency of the request.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Specify the Amazon Web Services notification channels that you plan to
+    -- use in this workspace. Specifying these data sources here enables Amazon
+    -- Managed Grafana to create IAM roles and permissions that allow Amazon
+    -- Managed Grafana to use these channels.
+    workspaceNotificationDestinations :: Prelude.Maybe [NotificationDestinationType],
     -- | Specify the Amazon Web Services data sources that you want to be queried
     -- in this workspace. Specifying these data sources here enables Amazon
     -- Managed Grafana to create IAM roles and permissions that allow Amazon
@@ -86,27 +102,11 @@ data CreateWorkspace = CreateWorkspace'
     -- source in the workspace console later. However, you will then have to
     -- manually configure permissions for it.
     workspaceDataSources :: Prelude.Maybe [DataSourceType],
-    -- | Specify the Amazon Web Services notification channels that you plan to
-    -- use in this workspace. Specifying these data sources here enables Amazon
-    -- Managed Grafana to create IAM roles and permissions that allow Amazon
-    -- Managed Grafana to use these channels.
-    workspaceNotificationDestinations :: Prelude.Maybe [NotificationDestinationType],
     -- | The name for the workspace. It does not have to be unique.
     workspaceName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of an IAM role that already exists to use with Organizations to
-    -- access Amazon Web Services data sources and notification channels in
-    -- other accounts in an organization.
-    organizationRoleName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A description for the workspace. This is used only to help you identify
     -- this workspace.
     workspaceDescription :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the CloudFormation stack set to use to generate IAM roles to
-    -- be used for this workspace.
-    stackSetName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the organizational units that this workspace is allowed to use
-    -- data sources from, if this workspace is in an account that is part of an
-    -- organization.
-    workspaceOrganizationalUnits :: Prelude.Maybe (Core.Sensitive [Prelude.Text]),
     -- | Specifies whether the workspace can access Amazon Web Services resources
     -- in this Amazon Web Services account only, or whether it can also access
     -- Amazon Web Services resources in other accounts in the same
@@ -144,6 +144,20 @@ data CreateWorkspace = CreateWorkspace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createWorkspace_clientToken' - A unique, case-sensitive, user-provided identifier to ensure the
+-- idempotency of the request.
+--
+-- 'organizationRoleName', 'createWorkspace_organizationRoleName' - The name of an IAM role that already exists to use with Organizations to
+-- access Amazon Web Services data sources and notification channels in
+-- other accounts in an organization.
+--
+-- 'workspaceOrganizationalUnits', 'createWorkspace_workspaceOrganizationalUnits' - Specifies the organizational units that this workspace is allowed to use
+-- data sources from, if this workspace is in an account that is part of an
+-- organization.
+--
+-- 'stackSetName', 'createWorkspace_stackSetName' - The name of the CloudFormation stack set to use to generate IAM roles to
+-- be used for this workspace.
+--
 -- 'workspaceRoleArn', 'createWorkspace_workspaceRoleArn' - The workspace needs an IAM role that grants permissions to the Amazon
 -- Web Services resources that the workspace will view data from. If you
 -- already have a role that you want to use, specify it here. If you omit
@@ -151,8 +165,10 @@ data CreateWorkspace = CreateWorkspace'
 -- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
 -- role with the necessary permissions is automatically created.
 --
--- 'clientToken', 'createWorkspace_clientToken' - A unique, case-sensitive, user-provided identifier to ensure the
--- idempotency of the request.
+-- 'workspaceNotificationDestinations', 'createWorkspace_workspaceNotificationDestinations' - Specify the Amazon Web Services notification channels that you plan to
+-- use in this workspace. Specifying these data sources here enables Amazon
+-- Managed Grafana to create IAM roles and permissions that allow Amazon
+-- Managed Grafana to use these channels.
 --
 -- 'workspaceDataSources', 'createWorkspace_workspaceDataSources' - Specify the Amazon Web Services data sources that you want to be queried
 -- in this workspace. Specifying these data sources here enables Amazon
@@ -164,26 +180,10 @@ data CreateWorkspace = CreateWorkspace'
 -- source in the workspace console later. However, you will then have to
 -- manually configure permissions for it.
 --
--- 'workspaceNotificationDestinations', 'createWorkspace_workspaceNotificationDestinations' - Specify the Amazon Web Services notification channels that you plan to
--- use in this workspace. Specifying these data sources here enables Amazon
--- Managed Grafana to create IAM roles and permissions that allow Amazon
--- Managed Grafana to use these channels.
---
 -- 'workspaceName', 'createWorkspace_workspaceName' - The name for the workspace. It does not have to be unique.
---
--- 'organizationRoleName', 'createWorkspace_organizationRoleName' - The name of an IAM role that already exists to use with Organizations to
--- access Amazon Web Services data sources and notification channels in
--- other accounts in an organization.
 --
 -- 'workspaceDescription', 'createWorkspace_workspaceDescription' - A description for the workspace. This is used only to help you identify
 -- this workspace.
---
--- 'stackSetName', 'createWorkspace_stackSetName' - The name of the CloudFormation stack set to use to generate IAM roles to
--- be used for this workspace.
---
--- 'workspaceOrganizationalUnits', 'createWorkspace_workspaceOrganizationalUnits' - Specifies the organizational units that this workspace is allowed to use
--- data sources from, if this workspace is in an account that is part of an
--- organization.
 --
 -- 'accountAccessType', 'createWorkspace_accountAccessType' - Specifies whether the workspace can access Amazon Web Services resources
 -- in this Amazon Web Services account only, or whether it can also access
@@ -220,20 +220,41 @@ newCreateWorkspace
   pAccountAccessType_
   pPermissionType_ =
     CreateWorkspace'
-      { workspaceRoleArn =
-          Prelude.Nothing,
-        clientToken = Prelude.Nothing,
-        workspaceDataSources = Prelude.Nothing,
-        workspaceNotificationDestinations = Prelude.Nothing,
-        workspaceName = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         organizationRoleName = Prelude.Nothing,
-        workspaceDescription = Prelude.Nothing,
-        stackSetName = Prelude.Nothing,
         workspaceOrganizationalUnits = Prelude.Nothing,
+        stackSetName = Prelude.Nothing,
+        workspaceRoleArn = Prelude.Nothing,
+        workspaceNotificationDestinations = Prelude.Nothing,
+        workspaceDataSources = Prelude.Nothing,
+        workspaceName = Prelude.Nothing,
+        workspaceDescription = Prelude.Nothing,
         accountAccessType = pAccountAccessType_,
         authenticationProviders = Prelude.mempty,
         permissionType = pPermissionType_
       }
+
+-- | A unique, case-sensitive, user-provided identifier to ensure the
+-- idempotency of the request.
+createWorkspace_clientToken :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
+createWorkspace_clientToken = Lens.lens (\CreateWorkspace' {clientToken} -> clientToken) (\s@CreateWorkspace' {} a -> s {clientToken = a} :: CreateWorkspace)
+
+-- | The name of an IAM role that already exists to use with Organizations to
+-- access Amazon Web Services data sources and notification channels in
+-- other accounts in an organization.
+createWorkspace_organizationRoleName :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
+createWorkspace_organizationRoleName = Lens.lens (\CreateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@CreateWorkspace' {} a -> s {organizationRoleName = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Specifies the organizational units that this workspace is allowed to use
+-- data sources from, if this workspace is in an account that is part of an
+-- organization.
+createWorkspace_workspaceOrganizationalUnits :: Lens.Lens' CreateWorkspace (Prelude.Maybe [Prelude.Text])
+createWorkspace_workspaceOrganizationalUnits = Lens.lens (\CreateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@CreateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: CreateWorkspace) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+
+-- | The name of the CloudFormation stack set to use to generate IAM roles to
+-- be used for this workspace.
+createWorkspace_stackSetName :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
+createWorkspace_stackSetName = Lens.lens (\CreateWorkspace' {stackSetName} -> stackSetName) (\s@CreateWorkspace' {} a -> s {stackSetName = a} :: CreateWorkspace)
 
 -- | The workspace needs an IAM role that grants permissions to the Amazon
 -- Web Services resources that the workspace will view data from. If you
@@ -244,10 +265,12 @@ newCreateWorkspace
 createWorkspace_workspaceRoleArn :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_workspaceRoleArn = Lens.lens (\CreateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@CreateWorkspace' {} a -> s {workspaceRoleArn = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
 
--- | A unique, case-sensitive, user-provided identifier to ensure the
--- idempotency of the request.
-createWorkspace_clientToken :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
-createWorkspace_clientToken = Lens.lens (\CreateWorkspace' {clientToken} -> clientToken) (\s@CreateWorkspace' {} a -> s {clientToken = a} :: CreateWorkspace)
+-- | Specify the Amazon Web Services notification channels that you plan to
+-- use in this workspace. Specifying these data sources here enables Amazon
+-- Managed Grafana to create IAM roles and permissions that allow Amazon
+-- Managed Grafana to use these channels.
+createWorkspace_workspaceNotificationDestinations :: Lens.Lens' CreateWorkspace (Prelude.Maybe [NotificationDestinationType])
+createWorkspace_workspaceNotificationDestinations = Lens.lens (\CreateWorkspace' {workspaceNotificationDestinations} -> workspaceNotificationDestinations) (\s@CreateWorkspace' {} a -> s {workspaceNotificationDestinations = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify the Amazon Web Services data sources that you want to be queried
 -- in this workspace. Specifying these data sources here enables Amazon
@@ -261,38 +284,14 @@ createWorkspace_clientToken = Lens.lens (\CreateWorkspace' {clientToken} -> clie
 createWorkspace_workspaceDataSources :: Lens.Lens' CreateWorkspace (Prelude.Maybe [DataSourceType])
 createWorkspace_workspaceDataSources = Lens.lens (\CreateWorkspace' {workspaceDataSources} -> workspaceDataSources) (\s@CreateWorkspace' {} a -> s {workspaceDataSources = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
--- | Specify the Amazon Web Services notification channels that you plan to
--- use in this workspace. Specifying these data sources here enables Amazon
--- Managed Grafana to create IAM roles and permissions that allow Amazon
--- Managed Grafana to use these channels.
-createWorkspace_workspaceNotificationDestinations :: Lens.Lens' CreateWorkspace (Prelude.Maybe [NotificationDestinationType])
-createWorkspace_workspaceNotificationDestinations = Lens.lens (\CreateWorkspace' {workspaceNotificationDestinations} -> workspaceNotificationDestinations) (\s@CreateWorkspace' {} a -> s {workspaceNotificationDestinations = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name for the workspace. It does not have to be unique.
 createWorkspace_workspaceName :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_workspaceName = Lens.lens (\CreateWorkspace' {workspaceName} -> workspaceName) (\s@CreateWorkspace' {} a -> s {workspaceName = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
-
--- | The name of an IAM role that already exists to use with Organizations to
--- access Amazon Web Services data sources and notification channels in
--- other accounts in an organization.
-createWorkspace_organizationRoleName :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
-createWorkspace_organizationRoleName = Lens.lens (\CreateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@CreateWorkspace' {} a -> s {organizationRoleName = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A description for the workspace. This is used only to help you identify
 -- this workspace.
 createWorkspace_workspaceDescription :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_workspaceDescription = Lens.lens (\CreateWorkspace' {workspaceDescription} -> workspaceDescription) (\s@CreateWorkspace' {} a -> s {workspaceDescription = a} :: CreateWorkspace) Prelude.. Lens.mapping Core._Sensitive
-
--- | The name of the CloudFormation stack set to use to generate IAM roles to
--- be used for this workspace.
-createWorkspace_stackSetName :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
-createWorkspace_stackSetName = Lens.lens (\CreateWorkspace' {stackSetName} -> stackSetName) (\s@CreateWorkspace' {} a -> s {stackSetName = a} :: CreateWorkspace)
-
--- | Specifies the organizational units that this workspace is allowed to use
--- data sources from, if this workspace is in an account that is part of an
--- organization.
-createWorkspace_workspaceOrganizationalUnits :: Lens.Lens' CreateWorkspace (Prelude.Maybe [Prelude.Text])
-createWorkspace_workspaceOrganizationalUnits = Lens.lens (\CreateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@CreateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: CreateWorkspace) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | Specifies whether the workspace can access Amazon Web Services resources
 -- in this Amazon Web Services account only, or whether it can also access
@@ -341,30 +340,30 @@ instance Core.AWSRequest CreateWorkspace where
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` workspaceRoleArn
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` workspaceDataSources
-      `Prelude.hashWithSalt` workspaceNotificationDestinations
-      `Prelude.hashWithSalt` workspaceName
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` organizationRoleName
-      `Prelude.hashWithSalt` workspaceDescription
-      `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` workspaceOrganizationalUnits
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` workspaceRoleArn
+      `Prelude.hashWithSalt` workspaceNotificationDestinations
+      `Prelude.hashWithSalt` workspaceDataSources
+      `Prelude.hashWithSalt` workspaceName
+      `Prelude.hashWithSalt` workspaceDescription
       `Prelude.hashWithSalt` accountAccessType
       `Prelude.hashWithSalt` authenticationProviders
       `Prelude.hashWithSalt` permissionType
 
 instance Prelude.NFData CreateWorkspace where
   rnf CreateWorkspace' {..} =
-    Prelude.rnf workspaceRoleArn
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf workspaceDataSources
-      `Prelude.seq` Prelude.rnf workspaceNotificationDestinations
-      `Prelude.seq` Prelude.rnf workspaceName
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf organizationRoleName
-      `Prelude.seq` Prelude.rnf workspaceDescription
-      `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf workspaceRoleArn
+      `Prelude.seq` Prelude.rnf workspaceNotificationDestinations
+      `Prelude.seq` Prelude.rnf workspaceDataSources
+      `Prelude.seq` Prelude.rnf workspaceName
+      `Prelude.seq` Prelude.rnf workspaceDescription
       `Prelude.seq` Prelude.rnf accountAccessType
       `Prelude.seq` Prelude.rnf authenticationProviders
       `Prelude.seq` Prelude.rnf permissionType
@@ -384,21 +383,21 @@ instance Core.ToJSON CreateWorkspace where
   toJSON CreateWorkspace' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("workspaceRoleArn" Core..=)
-              Prelude.<$> workspaceRoleArn,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("workspaceDataSources" Core..=)
-              Prelude.<$> workspaceDataSources,
-            ("workspaceNotificationDestinations" Core..=)
-              Prelude.<$> workspaceNotificationDestinations,
-            ("workspaceName" Core..=) Prelude.<$> workspaceName,
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
             ("organizationRoleName" Core..=)
               Prelude.<$> organizationRoleName,
-            ("workspaceDescription" Core..=)
-              Prelude.<$> workspaceDescription,
-            ("stackSetName" Core..=) Prelude.<$> stackSetName,
             ("workspaceOrganizationalUnits" Core..=)
               Prelude.<$> workspaceOrganizationalUnits,
+            ("stackSetName" Core..=) Prelude.<$> stackSetName,
+            ("workspaceRoleArn" Core..=)
+              Prelude.<$> workspaceRoleArn,
+            ("workspaceNotificationDestinations" Core..=)
+              Prelude.<$> workspaceNotificationDestinations,
+            ("workspaceDataSources" Core..=)
+              Prelude.<$> workspaceDataSources,
+            ("workspaceName" Core..=) Prelude.<$> workspaceName,
+            ("workspaceDescription" Core..=)
+              Prelude.<$> workspaceDescription,
             Prelude.Just
               ("accountAccessType" Core..= accountAccessType),
             Prelude.Just

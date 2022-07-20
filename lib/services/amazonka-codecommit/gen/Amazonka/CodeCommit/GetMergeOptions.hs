@@ -29,8 +29,8 @@ module Amazonka.CodeCommit.GetMergeOptions
     newGetMergeOptions,
 
     -- * Request Lenses
-    getMergeOptions_conflictDetailLevel,
     getMergeOptions_conflictResolutionStrategy,
+    getMergeOptions_conflictDetailLevel,
     getMergeOptions_repositoryName,
     getMergeOptions_sourceCommitSpecifier,
     getMergeOptions_destinationCommitSpecifier,
@@ -57,17 +57,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMergeOptions' smart constructor.
 data GetMergeOptions = GetMergeOptions'
-  { -- | The level of conflict detail to use. If unspecified, the default
+  { -- | Specifies which branch to use when resolving conflicts, or whether to
+    -- attempt automatically merging two versions of a file. The default is
+    -- NONE, which requires any conflicts to be resolved manually before the
+    -- merge operation is successful.
+    conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
+    -- | The level of conflict detail to use. If unspecified, the default
     -- FILE_LEVEL is used, which returns a not-mergeable result if the same
     -- file has differences in both branches. If LINE_LEVEL is specified, a
     -- conflict is considered not mergeable if the same file in both branches
     -- has differences on the same line.
     conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
-    -- | Specifies which branch to use when resolving conflicts, or whether to
-    -- attempt automatically merging two versions of a file. The default is
-    -- NONE, which requires any conflicts to be resolved manually before the
-    -- merge operation is successful.
-    conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
     -- | The name of the repository that contains the commits about which you
     -- want to get merge options.
     repositoryName :: Prelude.Text,
@@ -88,16 +88,16 @@ data GetMergeOptions = GetMergeOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'conflictResolutionStrategy', 'getMergeOptions_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
+-- attempt automatically merging two versions of a file. The default is
+-- NONE, which requires any conflicts to be resolved manually before the
+-- merge operation is successful.
+--
 -- 'conflictDetailLevel', 'getMergeOptions_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
 -- file has differences in both branches. If LINE_LEVEL is specified, a
 -- conflict is considered not mergeable if the same file in both branches
 -- has differences on the same line.
---
--- 'conflictResolutionStrategy', 'getMergeOptions_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
--- attempt automatically merging two versions of a file. The default is
--- NONE, which requires any conflicts to be resolved manually before the
--- merge operation is successful.
 --
 -- 'repositoryName', 'getMergeOptions_repositoryName' - The name of the repository that contains the commits about which you
 -- want to get merge options.
@@ -120,14 +120,21 @@ newGetMergeOptions
   pSourceCommitSpecifier_
   pDestinationCommitSpecifier_ =
     GetMergeOptions'
-      { conflictDetailLevel =
+      { conflictResolutionStrategy =
           Prelude.Nothing,
-        conflictResolutionStrategy = Prelude.Nothing,
+        conflictDetailLevel = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         sourceCommitSpecifier = pSourceCommitSpecifier_,
         destinationCommitSpecifier =
           pDestinationCommitSpecifier_
       }
+
+-- | Specifies which branch to use when resolving conflicts, or whether to
+-- attempt automatically merging two versions of a file. The default is
+-- NONE, which requires any conflicts to be resolved manually before the
+-- merge operation is successful.
+getMergeOptions_conflictResolutionStrategy :: Lens.Lens' GetMergeOptions (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
+getMergeOptions_conflictResolutionStrategy = Lens.lens (\GetMergeOptions' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@GetMergeOptions' {} a -> s {conflictResolutionStrategy = a} :: GetMergeOptions)
 
 -- | The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
@@ -136,13 +143,6 @@ newGetMergeOptions
 -- has differences on the same line.
 getMergeOptions_conflictDetailLevel :: Lens.Lens' GetMergeOptions (Prelude.Maybe ConflictDetailLevelTypeEnum)
 getMergeOptions_conflictDetailLevel = Lens.lens (\GetMergeOptions' {conflictDetailLevel} -> conflictDetailLevel) (\s@GetMergeOptions' {} a -> s {conflictDetailLevel = a} :: GetMergeOptions)
-
--- | Specifies which branch to use when resolving conflicts, or whether to
--- attempt automatically merging two versions of a file. The default is
--- NONE, which requires any conflicts to be resolved manually before the
--- merge operation is successful.
-getMergeOptions_conflictResolutionStrategy :: Lens.Lens' GetMergeOptions (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
-getMergeOptions_conflictResolutionStrategy = Lens.lens (\GetMergeOptions' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@GetMergeOptions' {} a -> s {conflictResolutionStrategy = a} :: GetMergeOptions)
 
 -- | The name of the repository that contains the commits about which you
 -- want to get merge options.
@@ -177,16 +177,17 @@ instance Core.AWSRequest GetMergeOptions where
 
 instance Prelude.Hashable GetMergeOptions where
   hashWithSalt _salt GetMergeOptions' {..} =
-    _salt `Prelude.hashWithSalt` conflictDetailLevel
+    _salt
       `Prelude.hashWithSalt` conflictResolutionStrategy
+      `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` sourceCommitSpecifier
       `Prelude.hashWithSalt` destinationCommitSpecifier
 
 instance Prelude.NFData GetMergeOptions where
   rnf GetMergeOptions' {..} =
-    Prelude.rnf conflictDetailLevel
-      `Prelude.seq` Prelude.rnf conflictResolutionStrategy
+    Prelude.rnf conflictResolutionStrategy
+      `Prelude.seq` Prelude.rnf conflictDetailLevel
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf sourceCommitSpecifier
       `Prelude.seq` Prelude.rnf destinationCommitSpecifier
@@ -210,10 +211,10 @@ instance Core.ToJSON GetMergeOptions where
   toJSON GetMergeOptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("conflictDetailLevel" Core..=)
-              Prelude.<$> conflictDetailLevel,
-            ("conflictResolutionStrategy" Core..=)
+          [ ("conflictResolutionStrategy" Core..=)
               Prelude.<$> conflictResolutionStrategy,
+            ("conflictDetailLevel" Core..=)
+              Prelude.<$> conflictDetailLevel,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),
             Prelude.Just

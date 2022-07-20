@@ -35,10 +35,10 @@ module Amazonka.ECR.GetLifecyclePolicy
     newGetLifecyclePolicyResponse,
 
     -- * Response Lenses
-    getLifecyclePolicyResponse_registryId,
     getLifecyclePolicyResponse_lastEvaluatedAt,
-    getLifecyclePolicyResponse_lifecyclePolicyText,
     getLifecyclePolicyResponse_repositoryName,
+    getLifecyclePolicyResponse_registryId,
+    getLifecyclePolicyResponse_lifecyclePolicyText,
     getLifecyclePolicyResponse_httpStatus,
   )
 where
@@ -103,10 +103,10 @@ instance Core.AWSRequest GetLifecyclePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetLifecyclePolicyResponse'
-            Prelude.<$> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "lastEvaluatedAt")
-            Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<$> (x Core..?> "lastEvaluatedAt")
             Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "lifecyclePolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,14 +153,14 @@ instance Core.ToQuery GetLifecyclePolicy where
 
 -- | /See:/ 'newGetLifecyclePolicyResponse' smart constructor.
 data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
-  { -- | The registry ID associated with the request.
-    registryId :: Prelude.Maybe Prelude.Text,
-    -- | The time stamp of the last time that the lifecycle policy was run.
+  { -- | The time stamp of the last time that the lifecycle policy was run.
     lastEvaluatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The JSON lifecycle policy text.
-    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
     -- | The repository name associated with the request.
     repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The registry ID associated with the request.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The JSON lifecycle policy text.
+    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,13 +174,13 @@ data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'getLifecyclePolicyResponse_registryId' - The registry ID associated with the request.
---
 -- 'lastEvaluatedAt', 'getLifecyclePolicyResponse_lastEvaluatedAt' - The time stamp of the last time that the lifecycle policy was run.
 --
--- 'lifecyclePolicyText', 'getLifecyclePolicyResponse_lifecyclePolicyText' - The JSON lifecycle policy text.
---
 -- 'repositoryName', 'getLifecyclePolicyResponse_repositoryName' - The repository name associated with the request.
+--
+-- 'registryId', 'getLifecyclePolicyResponse_registryId' - The registry ID associated with the request.
+--
+-- 'lifecyclePolicyText', 'getLifecyclePolicyResponse_lifecyclePolicyText' - The JSON lifecycle policy text.
 --
 -- 'httpStatus', 'getLifecyclePolicyResponse_httpStatus' - The response's http status code.
 newGetLifecyclePolicyResponse ::
@@ -189,29 +189,29 @@ newGetLifecyclePolicyResponse ::
   GetLifecyclePolicyResponse
 newGetLifecyclePolicyResponse pHttpStatus_ =
   GetLifecyclePolicyResponse'
-    { registryId =
+    { lastEvaluatedAt =
         Prelude.Nothing,
-      lastEvaluatedAt = Prelude.Nothing,
-      lifecyclePolicyText = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      lifecyclePolicyText = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The registry ID associated with the request.
-getLifecyclePolicyResponse_registryId :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
-getLifecyclePolicyResponse_registryId = Lens.lens (\GetLifecyclePolicyResponse' {registryId} -> registryId) (\s@GetLifecyclePolicyResponse' {} a -> s {registryId = a} :: GetLifecyclePolicyResponse)
 
 -- | The time stamp of the last time that the lifecycle policy was run.
 getLifecyclePolicyResponse_lastEvaluatedAt :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.UTCTime)
 getLifecyclePolicyResponse_lastEvaluatedAt = Lens.lens (\GetLifecyclePolicyResponse' {lastEvaluatedAt} -> lastEvaluatedAt) (\s@GetLifecyclePolicyResponse' {} a -> s {lastEvaluatedAt = a} :: GetLifecyclePolicyResponse) Prelude.. Lens.mapping Core._Time
 
--- | The JSON lifecycle policy text.
-getLifecyclePolicyResponse_lifecyclePolicyText :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
-getLifecyclePolicyResponse_lifecyclePolicyText = Lens.lens (\GetLifecyclePolicyResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@GetLifecyclePolicyResponse' {} a -> s {lifecyclePolicyText = a} :: GetLifecyclePolicyResponse)
-
 -- | The repository name associated with the request.
 getLifecyclePolicyResponse_repositoryName :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
 getLifecyclePolicyResponse_repositoryName = Lens.lens (\GetLifecyclePolicyResponse' {repositoryName} -> repositoryName) (\s@GetLifecyclePolicyResponse' {} a -> s {repositoryName = a} :: GetLifecyclePolicyResponse)
+
+-- | The registry ID associated with the request.
+getLifecyclePolicyResponse_registryId :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
+getLifecyclePolicyResponse_registryId = Lens.lens (\GetLifecyclePolicyResponse' {registryId} -> registryId) (\s@GetLifecyclePolicyResponse' {} a -> s {registryId = a} :: GetLifecyclePolicyResponse)
+
+-- | The JSON lifecycle policy text.
+getLifecyclePolicyResponse_lifecyclePolicyText :: Lens.Lens' GetLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
+getLifecyclePolicyResponse_lifecyclePolicyText = Lens.lens (\GetLifecyclePolicyResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@GetLifecyclePolicyResponse' {} a -> s {lifecyclePolicyText = a} :: GetLifecyclePolicyResponse)
 
 -- | The response's http status code.
 getLifecyclePolicyResponse_httpStatus :: Lens.Lens' GetLifecyclePolicyResponse Prelude.Int
@@ -219,8 +219,8 @@ getLifecyclePolicyResponse_httpStatus = Lens.lens (\GetLifecyclePolicyResponse' 
 
 instance Prelude.NFData GetLifecyclePolicyResponse where
   rnf GetLifecyclePolicyResponse' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf lastEvaluatedAt
-      `Prelude.seq` Prelude.rnf lifecyclePolicyText
+    Prelude.rnf lastEvaluatedAt
       `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf lifecyclePolicyText
       `Prelude.seq` Prelude.rnf httpStatus

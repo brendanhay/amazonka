@@ -34,14 +34,11 @@ module Amazonka.Transfer
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
@@ -49,14 +46,17 @@ module Amazonka.Transfer
     -- ** InternalServiceError
     _InternalServiceError,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
     -- ** ResourceExistsException
     _ResourceExistsException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -64,89 +64,11 @@ module Amazonka.Transfer
     -- * Operations
     -- $operations
 
-    -- ** UpdateServer
-    UpdateServer (UpdateServer'),
-    newUpdateServer,
-    UpdateServerResponse (UpdateServerResponse'),
-    newUpdateServerResponse,
-
-    -- ** DeleteServer
-    DeleteServer (DeleteServer'),
-    newDeleteServer,
-    DeleteServerResponse (DeleteServerResponse'),
-    newDeleteServerResponse,
-
-    -- ** CreateWorkflow
-    CreateWorkflow (CreateWorkflow'),
-    newCreateWorkflow,
-    CreateWorkflowResponse (CreateWorkflowResponse'),
-    newCreateWorkflowResponse,
-
-    -- ** DeleteSshPublicKey
-    DeleteSshPublicKey (DeleteSshPublicKey'),
-    newDeleteSshPublicKey,
-    DeleteSshPublicKeyResponse (DeleteSshPublicKeyResponse'),
-    newDeleteSshPublicKeyResponse,
-
-    -- ** ListSecurityPolicies
-    ListSecurityPolicies (ListSecurityPolicies'),
-    newListSecurityPolicies,
-    ListSecurityPoliciesResponse (ListSecurityPoliciesResponse'),
-    newListSecurityPoliciesResponse,
-
-    -- ** DeleteWorkflow
-    DeleteWorkflow (DeleteWorkflow'),
-    newDeleteWorkflow,
-    DeleteWorkflowResponse (DeleteWorkflowResponse'),
-    newDeleteWorkflowResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** SendWorkflowStepState
-    SendWorkflowStepState (SendWorkflowStepState'),
-    newSendWorkflowStepState,
-    SendWorkflowStepStateResponse (SendWorkflowStepStateResponse'),
-    newSendWorkflowStepStateResponse,
-
-    -- ** StopServer
-    StopServer (StopServer'),
-    newStopServer,
-    StopServerResponse (StopServerResponse'),
-    newStopServerResponse,
-
-    -- ** ListUsers
-    ListUsers (ListUsers'),
-    newListUsers,
-    ListUsersResponse (ListUsersResponse'),
-    newListUsersResponse,
-
-    -- ** DescribeServer
-    DescribeServer (DescribeServer'),
-    newDescribeServer,
-    DescribeServerResponse (DescribeServerResponse'),
-    newDescribeServerResponse,
-
-    -- ** DescribeSecurityPolicy
-    DescribeSecurityPolicy (DescribeSecurityPolicy'),
-    newDescribeSecurityPolicy,
-    DescribeSecurityPolicyResponse (DescribeSecurityPolicyResponse'),
-    newDescribeSecurityPolicyResponse,
-
-    -- ** ImportSshPublicKey
-    ImportSshPublicKey (ImportSshPublicKey'),
-    newImportSshPublicKey,
-    ImportSshPublicKeyResponse (ImportSshPublicKeyResponse'),
-    newImportSshPublicKeyResponse,
-
-    -- ** ListExecutions
-    ListExecutions (ListExecutions'),
-    newListExecutions,
-    ListExecutionsResponse (ListExecutionsResponse'),
-    newListExecutionsResponse,
+    -- ** CreateAccess
+    CreateAccess (CreateAccess'),
+    newCreateAccess,
+    CreateAccessResponse (CreateAccessResponse'),
+    newCreateAccessResponse,
 
     -- ** CreateServer
     CreateServer (CreateServer'),
@@ -154,53 +76,17 @@ module Amazonka.Transfer
     CreateServerResponse (CreateServerResponse'),
     newCreateServerResponse,
 
-    -- ** TestIdentityProvider
-    TestIdentityProvider (TestIdentityProvider'),
-    newTestIdentityProvider,
-    TestIdentityProviderResponse (TestIdentityProviderResponse'),
-    newTestIdentityProviderResponse,
-
-    -- ** ListServers (Paginated)
-    ListServers (ListServers'),
-    newListServers,
-    ListServersResponse (ListServersResponse'),
-    newListServersResponse,
-
-    -- ** DescribeUser
-    DescribeUser (DescribeUser'),
-    newDescribeUser,
-    DescribeUserResponse (DescribeUserResponse'),
-    newDescribeUserResponse,
-
-    -- ** DescribeExecution
-    DescribeExecution (DescribeExecution'),
-    newDescribeExecution,
-    DescribeExecutionResponse (DescribeExecutionResponse'),
-    newDescribeExecutionResponse,
-
-    -- ** ListWorkflows
-    ListWorkflows (ListWorkflows'),
-    newListWorkflows,
-    ListWorkflowsResponse (ListWorkflowsResponse'),
-    newListWorkflowsResponse,
-
     -- ** CreateUser
     CreateUser (CreateUser'),
     newCreateUser,
     CreateUserResponse (CreateUserResponse'),
     newCreateUserResponse,
 
-    -- ** StartServer
-    StartServer (StartServer'),
-    newStartServer,
-    StartServerResponse (StartServerResponse'),
-    newStartServerResponse,
-
-    -- ** UpdateAccess
-    UpdateAccess (UpdateAccess'),
-    newUpdateAccess,
-    UpdateAccessResponse (UpdateAccessResponse'),
-    newUpdateAccessResponse,
+    -- ** CreateWorkflow
+    CreateWorkflow (CreateWorkflow'),
+    newCreateWorkflow,
+    CreateWorkflowResponse (CreateWorkflowResponse'),
+    newCreateWorkflowResponse,
 
     -- ** DeleteAccess
     DeleteAccess (DeleteAccess'),
@@ -208,23 +94,17 @@ module Amazonka.Transfer
     DeleteAccessResponse (DeleteAccessResponse'),
     newDeleteAccessResponse,
 
-    -- ** CreateAccess
-    CreateAccess (CreateAccess'),
-    newCreateAccess,
-    CreateAccessResponse (CreateAccessResponse'),
-    newCreateAccessResponse,
+    -- ** DeleteServer
+    DeleteServer (DeleteServer'),
+    newDeleteServer,
+    DeleteServerResponse (DeleteServerResponse'),
+    newDeleteServerResponse,
 
-    -- ** ListAccesses
-    ListAccesses (ListAccesses'),
-    newListAccesses,
-    ListAccessesResponse (ListAccessesResponse'),
-    newListAccessesResponse,
-
-    -- ** UpdateUser
-    UpdateUser (UpdateUser'),
-    newUpdateUser,
-    UpdateUserResponse (UpdateUserResponse'),
-    newUpdateUserResponse,
+    -- ** DeleteSshPublicKey
+    DeleteSshPublicKey (DeleteSshPublicKey'),
+    newDeleteSshPublicKey,
+    DeleteSshPublicKeyResponse (DeleteSshPublicKeyResponse'),
+    newDeleteSshPublicKeyResponse,
 
     -- ** DeleteUser
     DeleteUser (DeleteUser'),
@@ -232,17 +112,41 @@ module Amazonka.Transfer
     DeleteUserResponse (DeleteUserResponse'),
     newDeleteUserResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DeleteWorkflow
+    DeleteWorkflow (DeleteWorkflow'),
+    newDeleteWorkflow,
+    DeleteWorkflowResponse (DeleteWorkflowResponse'),
+    newDeleteWorkflowResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** DescribeAccess
+    DescribeAccess (DescribeAccess'),
+    newDescribeAccess,
+    DescribeAccessResponse (DescribeAccessResponse'),
+    newDescribeAccessResponse,
+
+    -- ** DescribeExecution
+    DescribeExecution (DescribeExecution'),
+    newDescribeExecution,
+    DescribeExecutionResponse (DescribeExecutionResponse'),
+    newDescribeExecutionResponse,
+
+    -- ** DescribeSecurityPolicy
+    DescribeSecurityPolicy (DescribeSecurityPolicy'),
+    newDescribeSecurityPolicy,
+    DescribeSecurityPolicyResponse (DescribeSecurityPolicyResponse'),
+    newDescribeSecurityPolicyResponse,
+
+    -- ** DescribeServer
+    DescribeServer (DescribeServer'),
+    newDescribeServer,
+    DescribeServerResponse (DescribeServerResponse'),
+    newDescribeServerResponse,
+
+    -- ** DescribeUser
+    DescribeUser (DescribeUser'),
+    newDescribeUser,
+    DescribeUserResponse (DescribeUserResponse'),
+    newDescribeUserResponse,
 
     -- ** DescribeWorkflow
     DescribeWorkflow (DescribeWorkflow'),
@@ -250,11 +154,107 @@ module Amazonka.Transfer
     DescribeWorkflowResponse (DescribeWorkflowResponse'),
     newDescribeWorkflowResponse,
 
-    -- ** DescribeAccess
-    DescribeAccess (DescribeAccess'),
-    newDescribeAccess,
-    DescribeAccessResponse (DescribeAccessResponse'),
-    newDescribeAccessResponse,
+    -- ** ImportSshPublicKey
+    ImportSshPublicKey (ImportSshPublicKey'),
+    newImportSshPublicKey,
+    ImportSshPublicKeyResponse (ImportSshPublicKeyResponse'),
+    newImportSshPublicKeyResponse,
+
+    -- ** ListAccesses
+    ListAccesses (ListAccesses'),
+    newListAccesses,
+    ListAccessesResponse (ListAccessesResponse'),
+    newListAccessesResponse,
+
+    -- ** ListExecutions
+    ListExecutions (ListExecutions'),
+    newListExecutions,
+    ListExecutionsResponse (ListExecutionsResponse'),
+    newListExecutionsResponse,
+
+    -- ** ListSecurityPolicies
+    ListSecurityPolicies (ListSecurityPolicies'),
+    newListSecurityPolicies,
+    ListSecurityPoliciesResponse (ListSecurityPoliciesResponse'),
+    newListSecurityPoliciesResponse,
+
+    -- ** ListServers (Paginated)
+    ListServers (ListServers'),
+    newListServers,
+    ListServersResponse (ListServersResponse'),
+    newListServersResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListUsers
+    ListUsers (ListUsers'),
+    newListUsers,
+    ListUsersResponse (ListUsersResponse'),
+    newListUsersResponse,
+
+    -- ** ListWorkflows
+    ListWorkflows (ListWorkflows'),
+    newListWorkflows,
+    ListWorkflowsResponse (ListWorkflowsResponse'),
+    newListWorkflowsResponse,
+
+    -- ** SendWorkflowStepState
+    SendWorkflowStepState (SendWorkflowStepState'),
+    newSendWorkflowStepState,
+    SendWorkflowStepStateResponse (SendWorkflowStepStateResponse'),
+    newSendWorkflowStepStateResponse,
+
+    -- ** StartServer
+    StartServer (StartServer'),
+    newStartServer,
+    StartServerResponse (StartServerResponse'),
+    newStartServerResponse,
+
+    -- ** StopServer
+    StopServer (StopServer'),
+    newStopServer,
+    StopServerResponse (StopServerResponse'),
+    newStopServerResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** TestIdentityProvider
+    TestIdentityProvider (TestIdentityProvider'),
+    newTestIdentityProvider,
+    TestIdentityProviderResponse (TestIdentityProviderResponse'),
+    newTestIdentityProviderResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateAccess
+    UpdateAccess (UpdateAccess'),
+    newUpdateAccess,
+    UpdateAccessResponse (UpdateAccessResponse'),
+    newUpdateAccessResponse,
+
+    -- ** UpdateServer
+    UpdateServer (UpdateServer'),
+    newUpdateServer,
+    UpdateServerResponse (UpdateServerResponse'),
+    newUpdateServerResponse,
+
+    -- ** UpdateUser
+    UpdateUser (UpdateUser'),
+    newUpdateUser,
+    UpdateUserResponse (UpdateUserResponse'),
+    newUpdateUserResponse,
 
     -- * Types
 

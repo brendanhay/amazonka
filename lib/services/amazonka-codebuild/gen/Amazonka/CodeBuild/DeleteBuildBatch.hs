@@ -34,8 +34,8 @@ module Amazonka.CodeBuild.DeleteBuildBatch
     newDeleteBuildBatchResponse,
 
     -- * Response Lenses
-    deleteBuildBatchResponse_buildsNotDeleted,
     deleteBuildBatchResponse_buildsDeleted,
+    deleteBuildBatchResponse_buildsNotDeleted,
     deleteBuildBatchResponse_statusCode,
     deleteBuildBatchResponse_httpStatus,
   )
@@ -84,10 +84,10 @@ instance Core.AWSRequest DeleteBuildBatch where
     Response.receiveJSON
       ( \s h x ->
           DeleteBuildBatchResponse'
-            Prelude.<$> ( x Core..?> "buildsNotDeleted"
+            Prelude.<$> (x Core..?> "buildsDeleted")
+            Prelude.<*> ( x Core..?> "buildsNotDeleted"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "buildsDeleted")
             Prelude.<*> (x Core..?> "statusCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -127,12 +127,12 @@ instance Core.ToQuery DeleteBuildBatch where
 
 -- | /See:/ 'newDeleteBuildBatchResponse' smart constructor.
 data DeleteBuildBatchResponse = DeleteBuildBatchResponse'
-  { -- | An array of @BuildNotDeleted@ objects that specify the builds that could
-    -- not be deleted.
-    buildsNotDeleted :: Prelude.Maybe [BuildNotDeleted],
-    -- | An array of strings that contain the identifiers of the builds that were
+  { -- | An array of strings that contain the identifiers of the builds that were
     -- deleted.
     buildsDeleted :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | An array of @BuildNotDeleted@ objects that specify the builds that could
+    -- not be deleted.
+    buildsNotDeleted :: Prelude.Maybe [BuildNotDeleted],
     -- | The status code.
     statusCode :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -148,11 +148,11 @@ data DeleteBuildBatchResponse = DeleteBuildBatchResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'buildsNotDeleted', 'deleteBuildBatchResponse_buildsNotDeleted' - An array of @BuildNotDeleted@ objects that specify the builds that could
--- not be deleted.
---
 -- 'buildsDeleted', 'deleteBuildBatchResponse_buildsDeleted' - An array of strings that contain the identifiers of the builds that were
 -- deleted.
+--
+-- 'buildsNotDeleted', 'deleteBuildBatchResponse_buildsNotDeleted' - An array of @BuildNotDeleted@ objects that specify the builds that could
+-- not be deleted.
 --
 -- 'statusCode', 'deleteBuildBatchResponse_statusCode' - The status code.
 --
@@ -163,22 +163,22 @@ newDeleteBuildBatchResponse ::
   DeleteBuildBatchResponse
 newDeleteBuildBatchResponse pHttpStatus_ =
   DeleteBuildBatchResponse'
-    { buildsNotDeleted =
+    { buildsDeleted =
         Prelude.Nothing,
-      buildsDeleted = Prelude.Nothing,
+      buildsNotDeleted = Prelude.Nothing,
       statusCode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of @BuildNotDeleted@ objects that specify the builds that could
--- not be deleted.
-deleteBuildBatchResponse_buildsNotDeleted :: Lens.Lens' DeleteBuildBatchResponse (Prelude.Maybe [BuildNotDeleted])
-deleteBuildBatchResponse_buildsNotDeleted = Lens.lens (\DeleteBuildBatchResponse' {buildsNotDeleted} -> buildsNotDeleted) (\s@DeleteBuildBatchResponse' {} a -> s {buildsNotDeleted = a} :: DeleteBuildBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of strings that contain the identifiers of the builds that were
 -- deleted.
 deleteBuildBatchResponse_buildsDeleted :: Lens.Lens' DeleteBuildBatchResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 deleteBuildBatchResponse_buildsDeleted = Lens.lens (\DeleteBuildBatchResponse' {buildsDeleted} -> buildsDeleted) (\s@DeleteBuildBatchResponse' {} a -> s {buildsDeleted = a} :: DeleteBuildBatchResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of @BuildNotDeleted@ objects that specify the builds that could
+-- not be deleted.
+deleteBuildBatchResponse_buildsNotDeleted :: Lens.Lens' DeleteBuildBatchResponse (Prelude.Maybe [BuildNotDeleted])
+deleteBuildBatchResponse_buildsNotDeleted = Lens.lens (\DeleteBuildBatchResponse' {buildsNotDeleted} -> buildsNotDeleted) (\s@DeleteBuildBatchResponse' {} a -> s {buildsNotDeleted = a} :: DeleteBuildBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status code.
 deleteBuildBatchResponse_statusCode :: Lens.Lens' DeleteBuildBatchResponse (Prelude.Maybe Prelude.Text)
@@ -190,7 +190,7 @@ deleteBuildBatchResponse_httpStatus = Lens.lens (\DeleteBuildBatchResponse' {htt
 
 instance Prelude.NFData DeleteBuildBatchResponse where
   rnf DeleteBuildBatchResponse' {..} =
-    Prelude.rnf buildsNotDeleted
-      `Prelude.seq` Prelude.rnf buildsDeleted
+    Prelude.rnf buildsDeleted
+      `Prelude.seq` Prelude.rnf buildsNotDeleted
       `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf httpStatus

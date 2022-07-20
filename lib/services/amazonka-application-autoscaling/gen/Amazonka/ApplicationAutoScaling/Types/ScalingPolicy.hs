@@ -38,12 +38,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-  { -- | A target tracking scaling policy.
-    targetTrackingScalingPolicyConfiguration :: Prelude.Maybe TargetTrackingScalingPolicyConfiguration,
+  { -- | The CloudWatch alarms associated with the scaling policy.
+    alarms :: Prelude.Maybe [Alarm],
     -- | A step scaling policy.
     stepScalingPolicyConfiguration :: Prelude.Maybe StepScalingPolicyConfiguration,
-    -- | The CloudWatch alarms associated with the scaling policy.
-    alarms :: Prelude.Maybe [Alarm],
+    -- | A target tracking scaling policy.
+    targetTrackingScalingPolicyConfiguration :: Prelude.Maybe TargetTrackingScalingPolicyConfiguration,
     -- | The Amazon Resource Name (ARN) of the scaling policy.
     policyARN :: Prelude.Text,
     -- | The name of the scaling policy.
@@ -200,11 +200,11 @@ data ScalingPolicy = ScalingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetTrackingScalingPolicyConfiguration', 'scalingPolicy_targetTrackingScalingPolicyConfiguration' - A target tracking scaling policy.
+-- 'alarms', 'scalingPolicy_alarms' - The CloudWatch alarms associated with the scaling policy.
 --
 -- 'stepScalingPolicyConfiguration', 'scalingPolicy_stepScalingPolicyConfiguration' - A step scaling policy.
 --
--- 'alarms', 'scalingPolicy_alarms' - The CloudWatch alarms associated with the scaling policy.
+-- 'targetTrackingScalingPolicyConfiguration', 'scalingPolicy_targetTrackingScalingPolicyConfiguration' - A target tracking scaling policy.
 --
 -- 'policyARN', 'scalingPolicy_policyARN' - The Amazon Resource Name (ARN) of the scaling policy.
 --
@@ -375,10 +375,10 @@ newScalingPolicy
   pPolicyType_
   pCreationTime_ =
     ScalingPolicy'
-      { targetTrackingScalingPolicyConfiguration =
-          Prelude.Nothing,
+      { alarms = Prelude.Nothing,
         stepScalingPolicyConfiguration = Prelude.Nothing,
-        alarms = Prelude.Nothing,
+        targetTrackingScalingPolicyConfiguration =
+          Prelude.Nothing,
         policyARN = pPolicyARN_,
         policyName = pPolicyName_,
         serviceNamespace = pServiceNamespace_,
@@ -388,17 +388,17 @@ newScalingPolicy
         creationTime = Core._Time Lens.# pCreationTime_
       }
 
--- | A target tracking scaling policy.
-scalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe TargetTrackingScalingPolicyConfiguration)
-scalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\ScalingPolicy' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@ScalingPolicy' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: ScalingPolicy)
+-- | The CloudWatch alarms associated with the scaling policy.
+scalingPolicy_alarms :: Lens.Lens' ScalingPolicy (Prelude.Maybe [Alarm])
+scalingPolicy_alarms = Lens.lens (\ScalingPolicy' {alarms} -> alarms) (\s@ScalingPolicy' {} a -> s {alarms = a} :: ScalingPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | A step scaling policy.
 scalingPolicy_stepScalingPolicyConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe StepScalingPolicyConfiguration)
 scalingPolicy_stepScalingPolicyConfiguration = Lens.lens (\ScalingPolicy' {stepScalingPolicyConfiguration} -> stepScalingPolicyConfiguration) (\s@ScalingPolicy' {} a -> s {stepScalingPolicyConfiguration = a} :: ScalingPolicy)
 
--- | The CloudWatch alarms associated with the scaling policy.
-scalingPolicy_alarms :: Lens.Lens' ScalingPolicy (Prelude.Maybe [Alarm])
-scalingPolicy_alarms = Lens.lens (\ScalingPolicy' {alarms} -> alarms) (\s@ScalingPolicy' {} a -> s {alarms = a} :: ScalingPolicy) Prelude.. Lens.mapping Lens.coerced
+-- | A target tracking scaling policy.
+scalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe TargetTrackingScalingPolicyConfiguration)
+scalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\ScalingPolicy' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@ScalingPolicy' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: ScalingPolicy)
 
 -- | The Amazon Resource Name (ARN) of the scaling policy.
 scalingPolicy_policyARN :: Lens.Lens' ScalingPolicy Prelude.Text
@@ -565,11 +565,11 @@ instance Core.FromJSON ScalingPolicy where
       "ScalingPolicy"
       ( \x ->
           ScalingPolicy'
-            Prelude.<$> ( x
+            Prelude.<$> (x Core..:? "Alarms" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "StepScalingPolicyConfiguration")
+            Prelude.<*> ( x
                             Core..:? "TargetTrackingScalingPolicyConfiguration"
                         )
-            Prelude.<*> (x Core..:? "StepScalingPolicyConfiguration")
-            Prelude.<*> (x Core..:? "Alarms" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "PolicyARN")
             Prelude.<*> (x Core..: "PolicyName")
             Prelude.<*> (x Core..: "ServiceNamespace")
@@ -581,10 +581,9 @@ instance Core.FromJSON ScalingPolicy where
 
 instance Prelude.Hashable ScalingPolicy where
   hashWithSalt _salt ScalingPolicy' {..} =
-    _salt
-      `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
+    _salt `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` stepScalingPolicyConfiguration
-      `Prelude.hashWithSalt` alarms
+      `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
       `Prelude.hashWithSalt` policyARN
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` serviceNamespace
@@ -595,10 +594,9 @@ instance Prelude.Hashable ScalingPolicy where
 
 instance Prelude.NFData ScalingPolicy where
   rnf ScalingPolicy' {..} =
-    Prelude.rnf
-      targetTrackingScalingPolicyConfiguration
+    Prelude.rnf alarms
       `Prelude.seq` Prelude.rnf stepScalingPolicyConfiguration
-      `Prelude.seq` Prelude.rnf alarms
+      `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
       `Prelude.seq` Prelude.rnf policyARN
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf serviceNamespace

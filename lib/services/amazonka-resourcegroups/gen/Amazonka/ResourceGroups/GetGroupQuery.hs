@@ -35,8 +35,8 @@ module Amazonka.ResourceGroups.GetGroupQuery
     newGetGroupQuery,
 
     -- * Request Lenses
-    getGroupQuery_group,
     getGroupQuery_groupName,
+    getGroupQuery_group,
 
     -- * Destructuring the Response
     GetGroupQueryResponse (..),
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetGroupQuery' smart constructor.
 data GetGroupQuery = GetGroupQuery'
-  { -- | The name or the ARN of the resource group to query.
-    group' :: Prelude.Maybe Prelude.Text,
-    -- | Don\'t use this parameter. Use @Group@ instead.
-    groupName :: Prelude.Maybe Prelude.Text
+  { -- | Don\'t use this parameter. Use @Group@ instead.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The name or the ARN of the resource group to query.
+    group' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,24 +72,24 @@ data GetGroupQuery = GetGroupQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'getGroupQuery_group' - The name or the ARN of the resource group to query.
---
 -- 'groupName', 'getGroupQuery_groupName' - Don\'t use this parameter. Use @Group@ instead.
+--
+-- 'group'', 'getGroupQuery_group' - The name or the ARN of the resource group to query.
 newGetGroupQuery ::
   GetGroupQuery
 newGetGroupQuery =
   GetGroupQuery'
-    { group' = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { groupName = Prelude.Nothing,
+      group' = Prelude.Nothing
     }
-
--- | The name or the ARN of the resource group to query.
-getGroupQuery_group :: Lens.Lens' GetGroupQuery (Prelude.Maybe Prelude.Text)
-getGroupQuery_group = Lens.lens (\GetGroupQuery' {group'} -> group') (\s@GetGroupQuery' {} a -> s {group' = a} :: GetGroupQuery)
 
 -- | Don\'t use this parameter. Use @Group@ instead.
 getGroupQuery_groupName :: Lens.Lens' GetGroupQuery (Prelude.Maybe Prelude.Text)
 getGroupQuery_groupName = Lens.lens (\GetGroupQuery' {groupName} -> groupName) (\s@GetGroupQuery' {} a -> s {groupName = a} :: GetGroupQuery)
+
+-- | The name or the ARN of the resource group to query.
+getGroupQuery_group :: Lens.Lens' GetGroupQuery (Prelude.Maybe Prelude.Text)
+getGroupQuery_group = Lens.lens (\GetGroupQuery' {group'} -> group') (\s@GetGroupQuery' {} a -> s {group' = a} :: GetGroupQuery)
 
 instance Core.AWSRequest GetGroupQuery where
   type
@@ -106,13 +106,13 @@ instance Core.AWSRequest GetGroupQuery where
 
 instance Prelude.Hashable GetGroupQuery where
   hashWithSalt _salt GetGroupQuery' {..} =
-    _salt `Prelude.hashWithSalt` group'
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData GetGroupQuery where
   rnf GetGroupQuery' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToHeaders GetGroupQuery where
   toHeaders = Prelude.const Prelude.mempty
@@ -121,8 +121,8 @@ instance Core.ToJSON GetGroupQuery where
   toJSON GetGroupQuery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Group" Core..=) Prelude.<$> group',
-            ("GroupName" Core..=) Prelude.<$> groupName
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("Group" Core..=) Prelude.<$> group'
           ]
       )
 

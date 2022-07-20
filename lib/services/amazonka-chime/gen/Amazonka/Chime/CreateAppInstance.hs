@@ -29,8 +29,8 @@ module Amazonka.Chime.CreateAppInstance
     newCreateAppInstance,
 
     -- * Request Lenses
-    createAppInstance_metadata,
     createAppInstance_tags,
+    createAppInstance_metadata,
     createAppInstance_name,
     createAppInstance_clientRequestToken,
 
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAppInstance' smart constructor.
 data CreateAppInstance = CreateAppInstance'
-  { -- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Tags assigned to the @AppInstanceUser@.
+  { -- | Tags assigned to the @AppInstanceUser@.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
+    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the @AppInstance@.
     name :: Core.Sensitive Prelude.Text,
     -- | The @ClientRequestToken@ of the @AppInstance@.
@@ -72,9 +72,9 @@ data CreateAppInstance = CreateAppInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadata', 'createAppInstance_metadata' - The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
---
 -- 'tags', 'createAppInstance_tags' - Tags assigned to the @AppInstanceUser@.
+--
+-- 'metadata', 'createAppInstance_metadata' - The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
 --
 -- 'name', 'createAppInstance_name' - The name of the @AppInstance@.
 --
@@ -87,20 +87,20 @@ newCreateAppInstance ::
   CreateAppInstance
 newCreateAppInstance pName_ pClientRequestToken_ =
   CreateAppInstance'
-    { metadata = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       name = Core._Sensitive Lens.# pName_,
       clientRequestToken =
         Core._Sensitive Lens.# pClientRequestToken_
     }
 
--- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
-createAppInstance_metadata :: Lens.Lens' CreateAppInstance (Prelude.Maybe Prelude.Text)
-createAppInstance_metadata = Lens.lens (\CreateAppInstance' {metadata} -> metadata) (\s@CreateAppInstance' {} a -> s {metadata = a} :: CreateAppInstance) Prelude.. Lens.mapping Core._Sensitive
-
 -- | Tags assigned to the @AppInstanceUser@.
 createAppInstance_tags :: Lens.Lens' CreateAppInstance (Prelude.Maybe (Prelude.NonEmpty Tag))
 createAppInstance_tags = Lens.lens (\CreateAppInstance' {tags} -> tags) (\s@CreateAppInstance' {} a -> s {tags = a} :: CreateAppInstance) Prelude.. Lens.mapping Lens.coerced
+
+-- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
+createAppInstance_metadata :: Lens.Lens' CreateAppInstance (Prelude.Maybe Prelude.Text)
+createAppInstance_metadata = Lens.lens (\CreateAppInstance' {metadata} -> metadata) (\s@CreateAppInstance' {} a -> s {metadata = a} :: CreateAppInstance) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the @AppInstance@.
 createAppInstance_name :: Lens.Lens' CreateAppInstance Prelude.Text
@@ -125,15 +125,15 @@ instance Core.AWSRequest CreateAppInstance where
 
 instance Prelude.Hashable CreateAppInstance where
   hashWithSalt _salt CreateAppInstance' {..} =
-    _salt `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData CreateAppInstance where
   rnf CreateAppInstance' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
 
@@ -144,8 +144,8 @@ instance Core.ToJSON CreateAppInstance where
   toJSON CreateAppInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Metadata" Core..=) Prelude.<$> metadata,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Metadata" Core..=) Prelude.<$> metadata,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken)

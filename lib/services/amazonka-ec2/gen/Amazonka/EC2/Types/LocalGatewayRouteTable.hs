@@ -29,10 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLocalGatewayRouteTable' smart constructor.
 data LocalGatewayRouteTable = LocalGatewayRouteTable'
-  { -- | The state of the local gateway route table.
-    state :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the local gateway route table.
-    localGatewayRouteTableArn :: Prelude.Maybe Prelude.Text,
+  { -- | The tags assigned to the local gateway route table.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the local gateway.
     localGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost.
@@ -42,8 +40,10 @@ data LocalGatewayRouteTable = LocalGatewayRouteTable'
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the local gateway route table.
     localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
-    -- | The tags assigned to the local gateway route table.
-    tags :: Prelude.Maybe [Tag]
+    -- | The state of the local gateway route table.
+    state :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the local gateway route table.
+    localGatewayRouteTableArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,9 +55,7 @@ data LocalGatewayRouteTable = LocalGatewayRouteTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'localGatewayRouteTable_state' - The state of the local gateway route table.
---
--- 'localGatewayRouteTableArn', 'localGatewayRouteTable_localGatewayRouteTableArn' - The Amazon Resource Name (ARN) of the local gateway route table.
+-- 'tags', 'localGatewayRouteTable_tags' - The tags assigned to the local gateway route table.
 --
 -- 'localGatewayId', 'localGatewayRouteTable_localGatewayId' - The ID of the local gateway.
 --
@@ -68,27 +66,25 @@ data LocalGatewayRouteTable = LocalGatewayRouteTable'
 --
 -- 'localGatewayRouteTableId', 'localGatewayRouteTable_localGatewayRouteTableId' - The ID of the local gateway route table.
 --
--- 'tags', 'localGatewayRouteTable_tags' - The tags assigned to the local gateway route table.
+-- 'state', 'localGatewayRouteTable_state' - The state of the local gateway route table.
+--
+-- 'localGatewayRouteTableArn', 'localGatewayRouteTable_localGatewayRouteTableArn' - The Amazon Resource Name (ARN) of the local gateway route table.
 newLocalGatewayRouteTable ::
   LocalGatewayRouteTable
 newLocalGatewayRouteTable =
   LocalGatewayRouteTable'
-    { state = Prelude.Nothing,
-      localGatewayRouteTableArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       localGatewayId = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       localGatewayRouteTableId = Prelude.Nothing,
-      tags = Prelude.Nothing
+      state = Prelude.Nothing,
+      localGatewayRouteTableArn = Prelude.Nothing
     }
 
--- | The state of the local gateway route table.
-localGatewayRouteTable_state :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
-localGatewayRouteTable_state = Lens.lens (\LocalGatewayRouteTable' {state} -> state) (\s@LocalGatewayRouteTable' {} a -> s {state = a} :: LocalGatewayRouteTable)
-
--- | The Amazon Resource Name (ARN) of the local gateway route table.
-localGatewayRouteTable_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
-localGatewayRouteTable_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTable' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTable' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTable)
+-- | The tags assigned to the local gateway route table.
+localGatewayRouteTable_tags :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe [Tag])
+localGatewayRouteTable_tags = Lens.lens (\LocalGatewayRouteTable' {tags} -> tags) (\s@LocalGatewayRouteTable' {} a -> s {tags = a} :: LocalGatewayRouteTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the local gateway.
 localGatewayRouteTable_localGatewayId :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
@@ -107,39 +103,43 @@ localGatewayRouteTable_ownerId = Lens.lens (\LocalGatewayRouteTable' {ownerId} -
 localGatewayRouteTable_localGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
 localGatewayRouteTable_localGatewayRouteTableId = Lens.lens (\LocalGatewayRouteTable' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@LocalGatewayRouteTable' {} a -> s {localGatewayRouteTableId = a} :: LocalGatewayRouteTable)
 
--- | The tags assigned to the local gateway route table.
-localGatewayRouteTable_tags :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe [Tag])
-localGatewayRouteTable_tags = Lens.lens (\LocalGatewayRouteTable' {tags} -> tags) (\s@LocalGatewayRouteTable' {} a -> s {tags = a} :: LocalGatewayRouteTable) Prelude.. Lens.mapping Lens.coerced
+-- | The state of the local gateway route table.
+localGatewayRouteTable_state :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
+localGatewayRouteTable_state = Lens.lens (\LocalGatewayRouteTable' {state} -> state) (\s@LocalGatewayRouteTable' {} a -> s {state = a} :: LocalGatewayRouteTable)
+
+-- | The Amazon Resource Name (ARN) of the local gateway route table.
+localGatewayRouteTable_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRouteTable (Prelude.Maybe Prelude.Text)
+localGatewayRouteTable_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRouteTable' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRouteTable' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRouteTable)
 
 instance Core.FromXML LocalGatewayRouteTable where
   parseXML x =
     LocalGatewayRouteTable'
-      Prelude.<$> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
+      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
       Prelude.<*> (x Core..@? "localGatewayId")
       Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "localGatewayRouteTableId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
-                  )
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
 
 instance Prelude.Hashable LocalGatewayRouteTable where
   hashWithSalt _salt LocalGatewayRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` localGatewayRouteTableArn
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` localGatewayId
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` localGatewayRouteTableId
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` localGatewayRouteTableArn
 
 instance Prelude.NFData LocalGatewayRouteTable where
   rnf LocalGatewayRouteTable' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf localGatewayRouteTableArn
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf localGatewayId
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableArn

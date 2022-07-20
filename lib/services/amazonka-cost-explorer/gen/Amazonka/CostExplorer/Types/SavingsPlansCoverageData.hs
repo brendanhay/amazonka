@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansCoverageData' smart constructor.
 data SavingsPlansCoverageData = SavingsPlansCoverageData'
-  { -- | The cost of your Amazon Web Services usage at the public On-Demand rate.
-    onDemandCost :: Prelude.Maybe Prelude.Text,
-    -- | The amount of your Amazon Web Services usage that is covered by a
+  { -- | The amount of your Amazon Web Services usage that is covered by a
     -- Savings Plans.
     spendCoveredBySavingsPlans :: Prelude.Maybe Prelude.Text,
     -- | The percentage of your existing Savings Plans covered usage, divided by
@@ -39,7 +37,9 @@ data SavingsPlansCoverageData = SavingsPlansCoverageData'
     coveragePercentage :: Prelude.Maybe Prelude.Text,
     -- | The total cost of your Amazon Web Services usage, regardless of your
     -- purchase option.
-    totalCost :: Prelude.Maybe Prelude.Text
+    totalCost :: Prelude.Maybe Prelude.Text,
+    -- | The cost of your Amazon Web Services usage at the public On-Demand rate.
+    onDemandCost :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,8 +51,6 @@ data SavingsPlansCoverageData = SavingsPlansCoverageData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'onDemandCost', 'savingsPlansCoverageData_onDemandCost' - The cost of your Amazon Web Services usage at the public On-Demand rate.
---
 -- 'spendCoveredBySavingsPlans', 'savingsPlansCoverageData_spendCoveredBySavingsPlans' - The amount of your Amazon Web Services usage that is covered by a
 -- Savings Plans.
 --
@@ -62,20 +60,18 @@ data SavingsPlansCoverageData = SavingsPlansCoverageData'
 --
 -- 'totalCost', 'savingsPlansCoverageData_totalCost' - The total cost of your Amazon Web Services usage, regardless of your
 -- purchase option.
+--
+-- 'onDemandCost', 'savingsPlansCoverageData_onDemandCost' - The cost of your Amazon Web Services usage at the public On-Demand rate.
 newSavingsPlansCoverageData ::
   SavingsPlansCoverageData
 newSavingsPlansCoverageData =
   SavingsPlansCoverageData'
-    { onDemandCost =
+    { spendCoveredBySavingsPlans =
         Prelude.Nothing,
-      spendCoveredBySavingsPlans = Prelude.Nothing,
       coveragePercentage = Prelude.Nothing,
-      totalCost = Prelude.Nothing
+      totalCost = Prelude.Nothing,
+      onDemandCost = Prelude.Nothing
     }
-
--- | The cost of your Amazon Web Services usage at the public On-Demand rate.
-savingsPlansCoverageData_onDemandCost :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
-savingsPlansCoverageData_onDemandCost = Lens.lens (\SavingsPlansCoverageData' {onDemandCost} -> onDemandCost) (\s@SavingsPlansCoverageData' {} a -> s {onDemandCost = a} :: SavingsPlansCoverageData)
 
 -- | The amount of your Amazon Web Services usage that is covered by a
 -- Savings Plans.
@@ -93,28 +89,33 @@ savingsPlansCoverageData_coveragePercentage = Lens.lens (\SavingsPlansCoverageDa
 savingsPlansCoverageData_totalCost :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
 savingsPlansCoverageData_totalCost = Lens.lens (\SavingsPlansCoverageData' {totalCost} -> totalCost) (\s@SavingsPlansCoverageData' {} a -> s {totalCost = a} :: SavingsPlansCoverageData)
 
+-- | The cost of your Amazon Web Services usage at the public On-Demand rate.
+savingsPlansCoverageData_onDemandCost :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
+savingsPlansCoverageData_onDemandCost = Lens.lens (\SavingsPlansCoverageData' {onDemandCost} -> onDemandCost) (\s@SavingsPlansCoverageData' {} a -> s {onDemandCost = a} :: SavingsPlansCoverageData)
+
 instance Core.FromJSON SavingsPlansCoverageData where
   parseJSON =
     Core.withObject
       "SavingsPlansCoverageData"
       ( \x ->
           SavingsPlansCoverageData'
-            Prelude.<$> (x Core..:? "OnDemandCost")
-            Prelude.<*> (x Core..:? "SpendCoveredBySavingsPlans")
+            Prelude.<$> (x Core..:? "SpendCoveredBySavingsPlans")
             Prelude.<*> (x Core..:? "CoveragePercentage")
             Prelude.<*> (x Core..:? "TotalCost")
+            Prelude.<*> (x Core..:? "OnDemandCost")
       )
 
 instance Prelude.Hashable SavingsPlansCoverageData where
   hashWithSalt _salt SavingsPlansCoverageData' {..} =
-    _salt `Prelude.hashWithSalt` onDemandCost
+    _salt
       `Prelude.hashWithSalt` spendCoveredBySavingsPlans
       `Prelude.hashWithSalt` coveragePercentage
       `Prelude.hashWithSalt` totalCost
+      `Prelude.hashWithSalt` onDemandCost
 
 instance Prelude.NFData SavingsPlansCoverageData where
   rnf SavingsPlansCoverageData' {..} =
-    Prelude.rnf onDemandCost
-      `Prelude.seq` Prelude.rnf spendCoveredBySavingsPlans
+    Prelude.rnf spendCoveredBySavingsPlans
       `Prelude.seq` Prelude.rnf coveragePercentage
       `Prelude.seq` Prelude.rnf totalCost
+      `Prelude.seq` Prelude.rnf onDemandCost

@@ -34,15 +34,15 @@ module Amazonka.SnowDeviceManagement.DescribeTask
     newDescribeTaskResponse,
 
     -- * Response Lenses
-    describeTaskResponse_state,
-    describeTaskResponse_lastUpdatedAt,
-    describeTaskResponse_createdAt,
-    describeTaskResponse_taskId,
-    describeTaskResponse_taskArn,
-    describeTaskResponse_targets,
-    describeTaskResponse_completedAt,
-    describeTaskResponse_description,
     describeTaskResponse_tags,
+    describeTaskResponse_lastUpdatedAt,
+    describeTaskResponse_taskArn,
+    describeTaskResponse_taskId,
+    describeTaskResponse_state,
+    describeTaskResponse_targets,
+    describeTaskResponse_description,
+    describeTaskResponse_completedAt,
+    describeTaskResponse_createdAt,
     describeTaskResponse_httpStatus,
   )
 where
@@ -88,15 +88,15 @@ instance Core.AWSRequest DescribeTask where
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskResponse'
-            Prelude.<$> (x Core..?> "state")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "lastUpdatedAt")
-            Prelude.<*> (x Core..?> "createdAt")
-            Prelude.<*> (x Core..?> "taskId")
             Prelude.<*> (x Core..?> "taskArn")
+            Prelude.<*> (x Core..?> "taskId")
+            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (x Core..?> "targets")
-            Prelude.<*> (x Core..?> "completedAt")
             Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "completedAt")
+            Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,26 +130,26 @@ instance Core.ToQuery DescribeTask where
 
 -- | /See:/ 'newDescribeTaskResponse' smart constructor.
 data DescribeTaskResponse = DescribeTaskResponse'
-  { -- | The current state of the task.
-    state :: Prelude.Maybe TaskState,
-    -- | When the state of the task was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | When the @CreateTask@ operation was called.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the task.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the task.
-    taskArn :: Prelude.Maybe Prelude.Text,
-    -- | The managed devices that the task was sent to.
-    targets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | When the task was completed.
-    completedAt :: Prelude.Maybe Core.POSIX,
-    -- | The description provided of the task and managed devices.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you assign to a resource. You can use tags to
+  { -- | Optional metadata that you assign to a resource. You can use tags to
     -- categorize a resource in different ways, such as by purpose, owner, or
     -- environment.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | When the state of the task was last updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the task.
+    taskArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the task.
+    taskId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the task.
+    state :: Prelude.Maybe TaskState,
+    -- | The managed devices that the task was sent to.
+    targets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The description provided of the task and managed devices.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | When the task was completed.
+    completedAt :: Prelude.Maybe Core.POSIX,
+    -- | When the @CreateTask@ operation was called.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,25 +163,25 @@ data DescribeTaskResponse = DescribeTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'describeTaskResponse_state' - The current state of the task.
---
--- 'lastUpdatedAt', 'describeTaskResponse_lastUpdatedAt' - When the state of the task was last updated.
---
--- 'createdAt', 'describeTaskResponse_createdAt' - When the @CreateTask@ operation was called.
---
--- 'taskId', 'describeTaskResponse_taskId' - The ID of the task.
---
--- 'taskArn', 'describeTaskResponse_taskArn' - The Amazon Resource Name (ARN) of the task.
---
--- 'targets', 'describeTaskResponse_targets' - The managed devices that the task was sent to.
---
--- 'completedAt', 'describeTaskResponse_completedAt' - When the task was completed.
---
--- 'description', 'describeTaskResponse_description' - The description provided of the task and managed devices.
---
 -- 'tags', 'describeTaskResponse_tags' - Optional metadata that you assign to a resource. You can use tags to
 -- categorize a resource in different ways, such as by purpose, owner, or
 -- environment.
+--
+-- 'lastUpdatedAt', 'describeTaskResponse_lastUpdatedAt' - When the state of the task was last updated.
+--
+-- 'taskArn', 'describeTaskResponse_taskArn' - The Amazon Resource Name (ARN) of the task.
+--
+-- 'taskId', 'describeTaskResponse_taskId' - The ID of the task.
+--
+-- 'state', 'describeTaskResponse_state' - The current state of the task.
+--
+-- 'targets', 'describeTaskResponse_targets' - The managed devices that the task was sent to.
+--
+-- 'description', 'describeTaskResponse_description' - The description provided of the task and managed devices.
+--
+-- 'completedAt', 'describeTaskResponse_completedAt' - When the task was completed.
+--
+-- 'createdAt', 'describeTaskResponse_createdAt' - When the @CreateTask@ operation was called.
 --
 -- 'httpStatus', 'describeTaskResponse_httpStatus' - The response's http status code.
 newDescribeTaskResponse ::
@@ -190,49 +190,17 @@ newDescribeTaskResponse ::
   DescribeTaskResponse
 newDescribeTaskResponse pHttpStatus_ =
   DescribeTaskResponse'
-    { state = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      taskId = Prelude.Nothing,
       taskArn = Prelude.Nothing,
+      taskId = Prelude.Nothing,
+      state = Prelude.Nothing,
       targets = Prelude.Nothing,
-      completedAt = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      completedAt = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current state of the task.
-describeTaskResponse_state :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe TaskState)
-describeTaskResponse_state = Lens.lens (\DescribeTaskResponse' {state} -> state) (\s@DescribeTaskResponse' {} a -> s {state = a} :: DescribeTaskResponse)
-
--- | When the state of the task was last updated.
-describeTaskResponse_lastUpdatedAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskResponse_lastUpdatedAt = Lens.lens (\DescribeTaskResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeTaskResponse' {} a -> s {lastUpdatedAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
-
--- | When the @CreateTask@ operation was called.
-describeTaskResponse_createdAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskResponse_createdAt = Lens.lens (\DescribeTaskResponse' {createdAt} -> createdAt) (\s@DescribeTaskResponse' {} a -> s {createdAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
-
--- | The ID of the task.
-describeTaskResponse_taskId :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
-describeTaskResponse_taskId = Lens.lens (\DescribeTaskResponse' {taskId} -> taskId) (\s@DescribeTaskResponse' {} a -> s {taskId = a} :: DescribeTaskResponse)
-
--- | The Amazon Resource Name (ARN) of the task.
-describeTaskResponse_taskArn :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
-describeTaskResponse_taskArn = Lens.lens (\DescribeTaskResponse' {taskArn} -> taskArn) (\s@DescribeTaskResponse' {} a -> s {taskArn = a} :: DescribeTaskResponse)
-
--- | The managed devices that the task was sent to.
-describeTaskResponse_targets :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeTaskResponse_targets = Lens.lens (\DescribeTaskResponse' {targets} -> targets) (\s@DescribeTaskResponse' {} a -> s {targets = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | When the task was completed.
-describeTaskResponse_completedAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeTaskResponse_completedAt = Lens.lens (\DescribeTaskResponse' {completedAt} -> completedAt) (\s@DescribeTaskResponse' {} a -> s {completedAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
-
--- | The description provided of the task and managed devices.
-describeTaskResponse_description :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
-describeTaskResponse_description = Lens.lens (\DescribeTaskResponse' {description} -> description) (\s@DescribeTaskResponse' {} a -> s {description = a} :: DescribeTaskResponse)
 
 -- | Optional metadata that you assign to a resource. You can use tags to
 -- categorize a resource in different ways, such as by purpose, owner, or
@@ -240,19 +208,51 @@ describeTaskResponse_description = Lens.lens (\DescribeTaskResponse' {descriptio
 describeTaskResponse_tags :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeTaskResponse_tags = Lens.lens (\DescribeTaskResponse' {tags} -> tags) (\s@DescribeTaskResponse' {} a -> s {tags = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | When the state of the task was last updated.
+describeTaskResponse_lastUpdatedAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
+describeTaskResponse_lastUpdatedAt = Lens.lens (\DescribeTaskResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeTaskResponse' {} a -> s {lastUpdatedAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the task.
+describeTaskResponse_taskArn :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
+describeTaskResponse_taskArn = Lens.lens (\DescribeTaskResponse' {taskArn} -> taskArn) (\s@DescribeTaskResponse' {} a -> s {taskArn = a} :: DescribeTaskResponse)
+
+-- | The ID of the task.
+describeTaskResponse_taskId :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
+describeTaskResponse_taskId = Lens.lens (\DescribeTaskResponse' {taskId} -> taskId) (\s@DescribeTaskResponse' {} a -> s {taskId = a} :: DescribeTaskResponse)
+
+-- | The current state of the task.
+describeTaskResponse_state :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe TaskState)
+describeTaskResponse_state = Lens.lens (\DescribeTaskResponse' {state} -> state) (\s@DescribeTaskResponse' {} a -> s {state = a} :: DescribeTaskResponse)
+
+-- | The managed devices that the task was sent to.
+describeTaskResponse_targets :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeTaskResponse_targets = Lens.lens (\DescribeTaskResponse' {targets} -> targets) (\s@DescribeTaskResponse' {} a -> s {targets = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description provided of the task and managed devices.
+describeTaskResponse_description :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.Text)
+describeTaskResponse_description = Lens.lens (\DescribeTaskResponse' {description} -> description) (\s@DescribeTaskResponse' {} a -> s {description = a} :: DescribeTaskResponse)
+
+-- | When the task was completed.
+describeTaskResponse_completedAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
+describeTaskResponse_completedAt = Lens.lens (\DescribeTaskResponse' {completedAt} -> completedAt) (\s@DescribeTaskResponse' {} a -> s {completedAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
+
+-- | When the @CreateTask@ operation was called.
+describeTaskResponse_createdAt :: Lens.Lens' DescribeTaskResponse (Prelude.Maybe Prelude.UTCTime)
+describeTaskResponse_createdAt = Lens.lens (\DescribeTaskResponse' {createdAt} -> createdAt) (\s@DescribeTaskResponse' {} a -> s {createdAt = a} :: DescribeTaskResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The response's http status code.
 describeTaskResponse_httpStatus :: Lens.Lens' DescribeTaskResponse Prelude.Int
 describeTaskResponse_httpStatus = Lens.lens (\DescribeTaskResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskResponse' {} a -> s {httpStatus = a} :: DescribeTaskResponse)
 
 instance Prelude.NFData DescribeTaskResponse where
   rnf DescribeTaskResponse' {..} =
-    Prelude.rnf state
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf taskArn
+      `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf completedAt
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

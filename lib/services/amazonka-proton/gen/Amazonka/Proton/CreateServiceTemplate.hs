@@ -35,11 +35,11 @@ module Amazonka.Proton.CreateServiceTemplate
     newCreateServiceTemplate,
 
     -- * Request Lenses
-    createServiceTemplate_displayName,
-    createServiceTemplate_encryptionKey,
-    createServiceTemplate_pipelineProvisioning,
-    createServiceTemplate_description,
     createServiceTemplate_tags,
+    createServiceTemplate_displayName,
+    createServiceTemplate_description,
+    createServiceTemplate_pipelineProvisioning,
+    createServiceTemplate_encryptionKey,
     createServiceTemplate_name,
 
     -- * Destructuring the Response
@@ -61,11 +61,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateServiceTemplate' smart constructor.
 data CreateServiceTemplate = CreateServiceTemplate'
-  { -- | The name of the service template as displayed in the developer
+  { -- | Create tags for your service template. For more information, see /AWS
+    -- Proton resources and tagging/ in the
+    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+    -- or
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name of the service template as displayed in the developer
     -- interface.
     displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A customer provided encryption key that\'s used to encrypt data.
-    encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | A description of the service template.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | AWS Proton includes a service pipeline for your service by default. When
     -- included, this parameter indicates that an AWS Proton service pipeline
     -- /won\'t/ be included for your service. Once specified, this parameter
@@ -73,14 +79,8 @@ data CreateServiceTemplate = CreateServiceTemplate'
     -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html Service template bundles>
     -- in the /AWS Proton Administrator Guide/.
     pipelineProvisioning :: Prelude.Maybe Provisioning,
-    -- | A description of the service template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Create tags for your service template. For more information, see /AWS
-    -- Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
-    -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
-    tags :: Prelude.Maybe [Tag],
+    -- | A customer provided encryption key that\'s used to encrypt data.
+    encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the service template.
     name :: Prelude.Text
   }
@@ -94,10 +94,16 @@ data CreateServiceTemplate = CreateServiceTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createServiceTemplate_tags' - Create tags for your service template. For more information, see /AWS
+-- Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- or
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+--
 -- 'displayName', 'createServiceTemplate_displayName' - The name of the service template as displayed in the developer
 -- interface.
 --
--- 'encryptionKey', 'createServiceTemplate_encryptionKey' - A customer provided encryption key that\'s used to encrypt data.
+-- 'description', 'createServiceTemplate_description' - A description of the service template.
 --
 -- 'pipelineProvisioning', 'createServiceTemplate_pipelineProvisioning' - AWS Proton includes a service pipeline for your service by default. When
 -- included, this parameter indicates that an AWS Proton service pipeline
@@ -106,13 +112,7 @@ data CreateServiceTemplate = CreateServiceTemplate'
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html Service template bundles>
 -- in the /AWS Proton Administrator Guide/.
 --
--- 'description', 'createServiceTemplate_description' - A description of the service template.
---
--- 'tags', 'createServiceTemplate_tags' - Create tags for your service template. For more information, see /AWS
--- Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+-- 'encryptionKey', 'createServiceTemplate_encryptionKey' - A customer provided encryption key that\'s used to encrypt data.
 --
 -- 'name', 'createServiceTemplate_name' - The name of the service template.
 newCreateServiceTemplate ::
@@ -121,23 +121,30 @@ newCreateServiceTemplate ::
   CreateServiceTemplate
 newCreateServiceTemplate pName_ =
   CreateServiceTemplate'
-    { displayName =
-        Prelude.Nothing,
-      encryptionKey = Prelude.Nothing,
-      pipelineProvisioning = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      pipelineProvisioning = Prelude.Nothing,
+      encryptionKey = Prelude.Nothing,
       name = pName_
     }
+
+-- | Create tags for your service template. For more information, see /AWS
+-- Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- or
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+createServiceTemplate_tags :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe [Tag])
+createServiceTemplate_tags = Lens.lens (\CreateServiceTemplate' {tags} -> tags) (\s@CreateServiceTemplate' {} a -> s {tags = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the service template as displayed in the developer
 -- interface.
 createServiceTemplate_displayName :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Prelude.Text)
 createServiceTemplate_displayName = Lens.lens (\CreateServiceTemplate' {displayName} -> displayName) (\s@CreateServiceTemplate' {} a -> s {displayName = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
 
--- | A customer provided encryption key that\'s used to encrypt data.
-createServiceTemplate_encryptionKey :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Prelude.Text)
-createServiceTemplate_encryptionKey = Lens.lens (\CreateServiceTemplate' {encryptionKey} -> encryptionKey) (\s@CreateServiceTemplate' {} a -> s {encryptionKey = a} :: CreateServiceTemplate)
+-- | A description of the service template.
+createServiceTemplate_description :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Prelude.Text)
+createServiceTemplate_description = Lens.lens (\CreateServiceTemplate' {description} -> description) (\s@CreateServiceTemplate' {} a -> s {description = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
 
 -- | AWS Proton includes a service pipeline for your service by default. When
 -- included, this parameter indicates that an AWS Proton service pipeline
@@ -148,17 +155,9 @@ createServiceTemplate_encryptionKey = Lens.lens (\CreateServiceTemplate' {encryp
 createServiceTemplate_pipelineProvisioning :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Provisioning)
 createServiceTemplate_pipelineProvisioning = Lens.lens (\CreateServiceTemplate' {pipelineProvisioning} -> pipelineProvisioning) (\s@CreateServiceTemplate' {} a -> s {pipelineProvisioning = a} :: CreateServiceTemplate)
 
--- | A description of the service template.
-createServiceTemplate_description :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Prelude.Text)
-createServiceTemplate_description = Lens.lens (\CreateServiceTemplate' {description} -> description) (\s@CreateServiceTemplate' {} a -> s {description = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
-
--- | Create tags for your service template. For more information, see /AWS
--- Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
-createServiceTemplate_tags :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe [Tag])
-createServiceTemplate_tags = Lens.lens (\CreateServiceTemplate' {tags} -> tags) (\s@CreateServiceTemplate' {} a -> s {tags = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Lens.coerced
+-- | A customer provided encryption key that\'s used to encrypt data.
+createServiceTemplate_encryptionKey :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Prelude.Text)
+createServiceTemplate_encryptionKey = Lens.lens (\CreateServiceTemplate' {encryptionKey} -> encryptionKey) (\s@CreateServiceTemplate' {} a -> s {encryptionKey = a} :: CreateServiceTemplate)
 
 -- | The name of the service template.
 createServiceTemplate_name :: Lens.Lens' CreateServiceTemplate Prelude.Text
@@ -179,20 +178,20 @@ instance Core.AWSRequest CreateServiceTemplate where
 
 instance Prelude.Hashable CreateServiceTemplate where
   hashWithSalt _salt CreateServiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` encryptionKey
-      `Prelude.hashWithSalt` pipelineProvisioning
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pipelineProvisioning
+      `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateServiceTemplate where
   rnf CreateServiceTemplate' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf encryptionKey
-      `Prelude.seq` Prelude.rnf pipelineProvisioning
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pipelineProvisioning
+      `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateServiceTemplate where
@@ -214,12 +213,12 @@ instance Core.ToJSON CreateServiceTemplate where
   toJSON CreateServiceTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("displayName" Core..=) Prelude.<$> displayName,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("displayName" Core..=) Prelude.<$> displayName,
+            ("description" Core..=) Prelude.<$> description,
             ("pipelineProvisioning" Core..=)
               Prelude.<$> pipelineProvisioning,
-            ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
             Prelude.Just ("name" Core..= name)
           ]
       )

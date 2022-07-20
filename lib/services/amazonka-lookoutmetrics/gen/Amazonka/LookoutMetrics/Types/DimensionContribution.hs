@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDimensionContribution' smart constructor.
 data DimensionContribution = DimensionContribution'
-  { -- | A list of dimension values that contributed to the anomaly.
-    dimensionValueContributionList :: Prelude.Maybe [DimensionValueContribution],
-    -- | The name of the dimension.
-    dimensionName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the dimension.
+    dimensionName :: Prelude.Maybe Prelude.Text,
+    -- | A list of dimension values that contributed to the anomaly.
+    dimensionValueContributionList :: Prelude.Maybe [DimensionValueContribution]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data DimensionContribution = DimensionContribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dimensionValueContributionList', 'dimensionContribution_dimensionValueContributionList' - A list of dimension values that contributed to the anomaly.
---
 -- 'dimensionName', 'dimensionContribution_dimensionName' - The name of the dimension.
+--
+-- 'dimensionValueContributionList', 'dimensionContribution_dimensionValueContributionList' - A list of dimension values that contributed to the anomaly.
 newDimensionContribution ::
   DimensionContribution
 newDimensionContribution =
   DimensionContribution'
-    { dimensionValueContributionList =
+    { dimensionName =
         Prelude.Nothing,
-      dimensionName = Prelude.Nothing
+      dimensionValueContributionList = Prelude.Nothing
     }
-
--- | A list of dimension values that contributed to the anomaly.
-dimensionContribution_dimensionValueContributionList :: Lens.Lens' DimensionContribution (Prelude.Maybe [DimensionValueContribution])
-dimensionContribution_dimensionValueContributionList = Lens.lens (\DimensionContribution' {dimensionValueContributionList} -> dimensionValueContributionList) (\s@DimensionContribution' {} a -> s {dimensionValueContributionList = a} :: DimensionContribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the dimension.
 dimensionContribution_dimensionName :: Lens.Lens' DimensionContribution (Prelude.Maybe Prelude.Text)
 dimensionContribution_dimensionName = Lens.lens (\DimensionContribution' {dimensionName} -> dimensionName) (\s@DimensionContribution' {} a -> s {dimensionName = a} :: DimensionContribution)
+
+-- | A list of dimension values that contributed to the anomaly.
+dimensionContribution_dimensionValueContributionList :: Lens.Lens' DimensionContribution (Prelude.Maybe [DimensionValueContribution])
+dimensionContribution_dimensionValueContributionList = Lens.lens (\DimensionContribution' {dimensionValueContributionList} -> dimensionValueContributionList) (\s@DimensionContribution' {} a -> s {dimensionValueContributionList = a} :: DimensionContribution) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON DimensionContribution where
   parseJSON =
@@ -69,19 +69,18 @@ instance Core.FromJSON DimensionContribution where
       "DimensionContribution"
       ( \x ->
           DimensionContribution'
-            Prelude.<$> ( x Core..:? "DimensionValueContributionList"
+            Prelude.<$> (x Core..:? "DimensionName")
+            Prelude.<*> ( x Core..:? "DimensionValueContributionList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DimensionName")
       )
 
 instance Prelude.Hashable DimensionContribution where
   hashWithSalt _salt DimensionContribution' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` dimensionValueContributionList
-      `Prelude.hashWithSalt` dimensionName
 
 instance Prelude.NFData DimensionContribution where
   rnf DimensionContribution' {..} =
-    Prelude.rnf dimensionValueContributionList
-      `Prelude.seq` Prelude.rnf dimensionName
+    Prelude.rnf dimensionName
+      `Prelude.seq` Prelude.rnf dimensionValueContributionList

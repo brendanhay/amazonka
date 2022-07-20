@@ -28,10 +28,10 @@ import Amazonka.SSMIncidents.Types.RegionStatus
 --
 -- /See:/ 'newRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
-  { -- | Information displayed about the status of the Region.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the KMS key used to encrypt the data in this Region.
+  { -- | The ID of the KMS key used to encrypt the data in this Region.
     sseKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Information displayed about the status of the Region.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The status of the Region in the replication set.
     status :: RegionStatus,
     -- | The most recent date and time that the Region\'s status was updated.
@@ -47,9 +47,9 @@ data RegionInfo = RegionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'regionInfo_statusMessage' - Information displayed about the status of the Region.
---
 -- 'sseKmsKeyId', 'regionInfo_sseKmsKeyId' - The ID of the KMS key used to encrypt the data in this Region.
+--
+-- 'statusMessage', 'regionInfo_statusMessage' - Information displayed about the status of the Region.
 --
 -- 'status', 'regionInfo_status' - The status of the Region in the replication set.
 --
@@ -62,20 +62,20 @@ newRegionInfo ::
   RegionInfo
 newRegionInfo pStatus_ pStatusUpdateDateTime_ =
   RegionInfo'
-    { statusMessage = Prelude.Nothing,
-      sseKmsKeyId = Prelude.Nothing,
+    { sseKmsKeyId = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       status = pStatus_,
       statusUpdateDateTime =
         Core._Time Lens.# pStatusUpdateDateTime_
     }
 
--- | Information displayed about the status of the Region.
-regionInfo_statusMessage :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
-regionInfo_statusMessage = Lens.lens (\RegionInfo' {statusMessage} -> statusMessage) (\s@RegionInfo' {} a -> s {statusMessage = a} :: RegionInfo)
-
 -- | The ID of the KMS key used to encrypt the data in this Region.
 regionInfo_sseKmsKeyId :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_sseKmsKeyId = Lens.lens (\RegionInfo' {sseKmsKeyId} -> sseKmsKeyId) (\s@RegionInfo' {} a -> s {sseKmsKeyId = a} :: RegionInfo)
+
+-- | Information displayed about the status of the Region.
+regionInfo_statusMessage :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
+regionInfo_statusMessage = Lens.lens (\RegionInfo' {statusMessage} -> statusMessage) (\s@RegionInfo' {} a -> s {statusMessage = a} :: RegionInfo)
 
 -- | The status of the Region in the replication set.
 regionInfo_status :: Lens.Lens' RegionInfo RegionStatus
@@ -91,22 +91,22 @@ instance Core.FromJSON RegionInfo where
       "RegionInfo"
       ( \x ->
           RegionInfo'
-            Prelude.<$> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "sseKmsKeyId")
+            Prelude.<$> (x Core..:? "sseKmsKeyId")
+            Prelude.<*> (x Core..:? "statusMessage")
             Prelude.<*> (x Core..: "status")
             Prelude.<*> (x Core..: "statusUpdateDateTime")
       )
 
 instance Prelude.Hashable RegionInfo where
   hashWithSalt _salt RegionInfo' {..} =
-    _salt `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` sseKmsKeyId
+    _salt `Prelude.hashWithSalt` sseKmsKeyId
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusUpdateDateTime
 
 instance Prelude.NFData RegionInfo where
   rnf RegionInfo' {..} =
-    Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf sseKmsKeyId
+    Prelude.rnf sseKmsKeyId
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusUpdateDateTime

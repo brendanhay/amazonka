@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThingAttribute' smart constructor.
 data ThingAttribute = ThingAttribute'
-  { -- | The name of the thing type, if the thing has been associated with a
-    -- type.
-    thingTypeName :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the thing.
+    thingName :: Prelude.Maybe Prelude.Text,
     -- | The thing ARN.
     thingArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing type, if the thing has been associated with a
+    -- type.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
     -- | A list of thing attributes which are name-value pairs.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The version of the thing record in the registry.
-    version :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the thing.
-    thingName :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,35 +50,39 @@ data ThingAttribute = ThingAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingTypeName', 'thingAttribute_thingTypeName' - The name of the thing type, if the thing has been associated with a
--- type.
+-- 'thingName', 'thingAttribute_thingName' - The name of the thing.
 --
 -- 'thingArn', 'thingAttribute_thingArn' - The thing ARN.
+--
+-- 'thingTypeName', 'thingAttribute_thingTypeName' - The name of the thing type, if the thing has been associated with a
+-- type.
 --
 -- 'attributes', 'thingAttribute_attributes' - A list of thing attributes which are name-value pairs.
 --
 -- 'version', 'thingAttribute_version' - The version of the thing record in the registry.
---
--- 'thingName', 'thingAttribute_thingName' - The name of the thing.
 newThingAttribute ::
   ThingAttribute
 newThingAttribute =
   ThingAttribute'
-    { thingTypeName = Prelude.Nothing,
+    { thingName = Prelude.Nothing,
       thingArn = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      version = Prelude.Nothing,
-      thingName = Prelude.Nothing
+      version = Prelude.Nothing
     }
+
+-- | The name of the thing.
+thingAttribute_thingName :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Text)
+thingAttribute_thingName = Lens.lens (\ThingAttribute' {thingName} -> thingName) (\s@ThingAttribute' {} a -> s {thingName = a} :: ThingAttribute)
+
+-- | The thing ARN.
+thingAttribute_thingArn :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Text)
+thingAttribute_thingArn = Lens.lens (\ThingAttribute' {thingArn} -> thingArn) (\s@ThingAttribute' {} a -> s {thingArn = a} :: ThingAttribute)
 
 -- | The name of the thing type, if the thing has been associated with a
 -- type.
 thingAttribute_thingTypeName :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Text)
 thingAttribute_thingTypeName = Lens.lens (\ThingAttribute' {thingTypeName} -> thingTypeName) (\s@ThingAttribute' {} a -> s {thingTypeName = a} :: ThingAttribute)
-
--- | The thing ARN.
-thingAttribute_thingArn :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Text)
-thingAttribute_thingArn = Lens.lens (\ThingAttribute' {thingArn} -> thingArn) (\s@ThingAttribute' {} a -> s {thingArn = a} :: ThingAttribute)
 
 -- | A list of thing attributes which are name-value pairs.
 thingAttribute_attributes :: Lens.Lens' ThingAttribute (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -88,35 +92,31 @@ thingAttribute_attributes = Lens.lens (\ThingAttribute' {attributes} -> attribut
 thingAttribute_version :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Integer)
 thingAttribute_version = Lens.lens (\ThingAttribute' {version} -> version) (\s@ThingAttribute' {} a -> s {version = a} :: ThingAttribute)
 
--- | The name of the thing.
-thingAttribute_thingName :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Text)
-thingAttribute_thingName = Lens.lens (\ThingAttribute' {thingName} -> thingName) (\s@ThingAttribute' {} a -> s {thingName = a} :: ThingAttribute)
-
 instance Core.FromJSON ThingAttribute where
   parseJSON =
     Core.withObject
       "ThingAttribute"
       ( \x ->
           ThingAttribute'
-            Prelude.<$> (x Core..:? "thingTypeName")
+            Prelude.<$> (x Core..:? "thingName")
             Prelude.<*> (x Core..:? "thingArn")
+            Prelude.<*> (x Core..:? "thingTypeName")
             Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "thingName")
       )
 
 instance Prelude.Hashable ThingAttribute where
   hashWithSalt _salt ThingAttribute' {..} =
-    _salt `Prelude.hashWithSalt` thingTypeName
+    _salt `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` thingTypeName
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData ThingAttribute where
   rnf ThingAttribute' {..} =
-    Prelude.rnf thingTypeName
+    Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf thingTypeName
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf thingName

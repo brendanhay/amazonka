@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
-  { -- | The type of pending database maintenance action.
-    action :: Prelude.Maybe Prelude.Text,
-    -- | Additional detail about the pending database maintenance action.
+  { -- | Additional detail about the pending database maintenance action.
     description :: Prelude.Maybe Prelude.Text,
     -- | The effective date of the pending database maintenance action.
-    currentApplyDate :: Prelude.Maybe Core.POSIX
+    currentApplyDate :: Prelude.Maybe Core.POSIX,
+    -- | The type of pending database maintenance action.
+    action :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,23 +44,20 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'action', 'pendingMaintenanceAction_action' - The type of pending database maintenance action.
---
 -- 'description', 'pendingMaintenanceAction_description' - Additional detail about the pending database maintenance action.
 --
 -- 'currentApplyDate', 'pendingMaintenanceAction_currentApplyDate' - The effective date of the pending database maintenance action.
+--
+-- 'action', 'pendingMaintenanceAction_action' - The type of pending database maintenance action.
 newPendingMaintenanceAction ::
   PendingMaintenanceAction
 newPendingMaintenanceAction =
   PendingMaintenanceAction'
-    { action = Prelude.Nothing,
-      description = Prelude.Nothing,
-      currentApplyDate = Prelude.Nothing
+    { description =
+        Prelude.Nothing,
+      currentApplyDate = Prelude.Nothing,
+      action = Prelude.Nothing
     }
-
--- | The type of pending database maintenance action.
-pendingMaintenanceAction_action :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
-pendingMaintenanceAction_action = Lens.lens (\PendingMaintenanceAction' {action} -> action) (\s@PendingMaintenanceAction' {} a -> s {action = a} :: PendingMaintenanceAction)
 
 -- | Additional detail about the pending database maintenance action.
 pendingMaintenanceAction_description :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
@@ -70,25 +67,29 @@ pendingMaintenanceAction_description = Lens.lens (\PendingMaintenanceAction' {de
 pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
 pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Core._Time
 
+-- | The type of pending database maintenance action.
+pendingMaintenanceAction_action :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
+pendingMaintenanceAction_action = Lens.lens (\PendingMaintenanceAction' {action} -> action) (\s@PendingMaintenanceAction' {} a -> s {action = a} :: PendingMaintenanceAction)
+
 instance Core.FromJSON PendingMaintenanceAction where
   parseJSON =
     Core.withObject
       "PendingMaintenanceAction"
       ( \x ->
           PendingMaintenanceAction'
-            Prelude.<$> (x Core..:? "action")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "description")
             Prelude.<*> (x Core..:? "currentApplyDate")
+            Prelude.<*> (x Core..:? "action")
       )
 
 instance Prelude.Hashable PendingMaintenanceAction where
   hashWithSalt _salt PendingMaintenanceAction' {..} =
-    _salt `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` currentApplyDate
+      `Prelude.hashWithSalt` action
 
 instance Prelude.NFData PendingMaintenanceAction where
   rnf PendingMaintenanceAction' {..} =
-    Prelude.rnf action
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf currentApplyDate
+      `Prelude.seq` Prelude.rnf action

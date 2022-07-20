@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANUpdateDevice' smart constructor.
 data LoRaWANUpdateDevice = LoRaWANUpdateDevice'
-  { -- | The ID of the service profile.
-    serviceProfileId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the device profile for the wireless device.
-    deviceProfileId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the device profile for the wireless device.
+    deviceProfileId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the service profile.
+    serviceProfileId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,43 +42,43 @@ data LoRaWANUpdateDevice = LoRaWANUpdateDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceProfileId', 'loRaWANUpdateDevice_serviceProfileId' - The ID of the service profile.
---
 -- 'deviceProfileId', 'loRaWANUpdateDevice_deviceProfileId' - The ID of the device profile for the wireless device.
+--
+-- 'serviceProfileId', 'loRaWANUpdateDevice_serviceProfileId' - The ID of the service profile.
 newLoRaWANUpdateDevice ::
   LoRaWANUpdateDevice
 newLoRaWANUpdateDevice =
   LoRaWANUpdateDevice'
-    { serviceProfileId =
+    { deviceProfileId =
         Prelude.Nothing,
-      deviceProfileId = Prelude.Nothing
+      serviceProfileId = Prelude.Nothing
     }
-
--- | The ID of the service profile.
-loRaWANUpdateDevice_serviceProfileId :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe Prelude.Text)
-loRaWANUpdateDevice_serviceProfileId = Lens.lens (\LoRaWANUpdateDevice' {serviceProfileId} -> serviceProfileId) (\s@LoRaWANUpdateDevice' {} a -> s {serviceProfileId = a} :: LoRaWANUpdateDevice)
 
 -- | The ID of the device profile for the wireless device.
 loRaWANUpdateDevice_deviceProfileId :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe Prelude.Text)
 loRaWANUpdateDevice_deviceProfileId = Lens.lens (\LoRaWANUpdateDevice' {deviceProfileId} -> deviceProfileId) (\s@LoRaWANUpdateDevice' {} a -> s {deviceProfileId = a} :: LoRaWANUpdateDevice)
 
+-- | The ID of the service profile.
+loRaWANUpdateDevice_serviceProfileId :: Lens.Lens' LoRaWANUpdateDevice (Prelude.Maybe Prelude.Text)
+loRaWANUpdateDevice_serviceProfileId = Lens.lens (\LoRaWANUpdateDevice' {serviceProfileId} -> serviceProfileId) (\s@LoRaWANUpdateDevice' {} a -> s {serviceProfileId = a} :: LoRaWANUpdateDevice)
+
 instance Prelude.Hashable LoRaWANUpdateDevice where
   hashWithSalt _salt LoRaWANUpdateDevice' {..} =
-    _salt `Prelude.hashWithSalt` serviceProfileId
-      `Prelude.hashWithSalt` deviceProfileId
+    _salt `Prelude.hashWithSalt` deviceProfileId
+      `Prelude.hashWithSalt` serviceProfileId
 
 instance Prelude.NFData LoRaWANUpdateDevice where
   rnf LoRaWANUpdateDevice' {..} =
-    Prelude.rnf serviceProfileId
-      `Prelude.seq` Prelude.rnf deviceProfileId
+    Prelude.rnf deviceProfileId
+      `Prelude.seq` Prelude.rnf serviceProfileId
 
 instance Core.ToJSON LoRaWANUpdateDevice where
   toJSON LoRaWANUpdateDevice' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ServiceProfileId" Core..=)
-              Prelude.<$> serviceProfileId,
-            ("DeviceProfileId" Core..=)
-              Prelude.<$> deviceProfileId
+          [ ("DeviceProfileId" Core..=)
+              Prelude.<$> deviceProfileId,
+            ("ServiceProfileId" Core..=)
+              Prelude.<$> serviceProfileId
           ]
       )

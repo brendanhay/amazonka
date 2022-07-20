@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLastDeploymentInfo' smart constructor.
 data LastDeploymentInfo = LastDeploymentInfo'
-  { -- | The status of the most recent deployment.
-    status :: Prelude.Maybe DeploymentStatus,
-    -- | The unique ID of a deployment.
+  { -- | The unique ID of a deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the most recent deployment.
+    status :: Prelude.Maybe DeploymentStatus,
     -- | A timestamp that indicates when the most recent deployment to the
     -- deployment group was complete.
     endTime :: Prelude.Maybe Core.POSIX,
@@ -50,9 +50,9 @@ data LastDeploymentInfo = LastDeploymentInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'lastDeploymentInfo_status' - The status of the most recent deployment.
---
 -- 'deploymentId', 'lastDeploymentInfo_deploymentId' - The unique ID of a deployment.
+--
+-- 'status', 'lastDeploymentInfo_status' - The status of the most recent deployment.
 --
 -- 'endTime', 'lastDeploymentInfo_endTime' - A timestamp that indicates when the most recent deployment to the
 -- deployment group was complete.
@@ -63,19 +63,19 @@ newLastDeploymentInfo ::
   LastDeploymentInfo
 newLastDeploymentInfo =
   LastDeploymentInfo'
-    { status = Prelude.Nothing,
-      deploymentId = Prelude.Nothing,
+    { deploymentId = Prelude.Nothing,
+      status = Prelude.Nothing,
       endTime = Prelude.Nothing,
       createTime = Prelude.Nothing
     }
 
--- | The status of the most recent deployment.
-lastDeploymentInfo_status :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe DeploymentStatus)
-lastDeploymentInfo_status = Lens.lens (\LastDeploymentInfo' {status} -> status) (\s@LastDeploymentInfo' {} a -> s {status = a} :: LastDeploymentInfo)
-
 -- | The unique ID of a deployment.
 lastDeploymentInfo_deploymentId :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe Prelude.Text)
 lastDeploymentInfo_deploymentId = Lens.lens (\LastDeploymentInfo' {deploymentId} -> deploymentId) (\s@LastDeploymentInfo' {} a -> s {deploymentId = a} :: LastDeploymentInfo)
+
+-- | The status of the most recent deployment.
+lastDeploymentInfo_status :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe DeploymentStatus)
+lastDeploymentInfo_status = Lens.lens (\LastDeploymentInfo' {status} -> status) (\s@LastDeploymentInfo' {} a -> s {status = a} :: LastDeploymentInfo)
 
 -- | A timestamp that indicates when the most recent deployment to the
 -- deployment group was complete.
@@ -93,22 +93,22 @@ instance Core.FromJSON LastDeploymentInfo where
       "LastDeploymentInfo"
       ( \x ->
           LastDeploymentInfo'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "deploymentId")
+            Prelude.<$> (x Core..:? "deploymentId")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "endTime")
             Prelude.<*> (x Core..:? "createTime")
       )
 
 instance Prelude.Hashable LastDeploymentInfo where
   hashWithSalt _salt LastDeploymentInfo' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` deploymentId
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` createTime
 
 instance Prelude.NFData LastDeploymentInfo where
   rnf LastDeploymentInfo' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf deploymentId
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf createTime

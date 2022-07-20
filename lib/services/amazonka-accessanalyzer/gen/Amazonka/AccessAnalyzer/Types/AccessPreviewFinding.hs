@@ -31,31 +31,31 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessPreviewFinding' smart constructor.
 data AccessPreviewFinding = AccessPreviewFinding'
-  { -- | The existing status of the finding, provided only for existing findings.
-    existingFindingStatus :: Prelude.Maybe FindingStatus,
-    -- | An error.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the policy that generated the finding allows public
-    -- access to the resource.
-    isPublic :: Prelude.Maybe Prelude.Bool,
-    -- | The action in the analyzed policy statement that an external principal
-    -- has permission to perform.
-    action :: Prelude.Maybe [Prelude.Text],
+  { -- | The external principal that has access to a resource within the zone of
+    -- trust.
+    principal :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The sources of the finding. This indicates how the access that generated
     -- the finding is granted. It is populated for Amazon S3 bucket findings.
     sources :: Prelude.Maybe [FindingSource],
-    -- | The resource that an external principal has access to. This is the
-    -- resource associated with the access preview.
-    resource :: Prelude.Maybe Prelude.Text,
-    -- | The external principal that has access to a resource within the zone of
-    -- trust.
-    principal :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Indicates whether the policy that generated the finding allows public
+    -- access to the resource.
+    isPublic :: Prelude.Maybe Prelude.Bool,
     -- | The existing ID of the finding in IAM Access Analyzer, provided only for
     -- existing findings.
     existingFindingId :: Prelude.Maybe Prelude.Text,
     -- | The condition in the analyzed policy statement that resulted in a
     -- finding.
     condition :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The action in the analyzed policy statement that an external principal
+    -- has permission to perform.
+    action :: Prelude.Maybe [Prelude.Text],
+    -- | An error.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The existing status of the finding, provided only for existing findings.
+    existingFindingStatus :: Prelude.Maybe FindingStatus,
+    -- | The resource that an external principal has access to. This is the
+    -- resource associated with the access preview.
+    resource :: Prelude.Maybe Prelude.Text,
     -- | Provides context on how the access preview finding compares to existing
     -- access identified in IAM Access Analyzer.
     --
@@ -100,30 +100,30 @@ data AccessPreviewFinding = AccessPreviewFinding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'existingFindingStatus', 'accessPreviewFinding_existingFindingStatus' - The existing status of the finding, provided only for existing findings.
---
--- 'error', 'accessPreviewFinding_error' - An error.
---
--- 'isPublic', 'accessPreviewFinding_isPublic' - Indicates whether the policy that generated the finding allows public
--- access to the resource.
---
--- 'action', 'accessPreviewFinding_action' - The action in the analyzed policy statement that an external principal
--- has permission to perform.
+-- 'principal', 'accessPreviewFinding_principal' - The external principal that has access to a resource within the zone of
+-- trust.
 --
 -- 'sources', 'accessPreviewFinding_sources' - The sources of the finding. This indicates how the access that generated
 -- the finding is granted. It is populated for Amazon S3 bucket findings.
 --
--- 'resource', 'accessPreviewFinding_resource' - The resource that an external principal has access to. This is the
--- resource associated with the access preview.
---
--- 'principal', 'accessPreviewFinding_principal' - The external principal that has access to a resource within the zone of
--- trust.
+-- 'isPublic', 'accessPreviewFinding_isPublic' - Indicates whether the policy that generated the finding allows public
+-- access to the resource.
 --
 -- 'existingFindingId', 'accessPreviewFinding_existingFindingId' - The existing ID of the finding in IAM Access Analyzer, provided only for
 -- existing findings.
 --
 -- 'condition', 'accessPreviewFinding_condition' - The condition in the analyzed policy statement that resulted in a
 -- finding.
+--
+-- 'action', 'accessPreviewFinding_action' - The action in the analyzed policy statement that an external principal
+-- has permission to perform.
+--
+-- 'error', 'accessPreviewFinding_error' - An error.
+--
+-- 'existingFindingStatus', 'accessPreviewFinding_existingFindingStatus' - The existing status of the finding, provided only for existing findings.
+--
+-- 'resource', 'accessPreviewFinding_resource' - The resource that an external principal has access to. This is the
+-- resource associated with the access preview.
 --
 -- 'changeType', 'accessPreviewFinding_changeType' - Provides context on how the access preview finding compares to existing
 -- access identified in IAM Access Analyzer.
@@ -179,16 +179,15 @@ newAccessPreviewFinding
   pResourceType_
   pStatus_ =
     AccessPreviewFinding'
-      { existingFindingStatus =
-          Prelude.Nothing,
-        error = Prelude.Nothing,
-        isPublic = Prelude.Nothing,
-        action = Prelude.Nothing,
+      { principal = Prelude.Nothing,
         sources = Prelude.Nothing,
-        resource = Prelude.Nothing,
-        principal = Prelude.Nothing,
+        isPublic = Prelude.Nothing,
         existingFindingId = Prelude.Nothing,
         condition = Prelude.Nothing,
+        action = Prelude.Nothing,
+        error = Prelude.Nothing,
+        existingFindingStatus = Prelude.Nothing,
+        resource = Prelude.Nothing,
         changeType = pChangeType_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         id = pId_,
@@ -197,38 +196,20 @@ newAccessPreviewFinding
         status = pStatus_
       }
 
--- | The existing status of the finding, provided only for existing findings.
-accessPreviewFinding_existingFindingStatus :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe FindingStatus)
-accessPreviewFinding_existingFindingStatus = Lens.lens (\AccessPreviewFinding' {existingFindingStatus} -> existingFindingStatus) (\s@AccessPreviewFinding' {} a -> s {existingFindingStatus = a} :: AccessPreviewFinding)
-
--- | An error.
-accessPreviewFinding_error :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe Prelude.Text)
-accessPreviewFinding_error = Lens.lens (\AccessPreviewFinding' {error} -> error) (\s@AccessPreviewFinding' {} a -> s {error = a} :: AccessPreviewFinding)
-
--- | Indicates whether the policy that generated the finding allows public
--- access to the resource.
-accessPreviewFinding_isPublic :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe Prelude.Bool)
-accessPreviewFinding_isPublic = Lens.lens (\AccessPreviewFinding' {isPublic} -> isPublic) (\s@AccessPreviewFinding' {} a -> s {isPublic = a} :: AccessPreviewFinding)
-
--- | The action in the analyzed policy statement that an external principal
--- has permission to perform.
-accessPreviewFinding_action :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe [Prelude.Text])
-accessPreviewFinding_action = Lens.lens (\AccessPreviewFinding' {action} -> action) (\s@AccessPreviewFinding' {} a -> s {action = a} :: AccessPreviewFinding) Prelude.. Lens.mapping Lens.coerced
+-- | The external principal that has access to a resource within the zone of
+-- trust.
+accessPreviewFinding_principal :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+accessPreviewFinding_principal = Lens.lens (\AccessPreviewFinding' {principal} -> principal) (\s@AccessPreviewFinding' {} a -> s {principal = a} :: AccessPreviewFinding) Prelude.. Lens.mapping Lens.coerced
 
 -- | The sources of the finding. This indicates how the access that generated
 -- the finding is granted. It is populated for Amazon S3 bucket findings.
 accessPreviewFinding_sources :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe [FindingSource])
 accessPreviewFinding_sources = Lens.lens (\AccessPreviewFinding' {sources} -> sources) (\s@AccessPreviewFinding' {} a -> s {sources = a} :: AccessPreviewFinding) Prelude.. Lens.mapping Lens.coerced
 
--- | The resource that an external principal has access to. This is the
--- resource associated with the access preview.
-accessPreviewFinding_resource :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe Prelude.Text)
-accessPreviewFinding_resource = Lens.lens (\AccessPreviewFinding' {resource} -> resource) (\s@AccessPreviewFinding' {} a -> s {resource = a} :: AccessPreviewFinding)
-
--- | The external principal that has access to a resource within the zone of
--- trust.
-accessPreviewFinding_principal :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-accessPreviewFinding_principal = Lens.lens (\AccessPreviewFinding' {principal} -> principal) (\s@AccessPreviewFinding' {} a -> s {principal = a} :: AccessPreviewFinding) Prelude.. Lens.mapping Lens.coerced
+-- | Indicates whether the policy that generated the finding allows public
+-- access to the resource.
+accessPreviewFinding_isPublic :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe Prelude.Bool)
+accessPreviewFinding_isPublic = Lens.lens (\AccessPreviewFinding' {isPublic} -> isPublic) (\s@AccessPreviewFinding' {} a -> s {isPublic = a} :: AccessPreviewFinding)
 
 -- | The existing ID of the finding in IAM Access Analyzer, provided only for
 -- existing findings.
@@ -239,6 +220,24 @@ accessPreviewFinding_existingFindingId = Lens.lens (\AccessPreviewFinding' {exis
 -- finding.
 accessPreviewFinding_condition :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 accessPreviewFinding_condition = Lens.lens (\AccessPreviewFinding' {condition} -> condition) (\s@AccessPreviewFinding' {} a -> s {condition = a} :: AccessPreviewFinding) Prelude.. Lens.mapping Lens.coerced
+
+-- | The action in the analyzed policy statement that an external principal
+-- has permission to perform.
+accessPreviewFinding_action :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe [Prelude.Text])
+accessPreviewFinding_action = Lens.lens (\AccessPreviewFinding' {action} -> action) (\s@AccessPreviewFinding' {} a -> s {action = a} :: AccessPreviewFinding) Prelude.. Lens.mapping Lens.coerced
+
+-- | An error.
+accessPreviewFinding_error :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe Prelude.Text)
+accessPreviewFinding_error = Lens.lens (\AccessPreviewFinding' {error} -> error) (\s@AccessPreviewFinding' {} a -> s {error = a} :: AccessPreviewFinding)
+
+-- | The existing status of the finding, provided only for existing findings.
+accessPreviewFinding_existingFindingStatus :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe FindingStatus)
+accessPreviewFinding_existingFindingStatus = Lens.lens (\AccessPreviewFinding' {existingFindingStatus} -> existingFindingStatus) (\s@AccessPreviewFinding' {} a -> s {existingFindingStatus = a} :: AccessPreviewFinding)
+
+-- | The resource that an external principal has access to. This is the
+-- resource associated with the access preview.
+accessPreviewFinding_resource :: Lens.Lens' AccessPreviewFinding (Prelude.Maybe Prelude.Text)
+accessPreviewFinding_resource = Lens.lens (\AccessPreviewFinding' {resource} -> resource) (\s@AccessPreviewFinding' {} a -> s {resource = a} :: AccessPreviewFinding)
 
 -- | Provides context on how the access preview finding compares to existing
 -- access identified in IAM Access Analyzer.
@@ -291,15 +290,15 @@ instance Core.FromJSON AccessPreviewFinding where
       "AccessPreviewFinding"
       ( \x ->
           AccessPreviewFinding'
-            Prelude.<$> (x Core..:? "existingFindingStatus")
-            Prelude.<*> (x Core..:? "error")
-            Prelude.<*> (x Core..:? "isPublic")
-            Prelude.<*> (x Core..:? "action" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "principal" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "sources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "resource")
-            Prelude.<*> (x Core..:? "principal" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "isPublic")
             Prelude.<*> (x Core..:? "existingFindingId")
             Prelude.<*> (x Core..:? "condition" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "action" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "error")
+            Prelude.<*> (x Core..:? "existingFindingStatus")
+            Prelude.<*> (x Core..:? "resource")
             Prelude.<*> (x Core..: "changeType")
             Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "id")
@@ -310,15 +309,15 @@ instance Core.FromJSON AccessPreviewFinding where
 
 instance Prelude.Hashable AccessPreviewFinding where
   hashWithSalt _salt AccessPreviewFinding' {..} =
-    _salt `Prelude.hashWithSalt` existingFindingStatus
-      `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` isPublic
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` sources
-      `Prelude.hashWithSalt` resource
-      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` isPublic
       `Prelude.hashWithSalt` existingFindingId
       `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` existingFindingStatus
+      `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
@@ -328,15 +327,15 @@ instance Prelude.Hashable AccessPreviewFinding where
 
 instance Prelude.NFData AccessPreviewFinding where
   rnf AccessPreviewFinding' {..} =
-    Prelude.rnf existingFindingStatus
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf isPublic
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf principal
       `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf resource
-      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf isPublic
       `Prelude.seq` Prelude.rnf existingFindingId
       `Prelude.seq` Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf existingFindingStatus
+      `Prelude.seq` Prelude.rnf resource
       `Prelude.seq` Prelude.rnf changeType
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf id

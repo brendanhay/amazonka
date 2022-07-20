@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSerDeInfo' smart constructor.
 data SerDeInfo = SerDeInfo'
-  { -- | Usually the class that implements the SerDe. An example is
+  { -- | Name of the SerDe.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Usually the class that implements the SerDe. An example is
     -- @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@.
     serializationLibrary :: Prelude.Maybe Prelude.Text,
-    -- | Name of the SerDe.
-    name :: Prelude.Maybe Prelude.Text,
     -- | These key-value pairs define initialization parameters for the SerDe.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
@@ -46,29 +46,29 @@ data SerDeInfo = SerDeInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'serDeInfo_name' - Name of the SerDe.
+--
 -- 'serializationLibrary', 'serDeInfo_serializationLibrary' - Usually the class that implements the SerDe. An example is
 -- @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@.
---
--- 'name', 'serDeInfo_name' - Name of the SerDe.
 --
 -- 'parameters', 'serDeInfo_parameters' - These key-value pairs define initialization parameters for the SerDe.
 newSerDeInfo ::
   SerDeInfo
 newSerDeInfo =
   SerDeInfo'
-    { serializationLibrary = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      serializationLibrary = Prelude.Nothing,
       parameters = Prelude.Nothing
     }
+
+-- | Name of the SerDe.
+serDeInfo_name :: Lens.Lens' SerDeInfo (Prelude.Maybe Prelude.Text)
+serDeInfo_name = Lens.lens (\SerDeInfo' {name} -> name) (\s@SerDeInfo' {} a -> s {name = a} :: SerDeInfo)
 
 -- | Usually the class that implements the SerDe. An example is
 -- @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@.
 serDeInfo_serializationLibrary :: Lens.Lens' SerDeInfo (Prelude.Maybe Prelude.Text)
 serDeInfo_serializationLibrary = Lens.lens (\SerDeInfo' {serializationLibrary} -> serializationLibrary) (\s@SerDeInfo' {} a -> s {serializationLibrary = a} :: SerDeInfo)
-
--- | Name of the SerDe.
-serDeInfo_name :: Lens.Lens' SerDeInfo (Prelude.Maybe Prelude.Text)
-serDeInfo_name = Lens.lens (\SerDeInfo' {name} -> name) (\s@SerDeInfo' {} a -> s {name = a} :: SerDeInfo)
 
 -- | These key-value pairs define initialization parameters for the SerDe.
 serDeInfo_parameters :: Lens.Lens' SerDeInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -80,30 +80,30 @@ instance Core.FromJSON SerDeInfo where
       "SerDeInfo"
       ( \x ->
           SerDeInfo'
-            Prelude.<$> (x Core..:? "SerializationLibrary")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "SerializationLibrary")
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SerDeInfo where
   hashWithSalt _salt SerDeInfo' {..} =
-    _salt `Prelude.hashWithSalt` serializationLibrary
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` serializationLibrary
       `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData SerDeInfo where
   rnf SerDeInfo' {..} =
-    Prelude.rnf serializationLibrary
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf serializationLibrary
       `Prelude.seq` Prelude.rnf parameters
 
 instance Core.ToJSON SerDeInfo where
   toJSON SerDeInfo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SerializationLibrary" Core..=)
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("SerializationLibrary" Core..=)
               Prelude.<$> serializationLibrary,
-            ("Name" Core..=) Prelude.<$> name,
             ("Parameters" Core..=) Prelude.<$> parameters
           ]
       )

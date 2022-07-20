@@ -33,8 +33,8 @@ module Amazonka.Redshift.CreateSnapshotCopyGrant
     newCreateSnapshotCopyGrant,
 
     -- * Request Lenses
-    createSnapshotCopyGrant_kmsKeyId,
     createSnapshotCopyGrant_tags,
+    createSnapshotCopyGrant_kmsKeyId,
     createSnapshotCopyGrant_snapshotCopyGrantName,
 
     -- * Destructuring the Response
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateSnapshotCopyGrant' smart constructor.
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
-  { -- | The unique identifier of the customer master key (CMK) to which to grant
+  { -- | A list of tag instances.
+    tags :: Prelude.Maybe [Tag],
+    -- | The unique identifier of the customer master key (CMK) to which to grant
     -- Amazon Redshift permission. If no key is specified, the default key is
     -- used.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the snapshot copy grant. This name must be unique in the
     -- region for the Amazon Web Services account.
     --
@@ -91,11 +91,11 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createSnapshotCopyGrant_tags' - A list of tag instances.
+--
 -- 'kmsKeyId', 'createSnapshotCopyGrant_kmsKeyId' - The unique identifier of the customer master key (CMK) to which to grant
 -- Amazon Redshift permission. If no key is specified, the default key is
 -- used.
---
--- 'tags', 'createSnapshotCopyGrant_tags' - A list of tag instances.
 --
 -- 'snapshotCopyGrantName', 'createSnapshotCopyGrant_snapshotCopyGrantName' - The name of the snapshot copy grant. This name must be unique in the
 -- region for the Amazon Web Services account.
@@ -118,21 +118,20 @@ newCreateSnapshotCopyGrant ::
   CreateSnapshotCopyGrant
 newCreateSnapshotCopyGrant pSnapshotCopyGrantName_ =
   CreateSnapshotCopyGrant'
-    { kmsKeyId =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       snapshotCopyGrantName = pSnapshotCopyGrantName_
     }
+
+-- | A list of tag instances.
+createSnapshotCopyGrant_tags :: Lens.Lens' CreateSnapshotCopyGrant (Prelude.Maybe [Tag])
+createSnapshotCopyGrant_tags = Lens.lens (\CreateSnapshotCopyGrant' {tags} -> tags) (\s@CreateSnapshotCopyGrant' {} a -> s {tags = a} :: CreateSnapshotCopyGrant) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier of the customer master key (CMK) to which to grant
 -- Amazon Redshift permission. If no key is specified, the default key is
 -- used.
 createSnapshotCopyGrant_kmsKeyId :: Lens.Lens' CreateSnapshotCopyGrant (Prelude.Maybe Prelude.Text)
 createSnapshotCopyGrant_kmsKeyId = Lens.lens (\CreateSnapshotCopyGrant' {kmsKeyId} -> kmsKeyId) (\s@CreateSnapshotCopyGrant' {} a -> s {kmsKeyId = a} :: CreateSnapshotCopyGrant)
-
--- | A list of tag instances.
-createSnapshotCopyGrant_tags :: Lens.Lens' CreateSnapshotCopyGrant (Prelude.Maybe [Tag])
-createSnapshotCopyGrant_tags = Lens.lens (\CreateSnapshotCopyGrant' {tags} -> tags) (\s@CreateSnapshotCopyGrant' {} a -> s {tags = a} :: CreateSnapshotCopyGrant) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the snapshot copy grant. This name must be unique in the
 -- region for the Amazon Web Services account.
@@ -168,14 +167,14 @@ instance Core.AWSRequest CreateSnapshotCopyGrant where
 
 instance Prelude.Hashable CreateSnapshotCopyGrant where
   hashWithSalt _salt CreateSnapshotCopyGrant' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` snapshotCopyGrantName
 
 instance Prelude.NFData CreateSnapshotCopyGrant where
   rnf CreateSnapshotCopyGrant' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf snapshotCopyGrantName
 
 instance Core.ToHeaders CreateSnapshotCopyGrant where
@@ -191,10 +190,10 @@ instance Core.ToQuery CreateSnapshotCopyGrant where
           Core.=: ("CreateSnapshotCopyGrant" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "KmsKeyId" Core.=: kmsKeyId,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
+        "KmsKeyId" Core.=: kmsKeyId,
         "SnapshotCopyGrantName"
           Core.=: snapshotCopyGrantName
       ]

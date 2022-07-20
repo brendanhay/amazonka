@@ -25,26 +25,26 @@ module Amazonka.APIGateway
     -- * Errors
     -- $errors
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** BadRequestException
     _BadRequestException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -52,581 +52,11 @@ module Amazonka.APIGateway
     -- * Operations
     -- $operations
 
-    -- ** GetResource
-    GetResource (GetResource'),
-    newGetResource,
-    Resource (Resource'),
-    newResource,
-
-    -- ** GetDeployments (Paginated)
-    GetDeployments (GetDeployments'),
-    newGetDeployments,
-    GetDeploymentsResponse (GetDeploymentsResponse'),
-    newGetDeploymentsResponse,
-
-    -- ** GetDeployment
-    GetDeployment (GetDeployment'),
-    newGetDeployment,
-    Deployment (Deployment'),
-    newDeployment,
-
-    -- ** GetTags
-    GetTags (GetTags'),
-    newGetTags,
-    GetTagsResponse (GetTagsResponse'),
-    newGetTagsResponse,
-
-    -- ** DeleteGatewayResponse
-    DeleteGatewayResponse (DeleteGatewayResponse'),
-    newDeleteGatewayResponse,
-    DeleteGatewayResponseResponse (DeleteGatewayResponseResponse'),
-    newDeleteGatewayResponseResponse,
-
-    -- ** UpdateGatewayResponse
-    UpdateGatewayResponse (UpdateGatewayResponse'),
-    newUpdateGatewayResponse,
-    GatewayResponse (GatewayResponse'),
-    newGatewayResponse,
-
-    -- ** CreateUsagePlan
-    CreateUsagePlan (CreateUsagePlan'),
-    newCreateUsagePlan,
-    UsagePlan (UsagePlan'),
-    newUsagePlan,
-
-    -- ** GetDomainNames (Paginated)
-    GetDomainNames (GetDomainNames'),
-    newGetDomainNames,
-    GetDomainNamesResponse (GetDomainNamesResponse'),
-    newGetDomainNamesResponse,
-
-    -- ** GetClientCertificate
-    GetClientCertificate (GetClientCertificate'),
-    newGetClientCertificate,
-    ClientCertificate (ClientCertificate'),
-    newClientCertificate,
-
-    -- ** PutGatewayResponse
-    PutGatewayResponse (PutGatewayResponse'),
-    newPutGatewayResponse,
-    GatewayResponse (GatewayResponse'),
-    newGatewayResponse,
-
-    -- ** GetSdkType
-    GetSdkType (GetSdkType'),
-    newGetSdkType,
-    SdkType (SdkType'),
-    newSdkType,
-
-    -- ** GetMethodResponse
-    GetMethodResponse (GetMethodResponse'),
-    newGetMethodResponse,
-    MethodResponse (MethodResponse'),
-    newMethodResponse,
-
-    -- ** GetModels (Paginated)
-    GetModels (GetModels'),
-    newGetModels,
-    GetModelsResponse (GetModelsResponse'),
-    newGetModelsResponse,
-
-    -- ** GetBasePathMapping
-    GetBasePathMapping (GetBasePathMapping'),
-    newGetBasePathMapping,
-    BasePathMapping (BasePathMapping'),
-    newBasePathMapping,
-
-    -- ** GetRequestValidators (Paginated)
-    GetRequestValidators (GetRequestValidators'),
-    newGetRequestValidators,
-    GetRequestValidatorsResponse (GetRequestValidatorsResponse'),
-    newGetRequestValidatorsResponse,
-
-    -- ** PutMethodResponse
-    PutMethodResponse (PutMethodResponse'),
-    newPutMethodResponse,
-    MethodResponse (MethodResponse'),
-    newMethodResponse,
-
-    -- ** ImportRestApi
-    ImportRestApi (ImportRestApi'),
-    newImportRestApi,
-    RestApi (RestApi'),
-    newRestApi,
-
-    -- ** DeleteMethodResponse
-    DeleteMethodResponse (DeleteMethodResponse'),
-    newDeleteMethodResponse,
-    DeleteMethodResponseResponse (DeleteMethodResponseResponse'),
-    newDeleteMethodResponseResponse,
-
-    -- ** UpdateMethodResponse
-    UpdateMethodResponse (UpdateMethodResponse'),
-    newUpdateMethodResponse,
-    MethodResponse (MethodResponse'),
-    newMethodResponse,
-
-    -- ** DeleteStage
-    DeleteStage (DeleteStage'),
-    newDeleteStage,
-    DeleteStageResponse (DeleteStageResponse'),
-    newDeleteStageResponse,
-
-    -- ** UpdateStage
-    UpdateStage (UpdateStage'),
-    newUpdateStage,
-    Stage (Stage'),
-    newStage,
-
-    -- ** GetRestApis (Paginated)
-    GetRestApis (GetRestApis'),
-    newGetRestApis,
-    GetRestApisResponse (GetRestApisResponse'),
-    newGetRestApisResponse,
-
-    -- ** GetDocumentationVersions (Paginated)
-    GetDocumentationVersions (GetDocumentationVersions'),
-    newGetDocumentationVersions,
-    GetDocumentationVersionsResponse (GetDocumentationVersionsResponse'),
-    newGetDocumentationVersionsResponse,
-
-    -- ** CreateDeployment
-    CreateDeployment (CreateDeployment'),
-    newCreateDeployment,
-    Deployment (Deployment'),
-    newDeployment,
-
-    -- ** GetVpcLinks (Paginated)
-    GetVpcLinks (GetVpcLinks'),
-    newGetVpcLinks,
-    GetVpcLinksResponse (GetVpcLinksResponse'),
-    newGetVpcLinksResponse,
-
-    -- ** CreateBasePathMapping
-    CreateBasePathMapping (CreateBasePathMapping'),
-    newCreateBasePathMapping,
-    BasePathMapping (BasePathMapping'),
-    newBasePathMapping,
-
-    -- ** GetIntegration
-    GetIntegration (GetIntegration'),
-    newGetIntegration,
-    Integration (Integration'),
-    newIntegration,
-
-    -- ** GetDocumentationParts (Paginated)
-    GetDocumentationParts (GetDocumentationParts'),
-    newGetDocumentationParts,
-    GetDocumentationPartsResponse (GetDocumentationPartsResponse'),
-    newGetDocumentationPartsResponse,
-
-    -- ** UpdateAccount
-    UpdateAccount (UpdateAccount'),
-    newUpdateAccount,
-    Account (Account'),
-    newAccount,
-
-    -- ** GetUsagePlan
-    GetUsagePlan (GetUsagePlan'),
-    newGetUsagePlan,
-    UsagePlan (UsagePlan'),
-    newUsagePlan,
-
-    -- ** DeleteDeployment
-    DeleteDeployment (DeleteDeployment'),
-    newDeleteDeployment,
-    DeleteDeploymentResponse (DeleteDeploymentResponse'),
-    newDeleteDeploymentResponse,
-
-    -- ** UpdateDeployment
-    UpdateDeployment (UpdateDeployment'),
-    newUpdateDeployment,
-    Deployment (Deployment'),
-    newDeployment,
-
-    -- ** GetDocumentationPart
-    GetDocumentationPart (GetDocumentationPart'),
-    newGetDocumentationPart,
-    DocumentationPart (DocumentationPart'),
-    newDocumentationPart,
-
-    -- ** DeleteResource
-    DeleteResource (DeleteResource'),
-    newDeleteResource,
-    DeleteResourceResponse (DeleteResourceResponse'),
-    newDeleteResourceResponse,
-
-    -- ** UpdateResource
-    UpdateResource (UpdateResource'),
-    newUpdateResource,
-    Resource (Resource'),
-    newResource,
-
-    -- ** CreateRequestValidator
-    CreateRequestValidator (CreateRequestValidator'),
-    newCreateRequestValidator,
-    RequestValidator (RequestValidator'),
-    newRequestValidator,
-
-    -- ** ImportDocumentationParts
-    ImportDocumentationParts (ImportDocumentationParts'),
-    newImportDocumentationParts,
-    ImportDocumentationPartsResponse (ImportDocumentationPartsResponse'),
-    newImportDocumentationPartsResponse,
-
-    -- ** GetUsage (Paginated)
-    GetUsage (GetUsage'),
-    newGetUsage,
-    Usage (Usage'),
-    newUsage,
-
-    -- ** GetVpcLink
-    GetVpcLink (GetVpcLink'),
-    newGetVpcLink,
-    VpcLink (VpcLink'),
-    newVpcLink,
-
-    -- ** CreateModel
-    CreateModel (CreateModel'),
-    newCreateModel,
-    Model (Model'),
-    newModel,
-
-    -- ** GetIntegrationResponse
-    GetIntegrationResponse (GetIntegrationResponse'),
-    newGetIntegrationResponse,
-    IntegrationResponse (IntegrationResponse'),
-    newIntegrationResponse,
-
-    -- ** CreateDomainName
-    CreateDomainName (CreateDomainName'),
-    newCreateDomainName,
-    DomainName (DomainName'),
-    newDomainName,
-
-    -- ** FlushStageAuthorizersCache
-    FlushStageAuthorizersCache (FlushStageAuthorizersCache'),
-    newFlushStageAuthorizersCache,
-    FlushStageAuthorizersCacheResponse (FlushStageAuthorizersCacheResponse'),
-    newFlushStageAuthorizersCacheResponse,
-
-    -- ** GetGatewayResponses (Paginated)
-    GetGatewayResponses (GetGatewayResponses'),
-    newGetGatewayResponses,
-    GetGatewayResponsesResponse (GetGatewayResponsesResponse'),
-    newGetGatewayResponsesResponse,
-
-    -- ** DeleteModel
-    DeleteModel (DeleteModel'),
-    newDeleteModel,
-    DeleteModelResponse (DeleteModelResponse'),
-    newDeleteModelResponse,
-
-    -- ** UpdateModel
-    UpdateModel (UpdateModel'),
-    newUpdateModel,
-    Model (Model'),
-    newModel,
-
-    -- ** GetDocumentationVersion
-    GetDocumentationVersion (GetDocumentationVersion'),
-    newGetDocumentationVersion,
-    DocumentationVersion (DocumentationVersion'),
-    newDocumentationVersion,
-
-    -- ** DeleteApiKey
-    DeleteApiKey (DeleteApiKey'),
-    newDeleteApiKey,
-    DeleteApiKeyResponse (DeleteApiKeyResponse'),
-    newDeleteApiKeyResponse,
-
-    -- ** UpdateApiKey
-    UpdateApiKey (UpdateApiKey'),
-    newUpdateApiKey,
+    -- ** CreateApiKey
+    CreateApiKey (CreateApiKey'),
+    newCreateApiKey,
     ApiKey (ApiKey'),
     newApiKey,
-
-    -- ** GetRestApi
-    GetRestApi (GetRestApi'),
-    newGetRestApi,
-    RestApi (RestApi'),
-    newRestApi,
-
-    -- ** GetStages
-    GetStages (GetStages'),
-    newGetStages,
-    GetStagesResponse (GetStagesResponse'),
-    newGetStagesResponse,
-
-    -- ** PutRestApi
-    PutRestApi (PutRestApi'),
-    newPutRestApi,
-    RestApi (RestApi'),
-    newRestApi,
-
-    -- ** GetMethod
-    GetMethod (GetMethod'),
-    newGetMethod,
-    Method (Method'),
-    newMethod,
-
-    -- ** GetModel
-    GetModel (GetModel'),
-    newGetModel,
-    Model (Model'),
-    newModel,
-
-    -- ** UpdateRestApi
-    UpdateRestApi (UpdateRestApi'),
-    newUpdateRestApi,
-    RestApi (RestApi'),
-    newRestApi,
-
-    -- ** DeleteRestApi
-    DeleteRestApi (DeleteRestApi'),
-    newDeleteRestApi,
-    DeleteRestApiResponse (DeleteRestApiResponse'),
-    newDeleteRestApiResponse,
-
-    -- ** ImportApiKeys
-    ImportApiKeys (ImportApiKeys'),
-    newImportApiKeys,
-    ImportApiKeysResponse (ImportApiKeysResponse'),
-    newImportApiKeysResponse,
-
-    -- ** CreateDocumentationPart
-    CreateDocumentationPart (CreateDocumentationPart'),
-    newCreateDocumentationPart,
-    DocumentationPart (DocumentationPart'),
-    newDocumentationPart,
-
-    -- ** TestInvokeMethod
-    TestInvokeMethod (TestInvokeMethod'),
-    newTestInvokeMethod,
-    TestInvokeMethodResponse (TestInvokeMethodResponse'),
-    newTestInvokeMethodResponse,
-
-    -- ** GetRequestValidator
-    GetRequestValidator (GetRequestValidator'),
-    newGetRequestValidator,
-    RequestValidator (RequestValidator'),
-    newRequestValidator,
-
-    -- ** GetDomainName
-    GetDomainName (GetDomainName'),
-    newGetDomainName,
-    DomainName (DomainName'),
-    newDomainName,
-
-    -- ** CreateVpcLink
-    CreateVpcLink (CreateVpcLink'),
-    newCreateVpcLink,
-    VpcLink (VpcLink'),
-    newVpcLink,
-
-    -- ** DeleteDocumentationPart
-    DeleteDocumentationPart (DeleteDocumentationPart'),
-    newDeleteDocumentationPart,
-    DeleteDocumentationPartResponse (DeleteDocumentationPartResponse'),
-    newDeleteDocumentationPartResponse,
-
-    -- ** UpdateDocumentationPart
-    UpdateDocumentationPart (UpdateDocumentationPart'),
-    newUpdateDocumentationPart,
-    DocumentationPart (DocumentationPart'),
-    newDocumentationPart,
-
-    -- ** GetAuthorizers (Paginated)
-    GetAuthorizers (GetAuthorizers'),
-    newGetAuthorizers,
-    GetAuthorizersResponse (GetAuthorizersResponse'),
-    newGetAuthorizersResponse,
-
-    -- ** CreateDocumentationVersion
-    CreateDocumentationVersion (CreateDocumentationVersion'),
-    newCreateDocumentationVersion,
-    DocumentationVersion (DocumentationVersion'),
-    newDocumentationVersion,
-
-    -- ** PutIntegrationResponse
-    PutIntegrationResponse (PutIntegrationResponse'),
-    newPutIntegrationResponse,
-    IntegrationResponse (IntegrationResponse'),
-    newIntegrationResponse,
-
-    -- ** GetUsagePlanKeys (Paginated)
-    GetUsagePlanKeys (GetUsagePlanKeys'),
-    newGetUsagePlanKeys,
-    GetUsagePlanKeysResponse (GetUsagePlanKeysResponse'),
-    newGetUsagePlanKeysResponse,
-
-    -- ** DeleteVpcLink
-    DeleteVpcLink (DeleteVpcLink'),
-    newDeleteVpcLink,
-    DeleteVpcLinkResponse (DeleteVpcLinkResponse'),
-    newDeleteVpcLinkResponse,
-
-    -- ** UpdateVpcLink
-    UpdateVpcLink (UpdateVpcLink'),
-    newUpdateVpcLink,
-    VpcLink (VpcLink'),
-    newVpcLink,
-
-    -- ** FlushStageCache
-    FlushStageCache (FlushStageCache'),
-    newFlushStageCache,
-    FlushStageCacheResponse (FlushStageCacheResponse'),
-    newFlushStageCacheResponse,
-
-    -- ** CreateRestApi
-    CreateRestApi (CreateRestApi'),
-    newCreateRestApi,
-    RestApi (RestApi'),
-    newRestApi,
-
-    -- ** DeleteIntegrationResponse
-    DeleteIntegrationResponse (DeleteIntegrationResponse'),
-    newDeleteIntegrationResponse,
-    DeleteIntegrationResponseResponse (DeleteIntegrationResponseResponse'),
-    newDeleteIntegrationResponseResponse,
-
-    -- ** UpdateIntegrationResponse
-    UpdateIntegrationResponse (UpdateIntegrationResponse'),
-    newUpdateIntegrationResponse,
-    IntegrationResponse (IntegrationResponse'),
-    newIntegrationResponse,
-
-    -- ** UpdateUsage
-    UpdateUsage (UpdateUsage'),
-    newUpdateUsage,
-    Usage (Usage'),
-    newUsage,
-
-    -- ** DeleteIntegration
-    DeleteIntegration (DeleteIntegration'),
-    newDeleteIntegration,
-    DeleteIntegrationResponse' (DeleteIntegrationResponse''),
-    newDeleteIntegrationResponse',
-
-    -- ** UpdateIntegration
-    UpdateIntegration (UpdateIntegration'),
-    newUpdateIntegration,
-    Integration (Integration'),
-    newIntegration,
-
-    -- ** TestInvokeAuthorizer
-    TestInvokeAuthorizer (TestInvokeAuthorizer'),
-    newTestInvokeAuthorizer,
-    TestInvokeAuthorizerResponse (TestInvokeAuthorizerResponse'),
-    newTestInvokeAuthorizerResponse,
-
-    -- ** GenerateClientCertificate
-    GenerateClientCertificate (GenerateClientCertificate'),
-    newGenerateClientCertificate,
-    ClientCertificate (ClientCertificate'),
-    newClientCertificate,
-
-    -- ** GetResources (Paginated)
-    GetResources (GetResources'),
-    newGetResources,
-    GetResourcesResponse (GetResourcesResponse'),
-    newGetResourcesResponse,
-
-    -- ** GetUsagePlanKey
-    GetUsagePlanKey (GetUsagePlanKey'),
-    newGetUsagePlanKey,
-    UsagePlanKey (UsagePlanKey'),
-    newUsagePlanKey,
-
-    -- ** GetAccount
-    GetAccount (GetAccount'),
-    newGetAccount,
-    Account (Account'),
-    newAccount,
-
-    -- ** PutIntegration
-    PutIntegration (PutIntegration'),
-    newPutIntegration,
-    Integration (Integration'),
-    newIntegration,
-
-    -- ** GetAuthorizer
-    GetAuthorizer (GetAuthorizer'),
-    newGetAuthorizer,
-    Authorizer (Authorizer'),
-    newAuthorizer,
-
-    -- ** DeleteUsagePlan
-    DeleteUsagePlan (DeleteUsagePlan'),
-    newDeleteUsagePlan,
-    DeleteUsagePlanResponse (DeleteUsagePlanResponse'),
-    newDeleteUsagePlanResponse,
-
-    -- ** UpdateUsagePlan
-    UpdateUsagePlan (UpdateUsagePlan'),
-    newUpdateUsagePlan,
-    UsagePlan (UsagePlan'),
-    newUsagePlan,
-
-    -- ** GetStage
-    GetStage (GetStage'),
-    newGetStage,
-    Stage (Stage'),
-    newStage,
-
-    -- ** GetExport
-    GetExport (GetExport'),
-    newGetExport,
-    GetExportResponse (GetExportResponse'),
-    newGetExportResponse,
-
-    -- ** GetSdk
-    GetSdk (GetSdk'),
-    newGetSdk,
-    GetSdkResponse (GetSdkResponse'),
-    newGetSdkResponse,
-
-    -- ** GetApiKeys (Paginated)
-    GetApiKeys (GetApiKeys'),
-    newGetApiKeys,
-    GetApiKeysResponse (GetApiKeysResponse'),
-    newGetApiKeysResponse,
-
-    -- ** DeleteBasePathMapping
-    DeleteBasePathMapping (DeleteBasePathMapping'),
-    newDeleteBasePathMapping,
-    DeleteBasePathMappingResponse (DeleteBasePathMappingResponse'),
-    newDeleteBasePathMappingResponse,
-
-    -- ** UpdateBasePathMapping
-    UpdateBasePathMapping (UpdateBasePathMapping'),
-    newUpdateBasePathMapping,
-    BasePathMapping (BasePathMapping'),
-    newBasePathMapping,
-
-    -- ** DeleteClientCertificate
-    DeleteClientCertificate (DeleteClientCertificate'),
-    newDeleteClientCertificate,
-    DeleteClientCertificateResponse (DeleteClientCertificateResponse'),
-    newDeleteClientCertificateResponse,
-
-    -- ** UpdateClientCertificate
-    UpdateClientCertificate (UpdateClientCertificate'),
-    newUpdateClientCertificate,
-    ClientCertificate (ClientCertificate'),
-    newClientCertificate,
-
-    -- ** GetGatewayResponse
-    GetGatewayResponse (GetGatewayResponse'),
-    newGetGatewayResponse,
-    GatewayResponse (GatewayResponse'),
-    newGatewayResponse,
-
-    -- ** CreateUsagePlanKey
-    CreateUsagePlanKey (CreateUsagePlanKey'),
-    newCreateUsagePlanKey,
-    UsagePlanKey (UsagePlanKey'),
-    newUsagePlanKey,
 
     -- ** CreateAuthorizer
     CreateAuthorizer (CreateAuthorizer'),
@@ -634,71 +64,47 @@ module Amazonka.APIGateway
     Authorizer (Authorizer'),
     newAuthorizer,
 
-    -- ** UpdateAuthorizer
-    UpdateAuthorizer (UpdateAuthorizer'),
-    newUpdateAuthorizer,
-    Authorizer (Authorizer'),
-    newAuthorizer,
+    -- ** CreateBasePathMapping
+    CreateBasePathMapping (CreateBasePathMapping'),
+    newCreateBasePathMapping,
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
 
-    -- ** DeleteAuthorizer
-    DeleteAuthorizer (DeleteAuthorizer'),
-    newDeleteAuthorizer,
-    DeleteAuthorizerResponse (DeleteAuthorizerResponse'),
-    newDeleteAuthorizerResponse,
+    -- ** CreateDeployment
+    CreateDeployment (CreateDeployment'),
+    newCreateDeployment,
+    Deployment (Deployment'),
+    newDeployment,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** CreateDocumentationPart
+    CreateDocumentationPart (CreateDocumentationPart'),
+    newCreateDocumentationPart,
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
 
-    -- ** CreateStage
-    CreateStage (CreateStage'),
-    newCreateStage,
-    Stage (Stage'),
-    newStage,
+    -- ** CreateDocumentationVersion
+    CreateDocumentationVersion (CreateDocumentationVersion'),
+    newCreateDocumentationVersion,
+    DocumentationVersion (DocumentationVersion'),
+    newDocumentationVersion,
 
-    -- ** DeleteUsagePlanKey
-    DeleteUsagePlanKey (DeleteUsagePlanKey'),
-    newDeleteUsagePlanKey,
-    DeleteUsagePlanKeyResponse (DeleteUsagePlanKeyResponse'),
-    newDeleteUsagePlanKeyResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateApiKey
-    CreateApiKey (CreateApiKey'),
-    newCreateApiKey,
-    ApiKey (ApiKey'),
-    newApiKey,
-
-    -- ** GetUsagePlans (Paginated)
-    GetUsagePlans (GetUsagePlans'),
-    newGetUsagePlans,
-    GetUsagePlansResponse (GetUsagePlansResponse'),
-    newGetUsagePlansResponse,
-
-    -- ** PutMethod
-    PutMethod (PutMethod'),
-    newPutMethod,
-    Method (Method'),
-    newMethod,
-
-    -- ** UpdateDomainName
-    UpdateDomainName (UpdateDomainName'),
-    newUpdateDomainName,
+    -- ** CreateDomainName
+    CreateDomainName (CreateDomainName'),
+    newCreateDomainName,
     DomainName (DomainName'),
     newDomainName,
 
-    -- ** DeleteDomainName
-    DeleteDomainName (DeleteDomainName'),
-    newDeleteDomainName,
-    DeleteDomainNameResponse (DeleteDomainNameResponse'),
-    newDeleteDomainNameResponse,
+    -- ** CreateModel
+    CreateModel (CreateModel'),
+    newCreateModel,
+    Model (Model'),
+    newModel,
+
+    -- ** CreateRequestValidator
+    CreateRequestValidator (CreateRequestValidator'),
+    newCreateRequestValidator,
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
 
     -- ** CreateResource
     CreateResource (CreateResource'),
@@ -706,53 +112,71 @@ module Amazonka.APIGateway
     Resource (Resource'),
     newResource,
 
-    -- ** DeleteMethod
-    DeleteMethod (DeleteMethod'),
-    newDeleteMethod,
-    DeleteMethodResponse' (DeleteMethodResponse''),
-    newDeleteMethodResponse',
+    -- ** CreateRestApi
+    CreateRestApi (CreateRestApi'),
+    newCreateRestApi,
+    RestApi (RestApi'),
+    newRestApi,
 
-    -- ** UpdateMethod
-    UpdateMethod (UpdateMethod'),
-    newUpdateMethod,
-    Method (Method'),
-    newMethod,
+    -- ** CreateStage
+    CreateStage (CreateStage'),
+    newCreateStage,
+    Stage (Stage'),
+    newStage,
 
-    -- ** UpdateRequestValidator
-    UpdateRequestValidator (UpdateRequestValidator'),
-    newUpdateRequestValidator,
-    RequestValidator (RequestValidator'),
-    newRequestValidator,
+    -- ** CreateUsagePlan
+    CreateUsagePlan (CreateUsagePlan'),
+    newCreateUsagePlan,
+    UsagePlan (UsagePlan'),
+    newUsagePlan,
 
-    -- ** DeleteRequestValidator
-    DeleteRequestValidator (DeleteRequestValidator'),
-    newDeleteRequestValidator,
-    DeleteRequestValidatorResponse (DeleteRequestValidatorResponse'),
-    newDeleteRequestValidatorResponse,
+    -- ** CreateUsagePlanKey
+    CreateUsagePlanKey (CreateUsagePlanKey'),
+    newCreateUsagePlanKey,
+    UsagePlanKey (UsagePlanKey'),
+    newUsagePlanKey,
 
-    -- ** GetSdkTypes (Paginated)
-    GetSdkTypes (GetSdkTypes'),
-    newGetSdkTypes,
-    GetSdkTypesResponse (GetSdkTypesResponse'),
-    newGetSdkTypesResponse,
+    -- ** CreateVpcLink
+    CreateVpcLink (CreateVpcLink'),
+    newCreateVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
 
-    -- ** GetClientCertificates (Paginated)
-    GetClientCertificates (GetClientCertificates'),
-    newGetClientCertificates,
-    GetClientCertificatesResponse (GetClientCertificatesResponse'),
-    newGetClientCertificatesResponse,
+    -- ** DeleteApiKey
+    DeleteApiKey (DeleteApiKey'),
+    newDeleteApiKey,
+    DeleteApiKeyResponse (DeleteApiKeyResponse'),
+    newDeleteApiKeyResponse,
 
-    -- ** GetModelTemplate
-    GetModelTemplate (GetModelTemplate'),
-    newGetModelTemplate,
-    GetModelTemplateResponse (GetModelTemplateResponse'),
-    newGetModelTemplateResponse,
+    -- ** DeleteAuthorizer
+    DeleteAuthorizer (DeleteAuthorizer'),
+    newDeleteAuthorizer,
+    DeleteAuthorizerResponse (DeleteAuthorizerResponse'),
+    newDeleteAuthorizerResponse,
 
-    -- ** UpdateDocumentationVersion
-    UpdateDocumentationVersion (UpdateDocumentationVersion'),
-    newUpdateDocumentationVersion,
-    DocumentationVersion (DocumentationVersion'),
-    newDocumentationVersion,
+    -- ** DeleteBasePathMapping
+    DeleteBasePathMapping (DeleteBasePathMapping'),
+    newDeleteBasePathMapping,
+    DeleteBasePathMappingResponse (DeleteBasePathMappingResponse'),
+    newDeleteBasePathMappingResponse,
+
+    -- ** DeleteClientCertificate
+    DeleteClientCertificate (DeleteClientCertificate'),
+    newDeleteClientCertificate,
+    DeleteClientCertificateResponse (DeleteClientCertificateResponse'),
+    newDeleteClientCertificateResponse,
+
+    -- ** DeleteDeployment
+    DeleteDeployment (DeleteDeployment'),
+    newDeleteDeployment,
+    DeleteDeploymentResponse (DeleteDeploymentResponse'),
+    newDeleteDeploymentResponse,
+
+    -- ** DeleteDocumentationPart
+    DeleteDocumentationPart (DeleteDocumentationPart'),
+    newDeleteDocumentationPart,
+    DeleteDocumentationPartResponse (DeleteDocumentationPartResponse'),
+    newDeleteDocumentationPartResponse,
 
     -- ** DeleteDocumentationVersion
     DeleteDocumentationVersion (DeleteDocumentationVersion'),
@@ -760,17 +184,593 @@ module Amazonka.APIGateway
     DeleteDocumentationVersionResponse (DeleteDocumentationVersionResponse'),
     newDeleteDocumentationVersionResponse,
 
-    -- ** GetBasePathMappings (Paginated)
-    GetBasePathMappings (GetBasePathMappings'),
-    newGetBasePathMappings,
-    GetBasePathMappingsResponse (GetBasePathMappingsResponse'),
-    newGetBasePathMappingsResponse,
+    -- ** DeleteDomainName
+    DeleteDomainName (DeleteDomainName'),
+    newDeleteDomainName,
+    DeleteDomainNameResponse (DeleteDomainNameResponse'),
+    newDeleteDomainNameResponse,
+
+    -- ** DeleteGatewayResponse
+    DeleteGatewayResponse (DeleteGatewayResponse'),
+    newDeleteGatewayResponse,
+    DeleteGatewayResponseResponse (DeleteGatewayResponseResponse'),
+    newDeleteGatewayResponseResponse,
+
+    -- ** DeleteIntegration
+    DeleteIntegration (DeleteIntegration'),
+    newDeleteIntegration,
+    DeleteIntegrationResponse' (DeleteIntegrationResponse''),
+    newDeleteIntegrationResponse',
+
+    -- ** DeleteIntegrationResponse
+    DeleteIntegrationResponse (DeleteIntegrationResponse'),
+    newDeleteIntegrationResponse,
+    DeleteIntegrationResponseResponse (DeleteIntegrationResponseResponse'),
+    newDeleteIntegrationResponseResponse,
+
+    -- ** DeleteMethod
+    DeleteMethod (DeleteMethod'),
+    newDeleteMethod,
+    DeleteMethodResponse' (DeleteMethodResponse''),
+    newDeleteMethodResponse',
+
+    -- ** DeleteMethodResponse
+    DeleteMethodResponse (DeleteMethodResponse'),
+    newDeleteMethodResponse,
+    DeleteMethodResponseResponse (DeleteMethodResponseResponse'),
+    newDeleteMethodResponseResponse,
+
+    -- ** DeleteModel
+    DeleteModel (DeleteModel'),
+    newDeleteModel,
+    DeleteModelResponse (DeleteModelResponse'),
+    newDeleteModelResponse,
+
+    -- ** DeleteRequestValidator
+    DeleteRequestValidator (DeleteRequestValidator'),
+    newDeleteRequestValidator,
+    DeleteRequestValidatorResponse (DeleteRequestValidatorResponse'),
+    newDeleteRequestValidatorResponse,
+
+    -- ** DeleteResource
+    DeleteResource (DeleteResource'),
+    newDeleteResource,
+    DeleteResourceResponse (DeleteResourceResponse'),
+    newDeleteResourceResponse,
+
+    -- ** DeleteRestApi
+    DeleteRestApi (DeleteRestApi'),
+    newDeleteRestApi,
+    DeleteRestApiResponse (DeleteRestApiResponse'),
+    newDeleteRestApiResponse,
+
+    -- ** DeleteStage
+    DeleteStage (DeleteStage'),
+    newDeleteStage,
+    DeleteStageResponse (DeleteStageResponse'),
+    newDeleteStageResponse,
+
+    -- ** DeleteUsagePlan
+    DeleteUsagePlan (DeleteUsagePlan'),
+    newDeleteUsagePlan,
+    DeleteUsagePlanResponse (DeleteUsagePlanResponse'),
+    newDeleteUsagePlanResponse,
+
+    -- ** DeleteUsagePlanKey
+    DeleteUsagePlanKey (DeleteUsagePlanKey'),
+    newDeleteUsagePlanKey,
+    DeleteUsagePlanKeyResponse (DeleteUsagePlanKeyResponse'),
+    newDeleteUsagePlanKeyResponse,
+
+    -- ** DeleteVpcLink
+    DeleteVpcLink (DeleteVpcLink'),
+    newDeleteVpcLink,
+    DeleteVpcLinkResponse (DeleteVpcLinkResponse'),
+    newDeleteVpcLinkResponse,
+
+    -- ** FlushStageAuthorizersCache
+    FlushStageAuthorizersCache (FlushStageAuthorizersCache'),
+    newFlushStageAuthorizersCache,
+    FlushStageAuthorizersCacheResponse (FlushStageAuthorizersCacheResponse'),
+    newFlushStageAuthorizersCacheResponse,
+
+    -- ** FlushStageCache
+    FlushStageCache (FlushStageCache'),
+    newFlushStageCache,
+    FlushStageCacheResponse (FlushStageCacheResponse'),
+    newFlushStageCacheResponse,
+
+    -- ** GenerateClientCertificate
+    GenerateClientCertificate (GenerateClientCertificate'),
+    newGenerateClientCertificate,
+    ClientCertificate (ClientCertificate'),
+    newClientCertificate,
+
+    -- ** GetAccount
+    GetAccount (GetAccount'),
+    newGetAccount,
+    Account (Account'),
+    newAccount,
 
     -- ** GetApiKey
     GetApiKey (GetApiKey'),
     newGetApiKey,
     ApiKey (ApiKey'),
     newApiKey,
+
+    -- ** GetApiKeys (Paginated)
+    GetApiKeys (GetApiKeys'),
+    newGetApiKeys,
+    GetApiKeysResponse (GetApiKeysResponse'),
+    newGetApiKeysResponse,
+
+    -- ** GetAuthorizer
+    GetAuthorizer (GetAuthorizer'),
+    newGetAuthorizer,
+    Authorizer (Authorizer'),
+    newAuthorizer,
+
+    -- ** GetAuthorizers (Paginated)
+    GetAuthorizers (GetAuthorizers'),
+    newGetAuthorizers,
+    GetAuthorizersResponse (GetAuthorizersResponse'),
+    newGetAuthorizersResponse,
+
+    -- ** GetBasePathMapping
+    GetBasePathMapping (GetBasePathMapping'),
+    newGetBasePathMapping,
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
+
+    -- ** GetBasePathMappings (Paginated)
+    GetBasePathMappings (GetBasePathMappings'),
+    newGetBasePathMappings,
+    GetBasePathMappingsResponse (GetBasePathMappingsResponse'),
+    newGetBasePathMappingsResponse,
+
+    -- ** GetClientCertificate
+    GetClientCertificate (GetClientCertificate'),
+    newGetClientCertificate,
+    ClientCertificate (ClientCertificate'),
+    newClientCertificate,
+
+    -- ** GetClientCertificates (Paginated)
+    GetClientCertificates (GetClientCertificates'),
+    newGetClientCertificates,
+    GetClientCertificatesResponse (GetClientCertificatesResponse'),
+    newGetClientCertificatesResponse,
+
+    -- ** GetDeployment
+    GetDeployment (GetDeployment'),
+    newGetDeployment,
+    Deployment (Deployment'),
+    newDeployment,
+
+    -- ** GetDeployments (Paginated)
+    GetDeployments (GetDeployments'),
+    newGetDeployments,
+    GetDeploymentsResponse (GetDeploymentsResponse'),
+    newGetDeploymentsResponse,
+
+    -- ** GetDocumentationPart
+    GetDocumentationPart (GetDocumentationPart'),
+    newGetDocumentationPart,
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
+
+    -- ** GetDocumentationParts (Paginated)
+    GetDocumentationParts (GetDocumentationParts'),
+    newGetDocumentationParts,
+    GetDocumentationPartsResponse (GetDocumentationPartsResponse'),
+    newGetDocumentationPartsResponse,
+
+    -- ** GetDocumentationVersion
+    GetDocumentationVersion (GetDocumentationVersion'),
+    newGetDocumentationVersion,
+    DocumentationVersion (DocumentationVersion'),
+    newDocumentationVersion,
+
+    -- ** GetDocumentationVersions (Paginated)
+    GetDocumentationVersions (GetDocumentationVersions'),
+    newGetDocumentationVersions,
+    GetDocumentationVersionsResponse (GetDocumentationVersionsResponse'),
+    newGetDocumentationVersionsResponse,
+
+    -- ** GetDomainName
+    GetDomainName (GetDomainName'),
+    newGetDomainName,
+    DomainName (DomainName'),
+    newDomainName,
+
+    -- ** GetDomainNames (Paginated)
+    GetDomainNames (GetDomainNames'),
+    newGetDomainNames,
+    GetDomainNamesResponse (GetDomainNamesResponse'),
+    newGetDomainNamesResponse,
+
+    -- ** GetExport
+    GetExport (GetExport'),
+    newGetExport,
+    GetExportResponse (GetExportResponse'),
+    newGetExportResponse,
+
+    -- ** GetGatewayResponse
+    GetGatewayResponse (GetGatewayResponse'),
+    newGetGatewayResponse,
+    GatewayResponse (GatewayResponse'),
+    newGatewayResponse,
+
+    -- ** GetGatewayResponses (Paginated)
+    GetGatewayResponses (GetGatewayResponses'),
+    newGetGatewayResponses,
+    GetGatewayResponsesResponse (GetGatewayResponsesResponse'),
+    newGetGatewayResponsesResponse,
+
+    -- ** GetIntegration
+    GetIntegration (GetIntegration'),
+    newGetIntegration,
+    Integration (Integration'),
+    newIntegration,
+
+    -- ** GetIntegrationResponse
+    GetIntegrationResponse (GetIntegrationResponse'),
+    newGetIntegrationResponse,
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
+
+    -- ** GetMethod
+    GetMethod (GetMethod'),
+    newGetMethod,
+    Method (Method'),
+    newMethod,
+
+    -- ** GetMethodResponse
+    GetMethodResponse (GetMethodResponse'),
+    newGetMethodResponse,
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
+
+    -- ** GetModel
+    GetModel (GetModel'),
+    newGetModel,
+    Model (Model'),
+    newModel,
+
+    -- ** GetModelTemplate
+    GetModelTemplate (GetModelTemplate'),
+    newGetModelTemplate,
+    GetModelTemplateResponse (GetModelTemplateResponse'),
+    newGetModelTemplateResponse,
+
+    -- ** GetModels (Paginated)
+    GetModels (GetModels'),
+    newGetModels,
+    GetModelsResponse (GetModelsResponse'),
+    newGetModelsResponse,
+
+    -- ** GetRequestValidator
+    GetRequestValidator (GetRequestValidator'),
+    newGetRequestValidator,
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
+
+    -- ** GetRequestValidators (Paginated)
+    GetRequestValidators (GetRequestValidators'),
+    newGetRequestValidators,
+    GetRequestValidatorsResponse (GetRequestValidatorsResponse'),
+    newGetRequestValidatorsResponse,
+
+    -- ** GetResource
+    GetResource (GetResource'),
+    newGetResource,
+    Resource (Resource'),
+    newResource,
+
+    -- ** GetResources (Paginated)
+    GetResources (GetResources'),
+    newGetResources,
+    GetResourcesResponse (GetResourcesResponse'),
+    newGetResourcesResponse,
+
+    -- ** GetRestApi
+    GetRestApi (GetRestApi'),
+    newGetRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
+    -- ** GetRestApis (Paginated)
+    GetRestApis (GetRestApis'),
+    newGetRestApis,
+    GetRestApisResponse (GetRestApisResponse'),
+    newGetRestApisResponse,
+
+    -- ** GetSdk
+    GetSdk (GetSdk'),
+    newGetSdk,
+    GetSdkResponse (GetSdkResponse'),
+    newGetSdkResponse,
+
+    -- ** GetSdkType
+    GetSdkType (GetSdkType'),
+    newGetSdkType,
+    SdkType (SdkType'),
+    newSdkType,
+
+    -- ** GetSdkTypes (Paginated)
+    GetSdkTypes (GetSdkTypes'),
+    newGetSdkTypes,
+    GetSdkTypesResponse (GetSdkTypesResponse'),
+    newGetSdkTypesResponse,
+
+    -- ** GetStage
+    GetStage (GetStage'),
+    newGetStage,
+    Stage (Stage'),
+    newStage,
+
+    -- ** GetStages
+    GetStages (GetStages'),
+    newGetStages,
+    GetStagesResponse (GetStagesResponse'),
+    newGetStagesResponse,
+
+    -- ** GetTags
+    GetTags (GetTags'),
+    newGetTags,
+    GetTagsResponse (GetTagsResponse'),
+    newGetTagsResponse,
+
+    -- ** GetUsage (Paginated)
+    GetUsage (GetUsage'),
+    newGetUsage,
+    Usage (Usage'),
+    newUsage,
+
+    -- ** GetUsagePlan
+    GetUsagePlan (GetUsagePlan'),
+    newGetUsagePlan,
+    UsagePlan (UsagePlan'),
+    newUsagePlan,
+
+    -- ** GetUsagePlanKey
+    GetUsagePlanKey (GetUsagePlanKey'),
+    newGetUsagePlanKey,
+    UsagePlanKey (UsagePlanKey'),
+    newUsagePlanKey,
+
+    -- ** GetUsagePlanKeys (Paginated)
+    GetUsagePlanKeys (GetUsagePlanKeys'),
+    newGetUsagePlanKeys,
+    GetUsagePlanKeysResponse (GetUsagePlanKeysResponse'),
+    newGetUsagePlanKeysResponse,
+
+    -- ** GetUsagePlans (Paginated)
+    GetUsagePlans (GetUsagePlans'),
+    newGetUsagePlans,
+    GetUsagePlansResponse (GetUsagePlansResponse'),
+    newGetUsagePlansResponse,
+
+    -- ** GetVpcLink
+    GetVpcLink (GetVpcLink'),
+    newGetVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
+
+    -- ** GetVpcLinks (Paginated)
+    GetVpcLinks (GetVpcLinks'),
+    newGetVpcLinks,
+    GetVpcLinksResponse (GetVpcLinksResponse'),
+    newGetVpcLinksResponse,
+
+    -- ** ImportApiKeys
+    ImportApiKeys (ImportApiKeys'),
+    newImportApiKeys,
+    ImportApiKeysResponse (ImportApiKeysResponse'),
+    newImportApiKeysResponse,
+
+    -- ** ImportDocumentationParts
+    ImportDocumentationParts (ImportDocumentationParts'),
+    newImportDocumentationParts,
+    ImportDocumentationPartsResponse (ImportDocumentationPartsResponse'),
+    newImportDocumentationPartsResponse,
+
+    -- ** ImportRestApi
+    ImportRestApi (ImportRestApi'),
+    newImportRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
+    -- ** PutGatewayResponse
+    PutGatewayResponse (PutGatewayResponse'),
+    newPutGatewayResponse,
+    GatewayResponse (GatewayResponse'),
+    newGatewayResponse,
+
+    -- ** PutIntegration
+    PutIntegration (PutIntegration'),
+    newPutIntegration,
+    Integration (Integration'),
+    newIntegration,
+
+    -- ** PutIntegrationResponse
+    PutIntegrationResponse (PutIntegrationResponse'),
+    newPutIntegrationResponse,
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
+
+    -- ** PutMethod
+    PutMethod (PutMethod'),
+    newPutMethod,
+    Method (Method'),
+    newMethod,
+
+    -- ** PutMethodResponse
+    PutMethodResponse (PutMethodResponse'),
+    newPutMethodResponse,
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
+
+    -- ** PutRestApi
+    PutRestApi (PutRestApi'),
+    newPutRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** TestInvokeAuthorizer
+    TestInvokeAuthorizer (TestInvokeAuthorizer'),
+    newTestInvokeAuthorizer,
+    TestInvokeAuthorizerResponse (TestInvokeAuthorizerResponse'),
+    newTestInvokeAuthorizerResponse,
+
+    -- ** TestInvokeMethod
+    TestInvokeMethod (TestInvokeMethod'),
+    newTestInvokeMethod,
+    TestInvokeMethodResponse (TestInvokeMethodResponse'),
+    newTestInvokeMethodResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateAccount
+    UpdateAccount (UpdateAccount'),
+    newUpdateAccount,
+    Account (Account'),
+    newAccount,
+
+    -- ** UpdateApiKey
+    UpdateApiKey (UpdateApiKey'),
+    newUpdateApiKey,
+    ApiKey (ApiKey'),
+    newApiKey,
+
+    -- ** UpdateAuthorizer
+    UpdateAuthorizer (UpdateAuthorizer'),
+    newUpdateAuthorizer,
+    Authorizer (Authorizer'),
+    newAuthorizer,
+
+    -- ** UpdateBasePathMapping
+    UpdateBasePathMapping (UpdateBasePathMapping'),
+    newUpdateBasePathMapping,
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
+
+    -- ** UpdateClientCertificate
+    UpdateClientCertificate (UpdateClientCertificate'),
+    newUpdateClientCertificate,
+    ClientCertificate (ClientCertificate'),
+    newClientCertificate,
+
+    -- ** UpdateDeployment
+    UpdateDeployment (UpdateDeployment'),
+    newUpdateDeployment,
+    Deployment (Deployment'),
+    newDeployment,
+
+    -- ** UpdateDocumentationPart
+    UpdateDocumentationPart (UpdateDocumentationPart'),
+    newUpdateDocumentationPart,
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
+
+    -- ** UpdateDocumentationVersion
+    UpdateDocumentationVersion (UpdateDocumentationVersion'),
+    newUpdateDocumentationVersion,
+    DocumentationVersion (DocumentationVersion'),
+    newDocumentationVersion,
+
+    -- ** UpdateDomainName
+    UpdateDomainName (UpdateDomainName'),
+    newUpdateDomainName,
+    DomainName (DomainName'),
+    newDomainName,
+
+    -- ** UpdateGatewayResponse
+    UpdateGatewayResponse (UpdateGatewayResponse'),
+    newUpdateGatewayResponse,
+    GatewayResponse (GatewayResponse'),
+    newGatewayResponse,
+
+    -- ** UpdateIntegration
+    UpdateIntegration (UpdateIntegration'),
+    newUpdateIntegration,
+    Integration (Integration'),
+    newIntegration,
+
+    -- ** UpdateIntegrationResponse
+    UpdateIntegrationResponse (UpdateIntegrationResponse'),
+    newUpdateIntegrationResponse,
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
+
+    -- ** UpdateMethod
+    UpdateMethod (UpdateMethod'),
+    newUpdateMethod,
+    Method (Method'),
+    newMethod,
+
+    -- ** UpdateMethodResponse
+    UpdateMethodResponse (UpdateMethodResponse'),
+    newUpdateMethodResponse,
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
+
+    -- ** UpdateModel
+    UpdateModel (UpdateModel'),
+    newUpdateModel,
+    Model (Model'),
+    newModel,
+
+    -- ** UpdateRequestValidator
+    UpdateRequestValidator (UpdateRequestValidator'),
+    newUpdateRequestValidator,
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
+
+    -- ** UpdateResource
+    UpdateResource (UpdateResource'),
+    newUpdateResource,
+    Resource (Resource'),
+    newResource,
+
+    -- ** UpdateRestApi
+    UpdateRestApi (UpdateRestApi'),
+    newUpdateRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
+    -- ** UpdateStage
+    UpdateStage (UpdateStage'),
+    newUpdateStage,
+    Stage (Stage'),
+    newStage,
+
+    -- ** UpdateUsage
+    UpdateUsage (UpdateUsage'),
+    newUpdateUsage,
+    Usage (Usage'),
+    newUsage,
+
+    -- ** UpdateUsagePlan
+    UpdateUsagePlan (UpdateUsagePlan'),
+    newUpdateUsagePlan,
+    UsagePlan (UsagePlan'),
+    newUsagePlan,
+
+    -- ** UpdateVpcLink
+    UpdateVpcLink (UpdateVpcLink'),
+    newUpdateVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
 
     -- * Types
 

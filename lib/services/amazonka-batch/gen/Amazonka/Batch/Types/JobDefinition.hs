@@ -32,7 +32,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobDefinition' smart constructor.
 data JobDefinition = JobDefinition'
-  { -- | The status of the job definition.
+  { -- | The tags applied to the job definition.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The timeout configuration for jobs that are submitted with this job
+    -- definition. You can specify a timeout duration after which Batch
+    -- terminates your jobs if they haven\'t finished.
+    timeout :: Prelude.Maybe JobTimeout,
+    -- | An object with various properties specific to container-based jobs.
+    containerProperties :: Prelude.Maybe ContainerProperties,
+    -- | The retry strategy to use for failed jobs that are submitted with this
+    -- job definition.
+    retryStrategy :: Prelude.Maybe RetryStrategy,
+    -- | The platform capabilities required by the job definition. If no value is
+    -- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
+    -- @FARGATE@.
+    platformCapabilities :: Prelude.Maybe [PlatformCapability],
+    -- | The status of the job definition.
     status :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to propagate the tags from the job or job definition
     -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -41,13 +56,11 @@ data JobDefinition = JobDefinition'
     -- job definitions tags. If the total number of combined tags from the job
     -- and job definition is over 50, the job is moved to the @FAILED@ state.
     propagateTags :: Prelude.Maybe Prelude.Bool,
-    -- | The retry strategy to use for failed jobs that are submitted with this
-    -- job definition.
-    retryStrategy :: Prelude.Maybe RetryStrategy,
-    -- | The platform capabilities required by the job definition. If no value is
-    -- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
-    -- @FARGATE@.
-    platformCapabilities :: Prelude.Maybe [PlatformCapability],
+    -- | An object with various properties specific to multi-node parallel jobs.
+    --
+    -- If the job runs on Fargate resources, then you must not specify
+    -- @nodeProperties@; use @containerProperties@ instead.
+    nodeProperties :: Prelude.Maybe NodeProperties,
     -- | Default parameters or parameter substitution placeholders that are set
     -- in the job definition. Parameters are specified as a key-value pair
     -- mapping. Parameters in a @SubmitJob@ request override any corresponding
@@ -56,19 +69,6 @@ data JobDefinition = JobDefinition'
     -- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters>
     -- in the /Batch User Guide/.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The timeout configuration for jobs that are submitted with this job
-    -- definition. You can specify a timeout duration after which Batch
-    -- terminates your jobs if they haven\'t finished.
-    timeout :: Prelude.Maybe JobTimeout,
-    -- | An object with various properties specific to container-based jobs.
-    containerProperties :: Prelude.Maybe ContainerProperties,
-    -- | An object with various properties specific to multi-node parallel jobs.
-    --
-    -- If the job runs on Fargate resources, then you must not specify
-    -- @nodeProperties@; use @containerProperties@ instead.
-    nodeProperties :: Prelude.Maybe NodeProperties,
-    -- | The tags applied to the job definition.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the job definition.
     jobDefinitionName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the job definition.
@@ -92,6 +92,21 @@ data JobDefinition = JobDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'jobDefinition_tags' - The tags applied to the job definition.
+--
+-- 'timeout', 'jobDefinition_timeout' - The timeout configuration for jobs that are submitted with this job
+-- definition. You can specify a timeout duration after which Batch
+-- terminates your jobs if they haven\'t finished.
+--
+-- 'containerProperties', 'jobDefinition_containerProperties' - An object with various properties specific to container-based jobs.
+--
+-- 'retryStrategy', 'jobDefinition_retryStrategy' - The retry strategy to use for failed jobs that are submitted with this
+-- job definition.
+--
+-- 'platformCapabilities', 'jobDefinition_platformCapabilities' - The platform capabilities required by the job definition. If no value is
+-- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
+-- @FARGATE@.
+--
 -- 'status', 'jobDefinition_status' - The status of the job definition.
 --
 -- 'propagateTags', 'jobDefinition_propagateTags' - Specifies whether to propagate the tags from the job or job definition
@@ -101,12 +116,10 @@ data JobDefinition = JobDefinition'
 -- job definitions tags. If the total number of combined tags from the job
 -- and job definition is over 50, the job is moved to the @FAILED@ state.
 --
--- 'retryStrategy', 'jobDefinition_retryStrategy' - The retry strategy to use for failed jobs that are submitted with this
--- job definition.
+-- 'nodeProperties', 'jobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.
 --
--- 'platformCapabilities', 'jobDefinition_platformCapabilities' - The platform capabilities required by the job definition. If no value is
--- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
--- @FARGATE@.
+-- If the job runs on Fargate resources, then you must not specify
+-- @nodeProperties@; use @containerProperties@ instead.
 --
 -- 'parameters', 'jobDefinition_parameters' - Default parameters or parameter substitution placeholders that are set
 -- in the job definition. Parameters are specified as a key-value pair
@@ -115,19 +128,6 @@ data JobDefinition = JobDefinition'
 -- specifying parameters, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters>
 -- in the /Batch User Guide/.
---
--- 'timeout', 'jobDefinition_timeout' - The timeout configuration for jobs that are submitted with this job
--- definition. You can specify a timeout duration after which Batch
--- terminates your jobs if they haven\'t finished.
---
--- 'containerProperties', 'jobDefinition_containerProperties' - An object with various properties specific to container-based jobs.
---
--- 'nodeProperties', 'jobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.
---
--- If the job runs on Fargate resources, then you must not specify
--- @nodeProperties@; use @containerProperties@ instead.
---
--- 'tags', 'jobDefinition_tags' - The tags applied to the job definition.
 --
 -- 'jobDefinitionName', 'jobDefinition_jobDefinitionName' - The name of the job definition.
 --
@@ -156,20 +156,45 @@ newJobDefinition
   pRevision_
   pType_ =
     JobDefinition'
-      { status = Prelude.Nothing,
-        propagateTags = Prelude.Nothing,
-        retryStrategy = Prelude.Nothing,
-        platformCapabilities = Prelude.Nothing,
-        parameters = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         timeout = Prelude.Nothing,
         containerProperties = Prelude.Nothing,
+        retryStrategy = Prelude.Nothing,
+        platformCapabilities = Prelude.Nothing,
+        status = Prelude.Nothing,
+        propagateTags = Prelude.Nothing,
         nodeProperties = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        parameters = Prelude.Nothing,
         jobDefinitionName = pJobDefinitionName_,
         jobDefinitionArn = pJobDefinitionArn_,
         revision = pRevision_,
         type' = pType_
       }
+
+-- | The tags applied to the job definition.
+jobDefinition_tags :: Lens.Lens' JobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobDefinition_tags = Lens.lens (\JobDefinition' {tags} -> tags) (\s@JobDefinition' {} a -> s {tags = a} :: JobDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | The timeout configuration for jobs that are submitted with this job
+-- definition. You can specify a timeout duration after which Batch
+-- terminates your jobs if they haven\'t finished.
+jobDefinition_timeout :: Lens.Lens' JobDefinition (Prelude.Maybe JobTimeout)
+jobDefinition_timeout = Lens.lens (\JobDefinition' {timeout} -> timeout) (\s@JobDefinition' {} a -> s {timeout = a} :: JobDefinition)
+
+-- | An object with various properties specific to container-based jobs.
+jobDefinition_containerProperties :: Lens.Lens' JobDefinition (Prelude.Maybe ContainerProperties)
+jobDefinition_containerProperties = Lens.lens (\JobDefinition' {containerProperties} -> containerProperties) (\s@JobDefinition' {} a -> s {containerProperties = a} :: JobDefinition)
+
+-- | The retry strategy to use for failed jobs that are submitted with this
+-- job definition.
+jobDefinition_retryStrategy :: Lens.Lens' JobDefinition (Prelude.Maybe RetryStrategy)
+jobDefinition_retryStrategy = Lens.lens (\JobDefinition' {retryStrategy} -> retryStrategy) (\s@JobDefinition' {} a -> s {retryStrategy = a} :: JobDefinition)
+
+-- | The platform capabilities required by the job definition. If no value is
+-- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
+-- @FARGATE@.
+jobDefinition_platformCapabilities :: Lens.Lens' JobDefinition (Prelude.Maybe [PlatformCapability])
+jobDefinition_platformCapabilities = Lens.lens (\JobDefinition' {platformCapabilities} -> platformCapabilities) (\s@JobDefinition' {} a -> s {platformCapabilities = a} :: JobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the job definition.
 jobDefinition_status :: Lens.Lens' JobDefinition (Prelude.Maybe Prelude.Text)
@@ -184,16 +209,12 @@ jobDefinition_status = Lens.lens (\JobDefinition' {status} -> status) (\s@JobDef
 jobDefinition_propagateTags :: Lens.Lens' JobDefinition (Prelude.Maybe Prelude.Bool)
 jobDefinition_propagateTags = Lens.lens (\JobDefinition' {propagateTags} -> propagateTags) (\s@JobDefinition' {} a -> s {propagateTags = a} :: JobDefinition)
 
--- | The retry strategy to use for failed jobs that are submitted with this
--- job definition.
-jobDefinition_retryStrategy :: Lens.Lens' JobDefinition (Prelude.Maybe RetryStrategy)
-jobDefinition_retryStrategy = Lens.lens (\JobDefinition' {retryStrategy} -> retryStrategy) (\s@JobDefinition' {} a -> s {retryStrategy = a} :: JobDefinition)
-
--- | The platform capabilities required by the job definition. If no value is
--- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
--- @FARGATE@.
-jobDefinition_platformCapabilities :: Lens.Lens' JobDefinition (Prelude.Maybe [PlatformCapability])
-jobDefinition_platformCapabilities = Lens.lens (\JobDefinition' {platformCapabilities} -> platformCapabilities) (\s@JobDefinition' {} a -> s {platformCapabilities = a} :: JobDefinition) Prelude.. Lens.mapping Lens.coerced
+-- | An object with various properties specific to multi-node parallel jobs.
+--
+-- If the job runs on Fargate resources, then you must not specify
+-- @nodeProperties@; use @containerProperties@ instead.
+jobDefinition_nodeProperties :: Lens.Lens' JobDefinition (Prelude.Maybe NodeProperties)
+jobDefinition_nodeProperties = Lens.lens (\JobDefinition' {nodeProperties} -> nodeProperties) (\s@JobDefinition' {} a -> s {nodeProperties = a} :: JobDefinition)
 
 -- | Default parameters or parameter substitution placeholders that are set
 -- in the job definition. Parameters are specified as a key-value pair
@@ -204,27 +225,6 @@ jobDefinition_platformCapabilities = Lens.lens (\JobDefinition' {platformCapabil
 -- in the /Batch User Guide/.
 jobDefinition_parameters :: Lens.Lens' JobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 jobDefinition_parameters = Lens.lens (\JobDefinition' {parameters} -> parameters) (\s@JobDefinition' {} a -> s {parameters = a} :: JobDefinition) Prelude.. Lens.mapping Lens.coerced
-
--- | The timeout configuration for jobs that are submitted with this job
--- definition. You can specify a timeout duration after which Batch
--- terminates your jobs if they haven\'t finished.
-jobDefinition_timeout :: Lens.Lens' JobDefinition (Prelude.Maybe JobTimeout)
-jobDefinition_timeout = Lens.lens (\JobDefinition' {timeout} -> timeout) (\s@JobDefinition' {} a -> s {timeout = a} :: JobDefinition)
-
--- | An object with various properties specific to container-based jobs.
-jobDefinition_containerProperties :: Lens.Lens' JobDefinition (Prelude.Maybe ContainerProperties)
-jobDefinition_containerProperties = Lens.lens (\JobDefinition' {containerProperties} -> containerProperties) (\s@JobDefinition' {} a -> s {containerProperties = a} :: JobDefinition)
-
--- | An object with various properties specific to multi-node parallel jobs.
---
--- If the job runs on Fargate resources, then you must not specify
--- @nodeProperties@; use @containerProperties@ instead.
-jobDefinition_nodeProperties :: Lens.Lens' JobDefinition (Prelude.Maybe NodeProperties)
-jobDefinition_nodeProperties = Lens.lens (\JobDefinition' {nodeProperties} -> nodeProperties) (\s@JobDefinition' {} a -> s {nodeProperties = a} :: JobDefinition)
-
--- | The tags applied to the job definition.
-jobDefinition_tags :: Lens.Lens' JobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobDefinition_tags = Lens.lens (\JobDefinition' {tags} -> tags) (\s@JobDefinition' {} a -> s {tags = a} :: JobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the job definition.
 jobDefinition_jobDefinitionName :: Lens.Lens' JobDefinition Prelude.Text
@@ -252,17 +252,17 @@ instance Core.FromJSON JobDefinition where
       "JobDefinition"
       ( \x ->
           JobDefinition'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "propagateTags")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "timeout")
+            Prelude.<*> (x Core..:? "containerProperties")
             Prelude.<*> (x Core..:? "retryStrategy")
             Prelude.<*> ( x Core..:? "platformCapabilities"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timeout")
-            Prelude.<*> (x Core..:? "containerProperties")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "propagateTags")
             Prelude.<*> (x Core..:? "nodeProperties")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "jobDefinitionName")
             Prelude.<*> (x Core..: "jobDefinitionArn")
             Prelude.<*> (x Core..: "revision")
@@ -271,15 +271,15 @@ instance Core.FromJSON JobDefinition where
 
 instance Prelude.Hashable JobDefinition where
   hashWithSalt _salt JobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` propagateTags
-      `Prelude.hashWithSalt` retryStrategy
-      `Prelude.hashWithSalt` platformCapabilities
-      `Prelude.hashWithSalt` parameters
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` containerProperties
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` platformCapabilities
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` propagateTags
       `Prelude.hashWithSalt` nodeProperties
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` jobDefinitionName
       `Prelude.hashWithSalt` jobDefinitionArn
       `Prelude.hashWithSalt` revision
@@ -287,15 +287,15 @@ instance Prelude.Hashable JobDefinition where
 
 instance Prelude.NFData JobDefinition where
   rnf JobDefinition' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf platformCapabilities
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf containerProperties
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf platformCapabilities
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf propagateTags
       `Prelude.seq` Prelude.rnf nodeProperties
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf jobDefinitionArn
       `Prelude.seq` Prelude.rnf revision

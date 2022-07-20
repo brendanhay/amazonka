@@ -36,11 +36,11 @@ data ServiceStatistics = ServiceStatistics'
     okCount :: Prelude.Maybe Prelude.Integer,
     -- | The aggregate response time of completed requests.
     totalResponseTime :: Prelude.Maybe Prelude.Double,
+    -- | The total number of completed requests.
+    totalCount :: Prelude.Maybe Prelude.Integer,
     -- | Information about requests that failed with a 4xx Client Error status
     -- code.
-    errorStatistics :: Prelude.Maybe ErrorStatistics,
-    -- | The total number of completed requests.
-    totalCount :: Prelude.Maybe Prelude.Integer
+    errorStatistics :: Prelude.Maybe ErrorStatistics
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,10 +59,10 @@ data ServiceStatistics = ServiceStatistics'
 --
 -- 'totalResponseTime', 'serviceStatistics_totalResponseTime' - The aggregate response time of completed requests.
 --
+-- 'totalCount', 'serviceStatistics_totalCount' - The total number of completed requests.
+--
 -- 'errorStatistics', 'serviceStatistics_errorStatistics' - Information about requests that failed with a 4xx Client Error status
 -- code.
---
--- 'totalCount', 'serviceStatistics_totalCount' - The total number of completed requests.
 newServiceStatistics ::
   ServiceStatistics
 newServiceStatistics =
@@ -71,8 +71,8 @@ newServiceStatistics =
         Prelude.Nothing,
       okCount = Prelude.Nothing,
       totalResponseTime = Prelude.Nothing,
-      errorStatistics = Prelude.Nothing,
-      totalCount = Prelude.Nothing
+      totalCount = Prelude.Nothing,
+      errorStatistics = Prelude.Nothing
     }
 
 -- | Information about requests that failed with a 5xx Server Error status
@@ -88,14 +88,14 @@ serviceStatistics_okCount = Lens.lens (\ServiceStatistics' {okCount} -> okCount)
 serviceStatistics_totalResponseTime :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Double)
 serviceStatistics_totalResponseTime = Lens.lens (\ServiceStatistics' {totalResponseTime} -> totalResponseTime) (\s@ServiceStatistics' {} a -> s {totalResponseTime = a} :: ServiceStatistics)
 
+-- | The total number of completed requests.
+serviceStatistics_totalCount :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Integer)
+serviceStatistics_totalCount = Lens.lens (\ServiceStatistics' {totalCount} -> totalCount) (\s@ServiceStatistics' {} a -> s {totalCount = a} :: ServiceStatistics)
+
 -- | Information about requests that failed with a 4xx Client Error status
 -- code.
 serviceStatistics_errorStatistics :: Lens.Lens' ServiceStatistics (Prelude.Maybe ErrorStatistics)
 serviceStatistics_errorStatistics = Lens.lens (\ServiceStatistics' {errorStatistics} -> errorStatistics) (\s@ServiceStatistics' {} a -> s {errorStatistics = a} :: ServiceStatistics)
-
--- | The total number of completed requests.
-serviceStatistics_totalCount :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Integer)
-serviceStatistics_totalCount = Lens.lens (\ServiceStatistics' {totalCount} -> totalCount) (\s@ServiceStatistics' {} a -> s {totalCount = a} :: ServiceStatistics)
 
 instance Core.FromJSON ServiceStatistics where
   parseJSON =
@@ -106,8 +106,8 @@ instance Core.FromJSON ServiceStatistics where
             Prelude.<$> (x Core..:? "FaultStatistics")
             Prelude.<*> (x Core..:? "OkCount")
             Prelude.<*> (x Core..:? "TotalResponseTime")
-            Prelude.<*> (x Core..:? "ErrorStatistics")
             Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<*> (x Core..:? "ErrorStatistics")
       )
 
 instance Prelude.Hashable ServiceStatistics where
@@ -115,13 +115,13 @@ instance Prelude.Hashable ServiceStatistics where
     _salt `Prelude.hashWithSalt` faultStatistics
       `Prelude.hashWithSalt` okCount
       `Prelude.hashWithSalt` totalResponseTime
-      `Prelude.hashWithSalt` errorStatistics
       `Prelude.hashWithSalt` totalCount
+      `Prelude.hashWithSalt` errorStatistics
 
 instance Prelude.NFData ServiceStatistics where
   rnf ServiceStatistics' {..} =
     Prelude.rnf faultStatistics
       `Prelude.seq` Prelude.rnf okCount
       `Prelude.seq` Prelude.rnf totalResponseTime
-      `Prelude.seq` Prelude.rnf errorStatistics
       `Prelude.seq` Prelude.rnf totalCount
+      `Prelude.seq` Prelude.rnf errorStatistics

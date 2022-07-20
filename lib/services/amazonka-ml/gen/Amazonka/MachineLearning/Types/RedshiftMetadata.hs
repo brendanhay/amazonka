@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftMetadata' smart constructor.
 data RedshiftMetadata = RedshiftMetadata'
-  { -- | The SQL query that is specified during CreateDataSourceFromRedshift.
+  { databaseUserName :: Prelude.Maybe Prelude.Text,
+    -- | The SQL query that is specified during CreateDataSourceFromRedshift.
     -- Returns only if @Verbose@ is true in GetDataSourceInput.
     selectSqlQuery :: Prelude.Maybe Prelude.Text,
-    redshiftDatabase :: Prelude.Maybe RedshiftDatabase,
-    databaseUserName :: Prelude.Maybe Prelude.Text
+    redshiftDatabase :: Prelude.Maybe RedshiftDatabase
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,20 +44,25 @@ data RedshiftMetadata = RedshiftMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'databaseUserName', 'redshiftMetadata_databaseUserName' - Undocumented member.
+--
 -- 'selectSqlQuery', 'redshiftMetadata_selectSqlQuery' - The SQL query that is specified during CreateDataSourceFromRedshift.
 -- Returns only if @Verbose@ is true in GetDataSourceInput.
 --
 -- 'redshiftDatabase', 'redshiftMetadata_redshiftDatabase' - Undocumented member.
---
--- 'databaseUserName', 'redshiftMetadata_databaseUserName' - Undocumented member.
 newRedshiftMetadata ::
   RedshiftMetadata
 newRedshiftMetadata =
   RedshiftMetadata'
-    { selectSqlQuery = Prelude.Nothing,
-      redshiftDatabase = Prelude.Nothing,
-      databaseUserName = Prelude.Nothing
+    { databaseUserName =
+        Prelude.Nothing,
+      selectSqlQuery = Prelude.Nothing,
+      redshiftDatabase = Prelude.Nothing
     }
+
+-- | Undocumented member.
+redshiftMetadata_databaseUserName :: Lens.Lens' RedshiftMetadata (Prelude.Maybe Prelude.Text)
+redshiftMetadata_databaseUserName = Lens.lens (\RedshiftMetadata' {databaseUserName} -> databaseUserName) (\s@RedshiftMetadata' {} a -> s {databaseUserName = a} :: RedshiftMetadata)
 
 -- | The SQL query that is specified during CreateDataSourceFromRedshift.
 -- Returns only if @Verbose@ is true in GetDataSourceInput.
@@ -68,29 +73,25 @@ redshiftMetadata_selectSqlQuery = Lens.lens (\RedshiftMetadata' {selectSqlQuery}
 redshiftMetadata_redshiftDatabase :: Lens.Lens' RedshiftMetadata (Prelude.Maybe RedshiftDatabase)
 redshiftMetadata_redshiftDatabase = Lens.lens (\RedshiftMetadata' {redshiftDatabase} -> redshiftDatabase) (\s@RedshiftMetadata' {} a -> s {redshiftDatabase = a} :: RedshiftMetadata)
 
--- | Undocumented member.
-redshiftMetadata_databaseUserName :: Lens.Lens' RedshiftMetadata (Prelude.Maybe Prelude.Text)
-redshiftMetadata_databaseUserName = Lens.lens (\RedshiftMetadata' {databaseUserName} -> databaseUserName) (\s@RedshiftMetadata' {} a -> s {databaseUserName = a} :: RedshiftMetadata)
-
 instance Core.FromJSON RedshiftMetadata where
   parseJSON =
     Core.withObject
       "RedshiftMetadata"
       ( \x ->
           RedshiftMetadata'
-            Prelude.<$> (x Core..:? "SelectSqlQuery")
+            Prelude.<$> (x Core..:? "DatabaseUserName")
+            Prelude.<*> (x Core..:? "SelectSqlQuery")
             Prelude.<*> (x Core..:? "RedshiftDatabase")
-            Prelude.<*> (x Core..:? "DatabaseUserName")
       )
 
 instance Prelude.Hashable RedshiftMetadata where
   hashWithSalt _salt RedshiftMetadata' {..} =
-    _salt `Prelude.hashWithSalt` selectSqlQuery
+    _salt `Prelude.hashWithSalt` databaseUserName
+      `Prelude.hashWithSalt` selectSqlQuery
       `Prelude.hashWithSalt` redshiftDatabase
-      `Prelude.hashWithSalt` databaseUserName
 
 instance Prelude.NFData RedshiftMetadata where
   rnf RedshiftMetadata' {..} =
-    Prelude.rnf selectSqlQuery
+    Prelude.rnf databaseUserName
+      `Prelude.seq` Prelude.rnf selectSqlQuery
       `Prelude.seq` Prelude.rnf redshiftDatabase
-      `Prelude.seq` Prelude.rnf databaseUserName

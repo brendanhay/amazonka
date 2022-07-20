@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSystemInstanceFilter' smart constructor.
 data SystemInstanceFilter = SystemInstanceFilter'
-  { -- | An array of string values for the search filter field. Multiple values
+  { -- | The name of the search filter field.
+    name :: Prelude.Maybe SystemInstanceFilterName,
+    -- | An array of string values for the search filter field. Multiple values
     -- function as AND criteria in the search.
-    value :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the search filter field.
-    name :: Prelude.Maybe SystemInstanceFilterName
+    value :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,41 +48,41 @@ data SystemInstanceFilter = SystemInstanceFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'systemInstanceFilter_name' - The name of the search filter field.
+--
 -- 'value', 'systemInstanceFilter_value' - An array of string values for the search filter field. Multiple values
 -- function as AND criteria in the search.
---
--- 'name', 'systemInstanceFilter_name' - The name of the search filter field.
 newSystemInstanceFilter ::
   SystemInstanceFilter
 newSystemInstanceFilter =
   SystemInstanceFilter'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | The name of the search filter field.
+systemInstanceFilter_name :: Lens.Lens' SystemInstanceFilter (Prelude.Maybe SystemInstanceFilterName)
+systemInstanceFilter_name = Lens.lens (\SystemInstanceFilter' {name} -> name) (\s@SystemInstanceFilter' {} a -> s {name = a} :: SystemInstanceFilter)
 
 -- | An array of string values for the search filter field. Multiple values
 -- function as AND criteria in the search.
 systemInstanceFilter_value :: Lens.Lens' SystemInstanceFilter (Prelude.Maybe [Prelude.Text])
 systemInstanceFilter_value = Lens.lens (\SystemInstanceFilter' {value} -> value) (\s@SystemInstanceFilter' {} a -> s {value = a} :: SystemInstanceFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the search filter field.
-systemInstanceFilter_name :: Lens.Lens' SystemInstanceFilter (Prelude.Maybe SystemInstanceFilterName)
-systemInstanceFilter_name = Lens.lens (\SystemInstanceFilter' {name} -> name) (\s@SystemInstanceFilter' {} a -> s {name = a} :: SystemInstanceFilter)
-
 instance Prelude.Hashable SystemInstanceFilter where
   hashWithSalt _salt SystemInstanceFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SystemInstanceFilter where
   rnf SystemInstanceFilter' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SystemInstanceFilter where
   toJSON SystemInstanceFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

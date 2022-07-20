@@ -37,14 +37,14 @@ module Amazonka.MGN.MarkAsArchived
     newSourceServer,
 
     -- * Response Lenses
-    sourceServer_sourceProperties,
-    sourceServer_arn,
-    sourceServer_launchedInstance,
-    sourceServer_lifeCycle,
-    sourceServer_isArchived,
-    sourceServer_dataReplicationInfo,
-    sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_lifeCycle,
+    sourceServer_launchedInstance,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_isArchived,
+    sourceServer_sourceServerID,
+    sourceServer_sourceProperties,
   )
 where
 

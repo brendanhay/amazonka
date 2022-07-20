@@ -30,8 +30,8 @@ module Amazonka.Route53Resolver.ListResolverRuleAssociations
     newListResolverRuleAssociations,
 
     -- * Request Lenses
-    listResolverRuleAssociations_filters,
     listResolverRuleAssociations_nextToken,
+    listResolverRuleAssociations_filters,
     listResolverRuleAssociations_maxResults,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.Route53Resolver.ListResolverRuleAssociations
     newListResolverRuleAssociationsResponse,
 
     -- * Response Lenses
-    listResolverRuleAssociationsResponse_resolverRuleAssociations,
     listResolverRuleAssociationsResponse_nextToken,
+    listResolverRuleAssociationsResponse_resolverRuleAssociations,
     listResolverRuleAssociationsResponse_maxResults,
     listResolverRuleAssociationsResponse_httpStatus,
   )
@@ -55,20 +55,20 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListResolverRuleAssociations' smart constructor.
 data ListResolverRuleAssociations = ListResolverRuleAssociations'
-  { -- | An optional specification to return a subset of Resolver rules, such as
-    -- Resolver rules that are associated with the same VPC ID.
-    --
-    -- If you submit a second or subsequent @ListResolverRuleAssociations@
-    -- request and specify the @NextToken@ parameter, you must use the same
-    -- values for @Filters@, if any, as in the previous request.
-    filters :: Prelude.Maybe [Filter],
-    -- | For the first @ListResolverRuleAssociation@ request, omit this value.
+  { -- | For the first @ListResolverRuleAssociation@ request, omit this value.
     --
     -- If you have more than @MaxResults@ rule associations, you can submit
     -- another @ListResolverRuleAssociation@ request to get the next group of
     -- rule associations. In the next request, specify the value of @NextToken@
     -- from the previous response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional specification to return a subset of Resolver rules, such as
+    -- Resolver rules that are associated with the same VPC ID.
+    --
+    -- If you submit a second or subsequent @ListResolverRuleAssociations@
+    -- request and specify the @NextToken@ parameter, you must use the same
+    -- values for @Filters@, if any, as in the previous request.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of rule associations that you want to return in the
     -- response to a @ListResolverRuleAssociations@ request. If you don\'t
     -- specify a value for @MaxResults@, Resolver returns up to 100 rule
@@ -85,19 +85,19 @@ data ListResolverRuleAssociations = ListResolverRuleAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listResolverRuleAssociations_filters' - An optional specification to return a subset of Resolver rules, such as
--- Resolver rules that are associated with the same VPC ID.
---
--- If you submit a second or subsequent @ListResolverRuleAssociations@
--- request and specify the @NextToken@ parameter, you must use the same
--- values for @Filters@, if any, as in the previous request.
---
 -- 'nextToken', 'listResolverRuleAssociations_nextToken' - For the first @ListResolverRuleAssociation@ request, omit this value.
 --
 -- If you have more than @MaxResults@ rule associations, you can submit
 -- another @ListResolverRuleAssociation@ request to get the next group of
 -- rule associations. In the next request, specify the value of @NextToken@
 -- from the previous response.
+--
+-- 'filters', 'listResolverRuleAssociations_filters' - An optional specification to return a subset of Resolver rules, such as
+-- Resolver rules that are associated with the same VPC ID.
+--
+-- If you submit a second or subsequent @ListResolverRuleAssociations@
+-- request and specify the @NextToken@ parameter, you must use the same
+-- values for @Filters@, if any, as in the previous request.
 --
 -- 'maxResults', 'listResolverRuleAssociations_maxResults' - The maximum number of rule associations that you want to return in the
 -- response to a @ListResolverRuleAssociations@ request. If you don\'t
@@ -107,20 +107,11 @@ newListResolverRuleAssociations ::
   ListResolverRuleAssociations
 newListResolverRuleAssociations =
   ListResolverRuleAssociations'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | An optional specification to return a subset of Resolver rules, such as
--- Resolver rules that are associated with the same VPC ID.
---
--- If you submit a second or subsequent @ListResolverRuleAssociations@
--- request and specify the @NextToken@ parameter, you must use the same
--- values for @Filters@, if any, as in the previous request.
-listResolverRuleAssociations_filters :: Lens.Lens' ListResolverRuleAssociations (Prelude.Maybe [Filter])
-listResolverRuleAssociations_filters = Lens.lens (\ListResolverRuleAssociations' {filters} -> filters) (\s@ListResolverRuleAssociations' {} a -> s {filters = a} :: ListResolverRuleAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | For the first @ListResolverRuleAssociation@ request, omit this value.
 --
@@ -130,6 +121,15 @@ listResolverRuleAssociations_filters = Lens.lens (\ListResolverRuleAssociations'
 -- from the previous response.
 listResolverRuleAssociations_nextToken :: Lens.Lens' ListResolverRuleAssociations (Prelude.Maybe Prelude.Text)
 listResolverRuleAssociations_nextToken = Lens.lens (\ListResolverRuleAssociations' {nextToken} -> nextToken) (\s@ListResolverRuleAssociations' {} a -> s {nextToken = a} :: ListResolverRuleAssociations)
+
+-- | An optional specification to return a subset of Resolver rules, such as
+-- Resolver rules that are associated with the same VPC ID.
+--
+-- If you submit a second or subsequent @ListResolverRuleAssociations@
+-- request and specify the @NextToken@ parameter, you must use the same
+-- values for @Filters@, if any, as in the previous request.
+listResolverRuleAssociations_filters :: Lens.Lens' ListResolverRuleAssociations (Prelude.Maybe [Filter])
+listResolverRuleAssociations_filters = Lens.lens (\ListResolverRuleAssociations' {filters} -> filters) (\s@ListResolverRuleAssociations' {} a -> s {filters = a} :: ListResolverRuleAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of rule associations that you want to return in the
 -- response to a @ListResolverRuleAssociations@ request. If you don\'t
@@ -169,10 +169,10 @@ instance Core.AWSRequest ListResolverRuleAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListResolverRuleAssociationsResponse'
-            Prelude.<$> ( x Core..?> "ResolverRuleAssociations"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ResolverRuleAssociations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "MaxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -182,14 +182,14 @@ instance
     ListResolverRuleAssociations
   where
   hashWithSalt _salt ListResolverRuleAssociations' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListResolverRuleAssociations where
   rnf ListResolverRuleAssociations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResolverRuleAssociations where
@@ -211,8 +211,8 @@ instance Core.ToJSON ListResolverRuleAssociations where
   toJSON ListResolverRuleAssociations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -225,15 +225,15 @@ instance Core.ToQuery ListResolverRuleAssociations where
 
 -- | /See:/ 'newListResolverRuleAssociationsResponse' smart constructor.
 data ListResolverRuleAssociationsResponse = ListResolverRuleAssociationsResponse'
-  { -- | The associations that were created between Resolver rules and VPCs using
-    -- the current Amazon Web Services account, and that match the specified
-    -- filters, if any.
-    resolverRuleAssociations :: Prelude.Maybe [ResolverRuleAssociation],
-    -- | If more than @MaxResults@ rule associations match the specified
+  { -- | If more than @MaxResults@ rule associations match the specified
     -- criteria, you can submit another @ListResolverRuleAssociation@ request
     -- to get the next group of results. In the next request, specify the value
     -- of @NextToken@ from the previous response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The associations that were created between Resolver rules and VPCs using
+    -- the current Amazon Web Services account, and that match the specified
+    -- filters, if any.
+    resolverRuleAssociations :: Prelude.Maybe [ResolverRuleAssociation],
     -- | The value that you specified for @MaxResults@ in the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
@@ -249,14 +249,14 @@ data ListResolverRuleAssociationsResponse = ListResolverRuleAssociationsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resolverRuleAssociations', 'listResolverRuleAssociationsResponse_resolverRuleAssociations' - The associations that were created between Resolver rules and VPCs using
--- the current Amazon Web Services account, and that match the specified
--- filters, if any.
---
 -- 'nextToken', 'listResolverRuleAssociationsResponse_nextToken' - If more than @MaxResults@ rule associations match the specified
 -- criteria, you can submit another @ListResolverRuleAssociation@ request
 -- to get the next group of results. In the next request, specify the value
 -- of @NextToken@ from the previous response.
+--
+-- 'resolverRuleAssociations', 'listResolverRuleAssociationsResponse_resolverRuleAssociations' - The associations that were created between Resolver rules and VPCs using
+-- the current Amazon Web Services account, and that match the specified
+-- filters, if any.
 --
 -- 'maxResults', 'listResolverRuleAssociationsResponse_maxResults' - The value that you specified for @MaxResults@ in the request.
 --
@@ -267,18 +267,13 @@ newListResolverRuleAssociationsResponse ::
   ListResolverRuleAssociationsResponse
 newListResolverRuleAssociationsResponse pHttpStatus_ =
   ListResolverRuleAssociationsResponse'
-    { resolverRuleAssociations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resolverRuleAssociations =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The associations that were created between Resolver rules and VPCs using
--- the current Amazon Web Services account, and that match the specified
--- filters, if any.
-listResolverRuleAssociationsResponse_resolverRuleAssociations :: Lens.Lens' ListResolverRuleAssociationsResponse (Prelude.Maybe [ResolverRuleAssociation])
-listResolverRuleAssociationsResponse_resolverRuleAssociations = Lens.lens (\ListResolverRuleAssociationsResponse' {resolverRuleAssociations} -> resolverRuleAssociations) (\s@ListResolverRuleAssociationsResponse' {} a -> s {resolverRuleAssociations = a} :: ListResolverRuleAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If more than @MaxResults@ rule associations match the specified
 -- criteria, you can submit another @ListResolverRuleAssociation@ request
@@ -286,6 +281,12 @@ listResolverRuleAssociationsResponse_resolverRuleAssociations = Lens.lens (\List
 -- of @NextToken@ from the previous response.
 listResolverRuleAssociationsResponse_nextToken :: Lens.Lens' ListResolverRuleAssociationsResponse (Prelude.Maybe Prelude.Text)
 listResolverRuleAssociationsResponse_nextToken = Lens.lens (\ListResolverRuleAssociationsResponse' {nextToken} -> nextToken) (\s@ListResolverRuleAssociationsResponse' {} a -> s {nextToken = a} :: ListResolverRuleAssociationsResponse)
+
+-- | The associations that were created between Resolver rules and VPCs using
+-- the current Amazon Web Services account, and that match the specified
+-- filters, if any.
+listResolverRuleAssociationsResponse_resolverRuleAssociations :: Lens.Lens' ListResolverRuleAssociationsResponse (Prelude.Maybe [ResolverRuleAssociation])
+listResolverRuleAssociationsResponse_resolverRuleAssociations = Lens.lens (\ListResolverRuleAssociationsResponse' {resolverRuleAssociations} -> resolverRuleAssociations) (\s@ListResolverRuleAssociationsResponse' {} a -> s {resolverRuleAssociations = a} :: ListResolverRuleAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value that you specified for @MaxResults@ in the request.
 listResolverRuleAssociationsResponse_maxResults :: Lens.Lens' ListResolverRuleAssociationsResponse (Prelude.Maybe Prelude.Natural)
@@ -300,7 +301,7 @@ instance
     ListResolverRuleAssociationsResponse
   where
   rnf ListResolverRuleAssociationsResponse' {..} =
-    Prelude.rnf resolverRuleAssociations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resolverRuleAssociations
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf httpStatus

@@ -82,10 +82,10 @@ module Amazonka.KMS.CreateGrant
     newCreateGrant,
 
     -- * Request Lenses
+    createGrant_name,
+    createGrant_constraints,
     createGrant_retiringPrincipal,
     createGrant_grantTokens,
-    createGrant_constraints,
-    createGrant_name,
     createGrant_keyId,
     createGrant_granteePrincipal,
     createGrant_operations,
@@ -95,8 +95,8 @@ module Amazonka.KMS.CreateGrant
     newCreateGrantResponse,
 
     -- * Response Lenses
-    createGrantResponse_grantId,
     createGrantResponse_grantToken,
+    createGrantResponse_grantId,
     createGrantResponse_httpStatus,
   )
 where
@@ -110,7 +110,45 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGrant' smart constructor.
 data CreateGrant = CreateGrant'
-  { -- | The principal that has permission to use the RetireGrant operation to
+  { -- | A friendly name for the grant. Use this value to prevent the unintended
+    -- creation of duplicate grants when retrying this request.
+    --
+    -- When this value is absent, all @CreateGrant@ requests result in a new
+    -- grant with a unique @GrantId@ even if all the supplied parameters are
+    -- identical. This can result in unintended duplicates when you retry the
+    -- @CreateGrant@ request.
+    --
+    -- When this value is present, you can retry a @CreateGrant@ request with
+    -- identical parameters; if the grant already exists, the original
+    -- @GrantId@ is returned without creating a new grant. Note that the
+    -- returned grant token is unique with every @CreateGrant@ request, even
+    -- when a duplicate @GrantId@ is returned. All grant tokens for the same
+    -- grant ID can be used interchangeably.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a grant constraint.
+    --
+    -- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+    -- grant constraints. Each constraint value can include up to 8 encryption
+    -- context pairs. The encryption context value in each constraint cannot
+    -- exceed 384 characters.
+    --
+    -- These grant constraints allow the permissions in the grant only when the
+    -- encryption context in the request matches (@EncryptionContextEquals@) or
+    -- includes (@EncryptionContextSubset@) the encryption context specified in
+    -- this structure. For information about grant constraints, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+    -- in the /Key Management Service Developer Guide/. For more information
+    -- about encryption context, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+    -- in the //Key Management Service Developer Guide// .
+    --
+    -- The encryption context grant constraints are supported only on
+    -- operations that include an encryption context. You cannot use an
+    -- encryption context grant constraint for cryptographic operations with
+    -- asymmetric KMS keys or for management operations, such as DescribeKey or
+    -- RetireGrant.
+    constraints :: Prelude.Maybe GrantConstraints,
+    -- | The principal that has permission to use the RetireGrant operation to
     -- retire the grant.
     --
     -- To specify the principal, use the
@@ -139,44 +177,6 @@ data CreateGrant = CreateGrant'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies a grant constraint.
-    --
-    -- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
-    -- grant constraints. Each constraint value can include up to 8 encryption
-    -- context pairs. The encryption context value in each constraint cannot
-    -- exceed 384 characters.
-    --
-    -- These grant constraints allow the permissions in the grant only when the
-    -- encryption context in the request matches (@EncryptionContextEquals@) or
-    -- includes (@EncryptionContextSubset@) the encryption context specified in
-    -- this structure. For information about grant constraints, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
-    -- in the /Key Management Service Developer Guide/. For more information
-    -- about encryption context, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
-    -- in the //Key Management Service Developer Guide// .
-    --
-    -- The encryption context grant constraints are supported only on
-    -- operations that include an encryption context. You cannot use an
-    -- encryption context grant constraint for cryptographic operations with
-    -- asymmetric KMS keys or for management operations, such as DescribeKey or
-    -- RetireGrant.
-    constraints :: Prelude.Maybe GrantConstraints,
-    -- | A friendly name for the grant. Use this value to prevent the unintended
-    -- creation of duplicate grants when retrying this request.
-    --
-    -- When this value is absent, all @CreateGrant@ requests result in a new
-    -- grant with a unique @GrantId@ even if all the supplied parameters are
-    -- identical. This can result in unintended duplicates when you retry the
-    -- @CreateGrant@ request.
-    --
-    -- When this value is present, you can retry a @CreateGrant@ request with
-    -- identical parameters; if the grant already exists, the original
-    -- @GrantId@ is returned without creating a new grant. Note that the
-    -- returned grant token is unique with every @CreateGrant@ request, even
-    -- when a duplicate @GrantId@ is returned. All grant tokens for the same
-    -- grant ID can be used interchangeably.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Identifies the KMS key for the grant. The grant gives principals
     -- permission to use this KMS key.
     --
@@ -226,6 +226,44 @@ data CreateGrant = CreateGrant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createGrant_name' - A friendly name for the grant. Use this value to prevent the unintended
+-- creation of duplicate grants when retrying this request.
+--
+-- When this value is absent, all @CreateGrant@ requests result in a new
+-- grant with a unique @GrantId@ even if all the supplied parameters are
+-- identical. This can result in unintended duplicates when you retry the
+-- @CreateGrant@ request.
+--
+-- When this value is present, you can retry a @CreateGrant@ request with
+-- identical parameters; if the grant already exists, the original
+-- @GrantId@ is returned without creating a new grant. Note that the
+-- returned grant token is unique with every @CreateGrant@ request, even
+-- when a duplicate @GrantId@ is returned. All grant tokens for the same
+-- grant ID can be used interchangeably.
+--
+-- 'constraints', 'createGrant_constraints' - Specifies a grant constraint.
+--
+-- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+-- grant constraints. Each constraint value can include up to 8 encryption
+-- context pairs. The encryption context value in each constraint cannot
+-- exceed 384 characters.
+--
+-- These grant constraints allow the permissions in the grant only when the
+-- encryption context in the request matches (@EncryptionContextEquals@) or
+-- includes (@EncryptionContextSubset@) the encryption context specified in
+-- this structure. For information about grant constraints, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+-- in the /Key Management Service Developer Guide/. For more information
+-- about encryption context, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- in the //Key Management Service Developer Guide// .
+--
+-- The encryption context grant constraints are supported only on
+-- operations that include an encryption context. You cannot use an
+-- encryption context grant constraint for cryptographic operations with
+-- asymmetric KMS keys or for management operations, such as DescribeKey or
+-- RetireGrant.
+--
 -- 'retiringPrincipal', 'createGrant_retiringPrincipal' - The principal that has permission to use the RetireGrant operation to
 -- retire the grant.
 --
@@ -254,44 +292,6 @@ data CreateGrant = CreateGrant'
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
---
--- 'constraints', 'createGrant_constraints' - Specifies a grant constraint.
---
--- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
--- grant constraints. Each constraint value can include up to 8 encryption
--- context pairs. The encryption context value in each constraint cannot
--- exceed 384 characters.
---
--- These grant constraints allow the permissions in the grant only when the
--- encryption context in the request matches (@EncryptionContextEquals@) or
--- includes (@EncryptionContextSubset@) the encryption context specified in
--- this structure. For information about grant constraints, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
--- in the /Key Management Service Developer Guide/. For more information
--- about encryption context, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the //Key Management Service Developer Guide// .
---
--- The encryption context grant constraints are supported only on
--- operations that include an encryption context. You cannot use an
--- encryption context grant constraint for cryptographic operations with
--- asymmetric KMS keys or for management operations, such as DescribeKey or
--- RetireGrant.
---
--- 'name', 'createGrant_name' - A friendly name for the grant. Use this value to prevent the unintended
--- creation of duplicate grants when retrying this request.
---
--- When this value is absent, all @CreateGrant@ requests result in a new
--- grant with a unique @GrantId@ even if all the supplied parameters are
--- identical. This can result in unintended duplicates when you retry the
--- @CreateGrant@ request.
---
--- When this value is present, you can retry a @CreateGrant@ request with
--- identical parameters; if the grant already exists, the original
--- @GrantId@ is returned without creating a new grant. Note that the
--- returned grant token is unique with every @CreateGrant@ request, even
--- when a duplicate @GrantId@ is returned. All grant tokens for the same
--- grant ID can be used interchangeably.
 --
 -- 'keyId', 'createGrant_keyId' - Identifies the KMS key for the grant. The grant gives principals
 -- permission to use this KMS key.
@@ -338,14 +338,56 @@ newCreateGrant ::
   CreateGrant
 newCreateGrant pKeyId_ pGranteePrincipal_ =
   CreateGrant'
-    { retiringPrincipal = Prelude.Nothing,
-      grantTokens = Prelude.Nothing,
+    { name = Prelude.Nothing,
       constraints = Prelude.Nothing,
-      name = Prelude.Nothing,
+      retiringPrincipal = Prelude.Nothing,
+      grantTokens = Prelude.Nothing,
       keyId = pKeyId_,
       granteePrincipal = pGranteePrincipal_,
       operations = Prelude.mempty
     }
+
+-- | A friendly name for the grant. Use this value to prevent the unintended
+-- creation of duplicate grants when retrying this request.
+--
+-- When this value is absent, all @CreateGrant@ requests result in a new
+-- grant with a unique @GrantId@ even if all the supplied parameters are
+-- identical. This can result in unintended duplicates when you retry the
+-- @CreateGrant@ request.
+--
+-- When this value is present, you can retry a @CreateGrant@ request with
+-- identical parameters; if the grant already exists, the original
+-- @GrantId@ is returned without creating a new grant. Note that the
+-- returned grant token is unique with every @CreateGrant@ request, even
+-- when a duplicate @GrantId@ is returned. All grant tokens for the same
+-- grant ID can be used interchangeably.
+createGrant_name :: Lens.Lens' CreateGrant (Prelude.Maybe Prelude.Text)
+createGrant_name = Lens.lens (\CreateGrant' {name} -> name) (\s@CreateGrant' {} a -> s {name = a} :: CreateGrant)
+
+-- | Specifies a grant constraint.
+--
+-- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+-- grant constraints. Each constraint value can include up to 8 encryption
+-- context pairs. The encryption context value in each constraint cannot
+-- exceed 384 characters.
+--
+-- These grant constraints allow the permissions in the grant only when the
+-- encryption context in the request matches (@EncryptionContextEquals@) or
+-- includes (@EncryptionContextSubset@) the encryption context specified in
+-- this structure. For information about grant constraints, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+-- in the /Key Management Service Developer Guide/. For more information
+-- about encryption context, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- in the //Key Management Service Developer Guide// .
+--
+-- The encryption context grant constraints are supported only on
+-- operations that include an encryption context. You cannot use an
+-- encryption context grant constraint for cryptographic operations with
+-- asymmetric KMS keys or for management operations, such as DescribeKey or
+-- RetireGrant.
+createGrant_constraints :: Lens.Lens' CreateGrant (Prelude.Maybe GrantConstraints)
+createGrant_constraints = Lens.lens (\CreateGrant' {constraints} -> constraints) (\s@CreateGrant' {} a -> s {constraints = a} :: CreateGrant)
 
 -- | The principal that has permission to use the RetireGrant operation to
 -- retire the grant.
@@ -379,48 +421,6 @@ createGrant_retiringPrincipal = Lens.lens (\CreateGrant' {retiringPrincipal} -> 
 -- in the /Key Management Service Developer Guide/.
 createGrant_grantTokens :: Lens.Lens' CreateGrant (Prelude.Maybe [Prelude.Text])
 createGrant_grantTokens = Lens.lens (\CreateGrant' {grantTokens} -> grantTokens) (\s@CreateGrant' {} a -> s {grantTokens = a} :: CreateGrant) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies a grant constraint.
---
--- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
--- grant constraints. Each constraint value can include up to 8 encryption
--- context pairs. The encryption context value in each constraint cannot
--- exceed 384 characters.
---
--- These grant constraints allow the permissions in the grant only when the
--- encryption context in the request matches (@EncryptionContextEquals@) or
--- includes (@EncryptionContextSubset@) the encryption context specified in
--- this structure. For information about grant constraints, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
--- in the /Key Management Service Developer Guide/. For more information
--- about encryption context, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the //Key Management Service Developer Guide// .
---
--- The encryption context grant constraints are supported only on
--- operations that include an encryption context. You cannot use an
--- encryption context grant constraint for cryptographic operations with
--- asymmetric KMS keys or for management operations, such as DescribeKey or
--- RetireGrant.
-createGrant_constraints :: Lens.Lens' CreateGrant (Prelude.Maybe GrantConstraints)
-createGrant_constraints = Lens.lens (\CreateGrant' {constraints} -> constraints) (\s@CreateGrant' {} a -> s {constraints = a} :: CreateGrant)
-
--- | A friendly name for the grant. Use this value to prevent the unintended
--- creation of duplicate grants when retrying this request.
---
--- When this value is absent, all @CreateGrant@ requests result in a new
--- grant with a unique @GrantId@ even if all the supplied parameters are
--- identical. This can result in unintended duplicates when you retry the
--- @CreateGrant@ request.
---
--- When this value is present, you can retry a @CreateGrant@ request with
--- identical parameters; if the grant already exists, the original
--- @GrantId@ is returned without creating a new grant. Note that the
--- returned grant token is unique with every @CreateGrant@ request, even
--- when a duplicate @GrantId@ is returned. All grant tokens for the same
--- grant ID can be used interchangeably.
-createGrant_name :: Lens.Lens' CreateGrant (Prelude.Maybe Prelude.Text)
-createGrant_name = Lens.lens (\CreateGrant' {name} -> name) (\s@CreateGrant' {} a -> s {name = a} :: CreateGrant)
 
 -- | Identifies the KMS key for the grant. The grant gives principals
 -- permission to use this KMS key.
@@ -473,27 +473,27 @@ instance Core.AWSRequest CreateGrant where
     Response.receiveJSON
       ( \s h x ->
           CreateGrantResponse'
-            Prelude.<$> (x Core..?> "GrantId")
-            Prelude.<*> (x Core..?> "GrantToken")
+            Prelude.<$> (x Core..?> "GrantToken")
+            Prelude.<*> (x Core..?> "GrantId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateGrant where
   hashWithSalt _salt CreateGrant' {..} =
-    _salt `Prelude.hashWithSalt` retiringPrincipal
-      `Prelude.hashWithSalt` grantTokens
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` constraints
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` retiringPrincipal
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` granteePrincipal
       `Prelude.hashWithSalt` operations
 
 instance Prelude.NFData CreateGrant where
   rnf CreateGrant' {..} =
-    Prelude.rnf retiringPrincipal
-      `Prelude.seq` Prelude.rnf grantTokens
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf retiringPrincipal
+      `Prelude.seq` Prelude.rnf grantTokens
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf granteePrincipal
       `Prelude.seq` Prelude.rnf operations
@@ -515,11 +515,11 @@ instance Core.ToJSON CreateGrant where
   toJSON CreateGrant' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RetiringPrincipal" Core..=)
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Constraints" Core..=) Prelude.<$> constraints,
+            ("RetiringPrincipal" Core..=)
               Prelude.<$> retiringPrincipal,
             ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("Constraints" Core..=) Prelude.<$> constraints,
-            ("Name" Core..=) Prelude.<$> name,
             Prelude.Just ("KeyId" Core..= keyId),
             Prelude.Just
               ("GranteePrincipal" Core..= granteePrincipal),
@@ -535,12 +535,7 @@ instance Core.ToQuery CreateGrant where
 
 -- | /See:/ 'newCreateGrantResponse' smart constructor.
 data CreateGrantResponse = CreateGrantResponse'
-  { -- | The unique identifier for the grant.
-    --
-    -- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant
-    -- operation.
-    grantId :: Prelude.Maybe Prelude.Text,
-    -- | The grant token.
+  { -- | The grant token.
     --
     -- Use a grant token when your permission to call this operation comes from
     -- a new grant that has not yet achieved /eventual consistency/. For more
@@ -550,6 +545,11 @@ data CreateGrantResponse = CreateGrantResponse'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantToken :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the grant.
+    --
+    -- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant
+    -- operation.
+    grantId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -563,11 +563,6 @@ data CreateGrantResponse = CreateGrantResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grantId', 'createGrantResponse_grantId' - The unique identifier for the grant.
---
--- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant
--- operation.
---
 -- 'grantToken', 'createGrantResponse_grantToken' - The grant token.
 --
 -- Use a grant token when your permission to call this operation comes from
@@ -578,6 +573,11 @@ data CreateGrantResponse = CreateGrantResponse'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 --
+-- 'grantId', 'createGrantResponse_grantId' - The unique identifier for the grant.
+--
+-- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant
+-- operation.
+--
 -- 'httpStatus', 'createGrantResponse_httpStatus' - The response's http status code.
 newCreateGrantResponse ::
   -- | 'httpStatus'
@@ -585,17 +585,10 @@ newCreateGrantResponse ::
   CreateGrantResponse
 newCreateGrantResponse pHttpStatus_ =
   CreateGrantResponse'
-    { grantId = Prelude.Nothing,
-      grantToken = Prelude.Nothing,
+    { grantToken = Prelude.Nothing,
+      grantId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier for the grant.
---
--- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant
--- operation.
-createGrantResponse_grantId :: Lens.Lens' CreateGrantResponse (Prelude.Maybe Prelude.Text)
-createGrantResponse_grantId = Lens.lens (\CreateGrantResponse' {grantId} -> grantId) (\s@CreateGrantResponse' {} a -> s {grantId = a} :: CreateGrantResponse)
 
 -- | The grant token.
 --
@@ -609,12 +602,19 @@ createGrantResponse_grantId = Lens.lens (\CreateGrantResponse' {grantId} -> gran
 createGrantResponse_grantToken :: Lens.Lens' CreateGrantResponse (Prelude.Maybe Prelude.Text)
 createGrantResponse_grantToken = Lens.lens (\CreateGrantResponse' {grantToken} -> grantToken) (\s@CreateGrantResponse' {} a -> s {grantToken = a} :: CreateGrantResponse)
 
+-- | The unique identifier for the grant.
+--
+-- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant
+-- operation.
+createGrantResponse_grantId :: Lens.Lens' CreateGrantResponse (Prelude.Maybe Prelude.Text)
+createGrantResponse_grantId = Lens.lens (\CreateGrantResponse' {grantId} -> grantId) (\s@CreateGrantResponse' {} a -> s {grantId = a} :: CreateGrantResponse)
+
 -- | The response's http status code.
 createGrantResponse_httpStatus :: Lens.Lens' CreateGrantResponse Prelude.Int
 createGrantResponse_httpStatus = Lens.lens (\CreateGrantResponse' {httpStatus} -> httpStatus) (\s@CreateGrantResponse' {} a -> s {httpStatus = a} :: CreateGrantResponse)
 
 instance Prelude.NFData CreateGrantResponse where
   rnf CreateGrantResponse' {..} =
-    Prelude.rnf grantId
-      `Prelude.seq` Prelude.rnf grantToken
+    Prelude.rnf grantToken
+      `Prelude.seq` Prelude.rnf grantId
       `Prelude.seq` Prelude.rnf httpStatus

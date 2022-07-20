@@ -32,41 +32,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
-  { -- | The status of the job: @Submitted@, @Progressing@, @Complete@,
+  { -- | Details about the timing of a job.
+    timing :: Prelude.Maybe Timing,
+    -- | The Amazon Resource Name (ARN) for the job.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the job: @Submitted@, @Progressing@, @Complete@,
     -- @Canceled@, or @Error@.
     status :: Prelude.Maybe Prelude.Text,
+    -- | The identifier that Elastic Transcoder assigned to the job. You use this
+    -- value to get settings for the job or to delete the job.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | A section of the request or response body that provides information
+    -- about the file that is being transcoded.
+    input :: Prelude.Maybe JobInput,
     -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
     -- transcoding. The pipeline determines several settings, including the
     -- Amazon S3 bucket from which Elastic Transcoder gets the files to
     -- transcode and the bucket into which Elastic Transcoder puts the
     -- transcoded files.
     pipelineId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the job.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the files that you\'re transcoding. If you specified
-    -- multiple files for this job, Elastic Transcoder stitches the files
-    -- together to make one output.
-    inputs :: Prelude.Maybe [JobInput],
-    -- | A section of the request or response body that provides information
-    -- about the file that is being transcoded.
-    input :: Prelude.Maybe JobInput,
-    -- | User-defined metadata that you want to associate with an Elastic
-    -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
-    -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
-    -- guarantee that @key\/value@ pairs are returned in the same order in
-    -- which you specify them.
-    --
-    -- Metadata @keys@ and @values@ must use characters from the following
-    -- list:
-    --
-    -- -   @0-9@
-    --
-    -- -   @A-Z@ and @a-z@
-    --
-    -- -   @Space@
-    --
-    -- -   The following symbols: @_.:\/=+-%\@@
-    userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Information about the output files. We recommend that you use the
     -- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to
     -- transcode a file into only one format. Do not use both the @Outputs@ and
@@ -87,9 +71,6 @@ data Job = Job'
     -- A section of the request or response body that provides information
     -- about the transcoded (target) file.
     output :: Prelude.Maybe JobOutput,
-    -- | The identifier that Elastic Transcoder assigned to the job. You use this
-    -- value to get settings for the job or to delete the job.
-    id :: Prelude.Maybe Prelude.Text,
     -- | Outputs in Fragmented MP4 or MPEG-TS format only.
     --
     -- If you specify a preset in @PresetId@ for which the value of @Container@
@@ -104,8 +85,27 @@ data Job = Job'
     -- thumbnails, and playlists. We recommend that you add a \/ or some other
     -- delimiter to the end of the @OutputKeyPrefix@.
     outputKeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Details about the timing of a job.
-    timing :: Prelude.Maybe Timing
+    -- | Information about the files that you\'re transcoding. If you specified
+    -- multiple files for this job, Elastic Transcoder stitches the files
+    -- together to make one output.
+    inputs :: Prelude.Maybe [JobInput],
+    -- | User-defined metadata that you want to associate with an Elastic
+    -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
+    -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
+    -- guarantee that @key\/value@ pairs are returned in the same order in
+    -- which you specify them.
+    --
+    -- Metadata @keys@ and @values@ must use characters from the following
+    -- list:
+    --
+    -- -   @0-9@
+    --
+    -- -   @A-Z@ and @a-z@
+    --
+    -- -   @Space@
+    --
+    -- -   The following symbols: @_.:\/=+-%\@@
+    userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,40 +117,24 @@ data Job = Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timing', 'job_timing' - Details about the timing of a job.
+--
+-- 'arn', 'job_arn' - The Amazon Resource Name (ARN) for the job.
+--
 -- 'status', 'job_status' - The status of the job: @Submitted@, @Progressing@, @Complete@,
 -- @Canceled@, or @Error@.
+--
+-- 'id', 'job_id' - The identifier that Elastic Transcoder assigned to the job. You use this
+-- value to get settings for the job or to delete the job.
+--
+-- 'input', 'job_input' - A section of the request or response body that provides information
+-- about the file that is being transcoded.
 --
 -- 'pipelineId', 'job_pipelineId' - The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
 -- Amazon S3 bucket from which Elastic Transcoder gets the files to
 -- transcode and the bucket into which Elastic Transcoder puts the
 -- transcoded files.
---
--- 'arn', 'job_arn' - The Amazon Resource Name (ARN) for the job.
---
--- 'inputs', 'job_inputs' - Information about the files that you\'re transcoding. If you specified
--- multiple files for this job, Elastic Transcoder stitches the files
--- together to make one output.
---
--- 'input', 'job_input' - A section of the request or response body that provides information
--- about the file that is being transcoded.
---
--- 'userMetadata', 'job_userMetadata' - User-defined metadata that you want to associate with an Elastic
--- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
--- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
--- guarantee that @key\/value@ pairs are returned in the same order in
--- which you specify them.
---
--- Metadata @keys@ and @values@ must use characters from the following
--- list:
---
--- -   @0-9@
---
--- -   @A-Z@ and @a-z@
---
--- -   @Space@
---
--- -   The following symbols: @_.:\/=+-%\@@
 --
 -- 'outputs', 'job_outputs' - Information about the output files. We recommend that you use the
 -- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to
@@ -172,9 +156,6 @@ data Job = Job'
 -- A section of the request or response body that provides information
 -- about the transcoded (target) file.
 --
--- 'id', 'job_id' - The identifier that Elastic Transcoder assigned to the job. You use this
--- value to get settings for the job or to delete the job.
---
 -- 'playlists', 'job_playlists' - Outputs in Fragmented MP4 or MPEG-TS format only.
 --
 -- If you specify a preset in @PresetId@ for which the value of @Container@
@@ -189,54 +170,11 @@ data Job = Job'
 -- thumbnails, and playlists. We recommend that you add a \/ or some other
 -- delimiter to the end of the @OutputKeyPrefix@.
 --
--- 'timing', 'job_timing' - Details about the timing of a job.
-newJob ::
-  Job
-newJob =
-  Job'
-    { status = Prelude.Nothing,
-      pipelineId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      inputs = Prelude.Nothing,
-      input = Prelude.Nothing,
-      userMetadata = Prelude.Nothing,
-      outputs = Prelude.Nothing,
-      output = Prelude.Nothing,
-      id = Prelude.Nothing,
-      playlists = Prelude.Nothing,
-      outputKeyPrefix = Prelude.Nothing,
-      timing = Prelude.Nothing
-    }
-
--- | The status of the job: @Submitted@, @Progressing@, @Complete@,
--- @Canceled@, or @Error@.
-job_status :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_status = Lens.lens (\Job' {status} -> status) (\s@Job' {} a -> s {status = a} :: Job)
-
--- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
--- transcoding. The pipeline determines several settings, including the
--- Amazon S3 bucket from which Elastic Transcoder gets the files to
--- transcode and the bucket into which Elastic Transcoder puts the
--- transcoded files.
-job_pipelineId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_pipelineId = Lens.lens (\Job' {pipelineId} -> pipelineId) (\s@Job' {} a -> s {pipelineId = a} :: Job)
-
--- | The Amazon Resource Name (ARN) for the job.
-job_arn :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_arn = Lens.lens (\Job' {arn} -> arn) (\s@Job' {} a -> s {arn = a} :: Job)
-
--- | Information about the files that you\'re transcoding. If you specified
+-- 'inputs', 'job_inputs' - Information about the files that you\'re transcoding. If you specified
 -- multiple files for this job, Elastic Transcoder stitches the files
 -- together to make one output.
-job_inputs :: Lens.Lens' Job (Prelude.Maybe [JobInput])
-job_inputs = Lens.lens (\Job' {inputs} -> inputs) (\s@Job' {} a -> s {inputs = a} :: Job) Prelude.. Lens.mapping Lens.coerced
-
--- | A section of the request or response body that provides information
--- about the file that is being transcoded.
-job_input :: Lens.Lens' Job (Prelude.Maybe JobInput)
-job_input = Lens.lens (\Job' {input} -> input) (\s@Job' {} a -> s {input = a} :: Job)
-
--- | User-defined metadata that you want to associate with an Elastic
+--
+-- 'userMetadata', 'job_userMetadata' - User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
 -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
 -- guarantee that @key\/value@ pairs are returned in the same order in
@@ -252,8 +190,54 @@ job_input = Lens.lens (\Job' {input} -> input) (\s@Job' {} a -> s {input = a} ::
 -- -   @Space@
 --
 -- -   The following symbols: @_.:\/=+-%\@@
-job_userMetadata :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-job_userMetadata = Lens.lens (\Job' {userMetadata} -> userMetadata) (\s@Job' {} a -> s {userMetadata = a} :: Job) Prelude.. Lens.mapping Lens.coerced
+newJob ::
+  Job
+newJob =
+  Job'
+    { timing = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      id = Prelude.Nothing,
+      input = Prelude.Nothing,
+      pipelineId = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      output = Prelude.Nothing,
+      playlists = Prelude.Nothing,
+      outputKeyPrefix = Prelude.Nothing,
+      inputs = Prelude.Nothing,
+      userMetadata = Prelude.Nothing
+    }
+
+-- | Details about the timing of a job.
+job_timing :: Lens.Lens' Job (Prelude.Maybe Timing)
+job_timing = Lens.lens (\Job' {timing} -> timing) (\s@Job' {} a -> s {timing = a} :: Job)
+
+-- | The Amazon Resource Name (ARN) for the job.
+job_arn :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_arn = Lens.lens (\Job' {arn} -> arn) (\s@Job' {} a -> s {arn = a} :: Job)
+
+-- | The status of the job: @Submitted@, @Progressing@, @Complete@,
+-- @Canceled@, or @Error@.
+job_status :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_status = Lens.lens (\Job' {status} -> status) (\s@Job' {} a -> s {status = a} :: Job)
+
+-- | The identifier that Elastic Transcoder assigned to the job. You use this
+-- value to get settings for the job or to delete the job.
+job_id :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
+
+-- | A section of the request or response body that provides information
+-- about the file that is being transcoded.
+job_input :: Lens.Lens' Job (Prelude.Maybe JobInput)
+job_input = Lens.lens (\Job' {input} -> input) (\s@Job' {} a -> s {input = a} :: Job)
+
+-- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
+-- transcoding. The pipeline determines several settings, including the
+-- Amazon S3 bucket from which Elastic Transcoder gets the files to
+-- transcode and the bucket into which Elastic Transcoder puts the
+-- transcoded files.
+job_pipelineId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_pipelineId = Lens.lens (\Job' {pipelineId} -> pipelineId) (\s@Job' {} a -> s {pipelineId = a} :: Job)
 
 -- | Information about the output files. We recommend that you use the
 -- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to
@@ -279,11 +263,6 @@ job_outputs = Lens.lens (\Job' {outputs} -> outputs) (\s@Job' {} a -> s {outputs
 job_output :: Lens.Lens' Job (Prelude.Maybe JobOutput)
 job_output = Lens.lens (\Job' {output} -> output) (\s@Job' {} a -> s {output = a} :: Job)
 
--- | The identifier that Elastic Transcoder assigned to the job. You use this
--- value to get settings for the job or to delete the job.
-job_id :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
-
 -- | Outputs in Fragmented MP4 or MPEG-TS format only.
 --
 -- If you specify a preset in @PresetId@ for which the value of @Container@
@@ -302,9 +281,30 @@ job_playlists = Lens.lens (\Job' {playlists} -> playlists) (\s@Job' {} a -> s {p
 job_outputKeyPrefix :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_outputKeyPrefix = Lens.lens (\Job' {outputKeyPrefix} -> outputKeyPrefix) (\s@Job' {} a -> s {outputKeyPrefix = a} :: Job)
 
--- | Details about the timing of a job.
-job_timing :: Lens.Lens' Job (Prelude.Maybe Timing)
-job_timing = Lens.lens (\Job' {timing} -> timing) (\s@Job' {} a -> s {timing = a} :: Job)
+-- | Information about the files that you\'re transcoding. If you specified
+-- multiple files for this job, Elastic Transcoder stitches the files
+-- together to make one output.
+job_inputs :: Lens.Lens' Job (Prelude.Maybe [JobInput])
+job_inputs = Lens.lens (\Job' {inputs} -> inputs) (\s@Job' {} a -> s {inputs = a} :: Job) Prelude.. Lens.mapping Lens.coerced
+
+-- | User-defined metadata that you want to associate with an Elastic
+-- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
+-- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
+-- guarantee that @key\/value@ pairs are returned in the same order in
+-- which you specify them.
+--
+-- Metadata @keys@ and @values@ must use characters from the following
+-- list:
+--
+-- -   @0-9@
+--
+-- -   @A-Z@ and @a-z@
+--
+-- -   @Space@
+--
+-- -   The following symbols: @_.:\/=+-%\@@
+job_userMetadata :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+job_userMetadata = Lens.lens (\Job' {userMetadata} -> userMetadata) (\s@Job' {} a -> s {userMetadata = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Job where
   parseJSON =
@@ -312,46 +312,46 @@ instance Core.FromJSON Job where
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "PipelineId")
+            Prelude.<$> (x Core..:? "Timing")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Input")
-            Prelude.<*> (x Core..:? "UserMetadata" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "PipelineId")
             Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Output")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Playlists" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "OutputKeyPrefix")
-            Prelude.<*> (x Core..:? "Timing")
+            Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "UserMetadata" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` pipelineId
+    _salt `Prelude.hashWithSalt` timing
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` input
-      `Prelude.hashWithSalt` userMetadata
+      `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` output
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` playlists
       `Prelude.hashWithSalt` outputKeyPrefix
-      `Prelude.hashWithSalt` timing
+      `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` userMetadata
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf pipelineId
+    Prelude.rnf timing
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf userMetadata
+      `Prelude.seq` Prelude.rnf pipelineId
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf playlists
       `Prelude.seq` Prelude.rnf outputKeyPrefix
-      `Prelude.seq` Prelude.rnf timing
+      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf userMetadata

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLayer' smart constructor.
 data Layer = Layer'
-  { -- | The Amazon Resource Name (ARN) for a signing profile version.
-    signingProfileVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the function layer.
+  { -- | The Amazon Resource Name (ARN) of the function layer.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for a signing profile version.
+    signingProfileVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a signing job.
     signingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The size of the layer archive in bytes.
@@ -47,9 +47,9 @@ data Layer = Layer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signingProfileVersionArn', 'layer_signingProfileVersionArn' - The Amazon Resource Name (ARN) for a signing profile version.
---
 -- 'arn', 'layer_arn' - The Amazon Resource Name (ARN) of the function layer.
+--
+-- 'signingProfileVersionArn', 'layer_signingProfileVersionArn' - The Amazon Resource Name (ARN) for a signing profile version.
 --
 -- 'signingJobArn', 'layer_signingJobArn' - The Amazon Resource Name (ARN) of a signing job.
 --
@@ -58,19 +58,19 @@ newLayer ::
   Layer
 newLayer =
   Layer'
-    { signingProfileVersionArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      signingProfileVersionArn = Prelude.Nothing,
       signingJobArn = Prelude.Nothing,
       codeSize = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) for a signing profile version.
-layer_signingProfileVersionArn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
-layer_signingProfileVersionArn = Lens.lens (\Layer' {signingProfileVersionArn} -> signingProfileVersionArn) (\s@Layer' {} a -> s {signingProfileVersionArn = a} :: Layer)
-
 -- | The Amazon Resource Name (ARN) of the function layer.
 layer_arn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
 layer_arn = Lens.lens (\Layer' {arn} -> arn) (\s@Layer' {} a -> s {arn = a} :: Layer)
+
+-- | The Amazon Resource Name (ARN) for a signing profile version.
+layer_signingProfileVersionArn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_signingProfileVersionArn = Lens.lens (\Layer' {signingProfileVersionArn} -> signingProfileVersionArn) (\s@Layer' {} a -> s {signingProfileVersionArn = a} :: Layer)
 
 -- | The Amazon Resource Name (ARN) of a signing job.
 layer_signingJobArn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
@@ -86,23 +86,22 @@ instance Core.FromJSON Layer where
       "Layer"
       ( \x ->
           Layer'
-            Prelude.<$> (x Core..:? "SigningProfileVersionArn")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "SigningProfileVersionArn")
             Prelude.<*> (x Core..:? "SigningJobArn")
             Prelude.<*> (x Core..:? "CodeSize")
       )
 
 instance Prelude.Hashable Layer where
   hashWithSalt _salt Layer' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` signingProfileVersionArn
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` signingJobArn
       `Prelude.hashWithSalt` codeSize
 
 instance Prelude.NFData Layer where
   rnf Layer' {..} =
-    Prelude.rnf signingProfileVersionArn
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf signingProfileVersionArn
       `Prelude.seq` Prelude.rnf signingJobArn
       `Prelude.seq` Prelude.rnf codeSize

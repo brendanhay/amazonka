@@ -54,8 +54,8 @@ module Amazonka.S3.AbortMultipartUpload
     newAbortMultipartUpload,
 
     -- * Request Lenses
-    abortMultipartUpload_requestPayer,
     abortMultipartUpload_expectedBucketOwner,
+    abortMultipartUpload_requestPayer,
     abortMultipartUpload_bucket,
     abortMultipartUpload_key,
     abortMultipartUpload_uploadId,
@@ -79,11 +79,11 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newAbortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-  { requestPayer :: Prelude.Maybe RequestPayer,
-    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name to which the upload was taking place.
     --
     -- When using this action with an access point, you must direct requests to
@@ -120,11 +120,11 @@ data AbortMultipartUpload = AbortMultipartUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestPayer', 'abortMultipartUpload_requestPayer' - Undocumented member.
---
 -- 'expectedBucketOwner', 'abortMultipartUpload_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'requestPayer', 'abortMultipartUpload_requestPayer' - Undocumented member.
 --
 -- 'bucket', 'abortMultipartUpload_bucket' - The bucket name to which the upload was taking place.
 --
@@ -160,23 +160,23 @@ newAbortMultipartUpload ::
   AbortMultipartUpload
 newAbortMultipartUpload pBucket_ pKey_ pUploadId_ =
   AbortMultipartUpload'
-    { requestPayer =
+    { expectedBucketOwner =
         Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       uploadId = pUploadId_
     }
-
--- | Undocumented member.
-abortMultipartUpload_requestPayer :: Lens.Lens' AbortMultipartUpload (Prelude.Maybe RequestPayer)
-abortMultipartUpload_requestPayer = Lens.lens (\AbortMultipartUpload' {requestPayer} -> requestPayer) (\s@AbortMultipartUpload' {} a -> s {requestPayer = a} :: AbortMultipartUpload)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 abortMultipartUpload_expectedBucketOwner :: Lens.Lens' AbortMultipartUpload (Prelude.Maybe Prelude.Text)
 abortMultipartUpload_expectedBucketOwner = Lens.lens (\AbortMultipartUpload' {expectedBucketOwner} -> expectedBucketOwner) (\s@AbortMultipartUpload' {} a -> s {expectedBucketOwner = a} :: AbortMultipartUpload)
+
+-- | Undocumented member.
+abortMultipartUpload_requestPayer :: Lens.Lens' AbortMultipartUpload (Prelude.Maybe RequestPayer)
+abortMultipartUpload_requestPayer = Lens.lens (\AbortMultipartUpload' {requestPayer} -> requestPayer) (\s@AbortMultipartUpload' {} a -> s {requestPayer = a} :: AbortMultipartUpload)
 
 -- | The bucket name to which the upload was taking place.
 --
@@ -226,16 +226,16 @@ instance Core.AWSRequest AbortMultipartUpload where
 
 instance Prelude.Hashable AbortMultipartUpload where
   hashWithSalt _salt AbortMultipartUpload' {..} =
-    _salt `Prelude.hashWithSalt` requestPayer
-      `Prelude.hashWithSalt` expectedBucketOwner
+    _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` uploadId
 
 instance Prelude.NFData AbortMultipartUpload where
   rnf AbortMultipartUpload' {..} =
-    Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf expectedBucketOwner
+    Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf uploadId
@@ -243,9 +243,9 @@ instance Prelude.NFData AbortMultipartUpload where
 instance Core.ToHeaders AbortMultipartUpload where
   toHeaders AbortMultipartUpload' {..} =
     Prelude.mconcat
-      [ "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
 instance Core.ToPath AbortMultipartUpload where

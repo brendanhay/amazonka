@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 data WorkspaceSummary = WorkspaceSummary'
   { -- | The name of the workspace.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The customer-entered description of the workspace.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Web Services notification channels that Amazon Managed
     -- Grafana can automatically create IAM roles and permissions for, which
     -- allows Amazon Managed Grafana to use these channels.
     notificationDestinations :: Prelude.Maybe [NotificationDestinationType],
-    -- | The customer-entered description of the workspace.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A structure containing information about the authentication methods used
     -- in the workspace.
     authentication :: AuthenticationSummary,
@@ -67,11 +67,11 @@ data WorkspaceSummary = WorkspaceSummary'
 --
 -- 'name', 'workspaceSummary_name' - The name of the workspace.
 --
+-- 'description', 'workspaceSummary_description' - The customer-entered description of the workspace.
+--
 -- 'notificationDestinations', 'workspaceSummary_notificationDestinations' - The Amazon Web Services notification channels that Amazon Managed
 -- Grafana can automatically create IAM roles and permissions for, which
 -- allows Amazon Managed Grafana to use these channels.
---
--- 'description', 'workspaceSummary_description' - The customer-entered description of the workspace.
 --
 -- 'authentication', 'workspaceSummary_authentication' - A structure containing information about the authentication methods used
 -- in the workspace.
@@ -113,8 +113,8 @@ newWorkspaceSummary
   pStatus_ =
     WorkspaceSummary'
       { name = Prelude.Nothing,
-        notificationDestinations = Prelude.Nothing,
         description = Prelude.Nothing,
+        notificationDestinations = Prelude.Nothing,
         authentication = pAuthentication_,
         created = Core._Time Lens.# pCreated_,
         endpoint = pEndpoint_,
@@ -128,15 +128,15 @@ newWorkspaceSummary
 workspaceSummary_name :: Lens.Lens' WorkspaceSummary (Prelude.Maybe Prelude.Text)
 workspaceSummary_name = Lens.lens (\WorkspaceSummary' {name} -> name) (\s@WorkspaceSummary' {} a -> s {name = a} :: WorkspaceSummary) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The customer-entered description of the workspace.
+workspaceSummary_description :: Lens.Lens' WorkspaceSummary (Prelude.Maybe Prelude.Text)
+workspaceSummary_description = Lens.lens (\WorkspaceSummary' {description} -> description) (\s@WorkspaceSummary' {} a -> s {description = a} :: WorkspaceSummary) Prelude.. Lens.mapping Core._Sensitive
+
 -- | The Amazon Web Services notification channels that Amazon Managed
 -- Grafana can automatically create IAM roles and permissions for, which
 -- allows Amazon Managed Grafana to use these channels.
 workspaceSummary_notificationDestinations :: Lens.Lens' WorkspaceSummary (Prelude.Maybe [NotificationDestinationType])
 workspaceSummary_notificationDestinations = Lens.lens (\WorkspaceSummary' {notificationDestinations} -> notificationDestinations) (\s@WorkspaceSummary' {} a -> s {notificationDestinations = a} :: WorkspaceSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The customer-entered description of the workspace.
-workspaceSummary_description :: Lens.Lens' WorkspaceSummary (Prelude.Maybe Prelude.Text)
-workspaceSummary_description = Lens.lens (\WorkspaceSummary' {description} -> description) (\s@WorkspaceSummary' {} a -> s {description = a} :: WorkspaceSummary) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A structure containing information about the authentication methods used
 -- in the workspace.
@@ -174,10 +174,10 @@ instance Core.FromJSON WorkspaceSummary where
       ( \x ->
           WorkspaceSummary'
             Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> ( x Core..:? "notificationDestinations"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "authentication")
             Prelude.<*> (x Core..: "created")
             Prelude.<*> (x Core..: "endpoint")
@@ -190,8 +190,8 @@ instance Core.FromJSON WorkspaceSummary where
 instance Prelude.Hashable WorkspaceSummary where
   hashWithSalt _salt WorkspaceSummary' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` notificationDestinations
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` notificationDestinations
       `Prelude.hashWithSalt` authentication
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` endpoint
@@ -203,8 +203,8 @@ instance Prelude.Hashable WorkspaceSummary where
 instance Prelude.NFData WorkspaceSummary where
   rnf WorkspaceSummary' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf notificationDestinations
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf notificationDestinations
       `Prelude.seq` Prelude.rnf authentication
       `Prelude.seq` Prelude.rnf created
       `Prelude.seq` Prelude.rnf endpoint

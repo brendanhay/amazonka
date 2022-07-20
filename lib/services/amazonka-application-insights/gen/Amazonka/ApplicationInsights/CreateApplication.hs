@@ -27,10 +27,10 @@ module Amazonka.ApplicationInsights.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_cWEMonitorEnabled,
-    createApplication_opsItemSNSTopicArn,
-    createApplication_opsCenterEnabled,
     createApplication_tags,
+    createApplication_opsItemSNSTopicArn,
+    createApplication_cWEMonitorEnabled,
+    createApplication_opsCenterEnabled,
     createApplication_resourceGroupName,
 
     -- * Destructuring the Response
@@ -52,21 +52,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | Indicates whether Application Insights can listen to CloudWatch events
-    -- for the application resources, such as @instance terminated@,
-    -- @failed deployment@, and others.
-    cWEMonitorEnabled :: Prelude.Maybe Prelude.Bool,
+  { -- | List of tags to add to the application. tag key (@Key@) and an
+    -- associated tag value (@Value@). The maximum length of a tag key is 128
+    -- characters. The maximum length of a tag value is 256 characters.
+    tags :: Prelude.Maybe [Tag],
     -- | The SNS topic provided to Application Insights that is associated to the
     -- created opsItem. Allows you to receive notifications for updates to the
     -- opsItem.
     opsItemSNSTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether Application Insights can listen to CloudWatch events
+    -- for the application resources, such as @instance terminated@,
+    -- @failed deployment@, and others.
+    cWEMonitorEnabled :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, creates opsItems for any problems detected on an
     -- application.
     opsCenterEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | List of tags to add to the application. tag key (@Key@) and an
-    -- associated tag value (@Value@). The maximum length of a tag key is 128
-    -- characters. The maximum length of a tag value is 256 characters.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the resource group.
     resourceGroupName :: Prelude.Text
   }
@@ -80,20 +80,20 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cWEMonitorEnabled', 'createApplication_cWEMonitorEnabled' - Indicates whether Application Insights can listen to CloudWatch events
--- for the application resources, such as @instance terminated@,
--- @failed deployment@, and others.
+-- 'tags', 'createApplication_tags' - List of tags to add to the application. tag key (@Key@) and an
+-- associated tag value (@Value@). The maximum length of a tag key is 128
+-- characters. The maximum length of a tag value is 256 characters.
 --
 -- 'opsItemSNSTopicArn', 'createApplication_opsItemSNSTopicArn' - The SNS topic provided to Application Insights that is associated to the
 -- created opsItem. Allows you to receive notifications for updates to the
 -- opsItem.
 --
+-- 'cWEMonitorEnabled', 'createApplication_cWEMonitorEnabled' - Indicates whether Application Insights can listen to CloudWatch events
+-- for the application resources, such as @instance terminated@,
+-- @failed deployment@, and others.
+--
 -- 'opsCenterEnabled', 'createApplication_opsCenterEnabled' - When set to @true@, creates opsItems for any problems detected on an
 -- application.
---
--- 'tags', 'createApplication_tags' - List of tags to add to the application. tag key (@Key@) and an
--- associated tag value (@Value@). The maximum length of a tag key is 128
--- characters. The maximum length of a tag value is 256 characters.
 --
 -- 'resourceGroupName', 'createApplication_resourceGroupName' - The name of the resource group.
 newCreateApplication ::
@@ -102,19 +102,18 @@ newCreateApplication ::
   CreateApplication
 newCreateApplication pResourceGroupName_ =
   CreateApplication'
-    { cWEMonitorEnabled =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       opsItemSNSTopicArn = Prelude.Nothing,
+      cWEMonitorEnabled = Prelude.Nothing,
       opsCenterEnabled = Prelude.Nothing,
-      tags = Prelude.Nothing,
       resourceGroupName = pResourceGroupName_
     }
 
--- | Indicates whether Application Insights can listen to CloudWatch events
--- for the application resources, such as @instance terminated@,
--- @failed deployment@, and others.
-createApplication_cWEMonitorEnabled :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Bool)
-createApplication_cWEMonitorEnabled = Lens.lens (\CreateApplication' {cWEMonitorEnabled} -> cWEMonitorEnabled) (\s@CreateApplication' {} a -> s {cWEMonitorEnabled = a} :: CreateApplication)
+-- | List of tags to add to the application. tag key (@Key@) and an
+-- associated tag value (@Value@). The maximum length of a tag key is 128
+-- characters. The maximum length of a tag value is 256 characters.
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The SNS topic provided to Application Insights that is associated to the
 -- created opsItem. Allows you to receive notifications for updates to the
@@ -122,16 +121,16 @@ createApplication_cWEMonitorEnabled = Lens.lens (\CreateApplication' {cWEMonitor
 createApplication_opsItemSNSTopicArn :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_opsItemSNSTopicArn = Lens.lens (\CreateApplication' {opsItemSNSTopicArn} -> opsItemSNSTopicArn) (\s@CreateApplication' {} a -> s {opsItemSNSTopicArn = a} :: CreateApplication)
 
+-- | Indicates whether Application Insights can listen to CloudWatch events
+-- for the application resources, such as @instance terminated@,
+-- @failed deployment@, and others.
+createApplication_cWEMonitorEnabled :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Bool)
+createApplication_cWEMonitorEnabled = Lens.lens (\CreateApplication' {cWEMonitorEnabled} -> cWEMonitorEnabled) (\s@CreateApplication' {} a -> s {cWEMonitorEnabled = a} :: CreateApplication)
+
 -- | When set to @true@, creates opsItems for any problems detected on an
 -- application.
 createApplication_opsCenterEnabled :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Bool)
 createApplication_opsCenterEnabled = Lens.lens (\CreateApplication' {opsCenterEnabled} -> opsCenterEnabled) (\s@CreateApplication' {} a -> s {opsCenterEnabled = a} :: CreateApplication)
-
--- | List of tags to add to the application. tag key (@Key@) and an
--- associated tag value (@Value@). The maximum length of a tag key is 128
--- characters. The maximum length of a tag value is 256 characters.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the resource group.
 createApplication_resourceGroupName :: Lens.Lens' CreateApplication Prelude.Text
@@ -152,18 +151,18 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` cWEMonitorEnabled
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` opsItemSNSTopicArn
+      `Prelude.hashWithSalt` cWEMonitorEnabled
       `Prelude.hashWithSalt` opsCenterEnabled
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceGroupName
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf cWEMonitorEnabled
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
+      `Prelude.seq` Prelude.rnf cWEMonitorEnabled
       `Prelude.seq` Prelude.rnf opsCenterEnabled
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceGroupName
 
 instance Core.ToHeaders CreateApplication where
@@ -185,13 +184,13 @@ instance Core.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CWEMonitorEnabled" Core..=)
-              Prelude.<$> cWEMonitorEnabled,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("OpsItemSNSTopicArn" Core..=)
               Prelude.<$> opsItemSNSTopicArn,
+            ("CWEMonitorEnabled" Core..=)
+              Prelude.<$> cWEMonitorEnabled,
             ("OpsCenterEnabled" Core..=)
               Prelude.<$> opsCenterEnabled,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("ResourceGroupName" Core..= resourceGroupName)
           ]

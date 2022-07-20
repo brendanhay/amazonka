@@ -23,9 +23,6 @@ module Amazonka.MwAA
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
@@ -35,65 +32,20 @@ module Amazonka.MwAA
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ValidationException
+    _ValidationException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** ListEnvironments (Paginated)
-    ListEnvironments (ListEnvironments'),
-    newListEnvironments,
-    ListEnvironmentsResponse (ListEnvironmentsResponse'),
-    newListEnvironmentsResponse,
-
-    -- ** UpdateEnvironment
-    UpdateEnvironment (UpdateEnvironment'),
-    newUpdateEnvironment,
-    UpdateEnvironmentResponse (UpdateEnvironmentResponse'),
-    newUpdateEnvironmentResponse,
-
-    -- ** DeleteEnvironment
-    DeleteEnvironment (DeleteEnvironment'),
-    newDeleteEnvironment,
-    DeleteEnvironmentResponse (DeleteEnvironmentResponse'),
-    newDeleteEnvironmentResponse,
-
-    -- ** CreateWebLoginToken
-    CreateWebLoginToken (CreateWebLoginToken'),
-    newCreateWebLoginToken,
-    CreateWebLoginTokenResponse (CreateWebLoginTokenResponse'),
-    newCreateWebLoginTokenResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetEnvironment
-    GetEnvironment (GetEnvironment'),
-    newGetEnvironment,
-    GetEnvironmentResponse (GetEnvironmentResponse'),
-    newGetEnvironmentResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** PublishMetrics
-    PublishMetrics (PublishMetrics'),
-    newPublishMetrics,
-    PublishMetricsResponse (PublishMetricsResponse'),
-    newPublishMetricsResponse,
+    -- ** CreateCliToken
+    CreateCliToken (CreateCliToken'),
+    newCreateCliToken,
+    CreateCliTokenResponse (CreateCliTokenResponse'),
+    newCreateCliTokenResponse,
 
     -- ** CreateEnvironment
     CreateEnvironment (CreateEnvironment'),
@@ -101,11 +53,59 @@ module Amazonka.MwAA
     CreateEnvironmentResponse (CreateEnvironmentResponse'),
     newCreateEnvironmentResponse,
 
-    -- ** CreateCliToken
-    CreateCliToken (CreateCliToken'),
-    newCreateCliToken,
-    CreateCliTokenResponse (CreateCliTokenResponse'),
-    newCreateCliTokenResponse,
+    -- ** CreateWebLoginToken
+    CreateWebLoginToken (CreateWebLoginToken'),
+    newCreateWebLoginToken,
+    CreateWebLoginTokenResponse (CreateWebLoginTokenResponse'),
+    newCreateWebLoginTokenResponse,
+
+    -- ** DeleteEnvironment
+    DeleteEnvironment (DeleteEnvironment'),
+    newDeleteEnvironment,
+    DeleteEnvironmentResponse (DeleteEnvironmentResponse'),
+    newDeleteEnvironmentResponse,
+
+    -- ** GetEnvironment
+    GetEnvironment (GetEnvironment'),
+    newGetEnvironment,
+    GetEnvironmentResponse (GetEnvironmentResponse'),
+    newGetEnvironmentResponse,
+
+    -- ** ListEnvironments (Paginated)
+    ListEnvironments (ListEnvironments'),
+    newListEnvironments,
+    ListEnvironmentsResponse (ListEnvironmentsResponse'),
+    newListEnvironmentsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PublishMetrics
+    PublishMetrics (PublishMetrics'),
+    newPublishMetrics,
+    PublishMetricsResponse (PublishMetricsResponse'),
+    newPublishMetricsResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateEnvironment
+    UpdateEnvironment (UpdateEnvironment'),
+    newUpdateEnvironment,
+    UpdateEnvironmentResponse (UpdateEnvironmentResponse'),
+    newUpdateEnvironmentResponse,
 
     -- * Types
 

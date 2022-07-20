@@ -33,9 +33,9 @@ module Amazonka.IoTWireless.GetLogLevelsByResourceTypes
     newGetLogLevelsByResourceTypesResponse,
 
     -- * Response Lenses
-    getLogLevelsByResourceTypesResponse_defaultLogLevel,
     getLogLevelsByResourceTypesResponse_wirelessGatewayLogOptions,
     getLogLevelsByResourceTypesResponse_wirelessDeviceLogOptions,
+    getLogLevelsByResourceTypesResponse_defaultLogLevel,
     getLogLevelsByResourceTypesResponse_httpStatus,
   )
 where
@@ -71,13 +71,13 @@ instance Core.AWSRequest GetLogLevelsByResourceTypes where
     Response.receiveJSON
       ( \s h x ->
           GetLogLevelsByResourceTypesResponse'
-            Prelude.<$> (x Core..?> "DefaultLogLevel")
-            Prelude.<*> ( x Core..?> "WirelessGatewayLogOptions"
+            Prelude.<$> ( x Core..?> "WirelessGatewayLogOptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> ( x Core..?> "WirelessDeviceLogOptions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "DefaultLogLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,9 +99,9 @@ instance Core.ToQuery GetLogLevelsByResourceTypes where
 
 -- | /See:/ 'newGetLogLevelsByResourceTypesResponse' smart constructor.
 data GetLogLevelsByResourceTypesResponse = GetLogLevelsByResourceTypesResponse'
-  { defaultLogLevel :: Prelude.Maybe LogLevel,
-    wirelessGatewayLogOptions :: Prelude.Maybe [WirelessGatewayLogOption],
+  { wirelessGatewayLogOptions :: Prelude.Maybe [WirelessGatewayLogOption],
     wirelessDeviceLogOptions :: Prelude.Maybe [WirelessDeviceLogOption],
+    defaultLogLevel :: Prelude.Maybe LogLevel,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -115,11 +115,11 @@ data GetLogLevelsByResourceTypesResponse = GetLogLevelsByResourceTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultLogLevel', 'getLogLevelsByResourceTypesResponse_defaultLogLevel' - Undocumented member.
---
 -- 'wirelessGatewayLogOptions', 'getLogLevelsByResourceTypesResponse_wirelessGatewayLogOptions' - Undocumented member.
 --
 -- 'wirelessDeviceLogOptions', 'getLogLevelsByResourceTypesResponse_wirelessDeviceLogOptions' - Undocumented member.
+--
+-- 'defaultLogLevel', 'getLogLevelsByResourceTypesResponse_defaultLogLevel' - Undocumented member.
 --
 -- 'httpStatus', 'getLogLevelsByResourceTypesResponse_httpStatus' - The response's http status code.
 newGetLogLevelsByResourceTypesResponse ::
@@ -128,18 +128,13 @@ newGetLogLevelsByResourceTypesResponse ::
   GetLogLevelsByResourceTypesResponse
 newGetLogLevelsByResourceTypesResponse pHttpStatus_ =
   GetLogLevelsByResourceTypesResponse'
-    { defaultLogLevel =
-        Prelude.Nothing,
-      wirelessGatewayLogOptions =
+    { wirelessGatewayLogOptions =
         Prelude.Nothing,
       wirelessDeviceLogOptions =
         Prelude.Nothing,
+      defaultLogLevel = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-getLogLevelsByResourceTypesResponse_defaultLogLevel :: Lens.Lens' GetLogLevelsByResourceTypesResponse (Prelude.Maybe LogLevel)
-getLogLevelsByResourceTypesResponse_defaultLogLevel = Lens.lens (\GetLogLevelsByResourceTypesResponse' {defaultLogLevel} -> defaultLogLevel) (\s@GetLogLevelsByResourceTypesResponse' {} a -> s {defaultLogLevel = a} :: GetLogLevelsByResourceTypesResponse)
 
 -- | Undocumented member.
 getLogLevelsByResourceTypesResponse_wirelessGatewayLogOptions :: Lens.Lens' GetLogLevelsByResourceTypesResponse (Prelude.Maybe [WirelessGatewayLogOption])
@@ -148,6 +143,10 @@ getLogLevelsByResourceTypesResponse_wirelessGatewayLogOptions = Lens.lens (\GetL
 -- | Undocumented member.
 getLogLevelsByResourceTypesResponse_wirelessDeviceLogOptions :: Lens.Lens' GetLogLevelsByResourceTypesResponse (Prelude.Maybe [WirelessDeviceLogOption])
 getLogLevelsByResourceTypesResponse_wirelessDeviceLogOptions = Lens.lens (\GetLogLevelsByResourceTypesResponse' {wirelessDeviceLogOptions} -> wirelessDeviceLogOptions) (\s@GetLogLevelsByResourceTypesResponse' {} a -> s {wirelessDeviceLogOptions = a} :: GetLogLevelsByResourceTypesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+getLogLevelsByResourceTypesResponse_defaultLogLevel :: Lens.Lens' GetLogLevelsByResourceTypesResponse (Prelude.Maybe LogLevel)
+getLogLevelsByResourceTypesResponse_defaultLogLevel = Lens.lens (\GetLogLevelsByResourceTypesResponse' {defaultLogLevel} -> defaultLogLevel) (\s@GetLogLevelsByResourceTypesResponse' {} a -> s {defaultLogLevel = a} :: GetLogLevelsByResourceTypesResponse)
 
 -- | The response's http status code.
 getLogLevelsByResourceTypesResponse_httpStatus :: Lens.Lens' GetLogLevelsByResourceTypesResponse Prelude.Int
@@ -158,7 +157,7 @@ instance
     GetLogLevelsByResourceTypesResponse
   where
   rnf GetLogLevelsByResourceTypesResponse' {..} =
-    Prelude.rnf defaultLogLevel
-      `Prelude.seq` Prelude.rnf wirelessGatewayLogOptions
+    Prelude.rnf wirelessGatewayLogOptions
       `Prelude.seq` Prelude.rnf wirelessDeviceLogOptions
+      `Prelude.seq` Prelude.rnf defaultLogLevel
       `Prelude.seq` Prelude.rnf httpStatus

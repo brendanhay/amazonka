@@ -27,115 +27,79 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestBatchSnoozeAlarm $
---             newBatchSnoozeAlarm
+--         [ requestBatchAcknowledgeAlarm $
+--             newBatchAcknowledgeAlarm
 --
 --         , requestBatchDisableAlarm $
 --             newBatchDisableAlarm
 --
---         , requestDescribeAlarm $
---             newDescribeAlarm
+--         , requestBatchEnableAlarm $
+--             newBatchEnableAlarm
 --
 --         , requestBatchPutMessage $
 --             newBatchPutMessage
 --
---         , requestDescribeDetector $
---             newDescribeDetector
+--         , requestBatchResetAlarm $
+--             newBatchResetAlarm
+--
+--         , requestBatchSnoozeAlarm $
+--             newBatchSnoozeAlarm
 --
 --         , requestBatchUpdateDetector $
 --             newBatchUpdateDetector
 --
---         , requestBatchAcknowledgeAlarm $
---             newBatchAcknowledgeAlarm
+--         , requestDescribeAlarm $
+--             newDescribeAlarm
+--
+--         , requestDescribeDetector $
+--             newDescribeDetector
 --
 --         , requestListAlarms $
 --             newListAlarms
 --
---         , requestBatchResetAlarm $
---             newBatchResetAlarm
---
 --         , requestListDetectors $
 --             newListDetectors
---
---         , requestBatchEnableAlarm $
---             newBatchEnableAlarm
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseBatchSnoozeAlarm $
---             newBatchSnoozeAlarmResponse
+--         [ responseBatchAcknowledgeAlarm $
+--             newBatchAcknowledgeAlarmResponse
 --
 --         , responseBatchDisableAlarm $
 --             newBatchDisableAlarmResponse
 --
---         , responseDescribeAlarm $
---             newDescribeAlarmResponse
+--         , responseBatchEnableAlarm $
+--             newBatchEnableAlarmResponse
 --
 --         , responseBatchPutMessage $
 --             newBatchPutMessageResponse
 --
---         , responseDescribeDetector $
---             newDescribeDetectorResponse
+--         , responseBatchResetAlarm $
+--             newBatchResetAlarmResponse
+--
+--         , responseBatchSnoozeAlarm $
+--             newBatchSnoozeAlarmResponse
 --
 --         , responseBatchUpdateDetector $
 --             newBatchUpdateDetectorResponse
 --
---         , responseBatchAcknowledgeAlarm $
---             newBatchAcknowledgeAlarmResponse
+--         , responseDescribeAlarm $
+--             newDescribeAlarmResponse
+--
+--         , responseDescribeDetector $
+--             newDescribeDetectorResponse
 --
 --         , responseListAlarms $
 --             newListAlarmsResponse
 --
---         , responseBatchResetAlarm $
---             newBatchResetAlarmResponse
---
 --         , responseListDetectors $
 --             newListDetectorsResponse
---
---         , responseBatchEnableAlarm $
---             newBatchEnableAlarmResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestBatchSnoozeAlarm :: BatchSnoozeAlarm -> TestTree
-requestBatchSnoozeAlarm =
-  req
-    "BatchSnoozeAlarm"
-    "fixture/BatchSnoozeAlarm.yaml"
-
-requestBatchDisableAlarm :: BatchDisableAlarm -> TestTree
-requestBatchDisableAlarm =
-  req
-    "BatchDisableAlarm"
-    "fixture/BatchDisableAlarm.yaml"
-
-requestDescribeAlarm :: DescribeAlarm -> TestTree
-requestDescribeAlarm =
-  req
-    "DescribeAlarm"
-    "fixture/DescribeAlarm.yaml"
-
-requestBatchPutMessage :: BatchPutMessage -> TestTree
-requestBatchPutMessage =
-  req
-    "BatchPutMessage"
-    "fixture/BatchPutMessage.yaml"
-
-requestDescribeDetector :: DescribeDetector -> TestTree
-requestDescribeDetector =
-  req
-    "DescribeDetector"
-    "fixture/DescribeDetector.yaml"
-
-requestBatchUpdateDetector :: BatchUpdateDetector -> TestTree
-requestBatchUpdateDetector =
-  req
-    "BatchUpdateDetector"
-    "fixture/BatchUpdateDetector.yaml"
 
 requestBatchAcknowledgeAlarm :: BatchAcknowledgeAlarm -> TestTree
 requestBatchAcknowledgeAlarm =
@@ -143,23 +107,11 @@ requestBatchAcknowledgeAlarm =
     "BatchAcknowledgeAlarm"
     "fixture/BatchAcknowledgeAlarm.yaml"
 
-requestListAlarms :: ListAlarms -> TestTree
-requestListAlarms =
+requestBatchDisableAlarm :: BatchDisableAlarm -> TestTree
+requestBatchDisableAlarm =
   req
-    "ListAlarms"
-    "fixture/ListAlarms.yaml"
-
-requestBatchResetAlarm :: BatchResetAlarm -> TestTree
-requestBatchResetAlarm =
-  req
-    "BatchResetAlarm"
-    "fixture/BatchResetAlarm.yaml"
-
-requestListDetectors :: ListDetectors -> TestTree
-requestListDetectors =
-  req
-    "ListDetectors"
-    "fixture/ListDetectors.yaml"
+    "BatchDisableAlarm"
+    "fixture/BatchDisableAlarm.yaml"
 
 requestBatchEnableAlarm :: BatchEnableAlarm -> TestTree
 requestBatchEnableAlarm =
@@ -167,55 +119,55 @@ requestBatchEnableAlarm =
     "BatchEnableAlarm"
     "fixture/BatchEnableAlarm.yaml"
 
+requestBatchPutMessage :: BatchPutMessage -> TestTree
+requestBatchPutMessage =
+  req
+    "BatchPutMessage"
+    "fixture/BatchPutMessage.yaml"
+
+requestBatchResetAlarm :: BatchResetAlarm -> TestTree
+requestBatchResetAlarm =
+  req
+    "BatchResetAlarm"
+    "fixture/BatchResetAlarm.yaml"
+
+requestBatchSnoozeAlarm :: BatchSnoozeAlarm -> TestTree
+requestBatchSnoozeAlarm =
+  req
+    "BatchSnoozeAlarm"
+    "fixture/BatchSnoozeAlarm.yaml"
+
+requestBatchUpdateDetector :: BatchUpdateDetector -> TestTree
+requestBatchUpdateDetector =
+  req
+    "BatchUpdateDetector"
+    "fixture/BatchUpdateDetector.yaml"
+
+requestDescribeAlarm :: DescribeAlarm -> TestTree
+requestDescribeAlarm =
+  req
+    "DescribeAlarm"
+    "fixture/DescribeAlarm.yaml"
+
+requestDescribeDetector :: DescribeDetector -> TestTree
+requestDescribeDetector =
+  req
+    "DescribeDetector"
+    "fixture/DescribeDetector.yaml"
+
+requestListAlarms :: ListAlarms -> TestTree
+requestListAlarms =
+  req
+    "ListAlarms"
+    "fixture/ListAlarms.yaml"
+
+requestListDetectors :: ListDetectors -> TestTree
+requestListDetectors =
+  req
+    "ListDetectors"
+    "fixture/ListDetectors.yaml"
+
 -- Responses
-
-responseBatchSnoozeAlarm :: BatchSnoozeAlarmResponse -> TestTree
-responseBatchSnoozeAlarm =
-  res
-    "BatchSnoozeAlarmResponse"
-    "fixture/BatchSnoozeAlarmResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchSnoozeAlarm)
-
-responseBatchDisableAlarm :: BatchDisableAlarmResponse -> TestTree
-responseBatchDisableAlarm =
-  res
-    "BatchDisableAlarmResponse"
-    "fixture/BatchDisableAlarmResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDisableAlarm)
-
-responseDescribeAlarm :: DescribeAlarmResponse -> TestTree
-responseDescribeAlarm =
-  res
-    "DescribeAlarmResponse"
-    "fixture/DescribeAlarmResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAlarm)
-
-responseBatchPutMessage :: BatchPutMessageResponse -> TestTree
-responseBatchPutMessage =
-  res
-    "BatchPutMessageResponse"
-    "fixture/BatchPutMessageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchPutMessage)
-
-responseDescribeDetector :: DescribeDetectorResponse -> TestTree
-responseDescribeDetector =
-  res
-    "DescribeDetectorResponse"
-    "fixture/DescribeDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDetector)
-
-responseBatchUpdateDetector :: BatchUpdateDetectorResponse -> TestTree
-responseBatchUpdateDetector =
-  res
-    "BatchUpdateDetectorResponse"
-    "fixture/BatchUpdateDetectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchUpdateDetector)
 
 responseBatchAcknowledgeAlarm :: BatchAcknowledgeAlarmResponse -> TestTree
 responseBatchAcknowledgeAlarm =
@@ -225,13 +177,29 @@ responseBatchAcknowledgeAlarm =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchAcknowledgeAlarm)
 
-responseListAlarms :: ListAlarmsResponse -> TestTree
-responseListAlarms =
+responseBatchDisableAlarm :: BatchDisableAlarmResponse -> TestTree
+responseBatchDisableAlarm =
   res
-    "ListAlarmsResponse"
-    "fixture/ListAlarmsResponse.proto"
+    "BatchDisableAlarmResponse"
+    "fixture/BatchDisableAlarmResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAlarms)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisableAlarm)
+
+responseBatchEnableAlarm :: BatchEnableAlarmResponse -> TestTree
+responseBatchEnableAlarm =
+  res
+    "BatchEnableAlarmResponse"
+    "fixture/BatchEnableAlarmResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchEnableAlarm)
+
+responseBatchPutMessage :: BatchPutMessageResponse -> TestTree
+responseBatchPutMessage =
+  res
+    "BatchPutMessageResponse"
+    "fixture/BatchPutMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchPutMessage)
 
 responseBatchResetAlarm :: BatchResetAlarmResponse -> TestTree
 responseBatchResetAlarm =
@@ -241,6 +209,46 @@ responseBatchResetAlarm =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchResetAlarm)
 
+responseBatchSnoozeAlarm :: BatchSnoozeAlarmResponse -> TestTree
+responseBatchSnoozeAlarm =
+  res
+    "BatchSnoozeAlarmResponse"
+    "fixture/BatchSnoozeAlarmResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchSnoozeAlarm)
+
+responseBatchUpdateDetector :: BatchUpdateDetectorResponse -> TestTree
+responseBatchUpdateDetector =
+  res
+    "BatchUpdateDetectorResponse"
+    "fixture/BatchUpdateDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateDetector)
+
+responseDescribeAlarm :: DescribeAlarmResponse -> TestTree
+responseDescribeAlarm =
+  res
+    "DescribeAlarmResponse"
+    "fixture/DescribeAlarmResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlarm)
+
+responseDescribeDetector :: DescribeDetectorResponse -> TestTree
+responseDescribeDetector =
+  res
+    "DescribeDetectorResponse"
+    "fixture/DescribeDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDetector)
+
+responseListAlarms :: ListAlarmsResponse -> TestTree
+responseListAlarms =
+  res
+    "ListAlarmsResponse"
+    "fixture/ListAlarmsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAlarms)
+
 responseListDetectors :: ListDetectorsResponse -> TestTree
 responseListDetectors =
   res
@@ -248,11 +256,3 @@ responseListDetectors =
     "fixture/ListDetectorsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDetectors)
-
-responseBatchEnableAlarm :: BatchEnableAlarmResponse -> TestTree
-responseBatchEnableAlarm =
-  res
-    "BatchEnableAlarmResponse"
-    "fixture/BatchEnableAlarmResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchEnableAlarm)

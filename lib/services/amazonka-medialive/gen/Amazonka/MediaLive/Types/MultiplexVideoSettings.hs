@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMultiplexVideoSettings' smart constructor.
 data MultiplexVideoSettings = MultiplexVideoSettings'
-  { -- | Statmux rate control settings. When this field is defined,
-    -- ConstantBitrate must be undefined.
-    statmuxSettings :: Prelude.Maybe MultiplexStatmuxVideoSettings,
-    -- | The constant bitrate configuration for the video encode. When this field
+  { -- | The constant bitrate configuration for the video encode. When this field
     -- is defined, StatmuxSettings must be undefined.
-    constantBitrate :: Prelude.Maybe Prelude.Natural
+    constantBitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Statmux rate control settings. When this field is defined,
+    -- ConstantBitrate must be undefined.
+    statmuxSettings :: Prelude.Maybe MultiplexStatmuxVideoSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data MultiplexVideoSettings = MultiplexVideoSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statmuxSettings', 'multiplexVideoSettings_statmuxSettings' - Statmux rate control settings. When this field is defined,
--- ConstantBitrate must be undefined.
---
 -- 'constantBitrate', 'multiplexVideoSettings_constantBitrate' - The constant bitrate configuration for the video encode. When this field
 -- is defined, StatmuxSettings must be undefined.
+--
+-- 'statmuxSettings', 'multiplexVideoSettings_statmuxSettings' - Statmux rate control settings. When this field is defined,
+-- ConstantBitrate must be undefined.
 newMultiplexVideoSettings ::
   MultiplexVideoSettings
 newMultiplexVideoSettings =
   MultiplexVideoSettings'
-    { statmuxSettings =
+    { constantBitrate =
         Prelude.Nothing,
-      constantBitrate = Prelude.Nothing
+      statmuxSettings = Prelude.Nothing
     }
-
--- | Statmux rate control settings. When this field is defined,
--- ConstantBitrate must be undefined.
-multiplexVideoSettings_statmuxSettings :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe MultiplexStatmuxVideoSettings)
-multiplexVideoSettings_statmuxSettings = Lens.lens (\MultiplexVideoSettings' {statmuxSettings} -> statmuxSettings) (\s@MultiplexVideoSettings' {} a -> s {statmuxSettings = a} :: MultiplexVideoSettings)
 
 -- | The constant bitrate configuration for the video encode. When this field
 -- is defined, StatmuxSettings must be undefined.
 multiplexVideoSettings_constantBitrate :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe Prelude.Natural)
 multiplexVideoSettings_constantBitrate = Lens.lens (\MultiplexVideoSettings' {constantBitrate} -> constantBitrate) (\s@MultiplexVideoSettings' {} a -> s {constantBitrate = a} :: MultiplexVideoSettings)
+
+-- | Statmux rate control settings. When this field is defined,
+-- ConstantBitrate must be undefined.
+multiplexVideoSettings_statmuxSettings :: Lens.Lens' MultiplexVideoSettings (Prelude.Maybe MultiplexStatmuxVideoSettings)
+multiplexVideoSettings_statmuxSettings = Lens.lens (\MultiplexVideoSettings' {statmuxSettings} -> statmuxSettings) (\s@MultiplexVideoSettings' {} a -> s {statmuxSettings = a} :: MultiplexVideoSettings)
 
 instance Core.FromJSON MultiplexVideoSettings where
   parseJSON =
@@ -75,27 +75,27 @@ instance Core.FromJSON MultiplexVideoSettings where
       "MultiplexVideoSettings"
       ( \x ->
           MultiplexVideoSettings'
-            Prelude.<$> (x Core..:? "statmuxSettings")
-            Prelude.<*> (x Core..:? "constantBitrate")
+            Prelude.<$> (x Core..:? "constantBitrate")
+            Prelude.<*> (x Core..:? "statmuxSettings")
       )
 
 instance Prelude.Hashable MultiplexVideoSettings where
   hashWithSalt _salt MultiplexVideoSettings' {..} =
-    _salt `Prelude.hashWithSalt` statmuxSettings
-      `Prelude.hashWithSalt` constantBitrate
+    _salt `Prelude.hashWithSalt` constantBitrate
+      `Prelude.hashWithSalt` statmuxSettings
 
 instance Prelude.NFData MultiplexVideoSettings where
   rnf MultiplexVideoSettings' {..} =
-    Prelude.rnf statmuxSettings
-      `Prelude.seq` Prelude.rnf constantBitrate
+    Prelude.rnf constantBitrate
+      `Prelude.seq` Prelude.rnf statmuxSettings
 
 instance Core.ToJSON MultiplexVideoSettings where
   toJSON MultiplexVideoSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("statmuxSettings" Core..=)
-              Prelude.<$> statmuxSettings,
-            ("constantBitrate" Core..=)
-              Prelude.<$> constantBitrate
+          [ ("constantBitrate" Core..=)
+              Prelude.<$> constantBitrate,
+            ("statmuxSettings" Core..=)
+              Prelude.<$> statmuxSettings
           ]
       )

@@ -38,9 +38,9 @@ module Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
     newGetRecoveryGroupReadinessSummaryResponse,
 
     -- * Response Lenses
-    getRecoveryGroupReadinessSummaryResponse_readinessChecks,
-    getRecoveryGroupReadinessSummaryResponse_readiness,
     getRecoveryGroupReadinessSummaryResponse_nextToken,
+    getRecoveryGroupReadinessSummaryResponse_readiness,
+    getRecoveryGroupReadinessSummaryResponse_readinessChecks,
     getRecoveryGroupReadinessSummaryResponse_httpStatus,
   )
 where
@@ -138,11 +138,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRecoveryGroupReadinessSummaryResponse'
-            Prelude.<$> ( x Core..?> "readinessChecks"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "readiness")
+            Prelude.<*> ( x Core..?> "readinessChecks"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "readiness")
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,13 +199,13 @@ instance
 
 -- | /See:/ 'newGetRecoveryGroupReadinessSummaryResponse' smart constructor.
 data GetRecoveryGroupReadinessSummaryResponse = GetRecoveryGroupReadinessSummaryResponse'
-  { -- | Summaries for the ReadinessChecks making up the RecoveryGroup
-    readinessChecks :: Prelude.Maybe [ReadinessCheckSummary],
-    -- | The readiness at RecoveryGroup level.
-    readiness :: Prelude.Maybe Readiness,
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The readiness at RecoveryGroup level.
+    readiness :: Prelude.Maybe Readiness,
+    -- | Summaries for the ReadinessChecks making up the RecoveryGroup
+    readinessChecks :: Prelude.Maybe [ReadinessCheckSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,12 +219,12 @@ data GetRecoveryGroupReadinessSummaryResponse = GetRecoveryGroupReadinessSummary
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readinessChecks', 'getRecoveryGroupReadinessSummaryResponse_readinessChecks' - Summaries for the ReadinessChecks making up the RecoveryGroup
+-- 'nextToken', 'getRecoveryGroupReadinessSummaryResponse_nextToken' - A token that can be used to resume pagination from the end of the
+-- collection.
 --
 -- 'readiness', 'getRecoveryGroupReadinessSummaryResponse_readiness' - The readiness at RecoveryGroup level.
 --
--- 'nextToken', 'getRecoveryGroupReadinessSummaryResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'readinessChecks', 'getRecoveryGroupReadinessSummaryResponse_readinessChecks' - Summaries for the ReadinessChecks making up the RecoveryGroup
 --
 -- 'httpStatus', 'getRecoveryGroupReadinessSummaryResponse_httpStatus' - The response's http status code.
 newGetRecoveryGroupReadinessSummaryResponse ::
@@ -234,25 +234,25 @@ newGetRecoveryGroupReadinessSummaryResponse ::
 newGetRecoveryGroupReadinessSummaryResponse
   pHttpStatus_ =
     GetRecoveryGroupReadinessSummaryResponse'
-      { readinessChecks =
+      { nextToken =
           Prelude.Nothing,
         readiness = Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        readinessChecks = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Summaries for the ReadinessChecks making up the RecoveryGroup
-getRecoveryGroupReadinessSummaryResponse_readinessChecks :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse (Prelude.Maybe [ReadinessCheckSummary])
-getRecoveryGroupReadinessSummaryResponse_readinessChecks = Lens.lens (\GetRecoveryGroupReadinessSummaryResponse' {readinessChecks} -> readinessChecks) (\s@GetRecoveryGroupReadinessSummaryResponse' {} a -> s {readinessChecks = a} :: GetRecoveryGroupReadinessSummaryResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The readiness at RecoveryGroup level.
-getRecoveryGroupReadinessSummaryResponse_readiness :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse (Prelude.Maybe Readiness)
-getRecoveryGroupReadinessSummaryResponse_readiness = Lens.lens (\GetRecoveryGroupReadinessSummaryResponse' {readiness} -> readiness) (\s@GetRecoveryGroupReadinessSummaryResponse' {} a -> s {readiness = a} :: GetRecoveryGroupReadinessSummaryResponse)
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 getRecoveryGroupReadinessSummaryResponse_nextToken :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse (Prelude.Maybe Prelude.Text)
 getRecoveryGroupReadinessSummaryResponse_nextToken = Lens.lens (\GetRecoveryGroupReadinessSummaryResponse' {nextToken} -> nextToken) (\s@GetRecoveryGroupReadinessSummaryResponse' {} a -> s {nextToken = a} :: GetRecoveryGroupReadinessSummaryResponse)
+
+-- | The readiness at RecoveryGroup level.
+getRecoveryGroupReadinessSummaryResponse_readiness :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse (Prelude.Maybe Readiness)
+getRecoveryGroupReadinessSummaryResponse_readiness = Lens.lens (\GetRecoveryGroupReadinessSummaryResponse' {readiness} -> readiness) (\s@GetRecoveryGroupReadinessSummaryResponse' {} a -> s {readiness = a} :: GetRecoveryGroupReadinessSummaryResponse)
+
+-- | Summaries for the ReadinessChecks making up the RecoveryGroup
+getRecoveryGroupReadinessSummaryResponse_readinessChecks :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse (Prelude.Maybe [ReadinessCheckSummary])
+getRecoveryGroupReadinessSummaryResponse_readinessChecks = Lens.lens (\GetRecoveryGroupReadinessSummaryResponse' {readinessChecks} -> readinessChecks) (\s@GetRecoveryGroupReadinessSummaryResponse' {} a -> s {readinessChecks = a} :: GetRecoveryGroupReadinessSummaryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRecoveryGroupReadinessSummaryResponse_httpStatus :: Lens.Lens' GetRecoveryGroupReadinessSummaryResponse Prelude.Int
@@ -263,7 +263,7 @@ instance
     GetRecoveryGroupReadinessSummaryResponse
   where
   rnf GetRecoveryGroupReadinessSummaryResponse' {..} =
-    Prelude.rnf readinessChecks
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf readiness
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf readinessChecks
       `Prelude.seq` Prelude.rnf httpStatus

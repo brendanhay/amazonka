@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlaybackKeyPairSummary' smart constructor.
 data PlaybackKeyPairSummary = PlaybackKeyPairSummary'
-  { -- | Key-pair ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Playback-key-pair name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | Key-pair ARN.
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data PlaybackKeyPairSummary = PlaybackKeyPairSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'playbackKeyPairSummary_arn' - Key-pair ARN.
+-- 'tags', 'playbackKeyPairSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
 --
 -- 'name', 'playbackKeyPairSummary_name' - Playback-key-pair name. The value does not need to be unique.
 --
--- 'tags', 'playbackKeyPairSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'arn', 'playbackKeyPairSummary_arn' - Key-pair ARN.
 newPlaybackKeyPairSummary ::
   PlaybackKeyPairSummary
 newPlaybackKeyPairSummary =
   PlaybackKeyPairSummary'
-    { arn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
-      tags = Prelude.Nothing
+      arn = Prelude.Nothing
     }
 
--- | Key-pair ARN.
-playbackKeyPairSummary_arn :: Lens.Lens' PlaybackKeyPairSummary (Prelude.Maybe Prelude.Text)
-playbackKeyPairSummary_arn = Lens.lens (\PlaybackKeyPairSummary' {arn} -> arn) (\s@PlaybackKeyPairSummary' {} a -> s {arn = a} :: PlaybackKeyPairSummary)
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+playbackKeyPairSummary_tags :: Lens.Lens' PlaybackKeyPairSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+playbackKeyPairSummary_tags = Lens.lens (\PlaybackKeyPairSummary' {tags} -> tags) (\s@PlaybackKeyPairSummary' {} a -> s {tags = a} :: PlaybackKeyPairSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Playback-key-pair name. The value does not need to be unique.
 playbackKeyPairSummary_name :: Lens.Lens' PlaybackKeyPairSummary (Prelude.Maybe Prelude.Text)
 playbackKeyPairSummary_name = Lens.lens (\PlaybackKeyPairSummary' {name} -> name) (\s@PlaybackKeyPairSummary' {} a -> s {name = a} :: PlaybackKeyPairSummary)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-playbackKeyPairSummary_tags :: Lens.Lens' PlaybackKeyPairSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-playbackKeyPairSummary_tags = Lens.lens (\PlaybackKeyPairSummary' {tags} -> tags) (\s@PlaybackKeyPairSummary' {} a -> s {tags = a} :: PlaybackKeyPairSummary) Prelude.. Lens.mapping Lens.coerced
+-- | Key-pair ARN.
+playbackKeyPairSummary_arn :: Lens.Lens' PlaybackKeyPairSummary (Prelude.Maybe Prelude.Text)
+playbackKeyPairSummary_arn = Lens.lens (\PlaybackKeyPairSummary' {arn} -> arn) (\s@PlaybackKeyPairSummary' {} a -> s {arn = a} :: PlaybackKeyPairSummary)
 
 instance Core.FromJSON PlaybackKeyPairSummary where
   parseJSON =
@@ -76,19 +76,19 @@ instance Core.FromJSON PlaybackKeyPairSummary where
       "PlaybackKeyPairSummary"
       ( \x ->
           PlaybackKeyPairSummary'
-            Prelude.<$> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "arn")
       )
 
 instance Prelude.Hashable PlaybackKeyPairSummary where
   hashWithSalt _salt PlaybackKeyPairSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData PlaybackKeyPairSummary where
   rnf PlaybackKeyPairSummary' {..} =
-    Prelude.rnf arn
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn

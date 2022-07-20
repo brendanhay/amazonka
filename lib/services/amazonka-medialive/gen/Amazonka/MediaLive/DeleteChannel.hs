@@ -34,23 +34,23 @@ module Amazonka.MediaLive.DeleteChannel
     newDeleteChannelResponse,
 
     -- * Response Lenses
-    deleteChannelResponse_state,
+    deleteChannelResponse_tags,
+    deleteChannelResponse_name,
+    deleteChannelResponse_roleArn,
+    deleteChannelResponse_vpc,
     deleteChannelResponse_logLevel,
     deleteChannelResponse_arn,
-    deleteChannelResponse_pipelinesRunningCount,
-    deleteChannelResponse_pipelineDetails,
+    deleteChannelResponse_state,
     deleteChannelResponse_inputSpecification,
-    deleteChannelResponse_inputAttachments,
-    deleteChannelResponse_destinations,
-    deleteChannelResponse_name,
-    deleteChannelResponse_cdiInputSpecification,
-    deleteChannelResponse_id,
     deleteChannelResponse_channelClass,
-    deleteChannelResponse_vpc,
-    deleteChannelResponse_egressEndpoints,
-    deleteChannelResponse_tags,
+    deleteChannelResponse_id,
+    deleteChannelResponse_pipelineDetails,
+    deleteChannelResponse_cdiInputSpecification,
+    deleteChannelResponse_inputAttachments,
+    deleteChannelResponse_pipelinesRunningCount,
+    deleteChannelResponse_destinations,
     deleteChannelResponse_encoderSettings,
-    deleteChannelResponse_roleArn,
+    deleteChannelResponse_egressEndpoints,
     deleteChannelResponse_httpStatus,
   )
 where
@@ -100,29 +100,29 @@ instance Core.AWSRequest DeleteChannel where
     Response.receiveJSON
       ( \s h x ->
           DeleteChannelResponse'
-            Prelude.<$> (x Core..?> "state")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "roleArn")
+            Prelude.<*> (x Core..?> "vpc")
             Prelude.<*> (x Core..?> "logLevel")
             Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "pipelinesRunningCount")
+            Prelude.<*> (x Core..?> "state")
+            Prelude.<*> (x Core..?> "inputSpecification")
+            Prelude.<*> (x Core..?> "channelClass")
+            Prelude.<*> (x Core..?> "id")
             Prelude.<*> ( x Core..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "inputSpecification")
+            Prelude.<*> (x Core..?> "cdiInputSpecification")
             Prelude.<*> ( x Core..?> "inputAttachments"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "pipelinesRunningCount")
             Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "cdiInputSpecification")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "channelClass")
-            Prelude.<*> (x Core..?> "vpc")
+            Prelude.<*> (x Core..?> "encoderSettings")
             Prelude.<*> ( x Core..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "encoderSettings")
-            Prelude.<*> (x Core..?> "roleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,42 +156,42 @@ instance Core.ToQuery DeleteChannel where
 --
 -- /See:/ 'newDeleteChannelResponse' smart constructor.
 data DeleteChannelResponse = DeleteChannelResponse'
-  { state :: Prelude.Maybe ChannelState,
+  { -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the channel. (user-mutable)
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the role assumed when running the
+    -- Channel.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Settings for VPC output
+    vpc :: Prelude.Maybe VpcOutputSettingsDescription,
     -- | The log level being written to CloudWatch Logs.
     logLevel :: Prelude.Maybe LogLevel,
     -- | The unique arn of the channel.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
-    -- | Runtime details for the pipelines of a running channel.
-    pipelineDetails :: Prelude.Maybe [PipelineDetail],
+    state :: Prelude.Maybe ChannelState,
     -- | Specification of network and file inputs for this channel
     inputSpecification :: Prelude.Maybe InputSpecification,
+    -- | The class for this channel. STANDARD for a channel with two pipelines or
+    -- SINGLE_PIPELINE for a channel with one pipeline.
+    channelClass :: Prelude.Maybe ChannelClass,
+    -- | The unique id of the channel.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Runtime details for the pipelines of a running channel.
+    pipelineDetails :: Prelude.Maybe [PipelineDetail],
+    -- | Specification of CDI inputs for this channel
+    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
     -- | List of input attachments for channel.
     inputAttachments :: Prelude.Maybe [InputAttachment],
+    -- | The number of currently healthy pipelines.
+    pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
     -- | A list of destinations of the channel. For UDP outputs, there is one
     -- destination per output. For other types (HLS, for example), there is one
     -- destination per packager.
     destinations :: Prelude.Maybe [OutputDestination],
-    -- | The name of the channel. (user-mutable)
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Specification of CDI inputs for this channel
-    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
-    -- | The unique id of the channel.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The class for this channel. STANDARD for a channel with two pipelines or
-    -- SINGLE_PIPELINE for a channel with one pipeline.
-    channelClass :: Prelude.Maybe ChannelClass,
-    -- | Settings for VPC output
-    vpc :: Prelude.Maybe VpcOutputSettingsDescription,
+    encoderSettings :: Prelude.Maybe EncoderSettings,
     -- | The endpoints where outgoing connections initiate from
     egressEndpoints :: Prelude.Maybe [ChannelEgressEndpoint],
-    -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    encoderSettings :: Prelude.Maybe EncoderSettings,
-    -- | The Amazon Resource Name (ARN) of the role assumed when running the
-    -- Channel.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,43 +205,43 @@ data DeleteChannelResponse = DeleteChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'deleteChannelResponse_state' - Undocumented member.
+-- 'tags', 'deleteChannelResponse_tags' - A collection of key-value pairs.
+--
+-- 'name', 'deleteChannelResponse_name' - The name of the channel. (user-mutable)
+--
+-- 'roleArn', 'deleteChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
+-- Channel.
+--
+-- 'vpc', 'deleteChannelResponse_vpc' - Settings for VPC output
 --
 -- 'logLevel', 'deleteChannelResponse_logLevel' - The log level being written to CloudWatch Logs.
 --
 -- 'arn', 'deleteChannelResponse_arn' - The unique arn of the channel.
 --
--- 'pipelinesRunningCount', 'deleteChannelResponse_pipelinesRunningCount' - The number of currently healthy pipelines.
---
--- 'pipelineDetails', 'deleteChannelResponse_pipelineDetails' - Runtime details for the pipelines of a running channel.
+-- 'state', 'deleteChannelResponse_state' - Undocumented member.
 --
 -- 'inputSpecification', 'deleteChannelResponse_inputSpecification' - Specification of network and file inputs for this channel
 --
+-- 'channelClass', 'deleteChannelResponse_channelClass' - The class for this channel. STANDARD for a channel with two pipelines or
+-- SINGLE_PIPELINE for a channel with one pipeline.
+--
+-- 'id', 'deleteChannelResponse_id' - The unique id of the channel.
+--
+-- 'pipelineDetails', 'deleteChannelResponse_pipelineDetails' - Runtime details for the pipelines of a running channel.
+--
+-- 'cdiInputSpecification', 'deleteChannelResponse_cdiInputSpecification' - Specification of CDI inputs for this channel
+--
 -- 'inputAttachments', 'deleteChannelResponse_inputAttachments' - List of input attachments for channel.
+--
+-- 'pipelinesRunningCount', 'deleteChannelResponse_pipelinesRunningCount' - The number of currently healthy pipelines.
 --
 -- 'destinations', 'deleteChannelResponse_destinations' - A list of destinations of the channel. For UDP outputs, there is one
 -- destination per output. For other types (HLS, for example), there is one
 -- destination per packager.
 --
--- 'name', 'deleteChannelResponse_name' - The name of the channel. (user-mutable)
---
--- 'cdiInputSpecification', 'deleteChannelResponse_cdiInputSpecification' - Specification of CDI inputs for this channel
---
--- 'id', 'deleteChannelResponse_id' - The unique id of the channel.
---
--- 'channelClass', 'deleteChannelResponse_channelClass' - The class for this channel. STANDARD for a channel with two pipelines or
--- SINGLE_PIPELINE for a channel with one pipeline.
---
--- 'vpc', 'deleteChannelResponse_vpc' - Settings for VPC output
---
--- 'egressEndpoints', 'deleteChannelResponse_egressEndpoints' - The endpoints where outgoing connections initiate from
---
--- 'tags', 'deleteChannelResponse_tags' - A collection of key-value pairs.
---
 -- 'encoderSettings', 'deleteChannelResponse_encoderSettings' - Undocumented member.
 --
--- 'roleArn', 'deleteChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
--- Channel.
+-- 'egressEndpoints', 'deleteChannelResponse_egressEndpoints' - The endpoints where outgoing connections initiate from
 --
 -- 'httpStatus', 'deleteChannelResponse_httpStatus' - The response's http status code.
 newDeleteChannelResponse ::
@@ -250,29 +250,42 @@ newDeleteChannelResponse ::
   DeleteChannelResponse
 newDeleteChannelResponse pHttpStatus_ =
   DeleteChannelResponse'
-    { state = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
       arn = Prelude.Nothing,
-      pipelinesRunningCount = Prelude.Nothing,
-      pipelineDetails = Prelude.Nothing,
+      state = Prelude.Nothing,
       inputSpecification = Prelude.Nothing,
-      inputAttachments = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      name = Prelude.Nothing,
-      cdiInputSpecification = Prelude.Nothing,
-      id = Prelude.Nothing,
       channelClass = Prelude.Nothing,
-      vpc = Prelude.Nothing,
-      egressEndpoints = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      id = Prelude.Nothing,
+      pipelineDetails = Prelude.Nothing,
+      cdiInputSpecification = Prelude.Nothing,
+      inputAttachments = Prelude.Nothing,
+      pipelinesRunningCount = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       encoderSettings = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      egressEndpoints = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-deleteChannelResponse_state :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe ChannelState)
-deleteChannelResponse_state = Lens.lens (\DeleteChannelResponse' {state} -> state) (\s@DeleteChannelResponse' {} a -> s {state = a} :: DeleteChannelResponse)
+-- | A collection of key-value pairs.
+deleteChannelResponse_tags :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+deleteChannelResponse_tags = Lens.lens (\DeleteChannelResponse' {tags} -> tags) (\s@DeleteChannelResponse' {} a -> s {tags = a} :: DeleteChannelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the channel. (user-mutable)
+deleteChannelResponse_name :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Text)
+deleteChannelResponse_name = Lens.lens (\DeleteChannelResponse' {name} -> name) (\s@DeleteChannelResponse' {} a -> s {name = a} :: DeleteChannelResponse)
+
+-- | The Amazon Resource Name (ARN) of the role assumed when running the
+-- Channel.
+deleteChannelResponse_roleArn :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Text)
+deleteChannelResponse_roleArn = Lens.lens (\DeleteChannelResponse' {roleArn} -> roleArn) (\s@DeleteChannelResponse' {} a -> s {roleArn = a} :: DeleteChannelResponse)
+
+-- | Settings for VPC output
+deleteChannelResponse_vpc :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe VpcOutputSettingsDescription)
+deleteChannelResponse_vpc = Lens.lens (\DeleteChannelResponse' {vpc} -> vpc) (\s@DeleteChannelResponse' {} a -> s {vpc = a} :: DeleteChannelResponse)
 
 -- | The log level being written to CloudWatch Logs.
 deleteChannelResponse_logLevel :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe LogLevel)
@@ -282,21 +295,38 @@ deleteChannelResponse_logLevel = Lens.lens (\DeleteChannelResponse' {logLevel} -
 deleteChannelResponse_arn :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Text)
 deleteChannelResponse_arn = Lens.lens (\DeleteChannelResponse' {arn} -> arn) (\s@DeleteChannelResponse' {} a -> s {arn = a} :: DeleteChannelResponse)
 
--- | The number of currently healthy pipelines.
-deleteChannelResponse_pipelinesRunningCount :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Int)
-deleteChannelResponse_pipelinesRunningCount = Lens.lens (\DeleteChannelResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@DeleteChannelResponse' {} a -> s {pipelinesRunningCount = a} :: DeleteChannelResponse)
-
--- | Runtime details for the pipelines of a running channel.
-deleteChannelResponse_pipelineDetails :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe [PipelineDetail])
-deleteChannelResponse_pipelineDetails = Lens.lens (\DeleteChannelResponse' {pipelineDetails} -> pipelineDetails) (\s@DeleteChannelResponse' {} a -> s {pipelineDetails = a} :: DeleteChannelResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+deleteChannelResponse_state :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe ChannelState)
+deleteChannelResponse_state = Lens.lens (\DeleteChannelResponse' {state} -> state) (\s@DeleteChannelResponse' {} a -> s {state = a} :: DeleteChannelResponse)
 
 -- | Specification of network and file inputs for this channel
 deleteChannelResponse_inputSpecification :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe InputSpecification)
 deleteChannelResponse_inputSpecification = Lens.lens (\DeleteChannelResponse' {inputSpecification} -> inputSpecification) (\s@DeleteChannelResponse' {} a -> s {inputSpecification = a} :: DeleteChannelResponse)
 
+-- | The class for this channel. STANDARD for a channel with two pipelines or
+-- SINGLE_PIPELINE for a channel with one pipeline.
+deleteChannelResponse_channelClass :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe ChannelClass)
+deleteChannelResponse_channelClass = Lens.lens (\DeleteChannelResponse' {channelClass} -> channelClass) (\s@DeleteChannelResponse' {} a -> s {channelClass = a} :: DeleteChannelResponse)
+
+-- | The unique id of the channel.
+deleteChannelResponse_id :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Text)
+deleteChannelResponse_id = Lens.lens (\DeleteChannelResponse' {id} -> id) (\s@DeleteChannelResponse' {} a -> s {id = a} :: DeleteChannelResponse)
+
+-- | Runtime details for the pipelines of a running channel.
+deleteChannelResponse_pipelineDetails :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe [PipelineDetail])
+deleteChannelResponse_pipelineDetails = Lens.lens (\DeleteChannelResponse' {pipelineDetails} -> pipelineDetails) (\s@DeleteChannelResponse' {} a -> s {pipelineDetails = a} :: DeleteChannelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specification of CDI inputs for this channel
+deleteChannelResponse_cdiInputSpecification :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe CdiInputSpecification)
+deleteChannelResponse_cdiInputSpecification = Lens.lens (\DeleteChannelResponse' {cdiInputSpecification} -> cdiInputSpecification) (\s@DeleteChannelResponse' {} a -> s {cdiInputSpecification = a} :: DeleteChannelResponse)
+
 -- | List of input attachments for channel.
 deleteChannelResponse_inputAttachments :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe [InputAttachment])
 deleteChannelResponse_inputAttachments = Lens.lens (\DeleteChannelResponse' {inputAttachments} -> inputAttachments) (\s@DeleteChannelResponse' {} a -> s {inputAttachments = a} :: DeleteChannelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of currently healthy pipelines.
+deleteChannelResponse_pipelinesRunningCount :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Int)
+deleteChannelResponse_pipelinesRunningCount = Lens.lens (\DeleteChannelResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@DeleteChannelResponse' {} a -> s {pipelinesRunningCount = a} :: DeleteChannelResponse)
 
 -- | A list of destinations of the channel. For UDP outputs, there is one
 -- destination per output. For other types (HLS, for example), there is one
@@ -304,43 +334,13 @@ deleteChannelResponse_inputAttachments = Lens.lens (\DeleteChannelResponse' {inp
 deleteChannelResponse_destinations :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe [OutputDestination])
 deleteChannelResponse_destinations = Lens.lens (\DeleteChannelResponse' {destinations} -> destinations) (\s@DeleteChannelResponse' {} a -> s {destinations = a} :: DeleteChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the channel. (user-mutable)
-deleteChannelResponse_name :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Text)
-deleteChannelResponse_name = Lens.lens (\DeleteChannelResponse' {name} -> name) (\s@DeleteChannelResponse' {} a -> s {name = a} :: DeleteChannelResponse)
-
--- | Specification of CDI inputs for this channel
-deleteChannelResponse_cdiInputSpecification :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe CdiInputSpecification)
-deleteChannelResponse_cdiInputSpecification = Lens.lens (\DeleteChannelResponse' {cdiInputSpecification} -> cdiInputSpecification) (\s@DeleteChannelResponse' {} a -> s {cdiInputSpecification = a} :: DeleteChannelResponse)
-
--- | The unique id of the channel.
-deleteChannelResponse_id :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Text)
-deleteChannelResponse_id = Lens.lens (\DeleteChannelResponse' {id} -> id) (\s@DeleteChannelResponse' {} a -> s {id = a} :: DeleteChannelResponse)
-
--- | The class for this channel. STANDARD for a channel with two pipelines or
--- SINGLE_PIPELINE for a channel with one pipeline.
-deleteChannelResponse_channelClass :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe ChannelClass)
-deleteChannelResponse_channelClass = Lens.lens (\DeleteChannelResponse' {channelClass} -> channelClass) (\s@DeleteChannelResponse' {} a -> s {channelClass = a} :: DeleteChannelResponse)
-
--- | Settings for VPC output
-deleteChannelResponse_vpc :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe VpcOutputSettingsDescription)
-deleteChannelResponse_vpc = Lens.lens (\DeleteChannelResponse' {vpc} -> vpc) (\s@DeleteChannelResponse' {} a -> s {vpc = a} :: DeleteChannelResponse)
-
--- | The endpoints where outgoing connections initiate from
-deleteChannelResponse_egressEndpoints :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe [ChannelEgressEndpoint])
-deleteChannelResponse_egressEndpoints = Lens.lens (\DeleteChannelResponse' {egressEndpoints} -> egressEndpoints) (\s@DeleteChannelResponse' {} a -> s {egressEndpoints = a} :: DeleteChannelResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A collection of key-value pairs.
-deleteChannelResponse_tags :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-deleteChannelResponse_tags = Lens.lens (\DeleteChannelResponse' {tags} -> tags) (\s@DeleteChannelResponse' {} a -> s {tags = a} :: DeleteChannelResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
 deleteChannelResponse_encoderSettings :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe EncoderSettings)
 deleteChannelResponse_encoderSettings = Lens.lens (\DeleteChannelResponse' {encoderSettings} -> encoderSettings) (\s@DeleteChannelResponse' {} a -> s {encoderSettings = a} :: DeleteChannelResponse)
 
--- | The Amazon Resource Name (ARN) of the role assumed when running the
--- Channel.
-deleteChannelResponse_roleArn :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Text)
-deleteChannelResponse_roleArn = Lens.lens (\DeleteChannelResponse' {roleArn} -> roleArn) (\s@DeleteChannelResponse' {} a -> s {roleArn = a} :: DeleteChannelResponse)
+-- | The endpoints where outgoing connections initiate from
+deleteChannelResponse_egressEndpoints :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe [ChannelEgressEndpoint])
+deleteChannelResponse_egressEndpoints = Lens.lens (\DeleteChannelResponse' {egressEndpoints} -> egressEndpoints) (\s@DeleteChannelResponse' {} a -> s {egressEndpoints = a} :: DeleteChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteChannelResponse_httpStatus :: Lens.Lens' DeleteChannelResponse Prelude.Int
@@ -348,21 +348,21 @@ deleteChannelResponse_httpStatus = Lens.lens (\DeleteChannelResponse' {httpStatu
 
 instance Prelude.NFData DeleteChannelResponse where
   rnf DeleteChannelResponse' {..} =
-    Prelude.rnf state
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf pipelinesRunningCount
-      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf inputSpecification
-      `Prelude.seq` Prelude.rnf inputAttachments
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf cdiInputSpecification
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf channelClass
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf egressEndpoints
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf cdiInputSpecification
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf destinations
       `Prelude.seq` Prelude.rnf encoderSettings
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf egressEndpoints
       `Prelude.seq` Prelude.rnf httpStatus

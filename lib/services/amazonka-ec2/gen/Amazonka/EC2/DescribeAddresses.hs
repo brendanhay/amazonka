@@ -33,9 +33,9 @@ module Amazonka.EC2.DescribeAddresses
     newDescribeAddresses,
 
     -- * Request Lenses
+    describeAddresses_allocationIds,
     describeAddresses_filters,
     describeAddresses_publicIps,
-    describeAddresses_allocationIds,
     describeAddresses_dryRun,
 
     -- * Destructuring the Response
@@ -57,7 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { -- | One or more filters. Filter names and values are case-sensitive.
+  { -- | [EC2-VPC] Information about the allocation IDs.
+    allocationIds :: Prelude.Maybe [Prelude.Text],
+    -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.
     --
@@ -98,8 +100,6 @@ data DescribeAddresses = DescribeAddresses'
     --
     -- Default: Describes all your Elastic IP addresses.
     publicIps :: Prelude.Maybe [Prelude.Text],
-    -- | [EC2-VPC] Information about the allocation IDs.
-    allocationIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -115,6 +115,8 @@ data DescribeAddresses = DescribeAddresses'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'allocationIds', 'describeAddresses_allocationIds' - [EC2-VPC] Information about the allocation IDs.
 --
 -- 'filters', 'describeAddresses_filters' - One or more filters. Filter names and values are case-sensitive.
 --
@@ -157,8 +159,6 @@ data DescribeAddresses = DescribeAddresses'
 --
 -- Default: Describes all your Elastic IP addresses.
 --
--- 'allocationIds', 'describeAddresses_allocationIds' - [EC2-VPC] Information about the allocation IDs.
---
 -- 'dryRun', 'describeAddresses_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -167,11 +167,15 @@ newDescribeAddresses ::
   DescribeAddresses
 newDescribeAddresses =
   DescribeAddresses'
-    { filters = Prelude.Nothing,
+    { allocationIds = Prelude.Nothing,
+      filters = Prelude.Nothing,
       publicIps = Prelude.Nothing,
-      allocationIds = Prelude.Nothing,
       dryRun = Prelude.Nothing
     }
+
+-- | [EC2-VPC] Information about the allocation IDs.
+describeAddresses_allocationIds :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
+describeAddresses_allocationIds = Lens.lens (\DescribeAddresses' {allocationIds} -> allocationIds) (\s@DescribeAddresses' {} a -> s {allocationIds = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -218,10 +222,6 @@ describeAddresses_filters = Lens.lens (\DescribeAddresses' {filters} -> filters)
 describeAddresses_publicIps :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
 describeAddresses_publicIps = Lens.lens (\DescribeAddresses' {publicIps} -> publicIps) (\s@DescribeAddresses' {} a -> s {publicIps = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
 
--- | [EC2-VPC] Information about the allocation IDs.
-describeAddresses_allocationIds :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
-describeAddresses_allocationIds = Lens.lens (\DescribeAddresses' {allocationIds} -> allocationIds) (\s@DescribeAddresses' {} a -> s {allocationIds = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -246,16 +246,16 @@ instance Core.AWSRequest DescribeAddresses where
 
 instance Prelude.Hashable DescribeAddresses where
   hashWithSalt _salt DescribeAddresses' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` allocationIds
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` publicIps
-      `Prelude.hashWithSalt` allocationIds
       `Prelude.hashWithSalt` dryRun
 
 instance Prelude.NFData DescribeAddresses where
   rnf DescribeAddresses' {..} =
-    Prelude.rnf filters
+    Prelude.rnf allocationIds
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf publicIps
-      `Prelude.seq` Prelude.rnf allocationIds
       `Prelude.seq` Prelude.rnf dryRun
 
 instance Core.ToHeaders DescribeAddresses where
@@ -272,13 +272,13 @@ instance Core.ToQuery DescribeAddresses where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          (Core.toQueryList "PublicIp" Prelude.<$> publicIps),
-        Core.toQuery
           ( Core.toQueryList "AllocationId"
               Prelude.<$> allocationIds
           ),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        Core.toQuery
+          (Core.toQueryList "PublicIp" Prelude.<$> publicIps),
         "DryRun" Core.=: dryRun
       ]
 

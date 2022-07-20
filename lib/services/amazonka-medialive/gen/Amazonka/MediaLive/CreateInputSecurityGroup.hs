@@ -27,8 +27,8 @@ module Amazonka.MediaLive.CreateInputSecurityGroup
     newCreateInputSecurityGroup,
 
     -- * Request Lenses
-    createInputSecurityGroup_whitelistRules,
     createInputSecurityGroup_tags,
+    createInputSecurityGroup_whitelistRules,
 
     -- * Destructuring the Response
     CreateInputSecurityGroupResponse (..),
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateInputSecurityGroup' smart constructor.
 data CreateInputSecurityGroup = CreateInputSecurityGroup'
-  { -- | List of IPv4 CIDR addresses to whitelist
-    whitelistRules :: Prelude.Maybe [InputWhitelistRuleCidr],
-    -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+  { -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | List of IPv4 CIDR addresses to whitelist
+    whitelistRules :: Prelude.Maybe [InputWhitelistRuleCidr]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,25 +66,24 @@ data CreateInputSecurityGroup = CreateInputSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'whitelistRules', 'createInputSecurityGroup_whitelistRules' - List of IPv4 CIDR addresses to whitelist
---
 -- 'tags', 'createInputSecurityGroup_tags' - A collection of key-value pairs.
+--
+-- 'whitelistRules', 'createInputSecurityGroup_whitelistRules' - List of IPv4 CIDR addresses to whitelist
 newCreateInputSecurityGroup ::
   CreateInputSecurityGroup
 newCreateInputSecurityGroup =
   CreateInputSecurityGroup'
-    { whitelistRules =
-        Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      whitelistRules = Prelude.Nothing
     }
-
--- | List of IPv4 CIDR addresses to whitelist
-createInputSecurityGroup_whitelistRules :: Lens.Lens' CreateInputSecurityGroup (Prelude.Maybe [InputWhitelistRuleCidr])
-createInputSecurityGroup_whitelistRules = Lens.lens (\CreateInputSecurityGroup' {whitelistRules} -> whitelistRules) (\s@CreateInputSecurityGroup' {} a -> s {whitelistRules = a} :: CreateInputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A collection of key-value pairs.
 createInputSecurityGroup_tags :: Lens.Lens' CreateInputSecurityGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createInputSecurityGroup_tags = Lens.lens (\CreateInputSecurityGroup' {tags} -> tags) (\s@CreateInputSecurityGroup' {} a -> s {tags = a} :: CreateInputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of IPv4 CIDR addresses to whitelist
+createInputSecurityGroup_whitelistRules :: Lens.Lens' CreateInputSecurityGroup (Prelude.Maybe [InputWhitelistRuleCidr])
+createInputSecurityGroup_whitelistRules = Lens.lens (\CreateInputSecurityGroup' {whitelistRules} -> whitelistRules) (\s@CreateInputSecurityGroup' {} a -> s {whitelistRules = a} :: CreateInputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateInputSecurityGroup where
   type
@@ -101,13 +100,13 @@ instance Core.AWSRequest CreateInputSecurityGroup where
 
 instance Prelude.Hashable CreateInputSecurityGroup where
   hashWithSalt _salt CreateInputSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` whitelistRules
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` whitelistRules
 
 instance Prelude.NFData CreateInputSecurityGroup where
   rnf CreateInputSecurityGroup' {..} =
-    Prelude.rnf whitelistRules
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf whitelistRules
 
 instance Core.ToHeaders CreateInputSecurityGroup where
   toHeaders =
@@ -124,9 +123,9 @@ instance Core.ToJSON CreateInputSecurityGroup where
   toJSON CreateInputSecurityGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("whitelistRules" Core..=)
-              Prelude.<$> whitelistRules,
-            ("tags" Core..=) Prelude.<$> tags
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("whitelistRules" Core..=)
+              Prelude.<$> whitelistRules
           ]
       )
 

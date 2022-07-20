@@ -32,10 +32,10 @@ import Amazonka.SSMIncidents.Types.AttributeValueList
 --
 -- /See:/ 'newCondition' smart constructor.
 data Condition = Condition'
-  { -- | After the specified timestamp.
-    after :: Prelude.Maybe Core.POSIX,
-    -- | The value is equal to the provided string or integer.
+  { -- | The value is equal to the provided string or integer.
     equals :: Prelude.Maybe AttributeValueList,
+    -- | After the specified timestamp.
+    after :: Prelude.Maybe Core.POSIX,
     -- | Before the specified timestamp
     before :: Prelude.Maybe Core.POSIX
   }
@@ -49,27 +49,27 @@ data Condition = Condition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'after', 'condition_after' - After the specified timestamp.
---
 -- 'equals', 'condition_equals' - The value is equal to the provided string or integer.
+--
+-- 'after', 'condition_after' - After the specified timestamp.
 --
 -- 'before', 'condition_before' - Before the specified timestamp
 newCondition ::
   Condition
 newCondition =
   Condition'
-    { after = Prelude.Nothing,
-      equals = Prelude.Nothing,
+    { equals = Prelude.Nothing,
+      after = Prelude.Nothing,
       before = Prelude.Nothing
     }
-
--- | After the specified timestamp.
-condition_after :: Lens.Lens' Condition (Prelude.Maybe Prelude.UTCTime)
-condition_after = Lens.lens (\Condition' {after} -> after) (\s@Condition' {} a -> s {after = a} :: Condition) Prelude.. Lens.mapping Core._Time
 
 -- | The value is equal to the provided string or integer.
 condition_equals :: Lens.Lens' Condition (Prelude.Maybe AttributeValueList)
 condition_equals = Lens.lens (\Condition' {equals} -> equals) (\s@Condition' {} a -> s {equals = a} :: Condition)
+
+-- | After the specified timestamp.
+condition_after :: Lens.Lens' Condition (Prelude.Maybe Prelude.UTCTime)
+condition_after = Lens.lens (\Condition' {after} -> after) (\s@Condition' {} a -> s {after = a} :: Condition) Prelude.. Lens.mapping Core._Time
 
 -- | Before the specified timestamp
 condition_before :: Lens.Lens' Condition (Prelude.Maybe Prelude.UTCTime)
@@ -77,22 +77,22 @@ condition_before = Lens.lens (\Condition' {before} -> before) (\s@Condition' {} 
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` after
-      `Prelude.hashWithSalt` equals
+    _salt `Prelude.hashWithSalt` equals
+      `Prelude.hashWithSalt` after
       `Prelude.hashWithSalt` before
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf after
-      `Prelude.seq` Prelude.rnf equals
+    Prelude.rnf equals
+      `Prelude.seq` Prelude.rnf after
       `Prelude.seq` Prelude.rnf before
 
 instance Core.ToJSON Condition where
   toJSON Condition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("after" Core..=) Prelude.<$> after,
-            ("equals" Core..=) Prelude.<$> equals,
+          [ ("equals" Core..=) Prelude.<$> equals,
+            ("after" Core..=) Prelude.<$> after,
             ("before" Core..=) Prelude.<$> before
           ]
       )

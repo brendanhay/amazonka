@@ -36,12 +36,12 @@ module Amazonka.MediaPackageVOD.UpdatePackagingGroup
     newUpdatePackagingGroupResponse,
 
     -- * Response Lenses
-    updatePackagingGroupResponse_arn,
-    updatePackagingGroupResponse_authorization,
-    updatePackagingGroupResponse_domainName,
-    updatePackagingGroupResponse_id,
-    updatePackagingGroupResponse_egressAccessLogs,
     updatePackagingGroupResponse_tags,
+    updatePackagingGroupResponse_domainName,
+    updatePackagingGroupResponse_arn,
+    updatePackagingGroupResponse_id,
+    updatePackagingGroupResponse_authorization,
+    updatePackagingGroupResponse_egressAccessLogs,
     updatePackagingGroupResponse_httpStatus,
   )
 where
@@ -102,12 +102,12 @@ instance Core.AWSRequest UpdatePackagingGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdatePackagingGroupResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "authorization")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "domainName")
+            Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "authorization")
             Prelude.<*> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,15 +151,15 @@ instance Core.ToQuery UpdatePackagingGroup where
 
 -- | /See:/ 'newUpdatePackagingGroupResponse' smart constructor.
 data UpdatePackagingGroupResponse = UpdatePackagingGroupResponse'
-  { -- | The ARN of the PackagingGroup.
-    arn :: Prelude.Maybe Prelude.Text,
-    authorization :: Prelude.Maybe Authorization,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The fully qualified domain name for Assets in the PackagingGroup.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the PackagingGroup.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the PackagingGroup.
     id :: Prelude.Maybe Prelude.Text,
+    authorization :: Prelude.Maybe Authorization,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,17 +173,17 @@ data UpdatePackagingGroupResponse = UpdatePackagingGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'updatePackagingGroupResponse_arn' - The ARN of the PackagingGroup.
---
--- 'authorization', 'updatePackagingGroupResponse_authorization' - Undocumented member.
+-- 'tags', 'updatePackagingGroupResponse_tags' - Undocumented member.
 --
 -- 'domainName', 'updatePackagingGroupResponse_domainName' - The fully qualified domain name for Assets in the PackagingGroup.
 --
+-- 'arn', 'updatePackagingGroupResponse_arn' - The ARN of the PackagingGroup.
+--
 -- 'id', 'updatePackagingGroupResponse_id' - The ID of the PackagingGroup.
 --
--- 'egressAccessLogs', 'updatePackagingGroupResponse_egressAccessLogs' - Undocumented member.
+-- 'authorization', 'updatePackagingGroupResponse_authorization' - Undocumented member.
 --
--- 'tags', 'updatePackagingGroupResponse_tags' - Undocumented member.
+-- 'egressAccessLogs', 'updatePackagingGroupResponse_egressAccessLogs' - Undocumented member.
 --
 -- 'httpStatus', 'updatePackagingGroupResponse_httpStatus' - The response's http status code.
 newUpdatePackagingGroupResponse ::
@@ -192,39 +192,39 @@ newUpdatePackagingGroupResponse ::
   UpdatePackagingGroupResponse
 newUpdatePackagingGroupResponse pHttpStatus_ =
   UpdatePackagingGroupResponse'
-    { arn =
+    { tags =
         Prelude.Nothing,
-      authorization = Prelude.Nothing,
       domainName = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      authorization = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN of the PackagingGroup.
-updatePackagingGroupResponse_arn :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Prelude.Text)
-updatePackagingGroupResponse_arn = Lens.lens (\UpdatePackagingGroupResponse' {arn} -> arn) (\s@UpdatePackagingGroupResponse' {} a -> s {arn = a} :: UpdatePackagingGroupResponse)
-
 -- | Undocumented member.
-updatePackagingGroupResponse_authorization :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Authorization)
-updatePackagingGroupResponse_authorization = Lens.lens (\UpdatePackagingGroupResponse' {authorization} -> authorization) (\s@UpdatePackagingGroupResponse' {} a -> s {authorization = a} :: UpdatePackagingGroupResponse)
+updatePackagingGroupResponse_tags :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updatePackagingGroupResponse_tags = Lens.lens (\UpdatePackagingGroupResponse' {tags} -> tags) (\s@UpdatePackagingGroupResponse' {} a -> s {tags = a} :: UpdatePackagingGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The fully qualified domain name for Assets in the PackagingGroup.
 updatePackagingGroupResponse_domainName :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Prelude.Text)
 updatePackagingGroupResponse_domainName = Lens.lens (\UpdatePackagingGroupResponse' {domainName} -> domainName) (\s@UpdatePackagingGroupResponse' {} a -> s {domainName = a} :: UpdatePackagingGroupResponse)
+
+-- | The ARN of the PackagingGroup.
+updatePackagingGroupResponse_arn :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Prelude.Text)
+updatePackagingGroupResponse_arn = Lens.lens (\UpdatePackagingGroupResponse' {arn} -> arn) (\s@UpdatePackagingGroupResponse' {} a -> s {arn = a} :: UpdatePackagingGroupResponse)
 
 -- | The ID of the PackagingGroup.
 updatePackagingGroupResponse_id :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Prelude.Text)
 updatePackagingGroupResponse_id = Lens.lens (\UpdatePackagingGroupResponse' {id} -> id) (\s@UpdatePackagingGroupResponse' {} a -> s {id = a} :: UpdatePackagingGroupResponse)
 
 -- | Undocumented member.
-updatePackagingGroupResponse_egressAccessLogs :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe EgressAccessLogs)
-updatePackagingGroupResponse_egressAccessLogs = Lens.lens (\UpdatePackagingGroupResponse' {egressAccessLogs} -> egressAccessLogs) (\s@UpdatePackagingGroupResponse' {} a -> s {egressAccessLogs = a} :: UpdatePackagingGroupResponse)
+updatePackagingGroupResponse_authorization :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Authorization)
+updatePackagingGroupResponse_authorization = Lens.lens (\UpdatePackagingGroupResponse' {authorization} -> authorization) (\s@UpdatePackagingGroupResponse' {} a -> s {authorization = a} :: UpdatePackagingGroupResponse)
 
 -- | Undocumented member.
-updatePackagingGroupResponse_tags :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updatePackagingGroupResponse_tags = Lens.lens (\UpdatePackagingGroupResponse' {tags} -> tags) (\s@UpdatePackagingGroupResponse' {} a -> s {tags = a} :: UpdatePackagingGroupResponse) Prelude.. Lens.mapping Lens.coerced
+updatePackagingGroupResponse_egressAccessLogs :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe EgressAccessLogs)
+updatePackagingGroupResponse_egressAccessLogs = Lens.lens (\UpdatePackagingGroupResponse' {egressAccessLogs} -> egressAccessLogs) (\s@UpdatePackagingGroupResponse' {} a -> s {egressAccessLogs = a} :: UpdatePackagingGroupResponse)
 
 -- | The response's http status code.
 updatePackagingGroupResponse_httpStatus :: Lens.Lens' UpdatePackagingGroupResponse Prelude.Int
@@ -232,10 +232,10 @@ updatePackagingGroupResponse_httpStatus = Lens.lens (\UpdatePackagingGroupRespon
 
 instance Prelude.NFData UpdatePackagingGroupResponse where
   rnf UpdatePackagingGroupResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorization
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

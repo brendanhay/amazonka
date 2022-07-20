@@ -36,25 +36,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectorProfile' smart constructor.
 data ConnectorProfile = ConnectorProfile'
-  { -- | The name of the connector profile. The name is unique for each
-    -- @ConnectorProfile@ in the Amazon Web Services account.
-    connectorProfileName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies when the connector profile was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | Specifies when the connector profile was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the connector profile credentials.
+  { -- | The Amazon Resource Name (ARN) of the connector profile credentials.
     credentialsArn :: Prelude.Maybe Prelude.Text,
     -- | The connector-specific properties of the profile configuration.
     connectorProfileProperties :: Prelude.Maybe ConnectorProfileProperties,
+    -- | Specifies when the connector profile was last updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | Indicates the connection mode and if it is public or private.
     connectionMode :: Prelude.Maybe ConnectionMode,
-    -- | The Amazon Resource Name (ARN) of the connector profile.
-    connectorProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the connector profile. The name is unique for each
+    -- @ConnectorProfile@ in the Amazon Web Services account.
+    connectorProfileName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the private connection provisioning state.
     privateConnectionProvisioningState :: Prelude.Maybe PrivateConnectionProvisioningState,
     -- | The type of connector, such as Salesforce, Amplitude, and so on.
-    connectorType :: Prelude.Maybe ConnectorType
+    connectorType :: Prelude.Maybe ConnectorType,
+    -- | The Amazon Resource Name (ARN) of the connector profile.
+    connectorProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies when the connector profile was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,52 +66,38 @@ data ConnectorProfile = ConnectorProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectorProfileName', 'connectorProfile_connectorProfileName' - The name of the connector profile. The name is unique for each
--- @ConnectorProfile@ in the Amazon Web Services account.
---
--- 'lastUpdatedAt', 'connectorProfile_lastUpdatedAt' - Specifies when the connector profile was last updated.
---
--- 'createdAt', 'connectorProfile_createdAt' - Specifies when the connector profile was created.
---
 -- 'credentialsArn', 'connectorProfile_credentialsArn' - The Amazon Resource Name (ARN) of the connector profile credentials.
 --
 -- 'connectorProfileProperties', 'connectorProfile_connectorProfileProperties' - The connector-specific properties of the profile configuration.
 --
+-- 'lastUpdatedAt', 'connectorProfile_lastUpdatedAt' - Specifies when the connector profile was last updated.
+--
 -- 'connectionMode', 'connectorProfile_connectionMode' - Indicates the connection mode and if it is public or private.
 --
--- 'connectorProfileArn', 'connectorProfile_connectorProfileArn' - The Amazon Resource Name (ARN) of the connector profile.
+-- 'connectorProfileName', 'connectorProfile_connectorProfileName' - The name of the connector profile. The name is unique for each
+-- @ConnectorProfile@ in the Amazon Web Services account.
 --
 -- 'privateConnectionProvisioningState', 'connectorProfile_privateConnectionProvisioningState' - Specifies the private connection provisioning state.
 --
 -- 'connectorType', 'connectorProfile_connectorType' - The type of connector, such as Salesforce, Amplitude, and so on.
+--
+-- 'connectorProfileArn', 'connectorProfile_connectorProfileArn' - The Amazon Resource Name (ARN) of the connector profile.
+--
+-- 'createdAt', 'connectorProfile_createdAt' - Specifies when the connector profile was created.
 newConnectorProfile ::
   ConnectorProfile
 newConnectorProfile =
   ConnectorProfile'
-    { connectorProfileName =
-        Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      credentialsArn = Prelude.Nothing,
+    { credentialsArn = Prelude.Nothing,
       connectorProfileProperties = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
       connectionMode = Prelude.Nothing,
-      connectorProfileArn = Prelude.Nothing,
+      connectorProfileName = Prelude.Nothing,
       privateConnectionProvisioningState = Prelude.Nothing,
-      connectorType = Prelude.Nothing
+      connectorType = Prelude.Nothing,
+      connectorProfileArn = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
-
--- | The name of the connector profile. The name is unique for each
--- @ConnectorProfile@ in the Amazon Web Services account.
-connectorProfile_connectorProfileName :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.Text)
-connectorProfile_connectorProfileName = Lens.lens (\ConnectorProfile' {connectorProfileName} -> connectorProfileName) (\s@ConnectorProfile' {} a -> s {connectorProfileName = a} :: ConnectorProfile)
-
--- | Specifies when the connector profile was last updated.
-connectorProfile_lastUpdatedAt :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.UTCTime)
-connectorProfile_lastUpdatedAt = Lens.lens (\ConnectorProfile' {lastUpdatedAt} -> lastUpdatedAt) (\s@ConnectorProfile' {} a -> s {lastUpdatedAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Core._Time
-
--- | Specifies when the connector profile was created.
-connectorProfile_createdAt :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.UTCTime)
-connectorProfile_createdAt = Lens.lens (\ConnectorProfile' {createdAt} -> createdAt) (\s@ConnectorProfile' {} a -> s {createdAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the connector profile credentials.
 connectorProfile_credentialsArn :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.Text)
@@ -121,13 +107,18 @@ connectorProfile_credentialsArn = Lens.lens (\ConnectorProfile' {credentialsArn}
 connectorProfile_connectorProfileProperties :: Lens.Lens' ConnectorProfile (Prelude.Maybe ConnectorProfileProperties)
 connectorProfile_connectorProfileProperties = Lens.lens (\ConnectorProfile' {connectorProfileProperties} -> connectorProfileProperties) (\s@ConnectorProfile' {} a -> s {connectorProfileProperties = a} :: ConnectorProfile)
 
+-- | Specifies when the connector profile was last updated.
+connectorProfile_lastUpdatedAt :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.UTCTime)
+connectorProfile_lastUpdatedAt = Lens.lens (\ConnectorProfile' {lastUpdatedAt} -> lastUpdatedAt) (\s@ConnectorProfile' {} a -> s {lastUpdatedAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Core._Time
+
 -- | Indicates the connection mode and if it is public or private.
 connectorProfile_connectionMode :: Lens.Lens' ConnectorProfile (Prelude.Maybe ConnectionMode)
 connectorProfile_connectionMode = Lens.lens (\ConnectorProfile' {connectionMode} -> connectionMode) (\s@ConnectorProfile' {} a -> s {connectionMode = a} :: ConnectorProfile)
 
--- | The Amazon Resource Name (ARN) of the connector profile.
-connectorProfile_connectorProfileArn :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.Text)
-connectorProfile_connectorProfileArn = Lens.lens (\ConnectorProfile' {connectorProfileArn} -> connectorProfileArn) (\s@ConnectorProfile' {} a -> s {connectorProfileArn = a} :: ConnectorProfile)
+-- | The name of the connector profile. The name is unique for each
+-- @ConnectorProfile@ in the Amazon Web Services account.
+connectorProfile_connectorProfileName :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.Text)
+connectorProfile_connectorProfileName = Lens.lens (\ConnectorProfile' {connectorProfileName} -> connectorProfileName) (\s@ConnectorProfile' {} a -> s {connectorProfileName = a} :: ConnectorProfile)
 
 -- | Specifies the private connection provisioning state.
 connectorProfile_privateConnectionProvisioningState :: Lens.Lens' ConnectorProfile (Prelude.Maybe PrivateConnectionProvisioningState)
@@ -137,43 +128,51 @@ connectorProfile_privateConnectionProvisioningState = Lens.lens (\ConnectorProfi
 connectorProfile_connectorType :: Lens.Lens' ConnectorProfile (Prelude.Maybe ConnectorType)
 connectorProfile_connectorType = Lens.lens (\ConnectorProfile' {connectorType} -> connectorType) (\s@ConnectorProfile' {} a -> s {connectorType = a} :: ConnectorProfile)
 
+-- | The Amazon Resource Name (ARN) of the connector profile.
+connectorProfile_connectorProfileArn :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.Text)
+connectorProfile_connectorProfileArn = Lens.lens (\ConnectorProfile' {connectorProfileArn} -> connectorProfileArn) (\s@ConnectorProfile' {} a -> s {connectorProfileArn = a} :: ConnectorProfile)
+
+-- | Specifies when the connector profile was created.
+connectorProfile_createdAt :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.UTCTime)
+connectorProfile_createdAt = Lens.lens (\ConnectorProfile' {createdAt} -> createdAt) (\s@ConnectorProfile' {} a -> s {createdAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON ConnectorProfile where
   parseJSON =
     Core.withObject
       "ConnectorProfile"
       ( \x ->
           ConnectorProfile'
-            Prelude.<$> (x Core..:? "connectorProfileName")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "credentialsArn")
+            Prelude.<$> (x Core..:? "credentialsArn")
             Prelude.<*> (x Core..:? "connectorProfileProperties")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "connectionMode")
-            Prelude.<*> (x Core..:? "connectorProfileArn")
+            Prelude.<*> (x Core..:? "connectorProfileName")
             Prelude.<*> (x Core..:? "privateConnectionProvisioningState")
             Prelude.<*> (x Core..:? "connectorType")
+            Prelude.<*> (x Core..:? "connectorProfileArn")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable ConnectorProfile where
   hashWithSalt _salt ConnectorProfile' {..} =
-    _salt `Prelude.hashWithSalt` connectorProfileName
-      `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` credentialsArn
+    _salt `Prelude.hashWithSalt` credentialsArn
       `Prelude.hashWithSalt` connectorProfileProperties
+      `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` connectionMode
-      `Prelude.hashWithSalt` connectorProfileArn
+      `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` privateConnectionProvisioningState
       `Prelude.hashWithSalt` connectorType
+      `Prelude.hashWithSalt` connectorProfileArn
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData ConnectorProfile where
   rnf ConnectorProfile' {..} =
-    Prelude.rnf connectorProfileName
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf credentialsArn
+    Prelude.rnf credentialsArn
       `Prelude.seq` Prelude.rnf connectorProfileProperties
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf connectionMode
-      `Prelude.seq` Prelude.rnf connectorProfileArn
+      `Prelude.seq` Prelude.rnf connectorProfileName
       `Prelude.seq` Prelude.rnf privateConnectionProvisioningState
       `Prelude.seq` Prelude.rnf connectorType
+      `Prelude.seq` Prelude.rnf connectorProfileArn
+      `Prelude.seq` Prelude.rnf createdAt

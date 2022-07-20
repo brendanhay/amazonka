@@ -19,23 +19,23 @@ module Amazonka.QLDB
     -- * Errors
     -- $errors
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** ResourcePreconditionNotMetException
-    _ResourcePreconditionNotMetException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ResourcePreconditionNotMetException
+    _ResourcePreconditionNotMetException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -43,59 +43,11 @@ module Amazonka.QLDB
     -- * Operations
     -- $operations
 
-    -- ** UpdateLedger
-    UpdateLedger (UpdateLedger'),
-    newUpdateLedger,
-    UpdateLedgerResponse (UpdateLedgerResponse'),
-    newUpdateLedgerResponse,
-
-    -- ** DeleteLedger
-    DeleteLedger (DeleteLedger'),
-    newDeleteLedger,
-    DeleteLedgerResponse (DeleteLedgerResponse'),
-    newDeleteLedgerResponse,
-
-    -- ** ListJournalKinesisStreamsForLedger
-    ListJournalKinesisStreamsForLedger (ListJournalKinesisStreamsForLedger'),
-    newListJournalKinesisStreamsForLedger,
-    ListJournalKinesisStreamsForLedgerResponse (ListJournalKinesisStreamsForLedgerResponse'),
-    newListJournalKinesisStreamsForLedgerResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetRevision
-    GetRevision (GetRevision'),
-    newGetRevision,
-    GetRevisionResponse (GetRevisionResponse'),
-    newGetRevisionResponse,
-
-    -- ** DescribeLedger
-    DescribeLedger (DescribeLedger'),
-    newDescribeLedger,
-    DescribeLedgerResponse (DescribeLedgerResponse'),
-    newDescribeLedgerResponse,
-
     -- ** CancelJournalKinesisStream
     CancelJournalKinesisStream (CancelJournalKinesisStream'),
     newCancelJournalKinesisStream,
     CancelJournalKinesisStreamResponse (CancelJournalKinesisStreamResponse'),
     newCancelJournalKinesisStreamResponse,
-
-    -- ** ExportJournalToS3
-    ExportJournalToS3 (ExportJournalToS3'),
-    newExportJournalToS3,
-    ExportJournalToS3Response (ExportJournalToS3Response'),
-    newExportJournalToS3Response,
-
-    -- ** StreamJournalToKinesis
-    StreamJournalToKinesis (StreamJournalToKinesis'),
-    newStreamJournalToKinesis,
-    StreamJournalToKinesisResponse (StreamJournalToKinesisResponse'),
-    newStreamJournalToKinesisResponse,
 
     -- ** CreateLedger
     CreateLedger (CreateLedger'),
@@ -103,35 +55,11 @@ module Amazonka.QLDB
     CreateLedgerResponse (CreateLedgerResponse'),
     newCreateLedgerResponse,
 
-    -- ** ListLedgers
-    ListLedgers (ListLedgers'),
-    newListLedgers,
-    ListLedgersResponse (ListLedgersResponse'),
-    newListLedgersResponse,
-
-    -- ** ListJournalS3Exports
-    ListJournalS3Exports (ListJournalS3Exports'),
-    newListJournalS3Exports,
-    ListJournalS3ExportsResponse (ListJournalS3ExportsResponse'),
-    newListJournalS3ExportsResponse,
-
-    -- ** UpdateLedgerPermissionsMode
-    UpdateLedgerPermissionsMode (UpdateLedgerPermissionsMode'),
-    newUpdateLedgerPermissionsMode,
-    UpdateLedgerPermissionsModeResponse (UpdateLedgerPermissionsModeResponse'),
-    newUpdateLedgerPermissionsModeResponse,
-
-    -- ** GetBlock
-    GetBlock (GetBlock'),
-    newGetBlock,
-    GetBlockResponse (GetBlockResponse'),
-    newGetBlockResponse,
-
-    -- ** ListJournalS3ExportsForLedger
-    ListJournalS3ExportsForLedger (ListJournalS3ExportsForLedger'),
-    newListJournalS3ExportsForLedger,
-    ListJournalS3ExportsForLedgerResponse (ListJournalS3ExportsForLedgerResponse'),
-    newListJournalS3ExportsForLedgerResponse,
+    -- ** DeleteLedger
+    DeleteLedger (DeleteLedger'),
+    newDeleteLedger,
+    DeleteLedgerResponse (DeleteLedgerResponse'),
+    newDeleteLedgerResponse,
 
     -- ** DescribeJournalKinesisStream
     DescribeJournalKinesisStream (DescribeJournalKinesisStream'),
@@ -145,6 +73,72 @@ module Amazonka.QLDB
     DescribeJournalS3ExportResponse (DescribeJournalS3ExportResponse'),
     newDescribeJournalS3ExportResponse,
 
+    -- ** DescribeLedger
+    DescribeLedger (DescribeLedger'),
+    newDescribeLedger,
+    DescribeLedgerResponse (DescribeLedgerResponse'),
+    newDescribeLedgerResponse,
+
+    -- ** ExportJournalToS3
+    ExportJournalToS3 (ExportJournalToS3'),
+    newExportJournalToS3,
+    ExportJournalToS3Response (ExportJournalToS3Response'),
+    newExportJournalToS3Response,
+
+    -- ** GetBlock
+    GetBlock (GetBlock'),
+    newGetBlock,
+    GetBlockResponse (GetBlockResponse'),
+    newGetBlockResponse,
+
+    -- ** GetDigest
+    GetDigest (GetDigest'),
+    newGetDigest,
+    GetDigestResponse (GetDigestResponse'),
+    newGetDigestResponse,
+
+    -- ** GetRevision
+    GetRevision (GetRevision'),
+    newGetRevision,
+    GetRevisionResponse (GetRevisionResponse'),
+    newGetRevisionResponse,
+
+    -- ** ListJournalKinesisStreamsForLedger
+    ListJournalKinesisStreamsForLedger (ListJournalKinesisStreamsForLedger'),
+    newListJournalKinesisStreamsForLedger,
+    ListJournalKinesisStreamsForLedgerResponse (ListJournalKinesisStreamsForLedgerResponse'),
+    newListJournalKinesisStreamsForLedgerResponse,
+
+    -- ** ListJournalS3Exports
+    ListJournalS3Exports (ListJournalS3Exports'),
+    newListJournalS3Exports,
+    ListJournalS3ExportsResponse (ListJournalS3ExportsResponse'),
+    newListJournalS3ExportsResponse,
+
+    -- ** ListJournalS3ExportsForLedger
+    ListJournalS3ExportsForLedger (ListJournalS3ExportsForLedger'),
+    newListJournalS3ExportsForLedger,
+    ListJournalS3ExportsForLedgerResponse (ListJournalS3ExportsForLedgerResponse'),
+    newListJournalS3ExportsForLedgerResponse,
+
+    -- ** ListLedgers
+    ListLedgers (ListLedgers'),
+    newListLedgers,
+    ListLedgersResponse (ListLedgersResponse'),
+    newListLedgersResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** StreamJournalToKinesis
+    StreamJournalToKinesis (StreamJournalToKinesis'),
+    newStreamJournalToKinesis,
+    StreamJournalToKinesisResponse (StreamJournalToKinesisResponse'),
+    newStreamJournalToKinesisResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -157,11 +151,17 @@ module Amazonka.QLDB
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetDigest
-    GetDigest (GetDigest'),
-    newGetDigest,
-    GetDigestResponse (GetDigestResponse'),
-    newGetDigestResponse,
+    -- ** UpdateLedger
+    UpdateLedger (UpdateLedger'),
+    newUpdateLedger,
+    UpdateLedgerResponse (UpdateLedgerResponse'),
+    newUpdateLedgerResponse,
+
+    -- ** UpdateLedgerPermissionsMode
+    UpdateLedgerPermissionsMode (UpdateLedgerPermissionsMode'),
+    newUpdateLedgerPermissionsMode,
+    UpdateLedgerPermissionsModeResponse (UpdateLedgerPermissionsModeResponse'),
+    newUpdateLedgerPermissionsModeResponse,
 
     -- * Types
 

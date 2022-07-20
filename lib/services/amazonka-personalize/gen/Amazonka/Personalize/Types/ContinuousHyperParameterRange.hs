@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContinuousHyperParameterRange' smart constructor.
 data ContinuousHyperParameterRange = ContinuousHyperParameterRange'
-  { -- | The maximum allowable value for the hyperparameter.
-    maxValue :: Prelude.Maybe Prelude.Double,
-    -- | The name of the hyperparameter.
+  { -- | The name of the hyperparameter.
     name :: Prelude.Maybe Prelude.Text,
     -- | The minimum allowable value for the hyperparameter.
-    minValue :: Prelude.Maybe Prelude.Double
+    minValue :: Prelude.Maybe Prelude.Double,
+    -- | The maximum allowable value for the hyperparameter.
+    maxValue :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data ContinuousHyperParameterRange = ContinuousHyperParameterRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxValue', 'continuousHyperParameterRange_maxValue' - The maximum allowable value for the hyperparameter.
---
 -- 'name', 'continuousHyperParameterRange_name' - The name of the hyperparameter.
 --
 -- 'minValue', 'continuousHyperParameterRange_minValue' - The minimum allowable value for the hyperparameter.
+--
+-- 'maxValue', 'continuousHyperParameterRange_maxValue' - The maximum allowable value for the hyperparameter.
 newContinuousHyperParameterRange ::
   ContinuousHyperParameterRange
 newContinuousHyperParameterRange =
   ContinuousHyperParameterRange'
-    { maxValue =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      minValue = Prelude.Nothing
+      minValue = Prelude.Nothing,
+      maxValue = Prelude.Nothing
     }
-
--- | The maximum allowable value for the hyperparameter.
-continuousHyperParameterRange_maxValue :: Lens.Lens' ContinuousHyperParameterRange (Prelude.Maybe Prelude.Double)
-continuousHyperParameterRange_maxValue = Lens.lens (\ContinuousHyperParameterRange' {maxValue} -> maxValue) (\s@ContinuousHyperParameterRange' {} a -> s {maxValue = a} :: ContinuousHyperParameterRange)
 
 -- | The name of the hyperparameter.
 continuousHyperParameterRange_name :: Lens.Lens' ContinuousHyperParameterRange (Prelude.Maybe Prelude.Text)
@@ -71,15 +67,19 @@ continuousHyperParameterRange_name = Lens.lens (\ContinuousHyperParameterRange' 
 continuousHyperParameterRange_minValue :: Lens.Lens' ContinuousHyperParameterRange (Prelude.Maybe Prelude.Double)
 continuousHyperParameterRange_minValue = Lens.lens (\ContinuousHyperParameterRange' {minValue} -> minValue) (\s@ContinuousHyperParameterRange' {} a -> s {minValue = a} :: ContinuousHyperParameterRange)
 
+-- | The maximum allowable value for the hyperparameter.
+continuousHyperParameterRange_maxValue :: Lens.Lens' ContinuousHyperParameterRange (Prelude.Maybe Prelude.Double)
+continuousHyperParameterRange_maxValue = Lens.lens (\ContinuousHyperParameterRange' {maxValue} -> maxValue) (\s@ContinuousHyperParameterRange' {} a -> s {maxValue = a} :: ContinuousHyperParameterRange)
+
 instance Core.FromJSON ContinuousHyperParameterRange where
   parseJSON =
     Core.withObject
       "ContinuousHyperParameterRange"
       ( \x ->
           ContinuousHyperParameterRange'
-            Prelude.<$> (x Core..:? "maxValue")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "minValue")
+            Prelude.<*> (x Core..:? "maxValue")
       )
 
 instance
@@ -87,22 +87,22 @@ instance
     ContinuousHyperParameterRange
   where
   hashWithSalt _salt ContinuousHyperParameterRange' {..} =
-    _salt `Prelude.hashWithSalt` maxValue
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` minValue
+      `Prelude.hashWithSalt` maxValue
 
 instance Prelude.NFData ContinuousHyperParameterRange where
   rnf ContinuousHyperParameterRange' {..} =
-    Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf maxValue
 
 instance Core.ToJSON ContinuousHyperParameterRange where
   toJSON ContinuousHyperParameterRange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maxValue" Core..=) Prelude.<$> maxValue,
-            ("name" Core..=) Prelude.<$> name,
-            ("minValue" Core..=) Prelude.<$> minValue
+          [ ("name" Core..=) Prelude.<$> name,
+            ("minValue" Core..=) Prelude.<$> minValue,
+            ("maxValue" Core..=) Prelude.<$> maxValue
           ]
       )

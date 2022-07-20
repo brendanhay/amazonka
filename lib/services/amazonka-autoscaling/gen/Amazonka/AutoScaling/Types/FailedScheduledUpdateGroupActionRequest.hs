@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailedScheduledUpdateGroupActionRequest' smart constructor.
 data FailedScheduledUpdateGroupActionRequest = FailedScheduledUpdateGroupActionRequest'
-  { -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The error message accompanying the error code.
+  { -- | The error message accompanying the error code.
     errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The name of the scheduled action.
     scheduledActionName :: Prelude.Text
   }
@@ -45,9 +45,9 @@ data FailedScheduledUpdateGroupActionRequest = FailedScheduledUpdateGroupActionR
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'failedScheduledUpdateGroupActionRequest_errorCode' - The error code.
---
 -- 'errorMessage', 'failedScheduledUpdateGroupActionRequest_errorMessage' - The error message accompanying the error code.
+--
+-- 'errorCode', 'failedScheduledUpdateGroupActionRequest_errorCode' - The error code.
 --
 -- 'scheduledActionName', 'failedScheduledUpdateGroupActionRequest_scheduledActionName' - The name of the scheduled action.
 newFailedScheduledUpdateGroupActionRequest ::
@@ -57,20 +57,20 @@ newFailedScheduledUpdateGroupActionRequest ::
 newFailedScheduledUpdateGroupActionRequest
   pScheduledActionName_ =
     FailedScheduledUpdateGroupActionRequest'
-      { errorCode =
+      { errorMessage =
           Prelude.Nothing,
-        errorMessage = Prelude.Nothing,
+        errorCode = Prelude.Nothing,
         scheduledActionName =
           pScheduledActionName_
       }
 
--- | The error code.
-failedScheduledUpdateGroupActionRequest_errorCode :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Text)
-failedScheduledUpdateGroupActionRequest_errorCode = Lens.lens (\FailedScheduledUpdateGroupActionRequest' {errorCode} -> errorCode) (\s@FailedScheduledUpdateGroupActionRequest' {} a -> s {errorCode = a} :: FailedScheduledUpdateGroupActionRequest)
-
 -- | The error message accompanying the error code.
 failedScheduledUpdateGroupActionRequest_errorMessage :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Text)
 failedScheduledUpdateGroupActionRequest_errorMessage = Lens.lens (\FailedScheduledUpdateGroupActionRequest' {errorMessage} -> errorMessage) (\s@FailedScheduledUpdateGroupActionRequest' {} a -> s {errorMessage = a} :: FailedScheduledUpdateGroupActionRequest)
+
+-- | The error code.
+failedScheduledUpdateGroupActionRequest_errorCode :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Text)
+failedScheduledUpdateGroupActionRequest_errorCode = Lens.lens (\FailedScheduledUpdateGroupActionRequest' {errorCode} -> errorCode) (\s@FailedScheduledUpdateGroupActionRequest' {} a -> s {errorCode = a} :: FailedScheduledUpdateGroupActionRequest)
 
 -- | The name of the scheduled action.
 failedScheduledUpdateGroupActionRequest_scheduledActionName :: Lens.Lens' FailedScheduledUpdateGroupActionRequest Prelude.Text
@@ -82,8 +82,8 @@ instance
   where
   parseXML x =
     FailedScheduledUpdateGroupActionRequest'
-      Prelude.<$> (x Core..@? "ErrorCode")
-        Prelude.<*> (x Core..@? "ErrorMessage")
+      Prelude.<$> (x Core..@? "ErrorMessage")
+        Prelude.<*> (x Core..@? "ErrorCode")
         Prelude.<*> (x Core..@ "ScheduledActionName")
 
 instance
@@ -93,8 +93,8 @@ instance
   hashWithSalt
     _salt
     FailedScheduledUpdateGroupActionRequest' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
-        `Prelude.hashWithSalt` errorMessage
+      _salt `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` scheduledActionName
 
 instance
@@ -102,6 +102,6 @@ instance
     FailedScheduledUpdateGroupActionRequest
   where
   rnf FailedScheduledUpdateGroupActionRequest' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf scheduledActionName

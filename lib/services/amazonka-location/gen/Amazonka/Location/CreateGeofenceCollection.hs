@@ -27,10 +27,10 @@ module Amazonka.Location.CreateGeofenceCollection
     newCreateGeofenceCollection,
 
     -- * Request Lenses
+    createGeofenceCollection_tags,
+    createGeofenceCollection_description,
     createGeofenceCollection_pricingPlanDataSource,
     createGeofenceCollection_kmsKeyId,
-    createGeofenceCollection_description,
-    createGeofenceCollection_tags,
     createGeofenceCollection_collectionName,
     createGeofenceCollection_pricingPlan,
 
@@ -55,7 +55,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGeofenceCollection' smart constructor.
 data CreateGeofenceCollection = CreateGeofenceCollection'
-  { -- | Specifies the data provider for the geofence collection.
+  { -- | Applies one or more tags to the geofence collection. A tag is a
+    -- key-value pair helps manage, identify, search, and filter your resources
+    -- by labelling them.
+    --
+    -- Format: @\"key\" : \"value\"@
+    --
+    -- Restrictions:
+    --
+    -- -   Maximum 50 tags per resource
+    --
+    -- -   Each resource tag must be unique with a maximum of one value.
+    --
+    -- -   Maximum key length: 128 Unicode characters in UTF-8
+    --
+    -- -   Maximum value length: 256 Unicode characters in UTF-8
+    --
+    -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+    --     characters: + - = . _ : \/ \@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description for the geofence collection.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the data provider for the geofence collection.
     --
     -- -   Required value for the following pricing plans:
     --     @MobileAssetTracking @| @MobileAssetManagement@
@@ -76,27 +97,6 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
     -- Enter a key ID, key ARN, alias name, or alias ARN.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | An optional description for the geofence collection.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Applies one or more tags to the geofence collection. A tag is a
-    -- key-value pair helps manage, identify, search, and filter your resources
-    -- by labelling them.
-    --
-    -- Format: @\"key\" : \"value\"@
-    --
-    -- Restrictions:
-    --
-    -- -   Maximum 50 tags per resource
-    --
-    -- -   Each resource tag must be unique with a maximum of one value.
-    --
-    -- -   Maximum key length: 128 Unicode characters in UTF-8
-    --
-    -- -   Maximum value length: 256 Unicode characters in UTF-8
-    --
-    -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
-    --     characters: + - = . _ : \/ \@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A custom name for the geofence collection.
     --
     -- Requirements:
@@ -125,6 +125,27 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createGeofenceCollection_tags' - Applies one or more tags to the geofence collection. A tag is a
+-- key-value pair helps manage, identify, search, and filter your resources
+-- by labelling them.
+--
+-- Format: @\"key\" : \"value\"@
+--
+-- Restrictions:
+--
+-- -   Maximum 50 tags per resource
+--
+-- -   Each resource tag must be unique with a maximum of one value.
+--
+-- -   Maximum key length: 128 Unicode characters in UTF-8
+--
+-- -   Maximum value length: 256 Unicode characters in UTF-8
+--
+-- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+--     characters: + - = . _ : \/ \@.
+--
+-- 'description', 'createGeofenceCollection_description' - An optional description for the geofence collection.
+--
 -- 'pricingPlanDataSource', 'createGeofenceCollection_pricingPlanDataSource' - Specifies the data provider for the geofence collection.
 --
 -- -   Required value for the following pricing plans:
@@ -145,27 +166,6 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
 -- 'kmsKeyId', 'createGeofenceCollection_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
 -- Enter a key ID, key ARN, alias name, or alias ARN.
---
--- 'description', 'createGeofenceCollection_description' - An optional description for the geofence collection.
---
--- 'tags', 'createGeofenceCollection_tags' - Applies one or more tags to the geofence collection. A tag is a
--- key-value pair helps manage, identify, search, and filter your resources
--- by labelling them.
---
--- Format: @\"key\" : \"value\"@
---
--- Restrictions:
---
--- -   Maximum 50 tags per resource
---
--- -   Each resource tag must be unique with a maximum of one value.
---
--- -   Maximum key length: 128 Unicode characters in UTF-8
---
--- -   Maximum value length: 256 Unicode characters in UTF-8
---
--- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
---     characters: + - = . _ : \/ \@.
 --
 -- 'collectionName', 'createGeofenceCollection_collectionName' - A custom name for the geofence collection.
 --
@@ -193,14 +193,38 @@ newCreateGeofenceCollection
   pCollectionName_
   pPricingPlan_ =
     CreateGeofenceCollection'
-      { pricingPlanDataSource =
-          Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        pricingPlanDataSource = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         collectionName = pCollectionName_,
         pricingPlan = pPricingPlan_
       }
+
+-- | Applies one or more tags to the geofence collection. A tag is a
+-- key-value pair helps manage, identify, search, and filter your resources
+-- by labelling them.
+--
+-- Format: @\"key\" : \"value\"@
+--
+-- Restrictions:
+--
+-- -   Maximum 50 tags per resource
+--
+-- -   Each resource tag must be unique with a maximum of one value.
+--
+-- -   Maximum key length: 128 Unicode characters in UTF-8
+--
+-- -   Maximum value length: 256 Unicode characters in UTF-8
+--
+-- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+--     characters: + - = . _ : \/ \@.
+createGeofenceCollection_tags :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createGeofenceCollection_tags = Lens.lens (\CreateGeofenceCollection' {tags} -> tags) (\s@CreateGeofenceCollection' {} a -> s {tags = a} :: CreateGeofenceCollection) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional description for the geofence collection.
+createGeofenceCollection_description :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
+createGeofenceCollection_description = Lens.lens (\CreateGeofenceCollection' {description} -> description) (\s@CreateGeofenceCollection' {} a -> s {description = a} :: CreateGeofenceCollection)
 
 -- | Specifies the data provider for the geofence collection.
 --
@@ -226,31 +250,6 @@ createGeofenceCollection_pricingPlanDataSource = Lens.lens (\CreateGeofenceColle
 -- Enter a key ID, key ARN, alias name, or alias ARN.
 createGeofenceCollection_kmsKeyId :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
 createGeofenceCollection_kmsKeyId = Lens.lens (\CreateGeofenceCollection' {kmsKeyId} -> kmsKeyId) (\s@CreateGeofenceCollection' {} a -> s {kmsKeyId = a} :: CreateGeofenceCollection)
-
--- | An optional description for the geofence collection.
-createGeofenceCollection_description :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
-createGeofenceCollection_description = Lens.lens (\CreateGeofenceCollection' {description} -> description) (\s@CreateGeofenceCollection' {} a -> s {description = a} :: CreateGeofenceCollection)
-
--- | Applies one or more tags to the geofence collection. A tag is a
--- key-value pair helps manage, identify, search, and filter your resources
--- by labelling them.
---
--- Format: @\"key\" : \"value\"@
---
--- Restrictions:
---
--- -   Maximum 50 tags per resource
---
--- -   Each resource tag must be unique with a maximum of one value.
---
--- -   Maximum key length: 128 Unicode characters in UTF-8
---
--- -   Maximum value length: 256 Unicode characters in UTF-8
---
--- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
---     characters: + - = . _ : \/ \@.
-createGeofenceCollection_tags :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createGeofenceCollection_tags = Lens.lens (\CreateGeofenceCollection' {tags} -> tags) (\s@CreateGeofenceCollection' {} a -> s {tags = a} :: CreateGeofenceCollection) Prelude.. Lens.mapping Lens.coerced
 
 -- | A custom name for the geofence collection.
 --
@@ -290,19 +289,19 @@ instance Core.AWSRequest CreateGeofenceCollection where
 
 instance Prelude.Hashable CreateGeofenceCollection where
   hashWithSalt _salt CreateGeofenceCollection' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlanDataSource
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pricingPlanDataSource
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` pricingPlan
 
 instance Prelude.NFData CreateGeofenceCollection where
   rnf CreateGeofenceCollection' {..} =
-    Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf pricingPlan
 
@@ -321,11 +320,11 @@ instance Core.ToJSON CreateGeofenceCollection where
   toJSON CreateGeofenceCollection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PricingPlanDataSource" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlanDataSource" Core..=)
               Prelude.<$> pricingPlanDataSource,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("CollectionName" Core..= collectionName),
             Prelude.Just ("PricingPlan" Core..= pricingPlan)

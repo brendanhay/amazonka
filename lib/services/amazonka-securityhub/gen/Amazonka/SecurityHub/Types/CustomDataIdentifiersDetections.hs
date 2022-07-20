@@ -30,13 +30,13 @@ import Amazonka.SecurityHub.Types.Occurrences
 data CustomDataIdentifiersDetections = CustomDataIdentifiersDetections'
   { -- | Details about the sensitive data that was detected.
     occurrences :: Prelude.Maybe Occurrences,
+    -- | he name of the custom identifier that detected the sensitive data.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the custom identifier that was used to detect the sensitive
     -- data.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The total number of occurrences of sensitive data that were detected.
-    count :: Prelude.Maybe Prelude.Integer,
-    -- | he name of the custom identifier that detected the sensitive data.
-    name :: Prelude.Maybe Prelude.Text
+    count :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,30 @@ data CustomDataIdentifiersDetections = CustomDataIdentifiersDetections'
 --
 -- 'occurrences', 'customDataIdentifiersDetections_occurrences' - Details about the sensitive data that was detected.
 --
+-- 'name', 'customDataIdentifiersDetections_name' - he name of the custom identifier that detected the sensitive data.
+--
 -- 'arn', 'customDataIdentifiersDetections_arn' - The ARN of the custom identifier that was used to detect the sensitive
 -- data.
 --
 -- 'count', 'customDataIdentifiersDetections_count' - The total number of occurrences of sensitive data that were detected.
---
--- 'name', 'customDataIdentifiersDetections_name' - he name of the custom identifier that detected the sensitive data.
 newCustomDataIdentifiersDetections ::
   CustomDataIdentifiersDetections
 newCustomDataIdentifiersDetections =
   CustomDataIdentifiersDetections'
     { occurrences =
         Prelude.Nothing,
+      name = Prelude.Nothing,
       arn = Prelude.Nothing,
-      count = Prelude.Nothing,
-      name = Prelude.Nothing
+      count = Prelude.Nothing
     }
 
 -- | Details about the sensitive data that was detected.
 customDataIdentifiersDetections_occurrences :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Occurrences)
 customDataIdentifiersDetections_occurrences = Lens.lens (\CustomDataIdentifiersDetections' {occurrences} -> occurrences) (\s@CustomDataIdentifiersDetections' {} a -> s {occurrences = a} :: CustomDataIdentifiersDetections)
+
+-- | he name of the custom identifier that detected the sensitive data.
+customDataIdentifiersDetections_name :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Prelude.Text)
+customDataIdentifiersDetections_name = Lens.lens (\CustomDataIdentifiersDetections' {name} -> name) (\s@CustomDataIdentifiersDetections' {} a -> s {name = a} :: CustomDataIdentifiersDetections)
 
 -- | The ARN of the custom identifier that was used to detect the sensitive
 -- data.
@@ -79,10 +83,6 @@ customDataIdentifiersDetections_arn = Lens.lens (\CustomDataIdentifiersDetection
 -- | The total number of occurrences of sensitive data that were detected.
 customDataIdentifiersDetections_count :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Prelude.Integer)
 customDataIdentifiersDetections_count = Lens.lens (\CustomDataIdentifiersDetections' {count} -> count) (\s@CustomDataIdentifiersDetections' {} a -> s {count = a} :: CustomDataIdentifiersDetections)
-
--- | he name of the custom identifier that detected the sensitive data.
-customDataIdentifiersDetections_name :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Prelude.Text)
-customDataIdentifiersDetections_name = Lens.lens (\CustomDataIdentifiersDetections' {name} -> name) (\s@CustomDataIdentifiersDetections' {} a -> s {name = a} :: CustomDataIdentifiersDetections)
 
 instance
   Core.FromJSON
@@ -94,9 +94,9 @@ instance
       ( \x ->
           CustomDataIdentifiersDetections'
             Prelude.<$> (x Core..:? "Occurrences")
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Name")
       )
 
 instance
@@ -107,9 +107,9 @@ instance
     _salt
     CustomDataIdentifiersDetections' {..} =
       _salt `Prelude.hashWithSalt` occurrences
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` count
-        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
@@ -117,17 +117,17 @@ instance
   where
   rnf CustomDataIdentifiersDetections' {..} =
     Prelude.rnf occurrences
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CustomDataIdentifiersDetections where
   toJSON CustomDataIdentifiersDetections' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Occurrences" Core..=) Prelude.<$> occurrences,
+            ("Name" Core..=) Prelude.<$> name,
             ("Arn" Core..=) Prelude.<$> arn,
-            ("Count" Core..=) Prelude.<$> count,
-            ("Name" Core..=) Prelude.<$> name
+            ("Count" Core..=) Prelude.<$> count
           ]
       )

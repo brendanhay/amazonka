@@ -42,8 +42,8 @@ module Amazonka.Chime.CreateAppInstanceAdmin
     newCreateAppInstanceAdminResponse,
 
     -- * Response Lenses
-    createAppInstanceAdminResponse_appInstanceAdmin,
     createAppInstanceAdminResponse_appInstanceArn,
+    createAppInstanceAdminResponse_appInstanceAdmin,
     createAppInstanceAdminResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest CreateAppInstanceAdmin where
     Response.receiveJSON
       ( \s h x ->
           CreateAppInstanceAdminResponse'
-            Prelude.<$> (x Core..?> "AppInstanceAdmin")
-            Prelude.<*> (x Core..?> "AppInstanceArn")
+            Prelude.<$> (x Core..?> "AppInstanceArn")
+            Prelude.<*> (x Core..?> "AppInstanceAdmin")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,10 +147,10 @@ instance Core.ToQuery CreateAppInstanceAdmin where
 
 -- | /See:/ 'newCreateAppInstanceAdminResponse' smart constructor.
 data CreateAppInstanceAdminResponse = CreateAppInstanceAdminResponse'
-  { -- | The name and ARN of the admin for the @AppInstance@.
-    appInstanceAdmin :: Prelude.Maybe Identity,
-    -- | The ARN of the of the admin for the @AppInstance@.
+  { -- | The ARN of the of the admin for the @AppInstance@.
     appInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name and ARN of the admin for the @AppInstance@.
+    appInstanceAdmin :: Prelude.Maybe Identity,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,9 +164,9 @@ data CreateAppInstanceAdminResponse = CreateAppInstanceAdminResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appInstanceAdmin', 'createAppInstanceAdminResponse_appInstanceAdmin' - The name and ARN of the admin for the @AppInstance@.
---
 -- 'appInstanceArn', 'createAppInstanceAdminResponse_appInstanceArn' - The ARN of the of the admin for the @AppInstance@.
+--
+-- 'appInstanceAdmin', 'createAppInstanceAdminResponse_appInstanceAdmin' - The name and ARN of the admin for the @AppInstance@.
 --
 -- 'httpStatus', 'createAppInstanceAdminResponse_httpStatus' - The response's http status code.
 newCreateAppInstanceAdminResponse ::
@@ -175,19 +175,19 @@ newCreateAppInstanceAdminResponse ::
   CreateAppInstanceAdminResponse
 newCreateAppInstanceAdminResponse pHttpStatus_ =
   CreateAppInstanceAdminResponse'
-    { appInstanceAdmin =
+    { appInstanceArn =
         Prelude.Nothing,
-      appInstanceArn = Prelude.Nothing,
+      appInstanceAdmin = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name and ARN of the admin for the @AppInstance@.
-createAppInstanceAdminResponse_appInstanceAdmin :: Lens.Lens' CreateAppInstanceAdminResponse (Prelude.Maybe Identity)
-createAppInstanceAdminResponse_appInstanceAdmin = Lens.lens (\CreateAppInstanceAdminResponse' {appInstanceAdmin} -> appInstanceAdmin) (\s@CreateAppInstanceAdminResponse' {} a -> s {appInstanceAdmin = a} :: CreateAppInstanceAdminResponse)
 
 -- | The ARN of the of the admin for the @AppInstance@.
 createAppInstanceAdminResponse_appInstanceArn :: Lens.Lens' CreateAppInstanceAdminResponse (Prelude.Maybe Prelude.Text)
 createAppInstanceAdminResponse_appInstanceArn = Lens.lens (\CreateAppInstanceAdminResponse' {appInstanceArn} -> appInstanceArn) (\s@CreateAppInstanceAdminResponse' {} a -> s {appInstanceArn = a} :: CreateAppInstanceAdminResponse)
+
+-- | The name and ARN of the admin for the @AppInstance@.
+createAppInstanceAdminResponse_appInstanceAdmin :: Lens.Lens' CreateAppInstanceAdminResponse (Prelude.Maybe Identity)
+createAppInstanceAdminResponse_appInstanceAdmin = Lens.lens (\CreateAppInstanceAdminResponse' {appInstanceAdmin} -> appInstanceAdmin) (\s@CreateAppInstanceAdminResponse' {} a -> s {appInstanceAdmin = a} :: CreateAppInstanceAdminResponse)
 
 -- | The response's http status code.
 createAppInstanceAdminResponse_httpStatus :: Lens.Lens' CreateAppInstanceAdminResponse Prelude.Int
@@ -198,6 +198,6 @@ instance
     CreateAppInstanceAdminResponse
   where
   rnf CreateAppInstanceAdminResponse' {..} =
-    Prelude.rnf appInstanceAdmin
-      `Prelude.seq` Prelude.rnf appInstanceArn
+    Prelude.rnf appInstanceArn
+      `Prelude.seq` Prelude.rnf appInstanceAdmin
       `Prelude.seq` Prelude.rnf httpStatus

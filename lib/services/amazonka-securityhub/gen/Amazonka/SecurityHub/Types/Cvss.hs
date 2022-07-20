@@ -28,16 +28,16 @@ import Amazonka.SecurityHub.Types.Adjustment
 --
 -- /See:/ 'newCvss' smart constructor.
 data Cvss = Cvss'
-  { -- | Adjustments to the CVSS metrics.
-    adjustments :: Prelude.Maybe [Adjustment],
+  { -- | The base CVSS score.
+    baseScore :: Prelude.Maybe Prelude.Double,
     -- | The base scoring vector for the CVSS score.
     baseVector :: Prelude.Maybe Prelude.Text,
-    -- | The version of CVSS for the CVSS score.
-    version :: Prelude.Maybe Prelude.Text,
+    -- | Adjustments to the CVSS metrics.
+    adjustments :: Prelude.Maybe [Adjustment],
     -- | The origin of the original CVSS score and vector.
     source :: Prelude.Maybe Prelude.Text,
-    -- | The base CVSS score.
-    baseScore :: Prelude.Maybe Prelude.Double
+    -- | The version of CVSS for the CVSS score.
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data Cvss = Cvss'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adjustments', 'cvss_adjustments' - Adjustments to the CVSS metrics.
+-- 'baseScore', 'cvss_baseScore' - The base CVSS score.
 --
 -- 'baseVector', 'cvss_baseVector' - The base scoring vector for the CVSS score.
 --
--- 'version', 'cvss_version' - The version of CVSS for the CVSS score.
+-- 'adjustments', 'cvss_adjustments' - Adjustments to the CVSS metrics.
 --
 -- 'source', 'cvss_source' - The origin of the original CVSS score and vector.
 --
--- 'baseScore', 'cvss_baseScore' - The base CVSS score.
+-- 'version', 'cvss_version' - The version of CVSS for the CVSS score.
 newCvss ::
   Cvss
 newCvss =
   Cvss'
-    { adjustments = Prelude.Nothing,
+    { baseScore = Prelude.Nothing,
       baseVector = Prelude.Nothing,
-      version = Prelude.Nothing,
+      adjustments = Prelude.Nothing,
       source = Prelude.Nothing,
-      baseScore = Prelude.Nothing
+      version = Prelude.Nothing
     }
 
--- | Adjustments to the CVSS metrics.
-cvss_adjustments :: Lens.Lens' Cvss (Prelude.Maybe [Adjustment])
-cvss_adjustments = Lens.lens (\Cvss' {adjustments} -> adjustments) (\s@Cvss' {} a -> s {adjustments = a} :: Cvss) Prelude.. Lens.mapping Lens.coerced
+-- | The base CVSS score.
+cvss_baseScore :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Double)
+cvss_baseScore = Lens.lens (\Cvss' {baseScore} -> baseScore) (\s@Cvss' {} a -> s {baseScore = a} :: Cvss)
 
 -- | The base scoring vector for the CVSS score.
 cvss_baseVector :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Text)
 cvss_baseVector = Lens.lens (\Cvss' {baseVector} -> baseVector) (\s@Cvss' {} a -> s {baseVector = a} :: Cvss)
 
--- | The version of CVSS for the CVSS score.
-cvss_version :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Text)
-cvss_version = Lens.lens (\Cvss' {version} -> version) (\s@Cvss' {} a -> s {version = a} :: Cvss)
+-- | Adjustments to the CVSS metrics.
+cvss_adjustments :: Lens.Lens' Cvss (Prelude.Maybe [Adjustment])
+cvss_adjustments = Lens.lens (\Cvss' {adjustments} -> adjustments) (\s@Cvss' {} a -> s {adjustments = a} :: Cvss) Prelude.. Lens.mapping Lens.coerced
 
 -- | The origin of the original CVSS score and vector.
 cvss_source :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Text)
 cvss_source = Lens.lens (\Cvss' {source} -> source) (\s@Cvss' {} a -> s {source = a} :: Cvss)
 
--- | The base CVSS score.
-cvss_baseScore :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Double)
-cvss_baseScore = Lens.lens (\Cvss' {baseScore} -> baseScore) (\s@Cvss' {} a -> s {baseScore = a} :: Cvss)
+-- | The version of CVSS for the CVSS score.
+cvss_version :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Text)
+cvss_version = Lens.lens (\Cvss' {version} -> version) (\s@Cvss' {} a -> s {version = a} :: Cvss)
 
 instance Core.FromJSON Cvss where
   parseJSON =
@@ -95,37 +95,37 @@ instance Core.FromJSON Cvss where
       "Cvss"
       ( \x ->
           Cvss'
-            Prelude.<$> (x Core..:? "Adjustments" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "BaseScore")
             Prelude.<*> (x Core..:? "BaseVector")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Adjustments" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "BaseScore")
+            Prelude.<*> (x Core..:? "Version")
       )
 
 instance Prelude.Hashable Cvss where
   hashWithSalt _salt Cvss' {..} =
-    _salt `Prelude.hashWithSalt` adjustments
+    _salt `Prelude.hashWithSalt` baseScore
       `Prelude.hashWithSalt` baseVector
-      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` adjustments
       `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` baseScore
+      `Prelude.hashWithSalt` version
 
 instance Prelude.NFData Cvss where
   rnf Cvss' {..} =
-    Prelude.rnf adjustments
+    Prelude.rnf baseScore
       `Prelude.seq` Prelude.rnf baseVector
-      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf adjustments
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf baseScore
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON Cvss where
   toJSON Cvss' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Adjustments" Core..=) Prelude.<$> adjustments,
+          [ ("BaseScore" Core..=) Prelude.<$> baseScore,
             ("BaseVector" Core..=) Prelude.<$> baseVector,
-            ("Version" Core..=) Prelude.<$> version,
+            ("Adjustments" Core..=) Prelude.<$> adjustments,
             ("Source" Core..=) Prelude.<$> source,
-            ("BaseScore" Core..=) Prelude.<$> baseScore
+            ("Version" Core..=) Prelude.<$> version
           ]
       )

@@ -32,20 +32,17 @@ data DashIsoImageBasedTrickPlaySettings = DashIsoImageBasedTrickPlaySettings'
   { -- | Number of thumbnails in each row of a tile image. Set a value between 1
     -- and 512.
     tileWidth :: Prelude.Maybe Prelude.Natural,
+    -- | Width of each thumbnail within each tile image, in pixels. Default is
+    -- 312. Must be divisible by 8.
+    thumbnailWidth :: Prelude.Maybe Prelude.Natural,
+    -- | Number of thumbnails in each column of a tile image. Set a value between
+    -- 2 and 2048. Must be divisible by 2.
+    tileHeight :: Prelude.Maybe Prelude.Natural,
     -- | Height of each thumbnail within each tile image, in pixels. Leave blank
     -- to maintain aspect ratio with thumbnail width. If following the aspect
     -- ratio would lead to a total tile height greater than 4096, then the job
     -- will be rejected. Must be divisible by 2.
     thumbnailHeight :: Prelude.Maybe Prelude.Natural,
-    -- | The cadence MediaConvert follows for generating thumbnails. If set to
-    -- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
-    -- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,
-    -- MediaConvert generates thumbnails according to the interval you specify
-    -- in thumbnailInterval.
-    intervalCadence :: Prelude.Maybe DashIsoIntervalCadence,
-    -- | Width of each thumbnail within each tile image, in pixels. Default is
-    -- 312. Must be divisible by 8.
-    thumbnailWidth :: Prelude.Maybe Prelude.Natural,
     -- | Enter the interval, in seconds, that MediaConvert uses to generate
     -- thumbnails. If the interval you enter doesn\'t align with the output
     -- frame rate, MediaConvert automatically rounds the interval to align with
@@ -53,9 +50,12 @@ data DashIsoImageBasedTrickPlaySettings = DashIsoImageBasedTrickPlaySettings'
     -- frames per second and you enter 5, MediaConvert uses a 150 frame
     -- interval to generate thumbnails.
     thumbnailInterval :: Prelude.Maybe Prelude.Double,
-    -- | Number of thumbnails in each column of a tile image. Set a value between
-    -- 2 and 2048. Must be divisible by 2.
-    tileHeight :: Prelude.Maybe Prelude.Natural
+    -- | The cadence MediaConvert follows for generating thumbnails. If set to
+    -- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
+    -- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,
+    -- MediaConvert generates thumbnails according to the interval you specify
+    -- in thumbnailInterval.
+    intervalCadence :: Prelude.Maybe DashIsoIntervalCadence
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,19 +70,16 @@ data DashIsoImageBasedTrickPlaySettings = DashIsoImageBasedTrickPlaySettings'
 -- 'tileWidth', 'dashIsoImageBasedTrickPlaySettings_tileWidth' - Number of thumbnails in each row of a tile image. Set a value between 1
 -- and 512.
 --
+-- 'thumbnailWidth', 'dashIsoImageBasedTrickPlaySettings_thumbnailWidth' - Width of each thumbnail within each tile image, in pixels. Default is
+-- 312. Must be divisible by 8.
+--
+-- 'tileHeight', 'dashIsoImageBasedTrickPlaySettings_tileHeight' - Number of thumbnails in each column of a tile image. Set a value between
+-- 2 and 2048. Must be divisible by 2.
+--
 -- 'thumbnailHeight', 'dashIsoImageBasedTrickPlaySettings_thumbnailHeight' - Height of each thumbnail within each tile image, in pixels. Leave blank
 -- to maintain aspect ratio with thumbnail width. If following the aspect
 -- ratio would lead to a total tile height greater than 4096, then the job
 -- will be rejected. Must be divisible by 2.
---
--- 'intervalCadence', 'dashIsoImageBasedTrickPlaySettings_intervalCadence' - The cadence MediaConvert follows for generating thumbnails. If set to
--- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
--- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,
--- MediaConvert generates thumbnails according to the interval you specify
--- in thumbnailInterval.
---
--- 'thumbnailWidth', 'dashIsoImageBasedTrickPlaySettings_thumbnailWidth' - Width of each thumbnail within each tile image, in pixels. Default is
--- 312. Must be divisible by 8.
 --
 -- 'thumbnailInterval', 'dashIsoImageBasedTrickPlaySettings_thumbnailInterval' - Enter the interval, in seconds, that MediaConvert uses to generate
 -- thumbnails. If the interval you enter doesn\'t align with the output
@@ -91,19 +88,22 @@ data DashIsoImageBasedTrickPlaySettings = DashIsoImageBasedTrickPlaySettings'
 -- frames per second and you enter 5, MediaConvert uses a 150 frame
 -- interval to generate thumbnails.
 --
--- 'tileHeight', 'dashIsoImageBasedTrickPlaySettings_tileHeight' - Number of thumbnails in each column of a tile image. Set a value between
--- 2 and 2048. Must be divisible by 2.
+-- 'intervalCadence', 'dashIsoImageBasedTrickPlaySettings_intervalCadence' - The cadence MediaConvert follows for generating thumbnails. If set to
+-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
+-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,
+-- MediaConvert generates thumbnails according to the interval you specify
+-- in thumbnailInterval.
 newDashIsoImageBasedTrickPlaySettings ::
   DashIsoImageBasedTrickPlaySettings
 newDashIsoImageBasedTrickPlaySettings =
   DashIsoImageBasedTrickPlaySettings'
     { tileWidth =
         Prelude.Nothing,
-      thumbnailHeight = Prelude.Nothing,
-      intervalCadence = Prelude.Nothing,
       thumbnailWidth = Prelude.Nothing,
+      tileHeight = Prelude.Nothing,
+      thumbnailHeight = Prelude.Nothing,
       thumbnailInterval = Prelude.Nothing,
-      tileHeight = Prelude.Nothing
+      intervalCadence = Prelude.Nothing
     }
 
 -- | Number of thumbnails in each row of a tile image. Set a value between 1
@@ -111,25 +111,22 @@ newDashIsoImageBasedTrickPlaySettings =
 dashIsoImageBasedTrickPlaySettings_tileWidth :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
 dashIsoImageBasedTrickPlaySettings_tileWidth = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {tileWidth} -> tileWidth) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {tileWidth = a} :: DashIsoImageBasedTrickPlaySettings)
 
+-- | Width of each thumbnail within each tile image, in pixels. Default is
+-- 312. Must be divisible by 8.
+dashIsoImageBasedTrickPlaySettings_thumbnailWidth :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
+dashIsoImageBasedTrickPlaySettings_thumbnailWidth = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {thumbnailWidth} -> thumbnailWidth) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {thumbnailWidth = a} :: DashIsoImageBasedTrickPlaySettings)
+
+-- | Number of thumbnails in each column of a tile image. Set a value between
+-- 2 and 2048. Must be divisible by 2.
+dashIsoImageBasedTrickPlaySettings_tileHeight :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
+dashIsoImageBasedTrickPlaySettings_tileHeight = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {tileHeight} -> tileHeight) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {tileHeight = a} :: DashIsoImageBasedTrickPlaySettings)
+
 -- | Height of each thumbnail within each tile image, in pixels. Leave blank
 -- to maintain aspect ratio with thumbnail width. If following the aspect
 -- ratio would lead to a total tile height greater than 4096, then the job
 -- will be rejected. Must be divisible by 2.
 dashIsoImageBasedTrickPlaySettings_thumbnailHeight :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
 dashIsoImageBasedTrickPlaySettings_thumbnailHeight = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {thumbnailHeight} -> thumbnailHeight) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {thumbnailHeight = a} :: DashIsoImageBasedTrickPlaySettings)
-
--- | The cadence MediaConvert follows for generating thumbnails. If set to
--- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
--- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,
--- MediaConvert generates thumbnails according to the interval you specify
--- in thumbnailInterval.
-dashIsoImageBasedTrickPlaySettings_intervalCadence :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe DashIsoIntervalCadence)
-dashIsoImageBasedTrickPlaySettings_intervalCadence = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {intervalCadence} -> intervalCadence) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {intervalCadence = a} :: DashIsoImageBasedTrickPlaySettings)
-
--- | Width of each thumbnail within each tile image, in pixels. Default is
--- 312. Must be divisible by 8.
-dashIsoImageBasedTrickPlaySettings_thumbnailWidth :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
-dashIsoImageBasedTrickPlaySettings_thumbnailWidth = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {thumbnailWidth} -> thumbnailWidth) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {thumbnailWidth = a} :: DashIsoImageBasedTrickPlaySettings)
 
 -- | Enter the interval, in seconds, that MediaConvert uses to generate
 -- thumbnails. If the interval you enter doesn\'t align with the output
@@ -140,10 +137,13 @@ dashIsoImageBasedTrickPlaySettings_thumbnailWidth = Lens.lens (\DashIsoImageBase
 dashIsoImageBasedTrickPlaySettings_thumbnailInterval :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Double)
 dashIsoImageBasedTrickPlaySettings_thumbnailInterval = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {thumbnailInterval} -> thumbnailInterval) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {thumbnailInterval = a} :: DashIsoImageBasedTrickPlaySettings)
 
--- | Number of thumbnails in each column of a tile image. Set a value between
--- 2 and 2048. Must be divisible by 2.
-dashIsoImageBasedTrickPlaySettings_tileHeight :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
-dashIsoImageBasedTrickPlaySettings_tileHeight = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {tileHeight} -> tileHeight) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {tileHeight = a} :: DashIsoImageBasedTrickPlaySettings)
+-- | The cadence MediaConvert follows for generating thumbnails. If set to
+-- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
+-- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,
+-- MediaConvert generates thumbnails according to the interval you specify
+-- in thumbnailInterval.
+dashIsoImageBasedTrickPlaySettings_intervalCadence :: Lens.Lens' DashIsoImageBasedTrickPlaySettings (Prelude.Maybe DashIsoIntervalCadence)
+dashIsoImageBasedTrickPlaySettings_intervalCadence = Lens.lens (\DashIsoImageBasedTrickPlaySettings' {intervalCadence} -> intervalCadence) (\s@DashIsoImageBasedTrickPlaySettings' {} a -> s {intervalCadence = a} :: DashIsoImageBasedTrickPlaySettings)
 
 instance
   Core.FromJSON
@@ -155,11 +155,11 @@ instance
       ( \x ->
           DashIsoImageBasedTrickPlaySettings'
             Prelude.<$> (x Core..:? "tileWidth")
-            Prelude.<*> (x Core..:? "thumbnailHeight")
-            Prelude.<*> (x Core..:? "intervalCadence")
             Prelude.<*> (x Core..:? "thumbnailWidth")
-            Prelude.<*> (x Core..:? "thumbnailInterval")
             Prelude.<*> (x Core..:? "tileHeight")
+            Prelude.<*> (x Core..:? "thumbnailHeight")
+            Prelude.<*> (x Core..:? "thumbnailInterval")
+            Prelude.<*> (x Core..:? "intervalCadence")
       )
 
 instance
@@ -170,11 +170,11 @@ instance
     _salt
     DashIsoImageBasedTrickPlaySettings' {..} =
       _salt `Prelude.hashWithSalt` tileWidth
-        `Prelude.hashWithSalt` thumbnailHeight
-        `Prelude.hashWithSalt` intervalCadence
         `Prelude.hashWithSalt` thumbnailWidth
-        `Prelude.hashWithSalt` thumbnailInterval
         `Prelude.hashWithSalt` tileHeight
+        `Prelude.hashWithSalt` thumbnailHeight
+        `Prelude.hashWithSalt` thumbnailInterval
+        `Prelude.hashWithSalt` intervalCadence
 
 instance
   Prelude.NFData
@@ -182,11 +182,11 @@ instance
   where
   rnf DashIsoImageBasedTrickPlaySettings' {..} =
     Prelude.rnf tileWidth
-      `Prelude.seq` Prelude.rnf thumbnailHeight
-      `Prelude.seq` Prelude.rnf intervalCadence
       `Prelude.seq` Prelude.rnf thumbnailWidth
-      `Prelude.seq` Prelude.rnf thumbnailInterval
       `Prelude.seq` Prelude.rnf tileHeight
+      `Prelude.seq` Prelude.rnf thumbnailHeight
+      `Prelude.seq` Prelude.rnf thumbnailInterval
+      `Prelude.seq` Prelude.rnf intervalCadence
 
 instance
   Core.ToJSON
@@ -196,14 +196,14 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("tileWidth" Core..=) Prelude.<$> tileWidth,
-            ("thumbnailHeight" Core..=)
-              Prelude.<$> thumbnailHeight,
-            ("intervalCadence" Core..=)
-              Prelude.<$> intervalCadence,
             ("thumbnailWidth" Core..=)
               Prelude.<$> thumbnailWidth,
+            ("tileHeight" Core..=) Prelude.<$> tileHeight,
+            ("thumbnailHeight" Core..=)
+              Prelude.<$> thumbnailHeight,
             ("thumbnailInterval" Core..=)
               Prelude.<$> thumbnailInterval,
-            ("tileHeight" Core..=) Prelude.<$> tileHeight
+            ("intervalCadence" Core..=)
+              Prelude.<$> intervalCadence
           ]
       )

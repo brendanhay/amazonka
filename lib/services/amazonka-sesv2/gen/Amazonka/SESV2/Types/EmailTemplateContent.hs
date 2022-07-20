@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEmailTemplateContent' smart constructor.
 data EmailTemplateContent = EmailTemplateContent'
-  { -- | The subject line of the email.
+  { -- | The HTML body of the email.
+    html :: Prelude.Maybe Prelude.Text,
+    -- | The subject line of the email.
     subject :: Prelude.Maybe Prelude.Text,
     -- | The email body that will be visible to recipients whose email clients do
     -- not display HTML.
-    text :: Prelude.Maybe Prelude.Text,
-    -- | The HTML body of the email.
-    html :: Prelude.Maybe Prelude.Text
+    text :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data EmailTemplateContent = EmailTemplateContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'html', 'emailTemplateContent_html' - The HTML body of the email.
+--
 -- 'subject', 'emailTemplateContent_subject' - The subject line of the email.
 --
 -- 'text', 'emailTemplateContent_text' - The email body that will be visible to recipients whose email clients do
 -- not display HTML.
---
--- 'html', 'emailTemplateContent_html' - The HTML body of the email.
 newEmailTemplateContent ::
   EmailTemplateContent
 newEmailTemplateContent =
   EmailTemplateContent'
-    { subject = Prelude.Nothing,
-      text = Prelude.Nothing,
-      html = Prelude.Nothing
+    { html = Prelude.Nothing,
+      subject = Prelude.Nothing,
+      text = Prelude.Nothing
     }
+
+-- | The HTML body of the email.
+emailTemplateContent_html :: Lens.Lens' EmailTemplateContent (Prelude.Maybe Prelude.Text)
+emailTemplateContent_html = Lens.lens (\EmailTemplateContent' {html} -> html) (\s@EmailTemplateContent' {} a -> s {html = a} :: EmailTemplateContent)
 
 -- | The subject line of the email.
 emailTemplateContent_subject :: Lens.Lens' EmailTemplateContent (Prelude.Maybe Prelude.Text)
@@ -70,39 +74,35 @@ emailTemplateContent_subject = Lens.lens (\EmailTemplateContent' {subject} -> su
 emailTemplateContent_text :: Lens.Lens' EmailTemplateContent (Prelude.Maybe Prelude.Text)
 emailTemplateContent_text = Lens.lens (\EmailTemplateContent' {text} -> text) (\s@EmailTemplateContent' {} a -> s {text = a} :: EmailTemplateContent)
 
--- | The HTML body of the email.
-emailTemplateContent_html :: Lens.Lens' EmailTemplateContent (Prelude.Maybe Prelude.Text)
-emailTemplateContent_html = Lens.lens (\EmailTemplateContent' {html} -> html) (\s@EmailTemplateContent' {} a -> s {html = a} :: EmailTemplateContent)
-
 instance Core.FromJSON EmailTemplateContent where
   parseJSON =
     Core.withObject
       "EmailTemplateContent"
       ( \x ->
           EmailTemplateContent'
-            Prelude.<$> (x Core..:? "Subject")
+            Prelude.<$> (x Core..:? "Html")
+            Prelude.<*> (x Core..:? "Subject")
             Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> (x Core..:? "Html")
       )
 
 instance Prelude.Hashable EmailTemplateContent where
   hashWithSalt _salt EmailTemplateContent' {..} =
-    _salt `Prelude.hashWithSalt` subject
+    _salt `Prelude.hashWithSalt` html
+      `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` text
-      `Prelude.hashWithSalt` html
 
 instance Prelude.NFData EmailTemplateContent where
   rnf EmailTemplateContent' {..} =
-    Prelude.rnf subject
+    Prelude.rnf html
+      `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf html
 
 instance Core.ToJSON EmailTemplateContent where
   toJSON EmailTemplateContent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Subject" Core..=) Prelude.<$> subject,
-            ("Text" Core..=) Prelude.<$> text,
-            ("Html" Core..=) Prelude.<$> html
+          [ ("Html" Core..=) Prelude.<$> html,
+            ("Subject" Core..=) Prelude.<$> subject,
+            ("Text" Core..=) Prelude.<$> text
           ]
       )

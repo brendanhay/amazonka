@@ -43,15 +43,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRevocationConfiguration' smart constructor.
 data RevocationConfiguration = RevocationConfiguration'
-  { -- | Configuration of the certificate revocation list (CRL), if any,
+  { -- | Configuration of Online Certificate Status Protocol (OCSP) support, if
+    -- any, maintained by your private CA. When you revoke a certificate, OCSP
+    -- responses may take up to 60 minutes to reflect the new status.
+    ocspConfiguration :: Prelude.Maybe OcspConfiguration,
+    -- | Configuration of the certificate revocation list (CRL), if any,
     -- maintained by your private CA. A CRL is typically updated approximately
     -- 30 minutes after a certificate is revoked. If for any reason a CRL
     -- update fails, ACM Private CA makes further attempts every 15 minutes.
-    crlConfiguration :: Prelude.Maybe CrlConfiguration,
-    -- | Configuration of Online Certificate Status Protocol (OCSP) support, if
-    -- any, maintained by your private CA. When you revoke a certificate, OCSP
-    -- responses may take up to 60 minutes to reflect the new status.
-    ocspConfiguration :: Prelude.Maybe OcspConfiguration
+    crlConfiguration :: Prelude.Maybe CrlConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,22 +63,28 @@ data RevocationConfiguration = RevocationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ocspConfiguration', 'revocationConfiguration_ocspConfiguration' - Configuration of Online Certificate Status Protocol (OCSP) support, if
+-- any, maintained by your private CA. When you revoke a certificate, OCSP
+-- responses may take up to 60 minutes to reflect the new status.
+--
 -- 'crlConfiguration', 'revocationConfiguration_crlConfiguration' - Configuration of the certificate revocation list (CRL), if any,
 -- maintained by your private CA. A CRL is typically updated approximately
 -- 30 minutes after a certificate is revoked. If for any reason a CRL
 -- update fails, ACM Private CA makes further attempts every 15 minutes.
---
--- 'ocspConfiguration', 'revocationConfiguration_ocspConfiguration' - Configuration of Online Certificate Status Protocol (OCSP) support, if
--- any, maintained by your private CA. When you revoke a certificate, OCSP
--- responses may take up to 60 minutes to reflect the new status.
 newRevocationConfiguration ::
   RevocationConfiguration
 newRevocationConfiguration =
   RevocationConfiguration'
-    { crlConfiguration =
+    { ocspConfiguration =
         Prelude.Nothing,
-      ocspConfiguration = Prelude.Nothing
+      crlConfiguration = Prelude.Nothing
     }
+
+-- | Configuration of Online Certificate Status Protocol (OCSP) support, if
+-- any, maintained by your private CA. When you revoke a certificate, OCSP
+-- responses may take up to 60 minutes to reflect the new status.
+revocationConfiguration_ocspConfiguration :: Lens.Lens' RevocationConfiguration (Prelude.Maybe OcspConfiguration)
+revocationConfiguration_ocspConfiguration = Lens.lens (\RevocationConfiguration' {ocspConfiguration} -> ocspConfiguration) (\s@RevocationConfiguration' {} a -> s {ocspConfiguration = a} :: RevocationConfiguration)
 
 -- | Configuration of the certificate revocation list (CRL), if any,
 -- maintained by your private CA. A CRL is typically updated approximately
@@ -87,39 +93,33 @@ newRevocationConfiguration =
 revocationConfiguration_crlConfiguration :: Lens.Lens' RevocationConfiguration (Prelude.Maybe CrlConfiguration)
 revocationConfiguration_crlConfiguration = Lens.lens (\RevocationConfiguration' {crlConfiguration} -> crlConfiguration) (\s@RevocationConfiguration' {} a -> s {crlConfiguration = a} :: RevocationConfiguration)
 
--- | Configuration of Online Certificate Status Protocol (OCSP) support, if
--- any, maintained by your private CA. When you revoke a certificate, OCSP
--- responses may take up to 60 minutes to reflect the new status.
-revocationConfiguration_ocspConfiguration :: Lens.Lens' RevocationConfiguration (Prelude.Maybe OcspConfiguration)
-revocationConfiguration_ocspConfiguration = Lens.lens (\RevocationConfiguration' {ocspConfiguration} -> ocspConfiguration) (\s@RevocationConfiguration' {} a -> s {ocspConfiguration = a} :: RevocationConfiguration)
-
 instance Core.FromJSON RevocationConfiguration where
   parseJSON =
     Core.withObject
       "RevocationConfiguration"
       ( \x ->
           RevocationConfiguration'
-            Prelude.<$> (x Core..:? "CrlConfiguration")
-            Prelude.<*> (x Core..:? "OcspConfiguration")
+            Prelude.<$> (x Core..:? "OcspConfiguration")
+            Prelude.<*> (x Core..:? "CrlConfiguration")
       )
 
 instance Prelude.Hashable RevocationConfiguration where
   hashWithSalt _salt RevocationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` crlConfiguration
-      `Prelude.hashWithSalt` ocspConfiguration
+    _salt `Prelude.hashWithSalt` ocspConfiguration
+      `Prelude.hashWithSalt` crlConfiguration
 
 instance Prelude.NFData RevocationConfiguration where
   rnf RevocationConfiguration' {..} =
-    Prelude.rnf crlConfiguration
-      `Prelude.seq` Prelude.rnf ocspConfiguration
+    Prelude.rnf ocspConfiguration
+      `Prelude.seq` Prelude.rnf crlConfiguration
 
 instance Core.ToJSON RevocationConfiguration where
   toJSON RevocationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CrlConfiguration" Core..=)
-              Prelude.<$> crlConfiguration,
-            ("OcspConfiguration" Core..=)
-              Prelude.<$> ocspConfiguration
+          [ ("OcspConfiguration" Core..=)
+              Prelude.<$> ocspConfiguration,
+            ("CrlConfiguration" Core..=)
+              Prelude.<$> crlConfiguration
           ]
       )

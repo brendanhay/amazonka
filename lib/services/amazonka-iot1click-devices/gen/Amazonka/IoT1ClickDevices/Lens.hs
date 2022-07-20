@@ -14,21 +14,27 @@
 module Amazonka.IoT1ClickDevices.Lens
   ( -- * Operations
 
+    -- ** ClaimDevicesByClaimCode
+    claimDevicesByClaimCode_claimCode,
+    claimDevicesByClaimCodeResponse_total,
+    claimDevicesByClaimCodeResponse_claimCode,
+    claimDevicesByClaimCodeResponse_httpStatus,
+
+    -- ** DescribeDevice
+    describeDevice_deviceId,
+    describeDeviceResponse_deviceDescription,
+    describeDeviceResponse_httpStatus,
+
+    -- ** FinalizeDeviceClaim
+    finalizeDeviceClaim_tags,
+    finalizeDeviceClaim_deviceId,
+    finalizeDeviceClaimResponse_state,
+    finalizeDeviceClaimResponse_httpStatus,
+
     -- ** GetDeviceMethods
     getDeviceMethods_deviceId,
     getDeviceMethodsResponse_deviceMethods,
     getDeviceMethodsResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** ClaimDevicesByClaimCode
-    claimDevicesByClaimCode_claimCode,
-    claimDevicesByClaimCodeResponse_claimCode,
-    claimDevicesByClaimCodeResponse_total,
-    claimDevicesByClaimCodeResponse_httpStatus,
 
     -- ** InitiateDeviceClaim
     initiateDeviceClaim_deviceId,
@@ -42,11 +48,6 @@ module Amazonka.IoT1ClickDevices.Lens
     invokeDeviceMethodResponse_deviceMethodResponse,
     invokeDeviceMethodResponse_httpStatus,
 
-    -- ** DescribeDevice
-    describeDevice_deviceId,
-    describeDeviceResponse_deviceDescription,
-    describeDeviceResponse_httpStatus,
-
     -- ** ListDeviceEvents
     listDeviceEvents_nextToken,
     listDeviceEvents_maxResults,
@@ -57,15 +58,27 @@ module Amazonka.IoT1ClickDevices.Lens
     listDeviceEventsResponse_events,
     listDeviceEventsResponse_httpStatus,
 
-    -- ** FinalizeDeviceClaim
-    finalizeDeviceClaim_tags,
-    finalizeDeviceClaim_deviceId,
-    finalizeDeviceClaimResponse_state,
-    finalizeDeviceClaimResponse_httpStatus,
+    -- ** ListDevices
+    listDevices_nextToken,
+    listDevices_maxResults,
+    listDevices_deviceType,
+    listDevicesResponse_devices,
+    listDevicesResponse_nextToken,
+    listDevicesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
+
+    -- ** UnclaimDevice
+    unclaimDevice_deviceId,
+    unclaimDeviceResponse_state,
+    unclaimDeviceResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_tagKeys,
@@ -76,40 +89,27 @@ module Amazonka.IoT1ClickDevices.Lens
     updateDeviceState_deviceId,
     updateDeviceStateResponse_httpStatus,
 
-    -- ** UnclaimDevice
-    unclaimDevice_deviceId,
-    unclaimDeviceResponse_state,
-    unclaimDeviceResponse_httpStatus,
-
-    -- ** ListDevices
-    listDevices_nextToken,
-    listDevices_deviceType,
-    listDevices_maxResults,
-    listDevicesResponse_nextToken,
-    listDevicesResponse_devices,
-    listDevicesResponse_httpStatus,
-
     -- * Types
 
     -- ** Attributes
 
     -- ** Device
-    device_attributes,
-    device_deviceId,
     device_type,
+    device_deviceId,
+    device_attributes,
 
     -- ** DeviceDescription
-    deviceDescription_remainingLife,
-    deviceDescription_enabled,
-    deviceDescription_arn,
-    deviceDescription_attributes,
-    deviceDescription_deviceId,
-    deviceDescription_type,
     deviceDescription_tags,
+    deviceDescription_type,
+    deviceDescription_remainingLife,
+    deviceDescription_deviceId,
+    deviceDescription_arn,
+    deviceDescription_enabled,
+    deviceDescription_attributes,
 
     -- ** DeviceEvent
-    deviceEvent_stdEvent,
     deviceEvent_device,
+    deviceEvent_stdEvent,
 
     -- ** DeviceMethod
     deviceMethod_methodName,

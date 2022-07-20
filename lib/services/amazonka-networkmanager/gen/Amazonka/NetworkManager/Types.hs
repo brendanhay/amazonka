@@ -17,13 +17,13 @@ module Amazonka.NetworkManager.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * ConnectionState
     ConnectionState (..),
@@ -67,69 +67,69 @@ module Amazonka.NetworkManager.Types
     -- * Connection
     Connection (..),
     newConnection,
-    connection_state,
-    connection_createdAt,
     connection_globalNetworkId,
-    connection_connectionId,
-    connection_connectedDeviceId,
-    connection_connectedLinkId,
+    connection_tags,
     connection_linkId,
     connection_deviceId,
-    connection_connectionArn,
+    connection_connectedDeviceId,
+    connection_state,
+    connection_connectionId,
     connection_description,
-    connection_tags,
+    connection_connectionArn,
+    connection_connectedLinkId,
+    connection_createdAt,
 
     -- * CustomerGatewayAssociation
     CustomerGatewayAssociation (..),
     newCustomerGatewayAssociation,
-    customerGatewayAssociation_state,
     customerGatewayAssociation_globalNetworkId,
     customerGatewayAssociation_linkId,
     customerGatewayAssociation_deviceId,
+    customerGatewayAssociation_state,
     customerGatewayAssociation_customerGatewayArn,
 
     -- * Device
     Device (..),
     newDevice,
-    device_vendor,
+    device_globalNetworkId,
+    device_tags,
+    device_type,
+    device_model,
+    device_aWSLocation,
+    device_deviceId,
     device_state,
+    device_description,
+    device_siteId,
     device_location,
+    device_serialNumber,
+    device_vendor,
     device_createdAt,
     device_deviceArn,
-    device_aWSLocation,
-    device_globalNetworkId,
-    device_model,
-    device_deviceId,
-    device_type,
-    device_serialNumber,
-    device_siteId,
-    device_description,
-    device_tags,
 
     -- * GlobalNetwork
     GlobalNetwork (..),
     newGlobalNetwork,
-    globalNetwork_state,
-    globalNetwork_createdAt,
-    globalNetwork_globalNetworkArn,
     globalNetwork_globalNetworkId,
-    globalNetwork_description,
     globalNetwork_tags,
+    globalNetwork_state,
+    globalNetwork_description,
+    globalNetwork_globalNetworkArn,
+    globalNetwork_createdAt,
 
     -- * Link
     Link (..),
     newLink,
-    link_state,
-    link_linkArn,
-    link_createdAt,
     link_globalNetworkId,
-    link_bandwidth,
+    link_tags,
     link_linkId,
     link_type,
-    link_siteId,
-    link_description,
+    link_bandwidth,
+    link_state,
     link_provider,
-    link_tags,
+    link_description,
+    link_siteId,
+    link_createdAt,
+    link_linkArn,
 
     -- * LinkAssociation
     LinkAssociation (..),
@@ -142,49 +142,49 @@ module Amazonka.NetworkManager.Types
     -- * Location
     Location (..),
     newLocation,
-    location_latitude,
-    location_address,
     location_longitude,
+    location_address,
+    location_latitude,
 
     -- * Site
     Site (..),
     newSite,
+    site_globalNetworkId,
+    site_tags,
+    site_siteArn,
     site_state,
+    site_description,
+    site_siteId,
     site_location,
     site_createdAt,
-    site_globalNetworkId,
-    site_siteId,
-    site_siteArn,
-    site_description,
-    site_tags,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
 
     -- * TransitGatewayConnectPeerAssociation
     TransitGatewayConnectPeerAssociation (..),
     newTransitGatewayConnectPeerAssociation,
-    transitGatewayConnectPeerAssociation_state,
     transitGatewayConnectPeerAssociation_globalNetworkId,
-    transitGatewayConnectPeerAssociation_transitGatewayConnectPeerArn,
     transitGatewayConnectPeerAssociation_linkId,
     transitGatewayConnectPeerAssociation_deviceId,
+    transitGatewayConnectPeerAssociation_state,
+    transitGatewayConnectPeerAssociation_transitGatewayConnectPeerArn,
 
     -- * TransitGatewayRegistration
     TransitGatewayRegistration (..),
     newTransitGatewayRegistration,
-    transitGatewayRegistration_state,
     transitGatewayRegistration_globalNetworkId,
     transitGatewayRegistration_transitGatewayArn,
+    transitGatewayRegistration_state,
 
     -- * TransitGatewayRegistrationStateReason
     TransitGatewayRegistrationStateReason (..),
     newTransitGatewayRegistrationStateReason,
-    transitGatewayRegistrationStateReason_code,
     transitGatewayRegistrationStateReason_message,
+    transitGatewayRegistrationStateReason_code,
   )
 where
 
@@ -243,35 +243,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -280,21 +253,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input fails to satisfy the constraints.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | You do not have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -303,6 +295,30 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | The request has failed due to an internal error.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | A service limit was exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
+-- | The specified resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | There was a conflict processing the request. Updating or deleting the
 -- resource can cause an inconsistent state.
@@ -313,14 +329,6 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | A service limit was exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -329,18 +337,10 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | The request has failed due to an internal error.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The input fails to satisfy the constraints.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

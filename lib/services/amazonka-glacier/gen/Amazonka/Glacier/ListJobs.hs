@@ -66,8 +66,8 @@ module Amazonka.Glacier.ListJobs
 
     -- * Request Lenses
     listJobs_marker,
-    listJobs_completed,
     listJobs_limit,
+    listJobs_completed,
     listJobs_statuscode,
     listJobs_accountId,
     listJobs_vaultName,
@@ -101,12 +101,12 @@ data ListJobs = ListJobs'
     -- are continuing the pagination of results started in a previous List Jobs
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The state of the jobs to return. You can specify @true@ or @false@.
-    completed :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of jobs to be returned. The default limit is 50. The
     -- number of jobs returned might be fewer than the specified limit, but the
     -- number of returned jobs never exceeds the limit.
     limit :: Prelude.Maybe Prelude.Text,
+    -- | The state of the jobs to return. You can specify @true@ or @false@.
+    completed :: Prelude.Maybe Prelude.Text,
     -- | The type of job status to return. You can specify the following values:
     -- @InProgress@, @Succeeded@, or @Failed@.
     statuscode :: Prelude.Maybe Prelude.Text,
@@ -135,11 +135,11 @@ data ListJobs = ListJobs'
 -- are continuing the pagination of results started in a previous List Jobs
 -- request.
 --
--- 'completed', 'listJobs_completed' - The state of the jobs to return. You can specify @true@ or @false@.
---
 -- 'limit', 'listJobs_limit' - The maximum number of jobs to be returned. The default limit is 50. The
 -- number of jobs returned might be fewer than the specified limit, but the
 -- number of returned jobs never exceeds the limit.
+--
+-- 'completed', 'listJobs_completed' - The state of the jobs to return. You can specify @true@ or @false@.
 --
 -- 'statuscode', 'listJobs_statuscode' - The type of job status to return. You can specify the following values:
 -- @InProgress@, @Succeeded@, or @Failed@.
@@ -160,8 +160,8 @@ newListJobs ::
 newListJobs pAccountId_ pVaultName_ =
   ListJobs'
     { marker = Prelude.Nothing,
-      completed = Prelude.Nothing,
       limit = Prelude.Nothing,
+      completed = Prelude.Nothing,
       statuscode = Prelude.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
@@ -175,15 +175,15 @@ newListJobs pAccountId_ pVaultName_ =
 listJobs_marker :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_marker = Lens.lens (\ListJobs' {marker} -> marker) (\s@ListJobs' {} a -> s {marker = a} :: ListJobs)
 
--- | The state of the jobs to return. You can specify @true@ or @false@.
-listJobs_completed :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_completed = Lens.lens (\ListJobs' {completed} -> completed) (\s@ListJobs' {} a -> s {completed = a} :: ListJobs)
-
 -- | The maximum number of jobs to be returned. The default limit is 50. The
 -- number of jobs returned might be fewer than the specified limit, but the
 -- number of returned jobs never exceeds the limit.
 listJobs_limit :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_limit = Lens.lens (\ListJobs' {limit} -> limit) (\s@ListJobs' {} a -> s {limit = a} :: ListJobs)
+
+-- | The state of the jobs to return. You can specify @true@ or @false@.
+listJobs_completed :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_completed = Lens.lens (\ListJobs' {completed} -> completed) (\s@ListJobs' {} a -> s {completed = a} :: ListJobs)
 
 -- | The type of job status to return. You can specify the following values:
 -- @InProgress@, @Succeeded@, or @Failed@.
@@ -238,8 +238,8 @@ instance Core.AWSRequest ListJobs where
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` completed
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` completed
       `Prelude.hashWithSalt` statuscode
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
@@ -247,8 +247,8 @@ instance Prelude.Hashable ListJobs where
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf completed
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf completed
       `Prelude.seq` Prelude.rnf statuscode
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
@@ -270,8 +270,8 @@ instance Core.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
       [ "marker" Core.=: marker,
-        "completed" Core.=: completed,
         "limit" Core.=: limit,
+        "completed" Core.=: completed,
         "statuscode" Core.=: statuscode
       ]
 

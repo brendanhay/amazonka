@@ -33,8 +33,8 @@ module Amazonka.IoTThingsGraph.DeleteNamespace
     newDeleteNamespaceResponse,
 
     -- * Response Lenses
-    deleteNamespaceResponse_namespaceArn,
     deleteNamespaceResponse_namespaceName,
+    deleteNamespaceResponse_namespaceArn,
     deleteNamespaceResponse_httpStatus,
   )
 where
@@ -69,8 +69,8 @@ instance Core.AWSRequest DeleteNamespace where
     Response.receiveJSON
       ( \s h x ->
           DeleteNamespaceResponse'
-            Prelude.<$> (x Core..?> "namespaceArn")
-            Prelude.<*> (x Core..?> "namespaceName")
+            Prelude.<$> (x Core..?> "namespaceName")
+            Prelude.<*> (x Core..?> "namespaceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,10 +107,10 @@ instance Core.ToQuery DeleteNamespace where
 
 -- | /See:/ 'newDeleteNamespaceResponse' smart constructor.
 data DeleteNamespaceResponse = DeleteNamespaceResponse'
-  { -- | The ARN of the namespace to be deleted.
-    namespaceArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the namespace to be deleted.
+  { -- | The name of the namespace to be deleted.
     namespaceName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the namespace to be deleted.
+    namespaceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -124,9 +124,9 @@ data DeleteNamespaceResponse = DeleteNamespaceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespaceArn', 'deleteNamespaceResponse_namespaceArn' - The ARN of the namespace to be deleted.
---
 -- 'namespaceName', 'deleteNamespaceResponse_namespaceName' - The name of the namespace to be deleted.
+--
+-- 'namespaceArn', 'deleteNamespaceResponse_namespaceArn' - The ARN of the namespace to be deleted.
 --
 -- 'httpStatus', 'deleteNamespaceResponse_httpStatus' - The response's http status code.
 newDeleteNamespaceResponse ::
@@ -135,19 +135,19 @@ newDeleteNamespaceResponse ::
   DeleteNamespaceResponse
 newDeleteNamespaceResponse pHttpStatus_ =
   DeleteNamespaceResponse'
-    { namespaceArn =
+    { namespaceName =
         Prelude.Nothing,
-      namespaceName = Prelude.Nothing,
+      namespaceArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the namespace to be deleted.
-deleteNamespaceResponse_namespaceArn :: Lens.Lens' DeleteNamespaceResponse (Prelude.Maybe Prelude.Text)
-deleteNamespaceResponse_namespaceArn = Lens.lens (\DeleteNamespaceResponse' {namespaceArn} -> namespaceArn) (\s@DeleteNamespaceResponse' {} a -> s {namespaceArn = a} :: DeleteNamespaceResponse)
 
 -- | The name of the namespace to be deleted.
 deleteNamespaceResponse_namespaceName :: Lens.Lens' DeleteNamespaceResponse (Prelude.Maybe Prelude.Text)
 deleteNamespaceResponse_namespaceName = Lens.lens (\DeleteNamespaceResponse' {namespaceName} -> namespaceName) (\s@DeleteNamespaceResponse' {} a -> s {namespaceName = a} :: DeleteNamespaceResponse)
+
+-- | The ARN of the namespace to be deleted.
+deleteNamespaceResponse_namespaceArn :: Lens.Lens' DeleteNamespaceResponse (Prelude.Maybe Prelude.Text)
+deleteNamespaceResponse_namespaceArn = Lens.lens (\DeleteNamespaceResponse' {namespaceArn} -> namespaceArn) (\s@DeleteNamespaceResponse' {} a -> s {namespaceArn = a} :: DeleteNamespaceResponse)
 
 -- | The response's http status code.
 deleteNamespaceResponse_httpStatus :: Lens.Lens' DeleteNamespaceResponse Prelude.Int
@@ -155,6 +155,6 @@ deleteNamespaceResponse_httpStatus = Lens.lens (\DeleteNamespaceResponse' {httpS
 
 instance Prelude.NFData DeleteNamespaceResponse where
   rnf DeleteNamespaceResponse' {..} =
-    Prelude.rnf namespaceArn
-      `Prelude.seq` Prelude.rnf namespaceName
+    Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf namespaceArn
       `Prelude.seq` Prelude.rnf httpStatus

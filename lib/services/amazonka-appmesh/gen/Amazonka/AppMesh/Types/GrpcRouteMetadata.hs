@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrpcRouteMetadata' smart constructor.
 data GrpcRouteMetadata = GrpcRouteMetadata'
-  { -- | Specify @True@ to match anything except the match criteria. The default
+  { -- | An object that represents the data to match from the request.
+    match :: Prelude.Maybe GrpcRouteMetadataMatchMethod,
+    -- | Specify @True@ to match anything except the match criteria. The default
     -- value is @False@.
     invert :: Prelude.Maybe Prelude.Bool,
-    -- | An object that represents the data to match from the request.
-    match :: Prelude.Maybe GrpcRouteMetadataMatchMethod,
     -- | The name of the route.
     name :: Prelude.Text
   }
@@ -46,10 +46,10 @@ data GrpcRouteMetadata = GrpcRouteMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'match', 'grpcRouteMetadata_match' - An object that represents the data to match from the request.
+--
 -- 'invert', 'grpcRouteMetadata_invert' - Specify @True@ to match anything except the match criteria. The default
 -- value is @False@.
---
--- 'match', 'grpcRouteMetadata_match' - An object that represents the data to match from the request.
 --
 -- 'name', 'grpcRouteMetadata_name' - The name of the route.
 newGrpcRouteMetadata ::
@@ -58,19 +58,19 @@ newGrpcRouteMetadata ::
   GrpcRouteMetadata
 newGrpcRouteMetadata pName_ =
   GrpcRouteMetadata'
-    { invert = Prelude.Nothing,
-      match = Prelude.Nothing,
+    { match = Prelude.Nothing,
+      invert = Prelude.Nothing,
       name = pName_
     }
+
+-- | An object that represents the data to match from the request.
+grpcRouteMetadata_match :: Lens.Lens' GrpcRouteMetadata (Prelude.Maybe GrpcRouteMetadataMatchMethod)
+grpcRouteMetadata_match = Lens.lens (\GrpcRouteMetadata' {match} -> match) (\s@GrpcRouteMetadata' {} a -> s {match = a} :: GrpcRouteMetadata)
 
 -- | Specify @True@ to match anything except the match criteria. The default
 -- value is @False@.
 grpcRouteMetadata_invert :: Lens.Lens' GrpcRouteMetadata (Prelude.Maybe Prelude.Bool)
 grpcRouteMetadata_invert = Lens.lens (\GrpcRouteMetadata' {invert} -> invert) (\s@GrpcRouteMetadata' {} a -> s {invert = a} :: GrpcRouteMetadata)
-
--- | An object that represents the data to match from the request.
-grpcRouteMetadata_match :: Lens.Lens' GrpcRouteMetadata (Prelude.Maybe GrpcRouteMetadataMatchMethod)
-grpcRouteMetadata_match = Lens.lens (\GrpcRouteMetadata' {match} -> match) (\s@GrpcRouteMetadata' {} a -> s {match = a} :: GrpcRouteMetadata)
 
 -- | The name of the route.
 grpcRouteMetadata_name :: Lens.Lens' GrpcRouteMetadata Prelude.Text
@@ -82,29 +82,29 @@ instance Core.FromJSON GrpcRouteMetadata where
       "GrpcRouteMetadata"
       ( \x ->
           GrpcRouteMetadata'
-            Prelude.<$> (x Core..:? "invert")
-            Prelude.<*> (x Core..:? "match")
+            Prelude.<$> (x Core..:? "match")
+            Prelude.<*> (x Core..:? "invert")
             Prelude.<*> (x Core..: "name")
       )
 
 instance Prelude.Hashable GrpcRouteMetadata where
   hashWithSalt _salt GrpcRouteMetadata' {..} =
-    _salt `Prelude.hashWithSalt` invert
-      `Prelude.hashWithSalt` match
+    _salt `Prelude.hashWithSalt` match
+      `Prelude.hashWithSalt` invert
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GrpcRouteMetadata where
   rnf GrpcRouteMetadata' {..} =
-    Prelude.rnf invert
-      `Prelude.seq` Prelude.rnf match
+    Prelude.rnf match
+      `Prelude.seq` Prelude.rnf invert
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON GrpcRouteMetadata where
   toJSON GrpcRouteMetadata' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("invert" Core..=) Prelude.<$> invert,
-            ("match" Core..=) Prelude.<$> match,
+          [ ("match" Core..=) Prelude.<$> match,
+            ("invert" Core..=) Prelude.<$> invert,
             Prelude.Just ("name" Core..= name)
           ]
       )

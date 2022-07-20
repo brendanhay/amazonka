@@ -46,10 +46,10 @@ module Amazonka.Rekognition.StartContentModeration
     newStartContentModeration,
 
     -- * Request Lenses
-    startContentModeration_jobTag,
-    startContentModeration_notificationChannel,
     startContentModeration_clientRequestToken,
     startContentModeration_minConfidence,
+    startContentModeration_jobTag,
+    startContentModeration_notificationChannel,
     startContentModeration_video,
 
     -- * Destructuring the Response
@@ -71,18 +71,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartContentModeration' smart constructor.
 data StartContentModeration = StartContentModeration'
-  { -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
-    -- publish the completion status of the content analysis to. The Amazon SNS
-    -- topic must have a topic name that begins with /AmazonRekognition/ if you
-    -- are using the AmazonRekognitionServiceRole permissions policy to access
-    -- the topic.
-    notificationChannel :: Prelude.Maybe NotificationChannel,
-    -- | Idempotent token used to identify the start request. If you use the same
+  { -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartContentModeration@ requests, the same @JobId@
     -- is returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
@@ -96,6 +85,17 @@ data StartContentModeration = StartContentModeration'
     -- @MinConfidence@, @GetContentModeration@ returns labels with confidence
     -- values greater than or equal to 50 percent.
     minConfidence :: Prelude.Maybe Prelude.Double,
+    -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
+    -- publish the completion status of the content analysis to. The Amazon SNS
+    -- topic must have a topic name that begins with /AmazonRekognition/ if you
+    -- are using the AmazonRekognitionServiceRole permissions policy to access
+    -- the topic.
+    notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | The video in which you want to detect inappropriate, unwanted, or
     -- offensive content. The video must be stored in an Amazon S3 bucket.
     video :: Video
@@ -109,17 +109,6 @@ data StartContentModeration = StartContentModeration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'jobTag', 'startContentModeration_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
---
--- 'notificationChannel', 'startContentModeration_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to
--- publish the completion status of the content analysis to. The Amazon SNS
--- topic must have a topic name that begins with /AmazonRekognition/ if you
--- are using the AmazonRekognitionServiceRole permissions policy to access
--- the topic.
 --
 -- 'clientRequestToken', 'startContentModeration_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartContentModeration@ requests, the same @JobId@
@@ -135,6 +124,17 @@ data StartContentModeration = StartContentModeration'
 -- @MinConfidence@, @GetContentModeration@ returns labels with confidence
 -- values greater than or equal to 50 percent.
 --
+-- 'jobTag', 'startContentModeration_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
+-- 'notificationChannel', 'startContentModeration_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to
+-- publish the completion status of the content analysis to. The Amazon SNS
+-- topic must have a topic name that begins with /AmazonRekognition/ if you
+-- are using the AmazonRekognitionServiceRole permissions policy to access
+-- the topic.
+--
 -- 'video', 'startContentModeration_video' - The video in which you want to detect inappropriate, unwanted, or
 -- offensive content. The video must be stored in an Amazon S3 bucket.
 newStartContentModeration ::
@@ -143,27 +143,13 @@ newStartContentModeration ::
   StartContentModeration
 newStartContentModeration pVideo_ =
   StartContentModeration'
-    { jobTag = Prelude.Nothing,
-      notificationChannel = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       minConfidence = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
+      notificationChannel = Prelude.Nothing,
       video = pVideo_
     }
-
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startContentModeration_jobTag :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Text)
-startContentModeration_jobTag = Lens.lens (\StartContentModeration' {jobTag} -> jobTag) (\s@StartContentModeration' {} a -> s {jobTag = a} :: StartContentModeration)
-
--- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
--- publish the completion status of the content analysis to. The Amazon SNS
--- topic must have a topic name that begins with /AmazonRekognition/ if you
--- are using the AmazonRekognitionServiceRole permissions policy to access
--- the topic.
-startContentModeration_notificationChannel :: Lens.Lens' StartContentModeration (Prelude.Maybe NotificationChannel)
-startContentModeration_notificationChannel = Lens.lens (\StartContentModeration' {notificationChannel} -> notificationChannel) (\s@StartContentModeration' {} a -> s {notificationChannel = a} :: StartContentModeration)
 
 -- | Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartContentModeration@ requests, the same @JobId@
@@ -182,6 +168,21 @@ startContentModeration_clientRequestToken = Lens.lens (\StartContentModeration' 
 -- values greater than or equal to 50 percent.
 startContentModeration_minConfidence :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Double)
 startContentModeration_minConfidence = Lens.lens (\StartContentModeration' {minConfidence} -> minConfidence) (\s@StartContentModeration' {} a -> s {minConfidence = a} :: StartContentModeration)
+
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startContentModeration_jobTag :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Text)
+startContentModeration_jobTag = Lens.lens (\StartContentModeration' {jobTag} -> jobTag) (\s@StartContentModeration' {} a -> s {jobTag = a} :: StartContentModeration)
+
+-- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
+-- publish the completion status of the content analysis to. The Amazon SNS
+-- topic must have a topic name that begins with /AmazonRekognition/ if you
+-- are using the AmazonRekognitionServiceRole permissions policy to access
+-- the topic.
+startContentModeration_notificationChannel :: Lens.Lens' StartContentModeration (Prelude.Maybe NotificationChannel)
+startContentModeration_notificationChannel = Lens.lens (\StartContentModeration' {notificationChannel} -> notificationChannel) (\s@StartContentModeration' {} a -> s {notificationChannel = a} :: StartContentModeration)
 
 -- | The video in which you want to detect inappropriate, unwanted, or
 -- offensive content. The video must be stored in an Amazon S3 bucket.
@@ -203,18 +204,18 @@ instance Core.AWSRequest StartContentModeration where
 
 instance Prelude.Hashable StartContentModeration where
   hashWithSalt _salt StartContentModeration' {..} =
-    _salt `Prelude.hashWithSalt` jobTag
-      `Prelude.hashWithSalt` notificationChannel
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` minConfidence
+      `Prelude.hashWithSalt` jobTag
+      `Prelude.hashWithSalt` notificationChannel
       `Prelude.hashWithSalt` video
 
 instance Prelude.NFData StartContentModeration where
   rnf StartContentModeration' {..} =
-    Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf notificationChannel
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf minConfidence
+      `Prelude.seq` Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
 instance Core.ToHeaders StartContentModeration where
@@ -236,12 +237,12 @@ instance Core.ToJSON StartContentModeration where
   toJSON StartContentModeration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobTag" Core..=) Prelude.<$> jobTag,
-            ("NotificationChannel" Core..=)
-              Prelude.<$> notificationChannel,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("MinConfidence" Core..=) Prelude.<$> minConfidence,
+            ("JobTag" Core..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Core..=)
+              Prelude.<$> notificationChannel,
             Prelude.Just ("Video" Core..= video)
           ]
       )

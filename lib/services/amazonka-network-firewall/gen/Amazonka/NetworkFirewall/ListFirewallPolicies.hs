@@ -39,8 +39,8 @@ module Amazonka.NetworkFirewall.ListFirewallPolicies
     newListFirewallPoliciesResponse,
 
     -- * Response Lenses
-    listFirewallPoliciesResponse_firewallPolicies,
     listFirewallPoliciesResponse_nextToken,
+    listFirewallPoliciesResponse_firewallPolicies,
     listFirewallPoliciesResponse_httpStatus,
   )
 where
@@ -140,10 +140,10 @@ instance Core.AWSRequest ListFirewallPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListFirewallPoliciesResponse'
-            Prelude.<$> ( x Core..?> "FirewallPolicies"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "FirewallPolicies"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,16 +189,16 @@ instance Core.ToQuery ListFirewallPolicies where
 
 -- | /See:/ 'newListFirewallPoliciesResponse' smart constructor.
 data ListFirewallPoliciesResponse = ListFirewallPoliciesResponse'
-  { -- | The metadata for the firewall policies. Depending on your setting for
-    -- max results and the number of firewall policies that you have, this
-    -- might not be the full list.
-    firewallPolicies :: Prelude.Maybe [FirewallPolicyMetadata],
-    -- | When you request a list of objects with a @MaxResults@ setting, if the
+  { -- | When you request a list of objects with a @MaxResults@ setting, if the
     -- number of objects that are still available for retrieval exceeds the
     -- maximum you requested, Network Firewall returns a @NextToken@ value in
     -- the response. To retrieve the next batch of objects, use the token
     -- returned from the prior request in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The metadata for the firewall policies. Depending on your setting for
+    -- max results and the number of firewall policies that you have, this
+    -- might not be the full list.
+    firewallPolicies :: Prelude.Maybe [FirewallPolicyMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,15 +212,15 @@ data ListFirewallPoliciesResponse = ListFirewallPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallPolicies', 'listFirewallPoliciesResponse_firewallPolicies' - The metadata for the firewall policies. Depending on your setting for
--- max results and the number of firewall policies that you have, this
--- might not be the full list.
---
 -- 'nextToken', 'listFirewallPoliciesResponse_nextToken' - When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
 -- maximum you requested, Network Firewall returns a @NextToken@ value in
 -- the response. To retrieve the next batch of objects, use the token
 -- returned from the prior request in your next request.
+--
+-- 'firewallPolicies', 'listFirewallPoliciesResponse_firewallPolicies' - The metadata for the firewall policies. Depending on your setting for
+-- max results and the number of firewall policies that you have, this
+-- might not be the full list.
 --
 -- 'httpStatus', 'listFirewallPoliciesResponse_httpStatus' - The response's http status code.
 newListFirewallPoliciesResponse ::
@@ -229,17 +229,11 @@ newListFirewallPoliciesResponse ::
   ListFirewallPoliciesResponse
 newListFirewallPoliciesResponse pHttpStatus_ =
   ListFirewallPoliciesResponse'
-    { firewallPolicies =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      firewallPolicies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The metadata for the firewall policies. Depending on your setting for
--- max results and the number of firewall policies that you have, this
--- might not be the full list.
-listFirewallPoliciesResponse_firewallPolicies :: Lens.Lens' ListFirewallPoliciesResponse (Prelude.Maybe [FirewallPolicyMetadata])
-listFirewallPoliciesResponse_firewallPolicies = Lens.lens (\ListFirewallPoliciesResponse' {firewallPolicies} -> firewallPolicies) (\s@ListFirewallPoliciesResponse' {} a -> s {firewallPolicies = a} :: ListFirewallPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
@@ -249,12 +243,18 @@ listFirewallPoliciesResponse_firewallPolicies = Lens.lens (\ListFirewallPolicies
 listFirewallPoliciesResponse_nextToken :: Lens.Lens' ListFirewallPoliciesResponse (Prelude.Maybe Prelude.Text)
 listFirewallPoliciesResponse_nextToken = Lens.lens (\ListFirewallPoliciesResponse' {nextToken} -> nextToken) (\s@ListFirewallPoliciesResponse' {} a -> s {nextToken = a} :: ListFirewallPoliciesResponse)
 
+-- | The metadata for the firewall policies. Depending on your setting for
+-- max results and the number of firewall policies that you have, this
+-- might not be the full list.
+listFirewallPoliciesResponse_firewallPolicies :: Lens.Lens' ListFirewallPoliciesResponse (Prelude.Maybe [FirewallPolicyMetadata])
+listFirewallPoliciesResponse_firewallPolicies = Lens.lens (\ListFirewallPoliciesResponse' {firewallPolicies} -> firewallPolicies) (\s@ListFirewallPoliciesResponse' {} a -> s {firewallPolicies = a} :: ListFirewallPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listFirewallPoliciesResponse_httpStatus :: Lens.Lens' ListFirewallPoliciesResponse Prelude.Int
 listFirewallPoliciesResponse_httpStatus = Lens.lens (\ListFirewallPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListFirewallPoliciesResponse' {} a -> s {httpStatus = a} :: ListFirewallPoliciesResponse)
 
 instance Prelude.NFData ListFirewallPoliciesResponse where
   rnf ListFirewallPoliciesResponse' {..} =
-    Prelude.rnf firewallPolicies
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf firewallPolicies
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListenerTlsCertificate' smart constructor.
 data ListenerTlsCertificate = ListenerTlsCertificate'
-  { -- | A reference to an object that represents an AWS Certicate Manager (ACM)
-    -- certificate.
-    acm :: Prelude.Maybe ListenerTlsAcmCertificate,
-    -- | A reference to an object that represents a listener\'s Secret Discovery
+  { -- | A reference to an object that represents a listener\'s Secret Discovery
     -- Service certificate.
     sds :: Prelude.Maybe ListenerTlsSdsCertificate,
     -- | A reference to an object that represents a local file certificate.
-    file :: Prelude.Maybe ListenerTlsFileCertificate
+    file :: Prelude.Maybe ListenerTlsFileCertificate,
+    -- | A reference to an object that represents an AWS Certicate Manager (ACM)
+    -- certificate.
+    acm :: Prelude.Maybe ListenerTlsAcmCertificate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,21 @@ data ListenerTlsCertificate = ListenerTlsCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'acm', 'listenerTlsCertificate_acm' - A reference to an object that represents an AWS Certicate Manager (ACM)
--- certificate.
---
 -- 'sds', 'listenerTlsCertificate_sds' - A reference to an object that represents a listener\'s Secret Discovery
 -- Service certificate.
 --
 -- 'file', 'listenerTlsCertificate_file' - A reference to an object that represents a local file certificate.
+--
+-- 'acm', 'listenerTlsCertificate_acm' - A reference to an object that represents an AWS Certicate Manager (ACM)
+-- certificate.
 newListenerTlsCertificate ::
   ListenerTlsCertificate
 newListenerTlsCertificate =
   ListenerTlsCertificate'
-    { acm = Prelude.Nothing,
-      sds = Prelude.Nothing,
-      file = Prelude.Nothing
+    { sds = Prelude.Nothing,
+      file = Prelude.Nothing,
+      acm = Prelude.Nothing
     }
-
--- | A reference to an object that represents an AWS Certicate Manager (ACM)
--- certificate.
-listenerTlsCertificate_acm :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsAcmCertificate)
-listenerTlsCertificate_acm = Lens.lens (\ListenerTlsCertificate' {acm} -> acm) (\s@ListenerTlsCertificate' {} a -> s {acm = a} :: ListenerTlsCertificate)
 
 -- | A reference to an object that represents a listener\'s Secret Discovery
 -- Service certificate.
@@ -80,35 +75,40 @@ listenerTlsCertificate_sds = Lens.lens (\ListenerTlsCertificate' {sds} -> sds) (
 listenerTlsCertificate_file :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsFileCertificate)
 listenerTlsCertificate_file = Lens.lens (\ListenerTlsCertificate' {file} -> file) (\s@ListenerTlsCertificate' {} a -> s {file = a} :: ListenerTlsCertificate)
 
+-- | A reference to an object that represents an AWS Certicate Manager (ACM)
+-- certificate.
+listenerTlsCertificate_acm :: Lens.Lens' ListenerTlsCertificate (Prelude.Maybe ListenerTlsAcmCertificate)
+listenerTlsCertificate_acm = Lens.lens (\ListenerTlsCertificate' {acm} -> acm) (\s@ListenerTlsCertificate' {} a -> s {acm = a} :: ListenerTlsCertificate)
+
 instance Core.FromJSON ListenerTlsCertificate where
   parseJSON =
     Core.withObject
       "ListenerTlsCertificate"
       ( \x ->
           ListenerTlsCertificate'
-            Prelude.<$> (x Core..:? "acm")
-            Prelude.<*> (x Core..:? "sds")
+            Prelude.<$> (x Core..:? "sds")
             Prelude.<*> (x Core..:? "file")
+            Prelude.<*> (x Core..:? "acm")
       )
 
 instance Prelude.Hashable ListenerTlsCertificate where
   hashWithSalt _salt ListenerTlsCertificate' {..} =
-    _salt `Prelude.hashWithSalt` acm
-      `Prelude.hashWithSalt` sds
+    _salt `Prelude.hashWithSalt` sds
       `Prelude.hashWithSalt` file
+      `Prelude.hashWithSalt` acm
 
 instance Prelude.NFData ListenerTlsCertificate where
   rnf ListenerTlsCertificate' {..} =
-    Prelude.rnf acm
-      `Prelude.seq` Prelude.rnf sds
+    Prelude.rnf sds
       `Prelude.seq` Prelude.rnf file
+      `Prelude.seq` Prelude.rnf acm
 
 instance Core.ToJSON ListenerTlsCertificate where
   toJSON ListenerTlsCertificate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("acm" Core..=) Prelude.<$> acm,
-            ("sds" Core..=) Prelude.<$> sds,
-            ("file" Core..=) Prelude.<$> file
+          [ ("sds" Core..=) Prelude.<$> sds,
+            ("file" Core..=) Prelude.<$> file,
+            ("acm" Core..=) Prelude.<$> acm
           ]
       )

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipelineExperimentConfig' smart constructor.
 data PipelineExperimentConfig = PipelineExperimentConfig'
-  { -- | The name of the experiment.
-    experimentName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the trial.
-    trialName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the trial.
+    trialName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the experiment.
+    experimentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data PipelineExperimentConfig = PipelineExperimentConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'experimentName', 'pipelineExperimentConfig_experimentName' - The name of the experiment.
---
 -- 'trialName', 'pipelineExperimentConfig_trialName' - The name of the trial.
+--
+-- 'experimentName', 'pipelineExperimentConfig_experimentName' - The name of the experiment.
 newPipelineExperimentConfig ::
   PipelineExperimentConfig
 newPipelineExperimentConfig =
   PipelineExperimentConfig'
-    { experimentName =
+    { trialName =
         Prelude.Nothing,
-      trialName = Prelude.Nothing
+      experimentName = Prelude.Nothing
     }
-
--- | The name of the experiment.
-pipelineExperimentConfig_experimentName :: Lens.Lens' PipelineExperimentConfig (Prelude.Maybe Prelude.Text)
-pipelineExperimentConfig_experimentName = Lens.lens (\PipelineExperimentConfig' {experimentName} -> experimentName) (\s@PipelineExperimentConfig' {} a -> s {experimentName = a} :: PipelineExperimentConfig)
 
 -- | The name of the trial.
 pipelineExperimentConfig_trialName :: Lens.Lens' PipelineExperimentConfig (Prelude.Maybe Prelude.Text)
 pipelineExperimentConfig_trialName = Lens.lens (\PipelineExperimentConfig' {trialName} -> trialName) (\s@PipelineExperimentConfig' {} a -> s {trialName = a} :: PipelineExperimentConfig)
+
+-- | The name of the experiment.
+pipelineExperimentConfig_experimentName :: Lens.Lens' PipelineExperimentConfig (Prelude.Maybe Prelude.Text)
+pipelineExperimentConfig_experimentName = Lens.lens (\PipelineExperimentConfig' {experimentName} -> experimentName) (\s@PipelineExperimentConfig' {} a -> s {experimentName = a} :: PipelineExperimentConfig)
 
 instance Core.FromJSON PipelineExperimentConfig where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON PipelineExperimentConfig where
       "PipelineExperimentConfig"
       ( \x ->
           PipelineExperimentConfig'
-            Prelude.<$> (x Core..:? "ExperimentName")
-            Prelude.<*> (x Core..:? "TrialName")
+            Prelude.<$> (x Core..:? "TrialName")
+            Prelude.<*> (x Core..:? "ExperimentName")
       )
 
 instance Prelude.Hashable PipelineExperimentConfig where
   hashWithSalt _salt PipelineExperimentConfig' {..} =
-    _salt `Prelude.hashWithSalt` experimentName
-      `Prelude.hashWithSalt` trialName
+    _salt `Prelude.hashWithSalt` trialName
+      `Prelude.hashWithSalt` experimentName
 
 instance Prelude.NFData PipelineExperimentConfig where
   rnf PipelineExperimentConfig' {..} =
-    Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf trialName
+      `Prelude.seq` Prelude.rnf experimentName

@@ -30,10 +30,10 @@ import Amazonka.Transfer.Types.S3InputFileLocation
 --
 -- /See:/ 'newInputFileLocation' smart constructor.
 data InputFileLocation = InputFileLocation'
-  { -- | Reserved for future use.
-    efsFileLocation :: Prelude.Maybe EfsFileLocation,
-    -- | Specifies the details for the S3 file being copied.
-    s3FileLocation :: Prelude.Maybe S3InputFileLocation
+  { -- | Specifies the details for the S3 file being copied.
+    s3FileLocation :: Prelude.Maybe S3InputFileLocation,
+    -- | Reserved for future use.
+    efsFileLocation :: Prelude.Maybe EfsFileLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data InputFileLocation = InputFileLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'efsFileLocation', 'inputFileLocation_efsFileLocation' - Reserved for future use.
---
 -- 's3FileLocation', 'inputFileLocation_s3FileLocation' - Specifies the details for the S3 file being copied.
+--
+-- 'efsFileLocation', 'inputFileLocation_efsFileLocation' - Reserved for future use.
 newInputFileLocation ::
   InputFileLocation
 newInputFileLocation =
   InputFileLocation'
-    { efsFileLocation =
+    { s3FileLocation =
         Prelude.Nothing,
-      s3FileLocation = Prelude.Nothing
+      efsFileLocation = Prelude.Nothing
     }
-
--- | Reserved for future use.
-inputFileLocation_efsFileLocation :: Lens.Lens' InputFileLocation (Prelude.Maybe EfsFileLocation)
-inputFileLocation_efsFileLocation = Lens.lens (\InputFileLocation' {efsFileLocation} -> efsFileLocation) (\s@InputFileLocation' {} a -> s {efsFileLocation = a} :: InputFileLocation)
 
 -- | Specifies the details for the S3 file being copied.
 inputFileLocation_s3FileLocation :: Lens.Lens' InputFileLocation (Prelude.Maybe S3InputFileLocation)
 inputFileLocation_s3FileLocation = Lens.lens (\InputFileLocation' {s3FileLocation} -> s3FileLocation) (\s@InputFileLocation' {} a -> s {s3FileLocation = a} :: InputFileLocation)
+
+-- | Reserved for future use.
+inputFileLocation_efsFileLocation :: Lens.Lens' InputFileLocation (Prelude.Maybe EfsFileLocation)
+inputFileLocation_efsFileLocation = Lens.lens (\InputFileLocation' {efsFileLocation} -> efsFileLocation) (\s@InputFileLocation' {} a -> s {efsFileLocation = a} :: InputFileLocation)
 
 instance Core.FromJSON InputFileLocation where
   parseJSON =
@@ -71,27 +71,27 @@ instance Core.FromJSON InputFileLocation where
       "InputFileLocation"
       ( \x ->
           InputFileLocation'
-            Prelude.<$> (x Core..:? "EfsFileLocation")
-            Prelude.<*> (x Core..:? "S3FileLocation")
+            Prelude.<$> (x Core..:? "S3FileLocation")
+            Prelude.<*> (x Core..:? "EfsFileLocation")
       )
 
 instance Prelude.Hashable InputFileLocation where
   hashWithSalt _salt InputFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` efsFileLocation
-      `Prelude.hashWithSalt` s3FileLocation
+    _salt `Prelude.hashWithSalt` s3FileLocation
+      `Prelude.hashWithSalt` efsFileLocation
 
 instance Prelude.NFData InputFileLocation where
   rnf InputFileLocation' {..} =
-    Prelude.rnf efsFileLocation
-      `Prelude.seq` Prelude.rnf s3FileLocation
+    Prelude.rnf s3FileLocation
+      `Prelude.seq` Prelude.rnf efsFileLocation
 
 instance Core.ToJSON InputFileLocation where
   toJSON InputFileLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EfsFileLocation" Core..=)
-              Prelude.<$> efsFileLocation,
-            ("S3FileLocation" Core..=)
-              Prelude.<$> s3FileLocation
+          [ ("S3FileLocation" Core..=)
+              Prelude.<$> s3FileLocation,
+            ("EfsFileLocation" Core..=)
+              Prelude.<$> efsFileLocation
           ]
       )

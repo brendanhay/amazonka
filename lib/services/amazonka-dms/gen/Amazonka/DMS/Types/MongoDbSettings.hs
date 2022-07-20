@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMongoDbSettings' smart constructor.
 data MongoDbSettings = MongoDbSettings'
-  { -- | The name of the server on the MongoDB source endpoint.
-    serverName :: Prelude.Maybe Prelude.Text,
+  { -- | The port value for the MongoDB source endpoint.
+    port :: Prelude.Maybe Prelude.Int,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
     -- as the trusted entity and grants the required permissions to access the
     -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
@@ -47,6 +47,41 @@ data MongoDbSettings = MongoDbSettings'
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
     -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The password for the user account you use to access the MongoDB source
+    -- endpoint.
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
+    -- set to @\"no\"@.
+    --
+    -- The default is @\"admin\"@.
+    authSource :: Prelude.Maybe Prelude.Text,
+    -- | The name of the server on the MongoDB source endpoint.
+    serverName :: Prelude.Maybe Prelude.Text,
+    -- | The database name on the MongoDB source endpoint.
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | The user name you use to access the MongoDB source endpoint.
+    username :: Prelude.Maybe Prelude.Text,
+    -- | Specifies either document or table mode.
+    --
+    -- Default value is @\"none\"@. Specify @\"none\"@ to use document mode.
+    -- Specify @\"one\"@ to use table mode.
+    nestingLevel :: Prelude.Maybe NestingLevelValue,
+    -- | Indicates the number of documents to preview to determine the document
+    -- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
+    --
+    -- Must be a positive value greater than @0@. Default value is @1000@.
+    docsToInvestigate :: Prelude.Maybe Prelude.Text,
+    -- | The full ARN, partial ARN, or friendly name of the
+    -- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
+    -- details.
+    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
+    -- | The KMS key identifier that is used to encrypt the content on the
+    -- replication instance. If you don\'t specify a value for the @KmsKeyId@
+    -- parameter, then DMS uses your default encryption key. KMS creates the
+    -- default encryption key for your Amazon Web Services account. Your Amazon
+    -- Web Services account has a different default encryption key for each
+    -- Amazon Web Services Region.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The authentication mechanism you use to access the MongoDB source
     -- endpoint.
     --
@@ -55,39 +90,6 @@ data MongoDbSettings = MongoDbSettings'
     -- @\"scram_sha_1\"@. This setting isn\'t used when @AuthType@ is set to
     -- @\"no\"@.
     authMechanism :: Prelude.Maybe AuthMechanismValue,
-    -- | The user name you use to access the MongoDB source endpoint.
-    username :: Prelude.Maybe Prelude.Text,
-    -- | The KMS key identifier that is used to encrypt the content on the
-    -- replication instance. If you don\'t specify a value for the @KmsKeyId@
-    -- parameter, then DMS uses your default encryption key. KMS creates the
-    -- default encryption key for your Amazon Web Services account. Your Amazon
-    -- Web Services account has a different default encryption key for each
-    -- Amazon Web Services Region.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The password for the user account you use to access the MongoDB source
-    -- endpoint.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Specifies either document or table mode.
-    --
-    -- Default value is @\"none\"@. Specify @\"none\"@ to use document mode.
-    -- Specify @\"one\"@ to use table mode.
-    nestingLevel :: Prelude.Maybe NestingLevelValue,
-    -- | The database name on the MongoDB source endpoint.
-    databaseName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the number of documents to preview to determine the document
-    -- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
-    --
-    -- Must be a positive value greater than @0@. Default value is @1000@.
-    docsToInvestigate :: Prelude.Maybe Prelude.Text,
-    -- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
-    -- set to @\"no\"@.
-    --
-    -- The default is @\"admin\"@.
-    authSource :: Prelude.Maybe Prelude.Text,
-    -- | The full ARN, partial ARN, or friendly name of the
-    -- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
-    -- details.
-    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the document ID. Use this setting when @NestingLevel@ is set
     -- to @\"none\"@.
     --
@@ -97,9 +99,7 @@ data MongoDbSettings = MongoDbSettings'
     --
     -- When when set to @\"no\"@, user name and password parameters are not
     -- used and can be empty.
-    authType :: Prelude.Maybe AuthTypeValue,
-    -- | The port value for the MongoDB source endpoint.
-    port :: Prelude.Maybe Prelude.Int
+    authType :: Prelude.Maybe AuthTypeValue
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -111,7 +111,7 @@ data MongoDbSettings = MongoDbSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverName', 'mongoDbSettings_serverName' - The name of the server on the MongoDB source endpoint.
+-- 'port', 'mongoDbSettings_port' - The port value for the MongoDB source endpoint.
 --
 -- 'secretsManagerAccessRoleArn', 'mongoDbSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
 -- as the trusted entity and grants the required permissions to access the
@@ -128,15 +128,33 @@ data MongoDbSettings = MongoDbSettings'
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
 -- in the /Database Migration Service User Guide/.
 --
--- 'authMechanism', 'mongoDbSettings_authMechanism' - The authentication mechanism you use to access the MongoDB source
+-- 'password', 'mongoDbSettings_password' - The password for the user account you use to access the MongoDB source
 -- endpoint.
 --
--- For the default value, in MongoDB version 2.x, @\"default\"@ is
--- @\"mongodb_cr\"@. For MongoDB version 3.x or later, @\"default\"@ is
--- @\"scram_sha_1\"@. This setting isn\'t used when @AuthType@ is set to
--- @\"no\"@.
+-- 'authSource', 'mongoDbSettings_authSource' - The MongoDB database name. This setting isn\'t used when @AuthType@ is
+-- set to @\"no\"@.
+--
+-- The default is @\"admin\"@.
+--
+-- 'serverName', 'mongoDbSettings_serverName' - The name of the server on the MongoDB source endpoint.
+--
+-- 'databaseName', 'mongoDbSettings_databaseName' - The database name on the MongoDB source endpoint.
 --
 -- 'username', 'mongoDbSettings_username' - The user name you use to access the MongoDB source endpoint.
+--
+-- 'nestingLevel', 'mongoDbSettings_nestingLevel' - Specifies either document or table mode.
+--
+-- Default value is @\"none\"@. Specify @\"none\"@ to use document mode.
+-- Specify @\"one\"@ to use table mode.
+--
+-- 'docsToInvestigate', 'mongoDbSettings_docsToInvestigate' - Indicates the number of documents to preview to determine the document
+-- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
+--
+-- Must be a positive value greater than @0@. Default value is @1000@.
+--
+-- 'secretsManagerSecretId', 'mongoDbSettings_secretsManagerSecretId' - The full ARN, partial ARN, or friendly name of the
+-- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
+-- details.
 --
 -- 'kmsKeyId', 'mongoDbSettings_kmsKeyId' - The KMS key identifier that is used to encrypt the content on the
 -- replication instance. If you don\'t specify a value for the @KmsKeyId@
@@ -145,29 +163,13 @@ data MongoDbSettings = MongoDbSettings'
 -- Web Services account has a different default encryption key for each
 -- Amazon Web Services Region.
 --
--- 'password', 'mongoDbSettings_password' - The password for the user account you use to access the MongoDB source
+-- 'authMechanism', 'mongoDbSettings_authMechanism' - The authentication mechanism you use to access the MongoDB source
 -- endpoint.
 --
--- 'nestingLevel', 'mongoDbSettings_nestingLevel' - Specifies either document or table mode.
---
--- Default value is @\"none\"@. Specify @\"none\"@ to use document mode.
--- Specify @\"one\"@ to use table mode.
---
--- 'databaseName', 'mongoDbSettings_databaseName' - The database name on the MongoDB source endpoint.
---
--- 'docsToInvestigate', 'mongoDbSettings_docsToInvestigate' - Indicates the number of documents to preview to determine the document
--- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
---
--- Must be a positive value greater than @0@. Default value is @1000@.
---
--- 'authSource', 'mongoDbSettings_authSource' - The MongoDB database name. This setting isn\'t used when @AuthType@ is
--- set to @\"no\"@.
---
--- The default is @\"admin\"@.
---
--- 'secretsManagerSecretId', 'mongoDbSettings_secretsManagerSecretId' - The full ARN, partial ARN, or friendly name of the
--- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
--- details.
+-- For the default value, in MongoDB version 2.x, @\"default\"@ is
+-- @\"mongodb_cr\"@. For MongoDB version 3.x or later, @\"default\"@ is
+-- @\"scram_sha_1\"@. This setting isn\'t used when @AuthType@ is set to
+-- @\"no\"@.
 --
 -- 'extractDocId', 'mongoDbSettings_extractDocId' - Specifies the document ID. Use this setting when @NestingLevel@ is set
 -- to @\"none\"@.
@@ -178,31 +180,29 @@ data MongoDbSettings = MongoDbSettings'
 --
 -- When when set to @\"no\"@, user name and password parameters are not
 -- used and can be empty.
---
--- 'port', 'mongoDbSettings_port' - The port value for the MongoDB source endpoint.
 newMongoDbSettings ::
   MongoDbSettings
 newMongoDbSettings =
   MongoDbSettings'
-    { serverName = Prelude.Nothing,
+    { port = Prelude.Nothing,
       secretsManagerAccessRoleArn = Prelude.Nothing,
-      authMechanism = Prelude.Nothing,
-      username = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
       password = Prelude.Nothing,
-      nestingLevel = Prelude.Nothing,
-      databaseName = Prelude.Nothing,
-      docsToInvestigate = Prelude.Nothing,
       authSource = Prelude.Nothing,
+      serverName = Prelude.Nothing,
+      databaseName = Prelude.Nothing,
+      username = Prelude.Nothing,
+      nestingLevel = Prelude.Nothing,
+      docsToInvestigate = Prelude.Nothing,
       secretsManagerSecretId = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      authMechanism = Prelude.Nothing,
       extractDocId = Prelude.Nothing,
-      authType = Prelude.Nothing,
-      port = Prelude.Nothing
+      authType = Prelude.Nothing
     }
 
--- | The name of the server on the MongoDB source endpoint.
-mongoDbSettings_serverName :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_serverName = Lens.lens (\MongoDbSettings' {serverName} -> serverName) (\s@MongoDbSettings' {} a -> s {serverName = a} :: MongoDbSettings)
+-- | The port value for the MongoDB source endpoint.
+mongoDbSettings_port :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Int)
+mongoDbSettings_port = Lens.lens (\MongoDbSettings' {port} -> port) (\s@MongoDbSettings' {} a -> s {port = a} :: MongoDbSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
 -- as the trusted entity and grants the required permissions to access the
@@ -221,19 +221,49 @@ mongoDbSettings_serverName = Lens.lens (\MongoDbSettings' {serverName} -> server
 mongoDbSettings_secretsManagerAccessRoleArn :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
 mongoDbSettings_secretsManagerAccessRoleArn = Lens.lens (\MongoDbSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@MongoDbSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: MongoDbSettings)
 
--- | The authentication mechanism you use to access the MongoDB source
+-- | The password for the user account you use to access the MongoDB source
 -- endpoint.
+mongoDbSettings_password :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_password = Lens.lens (\MongoDbSettings' {password} -> password) (\s@MongoDbSettings' {} a -> s {password = a} :: MongoDbSettings) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
+-- set to @\"no\"@.
 --
--- For the default value, in MongoDB version 2.x, @\"default\"@ is
--- @\"mongodb_cr\"@. For MongoDB version 3.x or later, @\"default\"@ is
--- @\"scram_sha_1\"@. This setting isn\'t used when @AuthType@ is set to
--- @\"no\"@.
-mongoDbSettings_authMechanism :: Lens.Lens' MongoDbSettings (Prelude.Maybe AuthMechanismValue)
-mongoDbSettings_authMechanism = Lens.lens (\MongoDbSettings' {authMechanism} -> authMechanism) (\s@MongoDbSettings' {} a -> s {authMechanism = a} :: MongoDbSettings)
+-- The default is @\"admin\"@.
+mongoDbSettings_authSource :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_authSource = Lens.lens (\MongoDbSettings' {authSource} -> authSource) (\s@MongoDbSettings' {} a -> s {authSource = a} :: MongoDbSettings)
+
+-- | The name of the server on the MongoDB source endpoint.
+mongoDbSettings_serverName :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_serverName = Lens.lens (\MongoDbSettings' {serverName} -> serverName) (\s@MongoDbSettings' {} a -> s {serverName = a} :: MongoDbSettings)
+
+-- | The database name on the MongoDB source endpoint.
+mongoDbSettings_databaseName :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_databaseName = Lens.lens (\MongoDbSettings' {databaseName} -> databaseName) (\s@MongoDbSettings' {} a -> s {databaseName = a} :: MongoDbSettings)
 
 -- | The user name you use to access the MongoDB source endpoint.
 mongoDbSettings_username :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
 mongoDbSettings_username = Lens.lens (\MongoDbSettings' {username} -> username) (\s@MongoDbSettings' {} a -> s {username = a} :: MongoDbSettings)
+
+-- | Specifies either document or table mode.
+--
+-- Default value is @\"none\"@. Specify @\"none\"@ to use document mode.
+-- Specify @\"one\"@ to use table mode.
+mongoDbSettings_nestingLevel :: Lens.Lens' MongoDbSettings (Prelude.Maybe NestingLevelValue)
+mongoDbSettings_nestingLevel = Lens.lens (\MongoDbSettings' {nestingLevel} -> nestingLevel) (\s@MongoDbSettings' {} a -> s {nestingLevel = a} :: MongoDbSettings)
+
+-- | Indicates the number of documents to preview to determine the document
+-- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
+--
+-- Must be a positive value greater than @0@. Default value is @1000@.
+mongoDbSettings_docsToInvestigate :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_docsToInvestigate = Lens.lens (\MongoDbSettings' {docsToInvestigate} -> docsToInvestigate) (\s@MongoDbSettings' {} a -> s {docsToInvestigate = a} :: MongoDbSettings)
+
+-- | The full ARN, partial ARN, or friendly name of the
+-- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
+-- details.
+mongoDbSettings_secretsManagerSecretId :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
+mongoDbSettings_secretsManagerSecretId = Lens.lens (\MongoDbSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MongoDbSettings' {} a -> s {secretsManagerSecretId = a} :: MongoDbSettings)
 
 -- | The KMS key identifier that is used to encrypt the content on the
 -- replication instance. If you don\'t specify a value for the @KmsKeyId@
@@ -244,41 +274,15 @@ mongoDbSettings_username = Lens.lens (\MongoDbSettings' {username} -> username) 
 mongoDbSettings_kmsKeyId :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
 mongoDbSettings_kmsKeyId = Lens.lens (\MongoDbSettings' {kmsKeyId} -> kmsKeyId) (\s@MongoDbSettings' {} a -> s {kmsKeyId = a} :: MongoDbSettings)
 
--- | The password for the user account you use to access the MongoDB source
+-- | The authentication mechanism you use to access the MongoDB source
 -- endpoint.
-mongoDbSettings_password :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_password = Lens.lens (\MongoDbSettings' {password} -> password) (\s@MongoDbSettings' {} a -> s {password = a} :: MongoDbSettings) Prelude.. Lens.mapping Core._Sensitive
-
--- | Specifies either document or table mode.
 --
--- Default value is @\"none\"@. Specify @\"none\"@ to use document mode.
--- Specify @\"one\"@ to use table mode.
-mongoDbSettings_nestingLevel :: Lens.Lens' MongoDbSettings (Prelude.Maybe NestingLevelValue)
-mongoDbSettings_nestingLevel = Lens.lens (\MongoDbSettings' {nestingLevel} -> nestingLevel) (\s@MongoDbSettings' {} a -> s {nestingLevel = a} :: MongoDbSettings)
-
--- | The database name on the MongoDB source endpoint.
-mongoDbSettings_databaseName :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_databaseName = Lens.lens (\MongoDbSettings' {databaseName} -> databaseName) (\s@MongoDbSettings' {} a -> s {databaseName = a} :: MongoDbSettings)
-
--- | Indicates the number of documents to preview to determine the document
--- organization. Use this setting when @NestingLevel@ is set to @\"one\"@.
---
--- Must be a positive value greater than @0@. Default value is @1000@.
-mongoDbSettings_docsToInvestigate :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_docsToInvestigate = Lens.lens (\MongoDbSettings' {docsToInvestigate} -> docsToInvestigate) (\s@MongoDbSettings' {} a -> s {docsToInvestigate = a} :: MongoDbSettings)
-
--- | The MongoDB database name. This setting isn\'t used when @AuthType@ is
--- set to @\"no\"@.
---
--- The default is @\"admin\"@.
-mongoDbSettings_authSource :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_authSource = Lens.lens (\MongoDbSettings' {authSource} -> authSource) (\s@MongoDbSettings' {} a -> s {authSource = a} :: MongoDbSettings)
-
--- | The full ARN, partial ARN, or friendly name of the
--- @SecretsManagerSecret@ that contains the MongoDB endpoint connection
--- details.
-mongoDbSettings_secretsManagerSecretId :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Text)
-mongoDbSettings_secretsManagerSecretId = Lens.lens (\MongoDbSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MongoDbSettings' {} a -> s {secretsManagerSecretId = a} :: MongoDbSettings)
+-- For the default value, in MongoDB version 2.x, @\"default\"@ is
+-- @\"mongodb_cr\"@. For MongoDB version 3.x or later, @\"default\"@ is
+-- @\"scram_sha_1\"@. This setting isn\'t used when @AuthType@ is set to
+-- @\"no\"@.
+mongoDbSettings_authMechanism :: Lens.Lens' MongoDbSettings (Prelude.Maybe AuthMechanismValue)
+mongoDbSettings_authMechanism = Lens.lens (\MongoDbSettings' {authMechanism} -> authMechanism) (\s@MongoDbSettings' {} a -> s {authMechanism = a} :: MongoDbSettings)
 
 -- | Specifies the document ID. Use this setting when @NestingLevel@ is set
 -- to @\"none\"@.
@@ -294,86 +298,82 @@ mongoDbSettings_extractDocId = Lens.lens (\MongoDbSettings' {extractDocId} -> ex
 mongoDbSettings_authType :: Lens.Lens' MongoDbSettings (Prelude.Maybe AuthTypeValue)
 mongoDbSettings_authType = Lens.lens (\MongoDbSettings' {authType} -> authType) (\s@MongoDbSettings' {} a -> s {authType = a} :: MongoDbSettings)
 
--- | The port value for the MongoDB source endpoint.
-mongoDbSettings_port :: Lens.Lens' MongoDbSettings (Prelude.Maybe Prelude.Int)
-mongoDbSettings_port = Lens.lens (\MongoDbSettings' {port} -> port) (\s@MongoDbSettings' {} a -> s {port = a} :: MongoDbSettings)
-
 instance Core.FromJSON MongoDbSettings where
   parseJSON =
     Core.withObject
       "MongoDbSettings"
       ( \x ->
           MongoDbSettings'
-            Prelude.<$> (x Core..:? "ServerName")
+            Prelude.<$> (x Core..:? "Port")
             Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "AuthMechanism")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "NestingLevel")
-            Prelude.<*> (x Core..:? "DatabaseName")
-            Prelude.<*> (x Core..:? "DocsToInvestigate")
             Prelude.<*> (x Core..:? "AuthSource")
+            Prelude.<*> (x Core..:? "ServerName")
+            Prelude.<*> (x Core..:? "DatabaseName")
+            Prelude.<*> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "NestingLevel")
+            Prelude.<*> (x Core..:? "DocsToInvestigate")
             Prelude.<*> (x Core..:? "SecretsManagerSecretId")
+            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "AuthMechanism")
             Prelude.<*> (x Core..:? "ExtractDocId")
             Prelude.<*> (x Core..:? "AuthType")
-            Prelude.<*> (x Core..:? "Port")
       )
 
 instance Prelude.Hashable MongoDbSettings where
   hashWithSalt _salt MongoDbSettings' {..} =
-    _salt `Prelude.hashWithSalt` serverName
+    _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` secretsManagerAccessRoleArn
-      `Prelude.hashWithSalt` authMechanism
-      `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` password
-      `Prelude.hashWithSalt` nestingLevel
-      `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` docsToInvestigate
       `Prelude.hashWithSalt` authSource
+      `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` nestingLevel
+      `Prelude.hashWithSalt` docsToInvestigate
       `Prelude.hashWithSalt` secretsManagerSecretId
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` authMechanism
       `Prelude.hashWithSalt` extractDocId
       `Prelude.hashWithSalt` authType
-      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData MongoDbSettings where
   rnf MongoDbSettings' {..} =
-    Prelude.rnf serverName
+    Prelude.rnf port
       `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
-      `Prelude.seq` Prelude.rnf authMechanism
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf nestingLevel
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf docsToInvestigate
       `Prelude.seq` Prelude.rnf authSource
+      `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf nestingLevel
+      `Prelude.seq` Prelude.rnf docsToInvestigate
       `Prelude.seq` Prelude.rnf secretsManagerSecretId
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf authMechanism
       `Prelude.seq` Prelude.rnf extractDocId
       `Prelude.seq` Prelude.rnf authType
-      `Prelude.seq` Prelude.rnf port
 
 instance Core.ToJSON MongoDbSettings where
   toJSON MongoDbSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ServerName" Core..=) Prelude.<$> serverName,
+          [ ("Port" Core..=) Prelude.<$> port,
             ("SecretsManagerAccessRoleArn" Core..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("AuthMechanism" Core..=) Prelude.<$> authMechanism,
-            ("Username" Core..=) Prelude.<$> username,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("Password" Core..=) Prelude.<$> password,
-            ("NestingLevel" Core..=) Prelude.<$> nestingLevel,
+            ("AuthSource" Core..=) Prelude.<$> authSource,
+            ("ServerName" Core..=) Prelude.<$> serverName,
             ("DatabaseName" Core..=) Prelude.<$> databaseName,
+            ("Username" Core..=) Prelude.<$> username,
+            ("NestingLevel" Core..=) Prelude.<$> nestingLevel,
             ("DocsToInvestigate" Core..=)
               Prelude.<$> docsToInvestigate,
-            ("AuthSource" Core..=) Prelude.<$> authSource,
             ("SecretsManagerSecretId" Core..=)
               Prelude.<$> secretsManagerSecretId,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("AuthMechanism" Core..=) Prelude.<$> authMechanism,
             ("ExtractDocId" Core..=) Prelude.<$> extractDocId,
-            ("AuthType" Core..=) Prelude.<$> authType,
-            ("Port" Core..=) Prelude.<$> port
+            ("AuthType" Core..=) Prelude.<$> authType
           ]
       )

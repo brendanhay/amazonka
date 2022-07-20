@@ -31,9 +31,9 @@ module Amazonka.HoneyCode.InvokeScreenAutomation
     newInvokeScreenAutomation,
 
     -- * Request Lenses
+    invokeScreenAutomation_clientRequestToken,
     invokeScreenAutomation_rowId,
     invokeScreenAutomation_variables,
-    invokeScreenAutomation_clientRequestToken,
     invokeScreenAutomation_workbookId,
     invokeScreenAutomation_appId,
     invokeScreenAutomation_screenId,
@@ -58,16 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newInvokeScreenAutomation' smart constructor.
 data InvokeScreenAutomation = InvokeScreenAutomation'
-  { -- | The row ID for the automation if the automation is defined inside a
-    -- block with source or list.
-    rowId :: Prelude.Maybe Prelude.Text,
-    -- | Variables are specified as a map where the key is the name of the
-    -- variable as defined on the screen. The value is an object which
-    -- currently has only one property, rawValue, which holds the value of the
-    -- variable to be passed to the screen. Any variables defined in a screen
-    -- are required to be passed in the call.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
-    -- | The request token for performing the automation action. Request tokens
+  { -- | The request token for performing the automation action. Request tokens
     -- help to identify duplicate requests. If a call times out or fails due to
     -- a transient error like a failed network connection, you can retry the
     -- call with the same request token. The service ensures that if the first
@@ -78,6 +69,15 @@ data InvokeScreenAutomation = InvokeScreenAutomation'
     -- Note that request tokens are valid only for a few minutes. You cannot
     -- use request tokens to dedupe requests spanning hours or days.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The row ID for the automation if the automation is defined inside a
+    -- block with source or list.
+    rowId :: Prelude.Maybe Prelude.Text,
+    -- | Variables are specified as a map where the key is the name of the
+    -- variable as defined on the screen. The value is an object which
+    -- currently has only one property, rawValue, which holds the value of the
+    -- variable to be passed to the screen. Any variables defined in a screen
+    -- are required to be passed in the call.
+    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
     -- | The ID of the workbook that contains the screen automation.
     workbookId :: Prelude.Text,
     -- | The ID of the app that contains the screen automation.
@@ -97,15 +97,6 @@ data InvokeScreenAutomation = InvokeScreenAutomation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rowId', 'invokeScreenAutomation_rowId' - The row ID for the automation if the automation is defined inside a
--- block with source or list.
---
--- 'variables', 'invokeScreenAutomation_variables' - Variables are specified as a map where the key is the name of the
--- variable as defined on the screen. The value is an object which
--- currently has only one property, rawValue, which holds the value of the
--- variable to be passed to the screen. Any variables defined in a screen
--- are required to be passed in the call.
---
 -- 'clientRequestToken', 'invokeScreenAutomation_clientRequestToken' - The request token for performing the automation action. Request tokens
 -- help to identify duplicate requests. If a call times out or fails due to
 -- a transient error like a failed network connection, you can retry the
@@ -116,6 +107,15 @@ data InvokeScreenAutomation = InvokeScreenAutomation'
 --
 -- Note that request tokens are valid only for a few minutes. You cannot
 -- use request tokens to dedupe requests spanning hours or days.
+--
+-- 'rowId', 'invokeScreenAutomation_rowId' - The row ID for the automation if the automation is defined inside a
+-- block with source or list.
+--
+-- 'variables', 'invokeScreenAutomation_variables' - Variables are specified as a map where the key is the name of the
+-- variable as defined on the screen. The value is an object which
+-- currently has only one property, rawValue, which holds the value of the
+-- variable to be passed to the screen. Any variables defined in a screen
+-- are required to be passed in the call.
 --
 -- 'workbookId', 'invokeScreenAutomation_workbookId' - The ID of the workbook that contains the screen automation.
 --
@@ -140,27 +140,15 @@ newInvokeScreenAutomation
   pScreenId_
   pScreenAutomationId_ =
     InvokeScreenAutomation'
-      { rowId = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
+        rowId = Prelude.Nothing,
         variables = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
         workbookId = pWorkbookId_,
         appId = pAppId_,
         screenId = pScreenId_,
         screenAutomationId = pScreenAutomationId_
       }
-
--- | The row ID for the automation if the automation is defined inside a
--- block with source or list.
-invokeScreenAutomation_rowId :: Lens.Lens' InvokeScreenAutomation (Prelude.Maybe Prelude.Text)
-invokeScreenAutomation_rowId = Lens.lens (\InvokeScreenAutomation' {rowId} -> rowId) (\s@InvokeScreenAutomation' {} a -> s {rowId = a} :: InvokeScreenAutomation)
-
--- | Variables are specified as a map where the key is the name of the
--- variable as defined on the screen. The value is an object which
--- currently has only one property, rawValue, which holds the value of the
--- variable to be passed to the screen. Any variables defined in a screen
--- are required to be passed in the call.
-invokeScreenAutomation_variables :: Lens.Lens' InvokeScreenAutomation (Prelude.Maybe (Prelude.HashMap Prelude.Text VariableValue))
-invokeScreenAutomation_variables = Lens.lens (\InvokeScreenAutomation' {variables} -> variables) (\s@InvokeScreenAutomation' {} a -> s {variables = a} :: InvokeScreenAutomation) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The request token for performing the automation action. Request tokens
 -- help to identify duplicate requests. If a call times out or fails due to
@@ -174,6 +162,19 @@ invokeScreenAutomation_variables = Lens.lens (\InvokeScreenAutomation' {variable
 -- use request tokens to dedupe requests spanning hours or days.
 invokeScreenAutomation_clientRequestToken :: Lens.Lens' InvokeScreenAutomation (Prelude.Maybe Prelude.Text)
 invokeScreenAutomation_clientRequestToken = Lens.lens (\InvokeScreenAutomation' {clientRequestToken} -> clientRequestToken) (\s@InvokeScreenAutomation' {} a -> s {clientRequestToken = a} :: InvokeScreenAutomation)
+
+-- | The row ID for the automation if the automation is defined inside a
+-- block with source or list.
+invokeScreenAutomation_rowId :: Lens.Lens' InvokeScreenAutomation (Prelude.Maybe Prelude.Text)
+invokeScreenAutomation_rowId = Lens.lens (\InvokeScreenAutomation' {rowId} -> rowId) (\s@InvokeScreenAutomation' {} a -> s {rowId = a} :: InvokeScreenAutomation)
+
+-- | Variables are specified as a map where the key is the name of the
+-- variable as defined on the screen. The value is an object which
+-- currently has only one property, rawValue, which holds the value of the
+-- variable to be passed to the screen. Any variables defined in a screen
+-- are required to be passed in the call.
+invokeScreenAutomation_variables :: Lens.Lens' InvokeScreenAutomation (Prelude.Maybe (Prelude.HashMap Prelude.Text VariableValue))
+invokeScreenAutomation_variables = Lens.lens (\InvokeScreenAutomation' {variables} -> variables) (\s@InvokeScreenAutomation' {} a -> s {variables = a} :: InvokeScreenAutomation) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The ID of the workbook that contains the screen automation.
 invokeScreenAutomation_workbookId :: Lens.Lens' InvokeScreenAutomation Prelude.Text
@@ -206,9 +207,9 @@ instance Core.AWSRequest InvokeScreenAutomation where
 
 instance Prelude.Hashable InvokeScreenAutomation where
   hashWithSalt _salt InvokeScreenAutomation' {..} =
-    _salt `Prelude.hashWithSalt` rowId
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` rowId
       `Prelude.hashWithSalt` variables
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` screenId
@@ -216,9 +217,9 @@ instance Prelude.Hashable InvokeScreenAutomation where
 
 instance Prelude.NFData InvokeScreenAutomation where
   rnf InvokeScreenAutomation' {..} =
-    Prelude.rnf rowId
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf rowId
       `Prelude.seq` Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf workbookId
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf screenId
@@ -239,10 +240,10 @@ instance Core.ToJSON InvokeScreenAutomation where
   toJSON InvokeScreenAutomation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rowId" Core..=) Prelude.<$> rowId,
-            ("variables" Core..=) Prelude.<$> variables,
-            ("clientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken
+          [ ("clientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            ("rowId" Core..=) Prelude.<$> rowId,
+            ("variables" Core..=) Prelude.<$> variables
           ]
       )
 

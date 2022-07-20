@@ -29,7 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMxfXavcProfileSettings' smart constructor.
 data MxfXavcProfileSettings = MxfXavcProfileSettings'
-  { -- | Specify a value for this setting only for outputs that you set up with
+  { -- | To create an output that complies with the XAVC file format guidelines
+    -- for interoperability, keep the default value, Drop frames for compliance
+    -- (DROP_FRAMES_FOR_COMPLIANCE). To include all frames from your input in
+    -- this output, keep the default setting, Allow any duration
+    -- (ALLOW_ANY_DURATION). The number of frames that MediaConvert excludes
+    -- when you set this to Drop frames for compliance depends on the output
+    -- frame rate and duration.
+    durationMode :: Prelude.Maybe MxfXavcDurationMode,
+    -- | Specify a value for this setting only for outputs that you set up with
     -- one of these two XAVC profiles: XAVC HD Intra CBG (XAVC_HD_INTRA_CBG) or
     -- XAVC 4K Intra CBG (XAVC_4K_INTRA_CBG). Specify the amount of space in
     -- each frame that the service reserves for ancillary data, such as
@@ -37,15 +45,7 @@ data MxfXavcProfileSettings = MxfXavcProfileSettings'
     -- frame. This should be sufficient to prevent overflow unless you have
     -- multiple pages of teletext captions data. If you have a large amount of
     -- teletext data, specify a larger number.
-    maxAncDataSize :: Prelude.Maybe Prelude.Natural,
-    -- | To create an output that complies with the XAVC file format guidelines
-    -- for interoperability, keep the default value, Drop frames for compliance
-    -- (DROP_FRAMES_FOR_COMPLIANCE). To include all frames from your input in
-    -- this output, keep the default setting, Allow any duration
-    -- (ALLOW_ANY_DURATION). The number of frames that MediaConvert excludes
-    -- when you set this to Drop frames for compliance depends on the output
-    -- frame rate and duration.
-    durationMode :: Prelude.Maybe MxfXavcDurationMode
+    maxAncDataSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,14 @@ data MxfXavcProfileSettings = MxfXavcProfileSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'durationMode', 'mxfXavcProfileSettings_durationMode' - To create an output that complies with the XAVC file format guidelines
+-- for interoperability, keep the default value, Drop frames for compliance
+-- (DROP_FRAMES_FOR_COMPLIANCE). To include all frames from your input in
+-- this output, keep the default setting, Allow any duration
+-- (ALLOW_ANY_DURATION). The number of frames that MediaConvert excludes
+-- when you set this to Drop frames for compliance depends on the output
+-- frame rate and duration.
+--
 -- 'maxAncDataSize', 'mxfXavcProfileSettings_maxAncDataSize' - Specify a value for this setting only for outputs that you set up with
 -- one of these two XAVC profiles: XAVC HD Intra CBG (XAVC_HD_INTRA_CBG) or
 -- XAVC 4K Intra CBG (XAVC_4K_INTRA_CBG). Specify the amount of space in
@@ -65,22 +73,24 @@ data MxfXavcProfileSettings = MxfXavcProfileSettings'
 -- frame. This should be sufficient to prevent overflow unless you have
 -- multiple pages of teletext captions data. If you have a large amount of
 -- teletext data, specify a larger number.
---
--- 'durationMode', 'mxfXavcProfileSettings_durationMode' - To create an output that complies with the XAVC file format guidelines
+newMxfXavcProfileSettings ::
+  MxfXavcProfileSettings
+newMxfXavcProfileSettings =
+  MxfXavcProfileSettings'
+    { durationMode =
+        Prelude.Nothing,
+      maxAncDataSize = Prelude.Nothing
+    }
+
+-- | To create an output that complies with the XAVC file format guidelines
 -- for interoperability, keep the default value, Drop frames for compliance
 -- (DROP_FRAMES_FOR_COMPLIANCE). To include all frames from your input in
 -- this output, keep the default setting, Allow any duration
 -- (ALLOW_ANY_DURATION). The number of frames that MediaConvert excludes
 -- when you set this to Drop frames for compliance depends on the output
 -- frame rate and duration.
-newMxfXavcProfileSettings ::
-  MxfXavcProfileSettings
-newMxfXavcProfileSettings =
-  MxfXavcProfileSettings'
-    { maxAncDataSize =
-        Prelude.Nothing,
-      durationMode = Prelude.Nothing
-    }
+mxfXavcProfileSettings_durationMode :: Lens.Lens' MxfXavcProfileSettings (Prelude.Maybe MxfXavcDurationMode)
+mxfXavcProfileSettings_durationMode = Lens.lens (\MxfXavcProfileSettings' {durationMode} -> durationMode) (\s@MxfXavcProfileSettings' {} a -> s {durationMode = a} :: MxfXavcProfileSettings)
 
 -- | Specify a value for this setting only for outputs that you set up with
 -- one of these two XAVC profiles: XAVC HD Intra CBG (XAVC_HD_INTRA_CBG) or
@@ -93,42 +103,32 @@ newMxfXavcProfileSettings =
 mxfXavcProfileSettings_maxAncDataSize :: Lens.Lens' MxfXavcProfileSettings (Prelude.Maybe Prelude.Natural)
 mxfXavcProfileSettings_maxAncDataSize = Lens.lens (\MxfXavcProfileSettings' {maxAncDataSize} -> maxAncDataSize) (\s@MxfXavcProfileSettings' {} a -> s {maxAncDataSize = a} :: MxfXavcProfileSettings)
 
--- | To create an output that complies with the XAVC file format guidelines
--- for interoperability, keep the default value, Drop frames for compliance
--- (DROP_FRAMES_FOR_COMPLIANCE). To include all frames from your input in
--- this output, keep the default setting, Allow any duration
--- (ALLOW_ANY_DURATION). The number of frames that MediaConvert excludes
--- when you set this to Drop frames for compliance depends on the output
--- frame rate and duration.
-mxfXavcProfileSettings_durationMode :: Lens.Lens' MxfXavcProfileSettings (Prelude.Maybe MxfXavcDurationMode)
-mxfXavcProfileSettings_durationMode = Lens.lens (\MxfXavcProfileSettings' {durationMode} -> durationMode) (\s@MxfXavcProfileSettings' {} a -> s {durationMode = a} :: MxfXavcProfileSettings)
-
 instance Core.FromJSON MxfXavcProfileSettings where
   parseJSON =
     Core.withObject
       "MxfXavcProfileSettings"
       ( \x ->
           MxfXavcProfileSettings'
-            Prelude.<$> (x Core..:? "maxAncDataSize")
-            Prelude.<*> (x Core..:? "durationMode")
+            Prelude.<$> (x Core..:? "durationMode")
+            Prelude.<*> (x Core..:? "maxAncDataSize")
       )
 
 instance Prelude.Hashable MxfXavcProfileSettings where
   hashWithSalt _salt MxfXavcProfileSettings' {..} =
-    _salt `Prelude.hashWithSalt` maxAncDataSize
-      `Prelude.hashWithSalt` durationMode
+    _salt `Prelude.hashWithSalt` durationMode
+      `Prelude.hashWithSalt` maxAncDataSize
 
 instance Prelude.NFData MxfXavcProfileSettings where
   rnf MxfXavcProfileSettings' {..} =
-    Prelude.rnf maxAncDataSize
-      `Prelude.seq` Prelude.rnf durationMode
+    Prelude.rnf durationMode
+      `Prelude.seq` Prelude.rnf maxAncDataSize
 
 instance Core.ToJSON MxfXavcProfileSettings where
   toJSON MxfXavcProfileSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maxAncDataSize" Core..=)
-              Prelude.<$> maxAncDataSize,
-            ("durationMode" Core..=) Prelude.<$> durationMode
+          [ ("durationMode" Core..=) Prelude.<$> durationMode,
+            ("maxAncDataSize" Core..=)
+              Prelude.<$> maxAncDataSize
           ]
       )

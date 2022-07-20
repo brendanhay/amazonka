@@ -19,23 +19,23 @@ module Amazonka.MediaPackage
     -- * Errors
     -- $errors
 
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
     -- ** UnprocessableEntityException
     _UnprocessableEntityException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** TooManyRequestsException
     _TooManyRequestsException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
 
     -- * Waiters
     -- $waiters
@@ -43,17 +43,53 @@ module Amazonka.MediaPackage
     -- * Operations
     -- $operations
 
+    -- ** ConfigureLogs
+    ConfigureLogs (ConfigureLogs'),
+    newConfigureLogs,
+    ConfigureLogsResponse (ConfigureLogsResponse'),
+    newConfigureLogsResponse,
+
+    -- ** CreateChannel
+    CreateChannel (CreateChannel'),
+    newCreateChannel,
+    CreateChannelResponse (CreateChannelResponse'),
+    newCreateChannelResponse,
+
     -- ** CreateHarvestJob
     CreateHarvestJob (CreateHarvestJob'),
     newCreateHarvestJob,
     CreateHarvestJobResponse (CreateHarvestJobResponse'),
     newCreateHarvestJobResponse,
 
-    -- ** ConfigureLogs
-    ConfigureLogs (ConfigureLogs'),
-    newConfigureLogs,
-    ConfigureLogsResponse (ConfigureLogsResponse'),
-    newConfigureLogsResponse,
+    -- ** CreateOriginEndpoint
+    CreateOriginEndpoint (CreateOriginEndpoint'),
+    newCreateOriginEndpoint,
+    CreateOriginEndpointResponse (CreateOriginEndpointResponse'),
+    newCreateOriginEndpointResponse,
+
+    -- ** DeleteChannel
+    DeleteChannel (DeleteChannel'),
+    newDeleteChannel,
+    DeleteChannelResponse (DeleteChannelResponse'),
+    newDeleteChannelResponse,
+
+    -- ** DeleteOriginEndpoint
+    DeleteOriginEndpoint (DeleteOriginEndpoint'),
+    newDeleteOriginEndpoint,
+    DeleteOriginEndpointResponse (DeleteOriginEndpointResponse'),
+    newDeleteOriginEndpointResponse,
+
+    -- ** DescribeChannel
+    DescribeChannel (DescribeChannel'),
+    newDescribeChannel,
+    DescribeChannelResponse (DescribeChannelResponse'),
+    newDescribeChannelResponse,
+
+    -- ** DescribeHarvestJob
+    DescribeHarvestJob (DescribeHarvestJob'),
+    newDescribeHarvestJob,
+    DescribeHarvestJobResponse (DescribeHarvestJobResponse'),
+    newDescribeHarvestJobResponse,
 
     -- ** DescribeOriginEndpoint
     DescribeOriginEndpoint (DescribeOriginEndpoint'),
@@ -67,41 +103,11 @@ module Amazonka.MediaPackage
     ListChannelsResponse (ListChannelsResponse'),
     newListChannelsResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DeleteChannel
-    DeleteChannel (DeleteChannel'),
-    newDeleteChannel,
-    DeleteChannelResponse (DeleteChannelResponse'),
-    newDeleteChannelResponse,
-
-    -- ** UpdateChannel
-    UpdateChannel (UpdateChannel'),
-    newUpdateChannel,
-    UpdateChannelResponse (UpdateChannelResponse'),
-    newUpdateChannelResponse,
-
-    -- ** DescribeHarvestJob
-    DescribeHarvestJob (DescribeHarvestJob'),
-    newDescribeHarvestJob,
-    DescribeHarvestJobResponse (DescribeHarvestJobResponse'),
-    newDescribeHarvestJobResponse,
-
-    -- ** RotateIngestEndpointCredentials
-    RotateIngestEndpointCredentials (RotateIngestEndpointCredentials'),
-    newRotateIngestEndpointCredentials,
-    RotateIngestEndpointCredentialsResponse (RotateIngestEndpointCredentialsResponse'),
-    newRotateIngestEndpointCredentialsResponse,
-
-    -- ** CreateOriginEndpoint
-    CreateOriginEndpoint (CreateOriginEndpoint'),
-    newCreateOriginEndpoint,
-    CreateOriginEndpointResponse (CreateOriginEndpointResponse'),
-    newCreateOriginEndpointResponse,
+    -- ** ListHarvestJobs (Paginated)
+    ListHarvestJobs (ListHarvestJobs'),
+    newListHarvestJobs,
+    ListHarvestJobsResponse (ListHarvestJobsResponse'),
+    newListHarvestJobsResponse,
 
     -- ** ListOriginEndpoints (Paginated)
     ListOriginEndpoints (ListOriginEndpoints'),
@@ -109,17 +115,17 @@ module Amazonka.MediaPackage
     ListOriginEndpointsResponse (ListOriginEndpointsResponse'),
     newListOriginEndpointsResponse,
 
-    -- ** ListHarvestJobs (Paginated)
-    ListHarvestJobs (ListHarvestJobs'),
-    newListHarvestJobs,
-    ListHarvestJobsResponse (ListHarvestJobsResponse'),
-    newListHarvestJobsResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** CreateChannel
-    CreateChannel (CreateChannel'),
-    newCreateChannel,
-    CreateChannelResponse (CreateChannelResponse'),
-    newCreateChannelResponse,
+    -- ** RotateIngestEndpointCredentials
+    RotateIngestEndpointCredentials (RotateIngestEndpointCredentials'),
+    newRotateIngestEndpointCredentials,
+    RotateIngestEndpointCredentialsResponse (RotateIngestEndpointCredentialsResponse'),
+    newRotateIngestEndpointCredentialsResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -133,17 +139,11 @@ module Amazonka.MediaPackage
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DescribeChannel
-    DescribeChannel (DescribeChannel'),
-    newDescribeChannel,
-    DescribeChannelResponse (DescribeChannelResponse'),
-    newDescribeChannelResponse,
-
-    -- ** DeleteOriginEndpoint
-    DeleteOriginEndpoint (DeleteOriginEndpoint'),
-    newDeleteOriginEndpoint,
-    DeleteOriginEndpointResponse (DeleteOriginEndpointResponse'),
-    newDeleteOriginEndpointResponse,
+    -- ** UpdateChannel
+    UpdateChannel (UpdateChannel'),
+    newUpdateChannel,
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
 
     -- ** UpdateOriginEndpoint
     UpdateOriginEndpoint (UpdateOriginEndpoint'),

@@ -134,14 +134,7 @@ instance Core.ToHeaders CreateVoiceTemplate where
 
 instance Core.ToJSON CreateVoiceTemplate where
   toJSON CreateVoiceTemplate' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "VoiceTemplateRequest"
-                  Core..= voiceTemplateRequest
-              )
-          ]
-      )
+    Core.toJSON voiceTemplateRequest
 
 instance Core.ToPath CreateVoiceTemplate where
   toPath CreateVoiceTemplate' {..} =

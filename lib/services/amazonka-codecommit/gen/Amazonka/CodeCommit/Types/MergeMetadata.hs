@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMergeMetadata' smart constructor.
 data MergeMetadata = MergeMetadata'
-  { -- | The Amazon Resource Name (ARN) of the user who merged the branches.
-    mergedBy :: Prelude.Maybe Prelude.Text,
-    -- | The merge strategy used in the merge.
+  { -- | The merge strategy used in the merge.
     mergeOption :: Prelude.Maybe MergeOptionTypeEnum,
+    -- | The commit ID for the merge commit, if any.
+    mergeCommitId :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether the merge has been made.
     isMerged :: Prelude.Maybe Prelude.Bool,
-    -- | The commit ID for the merge commit, if any.
-    mergeCommitId :: Prelude.Maybe Prelude.Text
+    -- | The Amazon Resource Name (ARN) of the user who merged the branches.
+    mergedBy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,38 +48,38 @@ data MergeMetadata = MergeMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mergedBy', 'mergeMetadata_mergedBy' - The Amazon Resource Name (ARN) of the user who merged the branches.
---
 -- 'mergeOption', 'mergeMetadata_mergeOption' - The merge strategy used in the merge.
+--
+-- 'mergeCommitId', 'mergeMetadata_mergeCommitId' - The commit ID for the merge commit, if any.
 --
 -- 'isMerged', 'mergeMetadata_isMerged' - A Boolean value indicating whether the merge has been made.
 --
--- 'mergeCommitId', 'mergeMetadata_mergeCommitId' - The commit ID for the merge commit, if any.
+-- 'mergedBy', 'mergeMetadata_mergedBy' - The Amazon Resource Name (ARN) of the user who merged the branches.
 newMergeMetadata ::
   MergeMetadata
 newMergeMetadata =
   MergeMetadata'
-    { mergedBy = Prelude.Nothing,
-      mergeOption = Prelude.Nothing,
+    { mergeOption = Prelude.Nothing,
+      mergeCommitId = Prelude.Nothing,
       isMerged = Prelude.Nothing,
-      mergeCommitId = Prelude.Nothing
+      mergedBy = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the user who merged the branches.
-mergeMetadata_mergedBy :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Text)
-mergeMetadata_mergedBy = Lens.lens (\MergeMetadata' {mergedBy} -> mergedBy) (\s@MergeMetadata' {} a -> s {mergedBy = a} :: MergeMetadata)
 
 -- | The merge strategy used in the merge.
 mergeMetadata_mergeOption :: Lens.Lens' MergeMetadata (Prelude.Maybe MergeOptionTypeEnum)
 mergeMetadata_mergeOption = Lens.lens (\MergeMetadata' {mergeOption} -> mergeOption) (\s@MergeMetadata' {} a -> s {mergeOption = a} :: MergeMetadata)
 
+-- | The commit ID for the merge commit, if any.
+mergeMetadata_mergeCommitId :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Text)
+mergeMetadata_mergeCommitId = Lens.lens (\MergeMetadata' {mergeCommitId} -> mergeCommitId) (\s@MergeMetadata' {} a -> s {mergeCommitId = a} :: MergeMetadata)
+
 -- | A Boolean value indicating whether the merge has been made.
 mergeMetadata_isMerged :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Bool)
 mergeMetadata_isMerged = Lens.lens (\MergeMetadata' {isMerged} -> isMerged) (\s@MergeMetadata' {} a -> s {isMerged = a} :: MergeMetadata)
 
--- | The commit ID for the merge commit, if any.
-mergeMetadata_mergeCommitId :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Text)
-mergeMetadata_mergeCommitId = Lens.lens (\MergeMetadata' {mergeCommitId} -> mergeCommitId) (\s@MergeMetadata' {} a -> s {mergeCommitId = a} :: MergeMetadata)
+-- | The Amazon Resource Name (ARN) of the user who merged the branches.
+mergeMetadata_mergedBy :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Text)
+mergeMetadata_mergedBy = Lens.lens (\MergeMetadata' {mergedBy} -> mergedBy) (\s@MergeMetadata' {} a -> s {mergedBy = a} :: MergeMetadata)
 
 instance Core.FromJSON MergeMetadata where
   parseJSON =
@@ -87,22 +87,22 @@ instance Core.FromJSON MergeMetadata where
       "MergeMetadata"
       ( \x ->
           MergeMetadata'
-            Prelude.<$> (x Core..:? "mergedBy")
-            Prelude.<*> (x Core..:? "mergeOption")
-            Prelude.<*> (x Core..:? "isMerged")
+            Prelude.<$> (x Core..:? "mergeOption")
             Prelude.<*> (x Core..:? "mergeCommitId")
+            Prelude.<*> (x Core..:? "isMerged")
+            Prelude.<*> (x Core..:? "mergedBy")
       )
 
 instance Prelude.Hashable MergeMetadata where
   hashWithSalt _salt MergeMetadata' {..} =
-    _salt `Prelude.hashWithSalt` mergedBy
-      `Prelude.hashWithSalt` mergeOption
-      `Prelude.hashWithSalt` isMerged
+    _salt `Prelude.hashWithSalt` mergeOption
       `Prelude.hashWithSalt` mergeCommitId
+      `Prelude.hashWithSalt` isMerged
+      `Prelude.hashWithSalt` mergedBy
 
 instance Prelude.NFData MergeMetadata where
   rnf MergeMetadata' {..} =
-    Prelude.rnf mergedBy
-      `Prelude.seq` Prelude.rnf mergeOption
-      `Prelude.seq` Prelude.rnf isMerged
+    Prelude.rnf mergeOption
       `Prelude.seq` Prelude.rnf mergeCommitId
+      `Prelude.seq` Prelude.rnf isMerged
+      `Prelude.seq` Prelude.rnf mergedBy

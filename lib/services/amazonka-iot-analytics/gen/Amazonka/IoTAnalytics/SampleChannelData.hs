@@ -28,9 +28,9 @@ module Amazonka.IoTAnalytics.SampleChannelData
     newSampleChannelData,
 
     -- * Request Lenses
-    sampleChannelData_startTime,
-    sampleChannelData_maxMessages,
     sampleChannelData_endTime,
+    sampleChannelData_maxMessages,
+    sampleChannelData_startTime,
     sampleChannelData_channelName,
 
     -- * Destructuring the Response
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSampleChannelData' smart constructor.
 data SampleChannelData = SampleChannelData'
-  { -- | The start of the time window from which sample messages are retrieved.
-    startTime :: Prelude.Maybe Core.POSIX,
+  { -- | The end of the time window from which sample messages are retrieved.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The number of sample messages to be retrieved. The limit is 10. The
     -- default is also 10.
     maxMessages :: Prelude.Maybe Prelude.Natural,
-    -- | The end of the time window from which sample messages are retrieved.
-    endTime :: Prelude.Maybe Core.POSIX,
+    -- | The start of the time window from which sample messages are retrieved.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the channel whose message samples are retrieved.
     channelName :: Prelude.Text
   }
@@ -72,12 +72,12 @@ data SampleChannelData = SampleChannelData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'sampleChannelData_startTime' - The start of the time window from which sample messages are retrieved.
+-- 'endTime', 'sampleChannelData_endTime' - The end of the time window from which sample messages are retrieved.
 --
 -- 'maxMessages', 'sampleChannelData_maxMessages' - The number of sample messages to be retrieved. The limit is 10. The
 -- default is also 10.
 --
--- 'endTime', 'sampleChannelData_endTime' - The end of the time window from which sample messages are retrieved.
+-- 'startTime', 'sampleChannelData_startTime' - The start of the time window from which sample messages are retrieved.
 --
 -- 'channelName', 'sampleChannelData_channelName' - The name of the channel whose message samples are retrieved.
 newSampleChannelData ::
@@ -86,24 +86,24 @@ newSampleChannelData ::
   SampleChannelData
 newSampleChannelData pChannelName_ =
   SampleChannelData'
-    { startTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       maxMessages = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       channelName = pChannelName_
     }
 
--- | The start of the time window from which sample messages are retrieved.
-sampleChannelData_startTime :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.UTCTime)
-sampleChannelData_startTime = Lens.lens (\SampleChannelData' {startTime} -> startTime) (\s@SampleChannelData' {} a -> s {startTime = a} :: SampleChannelData) Prelude.. Lens.mapping Core._Time
+-- | The end of the time window from which sample messages are retrieved.
+sampleChannelData_endTime :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.UTCTime)
+sampleChannelData_endTime = Lens.lens (\SampleChannelData' {endTime} -> endTime) (\s@SampleChannelData' {} a -> s {endTime = a} :: SampleChannelData) Prelude.. Lens.mapping Core._Time
 
 -- | The number of sample messages to be retrieved. The limit is 10. The
 -- default is also 10.
 sampleChannelData_maxMessages :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.Natural)
 sampleChannelData_maxMessages = Lens.lens (\SampleChannelData' {maxMessages} -> maxMessages) (\s@SampleChannelData' {} a -> s {maxMessages = a} :: SampleChannelData)
 
--- | The end of the time window from which sample messages are retrieved.
-sampleChannelData_endTime :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.UTCTime)
-sampleChannelData_endTime = Lens.lens (\SampleChannelData' {endTime} -> endTime) (\s@SampleChannelData' {} a -> s {endTime = a} :: SampleChannelData) Prelude.. Lens.mapping Core._Time
+-- | The start of the time window from which sample messages are retrieved.
+sampleChannelData_startTime :: Lens.Lens' SampleChannelData (Prelude.Maybe Prelude.UTCTime)
+sampleChannelData_startTime = Lens.lens (\SampleChannelData' {startTime} -> startTime) (\s@SampleChannelData' {} a -> s {startTime = a} :: SampleChannelData) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the channel whose message samples are retrieved.
 sampleChannelData_channelName :: Lens.Lens' SampleChannelData Prelude.Text
@@ -124,16 +124,16 @@ instance Core.AWSRequest SampleChannelData where
 
 instance Prelude.Hashable SampleChannelData where
   hashWithSalt _salt SampleChannelData' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxMessages
-      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` channelName
 
 instance Prelude.NFData SampleChannelData where
   rnf SampleChannelData' {..} =
-    Prelude.rnf startTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf maxMessages
-      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf channelName
 
 instance Core.ToHeaders SampleChannelData where
@@ -147,9 +147,9 @@ instance Core.ToPath SampleChannelData where
 instance Core.ToQuery SampleChannelData where
   toQuery SampleChannelData' {..} =
     Prelude.mconcat
-      [ "startTime" Core.=: startTime,
+      [ "endTime" Core.=: endTime,
         "maxMessages" Core.=: maxMessages,
-        "endTime" Core.=: endTime
+        "startTime" Core.=: startTime
       ]
 
 -- | /See:/ 'newSampleChannelDataResponse' smart constructor.

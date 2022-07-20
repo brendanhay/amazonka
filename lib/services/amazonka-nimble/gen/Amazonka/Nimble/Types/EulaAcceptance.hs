@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEulaAcceptance' smart constructor.
 data EulaAcceptance = EulaAcceptance'
-  { -- | The ID of the acceptee.
+  { -- | The EULA acceptance ID.
+    eulaAcceptanceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the acceptee.
     accepteeId :: Prelude.Maybe Prelude.Text,
     -- | The EULA ID.
     eulaId :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the EULA was accepted.
     acceptedAt :: Prelude.Maybe Core.POSIX,
     -- | The ID of the person who accepted the EULA.
-    acceptedBy :: Prelude.Maybe Prelude.Text,
-    -- | The EULA acceptance ID.
-    eulaAcceptanceId :: Prelude.Maybe Prelude.Text
+    acceptedBy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,6 +48,8 @@ data EulaAcceptance = EulaAcceptance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eulaAcceptanceId', 'eulaAcceptance_eulaAcceptanceId' - The EULA acceptance ID.
+--
 -- 'accepteeId', 'eulaAcceptance_accepteeId' - The ID of the acceptee.
 --
 -- 'eulaId', 'eulaAcceptance_eulaId' - The EULA ID.
@@ -55,18 +57,20 @@ data EulaAcceptance = EulaAcceptance'
 -- 'acceptedAt', 'eulaAcceptance_acceptedAt' - The Unix epoch timestamp in seconds for when the EULA was accepted.
 --
 -- 'acceptedBy', 'eulaAcceptance_acceptedBy' - The ID of the person who accepted the EULA.
---
--- 'eulaAcceptanceId', 'eulaAcceptance_eulaAcceptanceId' - The EULA acceptance ID.
 newEulaAcceptance ::
   EulaAcceptance
 newEulaAcceptance =
   EulaAcceptance'
-    { accepteeId = Prelude.Nothing,
+    { eulaAcceptanceId = Prelude.Nothing,
+      accepteeId = Prelude.Nothing,
       eulaId = Prelude.Nothing,
       acceptedAt = Prelude.Nothing,
-      acceptedBy = Prelude.Nothing,
-      eulaAcceptanceId = Prelude.Nothing
+      acceptedBy = Prelude.Nothing
     }
+
+-- | The EULA acceptance ID.
+eulaAcceptance_eulaAcceptanceId :: Lens.Lens' EulaAcceptance (Prelude.Maybe Prelude.Text)
+eulaAcceptance_eulaAcceptanceId = Lens.lens (\EulaAcceptance' {eulaAcceptanceId} -> eulaAcceptanceId) (\s@EulaAcceptance' {} a -> s {eulaAcceptanceId = a} :: EulaAcceptance)
 
 -- | The ID of the acceptee.
 eulaAcceptance_accepteeId :: Lens.Lens' EulaAcceptance (Prelude.Maybe Prelude.Text)
@@ -84,35 +88,31 @@ eulaAcceptance_acceptedAt = Lens.lens (\EulaAcceptance' {acceptedAt} -> accepted
 eulaAcceptance_acceptedBy :: Lens.Lens' EulaAcceptance (Prelude.Maybe Prelude.Text)
 eulaAcceptance_acceptedBy = Lens.lens (\EulaAcceptance' {acceptedBy} -> acceptedBy) (\s@EulaAcceptance' {} a -> s {acceptedBy = a} :: EulaAcceptance)
 
--- | The EULA acceptance ID.
-eulaAcceptance_eulaAcceptanceId :: Lens.Lens' EulaAcceptance (Prelude.Maybe Prelude.Text)
-eulaAcceptance_eulaAcceptanceId = Lens.lens (\EulaAcceptance' {eulaAcceptanceId} -> eulaAcceptanceId) (\s@EulaAcceptance' {} a -> s {eulaAcceptanceId = a} :: EulaAcceptance)
-
 instance Core.FromJSON EulaAcceptance where
   parseJSON =
     Core.withObject
       "EulaAcceptance"
       ( \x ->
           EulaAcceptance'
-            Prelude.<$> (x Core..:? "accepteeId")
+            Prelude.<$> (x Core..:? "eulaAcceptanceId")
+            Prelude.<*> (x Core..:? "accepteeId")
             Prelude.<*> (x Core..:? "eulaId")
             Prelude.<*> (x Core..:? "acceptedAt")
             Prelude.<*> (x Core..:? "acceptedBy")
-            Prelude.<*> (x Core..:? "eulaAcceptanceId")
       )
 
 instance Prelude.Hashable EulaAcceptance where
   hashWithSalt _salt EulaAcceptance' {..} =
-    _salt `Prelude.hashWithSalt` accepteeId
+    _salt `Prelude.hashWithSalt` eulaAcceptanceId
+      `Prelude.hashWithSalt` accepteeId
       `Prelude.hashWithSalt` eulaId
       `Prelude.hashWithSalt` acceptedAt
       `Prelude.hashWithSalt` acceptedBy
-      `Prelude.hashWithSalt` eulaAcceptanceId
 
 instance Prelude.NFData EulaAcceptance where
   rnf EulaAcceptance' {..} =
-    Prelude.rnf accepteeId
+    Prelude.rnf eulaAcceptanceId
+      `Prelude.seq` Prelude.rnf accepteeId
       `Prelude.seq` Prelude.rnf eulaId
       `Prelude.seq` Prelude.rnf acceptedAt
       `Prelude.seq` Prelude.rnf acceptedBy
-      `Prelude.seq` Prelude.rnf eulaAcceptanceId

@@ -36,8 +36,8 @@ module Amazonka.MQ.ListUsers
     newListUsersResponse,
 
     -- * Response Lenses
-    listUsersResponse_users,
     listUsersResponse_nextToken,
+    listUsersResponse_users,
     listUsersResponse_brokerId,
     listUsersResponse_maxResults,
     listUsersResponse_httpStatus,
@@ -111,8 +111,8 @@ instance Core.AWSRequest ListUsers where
     Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> (x Core..?> "users" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "users" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "brokerId")
             Prelude.<*> (x Core..?> "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -155,12 +155,12 @@ instance Core.ToQuery ListUsers where
 
 -- | /See:/ 'newListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { -- | Required. The list of all ActiveMQ usernames for the specified broker.
-    -- Does not apply to RabbitMQ brokers.
-    users :: Prelude.Maybe [UserSummary],
-    -- | The token that specifies the next page of results Amazon MQ should
+  { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Required. The list of all ActiveMQ usernames for the specified broker.
+    -- Does not apply to RabbitMQ brokers.
+    users :: Prelude.Maybe [UserSummary],
     -- | Required. The unique ID that Amazon MQ generates for the broker.
     brokerId :: Prelude.Maybe Prelude.Text,
     -- | Required. The maximum number of ActiveMQ users that can be returned per
@@ -179,11 +179,11 @@ data ListUsersResponse = ListUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'users', 'listUsersResponse_users' - Required. The list of all ActiveMQ usernames for the specified broker.
--- Does not apply to RabbitMQ brokers.
---
 -- 'nextToken', 'listUsersResponse_nextToken' - The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
+--
+-- 'users', 'listUsersResponse_users' - Required. The list of all ActiveMQ usernames for the specified broker.
+-- Does not apply to RabbitMQ brokers.
 --
 -- 'brokerId', 'listUsersResponse_brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
 --
@@ -197,22 +197,22 @@ newListUsersResponse ::
   ListUsersResponse
 newListUsersResponse pHttpStatus_ =
   ListUsersResponse'
-    { users = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      users = Prelude.Nothing,
       brokerId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Required. The list of all ActiveMQ usernames for the specified broker.
--- Does not apply to RabbitMQ brokers.
-listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [UserSummary])
-listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
 listUsersResponse_nextToken :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
 listUsersResponse_nextToken = Lens.lens (\ListUsersResponse' {nextToken} -> nextToken) (\s@ListUsersResponse' {} a -> s {nextToken = a} :: ListUsersResponse)
+
+-- | Required. The list of all ActiveMQ usernames for the specified broker.
+-- Does not apply to RabbitMQ brokers.
+listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [UserSummary])
+listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Required. The unique ID that Amazon MQ generates for the broker.
 listUsersResponse_brokerId :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
@@ -229,8 +229,8 @@ listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListUsersResponse where
   rnf ListUsersResponse' {..} =
-    Prelude.rnf users
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf users
       `Prelude.seq` Prelude.rnf brokerId
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf httpStatus

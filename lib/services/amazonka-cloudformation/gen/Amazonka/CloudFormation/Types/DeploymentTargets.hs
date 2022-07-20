@@ -34,12 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentTargets' smart constructor.
 data DeploymentTargets = DeploymentTargets'
-  { -- | The names of one or more Amazon Web Services accounts for which you want
-    -- to deploy stack set updates.
-    accounts :: Prelude.Maybe [Prelude.Text],
-    -- | The organization root ID or organizational unit (OU) IDs to which
+  { -- | The organization root ID or organizational unit (OU) IDs to which
     -- StackSets deploys.
     organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
+    -- | The names of one or more Amazon Web Services accounts for which you want
+    -- to deploy stack set updates.
+    accounts :: Prelude.Maybe [Prelude.Text],
     -- | Returns the value of the @AccountsUrl@ property.
     accountsUrl :: Prelude.Maybe Prelude.Text
   }
@@ -53,31 +53,32 @@ data DeploymentTargets = DeploymentTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accounts', 'deploymentTargets_accounts' - The names of one or more Amazon Web Services accounts for which you want
--- to deploy stack set updates.
---
 -- 'organizationalUnitIds', 'deploymentTargets_organizationalUnitIds' - The organization root ID or organizational unit (OU) IDs to which
 -- StackSets deploys.
+--
+-- 'accounts', 'deploymentTargets_accounts' - The names of one or more Amazon Web Services accounts for which you want
+-- to deploy stack set updates.
 --
 -- 'accountsUrl', 'deploymentTargets_accountsUrl' - Returns the value of the @AccountsUrl@ property.
 newDeploymentTargets ::
   DeploymentTargets
 newDeploymentTargets =
   DeploymentTargets'
-    { accounts = Prelude.Nothing,
-      organizationalUnitIds = Prelude.Nothing,
+    { organizationalUnitIds =
+        Prelude.Nothing,
+      accounts = Prelude.Nothing,
       accountsUrl = Prelude.Nothing
     }
-
--- | The names of one or more Amazon Web Services accounts for which you want
--- to deploy stack set updates.
-deploymentTargets_accounts :: Lens.Lens' DeploymentTargets (Prelude.Maybe [Prelude.Text])
-deploymentTargets_accounts = Lens.lens (\DeploymentTargets' {accounts} -> accounts) (\s@DeploymentTargets' {} a -> s {accounts = a} :: DeploymentTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The organization root ID or organizational unit (OU) IDs to which
 -- StackSets deploys.
 deploymentTargets_organizationalUnitIds :: Lens.Lens' DeploymentTargets (Prelude.Maybe [Prelude.Text])
 deploymentTargets_organizationalUnitIds = Lens.lens (\DeploymentTargets' {organizationalUnitIds} -> organizationalUnitIds) (\s@DeploymentTargets' {} a -> s {organizationalUnitIds = a} :: DeploymentTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | The names of one or more Amazon Web Services accounts for which you want
+-- to deploy stack set updates.
+deploymentTargets_accounts :: Lens.Lens' DeploymentTargets (Prelude.Maybe [Prelude.Text])
+deploymentTargets_accounts = Lens.lens (\DeploymentTargets' {accounts} -> accounts) (\s@DeploymentTargets' {} a -> s {accounts = a} :: DeploymentTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns the value of the @AccountsUrl@ property.
 deploymentTargets_accountsUrl :: Lens.Lens' DeploymentTargets (Prelude.Maybe Prelude.Text)
@@ -86,37 +87,37 @@ deploymentTargets_accountsUrl = Lens.lens (\DeploymentTargets' {accountsUrl} -> 
 instance Core.FromXML DeploymentTargets where
   parseXML x =
     DeploymentTargets'
-      Prelude.<$> ( x Core..@? "Accounts" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "OrganizationalUnitIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "OrganizationalUnitIds"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "Accounts" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "AccountsUrl")
 
 instance Prelude.Hashable DeploymentTargets where
   hashWithSalt _salt DeploymentTargets' {..} =
-    _salt `Prelude.hashWithSalt` accounts
-      `Prelude.hashWithSalt` organizationalUnitIds
+    _salt `Prelude.hashWithSalt` organizationalUnitIds
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` accountsUrl
 
 instance Prelude.NFData DeploymentTargets where
   rnf DeploymentTargets' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf organizationalUnitIds
+    Prelude.rnf organizationalUnitIds
+      `Prelude.seq` Prelude.rnf accounts
       `Prelude.seq` Prelude.rnf accountsUrl
 
 instance Core.ToQuery DeploymentTargets where
   toQuery DeploymentTargets' {..} =
     Prelude.mconcat
-      [ "Accounts"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> accounts),
-        "OrganizationalUnitIds"
+      [ "OrganizationalUnitIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> organizationalUnitIds
             ),
+        "Accounts"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> accounts),
         "AccountsUrl" Core.=: accountsUrl
       ]

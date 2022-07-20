@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDuration' smart constructor.
 data Duration = Duration'
-  { -- | A number of time units.
-    value :: Prelude.Maybe Prelude.Natural,
-    -- | A unit of time.
-    unit :: Prelude.Maybe DurationUnit
+  { -- | A unit of time.
+    unit :: Prelude.Maybe DurationUnit,
+    -- | A number of time units.
+    value :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Duration = Duration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'duration_value' - A number of time units.
---
 -- 'unit', 'duration_unit' - A unit of time.
+--
+-- 'value', 'duration_value' - A number of time units.
 newDuration ::
   Duration
 newDuration =
   Duration'
-    { value = Prelude.Nothing,
-      unit = Prelude.Nothing
+    { unit = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | A number of time units.
-duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
-duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
 
 -- | A unit of time.
 duration_unit :: Lens.Lens' Duration (Prelude.Maybe DurationUnit)
 duration_unit = Lens.lens (\Duration' {unit} -> unit) (\s@Duration' {} a -> s {unit = a} :: Duration)
+
+-- | A number of time units.
+duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
+duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
 
 instance Core.FromJSON Duration where
   parseJSON =
@@ -68,23 +68,23 @@ instance Core.FromJSON Duration where
       "Duration"
       ( \x ->
           Duration'
-            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "unit")
+            Prelude.<$> (x Core..:? "unit") Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable Duration where
   hashWithSalt _salt Duration' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` unit
+    _salt `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Duration where
   rnf Duration' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf unit `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Duration where
   toJSON Duration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("unit" Core..=) Prelude.<$> unit
+          [ ("unit" Core..=) Prelude.<$> unit,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

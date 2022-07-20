@@ -28,8 +28,8 @@ module Amazonka.Neptune.DescribeEventCategories
     newDescribeEventCategories,
 
     -- * Request Lenses
-    describeEventCategories_sourceType,
     describeEventCategories_filters,
+    describeEventCategories_sourceType,
 
     -- * Destructuring the Response
     DescribeEventCategoriesResponse (..),
@@ -50,13 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
-  { -- | The type of source that is generating the events.
+  { -- | This parameter is not currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | The type of source that is generating the events.
     --
     -- Valid values: db-instance | db-parameter-group | db-security-group |
     -- db-snapshot
-    sourceType :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter]
+    sourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,20 +68,23 @@ data DescribeEventCategories = DescribeEventCategories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeEventCategories_filters' - This parameter is not currently supported.
+--
 -- 'sourceType', 'describeEventCategories_sourceType' - The type of source that is generating the events.
 --
 -- Valid values: db-instance | db-parameter-group | db-security-group |
 -- db-snapshot
---
--- 'filters', 'describeEventCategories_filters' - This parameter is not currently supported.
 newDescribeEventCategories ::
   DescribeEventCategories
 newDescribeEventCategories =
   DescribeEventCategories'
-    { sourceType =
-        Prelude.Nothing,
-      filters = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
+
+-- | This parameter is not currently supported.
+describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
+describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of source that is generating the events.
 --
@@ -89,10 +92,6 @@ newDescribeEventCategories =
 -- db-snapshot
 describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Prelude.Maybe Prelude.Text)
 describeEventCategories_sourceType = Lens.lens (\DescribeEventCategories' {sourceType} -> sourceType) (\s@DescribeEventCategories' {} a -> s {sourceType = a} :: DescribeEventCategories)
-
--- | This parameter is not currently supported.
-describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
-describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeEventCategories where
   type
@@ -113,13 +112,13 @@ instance Core.AWSRequest DescribeEventCategories where
 
 instance Prelude.Hashable DescribeEventCategories where
   hashWithSalt _salt DescribeEventCategories' {..} =
-    _salt `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` sourceType
 
 instance Prelude.NFData DescribeEventCategories where
   rnf DescribeEventCategories' {..} =
-    Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf sourceType
 
 instance Core.ToHeaders DescribeEventCategories where
   toHeaders = Prelude.const Prelude.mempty
@@ -134,10 +133,10 @@ instance Core.ToQuery DescribeEventCategories where
           Core.=: ("DescribeEventCategories" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "SourceType" Core.=: sourceType,
         "Filters"
           Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters)
+            (Core.toQueryList "Filter" Prelude.<$> filters),
+        "SourceType" Core.=: sourceType
       ]
 
 -- | /See:/ 'newDescribeEventCategoriesResponse' smart constructor.

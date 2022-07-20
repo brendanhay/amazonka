@@ -30,16 +30,16 @@ module Amazonka.Personalize.ListFilters
 
     -- * Request Lenses
     listFilters_nextToken,
-    listFilters_datasetGroupArn,
     listFilters_maxResults,
+    listFilters_datasetGroupArn,
 
     -- * Destructuring the Response
     ListFiltersResponse (..),
     newListFiltersResponse,
 
     -- * Response Lenses
-    listFiltersResponse_filters,
     listFiltersResponse_nextToken,
+    listFiltersResponse_filters,
     listFiltersResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ data ListFilters = ListFilters'
   { -- | A token returned from the previous call to @ListFilters@ for getting the
     -- next set of filters (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the dataset group that contains the filters.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of filters to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the dataset group that contains the filters.
+    datasetGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,16 +74,16 @@ data ListFilters = ListFilters'
 -- 'nextToken', 'listFilters_nextToken' - A token returned from the previous call to @ListFilters@ for getting the
 -- next set of filters (if they exist).
 --
--- 'datasetGroupArn', 'listFilters_datasetGroupArn' - The ARN of the dataset group that contains the filters.
---
 -- 'maxResults', 'listFilters_maxResults' - The maximum number of filters to return.
+--
+-- 'datasetGroupArn', 'listFilters_datasetGroupArn' - The ARN of the dataset group that contains the filters.
 newListFilters ::
   ListFilters
 newListFilters =
   ListFilters'
     { nextToken = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      datasetGroupArn = Prelude.Nothing
     }
 
 -- | A token returned from the previous call to @ListFilters@ for getting the
@@ -91,13 +91,13 @@ newListFilters =
 listFilters_nextToken :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Text)
 listFilters_nextToken = Lens.lens (\ListFilters' {nextToken} -> nextToken) (\s@ListFilters' {} a -> s {nextToken = a} :: ListFilters)
 
--- | The ARN of the dataset group that contains the filters.
-listFilters_datasetGroupArn :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Text)
-listFilters_datasetGroupArn = Lens.lens (\ListFilters' {datasetGroupArn} -> datasetGroupArn) (\s@ListFilters' {} a -> s {datasetGroupArn = a} :: ListFilters)
-
 -- | The maximum number of filters to return.
 listFilters_maxResults :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Natural)
 listFilters_maxResults = Lens.lens (\ListFilters' {maxResults} -> maxResults) (\s@ListFilters' {} a -> s {maxResults = a} :: ListFilters)
+
+-- | The ARN of the dataset group that contains the filters.
+listFilters_datasetGroupArn :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Text)
+listFilters_datasetGroupArn = Lens.lens (\ListFilters' {datasetGroupArn} -> datasetGroupArn) (\s@ListFilters' {} a -> s {datasetGroupArn = a} :: ListFilters)
 
 instance Core.AWSPager ListFilters where
   page rq rs
@@ -125,22 +125,22 @@ instance Core.AWSRequest ListFilters where
     Response.receiveJSON
       ( \s h x ->
           ListFiltersResponse'
-            Prelude.<$> (x Core..?> "Filters" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "Filters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFilters where
   hashWithSalt _salt ListFilters' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` datasetGroupArn
 
 instance Prelude.NFData ListFilters where
   rnf ListFilters' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf datasetGroupArn
 
 instance Core.ToHeaders ListFilters where
   toHeaders =
@@ -162,9 +162,9 @@ instance Core.ToJSON ListFilters where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("datasetGroupArn" Core..=)
-              Prelude.<$> datasetGroupArn,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+              Prelude.<$> datasetGroupArn
           ]
       )
 
@@ -176,10 +176,10 @@ instance Core.ToQuery ListFilters where
 
 -- | /See:/ 'newListFiltersResponse' smart constructor.
 data ListFiltersResponse = ListFiltersResponse'
-  { -- | A list of returned filters.
-    filters :: Prelude.Maybe [FilterSummary],
-    -- | A token for getting the next set of filters (if they exist).
+  { -- | A token for getting the next set of filters (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of returned filters.
+    filters :: Prelude.Maybe [FilterSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data ListFiltersResponse = ListFiltersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listFiltersResponse_filters' - A list of returned filters.
---
 -- 'nextToken', 'listFiltersResponse_nextToken' - A token for getting the next set of filters (if they exist).
+--
+-- 'filters', 'listFiltersResponse_filters' - A list of returned filters.
 --
 -- 'httpStatus', 'listFiltersResponse_httpStatus' - The response's http status code.
 newListFiltersResponse ::
@@ -204,18 +204,18 @@ newListFiltersResponse ::
   ListFiltersResponse
 newListFiltersResponse pHttpStatus_ =
   ListFiltersResponse'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of returned filters.
-listFiltersResponse_filters :: Lens.Lens' ListFiltersResponse (Prelude.Maybe [FilterSummary])
-listFiltersResponse_filters = Lens.lens (\ListFiltersResponse' {filters} -> filters) (\s@ListFiltersResponse' {} a -> s {filters = a} :: ListFiltersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token for getting the next set of filters (if they exist).
 listFiltersResponse_nextToken :: Lens.Lens' ListFiltersResponse (Prelude.Maybe Prelude.Text)
 listFiltersResponse_nextToken = Lens.lens (\ListFiltersResponse' {nextToken} -> nextToken) (\s@ListFiltersResponse' {} a -> s {nextToken = a} :: ListFiltersResponse)
+
+-- | A list of returned filters.
+listFiltersResponse_filters :: Lens.Lens' ListFiltersResponse (Prelude.Maybe [FilterSummary])
+listFiltersResponse_filters = Lens.lens (\ListFiltersResponse' {filters} -> filters) (\s@ListFiltersResponse' {} a -> s {filters = a} :: ListFiltersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFiltersResponse_httpStatus :: Lens.Lens' ListFiltersResponse Prelude.Int
@@ -223,6 +223,6 @@ listFiltersResponse_httpStatus = Lens.lens (\ListFiltersResponse' {httpStatus} -
 
 instance Prelude.NFData ListFiltersResponse where
   rnf ListFiltersResponse' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf httpStatus

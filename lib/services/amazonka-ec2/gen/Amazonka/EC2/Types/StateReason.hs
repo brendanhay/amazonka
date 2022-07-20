@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStateReason' smart constructor.
 data StateReason = StateReason'
-  { -- | The reason code for the state change.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The message for the state change.
+  { -- | The message for the state change.
     --
     -- -   @Server.InsufficientInstanceCapacity@: There was insufficient
     --     capacity available to satisfy the launch request.
@@ -72,7 +70,9 @@ data StateReason = StateReason'
     -- -   @Client.VolumeLimitExceeded@: The limit on the number of EBS volumes
     --     or total storage was exceeded. Decrease usage or request an increase
     --     in your account limits.
-    message :: Prelude.Maybe Prelude.Text
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The reason code for the state change.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,8 +83,6 @@ data StateReason = StateReason'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'code', 'stateReason_code' - The reason code for the state change.
 --
 -- 'message', 'stateReason_message' - The message for the state change.
 --
@@ -128,17 +126,15 @@ data StateReason = StateReason'
 -- -   @Client.VolumeLimitExceeded@: The limit on the number of EBS volumes
 --     or total storage was exceeded. Decrease usage or request an increase
 --     in your account limits.
+--
+-- 'code', 'stateReason_code' - The reason code for the state change.
 newStateReason ::
   StateReason
 newStateReason =
   StateReason'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The reason code for the state change.
-stateReason_code :: Lens.Lens' StateReason (Prelude.Maybe Prelude.Text)
-stateReason_code = Lens.lens (\StateReason' {code} -> code) (\s@StateReason' {} a -> s {code = a} :: StateReason)
 
 -- | The message for the state change.
 --
@@ -185,17 +181,21 @@ stateReason_code = Lens.lens (\StateReason' {code} -> code) (\s@StateReason' {} 
 stateReason_message :: Lens.Lens' StateReason (Prelude.Maybe Prelude.Text)
 stateReason_message = Lens.lens (\StateReason' {message} -> message) (\s@StateReason' {} a -> s {message = a} :: StateReason)
 
+-- | The reason code for the state change.
+stateReason_code :: Lens.Lens' StateReason (Prelude.Maybe Prelude.Text)
+stateReason_code = Lens.lens (\StateReason' {code} -> code) (\s@StateReason' {} a -> s {code = a} :: StateReason)
+
 instance Core.FromXML StateReason where
   parseXML x =
     StateReason'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance Prelude.Hashable StateReason where
   hashWithSalt _salt StateReason' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData StateReason where
   rnf StateReason' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

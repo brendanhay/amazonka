@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 data ReportDefinition = ReportDefinition'
   { -- | Timestamp (milliseconds) when this report definition was last updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | Timestamp (milliseconds) when this report definition was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the report.
-    reportId :: Prelude.Maybe Prelude.Text,
-    -- | The format used for the generated reports.
-    format :: Prelude.Maybe Format,
+    -- | The location in Amazon Simple Storage Service (Amazon S3) the reports
+    -- should be saved to.
+    destinationS3Location :: Prelude.Maybe S3Location,
     -- | The cadence at which the report is generated.
     reportFrequency :: Prelude.Maybe ReportFrequency,
     -- | Description of the report
     reportDescription :: Prelude.Maybe Prelude.Text,
-    -- | The location in Amazon Simple Storage Service (Amazon S3) the reports
-    -- should be saved to.
-    destinationS3Location :: Prelude.Maybe S3Location
+    -- | The format used for the generated reports.
+    format :: Prelude.Maybe Format,
+    -- | The ID of the report.
+    reportId :: Prelude.Maybe Prelude.Text,
+    -- | Timestamp (milliseconds) when this report definition was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,46 +58,39 @@ data ReportDefinition = ReportDefinition'
 --
 -- 'lastUpdatedAt', 'reportDefinition_lastUpdatedAt' - Timestamp (milliseconds) when this report definition was last updated.
 --
--- 'createdAt', 'reportDefinition_createdAt' - Timestamp (milliseconds) when this report definition was created.
---
--- 'reportId', 'reportDefinition_reportId' - The ID of the report.
---
--- 'format', 'reportDefinition_format' - The format used for the generated reports.
+-- 'destinationS3Location', 'reportDefinition_destinationS3Location' - The location in Amazon Simple Storage Service (Amazon S3) the reports
+-- should be saved to.
 --
 -- 'reportFrequency', 'reportDefinition_reportFrequency' - The cadence at which the report is generated.
 --
 -- 'reportDescription', 'reportDefinition_reportDescription' - Description of the report
 --
--- 'destinationS3Location', 'reportDefinition_destinationS3Location' - The location in Amazon Simple Storage Service (Amazon S3) the reports
--- should be saved to.
+-- 'format', 'reportDefinition_format' - The format used for the generated reports.
+--
+-- 'reportId', 'reportDefinition_reportId' - The ID of the report.
+--
+-- 'createdAt', 'reportDefinition_createdAt' - Timestamp (milliseconds) when this report definition was created.
 newReportDefinition ::
   ReportDefinition
 newReportDefinition =
   ReportDefinition'
     { lastUpdatedAt = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      reportId = Prelude.Nothing,
-      format = Prelude.Nothing,
+      destinationS3Location = Prelude.Nothing,
       reportFrequency = Prelude.Nothing,
       reportDescription = Prelude.Nothing,
-      destinationS3Location = Prelude.Nothing
+      format = Prelude.Nothing,
+      reportId = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
 
 -- | Timestamp (milliseconds) when this report definition was last updated.
 reportDefinition_lastUpdatedAt :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.UTCTime)
 reportDefinition_lastUpdatedAt = Lens.lens (\ReportDefinition' {lastUpdatedAt} -> lastUpdatedAt) (\s@ReportDefinition' {} a -> s {lastUpdatedAt = a} :: ReportDefinition) Prelude.. Lens.mapping Core._Time
 
--- | Timestamp (milliseconds) when this report definition was created.
-reportDefinition_createdAt :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.UTCTime)
-reportDefinition_createdAt = Lens.lens (\ReportDefinition' {createdAt} -> createdAt) (\s@ReportDefinition' {} a -> s {createdAt = a} :: ReportDefinition) Prelude.. Lens.mapping Core._Time
-
--- | The ID of the report.
-reportDefinition_reportId :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.Text)
-reportDefinition_reportId = Lens.lens (\ReportDefinition' {reportId} -> reportId) (\s@ReportDefinition' {} a -> s {reportId = a} :: ReportDefinition)
-
--- | The format used for the generated reports.
-reportDefinition_format :: Lens.Lens' ReportDefinition (Prelude.Maybe Format)
-reportDefinition_format = Lens.lens (\ReportDefinition' {format} -> format) (\s@ReportDefinition' {} a -> s {format = a} :: ReportDefinition)
+-- | The location in Amazon Simple Storage Service (Amazon S3) the reports
+-- should be saved to.
+reportDefinition_destinationS3Location :: Lens.Lens' ReportDefinition (Prelude.Maybe S3Location)
+reportDefinition_destinationS3Location = Lens.lens (\ReportDefinition' {destinationS3Location} -> destinationS3Location) (\s@ReportDefinition' {} a -> s {destinationS3Location = a} :: ReportDefinition)
 
 -- | The cadence at which the report is generated.
 reportDefinition_reportFrequency :: Lens.Lens' ReportDefinition (Prelude.Maybe ReportFrequency)
@@ -107,10 +100,17 @@ reportDefinition_reportFrequency = Lens.lens (\ReportDefinition' {reportFrequenc
 reportDefinition_reportDescription :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.Text)
 reportDefinition_reportDescription = Lens.lens (\ReportDefinition' {reportDescription} -> reportDescription) (\s@ReportDefinition' {} a -> s {reportDescription = a} :: ReportDefinition)
 
--- | The location in Amazon Simple Storage Service (Amazon S3) the reports
--- should be saved to.
-reportDefinition_destinationS3Location :: Lens.Lens' ReportDefinition (Prelude.Maybe S3Location)
-reportDefinition_destinationS3Location = Lens.lens (\ReportDefinition' {destinationS3Location} -> destinationS3Location) (\s@ReportDefinition' {} a -> s {destinationS3Location = a} :: ReportDefinition)
+-- | The format used for the generated reports.
+reportDefinition_format :: Lens.Lens' ReportDefinition (Prelude.Maybe Format)
+reportDefinition_format = Lens.lens (\ReportDefinition' {format} -> format) (\s@ReportDefinition' {} a -> s {format = a} :: ReportDefinition)
+
+-- | The ID of the report.
+reportDefinition_reportId :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.Text)
+reportDefinition_reportId = Lens.lens (\ReportDefinition' {reportId} -> reportId) (\s@ReportDefinition' {} a -> s {reportId = a} :: ReportDefinition)
+
+-- | Timestamp (milliseconds) when this report definition was created.
+reportDefinition_createdAt :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.UTCTime)
+reportDefinition_createdAt = Lens.lens (\ReportDefinition' {createdAt} -> createdAt) (\s@ReportDefinition' {} a -> s {createdAt = a} :: ReportDefinition) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ReportDefinition where
   parseJSON =
@@ -119,30 +119,30 @@ instance Core.FromJSON ReportDefinition where
       ( \x ->
           ReportDefinition'
             Prelude.<$> (x Core..:? "lastUpdatedAt")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "reportId")
-            Prelude.<*> (x Core..:? "format")
+            Prelude.<*> (x Core..:? "destinationS3Location")
             Prelude.<*> (x Core..:? "reportFrequency")
             Prelude.<*> (x Core..:? "reportDescription")
-            Prelude.<*> (x Core..:? "destinationS3Location")
+            Prelude.<*> (x Core..:? "format")
+            Prelude.<*> (x Core..:? "reportId")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable ReportDefinition where
   hashWithSalt _salt ReportDefinition' {..} =
     _salt `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` reportId
-      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` destinationS3Location
       `Prelude.hashWithSalt` reportFrequency
       `Prelude.hashWithSalt` reportDescription
-      `Prelude.hashWithSalt` destinationS3Location
+      `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` reportId
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData ReportDefinition where
   rnf ReportDefinition' {..} =
     Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf destinationS3Location
       `Prelude.seq` Prelude.rnf reportFrequency
       `Prelude.seq` Prelude.rnf reportDescription
-      `Prelude.seq` Prelude.rnf destinationS3Location
+      `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf reportId
+      `Prelude.seq` Prelude.rnf createdAt

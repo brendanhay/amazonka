@@ -31,36 +31,30 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInsightRuleMetricDatapoint' smart constructor.
 data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
-  { -- | The maximum value provided by one contributor during this timestamp.
+  { -- | The minimum value from a single contributor during the time period
+    -- represented by that data point.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@
+    -- array in your request.
+    minimum :: Prelude.Maybe Prelude.Double,
+    -- | The maximum value provided by one contributor during this timestamp.
     -- Each timestamp is evaluated separately, so the identity of the max
     -- contributor could be different for each timestamp.
     --
     -- This statistic is returned only if you included it in the @Metrics@
     -- array in your request.
     maxContributorValue :: Prelude.Maybe Prelude.Double,
-    -- | The number of occurrences that matched the rule during this data point.
-    --
-    -- This statistic is returned only if you included it in the @Metrics@
-    -- array in your request.
-    sampleCount :: Prelude.Maybe Prelude.Double,
-    -- | The maximum value from a single occurence from a single contributor
-    -- during the time period represented by that data point.
-    --
-    -- This statistic is returned only if you included it in the @Metrics@
-    -- array in your request.
-    maximum :: Prelude.Maybe Prelude.Double,
     -- | The average value from all contributors during the time period
     -- represented by that data point.
     --
     -- This statistic is returned only if you included it in the @Metrics@
     -- array in your request.
     average :: Prelude.Maybe Prelude.Double,
-    -- | The minimum value from a single contributor during the time period
-    -- represented by that data point.
+    -- | The number of occurrences that matched the rule during this data point.
     --
     -- This statistic is returned only if you included it in the @Metrics@
     -- array in your request.
-    minimum :: Prelude.Maybe Prelude.Double,
+    sampleCount :: Prelude.Maybe Prelude.Double,
     -- | The number of unique contributors who published data during this
     -- timestamp.
     --
@@ -73,6 +67,12 @@ data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
     -- This statistic is returned only if you included it in the @Metrics@
     -- array in your request.
     sum :: Prelude.Maybe Prelude.Double,
+    -- | The maximum value from a single occurence from a single contributor
+    -- during the time period represented by that data point.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@
+    -- array in your request.
+    maximum :: Prelude.Maybe Prelude.Double,
     -- | The timestamp of the data point.
     timestamp :: Core.ISO8601
   }
@@ -86,20 +86,15 @@ data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'minimum', 'insightRuleMetricDatapoint_minimum' - The minimum value from a single contributor during the time period
+-- represented by that data point.
+--
+-- This statistic is returned only if you included it in the @Metrics@
+-- array in your request.
+--
 -- 'maxContributorValue', 'insightRuleMetricDatapoint_maxContributorValue' - The maximum value provided by one contributor during this timestamp.
 -- Each timestamp is evaluated separately, so the identity of the max
 -- contributor could be different for each timestamp.
---
--- This statistic is returned only if you included it in the @Metrics@
--- array in your request.
---
--- 'sampleCount', 'insightRuleMetricDatapoint_sampleCount' - The number of occurrences that matched the rule during this data point.
---
--- This statistic is returned only if you included it in the @Metrics@
--- array in your request.
---
--- 'maximum', 'insightRuleMetricDatapoint_maximum' - The maximum value from a single occurence from a single contributor
--- during the time period represented by that data point.
 --
 -- This statistic is returned only if you included it in the @Metrics@
 -- array in your request.
@@ -110,8 +105,7 @@ data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
 -- This statistic is returned only if you included it in the @Metrics@
 -- array in your request.
 --
--- 'minimum', 'insightRuleMetricDatapoint_minimum' - The minimum value from a single contributor during the time period
--- represented by that data point.
+-- 'sampleCount', 'insightRuleMetricDatapoint_sampleCount' - The number of occurrences that matched the rule during this data point.
 --
 -- This statistic is returned only if you included it in the @Metrics@
 -- array in your request.
@@ -128,6 +122,12 @@ data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
 -- This statistic is returned only if you included it in the @Metrics@
 -- array in your request.
 --
+-- 'maximum', 'insightRuleMetricDatapoint_maximum' - The maximum value from a single occurence from a single contributor
+-- during the time period represented by that data point.
+--
+-- This statistic is returned only if you included it in the @Metrics@
+-- array in your request.
+--
 -- 'timestamp', 'insightRuleMetricDatapoint_timestamp' - The timestamp of the data point.
 newInsightRuleMetricDatapoint ::
   -- | 'timestamp'
@@ -135,16 +135,24 @@ newInsightRuleMetricDatapoint ::
   InsightRuleMetricDatapoint
 newInsightRuleMetricDatapoint pTimestamp_ =
   InsightRuleMetricDatapoint'
-    { maxContributorValue =
+    { minimum =
         Prelude.Nothing,
-      sampleCount = Prelude.Nothing,
-      maximum = Prelude.Nothing,
+      maxContributorValue = Prelude.Nothing,
       average = Prelude.Nothing,
-      minimum = Prelude.Nothing,
+      sampleCount = Prelude.Nothing,
       uniqueContributors = Prelude.Nothing,
       sum = Prelude.Nothing,
+      maximum = Prelude.Nothing,
       timestamp = Core._Time Lens.# pTimestamp_
     }
+
+-- | The minimum value from a single contributor during the time period
+-- represented by that data point.
+--
+-- This statistic is returned only if you included it in the @Metrics@
+-- array in your request.
+insightRuleMetricDatapoint_minimum :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
+insightRuleMetricDatapoint_minimum = Lens.lens (\InsightRuleMetricDatapoint' {minimum} -> minimum) (\s@InsightRuleMetricDatapoint' {} a -> s {minimum = a} :: InsightRuleMetricDatapoint)
 
 -- | The maximum value provided by one contributor during this timestamp.
 -- Each timestamp is evaluated separately, so the identity of the max
@@ -155,21 +163,6 @@ newInsightRuleMetricDatapoint pTimestamp_ =
 insightRuleMetricDatapoint_maxContributorValue :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
 insightRuleMetricDatapoint_maxContributorValue = Lens.lens (\InsightRuleMetricDatapoint' {maxContributorValue} -> maxContributorValue) (\s@InsightRuleMetricDatapoint' {} a -> s {maxContributorValue = a} :: InsightRuleMetricDatapoint)
 
--- | The number of occurrences that matched the rule during this data point.
---
--- This statistic is returned only if you included it in the @Metrics@
--- array in your request.
-insightRuleMetricDatapoint_sampleCount :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
-insightRuleMetricDatapoint_sampleCount = Lens.lens (\InsightRuleMetricDatapoint' {sampleCount} -> sampleCount) (\s@InsightRuleMetricDatapoint' {} a -> s {sampleCount = a} :: InsightRuleMetricDatapoint)
-
--- | The maximum value from a single occurence from a single contributor
--- during the time period represented by that data point.
---
--- This statistic is returned only if you included it in the @Metrics@
--- array in your request.
-insightRuleMetricDatapoint_maximum :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
-insightRuleMetricDatapoint_maximum = Lens.lens (\InsightRuleMetricDatapoint' {maximum} -> maximum) (\s@InsightRuleMetricDatapoint' {} a -> s {maximum = a} :: InsightRuleMetricDatapoint)
-
 -- | The average value from all contributors during the time period
 -- represented by that data point.
 --
@@ -178,13 +171,12 @@ insightRuleMetricDatapoint_maximum = Lens.lens (\InsightRuleMetricDatapoint' {ma
 insightRuleMetricDatapoint_average :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
 insightRuleMetricDatapoint_average = Lens.lens (\InsightRuleMetricDatapoint' {average} -> average) (\s@InsightRuleMetricDatapoint' {} a -> s {average = a} :: InsightRuleMetricDatapoint)
 
--- | The minimum value from a single contributor during the time period
--- represented by that data point.
+-- | The number of occurrences that matched the rule during this data point.
 --
 -- This statistic is returned only if you included it in the @Metrics@
 -- array in your request.
-insightRuleMetricDatapoint_minimum :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
-insightRuleMetricDatapoint_minimum = Lens.lens (\InsightRuleMetricDatapoint' {minimum} -> minimum) (\s@InsightRuleMetricDatapoint' {} a -> s {minimum = a} :: InsightRuleMetricDatapoint)
+insightRuleMetricDatapoint_sampleCount :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
+insightRuleMetricDatapoint_sampleCount = Lens.lens (\InsightRuleMetricDatapoint' {sampleCount} -> sampleCount) (\s@InsightRuleMetricDatapoint' {} a -> s {sampleCount = a} :: InsightRuleMetricDatapoint)
 
 -- | The number of unique contributors who published data during this
 -- timestamp.
@@ -202,6 +194,14 @@ insightRuleMetricDatapoint_uniqueContributors = Lens.lens (\InsightRuleMetricDat
 insightRuleMetricDatapoint_sum :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
 insightRuleMetricDatapoint_sum = Lens.lens (\InsightRuleMetricDatapoint' {sum} -> sum) (\s@InsightRuleMetricDatapoint' {} a -> s {sum = a} :: InsightRuleMetricDatapoint)
 
+-- | The maximum value from a single occurence from a single contributor
+-- during the time period represented by that data point.
+--
+-- This statistic is returned only if you included it in the @Metrics@
+-- array in your request.
+insightRuleMetricDatapoint_maximum :: Lens.Lens' InsightRuleMetricDatapoint (Prelude.Maybe Prelude.Double)
+insightRuleMetricDatapoint_maximum = Lens.lens (\InsightRuleMetricDatapoint' {maximum} -> maximum) (\s@InsightRuleMetricDatapoint' {} a -> s {maximum = a} :: InsightRuleMetricDatapoint)
+
 -- | The timestamp of the data point.
 insightRuleMetricDatapoint_timestamp :: Lens.Lens' InsightRuleMetricDatapoint Prelude.UTCTime
 insightRuleMetricDatapoint_timestamp = Lens.lens (\InsightRuleMetricDatapoint' {timestamp} -> timestamp) (\s@InsightRuleMetricDatapoint' {} a -> s {timestamp = a} :: InsightRuleMetricDatapoint) Prelude.. Core._Time
@@ -209,33 +209,33 @@ insightRuleMetricDatapoint_timestamp = Lens.lens (\InsightRuleMetricDatapoint' {
 instance Core.FromXML InsightRuleMetricDatapoint where
   parseXML x =
     InsightRuleMetricDatapoint'
-      Prelude.<$> (x Core..@? "MaxContributorValue")
-      Prelude.<*> (x Core..@? "SampleCount")
-      Prelude.<*> (x Core..@? "Maximum")
+      Prelude.<$> (x Core..@? "Minimum")
+      Prelude.<*> (x Core..@? "MaxContributorValue")
       Prelude.<*> (x Core..@? "Average")
-      Prelude.<*> (x Core..@? "Minimum")
+      Prelude.<*> (x Core..@? "SampleCount")
       Prelude.<*> (x Core..@? "UniqueContributors")
       Prelude.<*> (x Core..@? "Sum")
+      Prelude.<*> (x Core..@? "Maximum")
       Prelude.<*> (x Core..@ "Timestamp")
 
 instance Prelude.Hashable InsightRuleMetricDatapoint where
   hashWithSalt _salt InsightRuleMetricDatapoint' {..} =
-    _salt `Prelude.hashWithSalt` maxContributorValue
-      `Prelude.hashWithSalt` sampleCount
-      `Prelude.hashWithSalt` maximum
+    _salt `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` maxContributorValue
       `Prelude.hashWithSalt` average
-      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` sampleCount
       `Prelude.hashWithSalt` uniqueContributors
       `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData InsightRuleMetricDatapoint where
   rnf InsightRuleMetricDatapoint' {..} =
-    Prelude.rnf maxContributorValue
-      `Prelude.seq` Prelude.rnf sampleCount
-      `Prelude.seq` Prelude.rnf maximum
+    Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf maxContributorValue
       `Prelude.seq` Prelude.rnf average
-      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf sampleCount
       `Prelude.seq` Prelude.rnf uniqueContributors
       `Prelude.seq` Prelude.rnf sum
+      `Prelude.seq` Prelude.rnf maximum
       `Prelude.seq` Prelude.rnf timestamp

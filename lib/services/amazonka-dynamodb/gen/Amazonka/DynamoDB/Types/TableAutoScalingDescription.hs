@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableAutoScalingDescription' smart constructor.
 data TableAutoScalingDescription = TableAutoScalingDescription'
-  { -- | The current state of the table:
+  { -- | The name of the table.
+    tableName :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the table:
     --
     -- -   @CREATING@ - The table is being created.
     --
@@ -41,9 +43,7 @@ data TableAutoScalingDescription = TableAutoScalingDescription'
     -- -   @ACTIVE@ - The table is ready for use.
     tableStatus :: Prelude.Maybe TableStatus,
     -- | Represents replicas of the global table.
-    replicas :: Prelude.Maybe [ReplicaAutoScalingDescription],
-    -- | The name of the table.
-    tableName :: Prelude.Maybe Prelude.Text
+    replicas :: Prelude.Maybe [ReplicaAutoScalingDescription]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,8 @@ data TableAutoScalingDescription = TableAutoScalingDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tableName', 'tableAutoScalingDescription_tableName' - The name of the table.
 --
 -- 'tableStatus', 'tableAutoScalingDescription_tableStatus' - The current state of the table:
 --
@@ -66,17 +68,19 @@ data TableAutoScalingDescription = TableAutoScalingDescription'
 -- -   @ACTIVE@ - The table is ready for use.
 --
 -- 'replicas', 'tableAutoScalingDescription_replicas' - Represents replicas of the global table.
---
--- 'tableName', 'tableAutoScalingDescription_tableName' - The name of the table.
 newTableAutoScalingDescription ::
   TableAutoScalingDescription
 newTableAutoScalingDescription =
   TableAutoScalingDescription'
-    { tableStatus =
+    { tableName =
         Prelude.Nothing,
-      replicas = Prelude.Nothing,
-      tableName = Prelude.Nothing
+      tableStatus = Prelude.Nothing,
+      replicas = Prelude.Nothing
     }
+
+-- | The name of the table.
+tableAutoScalingDescription_tableName :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe Prelude.Text)
+tableAutoScalingDescription_tableName = Lens.lens (\TableAutoScalingDescription' {tableName} -> tableName) (\s@TableAutoScalingDescription' {} a -> s {tableName = a} :: TableAutoScalingDescription)
 
 -- | The current state of the table:
 --
@@ -94,29 +98,25 @@ tableAutoScalingDescription_tableStatus = Lens.lens (\TableAutoScalingDescriptio
 tableAutoScalingDescription_replicas :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe [ReplicaAutoScalingDescription])
 tableAutoScalingDescription_replicas = Lens.lens (\TableAutoScalingDescription' {replicas} -> replicas) (\s@TableAutoScalingDescription' {} a -> s {replicas = a} :: TableAutoScalingDescription) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the table.
-tableAutoScalingDescription_tableName :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe Prelude.Text)
-tableAutoScalingDescription_tableName = Lens.lens (\TableAutoScalingDescription' {tableName} -> tableName) (\s@TableAutoScalingDescription' {} a -> s {tableName = a} :: TableAutoScalingDescription)
-
 instance Core.FromJSON TableAutoScalingDescription where
   parseJSON =
     Core.withObject
       "TableAutoScalingDescription"
       ( \x ->
           TableAutoScalingDescription'
-            Prelude.<$> (x Core..:? "TableStatus")
+            Prelude.<$> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "TableStatus")
             Prelude.<*> (x Core..:? "Replicas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TableName")
       )
 
 instance Prelude.Hashable TableAutoScalingDescription where
   hashWithSalt _salt TableAutoScalingDescription' {..} =
-    _salt `Prelude.hashWithSalt` tableStatus
+    _salt `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` tableStatus
       `Prelude.hashWithSalt` replicas
-      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData TableAutoScalingDescription where
   rnf TableAutoScalingDescription' {..} =
-    Prelude.rnf tableStatus
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf tableStatus
       `Prelude.seq` Prelude.rnf replicas
-      `Prelude.seq` Prelude.rnf tableName

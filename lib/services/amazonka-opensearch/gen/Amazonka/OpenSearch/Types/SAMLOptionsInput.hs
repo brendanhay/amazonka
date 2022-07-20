@@ -33,16 +33,16 @@ data SAMLOptionsInput = SAMLOptionsInput'
     masterUserName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | True if SAML is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The SAML Identity Provider\'s information.
-    idp :: Prelude.Maybe SAMLIdp,
+    -- | The duration, in minutes, after which a user session becomes inactive.
+    -- Acceptable values are between 1 and 1440, and the default value is 60.
+    sessionTimeoutMinutes :: Prelude.Maybe Prelude.Int,
     -- | Element of the SAML assertion to use for backend roles. Default is
     -- roles.
     rolesKey :: Prelude.Maybe Prelude.Text,
     -- | The backend role that the SAML master user is mapped to.
     masterBackendRole :: Prelude.Maybe Prelude.Text,
-    -- | The duration, in minutes, after which a user session becomes inactive.
-    -- Acceptable values are between 1 and 1440, and the default value is 60.
-    sessionTimeoutMinutes :: Prelude.Maybe Prelude.Int,
+    -- | The SAML Identity Provider\'s information.
+    idp :: Prelude.Maybe SAMLIdp,
     -- | Element of the SAML assertion to use for username. Default is NameID.
     subjectKey :: Prelude.Maybe Prelude.Text
   }
@@ -61,15 +61,15 @@ data SAMLOptionsInput = SAMLOptionsInput'
 --
 -- 'enabled', 'sAMLOptionsInput_enabled' - True if SAML is enabled.
 --
--- 'idp', 'sAMLOptionsInput_idp' - The SAML Identity Provider\'s information.
+-- 'sessionTimeoutMinutes', 'sAMLOptionsInput_sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive.
+-- Acceptable values are between 1 and 1440, and the default value is 60.
 --
 -- 'rolesKey', 'sAMLOptionsInput_rolesKey' - Element of the SAML assertion to use for backend roles. Default is
 -- roles.
 --
 -- 'masterBackendRole', 'sAMLOptionsInput_masterBackendRole' - The backend role that the SAML master user is mapped to.
 --
--- 'sessionTimeoutMinutes', 'sAMLOptionsInput_sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive.
--- Acceptable values are between 1 and 1440, and the default value is 60.
+-- 'idp', 'sAMLOptionsInput_idp' - The SAML Identity Provider\'s information.
 --
 -- 'subjectKey', 'sAMLOptionsInput_subjectKey' - Element of the SAML assertion to use for username. Default is NameID.
 newSAMLOptionsInput ::
@@ -78,10 +78,10 @@ newSAMLOptionsInput =
   SAMLOptionsInput'
     { masterUserName = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      idp = Prelude.Nothing,
+      sessionTimeoutMinutes = Prelude.Nothing,
       rolesKey = Prelude.Nothing,
       masterBackendRole = Prelude.Nothing,
-      sessionTimeoutMinutes = Prelude.Nothing,
+      idp = Prelude.Nothing,
       subjectKey = Prelude.Nothing
     }
 
@@ -94,9 +94,10 @@ sAMLOptionsInput_masterUserName = Lens.lens (\SAMLOptionsInput' {masterUserName}
 sAMLOptionsInput_enabled :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Bool)
 sAMLOptionsInput_enabled = Lens.lens (\SAMLOptionsInput' {enabled} -> enabled) (\s@SAMLOptionsInput' {} a -> s {enabled = a} :: SAMLOptionsInput)
 
--- | The SAML Identity Provider\'s information.
-sAMLOptionsInput_idp :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe SAMLIdp)
-sAMLOptionsInput_idp = Lens.lens (\SAMLOptionsInput' {idp} -> idp) (\s@SAMLOptionsInput' {} a -> s {idp = a} :: SAMLOptionsInput)
+-- | The duration, in minutes, after which a user session becomes inactive.
+-- Acceptable values are between 1 and 1440, and the default value is 60.
+sAMLOptionsInput_sessionTimeoutMinutes :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Int)
+sAMLOptionsInput_sessionTimeoutMinutes = Lens.lens (\SAMLOptionsInput' {sessionTimeoutMinutes} -> sessionTimeoutMinutes) (\s@SAMLOptionsInput' {} a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsInput)
 
 -- | Element of the SAML assertion to use for backend roles. Default is
 -- roles.
@@ -107,10 +108,9 @@ sAMLOptionsInput_rolesKey = Lens.lens (\SAMLOptionsInput' {rolesKey} -> rolesKey
 sAMLOptionsInput_masterBackendRole :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Text)
 sAMLOptionsInput_masterBackendRole = Lens.lens (\SAMLOptionsInput' {masterBackendRole} -> masterBackendRole) (\s@SAMLOptionsInput' {} a -> s {masterBackendRole = a} :: SAMLOptionsInput)
 
--- | The duration, in minutes, after which a user session becomes inactive.
--- Acceptable values are between 1 and 1440, and the default value is 60.
-sAMLOptionsInput_sessionTimeoutMinutes :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Int)
-sAMLOptionsInput_sessionTimeoutMinutes = Lens.lens (\SAMLOptionsInput' {sessionTimeoutMinutes} -> sessionTimeoutMinutes) (\s@SAMLOptionsInput' {} a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsInput)
+-- | The SAML Identity Provider\'s information.
+sAMLOptionsInput_idp :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe SAMLIdp)
+sAMLOptionsInput_idp = Lens.lens (\SAMLOptionsInput' {idp} -> idp) (\s@SAMLOptionsInput' {} a -> s {idp = a} :: SAMLOptionsInput)
 
 -- | Element of the SAML assertion to use for username. Default is NameID.
 sAMLOptionsInput_subjectKey :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Text)
@@ -120,20 +120,20 @@ instance Prelude.Hashable SAMLOptionsInput where
   hashWithSalt _salt SAMLOptionsInput' {..} =
     _salt `Prelude.hashWithSalt` masterUserName
       `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` idp
+      `Prelude.hashWithSalt` sessionTimeoutMinutes
       `Prelude.hashWithSalt` rolesKey
       `Prelude.hashWithSalt` masterBackendRole
-      `Prelude.hashWithSalt` sessionTimeoutMinutes
+      `Prelude.hashWithSalt` idp
       `Prelude.hashWithSalt` subjectKey
 
 instance Prelude.NFData SAMLOptionsInput where
   rnf SAMLOptionsInput' {..} =
     Prelude.rnf masterUserName
       `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf idp
+      `Prelude.seq` Prelude.rnf sessionTimeoutMinutes
       `Prelude.seq` Prelude.rnf rolesKey
       `Prelude.seq` Prelude.rnf masterBackendRole
-      `Prelude.seq` Prelude.rnf sessionTimeoutMinutes
+      `Prelude.seq` Prelude.rnf idp
       `Prelude.seq` Prelude.rnf subjectKey
 
 instance Core.ToJSON SAMLOptionsInput where
@@ -143,12 +143,12 @@ instance Core.ToJSON SAMLOptionsInput where
           [ ("MasterUserName" Core..=)
               Prelude.<$> masterUserName,
             ("Enabled" Core..=) Prelude.<$> enabled,
-            ("Idp" Core..=) Prelude.<$> idp,
+            ("SessionTimeoutMinutes" Core..=)
+              Prelude.<$> sessionTimeoutMinutes,
             ("RolesKey" Core..=) Prelude.<$> rolesKey,
             ("MasterBackendRole" Core..=)
               Prelude.<$> masterBackendRole,
-            ("SessionTimeoutMinutes" Core..=)
-              Prelude.<$> sessionTimeoutMinutes,
+            ("Idp" Core..=) Prelude.<$> idp,
             ("SubjectKey" Core..=) Prelude.<$> subjectKey
           ]
       )

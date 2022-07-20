@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageConfigError' smart constructor.
 data ImageConfigError = ImageConfigError'
-  { -- | Error code.
-    errorCode :: Prelude.Maybe Prelude.Text,
-    -- | Error message.
-    message :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+  { -- | Error message.
+    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Error code.
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ImageConfigError = ImageConfigError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'imageConfigError_errorCode' - Error code.
---
 -- 'message', 'imageConfigError_message' - Error message.
+--
+-- 'errorCode', 'imageConfigError_errorCode' - Error code.
 newImageConfigError ::
   ImageConfigError
 newImageConfigError =
   ImageConfigError'
-    { errorCode = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
-
--- | Error code.
-imageConfigError_errorCode :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
-imageConfigError_errorCode = Lens.lens (\ImageConfigError' {errorCode} -> errorCode) (\s@ImageConfigError' {} a -> s {errorCode = a} :: ImageConfigError)
 
 -- | Error message.
 imageConfigError_message :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
 imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Error code.
+imageConfigError_errorCode :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
+imageConfigError_errorCode = Lens.lens (\ImageConfigError' {errorCode} -> errorCode) (\s@ImageConfigError' {} a -> s {errorCode = a} :: ImageConfigError)
 
 instance Core.FromJSON ImageConfigError where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON ImageConfigError where
       "ImageConfigError"
       ( \x ->
           ImageConfigError'
-            Prelude.<$> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
 instance Prelude.Hashable ImageConfigError where
   hashWithSalt _salt ImageConfigError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData ImageConfigError where
   rnf ImageConfigError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf errorCode

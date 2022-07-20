@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcLink' smart constructor.
 data VpcLink = VpcLink'
-  { -- | The timestamp when the VPC link was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
-    -- | The version of the VPC link.
-    vpcLinkVersion :: Prelude.Maybe VpcLinkVersion,
+  { -- | Tags for the VPC link.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A message summarizing the cause of the status of the VPC link.
     vpcLinkStatusMessage :: Prelude.Maybe Prelude.Text,
-    -- | Tags for the VPC link.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The version of the VPC link.
+    vpcLinkVersion :: Prelude.Maybe VpcLinkVersion,
     -- | The status of the VPC link.
     vpcLinkStatus :: Prelude.Maybe VpcLinkStatus,
+    -- | The timestamp when the VPC link was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The ID of the VPC link.
     vpcLinkId :: Prelude.Text,
     -- | A list of security group IDs for the VPC link.
@@ -58,15 +58,15 @@ data VpcLink = VpcLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdDate', 'vpcLink_createdDate' - The timestamp when the VPC link was created.
---
--- 'vpcLinkVersion', 'vpcLink_vpcLinkVersion' - The version of the VPC link.
+-- 'tags', 'vpcLink_tags' - Tags for the VPC link.
 --
 -- 'vpcLinkStatusMessage', 'vpcLink_vpcLinkStatusMessage' - A message summarizing the cause of the status of the VPC link.
 --
--- 'tags', 'vpcLink_tags' - Tags for the VPC link.
+-- 'vpcLinkVersion', 'vpcLink_vpcLinkVersion' - The version of the VPC link.
 --
 -- 'vpcLinkStatus', 'vpcLink_vpcLinkStatus' - The status of the VPC link.
+--
+-- 'createdDate', 'vpcLink_createdDate' - The timestamp when the VPC link was created.
 --
 -- 'vpcLinkId', 'vpcLink_vpcLinkId' - The ID of the VPC link.
 --
@@ -83,36 +83,36 @@ newVpcLink ::
   VpcLink
 newVpcLink pVpcLinkId_ pName_ =
   VpcLink'
-    { createdDate = Prelude.Nothing,
-      vpcLinkVersion = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       vpcLinkStatusMessage = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      vpcLinkVersion = Prelude.Nothing,
       vpcLinkStatus = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       vpcLinkId = pVpcLinkId_,
       securityGroupIds = Prelude.mempty,
       subnetIds = Prelude.mempty,
       name = pName_
     }
 
--- | The timestamp when the VPC link was created.
-vpcLink_createdDate :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.UTCTime)
-vpcLink_createdDate = Lens.lens (\VpcLink' {createdDate} -> createdDate) (\s@VpcLink' {} a -> s {createdDate = a} :: VpcLink) Prelude.. Lens.mapping Core._Time
-
--- | The version of the VPC link.
-vpcLink_vpcLinkVersion :: Lens.Lens' VpcLink (Prelude.Maybe VpcLinkVersion)
-vpcLink_vpcLinkVersion = Lens.lens (\VpcLink' {vpcLinkVersion} -> vpcLinkVersion) (\s@VpcLink' {} a -> s {vpcLinkVersion = a} :: VpcLink)
+-- | Tags for the VPC link.
+vpcLink_tags :: Lens.Lens' VpcLink (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+vpcLink_tags = Lens.lens (\VpcLink' {tags} -> tags) (\s@VpcLink' {} a -> s {tags = a} :: VpcLink) Prelude.. Lens.mapping Lens.coerced
 
 -- | A message summarizing the cause of the status of the VPC link.
 vpcLink_vpcLinkStatusMessage :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
 vpcLink_vpcLinkStatusMessage = Lens.lens (\VpcLink' {vpcLinkStatusMessage} -> vpcLinkStatusMessage) (\s@VpcLink' {} a -> s {vpcLinkStatusMessage = a} :: VpcLink)
 
--- | Tags for the VPC link.
-vpcLink_tags :: Lens.Lens' VpcLink (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-vpcLink_tags = Lens.lens (\VpcLink' {tags} -> tags) (\s@VpcLink' {} a -> s {tags = a} :: VpcLink) Prelude.. Lens.mapping Lens.coerced
+-- | The version of the VPC link.
+vpcLink_vpcLinkVersion :: Lens.Lens' VpcLink (Prelude.Maybe VpcLinkVersion)
+vpcLink_vpcLinkVersion = Lens.lens (\VpcLink' {vpcLinkVersion} -> vpcLinkVersion) (\s@VpcLink' {} a -> s {vpcLinkVersion = a} :: VpcLink)
 
 -- | The status of the VPC link.
 vpcLink_vpcLinkStatus :: Lens.Lens' VpcLink (Prelude.Maybe VpcLinkStatus)
 vpcLink_vpcLinkStatus = Lens.lens (\VpcLink' {vpcLinkStatus} -> vpcLinkStatus) (\s@VpcLink' {} a -> s {vpcLinkStatus = a} :: VpcLink)
+
+-- | The timestamp when the VPC link was created.
+vpcLink_createdDate :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.UTCTime)
+vpcLink_createdDate = Lens.lens (\VpcLink' {createdDate} -> createdDate) (\s@VpcLink' {} a -> s {createdDate = a} :: VpcLink) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the VPC link.
 vpcLink_vpcLinkId :: Lens.Lens' VpcLink Prelude.Text
@@ -136,11 +136,11 @@ instance Core.FromJSON VpcLink where
       "VpcLink"
       ( \x ->
           VpcLink'
-            Prelude.<$> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "vpcLinkVersion")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "vpcLinkStatusMessage")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "vpcLinkVersion")
             Prelude.<*> (x Core..:? "vpcLinkStatus")
+            Prelude.<*> (x Core..:? "createdDate")
             Prelude.<*> (x Core..: "vpcLinkId")
             Prelude.<*> ( x Core..:? "securityGroupIds"
                             Core..!= Prelude.mempty
@@ -151,11 +151,11 @@ instance Core.FromJSON VpcLink where
 
 instance Prelude.Hashable VpcLink where
   hashWithSalt _salt VpcLink' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
-      `Prelude.hashWithSalt` vpcLinkVersion
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcLinkStatusMessage
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcLinkVersion
       `Prelude.hashWithSalt` vpcLinkStatus
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` vpcLinkId
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
@@ -163,11 +163,11 @@ instance Prelude.Hashable VpcLink where
 
 instance Prelude.NFData VpcLink where
   rnf VpcLink' {..} =
-    Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf vpcLinkVersion
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vpcLinkStatusMessage
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcLinkVersion
       `Prelude.seq` Prelude.rnf vpcLinkStatus
+      `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf vpcLinkId
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds

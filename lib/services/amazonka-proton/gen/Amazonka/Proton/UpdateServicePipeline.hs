@@ -61,8 +61,8 @@ module Amazonka.Proton.UpdateServicePipeline
     newUpdateServicePipeline,
 
     -- * Request Lenses
-    updateServicePipeline_templateMinorVersion,
     updateServicePipeline_templateMajorVersion,
+    updateServicePipeline_templateMinorVersion,
     updateServicePipeline_deploymentType,
     updateServicePipeline_serviceName,
     updateServicePipeline_spec,
@@ -86,12 +86,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateServicePipeline' smart constructor.
 data UpdateServicePipeline = UpdateServicePipeline'
-  { -- | The minor version of the service template that was used to create the
-    -- service that the pipeline is associated with.
-    templateMinorVersion :: Prelude.Maybe Prelude.Text,
-    -- | The major version of the service template that was used to create the
+  { -- | The major version of the service template that was used to create the
     -- service that the pipeline is associated with.
     templateMajorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The minor version of the service template that was used to create the
+    -- service that the pipeline is associated with.
+    templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The deployment type.
     --
     -- There are four modes for updating a service pipeline as described in the
@@ -143,10 +143,10 @@ data UpdateServicePipeline = UpdateServicePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateMinorVersion', 'updateServicePipeline_templateMinorVersion' - The minor version of the service template that was used to create the
+-- 'templateMajorVersion', 'updateServicePipeline_templateMajorVersion' - The major version of the service template that was used to create the
 -- service that the pipeline is associated with.
 --
--- 'templateMajorVersion', 'updateServicePipeline_templateMajorVersion' - The major version of the service template that was used to create the
+-- 'templateMinorVersion', 'updateServicePipeline_templateMinorVersion' - The minor version of the service template that was used to create the
 -- service that the pipeline is associated with.
 --
 -- 'deploymentType', 'updateServicePipeline_deploymentType' - The deployment type.
@@ -201,23 +201,23 @@ newUpdateServicePipeline
   pServiceName_
   pSpec_ =
     UpdateServicePipeline'
-      { templateMinorVersion =
+      { templateMajorVersion =
           Prelude.Nothing,
-        templateMajorVersion = Prelude.Nothing,
+        templateMinorVersion = Prelude.Nothing,
         deploymentType = pDeploymentType_,
         serviceName = pServiceName_,
         spec = Core._Sensitive Lens.# pSpec_
       }
 
--- | The minor version of the service template that was used to create the
--- service that the pipeline is associated with.
-updateServicePipeline_templateMinorVersion :: Lens.Lens' UpdateServicePipeline (Prelude.Maybe Prelude.Text)
-updateServicePipeline_templateMinorVersion = Lens.lens (\UpdateServicePipeline' {templateMinorVersion} -> templateMinorVersion) (\s@UpdateServicePipeline' {} a -> s {templateMinorVersion = a} :: UpdateServicePipeline)
-
 -- | The major version of the service template that was used to create the
 -- service that the pipeline is associated with.
 updateServicePipeline_templateMajorVersion :: Lens.Lens' UpdateServicePipeline (Prelude.Maybe Prelude.Text)
 updateServicePipeline_templateMajorVersion = Lens.lens (\UpdateServicePipeline' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateServicePipeline' {} a -> s {templateMajorVersion = a} :: UpdateServicePipeline)
+
+-- | The minor version of the service template that was used to create the
+-- service that the pipeline is associated with.
+updateServicePipeline_templateMinorVersion :: Lens.Lens' UpdateServicePipeline (Prelude.Maybe Prelude.Text)
+updateServicePipeline_templateMinorVersion = Lens.lens (\UpdateServicePipeline' {templateMinorVersion} -> templateMinorVersion) (\s@UpdateServicePipeline' {} a -> s {templateMinorVersion = a} :: UpdateServicePipeline)
 
 -- | The deployment type.
 --
@@ -280,16 +280,16 @@ instance Core.AWSRequest UpdateServicePipeline where
 
 instance Prelude.Hashable UpdateServicePipeline where
   hashWithSalt _salt UpdateServicePipeline' {..} =
-    _salt `Prelude.hashWithSalt` templateMinorVersion
-      `Prelude.hashWithSalt` templateMajorVersion
+    _salt `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` templateMinorVersion
       `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` spec
 
 instance Prelude.NFData UpdateServicePipeline where
   rnf UpdateServicePipeline' {..} =
-    Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf templateMajorVersion
+    Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf templateMinorVersion
       `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf spec
@@ -313,10 +313,10 @@ instance Core.ToJSON UpdateServicePipeline where
   toJSON UpdateServicePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("templateMinorVersion" Core..=)
-              Prelude.<$> templateMinorVersion,
-            ("templateMajorVersion" Core..=)
+          [ ("templateMajorVersion" Core..=)
               Prelude.<$> templateMajorVersion,
+            ("templateMinorVersion" Core..=)
+              Prelude.<$> templateMinorVersion,
             Prelude.Just
               ("deploymentType" Core..= deploymentType),
             Prelude.Just ("serviceName" Core..= serviceName),

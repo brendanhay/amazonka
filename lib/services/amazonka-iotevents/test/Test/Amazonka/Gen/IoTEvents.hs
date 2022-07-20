@@ -27,53 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListInputs $
---             newListInputs
---
---         , requestStartDetectorModelAnalysis $
---             newStartDetectorModelAnalysis
---
---         , requestPutLoggingOptions $
---             newPutLoggingOptions
---
---         , requestDescribeDetectorModelAnalysis $
---             newDescribeDetectorModelAnalysis
---
---         , requestCreateInput $
---             newCreateInput
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListAlarmModels $
---             newListAlarmModels
---
---         , requestDeleteAlarmModel $
---             newDeleteAlarmModel
---
---         , requestUpdateAlarmModel $
---             newUpdateAlarmModel
---
---         , requestCreateAlarmModel $
+--         [ requestCreateAlarmModel $
 --             newCreateAlarmModel
---
---         , requestGetDetectorModelAnalysisResults $
---             newGetDetectorModelAnalysisResults
---
---         , requestListDetectorModelVersions $
---             newListDetectorModelVersions
---
---         , requestDescribeAlarmModel $
---             newDescribeAlarmModel
 --
 --         , requestCreateDetectorModel $
 --             newCreateDetectorModel
 --
---         , requestListDetectorModels $
---             newListDetectorModels
+--         , requestCreateInput $
+--             newCreateInput
 --
---         , requestUpdateDetectorModel $
---             newUpdateDetectorModel
+--         , requestDeleteAlarmModel $
+--             newDeleteAlarmModel
 --
 --         , requestDeleteDetectorModel $
 --             newDeleteDetectorModel
@@ -81,80 +45,80 @@ import Test.Tasty
 --         , requestDeleteInput $
 --             newDeleteInput
 --
---         , requestUpdateInput $
---             newUpdateInput
---
---         , requestListAlarmModelVersions $
---             newListAlarmModelVersions
---
---         , requestTagResource $
---             newTagResource
+--         , requestDescribeAlarmModel $
+--             newDescribeAlarmModel
 --
 --         , requestDescribeDetectorModel $
 --             newDescribeDetectorModel
 --
+--         , requestDescribeDetectorModelAnalysis $
+--             newDescribeDetectorModelAnalysis
+--
 --         , requestDescribeInput $
 --             newDescribeInput
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestListInputRoutings $
---             newListInputRoutings
 --
 --         , requestDescribeLoggingOptions $
 --             newDescribeLoggingOptions
 --
+--         , requestGetDetectorModelAnalysisResults $
+--             newGetDetectorModelAnalysisResults
+--
+--         , requestListAlarmModelVersions $
+--             newListAlarmModelVersions
+--
+--         , requestListAlarmModels $
+--             newListAlarmModels
+--
+--         , requestListDetectorModelVersions $
+--             newListDetectorModelVersions
+--
+--         , requestListDetectorModels $
+--             newListDetectorModels
+--
+--         , requestListInputRoutings $
+--             newListInputRoutings
+--
+--         , requestListInputs $
+--             newListInputs
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutLoggingOptions $
+--             newPutLoggingOptions
+--
+--         , requestStartDetectorModelAnalysis $
+--             newStartDetectorModelAnalysis
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateAlarmModel $
+--             newUpdateAlarmModel
+--
+--         , requestUpdateDetectorModel $
+--             newUpdateDetectorModel
+--
+--         , requestUpdateInput $
+--             newUpdateInput
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseListInputs $
---             newListInputsResponse
---
---         , responseStartDetectorModelAnalysis $
---             newStartDetectorModelAnalysisResponse
---
---         , responsePutLoggingOptions $
---             newPutLoggingOptionsResponse
---
---         , responseDescribeDetectorModelAnalysis $
---             newDescribeDetectorModelAnalysisResponse
---
---         , responseCreateInput $
---             newCreateInputResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListAlarmModels $
---             newListAlarmModelsResponse
---
---         , responseDeleteAlarmModel $
---             newDeleteAlarmModelResponse
---
---         , responseUpdateAlarmModel $
---             newUpdateAlarmModelResponse
---
---         , responseCreateAlarmModel $
+--         [ responseCreateAlarmModel $
 --             newCreateAlarmModelResponse
---
---         , responseGetDetectorModelAnalysisResults $
---             newGetDetectorModelAnalysisResultsResponse
---
---         , responseListDetectorModelVersions $
---             newListDetectorModelVersionsResponse
---
---         , responseDescribeAlarmModel $
---             newDescribeAlarmModelResponse
 --
 --         , responseCreateDetectorModel $
 --             newCreateDetectorModelResponse
 --
---         , responseListDetectorModels $
---             newListDetectorModelsResponse
+--         , responseCreateInput $
+--             newCreateInputResponse
 --
---         , responseUpdateDetectorModel $
---             newUpdateDetectorModelResponse
+--         , responseDeleteAlarmModel $
+--             newDeleteAlarmModelResponse
 --
 --         , responseDeleteDetectorModel $
 --             newDeleteDetectorModelResponse
@@ -162,88 +126,70 @@ import Test.Tasty
 --         , responseDeleteInput $
 --             newDeleteInputResponse
 --
---         , responseUpdateInput $
---             newUpdateInputResponse
---
---         , responseListAlarmModelVersions $
---             newListAlarmModelVersionsResponse
---
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDescribeAlarmModel $
+--             newDescribeAlarmModelResponse
 --
 --         , responseDescribeDetectorModel $
 --             newDescribeDetectorModelResponse
 --
+--         , responseDescribeDetectorModelAnalysis $
+--             newDescribeDetectorModelAnalysisResponse
+--
 --         , responseDescribeInput $
 --             newDescribeInputResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDescribeLoggingOptions $
+--             newDescribeLoggingOptionsResponse
+--
+--         , responseGetDetectorModelAnalysisResults $
+--             newGetDetectorModelAnalysisResultsResponse
+--
+--         , responseListAlarmModelVersions $
+--             newListAlarmModelVersionsResponse
+--
+--         , responseListAlarmModels $
+--             newListAlarmModelsResponse
+--
+--         , responseListDetectorModelVersions $
+--             newListDetectorModelVersionsResponse
+--
+--         , responseListDetectorModels $
+--             newListDetectorModelsResponse
 --
 --         , responseListInputRoutings $
 --             newListInputRoutingsResponse
 --
---         , responseDescribeLoggingOptions $
---             newDescribeLoggingOptionsResponse
+--         , responseListInputs $
+--             newListInputsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutLoggingOptions $
+--             newPutLoggingOptionsResponse
+--
+--         , responseStartDetectorModelAnalysis $
+--             newStartDetectorModelAnalysisResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateAlarmModel $
+--             newUpdateAlarmModelResponse
+--
+--         , responseUpdateDetectorModel $
+--             newUpdateDetectorModelResponse
+--
+--         , responseUpdateInput $
+--             newUpdateInputResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListInputs :: ListInputs -> TestTree
-requestListInputs =
-  req
-    "ListInputs"
-    "fixture/ListInputs.yaml"
-
-requestStartDetectorModelAnalysis :: StartDetectorModelAnalysis -> TestTree
-requestStartDetectorModelAnalysis =
-  req
-    "StartDetectorModelAnalysis"
-    "fixture/StartDetectorModelAnalysis.yaml"
-
-requestPutLoggingOptions :: PutLoggingOptions -> TestTree
-requestPutLoggingOptions =
-  req
-    "PutLoggingOptions"
-    "fixture/PutLoggingOptions.yaml"
-
-requestDescribeDetectorModelAnalysis :: DescribeDetectorModelAnalysis -> TestTree
-requestDescribeDetectorModelAnalysis =
-  req
-    "DescribeDetectorModelAnalysis"
-    "fixture/DescribeDetectorModelAnalysis.yaml"
-
-requestCreateInput :: CreateInput -> TestTree
-requestCreateInput =
-  req
-    "CreateInput"
-    "fixture/CreateInput.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListAlarmModels :: ListAlarmModels -> TestTree
-requestListAlarmModels =
-  req
-    "ListAlarmModels"
-    "fixture/ListAlarmModels.yaml"
-
-requestDeleteAlarmModel :: DeleteAlarmModel -> TestTree
-requestDeleteAlarmModel =
-  req
-    "DeleteAlarmModel"
-    "fixture/DeleteAlarmModel.yaml"
-
-requestUpdateAlarmModel :: UpdateAlarmModel -> TestTree
-requestUpdateAlarmModel =
-  req
-    "UpdateAlarmModel"
-    "fixture/UpdateAlarmModel.yaml"
 
 requestCreateAlarmModel :: CreateAlarmModel -> TestTree
 requestCreateAlarmModel =
@@ -251,41 +197,23 @@ requestCreateAlarmModel =
     "CreateAlarmModel"
     "fixture/CreateAlarmModel.yaml"
 
-requestGetDetectorModelAnalysisResults :: GetDetectorModelAnalysisResults -> TestTree
-requestGetDetectorModelAnalysisResults =
-  req
-    "GetDetectorModelAnalysisResults"
-    "fixture/GetDetectorModelAnalysisResults.yaml"
-
-requestListDetectorModelVersions :: ListDetectorModelVersions -> TestTree
-requestListDetectorModelVersions =
-  req
-    "ListDetectorModelVersions"
-    "fixture/ListDetectorModelVersions.yaml"
-
-requestDescribeAlarmModel :: DescribeAlarmModel -> TestTree
-requestDescribeAlarmModel =
-  req
-    "DescribeAlarmModel"
-    "fixture/DescribeAlarmModel.yaml"
-
 requestCreateDetectorModel :: CreateDetectorModel -> TestTree
 requestCreateDetectorModel =
   req
     "CreateDetectorModel"
     "fixture/CreateDetectorModel.yaml"
 
-requestListDetectorModels :: ListDetectorModels -> TestTree
-requestListDetectorModels =
+requestCreateInput :: CreateInput -> TestTree
+requestCreateInput =
   req
-    "ListDetectorModels"
-    "fixture/ListDetectorModels.yaml"
+    "CreateInput"
+    "fixture/CreateInput.yaml"
 
-requestUpdateDetectorModel :: UpdateDetectorModel -> TestTree
-requestUpdateDetectorModel =
+requestDeleteAlarmModel :: DeleteAlarmModel -> TestTree
+requestDeleteAlarmModel =
   req
-    "UpdateDetectorModel"
-    "fixture/UpdateDetectorModel.yaml"
+    "DeleteAlarmModel"
+    "fixture/DeleteAlarmModel.yaml"
 
 requestDeleteDetectorModel :: DeleteDetectorModel -> TestTree
 requestDeleteDetectorModel =
@@ -299,23 +227,11 @@ requestDeleteInput =
     "DeleteInput"
     "fixture/DeleteInput.yaml"
 
-requestUpdateInput :: UpdateInput -> TestTree
-requestUpdateInput =
+requestDescribeAlarmModel :: DescribeAlarmModel -> TestTree
+requestDescribeAlarmModel =
   req
-    "UpdateInput"
-    "fixture/UpdateInput.yaml"
-
-requestListAlarmModelVersions :: ListAlarmModelVersions -> TestTree
-requestListAlarmModelVersions =
-  req
-    "ListAlarmModelVersions"
-    "fixture/ListAlarmModelVersions.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DescribeAlarmModel"
+    "fixture/DescribeAlarmModel.yaml"
 
 requestDescribeDetectorModel :: DescribeDetectorModel -> TestTree
 requestDescribeDetectorModel =
@@ -323,23 +239,17 @@ requestDescribeDetectorModel =
     "DescribeDetectorModel"
     "fixture/DescribeDetectorModel.yaml"
 
+requestDescribeDetectorModelAnalysis :: DescribeDetectorModelAnalysis -> TestTree
+requestDescribeDetectorModelAnalysis =
+  req
+    "DescribeDetectorModelAnalysis"
+    "fixture/DescribeDetectorModelAnalysis.yaml"
+
 requestDescribeInput :: DescribeInput -> TestTree
 requestDescribeInput =
   req
     "DescribeInput"
     "fixture/DescribeInput.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestListInputRoutings :: ListInputRoutings -> TestTree
-requestListInputRoutings =
-  req
-    "ListInputRoutings"
-    "fixture/ListInputRoutings.yaml"
 
 requestDescribeLoggingOptions :: DescribeLoggingOptions -> TestTree
 requestDescribeLoggingOptions =
@@ -347,79 +257,97 @@ requestDescribeLoggingOptions =
     "DescribeLoggingOptions"
     "fixture/DescribeLoggingOptions.yaml"
 
+requestGetDetectorModelAnalysisResults :: GetDetectorModelAnalysisResults -> TestTree
+requestGetDetectorModelAnalysisResults =
+  req
+    "GetDetectorModelAnalysisResults"
+    "fixture/GetDetectorModelAnalysisResults.yaml"
+
+requestListAlarmModelVersions :: ListAlarmModelVersions -> TestTree
+requestListAlarmModelVersions =
+  req
+    "ListAlarmModelVersions"
+    "fixture/ListAlarmModelVersions.yaml"
+
+requestListAlarmModels :: ListAlarmModels -> TestTree
+requestListAlarmModels =
+  req
+    "ListAlarmModels"
+    "fixture/ListAlarmModels.yaml"
+
+requestListDetectorModelVersions :: ListDetectorModelVersions -> TestTree
+requestListDetectorModelVersions =
+  req
+    "ListDetectorModelVersions"
+    "fixture/ListDetectorModelVersions.yaml"
+
+requestListDetectorModels :: ListDetectorModels -> TestTree
+requestListDetectorModels =
+  req
+    "ListDetectorModels"
+    "fixture/ListDetectorModels.yaml"
+
+requestListInputRoutings :: ListInputRoutings -> TestTree
+requestListInputRoutings =
+  req
+    "ListInputRoutings"
+    "fixture/ListInputRoutings.yaml"
+
+requestListInputs :: ListInputs -> TestTree
+requestListInputs =
+  req
+    "ListInputs"
+    "fixture/ListInputs.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutLoggingOptions :: PutLoggingOptions -> TestTree
+requestPutLoggingOptions =
+  req
+    "PutLoggingOptions"
+    "fixture/PutLoggingOptions.yaml"
+
+requestStartDetectorModelAnalysis :: StartDetectorModelAnalysis -> TestTree
+requestStartDetectorModelAnalysis =
+  req
+    "StartDetectorModelAnalysis"
+    "fixture/StartDetectorModelAnalysis.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateAlarmModel :: UpdateAlarmModel -> TestTree
+requestUpdateAlarmModel =
+  req
+    "UpdateAlarmModel"
+    "fixture/UpdateAlarmModel.yaml"
+
+requestUpdateDetectorModel :: UpdateDetectorModel -> TestTree
+requestUpdateDetectorModel =
+  req
+    "UpdateDetectorModel"
+    "fixture/UpdateDetectorModel.yaml"
+
+requestUpdateInput :: UpdateInput -> TestTree
+requestUpdateInput =
+  req
+    "UpdateInput"
+    "fixture/UpdateInput.yaml"
+
 -- Responses
-
-responseListInputs :: ListInputsResponse -> TestTree
-responseListInputs =
-  res
-    "ListInputsResponse"
-    "fixture/ListInputsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInputs)
-
-responseStartDetectorModelAnalysis :: StartDetectorModelAnalysisResponse -> TestTree
-responseStartDetectorModelAnalysis =
-  res
-    "StartDetectorModelAnalysisResponse"
-    "fixture/StartDetectorModelAnalysisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartDetectorModelAnalysis)
-
-responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
-responsePutLoggingOptions =
-  res
-    "PutLoggingOptionsResponse"
-    "fixture/PutLoggingOptionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutLoggingOptions)
-
-responseDescribeDetectorModelAnalysis :: DescribeDetectorModelAnalysisResponse -> TestTree
-responseDescribeDetectorModelAnalysis =
-  res
-    "DescribeDetectorModelAnalysisResponse"
-    "fixture/DescribeDetectorModelAnalysisResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDetectorModelAnalysis)
-
-responseCreateInput :: CreateInputResponse -> TestTree
-responseCreateInput =
-  res
-    "CreateInputResponse"
-    "fixture/CreateInputResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateInput)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListAlarmModels :: ListAlarmModelsResponse -> TestTree
-responseListAlarmModels =
-  res
-    "ListAlarmModelsResponse"
-    "fixture/ListAlarmModelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAlarmModels)
-
-responseDeleteAlarmModel :: DeleteAlarmModelResponse -> TestTree
-responseDeleteAlarmModel =
-  res
-    "DeleteAlarmModelResponse"
-    "fixture/DeleteAlarmModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAlarmModel)
-
-responseUpdateAlarmModel :: UpdateAlarmModelResponse -> TestTree
-responseUpdateAlarmModel =
-  res
-    "UpdateAlarmModelResponse"
-    "fixture/UpdateAlarmModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAlarmModel)
 
 responseCreateAlarmModel :: CreateAlarmModelResponse -> TestTree
 responseCreateAlarmModel =
@@ -429,30 +357,6 @@ responseCreateAlarmModel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAlarmModel)
 
-responseGetDetectorModelAnalysisResults :: GetDetectorModelAnalysisResultsResponse -> TestTree
-responseGetDetectorModelAnalysisResults =
-  res
-    "GetDetectorModelAnalysisResultsResponse"
-    "fixture/GetDetectorModelAnalysisResultsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDetectorModelAnalysisResults)
-
-responseListDetectorModelVersions :: ListDetectorModelVersionsResponse -> TestTree
-responseListDetectorModelVersions =
-  res
-    "ListDetectorModelVersionsResponse"
-    "fixture/ListDetectorModelVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDetectorModelVersions)
-
-responseDescribeAlarmModel :: DescribeAlarmModelResponse -> TestTree
-responseDescribeAlarmModel =
-  res
-    "DescribeAlarmModelResponse"
-    "fixture/DescribeAlarmModelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAlarmModel)
-
 responseCreateDetectorModel :: CreateDetectorModelResponse -> TestTree
 responseCreateDetectorModel =
   res
@@ -461,21 +365,21 @@ responseCreateDetectorModel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDetectorModel)
 
-responseListDetectorModels :: ListDetectorModelsResponse -> TestTree
-responseListDetectorModels =
+responseCreateInput :: CreateInputResponse -> TestTree
+responseCreateInput =
   res
-    "ListDetectorModelsResponse"
-    "fixture/ListDetectorModelsResponse.proto"
+    "CreateInputResponse"
+    "fixture/CreateInputResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDetectorModels)
+    (Proxy.Proxy :: Proxy.Proxy CreateInput)
 
-responseUpdateDetectorModel :: UpdateDetectorModelResponse -> TestTree
-responseUpdateDetectorModel =
+responseDeleteAlarmModel :: DeleteAlarmModelResponse -> TestTree
+responseDeleteAlarmModel =
   res
-    "UpdateDetectorModelResponse"
-    "fixture/UpdateDetectorModelResponse.proto"
+    "DeleteAlarmModelResponse"
+    "fixture/DeleteAlarmModelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorModel)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAlarmModel)
 
 responseDeleteDetectorModel :: DeleteDetectorModelResponse -> TestTree
 responseDeleteDetectorModel =
@@ -493,29 +397,13 @@ responseDeleteInput =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteInput)
 
-responseUpdateInput :: UpdateInputResponse -> TestTree
-responseUpdateInput =
+responseDescribeAlarmModel :: DescribeAlarmModelResponse -> TestTree
+responseDescribeAlarmModel =
   res
-    "UpdateInputResponse"
-    "fixture/UpdateInputResponse.proto"
+    "DescribeAlarmModelResponse"
+    "fixture/DescribeAlarmModelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateInput)
-
-responseListAlarmModelVersions :: ListAlarmModelVersionsResponse -> TestTree
-responseListAlarmModelVersions =
-  res
-    "ListAlarmModelVersionsResponse"
-    "fixture/ListAlarmModelVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAlarmModelVersions)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAlarmModel)
 
 responseDescribeDetectorModel :: DescribeDetectorModelResponse -> TestTree
 responseDescribeDetectorModel =
@@ -525,6 +413,14 @@ responseDescribeDetectorModel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDetectorModel)
 
+responseDescribeDetectorModelAnalysis :: DescribeDetectorModelAnalysisResponse -> TestTree
+responseDescribeDetectorModelAnalysis =
+  res
+    "DescribeDetectorModelAnalysisResponse"
+    "fixture/DescribeDetectorModelAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDetectorModelAnalysis)
+
 responseDescribeInput :: DescribeInputResponse -> TestTree
 responseDescribeInput =
   res
@@ -533,13 +429,53 @@ responseDescribeInput =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeInput)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
+responseDescribeLoggingOptions =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DescribeLoggingOptionsResponse"
+    "fixture/DescribeLoggingOptionsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingOptions)
+
+responseGetDetectorModelAnalysisResults :: GetDetectorModelAnalysisResultsResponse -> TestTree
+responseGetDetectorModelAnalysisResults =
+  res
+    "GetDetectorModelAnalysisResultsResponse"
+    "fixture/GetDetectorModelAnalysisResultsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDetectorModelAnalysisResults)
+
+responseListAlarmModelVersions :: ListAlarmModelVersionsResponse -> TestTree
+responseListAlarmModelVersions =
+  res
+    "ListAlarmModelVersionsResponse"
+    "fixture/ListAlarmModelVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAlarmModelVersions)
+
+responseListAlarmModels :: ListAlarmModelsResponse -> TestTree
+responseListAlarmModels =
+  res
+    "ListAlarmModelsResponse"
+    "fixture/ListAlarmModelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAlarmModels)
+
+responseListDetectorModelVersions :: ListDetectorModelVersionsResponse -> TestTree
+responseListDetectorModelVersions =
+  res
+    "ListDetectorModelVersionsResponse"
+    "fixture/ListDetectorModelVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDetectorModelVersions)
+
+responseListDetectorModels :: ListDetectorModelsResponse -> TestTree
+responseListDetectorModels =
+  res
+    "ListDetectorModelsResponse"
+    "fixture/ListDetectorModelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDetectorModels)
 
 responseListInputRoutings :: ListInputRoutingsResponse -> TestTree
 responseListInputRoutings =
@@ -549,10 +485,74 @@ responseListInputRoutings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListInputRoutings)
 
-responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
-responseDescribeLoggingOptions =
+responseListInputs :: ListInputsResponse -> TestTree
+responseListInputs =
   res
-    "DescribeLoggingOptionsResponse"
-    "fixture/DescribeLoggingOptionsResponse.proto"
+    "ListInputsResponse"
+    "fixture/ListInputsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLoggingOptions)
+    (Proxy.Proxy :: Proxy.Proxy ListInputs)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
+responsePutLoggingOptions =
+  res
+    "PutLoggingOptionsResponse"
+    "fixture/PutLoggingOptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutLoggingOptions)
+
+responseStartDetectorModelAnalysis :: StartDetectorModelAnalysisResponse -> TestTree
+responseStartDetectorModelAnalysis =
+  res
+    "StartDetectorModelAnalysisResponse"
+    "fixture/StartDetectorModelAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDetectorModelAnalysis)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAlarmModel :: UpdateAlarmModelResponse -> TestTree
+responseUpdateAlarmModel =
+  res
+    "UpdateAlarmModelResponse"
+    "fixture/UpdateAlarmModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAlarmModel)
+
+responseUpdateDetectorModel :: UpdateDetectorModelResponse -> TestTree
+responseUpdateDetectorModel =
+  res
+    "UpdateDetectorModelResponse"
+    "fixture/UpdateDetectorModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDetectorModel)
+
+responseUpdateInput :: UpdateInputResponse -> TestTree
+responseUpdateInput =
+  res
+    "UpdateInputResponse"
+    "fixture/UpdateInputResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateInput)

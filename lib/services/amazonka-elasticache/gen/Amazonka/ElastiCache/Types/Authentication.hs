@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuthentication' smart constructor.
 data Authentication = Authentication'
-  { -- | The number of passwords belonging to the user. The maximum is two.
-    passwordCount :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the user requires a password to authenticate.
-    type' :: Prelude.Maybe AuthenticationType
+  { -- | Indicates whether the user requires a password to authenticate.
+    type' :: Prelude.Maybe AuthenticationType,
+    -- | The number of passwords belonging to the user. The maximum is two.
+    passwordCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,37 +43,37 @@ data Authentication = Authentication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'passwordCount', 'authentication_passwordCount' - The number of passwords belonging to the user. The maximum is two.
---
 -- 'type'', 'authentication_type' - Indicates whether the user requires a password to authenticate.
+--
+-- 'passwordCount', 'authentication_passwordCount' - The number of passwords belonging to the user. The maximum is two.
 newAuthentication ::
   Authentication
 newAuthentication =
   Authentication'
-    { passwordCount = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      passwordCount = Prelude.Nothing
     }
-
--- | The number of passwords belonging to the user. The maximum is two.
-authentication_passwordCount :: Lens.Lens' Authentication (Prelude.Maybe Prelude.Int)
-authentication_passwordCount = Lens.lens (\Authentication' {passwordCount} -> passwordCount) (\s@Authentication' {} a -> s {passwordCount = a} :: Authentication)
 
 -- | Indicates whether the user requires a password to authenticate.
 authentication_type :: Lens.Lens' Authentication (Prelude.Maybe AuthenticationType)
 authentication_type = Lens.lens (\Authentication' {type'} -> type') (\s@Authentication' {} a -> s {type' = a} :: Authentication)
 
+-- | The number of passwords belonging to the user. The maximum is two.
+authentication_passwordCount :: Lens.Lens' Authentication (Prelude.Maybe Prelude.Int)
+authentication_passwordCount = Lens.lens (\Authentication' {passwordCount} -> passwordCount) (\s@Authentication' {} a -> s {passwordCount = a} :: Authentication)
+
 instance Core.FromXML Authentication where
   parseXML x =
     Authentication'
-      Prelude.<$> (x Core..@? "PasswordCount")
-      Prelude.<*> (x Core..@? "Type")
+      Prelude.<$> (x Core..@? "Type")
+      Prelude.<*> (x Core..@? "PasswordCount")
 
 instance Prelude.Hashable Authentication where
   hashWithSalt _salt Authentication' {..} =
-    _salt `Prelude.hashWithSalt` passwordCount
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` passwordCount
 
 instance Prelude.NFData Authentication where
   rnf Authentication' {..} =
-    Prelude.rnf passwordCount
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf passwordCount

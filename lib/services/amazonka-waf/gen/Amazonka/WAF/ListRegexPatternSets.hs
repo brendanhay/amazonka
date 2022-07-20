@@ -38,8 +38,8 @@ module Amazonka.WAF.ListRegexPatternSets
     newListRegexPatternSets,
 
     -- * Request Lenses
-    listRegexPatternSets_nextMarker,
     listRegexPatternSets_limit,
+    listRegexPatternSets_nextMarker,
 
     -- * Destructuring the Response
     ListRegexPatternSetsResponse (..),
@@ -61,20 +61,20 @@ import Amazonka.WAF.Types
 
 -- | /See:/ 'newListRegexPatternSets' smart constructor.
 data ListRegexPatternSets = ListRegexPatternSets'
-  { -- | If you specify a value for @Limit@ and you have more @RegexPatternSet@
+  { -- | Specifies the number of @RegexPatternSet@ objects that you want AWS WAF
+    -- to return for this request. If you have more @RegexPatternSet@ objects
+    -- than the number you specify for @Limit@, the response includes a
+    -- @NextMarker@ value that you can use to get another batch of
+    -- @RegexPatternSet@ objects.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a value for @Limit@ and you have more @RegexPatternSet@
     -- objects than the value of @Limit@, AWS WAF returns a @NextMarker@ value
     -- in the response that allows you to list another group of
     -- @RegexPatternSet@ objects. For the second and subsequent
     -- @ListRegexPatternSets@ requests, specify the value of @NextMarker@ from
     -- the previous response to get information about another batch of
     -- @RegexPatternSet@ objects.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of @RegexPatternSet@ objects that you want AWS WAF
-    -- to return for this request. If you have more @RegexPatternSet@ objects
-    -- than the number you specify for @Limit@, the response includes a
-    -- @NextMarker@ value that you can use to get another batch of
-    -- @RegexPatternSet@ objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,6 +86,12 @@ data ListRegexPatternSets = ListRegexPatternSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listRegexPatternSets_limit' - Specifies the number of @RegexPatternSet@ objects that you want AWS WAF
+-- to return for this request. If you have more @RegexPatternSet@ objects
+-- than the number you specify for @Limit@, the response includes a
+-- @NextMarker@ value that you can use to get another batch of
+-- @RegexPatternSet@ objects.
+--
 -- 'nextMarker', 'listRegexPatternSets_nextMarker' - If you specify a value for @Limit@ and you have more @RegexPatternSet@
 -- objects than the value of @Limit@, AWS WAF returns a @NextMarker@ value
 -- in the response that allows you to list another group of
@@ -93,19 +99,21 @@ data ListRegexPatternSets = ListRegexPatternSets'
 -- @ListRegexPatternSets@ requests, specify the value of @NextMarker@ from
 -- the previous response to get information about another batch of
 -- @RegexPatternSet@ objects.
---
--- 'limit', 'listRegexPatternSets_limit' - Specifies the number of @RegexPatternSet@ objects that you want AWS WAF
--- to return for this request. If you have more @RegexPatternSet@ objects
--- than the number you specify for @Limit@, the response includes a
--- @NextMarker@ value that you can use to get another batch of
--- @RegexPatternSet@ objects.
 newListRegexPatternSets ::
   ListRegexPatternSets
 newListRegexPatternSets =
   ListRegexPatternSets'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      nextMarker = Prelude.Nothing
     }
+
+-- | Specifies the number of @RegexPatternSet@ objects that you want AWS WAF
+-- to return for this request. If you have more @RegexPatternSet@ objects
+-- than the number you specify for @Limit@, the response includes a
+-- @NextMarker@ value that you can use to get another batch of
+-- @RegexPatternSet@ objects.
+listRegexPatternSets_limit :: Lens.Lens' ListRegexPatternSets (Prelude.Maybe Prelude.Natural)
+listRegexPatternSets_limit = Lens.lens (\ListRegexPatternSets' {limit} -> limit) (\s@ListRegexPatternSets' {} a -> s {limit = a} :: ListRegexPatternSets)
 
 -- | If you specify a value for @Limit@ and you have more @RegexPatternSet@
 -- objects than the value of @Limit@, AWS WAF returns a @NextMarker@ value
@@ -116,14 +124,6 @@ newListRegexPatternSets =
 -- @RegexPatternSet@ objects.
 listRegexPatternSets_nextMarker :: Lens.Lens' ListRegexPatternSets (Prelude.Maybe Prelude.Text)
 listRegexPatternSets_nextMarker = Lens.lens (\ListRegexPatternSets' {nextMarker} -> nextMarker) (\s@ListRegexPatternSets' {} a -> s {nextMarker = a} :: ListRegexPatternSets)
-
--- | Specifies the number of @RegexPatternSet@ objects that you want AWS WAF
--- to return for this request. If you have more @RegexPatternSet@ objects
--- than the number you specify for @Limit@, the response includes a
--- @NextMarker@ value that you can use to get another batch of
--- @RegexPatternSet@ objects.
-listRegexPatternSets_limit :: Lens.Lens' ListRegexPatternSets (Prelude.Maybe Prelude.Natural)
-listRegexPatternSets_limit = Lens.lens (\ListRegexPatternSets' {limit} -> limit) (\s@ListRegexPatternSets' {} a -> s {limit = a} :: ListRegexPatternSets)
 
 instance Core.AWSPager ListRegexPatternSets where
   page rq rs
@@ -165,13 +165,13 @@ instance Core.AWSRequest ListRegexPatternSets where
 
 instance Prelude.Hashable ListRegexPatternSets where
   hashWithSalt _salt ListRegexPatternSets' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListRegexPatternSets where
   rnf ListRegexPatternSets' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextMarker
 
 instance Core.ToHeaders ListRegexPatternSets where
   toHeaders =
@@ -192,8 +192,8 @@ instance Core.ToJSON ListRegexPatternSets where
   toJSON ListRegexPatternSets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker
           ]
       )
 

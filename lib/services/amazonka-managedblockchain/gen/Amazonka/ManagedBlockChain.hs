@@ -34,23 +34,26 @@ module Amazonka.ManagedBlockChain
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** IllegalActionException
+    _IllegalActionException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** TooManyTagsException
     _TooManyTagsException,
 
-    -- ** IllegalActionException
-    _IllegalActionException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -58,11 +61,8 @@ module Amazonka.ManagedBlockChain
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
 
-    -- ** ResourceNotReadyException
-    _ResourceNotReadyException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -76,47 +76,41 @@ module Amazonka.ManagedBlockChain
     CreateMemberResponse (CreateMemberResponse'),
     newCreateMemberResponse,
 
-    -- ** ListNetworks
-    ListNetworks (ListNetworks'),
-    newListNetworks,
-    ListNetworksResponse (ListNetworksResponse'),
-    newListNetworksResponse,
-
-    -- ** GetProposal
-    GetProposal (GetProposal'),
-    newGetProposal,
-    GetProposalResponse (GetProposalResponse'),
-    newGetProposalResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** CreateNetwork
     CreateNetwork (CreateNetwork'),
     newCreateNetwork,
     CreateNetworkResponse (CreateNetworkResponse'),
     newCreateNetworkResponse,
 
-    -- ** ListProposals
-    ListProposals (ListProposals'),
-    newListProposals,
-    ListProposalsResponse (ListProposalsResponse'),
-    newListProposalsResponse,
-
-    -- ** ListInvitations
-    ListInvitations (ListInvitations'),
-    newListInvitations,
-    ListInvitationsResponse (ListInvitationsResponse'),
-    newListInvitationsResponse,
+    -- ** CreateNode
+    CreateNode (CreateNode'),
+    newCreateNode,
+    CreateNodeResponse (CreateNodeResponse'),
+    newCreateNodeResponse,
 
     -- ** CreateProposal
     CreateProposal (CreateProposal'),
     newCreateProposal,
     CreateProposalResponse (CreateProposalResponse'),
     newCreateProposalResponse,
+
+    -- ** DeleteMember
+    DeleteMember (DeleteMember'),
+    newDeleteMember,
+    DeleteMemberResponse (DeleteMemberResponse'),
+    newDeleteMemberResponse,
+
+    -- ** DeleteNode
+    DeleteNode (DeleteNode'),
+    newDeleteNode,
+    DeleteNodeResponse (DeleteNodeResponse'),
+    newDeleteNodeResponse,
+
+    -- ** GetMember
+    GetMember (GetMember'),
+    newGetMember,
+    GetMemberResponse (GetMemberResponse'),
+    newGetMemberResponse,
 
     -- ** GetNetwork
     GetNetwork (GetNetwork'),
@@ -130,17 +124,17 @@ module Amazonka.ManagedBlockChain
     GetNodeResponse (GetNodeResponse'),
     newGetNodeResponse,
 
-    -- ** UpdateMember
-    UpdateMember (UpdateMember'),
-    newUpdateMember,
-    UpdateMemberResponse (UpdateMemberResponse'),
-    newUpdateMemberResponse,
+    -- ** GetProposal
+    GetProposal (GetProposal'),
+    newGetProposal,
+    GetProposalResponse (GetProposalResponse'),
+    newGetProposalResponse,
 
-    -- ** DeleteMember
-    DeleteMember (DeleteMember'),
-    newDeleteMember,
-    DeleteMemberResponse (DeleteMemberResponse'),
-    newDeleteMemberResponse,
+    -- ** ListInvitations
+    ListInvitations (ListInvitations'),
+    newListInvitations,
+    ListInvitationsResponse (ListInvitationsResponse'),
+    newListInvitationsResponse,
 
     -- ** ListMembers
     ListMembers (ListMembers'),
@@ -148,11 +142,17 @@ module Amazonka.ManagedBlockChain
     ListMembersResponse (ListMembersResponse'),
     newListMembersResponse,
 
-    -- ** CreateNode
-    CreateNode (CreateNode'),
-    newCreateNode,
-    CreateNodeResponse (CreateNodeResponse'),
-    newCreateNodeResponse,
+    -- ** ListNetworks
+    ListNetworks (ListNetworks'),
+    newListNetworks,
+    ListNetworksResponse (ListNetworksResponse'),
+    newListNetworksResponse,
+
+    -- ** ListNodes
+    ListNodes (ListNodes'),
+    newListNodes,
+    ListNodesResponse (ListNodesResponse'),
+    newListNodesResponse,
 
     -- ** ListProposalVotes
     ListProposalVotes (ListProposalVotes'),
@@ -160,11 +160,23 @@ module Amazonka.ManagedBlockChain
     ListProposalVotesResponse (ListProposalVotesResponse'),
     newListProposalVotesResponse,
 
-    -- ** VoteOnProposal
-    VoteOnProposal (VoteOnProposal'),
-    newVoteOnProposal,
-    VoteOnProposalResponse (VoteOnProposalResponse'),
-    newVoteOnProposalResponse,
+    -- ** ListProposals
+    ListProposals (ListProposals'),
+    newListProposals,
+    ListProposalsResponse (ListProposalsResponse'),
+    newListProposalsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** RejectInvitation
+    RejectInvitation (RejectInvitation'),
+    newRejectInvitation,
+    RejectInvitationResponse (RejectInvitationResponse'),
+    newRejectInvitationResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -178,17 +190,11 @@ module Amazonka.ManagedBlockChain
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetMember
-    GetMember (GetMember'),
-    newGetMember,
-    GetMemberResponse (GetMemberResponse'),
-    newGetMemberResponse,
-
-    -- ** RejectInvitation
-    RejectInvitation (RejectInvitation'),
-    newRejectInvitation,
-    RejectInvitationResponse (RejectInvitationResponse'),
-    newRejectInvitationResponse,
+    -- ** UpdateMember
+    UpdateMember (UpdateMember'),
+    newUpdateMember,
+    UpdateMemberResponse (UpdateMemberResponse'),
+    newUpdateMemberResponse,
 
     -- ** UpdateNode
     UpdateNode (UpdateNode'),
@@ -196,17 +202,11 @@ module Amazonka.ManagedBlockChain
     UpdateNodeResponse (UpdateNodeResponse'),
     newUpdateNodeResponse,
 
-    -- ** DeleteNode
-    DeleteNode (DeleteNode'),
-    newDeleteNode,
-    DeleteNodeResponse (DeleteNodeResponse'),
-    newDeleteNodeResponse,
-
-    -- ** ListNodes
-    ListNodes (ListNodes'),
-    newListNodes,
-    ListNodesResponse (ListNodesResponse'),
-    newListNodesResponse,
+    -- ** VoteOnProposal
+    VoteOnProposal (VoteOnProposal'),
+    newVoteOnProposal,
+    VoteOnProposalResponse (VoteOnProposalResponse'),
+    newVoteOnProposalResponse,
 
     -- * Types
 

@@ -125,12 +125,7 @@ instance Core.ToHeaders CreateImportJob where
 
 instance Core.ToJSON CreateImportJob where
   toJSON CreateImportJob' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ImportJobRequest" Core..= importJobRequest)
-          ]
-      )
+    Core.toJSON importJobRequest
 
 instance Core.ToPath CreateImportJob where
   toPath CreateImportJob' {..} =

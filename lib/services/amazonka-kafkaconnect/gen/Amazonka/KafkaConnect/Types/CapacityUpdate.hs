@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCapacityUpdate' smart constructor.
 data CapacityUpdate = CapacityUpdate'
-  { -- | The target auto scaling setting.
-    autoScaling :: Prelude.Maybe AutoScalingUpdate,
-    -- | The target settings for provisioned capacity.
-    provisionedCapacity :: Prelude.Maybe ProvisionedCapacityUpdate
+  { -- | The target settings for provisioned capacity.
+    provisionedCapacity :: Prelude.Maybe ProvisionedCapacityUpdate,
+    -- | The target auto scaling setting.
+    autoScaling :: Prelude.Maybe AutoScalingUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,41 +45,42 @@ data CapacityUpdate = CapacityUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoScaling', 'capacityUpdate_autoScaling' - The target auto scaling setting.
---
 -- 'provisionedCapacity', 'capacityUpdate_provisionedCapacity' - The target settings for provisioned capacity.
+--
+-- 'autoScaling', 'capacityUpdate_autoScaling' - The target auto scaling setting.
 newCapacityUpdate ::
   CapacityUpdate
 newCapacityUpdate =
   CapacityUpdate'
-    { autoScaling = Prelude.Nothing,
-      provisionedCapacity = Prelude.Nothing
+    { provisionedCapacity =
+        Prelude.Nothing,
+      autoScaling = Prelude.Nothing
     }
-
--- | The target auto scaling setting.
-capacityUpdate_autoScaling :: Lens.Lens' CapacityUpdate (Prelude.Maybe AutoScalingUpdate)
-capacityUpdate_autoScaling = Lens.lens (\CapacityUpdate' {autoScaling} -> autoScaling) (\s@CapacityUpdate' {} a -> s {autoScaling = a} :: CapacityUpdate)
 
 -- | The target settings for provisioned capacity.
 capacityUpdate_provisionedCapacity :: Lens.Lens' CapacityUpdate (Prelude.Maybe ProvisionedCapacityUpdate)
 capacityUpdate_provisionedCapacity = Lens.lens (\CapacityUpdate' {provisionedCapacity} -> provisionedCapacity) (\s@CapacityUpdate' {} a -> s {provisionedCapacity = a} :: CapacityUpdate)
 
+-- | The target auto scaling setting.
+capacityUpdate_autoScaling :: Lens.Lens' CapacityUpdate (Prelude.Maybe AutoScalingUpdate)
+capacityUpdate_autoScaling = Lens.lens (\CapacityUpdate' {autoScaling} -> autoScaling) (\s@CapacityUpdate' {} a -> s {autoScaling = a} :: CapacityUpdate)
+
 instance Prelude.Hashable CapacityUpdate where
   hashWithSalt _salt CapacityUpdate' {..} =
-    _salt `Prelude.hashWithSalt` autoScaling
-      `Prelude.hashWithSalt` provisionedCapacity
+    _salt `Prelude.hashWithSalt` provisionedCapacity
+      `Prelude.hashWithSalt` autoScaling
 
 instance Prelude.NFData CapacityUpdate where
   rnf CapacityUpdate' {..} =
-    Prelude.rnf autoScaling
-      `Prelude.seq` Prelude.rnf provisionedCapacity
+    Prelude.rnf provisionedCapacity
+      `Prelude.seq` Prelude.rnf autoScaling
 
 instance Core.ToJSON CapacityUpdate where
   toJSON CapacityUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("autoScaling" Core..=) Prelude.<$> autoScaling,
-            ("provisionedCapacity" Core..=)
-              Prelude.<$> provisionedCapacity
+          [ ("provisionedCapacity" Core..=)
+              Prelude.<$> provisionedCapacity,
+            ("autoScaling" Core..=) Prelude.<$> autoScaling
           ]
       )

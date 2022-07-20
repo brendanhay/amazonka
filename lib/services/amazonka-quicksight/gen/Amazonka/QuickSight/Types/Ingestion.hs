@@ -33,15 +33,15 @@ import Amazonka.QuickSight.Types.RowInfo
 --
 -- /See:/ 'newIngestion' smart constructor.
 data Ingestion = Ingestion'
-  { -- | Event source for this ingestion.
-    requestSource :: Prelude.Maybe IngestionRequestSource,
-    queueInfo :: Prelude.Maybe QueueInfo,
-    -- | The time that this ingestion took, measured in seconds.
-    ingestionTimeInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | Type of this ingestion.
+  { -- | Type of this ingestion.
     requestType :: Prelude.Maybe IngestionRequestType,
     -- | The size of the data ingested, in bytes.
     ingestionSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The time that this ingestion took, measured in seconds.
+    ingestionTimeInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | Event source for this ingestion.
+    requestSource :: Prelude.Maybe IngestionRequestSource,
+    queueInfo :: Prelude.Maybe QueueInfo,
     rowInfo :: Prelude.Maybe RowInfo,
     -- | Ingestion ID.
     ingestionId :: Prelude.Maybe Prelude.Text,
@@ -64,15 +64,15 @@ data Ingestion = Ingestion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestSource', 'ingestion_requestSource' - Event source for this ingestion.
---
--- 'queueInfo', 'ingestion_queueInfo' - Undocumented member.
---
--- 'ingestionTimeInSeconds', 'ingestion_ingestionTimeInSeconds' - The time that this ingestion took, measured in seconds.
---
 -- 'requestType', 'ingestion_requestType' - Type of this ingestion.
 --
 -- 'ingestionSizeInBytes', 'ingestion_ingestionSizeInBytes' - The size of the data ingested, in bytes.
+--
+-- 'ingestionTimeInSeconds', 'ingestion_ingestionTimeInSeconds' - The time that this ingestion took, measured in seconds.
+--
+-- 'requestSource', 'ingestion_requestSource' - Event source for this ingestion.
+--
+-- 'queueInfo', 'ingestion_queueInfo' - Undocumented member.
 --
 -- 'rowInfo', 'ingestion_rowInfo' - Undocumented member.
 --
@@ -95,11 +95,11 @@ newIngestion ::
   Ingestion
 newIngestion pArn_ pIngestionStatus_ pCreatedTime_ =
   Ingestion'
-    { requestSource = Prelude.Nothing,
-      queueInfo = Prelude.Nothing,
-      ingestionTimeInSeconds = Prelude.Nothing,
-      requestType = Prelude.Nothing,
+    { requestType = Prelude.Nothing,
       ingestionSizeInBytes = Prelude.Nothing,
+      ingestionTimeInSeconds = Prelude.Nothing,
+      requestSource = Prelude.Nothing,
+      queueInfo = Prelude.Nothing,
       rowInfo = Prelude.Nothing,
       ingestionId = Prelude.Nothing,
       errorInfo = Prelude.Nothing,
@@ -108,18 +108,6 @@ newIngestion pArn_ pIngestionStatus_ pCreatedTime_ =
       createdTime = Core._Time Lens.# pCreatedTime_
     }
 
--- | Event source for this ingestion.
-ingestion_requestSource :: Lens.Lens' Ingestion (Prelude.Maybe IngestionRequestSource)
-ingestion_requestSource = Lens.lens (\Ingestion' {requestSource} -> requestSource) (\s@Ingestion' {} a -> s {requestSource = a} :: Ingestion)
-
--- | Undocumented member.
-ingestion_queueInfo :: Lens.Lens' Ingestion (Prelude.Maybe QueueInfo)
-ingestion_queueInfo = Lens.lens (\Ingestion' {queueInfo} -> queueInfo) (\s@Ingestion' {} a -> s {queueInfo = a} :: Ingestion)
-
--- | The time that this ingestion took, measured in seconds.
-ingestion_ingestionTimeInSeconds :: Lens.Lens' Ingestion (Prelude.Maybe Prelude.Integer)
-ingestion_ingestionTimeInSeconds = Lens.lens (\Ingestion' {ingestionTimeInSeconds} -> ingestionTimeInSeconds) (\s@Ingestion' {} a -> s {ingestionTimeInSeconds = a} :: Ingestion)
-
 -- | Type of this ingestion.
 ingestion_requestType :: Lens.Lens' Ingestion (Prelude.Maybe IngestionRequestType)
 ingestion_requestType = Lens.lens (\Ingestion' {requestType} -> requestType) (\s@Ingestion' {} a -> s {requestType = a} :: Ingestion)
@@ -127,6 +115,18 @@ ingestion_requestType = Lens.lens (\Ingestion' {requestType} -> requestType) (\s
 -- | The size of the data ingested, in bytes.
 ingestion_ingestionSizeInBytes :: Lens.Lens' Ingestion (Prelude.Maybe Prelude.Integer)
 ingestion_ingestionSizeInBytes = Lens.lens (\Ingestion' {ingestionSizeInBytes} -> ingestionSizeInBytes) (\s@Ingestion' {} a -> s {ingestionSizeInBytes = a} :: Ingestion)
+
+-- | The time that this ingestion took, measured in seconds.
+ingestion_ingestionTimeInSeconds :: Lens.Lens' Ingestion (Prelude.Maybe Prelude.Integer)
+ingestion_ingestionTimeInSeconds = Lens.lens (\Ingestion' {ingestionTimeInSeconds} -> ingestionTimeInSeconds) (\s@Ingestion' {} a -> s {ingestionTimeInSeconds = a} :: Ingestion)
+
+-- | Event source for this ingestion.
+ingestion_requestSource :: Lens.Lens' Ingestion (Prelude.Maybe IngestionRequestSource)
+ingestion_requestSource = Lens.lens (\Ingestion' {requestSource} -> requestSource) (\s@Ingestion' {} a -> s {requestSource = a} :: Ingestion)
+
+-- | Undocumented member.
+ingestion_queueInfo :: Lens.Lens' Ingestion (Prelude.Maybe QueueInfo)
+ingestion_queueInfo = Lens.lens (\Ingestion' {queueInfo} -> queueInfo) (\s@Ingestion' {} a -> s {queueInfo = a} :: Ingestion)
 
 -- | Undocumented member.
 ingestion_rowInfo :: Lens.Lens' Ingestion (Prelude.Maybe RowInfo)
@@ -158,11 +158,11 @@ instance Core.FromJSON Ingestion where
       "Ingestion"
       ( \x ->
           Ingestion'
-            Prelude.<$> (x Core..:? "RequestSource")
-            Prelude.<*> (x Core..:? "QueueInfo")
-            Prelude.<*> (x Core..:? "IngestionTimeInSeconds")
-            Prelude.<*> (x Core..:? "RequestType")
+            Prelude.<$> (x Core..:? "RequestType")
             Prelude.<*> (x Core..:? "IngestionSizeInBytes")
+            Prelude.<*> (x Core..:? "IngestionTimeInSeconds")
+            Prelude.<*> (x Core..:? "RequestSource")
+            Prelude.<*> (x Core..:? "QueueInfo")
             Prelude.<*> (x Core..:? "RowInfo")
             Prelude.<*> (x Core..:? "IngestionId")
             Prelude.<*> (x Core..:? "ErrorInfo")
@@ -173,11 +173,11 @@ instance Core.FromJSON Ingestion where
 
 instance Prelude.Hashable Ingestion where
   hashWithSalt _salt Ingestion' {..} =
-    _salt `Prelude.hashWithSalt` requestSource
-      `Prelude.hashWithSalt` queueInfo
-      `Prelude.hashWithSalt` ingestionTimeInSeconds
-      `Prelude.hashWithSalt` requestType
+    _salt `Prelude.hashWithSalt` requestType
       `Prelude.hashWithSalt` ingestionSizeInBytes
+      `Prelude.hashWithSalt` ingestionTimeInSeconds
+      `Prelude.hashWithSalt` requestSource
+      `Prelude.hashWithSalt` queueInfo
       `Prelude.hashWithSalt` rowInfo
       `Prelude.hashWithSalt` ingestionId
       `Prelude.hashWithSalt` errorInfo
@@ -187,11 +187,11 @@ instance Prelude.Hashable Ingestion where
 
 instance Prelude.NFData Ingestion where
   rnf Ingestion' {..} =
-    Prelude.rnf requestSource
-      `Prelude.seq` Prelude.rnf queueInfo
-      `Prelude.seq` Prelude.rnf ingestionTimeInSeconds
-      `Prelude.seq` Prelude.rnf requestType
+    Prelude.rnf requestType
       `Prelude.seq` Prelude.rnf ingestionSizeInBytes
+      `Prelude.seq` Prelude.rnf ingestionTimeInSeconds
+      `Prelude.seq` Prelude.rnf requestSource
+      `Prelude.seq` Prelude.rnf queueInfo
       `Prelude.seq` Prelude.rnf rowInfo
       `Prelude.seq` Prelude.rnf ingestionId
       `Prelude.seq` Prelude.rnf errorInfo

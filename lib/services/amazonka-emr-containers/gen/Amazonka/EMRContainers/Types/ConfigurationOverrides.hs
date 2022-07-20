@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigurationOverrides' smart constructor.
 data ConfigurationOverrides = ConfigurationOverrides'
-  { -- | The configurations for monitoring.
-    monitoringConfiguration :: Prelude.Maybe MonitoringConfiguration,
-    -- | The configurations for the application running by the job run.
-    applicationConfiguration :: Prelude.Maybe [Configuration]
+  { -- | The configurations for the application running by the job run.
+    applicationConfiguration :: Prelude.Maybe [Configuration],
+    -- | The configurations for monitoring.
+    monitoringConfiguration :: Prelude.Maybe MonitoringConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data ConfigurationOverrides = ConfigurationOverrides'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'monitoringConfiguration', 'configurationOverrides_monitoringConfiguration' - The configurations for monitoring.
---
 -- 'applicationConfiguration', 'configurationOverrides_applicationConfiguration' - The configurations for the application running by the job run.
+--
+-- 'monitoringConfiguration', 'configurationOverrides_monitoringConfiguration' - The configurations for monitoring.
 newConfigurationOverrides ::
   ConfigurationOverrides
 newConfigurationOverrides =
   ConfigurationOverrides'
-    { monitoringConfiguration =
+    { applicationConfiguration =
         Prelude.Nothing,
-      applicationConfiguration = Prelude.Nothing
+      monitoringConfiguration = Prelude.Nothing
     }
-
--- | The configurations for monitoring.
-configurationOverrides_monitoringConfiguration :: Lens.Lens' ConfigurationOverrides (Prelude.Maybe MonitoringConfiguration)
-configurationOverrides_monitoringConfiguration = Lens.lens (\ConfigurationOverrides' {monitoringConfiguration} -> monitoringConfiguration) (\s@ConfigurationOverrides' {} a -> s {monitoringConfiguration = a} :: ConfigurationOverrides)
 
 -- | The configurations for the application running by the job run.
 configurationOverrides_applicationConfiguration :: Lens.Lens' ConfigurationOverrides (Prelude.Maybe [Configuration])
 configurationOverrides_applicationConfiguration = Lens.lens (\ConfigurationOverrides' {applicationConfiguration} -> applicationConfiguration) (\s@ConfigurationOverrides' {} a -> s {applicationConfiguration = a} :: ConfigurationOverrides) Prelude.. Lens.mapping Lens.coerced
+
+-- | The configurations for monitoring.
+configurationOverrides_monitoringConfiguration :: Lens.Lens' ConfigurationOverrides (Prelude.Maybe MonitoringConfiguration)
+configurationOverrides_monitoringConfiguration = Lens.lens (\ConfigurationOverrides' {monitoringConfiguration} -> monitoringConfiguration) (\s@ConfigurationOverrides' {} a -> s {monitoringConfiguration = a} :: ConfigurationOverrides)
 
 instance Core.FromJSON ConfigurationOverrides where
   parseJSON =
@@ -71,30 +71,30 @@ instance Core.FromJSON ConfigurationOverrides where
       "ConfigurationOverrides"
       ( \x ->
           ConfigurationOverrides'
-            Prelude.<$> (x Core..:? "monitoringConfiguration")
-            Prelude.<*> ( x Core..:? "applicationConfiguration"
+            Prelude.<$> ( x Core..:? "applicationConfiguration"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "monitoringConfiguration")
       )
 
 instance Prelude.Hashable ConfigurationOverrides where
   hashWithSalt _salt ConfigurationOverrides' {..} =
     _salt
-      `Prelude.hashWithSalt` monitoringConfiguration
       `Prelude.hashWithSalt` applicationConfiguration
+      `Prelude.hashWithSalt` monitoringConfiguration
 
 instance Prelude.NFData ConfigurationOverrides where
   rnf ConfigurationOverrides' {..} =
-    Prelude.rnf monitoringConfiguration
-      `Prelude.seq` Prelude.rnf applicationConfiguration
+    Prelude.rnf applicationConfiguration
+      `Prelude.seq` Prelude.rnf monitoringConfiguration
 
 instance Core.ToJSON ConfigurationOverrides where
   toJSON ConfigurationOverrides' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("monitoringConfiguration" Core..=)
-              Prelude.<$> monitoringConfiguration,
-            ("applicationConfiguration" Core..=)
-              Prelude.<$> applicationConfiguration
+          [ ("applicationConfiguration" Core..=)
+              Prelude.<$> applicationConfiguration,
+            ("monitoringConfiguration" Core..=)
+              Prelude.<$> monitoringConfiguration
           ]
       )

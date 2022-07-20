@@ -29,9 +29,9 @@ module Amazonka.HoneyCode.GetScreenData
     newGetScreenData,
 
     -- * Request Lenses
-    getScreenData_variables,
     getScreenData_nextToken,
     getScreenData_maxResults,
+    getScreenData_variables,
     getScreenData_workbookId,
     getScreenData_appId,
     getScreenData_screenId,
@@ -57,13 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetScreenData' smart constructor.
 data GetScreenData = GetScreenData'
-  { -- | Variables are optional and are needed only if the screen requires them
-    -- to render correctly. Variables are specified as a map where the key is
-    -- the name of the variable as defined on the screen. The value is an
-    -- object which currently has only one property, rawValue, which holds the
-    -- value of the variable to be passed to the screen.
-    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
-    -- | This parameter is optional. If a nextToken is not specified, the API
+  { -- | This parameter is optional. If a nextToken is not specified, the API
     -- returns the first page of data.
     --
     -- Pagination tokens expire after 1 hour. If you use a token that was
@@ -75,6 +69,12 @@ data GetScreenData = GetScreenData'
     -- This parameter is optional. If you don\'t specify this parameter, the
     -- default page size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Variables are optional and are needed only if the screen requires them
+    -- to render correctly. Variables are specified as a map where the key is
+    -- the name of the variable as defined on the screen. The value is an
+    -- object which currently has only one property, rawValue, which holds the
+    -- value of the variable to be passed to the screen.
+    variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
     -- | The ID of the workbook that contains the screen.
     workbookId :: Prelude.Text,
     -- | The ID of the app that contains the screem.
@@ -92,12 +92,6 @@ data GetScreenData = GetScreenData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variables', 'getScreenData_variables' - Variables are optional and are needed only if the screen requires them
--- to render correctly. Variables are specified as a map where the key is
--- the name of the variable as defined on the screen. The value is an
--- object which currently has only one property, rawValue, which holds the
--- value of the variable to be passed to the screen.
---
 -- 'nextToken', 'getScreenData_nextToken' - This parameter is optional. If a nextToken is not specified, the API
 -- returns the first page of data.
 --
@@ -109,6 +103,12 @@ data GetScreenData = GetScreenData'
 --
 -- This parameter is optional. If you don\'t specify this parameter, the
 -- default page size is 100.
+--
+-- 'variables', 'getScreenData_variables' - Variables are optional and are needed only if the screen requires them
+-- to render correctly. Variables are specified as a map where the key is
+-- the name of the variable as defined on the screen. The value is an
+-- object which currently has only one property, rawValue, which holds the
+-- value of the variable to be passed to the screen.
 --
 -- 'workbookId', 'getScreenData_workbookId' - The ID of the workbook that contains the screen.
 --
@@ -125,21 +125,13 @@ newGetScreenData ::
   GetScreenData
 newGetScreenData pWorkbookId_ pAppId_ pScreenId_ =
   GetScreenData'
-    { variables = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      variables = Prelude.Nothing,
       workbookId = pWorkbookId_,
       appId = pAppId_,
       screenId = pScreenId_
     }
-
--- | Variables are optional and are needed only if the screen requires them
--- to render correctly. Variables are specified as a map where the key is
--- the name of the variable as defined on the screen. The value is an
--- object which currently has only one property, rawValue, which holds the
--- value of the variable to be passed to the screen.
-getScreenData_variables :: Lens.Lens' GetScreenData (Prelude.Maybe (Prelude.HashMap Prelude.Text VariableValue))
-getScreenData_variables = Lens.lens (\GetScreenData' {variables} -> variables) (\s@GetScreenData' {} a -> s {variables = a} :: GetScreenData) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | This parameter is optional. If a nextToken is not specified, the API
 -- returns the first page of data.
@@ -156,6 +148,14 @@ getScreenData_nextToken = Lens.lens (\GetScreenData' {nextToken} -> nextToken) (
 -- default page size is 100.
 getScreenData_maxResults :: Lens.Lens' GetScreenData (Prelude.Maybe Prelude.Natural)
 getScreenData_maxResults = Lens.lens (\GetScreenData' {maxResults} -> maxResults) (\s@GetScreenData' {} a -> s {maxResults = a} :: GetScreenData)
+
+-- | Variables are optional and are needed only if the screen requires them
+-- to render correctly. Variables are specified as a map where the key is
+-- the name of the variable as defined on the screen. The value is an
+-- object which currently has only one property, rawValue, which holds the
+-- value of the variable to be passed to the screen.
+getScreenData_variables :: Lens.Lens' GetScreenData (Prelude.Maybe (Prelude.HashMap Prelude.Text VariableValue))
+getScreenData_variables = Lens.lens (\GetScreenData' {variables} -> variables) (\s@GetScreenData' {} a -> s {variables = a} :: GetScreenData) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The ID of the workbook that contains the screen.
 getScreenData_workbookId :: Lens.Lens' GetScreenData Prelude.Text
@@ -186,18 +186,18 @@ instance Core.AWSRequest GetScreenData where
 
 instance Prelude.Hashable GetScreenData where
   hashWithSalt _salt GetScreenData' {..} =
-    _salt `Prelude.hashWithSalt` variables
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` variables
       `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` screenId
 
 instance Prelude.NFData GetScreenData where
   rnf GetScreenData' {..} =
-    Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf variables
       `Prelude.seq` Prelude.rnf workbookId
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf screenId
@@ -217,9 +217,9 @@ instance Core.ToJSON GetScreenData where
   toJSON GetScreenData' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("variables" Core..=) Prelude.<$> variables,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("variables" Core..=) Prelude.<$> variables,
             Prelude.Just ("workbookId" Core..= workbookId),
             Prelude.Just ("appId" Core..= appId),
             Prelude.Just ("screenId" Core..= screenId)

@@ -29,9 +29,9 @@ module Amazonka.Pricing.GetProducts
     newGetProducts,
 
     -- * Request Lenses
-    getProducts_filters,
-    getProducts_formatVersion,
     getProducts_nextToken,
+    getProducts_formatVersion,
+    getProducts_filters,
     getProducts_serviceCode,
     getProducts_maxResults,
 
@@ -40,8 +40,8 @@ module Amazonka.Pricing.GetProducts
     newGetProductsResponse,
 
     -- * Response Lenses
-    getProductsResponse_formatVersion,
     getProductsResponse_nextToken,
+    getProductsResponse_formatVersion,
     getProductsResponse_priceList,
     getProductsResponse_httpStatus,
   )
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetProducts' smart constructor.
 data GetProducts = GetProducts'
-  { -- | The list of filters that limit the returned products. only products that
-    -- match all filters are returned.
-    filters :: Prelude.Maybe [Filter],
+  { -- | The pagination token that indicates the next set of results that you
+    -- want to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The format version that you want the response to be in.
     --
     -- Valid values are: @aws_v1@
     formatVersion :: Prelude.Maybe Prelude.Text,
-    -- | The pagination token that indicates the next set of results that you
-    -- want to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of filters that limit the returned products. only products that
+    -- match all filters are returned.
+    filters :: Prelude.Maybe [Filter],
     -- | The code for the service whose products you want to retrieve.
     serviceCode :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in the response.
@@ -81,15 +81,15 @@ data GetProducts = GetProducts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'getProducts_filters' - The list of filters that limit the returned products. only products that
--- match all filters are returned.
+-- 'nextToken', 'getProducts_nextToken' - The pagination token that indicates the next set of results that you
+-- want to retrieve.
 --
 -- 'formatVersion', 'getProducts_formatVersion' - The format version that you want the response to be in.
 --
 -- Valid values are: @aws_v1@
 --
--- 'nextToken', 'getProducts_nextToken' - The pagination token that indicates the next set of results that you
--- want to retrieve.
+-- 'filters', 'getProducts_filters' - The list of filters that limit the returned products. only products that
+-- match all filters are returned.
 --
 -- 'serviceCode', 'getProducts_serviceCode' - The code for the service whose products you want to retrieve.
 --
@@ -98,17 +98,17 @@ newGetProducts ::
   GetProducts
 newGetProducts =
   GetProducts'
-    { filters = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       formatVersion = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       serviceCode = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | The list of filters that limit the returned products. only products that
--- match all filters are returned.
-getProducts_filters :: Lens.Lens' GetProducts (Prelude.Maybe [Filter])
-getProducts_filters = Lens.lens (\GetProducts' {filters} -> filters) (\s@GetProducts' {} a -> s {filters = a} :: GetProducts) Prelude.. Lens.mapping Lens.coerced
+-- | The pagination token that indicates the next set of results that you
+-- want to retrieve.
+getProducts_nextToken :: Lens.Lens' GetProducts (Prelude.Maybe Prelude.Text)
+getProducts_nextToken = Lens.lens (\GetProducts' {nextToken} -> nextToken) (\s@GetProducts' {} a -> s {nextToken = a} :: GetProducts)
 
 -- | The format version that you want the response to be in.
 --
@@ -116,10 +116,10 @@ getProducts_filters = Lens.lens (\GetProducts' {filters} -> filters) (\s@GetProd
 getProducts_formatVersion :: Lens.Lens' GetProducts (Prelude.Maybe Prelude.Text)
 getProducts_formatVersion = Lens.lens (\GetProducts' {formatVersion} -> formatVersion) (\s@GetProducts' {} a -> s {formatVersion = a} :: GetProducts)
 
--- | The pagination token that indicates the next set of results that you
--- want to retrieve.
-getProducts_nextToken :: Lens.Lens' GetProducts (Prelude.Maybe Prelude.Text)
-getProducts_nextToken = Lens.lens (\GetProducts' {nextToken} -> nextToken) (\s@GetProducts' {} a -> s {nextToken = a} :: GetProducts)
+-- | The list of filters that limit the returned products. only products that
+-- match all filters are returned.
+getProducts_filters :: Lens.Lens' GetProducts (Prelude.Maybe [Filter])
+getProducts_filters = Lens.lens (\GetProducts' {filters} -> filters) (\s@GetProducts' {} a -> s {filters = a} :: GetProducts) Prelude.. Lens.mapping Lens.coerced
 
 -- | The code for the service whose products you want to retrieve.
 getProducts_serviceCode :: Lens.Lens' GetProducts (Prelude.Maybe Prelude.Text)
@@ -155,25 +155,25 @@ instance Core.AWSRequest GetProducts where
     Response.receiveJSON
       ( \s h x ->
           GetProductsResponse'
-            Prelude.<$> (x Core..?> "FormatVersion")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "FormatVersion")
             Prelude.<*> (x Core..?> "PriceList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetProducts where
   hashWithSalt _salt GetProducts' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` formatVersion
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` serviceCode
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetProducts where
   rnf GetProducts' {..} =
-    Prelude.rnf filters
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf formatVersion
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf serviceCode
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -196,9 +196,9 @@ instance Core.ToJSON GetProducts where
   toJSON GetProducts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("FormatVersion" Core..=) Prelude.<$> formatVersion,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("ServiceCode" Core..=) Prelude.<$> serviceCode,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
@@ -212,10 +212,10 @@ instance Core.ToQuery GetProducts where
 
 -- | /See:/ 'newGetProductsResponse' smart constructor.
 data GetProductsResponse = GetProductsResponse'
-  { -- | The format version of the response. For example, aws_v1.
-    formatVersion :: Prelude.Maybe Prelude.Text,
-    -- | The pagination token that indicates the next set of results to retrieve.
+  { -- | The pagination token that indicates the next set of results to retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The format version of the response. For example, aws_v1.
+    formatVersion :: Prelude.Maybe Prelude.Text,
     -- | The list of products that match your filters. The list contains both the
     -- product metadata and the price information.
     priceList :: Prelude.Maybe [Prelude.Text],
@@ -232,9 +232,9 @@ data GetProductsResponse = GetProductsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'formatVersion', 'getProductsResponse_formatVersion' - The format version of the response. For example, aws_v1.
---
 -- 'nextToken', 'getProductsResponse_nextToken' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'formatVersion', 'getProductsResponse_formatVersion' - The format version of the response. For example, aws_v1.
 --
 -- 'priceList', 'getProductsResponse_priceList' - The list of products that match your filters. The list contains both the
 -- product metadata and the price information.
@@ -246,20 +246,19 @@ newGetProductsResponse ::
   GetProductsResponse
 newGetProductsResponse pHttpStatus_ =
   GetProductsResponse'
-    { formatVersion =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      formatVersion = Prelude.Nothing,
       priceList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The format version of the response. For example, aws_v1.
-getProductsResponse_formatVersion :: Lens.Lens' GetProductsResponse (Prelude.Maybe Prelude.Text)
-getProductsResponse_formatVersion = Lens.lens (\GetProductsResponse' {formatVersion} -> formatVersion) (\s@GetProductsResponse' {} a -> s {formatVersion = a} :: GetProductsResponse)
-
 -- | The pagination token that indicates the next set of results to retrieve.
 getProductsResponse_nextToken :: Lens.Lens' GetProductsResponse (Prelude.Maybe Prelude.Text)
 getProductsResponse_nextToken = Lens.lens (\GetProductsResponse' {nextToken} -> nextToken) (\s@GetProductsResponse' {} a -> s {nextToken = a} :: GetProductsResponse)
+
+-- | The format version of the response. For example, aws_v1.
+getProductsResponse_formatVersion :: Lens.Lens' GetProductsResponse (Prelude.Maybe Prelude.Text)
+getProductsResponse_formatVersion = Lens.lens (\GetProductsResponse' {formatVersion} -> formatVersion) (\s@GetProductsResponse' {} a -> s {formatVersion = a} :: GetProductsResponse)
 
 -- | The list of products that match your filters. The list contains both the
 -- product metadata and the price information.
@@ -272,7 +271,7 @@ getProductsResponse_httpStatus = Lens.lens (\GetProductsResponse' {httpStatus} -
 
 instance Prelude.NFData GetProductsResponse where
   rnf GetProductsResponse' {..} =
-    Prelude.rnf formatVersion
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf formatVersion
       `Prelude.seq` Prelude.rnf priceList
       `Prelude.seq` Prelude.rnf httpStatus

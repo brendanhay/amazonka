@@ -28,9 +28,9 @@ module Amazonka.Amplify.StartJob
 
     -- * Request Lenses
     startJob_commitId,
-    startJob_jobId,
-    startJob_jobReason,
     startJob_commitTime,
+    startJob_jobReason,
+    startJob_jobId,
     startJob_commitMessage,
     startJob_appId,
     startJob_branchName,
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 data StartJob = StartJob'
   { -- | The commit ID from a third-party repository provider for the job.
     commitId :: Prelude.Maybe Prelude.Text,
+    -- | The commit date and time for the job.
+    commitTime :: Prelude.Maybe Core.POSIX,
+    -- | A descriptive reason for starting this job.
+    jobReason :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for an existing job. This is required if the value of
     -- @jobType@ is @RETRY@.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | A descriptive reason for starting this job.
-    jobReason :: Prelude.Maybe Prelude.Text,
-    -- | The commit date and time for the job.
-    commitTime :: Prelude.Maybe Core.POSIX,
     -- | The commit message from a third-party repository provider for the job.
     commitMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for an Amplify app.
@@ -91,12 +91,12 @@ data StartJob = StartJob'
 --
 -- 'commitId', 'startJob_commitId' - The commit ID from a third-party repository provider for the job.
 --
--- 'jobId', 'startJob_jobId' - The unique ID for an existing job. This is required if the value of
--- @jobType@ is @RETRY@.
+-- 'commitTime', 'startJob_commitTime' - The commit date and time for the job.
 --
 -- 'jobReason', 'startJob_jobReason' - A descriptive reason for starting this job.
 --
--- 'commitTime', 'startJob_commitTime' - The commit date and time for the job.
+-- 'jobId', 'startJob_jobId' - The unique ID for an existing job. This is required if the value of
+-- @jobType@ is @RETRY@.
 --
 -- 'commitMessage', 'startJob_commitMessage' - The commit message from a third-party repository provider for the job.
 --
@@ -120,9 +120,9 @@ newStartJob ::
 newStartJob pAppId_ pBranchName_ pJobType_ =
   StartJob'
     { commitId = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      jobReason = Prelude.Nothing,
       commitTime = Prelude.Nothing,
+      jobReason = Prelude.Nothing,
+      jobId = Prelude.Nothing,
       commitMessage = Prelude.Nothing,
       appId = pAppId_,
       branchName = pBranchName_,
@@ -133,18 +133,18 @@ newStartJob pAppId_ pBranchName_ pJobType_ =
 startJob_commitId :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
 startJob_commitId = Lens.lens (\StartJob' {commitId} -> commitId) (\s@StartJob' {} a -> s {commitId = a} :: StartJob)
 
--- | The unique ID for an existing job. This is required if the value of
--- @jobType@ is @RETRY@.
-startJob_jobId :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
-startJob_jobId = Lens.lens (\StartJob' {jobId} -> jobId) (\s@StartJob' {} a -> s {jobId = a} :: StartJob)
+-- | The commit date and time for the job.
+startJob_commitTime :: Lens.Lens' StartJob (Prelude.Maybe Prelude.UTCTime)
+startJob_commitTime = Lens.lens (\StartJob' {commitTime} -> commitTime) (\s@StartJob' {} a -> s {commitTime = a} :: StartJob) Prelude.. Lens.mapping Core._Time
 
 -- | A descriptive reason for starting this job.
 startJob_jobReason :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
 startJob_jobReason = Lens.lens (\StartJob' {jobReason} -> jobReason) (\s@StartJob' {} a -> s {jobReason = a} :: StartJob)
 
--- | The commit date and time for the job.
-startJob_commitTime :: Lens.Lens' StartJob (Prelude.Maybe Prelude.UTCTime)
-startJob_commitTime = Lens.lens (\StartJob' {commitTime} -> commitTime) (\s@StartJob' {} a -> s {commitTime = a} :: StartJob) Prelude.. Lens.mapping Core._Time
+-- | The unique ID for an existing job. This is required if the value of
+-- @jobType@ is @RETRY@.
+startJob_jobId :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
+startJob_jobId = Lens.lens (\StartJob' {jobId} -> jobId) (\s@StartJob' {} a -> s {jobId = a} :: StartJob)
 
 -- | The commit message from a third-party repository provider for the job.
 startJob_commitMessage :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
@@ -180,9 +180,9 @@ instance Core.AWSRequest StartJob where
 instance Prelude.Hashable StartJob where
   hashWithSalt _salt StartJob' {..} =
     _salt `Prelude.hashWithSalt` commitId
-      `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` jobReason
       `Prelude.hashWithSalt` commitTime
+      `Prelude.hashWithSalt` jobReason
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
@@ -191,9 +191,9 @@ instance Prelude.Hashable StartJob where
 instance Prelude.NFData StartJob where
   rnf StartJob' {..} =
     Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobReason
       `Prelude.seq` Prelude.rnf commitTime
+      `Prelude.seq` Prelude.rnf jobReason
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf commitMessage
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
@@ -215,9 +215,9 @@ instance Core.ToJSON StartJob where
     Core.object
       ( Prelude.catMaybes
           [ ("commitId" Core..=) Prelude.<$> commitId,
-            ("jobId" Core..=) Prelude.<$> jobId,
-            ("jobReason" Core..=) Prelude.<$> jobReason,
             ("commitTime" Core..=) Prelude.<$> commitTime,
+            ("jobReason" Core..=) Prelude.<$> jobReason,
+            ("jobId" Core..=) Prelude.<$> jobId,
             ("commitMessage" Core..=) Prelude.<$> commitMessage,
             Prelude.Just ("jobType" Core..= jobType)
           ]

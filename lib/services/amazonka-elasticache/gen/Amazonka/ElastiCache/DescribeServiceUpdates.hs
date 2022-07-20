@@ -29,9 +29,9 @@ module Amazonka.ElastiCache.DescribeServiceUpdates
     newDescribeServiceUpdates,
 
     -- * Request Lenses
-    describeServiceUpdates_serviceUpdateName,
     describeServiceUpdates_marker,
     describeServiceUpdates_maxRecords,
+    describeServiceUpdates_serviceUpdateName,
     describeServiceUpdates_serviceUpdateStatus,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.ElastiCache.DescribeServiceUpdates
     newDescribeServiceUpdatesResponse,
 
     -- * Response Lenses
-    describeServiceUpdatesResponse_serviceUpdates,
     describeServiceUpdatesResponse_marker,
+    describeServiceUpdatesResponse_serviceUpdates,
     describeServiceUpdatesResponse_httpStatus,
   )
 where
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeServiceUpdates' smart constructor.
 data DescribeServiceUpdates = DescribeServiceUpdates'
-  { -- | The unique ID of the service update
-    serviceUpdateName :: Prelude.Maybe Prelude.Text,
-    -- | An optional marker returned from a prior request. Use this marker for
+  { -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The unique ID of the service update
+    serviceUpdateName :: Prelude.Maybe Prelude.Text,
     -- | The status of the service update
     serviceUpdateStatus :: Prelude.Maybe [ServiceUpdateStatus]
   }
@@ -76,8 +76,6 @@ data DescribeServiceUpdates = DescribeServiceUpdates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceUpdateName', 'describeServiceUpdates_serviceUpdateName' - The unique ID of the service update
---
 -- 'marker', 'describeServiceUpdates_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
@@ -85,21 +83,18 @@ data DescribeServiceUpdates = DescribeServiceUpdates'
 --
 -- 'maxRecords', 'describeServiceUpdates_maxRecords' - The maximum number of records to include in the response
 --
+-- 'serviceUpdateName', 'describeServiceUpdates_serviceUpdateName' - The unique ID of the service update
+--
 -- 'serviceUpdateStatus', 'describeServiceUpdates_serviceUpdateStatus' - The status of the service update
 newDescribeServiceUpdates ::
   DescribeServiceUpdates
 newDescribeServiceUpdates =
   DescribeServiceUpdates'
-    { serviceUpdateName =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      serviceUpdateName = Prelude.Nothing,
       serviceUpdateStatus = Prelude.Nothing
     }
-
--- | The unique ID of the service update
-describeServiceUpdates_serviceUpdateName :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Text)
-describeServiceUpdates_serviceUpdateName = Lens.lens (\DescribeServiceUpdates' {serviceUpdateName} -> serviceUpdateName) (\s@DescribeServiceUpdates' {} a -> s {serviceUpdateName = a} :: DescribeServiceUpdates)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
@@ -111,6 +106,10 @@ describeServiceUpdates_marker = Lens.lens (\DescribeServiceUpdates' {marker} -> 
 -- | The maximum number of records to include in the response
 describeServiceUpdates_maxRecords :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Int)
 describeServiceUpdates_maxRecords = Lens.lens (\DescribeServiceUpdates' {maxRecords} -> maxRecords) (\s@DescribeServiceUpdates' {} a -> s {maxRecords = a} :: DescribeServiceUpdates)
+
+-- | The unique ID of the service update
+describeServiceUpdates_serviceUpdateName :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Text)
+describeServiceUpdates_serviceUpdateName = Lens.lens (\DescribeServiceUpdates' {serviceUpdateName} -> serviceUpdateName) (\s@DescribeServiceUpdates' {} a -> s {serviceUpdateName = a} :: DescribeServiceUpdates)
 
 -- | The status of the service update
 describeServiceUpdates_serviceUpdateStatus :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe [ServiceUpdateStatus])
@@ -148,25 +147,25 @@ instance Core.AWSRequest DescribeServiceUpdates where
       "DescribeServiceUpdatesResult"
       ( \s h x ->
           DescribeServiceUpdatesResponse'
-            Prelude.<$> ( x Core..@? "ServiceUpdates" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "ServiceUpdates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "ServiceUpdate")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeServiceUpdates where
   hashWithSalt _salt DescribeServiceUpdates' {..} =
-    _salt `Prelude.hashWithSalt` serviceUpdateName
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` serviceUpdateName
       `Prelude.hashWithSalt` serviceUpdateStatus
 
 instance Prelude.NFData DescribeServiceUpdates where
   rnf DescribeServiceUpdates' {..} =
-    Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf serviceUpdateName
       `Prelude.seq` Prelude.rnf serviceUpdateStatus
 
 instance Core.ToHeaders DescribeServiceUpdates where
@@ -182,9 +181,9 @@ instance Core.ToQuery DescribeServiceUpdates where
           Core.=: ("DescribeServiceUpdates" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "ServiceUpdateName" Core.=: serviceUpdateName,
         "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
+        "ServiceUpdateName" Core.=: serviceUpdateName,
         "ServiceUpdateStatus"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
@@ -194,13 +193,13 @@ instance Core.ToQuery DescribeServiceUpdates where
 
 -- | /See:/ 'newDescribeServiceUpdatesResponse' smart constructor.
 data DescribeServiceUpdatesResponse = DescribeServiceUpdatesResponse'
-  { -- | A list of service updates
-    serviceUpdates :: Prelude.Maybe [ServiceUpdate],
-    -- | An optional marker returned from a prior request. Use this marker for
+  { -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of service updates
+    serviceUpdates :: Prelude.Maybe [ServiceUpdate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,12 +213,12 @@ data DescribeServiceUpdatesResponse = DescribeServiceUpdatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceUpdates', 'describeServiceUpdatesResponse_serviceUpdates' - A list of service updates
---
 -- 'marker', 'describeServiceUpdatesResponse_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
+--
+-- 'serviceUpdates', 'describeServiceUpdatesResponse_serviceUpdates' - A list of service updates
 --
 -- 'httpStatus', 'describeServiceUpdatesResponse_httpStatus' - The response's http status code.
 newDescribeServiceUpdatesResponse ::
@@ -228,15 +227,11 @@ newDescribeServiceUpdatesResponse ::
   DescribeServiceUpdatesResponse
 newDescribeServiceUpdatesResponse pHttpStatus_ =
   DescribeServiceUpdatesResponse'
-    { serviceUpdates =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      serviceUpdates = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of service updates
-describeServiceUpdatesResponse_serviceUpdates :: Lens.Lens' DescribeServiceUpdatesResponse (Prelude.Maybe [ServiceUpdate])
-describeServiceUpdatesResponse_serviceUpdates = Lens.lens (\DescribeServiceUpdatesResponse' {serviceUpdates} -> serviceUpdates) (\s@DescribeServiceUpdatesResponse' {} a -> s {serviceUpdates = a} :: DescribeServiceUpdatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
@@ -244,6 +239,10 @@ describeServiceUpdatesResponse_serviceUpdates = Lens.lens (\DescribeServiceUpdat
 -- the value specified by @MaxRecords@.
 describeServiceUpdatesResponse_marker :: Lens.Lens' DescribeServiceUpdatesResponse (Prelude.Maybe Prelude.Text)
 describeServiceUpdatesResponse_marker = Lens.lens (\DescribeServiceUpdatesResponse' {marker} -> marker) (\s@DescribeServiceUpdatesResponse' {} a -> s {marker = a} :: DescribeServiceUpdatesResponse)
+
+-- | A list of service updates
+describeServiceUpdatesResponse_serviceUpdates :: Lens.Lens' DescribeServiceUpdatesResponse (Prelude.Maybe [ServiceUpdate])
+describeServiceUpdatesResponse_serviceUpdates = Lens.lens (\DescribeServiceUpdatesResponse' {serviceUpdates} -> serviceUpdates) (\s@DescribeServiceUpdatesResponse' {} a -> s {serviceUpdates = a} :: DescribeServiceUpdatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeServiceUpdatesResponse_httpStatus :: Lens.Lens' DescribeServiceUpdatesResponse Prelude.Int
@@ -254,6 +253,6 @@ instance
     DescribeServiceUpdatesResponse
   where
   rnf DescribeServiceUpdatesResponse' {..} =
-    Prelude.rnf serviceUpdates
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf serviceUpdates
       `Prelude.seq` Prelude.rnf httpStatus

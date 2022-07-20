@@ -27,8 +27,8 @@ module Amazonka.ApiGatewayV2.ExportApi
     newExportApi,
 
     -- * Request Lenses
-    exportApi_exportVersion,
     exportApi_stageName,
+    exportApi_exportVersion,
     exportApi_includeExtensions,
     exportApi_specification,
     exportApi_outputType,
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExportApi' smart constructor.
 data ExportApi = ExportApi'
-  { -- | The version of the API Gateway export algorithm. API Gateway uses the
-    -- latest version by default. Currently, the only supported version is 1.0.
-    exportVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the API stage to export. If you don\'t specify this
+  { -- | The name of the API stage to export. If you don\'t specify this
     -- property, a representation of the latest API configuration is exported.
     stageName :: Prelude.Maybe Prelude.Text,
+    -- | The version of the API Gateway export algorithm. API Gateway uses the
+    -- latest version by default. Currently, the only supported version is 1.0.
+    exportVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to include
     -- <https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html API Gateway extensions>
     -- in the exported API definition. API Gateway extensions are included by
@@ -83,11 +83,11 @@ data ExportApi = ExportApi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportVersion', 'exportApi_exportVersion' - The version of the API Gateway export algorithm. API Gateway uses the
--- latest version by default. Currently, the only supported version is 1.0.
---
 -- 'stageName', 'exportApi_stageName' - The name of the API stage to export. If you don\'t specify this
 -- property, a representation of the latest API configuration is exported.
+--
+-- 'exportVersion', 'exportApi_exportVersion' - The version of the API Gateway export algorithm. API Gateway uses the
+-- latest version by default. Currently, the only supported version is 1.0.
 --
 -- 'includeExtensions', 'exportApi_includeExtensions' - Specifies whether to include
 -- <https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html API Gateway extensions>
@@ -111,23 +111,23 @@ newExportApi ::
   ExportApi
 newExportApi pSpecification_ pOutputType_ pApiId_ =
   ExportApi'
-    { exportVersion = Prelude.Nothing,
-      stageName = Prelude.Nothing,
+    { stageName = Prelude.Nothing,
+      exportVersion = Prelude.Nothing,
       includeExtensions = Prelude.Nothing,
       specification = pSpecification_,
       outputType = pOutputType_,
       apiId = pApiId_
     }
 
--- | The version of the API Gateway export algorithm. API Gateway uses the
--- latest version by default. Currently, the only supported version is 1.0.
-exportApi_exportVersion :: Lens.Lens' ExportApi (Prelude.Maybe Prelude.Text)
-exportApi_exportVersion = Lens.lens (\ExportApi' {exportVersion} -> exportVersion) (\s@ExportApi' {} a -> s {exportVersion = a} :: ExportApi)
-
 -- | The name of the API stage to export. If you don\'t specify this
 -- property, a representation of the latest API configuration is exported.
 exportApi_stageName :: Lens.Lens' ExportApi (Prelude.Maybe Prelude.Text)
 exportApi_stageName = Lens.lens (\ExportApi' {stageName} -> stageName) (\s@ExportApi' {} a -> s {stageName = a} :: ExportApi)
+
+-- | The version of the API Gateway export algorithm. API Gateway uses the
+-- latest version by default. Currently, the only supported version is 1.0.
+exportApi_exportVersion :: Lens.Lens' ExportApi (Prelude.Maybe Prelude.Text)
+exportApi_exportVersion = Lens.lens (\ExportApi' {exportVersion} -> exportVersion) (\s@ExportApi' {} a -> s {exportVersion = a} :: ExportApi)
 
 -- | Specifies whether to include
 -- <https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html API Gateway extensions>
@@ -163,8 +163,8 @@ instance Core.AWSRequest ExportApi where
 
 instance Prelude.Hashable ExportApi where
   hashWithSalt _salt ExportApi' {..} =
-    _salt `Prelude.hashWithSalt` exportVersion
-      `Prelude.hashWithSalt` stageName
+    _salt `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` exportVersion
       `Prelude.hashWithSalt` includeExtensions
       `Prelude.hashWithSalt` specification
       `Prelude.hashWithSalt` outputType
@@ -172,8 +172,8 @@ instance Prelude.Hashable ExportApi where
 
 instance Prelude.NFData ExportApi where
   rnf ExportApi' {..} =
-    Prelude.rnf exportVersion
-      `Prelude.seq` Prelude.rnf stageName
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf exportVersion
       `Prelude.seq` Prelude.rnf includeExtensions
       `Prelude.seq` Prelude.rnf specification
       `Prelude.seq` Prelude.rnf outputType
@@ -202,8 +202,8 @@ instance Core.ToPath ExportApi where
 instance Core.ToQuery ExportApi where
   toQuery ExportApi' {..} =
     Prelude.mconcat
-      [ "exportVersion" Core.=: exportVersion,
-        "stageName" Core.=: stageName,
+      [ "stageName" Core.=: stageName,
+        "exportVersion" Core.=: exportVersion,
         "includeExtensions" Core.=: includeExtensions,
         "outputType" Core.=: outputType
       ]

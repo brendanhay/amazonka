@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrefetchConsumption' smart constructor.
 data PrefetchConsumption = PrefetchConsumption'
-  { -- | The time when prefetched ads are considered for use in an ad break. If
-    -- you don\'t specify StartTime, the prefetched ads are available after
-    -- MediaTailor retrives them from the ad decision server.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | If you only want MediaTailor to insert prefetched ads into avails (ad
+  { -- | If you only want MediaTailor to insert prefetched ads into avails (ad
     -- breaks) that match specific dynamic variables, such as scte.event_id,
     -- set the avail matching criteria.
     availMatchingCriteria :: Prelude.Maybe [AvailMatchingCriteria],
+    -- | The time when prefetched ads are considered for use in an ad break. If
+    -- you don\'t specify StartTime, the prefetched ads are available after
+    -- MediaTailor retrives them from the ad decision server.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The time when MediaTailor no longer considers the prefetched ads for use
     -- in an ad break. MediaTailor automatically deletes prefetch schedules no
     -- less than seven days after the end time. If you\'d like to manually
@@ -53,13 +53,13 @@ data PrefetchConsumption = PrefetchConsumption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'prefetchConsumption_startTime' - The time when prefetched ads are considered for use in an ad break. If
--- you don\'t specify StartTime, the prefetched ads are available after
--- MediaTailor retrives them from the ad decision server.
---
 -- 'availMatchingCriteria', 'prefetchConsumption_availMatchingCriteria' - If you only want MediaTailor to insert prefetched ads into avails (ad
 -- breaks) that match specific dynamic variables, such as scte.event_id,
 -- set the avail matching criteria.
+--
+-- 'startTime', 'prefetchConsumption_startTime' - The time when prefetched ads are considered for use in an ad break. If
+-- you don\'t specify StartTime, the prefetched ads are available after
+-- MediaTailor retrives them from the ad decision server.
 --
 -- 'endTime', 'prefetchConsumption_endTime' - The time when MediaTailor no longer considers the prefetched ads for use
 -- in an ad break. MediaTailor automatically deletes prefetch schedules no
@@ -71,22 +71,23 @@ newPrefetchConsumption ::
   PrefetchConsumption
 newPrefetchConsumption pEndTime_ =
   PrefetchConsumption'
-    { startTime = Prelude.Nothing,
-      availMatchingCriteria = Prelude.Nothing,
+    { availMatchingCriteria =
+        Prelude.Nothing,
+      startTime = Prelude.Nothing,
       endTime = Core._Time Lens.# pEndTime_
     }
-
--- | The time when prefetched ads are considered for use in an ad break. If
--- you don\'t specify StartTime, the prefetched ads are available after
--- MediaTailor retrives them from the ad decision server.
-prefetchConsumption_startTime :: Lens.Lens' PrefetchConsumption (Prelude.Maybe Prelude.UTCTime)
-prefetchConsumption_startTime = Lens.lens (\PrefetchConsumption' {startTime} -> startTime) (\s@PrefetchConsumption' {} a -> s {startTime = a} :: PrefetchConsumption) Prelude.. Lens.mapping Core._Time
 
 -- | If you only want MediaTailor to insert prefetched ads into avails (ad
 -- breaks) that match specific dynamic variables, such as scte.event_id,
 -- set the avail matching criteria.
 prefetchConsumption_availMatchingCriteria :: Lens.Lens' PrefetchConsumption (Prelude.Maybe [AvailMatchingCriteria])
 prefetchConsumption_availMatchingCriteria = Lens.lens (\PrefetchConsumption' {availMatchingCriteria} -> availMatchingCriteria) (\s@PrefetchConsumption' {} a -> s {availMatchingCriteria = a} :: PrefetchConsumption) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time when prefetched ads are considered for use in an ad break. If
+-- you don\'t specify StartTime, the prefetched ads are available after
+-- MediaTailor retrives them from the ad decision server.
+prefetchConsumption_startTime :: Lens.Lens' PrefetchConsumption (Prelude.Maybe Prelude.UTCTime)
+prefetchConsumption_startTime = Lens.lens (\PrefetchConsumption' {startTime} -> startTime) (\s@PrefetchConsumption' {} a -> s {startTime = a} :: PrefetchConsumption) Prelude.. Lens.mapping Core._Time
 
 -- | The time when MediaTailor no longer considers the prefetched ads for use
 -- in an ad break. MediaTailor automatically deletes prefetch schedules no
@@ -101,32 +102,32 @@ instance Core.FromJSON PrefetchConsumption where
       "PrefetchConsumption"
       ( \x ->
           PrefetchConsumption'
-            Prelude.<$> (x Core..:? "StartTime")
-            Prelude.<*> ( x Core..:? "AvailMatchingCriteria"
+            Prelude.<$> ( x Core..:? "AvailMatchingCriteria"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..: "EndTime")
       )
 
 instance Prelude.Hashable PrefetchConsumption where
   hashWithSalt _salt PrefetchConsumption' {..} =
-    _salt `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` availMatchingCriteria
+    _salt `Prelude.hashWithSalt` availMatchingCriteria
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 
 instance Prelude.NFData PrefetchConsumption where
   rnf PrefetchConsumption' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf availMatchingCriteria
+    Prelude.rnf availMatchingCriteria
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
 instance Core.ToJSON PrefetchConsumption where
   toJSON PrefetchConsumption' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StartTime" Core..=) Prelude.<$> startTime,
-            ("AvailMatchingCriteria" Core..=)
+          [ ("AvailMatchingCriteria" Core..=)
               Prelude.<$> availMatchingCriteria,
+            ("StartTime" Core..=) Prelude.<$> startTime,
             Prelude.Just ("EndTime" Core..= endTime)
           ]
       )

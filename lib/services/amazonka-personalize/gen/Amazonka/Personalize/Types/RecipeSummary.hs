@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecipeSummary' smart constructor.
 data RecipeSummary = RecipeSummary'
-  { -- | The status of the recipe.
+  { -- | The name of the recipe.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the recipe was created.
+    creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The status of the recipe.
     status :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the recipe.
     recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the recipe was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the recipe.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the recipe was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,33 @@ data RecipeSummary = RecipeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'recipeSummary_name' - The name of the recipe.
+--
+-- 'creationDateTime', 'recipeSummary_creationDateTime' - The date and time (in Unix time) that the recipe was created.
+--
 -- 'status', 'recipeSummary_status' - The status of the recipe.
 --
 -- 'recipeArn', 'recipeSummary_recipeArn' - The Amazon Resource Name (ARN) of the recipe.
 --
 -- 'lastUpdatedDateTime', 'recipeSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the recipe was last updated.
---
--- 'name', 'recipeSummary_name' - The name of the recipe.
---
--- 'creationDateTime', 'recipeSummary_creationDateTime' - The date and time (in Unix time) that the recipe was created.
 newRecipeSummary ::
   RecipeSummary
 newRecipeSummary =
   RecipeSummary'
-    { status = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       recipeArn = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
-      name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
+      lastUpdatedDateTime = Prelude.Nothing
     }
+
+-- | The name of the recipe.
+recipeSummary_name :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.Text)
+recipeSummary_name = Lens.lens (\RecipeSummary' {name} -> name) (\s@RecipeSummary' {} a -> s {name = a} :: RecipeSummary)
+
+-- | The date and time (in Unix time) that the recipe was created.
+recipeSummary_creationDateTime :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.UTCTime)
+recipeSummary_creationDateTime = Lens.lens (\RecipeSummary' {creationDateTime} -> creationDateTime) (\s@RecipeSummary' {} a -> s {creationDateTime = a} :: RecipeSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the recipe.
 recipeSummary_status :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.Text)
@@ -81,39 +89,31 @@ recipeSummary_recipeArn = Lens.lens (\RecipeSummary' {recipeArn} -> recipeArn) (
 recipeSummary_lastUpdatedDateTime :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.UTCTime)
 recipeSummary_lastUpdatedDateTime = Lens.lens (\RecipeSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RecipeSummary' {} a -> s {lastUpdatedDateTime = a} :: RecipeSummary) Prelude.. Lens.mapping Core._Time
 
--- | The name of the recipe.
-recipeSummary_name :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.Text)
-recipeSummary_name = Lens.lens (\RecipeSummary' {name} -> name) (\s@RecipeSummary' {} a -> s {name = a} :: RecipeSummary)
-
--- | The date and time (in Unix time) that the recipe was created.
-recipeSummary_creationDateTime :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.UTCTime)
-recipeSummary_creationDateTime = Lens.lens (\RecipeSummary' {creationDateTime} -> creationDateTime) (\s@RecipeSummary' {} a -> s {creationDateTime = a} :: RecipeSummary) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON RecipeSummary where
   parseJSON =
     Core.withObject
       "RecipeSummary"
       ( \x ->
           RecipeSummary'
-            Prelude.<$> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "recipeArn")
             Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "creationDateTime")
       )
 
 instance Prelude.Hashable RecipeSummary where
   hashWithSalt _salt RecipeSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` recipeArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDateTime
 
 instance Prelude.NFData RecipeSummary where
   rnf RecipeSummary' {..} =
-    Prelude.rnf status
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf recipeArn
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime

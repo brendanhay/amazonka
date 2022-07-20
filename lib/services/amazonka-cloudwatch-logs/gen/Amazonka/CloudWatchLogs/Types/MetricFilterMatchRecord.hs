@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
-  { -- | The values extracted from the event data by the filter.
-    extractedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The event number.
+  { -- | The event number.
     eventNumber :: Prelude.Maybe Prelude.Integer,
+    -- | The values extracted from the event data by the filter.
+    extractedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The raw event data.
     eventMessage :: Prelude.Maybe Prelude.Text
   }
@@ -44,28 +44,28 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'extractedValues', 'metricFilterMatchRecord_extractedValues' - The values extracted from the event data by the filter.
---
 -- 'eventNumber', 'metricFilterMatchRecord_eventNumber' - The event number.
+--
+-- 'extractedValues', 'metricFilterMatchRecord_extractedValues' - The values extracted from the event data by the filter.
 --
 -- 'eventMessage', 'metricFilterMatchRecord_eventMessage' - The raw event data.
 newMetricFilterMatchRecord ::
   MetricFilterMatchRecord
 newMetricFilterMatchRecord =
   MetricFilterMatchRecord'
-    { extractedValues =
+    { eventNumber =
         Prelude.Nothing,
-      eventNumber = Prelude.Nothing,
+      extractedValues = Prelude.Nothing,
       eventMessage = Prelude.Nothing
     }
-
--- | The values extracted from the event data by the filter.
-metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The event number.
 metricFilterMatchRecord_eventNumber :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Integer)
 metricFilterMatchRecord_eventNumber = Lens.lens (\MetricFilterMatchRecord' {eventNumber} -> eventNumber) (\s@MetricFilterMatchRecord' {} a -> s {eventNumber = a} :: MetricFilterMatchRecord)
+
+-- | The values extracted from the event data by the filter.
+metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The raw event data.
 metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Text)
@@ -77,21 +77,21 @@ instance Core.FromJSON MetricFilterMatchRecord where
       "MetricFilterMatchRecord"
       ( \x ->
           MetricFilterMatchRecord'
-            Prelude.<$> ( x Core..:? "extractedValues"
+            Prelude.<$> (x Core..:? "eventNumber")
+            Prelude.<*> ( x Core..:? "extractedValues"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "eventNumber")
             Prelude.<*> (x Core..:? "eventMessage")
       )
 
 instance Prelude.Hashable MetricFilterMatchRecord where
   hashWithSalt _salt MetricFilterMatchRecord' {..} =
-    _salt `Prelude.hashWithSalt` extractedValues
-      `Prelude.hashWithSalt` eventNumber
+    _salt `Prelude.hashWithSalt` eventNumber
+      `Prelude.hashWithSalt` extractedValues
       `Prelude.hashWithSalt` eventMessage
 
 instance Prelude.NFData MetricFilterMatchRecord where
   rnf MetricFilterMatchRecord' {..} =
-    Prelude.rnf extractedValues
-      `Prelude.seq` Prelude.rnf eventNumber
+    Prelude.rnf eventNumber
+      `Prelude.seq` Prelude.rnf extractedValues
       `Prelude.seq` Prelude.rnf eventMessage

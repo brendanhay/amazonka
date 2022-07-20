@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConditionalForwarder' smart constructor.
 data ConditionalForwarder = ConditionalForwarder'
-  { -- | The IP addresses of the remote DNS server associated with
-    -- RemoteDomainName. This is the IP address of the DNS server that your
-    -- conditional forwarder points to.
-    dnsIpAddrs :: Prelude.Maybe [Prelude.Text],
-    -- | The fully qualified domain name (FQDN) of the remote domains pointed to
+  { -- | The fully qualified domain name (FQDN) of the remote domains pointed to
     -- by the conditional forwarder.
     remoteDomainName :: Prelude.Maybe Prelude.Text,
     -- | The replication scope of the conditional forwarder. The only allowed
     -- value is @Domain@, which will replicate the conditional forwarder to all
     -- of the domain controllers for your Amazon Web Services directory.
-    replicationScope :: Prelude.Maybe ReplicationScope
+    replicationScope :: Prelude.Maybe ReplicationScope,
+    -- | The IP addresses of the remote DNS server associated with
+    -- RemoteDomainName. This is the IP address of the DNS server that your
+    -- conditional forwarder points to.
+    dnsIpAddrs :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,25 @@ data ConditionalForwarder = ConditionalForwarder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dnsIpAddrs', 'conditionalForwarder_dnsIpAddrs' - The IP addresses of the remote DNS server associated with
--- RemoteDomainName. This is the IP address of the DNS server that your
--- conditional forwarder points to.
---
 -- 'remoteDomainName', 'conditionalForwarder_remoteDomainName' - The fully qualified domain name (FQDN) of the remote domains pointed to
 -- by the conditional forwarder.
 --
 -- 'replicationScope', 'conditionalForwarder_replicationScope' - The replication scope of the conditional forwarder. The only allowed
 -- value is @Domain@, which will replicate the conditional forwarder to all
 -- of the domain controllers for your Amazon Web Services directory.
+--
+-- 'dnsIpAddrs', 'conditionalForwarder_dnsIpAddrs' - The IP addresses of the remote DNS server associated with
+-- RemoteDomainName. This is the IP address of the DNS server that your
+-- conditional forwarder points to.
 newConditionalForwarder ::
   ConditionalForwarder
 newConditionalForwarder =
   ConditionalForwarder'
-    { dnsIpAddrs = Prelude.Nothing,
-      remoteDomainName = Prelude.Nothing,
-      replicationScope = Prelude.Nothing
+    { remoteDomainName =
+        Prelude.Nothing,
+      replicationScope = Prelude.Nothing,
+      dnsIpAddrs = Prelude.Nothing
     }
-
--- | The IP addresses of the remote DNS server associated with
--- RemoteDomainName. This is the IP address of the DNS server that your
--- conditional forwarder points to.
-conditionalForwarder_dnsIpAddrs :: Lens.Lens' ConditionalForwarder (Prelude.Maybe [Prelude.Text])
-conditionalForwarder_dnsIpAddrs = Lens.lens (\ConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@ConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: ConditionalForwarder) Prelude.. Lens.mapping Lens.coerced
 
 -- | The fully qualified domain name (FQDN) of the remote domains pointed to
 -- by the conditional forwarder.
@@ -88,25 +83,31 @@ conditionalForwarder_remoteDomainName = Lens.lens (\ConditionalForwarder' {remot
 conditionalForwarder_replicationScope :: Lens.Lens' ConditionalForwarder (Prelude.Maybe ReplicationScope)
 conditionalForwarder_replicationScope = Lens.lens (\ConditionalForwarder' {replicationScope} -> replicationScope) (\s@ConditionalForwarder' {} a -> s {replicationScope = a} :: ConditionalForwarder)
 
+-- | The IP addresses of the remote DNS server associated with
+-- RemoteDomainName. This is the IP address of the DNS server that your
+-- conditional forwarder points to.
+conditionalForwarder_dnsIpAddrs :: Lens.Lens' ConditionalForwarder (Prelude.Maybe [Prelude.Text])
+conditionalForwarder_dnsIpAddrs = Lens.lens (\ConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@ConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: ConditionalForwarder) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON ConditionalForwarder where
   parseJSON =
     Core.withObject
       "ConditionalForwarder"
       ( \x ->
           ConditionalForwarder'
-            Prelude.<$> (x Core..:? "DnsIpAddrs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RemoteDomainName")
+            Prelude.<$> (x Core..:? "RemoteDomainName")
             Prelude.<*> (x Core..:? "ReplicationScope")
+            Prelude.<*> (x Core..:? "DnsIpAddrs" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ConditionalForwarder where
   hashWithSalt _salt ConditionalForwarder' {..} =
-    _salt `Prelude.hashWithSalt` dnsIpAddrs
-      `Prelude.hashWithSalt` remoteDomainName
+    _salt `Prelude.hashWithSalt` remoteDomainName
       `Prelude.hashWithSalt` replicationScope
+      `Prelude.hashWithSalt` dnsIpAddrs
 
 instance Prelude.NFData ConditionalForwarder where
   rnf ConditionalForwarder' {..} =
-    Prelude.rnf dnsIpAddrs
-      `Prelude.seq` Prelude.rnf remoteDomainName
+    Prelude.rnf remoteDomainName
       `Prelude.seq` Prelude.rnf replicationScope
+      `Prelude.seq` Prelude.rnf dnsIpAddrs

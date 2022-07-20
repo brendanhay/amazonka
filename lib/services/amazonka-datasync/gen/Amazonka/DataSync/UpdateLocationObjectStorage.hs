@@ -30,12 +30,12 @@ module Amazonka.DataSync.UpdateLocationObjectStorage
     newUpdateLocationObjectStorage,
 
     -- * Request Lenses
-    updateLocationObjectStorage_serverPort,
-    updateLocationObjectStorage_agentArns,
     updateLocationObjectStorage_serverProtocol,
+    updateLocationObjectStorage_serverPort,
+    updateLocationObjectStorage_accessKey,
     updateLocationObjectStorage_secretKey,
     updateLocationObjectStorage_subdirectory,
-    updateLocationObjectStorage_accessKey,
+    updateLocationObjectStorage_agentArns,
     updateLocationObjectStorage_locationArn,
 
     -- * Destructuring the Response
@@ -56,17 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLocationObjectStorage' smart constructor.
 data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
-  { -- | The port that your self-managed object storage server accepts inbound
+  { -- | The protocol that the object storage server uses to communicate. Valid
+    -- values are @HTTP@ or @HTTPS@.
+    serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
+    -- | The port that your self-managed object storage server accepts inbound
     -- network traffic on. The server port is set by default to TCP 80 (HTTP)
     -- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
     -- object storage server requires one.
     serverPort :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the agents associated with the
-    -- self-managed object storage server location.
-    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The protocol that the object storage server uses to communicate. Valid
-    -- values are @HTTP@ or @HTTPS@.
-    serverProtocol :: Prelude.Maybe ObjectStorageServerProtocol,
+    -- | Optional. The access key is used if credentials are required to access
+    -- the self-managed object storage server. If your object storage requires
+    -- a user name and password to authenticate, use @AccessKey@ and
+    -- @SecretKey@ to provide the user name and password, respectively.
+    accessKey :: Prelude.Maybe Prelude.Text,
     -- | Optional. The secret key is used if credentials are required to access
     -- the self-managed object storage server. If your object storage requires
     -- a user name and password to authenticate, use @AccessKey@ and
@@ -75,11 +77,9 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
     -- | The subdirectory in the self-managed object storage server that is used
     -- to read data from.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | Optional. The access key is used if credentials are required to access
-    -- the self-managed object storage server. If your object storage requires
-    -- a user name and password to authenticate, use @AccessKey@ and
-    -- @SecretKey@ to provide the user name and password, respectively.
-    accessKey :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the agents associated with the
+    -- self-managed object storage server location.
+    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the self-managed object storage server
     -- location to be updated.
     locationArn :: Prelude.Text
@@ -94,16 +94,18 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'serverProtocol', 'updateLocationObjectStorage_serverProtocol' - The protocol that the object storage server uses to communicate. Valid
+-- values are @HTTP@ or @HTTPS@.
+--
 -- 'serverPort', 'updateLocationObjectStorage_serverPort' - The port that your self-managed object storage server accepts inbound
 -- network traffic on. The server port is set by default to TCP 80 (HTTP)
 -- or TCP 443 (HTTPS). You can specify a custom port if your self-managed
 -- object storage server requires one.
 --
--- 'agentArns', 'updateLocationObjectStorage_agentArns' - The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
---
--- 'serverProtocol', 'updateLocationObjectStorage_serverProtocol' - The protocol that the object storage server uses to communicate. Valid
--- values are @HTTP@ or @HTTPS@.
+-- 'accessKey', 'updateLocationObjectStorage_accessKey' - Optional. The access key is used if credentials are required to access
+-- the self-managed object storage server. If your object storage requires
+-- a user name and password to authenticate, use @AccessKey@ and
+-- @SecretKey@ to provide the user name and password, respectively.
 --
 -- 'secretKey', 'updateLocationObjectStorage_secretKey' - Optional. The secret key is used if credentials are required to access
 -- the self-managed object storage server. If your object storage requires
@@ -113,10 +115,8 @@ data UpdateLocationObjectStorage = UpdateLocationObjectStorage'
 -- 'subdirectory', 'updateLocationObjectStorage_subdirectory' - The subdirectory in the self-managed object storage server that is used
 -- to read data from.
 --
--- 'accessKey', 'updateLocationObjectStorage_accessKey' - Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
+-- 'agentArns', 'updateLocationObjectStorage_agentArns' - The Amazon Resource Name (ARN) of the agents associated with the
+-- self-managed object storage server location.
 --
 -- 'locationArn', 'updateLocationObjectStorage_locationArn' - The Amazon Resource Name (ARN) of the self-managed object storage server
 -- location to be updated.
@@ -126,15 +126,20 @@ newUpdateLocationObjectStorage ::
   UpdateLocationObjectStorage
 newUpdateLocationObjectStorage pLocationArn_ =
   UpdateLocationObjectStorage'
-    { serverPort =
+    { serverProtocol =
         Prelude.Nothing,
-      agentArns = Prelude.Nothing,
-      serverProtocol = Prelude.Nothing,
+      serverPort = Prelude.Nothing,
+      accessKey = Prelude.Nothing,
       secretKey = Prelude.Nothing,
       subdirectory = Prelude.Nothing,
-      accessKey = Prelude.Nothing,
+      agentArns = Prelude.Nothing,
       locationArn = pLocationArn_
     }
+
+-- | The protocol that the object storage server uses to communicate. Valid
+-- values are @HTTP@ or @HTTPS@.
+updateLocationObjectStorage_serverProtocol :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
+updateLocationObjectStorage_serverProtocol = Lens.lens (\UpdateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@UpdateLocationObjectStorage' {} a -> s {serverProtocol = a} :: UpdateLocationObjectStorage)
 
 -- | The port that your self-managed object storage server accepts inbound
 -- network traffic on. The server port is set by default to TCP 80 (HTTP)
@@ -143,15 +148,12 @@ newUpdateLocationObjectStorage pLocationArn_ =
 updateLocationObjectStorage_serverPort :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Natural)
 updateLocationObjectStorage_serverPort = Lens.lens (\UpdateLocationObjectStorage' {serverPort} -> serverPort) (\s@UpdateLocationObjectStorage' {} a -> s {serverPort = a} :: UpdateLocationObjectStorage)
 
--- | The Amazon Resource Name (ARN) of the agents associated with the
--- self-managed object storage server location.
-updateLocationObjectStorage_agentArns :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateLocationObjectStorage_agentArns = Lens.lens (\UpdateLocationObjectStorage' {agentArns} -> agentArns) (\s@UpdateLocationObjectStorage' {} a -> s {agentArns = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
-
--- | The protocol that the object storage server uses to communicate. Valid
--- values are @HTTP@ or @HTTPS@.
-updateLocationObjectStorage_serverProtocol :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe ObjectStorageServerProtocol)
-updateLocationObjectStorage_serverProtocol = Lens.lens (\UpdateLocationObjectStorage' {serverProtocol} -> serverProtocol) (\s@UpdateLocationObjectStorage' {} a -> s {serverProtocol = a} :: UpdateLocationObjectStorage)
+-- | Optional. The access key is used if credentials are required to access
+-- the self-managed object storage server. If your object storage requires
+-- a user name and password to authenticate, use @AccessKey@ and
+-- @SecretKey@ to provide the user name and password, respectively.
+updateLocationObjectStorage_accessKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
+updateLocationObjectStorage_accessKey = Lens.lens (\UpdateLocationObjectStorage' {accessKey} -> accessKey) (\s@UpdateLocationObjectStorage' {} a -> s {accessKey = a} :: UpdateLocationObjectStorage)
 
 -- | Optional. The secret key is used if credentials are required to access
 -- the self-managed object storage server. If your object storage requires
@@ -165,12 +167,10 @@ updateLocationObjectStorage_secretKey = Lens.lens (\UpdateLocationObjectStorage'
 updateLocationObjectStorage_subdirectory :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
 updateLocationObjectStorage_subdirectory = Lens.lens (\UpdateLocationObjectStorage' {subdirectory} -> subdirectory) (\s@UpdateLocationObjectStorage' {} a -> s {subdirectory = a} :: UpdateLocationObjectStorage)
 
--- | Optional. The access key is used if credentials are required to access
--- the self-managed object storage server. If your object storage requires
--- a user name and password to authenticate, use @AccessKey@ and
--- @SecretKey@ to provide the user name and password, respectively.
-updateLocationObjectStorage_accessKey :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe Prelude.Text)
-updateLocationObjectStorage_accessKey = Lens.lens (\UpdateLocationObjectStorage' {accessKey} -> accessKey) (\s@UpdateLocationObjectStorage' {} a -> s {accessKey = a} :: UpdateLocationObjectStorage)
+-- | The Amazon Resource Name (ARN) of the agents associated with the
+-- self-managed object storage server location.
+updateLocationObjectStorage_agentArns :: Lens.Lens' UpdateLocationObjectStorage (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateLocationObjectStorage_agentArns = Lens.lens (\UpdateLocationObjectStorage' {agentArns} -> agentArns) (\s@UpdateLocationObjectStorage' {} a -> s {agentArns = a} :: UpdateLocationObjectStorage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the self-managed object storage server
 -- location to be updated.
@@ -191,22 +191,22 @@ instance Core.AWSRequest UpdateLocationObjectStorage where
 
 instance Prelude.Hashable UpdateLocationObjectStorage where
   hashWithSalt _salt UpdateLocationObjectStorage' {..} =
-    _salt `Prelude.hashWithSalt` serverPort
-      `Prelude.hashWithSalt` agentArns
-      `Prelude.hashWithSalt` serverProtocol
+    _salt `Prelude.hashWithSalt` serverProtocol
+      `Prelude.hashWithSalt` serverPort
+      `Prelude.hashWithSalt` accessKey
       `Prelude.hashWithSalt` secretKey
       `Prelude.hashWithSalt` subdirectory
-      `Prelude.hashWithSalt` accessKey
+      `Prelude.hashWithSalt` agentArns
       `Prelude.hashWithSalt` locationArn
 
 instance Prelude.NFData UpdateLocationObjectStorage where
   rnf UpdateLocationObjectStorage' {..} =
-    Prelude.rnf serverPort
-      `Prelude.seq` Prelude.rnf agentArns
-      `Prelude.seq` Prelude.rnf serverProtocol
+    Prelude.rnf serverProtocol
+      `Prelude.seq` Prelude.rnf serverPort
+      `Prelude.seq` Prelude.rnf accessKey
       `Prelude.seq` Prelude.rnf secretKey
       `Prelude.seq` Prelude.rnf subdirectory
-      `Prelude.seq` Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf agentArns
       `Prelude.seq` Prelude.rnf locationArn
 
 instance Core.ToHeaders UpdateLocationObjectStorage where
@@ -228,13 +228,13 @@ instance Core.ToJSON UpdateLocationObjectStorage where
   toJSON UpdateLocationObjectStorage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ServerPort" Core..=) Prelude.<$> serverPort,
-            ("AgentArns" Core..=) Prelude.<$> agentArns,
-            ("ServerProtocol" Core..=)
+          [ ("ServerProtocol" Core..=)
               Prelude.<$> serverProtocol,
+            ("ServerPort" Core..=) Prelude.<$> serverPort,
+            ("AccessKey" Core..=) Prelude.<$> accessKey,
             ("SecretKey" Core..=) Prelude.<$> secretKey,
             ("Subdirectory" Core..=) Prelude.<$> subdirectory,
-            ("AccessKey" Core..=) Prelude.<$> accessKey,
+            ("AgentArns" Core..=) Prelude.<$> agentArns,
             Prelude.Just ("LocationArn" Core..= locationArn)
           ]
       )

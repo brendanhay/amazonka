@@ -14,74 +14,6 @@
 module Amazonka.CodeStar.Lens
   ( -- * Operations
 
-    -- ** ListProjects
-    listProjects_nextToken,
-    listProjects_maxResults,
-    listProjectsResponse_nextToken,
-    listProjectsResponse_httpStatus,
-    listProjectsResponse_projects,
-
-    -- ** ListTeamMembers
-    listTeamMembers_nextToken,
-    listTeamMembers_maxResults,
-    listTeamMembers_projectId,
-    listTeamMembersResponse_nextToken,
-    listTeamMembersResponse_httpStatus,
-    listTeamMembersResponse_teamMembers,
-
-    -- ** DeleteProject
-    deleteProject_deleteStack,
-    deleteProject_clientRequestToken,
-    deleteProject_id,
-    deleteProjectResponse_projectArn,
-    deleteProjectResponse_stackId,
-    deleteProjectResponse_httpStatus,
-
-    -- ** UpdateProject
-    updateProject_name,
-    updateProject_description,
-    updateProject_id,
-    updateProjectResponse_httpStatus,
-
-    -- ** DisassociateTeamMember
-    disassociateTeamMember_projectId,
-    disassociateTeamMember_userArn,
-    disassociateTeamMemberResponse_httpStatus,
-
-    -- ** TagProject
-    tagProject_id,
-    tagProject_tags,
-    tagProjectResponse_tags,
-    tagProjectResponse_httpStatus,
-
-    -- ** DescribeProject
-    describeProject_id,
-    describeProjectResponse_status,
-    describeProjectResponse_arn,
-    describeProjectResponse_projectTemplateId,
-    describeProjectResponse_name,
-    describeProjectResponse_id,
-    describeProjectResponse_stackId,
-    describeProjectResponse_clientRequestToken,
-    describeProjectResponse_createdTimeStamp,
-    describeProjectResponse_description,
-    describeProjectResponse_httpStatus,
-
-    -- ** ListUserProfiles
-    listUserProfiles_nextToken,
-    listUserProfiles_maxResults,
-    listUserProfilesResponse_nextToken,
-    listUserProfilesResponse_httpStatus,
-    listUserProfilesResponse_userProfiles,
-
-    -- ** ListResources
-    listResources_nextToken,
-    listResources_maxResults,
-    listResources_projectId,
-    listResourcesResponse_resources,
-    listResourcesResponse_nextToken,
-    listResourcesResponse_httpStatus,
-
     -- ** AssociateTeamMember
     associateTeamMember_remoteAccessAllowed,
     associateTeamMember_clientRequestToken,
@@ -91,56 +23,19 @@ module Amazonka.CodeStar.Lens
     associateTeamMemberResponse_clientRequestToken,
     associateTeamMemberResponse_httpStatus,
 
-    -- ** UntagProject
-    untagProject_id,
-    untagProject_tags,
-    untagProjectResponse_httpStatus,
-
-    -- ** UpdateTeamMember
-    updateTeamMember_remoteAccessAllowed,
-    updateTeamMember_projectRole,
-    updateTeamMember_projectId,
-    updateTeamMember_userArn,
-    updateTeamMemberResponse_userArn,
-    updateTeamMemberResponse_remoteAccessAllowed,
-    updateTeamMemberResponse_projectRole,
-    updateTeamMemberResponse_httpStatus,
-
-    -- ** DescribeUserProfile
-    describeUserProfile_userArn,
-    describeUserProfileResponse_sshPublicKey,
-    describeUserProfileResponse_emailAddress,
-    describeUserProfileResponse_displayName,
-    describeUserProfileResponse_httpStatus,
-    describeUserProfileResponse_userArn,
-    describeUserProfileResponse_createdTimestamp,
-    describeUserProfileResponse_lastModifiedTimestamp,
-
-    -- ** ListTagsForProject
-    listTagsForProject_nextToken,
-    listTagsForProject_maxResults,
-    listTagsForProject_id,
-    listTagsForProjectResponse_nextToken,
-    listTagsForProjectResponse_tags,
-    listTagsForProjectResponse_httpStatus,
-
-    -- ** DeleteUserProfile
-    deleteUserProfile_userArn,
-    deleteUserProfileResponse_httpStatus,
-    deleteUserProfileResponse_userArn,
-
-    -- ** UpdateUserProfile
-    updateUserProfile_sshPublicKey,
-    updateUserProfile_emailAddress,
-    updateUserProfile_displayName,
-    updateUserProfile_userArn,
-    updateUserProfileResponse_lastModifiedTimestamp,
-    updateUserProfileResponse_sshPublicKey,
-    updateUserProfileResponse_emailAddress,
-    updateUserProfileResponse_displayName,
-    updateUserProfileResponse_createdTimestamp,
-    updateUserProfileResponse_httpStatus,
-    updateUserProfileResponse_userArn,
+    -- ** CreateProject
+    createProject_tags,
+    createProject_clientRequestToken,
+    createProject_sourceCode,
+    createProject_description,
+    createProject_toolchain,
+    createProject_name,
+    createProject_id,
+    createProjectResponse_clientRequestToken,
+    createProjectResponse_projectTemplateId,
+    createProjectResponse_httpStatus,
+    createProjectResponse_id,
+    createProjectResponse_arn,
 
     -- ** CreateUserProfile
     createUserProfile_sshPublicKey,
@@ -148,26 +43,131 @@ module Amazonka.CodeStar.Lens
     createUserProfile_displayName,
     createUserProfile_emailAddress,
     createUserProfileResponse_lastModifiedTimestamp,
+    createUserProfileResponse_createdTimestamp,
+    createUserProfileResponse_displayName,
     createUserProfileResponse_sshPublicKey,
     createUserProfileResponse_emailAddress,
-    createUserProfileResponse_displayName,
-    createUserProfileResponse_createdTimestamp,
     createUserProfileResponse_httpStatus,
     createUserProfileResponse_userArn,
 
-    -- ** CreateProject
-    createProject_sourceCode,
-    createProject_toolchain,
-    createProject_clientRequestToken,
-    createProject_description,
-    createProject_tags,
-    createProject_name,
-    createProject_id,
-    createProjectResponse_projectTemplateId,
-    createProjectResponse_clientRequestToken,
-    createProjectResponse_httpStatus,
-    createProjectResponse_id,
-    createProjectResponse_arn,
+    -- ** DeleteProject
+    deleteProject_clientRequestToken,
+    deleteProject_deleteStack,
+    deleteProject_id,
+    deleteProjectResponse_stackId,
+    deleteProjectResponse_projectArn,
+    deleteProjectResponse_httpStatus,
+
+    -- ** DeleteUserProfile
+    deleteUserProfile_userArn,
+    deleteUserProfileResponse_httpStatus,
+    deleteUserProfileResponse_userArn,
+
+    -- ** DescribeProject
+    describeProject_id,
+    describeProjectResponse_stackId,
+    describeProjectResponse_name,
+    describeProjectResponse_clientRequestToken,
+    describeProjectResponse_createdTimeStamp,
+    describeProjectResponse_arn,
+    describeProjectResponse_status,
+    describeProjectResponse_description,
+    describeProjectResponse_id,
+    describeProjectResponse_projectTemplateId,
+    describeProjectResponse_httpStatus,
+
+    -- ** DescribeUserProfile
+    describeUserProfile_userArn,
+    describeUserProfileResponse_displayName,
+    describeUserProfileResponse_sshPublicKey,
+    describeUserProfileResponse_emailAddress,
+    describeUserProfileResponse_httpStatus,
+    describeUserProfileResponse_userArn,
+    describeUserProfileResponse_createdTimestamp,
+    describeUserProfileResponse_lastModifiedTimestamp,
+
+    -- ** DisassociateTeamMember
+    disassociateTeamMember_projectId,
+    disassociateTeamMember_userArn,
+    disassociateTeamMemberResponse_httpStatus,
+
+    -- ** ListProjects
+    listProjects_nextToken,
+    listProjects_maxResults,
+    listProjectsResponse_nextToken,
+    listProjectsResponse_httpStatus,
+    listProjectsResponse_projects,
+
+    -- ** ListResources
+    listResources_nextToken,
+    listResources_maxResults,
+    listResources_projectId,
+    listResourcesResponse_nextToken,
+    listResourcesResponse_resources,
+    listResourcesResponse_httpStatus,
+
+    -- ** ListTagsForProject
+    listTagsForProject_nextToken,
+    listTagsForProject_maxResults,
+    listTagsForProject_id,
+    listTagsForProjectResponse_tags,
+    listTagsForProjectResponse_nextToken,
+    listTagsForProjectResponse_httpStatus,
+
+    -- ** ListTeamMembers
+    listTeamMembers_nextToken,
+    listTeamMembers_maxResults,
+    listTeamMembers_projectId,
+    listTeamMembersResponse_nextToken,
+    listTeamMembersResponse_httpStatus,
+    listTeamMembersResponse_teamMembers,
+
+    -- ** ListUserProfiles
+    listUserProfiles_nextToken,
+    listUserProfiles_maxResults,
+    listUserProfilesResponse_nextToken,
+    listUserProfilesResponse_httpStatus,
+    listUserProfilesResponse_userProfiles,
+
+    -- ** TagProject
+    tagProject_id,
+    tagProject_tags,
+    tagProjectResponse_tags,
+    tagProjectResponse_httpStatus,
+
+    -- ** UntagProject
+    untagProject_id,
+    untagProject_tags,
+    untagProjectResponse_httpStatus,
+
+    -- ** UpdateProject
+    updateProject_name,
+    updateProject_description,
+    updateProject_id,
+    updateProjectResponse_httpStatus,
+
+    -- ** UpdateTeamMember
+    updateTeamMember_remoteAccessAllowed,
+    updateTeamMember_projectRole,
+    updateTeamMember_projectId,
+    updateTeamMember_userArn,
+    updateTeamMemberResponse_remoteAccessAllowed,
+    updateTeamMemberResponse_projectRole,
+    updateTeamMemberResponse_userArn,
+    updateTeamMemberResponse_httpStatus,
+
+    -- ** UpdateUserProfile
+    updateUserProfile_displayName,
+    updateUserProfile_sshPublicKey,
+    updateUserProfile_emailAddress,
+    updateUserProfile_userArn,
+    updateUserProfileResponse_lastModifiedTimestamp,
+    updateUserProfileResponse_createdTimestamp,
+    updateUserProfileResponse_displayName,
+    updateUserProfileResponse_sshPublicKey,
+    updateUserProfileResponse_emailAddress,
+    updateUserProfileResponse_httpStatus,
+    updateUserProfileResponse_userArn,
 
     -- * Types
 
@@ -179,8 +179,8 @@ module Amazonka.CodeStar.Lens
     codeCommitCodeDestination_name,
 
     -- ** CodeDestination
-    codeDestination_codeCommit,
     codeDestination_gitHub,
+    codeDestination_codeCommit,
 
     -- ** CodeSource
     codeSource_s3,
@@ -199,15 +199,15 @@ module Amazonka.CodeStar.Lens
     projectStatus_state,
 
     -- ** ProjectSummary
-    projectSummary_projectArn,
     projectSummary_projectId,
+    projectSummary_projectArn,
 
     -- ** Resource
     resource_id,
 
     -- ** S3Location
-    s3Location_bucketKey,
     s3Location_bucketName,
+    s3Location_bucketKey,
 
     -- ** TeamMember
     teamMember_remoteAccessAllowed,
@@ -215,18 +215,18 @@ module Amazonka.CodeStar.Lens
     teamMember_projectRole,
 
     -- ** Toolchain
-    toolchain_stackParameters,
     toolchain_roleArn,
+    toolchain_stackParameters,
     toolchain_source,
 
     -- ** ToolchainSource
     toolchainSource_s3,
 
     -- ** UserProfileSummary
+    userProfileSummary_displayName,
     userProfileSummary_sshPublicKey,
     userProfileSummary_userArn,
     userProfileSummary_emailAddress,
-    userProfileSummary_displayName,
   )
 where
 

@@ -29,11 +29,11 @@ module Amazonka.IVS.UpdateChannel
     newUpdateChannel,
 
     -- * Request Lenses
-    updateChannel_authorized,
-    updateChannel_latencyMode,
     updateChannel_name,
-    updateChannel_recordingConfigurationArn,
     updateChannel_type,
+    updateChannel_latencyMode,
+    updateChannel_authorized,
+    updateChannel_recordingConfigurationArn,
     updateChannel_arn,
 
     -- * Destructuring the Response
@@ -55,19 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
-  { -- | Whether the channel is private (enabled for playback authorization).
-    authorized :: Prelude.Maybe Prelude.Bool,
-    -- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
-    -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
-    -- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
-    -- Ultra-low and Standard, respectively.)
-    latencyMode :: Prelude.Maybe ChannelLatencyMode,
-    -- | Channel name.
+  { -- | Channel name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Recording-configuration ARN. If this is set to an empty string,
-    -- recording is disabled. A value other than an empty string indicates that
-    -- recording is enabled
-    recordingConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | Channel type, which determines the allowable resolution and bitrate. /If
     -- you exceed the allowable resolution or bitrate, the stream probably will
     -- disconnect immediately/. Valid values:
@@ -82,6 +71,17 @@ data UpdateChannel = UpdateChannel'
     --     viewer’s video-quality choice is limited to the original input.
     --     Resolution can be up to 480p and bitrate can be up to 1.5 Mbps.
     type' :: Prelude.Maybe ChannelType,
+    -- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+    -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+    -- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
+    -- Ultra-low and Standard, respectively.)
+    latencyMode :: Prelude.Maybe ChannelLatencyMode,
+    -- | Whether the channel is private (enabled for playback authorization).
+    authorized :: Prelude.Maybe Prelude.Bool,
+    -- | Recording-configuration ARN. If this is set to an empty string,
+    -- recording is disabled. A value other than an empty string indicates that
+    -- recording is enabled
+    recordingConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | ARN of the channel to be updated.
     arn :: Prelude.Text
   }
@@ -95,18 +95,7 @@ data UpdateChannel = UpdateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorized', 'updateChannel_authorized' - Whether the channel is private (enabled for playback authorization).
---
--- 'latencyMode', 'updateChannel_latencyMode' - Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
--- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
--- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
--- Ultra-low and Standard, respectively.)
---
 -- 'name', 'updateChannel_name' - Channel name.
---
--- 'recordingConfigurationArn', 'updateChannel_recordingConfigurationArn' - Recording-configuration ARN. If this is set to an empty string,
--- recording is disabled. A value other than an empty string indicates that
--- recording is enabled
 --
 -- 'type'', 'updateChannel_type' - Channel type, which determines the allowable resolution and bitrate. /If
 -- you exceed the allowable resolution or bitrate, the stream probably will
@@ -122,6 +111,17 @@ data UpdateChannel = UpdateChannel'
 --     viewer’s video-quality choice is limited to the original input.
 --     Resolution can be up to 480p and bitrate can be up to 1.5 Mbps.
 --
+-- 'latencyMode', 'updateChannel_latencyMode' - Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+-- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+-- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
+-- Ultra-low and Standard, respectively.)
+--
+-- 'authorized', 'updateChannel_authorized' - Whether the channel is private (enabled for playback authorization).
+--
+-- 'recordingConfigurationArn', 'updateChannel_recordingConfigurationArn' - Recording-configuration ARN. If this is set to an empty string,
+-- recording is disabled. A value other than an empty string indicates that
+-- recording is enabled
+--
 -- 'arn', 'updateChannel_arn' - ARN of the channel to be updated.
 newUpdateChannel ::
   -- | 'arn'
@@ -129,34 +129,17 @@ newUpdateChannel ::
   UpdateChannel
 newUpdateChannel pArn_ =
   UpdateChannel'
-    { authorized = Prelude.Nothing,
-      latencyMode = Prelude.Nothing,
-      name = Prelude.Nothing,
-      recordingConfigurationArn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       type' = Prelude.Nothing,
+      latencyMode = Prelude.Nothing,
+      authorized = Prelude.Nothing,
+      recordingConfigurationArn = Prelude.Nothing,
       arn = pArn_
     }
-
--- | Whether the channel is private (enabled for playback authorization).
-updateChannel_authorized :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Bool)
-updateChannel_authorized = Lens.lens (\UpdateChannel' {authorized} -> authorized) (\s@UpdateChannel' {} a -> s {authorized = a} :: UpdateChannel)
-
--- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
--- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
--- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
--- Ultra-low and Standard, respectively.)
-updateChannel_latencyMode :: Lens.Lens' UpdateChannel (Prelude.Maybe ChannelLatencyMode)
-updateChannel_latencyMode = Lens.lens (\UpdateChannel' {latencyMode} -> latencyMode) (\s@UpdateChannel' {} a -> s {latencyMode = a} :: UpdateChannel)
 
 -- | Channel name.
 updateChannel_name :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Text)
 updateChannel_name = Lens.lens (\UpdateChannel' {name} -> name) (\s@UpdateChannel' {} a -> s {name = a} :: UpdateChannel)
-
--- | Recording-configuration ARN. If this is set to an empty string,
--- recording is disabled. A value other than an empty string indicates that
--- recording is enabled
-updateChannel_recordingConfigurationArn :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Text)
-updateChannel_recordingConfigurationArn = Lens.lens (\UpdateChannel' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@UpdateChannel' {} a -> s {recordingConfigurationArn = a} :: UpdateChannel)
 
 -- | Channel type, which determines the allowable resolution and bitrate. /If
 -- you exceed the allowable resolution or bitrate, the stream probably will
@@ -173,6 +156,23 @@ updateChannel_recordingConfigurationArn = Lens.lens (\UpdateChannel' {recordingC
 --     Resolution can be up to 480p and bitrate can be up to 1.5 Mbps.
 updateChannel_type :: Lens.Lens' UpdateChannel (Prelude.Maybe ChannelType)
 updateChannel_type = Lens.lens (\UpdateChannel' {type'} -> type') (\s@UpdateChannel' {} a -> s {type' = a} :: UpdateChannel)
+
+-- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+-- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+-- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
+-- Ultra-low and Standard, respectively.)
+updateChannel_latencyMode :: Lens.Lens' UpdateChannel (Prelude.Maybe ChannelLatencyMode)
+updateChannel_latencyMode = Lens.lens (\UpdateChannel' {latencyMode} -> latencyMode) (\s@UpdateChannel' {} a -> s {latencyMode = a} :: UpdateChannel)
+
+-- | Whether the channel is private (enabled for playback authorization).
+updateChannel_authorized :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Bool)
+updateChannel_authorized = Lens.lens (\UpdateChannel' {authorized} -> authorized) (\s@UpdateChannel' {} a -> s {authorized = a} :: UpdateChannel)
+
+-- | Recording-configuration ARN. If this is set to an empty string,
+-- recording is disabled. A value other than an empty string indicates that
+-- recording is enabled
+updateChannel_recordingConfigurationArn :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Text)
+updateChannel_recordingConfigurationArn = Lens.lens (\UpdateChannel' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@UpdateChannel' {} a -> s {recordingConfigurationArn = a} :: UpdateChannel)
 
 -- | ARN of the channel to be updated.
 updateChannel_arn :: Lens.Lens' UpdateChannel Prelude.Text
@@ -193,20 +193,20 @@ instance Core.AWSRequest UpdateChannel where
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =
-    _salt `Prelude.hashWithSalt` authorized
-      `Prelude.hashWithSalt` latencyMode
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` recordingConfigurationArn
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` latencyMode
+      `Prelude.hashWithSalt` authorized
+      `Prelude.hashWithSalt` recordingConfigurationArn
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateChannel where
   rnf UpdateChannel' {..} =
-    Prelude.rnf authorized
-      `Prelude.seq` Prelude.rnf latencyMode
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recordingConfigurationArn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf latencyMode
+      `Prelude.seq` Prelude.rnf authorized
+      `Prelude.seq` Prelude.rnf recordingConfigurationArn
       `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateChannel where
@@ -224,12 +224,12 @@ instance Core.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("authorized" Core..=) Prelude.<$> authorized,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("type" Core..=) Prelude.<$> type',
             ("latencyMode" Core..=) Prelude.<$> latencyMode,
-            ("name" Core..=) Prelude.<$> name,
+            ("authorized" Core..=) Prelude.<$> authorized,
             ("recordingConfigurationArn" Core..=)
               Prelude.<$> recordingConfigurationArn,
-            ("type" Core..=) Prelude.<$> type',
             Prelude.Just ("arn" Core..= arn)
           ]
       )

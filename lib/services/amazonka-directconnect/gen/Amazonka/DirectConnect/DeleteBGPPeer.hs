@@ -30,9 +30,9 @@ module Amazonka.DirectConnect.DeleteBGPPeer
     newDeleteBGPPeer,
 
     -- * Request Lenses
+    deleteBGPPeer_bgpPeerId,
     deleteBGPPeer_customerAddress,
     deleteBGPPeer_asn,
-    deleteBGPPeer_bgpPeerId,
     deleteBGPPeer_virtualInterfaceId,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBGPPeer' smart constructor.
 data DeleteBGPPeer = DeleteBGPPeer'
-  { -- | The IP address assigned to the customer interface.
+  { -- | The ID of the BGP peer.
+    bgpPeerId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address assigned to the customer interface.
     customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
     -- configuration.
     asn :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the BGP peer.
-    bgpPeerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual interface.
     virtualInterfaceId :: Prelude.Maybe Prelude.Text
   }
@@ -74,23 +74,27 @@ data DeleteBGPPeer = DeleteBGPPeer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bgpPeerId', 'deleteBGPPeer_bgpPeerId' - The ID of the BGP peer.
+--
 -- 'customerAddress', 'deleteBGPPeer_customerAddress' - The IP address assigned to the customer interface.
 --
 -- 'asn', 'deleteBGPPeer_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration.
---
--- 'bgpPeerId', 'deleteBGPPeer_bgpPeerId' - The ID of the BGP peer.
 --
 -- 'virtualInterfaceId', 'deleteBGPPeer_virtualInterfaceId' - The ID of the virtual interface.
 newDeleteBGPPeer ::
   DeleteBGPPeer
 newDeleteBGPPeer =
   DeleteBGPPeer'
-    { customerAddress = Prelude.Nothing,
+    { bgpPeerId = Prelude.Nothing,
+      customerAddress = Prelude.Nothing,
       asn = Prelude.Nothing,
-      bgpPeerId = Prelude.Nothing,
       virtualInterfaceId = Prelude.Nothing
     }
+
+-- | The ID of the BGP peer.
+deleteBGPPeer_bgpPeerId :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Text)
+deleteBGPPeer_bgpPeerId = Lens.lens (\DeleteBGPPeer' {bgpPeerId} -> bgpPeerId) (\s@DeleteBGPPeer' {} a -> s {bgpPeerId = a} :: DeleteBGPPeer)
 
 -- | The IP address assigned to the customer interface.
 deleteBGPPeer_customerAddress :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Text)
@@ -100,10 +104,6 @@ deleteBGPPeer_customerAddress = Lens.lens (\DeleteBGPPeer' {customerAddress} -> 
 -- configuration.
 deleteBGPPeer_asn :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Int)
 deleteBGPPeer_asn = Lens.lens (\DeleteBGPPeer' {asn} -> asn) (\s@DeleteBGPPeer' {} a -> s {asn = a} :: DeleteBGPPeer)
-
--- | The ID of the BGP peer.
-deleteBGPPeer_bgpPeerId :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Text)
-deleteBGPPeer_bgpPeerId = Lens.lens (\DeleteBGPPeer' {bgpPeerId} -> bgpPeerId) (\s@DeleteBGPPeer' {} a -> s {bgpPeerId = a} :: DeleteBGPPeer)
 
 -- | The ID of the virtual interface.
 deleteBGPPeer_virtualInterfaceId :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Text)
@@ -124,16 +124,16 @@ instance Core.AWSRequest DeleteBGPPeer where
 
 instance Prelude.Hashable DeleteBGPPeer where
   hashWithSalt _salt DeleteBGPPeer' {..} =
-    _salt `Prelude.hashWithSalt` customerAddress
+    _salt `Prelude.hashWithSalt` bgpPeerId
+      `Prelude.hashWithSalt` customerAddress
       `Prelude.hashWithSalt` asn
-      `Prelude.hashWithSalt` bgpPeerId
       `Prelude.hashWithSalt` virtualInterfaceId
 
 instance Prelude.NFData DeleteBGPPeer where
   rnf DeleteBGPPeer' {..} =
-    Prelude.rnf customerAddress
+    Prelude.rnf bgpPeerId
+      `Prelude.seq` Prelude.rnf customerAddress
       `Prelude.seq` Prelude.rnf asn
-      `Prelude.seq` Prelude.rnf bgpPeerId
       `Prelude.seq` Prelude.rnf virtualInterfaceId
 
 instance Core.ToHeaders DeleteBGPPeer where
@@ -155,10 +155,10 @@ instance Core.ToJSON DeleteBGPPeer where
   toJSON DeleteBGPPeer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("customerAddress" Core..=)
+          [ ("bgpPeerId" Core..=) Prelude.<$> bgpPeerId,
+            ("customerAddress" Core..=)
               Prelude.<$> customerAddress,
             ("asn" Core..=) Prelude.<$> asn,
-            ("bgpPeerId" Core..=) Prelude.<$> bgpPeerId,
             ("virtualInterfaceId" Core..=)
               Prelude.<$> virtualInterfaceId
           ]

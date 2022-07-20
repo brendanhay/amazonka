@@ -28,10 +28,10 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newClusterSecurityGroupMembership' smart constructor.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
-  { -- | The status of the cluster security group.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cluster security group.
-    clusterSecurityGroupName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the cluster security group.
+    clusterSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the cluster security group.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,31 +43,31 @@ data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'clusterSecurityGroupMembership_status' - The status of the cluster security group.
---
 -- 'clusterSecurityGroupName', 'clusterSecurityGroupMembership_clusterSecurityGroupName' - The name of the cluster security group.
+--
+-- 'status', 'clusterSecurityGroupMembership_status' - The status of the cluster security group.
 newClusterSecurityGroupMembership ::
   ClusterSecurityGroupMembership
 newClusterSecurityGroupMembership =
   ClusterSecurityGroupMembership'
-    { status =
+    { clusterSecurityGroupName =
         Prelude.Nothing,
-      clusterSecurityGroupName = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The status of the cluster security group.
-clusterSecurityGroupMembership_status :: Lens.Lens' ClusterSecurityGroupMembership (Prelude.Maybe Prelude.Text)
-clusterSecurityGroupMembership_status = Lens.lens (\ClusterSecurityGroupMembership' {status} -> status) (\s@ClusterSecurityGroupMembership' {} a -> s {status = a} :: ClusterSecurityGroupMembership)
 
 -- | The name of the cluster security group.
 clusterSecurityGroupMembership_clusterSecurityGroupName :: Lens.Lens' ClusterSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 clusterSecurityGroupMembership_clusterSecurityGroupName = Lens.lens (\ClusterSecurityGroupMembership' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@ClusterSecurityGroupMembership' {} a -> s {clusterSecurityGroupName = a} :: ClusterSecurityGroupMembership)
 
+-- | The status of the cluster security group.
+clusterSecurityGroupMembership_status :: Lens.Lens' ClusterSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+clusterSecurityGroupMembership_status = Lens.lens (\ClusterSecurityGroupMembership' {status} -> status) (\s@ClusterSecurityGroupMembership' {} a -> s {status = a} :: ClusterSecurityGroupMembership)
+
 instance Core.FromXML ClusterSecurityGroupMembership where
   parseXML x =
     ClusterSecurityGroupMembership'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ClusterSecurityGroupName")
+      Prelude.<$> (x Core..@? "ClusterSecurityGroupName")
+      Prelude.<*> (x Core..@? "Status")
 
 instance
   Prelude.Hashable
@@ -76,13 +76,14 @@ instance
   hashWithSalt
     _salt
     ClusterSecurityGroupMembership' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
         `Prelude.hashWithSalt` clusterSecurityGroupName
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     ClusterSecurityGroupMembership
   where
   rnf ClusterSecurityGroupMembership' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf clusterSecurityGroupName
+    Prelude.rnf clusterSecurityGroupName
+      `Prelude.seq` Prelude.rnf status

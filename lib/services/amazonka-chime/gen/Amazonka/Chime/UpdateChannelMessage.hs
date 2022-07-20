@@ -32,8 +32,8 @@ module Amazonka.Chime.UpdateChannelMessage
 
     -- * Request Lenses
     updateChannelMessage_chimeBearer,
-    updateChannelMessage_content,
     updateChannelMessage_metadata,
+    updateChannelMessage_content,
     updateChannelMessage_channelArn,
     updateChannelMessage_messageId,
 
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 data UpdateChannelMessage = UpdateChannelMessage'
   { -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Maybe Prelude.Text,
-    -- | The content of the message being updated.
-    content :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The metadata of the message being updated.
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The content of the message being updated.
+    content :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | The ID string of the message being updated.
@@ -80,9 +80,9 @@ data UpdateChannelMessage = UpdateChannelMessage'
 --
 -- 'chimeBearer', 'updateChannelMessage_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 --
--- 'content', 'updateChannelMessage_content' - The content of the message being updated.
---
 -- 'metadata', 'updateChannelMessage_metadata' - The metadata of the message being updated.
+--
+-- 'content', 'updateChannelMessage_content' - The content of the message being updated.
 --
 -- 'channelArn', 'updateChannelMessage_channelArn' - The ARN of the channel.
 --
@@ -97,8 +97,8 @@ newUpdateChannelMessage pChannelArn_ pMessageId_ =
   UpdateChannelMessage'
     { chimeBearer =
         Prelude.Nothing,
-      content = Prelude.Nothing,
       metadata = Prelude.Nothing,
+      content = Prelude.Nothing,
       channelArn = pChannelArn_,
       messageId = pMessageId_
     }
@@ -107,13 +107,13 @@ newUpdateChannelMessage pChannelArn_ pMessageId_ =
 updateChannelMessage_chimeBearer :: Lens.Lens' UpdateChannelMessage (Prelude.Maybe Prelude.Text)
 updateChannelMessage_chimeBearer = Lens.lens (\UpdateChannelMessage' {chimeBearer} -> chimeBearer) (\s@UpdateChannelMessage' {} a -> s {chimeBearer = a} :: UpdateChannelMessage)
 
--- | The content of the message being updated.
-updateChannelMessage_content :: Lens.Lens' UpdateChannelMessage (Prelude.Maybe Prelude.Text)
-updateChannelMessage_content = Lens.lens (\UpdateChannelMessage' {content} -> content) (\s@UpdateChannelMessage' {} a -> s {content = a} :: UpdateChannelMessage) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The metadata of the message being updated.
 updateChannelMessage_metadata :: Lens.Lens' UpdateChannelMessage (Prelude.Maybe Prelude.Text)
 updateChannelMessage_metadata = Lens.lens (\UpdateChannelMessage' {metadata} -> metadata) (\s@UpdateChannelMessage' {} a -> s {metadata = a} :: UpdateChannelMessage) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The content of the message being updated.
+updateChannelMessage_content :: Lens.Lens' UpdateChannelMessage (Prelude.Maybe Prelude.Text)
+updateChannelMessage_content = Lens.lens (\UpdateChannelMessage' {content} -> content) (\s@UpdateChannelMessage' {} a -> s {content = a} :: UpdateChannelMessage) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ARN of the channel.
 updateChannelMessage_channelArn :: Lens.Lens' UpdateChannelMessage Prelude.Text
@@ -140,16 +140,16 @@ instance Core.AWSRequest UpdateChannelMessage where
 instance Prelude.Hashable UpdateChannelMessage where
   hashWithSalt _salt UpdateChannelMessage' {..} =
     _salt `Prelude.hashWithSalt` chimeBearer
-      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
 
 instance Prelude.NFData UpdateChannelMessage where
   rnf UpdateChannelMessage' {..} =
     Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf messageId
 
@@ -162,8 +162,8 @@ instance Core.ToJSON UpdateChannelMessage where
   toJSON UpdateChannelMessage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Content" Core..=) Prelude.<$> content,
-            ("Metadata" Core..=) Prelude.<$> metadata
+          [ ("Metadata" Core..=) Prelude.<$> metadata,
+            ("Content" Core..=) Prelude.<$> content
           ]
       )
 

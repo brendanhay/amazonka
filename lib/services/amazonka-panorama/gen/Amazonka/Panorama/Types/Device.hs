@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
-  { -- | When the device was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | The device\'s provisioning status.
-    provisioningStatus :: Prelude.Maybe DeviceStatus,
+  { -- | The device\'s name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | When the device was created.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The device\'s name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s lease expiration time.
+    leaseExpirationTime :: Prelude.Maybe Core.POSIX,
+    -- | The device\'s provisioning status.
+    provisioningStatus :: Prelude.Maybe DeviceStatus,
     -- | The device\'s ID.
     deviceId :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s lease expiration time.
-    leaseExpirationTime :: Prelude.Maybe Core.POSIX
+    -- | When the device was updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,52 +51,52 @@ data Device = Device'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'device_lastUpdatedTime' - When the device was updated.
---
--- 'provisioningStatus', 'device_provisioningStatus' - The device\'s provisioning status.
+-- 'name', 'device_name' - The device\'s name.
 --
 -- 'createdTime', 'device_createdTime' - When the device was created.
 --
--- 'name', 'device_name' - The device\'s name.
+-- 'leaseExpirationTime', 'device_leaseExpirationTime' - The device\'s lease expiration time.
+--
+-- 'provisioningStatus', 'device_provisioningStatus' - The device\'s provisioning status.
 --
 -- 'deviceId', 'device_deviceId' - The device\'s ID.
 --
--- 'leaseExpirationTime', 'device_leaseExpirationTime' - The device\'s lease expiration time.
+-- 'lastUpdatedTime', 'device_lastUpdatedTime' - When the device was updated.
 newDevice ::
   Device
 newDevice =
   Device'
-    { lastUpdatedTime = Prelude.Nothing,
-      provisioningStatus = Prelude.Nothing,
+    { name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      name = Prelude.Nothing,
+      leaseExpirationTime = Prelude.Nothing,
+      provisioningStatus = Prelude.Nothing,
       deviceId = Prelude.Nothing,
-      leaseExpirationTime = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing
     }
-
--- | When the device was updated.
-device_lastUpdatedTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
-device_lastUpdatedTime = Lens.lens (\Device' {lastUpdatedTime} -> lastUpdatedTime) (\s@Device' {} a -> s {lastUpdatedTime = a} :: Device) Prelude.. Lens.mapping Core._Time
-
--- | The device\'s provisioning status.
-device_provisioningStatus :: Lens.Lens' Device (Prelude.Maybe DeviceStatus)
-device_provisioningStatus = Lens.lens (\Device' {provisioningStatus} -> provisioningStatus) (\s@Device' {} a -> s {provisioningStatus = a} :: Device)
-
--- | When the device was created.
-device_createdTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
-device_createdTime = Lens.lens (\Device' {createdTime} -> createdTime) (\s@Device' {} a -> s {createdTime = a} :: Device) Prelude.. Lens.mapping Core._Time
 
 -- | The device\'s name.
 device_name :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_name = Lens.lens (\Device' {name} -> name) (\s@Device' {} a -> s {name = a} :: Device)
 
--- | The device\'s ID.
-device_deviceId :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_deviceId = Lens.lens (\Device' {deviceId} -> deviceId) (\s@Device' {} a -> s {deviceId = a} :: Device)
+-- | When the device was created.
+device_createdTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
+device_createdTime = Lens.lens (\Device' {createdTime} -> createdTime) (\s@Device' {} a -> s {createdTime = a} :: Device) Prelude.. Lens.mapping Core._Time
 
 -- | The device\'s lease expiration time.
 device_leaseExpirationTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
 device_leaseExpirationTime = Lens.lens (\Device' {leaseExpirationTime} -> leaseExpirationTime) (\s@Device' {} a -> s {leaseExpirationTime = a} :: Device) Prelude.. Lens.mapping Core._Time
+
+-- | The device\'s provisioning status.
+device_provisioningStatus :: Lens.Lens' Device (Prelude.Maybe DeviceStatus)
+device_provisioningStatus = Lens.lens (\Device' {provisioningStatus} -> provisioningStatus) (\s@Device' {} a -> s {provisioningStatus = a} :: Device)
+
+-- | The device\'s ID.
+device_deviceId :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_deviceId = Lens.lens (\Device' {deviceId} -> deviceId) (\s@Device' {} a -> s {deviceId = a} :: Device)
+
+-- | When the device was updated.
+device_lastUpdatedTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
+device_lastUpdatedTime = Lens.lens (\Device' {lastUpdatedTime} -> lastUpdatedTime) (\s@Device' {} a -> s {lastUpdatedTime = a} :: Device) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Device where
   parseJSON =
@@ -104,28 +104,28 @@ instance Core.FromJSON Device where
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "ProvisioningStatus")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DeviceId")
             Prelude.<*> (x Core..:? "LeaseExpirationTime")
+            Prelude.<*> (x Core..:? "ProvisioningStatus")
+            Prelude.<*> (x Core..:? "DeviceId")
+            Prelude.<*> (x Core..:? "LastUpdatedTime")
       )
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` provisioningStatus
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` leaseExpirationTime
+      `Prelude.hashWithSalt` provisioningStatus
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` lastUpdatedTime
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf provisioningStatus
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf leaseExpirationTime
+      `Prelude.seq` Prelude.rnf provisioningStatus
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

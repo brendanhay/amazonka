@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomPluginFileDescription' smart constructor.
 data CustomPluginFileDescription = CustomPluginFileDescription'
-  { -- | The hex-encoded MD5 checksum of the custom plugin file. You can use it
-    -- to validate the file.
-    fileMd5 :: Prelude.Maybe Prelude.Text,
-    -- | The size in bytes of the custom plugin file. You can use it to validate
+  { -- | The size in bytes of the custom plugin file. You can use it to validate
     -- the file.
-    fileSize :: Prelude.Maybe Prelude.Integer
+    fileSize :: Prelude.Maybe Prelude.Integer,
+    -- | The hex-encoded MD5 checksum of the custom plugin file. You can use it
+    -- to validate the file.
+    fileMd5 :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,29 +44,29 @@ data CustomPluginFileDescription = CustomPluginFileDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileMd5', 'customPluginFileDescription_fileMd5' - The hex-encoded MD5 checksum of the custom plugin file. You can use it
--- to validate the file.
---
 -- 'fileSize', 'customPluginFileDescription_fileSize' - The size in bytes of the custom plugin file. You can use it to validate
 -- the file.
+--
+-- 'fileMd5', 'customPluginFileDescription_fileMd5' - The hex-encoded MD5 checksum of the custom plugin file. You can use it
+-- to validate the file.
 newCustomPluginFileDescription ::
   CustomPluginFileDescription
 newCustomPluginFileDescription =
   CustomPluginFileDescription'
-    { fileMd5 =
+    { fileSize =
         Prelude.Nothing,
-      fileSize = Prelude.Nothing
+      fileMd5 = Prelude.Nothing
     }
-
--- | The hex-encoded MD5 checksum of the custom plugin file. You can use it
--- to validate the file.
-customPluginFileDescription_fileMd5 :: Lens.Lens' CustomPluginFileDescription (Prelude.Maybe Prelude.Text)
-customPluginFileDescription_fileMd5 = Lens.lens (\CustomPluginFileDescription' {fileMd5} -> fileMd5) (\s@CustomPluginFileDescription' {} a -> s {fileMd5 = a} :: CustomPluginFileDescription)
 
 -- | The size in bytes of the custom plugin file. You can use it to validate
 -- the file.
 customPluginFileDescription_fileSize :: Lens.Lens' CustomPluginFileDescription (Prelude.Maybe Prelude.Integer)
 customPluginFileDescription_fileSize = Lens.lens (\CustomPluginFileDescription' {fileSize} -> fileSize) (\s@CustomPluginFileDescription' {} a -> s {fileSize = a} :: CustomPluginFileDescription)
+
+-- | The hex-encoded MD5 checksum of the custom plugin file. You can use it
+-- to validate the file.
+customPluginFileDescription_fileMd5 :: Lens.Lens' CustomPluginFileDescription (Prelude.Maybe Prelude.Text)
+customPluginFileDescription_fileMd5 = Lens.lens (\CustomPluginFileDescription' {fileMd5} -> fileMd5) (\s@CustomPluginFileDescription' {} a -> s {fileMd5 = a} :: CustomPluginFileDescription)
 
 instance Core.FromJSON CustomPluginFileDescription where
   parseJSON =
@@ -74,16 +74,16 @@ instance Core.FromJSON CustomPluginFileDescription where
       "CustomPluginFileDescription"
       ( \x ->
           CustomPluginFileDescription'
-            Prelude.<$> (x Core..:? "fileMd5")
-            Prelude.<*> (x Core..:? "fileSize")
+            Prelude.<$> (x Core..:? "fileSize")
+            Prelude.<*> (x Core..:? "fileMd5")
       )
 
 instance Prelude.Hashable CustomPluginFileDescription where
   hashWithSalt _salt CustomPluginFileDescription' {..} =
-    _salt `Prelude.hashWithSalt` fileMd5
-      `Prelude.hashWithSalt` fileSize
+    _salt `Prelude.hashWithSalt` fileSize
+      `Prelude.hashWithSalt` fileMd5
 
 instance Prelude.NFData CustomPluginFileDescription where
   rnf CustomPluginFileDescription' {..} =
-    Prelude.rnf fileMd5
-      `Prelude.seq` Prelude.rnf fileSize
+    Prelude.rnf fileSize
+      `Prelude.seq` Prelude.rnf fileMd5

@@ -17,12 +17,12 @@ module Amazonka.Outposts.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
+    _InternalServerException,
     _NotFoundException,
     _ServiceQuotaExceededException,
-    _InternalServerException,
+    _ConflictException,
+    _ValidationException,
 
     -- * OrderStatus
     OrderStatus (..),
@@ -41,8 +41,8 @@ module Amazonka.Outposts.Types
     -- * LineItem
     LineItem (..),
     newLineItem,
-    lineItem_status,
     lineItem_quantity,
+    lineItem_status,
     lineItem_catalogItemId,
     lineItem_lineItemId,
 
@@ -55,38 +55,38 @@ module Amazonka.Outposts.Types
     -- * Order
     Order (..),
     newOrder,
-    order_status,
-    order_orderSubmissionDate,
-    order_lineItems,
-    order_orderFulfilledDate,
-    order_orderId,
     order_outpostId,
+    order_orderFulfilledDate,
+    order_lineItems,
+    order_status,
+    order_orderId,
+    order_orderSubmissionDate,
     order_paymentOption,
 
     -- * Outpost
     Outpost (..),
     newOutpost,
-    outpost_availabilityZoneId,
+    outpost_tags,
+    outpost_name,
+    outpost_outpostId,
     outpost_outpostArn,
     outpost_ownerId,
-    outpost_availabilityZone,
-    outpost_name,
-    outpost_lifeCycleStatus,
-    outpost_outpostId,
-    outpost_siteId,
     outpost_siteArn,
+    outpost_availabilityZone,
     outpost_description,
-    outpost_tags,
+    outpost_siteId,
+    outpost_lifeCycleStatus,
+    outpost_availabilityZoneId,
 
     -- * Site
     Site (..),
     newSite,
-    site_accountId,
+    site_tags,
     site_name,
-    site_siteId,
     site_siteArn,
     site_description,
-    site_tags,
+    site_siteId,
+    site_accountId,
   )
 where
 
@@ -129,35 +129,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -166,21 +139,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | A parameter is not valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | You do not have permission to perform this operation.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -190,13 +182,13 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | Updating or deleting this resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | An internal error has occurred.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | The specified request is not valid.
 _NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -214,10 +206,18 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | An internal error has occurred.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | Updating or deleting this resource can cause an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | A parameter is not valid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

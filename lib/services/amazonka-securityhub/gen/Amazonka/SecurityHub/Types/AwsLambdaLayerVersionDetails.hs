@@ -27,7 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsLambdaLayerVersionDetails' smart constructor.
 data AwsLambdaLayerVersionDetails = AwsLambdaLayerVersionDetails'
-  { -- | Indicates when the version was created.
+  { -- | The layer\'s compatible runtimes. Maximum number of five items.
+    --
+    -- Valid values: @nodejs10.x@ | @nodejs12.x@ | @java8@ | @java11@ |
+    -- @python2.7@ | @python3.6@ | @python3.7@ | @python3.8@ | @dotnetcore1.0@
+    -- | @dotnetcore2.1@ | @go1.x@ | @ruby2.5@ | @provided@
+    compatibleRuntimes :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates when the version was created.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
@@ -35,13 +41,7 @@ data AwsLambdaLayerVersionDetails = AwsLambdaLayerVersionDetails'
     -- @2020-03-22T13:22:13.933Z@.
     createdDate :: Prelude.Maybe Prelude.Text,
     -- | The version number.
-    version :: Prelude.Maybe Prelude.Integer,
-    -- | The layer\'s compatible runtimes. Maximum number of five items.
-    --
-    -- Valid values: @nodejs10.x@ | @nodejs12.x@ | @java8@ | @java11@ |
-    -- @python2.7@ | @python3.6@ | @python3.7@ | @python3.8@ | @dotnetcore1.0@
-    -- | @dotnetcore2.1@ | @go1.x@ | @ruby2.5@ | @provided@
-    compatibleRuntimes :: Prelude.Maybe [Prelude.Text]
+    version :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,12 @@ data AwsLambdaLayerVersionDetails = AwsLambdaLayerVersionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'compatibleRuntimes', 'awsLambdaLayerVersionDetails_compatibleRuntimes' - The layer\'s compatible runtimes. Maximum number of five items.
+--
+-- Valid values: @nodejs10.x@ | @nodejs12.x@ | @java8@ | @java11@ |
+-- @python2.7@ | @python3.6@ | @python3.7@ | @python3.8@ | @dotnetcore1.0@
+-- | @dotnetcore2.1@ | @go1.x@ | @ruby2.5@ | @provided@
+--
 -- 'createdDate', 'awsLambdaLayerVersionDetails_createdDate' - Indicates when the version was created.
 --
 -- Uses the @date-time@ format specified in
@@ -61,21 +67,23 @@ data AwsLambdaLayerVersionDetails = AwsLambdaLayerVersionDetails'
 -- @2020-03-22T13:22:13.933Z@.
 --
 -- 'version', 'awsLambdaLayerVersionDetails_version' - The version number.
---
--- 'compatibleRuntimes', 'awsLambdaLayerVersionDetails_compatibleRuntimes' - The layer\'s compatible runtimes. Maximum number of five items.
---
--- Valid values: @nodejs10.x@ | @nodejs12.x@ | @java8@ | @java11@ |
--- @python2.7@ | @python3.6@ | @python3.7@ | @python3.8@ | @dotnetcore1.0@
--- | @dotnetcore2.1@ | @go1.x@ | @ruby2.5@ | @provided@
 newAwsLambdaLayerVersionDetails ::
   AwsLambdaLayerVersionDetails
 newAwsLambdaLayerVersionDetails =
   AwsLambdaLayerVersionDetails'
-    { createdDate =
+    { compatibleRuntimes =
         Prelude.Nothing,
-      version = Prelude.Nothing,
-      compatibleRuntimes = Prelude.Nothing
+      createdDate = Prelude.Nothing,
+      version = Prelude.Nothing
     }
+
+-- | The layer\'s compatible runtimes. Maximum number of five items.
+--
+-- Valid values: @nodejs10.x@ | @nodejs12.x@ | @java8@ | @java11@ |
+-- @python2.7@ | @python3.6@ | @python3.7@ | @python3.8@ | @dotnetcore1.0@
+-- | @dotnetcore2.1@ | @go1.x@ | @ruby2.5@ | @provided@
+awsLambdaLayerVersionDetails_compatibleRuntimes :: Lens.Lens' AwsLambdaLayerVersionDetails (Prelude.Maybe [Prelude.Text])
+awsLambdaLayerVersionDetails_compatibleRuntimes = Lens.lens (\AwsLambdaLayerVersionDetails' {compatibleRuntimes} -> compatibleRuntimes) (\s@AwsLambdaLayerVersionDetails' {} a -> s {compatibleRuntimes = a} :: AwsLambdaLayerVersionDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates when the version was created.
 --
@@ -90,25 +98,17 @@ awsLambdaLayerVersionDetails_createdDate = Lens.lens (\AwsLambdaLayerVersionDeta
 awsLambdaLayerVersionDetails_version :: Lens.Lens' AwsLambdaLayerVersionDetails (Prelude.Maybe Prelude.Integer)
 awsLambdaLayerVersionDetails_version = Lens.lens (\AwsLambdaLayerVersionDetails' {version} -> version) (\s@AwsLambdaLayerVersionDetails' {} a -> s {version = a} :: AwsLambdaLayerVersionDetails)
 
--- | The layer\'s compatible runtimes. Maximum number of five items.
---
--- Valid values: @nodejs10.x@ | @nodejs12.x@ | @java8@ | @java11@ |
--- @python2.7@ | @python3.6@ | @python3.7@ | @python3.8@ | @dotnetcore1.0@
--- | @dotnetcore2.1@ | @go1.x@ | @ruby2.5@ | @provided@
-awsLambdaLayerVersionDetails_compatibleRuntimes :: Lens.Lens' AwsLambdaLayerVersionDetails (Prelude.Maybe [Prelude.Text])
-awsLambdaLayerVersionDetails_compatibleRuntimes = Lens.lens (\AwsLambdaLayerVersionDetails' {compatibleRuntimes} -> compatibleRuntimes) (\s@AwsLambdaLayerVersionDetails' {} a -> s {compatibleRuntimes = a} :: AwsLambdaLayerVersionDetails) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON AwsLambdaLayerVersionDetails where
   parseJSON =
     Core.withObject
       "AwsLambdaLayerVersionDetails"
       ( \x ->
           AwsLambdaLayerVersionDetails'
-            Prelude.<$> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> ( x Core..:? "CompatibleRuntimes"
+            Prelude.<$> ( x Core..:? "CompatibleRuntimes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "CreatedDate")
+            Prelude.<*> (x Core..:? "Version")
       )
 
 instance
@@ -116,23 +116,23 @@ instance
     AwsLambdaLayerVersionDetails
   where
   hashWithSalt _salt AwsLambdaLayerVersionDetails' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt `Prelude.hashWithSalt` compatibleRuntimes
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` compatibleRuntimes
 
 instance Prelude.NFData AwsLambdaLayerVersionDetails where
   rnf AwsLambdaLayerVersionDetails' {..} =
-    Prelude.rnf createdDate
+    Prelude.rnf compatibleRuntimes
+      `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf compatibleRuntimes
 
 instance Core.ToJSON AwsLambdaLayerVersionDetails where
   toJSON AwsLambdaLayerVersionDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedDate" Core..=) Prelude.<$> createdDate,
-            ("Version" Core..=) Prelude.<$> version,
-            ("CompatibleRuntimes" Core..=)
-              Prelude.<$> compatibleRuntimes
+          [ ("CompatibleRuntimes" Core..=)
+              Prelude.<$> compatibleRuntimes,
+            ("CreatedDate" Core..=) Prelude.<$> createdDate,
+            ("Version" Core..=) Prelude.<$> version
           ]
       )

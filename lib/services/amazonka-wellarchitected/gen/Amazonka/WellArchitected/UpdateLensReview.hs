@@ -27,8 +27,8 @@ module Amazonka.WellArchitected.UpdateLensReview
     newUpdateLensReview,
 
     -- * Request Lenses
-    updateLensReview_lensNotes,
     updateLensReview_pillarNotes,
+    updateLensReview_lensNotes,
     updateLensReview_workloadId,
     updateLensReview_lensAlias,
 
@@ -37,8 +37,8 @@ module Amazonka.WellArchitected.UpdateLensReview
     newUpdateLensReviewResponse,
 
     -- * Response Lenses
-    updateLensReviewResponse_workloadId,
     updateLensReviewResponse_lensReview,
+    updateLensReviewResponse_workloadId,
     updateLensReviewResponse_httpStatus,
   )
 where
@@ -54,8 +54,8 @@ import Amazonka.WellArchitected.Types
 --
 -- /See:/ 'newUpdateLensReview' smart constructor.
 data UpdateLensReview = UpdateLensReview'
-  { lensNotes :: Prelude.Maybe Prelude.Text,
-    pillarNotes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { pillarNotes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    lensNotes :: Prelude.Maybe Prelude.Text,
     workloadId :: Prelude.Text,
     lensAlias :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data UpdateLensReview = UpdateLensReview'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lensNotes', 'updateLensReview_lensNotes' - Undocumented member.
---
 -- 'pillarNotes', 'updateLensReview_pillarNotes' - Undocumented member.
+--
+-- 'lensNotes', 'updateLensReview_lensNotes' - Undocumented member.
 --
 -- 'workloadId', 'updateLensReview_workloadId' - Undocumented member.
 --
@@ -84,19 +84,19 @@ newUpdateLensReview ::
   UpdateLensReview
 newUpdateLensReview pWorkloadId_ pLensAlias_ =
   UpdateLensReview'
-    { lensNotes = Prelude.Nothing,
-      pillarNotes = Prelude.Nothing,
+    { pillarNotes = Prelude.Nothing,
+      lensNotes = Prelude.Nothing,
       workloadId = pWorkloadId_,
       lensAlias = pLensAlias_
     }
 
 -- | Undocumented member.
-updateLensReview_lensNotes :: Lens.Lens' UpdateLensReview (Prelude.Maybe Prelude.Text)
-updateLensReview_lensNotes = Lens.lens (\UpdateLensReview' {lensNotes} -> lensNotes) (\s@UpdateLensReview' {} a -> s {lensNotes = a} :: UpdateLensReview)
-
--- | Undocumented member.
 updateLensReview_pillarNotes :: Lens.Lens' UpdateLensReview (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateLensReview_pillarNotes = Lens.lens (\UpdateLensReview' {pillarNotes} -> pillarNotes) (\s@UpdateLensReview' {} a -> s {pillarNotes = a} :: UpdateLensReview) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+updateLensReview_lensNotes :: Lens.Lens' UpdateLensReview (Prelude.Maybe Prelude.Text)
+updateLensReview_lensNotes = Lens.lens (\UpdateLensReview' {lensNotes} -> lensNotes) (\s@UpdateLensReview' {} a -> s {lensNotes = a} :: UpdateLensReview)
 
 -- | Undocumented member.
 updateLensReview_workloadId :: Lens.Lens' UpdateLensReview Prelude.Text
@@ -115,22 +115,22 @@ instance Core.AWSRequest UpdateLensReview where
     Response.receiveJSON
       ( \s h x ->
           UpdateLensReviewResponse'
-            Prelude.<$> (x Core..?> "WorkloadId")
-            Prelude.<*> (x Core..?> "LensReview")
+            Prelude.<$> (x Core..?> "LensReview")
+            Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateLensReview where
   hashWithSalt _salt UpdateLensReview' {..} =
-    _salt `Prelude.hashWithSalt` lensNotes
-      `Prelude.hashWithSalt` pillarNotes
+    _salt `Prelude.hashWithSalt` pillarNotes
+      `Prelude.hashWithSalt` lensNotes
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAlias
 
 instance Prelude.NFData UpdateLensReview where
   rnf UpdateLensReview' {..} =
-    Prelude.rnf lensNotes
-      `Prelude.seq` Prelude.rnf pillarNotes
+    Prelude.rnf pillarNotes
+      `Prelude.seq` Prelude.rnf lensNotes
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensAlias
 
@@ -149,8 +149,8 @@ instance Core.ToJSON UpdateLensReview where
   toJSON UpdateLensReview' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LensNotes" Core..=) Prelude.<$> lensNotes,
-            ("PillarNotes" Core..=) Prelude.<$> pillarNotes
+          [ ("PillarNotes" Core..=) Prelude.<$> pillarNotes,
+            ("LensNotes" Core..=) Prelude.<$> lensNotes
           ]
       )
 
@@ -170,8 +170,8 @@ instance Core.ToQuery UpdateLensReview where
 --
 -- /See:/ 'newUpdateLensReviewResponse' smart constructor.
 data UpdateLensReviewResponse = UpdateLensReviewResponse'
-  { workloadId :: Prelude.Maybe Prelude.Text,
-    lensReview :: Prelude.Maybe LensReview,
+  { lensReview :: Prelude.Maybe LensReview,
+    workloadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,9 +185,9 @@ data UpdateLensReviewResponse = UpdateLensReviewResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workloadId', 'updateLensReviewResponse_workloadId' - Undocumented member.
---
 -- 'lensReview', 'updateLensReviewResponse_lensReview' - Undocumented member.
+--
+-- 'workloadId', 'updateLensReviewResponse_workloadId' - Undocumented member.
 --
 -- 'httpStatus', 'updateLensReviewResponse_httpStatus' - The response's http status code.
 newUpdateLensReviewResponse ::
@@ -196,19 +196,19 @@ newUpdateLensReviewResponse ::
   UpdateLensReviewResponse
 newUpdateLensReviewResponse pHttpStatus_ =
   UpdateLensReviewResponse'
-    { workloadId =
+    { lensReview =
         Prelude.Nothing,
-      lensReview = Prelude.Nothing,
+      workloadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateLensReviewResponse_workloadId :: Lens.Lens' UpdateLensReviewResponse (Prelude.Maybe Prelude.Text)
-updateLensReviewResponse_workloadId = Lens.lens (\UpdateLensReviewResponse' {workloadId} -> workloadId) (\s@UpdateLensReviewResponse' {} a -> s {workloadId = a} :: UpdateLensReviewResponse)
-
--- | Undocumented member.
 updateLensReviewResponse_lensReview :: Lens.Lens' UpdateLensReviewResponse (Prelude.Maybe LensReview)
 updateLensReviewResponse_lensReview = Lens.lens (\UpdateLensReviewResponse' {lensReview} -> lensReview) (\s@UpdateLensReviewResponse' {} a -> s {lensReview = a} :: UpdateLensReviewResponse)
+
+-- | Undocumented member.
+updateLensReviewResponse_workloadId :: Lens.Lens' UpdateLensReviewResponse (Prelude.Maybe Prelude.Text)
+updateLensReviewResponse_workloadId = Lens.lens (\UpdateLensReviewResponse' {workloadId} -> workloadId) (\s@UpdateLensReviewResponse' {} a -> s {workloadId = a} :: UpdateLensReviewResponse)
 
 -- | The response's http status code.
 updateLensReviewResponse_httpStatus :: Lens.Lens' UpdateLensReviewResponse Prelude.Int
@@ -216,6 +216,6 @@ updateLensReviewResponse_httpStatus = Lens.lens (\UpdateLensReviewResponse' {htt
 
 instance Prelude.NFData UpdateLensReviewResponse where
   rnf UpdateLensReviewResponse' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensReview
+    Prelude.rnf lensReview
+      `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf httpStatus

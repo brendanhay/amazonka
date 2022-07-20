@@ -34,8 +34,8 @@ module Amazonka.CloudFront.GetFieldLevelEncryptionProfile
     newGetFieldLevelEncryptionProfileResponse,
 
     -- * Response Lenses
-    getFieldLevelEncryptionProfileResponse_eTag,
     getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
+    getFieldLevelEncryptionProfileResponse_eTag,
     getFieldLevelEncryptionProfileResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetFieldLevelEncryptionProfileResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,11 +125,11 @@ instance Core.ToQuery GetFieldLevelEncryptionProfile where
 
 -- | /See:/ 'newGetFieldLevelEncryptionProfileResponse' smart constructor.
 data GetFieldLevelEncryptionProfileResponse = GetFieldLevelEncryptionProfileResponse'
-  { -- | The current version of the field level encryption profile. For example:
+  { -- | Return the field-level encryption profile information.
+    fieldLevelEncryptionProfile :: Prelude.Maybe FieldLevelEncryptionProfile,
+    -- | The current version of the field level encryption profile. For example:
     -- @E2QWRUHAPOMQZL@.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | Return the field-level encryption profile information.
-    fieldLevelEncryptionProfile :: Prelude.Maybe FieldLevelEncryptionProfile,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,10 +143,10 @@ data GetFieldLevelEncryptionProfileResponse = GetFieldLevelEncryptionProfileResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fieldLevelEncryptionProfile', 'getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile' - Return the field-level encryption profile information.
+--
 -- 'eTag', 'getFieldLevelEncryptionProfileResponse_eTag' - The current version of the field level encryption profile. For example:
 -- @E2QWRUHAPOMQZL@.
---
--- 'fieldLevelEncryptionProfile', 'getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile' - Return the field-level encryption profile information.
 --
 -- 'httpStatus', 'getFieldLevelEncryptionProfileResponse_httpStatus' - The response's http status code.
 newGetFieldLevelEncryptionProfileResponse ::
@@ -156,21 +156,20 @@ newGetFieldLevelEncryptionProfileResponse ::
 newGetFieldLevelEncryptionProfileResponse
   pHttpStatus_ =
     GetFieldLevelEncryptionProfileResponse'
-      { eTag =
+      { fieldLevelEncryptionProfile =
           Prelude.Nothing,
-        fieldLevelEncryptionProfile =
-          Prelude.Nothing,
+        eTag = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Return the field-level encryption profile information.
+getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile :: Lens.Lens' GetFieldLevelEncryptionProfileResponse (Prelude.Maybe FieldLevelEncryptionProfile)
+getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile = Lens.lens (\GetFieldLevelEncryptionProfileResponse' {fieldLevelEncryptionProfile} -> fieldLevelEncryptionProfile) (\s@GetFieldLevelEncryptionProfileResponse' {} a -> s {fieldLevelEncryptionProfile = a} :: GetFieldLevelEncryptionProfileResponse)
 
 -- | The current version of the field level encryption profile. For example:
 -- @E2QWRUHAPOMQZL@.
 getFieldLevelEncryptionProfileResponse_eTag :: Lens.Lens' GetFieldLevelEncryptionProfileResponse (Prelude.Maybe Prelude.Text)
 getFieldLevelEncryptionProfileResponse_eTag = Lens.lens (\GetFieldLevelEncryptionProfileResponse' {eTag} -> eTag) (\s@GetFieldLevelEncryptionProfileResponse' {} a -> s {eTag = a} :: GetFieldLevelEncryptionProfileResponse)
-
--- | Return the field-level encryption profile information.
-getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile :: Lens.Lens' GetFieldLevelEncryptionProfileResponse (Prelude.Maybe FieldLevelEncryptionProfile)
-getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile = Lens.lens (\GetFieldLevelEncryptionProfileResponse' {fieldLevelEncryptionProfile} -> fieldLevelEncryptionProfile) (\s@GetFieldLevelEncryptionProfileResponse' {} a -> s {fieldLevelEncryptionProfile = a} :: GetFieldLevelEncryptionProfileResponse)
 
 -- | The response's http status code.
 getFieldLevelEncryptionProfileResponse_httpStatus :: Lens.Lens' GetFieldLevelEncryptionProfileResponse Prelude.Int
@@ -181,6 +180,6 @@ instance
     GetFieldLevelEncryptionProfileResponse
   where
   rnf GetFieldLevelEncryptionProfileResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf fieldLevelEncryptionProfile
+    Prelude.rnf fieldLevelEncryptionProfile
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

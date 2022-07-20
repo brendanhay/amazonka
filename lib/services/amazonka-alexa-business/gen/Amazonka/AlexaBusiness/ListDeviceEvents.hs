@@ -30,8 +30,8 @@ module Amazonka.AlexaBusiness.ListDeviceEvents
     newListDeviceEvents,
 
     -- * Request Lenses
-    listDeviceEvents_nextToken,
     listDeviceEvents_eventType,
+    listDeviceEvents_nextToken,
     listDeviceEvents_maxResults,
     listDeviceEvents_deviceArn,
 
@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeviceEvents' smart constructor.
 data ListDeviceEvents = ListDeviceEvents'
-  { -- | An optional token returned from a prior request. Use this token for
+  { -- | The event type to filter device events. If EventType isn\'t specified,
+    -- this returns a list of all device events in reverse chronological order.
+    -- If EventType is specified, this returns a list of device events for that
+    -- EventType in reverse chronological order.
+    eventType :: Prelude.Maybe DeviceEventType,
+    -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response only includes results beyond the token, up to the value
     -- specified by MaxResults. When the end of results is reached, the
     -- response has a value of null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The event type to filter device events. If EventType isn\'t specified,
-    -- this returns a list of all device events in reverse chronological order.
-    -- If EventType is specified, this returns a list of device events for that
-    -- EventType in reverse chronological order.
-    eventType :: Prelude.Maybe DeviceEventType,
     -- | The maximum number of results to include in the response. The default
     -- value is 50. If more results exist than the specified MaxResults value,
     -- a token is included in the response so that the remaining results can be
@@ -84,16 +84,16 @@ data ListDeviceEvents = ListDeviceEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventType', 'listDeviceEvents_eventType' - The event type to filter device events. If EventType isn\'t specified,
+-- this returns a list of all device events in reverse chronological order.
+-- If EventType is specified, this returns a list of device events for that
+-- EventType in reverse chronological order.
+--
 -- 'nextToken', 'listDeviceEvents_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response only includes results beyond the token, up to the value
 -- specified by MaxResults. When the end of results is reached, the
 -- response has a value of null.
---
--- 'eventType', 'listDeviceEvents_eventType' - The event type to filter device events. If EventType isn\'t specified,
--- this returns a list of all device events in reverse chronological order.
--- If EventType is specified, this returns a list of device events for that
--- EventType in reverse chronological order.
 --
 -- 'maxResults', 'listDeviceEvents_maxResults' - The maximum number of results to include in the response. The default
 -- value is 50. If more results exist than the specified MaxResults value,
@@ -107,11 +107,18 @@ newListDeviceEvents ::
   ListDeviceEvents
 newListDeviceEvents pDeviceArn_ =
   ListDeviceEvents'
-    { nextToken = Prelude.Nothing,
-      eventType = Prelude.Nothing,
+    { eventType = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       deviceArn = pDeviceArn_
     }
+
+-- | The event type to filter device events. If EventType isn\'t specified,
+-- this returns a list of all device events in reverse chronological order.
+-- If EventType is specified, this returns a list of device events for that
+-- EventType in reverse chronological order.
+listDeviceEvents_eventType :: Lens.Lens' ListDeviceEvents (Prelude.Maybe DeviceEventType)
+listDeviceEvents_eventType = Lens.lens (\ListDeviceEvents' {eventType} -> eventType) (\s@ListDeviceEvents' {} a -> s {eventType = a} :: ListDeviceEvents)
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -120,13 +127,6 @@ newListDeviceEvents pDeviceArn_ =
 -- response has a value of null.
 listDeviceEvents_nextToken :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Text)
 listDeviceEvents_nextToken = Lens.lens (\ListDeviceEvents' {nextToken} -> nextToken) (\s@ListDeviceEvents' {} a -> s {nextToken = a} :: ListDeviceEvents)
-
--- | The event type to filter device events. If EventType isn\'t specified,
--- this returns a list of all device events in reverse chronological order.
--- If EventType is specified, this returns a list of device events for that
--- EventType in reverse chronological order.
-listDeviceEvents_eventType :: Lens.Lens' ListDeviceEvents (Prelude.Maybe DeviceEventType)
-listDeviceEvents_eventType = Lens.lens (\ListDeviceEvents' {eventType} -> eventType) (\s@ListDeviceEvents' {} a -> s {eventType = a} :: ListDeviceEvents)
 
 -- | The maximum number of results to include in the response. The default
 -- value is 50. If more results exist than the specified MaxResults value,
@@ -177,15 +177,15 @@ instance Core.AWSRequest ListDeviceEvents where
 
 instance Prelude.Hashable ListDeviceEvents where
   hashWithSalt _salt ListDeviceEvents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` eventType
+    _salt `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` deviceArn
 
 instance Prelude.NFData ListDeviceEvents where
   rnf ListDeviceEvents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventType
+    Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf deviceArn
 
@@ -208,8 +208,8 @@ instance Core.ToJSON ListDeviceEvents where
   toJSON ListDeviceEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("EventType" Core..=) Prelude.<$> eventType,
+          [ ("EventType" Core..=) Prelude.<$> eventType,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("DeviceArn" Core..= deviceArn)
           ]

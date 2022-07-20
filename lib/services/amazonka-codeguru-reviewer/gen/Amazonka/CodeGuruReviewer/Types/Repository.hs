@@ -34,13 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRepository' smart constructor.
 data Repository = Repository'
-  { -- | Information about an Amazon Web Services CodeCommit repository.
+  { s3Bucket :: Prelude.Maybe S3Repository,
+    -- | Information about a Bitbucket repository.
+    bitbucket :: Prelude.Maybe ThirdPartySourceRepository,
+    -- | Information about an Amazon Web Services CodeCommit repository.
     codeCommit :: Prelude.Maybe CodeCommitRepository,
     -- | Information about a GitHub Enterprise Server repository.
-    gitHubEnterpriseServer :: Prelude.Maybe ThirdPartySourceRepository,
-    s3Bucket :: Prelude.Maybe S3Repository,
-    -- | Information about a Bitbucket repository.
-    bitbucket :: Prelude.Maybe ThirdPartySourceRepository
+    gitHubEnterpriseServer :: Prelude.Maybe ThirdPartySourceRepository
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,22 @@ data Repository = Repository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'codeCommit', 'repository_codeCommit' - Information about an Amazon Web Services CodeCommit repository.
---
--- 'gitHubEnterpriseServer', 'repository_gitHubEnterpriseServer' - Information about a GitHub Enterprise Server repository.
---
 -- 's3Bucket', 'repository_s3Bucket' - Undocumented member.
 --
 -- 'bitbucket', 'repository_bitbucket' - Information about a Bitbucket repository.
+--
+-- 'codeCommit', 'repository_codeCommit' - Information about an Amazon Web Services CodeCommit repository.
+--
+-- 'gitHubEnterpriseServer', 'repository_gitHubEnterpriseServer' - Information about a GitHub Enterprise Server repository.
 newRepository ::
   Repository
 newRepository =
   Repository'
-    { codeCommit = Prelude.Nothing,
-      gitHubEnterpriseServer = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing,
-      bitbucket = Prelude.Nothing
+    { s3Bucket = Prelude.Nothing,
+      bitbucket = Prelude.Nothing,
+      codeCommit = Prelude.Nothing,
+      gitHubEnterpriseServer = Prelude.Nothing
     }
-
--- | Information about an Amazon Web Services CodeCommit repository.
-repository_codeCommit :: Lens.Lens' Repository (Prelude.Maybe CodeCommitRepository)
-repository_codeCommit = Lens.lens (\Repository' {codeCommit} -> codeCommit) (\s@Repository' {} a -> s {codeCommit = a} :: Repository)
-
--- | Information about a GitHub Enterprise Server repository.
-repository_gitHubEnterpriseServer :: Lens.Lens' Repository (Prelude.Maybe ThirdPartySourceRepository)
-repository_gitHubEnterpriseServer = Lens.lens (\Repository' {gitHubEnterpriseServer} -> gitHubEnterpriseServer) (\s@Repository' {} a -> s {gitHubEnterpriseServer = a} :: Repository)
 
 -- | Undocumented member.
 repository_s3Bucket :: Lens.Lens' Repository (Prelude.Maybe S3Repository)
@@ -85,28 +77,36 @@ repository_s3Bucket = Lens.lens (\Repository' {s3Bucket} -> s3Bucket) (\s@Reposi
 repository_bitbucket :: Lens.Lens' Repository (Prelude.Maybe ThirdPartySourceRepository)
 repository_bitbucket = Lens.lens (\Repository' {bitbucket} -> bitbucket) (\s@Repository' {} a -> s {bitbucket = a} :: Repository)
 
+-- | Information about an Amazon Web Services CodeCommit repository.
+repository_codeCommit :: Lens.Lens' Repository (Prelude.Maybe CodeCommitRepository)
+repository_codeCommit = Lens.lens (\Repository' {codeCommit} -> codeCommit) (\s@Repository' {} a -> s {codeCommit = a} :: Repository)
+
+-- | Information about a GitHub Enterprise Server repository.
+repository_gitHubEnterpriseServer :: Lens.Lens' Repository (Prelude.Maybe ThirdPartySourceRepository)
+repository_gitHubEnterpriseServer = Lens.lens (\Repository' {gitHubEnterpriseServer} -> gitHubEnterpriseServer) (\s@Repository' {} a -> s {gitHubEnterpriseServer = a} :: Repository)
+
 instance Prelude.Hashable Repository where
   hashWithSalt _salt Repository' {..} =
-    _salt `Prelude.hashWithSalt` codeCommit
-      `Prelude.hashWithSalt` gitHubEnterpriseServer
-      `Prelude.hashWithSalt` s3Bucket
+    _salt `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` bitbucket
+      `Prelude.hashWithSalt` codeCommit
+      `Prelude.hashWithSalt` gitHubEnterpriseServer
 
 instance Prelude.NFData Repository where
   rnf Repository' {..} =
-    Prelude.rnf codeCommit
-      `Prelude.seq` Prelude.rnf gitHubEnterpriseServer
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf bitbucket
+      `Prelude.seq` Prelude.rnf codeCommit
+      `Prelude.seq` Prelude.rnf gitHubEnterpriseServer
 
 instance Core.ToJSON Repository where
   toJSON Repository' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CodeCommit" Core..=) Prelude.<$> codeCommit,
+          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
+            ("Bitbucket" Core..=) Prelude.<$> bitbucket,
+            ("CodeCommit" Core..=) Prelude.<$> codeCommit,
             ("GitHubEnterpriseServer" Core..=)
-              Prelude.<$> gitHubEnterpriseServer,
-            ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("Bitbucket" Core..=) Prelude.<$> bitbucket
+              Prelude.<$> gitHubEnterpriseServer
           ]
       )

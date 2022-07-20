@@ -44,8 +44,8 @@ module Amazonka.ServiceCatalog.DescribePortfolioShares
     newDescribePortfolioSharesResponse,
 
     -- * Response Lenses
-    describePortfolioSharesResponse_nextPageToken,
     describePortfolioSharesResponse_portfolioShareDetails,
+    describePortfolioSharesResponse_nextPageToken,
     describePortfolioSharesResponse_httpStatus,
   )
 where
@@ -164,10 +164,10 @@ instance Core.AWSRequest DescribePortfolioShares where
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioSharesResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "PortfolioShareDetails"
+            Prelude.<$> ( x Core..?> "PortfolioShareDetails"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,11 +219,11 @@ instance Core.ToQuery DescribePortfolioShares where
 
 -- | /See:/ 'newDescribePortfolioSharesResponse' smart constructor.
 data DescribePortfolioSharesResponse = DescribePortfolioSharesResponse'
-  { -- | The page token to use to retrieve the next set of results. If there are
+  { -- | Summaries about each of the portfolio shares.
+    portfolioShareDetails :: Prelude.Maybe [PortfolioShareDetail],
+    -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | Summaries about each of the portfolio shares.
-    portfolioShareDetails :: Prelude.Maybe [PortfolioShareDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,10 +237,10 @@ data DescribePortfolioSharesResponse = DescribePortfolioSharesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'portfolioShareDetails', 'describePortfolioSharesResponse_portfolioShareDetails' - Summaries about each of the portfolio shares.
+--
 -- 'nextPageToken', 'describePortfolioSharesResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
---
--- 'portfolioShareDetails', 'describePortfolioSharesResponse_portfolioShareDetails' - Summaries about each of the portfolio shares.
 --
 -- 'httpStatus', 'describePortfolioSharesResponse_httpStatus' - The response's http status code.
 newDescribePortfolioSharesResponse ::
@@ -249,20 +249,20 @@ newDescribePortfolioSharesResponse ::
   DescribePortfolioSharesResponse
 newDescribePortfolioSharesResponse pHttpStatus_ =
   DescribePortfolioSharesResponse'
-    { nextPageToken =
+    { portfolioShareDetails =
         Prelude.Nothing,
-      portfolioShareDetails = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Summaries about each of the portfolio shares.
+describePortfolioSharesResponse_portfolioShareDetails :: Lens.Lens' DescribePortfolioSharesResponse (Prelude.Maybe [PortfolioShareDetail])
+describePortfolioSharesResponse_portfolioShareDetails = Lens.lens (\DescribePortfolioSharesResponse' {portfolioShareDetails} -> portfolioShareDetails) (\s@DescribePortfolioSharesResponse' {} a -> s {portfolioShareDetails = a} :: DescribePortfolioSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 describePortfolioSharesResponse_nextPageToken :: Lens.Lens' DescribePortfolioSharesResponse (Prelude.Maybe Prelude.Text)
 describePortfolioSharesResponse_nextPageToken = Lens.lens (\DescribePortfolioSharesResponse' {nextPageToken} -> nextPageToken) (\s@DescribePortfolioSharesResponse' {} a -> s {nextPageToken = a} :: DescribePortfolioSharesResponse)
-
--- | Summaries about each of the portfolio shares.
-describePortfolioSharesResponse_portfolioShareDetails :: Lens.Lens' DescribePortfolioSharesResponse (Prelude.Maybe [PortfolioShareDetail])
-describePortfolioSharesResponse_portfolioShareDetails = Lens.lens (\DescribePortfolioSharesResponse' {portfolioShareDetails} -> portfolioShareDetails) (\s@DescribePortfolioSharesResponse' {} a -> s {portfolioShareDetails = a} :: DescribePortfolioSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePortfolioSharesResponse_httpStatus :: Lens.Lens' DescribePortfolioSharesResponse Prelude.Int
@@ -273,6 +273,6 @@ instance
     DescribePortfolioSharesResponse
   where
   rnf DescribePortfolioSharesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf portfolioShareDetails
+    Prelude.rnf portfolioShareDetails
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

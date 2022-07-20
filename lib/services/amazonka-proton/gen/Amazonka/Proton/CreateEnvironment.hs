@@ -31,11 +31,11 @@ module Amazonka.Proton.CreateEnvironment
     newCreateEnvironment,
 
     -- * Request Lenses
+    createEnvironment_tags,
+    createEnvironment_description,
+    createEnvironment_templateMinorVersion,
     createEnvironment_protonServiceRoleArn,
     createEnvironment_environmentAccountConnectionId,
-    createEnvironment_templateMinorVersion,
-    createEnvironment_description,
-    createEnvironment_tags,
     createEnvironment_name,
     createEnvironment_spec,
     createEnvironment_templateMajorVersion,
@@ -60,7 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironment' smart constructor.
 data CreateEnvironment = CreateEnvironment'
-  { -- | The Amazon Resource Name (ARN) of the AWS Proton service role that
+  { -- | Create tags for your environment. For more information, see /AWS Proton
+    -- resources and tagging/ in the
+    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+    -- or
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+    tags :: Prelude.Maybe [Tag],
+    -- | A description of the environment that\'s being created and deployed.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the minor version of the environment template.
+    templateMinorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the AWS Proton service role that
     -- allows AWS Proton to make calls to other services on your behalf. You
     -- must include either the @environmentAccountConnectionId@ or
     -- @protonServiceRoleArn@ parameter and value.
@@ -72,16 +82,6 @@ data CreateEnvironment = CreateEnvironment'
     -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
     -- in the /AWS Proton Administrator guide/.
     environmentAccountConnectionId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the minor version of the environment template.
-    templateMinorVersion :: Prelude.Maybe Prelude.Text,
-    -- | A description of the environment that\'s being created and deployed.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Create tags for your environment. For more information, see /AWS Proton
-    -- resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
-    -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the environment.
     name :: Prelude.Text,
     -- | A link to a YAML formatted spec file that provides inputs as defined in
@@ -106,6 +106,16 @@ data CreateEnvironment = CreateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createEnvironment_tags' - Create tags for your environment. For more information, see /AWS Proton
+-- resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- or
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+--
+-- 'description', 'createEnvironment_description' - A description of the environment that\'s being created and deployed.
+--
+-- 'templateMinorVersion', 'createEnvironment_templateMinorVersion' - The ID of the minor version of the environment template.
+--
 -- 'protonServiceRoleArn', 'createEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the AWS Proton service role that
 -- allows AWS Proton to make calls to other services on your behalf. You
 -- must include either the @environmentAccountConnectionId@ or
@@ -117,16 +127,6 @@ data CreateEnvironment = CreateEnvironment'
 -- @protonServiceRoleArn@ parameter and value. For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
 -- in the /AWS Proton Administrator guide/.
---
--- 'templateMinorVersion', 'createEnvironment_templateMinorVersion' - The ID of the minor version of the environment template.
---
--- 'description', 'createEnvironment_description' - A description of the environment that\'s being created and deployed.
---
--- 'tags', 'createEnvironment_tags' - Create tags for your environment. For more information, see /AWS Proton
--- resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
 --
 -- 'name', 'createEnvironment_name' - The name of the environment.
 --
@@ -156,17 +156,32 @@ newCreateEnvironment
   pTemplateMajorVersion_
   pTemplateName_ =
     CreateEnvironment'
-      { protonServiceRoleArn =
-          Prelude.Nothing,
-        environmentAccountConnectionId = Prelude.Nothing,
-        templateMinorVersion = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        templateMinorVersion = Prelude.Nothing,
+        protonServiceRoleArn = Prelude.Nothing,
+        environmentAccountConnectionId = Prelude.Nothing,
         name = pName_,
         spec = Core._Sensitive Lens.# pSpec_,
         templateMajorVersion = pTemplateMajorVersion_,
         templateName = pTemplateName_
       }
+
+-- | Create tags for your environment. For more information, see /AWS Proton
+-- resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- or
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Tag])
+createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the environment that\'s being created and deployed.
+createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID of the minor version of the environment template.
+createEnvironment_templateMinorVersion :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_templateMinorVersion = Lens.lens (\CreateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@CreateEnvironment' {} a -> s {templateMinorVersion = a} :: CreateEnvironment)
 
 -- | The Amazon Resource Name (ARN) of the AWS Proton service role that
 -- allows AWS Proton to make calls to other services on your behalf. You
@@ -183,22 +198,6 @@ createEnvironment_protonServiceRoleArn = Lens.lens (\CreateEnvironment' {protonS
 -- in the /AWS Proton Administrator guide/.
 createEnvironment_environmentAccountConnectionId :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_environmentAccountConnectionId = Lens.lens (\CreateEnvironment' {environmentAccountConnectionId} -> environmentAccountConnectionId) (\s@CreateEnvironment' {} a -> s {environmentAccountConnectionId = a} :: CreateEnvironment)
-
--- | The ID of the minor version of the environment template.
-createEnvironment_templateMinorVersion :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_templateMinorVersion = Lens.lens (\CreateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@CreateEnvironment' {} a -> s {templateMinorVersion = a} :: CreateEnvironment)
-
--- | A description of the environment that\'s being created and deployed.
-createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment) Prelude.. Lens.mapping Core._Sensitive
-
--- | Create tags for your environment. For more information, see /AWS Proton
--- resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
-createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Tag])
-createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the environment.
 createEnvironment_name :: Lens.Lens' CreateEnvironment Prelude.Text
@@ -236,11 +235,11 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` protonServiceRoleArn
-      `Prelude.hashWithSalt` environmentAccountConnectionId
-      `Prelude.hashWithSalt` templateMinorVersion
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` protonServiceRoleArn
+      `Prelude.hashWithSalt` environmentAccountConnectionId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` templateMajorVersion
@@ -248,11 +247,11 @@ instance Prelude.Hashable CreateEnvironment where
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf protonServiceRoleArn
-      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
-      `Prelude.seq` Prelude.rnf templateMinorVersion
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf protonServiceRoleArn
+      `Prelude.seq` Prelude.rnf environmentAccountConnectionId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf templateMajorVersion
@@ -277,14 +276,14 @@ instance Core.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("protonServiceRoleArn" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
+            ("templateMinorVersion" Core..=)
+              Prelude.<$> templateMinorVersion,
+            ("protonServiceRoleArn" Core..=)
               Prelude.<$> protonServiceRoleArn,
             ("environmentAccountConnectionId" Core..=)
               Prelude.<$> environmentAccountConnectionId,
-            ("templateMinorVersion" Core..=)
-              Prelude.<$> templateMinorVersion,
-            ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("spec" Core..= spec),
             Prelude.Just

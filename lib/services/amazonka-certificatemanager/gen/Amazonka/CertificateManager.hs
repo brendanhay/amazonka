@@ -24,53 +24,53 @@ module Amazonka.CertificateManager
     -- * Errors
     -- $errors
 
-    -- ** InvalidTagException
-    _InvalidTagException,
-
-    -- ** ValidationException
-    _ValidationException,
+    -- ** InvalidStateException
+    _InvalidStateException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** InvalidDomainValidationOptionsException
-    _InvalidDomainValidationOptionsException,
-
     -- ** TooManyTagsException
     _TooManyTagsException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** InvalidArgsException
-    _InvalidArgsException,
-
-    -- ** RequestInProgressException
-    _RequestInProgressException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** TagPolicyException
-    _TagPolicyException,
-
-    -- ** InvalidArnException
-    _InvalidArnException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** InvalidStateException
-    _InvalidStateException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidDomainValidationOptionsException
+    _InvalidDomainValidationOptionsException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InvalidArgsException
+    _InvalidArgsException,
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** RequestInProgressException
+    _RequestInProgressException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -80,6 +80,84 @@ module Amazonka.CertificateManager
 
     -- * Operations
     -- $operations
+
+    -- ** AddTagsToCertificate
+    AddTagsToCertificate (AddTagsToCertificate'),
+    newAddTagsToCertificate,
+    AddTagsToCertificateResponse (AddTagsToCertificateResponse'),
+    newAddTagsToCertificateResponse,
+
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
+
+    -- ** DescribeCertificate
+    DescribeCertificate (DescribeCertificate'),
+    newDescribeCertificate,
+    DescribeCertificateResponse (DescribeCertificateResponse'),
+    newDescribeCertificateResponse,
+
+    -- ** ExportCertificate
+    ExportCertificate (ExportCertificate'),
+    newExportCertificate,
+    ExportCertificateResponse (ExportCertificateResponse'),
+    newExportCertificateResponse,
+
+    -- ** GetAccountConfiguration
+    GetAccountConfiguration (GetAccountConfiguration'),
+    newGetAccountConfiguration,
+    GetAccountConfigurationResponse (GetAccountConfigurationResponse'),
+    newGetAccountConfigurationResponse,
+
+    -- ** GetCertificate
+    GetCertificate (GetCertificate'),
+    newGetCertificate,
+    GetCertificateResponse (GetCertificateResponse'),
+    newGetCertificateResponse,
+
+    -- ** ImportCertificate
+    ImportCertificate (ImportCertificate'),
+    newImportCertificate,
+    ImportCertificateResponse (ImportCertificateResponse'),
+    newImportCertificateResponse,
+
+    -- ** ListCertificates (Paginated)
+    ListCertificates (ListCertificates'),
+    newListCertificates,
+    ListCertificatesResponse (ListCertificatesResponse'),
+    newListCertificatesResponse,
+
+    -- ** ListTagsForCertificate
+    ListTagsForCertificate (ListTagsForCertificate'),
+    newListTagsForCertificate,
+    ListTagsForCertificateResponse (ListTagsForCertificateResponse'),
+    newListTagsForCertificateResponse,
+
+    -- ** PutAccountConfiguration
+    PutAccountConfiguration (PutAccountConfiguration'),
+    newPutAccountConfiguration,
+    PutAccountConfigurationResponse (PutAccountConfigurationResponse'),
+    newPutAccountConfigurationResponse,
+
+    -- ** RemoveTagsFromCertificate
+    RemoveTagsFromCertificate (RemoveTagsFromCertificate'),
+    newRemoveTagsFromCertificate,
+    RemoveTagsFromCertificateResponse (RemoveTagsFromCertificateResponse'),
+    newRemoveTagsFromCertificateResponse,
+
+    -- ** RenewCertificate
+    RenewCertificate (RenewCertificate'),
+    newRenewCertificate,
+    RenewCertificateResponse (RenewCertificateResponse'),
+    newRenewCertificateResponse,
+
+    -- ** RequestCertificate
+    RequestCertificate (RequestCertificate'),
+    newRequestCertificate,
+    RequestCertificateResponse (RequestCertificateResponse'),
+    newRequestCertificateResponse,
 
     -- ** ResendValidationEmail
     ResendValidationEmail (ResendValidationEmail'),
@@ -92,84 +170,6 @@ module Amazonka.CertificateManager
     newUpdateCertificateOptions,
     UpdateCertificateOptionsResponse (UpdateCertificateOptionsResponse'),
     newUpdateCertificateOptionsResponse,
-
-    -- ** ListTagsForCertificate
-    ListTagsForCertificate (ListTagsForCertificate'),
-    newListTagsForCertificate,
-    ListTagsForCertificateResponse (ListTagsForCertificateResponse'),
-    newListTagsForCertificateResponse,
-
-    -- ** GetCertificate
-    GetCertificate (GetCertificate'),
-    newGetCertificate,
-    GetCertificateResponse (GetCertificateResponse'),
-    newGetCertificateResponse,
-
-    -- ** AddTagsToCertificate
-    AddTagsToCertificate (AddTagsToCertificate'),
-    newAddTagsToCertificate,
-    AddTagsToCertificateResponse (AddTagsToCertificateResponse'),
-    newAddTagsToCertificateResponse,
-
-    -- ** RequestCertificate
-    RequestCertificate (RequestCertificate'),
-    newRequestCertificate,
-    RequestCertificateResponse (RequestCertificateResponse'),
-    newRequestCertificateResponse,
-
-    -- ** ListCertificates (Paginated)
-    ListCertificates (ListCertificates'),
-    newListCertificates,
-    ListCertificatesResponse (ListCertificatesResponse'),
-    newListCertificatesResponse,
-
-    -- ** DeleteCertificate
-    DeleteCertificate (DeleteCertificate'),
-    newDeleteCertificate,
-    DeleteCertificateResponse (DeleteCertificateResponse'),
-    newDeleteCertificateResponse,
-
-    -- ** RemoveTagsFromCertificate
-    RemoveTagsFromCertificate (RemoveTagsFromCertificate'),
-    newRemoveTagsFromCertificate,
-    RemoveTagsFromCertificateResponse (RemoveTagsFromCertificateResponse'),
-    newRemoveTagsFromCertificateResponse,
-
-    -- ** GetAccountConfiguration
-    GetAccountConfiguration (GetAccountConfiguration'),
-    newGetAccountConfiguration,
-    GetAccountConfigurationResponse (GetAccountConfigurationResponse'),
-    newGetAccountConfigurationResponse,
-
-    -- ** ImportCertificate
-    ImportCertificate (ImportCertificate'),
-    newImportCertificate,
-    ImportCertificateResponse (ImportCertificateResponse'),
-    newImportCertificateResponse,
-
-    -- ** PutAccountConfiguration
-    PutAccountConfiguration (PutAccountConfiguration'),
-    newPutAccountConfiguration,
-    PutAccountConfigurationResponse (PutAccountConfigurationResponse'),
-    newPutAccountConfigurationResponse,
-
-    -- ** DescribeCertificate
-    DescribeCertificate (DescribeCertificate'),
-    newDescribeCertificate,
-    DescribeCertificateResponse (DescribeCertificateResponse'),
-    newDescribeCertificateResponse,
-
-    -- ** RenewCertificate
-    RenewCertificate (RenewCertificate'),
-    newRenewCertificate,
-    RenewCertificateResponse (RenewCertificateResponse'),
-    newRenewCertificateResponse,
-
-    -- ** ExportCertificate
-    ExportCertificate (ExportCertificate'),
-    newExportCertificate,
-    ExportCertificateResponse (ExportCertificateResponse'),
-    newExportCertificateResponse,
 
     -- * Types
 

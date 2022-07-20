@@ -40,8 +40,8 @@ module Amazonka.SecurityHub.DescribeStandards
     newDescribeStandardsResponse,
 
     -- * Response Lenses
-    describeStandardsResponse_standards,
     describeStandardsResponse_nextToken,
+    describeStandardsResponse_standards,
     describeStandardsResponse_httpStatus,
   )
 where
@@ -138,8 +138,8 @@ instance Core.AWSRequest DescribeStandards where
     Response.receiveJSON
       ( \s h x ->
           DescribeStandardsResponse'
-            Prelude.<$> (x Core..?> "Standards" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Standards" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,10 +176,10 @@ instance Core.ToQuery DescribeStandards where
 
 -- | /See:/ 'newDescribeStandardsResponse' smart constructor.
 data DescribeStandardsResponse = DescribeStandardsResponse'
-  { -- | A list of available standards.
-    standards :: Prelude.Maybe [Standard],
-    -- | The pagination token to use to request the next page of results.
+  { -- | The pagination token to use to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of available standards.
+    standards :: Prelude.Maybe [Standard],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data DescribeStandardsResponse = DescribeStandardsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'standards', 'describeStandardsResponse_standards' - A list of available standards.
---
 -- 'nextToken', 'describeStandardsResponse_nextToken' - The pagination token to use to request the next page of results.
+--
+-- 'standards', 'describeStandardsResponse_standards' - A list of available standards.
 --
 -- 'httpStatus', 'describeStandardsResponse_httpStatus' - The response's http status code.
 newDescribeStandardsResponse ::
@@ -204,19 +204,19 @@ newDescribeStandardsResponse ::
   DescribeStandardsResponse
 newDescribeStandardsResponse pHttpStatus_ =
   DescribeStandardsResponse'
-    { standards =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      standards = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of available standards.
-describeStandardsResponse_standards :: Lens.Lens' DescribeStandardsResponse (Prelude.Maybe [Standard])
-describeStandardsResponse_standards = Lens.lens (\DescribeStandardsResponse' {standards} -> standards) (\s@DescribeStandardsResponse' {} a -> s {standards = a} :: DescribeStandardsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to request the next page of results.
 describeStandardsResponse_nextToken :: Lens.Lens' DescribeStandardsResponse (Prelude.Maybe Prelude.Text)
 describeStandardsResponse_nextToken = Lens.lens (\DescribeStandardsResponse' {nextToken} -> nextToken) (\s@DescribeStandardsResponse' {} a -> s {nextToken = a} :: DescribeStandardsResponse)
+
+-- | A list of available standards.
+describeStandardsResponse_standards :: Lens.Lens' DescribeStandardsResponse (Prelude.Maybe [Standard])
+describeStandardsResponse_standards = Lens.lens (\DescribeStandardsResponse' {standards} -> standards) (\s@DescribeStandardsResponse' {} a -> s {standards = a} :: DescribeStandardsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStandardsResponse_httpStatus :: Lens.Lens' DescribeStandardsResponse Prelude.Int
@@ -224,6 +224,6 @@ describeStandardsResponse_httpStatus = Lens.lens (\DescribeStandardsResponse' {h
 
 instance Prelude.NFData DescribeStandardsResponse where
   rnf DescribeStandardsResponse' {..} =
-    Prelude.rnf standards
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf standards
       `Prelude.seq` Prelude.rnf httpStatus

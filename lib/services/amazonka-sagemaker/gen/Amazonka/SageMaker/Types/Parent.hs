@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParent' smart constructor.
 data Parent = Parent'
-  { -- | The name of the experiment.
-    experimentName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the trial.
-    trialName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the trial.
+    trialName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the experiment.
+    experimentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Parent = Parent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'experimentName', 'parent_experimentName' - The name of the experiment.
---
 -- 'trialName', 'parent_trialName' - The name of the trial.
+--
+-- 'experimentName', 'parent_experimentName' - The name of the experiment.
 newParent ::
   Parent
 newParent =
   Parent'
-    { experimentName = Prelude.Nothing,
-      trialName = Prelude.Nothing
+    { trialName = Prelude.Nothing,
+      experimentName = Prelude.Nothing
     }
-
--- | The name of the experiment.
-parent_experimentName :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
-parent_experimentName = Lens.lens (\Parent' {experimentName} -> experimentName) (\s@Parent' {} a -> s {experimentName = a} :: Parent)
 
 -- | The name of the trial.
 parent_trialName :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
 parent_trialName = Lens.lens (\Parent' {trialName} -> trialName) (\s@Parent' {} a -> s {trialName = a} :: Parent)
+
+-- | The name of the experiment.
+parent_experimentName :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
+parent_experimentName = Lens.lens (\Parent' {experimentName} -> experimentName) (\s@Parent' {} a -> s {experimentName = a} :: Parent)
 
 instance Core.FromJSON Parent where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON Parent where
       "Parent"
       ( \x ->
           Parent'
-            Prelude.<$> (x Core..:? "ExperimentName")
-            Prelude.<*> (x Core..:? "TrialName")
+            Prelude.<$> (x Core..:? "TrialName")
+            Prelude.<*> (x Core..:? "ExperimentName")
       )
 
 instance Prelude.Hashable Parent where
   hashWithSalt _salt Parent' {..} =
-    _salt `Prelude.hashWithSalt` experimentName
-      `Prelude.hashWithSalt` trialName
+    _salt `Prelude.hashWithSalt` trialName
+      `Prelude.hashWithSalt` experimentName
 
 instance Prelude.NFData Parent where
   rnf Parent' {..} =
-    Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf trialName
+    Prelude.rnf trialName
+      `Prelude.seq` Prelude.rnf experimentName

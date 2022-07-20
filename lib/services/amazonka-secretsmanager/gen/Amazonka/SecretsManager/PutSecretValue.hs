@@ -109,9 +109,9 @@ module Amazonka.SecretsManager.PutSecretValue
 
     -- * Request Lenses
     putSecretValue_versionStages,
+    putSecretValue_clientRequestToken,
     putSecretValue_secretBinary,
     putSecretValue_secretString,
-    putSecretValue_clientRequestToken,
     putSecretValue_secretId,
 
     -- * Destructuring the Response
@@ -119,10 +119,10 @@ module Amazonka.SecretsManager.PutSecretValue
     newPutSecretValueResponse,
 
     -- * Response Lenses
-    putSecretValueResponse_versionId,
-    putSecretValueResponse_arn,
     putSecretValueResponse_versionStages,
     putSecretValueResponse_name,
+    putSecretValueResponse_arn,
+    putSecretValueResponse_versionId,
     putSecretValueResponse_httpStatus,
   )
 where
@@ -148,31 +148,6 @@ data PutSecretValue = PutSecretValue'
     -- If you do not specify a value for @VersionStages@ then Secrets Manager
     -- automatically moves the staging label @AWSCURRENT@ to this new version.
     versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | (Optional) Specifies binary data that you want to encrypt and store in
-    -- the new version of the secret. To use this parameter in the command-line
-    -- tools, we recommend that you store your binary data in a file and then
-    -- use the appropriate technique for your tool to pass the contents of the
-    -- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
-    -- value, but not both. They cannot both be empty.
-    --
-    -- This parameter is not accessible if the secret using the Secrets Manager
-    -- console.
-    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | (Optional) Specifies text data that you want to encrypt and store in
-    -- this new version of the secret. Either @SecretString@ or @SecretBinary@
-    -- must have a value, but not both. They cannot both be empty.
-    --
-    -- If you create this secret by using the Secrets Manager console then
-    -- Secrets Manager puts the protected secret text in only the
-    -- @SecretString@ parameter. The Secrets Manager console stores the
-    -- information as a JSON structure of key\/value pairs that the default
-    -- Lambda rotation function knows how to parse.
-    --
-    -- For storing multiple values, we recommend that you use a JSON text
-    -- string argument and specify key\/value pairs. For more information, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
-    -- in the Amazon Web Services CLI User Guide.
-    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | (Optional) Specifies a unique identifier for the new version of the
     -- secret.
     --
@@ -206,6 +181,31 @@ data PutSecretValue = PutSecretValue'
     --
     -- This value becomes the @VersionId@ of the new version.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Specifies binary data that you want to encrypt and store in
+    -- the new version of the secret. To use this parameter in the command-line
+    -- tools, we recommend that you store your binary data in a file and then
+    -- use the appropriate technique for your tool to pass the contents of the
+    -- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
+    -- value, but not both. They cannot both be empty.
+    --
+    -- This parameter is not accessible if the secret using the Secrets Manager
+    -- console.
+    secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    -- | (Optional) Specifies text data that you want to encrypt and store in
+    -- this new version of the secret. Either @SecretString@ or @SecretBinary@
+    -- must have a value, but not both. They cannot both be empty.
+    --
+    -- If you create this secret by using the Secrets Manager console then
+    -- Secrets Manager puts the protected secret text in only the
+    -- @SecretString@ parameter. The Secrets Manager console stores the
+    -- information as a JSON structure of key\/value pairs that the default
+    -- Lambda rotation function knows how to parse.
+    --
+    -- For storing multiple values, we recommend that you use a JSON text
+    -- string argument and specify key\/value pairs. For more information, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+    -- in the Amazon Web Services CLI User Guide.
+    secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specifies the secret to which you want to add a new version. You can
     -- specify either the Amazon Resource Name (ARN) or the friendly name of
     -- the secret. The secret must already exist.
@@ -235,35 +235,6 @@ data PutSecretValue = PutSecretValue'
 --
 -- If you do not specify a value for @VersionStages@ then Secrets Manager
 -- automatically moves the staging label @AWSCURRENT@ to this new version.
---
--- 'secretBinary', 'putSecretValue_secretBinary' - (Optional) Specifies binary data that you want to encrypt and store in
--- the new version of the secret. To use this parameter in the command-line
--- tools, we recommend that you store your binary data in a file and then
--- use the appropriate technique for your tool to pass the contents of the
--- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
--- value, but not both. They cannot both be empty.
---
--- This parameter is not accessible if the secret using the Secrets Manager
--- console.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'secretString', 'putSecretValue_secretString' - (Optional) Specifies text data that you want to encrypt and store in
--- this new version of the secret. Either @SecretString@ or @SecretBinary@
--- must have a value, but not both. They cannot both be empty.
---
--- If you create this secret by using the Secrets Manager console then
--- Secrets Manager puts the protected secret text in only the
--- @SecretString@ parameter. The Secrets Manager console stores the
--- information as a JSON structure of key\/value pairs that the default
--- Lambda rotation function knows how to parse.
---
--- For storing multiple values, we recommend that you use a JSON text
--- string argument and specify key\/value pairs. For more information, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
--- in the Amazon Web Services CLI User Guide.
 --
 -- 'clientRequestToken', 'putSecretValue_clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the
 -- secret.
@@ -298,6 +269,35 @@ data PutSecretValue = PutSecretValue'
 --
 -- This value becomes the @VersionId@ of the new version.
 --
+-- 'secretBinary', 'putSecretValue_secretBinary' - (Optional) Specifies binary data that you want to encrypt and store in
+-- the new version of the secret. To use this parameter in the command-line
+-- tools, we recommend that you store your binary data in a file and then
+-- use the appropriate technique for your tool to pass the contents of the
+-- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
+-- value, but not both. They cannot both be empty.
+--
+-- This parameter is not accessible if the secret using the Secrets Manager
+-- console.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'secretString', 'putSecretValue_secretString' - (Optional) Specifies text data that you want to encrypt and store in
+-- this new version of the secret. Either @SecretString@ or @SecretBinary@
+-- must have a value, but not both. They cannot both be empty.
+--
+-- If you create this secret by using the Secrets Manager console then
+-- Secrets Manager puts the protected secret text in only the
+-- @SecretString@ parameter. The Secrets Manager console stores the
+-- information as a JSON structure of key\/value pairs that the default
+-- Lambda rotation function knows how to parse.
+--
+-- For storing multiple values, we recommend that you use a JSON text
+-- string argument and specify key\/value pairs. For more information, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+-- in the Amazon Web Services CLI User Guide.
+--
 -- 'secretId', 'putSecretValue_secretId' - Specifies the secret to which you want to add a new version. You can
 -- specify either the Amazon Resource Name (ARN) or the friendly name of
 -- the secret. The secret must already exist.
@@ -311,9 +311,9 @@ newPutSecretValue ::
 newPutSecretValue pSecretId_ =
   PutSecretValue'
     { versionStages = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       secretBinary = Prelude.Nothing,
       secretString = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       secretId = pSecretId_
     }
 
@@ -330,39 +330,6 @@ newPutSecretValue pSecretId_ =
 -- automatically moves the staging label @AWSCURRENT@ to this new version.
 putSecretValue_versionStages :: Lens.Lens' PutSecretValue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> versionStages) (\s@PutSecretValue' {} a -> s {versionStages = a} :: PutSecretValue) Prelude.. Lens.mapping Lens.coerced
-
--- | (Optional) Specifies binary data that you want to encrypt and store in
--- the new version of the secret. To use this parameter in the command-line
--- tools, we recommend that you store your binary data in a file and then
--- use the appropriate technique for your tool to pass the contents of the
--- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
--- value, but not both. They cannot both be empty.
---
--- This parameter is not accessible if the secret using the Secrets Manager
--- console.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
-putSecretValue_secretBinary :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.ByteString)
-putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secretBinary) (\s@PutSecretValue' {} a -> s {secretBinary = a} :: PutSecretValue) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
-
--- | (Optional) Specifies text data that you want to encrypt and store in
--- this new version of the secret. Either @SecretString@ or @SecretBinary@
--- must have a value, but not both. They cannot both be empty.
---
--- If you create this secret by using the Secrets Manager console then
--- Secrets Manager puts the protected secret text in only the
--- @SecretString@ parameter. The Secrets Manager console stores the
--- information as a JSON structure of key\/value pairs that the default
--- Lambda rotation function knows how to parse.
---
--- For storing multiple values, we recommend that you use a JSON text
--- string argument and specify key\/value pairs. For more information, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
--- in the Amazon Web Services CLI User Guide.
-putSecretValue_secretString :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
-putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secretString) (\s@PutSecretValue' {} a -> s {secretString = a} :: PutSecretValue) Prelude.. Lens.mapping Core._Sensitive
 
 -- | (Optional) Specifies a unique identifier for the new version of the
 -- secret.
@@ -399,6 +366,39 @@ putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secr
 putSecretValue_clientRequestToken :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
 putSecretValue_clientRequestToken = Lens.lens (\PutSecretValue' {clientRequestToken} -> clientRequestToken) (\s@PutSecretValue' {} a -> s {clientRequestToken = a} :: PutSecretValue)
 
+-- | (Optional) Specifies binary data that you want to encrypt and store in
+-- the new version of the secret. To use this parameter in the command-line
+-- tools, we recommend that you store your binary data in a file and then
+-- use the appropriate technique for your tool to pass the contents of the
+-- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
+-- value, but not both. They cannot both be empty.
+--
+-- This parameter is not accessible if the secret using the Secrets Manager
+-- console.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+putSecretValue_secretBinary :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.ByteString)
+putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secretBinary) (\s@PutSecretValue' {} a -> s {secretBinary = a} :: PutSecretValue) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
+
+-- | (Optional) Specifies text data that you want to encrypt and store in
+-- this new version of the secret. Either @SecretString@ or @SecretBinary@
+-- must have a value, but not both. They cannot both be empty.
+--
+-- If you create this secret by using the Secrets Manager console then
+-- Secrets Manager puts the protected secret text in only the
+-- @SecretString@ parameter. The Secrets Manager console stores the
+-- information as a JSON structure of key\/value pairs that the default
+-- Lambda rotation function knows how to parse.
+--
+-- For storing multiple values, we recommend that you use a JSON text
+-- string argument and specify key\/value pairs. For more information, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+-- in the Amazon Web Services CLI User Guide.
+putSecretValue_secretString :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
+putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secretString) (\s@PutSecretValue' {} a -> s {secretString = a} :: PutSecretValue) Prelude.. Lens.mapping Core._Sensitive
+
 -- | Specifies the secret to which you want to add a new version. You can
 -- specify either the Amazon Resource Name (ARN) or the friendly name of
 -- the secret. The secret must already exist.
@@ -417,27 +417,27 @@ instance Core.AWSRequest PutSecretValue where
     Response.receiveJSON
       ( \s h x ->
           PutSecretValueResponse'
-            Prelude.<$> (x Core..?> "VersionId")
-            Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionStages")
+            Prelude.<$> (x Core..?> "VersionStages")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable PutSecretValue where
   hashWithSalt _salt PutSecretValue' {..} =
     _salt `Prelude.hashWithSalt` versionStages
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` secretBinary
       `Prelude.hashWithSalt` secretString
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` secretId
 
 instance Prelude.NFData PutSecretValue where
   rnf PutSecretValue' {..} =
     Prelude.rnf versionStages
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf secretBinary
       `Prelude.seq` Prelude.rnf secretString
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf secretId
 
 instance Core.ToHeaders PutSecretValue where
@@ -460,10 +460,10 @@ instance Core.ToJSON PutSecretValue where
     Core.object
       ( Prelude.catMaybes
           [ ("VersionStages" Core..=) Prelude.<$> versionStages,
-            ("SecretBinary" Core..=) Prelude.<$> secretBinary,
-            ("SecretString" Core..=) Prelude.<$> secretString,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("SecretBinary" Core..=) Prelude.<$> secretBinary,
+            ("SecretString" Core..=) Prelude.<$> secretString,
             Prelude.Just ("SecretId" Core..= secretId)
           ]
       )
@@ -476,19 +476,19 @@ instance Core.ToQuery PutSecretValue where
 
 -- | /See:/ 'newPutSecretValueResponse' smart constructor.
 data PutSecretValueResponse = PutSecretValueResponse'
-  { -- | The unique identifier of the version of the secret you just created or
-    -- updated.
-    versionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the secret for which you just created
-    -- a version.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The list of staging labels that are currently attached to this version
+  { -- | The list of staging labels that are currently attached to this version
     -- of the secret. Staging labels are used to track a version as it
     -- progresses through the secret rotation process.
     versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The friendly name of the secret for which you just created or updated a
     -- version.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the secret for which you just created
+    -- a version.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the version of the secret you just created or
+    -- updated.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -502,18 +502,18 @@ data PutSecretValueResponse = PutSecretValueResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'putSecretValueResponse_versionId' - The unique identifier of the version of the secret you just created or
--- updated.
---
--- 'arn', 'putSecretValueResponse_arn' - The Amazon Resource Name (ARN) for the secret for which you just created
--- a version.
---
 -- 'versionStages', 'putSecretValueResponse_versionStages' - The list of staging labels that are currently attached to this version
 -- of the secret. Staging labels are used to track a version as it
 -- progresses through the secret rotation process.
 --
 -- 'name', 'putSecretValueResponse_name' - The friendly name of the secret for which you just created or updated a
 -- version.
+--
+-- 'arn', 'putSecretValueResponse_arn' - The Amazon Resource Name (ARN) for the secret for which you just created
+-- a version.
+--
+-- 'versionId', 'putSecretValueResponse_versionId' - The unique identifier of the version of the secret you just created or
+-- updated.
 --
 -- 'httpStatus', 'putSecretValueResponse_httpStatus' - The response's http status code.
 newPutSecretValueResponse ::
@@ -522,23 +522,13 @@ newPutSecretValueResponse ::
   PutSecretValueResponse
 newPutSecretValueResponse pHttpStatus_ =
   PutSecretValueResponse'
-    { versionId =
+    { versionStages =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      versionStages = Prelude.Nothing,
       name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier of the version of the secret you just created or
--- updated.
-putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
-putSecretValueResponse_versionId = Lens.lens (\PutSecretValueResponse' {versionId} -> versionId) (\s@PutSecretValueResponse' {} a -> s {versionId = a} :: PutSecretValueResponse)
-
--- | The Amazon Resource Name (ARN) for the secret for which you just created
--- a version.
-putSecretValueResponse_arn :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
-putSecretValueResponse_arn = Lens.lens (\PutSecretValueResponse' {arn} -> arn) (\s@PutSecretValueResponse' {} a -> s {arn = a} :: PutSecretValueResponse)
 
 -- | The list of staging labels that are currently attached to this version
 -- of the secret. Staging labels are used to track a version as it
@@ -551,14 +541,24 @@ putSecretValueResponse_versionStages = Lens.lens (\PutSecretValueResponse' {vers
 putSecretValueResponse_name :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_name = Lens.lens (\PutSecretValueResponse' {name} -> name) (\s@PutSecretValueResponse' {} a -> s {name = a} :: PutSecretValueResponse)
 
+-- | The Amazon Resource Name (ARN) for the secret for which you just created
+-- a version.
+putSecretValueResponse_arn :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
+putSecretValueResponse_arn = Lens.lens (\PutSecretValueResponse' {arn} -> arn) (\s@PutSecretValueResponse' {} a -> s {arn = a} :: PutSecretValueResponse)
+
+-- | The unique identifier of the version of the secret you just created or
+-- updated.
+putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
+putSecretValueResponse_versionId = Lens.lens (\PutSecretValueResponse' {versionId} -> versionId) (\s@PutSecretValueResponse' {} a -> s {versionId = a} :: PutSecretValueResponse)
+
 -- | The response's http status code.
 putSecretValueResponse_httpStatus :: Lens.Lens' PutSecretValueResponse Prelude.Int
 putSecretValueResponse_httpStatus = Lens.lens (\PutSecretValueResponse' {httpStatus} -> httpStatus) (\s@PutSecretValueResponse' {} a -> s {httpStatus = a} :: PutSecretValueResponse)
 
 instance Prelude.NFData PutSecretValueResponse where
   rnf PutSecretValueResponse' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf versionStages
+    Prelude.rnf versionStages
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

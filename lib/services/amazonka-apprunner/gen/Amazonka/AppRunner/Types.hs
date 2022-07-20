@@ -17,11 +17,11 @@ module Amazonka.AppRunner.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
-    _ServiceQuotaExceededException,
-    _InternalServiceErrorException,
-    _ResourceNotFoundException,
     _InvalidStateException,
+    _ServiceQuotaExceededException,
+    _ResourceNotFoundException,
+    _InternalServiceErrorException,
+    _InvalidRequestException,
 
     -- * AutoScalingConfigurationStatus
     AutoScalingConfigurationStatus (..),
@@ -72,30 +72,30 @@ module Amazonka.AppRunner.Types
     AutoScalingConfiguration (..),
     newAutoScalingConfiguration,
     autoScalingConfiguration_status,
-    autoScalingConfiguration_autoScalingConfigurationName,
-    autoScalingConfiguration_createdAt,
-    autoScalingConfiguration_maxSize,
-    autoScalingConfiguration_autoScalingConfigurationRevision,
-    autoScalingConfiguration_autoScalingConfigurationArn,
-    autoScalingConfiguration_minSize,
     autoScalingConfiguration_deletedAt,
     autoScalingConfiguration_latest,
+    autoScalingConfiguration_autoScalingConfigurationName,
+    autoScalingConfiguration_minSize,
     autoScalingConfiguration_maxConcurrency,
+    autoScalingConfiguration_autoScalingConfigurationArn,
+    autoScalingConfiguration_maxSize,
+    autoScalingConfiguration_autoScalingConfigurationRevision,
+    autoScalingConfiguration_createdAt,
 
     -- * AutoScalingConfigurationSummary
     AutoScalingConfigurationSummary (..),
     newAutoScalingConfigurationSummary,
     autoScalingConfigurationSummary_autoScalingConfigurationName,
-    autoScalingConfigurationSummary_autoScalingConfigurationRevision,
     autoScalingConfigurationSummary_autoScalingConfigurationArn,
+    autoScalingConfigurationSummary_autoScalingConfigurationRevision,
 
     -- * CertificateValidationRecord
     CertificateValidationRecord (..),
     newCertificateValidationRecord,
-    certificateValidationRecord_status,
-    certificateValidationRecord_value,
     certificateValidationRecord_name,
     certificateValidationRecord_type,
+    certificateValidationRecord_status,
+    certificateValidationRecord_value,
 
     -- * CodeConfiguration
     CodeConfiguration (..),
@@ -106,10 +106,10 @@ module Amazonka.AppRunner.Types
     -- * CodeConfigurationValues
     CodeConfigurationValues (..),
     newCodeConfigurationValues,
-    codeConfigurationValues_startCommand,
-    codeConfigurationValues_runtimeEnvironmentVariables,
-    codeConfigurationValues_buildCommand,
     codeConfigurationValues_port,
+    codeConfigurationValues_startCommand,
+    codeConfigurationValues_buildCommand,
+    codeConfigurationValues_runtimeEnvironmentVariables,
     codeConfigurationValues_runtime,
 
     -- * CodeRepository
@@ -123,19 +123,19 @@ module Amazonka.AppRunner.Types
     Connection (..),
     newConnection,
     connection_status,
-    connection_createdAt,
-    connection_providerType,
-    connection_connectionName,
     connection_connectionArn,
+    connection_providerType,
+    connection_createdAt,
+    connection_connectionName,
 
     -- * ConnectionSummary
     ConnectionSummary (..),
     newConnectionSummary,
     connectionSummary_status,
-    connectionSummary_createdAt,
-    connectionSummary_providerType,
-    connectionSummary_connectionName,
     connectionSummary_connectionArn,
+    connectionSummary_providerType,
+    connectionSummary_createdAt,
+    connectionSummary_connectionName,
 
     -- * CustomDomain
     CustomDomain (..),
@@ -153,19 +153,19 @@ module Amazonka.AppRunner.Types
     -- * HealthCheckConfiguration
     HealthCheckConfiguration (..),
     newHealthCheckConfiguration,
-    healthCheckConfiguration_healthyThreshold,
-    healthCheckConfiguration_path,
-    healthCheckConfiguration_protocol,
-    healthCheckConfiguration_interval,
     healthCheckConfiguration_timeout,
+    healthCheckConfiguration_interval,
+    healthCheckConfiguration_path,
+    healthCheckConfiguration_healthyThreshold,
     healthCheckConfiguration_unhealthyThreshold,
+    healthCheckConfiguration_protocol,
 
     -- * ImageConfiguration
     ImageConfiguration (..),
     newImageConfiguration,
+    imageConfiguration_port,
     imageConfiguration_startCommand,
     imageConfiguration_runtimeEnvironmentVariables,
-    imageConfiguration_port,
 
     -- * ImageRepository
     ImageRepository (..),
@@ -177,27 +177,27 @@ module Amazonka.AppRunner.Types
     -- * InstanceConfiguration
     InstanceConfiguration (..),
     newInstanceConfiguration,
+    instanceConfiguration_cpu,
     instanceConfiguration_memory,
     instanceConfiguration_instanceRoleArn,
-    instanceConfiguration_cpu,
 
     -- * OperationSummary
     OperationSummary (..),
     newOperationSummary,
-    operationSummary_status,
-    operationSummary_targetArn,
-    operationSummary_endedAt,
-    operationSummary_startedAt,
-    operationSummary_id,
     operationSummary_type,
+    operationSummary_endedAt,
+    operationSummary_targetArn,
+    operationSummary_status,
+    operationSummary_id,
+    operationSummary_startedAt,
     operationSummary_updatedAt,
 
     -- * Service
     Service (..),
     newService,
+    service_deletedAt,
     service_encryptionConfiguration,
     service_healthCheckConfiguration,
-    service_deletedAt,
     service_serviceName,
     service_serviceId,
     service_serviceArn,
@@ -213,11 +213,11 @@ module Amazonka.AppRunner.Types
     ServiceSummary (..),
     newServiceSummary,
     serviceSummary_status,
-    serviceSummary_createdAt,
-    serviceSummary_serviceUrl,
     serviceSummary_serviceName,
-    serviceSummary_updatedAt,
+    serviceSummary_serviceUrl,
+    serviceSummary_createdAt,
     serviceSummary_serviceArn,
+    serviceSummary_updatedAt,
     serviceSummary_serviceId,
 
     -- * SourceCodeVersion
@@ -229,16 +229,16 @@ module Amazonka.AppRunner.Types
     -- * SourceConfiguration
     SourceConfiguration (..),
     newSourceConfiguration,
-    sourceConfiguration_imageRepository,
     sourceConfiguration_codeRepository,
     sourceConfiguration_autoDeploymentsEnabled,
+    sourceConfiguration_imageRepository,
     sourceConfiguration_authenticationConfiguration,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
   )
 where
 
@@ -306,35 +306,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -343,21 +316,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | One or more input parameters aren\'t valid. Refer to the API action\'s
--- document page, correct the input parameters, and try the action again.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | You can\'t perform this action when the resource is in its current
+-- state.
+_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
+    "InvalidStateException"
 
 -- | App Runner can\'t create this resource. You\'ve reached your account
 -- quota for this resource type.
@@ -371,13 +371,6 @@ _ServiceQuotaExceededException =
     defaultService
     "ServiceQuotaExceededException"
 
--- | An unexpected service exception occurred.
-_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceErrorException"
-
 -- | A resource doesn\'t exist for the specified Amazon Resource Name (ARN)
 -- in your Amazon Web Services account.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -386,10 +379,17 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
--- | You can\'t perform this action when the resource is in its current
--- state.
-_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidStateException =
+-- | An unexpected service exception occurred.
+_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
-    "InvalidStateException"
+    "InternalServiceErrorException"
+
+-- | One or more input parameters aren\'t valid. Refer to the API action\'s
+-- document page, correct the input parameters, and try the action again.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"

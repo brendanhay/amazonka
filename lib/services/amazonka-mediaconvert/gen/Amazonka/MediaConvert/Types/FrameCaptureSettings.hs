@@ -28,24 +28,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFrameCaptureSettings' smart constructor.
 data FrameCaptureSettings = FrameCaptureSettings'
-  { -- | JPEG Quality - a higher value equals higher quality.
-    quality :: Prelude.Maybe Prelude.Natural,
-    -- | Frame capture will encode the first frame of the output stream, then one
+  { -- | Frame capture will encode the first frame of the output stream, then one
     -- frame every framerateDenominator\/framerateNumerator seconds. For
     -- example, settings of framerateNumerator = 1 and framerateDenominator = 3
     -- (a rate of 1\/3 frame per second) will capture the first frame, then 1
     -- frame every 3s. Files will be named as filename.n.jpg where n is the
     -- 0-based sequence number of each Capture.
     framerateDenominator :: Prelude.Maybe Prelude.Natural,
-    -- | Maximum number of captures (encoded jpg output files).
-    maxCaptures :: Prelude.Maybe Prelude.Natural,
+    -- | JPEG Quality - a higher value equals higher quality.
+    quality :: Prelude.Maybe Prelude.Natural,
     -- | Frame capture will encode the first frame of the output stream, then one
     -- frame every framerateDenominator\/framerateNumerator seconds. For
     -- example, settings of framerateNumerator = 1 and framerateDenominator = 3
     -- (a rate of 1\/3 frame per second) will capture the first frame, then 1
     -- frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is
     -- the 0-based frame sequence number zero padded to 7 decimal places.
-    framerateNumerator :: Prelude.Maybe Prelude.Natural
+    framerateNumerator :: Prelude.Maybe Prelude.Natural,
+    -- | Maximum number of captures (encoded jpg output files).
+    maxCaptures :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,8 +57,6 @@ data FrameCaptureSettings = FrameCaptureSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quality', 'frameCaptureSettings_quality' - JPEG Quality - a higher value equals higher quality.
---
 -- 'framerateDenominator', 'frameCaptureSettings_framerateDenominator' - Frame capture will encode the first frame of the output stream, then one
 -- frame every framerateDenominator\/framerateNumerator seconds. For
 -- example, settings of framerateNumerator = 1 and framerateDenominator = 3
@@ -66,7 +64,7 @@ data FrameCaptureSettings = FrameCaptureSettings'
 -- frame every 3s. Files will be named as filename.n.jpg where n is the
 -- 0-based sequence number of each Capture.
 --
--- 'maxCaptures', 'frameCaptureSettings_maxCaptures' - Maximum number of captures (encoded jpg output files).
+-- 'quality', 'frameCaptureSettings_quality' - JPEG Quality - a higher value equals higher quality.
 --
 -- 'framerateNumerator', 'frameCaptureSettings_framerateNumerator' - Frame capture will encode the first frame of the output stream, then one
 -- frame every framerateDenominator\/framerateNumerator seconds. For
@@ -74,19 +72,18 @@ data FrameCaptureSettings = FrameCaptureSettings'
 -- (a rate of 1\/3 frame per second) will capture the first frame, then 1
 -- frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is
 -- the 0-based frame sequence number zero padded to 7 decimal places.
+--
+-- 'maxCaptures', 'frameCaptureSettings_maxCaptures' - Maximum number of captures (encoded jpg output files).
 newFrameCaptureSettings ::
   FrameCaptureSettings
 newFrameCaptureSettings =
   FrameCaptureSettings'
-    { quality = Prelude.Nothing,
-      framerateDenominator = Prelude.Nothing,
-      maxCaptures = Prelude.Nothing,
-      framerateNumerator = Prelude.Nothing
+    { framerateDenominator =
+        Prelude.Nothing,
+      quality = Prelude.Nothing,
+      framerateNumerator = Prelude.Nothing,
+      maxCaptures = Prelude.Nothing
     }
-
--- | JPEG Quality - a higher value equals higher quality.
-frameCaptureSettings_quality :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
-frameCaptureSettings_quality = Lens.lens (\FrameCaptureSettings' {quality} -> quality) (\s@FrameCaptureSettings' {} a -> s {quality = a} :: FrameCaptureSettings)
 
 -- | Frame capture will encode the first frame of the output stream, then one
 -- frame every framerateDenominator\/framerateNumerator seconds. For
@@ -97,9 +94,9 @@ frameCaptureSettings_quality = Lens.lens (\FrameCaptureSettings' {quality} -> qu
 frameCaptureSettings_framerateDenominator :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
 frameCaptureSettings_framerateDenominator = Lens.lens (\FrameCaptureSettings' {framerateDenominator} -> framerateDenominator) (\s@FrameCaptureSettings' {} a -> s {framerateDenominator = a} :: FrameCaptureSettings)
 
--- | Maximum number of captures (encoded jpg output files).
-frameCaptureSettings_maxCaptures :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
-frameCaptureSettings_maxCaptures = Lens.lens (\FrameCaptureSettings' {maxCaptures} -> maxCaptures) (\s@FrameCaptureSettings' {} a -> s {maxCaptures = a} :: FrameCaptureSettings)
+-- | JPEG Quality - a higher value equals higher quality.
+frameCaptureSettings_quality :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
+frameCaptureSettings_quality = Lens.lens (\FrameCaptureSettings' {quality} -> quality) (\s@FrameCaptureSettings' {} a -> s {quality = a} :: FrameCaptureSettings)
 
 -- | Frame capture will encode the first frame of the output stream, then one
 -- frame every framerateDenominator\/framerateNumerator seconds. For
@@ -110,41 +107,45 @@ frameCaptureSettings_maxCaptures = Lens.lens (\FrameCaptureSettings' {maxCapture
 frameCaptureSettings_framerateNumerator :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
 frameCaptureSettings_framerateNumerator = Lens.lens (\FrameCaptureSettings' {framerateNumerator} -> framerateNumerator) (\s@FrameCaptureSettings' {} a -> s {framerateNumerator = a} :: FrameCaptureSettings)
 
+-- | Maximum number of captures (encoded jpg output files).
+frameCaptureSettings_maxCaptures :: Lens.Lens' FrameCaptureSettings (Prelude.Maybe Prelude.Natural)
+frameCaptureSettings_maxCaptures = Lens.lens (\FrameCaptureSettings' {maxCaptures} -> maxCaptures) (\s@FrameCaptureSettings' {} a -> s {maxCaptures = a} :: FrameCaptureSettings)
+
 instance Core.FromJSON FrameCaptureSettings where
   parseJSON =
     Core.withObject
       "FrameCaptureSettings"
       ( \x ->
           FrameCaptureSettings'
-            Prelude.<$> (x Core..:? "quality")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "maxCaptures")
+            Prelude.<$> (x Core..:? "framerateDenominator")
+            Prelude.<*> (x Core..:? "quality")
             Prelude.<*> (x Core..:? "framerateNumerator")
+            Prelude.<*> (x Core..:? "maxCaptures")
       )
 
 instance Prelude.Hashable FrameCaptureSettings where
   hashWithSalt _salt FrameCaptureSettings' {..} =
-    _salt `Prelude.hashWithSalt` quality
-      `Prelude.hashWithSalt` framerateDenominator
-      `Prelude.hashWithSalt` maxCaptures
+    _salt `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` quality
       `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` maxCaptures
 
 instance Prelude.NFData FrameCaptureSettings where
   rnf FrameCaptureSettings' {..} =
-    Prelude.rnf quality
-      `Prelude.seq` Prelude.rnf framerateDenominator
-      `Prelude.seq` Prelude.rnf maxCaptures
+    Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf quality
       `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf maxCaptures
 
 instance Core.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("quality" Core..=) Prelude.<$> quality,
-            ("framerateDenominator" Core..=)
+          [ ("framerateDenominator" Core..=)
               Prelude.<$> framerateDenominator,
-            ("maxCaptures" Core..=) Prelude.<$> maxCaptures,
+            ("quality" Core..=) Prelude.<$> quality,
             ("framerateNumerator" Core..=)
-              Prelude.<$> framerateNumerator
+              Prelude.<$> framerateNumerator,
+            ("maxCaptures" Core..=) Prelude.<$> maxCaptures
           ]
       )

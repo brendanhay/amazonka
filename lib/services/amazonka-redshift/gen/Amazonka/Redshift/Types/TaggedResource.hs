@@ -29,9 +29,7 @@ import Amazonka.Redshift.Types.Tag
 --
 -- /See:/ 'newTaggedResource' smart constructor.
 data TaggedResource = TaggedResource'
-  { -- | The tag for the resource.
-    tag :: Prelude.Maybe Tag,
-    -- | The type of resource with which the tag is associated. Valid resource
+  { -- | The type of resource with which the tag is associated. Valid resource
     -- types are:
     --
     -- -   Cluster
@@ -59,7 +57,9 @@ data TaggedResource = TaggedResource'
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) with which the tag is associated, for
     -- example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-    resourceName :: Prelude.Maybe Prelude.Text
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | The tag for the resource.
+    tag :: Prelude.Maybe Tag
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,8 +70,6 @@ data TaggedResource = TaggedResource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tag', 'taggedResource_tag' - The tag for the resource.
 --
 -- 'resourceType', 'taggedResource_resourceType' - The type of resource with which the tag is associated. Valid resource
 -- types are:
@@ -101,18 +99,16 @@ data TaggedResource = TaggedResource'
 --
 -- 'resourceName', 'taggedResource_resourceName' - The Amazon Resource Name (ARN) with which the tag is associated, for
 -- example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+--
+-- 'tag', 'taggedResource_tag' - The tag for the resource.
 newTaggedResource ::
   TaggedResource
 newTaggedResource =
   TaggedResource'
-    { tag = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      resourceName = Prelude.Nothing
+    { resourceType = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
+      tag = Prelude.Nothing
     }
-
--- | The tag for the resource.
-taggedResource_tag :: Lens.Lens' TaggedResource (Prelude.Maybe Tag)
-taggedResource_tag = Lens.lens (\TaggedResource' {tag} -> tag) (\s@TaggedResource' {} a -> s {tag = a} :: TaggedResource)
 
 -- | The type of resource with which the tag is associated. Valid resource
 -- types are:
@@ -147,21 +143,25 @@ taggedResource_resourceType = Lens.lens (\TaggedResource' {resourceType} -> reso
 taggedResource_resourceName :: Lens.Lens' TaggedResource (Prelude.Maybe Prelude.Text)
 taggedResource_resourceName = Lens.lens (\TaggedResource' {resourceName} -> resourceName) (\s@TaggedResource' {} a -> s {resourceName = a} :: TaggedResource)
 
+-- | The tag for the resource.
+taggedResource_tag :: Lens.Lens' TaggedResource (Prelude.Maybe Tag)
+taggedResource_tag = Lens.lens (\TaggedResource' {tag} -> tag) (\s@TaggedResource' {} a -> s {tag = a} :: TaggedResource)
+
 instance Core.FromXML TaggedResource where
   parseXML x =
     TaggedResource'
-      Prelude.<$> (x Core..@? "Tag")
-      Prelude.<*> (x Core..@? "ResourceType")
+      Prelude.<$> (x Core..@? "ResourceType")
       Prelude.<*> (x Core..@? "ResourceName")
+      Prelude.<*> (x Core..@? "Tag")
 
 instance Prelude.Hashable TaggedResource where
   hashWithSalt _salt TaggedResource' {..} =
-    _salt `Prelude.hashWithSalt` tag
-      `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` tag
 
 instance Prelude.NFData TaggedResource where
   rnf TaggedResource' {..} =
-    Prelude.rnf tag
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf tag

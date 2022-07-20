@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | The URL that applications should use to connect to the endpoint. The
+  { -- | The port number that applications should use to connect to the endpoint.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The URL that applications should use to connect to the endpoint. The
     -- default ports are 8111 for the \"dax\" protocol and 9111 for the
     -- \"daxs\" protocol.
     url :: Prelude.Maybe Prelude.Text,
     -- | The DNS hostname of the endpoint.
-    address :: Prelude.Maybe Prelude.Text,
-    -- | The port number that applications should use to connect to the endpoint.
-    port :: Prelude.Maybe Prelude.Int
+    address :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,21 +47,25 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'endpoint_port' - The port number that applications should use to connect to the endpoint.
+--
 -- 'url', 'endpoint_url' - The URL that applications should use to connect to the endpoint. The
 -- default ports are 8111 for the \"dax\" protocol and 9111 for the
 -- \"daxs\" protocol.
 --
 -- 'address', 'endpoint_address' - The DNS hostname of the endpoint.
---
--- 'port', 'endpoint_port' - The port number that applications should use to connect to the endpoint.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { url = Prelude.Nothing,
-      address = Prelude.Nothing,
-      port = Prelude.Nothing
+    { port = Prelude.Nothing,
+      url = Prelude.Nothing,
+      address = Prelude.Nothing
     }
+
+-- | The port number that applications should use to connect to the endpoint.
+endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
+endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
 -- | The URL that applications should use to connect to the endpoint. The
 -- default ports are 8111 for the \"dax\" protocol and 9111 for the
@@ -73,29 +77,25 @@ endpoint_url = Lens.lens (\Endpoint' {url} -> url) (\s@Endpoint' {} a -> s {url 
 endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
 
--- | The port number that applications should use to connect to the endpoint.
-endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
-endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
-
 instance Core.FromJSON Endpoint where
   parseJSON =
     Core.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Core..:? "URL")
+            Prelude.<$> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "URL")
             Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "Port")
       )
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` url
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` address
-      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf url
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf address
-      `Prelude.seq` Prelude.rnf port

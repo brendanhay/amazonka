@@ -50,47 +50,47 @@ import Amazonka.QuickSight.Types.TwitterParameters
 --
 -- /See:/ 'newDataSourceParameters' smart constructor.
 data DataSourceParameters = DataSourceParameters'
-  { -- | The parameters for Amazon RDS.
-    rdsParameters :: Prelude.Maybe RdsParameters,
+  { -- | The parameters for ServiceNow.
+    serviceNowParameters :: Prelude.Maybe ServiceNowParameters,
     -- | The parameters for S3.
     s3Parameters :: Prelude.Maybe S3Parameters,
-    -- | The parameters for Amazon Athena.
-    athenaParameters :: Prelude.Maybe AthenaParameters,
-    -- | The parameters for Teradata.
-    teradataParameters :: Prelude.Maybe TeradataParameters,
-    -- | The parameters for Amazon Aurora MySQL.
-    auroraParameters :: Prelude.Maybe AuroraParameters,
-    -- | The parameters for IoT Analytics.
-    awsIotAnalyticsParameters :: Prelude.Maybe AwsIotAnalyticsParameters,
-    amazonOpenSearchParameters :: Prelude.Maybe AmazonOpenSearchParameters,
-    -- | The parameters for SQL Server.
-    sqlServerParameters :: Prelude.Maybe SqlServerParameters,
-    -- | The parameters for Amazon Redshift.
-    redshiftParameters :: Prelude.Maybe RedshiftParameters,
     -- | The parameters for PostgreSQL.
     postgreSqlParameters :: Prelude.Maybe PostgreSqlParameters,
-    -- | The parameters for Oracle.
-    oracleParameters :: Prelude.Maybe OracleParameters,
-    -- | The parameters for OpenSearch.
-    amazonElasticsearchParameters :: Prelude.Maybe AmazonElasticsearchParameters,
-    -- | The parameters for Twitter.
-    twitterParameters :: Prelude.Maybe TwitterParameters,
-    -- | The parameters for MariaDB.
-    mariaDbParameters :: Prelude.Maybe MariaDbParameters,
-    -- | The parameters for Jira.
-    jiraParameters :: Prelude.Maybe JiraParameters,
-    -- | The parameters for Snowflake.
-    snowflakeParameters :: Prelude.Maybe SnowflakeParameters,
-    -- | The parameters for Presto.
-    prestoParameters :: Prelude.Maybe PrestoParameters,
     -- | The parameters for MySQL.
     mySqlParameters :: Prelude.Maybe MySqlParameters,
-    -- | The parameters for Amazon Aurora.
-    auroraPostgreSqlParameters :: Prelude.Maybe AuroraPostgreSqlParameters,
+    -- | The parameters for Amazon Redshift.
+    redshiftParameters :: Prelude.Maybe RedshiftParameters,
+    -- | The parameters for IoT Analytics.
+    awsIotAnalyticsParameters :: Prelude.Maybe AwsIotAnalyticsParameters,
     -- | The parameters for Spark.
     sparkParameters :: Prelude.Maybe SparkParameters,
-    -- | The parameters for ServiceNow.
-    serviceNowParameters :: Prelude.Maybe ServiceNowParameters
+    -- | The parameters for Teradata.
+    teradataParameters :: Prelude.Maybe TeradataParameters,
+    -- | The parameters for Twitter.
+    twitterParameters :: Prelude.Maybe TwitterParameters,
+    -- | The parameters for Presto.
+    prestoParameters :: Prelude.Maybe PrestoParameters,
+    -- | The parameters for Snowflake.
+    snowflakeParameters :: Prelude.Maybe SnowflakeParameters,
+    -- | The parameters for Amazon RDS.
+    rdsParameters :: Prelude.Maybe RdsParameters,
+    -- | The parameters for Oracle.
+    oracleParameters :: Prelude.Maybe OracleParameters,
+    -- | The parameters for Amazon Aurora.
+    auroraPostgreSqlParameters :: Prelude.Maybe AuroraPostgreSqlParameters,
+    -- | The parameters for MariaDB.
+    mariaDbParameters :: Prelude.Maybe MariaDbParameters,
+    -- | The parameters for Amazon Athena.
+    athenaParameters :: Prelude.Maybe AthenaParameters,
+    amazonOpenSearchParameters :: Prelude.Maybe AmazonOpenSearchParameters,
+    -- | The parameters for Jira.
+    jiraParameters :: Prelude.Maybe JiraParameters,
+    -- | The parameters for OpenSearch.
+    amazonElasticsearchParameters :: Prelude.Maybe AmazonElasticsearchParameters,
+    -- | The parameters for SQL Server.
+    sqlServerParameters :: Prelude.Maybe SqlServerParameters,
+    -- | The parameters for Amazon Aurora MySQL.
+    auroraParameters :: Prelude.Maybe AuroraParameters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,158 +102,158 @@ data DataSourceParameters = DataSourceParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rdsParameters', 'dataSourceParameters_rdsParameters' - The parameters for Amazon RDS.
+-- 'serviceNowParameters', 'dataSourceParameters_serviceNowParameters' - The parameters for ServiceNow.
 --
 -- 's3Parameters', 'dataSourceParameters_s3Parameters' - The parameters for S3.
 --
--- 'athenaParameters', 'dataSourceParameters_athenaParameters' - The parameters for Amazon Athena.
---
--- 'teradataParameters', 'dataSourceParameters_teradataParameters' - The parameters for Teradata.
---
--- 'auroraParameters', 'dataSourceParameters_auroraParameters' - The parameters for Amazon Aurora MySQL.
---
--- 'awsIotAnalyticsParameters', 'dataSourceParameters_awsIotAnalyticsParameters' - The parameters for IoT Analytics.
---
--- 'amazonOpenSearchParameters', 'dataSourceParameters_amazonOpenSearchParameters' - Undocumented member.
---
--- 'sqlServerParameters', 'dataSourceParameters_sqlServerParameters' - The parameters for SQL Server.
---
--- 'redshiftParameters', 'dataSourceParameters_redshiftParameters' - The parameters for Amazon Redshift.
---
 -- 'postgreSqlParameters', 'dataSourceParameters_postgreSqlParameters' - The parameters for PostgreSQL.
---
--- 'oracleParameters', 'dataSourceParameters_oracleParameters' - The parameters for Oracle.
---
--- 'amazonElasticsearchParameters', 'dataSourceParameters_amazonElasticsearchParameters' - The parameters for OpenSearch.
---
--- 'twitterParameters', 'dataSourceParameters_twitterParameters' - The parameters for Twitter.
---
--- 'mariaDbParameters', 'dataSourceParameters_mariaDbParameters' - The parameters for MariaDB.
---
--- 'jiraParameters', 'dataSourceParameters_jiraParameters' - The parameters for Jira.
---
--- 'snowflakeParameters', 'dataSourceParameters_snowflakeParameters' - The parameters for Snowflake.
---
--- 'prestoParameters', 'dataSourceParameters_prestoParameters' - The parameters for Presto.
 --
 -- 'mySqlParameters', 'dataSourceParameters_mySqlParameters' - The parameters for MySQL.
 --
--- 'auroraPostgreSqlParameters', 'dataSourceParameters_auroraPostgreSqlParameters' - The parameters for Amazon Aurora.
+-- 'redshiftParameters', 'dataSourceParameters_redshiftParameters' - The parameters for Amazon Redshift.
+--
+-- 'awsIotAnalyticsParameters', 'dataSourceParameters_awsIotAnalyticsParameters' - The parameters for IoT Analytics.
 --
 -- 'sparkParameters', 'dataSourceParameters_sparkParameters' - The parameters for Spark.
 --
--- 'serviceNowParameters', 'dataSourceParameters_serviceNowParameters' - The parameters for ServiceNow.
+-- 'teradataParameters', 'dataSourceParameters_teradataParameters' - The parameters for Teradata.
+--
+-- 'twitterParameters', 'dataSourceParameters_twitterParameters' - The parameters for Twitter.
+--
+-- 'prestoParameters', 'dataSourceParameters_prestoParameters' - The parameters for Presto.
+--
+-- 'snowflakeParameters', 'dataSourceParameters_snowflakeParameters' - The parameters for Snowflake.
+--
+-- 'rdsParameters', 'dataSourceParameters_rdsParameters' - The parameters for Amazon RDS.
+--
+-- 'oracleParameters', 'dataSourceParameters_oracleParameters' - The parameters for Oracle.
+--
+-- 'auroraPostgreSqlParameters', 'dataSourceParameters_auroraPostgreSqlParameters' - The parameters for Amazon Aurora.
+--
+-- 'mariaDbParameters', 'dataSourceParameters_mariaDbParameters' - The parameters for MariaDB.
+--
+-- 'athenaParameters', 'dataSourceParameters_athenaParameters' - The parameters for Amazon Athena.
+--
+-- 'amazonOpenSearchParameters', 'dataSourceParameters_amazonOpenSearchParameters' - Undocumented member.
+--
+-- 'jiraParameters', 'dataSourceParameters_jiraParameters' - The parameters for Jira.
+--
+-- 'amazonElasticsearchParameters', 'dataSourceParameters_amazonElasticsearchParameters' - The parameters for OpenSearch.
+--
+-- 'sqlServerParameters', 'dataSourceParameters_sqlServerParameters' - The parameters for SQL Server.
+--
+-- 'auroraParameters', 'dataSourceParameters_auroraParameters' - The parameters for Amazon Aurora MySQL.
 newDataSourceParameters ::
   DataSourceParameters
 newDataSourceParameters =
   DataSourceParameters'
-    { rdsParameters =
+    { serviceNowParameters =
         Prelude.Nothing,
       s3Parameters = Prelude.Nothing,
-      athenaParameters = Prelude.Nothing,
-      teradataParameters = Prelude.Nothing,
-      auroraParameters = Prelude.Nothing,
-      awsIotAnalyticsParameters = Prelude.Nothing,
-      amazonOpenSearchParameters = Prelude.Nothing,
-      sqlServerParameters = Prelude.Nothing,
-      redshiftParameters = Prelude.Nothing,
       postgreSqlParameters = Prelude.Nothing,
-      oracleParameters = Prelude.Nothing,
-      amazonElasticsearchParameters = Prelude.Nothing,
-      twitterParameters = Prelude.Nothing,
-      mariaDbParameters = Prelude.Nothing,
-      jiraParameters = Prelude.Nothing,
-      snowflakeParameters = Prelude.Nothing,
-      prestoParameters = Prelude.Nothing,
       mySqlParameters = Prelude.Nothing,
-      auroraPostgreSqlParameters = Prelude.Nothing,
+      redshiftParameters = Prelude.Nothing,
+      awsIotAnalyticsParameters = Prelude.Nothing,
       sparkParameters = Prelude.Nothing,
-      serviceNowParameters = Prelude.Nothing
+      teradataParameters = Prelude.Nothing,
+      twitterParameters = Prelude.Nothing,
+      prestoParameters = Prelude.Nothing,
+      snowflakeParameters = Prelude.Nothing,
+      rdsParameters = Prelude.Nothing,
+      oracleParameters = Prelude.Nothing,
+      auroraPostgreSqlParameters = Prelude.Nothing,
+      mariaDbParameters = Prelude.Nothing,
+      athenaParameters = Prelude.Nothing,
+      amazonOpenSearchParameters = Prelude.Nothing,
+      jiraParameters = Prelude.Nothing,
+      amazonElasticsearchParameters = Prelude.Nothing,
+      sqlServerParameters = Prelude.Nothing,
+      auroraParameters = Prelude.Nothing
     }
 
--- | The parameters for Amazon RDS.
-dataSourceParameters_rdsParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe RdsParameters)
-dataSourceParameters_rdsParameters = Lens.lens (\DataSourceParameters' {rdsParameters} -> rdsParameters) (\s@DataSourceParameters' {} a -> s {rdsParameters = a} :: DataSourceParameters)
+-- | The parameters for ServiceNow.
+dataSourceParameters_serviceNowParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe ServiceNowParameters)
+dataSourceParameters_serviceNowParameters = Lens.lens (\DataSourceParameters' {serviceNowParameters} -> serviceNowParameters) (\s@DataSourceParameters' {} a -> s {serviceNowParameters = a} :: DataSourceParameters)
 
 -- | The parameters for S3.
 dataSourceParameters_s3Parameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe S3Parameters)
 dataSourceParameters_s3Parameters = Lens.lens (\DataSourceParameters' {s3Parameters} -> s3Parameters) (\s@DataSourceParameters' {} a -> s {s3Parameters = a} :: DataSourceParameters)
 
--- | The parameters for Amazon Athena.
-dataSourceParameters_athenaParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AthenaParameters)
-dataSourceParameters_athenaParameters = Lens.lens (\DataSourceParameters' {athenaParameters} -> athenaParameters) (\s@DataSourceParameters' {} a -> s {athenaParameters = a} :: DataSourceParameters)
-
--- | The parameters for Teradata.
-dataSourceParameters_teradataParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe TeradataParameters)
-dataSourceParameters_teradataParameters = Lens.lens (\DataSourceParameters' {teradataParameters} -> teradataParameters) (\s@DataSourceParameters' {} a -> s {teradataParameters = a} :: DataSourceParameters)
-
--- | The parameters for Amazon Aurora MySQL.
-dataSourceParameters_auroraParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AuroraParameters)
-dataSourceParameters_auroraParameters = Lens.lens (\DataSourceParameters' {auroraParameters} -> auroraParameters) (\s@DataSourceParameters' {} a -> s {auroraParameters = a} :: DataSourceParameters)
-
--- | The parameters for IoT Analytics.
-dataSourceParameters_awsIotAnalyticsParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AwsIotAnalyticsParameters)
-dataSourceParameters_awsIotAnalyticsParameters = Lens.lens (\DataSourceParameters' {awsIotAnalyticsParameters} -> awsIotAnalyticsParameters) (\s@DataSourceParameters' {} a -> s {awsIotAnalyticsParameters = a} :: DataSourceParameters)
-
--- | Undocumented member.
-dataSourceParameters_amazonOpenSearchParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AmazonOpenSearchParameters)
-dataSourceParameters_amazonOpenSearchParameters = Lens.lens (\DataSourceParameters' {amazonOpenSearchParameters} -> amazonOpenSearchParameters) (\s@DataSourceParameters' {} a -> s {amazonOpenSearchParameters = a} :: DataSourceParameters)
-
--- | The parameters for SQL Server.
-dataSourceParameters_sqlServerParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe SqlServerParameters)
-dataSourceParameters_sqlServerParameters = Lens.lens (\DataSourceParameters' {sqlServerParameters} -> sqlServerParameters) (\s@DataSourceParameters' {} a -> s {sqlServerParameters = a} :: DataSourceParameters)
-
--- | The parameters for Amazon Redshift.
-dataSourceParameters_redshiftParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe RedshiftParameters)
-dataSourceParameters_redshiftParameters = Lens.lens (\DataSourceParameters' {redshiftParameters} -> redshiftParameters) (\s@DataSourceParameters' {} a -> s {redshiftParameters = a} :: DataSourceParameters)
-
 -- | The parameters for PostgreSQL.
 dataSourceParameters_postgreSqlParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe PostgreSqlParameters)
 dataSourceParameters_postgreSqlParameters = Lens.lens (\DataSourceParameters' {postgreSqlParameters} -> postgreSqlParameters) (\s@DataSourceParameters' {} a -> s {postgreSqlParameters = a} :: DataSourceParameters)
-
--- | The parameters for Oracle.
-dataSourceParameters_oracleParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe OracleParameters)
-dataSourceParameters_oracleParameters = Lens.lens (\DataSourceParameters' {oracleParameters} -> oracleParameters) (\s@DataSourceParameters' {} a -> s {oracleParameters = a} :: DataSourceParameters)
-
--- | The parameters for OpenSearch.
-dataSourceParameters_amazonElasticsearchParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AmazonElasticsearchParameters)
-dataSourceParameters_amazonElasticsearchParameters = Lens.lens (\DataSourceParameters' {amazonElasticsearchParameters} -> amazonElasticsearchParameters) (\s@DataSourceParameters' {} a -> s {amazonElasticsearchParameters = a} :: DataSourceParameters)
-
--- | The parameters for Twitter.
-dataSourceParameters_twitterParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe TwitterParameters)
-dataSourceParameters_twitterParameters = Lens.lens (\DataSourceParameters' {twitterParameters} -> twitterParameters) (\s@DataSourceParameters' {} a -> s {twitterParameters = a} :: DataSourceParameters)
-
--- | The parameters for MariaDB.
-dataSourceParameters_mariaDbParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe MariaDbParameters)
-dataSourceParameters_mariaDbParameters = Lens.lens (\DataSourceParameters' {mariaDbParameters} -> mariaDbParameters) (\s@DataSourceParameters' {} a -> s {mariaDbParameters = a} :: DataSourceParameters)
-
--- | The parameters for Jira.
-dataSourceParameters_jiraParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe JiraParameters)
-dataSourceParameters_jiraParameters = Lens.lens (\DataSourceParameters' {jiraParameters} -> jiraParameters) (\s@DataSourceParameters' {} a -> s {jiraParameters = a} :: DataSourceParameters)
-
--- | The parameters for Snowflake.
-dataSourceParameters_snowflakeParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe SnowflakeParameters)
-dataSourceParameters_snowflakeParameters = Lens.lens (\DataSourceParameters' {snowflakeParameters} -> snowflakeParameters) (\s@DataSourceParameters' {} a -> s {snowflakeParameters = a} :: DataSourceParameters)
-
--- | The parameters for Presto.
-dataSourceParameters_prestoParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe PrestoParameters)
-dataSourceParameters_prestoParameters = Lens.lens (\DataSourceParameters' {prestoParameters} -> prestoParameters) (\s@DataSourceParameters' {} a -> s {prestoParameters = a} :: DataSourceParameters)
 
 -- | The parameters for MySQL.
 dataSourceParameters_mySqlParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe MySqlParameters)
 dataSourceParameters_mySqlParameters = Lens.lens (\DataSourceParameters' {mySqlParameters} -> mySqlParameters) (\s@DataSourceParameters' {} a -> s {mySqlParameters = a} :: DataSourceParameters)
 
--- | The parameters for Amazon Aurora.
-dataSourceParameters_auroraPostgreSqlParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AuroraPostgreSqlParameters)
-dataSourceParameters_auroraPostgreSqlParameters = Lens.lens (\DataSourceParameters' {auroraPostgreSqlParameters} -> auroraPostgreSqlParameters) (\s@DataSourceParameters' {} a -> s {auroraPostgreSqlParameters = a} :: DataSourceParameters)
+-- | The parameters for Amazon Redshift.
+dataSourceParameters_redshiftParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe RedshiftParameters)
+dataSourceParameters_redshiftParameters = Lens.lens (\DataSourceParameters' {redshiftParameters} -> redshiftParameters) (\s@DataSourceParameters' {} a -> s {redshiftParameters = a} :: DataSourceParameters)
+
+-- | The parameters for IoT Analytics.
+dataSourceParameters_awsIotAnalyticsParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AwsIotAnalyticsParameters)
+dataSourceParameters_awsIotAnalyticsParameters = Lens.lens (\DataSourceParameters' {awsIotAnalyticsParameters} -> awsIotAnalyticsParameters) (\s@DataSourceParameters' {} a -> s {awsIotAnalyticsParameters = a} :: DataSourceParameters)
 
 -- | The parameters for Spark.
 dataSourceParameters_sparkParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe SparkParameters)
 dataSourceParameters_sparkParameters = Lens.lens (\DataSourceParameters' {sparkParameters} -> sparkParameters) (\s@DataSourceParameters' {} a -> s {sparkParameters = a} :: DataSourceParameters)
 
--- | The parameters for ServiceNow.
-dataSourceParameters_serviceNowParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe ServiceNowParameters)
-dataSourceParameters_serviceNowParameters = Lens.lens (\DataSourceParameters' {serviceNowParameters} -> serviceNowParameters) (\s@DataSourceParameters' {} a -> s {serviceNowParameters = a} :: DataSourceParameters)
+-- | The parameters for Teradata.
+dataSourceParameters_teradataParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe TeradataParameters)
+dataSourceParameters_teradataParameters = Lens.lens (\DataSourceParameters' {teradataParameters} -> teradataParameters) (\s@DataSourceParameters' {} a -> s {teradataParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Twitter.
+dataSourceParameters_twitterParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe TwitterParameters)
+dataSourceParameters_twitterParameters = Lens.lens (\DataSourceParameters' {twitterParameters} -> twitterParameters) (\s@DataSourceParameters' {} a -> s {twitterParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Presto.
+dataSourceParameters_prestoParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe PrestoParameters)
+dataSourceParameters_prestoParameters = Lens.lens (\DataSourceParameters' {prestoParameters} -> prestoParameters) (\s@DataSourceParameters' {} a -> s {prestoParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Snowflake.
+dataSourceParameters_snowflakeParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe SnowflakeParameters)
+dataSourceParameters_snowflakeParameters = Lens.lens (\DataSourceParameters' {snowflakeParameters} -> snowflakeParameters) (\s@DataSourceParameters' {} a -> s {snowflakeParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Amazon RDS.
+dataSourceParameters_rdsParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe RdsParameters)
+dataSourceParameters_rdsParameters = Lens.lens (\DataSourceParameters' {rdsParameters} -> rdsParameters) (\s@DataSourceParameters' {} a -> s {rdsParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Oracle.
+dataSourceParameters_oracleParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe OracleParameters)
+dataSourceParameters_oracleParameters = Lens.lens (\DataSourceParameters' {oracleParameters} -> oracleParameters) (\s@DataSourceParameters' {} a -> s {oracleParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Amazon Aurora.
+dataSourceParameters_auroraPostgreSqlParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AuroraPostgreSqlParameters)
+dataSourceParameters_auroraPostgreSqlParameters = Lens.lens (\DataSourceParameters' {auroraPostgreSqlParameters} -> auroraPostgreSqlParameters) (\s@DataSourceParameters' {} a -> s {auroraPostgreSqlParameters = a} :: DataSourceParameters)
+
+-- | The parameters for MariaDB.
+dataSourceParameters_mariaDbParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe MariaDbParameters)
+dataSourceParameters_mariaDbParameters = Lens.lens (\DataSourceParameters' {mariaDbParameters} -> mariaDbParameters) (\s@DataSourceParameters' {} a -> s {mariaDbParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Amazon Athena.
+dataSourceParameters_athenaParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AthenaParameters)
+dataSourceParameters_athenaParameters = Lens.lens (\DataSourceParameters' {athenaParameters} -> athenaParameters) (\s@DataSourceParameters' {} a -> s {athenaParameters = a} :: DataSourceParameters)
+
+-- | Undocumented member.
+dataSourceParameters_amazonOpenSearchParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AmazonOpenSearchParameters)
+dataSourceParameters_amazonOpenSearchParameters = Lens.lens (\DataSourceParameters' {amazonOpenSearchParameters} -> amazonOpenSearchParameters) (\s@DataSourceParameters' {} a -> s {amazonOpenSearchParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Jira.
+dataSourceParameters_jiraParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe JiraParameters)
+dataSourceParameters_jiraParameters = Lens.lens (\DataSourceParameters' {jiraParameters} -> jiraParameters) (\s@DataSourceParameters' {} a -> s {jiraParameters = a} :: DataSourceParameters)
+
+-- | The parameters for OpenSearch.
+dataSourceParameters_amazonElasticsearchParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AmazonElasticsearchParameters)
+dataSourceParameters_amazonElasticsearchParameters = Lens.lens (\DataSourceParameters' {amazonElasticsearchParameters} -> amazonElasticsearchParameters) (\s@DataSourceParameters' {} a -> s {amazonElasticsearchParameters = a} :: DataSourceParameters)
+
+-- | The parameters for SQL Server.
+dataSourceParameters_sqlServerParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe SqlServerParameters)
+dataSourceParameters_sqlServerParameters = Lens.lens (\DataSourceParameters' {sqlServerParameters} -> sqlServerParameters) (\s@DataSourceParameters' {} a -> s {sqlServerParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Amazon Aurora MySQL.
+dataSourceParameters_auroraParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AuroraParameters)
+dataSourceParameters_auroraParameters = Lens.lens (\DataSourceParameters' {auroraParameters} -> auroraParameters) (\s@DataSourceParameters' {} a -> s {auroraParameters = a} :: DataSourceParameters)
 
 instance Core.FromJSON DataSourceParameters where
   parseJSON =
@@ -261,122 +261,123 @@ instance Core.FromJSON DataSourceParameters where
       "DataSourceParameters"
       ( \x ->
           DataSourceParameters'
-            Prelude.<$> (x Core..:? "RdsParameters")
+            Prelude.<$> (x Core..:? "ServiceNowParameters")
             Prelude.<*> (x Core..:? "S3Parameters")
-            Prelude.<*> (x Core..:? "AthenaParameters")
-            Prelude.<*> (x Core..:? "TeradataParameters")
-            Prelude.<*> (x Core..:? "AuroraParameters")
-            Prelude.<*> (x Core..:? "AwsIotAnalyticsParameters")
-            Prelude.<*> (x Core..:? "AmazonOpenSearchParameters")
-            Prelude.<*> (x Core..:? "SqlServerParameters")
-            Prelude.<*> (x Core..:? "RedshiftParameters")
             Prelude.<*> (x Core..:? "PostgreSqlParameters")
-            Prelude.<*> (x Core..:? "OracleParameters")
-            Prelude.<*> (x Core..:? "AmazonElasticsearchParameters")
-            Prelude.<*> (x Core..:? "TwitterParameters")
-            Prelude.<*> (x Core..:? "MariaDbParameters")
-            Prelude.<*> (x Core..:? "JiraParameters")
-            Prelude.<*> (x Core..:? "SnowflakeParameters")
-            Prelude.<*> (x Core..:? "PrestoParameters")
             Prelude.<*> (x Core..:? "MySqlParameters")
-            Prelude.<*> (x Core..:? "AuroraPostgreSqlParameters")
+            Prelude.<*> (x Core..:? "RedshiftParameters")
+            Prelude.<*> (x Core..:? "AwsIotAnalyticsParameters")
             Prelude.<*> (x Core..:? "SparkParameters")
-            Prelude.<*> (x Core..:? "ServiceNowParameters")
+            Prelude.<*> (x Core..:? "TeradataParameters")
+            Prelude.<*> (x Core..:? "TwitterParameters")
+            Prelude.<*> (x Core..:? "PrestoParameters")
+            Prelude.<*> (x Core..:? "SnowflakeParameters")
+            Prelude.<*> (x Core..:? "RdsParameters")
+            Prelude.<*> (x Core..:? "OracleParameters")
+            Prelude.<*> (x Core..:? "AuroraPostgreSqlParameters")
+            Prelude.<*> (x Core..:? "MariaDbParameters")
+            Prelude.<*> (x Core..:? "AthenaParameters")
+            Prelude.<*> (x Core..:? "AmazonOpenSearchParameters")
+            Prelude.<*> (x Core..:? "JiraParameters")
+            Prelude.<*> (x Core..:? "AmazonElasticsearchParameters")
+            Prelude.<*> (x Core..:? "SqlServerParameters")
+            Prelude.<*> (x Core..:? "AuroraParameters")
       )
 
 instance Prelude.Hashable DataSourceParameters where
   hashWithSalt _salt DataSourceParameters' {..} =
-    _salt `Prelude.hashWithSalt` rdsParameters
+    _salt `Prelude.hashWithSalt` serviceNowParameters
       `Prelude.hashWithSalt` s3Parameters
-      `Prelude.hashWithSalt` athenaParameters
-      `Prelude.hashWithSalt` teradataParameters
-      `Prelude.hashWithSalt` auroraParameters
-      `Prelude.hashWithSalt` awsIotAnalyticsParameters
-      `Prelude.hashWithSalt` amazonOpenSearchParameters
-      `Prelude.hashWithSalt` sqlServerParameters
-      `Prelude.hashWithSalt` redshiftParameters
       `Prelude.hashWithSalt` postgreSqlParameters
-      `Prelude.hashWithSalt` oracleParameters
-      `Prelude.hashWithSalt` amazonElasticsearchParameters
-      `Prelude.hashWithSalt` twitterParameters
-      `Prelude.hashWithSalt` mariaDbParameters
-      `Prelude.hashWithSalt` jiraParameters
-      `Prelude.hashWithSalt` snowflakeParameters
-      `Prelude.hashWithSalt` prestoParameters
       `Prelude.hashWithSalt` mySqlParameters
-      `Prelude.hashWithSalt` auroraPostgreSqlParameters
+      `Prelude.hashWithSalt` redshiftParameters
+      `Prelude.hashWithSalt` awsIotAnalyticsParameters
       `Prelude.hashWithSalt` sparkParameters
-      `Prelude.hashWithSalt` serviceNowParameters
+      `Prelude.hashWithSalt` teradataParameters
+      `Prelude.hashWithSalt` twitterParameters
+      `Prelude.hashWithSalt` prestoParameters
+      `Prelude.hashWithSalt` snowflakeParameters
+      `Prelude.hashWithSalt` rdsParameters
+      `Prelude.hashWithSalt` oracleParameters
+      `Prelude.hashWithSalt` auroraPostgreSqlParameters
+      `Prelude.hashWithSalt` mariaDbParameters
+      `Prelude.hashWithSalt` athenaParameters
+      `Prelude.hashWithSalt` amazonOpenSearchParameters
+      `Prelude.hashWithSalt` jiraParameters
+      `Prelude.hashWithSalt` amazonElasticsearchParameters
+      `Prelude.hashWithSalt` sqlServerParameters
+      `Prelude.hashWithSalt` auroraParameters
 
 instance Prelude.NFData DataSourceParameters where
   rnf DataSourceParameters' {..} =
-    Prelude.rnf rdsParameters
+    Prelude.rnf serviceNowParameters
       `Prelude.seq` Prelude.rnf s3Parameters
-      `Prelude.seq` Prelude.rnf athenaParameters
-      `Prelude.seq` Prelude.rnf teradataParameters
-      `Prelude.seq` Prelude.rnf auroraParameters
-      `Prelude.seq` Prelude.rnf awsIotAnalyticsParameters
-      `Prelude.seq` Prelude.rnf amazonOpenSearchParameters
-      `Prelude.seq` Prelude.rnf sqlServerParameters
-      `Prelude.seq` Prelude.rnf redshiftParameters
       `Prelude.seq` Prelude.rnf postgreSqlParameters
-      `Prelude.seq` Prelude.rnf oracleParameters
-      `Prelude.seq` Prelude.rnf amazonElasticsearchParameters
-      `Prelude.seq` Prelude.rnf twitterParameters
-      `Prelude.seq` Prelude.rnf mariaDbParameters
-      `Prelude.seq` Prelude.rnf jiraParameters
-      `Prelude.seq` Prelude.rnf snowflakeParameters
-      `Prelude.seq` Prelude.rnf prestoParameters
       `Prelude.seq` Prelude.rnf mySqlParameters
-      `Prelude.seq` Prelude.rnf
-        auroraPostgreSqlParameters
+      `Prelude.seq` Prelude.rnf redshiftParameters
+      `Prelude.seq` Prelude.rnf awsIotAnalyticsParameters
       `Prelude.seq` Prelude.rnf sparkParameters
+      `Prelude.seq` Prelude.rnf teradataParameters
+      `Prelude.seq` Prelude.rnf twitterParameters
+      `Prelude.seq` Prelude.rnf prestoParameters
+      `Prelude.seq` Prelude.rnf snowflakeParameters
+      `Prelude.seq` Prelude.rnf rdsParameters
+      `Prelude.seq` Prelude.rnf oracleParameters
+      `Prelude.seq` Prelude.rnf auroraPostgreSqlParameters
+      `Prelude.seq` Prelude.rnf mariaDbParameters
+      `Prelude.seq` Prelude.rnf athenaParameters
       `Prelude.seq` Prelude.rnf
-        serviceNowParameters
+        amazonOpenSearchParameters
+      `Prelude.seq` Prelude.rnf jiraParameters
+      `Prelude.seq` Prelude.rnf
+        amazonElasticsearchParameters
+      `Prelude.seq` Prelude.rnf
+        sqlServerParameters
+      `Prelude.seq` Prelude.rnf auroraParameters
 
 instance Core.ToJSON DataSourceParameters where
   toJSON DataSourceParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RdsParameters" Core..=) Prelude.<$> rdsParameters,
+          [ ("ServiceNowParameters" Core..=)
+              Prelude.<$> serviceNowParameters,
             ("S3Parameters" Core..=) Prelude.<$> s3Parameters,
-            ("AthenaParameters" Core..=)
-              Prelude.<$> athenaParameters,
-            ("TeradataParameters" Core..=)
-              Prelude.<$> teradataParameters,
-            ("AuroraParameters" Core..=)
-              Prelude.<$> auroraParameters,
-            ("AwsIotAnalyticsParameters" Core..=)
-              Prelude.<$> awsIotAnalyticsParameters,
-            ("AmazonOpenSearchParameters" Core..=)
-              Prelude.<$> amazonOpenSearchParameters,
-            ("SqlServerParameters" Core..=)
-              Prelude.<$> sqlServerParameters,
-            ("RedshiftParameters" Core..=)
-              Prelude.<$> redshiftParameters,
             ("PostgreSqlParameters" Core..=)
               Prelude.<$> postgreSqlParameters,
-            ("OracleParameters" Core..=)
-              Prelude.<$> oracleParameters,
-            ("AmazonElasticsearchParameters" Core..=)
-              Prelude.<$> amazonElasticsearchParameters,
-            ("TwitterParameters" Core..=)
-              Prelude.<$> twitterParameters,
-            ("MariaDbParameters" Core..=)
-              Prelude.<$> mariaDbParameters,
-            ("JiraParameters" Core..=)
-              Prelude.<$> jiraParameters,
-            ("SnowflakeParameters" Core..=)
-              Prelude.<$> snowflakeParameters,
-            ("PrestoParameters" Core..=)
-              Prelude.<$> prestoParameters,
             ("MySqlParameters" Core..=)
               Prelude.<$> mySqlParameters,
-            ("AuroraPostgreSqlParameters" Core..=)
-              Prelude.<$> auroraPostgreSqlParameters,
+            ("RedshiftParameters" Core..=)
+              Prelude.<$> redshiftParameters,
+            ("AwsIotAnalyticsParameters" Core..=)
+              Prelude.<$> awsIotAnalyticsParameters,
             ("SparkParameters" Core..=)
               Prelude.<$> sparkParameters,
-            ("ServiceNowParameters" Core..=)
-              Prelude.<$> serviceNowParameters
+            ("TeradataParameters" Core..=)
+              Prelude.<$> teradataParameters,
+            ("TwitterParameters" Core..=)
+              Prelude.<$> twitterParameters,
+            ("PrestoParameters" Core..=)
+              Prelude.<$> prestoParameters,
+            ("SnowflakeParameters" Core..=)
+              Prelude.<$> snowflakeParameters,
+            ("RdsParameters" Core..=) Prelude.<$> rdsParameters,
+            ("OracleParameters" Core..=)
+              Prelude.<$> oracleParameters,
+            ("AuroraPostgreSqlParameters" Core..=)
+              Prelude.<$> auroraPostgreSqlParameters,
+            ("MariaDbParameters" Core..=)
+              Prelude.<$> mariaDbParameters,
+            ("AthenaParameters" Core..=)
+              Prelude.<$> athenaParameters,
+            ("AmazonOpenSearchParameters" Core..=)
+              Prelude.<$> amazonOpenSearchParameters,
+            ("JiraParameters" Core..=)
+              Prelude.<$> jiraParameters,
+            ("AmazonElasticsearchParameters" Core..=)
+              Prelude.<$> amazonElasticsearchParameters,
+            ("SqlServerParameters" Core..=)
+              Prelude.<$> sqlServerParameters,
+            ("AuroraParameters" Core..=)
+              Prelude.<$> auroraParameters
           ]
       )

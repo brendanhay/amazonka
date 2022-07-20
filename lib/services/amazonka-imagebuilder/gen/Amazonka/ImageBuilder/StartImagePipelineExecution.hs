@@ -35,8 +35,8 @@ module Amazonka.ImageBuilder.StartImagePipelineExecution
     newStartImagePipelineExecutionResponse,
 
     -- * Response Lenses
-    startImagePipelineExecutionResponse_requestId,
     startImagePipelineExecutionResponse_clientToken,
+    startImagePipelineExecutionResponse_requestId,
     startImagePipelineExecutionResponse_imageBuildVersionArn,
     startImagePipelineExecutionResponse_httpStatus,
   )
@@ -104,8 +104,8 @@ instance Core.AWSRequest StartImagePipelineExecution where
     Response.receiveJSON
       ( \s h x ->
           StartImagePipelineExecutionResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "clientToken")
+            Prelude.<$> (x Core..?> "clientToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (x Core..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -149,10 +149,10 @@ instance Core.ToQuery StartImagePipelineExecution where
 
 -- | /See:/ 'newStartImagePipelineExecutionResponse' smart constructor.
 data StartImagePipelineExecutionResponse = StartImagePipelineExecutionResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token used to make this request idempotent.
+  { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image that was created by this
     -- request.
     imageBuildVersionArn :: Prelude.Maybe Prelude.Text,
@@ -169,9 +169,9 @@ data StartImagePipelineExecutionResponse = StartImagePipelineExecutionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'startImagePipelineExecutionResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'clientToken', 'startImagePipelineExecutionResponse_clientToken' - The idempotency token used to make this request idempotent.
+--
+-- 'requestId', 'startImagePipelineExecutionResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'imageBuildVersionArn', 'startImagePipelineExecutionResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image that was created by this
 -- request.
@@ -183,20 +183,20 @@ newStartImagePipelineExecutionResponse ::
   StartImagePipelineExecutionResponse
 newStartImagePipelineExecutionResponse pHttpStatus_ =
   StartImagePipelineExecutionResponse'
-    { requestId =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       imageBuildVersionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The request ID that uniquely identifies this request.
-startImagePipelineExecutionResponse_requestId :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
-startImagePipelineExecutionResponse_requestId = Lens.lens (\StartImagePipelineExecutionResponse' {requestId} -> requestId) (\s@StartImagePipelineExecutionResponse' {} a -> s {requestId = a} :: StartImagePipelineExecutionResponse)
-
 -- | The idempotency token used to make this request idempotent.
 startImagePipelineExecutionResponse_clientToken :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
 startImagePipelineExecutionResponse_clientToken = Lens.lens (\StartImagePipelineExecutionResponse' {clientToken} -> clientToken) (\s@StartImagePipelineExecutionResponse' {} a -> s {clientToken = a} :: StartImagePipelineExecutionResponse)
+
+-- | The request ID that uniquely identifies this request.
+startImagePipelineExecutionResponse_requestId :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
+startImagePipelineExecutionResponse_requestId = Lens.lens (\StartImagePipelineExecutionResponse' {requestId} -> requestId) (\s@StartImagePipelineExecutionResponse' {} a -> s {requestId = a} :: StartImagePipelineExecutionResponse)
 
 -- | The Amazon Resource Name (ARN) of the image that was created by this
 -- request.
@@ -212,7 +212,7 @@ instance
     StartImagePipelineExecutionResponse
   where
   rnf StartImagePipelineExecutionResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imageBuildVersionArn
       `Prelude.seq` Prelude.rnf httpStatus

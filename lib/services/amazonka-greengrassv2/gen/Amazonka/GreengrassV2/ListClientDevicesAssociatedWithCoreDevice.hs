@@ -39,8 +39,8 @@ module Amazonka.GreengrassV2.ListClientDevicesAssociatedWithCoreDevice
     newListClientDevicesAssociatedWithCoreDeviceResponse,
 
     -- * Response Lenses
-    listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices,
     listClientDevicesAssociatedWithCoreDeviceResponse_nextToken,
+    listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices,
     listClientDevicesAssociatedWithCoreDeviceResponse_httpStatus,
   )
 where
@@ -141,8 +141,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListClientDevicesAssociatedWithCoreDeviceResponse'
-            Prelude.<$> (x Core..?> "associatedClientDevices")
-              Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+              Prelude.<*> (x Core..?> "associatedClientDevices")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,12 +204,12 @@ instance
 
 -- | /See:/ 'newListClientDevicesAssociatedWithCoreDeviceResponse' smart constructor.
 data ListClientDevicesAssociatedWithCoreDeviceResponse = ListClientDevicesAssociatedWithCoreDeviceResponse'
-  { -- | A list that describes the client devices that are associated with the
-    -- core device.
-    associatedClientDevices :: Prelude.Maybe (Prelude.NonEmpty AssociatedClientDevice),
-    -- | The token for the next set of results, or null if there are no
+  { -- | The token for the next set of results, or null if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list that describes the client devices that are associated with the
+    -- core device.
+    associatedClientDevices :: Prelude.Maybe (Prelude.NonEmpty AssociatedClientDevice),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,11 +223,11 @@ data ListClientDevicesAssociatedWithCoreDeviceResponse = ListClientDevicesAssoci
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associatedClientDevices', 'listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices' - A list that describes the client devices that are associated with the
--- core device.
---
 -- 'nextToken', 'listClientDevicesAssociatedWithCoreDeviceResponse_nextToken' - The token for the next set of results, or null if there are no
 -- additional results.
+--
+-- 'associatedClientDevices', 'listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices' - A list that describes the client devices that are associated with the
+-- core device.
 --
 -- 'httpStatus', 'listClientDevicesAssociatedWithCoreDeviceResponse_httpStatus' - The response's http status code.
 newListClientDevicesAssociatedWithCoreDeviceResponse ::
@@ -237,23 +237,23 @@ newListClientDevicesAssociatedWithCoreDeviceResponse ::
 newListClientDevicesAssociatedWithCoreDeviceResponse
   pHttpStatus_ =
     ListClientDevicesAssociatedWithCoreDeviceResponse'
-      { associatedClientDevices =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        associatedClientDevices =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | A list that describes the client devices that are associated with the
--- core device.
-listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices :: Lens.Lens' ListClientDevicesAssociatedWithCoreDeviceResponse (Prelude.Maybe (Prelude.NonEmpty AssociatedClientDevice))
-listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices = Lens.lens (\ListClientDevicesAssociatedWithCoreDeviceResponse' {associatedClientDevices} -> associatedClientDevices) (\s@ListClientDevicesAssociatedWithCoreDeviceResponse' {} a -> s {associatedClientDevices = a} :: ListClientDevicesAssociatedWithCoreDeviceResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token for the next set of results, or null if there are no
 -- additional results.
 listClientDevicesAssociatedWithCoreDeviceResponse_nextToken :: Lens.Lens' ListClientDevicesAssociatedWithCoreDeviceResponse (Prelude.Maybe Prelude.Text)
 listClientDevicesAssociatedWithCoreDeviceResponse_nextToken = Lens.lens (\ListClientDevicesAssociatedWithCoreDeviceResponse' {nextToken} -> nextToken) (\s@ListClientDevicesAssociatedWithCoreDeviceResponse' {} a -> s {nextToken = a} :: ListClientDevicesAssociatedWithCoreDeviceResponse)
+
+-- | A list that describes the client devices that are associated with the
+-- core device.
+listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices :: Lens.Lens' ListClientDevicesAssociatedWithCoreDeviceResponse (Prelude.Maybe (Prelude.NonEmpty AssociatedClientDevice))
+listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices = Lens.lens (\ListClientDevicesAssociatedWithCoreDeviceResponse' {associatedClientDevices} -> associatedClientDevices) (\s@ListClientDevicesAssociatedWithCoreDeviceResponse' {} a -> s {associatedClientDevices = a} :: ListClientDevicesAssociatedWithCoreDeviceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listClientDevicesAssociatedWithCoreDeviceResponse_httpStatus :: Lens.Lens' ListClientDevicesAssociatedWithCoreDeviceResponse Prelude.Int
@@ -265,6 +265,6 @@ instance
   where
   rnf
     ListClientDevicesAssociatedWithCoreDeviceResponse' {..} =
-      Prelude.rnf associatedClientDevices
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf associatedClientDevices
         `Prelude.seq` Prelude.rnf httpStatus

@@ -36,9 +36,9 @@ module Amazonka.CloudWatchLogs.StartQuery
     newStartQuery,
 
     -- * Request Lenses
+    startQuery_limit,
     startQuery_logGroupNames,
     startQuery_logGroupName,
-    startQuery_limit,
     startQuery_startTime,
     startQuery_endTime,
     startQuery_queryString,
@@ -62,7 +62,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartQuery' smart constructor.
 data StartQuery = StartQuery'
-  { -- | The list of log groups to be queried. You can include up to 20 log
+  { -- | The maximum number of log events to return in the query. If the query
+    -- string uses the @fields@ command, only the specified fields and their
+    -- values are returned. The default is 1000.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The list of log groups to be queried. You can include up to 20 log
     -- groups.
     --
     -- A @StartQuery@ operation must include a @logGroupNames@ or a
@@ -73,10 +77,6 @@ data StartQuery = StartQuery'
     -- A @StartQuery@ operation must include a @logGroupNames@ or a
     -- @logGroupName@ parameter, but not both.
     logGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of log events to return in the query. If the query
-    -- string uses the @fields@ command, only the specified fields and their
-    -- values are returned. The default is 1000.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The beginning of the time range to query. The range is inclusive, so the
     -- specified start time is included in the query. Specified as epoch time,
     -- the number of seconds since January 1, 1970, 00:00:00 UTC.
@@ -99,6 +99,10 @@ data StartQuery = StartQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'startQuery_limit' - The maximum number of log events to return in the query. If the query
+-- string uses the @fields@ command, only the specified fields and their
+-- values are returned. The default is 1000.
+--
 -- 'logGroupNames', 'startQuery_logGroupNames' - The list of log groups to be queried. You can include up to 20 log
 -- groups.
 --
@@ -109,10 +113,6 @@ data StartQuery = StartQuery'
 --
 -- A @StartQuery@ operation must include a @logGroupNames@ or a
 -- @logGroupName@ parameter, but not both.
---
--- 'limit', 'startQuery_limit' - The maximum number of log events to return in the query. If the query
--- string uses the @fields@ command, only the specified fields and their
--- values are returned. The default is 1000.
 --
 -- 'startTime', 'startQuery_startTime' - The beginning of the time range to query. The range is inclusive, so the
 -- specified start time is included in the query. Specified as epoch time,
@@ -134,13 +134,19 @@ newStartQuery ::
   StartQuery
 newStartQuery pStartTime_ pEndTime_ pQueryString_ =
   StartQuery'
-    { logGroupNames = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      logGroupNames = Prelude.Nothing,
       logGroupName = Prelude.Nothing,
-      limit = Prelude.Nothing,
       startTime = pStartTime_,
       endTime = pEndTime_,
       queryString = pQueryString_
     }
+
+-- | The maximum number of log events to return in the query. If the query
+-- string uses the @fields@ command, only the specified fields and their
+-- values are returned. The default is 1000.
+startQuery_limit :: Lens.Lens' StartQuery (Prelude.Maybe Prelude.Natural)
+startQuery_limit = Lens.lens (\StartQuery' {limit} -> limit) (\s@StartQuery' {} a -> s {limit = a} :: StartQuery)
 
 -- | The list of log groups to be queried. You can include up to 20 log
 -- groups.
@@ -156,12 +162,6 @@ startQuery_logGroupNames = Lens.lens (\StartQuery' {logGroupNames} -> logGroupNa
 -- @logGroupName@ parameter, but not both.
 startQuery_logGroupName :: Lens.Lens' StartQuery (Prelude.Maybe Prelude.Text)
 startQuery_logGroupName = Lens.lens (\StartQuery' {logGroupName} -> logGroupName) (\s@StartQuery' {} a -> s {logGroupName = a} :: StartQuery)
-
--- | The maximum number of log events to return in the query. If the query
--- string uses the @fields@ command, only the specified fields and their
--- values are returned. The default is 1000.
-startQuery_limit :: Lens.Lens' StartQuery (Prelude.Maybe Prelude.Natural)
-startQuery_limit = Lens.lens (\StartQuery' {limit} -> limit) (\s@StartQuery' {} a -> s {limit = a} :: StartQuery)
 
 -- | The beginning of the time range to query. The range is inclusive, so the
 -- specified start time is included in the query. Specified as epoch time,
@@ -193,18 +193,18 @@ instance Core.AWSRequest StartQuery where
 
 instance Prelude.Hashable StartQuery where
   hashWithSalt _salt StartQuery' {..} =
-    _salt `Prelude.hashWithSalt` logGroupNames
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` logGroupNames
       `Prelude.hashWithSalt` logGroupName
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData StartQuery where
   rnf StartQuery' {..} =
-    Prelude.rnf logGroupNames
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf logGroupNames
       `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf queryString
@@ -226,9 +226,9 @@ instance Core.ToJSON StartQuery where
   toJSON StartQuery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("logGroupNames" Core..=) Prelude.<$> logGroupNames,
+          [ ("limit" Core..=) Prelude.<$> limit,
+            ("logGroupNames" Core..=) Prelude.<$> logGroupNames,
             ("logGroupName" Core..=) Prelude.<$> logGroupName,
-            ("limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("startTime" Core..= startTime),
             Prelude.Just ("endTime" Core..= endTime),
             Prelude.Just ("queryString" Core..= queryString)

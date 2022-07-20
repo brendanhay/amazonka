@@ -32,9 +32,9 @@ module Amazonka.Backup.PutBackupVaultLockConfiguration
     newPutBackupVaultLockConfiguration,
 
     -- * Request Lenses
-    putBackupVaultLockConfiguration_maxRetentionDays,
-    putBackupVaultLockConfiguration_changeableForDays,
     putBackupVaultLockConfiguration_minRetentionDays,
+    putBackupVaultLockConfiguration_changeableForDays,
+    putBackupVaultLockConfiguration_maxRetentionDays,
     putBackupVaultLockConfiguration_backupVaultName,
 
     -- * Destructuring the Response
@@ -52,24 +52,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutBackupVaultLockConfiguration' smart constructor.
 data PutBackupVaultLockConfiguration = PutBackupVaultLockConfiguration'
-  { -- | The Backup Vault Lock configuration that specifies the maximum retention
+  { -- | The Backup Vault Lock configuration that specifies the minimum retention
     -- period that the vault retains its recovery points. This setting can be
     -- useful if, for example, your organization\'s policies require you to
-    -- destroy certain data after retaining it for four years (1460 days).
+    -- retain certain data for at least seven years (2555 days).
     --
-    -- If this parameter is not included, Vault Lock does not enforce a maximum
-    -- retention period on the recovery points in the vault. If this parameter
-    -- is included without a value, Vault Lock will not enforce a maximum
-    -- retention period.
+    -- If this parameter is not specified, Vault Lock will not enforce a
+    -- minimum retention period.
     --
     -- If this parameter is specified, any backup or copy job to the vault must
-    -- have a lifecycle policy with a retention period equal to or shorter than
-    -- the maximum retention period. If the job\'s retention period is longer
-    -- than that maximum retention period, then the vault fails the backup or
+    -- have a lifecycle policy with a retention period equal to or longer than
+    -- the minimum retention period. If the job\'s retention period is shorter
+    -- than that minimum retention period, then the vault fails that backup or
     -- copy job, and you should either modify your lifecycle settings or use a
     -- different vault. Recovery points already saved in the vault prior to
     -- Vault Lock are not affected.
-    maxRetentionDays :: Prelude.Maybe Prelude.Integer,
+    minRetentionDays :: Prelude.Maybe Prelude.Integer,
     -- | The Backup Vault Lock configuration that specifies the number of days
     -- before the lock date. For example, setting @ChangeableForDays@ to 30 on
     -- Jan. 1, 2022 at 8pm UTC will set the lock date to Jan. 31, 2022 at 8pm
@@ -89,22 +87,24 @@ data PutBackupVaultLockConfiguration = PutBackupVaultLockConfiguration'
     -- vault using @DeleteBackupVaultLockConfiguration@ or change the Vault
     -- Lock configuration using @PutBackupVaultLockConfiguration@ at any time.
     changeableForDays :: Prelude.Maybe Prelude.Integer,
-    -- | The Backup Vault Lock configuration that specifies the minimum retention
+    -- | The Backup Vault Lock configuration that specifies the maximum retention
     -- period that the vault retains its recovery points. This setting can be
     -- useful if, for example, your organization\'s policies require you to
-    -- retain certain data for at least seven years (2555 days).
+    -- destroy certain data after retaining it for four years (1460 days).
     --
-    -- If this parameter is not specified, Vault Lock will not enforce a
-    -- minimum retention period.
+    -- If this parameter is not included, Vault Lock does not enforce a maximum
+    -- retention period on the recovery points in the vault. If this parameter
+    -- is included without a value, Vault Lock will not enforce a maximum
+    -- retention period.
     --
     -- If this parameter is specified, any backup or copy job to the vault must
-    -- have a lifecycle policy with a retention period equal to or longer than
-    -- the minimum retention period. If the job\'s retention period is shorter
-    -- than that minimum retention period, then the vault fails that backup or
+    -- have a lifecycle policy with a retention period equal to or shorter than
+    -- the maximum retention period. If the job\'s retention period is longer
+    -- than that maximum retention period, then the vault fails the backup or
     -- copy job, and you should either modify your lifecycle settings or use a
     -- different vault. Recovery points already saved in the vault prior to
     -- Vault Lock are not affected.
-    minRetentionDays :: Prelude.Maybe Prelude.Integer,
+    maxRetentionDays :: Prelude.Maybe Prelude.Integer,
     -- | The Backup Vault Lock configuration that specifies the name of the
     -- backup vault it protects.
     backupVaultName :: Prelude.Text
@@ -119,20 +119,18 @@ data PutBackupVaultLockConfiguration = PutBackupVaultLockConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxRetentionDays', 'putBackupVaultLockConfiguration_maxRetentionDays' - The Backup Vault Lock configuration that specifies the maximum retention
+-- 'minRetentionDays', 'putBackupVaultLockConfiguration_minRetentionDays' - The Backup Vault Lock configuration that specifies the minimum retention
 -- period that the vault retains its recovery points. This setting can be
 -- useful if, for example, your organization\'s policies require you to
--- destroy certain data after retaining it for four years (1460 days).
+-- retain certain data for at least seven years (2555 days).
 --
--- If this parameter is not included, Vault Lock does not enforce a maximum
--- retention period on the recovery points in the vault. If this parameter
--- is included without a value, Vault Lock will not enforce a maximum
--- retention period.
+-- If this parameter is not specified, Vault Lock will not enforce a
+-- minimum retention period.
 --
 -- If this parameter is specified, any backup or copy job to the vault must
--- have a lifecycle policy with a retention period equal to or shorter than
--- the maximum retention period. If the job\'s retention period is longer
--- than that maximum retention period, then the vault fails the backup or
+-- have a lifecycle policy with a retention period equal to or longer than
+-- the minimum retention period. If the job\'s retention period is shorter
+-- than that minimum retention period, then the vault fails that backup or
 -- copy job, and you should either modify your lifecycle settings or use a
 -- different vault. Recovery points already saved in the vault prior to
 -- Vault Lock are not affected.
@@ -156,38 +154,7 @@ data PutBackupVaultLockConfiguration = PutBackupVaultLockConfiguration'
 -- vault using @DeleteBackupVaultLockConfiguration@ or change the Vault
 -- Lock configuration using @PutBackupVaultLockConfiguration@ at any time.
 --
--- 'minRetentionDays', 'putBackupVaultLockConfiguration_minRetentionDays' - The Backup Vault Lock configuration that specifies the minimum retention
--- period that the vault retains its recovery points. This setting can be
--- useful if, for example, your organization\'s policies require you to
--- retain certain data for at least seven years (2555 days).
---
--- If this parameter is not specified, Vault Lock will not enforce a
--- minimum retention period.
---
--- If this parameter is specified, any backup or copy job to the vault must
--- have a lifecycle policy with a retention period equal to or longer than
--- the minimum retention period. If the job\'s retention period is shorter
--- than that minimum retention period, then the vault fails that backup or
--- copy job, and you should either modify your lifecycle settings or use a
--- different vault. Recovery points already saved in the vault prior to
--- Vault Lock are not affected.
---
--- 'backupVaultName', 'putBackupVaultLockConfiguration_backupVaultName' - The Backup Vault Lock configuration that specifies the name of the
--- backup vault it protects.
-newPutBackupVaultLockConfiguration ::
-  -- | 'backupVaultName'
-  Prelude.Text ->
-  PutBackupVaultLockConfiguration
-newPutBackupVaultLockConfiguration pBackupVaultName_ =
-  PutBackupVaultLockConfiguration'
-    { maxRetentionDays =
-        Prelude.Nothing,
-      changeableForDays = Prelude.Nothing,
-      minRetentionDays = Prelude.Nothing,
-      backupVaultName = pBackupVaultName_
-    }
-
--- | The Backup Vault Lock configuration that specifies the maximum retention
+-- 'maxRetentionDays', 'putBackupVaultLockConfiguration_maxRetentionDays' - The Backup Vault Lock configuration that specifies the maximum retention
 -- period that the vault retains its recovery points. This setting can be
 -- useful if, for example, your organization\'s policies require you to
 -- destroy certain data after retaining it for four years (1460 days).
@@ -204,8 +171,39 @@ newPutBackupVaultLockConfiguration pBackupVaultName_ =
 -- copy job, and you should either modify your lifecycle settings or use a
 -- different vault. Recovery points already saved in the vault prior to
 -- Vault Lock are not affected.
-putBackupVaultLockConfiguration_maxRetentionDays :: Lens.Lens' PutBackupVaultLockConfiguration (Prelude.Maybe Prelude.Integer)
-putBackupVaultLockConfiguration_maxRetentionDays = Lens.lens (\PutBackupVaultLockConfiguration' {maxRetentionDays} -> maxRetentionDays) (\s@PutBackupVaultLockConfiguration' {} a -> s {maxRetentionDays = a} :: PutBackupVaultLockConfiguration)
+--
+-- 'backupVaultName', 'putBackupVaultLockConfiguration_backupVaultName' - The Backup Vault Lock configuration that specifies the name of the
+-- backup vault it protects.
+newPutBackupVaultLockConfiguration ::
+  -- | 'backupVaultName'
+  Prelude.Text ->
+  PutBackupVaultLockConfiguration
+newPutBackupVaultLockConfiguration pBackupVaultName_ =
+  PutBackupVaultLockConfiguration'
+    { minRetentionDays =
+        Prelude.Nothing,
+      changeableForDays = Prelude.Nothing,
+      maxRetentionDays = Prelude.Nothing,
+      backupVaultName = pBackupVaultName_
+    }
+
+-- | The Backup Vault Lock configuration that specifies the minimum retention
+-- period that the vault retains its recovery points. This setting can be
+-- useful if, for example, your organization\'s policies require you to
+-- retain certain data for at least seven years (2555 days).
+--
+-- If this parameter is not specified, Vault Lock will not enforce a
+-- minimum retention period.
+--
+-- If this parameter is specified, any backup or copy job to the vault must
+-- have a lifecycle policy with a retention period equal to or longer than
+-- the minimum retention period. If the job\'s retention period is shorter
+-- than that minimum retention period, then the vault fails that backup or
+-- copy job, and you should either modify your lifecycle settings or use a
+-- different vault. Recovery points already saved in the vault prior to
+-- Vault Lock are not affected.
+putBackupVaultLockConfiguration_minRetentionDays :: Lens.Lens' PutBackupVaultLockConfiguration (Prelude.Maybe Prelude.Integer)
+putBackupVaultLockConfiguration_minRetentionDays = Lens.lens (\PutBackupVaultLockConfiguration' {minRetentionDays} -> minRetentionDays) (\s@PutBackupVaultLockConfiguration' {} a -> s {minRetentionDays = a} :: PutBackupVaultLockConfiguration)
 
 -- | The Backup Vault Lock configuration that specifies the number of days
 -- before the lock date. For example, setting @ChangeableForDays@ to 30 on
@@ -228,23 +226,25 @@ putBackupVaultLockConfiguration_maxRetentionDays = Lens.lens (\PutBackupVaultLoc
 putBackupVaultLockConfiguration_changeableForDays :: Lens.Lens' PutBackupVaultLockConfiguration (Prelude.Maybe Prelude.Integer)
 putBackupVaultLockConfiguration_changeableForDays = Lens.lens (\PutBackupVaultLockConfiguration' {changeableForDays} -> changeableForDays) (\s@PutBackupVaultLockConfiguration' {} a -> s {changeableForDays = a} :: PutBackupVaultLockConfiguration)
 
--- | The Backup Vault Lock configuration that specifies the minimum retention
+-- | The Backup Vault Lock configuration that specifies the maximum retention
 -- period that the vault retains its recovery points. This setting can be
 -- useful if, for example, your organization\'s policies require you to
--- retain certain data for at least seven years (2555 days).
+-- destroy certain data after retaining it for four years (1460 days).
 --
--- If this parameter is not specified, Vault Lock will not enforce a
--- minimum retention period.
+-- If this parameter is not included, Vault Lock does not enforce a maximum
+-- retention period on the recovery points in the vault. If this parameter
+-- is included without a value, Vault Lock will not enforce a maximum
+-- retention period.
 --
 -- If this parameter is specified, any backup or copy job to the vault must
--- have a lifecycle policy with a retention period equal to or longer than
--- the minimum retention period. If the job\'s retention period is shorter
--- than that minimum retention period, then the vault fails that backup or
+-- have a lifecycle policy with a retention period equal to or shorter than
+-- the maximum retention period. If the job\'s retention period is longer
+-- than that maximum retention period, then the vault fails the backup or
 -- copy job, and you should either modify your lifecycle settings or use a
 -- different vault. Recovery points already saved in the vault prior to
 -- Vault Lock are not affected.
-putBackupVaultLockConfiguration_minRetentionDays :: Lens.Lens' PutBackupVaultLockConfiguration (Prelude.Maybe Prelude.Integer)
-putBackupVaultLockConfiguration_minRetentionDays = Lens.lens (\PutBackupVaultLockConfiguration' {minRetentionDays} -> minRetentionDays) (\s@PutBackupVaultLockConfiguration' {} a -> s {minRetentionDays = a} :: PutBackupVaultLockConfiguration)
+putBackupVaultLockConfiguration_maxRetentionDays :: Lens.Lens' PutBackupVaultLockConfiguration (Prelude.Maybe Prelude.Integer)
+putBackupVaultLockConfiguration_maxRetentionDays = Lens.lens (\PutBackupVaultLockConfiguration' {maxRetentionDays} -> maxRetentionDays) (\s@PutBackupVaultLockConfiguration' {} a -> s {maxRetentionDays = a} :: PutBackupVaultLockConfiguration)
 
 -- | The Backup Vault Lock configuration that specifies the name of the
 -- backup vault it protects.
@@ -270,9 +270,9 @@ instance
   hashWithSalt
     _salt
     PutBackupVaultLockConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` maxRetentionDays
+      _salt `Prelude.hashWithSalt` minRetentionDays
         `Prelude.hashWithSalt` changeableForDays
-        `Prelude.hashWithSalt` minRetentionDays
+        `Prelude.hashWithSalt` maxRetentionDays
         `Prelude.hashWithSalt` backupVaultName
 
 instance
@@ -280,9 +280,9 @@ instance
     PutBackupVaultLockConfiguration
   where
   rnf PutBackupVaultLockConfiguration' {..} =
-    Prelude.rnf maxRetentionDays
+    Prelude.rnf minRetentionDays
       `Prelude.seq` Prelude.rnf changeableForDays
-      `Prelude.seq` Prelude.rnf minRetentionDays
+      `Prelude.seq` Prelude.rnf maxRetentionDays
       `Prelude.seq` Prelude.rnf backupVaultName
 
 instance
@@ -303,12 +303,12 @@ instance Core.ToJSON PutBackupVaultLockConfiguration where
   toJSON PutBackupVaultLockConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxRetentionDays" Core..=)
-              Prelude.<$> maxRetentionDays,
+          [ ("MinRetentionDays" Core..=)
+              Prelude.<$> minRetentionDays,
             ("ChangeableForDays" Core..=)
               Prelude.<$> changeableForDays,
-            ("MinRetentionDays" Core..=)
-              Prelude.<$> minRetentionDays
+            ("MaxRetentionDays" Core..=)
+              Prelude.<$> maxRetentionDays
           ]
       )
 

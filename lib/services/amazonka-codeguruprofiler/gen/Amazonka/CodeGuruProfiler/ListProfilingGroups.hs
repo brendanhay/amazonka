@@ -29,9 +29,9 @@ module Amazonka.CodeGuruProfiler.ListProfilingGroups
     newListProfilingGroups,
 
     -- * Request Lenses
-    listProfilingGroups_includeDescription,
     listProfilingGroups_nextToken,
     listProfilingGroups_maxResults,
+    listProfilingGroups_includeDescription,
 
     -- * Destructuring the Response
     ListProfilingGroupsResponse (..),
@@ -56,13 +56,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListProfilingGroups' smart constructor.
 data ListProfilingGroups = ListProfilingGroups'
-  { -- | A @Boolean@ value indicating whether to include a description. If
-    -- @true@, then a list of
-    -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
-    -- objects that contain detailed information about profiling groups is
-    -- returned. If @false@, then a list of profiling group names is returned.
-    includeDescription :: Prelude.Maybe Prelude.Bool,
-    -- | The @nextToken@ value returned from a previous paginated
+  { -- | The @nextToken@ value returned from a previous paginated
     -- @ListProfilingGroups@ request where @maxResults@ was used and the
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
@@ -77,7 +71,13 @@ data ListProfilingGroups = ListProfilingGroups'
     -- along with a @nextToken@ response element. The remaining results of the
     -- initial request can be seen by sending another @ListProfilingGroups@
     -- request with the returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A @Boolean@ value indicating whether to include a description. If
+    -- @true@, then a list of
+    -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
+    -- objects that contain detailed information about profiling groups is
+    -- returned. If @false@, then a list of profiling group names is returned.
+    includeDescription :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,12 +88,6 @@ data ListProfilingGroups = ListProfilingGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'includeDescription', 'listProfilingGroups_includeDescription' - A @Boolean@ value indicating whether to include a description. If
--- @true@, then a list of
--- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
--- objects that contain detailed information about profiling groups is
--- returned. If @false@, then a list of profiling group names is returned.
 --
 -- 'nextToken', 'listProfilingGroups_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @ListProfilingGroups@ request where @maxResults@ was used and the
@@ -110,23 +104,20 @@ data ListProfilingGroups = ListProfilingGroups'
 -- along with a @nextToken@ response element. The remaining results of the
 -- initial request can be seen by sending another @ListProfilingGroups@
 -- request with the returned @nextToken@ value.
-newListProfilingGroups ::
-  ListProfilingGroups
-newListProfilingGroups =
-  ListProfilingGroups'
-    { includeDescription =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | A @Boolean@ value indicating whether to include a description. If
+--
+-- 'includeDescription', 'listProfilingGroups_includeDescription' - A @Boolean@ value indicating whether to include a description. If
 -- @true@, then a list of
 -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
 -- objects that contain detailed information about profiling groups is
 -- returned. If @false@, then a list of profiling group names is returned.
-listProfilingGroups_includeDescription :: Lens.Lens' ListProfilingGroups (Prelude.Maybe Prelude.Bool)
-listProfilingGroups_includeDescription = Lens.lens (\ListProfilingGroups' {includeDescription} -> includeDescription) (\s@ListProfilingGroups' {} a -> s {includeDescription = a} :: ListProfilingGroups)
+newListProfilingGroups ::
+  ListProfilingGroups
+newListProfilingGroups =
+  ListProfilingGroups'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      includeDescription = Prelude.Nothing
+    }
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListProfilingGroups@ request where @maxResults@ was used and the
@@ -147,6 +138,14 @@ listProfilingGroups_nextToken = Lens.lens (\ListProfilingGroups' {nextToken} -> 
 -- request with the returned @nextToken@ value.
 listProfilingGroups_maxResults :: Lens.Lens' ListProfilingGroups (Prelude.Maybe Prelude.Natural)
 listProfilingGroups_maxResults = Lens.lens (\ListProfilingGroups' {maxResults} -> maxResults) (\s@ListProfilingGroups' {} a -> s {maxResults = a} :: ListProfilingGroups)
+
+-- | A @Boolean@ value indicating whether to include a description. If
+-- @true@, then a list of
+-- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
+-- objects that contain detailed information about profiling groups is
+-- returned. If @false@, then a list of profiling group names is returned.
+listProfilingGroups_includeDescription :: Lens.Lens' ListProfilingGroups (Prelude.Maybe Prelude.Bool)
+listProfilingGroups_includeDescription = Lens.lens (\ListProfilingGroups' {includeDescription} -> includeDescription) (\s@ListProfilingGroups' {} a -> s {includeDescription = a} :: ListProfilingGroups)
 
 instance Core.AWSRequest ListProfilingGroups where
   type
@@ -169,15 +168,15 @@ instance Core.AWSRequest ListProfilingGroups where
 
 instance Prelude.Hashable ListProfilingGroups where
   hashWithSalt _salt ListProfilingGroups' {..} =
-    _salt `Prelude.hashWithSalt` includeDescription
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` includeDescription
 
 instance Prelude.NFData ListProfilingGroups where
   rnf ListProfilingGroups' {..} =
-    Prelude.rnf includeDescription
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf includeDescription
 
 instance Core.ToHeaders ListProfilingGroups where
   toHeaders =
@@ -196,9 +195,9 @@ instance Core.ToPath ListProfilingGroups where
 instance Core.ToQuery ListProfilingGroups where
   toQuery ListProfilingGroups' {..} =
     Prelude.mconcat
-      [ "includeDescription" Core.=: includeDescription,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
+        "includeDescription" Core.=: includeDescription
       ]
 
 -- | The structure representing the listProfilingGroupsResponse.

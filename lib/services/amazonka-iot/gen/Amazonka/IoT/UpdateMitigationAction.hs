@@ -31,8 +31,8 @@ module Amazonka.IoT.UpdateMitigationAction
     newUpdateMitigationAction,
 
     -- * Request Lenses
-    updateMitigationAction_actionParams,
     updateMitigationAction_roleArn,
+    updateMitigationAction_actionParams,
     updateMitigationAction_actionName,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateMitigationAction' smart constructor.
 data UpdateMitigationAction = UpdateMitigationAction'
-  { -- | Defines the type of action and the parameters for that action.
-    actionParams :: Prelude.Maybe MitigationActionParams,
-    -- | The ARN of the IAM role that is used to apply the mitigation action.
+  { -- | The ARN of the IAM role that is used to apply the mitigation action.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Defines the type of action and the parameters for that action.
+    actionParams :: Prelude.Maybe MitigationActionParams,
     -- | The friendly name for the mitigation action. You cannot change the name
     -- by using @UpdateMitigationAction@. Instead, you must delete and recreate
     -- the mitigation action with the new name.
@@ -74,9 +74,9 @@ data UpdateMitigationAction = UpdateMitigationAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionParams', 'updateMitigationAction_actionParams' - Defines the type of action and the parameters for that action.
---
 -- 'roleArn', 'updateMitigationAction_roleArn' - The ARN of the IAM role that is used to apply the mitigation action.
+--
+-- 'actionParams', 'updateMitigationAction_actionParams' - Defines the type of action and the parameters for that action.
 --
 -- 'actionName', 'updateMitigationAction_actionName' - The friendly name for the mitigation action. You cannot change the name
 -- by using @UpdateMitigationAction@. Instead, you must delete and recreate
@@ -87,19 +87,18 @@ newUpdateMitigationAction ::
   UpdateMitigationAction
 newUpdateMitigationAction pActionName_ =
   UpdateMitigationAction'
-    { actionParams =
-        Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
+      actionParams = Prelude.Nothing,
       actionName = pActionName_
     }
-
--- | Defines the type of action and the parameters for that action.
-updateMitigationAction_actionParams :: Lens.Lens' UpdateMitigationAction (Prelude.Maybe MitigationActionParams)
-updateMitigationAction_actionParams = Lens.lens (\UpdateMitigationAction' {actionParams} -> actionParams) (\s@UpdateMitigationAction' {} a -> s {actionParams = a} :: UpdateMitigationAction)
 
 -- | The ARN of the IAM role that is used to apply the mitigation action.
 updateMitigationAction_roleArn :: Lens.Lens' UpdateMitigationAction (Prelude.Maybe Prelude.Text)
 updateMitigationAction_roleArn = Lens.lens (\UpdateMitigationAction' {roleArn} -> roleArn) (\s@UpdateMitigationAction' {} a -> s {roleArn = a} :: UpdateMitigationAction)
+
+-- | Defines the type of action and the parameters for that action.
+updateMitigationAction_actionParams :: Lens.Lens' UpdateMitigationAction (Prelude.Maybe MitigationActionParams)
+updateMitigationAction_actionParams = Lens.lens (\UpdateMitigationAction' {actionParams} -> actionParams) (\s@UpdateMitigationAction' {} a -> s {actionParams = a} :: UpdateMitigationAction)
 
 -- | The friendly name for the mitigation action. You cannot change the name
 -- by using @UpdateMitigationAction@. Instead, you must delete and recreate
@@ -123,14 +122,14 @@ instance Core.AWSRequest UpdateMitigationAction where
 
 instance Prelude.Hashable UpdateMitigationAction where
   hashWithSalt _salt UpdateMitigationAction' {..} =
-    _salt `Prelude.hashWithSalt` actionParams
-      `Prelude.hashWithSalt` roleArn
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` actionParams
       `Prelude.hashWithSalt` actionName
 
 instance Prelude.NFData UpdateMitigationAction where
   rnf UpdateMitigationAction' {..} =
-    Prelude.rnf actionParams
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf actionParams
       `Prelude.seq` Prelude.rnf actionName
 
 instance Core.ToHeaders UpdateMitigationAction where
@@ -140,8 +139,8 @@ instance Core.ToJSON UpdateMitigationAction where
   toJSON UpdateMitigationAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("actionParams" Core..=) Prelude.<$> actionParams,
-            ("roleArn" Core..=) Prelude.<$> roleArn
+          [ ("roleArn" Core..=) Prelude.<$> roleArn,
+            ("actionParams" Core..=) Prelude.<$> actionParams
           ]
       )
 

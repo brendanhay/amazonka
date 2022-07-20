@@ -35,14 +35,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCostCategoryInheritedValueDimension' smart constructor.
 data CostCategoryInheritedValueDimension = CostCategoryInheritedValueDimension'
-  { -- | The name of the dimension that\'s used to group costs.
+  { -- | The key to extract cost category values.
+    dimensionKey :: Prelude.Maybe Prelude.Text,
+    -- | The name of the dimension that\'s used to group costs.
     --
     -- If you specify @LINKED_ACCOUNT_NAME@, the cost category value is based
     -- on account name. If you specify @TAG@, the cost category value will be
     -- based on the value of the specified tag key.
-    dimensionName :: Prelude.Maybe CostCategoryInheritedValueDimensionName,
-    -- | The key to extract cost category values.
-    dimensionKey :: Prelude.Maybe Prelude.Text
+    dimensionName :: Prelude.Maybe CostCategoryInheritedValueDimensionName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,21 +54,25 @@ data CostCategoryInheritedValueDimension = CostCategoryInheritedValueDimension'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dimensionKey', 'costCategoryInheritedValueDimension_dimensionKey' - The key to extract cost category values.
+--
 -- 'dimensionName', 'costCategoryInheritedValueDimension_dimensionName' - The name of the dimension that\'s used to group costs.
 --
 -- If you specify @LINKED_ACCOUNT_NAME@, the cost category value is based
 -- on account name. If you specify @TAG@, the cost category value will be
 -- based on the value of the specified tag key.
---
--- 'dimensionKey', 'costCategoryInheritedValueDimension_dimensionKey' - The key to extract cost category values.
 newCostCategoryInheritedValueDimension ::
   CostCategoryInheritedValueDimension
 newCostCategoryInheritedValueDimension =
   CostCategoryInheritedValueDimension'
-    { dimensionName =
+    { dimensionKey =
         Prelude.Nothing,
-      dimensionKey = Prelude.Nothing
+      dimensionName = Prelude.Nothing
     }
+
+-- | The key to extract cost category values.
+costCategoryInheritedValueDimension_dimensionKey :: Lens.Lens' CostCategoryInheritedValueDimension (Prelude.Maybe Prelude.Text)
+costCategoryInheritedValueDimension_dimensionKey = Lens.lens (\CostCategoryInheritedValueDimension' {dimensionKey} -> dimensionKey) (\s@CostCategoryInheritedValueDimension' {} a -> s {dimensionKey = a} :: CostCategoryInheritedValueDimension)
 
 -- | The name of the dimension that\'s used to group costs.
 --
@@ -77,10 +81,6 @@ newCostCategoryInheritedValueDimension =
 -- based on the value of the specified tag key.
 costCategoryInheritedValueDimension_dimensionName :: Lens.Lens' CostCategoryInheritedValueDimension (Prelude.Maybe CostCategoryInheritedValueDimensionName)
 costCategoryInheritedValueDimension_dimensionName = Lens.lens (\CostCategoryInheritedValueDimension' {dimensionName} -> dimensionName) (\s@CostCategoryInheritedValueDimension' {} a -> s {dimensionName = a} :: CostCategoryInheritedValueDimension)
-
--- | The key to extract cost category values.
-costCategoryInheritedValueDimension_dimensionKey :: Lens.Lens' CostCategoryInheritedValueDimension (Prelude.Maybe Prelude.Text)
-costCategoryInheritedValueDimension_dimensionKey = Lens.lens (\CostCategoryInheritedValueDimension' {dimensionKey} -> dimensionKey) (\s@CostCategoryInheritedValueDimension' {} a -> s {dimensionKey = a} :: CostCategoryInheritedValueDimension)
 
 instance
   Core.FromJSON
@@ -91,8 +91,8 @@ instance
       "CostCategoryInheritedValueDimension"
       ( \x ->
           CostCategoryInheritedValueDimension'
-            Prelude.<$> (x Core..:? "DimensionName")
-            Prelude.<*> (x Core..:? "DimensionKey")
+            Prelude.<$> (x Core..:? "DimensionKey")
+            Prelude.<*> (x Core..:? "DimensionName")
       )
 
 instance
@@ -102,16 +102,16 @@ instance
   hashWithSalt
     _salt
     CostCategoryInheritedValueDimension' {..} =
-      _salt `Prelude.hashWithSalt` dimensionName
-        `Prelude.hashWithSalt` dimensionKey
+      _salt `Prelude.hashWithSalt` dimensionKey
+        `Prelude.hashWithSalt` dimensionName
 
 instance
   Prelude.NFData
     CostCategoryInheritedValueDimension
   where
   rnf CostCategoryInheritedValueDimension' {..} =
-    Prelude.rnf dimensionName
-      `Prelude.seq` Prelude.rnf dimensionKey
+    Prelude.rnf dimensionKey
+      `Prelude.seq` Prelude.rnf dimensionName
 
 instance
   Core.ToJSON
@@ -120,7 +120,7 @@ instance
   toJSON CostCategoryInheritedValueDimension' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DimensionName" Core..=) Prelude.<$> dimensionName,
-            ("DimensionKey" Core..=) Prelude.<$> dimensionKey
+          [ ("DimensionKey" Core..=) Prelude.<$> dimensionKey,
+            ("DimensionName" Core..=) Prelude.<$> dimensionName
           ]
       )

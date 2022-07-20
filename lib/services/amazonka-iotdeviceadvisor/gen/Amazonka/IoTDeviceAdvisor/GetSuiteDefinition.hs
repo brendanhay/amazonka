@@ -35,14 +35,14 @@ module Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
     newGetSuiteDefinitionResponse,
 
     -- * Response Lenses
-    getSuiteDefinitionResponse_createdAt,
+    getSuiteDefinitionResponse_tags,
+    getSuiteDefinitionResponse_latestVersion,
     getSuiteDefinitionResponse_suiteDefinitionConfiguration,
     getSuiteDefinitionResponse_suiteDefinitionArn,
-    getSuiteDefinitionResponse_lastModifiedAt,
-    getSuiteDefinitionResponse_suiteDefinitionId,
     getSuiteDefinitionResponse_suiteDefinitionVersion,
-    getSuiteDefinitionResponse_latestVersion,
-    getSuiteDefinitionResponse_tags,
+    getSuiteDefinitionResponse_suiteDefinitionId,
+    getSuiteDefinitionResponse_createdAt,
+    getSuiteDefinitionResponse_lastModifiedAt,
     getSuiteDefinitionResponse_httpStatus,
   )
 where
@@ -102,14 +102,14 @@ instance Core.AWSRequest GetSuiteDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetSuiteDefinitionResponse'
-            Prelude.<$> (x Core..?> "createdAt")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "latestVersion")
             Prelude.<*> (x Core..?> "suiteDefinitionConfiguration")
             Prelude.<*> (x Core..?> "suiteDefinitionArn")
-            Prelude.<*> (x Core..?> "lastModifiedAt")
-            Prelude.<*> (x Core..?> "suiteDefinitionId")
             Prelude.<*> (x Core..?> "suiteDefinitionVersion")
-            Prelude.<*> (x Core..?> "latestVersion")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "suiteDefinitionId")
+            Prelude.<*> (x Core..?> "createdAt")
+            Prelude.<*> (x Core..?> "lastModifiedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,22 +148,22 @@ instance Core.ToQuery GetSuiteDefinition where
 
 -- | /See:/ 'newGetSuiteDefinitionResponse' smart constructor.
 data GetSuiteDefinitionResponse = GetSuiteDefinitionResponse'
-  { -- | Date (in Unix epoch time) when the suite definition was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | Tags attached to the suite definition.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Latest suite definition version of the suite definition.
+    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | Suite configuration of the suite definition.
     suiteDefinitionConfiguration :: Prelude.Maybe SuiteDefinitionConfiguration,
     -- | The ARN of the suite definition.
     suiteDefinitionArn :: Prelude.Maybe Prelude.Text,
-    -- | Date (in Unix epoch time) when the suite definition was last modified.
-    lastModifiedAt :: Prelude.Maybe Core.POSIX,
-    -- | Suite definition Id of the suite definition.
-    suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Suite definition version of the suite definition.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
-    -- | Latest suite definition version of the suite definition.
-    latestVersion :: Prelude.Maybe Prelude.Text,
-    -- | Tags attached to the suite definition.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Suite definition Id of the suite definition.
+    suiteDefinitionId :: Prelude.Maybe Prelude.Text,
+    -- | Date (in Unix epoch time) when the suite definition was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | Date (in Unix epoch time) when the suite definition was last modified.
+    lastModifiedAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,21 +177,21 @@ data GetSuiteDefinitionResponse = GetSuiteDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'getSuiteDefinitionResponse_createdAt' - Date (in Unix epoch time) when the suite definition was created.
+-- 'tags', 'getSuiteDefinitionResponse_tags' - Tags attached to the suite definition.
+--
+-- 'latestVersion', 'getSuiteDefinitionResponse_latestVersion' - Latest suite definition version of the suite definition.
 --
 -- 'suiteDefinitionConfiguration', 'getSuiteDefinitionResponse_suiteDefinitionConfiguration' - Suite configuration of the suite definition.
 --
 -- 'suiteDefinitionArn', 'getSuiteDefinitionResponse_suiteDefinitionArn' - The ARN of the suite definition.
 --
--- 'lastModifiedAt', 'getSuiteDefinitionResponse_lastModifiedAt' - Date (in Unix epoch time) when the suite definition was last modified.
+-- 'suiteDefinitionVersion', 'getSuiteDefinitionResponse_suiteDefinitionVersion' - Suite definition version of the suite definition.
 --
 -- 'suiteDefinitionId', 'getSuiteDefinitionResponse_suiteDefinitionId' - Suite definition Id of the suite definition.
 --
--- 'suiteDefinitionVersion', 'getSuiteDefinitionResponse_suiteDefinitionVersion' - Suite definition version of the suite definition.
+-- 'createdAt', 'getSuiteDefinitionResponse_createdAt' - Date (in Unix epoch time) when the suite definition was created.
 --
--- 'latestVersion', 'getSuiteDefinitionResponse_latestVersion' - Latest suite definition version of the suite definition.
---
--- 'tags', 'getSuiteDefinitionResponse_tags' - Tags attached to the suite definition.
+-- 'lastModifiedAt', 'getSuiteDefinitionResponse_lastModifiedAt' - Date (in Unix epoch time) when the suite definition was last modified.
 --
 -- 'httpStatus', 'getSuiteDefinitionResponse_httpStatus' - The response's http status code.
 newGetSuiteDefinitionResponse ::
@@ -200,21 +200,24 @@ newGetSuiteDefinitionResponse ::
   GetSuiteDefinitionResponse
 newGetSuiteDefinitionResponse pHttpStatus_ =
   GetSuiteDefinitionResponse'
-    { createdAt =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
       suiteDefinitionConfiguration = Prelude.Nothing,
       suiteDefinitionArn = Prelude.Nothing,
-      lastModifiedAt = Prelude.Nothing,
-      suiteDefinitionId = Prelude.Nothing,
       suiteDefinitionVersion = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      suiteDefinitionId = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      lastModifiedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Date (in Unix epoch time) when the suite definition was created.
-getSuiteDefinitionResponse_createdAt :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
-getSuiteDefinitionResponse_createdAt = Lens.lens (\GetSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@GetSuiteDefinitionResponse' {} a -> s {createdAt = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
+-- | Tags attached to the suite definition.
+getSuiteDefinitionResponse_tags :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getSuiteDefinitionResponse_tags = Lens.lens (\GetSuiteDefinitionResponse' {tags} -> tags) (\s@GetSuiteDefinitionResponse' {} a -> s {tags = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Latest suite definition version of the suite definition.
+getSuiteDefinitionResponse_latestVersion :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSuiteDefinitionResponse_latestVersion = Lens.lens (\GetSuiteDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetSuiteDefinitionResponse' {} a -> s {latestVersion = a} :: GetSuiteDefinitionResponse)
 
 -- | Suite configuration of the suite definition.
 getSuiteDefinitionResponse_suiteDefinitionConfiguration :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe SuiteDefinitionConfiguration)
@@ -224,25 +227,21 @@ getSuiteDefinitionResponse_suiteDefinitionConfiguration = Lens.lens (\GetSuiteDe
 getSuiteDefinitionResponse_suiteDefinitionArn :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSuiteDefinitionResponse_suiteDefinitionArn = Lens.lens (\GetSuiteDefinitionResponse' {suiteDefinitionArn} -> suiteDefinitionArn) (\s@GetSuiteDefinitionResponse' {} a -> s {suiteDefinitionArn = a} :: GetSuiteDefinitionResponse)
 
--- | Date (in Unix epoch time) when the suite definition was last modified.
-getSuiteDefinitionResponse_lastModifiedAt :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
-getSuiteDefinitionResponse_lastModifiedAt = Lens.lens (\GetSuiteDefinitionResponse' {lastModifiedAt} -> lastModifiedAt) (\s@GetSuiteDefinitionResponse' {} a -> s {lastModifiedAt = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
+-- | Suite definition version of the suite definition.
+getSuiteDefinitionResponse_suiteDefinitionVersion :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
+getSuiteDefinitionResponse_suiteDefinitionVersion = Lens.lens (\GetSuiteDefinitionResponse' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@GetSuiteDefinitionResponse' {} a -> s {suiteDefinitionVersion = a} :: GetSuiteDefinitionResponse)
 
 -- | Suite definition Id of the suite definition.
 getSuiteDefinitionResponse_suiteDefinitionId :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\GetSuiteDefinitionResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@GetSuiteDefinitionResponse' {} a -> s {suiteDefinitionId = a} :: GetSuiteDefinitionResponse)
 
--- | Suite definition version of the suite definition.
-getSuiteDefinitionResponse_suiteDefinitionVersion :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
-getSuiteDefinitionResponse_suiteDefinitionVersion = Lens.lens (\GetSuiteDefinitionResponse' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@GetSuiteDefinitionResponse' {} a -> s {suiteDefinitionVersion = a} :: GetSuiteDefinitionResponse)
+-- | Date (in Unix epoch time) when the suite definition was created.
+getSuiteDefinitionResponse_createdAt :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
+getSuiteDefinitionResponse_createdAt = Lens.lens (\GetSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@GetSuiteDefinitionResponse' {} a -> s {createdAt = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
 
--- | Latest suite definition version of the suite definition.
-getSuiteDefinitionResponse_latestVersion :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
-getSuiteDefinitionResponse_latestVersion = Lens.lens (\GetSuiteDefinitionResponse' {latestVersion} -> latestVersion) (\s@GetSuiteDefinitionResponse' {} a -> s {latestVersion = a} :: GetSuiteDefinitionResponse)
-
--- | Tags attached to the suite definition.
-getSuiteDefinitionResponse_tags :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSuiteDefinitionResponse_tags = Lens.lens (\GetSuiteDefinitionResponse' {tags} -> tags) (\s@GetSuiteDefinitionResponse' {} a -> s {tags = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Date (in Unix epoch time) when the suite definition was last modified.
+getSuiteDefinitionResponse_lastModifiedAt :: Lens.Lens' GetSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
+getSuiteDefinitionResponse_lastModifiedAt = Lens.lens (\GetSuiteDefinitionResponse' {lastModifiedAt} -> lastModifiedAt) (\s@GetSuiteDefinitionResponse' {} a -> s {lastModifiedAt = a} :: GetSuiteDefinitionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 getSuiteDefinitionResponse_httpStatus :: Lens.Lens' GetSuiteDefinitionResponse Prelude.Int
@@ -250,12 +249,12 @@ getSuiteDefinitionResponse_httpStatus = Lens.lens (\GetSuiteDefinitionResponse' 
 
 instance Prelude.NFData GetSuiteDefinitionResponse where
   rnf GetSuiteDefinitionResponse' {..} =
-    Prelude.rnf createdAt
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf latestVersion
       `Prelude.seq` Prelude.rnf suiteDefinitionConfiguration
       `Prelude.seq` Prelude.rnf suiteDefinitionArn
-      `Prelude.seq` Prelude.rnf lastModifiedAt
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
       `Prelude.seq` Prelude.rnf suiteDefinitionVersion
-      `Prelude.seq` Prelude.rnf latestVersion
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastModifiedAt
       `Prelude.seq` Prelude.rnf httpStatus

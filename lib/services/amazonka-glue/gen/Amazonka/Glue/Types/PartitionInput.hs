@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPartitionInput' smart constructor.
 data PartitionInput = PartitionInput'
-  { -- | The values of the partition. Although this parameter is not required by
+  { -- | The last time at which the partition was accessed.
+    lastAccessTime :: Prelude.Maybe Core.POSIX,
+    -- | Provides information about the physical location where the partition is
+    -- stored.
+    storageDescriptor :: Prelude.Maybe StorageDescriptor,
+    -- | The values of the partition. Although this parameter is not required by
     -- the SDK, you must specify this parameter for a valid input.
     --
     -- The values for the keys for the new partition must be passed as an array
@@ -39,13 +44,8 @@ data PartitionInput = PartitionInput'
     -- | The last time at which column statistics were computed for this
     -- partition.
     lastAnalyzedTime :: Prelude.Maybe Core.POSIX,
-    -- | Provides information about the physical location where the partition is
-    -- stored.
-    storageDescriptor :: Prelude.Maybe StorageDescriptor,
     -- | These key-value pairs define partition parameters.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The last time at which the partition was accessed.
-    lastAccessTime :: Prelude.Maybe Core.POSIX
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,11 @@ data PartitionInput = PartitionInput'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'lastAccessTime', 'partitionInput_lastAccessTime' - The last time at which the partition was accessed.
+--
+-- 'storageDescriptor', 'partitionInput_storageDescriptor' - Provides information about the physical location where the partition is
+-- stored.
 --
 -- 'values', 'partitionInput_values' - The values of the partition. Although this parameter is not required by
 -- the SDK, you must specify this parameter for a valid input.
@@ -68,22 +73,26 @@ data PartitionInput = PartitionInput'
 -- 'lastAnalyzedTime', 'partitionInput_lastAnalyzedTime' - The last time at which column statistics were computed for this
 -- partition.
 --
--- 'storageDescriptor', 'partitionInput_storageDescriptor' - Provides information about the physical location where the partition is
--- stored.
---
 -- 'parameters', 'partitionInput_parameters' - These key-value pairs define partition parameters.
---
--- 'lastAccessTime', 'partitionInput_lastAccessTime' - The last time at which the partition was accessed.
 newPartitionInput ::
   PartitionInput
 newPartitionInput =
   PartitionInput'
-    { values = Prelude.Nothing,
-      lastAnalyzedTime = Prelude.Nothing,
+    { lastAccessTime = Prelude.Nothing,
       storageDescriptor = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      lastAccessTime = Prelude.Nothing
+      values = Prelude.Nothing,
+      lastAnalyzedTime = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
+
+-- | The last time at which the partition was accessed.
+partitionInput_lastAccessTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
+partitionInput_lastAccessTime = Lens.lens (\PartitionInput' {lastAccessTime} -> lastAccessTime) (\s@PartitionInput' {} a -> s {lastAccessTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
+
+-- | Provides information about the physical location where the partition is
+-- stored.
+partitionInput_storageDescriptor :: Lens.Lens' PartitionInput (Prelude.Maybe StorageDescriptor)
+partitionInput_storageDescriptor = Lens.lens (\PartitionInput' {storageDescriptor} -> storageDescriptor) (\s@PartitionInput' {} a -> s {storageDescriptor = a} :: PartitionInput)
 
 -- | The values of the partition. Although this parameter is not required by
 -- the SDK, you must specify this parameter for a valid input.
@@ -100,46 +109,37 @@ partitionInput_values = Lens.lens (\PartitionInput' {values} -> values) (\s@Part
 partitionInput_lastAnalyzedTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
 partitionInput_lastAnalyzedTime = Lens.lens (\PartitionInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@PartitionInput' {} a -> s {lastAnalyzedTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
 
--- | Provides information about the physical location where the partition is
--- stored.
-partitionInput_storageDescriptor :: Lens.Lens' PartitionInput (Prelude.Maybe StorageDescriptor)
-partitionInput_storageDescriptor = Lens.lens (\PartitionInput' {storageDescriptor} -> storageDescriptor) (\s@PartitionInput' {} a -> s {storageDescriptor = a} :: PartitionInput)
-
 -- | These key-value pairs define partition parameters.
 partitionInput_parameters :: Lens.Lens' PartitionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 partitionInput_parameters = Lens.lens (\PartitionInput' {parameters} -> parameters) (\s@PartitionInput' {} a -> s {parameters = a} :: PartitionInput) Prelude.. Lens.mapping Lens.coerced
 
--- | The last time at which the partition was accessed.
-partitionInput_lastAccessTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
-partitionInput_lastAccessTime = Lens.lens (\PartitionInput' {lastAccessTime} -> lastAccessTime) (\s@PartitionInput' {} a -> s {lastAccessTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
-
 instance Prelude.Hashable PartitionInput where
   hashWithSalt _salt PartitionInput' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` lastAnalyzedTime
+    _salt `Prelude.hashWithSalt` lastAccessTime
       `Prelude.hashWithSalt` storageDescriptor
+      `Prelude.hashWithSalt` values
+      `Prelude.hashWithSalt` lastAnalyzedTime
       `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` lastAccessTime
 
 instance Prelude.NFData PartitionInput where
   rnf PartitionInput' {..} =
-    Prelude.rnf values
-      `Prelude.seq` Prelude.rnf lastAnalyzedTime
+    Prelude.rnf lastAccessTime
       `Prelude.seq` Prelude.rnf storageDescriptor
+      `Prelude.seq` Prelude.rnf values
+      `Prelude.seq` Prelude.rnf lastAnalyzedTime
       `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf lastAccessTime
 
 instance Core.ToJSON PartitionInput where
   toJSON PartitionInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("LastAnalyzedTime" Core..=)
-              Prelude.<$> lastAnalyzedTime,
+          [ ("LastAccessTime" Core..=)
+              Prelude.<$> lastAccessTime,
             ("StorageDescriptor" Core..=)
               Prelude.<$> storageDescriptor,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            ("LastAccessTime" Core..=)
-              Prelude.<$> lastAccessTime
+            ("Values" Core..=) Prelude.<$> values,
+            ("LastAnalyzedTime" Core..=)
+              Prelude.<$> lastAnalyzedTime,
+            ("Parameters" Core..=) Prelude.<$> parameters
           ]
       )

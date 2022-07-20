@@ -27,8 +27,8 @@ module Amazonka.WorkLink.UpdateFleetMetadata
     newUpdateFleetMetadata,
 
     -- * Request Lenses
-    updateFleetMetadata_optimizeForEndUserLocation,
     updateFleetMetadata_displayName,
+    updateFleetMetadata_optimizeForEndUserLocation,
     updateFleetMetadata_fleetArn,
 
     -- * Destructuring the Response
@@ -49,13 +49,13 @@ import Amazonka.WorkLink.Types
 
 -- | /See:/ 'newUpdateFleetMetadata' smart constructor.
 data UpdateFleetMetadata = UpdateFleetMetadata'
-  { -- | The option to optimize for better performance by routing traffic through
+  { -- | The fleet name to display. The existing DisplayName is unset if null is
+    -- passed.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The option to optimize for better performance by routing traffic through
     -- the closest AWS Region to users, which may be outside of your home
     -- Region.
     optimizeForEndUserLocation :: Prelude.Maybe Prelude.Bool,
-    -- | The fleet name to display. The existing DisplayName is unset if null is
-    -- passed.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the fleet.
     fleetArn :: Prelude.Text
   }
@@ -69,12 +69,12 @@ data UpdateFleetMetadata = UpdateFleetMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'displayName', 'updateFleetMetadata_displayName' - The fleet name to display. The existing DisplayName is unset if null is
+-- passed.
+--
 -- 'optimizeForEndUserLocation', 'updateFleetMetadata_optimizeForEndUserLocation' - The option to optimize for better performance by routing traffic through
 -- the closest AWS Region to users, which may be outside of your home
 -- Region.
---
--- 'displayName', 'updateFleetMetadata_displayName' - The fleet name to display. The existing DisplayName is unset if null is
--- passed.
 --
 -- 'fleetArn', 'updateFleetMetadata_fleetArn' - The ARN of the fleet.
 newUpdateFleetMetadata ::
@@ -83,22 +83,21 @@ newUpdateFleetMetadata ::
   UpdateFleetMetadata
 newUpdateFleetMetadata pFleetArn_ =
   UpdateFleetMetadata'
-    { optimizeForEndUserLocation =
-        Prelude.Nothing,
-      displayName = Prelude.Nothing,
+    { displayName = Prelude.Nothing,
+      optimizeForEndUserLocation = Prelude.Nothing,
       fleetArn = pFleetArn_
     }
+
+-- | The fleet name to display. The existing DisplayName is unset if null is
+-- passed.
+updateFleetMetadata_displayName :: Lens.Lens' UpdateFleetMetadata (Prelude.Maybe Prelude.Text)
+updateFleetMetadata_displayName = Lens.lens (\UpdateFleetMetadata' {displayName} -> displayName) (\s@UpdateFleetMetadata' {} a -> s {displayName = a} :: UpdateFleetMetadata)
 
 -- | The option to optimize for better performance by routing traffic through
 -- the closest AWS Region to users, which may be outside of your home
 -- Region.
 updateFleetMetadata_optimizeForEndUserLocation :: Lens.Lens' UpdateFleetMetadata (Prelude.Maybe Prelude.Bool)
 updateFleetMetadata_optimizeForEndUserLocation = Lens.lens (\UpdateFleetMetadata' {optimizeForEndUserLocation} -> optimizeForEndUserLocation) (\s@UpdateFleetMetadata' {} a -> s {optimizeForEndUserLocation = a} :: UpdateFleetMetadata)
-
--- | The fleet name to display. The existing DisplayName is unset if null is
--- passed.
-updateFleetMetadata_displayName :: Lens.Lens' UpdateFleetMetadata (Prelude.Maybe Prelude.Text)
-updateFleetMetadata_displayName = Lens.lens (\UpdateFleetMetadata' {displayName} -> displayName) (\s@UpdateFleetMetadata' {} a -> s {displayName = a} :: UpdateFleetMetadata)
 
 -- | The ARN of the fleet.
 updateFleetMetadata_fleetArn :: Lens.Lens' UpdateFleetMetadata Prelude.Text
@@ -118,15 +117,14 @@ instance Core.AWSRequest UpdateFleetMetadata where
 
 instance Prelude.Hashable UpdateFleetMetadata where
   hashWithSalt _salt UpdateFleetMetadata' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` optimizeForEndUserLocation
-      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` fleetArn
 
 instance Prelude.NFData UpdateFleetMetadata where
   rnf UpdateFleetMetadata' {..} =
-    Prelude.rnf optimizeForEndUserLocation
-      `Prelude.seq` Prelude.rnf displayName
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf optimizeForEndUserLocation
       `Prelude.seq` Prelude.rnf fleetArn
 
 instance Core.ToHeaders UpdateFleetMetadata where
@@ -144,9 +142,9 @@ instance Core.ToJSON UpdateFleetMetadata where
   toJSON UpdateFleetMetadata' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OptimizeForEndUserLocation" Core..=)
+          [ ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("OptimizeForEndUserLocation" Core..=)
               Prelude.<$> optimizeForEndUserLocation,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
             Prelude.Just ("FleetArn" Core..= fleetArn)
           ]
       )

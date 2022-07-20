@@ -29,9 +29,9 @@ module Amazonka.IoT1ClickProjects.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_placementTemplate,
-    createProject_description,
     createProject_tags,
+    createProject_description,
+    createProject_placementTemplate,
     createProject_projectName,
 
     -- * Destructuring the Response
@@ -52,20 +52,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | The schema defining the placement to be created. A placement template
-    -- defines placement default attributes and device templates. You cannot
-    -- add or remove device templates after the project has been created.
-    -- However, you can update @callbackOverrides@ for the device templates
-    -- using the @UpdateProject@ API.
-    placementTemplate :: Prelude.Maybe PlacementTemplate,
-    -- | An optional description for the project.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Optional tags (metadata key\/value pairs) to be associated with the
+  { -- | Optional tags (metadata key\/value pairs) to be associated with the
     -- project. For example,
     -- @{ {\"key1\": \"value1\", \"key2\": \"value2\"} }@. For more
     -- information, see
     -- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description for the project.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The schema defining the placement to be created. A placement template
+    -- defines placement default attributes and device templates. You cannot
+    -- add or remove device templates after the project has been created.
+    -- However, you can update @callbackOverrides@ for the device templates
+    -- using the @UpdateProject@ API.
+    placementTemplate :: Prelude.Maybe PlacementTemplate,
     -- | The name of the project to create.
     projectName :: Prelude.Text
   }
@@ -79,19 +79,19 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'placementTemplate', 'createProject_placementTemplate' - The schema defining the placement to be created. A placement template
--- defines placement default attributes and device templates. You cannot
--- add or remove device templates after the project has been created.
--- However, you can update @callbackOverrides@ for the device templates
--- using the @UpdateProject@ API.
---
--- 'description', 'createProject_description' - An optional description for the project.
---
 -- 'tags', 'createProject_tags' - Optional tags (metadata key\/value pairs) to be associated with the
 -- project. For example,
 -- @{ {\"key1\": \"value1\", \"key2\": \"value2\"} }@. For more
 -- information, see
 -- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
+--
+-- 'description', 'createProject_description' - An optional description for the project.
+--
+-- 'placementTemplate', 'createProject_placementTemplate' - The schema defining the placement to be created. A placement template
+-- defines placement default attributes and device templates. You cannot
+-- add or remove device templates after the project has been created.
+-- However, you can update @callbackOverrides@ for the device templates
+-- using the @UpdateProject@ API.
 --
 -- 'projectName', 'createProject_projectName' - The name of the project to create.
 newCreateProject ::
@@ -100,23 +100,11 @@ newCreateProject ::
   CreateProject
 newCreateProject pProjectName_ =
   CreateProject'
-    { placementTemplate = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      placementTemplate = Prelude.Nothing,
       projectName = pProjectName_
     }
-
--- | The schema defining the placement to be created. A placement template
--- defines placement default attributes and device templates. You cannot
--- add or remove device templates after the project has been created.
--- However, you can update @callbackOverrides@ for the device templates
--- using the @UpdateProject@ API.
-createProject_placementTemplate :: Lens.Lens' CreateProject (Prelude.Maybe PlacementTemplate)
-createProject_placementTemplate = Lens.lens (\CreateProject' {placementTemplate} -> placementTemplate) (\s@CreateProject' {} a -> s {placementTemplate = a} :: CreateProject)
-
--- | An optional description for the project.
-createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
-createProject_description = Lens.lens (\CreateProject' {description} -> description) (\s@CreateProject' {} a -> s {description = a} :: CreateProject)
 
 -- | Optional tags (metadata key\/value pairs) to be associated with the
 -- project. For example,
@@ -125,6 +113,18 @@ createProject_description = Lens.lens (\CreateProject' {description} -> descript
 -- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
 createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional description for the project.
+createProject_description :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_description = Lens.lens (\CreateProject' {description} -> description) (\s@CreateProject' {} a -> s {description = a} :: CreateProject)
+
+-- | The schema defining the placement to be created. A placement template
+-- defines placement default attributes and device templates. You cannot
+-- add or remove device templates after the project has been created.
+-- However, you can update @callbackOverrides@ for the device templates
+-- using the @UpdateProject@ API.
+createProject_placementTemplate :: Lens.Lens' CreateProject (Prelude.Maybe PlacementTemplate)
+createProject_placementTemplate = Lens.lens (\CreateProject' {placementTemplate} -> placementTemplate) (\s@CreateProject' {} a -> s {placementTemplate = a} :: CreateProject)
 
 -- | The name of the project to create.
 createProject_projectName :: Lens.Lens' CreateProject Prelude.Text
@@ -144,16 +144,16 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` placementTemplate
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` placementTemplate
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf placementTemplate
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf placementTemplate
       `Prelude.seq` Prelude.rnf projectName
 
 instance Core.ToHeaders CreateProject where
@@ -171,10 +171,10 @@ instance Core.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("placementTemplate" Core..=)
-              Prelude.<$> placementTemplate,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("placementTemplate" Core..=)
+              Prelude.<$> placementTemplate,
             Prelude.Just ("projectName" Core..= projectName)
           ]
       )

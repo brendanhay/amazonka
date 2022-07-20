@@ -38,8 +38,8 @@ module Amazonka.AlexaBusiness.ListTags
     newListTagsResponse,
 
     -- * Response Lenses
-    listTagsResponse_nextToken,
     listTagsResponse_tags,
+    listTagsResponse_nextToken,
     listTagsResponse_httpStatus,
   )
 where
@@ -139,8 +139,8 @@ instance Core.AWSRequest ListTags where
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,10 +187,10 @@ instance Core.ToQuery ListTags where
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { -- | The token returned to indicate that there is more data available.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags requested for the specified resource.
+  { -- | The tags requested for the specified resource.
     tags :: Prelude.Maybe [Tag],
+    -- | The token returned to indicate that there is more data available.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,9 +204,9 @@ data ListTagsResponse = ListTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsResponse_nextToken' - The token returned to indicate that there is more data available.
---
 -- 'tags', 'listTagsResponse_tags' - The tags requested for the specified resource.
+--
+-- 'nextToken', 'listTagsResponse_nextToken' - The token returned to indicate that there is more data available.
 --
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
@@ -215,18 +215,18 @@ newListTagsResponse ::
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token returned to indicate that there is more data available.
-listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
-listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
 -- | The tags requested for the specified resource.
 listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
 listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token returned to indicate that there is more data available.
+listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
+listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
@@ -234,6 +234,6 @@ listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListTagsResponse where
   rnf ListTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

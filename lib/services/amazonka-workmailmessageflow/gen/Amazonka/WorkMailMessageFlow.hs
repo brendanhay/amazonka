@@ -20,9 +20,6 @@ module Amazonka.WorkMailMessageFlow
     -- * Errors
     -- $errors
 
-    -- ** MessageRejected
-    _MessageRejected,
-
     -- ** InvalidContentLocation
     _InvalidContentLocation,
 
@@ -32,23 +29,26 @@ module Amazonka.WorkMailMessageFlow
     -- ** MessageFrozen
     _MessageFrozen,
 
+    -- ** MessageRejected
+    _MessageRejected,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** PutRawMessageContent
-    PutRawMessageContent (PutRawMessageContent'),
-    newPutRawMessageContent,
-    PutRawMessageContentResponse (PutRawMessageContentResponse'),
-    newPutRawMessageContentResponse,
-
     -- ** GetRawMessageContent
     GetRawMessageContent (GetRawMessageContent'),
     newGetRawMessageContent,
     GetRawMessageContentResponse (GetRawMessageContentResponse'),
     newGetRawMessageContentResponse,
+
+    -- ** PutRawMessageContent
+    PutRawMessageContent (PutRawMessageContent'),
+    newPutRawMessageContent,
+    PutRawMessageContentResponse (PutRawMessageContentResponse'),
+    newPutRawMessageContentResponse,
 
     -- * Types
 

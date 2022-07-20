@@ -36,28 +36,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigTypeData' smart constructor.
 data ConfigTypeData = ConfigTypeData'
-  { -- | Information about how AWS Ground Station should conﬁgure an antenna for
-    -- downlink demod decode during a contact.
-    antennaDownlinkDemodDecodeConfig :: Prelude.Maybe AntennaDownlinkDemodDecodeConfig,
-    -- | Information about how AWS Ground Station should configure an antenna for
-    -- downlink during a contact.
-    antennaDownlinkConfig :: Prelude.Maybe AntennaDownlinkConfig,
-    -- | Information about how AWS Ground Station should conﬁgure an antenna for
-    -- uplink during a contact.
-    antennaUplinkConfig :: Prelude.Maybe AntennaUplinkConfig,
+  { -- | Object that determines whether tracking should be used during a contact
+    -- executed with this @Config@ in the mission profile.
+    trackingConfig :: Prelude.Maybe TrackingConfig,
+    -- | Information about the dataflow endpoint @Config@.
+    dataflowEndpointConfig :: Prelude.Maybe DataflowEndpointConfig,
     -- | Information about an uplink echo @Config@.
     --
     -- Parameters from the @AntennaUplinkConfig@, corresponding to the
     -- specified @AntennaUplinkConfigArn@, are used when this
     -- @UplinkEchoConfig@ is used in a contact.
     uplinkEchoConfig :: Prelude.Maybe UplinkEchoConfig,
+    -- | Information about how AWS Ground Station should configure an antenna for
+    -- downlink during a contact.
+    antennaDownlinkConfig :: Prelude.Maybe AntennaDownlinkConfig,
+    -- | Information about how AWS Ground Station should conﬁgure an antenna for
+    -- downlink demod decode during a contact.
+    antennaDownlinkDemodDecodeConfig :: Prelude.Maybe AntennaDownlinkDemodDecodeConfig,
+    -- | Information about how AWS Ground Station should conﬁgure an antenna for
+    -- uplink during a contact.
+    antennaUplinkConfig :: Prelude.Maybe AntennaUplinkConfig,
     -- | Information about an S3 recording @Config@.
-    s3RecordingConfig :: Prelude.Maybe S3RecordingConfig,
-    -- | Object that determines whether tracking should be used during a contact
-    -- executed with this @Config@ in the mission profile.
-    trackingConfig :: Prelude.Maybe TrackingConfig,
-    -- | Information about the dataflow endpoint @Config@.
-    dataflowEndpointConfig :: Prelude.Maybe DataflowEndpointConfig
+    s3RecordingConfig :: Prelude.Maybe S3RecordingConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,14 +69,10 @@ data ConfigTypeData = ConfigTypeData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'antennaDownlinkDemodDecodeConfig', 'configTypeData_antennaDownlinkDemodDecodeConfig' - Information about how AWS Ground Station should conﬁgure an antenna for
--- downlink demod decode during a contact.
+-- 'trackingConfig', 'configTypeData_trackingConfig' - Object that determines whether tracking should be used during a contact
+-- executed with this @Config@ in the mission profile.
 --
--- 'antennaDownlinkConfig', 'configTypeData_antennaDownlinkConfig' - Information about how AWS Ground Station should configure an antenna for
--- downlink during a contact.
---
--- 'antennaUplinkConfig', 'configTypeData_antennaUplinkConfig' - Information about how AWS Ground Station should conﬁgure an antenna for
--- uplink during a contact.
+-- 'dataflowEndpointConfig', 'configTypeData_dataflowEndpointConfig' - Information about the dataflow endpoint @Config@.
 --
 -- 'uplinkEchoConfig', 'configTypeData_uplinkEchoConfig' - Information about an uplink echo @Config@.
 --
@@ -84,52 +80,28 @@ data ConfigTypeData = ConfigTypeData'
 -- specified @AntennaUplinkConfigArn@, are used when this
 -- @UplinkEchoConfig@ is used in a contact.
 --
+-- 'antennaDownlinkConfig', 'configTypeData_antennaDownlinkConfig' - Information about how AWS Ground Station should configure an antenna for
+-- downlink during a contact.
+--
+-- 'antennaDownlinkDemodDecodeConfig', 'configTypeData_antennaDownlinkDemodDecodeConfig' - Information about how AWS Ground Station should conﬁgure an antenna for
+-- downlink demod decode during a contact.
+--
+-- 'antennaUplinkConfig', 'configTypeData_antennaUplinkConfig' - Information about how AWS Ground Station should conﬁgure an antenna for
+-- uplink during a contact.
+--
 -- 's3RecordingConfig', 'configTypeData_s3RecordingConfig' - Information about an S3 recording @Config@.
---
--- 'trackingConfig', 'configTypeData_trackingConfig' - Object that determines whether tracking should be used during a contact
--- executed with this @Config@ in the mission profile.
---
--- 'dataflowEndpointConfig', 'configTypeData_dataflowEndpointConfig' - Information about the dataflow endpoint @Config@.
 newConfigTypeData ::
   ConfigTypeData
 newConfigTypeData =
   ConfigTypeData'
-    { antennaDownlinkDemodDecodeConfig =
-        Prelude.Nothing,
-      antennaDownlinkConfig = Prelude.Nothing,
-      antennaUplinkConfig = Prelude.Nothing,
+    { trackingConfig = Prelude.Nothing,
+      dataflowEndpointConfig = Prelude.Nothing,
       uplinkEchoConfig = Prelude.Nothing,
-      s3RecordingConfig = Prelude.Nothing,
-      trackingConfig = Prelude.Nothing,
-      dataflowEndpointConfig = Prelude.Nothing
+      antennaDownlinkConfig = Prelude.Nothing,
+      antennaDownlinkDemodDecodeConfig = Prelude.Nothing,
+      antennaUplinkConfig = Prelude.Nothing,
+      s3RecordingConfig = Prelude.Nothing
     }
-
--- | Information about how AWS Ground Station should conﬁgure an antenna for
--- downlink demod decode during a contact.
-configTypeData_antennaDownlinkDemodDecodeConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe AntennaDownlinkDemodDecodeConfig)
-configTypeData_antennaDownlinkDemodDecodeConfig = Lens.lens (\ConfigTypeData' {antennaDownlinkDemodDecodeConfig} -> antennaDownlinkDemodDecodeConfig) (\s@ConfigTypeData' {} a -> s {antennaDownlinkDemodDecodeConfig = a} :: ConfigTypeData)
-
--- | Information about how AWS Ground Station should configure an antenna for
--- downlink during a contact.
-configTypeData_antennaDownlinkConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe AntennaDownlinkConfig)
-configTypeData_antennaDownlinkConfig = Lens.lens (\ConfigTypeData' {antennaDownlinkConfig} -> antennaDownlinkConfig) (\s@ConfigTypeData' {} a -> s {antennaDownlinkConfig = a} :: ConfigTypeData)
-
--- | Information about how AWS Ground Station should conﬁgure an antenna for
--- uplink during a contact.
-configTypeData_antennaUplinkConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe AntennaUplinkConfig)
-configTypeData_antennaUplinkConfig = Lens.lens (\ConfigTypeData' {antennaUplinkConfig} -> antennaUplinkConfig) (\s@ConfigTypeData' {} a -> s {antennaUplinkConfig = a} :: ConfigTypeData)
-
--- | Information about an uplink echo @Config@.
---
--- Parameters from the @AntennaUplinkConfig@, corresponding to the
--- specified @AntennaUplinkConfigArn@, are used when this
--- @UplinkEchoConfig@ is used in a contact.
-configTypeData_uplinkEchoConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe UplinkEchoConfig)
-configTypeData_uplinkEchoConfig = Lens.lens (\ConfigTypeData' {uplinkEchoConfig} -> uplinkEchoConfig) (\s@ConfigTypeData' {} a -> s {uplinkEchoConfig = a} :: ConfigTypeData)
-
--- | Information about an S3 recording @Config@.
-configTypeData_s3RecordingConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe S3RecordingConfig)
-configTypeData_s3RecordingConfig = Lens.lens (\ConfigTypeData' {s3RecordingConfig} -> s3RecordingConfig) (\s@ConfigTypeData' {} a -> s {s3RecordingConfig = a} :: ConfigTypeData)
 
 -- | Object that determines whether tracking should be used during a contact
 -- executed with this @Config@ in the mission profile.
@@ -140,59 +112,85 @@ configTypeData_trackingConfig = Lens.lens (\ConfigTypeData' {trackingConfig} -> 
 configTypeData_dataflowEndpointConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe DataflowEndpointConfig)
 configTypeData_dataflowEndpointConfig = Lens.lens (\ConfigTypeData' {dataflowEndpointConfig} -> dataflowEndpointConfig) (\s@ConfigTypeData' {} a -> s {dataflowEndpointConfig = a} :: ConfigTypeData)
 
+-- | Information about an uplink echo @Config@.
+--
+-- Parameters from the @AntennaUplinkConfig@, corresponding to the
+-- specified @AntennaUplinkConfigArn@, are used when this
+-- @UplinkEchoConfig@ is used in a contact.
+configTypeData_uplinkEchoConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe UplinkEchoConfig)
+configTypeData_uplinkEchoConfig = Lens.lens (\ConfigTypeData' {uplinkEchoConfig} -> uplinkEchoConfig) (\s@ConfigTypeData' {} a -> s {uplinkEchoConfig = a} :: ConfigTypeData)
+
+-- | Information about how AWS Ground Station should configure an antenna for
+-- downlink during a contact.
+configTypeData_antennaDownlinkConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe AntennaDownlinkConfig)
+configTypeData_antennaDownlinkConfig = Lens.lens (\ConfigTypeData' {antennaDownlinkConfig} -> antennaDownlinkConfig) (\s@ConfigTypeData' {} a -> s {antennaDownlinkConfig = a} :: ConfigTypeData)
+
+-- | Information about how AWS Ground Station should conﬁgure an antenna for
+-- downlink demod decode during a contact.
+configTypeData_antennaDownlinkDemodDecodeConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe AntennaDownlinkDemodDecodeConfig)
+configTypeData_antennaDownlinkDemodDecodeConfig = Lens.lens (\ConfigTypeData' {antennaDownlinkDemodDecodeConfig} -> antennaDownlinkDemodDecodeConfig) (\s@ConfigTypeData' {} a -> s {antennaDownlinkDemodDecodeConfig = a} :: ConfigTypeData)
+
+-- | Information about how AWS Ground Station should conﬁgure an antenna for
+-- uplink during a contact.
+configTypeData_antennaUplinkConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe AntennaUplinkConfig)
+configTypeData_antennaUplinkConfig = Lens.lens (\ConfigTypeData' {antennaUplinkConfig} -> antennaUplinkConfig) (\s@ConfigTypeData' {} a -> s {antennaUplinkConfig = a} :: ConfigTypeData)
+
+-- | Information about an S3 recording @Config@.
+configTypeData_s3RecordingConfig :: Lens.Lens' ConfigTypeData (Prelude.Maybe S3RecordingConfig)
+configTypeData_s3RecordingConfig = Lens.lens (\ConfigTypeData' {s3RecordingConfig} -> s3RecordingConfig) (\s@ConfigTypeData' {} a -> s {s3RecordingConfig = a} :: ConfigTypeData)
+
 instance Core.FromJSON ConfigTypeData where
   parseJSON =
     Core.withObject
       "ConfigTypeData"
       ( \x ->
           ConfigTypeData'
-            Prelude.<$> (x Core..:? "antennaDownlinkDemodDecodeConfig")
-            Prelude.<*> (x Core..:? "antennaDownlinkConfig")
-            Prelude.<*> (x Core..:? "antennaUplinkConfig")
-            Prelude.<*> (x Core..:? "uplinkEchoConfig")
-            Prelude.<*> (x Core..:? "s3RecordingConfig")
-            Prelude.<*> (x Core..:? "trackingConfig")
+            Prelude.<$> (x Core..:? "trackingConfig")
             Prelude.<*> (x Core..:? "dataflowEndpointConfig")
+            Prelude.<*> (x Core..:? "uplinkEchoConfig")
+            Prelude.<*> (x Core..:? "antennaDownlinkConfig")
+            Prelude.<*> (x Core..:? "antennaDownlinkDemodDecodeConfig")
+            Prelude.<*> (x Core..:? "antennaUplinkConfig")
+            Prelude.<*> (x Core..:? "s3RecordingConfig")
       )
 
 instance Prelude.Hashable ConfigTypeData where
   hashWithSalt _salt ConfigTypeData' {..} =
-    _salt
-      `Prelude.hashWithSalt` antennaDownlinkDemodDecodeConfig
-      `Prelude.hashWithSalt` antennaDownlinkConfig
-      `Prelude.hashWithSalt` antennaUplinkConfig
-      `Prelude.hashWithSalt` uplinkEchoConfig
-      `Prelude.hashWithSalt` s3RecordingConfig
-      `Prelude.hashWithSalt` trackingConfig
+    _salt `Prelude.hashWithSalt` trackingConfig
       `Prelude.hashWithSalt` dataflowEndpointConfig
+      `Prelude.hashWithSalt` uplinkEchoConfig
+      `Prelude.hashWithSalt` antennaDownlinkConfig
+      `Prelude.hashWithSalt` antennaDownlinkDemodDecodeConfig
+      `Prelude.hashWithSalt` antennaUplinkConfig
+      `Prelude.hashWithSalt` s3RecordingConfig
 
 instance Prelude.NFData ConfigTypeData where
   rnf ConfigTypeData' {..} =
-    Prelude.rnf antennaDownlinkDemodDecodeConfig
-      `Prelude.seq` Prelude.rnf antennaDownlinkConfig
-      `Prelude.seq` Prelude.rnf antennaUplinkConfig
-      `Prelude.seq` Prelude.rnf uplinkEchoConfig
-      `Prelude.seq` Prelude.rnf s3RecordingConfig
-      `Prelude.seq` Prelude.rnf trackingConfig
+    Prelude.rnf trackingConfig
       `Prelude.seq` Prelude.rnf dataflowEndpointConfig
+      `Prelude.seq` Prelude.rnf uplinkEchoConfig
+      `Prelude.seq` Prelude.rnf antennaDownlinkConfig
+      `Prelude.seq` Prelude.rnf antennaDownlinkDemodDecodeConfig
+      `Prelude.seq` Prelude.rnf antennaUplinkConfig
+      `Prelude.seq` Prelude.rnf s3RecordingConfig
 
 instance Core.ToJSON ConfigTypeData where
   toJSON ConfigTypeData' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("antennaDownlinkDemodDecodeConfig" Core..=)
-              Prelude.<$> antennaDownlinkDemodDecodeConfig,
-            ("antennaDownlinkConfig" Core..=)
-              Prelude.<$> antennaDownlinkConfig,
-            ("antennaUplinkConfig" Core..=)
-              Prelude.<$> antennaUplinkConfig,
-            ("uplinkEchoConfig" Core..=)
-              Prelude.<$> uplinkEchoConfig,
-            ("s3RecordingConfig" Core..=)
-              Prelude.<$> s3RecordingConfig,
-            ("trackingConfig" Core..=)
+          [ ("trackingConfig" Core..=)
               Prelude.<$> trackingConfig,
             ("dataflowEndpointConfig" Core..=)
-              Prelude.<$> dataflowEndpointConfig
+              Prelude.<$> dataflowEndpointConfig,
+            ("uplinkEchoConfig" Core..=)
+              Prelude.<$> uplinkEchoConfig,
+            ("antennaDownlinkConfig" Core..=)
+              Prelude.<$> antennaDownlinkConfig,
+            ("antennaDownlinkDemodDecodeConfig" Core..=)
+              Prelude.<$> antennaDownlinkDemodDecodeConfig,
+            ("antennaUplinkConfig" Core..=)
+              Prelude.<$> antennaUplinkConfig,
+            ("s3RecordingConfig" Core..=)
+              Prelude.<$> s3RecordingConfig
           ]
       )

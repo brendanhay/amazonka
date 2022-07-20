@@ -14,16 +14,16 @@
 module Amazonka.Route53RecoveryCluster.Lens
   ( -- * Operations
 
-    -- ** UpdateRoutingControlState
-    updateRoutingControlState_routingControlArn,
-    updateRoutingControlState_routingControlState,
-    updateRoutingControlStateResponse_httpStatus,
-
     -- ** GetRoutingControlState
     getRoutingControlState_routingControlArn,
     getRoutingControlStateResponse_httpStatus,
     getRoutingControlStateResponse_routingControlArn,
     getRoutingControlStateResponse_routingControlState,
+
+    -- ** UpdateRoutingControlState
+    updateRoutingControlState_routingControlArn,
+    updateRoutingControlState_routingControlState,
+    updateRoutingControlStateResponse_httpStatus,
 
     -- ** UpdateRoutingControlStates
     updateRoutingControlStates_updateRoutingControlStateEntries,

@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentConfig' smart constructor.
 data ExperimentConfig = ExperimentConfig'
-  { -- | The display name for the trial component. If this key isn\'t specified,
+  { -- | The name of an existing trial to associate the trial component with. If
+    -- not specified, a new trial is created.
+    trialName :: Prelude.Maybe Prelude.Text,
+    -- | The display name for the trial component. If this key isn\'t specified,
     -- the display name is the trial component name.
     trialComponentDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The name of an existing experiment to associate the trial component
     -- with.
-    experimentName :: Prelude.Maybe Prelude.Text,
-    -- | The name of an existing trial to associate the trial component with. If
-    -- not specified, a new trial is created.
-    trialName :: Prelude.Maybe Prelude.Text
+    experimentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,23 +54,27 @@ data ExperimentConfig = ExperimentConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'trialName', 'experimentConfig_trialName' - The name of an existing trial to associate the trial component with. If
+-- not specified, a new trial is created.
+--
 -- 'trialComponentDisplayName', 'experimentConfig_trialComponentDisplayName' - The display name for the trial component. If this key isn\'t specified,
 -- the display name is the trial component name.
 --
 -- 'experimentName', 'experimentConfig_experimentName' - The name of an existing experiment to associate the trial component
 -- with.
---
--- 'trialName', 'experimentConfig_trialName' - The name of an existing trial to associate the trial component with. If
--- not specified, a new trial is created.
 newExperimentConfig ::
   ExperimentConfig
 newExperimentConfig =
   ExperimentConfig'
-    { trialComponentDisplayName =
-        Prelude.Nothing,
-      experimentName = Prelude.Nothing,
-      trialName = Prelude.Nothing
+    { trialName = Prelude.Nothing,
+      trialComponentDisplayName = Prelude.Nothing,
+      experimentName = Prelude.Nothing
     }
+
+-- | The name of an existing trial to associate the trial component with. If
+-- not specified, a new trial is created.
+experimentConfig_trialName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
+experimentConfig_trialName = Lens.lens (\ExperimentConfig' {trialName} -> trialName) (\s@ExperimentConfig' {} a -> s {trialName = a} :: ExperimentConfig)
 
 -- | The display name for the trial component. If this key isn\'t specified,
 -- the display name is the trial component name.
@@ -82,43 +86,37 @@ experimentConfig_trialComponentDisplayName = Lens.lens (\ExperimentConfig' {tria
 experimentConfig_experimentName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
 experimentConfig_experimentName = Lens.lens (\ExperimentConfig' {experimentName} -> experimentName) (\s@ExperimentConfig' {} a -> s {experimentName = a} :: ExperimentConfig)
 
--- | The name of an existing trial to associate the trial component with. If
--- not specified, a new trial is created.
-experimentConfig_trialName :: Lens.Lens' ExperimentConfig (Prelude.Maybe Prelude.Text)
-experimentConfig_trialName = Lens.lens (\ExperimentConfig' {trialName} -> trialName) (\s@ExperimentConfig' {} a -> s {trialName = a} :: ExperimentConfig)
-
 instance Core.FromJSON ExperimentConfig where
   parseJSON =
     Core.withObject
       "ExperimentConfig"
       ( \x ->
           ExperimentConfig'
-            Prelude.<$> (x Core..:? "TrialComponentDisplayName")
+            Prelude.<$> (x Core..:? "TrialName")
+            Prelude.<*> (x Core..:? "TrialComponentDisplayName")
             Prelude.<*> (x Core..:? "ExperimentName")
-            Prelude.<*> (x Core..:? "TrialName")
       )
 
 instance Prelude.Hashable ExperimentConfig where
   hashWithSalt _salt ExperimentConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` trialName
       `Prelude.hashWithSalt` trialComponentDisplayName
       `Prelude.hashWithSalt` experimentName
-      `Prelude.hashWithSalt` trialName
 
 instance Prelude.NFData ExperimentConfig where
   rnf ExperimentConfig' {..} =
-    Prelude.rnf trialComponentDisplayName
+    Prelude.rnf trialName
+      `Prelude.seq` Prelude.rnf trialComponentDisplayName
       `Prelude.seq` Prelude.rnf experimentName
-      `Prelude.seq` Prelude.rnf trialName
 
 instance Core.ToJSON ExperimentConfig where
   toJSON ExperimentConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TrialComponentDisplayName" Core..=)
+          [ ("TrialName" Core..=) Prelude.<$> trialName,
+            ("TrialComponentDisplayName" Core..=)
               Prelude.<$> trialComponentDisplayName,
             ("ExperimentName" Core..=)
-              Prelude.<$> experimentName,
-            ("TrialName" Core..=) Prelude.<$> trialName
+              Prelude.<$> experimentName
           ]
       )

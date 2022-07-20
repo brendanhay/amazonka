@@ -28,10 +28,10 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newElasticIpStatus' smart constructor.
 data ElasticIpStatus = ElasticIpStatus'
-  { -- | The status of the elastic IP (EIP) address.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The elastic IP (EIP) address for the cluster.
-    elasticIp :: Prelude.Maybe Prelude.Text
+  { -- | The elastic IP (EIP) address for the cluster.
+    elasticIp :: Prelude.Maybe Prelude.Text,
+    -- | The status of the elastic IP (EIP) address.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,37 +43,37 @@ data ElasticIpStatus = ElasticIpStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'elasticIpStatus_status' - The status of the elastic IP (EIP) address.
---
 -- 'elasticIp', 'elasticIpStatus_elasticIp' - The elastic IP (EIP) address for the cluster.
+--
+-- 'status', 'elasticIpStatus_status' - The status of the elastic IP (EIP) address.
 newElasticIpStatus ::
   ElasticIpStatus
 newElasticIpStatus =
   ElasticIpStatus'
-    { status = Prelude.Nothing,
-      elasticIp = Prelude.Nothing
+    { elasticIp = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The status of the elastic IP (EIP) address.
-elasticIpStatus_status :: Lens.Lens' ElasticIpStatus (Prelude.Maybe Prelude.Text)
-elasticIpStatus_status = Lens.lens (\ElasticIpStatus' {status} -> status) (\s@ElasticIpStatus' {} a -> s {status = a} :: ElasticIpStatus)
 
 -- | The elastic IP (EIP) address for the cluster.
 elasticIpStatus_elasticIp :: Lens.Lens' ElasticIpStatus (Prelude.Maybe Prelude.Text)
 elasticIpStatus_elasticIp = Lens.lens (\ElasticIpStatus' {elasticIp} -> elasticIp) (\s@ElasticIpStatus' {} a -> s {elasticIp = a} :: ElasticIpStatus)
 
+-- | The status of the elastic IP (EIP) address.
+elasticIpStatus_status :: Lens.Lens' ElasticIpStatus (Prelude.Maybe Prelude.Text)
+elasticIpStatus_status = Lens.lens (\ElasticIpStatus' {status} -> status) (\s@ElasticIpStatus' {} a -> s {status = a} :: ElasticIpStatus)
+
 instance Core.FromXML ElasticIpStatus where
   parseXML x =
     ElasticIpStatus'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ElasticIp")
+      Prelude.<$> (x Core..@? "ElasticIp")
+      Prelude.<*> (x Core..@? "Status")
 
 instance Prelude.Hashable ElasticIpStatus where
   hashWithSalt _salt ElasticIpStatus' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` elasticIp
+    _salt `Prelude.hashWithSalt` elasticIp
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ElasticIpStatus where
   rnf ElasticIpStatus' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf elasticIp
+    Prelude.rnf elasticIp
+      `Prelude.seq` Prelude.rnf status

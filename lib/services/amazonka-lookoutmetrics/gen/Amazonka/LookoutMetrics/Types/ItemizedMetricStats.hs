@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newItemizedMetricStats' smart constructor.
 data ItemizedMetricStats = ItemizedMetricStats'
-  { -- | The name of the measure.
-    metricName :: Prelude.Maybe Prelude.Text,
-    -- | The number of times that the measure appears.
-    occurrenceCount :: Prelude.Maybe Prelude.Int
+  { -- | The number of times that the measure appears.
+    occurrenceCount :: Prelude.Maybe Prelude.Int,
+    -- | The name of the measure.
+    metricName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,25 @@ data ItemizedMetricStats = ItemizedMetricStats'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'itemizedMetricStats_metricName' - The name of the measure.
---
 -- 'occurrenceCount', 'itemizedMetricStats_occurrenceCount' - The number of times that the measure appears.
+--
+-- 'metricName', 'itemizedMetricStats_metricName' - The name of the measure.
 newItemizedMetricStats ::
   ItemizedMetricStats
 newItemizedMetricStats =
   ItemizedMetricStats'
-    { metricName = Prelude.Nothing,
-      occurrenceCount = Prelude.Nothing
+    { occurrenceCount =
+        Prelude.Nothing,
+      metricName = Prelude.Nothing
     }
-
--- | The name of the measure.
-itemizedMetricStats_metricName :: Lens.Lens' ItemizedMetricStats (Prelude.Maybe Prelude.Text)
-itemizedMetricStats_metricName = Lens.lens (\ItemizedMetricStats' {metricName} -> metricName) (\s@ItemizedMetricStats' {} a -> s {metricName = a} :: ItemizedMetricStats)
 
 -- | The number of times that the measure appears.
 itemizedMetricStats_occurrenceCount :: Lens.Lens' ItemizedMetricStats (Prelude.Maybe Prelude.Int)
 itemizedMetricStats_occurrenceCount = Lens.lens (\ItemizedMetricStats' {occurrenceCount} -> occurrenceCount) (\s@ItemizedMetricStats' {} a -> s {occurrenceCount = a} :: ItemizedMetricStats)
+
+-- | The name of the measure.
+itemizedMetricStats_metricName :: Lens.Lens' ItemizedMetricStats (Prelude.Maybe Prelude.Text)
+itemizedMetricStats_metricName = Lens.lens (\ItemizedMetricStats' {metricName} -> metricName) (\s@ItemizedMetricStats' {} a -> s {metricName = a} :: ItemizedMetricStats)
 
 instance Core.FromJSON ItemizedMetricStats where
   parseJSON =
@@ -67,16 +68,16 @@ instance Core.FromJSON ItemizedMetricStats where
       "ItemizedMetricStats"
       ( \x ->
           ItemizedMetricStats'
-            Prelude.<$> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "OccurrenceCount")
+            Prelude.<$> (x Core..:? "OccurrenceCount")
+            Prelude.<*> (x Core..:? "MetricName")
       )
 
 instance Prelude.Hashable ItemizedMetricStats where
   hashWithSalt _salt ItemizedMetricStats' {..} =
-    _salt `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` occurrenceCount
+    _salt `Prelude.hashWithSalt` occurrenceCount
+      `Prelude.hashWithSalt` metricName
 
 instance Prelude.NFData ItemizedMetricStats where
   rnf ItemizedMetricStats' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf occurrenceCount
+    Prelude.rnf occurrenceCount
+      `Prelude.seq` Prelude.rnf metricName

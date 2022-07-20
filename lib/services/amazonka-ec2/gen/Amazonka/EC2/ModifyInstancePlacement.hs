@@ -50,12 +50,12 @@ module Amazonka.EC2.ModifyInstancePlacement
     newModifyInstancePlacement,
 
     -- * Request Lenses
-    modifyInstancePlacement_affinity,
-    modifyInstancePlacement_hostId,
     modifyInstancePlacement_partitionNumber,
-    modifyInstancePlacement_tenancy,
-    modifyInstancePlacement_groupName,
     modifyInstancePlacement_hostResourceGroupArn,
+    modifyInstancePlacement_hostId,
+    modifyInstancePlacement_groupName,
+    modifyInstancePlacement_affinity,
+    modifyInstancePlacement_tenancy,
     modifyInstancePlacement_instanceId,
 
     -- * Destructuring the Response
@@ -77,18 +77,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyInstancePlacement' smart constructor.
 data ModifyInstancePlacement = ModifyInstancePlacement'
-  { -- | The affinity setting for the instance.
-    affinity :: Prelude.Maybe Affinity,
+  { -- | Reserved for future use.
+    partitionNumber :: Prelude.Maybe Prelude.Int,
+    -- | The ARN of the host resource group in which to place the instance.
+    hostResourceGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Dedicated Host with which to associate the instance.
     hostId :: Prelude.Maybe Prelude.Text,
-    -- | Reserved for future use.
-    partitionNumber :: Prelude.Maybe Prelude.Int,
-    -- | The tenancy for the instance.
-    --
-    -- For T3 instances, you can\'t change the tenancy from @dedicated@ to
-    -- @host@, or from @host@ to @dedicated@. Attempting to make one of these
-    -- unsupported tenancy changes results in the @InvalidTenancy@ error code.
-    tenancy :: Prelude.Maybe HostTenancy,
     -- | The name of the placement group in which to place the instance. For
     -- spread placement groups, the instance must have a tenancy of @default@.
     -- For cluster and partition placement groups, the instance must have a
@@ -97,8 +91,14 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
     -- To remove an instance from a placement group, specify an empty string
     -- (\"\").
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the host resource group in which to place the instance.
-    hostResourceGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The affinity setting for the instance.
+    affinity :: Prelude.Maybe Affinity,
+    -- | The tenancy for the instance.
+    --
+    -- For T3 instances, you can\'t change the tenancy from @dedicated@ to
+    -- @host@, or from @host@ to @dedicated@. Attempting to make one of these
+    -- unsupported tenancy changes results in the @InvalidTenancy@ error code.
+    tenancy :: Prelude.Maybe HostTenancy,
     -- | The ID of the instance that you are modifying.
     instanceId :: Prelude.Text
   }
@@ -112,17 +112,11 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'affinity', 'modifyInstancePlacement_affinity' - The affinity setting for the instance.
---
--- 'hostId', 'modifyInstancePlacement_hostId' - The ID of the Dedicated Host with which to associate the instance.
---
 -- 'partitionNumber', 'modifyInstancePlacement_partitionNumber' - Reserved for future use.
 --
--- 'tenancy', 'modifyInstancePlacement_tenancy' - The tenancy for the instance.
+-- 'hostResourceGroupArn', 'modifyInstancePlacement_hostResourceGroupArn' - The ARN of the host resource group in which to place the instance.
 --
--- For T3 instances, you can\'t change the tenancy from @dedicated@ to
--- @host@, or from @host@ to @dedicated@. Attempting to make one of these
--- unsupported tenancy changes results in the @InvalidTenancy@ error code.
+-- 'hostId', 'modifyInstancePlacement_hostId' - The ID of the Dedicated Host with which to associate the instance.
 --
 -- 'groupName', 'modifyInstancePlacement_groupName' - The name of the placement group in which to place the instance. For
 -- spread placement groups, the instance must have a tenancy of @default@.
@@ -132,7 +126,13 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
 -- To remove an instance from a placement group, specify an empty string
 -- (\"\").
 --
--- 'hostResourceGroupArn', 'modifyInstancePlacement_hostResourceGroupArn' - The ARN of the host resource group in which to place the instance.
+-- 'affinity', 'modifyInstancePlacement_affinity' - The affinity setting for the instance.
+--
+-- 'tenancy', 'modifyInstancePlacement_tenancy' - The tenancy for the instance.
+--
+-- For T3 instances, you can\'t change the tenancy from @dedicated@ to
+-- @host@, or from @host@ to @dedicated@. Attempting to make one of these
+-- unsupported tenancy changes results in the @InvalidTenancy@ error code.
 --
 -- 'instanceId', 'modifyInstancePlacement_instanceId' - The ID of the instance that you are modifying.
 newModifyInstancePlacement ::
@@ -141,35 +141,27 @@ newModifyInstancePlacement ::
   ModifyInstancePlacement
 newModifyInstancePlacement pInstanceId_ =
   ModifyInstancePlacement'
-    { affinity =
+    { partitionNumber =
         Prelude.Nothing,
-      hostId = Prelude.Nothing,
-      partitionNumber = Prelude.Nothing,
-      tenancy = Prelude.Nothing,
-      groupName = Prelude.Nothing,
       hostResourceGroupArn = Prelude.Nothing,
+      hostId = Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      affinity = Prelude.Nothing,
+      tenancy = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | The affinity setting for the instance.
-modifyInstancePlacement_affinity :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Affinity)
-modifyInstancePlacement_affinity = Lens.lens (\ModifyInstancePlacement' {affinity} -> affinity) (\s@ModifyInstancePlacement' {} a -> s {affinity = a} :: ModifyInstancePlacement)
-
--- | The ID of the Dedicated Host with which to associate the instance.
-modifyInstancePlacement_hostId :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
-modifyInstancePlacement_hostId = Lens.lens (\ModifyInstancePlacement' {hostId} -> hostId) (\s@ModifyInstancePlacement' {} a -> s {hostId = a} :: ModifyInstancePlacement)
 
 -- | Reserved for future use.
 modifyInstancePlacement_partitionNumber :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Int)
 modifyInstancePlacement_partitionNumber = Lens.lens (\ModifyInstancePlacement' {partitionNumber} -> partitionNumber) (\s@ModifyInstancePlacement' {} a -> s {partitionNumber = a} :: ModifyInstancePlacement)
 
--- | The tenancy for the instance.
---
--- For T3 instances, you can\'t change the tenancy from @dedicated@ to
--- @host@, or from @host@ to @dedicated@. Attempting to make one of these
--- unsupported tenancy changes results in the @InvalidTenancy@ error code.
-modifyInstancePlacement_tenancy :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe HostTenancy)
-modifyInstancePlacement_tenancy = Lens.lens (\ModifyInstancePlacement' {tenancy} -> tenancy) (\s@ModifyInstancePlacement' {} a -> s {tenancy = a} :: ModifyInstancePlacement)
+-- | The ARN of the host resource group in which to place the instance.
+modifyInstancePlacement_hostResourceGroupArn :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
+modifyInstancePlacement_hostResourceGroupArn = Lens.lens (\ModifyInstancePlacement' {hostResourceGroupArn} -> hostResourceGroupArn) (\s@ModifyInstancePlacement' {} a -> s {hostResourceGroupArn = a} :: ModifyInstancePlacement)
+
+-- | The ID of the Dedicated Host with which to associate the instance.
+modifyInstancePlacement_hostId :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
+modifyInstancePlacement_hostId = Lens.lens (\ModifyInstancePlacement' {hostId} -> hostId) (\s@ModifyInstancePlacement' {} a -> s {hostId = a} :: ModifyInstancePlacement)
 
 -- | The name of the placement group in which to place the instance. For
 -- spread placement groups, the instance must have a tenancy of @default@.
@@ -181,9 +173,17 @@ modifyInstancePlacement_tenancy = Lens.lens (\ModifyInstancePlacement' {tenancy}
 modifyInstancePlacement_groupName :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
 modifyInstancePlacement_groupName = Lens.lens (\ModifyInstancePlacement' {groupName} -> groupName) (\s@ModifyInstancePlacement' {} a -> s {groupName = a} :: ModifyInstancePlacement)
 
--- | The ARN of the host resource group in which to place the instance.
-modifyInstancePlacement_hostResourceGroupArn :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
-modifyInstancePlacement_hostResourceGroupArn = Lens.lens (\ModifyInstancePlacement' {hostResourceGroupArn} -> hostResourceGroupArn) (\s@ModifyInstancePlacement' {} a -> s {hostResourceGroupArn = a} :: ModifyInstancePlacement)
+-- | The affinity setting for the instance.
+modifyInstancePlacement_affinity :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Affinity)
+modifyInstancePlacement_affinity = Lens.lens (\ModifyInstancePlacement' {affinity} -> affinity) (\s@ModifyInstancePlacement' {} a -> s {affinity = a} :: ModifyInstancePlacement)
+
+-- | The tenancy for the instance.
+--
+-- For T3 instances, you can\'t change the tenancy from @dedicated@ to
+-- @host@, or from @host@ to @dedicated@. Attempting to make one of these
+-- unsupported tenancy changes results in the @InvalidTenancy@ error code.
+modifyInstancePlacement_tenancy :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe HostTenancy)
+modifyInstancePlacement_tenancy = Lens.lens (\ModifyInstancePlacement' {tenancy} -> tenancy) (\s@ModifyInstancePlacement' {} a -> s {tenancy = a} :: ModifyInstancePlacement)
 
 -- | The ID of the instance that you are modifying.
 modifyInstancePlacement_instanceId :: Lens.Lens' ModifyInstancePlacement Prelude.Text
@@ -204,22 +204,22 @@ instance Core.AWSRequest ModifyInstancePlacement where
 
 instance Prelude.Hashable ModifyInstancePlacement where
   hashWithSalt _salt ModifyInstancePlacement' {..} =
-    _salt `Prelude.hashWithSalt` affinity
-      `Prelude.hashWithSalt` hostId
-      `Prelude.hashWithSalt` partitionNumber
-      `Prelude.hashWithSalt` tenancy
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` partitionNumber
       `Prelude.hashWithSalt` hostResourceGroupArn
+      `Prelude.hashWithSalt` hostId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` affinity
+      `Prelude.hashWithSalt` tenancy
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ModifyInstancePlacement where
   rnf ModifyInstancePlacement' {..} =
-    Prelude.rnf affinity
-      `Prelude.seq` Prelude.rnf hostId
-      `Prelude.seq` Prelude.rnf partitionNumber
-      `Prelude.seq` Prelude.rnf tenancy
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf partitionNumber
       `Prelude.seq` Prelude.rnf hostResourceGroupArn
+      `Prelude.seq` Prelude.rnf hostId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf affinity
+      `Prelude.seq` Prelude.rnf tenancy
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToHeaders ModifyInstancePlacement where
@@ -235,12 +235,12 @@ instance Core.ToQuery ModifyInstancePlacement where
           Core.=: ("ModifyInstancePlacement" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Affinity" Core.=: affinity,
-        "HostId" Core.=: hostId,
         "PartitionNumber" Core.=: partitionNumber,
-        "Tenancy" Core.=: tenancy,
-        "GroupName" Core.=: groupName,
         "HostResourceGroupArn" Core.=: hostResourceGroupArn,
+        "HostId" Core.=: hostId,
+        "GroupName" Core.=: groupName,
+        "Affinity" Core.=: affinity,
+        "Tenancy" Core.=: tenancy,
         "InstanceId" Core.=: instanceId
       ]
 

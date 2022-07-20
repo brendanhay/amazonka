@@ -21,11 +21,116 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     associateAttributeGroupResponse_attributeGroupArn,
     associateAttributeGroupResponse_httpStatus,
 
+    -- ** AssociateResource
+    associateResource_application,
+    associateResource_resourceType,
+    associateResource_resource,
+    associateResourceResponse_applicationArn,
+    associateResourceResponse_resourceArn,
+    associateResourceResponse_httpStatus,
+
+    -- ** CreateApplication
+    createApplication_tags,
+    createApplication_description,
+    createApplication_name,
+    createApplication_clientToken,
+    createApplicationResponse_application,
+    createApplicationResponse_httpStatus,
+
+    -- ** CreateAttributeGroup
+    createAttributeGroup_tags,
+    createAttributeGroup_description,
+    createAttributeGroup_name,
+    createAttributeGroup_attributes,
+    createAttributeGroup_clientToken,
+    createAttributeGroupResponse_attributeGroup,
+    createAttributeGroupResponse_httpStatus,
+
+    -- ** DeleteApplication
+    deleteApplication_application,
+    deleteApplicationResponse_application,
+    deleteApplicationResponse_httpStatus,
+
+    -- ** DeleteAttributeGroup
+    deleteAttributeGroup_attributeGroup,
+    deleteAttributeGroupResponse_attributeGroup,
+    deleteAttributeGroupResponse_httpStatus,
+
+    -- ** DisassociateAttributeGroup
+    disassociateAttributeGroup_application,
+    disassociateAttributeGroup_attributeGroup,
+    disassociateAttributeGroupResponse_applicationArn,
+    disassociateAttributeGroupResponse_attributeGroupArn,
+    disassociateAttributeGroupResponse_httpStatus,
+
+    -- ** DisassociateResource
+    disassociateResource_application,
+    disassociateResource_resourceType,
+    disassociateResource_resource,
+    disassociateResourceResponse_applicationArn,
+    disassociateResourceResponse_resourceArn,
+    disassociateResourceResponse_httpStatus,
+
+    -- ** GetApplication
+    getApplication_application,
+    getApplicationResponse_tags,
+    getApplicationResponse_name,
+    getApplicationResponse_integrations,
+    getApplicationResponse_arn,
+    getApplicationResponse_description,
+    getApplicationResponse_id,
+    getApplicationResponse_creationTime,
+    getApplicationResponse_lastUpdateTime,
+    getApplicationResponse_associatedResourceCount,
+    getApplicationResponse_httpStatus,
+
+    -- ** GetAssociatedResource
+    getAssociatedResource_application,
+    getAssociatedResource_resourceType,
+    getAssociatedResource_resource,
+    getAssociatedResourceResponse_resource,
+    getAssociatedResourceResponse_httpStatus,
+
+    -- ** GetAttributeGroup
+    getAttributeGroup_attributeGroup,
+    getAttributeGroupResponse_tags,
+    getAttributeGroupResponse_name,
+    getAttributeGroupResponse_arn,
+    getAttributeGroupResponse_description,
+    getAttributeGroupResponse_id,
+    getAttributeGroupResponse_creationTime,
+    getAttributeGroupResponse_lastUpdateTime,
+    getAttributeGroupResponse_attributes,
+    getAttributeGroupResponse_httpStatus,
+
+    -- ** ListApplications
+    listApplications_nextToken,
+    listApplications_maxResults,
+    listApplicationsResponse_nextToken,
+    listApplicationsResponse_applications,
+    listApplicationsResponse_httpStatus,
+
+    -- ** ListAssociatedAttributeGroups
+    listAssociatedAttributeGroups_nextToken,
+    listAssociatedAttributeGroups_maxResults,
+    listAssociatedAttributeGroups_application,
+    listAssociatedAttributeGroupsResponse_nextToken,
+    listAssociatedAttributeGroupsResponse_attributeGroups,
+    listAssociatedAttributeGroupsResponse_httpStatus,
+
+    -- ** ListAssociatedResources
+    listAssociatedResources_nextToken,
+    listAssociatedResources_maxResults,
+    listAssociatedResources_application,
+    listAssociatedResourcesResponse_nextToken,
+    listAssociatedResourcesResponse_resources,
+    listAssociatedResourcesResponse_httpStatus,
+
     -- ** ListAttributeGroups
     listAttributeGroups_nextToken,
     listAttributeGroups_maxResults,
-    listAttributeGroupsResponse_attributeGroups,
     listAttributeGroupsResponse_nextToken,
+    listAttributeGroupsResponse_attributeGroups,
     listAttributeGroupsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -41,10 +146,15 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     syncResourceResponse_resourceArn,
     syncResourceResponse_httpStatus,
 
-    -- ** DeleteApplication
-    deleteApplication_application,
-    deleteApplicationResponse_application,
-    deleteApplicationResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** UpdateApplication
     updateApplication_name,
@@ -53,177 +163,67 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     updateApplicationResponse_application,
     updateApplicationResponse_httpStatus,
 
-    -- ** AssociateResource
-    associateResource_application,
-    associateResource_resourceType,
-    associateResource_resource,
-    associateResourceResponse_applicationArn,
-    associateResourceResponse_resourceArn,
-    associateResourceResponse_httpStatus,
-
-    -- ** CreateApplication
-    createApplication_description,
-    createApplication_tags,
-    createApplication_name,
-    createApplication_clientToken,
-    createApplicationResponse_application,
-    createApplicationResponse_httpStatus,
-
-    -- ** DisassociateAttributeGroup
-    disassociateAttributeGroup_application,
-    disassociateAttributeGroup_attributeGroup,
-    disassociateAttributeGroupResponse_applicationArn,
-    disassociateAttributeGroupResponse_attributeGroupArn,
-    disassociateAttributeGroupResponse_httpStatus,
-
-    -- ** GetApplication
-    getApplication_application,
-    getApplicationResponse_creationTime,
-    getApplicationResponse_arn,
-    getApplicationResponse_integrations,
-    getApplicationResponse_associatedResourceCount,
-    getApplicationResponse_name,
-    getApplicationResponse_id,
-    getApplicationResponse_lastUpdateTime,
-    getApplicationResponse_description,
-    getApplicationResponse_tags,
-    getApplicationResponse_httpStatus,
-
-    -- ** GetAssociatedResource
-    getAssociatedResource_application,
-    getAssociatedResource_resourceType,
-    getAssociatedResource_resource,
-    getAssociatedResourceResponse_resource,
-    getAssociatedResourceResponse_httpStatus,
-
-    -- ** CreateAttributeGroup
-    createAttributeGroup_description,
-    createAttributeGroup_tags,
-    createAttributeGroup_name,
-    createAttributeGroup_attributes,
-    createAttributeGroup_clientToken,
-    createAttributeGroupResponse_attributeGroup,
-    createAttributeGroupResponse_httpStatus,
-
-    -- ** DeleteAttributeGroup
-    deleteAttributeGroup_attributeGroup,
-    deleteAttributeGroupResponse_attributeGroup,
-    deleteAttributeGroupResponse_httpStatus,
-
     -- ** UpdateAttributeGroup
     updateAttributeGroup_name,
-    updateAttributeGroup_attributes,
     updateAttributeGroup_description,
+    updateAttributeGroup_attributes,
     updateAttributeGroup_attributeGroup,
     updateAttributeGroupResponse_attributeGroup,
     updateAttributeGroupResponse_httpStatus,
 
-    -- ** ListAssociatedAttributeGroups
-    listAssociatedAttributeGroups_nextToken,
-    listAssociatedAttributeGroups_maxResults,
-    listAssociatedAttributeGroups_application,
-    listAssociatedAttributeGroupsResponse_attributeGroups,
-    listAssociatedAttributeGroupsResponse_nextToken,
-    listAssociatedAttributeGroupsResponse_httpStatus,
-
-    -- ** GetAttributeGroup
-    getAttributeGroup_attributeGroup,
-    getAttributeGroupResponse_creationTime,
-    getAttributeGroupResponse_arn,
-    getAttributeGroupResponse_name,
-    getAttributeGroupResponse_attributes,
-    getAttributeGroupResponse_id,
-    getAttributeGroupResponse_lastUpdateTime,
-    getAttributeGroupResponse_description,
-    getAttributeGroupResponse_tags,
-    getAttributeGroupResponse_httpStatus,
-
-    -- ** DisassociateResource
-    disassociateResource_application,
-    disassociateResource_resourceType,
-    disassociateResource_resource,
-    disassociateResourceResponse_applicationArn,
-    disassociateResourceResponse_resourceArn,
-    disassociateResourceResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** ListAssociatedResources
-    listAssociatedResources_nextToken,
-    listAssociatedResources_maxResults,
-    listAssociatedResources_application,
-    listAssociatedResourcesResponse_resources,
-    listAssociatedResourcesResponse_nextToken,
-    listAssociatedResourcesResponse_httpStatus,
-
-    -- ** ListApplications
-    listApplications_nextToken,
-    listApplications_maxResults,
-    listApplicationsResponse_nextToken,
-    listApplicationsResponse_applications,
-    listApplicationsResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
     -- * Types
 
     -- ** Application
-    application_creationTime,
-    application_arn,
-    application_name,
-    application_id,
-    application_lastUpdateTime,
-    application_description,
     application_tags,
+    application_name,
+    application_arn,
+    application_description,
+    application_id,
+    application_creationTime,
+    application_lastUpdateTime,
 
     -- ** ApplicationSummary
-    applicationSummary_creationTime,
-    applicationSummary_arn,
     applicationSummary_name,
-    applicationSummary_id,
-    applicationSummary_lastUpdateTime,
+    applicationSummary_arn,
     applicationSummary_description,
+    applicationSummary_id,
+    applicationSummary_creationTime,
+    applicationSummary_lastUpdateTime,
 
     -- ** AttributeGroup
-    attributeGroup_creationTime,
-    attributeGroup_arn,
-    attributeGroup_name,
-    attributeGroup_id,
-    attributeGroup_lastUpdateTime,
-    attributeGroup_description,
     attributeGroup_tags,
+    attributeGroup_name,
+    attributeGroup_arn,
+    attributeGroup_description,
+    attributeGroup_id,
+    attributeGroup_creationTime,
+    attributeGroup_lastUpdateTime,
 
     -- ** AttributeGroupSummary
-    attributeGroupSummary_creationTime,
-    attributeGroupSummary_arn,
     attributeGroupSummary_name,
-    attributeGroupSummary_id,
-    attributeGroupSummary_lastUpdateTime,
+    attributeGroupSummary_arn,
     attributeGroupSummary_description,
+    attributeGroupSummary_id,
+    attributeGroupSummary_creationTime,
+    attributeGroupSummary_lastUpdateTime,
 
     -- ** Integrations
     integrations_resourceGroup,
 
     -- ** Resource
-    resource_arn,
-    resource_integrations,
-    resource_associationTime,
     resource_name,
+    resource_integrations,
+    resource_arn,
+    resource_associationTime,
 
     -- ** ResourceGroup
-    resourceGroup_state,
-    resourceGroup_arn,
     resourceGroup_errorMessage,
+    resourceGroup_arn,
+    resourceGroup_state,
 
     -- ** ResourceInfo
-    resourceInfo_arn,
     resourceInfo_name,
+    resourceInfo_arn,
 
     -- ** ResourceIntegrations
     resourceIntegrations_resourceGroup,

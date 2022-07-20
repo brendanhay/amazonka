@@ -28,9 +28,9 @@ module Amazonka.CodePipeline.CreateCustomActionType
     newCreateCustomActionType,
 
     -- * Request Lenses
+    createCustomActionType_tags,
     createCustomActionType_settings,
     createCustomActionType_configurationProperties,
-    createCustomActionType_tags,
     createCustomActionType_category,
     createCustomActionType_provider,
     createCustomActionType_version,
@@ -59,7 +59,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateCustomActionType' smart constructor.
 data CreateCustomActionType = CreateCustomActionType'
-  { -- | URLs that provide users information about this custom action.
+  { -- | The tags for the custom action.
+    tags :: Prelude.Maybe [Tag],
+    -- | URLs that provide users information about this custom action.
     settings :: Prelude.Maybe ActionTypeSettings,
     -- | The configuration properties for the custom action.
     --
@@ -69,8 +71,6 @@ data CreateCustomActionType = CreateCustomActionType'
     -- and not secret. For more information, see
     -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
     configurationProperties :: Prelude.Maybe [ActionConfigurationProperty],
-    -- | The tags for the custom action.
-    tags :: Prelude.Maybe [Tag],
     -- | The category of the custom action, such as a build action or a test
     -- action.
     category :: ActionCategory,
@@ -94,6 +94,8 @@ data CreateCustomActionType = CreateCustomActionType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createCustomActionType_tags' - The tags for the custom action.
+--
 -- 'settings', 'createCustomActionType_settings' - URLs that provide users information about this custom action.
 --
 -- 'configurationProperties', 'createCustomActionType_configurationProperties' - The configuration properties for the custom action.
@@ -103,8 +105,6 @@ data CreateCustomActionType = CreateCustomActionType'
 -- {Config:name}, as long as the configuration property is both required
 -- and not secret. For more information, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
---
--- 'tags', 'createCustomActionType_tags' - The tags for the custom action.
 --
 -- 'category', 'createCustomActionType_category' - The category of the custom action, such as a build action or a test
 -- action.
@@ -136,15 +136,19 @@ newCreateCustomActionType
   pInputArtifactDetails_
   pOutputArtifactDetails_ =
     CreateCustomActionType'
-      { settings = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        settings = Prelude.Nothing,
         configurationProperties = Prelude.Nothing,
-        tags = Prelude.Nothing,
         category = pCategory_,
         provider = pProvider_,
         version = pVersion_,
         inputArtifactDetails = pInputArtifactDetails_,
         outputArtifactDetails = pOutputArtifactDetails_
       }
+
+-- | The tags for the custom action.
+createCustomActionType_tags :: Lens.Lens' CreateCustomActionType (Prelude.Maybe [Tag])
+createCustomActionType_tags = Lens.lens (\CreateCustomActionType' {tags} -> tags) (\s@CreateCustomActionType' {} a -> s {tags = a} :: CreateCustomActionType) Prelude.. Lens.mapping Lens.coerced
 
 -- | URLs that provide users information about this custom action.
 createCustomActionType_settings :: Lens.Lens' CreateCustomActionType (Prelude.Maybe ActionTypeSettings)
@@ -159,10 +163,6 @@ createCustomActionType_settings = Lens.lens (\CreateCustomActionType' {settings}
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
 createCustomActionType_configurationProperties :: Lens.Lens' CreateCustomActionType (Prelude.Maybe [ActionConfigurationProperty])
 createCustomActionType_configurationProperties = Lens.lens (\CreateCustomActionType' {configurationProperties} -> configurationProperties) (\s@CreateCustomActionType' {} a -> s {configurationProperties = a} :: CreateCustomActionType) Prelude.. Lens.mapping Lens.coerced
-
--- | The tags for the custom action.
-createCustomActionType_tags :: Lens.Lens' CreateCustomActionType (Prelude.Maybe [Tag])
-createCustomActionType_tags = Lens.lens (\CreateCustomActionType' {tags} -> tags) (\s@CreateCustomActionType' {} a -> s {tags = a} :: CreateCustomActionType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The category of the custom action, such as a build action or a test
 -- action.
@@ -202,9 +202,9 @@ instance Core.AWSRequest CreateCustomActionType where
 
 instance Prelude.Hashable CreateCustomActionType where
   hashWithSalt _salt CreateCustomActionType' {..} =
-    _salt `Prelude.hashWithSalt` settings
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` configurationProperties
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` version
@@ -213,9 +213,9 @@ instance Prelude.Hashable CreateCustomActionType where
 
 instance Prelude.NFData CreateCustomActionType where
   rnf CreateCustomActionType' {..} =
-    Prelude.rnf settings
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf configurationProperties
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf provider
       `Prelude.seq` Prelude.rnf version
@@ -241,10 +241,10 @@ instance Core.ToJSON CreateCustomActionType where
   toJSON CreateCustomActionType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("settings" Core..=) Prelude.<$> settings,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("settings" Core..=) Prelude.<$> settings,
             ("configurationProperties" Core..=)
               Prelude.<$> configurationProperties,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("category" Core..= category),
             Prelude.Just ("provider" Core..= provider),
             Prelude.Just ("version" Core..= version),

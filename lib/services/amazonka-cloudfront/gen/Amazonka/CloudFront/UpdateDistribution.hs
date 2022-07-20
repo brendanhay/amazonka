@@ -106,8 +106,8 @@ module Amazonka.CloudFront.UpdateDistribution
     newUpdateDistributionResponse,
 
     -- * Response Lenses
-    updateDistributionResponse_eTag,
     updateDistributionResponse_distribution,
+    updateDistributionResponse_eTag,
     updateDistributionResponse_httpStatus,
   )
 where
@@ -182,8 +182,8 @@ instance Core.AWSRequest UpdateDistribution where
     Response.receiveXML
       ( \s h x ->
           UpdateDistributionResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,10 +224,10 @@ instance Core.ToQuery UpdateDistribution where
 --
 -- /See:/ 'newUpdateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
-  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The distribution\'s information.
+  { -- | The distribution\'s information.
     distribution :: Prelude.Maybe Distribution,
+    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -241,9 +241,9 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'updateDistributionResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
---
 -- 'distribution', 'updateDistributionResponse_distribution' - The distribution\'s information.
+--
+-- 'eTag', 'updateDistributionResponse_eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
 --
 -- 'httpStatus', 'updateDistributionResponse_httpStatus' - The response's http status code.
 newUpdateDistributionResponse ::
@@ -252,18 +252,19 @@ newUpdateDistributionResponse ::
   UpdateDistributionResponse
 newUpdateDistributionResponse pHttpStatus_ =
   UpdateDistributionResponse'
-    { eTag = Prelude.Nothing,
-      distribution = Prelude.Nothing,
+    { distribution =
+        Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-updateDistributionResponse_eTag :: Lens.Lens' UpdateDistributionResponse (Prelude.Maybe Prelude.Text)
-updateDistributionResponse_eTag = Lens.lens (\UpdateDistributionResponse' {eTag} -> eTag) (\s@UpdateDistributionResponse' {} a -> s {eTag = a} :: UpdateDistributionResponse)
 
 -- | The distribution\'s information.
 updateDistributionResponse_distribution :: Lens.Lens' UpdateDistributionResponse (Prelude.Maybe Distribution)
 updateDistributionResponse_distribution = Lens.lens (\UpdateDistributionResponse' {distribution} -> distribution) (\s@UpdateDistributionResponse' {} a -> s {distribution = a} :: UpdateDistributionResponse)
+
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
+updateDistributionResponse_eTag :: Lens.Lens' UpdateDistributionResponse (Prelude.Maybe Prelude.Text)
+updateDistributionResponse_eTag = Lens.lens (\UpdateDistributionResponse' {eTag} -> eTag) (\s@UpdateDistributionResponse' {} a -> s {eTag = a} :: UpdateDistributionResponse)
 
 -- | The response's http status code.
 updateDistributionResponse_httpStatus :: Lens.Lens' UpdateDistributionResponse Prelude.Int
@@ -271,6 +272,6 @@ updateDistributionResponse_httpStatus = Lens.lens (\UpdateDistributionResponse' 
 
 instance Prelude.NFData UpdateDistributionResponse where
   rnf UpdateDistributionResponse' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf distribution
+    Prelude.rnf distribution
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

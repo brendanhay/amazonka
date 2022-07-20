@@ -102,14 +102,7 @@ instance Core.ToHeaders SetLoggingOptions where
 
 instance Core.ToJSON SetLoggingOptions where
   toJSON SetLoggingOptions' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "loggingOptionsPayload"
-                  Core..= loggingOptionsPayload
-              )
-          ]
-      )
+    Core.toJSON loggingOptionsPayload
 
 instance Core.ToPath SetLoggingOptions where
   toPath = Prelude.const "/loggingOptions"

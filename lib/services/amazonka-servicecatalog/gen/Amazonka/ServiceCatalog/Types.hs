@@ -17,14 +17,14 @@ module Amazonka.ServiceCatalog.Types
     defaultService,
 
     -- * Errors
-    _InvalidParametersException,
-    _DuplicateResourceException,
-    _OperationNotSupportedException,
     _TagOptionNotMigratedException,
-    _ResourceNotFoundException,
     _InvalidStateException,
-    _LimitExceededException,
+    _DuplicateResourceException,
+    _ResourceNotFoundException,
     _ResourceInUseException,
+    _LimitExceededException,
+    _InvalidParametersException,
+    _OperationNotSupportedException,
 
     -- * AccessLevelFilterKey
     AccessLevelFilterKey (..),
@@ -131,8 +131,8 @@ module Amazonka.ServiceCatalog.Types
     -- * AccessLevelFilter
     AccessLevelFilter (..),
     newAccessLevelFilter,
-    accessLevelFilter_value,
     accessLevelFilter_key,
+    accessLevelFilter_value,
 
     -- * BudgetDetail
     BudgetDetail (..),
@@ -149,10 +149,10 @@ module Amazonka.ServiceCatalog.Types
     newConstraintDetail,
     constraintDetail_portfolioId,
     constraintDetail_constraintId,
-    constraintDetail_owner,
     constraintDetail_type,
-    constraintDetail_description,
     constraintDetail_productId,
+    constraintDetail_owner,
+    constraintDetail_description,
 
     -- * ConstraintSummary
     ConstraintSummary (..),
@@ -163,18 +163,18 @@ module Amazonka.ServiceCatalog.Types
     -- * ExecutionParameter
     ExecutionParameter (..),
     newExecutionParameter,
-    executionParameter_defaultValues,
     executionParameter_name,
     executionParameter_type,
+    executionParameter_defaultValues,
 
     -- * FailedServiceActionAssociation
     FailedServiceActionAssociation (..),
     newFailedServiceActionAssociation,
-    failedServiceActionAssociation_provisioningArtifactId,
-    failedServiceActionAssociation_errorCode,
     failedServiceActionAssociation_errorMessage,
-    failedServiceActionAssociation_serviceActionId,
     failedServiceActionAssociation_productId,
+    failedServiceActionAssociation_serviceActionId,
+    failedServiceActionAssociation_errorCode,
+    failedServiceActionAssociation_provisioningArtifactId,
 
     -- * LaunchPath
     LaunchPath (..),
@@ -185,183 +185,183 @@ module Amazonka.ServiceCatalog.Types
     -- * LaunchPathSummary
     LaunchPathSummary (..),
     newLaunchPathSummary,
+    launchPathSummary_tags,
     launchPathSummary_constraintSummaries,
     launchPathSummary_name,
     launchPathSummary_id,
-    launchPathSummary_tags,
 
     -- * ListRecordHistorySearchFilter
     ListRecordHistorySearchFilter (..),
     newListRecordHistorySearchFilter,
-    listRecordHistorySearchFilter_value,
     listRecordHistorySearchFilter_key,
+    listRecordHistorySearchFilter_value,
 
     -- * ListTagOptionsFilters
     ListTagOptionsFilters (..),
     newListTagOptionsFilters,
-    listTagOptionsFilters_value,
-    listTagOptionsFilters_active,
     listTagOptionsFilters_key,
+    listTagOptionsFilters_active,
+    listTagOptionsFilters_value,
 
     -- * OrganizationNode
     OrganizationNode (..),
     newOrganizationNode,
-    organizationNode_value,
     organizationNode_type,
+    organizationNode_value,
 
     -- * ParameterConstraints
     ParameterConstraints (..),
     newParameterConstraints,
-    parameterConstraints_maxValue,
     parameterConstraints_maxLength,
-    parameterConstraints_constraintDescription,
-    parameterConstraints_minLength,
     parameterConstraints_allowedPattern,
-    parameterConstraints_allowedValues,
     parameterConstraints_minValue,
+    parameterConstraints_minLength,
+    parameterConstraints_allowedValues,
+    parameterConstraints_maxValue,
+    parameterConstraints_constraintDescription,
 
     -- * PortfolioDetail
     PortfolioDetail (..),
     newPortfolioDetail,
-    portfolioDetail_arn,
     portfolioDetail_createdTime,
-    portfolioDetail_id,
-    portfolioDetail_displayName,
-    portfolioDetail_description,
     portfolioDetail_providerName,
+    portfolioDetail_arn,
+    portfolioDetail_displayName,
+    portfolioDetail_id,
+    portfolioDetail_description,
 
     -- * PortfolioShareDetail
     PortfolioShareDetail (..),
     newPortfolioShareDetail,
     portfolioShareDetail_principalId,
-    portfolioShareDetail_shareTagOptions,
     portfolioShareDetail_type,
     portfolioShareDetail_accepted,
+    portfolioShareDetail_shareTagOptions,
 
     -- * Principal
     Principal (..),
     newPrincipal,
-    principal_principalType,
     principal_principalARN,
+    principal_principalType,
 
     -- * ProductViewAggregationValue
     ProductViewAggregationValue (..),
     newProductViewAggregationValue,
-    productViewAggregationValue_value,
     productViewAggregationValue_approximateCount,
+    productViewAggregationValue_value,
 
     -- * ProductViewDetail
     ProductViewDetail (..),
     newProductViewDetail,
+    productViewDetail_createdTime,
     productViewDetail_status,
     productViewDetail_productViewSummary,
-    productViewDetail_createdTime,
     productViewDetail_productARN,
 
     -- * ProductViewSummary
     ProductViewSummary (..),
     newProductViewSummary,
-    productViewSummary_owner,
-    productViewSummary_supportUrl,
-    productViewSummary_shortDescription,
-    productViewSummary_hasDefaultPath,
-    productViewSummary_distributor,
+    productViewSummary_supportDescription,
     productViewSummary_name,
-    productViewSummary_id,
+    productViewSummary_shortDescription,
     productViewSummary_type,
     productViewSummary_supportEmail,
+    productViewSummary_supportUrl,
     productViewSummary_productId,
-    productViewSummary_supportDescription,
+    productViewSummary_owner,
+    productViewSummary_id,
+    productViewSummary_distributor,
+    productViewSummary_hasDefaultPath,
 
     -- * ProvisionedProductAttribute
     ProvisionedProductAttribute (..),
     newProvisionedProductAttribute,
-    provisionedProductAttribute_idempotencyToken,
-    provisionedProductAttribute_status,
-    provisionedProductAttribute_productName,
-    provisionedProductAttribute_lastSuccessfulProvisioningRecordId,
-    provisionedProductAttribute_provisioningArtifactId,
-    provisionedProductAttribute_arn,
-    provisionedProductAttribute_createdTime,
-    provisionedProductAttribute_provisioningArtifactName,
-    provisionedProductAttribute_userArn,
-    provisionedProductAttribute_statusMessage,
-    provisionedProductAttribute_name,
-    provisionedProductAttribute_lastRecordId,
-    provisionedProductAttribute_userArnSession,
-    provisionedProductAttribute_id,
-    provisionedProductAttribute_type,
-    provisionedProductAttribute_physicalId,
-    provisionedProductAttribute_lastProvisioningRecordId,
-    provisionedProductAttribute_productId,
     provisionedProductAttribute_tags,
+    provisionedProductAttribute_productName,
+    provisionedProductAttribute_name,
+    provisionedProductAttribute_type,
+    provisionedProductAttribute_createdTime,
+    provisionedProductAttribute_lastSuccessfulProvisioningRecordId,
+    provisionedProductAttribute_lastRecordId,
+    provisionedProductAttribute_idempotencyToken,
+    provisionedProductAttribute_arn,
+    provisionedProductAttribute_userArnSession,
+    provisionedProductAttribute_productId,
+    provisionedProductAttribute_status,
+    provisionedProductAttribute_id,
+    provisionedProductAttribute_userArn,
+    provisionedProductAttribute_provisioningArtifactName,
+    provisionedProductAttribute_lastProvisioningRecordId,
+    provisionedProductAttribute_provisioningArtifactId,
+    provisionedProductAttribute_statusMessage,
+    provisionedProductAttribute_physicalId,
 
     -- * ProvisionedProductDetail
     ProvisionedProductDetail (..),
     newProvisionedProductDetail,
-    provisionedProductDetail_launchRoleArn,
-    provisionedProductDetail_idempotencyToken,
-    provisionedProductDetail_status,
-    provisionedProductDetail_lastSuccessfulProvisioningRecordId,
-    provisionedProductDetail_provisioningArtifactId,
-    provisionedProductDetail_arn,
-    provisionedProductDetail_createdTime,
-    provisionedProductDetail_statusMessage,
     provisionedProductDetail_name,
-    provisionedProductDetail_lastRecordId,
-    provisionedProductDetail_id,
     provisionedProductDetail_type,
-    provisionedProductDetail_lastProvisioningRecordId,
+    provisionedProductDetail_createdTime,
+    provisionedProductDetail_lastSuccessfulProvisioningRecordId,
+    provisionedProductDetail_lastRecordId,
+    provisionedProductDetail_idempotencyToken,
+    provisionedProductDetail_arn,
     provisionedProductDetail_productId,
+    provisionedProductDetail_status,
+    provisionedProductDetail_id,
+    provisionedProductDetail_launchRoleArn,
+    provisionedProductDetail_lastProvisioningRecordId,
+    provisionedProductDetail_provisioningArtifactId,
+    provisionedProductDetail_statusMessage,
 
     -- * ProvisionedProductPlanDetails
     ProvisionedProductPlanDetails (..),
     newProvisionedProductPlanDetails,
-    provisionedProductPlanDetails_status,
-    provisionedProductPlanDetails_provisionProductId,
-    provisionedProductPlanDetails_provisioningArtifactId,
-    provisionedProductPlanDetails_provisionProductName,
-    provisionedProductPlanDetails_createdTime,
-    provisionedProductPlanDetails_notificationArns,
-    provisionedProductPlanDetails_planId,
-    provisionedProductPlanDetails_planName,
-    provisionedProductPlanDetails_statusMessage,
-    provisionedProductPlanDetails_updatedTime,
-    provisionedProductPlanDetails_pathId,
-    provisionedProductPlanDetails_provisioningParameters,
-    provisionedProductPlanDetails_planType,
-    provisionedProductPlanDetails_productId,
     provisionedProductPlanDetails_tags,
+    provisionedProductPlanDetails_pathId,
+    provisionedProductPlanDetails_createdTime,
+    provisionedProductPlanDetails_planId,
+    provisionedProductPlanDetails_provisionProductId,
+    provisionedProductPlanDetails_planType,
+    provisionedProductPlanDetails_notificationArns,
+    provisionedProductPlanDetails_planName,
+    provisionedProductPlanDetails_productId,
+    provisionedProductPlanDetails_status,
+    provisionedProductPlanDetails_provisioningParameters,
+    provisionedProductPlanDetails_provisioningArtifactId,
+    provisionedProductPlanDetails_statusMessage,
+    provisionedProductPlanDetails_provisionProductName,
+    provisionedProductPlanDetails_updatedTime,
 
     -- * ProvisionedProductPlanSummary
     ProvisionedProductPlanSummary (..),
     newProvisionedProductPlanSummary,
+    provisionedProductPlanSummary_planId,
     provisionedProductPlanSummary_provisionProductId,
+    provisionedProductPlanSummary_planType,
+    provisionedProductPlanSummary_planName,
     provisionedProductPlanSummary_provisioningArtifactId,
     provisionedProductPlanSummary_provisionProductName,
-    provisionedProductPlanSummary_planId,
-    provisionedProductPlanSummary_planName,
-    provisionedProductPlanSummary_planType,
 
     -- * ProvisioningArtifact
     ProvisioningArtifact (..),
     newProvisioningArtifact,
-    provisioningArtifact_createdTime,
     provisioningArtifact_name,
+    provisioningArtifact_createdTime,
     provisioningArtifact_id,
-    provisioningArtifact_guidance,
     provisioningArtifact_description,
+    provisioningArtifact_guidance,
 
     -- * ProvisioningArtifactDetail
     ProvisioningArtifactDetail (..),
     newProvisioningArtifactDetail,
+    provisioningArtifactDetail_name,
+    provisioningArtifactDetail_type,
     provisioningArtifactDetail_createdTime,
     provisioningArtifactDetail_active,
-    provisioningArtifactDetail_name,
     provisioningArtifactDetail_id,
-    provisioningArtifactDetail_type,
-    provisioningArtifactDetail_guidance,
     provisioningArtifactDetail_description,
+    provisioningArtifactDetail_guidance,
 
     -- * ProvisioningArtifactOutput
     ProvisioningArtifactOutput (..),
@@ -373,11 +373,11 @@ module Amazonka.ServiceCatalog.Types
     ProvisioningArtifactParameter (..),
     newProvisioningArtifactParameter,
     provisioningArtifactParameter_isNoEcho,
-    provisioningArtifactParameter_parameterKey,
-    provisioningArtifactParameter_parameterType,
-    provisioningArtifactParameter_parameterConstraints,
     provisioningArtifactParameter_defaultValue,
     provisioningArtifactParameter_description,
+    provisioningArtifactParameter_parameterConstraints,
+    provisioningArtifactParameter_parameterType,
+    provisioningArtifactParameter_parameterKey,
 
     -- * ProvisioningArtifactPreferences
     ProvisioningArtifactPreferences (..),
@@ -388,60 +388,60 @@ module Amazonka.ServiceCatalog.Types
     -- * ProvisioningArtifactProperties
     ProvisioningArtifactProperties (..),
     newProvisioningArtifactProperties,
-    provisioningArtifactProperties_disableTemplateValidation,
     provisioningArtifactProperties_name,
     provisioningArtifactProperties_type,
+    provisioningArtifactProperties_disableTemplateValidation,
     provisioningArtifactProperties_description,
     provisioningArtifactProperties_info,
 
     -- * ProvisioningArtifactSummary
     ProvisioningArtifactSummary (..),
     newProvisioningArtifactSummary,
-    provisioningArtifactSummary_provisioningArtifactMetadata,
-    provisioningArtifactSummary_createdTime,
     provisioningArtifactSummary_name,
+    provisioningArtifactSummary_createdTime,
     provisioningArtifactSummary_id,
     provisioningArtifactSummary_description,
+    provisioningArtifactSummary_provisioningArtifactMetadata,
 
     -- * ProvisioningArtifactView
     ProvisioningArtifactView (..),
     newProvisioningArtifactView,
-    provisioningArtifactView_productViewSummary,
     provisioningArtifactView_provisioningArtifact,
+    provisioningArtifactView_productViewSummary,
 
     -- * ProvisioningParameter
     ProvisioningParameter (..),
     newProvisioningParameter,
-    provisioningParameter_value,
     provisioningParameter_key,
+    provisioningParameter_value,
 
     -- * ProvisioningPreferences
     ProvisioningPreferences (..),
     newProvisioningPreferences,
     provisioningPreferences_stackSetRegions,
-    provisioningPreferences_stackSetMaxConcurrencyPercentage,
     provisioningPreferences_stackSetFailureToleranceCount,
-    provisioningPreferences_stackSetFailureTolerancePercentage,
+    provisioningPreferences_stackSetMaxConcurrencyPercentage,
     provisioningPreferences_stackSetAccounts,
     provisioningPreferences_stackSetMaxConcurrencyCount,
+    provisioningPreferences_stackSetFailureTolerancePercentage,
 
     -- * RecordDetail
     RecordDetail (..),
     newRecordDetail,
-    recordDetail_launchRoleArn,
-    recordDetail_status,
-    recordDetail_recordTags,
-    recordDetail_provisionedProductName,
-    recordDetail_provisioningArtifactId,
+    recordDetail_pathId,
     recordDetail_createdTime,
-    recordDetail_recordType,
     recordDetail_recordId,
     recordDetail_provisionedProductType,
-    recordDetail_updatedTime,
-    recordDetail_pathId,
-    recordDetail_provisionedProductId,
-    recordDetail_recordErrors,
     recordDetail_productId,
+    recordDetail_provisionedProductName,
+    recordDetail_status,
+    recordDetail_recordType,
+    recordDetail_launchRoleArn,
+    recordDetail_recordTags,
+    recordDetail_recordErrors,
+    recordDetail_provisioningArtifactId,
+    recordDetail_updatedTime,
+    recordDetail_provisionedProductId,
 
     -- * RecordError
     RecordError (..),
@@ -452,49 +452,49 @@ module Amazonka.ServiceCatalog.Types
     -- * RecordOutput
     RecordOutput (..),
     newRecordOutput,
-    recordOutput_outputValue,
     recordOutput_outputKey,
     recordOutput_description,
+    recordOutput_outputValue,
 
     -- * RecordTag
     RecordTag (..),
     newRecordTag,
-    recordTag_value,
     recordTag_key,
+    recordTag_value,
 
     -- * ResourceChange
     ResourceChange (..),
     newResourceChange,
-    resourceChange_logicalResourceId,
-    resourceChange_physicalResourceId,
     resourceChange_resourceType,
-    resourceChange_action,
-    resourceChange_scope,
-    resourceChange_details,
     resourceChange_replacement,
+    resourceChange_details,
+    resourceChange_logicalResourceId,
+    resourceChange_scope,
+    resourceChange_action,
+    resourceChange_physicalResourceId,
 
     -- * ResourceChangeDetail
     ResourceChangeDetail (..),
     newResourceChangeDetail,
-    resourceChangeDetail_causingEntity,
-    resourceChangeDetail_evaluation,
     resourceChangeDetail_target,
+    resourceChangeDetail_evaluation,
+    resourceChangeDetail_causingEntity,
 
     -- * ResourceDetail
     ResourceDetail (..),
     newResourceDetail,
-    resourceDetail_arn,
-    resourceDetail_createdTime,
     resourceDetail_name,
+    resourceDetail_createdTime,
+    resourceDetail_arn,
     resourceDetail_id,
     resourceDetail_description,
 
     -- * ResourceTargetDefinition
     ResourceTargetDefinition (..),
     newResourceTargetDefinition,
+    resourceTargetDefinition_name,
     resourceTargetDefinition_attribute,
     resourceTargetDefinition_requiresRecreation,
-    resourceTargetDefinition_name,
 
     -- * ServiceActionAssociation
     ServiceActionAssociation (..),
@@ -513,29 +513,29 @@ module Amazonka.ServiceCatalog.Types
     ServiceActionSummary (..),
     newServiceActionSummary,
     serviceActionSummary_name,
-    serviceActionSummary_id,
     serviceActionSummary_definitionType,
+    serviceActionSummary_id,
     serviceActionSummary_description,
 
     -- * ShareDetails
     ShareDetails (..),
     newShareDetails,
-    shareDetails_shareErrors,
     shareDetails_successfulShares,
+    shareDetails_shareErrors,
 
     -- * ShareError
     ShareError (..),
     newShareError,
+    shareError_message,
     shareError_accounts,
     shareError_error,
-    shareError_message,
 
     -- * StackInstance
     StackInstance (..),
     newStackInstance,
+    stackInstance_stackInstanceStatus,
     stackInstance_account,
     stackInstance_region,
-    stackInstance_stackInstanceStatus,
 
     -- * Tag
     Tag (..),
@@ -546,41 +546,41 @@ module Amazonka.ServiceCatalog.Types
     -- * TagOptionDetail
     TagOptionDetail (..),
     newTagOptionDetail,
-    tagOptionDetail_value,
-    tagOptionDetail_owner,
-    tagOptionDetail_active,
     tagOptionDetail_key,
+    tagOptionDetail_active,
+    tagOptionDetail_owner,
     tagOptionDetail_id,
+    tagOptionDetail_value,
 
     -- * TagOptionSummary
     TagOptionSummary (..),
     newTagOptionSummary,
-    tagOptionSummary_values,
     tagOptionSummary_key,
+    tagOptionSummary_values,
 
     -- * UpdateProvisioningParameter
     UpdateProvisioningParameter (..),
     newUpdateProvisioningParameter,
-    updateProvisioningParameter_value,
     updateProvisioningParameter_key,
     updateProvisioningParameter_usePreviousValue,
+    updateProvisioningParameter_value,
 
     -- * UpdateProvisioningPreferences
     UpdateProvisioningPreferences (..),
     newUpdateProvisioningPreferences,
+    updateProvisioningPreferences_stackSetOperationType,
     updateProvisioningPreferences_stackSetRegions,
-    updateProvisioningPreferences_stackSetMaxConcurrencyPercentage,
     updateProvisioningPreferences_stackSetFailureToleranceCount,
-    updateProvisioningPreferences_stackSetFailureTolerancePercentage,
+    updateProvisioningPreferences_stackSetMaxConcurrencyPercentage,
     updateProvisioningPreferences_stackSetAccounts,
     updateProvisioningPreferences_stackSetMaxConcurrencyCount,
-    updateProvisioningPreferences_stackSetOperationType,
+    updateProvisioningPreferences_stackSetFailureTolerancePercentage,
 
     -- * UsageInstruction
     UsageInstruction (..),
     newUsageInstruction,
-    usageInstruction_value,
     usageInstruction_type,
+    usageInstruction_value,
   )
 where
 
@@ -703,35 +703,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -740,34 +713,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | One or more parameters provided to the operation are not valid.
-_InvalidParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParametersException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParametersException"
-
--- | The specified resource is a duplicate.
-_DuplicateResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateResourceException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateResourceException"
-
--- | The operation is not supported.
-_OperationNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotSupportedException =
-  Core._MatchServiceError
-    defaultService
-    "OperationNotSupportedException"
 
 -- | An operation requiring TagOptions failed because the TagOptions
 -- migration process has not been performed for this account. Please use
@@ -779,13 +758,6 @@ _TagOptionNotMigratedException =
     defaultService
     "TagOptionNotMigratedException"
 
--- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
 -- | An attempt was made to modify a resource that is in a state that is not
 -- valid. Check your resources to ensure that they are in valid states
 -- before retrying the operation.
@@ -794,6 +766,28 @@ _InvalidStateException =
   Core._MatchServiceError
     defaultService
     "InvalidStateException"
+
+-- | The specified resource is a duplicate.
+_DuplicateResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateResourceException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateResourceException"
+
+-- | The specified resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | A resource that is currently in use. Ensure that the resource is not in
+-- use and retry the operation.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
 
 -- | The current limits of the service would have been exceeded by this
 -- operation. Decrease your resource use or increase your service limits
@@ -804,10 +798,16 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | A resource that is currently in use. Ensure that the resource is not in
--- use and retry the operation.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | One or more parameters provided to the operation are not valid.
+_InvalidParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParametersException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "InvalidParametersException"
+
+-- | The operation is not supported.
+_OperationNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotSupportedException =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotSupportedException"

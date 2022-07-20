@@ -35,15 +35,15 @@ module Amazonka.WellArchitected.CreateWorkload
     newCreateWorkload,
 
     -- * Request Lenses
-    createWorkload_architecturalDesign,
+    createWorkload_tags,
     createWorkload_accountIds,
     createWorkload_industry,
     createWorkload_awsRegions,
-    createWorkload_industryType,
-    createWorkload_notes,
-    createWorkload_pillarPriorities,
     createWorkload_nonAwsRegions,
-    createWorkload_tags,
+    createWorkload_notes,
+    createWorkload_industryType,
+    createWorkload_architecturalDesign,
+    createWorkload_pillarPriorities,
     createWorkload_workloadName,
     createWorkload_description,
     createWorkload_environment,
@@ -73,16 +73,16 @@ import Amazonka.WellArchitected.Types
 --
 -- /See:/ 'newCreateWorkload' smart constructor.
 data CreateWorkload = CreateWorkload'
-  { architecturalDesign :: Prelude.Maybe Prelude.Text,
+  { -- | The tags to be associated with the workload.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     accountIds :: Prelude.Maybe [Prelude.Text],
     industry :: Prelude.Maybe Prelude.Text,
     awsRegions :: Prelude.Maybe [Prelude.Text],
-    industryType :: Prelude.Maybe Prelude.Text,
-    notes :: Prelude.Maybe Prelude.Text,
-    pillarPriorities :: Prelude.Maybe [Prelude.Text],
     nonAwsRegions :: Prelude.Maybe [Prelude.Text],
-    -- | The tags to be associated with the workload.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    notes :: Prelude.Maybe Prelude.Text,
+    industryType :: Prelude.Maybe Prelude.Text,
+    architecturalDesign :: Prelude.Maybe Prelude.Text,
+    pillarPriorities :: Prelude.Maybe [Prelude.Text],
     workloadName :: Prelude.Text,
     description :: Prelude.Text,
     environment :: WorkloadEnvironment,
@@ -100,7 +100,7 @@ data CreateWorkload = CreateWorkload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'architecturalDesign', 'createWorkload_architecturalDesign' - Undocumented member.
+-- 'tags', 'createWorkload_tags' - The tags to be associated with the workload.
 --
 -- 'accountIds', 'createWorkload_accountIds' - Undocumented member.
 --
@@ -108,15 +108,15 @@ data CreateWorkload = CreateWorkload'
 --
 -- 'awsRegions', 'createWorkload_awsRegions' - Undocumented member.
 --
--- 'industryType', 'createWorkload_industryType' - Undocumented member.
+-- 'nonAwsRegions', 'createWorkload_nonAwsRegions' - Undocumented member.
 --
 -- 'notes', 'createWorkload_notes' - Undocumented member.
 --
+-- 'industryType', 'createWorkload_industryType' - Undocumented member.
+--
+-- 'architecturalDesign', 'createWorkload_architecturalDesign' - Undocumented member.
+--
 -- 'pillarPriorities', 'createWorkload_pillarPriorities' - Undocumented member.
---
--- 'nonAwsRegions', 'createWorkload_nonAwsRegions' - Undocumented member.
---
--- 'tags', 'createWorkload_tags' - The tags to be associated with the workload.
 --
 -- 'workloadName', 'createWorkload_workloadName' - Undocumented member.
 --
@@ -148,16 +148,15 @@ newCreateWorkload
   pReviewOwner_
   pClientRequestToken_ =
     CreateWorkload'
-      { architecturalDesign =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         accountIds = Prelude.Nothing,
         industry = Prelude.Nothing,
         awsRegions = Prelude.Nothing,
-        industryType = Prelude.Nothing,
-        notes = Prelude.Nothing,
-        pillarPriorities = Prelude.Nothing,
         nonAwsRegions = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        notes = Prelude.Nothing,
+        industryType = Prelude.Nothing,
+        architecturalDesign = Prelude.Nothing,
+        pillarPriorities = Prelude.Nothing,
         workloadName = pWorkloadName_,
         description = pDescription_,
         environment = pEnvironment_,
@@ -166,9 +165,9 @@ newCreateWorkload
         clientRequestToken = pClientRequestToken_
       }
 
--- | Undocumented member.
-createWorkload_architecturalDesign :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
-createWorkload_architecturalDesign = Lens.lens (\CreateWorkload' {architecturalDesign} -> architecturalDesign) (\s@CreateWorkload' {} a -> s {architecturalDesign = a} :: CreateWorkload)
+-- | The tags to be associated with the workload.
+createWorkload_tags :: Lens.Lens' CreateWorkload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createWorkload_tags = Lens.lens (\CreateWorkload' {tags} -> tags) (\s@CreateWorkload' {} a -> s {tags = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createWorkload_accountIds :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
@@ -183,24 +182,24 @@ createWorkload_awsRegions :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.T
 createWorkload_awsRegions = Lens.lens (\CreateWorkload' {awsRegions} -> awsRegions) (\s@CreateWorkload' {} a -> s {awsRegions = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-createWorkload_industryType :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
-createWorkload_industryType = Lens.lens (\CreateWorkload' {industryType} -> industryType) (\s@CreateWorkload' {} a -> s {industryType = a} :: CreateWorkload)
+createWorkload_nonAwsRegions :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
+createWorkload_nonAwsRegions = Lens.lens (\CreateWorkload' {nonAwsRegions} -> nonAwsRegions) (\s@CreateWorkload' {} a -> s {nonAwsRegions = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createWorkload_notes :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
 createWorkload_notes = Lens.lens (\CreateWorkload' {notes} -> notes) (\s@CreateWorkload' {} a -> s {notes = a} :: CreateWorkload)
 
 -- | Undocumented member.
-createWorkload_pillarPriorities :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
-createWorkload_pillarPriorities = Lens.lens (\CreateWorkload' {pillarPriorities} -> pillarPriorities) (\s@CreateWorkload' {} a -> s {pillarPriorities = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
+createWorkload_industryType :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
+createWorkload_industryType = Lens.lens (\CreateWorkload' {industryType} -> industryType) (\s@CreateWorkload' {} a -> s {industryType = a} :: CreateWorkload)
 
 -- | Undocumented member.
-createWorkload_nonAwsRegions :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
-createWorkload_nonAwsRegions = Lens.lens (\CreateWorkload' {nonAwsRegions} -> nonAwsRegions) (\s@CreateWorkload' {} a -> s {nonAwsRegions = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
+createWorkload_architecturalDesign :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
+createWorkload_architecturalDesign = Lens.lens (\CreateWorkload' {architecturalDesign} -> architecturalDesign) (\s@CreateWorkload' {} a -> s {architecturalDesign = a} :: CreateWorkload)
 
--- | The tags to be associated with the workload.
-createWorkload_tags :: Lens.Lens' CreateWorkload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createWorkload_tags = Lens.lens (\CreateWorkload' {tags} -> tags) (\s@CreateWorkload' {} a -> s {tags = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+createWorkload_pillarPriorities :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
+createWorkload_pillarPriorities = Lens.lens (\CreateWorkload' {pillarPriorities} -> pillarPriorities) (\s@CreateWorkload' {} a -> s {pillarPriorities = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createWorkload_workloadName :: Lens.Lens' CreateWorkload Prelude.Text
@@ -242,15 +241,15 @@ instance Core.AWSRequest CreateWorkload where
 
 instance Prelude.Hashable CreateWorkload where
   hashWithSalt _salt CreateWorkload' {..} =
-    _salt `Prelude.hashWithSalt` architecturalDesign
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` industry
       `Prelude.hashWithSalt` awsRegions
-      `Prelude.hashWithSalt` industryType
-      `Prelude.hashWithSalt` notes
-      `Prelude.hashWithSalt` pillarPriorities
       `Prelude.hashWithSalt` nonAwsRegions
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` industryType
+      `Prelude.hashWithSalt` architecturalDesign
+      `Prelude.hashWithSalt` pillarPriorities
       `Prelude.hashWithSalt` workloadName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environment
@@ -260,15 +259,15 @@ instance Prelude.Hashable CreateWorkload where
 
 instance Prelude.NFData CreateWorkload where
   rnf CreateWorkload' {..} =
-    Prelude.rnf architecturalDesign
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf industry
       `Prelude.seq` Prelude.rnf awsRegions
-      `Prelude.seq` Prelude.rnf industryType
-      `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf pillarPriorities
       `Prelude.seq` Prelude.rnf nonAwsRegions
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf industryType
+      `Prelude.seq` Prelude.rnf architecturalDesign
+      `Prelude.seq` Prelude.rnf pillarPriorities
       `Prelude.seq` Prelude.rnf workloadName
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf environment
@@ -291,17 +290,17 @@ instance Core.ToJSON CreateWorkload where
   toJSON CreateWorkload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ArchitecturalDesign" Core..=)
-              Prelude.<$> architecturalDesign,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("AccountIds" Core..=) Prelude.<$> accountIds,
             ("Industry" Core..=) Prelude.<$> industry,
             ("AwsRegions" Core..=) Prelude.<$> awsRegions,
-            ("IndustryType" Core..=) Prelude.<$> industryType,
+            ("NonAwsRegions" Core..=) Prelude.<$> nonAwsRegions,
             ("Notes" Core..=) Prelude.<$> notes,
+            ("IndustryType" Core..=) Prelude.<$> industryType,
+            ("ArchitecturalDesign" Core..=)
+              Prelude.<$> architecturalDesign,
             ("PillarPriorities" Core..=)
               Prelude.<$> pillarPriorities,
-            ("NonAwsRegions" Core..=) Prelude.<$> nonAwsRegions,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("WorkloadName" Core..= workloadName),
             Prelude.Just ("Description" Core..= description),
             Prelude.Just ("Environment" Core..= environment),

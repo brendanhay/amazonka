@@ -28,14 +28,14 @@ import Amazonka.SnowDeviceManagement.Types.TaskState
 --
 -- /See:/ 'newTaskSummary' smart constructor.
 data TaskSummary = TaskSummary'
-  { -- | The state of the task assigned to one or many devices.
-    state :: Prelude.Maybe TaskState,
-    -- | The Amazon Resource Name (ARN) of the task.
-    taskArn :: Prelude.Maybe Prelude.Text,
-    -- | Optional metadata that you assign to a resource. You can use tags to
+  { -- | Optional metadata that you assign to a resource. You can use tags to
     -- categorize a resource in different ways, such as by purpose, owner, or
     -- environment.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the task.
+    taskArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the task assigned to one or many devices.
+    state :: Prelude.Maybe TaskState,
     -- | The task ID.
     taskId :: Prelude.Text
   }
@@ -49,13 +49,13 @@ data TaskSummary = TaskSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'taskSummary_state' - The state of the task assigned to one or many devices.
---
--- 'taskArn', 'taskSummary_taskArn' - The Amazon Resource Name (ARN) of the task.
---
 -- 'tags', 'taskSummary_tags' - Optional metadata that you assign to a resource. You can use tags to
 -- categorize a resource in different ways, such as by purpose, owner, or
 -- environment.
+--
+-- 'taskArn', 'taskSummary_taskArn' - The Amazon Resource Name (ARN) of the task.
+--
+-- 'state', 'taskSummary_state' - The state of the task assigned to one or many devices.
 --
 -- 'taskId', 'taskSummary_taskId' - The task ID.
 newTaskSummary ::
@@ -64,25 +64,25 @@ newTaskSummary ::
   TaskSummary
 newTaskSummary pTaskId_ =
   TaskSummary'
-    { state = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       taskArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      state = Prelude.Nothing,
       taskId = pTaskId_
     }
-
--- | The state of the task assigned to one or many devices.
-taskSummary_state :: Lens.Lens' TaskSummary (Prelude.Maybe TaskState)
-taskSummary_state = Lens.lens (\TaskSummary' {state} -> state) (\s@TaskSummary' {} a -> s {state = a} :: TaskSummary)
-
--- | The Amazon Resource Name (ARN) of the task.
-taskSummary_taskArn :: Lens.Lens' TaskSummary (Prelude.Maybe Prelude.Text)
-taskSummary_taskArn = Lens.lens (\TaskSummary' {taskArn} -> taskArn) (\s@TaskSummary' {} a -> s {taskArn = a} :: TaskSummary)
 
 -- | Optional metadata that you assign to a resource. You can use tags to
 -- categorize a resource in different ways, such as by purpose, owner, or
 -- environment.
 taskSummary_tags :: Lens.Lens' TaskSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 taskSummary_tags = Lens.lens (\TaskSummary' {tags} -> tags) (\s@TaskSummary' {} a -> s {tags = a} :: TaskSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the task.
+taskSummary_taskArn :: Lens.Lens' TaskSummary (Prelude.Maybe Prelude.Text)
+taskSummary_taskArn = Lens.lens (\TaskSummary' {taskArn} -> taskArn) (\s@TaskSummary' {} a -> s {taskArn = a} :: TaskSummary)
+
+-- | The state of the task assigned to one or many devices.
+taskSummary_state :: Lens.Lens' TaskSummary (Prelude.Maybe TaskState)
+taskSummary_state = Lens.lens (\TaskSummary' {state} -> state) (\s@TaskSummary' {} a -> s {state = a} :: TaskSummary)
 
 -- | The task ID.
 taskSummary_taskId :: Lens.Lens' TaskSummary Prelude.Text
@@ -94,22 +94,22 @@ instance Core.FromJSON TaskSummary where
       "TaskSummary"
       ( \x ->
           TaskSummary'
-            Prelude.<$> (x Core..:? "state")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "taskArn")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..: "taskId")
       )
 
 instance Prelude.Hashable TaskSummary where
   hashWithSalt _salt TaskSummary' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` taskArn
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData TaskSummary where
   rnf TaskSummary' {..} =
-    Prelude.rnf state
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf taskId

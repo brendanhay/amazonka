@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBucketPermissionConfiguration' smart constructor.
 data BucketPermissionConfiguration = BucketPermissionConfiguration'
-  { -- | The bucket-level permissions settings for the bucket.
-    bucketLevelPermissions :: Prelude.Maybe BucketLevelPermissions,
-    -- | The account-level permissions settings that apply to the bucket.
-    accountLevelPermissions :: Prelude.Maybe AccountLevelPermissions
+  { -- | The account-level permissions settings that apply to the bucket.
+    accountLevelPermissions :: Prelude.Maybe AccountLevelPermissions,
+    -- | The bucket-level permissions settings for the bucket.
+    bucketLevelPermissions :: Prelude.Maybe BucketLevelPermissions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data BucketPermissionConfiguration = BucketPermissionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketLevelPermissions', 'bucketPermissionConfiguration_bucketLevelPermissions' - The bucket-level permissions settings for the bucket.
---
 -- 'accountLevelPermissions', 'bucketPermissionConfiguration_accountLevelPermissions' - The account-level permissions settings that apply to the bucket.
+--
+-- 'bucketLevelPermissions', 'bucketPermissionConfiguration_bucketLevelPermissions' - The bucket-level permissions settings for the bucket.
 newBucketPermissionConfiguration ::
   BucketPermissionConfiguration
 newBucketPermissionConfiguration =
   BucketPermissionConfiguration'
-    { bucketLevelPermissions =
+    { accountLevelPermissions =
         Prelude.Nothing,
-      accountLevelPermissions = Prelude.Nothing
+      bucketLevelPermissions = Prelude.Nothing
     }
-
--- | The bucket-level permissions settings for the bucket.
-bucketPermissionConfiguration_bucketLevelPermissions :: Lens.Lens' BucketPermissionConfiguration (Prelude.Maybe BucketLevelPermissions)
-bucketPermissionConfiguration_bucketLevelPermissions = Lens.lens (\BucketPermissionConfiguration' {bucketLevelPermissions} -> bucketLevelPermissions) (\s@BucketPermissionConfiguration' {} a -> s {bucketLevelPermissions = a} :: BucketPermissionConfiguration)
 
 -- | The account-level permissions settings that apply to the bucket.
 bucketPermissionConfiguration_accountLevelPermissions :: Lens.Lens' BucketPermissionConfiguration (Prelude.Maybe AccountLevelPermissions)
 bucketPermissionConfiguration_accountLevelPermissions = Lens.lens (\BucketPermissionConfiguration' {accountLevelPermissions} -> accountLevelPermissions) (\s@BucketPermissionConfiguration' {} a -> s {accountLevelPermissions = a} :: BucketPermissionConfiguration)
+
+-- | The bucket-level permissions settings for the bucket.
+bucketPermissionConfiguration_bucketLevelPermissions :: Lens.Lens' BucketPermissionConfiguration (Prelude.Maybe BucketLevelPermissions)
+bucketPermissionConfiguration_bucketLevelPermissions = Lens.lens (\BucketPermissionConfiguration' {bucketLevelPermissions} -> bucketLevelPermissions) (\s@BucketPermissionConfiguration' {} a -> s {bucketLevelPermissions = a} :: BucketPermissionConfiguration)
 
 instance Core.FromJSON BucketPermissionConfiguration where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON BucketPermissionConfiguration where
       "BucketPermissionConfiguration"
       ( \x ->
           BucketPermissionConfiguration'
-            Prelude.<$> (x Core..:? "bucketLevelPermissions")
-            Prelude.<*> (x Core..:? "accountLevelPermissions")
+            Prelude.<$> (x Core..:? "accountLevelPermissions")
+            Prelude.<*> (x Core..:? "bucketLevelPermissions")
       )
 
 instance
@@ -80,10 +80,11 @@ instance
     BucketPermissionConfiguration
   where
   hashWithSalt _salt BucketPermissionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` bucketLevelPermissions
+    _salt
       `Prelude.hashWithSalt` accountLevelPermissions
+      `Prelude.hashWithSalt` bucketLevelPermissions
 
 instance Prelude.NFData BucketPermissionConfiguration where
   rnf BucketPermissionConfiguration' {..} =
-    Prelude.rnf bucketLevelPermissions
-      `Prelude.seq` Prelude.rnf accountLevelPermissions
+    Prelude.rnf accountLevelPermissions
+      `Prelude.seq` Prelude.rnf bucketLevelPermissions

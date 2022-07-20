@@ -32,11 +32,11 @@ data AwsRdsDbClusterMember = AwsRdsDbClusterMember'
     promotionTier :: Prelude.Maybe Prelude.Int,
     -- | The instance identifier for this member of the DB cluster.
     dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Whether the cluster member is the primary instance for the DB cluster.
-    isClusterWriter :: Prelude.Maybe Prelude.Bool,
     -- | The status of the DB cluster parameter group for this member of the DB
     -- cluster.
-    dbClusterParameterGroupStatus :: Prelude.Maybe Prelude.Text
+    dbClusterParameterGroupStatus :: Prelude.Maybe Prelude.Text,
+    -- | Whether the cluster member is the primary instance for the DB cluster.
+    isClusterWriter :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,10 +53,10 @@ data AwsRdsDbClusterMember = AwsRdsDbClusterMember'
 --
 -- 'dbInstanceIdentifier', 'awsRdsDbClusterMember_dbInstanceIdentifier' - The instance identifier for this member of the DB cluster.
 --
--- 'isClusterWriter', 'awsRdsDbClusterMember_isClusterWriter' - Whether the cluster member is the primary instance for the DB cluster.
---
 -- 'dbClusterParameterGroupStatus', 'awsRdsDbClusterMember_dbClusterParameterGroupStatus' - The status of the DB cluster parameter group for this member of the DB
 -- cluster.
+--
+-- 'isClusterWriter', 'awsRdsDbClusterMember_isClusterWriter' - Whether the cluster member is the primary instance for the DB cluster.
 newAwsRdsDbClusterMember ::
   AwsRdsDbClusterMember
 newAwsRdsDbClusterMember =
@@ -64,8 +64,8 @@ newAwsRdsDbClusterMember =
     { promotionTier =
         Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
-      isClusterWriter = Prelude.Nothing,
-      dbClusterParameterGroupStatus = Prelude.Nothing
+      dbClusterParameterGroupStatus = Prelude.Nothing,
+      isClusterWriter = Prelude.Nothing
     }
 
 -- | Specifies the order in which an Aurora replica is promoted to the
@@ -77,14 +77,14 @@ awsRdsDbClusterMember_promotionTier = Lens.lens (\AwsRdsDbClusterMember' {promot
 awsRdsDbClusterMember_dbInstanceIdentifier :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterMember_dbInstanceIdentifier = Lens.lens (\AwsRdsDbClusterMember' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@AwsRdsDbClusterMember' {} a -> s {dbInstanceIdentifier = a} :: AwsRdsDbClusterMember)
 
--- | Whether the cluster member is the primary instance for the DB cluster.
-awsRdsDbClusterMember_isClusterWriter :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Bool)
-awsRdsDbClusterMember_isClusterWriter = Lens.lens (\AwsRdsDbClusterMember' {isClusterWriter} -> isClusterWriter) (\s@AwsRdsDbClusterMember' {} a -> s {isClusterWriter = a} :: AwsRdsDbClusterMember)
-
 -- | The status of the DB cluster parameter group for this member of the DB
 -- cluster.
 awsRdsDbClusterMember_dbClusterParameterGroupStatus :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterMember_dbClusterParameterGroupStatus = Lens.lens (\AwsRdsDbClusterMember' {dbClusterParameterGroupStatus} -> dbClusterParameterGroupStatus) (\s@AwsRdsDbClusterMember' {} a -> s {dbClusterParameterGroupStatus = a} :: AwsRdsDbClusterMember)
+
+-- | Whether the cluster member is the primary instance for the DB cluster.
+awsRdsDbClusterMember_isClusterWriter :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Bool)
+awsRdsDbClusterMember_isClusterWriter = Lens.lens (\AwsRdsDbClusterMember' {isClusterWriter} -> isClusterWriter) (\s@AwsRdsDbClusterMember' {} a -> s {isClusterWriter = a} :: AwsRdsDbClusterMember)
 
 instance Core.FromJSON AwsRdsDbClusterMember where
   parseJSON =
@@ -94,23 +94,23 @@ instance Core.FromJSON AwsRdsDbClusterMember where
           AwsRdsDbClusterMember'
             Prelude.<$> (x Core..:? "PromotionTier")
             Prelude.<*> (x Core..:? "DbInstanceIdentifier")
-            Prelude.<*> (x Core..:? "IsClusterWriter")
             Prelude.<*> (x Core..:? "DbClusterParameterGroupStatus")
+            Prelude.<*> (x Core..:? "IsClusterWriter")
       )
 
 instance Prelude.Hashable AwsRdsDbClusterMember where
   hashWithSalt _salt AwsRdsDbClusterMember' {..} =
     _salt `Prelude.hashWithSalt` promotionTier
       `Prelude.hashWithSalt` dbInstanceIdentifier
-      `Prelude.hashWithSalt` isClusterWriter
       `Prelude.hashWithSalt` dbClusterParameterGroupStatus
+      `Prelude.hashWithSalt` isClusterWriter
 
 instance Prelude.NFData AwsRdsDbClusterMember where
   rnf AwsRdsDbClusterMember' {..} =
     Prelude.rnf promotionTier
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf isClusterWriter
       `Prelude.seq` Prelude.rnf dbClusterParameterGroupStatus
+      `Prelude.seq` Prelude.rnf isClusterWriter
 
 instance Core.ToJSON AwsRdsDbClusterMember where
   toJSON AwsRdsDbClusterMember' {..} =
@@ -119,9 +119,9 @@ instance Core.ToJSON AwsRdsDbClusterMember where
           [ ("PromotionTier" Core..=) Prelude.<$> promotionTier,
             ("DbInstanceIdentifier" Core..=)
               Prelude.<$> dbInstanceIdentifier,
-            ("IsClusterWriter" Core..=)
-              Prelude.<$> isClusterWriter,
             ("DbClusterParameterGroupStatus" Core..=)
-              Prelude.<$> dbClusterParameterGroupStatus
+              Prelude.<$> dbClusterParameterGroupStatus,
+            ("IsClusterWriter" Core..=)
+              Prelude.<$> isClusterWriter
           ]
       )

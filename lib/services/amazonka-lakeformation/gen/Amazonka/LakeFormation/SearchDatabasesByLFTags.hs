@@ -32,9 +32,9 @@ module Amazonka.LakeFormation.SearchDatabasesByLFTags
     newSearchDatabasesByLFTags,
 
     -- * Request Lenses
-    searchDatabasesByLFTags_catalogId,
     searchDatabasesByLFTags_nextToken,
     searchDatabasesByLFTags_maxResults,
+    searchDatabasesByLFTags_catalogId,
     searchDatabasesByLFTags_expression,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.LakeFormation.SearchDatabasesByLFTags
     newSearchDatabasesByLFTagsResponse,
 
     -- * Response Lenses
-    searchDatabasesByLFTagsResponse_databaseList,
     searchDatabasesByLFTagsResponse_nextToken,
+    searchDatabasesByLFTagsResponse_databaseList,
     searchDatabasesByLFTagsResponse_httpStatus,
   )
 where
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchDatabasesByLFTags' smart constructor.
 data SearchDatabasesByLFTags = SearchDatabasesByLFTags'
-  { -- | The identifier for the Data Catalog. By default, the account ID. The
-    -- Data Catalog is the persistent metadata store. It contains database
-    -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | A continuation token, if this is not the first call to retrieve this
+  { -- | A continuation token, if this is not the first call to retrieve this
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier for the Data Catalog. By default, the account ID. The
+    -- Data Catalog is the persistent metadata store. It contains database
+    -- definitions, table definitions, and other control information to manage
+    -- your AWS Lake Formation environment.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of conditions (@LFTag@ structures) to search for in database
     -- resources.
     expression :: Prelude.NonEmpty LFTag
@@ -81,15 +81,15 @@ data SearchDatabasesByLFTags = SearchDatabasesByLFTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'searchDatabasesByLFTags_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
--- Data Catalog is the persistent metadata store. It contains database
--- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
---
 -- 'nextToken', 'searchDatabasesByLFTags_nextToken' - A continuation token, if this is not the first call to retrieve this
 -- list.
 --
 -- 'maxResults', 'searchDatabasesByLFTags_maxResults' - The maximum number of results to return.
+--
+-- 'catalogId', 'searchDatabasesByLFTags_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
+-- Data Catalog is the persistent metadata store. It contains database
+-- definitions, table definitions, and other control information to manage
+-- your AWS Lake Formation environment.
 --
 -- 'expression', 'searchDatabasesByLFTags_expression' - A list of conditions (@LFTag@ structures) to search for in database
 -- resources.
@@ -99,19 +99,12 @@ newSearchDatabasesByLFTags ::
   SearchDatabasesByLFTags
 newSearchDatabasesByLFTags pExpression_ =
   SearchDatabasesByLFTags'
-    { catalogId =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       expression = Lens.coerced Lens.# pExpression_
     }
-
--- | The identifier for the Data Catalog. By default, the account ID. The
--- Data Catalog is the persistent metadata store. It contains database
--- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
-searchDatabasesByLFTags_catalogId :: Lens.Lens' SearchDatabasesByLFTags (Prelude.Maybe Prelude.Text)
-searchDatabasesByLFTags_catalogId = Lens.lens (\SearchDatabasesByLFTags' {catalogId} -> catalogId) (\s@SearchDatabasesByLFTags' {} a -> s {catalogId = a} :: SearchDatabasesByLFTags)
 
 -- | A continuation token, if this is not the first call to retrieve this
 -- list.
@@ -121,6 +114,13 @@ searchDatabasesByLFTags_nextToken = Lens.lens (\SearchDatabasesByLFTags' {nextTo
 -- | The maximum number of results to return.
 searchDatabasesByLFTags_maxResults :: Lens.Lens' SearchDatabasesByLFTags (Prelude.Maybe Prelude.Natural)
 searchDatabasesByLFTags_maxResults = Lens.lens (\SearchDatabasesByLFTags' {maxResults} -> maxResults) (\s@SearchDatabasesByLFTags' {} a -> s {maxResults = a} :: SearchDatabasesByLFTags)
+
+-- | The identifier for the Data Catalog. By default, the account ID. The
+-- Data Catalog is the persistent metadata store. It contains database
+-- definitions, table definitions, and other control information to manage
+-- your AWS Lake Formation environment.
+searchDatabasesByLFTags_catalogId :: Lens.Lens' SearchDatabasesByLFTags (Prelude.Maybe Prelude.Text)
+searchDatabasesByLFTags_catalogId = Lens.lens (\SearchDatabasesByLFTags' {catalogId} -> catalogId) (\s@SearchDatabasesByLFTags' {} a -> s {catalogId = a} :: SearchDatabasesByLFTags)
 
 -- | A list of conditions (@LFTag@ structures) to search for in database
 -- resources.
@@ -136,23 +136,23 @@ instance Core.AWSRequest SearchDatabasesByLFTags where
     Response.receiveJSON
       ( \s h x ->
           SearchDatabasesByLFTagsResponse'
-            Prelude.<$> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SearchDatabasesByLFTags where
   hashWithSalt _salt SearchDatabasesByLFTags' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` expression
 
 instance Prelude.NFData SearchDatabasesByLFTags where
   rnf SearchDatabasesByLFTags' {..} =
-    Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf expression
 
 instance Core.ToHeaders SearchDatabasesByLFTags where
@@ -174,9 +174,9 @@ instance Core.ToJSON SearchDatabasesByLFTags where
   toJSON SearchDatabasesByLFTags' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("Expression" Core..= expression)
           ]
       )
@@ -189,11 +189,11 @@ instance Core.ToQuery SearchDatabasesByLFTags where
 
 -- | /See:/ 'newSearchDatabasesByLFTagsResponse' smart constructor.
 data SearchDatabasesByLFTagsResponse = SearchDatabasesByLFTagsResponse'
-  { -- | A list of databases that meet the tag conditions.
-    databaseList :: Prelude.Maybe [TaggedDatabase],
-    -- | A continuation token, present if the current list segment is not the
+  { -- | A continuation token, present if the current list segment is not the
     -- last.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of databases that meet the tag conditions.
+    databaseList :: Prelude.Maybe [TaggedDatabase],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,10 +207,10 @@ data SearchDatabasesByLFTagsResponse = SearchDatabasesByLFTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'databaseList', 'searchDatabasesByLFTagsResponse_databaseList' - A list of databases that meet the tag conditions.
---
 -- 'nextToken', 'searchDatabasesByLFTagsResponse_nextToken' - A continuation token, present if the current list segment is not the
 -- last.
+--
+-- 'databaseList', 'searchDatabasesByLFTagsResponse_databaseList' - A list of databases that meet the tag conditions.
 --
 -- 'httpStatus', 'searchDatabasesByLFTagsResponse_httpStatus' - The response's http status code.
 newSearchDatabasesByLFTagsResponse ::
@@ -219,20 +219,20 @@ newSearchDatabasesByLFTagsResponse ::
   SearchDatabasesByLFTagsResponse
 newSearchDatabasesByLFTagsResponse pHttpStatus_ =
   SearchDatabasesByLFTagsResponse'
-    { databaseList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      databaseList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of databases that meet the tag conditions.
-searchDatabasesByLFTagsResponse_databaseList :: Lens.Lens' SearchDatabasesByLFTagsResponse (Prelude.Maybe [TaggedDatabase])
-searchDatabasesByLFTagsResponse_databaseList = Lens.lens (\SearchDatabasesByLFTagsResponse' {databaseList} -> databaseList) (\s@SearchDatabasesByLFTagsResponse' {} a -> s {databaseList = a} :: SearchDatabasesByLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, present if the current list segment is not the
 -- last.
 searchDatabasesByLFTagsResponse_nextToken :: Lens.Lens' SearchDatabasesByLFTagsResponse (Prelude.Maybe Prelude.Text)
 searchDatabasesByLFTagsResponse_nextToken = Lens.lens (\SearchDatabasesByLFTagsResponse' {nextToken} -> nextToken) (\s@SearchDatabasesByLFTagsResponse' {} a -> s {nextToken = a} :: SearchDatabasesByLFTagsResponse)
+
+-- | A list of databases that meet the tag conditions.
+searchDatabasesByLFTagsResponse_databaseList :: Lens.Lens' SearchDatabasesByLFTagsResponse (Prelude.Maybe [TaggedDatabase])
+searchDatabasesByLFTagsResponse_databaseList = Lens.lens (\SearchDatabasesByLFTagsResponse' {databaseList} -> databaseList) (\s@SearchDatabasesByLFTagsResponse' {} a -> s {databaseList = a} :: SearchDatabasesByLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 searchDatabasesByLFTagsResponse_httpStatus :: Lens.Lens' SearchDatabasesByLFTagsResponse Prelude.Int
@@ -243,6 +243,6 @@ instance
     SearchDatabasesByLFTagsResponse
   where
   rnf SearchDatabasesByLFTagsResponse' {..} =
-    Prelude.rnf databaseList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf databaseList
       `Prelude.seq` Prelude.rnf httpStatus

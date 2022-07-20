@@ -33,18 +33,18 @@ module Amazonka.IoT.ListTopicRules
     newListTopicRules,
 
     -- * Request Lenses
-    listTopicRules_ruleDisabled,
-    listTopicRules_topic,
     listTopicRules_nextToken,
     listTopicRules_maxResults,
+    listTopicRules_topic,
+    listTopicRules_ruleDisabled,
 
     -- * Destructuring the Response
     ListTopicRulesResponse (..),
     newListTopicRulesResponse,
 
     -- * Response Lenses
-    listTopicRulesResponse_rules,
     listTopicRulesResponse_nextToken,
+    listTopicRulesResponse_rules,
     listTopicRulesResponse_httpStatus,
   )
 where
@@ -60,16 +60,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTopicRules' smart constructor.
 data ListTopicRules = ListTopicRules'
-  { -- | Specifies whether the rule is disabled.
-    ruleDisabled :: Prelude.Maybe Prelude.Bool,
-    -- | The topic.
-    topic :: Prelude.Maybe Prelude.Text,
-    -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The topic.
+    topic :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the rule is disabled.
+    ruleDisabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,32 +81,24 @@ data ListTopicRules = ListTopicRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleDisabled', 'listTopicRules_ruleDisabled' - Specifies whether the rule is disabled.
---
--- 'topic', 'listTopicRules_topic' - The topic.
---
 -- 'nextToken', 'listTopicRules_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 --
 -- 'maxResults', 'listTopicRules_maxResults' - The maximum number of results to return.
+--
+-- 'topic', 'listTopicRules_topic' - The topic.
+--
+-- 'ruleDisabled', 'listTopicRules_ruleDisabled' - Specifies whether the rule is disabled.
 newListTopicRules ::
   ListTopicRules
 newListTopicRules =
   ListTopicRules'
-    { ruleDisabled = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       topic = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      ruleDisabled = Prelude.Nothing
     }
-
--- | Specifies whether the rule is disabled.
-listTopicRules_ruleDisabled :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Bool)
-listTopicRules_ruleDisabled = Lens.lens (\ListTopicRules' {ruleDisabled} -> ruleDisabled) (\s@ListTopicRules' {} a -> s {ruleDisabled = a} :: ListTopicRules)
-
--- | The topic.
-listTopicRules_topic :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Text)
-listTopicRules_topic = Lens.lens (\ListTopicRules' {topic} -> topic) (\s@ListTopicRules' {} a -> s {topic = a} :: ListTopicRules)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
@@ -117,6 +109,14 @@ listTopicRules_nextToken = Lens.lens (\ListTopicRules' {nextToken} -> nextToken)
 -- | The maximum number of results to return.
 listTopicRules_maxResults :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Natural)
 listTopicRules_maxResults = Lens.lens (\ListTopicRules' {maxResults} -> maxResults) (\s@ListTopicRules' {} a -> s {maxResults = a} :: ListTopicRules)
+
+-- | The topic.
+listTopicRules_topic :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Text)
+listTopicRules_topic = Lens.lens (\ListTopicRules' {topic} -> topic) (\s@ListTopicRules' {} a -> s {topic = a} :: ListTopicRules)
+
+-- | Specifies whether the rule is disabled.
+listTopicRules_ruleDisabled :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Bool)
+listTopicRules_ruleDisabled = Lens.lens (\ListTopicRules' {ruleDisabled} -> ruleDisabled) (\s@ListTopicRules' {} a -> s {ruleDisabled = a} :: ListTopicRules)
 
 instance Core.AWSPager ListTopicRules where
   page rq rs
@@ -147,24 +147,24 @@ instance Core.AWSRequest ListTopicRules where
     Response.receiveJSON
       ( \s h x ->
           ListTopicRulesResponse'
-            Prelude.<$> (x Core..?> "rules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTopicRules where
   hashWithSalt _salt ListTopicRules' {..} =
-    _salt `Prelude.hashWithSalt` ruleDisabled
-      `Prelude.hashWithSalt` topic
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` topic
+      `Prelude.hashWithSalt` ruleDisabled
 
 instance Prelude.NFData ListTopicRules where
   rnf ListTopicRules' {..} =
-    Prelude.rnf ruleDisabled
-      `Prelude.seq` Prelude.rnf topic
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf ruleDisabled
 
 instance Core.ToHeaders ListTopicRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,21 +175,21 @@ instance Core.ToPath ListTopicRules where
 instance Core.ToQuery ListTopicRules where
   toQuery ListTopicRules' {..} =
     Prelude.mconcat
-      [ "ruleDisabled" Core.=: ruleDisabled,
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
         "topic" Core.=: topic,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+        "ruleDisabled" Core.=: ruleDisabled
       ]
 
 -- | The output from the ListTopicRules operation.
 --
 -- /See:/ 'newListTopicRulesResponse' smart constructor.
 data ListTopicRulesResponse = ListTopicRulesResponse'
-  { -- | The rules.
-    rules :: Prelude.Maybe [TopicRuleListItem],
-    -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The rules.
+    rules :: Prelude.Maybe [TopicRuleListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,10 +203,10 @@ data ListTopicRulesResponse = ListTopicRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rules', 'listTopicRulesResponse_rules' - The rules.
---
 -- 'nextToken', 'listTopicRulesResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
+--
+-- 'rules', 'listTopicRulesResponse_rules' - The rules.
 --
 -- 'httpStatus', 'listTopicRulesResponse_httpStatus' - The response's http status code.
 newListTopicRulesResponse ::
@@ -215,19 +215,20 @@ newListTopicRulesResponse ::
   ListTopicRulesResponse
 newListTopicRulesResponse pHttpStatus_ =
   ListTopicRulesResponse'
-    { rules = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      rules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The rules.
-listTopicRulesResponse_rules :: Lens.Lens' ListTopicRulesResponse (Prelude.Maybe [TopicRuleListItem])
-listTopicRulesResponse_rules = Lens.lens (\ListTopicRulesResponse' {rules} -> rules) (\s@ListTopicRulesResponse' {} a -> s {rules = a} :: ListTopicRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listTopicRulesResponse_nextToken :: Lens.Lens' ListTopicRulesResponse (Prelude.Maybe Prelude.Text)
 listTopicRulesResponse_nextToken = Lens.lens (\ListTopicRulesResponse' {nextToken} -> nextToken) (\s@ListTopicRulesResponse' {} a -> s {nextToken = a} :: ListTopicRulesResponse)
+
+-- | The rules.
+listTopicRulesResponse_rules :: Lens.Lens' ListTopicRulesResponse (Prelude.Maybe [TopicRuleListItem])
+listTopicRulesResponse_rules = Lens.lens (\ListTopicRulesResponse' {rules} -> rules) (\s@ListTopicRulesResponse' {} a -> s {rules = a} :: ListTopicRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTopicRulesResponse_httpStatus :: Lens.Lens' ListTopicRulesResponse Prelude.Int
@@ -235,6 +236,6 @@ listTopicRulesResponse_httpStatus = Lens.lens (\ListTopicRulesResponse' {httpSta
 
 instance Prelude.NFData ListTopicRulesResponse where
   rnf ListTopicRulesResponse' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf httpStatus

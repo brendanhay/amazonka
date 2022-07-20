@@ -28,8 +28,8 @@ module Amazonka.Config.GetConformancePackComplianceDetails
     newGetConformancePackComplianceDetails,
 
     -- * Request Lenses
-    getConformancePackComplianceDetails_filters,
     getConformancePackComplianceDetails_nextToken,
+    getConformancePackComplianceDetails_filters,
     getConformancePackComplianceDetails_limit,
     getConformancePackComplianceDetails_conformancePackName,
 
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConformancePackComplianceDetails' smart constructor.
 data GetConformancePackComplianceDetails = GetConformancePackComplianceDetails'
-  { -- | A @ConformancePackEvaluationFilters@ object.
-    filters :: Prelude.Maybe ConformancePackEvaluationFilters,
-    -- | The @nextToken@ string returned in a previous request that you use to
+  { -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A @ConformancePackEvaluationFilters@ object.
+    filters :: Prelude.Maybe ConformancePackEvaluationFilters,
     -- | The maximum number of evaluation results returned on each page. If you
     -- do no specify a number, Config uses the default. The default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -75,10 +75,10 @@ data GetConformancePackComplianceDetails = GetConformancePackComplianceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'getConformancePackComplianceDetails_filters' - A @ConformancePackEvaluationFilters@ object.
---
 -- 'nextToken', 'getConformancePackComplianceDetails_nextToken' - The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
+--
+-- 'filters', 'getConformancePackComplianceDetails_filters' - A @ConformancePackEvaluationFilters@ object.
 --
 -- 'limit', 'getConformancePackComplianceDetails_limit' - The maximum number of evaluation results returned on each page. If you
 -- do no specify a number, Config uses the default. The default is 100.
@@ -91,22 +91,22 @@ newGetConformancePackComplianceDetails ::
 newGetConformancePackComplianceDetails
   pConformancePackName_ =
     GetConformancePackComplianceDetails'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         limit = Prelude.Nothing,
         conformancePackName =
           pConformancePackName_
       }
 
--- | A @ConformancePackEvaluationFilters@ object.
-getConformancePackComplianceDetails_filters :: Lens.Lens' GetConformancePackComplianceDetails (Prelude.Maybe ConformancePackEvaluationFilters)
-getConformancePackComplianceDetails_filters = Lens.lens (\GetConformancePackComplianceDetails' {filters} -> filters) (\s@GetConformancePackComplianceDetails' {} a -> s {filters = a} :: GetConformancePackComplianceDetails)
-
 -- | The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
 getConformancePackComplianceDetails_nextToken :: Lens.Lens' GetConformancePackComplianceDetails (Prelude.Maybe Prelude.Text)
 getConformancePackComplianceDetails_nextToken = Lens.lens (\GetConformancePackComplianceDetails' {nextToken} -> nextToken) (\s@GetConformancePackComplianceDetails' {} a -> s {nextToken = a} :: GetConformancePackComplianceDetails)
+
+-- | A @ConformancePackEvaluationFilters@ object.
+getConformancePackComplianceDetails_filters :: Lens.Lens' GetConformancePackComplianceDetails (Prelude.Maybe ConformancePackEvaluationFilters)
+getConformancePackComplianceDetails_filters = Lens.lens (\GetConformancePackComplianceDetails' {filters} -> filters) (\s@GetConformancePackComplianceDetails' {} a -> s {filters = a} :: GetConformancePackComplianceDetails)
 
 -- | The maximum number of evaluation results returned on each page. If you
 -- do no specify a number, Config uses the default. The default is 100.
@@ -144,8 +144,8 @@ instance
   hashWithSalt
     _salt
     GetConformancePackComplianceDetails' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` conformancePackName
 
@@ -154,8 +154,8 @@ instance
     GetConformancePackComplianceDetails
   where
   rnf GetConformancePackComplianceDetails' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf conformancePackName
 
@@ -184,8 +184,8 @@ instance
   toJSON GetConformancePackComplianceDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ("ConformancePackName" Core..= conformancePackName)

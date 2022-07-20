@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventType' smart constructor.
 data EventType = EventType'
-  { -- | Timestamp of when the event type was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
-    -- | The entity type ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The event type name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of when the event type was created.
     createdTime :: Prelude.Maybe Prelude.Text,
     -- | The event type entity types.
     entityTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The event type event variables.
-    eventVariables :: Prelude.Maybe [Prelude.Text],
-    -- | The event type name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The entity type ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The event type description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Timestamp of when the event type was last updated.
+    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
     -- | Data about the stored events.
     ingestedEventStatistics :: Prelude.Maybe IngestedEventStatistics,
     -- | The event type labels.
@@ -50,8 +50,8 @@ data EventType = EventType'
     -- real-time. Amazon Fraud Detector uses this data, known as
     -- @INGESTED_EVENTS@, to train your model and improve fraud predictions.
     eventIngestion :: Prelude.Maybe EventIngestion,
-    -- | The event type description.
-    description :: Prelude.Maybe Prelude.Text
+    -- | The event type event variables.
+    eventVariables :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -63,17 +63,17 @@ data EventType = EventType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'eventType_lastUpdatedTime' - Timestamp of when the event type was last updated.
---
--- 'arn', 'eventType_arn' - The entity type ARN.
+-- 'name', 'eventType_name' - The event type name.
 --
 -- 'createdTime', 'eventType_createdTime' - Timestamp of when the event type was created.
 --
 -- 'entityTypes', 'eventType_entityTypes' - The event type entity types.
 --
--- 'eventVariables', 'eventType_eventVariables' - The event type event variables.
+-- 'arn', 'eventType_arn' - The entity type ARN.
 --
--- 'name', 'eventType_name' - The event type name.
+-- 'description', 'eventType_description' - The event type description.
+--
+-- 'lastUpdatedTime', 'eventType_lastUpdatedTime' - Timestamp of when the event type was last updated.
 --
 -- 'ingestedEventStatistics', 'eventType_ingestedEventStatistics' - Data about the stored events.
 --
@@ -84,30 +84,26 @@ data EventType = EventType'
 -- real-time. Amazon Fraud Detector uses this data, known as
 -- @INGESTED_EVENTS@, to train your model and improve fraud predictions.
 --
--- 'description', 'eventType_description' - The event type description.
+-- 'eventVariables', 'eventType_eventVariables' - The event type event variables.
 newEventType ::
   EventType
 newEventType =
   EventType'
-    { lastUpdatedTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       entityTypes = Prelude.Nothing,
-      eventVariables = Prelude.Nothing,
-      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       ingestedEventStatistics = Prelude.Nothing,
       labels = Prelude.Nothing,
       eventIngestion = Prelude.Nothing,
-      description = Prelude.Nothing
+      eventVariables = Prelude.Nothing
     }
 
--- | Timestamp of when the event type was last updated.
-eventType_lastUpdatedTime :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
-eventType_lastUpdatedTime = Lens.lens (\EventType' {lastUpdatedTime} -> lastUpdatedTime) (\s@EventType' {} a -> s {lastUpdatedTime = a} :: EventType)
-
--- | The entity type ARN.
-eventType_arn :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
-eventType_arn = Lens.lens (\EventType' {arn} -> arn) (\s@EventType' {} a -> s {arn = a} :: EventType)
+-- | The event type name.
+eventType_name :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
+eventType_name = Lens.lens (\EventType' {name} -> name) (\s@EventType' {} a -> s {name = a} :: EventType)
 
 -- | Timestamp of when the event type was created.
 eventType_createdTime :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
@@ -117,13 +113,17 @@ eventType_createdTime = Lens.lens (\EventType' {createdTime} -> createdTime) (\s
 eventType_entityTypes :: Lens.Lens' EventType (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventType_entityTypes = Lens.lens (\EventType' {entityTypes} -> entityTypes) (\s@EventType' {} a -> s {entityTypes = a} :: EventType) Prelude.. Lens.mapping Lens.coerced
 
--- | The event type event variables.
-eventType_eventVariables :: Lens.Lens' EventType (Prelude.Maybe [Prelude.Text])
-eventType_eventVariables = Lens.lens (\EventType' {eventVariables} -> eventVariables) (\s@EventType' {} a -> s {eventVariables = a} :: EventType) Prelude.. Lens.mapping Lens.coerced
+-- | The entity type ARN.
+eventType_arn :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
+eventType_arn = Lens.lens (\EventType' {arn} -> arn) (\s@EventType' {} a -> s {arn = a} :: EventType)
 
--- | The event type name.
-eventType_name :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
-eventType_name = Lens.lens (\EventType' {name} -> name) (\s@EventType' {} a -> s {name = a} :: EventType)
+-- | The event type description.
+eventType_description :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
+eventType_description = Lens.lens (\EventType' {description} -> description) (\s@EventType' {} a -> s {description = a} :: EventType)
+
+-- | Timestamp of when the event type was last updated.
+eventType_lastUpdatedTime :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
+eventType_lastUpdatedTime = Lens.lens (\EventType' {lastUpdatedTime} -> lastUpdatedTime) (\s@EventType' {} a -> s {lastUpdatedTime = a} :: EventType)
 
 -- | Data about the stored events.
 eventType_ingestedEventStatistics :: Lens.Lens' EventType (Prelude.Maybe IngestedEventStatistics)
@@ -140,9 +140,9 @@ eventType_labels = Lens.lens (\EventType' {labels} -> labels) (\s@EventType' {} 
 eventType_eventIngestion :: Lens.Lens' EventType (Prelude.Maybe EventIngestion)
 eventType_eventIngestion = Lens.lens (\EventType' {eventIngestion} -> eventIngestion) (\s@EventType' {} a -> s {eventIngestion = a} :: EventType)
 
--- | The event type description.
-eventType_description :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
-eventType_description = Lens.lens (\EventType' {description} -> description) (\s@EventType' {} a -> s {description = a} :: EventType)
+-- | The event type event variables.
+eventType_eventVariables :: Lens.Lens' EventType (Prelude.Maybe [Prelude.Text])
+eventType_eventVariables = Lens.lens (\EventType' {eventVariables} -> eventVariables) (\s@EventType' {} a -> s {eventVariables = a} :: EventType) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EventType where
   parseJSON =
@@ -150,40 +150,42 @@ instance Core.FromJSON EventType where
       "EventType"
       ( \x ->
           EventType'
-            Prelude.<$> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "createdTime")
             Prelude.<*> (x Core..:? "entityTypes")
-            Prelude.<*> (x Core..:? "eventVariables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "lastUpdatedTime")
             Prelude.<*> (x Core..:? "ingestedEventStatistics")
             Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "eventIngestion")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> ( x Core..:? "eventVariables"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable EventType where
   hashWithSalt _salt EventType' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` entityTypes
-      `Prelude.hashWithSalt` eventVariables
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` ingestedEventStatistics
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` eventIngestion
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eventVariables
 
 instance Prelude.NFData EventType where
   rnf EventType' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf entityTypes
-      `Prelude.seq` Prelude.rnf eventVariables
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf ingestedEventStatistics
       `Prelude.seq` Prelude.rnf labels
       `Prelude.seq` Prelude.rnf eventIngestion
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eventVariables

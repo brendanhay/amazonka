@@ -77,25 +77,25 @@ module Amazonka.CloudWatch.PutMetricAlarm
     newPutMetricAlarm,
 
     -- * Request Lenses
-    putMetricAlarm_metrics,
-    putMetricAlarm_treatMissingData,
-    putMetricAlarm_period,
-    putMetricAlarm_alarmDescription,
-    putMetricAlarm_metricName,
-    putMetricAlarm_namespace,
-    putMetricAlarm_thresholdMetricId,
-    putMetricAlarm_oKActions,
-    putMetricAlarm_evaluateLowSampleCountPercentile,
-    putMetricAlarm_datapointsToAlarm,
-    putMetricAlarm_threshold,
-    putMetricAlarm_actionsEnabled,
-    putMetricAlarm_insufficientDataActions,
-    putMetricAlarm_dimensions,
-    putMetricAlarm_alarmActions,
-    putMetricAlarm_unit,
-    putMetricAlarm_statistic,
     putMetricAlarm_tags,
+    putMetricAlarm_alarmActions,
+    putMetricAlarm_alarmDescription,
     putMetricAlarm_extendedStatistic,
+    putMetricAlarm_actionsEnabled,
+    putMetricAlarm_period,
+    putMetricAlarm_evaluateLowSampleCountPercentile,
+    putMetricAlarm_dimensions,
+    putMetricAlarm_thresholdMetricId,
+    putMetricAlarm_treatMissingData,
+    putMetricAlarm_metrics,
+    putMetricAlarm_datapointsToAlarm,
+    putMetricAlarm_insufficientDataActions,
+    putMetricAlarm_metricName,
+    putMetricAlarm_threshold,
+    putMetricAlarm_oKActions,
+    putMetricAlarm_namespace,
+    putMetricAlarm_statistic,
+    putMetricAlarm_unit,
     putMetricAlarm_alarmName,
     putMetricAlarm_evaluationPeriods,
     putMetricAlarm_comparisonOperator,
@@ -115,32 +115,52 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutMetricAlarm' smart constructor.
 data PutMetricAlarm = PutMetricAlarm'
-  { -- | An array of @MetricDataQuery@ structures that enable you to create an
-    -- alarm based on the result of a metric math expression. For each
-    -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
-    -- @Metrics@ array.
+  { -- | A list of key-value pairs to associate with the alarm. You can associate
+    -- as many as 50 tags with an alarm.
     --
-    -- Each item in the @Metrics@ array either retrieves a metric or performs a
-    -- math expression.
+    -- Tags can help you organize and categorize your resources. You can also
+    -- use them to scope user permissions by granting a user permission to
+    -- access or change only resources with certain tag values.
     --
-    -- One item in the @Metrics@ array is the expression that the alarm
-    -- watches. You designate this expression by setting @ReturnData@ to true
-    -- for this object in the array. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery>.
+    -- If you are using this operation to update an existing alarm, any tags
+    -- you specify in this parameter are ignored. To change the tags of an
+    -- existing alarm, use
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>
+    -- or
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
+    tags :: Prelude.Maybe [Tag],
+    -- | The actions to execute when this alarm transitions to the @ALARM@ state
+    -- from any other state. Each action is specified as an Amazon Resource
+    -- Name (ARN).
     --
-    -- If you use the @Metrics@ parameter, you cannot include the @MetricName@,
-    -- @Dimensions@, @Period@, @Namespace@, @Statistic@, or @ExtendedStatistic@
-    -- parameters of @PutMetricAlarm@ in the same operation. Instead, you
-    -- retrieve the metrics you are using in your math expression as part of
-    -- the @Metrics@ array.
-    metrics :: Prelude.Maybe [MetricDataQuery],
-    -- | Sets how this alarm is to handle missing data points. If
-    -- @TreatMissingData@ is omitted, the default behavior of @missing@ is
-    -- used. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data>.
+    -- Valid Values: @arn:aws:automate:region:ec2:stop@ |
+    -- @arn:aws:automate:region:ec2:terminate@ |
+    -- @arn:aws:automate:region:ec2:recover@ |
+    -- @arn:aws:automate:region:ec2:reboot@ |
+    -- @arn:aws:sns:region:account-id:sns-topic-name @ |
+    -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+    -- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
+    -- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
     --
-    -- Valid Values: @breaching | notBreaching | ignore | missing@
-    treatMissingData :: Prelude.Maybe Prelude.Text,
+    -- Valid Values (for use with IAM roles):
+    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+    -- |
+    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+    -- |
+    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+    -- |
+    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+    alarmActions :: Prelude.Maybe [Prelude.Text],
+    -- | The description for the alarm.
+    alarmDescription :: Prelude.Maybe Prelude.Text,
+    -- | The percentile statistic for the metric specified in @MetricName@.
+    -- Specify a value between p0.0 and p100. When you call @PutMetricAlarm@
+    -- and specify a @MetricName@, you must specify either @Statistic@ or
+    -- @ExtendedStatistic,@ but not both.
+    extendedStatistic :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether actions should be executed during any changes to the
+    -- alarm state. The default is @TRUE@.
+    actionsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The length, in seconds, used each time the metric specified in
     -- @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of
     -- 60.
@@ -164,8 +184,75 @@ data PutMetricAlarm = PutMetricAlarm'
     -- day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than
     -- 86,400 seconds.
     period :: Prelude.Maybe Prelude.Natural,
-    -- | The description for the alarm.
-    alarmDescription :: Prelude.Maybe Prelude.Text,
+    -- | Used only for alarms based on percentiles. If you specify @ignore@, the
+    -- alarm state does not change during periods with too few data points to
+    -- be statistically significant. If you specify @evaluate@ or omit this
+    -- parameter, the alarm is always evaluated and possibly changes state no
+    -- matter how many data points are available. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples>.
+    --
+    -- Valid Values: @evaluate | ignore@
+    evaluateLowSampleCountPercentile :: Prelude.Maybe Prelude.Text,
+    -- | The dimensions for the metric specified in @MetricName@.
+    dimensions :: Prelude.Maybe [Dimension],
+    -- | If this is an alarm based on an anomaly detection model, make this value
+    -- match the ID of the @ANOMALY_DETECTION_BAND@ function.
+    --
+    -- For an example of how to use this parameter, see the __Anomaly Detection
+    -- Model Alarm__ example on this page.
+    --
+    -- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+    thresholdMetricId :: Prelude.Maybe Prelude.Text,
+    -- | Sets how this alarm is to handle missing data points. If
+    -- @TreatMissingData@ is omitted, the default behavior of @missing@ is
+    -- used. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data>.
+    --
+    -- Valid Values: @breaching | notBreaching | ignore | missing@
+    treatMissingData :: Prelude.Maybe Prelude.Text,
+    -- | An array of @MetricDataQuery@ structures that enable you to create an
+    -- alarm based on the result of a metric math expression. For each
+    -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
+    -- @Metrics@ array.
+    --
+    -- Each item in the @Metrics@ array either retrieves a metric or performs a
+    -- math expression.
+    --
+    -- One item in the @Metrics@ array is the expression that the alarm
+    -- watches. You designate this expression by setting @ReturnData@ to true
+    -- for this object in the array. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery>.
+    --
+    -- If you use the @Metrics@ parameter, you cannot include the @MetricName@,
+    -- @Dimensions@, @Period@, @Namespace@, @Statistic@, or @ExtendedStatistic@
+    -- parameters of @PutMetricAlarm@ in the same operation. Instead, you
+    -- retrieve the metrics you are using in your math expression as part of
+    -- the @Metrics@ array.
+    metrics :: Prelude.Maybe [MetricDataQuery],
+    -- | The number of data points that must be breaching to trigger the alarm.
+    -- This is used only if you are setting an \"M out of N\" alarm. In that
+    -- case, this value is the M. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm>
+    -- in the /Amazon CloudWatch User Guide/.
+    datapointsToAlarm :: Prelude.Maybe Prelude.Natural,
+    -- | The actions to execute when this alarm transitions to the
+    -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
+    -- as an Amazon Resource Name (ARN).
+    --
+    -- Valid Values: @arn:aws:automate:region:ec2:stop@ |
+    -- @arn:aws:automate:region:ec2:terminate@ |
+    -- @arn:aws:automate:region:ec2:recover@ |
+    -- @arn:aws:automate:region:ec2:reboot@ |
+    -- @arn:aws:sns:region:account-id:sns-topic-name @ |
+    -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+    --
+    -- Valid Values (for use with IAM roles):
+    -- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+    -- |
+    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+    -- |
+    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+    insufficientDataActions :: Prelude.Maybe [Prelude.Text],
     -- | The name for the metric associated with the alarm. For each
     -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
     -- @Metrics@ array.
@@ -175,16 +262,11 @@ data PutMetricAlarm = PutMetricAlarm'
     -- @Namespace@, @Statistic@, or @ExtendedStatistic@ parameters. Instead,
     -- you specify all this information in the @Metrics@ array.
     metricName :: Prelude.Maybe Prelude.Text,
-    -- | The namespace for the metric associated specified in @MetricName@.
-    namespace :: Prelude.Maybe Prelude.Text,
-    -- | If this is an alarm based on an anomaly detection model, make this value
-    -- match the ID of the @ANOMALY_DETECTION_BAND@ function.
+    -- | The value against which the specified statistic is compared.
     --
-    -- For an example of how to use this parameter, see the __Anomaly Detection
-    -- Model Alarm__ example on this page.
-    --
-    -- If your alarm uses this parameter, it cannot have Auto Scaling actions.
-    thresholdMetricId :: Prelude.Maybe Prelude.Text,
+    -- This parameter is required for alarms based on static thresholds, but
+    -- should not be used for alarms based on anomaly detection models.
+    threshold :: Prelude.Maybe Prelude.Double,
     -- | The actions to execute when this alarm transitions to an @OK@ state from
     -- any other state. Each action is specified as an Amazon Resource Name
     -- (ARN).
@@ -205,71 +287,13 @@ data PutMetricAlarm = PutMetricAlarm'
     -- |
     -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
     oKActions :: Prelude.Maybe [Prelude.Text],
-    -- | Used only for alarms based on percentiles. If you specify @ignore@, the
-    -- alarm state does not change during periods with too few data points to
-    -- be statistically significant. If you specify @evaluate@ or omit this
-    -- parameter, the alarm is always evaluated and possibly changes state no
-    -- matter how many data points are available. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples>.
-    --
-    -- Valid Values: @evaluate | ignore@
-    evaluateLowSampleCountPercentile :: Prelude.Maybe Prelude.Text,
-    -- | The number of data points that must be breaching to trigger the alarm.
-    -- This is used only if you are setting an \"M out of N\" alarm. In that
-    -- case, this value is the M. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm>
-    -- in the /Amazon CloudWatch User Guide/.
-    datapointsToAlarm :: Prelude.Maybe Prelude.Natural,
-    -- | The value against which the specified statistic is compared.
-    --
-    -- This parameter is required for alarms based on static thresholds, but
-    -- should not be used for alarms based on anomaly detection models.
-    threshold :: Prelude.Maybe Prelude.Double,
-    -- | Indicates whether actions should be executed during any changes to the
-    -- alarm state. The default is @TRUE@.
-    actionsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The actions to execute when this alarm transitions to the
-    -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
-    -- as an Amazon Resource Name (ARN).
-    --
-    -- Valid Values: @arn:aws:automate:region:ec2:stop@ |
-    -- @arn:aws:automate:region:ec2:terminate@ |
-    -- @arn:aws:automate:region:ec2:recover@ |
-    -- @arn:aws:automate:region:ec2:reboot@ |
-    -- @arn:aws:sns:region:account-id:sns-topic-name @ |
-    -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
-    --
-    -- Valid Values (for use with IAM roles):
-    -- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
-    insufficientDataActions :: Prelude.Maybe [Prelude.Text],
-    -- | The dimensions for the metric specified in @MetricName@.
-    dimensions :: Prelude.Maybe [Dimension],
-    -- | The actions to execute when this alarm transitions to the @ALARM@ state
-    -- from any other state. Each action is specified as an Amazon Resource
-    -- Name (ARN).
-    --
-    -- Valid Values: @arn:aws:automate:region:ec2:stop@ |
-    -- @arn:aws:automate:region:ec2:terminate@ |
-    -- @arn:aws:automate:region:ec2:recover@ |
-    -- @arn:aws:automate:region:ec2:reboot@ |
-    -- @arn:aws:sns:region:account-id:sns-topic-name @ |
-    -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
-    -- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
-    -- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
-    --
-    -- Valid Values (for use with IAM roles):
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
-    alarmActions :: Prelude.Maybe [Prelude.Text],
+    -- | The namespace for the metric associated specified in @MetricName@.
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | The statistic for the metric specified in @MetricName@, other than
+    -- percentile. For percentile statistics, use @ExtendedStatistic@. When you
+    -- call @PutMetricAlarm@ and specify a @MetricName@, you must specify
+    -- either @Statistic@ or @ExtendedStatistic,@ but not both.
+    statistic :: Prelude.Maybe Statistic,
     -- | The unit of measure for the statistic. For example, the units for the
     -- Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the
     -- number of bytes that an instance receives on all network interfaces. You
@@ -290,30 +314,6 @@ data PutMetricAlarm = PutMetricAlarm'
     -- incorrect unit that is not published for this metric. Doing so causes
     -- the alarm to be stuck in the @INSUFFICIENT DATA@ state.
     unit :: Prelude.Maybe StandardUnit,
-    -- | The statistic for the metric specified in @MetricName@, other than
-    -- percentile. For percentile statistics, use @ExtendedStatistic@. When you
-    -- call @PutMetricAlarm@ and specify a @MetricName@, you must specify
-    -- either @Statistic@ or @ExtendedStatistic,@ but not both.
-    statistic :: Prelude.Maybe Statistic,
-    -- | A list of key-value pairs to associate with the alarm. You can associate
-    -- as many as 50 tags with an alarm.
-    --
-    -- Tags can help you organize and categorize your resources. You can also
-    -- use them to scope user permissions by granting a user permission to
-    -- access or change only resources with certain tag values.
-    --
-    -- If you are using this operation to update an existing alarm, any tags
-    -- you specify in this parameter are ignored. To change the tags of an
-    -- existing alarm, use
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>
-    -- or
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
-    tags :: Prelude.Maybe [Tag],
-    -- | The percentile statistic for the metric specified in @MetricName@.
-    -- Specify a value between p0.0 and p100. When you call @PutMetricAlarm@
-    -- and specify a @MetricName@, you must specify either @Statistic@ or
-    -- @ExtendedStatistic,@ but not both.
-    extendedStatistic :: Prelude.Maybe Prelude.Text,
     -- | The name for the alarm. This name must be unique within the Region.
     alarmName :: Prelude.Text,
     -- | The number of periods over which data is compared to the specified
@@ -345,31 +345,51 @@ data PutMetricAlarm = PutMetricAlarm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metrics', 'putMetricAlarm_metrics' - An array of @MetricDataQuery@ structures that enable you to create an
--- alarm based on the result of a metric math expression. For each
--- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
--- @Metrics@ array.
+-- 'tags', 'putMetricAlarm_tags' - A list of key-value pairs to associate with the alarm. You can associate
+-- as many as 50 tags with an alarm.
 --
--- Each item in the @Metrics@ array either retrieves a metric or performs a
--- math expression.
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions by granting a user permission to
+-- access or change only resources with certain tag values.
 --
--- One item in the @Metrics@ array is the expression that the alarm
--- watches. You designate this expression by setting @ReturnData@ to true
--- for this object in the array. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery>.
+-- If you are using this operation to update an existing alarm, any tags
+-- you specify in this parameter are ignored. To change the tags of an
+-- existing alarm, use
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>
+-- or
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
 --
--- If you use the @Metrics@ parameter, you cannot include the @MetricName@,
--- @Dimensions@, @Period@, @Namespace@, @Statistic@, or @ExtendedStatistic@
--- parameters of @PutMetricAlarm@ in the same operation. Instead, you
--- retrieve the metrics you are using in your math expression as part of
--- the @Metrics@ array.
+-- 'alarmActions', 'putMetricAlarm_alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state
+-- from any other state. Each action is specified as an Amazon Resource
+-- Name (ARN).
 --
--- 'treatMissingData', 'putMetricAlarm_treatMissingData' - Sets how this alarm is to handle missing data points. If
--- @TreatMissingData@ is omitted, the default behavior of @missing@ is
--- used. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data>.
+-- Valid Values: @arn:aws:automate:region:ec2:stop@ |
+-- @arn:aws:automate:region:ec2:terminate@ |
+-- @arn:aws:automate:region:ec2:recover@ |
+-- @arn:aws:automate:region:ec2:reboot@ |
+-- @arn:aws:sns:region:account-id:sns-topic-name @ |
+-- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+-- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
+-- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
 --
--- Valid Values: @breaching | notBreaching | ignore | missing@
+-- Valid Values (for use with IAM roles):
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+--
+-- 'alarmDescription', 'putMetricAlarm_alarmDescription' - The description for the alarm.
+--
+-- 'extendedStatistic', 'putMetricAlarm_extendedStatistic' - The percentile statistic for the metric specified in @MetricName@.
+-- Specify a value between p0.0 and p100. When you call @PutMetricAlarm@
+-- and specify a @MetricName@, you must specify either @Statistic@ or
+-- @ExtendedStatistic,@ but not both.
+--
+-- 'actionsEnabled', 'putMetricAlarm_actionsEnabled' - Indicates whether actions should be executed during any changes to the
+-- alarm state. The default is @TRUE@.
 --
 -- 'period', 'putMetricAlarm_period' - The length, in seconds, used each time the metric specified in
 -- @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of
@@ -394,7 +414,74 @@ data PutMetricAlarm = PutMetricAlarm'
 -- day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than
 -- 86,400 seconds.
 --
--- 'alarmDescription', 'putMetricAlarm_alarmDescription' - The description for the alarm.
+-- 'evaluateLowSampleCountPercentile', 'putMetricAlarm_evaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If you specify @ignore@, the
+-- alarm state does not change during periods with too few data points to
+-- be statistically significant. If you specify @evaluate@ or omit this
+-- parameter, the alarm is always evaluated and possibly changes state no
+-- matter how many data points are available. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples>.
+--
+-- Valid Values: @evaluate | ignore@
+--
+-- 'dimensions', 'putMetricAlarm_dimensions' - The dimensions for the metric specified in @MetricName@.
+--
+-- 'thresholdMetricId', 'putMetricAlarm_thresholdMetricId' - If this is an alarm based on an anomaly detection model, make this value
+-- match the ID of the @ANOMALY_DETECTION_BAND@ function.
+--
+-- For an example of how to use this parameter, see the __Anomaly Detection
+-- Model Alarm__ example on this page.
+--
+-- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+--
+-- 'treatMissingData', 'putMetricAlarm_treatMissingData' - Sets how this alarm is to handle missing data points. If
+-- @TreatMissingData@ is omitted, the default behavior of @missing@ is
+-- used. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data>.
+--
+-- Valid Values: @breaching | notBreaching | ignore | missing@
+--
+-- 'metrics', 'putMetricAlarm_metrics' - An array of @MetricDataQuery@ structures that enable you to create an
+-- alarm based on the result of a metric math expression. For each
+-- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
+-- @Metrics@ array.
+--
+-- Each item in the @Metrics@ array either retrieves a metric or performs a
+-- math expression.
+--
+-- One item in the @Metrics@ array is the expression that the alarm
+-- watches. You designate this expression by setting @ReturnData@ to true
+-- for this object in the array. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery>.
+--
+-- If you use the @Metrics@ parameter, you cannot include the @MetricName@,
+-- @Dimensions@, @Period@, @Namespace@, @Statistic@, or @ExtendedStatistic@
+-- parameters of @PutMetricAlarm@ in the same operation. Instead, you
+-- retrieve the metrics you are using in your math expression as part of
+-- the @Metrics@ array.
+--
+-- 'datapointsToAlarm', 'putMetricAlarm_datapointsToAlarm' - The number of data points that must be breaching to trigger the alarm.
+-- This is used only if you are setting an \"M out of N\" alarm. In that
+-- case, this value is the M. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm>
+-- in the /Amazon CloudWatch User Guide/.
+--
+-- 'insufficientDataActions', 'putMetricAlarm_insufficientDataActions' - The actions to execute when this alarm transitions to the
+-- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
+-- as an Amazon Resource Name (ARN).
+--
+-- Valid Values: @arn:aws:automate:region:ec2:stop@ |
+-- @arn:aws:automate:region:ec2:terminate@ |
+-- @arn:aws:automate:region:ec2:recover@ |
+-- @arn:aws:automate:region:ec2:reboot@ |
+-- @arn:aws:sns:region:account-id:sns-topic-name @ |
+-- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+--
+-- Valid Values (for use with IAM roles):
+-- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
 --
 -- 'metricName', 'putMetricAlarm_metricName' - The name for the metric associated with the alarm. For each
 -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
@@ -405,15 +492,10 @@ data PutMetricAlarm = PutMetricAlarm'
 -- @Namespace@, @Statistic@, or @ExtendedStatistic@ parameters. Instead,
 -- you specify all this information in the @Metrics@ array.
 --
--- 'namespace', 'putMetricAlarm_namespace' - The namespace for the metric associated specified in @MetricName@.
+-- 'threshold', 'putMetricAlarm_threshold' - The value against which the specified statistic is compared.
 --
--- 'thresholdMetricId', 'putMetricAlarm_thresholdMetricId' - If this is an alarm based on an anomaly detection model, make this value
--- match the ID of the @ANOMALY_DETECTION_BAND@ function.
---
--- For an example of how to use this parameter, see the __Anomaly Detection
--- Model Alarm__ example on this page.
---
--- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+-- This parameter is required for alarms based on static thresholds, but
+-- should not be used for alarms based on anomaly detection models.
 --
 -- 'oKActions', 'putMetricAlarm_oKActions' - The actions to execute when this alarm transitions to an @OK@ state from
 -- any other state. Each action is specified as an Amazon Resource Name
@@ -435,70 +517,12 @@ data PutMetricAlarm = PutMetricAlarm'
 -- |
 -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
 --
--- 'evaluateLowSampleCountPercentile', 'putMetricAlarm_evaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If you specify @ignore@, the
--- alarm state does not change during periods with too few data points to
--- be statistically significant. If you specify @evaluate@ or omit this
--- parameter, the alarm is always evaluated and possibly changes state no
--- matter how many data points are available. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples>.
+-- 'namespace', 'putMetricAlarm_namespace' - The namespace for the metric associated specified in @MetricName@.
 --
--- Valid Values: @evaluate | ignore@
---
--- 'datapointsToAlarm', 'putMetricAlarm_datapointsToAlarm' - The number of data points that must be breaching to trigger the alarm.
--- This is used only if you are setting an \"M out of N\" alarm. In that
--- case, this value is the M. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm>
--- in the /Amazon CloudWatch User Guide/.
---
--- 'threshold', 'putMetricAlarm_threshold' - The value against which the specified statistic is compared.
---
--- This parameter is required for alarms based on static thresholds, but
--- should not be used for alarms based on anomaly detection models.
---
--- 'actionsEnabled', 'putMetricAlarm_actionsEnabled' - Indicates whether actions should be executed during any changes to the
--- alarm state. The default is @TRUE@.
---
--- 'insufficientDataActions', 'putMetricAlarm_insufficientDataActions' - The actions to execute when this alarm transitions to the
--- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
--- as an Amazon Resource Name (ARN).
---
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
---
--- Valid Values (for use with IAM roles):
--- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
---
--- 'dimensions', 'putMetricAlarm_dimensions' - The dimensions for the metric specified in @MetricName@.
---
--- 'alarmActions', 'putMetricAlarm_alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state
--- from any other state. Each action is specified as an Amazon Resource
--- Name (ARN).
---
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
--- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
--- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
---
--- Valid Values (for use with IAM roles):
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+-- 'statistic', 'putMetricAlarm_statistic' - The statistic for the metric specified in @MetricName@, other than
+-- percentile. For percentile statistics, use @ExtendedStatistic@. When you
+-- call @PutMetricAlarm@ and specify a @MetricName@, you must specify
+-- either @Statistic@ or @ExtendedStatistic,@ but not both.
 --
 -- 'unit', 'putMetricAlarm_unit' - The unit of measure for the statistic. For example, the units for the
 -- Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the
@@ -519,30 +543,6 @@ data PutMetricAlarm = PutMetricAlarm'
 -- We recommend omitting @Unit@ so that you don\'t inadvertently specify an
 -- incorrect unit that is not published for this metric. Doing so causes
 -- the alarm to be stuck in the @INSUFFICIENT DATA@ state.
---
--- 'statistic', 'putMetricAlarm_statistic' - The statistic for the metric specified in @MetricName@, other than
--- percentile. For percentile statistics, use @ExtendedStatistic@. When you
--- call @PutMetricAlarm@ and specify a @MetricName@, you must specify
--- either @Statistic@ or @ExtendedStatistic,@ but not both.
---
--- 'tags', 'putMetricAlarm_tags' - A list of key-value pairs to associate with the alarm. You can associate
--- as many as 50 tags with an alarm.
---
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions by granting a user permission to
--- access or change only resources with certain tag values.
---
--- If you are using this operation to update an existing alarm, any tags
--- you specify in this parameter are ignored. To change the tags of an
--- existing alarm, use
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>
--- or
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
---
--- 'extendedStatistic', 'putMetricAlarm_extendedStatistic' - The percentile statistic for the metric specified in @MetricName@.
--- Specify a value between p0.0 and p100. When you call @PutMetricAlarm@
--- and specify a @MetricName@, you must specify either @Statistic@ or
--- @ExtendedStatistic,@ but not both.
 --
 -- 'alarmName', 'putMetricAlarm_alarmName' - The name for the alarm. This name must be unique within the Region.
 --
@@ -576,59 +576,85 @@ newPutMetricAlarm
   pEvaluationPeriods_
   pComparisonOperator_ =
     PutMetricAlarm'
-      { metrics = Prelude.Nothing,
-        treatMissingData = Prelude.Nothing,
-        period = Prelude.Nothing,
-        alarmDescription = Prelude.Nothing,
-        metricName = Prelude.Nothing,
-        namespace = Prelude.Nothing,
-        thresholdMetricId = Prelude.Nothing,
-        oKActions = Prelude.Nothing,
-        evaluateLowSampleCountPercentile = Prelude.Nothing,
-        datapointsToAlarm = Prelude.Nothing,
-        threshold = Prelude.Nothing,
-        actionsEnabled = Prelude.Nothing,
-        insufficientDataActions = Prelude.Nothing,
-        dimensions = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         alarmActions = Prelude.Nothing,
-        unit = Prelude.Nothing,
-        statistic = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        alarmDescription = Prelude.Nothing,
         extendedStatistic = Prelude.Nothing,
+        actionsEnabled = Prelude.Nothing,
+        period = Prelude.Nothing,
+        evaluateLowSampleCountPercentile = Prelude.Nothing,
+        dimensions = Prelude.Nothing,
+        thresholdMetricId = Prelude.Nothing,
+        treatMissingData = Prelude.Nothing,
+        metrics = Prelude.Nothing,
+        datapointsToAlarm = Prelude.Nothing,
+        insufficientDataActions = Prelude.Nothing,
+        metricName = Prelude.Nothing,
+        threshold = Prelude.Nothing,
+        oKActions = Prelude.Nothing,
+        namespace = Prelude.Nothing,
+        statistic = Prelude.Nothing,
+        unit = Prelude.Nothing,
         alarmName = pAlarmName_,
         evaluationPeriods = pEvaluationPeriods_,
         comparisonOperator = pComparisonOperator_
       }
 
--- | An array of @MetricDataQuery@ structures that enable you to create an
--- alarm based on the result of a metric math expression. For each
--- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
--- @Metrics@ array.
+-- | A list of key-value pairs to associate with the alarm. You can associate
+-- as many as 50 tags with an alarm.
 --
--- Each item in the @Metrics@ array either retrieves a metric or performs a
--- math expression.
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions by granting a user permission to
+-- access or change only resources with certain tag values.
 --
--- One item in the @Metrics@ array is the expression that the alarm
--- watches. You designate this expression by setting @ReturnData@ to true
--- for this object in the array. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery>.
---
--- If you use the @Metrics@ parameter, you cannot include the @MetricName@,
--- @Dimensions@, @Period@, @Namespace@, @Statistic@, or @ExtendedStatistic@
--- parameters of @PutMetricAlarm@ in the same operation. Instead, you
--- retrieve the metrics you are using in your math expression as part of
--- the @Metrics@ array.
-putMetricAlarm_metrics :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [MetricDataQuery])
-putMetricAlarm_metrics = Lens.lens (\PutMetricAlarm' {metrics} -> metrics) (\s@PutMetricAlarm' {} a -> s {metrics = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
+-- If you are using this operation to update an existing alarm, any tags
+-- you specify in this parameter are ignored. To change the tags of an
+-- existing alarm, use
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>
+-- or
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
+putMetricAlarm_tags :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Tag])
+putMetricAlarm_tags = Lens.lens (\PutMetricAlarm' {tags} -> tags) (\s@PutMetricAlarm' {} a -> s {tags = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
 
--- | Sets how this alarm is to handle missing data points. If
--- @TreatMissingData@ is omitted, the default behavior of @missing@ is
--- used. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data>.
+-- | The actions to execute when this alarm transitions to the @ALARM@ state
+-- from any other state. Each action is specified as an Amazon Resource
+-- Name (ARN).
 --
--- Valid Values: @breaching | notBreaching | ignore | missing@
-putMetricAlarm_treatMissingData :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
-putMetricAlarm_treatMissingData = Lens.lens (\PutMetricAlarm' {treatMissingData} -> treatMissingData) (\s@PutMetricAlarm' {} a -> s {treatMissingData = a} :: PutMetricAlarm)
+-- Valid Values: @arn:aws:automate:region:ec2:stop@ |
+-- @arn:aws:automate:region:ec2:terminate@ |
+-- @arn:aws:automate:region:ec2:recover@ |
+-- @arn:aws:automate:region:ec2:reboot@ |
+-- @arn:aws:sns:region:account-id:sns-topic-name @ |
+-- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+-- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
+-- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
+--
+-- Valid Values (for use with IAM roles):
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+putMetricAlarm_alarmActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
+putMetricAlarm_alarmActions = Lens.lens (\PutMetricAlarm' {alarmActions} -> alarmActions) (\s@PutMetricAlarm' {} a -> s {alarmActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description for the alarm.
+putMetricAlarm_alarmDescription :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
+putMetricAlarm_alarmDescription = Lens.lens (\PutMetricAlarm' {alarmDescription} -> alarmDescription) (\s@PutMetricAlarm' {} a -> s {alarmDescription = a} :: PutMetricAlarm)
+
+-- | The percentile statistic for the metric specified in @MetricName@.
+-- Specify a value between p0.0 and p100. When you call @PutMetricAlarm@
+-- and specify a @MetricName@, you must specify either @Statistic@ or
+-- @ExtendedStatistic,@ but not both.
+putMetricAlarm_extendedStatistic :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
+putMetricAlarm_extendedStatistic = Lens.lens (\PutMetricAlarm' {extendedStatistic} -> extendedStatistic) (\s@PutMetricAlarm' {} a -> s {extendedStatistic = a} :: PutMetricAlarm)
+
+-- | Indicates whether actions should be executed during any changes to the
+-- alarm state. The default is @TRUE@.
+putMetricAlarm_actionsEnabled :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Bool)
+putMetricAlarm_actionsEnabled = Lens.lens (\PutMetricAlarm' {actionsEnabled} -> actionsEnabled) (\s@PutMetricAlarm' {} a -> s {actionsEnabled = a} :: PutMetricAlarm)
 
 -- | The length, in seconds, used each time the metric specified in
 -- @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of
@@ -655,9 +681,88 @@ putMetricAlarm_treatMissingData = Lens.lens (\PutMetricAlarm' {treatMissingData}
 putMetricAlarm_period :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Natural)
 putMetricAlarm_period = Lens.lens (\PutMetricAlarm' {period} -> period) (\s@PutMetricAlarm' {} a -> s {period = a} :: PutMetricAlarm)
 
--- | The description for the alarm.
-putMetricAlarm_alarmDescription :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
-putMetricAlarm_alarmDescription = Lens.lens (\PutMetricAlarm' {alarmDescription} -> alarmDescription) (\s@PutMetricAlarm' {} a -> s {alarmDescription = a} :: PutMetricAlarm)
+-- | Used only for alarms based on percentiles. If you specify @ignore@, the
+-- alarm state does not change during periods with too few data points to
+-- be statistically significant. If you specify @evaluate@ or omit this
+-- parameter, the alarm is always evaluated and possibly changes state no
+-- matter how many data points are available. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples>.
+--
+-- Valid Values: @evaluate | ignore@
+putMetricAlarm_evaluateLowSampleCountPercentile :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
+putMetricAlarm_evaluateLowSampleCountPercentile = Lens.lens (\PutMetricAlarm' {evaluateLowSampleCountPercentile} -> evaluateLowSampleCountPercentile) (\s@PutMetricAlarm' {} a -> s {evaluateLowSampleCountPercentile = a} :: PutMetricAlarm)
+
+-- | The dimensions for the metric specified in @MetricName@.
+putMetricAlarm_dimensions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Dimension])
+putMetricAlarm_dimensions = Lens.lens (\PutMetricAlarm' {dimensions} -> dimensions) (\s@PutMetricAlarm' {} a -> s {dimensions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
+
+-- | If this is an alarm based on an anomaly detection model, make this value
+-- match the ID of the @ANOMALY_DETECTION_BAND@ function.
+--
+-- For an example of how to use this parameter, see the __Anomaly Detection
+-- Model Alarm__ example on this page.
+--
+-- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+putMetricAlarm_thresholdMetricId :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
+putMetricAlarm_thresholdMetricId = Lens.lens (\PutMetricAlarm' {thresholdMetricId} -> thresholdMetricId) (\s@PutMetricAlarm' {} a -> s {thresholdMetricId = a} :: PutMetricAlarm)
+
+-- | Sets how this alarm is to handle missing data points. If
+-- @TreatMissingData@ is omitted, the default behavior of @missing@ is
+-- used. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data>.
+--
+-- Valid Values: @breaching | notBreaching | ignore | missing@
+putMetricAlarm_treatMissingData :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
+putMetricAlarm_treatMissingData = Lens.lens (\PutMetricAlarm' {treatMissingData} -> treatMissingData) (\s@PutMetricAlarm' {} a -> s {treatMissingData = a} :: PutMetricAlarm)
+
+-- | An array of @MetricDataQuery@ structures that enable you to create an
+-- alarm based on the result of a metric math expression. For each
+-- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
+-- @Metrics@ array.
+--
+-- Each item in the @Metrics@ array either retrieves a metric or performs a
+-- math expression.
+--
+-- One item in the @Metrics@ array is the expression that the alarm
+-- watches. You designate this expression by setting @ReturnData@ to true
+-- for this object in the array. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery>.
+--
+-- If you use the @Metrics@ parameter, you cannot include the @MetricName@,
+-- @Dimensions@, @Period@, @Namespace@, @Statistic@, or @ExtendedStatistic@
+-- parameters of @PutMetricAlarm@ in the same operation. Instead, you
+-- retrieve the metrics you are using in your math expression as part of
+-- the @Metrics@ array.
+putMetricAlarm_metrics :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [MetricDataQuery])
+putMetricAlarm_metrics = Lens.lens (\PutMetricAlarm' {metrics} -> metrics) (\s@PutMetricAlarm' {} a -> s {metrics = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of data points that must be breaching to trigger the alarm.
+-- This is used only if you are setting an \"M out of N\" alarm. In that
+-- case, this value is the M. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm>
+-- in the /Amazon CloudWatch User Guide/.
+putMetricAlarm_datapointsToAlarm :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Natural)
+putMetricAlarm_datapointsToAlarm = Lens.lens (\PutMetricAlarm' {datapointsToAlarm} -> datapointsToAlarm) (\s@PutMetricAlarm' {} a -> s {datapointsToAlarm = a} :: PutMetricAlarm)
+
+-- | The actions to execute when this alarm transitions to the
+-- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
+-- as an Amazon Resource Name (ARN).
+--
+-- Valid Values: @arn:aws:automate:region:ec2:stop@ |
+-- @arn:aws:automate:region:ec2:terminate@ |
+-- @arn:aws:automate:region:ec2:recover@ |
+-- @arn:aws:automate:region:ec2:reboot@ |
+-- @arn:aws:sns:region:account-id:sns-topic-name @ |
+-- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+--
+-- Valid Values (for use with IAM roles):
+-- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+-- |
+-- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+putMetricAlarm_insufficientDataActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
+putMetricAlarm_insufficientDataActions = Lens.lens (\PutMetricAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@PutMetricAlarm' {} a -> s {insufficientDataActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the metric associated with the alarm. For each
 -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
@@ -670,19 +775,12 @@ putMetricAlarm_alarmDescription = Lens.lens (\PutMetricAlarm' {alarmDescription}
 putMetricAlarm_metricName :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
 putMetricAlarm_metricName = Lens.lens (\PutMetricAlarm' {metricName} -> metricName) (\s@PutMetricAlarm' {} a -> s {metricName = a} :: PutMetricAlarm)
 
--- | The namespace for the metric associated specified in @MetricName@.
-putMetricAlarm_namespace :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
-putMetricAlarm_namespace = Lens.lens (\PutMetricAlarm' {namespace} -> namespace) (\s@PutMetricAlarm' {} a -> s {namespace = a} :: PutMetricAlarm)
-
--- | If this is an alarm based on an anomaly detection model, make this value
--- match the ID of the @ANOMALY_DETECTION_BAND@ function.
+-- | The value against which the specified statistic is compared.
 --
--- For an example of how to use this parameter, see the __Anomaly Detection
--- Model Alarm__ example on this page.
---
--- If your alarm uses this parameter, it cannot have Auto Scaling actions.
-putMetricAlarm_thresholdMetricId :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
-putMetricAlarm_thresholdMetricId = Lens.lens (\PutMetricAlarm' {thresholdMetricId} -> thresholdMetricId) (\s@PutMetricAlarm' {} a -> s {thresholdMetricId = a} :: PutMetricAlarm)
+-- This parameter is required for alarms based on static thresholds, but
+-- should not be used for alarms based on anomaly detection models.
+putMetricAlarm_threshold :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Double)
+putMetricAlarm_threshold = Lens.lens (\PutMetricAlarm' {threshold} -> threshold) (\s@PutMetricAlarm' {} a -> s {threshold = a} :: PutMetricAlarm)
 
 -- | The actions to execute when this alarm transitions to an @OK@ state from
 -- any other state. Each action is specified as an Amazon Resource Name
@@ -706,84 +804,16 @@ putMetricAlarm_thresholdMetricId = Lens.lens (\PutMetricAlarm' {thresholdMetricI
 putMetricAlarm_oKActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
 putMetricAlarm_oKActions = Lens.lens (\PutMetricAlarm' {oKActions} -> oKActions) (\s@PutMetricAlarm' {} a -> s {oKActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
 
--- | Used only for alarms based on percentiles. If you specify @ignore@, the
--- alarm state does not change during periods with too few data points to
--- be statistically significant. If you specify @evaluate@ or omit this
--- parameter, the alarm is always evaluated and possibly changes state no
--- matter how many data points are available. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples>.
---
--- Valid Values: @evaluate | ignore@
-putMetricAlarm_evaluateLowSampleCountPercentile :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
-putMetricAlarm_evaluateLowSampleCountPercentile = Lens.lens (\PutMetricAlarm' {evaluateLowSampleCountPercentile} -> evaluateLowSampleCountPercentile) (\s@PutMetricAlarm' {} a -> s {evaluateLowSampleCountPercentile = a} :: PutMetricAlarm)
+-- | The namespace for the metric associated specified in @MetricName@.
+putMetricAlarm_namespace :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
+putMetricAlarm_namespace = Lens.lens (\PutMetricAlarm' {namespace} -> namespace) (\s@PutMetricAlarm' {} a -> s {namespace = a} :: PutMetricAlarm)
 
--- | The number of data points that must be breaching to trigger the alarm.
--- This is used only if you are setting an \"M out of N\" alarm. In that
--- case, this value is the M. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm>
--- in the /Amazon CloudWatch User Guide/.
-putMetricAlarm_datapointsToAlarm :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Natural)
-putMetricAlarm_datapointsToAlarm = Lens.lens (\PutMetricAlarm' {datapointsToAlarm} -> datapointsToAlarm) (\s@PutMetricAlarm' {} a -> s {datapointsToAlarm = a} :: PutMetricAlarm)
-
--- | The value against which the specified statistic is compared.
---
--- This parameter is required for alarms based on static thresholds, but
--- should not be used for alarms based on anomaly detection models.
-putMetricAlarm_threshold :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Double)
-putMetricAlarm_threshold = Lens.lens (\PutMetricAlarm' {threshold} -> threshold) (\s@PutMetricAlarm' {} a -> s {threshold = a} :: PutMetricAlarm)
-
--- | Indicates whether actions should be executed during any changes to the
--- alarm state. The default is @TRUE@.
-putMetricAlarm_actionsEnabled :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Bool)
-putMetricAlarm_actionsEnabled = Lens.lens (\PutMetricAlarm' {actionsEnabled} -> actionsEnabled) (\s@PutMetricAlarm' {} a -> s {actionsEnabled = a} :: PutMetricAlarm)
-
--- | The actions to execute when this alarm transitions to the
--- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
--- as an Amazon Resource Name (ARN).
---
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
---
--- Valid Values (for use with IAM roles):
--- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
-putMetricAlarm_insufficientDataActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
-putMetricAlarm_insufficientDataActions = Lens.lens (\PutMetricAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@PutMetricAlarm' {} a -> s {insufficientDataActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
-
--- | The dimensions for the metric specified in @MetricName@.
-putMetricAlarm_dimensions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Dimension])
-putMetricAlarm_dimensions = Lens.lens (\PutMetricAlarm' {dimensions} -> dimensions) (\s@PutMetricAlarm' {} a -> s {dimensions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
-
--- | The actions to execute when this alarm transitions to the @ALARM@ state
--- from any other state. Each action is specified as an Amazon Resource
--- Name (ARN).
---
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
--- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
--- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
---
--- Valid Values (for use with IAM roles):
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
-putMetricAlarm_alarmActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
-putMetricAlarm_alarmActions = Lens.lens (\PutMetricAlarm' {alarmActions} -> alarmActions) (\s@PutMetricAlarm' {} a -> s {alarmActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
+-- | The statistic for the metric specified in @MetricName@, other than
+-- percentile. For percentile statistics, use @ExtendedStatistic@. When you
+-- call @PutMetricAlarm@ and specify a @MetricName@, you must specify
+-- either @Statistic@ or @ExtendedStatistic,@ but not both.
+putMetricAlarm_statistic :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Statistic)
+putMetricAlarm_statistic = Lens.lens (\PutMetricAlarm' {statistic} -> statistic) (\s@PutMetricAlarm' {} a -> s {statistic = a} :: PutMetricAlarm)
 
 -- | The unit of measure for the statistic. For example, the units for the
 -- Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the
@@ -806,36 +836,6 @@ putMetricAlarm_alarmActions = Lens.lens (\PutMetricAlarm' {alarmActions} -> alar
 -- the alarm to be stuck in the @INSUFFICIENT DATA@ state.
 putMetricAlarm_unit :: Lens.Lens' PutMetricAlarm (Prelude.Maybe StandardUnit)
 putMetricAlarm_unit = Lens.lens (\PutMetricAlarm' {unit} -> unit) (\s@PutMetricAlarm' {} a -> s {unit = a} :: PutMetricAlarm)
-
--- | The statistic for the metric specified in @MetricName@, other than
--- percentile. For percentile statistics, use @ExtendedStatistic@. When you
--- call @PutMetricAlarm@ and specify a @MetricName@, you must specify
--- either @Statistic@ or @ExtendedStatistic,@ but not both.
-putMetricAlarm_statistic :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Statistic)
-putMetricAlarm_statistic = Lens.lens (\PutMetricAlarm' {statistic} -> statistic) (\s@PutMetricAlarm' {} a -> s {statistic = a} :: PutMetricAlarm)
-
--- | A list of key-value pairs to associate with the alarm. You can associate
--- as many as 50 tags with an alarm.
---
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions by granting a user permission to
--- access or change only resources with certain tag values.
---
--- If you are using this operation to update an existing alarm, any tags
--- you specify in this parameter are ignored. To change the tags of an
--- existing alarm, use
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>
--- or
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
-putMetricAlarm_tags :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Tag])
-putMetricAlarm_tags = Lens.lens (\PutMetricAlarm' {tags} -> tags) (\s@PutMetricAlarm' {} a -> s {tags = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
-
--- | The percentile statistic for the metric specified in @MetricName@.
--- Specify a value between p0.0 and p100. When you call @PutMetricAlarm@
--- and specify a @MetricName@, you must specify either @Statistic@ or
--- @ExtendedStatistic,@ but not both.
-putMetricAlarm_extendedStatistic :: Lens.Lens' PutMetricAlarm (Prelude.Maybe Prelude.Text)
-putMetricAlarm_extendedStatistic = Lens.lens (\PutMetricAlarm' {extendedStatistic} -> extendedStatistic) (\s@PutMetricAlarm' {} a -> s {extendedStatistic = a} :: PutMetricAlarm)
 
 -- | The name for the alarm. This name must be unique within the Region.
 putMetricAlarm_alarmName :: Lens.Lens' PutMetricAlarm Prelude.Text
@@ -873,50 +873,50 @@ instance Core.AWSRequest PutMetricAlarm where
 
 instance Prelude.Hashable PutMetricAlarm where
   hashWithSalt _salt PutMetricAlarm' {..} =
-    _salt `Prelude.hashWithSalt` metrics
-      `Prelude.hashWithSalt` treatMissingData
-      `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` alarmDescription
-      `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` namespace
-      `Prelude.hashWithSalt` thresholdMetricId
-      `Prelude.hashWithSalt` oKActions
-      `Prelude.hashWithSalt` evaluateLowSampleCountPercentile
-      `Prelude.hashWithSalt` datapointsToAlarm
-      `Prelude.hashWithSalt` threshold
-      `Prelude.hashWithSalt` actionsEnabled
-      `Prelude.hashWithSalt` insufficientDataActions
-      `Prelude.hashWithSalt` dimensions
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` alarmActions
-      `Prelude.hashWithSalt` unit
-      `Prelude.hashWithSalt` statistic
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` alarmDescription
       `Prelude.hashWithSalt` extendedStatistic
+      `Prelude.hashWithSalt` actionsEnabled
+      `Prelude.hashWithSalt` period
+      `Prelude.hashWithSalt` evaluateLowSampleCountPercentile
+      `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` thresholdMetricId
+      `Prelude.hashWithSalt` treatMissingData
+      `Prelude.hashWithSalt` metrics
+      `Prelude.hashWithSalt` datapointsToAlarm
+      `Prelude.hashWithSalt` insufficientDataActions
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` threshold
+      `Prelude.hashWithSalt` oKActions
+      `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` statistic
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` evaluationPeriods
       `Prelude.hashWithSalt` comparisonOperator
 
 instance Prelude.NFData PutMetricAlarm where
   rnf PutMetricAlarm' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf treatMissingData
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf alarmDescription
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf thresholdMetricId
-      `Prelude.seq` Prelude.rnf oKActions
-      `Prelude.seq` Prelude.rnf evaluateLowSampleCountPercentile
-      `Prelude.seq` Prelude.rnf datapointsToAlarm
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf actionsEnabled
-      `Prelude.seq` Prelude.rnf insufficientDataActions
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf alarmActions
-      `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf statistic
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf alarmDescription
       `Prelude.seq` Prelude.rnf extendedStatistic
+      `Prelude.seq` Prelude.rnf actionsEnabled
+      `Prelude.seq` Prelude.rnf period
+      `Prelude.seq` Prelude.rnf evaluateLowSampleCountPercentile
+      `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf thresholdMetricId
+      `Prelude.seq` Prelude.rnf treatMissingData
+      `Prelude.seq` Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf datapointsToAlarm
+      `Prelude.seq` Prelude.rnf insufficientDataActions
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf threshold
+      `Prelude.seq` Prelude.rnf oKActions
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf statistic
+      `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf alarmName
       `Prelude.seq` Prelude.rnf
         evaluationPeriods
@@ -936,40 +936,40 @@ instance Core.ToQuery PutMetricAlarm where
           Core.=: ("PutMetricAlarm" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
+        "AlarmActions"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> alarmActions),
+        "AlarmDescription" Core.=: alarmDescription,
+        "ExtendedStatistic" Core.=: extendedStatistic,
+        "ActionsEnabled" Core.=: actionsEnabled,
+        "Period" Core.=: period,
+        "EvaluateLowSampleCountPercentile"
+          Core.=: evaluateLowSampleCountPercentile,
+        "Dimensions"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> dimensions),
+        "ThresholdMetricId" Core.=: thresholdMetricId,
+        "TreatMissingData" Core.=: treatMissingData,
         "Metrics"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> metrics),
-        "TreatMissingData" Core.=: treatMissingData,
-        "Period" Core.=: period,
-        "AlarmDescription" Core.=: alarmDescription,
-        "MetricName" Core.=: metricName,
-        "Namespace" Core.=: namespace,
-        "ThresholdMetricId" Core.=: thresholdMetricId,
-        "OKActions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> oKActions),
-        "EvaluateLowSampleCountPercentile"
-          Core.=: evaluateLowSampleCountPercentile,
         "DatapointsToAlarm" Core.=: datapointsToAlarm,
-        "Threshold" Core.=: threshold,
-        "ActionsEnabled" Core.=: actionsEnabled,
         "InsufficientDataActions"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> insufficientDataActions
             ),
-        "Dimensions"
+        "MetricName" Core.=: metricName,
+        "Threshold" Core.=: threshold,
+        "OKActions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "AlarmActions"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> alarmActions),
-        "Unit" Core.=: unit,
+            (Core.toQueryList "member" Prelude.<$> oKActions),
+        "Namespace" Core.=: namespace,
         "Statistic" Core.=: statistic,
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "ExtendedStatistic" Core.=: extendedStatistic,
+        "Unit" Core.=: unit,
         "AlarmName" Core.=: alarmName,
         "EvaluationPeriods" Core.=: evaluationPeriods,
         "ComparisonOperator" Core.=: comparisonOperator

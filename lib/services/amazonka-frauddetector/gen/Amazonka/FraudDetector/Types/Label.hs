@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabel' smart constructor.
 data Label = Label'
-  { -- | Timestamp of when the label was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
-    -- | The label ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The label name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of when the event type was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The label name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The label ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The label description.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Timestamp of when the label was last updated.
+    lastUpdatedTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,45 +48,45 @@ data Label = Label'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'label_lastUpdatedTime' - Timestamp of when the label was last updated.
---
--- 'arn', 'label_arn' - The label ARN.
+-- 'name', 'label_name' - The label name.
 --
 -- 'createdTime', 'label_createdTime' - Timestamp of when the event type was created.
 --
--- 'name', 'label_name' - The label name.
+-- 'arn', 'label_arn' - The label ARN.
 --
 -- 'description', 'label_description' - The label description.
+--
+-- 'lastUpdatedTime', 'label_lastUpdatedTime' - Timestamp of when the label was last updated.
 newLabel ::
   Label
 newLabel =
   Label'
-    { lastUpdatedTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing
+      arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing
     }
-
--- | Timestamp of when the label was last updated.
-label_lastUpdatedTime :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
-label_lastUpdatedTime = Lens.lens (\Label' {lastUpdatedTime} -> lastUpdatedTime) (\s@Label' {} a -> s {lastUpdatedTime = a} :: Label)
-
--- | The label ARN.
-label_arn :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
-label_arn = Lens.lens (\Label' {arn} -> arn) (\s@Label' {} a -> s {arn = a} :: Label)
-
--- | Timestamp of when the event type was created.
-label_createdTime :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
-label_createdTime = Lens.lens (\Label' {createdTime} -> createdTime) (\s@Label' {} a -> s {createdTime = a} :: Label)
 
 -- | The label name.
 label_name :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
 label_name = Lens.lens (\Label' {name} -> name) (\s@Label' {} a -> s {name = a} :: Label)
 
+-- | Timestamp of when the event type was created.
+label_createdTime :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
+label_createdTime = Lens.lens (\Label' {createdTime} -> createdTime) (\s@Label' {} a -> s {createdTime = a} :: Label)
+
+-- | The label ARN.
+label_arn :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
+label_arn = Lens.lens (\Label' {arn} -> arn) (\s@Label' {} a -> s {arn = a} :: Label)
+
 -- | The label description.
 label_description :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
 label_description = Lens.lens (\Label' {description} -> description) (\s@Label' {} a -> s {description = a} :: Label)
+
+-- | Timestamp of when the label was last updated.
+label_lastUpdatedTime :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
+label_lastUpdatedTime = Lens.lens (\Label' {lastUpdatedTime} -> lastUpdatedTime) (\s@Label' {} a -> s {lastUpdatedTime = a} :: Label)
 
 instance Core.FromJSON Label where
   parseJSON =
@@ -94,25 +94,25 @@ instance Core.FromJSON Label where
       "Label"
       ( \x ->
           Label'
-            Prelude.<$> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "lastUpdatedTime")
       )
 
 instance Prelude.Hashable Label where
   hashWithSalt _salt Label' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdatedTime
 
 instance Prelude.NFData Label where
   rnf Label' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

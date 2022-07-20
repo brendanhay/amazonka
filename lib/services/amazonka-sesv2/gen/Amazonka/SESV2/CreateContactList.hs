@@ -27,9 +27,9 @@ module Amazonka.SESV2.CreateContactList
     newCreateContactList,
 
     -- * Request Lenses
-    createContactList_topics,
-    createContactList_description,
     createContactList_tags,
+    createContactList_description,
+    createContactList_topics,
     createContactList_contactListName,
 
     -- * Destructuring the Response
@@ -50,13 +50,13 @@ import Amazonka.SESV2.Types
 
 -- | /See:/ 'newCreateContactList' smart constructor.
 data CreateContactList = CreateContactList'
-  { -- | An interest group, theme, or label within a list. A contact list can
-    -- have multiple topics.
-    topics :: Prelude.Maybe [Topic],
+  { -- | The tags associated with a contact list.
+    tags :: Prelude.Maybe [Tag],
     -- | A description of what the contact list is about.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with a contact list.
-    tags :: Prelude.Maybe [Tag],
+    -- | An interest group, theme, or label within a list. A contact list can
+    -- have multiple topics.
+    topics :: Prelude.Maybe [Topic],
     -- | The name of the contact list.
     contactListName :: Prelude.Text
   }
@@ -70,12 +70,12 @@ data CreateContactList = CreateContactList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'topics', 'createContactList_topics' - An interest group, theme, or label within a list. A contact list can
--- have multiple topics.
+-- 'tags', 'createContactList_tags' - The tags associated with a contact list.
 --
 -- 'description', 'createContactList_description' - A description of what the contact list is about.
 --
--- 'tags', 'createContactList_tags' - The tags associated with a contact list.
+-- 'topics', 'createContactList_topics' - An interest group, theme, or label within a list. A contact list can
+-- have multiple topics.
 --
 -- 'contactListName', 'createContactList_contactListName' - The name of the contact list.
 newCreateContactList ::
@@ -84,24 +84,24 @@ newCreateContactList ::
   CreateContactList
 newCreateContactList pContactListName_ =
   CreateContactList'
-    { topics = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      topics = Prelude.Nothing,
       contactListName = pContactListName_
     }
 
--- | An interest group, theme, or label within a list. A contact list can
--- have multiple topics.
-createContactList_topics :: Lens.Lens' CreateContactList (Prelude.Maybe [Topic])
-createContactList_topics = Lens.lens (\CreateContactList' {topics} -> topics) (\s@CreateContactList' {} a -> s {topics = a} :: CreateContactList) Prelude.. Lens.mapping Lens.coerced
+-- | The tags associated with a contact list.
+createContactList_tags :: Lens.Lens' CreateContactList (Prelude.Maybe [Tag])
+createContactList_tags = Lens.lens (\CreateContactList' {tags} -> tags) (\s@CreateContactList' {} a -> s {tags = a} :: CreateContactList) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of what the contact list is about.
 createContactList_description :: Lens.Lens' CreateContactList (Prelude.Maybe Prelude.Text)
 createContactList_description = Lens.lens (\CreateContactList' {description} -> description) (\s@CreateContactList' {} a -> s {description = a} :: CreateContactList)
 
--- | The tags associated with a contact list.
-createContactList_tags :: Lens.Lens' CreateContactList (Prelude.Maybe [Tag])
-createContactList_tags = Lens.lens (\CreateContactList' {tags} -> tags) (\s@CreateContactList' {} a -> s {tags = a} :: CreateContactList) Prelude.. Lens.mapping Lens.coerced
+-- | An interest group, theme, or label within a list. A contact list can
+-- have multiple topics.
+createContactList_topics :: Lens.Lens' CreateContactList (Prelude.Maybe [Topic])
+createContactList_topics = Lens.lens (\CreateContactList' {topics} -> topics) (\s@CreateContactList' {} a -> s {topics = a} :: CreateContactList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the contact list.
 createContactList_contactListName :: Lens.Lens' CreateContactList Prelude.Text
@@ -121,16 +121,16 @@ instance Core.AWSRequest CreateContactList where
 
 instance Prelude.Hashable CreateContactList where
   hashWithSalt _salt CreateContactList' {..} =
-    _salt `Prelude.hashWithSalt` topics
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` topics
       `Prelude.hashWithSalt` contactListName
 
 instance Prelude.NFData CreateContactList where
   rnf CreateContactList' {..} =
-    Prelude.rnf topics
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf topics
       `Prelude.seq` Prelude.rnf contactListName
 
 instance Core.ToHeaders CreateContactList where
@@ -148,9 +148,9 @@ instance Core.ToJSON CreateContactList where
   toJSON CreateContactList' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Topics" Core..=) Prelude.<$> topics,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Topics" Core..=) Prelude.<$> topics,
             Prelude.Just
               ("ContactListName" Core..= contactListName)
           ]

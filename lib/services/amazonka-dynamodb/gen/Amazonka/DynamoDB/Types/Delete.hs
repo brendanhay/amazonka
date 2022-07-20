@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDelete' smart constructor.
 data Delete = Delete'
-  { -- | One or more substitution tokens for attribute names in an expression.
-    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | One or more values that can be substituted in an expression.
+  { -- | One or more values that can be substituted in an expression.
     expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE and ALL_OLD.
@@ -56,9 +56,9 @@ data Delete = Delete'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionAttributeNames', 'delete_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
---
 -- 'expressionAttributeValues', 'delete_expressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- 'expressionAttributeNames', 'delete_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 --
 -- 'returnValuesOnConditionCheckFailure', 'delete_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
@@ -77,8 +77,9 @@ newDelete ::
   Delete
 newDelete pTableName_ =
   Delete'
-    { expressionAttributeNames = Prelude.Nothing,
-      expressionAttributeValues = Prelude.Nothing,
+    { expressionAttributeValues =
+        Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
       returnValuesOnConditionCheckFailure =
         Prelude.Nothing,
       conditionExpression = Prelude.Nothing,
@@ -86,13 +87,13 @@ newDelete pTableName_ =
       tableName = pTableName_
     }
 
--- | One or more substitution tokens for attribute names in an expression.
-delete_expressionAttributeNames :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-delete_expressionAttributeNames = Lens.lens (\Delete' {expressionAttributeNames} -> expressionAttributeNames) (\s@Delete' {} a -> s {expressionAttributeNames = a} :: Delete) Prelude.. Lens.mapping Lens.coerced
-
 -- | One or more values that can be substituted in an expression.
 delete_expressionAttributeValues :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 delete_expressionAttributeValues = Lens.lens (\Delete' {expressionAttributeValues} -> expressionAttributeValues) (\s@Delete' {} a -> s {expressionAttributeValues = a} :: Delete) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more substitution tokens for attribute names in an expression.
+delete_expressionAttributeNames :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+delete_expressionAttributeNames = Lens.lens (\Delete' {expressionAttributeNames} -> expressionAttributeNames) (\s@Delete' {} a -> s {expressionAttributeNames = a} :: Delete) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
@@ -117,8 +118,8 @@ delete_tableName = Lens.lens (\Delete' {tableName} -> tableName) (\s@Delete' {} 
 instance Prelude.Hashable Delete where
   hashWithSalt _salt Delete' {..} =
     _salt
-      `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
       `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` key
@@ -126,8 +127,8 @@ instance Prelude.Hashable Delete where
 
 instance Prelude.NFData Delete where
   rnf Delete' {..} =
-    Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
+    Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
       `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
       `Prelude.seq` Prelude.rnf conditionExpression
       `Prelude.seq` Prelude.rnf key
@@ -137,10 +138,10 @@ instance Core.ToJSON Delete where
   toJSON Delete' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeNames" Core..=)
-              Prelude.<$> expressionAttributeNames,
-            ("ExpressionAttributeValues" Core..=)
+          [ ("ExpressionAttributeValues" Core..=)
               Prelude.<$> expressionAttributeValues,
+            ("ExpressionAttributeNames" Core..=)
+              Prelude.<$> expressionAttributeNames,
             ("ReturnValuesOnConditionCheckFailure" Core..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
             ("ConditionExpression" Core..=)

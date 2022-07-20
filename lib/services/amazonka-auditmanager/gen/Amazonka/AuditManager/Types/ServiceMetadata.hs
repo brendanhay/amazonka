@@ -27,15 +27,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceMetadata' smart constructor.
 data ServiceMetadata = ServiceMetadata'
-  { -- | The category in which the Amazon Web Service belongs, such as compute,
-    -- storage, database, and so on.
-    category :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon Web Service.
+  { -- | The name of the Amazon Web Service.
     name :: Prelude.Maybe Prelude.Text,
     -- | The display name of the Amazon Web Service.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The description of the specified Amazon Web Service.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The category in which the Amazon Web Service belongs, such as compute,
+    -- storage, database, and so on.
+    category :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,23 @@ data ServiceMetadata = ServiceMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'category', 'serviceMetadata_category' - The category in which the Amazon Web Service belongs, such as compute,
--- storage, database, and so on.
---
 -- 'name', 'serviceMetadata_name' - The name of the Amazon Web Service.
 --
 -- 'displayName', 'serviceMetadata_displayName' - The display name of the Amazon Web Service.
 --
 -- 'description', 'serviceMetadata_description' - The description of the specified Amazon Web Service.
+--
+-- 'category', 'serviceMetadata_category' - The category in which the Amazon Web Service belongs, such as compute,
+-- storage, database, and so on.
 newServiceMetadata ::
   ServiceMetadata
 newServiceMetadata =
   ServiceMetadata'
-    { category = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      category = Prelude.Nothing
     }
-
--- | The category in which the Amazon Web Service belongs, such as compute,
--- storage, database, and so on.
-serviceMetadata_category :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
-serviceMetadata_category = Lens.lens (\ServiceMetadata' {category} -> category) (\s@ServiceMetadata' {} a -> s {category = a} :: ServiceMetadata)
 
 -- | The name of the Amazon Web Service.
 serviceMetadata_name :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
@@ -82,28 +77,33 @@ serviceMetadata_displayName = Lens.lens (\ServiceMetadata' {displayName} -> disp
 serviceMetadata_description :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
 serviceMetadata_description = Lens.lens (\ServiceMetadata' {description} -> description) (\s@ServiceMetadata' {} a -> s {description = a} :: ServiceMetadata)
 
+-- | The category in which the Amazon Web Service belongs, such as compute,
+-- storage, database, and so on.
+serviceMetadata_category :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
+serviceMetadata_category = Lens.lens (\ServiceMetadata' {category} -> category) (\s@ServiceMetadata' {} a -> s {category = a} :: ServiceMetadata)
+
 instance Core.FromJSON ServiceMetadata where
   parseJSON =
     Core.withObject
       "ServiceMetadata"
       ( \x ->
           ServiceMetadata'
-            Prelude.<$> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "displayName")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "category")
       )
 
 instance Prelude.Hashable ServiceMetadata where
   hashWithSalt _salt ServiceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` category
 
 instance Prelude.NFData ServiceMetadata where
   rnf ServiceMetadata' {..} =
-    Prelude.rnf category
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf category

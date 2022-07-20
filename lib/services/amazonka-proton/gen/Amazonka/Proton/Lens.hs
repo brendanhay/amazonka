@@ -14,117 +14,15 @@
 module Amazonka.Proton.Lens
   ( -- * Operations
 
-    -- ** ListServices
-    listServices_nextToken,
-    listServices_maxResults,
-    listServicesResponse_nextToken,
-    listServicesResponse_httpStatus,
-    listServicesResponse_services,
-
-    -- ** ListEnvironments
-    listEnvironments_environmentTemplates,
-    listEnvironments_nextToken,
-    listEnvironments_maxResults,
-    listEnvironmentsResponse_nextToken,
-    listEnvironmentsResponse_httpStatus,
-    listEnvironmentsResponse_environments,
-
-    -- ** UpdateEnvironment
-    updateEnvironment_protonServiceRoleArn,
-    updateEnvironment_environmentAccountConnectionId,
-    updateEnvironment_spec,
-    updateEnvironment_templateMinorVersion,
-    updateEnvironment_description,
-    updateEnvironment_templateMajorVersion,
-    updateEnvironment_deploymentType,
-    updateEnvironment_name,
-    updateEnvironmentResponse_httpStatus,
-    updateEnvironmentResponse_environment,
-
-    -- ** DeleteEnvironment
-    deleteEnvironment_name,
-    deleteEnvironmentResponse_environment,
-    deleteEnvironmentResponse_httpStatus,
-
-    -- ** DeleteService
-    deleteService_name,
-    deleteServiceResponse_service,
-    deleteServiceResponse_httpStatus,
-
-    -- ** UpdateService
-    updateService_spec,
-    updateService_description,
-    updateService_name,
-    updateServiceResponse_httpStatus,
-    updateServiceResponse_service,
-
-    -- ** GetServiceInstance
-    getServiceInstance_name,
-    getServiceInstance_serviceName,
-    getServiceInstanceResponse_httpStatus,
-    getServiceInstanceResponse_serviceInstance,
-
     -- ** AcceptEnvironmentAccountConnection
     acceptEnvironmentAccountConnection_id,
     acceptEnvironmentAccountConnectionResponse_httpStatus,
     acceptEnvironmentAccountConnectionResponse_environmentAccountConnection,
 
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_maxResults,
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tags,
-
-    -- ** UpdateAccountSettings
-    updateAccountSettings_pipelineServiceRoleArn,
-    updateAccountSettingsResponse_httpStatus,
-    updateAccountSettingsResponse_accountSettings,
-
-    -- ** RejectEnvironmentAccountConnection
-    rejectEnvironmentAccountConnection_id,
-    rejectEnvironmentAccountConnectionResponse_httpStatus,
-    rejectEnvironmentAccountConnectionResponse_environmentAccountConnection,
-
-    -- ** ListServiceInstances
-    listServiceInstances_nextToken,
-    listServiceInstances_serviceName,
-    listServiceInstances_maxResults,
-    listServiceInstancesResponse_nextToken,
-    listServiceInstancesResponse_httpStatus,
-    listServiceInstancesResponse_serviceInstances,
-
-    -- ** CancelServicePipelineDeployment
-    cancelServicePipelineDeployment_serviceName,
-    cancelServicePipelineDeploymentResponse_httpStatus,
-    cancelServicePipelineDeploymentResponse_pipeline,
-
-    -- ** CreateServiceTemplateVersion
-    createServiceTemplateVersion_clientToken,
-    createServiceTemplateVersion_majorVersion,
-    createServiceTemplateVersion_description,
-    createServiceTemplateVersion_tags,
-    createServiceTemplateVersion_compatibleEnvironmentTemplates,
-    createServiceTemplateVersion_source,
-    createServiceTemplateVersion_templateName,
-    createServiceTemplateVersionResponse_httpStatus,
-    createServiceTemplateVersionResponse_serviceTemplateVersion,
-
-    -- ** GetServiceTemplate
-    getServiceTemplate_name,
-    getServiceTemplateResponse_httpStatus,
-    getServiceTemplateResponse_serviceTemplate,
-
-    -- ** CreateEnvironmentTemplateVersion
-    createEnvironmentTemplateVersion_clientToken,
-    createEnvironmentTemplateVersion_majorVersion,
-    createEnvironmentTemplateVersion_description,
-    createEnvironmentTemplateVersion_tags,
-    createEnvironmentTemplateVersion_source,
-    createEnvironmentTemplateVersion_templateName,
-    createEnvironmentTemplateVersionResponse_httpStatus,
-    createEnvironmentTemplateVersionResponse_environmentTemplateVersion,
+    -- ** CancelEnvironmentDeployment
+    cancelEnvironmentDeployment_environmentName,
+    cancelEnvironmentDeploymentResponse_httpStatus,
+    cancelEnvironmentDeploymentResponse_environment,
 
     -- ** CancelServiceInstanceDeployment
     cancelServiceInstanceDeployment_serviceInstanceName,
@@ -132,28 +30,23 @@ module Amazonka.Proton.Lens
     cancelServiceInstanceDeploymentResponse_httpStatus,
     cancelServiceInstanceDeploymentResponse_serviceInstance,
 
-    -- ** GetEnvironmentTemplate
-    getEnvironmentTemplate_name,
-    getEnvironmentTemplateResponse_httpStatus,
-    getEnvironmentTemplateResponse_environmentTemplate,
+    -- ** CancelServicePipelineDeployment
+    cancelServicePipelineDeployment_serviceName,
+    cancelServicePipelineDeploymentResponse_httpStatus,
+    cancelServicePipelineDeploymentResponse_pipeline,
 
-    -- ** UpdateServicePipeline
-    updateServicePipeline_templateMinorVersion,
-    updateServicePipeline_templateMajorVersion,
-    updateServicePipeline_deploymentType,
-    updateServicePipeline_serviceName,
-    updateServicePipeline_spec,
-    updateServicePipelineResponse_httpStatus,
-    updateServicePipelineResponse_pipeline,
-
-    -- ** ListServiceTemplateVersions
-    listServiceTemplateVersions_majorVersion,
-    listServiceTemplateVersions_nextToken,
-    listServiceTemplateVersions_maxResults,
-    listServiceTemplateVersions_templateName,
-    listServiceTemplateVersionsResponse_nextToken,
-    listServiceTemplateVersionsResponse_httpStatus,
-    listServiceTemplateVersionsResponse_templateVersions,
+    -- ** CreateEnvironment
+    createEnvironment_tags,
+    createEnvironment_description,
+    createEnvironment_templateMinorVersion,
+    createEnvironment_protonServiceRoleArn,
+    createEnvironment_environmentAccountConnectionId,
+    createEnvironment_name,
+    createEnvironment_spec,
+    createEnvironment_templateMajorVersion,
+    createEnvironment_templateName,
+    createEnvironmentResponse_httpStatus,
+    createEnvironmentResponse_environment,
 
     -- ** CreateEnvironmentAccountConnection
     createEnvironmentAccountConnection_clientToken,
@@ -163,14 +56,118 @@ module Amazonka.Proton.Lens
     createEnvironmentAccountConnectionResponse_httpStatus,
     createEnvironmentAccountConnectionResponse_environmentAccountConnection,
 
-    -- ** ListEnvironmentTemplateVersions
-    listEnvironmentTemplateVersions_majorVersion,
-    listEnvironmentTemplateVersions_nextToken,
-    listEnvironmentTemplateVersions_maxResults,
-    listEnvironmentTemplateVersions_templateName,
-    listEnvironmentTemplateVersionsResponse_nextToken,
-    listEnvironmentTemplateVersionsResponse_httpStatus,
-    listEnvironmentTemplateVersionsResponse_templateVersions,
+    -- ** CreateEnvironmentTemplate
+    createEnvironmentTemplate_tags,
+    createEnvironmentTemplate_provisioning,
+    createEnvironmentTemplate_displayName,
+    createEnvironmentTemplate_description,
+    createEnvironmentTemplate_encryptionKey,
+    createEnvironmentTemplate_name,
+    createEnvironmentTemplateResponse_httpStatus,
+    createEnvironmentTemplateResponse_environmentTemplate,
+
+    -- ** CreateEnvironmentTemplateVersion
+    createEnvironmentTemplateVersion_tags,
+    createEnvironmentTemplateVersion_majorVersion,
+    createEnvironmentTemplateVersion_clientToken,
+    createEnvironmentTemplateVersion_description,
+    createEnvironmentTemplateVersion_source,
+    createEnvironmentTemplateVersion_templateName,
+    createEnvironmentTemplateVersionResponse_httpStatus,
+    createEnvironmentTemplateVersionResponse_environmentTemplateVersion,
+
+    -- ** CreateService
+    createService_tags,
+    createService_repositoryConnectionArn,
+    createService_branchName,
+    createService_description,
+    createService_templateMinorVersion,
+    createService_repositoryId,
+    createService_name,
+    createService_spec,
+    createService_templateMajorVersion,
+    createService_templateName,
+    createServiceResponse_httpStatus,
+    createServiceResponse_service,
+
+    -- ** CreateServiceTemplate
+    createServiceTemplate_tags,
+    createServiceTemplate_displayName,
+    createServiceTemplate_description,
+    createServiceTemplate_pipelineProvisioning,
+    createServiceTemplate_encryptionKey,
+    createServiceTemplate_name,
+    createServiceTemplateResponse_httpStatus,
+    createServiceTemplateResponse_serviceTemplate,
+
+    -- ** CreateServiceTemplateVersion
+    createServiceTemplateVersion_tags,
+    createServiceTemplateVersion_majorVersion,
+    createServiceTemplateVersion_clientToken,
+    createServiceTemplateVersion_description,
+    createServiceTemplateVersion_compatibleEnvironmentTemplates,
+    createServiceTemplateVersion_source,
+    createServiceTemplateVersion_templateName,
+    createServiceTemplateVersionResponse_httpStatus,
+    createServiceTemplateVersionResponse_serviceTemplateVersion,
+
+    -- ** DeleteEnvironment
+    deleteEnvironment_name,
+    deleteEnvironmentResponse_environment,
+    deleteEnvironmentResponse_httpStatus,
+
+    -- ** DeleteEnvironmentAccountConnection
+    deleteEnvironmentAccountConnection_id,
+    deleteEnvironmentAccountConnectionResponse_environmentAccountConnection,
+    deleteEnvironmentAccountConnectionResponse_httpStatus,
+
+    -- ** DeleteEnvironmentTemplate
+    deleteEnvironmentTemplate_name,
+    deleteEnvironmentTemplateResponse_environmentTemplate,
+    deleteEnvironmentTemplateResponse_httpStatus,
+
+    -- ** DeleteEnvironmentTemplateVersion
+    deleteEnvironmentTemplateVersion_majorVersion,
+    deleteEnvironmentTemplateVersion_minorVersion,
+    deleteEnvironmentTemplateVersion_templateName,
+    deleteEnvironmentTemplateVersionResponse_environmentTemplateVersion,
+    deleteEnvironmentTemplateVersionResponse_httpStatus,
+
+    -- ** DeleteService
+    deleteService_name,
+    deleteServiceResponse_service,
+    deleteServiceResponse_httpStatus,
+
+    -- ** DeleteServiceTemplate
+    deleteServiceTemplate_name,
+    deleteServiceTemplateResponse_serviceTemplate,
+    deleteServiceTemplateResponse_httpStatus,
+
+    -- ** DeleteServiceTemplateVersion
+    deleteServiceTemplateVersion_majorVersion,
+    deleteServiceTemplateVersion_minorVersion,
+    deleteServiceTemplateVersion_templateName,
+    deleteServiceTemplateVersionResponse_serviceTemplateVersion,
+    deleteServiceTemplateVersionResponse_httpStatus,
+
+    -- ** GetAccountSettings
+    getAccountSettingsResponse_accountSettings,
+    getAccountSettingsResponse_httpStatus,
+
+    -- ** GetEnvironment
+    getEnvironment_name,
+    getEnvironmentResponse_httpStatus,
+    getEnvironmentResponse_environment,
+
+    -- ** GetEnvironmentAccountConnection
+    getEnvironmentAccountConnection_id,
+    getEnvironmentAccountConnectionResponse_httpStatus,
+    getEnvironmentAccountConnectionResponse_environmentAccountConnection,
+
+    -- ** GetEnvironmentTemplate
+    getEnvironmentTemplate_name,
+    getEnvironmentTemplateResponse_httpStatus,
+    getEnvironmentTemplateResponse_environmentTemplate,
 
     -- ** GetEnvironmentTemplateVersion
     getEnvironmentTemplateVersion_majorVersion,
@@ -179,15 +176,21 @@ module Amazonka.Proton.Lens
     getEnvironmentTemplateVersionResponse_httpStatus,
     getEnvironmentTemplateVersionResponse_environmentTemplateVersion,
 
-    -- ** CreateServiceTemplate
-    createServiceTemplate_displayName,
-    createServiceTemplate_encryptionKey,
-    createServiceTemplate_pipelineProvisioning,
-    createServiceTemplate_description,
-    createServiceTemplate_tags,
-    createServiceTemplate_name,
-    createServiceTemplateResponse_httpStatus,
-    createServiceTemplateResponse_serviceTemplate,
+    -- ** GetService
+    getService_name,
+    getServiceResponse_service,
+    getServiceResponse_httpStatus,
+
+    -- ** GetServiceInstance
+    getServiceInstance_name,
+    getServiceInstance_serviceName,
+    getServiceInstanceResponse_httpStatus,
+    getServiceInstanceResponse_serviceInstance,
+
+    -- ** GetServiceTemplate
+    getServiceTemplate_name,
+    getServiceTemplateResponse_httpStatus,
+    getServiceTemplateResponse_serviceTemplate,
 
     -- ** GetServiceTemplateVersion
     getServiceTemplateVersion_majorVersion,
@@ -195,88 +198,6 @@ module Amazonka.Proton.Lens
     getServiceTemplateVersion_templateName,
     getServiceTemplateVersionResponse_httpStatus,
     getServiceTemplateVersionResponse_serviceTemplateVersion,
-
-    -- ** CreateEnvironmentTemplate
-    createEnvironmentTemplate_provisioning,
-    createEnvironmentTemplate_displayName,
-    createEnvironmentTemplate_encryptionKey,
-    createEnvironmentTemplate_description,
-    createEnvironmentTemplate_tags,
-    createEnvironmentTemplate_name,
-    createEnvironmentTemplateResponse_httpStatus,
-    createEnvironmentTemplateResponse_environmentTemplate,
-
-    -- ** DeleteEnvironmentTemplate
-    deleteEnvironmentTemplate_name,
-    deleteEnvironmentTemplateResponse_environmentTemplate,
-    deleteEnvironmentTemplateResponse_httpStatus,
-
-    -- ** UpdateEnvironmentTemplate
-    updateEnvironmentTemplate_displayName,
-    updateEnvironmentTemplate_description,
-    updateEnvironmentTemplate_name,
-    updateEnvironmentTemplateResponse_httpStatus,
-    updateEnvironmentTemplateResponse_environmentTemplate,
-
-    -- ** GetEnvironmentAccountConnection
-    getEnvironmentAccountConnection_id,
-    getEnvironmentAccountConnectionResponse_httpStatus,
-    getEnvironmentAccountConnectionResponse_environmentAccountConnection,
-
-    -- ** ListEnvironmentTemplates
-    listEnvironmentTemplates_nextToken,
-    listEnvironmentTemplates_maxResults,
-    listEnvironmentTemplatesResponse_nextToken,
-    listEnvironmentTemplatesResponse_httpStatus,
-    listEnvironmentTemplatesResponse_templates,
-
-    -- ** DeleteServiceTemplate
-    deleteServiceTemplate_name,
-    deleteServiceTemplateResponse_serviceTemplate,
-    deleteServiceTemplateResponse_httpStatus,
-
-    -- ** UpdateServiceTemplate
-    updateServiceTemplate_displayName,
-    updateServiceTemplate_description,
-    updateServiceTemplate_name,
-    updateServiceTemplateResponse_httpStatus,
-    updateServiceTemplateResponse_serviceTemplate,
-
-    -- ** ListServiceTemplates
-    listServiceTemplates_nextToken,
-    listServiceTemplates_maxResults,
-    listServiceTemplatesResponse_nextToken,
-    listServiceTemplatesResponse_httpStatus,
-    listServiceTemplatesResponse_templates,
-
-    -- ** GetAccountSettings
-    getAccountSettingsResponse_accountSettings,
-    getAccountSettingsResponse_httpStatus,
-
-    -- ** CancelEnvironmentDeployment
-    cancelEnvironmentDeployment_environmentName,
-    cancelEnvironmentDeploymentResponse_httpStatus,
-    cancelEnvironmentDeploymentResponse_environment,
-
-    -- ** UpdateServiceInstance
-    updateServiceInstance_spec,
-    updateServiceInstance_templateMinorVersion,
-    updateServiceInstance_templateMajorVersion,
-    updateServiceInstance_deploymentType,
-    updateServiceInstance_name,
-    updateServiceInstance_serviceName,
-    updateServiceInstanceResponse_httpStatus,
-    updateServiceInstanceResponse_serviceInstance,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** GetEnvironment
-    getEnvironment_name,
-    getEnvironmentResponse_httpStatus,
-    getEnvironmentResponse_environment,
 
     -- ** ListEnvironmentAccountConnections
     listEnvironmentAccountConnections_nextToken,
@@ -288,20 +209,100 @@ module Amazonka.Proton.Lens
     listEnvironmentAccountConnectionsResponse_httpStatus,
     listEnvironmentAccountConnectionsResponse_environmentAccountConnections,
 
-    -- ** GetService
-    getService_name,
-    getServiceResponse_service,
-    getServiceResponse_httpStatus,
+    -- ** ListEnvironmentTemplateVersions
+    listEnvironmentTemplateVersions_majorVersion,
+    listEnvironmentTemplateVersions_nextToken,
+    listEnvironmentTemplateVersions_maxResults,
+    listEnvironmentTemplateVersions_templateName,
+    listEnvironmentTemplateVersionsResponse_nextToken,
+    listEnvironmentTemplateVersionsResponse_httpStatus,
+    listEnvironmentTemplateVersionsResponse_templateVersions,
+
+    -- ** ListEnvironmentTemplates
+    listEnvironmentTemplates_nextToken,
+    listEnvironmentTemplates_maxResults,
+    listEnvironmentTemplatesResponse_nextToken,
+    listEnvironmentTemplatesResponse_httpStatus,
+    listEnvironmentTemplatesResponse_templates,
+
+    -- ** ListEnvironments
+    listEnvironments_nextToken,
+    listEnvironments_maxResults,
+    listEnvironments_environmentTemplates,
+    listEnvironmentsResponse_nextToken,
+    listEnvironmentsResponse_httpStatus,
+    listEnvironmentsResponse_environments,
+
+    -- ** ListServiceInstances
+    listServiceInstances_nextToken,
+    listServiceInstances_maxResults,
+    listServiceInstances_serviceName,
+    listServiceInstancesResponse_nextToken,
+    listServiceInstancesResponse_httpStatus,
+    listServiceInstancesResponse_serviceInstances,
+
+    -- ** ListServiceTemplateVersions
+    listServiceTemplateVersions_majorVersion,
+    listServiceTemplateVersions_nextToken,
+    listServiceTemplateVersions_maxResults,
+    listServiceTemplateVersions_templateName,
+    listServiceTemplateVersionsResponse_nextToken,
+    listServiceTemplateVersionsResponse_httpStatus,
+    listServiceTemplateVersionsResponse_templateVersions,
+
+    -- ** ListServiceTemplates
+    listServiceTemplates_nextToken,
+    listServiceTemplates_maxResults,
+    listServiceTemplatesResponse_nextToken,
+    listServiceTemplatesResponse_httpStatus,
+    listServiceTemplatesResponse_templates,
+
+    -- ** ListServices
+    listServices_nextToken,
+    listServices_maxResults,
+    listServicesResponse_nextToken,
+    listServicesResponse_httpStatus,
+    listServicesResponse_services,
+
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_maxResults,
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tags,
+
+    -- ** RejectEnvironmentAccountConnection
+    rejectEnvironmentAccountConnection_id,
+    rejectEnvironmentAccountConnectionResponse_httpStatus,
+    rejectEnvironmentAccountConnectionResponse_environmentAccountConnection,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DeleteEnvironmentAccountConnection
-    deleteEnvironmentAccountConnection_id,
-    deleteEnvironmentAccountConnectionResponse_environmentAccountConnection,
-    deleteEnvironmentAccountConnectionResponse_httpStatus,
+    -- ** UpdateAccountSettings
+    updateAccountSettings_pipelineServiceRoleArn,
+    updateAccountSettingsResponse_httpStatus,
+    updateAccountSettingsResponse_accountSettings,
+
+    -- ** UpdateEnvironment
+    updateEnvironment_templateMajorVersion,
+    updateEnvironment_description,
+    updateEnvironment_templateMinorVersion,
+    updateEnvironment_spec,
+    updateEnvironment_protonServiceRoleArn,
+    updateEnvironment_environmentAccountConnectionId,
+    updateEnvironment_deploymentType,
+    updateEnvironment_name,
+    updateEnvironmentResponse_httpStatus,
+    updateEnvironmentResponse_environment,
 
     -- ** UpdateEnvironmentAccountConnection
     updateEnvironmentAccountConnection_id,
@@ -309,22 +310,12 @@ module Amazonka.Proton.Lens
     updateEnvironmentAccountConnectionResponse_httpStatus,
     updateEnvironmentAccountConnectionResponse_environmentAccountConnection,
 
-    -- ** DeleteServiceTemplateVersion
-    deleteServiceTemplateVersion_majorVersion,
-    deleteServiceTemplateVersion_minorVersion,
-    deleteServiceTemplateVersion_templateName,
-    deleteServiceTemplateVersionResponse_serviceTemplateVersion,
-    deleteServiceTemplateVersionResponse_httpStatus,
-
-    -- ** UpdateServiceTemplateVersion
-    updateServiceTemplateVersion_status,
-    updateServiceTemplateVersion_compatibleEnvironmentTemplates,
-    updateServiceTemplateVersion_description,
-    updateServiceTemplateVersion_majorVersion,
-    updateServiceTemplateVersion_minorVersion,
-    updateServiceTemplateVersion_templateName,
-    updateServiceTemplateVersionResponse_httpStatus,
-    updateServiceTemplateVersionResponse_serviceTemplateVersion,
+    -- ** UpdateEnvironmentTemplate
+    updateEnvironmentTemplate_displayName,
+    updateEnvironmentTemplate_description,
+    updateEnvironmentTemplate_name,
+    updateEnvironmentTemplateResponse_httpStatus,
+    updateEnvironmentTemplateResponse_environmentTemplate,
 
     -- ** UpdateEnvironmentTemplateVersion
     updateEnvironmentTemplateVersion_status,
@@ -335,39 +326,48 @@ module Amazonka.Proton.Lens
     updateEnvironmentTemplateVersionResponse_httpStatus,
     updateEnvironmentTemplateVersionResponse_environmentTemplateVersion,
 
-    -- ** DeleteEnvironmentTemplateVersion
-    deleteEnvironmentTemplateVersion_majorVersion,
-    deleteEnvironmentTemplateVersion_minorVersion,
-    deleteEnvironmentTemplateVersion_templateName,
-    deleteEnvironmentTemplateVersionResponse_environmentTemplateVersion,
-    deleteEnvironmentTemplateVersionResponse_httpStatus,
+    -- ** UpdateService
+    updateService_description,
+    updateService_spec,
+    updateService_name,
+    updateServiceResponse_httpStatus,
+    updateServiceResponse_service,
 
-    -- ** CreateEnvironment
-    createEnvironment_protonServiceRoleArn,
-    createEnvironment_environmentAccountConnectionId,
-    createEnvironment_templateMinorVersion,
-    createEnvironment_description,
-    createEnvironment_tags,
-    createEnvironment_name,
-    createEnvironment_spec,
-    createEnvironment_templateMajorVersion,
-    createEnvironment_templateName,
-    createEnvironmentResponse_httpStatus,
-    createEnvironmentResponse_environment,
+    -- ** UpdateServiceInstance
+    updateServiceInstance_templateMajorVersion,
+    updateServiceInstance_templateMinorVersion,
+    updateServiceInstance_spec,
+    updateServiceInstance_deploymentType,
+    updateServiceInstance_name,
+    updateServiceInstance_serviceName,
+    updateServiceInstanceResponse_httpStatus,
+    updateServiceInstanceResponse_serviceInstance,
 
-    -- ** CreateService
-    createService_branchName,
-    createService_repositoryId,
-    createService_templateMinorVersion,
-    createService_description,
-    createService_repositoryConnectionArn,
-    createService_tags,
-    createService_name,
-    createService_spec,
-    createService_templateMajorVersion,
-    createService_templateName,
-    createServiceResponse_httpStatus,
-    createServiceResponse_service,
+    -- ** UpdateServicePipeline
+    updateServicePipeline_templateMajorVersion,
+    updateServicePipeline_templateMinorVersion,
+    updateServicePipeline_deploymentType,
+    updateServicePipeline_serviceName,
+    updateServicePipeline_spec,
+    updateServicePipelineResponse_httpStatus,
+    updateServicePipelineResponse_pipeline,
+
+    -- ** UpdateServiceTemplate
+    updateServiceTemplate_displayName,
+    updateServiceTemplate_description,
+    updateServiceTemplate_name,
+    updateServiceTemplateResponse_httpStatus,
+    updateServiceTemplateResponse_serviceTemplate,
+
+    -- ** UpdateServiceTemplateVersion
+    updateServiceTemplateVersion_status,
+    updateServiceTemplateVersion_description,
+    updateServiceTemplateVersion_compatibleEnvironmentTemplates,
+    updateServiceTemplateVersion_majorVersion,
+    updateServiceTemplateVersion_minorVersion,
+    updateServiceTemplateVersion_templateName,
+    updateServiceTemplateVersionResponse_httpStatus,
+    updateServiceTemplateVersionResponse_serviceTemplateVersion,
 
     -- * Types
 
@@ -383,13 +383,13 @@ module Amazonka.Proton.Lens
     compatibleEnvironmentTemplateInput_templateName,
 
     -- ** Environment
-    environment_deploymentStatusMessage,
-    environment_environmentAccountId,
     environment_provisioning,
-    environment_protonServiceRoleArn,
-    environment_environmentAccountConnectionId,
-    environment_spec,
     environment_description,
+    environment_deploymentStatusMessage,
+    environment_spec,
+    environment_protonServiceRoleArn,
+    environment_environmentAccountId,
+    environment_environmentAccountConnectionId,
     environment_arn,
     environment_createdAt,
     environment_deploymentStatus,
@@ -423,12 +423,12 @@ module Amazonka.Proton.Lens
     environmentAccountConnectionSummary_status,
 
     -- ** EnvironmentSummary
-    environmentSummary_deploymentStatusMessage,
-    environmentSummary_environmentAccountId,
     environmentSummary_provisioning,
-    environmentSummary_protonServiceRoleArn,
-    environmentSummary_environmentAccountConnectionId,
     environmentSummary_description,
+    environmentSummary_deploymentStatusMessage,
+    environmentSummary_protonServiceRoleArn,
+    environmentSummary_environmentAccountId,
+    environmentSummary_environmentAccountConnectionId,
     environmentSummary_arn,
     environmentSummary_createdAt,
     environmentSummary_deploymentStatus,
@@ -440,11 +440,11 @@ module Amazonka.Proton.Lens
     environmentSummary_templateName,
 
     -- ** EnvironmentTemplate
-    environmentTemplate_provisioning,
     environmentTemplate_recommendedVersion,
+    environmentTemplate_provisioning,
     environmentTemplate_displayName,
-    environmentTemplate_encryptionKey,
     environmentTemplate_description,
+    environmentTemplate_encryptionKey,
     environmentTemplate_arn,
     environmentTemplate_createdAt,
     environmentTemplate_lastModifiedAt,
@@ -455,8 +455,8 @@ module Amazonka.Proton.Lens
     environmentTemplateFilter_templateName,
 
     -- ** EnvironmentTemplateSummary
-    environmentTemplateSummary_provisioning,
     environmentTemplateSummary_recommendedVersion,
+    environmentTemplateSummary_provisioning,
     environmentTemplateSummary_displayName,
     environmentTemplateSummary_description,
     environmentTemplateSummary_arn,
@@ -465,10 +465,10 @@ module Amazonka.Proton.Lens
     environmentTemplateSummary_name,
 
     -- ** EnvironmentTemplateVersion
+    environmentTemplateVersion_description,
+    environmentTemplateVersion_recommendedMinorVersion,
     environmentTemplateVersion_schema,
     environmentTemplateVersion_statusMessage,
-    environmentTemplateVersion_recommendedMinorVersion,
-    environmentTemplateVersion_description,
     environmentTemplateVersion_arn,
     environmentTemplateVersion_createdAt,
     environmentTemplateVersion_lastModifiedAt,
@@ -478,9 +478,9 @@ module Amazonka.Proton.Lens
     environmentTemplateVersion_templateName,
 
     -- ** EnvironmentTemplateVersionSummary
-    environmentTemplateVersionSummary_statusMessage,
-    environmentTemplateVersionSummary_recommendedMinorVersion,
     environmentTemplateVersionSummary_description,
+    environmentTemplateVersionSummary_recommendedMinorVersion,
+    environmentTemplateVersionSummary_statusMessage,
     environmentTemplateVersionSummary_arn,
     environmentTemplateVersionSummary_createdAt,
     environmentTemplateVersionSummary_lastModifiedAt,
@@ -494,12 +494,12 @@ module Amazonka.Proton.Lens
     s3ObjectSource_key,
 
     -- ** Service
-    service_branchName,
-    service_statusMessage,
-    service_repositoryId,
-    service_pipeline,
-    service_description,
     service_repositoryConnectionArn,
+    service_branchName,
+    service_description,
+    service_repositoryId,
+    service_statusMessage,
+    service_pipeline,
     service_arn,
     service_createdAt,
     service_lastModifiedAt,
@@ -550,8 +550,8 @@ module Amazonka.Proton.Lens
     servicePipeline_templateName,
 
     -- ** ServiceSummary
-    serviceSummary_statusMessage,
     serviceSummary_description,
+    serviceSummary_statusMessage,
     serviceSummary_arn,
     serviceSummary_createdAt,
     serviceSummary_lastModifiedAt,
@@ -562,9 +562,9 @@ module Amazonka.Proton.Lens
     -- ** ServiceTemplate
     serviceTemplate_recommendedVersion,
     serviceTemplate_displayName,
-    serviceTemplate_encryptionKey,
-    serviceTemplate_pipelineProvisioning,
     serviceTemplate_description,
+    serviceTemplate_pipelineProvisioning,
+    serviceTemplate_encryptionKey,
     serviceTemplate_arn,
     serviceTemplate_createdAt,
     serviceTemplate_lastModifiedAt,
@@ -573,18 +573,18 @@ module Amazonka.Proton.Lens
     -- ** ServiceTemplateSummary
     serviceTemplateSummary_recommendedVersion,
     serviceTemplateSummary_displayName,
-    serviceTemplateSummary_pipelineProvisioning,
     serviceTemplateSummary_description,
+    serviceTemplateSummary_pipelineProvisioning,
     serviceTemplateSummary_arn,
     serviceTemplateSummary_createdAt,
     serviceTemplateSummary_lastModifiedAt,
     serviceTemplateSummary_name,
 
     -- ** ServiceTemplateVersion
+    serviceTemplateVersion_description,
+    serviceTemplateVersion_recommendedMinorVersion,
     serviceTemplateVersion_schema,
     serviceTemplateVersion_statusMessage,
-    serviceTemplateVersion_recommendedMinorVersion,
-    serviceTemplateVersion_description,
     serviceTemplateVersion_arn,
     serviceTemplateVersion_compatibleEnvironmentTemplates,
     serviceTemplateVersion_createdAt,
@@ -595,9 +595,9 @@ module Amazonka.Proton.Lens
     serviceTemplateVersion_templateName,
 
     -- ** ServiceTemplateVersionSummary
-    serviceTemplateVersionSummary_statusMessage,
-    serviceTemplateVersionSummary_recommendedMinorVersion,
     serviceTemplateVersionSummary_description,
+    serviceTemplateVersionSummary_recommendedMinorVersion,
+    serviceTemplateVersionSummary_statusMessage,
     serviceTemplateVersionSummary_arn,
     serviceTemplateVersionSummary_createdAt,
     serviceTemplateVersionSummary_lastModifiedAt,

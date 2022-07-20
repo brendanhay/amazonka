@@ -109,11 +109,11 @@ module Amazonka.SecretsManager.UpdateSecret
     newUpdateSecret,
 
     -- * Request Lenses
+    updateSecret_clientRequestToken,
+    updateSecret_description,
     updateSecret_secretBinary,
     updateSecret_kmsKeyId,
     updateSecret_secretString,
-    updateSecret_clientRequestToken,
-    updateSecret_description,
     updateSecret_secretId,
 
     -- * Destructuring the Response
@@ -121,9 +121,9 @@ module Amazonka.SecretsManager.UpdateSecret
     newUpdateSecretResponse,
 
     -- * Response Lenses
-    updateSecretResponse_versionId,
-    updateSecretResponse_arn,
     updateSecretResponse_name,
+    updateSecretResponse_arn,
+    updateSecretResponse_versionId,
     updateSecretResponse_httpStatus,
   )
 where
@@ -137,7 +137,46 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newUpdateSecret' smart constructor.
 data UpdateSecret = UpdateSecret'
-  { -- | (Optional) Specifies updated binary data that you want to encrypt and
+  { -- | (Optional) If you want to add a new version to the secret, this
+    -- parameter specifies a unique identifier for the new version that helps
+    -- ensure idempotency.
+    --
+    -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+    -- SDK to call this operation, then you can leave this parameter empty. The
+    -- CLI or SDK generates a random UUID for you and includes that in the
+    -- request. If you don\'t use the SDK and instead generate a raw HTTP
+    -- request to the Secrets Manager service endpoint, then you must generate
+    -- a @ClientRequestToken@ yourself for new versions and include that value
+    -- in the request.
+    --
+    -- You typically only need to interact with this value if you implement
+    -- your own retry logic and want to ensure that a given secret is not
+    -- created twice. We recommend that you generate a
+    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
+    -- value to ensure uniqueness within the specified secret.
+    --
+    -- Secrets Manager uses this value to prevent the accidental creation of
+    -- duplicate versions if there are failures and retries during the Lambda
+    -- rotation function\'s processing.
+    --
+    -- -   If the @ClientRequestToken@ value isn\'t already associated with a
+    --     version of the secret then a new version of the secret is created.
+    --
+    -- -   If a version with this value already exists and that version\'s
+    --     @SecretString@ and @SecretBinary@ values are the same as those in
+    --     the request then the request is ignored (the operation is
+    --     idempotent).
+    --
+    -- -   If a version with this value already exists and that version\'s
+    --     @SecretString@ and @SecretBinary@ values are different from the
+    --     request then an error occurs because you cannot modify an existing
+    --     secret value.
+    --
+    -- This value becomes the @VersionId@ of the new version.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Specifies an updated user-provided description of the secret.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Specifies updated binary data that you want to encrypt and
     -- store in the new version of the secret. To use this parameter in the
     -- command-line tools, we recommend that you store your binary data in a
     -- file and then use the appropriate technique for your tool to pass the
@@ -179,45 +218,6 @@ data UpdateSecret = UpdateSecret'
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
     -- in the Amazon Web Services CLI User Guide.
     secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | (Optional) If you want to add a new version to the secret, this
-    -- parameter specifies a unique identifier for the new version that helps
-    -- ensure idempotency.
-    --
-    -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
-    -- SDK to call this operation, then you can leave this parameter empty. The
-    -- CLI or SDK generates a random UUID for you and includes that in the
-    -- request. If you don\'t use the SDK and instead generate a raw HTTP
-    -- request to the Secrets Manager service endpoint, then you must generate
-    -- a @ClientRequestToken@ yourself for new versions and include that value
-    -- in the request.
-    --
-    -- You typically only need to interact with this value if you implement
-    -- your own retry logic and want to ensure that a given secret is not
-    -- created twice. We recommend that you generate a
-    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
-    -- value to ensure uniqueness within the specified secret.
-    --
-    -- Secrets Manager uses this value to prevent the accidental creation of
-    -- duplicate versions if there are failures and retries during the Lambda
-    -- rotation function\'s processing.
-    --
-    -- -   If the @ClientRequestToken@ value isn\'t already associated with a
-    --     version of the secret then a new version of the secret is created.
-    --
-    -- -   If a version with this value already exists and that version\'s
-    --     @SecretString@ and @SecretBinary@ values are the same as those in
-    --     the request then the request is ignored (the operation is
-    --     idempotent).
-    --
-    -- -   If a version with this value already exists and that version\'s
-    --     @SecretString@ and @SecretBinary@ values are different from the
-    --     request then an error occurs because you cannot modify an existing
-    --     secret value.
-    --
-    -- This value becomes the @VersionId@ of the new version.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Specifies an updated user-provided description of the secret.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret that you want to modify or to which you want to add
     -- a new version. You can specify either the Amazon Resource Name (ARN) or
     -- the friendly name of the secret.
@@ -235,6 +235,45 @@ data UpdateSecret = UpdateSecret'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientRequestToken', 'updateSecret_clientRequestToken' - (Optional) If you want to add a new version to the secret, this
+-- parameter specifies a unique identifier for the new version that helps
+-- ensure idempotency.
+--
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes that in the
+-- request. If you don\'t use the SDK and instead generate a raw HTTP
+-- request to the Secrets Manager service endpoint, then you must generate
+-- a @ClientRequestToken@ yourself for new versions and include that value
+-- in the request.
+--
+-- You typically only need to interact with this value if you implement
+-- your own retry logic and want to ensure that a given secret is not
+-- created twice. We recommend that you generate a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
+-- value to ensure uniqueness within the specified secret.
+--
+-- Secrets Manager uses this value to prevent the accidental creation of
+-- duplicate versions if there are failures and retries during the Lambda
+-- rotation function\'s processing.
+--
+-- -   If the @ClientRequestToken@ value isn\'t already associated with a
+--     version of the secret then a new version of the secret is created.
+--
+-- -   If a version with this value already exists and that version\'s
+--     @SecretString@ and @SecretBinary@ values are the same as those in
+--     the request then the request is ignored (the operation is
+--     idempotent).
+--
+-- -   If a version with this value already exists and that version\'s
+--     @SecretString@ and @SecretBinary@ values are different from the
+--     request then an error occurs because you cannot modify an existing
+--     secret value.
+--
+-- This value becomes the @VersionId@ of the new version.
+--
+-- 'description', 'updateSecret_description' - (Optional) Specifies an updated user-provided description of the secret.
 --
 -- 'secretBinary', 'updateSecret_secretBinary' - (Optional) Specifies updated binary data that you want to encrypt and
 -- store in the new version of the secret. To use this parameter in the
@@ -282,7 +321,27 @@ data UpdateSecret = UpdateSecret'
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
 -- in the Amazon Web Services CLI User Guide.
 --
--- 'clientRequestToken', 'updateSecret_clientRequestToken' - (Optional) If you want to add a new version to the secret, this
+-- 'secretId', 'updateSecret_secretId' - Specifies the secret that you want to modify or to which you want to add
+-- a new version. You can specify either the Amazon Resource Name (ARN) or
+-- the friendly name of the secret.
+--
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
+newUpdateSecret ::
+  -- | 'secretId'
+  Prelude.Text ->
+  UpdateSecret
+newUpdateSecret pSecretId_ =
+  UpdateSecret'
+    { clientRequestToken = Prelude.Nothing,
+      description = Prelude.Nothing,
+      secretBinary = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      secretString = Prelude.Nothing,
+      secretId = pSecretId_
+    }
+
+-- | (Optional) If you want to add a new version to the secret, this
 -- parameter specifies a unique identifier for the new version that helps
 -- ensure idempotency.
 --
@@ -318,28 +377,12 @@ data UpdateSecret = UpdateSecret'
 --     secret value.
 --
 -- This value becomes the @VersionId@ of the new version.
---
--- 'description', 'updateSecret_description' - (Optional) Specifies an updated user-provided description of the secret.
---
--- 'secretId', 'updateSecret_secretId' - Specifies the secret that you want to modify or to which you want to add
--- a new version. You can specify either the Amazon Resource Name (ARN) or
--- the friendly name of the secret.
---
--- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
-newUpdateSecret ::
-  -- | 'secretId'
-  Prelude.Text ->
-  UpdateSecret
-newUpdateSecret pSecretId_ =
-  UpdateSecret'
-    { secretBinary = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      secretString = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      description = Prelude.Nothing,
-      secretId = pSecretId_
-    }
+updateSecret_clientRequestToken :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
+updateSecret_clientRequestToken = Lens.lens (\UpdateSecret' {clientRequestToken} -> clientRequestToken) (\s@UpdateSecret' {} a -> s {clientRequestToken = a} :: UpdateSecret)
+
+-- | (Optional) Specifies an updated user-provided description of the secret.
+updateSecret_description :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
+updateSecret_description = Lens.lens (\UpdateSecret' {description} -> description) (\s@UpdateSecret' {} a -> s {description = a} :: UpdateSecret)
 
 -- | (Optional) Specifies updated binary data that you want to encrypt and
 -- store in the new version of the secret. To use this parameter in the
@@ -393,49 +436,6 @@ updateSecret_kmsKeyId = Lens.lens (\UpdateSecret' {kmsKeyId} -> kmsKeyId) (\s@Up
 updateSecret_secretString :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretString) (\s@UpdateSecret' {} a -> s {secretString = a} :: UpdateSecret) Prelude.. Lens.mapping Core._Sensitive
 
--- | (Optional) If you want to add a new version to the secret, this
--- parameter specifies a unique identifier for the new version that helps
--- ensure idempotency.
---
--- If you use the Amazon Web Services CLI or one of the Amazon Web Services
--- SDK to call this operation, then you can leave this parameter empty. The
--- CLI or SDK generates a random UUID for you and includes that in the
--- request. If you don\'t use the SDK and instead generate a raw HTTP
--- request to the Secrets Manager service endpoint, then you must generate
--- a @ClientRequestToken@ yourself for new versions and include that value
--- in the request.
---
--- You typically only need to interact with this value if you implement
--- your own retry logic and want to ensure that a given secret is not
--- created twice. We recommend that you generate a
--- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
--- value to ensure uniqueness within the specified secret.
---
--- Secrets Manager uses this value to prevent the accidental creation of
--- duplicate versions if there are failures and retries during the Lambda
--- rotation function\'s processing.
---
--- -   If the @ClientRequestToken@ value isn\'t already associated with a
---     version of the secret then a new version of the secret is created.
---
--- -   If a version with this value already exists and that version\'s
---     @SecretString@ and @SecretBinary@ values are the same as those in
---     the request then the request is ignored (the operation is
---     idempotent).
---
--- -   If a version with this value already exists and that version\'s
---     @SecretString@ and @SecretBinary@ values are different from the
---     request then an error occurs because you cannot modify an existing
---     secret value.
---
--- This value becomes the @VersionId@ of the new version.
-updateSecret_clientRequestToken :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
-updateSecret_clientRequestToken = Lens.lens (\UpdateSecret' {clientRequestToken} -> clientRequestToken) (\s@UpdateSecret' {} a -> s {clientRequestToken = a} :: UpdateSecret)
-
--- | (Optional) Specifies an updated user-provided description of the secret.
-updateSecret_description :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
-updateSecret_description = Lens.lens (\UpdateSecret' {description} -> description) (\s@UpdateSecret' {} a -> s {description = a} :: UpdateSecret)
-
 -- | Specifies the secret that you want to modify or to which you want to add
 -- a new version. You can specify either the Amazon Resource Name (ARN) or
 -- the friendly name of the secret.
@@ -452,28 +452,28 @@ instance Core.AWSRequest UpdateSecret where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretResponse'
-            Prelude.<$> (x Core..?> "VersionId")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateSecret where
   hashWithSalt _salt UpdateSecret' {..} =
-    _salt `Prelude.hashWithSalt` secretBinary
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` secretBinary
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` secretString
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` secretId
 
 instance Prelude.NFData UpdateSecret where
   rnf UpdateSecret' {..} =
-    Prelude.rnf secretBinary
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf secretBinary
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf secretString
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf secretId
 
 instance Core.ToHeaders UpdateSecret where
@@ -495,12 +495,12 @@ instance Core.ToJSON UpdateSecret where
   toJSON UpdateSecret' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SecretBinary" Core..=) Prelude.<$> secretBinary,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("SecretString" Core..=) Prelude.<$> secretString,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("Description" Core..=) Prelude.<$> description,
+            ("SecretBinary" Core..=) Prelude.<$> secretBinary,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("SecretString" Core..=) Prelude.<$> secretString,
             Prelude.Just ("SecretId" Core..= secretId)
           ]
       )
@@ -513,9 +513,8 @@ instance Core.ToQuery UpdateSecret where
 
 -- | /See:/ 'newUpdateSecretResponse' smart constructor.
 data UpdateSecretResponse = UpdateSecretResponse'
-  { -- | If a new version of the secret was created by this operation, then
-    -- @VersionId@ contains the unique identifier of the new version.
-    versionId :: Prelude.Maybe Prelude.Text,
+  { -- | The friendly name of the secret that was updated.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the secret that was updated.
     --
     -- Secrets Manager automatically adds several random characters to the name
@@ -526,8 +525,9 @@ data UpdateSecretResponse = UpdateSecretResponse'
     -- automatically get access to the new secret because the ARNs are
     -- different.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret that was updated.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | If a new version of the secret was created by this operation, then
+    -- @VersionId@ contains the unique identifier of the new version.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -541,8 +541,7 @@ data UpdateSecretResponse = UpdateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'updateSecretResponse_versionId' - If a new version of the secret was created by this operation, then
--- @VersionId@ contains the unique identifier of the new version.
+-- 'name', 'updateSecretResponse_name' - The friendly name of the secret that was updated.
 --
 -- 'arn', 'updateSecretResponse_arn' - The ARN of the secret that was updated.
 --
@@ -554,7 +553,8 @@ data UpdateSecretResponse = UpdateSecretResponse'
 -- automatically get access to the new secret because the ARNs are
 -- different.
 --
--- 'name', 'updateSecretResponse_name' - The friendly name of the secret that was updated.
+-- 'versionId', 'updateSecretResponse_versionId' - If a new version of the secret was created by this operation, then
+-- @VersionId@ contains the unique identifier of the new version.
 --
 -- 'httpStatus', 'updateSecretResponse_httpStatus' - The response's http status code.
 newUpdateSecretResponse ::
@@ -563,16 +563,15 @@ newUpdateSecretResponse ::
   UpdateSecretResponse
 newUpdateSecretResponse pHttpStatus_ =
   UpdateSecretResponse'
-    { versionId = Prelude.Nothing,
+    { name = Prelude.Nothing,
       arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | If a new version of the secret was created by this operation, then
--- @VersionId@ contains the unique identifier of the new version.
-updateSecretResponse_versionId :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
-updateSecretResponse_versionId = Lens.lens (\UpdateSecretResponse' {versionId} -> versionId) (\s@UpdateSecretResponse' {} a -> s {versionId = a} :: UpdateSecretResponse)
+-- | The friendly name of the secret that was updated.
+updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
+updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\s@UpdateSecretResponse' {} a -> s {name = a} :: UpdateSecretResponse)
 
 -- | The ARN of the secret that was updated.
 --
@@ -586,9 +585,10 @@ updateSecretResponse_versionId = Lens.lens (\UpdateSecretResponse' {versionId} -
 updateSecretResponse_arn :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
 updateSecretResponse_arn = Lens.lens (\UpdateSecretResponse' {arn} -> arn) (\s@UpdateSecretResponse' {} a -> s {arn = a} :: UpdateSecretResponse)
 
--- | The friendly name of the secret that was updated.
-updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
-updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\s@UpdateSecretResponse' {} a -> s {name = a} :: UpdateSecretResponse)
+-- | If a new version of the secret was created by this operation, then
+-- @VersionId@ contains the unique identifier of the new version.
+updateSecretResponse_versionId :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
+updateSecretResponse_versionId = Lens.lens (\UpdateSecretResponse' {versionId} -> versionId) (\s@UpdateSecretResponse' {} a -> s {versionId = a} :: UpdateSecretResponse)
 
 -- | The response's http status code.
 updateSecretResponse_httpStatus :: Lens.Lens' UpdateSecretResponse Prelude.Int
@@ -596,7 +596,7 @@ updateSecretResponse_httpStatus = Lens.lens (\UpdateSecretResponse' {httpStatus}
 
 instance Prelude.NFData UpdateSecretResponse where
   rnf UpdateSecretResponse' {..} =
-    Prelude.rnf versionId
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPermissionConfiguration' smart constructor.
 data PermissionConfiguration = PermissionConfiguration'
-  { -- | Contains information about the bucket level permissions for the S3
+  { -- | Contains information about the account level permissions on the S3
     -- bucket.
-    bucketLevelPermissions :: Prelude.Maybe BucketLevelPermissions,
-    -- | Contains information about the account level permissions on the S3
+    accountLevelPermissions :: Prelude.Maybe AccountLevelPermissions,
+    -- | Contains information about the bucket level permissions for the S3
     -- bucket.
-    accountLevelPermissions :: Prelude.Maybe AccountLevelPermissions
+    bucketLevelPermissions :: Prelude.Maybe BucketLevelPermissions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data PermissionConfiguration = PermissionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketLevelPermissions', 'permissionConfiguration_bucketLevelPermissions' - Contains information about the bucket level permissions for the S3
+-- 'accountLevelPermissions', 'permissionConfiguration_accountLevelPermissions' - Contains information about the account level permissions on the S3
 -- bucket.
 --
--- 'accountLevelPermissions', 'permissionConfiguration_accountLevelPermissions' - Contains information about the account level permissions on the S3
+-- 'bucketLevelPermissions', 'permissionConfiguration_bucketLevelPermissions' - Contains information about the bucket level permissions for the S3
 -- bucket.
 newPermissionConfiguration ::
   PermissionConfiguration
 newPermissionConfiguration =
   PermissionConfiguration'
-    { bucketLevelPermissions =
+    { accountLevelPermissions =
         Prelude.Nothing,
-      accountLevelPermissions = Prelude.Nothing
+      bucketLevelPermissions = Prelude.Nothing
     }
-
--- | Contains information about the bucket level permissions for the S3
--- bucket.
-permissionConfiguration_bucketLevelPermissions :: Lens.Lens' PermissionConfiguration (Prelude.Maybe BucketLevelPermissions)
-permissionConfiguration_bucketLevelPermissions = Lens.lens (\PermissionConfiguration' {bucketLevelPermissions} -> bucketLevelPermissions) (\s@PermissionConfiguration' {} a -> s {bucketLevelPermissions = a} :: PermissionConfiguration)
 
 -- | Contains information about the account level permissions on the S3
 -- bucket.
 permissionConfiguration_accountLevelPermissions :: Lens.Lens' PermissionConfiguration (Prelude.Maybe AccountLevelPermissions)
 permissionConfiguration_accountLevelPermissions = Lens.lens (\PermissionConfiguration' {accountLevelPermissions} -> accountLevelPermissions) (\s@PermissionConfiguration' {} a -> s {accountLevelPermissions = a} :: PermissionConfiguration)
+
+-- | Contains information about the bucket level permissions for the S3
+-- bucket.
+permissionConfiguration_bucketLevelPermissions :: Lens.Lens' PermissionConfiguration (Prelude.Maybe BucketLevelPermissions)
+permissionConfiguration_bucketLevelPermissions = Lens.lens (\PermissionConfiguration' {bucketLevelPermissions} -> bucketLevelPermissions) (\s@PermissionConfiguration' {} a -> s {bucketLevelPermissions = a} :: PermissionConfiguration)
 
 instance Core.FromJSON PermissionConfiguration where
   parseJSON =
@@ -77,16 +77,17 @@ instance Core.FromJSON PermissionConfiguration where
       "PermissionConfiguration"
       ( \x ->
           PermissionConfiguration'
-            Prelude.<$> (x Core..:? "bucketLevelPermissions")
-            Prelude.<*> (x Core..:? "accountLevelPermissions")
+            Prelude.<$> (x Core..:? "accountLevelPermissions")
+            Prelude.<*> (x Core..:? "bucketLevelPermissions")
       )
 
 instance Prelude.Hashable PermissionConfiguration where
   hashWithSalt _salt PermissionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` bucketLevelPermissions
+    _salt
       `Prelude.hashWithSalt` accountLevelPermissions
+      `Prelude.hashWithSalt` bucketLevelPermissions
 
 instance Prelude.NFData PermissionConfiguration where
   rnf PermissionConfiguration' {..} =
-    Prelude.rnf bucketLevelPermissions
-      `Prelude.seq` Prelude.rnf accountLevelPermissions
+    Prelude.rnf accountLevelPermissions
+      `Prelude.seq` Prelude.rnf bucketLevelPermissions

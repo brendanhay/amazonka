@@ -34,14 +34,14 @@ data AwsRedshiftClusterClusterSnapshotCopyStatus = AwsRedshiftClusterClusterSnap
     --
     -- Valid values: Either -1 or an integer between 1 and 3,653
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The name of the snapshot copy grant.
+    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
     -- | The number of days to retain automated snapshots in the destination
     -- Region after they are copied from a source Region.
     retentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The destination Region that snapshots are automatically copied to when
     -- cross-Region snapshot copy is enabled.
-    destinationRegion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the snapshot copy grant.
-    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text
+    destinationRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,24 +60,24 @@ data AwsRedshiftClusterClusterSnapshotCopyStatus = AwsRedshiftClusterClusterSnap
 --
 -- Valid values: Either -1 or an integer between 1 and 3,653
 --
+-- 'snapshotCopyGrantName', 'awsRedshiftClusterClusterSnapshotCopyStatus_snapshotCopyGrantName' - The name of the snapshot copy grant.
+--
 -- 'retentionPeriod', 'awsRedshiftClusterClusterSnapshotCopyStatus_retentionPeriod' - The number of days to retain automated snapshots in the destination
 -- Region after they are copied from a source Region.
 --
 -- 'destinationRegion', 'awsRedshiftClusterClusterSnapshotCopyStatus_destinationRegion' - The destination Region that snapshots are automatically copied to when
 -- cross-Region snapshot copy is enabled.
---
--- 'snapshotCopyGrantName', 'awsRedshiftClusterClusterSnapshotCopyStatus_snapshotCopyGrantName' - The name of the snapshot copy grant.
 newAwsRedshiftClusterClusterSnapshotCopyStatus ::
   AwsRedshiftClusterClusterSnapshotCopyStatus
 newAwsRedshiftClusterClusterSnapshotCopyStatus =
   AwsRedshiftClusterClusterSnapshotCopyStatus'
     { manualSnapshotRetentionPeriod =
         Prelude.Nothing,
+      snapshotCopyGrantName =
+        Prelude.Nothing,
       retentionPeriod =
         Prelude.Nothing,
       destinationRegion =
-        Prelude.Nothing,
-      snapshotCopyGrantName =
         Prelude.Nothing
     }
 
@@ -90,6 +90,10 @@ newAwsRedshiftClusterClusterSnapshotCopyStatus =
 awsRedshiftClusterClusterSnapshotCopyStatus_manualSnapshotRetentionPeriod :: Lens.Lens' AwsRedshiftClusterClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Int)
 awsRedshiftClusterClusterSnapshotCopyStatus_manualSnapshotRetentionPeriod = Lens.lens (\AwsRedshiftClusterClusterSnapshotCopyStatus' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@AwsRedshiftClusterClusterSnapshotCopyStatus' {} a -> s {manualSnapshotRetentionPeriod = a} :: AwsRedshiftClusterClusterSnapshotCopyStatus)
 
+-- | The name of the snapshot copy grant.
+awsRedshiftClusterClusterSnapshotCopyStatus_snapshotCopyGrantName :: Lens.Lens' AwsRedshiftClusterClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterClusterSnapshotCopyStatus_snapshotCopyGrantName = Lens.lens (\AwsRedshiftClusterClusterSnapshotCopyStatus' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@AwsRedshiftClusterClusterSnapshotCopyStatus' {} a -> s {snapshotCopyGrantName = a} :: AwsRedshiftClusterClusterSnapshotCopyStatus)
+
 -- | The number of days to retain automated snapshots in the destination
 -- Region after they are copied from a source Region.
 awsRedshiftClusterClusterSnapshotCopyStatus_retentionPeriod :: Lens.Lens' AwsRedshiftClusterClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Int)
@@ -99,10 +103,6 @@ awsRedshiftClusterClusterSnapshotCopyStatus_retentionPeriod = Lens.lens (\AwsRed
 -- cross-Region snapshot copy is enabled.
 awsRedshiftClusterClusterSnapshotCopyStatus_destinationRegion :: Lens.Lens' AwsRedshiftClusterClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterClusterSnapshotCopyStatus_destinationRegion = Lens.lens (\AwsRedshiftClusterClusterSnapshotCopyStatus' {destinationRegion} -> destinationRegion) (\s@AwsRedshiftClusterClusterSnapshotCopyStatus' {} a -> s {destinationRegion = a} :: AwsRedshiftClusterClusterSnapshotCopyStatus)
-
--- | The name of the snapshot copy grant.
-awsRedshiftClusterClusterSnapshotCopyStatus_snapshotCopyGrantName :: Lens.Lens' AwsRedshiftClusterClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterClusterSnapshotCopyStatus_snapshotCopyGrantName = Lens.lens (\AwsRedshiftClusterClusterSnapshotCopyStatus' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@AwsRedshiftClusterClusterSnapshotCopyStatus' {} a -> s {snapshotCopyGrantName = a} :: AwsRedshiftClusterClusterSnapshotCopyStatus)
 
 instance
   Core.FromJSON
@@ -114,9 +114,9 @@ instance
       ( \x ->
           AwsRedshiftClusterClusterSnapshotCopyStatus'
             Prelude.<$> (x Core..:? "ManualSnapshotRetentionPeriod")
+              Prelude.<*> (x Core..:? "SnapshotCopyGrantName")
               Prelude.<*> (x Core..:? "RetentionPeriod")
               Prelude.<*> (x Core..:? "DestinationRegion")
-              Prelude.<*> (x Core..:? "SnapshotCopyGrantName")
       )
 
 instance
@@ -128,9 +128,9 @@ instance
     AwsRedshiftClusterClusterSnapshotCopyStatus' {..} =
       _salt
         `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+        `Prelude.hashWithSalt` snapshotCopyGrantName
         `Prelude.hashWithSalt` retentionPeriod
         `Prelude.hashWithSalt` destinationRegion
-        `Prelude.hashWithSalt` snapshotCopyGrantName
 
 instance
   Prelude.NFData
@@ -138,9 +138,9 @@ instance
   where
   rnf AwsRedshiftClusterClusterSnapshotCopyStatus' {..} =
     Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf destinationRegion
-      `Prelude.seq` Prelude.rnf snapshotCopyGrantName
 
 instance
   Core.ToJSON
@@ -152,11 +152,11 @@ instance
         ( Prelude.catMaybes
             [ ("ManualSnapshotRetentionPeriod" Core..=)
                 Prelude.<$> manualSnapshotRetentionPeriod,
+              ("SnapshotCopyGrantName" Core..=)
+                Prelude.<$> snapshotCopyGrantName,
               ("RetentionPeriod" Core..=)
                 Prelude.<$> retentionPeriod,
               ("DestinationRegion" Core..=)
-                Prelude.<$> destinationRegion,
-              ("SnapshotCopyGrantName" Core..=)
-                Prelude.<$> snapshotCopyGrantName
+                Prelude.<$> destinationRegion
             ]
         )

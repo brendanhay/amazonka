@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 data Folder = Folder'
   { -- | The fully qualified path of the folder in the repository.
     absolutePath :: Prelude.Maybe Prelude.Text,
-    -- | The full SHA-1 pointer of the tree information for the commit that
-    -- contains the folder.
-    treeId :: Prelude.Maybe Prelude.Text,
     -- | The relative path of the specified folder from the folder where the
     -- query originated.
-    relativePath :: Prelude.Maybe Prelude.Text
+    relativePath :: Prelude.Maybe Prelude.Text,
+    -- | The full SHA-1 pointer of the tree information for the commit that
+    -- contains the folder.
+    treeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,33 +48,33 @@ data Folder = Folder'
 --
 -- 'absolutePath', 'folder_absolutePath' - The fully qualified path of the folder in the repository.
 --
--- 'treeId', 'folder_treeId' - The full SHA-1 pointer of the tree information for the commit that
--- contains the folder.
---
 -- 'relativePath', 'folder_relativePath' - The relative path of the specified folder from the folder where the
 -- query originated.
+--
+-- 'treeId', 'folder_treeId' - The full SHA-1 pointer of the tree information for the commit that
+-- contains the folder.
 newFolder ::
   Folder
 newFolder =
   Folder'
     { absolutePath = Prelude.Nothing,
-      treeId = Prelude.Nothing,
-      relativePath = Prelude.Nothing
+      relativePath = Prelude.Nothing,
+      treeId = Prelude.Nothing
     }
 
 -- | The fully qualified path of the folder in the repository.
 folder_absolutePath :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_absolutePath = Lens.lens (\Folder' {absolutePath} -> absolutePath) (\s@Folder' {} a -> s {absolutePath = a} :: Folder)
 
--- | The full SHA-1 pointer of the tree information for the commit that
--- contains the folder.
-folder_treeId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
-folder_treeId = Lens.lens (\Folder' {treeId} -> treeId) (\s@Folder' {} a -> s {treeId = a} :: Folder)
-
 -- | The relative path of the specified folder from the folder where the
 -- query originated.
 folder_relativePath :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_relativePath = Lens.lens (\Folder' {relativePath} -> relativePath) (\s@Folder' {} a -> s {relativePath = a} :: Folder)
+
+-- | The full SHA-1 pointer of the tree information for the commit that
+-- contains the folder.
+folder_treeId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
+folder_treeId = Lens.lens (\Folder' {treeId} -> treeId) (\s@Folder' {} a -> s {treeId = a} :: Folder)
 
 instance Core.FromJSON Folder where
   parseJSON =
@@ -83,18 +83,18 @@ instance Core.FromJSON Folder where
       ( \x ->
           Folder'
             Prelude.<$> (x Core..:? "absolutePath")
-            Prelude.<*> (x Core..:? "treeId")
             Prelude.<*> (x Core..:? "relativePath")
+            Prelude.<*> (x Core..:? "treeId")
       )
 
 instance Prelude.Hashable Folder where
   hashWithSalt _salt Folder' {..} =
     _salt `Prelude.hashWithSalt` absolutePath
-      `Prelude.hashWithSalt` treeId
       `Prelude.hashWithSalt` relativePath
+      `Prelude.hashWithSalt` treeId
 
 instance Prelude.NFData Folder where
   rnf Folder' {..} =
     Prelude.rnf absolutePath
-      `Prelude.seq` Prelude.rnf treeId
       `Prelude.seq` Prelude.rnf relativePath
+      `Prelude.seq` Prelude.rnf treeId

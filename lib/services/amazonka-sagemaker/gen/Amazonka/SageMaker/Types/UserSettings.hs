@@ -38,7 +38,9 @@ import Amazonka.SageMaker.Types.TensorBoardAppSettings
 --
 -- /See:/ 'newUserSettings' smart constructor.
 data UserSettings = UserSettings'
-  { -- | The TensorBoard app settings.
+  { -- | The execution role for the user.
+    executionRole :: Prelude.Maybe Prelude.Text,
+    -- | The TensorBoard app settings.
     tensorBoardAppSettings :: Prelude.Maybe TensorBoardAppSettings,
     -- | The kernel gateway app settings.
     kernelGatewayAppSettings :: Prelude.Maybe KernelGatewayAppSettings,
@@ -58,9 +60,7 @@ data UserSettings = UserSettings'
     -- | The Jupyter server\'s app settings.
     jupyterServerAppSettings :: Prelude.Maybe JupyterServerAppSettings,
     -- | Specifies options for sharing SageMaker Studio notebooks.
-    sharingSettings :: Prelude.Maybe SharingSettings,
-    -- | The execution role for the user.
-    executionRole :: Prelude.Maybe Prelude.Text
+    sharingSettings :: Prelude.Maybe SharingSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,6 +71,8 @@ data UserSettings = UserSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'executionRole', 'userSettings_executionRole' - The execution role for the user.
 --
 -- 'tensorBoardAppSettings', 'userSettings_tensorBoardAppSettings' - The TensorBoard app settings.
 --
@@ -92,20 +94,21 @@ data UserSettings = UserSettings'
 -- 'jupyterServerAppSettings', 'userSettings_jupyterServerAppSettings' - The Jupyter server\'s app settings.
 --
 -- 'sharingSettings', 'userSettings_sharingSettings' - Specifies options for sharing SageMaker Studio notebooks.
---
--- 'executionRole', 'userSettings_executionRole' - The execution role for the user.
 newUserSettings ::
   UserSettings
 newUserSettings =
   UserSettings'
-    { tensorBoardAppSettings =
-        Prelude.Nothing,
+    { executionRole = Prelude.Nothing,
+      tensorBoardAppSettings = Prelude.Nothing,
       kernelGatewayAppSettings = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
       jupyterServerAppSettings = Prelude.Nothing,
-      sharingSettings = Prelude.Nothing,
-      executionRole = Prelude.Nothing
+      sharingSettings = Prelude.Nothing
     }
+
+-- | The execution role for the user.
+userSettings_executionRole :: Lens.Lens' UserSettings (Prelude.Maybe Prelude.Text)
+userSettings_executionRole = Lens.lens (\UserSettings' {executionRole} -> executionRole) (\s@UserSettings' {} a -> s {executionRole = a} :: UserSettings)
 
 -- | The TensorBoard app settings.
 userSettings_tensorBoardAppSettings :: Lens.Lens' UserSettings (Prelude.Maybe TensorBoardAppSettings)
@@ -138,47 +141,44 @@ userSettings_jupyterServerAppSettings = Lens.lens (\UserSettings' {jupyterServer
 userSettings_sharingSettings :: Lens.Lens' UserSettings (Prelude.Maybe SharingSettings)
 userSettings_sharingSettings = Lens.lens (\UserSettings' {sharingSettings} -> sharingSettings) (\s@UserSettings' {} a -> s {sharingSettings = a} :: UserSettings)
 
--- | The execution role for the user.
-userSettings_executionRole :: Lens.Lens' UserSettings (Prelude.Maybe Prelude.Text)
-userSettings_executionRole = Lens.lens (\UserSettings' {executionRole} -> executionRole) (\s@UserSettings' {} a -> s {executionRole = a} :: UserSettings)
-
 instance Core.FromJSON UserSettings where
   parseJSON =
     Core.withObject
       "UserSettings"
       ( \x ->
           UserSettings'
-            Prelude.<$> (x Core..:? "TensorBoardAppSettings")
+            Prelude.<$> (x Core..:? "ExecutionRole")
+            Prelude.<*> (x Core..:? "TensorBoardAppSettings")
             Prelude.<*> (x Core..:? "KernelGatewayAppSettings")
             Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "JupyterServerAppSettings")
             Prelude.<*> (x Core..:? "SharingSettings")
-            Prelude.<*> (x Core..:? "ExecutionRole")
       )
 
 instance Prelude.Hashable UserSettings where
   hashWithSalt _salt UserSettings' {..} =
-    _salt `Prelude.hashWithSalt` tensorBoardAppSettings
+    _salt `Prelude.hashWithSalt` executionRole
+      `Prelude.hashWithSalt` tensorBoardAppSettings
       `Prelude.hashWithSalt` kernelGatewayAppSettings
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` jupyterServerAppSettings
       `Prelude.hashWithSalt` sharingSettings
-      `Prelude.hashWithSalt` executionRole
 
 instance Prelude.NFData UserSettings where
   rnf UserSettings' {..} =
-    Prelude.rnf tensorBoardAppSettings
+    Prelude.rnf executionRole
+      `Prelude.seq` Prelude.rnf tensorBoardAppSettings
       `Prelude.seq` Prelude.rnf kernelGatewayAppSettings
       `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf jupyterServerAppSettings
       `Prelude.seq` Prelude.rnf sharingSettings
-      `Prelude.seq` Prelude.rnf executionRole
 
 instance Core.ToJSON UserSettings where
   toJSON UserSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TensorBoardAppSettings" Core..=)
+          [ ("ExecutionRole" Core..=) Prelude.<$> executionRole,
+            ("TensorBoardAppSettings" Core..=)
               Prelude.<$> tensorBoardAppSettings,
             ("KernelGatewayAppSettings" Core..=)
               Prelude.<$> kernelGatewayAppSettings,
@@ -187,7 +187,6 @@ instance Core.ToJSON UserSettings where
             ("JupyterServerAppSettings" Core..=)
               Prelude.<$> jupyterServerAppSettings,
             ("SharingSettings" Core..=)
-              Prelude.<$> sharingSettings,
-            ("ExecutionRole" Core..=) Prelude.<$> executionRole
+              Prelude.<$> sharingSettings
           ]
       )

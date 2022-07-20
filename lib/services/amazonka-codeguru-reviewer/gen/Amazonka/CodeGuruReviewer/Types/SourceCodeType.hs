@@ -40,13 +40,13 @@ data SourceCodeType = SourceCodeType'
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
     -- for @S3BucketRepository@ based code reviews.
     s3BucketRepository :: Prelude.Maybe S3BucketRepository,
+    repositoryHead :: Prelude.Maybe RepositoryHeadSourceCodeType,
     -- | Metadata that is associated with a code review. This applies to any type
     -- of code review supported by CodeGuru Reviewer. The @RequestMetadaa@
     -- field captures any event metadata. For example, it might capture
     -- metadata associated with an event trigger, such as a push or a pull
     -- request.
     requestMetadata :: Prelude.Maybe RequestMetadata,
-    repositoryHead :: Prelude.Maybe RepositoryHeadSourceCodeType,
     -- | A
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
     -- that specifies a commit diff created by a pull request on an associated
@@ -76,13 +76,13 @@ data SourceCodeType = SourceCodeType'
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
 -- for @S3BucketRepository@ based code reviews.
 --
+-- 'repositoryHead', 'sourceCodeType_repositoryHead' - Undocumented member.
+--
 -- 'requestMetadata', 'sourceCodeType_requestMetadata' - Metadata that is associated with a code review. This applies to any type
 -- of code review supported by CodeGuru Reviewer. The @RequestMetadaa@
 -- field captures any event metadata. For example, it might capture
 -- metadata associated with an event trigger, such as a push or a pull
 -- request.
---
--- 'repositoryHead', 'sourceCodeType_repositoryHead' - Undocumented member.
 --
 -- 'commitDiff', 'sourceCodeType_commitDiff' - A
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
@@ -99,8 +99,8 @@ newSourceCodeType =
   SourceCodeType'
     { s3BucketRepository =
         Prelude.Nothing,
-      requestMetadata = Prelude.Nothing,
       repositoryHead = Prelude.Nothing,
+      requestMetadata = Prelude.Nothing,
       commitDiff = Prelude.Nothing,
       branchDiff = Prelude.Nothing
     }
@@ -115,6 +115,10 @@ newSourceCodeType =
 sourceCodeType_s3BucketRepository :: Lens.Lens' SourceCodeType (Prelude.Maybe S3BucketRepository)
 sourceCodeType_s3BucketRepository = Lens.lens (\SourceCodeType' {s3BucketRepository} -> s3BucketRepository) (\s@SourceCodeType' {} a -> s {s3BucketRepository = a} :: SourceCodeType)
 
+-- | Undocumented member.
+sourceCodeType_repositoryHead :: Lens.Lens' SourceCodeType (Prelude.Maybe RepositoryHeadSourceCodeType)
+sourceCodeType_repositoryHead = Lens.lens (\SourceCodeType' {repositoryHead} -> repositoryHead) (\s@SourceCodeType' {} a -> s {repositoryHead = a} :: SourceCodeType)
+
 -- | Metadata that is associated with a code review. This applies to any type
 -- of code review supported by CodeGuru Reviewer. The @RequestMetadaa@
 -- field captures any event metadata. For example, it might capture
@@ -122,10 +126,6 @@ sourceCodeType_s3BucketRepository = Lens.lens (\SourceCodeType' {s3BucketReposit
 -- request.
 sourceCodeType_requestMetadata :: Lens.Lens' SourceCodeType (Prelude.Maybe RequestMetadata)
 sourceCodeType_requestMetadata = Lens.lens (\SourceCodeType' {requestMetadata} -> requestMetadata) (\s@SourceCodeType' {} a -> s {requestMetadata = a} :: SourceCodeType)
-
--- | Undocumented member.
-sourceCodeType_repositoryHead :: Lens.Lens' SourceCodeType (Prelude.Maybe RepositoryHeadSourceCodeType)
-sourceCodeType_repositoryHead = Lens.lens (\SourceCodeType' {repositoryHead} -> repositoryHead) (\s@SourceCodeType' {} a -> s {repositoryHead = a} :: SourceCodeType)
 
 -- | A
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
@@ -148,8 +148,8 @@ instance Core.FromJSON SourceCodeType where
       ( \x ->
           SourceCodeType'
             Prelude.<$> (x Core..:? "S3BucketRepository")
-            Prelude.<*> (x Core..:? "RequestMetadata")
             Prelude.<*> (x Core..:? "RepositoryHead")
+            Prelude.<*> (x Core..:? "RequestMetadata")
             Prelude.<*> (x Core..:? "CommitDiff")
             Prelude.<*> (x Core..:? "BranchDiff")
       )
@@ -157,16 +157,16 @@ instance Core.FromJSON SourceCodeType where
 instance Prelude.Hashable SourceCodeType where
   hashWithSalt _salt SourceCodeType' {..} =
     _salt `Prelude.hashWithSalt` s3BucketRepository
-      `Prelude.hashWithSalt` requestMetadata
       `Prelude.hashWithSalt` repositoryHead
+      `Prelude.hashWithSalt` requestMetadata
       `Prelude.hashWithSalt` commitDiff
       `Prelude.hashWithSalt` branchDiff
 
 instance Prelude.NFData SourceCodeType where
   rnf SourceCodeType' {..} =
     Prelude.rnf s3BucketRepository
-      `Prelude.seq` Prelude.rnf requestMetadata
       `Prelude.seq` Prelude.rnf repositoryHead
+      `Prelude.seq` Prelude.rnf requestMetadata
       `Prelude.seq` Prelude.rnf commitDiff
       `Prelude.seq` Prelude.rnf branchDiff
 
@@ -176,10 +176,10 @@ instance Core.ToJSON SourceCodeType where
       ( Prelude.catMaybes
           [ ("S3BucketRepository" Core..=)
               Prelude.<$> s3BucketRepository,
-            ("RequestMetadata" Core..=)
-              Prelude.<$> requestMetadata,
             ("RepositoryHead" Core..=)
               Prelude.<$> repositoryHead,
+            ("RequestMetadata" Core..=)
+              Prelude.<$> requestMetadata,
             ("CommitDiff" Core..=) Prelude.<$> commitDiff,
             ("BranchDiff" Core..=) Prelude.<$> branchDiff
           ]

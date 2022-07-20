@@ -17,10 +17,10 @@ module Amazonka.MediaStoreData.Types
     defaultService,
 
     -- * Errors
+    _ObjectNotFoundException,
     _RequestedRangeNotSatisfiableException,
     _InternalServerError,
     _ContainerNotFoundException,
-    _ObjectNotFoundException,
 
     -- * ItemType
     ItemType (..),
@@ -34,11 +34,11 @@ module Amazonka.MediaStoreData.Types
     -- * Item
     Item (..),
     newItem,
-    item_eTag,
-    item_contentLength,
     item_name,
     item_type,
+    item_contentLength,
     item_lastModified,
+    item_eTag,
     item_contentType,
   )
 where
@@ -79,35 +79,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -116,13 +89,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Could not perform an operation on an object that does not exist.
+_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The requested content range is not valid.
 _RequestedRangeNotSatisfiableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -145,12 +153,4 @@ _ContainerNotFoundException =
   Core._MatchServiceError
     defaultService
     "ContainerNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Could not perform an operation on an object that does not exist.
-_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ObjectNotFoundException"
     Prelude.. Core.hasStatus 404

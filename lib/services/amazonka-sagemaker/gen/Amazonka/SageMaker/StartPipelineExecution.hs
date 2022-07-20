@@ -28,8 +28,8 @@ module Amazonka.SageMaker.StartPipelineExecution
 
     -- * Request Lenses
     startPipelineExecution_pipelineParameters,
-    startPipelineExecution_pipelineExecutionDisplayName,
     startPipelineExecution_pipelineExecutionDescription,
+    startPipelineExecution_pipelineExecutionDisplayName,
     startPipelineExecution_pipelineName,
     startPipelineExecution_clientRequestToken,
 
@@ -54,10 +54,10 @@ import Amazonka.SageMaker.Types
 data StartPipelineExecution = StartPipelineExecution'
   { -- | Contains a list of pipeline parameters. This list can be empty.
     pipelineParameters :: Prelude.Maybe [Parameter],
-    -- | The display name of the pipeline execution.
-    pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The description of the pipeline execution.
     pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
+    -- | The display name of the pipeline execution.
+    pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The name of the pipeline.
     pipelineName :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
@@ -77,9 +77,9 @@ data StartPipelineExecution = StartPipelineExecution'
 --
 -- 'pipelineParameters', 'startPipelineExecution_pipelineParameters' - Contains a list of pipeline parameters. This list can be empty.
 --
--- 'pipelineExecutionDisplayName', 'startPipelineExecution_pipelineExecutionDisplayName' - The display name of the pipeline execution.
---
 -- 'pipelineExecutionDescription', 'startPipelineExecution_pipelineExecutionDescription' - The description of the pipeline execution.
+--
+-- 'pipelineExecutionDisplayName', 'startPipelineExecution_pipelineExecutionDisplayName' - The display name of the pipeline execution.
 --
 -- 'pipelineName', 'startPipelineExecution_pipelineName' - The name of the pipeline.
 --
@@ -98,8 +98,8 @@ newStartPipelineExecution
     StartPipelineExecution'
       { pipelineParameters =
           Prelude.Nothing,
-        pipelineExecutionDisplayName = Prelude.Nothing,
         pipelineExecutionDescription = Prelude.Nothing,
+        pipelineExecutionDisplayName = Prelude.Nothing,
         pipelineName = pPipelineName_,
         clientRequestToken = pClientRequestToken_
       }
@@ -108,13 +108,13 @@ newStartPipelineExecution
 startPipelineExecution_pipelineParameters :: Lens.Lens' StartPipelineExecution (Prelude.Maybe [Parameter])
 startPipelineExecution_pipelineParameters = Lens.lens (\StartPipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@StartPipelineExecution' {} a -> s {pipelineParameters = a} :: StartPipelineExecution) Prelude.. Lens.mapping Lens.coerced
 
--- | The display name of the pipeline execution.
-startPipelineExecution_pipelineExecutionDisplayName :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
-startPipelineExecution_pipelineExecutionDisplayName = Lens.lens (\StartPipelineExecution' {pipelineExecutionDisplayName} -> pipelineExecutionDisplayName) (\s@StartPipelineExecution' {} a -> s {pipelineExecutionDisplayName = a} :: StartPipelineExecution)
-
 -- | The description of the pipeline execution.
 startPipelineExecution_pipelineExecutionDescription :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
 startPipelineExecution_pipelineExecutionDescription = Lens.lens (\StartPipelineExecution' {pipelineExecutionDescription} -> pipelineExecutionDescription) (\s@StartPipelineExecution' {} a -> s {pipelineExecutionDescription = a} :: StartPipelineExecution)
+
+-- | The display name of the pipeline execution.
+startPipelineExecution_pipelineExecutionDisplayName :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
+startPipelineExecution_pipelineExecutionDisplayName = Lens.lens (\StartPipelineExecution' {pipelineExecutionDisplayName} -> pipelineExecutionDisplayName) (\s@StartPipelineExecution' {} a -> s {pipelineExecutionDisplayName = a} :: StartPipelineExecution)
 
 -- | The name of the pipeline.
 startPipelineExecution_pipelineName :: Lens.Lens' StartPipelineExecution Prelude.Text
@@ -142,16 +142,16 @@ instance Core.AWSRequest StartPipelineExecution where
 instance Prelude.Hashable StartPipelineExecution where
   hashWithSalt _salt StartPipelineExecution' {..} =
     _salt `Prelude.hashWithSalt` pipelineParameters
-      `Prelude.hashWithSalt` pipelineExecutionDisplayName
       `Prelude.hashWithSalt` pipelineExecutionDescription
+      `Prelude.hashWithSalt` pipelineExecutionDisplayName
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData StartPipelineExecution where
   rnf StartPipelineExecution' {..} =
     Prelude.rnf pipelineParameters
-      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
       `Prelude.seq` Prelude.rnf pipelineExecutionDescription
+      `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf clientRequestToken
 
@@ -176,10 +176,10 @@ instance Core.ToJSON StartPipelineExecution where
       ( Prelude.catMaybes
           [ ("PipelineParameters" Core..=)
               Prelude.<$> pipelineParameters,
-            ("PipelineExecutionDisplayName" Core..=)
-              Prelude.<$> pipelineExecutionDisplayName,
             ("PipelineExecutionDescription" Core..=)
               Prelude.<$> pipelineExecutionDescription,
+            ("PipelineExecutionDisplayName" Core..=)
+              Prelude.<$> pipelineExecutionDisplayName,
             Prelude.Just ("PipelineName" Core..= pipelineName),
             Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken)

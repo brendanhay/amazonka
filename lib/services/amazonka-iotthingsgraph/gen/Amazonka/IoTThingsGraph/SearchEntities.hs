@@ -30,9 +30,9 @@ module Amazonka.IoTThingsGraph.SearchEntities
     newSearchEntities,
 
     -- * Request Lenses
+    searchEntities_nextToken,
     searchEntities_filters,
     searchEntities_namespaceVersion,
-    searchEntities_nextToken,
     searchEntities_maxResults,
     searchEntities_entityTypes,
 
@@ -56,7 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchEntities' smart constructor.
 data SearchEntities = SearchEntities'
-  { -- | Optional filter to apply to the search. Valid filters are @NAME@
+  { -- | The string that specifies the next page of results. Use this when
+    -- you\'re paginating results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional filter to apply to the search. Valid filters are @NAME@
     -- @NAMESPACE@, @SEMANTIC_TYPE_PATH@ and @REFERENCED_ENTITY_ID@.
     -- @REFERENCED_ENTITY_ID@ filters on entities that are used by the entity
     -- in the result set. For example, you can filter on the ID of a property
@@ -68,9 +71,6 @@ data SearchEntities = SearchEntities'
     -- | The version of the user\'s namespace. Defaults to the latest version of
     -- the user\'s namespace.
     namespaceVersion :: Prelude.Maybe Prelude.Integer,
-    -- | The string that specifies the next page of results. Use this when
-    -- you\'re paginating results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The entity types for which to search.
@@ -86,6 +86,9 @@ data SearchEntities = SearchEntities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'searchEntities_nextToken' - The string that specifies the next page of results. Use this when
+-- you\'re paginating results.
+--
 -- 'filters', 'searchEntities_filters' - Optional filter to apply to the search. Valid filters are @NAME@
 -- @NAMESPACE@, @SEMANTIC_TYPE_PATH@ and @REFERENCED_ENTITY_ID@.
 -- @REFERENCED_ENTITY_ID@ filters on entities that are used by the entity
@@ -98,9 +101,6 @@ data SearchEntities = SearchEntities'
 -- 'namespaceVersion', 'searchEntities_namespaceVersion' - The version of the user\'s namespace. Defaults to the latest version of
 -- the user\'s namespace.
 --
--- 'nextToken', 'searchEntities_nextToken' - The string that specifies the next page of results. Use this when
--- you\'re paginating results.
---
 -- 'maxResults', 'searchEntities_maxResults' - The maximum number of results to return in the response.
 --
 -- 'entityTypes', 'searchEntities_entityTypes' - The entity types for which to search.
@@ -108,12 +108,17 @@ newSearchEntities ::
   SearchEntities
 newSearchEntities =
   SearchEntities'
-    { filters = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       namespaceVersion = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       entityTypes = Prelude.mempty
     }
+
+-- | The string that specifies the next page of results. Use this when
+-- you\'re paginating results.
+searchEntities_nextToken :: Lens.Lens' SearchEntities (Prelude.Maybe Prelude.Text)
+searchEntities_nextToken = Lens.lens (\SearchEntities' {nextToken} -> nextToken) (\s@SearchEntities' {} a -> s {nextToken = a} :: SearchEntities)
 
 -- | Optional filter to apply to the search. Valid filters are @NAME@
 -- @NAMESPACE@, @SEMANTIC_TYPE_PATH@ and @REFERENCED_ENTITY_ID@.
@@ -130,11 +135,6 @@ searchEntities_filters = Lens.lens (\SearchEntities' {filters} -> filters) (\s@S
 -- the user\'s namespace.
 searchEntities_namespaceVersion :: Lens.Lens' SearchEntities (Prelude.Maybe Prelude.Integer)
 searchEntities_namespaceVersion = Lens.lens (\SearchEntities' {namespaceVersion} -> namespaceVersion) (\s@SearchEntities' {} a -> s {namespaceVersion = a} :: SearchEntities)
-
--- | The string that specifies the next page of results. Use this when
--- you\'re paginating results.
-searchEntities_nextToken :: Lens.Lens' SearchEntities (Prelude.Maybe Prelude.Text)
-searchEntities_nextToken = Lens.lens (\SearchEntities' {nextToken} -> nextToken) (\s@SearchEntities' {} a -> s {nextToken = a} :: SearchEntities)
 
 -- | The maximum number of results to return in the response.
 searchEntities_maxResults :: Lens.Lens' SearchEntities (Prelude.Maybe Prelude.Natural)
@@ -181,17 +181,17 @@ instance Core.AWSRequest SearchEntities where
 
 instance Prelude.Hashable SearchEntities where
   hashWithSalt _salt SearchEntities' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` namespaceVersion
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` entityTypes
 
 instance Prelude.NFData SearchEntities where
   rnf SearchEntities' {..} =
-    Prelude.rnf filters
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf namespaceVersion
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf entityTypes
 
@@ -214,10 +214,10 @@ instance Core.ToJSON SearchEntities where
   toJSON SearchEntities' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filters" Core..=) Prelude.<$> filters,
             ("namespaceVersion" Core..=)
               Prelude.<$> namespaceVersion,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("entityTypes" Core..= entityTypes)
           ]

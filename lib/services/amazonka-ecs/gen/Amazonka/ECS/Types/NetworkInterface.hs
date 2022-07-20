@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | The private IPv6 address for the network interface.
+  { -- | The attachment ID for the network interface.
+    attachmentId :: Prelude.Maybe Prelude.Text,
+    -- | The private IPv6 address for the network interface.
     ipv6Address :: Prelude.Maybe Prelude.Text,
     -- | The private IPv4 address for the network interface.
-    privateIpv4Address :: Prelude.Maybe Prelude.Text,
-    -- | The attachment ID for the network interface.
-    attachmentId :: Prelude.Maybe Prelude.Text
+    privateIpv4Address :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data NetworkInterface = NetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachmentId', 'networkInterface_attachmentId' - The attachment ID for the network interface.
+--
 -- 'ipv6Address', 'networkInterface_ipv6Address' - The private IPv6 address for the network interface.
 --
 -- 'privateIpv4Address', 'networkInterface_privateIpv4Address' - The private IPv4 address for the network interface.
---
--- 'attachmentId', 'networkInterface_attachmentId' - The attachment ID for the network interface.
 newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { ipv6Address = Prelude.Nothing,
-      privateIpv4Address = Prelude.Nothing,
-      attachmentId = Prelude.Nothing
+    { attachmentId = Prelude.Nothing,
+      ipv6Address = Prelude.Nothing,
+      privateIpv4Address = Prelude.Nothing
     }
+
+-- | The attachment ID for the network interface.
+networkInterface_attachmentId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_attachmentId = Lens.lens (\NetworkInterface' {attachmentId} -> attachmentId) (\s@NetworkInterface' {} a -> s {attachmentId = a} :: NetworkInterface)
 
 -- | The private IPv6 address for the network interface.
 networkInterface_ipv6Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
@@ -67,29 +71,25 @@ networkInterface_ipv6Address = Lens.lens (\NetworkInterface' {ipv6Address} -> ip
 networkInterface_privateIpv4Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_privateIpv4Address = Lens.lens (\NetworkInterface' {privateIpv4Address} -> privateIpv4Address) (\s@NetworkInterface' {} a -> s {privateIpv4Address = a} :: NetworkInterface)
 
--- | The attachment ID for the network interface.
-networkInterface_attachmentId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
-networkInterface_attachmentId = Lens.lens (\NetworkInterface' {attachmentId} -> attachmentId) (\s@NetworkInterface' {} a -> s {attachmentId = a} :: NetworkInterface)
-
 instance Core.FromJSON NetworkInterface where
   parseJSON =
     Core.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "ipv6Address")
+            Prelude.<$> (x Core..:? "attachmentId")
+            Prelude.<*> (x Core..:? "ipv6Address")
             Prelude.<*> (x Core..:? "privateIpv4Address")
-            Prelude.<*> (x Core..:? "attachmentId")
       )
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` ipv6Address
+    _salt `Prelude.hashWithSalt` attachmentId
+      `Prelude.hashWithSalt` ipv6Address
       `Prelude.hashWithSalt` privateIpv4Address
-      `Prelude.hashWithSalt` attachmentId
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf ipv6Address
+    Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf ipv6Address
       `Prelude.seq` Prelude.rnf privateIpv4Address
-      `Prelude.seq` Prelude.rnf attachmentId

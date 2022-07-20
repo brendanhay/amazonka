@@ -34,21 +34,21 @@ module Amazonka.Panorama.DescribeDevice
     newDescribeDeviceResponse,
 
     -- * Response Lenses
+    describeDeviceResponse_tags,
+    describeDeviceResponse_currentNetworkingStatus,
+    describeDeviceResponse_name,
+    describeDeviceResponse_type,
+    describeDeviceResponse_createdTime,
+    describeDeviceResponse_leaseExpirationTime,
     describeDeviceResponse_latestSoftware,
     describeDeviceResponse_provisioningStatus,
-    describeDeviceResponse_arn,
-    describeDeviceResponse_createdTime,
-    describeDeviceResponse_currentSoftware,
-    describeDeviceResponse_name,
-    describeDeviceResponse_deviceConnectionStatus,
     describeDeviceResponse_deviceId,
-    describeDeviceResponse_type,
-    describeDeviceResponse_leaseExpirationTime,
-    describeDeviceResponse_serialNumber,
-    describeDeviceResponse_currentNetworkingStatus,
-    describeDeviceResponse_description,
     describeDeviceResponse_networkingConfiguration,
-    describeDeviceResponse_tags,
+    describeDeviceResponse_arn,
+    describeDeviceResponse_description,
+    describeDeviceResponse_deviceConnectionStatus,
+    describeDeviceResponse_serialNumber,
+    describeDeviceResponse_currentSoftware,
     describeDeviceResponse_httpStatus,
   )
 where
@@ -96,21 +96,21 @@ instance Core.AWSRequest DescribeDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceResponse'
-            Prelude.<$> (x Core..?> "LatestSoftware")
-            Prelude.<*> (x Core..?> "ProvisioningStatus")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreatedTime")
-            Prelude.<*> (x Core..?> "CurrentSoftware")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "DeviceConnectionStatus")
-            Prelude.<*> (x Core..?> "DeviceId")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "LeaseExpirationTime")
-            Prelude.<*> (x Core..?> "SerialNumber")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "CurrentNetworkingStatus")
-            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Type")
+            Prelude.<*> (x Core..?> "CreatedTime")
+            Prelude.<*> (x Core..?> "LeaseExpirationTime")
+            Prelude.<*> (x Core..?> "LatestSoftware")
+            Prelude.<*> (x Core..?> "ProvisioningStatus")
+            Prelude.<*> (x Core..?> "DeviceId")
             Prelude.<*> (x Core..?> "NetworkingConfiguration")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "DeviceConnectionStatus")
+            Prelude.<*> (x Core..?> "SerialNumber")
+            Prelude.<*> (x Core..?> "CurrentSoftware")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,36 +141,36 @@ instance Core.ToQuery DescribeDevice where
 
 -- | /See:/ 'newDescribeDeviceResponse' smart constructor.
 data DescribeDeviceResponse = DescribeDeviceResponse'
-  { -- | The latest software version available for the device.
+  { -- | The device\'s tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The device\'s networking status.
+    currentNetworkingStatus :: Prelude.Maybe NetworkStatus,
+    -- | The device\'s name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s type.
+    type' :: Prelude.Maybe DeviceType,
+    -- | When the device was created.
+    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The device\'s lease expiration time.
+    leaseExpirationTime :: Prelude.Maybe Core.POSIX,
+    -- | The latest software version available for the device.
     latestSoftware :: Prelude.Maybe Prelude.Text,
     -- | The device\'s provisioning status.
     provisioningStatus :: Prelude.Maybe DeviceStatus,
-    -- | The device\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | When the device was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The device\'s current software version.
-    currentSoftware :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s connection status.
-    deviceConnectionStatus :: Prelude.Maybe DeviceConnectionStatus,
     -- | The device\'s ID.
     deviceId :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s type.
-    type' :: Prelude.Maybe DeviceType,
-    -- | The device\'s lease expiration time.
-    leaseExpirationTime :: Prelude.Maybe Core.POSIX,
-    -- | The device\'s serial number.
-    serialNumber :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s networking status.
-    currentNetworkingStatus :: Prelude.Maybe NetworkStatus,
-    -- | The device\'s description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The device\'s networking configuration.
     networkingConfiguration :: Prelude.Maybe NetworkPayload,
-    -- | The device\'s tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The device\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s connection status.
+    deviceConnectionStatus :: Prelude.Maybe DeviceConnectionStatus,
+    -- | The device\'s serial number.
+    serialNumber :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s current software version.
+    currentSoftware :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,35 +184,35 @@ data DescribeDeviceResponse = DescribeDeviceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'describeDeviceResponse_tags' - The device\'s tags.
+--
+-- 'currentNetworkingStatus', 'describeDeviceResponse_currentNetworkingStatus' - The device\'s networking status.
+--
+-- 'name', 'describeDeviceResponse_name' - The device\'s name.
+--
+-- 'type'', 'describeDeviceResponse_type' - The device\'s type.
+--
+-- 'createdTime', 'describeDeviceResponse_createdTime' - When the device was created.
+--
+-- 'leaseExpirationTime', 'describeDeviceResponse_leaseExpirationTime' - The device\'s lease expiration time.
+--
 -- 'latestSoftware', 'describeDeviceResponse_latestSoftware' - The latest software version available for the device.
 --
 -- 'provisioningStatus', 'describeDeviceResponse_provisioningStatus' - The device\'s provisioning status.
 --
--- 'arn', 'describeDeviceResponse_arn' - The device\'s ARN.
---
--- 'createdTime', 'describeDeviceResponse_createdTime' - When the device was created.
---
--- 'currentSoftware', 'describeDeviceResponse_currentSoftware' - The device\'s current software version.
---
--- 'name', 'describeDeviceResponse_name' - The device\'s name.
---
--- 'deviceConnectionStatus', 'describeDeviceResponse_deviceConnectionStatus' - The device\'s connection status.
---
 -- 'deviceId', 'describeDeviceResponse_deviceId' - The device\'s ID.
---
--- 'type'', 'describeDeviceResponse_type' - The device\'s type.
---
--- 'leaseExpirationTime', 'describeDeviceResponse_leaseExpirationTime' - The device\'s lease expiration time.
---
--- 'serialNumber', 'describeDeviceResponse_serialNumber' - The device\'s serial number.
---
--- 'currentNetworkingStatus', 'describeDeviceResponse_currentNetworkingStatus' - The device\'s networking status.
---
--- 'description', 'describeDeviceResponse_description' - The device\'s description.
 --
 -- 'networkingConfiguration', 'describeDeviceResponse_networkingConfiguration' - The device\'s networking configuration.
 --
--- 'tags', 'describeDeviceResponse_tags' - The device\'s tags.
+-- 'arn', 'describeDeviceResponse_arn' - The device\'s ARN.
+--
+-- 'description', 'describeDeviceResponse_description' - The device\'s description.
+--
+-- 'deviceConnectionStatus', 'describeDeviceResponse_deviceConnectionStatus' - The device\'s connection status.
+--
+-- 'serialNumber', 'describeDeviceResponse_serialNumber' - The device\'s serial number.
+--
+-- 'currentSoftware', 'describeDeviceResponse_currentSoftware' - The device\'s current software version.
 --
 -- 'httpStatus', 'describeDeviceResponse_httpStatus' - The response's http status code.
 newDescribeDeviceResponse ::
@@ -221,24 +221,47 @@ newDescribeDeviceResponse ::
   DescribeDeviceResponse
 newDescribeDeviceResponse pHttpStatus_ =
   DescribeDeviceResponse'
-    { latestSoftware =
-        Prelude.Nothing,
-      provisioningStatus = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      currentSoftware = Prelude.Nothing,
-      name = Prelude.Nothing,
-      deviceConnectionStatus = Prelude.Nothing,
-      deviceId = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      leaseExpirationTime = Prelude.Nothing,
-      serialNumber = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       currentNetworkingStatus = Prelude.Nothing,
-      description = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      leaseExpirationTime = Prelude.Nothing,
+      latestSoftware = Prelude.Nothing,
+      provisioningStatus = Prelude.Nothing,
+      deviceId = Prelude.Nothing,
       networkingConfiguration = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      deviceConnectionStatus = Prelude.Nothing,
+      serialNumber = Prelude.Nothing,
+      currentSoftware = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The device\'s tags.
+describeDeviceResponse_tags :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeDeviceResponse_tags = Lens.lens (\DescribeDeviceResponse' {tags} -> tags) (\s@DescribeDeviceResponse' {} a -> s {tags = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The device\'s networking status.
+describeDeviceResponse_currentNetworkingStatus :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe NetworkStatus)
+describeDeviceResponse_currentNetworkingStatus = Lens.lens (\DescribeDeviceResponse' {currentNetworkingStatus} -> currentNetworkingStatus) (\s@DescribeDeviceResponse' {} a -> s {currentNetworkingStatus = a} :: DescribeDeviceResponse)
+
+-- | The device\'s name.
+describeDeviceResponse_name :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_name = Lens.lens (\DescribeDeviceResponse' {name} -> name) (\s@DescribeDeviceResponse' {} a -> s {name = a} :: DescribeDeviceResponse)
+
+-- | The device\'s type.
+describeDeviceResponse_type :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceType)
+describeDeviceResponse_type = Lens.lens (\DescribeDeviceResponse' {type'} -> type') (\s@DescribeDeviceResponse' {} a -> s {type' = a} :: DescribeDeviceResponse)
+
+-- | When the device was created.
+describeDeviceResponse_createdTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
+describeDeviceResponse_createdTime = Lens.lens (\DescribeDeviceResponse' {createdTime} -> createdTime) (\s@DescribeDeviceResponse' {} a -> s {createdTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The device\'s lease expiration time.
+describeDeviceResponse_leaseExpirationTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
+describeDeviceResponse_leaseExpirationTime = Lens.lens (\DescribeDeviceResponse' {leaseExpirationTime} -> leaseExpirationTime) (\s@DescribeDeviceResponse' {} a -> s {leaseExpirationTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The latest software version available for the device.
 describeDeviceResponse_latestSoftware :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
@@ -248,57 +271,33 @@ describeDeviceResponse_latestSoftware = Lens.lens (\DescribeDeviceResponse' {lat
 describeDeviceResponse_provisioningStatus :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceStatus)
 describeDeviceResponse_provisioningStatus = Lens.lens (\DescribeDeviceResponse' {provisioningStatus} -> provisioningStatus) (\s@DescribeDeviceResponse' {} a -> s {provisioningStatus = a} :: DescribeDeviceResponse)
 
--- | The device\'s ARN.
-describeDeviceResponse_arn :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_arn = Lens.lens (\DescribeDeviceResponse' {arn} -> arn) (\s@DescribeDeviceResponse' {} a -> s {arn = a} :: DescribeDeviceResponse)
-
--- | When the device was created.
-describeDeviceResponse_createdTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_createdTime = Lens.lens (\DescribeDeviceResponse' {createdTime} -> createdTime) (\s@DescribeDeviceResponse' {} a -> s {createdTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
-
--- | The device\'s current software version.
-describeDeviceResponse_currentSoftware :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_currentSoftware = Lens.lens (\DescribeDeviceResponse' {currentSoftware} -> currentSoftware) (\s@DescribeDeviceResponse' {} a -> s {currentSoftware = a} :: DescribeDeviceResponse)
-
--- | The device\'s name.
-describeDeviceResponse_name :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_name = Lens.lens (\DescribeDeviceResponse' {name} -> name) (\s@DescribeDeviceResponse' {} a -> s {name = a} :: DescribeDeviceResponse)
-
--- | The device\'s connection status.
-describeDeviceResponse_deviceConnectionStatus :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceConnectionStatus)
-describeDeviceResponse_deviceConnectionStatus = Lens.lens (\DescribeDeviceResponse' {deviceConnectionStatus} -> deviceConnectionStatus) (\s@DescribeDeviceResponse' {} a -> s {deviceConnectionStatus = a} :: DescribeDeviceResponse)
-
 -- | The device\'s ID.
 describeDeviceResponse_deviceId :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
 describeDeviceResponse_deviceId = Lens.lens (\DescribeDeviceResponse' {deviceId} -> deviceId) (\s@DescribeDeviceResponse' {} a -> s {deviceId = a} :: DescribeDeviceResponse)
-
--- | The device\'s type.
-describeDeviceResponse_type :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceType)
-describeDeviceResponse_type = Lens.lens (\DescribeDeviceResponse' {type'} -> type') (\s@DescribeDeviceResponse' {} a -> s {type' = a} :: DescribeDeviceResponse)
-
--- | The device\'s lease expiration time.
-describeDeviceResponse_leaseExpirationTime :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.UTCTime)
-describeDeviceResponse_leaseExpirationTime = Lens.lens (\DescribeDeviceResponse' {leaseExpirationTime} -> leaseExpirationTime) (\s@DescribeDeviceResponse' {} a -> s {leaseExpirationTime = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Core._Time
-
--- | The device\'s serial number.
-describeDeviceResponse_serialNumber :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_serialNumber = Lens.lens (\DescribeDeviceResponse' {serialNumber} -> serialNumber) (\s@DescribeDeviceResponse' {} a -> s {serialNumber = a} :: DescribeDeviceResponse)
-
--- | The device\'s networking status.
-describeDeviceResponse_currentNetworkingStatus :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe NetworkStatus)
-describeDeviceResponse_currentNetworkingStatus = Lens.lens (\DescribeDeviceResponse' {currentNetworkingStatus} -> currentNetworkingStatus) (\s@DescribeDeviceResponse' {} a -> s {currentNetworkingStatus = a} :: DescribeDeviceResponse)
-
--- | The device\'s description.
-describeDeviceResponse_description :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
-describeDeviceResponse_description = Lens.lens (\DescribeDeviceResponse' {description} -> description) (\s@DescribeDeviceResponse' {} a -> s {description = a} :: DescribeDeviceResponse)
 
 -- | The device\'s networking configuration.
 describeDeviceResponse_networkingConfiguration :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe NetworkPayload)
 describeDeviceResponse_networkingConfiguration = Lens.lens (\DescribeDeviceResponse' {networkingConfiguration} -> networkingConfiguration) (\s@DescribeDeviceResponse' {} a -> s {networkingConfiguration = a} :: DescribeDeviceResponse)
 
--- | The device\'s tags.
-describeDeviceResponse_tags :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeDeviceResponse_tags = Lens.lens (\DescribeDeviceResponse' {tags} -> tags) (\s@DescribeDeviceResponse' {} a -> s {tags = a} :: DescribeDeviceResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The device\'s ARN.
+describeDeviceResponse_arn :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_arn = Lens.lens (\DescribeDeviceResponse' {arn} -> arn) (\s@DescribeDeviceResponse' {} a -> s {arn = a} :: DescribeDeviceResponse)
+
+-- | The device\'s description.
+describeDeviceResponse_description :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_description = Lens.lens (\DescribeDeviceResponse' {description} -> description) (\s@DescribeDeviceResponse' {} a -> s {description = a} :: DescribeDeviceResponse)
+
+-- | The device\'s connection status.
+describeDeviceResponse_deviceConnectionStatus :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe DeviceConnectionStatus)
+describeDeviceResponse_deviceConnectionStatus = Lens.lens (\DescribeDeviceResponse' {deviceConnectionStatus} -> deviceConnectionStatus) (\s@DescribeDeviceResponse' {} a -> s {deviceConnectionStatus = a} :: DescribeDeviceResponse)
+
+-- | The device\'s serial number.
+describeDeviceResponse_serialNumber :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_serialNumber = Lens.lens (\DescribeDeviceResponse' {serialNumber} -> serialNumber) (\s@DescribeDeviceResponse' {} a -> s {serialNumber = a} :: DescribeDeviceResponse)
+
+-- | The device\'s current software version.
+describeDeviceResponse_currentSoftware :: Lens.Lens' DescribeDeviceResponse (Prelude.Maybe Prelude.Text)
+describeDeviceResponse_currentSoftware = Lens.lens (\DescribeDeviceResponse' {currentSoftware} -> currentSoftware) (\s@DescribeDeviceResponse' {} a -> s {currentSoftware = a} :: DescribeDeviceResponse)
 
 -- | The response's http status code.
 describeDeviceResponse_httpStatus :: Lens.Lens' DescribeDeviceResponse Prelude.Int
@@ -306,19 +305,19 @@ describeDeviceResponse_httpStatus = Lens.lens (\DescribeDeviceResponse' {httpSta
 
 instance Prelude.NFData DescribeDeviceResponse where
   rnf DescribeDeviceResponse' {..} =
-    Prelude.rnf latestSoftware
-      `Prelude.seq` Prelude.rnf provisioningStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf currentSoftware
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf deviceConnectionStatus
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf leaseExpirationTime
-      `Prelude.seq` Prelude.rnf serialNumber
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf currentNetworkingStatus
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf leaseExpirationTime
+      `Prelude.seq` Prelude.rnf latestSoftware
+      `Prelude.seq` Prelude.rnf provisioningStatus
+      `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf networkingConfiguration
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceConnectionStatus
+      `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf currentSoftware
       `Prelude.seq` Prelude.rnf httpStatus

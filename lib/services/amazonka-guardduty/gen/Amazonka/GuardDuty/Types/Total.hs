@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTotal' smart constructor.
 data Total = Total'
-  { -- | The total usage.
-    amount :: Prelude.Maybe Prelude.Text,
-    -- | The currency unit that the amount is given in.
-    unit :: Prelude.Maybe Prelude.Text
+  { -- | The currency unit that the amount is given in.
+    unit :: Prelude.Maybe Prelude.Text,
+    -- | The total usage.
+    amount :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Total = Total'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'amount', 'total_amount' - The total usage.
---
 -- 'unit', 'total_unit' - The currency unit that the amount is given in.
+--
+-- 'amount', 'total_amount' - The total usage.
 newTotal ::
   Total
 newTotal =
   Total'
-    { amount = Prelude.Nothing,
-      unit = Prelude.Nothing
+    { unit = Prelude.Nothing,
+      amount = Prelude.Nothing
     }
-
--- | The total usage.
-total_amount :: Lens.Lens' Total (Prelude.Maybe Prelude.Text)
-total_amount = Lens.lens (\Total' {amount} -> amount) (\s@Total' {} a -> s {amount = a} :: Total)
 
 -- | The currency unit that the amount is given in.
 total_unit :: Lens.Lens' Total (Prelude.Maybe Prelude.Text)
 total_unit = Lens.lens (\Total' {unit} -> unit) (\s@Total' {} a -> s {unit = a} :: Total)
+
+-- | The total usage.
+total_amount :: Lens.Lens' Total (Prelude.Maybe Prelude.Text)
+total_amount = Lens.lens (\Total' {amount} -> amount) (\s@Total' {} a -> s {amount = a} :: Total)
 
 instance Core.FromJSON Total where
   parseJSON =
@@ -68,15 +68,15 @@ instance Core.FromJSON Total where
       "Total"
       ( \x ->
           Total'
-            Prelude.<$> (x Core..:? "amount")
-            Prelude.<*> (x Core..:? "unit")
+            Prelude.<$> (x Core..:? "unit")
+            Prelude.<*> (x Core..:? "amount")
       )
 
 instance Prelude.Hashable Total where
   hashWithSalt _salt Total' {..} =
-    _salt `Prelude.hashWithSalt` amount
-      `Prelude.hashWithSalt` unit
+    _salt `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` amount
 
 instance Prelude.NFData Total where
   rnf Total' {..} =
-    Prelude.rnf amount `Prelude.seq` Prelude.rnf unit
+    Prelude.rnf unit `Prelude.seq` Prelude.rnf amount

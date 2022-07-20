@@ -27,19 +27,19 @@ module Amazonka.MemoryDb.DescribeServiceUpdates
     newDescribeServiceUpdates,
 
     -- * Request Lenses
+    describeServiceUpdates_nextToken,
     describeServiceUpdates_status,
+    describeServiceUpdates_maxResults,
     describeServiceUpdates_serviceUpdateName,
     describeServiceUpdates_clusterNames,
-    describeServiceUpdates_nextToken,
-    describeServiceUpdates_maxResults,
 
     -- * Destructuring the Response
     DescribeServiceUpdatesResponse (..),
     newDescribeServiceUpdatesResponse,
 
     -- * Response Lenses
-    describeServiceUpdatesResponse_serviceUpdates,
     describeServiceUpdatesResponse_nextToken,
+    describeServiceUpdatesResponse_serviceUpdates,
     describeServiceUpdatesResponse_httpStatus,
   )
 where
@@ -53,22 +53,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeServiceUpdates' smart constructor.
 data DescribeServiceUpdates = DescribeServiceUpdates'
-  { -- | The status(es) of the service updates to filter on
-    status :: Prelude.Maybe [ServiceUpdateStatus],
-    -- | The unique ID of the service update to describe.
-    serviceUpdateName :: Prelude.Maybe Prelude.Text,
-    -- | The list of cluster names to identify service updates to apply
-    clusterNames :: Prelude.Maybe [Prelude.Text],
-    -- | An optional argument to pass in case the total number of records exceeds
+  { -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status(es) of the service updates to filter on
+    status :: Prelude.Maybe [ServiceUpdateStatus],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The unique ID of the service update to describe.
+    serviceUpdateName :: Prelude.Maybe Prelude.Text,
+    -- | The list of cluster names to identify service updates to apply
+    clusterNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,43 +80,32 @@ data DescribeServiceUpdates = DescribeServiceUpdates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeServiceUpdates_status' - The status(es) of the service updates to filter on
---
--- 'serviceUpdateName', 'describeServiceUpdates_serviceUpdateName' - The unique ID of the service update to describe.
---
--- 'clusterNames', 'describeServiceUpdates_clusterNames' - The list of cluster names to identify service updates to apply
---
 -- 'nextToken', 'describeServiceUpdates_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
 --
+-- 'status', 'describeServiceUpdates_status' - The status(es) of the service updates to filter on
+--
 -- 'maxResults', 'describeServiceUpdates_maxResults' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'serviceUpdateName', 'describeServiceUpdates_serviceUpdateName' - The unique ID of the service update to describe.
+--
+-- 'clusterNames', 'describeServiceUpdates_clusterNames' - The list of cluster names to identify service updates to apply
 newDescribeServiceUpdates ::
   DescribeServiceUpdates
 newDescribeServiceUpdates =
   DescribeServiceUpdates'
-    { status = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       serviceUpdateName = Prelude.Nothing,
-      clusterNames = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      clusterNames = Prelude.Nothing
     }
-
--- | The status(es) of the service updates to filter on
-describeServiceUpdates_status :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe [ServiceUpdateStatus])
-describeServiceUpdates_status = Lens.lens (\DescribeServiceUpdates' {status} -> status) (\s@DescribeServiceUpdates' {} a -> s {status = a} :: DescribeServiceUpdates) Prelude.. Lens.mapping Lens.coerced
-
--- | The unique ID of the service update to describe.
-describeServiceUpdates_serviceUpdateName :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Text)
-describeServiceUpdates_serviceUpdateName = Lens.lens (\DescribeServiceUpdates' {serviceUpdateName} -> serviceUpdateName) (\s@DescribeServiceUpdates' {} a -> s {serviceUpdateName = a} :: DescribeServiceUpdates)
-
--- | The list of cluster names to identify service updates to apply
-describeServiceUpdates_clusterNames :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe [Prelude.Text])
-describeServiceUpdates_clusterNames = Lens.lens (\DescribeServiceUpdates' {clusterNames} -> clusterNames) (\s@DescribeServiceUpdates' {} a -> s {clusterNames = a} :: DescribeServiceUpdates) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -126,11 +115,23 @@ describeServiceUpdates_clusterNames = Lens.lens (\DescribeServiceUpdates' {clust
 describeServiceUpdates_nextToken :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Text)
 describeServiceUpdates_nextToken = Lens.lens (\DescribeServiceUpdates' {nextToken} -> nextToken) (\s@DescribeServiceUpdates' {} a -> s {nextToken = a} :: DescribeServiceUpdates)
 
+-- | The status(es) of the service updates to filter on
+describeServiceUpdates_status :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe [ServiceUpdateStatus])
+describeServiceUpdates_status = Lens.lens (\DescribeServiceUpdates' {status} -> status) (\s@DescribeServiceUpdates' {} a -> s {status = a} :: DescribeServiceUpdates) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
 describeServiceUpdates_maxResults :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Int)
 describeServiceUpdates_maxResults = Lens.lens (\DescribeServiceUpdates' {maxResults} -> maxResults) (\s@DescribeServiceUpdates' {} a -> s {maxResults = a} :: DescribeServiceUpdates)
+
+-- | The unique ID of the service update to describe.
+describeServiceUpdates_serviceUpdateName :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe Prelude.Text)
+describeServiceUpdates_serviceUpdateName = Lens.lens (\DescribeServiceUpdates' {serviceUpdateName} -> serviceUpdateName) (\s@DescribeServiceUpdates' {} a -> s {serviceUpdateName = a} :: DescribeServiceUpdates)
+
+-- | The list of cluster names to identify service updates to apply
+describeServiceUpdates_clusterNames :: Lens.Lens' DescribeServiceUpdates (Prelude.Maybe [Prelude.Text])
+describeServiceUpdates_clusterNames = Lens.lens (\DescribeServiceUpdates' {clusterNames} -> clusterNames) (\s@DescribeServiceUpdates' {} a -> s {clusterNames = a} :: DescribeServiceUpdates) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeServiceUpdates where
   type
@@ -141,26 +142,26 @@ instance Core.AWSRequest DescribeServiceUpdates where
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceUpdatesResponse'
-            Prelude.<$> (x Core..?> "ServiceUpdates" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ServiceUpdates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeServiceUpdates where
   hashWithSalt _salt DescribeServiceUpdates' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` serviceUpdateName
       `Prelude.hashWithSalt` clusterNames
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeServiceUpdates where
   rnf DescribeServiceUpdates' {..} =
-    Prelude.rnf status
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceUpdateName
       `Prelude.seq` Prelude.rnf clusterNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeServiceUpdates where
   toHeaders =
@@ -181,12 +182,12 @@ instance Core.ToJSON DescribeServiceUpdates where
   toJSON DescribeServiceUpdates' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Status" Core..=) Prelude.<$> status,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ServiceUpdateName" Core..=)
               Prelude.<$> serviceUpdateName,
-            ("ClusterNames" Core..=) Prelude.<$> clusterNames,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("ClusterNames" Core..=) Prelude.<$> clusterNames
           ]
       )
 
@@ -198,14 +199,14 @@ instance Core.ToQuery DescribeServiceUpdates where
 
 -- | /See:/ 'newDescribeServiceUpdatesResponse' smart constructor.
 data DescribeServiceUpdatesResponse = DescribeServiceUpdatesResponse'
-  { -- | A list of service updates
-    serviceUpdates :: Prelude.Maybe [ServiceUpdate],
-    -- | An optional argument to pass in case the total number of records exceeds
+  { -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of service updates
+    serviceUpdates :: Prelude.Maybe [ServiceUpdate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,13 +220,13 @@ data DescribeServiceUpdatesResponse = DescribeServiceUpdatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceUpdates', 'describeServiceUpdatesResponse_serviceUpdates' - A list of service updates
---
 -- 'nextToken', 'describeServiceUpdatesResponse_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
+--
+-- 'serviceUpdates', 'describeServiceUpdatesResponse_serviceUpdates' - A list of service updates
 --
 -- 'httpStatus', 'describeServiceUpdatesResponse_httpStatus' - The response's http status code.
 newDescribeServiceUpdatesResponse ::
@@ -234,15 +235,11 @@ newDescribeServiceUpdatesResponse ::
   DescribeServiceUpdatesResponse
 newDescribeServiceUpdatesResponse pHttpStatus_ =
   DescribeServiceUpdatesResponse'
-    { serviceUpdates =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      serviceUpdates = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of service updates
-describeServiceUpdatesResponse_serviceUpdates :: Lens.Lens' DescribeServiceUpdatesResponse (Prelude.Maybe [ServiceUpdate])
-describeServiceUpdatesResponse_serviceUpdates = Lens.lens (\DescribeServiceUpdatesResponse' {serviceUpdates} -> serviceUpdates) (\s@DescribeServiceUpdatesResponse' {} a -> s {serviceUpdates = a} :: DescribeServiceUpdatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -251,6 +248,10 @@ describeServiceUpdatesResponse_serviceUpdates = Lens.lens (\DescribeServiceUpdat
 -- the next page. Keep all other arguments unchanged.
 describeServiceUpdatesResponse_nextToken :: Lens.Lens' DescribeServiceUpdatesResponse (Prelude.Maybe Prelude.Text)
 describeServiceUpdatesResponse_nextToken = Lens.lens (\DescribeServiceUpdatesResponse' {nextToken} -> nextToken) (\s@DescribeServiceUpdatesResponse' {} a -> s {nextToken = a} :: DescribeServiceUpdatesResponse)
+
+-- | A list of service updates
+describeServiceUpdatesResponse_serviceUpdates :: Lens.Lens' DescribeServiceUpdatesResponse (Prelude.Maybe [ServiceUpdate])
+describeServiceUpdatesResponse_serviceUpdates = Lens.lens (\DescribeServiceUpdatesResponse' {serviceUpdates} -> serviceUpdates) (\s@DescribeServiceUpdatesResponse' {} a -> s {serviceUpdates = a} :: DescribeServiceUpdatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeServiceUpdatesResponse_httpStatus :: Lens.Lens' DescribeServiceUpdatesResponse Prelude.Int
@@ -261,6 +262,6 @@ instance
     DescribeServiceUpdatesResponse
   where
   rnf DescribeServiceUpdatesResponse' {..} =
-    Prelude.rnf serviceUpdates
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf serviceUpdates
       `Prelude.seq` Prelude.rnf httpStatus

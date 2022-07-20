@@ -27,8 +27,8 @@ module Amazonka.MediaPackage.CreateChannel
     newCreateChannel,
 
     -- * Request Lenses
-    createChannel_description,
     createChannel_tags,
+    createChannel_description,
     createChannel_id,
 
     -- * Destructuring the Response
@@ -36,13 +36,13 @@ module Amazonka.MediaPackage.CreateChannel
     newCreateChannelResponse,
 
     -- * Response Lenses
+    createChannelResponse_tags,
     createChannelResponse_ingressAccessLogs,
-    createChannelResponse_hlsIngest,
     createChannelResponse_arn,
     createChannelResponse_id,
     createChannelResponse_description,
     createChannelResponse_egressAccessLogs,
-    createChannelResponse_tags,
+    createChannelResponse_hlsIngest,
     createChannelResponse_httpStatus,
   )
 where
@@ -58,9 +58,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { -- | A short text description of the Channel.
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the Channel. The ID must be unique within the region and it
     -- cannot be changed after a Channel is created.
     id :: Prelude.Text
@@ -75,9 +75,9 @@ data CreateChannel = CreateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createChannel_description' - A short text description of the Channel.
---
 -- 'tags', 'createChannel_tags' - Undocumented member.
+--
+-- 'description', 'createChannel_description' - A short text description of the Channel.
 --
 -- 'id', 'createChannel_id' - The ID of the Channel. The ID must be unique within the region and it
 -- cannot be changed after a Channel is created.
@@ -87,18 +87,18 @@ newCreateChannel ::
   CreateChannel
 newCreateChannel pId_ =
   CreateChannel'
-    { description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       id = pId_
     }
-
--- | A short text description of the Channel.
-createChannel_description :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
-createChannel_description = Lens.lens (\CreateChannel' {description} -> description) (\s@CreateChannel' {} a -> s {description = a} :: CreateChannel)
 
 -- | Undocumented member.
 createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
+
+-- | A short text description of the Channel.
+createChannel_description :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
+createChannel_description = Lens.lens (\CreateChannel' {description} -> description) (\s@CreateChannel' {} a -> s {description = a} :: CreateChannel)
 
 -- | The ID of the Channel. The ID must be unique within the region and it
 -- cannot be changed after a Channel is created.
@@ -114,26 +114,26 @@ instance Core.AWSRequest CreateChannel where
     Response.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            Prelude.<$> (x Core..?> "ingressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ingressAccessLogs")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders CreateChannel where
@@ -151,8 +151,8 @@ instance Core.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("id" Core..= id)
           ]
       )
@@ -165,8 +165,8 @@ instance Core.ToQuery CreateChannel where
 
 -- | /See:/ 'newCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
-  { ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
-    hlsIngest :: Prelude.Maybe HlsIngest,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
@@ -174,7 +174,7 @@ data CreateChannelResponse = CreateChannelResponse'
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,9 +188,9 @@ data CreateChannelResponse = CreateChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ingressAccessLogs', 'createChannelResponse_ingressAccessLogs' - Undocumented member.
+-- 'tags', 'createChannelResponse_tags' - Undocumented member.
 --
--- 'hlsIngest', 'createChannelResponse_hlsIngest' - Undocumented member.
+-- 'ingressAccessLogs', 'createChannelResponse_ingressAccessLogs' - Undocumented member.
 --
 -- 'arn', 'createChannelResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
@@ -200,7 +200,7 @@ data CreateChannelResponse = CreateChannelResponse'
 --
 -- 'egressAccessLogs', 'createChannelResponse_egressAccessLogs' - Undocumented member.
 --
--- 'tags', 'createChannelResponse_tags' - Undocumented member.
+-- 'hlsIngest', 'createChannelResponse_hlsIngest' - Undocumented member.
 --
 -- 'httpStatus', 'createChannelResponse_httpStatus' - The response's http status code.
 newCreateChannelResponse ::
@@ -209,24 +209,23 @@ newCreateChannelResponse ::
   CreateChannelResponse
 newCreateChannelResponse pHttpStatus_ =
   CreateChannelResponse'
-    { ingressAccessLogs =
-        Prelude.Nothing,
-      hlsIngest = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      ingressAccessLogs = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      hlsIngest = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createChannelResponse_ingressAccessLogs :: Lens.Lens' CreateChannelResponse (Prelude.Maybe IngressAccessLogs)
-createChannelResponse_ingressAccessLogs = Lens.lens (\CreateChannelResponse' {ingressAccessLogs} -> ingressAccessLogs) (\s@CreateChannelResponse' {} a -> s {ingressAccessLogs = a} :: CreateChannelResponse)
+createChannelResponse_tags :: Lens.Lens' CreateChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createChannelResponse_tags = Lens.lens (\CreateChannelResponse' {tags} -> tags) (\s@CreateChannelResponse' {} a -> s {tags = a} :: CreateChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-createChannelResponse_hlsIngest :: Lens.Lens' CreateChannelResponse (Prelude.Maybe HlsIngest)
-createChannelResponse_hlsIngest = Lens.lens (\CreateChannelResponse' {hlsIngest} -> hlsIngest) (\s@CreateChannelResponse' {} a -> s {hlsIngest = a} :: CreateChannelResponse)
+createChannelResponse_ingressAccessLogs :: Lens.Lens' CreateChannelResponse (Prelude.Maybe IngressAccessLogs)
+createChannelResponse_ingressAccessLogs = Lens.lens (\CreateChannelResponse' {ingressAccessLogs} -> ingressAccessLogs) (\s@CreateChannelResponse' {} a -> s {ingressAccessLogs = a} :: CreateChannelResponse)
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 createChannelResponse_arn :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
@@ -245,8 +244,8 @@ createChannelResponse_egressAccessLogs :: Lens.Lens' CreateChannelResponse (Prel
 createChannelResponse_egressAccessLogs = Lens.lens (\CreateChannelResponse' {egressAccessLogs} -> egressAccessLogs) (\s@CreateChannelResponse' {} a -> s {egressAccessLogs = a} :: CreateChannelResponse)
 
 -- | Undocumented member.
-createChannelResponse_tags :: Lens.Lens' CreateChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createChannelResponse_tags = Lens.lens (\CreateChannelResponse' {tags} -> tags) (\s@CreateChannelResponse' {} a -> s {tags = a} :: CreateChannelResponse) Prelude.. Lens.mapping Lens.coerced
+createChannelResponse_hlsIngest :: Lens.Lens' CreateChannelResponse (Prelude.Maybe HlsIngest)
+createChannelResponse_hlsIngest = Lens.lens (\CreateChannelResponse' {hlsIngest} -> hlsIngest) (\s@CreateChannelResponse' {} a -> s {hlsIngest = a} :: CreateChannelResponse)
 
 -- | The response's http status code.
 createChannelResponse_httpStatus :: Lens.Lens' CreateChannelResponse Prelude.Int
@@ -254,11 +253,11 @@ createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatu
 
 instance Prelude.NFData CreateChannelResponse where
   rnf CreateChannelResponse' {..} =
-    Prelude.rnf ingressAccessLogs
-      `Prelude.seq` Prelude.rnf hlsIngest
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ingressAccessLogs
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hlsIngest
       `Prelude.seq` Prelude.rnf httpStatus

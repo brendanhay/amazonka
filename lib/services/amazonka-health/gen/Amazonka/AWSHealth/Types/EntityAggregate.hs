@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntityAggregate' smart constructor.
 data EntityAggregate = EntityAggregate'
-  { -- | The number of entities that match the criteria for the specified events.
-    count :: Prelude.Maybe Prelude.Int,
-    -- | The unique identifier for the event. The event ARN has the
+  { -- | The unique identifier for the event. The event ARN has the
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
     -- format.
     --
     -- For example, an event ARN might look like the following:
     --
     -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventArn :: Prelude.Maybe Prelude.Text
+    eventArn :: Prelude.Maybe Prelude.Text,
+    -- | The number of entities that match the criteria for the specified events.
+    count :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,8 +51,6 @@ data EntityAggregate = EntityAggregate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'count', 'entityAggregate_count' - The number of entities that match the criteria for the specified events.
---
 -- 'eventArn', 'entityAggregate_eventArn' - The unique identifier for the event. The event ARN has the
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
 -- format.
@@ -60,17 +58,15 @@ data EntityAggregate = EntityAggregate'
 -- For example, an event ARN might look like the following:
 --
 -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+--
+-- 'count', 'entityAggregate_count' - The number of entities that match the criteria for the specified events.
 newEntityAggregate ::
   EntityAggregate
 newEntityAggregate =
   EntityAggregate'
-    { count = Prelude.Nothing,
-      eventArn = Prelude.Nothing
+    { eventArn = Prelude.Nothing,
+      count = Prelude.Nothing
     }
-
--- | The number of entities that match the criteria for the specified events.
-entityAggregate_count :: Lens.Lens' EntityAggregate (Prelude.Maybe Prelude.Int)
-entityAggregate_count = Lens.lens (\EntityAggregate' {count} -> count) (\s@EntityAggregate' {} a -> s {count = a} :: EntityAggregate)
 
 -- | The unique identifier for the event. The event ARN has the
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
@@ -82,22 +78,26 @@ entityAggregate_count = Lens.lens (\EntityAggregate' {count} -> count) (\s@Entit
 entityAggregate_eventArn :: Lens.Lens' EntityAggregate (Prelude.Maybe Prelude.Text)
 entityAggregate_eventArn = Lens.lens (\EntityAggregate' {eventArn} -> eventArn) (\s@EntityAggregate' {} a -> s {eventArn = a} :: EntityAggregate)
 
+-- | The number of entities that match the criteria for the specified events.
+entityAggregate_count :: Lens.Lens' EntityAggregate (Prelude.Maybe Prelude.Int)
+entityAggregate_count = Lens.lens (\EntityAggregate' {count} -> count) (\s@EntityAggregate' {} a -> s {count = a} :: EntityAggregate)
+
 instance Core.FromJSON EntityAggregate where
   parseJSON =
     Core.withObject
       "EntityAggregate"
       ( \x ->
           EntityAggregate'
-            Prelude.<$> (x Core..:? "count")
-            Prelude.<*> (x Core..:? "eventArn")
+            Prelude.<$> (x Core..:? "eventArn")
+            Prelude.<*> (x Core..:? "count")
       )
 
 instance Prelude.Hashable EntityAggregate where
   hashWithSalt _salt EntityAggregate' {..} =
-    _salt `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` eventArn
+    _salt `Prelude.hashWithSalt` eventArn
+      `Prelude.hashWithSalt` count
 
 instance Prelude.NFData EntityAggregate where
   rnf EntityAggregate' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf eventArn
+    Prelude.rnf eventArn
+      `Prelude.seq` Prelude.rnf count

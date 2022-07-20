@@ -27,10 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' smart constructor.
 data AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails = AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails'
-  { -- | The number of days after which to transition the object to the specified
-    -- storage class. If you provide @Days@, you cannot provide @Date@.
-    days :: Prelude.Maybe Prelude.Int,
-    -- | A date on which to transition objects to the specified storage class. If
+  { -- | A date on which to transition objects to the specified storage class. If
     -- you provide @Date@, you cannot provide @Days@.
     --
     -- Uses the @date-time@ format specified in
@@ -38,6 +35,9 @@ data AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails = AwsS3Bucke
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     date :: Prelude.Maybe Prelude.Text,
+    -- | The number of days after which to transition the object to the specified
+    -- storage class. If you provide @Days@, you cannot provide @Date@.
+    days :: Prelude.Maybe Prelude.Int,
     -- | The storage class to transition the object to.
     storageClass :: Prelude.Maybe Prelude.Text
   }
@@ -51,9 +51,6 @@ data AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails = AwsS3Bucke
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'days', 'awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days' - The number of days after which to transition the object to the specified
--- storage class. If you provide @Days@, you cannot provide @Date@.
---
 -- 'date', 'awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_date' - A date on which to transition objects to the specified storage class. If
 -- you provide @Date@, you cannot provide @Days@.
 --
@@ -62,23 +59,21 @@ data AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails = AwsS3Bucke
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
+-- 'days', 'awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days' - The number of days after which to transition the object to the specified
+-- storage class. If you provide @Days@, you cannot provide @Date@.
+--
 -- 'storageClass', 'awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_storageClass' - The storage class to transition the object to.
 newAwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails ::
   AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
 newAwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails =
   AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails'
-    { days =
+    { date =
         Prelude.Nothing,
-      date =
+      days =
         Prelude.Nothing,
       storageClass =
         Prelude.Nothing
     }
-
--- | The number of days after which to transition the object to the specified
--- storage class. If you provide @Days@, you cannot provide @Date@.
-awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails (Prelude.Maybe Prelude.Int)
-awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {days} -> days) (\s@AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {} a -> s {days = a} :: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails)
 
 -- | A date on which to transition objects to the specified storage class. If
 -- you provide @Date@, you cannot provide @Days@.
@@ -89,6 +84,11 @@ awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days = Lens.lens 
 -- @2020-03-22T13:22:13.933Z@.
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_date :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_date = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {date} -> date) (\s@AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {} a -> s {date = a} :: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails)
+
+-- | The number of days after which to transition the object to the specified
+-- storage class. If you provide @Days@, you cannot provide @Date@.
+awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails (Prelude.Maybe Prelude.Int)
+awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {days} -> days) (\s@AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {} a -> s {days = a} :: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails)
 
 -- | The storage class to transition the object to.
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_storageClass :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails (Prelude.Maybe Prelude.Text)
@@ -103,7 +103,7 @@ instance
       "AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails'
-            Prelude.<$> (x Core..:? "Days") Prelude.<*> (x Core..:? "Date")
+            Prelude.<$> (x Core..:? "Date") Prelude.<*> (x Core..:? "Days")
               Prelude.<*> (x Core..:? "StorageClass")
       )
 
@@ -114,8 +114,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` days
-        `Prelude.hashWithSalt` date
+      _salt `Prelude.hashWithSalt` date
+        `Prelude.hashWithSalt` days
         `Prelude.hashWithSalt` storageClass
 
 instance
@@ -124,8 +124,8 @@ instance
   where
   rnf
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {..} =
-      Prelude.rnf days
-        `Prelude.seq` Prelude.rnf date
+      Prelude.rnf date
+        `Prelude.seq` Prelude.rnf days
         `Prelude.seq` Prelude.rnf storageClass
 
 instance
@@ -136,8 +136,8 @@ instance
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Days" Core..=) Prelude.<$> days,
-              ("Date" Core..=) Prelude.<$> date,
+            [ ("Date" Core..=) Prelude.<$> date,
+              ("Days" Core..=) Prelude.<$> days,
               ("StorageClass" Core..=) Prelude.<$> storageClass
             ]
         )

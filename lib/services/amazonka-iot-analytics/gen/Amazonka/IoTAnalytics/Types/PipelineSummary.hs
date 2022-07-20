@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
-  { -- | When the pipeline was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | A summary of information about the pipeline reprocessing.
+    reprocessingSummaries :: Prelude.Maybe [ReprocessingSummary],
     -- | The name of the pipeline.
     pipelineName :: Prelude.Maybe Prelude.Text,
-    -- | A summary of information about the pipeline reprocessing.
-    reprocessingSummaries :: Prelude.Maybe [ReprocessingSummary],
+    -- | When the pipeline was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | When the pipeline was last updated.
     lastUpdateTime :: Prelude.Maybe Core.POSIX
   }
@@ -47,34 +47,35 @@ data PipelineSummary = PipelineSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'pipelineSummary_creationTime' - When the pipeline was created.
+-- 'reprocessingSummaries', 'pipelineSummary_reprocessingSummaries' - A summary of information about the pipeline reprocessing.
 --
 -- 'pipelineName', 'pipelineSummary_pipelineName' - The name of the pipeline.
 --
--- 'reprocessingSummaries', 'pipelineSummary_reprocessingSummaries' - A summary of information about the pipeline reprocessing.
+-- 'creationTime', 'pipelineSummary_creationTime' - When the pipeline was created.
 --
 -- 'lastUpdateTime', 'pipelineSummary_lastUpdateTime' - When the pipeline was last updated.
 newPipelineSummary ::
   PipelineSummary
 newPipelineSummary =
   PipelineSummary'
-    { creationTime = Prelude.Nothing,
+    { reprocessingSummaries =
+        Prelude.Nothing,
       pipelineName = Prelude.Nothing,
-      reprocessingSummaries = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing
     }
 
--- | When the pipeline was created.
-pipelineSummary_creationTime :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineSummary_creationTime = Lens.lens (\PipelineSummary' {creationTime} -> creationTime) (\s@PipelineSummary' {} a -> s {creationTime = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
+-- | A summary of information about the pipeline reprocessing.
+pipelineSummary_reprocessingSummaries :: Lens.Lens' PipelineSummary (Prelude.Maybe [ReprocessingSummary])
+pipelineSummary_reprocessingSummaries = Lens.lens (\PipelineSummary' {reprocessingSummaries} -> reprocessingSummaries) (\s@PipelineSummary' {} a -> s {reprocessingSummaries = a} :: PipelineSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the pipeline.
 pipelineSummary_pipelineName :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.Text)
 pipelineSummary_pipelineName = Lens.lens (\PipelineSummary' {pipelineName} -> pipelineName) (\s@PipelineSummary' {} a -> s {pipelineName = a} :: PipelineSummary)
 
--- | A summary of information about the pipeline reprocessing.
-pipelineSummary_reprocessingSummaries :: Lens.Lens' PipelineSummary (Prelude.Maybe [ReprocessingSummary])
-pipelineSummary_reprocessingSummaries = Lens.lens (\PipelineSummary' {reprocessingSummaries} -> reprocessingSummaries) (\s@PipelineSummary' {} a -> s {reprocessingSummaries = a} :: PipelineSummary) Prelude.. Lens.mapping Lens.coerced
+-- | When the pipeline was created.
+pipelineSummary_creationTime :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
+pipelineSummary_creationTime = Lens.lens (\PipelineSummary' {creationTime} -> creationTime) (\s@PipelineSummary' {} a -> s {creationTime = a} :: PipelineSummary) Prelude.. Lens.mapping Core._Time
 
 -- | When the pipeline was last updated.
 pipelineSummary_lastUpdateTime :: Lens.Lens' PipelineSummary (Prelude.Maybe Prelude.UTCTime)
@@ -86,24 +87,24 @@ instance Core.FromJSON PipelineSummary where
       "PipelineSummary"
       ( \x ->
           PipelineSummary'
-            Prelude.<$> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "pipelineName")
-            Prelude.<*> ( x Core..:? "reprocessingSummaries"
+            Prelude.<$> ( x Core..:? "reprocessingSummaries"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "pipelineName")
+            Prelude.<*> (x Core..:? "creationTime")
             Prelude.<*> (x Core..:? "lastUpdateTime")
       )
 
 instance Prelude.Hashable PipelineSummary where
   hashWithSalt _salt PipelineSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` reprocessingSummaries
       `Prelude.hashWithSalt` pipelineName
-      `Prelude.hashWithSalt` reprocessingSummaries
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdateTime
 
 instance Prelude.NFData PipelineSummary where
   rnf PipelineSummary' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf reprocessingSummaries
       `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf reprocessingSummaries
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastUpdateTime

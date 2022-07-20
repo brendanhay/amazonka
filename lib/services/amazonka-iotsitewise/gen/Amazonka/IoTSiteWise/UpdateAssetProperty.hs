@@ -34,8 +34,8 @@ module Amazonka.IoTSiteWise.UpdateAssetProperty
 
     -- * Request Lenses
     updateAssetProperty_clientToken,
-    updateAssetProperty_propertyNotificationState,
     updateAssetProperty_propertyAlias,
+    updateAssetProperty_propertyNotificationState,
     updateAssetProperty_assetId,
     updateAssetProperty_propertyId,
 
@@ -58,14 +58,6 @@ data UpdateAssetProperty = UpdateAssetProperty'
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The MQTT notification state (enabled or disabled) for this asset
-    -- property. When the notification state is enabled, IoT SiteWise publishes
-    -- property value updates to a unique MQTT topic. For more information, see
-    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html Interacting with other services>
-    -- in the /IoT SiteWise User Guide/.
-    --
-    -- If you omit this parameter, the notification state is set to @DISABLED@.
-    propertyNotificationState :: Prelude.Maybe PropertyNotificationState,
     -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -75,6 +67,14 @@ data UpdateAssetProperty = UpdateAssetProperty'
     --
     -- If you omit this parameter, the alias is removed from the property.
     propertyAlias :: Prelude.Maybe Prelude.Text,
+    -- | The MQTT notification state (enabled or disabled) for this asset
+    -- property. When the notification state is enabled, IoT SiteWise publishes
+    -- property value updates to a unique MQTT topic. For more information, see
+    -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html Interacting with other services>
+    -- in the /IoT SiteWise User Guide/.
+    --
+    -- If you omit this parameter, the notification state is set to @DISABLED@.
+    propertyNotificationState :: Prelude.Maybe PropertyNotificationState,
     -- | The ID of the asset to be updated.
     assetId :: Prelude.Text,
     -- | The ID of the asset property to be updated.
@@ -94,14 +94,6 @@ data UpdateAssetProperty = UpdateAssetProperty'
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 --
--- 'propertyNotificationState', 'updateAssetProperty_propertyNotificationState' - The MQTT notification state (enabled or disabled) for this asset
--- property. When the notification state is enabled, IoT SiteWise publishes
--- property value updates to a unique MQTT topic. For more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html Interacting with other services>
--- in the /IoT SiteWise User Guide/.
---
--- If you omit this parameter, the notification state is set to @DISABLED@.
---
 -- 'propertyAlias', 'updateAssetProperty_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
 -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -110,6 +102,14 @@ data UpdateAssetProperty = UpdateAssetProperty'
 -- in the /IoT SiteWise User Guide/.
 --
 -- If you omit this parameter, the alias is removed from the property.
+--
+-- 'propertyNotificationState', 'updateAssetProperty_propertyNotificationState' - The MQTT notification state (enabled or disabled) for this asset
+-- property. When the notification state is enabled, IoT SiteWise publishes
+-- property value updates to a unique MQTT topic. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html Interacting with other services>
+-- in the /IoT SiteWise User Guide/.
+--
+-- If you omit this parameter, the notification state is set to @DISABLED@.
 --
 -- 'assetId', 'updateAssetProperty_assetId' - The ID of the asset to be updated.
 --
@@ -123,8 +123,8 @@ newUpdateAssetProperty ::
 newUpdateAssetProperty pAssetId_ pPropertyId_ =
   UpdateAssetProperty'
     { clientToken = Prelude.Nothing,
-      propertyNotificationState = Prelude.Nothing,
       propertyAlias = Prelude.Nothing,
+      propertyNotificationState = Prelude.Nothing,
       assetId = pAssetId_,
       propertyId = pPropertyId_
     }
@@ -134,16 +134,6 @@ newUpdateAssetProperty pAssetId_ pPropertyId_ =
 -- idempotent request is required.
 updateAssetProperty_clientToken :: Lens.Lens' UpdateAssetProperty (Prelude.Maybe Prelude.Text)
 updateAssetProperty_clientToken = Lens.lens (\UpdateAssetProperty' {clientToken} -> clientToken) (\s@UpdateAssetProperty' {} a -> s {clientToken = a} :: UpdateAssetProperty)
-
--- | The MQTT notification state (enabled or disabled) for this asset
--- property. When the notification state is enabled, IoT SiteWise publishes
--- property value updates to a unique MQTT topic. For more information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html Interacting with other services>
--- in the /IoT SiteWise User Guide/.
---
--- If you omit this parameter, the notification state is set to @DISABLED@.
-updateAssetProperty_propertyNotificationState :: Lens.Lens' UpdateAssetProperty (Prelude.Maybe PropertyNotificationState)
-updateAssetProperty_propertyNotificationState = Lens.lens (\UpdateAssetProperty' {propertyNotificationState} -> propertyNotificationState) (\s@UpdateAssetProperty' {} a -> s {propertyNotificationState = a} :: UpdateAssetProperty)
 
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -155,6 +145,16 @@ updateAssetProperty_propertyNotificationState = Lens.lens (\UpdateAssetProperty'
 -- If you omit this parameter, the alias is removed from the property.
 updateAssetProperty_propertyAlias :: Lens.Lens' UpdateAssetProperty (Prelude.Maybe Prelude.Text)
 updateAssetProperty_propertyAlias = Lens.lens (\UpdateAssetProperty' {propertyAlias} -> propertyAlias) (\s@UpdateAssetProperty' {} a -> s {propertyAlias = a} :: UpdateAssetProperty)
+
+-- | The MQTT notification state (enabled or disabled) for this asset
+-- property. When the notification state is enabled, IoT SiteWise publishes
+-- property value updates to a unique MQTT topic. For more information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html Interacting with other services>
+-- in the /IoT SiteWise User Guide/.
+--
+-- If you omit this parameter, the notification state is set to @DISABLED@.
+updateAssetProperty_propertyNotificationState :: Lens.Lens' UpdateAssetProperty (Prelude.Maybe PropertyNotificationState)
+updateAssetProperty_propertyNotificationState = Lens.lens (\UpdateAssetProperty' {propertyNotificationState} -> propertyNotificationState) (\s@UpdateAssetProperty' {} a -> s {propertyNotificationState = a} :: UpdateAssetProperty)
 
 -- | The ID of the asset to be updated.
 updateAssetProperty_assetId :: Lens.Lens' UpdateAssetProperty Prelude.Text
@@ -175,16 +175,16 @@ instance Core.AWSRequest UpdateAssetProperty where
 instance Prelude.Hashable UpdateAssetProperty where
   hashWithSalt _salt UpdateAssetProperty' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` propertyNotificationState
       `Prelude.hashWithSalt` propertyAlias
+      `Prelude.hashWithSalt` propertyNotificationState
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` propertyId
 
 instance Prelude.NFData UpdateAssetProperty where
   rnf UpdateAssetProperty' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf propertyNotificationState
       `Prelude.seq` Prelude.rnf propertyAlias
+      `Prelude.seq` Prelude.rnf propertyNotificationState
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf propertyId
 
@@ -204,9 +204,9 @@ instance Core.ToJSON UpdateAssetProperty where
     Core.object
       ( Prelude.catMaybes
           [ ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
             ("propertyNotificationState" Core..=)
-              Prelude.<$> propertyNotificationState,
-            ("propertyAlias" Core..=) Prelude.<$> propertyAlias
+              Prelude.<$> propertyNotificationState
           ]
       )
 

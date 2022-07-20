@@ -28,8 +28,8 @@ import Amazonka.SecurityHub.Types.AwsIamInstanceProfileRole
 --
 -- /See:/ 'newAwsIamInstanceProfile' smart constructor.
 data AwsIamInstanceProfile = AwsIamInstanceProfile'
-  { -- | The roles associated with the instance profile.
-    roles :: Prelude.Maybe [AwsIamInstanceProfileRole],
+  { -- | The name of the instance profile.
+    instanceProfileName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the instance profile.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The path to the instance profile.
@@ -41,10 +41,10 @@ data AwsIamInstanceProfile = AwsIamInstanceProfile'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
+    -- | The roles associated with the instance profile.
+    roles :: Prelude.Maybe [AwsIamInstanceProfileRole],
     -- | The identifier of the instance profile.
-    instanceProfileId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the instance profile.
-    instanceProfileName :: Prelude.Maybe Prelude.Text
+    instanceProfileId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,7 +56,7 @@ data AwsIamInstanceProfile = AwsIamInstanceProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roles', 'awsIamInstanceProfile_roles' - The roles associated with the instance profile.
+-- 'instanceProfileName', 'awsIamInstanceProfile_instanceProfileName' - The name of the instance profile.
 --
 -- 'arn', 'awsIamInstanceProfile_arn' - The ARN of the instance profile.
 --
@@ -69,24 +69,25 @@ data AwsIamInstanceProfile = AwsIamInstanceProfile'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'instanceProfileId', 'awsIamInstanceProfile_instanceProfileId' - The identifier of the instance profile.
+-- 'roles', 'awsIamInstanceProfile_roles' - The roles associated with the instance profile.
 --
--- 'instanceProfileName', 'awsIamInstanceProfile_instanceProfileName' - The name of the instance profile.
+-- 'instanceProfileId', 'awsIamInstanceProfile_instanceProfileId' - The identifier of the instance profile.
 newAwsIamInstanceProfile ::
   AwsIamInstanceProfile
 newAwsIamInstanceProfile =
   AwsIamInstanceProfile'
-    { roles = Prelude.Nothing,
+    { instanceProfileName =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
       path = Prelude.Nothing,
       createDate = Prelude.Nothing,
-      instanceProfileId = Prelude.Nothing,
-      instanceProfileName = Prelude.Nothing
+      roles = Prelude.Nothing,
+      instanceProfileId = Prelude.Nothing
     }
 
--- | The roles associated with the instance profile.
-awsIamInstanceProfile_roles :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe [AwsIamInstanceProfileRole])
-awsIamInstanceProfile_roles = Lens.lens (\AwsIamInstanceProfile' {roles} -> roles) (\s@AwsIamInstanceProfile' {} a -> s {roles = a} :: AwsIamInstanceProfile) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the instance profile.
+awsIamInstanceProfile_instanceProfileName :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe Prelude.Text)
+awsIamInstanceProfile_instanceProfileName = Lens.lens (\AwsIamInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@AwsIamInstanceProfile' {} a -> s {instanceProfileName = a} :: AwsIamInstanceProfile)
 
 -- | The ARN of the instance profile.
 awsIamInstanceProfile_arn :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe Prelude.Text)
@@ -105,13 +106,13 @@ awsIamInstanceProfile_path = Lens.lens (\AwsIamInstanceProfile' {path} -> path) 
 awsIamInstanceProfile_createDate :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe Prelude.Text)
 awsIamInstanceProfile_createDate = Lens.lens (\AwsIamInstanceProfile' {createDate} -> createDate) (\s@AwsIamInstanceProfile' {} a -> s {createDate = a} :: AwsIamInstanceProfile)
 
+-- | The roles associated with the instance profile.
+awsIamInstanceProfile_roles :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe [AwsIamInstanceProfileRole])
+awsIamInstanceProfile_roles = Lens.lens (\AwsIamInstanceProfile' {roles} -> roles) (\s@AwsIamInstanceProfile' {} a -> s {roles = a} :: AwsIamInstanceProfile) Prelude.. Lens.mapping Lens.coerced
+
 -- | The identifier of the instance profile.
 awsIamInstanceProfile_instanceProfileId :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe Prelude.Text)
 awsIamInstanceProfile_instanceProfileId = Lens.lens (\AwsIamInstanceProfile' {instanceProfileId} -> instanceProfileId) (\s@AwsIamInstanceProfile' {} a -> s {instanceProfileId = a} :: AwsIamInstanceProfile)
-
--- | The name of the instance profile.
-awsIamInstanceProfile_instanceProfileName :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe Prelude.Text)
-awsIamInstanceProfile_instanceProfileName = Lens.lens (\AwsIamInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@AwsIamInstanceProfile' {} a -> s {instanceProfileName = a} :: AwsIamInstanceProfile)
 
 instance Core.FromJSON AwsIamInstanceProfile where
   parseJSON =
@@ -119,43 +120,43 @@ instance Core.FromJSON AwsIamInstanceProfile where
       "AwsIamInstanceProfile"
       ( \x ->
           AwsIamInstanceProfile'
-            Prelude.<$> (x Core..:? "Roles" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "InstanceProfileName")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Path")
             Prelude.<*> (x Core..:? "CreateDate")
+            Prelude.<*> (x Core..:? "Roles" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "InstanceProfileId")
-            Prelude.<*> (x Core..:? "InstanceProfileName")
       )
 
 instance Prelude.Hashable AwsIamInstanceProfile where
   hashWithSalt _salt AwsIamInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` roles
+    _salt `Prelude.hashWithSalt` instanceProfileName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` roles
       `Prelude.hashWithSalt` instanceProfileId
-      `Prelude.hashWithSalt` instanceProfileName
 
 instance Prelude.NFData AwsIamInstanceProfile where
   rnf AwsIamInstanceProfile' {..} =
-    Prelude.rnf roles
+    Prelude.rnf instanceProfileName
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf path
       `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf roles
       `Prelude.seq` Prelude.rnf instanceProfileId
-      `Prelude.seq` Prelude.rnf instanceProfileName
 
 instance Core.ToJSON AwsIamInstanceProfile where
   toJSON AwsIamInstanceProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Roles" Core..=) Prelude.<$> roles,
+          [ ("InstanceProfileName" Core..=)
+              Prelude.<$> instanceProfileName,
             ("Arn" Core..=) Prelude.<$> arn,
             ("Path" Core..=) Prelude.<$> path,
             ("CreateDate" Core..=) Prelude.<$> createDate,
+            ("Roles" Core..=) Prelude.<$> roles,
             ("InstanceProfileId" Core..=)
-              Prelude.<$> instanceProfileId,
-            ("InstanceProfileName" Core..=)
-              Prelude.<$> instanceProfileName
+              Prelude.<$> instanceProfileId
           ]
       )

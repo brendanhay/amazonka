@@ -63,9 +63,9 @@ module Amazonka.S3.PutBucketVersioning
     newPutBucketVersioning,
 
     -- * Request Lenses
-    putBucketVersioning_mfa,
     putBucketVersioning_contentMD5,
     putBucketVersioning_expectedBucketOwner,
+    putBucketVersioning_mfa,
     putBucketVersioning_bucket,
     putBucketVersioning_versioningConfiguration,
 
@@ -84,10 +84,7 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutBucketVersioning' smart constructor.
 data PutBucketVersioning = PutBucketVersioning'
-  { -- | The concatenation of the authentication device\'s serial number, a
-    -- space, and the value that is displayed on your authentication device.
-    mfa :: Prelude.Maybe Prelude.Text,
-    -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
+  { -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
@@ -100,6 +97,9 @@ data PutBucketVersioning = PutBucketVersioning'
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The concatenation of the authentication device\'s serial number, a
+    -- space, and the value that is displayed on your authentication device.
+    mfa :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for setting the versioning state.
@@ -115,9 +115,6 @@ data PutBucketVersioning = PutBucketVersioning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mfa', 'putBucketVersioning_mfa' - The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
---
 -- 'contentMD5', 'putBucketVersioning_contentMD5' - >The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, see
@@ -130,6 +127,9 @@ data PutBucketVersioning = PutBucketVersioning'
 -- 'expectedBucketOwner', 'putBucketVersioning_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
+--
+-- 'mfa', 'putBucketVersioning_mfa' - The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
 --
 -- 'bucket', 'putBucketVersioning_bucket' - The bucket name.
 --
@@ -144,17 +144,12 @@ newPutBucketVersioning
   pBucket_
   pVersioningConfiguration_ =
     PutBucketVersioning'
-      { mfa = Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+      { contentMD5 = Prelude.Nothing,
         expectedBucketOwner = Prelude.Nothing,
+        mfa = Prelude.Nothing,
         bucket = pBucket_,
         versioningConfiguration = pVersioningConfiguration_
       }
-
--- | The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
-putBucketVersioning_mfa :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
-putBucketVersioning_mfa = Lens.lens (\PutBucketVersioning' {mfa} -> mfa) (\s@PutBucketVersioning' {} a -> s {mfa = a} :: PutBucketVersioning)
 
 -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -172,6 +167,11 @@ putBucketVersioning_contentMD5 = Lens.lens (\PutBucketVersioning' {contentMD5} -
 -- @403 (Access Denied)@ error.
 putBucketVersioning_expectedBucketOwner :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
 putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketVersioning' {} a -> s {expectedBucketOwner = a} :: PutBucketVersioning)
+
+-- | The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+putBucketVersioning_mfa :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
+putBucketVersioning_mfa = Lens.lens (\PutBucketVersioning' {mfa} -> mfa) (\s@PutBucketVersioning' {} a -> s {mfa = a} :: PutBucketVersioning)
 
 -- | The bucket name.
 putBucketVersioning_bucket :: Lens.Lens' PutBucketVersioning BucketName
@@ -193,17 +193,17 @@ instance Core.AWSRequest PutBucketVersioning where
 
 instance Prelude.Hashable PutBucketVersioning where
   hashWithSalt _salt PutBucketVersioning' {..} =
-    _salt `Prelude.hashWithSalt` mfa
-      `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` mfa
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` versioningConfiguration
 
 instance Prelude.NFData PutBucketVersioning where
   rnf PutBucketVersioning' {..} =
-    Prelude.rnf mfa
-      `Prelude.seq` Prelude.rnf contentMD5
+    Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf mfa
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf versioningConfiguration
 
@@ -216,10 +216,10 @@ instance Core.ToElement PutBucketVersioning where
 instance Core.ToHeaders PutBucketVersioning where
   toHeaders PutBucketVersioning' {..} =
     Prelude.mconcat
-      [ "x-amz-mfa" Core.=# mfa,
-        "Content-MD5" Core.=# contentMD5,
+      [ "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Core.=# expectedBucketOwner,
+        "x-amz-mfa" Core.=# mfa
       ]
 
 instance Core.ToPath PutBucketVersioning where

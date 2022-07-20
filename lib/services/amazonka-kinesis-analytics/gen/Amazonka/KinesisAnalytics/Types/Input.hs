@@ -35,13 +35,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInput' smart constructor.
 data Input = Input'
-  { -- | Describes the number of in-application streams to create.
+  { -- | If the streaming source is an Amazon Kinesis Firehose delivery stream,
+    -- identifies the delivery stream\'s ARN and an IAM role that enables
+    -- Amazon Kinesis Analytics to access the stream on your behalf.
     --
-    -- Data from your source is routed to these in-application input streams.
-    --
-    -- (see
-    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
-    inputParallelism :: Prelude.Maybe InputParallelism,
+    -- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is
+    -- required.
+    kinesisFirehoseInput :: Prelude.Maybe KinesisFirehoseInput,
     -- | The
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration>
     -- for the input. An input processor transforms records as they are
@@ -49,6 +49,13 @@ data Input = Input'
     -- Currently, the only input processing configuration available is
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor>.
     inputProcessingConfiguration :: Prelude.Maybe InputProcessingConfiguration,
+    -- | Describes the number of in-application streams to create.
+    --
+    -- Data from your source is routed to these in-application input streams.
+    --
+    -- (see
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+    inputParallelism :: Prelude.Maybe InputParallelism,
     -- | If the streaming source is an Amazon Kinesis stream, identifies the
     -- stream\'s Amazon Resource Name (ARN) and an IAM role that enables Amazon
     -- Kinesis Analytics to access the stream on your behalf.
@@ -56,13 +63,6 @@ data Input = Input'
     -- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is
     -- required.
     kinesisStreamsInput :: Prelude.Maybe KinesisStreamsInput,
-    -- | If the streaming source is an Amazon Kinesis Firehose delivery stream,
-    -- identifies the delivery stream\'s ARN and an IAM role that enables
-    -- Amazon Kinesis Analytics to access the stream on your behalf.
-    --
-    -- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is
-    -- required.
-    kinesisFirehoseInput :: Prelude.Maybe KinesisFirehoseInput,
     -- | Name prefix to use when creating an in-application stream. Suppose that
     -- you specify a prefix \"MyInApplicationStream.\" Amazon Kinesis Analytics
     -- then creates one or more (as per the @InputParallelism@ count you
@@ -86,12 +86,12 @@ data Input = Input'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputParallelism', 'input_inputParallelism' - Describes the number of in-application streams to create.
+-- 'kinesisFirehoseInput', 'input_kinesisFirehoseInput' - If the streaming source is an Amazon Kinesis Firehose delivery stream,
+-- identifies the delivery stream\'s ARN and an IAM role that enables
+-- Amazon Kinesis Analytics to access the stream on your behalf.
 --
--- Data from your source is routed to these in-application input streams.
---
--- (see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+-- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is
+-- required.
 --
 -- 'inputProcessingConfiguration', 'input_inputProcessingConfiguration' - The
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration>
@@ -100,16 +100,16 @@ data Input = Input'
 -- Currently, the only input processing configuration available is
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor>.
 --
+-- 'inputParallelism', 'input_inputParallelism' - Describes the number of in-application streams to create.
+--
+-- Data from your source is routed to these in-application input streams.
+--
+-- (see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+--
 -- 'kinesisStreamsInput', 'input_kinesisStreamsInput' - If the streaming source is an Amazon Kinesis stream, identifies the
 -- stream\'s Amazon Resource Name (ARN) and an IAM role that enables Amazon
 -- Kinesis Analytics to access the stream on your behalf.
---
--- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is
--- required.
---
--- 'kinesisFirehoseInput', 'input_kinesisFirehoseInput' - If the streaming source is an Amazon Kinesis Firehose delivery stream,
--- identifies the delivery stream\'s ARN and an IAM role that enables
--- Amazon Kinesis Analytics to access the stream on your behalf.
 --
 -- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is
 -- required.
@@ -133,22 +133,22 @@ newInput ::
   Input
 newInput pNamePrefix_ pInputSchema_ =
   Input'
-    { inputParallelism = Prelude.Nothing,
+    { kinesisFirehoseInput = Prelude.Nothing,
       inputProcessingConfiguration = Prelude.Nothing,
+      inputParallelism = Prelude.Nothing,
       kinesisStreamsInput = Prelude.Nothing,
-      kinesisFirehoseInput = Prelude.Nothing,
       namePrefix = pNamePrefix_,
       inputSchema = pInputSchema_
     }
 
--- | Describes the number of in-application streams to create.
+-- | If the streaming source is an Amazon Kinesis Firehose delivery stream,
+-- identifies the delivery stream\'s ARN and an IAM role that enables
+-- Amazon Kinesis Analytics to access the stream on your behalf.
 --
--- Data from your source is routed to these in-application input streams.
---
--- (see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
-input_inputParallelism :: Lens.Lens' Input (Prelude.Maybe InputParallelism)
-input_inputParallelism = Lens.lens (\Input' {inputParallelism} -> inputParallelism) (\s@Input' {} a -> s {inputParallelism = a} :: Input)
+-- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is
+-- required.
+input_kinesisFirehoseInput :: Lens.Lens' Input (Prelude.Maybe KinesisFirehoseInput)
+input_kinesisFirehoseInput = Lens.lens (\Input' {kinesisFirehoseInput} -> kinesisFirehoseInput) (\s@Input' {} a -> s {kinesisFirehoseInput = a} :: Input)
 
 -- | The
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration>
@@ -159,6 +159,15 @@ input_inputParallelism = Lens.lens (\Input' {inputParallelism} -> inputParalleli
 input_inputProcessingConfiguration :: Lens.Lens' Input (Prelude.Maybe InputProcessingConfiguration)
 input_inputProcessingConfiguration = Lens.lens (\Input' {inputProcessingConfiguration} -> inputProcessingConfiguration) (\s@Input' {} a -> s {inputProcessingConfiguration = a} :: Input)
 
+-- | Describes the number of in-application streams to create.
+--
+-- Data from your source is routed to these in-application input streams.
+--
+-- (see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+input_inputParallelism :: Lens.Lens' Input (Prelude.Maybe InputParallelism)
+input_inputParallelism = Lens.lens (\Input' {inputParallelism} -> inputParallelism) (\s@Input' {} a -> s {inputParallelism = a} :: Input)
+
 -- | If the streaming source is an Amazon Kinesis stream, identifies the
 -- stream\'s Amazon Resource Name (ARN) and an IAM role that enables Amazon
 -- Kinesis Analytics to access the stream on your behalf.
@@ -167,15 +176,6 @@ input_inputProcessingConfiguration = Lens.lens (\Input' {inputProcessingConfigur
 -- required.
 input_kinesisStreamsInput :: Lens.Lens' Input (Prelude.Maybe KinesisStreamsInput)
 input_kinesisStreamsInput = Lens.lens (\Input' {kinesisStreamsInput} -> kinesisStreamsInput) (\s@Input' {} a -> s {kinesisStreamsInput = a} :: Input)
-
--- | If the streaming source is an Amazon Kinesis Firehose delivery stream,
--- identifies the delivery stream\'s ARN and an IAM role that enables
--- Amazon Kinesis Analytics to access the stream on your behalf.
---
--- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is
--- required.
-input_kinesisFirehoseInput :: Lens.Lens' Input (Prelude.Maybe KinesisFirehoseInput)
-input_kinesisFirehoseInput = Lens.lens (\Input' {kinesisFirehoseInput} -> kinesisFirehoseInput) (\s@Input' {} a -> s {kinesisFirehoseInput = a} :: Input)
 
 -- | Name prefix to use when creating an in-application stream. Suppose that
 -- you specify a prefix \"MyInApplicationStream.\" Amazon Kinesis Analytics
@@ -195,19 +195,19 @@ input_inputSchema = Lens.lens (\Input' {inputSchema} -> inputSchema) (\s@Input' 
 
 instance Prelude.Hashable Input where
   hashWithSalt _salt Input' {..} =
-    _salt `Prelude.hashWithSalt` inputParallelism
+    _salt `Prelude.hashWithSalt` kinesisFirehoseInput
       `Prelude.hashWithSalt` inputProcessingConfiguration
+      `Prelude.hashWithSalt` inputParallelism
       `Prelude.hashWithSalt` kinesisStreamsInput
-      `Prelude.hashWithSalt` kinesisFirehoseInput
       `Prelude.hashWithSalt` namePrefix
       `Prelude.hashWithSalt` inputSchema
 
 instance Prelude.NFData Input where
   rnf Input' {..} =
-    Prelude.rnf inputParallelism
+    Prelude.rnf kinesisFirehoseInput
       `Prelude.seq` Prelude.rnf inputProcessingConfiguration
+      `Prelude.seq` Prelude.rnf inputParallelism
       `Prelude.seq` Prelude.rnf kinesisStreamsInput
-      `Prelude.seq` Prelude.rnf kinesisFirehoseInput
       `Prelude.seq` Prelude.rnf namePrefix
       `Prelude.seq` Prelude.rnf inputSchema
 
@@ -215,14 +215,14 @@ instance Core.ToJSON Input where
   toJSON Input' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InputParallelism" Core..=)
-              Prelude.<$> inputParallelism,
+          [ ("KinesisFirehoseInput" Core..=)
+              Prelude.<$> kinesisFirehoseInput,
             ("InputProcessingConfiguration" Core..=)
               Prelude.<$> inputProcessingConfiguration,
+            ("InputParallelism" Core..=)
+              Prelude.<$> inputParallelism,
             ("KinesisStreamsInput" Core..=)
               Prelude.<$> kinesisStreamsInput,
-            ("KinesisFirehoseInput" Core..=)
-              Prelude.<$> kinesisFirehoseInput,
             Prelude.Just ("NamePrefix" Core..= namePrefix),
             Prelude.Just ("InputSchema" Core..= inputSchema)
           ]

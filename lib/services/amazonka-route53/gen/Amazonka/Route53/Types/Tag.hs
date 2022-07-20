@@ -29,15 +29,7 @@ import Amazonka.Route53.Internal
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The value of @Value@ depends on the operation that you want to perform:
-    --
-    -- -   __Add a tag to a health check or hosted zone__: @Value@ is the value
-    --     that you want to give the new tag.
-    --
-    -- -   __Edit a tag__: @Value@ is the new value that you want to assign the
-    --     tag.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The value of @Key@ depends on the operation that you want to perform:
+  { -- | The value of @Key@ depends on the operation that you want to perform:
     --
     -- -   __Add a tag to a health check or hosted zone__: @Key@ is the name
     --     that you want to give the new tag.
@@ -51,7 +43,15 @@ data Tag = Tag'
     --     the Amazon Route 53 console, the list of your health checks includes
     --     a __Name__ column that lets you see the name that you\'ve given to
     --     each health check.
-    key :: Prelude.Maybe Prelude.Text
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The value of @Value@ depends on the operation that you want to perform:
+    --
+    -- -   __Add a tag to a health check or hosted zone__: @Value@ is the value
+    --     that you want to give the new tag.
+    --
+    -- -   __Edit a tag__: @Value@ is the new value that you want to assign the
+    --     tag.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,14 +62,6 @@ data Tag = Tag'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'value', 'tag_value' - The value of @Value@ depends on the operation that you want to perform:
---
--- -   __Add a tag to a health check or hosted zone__: @Value@ is the value
---     that you want to give the new tag.
---
--- -   __Edit a tag__: @Value@ is the new value that you want to assign the
---     tag.
 --
 -- 'key', 'tag_key' - The value of @Key@ depends on the operation that you want to perform:
 --
@@ -85,23 +77,21 @@ data Tag = Tag'
 --     the Amazon Route 53 console, the list of your health checks includes
 --     a __Name__ column that lets you see the name that you\'ve given to
 --     each health check.
-newTag ::
-  Tag
-newTag =
-  Tag'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
-    }
-
--- | The value of @Value@ depends on the operation that you want to perform:
+--
+-- 'value', 'tag_value' - The value of @Value@ depends on the operation that you want to perform:
 --
 -- -   __Add a tag to a health check or hosted zone__: @Value@ is the value
 --     that you want to give the new tag.
 --
 -- -   __Edit a tag__: @Value@ is the new value that you want to assign the
 --     tag.
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
+newTag ::
+  Tag
+newTag =
+  Tag'
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
+    }
 
 -- | The value of @Key@ depends on the operation that you want to perform:
 --
@@ -120,21 +110,31 @@ tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} ::
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
+-- | The value of @Value@ depends on the operation that you want to perform:
+--
+-- -   __Add a tag to a health check or hosted zone__: @Value@ is the value
+--     that you want to give the new tag.
+--
+-- -   __Edit a tag__: @Value@ is the new value that you want to assign the
+--     tag.
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
+
 instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
+      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where
   rnf Tag' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToXML Tag where
   toXML Tag' {..} =
     Prelude.mconcat
-      ["Value" Core.@= value, "Key" Core.@= key]
+      ["Key" Core.@= key, "Value" Core.@= value]

@@ -30,21 +30,21 @@ import Amazonka.QuickSight.Types.ThemeError
 --
 -- /See:/ 'newThemeVersion' smart constructor.
 data ThemeVersion = ThemeVersion'
-  { -- | The status of the theme version.
-    status :: Prelude.Maybe ResourceStatus,
-    -- | The Amazon Resource Name (ARN) of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that this theme version was created.
+  { -- | The date and time that this theme version was created.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The version number of the theme.
-    versionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The theme configuration, which contains all the theme display
     -- properties.
     configuration :: Prelude.Maybe ThemeConfiguration,
-    -- | Errors associated with the theme.
-    errors :: Prelude.Maybe (Prelude.NonEmpty ThemeError),
+    -- | The Amazon Resource Name (ARN) of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the theme version.
+    status :: Prelude.Maybe ResourceStatus,
     -- | The description of the theme.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Errors associated with the theme.
+    errors :: Prelude.Maybe (Prelude.NonEmpty ThemeError),
+    -- | The version number of the theme.
+    versionNumber :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon QuickSight-defined ID of the theme that a custom theme
     -- inherits from. All themes initially inherit from a default Amazon
     -- QuickSight theme.
@@ -60,20 +60,20 @@ data ThemeVersion = ThemeVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'themeVersion_status' - The status of the theme version.
---
--- 'arn', 'themeVersion_arn' - The Amazon Resource Name (ARN) of the resource.
---
 -- 'createdTime', 'themeVersion_createdTime' - The date and time that this theme version was created.
---
--- 'versionNumber', 'themeVersion_versionNumber' - The version number of the theme.
 --
 -- 'configuration', 'themeVersion_configuration' - The theme configuration, which contains all the theme display
 -- properties.
 --
--- 'errors', 'themeVersion_errors' - Errors associated with the theme.
+-- 'arn', 'themeVersion_arn' - The Amazon Resource Name (ARN) of the resource.
+--
+-- 'status', 'themeVersion_status' - The status of the theme version.
 --
 -- 'description', 'themeVersion_description' - The description of the theme.
+--
+-- 'errors', 'themeVersion_errors' - Errors associated with the theme.
+--
+-- 'versionNumber', 'themeVersion_versionNumber' - The version number of the theme.
 --
 -- 'baseThemeId', 'themeVersion_baseThemeId' - The Amazon QuickSight-defined ID of the theme that a custom theme
 -- inherits from. All themes initially inherit from a default Amazon
@@ -82,44 +82,44 @@ newThemeVersion ::
   ThemeVersion
 newThemeVersion =
   ThemeVersion'
-    { status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      versionNumber = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
       configuration = Prelude.Nothing,
-      errors = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
       description = Prelude.Nothing,
+      errors = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
       baseThemeId = Prelude.Nothing
     }
-
--- | The status of the theme version.
-themeVersion_status :: Lens.Lens' ThemeVersion (Prelude.Maybe ResourceStatus)
-themeVersion_status = Lens.lens (\ThemeVersion' {status} -> status) (\s@ThemeVersion' {} a -> s {status = a} :: ThemeVersion)
-
--- | The Amazon Resource Name (ARN) of the resource.
-themeVersion_arn :: Lens.Lens' ThemeVersion (Prelude.Maybe Prelude.Text)
-themeVersion_arn = Lens.lens (\ThemeVersion' {arn} -> arn) (\s@ThemeVersion' {} a -> s {arn = a} :: ThemeVersion)
 
 -- | The date and time that this theme version was created.
 themeVersion_createdTime :: Lens.Lens' ThemeVersion (Prelude.Maybe Prelude.UTCTime)
 themeVersion_createdTime = Lens.lens (\ThemeVersion' {createdTime} -> createdTime) (\s@ThemeVersion' {} a -> s {createdTime = a} :: ThemeVersion) Prelude.. Lens.mapping Core._Time
-
--- | The version number of the theme.
-themeVersion_versionNumber :: Lens.Lens' ThemeVersion (Prelude.Maybe Prelude.Natural)
-themeVersion_versionNumber = Lens.lens (\ThemeVersion' {versionNumber} -> versionNumber) (\s@ThemeVersion' {} a -> s {versionNumber = a} :: ThemeVersion)
 
 -- | The theme configuration, which contains all the theme display
 -- properties.
 themeVersion_configuration :: Lens.Lens' ThemeVersion (Prelude.Maybe ThemeConfiguration)
 themeVersion_configuration = Lens.lens (\ThemeVersion' {configuration} -> configuration) (\s@ThemeVersion' {} a -> s {configuration = a} :: ThemeVersion)
 
--- | Errors associated with the theme.
-themeVersion_errors :: Lens.Lens' ThemeVersion (Prelude.Maybe (Prelude.NonEmpty ThemeError))
-themeVersion_errors = Lens.lens (\ThemeVersion' {errors} -> errors) (\s@ThemeVersion' {} a -> s {errors = a} :: ThemeVersion) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the resource.
+themeVersion_arn :: Lens.Lens' ThemeVersion (Prelude.Maybe Prelude.Text)
+themeVersion_arn = Lens.lens (\ThemeVersion' {arn} -> arn) (\s@ThemeVersion' {} a -> s {arn = a} :: ThemeVersion)
+
+-- | The status of the theme version.
+themeVersion_status :: Lens.Lens' ThemeVersion (Prelude.Maybe ResourceStatus)
+themeVersion_status = Lens.lens (\ThemeVersion' {status} -> status) (\s@ThemeVersion' {} a -> s {status = a} :: ThemeVersion)
 
 -- | The description of the theme.
 themeVersion_description :: Lens.Lens' ThemeVersion (Prelude.Maybe Prelude.Text)
 themeVersion_description = Lens.lens (\ThemeVersion' {description} -> description) (\s@ThemeVersion' {} a -> s {description = a} :: ThemeVersion)
+
+-- | Errors associated with the theme.
+themeVersion_errors :: Lens.Lens' ThemeVersion (Prelude.Maybe (Prelude.NonEmpty ThemeError))
+themeVersion_errors = Lens.lens (\ThemeVersion' {errors} -> errors) (\s@ThemeVersion' {} a -> s {errors = a} :: ThemeVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | The version number of the theme.
+themeVersion_versionNumber :: Lens.Lens' ThemeVersion (Prelude.Maybe Prelude.Natural)
+themeVersion_versionNumber = Lens.lens (\ThemeVersion' {versionNumber} -> versionNumber) (\s@ThemeVersion' {} a -> s {versionNumber = a} :: ThemeVersion)
 
 -- | The Amazon QuickSight-defined ID of the theme that a custom theme
 -- inherits from. All themes initially inherit from a default Amazon
@@ -133,34 +133,34 @@ instance Core.FromJSON ThemeVersion where
       "ThemeVersion"
       ( \x ->
           ThemeVersion'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "VersionNumber")
+            Prelude.<$> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "Configuration")
-            Prelude.<*> (x Core..:? "Errors")
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Errors")
+            Prelude.<*> (x Core..:? "VersionNumber")
             Prelude.<*> (x Core..:? "BaseThemeId")
       )
 
 instance Prelude.Hashable ThemeVersion where
   hashWithSalt _salt ThemeVersion' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` versionNumber
+    _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` configuration
-      `Prelude.hashWithSalt` errors
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` errors
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` baseThemeId
 
 instance Prelude.NFData ThemeVersion where
   rnf ThemeVersion' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf versionNumber
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf versionNumber
       `Prelude.seq` Prelude.rnf baseThemeId

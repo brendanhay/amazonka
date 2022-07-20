@@ -47,13 +47,13 @@ module Amazonka.Forecast.DescribeDatasetGroup
     newDescribeDatasetGroupResponse,
 
     -- * Response Lenses
-    describeDatasetGroupResponse_creationTime,
-    describeDatasetGroupResponse_datasetArns,
-    describeDatasetGroupResponse_status,
-    describeDatasetGroupResponse_domain,
-    describeDatasetGroupResponse_datasetGroupName,
-    describeDatasetGroupResponse_datasetGroupArn,
     describeDatasetGroupResponse_lastModificationTime,
+    describeDatasetGroupResponse_datasetGroupName,
+    describeDatasetGroupResponse_domain,
+    describeDatasetGroupResponse_status,
+    describeDatasetGroupResponse_datasetArns,
+    describeDatasetGroupResponse_creationTime,
+    describeDatasetGroupResponse_datasetGroupArn,
     describeDatasetGroupResponse_httpStatus,
   )
 where
@@ -104,13 +104,13 @@ instance Core.AWSRequest DescribeDatasetGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetGroupResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "DatasetArns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Domain")
+            Prelude.<$> (x Core..?> "LastModificationTime")
             Prelude.<*> (x Core..?> "DatasetGroupName")
+            Prelude.<*> (x Core..?> "Domain")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "DatasetArns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "DatasetGroupArn")
-            Prelude.<*> (x Core..?> "LastModificationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,11 +154,15 @@ instance Core.ToQuery DescribeDatasetGroup where
 
 -- | /See:/ 'newDescribeDatasetGroupResponse' smart constructor.
 data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
-  { -- | When the dataset group was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | An array of Amazon Resource Names (ARNs) of the datasets contained in
-    -- the dataset group.
-    datasetArns :: Prelude.Maybe [Prelude.Text],
+  { -- | When the dataset group was created or last updated from a call to the
+    -- UpdateDatasetGroup operation. While the dataset group is being updated,
+    -- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
+    -- call.
+    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the dataset group.
+    datasetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The domain associated with the dataset group.
+    domain :: Prelude.Maybe Domain,
     -- | The status of the dataset group. States include:
     --
     -- -   @ACTIVE@
@@ -175,17 +179,13 @@ data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
     -- The @Status@ of the dataset group must be @ACTIVE@ before you can use
     -- the dataset group to create a predictor.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The domain associated with the dataset group.
-    domain :: Prelude.Maybe Domain,
-    -- | The name of the dataset group.
-    datasetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | An array of Amazon Resource Names (ARNs) of the datasets contained in
+    -- the dataset group.
+    datasetArns :: Prelude.Maybe [Prelude.Text],
+    -- | When the dataset group was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the dataset group.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | When the dataset group was created or last updated from a call to the
-    -- UpdateDatasetGroup operation. While the dataset group is being updated,
-    -- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
-    -- call.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,14 @@ data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeDatasetGroupResponse_creationTime' - When the dataset group was created.
+-- 'lastModificationTime', 'describeDatasetGroupResponse_lastModificationTime' - When the dataset group was created or last updated from a call to the
+-- UpdateDatasetGroup operation. While the dataset group is being updated,
+-- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
+-- call.
 --
--- 'datasetArns', 'describeDatasetGroupResponse_datasetArns' - An array of Amazon Resource Names (ARNs) of the datasets contained in
--- the dataset group.
+-- 'datasetGroupName', 'describeDatasetGroupResponse_datasetGroupName' - The name of the dataset group.
+--
+-- 'domain', 'describeDatasetGroupResponse_domain' - The domain associated with the dataset group.
 --
 -- 'status', 'describeDatasetGroupResponse_status' - The status of the dataset group. States include:
 --
@@ -220,16 +224,12 @@ data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
 -- The @Status@ of the dataset group must be @ACTIVE@ before you can use
 -- the dataset group to create a predictor.
 --
--- 'domain', 'describeDatasetGroupResponse_domain' - The domain associated with the dataset group.
+-- 'datasetArns', 'describeDatasetGroupResponse_datasetArns' - An array of Amazon Resource Names (ARNs) of the datasets contained in
+-- the dataset group.
 --
--- 'datasetGroupName', 'describeDatasetGroupResponse_datasetGroupName' - The name of the dataset group.
+-- 'creationTime', 'describeDatasetGroupResponse_creationTime' - When the dataset group was created.
 --
 -- 'datasetGroupArn', 'describeDatasetGroupResponse_datasetGroupArn' - The ARN of the dataset group.
---
--- 'lastModificationTime', 'describeDatasetGroupResponse_lastModificationTime' - When the dataset group was created or last updated from a call to the
--- UpdateDatasetGroup operation. While the dataset group is being updated,
--- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
--- call.
 --
 -- 'httpStatus', 'describeDatasetGroupResponse_httpStatus' - The response's http status code.
 newDescribeDatasetGroupResponse ::
@@ -238,25 +238,31 @@ newDescribeDatasetGroupResponse ::
   DescribeDatasetGroupResponse
 newDescribeDatasetGroupResponse pHttpStatus_ =
   DescribeDatasetGroupResponse'
-    { creationTime =
+    { lastModificationTime =
         Prelude.Nothing,
-      datasetArns = Prelude.Nothing,
-      status = Prelude.Nothing,
-      domain = Prelude.Nothing,
       datasetGroupName = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      status = Prelude.Nothing,
+      datasetArns = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
-      lastModificationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | When the dataset group was created.
-describeDatasetGroupResponse_creationTime :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetGroupResponse_creationTime = Lens.lens (\DescribeDatasetGroupResponse' {creationTime} -> creationTime) (\s@DescribeDatasetGroupResponse' {} a -> s {creationTime = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Core._Time
+-- | When the dataset group was created or last updated from a call to the
+-- UpdateDatasetGroup operation. While the dataset group is being updated,
+-- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
+-- call.
+describeDatasetGroupResponse_lastModificationTime :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.UTCTime)
+describeDatasetGroupResponse_lastModificationTime = Lens.lens (\DescribeDatasetGroupResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetGroupResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Core._Time
 
--- | An array of Amazon Resource Names (ARNs) of the datasets contained in
--- the dataset group.
-describeDatasetGroupResponse_datasetArns :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe [Prelude.Text])
-describeDatasetGroupResponse_datasetArns = Lens.lens (\DescribeDatasetGroupResponse' {datasetArns} -> datasetArns) (\s@DescribeDatasetGroupResponse' {} a -> s {datasetArns = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the dataset group.
+describeDatasetGroupResponse_datasetGroupName :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.Text)
+describeDatasetGroupResponse_datasetGroupName = Lens.lens (\DescribeDatasetGroupResponse' {datasetGroupName} -> datasetGroupName) (\s@DescribeDatasetGroupResponse' {} a -> s {datasetGroupName = a} :: DescribeDatasetGroupResponse)
+
+-- | The domain associated with the dataset group.
+describeDatasetGroupResponse_domain :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Domain)
+describeDatasetGroupResponse_domain = Lens.lens (\DescribeDatasetGroupResponse' {domain} -> domain) (\s@DescribeDatasetGroupResponse' {} a -> s {domain = a} :: DescribeDatasetGroupResponse)
 
 -- | The status of the dataset group. States include:
 --
@@ -276,24 +282,18 @@ describeDatasetGroupResponse_datasetArns = Lens.lens (\DescribeDatasetGroupRespo
 describeDatasetGroupResponse_status :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.Text)
 describeDatasetGroupResponse_status = Lens.lens (\DescribeDatasetGroupResponse' {status} -> status) (\s@DescribeDatasetGroupResponse' {} a -> s {status = a} :: DescribeDatasetGroupResponse)
 
--- | The domain associated with the dataset group.
-describeDatasetGroupResponse_domain :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Domain)
-describeDatasetGroupResponse_domain = Lens.lens (\DescribeDatasetGroupResponse' {domain} -> domain) (\s@DescribeDatasetGroupResponse' {} a -> s {domain = a} :: DescribeDatasetGroupResponse)
+-- | An array of Amazon Resource Names (ARNs) of the datasets contained in
+-- the dataset group.
+describeDatasetGroupResponse_datasetArns :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe [Prelude.Text])
+describeDatasetGroupResponse_datasetArns = Lens.lens (\DescribeDatasetGroupResponse' {datasetArns} -> datasetArns) (\s@DescribeDatasetGroupResponse' {} a -> s {datasetArns = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the dataset group.
-describeDatasetGroupResponse_datasetGroupName :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.Text)
-describeDatasetGroupResponse_datasetGroupName = Lens.lens (\DescribeDatasetGroupResponse' {datasetGroupName} -> datasetGroupName) (\s@DescribeDatasetGroupResponse' {} a -> s {datasetGroupName = a} :: DescribeDatasetGroupResponse)
+-- | When the dataset group was created.
+describeDatasetGroupResponse_creationTime :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.UTCTime)
+describeDatasetGroupResponse_creationTime = Lens.lens (\DescribeDatasetGroupResponse' {creationTime} -> creationTime) (\s@DescribeDatasetGroupResponse' {} a -> s {creationTime = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the dataset group.
 describeDatasetGroupResponse_datasetGroupArn :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.Text)
 describeDatasetGroupResponse_datasetGroupArn = Lens.lens (\DescribeDatasetGroupResponse' {datasetGroupArn} -> datasetGroupArn) (\s@DescribeDatasetGroupResponse' {} a -> s {datasetGroupArn = a} :: DescribeDatasetGroupResponse)
-
--- | When the dataset group was created or last updated from a call to the
--- UpdateDatasetGroup operation. While the dataset group is being updated,
--- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
--- call.
-describeDatasetGroupResponse_lastModificationTime :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetGroupResponse_lastModificationTime = Lens.lens (\DescribeDatasetGroupResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetGroupResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetGroupResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeDatasetGroupResponse_httpStatus :: Lens.Lens' DescribeDatasetGroupResponse Prelude.Int
@@ -301,11 +301,11 @@ describeDatasetGroupResponse_httpStatus = Lens.lens (\DescribeDatasetGroupRespon
 
 instance Prelude.NFData DescribeDatasetGroupResponse where
   rnf DescribeDatasetGroupResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetArns
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf domain
+    Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf datasetGroupName
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf datasetArns
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf httpStatus

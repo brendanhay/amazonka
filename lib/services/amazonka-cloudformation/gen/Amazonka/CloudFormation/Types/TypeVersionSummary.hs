@@ -29,14 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTypeVersionSummary' smart constructor.
 data TypeVersionSummary = TypeVersionSummary'
-  { -- | The ID of a specific version of the extension. The version ID is the
-    -- value at the end of the Amazon Resource Name (ARN) assigned to the
-    -- extension version when it is registered.
-    versionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the extension.
-    typeName :: Prelude.Maybe Prelude.Text,
+  { -- | Whether the specified extension version is set as the default version.
+    --
+    -- This applies only to private extensions you have registered in your
+    -- account, and extensions published by Amazon. For public third-party
+    -- extensions, whether or not they are activated in your account,
+    -- CloudFormation returns @null@.
+    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
+    -- | The kind of extension.
+    type' :: Prelude.Maybe RegistryType,
     -- | The Amazon Resource Name (ARN) of the extension version.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | When the version was registered.
+    timeCreated :: Prelude.Maybe Core.ISO8601,
     -- | For public extensions that have been activated for this account and
     -- region, the version of the public extension to be used for
     -- CloudFormation operations in this account and region. For any extensions
@@ -50,19 +55,14 @@ data TypeVersionSummary = TypeVersionSummary'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
     -- in the /CloudFormation User Guide/.
     publicVersionNumber :: Prelude.Maybe Prelude.Text,
-    -- | When the version was registered.
-    timeCreated :: Prelude.Maybe Core.ISO8601,
-    -- | The kind of extension.
-    type' :: Prelude.Maybe RegistryType,
-    -- | Whether the specified extension version is set as the default version.
-    --
-    -- This applies only to private extensions you have registered in your
-    -- account, and extensions published by Amazon. For public third-party
-    -- extensions, whether or not they are activated in your account,
-    -- CloudFormation returns @null@.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the extension.
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The description of the extension version.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a specific version of the extension. The version ID is the
+    -- value at the end of the Amazon Resource Name (ARN) assigned to the
+    -- extension version when it is registered.
+    versionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,13 +74,18 @@ data TypeVersionSummary = TypeVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'typeVersionSummary_versionId' - The ID of a specific version of the extension. The version ID is the
--- value at the end of the Amazon Resource Name (ARN) assigned to the
--- extension version when it is registered.
+-- 'isDefaultVersion', 'typeVersionSummary_isDefaultVersion' - Whether the specified extension version is set as the default version.
 --
--- 'typeName', 'typeVersionSummary_typeName' - The name of the extension.
+-- This applies only to private extensions you have registered in your
+-- account, and extensions published by Amazon. For public third-party
+-- extensions, whether or not they are activated in your account,
+-- CloudFormation returns @null@.
+--
+-- 'type'', 'typeVersionSummary_type' - The kind of extension.
 --
 -- 'arn', 'typeVersionSummary_arn' - The Amazon Resource Name (ARN) of the extension version.
+--
+-- 'timeCreated', 'typeVersionSummary_timeCreated' - When the version was registered.
 --
 -- 'publicVersionNumber', 'typeVersionSummary_publicVersionNumber' - For public extensions that have been activated for this account and
 -- region, the version of the public extension to be used for
@@ -95,45 +100,48 @@ data TypeVersionSummary = TypeVersionSummary'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
 --
--- 'timeCreated', 'typeVersionSummary_timeCreated' - When the version was registered.
+-- 'typeName', 'typeVersionSummary_typeName' - The name of the extension.
 --
--- 'type'', 'typeVersionSummary_type' - The kind of extension.
+-- 'description', 'typeVersionSummary_description' - The description of the extension version.
 --
--- 'isDefaultVersion', 'typeVersionSummary_isDefaultVersion' - Whether the specified extension version is set as the default version.
+-- 'versionId', 'typeVersionSummary_versionId' - The ID of a specific version of the extension. The version ID is the
+-- value at the end of the Amazon Resource Name (ARN) assigned to the
+-- extension version when it is registered.
+newTypeVersionSummary ::
+  TypeVersionSummary
+newTypeVersionSummary =
+  TypeVersionSummary'
+    { isDefaultVersion =
+        Prelude.Nothing,
+      type' = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      timeCreated = Prelude.Nothing,
+      publicVersionNumber = Prelude.Nothing,
+      typeName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      versionId = Prelude.Nothing
+    }
+
+-- | Whether the specified extension version is set as the default version.
 --
 -- This applies only to private extensions you have registered in your
 -- account, and extensions published by Amazon. For public third-party
 -- extensions, whether or not they are activated in your account,
 -- CloudFormation returns @null@.
---
--- 'description', 'typeVersionSummary_description' - The description of the extension version.
-newTypeVersionSummary ::
-  TypeVersionSummary
-newTypeVersionSummary =
-  TypeVersionSummary'
-    { versionId = Prelude.Nothing,
-      typeName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      publicVersionNumber = Prelude.Nothing,
-      timeCreated = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      isDefaultVersion = Prelude.Nothing,
-      description = Prelude.Nothing
-    }
+typeVersionSummary_isDefaultVersion :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Bool)
+typeVersionSummary_isDefaultVersion = Lens.lens (\TypeVersionSummary' {isDefaultVersion} -> isDefaultVersion) (\s@TypeVersionSummary' {} a -> s {isDefaultVersion = a} :: TypeVersionSummary)
 
--- | The ID of a specific version of the extension. The version ID is the
--- value at the end of the Amazon Resource Name (ARN) assigned to the
--- extension version when it is registered.
-typeVersionSummary_versionId :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
-typeVersionSummary_versionId = Lens.lens (\TypeVersionSummary' {versionId} -> versionId) (\s@TypeVersionSummary' {} a -> s {versionId = a} :: TypeVersionSummary)
-
--- | The name of the extension.
-typeVersionSummary_typeName :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
-typeVersionSummary_typeName = Lens.lens (\TypeVersionSummary' {typeName} -> typeName) (\s@TypeVersionSummary' {} a -> s {typeName = a} :: TypeVersionSummary)
+-- | The kind of extension.
+typeVersionSummary_type :: Lens.Lens' TypeVersionSummary (Prelude.Maybe RegistryType)
+typeVersionSummary_type = Lens.lens (\TypeVersionSummary' {type'} -> type') (\s@TypeVersionSummary' {} a -> s {type' = a} :: TypeVersionSummary)
 
 -- | The Amazon Resource Name (ARN) of the extension version.
 typeVersionSummary_arn :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
 typeVersionSummary_arn = Lens.lens (\TypeVersionSummary' {arn} -> arn) (\s@TypeVersionSummary' {} a -> s {arn = a} :: TypeVersionSummary)
+
+-- | When the version was registered.
+typeVersionSummary_timeCreated :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.UTCTime)
+typeVersionSummary_timeCreated = Lens.lens (\TypeVersionSummary' {timeCreated} -> timeCreated) (\s@TypeVersionSummary' {} a -> s {timeCreated = a} :: TypeVersionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | For public extensions that have been activated for this account and
 -- region, the version of the public extension to be used for
@@ -150,57 +158,50 @@ typeVersionSummary_arn = Lens.lens (\TypeVersionSummary' {arn} -> arn) (\s@TypeV
 typeVersionSummary_publicVersionNumber :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
 typeVersionSummary_publicVersionNumber = Lens.lens (\TypeVersionSummary' {publicVersionNumber} -> publicVersionNumber) (\s@TypeVersionSummary' {} a -> s {publicVersionNumber = a} :: TypeVersionSummary)
 
--- | When the version was registered.
-typeVersionSummary_timeCreated :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.UTCTime)
-typeVersionSummary_timeCreated = Lens.lens (\TypeVersionSummary' {timeCreated} -> timeCreated) (\s@TypeVersionSummary' {} a -> s {timeCreated = a} :: TypeVersionSummary) Prelude.. Lens.mapping Core._Time
-
--- | The kind of extension.
-typeVersionSummary_type :: Lens.Lens' TypeVersionSummary (Prelude.Maybe RegistryType)
-typeVersionSummary_type = Lens.lens (\TypeVersionSummary' {type'} -> type') (\s@TypeVersionSummary' {} a -> s {type' = a} :: TypeVersionSummary)
-
--- | Whether the specified extension version is set as the default version.
---
--- This applies only to private extensions you have registered in your
--- account, and extensions published by Amazon. For public third-party
--- extensions, whether or not they are activated in your account,
--- CloudFormation returns @null@.
-typeVersionSummary_isDefaultVersion :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Bool)
-typeVersionSummary_isDefaultVersion = Lens.lens (\TypeVersionSummary' {isDefaultVersion} -> isDefaultVersion) (\s@TypeVersionSummary' {} a -> s {isDefaultVersion = a} :: TypeVersionSummary)
+-- | The name of the extension.
+typeVersionSummary_typeName :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
+typeVersionSummary_typeName = Lens.lens (\TypeVersionSummary' {typeName} -> typeName) (\s@TypeVersionSummary' {} a -> s {typeName = a} :: TypeVersionSummary)
 
 -- | The description of the extension version.
 typeVersionSummary_description :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
 typeVersionSummary_description = Lens.lens (\TypeVersionSummary' {description} -> description) (\s@TypeVersionSummary' {} a -> s {description = a} :: TypeVersionSummary)
 
+-- | The ID of a specific version of the extension. The version ID is the
+-- value at the end of the Amazon Resource Name (ARN) assigned to the
+-- extension version when it is registered.
+typeVersionSummary_versionId :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
+typeVersionSummary_versionId = Lens.lens (\TypeVersionSummary' {versionId} -> versionId) (\s@TypeVersionSummary' {} a -> s {versionId = a} :: TypeVersionSummary)
+
 instance Core.FromXML TypeVersionSummary where
   parseXML x =
     TypeVersionSummary'
-      Prelude.<$> (x Core..@? "VersionId")
-      Prelude.<*> (x Core..@? "TypeName")
-      Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "PublicVersionNumber")
-      Prelude.<*> (x Core..@? "TimeCreated")
+      Prelude.<$> (x Core..@? "IsDefaultVersion")
       Prelude.<*> (x Core..@? "Type")
-      Prelude.<*> (x Core..@? "IsDefaultVersion")
+      Prelude.<*> (x Core..@? "Arn")
+      Prelude.<*> (x Core..@? "TimeCreated")
+      Prelude.<*> (x Core..@? "PublicVersionNumber")
+      Prelude.<*> (x Core..@? "TypeName")
       Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "VersionId")
 
 instance Prelude.Hashable TypeVersionSummary where
   hashWithSalt _salt TypeVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` versionId
-      `Prelude.hashWithSalt` typeName
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` publicVersionNumber
-      `Prelude.hashWithSalt` timeCreated
+    _salt `Prelude.hashWithSalt` isDefaultVersion
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` isDefaultVersion
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` timeCreated
+      `Prelude.hashWithSalt` publicVersionNumber
+      `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData TypeVersionSummary where
   rnf TypeVersionSummary' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf publicVersionNumber
-      `Prelude.seq` Prelude.rnf timeCreated
+    Prelude.rnf isDefaultVersion
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf isDefaultVersion
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf timeCreated
+      `Prelude.seq` Prelude.rnf publicVersionNumber
+      `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf versionId

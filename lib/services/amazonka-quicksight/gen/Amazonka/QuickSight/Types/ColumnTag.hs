@@ -31,10 +31,10 @@ import Amazonka.QuickSight.Types.GeoSpatialDataRole
 --
 -- /See:/ 'newColumnTag' smart constructor.
 data ColumnTag = ColumnTag'
-  { -- | A description for a column.
-    columnDescription :: Prelude.Maybe ColumnDescription,
-    -- | A geospatial role for a column.
-    columnGeographicRole :: Prelude.Maybe GeoSpatialDataRole
+  { -- | A geospatial role for a column.
+    columnGeographicRole :: Prelude.Maybe GeoSpatialDataRole,
+    -- | A description for a column.
+    columnDescription :: Prelude.Maybe ColumnDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data ColumnTag = ColumnTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'columnDescription', 'columnTag_columnDescription' - A description for a column.
---
 -- 'columnGeographicRole', 'columnTag_columnGeographicRole' - A geospatial role for a column.
+--
+-- 'columnDescription', 'columnTag_columnDescription' - A description for a column.
 newColumnTag ::
   ColumnTag
 newColumnTag =
   ColumnTag'
-    { columnDescription = Prelude.Nothing,
-      columnGeographicRole = Prelude.Nothing
+    { columnGeographicRole = Prelude.Nothing,
+      columnDescription = Prelude.Nothing
     }
-
--- | A description for a column.
-columnTag_columnDescription :: Lens.Lens' ColumnTag (Prelude.Maybe ColumnDescription)
-columnTag_columnDescription = Lens.lens (\ColumnTag' {columnDescription} -> columnDescription) (\s@ColumnTag' {} a -> s {columnDescription = a} :: ColumnTag)
 
 -- | A geospatial role for a column.
 columnTag_columnGeographicRole :: Lens.Lens' ColumnTag (Prelude.Maybe GeoSpatialDataRole)
 columnTag_columnGeographicRole = Lens.lens (\ColumnTag' {columnGeographicRole} -> columnGeographicRole) (\s@ColumnTag' {} a -> s {columnGeographicRole = a} :: ColumnTag)
+
+-- | A description for a column.
+columnTag_columnDescription :: Lens.Lens' ColumnTag (Prelude.Maybe ColumnDescription)
+columnTag_columnDescription = Lens.lens (\ColumnTag' {columnDescription} -> columnDescription) (\s@ColumnTag' {} a -> s {columnDescription = a} :: ColumnTag)
 
 instance Core.FromJSON ColumnTag where
   parseJSON =
@@ -71,27 +71,27 @@ instance Core.FromJSON ColumnTag where
       "ColumnTag"
       ( \x ->
           ColumnTag'
-            Prelude.<$> (x Core..:? "ColumnDescription")
-            Prelude.<*> (x Core..:? "ColumnGeographicRole")
+            Prelude.<$> (x Core..:? "ColumnGeographicRole")
+            Prelude.<*> (x Core..:? "ColumnDescription")
       )
 
 instance Prelude.Hashable ColumnTag where
   hashWithSalt _salt ColumnTag' {..} =
-    _salt `Prelude.hashWithSalt` columnDescription
-      `Prelude.hashWithSalt` columnGeographicRole
+    _salt `Prelude.hashWithSalt` columnGeographicRole
+      `Prelude.hashWithSalt` columnDescription
 
 instance Prelude.NFData ColumnTag where
   rnf ColumnTag' {..} =
-    Prelude.rnf columnDescription
-      `Prelude.seq` Prelude.rnf columnGeographicRole
+    Prelude.rnf columnGeographicRole
+      `Prelude.seq` Prelude.rnf columnDescription
 
 instance Core.ToJSON ColumnTag where
   toJSON ColumnTag' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ColumnDescription" Core..=)
-              Prelude.<$> columnDescription,
-            ("ColumnGeographicRole" Core..=)
-              Prelude.<$> columnGeographicRole
+          [ ("ColumnGeographicRole" Core..=)
+              Prelude.<$> columnGeographicRole,
+            ("ColumnDescription" Core..=)
+              Prelude.<$> columnDescription
           ]
       )

@@ -35,12 +35,12 @@ module Amazonka.MediaPackageVOD.ConfigureLogs
     newConfigureLogsResponse,
 
     -- * Response Lenses
-    configureLogsResponse_arn,
-    configureLogsResponse_authorization,
-    configureLogsResponse_domainName,
-    configureLogsResponse_id,
-    configureLogsResponse_egressAccessLogs,
     configureLogsResponse_tags,
+    configureLogsResponse_domainName,
+    configureLogsResponse_arn,
+    configureLogsResponse_id,
+    configureLogsResponse_authorization,
+    configureLogsResponse_egressAccessLogs,
     configureLogsResponse_httpStatus,
   )
 where
@@ -100,12 +100,12 @@ instance Core.AWSRequest ConfigureLogs where
     Response.receiveJSON
       ( \s h x ->
           ConfigureLogsResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "authorization")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "domainName")
+            Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "authorization")
             Prelude.<*> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,15 +152,15 @@ instance Core.ToQuery ConfigureLogs where
 
 -- | /See:/ 'newConfigureLogsResponse' smart constructor.
 data ConfigureLogsResponse = ConfigureLogsResponse'
-  { -- | The ARN of the PackagingGroup.
-    arn :: Prelude.Maybe Prelude.Text,
-    authorization :: Prelude.Maybe Authorization,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The fully qualified domain name for Assets in the PackagingGroup.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the PackagingGroup.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the PackagingGroup.
     id :: Prelude.Maybe Prelude.Text,
+    authorization :: Prelude.Maybe Authorization,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,17 +174,17 @@ data ConfigureLogsResponse = ConfigureLogsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'configureLogsResponse_arn' - The ARN of the PackagingGroup.
---
--- 'authorization', 'configureLogsResponse_authorization' - Undocumented member.
+-- 'tags', 'configureLogsResponse_tags' - Undocumented member.
 --
 -- 'domainName', 'configureLogsResponse_domainName' - The fully qualified domain name for Assets in the PackagingGroup.
 --
+-- 'arn', 'configureLogsResponse_arn' - The ARN of the PackagingGroup.
+--
 -- 'id', 'configureLogsResponse_id' - The ID of the PackagingGroup.
 --
--- 'egressAccessLogs', 'configureLogsResponse_egressAccessLogs' - Undocumented member.
+-- 'authorization', 'configureLogsResponse_authorization' - Undocumented member.
 --
--- 'tags', 'configureLogsResponse_tags' - Undocumented member.
+-- 'egressAccessLogs', 'configureLogsResponse_egressAccessLogs' - Undocumented member.
 --
 -- 'httpStatus', 'configureLogsResponse_httpStatus' - The response's http status code.
 newConfigureLogsResponse ::
@@ -193,38 +193,38 @@ newConfigureLogsResponse ::
   ConfigureLogsResponse
 newConfigureLogsResponse pHttpStatus_ =
   ConfigureLogsResponse'
-    { arn = Prelude.Nothing,
-      authorization = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       domainName = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      authorization = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN of the PackagingGroup.
-configureLogsResponse_arn :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
-configureLogsResponse_arn = Lens.lens (\ConfigureLogsResponse' {arn} -> arn) (\s@ConfigureLogsResponse' {} a -> s {arn = a} :: ConfigureLogsResponse)
-
 -- | Undocumented member.
-configureLogsResponse_authorization :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Authorization)
-configureLogsResponse_authorization = Lens.lens (\ConfigureLogsResponse' {authorization} -> authorization) (\s@ConfigureLogsResponse' {} a -> s {authorization = a} :: ConfigureLogsResponse)
+configureLogsResponse_tags :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+configureLogsResponse_tags = Lens.lens (\ConfigureLogsResponse' {tags} -> tags) (\s@ConfigureLogsResponse' {} a -> s {tags = a} :: ConfigureLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The fully qualified domain name for Assets in the PackagingGroup.
 configureLogsResponse_domainName :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
 configureLogsResponse_domainName = Lens.lens (\ConfigureLogsResponse' {domainName} -> domainName) (\s@ConfigureLogsResponse' {} a -> s {domainName = a} :: ConfigureLogsResponse)
+
+-- | The ARN of the PackagingGroup.
+configureLogsResponse_arn :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
+configureLogsResponse_arn = Lens.lens (\ConfigureLogsResponse' {arn} -> arn) (\s@ConfigureLogsResponse' {} a -> s {arn = a} :: ConfigureLogsResponse)
 
 -- | The ID of the PackagingGroup.
 configureLogsResponse_id :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
 configureLogsResponse_id = Lens.lens (\ConfigureLogsResponse' {id} -> id) (\s@ConfigureLogsResponse' {} a -> s {id = a} :: ConfigureLogsResponse)
 
 -- | Undocumented member.
-configureLogsResponse_egressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe EgressAccessLogs)
-configureLogsResponse_egressAccessLogs = Lens.lens (\ConfigureLogsResponse' {egressAccessLogs} -> egressAccessLogs) (\s@ConfigureLogsResponse' {} a -> s {egressAccessLogs = a} :: ConfigureLogsResponse)
+configureLogsResponse_authorization :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Authorization)
+configureLogsResponse_authorization = Lens.lens (\ConfigureLogsResponse' {authorization} -> authorization) (\s@ConfigureLogsResponse' {} a -> s {authorization = a} :: ConfigureLogsResponse)
 
 -- | Undocumented member.
-configureLogsResponse_tags :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-configureLogsResponse_tags = Lens.lens (\ConfigureLogsResponse' {tags} -> tags) (\s@ConfigureLogsResponse' {} a -> s {tags = a} :: ConfigureLogsResponse) Prelude.. Lens.mapping Lens.coerced
+configureLogsResponse_egressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe EgressAccessLogs)
+configureLogsResponse_egressAccessLogs = Lens.lens (\ConfigureLogsResponse' {egressAccessLogs} -> egressAccessLogs) (\s@ConfigureLogsResponse' {} a -> s {egressAccessLogs = a} :: ConfigureLogsResponse)
 
 -- | The response's http status code.
 configureLogsResponse_httpStatus :: Lens.Lens' ConfigureLogsResponse Prelude.Int
@@ -232,10 +232,10 @@ configureLogsResponse_httpStatus = Lens.lens (\ConfigureLogsResponse' {httpStatu
 
 instance Prelude.NFData ConfigureLogsResponse where
   rnf ConfigureLogsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf authorization
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

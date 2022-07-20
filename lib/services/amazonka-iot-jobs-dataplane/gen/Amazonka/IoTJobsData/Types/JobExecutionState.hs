@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobExecutionState' smart constructor.
 data JobExecutionState = JobExecutionState'
-  { -- | The status of the job execution. Can be one of: \"QUEUED\",
+  { -- | A collection of name\/value pairs that describe the status of the job
+    -- execution.
+    statusDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The status of the job execution. Can be one of: \"QUEUED\",
     -- \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or
     -- \"REMOVED\".
     status :: Prelude.Maybe JobExecutionStatus,
-    -- | A collection of name\/value pairs that describe the status of the job
-    -- execution.
-    statusDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The version of the job execution. Job execution versions are incremented
     -- each time they are updated by a device.
     versionNumber :: Prelude.Maybe Prelude.Integer
@@ -49,12 +49,12 @@ data JobExecutionState = JobExecutionState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'statusDetails', 'jobExecutionState_statusDetails' - A collection of name\/value pairs that describe the status of the job
+-- execution.
+--
 -- 'status', 'jobExecutionState_status' - The status of the job execution. Can be one of: \"QUEUED\",
 -- \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or
 -- \"REMOVED\".
---
--- 'statusDetails', 'jobExecutionState_statusDetails' - A collection of name\/value pairs that describe the status of the job
--- execution.
 --
 -- 'versionNumber', 'jobExecutionState_versionNumber' - The version of the job execution. Job execution versions are incremented
 -- each time they are updated by a device.
@@ -62,21 +62,21 @@ newJobExecutionState ::
   JobExecutionState
 newJobExecutionState =
   JobExecutionState'
-    { status = Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
+    { statusDetails = Prelude.Nothing,
+      status = Prelude.Nothing,
       versionNumber = Prelude.Nothing
     }
+
+-- | A collection of name\/value pairs that describe the status of the job
+-- execution.
+jobExecutionState_statusDetails :: Lens.Lens' JobExecutionState (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobExecutionState_statusDetails = Lens.lens (\JobExecutionState' {statusDetails} -> statusDetails) (\s@JobExecutionState' {} a -> s {statusDetails = a} :: JobExecutionState) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the job execution. Can be one of: \"QUEUED\",
 -- \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or
 -- \"REMOVED\".
 jobExecutionState_status :: Lens.Lens' JobExecutionState (Prelude.Maybe JobExecutionStatus)
 jobExecutionState_status = Lens.lens (\JobExecutionState' {status} -> status) (\s@JobExecutionState' {} a -> s {status = a} :: JobExecutionState)
-
--- | A collection of name\/value pairs that describe the status of the job
--- execution.
-jobExecutionState_statusDetails :: Lens.Lens' JobExecutionState (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobExecutionState_statusDetails = Lens.lens (\JobExecutionState' {statusDetails} -> statusDetails) (\s@JobExecutionState' {} a -> s {statusDetails = a} :: JobExecutionState) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the job execution. Job execution versions are incremented
 -- each time they are updated by a device.
@@ -89,19 +89,19 @@ instance Core.FromJSON JobExecutionState where
       "JobExecutionState"
       ( \x ->
           JobExecutionState'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "statusDetails" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "statusDetails" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "versionNumber")
       )
 
 instance Prelude.Hashable JobExecutionState where
   hashWithSalt _salt JobExecutionState' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` statusDetails
+    _salt `Prelude.hashWithSalt` statusDetails
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData JobExecutionState where
   rnf JobExecutionState' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusDetails
+    Prelude.rnf statusDetails
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf versionNumber

@@ -41,8 +41,8 @@ module Amazonka.MarketplaceCatalog.StartChangeSet
     newStartChangeSet,
 
     -- * Request Lenses
-    startChangeSet_changeSetName,
     startChangeSet_clientRequestToken,
+    startChangeSet_changeSetName,
     startChangeSet_catalog,
     startChangeSet_changeSet,
 
@@ -66,11 +66,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartChangeSet' smart constructor.
 data StartChangeSet = StartChangeSet'
-  { -- | Optional case sensitive string of up to 100 ASCII characters. The change
+  { -- | A unique token to identify the request to ensure idempotency.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional case sensitive string of up to 100 ASCII characters. The change
     -- set name can be used to filter the list of change sets.
     changeSetName :: Prelude.Maybe Prelude.Text,
-    -- | A unique token to identify the request to ensure idempotency.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The catalog related to the request. Fixed value: @AWSMarketplace@
     catalog :: Prelude.Text,
     -- | Array of @change@ object.
@@ -86,10 +86,10 @@ data StartChangeSet = StartChangeSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'startChangeSet_clientRequestToken' - A unique token to identify the request to ensure idempotency.
+--
 -- 'changeSetName', 'startChangeSet_changeSetName' - Optional case sensitive string of up to 100 ASCII characters. The change
 -- set name can be used to filter the list of change sets.
---
--- 'clientRequestToken', 'startChangeSet_clientRequestToken' - A unique token to identify the request to ensure idempotency.
 --
 -- 'catalog', 'startChangeSet_catalog' - The catalog related to the request. Fixed value: @AWSMarketplace@
 --
@@ -102,20 +102,21 @@ newStartChangeSet ::
   StartChangeSet
 newStartChangeSet pCatalog_ pChangeSet_ =
   StartChangeSet'
-    { changeSetName = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
+      changeSetName = Prelude.Nothing,
       catalog = pCatalog_,
       changeSet = Lens.coerced Lens.# pChangeSet_
     }
+
+-- | A unique token to identify the request to ensure idempotency.
+startChangeSet_clientRequestToken :: Lens.Lens' StartChangeSet (Prelude.Maybe Prelude.Text)
+startChangeSet_clientRequestToken = Lens.lens (\StartChangeSet' {clientRequestToken} -> clientRequestToken) (\s@StartChangeSet' {} a -> s {clientRequestToken = a} :: StartChangeSet)
 
 -- | Optional case sensitive string of up to 100 ASCII characters. The change
 -- set name can be used to filter the list of change sets.
 startChangeSet_changeSetName :: Lens.Lens' StartChangeSet (Prelude.Maybe Prelude.Text)
 startChangeSet_changeSetName = Lens.lens (\StartChangeSet' {changeSetName} -> changeSetName) (\s@StartChangeSet' {} a -> s {changeSetName = a} :: StartChangeSet)
-
--- | A unique token to identify the request to ensure idempotency.
-startChangeSet_clientRequestToken :: Lens.Lens' StartChangeSet (Prelude.Maybe Prelude.Text)
-startChangeSet_clientRequestToken = Lens.lens (\StartChangeSet' {clientRequestToken} -> clientRequestToken) (\s@StartChangeSet' {} a -> s {clientRequestToken = a} :: StartChangeSet)
 
 -- | The catalog related to the request. Fixed value: @AWSMarketplace@
 startChangeSet_catalog :: Lens.Lens' StartChangeSet Prelude.Text
@@ -141,15 +142,15 @@ instance Core.AWSRequest StartChangeSet where
 
 instance Prelude.Hashable StartChangeSet where
   hashWithSalt _salt StartChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` changeSetName
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` changeSetName
       `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` changeSet
 
 instance Prelude.NFData StartChangeSet where
   rnf StartChangeSet' {..} =
-    Prelude.rnf changeSetName
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf changeSetName
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf changeSet
 
@@ -168,9 +169,9 @@ instance Core.ToJSON StartChangeSet where
   toJSON StartChangeSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ChangeSetName" Core..=) Prelude.<$> changeSetName,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("ChangeSetName" Core..=) Prelude.<$> changeSetName,
             Prelude.Just ("Catalog" Core..= catalog),
             Prelude.Just ("ChangeSet" Core..= changeSet)
           ]

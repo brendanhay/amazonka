@@ -14,42 +14,41 @@
 module Amazonka.GuardDuty.Lens
   ( -- * Operations
 
+    -- ** AcceptInvitation
+    acceptInvitation_detectorId,
+    acceptInvitation_masterId,
+    acceptInvitation_invitationId,
+    acceptInvitationResponse_httpStatus,
+
+    -- ** ArchiveFindings
+    archiveFindings_detectorId,
+    archiveFindings_findingIds,
+    archiveFindingsResponse_httpStatus,
+
+    -- ** CreateDetector
+    createDetector_tags,
+    createDetector_clientToken,
+    createDetector_dataSources,
+    createDetector_findingPublishingFrequency,
+    createDetector_enable,
+    createDetectorResponse_detectorId,
+    createDetectorResponse_httpStatus,
+
     -- ** CreateFilter
-    createFilter_clientToken,
-    createFilter_action,
-    createFilter_description,
-    createFilter_rank,
     createFilter_tags,
+    createFilter_clientToken,
+    createFilter_rank,
+    createFilter_description,
+    createFilter_action,
     createFilter_detectorId,
     createFilter_name,
     createFilter_findingCriteria,
     createFilterResponse_httpStatus,
     createFilterResponse_name,
 
-    -- ** EnableOrganizationAdminAccount
-    enableOrganizationAdminAccount_adminAccountId,
-    enableOrganizationAdminAccountResponse_httpStatus,
-
-    -- ** ListFindings
-    listFindings_findingCriteria,
-    listFindings_sortCriteria,
-    listFindings_nextToken,
-    listFindings_maxResults,
-    listFindings_detectorId,
-    listFindingsResponse_nextToken,
-    listFindingsResponse_httpStatus,
-    listFindingsResponse_findingIds,
-
-    -- ** ListOrganizationAdminAccounts
-    listOrganizationAdminAccounts_nextToken,
-    listOrganizationAdminAccounts_maxResults,
-    listOrganizationAdminAccountsResponse_adminAccounts,
-    listOrganizationAdminAccountsResponse_nextToken,
-    listOrganizationAdminAccountsResponse_httpStatus,
-
     -- ** CreateIPSet
-    createIPSet_clientToken,
     createIPSet_tags,
+    createIPSet_clientToken,
     createIPSet_detectorId,
     createIPSet_name,
     createIPSet_format,
@@ -58,36 +57,28 @@ module Amazonka.GuardDuty.Lens
     createIPSetResponse_httpStatus,
     createIPSetResponse_ipSetId,
 
-    -- ** DeleteThreatIntelSet
-    deleteThreatIntelSet_detectorId,
-    deleteThreatIntelSet_threatIntelSetId,
-    deleteThreatIntelSetResponse_httpStatus,
+    -- ** CreateMembers
+    createMembers_detectorId,
+    createMembers_accountDetails,
+    createMembersResponse_httpStatus,
+    createMembersResponse_unprocessedAccounts,
 
-    -- ** UpdateThreatIntelSet
-    updateThreatIntelSet_location,
-    updateThreatIntelSet_activate,
-    updateThreatIntelSet_name,
-    updateThreatIntelSet_detectorId,
-    updateThreatIntelSet_threatIntelSetId,
-    updateThreatIntelSetResponse_httpStatus,
+    -- ** CreatePublishingDestination
+    createPublishingDestination_clientToken,
+    createPublishingDestination_detectorId,
+    createPublishingDestination_destinationType,
+    createPublishingDestination_destinationProperties,
+    createPublishingDestinationResponse_httpStatus,
+    createPublishingDestinationResponse_destinationId,
 
-    -- ** StopMonitoringMembers
-    stopMonitoringMembers_detectorId,
-    stopMonitoringMembers_accountIds,
-    stopMonitoringMembersResponse_httpStatus,
-    stopMonitoringMembersResponse_unprocessedAccounts,
-
-    -- ** ListThreatIntelSets
-    listThreatIntelSets_nextToken,
-    listThreatIntelSets_maxResults,
-    listThreatIntelSets_detectorId,
-    listThreatIntelSetsResponse_nextToken,
-    listThreatIntelSetsResponse_httpStatus,
-    listThreatIntelSetsResponse_threatIntelSetIds,
+    -- ** CreateSampleFindings
+    createSampleFindings_findingTypes,
+    createSampleFindings_detectorId,
+    createSampleFindingsResponse_httpStatus,
 
     -- ** CreateThreatIntelSet
-    createThreatIntelSet_clientToken,
     createThreatIntelSet_tags,
+    createThreatIntelSet_clientToken,
     createThreatIntelSet_detectorId,
     createThreatIntelSet_name,
     createThreatIntelSet_format,
@@ -96,16 +87,109 @@ module Amazonka.GuardDuty.Lens
     createThreatIntelSetResponse_httpStatus,
     createThreatIntelSetResponse_threatIntelSetId,
 
+    -- ** DeclineInvitations
+    declineInvitations_accountIds,
+    declineInvitationsResponse_httpStatus,
+    declineInvitationsResponse_unprocessedAccounts,
+
+    -- ** DeleteDetector
+    deleteDetector_detectorId,
+    deleteDetectorResponse_httpStatus,
+
+    -- ** DeleteFilter
+    deleteFilter_detectorId,
+    deleteFilter_filterName,
+    deleteFilterResponse_httpStatus,
+
+    -- ** DeleteIPSet
+    deleteIPSet_detectorId,
+    deleteIPSet_ipSetId,
+    deleteIPSetResponse_httpStatus,
+
+    -- ** DeleteInvitations
+    deleteInvitations_accountIds,
+    deleteInvitationsResponse_httpStatus,
+    deleteInvitationsResponse_unprocessedAccounts,
+
     -- ** DeleteMembers
     deleteMembers_detectorId,
     deleteMembers_accountIds,
     deleteMembersResponse_httpStatus,
     deleteMembersResponse_unprocessedAccounts,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** DeletePublishingDestination
+    deletePublishingDestination_detectorId,
+    deletePublishingDestination_destinationId,
+    deletePublishingDestinationResponse_httpStatus,
+
+    -- ** DeleteThreatIntelSet
+    deleteThreatIntelSet_detectorId,
+    deleteThreatIntelSet_threatIntelSetId,
+    deleteThreatIntelSetResponse_httpStatus,
+
+    -- ** DescribeOrganizationConfiguration
+    describeOrganizationConfiguration_detectorId,
+    describeOrganizationConfigurationResponse_dataSources,
+    describeOrganizationConfigurationResponse_httpStatus,
+    describeOrganizationConfigurationResponse_autoEnable,
+    describeOrganizationConfigurationResponse_memberAccountLimitReached,
+
+    -- ** DescribePublishingDestination
+    describePublishingDestination_detectorId,
+    describePublishingDestination_destinationId,
+    describePublishingDestinationResponse_httpStatus,
+    describePublishingDestinationResponse_destinationId,
+    describePublishingDestinationResponse_destinationType,
+    describePublishingDestinationResponse_status,
+    describePublishingDestinationResponse_publishingFailureStartTimestamp,
+    describePublishingDestinationResponse_destinationProperties,
+
+    -- ** DisableOrganizationAdminAccount
+    disableOrganizationAdminAccount_adminAccountId,
+    disableOrganizationAdminAccountResponse_httpStatus,
+
+    -- ** DisassociateFromMasterAccount
+    disassociateFromMasterAccount_detectorId,
+    disassociateFromMasterAccountResponse_httpStatus,
+
+    -- ** DisassociateMembers
+    disassociateMembers_detectorId,
+    disassociateMembers_accountIds,
+    disassociateMembersResponse_httpStatus,
+    disassociateMembersResponse_unprocessedAccounts,
+
+    -- ** EnableOrganizationAdminAccount
+    enableOrganizationAdminAccount_adminAccountId,
+    enableOrganizationAdminAccountResponse_httpStatus,
+
+    -- ** GetDetector
+    getDetector_detectorId,
+    getDetectorResponse_tags,
+    getDetectorResponse_dataSources,
+    getDetectorResponse_findingPublishingFrequency,
+    getDetectorResponse_createdAt,
+    getDetectorResponse_updatedAt,
+    getDetectorResponse_httpStatus,
+    getDetectorResponse_serviceRole,
+    getDetectorResponse_status,
+
+    -- ** GetFilter
+    getFilter_detectorId,
+    getFilter_filterName,
+    getFilterResponse_tags,
+    getFilterResponse_rank,
+    getFilterResponse_description,
+    getFilterResponse_httpStatus,
+    getFilterResponse_name,
+    getFilterResponse_action,
+    getFilterResponse_findingCriteria,
+
+    -- ** GetFindings
+    getFindings_sortCriteria,
+    getFindings_detectorId,
+    getFindings_findingIds,
+    getFindingsResponse_httpStatus,
+    getFindingsResponse_findings,
 
     -- ** GetFindingsStatistics
     getFindingsStatistics_findingCriteria,
@@ -124,19 +208,28 @@ module Amazonka.GuardDuty.Lens
     getIPSetResponse_location,
     getIPSetResponse_status,
 
-    -- ** ListInvitations
-    listInvitations_nextToken,
-    listInvitations_maxResults,
-    listInvitationsResponse_invitations,
-    listInvitationsResponse_nextToken,
-    listInvitationsResponse_httpStatus,
+    -- ** GetInvitationsCount
+    getInvitationsCountResponse_invitationsCount,
+    getInvitationsCountResponse_httpStatus,
 
-    -- ** UpdateMemberDetectors
-    updateMemberDetectors_dataSources,
-    updateMemberDetectors_detectorId,
-    updateMemberDetectors_accountIds,
-    updateMemberDetectorsResponse_httpStatus,
-    updateMemberDetectorsResponse_unprocessedAccounts,
+    -- ** GetMasterAccount
+    getMasterAccount_detectorId,
+    getMasterAccountResponse_httpStatus,
+    getMasterAccountResponse_master,
+
+    -- ** GetMemberDetectors
+    getMemberDetectors_detectorId,
+    getMemberDetectors_accountIds,
+    getMemberDetectorsResponse_httpStatus,
+    getMemberDetectorsResponse_memberDataSourceConfigurations,
+    getMemberDetectorsResponse_unprocessedAccounts,
+
+    -- ** GetMembers
+    getMembers_detectorId,
+    getMembers_accountIds,
+    getMembersResponse_httpStatus,
+    getMembersResponse_members,
+    getMembersResponse_unprocessedAccounts,
 
     -- ** GetThreatIntelSet
     getThreatIntelSet_detectorId,
@@ -148,86 +241,31 @@ module Amazonka.GuardDuty.Lens
     getThreatIntelSetResponse_location,
     getThreatIntelSetResponse_status,
 
-    -- ** DeleteInvitations
-    deleteInvitations_accountIds,
-    deleteInvitationsResponse_httpStatus,
-    deleteInvitationsResponse_unprocessedAccounts,
-
-    -- ** GetMasterAccount
-    getMasterAccount_detectorId,
-    getMasterAccountResponse_httpStatus,
-    getMasterAccountResponse_master,
-
     -- ** GetUsageStatistics
     getUsageStatistics_nextToken,
-    getUsageStatistics_unit,
     getUsageStatistics_maxResults,
+    getUsageStatistics_unit,
     getUsageStatistics_detectorId,
     getUsageStatistics_usageStatisticType,
     getUsageStatistics_usageCriteria,
-    getUsageStatisticsResponse_usageStatistics,
     getUsageStatisticsResponse_nextToken,
+    getUsageStatisticsResponse_usageStatistics,
     getUsageStatisticsResponse_httpStatus,
 
-    -- ** CreateDetector
-    createDetector_clientToken,
-    createDetector_findingPublishingFrequency,
-    createDetector_dataSources,
-    createDetector_tags,
-    createDetector_enable,
-    createDetectorResponse_detectorId,
-    createDetectorResponse_httpStatus,
+    -- ** InviteMembers
+    inviteMembers_message,
+    inviteMembers_disableEmailNotification,
+    inviteMembers_detectorId,
+    inviteMembers_accountIds,
+    inviteMembersResponse_httpStatus,
+    inviteMembersResponse_unprocessedAccounts,
 
-    -- ** DeclineInvitations
-    declineInvitations_accountIds,
-    declineInvitationsResponse_httpStatus,
-    declineInvitationsResponse_unprocessedAccounts,
-
-    -- ** DescribeOrganizationConfiguration
-    describeOrganizationConfiguration_detectorId,
-    describeOrganizationConfigurationResponse_dataSources,
-    describeOrganizationConfigurationResponse_httpStatus,
-    describeOrganizationConfigurationResponse_autoEnable,
-    describeOrganizationConfigurationResponse_memberAccountLimitReached,
-
-    -- ** CreatePublishingDestination
-    createPublishingDestination_clientToken,
-    createPublishingDestination_detectorId,
-    createPublishingDestination_destinationType,
-    createPublishingDestination_destinationProperties,
-    createPublishingDestinationResponse_httpStatus,
-    createPublishingDestinationResponse_destinationId,
-
-    -- ** UpdateFilter
-    updateFilter_findingCriteria,
-    updateFilter_action,
-    updateFilter_description,
-    updateFilter_rank,
-    updateFilter_detectorId,
-    updateFilter_filterName,
-    updateFilterResponse_httpStatus,
-    updateFilterResponse_name,
-
-    -- ** DeleteFilter
-    deleteFilter_detectorId,
-    deleteFilter_filterName,
-    deleteFilterResponse_httpStatus,
-
-    -- ** DisassociateMembers
-    disassociateMembers_detectorId,
-    disassociateMembers_accountIds,
-    disassociateMembersResponse_httpStatus,
-    disassociateMembersResponse_unprocessedAccounts,
-
-    -- ** DisassociateFromMasterAccount
-    disassociateFromMasterAccount_detectorId,
-    disassociateFromMasterAccountResponse_httpStatus,
-
-    -- ** AcceptInvitation
-    acceptInvitation_detectorId,
-    acceptInvitation_masterId,
-    acceptInvitation_invitationId,
-    acceptInvitationResponse_httpStatus,
+    -- ** ListDetectors
+    listDetectors_nextToken,
+    listDetectors_maxResults,
+    listDetectorsResponse_nextToken,
+    listDetectorsResponse_httpStatus,
+    listDetectorsResponse_detectorIds,
 
     -- ** ListFilters
     listFilters_nextToken,
@@ -237,109 +275,15 @@ module Amazonka.GuardDuty.Lens
     listFiltersResponse_httpStatus,
     listFiltersResponse_filterNames,
 
-    -- ** ListMembers
-    listMembers_onlyAssociated,
-    listMembers_nextToken,
-    listMembers_maxResults,
-    listMembers_detectorId,
-    listMembersResponse_members,
-    listMembersResponse_nextToken,
-    listMembersResponse_httpStatus,
-
-    -- ** ListPublishingDestinations
-    listPublishingDestinations_nextToken,
-    listPublishingDestinations_maxResults,
-    listPublishingDestinations_detectorId,
-    listPublishingDestinationsResponse_nextToken,
-    listPublishingDestinationsResponse_httpStatus,
-    listPublishingDestinationsResponse_destinations,
-
-    -- ** DeletePublishingDestination
-    deletePublishingDestination_detectorId,
-    deletePublishingDestination_destinationId,
-    deletePublishingDestinationResponse_httpStatus,
-
-    -- ** UpdatePublishingDestination
-    updatePublishingDestination_destinationProperties,
-    updatePublishingDestination_detectorId,
-    updatePublishingDestination_destinationId,
-    updatePublishingDestinationResponse_httpStatus,
-
-    -- ** GetDetector
-    getDetector_detectorId,
-    getDetectorResponse_createdAt,
-    getDetectorResponse_findingPublishingFrequency,
-    getDetectorResponse_dataSources,
-    getDetectorResponse_updatedAt,
-    getDetectorResponse_tags,
-    getDetectorResponse_httpStatus,
-    getDetectorResponse_serviceRole,
-    getDetectorResponse_status,
-
-    -- ** CreateSampleFindings
-    createSampleFindings_findingTypes,
-    createSampleFindings_detectorId,
-    createSampleFindingsResponse_httpStatus,
-
-    -- ** ArchiveFindings
-    archiveFindings_detectorId,
-    archiveFindings_findingIds,
-    archiveFindingsResponse_httpStatus,
-
-    -- ** CreateMembers
-    createMembers_detectorId,
-    createMembers_accountDetails,
-    createMembersResponse_httpStatus,
-    createMembersResponse_unprocessedAccounts,
-
-    -- ** UnarchiveFindings
-    unarchiveFindings_detectorId,
-    unarchiveFindings_findingIds,
-    unarchiveFindingsResponse_httpStatus,
-
-    -- ** GetMemberDetectors
-    getMemberDetectors_detectorId,
-    getMemberDetectors_accountIds,
-    getMemberDetectorsResponse_httpStatus,
-    getMemberDetectorsResponse_memberDataSourceConfigurations,
-    getMemberDetectorsResponse_unprocessedAccounts,
-
-    -- ** GetInvitationsCount
-    getInvitationsCountResponse_invitationsCount,
-    getInvitationsCountResponse_httpStatus,
-
-    -- ** StartMonitoringMembers
-    startMonitoringMembers_detectorId,
-    startMonitoringMembers_accountIds,
-    startMonitoringMembersResponse_httpStatus,
-    startMonitoringMembersResponse_unprocessedAccounts,
-
-    -- ** UpdateOrganizationConfiguration
-    updateOrganizationConfiguration_dataSources,
-    updateOrganizationConfiguration_detectorId,
-    updateOrganizationConfiguration_autoEnable,
-    updateOrganizationConfigurationResponse_httpStatus,
-
-    -- ** InviteMembers
-    inviteMembers_disableEmailNotification,
-    inviteMembers_message,
-    inviteMembers_detectorId,
-    inviteMembers_accountIds,
-    inviteMembersResponse_httpStatus,
-    inviteMembersResponse_unprocessedAccounts,
-
-    -- ** DeleteIPSet
-    deleteIPSet_detectorId,
-    deleteIPSet_ipSetId,
-    deleteIPSetResponse_httpStatus,
-
-    -- ** UpdateIPSet
-    updateIPSet_location,
-    updateIPSet_activate,
-    updateIPSet_name,
-    updateIPSet_detectorId,
-    updateIPSet_ipSetId,
-    updateIPSetResponse_httpStatus,
+    -- ** ListFindings
+    listFindings_sortCriteria,
+    listFindings_nextToken,
+    listFindings_findingCriteria,
+    listFindings_maxResults,
+    listFindings_detectorId,
+    listFindingsResponse_nextToken,
+    listFindingsResponse_httpStatus,
+    listFindingsResponse_findingIds,
 
     -- ** ListIPSets
     listIPSets_nextToken,
@@ -349,41 +293,71 @@ module Amazonka.GuardDuty.Lens
     listIPSetsResponse_httpStatus,
     listIPSetsResponse_ipSetIds,
 
-    -- ** GetMembers
-    getMembers_detectorId,
-    getMembers_accountIds,
-    getMembersResponse_httpStatus,
-    getMembersResponse_members,
-    getMembersResponse_unprocessedAccounts,
+    -- ** ListInvitations
+    listInvitations_nextToken,
+    listInvitations_maxResults,
+    listInvitationsResponse_invitations,
+    listInvitationsResponse_nextToken,
+    listInvitationsResponse_httpStatus,
 
-    -- ** DescribePublishingDestination
-    describePublishingDestination_detectorId,
-    describePublishingDestination_destinationId,
-    describePublishingDestinationResponse_httpStatus,
-    describePublishingDestinationResponse_destinationId,
-    describePublishingDestinationResponse_destinationType,
-    describePublishingDestinationResponse_status,
-    describePublishingDestinationResponse_publishingFailureStartTimestamp,
-    describePublishingDestinationResponse_destinationProperties,
+    -- ** ListMembers
+    listMembers_nextToken,
+    listMembers_onlyAssociated,
+    listMembers_maxResults,
+    listMembers_detectorId,
+    listMembersResponse_nextToken,
+    listMembersResponse_members,
+    listMembersResponse_httpStatus,
+
+    -- ** ListOrganizationAdminAccounts
+    listOrganizationAdminAccounts_nextToken,
+    listOrganizationAdminAccounts_maxResults,
+    listOrganizationAdminAccountsResponse_nextToken,
+    listOrganizationAdminAccountsResponse_adminAccounts,
+    listOrganizationAdminAccountsResponse_httpStatus,
+
+    -- ** ListPublishingDestinations
+    listPublishingDestinations_nextToken,
+    listPublishingDestinations_maxResults,
+    listPublishingDestinations_detectorId,
+    listPublishingDestinationsResponse_nextToken,
+    listPublishingDestinationsResponse_httpStatus,
+    listPublishingDestinationsResponse_destinations,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListThreatIntelSets
+    listThreatIntelSets_nextToken,
+    listThreatIntelSets_maxResults,
+    listThreatIntelSets_detectorId,
+    listThreatIntelSetsResponse_nextToken,
+    listThreatIntelSetsResponse_httpStatus,
+    listThreatIntelSetsResponse_threatIntelSetIds,
+
+    -- ** StartMonitoringMembers
+    startMonitoringMembers_detectorId,
+    startMonitoringMembers_accountIds,
+    startMonitoringMembersResponse_httpStatus,
+    startMonitoringMembersResponse_unprocessedAccounts,
+
+    -- ** StopMonitoringMembers
+    stopMonitoringMembers_detectorId,
+    stopMonitoringMembers_accountIds,
+    stopMonitoringMembersResponse_httpStatus,
+    stopMonitoringMembersResponse_unprocessedAccounts,
 
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** GetFindings
-    getFindings_sortCriteria,
-    getFindings_detectorId,
-    getFindings_findingIds,
-    getFindingsResponse_httpStatus,
-    getFindingsResponse_findings,
-
-    -- ** ListDetectors
-    listDetectors_nextToken,
-    listDetectors_maxResults,
-    listDetectorsResponse_nextToken,
-    listDetectorsResponse_httpStatus,
-    listDetectorsResponse_detectorIds,
+    -- ** UnarchiveFindings
+    unarchiveFindings_detectorId,
+    unarchiveFindings_findingIds,
+    unarchiveFindingsResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
@@ -391,15 +365,21 @@ module Amazonka.GuardDuty.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateDetector
-    updateDetector_findingPublishingFrequency,
     updateDetector_dataSources,
     updateDetector_enable,
+    updateDetector_findingPublishingFrequency,
     updateDetector_detectorId,
     updateDetectorResponse_httpStatus,
 
-    -- ** DeleteDetector
-    deleteDetector_detectorId,
-    deleteDetectorResponse_httpStatus,
+    -- ** UpdateFilter
+    updateFilter_findingCriteria,
+    updateFilter_rank,
+    updateFilter_description,
+    updateFilter_action,
+    updateFilter_detectorId,
+    updateFilter_filterName,
+    updateFilterResponse_httpStatus,
+    updateFilterResponse_name,
 
     -- ** UpdateFindingsFeedback
     updateFindingsFeedback_comments,
@@ -408,32 +388,52 @@ module Amazonka.GuardDuty.Lens
     updateFindingsFeedback_feedback,
     updateFindingsFeedbackResponse_httpStatus,
 
-    -- ** GetFilter
-    getFilter_detectorId,
-    getFilter_filterName,
-    getFilterResponse_description,
-    getFilterResponse_rank,
-    getFilterResponse_tags,
-    getFilterResponse_httpStatus,
-    getFilterResponse_name,
-    getFilterResponse_action,
-    getFilterResponse_findingCriteria,
+    -- ** UpdateIPSet
+    updateIPSet_name,
+    updateIPSet_location,
+    updateIPSet_activate,
+    updateIPSet_detectorId,
+    updateIPSet_ipSetId,
+    updateIPSetResponse_httpStatus,
 
-    -- ** DisableOrganizationAdminAccount
-    disableOrganizationAdminAccount_adminAccountId,
-    disableOrganizationAdminAccountResponse_httpStatus,
+    -- ** UpdateMemberDetectors
+    updateMemberDetectors_dataSources,
+    updateMemberDetectors_detectorId,
+    updateMemberDetectors_accountIds,
+    updateMemberDetectorsResponse_httpStatus,
+    updateMemberDetectorsResponse_unprocessedAccounts,
+
+    -- ** UpdateOrganizationConfiguration
+    updateOrganizationConfiguration_dataSources,
+    updateOrganizationConfiguration_detectorId,
+    updateOrganizationConfiguration_autoEnable,
+    updateOrganizationConfigurationResponse_httpStatus,
+
+    -- ** UpdatePublishingDestination
+    updatePublishingDestination_destinationProperties,
+    updatePublishingDestination_detectorId,
+    updatePublishingDestination_destinationId,
+    updatePublishingDestinationResponse_httpStatus,
+
+    -- ** UpdateThreatIntelSet
+    updateThreatIntelSet_name,
+    updateThreatIntelSet_location,
+    updateThreatIntelSet_activate,
+    updateThreatIntelSet_detectorId,
+    updateThreatIntelSet_threatIntelSetId,
+    updateThreatIntelSetResponse_httpStatus,
 
     -- * Types
 
     -- ** AccessControlList
-    accessControlList_allowsPublicWriteAccess,
     accessControlList_allowsPublicReadAccess,
+    accessControlList_allowsPublicWriteAccess,
 
     -- ** AccessKeyDetails
     accessKeyDetails_principalId,
     accessKeyDetails_userName,
-    accessKeyDetails_accessKeyId,
     accessKeyDetails_userType,
+    accessKeyDetails_accessKeyId,
 
     -- ** AccountDetail
     accountDetail_accountId,
@@ -443,11 +443,11 @@ module Amazonka.GuardDuty.Lens
     accountLevelPermissions_blockPublicAccess,
 
     -- ** Action
-    action_networkConnectionAction,
-    action_portProbeAction,
     action_actionType,
-    action_dnsRequestAction,
+    action_networkConnectionAction,
     action_awsApiCallAction,
+    action_dnsRequestAction,
+    action_portProbeAction,
 
     -- ** AdminAccount
     adminAccount_adminAccountId,
@@ -455,17 +455,17 @@ module Amazonka.GuardDuty.Lens
 
     -- ** AwsApiCallAction
     awsApiCallAction_remoteIpDetails,
-    awsApiCallAction_callerType,
     awsApiCallAction_domainDetails,
-    awsApiCallAction_serviceName,
-    awsApiCallAction_errorCode,
     awsApiCallAction_api,
+    awsApiCallAction_errorCode,
+    awsApiCallAction_serviceName,
+    awsApiCallAction_callerType,
 
     -- ** BlockPublicAccess
-    blockPublicAccess_ignorePublicAcls,
-    blockPublicAccess_blockPublicAcls,
     blockPublicAccess_restrictPublicBuckets,
+    blockPublicAccess_ignorePublicAcls,
     blockPublicAccess_blockPublicPolicy,
+    blockPublicAccess_blockPublicAcls,
 
     -- ** BucketLevelPermissions
     bucketLevelPermissions_accessControlList,
@@ -473,8 +473,8 @@ module Amazonka.GuardDuty.Lens
     bucketLevelPermissions_bucketPolicy,
 
     -- ** BucketPolicy
-    bucketPolicy_allowsPublicWriteAccess,
     bucketPolicy_allowsPublicReadAccess,
+    bucketPolicy_allowsPublicWriteAccess,
 
     -- ** City
     city_cityName,
@@ -483,17 +483,17 @@ module Amazonka.GuardDuty.Lens
     cloudTrailConfigurationResult_status,
 
     -- ** Condition
-    condition_eq,
+    condition_notEquals,
+    condition_lessThanOrEqual,
+    condition_neq,
+    condition_equals,
     condition_lessThan,
     condition_lte,
-    condition_greaterThanOrEqual,
-    condition_lessThanOrEqual,
-    condition_gt,
-    condition_equals,
-    condition_neq,
-    condition_notEquals,
     condition_lt,
     condition_gte,
+    condition_eq,
+    condition_gt,
+    condition_greaterThanOrEqual,
     condition_greaterThan,
 
     -- ** Country
@@ -535,11 +535,11 @@ module Amazonka.GuardDuty.Lens
     evidence_threatIntelligenceDetails,
 
     -- ** Finding
-    finding_service,
     finding_confidence,
+    finding_description,
+    finding_service,
     finding_partition,
     finding_title,
-    finding_description,
     finding_accountId,
     finding_arn,
     finding_createdAt,
@@ -569,38 +569,38 @@ module Amazonka.GuardDuty.Lens
     iamInstanceProfile_id,
 
     -- ** InstanceDetails
-    instanceDetails_instanceId,
-    instanceDetails_platform,
-    instanceDetails_launchTime,
-    instanceDetails_networkInterfaces,
-    instanceDetails_outpostArn,
-    instanceDetails_instanceType,
-    instanceDetails_availabilityZone,
-    instanceDetails_iamInstanceProfile,
-    instanceDetails_imageId,
-    instanceDetails_productCodes,
-    instanceDetails_instanceState,
     instanceDetails_tags,
+    instanceDetails_instanceState,
+    instanceDetails_iamInstanceProfile,
+    instanceDetails_outpostArn,
     instanceDetails_imageDescription,
+    instanceDetails_launchTime,
+    instanceDetails_productCodes,
+    instanceDetails_platform,
+    instanceDetails_availabilityZone,
+    instanceDetails_instanceType,
+    instanceDetails_instanceId,
+    instanceDetails_imageId,
+    instanceDetails_networkInterfaces,
 
     -- ** Invitation
+    invitation_accountId,
     invitation_invitedAt,
     invitation_relationshipStatus,
     invitation_invitationId,
-    invitation_accountId,
 
     -- ** LocalIpDetails
     localIpDetails_ipAddressV4,
 
     -- ** LocalPortDetails
-    localPortDetails_portName,
     localPortDetails_port,
+    localPortDetails_portName,
 
     -- ** Master
+    master_accountId,
     master_invitedAt,
     master_relationshipStatus,
     master_invitationId,
-    master_accountId,
 
     -- ** Member
     member_invitedAt,
@@ -616,31 +616,31 @@ module Amazonka.GuardDuty.Lens
     memberDataSourceConfiguration_dataSources,
 
     -- ** NetworkConnectionAction
-    networkConnectionAction_remoteIpDetails,
-    networkConnectionAction_protocol,
-    networkConnectionAction_localIpDetails,
-    networkConnectionAction_remotePortDetails,
-    networkConnectionAction_blocked,
     networkConnectionAction_connectionDirection,
+    networkConnectionAction_remoteIpDetails,
     networkConnectionAction_localPortDetails,
+    networkConnectionAction_localIpDetails,
+    networkConnectionAction_blocked,
+    networkConnectionAction_protocol,
+    networkConnectionAction_remotePortDetails,
 
     -- ** NetworkInterface
     networkInterface_privateIpAddresses,
+    networkInterface_subnetId,
+    networkInterface_publicIp,
+    networkInterface_networkInterfaceId,
     networkInterface_publicDnsName,
     networkInterface_securityGroups,
-    networkInterface_vpcId,
-    networkInterface_networkInterfaceId,
-    networkInterface_subnetId,
     networkInterface_privateIpAddress,
-    networkInterface_publicIp,
     networkInterface_privateDnsName,
+    networkInterface_vpcId,
     networkInterface_ipv6Addresses,
 
     -- ** Organization
-    organization_org,
-    organization_asnOrg,
-    organization_asn,
     organization_isp,
+    organization_org,
+    organization_asn,
+    organization_asnOrg,
 
     -- ** OrganizationDataSourceConfigurations
     organizationDataSourceConfigurations_s3Logs,
@@ -658,25 +658,25 @@ module Amazonka.GuardDuty.Lens
     owner_id,
 
     -- ** PermissionConfiguration
-    permissionConfiguration_bucketLevelPermissions,
     permissionConfiguration_accountLevelPermissions,
+    permissionConfiguration_bucketLevelPermissions,
 
     -- ** PortProbeAction
-    portProbeAction_portProbeDetails,
     portProbeAction_blocked,
+    portProbeAction_portProbeDetails,
 
     -- ** PortProbeDetail
     portProbeDetail_remoteIpDetails,
-    portProbeDetail_localIpDetails,
     portProbeDetail_localPortDetails,
+    portProbeDetail_localIpDetails,
 
     -- ** PrivateIpAddressDetails
     privateIpAddressDetails_privateIpAddress,
     privateIpAddressDetails_privateDnsName,
 
     -- ** ProductCode
-    productCode_productType,
     productCode_code,
+    productCode_productType,
 
     -- ** PublicAccess
     publicAccess_permissionConfiguration,
@@ -684,30 +684,30 @@ module Amazonka.GuardDuty.Lens
 
     -- ** RemoteIpDetails
     remoteIpDetails_country,
-    remoteIpDetails_city,
     remoteIpDetails_ipAddressV4,
-    remoteIpDetails_geoLocation,
+    remoteIpDetails_city,
     remoteIpDetails_organization,
+    remoteIpDetails_geoLocation,
 
     -- ** RemotePortDetails
-    remotePortDetails_portName,
     remotePortDetails_port,
+    remotePortDetails_portName,
 
     -- ** Resource
     resource_resourceType,
-    resource_s3BucketDetails,
     resource_instanceDetails,
+    resource_s3BucketDetails,
     resource_accessKeyDetails,
 
     -- ** S3BucketDetail
-    s3BucketDetail_arn,
-    s3BucketDetail_createdAt,
-    s3BucketDetail_owner,
-    s3BucketDetail_name,
-    s3BucketDetail_defaultServerSideEncryption,
-    s3BucketDetail_publicAccess,
-    s3BucketDetail_type,
     s3BucketDetail_tags,
+    s3BucketDetail_name,
+    s3BucketDetail_type,
+    s3BucketDetail_defaultServerSideEncryption,
+    s3BucketDetail_arn,
+    s3BucketDetail_publicAccess,
+    s3BucketDetail_owner,
+    s3BucketDetail_createdAt,
 
     -- ** S3LogsConfiguration
     s3LogsConfiguration_enable,
@@ -716,44 +716,44 @@ module Amazonka.GuardDuty.Lens
     s3LogsConfigurationResult_status,
 
     -- ** SecurityGroup
-    securityGroup_groupId,
     securityGroup_groupName,
+    securityGroup_groupId,
 
     -- ** ServiceInfo
+    serviceInfo_resourceRole,
+    serviceInfo_evidence,
+    serviceInfo_userFeedback,
     serviceInfo_count,
     serviceInfo_eventFirstSeen,
+    serviceInfo_archived,
     serviceInfo_action,
     serviceInfo_detectorId,
     serviceInfo_serviceName,
-    serviceInfo_userFeedback,
-    serviceInfo_evidence,
     serviceInfo_eventLastSeen,
-    serviceInfo_resourceRole,
-    serviceInfo_archived,
 
     -- ** SortCriteria
-    sortCriteria_orderBy,
     sortCriteria_attributeName,
+    sortCriteria_orderBy,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
 
     -- ** ThreatIntelligenceDetail
-    threatIntelligenceDetail_threatNames,
     threatIntelligenceDetail_threatListName,
+    threatIntelligenceDetail_threatNames,
 
     -- ** Total
-    total_amount,
     total_unit,
+    total_amount,
 
     -- ** UnprocessedAccount
     unprocessedAccount_accountId,
     unprocessedAccount_result,
 
     -- ** UsageAccountResult
-    usageAccountResult_accountId,
     usageAccountResult_total,
+    usageAccountResult_accountId,
 
     -- ** UsageCriteria
     usageCriteria_accountIds,
@@ -769,9 +769,9 @@ module Amazonka.GuardDuty.Lens
     usageResourceResult_resource,
 
     -- ** UsageStatistics
+    usageStatistics_sumByDataSource,
     usageStatistics_topResources,
     usageStatistics_sumByResource,
-    usageStatistics_sumByDataSource,
     usageStatistics_sumByAccount,
   )
 where

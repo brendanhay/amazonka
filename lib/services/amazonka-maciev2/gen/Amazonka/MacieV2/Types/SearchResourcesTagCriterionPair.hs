@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchResourcesTagCriterionPair' smart constructor.
 data SearchResourcesTagCriterionPair = SearchResourcesTagCriterionPair'
-  { -- | The tag value to use in the condition.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The value for the tag key to use in the condition.
-    key :: Prelude.Maybe Prelude.Text
+  { -- | The value for the tag key to use in the condition.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The tag value to use in the condition.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data SearchResourcesTagCriterionPair = SearchResourcesTagCriterionPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'searchResourcesTagCriterionPair_value' - The tag value to use in the condition.
---
 -- 'key', 'searchResourcesTagCriterionPair_key' - The value for the tag key to use in the condition.
+--
+-- 'value', 'searchResourcesTagCriterionPair_value' - The tag value to use in the condition.
 newSearchResourcesTagCriterionPair ::
   SearchResourcesTagCriterionPair
 newSearchResourcesTagCriterionPair =
   SearchResourcesTagCriterionPair'
-    { value =
+    { key =
         Prelude.Nothing,
-      key = Prelude.Nothing
+      value = Prelude.Nothing
     }
-
--- | The tag value to use in the condition.
-searchResourcesTagCriterionPair_value :: Lens.Lens' SearchResourcesTagCriterionPair (Prelude.Maybe Prelude.Text)
-searchResourcesTagCriterionPair_value = Lens.lens (\SearchResourcesTagCriterionPair' {value} -> value) (\s@SearchResourcesTagCriterionPair' {} a -> s {value = a} :: SearchResourcesTagCriterionPair)
 
 -- | The value for the tag key to use in the condition.
 searchResourcesTagCriterionPair_key :: Lens.Lens' SearchResourcesTagCriterionPair (Prelude.Maybe Prelude.Text)
 searchResourcesTagCriterionPair_key = Lens.lens (\SearchResourcesTagCriterionPair' {key} -> key) (\s@SearchResourcesTagCriterionPair' {} a -> s {key = a} :: SearchResourcesTagCriterionPair)
+
+-- | The tag value to use in the condition.
+searchResourcesTagCriterionPair_value :: Lens.Lens' SearchResourcesTagCriterionPair (Prelude.Maybe Prelude.Text)
+searchResourcesTagCriterionPair_value = Lens.lens (\SearchResourcesTagCriterionPair' {value} -> value) (\s@SearchResourcesTagCriterionPair' {} a -> s {value = a} :: SearchResourcesTagCriterionPair)
 
 instance
   Prelude.Hashable
@@ -72,21 +72,21 @@ instance
   hashWithSalt
     _salt
     SearchResourcesTagCriterionPair' {..} =
-      _salt `Prelude.hashWithSalt` value
-        `Prelude.hashWithSalt` key
+      _salt `Prelude.hashWithSalt` key
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
     SearchResourcesTagCriterionPair
   where
   rnf SearchResourcesTagCriterionPair' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON SearchResourcesTagCriterionPair where
   toJSON SearchResourcesTagCriterionPair' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("key" Core..=) Prelude.<$> key
+          [ ("key" Core..=) Prelude.<$> key,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

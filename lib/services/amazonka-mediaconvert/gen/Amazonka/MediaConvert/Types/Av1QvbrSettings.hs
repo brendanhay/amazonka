@@ -29,15 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAv1QvbrSettings' smart constructor.
 data Av1QvbrSettings = Av1QvbrSettings'
-  { -- | Optional. Specify a value here to set the QVBR quality to a level that
-    -- is between whole numbers. For example, if you want your QVBR quality
-    -- level to be 7.33, set qvbrQualityLevel to 7 and set
-    -- qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality
-    -- level to the nearest third of a whole number. For example, if you set
-    -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
-    -- actual QVBR quality level is 7.33.
-    qvbrQualityLevelFineTune :: Prelude.Maybe Prelude.Double,
-    -- | Use this setting only when you set Rate control mode (RateControlMode)
+  { -- | Use this setting only when you set Rate control mode (RateControlMode)
     -- to QVBR. Specify the target quality level for this output. MediaConvert
     -- determines the right number of bits to use for each part of the video to
     -- maintain the video quality that you specify. When you keep the default
@@ -50,7 +42,15 @@ data Av1QvbrSettings = Av1QvbrSettings'
     -- value for the setting qvbrQualityLevelFineTune. For example, if you want
     -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
     -- qvbrQualityLevelFineTune to .33.
-    qvbrQualityLevel :: Prelude.Maybe Prelude.Natural
+    qvbrQualityLevel :: Prelude.Maybe Prelude.Natural,
+    -- | Optional. Specify a value here to set the QVBR quality to a level that
+    -- is between whole numbers. For example, if you want your QVBR quality
+    -- level to be 7.33, set qvbrQualityLevel to 7 and set
+    -- qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality
+    -- level to the nearest third of a whole number. For example, if you set
+    -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
+    -- actual QVBR quality level is 7.33.
+    qvbrQualityLevelFineTune :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,14 +61,6 @@ data Av1QvbrSettings = Av1QvbrSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'qvbrQualityLevelFineTune', 'av1QvbrSettings_qvbrQualityLevelFineTune' - Optional. Specify a value here to set the QVBR quality to a level that
--- is between whole numbers. For example, if you want your QVBR quality
--- level to be 7.33, set qvbrQualityLevel to 7 and set
--- qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality
--- level to the nearest third of a whole number. For example, if you set
--- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
--- actual QVBR quality level is 7.33.
 --
 -- 'qvbrQualityLevel', 'av1QvbrSettings_qvbrQualityLevel' - Use this setting only when you set Rate control mode (RateControlMode)
 -- to QVBR. Specify the target quality level for this output. MediaConvert
@@ -83,24 +75,22 @@ data Av1QvbrSettings = Av1QvbrSettings'
 -- value for the setting qvbrQualityLevelFineTune. For example, if you want
 -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
 -- qvbrQualityLevelFineTune to .33.
-newAv1QvbrSettings ::
-  Av1QvbrSettings
-newAv1QvbrSettings =
-  Av1QvbrSettings'
-    { qvbrQualityLevelFineTune =
-        Prelude.Nothing,
-      qvbrQualityLevel = Prelude.Nothing
-    }
-
--- | Optional. Specify a value here to set the QVBR quality to a level that
+--
+-- 'qvbrQualityLevelFineTune', 'av1QvbrSettings_qvbrQualityLevelFineTune' - Optional. Specify a value here to set the QVBR quality to a level that
 -- is between whole numbers. For example, if you want your QVBR quality
 -- level to be 7.33, set qvbrQualityLevel to 7 and set
 -- qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality
 -- level to the nearest third of a whole number. For example, if you set
 -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
 -- actual QVBR quality level is 7.33.
-av1QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' Av1QvbrSettings (Prelude.Maybe Prelude.Double)
-av1QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\Av1QvbrSettings' {qvbrQualityLevelFineTune} -> qvbrQualityLevelFineTune) (\s@Av1QvbrSettings' {} a -> s {qvbrQualityLevelFineTune = a} :: Av1QvbrSettings)
+newAv1QvbrSettings ::
+  Av1QvbrSettings
+newAv1QvbrSettings =
+  Av1QvbrSettings'
+    { qvbrQualityLevel =
+        Prelude.Nothing,
+      qvbrQualityLevelFineTune = Prelude.Nothing
+    }
 
 -- | Use this setting only when you set Rate control mode (RateControlMode)
 -- to QVBR. Specify the target quality level for this output. MediaConvert
@@ -118,34 +108,43 @@ av1QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\Av1QvbrSettings' {qvbrQua
 av1QvbrSettings_qvbrQualityLevel :: Lens.Lens' Av1QvbrSettings (Prelude.Maybe Prelude.Natural)
 av1QvbrSettings_qvbrQualityLevel = Lens.lens (\Av1QvbrSettings' {qvbrQualityLevel} -> qvbrQualityLevel) (\s@Av1QvbrSettings' {} a -> s {qvbrQualityLevel = a} :: Av1QvbrSettings)
 
+-- | Optional. Specify a value here to set the QVBR quality to a level that
+-- is between whole numbers. For example, if you want your QVBR quality
+-- level to be 7.33, set qvbrQualityLevel to 7 and set
+-- qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality
+-- level to the nearest third of a whole number. For example, if you set
+-- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
+-- actual QVBR quality level is 7.33.
+av1QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' Av1QvbrSettings (Prelude.Maybe Prelude.Double)
+av1QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\Av1QvbrSettings' {qvbrQualityLevelFineTune} -> qvbrQualityLevelFineTune) (\s@Av1QvbrSettings' {} a -> s {qvbrQualityLevelFineTune = a} :: Av1QvbrSettings)
+
 instance Core.FromJSON Av1QvbrSettings where
   parseJSON =
     Core.withObject
       "Av1QvbrSettings"
       ( \x ->
           Av1QvbrSettings'
-            Prelude.<$> (x Core..:? "qvbrQualityLevelFineTune")
-            Prelude.<*> (x Core..:? "qvbrQualityLevel")
+            Prelude.<$> (x Core..:? "qvbrQualityLevel")
+            Prelude.<*> (x Core..:? "qvbrQualityLevelFineTune")
       )
 
 instance Prelude.Hashable Av1QvbrSettings where
   hashWithSalt _salt Av1QvbrSettings' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` qvbrQualityLevel
       `Prelude.hashWithSalt` qvbrQualityLevelFineTune
-      `Prelude.hashWithSalt` qvbrQualityLevel
 
 instance Prelude.NFData Av1QvbrSettings where
   rnf Av1QvbrSettings' {..} =
-    Prelude.rnf qvbrQualityLevelFineTune
-      `Prelude.seq` Prelude.rnf qvbrQualityLevel
+    Prelude.rnf qvbrQualityLevel
+      `Prelude.seq` Prelude.rnf qvbrQualityLevelFineTune
 
 instance Core.ToJSON Av1QvbrSettings where
   toJSON Av1QvbrSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("qvbrQualityLevelFineTune" Core..=)
-              Prelude.<$> qvbrQualityLevelFineTune,
-            ("qvbrQualityLevel" Core..=)
-              Prelude.<$> qvbrQualityLevel
+          [ ("qvbrQualityLevel" Core..=)
+              Prelude.<$> qvbrQualityLevel,
+            ("qvbrQualityLevelFineTune" Core..=)
+              Prelude.<$> qvbrQualityLevelFineTune
           ]
       )

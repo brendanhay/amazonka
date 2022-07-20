@@ -42,8 +42,8 @@ module Amazonka.SSM.DescribeDocumentPermission
 
     -- * Response Lenses
     describeDocumentPermissionResponse_accountIds,
-    describeDocumentPermissionResponse_accountSharingInfoList,
     describeDocumentPermissionResponse_nextToken,
+    describeDocumentPermissionResponse_accountSharingInfoList,
     describeDocumentPermissionResponse_httpStatus,
   )
 where
@@ -136,10 +136,10 @@ instance Core.AWSRequest DescribeDocumentPermission where
       ( \s h x ->
           DescribeDocumentPermissionResponse'
             Prelude.<$> (x Core..?> "AccountIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> ( x Core..?> "AccountSharingInfoList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,12 +195,12 @@ data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
   { -- | The account IDs that have permission to use this document. The ID can be
     -- either an Amazon Web Services account or /All/.
     accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | A list of Amazon Web Services accounts where the current document is
-    -- shared and the version shared with each account.
-    accountSharingInfoList :: Prelude.Maybe [AccountSharingInfo],
     -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of Amazon Web Services accounts where the current document is
+    -- shared and the version shared with each account.
+    accountSharingInfoList :: Prelude.Maybe [AccountSharingInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,11 +217,11 @@ data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
 -- 'accountIds', 'describeDocumentPermissionResponse_accountIds' - The account IDs that have permission to use this document. The ID can be
 -- either an Amazon Web Services account or /All/.
 --
--- 'accountSharingInfoList', 'describeDocumentPermissionResponse_accountSharingInfoList' - A list of Amazon Web Services accounts where the current document is
--- shared and the version shared with each account.
---
 -- 'nextToken', 'describeDocumentPermissionResponse_nextToken' - The token for the next set of items to return. Use this token to get the
 -- next set of results.
+--
+-- 'accountSharingInfoList', 'describeDocumentPermissionResponse_accountSharingInfoList' - A list of Amazon Web Services accounts where the current document is
+-- shared and the version shared with each account.
 --
 -- 'httpStatus', 'describeDocumentPermissionResponse_httpStatus' - The response's http status code.
 newDescribeDocumentPermissionResponse ::
@@ -232,9 +232,9 @@ newDescribeDocumentPermissionResponse pHttpStatus_ =
   DescribeDocumentPermissionResponse'
     { accountIds =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       accountSharingInfoList =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -243,15 +243,15 @@ newDescribeDocumentPermissionResponse pHttpStatus_ =
 describeDocumentPermissionResponse_accountIds :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe [Prelude.Text])
 describeDocumentPermissionResponse_accountIds = Lens.lens (\DescribeDocumentPermissionResponse' {accountIds} -> accountIds) (\s@DescribeDocumentPermissionResponse' {} a -> s {accountIds = a} :: DescribeDocumentPermissionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of Amazon Web Services accounts where the current document is
--- shared and the version shared with each account.
-describeDocumentPermissionResponse_accountSharingInfoList :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe [AccountSharingInfo])
-describeDocumentPermissionResponse_accountSharingInfoList = Lens.lens (\DescribeDocumentPermissionResponse' {accountSharingInfoList} -> accountSharingInfoList) (\s@DescribeDocumentPermissionResponse' {} a -> s {accountSharingInfoList = a} :: DescribeDocumentPermissionResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token for the next set of items to return. Use this token to get the
 -- next set of results.
 describeDocumentPermissionResponse_nextToken :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe Prelude.Text)
 describeDocumentPermissionResponse_nextToken = Lens.lens (\DescribeDocumentPermissionResponse' {nextToken} -> nextToken) (\s@DescribeDocumentPermissionResponse' {} a -> s {nextToken = a} :: DescribeDocumentPermissionResponse)
+
+-- | A list of Amazon Web Services accounts where the current document is
+-- shared and the version shared with each account.
+describeDocumentPermissionResponse_accountSharingInfoList :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe [AccountSharingInfo])
+describeDocumentPermissionResponse_accountSharingInfoList = Lens.lens (\DescribeDocumentPermissionResponse' {accountSharingInfoList} -> accountSharingInfoList) (\s@DescribeDocumentPermissionResponse' {} a -> s {accountSharingInfoList = a} :: DescribeDocumentPermissionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDocumentPermissionResponse_httpStatus :: Lens.Lens' DescribeDocumentPermissionResponse Prelude.Int
@@ -263,6 +263,6 @@ instance
   where
   rnf DescribeDocumentPermissionResponse' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf accountSharingInfoList
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accountSharingInfoList
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,8 +27,8 @@ module Amazonka.MemoryDb.UpdateACL
     newUpdateACL,
 
     -- * Request Lenses
-    updateACL_userNamesToAdd,
     updateACL_userNamesToRemove,
+    updateACL_userNamesToAdd,
     updateACL_aCLName,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateACL' smart constructor.
 data UpdateACL = UpdateACL'
-  { -- | The list of users to add to the Access Control List
-    userNamesToAdd :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The list of users to remove from the Access Control List
+  { -- | The list of users to remove from the Access Control List
     userNamesToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The list of users to add to the Access Control List
+    userNamesToAdd :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the Access Control List
     aCLName :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data UpdateACL = UpdateACL'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userNamesToAdd', 'updateACL_userNamesToAdd' - The list of users to add to the Access Control List
---
 -- 'userNamesToRemove', 'updateACL_userNamesToRemove' - The list of users to remove from the Access Control List
+--
+-- 'userNamesToAdd', 'updateACL_userNamesToAdd' - The list of users to add to the Access Control List
 --
 -- 'aCLName', 'updateACL_aCLName' - The name of the Access Control List
 newUpdateACL ::
@@ -78,18 +78,18 @@ newUpdateACL ::
   UpdateACL
 newUpdateACL pACLName_ =
   UpdateACL'
-    { userNamesToAdd = Prelude.Nothing,
-      userNamesToRemove = Prelude.Nothing,
+    { userNamesToRemove = Prelude.Nothing,
+      userNamesToAdd = Prelude.Nothing,
       aCLName = pACLName_
     }
-
--- | The list of users to add to the Access Control List
-updateACL_userNamesToAdd :: Lens.Lens' UpdateACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateACL_userNamesToAdd = Lens.lens (\UpdateACL' {userNamesToAdd} -> userNamesToAdd) (\s@UpdateACL' {} a -> s {userNamesToAdd = a} :: UpdateACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of users to remove from the Access Control List
 updateACL_userNamesToRemove :: Lens.Lens' UpdateACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateACL_userNamesToRemove = Lens.lens (\UpdateACL' {userNamesToRemove} -> userNamesToRemove) (\s@UpdateACL' {} a -> s {userNamesToRemove = a} :: UpdateACL) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of users to add to the Access Control List
+updateACL_userNamesToAdd :: Lens.Lens' UpdateACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateACL_userNamesToAdd = Lens.lens (\UpdateACL' {userNamesToAdd} -> userNamesToAdd) (\s@UpdateACL' {} a -> s {userNamesToAdd = a} :: UpdateACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Access Control List
 updateACL_aCLName :: Lens.Lens' UpdateACL Prelude.Text
@@ -108,14 +108,14 @@ instance Core.AWSRequest UpdateACL where
 
 instance Prelude.Hashable UpdateACL where
   hashWithSalt _salt UpdateACL' {..} =
-    _salt `Prelude.hashWithSalt` userNamesToAdd
-      `Prelude.hashWithSalt` userNamesToRemove
+    _salt `Prelude.hashWithSalt` userNamesToRemove
+      `Prelude.hashWithSalt` userNamesToAdd
       `Prelude.hashWithSalt` aCLName
 
 instance Prelude.NFData UpdateACL where
   rnf UpdateACL' {..} =
-    Prelude.rnf userNamesToAdd
-      `Prelude.seq` Prelude.rnf userNamesToRemove
+    Prelude.rnf userNamesToRemove
+      `Prelude.seq` Prelude.rnf userNamesToAdd
       `Prelude.seq` Prelude.rnf aCLName
 
 instance Core.ToHeaders UpdateACL where
@@ -135,10 +135,10 @@ instance Core.ToJSON UpdateACL where
   toJSON UpdateACL' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserNamesToAdd" Core..=)
-              Prelude.<$> userNamesToAdd,
-            ("UserNamesToRemove" Core..=)
+          [ ("UserNamesToRemove" Core..=)
               Prelude.<$> userNamesToRemove,
+            ("UserNamesToAdd" Core..=)
+              Prelude.<$> userNamesToAdd,
             Prelude.Just ("ACLName" Core..= aCLName)
           ]
       )

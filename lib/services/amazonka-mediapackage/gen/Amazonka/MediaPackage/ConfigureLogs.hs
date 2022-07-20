@@ -36,13 +36,13 @@ module Amazonka.MediaPackage.ConfigureLogs
     newConfigureLogsResponse,
 
     -- * Response Lenses
+    configureLogsResponse_tags,
     configureLogsResponse_ingressAccessLogs,
-    configureLogsResponse_hlsIngest,
     configureLogsResponse_arn,
     configureLogsResponse_id,
     configureLogsResponse_description,
     configureLogsResponse_egressAccessLogs,
-    configureLogsResponse_tags,
+    configureLogsResponse_hlsIngest,
     configureLogsResponse_httpStatus,
   )
 where
@@ -110,13 +110,13 @@ instance Core.AWSRequest ConfigureLogs where
     Response.receiveJSON
       ( \s h x ->
           ConfigureLogsResponse'
-            Prelude.<$> (x Core..?> "ingressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ingressAccessLogs")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,8 +164,8 @@ instance Core.ToQuery ConfigureLogs where
 
 -- | /See:/ 'newConfigureLogsResponse' smart constructor.
 data ConfigureLogsResponse = ConfigureLogsResponse'
-  { ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
-    hlsIngest :: Prelude.Maybe HlsIngest,
+  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
@@ -173,7 +173,7 @@ data ConfigureLogsResponse = ConfigureLogsResponse'
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,9 +187,9 @@ data ConfigureLogsResponse = ConfigureLogsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ingressAccessLogs', 'configureLogsResponse_ingressAccessLogs' - Undocumented member.
+-- 'tags', 'configureLogsResponse_tags' - Undocumented member.
 --
--- 'hlsIngest', 'configureLogsResponse_hlsIngest' - Undocumented member.
+-- 'ingressAccessLogs', 'configureLogsResponse_ingressAccessLogs' - Undocumented member.
 --
 -- 'arn', 'configureLogsResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
@@ -199,7 +199,7 @@ data ConfigureLogsResponse = ConfigureLogsResponse'
 --
 -- 'egressAccessLogs', 'configureLogsResponse_egressAccessLogs' - Undocumented member.
 --
--- 'tags', 'configureLogsResponse_tags' - Undocumented member.
+-- 'hlsIngest', 'configureLogsResponse_hlsIngest' - Undocumented member.
 --
 -- 'httpStatus', 'configureLogsResponse_httpStatus' - The response's http status code.
 newConfigureLogsResponse ::
@@ -208,24 +208,23 @@ newConfigureLogsResponse ::
   ConfigureLogsResponse
 newConfigureLogsResponse pHttpStatus_ =
   ConfigureLogsResponse'
-    { ingressAccessLogs =
-        Prelude.Nothing,
-      hlsIngest = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      ingressAccessLogs = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      hlsIngest = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-configureLogsResponse_ingressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe IngressAccessLogs)
-configureLogsResponse_ingressAccessLogs = Lens.lens (\ConfigureLogsResponse' {ingressAccessLogs} -> ingressAccessLogs) (\s@ConfigureLogsResponse' {} a -> s {ingressAccessLogs = a} :: ConfigureLogsResponse)
+configureLogsResponse_tags :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+configureLogsResponse_tags = Lens.lens (\ConfigureLogsResponse' {tags} -> tags) (\s@ConfigureLogsResponse' {} a -> s {tags = a} :: ConfigureLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-configureLogsResponse_hlsIngest :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe HlsIngest)
-configureLogsResponse_hlsIngest = Lens.lens (\ConfigureLogsResponse' {hlsIngest} -> hlsIngest) (\s@ConfigureLogsResponse' {} a -> s {hlsIngest = a} :: ConfigureLogsResponse)
+configureLogsResponse_ingressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe IngressAccessLogs)
+configureLogsResponse_ingressAccessLogs = Lens.lens (\ConfigureLogsResponse' {ingressAccessLogs} -> ingressAccessLogs) (\s@ConfigureLogsResponse' {} a -> s {ingressAccessLogs = a} :: ConfigureLogsResponse)
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 configureLogsResponse_arn :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
@@ -244,8 +243,8 @@ configureLogsResponse_egressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Prel
 configureLogsResponse_egressAccessLogs = Lens.lens (\ConfigureLogsResponse' {egressAccessLogs} -> egressAccessLogs) (\s@ConfigureLogsResponse' {} a -> s {egressAccessLogs = a} :: ConfigureLogsResponse)
 
 -- | Undocumented member.
-configureLogsResponse_tags :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-configureLogsResponse_tags = Lens.lens (\ConfigureLogsResponse' {tags} -> tags) (\s@ConfigureLogsResponse' {} a -> s {tags = a} :: ConfigureLogsResponse) Prelude.. Lens.mapping Lens.coerced
+configureLogsResponse_hlsIngest :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe HlsIngest)
+configureLogsResponse_hlsIngest = Lens.lens (\ConfigureLogsResponse' {hlsIngest} -> hlsIngest) (\s@ConfigureLogsResponse' {} a -> s {hlsIngest = a} :: ConfigureLogsResponse)
 
 -- | The response's http status code.
 configureLogsResponse_httpStatus :: Lens.Lens' ConfigureLogsResponse Prelude.Int
@@ -253,11 +252,11 @@ configureLogsResponse_httpStatus = Lens.lens (\ConfigureLogsResponse' {httpStatu
 
 instance Prelude.NFData ConfigureLogsResponse where
   rnf ConfigureLogsResponse' {..} =
-    Prelude.rnf ingressAccessLogs
-      `Prelude.seq` Prelude.rnf hlsIngest
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf ingressAccessLogs
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf hlsIngest
       `Prelude.seq` Prelude.rnf httpStatus

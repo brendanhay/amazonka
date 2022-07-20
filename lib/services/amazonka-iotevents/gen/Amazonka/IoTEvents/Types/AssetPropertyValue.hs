@@ -48,14 +48,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssetPropertyValue' smart constructor.
 data AssetPropertyValue = AssetPropertyValue'
-  { -- | The value to send to an asset property.
-    value :: Prelude.Maybe AssetPropertyVariant,
-    -- | The quality of the asset property value. The value must be @\'GOOD\'@,
+  { -- | The quality of the asset property value. The value must be @\'GOOD\'@,
     -- @\'BAD\'@, or @\'UNCERTAIN\'@.
     quality :: Prelude.Maybe Prelude.Text,
     -- | The timestamp associated with the asset property value. The default is
     -- the current event time.
-    timestamp :: Prelude.Maybe AssetPropertyTimestamp
+    timestamp :: Prelude.Maybe AssetPropertyTimestamp,
+    -- | The value to send to an asset property.
+    value :: Prelude.Maybe AssetPropertyVariant
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,25 +67,21 @@ data AssetPropertyValue = AssetPropertyValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'assetPropertyValue_value' - The value to send to an asset property.
---
 -- 'quality', 'assetPropertyValue_quality' - The quality of the asset property value. The value must be @\'GOOD\'@,
 -- @\'BAD\'@, or @\'UNCERTAIN\'@.
 --
 -- 'timestamp', 'assetPropertyValue_timestamp' - The timestamp associated with the asset property value. The default is
 -- the current event time.
+--
+-- 'value', 'assetPropertyValue_value' - The value to send to an asset property.
 newAssetPropertyValue ::
   AssetPropertyValue
 newAssetPropertyValue =
   AssetPropertyValue'
-    { value = Prelude.Nothing,
-      quality = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { quality = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value to send to an asset property.
-assetPropertyValue_value :: Lens.Lens' AssetPropertyValue (Prelude.Maybe AssetPropertyVariant)
-assetPropertyValue_value = Lens.lens (\AssetPropertyValue' {value} -> value) (\s@AssetPropertyValue' {} a -> s {value = a} :: AssetPropertyValue)
 
 -- | The quality of the asset property value. The value must be @\'GOOD\'@,
 -- @\'BAD\'@, or @\'UNCERTAIN\'@.
@@ -97,35 +93,39 @@ assetPropertyValue_quality = Lens.lens (\AssetPropertyValue' {quality} -> qualit
 assetPropertyValue_timestamp :: Lens.Lens' AssetPropertyValue (Prelude.Maybe AssetPropertyTimestamp)
 assetPropertyValue_timestamp = Lens.lens (\AssetPropertyValue' {timestamp} -> timestamp) (\s@AssetPropertyValue' {} a -> s {timestamp = a} :: AssetPropertyValue)
 
+-- | The value to send to an asset property.
+assetPropertyValue_value :: Lens.Lens' AssetPropertyValue (Prelude.Maybe AssetPropertyVariant)
+assetPropertyValue_value = Lens.lens (\AssetPropertyValue' {value} -> value) (\s@AssetPropertyValue' {} a -> s {value = a} :: AssetPropertyValue)
+
 instance Core.FromJSON AssetPropertyValue where
   parseJSON =
     Core.withObject
       "AssetPropertyValue"
       ( \x ->
           AssetPropertyValue'
-            Prelude.<$> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "quality")
+            Prelude.<$> (x Core..:? "quality")
             Prelude.<*> (x Core..:? "timestamp")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable AssetPropertyValue where
   hashWithSalt _salt AssetPropertyValue' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` quality
+    _salt `Prelude.hashWithSalt` quality
       `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AssetPropertyValue where
   rnf AssetPropertyValue' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf quality
+    Prelude.rnf quality
       `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON AssetPropertyValue where
   toJSON AssetPropertyValue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("value" Core..=) Prelude.<$> value,
-            ("quality" Core..=) Prelude.<$> quality,
-            ("timestamp" Core..=) Prelude.<$> timestamp
+          [ ("quality" Core..=) Prelude.<$> quality,
+            ("timestamp" Core..=) Prelude.<$> timestamp,
+            ("value" Core..=) Prelude.<$> value
           ]
       )

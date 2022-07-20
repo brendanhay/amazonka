@@ -42,8 +42,8 @@ module Amazonka.Connect.ListLambdaFunctions
     newListLambdaFunctionsResponse,
 
     -- * Response Lenses
-    listLambdaFunctionsResponse_lambdaFunctions,
     listLambdaFunctionsResponse_nextToken,
+    listLambdaFunctionsResponse_lambdaFunctions,
     listLambdaFunctionsResponse_httpStatus,
   )
 where
@@ -142,10 +142,10 @@ instance Core.AWSRequest ListLambdaFunctions where
     Response.receiveJSON
       ( \s h x ->
           ListLambdaFunctionsResponse'
-            Prelude.<$> ( x Core..?> "LambdaFunctions"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "LambdaFunctions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,11 +189,11 @@ instance Core.ToQuery ListLambdaFunctions where
 
 -- | /See:/ 'newListLambdaFunctionsResponse' smart constructor.
 data ListLambdaFunctionsResponse = ListLambdaFunctionsResponse'
-  { -- | The Lambdafunction ARNs associated with the specified instance.
-    lambdaFunctions :: Prelude.Maybe [Prelude.Text],
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Lambdafunction ARNs associated with the specified instance.
+    lambdaFunctions :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,10 +207,10 @@ data ListLambdaFunctionsResponse = ListLambdaFunctionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaFunctions', 'listLambdaFunctionsResponse_lambdaFunctions' - The Lambdafunction ARNs associated with the specified instance.
---
 -- 'nextToken', 'listLambdaFunctionsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'lambdaFunctions', 'listLambdaFunctionsResponse_lambdaFunctions' - The Lambdafunction ARNs associated with the specified instance.
 --
 -- 'httpStatus', 'listLambdaFunctionsResponse_httpStatus' - The response's http status code.
 newListLambdaFunctionsResponse ::
@@ -219,20 +219,20 @@ newListLambdaFunctionsResponse ::
   ListLambdaFunctionsResponse
 newListLambdaFunctionsResponse pHttpStatus_ =
   ListLambdaFunctionsResponse'
-    { lambdaFunctions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      lambdaFunctions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Lambdafunction ARNs associated with the specified instance.
-listLambdaFunctionsResponse_lambdaFunctions :: Lens.Lens' ListLambdaFunctionsResponse (Prelude.Maybe [Prelude.Text])
-listLambdaFunctionsResponse_lambdaFunctions = Lens.lens (\ListLambdaFunctionsResponse' {lambdaFunctions} -> lambdaFunctions) (\s@ListLambdaFunctionsResponse' {} a -> s {lambdaFunctions = a} :: ListLambdaFunctionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listLambdaFunctionsResponse_nextToken :: Lens.Lens' ListLambdaFunctionsResponse (Prelude.Maybe Prelude.Text)
 listLambdaFunctionsResponse_nextToken = Lens.lens (\ListLambdaFunctionsResponse' {nextToken} -> nextToken) (\s@ListLambdaFunctionsResponse' {} a -> s {nextToken = a} :: ListLambdaFunctionsResponse)
+
+-- | The Lambdafunction ARNs associated with the specified instance.
+listLambdaFunctionsResponse_lambdaFunctions :: Lens.Lens' ListLambdaFunctionsResponse (Prelude.Maybe [Prelude.Text])
+listLambdaFunctionsResponse_lambdaFunctions = Lens.lens (\ListLambdaFunctionsResponse' {lambdaFunctions} -> lambdaFunctions) (\s@ListLambdaFunctionsResponse' {} a -> s {lambdaFunctions = a} :: ListLambdaFunctionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLambdaFunctionsResponse_httpStatus :: Lens.Lens' ListLambdaFunctionsResponse Prelude.Int
@@ -240,6 +240,6 @@ listLambdaFunctionsResponse_httpStatus = Lens.lens (\ListLambdaFunctionsResponse
 
 instance Prelude.NFData ListLambdaFunctionsResponse where
   rnf ListLambdaFunctionsResponse' {..} =
-    Prelude.rnf lambdaFunctions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lambdaFunctions
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,7 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaFunctionRecipeSource' smart constructor.
 data LambdaFunctionRecipeSource = LambdaFunctionRecipeSource'
-  { -- | The system and runtime parameters for the Lambda function as it runs on
+  { -- | The platforms that the component version supports.
+    componentPlatforms :: Prelude.Maybe [ComponentPlatform],
+    -- | The component versions on which this Lambda function component depends.
+    componentDependencies :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDependencyRequirement),
+    -- | The system and runtime parameters for the Lambda function as it runs on
     -- the Greengrass core device.
     componentLambdaParameters :: Prelude.Maybe LambdaExecutionParameters,
     -- | The version of the component.
@@ -44,10 +48,6 @@ data LambdaFunctionRecipeSource = LambdaFunctionRecipeSource'
     --
     -- Defaults to the name of the Lambda function.
     componentName :: Prelude.Maybe Prelude.Text,
-    -- | The platforms that the component version supports.
-    componentPlatforms :: Prelude.Maybe [ComponentPlatform],
-    -- | The component versions on which this Lambda function component depends.
-    componentDependencies :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDependencyRequirement),
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- of the Lambda function. The ARN must include the version of the function
@@ -64,6 +64,10 @@ data LambdaFunctionRecipeSource = LambdaFunctionRecipeSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'componentPlatforms', 'lambdaFunctionRecipeSource_componentPlatforms' - The platforms that the component version supports.
+--
+-- 'componentDependencies', 'lambdaFunctionRecipeSource_componentDependencies' - The component versions on which this Lambda function component depends.
+--
 -- 'componentLambdaParameters', 'lambdaFunctionRecipeSource_componentLambdaParameters' - The system and runtime parameters for the Lambda function as it runs on
 -- the Greengrass core device.
 --
@@ -77,10 +81,6 @@ data LambdaFunctionRecipeSource = LambdaFunctionRecipeSource'
 --
 -- Defaults to the name of the Lambda function.
 --
--- 'componentPlatforms', 'lambdaFunctionRecipeSource_componentPlatforms' - The platforms that the component version supports.
---
--- 'componentDependencies', 'lambdaFunctionRecipeSource_componentDependencies' - The component versions on which this Lambda function component depends.
---
 -- 'lambdaArn', 'lambdaFunctionRecipeSource_lambdaArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the Lambda function. The ARN must include the version of the function
@@ -91,14 +91,22 @@ newLambdaFunctionRecipeSource ::
   LambdaFunctionRecipeSource
 newLambdaFunctionRecipeSource pLambdaArn_ =
   LambdaFunctionRecipeSource'
-    { componentLambdaParameters =
+    { componentPlatforms =
         Prelude.Nothing,
+      componentDependencies = Prelude.Nothing,
+      componentLambdaParameters = Prelude.Nothing,
       componentVersion = Prelude.Nothing,
       componentName = Prelude.Nothing,
-      componentPlatforms = Prelude.Nothing,
-      componentDependencies = Prelude.Nothing,
       lambdaArn = pLambdaArn_
     }
+
+-- | The platforms that the component version supports.
+lambdaFunctionRecipeSource_componentPlatforms :: Lens.Lens' LambdaFunctionRecipeSource (Prelude.Maybe [ComponentPlatform])
+lambdaFunctionRecipeSource_componentPlatforms = Lens.lens (\LambdaFunctionRecipeSource' {componentPlatforms} -> componentPlatforms) (\s@LambdaFunctionRecipeSource' {} a -> s {componentPlatforms = a} :: LambdaFunctionRecipeSource) Prelude.. Lens.mapping Lens.coerced
+
+-- | The component versions on which this Lambda function component depends.
+lambdaFunctionRecipeSource_componentDependencies :: Lens.Lens' LambdaFunctionRecipeSource (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDependencyRequirement))
+lambdaFunctionRecipeSource_componentDependencies = Lens.lens (\LambdaFunctionRecipeSource' {componentDependencies} -> componentDependencies) (\s@LambdaFunctionRecipeSource' {} a -> s {componentDependencies = a} :: LambdaFunctionRecipeSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The system and runtime parameters for the Lambda function as it runs on
 -- the Greengrass core device.
@@ -119,14 +127,6 @@ lambdaFunctionRecipeSource_componentVersion = Lens.lens (\LambdaFunctionRecipeSo
 lambdaFunctionRecipeSource_componentName :: Lens.Lens' LambdaFunctionRecipeSource (Prelude.Maybe Prelude.Text)
 lambdaFunctionRecipeSource_componentName = Lens.lens (\LambdaFunctionRecipeSource' {componentName} -> componentName) (\s@LambdaFunctionRecipeSource' {} a -> s {componentName = a} :: LambdaFunctionRecipeSource)
 
--- | The platforms that the component version supports.
-lambdaFunctionRecipeSource_componentPlatforms :: Lens.Lens' LambdaFunctionRecipeSource (Prelude.Maybe [ComponentPlatform])
-lambdaFunctionRecipeSource_componentPlatforms = Lens.lens (\LambdaFunctionRecipeSource' {componentPlatforms} -> componentPlatforms) (\s@LambdaFunctionRecipeSource' {} a -> s {componentPlatforms = a} :: LambdaFunctionRecipeSource) Prelude.. Lens.mapping Lens.coerced
-
--- | The component versions on which this Lambda function component depends.
-lambdaFunctionRecipeSource_componentDependencies :: Lens.Lens' LambdaFunctionRecipeSource (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDependencyRequirement))
-lambdaFunctionRecipeSource_componentDependencies = Lens.lens (\LambdaFunctionRecipeSource' {componentDependencies} -> componentDependencies) (\s@LambdaFunctionRecipeSource' {} a -> s {componentDependencies = a} :: LambdaFunctionRecipeSource) Prelude.. Lens.mapping Lens.coerced
-
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the Lambda function. The ARN must include the version of the function
@@ -136,36 +136,35 @@ lambdaFunctionRecipeSource_lambdaArn = Lens.lens (\LambdaFunctionRecipeSource' {
 
 instance Prelude.Hashable LambdaFunctionRecipeSource where
   hashWithSalt _salt LambdaFunctionRecipeSource' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` componentPlatforms
+      `Prelude.hashWithSalt` componentDependencies
       `Prelude.hashWithSalt` componentLambdaParameters
       `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` componentName
-      `Prelude.hashWithSalt` componentPlatforms
-      `Prelude.hashWithSalt` componentDependencies
       `Prelude.hashWithSalt` lambdaArn
 
 instance Prelude.NFData LambdaFunctionRecipeSource where
   rnf LambdaFunctionRecipeSource' {..} =
-    Prelude.rnf componentLambdaParameters
+    Prelude.rnf componentPlatforms
+      `Prelude.seq` Prelude.rnf componentDependencies
+      `Prelude.seq` Prelude.rnf componentLambdaParameters
       `Prelude.seq` Prelude.rnf componentVersion
       `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf componentPlatforms
-      `Prelude.seq` Prelude.rnf componentDependencies
       `Prelude.seq` Prelude.rnf lambdaArn
 
 instance Core.ToJSON LambdaFunctionRecipeSource where
   toJSON LambdaFunctionRecipeSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("componentLambdaParameters" Core..=)
+          [ ("componentPlatforms" Core..=)
+              Prelude.<$> componentPlatforms,
+            ("componentDependencies" Core..=)
+              Prelude.<$> componentDependencies,
+            ("componentLambdaParameters" Core..=)
               Prelude.<$> componentLambdaParameters,
             ("componentVersion" Core..=)
               Prelude.<$> componentVersion,
             ("componentName" Core..=) Prelude.<$> componentName,
-            ("componentPlatforms" Core..=)
-              Prelude.<$> componentPlatforms,
-            ("componentDependencies" Core..=)
-              Prelude.<$> componentDependencies,
             Prelude.Just ("lambdaArn" Core..= lambdaArn)
           ]
       )

@@ -27,15 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAudioCodecOptions' smart constructor.
 data AudioCodecOptions = AudioCodecOptions'
-  { -- | You can only choose whether an audio sample is signed when you specify
-    -- @pcm@ for the value of Audio:Codec.
-    --
-    -- Whether audio samples are represented with negative and positive numbers
-    -- (signed) or only positive numbers (unsigned).
-    --
-    -- The supported value is @Signed@.
-    signed :: Prelude.Maybe Prelude.Text,
-    -- | You can only choose an audio bit depth when you specify @flac@ or @pcm@
+  { -- | You can only choose an audio bit depth when you specify @flac@ or @pcm@
     -- for the value of Audio:Codec.
     --
     -- The bit depth of a sample is how many bits of information are included
@@ -77,7 +69,15 @@ data AudioCodecOptions = AudioCodecOptions'
     -- The order the bits of a PCM sample are stored in.
     --
     -- The supported value is @LittleEndian@.
-    bitOrder :: Prelude.Maybe Prelude.Text
+    bitOrder :: Prelude.Maybe Prelude.Text,
+    -- | You can only choose whether an audio sample is signed when you specify
+    -- @pcm@ for the value of Audio:Codec.
+    --
+    -- Whether audio samples are represented with negative and positive numbers
+    -- (signed) or only positive numbers (unsigned).
+    --
+    -- The supported value is @Signed@.
+    signed :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,14 +88,6 @@ data AudioCodecOptions = AudioCodecOptions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'signed', 'audioCodecOptions_signed' - You can only choose whether an audio sample is signed when you specify
--- @pcm@ for the value of Audio:Codec.
---
--- Whether audio samples are represented with negative and positive numbers
--- (signed) or only positive numbers (unsigned).
---
--- The supported value is @Signed@.
 --
 -- 'bitDepth', 'audioCodecOptions_bitDepth' - You can only choose an audio bit depth when you specify @flac@ or @pcm@
 -- for the value of Audio:Codec.
@@ -139,25 +131,23 @@ data AudioCodecOptions = AudioCodecOptions'
 -- The order the bits of a PCM sample are stored in.
 --
 -- The supported value is @LittleEndian@.
-newAudioCodecOptions ::
-  AudioCodecOptions
-newAudioCodecOptions =
-  AudioCodecOptions'
-    { signed = Prelude.Nothing,
-      bitDepth = Prelude.Nothing,
-      profile = Prelude.Nothing,
-      bitOrder = Prelude.Nothing
-    }
-
--- | You can only choose whether an audio sample is signed when you specify
+--
+-- 'signed', 'audioCodecOptions_signed' - You can only choose whether an audio sample is signed when you specify
 -- @pcm@ for the value of Audio:Codec.
 --
 -- Whether audio samples are represented with negative and positive numbers
 -- (signed) or only positive numbers (unsigned).
 --
 -- The supported value is @Signed@.
-audioCodecOptions_signed :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
-audioCodecOptions_signed = Lens.lens (\AudioCodecOptions' {signed} -> signed) (\s@AudioCodecOptions' {} a -> s {signed = a} :: AudioCodecOptions)
+newAudioCodecOptions ::
+  AudioCodecOptions
+newAudioCodecOptions =
+  AudioCodecOptions'
+    { bitDepth = Prelude.Nothing,
+      profile = Prelude.Nothing,
+      bitOrder = Prelude.Nothing,
+      signed = Prelude.Nothing
+    }
 
 -- | You can only choose an audio bit depth when you specify @flac@ or @pcm@
 -- for the value of Audio:Codec.
@@ -208,39 +198,49 @@ audioCodecOptions_profile = Lens.lens (\AudioCodecOptions' {profile} -> profile)
 audioCodecOptions_bitOrder :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
 audioCodecOptions_bitOrder = Lens.lens (\AudioCodecOptions' {bitOrder} -> bitOrder) (\s@AudioCodecOptions' {} a -> s {bitOrder = a} :: AudioCodecOptions)
 
+-- | You can only choose whether an audio sample is signed when you specify
+-- @pcm@ for the value of Audio:Codec.
+--
+-- Whether audio samples are represented with negative and positive numbers
+-- (signed) or only positive numbers (unsigned).
+--
+-- The supported value is @Signed@.
+audioCodecOptions_signed :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
+audioCodecOptions_signed = Lens.lens (\AudioCodecOptions' {signed} -> signed) (\s@AudioCodecOptions' {} a -> s {signed = a} :: AudioCodecOptions)
+
 instance Core.FromJSON AudioCodecOptions where
   parseJSON =
     Core.withObject
       "AudioCodecOptions"
       ( \x ->
           AudioCodecOptions'
-            Prelude.<$> (x Core..:? "Signed")
-            Prelude.<*> (x Core..:? "BitDepth")
+            Prelude.<$> (x Core..:? "BitDepth")
             Prelude.<*> (x Core..:? "Profile")
             Prelude.<*> (x Core..:? "BitOrder")
+            Prelude.<*> (x Core..:? "Signed")
       )
 
 instance Prelude.Hashable AudioCodecOptions where
   hashWithSalt _salt AudioCodecOptions' {..} =
-    _salt `Prelude.hashWithSalt` signed
-      `Prelude.hashWithSalt` bitDepth
+    _salt `Prelude.hashWithSalt` bitDepth
       `Prelude.hashWithSalt` profile
       `Prelude.hashWithSalt` bitOrder
+      `Prelude.hashWithSalt` signed
 
 instance Prelude.NFData AudioCodecOptions where
   rnf AudioCodecOptions' {..} =
-    Prelude.rnf signed
-      `Prelude.seq` Prelude.rnf bitDepth
+    Prelude.rnf bitDepth
       `Prelude.seq` Prelude.rnf profile
       `Prelude.seq` Prelude.rnf bitOrder
+      `Prelude.seq` Prelude.rnf signed
 
 instance Core.ToJSON AudioCodecOptions where
   toJSON AudioCodecOptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Signed" Core..=) Prelude.<$> signed,
-            ("BitDepth" Core..=) Prelude.<$> bitDepth,
+          [ ("BitDepth" Core..=) Prelude.<$> bitDepth,
             ("Profile" Core..=) Prelude.<$> profile,
-            ("BitOrder" Core..=) Prelude.<$> bitOrder
+            ("BitOrder" Core..=) Prelude.<$> bitOrder,
+            ("Signed" Core..=) Prelude.<$> signed
           ]
       )

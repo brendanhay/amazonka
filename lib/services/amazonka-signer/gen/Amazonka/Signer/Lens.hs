@@ -14,43 +14,6 @@
 module Amazonka.Signer.Lens
   ( -- * Operations
 
-    -- ** StartSigningJob
-    startSigningJob_profileOwner,
-    startSigningJob_source,
-    startSigningJob_destination,
-    startSigningJob_profileName,
-    startSigningJob_clientRequestToken,
-    startSigningJobResponse_jobId,
-    startSigningJobResponse_jobOwner,
-    startSigningJobResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** RevokeSigningProfile
-    revokeSigningProfile_profileVersion,
-    revokeSigningProfile_reason,
-    revokeSigningProfile_effectiveTime,
-    revokeSigningProfile_profileName,
-
-    -- ** CancelSigningProfile
-    cancelSigningProfile_profileName,
-
-    -- ** PutSigningProfile
-    putSigningProfile_overrides,
-    putSigningProfile_signingMaterial,
-    putSigningProfile_signatureValidityPeriod,
-    putSigningProfile_signingParameters,
-    putSigningProfile_tags,
-    putSigningProfile_profileName,
-    putSigningProfile_platformId,
-    putSigningProfileResponse_arn,
-    putSigningProfileResponse_profileVersion,
-    putSigningProfileResponse_profileVersionArn,
-    putSigningProfileResponse_httpStatus,
-
     -- ** AddProfilePermission
     addProfilePermission_profileVersion,
     addProfilePermission_revisionId,
@@ -61,66 +24,152 @@ module Amazonka.Signer.Lens
     addProfilePermissionResponse_revisionId,
     addProfilePermissionResponse_httpStatus,
 
-    -- ** ListSigningProfiles
-    listSigningProfiles_nextToken,
-    listSigningProfiles_platformId,
-    listSigningProfiles_statuses,
-    listSigningProfiles_includeCanceled,
-    listSigningProfiles_maxResults,
-    listSigningProfilesResponse_profiles,
-    listSigningProfilesResponse_nextToken,
-    listSigningProfilesResponse_httpStatus,
+    -- ** CancelSigningProfile
+    cancelSigningProfile_profileName,
+
+    -- ** DescribeSigningJob
+    describeSigningJob_jobId,
+    describeSigningJobResponse_jobOwner,
+    describeSigningJobResponse_jobInvoker,
+    describeSigningJobResponse_profileName,
+    describeSigningJobResponse_signingParameters,
+    describeSigningJobResponse_signedObject,
+    describeSigningJobResponse_platformDisplayName,
+    describeSigningJobResponse_statusReason,
+    describeSigningJobResponse_jobId,
+    describeSigningJobResponse_status,
+    describeSigningJobResponse_profileVersion,
+    describeSigningJobResponse_revocationRecord,
+    describeSigningJobResponse_signingMaterial,
+    describeSigningJobResponse_source,
+    describeSigningJobResponse_requestedBy,
+    describeSigningJobResponse_signatureExpiresAt,
+    describeSigningJobResponse_completedAt,
+    describeSigningJobResponse_createdAt,
+    describeSigningJobResponse_platformId,
+    describeSigningJobResponse_overrides,
+    describeSigningJobResponse_httpStatus,
+
+    -- ** GetSigningPlatform
+    getSigningPlatform_platformId,
+    getSigningPlatformResponse_signingImageFormat,
+    getSigningPlatformResponse_partner,
+    getSigningPlatformResponse_signingConfiguration,
+    getSigningPlatformResponse_displayName,
+    getSigningPlatformResponse_target,
+    getSigningPlatformResponse_category,
+    getSigningPlatformResponse_revocationSupported,
+    getSigningPlatformResponse_platformId,
+    getSigningPlatformResponse_maxSizeInMB,
+    getSigningPlatformResponse_httpStatus,
+
+    -- ** GetSigningProfile
+    getSigningProfile_profileOwner,
+    getSigningProfile_profileName,
+    getSigningProfileResponse_tags,
+    getSigningProfileResponse_signatureValidityPeriod,
+    getSigningProfileResponse_profileName,
+    getSigningProfileResponse_signingParameters,
+    getSigningProfileResponse_profileVersionArn,
+    getSigningProfileResponse_platformDisplayName,
+    getSigningProfileResponse_arn,
+    getSigningProfileResponse_statusReason,
+    getSigningProfileResponse_status,
+    getSigningProfileResponse_profileVersion,
+    getSigningProfileResponse_revocationRecord,
+    getSigningProfileResponse_signingMaterial,
+    getSigningProfileResponse_platformId,
+    getSigningProfileResponse_overrides,
+    getSigningProfileResponse_httpStatus,
 
     -- ** ListProfilePermissions
     listProfilePermissions_nextToken,
     listProfilePermissions_profileName,
-    listProfilePermissionsResponse_policySizeBytes,
     listProfilePermissionsResponse_nextToken,
     listProfilePermissionsResponse_permissions,
     listProfilePermissionsResponse_revisionId,
+    listProfilePermissionsResponse_policySizeBytes,
     listProfilePermissionsResponse_httpStatus,
+
+    -- ** ListSigningJobs
+    listSigningJobs_signatureExpiresBefore,
+    listSigningJobs_nextToken,
+    listSigningJobs_jobInvoker,
+    listSigningJobs_status,
+    listSigningJobs_maxResults,
+    listSigningJobs_isRevoked,
+    listSigningJobs_requestedBy,
+    listSigningJobs_signatureExpiresAfter,
+    listSigningJobs_platformId,
+    listSigningJobsResponse_nextToken,
+    listSigningJobsResponse_jobs,
+    listSigningJobsResponse_httpStatus,
+
+    -- ** ListSigningPlatforms
+    listSigningPlatforms_partner,
+    listSigningPlatforms_nextToken,
+    listSigningPlatforms_target,
+    listSigningPlatforms_maxResults,
+    listSigningPlatforms_category,
+    listSigningPlatformsResponse_nextToken,
+    listSigningPlatformsResponse_platforms,
+    listSigningPlatformsResponse_httpStatus,
+
+    -- ** ListSigningProfiles
+    listSigningProfiles_nextToken,
+    listSigningProfiles_includeCanceled,
+    listSigningProfiles_statuses,
+    listSigningProfiles_maxResults,
+    listSigningProfiles_platformId,
+    listSigningProfilesResponse_nextToken,
+    listSigningProfilesResponse_profiles,
+    listSigningProfilesResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** PutSigningProfile
+    putSigningProfile_tags,
+    putSigningProfile_signatureValidityPeriod,
+    putSigningProfile_signingParameters,
+    putSigningProfile_signingMaterial,
+    putSigningProfile_overrides,
+    putSigningProfile_profileName,
+    putSigningProfile_platformId,
+    putSigningProfileResponse_profileVersionArn,
+    putSigningProfileResponse_arn,
+    putSigningProfileResponse_profileVersion,
+    putSigningProfileResponse_httpStatus,
+
+    -- ** RemoveProfilePermission
+    removeProfilePermission_revisionId,
+    removeProfilePermission_profileName,
+    removeProfilePermission_statementId,
+    removeProfilePermissionResponse_revisionId,
+    removeProfilePermissionResponse_httpStatus,
 
     -- ** RevokeSignature
     revokeSignature_jobOwner,
     revokeSignature_reason,
     revokeSignature_jobId,
 
-    -- ** GetSigningPlatform
-    getSigningPlatform_platformId,
-    getSigningPlatformResponse_category,
-    getSigningPlatformResponse_signingConfiguration,
-    getSigningPlatformResponse_partner,
-    getSigningPlatformResponse_revocationSupported,
-    getSigningPlatformResponse_signingImageFormat,
-    getSigningPlatformResponse_platformId,
-    getSigningPlatformResponse_displayName,
-    getSigningPlatformResponse_maxSizeInMB,
-    getSigningPlatformResponse_target,
-    getSigningPlatformResponse_httpStatus,
+    -- ** RevokeSigningProfile
+    revokeSigningProfile_profileVersion,
+    revokeSigningProfile_reason,
+    revokeSigningProfile_effectiveTime,
+    revokeSigningProfile_profileName,
 
-    -- ** ListSigningPlatforms
-    listSigningPlatforms_category,
-    listSigningPlatforms_partner,
-    listSigningPlatforms_nextToken,
-    listSigningPlatforms_maxResults,
-    listSigningPlatforms_target,
-    listSigningPlatformsResponse_platforms,
-    listSigningPlatformsResponse_nextToken,
-    listSigningPlatformsResponse_httpStatus,
-
-    -- ** ListSigningJobs
-    listSigningJobs_status,
-    listSigningJobs_signatureExpiresAfter,
-    listSigningJobs_requestedBy,
-    listSigningJobs_isRevoked,
-    listSigningJobs_nextToken,
-    listSigningJobs_platformId,
-    listSigningJobs_jobInvoker,
-    listSigningJobs_signatureExpiresBefore,
-    listSigningJobs_maxResults,
-    listSigningJobsResponse_jobs,
-    listSigningJobsResponse_nextToken,
-    listSigningJobsResponse_httpStatus,
+    -- ** StartSigningJob
+    startSigningJob_profileOwner,
+    startSigningJob_source,
+    startSigningJob_destination,
+    startSigningJob_profileName,
+    startSigningJob_clientRequestToken,
+    startSigningJobResponse_jobOwner,
+    startSigningJobResponse_jobId,
+    startSigningJobResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -131,55 +180,6 @@ module Amazonka.Signer.Lens
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
-
-    -- ** RemoveProfilePermission
-    removeProfilePermission_revisionId,
-    removeProfilePermission_profileName,
-    removeProfilePermission_statementId,
-    removeProfilePermissionResponse_revisionId,
-    removeProfilePermissionResponse_httpStatus,
-
-    -- ** GetSigningProfile
-    getSigningProfile_profileOwner,
-    getSigningProfile_profileName,
-    getSigningProfileResponse_status,
-    getSigningProfileResponse_overrides,
-    getSigningProfileResponse_platformDisplayName,
-    getSigningProfileResponse_arn,
-    getSigningProfileResponse_signingMaterial,
-    getSigningProfileResponse_profileVersion,
-    getSigningProfileResponse_profileName,
-    getSigningProfileResponse_profileVersionArn,
-    getSigningProfileResponse_platformId,
-    getSigningProfileResponse_revocationRecord,
-    getSigningProfileResponse_statusReason,
-    getSigningProfileResponse_signatureValidityPeriod,
-    getSigningProfileResponse_signingParameters,
-    getSigningProfileResponse_tags,
-    getSigningProfileResponse_httpStatus,
-
-    -- ** DescribeSigningJob
-    describeSigningJob_jobId,
-    describeSigningJobResponse_status,
-    describeSigningJobResponse_overrides,
-    describeSigningJobResponse_platformDisplayName,
-    describeSigningJobResponse_jobId,
-    describeSigningJobResponse_createdAt,
-    describeSigningJobResponse_signingMaterial,
-    describeSigningJobResponse_requestedBy,
-    describeSigningJobResponse_signatureExpiresAt,
-    describeSigningJobResponse_profileVersion,
-    describeSigningJobResponse_profileName,
-    describeSigningJobResponse_signedObject,
-    describeSigningJobResponse_platformId,
-    describeSigningJobResponse_source,
-    describeSigningJobResponse_revocationRecord,
-    describeSigningJobResponse_jobInvoker,
-    describeSigningJobResponse_completedAt,
-    describeSigningJobResponse_statusReason,
-    describeSigningJobResponse_jobOwner,
-    describeSigningJobResponse_signingParameters,
-    describeSigningJobResponse_httpStatus,
 
     -- * Types
 
@@ -195,18 +195,18 @@ module Amazonka.Signer.Lens
     hashAlgorithmOptions_defaultValue,
 
     -- ** Permission
-    permission_action,
-    permission_profileVersion,
     permission_principal,
     permission_statementId,
+    permission_profileVersion,
+    permission_action,
 
     -- ** S3Destination
-    s3Destination_prefix,
     s3Destination_bucketName,
+    s3Destination_prefix,
 
     -- ** S3SignedObject
-    s3SignedObject_bucketName,
     s3SignedObject_key,
+    s3SignedObject_bucketName,
 
     -- ** S3Source
     s3Source_bucketName,
@@ -214,8 +214,8 @@ module Amazonka.Signer.Lens
     s3Source_version,
 
     -- ** SignatureValidityPeriod
-    signatureValidityPeriod_value,
     signatureValidityPeriod_type,
+    signatureValidityPeriod_value,
 
     -- ** SignedObject
     signedObject_s3,
@@ -225,69 +225,69 @@ module Amazonka.Signer.Lens
     signingConfiguration_hashAlgorithmOptions,
 
     -- ** SigningConfigurationOverrides
-    signingConfigurationOverrides_hashAlgorithm,
     signingConfigurationOverrides_encryptionAlgorithm,
+    signingConfigurationOverrides_hashAlgorithm,
 
     -- ** SigningImageFormat
     signingImageFormat_supportedFormats,
     signingImageFormat_defaultFormat,
 
     -- ** SigningJob
-    signingJob_status,
-    signingJob_platformDisplayName,
-    signingJob_jobId,
-    signingJob_createdAt,
-    signingJob_signingMaterial,
-    signingJob_isRevoked,
-    signingJob_signatureExpiresAt,
-    signingJob_profileVersion,
+    signingJob_jobOwner,
+    signingJob_jobInvoker,
     signingJob_profileName,
     signingJob_signedObject,
-    signingJob_platformId,
+    signingJob_platformDisplayName,
+    signingJob_jobId,
+    signingJob_status,
+    signingJob_profileVersion,
+    signingJob_signingMaterial,
     signingJob_source,
-    signingJob_jobInvoker,
-    signingJob_jobOwner,
+    signingJob_isRevoked,
+    signingJob_signatureExpiresAt,
+    signingJob_createdAt,
+    signingJob_platformId,
 
     -- ** SigningJobRevocationRecord
-    signingJobRevocationRecord_revokedBy,
-    signingJobRevocationRecord_revokedAt,
     signingJobRevocationRecord_reason,
+    signingJobRevocationRecord_revokedAt,
+    signingJobRevocationRecord_revokedBy,
 
     -- ** SigningMaterial
     signingMaterial_certificateArn,
 
     -- ** SigningPlatform
-    signingPlatform_category,
-    signingPlatform_signingConfiguration,
-    signingPlatform_partner,
-    signingPlatform_revocationSupported,
     signingPlatform_signingImageFormat,
-    signingPlatform_platformId,
+    signingPlatform_partner,
+    signingPlatform_signingConfiguration,
     signingPlatform_displayName,
-    signingPlatform_maxSizeInMB,
     signingPlatform_target,
+    signingPlatform_category,
+    signingPlatform_revocationSupported,
+    signingPlatform_platformId,
+    signingPlatform_maxSizeInMB,
 
     -- ** SigningPlatformOverrides
-    signingPlatformOverrides_signingConfiguration,
     signingPlatformOverrides_signingImageFormat,
+    signingPlatformOverrides_signingConfiguration,
 
     -- ** SigningProfile
-    signingProfile_status,
+    signingProfile_tags,
+    signingProfile_signatureValidityPeriod,
+    signingProfile_profileName,
+    signingProfile_signingParameters,
+    signingProfile_profileVersionArn,
     signingProfile_platformDisplayName,
     signingProfile_arn,
-    signingProfile_signingMaterial,
+    signingProfile_status,
     signingProfile_profileVersion,
-    signingProfile_profileName,
-    signingProfile_profileVersionArn,
+    signingProfile_signingMaterial,
     signingProfile_platformId,
-    signingProfile_signatureValidityPeriod,
-    signingProfile_signingParameters,
-    signingProfile_tags,
 
     -- ** SigningProfileRevocationRecord
-    signingProfileRevocationRecord_revokedBy,
     signingProfileRevocationRecord_revocationEffectiveFrom,
     signingProfileRevocationRecord_revokedAt,
+    signingProfileRevocationRecord_revokedBy,
 
     -- ** Source
     source_s3,

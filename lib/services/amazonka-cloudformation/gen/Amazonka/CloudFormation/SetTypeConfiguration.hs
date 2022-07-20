@@ -41,10 +41,10 @@ module Amazonka.CloudFormation.SetTypeConfiguration
     newSetTypeConfiguration,
 
     -- * Request Lenses
-    setTypeConfiguration_typeName,
-    setTypeConfiguration_typeArn,
     setTypeConfiguration_type,
+    setTypeConfiguration_typeArn,
     setTypeConfiguration_configurationAlias,
+    setTypeConfiguration_typeName,
     setTypeConfiguration_configuration,
 
     -- * Destructuring the Response
@@ -66,11 +66,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetTypeConfiguration' smart constructor.
 data SetTypeConfiguration = SetTypeConfiguration'
-  { -- | The name of the extension.
+  { -- | The type of extension.
     --
     -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
     -- @TypeName@.
-    typeName :: Prelude.Maybe Prelude.Text,
+    type' :: Prelude.Maybe ThirdPartyType,
     -- | The Amazon Resource Name (ARN) for the extension, in this account and
     -- region.
     --
@@ -85,16 +85,16 @@ data SetTypeConfiguration = SetTypeConfiguration'
     -- can set the configuration for an extension, but not for a specific
     -- extension version.
     typeArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of extension.
-    --
-    -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
-    -- @TypeName@.
-    type' :: Prelude.Maybe ThirdPartyType,
     -- | An alias by which to refer to this extension configuration data.
     --
     -- Conditional: Specifying a configuration alias is required when setting a
     -- configuration for a resource type extension.
     configurationAlias :: Prelude.Maybe Prelude.Text,
+    -- | The name of the extension.
+    --
+    -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
+    -- @TypeName@.
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The configuration data for the extension, in this account and region.
     --
     -- The configuration data must be formatted as JSON, and validate against
@@ -115,7 +115,7 @@ data SetTypeConfiguration = SetTypeConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeName', 'setTypeConfiguration_typeName' - The name of the extension.
+-- 'type'', 'setTypeConfiguration_type' - The type of extension.
 --
 -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
 -- @TypeName@.
@@ -134,15 +134,15 @@ data SetTypeConfiguration = SetTypeConfiguration'
 -- can set the configuration for an extension, but not for a specific
 -- extension version.
 --
--- 'type'', 'setTypeConfiguration_type' - The type of extension.
---
--- Conditional: You must specify @ConfigurationArn@, or @Type@ and
--- @TypeName@.
---
 -- 'configurationAlias', 'setTypeConfiguration_configurationAlias' - An alias by which to refer to this extension configuration data.
 --
 -- Conditional: Specifying a configuration alias is required when setting a
 -- configuration for a resource type extension.
+--
+-- 'typeName', 'setTypeConfiguration_typeName' - The name of the extension.
+--
+-- Conditional: You must specify @ConfigurationArn@, or @Type@ and
+-- @TypeName@.
 --
 -- 'configuration', 'setTypeConfiguration_configuration' - The configuration data for the extension, in this account and region.
 --
@@ -158,19 +158,19 @@ newSetTypeConfiguration ::
   SetTypeConfiguration
 newSetTypeConfiguration pConfiguration_ =
   SetTypeConfiguration'
-    { typeName = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       typeArn = Prelude.Nothing,
-      type' = Prelude.Nothing,
       configurationAlias = Prelude.Nothing,
+      typeName = Prelude.Nothing,
       configuration = pConfiguration_
     }
 
--- | The name of the extension.
+-- | The type of extension.
 --
 -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
 -- @TypeName@.
-setTypeConfiguration_typeName :: Lens.Lens' SetTypeConfiguration (Prelude.Maybe Prelude.Text)
-setTypeConfiguration_typeName = Lens.lens (\SetTypeConfiguration' {typeName} -> typeName) (\s@SetTypeConfiguration' {} a -> s {typeName = a} :: SetTypeConfiguration)
+setTypeConfiguration_type :: Lens.Lens' SetTypeConfiguration (Prelude.Maybe ThirdPartyType)
+setTypeConfiguration_type = Lens.lens (\SetTypeConfiguration' {type'} -> type') (\s@SetTypeConfiguration' {} a -> s {type' = a} :: SetTypeConfiguration)
 
 -- | The Amazon Resource Name (ARN) for the extension, in this account and
 -- region.
@@ -188,19 +188,19 @@ setTypeConfiguration_typeName = Lens.lens (\SetTypeConfiguration' {typeName} -> 
 setTypeConfiguration_typeArn :: Lens.Lens' SetTypeConfiguration (Prelude.Maybe Prelude.Text)
 setTypeConfiguration_typeArn = Lens.lens (\SetTypeConfiguration' {typeArn} -> typeArn) (\s@SetTypeConfiguration' {} a -> s {typeArn = a} :: SetTypeConfiguration)
 
--- | The type of extension.
---
--- Conditional: You must specify @ConfigurationArn@, or @Type@ and
--- @TypeName@.
-setTypeConfiguration_type :: Lens.Lens' SetTypeConfiguration (Prelude.Maybe ThirdPartyType)
-setTypeConfiguration_type = Lens.lens (\SetTypeConfiguration' {type'} -> type') (\s@SetTypeConfiguration' {} a -> s {type' = a} :: SetTypeConfiguration)
-
 -- | An alias by which to refer to this extension configuration data.
 --
 -- Conditional: Specifying a configuration alias is required when setting a
 -- configuration for a resource type extension.
 setTypeConfiguration_configurationAlias :: Lens.Lens' SetTypeConfiguration (Prelude.Maybe Prelude.Text)
 setTypeConfiguration_configurationAlias = Lens.lens (\SetTypeConfiguration' {configurationAlias} -> configurationAlias) (\s@SetTypeConfiguration' {} a -> s {configurationAlias = a} :: SetTypeConfiguration)
+
+-- | The name of the extension.
+--
+-- Conditional: You must specify @ConfigurationArn@, or @Type@ and
+-- @TypeName@.
+setTypeConfiguration_typeName :: Lens.Lens' SetTypeConfiguration (Prelude.Maybe Prelude.Text)
+setTypeConfiguration_typeName = Lens.lens (\SetTypeConfiguration' {typeName} -> typeName) (\s@SetTypeConfiguration' {} a -> s {typeName = a} :: SetTypeConfiguration)
 
 -- | The configuration data for the extension, in this account and region.
 --
@@ -229,18 +229,18 @@ instance Core.AWSRequest SetTypeConfiguration where
 
 instance Prelude.Hashable SetTypeConfiguration where
   hashWithSalt _salt SetTypeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` typeName
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeArn
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` configurationAlias
+      `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` configuration
 
 instance Prelude.NFData SetTypeConfiguration where
   rnf SetTypeConfiguration' {..} =
-    Prelude.rnf typeName
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf typeArn
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf configurationAlias
+      `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf configuration
 
 instance Core.ToHeaders SetTypeConfiguration where
@@ -256,10 +256,10 @@ instance Core.ToQuery SetTypeConfiguration where
           Core.=: ("SetTypeConfiguration" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "TypeName" Core.=: typeName,
-        "TypeArn" Core.=: typeArn,
         "Type" Core.=: type',
+        "TypeArn" Core.=: typeArn,
         "ConfigurationAlias" Core.=: configurationAlias,
+        "TypeName" Core.=: typeName,
         "Configuration" Core.=: configuration
       ]
 

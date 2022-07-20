@@ -27,8 +27,8 @@ module Amazonka.AppConfig.StartDeployment
     newStartDeployment,
 
     -- * Request Lenses
-    startDeployment_description,
     startDeployment_tags,
+    startDeployment_description,
     startDeployment_applicationId,
     startDeployment_environmentId,
     startDeployment_deploymentStrategyId,
@@ -40,24 +40,24 @@ module Amazonka.AppConfig.StartDeployment
     newDeployment,
 
     -- * Response Lenses
-    deployment_growthFactor,
-    deployment_configurationName,
-    deployment_state,
     deployment_deploymentStrategyId,
-    deployment_deploymentNumber,
-    deployment_configurationVersion,
-    deployment_eventLog,
-    deployment_percentageComplete,
-    deployment_startedAt,
-    deployment_applicationId,
-    deployment_deploymentDurationInMinutes,
-    deployment_environmentId,
-    deployment_completedAt,
-    deployment_configurationLocationUri,
-    deployment_finalBakeTimeInMinutes,
-    deployment_description,
-    deployment_configurationProfileId,
     deployment_growthType,
+    deployment_state,
+    deployment_deploymentDurationInMinutes,
+    deployment_deploymentNumber,
+    deployment_description,
+    deployment_finalBakeTimeInMinutes,
+    deployment_startedAt,
+    deployment_configurationName,
+    deployment_growthFactor,
+    deployment_eventLog,
+    deployment_configurationVersion,
+    deployment_environmentId,
+    deployment_percentageComplete,
+    deployment_configurationLocationUri,
+    deployment_applicationId,
+    deployment_completedAt,
+    deployment_configurationProfileId,
   )
 where
 
@@ -70,12 +70,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartDeployment' smart constructor.
 data StartDeployment = StartDeployment'
-  { -- | A description of the deployment.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Metadata to assign to the deployment. Tags help organize and categorize
+  { -- | Metadata to assign to the deployment. Tags help organize and categorize
     -- your AppConfig resources. Each tag consists of a key and an optional
     -- value, both of which you define.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description of the deployment.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The application ID.
     applicationId :: Prelude.Text,
     -- | The environment ID.
@@ -97,11 +97,11 @@ data StartDeployment = StartDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'startDeployment_description' - A description of the deployment.
---
 -- 'tags', 'startDeployment_tags' - Metadata to assign to the deployment. Tags help organize and categorize
 -- your AppConfig resources. Each tag consists of a key and an optional
 -- value, both of which you define.
+--
+-- 'description', 'startDeployment_description' - A description of the deployment.
 --
 -- 'applicationId', 'startDeployment_applicationId' - The application ID.
 --
@@ -131,8 +131,8 @@ newStartDeployment
   pConfigurationProfileId_
   pConfigurationVersion_ =
     StartDeployment'
-      { description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         applicationId = pApplicationId_,
         environmentId = pEnvironmentId_,
         deploymentStrategyId = pDeploymentStrategyId_,
@@ -140,15 +140,15 @@ newStartDeployment
         configurationVersion = pConfigurationVersion_
       }
 
--- | A description of the deployment.
-startDeployment_description :: Lens.Lens' StartDeployment (Prelude.Maybe Prelude.Text)
-startDeployment_description = Lens.lens (\StartDeployment' {description} -> description) (\s@StartDeployment' {} a -> s {description = a} :: StartDeployment)
-
 -- | Metadata to assign to the deployment. Tags help organize and categorize
 -- your AppConfig resources. Each tag consists of a key and an optional
 -- value, both of which you define.
 startDeployment_tags :: Lens.Lens' StartDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startDeployment_tags = Lens.lens (\StartDeployment' {tags} -> tags) (\s@StartDeployment' {} a -> s {tags = a} :: StartDeployment) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the deployment.
+startDeployment_description :: Lens.Lens' StartDeployment (Prelude.Maybe Prelude.Text)
+startDeployment_description = Lens.lens (\StartDeployment' {description} -> description) (\s@StartDeployment' {} a -> s {description = a} :: StartDeployment)
 
 -- | The application ID.
 startDeployment_applicationId :: Lens.Lens' StartDeployment Prelude.Text
@@ -179,8 +179,8 @@ instance Core.AWSRequest StartDeployment where
 
 instance Prelude.Hashable StartDeployment where
   hashWithSalt _salt StartDeployment' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` deploymentStrategyId
@@ -189,8 +189,8 @@ instance Prelude.Hashable StartDeployment where
 
 instance Prelude.NFData StartDeployment where
   rnf StartDeployment' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf deploymentStrategyId
@@ -212,8 +212,8 @@ instance Core.ToJSON StartDeployment where
   toJSON StartDeployment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just
               ( "DeploymentStrategyId"
                   Core..= deploymentStrategyId

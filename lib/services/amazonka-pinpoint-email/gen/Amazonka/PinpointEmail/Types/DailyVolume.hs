@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDailyVolume' smart constructor.
 data DailyVolume = DailyVolume'
-  { -- | An object that contains inbox placement metrics for a specified day in
-    -- the analysis period, broken out by the recipient\'s email provider.
-    domainIspPlacements :: Prelude.Maybe [DomainIspPlacement],
+  { -- | An object that contains inbox placement metrics for a specific day in
+    -- the analysis period.
+    volumeStatistics :: Prelude.Maybe VolumeStatistics,
     -- | The date that the DailyVolume metrics apply to, in Unix time.
     startDate :: Prelude.Maybe Core.POSIX,
-    -- | An object that contains inbox placement metrics for a specific day in
-    -- the analysis period.
-    volumeStatistics :: Prelude.Maybe VolumeStatistics
+    -- | An object that contains inbox placement metrics for a specified day in
+    -- the analysis period, broken out by the recipient\'s email provider.
+    domainIspPlacements :: Prelude.Maybe [DomainIspPlacement]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,35 +49,35 @@ data DailyVolume = DailyVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainIspPlacements', 'dailyVolume_domainIspPlacements' - An object that contains inbox placement metrics for a specified day in
--- the analysis period, broken out by the recipient\'s email provider.
+-- 'volumeStatistics', 'dailyVolume_volumeStatistics' - An object that contains inbox placement metrics for a specific day in
+-- the analysis period.
 --
 -- 'startDate', 'dailyVolume_startDate' - The date that the DailyVolume metrics apply to, in Unix time.
 --
--- 'volumeStatistics', 'dailyVolume_volumeStatistics' - An object that contains inbox placement metrics for a specific day in
--- the analysis period.
+-- 'domainIspPlacements', 'dailyVolume_domainIspPlacements' - An object that contains inbox placement metrics for a specified day in
+-- the analysis period, broken out by the recipient\'s email provider.
 newDailyVolume ::
   DailyVolume
 newDailyVolume =
   DailyVolume'
-    { domainIspPlacements = Prelude.Nothing,
+    { volumeStatistics = Prelude.Nothing,
       startDate = Prelude.Nothing,
-      volumeStatistics = Prelude.Nothing
+      domainIspPlacements = Prelude.Nothing
     }
-
--- | An object that contains inbox placement metrics for a specified day in
--- the analysis period, broken out by the recipient\'s email provider.
-dailyVolume_domainIspPlacements :: Lens.Lens' DailyVolume (Prelude.Maybe [DomainIspPlacement])
-dailyVolume_domainIspPlacements = Lens.lens (\DailyVolume' {domainIspPlacements} -> domainIspPlacements) (\s@DailyVolume' {} a -> s {domainIspPlacements = a} :: DailyVolume) Prelude.. Lens.mapping Lens.coerced
-
--- | The date that the DailyVolume metrics apply to, in Unix time.
-dailyVolume_startDate :: Lens.Lens' DailyVolume (Prelude.Maybe Prelude.UTCTime)
-dailyVolume_startDate = Lens.lens (\DailyVolume' {startDate} -> startDate) (\s@DailyVolume' {} a -> s {startDate = a} :: DailyVolume) Prelude.. Lens.mapping Core._Time
 
 -- | An object that contains inbox placement metrics for a specific day in
 -- the analysis period.
 dailyVolume_volumeStatistics :: Lens.Lens' DailyVolume (Prelude.Maybe VolumeStatistics)
 dailyVolume_volumeStatistics = Lens.lens (\DailyVolume' {volumeStatistics} -> volumeStatistics) (\s@DailyVolume' {} a -> s {volumeStatistics = a} :: DailyVolume)
+
+-- | The date that the DailyVolume metrics apply to, in Unix time.
+dailyVolume_startDate :: Lens.Lens' DailyVolume (Prelude.Maybe Prelude.UTCTime)
+dailyVolume_startDate = Lens.lens (\DailyVolume' {startDate} -> startDate) (\s@DailyVolume' {} a -> s {startDate = a} :: DailyVolume) Prelude.. Lens.mapping Core._Time
+
+-- | An object that contains inbox placement metrics for a specified day in
+-- the analysis period, broken out by the recipient\'s email provider.
+dailyVolume_domainIspPlacements :: Lens.Lens' DailyVolume (Prelude.Maybe [DomainIspPlacement])
+dailyVolume_domainIspPlacements = Lens.lens (\DailyVolume' {domainIspPlacements} -> domainIspPlacements) (\s@DailyVolume' {} a -> s {domainIspPlacements = a} :: DailyVolume) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON DailyVolume where
   parseJSON =
@@ -85,21 +85,21 @@ instance Core.FromJSON DailyVolume where
       "DailyVolume"
       ( \x ->
           DailyVolume'
-            Prelude.<$> ( x Core..:? "DomainIspPlacements"
+            Prelude.<$> (x Core..:? "VolumeStatistics")
+            Prelude.<*> (x Core..:? "StartDate")
+            Prelude.<*> ( x Core..:? "DomainIspPlacements"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StartDate")
-            Prelude.<*> (x Core..:? "VolumeStatistics")
       )
 
 instance Prelude.Hashable DailyVolume where
   hashWithSalt _salt DailyVolume' {..} =
-    _salt `Prelude.hashWithSalt` domainIspPlacements
+    _salt `Prelude.hashWithSalt` volumeStatistics
       `Prelude.hashWithSalt` startDate
-      `Prelude.hashWithSalt` volumeStatistics
+      `Prelude.hashWithSalt` domainIspPlacements
 
 instance Prelude.NFData DailyVolume where
   rnf DailyVolume' {..} =
-    Prelude.rnf domainIspPlacements
+    Prelude.rnf volumeStatistics
       `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf volumeStatistics
+      `Prelude.seq` Prelude.rnf domainIspPlacements

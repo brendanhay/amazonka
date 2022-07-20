@@ -34,9 +34,9 @@ module Amazonka.SMS.GetApp
     newGetAppResponse,
 
     -- * Response Lenses
+    getAppResponse_tags,
     getAppResponse_appSummary,
     getAppResponse_serverGroups,
-    getAppResponse_tags,
     getAppResponse_httpStatus,
   )
 where
@@ -79,9 +79,9 @@ instance Core.AWSRequest GetApp where
     Response.receiveJSON
       ( \s h x ->
           GetAppResponse'
-            Prelude.<$> (x Core..?> "appSummary")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "appSummary")
             Prelude.<*> (x Core..?> "serverGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,12 +122,12 @@ instance Core.ToQuery GetApp where
 
 -- | /See:/ 'newGetAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
-  { -- | Information about the application.
+  { -- | The tags associated with the application.
+    tags :: Prelude.Maybe [Tag],
+    -- | Information about the application.
     appSummary :: Prelude.Maybe AppSummary,
     -- | The server groups that belong to the application.
     serverGroups :: Prelude.Maybe [ServerGroup],
-    -- | The tags associated with the application.
-    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,11 +141,11 @@ data GetAppResponse = GetAppResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'getAppResponse_tags' - The tags associated with the application.
+--
 -- 'appSummary', 'getAppResponse_appSummary' - Information about the application.
 --
 -- 'serverGroups', 'getAppResponse_serverGroups' - The server groups that belong to the application.
---
--- 'tags', 'getAppResponse_tags' - The tags associated with the application.
 --
 -- 'httpStatus', 'getAppResponse_httpStatus' - The response's http status code.
 newGetAppResponse ::
@@ -154,11 +154,15 @@ newGetAppResponse ::
   GetAppResponse
 newGetAppResponse pHttpStatus_ =
   GetAppResponse'
-    { appSummary = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      appSummary = Prelude.Nothing,
       serverGroups = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The tags associated with the application.
+getAppResponse_tags :: Lens.Lens' GetAppResponse (Prelude.Maybe [Tag])
+getAppResponse_tags = Lens.lens (\GetAppResponse' {tags} -> tags) (\s@GetAppResponse' {} a -> s {tags = a} :: GetAppResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the application.
 getAppResponse_appSummary :: Lens.Lens' GetAppResponse (Prelude.Maybe AppSummary)
@@ -168,17 +172,13 @@ getAppResponse_appSummary = Lens.lens (\GetAppResponse' {appSummary} -> appSumma
 getAppResponse_serverGroups :: Lens.Lens' GetAppResponse (Prelude.Maybe [ServerGroup])
 getAppResponse_serverGroups = Lens.lens (\GetAppResponse' {serverGroups} -> serverGroups) (\s@GetAppResponse' {} a -> s {serverGroups = a} :: GetAppResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The tags associated with the application.
-getAppResponse_tags :: Lens.Lens' GetAppResponse (Prelude.Maybe [Tag])
-getAppResponse_tags = Lens.lens (\GetAppResponse' {tags} -> tags) (\s@GetAppResponse' {} a -> s {tags = a} :: GetAppResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getAppResponse_httpStatus :: Lens.Lens' GetAppResponse Prelude.Int
 getAppResponse_httpStatus = Lens.lens (\GetAppResponse' {httpStatus} -> httpStatus) (\s@GetAppResponse' {} a -> s {httpStatus = a} :: GetAppResponse)
 
 instance Prelude.NFData GetAppResponse where
   rnf GetAppResponse' {..} =
-    Prelude.rnf appSummary
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf appSummary
       `Prelude.seq` Prelude.rnf serverGroups
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

@@ -23,43 +23,6 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newEnvironmentExists :: Core.Wait DescribeEnvironments
-newEnvironmentExists =
-  Core.Wait
-    { Core._waitName = "EnvironmentExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 20,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "Ready"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( environmentDescriptionsMessage_environments
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. environmentDescription_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Launching"
-            Core.AcceptRetry
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( environmentDescriptionsMessage_environments
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. environmentDescription_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
 newEnvironmentUpdated :: Core.Wait DescribeEnvironments
 newEnvironmentUpdated =
   Core.Wait
@@ -119,6 +82,43 @@ newEnvironmentTerminated =
             ),
           Core.matchAll
             "Terminating"
+            Core.AcceptRetry
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( environmentDescriptionsMessage_environments
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. environmentDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newEnvironmentExists :: Core.Wait DescribeEnvironments
+newEnvironmentExists =
+  Core.Wait
+    { Core._waitName = "EnvironmentExists",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 20,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "Ready"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( environmentDescriptionsMessage_environments
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. environmentDescription_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Launching"
             Core.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf

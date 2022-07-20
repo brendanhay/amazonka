@@ -27,33 +27,33 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComment' smart constructor.
 data Comment = Comment'
-  { -- | The date and time the comment was most recently modified, in timestamp
+  { -- | A unique, client-generated idempotency token that, when provided in a
+    -- request, ensures the request cannot be repeated with a changed
+    -- parameter. If a request is received with the same parameters and a token
+    -- is included, the request returns information about the initial request
+    -- that used that token.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | A string to integer map that represents the number of individual users
+    -- who have responded to a comment with the specified reactions.
+    reactionCounts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int),
+    -- | The date and time the comment was most recently modified, in timestamp
     -- format.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | A Boolean value indicating whether the comment has been deleted.
+    deleted :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time the comment was created, in timestamp format.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The system-generated comment ID.
+    commentId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the comment for which this comment is a reply, if any.
+    inReplyTo :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the person who posted the comment.
     authorArn :: Prelude.Maybe Prelude.Text,
     -- | The content of the comment.
     content :: Prelude.Maybe Prelude.Text,
     -- | The emoji reactions to a comment, if any, submitted by the user whose
     -- credentials are associated with the call to the API.
-    callerReactions :: Prelude.Maybe [Prelude.Text],
-    -- | The date and time the comment was created, in timestamp format.
-    creationDate :: Prelude.Maybe Core.POSIX,
-    -- | A Boolean value indicating whether the comment has been deleted.
-    deleted :: Prelude.Maybe Prelude.Bool,
-    -- | A unique, client-generated idempotency token that, when provided in a
-    -- request, ensures the request cannot be repeated with a changed
-    -- parameter. If a request is received with the same parameters and a token
-    -- is included, the request returns information about the initial request
-    -- that used that token.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated comment ID.
-    commentId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the comment for which this comment is a reply, if any.
-    inReplyTo :: Prelude.Maybe Prelude.Text,
-    -- | A string to integer map that represents the number of individual users
-    -- who have responded to a comment with the specified reactions.
-    reactionCounts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int)
+    callerReactions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,8 +65,25 @@ data Comment = Comment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'comment_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
+-- request, ensures the request cannot be repeated with a changed
+-- parameter. If a request is received with the same parameters and a token
+-- is included, the request returns information about the initial request
+-- that used that token.
+--
+-- 'reactionCounts', 'comment_reactionCounts' - A string to integer map that represents the number of individual users
+-- who have responded to a comment with the specified reactions.
+--
 -- 'lastModifiedDate', 'comment_lastModifiedDate' - The date and time the comment was most recently modified, in timestamp
 -- format.
+--
+-- 'deleted', 'comment_deleted' - A Boolean value indicating whether the comment has been deleted.
+--
+-- 'creationDate', 'comment_creationDate' - The date and time the comment was created, in timestamp format.
+--
+-- 'commentId', 'comment_commentId' - The system-generated comment ID.
+--
+-- 'inReplyTo', 'comment_inReplyTo' - The ID of the comment for which this comment is a reply, if any.
 --
 -- 'authorArn', 'comment_authorArn' - The Amazon Resource Name (ARN) of the person who posted the comment.
 --
@@ -74,43 +91,55 @@ data Comment = Comment'
 --
 -- 'callerReactions', 'comment_callerReactions' - The emoji reactions to a comment, if any, submitted by the user whose
 -- credentials are associated with the call to the API.
---
--- 'creationDate', 'comment_creationDate' - The date and time the comment was created, in timestamp format.
---
--- 'deleted', 'comment_deleted' - A Boolean value indicating whether the comment has been deleted.
---
--- 'clientRequestToken', 'comment_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
--- request, ensures the request cannot be repeated with a changed
--- parameter. If a request is received with the same parameters and a token
--- is included, the request returns information about the initial request
--- that used that token.
---
--- 'commentId', 'comment_commentId' - The system-generated comment ID.
---
--- 'inReplyTo', 'comment_inReplyTo' - The ID of the comment for which this comment is a reply, if any.
---
--- 'reactionCounts', 'comment_reactionCounts' - A string to integer map that represents the number of individual users
--- who have responded to a comment with the specified reactions.
 newComment ::
   Comment
 newComment =
   Comment'
-    { lastModifiedDate = Prelude.Nothing,
-      authorArn = Prelude.Nothing,
-      content = Prelude.Nothing,
-      callerReactions = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
+      reactionCounts = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       deleted = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       commentId = Prelude.Nothing,
       inReplyTo = Prelude.Nothing,
-      reactionCounts = Prelude.Nothing
+      authorArn = Prelude.Nothing,
+      content = Prelude.Nothing,
+      callerReactions = Prelude.Nothing
     }
+
+-- | A unique, client-generated idempotency token that, when provided in a
+-- request, ensures the request cannot be repeated with a changed
+-- parameter. If a request is received with the same parameters and a token
+-- is included, the request returns information about the initial request
+-- that used that token.
+comment_clientRequestToken :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
+comment_clientRequestToken = Lens.lens (\Comment' {clientRequestToken} -> clientRequestToken) (\s@Comment' {} a -> s {clientRequestToken = a} :: Comment)
+
+-- | A string to integer map that represents the number of individual users
+-- who have responded to a comment with the specified reactions.
+comment_reactionCounts :: Lens.Lens' Comment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
+comment_reactionCounts = Lens.lens (\Comment' {reactionCounts} -> reactionCounts) (\s@Comment' {} a -> s {reactionCounts = a} :: Comment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time the comment was most recently modified, in timestamp
 -- format.
 comment_lastModifiedDate :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
 comment_lastModifiedDate = Lens.lens (\Comment' {lastModifiedDate} -> lastModifiedDate) (\s@Comment' {} a -> s {lastModifiedDate = a} :: Comment) Prelude.. Lens.mapping Core._Time
+
+-- | A Boolean value indicating whether the comment has been deleted.
+comment_deleted :: Lens.Lens' Comment (Prelude.Maybe Prelude.Bool)
+comment_deleted = Lens.lens (\Comment' {deleted} -> deleted) (\s@Comment' {} a -> s {deleted = a} :: Comment)
+
+-- | The date and time the comment was created, in timestamp format.
+comment_creationDate :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
+comment_creationDate = Lens.lens (\Comment' {creationDate} -> creationDate) (\s@Comment' {} a -> s {creationDate = a} :: Comment) Prelude.. Lens.mapping Core._Time
+
+-- | The system-generated comment ID.
+comment_commentId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
+comment_commentId = Lens.lens (\Comment' {commentId} -> commentId) (\s@Comment' {} a -> s {commentId = a} :: Comment)
+
+-- | The ID of the comment for which this comment is a reply, if any.
+comment_inReplyTo :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
+comment_inReplyTo = Lens.lens (\Comment' {inReplyTo} -> inReplyTo) (\s@Comment' {} a -> s {inReplyTo = a} :: Comment)
 
 -- | The Amazon Resource Name (ARN) of the person who posted the comment.
 comment_authorArn :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
@@ -125,79 +154,48 @@ comment_content = Lens.lens (\Comment' {content} -> content) (\s@Comment' {} a -
 comment_callerReactions :: Lens.Lens' Comment (Prelude.Maybe [Prelude.Text])
 comment_callerReactions = Lens.lens (\Comment' {callerReactions} -> callerReactions) (\s@Comment' {} a -> s {callerReactions = a} :: Comment) Prelude.. Lens.mapping Lens.coerced
 
--- | The date and time the comment was created, in timestamp format.
-comment_creationDate :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
-comment_creationDate = Lens.lens (\Comment' {creationDate} -> creationDate) (\s@Comment' {} a -> s {creationDate = a} :: Comment) Prelude.. Lens.mapping Core._Time
-
--- | A Boolean value indicating whether the comment has been deleted.
-comment_deleted :: Lens.Lens' Comment (Prelude.Maybe Prelude.Bool)
-comment_deleted = Lens.lens (\Comment' {deleted} -> deleted) (\s@Comment' {} a -> s {deleted = a} :: Comment)
-
--- | A unique, client-generated idempotency token that, when provided in a
--- request, ensures the request cannot be repeated with a changed
--- parameter. If a request is received with the same parameters and a token
--- is included, the request returns information about the initial request
--- that used that token.
-comment_clientRequestToken :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
-comment_clientRequestToken = Lens.lens (\Comment' {clientRequestToken} -> clientRequestToken) (\s@Comment' {} a -> s {clientRequestToken = a} :: Comment)
-
--- | The system-generated comment ID.
-comment_commentId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
-comment_commentId = Lens.lens (\Comment' {commentId} -> commentId) (\s@Comment' {} a -> s {commentId = a} :: Comment)
-
--- | The ID of the comment for which this comment is a reply, if any.
-comment_inReplyTo :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
-comment_inReplyTo = Lens.lens (\Comment' {inReplyTo} -> inReplyTo) (\s@Comment' {} a -> s {inReplyTo = a} :: Comment)
-
--- | A string to integer map that represents the number of individual users
--- who have responded to a comment with the specified reactions.
-comment_reactionCounts :: Lens.Lens' Comment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
-comment_reactionCounts = Lens.lens (\Comment' {reactionCounts} -> reactionCounts) (\s@Comment' {} a -> s {reactionCounts = a} :: Comment) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON Comment where
   parseJSON =
     Core.withObject
       "Comment"
       ( \x ->
           Comment'
-            Prelude.<$> (x Core..:? "lastModifiedDate")
+            Prelude.<$> (x Core..:? "clientRequestToken")
+            Prelude.<*> (x Core..:? "reactionCounts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "lastModifiedDate")
+            Prelude.<*> (x Core..:? "deleted")
+            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "commentId")
+            Prelude.<*> (x Core..:? "inReplyTo")
             Prelude.<*> (x Core..:? "authorArn")
             Prelude.<*> (x Core..:? "content")
             Prelude.<*> ( x Core..:? "callerReactions"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "deleted")
-            Prelude.<*> (x Core..:? "clientRequestToken")
-            Prelude.<*> (x Core..:? "commentId")
-            Prelude.<*> (x Core..:? "inReplyTo")
-            Prelude.<*> ( x Core..:? "reactionCounts"
                             Core..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Comment where
   hashWithSalt _salt Comment' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedDate
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` reactionCounts
+      `Prelude.hashWithSalt` lastModifiedDate
+      `Prelude.hashWithSalt` deleted
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` commentId
+      `Prelude.hashWithSalt` inReplyTo
       `Prelude.hashWithSalt` authorArn
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` callerReactions
-      `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` deleted
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` commentId
-      `Prelude.hashWithSalt` inReplyTo
-      `Prelude.hashWithSalt` reactionCounts
 
 instance Prelude.NFData Comment where
   rnf Comment' {..} =
-    Prelude.rnf lastModifiedDate
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf reactionCounts
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf deleted
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf commentId
+      `Prelude.seq` Prelude.rnf inReplyTo
       `Prelude.seq` Prelude.rnf authorArn
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf callerReactions
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf deleted
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf commentId
-      `Prelude.seq` Prelude.rnf inReplyTo
-      `Prelude.seq` Prelude.rnf reactionCounts

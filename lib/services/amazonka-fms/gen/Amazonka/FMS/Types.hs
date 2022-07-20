@@ -17,11 +17,11 @@ module Amazonka.FMS.Types
     defaultService,
 
     -- * Errors
-    _InternalErrorException,
     _InvalidInputException,
     _InvalidOperationException,
-    _InvalidTypeException,
+    _InternalErrorException,
     _ResourceNotFoundException,
+    _InvalidTypeException,
     _LimitExceededException,
 
     -- * AccountRoleStatus
@@ -67,10 +67,10 @@ module Amazonka.FMS.Types
     -- * AppsListData
     AppsListData (..),
     newAppsListData,
-    appsListData_listUpdateToken,
     appsListData_listId,
-    appsListData_lastUpdateTime,
+    appsListData_listUpdateToken,
     appsListData_previousAppsList,
+    appsListData_lastUpdateTime,
     appsListData_createTime,
     appsListData_listName,
     appsListData_appsList,
@@ -78,30 +78,30 @@ module Amazonka.FMS.Types
     -- * AppsListDataSummary
     AppsListDataSummary (..),
     newAppsListDataSummary,
-    appsListDataSummary_listArn,
-    appsListDataSummary_appsList,
     appsListDataSummary_listId,
+    appsListDataSummary_appsList,
     appsListDataSummary_listName,
+    appsListDataSummary_listArn,
 
     -- * AwsEc2InstanceViolation
     AwsEc2InstanceViolation (..),
     newAwsEc2InstanceViolation,
-    awsEc2InstanceViolation_violationTarget,
     awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations,
+    awsEc2InstanceViolation_violationTarget,
 
     -- * AwsEc2NetworkInterfaceViolation
     AwsEc2NetworkInterfaceViolation (..),
     newAwsEc2NetworkInterfaceViolation,
-    awsEc2NetworkInterfaceViolation_violatingSecurityGroups,
     awsEc2NetworkInterfaceViolation_violationTarget,
+    awsEc2NetworkInterfaceViolation_violatingSecurityGroups,
 
     -- * AwsVPCSecurityGroupViolation
     AwsVPCSecurityGroupViolation (..),
     newAwsVPCSecurityGroupViolation,
-    awsVPCSecurityGroupViolation_violationTargetDescription,
-    awsVPCSecurityGroupViolation_possibleSecurityGroupRemediationActions,
-    awsVPCSecurityGroupViolation_violationTarget,
     awsVPCSecurityGroupViolation_partialMatches,
+    awsVPCSecurityGroupViolation_violationTarget,
+    awsVPCSecurityGroupViolation_possibleSecurityGroupRemediationActions,
+    awsVPCSecurityGroupViolation_violationTargetDescription,
 
     -- * ComplianceViolator
     ComplianceViolator (..),
@@ -113,31 +113,31 @@ module Amazonka.FMS.Types
     -- * DnsDuplicateRuleGroupViolation
     DnsDuplicateRuleGroupViolation (..),
     newDnsDuplicateRuleGroupViolation,
-    dnsDuplicateRuleGroupViolation_violationTargetDescription,
     dnsDuplicateRuleGroupViolation_violationTarget,
+    dnsDuplicateRuleGroupViolation_violationTargetDescription,
 
     -- * DnsRuleGroupLimitExceededViolation
     DnsRuleGroupLimitExceededViolation (..),
     newDnsRuleGroupLimitExceededViolation,
-    dnsRuleGroupLimitExceededViolation_violationTargetDescription,
     dnsRuleGroupLimitExceededViolation_violationTarget,
     dnsRuleGroupLimitExceededViolation_numberOfRuleGroupsAlreadyAssociated,
+    dnsRuleGroupLimitExceededViolation_violationTargetDescription,
 
     -- * DnsRuleGroupPriorityConflictViolation
     DnsRuleGroupPriorityConflictViolation (..),
     newDnsRuleGroupPriorityConflictViolation,
+    dnsRuleGroupPriorityConflictViolation_unavailablePriorities,
+    dnsRuleGroupPriorityConflictViolation_violationTarget,
     dnsRuleGroupPriorityConflictViolation_conflictingPriority,
     dnsRuleGroupPriorityConflictViolation_conflictingPolicyId,
     dnsRuleGroupPriorityConflictViolation_violationTargetDescription,
-    dnsRuleGroupPriorityConflictViolation_violationTarget,
-    dnsRuleGroupPriorityConflictViolation_unavailablePriorities,
 
     -- * EC2AssociateRouteTableAction
     EC2AssociateRouteTableAction (..),
     newEC2AssociateRouteTableAction,
     eC2AssociateRouteTableAction_subnetId,
-    eC2AssociateRouteTableAction_gatewayId,
     eC2AssociateRouteTableAction_description,
+    eC2AssociateRouteTableAction_gatewayId,
     eC2AssociateRouteTableAction_routeTableId,
 
     -- * EC2CopyRouteTableAction
@@ -150,12 +150,12 @@ module Amazonka.FMS.Types
     -- * EC2CreateRouteAction
     EC2CreateRouteAction (..),
     newEC2CreateRouteAction,
-    eC2CreateRouteAction_destinationIpv6CidrBlock,
-    eC2CreateRouteAction_gatewayId,
-    eC2CreateRouteAction_vpcEndpointId,
     eC2CreateRouteAction_destinationPrefixListId,
     eC2CreateRouteAction_description,
+    eC2CreateRouteAction_vpcEndpointId,
     eC2CreateRouteAction_destinationCidrBlock,
+    eC2CreateRouteAction_gatewayId,
+    eC2CreateRouteAction_destinationIpv6CidrBlock,
     eC2CreateRouteAction_routeTableId,
 
     -- * EC2CreateRouteTableAction
@@ -167,20 +167,20 @@ module Amazonka.FMS.Types
     -- * EC2DeleteRouteAction
     EC2DeleteRouteAction (..),
     newEC2DeleteRouteAction,
-    eC2DeleteRouteAction_destinationIpv6CidrBlock,
     eC2DeleteRouteAction_destinationPrefixListId,
     eC2DeleteRouteAction_description,
     eC2DeleteRouteAction_destinationCidrBlock,
+    eC2DeleteRouteAction_destinationIpv6CidrBlock,
     eC2DeleteRouteAction_routeTableId,
 
     -- * EC2ReplaceRouteAction
     EC2ReplaceRouteAction (..),
     newEC2ReplaceRouteAction,
-    eC2ReplaceRouteAction_destinationIpv6CidrBlock,
-    eC2ReplaceRouteAction_gatewayId,
     eC2ReplaceRouteAction_destinationPrefixListId,
     eC2ReplaceRouteAction_description,
     eC2ReplaceRouteAction_destinationCidrBlock,
+    eC2ReplaceRouteAction_gatewayId,
+    eC2ReplaceRouteAction_destinationIpv6CidrBlock,
     eC2ReplaceRouteAction_routeTableId,
 
     -- * EC2ReplaceRouteTableAssociationAction
@@ -193,148 +193,148 @@ module Amazonka.FMS.Types
     -- * EvaluationResult
     EvaluationResult (..),
     newEvaluationResult,
-    evaluationResult_violatorCount,
-    evaluationResult_complianceStatus,
     evaluationResult_evaluationLimitExceeded,
+    evaluationResult_complianceStatus,
+    evaluationResult_violatorCount,
 
     -- * ExpectedRoute
     ExpectedRoute (..),
     newExpectedRoute,
-    expectedRoute_ipV4Cidr,
-    expectedRoute_routeTableId,
     expectedRoute_allowedTargets,
     expectedRoute_prefixListId,
-    expectedRoute_ipV6Cidr,
+    expectedRoute_routeTableId,
     expectedRoute_contributingSubnets,
+    expectedRoute_ipV6Cidr,
+    expectedRoute_ipV4Cidr,
 
     -- * NetworkFirewallBlackHoleRouteDetectedViolation
     NetworkFirewallBlackHoleRouteDetectedViolation (..),
     newNetworkFirewallBlackHoleRouteDetectedViolation,
-    networkFirewallBlackHoleRouteDetectedViolation_routeTableId,
-    networkFirewallBlackHoleRouteDetectedViolation_vpcId,
     networkFirewallBlackHoleRouteDetectedViolation_violatingRoutes,
     networkFirewallBlackHoleRouteDetectedViolation_violationTarget,
+    networkFirewallBlackHoleRouteDetectedViolation_routeTableId,
+    networkFirewallBlackHoleRouteDetectedViolation_vpcId,
 
     -- * NetworkFirewallInternetTrafficNotInspectedViolation
     NetworkFirewallInternetTrafficNotInspectedViolation (..),
     newNetworkFirewallInternetTrafficNotInspectedViolation,
-    networkFirewallInternetTrafficNotInspectedViolation_actualInternetGatewayRoutes,
-    networkFirewallInternetTrafficNotInspectedViolation_routeTableId,
-    networkFirewallInternetTrafficNotInspectedViolation_vpcId,
     networkFirewallInternetTrafficNotInspectedViolation_violatingRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_actualInternetGatewayRoutes,
     networkFirewallInternetTrafficNotInspectedViolation_subnetId,
-    networkFirewallInternetTrafficNotInspectedViolation_expectedFirewallSubnetRoutes,
-    networkFirewallInternetTrafficNotInspectedViolation_subnetAvailabilityZone,
-    networkFirewallInternetTrafficNotInspectedViolation_expectedInternetGatewayRoutes,
-    networkFirewallInternetTrafficNotInspectedViolation_currentInternetGatewayRouteTable,
-    networkFirewallInternetTrafficNotInspectedViolation_firewallSubnetId,
     networkFirewallInternetTrafficNotInspectedViolation_currentFirewallSubnetRouteTable,
     networkFirewallInternetTrafficNotInspectedViolation_expectedFirewallEndpoint,
-    networkFirewallInternetTrafficNotInspectedViolation_isRouteTableUsedInDifferentAZ,
-    networkFirewallInternetTrafficNotInspectedViolation_internetGatewayId,
     networkFirewallInternetTrafficNotInspectedViolation_actualFirewallSubnetRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_expectedInternetGatewayRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_expectedFirewallSubnetRoutes,
+    networkFirewallInternetTrafficNotInspectedViolation_currentInternetGatewayRouteTable,
+    networkFirewallInternetTrafficNotInspectedViolation_routeTableId,
+    networkFirewallInternetTrafficNotInspectedViolation_internetGatewayId,
+    networkFirewallInternetTrafficNotInspectedViolation_subnetAvailabilityZone,
+    networkFirewallInternetTrafficNotInspectedViolation_firewallSubnetId,
+    networkFirewallInternetTrafficNotInspectedViolation_vpcId,
+    networkFirewallInternetTrafficNotInspectedViolation_isRouteTableUsedInDifferentAZ,
 
     -- * NetworkFirewallInvalidRouteConfigurationViolation
     NetworkFirewallInvalidRouteConfigurationViolation (..),
     newNetworkFirewallInvalidRouteConfigurationViolation,
     networkFirewallInvalidRouteConfigurationViolation_actualInternetGatewayRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_currentFirewallSubnetRouteTable,
+    networkFirewallInvalidRouteConfigurationViolation_violatingRoute,
+    networkFirewallInvalidRouteConfigurationViolation_expectedFirewallEndpoint,
+    networkFirewallInvalidRouteConfigurationViolation_actualFirewallSubnetRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_expectedInternetGatewayRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_expectedFirewallSubnetRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_currentInternetGatewayRouteTable,
     networkFirewallInvalidRouteConfigurationViolation_routeTableId,
-    networkFirewallInvalidRouteConfigurationViolation_affectedSubnets,
-    networkFirewallInvalidRouteConfigurationViolation_vpcId,
+    networkFirewallInvalidRouteConfigurationViolation_internetGatewayId,
     networkFirewallInvalidRouteConfigurationViolation_actualFirewallEndpoint,
     networkFirewallInvalidRouteConfigurationViolation_expectedFirewallSubnetId,
-    networkFirewallInvalidRouteConfigurationViolation_expectedFirewallSubnetRoutes,
-    networkFirewallInvalidRouteConfigurationViolation_expectedInternetGatewayRoutes,
-    networkFirewallInvalidRouteConfigurationViolation_currentInternetGatewayRouteTable,
-    networkFirewallInvalidRouteConfigurationViolation_violatingRoute,
-    networkFirewallInvalidRouteConfigurationViolation_currentFirewallSubnetRouteTable,
-    networkFirewallInvalidRouteConfigurationViolation_expectedFirewallEndpoint,
-    networkFirewallInvalidRouteConfigurationViolation_isRouteTableUsedInDifferentAZ,
+    networkFirewallInvalidRouteConfigurationViolation_vpcId,
+    networkFirewallInvalidRouteConfigurationViolation_affectedSubnets,
     networkFirewallInvalidRouteConfigurationViolation_actualFirewallSubnetId,
-    networkFirewallInvalidRouteConfigurationViolation_internetGatewayId,
-    networkFirewallInvalidRouteConfigurationViolation_actualFirewallSubnetRoutes,
+    networkFirewallInvalidRouteConfigurationViolation_isRouteTableUsedInDifferentAZ,
 
     -- * NetworkFirewallMissingExpectedRTViolation
     NetworkFirewallMissingExpectedRTViolation (..),
     newNetworkFirewallMissingExpectedRTViolation,
-    networkFirewallMissingExpectedRTViolation_currentRouteTable,
-    networkFirewallMissingExpectedRTViolation_availabilityZone,
     networkFirewallMissingExpectedRTViolation_vpc,
     networkFirewallMissingExpectedRTViolation_violationTarget,
+    networkFirewallMissingExpectedRTViolation_currentRouteTable,
+    networkFirewallMissingExpectedRTViolation_availabilityZone,
     networkFirewallMissingExpectedRTViolation_expectedRouteTable,
 
     -- * NetworkFirewallMissingExpectedRoutesViolation
     NetworkFirewallMissingExpectedRoutesViolation (..),
     newNetworkFirewallMissingExpectedRoutesViolation,
+    networkFirewallMissingExpectedRoutesViolation_violationTarget,
     networkFirewallMissingExpectedRoutesViolation_expectedRoutes,
     networkFirewallMissingExpectedRoutesViolation_vpcId,
-    networkFirewallMissingExpectedRoutesViolation_violationTarget,
 
     -- * NetworkFirewallMissingFirewallViolation
     NetworkFirewallMissingFirewallViolation (..),
     newNetworkFirewallMissingFirewallViolation,
-    networkFirewallMissingFirewallViolation_targetViolationReason,
-    networkFirewallMissingFirewallViolation_availabilityZone,
     networkFirewallMissingFirewallViolation_vpc,
     networkFirewallMissingFirewallViolation_violationTarget,
+    networkFirewallMissingFirewallViolation_availabilityZone,
+    networkFirewallMissingFirewallViolation_targetViolationReason,
 
     -- * NetworkFirewallMissingSubnetViolation
     NetworkFirewallMissingSubnetViolation (..),
     newNetworkFirewallMissingSubnetViolation,
-    networkFirewallMissingSubnetViolation_targetViolationReason,
-    networkFirewallMissingSubnetViolation_availabilityZone,
     networkFirewallMissingSubnetViolation_vpc,
     networkFirewallMissingSubnetViolation_violationTarget,
+    networkFirewallMissingSubnetViolation_availabilityZone,
+    networkFirewallMissingSubnetViolation_targetViolationReason,
 
     -- * NetworkFirewallPolicyDescription
     NetworkFirewallPolicyDescription (..),
     newNetworkFirewallPolicyDescription,
-    networkFirewallPolicyDescription_statefulRuleGroups,
-    networkFirewallPolicyDescription_statelessRuleGroups,
-    networkFirewallPolicyDescription_statelessFragmentDefaultActions,
     networkFirewallPolicyDescription_statelessCustomActions,
     networkFirewallPolicyDescription_statelessDefaultActions,
+    networkFirewallPolicyDescription_statelessRuleGroups,
+    networkFirewallPolicyDescription_statelessFragmentDefaultActions,
+    networkFirewallPolicyDescription_statefulRuleGroups,
 
     -- * NetworkFirewallPolicyModifiedViolation
     NetworkFirewallPolicyModifiedViolation (..),
     newNetworkFirewallPolicyModifiedViolation,
-    networkFirewallPolicyModifiedViolation_currentPolicyDescription,
     networkFirewallPolicyModifiedViolation_violationTarget,
+    networkFirewallPolicyModifiedViolation_currentPolicyDescription,
     networkFirewallPolicyModifiedViolation_expectedPolicyDescription,
 
     -- * NetworkFirewallUnexpectedFirewallRoutesViolation
     NetworkFirewallUnexpectedFirewallRoutesViolation (..),
     newNetworkFirewallUnexpectedFirewallRoutesViolation,
-    networkFirewallUnexpectedFirewallRoutesViolation_routeTableId,
-    networkFirewallUnexpectedFirewallRoutesViolation_vpcId,
     networkFirewallUnexpectedFirewallRoutesViolation_violatingRoutes,
     networkFirewallUnexpectedFirewallRoutesViolation_firewallEndpoint,
+    networkFirewallUnexpectedFirewallRoutesViolation_routeTableId,
     networkFirewallUnexpectedFirewallRoutesViolation_firewallSubnetId,
+    networkFirewallUnexpectedFirewallRoutesViolation_vpcId,
 
     -- * NetworkFirewallUnexpectedGatewayRoutesViolation
     NetworkFirewallUnexpectedGatewayRoutesViolation (..),
     newNetworkFirewallUnexpectedGatewayRoutesViolation,
-    networkFirewallUnexpectedGatewayRoutesViolation_routeTableId,
-    networkFirewallUnexpectedGatewayRoutesViolation_vpcId,
     networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes,
+    networkFirewallUnexpectedGatewayRoutesViolation_routeTableId,
     networkFirewallUnexpectedGatewayRoutesViolation_gatewayId,
+    networkFirewallUnexpectedGatewayRoutesViolation_vpcId,
 
     -- * PartialMatch
     PartialMatch (..),
     newPartialMatch,
-    partialMatch_targetViolationReasons,
     partialMatch_reference,
+    partialMatch_targetViolationReasons,
 
     -- * Policy
     Policy (..),
     newPolicy,
     policy_policyId,
-    policy_resourceTypeList,
-    policy_resourceTags,
     policy_policyUpdateToken,
-    policy_deleteUnusedFMManagedResources,
+    policy_resourceTags,
     policy_excludeMap,
+    policy_deleteUnusedFMManagedResources,
     policy_includeMap,
+    policy_resourceTypeList,
     policy_policyName,
     policy_securityServicePolicyData,
     policy_resourceType,
@@ -344,56 +344,56 @@ module Amazonka.FMS.Types
     -- * PolicyComplianceDetail
     PolicyComplianceDetail (..),
     newPolicyComplianceDetail,
-    policyComplianceDetail_expiredAt,
+    policyComplianceDetail_evaluationLimitExceeded,
     policyComplianceDetail_policyId,
     policyComplianceDetail_violators,
-    policyComplianceDetail_evaluationLimitExceeded,
-    policyComplianceDetail_issueInfoMap,
     policyComplianceDetail_policyOwner,
+    policyComplianceDetail_issueInfoMap,
+    policyComplianceDetail_expiredAt,
     policyComplianceDetail_memberAccount,
 
     -- * PolicyComplianceStatus
     PolicyComplianceStatus (..),
     newPolicyComplianceStatus,
-    policyComplianceStatus_evaluationResults,
-    policyComplianceStatus_lastUpdated,
     policyComplianceStatus_policyName,
     policyComplianceStatus_policyId,
-    policyComplianceStatus_issueInfoMap,
+    policyComplianceStatus_evaluationResults,
     policyComplianceStatus_policyOwner,
+    policyComplianceStatus_lastUpdated,
+    policyComplianceStatus_issueInfoMap,
     policyComplianceStatus_memberAccount,
 
     -- * PolicySummary
     PolicySummary (..),
     newPolicySummary,
     policySummary_policyName,
-    policySummary_remediationEnabled,
-    policySummary_resourceType,
     policySummary_policyId,
-    policySummary_deleteUnusedFMManagedResources,
-    policySummary_policyArn,
+    policySummary_resourceType,
     policySummary_securityServiceType,
+    policySummary_remediationEnabled,
+    policySummary_policyArn,
+    policySummary_deleteUnusedFMManagedResources,
 
     -- * PossibleRemediationAction
     PossibleRemediationAction (..),
     newPossibleRemediationAction,
-    possibleRemediationAction_isDefaultAction,
     possibleRemediationAction_description,
+    possibleRemediationAction_isDefaultAction,
     possibleRemediationAction_orderedRemediationActions,
 
     -- * PossibleRemediationActions
     PossibleRemediationActions (..),
     newPossibleRemediationActions,
-    possibleRemediationActions_actions,
     possibleRemediationActions_description,
+    possibleRemediationActions_actions,
 
     -- * ProtocolsListData
     ProtocolsListData (..),
     newProtocolsListData,
-    protocolsListData_listUpdateToken,
     protocolsListData_listId,
-    protocolsListData_lastUpdateTime,
     protocolsListData_previousProtocolsList,
+    protocolsListData_listUpdateToken,
+    protocolsListData_lastUpdateTime,
     protocolsListData_createTime,
     protocolsListData_listName,
     protocolsListData_protocolsList,
@@ -401,22 +401,22 @@ module Amazonka.FMS.Types
     -- * ProtocolsListDataSummary
     ProtocolsListDataSummary (..),
     newProtocolsListDataSummary,
-    protocolsListDataSummary_protocolsList,
-    protocolsListDataSummary_listArn,
     protocolsListDataSummary_listId,
     protocolsListDataSummary_listName,
+    protocolsListDataSummary_protocolsList,
+    protocolsListDataSummary_listArn,
 
     -- * RemediationAction
     RemediationAction (..),
     newRemediationAction,
-    remediationAction_eC2CreateRouteAction,
-    remediationAction_eC2CopyRouteTableAction,
-    remediationAction_eC2ReplaceRouteTableAssociationAction,
     remediationAction_eC2AssociateRouteTableAction,
-    remediationAction_eC2ReplaceRouteAction,
     remediationAction_eC2DeleteRouteAction,
+    remediationAction_eC2ReplaceRouteAction,
     remediationAction_description,
     remediationAction_eC2CreateRouteTableAction,
+    remediationAction_eC2CopyRouteTableAction,
+    remediationAction_eC2ReplaceRouteTableAssociationAction,
+    remediationAction_eC2CreateRouteAction,
 
     -- * RemediationActionWithOrder
     RemediationActionWithOrder (..),
@@ -433,49 +433,49 @@ module Amazonka.FMS.Types
     -- * ResourceViolation
     ResourceViolation (..),
     newResourceViolation,
-    resourceViolation_possibleRemediationActions,
-    resourceViolation_networkFirewallBlackHoleRouteDetectedViolation,
-    resourceViolation_dnsRuleGroupLimitExceededViolation,
-    resourceViolation_networkFirewallMissingExpectedRTViolation,
-    resourceViolation_networkFirewallInternetTrafficNotInspectedViolation,
-    resourceViolation_networkFirewallMissingFirewallViolation,
-    resourceViolation_networkFirewallMissingSubnetViolation,
-    resourceViolation_awsEc2InstanceViolation,
-    resourceViolation_networkFirewallMissingExpectedRoutesViolation,
     resourceViolation_dnsRuleGroupPriorityConflictViolation,
-    resourceViolation_awsVPCSecurityGroupViolation,
-    resourceViolation_networkFirewallPolicyModifiedViolation,
+    resourceViolation_networkFirewallMissingExpectedRoutesViolation,
     resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation,
-    resourceViolation_awsEc2NetworkInterfaceViolation,
-    resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation,
     resourceViolation_dnsDuplicateRuleGroupViolation,
+    resourceViolation_dnsRuleGroupLimitExceededViolation,
+    resourceViolation_networkFirewallMissingFirewallViolation,
+    resourceViolation_networkFirewallInternetTrafficNotInspectedViolation,
+    resourceViolation_awsEc2InstanceViolation,
+    resourceViolation_possibleRemediationActions,
+    resourceViolation_networkFirewallMissingSubnetViolation,
+    resourceViolation_networkFirewallPolicyModifiedViolation,
+    resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation,
+    resourceViolation_networkFirewallBlackHoleRouteDetectedViolation,
     resourceViolation_networkFirewallInvalidRouteConfigurationViolation,
+    resourceViolation_awsEc2NetworkInterfaceViolation,
+    resourceViolation_awsVPCSecurityGroupViolation,
+    resourceViolation_networkFirewallMissingExpectedRTViolation,
 
     -- * Route
     Route (..),
     newRoute,
     route_destination,
-    route_targetType,
     route_destinationType,
     route_target,
+    route_targetType,
 
     -- * SecurityGroupRemediationAction
     SecurityGroupRemediationAction (..),
     newSecurityGroupRemediationAction,
-    securityGroupRemediationAction_isDefaultAction,
-    securityGroupRemediationAction_remediationResult,
     securityGroupRemediationAction_description,
+    securityGroupRemediationAction_isDefaultAction,
     securityGroupRemediationAction_remediationActionType,
+    securityGroupRemediationAction_remediationResult,
 
     -- * SecurityGroupRuleDescription
     SecurityGroupRuleDescription (..),
     newSecurityGroupRuleDescription,
-    securityGroupRuleDescription_fromPort,
-    securityGroupRuleDescription_protocol,
     securityGroupRuleDescription_iPV4Range,
-    securityGroupRuleDescription_prefixListId,
     securityGroupRuleDescription_toPort,
+    securityGroupRuleDescription_prefixListId,
     securityGroupRuleDescription_iPV6Range,
+    securityGroupRuleDescription_protocol,
+    securityGroupRuleDescription_fromPort,
 
     -- * SecurityServicePolicyData
     SecurityServicePolicyData (..),
@@ -493,8 +493,8 @@ module Amazonka.FMS.Types
     StatelessRuleGroup (..),
     newStatelessRuleGroup,
     statelessRuleGroup_resourceId,
-    statelessRuleGroup_priority,
     statelessRuleGroup_ruleGroupName,
+    statelessRuleGroup_priority,
 
     -- * Tag
     Tag (..),
@@ -606,35 +606,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -643,21 +616,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The operation failed because of a system problem, even though the
--- request was valid. Retry your request.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalErrorException"
 
 -- | The parameters of the request were invalid.
 _InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -679,12 +671,13 @@ _InvalidOperationException =
     defaultService
     "InvalidOperationException"
 
--- | The value of the @Type@ parameter is invalid.
-_InvalidTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTypeException =
+-- | The operation failed because of a system problem, even though the
+-- request was valid. Retry your request.
+_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException =
   Core._MatchServiceError
     defaultService
-    "InvalidTypeException"
+    "InternalErrorException"
 
 -- | The specified resource was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -692,6 +685,13 @@ _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
+
+-- | The value of the @Type@ parameter is invalid.
+_InvalidTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTypeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTypeException"
 
 -- | The operation exceeds a resource limit, for example, the maximum number
 -- of @policy@ objects that you can create for an Amazon Web Services

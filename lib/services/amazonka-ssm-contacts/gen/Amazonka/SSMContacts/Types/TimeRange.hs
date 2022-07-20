@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { -- | The start of the time range.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The end of the time range.
-    endTime :: Prelude.Maybe Core.POSIX
+  { -- | The end of the time range.
+    endTime :: Prelude.Maybe Core.POSIX,
+    -- | The start of the time range.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,40 +42,40 @@ data TimeRange = TimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'timeRange_startTime' - The start of the time range.
---
 -- 'endTime', 'timeRange_endTime' - The end of the time range.
+--
+-- 'startTime', 'timeRange_startTime' - The start of the time range.
 newTimeRange ::
   TimeRange
 newTimeRange =
   TimeRange'
-    { startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing
+    { endTime = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
-
--- | The start of the time range.
-timeRange_startTime :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_startTime = Lens.lens (\TimeRange' {startTime} -> startTime) (\s@TimeRange' {} a -> s {startTime = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 
 -- | The end of the time range.
 timeRange_endTime :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
 timeRange_endTime = Lens.lens (\TimeRange' {endTime} -> endTime) (\s@TimeRange' {} a -> s {endTime = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 
+-- | The start of the time range.
+timeRange_startTime :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
+timeRange_startTime = Lens.lens (\TimeRange' {startTime} -> startTime) (\s@TimeRange' {} a -> s {startTime = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
+
 instance Prelude.Hashable TimeRange where
   hashWithSalt _salt TimeRange' {..} =
-    _salt `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TimeRange where
   rnf TimeRange' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf startTime
 
 instance Core.ToJSON TimeRange where
   toJSON TimeRange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StartTime" Core..=) Prelude.<$> startTime,
-            ("EndTime" Core..=) Prelude.<$> endTime
+          [ ("EndTime" Core..=) Prelude.<$> endTime,
+            ("StartTime" Core..=) Prelude.<$> startTime
           ]
       )

@@ -34,11 +34,11 @@ module Amazonka.EKS.CreateAddon
     newCreateAddon,
 
     -- * Request Lenses
+    createAddon_tags,
+    createAddon_clientRequestToken,
     createAddon_addonVersion,
     createAddon_serviceAccountRoleArn,
     createAddon_resolveConflicts,
-    createAddon_clientRequestToken,
-    createAddon_tags,
     createAddon_clusterName,
     createAddon_addonName,
 
@@ -61,7 +61,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAddon' smart constructor.
 data CreateAddon = CreateAddon'
-  { -- | The version of the add-on. The version must match one of the versions
+  { -- | The metadata to apply to the cluster to assist with categorization and
+    -- organization. Each tag consists of a key and an optional value, both of
+    -- which you define.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The version of the add-on. The version must match one of the versions
     -- returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
     -- .
@@ -82,13 +89,6 @@ data CreateAddon = CreateAddon'
     -- | How to resolve parameter value conflicts when migrating an existing
     -- add-on to an Amazon EKS add-on.
     resolveConflicts :: Prelude.Maybe ResolveConflicts,
-    -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The metadata to apply to the cluster to assist with categorization and
-    -- organization. Each tag consists of a key and an optional value, both of
-    -- which you define.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the cluster to create the add-on for.
     clusterName :: Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
@@ -105,6 +105,13 @@ data CreateAddon = CreateAddon'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createAddon_tags' - The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value, both of
+-- which you define.
+--
+-- 'clientRequestToken', 'createAddon_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
 -- 'addonVersion', 'createAddon_addonVersion' - The version of the add-on. The version must match one of the versions
 -- returned by
@@ -127,13 +134,6 @@ data CreateAddon = CreateAddon'
 -- 'resolveConflicts', 'createAddon_resolveConflicts' - How to resolve parameter value conflicts when migrating an existing
 -- add-on to an Amazon EKS add-on.
 --
--- 'clientRequestToken', 'createAddon_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
---
--- 'tags', 'createAddon_tags' - The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
---
 -- 'clusterName', 'createAddon_clusterName' - The name of the cluster to create the add-on for.
 --
 -- 'addonName', 'createAddon_addonName' - The name of the add-on. The name must match one of the names returned by
@@ -147,14 +147,25 @@ newCreateAddon ::
   CreateAddon
 newCreateAddon pClusterName_ pAddonName_ =
   CreateAddon'
-    { addonVersion = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      addonVersion = Prelude.Nothing,
       serviceAccountRoleArn = Prelude.Nothing,
       resolveConflicts = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
       clusterName = pClusterName_,
       addonName = pAddonName_
     }
+
+-- | The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value, both of
+-- which you define.
+createAddon_tags :: Lens.Lens' CreateAddon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+createAddon_clientRequestToken :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
+createAddon_clientRequestToken = Lens.lens (\CreateAddon' {clientRequestToken} -> clientRequestToken) (\s@CreateAddon' {} a -> s {clientRequestToken = a} :: CreateAddon)
 
 -- | The version of the add-on. The version must match one of the versions
 -- returned by
@@ -183,17 +194,6 @@ createAddon_serviceAccountRoleArn = Lens.lens (\CreateAddon' {serviceAccountRole
 createAddon_resolveConflicts :: Lens.Lens' CreateAddon (Prelude.Maybe ResolveConflicts)
 createAddon_resolveConflicts = Lens.lens (\CreateAddon' {resolveConflicts} -> resolveConflicts) (\s@CreateAddon' {} a -> s {resolveConflicts = a} :: CreateAddon)
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-createAddon_clientRequestToken :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
-createAddon_clientRequestToken = Lens.lens (\CreateAddon' {clientRequestToken} -> clientRequestToken) (\s@CreateAddon' {} a -> s {clientRequestToken = a} :: CreateAddon)
-
--- | The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
-createAddon_tags :: Lens.Lens' CreateAddon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the cluster to create the add-on for.
 createAddon_clusterName :: Lens.Lens' CreateAddon Prelude.Text
 createAddon_clusterName = Lens.lens (\CreateAddon' {clusterName} -> clusterName) (\s@CreateAddon' {} a -> s {clusterName = a} :: CreateAddon)
@@ -217,21 +217,21 @@ instance Core.AWSRequest CreateAddon where
 
 instance Prelude.Hashable CreateAddon where
   hashWithSalt _salt CreateAddon' {..} =
-    _salt `Prelude.hashWithSalt` addonVersion
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` addonVersion
       `Prelude.hashWithSalt` serviceAccountRoleArn
       `Prelude.hashWithSalt` resolveConflicts
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` addonName
 
 instance Prelude.NFData CreateAddon where
   rnf CreateAddon' {..} =
-    Prelude.rnf addonVersion
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf addonVersion
       `Prelude.seq` Prelude.rnf serviceAccountRoleArn
       `Prelude.seq` Prelude.rnf resolveConflicts
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf addonName
 
@@ -250,14 +250,14 @@ instance Core.ToJSON CreateAddon where
   toJSON CreateAddon' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("addonVersion" Core..=) Prelude.<$> addonVersion,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("clientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            ("addonVersion" Core..=) Prelude.<$> addonVersion,
             ("serviceAccountRoleArn" Core..=)
               Prelude.<$> serviceAccountRoleArn,
             ("resolveConflicts" Core..=)
               Prelude.<$> resolveConflicts,
-            ("clientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("addonName" Core..= addonName)
           ]
       )

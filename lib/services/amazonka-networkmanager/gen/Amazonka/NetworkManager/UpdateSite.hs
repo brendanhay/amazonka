@@ -28,8 +28,8 @@ module Amazonka.NetworkManager.UpdateSite
     newUpdateSite,
 
     -- * Request Lenses
-    updateSite_location,
     updateSite_description,
+    updateSite_location,
     updateSite_globalNetworkId,
     updateSite_siteId,
 
@@ -52,7 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSite' smart constructor.
 data UpdateSite = UpdateSite'
-  { -- | The site location:
+  { -- | A description of your site.
+    --
+    -- Length Constraints: Maximum length of 256 characters.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The site location:
     --
     -- -   @Address@: The physical address of the site.
     --
@@ -60,10 +64,6 @@ data UpdateSite = UpdateSite'
     --
     -- -   @Longitude@: The longitude of the site.
     location :: Prelude.Maybe (Core.Sensitive Location),
-    -- | A description of your site.
-    --
-    -- Length Constraints: Maximum length of 256 characters.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
     -- | The ID of your site.
@@ -79,6 +79,10 @@ data UpdateSite = UpdateSite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateSite_description' - A description of your site.
+--
+-- Length Constraints: Maximum length of 256 characters.
+--
 -- 'location', 'updateSite_location' - The site location:
 --
 -- -   @Address@: The physical address of the site.
@@ -86,10 +90,6 @@ data UpdateSite = UpdateSite'
 -- -   @Latitude@: The latitude of the site.
 --
 -- -   @Longitude@: The longitude of the site.
---
--- 'description', 'updateSite_description' - A description of your site.
---
--- Length Constraints: Maximum length of 256 characters.
 --
 -- 'globalNetworkId', 'updateSite_globalNetworkId' - The ID of the global network.
 --
@@ -102,11 +102,17 @@ newUpdateSite ::
   UpdateSite
 newUpdateSite pGlobalNetworkId_ pSiteId_ =
   UpdateSite'
-    { location = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      location = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_,
       siteId = pSiteId_
     }
+
+-- | A description of your site.
+--
+-- Length Constraints: Maximum length of 256 characters.
+updateSite_description :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
+updateSite_description = Lens.lens (\UpdateSite' {description} -> description) (\s@UpdateSite' {} a -> s {description = a} :: UpdateSite)
 
 -- | The site location:
 --
@@ -117,12 +123,6 @@ newUpdateSite pGlobalNetworkId_ pSiteId_ =
 -- -   @Longitude@: The longitude of the site.
 updateSite_location :: Lens.Lens' UpdateSite (Prelude.Maybe Location)
 updateSite_location = Lens.lens (\UpdateSite' {location} -> location) (\s@UpdateSite' {} a -> s {location = a} :: UpdateSite) Prelude.. Lens.mapping Core._Sensitive
-
--- | A description of your site.
---
--- Length Constraints: Maximum length of 256 characters.
-updateSite_description :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
-updateSite_description = Lens.lens (\UpdateSite' {description} -> description) (\s@UpdateSite' {} a -> s {description = a} :: UpdateSite)
 
 -- | The ID of the global network.
 updateSite_globalNetworkId :: Lens.Lens' UpdateSite Prelude.Text
@@ -145,15 +145,15 @@ instance Core.AWSRequest UpdateSite where
 
 instance Prelude.Hashable UpdateSite where
   hashWithSalt _salt UpdateSite' {..} =
-    _salt `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` siteId
 
 instance Prelude.NFData UpdateSite where
   rnf UpdateSite' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf siteId
 
@@ -172,8 +172,8 @@ instance Core.ToJSON UpdateSite where
   toJSON UpdateSite' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Location" Core..=) Prelude.<$> location,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Location" Core..=) Prelude.<$> location
           ]
       )
 

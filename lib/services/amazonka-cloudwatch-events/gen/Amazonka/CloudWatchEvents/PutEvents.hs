@@ -35,8 +35,8 @@ module Amazonka.CloudWatchEvents.PutEvents
     newPutEventsResponse,
 
     -- * Response Lenses
-    putEventsResponse_failedEntryCount,
     putEventsResponse_entries,
+    putEventsResponse_failedEntryCount,
     putEventsResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest PutEvents where
     Response.receiveJSON
       ( \s h x ->
           PutEventsResponse'
-            Prelude.<$> (x Core..?> "FailedEntryCount")
-            Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,13 +128,13 @@ instance Core.ToQuery PutEvents where
 
 -- | /See:/ 'newPutEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
-  { -- | The number of failed entries.
-    failedEntryCount :: Prelude.Maybe Prelude.Int,
-    -- | The successfully and unsuccessfully ingested events results. If the
+  { -- | The successfully and unsuccessfully ingested events results. If the
     -- ingestion was successful, the entry has the event ID in it. Otherwise,
     -- you can use the error code and error message to identify the problem
     -- with the entry.
     entries :: Prelude.Maybe [PutEventsResultEntry],
+    -- | The number of failed entries.
+    failedEntryCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,12 +148,12 @@ data PutEventsResponse = PutEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failedEntryCount', 'putEventsResponse_failedEntryCount' - The number of failed entries.
---
 -- 'entries', 'putEventsResponse_entries' - The successfully and unsuccessfully ingested events results. If the
 -- ingestion was successful, the entry has the event ID in it. Otherwise,
 -- you can use the error code and error message to identify the problem
 -- with the entry.
+--
+-- 'failedEntryCount', 'putEventsResponse_failedEntryCount' - The number of failed entries.
 --
 -- 'httpStatus', 'putEventsResponse_httpStatus' - The response's http status code.
 newPutEventsResponse ::
@@ -162,15 +162,10 @@ newPutEventsResponse ::
   PutEventsResponse
 newPutEventsResponse pHttpStatus_ =
   PutEventsResponse'
-    { failedEntryCount =
-        Prelude.Nothing,
-      entries = Prelude.Nothing,
+    { entries = Prelude.Nothing,
+      failedEntryCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The number of failed entries.
-putEventsResponse_failedEntryCount :: Lens.Lens' PutEventsResponse (Prelude.Maybe Prelude.Int)
-putEventsResponse_failedEntryCount = Lens.lens (\PutEventsResponse' {failedEntryCount} -> failedEntryCount) (\s@PutEventsResponse' {} a -> s {failedEntryCount = a} :: PutEventsResponse)
 
 -- | The successfully and unsuccessfully ingested events results. If the
 -- ingestion was successful, the entry has the event ID in it. Otherwise,
@@ -179,12 +174,16 @@ putEventsResponse_failedEntryCount = Lens.lens (\PutEventsResponse' {failedEntry
 putEventsResponse_entries :: Lens.Lens' PutEventsResponse (Prelude.Maybe [PutEventsResultEntry])
 putEventsResponse_entries = Lens.lens (\PutEventsResponse' {entries} -> entries) (\s@PutEventsResponse' {} a -> s {entries = a} :: PutEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The number of failed entries.
+putEventsResponse_failedEntryCount :: Lens.Lens' PutEventsResponse (Prelude.Maybe Prelude.Int)
+putEventsResponse_failedEntryCount = Lens.lens (\PutEventsResponse' {failedEntryCount} -> failedEntryCount) (\s@PutEventsResponse' {} a -> s {failedEntryCount = a} :: PutEventsResponse)
+
 -- | The response's http status code.
 putEventsResponse_httpStatus :: Lens.Lens' PutEventsResponse Prelude.Int
 putEventsResponse_httpStatus = Lens.lens (\PutEventsResponse' {httpStatus} -> httpStatus) (\s@PutEventsResponse' {} a -> s {httpStatus = a} :: PutEventsResponse)
 
 instance Prelude.NFData PutEventsResponse where
   rnf PutEventsResponse' {..} =
-    Prelude.rnf failedEntryCount
-      `Prelude.seq` Prelude.rnf entries
+    Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf failedEntryCount
       `Prelude.seq` Prelude.rnf httpStatus

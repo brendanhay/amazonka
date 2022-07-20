@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateAttendeeError' smart constructor.
 data CreateAttendeeError = CreateAttendeeError'
-  { -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
+    -- attendee to an identity managed by a builder application.
+    externalUserId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
-    -- attendee to an identity managed by a builder application.
-    externalUserId :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    -- | The error code.
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -47,33 +47,34 @@ data CreateAttendeeError = CreateAttendeeError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'createAttendeeError_errorCode' - The error code.
+-- 'externalUserId', 'createAttendeeError_externalUserId' - The Amazon Chime SDK external user ID. An idempotency token. Links the
+-- attendee to an identity managed by a builder application.
 --
 -- 'errorMessage', 'createAttendeeError_errorMessage' - The error message.
 --
--- 'externalUserId', 'createAttendeeError_externalUserId' - The Amazon Chime SDK external user ID. An idempotency token. Links the
--- attendee to an identity managed by a builder application.
+-- 'errorCode', 'createAttendeeError_errorCode' - The error code.
 newCreateAttendeeError ::
   CreateAttendeeError
 newCreateAttendeeError =
   CreateAttendeeError'
-    { errorCode = Prelude.Nothing,
+    { externalUserId =
+        Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      externalUserId = Prelude.Nothing
+      errorCode = Prelude.Nothing
     }
-
--- | The error code.
-createAttendeeError_errorCode :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
-createAttendeeError_errorCode = Lens.lens (\CreateAttendeeError' {errorCode} -> errorCode) (\s@CreateAttendeeError' {} a -> s {errorCode = a} :: CreateAttendeeError)
-
--- | The error message.
-createAttendeeError_errorMessage :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
-createAttendeeError_errorMessage = Lens.lens (\CreateAttendeeError' {errorMessage} -> errorMessage) (\s@CreateAttendeeError' {} a -> s {errorMessage = a} :: CreateAttendeeError)
 
 -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
 createAttendeeError_externalUserId :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
 createAttendeeError_externalUserId = Lens.lens (\CreateAttendeeError' {externalUserId} -> externalUserId) (\s@CreateAttendeeError' {} a -> s {externalUserId = a} :: CreateAttendeeError) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The error message.
+createAttendeeError_errorMessage :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
+createAttendeeError_errorMessage = Lens.lens (\CreateAttendeeError' {errorMessage} -> errorMessage) (\s@CreateAttendeeError' {} a -> s {errorMessage = a} :: CreateAttendeeError)
+
+-- | The error code.
+createAttendeeError_errorCode :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
+createAttendeeError_errorCode = Lens.lens (\CreateAttendeeError' {errorCode} -> errorCode) (\s@CreateAttendeeError' {} a -> s {errorCode = a} :: CreateAttendeeError)
 
 instance Core.FromJSON CreateAttendeeError where
   parseJSON =
@@ -81,19 +82,19 @@ instance Core.FromJSON CreateAttendeeError where
       "CreateAttendeeError"
       ( \x ->
           CreateAttendeeError'
-            Prelude.<$> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ExternalUserId")
             Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ExternalUserId")
+            Prelude.<*> (x Core..:? "ErrorCode")
       )
 
 instance Prelude.Hashable CreateAttendeeError where
   hashWithSalt _salt CreateAttendeeError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` externalUserId
       `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` externalUserId
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData CreateAttendeeError where
   rnf CreateAttendeeError' {..} =
-    Prelude.rnf errorCode
+    Prelude.rnf externalUserId
       `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf externalUserId
+      `Prelude.seq` Prelude.rnf errorCode

@@ -27,13 +27,13 @@ module Amazonka.AppSync.UpdateResolver
     newUpdateResolver,
 
     -- * Request Lenses
-    updateResolver_dataSourceName,
-    updateResolver_requestMappingTemplate,
-    updateResolver_kind,
     updateResolver_cachingConfig,
+    updateResolver_pipelineConfig,
+    updateResolver_kind,
+    updateResolver_dataSourceName,
     updateResolver_responseMappingTemplate,
     updateResolver_syncConfig,
-    updateResolver_pipelineConfig,
+    updateResolver_requestMappingTemplate,
     updateResolver_apiId,
     updateResolver_typeName,
     updateResolver_fieldName,
@@ -57,18 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResolver' smart constructor.
 data UpdateResolver = UpdateResolver'
-  { -- | The new data source name.
-    dataSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The new request mapping template.
-    --
-    -- A resolver uses a request mapping template to convert a GraphQL
-    -- expression into a format that a data source can understand. Mapping
-    -- templates are written in Apache Velocity Template Language (VTL).
-    --
-    -- VTL request mapping templates are optional when using a Lambda data
-    -- source. For all other data sources, VTL request and response mapping
-    -- templates are required.
-    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
+  { -- | The caching configuration for the resolver.
+    cachingConfig :: Prelude.Maybe CachingConfig,
+    -- | The @PipelineConfig@.
+    pipelineConfig :: Prelude.Maybe PipelineConfig,
     -- | The resolver type.
     --
     -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
@@ -80,14 +72,22 @@ data UpdateResolver = UpdateResolver'
     --     use a pipeline resolver to execute a GraphQL query against multiple
     --     data sources.
     kind :: Prelude.Maybe ResolverKind,
-    -- | The caching configuration for the resolver.
-    cachingConfig :: Prelude.Maybe CachingConfig,
+    -- | The new data source name.
+    dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | The new response mapping template.
     responseMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
     syncConfig :: Prelude.Maybe SyncConfig,
-    -- | The @PipelineConfig@.
-    pipelineConfig :: Prelude.Maybe PipelineConfig,
+    -- | The new request mapping template.
+    --
+    -- A resolver uses a request mapping template to convert a GraphQL
+    -- expression into a format that a data source can understand. Mapping
+    -- templates are written in Apache Velocity Template Language (VTL).
+    --
+    -- VTL request mapping templates are optional when using a Lambda data
+    -- source. For all other data sources, VTL request and response mapping
+    -- templates are required.
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The API ID.
     apiId :: Prelude.Text,
     -- | The new type name.
@@ -105,17 +105,9 @@ data UpdateResolver = UpdateResolver'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSourceName', 'updateResolver_dataSourceName' - The new data source name.
+-- 'cachingConfig', 'updateResolver_cachingConfig' - The caching configuration for the resolver.
 --
--- 'requestMappingTemplate', 'updateResolver_requestMappingTemplate' - The new request mapping template.
---
--- A resolver uses a request mapping template to convert a GraphQL
--- expression into a format that a data source can understand. Mapping
--- templates are written in Apache Velocity Template Language (VTL).
---
--- VTL request mapping templates are optional when using a Lambda data
--- source. For all other data sources, VTL request and response mapping
--- templates are required.
+-- 'pipelineConfig', 'updateResolver_pipelineConfig' - The @PipelineConfig@.
 --
 -- 'kind', 'updateResolver_kind' - The resolver type.
 --
@@ -128,13 +120,21 @@ data UpdateResolver = UpdateResolver'
 --     use a pipeline resolver to execute a GraphQL query against multiple
 --     data sources.
 --
--- 'cachingConfig', 'updateResolver_cachingConfig' - The caching configuration for the resolver.
+-- 'dataSourceName', 'updateResolver_dataSourceName' - The new data source name.
 --
 -- 'responseMappingTemplate', 'updateResolver_responseMappingTemplate' - The new response mapping template.
 --
 -- 'syncConfig', 'updateResolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
 --
--- 'pipelineConfig', 'updateResolver_pipelineConfig' - The @PipelineConfig@.
+-- 'requestMappingTemplate', 'updateResolver_requestMappingTemplate' - The new request mapping template.
+--
+-- A resolver uses a request mapping template to convert a GraphQL
+-- expression into a format that a data source can understand. Mapping
+-- templates are written in Apache Velocity Template Language (VTL).
+--
+-- VTL request mapping templates are optional when using a Lambda data
+-- source. For all other data sources, VTL request and response mapping
+-- templates are required.
 --
 -- 'apiId', 'updateResolver_apiId' - The API ID.
 --
@@ -151,33 +151,25 @@ newUpdateResolver ::
   UpdateResolver
 newUpdateResolver pApiId_ pTypeName_ pFieldName_ =
   UpdateResolver'
-    { dataSourceName = Prelude.Nothing,
-      requestMappingTemplate = Prelude.Nothing,
+    { cachingConfig = Prelude.Nothing,
+      pipelineConfig = Prelude.Nothing,
       kind = Prelude.Nothing,
-      cachingConfig = Prelude.Nothing,
+      dataSourceName = Prelude.Nothing,
       responseMappingTemplate = Prelude.Nothing,
       syncConfig = Prelude.Nothing,
-      pipelineConfig = Prelude.Nothing,
+      requestMappingTemplate = Prelude.Nothing,
       apiId = pApiId_,
       typeName = pTypeName_,
       fieldName = pFieldName_
     }
 
--- | The new data source name.
-updateResolver_dataSourceName :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
-updateResolver_dataSourceName = Lens.lens (\UpdateResolver' {dataSourceName} -> dataSourceName) (\s@UpdateResolver' {} a -> s {dataSourceName = a} :: UpdateResolver)
+-- | The caching configuration for the resolver.
+updateResolver_cachingConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe CachingConfig)
+updateResolver_cachingConfig = Lens.lens (\UpdateResolver' {cachingConfig} -> cachingConfig) (\s@UpdateResolver' {} a -> s {cachingConfig = a} :: UpdateResolver)
 
--- | The new request mapping template.
---
--- A resolver uses a request mapping template to convert a GraphQL
--- expression into a format that a data source can understand. Mapping
--- templates are written in Apache Velocity Template Language (VTL).
---
--- VTL request mapping templates are optional when using a Lambda data
--- source. For all other data sources, VTL request and response mapping
--- templates are required.
-updateResolver_requestMappingTemplate :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
-updateResolver_requestMappingTemplate = Lens.lens (\UpdateResolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@UpdateResolver' {} a -> s {requestMappingTemplate = a} :: UpdateResolver)
+-- | The @PipelineConfig@.
+updateResolver_pipelineConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe PipelineConfig)
+updateResolver_pipelineConfig = Lens.lens (\UpdateResolver' {pipelineConfig} -> pipelineConfig) (\s@UpdateResolver' {} a -> s {pipelineConfig = a} :: UpdateResolver)
 
 -- | The resolver type.
 --
@@ -192,9 +184,9 @@ updateResolver_requestMappingTemplate = Lens.lens (\UpdateResolver' {requestMapp
 updateResolver_kind :: Lens.Lens' UpdateResolver (Prelude.Maybe ResolverKind)
 updateResolver_kind = Lens.lens (\UpdateResolver' {kind} -> kind) (\s@UpdateResolver' {} a -> s {kind = a} :: UpdateResolver)
 
--- | The caching configuration for the resolver.
-updateResolver_cachingConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe CachingConfig)
-updateResolver_cachingConfig = Lens.lens (\UpdateResolver' {cachingConfig} -> cachingConfig) (\s@UpdateResolver' {} a -> s {cachingConfig = a} :: UpdateResolver)
+-- | The new data source name.
+updateResolver_dataSourceName :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
+updateResolver_dataSourceName = Lens.lens (\UpdateResolver' {dataSourceName} -> dataSourceName) (\s@UpdateResolver' {} a -> s {dataSourceName = a} :: UpdateResolver)
 
 -- | The new response mapping template.
 updateResolver_responseMappingTemplate :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
@@ -204,9 +196,17 @@ updateResolver_responseMappingTemplate = Lens.lens (\UpdateResolver' {responseMa
 updateResolver_syncConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe SyncConfig)
 updateResolver_syncConfig = Lens.lens (\UpdateResolver' {syncConfig} -> syncConfig) (\s@UpdateResolver' {} a -> s {syncConfig = a} :: UpdateResolver)
 
--- | The @PipelineConfig@.
-updateResolver_pipelineConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe PipelineConfig)
-updateResolver_pipelineConfig = Lens.lens (\UpdateResolver' {pipelineConfig} -> pipelineConfig) (\s@UpdateResolver' {} a -> s {pipelineConfig = a} :: UpdateResolver)
+-- | The new request mapping template.
+--
+-- A resolver uses a request mapping template to convert a GraphQL
+-- expression into a format that a data source can understand. Mapping
+-- templates are written in Apache Velocity Template Language (VTL).
+--
+-- VTL request mapping templates are optional when using a Lambda data
+-- source. For all other data sources, VTL request and response mapping
+-- templates are required.
+updateResolver_requestMappingTemplate :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
+updateResolver_requestMappingTemplate = Lens.lens (\UpdateResolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@UpdateResolver' {} a -> s {requestMappingTemplate = a} :: UpdateResolver)
 
 -- | The API ID.
 updateResolver_apiId :: Lens.Lens' UpdateResolver Prelude.Text
@@ -235,26 +235,26 @@ instance Core.AWSRequest UpdateResolver where
 
 instance Prelude.Hashable UpdateResolver where
   hashWithSalt _salt UpdateResolver' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceName
-      `Prelude.hashWithSalt` requestMappingTemplate
+    _salt `Prelude.hashWithSalt` cachingConfig
+      `Prelude.hashWithSalt` pipelineConfig
       `Prelude.hashWithSalt` kind
-      `Prelude.hashWithSalt` cachingConfig
+      `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` responseMappingTemplate
       `Prelude.hashWithSalt` syncConfig
-      `Prelude.hashWithSalt` pipelineConfig
+      `Prelude.hashWithSalt` requestMappingTemplate
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` fieldName
 
 instance Prelude.NFData UpdateResolver where
   rnf UpdateResolver' {..} =
-    Prelude.rnf dataSourceName
-      `Prelude.seq` Prelude.rnf requestMappingTemplate
+    Prelude.rnf cachingConfig
+      `Prelude.seq` Prelude.rnf pipelineConfig
       `Prelude.seq` Prelude.rnf kind
-      `Prelude.seq` Prelude.rnf cachingConfig
+      `Prelude.seq` Prelude.rnf dataSourceName
       `Prelude.seq` Prelude.rnf responseMappingTemplate
       `Prelude.seq` Prelude.rnf syncConfig
-      `Prelude.seq` Prelude.rnf pipelineConfig
+      `Prelude.seq` Prelude.rnf requestMappingTemplate
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf fieldName
@@ -274,17 +274,17 @@ instance Core.ToJSON UpdateResolver where
   toJSON UpdateResolver' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("dataSourceName" Core..=)
-              Prelude.<$> dataSourceName,
-            ("requestMappingTemplate" Core..=)
-              Prelude.<$> requestMappingTemplate,
+          [ ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
+            ("pipelineConfig" Core..=)
+              Prelude.<$> pipelineConfig,
             ("kind" Core..=) Prelude.<$> kind,
-            ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
+            ("dataSourceName" Core..=)
+              Prelude.<$> dataSourceName,
             ("responseMappingTemplate" Core..=)
               Prelude.<$> responseMappingTemplate,
             ("syncConfig" Core..=) Prelude.<$> syncConfig,
-            ("pipelineConfig" Core..=)
-              Prelude.<$> pipelineConfig
+            ("requestMappingTemplate" Core..=)
+              Prelude.<$> requestMappingTemplate
           ]
       )
 

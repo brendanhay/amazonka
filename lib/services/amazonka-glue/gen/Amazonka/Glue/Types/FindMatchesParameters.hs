@@ -27,17 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFindMatchesParameters' smart constructor.
 data FindMatchesParameters = FindMatchesParameters'
-  { -- | The value to switch on or off to force the output to match the provided
-    -- labels from users. If the value is @True@, the @find matches@ transform
-    -- forces the output to match the provided labels. The results override the
-    -- normal conflation results. If the value is @False@, the @find matches@
-    -- transform does not ensure all the labels provided are respected, and the
-    -- results rely on the trained model.
-    --
-    -- Note that setting this value to true may increase the conflation
-    -- execution time.
-    enforceProvidedLabels :: Prelude.Maybe Prelude.Bool,
-    -- | The value that is selected when tuning your transform for a balance
+  { -- | The value that is selected when tuning your transform for a balance
     -- between accuracy and cost. A value of 0.5 means that the system balances
     -- accuracy and cost concerns. A value of 1.0 means a bias purely for
     -- accuracy, which typically results in a higher cost, sometimes
@@ -52,6 +42,9 @@ data FindMatchesParameters = FindMatchesParameters'
     -- Cost measures how many compute resources, and thus money, are consumed
     -- to run the transform.
     accuracyCostTradeoff :: Prelude.Maybe Prelude.Double,
+    -- | The name of a column that uniquely identifies rows in the source table.
+    -- Used to help identify matching records.
+    primaryKeyColumnName :: Prelude.Maybe Prelude.Text,
     -- | The value selected when tuning your transform for a balance between
     -- precision and recall. A value of 0.5 means no preference; a value of 1.0
     -- means a bias purely for precision, and a value of 0.0 means a bias for
@@ -65,9 +58,16 @@ data FindMatchesParameters = FindMatchesParameters'
     -- The recall metric indicates that for an actual match, how often your
     -- model predicts the match.
     precisionRecallTradeoff :: Prelude.Maybe Prelude.Double,
-    -- | The name of a column that uniquely identifies rows in the source table.
-    -- Used to help identify matching records.
-    primaryKeyColumnName :: Prelude.Maybe Prelude.Text
+    -- | The value to switch on or off to force the output to match the provided
+    -- labels from users. If the value is @True@, the @find matches@ transform
+    -- forces the output to match the provided labels. The results override the
+    -- normal conflation results. If the value is @False@, the @find matches@
+    -- transform does not ensure all the labels provided are respected, and the
+    -- results rely on the trained model.
+    --
+    -- Note that setting this value to true may increase the conflation
+    -- execution time.
+    enforceProvidedLabels :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,16 +78,6 @@ data FindMatchesParameters = FindMatchesParameters'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'enforceProvidedLabels', 'findMatchesParameters_enforceProvidedLabels' - The value to switch on or off to force the output to match the provided
--- labels from users. If the value is @True@, the @find matches@ transform
--- forces the output to match the provided labels. The results override the
--- normal conflation results. If the value is @False@, the @find matches@
--- transform does not ensure all the labels provided are respected, and the
--- results rely on the trained model.
---
--- Note that setting this value to true may increase the conflation
--- execution time.
 --
 -- 'accuracyCostTradeoff', 'findMatchesParameters_accuracyCostTradeoff' - The value that is selected when tuning your transform for a balance
 -- between accuracy and cost. A value of 0.5 means that the system balances
@@ -104,6 +94,9 @@ data FindMatchesParameters = FindMatchesParameters'
 -- Cost measures how many compute resources, and thus money, are consumed
 -- to run the transform.
 --
+-- 'primaryKeyColumnName', 'findMatchesParameters_primaryKeyColumnName' - The name of a column that uniquely identifies rows in the source table.
+-- Used to help identify matching records.
+--
 -- 'precisionRecallTradeoff', 'findMatchesParameters_precisionRecallTradeoff' - The value selected when tuning your transform for a balance between
 -- precision and recall. A value of 0.5 means no preference; a value of 1.0
 -- means a bias purely for precision, and a value of 0.0 means a bias for
@@ -117,20 +110,7 @@ data FindMatchesParameters = FindMatchesParameters'
 -- The recall metric indicates that for an actual match, how often your
 -- model predicts the match.
 --
--- 'primaryKeyColumnName', 'findMatchesParameters_primaryKeyColumnName' - The name of a column that uniquely identifies rows in the source table.
--- Used to help identify matching records.
-newFindMatchesParameters ::
-  FindMatchesParameters
-newFindMatchesParameters =
-  FindMatchesParameters'
-    { enforceProvidedLabels =
-        Prelude.Nothing,
-      accuracyCostTradeoff = Prelude.Nothing,
-      precisionRecallTradeoff = Prelude.Nothing,
-      primaryKeyColumnName = Prelude.Nothing
-    }
-
--- | The value to switch on or off to force the output to match the provided
+-- 'enforceProvidedLabels', 'findMatchesParameters_enforceProvidedLabels' - The value to switch on or off to force the output to match the provided
 -- labels from users. If the value is @True@, the @find matches@ transform
 -- forces the output to match the provided labels. The results override the
 -- normal conflation results. If the value is @False@, the @find matches@
@@ -139,8 +119,16 @@ newFindMatchesParameters =
 --
 -- Note that setting this value to true may increase the conflation
 -- execution time.
-findMatchesParameters_enforceProvidedLabels :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Bool)
-findMatchesParameters_enforceProvidedLabels = Lens.lens (\FindMatchesParameters' {enforceProvidedLabels} -> enforceProvidedLabels) (\s@FindMatchesParameters' {} a -> s {enforceProvidedLabels = a} :: FindMatchesParameters)
+newFindMatchesParameters ::
+  FindMatchesParameters
+newFindMatchesParameters =
+  FindMatchesParameters'
+    { accuracyCostTradeoff =
+        Prelude.Nothing,
+      primaryKeyColumnName = Prelude.Nothing,
+      precisionRecallTradeoff = Prelude.Nothing,
+      enforceProvidedLabels = Prelude.Nothing
+    }
 
 -- | The value that is selected when tuning your transform for a balance
 -- between accuracy and cost. A value of 0.5 means that the system balances
@@ -159,6 +147,11 @@ findMatchesParameters_enforceProvidedLabels = Lens.lens (\FindMatchesParameters'
 findMatchesParameters_accuracyCostTradeoff :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Double)
 findMatchesParameters_accuracyCostTradeoff = Lens.lens (\FindMatchesParameters' {accuracyCostTradeoff} -> accuracyCostTradeoff) (\s@FindMatchesParameters' {} a -> s {accuracyCostTradeoff = a} :: FindMatchesParameters)
 
+-- | The name of a column that uniquely identifies rows in the source table.
+-- Used to help identify matching records.
+findMatchesParameters_primaryKeyColumnName :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Text)
+findMatchesParameters_primaryKeyColumnName = Lens.lens (\FindMatchesParameters' {primaryKeyColumnName} -> primaryKeyColumnName) (\s@FindMatchesParameters' {} a -> s {primaryKeyColumnName = a} :: FindMatchesParameters)
+
 -- | The value selected when tuning your transform for a balance between
 -- precision and recall. A value of 0.5 means no preference; a value of 1.0
 -- means a bias purely for precision, and a value of 0.0 means a bias for
@@ -174,10 +167,17 @@ findMatchesParameters_accuracyCostTradeoff = Lens.lens (\FindMatchesParameters' 
 findMatchesParameters_precisionRecallTradeoff :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Double)
 findMatchesParameters_precisionRecallTradeoff = Lens.lens (\FindMatchesParameters' {precisionRecallTradeoff} -> precisionRecallTradeoff) (\s@FindMatchesParameters' {} a -> s {precisionRecallTradeoff = a} :: FindMatchesParameters)
 
--- | The name of a column that uniquely identifies rows in the source table.
--- Used to help identify matching records.
-findMatchesParameters_primaryKeyColumnName :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Text)
-findMatchesParameters_primaryKeyColumnName = Lens.lens (\FindMatchesParameters' {primaryKeyColumnName} -> primaryKeyColumnName) (\s@FindMatchesParameters' {} a -> s {primaryKeyColumnName = a} :: FindMatchesParameters)
+-- | The value to switch on or off to force the output to match the provided
+-- labels from users. If the value is @True@, the @find matches@ transform
+-- forces the output to match the provided labels. The results override the
+-- normal conflation results. If the value is @False@, the @find matches@
+-- transform does not ensure all the labels provided are respected, and the
+-- results rely on the trained model.
+--
+-- Note that setting this value to true may increase the conflation
+-- execution time.
+findMatchesParameters_enforceProvidedLabels :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Bool)
+findMatchesParameters_enforceProvidedLabels = Lens.lens (\FindMatchesParameters' {enforceProvidedLabels} -> enforceProvidedLabels) (\s@FindMatchesParameters' {} a -> s {enforceProvidedLabels = a} :: FindMatchesParameters)
 
 instance Core.FromJSON FindMatchesParameters where
   parseJSON =
@@ -185,37 +185,37 @@ instance Core.FromJSON FindMatchesParameters where
       "FindMatchesParameters"
       ( \x ->
           FindMatchesParameters'
-            Prelude.<$> (x Core..:? "EnforceProvidedLabels")
-            Prelude.<*> (x Core..:? "AccuracyCostTradeoff")
-            Prelude.<*> (x Core..:? "PrecisionRecallTradeoff")
+            Prelude.<$> (x Core..:? "AccuracyCostTradeoff")
             Prelude.<*> (x Core..:? "PrimaryKeyColumnName")
+            Prelude.<*> (x Core..:? "PrecisionRecallTradeoff")
+            Prelude.<*> (x Core..:? "EnforceProvidedLabels")
       )
 
 instance Prelude.Hashable FindMatchesParameters where
   hashWithSalt _salt FindMatchesParameters' {..} =
-    _salt `Prelude.hashWithSalt` enforceProvidedLabels
-      `Prelude.hashWithSalt` accuracyCostTradeoff
-      `Prelude.hashWithSalt` precisionRecallTradeoff
+    _salt `Prelude.hashWithSalt` accuracyCostTradeoff
       `Prelude.hashWithSalt` primaryKeyColumnName
+      `Prelude.hashWithSalt` precisionRecallTradeoff
+      `Prelude.hashWithSalt` enforceProvidedLabels
 
 instance Prelude.NFData FindMatchesParameters where
   rnf FindMatchesParameters' {..} =
-    Prelude.rnf enforceProvidedLabels
-      `Prelude.seq` Prelude.rnf accuracyCostTradeoff
-      `Prelude.seq` Prelude.rnf precisionRecallTradeoff
+    Prelude.rnf accuracyCostTradeoff
       `Prelude.seq` Prelude.rnf primaryKeyColumnName
+      `Prelude.seq` Prelude.rnf precisionRecallTradeoff
+      `Prelude.seq` Prelude.rnf enforceProvidedLabels
 
 instance Core.ToJSON FindMatchesParameters where
   toJSON FindMatchesParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EnforceProvidedLabels" Core..=)
-              Prelude.<$> enforceProvidedLabels,
-            ("AccuracyCostTradeoff" Core..=)
+          [ ("AccuracyCostTradeoff" Core..=)
               Prelude.<$> accuracyCostTradeoff,
+            ("PrimaryKeyColumnName" Core..=)
+              Prelude.<$> primaryKeyColumnName,
             ("PrecisionRecallTradeoff" Core..=)
               Prelude.<$> precisionRecallTradeoff,
-            ("PrimaryKeyColumnName" Core..=)
-              Prelude.<$> primaryKeyColumnName
+            ("EnforceProvidedLabels" Core..=)
+              Prelude.<$> enforceProvidedLabels
           ]
       )

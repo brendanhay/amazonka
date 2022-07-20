@@ -36,10 +36,10 @@ module Amazonka.ELBV2.DescribeSSLPolicies
     newDescribeSSLPolicies,
 
     -- * Request Lenses
-    describeSSLPolicies_loadBalancerType,
-    describeSSLPolicies_names,
     describeSSLPolicies_marker,
+    describeSSLPolicies_names,
     describeSSLPolicies_pageSize,
+    describeSSLPolicies_loadBalancerType,
 
     -- * Destructuring the Response
     DescribeSSLPoliciesResponse (..),
@@ -61,16 +61,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
-  { -- | The type of load balancer. The default lists the SSL policies for all
-    -- load balancers.
-    loadBalancerType :: Prelude.Maybe LoadBalancerTypeEnum,
-    -- | The names of the policies.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | The marker for the next set of results. (You received this marker from a
+  { -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The names of the policies.
+    names :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The type of load balancer. The default lists the SSL policies for all
+    -- load balancers.
+    loadBalancerType :: Prelude.Maybe LoadBalancerTypeEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,43 +82,42 @@ data DescribeSSLPolicies = DescribeSSLPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loadBalancerType', 'describeSSLPolicies_loadBalancerType' - The type of load balancer. The default lists the SSL policies for all
--- load balancers.
---
--- 'names', 'describeSSLPolicies_names' - The names of the policies.
---
 -- 'marker', 'describeSSLPolicies_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
 --
+-- 'names', 'describeSSLPolicies_names' - The names of the policies.
+--
 -- 'pageSize', 'describeSSLPolicies_pageSize' - The maximum number of results to return with this call.
+--
+-- 'loadBalancerType', 'describeSSLPolicies_loadBalancerType' - The type of load balancer. The default lists the SSL policies for all
+-- load balancers.
 newDescribeSSLPolicies ::
   DescribeSSLPolicies
 newDescribeSSLPolicies =
   DescribeSSLPolicies'
-    { loadBalancerType =
-        Prelude.Nothing,
+    { marker = Prelude.Nothing,
       names = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+      pageSize = Prelude.Nothing,
+      loadBalancerType = Prelude.Nothing
     }
-
--- | The type of load balancer. The default lists the SSL policies for all
--- load balancers.
-describeSSLPolicies_loadBalancerType :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe LoadBalancerTypeEnum)
-describeSSLPolicies_loadBalancerType = Lens.lens (\DescribeSSLPolicies' {loadBalancerType} -> loadBalancerType) (\s@DescribeSSLPolicies' {} a -> s {loadBalancerType = a} :: DescribeSSLPolicies)
-
--- | The names of the policies.
-describeSSLPolicies_names :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe [Prelude.Text])
-describeSSLPolicies_names = Lens.lens (\DescribeSSLPolicies' {names} -> names) (\s@DescribeSSLPolicies' {} a -> s {names = a} :: DescribeSSLPolicies) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeSSLPolicies_marker :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe Prelude.Text)
 describeSSLPolicies_marker = Lens.lens (\DescribeSSLPolicies' {marker} -> marker) (\s@DescribeSSLPolicies' {} a -> s {marker = a} :: DescribeSSLPolicies)
 
+-- | The names of the policies.
+describeSSLPolicies_names :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe [Prelude.Text])
+describeSSLPolicies_names = Lens.lens (\DescribeSSLPolicies' {names} -> names) (\s@DescribeSSLPolicies' {} a -> s {names = a} :: DescribeSSLPolicies) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to return with this call.
 describeSSLPolicies_pageSize :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe Prelude.Natural)
 describeSSLPolicies_pageSize = Lens.lens (\DescribeSSLPolicies' {pageSize} -> pageSize) (\s@DescribeSSLPolicies' {} a -> s {pageSize = a} :: DescribeSSLPolicies)
+
+-- | The type of load balancer. The default lists the SSL policies for all
+-- load balancers.
+describeSSLPolicies_loadBalancerType :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe LoadBalancerTypeEnum)
+describeSSLPolicies_loadBalancerType = Lens.lens (\DescribeSSLPolicies' {loadBalancerType} -> loadBalancerType) (\s@DescribeSSLPolicies' {} a -> s {loadBalancerType = a} :: DescribeSSLPolicies)
 
 instance Core.AWSPager DescribeSSLPolicies where
   page rq rs
@@ -161,17 +160,17 @@ instance Core.AWSRequest DescribeSSLPolicies where
 
 instance Prelude.Hashable DescribeSSLPolicies where
   hashWithSalt _salt DescribeSSLPolicies' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerType
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` names
-      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` loadBalancerType
 
 instance Prelude.NFData DescribeSSLPolicies where
   rnf DescribeSSLPolicies' {..} =
-    Prelude.rnf loadBalancerType
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf loadBalancerType
 
 instance Core.ToHeaders DescribeSSLPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -186,12 +185,12 @@ instance Core.ToQuery DescribeSSLPolicies where
           Core.=: ("DescribeSSLPolicies" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "LoadBalancerType" Core.=: loadBalancerType,
+        "Marker" Core.=: marker,
         "Names"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> names),
-        "Marker" Core.=: marker,
-        "PageSize" Core.=: pageSize
+        "PageSize" Core.=: pageSize,
+        "LoadBalancerType" Core.=: loadBalancerType
       ]
 
 -- | /See:/ 'newDescribeSSLPoliciesResponse' smart constructor.

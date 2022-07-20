@@ -34,8 +34,8 @@ module Amazonka.SageMaker.DescribePipelineDefinitionForExecution
     newDescribePipelineDefinitionForExecutionResponse,
 
     -- * Response Lenses
-    describePipelineDefinitionForExecutionResponse_creationTime,
     describePipelineDefinitionForExecutionResponse_pipelineDefinition,
+    describePipelineDefinitionForExecutionResponse_creationTime,
     describePipelineDefinitionForExecutionResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribePipelineDefinitionForExecutionResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-              Prelude.<*> (x Core..?> "PipelineDefinition")
+            Prelude.<$> (x Core..?> "PipelineDefinition")
+              Prelude.<*> (x Core..?> "CreationTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,10 +158,10 @@ instance
 
 -- | /See:/ 'newDescribePipelineDefinitionForExecutionResponse' smart constructor.
 data DescribePipelineDefinitionForExecutionResponse = DescribePipelineDefinitionForExecutionResponse'
-  { -- | The time when the pipeline was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The JSON pipeline definition.
+  { -- | The JSON pipeline definition.
     pipelineDefinition :: Prelude.Maybe Prelude.Text,
+    -- | The time when the pipeline was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data DescribePipelineDefinitionForExecutionResponse = DescribePipelineDefinition
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describePipelineDefinitionForExecutionResponse_creationTime' - The time when the pipeline was created.
---
 -- 'pipelineDefinition', 'describePipelineDefinitionForExecutionResponse_pipelineDefinition' - The JSON pipeline definition.
+--
+-- 'creationTime', 'describePipelineDefinitionForExecutionResponse_creationTime' - The time when the pipeline was created.
 --
 -- 'httpStatus', 'describePipelineDefinitionForExecutionResponse_httpStatus' - The response's http status code.
 newDescribePipelineDefinitionForExecutionResponse ::
@@ -187,20 +187,20 @@ newDescribePipelineDefinitionForExecutionResponse ::
 newDescribePipelineDefinitionForExecutionResponse
   pHttpStatus_ =
     DescribePipelineDefinitionForExecutionResponse'
-      { creationTime =
+      { pipelineDefinition =
           Prelude.Nothing,
-        pipelineDefinition =
+        creationTime =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The time when the pipeline was created.
-describePipelineDefinitionForExecutionResponse_creationTime :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describePipelineDefinitionForExecutionResponse_creationTime = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {creationTime} -> creationTime) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {creationTime = a} :: DescribePipelineDefinitionForExecutionResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The JSON pipeline definition.
 describePipelineDefinitionForExecutionResponse_pipelineDefinition :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse (Prelude.Maybe Prelude.Text)
 describePipelineDefinitionForExecutionResponse_pipelineDefinition = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {pipelineDefinition} -> pipelineDefinition) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {pipelineDefinition = a} :: DescribePipelineDefinitionForExecutionResponse)
+
+-- | The time when the pipeline was created.
+describePipelineDefinitionForExecutionResponse_creationTime :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse (Prelude.Maybe Prelude.UTCTime)
+describePipelineDefinitionForExecutionResponse_creationTime = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {creationTime} -> creationTime) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {creationTime = a} :: DescribePipelineDefinitionForExecutionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describePipelineDefinitionForExecutionResponse_httpStatus :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse Prelude.Int
@@ -212,6 +212,6 @@ instance
   where
   rnf
     DescribePipelineDefinitionForExecutionResponse' {..} =
-      Prelude.rnf creationTime
-        `Prelude.seq` Prelude.rnf pipelineDefinition
+      Prelude.rnf pipelineDefinition
+        `Prelude.seq` Prelude.rnf creationTime
         `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ import Amazonka.WorkLink.Types.DeviceStatus
 --
 -- /See:/ 'newDeviceSummary' smart constructor.
 data DeviceSummary = DeviceSummary'
-  { -- | The status of the device.
-    deviceStatus :: Prelude.Maybe DeviceStatus,
-    -- | The ID of the device.
-    deviceId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the device.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the device.
+    deviceStatus :: Prelude.Maybe DeviceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data DeviceSummary = DeviceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceStatus', 'deviceSummary_deviceStatus' - The status of the device.
---
 -- 'deviceId', 'deviceSummary_deviceId' - The ID of the device.
+--
+-- 'deviceStatus', 'deviceSummary_deviceStatus' - The status of the device.
 newDeviceSummary ::
   DeviceSummary
 newDeviceSummary =
   DeviceSummary'
-    { deviceStatus = Prelude.Nothing,
-      deviceId = Prelude.Nothing
+    { deviceId = Prelude.Nothing,
+      deviceStatus = Prelude.Nothing
     }
-
--- | The status of the device.
-deviceSummary_deviceStatus :: Lens.Lens' DeviceSummary (Prelude.Maybe DeviceStatus)
-deviceSummary_deviceStatus = Lens.lens (\DeviceSummary' {deviceStatus} -> deviceStatus) (\s@DeviceSummary' {} a -> s {deviceStatus = a} :: DeviceSummary)
 
 -- | The ID of the device.
 deviceSummary_deviceId :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
 deviceSummary_deviceId = Lens.lens (\DeviceSummary' {deviceId} -> deviceId) (\s@DeviceSummary' {} a -> s {deviceId = a} :: DeviceSummary)
+
+-- | The status of the device.
+deviceSummary_deviceStatus :: Lens.Lens' DeviceSummary (Prelude.Maybe DeviceStatus)
+deviceSummary_deviceStatus = Lens.lens (\DeviceSummary' {deviceStatus} -> deviceStatus) (\s@DeviceSummary' {} a -> s {deviceStatus = a} :: DeviceSummary)
 
 instance Core.FromJSON DeviceSummary where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON DeviceSummary where
       "DeviceSummary"
       ( \x ->
           DeviceSummary'
-            Prelude.<$> (x Core..:? "DeviceStatus")
-            Prelude.<*> (x Core..:? "DeviceId")
+            Prelude.<$> (x Core..:? "DeviceId")
+            Prelude.<*> (x Core..:? "DeviceStatus")
       )
 
 instance Prelude.Hashable DeviceSummary where
   hashWithSalt _salt DeviceSummary' {..} =
-    _salt `Prelude.hashWithSalt` deviceStatus
-      `Prelude.hashWithSalt` deviceId
+    _salt `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` deviceStatus
 
 instance Prelude.NFData DeviceSummary where
   rnf DeviceSummary' {..} =
-    Prelude.rnf deviceStatus
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf deviceStatus

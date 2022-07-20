@@ -128,12 +128,7 @@ instance Core.ToHeaders UpdateSmsChannel where
 
 instance Core.ToJSON UpdateSmsChannel where
   toJSON UpdateSmsChannel' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("SMSChannelRequest" Core..= sMSChannelRequest)
-          ]
-      )
+    Core.toJSON sMSChannelRequest
 
 instance Core.ToPath UpdateSmsChannel where
   toPath UpdateSmsChannel' {..} =

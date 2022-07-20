@@ -31,16 +31,16 @@ module Amazonka.DMS.ModifyReplicationInstance
     newModifyReplicationInstance,
 
     -- * Request Lenses
-    modifyReplicationInstance_engineVersion,
-    modifyReplicationInstance_autoMinorVersionUpgrade,
-    modifyReplicationInstance_allowMajorVersionUpgrade,
-    modifyReplicationInstance_preferredMaintenanceWindow,
-    modifyReplicationInstance_vpcSecurityGroupIds,
-    modifyReplicationInstance_multiAZ,
-    modifyReplicationInstance_allocatedStorage,
-    modifyReplicationInstance_applyImmediately,
-    modifyReplicationInstance_replicationInstanceClass,
     modifyReplicationInstance_replicationInstanceIdentifier,
+    modifyReplicationInstance_vpcSecurityGroupIds,
+    modifyReplicationInstance_autoMinorVersionUpgrade,
+    modifyReplicationInstance_applyImmediately,
+    modifyReplicationInstance_allowMajorVersionUpgrade,
+    modifyReplicationInstance_allocatedStorage,
+    modifyReplicationInstance_preferredMaintenanceWindow,
+    modifyReplicationInstance_replicationInstanceClass,
+    modifyReplicationInstance_engineVersion,
+    modifyReplicationInstance_multiAZ,
     modifyReplicationInstance_replicationInstanceArn,
 
     -- * Destructuring the Response
@@ -64,11 +64,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newModifyReplicationInstance' smart constructor.
 data ModifyReplicationInstance = ModifyReplicationInstance'
-  { -- | The engine version number of the replication instance.
-    --
-    -- When modifying a major engine version of an instance, also set
-    -- @AllowMajorVersionUpgrade@ to @true@.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+  { -- | The replication instance identifier. This parameter is stored as a
+    -- lowercase string.
+    replicationInstanceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the VPC security group to be used with the replication
+    -- instance. The VPC security group must work with the VPC containing the
+    -- replication instance.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A value that indicates that minor version upgrades are applied
     -- automatically to the replication instance during the maintenance window.
     -- Changing this parameter doesn\'t result in an outage, except in the case
@@ -83,6 +85,9 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
     --
     -- -   DMS has enabled automatic patching for the given engine version.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the changes should be applied immediately or during
+    -- the next maintenance window.
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | Indicates that major version upgrades are allowed. Changing this
     -- parameter does not result in an outage, and the change is asynchronously
     -- applied as soon as possible.
@@ -91,6 +96,9 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
     -- @EngineVersion@ parameter that is a different major version than the
     -- replication instance\'s current version.
     allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The amount of storage (in gigabytes) to be allocated for the replication
+    -- instance.
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | The weekly time range (in UTC) during which system maintenance can
     -- occur, which might result in an outage. Changing this parameter does not
     -- result in an outage, except in the following situation, and the change
@@ -106,20 +114,6 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
     --
     -- Constraints: Must be at least 30 minutes
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the VPC security group to be used with the replication
-    -- instance. The VPC security group must work with the VPC containing the
-    -- replication instance.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether the replication instance is a Multi-AZ deployment. You
-    -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
-    -- set to @true@.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
-    -- | The amount of storage (in gigabytes) to be allocated for the replication
-    -- instance.
-    allocatedStorage :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the changes should be applied immediately or during
-    -- the next maintenance window.
-    applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | The compute and memory capacity of the replication instance as defined
     -- for the specified replication instance class. For example to specify the
     -- instance class dms.c4.large, set this parameter to @\"dms.c4.large\"@.
@@ -128,9 +122,15 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
     -- replication instance classes, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
     replicationInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | The replication instance identifier. This parameter is stored as a
-    -- lowercase string.
-    replicationInstanceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The engine version number of the replication instance.
+    --
+    -- When modifying a major engine version of an instance, also set
+    -- @AllowMajorVersionUpgrade@ to @true@.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the replication instance is a Multi-AZ deployment. You
+    -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+    -- set to @true@.
+    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the replication instance.
     replicationInstanceArn :: Prelude.Text
   }
@@ -144,10 +144,12 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'modifyReplicationInstance_engineVersion' - The engine version number of the replication instance.
+-- 'replicationInstanceIdentifier', 'modifyReplicationInstance_replicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a
+-- lowercase string.
 --
--- When modifying a major engine version of an instance, also set
--- @AllowMajorVersionUpgrade@ to @true@.
+-- 'vpcSecurityGroupIds', 'modifyReplicationInstance_vpcSecurityGroupIds' - Specifies the VPC security group to be used with the replication
+-- instance. The VPC security group must work with the VPC containing the
+-- replication instance.
 --
 -- 'autoMinorVersionUpgrade', 'modifyReplicationInstance_autoMinorVersionUpgrade' - A value that indicates that minor version upgrades are applied
 -- automatically to the replication instance during the maintenance window.
@@ -163,6 +165,9 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 --
 -- -   DMS has enabled automatic patching for the given engine version.
 --
+-- 'applyImmediately', 'modifyReplicationInstance_applyImmediately' - Indicates whether the changes should be applied immediately or during
+-- the next maintenance window.
+--
 -- 'allowMajorVersionUpgrade', 'modifyReplicationInstance_allowMajorVersionUpgrade' - Indicates that major version upgrades are allowed. Changing this
 -- parameter does not result in an outage, and the change is asynchronously
 -- applied as soon as possible.
@@ -170,6 +175,9 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 -- This parameter must be set to @true@ when specifying a value for the
 -- @EngineVersion@ parameter that is a different major version than the
 -- replication instance\'s current version.
+--
+-- 'allocatedStorage', 'modifyReplicationInstance_allocatedStorage' - The amount of storage (in gigabytes) to be allocated for the replication
+-- instance.
 --
 -- 'preferredMaintenanceWindow', 'modifyReplicationInstance_preferredMaintenanceWindow' - The weekly time range (in UTC) during which system maintenance can
 -- occur, which might result in an outage. Changing this parameter does not
@@ -186,20 +194,6 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 --
 -- Constraints: Must be at least 30 minutes
 --
--- 'vpcSecurityGroupIds', 'modifyReplicationInstance_vpcSecurityGroupIds' - Specifies the VPC security group to be used with the replication
--- instance. The VPC security group must work with the VPC containing the
--- replication instance.
---
--- 'multiAZ', 'modifyReplicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
--- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
--- set to @true@.
---
--- 'allocatedStorage', 'modifyReplicationInstance_allocatedStorage' - The amount of storage (in gigabytes) to be allocated for the replication
--- instance.
---
--- 'applyImmediately', 'modifyReplicationInstance_applyImmediately' - Indicates whether the changes should be applied immediately or during
--- the next maintenance window.
---
 -- 'replicationInstanceClass', 'modifyReplicationInstance_replicationInstanceClass' - The compute and memory capacity of the replication instance as defined
 -- for the specified replication instance class. For example to specify the
 -- instance class dms.c4.large, set this parameter to @\"dms.c4.large\"@.
@@ -208,8 +202,14 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 -- replication instance classes, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 --
--- 'replicationInstanceIdentifier', 'modifyReplicationInstance_replicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a
--- lowercase string.
+-- 'engineVersion', 'modifyReplicationInstance_engineVersion' - The engine version number of the replication instance.
+--
+-- When modifying a major engine version of an instance, also set
+-- @AllowMajorVersionUpgrade@ to @true@.
+--
+-- 'multiAZ', 'modifyReplicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
+-- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+-- set to @true@.
 --
 -- 'replicationInstanceArn', 'modifyReplicationInstance_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 newModifyReplicationInstance ::
@@ -218,27 +218,31 @@ newModifyReplicationInstance ::
   ModifyReplicationInstance
 newModifyReplicationInstance pReplicationInstanceArn_ =
   ModifyReplicationInstance'
-    { engineVersion =
+    { replicationInstanceIdentifier =
         Prelude.Nothing,
-      autoMinorVersionUpgrade = Prelude.Nothing,
-      allowMajorVersionUpgrade = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
       vpcSecurityGroupIds = Prelude.Nothing,
-      multiAZ = Prelude.Nothing,
-      allocatedStorage = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
       applyImmediately = Prelude.Nothing,
+      allowMajorVersionUpgrade = Prelude.Nothing,
+      allocatedStorage = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
       replicationInstanceClass = Prelude.Nothing,
-      replicationInstanceIdentifier = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      multiAZ = Prelude.Nothing,
       replicationInstanceArn =
         pReplicationInstanceArn_
     }
 
--- | The engine version number of the replication instance.
---
--- When modifying a major engine version of an instance, also set
--- @AllowMajorVersionUpgrade@ to @true@.
-modifyReplicationInstance_engineVersion :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
-modifyReplicationInstance_engineVersion = Lens.lens (\ModifyReplicationInstance' {engineVersion} -> engineVersion) (\s@ModifyReplicationInstance' {} a -> s {engineVersion = a} :: ModifyReplicationInstance)
+-- | The replication instance identifier. This parameter is stored as a
+-- lowercase string.
+modifyReplicationInstance_replicationInstanceIdentifier :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
+modifyReplicationInstance_replicationInstanceIdentifier = Lens.lens (\ModifyReplicationInstance' {replicationInstanceIdentifier} -> replicationInstanceIdentifier) (\s@ModifyReplicationInstance' {} a -> s {replicationInstanceIdentifier = a} :: ModifyReplicationInstance)
+
+-- | Specifies the VPC security group to be used with the replication
+-- instance. The VPC security group must work with the VPC containing the
+-- replication instance.
+modifyReplicationInstance_vpcSecurityGroupIds :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe [Prelude.Text])
+modifyReplicationInstance_vpcSecurityGroupIds = Lens.lens (\ModifyReplicationInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyReplicationInstance' {} a -> s {vpcSecurityGroupIds = a} :: ModifyReplicationInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates that minor version upgrades are applied
 -- automatically to the replication instance during the maintenance window.
@@ -256,6 +260,11 @@ modifyReplicationInstance_engineVersion = Lens.lens (\ModifyReplicationInstance'
 modifyReplicationInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Bool)
 modifyReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyReplicationInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyReplicationInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyReplicationInstance)
 
+-- | Indicates whether the changes should be applied immediately or during
+-- the next maintenance window.
+modifyReplicationInstance_applyImmediately :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Bool)
+modifyReplicationInstance_applyImmediately = Lens.lens (\ModifyReplicationInstance' {applyImmediately} -> applyImmediately) (\s@ModifyReplicationInstance' {} a -> s {applyImmediately = a} :: ModifyReplicationInstance)
+
 -- | Indicates that major version upgrades are allowed. Changing this
 -- parameter does not result in an outage, and the change is asynchronously
 -- applied as soon as possible.
@@ -265,6 +274,11 @@ modifyReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyReplicatio
 -- replication instance\'s current version.
 modifyReplicationInstance_allowMajorVersionUpgrade :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Bool)
 modifyReplicationInstance_allowMajorVersionUpgrade = Lens.lens (\ModifyReplicationInstance' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyReplicationInstance' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyReplicationInstance)
+
+-- | The amount of storage (in gigabytes) to be allocated for the replication
+-- instance.
+modifyReplicationInstance_allocatedStorage :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Int)
+modifyReplicationInstance_allocatedStorage = Lens.lens (\ModifyReplicationInstance' {allocatedStorage} -> allocatedStorage) (\s@ModifyReplicationInstance' {} a -> s {allocatedStorage = a} :: ModifyReplicationInstance)
 
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur, which might result in an outage. Changing this parameter does not
@@ -283,28 +297,6 @@ modifyReplicationInstance_allowMajorVersionUpgrade = Lens.lens (\ModifyReplicati
 modifyReplicationInstance_preferredMaintenanceWindow :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
 modifyReplicationInstance_preferredMaintenanceWindow = Lens.lens (\ModifyReplicationInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyReplicationInstance' {} a -> s {preferredMaintenanceWindow = a} :: ModifyReplicationInstance)
 
--- | Specifies the VPC security group to be used with the replication
--- instance. The VPC security group must work with the VPC containing the
--- replication instance.
-modifyReplicationInstance_vpcSecurityGroupIds :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe [Prelude.Text])
-modifyReplicationInstance_vpcSecurityGroupIds = Lens.lens (\ModifyReplicationInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyReplicationInstance' {} a -> s {vpcSecurityGroupIds = a} :: ModifyReplicationInstance) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies whether the replication instance is a Multi-AZ deployment. You
--- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
--- set to @true@.
-modifyReplicationInstance_multiAZ :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Bool)
-modifyReplicationInstance_multiAZ = Lens.lens (\ModifyReplicationInstance' {multiAZ} -> multiAZ) (\s@ModifyReplicationInstance' {} a -> s {multiAZ = a} :: ModifyReplicationInstance)
-
--- | The amount of storage (in gigabytes) to be allocated for the replication
--- instance.
-modifyReplicationInstance_allocatedStorage :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Int)
-modifyReplicationInstance_allocatedStorage = Lens.lens (\ModifyReplicationInstance' {allocatedStorage} -> allocatedStorage) (\s@ModifyReplicationInstance' {} a -> s {allocatedStorage = a} :: ModifyReplicationInstance)
-
--- | Indicates whether the changes should be applied immediately or during
--- the next maintenance window.
-modifyReplicationInstance_applyImmediately :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Bool)
-modifyReplicationInstance_applyImmediately = Lens.lens (\ModifyReplicationInstance' {applyImmediately} -> applyImmediately) (\s@ModifyReplicationInstance' {} a -> s {applyImmediately = a} :: ModifyReplicationInstance)
-
 -- | The compute and memory capacity of the replication instance as defined
 -- for the specified replication instance class. For example to specify the
 -- instance class dms.c4.large, set this parameter to @\"dms.c4.large\"@.
@@ -315,10 +307,18 @@ modifyReplicationInstance_applyImmediately = Lens.lens (\ModifyReplicationInstan
 modifyReplicationInstance_replicationInstanceClass :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
 modifyReplicationInstance_replicationInstanceClass = Lens.lens (\ModifyReplicationInstance' {replicationInstanceClass} -> replicationInstanceClass) (\s@ModifyReplicationInstance' {} a -> s {replicationInstanceClass = a} :: ModifyReplicationInstance)
 
--- | The replication instance identifier. This parameter is stored as a
--- lowercase string.
-modifyReplicationInstance_replicationInstanceIdentifier :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
-modifyReplicationInstance_replicationInstanceIdentifier = Lens.lens (\ModifyReplicationInstance' {replicationInstanceIdentifier} -> replicationInstanceIdentifier) (\s@ModifyReplicationInstance' {} a -> s {replicationInstanceIdentifier = a} :: ModifyReplicationInstance)
+-- | The engine version number of the replication instance.
+--
+-- When modifying a major engine version of an instance, also set
+-- @AllowMajorVersionUpgrade@ to @true@.
+modifyReplicationInstance_engineVersion :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
+modifyReplicationInstance_engineVersion = Lens.lens (\ModifyReplicationInstance' {engineVersion} -> engineVersion) (\s@ModifyReplicationInstance' {} a -> s {engineVersion = a} :: ModifyReplicationInstance)
+
+-- | Specifies whether the replication instance is a Multi-AZ deployment. You
+-- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+-- set to @true@.
+modifyReplicationInstance_multiAZ :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Bool)
+modifyReplicationInstance_multiAZ = Lens.lens (\ModifyReplicationInstance' {multiAZ} -> multiAZ) (\s@ModifyReplicationInstance' {} a -> s {multiAZ = a} :: ModifyReplicationInstance)
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 modifyReplicationInstance_replicationInstanceArn :: Lens.Lens' ModifyReplicationInstance Prelude.Text
@@ -339,30 +339,31 @@ instance Core.AWSRequest ModifyReplicationInstance where
 
 instance Prelude.Hashable ModifyReplicationInstance where
   hashWithSalt _salt ModifyReplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` autoMinorVersionUpgrade
-      `Prelude.hashWithSalt` allowMajorVersionUpgrade
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
-      `Prelude.hashWithSalt` vpcSecurityGroupIds
-      `Prelude.hashWithSalt` multiAZ
-      `Prelude.hashWithSalt` allocatedStorage
-      `Prelude.hashWithSalt` applyImmediately
-      `Prelude.hashWithSalt` replicationInstanceClass
+    _salt
       `Prelude.hashWithSalt` replicationInstanceIdentifier
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` allowMajorVersionUpgrade
+      `Prelude.hashWithSalt` allocatedStorage
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` replicationInstanceClass
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` multiAZ
       `Prelude.hashWithSalt` replicationInstanceArn
 
 instance Prelude.NFData ModifyReplicationInstance where
   rnf ModifyReplicationInstance' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+    Prelude.rnf replicationInstanceIdentifier
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf multiAZ
-      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf replicationInstanceClass
-      `Prelude.seq` Prelude.rnf replicationInstanceIdentifier
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf replicationInstanceArn
 
 instance Core.ToHeaders ModifyReplicationInstance where
@@ -384,24 +385,24 @@ instance Core.ToJSON ModifyReplicationInstance where
   toJSON ModifyReplicationInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("AutoMinorVersionUpgrade" Core..=)
-              Prelude.<$> autoMinorVersionUpgrade,
-            ("AllowMajorVersionUpgrade" Core..=)
-              Prelude.<$> allowMajorVersionUpgrade,
-            ("PreferredMaintenanceWindow" Core..=)
-              Prelude.<$> preferredMaintenanceWindow,
+          [ ("ReplicationInstanceIdentifier" Core..=)
+              Prelude.<$> replicationInstanceIdentifier,
             ("VpcSecurityGroupIds" Core..=)
               Prelude.<$> vpcSecurityGroupIds,
-            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
-            ("AllocatedStorage" Core..=)
-              Prelude.<$> allocatedStorage,
+            ("AutoMinorVersionUpgrade" Core..=)
+              Prelude.<$> autoMinorVersionUpgrade,
             ("ApplyImmediately" Core..=)
               Prelude.<$> applyImmediately,
+            ("AllowMajorVersionUpgrade" Core..=)
+              Prelude.<$> allowMajorVersionUpgrade,
+            ("AllocatedStorage" Core..=)
+              Prelude.<$> allocatedStorage,
+            ("PreferredMaintenanceWindow" Core..=)
+              Prelude.<$> preferredMaintenanceWindow,
             ("ReplicationInstanceClass" Core..=)
               Prelude.<$> replicationInstanceClass,
-            ("ReplicationInstanceIdentifier" Core..=)
-              Prelude.<$> replicationInstanceIdentifier,
+            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
+            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
             Prelude.Just
               ( "ReplicationInstanceArn"
                   Core..= replicationInstanceArn

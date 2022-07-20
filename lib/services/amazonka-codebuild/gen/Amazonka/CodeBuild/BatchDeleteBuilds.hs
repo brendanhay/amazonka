@@ -34,8 +34,8 @@ module Amazonka.CodeBuild.BatchDeleteBuilds
     newBatchDeleteBuildsResponse,
 
     -- * Response Lenses
-    batchDeleteBuildsResponse_buildsNotDeleted,
     batchDeleteBuildsResponse_buildsDeleted,
+    batchDeleteBuildsResponse_buildsNotDeleted,
     batchDeleteBuildsResponse_httpStatus,
   )
 where
@@ -83,10 +83,10 @@ instance Core.AWSRequest BatchDeleteBuilds where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteBuildsResponse'
-            Prelude.<$> ( x Core..?> "buildsNotDeleted"
+            Prelude.<$> (x Core..?> "buildsDeleted")
+            Prelude.<*> ( x Core..?> "buildsNotDeleted"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "buildsDeleted")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,10 +127,10 @@ instance Core.ToQuery BatchDeleteBuilds where
 
 -- | /See:/ 'newBatchDeleteBuildsResponse' smart constructor.
 data BatchDeleteBuildsResponse = BatchDeleteBuildsResponse'
-  { -- | Information about any builds that could not be successfully deleted.
-    buildsNotDeleted :: Prelude.Maybe [BuildNotDeleted],
-    -- | The IDs of the builds that were successfully deleted.
+  { -- | The IDs of the builds that were successfully deleted.
     buildsDeleted :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Information about any builds that could not be successfully deleted.
+    buildsNotDeleted :: Prelude.Maybe [BuildNotDeleted],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,9 +144,9 @@ data BatchDeleteBuildsResponse = BatchDeleteBuildsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'buildsNotDeleted', 'batchDeleteBuildsResponse_buildsNotDeleted' - Information about any builds that could not be successfully deleted.
---
 -- 'buildsDeleted', 'batchDeleteBuildsResponse_buildsDeleted' - The IDs of the builds that were successfully deleted.
+--
+-- 'buildsNotDeleted', 'batchDeleteBuildsResponse_buildsNotDeleted' - Information about any builds that could not be successfully deleted.
 --
 -- 'httpStatus', 'batchDeleteBuildsResponse_httpStatus' - The response's http status code.
 newBatchDeleteBuildsResponse ::
@@ -155,19 +155,19 @@ newBatchDeleteBuildsResponse ::
   BatchDeleteBuildsResponse
 newBatchDeleteBuildsResponse pHttpStatus_ =
   BatchDeleteBuildsResponse'
-    { buildsNotDeleted =
+    { buildsDeleted =
         Prelude.Nothing,
-      buildsDeleted = Prelude.Nothing,
+      buildsNotDeleted = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about any builds that could not be successfully deleted.
-batchDeleteBuildsResponse_buildsNotDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Prelude.Maybe [BuildNotDeleted])
-batchDeleteBuildsResponse_buildsNotDeleted = Lens.lens (\BatchDeleteBuildsResponse' {buildsNotDeleted} -> buildsNotDeleted) (\s@BatchDeleteBuildsResponse' {} a -> s {buildsNotDeleted = a} :: BatchDeleteBuildsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the builds that were successfully deleted.
 batchDeleteBuildsResponse_buildsDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 batchDeleteBuildsResponse_buildsDeleted = Lens.lens (\BatchDeleteBuildsResponse' {buildsDeleted} -> buildsDeleted) (\s@BatchDeleteBuildsResponse' {} a -> s {buildsDeleted = a} :: BatchDeleteBuildsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about any builds that could not be successfully deleted.
+batchDeleteBuildsResponse_buildsNotDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Prelude.Maybe [BuildNotDeleted])
+batchDeleteBuildsResponse_buildsNotDeleted = Lens.lens (\BatchDeleteBuildsResponse' {buildsNotDeleted} -> buildsNotDeleted) (\s@BatchDeleteBuildsResponse' {} a -> s {buildsNotDeleted = a} :: BatchDeleteBuildsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeleteBuildsResponse_httpStatus :: Lens.Lens' BatchDeleteBuildsResponse Prelude.Int
@@ -175,6 +175,6 @@ batchDeleteBuildsResponse_httpStatus = Lens.lens (\BatchDeleteBuildsResponse' {h
 
 instance Prelude.NFData BatchDeleteBuildsResponse where
   rnf BatchDeleteBuildsResponse' {..} =
-    Prelude.rnf buildsNotDeleted
-      `Prelude.seq` Prelude.rnf buildsDeleted
+    Prelude.rnf buildsDeleted
+      `Prelude.seq` Prelude.rnf buildsNotDeleted
       `Prelude.seq` Prelude.rnf httpStatus

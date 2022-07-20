@@ -28,9 +28,9 @@ module Amazonka.Location.CreatePlaceIndex
     newCreatePlaceIndex,
 
     -- * Request Lenses
+    createPlaceIndex_tags,
     createPlaceIndex_dataSourceConfiguration,
     createPlaceIndex_description,
-    createPlaceIndex_tags,
     createPlaceIndex_dataSource,
     createPlaceIndex_indexName,
     createPlaceIndex_pricingPlan,
@@ -56,11 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePlaceIndex' smart constructor.
 data CreatePlaceIndex = CreatePlaceIndex'
-  { -- | Specifies the data storage option requesting Places.
-    dataSourceConfiguration :: Prelude.Maybe DataSourceConfiguration,
-    -- | The optional description for the place index resource.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Applies one or more tags to the place index resource. A tag is a
+  { -- | Applies one or more tags to the place index resource. A tag is a
     -- key-value pair helps manage, identify, search, and filter your resources
     -- by labelling them.
     --
@@ -79,6 +75,10 @@ data CreatePlaceIndex = CreatePlaceIndex'
     -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
     --     characters: + - = . _ : \/ \@.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies the data storage option requesting Places.
+    dataSourceConfiguration :: Prelude.Maybe DataSourceConfiguration,
+    -- | The optional description for the place index resource.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the data provider of geospatial data.
     --
     -- This field is case-sensitive. Enter the valid values as shown. For
@@ -134,10 +134,6 @@ data CreatePlaceIndex = CreatePlaceIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSourceConfiguration', 'createPlaceIndex_dataSourceConfiguration' - Specifies the data storage option requesting Places.
---
--- 'description', 'createPlaceIndex_description' - The optional description for the place index resource.
---
 -- 'tags', 'createPlaceIndex_tags' - Applies one or more tags to the place index resource. A tag is a
 -- key-value pair helps manage, identify, search, and filter your resources
 -- by labelling them.
@@ -156,6 +152,10 @@ data CreatePlaceIndex = CreatePlaceIndex'
 --
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
+--
+-- 'dataSourceConfiguration', 'createPlaceIndex_dataSourceConfiguration' - Specifies the data storage option requesting Places.
+--
+-- 'description', 'createPlaceIndex_description' - The optional description for the place index resource.
 --
 -- 'dataSource', 'createPlaceIndex_dataSource' - Specifies the data provider of geospatial data.
 --
@@ -213,22 +213,13 @@ newCreatePlaceIndex
   pIndexName_
   pPricingPlan_ =
     CreatePlaceIndex'
-      { dataSourceConfiguration =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        dataSourceConfiguration = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
         dataSource = pDataSource_,
         indexName = pIndexName_,
         pricingPlan = pPricingPlan_
       }
-
--- | Specifies the data storage option requesting Places.
-createPlaceIndex_dataSourceConfiguration :: Lens.Lens' CreatePlaceIndex (Prelude.Maybe DataSourceConfiguration)
-createPlaceIndex_dataSourceConfiguration = Lens.lens (\CreatePlaceIndex' {dataSourceConfiguration} -> dataSourceConfiguration) (\s@CreatePlaceIndex' {} a -> s {dataSourceConfiguration = a} :: CreatePlaceIndex)
-
--- | The optional description for the place index resource.
-createPlaceIndex_description :: Lens.Lens' CreatePlaceIndex (Prelude.Maybe Prelude.Text)
-createPlaceIndex_description = Lens.lens (\CreatePlaceIndex' {description} -> description) (\s@CreatePlaceIndex' {} a -> s {description = a} :: CreatePlaceIndex)
 
 -- | Applies one or more tags to the place index resource. A tag is a
 -- key-value pair helps manage, identify, search, and filter your resources
@@ -250,6 +241,14 @@ createPlaceIndex_description = Lens.lens (\CreatePlaceIndex' {description} -> de
 --     characters: + - = . _ : \/ \@.
 createPlaceIndex_tags :: Lens.Lens' CreatePlaceIndex (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createPlaceIndex_tags = Lens.lens (\CreatePlaceIndex' {tags} -> tags) (\s@CreatePlaceIndex' {} a -> s {tags = a} :: CreatePlaceIndex) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the data storage option requesting Places.
+createPlaceIndex_dataSourceConfiguration :: Lens.Lens' CreatePlaceIndex (Prelude.Maybe DataSourceConfiguration)
+createPlaceIndex_dataSourceConfiguration = Lens.lens (\CreatePlaceIndex' {dataSourceConfiguration} -> dataSourceConfiguration) (\s@CreatePlaceIndex' {} a -> s {dataSourceConfiguration = a} :: CreatePlaceIndex)
+
+-- | The optional description for the place index resource.
+createPlaceIndex_description :: Lens.Lens' CreatePlaceIndex (Prelude.Maybe Prelude.Text)
+createPlaceIndex_description = Lens.lens (\CreatePlaceIndex' {description} -> description) (\s@CreatePlaceIndex' {} a -> s {description = a} :: CreatePlaceIndex)
 
 -- | Specifies the data provider of geospatial data.
 --
@@ -318,19 +317,18 @@ instance Core.AWSRequest CreatePlaceIndex where
 
 instance Prelude.Hashable CreatePlaceIndex where
   hashWithSalt _salt CreatePlaceIndex' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataSourceConfiguration
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` pricingPlan
 
 instance Prelude.NFData CreatePlaceIndex where
   rnf CreatePlaceIndex' {..} =
-    Prelude.rnf dataSourceConfiguration
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf dataSourceConfiguration
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf pricingPlan
@@ -350,10 +348,10 @@ instance Core.ToJSON CreatePlaceIndex where
   toJSON CreatePlaceIndex' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataSourceConfiguration" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DataSourceConfiguration" Core..=)
               Prelude.<$> dataSourceConfiguration,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("DataSource" Core..= dataSource),
             Prelude.Just ("IndexName" Core..= indexName),
             Prelude.Just ("PricingPlan" Core..= pricingPlan)

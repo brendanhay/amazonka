@@ -31,8 +31,8 @@ module Amazonka.SSM.ModifyDocumentPermission
     newModifyDocumentPermission,
 
     -- * Request Lenses
-    modifyDocumentPermission_sharedDocumentVersion,
     modifyDocumentPermission_accountIdsToAdd,
+    modifyDocumentPermission_sharedDocumentVersion,
     modifyDocumentPermission_accountIdsToRemove,
     modifyDocumentPermission_name,
     modifyDocumentPermission_permissionType,
@@ -55,12 +55,12 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newModifyDocumentPermission' smart constructor.
 data ModifyDocumentPermission = ModifyDocumentPermission'
-  { -- | (Optional) The version of the document to share. If it isn\'t specified,
-    -- the system choose the @Default@ version to share.
-    sharedDocumentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services user accounts that should have access to the
+  { -- | The Amazon Web Services user accounts that should have access to the
     -- document. The account IDs can either be a group of account IDs or /All/.
     accountIdsToAdd :: Prelude.Maybe [Prelude.Text],
+    -- | (Optional) The version of the document to share. If it isn\'t specified,
+    -- the system choose the @Default@ version to share.
+    sharedDocumentVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services user accounts that should no longer have access
     -- to the document. The Amazon Web Services user account can either be a
     -- group of account IDs or /All/. This action has a higher priority than
@@ -83,11 +83,11 @@ data ModifyDocumentPermission = ModifyDocumentPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sharedDocumentVersion', 'modifyDocumentPermission_sharedDocumentVersion' - (Optional) The version of the document to share. If it isn\'t specified,
--- the system choose the @Default@ version to share.
---
 -- 'accountIdsToAdd', 'modifyDocumentPermission_accountIdsToAdd' - The Amazon Web Services user accounts that should have access to the
 -- document. The account IDs can either be a group of account IDs or /All/.
+--
+-- 'sharedDocumentVersion', 'modifyDocumentPermission_sharedDocumentVersion' - (Optional) The version of the document to share. If it isn\'t specified,
+-- the system choose the @Default@ version to share.
 --
 -- 'accountIdsToRemove', 'modifyDocumentPermission_accountIdsToRemove' - The Amazon Web Services user accounts that should no longer have access
 -- to the document. The Amazon Web Services user account can either be a
@@ -107,23 +107,23 @@ newModifyDocumentPermission ::
   ModifyDocumentPermission
 newModifyDocumentPermission pName_ pPermissionType_ =
   ModifyDocumentPermission'
-    { sharedDocumentVersion =
+    { accountIdsToAdd =
         Prelude.Nothing,
-      accountIdsToAdd = Prelude.Nothing,
+      sharedDocumentVersion = Prelude.Nothing,
       accountIdsToRemove = Prelude.Nothing,
       name = pName_,
       permissionType = pPermissionType_
     }
 
--- | (Optional) The version of the document to share. If it isn\'t specified,
--- the system choose the @Default@ version to share.
-modifyDocumentPermission_sharedDocumentVersion :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe Prelude.Text)
-modifyDocumentPermission_sharedDocumentVersion = Lens.lens (\ModifyDocumentPermission' {sharedDocumentVersion} -> sharedDocumentVersion) (\s@ModifyDocumentPermission' {} a -> s {sharedDocumentVersion = a} :: ModifyDocumentPermission)
-
 -- | The Amazon Web Services user accounts that should have access to the
 -- document. The account IDs can either be a group of account IDs or /All/.
 modifyDocumentPermission_accountIdsToAdd :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe [Prelude.Text])
 modifyDocumentPermission_accountIdsToAdd = Lens.lens (\ModifyDocumentPermission' {accountIdsToAdd} -> accountIdsToAdd) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToAdd = a} :: ModifyDocumentPermission) Prelude.. Lens.mapping Lens.coerced
+
+-- | (Optional) The version of the document to share. If it isn\'t specified,
+-- the system choose the @Default@ version to share.
+modifyDocumentPermission_sharedDocumentVersion :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe Prelude.Text)
+modifyDocumentPermission_sharedDocumentVersion = Lens.lens (\ModifyDocumentPermission' {sharedDocumentVersion} -> sharedDocumentVersion) (\s@ModifyDocumentPermission' {} a -> s {sharedDocumentVersion = a} :: ModifyDocumentPermission)
 
 -- | The Amazon Web Services user accounts that should no longer have access
 -- to the document. The Amazon Web Services user account can either be a
@@ -156,16 +156,16 @@ instance Core.AWSRequest ModifyDocumentPermission where
 
 instance Prelude.Hashable ModifyDocumentPermission where
   hashWithSalt _salt ModifyDocumentPermission' {..} =
-    _salt `Prelude.hashWithSalt` sharedDocumentVersion
-      `Prelude.hashWithSalt` accountIdsToAdd
+    _salt `Prelude.hashWithSalt` accountIdsToAdd
+      `Prelude.hashWithSalt` sharedDocumentVersion
       `Prelude.hashWithSalt` accountIdsToRemove
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissionType
 
 instance Prelude.NFData ModifyDocumentPermission where
   rnf ModifyDocumentPermission' {..} =
-    Prelude.rnf sharedDocumentVersion
-      `Prelude.seq` Prelude.rnf accountIdsToAdd
+    Prelude.rnf accountIdsToAdd
+      `Prelude.seq` Prelude.rnf sharedDocumentVersion
       `Prelude.seq` Prelude.rnf accountIdsToRemove
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionType
@@ -189,10 +189,10 @@ instance Core.ToJSON ModifyDocumentPermission where
   toJSON ModifyDocumentPermission' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SharedDocumentVersion" Core..=)
-              Prelude.<$> sharedDocumentVersion,
-            ("AccountIdsToAdd" Core..=)
+          [ ("AccountIdsToAdd" Core..=)
               Prelude.<$> accountIdsToAdd,
+            ("SharedDocumentVersion" Core..=)
+              Prelude.<$> sharedDocumentVersion,
             ("AccountIdsToRemove" Core..=)
               Prelude.<$> accountIdsToRemove,
             Prelude.Just ("Name" Core..= name),

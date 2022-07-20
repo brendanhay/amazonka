@@ -35,8 +35,8 @@ module Amazonka.Route53RecoveryControlConfig.DescribeSafetyRule
     newDescribeSafetyRuleResponse,
 
     -- * Response Lenses
-    describeSafetyRuleResponse_assertionRule,
     describeSafetyRuleResponse_gatingRule,
+    describeSafetyRuleResponse_assertionRule,
     describeSafetyRuleResponse_httpStatus,
   )
 where
@@ -87,8 +87,8 @@ instance Core.AWSRequest DescribeSafetyRule where
     Response.receiveJSON
       ( \s h x ->
           DescribeSafetyRuleResponse'
-            Prelude.<$> (x Core..?> "AssertionRule")
-            Prelude.<*> (x Core..?> "GatingRule")
+            Prelude.<$> (x Core..?> "GatingRule")
+            Prelude.<*> (x Core..?> "AssertionRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,8 +121,8 @@ instance Core.ToQuery DescribeSafetyRule where
 
 -- | /See:/ 'newDescribeSafetyRuleResponse' smart constructor.
 data DescribeSafetyRuleResponse = DescribeSafetyRuleResponse'
-  { assertionRule :: Prelude.Maybe AssertionRule,
-    gatingRule :: Prelude.Maybe GatingRule,
+  { gatingRule :: Prelude.Maybe GatingRule,
+    assertionRule :: Prelude.Maybe AssertionRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -136,9 +136,9 @@ data DescribeSafetyRuleResponse = DescribeSafetyRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assertionRule', 'describeSafetyRuleResponse_assertionRule' - Undocumented member.
---
 -- 'gatingRule', 'describeSafetyRuleResponse_gatingRule' - Undocumented member.
+--
+-- 'assertionRule', 'describeSafetyRuleResponse_assertionRule' - Undocumented member.
 --
 -- 'httpStatus', 'describeSafetyRuleResponse_httpStatus' - The response's http status code.
 newDescribeSafetyRuleResponse ::
@@ -147,19 +147,19 @@ newDescribeSafetyRuleResponse ::
   DescribeSafetyRuleResponse
 newDescribeSafetyRuleResponse pHttpStatus_ =
   DescribeSafetyRuleResponse'
-    { assertionRule =
+    { gatingRule =
         Prelude.Nothing,
-      gatingRule = Prelude.Nothing,
+      assertionRule = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeSafetyRuleResponse_assertionRule :: Lens.Lens' DescribeSafetyRuleResponse (Prelude.Maybe AssertionRule)
-describeSafetyRuleResponse_assertionRule = Lens.lens (\DescribeSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@DescribeSafetyRuleResponse' {} a -> s {assertionRule = a} :: DescribeSafetyRuleResponse)
-
--- | Undocumented member.
 describeSafetyRuleResponse_gatingRule :: Lens.Lens' DescribeSafetyRuleResponse (Prelude.Maybe GatingRule)
 describeSafetyRuleResponse_gatingRule = Lens.lens (\DescribeSafetyRuleResponse' {gatingRule} -> gatingRule) (\s@DescribeSafetyRuleResponse' {} a -> s {gatingRule = a} :: DescribeSafetyRuleResponse)
+
+-- | Undocumented member.
+describeSafetyRuleResponse_assertionRule :: Lens.Lens' DescribeSafetyRuleResponse (Prelude.Maybe AssertionRule)
+describeSafetyRuleResponse_assertionRule = Lens.lens (\DescribeSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@DescribeSafetyRuleResponse' {} a -> s {assertionRule = a} :: DescribeSafetyRuleResponse)
 
 -- | The response's http status code.
 describeSafetyRuleResponse_httpStatus :: Lens.Lens' DescribeSafetyRuleResponse Prelude.Int
@@ -167,6 +167,6 @@ describeSafetyRuleResponse_httpStatus = Lens.lens (\DescribeSafetyRuleResponse' 
 
 instance Prelude.NFData DescribeSafetyRuleResponse where
   rnf DescribeSafetyRuleResponse' {..} =
-    Prelude.rnf assertionRule
-      `Prelude.seq` Prelude.rnf gatingRule
+    Prelude.rnf gatingRule
+      `Prelude.seq` Prelude.rnf assertionRule
       `Prelude.seq` Prelude.rnf httpStatus

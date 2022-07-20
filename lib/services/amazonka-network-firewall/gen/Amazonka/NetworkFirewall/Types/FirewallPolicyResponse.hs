@@ -31,11 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFirewallPolicyResponse' smart constructor.
 data FirewallPolicyResponse = FirewallPolicyResponse'
-  { -- | The number of capacity units currently consumed by the policy\'s
-    -- stateless rules.
-    consumedStatelessRuleCapacity :: Prelude.Maybe Prelude.Int,
-    -- | The number of firewalls that are associated with this firewall policy.
-    numberOfAssociations :: Prelude.Maybe Prelude.Int,
+  { -- | The key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The current status of the firewall policy. You can retrieve this for a
     -- firewall policy by calling DescribeFirewallPolicy and providing the
     -- firewall policy\'s name or ARN.
@@ -45,8 +42,11 @@ data FirewallPolicyResponse = FirewallPolicyResponse'
     consumedStatefulRuleCapacity :: Prelude.Maybe Prelude.Int,
     -- | A description of the firewall policy.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The number of firewalls that are associated with this firewall policy.
+    numberOfAssociations :: Prelude.Maybe Prelude.Int,
+    -- | The number of capacity units currently consumed by the policy\'s
+    -- stateless rules.
+    consumedStatelessRuleCapacity :: Prelude.Maybe Prelude.Int,
     -- | The descriptive name of the firewall policy. You can\'t change the name
     -- of a firewall policy after you create it.
     firewallPolicyName :: Prelude.Text,
@@ -69,10 +69,7 @@ data FirewallPolicyResponse = FirewallPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'consumedStatelessRuleCapacity', 'firewallPolicyResponse_consumedStatelessRuleCapacity' - The number of capacity units currently consumed by the policy\'s
--- stateless rules.
---
--- 'numberOfAssociations', 'firewallPolicyResponse_numberOfAssociations' - The number of firewalls that are associated with this firewall policy.
+-- 'tags', 'firewallPolicyResponse_tags' - The key:value pairs to associate with the resource.
 --
 -- 'firewallPolicyStatus', 'firewallPolicyResponse_firewallPolicyStatus' - The current status of the firewall policy. You can retrieve this for a
 -- firewall policy by calling DescribeFirewallPolicy and providing the
@@ -83,7 +80,10 @@ data FirewallPolicyResponse = FirewallPolicyResponse'
 --
 -- 'description', 'firewallPolicyResponse_description' - A description of the firewall policy.
 --
--- 'tags', 'firewallPolicyResponse_tags' - The key:value pairs to associate with the resource.
+-- 'numberOfAssociations', 'firewallPolicyResponse_numberOfAssociations' - The number of firewalls that are associated with this firewall policy.
+--
+-- 'consumedStatelessRuleCapacity', 'firewallPolicyResponse_consumedStatelessRuleCapacity' - The number of capacity units currently consumed by the policy\'s
+-- stateless rules.
 --
 -- 'firewallPolicyName', 'firewallPolicyResponse_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
@@ -108,26 +108,20 @@ newFirewallPolicyResponse
   pFirewallPolicyArn_
   pFirewallPolicyId_ =
     FirewallPolicyResponse'
-      { consumedStatelessRuleCapacity =
-          Prelude.Nothing,
-        numberOfAssociations = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         firewallPolicyStatus = Prelude.Nothing,
         consumedStatefulRuleCapacity = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        numberOfAssociations = Prelude.Nothing,
+        consumedStatelessRuleCapacity = Prelude.Nothing,
         firewallPolicyName = pFirewallPolicyName_,
         firewallPolicyArn = pFirewallPolicyArn_,
         firewallPolicyId = pFirewallPolicyId_
       }
 
--- | The number of capacity units currently consumed by the policy\'s
--- stateless rules.
-firewallPolicyResponse_consumedStatelessRuleCapacity :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.Int)
-firewallPolicyResponse_consumedStatelessRuleCapacity = Lens.lens (\FirewallPolicyResponse' {consumedStatelessRuleCapacity} -> consumedStatelessRuleCapacity) (\s@FirewallPolicyResponse' {} a -> s {consumedStatelessRuleCapacity = a} :: FirewallPolicyResponse)
-
--- | The number of firewalls that are associated with this firewall policy.
-firewallPolicyResponse_numberOfAssociations :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.Int)
-firewallPolicyResponse_numberOfAssociations = Lens.lens (\FirewallPolicyResponse' {numberOfAssociations} -> numberOfAssociations) (\s@FirewallPolicyResponse' {} a -> s {numberOfAssociations = a} :: FirewallPolicyResponse)
+-- | The key:value pairs to associate with the resource.
+firewallPolicyResponse_tags :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+firewallPolicyResponse_tags = Lens.lens (\FirewallPolicyResponse' {tags} -> tags) (\s@FirewallPolicyResponse' {} a -> s {tags = a} :: FirewallPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current status of the firewall policy. You can retrieve this for a
 -- firewall policy by calling DescribeFirewallPolicy and providing the
@@ -144,9 +138,14 @@ firewallPolicyResponse_consumedStatefulRuleCapacity = Lens.lens (\FirewallPolicy
 firewallPolicyResponse_description :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.Text)
 firewallPolicyResponse_description = Lens.lens (\FirewallPolicyResponse' {description} -> description) (\s@FirewallPolicyResponse' {} a -> s {description = a} :: FirewallPolicyResponse)
 
--- | The key:value pairs to associate with the resource.
-firewallPolicyResponse_tags :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-firewallPolicyResponse_tags = Lens.lens (\FirewallPolicyResponse' {tags} -> tags) (\s@FirewallPolicyResponse' {} a -> s {tags = a} :: FirewallPolicyResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The number of firewalls that are associated with this firewall policy.
+firewallPolicyResponse_numberOfAssociations :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.Int)
+firewallPolicyResponse_numberOfAssociations = Lens.lens (\FirewallPolicyResponse' {numberOfAssociations} -> numberOfAssociations) (\s@FirewallPolicyResponse' {} a -> s {numberOfAssociations = a} :: FirewallPolicyResponse)
+
+-- | The number of capacity units currently consumed by the policy\'s
+-- stateless rules.
+firewallPolicyResponse_consumedStatelessRuleCapacity :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.Int)
+firewallPolicyResponse_consumedStatelessRuleCapacity = Lens.lens (\FirewallPolicyResponse' {consumedStatelessRuleCapacity} -> consumedStatelessRuleCapacity) (\s@FirewallPolicyResponse' {} a -> s {consumedStatelessRuleCapacity = a} :: FirewallPolicyResponse)
 
 -- | The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
@@ -171,12 +170,12 @@ instance Core.FromJSON FirewallPolicyResponse where
       "FirewallPolicyResponse"
       ( \x ->
           FirewallPolicyResponse'
-            Prelude.<$> (x Core..:? "ConsumedStatelessRuleCapacity")
-            Prelude.<*> (x Core..:? "NumberOfAssociations")
+            Prelude.<$> (x Core..:? "Tags")
             Prelude.<*> (x Core..:? "FirewallPolicyStatus")
             Prelude.<*> (x Core..:? "ConsumedStatefulRuleCapacity")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tags")
+            Prelude.<*> (x Core..:? "NumberOfAssociations")
+            Prelude.<*> (x Core..:? "ConsumedStatelessRuleCapacity")
             Prelude.<*> (x Core..: "FirewallPolicyName")
             Prelude.<*> (x Core..: "FirewallPolicyArn")
             Prelude.<*> (x Core..: "FirewallPolicyId")
@@ -184,25 +183,24 @@ instance Core.FromJSON FirewallPolicyResponse where
 
 instance Prelude.Hashable FirewallPolicyResponse where
   hashWithSalt _salt FirewallPolicyResponse' {..} =
-    _salt
-      `Prelude.hashWithSalt` consumedStatelessRuleCapacity
-      `Prelude.hashWithSalt` numberOfAssociations
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` firewallPolicyStatus
       `Prelude.hashWithSalt` consumedStatefulRuleCapacity
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` numberOfAssociations
+      `Prelude.hashWithSalt` consumedStatelessRuleCapacity
       `Prelude.hashWithSalt` firewallPolicyName
       `Prelude.hashWithSalt` firewallPolicyArn
       `Prelude.hashWithSalt` firewallPolicyId
 
 instance Prelude.NFData FirewallPolicyResponse where
   rnf FirewallPolicyResponse' {..} =
-    Prelude.rnf consumedStatelessRuleCapacity
-      `Prelude.seq` Prelude.rnf numberOfAssociations
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf firewallPolicyStatus
       `Prelude.seq` Prelude.rnf consumedStatefulRuleCapacity
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf numberOfAssociations
+      `Prelude.seq` Prelude.rnf consumedStatelessRuleCapacity
       `Prelude.seq` Prelude.rnf firewallPolicyName
       `Prelude.seq` Prelude.rnf firewallPolicyArn
       `Prelude.seq` Prelude.rnf firewallPolicyId

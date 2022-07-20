@@ -27,31 +27,25 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestInvokeEndpointAsync $
---             newInvokeEndpointAsync
---
---         , requestInvokeEndpoint $
+--         [ requestInvokeEndpoint $
 --             newInvokeEndpoint
+--
+--         , requestInvokeEndpointAsync $
+--             newInvokeEndpointAsync
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseInvokeEndpointAsync $
---             newInvokeEndpointAsyncResponse
---
---         , responseInvokeEndpoint $
+--         [ responseInvokeEndpoint $
 --             newInvokeEndpointResponse
+--
+--         , responseInvokeEndpointAsync $
+--             newInvokeEndpointAsyncResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestInvokeEndpointAsync :: InvokeEndpointAsync -> TestTree
-requestInvokeEndpointAsync =
-  req
-    "InvokeEndpointAsync"
-    "fixture/InvokeEndpointAsync.yaml"
 
 requestInvokeEndpoint :: InvokeEndpoint -> TestTree
 requestInvokeEndpoint =
@@ -59,15 +53,13 @@ requestInvokeEndpoint =
     "InvokeEndpoint"
     "fixture/InvokeEndpoint.yaml"
 
--- Responses
+requestInvokeEndpointAsync :: InvokeEndpointAsync -> TestTree
+requestInvokeEndpointAsync =
+  req
+    "InvokeEndpointAsync"
+    "fixture/InvokeEndpointAsync.yaml"
 
-responseInvokeEndpointAsync :: InvokeEndpointAsyncResponse -> TestTree
-responseInvokeEndpointAsync =
-  res
-    "InvokeEndpointAsyncResponse"
-    "fixture/InvokeEndpointAsyncResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy InvokeEndpointAsync)
+-- Responses
 
 responseInvokeEndpoint :: InvokeEndpointResponse -> TestTree
 responseInvokeEndpoint =
@@ -76,3 +68,11 @@ responseInvokeEndpoint =
     "fixture/InvokeEndpointResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy InvokeEndpoint)
+
+responseInvokeEndpointAsync :: InvokeEndpointAsyncResponse -> TestTree
+responseInvokeEndpointAsync =
+  res
+    "InvokeEndpointAsyncResponse"
+    "fixture/InvokeEndpointAsyncResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InvokeEndpointAsync)

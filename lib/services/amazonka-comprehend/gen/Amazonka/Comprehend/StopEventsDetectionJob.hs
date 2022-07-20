@@ -34,8 +34,8 @@ module Amazonka.Comprehend.StopEventsDetectionJob
     newStopEventsDetectionJobResponse,
 
     -- * Response Lenses
-    stopEventsDetectionJobResponse_jobId,
     stopEventsDetectionJobResponse_jobStatus,
+    stopEventsDetectionJobResponse_jobId,
     stopEventsDetectionJobResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest StopEventsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopEventsDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,10 +125,10 @@ instance Core.ToQuery StopEventsDetectionJob where
 
 -- | /See:/ 'newStopEventsDetectionJobResponse' smart constructor.
 data StopEventsDetectionJobResponse = StopEventsDetectionJobResponse'
-  { -- | The identifier of the events detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the events detection job.
+  { -- | The status of the events detection job.
     jobStatus :: Prelude.Maybe JobStatus,
+    -- | The identifier of the events detection job to stop.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -142,9 +142,9 @@ data StopEventsDetectionJobResponse = StopEventsDetectionJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'stopEventsDetectionJobResponse_jobId' - The identifier of the events detection job to stop.
---
 -- 'jobStatus', 'stopEventsDetectionJobResponse_jobStatus' - The status of the events detection job.
+--
+-- 'jobId', 'stopEventsDetectionJobResponse_jobId' - The identifier of the events detection job to stop.
 --
 -- 'httpStatus', 'stopEventsDetectionJobResponse_httpStatus' - The response's http status code.
 newStopEventsDetectionJobResponse ::
@@ -153,19 +153,19 @@ newStopEventsDetectionJobResponse ::
   StopEventsDetectionJobResponse
 newStopEventsDetectionJobResponse pHttpStatus_ =
   StopEventsDetectionJobResponse'
-    { jobId =
+    { jobStatus =
         Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifier of the events detection job to stop.
-stopEventsDetectionJobResponse_jobId :: Lens.Lens' StopEventsDetectionJobResponse (Prelude.Maybe Prelude.Text)
-stopEventsDetectionJobResponse_jobId = Lens.lens (\StopEventsDetectionJobResponse' {jobId} -> jobId) (\s@StopEventsDetectionJobResponse' {} a -> s {jobId = a} :: StopEventsDetectionJobResponse)
 
 -- | The status of the events detection job.
 stopEventsDetectionJobResponse_jobStatus :: Lens.Lens' StopEventsDetectionJobResponse (Prelude.Maybe JobStatus)
 stopEventsDetectionJobResponse_jobStatus = Lens.lens (\StopEventsDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopEventsDetectionJobResponse' {} a -> s {jobStatus = a} :: StopEventsDetectionJobResponse)
+
+-- | The identifier of the events detection job to stop.
+stopEventsDetectionJobResponse_jobId :: Lens.Lens' StopEventsDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopEventsDetectionJobResponse_jobId = Lens.lens (\StopEventsDetectionJobResponse' {jobId} -> jobId) (\s@StopEventsDetectionJobResponse' {} a -> s {jobId = a} :: StopEventsDetectionJobResponse)
 
 -- | The response's http status code.
 stopEventsDetectionJobResponse_httpStatus :: Lens.Lens' StopEventsDetectionJobResponse Prelude.Int
@@ -176,6 +176,6 @@ instance
     StopEventsDetectionJobResponse
   where
   rnf StopEventsDetectionJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf httpStatus

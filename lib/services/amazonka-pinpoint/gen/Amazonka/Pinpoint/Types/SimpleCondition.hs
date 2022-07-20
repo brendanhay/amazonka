@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSimpleCondition' smart constructor.
 data SimpleCondition = SimpleCondition'
-  { -- | The dimension settings for the segment that\'s associated with the
-    -- activity.
-    segmentDimensions :: Prelude.Maybe SegmentDimensions,
+  { -- | The segment that\'s associated with the activity.
+    segmentCondition :: Prelude.Maybe SegmentCondition,
     -- | The dimension settings for the event that\'s associated with the
     -- activity.
     eventCondition :: Prelude.Maybe EventCondition,
-    -- | The segment that\'s associated with the activity.
-    segmentCondition :: Prelude.Maybe SegmentCondition
+    -- | The dimension settings for the segment that\'s associated with the
+    -- activity.
+    segmentDimensions :: Prelude.Maybe SegmentDimensions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,36 +49,36 @@ data SimpleCondition = SimpleCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'segmentDimensions', 'simpleCondition_segmentDimensions' - The dimension settings for the segment that\'s associated with the
--- activity.
+-- 'segmentCondition', 'simpleCondition_segmentCondition' - The segment that\'s associated with the activity.
 --
 -- 'eventCondition', 'simpleCondition_eventCondition' - The dimension settings for the event that\'s associated with the
 -- activity.
 --
--- 'segmentCondition', 'simpleCondition_segmentCondition' - The segment that\'s associated with the activity.
+-- 'segmentDimensions', 'simpleCondition_segmentDimensions' - The dimension settings for the segment that\'s associated with the
+-- activity.
 newSimpleCondition ::
   SimpleCondition
 newSimpleCondition =
   SimpleCondition'
-    { segmentDimensions =
+    { segmentCondition =
         Prelude.Nothing,
       eventCondition = Prelude.Nothing,
-      segmentCondition = Prelude.Nothing
+      segmentDimensions = Prelude.Nothing
     }
 
--- | The dimension settings for the segment that\'s associated with the
--- activity.
-simpleCondition_segmentDimensions :: Lens.Lens' SimpleCondition (Prelude.Maybe SegmentDimensions)
-simpleCondition_segmentDimensions = Lens.lens (\SimpleCondition' {segmentDimensions} -> segmentDimensions) (\s@SimpleCondition' {} a -> s {segmentDimensions = a} :: SimpleCondition)
+-- | The segment that\'s associated with the activity.
+simpleCondition_segmentCondition :: Lens.Lens' SimpleCondition (Prelude.Maybe SegmentCondition)
+simpleCondition_segmentCondition = Lens.lens (\SimpleCondition' {segmentCondition} -> segmentCondition) (\s@SimpleCondition' {} a -> s {segmentCondition = a} :: SimpleCondition)
 
 -- | The dimension settings for the event that\'s associated with the
 -- activity.
 simpleCondition_eventCondition :: Lens.Lens' SimpleCondition (Prelude.Maybe EventCondition)
 simpleCondition_eventCondition = Lens.lens (\SimpleCondition' {eventCondition} -> eventCondition) (\s@SimpleCondition' {} a -> s {eventCondition = a} :: SimpleCondition)
 
--- | The segment that\'s associated with the activity.
-simpleCondition_segmentCondition :: Lens.Lens' SimpleCondition (Prelude.Maybe SegmentCondition)
-simpleCondition_segmentCondition = Lens.lens (\SimpleCondition' {segmentCondition} -> segmentCondition) (\s@SimpleCondition' {} a -> s {segmentCondition = a} :: SimpleCondition)
+-- | The dimension settings for the segment that\'s associated with the
+-- activity.
+simpleCondition_segmentDimensions :: Lens.Lens' SimpleCondition (Prelude.Maybe SegmentDimensions)
+simpleCondition_segmentDimensions = Lens.lens (\SimpleCondition' {segmentDimensions} -> segmentDimensions) (\s@SimpleCondition' {} a -> s {segmentDimensions = a} :: SimpleCondition)
 
 instance Core.FromJSON SimpleCondition where
   parseJSON =
@@ -86,32 +86,32 @@ instance Core.FromJSON SimpleCondition where
       "SimpleCondition"
       ( \x ->
           SimpleCondition'
-            Prelude.<$> (x Core..:? "segmentDimensions")
+            Prelude.<$> (x Core..:? "SegmentCondition")
             Prelude.<*> (x Core..:? "EventCondition")
-            Prelude.<*> (x Core..:? "SegmentCondition")
+            Prelude.<*> (x Core..:? "segmentDimensions")
       )
 
 instance Prelude.Hashable SimpleCondition where
   hashWithSalt _salt SimpleCondition' {..} =
-    _salt `Prelude.hashWithSalt` segmentDimensions
+    _salt `Prelude.hashWithSalt` segmentCondition
       `Prelude.hashWithSalt` eventCondition
-      `Prelude.hashWithSalt` segmentCondition
+      `Prelude.hashWithSalt` segmentDimensions
 
 instance Prelude.NFData SimpleCondition where
   rnf SimpleCondition' {..} =
-    Prelude.rnf segmentDimensions
+    Prelude.rnf segmentCondition
       `Prelude.seq` Prelude.rnf eventCondition
-      `Prelude.seq` Prelude.rnf segmentCondition
+      `Prelude.seq` Prelude.rnf segmentDimensions
 
 instance Core.ToJSON SimpleCondition where
   toJSON SimpleCondition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("segmentDimensions" Core..=)
-              Prelude.<$> segmentDimensions,
+          [ ("SegmentCondition" Core..=)
+              Prelude.<$> segmentCondition,
             ("EventCondition" Core..=)
               Prelude.<$> eventCondition,
-            ("SegmentCondition" Core..=)
-              Prelude.<$> segmentCondition
+            ("segmentDimensions" Core..=)
+              Prelude.<$> segmentDimensions
           ]
       )

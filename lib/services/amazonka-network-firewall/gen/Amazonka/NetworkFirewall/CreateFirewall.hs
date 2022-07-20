@@ -46,11 +46,11 @@ module Amazonka.NetworkFirewall.CreateFirewall
     newCreateFirewall,
 
     -- * Request Lenses
-    createFirewall_firewallPolicyChangeProtection,
-    createFirewall_subnetChangeProtection,
-    createFirewall_deleteProtection,
-    createFirewall_description,
     createFirewall_tags,
+    createFirewall_deleteProtection,
+    createFirewall_subnetChangeProtection,
+    createFirewall_description,
+    createFirewall_firewallPolicyChangeProtection,
     createFirewall_firewallName,
     createFirewall_firewallPolicyArn,
     createFirewall_vpcId,
@@ -61,8 +61,8 @@ module Amazonka.NetworkFirewall.CreateFirewall
     newCreateFirewallResponse,
 
     -- * Response Lenses
-    createFirewallResponse_firewallStatus,
     createFirewallResponse_firewall,
+    createFirewallResponse_firewallStatus,
     createFirewallResponse_httpStatus,
   )
 where
@@ -76,28 +76,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFirewall' smart constructor.
 data CreateFirewall = CreateFirewall'
-  { -- | A setting indicating whether the firewall is protected against a change
-    -- to the firewall policy association. Use this setting to protect against
-    -- accidentally modifying the firewall policy for a firewall that is in
-    -- use. When you create a firewall, the operation initializes this setting
-    -- to @TRUE@.
-    firewallPolicyChangeProtection :: Prelude.Maybe Prelude.Bool,
-    -- | A setting indicating whether the firewall is protected against changes
-    -- to the subnet associations. Use this setting to protect against
-    -- accidentally modifying the subnet associations for a firewall that is in
-    -- use. When you create a firewall, the operation initializes this setting
-    -- to @TRUE@.
-    subnetChangeProtection :: Prelude.Maybe Prelude.Bool,
+  { -- | The key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | A flag indicating whether it is possible to delete the firewall. A
     -- setting of @TRUE@ indicates that the firewall is protected against
     -- deletion. Use this setting to protect against accidentally deleting a
     -- firewall that is in use. When you create a firewall, the operation
     -- initializes this flag to @TRUE@.
     deleteProtection :: Prelude.Maybe Prelude.Bool,
+    -- | A setting indicating whether the firewall is protected against changes
+    -- to the subnet associations. Use this setting to protect against
+    -- accidentally modifying the subnet associations for a firewall that is in
+    -- use. When you create a firewall, the operation initializes this setting
+    -- to @TRUE@.
+    subnetChangeProtection :: Prelude.Maybe Prelude.Bool,
     -- | A description of the firewall.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | A setting indicating whether the firewall is protected against a change
+    -- to the firewall policy association. Use this setting to protect against
+    -- accidentally modifying the firewall policy for a firewall that is in
+    -- use. When you create a firewall, the operation initializes this setting
+    -- to @TRUE@.
+    firewallPolicyChangeProtection :: Prelude.Maybe Prelude.Bool,
     -- | The descriptive name of the firewall. You can\'t change the name of a
     -- firewall after you create it.
     firewallName :: Prelude.Text,
@@ -124,17 +124,7 @@ data CreateFirewall = CreateFirewall'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallPolicyChangeProtection', 'createFirewall_firewallPolicyChangeProtection' - A setting indicating whether the firewall is protected against a change
--- to the firewall policy association. Use this setting to protect against
--- accidentally modifying the firewall policy for a firewall that is in
--- use. When you create a firewall, the operation initializes this setting
--- to @TRUE@.
---
--- 'subnetChangeProtection', 'createFirewall_subnetChangeProtection' - A setting indicating whether the firewall is protected against changes
--- to the subnet associations. Use this setting to protect against
--- accidentally modifying the subnet associations for a firewall that is in
--- use. When you create a firewall, the operation initializes this setting
--- to @TRUE@.
+-- 'tags', 'createFirewall_tags' - The key:value pairs to associate with the resource.
 --
 -- 'deleteProtection', 'createFirewall_deleteProtection' - A flag indicating whether it is possible to delete the firewall. A
 -- setting of @TRUE@ indicates that the firewall is protected against
@@ -142,9 +132,19 @@ data CreateFirewall = CreateFirewall'
 -- firewall that is in use. When you create a firewall, the operation
 -- initializes this flag to @TRUE@.
 --
+-- 'subnetChangeProtection', 'createFirewall_subnetChangeProtection' - A setting indicating whether the firewall is protected against changes
+-- to the subnet associations. Use this setting to protect against
+-- accidentally modifying the subnet associations for a firewall that is in
+-- use. When you create a firewall, the operation initializes this setting
+-- to @TRUE@.
+--
 -- 'description', 'createFirewall_description' - A description of the firewall.
 --
--- 'tags', 'createFirewall_tags' - The key:value pairs to associate with the resource.
+-- 'firewallPolicyChangeProtection', 'createFirewall_firewallPolicyChangeProtection' - A setting indicating whether the firewall is protected against a change
+-- to the firewall policy association. Use this setting to protect against
+-- accidentally modifying the firewall policy for a firewall that is in
+-- use. When you create a firewall, the operation initializes this setting
+-- to @TRUE@.
 --
 -- 'firewallName', 'createFirewall_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
@@ -173,33 +173,20 @@ newCreateFirewall
   pFirewallPolicyArn_
   pVpcId_ =
     CreateFirewall'
-      { firewallPolicyChangeProtection =
-          Prelude.Nothing,
-        subnetChangeProtection = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         deleteProtection = Prelude.Nothing,
+        subnetChangeProtection = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        firewallPolicyChangeProtection = Prelude.Nothing,
         firewallName = pFirewallName_,
         firewallPolicyArn = pFirewallPolicyArn_,
         vpcId = pVpcId_,
         subnetMappings = Prelude.mempty
       }
 
--- | A setting indicating whether the firewall is protected against a change
--- to the firewall policy association. Use this setting to protect against
--- accidentally modifying the firewall policy for a firewall that is in
--- use. When you create a firewall, the operation initializes this setting
--- to @TRUE@.
-createFirewall_firewallPolicyChangeProtection :: Lens.Lens' CreateFirewall (Prelude.Maybe Prelude.Bool)
-createFirewall_firewallPolicyChangeProtection = Lens.lens (\CreateFirewall' {firewallPolicyChangeProtection} -> firewallPolicyChangeProtection) (\s@CreateFirewall' {} a -> s {firewallPolicyChangeProtection = a} :: CreateFirewall)
-
--- | A setting indicating whether the firewall is protected against changes
--- to the subnet associations. Use this setting to protect against
--- accidentally modifying the subnet associations for a firewall that is in
--- use. When you create a firewall, the operation initializes this setting
--- to @TRUE@.
-createFirewall_subnetChangeProtection :: Lens.Lens' CreateFirewall (Prelude.Maybe Prelude.Bool)
-createFirewall_subnetChangeProtection = Lens.lens (\CreateFirewall' {subnetChangeProtection} -> subnetChangeProtection) (\s@CreateFirewall' {} a -> s {subnetChangeProtection = a} :: CreateFirewall)
+-- | The key:value pairs to associate with the resource.
+createFirewall_tags :: Lens.Lens' CreateFirewall (Prelude.Maybe (Prelude.NonEmpty Tag))
+createFirewall_tags = Lens.lens (\CreateFirewall' {tags} -> tags) (\s@CreateFirewall' {} a -> s {tags = a} :: CreateFirewall) Prelude.. Lens.mapping Lens.coerced
 
 -- | A flag indicating whether it is possible to delete the firewall. A
 -- setting of @TRUE@ indicates that the firewall is protected against
@@ -209,13 +196,25 @@ createFirewall_subnetChangeProtection = Lens.lens (\CreateFirewall' {subnetChang
 createFirewall_deleteProtection :: Lens.Lens' CreateFirewall (Prelude.Maybe Prelude.Bool)
 createFirewall_deleteProtection = Lens.lens (\CreateFirewall' {deleteProtection} -> deleteProtection) (\s@CreateFirewall' {} a -> s {deleteProtection = a} :: CreateFirewall)
 
+-- | A setting indicating whether the firewall is protected against changes
+-- to the subnet associations. Use this setting to protect against
+-- accidentally modifying the subnet associations for a firewall that is in
+-- use. When you create a firewall, the operation initializes this setting
+-- to @TRUE@.
+createFirewall_subnetChangeProtection :: Lens.Lens' CreateFirewall (Prelude.Maybe Prelude.Bool)
+createFirewall_subnetChangeProtection = Lens.lens (\CreateFirewall' {subnetChangeProtection} -> subnetChangeProtection) (\s@CreateFirewall' {} a -> s {subnetChangeProtection = a} :: CreateFirewall)
+
 -- | A description of the firewall.
 createFirewall_description :: Lens.Lens' CreateFirewall (Prelude.Maybe Prelude.Text)
 createFirewall_description = Lens.lens (\CreateFirewall' {description} -> description) (\s@CreateFirewall' {} a -> s {description = a} :: CreateFirewall)
 
--- | The key:value pairs to associate with the resource.
-createFirewall_tags :: Lens.Lens' CreateFirewall (Prelude.Maybe (Prelude.NonEmpty Tag))
-createFirewall_tags = Lens.lens (\CreateFirewall' {tags} -> tags) (\s@CreateFirewall' {} a -> s {tags = a} :: CreateFirewall) Prelude.. Lens.mapping Lens.coerced
+-- | A setting indicating whether the firewall is protected against a change
+-- to the firewall policy association. Use this setting to protect against
+-- accidentally modifying the firewall policy for a firewall that is in
+-- use. When you create a firewall, the operation initializes this setting
+-- to @TRUE@.
+createFirewall_firewallPolicyChangeProtection :: Lens.Lens' CreateFirewall (Prelude.Maybe Prelude.Bool)
+createFirewall_firewallPolicyChangeProtection = Lens.lens (\CreateFirewall' {firewallPolicyChangeProtection} -> firewallPolicyChangeProtection) (\s@CreateFirewall' {} a -> s {firewallPolicyChangeProtection = a} :: CreateFirewall)
 
 -- | The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
@@ -249,19 +248,18 @@ instance Core.AWSRequest CreateFirewall where
     Response.receiveJSON
       ( \s h x ->
           CreateFirewallResponse'
-            Prelude.<$> (x Core..?> "FirewallStatus")
-            Prelude.<*> (x Core..?> "Firewall")
+            Prelude.<$> (x Core..?> "Firewall")
+            Prelude.<*> (x Core..?> "FirewallStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateFirewall where
   hashWithSalt _salt CreateFirewall' {..} =
-    _salt
-      `Prelude.hashWithSalt` firewallPolicyChangeProtection
-      `Prelude.hashWithSalt` subnetChangeProtection
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` deleteProtection
+      `Prelude.hashWithSalt` subnetChangeProtection
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` firewallPolicyChangeProtection
       `Prelude.hashWithSalt` firewallName
       `Prelude.hashWithSalt` firewallPolicyArn
       `Prelude.hashWithSalt` vpcId
@@ -269,11 +267,11 @@ instance Prelude.Hashable CreateFirewall where
 
 instance Prelude.NFData CreateFirewall where
   rnf CreateFirewall' {..} =
-    Prelude.rnf firewallPolicyChangeProtection
-      `Prelude.seq` Prelude.rnf subnetChangeProtection
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf deleteProtection
+      `Prelude.seq` Prelude.rnf subnetChangeProtection
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
       `Prelude.seq` Prelude.rnf firewallName
       `Prelude.seq` Prelude.rnf firewallPolicyArn
       `Prelude.seq` Prelude.rnf vpcId
@@ -298,14 +296,14 @@ instance Core.ToJSON CreateFirewall where
   toJSON CreateFirewall' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FirewallPolicyChangeProtection" Core..=)
-              Prelude.<$> firewallPolicyChangeProtection,
-            ("SubnetChangeProtection" Core..=)
-              Prelude.<$> subnetChangeProtection,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("DeleteProtection" Core..=)
               Prelude.<$> deleteProtection,
+            ("SubnetChangeProtection" Core..=)
+              Prelude.<$> subnetChangeProtection,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("FirewallPolicyChangeProtection" Core..=)
+              Prelude.<$> firewallPolicyChangeProtection,
             Prelude.Just ("FirewallName" Core..= firewallName),
             Prelude.Just
               ("FirewallPolicyArn" Core..= firewallPolicyArn),
@@ -323,14 +321,14 @@ instance Core.ToQuery CreateFirewall where
 
 -- | /See:/ 'newCreateFirewallResponse' smart constructor.
 data CreateFirewallResponse = CreateFirewallResponse'
-  { -- | Detailed information about the current status of a Firewall. You can
-    -- retrieve this for a firewall by calling DescribeFirewall and providing
-    -- the firewall name and ARN.
-    firewallStatus :: Prelude.Maybe FirewallStatus,
-    -- | The configuration settings for the firewall. These settings include the
+  { -- | The configuration settings for the firewall. These settings include the
     -- firewall policy and the subnets in your VPC to use for the firewall
     -- endpoints.
     firewall :: Prelude.Maybe Firewall,
+    -- | Detailed information about the current status of a Firewall. You can
+    -- retrieve this for a firewall by calling DescribeFirewall and providing
+    -- the firewall name and ARN.
+    firewallStatus :: Prelude.Maybe FirewallStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -344,13 +342,13 @@ data CreateFirewallResponse = CreateFirewallResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallStatus', 'createFirewallResponse_firewallStatus' - Detailed information about the current status of a Firewall. You can
--- retrieve this for a firewall by calling DescribeFirewall and providing
--- the firewall name and ARN.
---
 -- 'firewall', 'createFirewallResponse_firewall' - The configuration settings for the firewall. These settings include the
 -- firewall policy and the subnets in your VPC to use for the firewall
 -- endpoints.
+--
+-- 'firewallStatus', 'createFirewallResponse_firewallStatus' - Detailed information about the current status of a Firewall. You can
+-- retrieve this for a firewall by calling DescribeFirewall and providing
+-- the firewall name and ARN.
 --
 -- 'httpStatus', 'createFirewallResponse_httpStatus' - The response's http status code.
 newCreateFirewallResponse ::
@@ -359,17 +357,10 @@ newCreateFirewallResponse ::
   CreateFirewallResponse
 newCreateFirewallResponse pHttpStatus_ =
   CreateFirewallResponse'
-    { firewallStatus =
-        Prelude.Nothing,
-      firewall = Prelude.Nothing,
+    { firewall = Prelude.Nothing,
+      firewallStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Detailed information about the current status of a Firewall. You can
--- retrieve this for a firewall by calling DescribeFirewall and providing
--- the firewall name and ARN.
-createFirewallResponse_firewallStatus :: Lens.Lens' CreateFirewallResponse (Prelude.Maybe FirewallStatus)
-createFirewallResponse_firewallStatus = Lens.lens (\CreateFirewallResponse' {firewallStatus} -> firewallStatus) (\s@CreateFirewallResponse' {} a -> s {firewallStatus = a} :: CreateFirewallResponse)
 
 -- | The configuration settings for the firewall. These settings include the
 -- firewall policy and the subnets in your VPC to use for the firewall
@@ -377,12 +368,18 @@ createFirewallResponse_firewallStatus = Lens.lens (\CreateFirewallResponse' {fir
 createFirewallResponse_firewall :: Lens.Lens' CreateFirewallResponse (Prelude.Maybe Firewall)
 createFirewallResponse_firewall = Lens.lens (\CreateFirewallResponse' {firewall} -> firewall) (\s@CreateFirewallResponse' {} a -> s {firewall = a} :: CreateFirewallResponse)
 
+-- | Detailed information about the current status of a Firewall. You can
+-- retrieve this for a firewall by calling DescribeFirewall and providing
+-- the firewall name and ARN.
+createFirewallResponse_firewallStatus :: Lens.Lens' CreateFirewallResponse (Prelude.Maybe FirewallStatus)
+createFirewallResponse_firewallStatus = Lens.lens (\CreateFirewallResponse' {firewallStatus} -> firewallStatus) (\s@CreateFirewallResponse' {} a -> s {firewallStatus = a} :: CreateFirewallResponse)
+
 -- | The response's http status code.
 createFirewallResponse_httpStatus :: Lens.Lens' CreateFirewallResponse Prelude.Int
 createFirewallResponse_httpStatus = Lens.lens (\CreateFirewallResponse' {httpStatus} -> httpStatus) (\s@CreateFirewallResponse' {} a -> s {httpStatus = a} :: CreateFirewallResponse)
 
 instance Prelude.NFData CreateFirewallResponse where
   rnf CreateFirewallResponse' {..} =
-    Prelude.rnf firewallStatus
-      `Prelude.seq` Prelude.rnf firewall
+    Prelude.rnf firewall
+      `Prelude.seq` Prelude.rnf firewallStatus
       `Prelude.seq` Prelude.rnf httpStatus

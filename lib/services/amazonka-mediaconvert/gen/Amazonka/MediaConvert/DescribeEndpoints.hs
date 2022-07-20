@@ -30,9 +30,9 @@ module Amazonka.MediaConvert.DescribeEndpoints
     newDescribeEndpoints,
 
     -- * Request Lenses
-    describeEndpoints_mode,
     describeEndpoints_nextToken,
     describeEndpoints_maxResults,
+    describeEndpoints_mode,
 
     -- * Destructuring the Response
     DescribeEndpointsResponse (..),
@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  { -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
-    -- to return your endpoints if any exist, or to create an endpoint for you
-    -- and return it if one doesn\'t already exist. Specify GET_ONLY to return
-    -- your endpoints if any exist, or an empty list if none exist.
-    mode :: Prelude.Maybe DescribeEndpointsMode,
-    -- | Use this string, provided with the response to a previous request, to
+  { -- | Use this string, provided with the response to a previous request, to
     -- request the next batch of endpoints.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Optional. Max number of endpoints, up to twenty, that will be returned
     -- at one time.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
+    -- to return your endpoints if any exist, or to create an endpoint for you
+    -- and return it if one doesn\'t already exist. Specify GET_ONLY to return
+    -- your endpoints if any exist, or an empty list if none exist.
+    mode :: Prelude.Maybe DescribeEndpointsMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,31 +78,24 @@ data DescribeEndpoints = DescribeEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mode', 'describeEndpoints_mode' - Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
--- to return your endpoints if any exist, or to create an endpoint for you
--- and return it if one doesn\'t already exist. Specify GET_ONLY to return
--- your endpoints if any exist, or an empty list if none exist.
---
 -- 'nextToken', 'describeEndpoints_nextToken' - Use this string, provided with the response to a previous request, to
 -- request the next batch of endpoints.
 --
 -- 'maxResults', 'describeEndpoints_maxResults' - Optional. Max number of endpoints, up to twenty, that will be returned
 -- at one time.
+--
+-- 'mode', 'describeEndpoints_mode' - Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
+-- to return your endpoints if any exist, or to create an endpoint for you
+-- and return it if one doesn\'t already exist. Specify GET_ONLY to return
+-- your endpoints if any exist, or an empty list if none exist.
 newDescribeEndpoints ::
   DescribeEndpoints
 newDescribeEndpoints =
   DescribeEndpoints'
-    { mode = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      mode = Prelude.Nothing
     }
-
--- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
--- to return your endpoints if any exist, or to create an endpoint for you
--- and return it if one doesn\'t already exist. Specify GET_ONLY to return
--- your endpoints if any exist, or an empty list if none exist.
-describeEndpoints_mode :: Lens.Lens' DescribeEndpoints (Prelude.Maybe DescribeEndpointsMode)
-describeEndpoints_mode = Lens.lens (\DescribeEndpoints' {mode} -> mode) (\s@DescribeEndpoints' {} a -> s {mode = a} :: DescribeEndpoints)
 
 -- | Use this string, provided with the response to a previous request, to
 -- request the next batch of endpoints.
@@ -113,6 +106,13 @@ describeEndpoints_nextToken = Lens.lens (\DescribeEndpoints' {nextToken} -> next
 -- at one time.
 describeEndpoints_maxResults :: Lens.Lens' DescribeEndpoints (Prelude.Maybe Prelude.Int)
 describeEndpoints_maxResults = Lens.lens (\DescribeEndpoints' {maxResults} -> maxResults) (\s@DescribeEndpoints' {} a -> s {maxResults = a} :: DescribeEndpoints)
+
+-- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
+-- to return your endpoints if any exist, or to create an endpoint for you
+-- and return it if one doesn\'t already exist. Specify GET_ONLY to return
+-- your endpoints if any exist, or an empty list if none exist.
+describeEndpoints_mode :: Lens.Lens' DescribeEndpoints (Prelude.Maybe DescribeEndpointsMode)
+describeEndpoints_mode = Lens.lens (\DescribeEndpoints' {mode} -> mode) (\s@DescribeEndpoints' {} a -> s {mode = a} :: DescribeEndpoints)
 
 instance Core.AWSPager DescribeEndpoints where
   page rq rs
@@ -152,15 +152,15 @@ instance Core.AWSRequest DescribeEndpoints where
 
 instance Prelude.Hashable DescribeEndpoints where
   hashWithSalt _salt DescribeEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData DescribeEndpoints where
   rnf DescribeEndpoints' {..} =
-    Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf mode
 
 instance Core.ToHeaders DescribeEndpoints where
   toHeaders =
@@ -177,9 +177,9 @@ instance Core.ToJSON DescribeEndpoints where
   toJSON DescribeEndpoints' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("mode" Core..=) Prelude.<$> mode,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("mode" Core..=) Prelude.<$> mode
           ]
       )
 

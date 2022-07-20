@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntityRecognizerFilter' smart constructor.
 data EntityRecognizerFilter = EntityRecognizerFilter'
-  { -- | The status of an entity recognizer.
+  { -- | The name that you assigned the entity recognizer.
+    recognizerName :: Prelude.Maybe Prelude.Text,
+    -- | The status of an entity recognizer.
     status :: Prelude.Maybe ModelStatus,
-    -- | Filters the list of entities based on the time that the list was
-    -- submitted for processing. Returns only jobs submitted after the
-    -- specified time. Jobs are returned in ascending order, oldest to newest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Filters the list of entities based on the time that the list was
     -- submitted for processing. Returns only jobs submitted before the
     -- specified time. Jobs are returned in descending order, newest to oldest.
     submitTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The name that you assigned the entity recognizer.
-    recognizerName :: Prelude.Maybe Prelude.Text
+    -- | Filters the list of entities based on the time that the list was
+    -- submitted for processing. Returns only jobs submitted after the
+    -- specified time. Jobs are returned in ascending order, oldest to newest.
+    submitTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,36 +53,35 @@ data EntityRecognizerFilter = EntityRecognizerFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'entityRecognizerFilter_status' - The status of an entity recognizer.
+-- 'recognizerName', 'entityRecognizerFilter_recognizerName' - The name that you assigned the entity recognizer.
 --
--- 'submitTimeAfter', 'entityRecognizerFilter_submitTimeAfter' - Filters the list of entities based on the time that the list was
--- submitted for processing. Returns only jobs submitted after the
--- specified time. Jobs are returned in ascending order, oldest to newest.
+-- 'status', 'entityRecognizerFilter_status' - The status of an entity recognizer.
 --
 -- 'submitTimeBefore', 'entityRecognizerFilter_submitTimeBefore' - Filters the list of entities based on the time that the list was
 -- submitted for processing. Returns only jobs submitted before the
 -- specified time. Jobs are returned in descending order, newest to oldest.
 --
--- 'recognizerName', 'entityRecognizerFilter_recognizerName' - The name that you assigned the entity recognizer.
+-- 'submitTimeAfter', 'entityRecognizerFilter_submitTimeAfter' - Filters the list of entities based on the time that the list was
+-- submitted for processing. Returns only jobs submitted after the
+-- specified time. Jobs are returned in ascending order, oldest to newest.
 newEntityRecognizerFilter ::
   EntityRecognizerFilter
 newEntityRecognizerFilter =
   EntityRecognizerFilter'
-    { status = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing,
+    { recognizerName =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       submitTimeBefore = Prelude.Nothing,
-      recognizerName = Prelude.Nothing
+      submitTimeAfter = Prelude.Nothing
     }
+
+-- | The name that you assigned the entity recognizer.
+entityRecognizerFilter_recognizerName :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.Text)
+entityRecognizerFilter_recognizerName = Lens.lens (\EntityRecognizerFilter' {recognizerName} -> recognizerName) (\s@EntityRecognizerFilter' {} a -> s {recognizerName = a} :: EntityRecognizerFilter)
 
 -- | The status of an entity recognizer.
 entityRecognizerFilter_status :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe ModelStatus)
 entityRecognizerFilter_status = Lens.lens (\EntityRecognizerFilter' {status} -> status) (\s@EntityRecognizerFilter' {} a -> s {status = a} :: EntityRecognizerFilter)
-
--- | Filters the list of entities based on the time that the list was
--- submitted for processing. Returns only jobs submitted after the
--- specified time. Jobs are returned in ascending order, oldest to newest.
-entityRecognizerFilter_submitTimeAfter :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
-entityRecognizerFilter_submitTimeAfter = Lens.lens (\EntityRecognizerFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EntityRecognizerFilter' {} a -> s {submitTimeAfter = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Core._Time
 
 -- | Filters the list of entities based on the time that the list was
 -- submitted for processing. Returns only jobs submitted before the
@@ -90,34 +89,36 @@ entityRecognizerFilter_submitTimeAfter = Lens.lens (\EntityRecognizerFilter' {su
 entityRecognizerFilter_submitTimeBefore :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
 entityRecognizerFilter_submitTimeBefore = Lens.lens (\EntityRecognizerFilter' {submitTimeBefore} -> submitTimeBefore) (\s@EntityRecognizerFilter' {} a -> s {submitTimeBefore = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Core._Time
 
--- | The name that you assigned the entity recognizer.
-entityRecognizerFilter_recognizerName :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.Text)
-entityRecognizerFilter_recognizerName = Lens.lens (\EntityRecognizerFilter' {recognizerName} -> recognizerName) (\s@EntityRecognizerFilter' {} a -> s {recognizerName = a} :: EntityRecognizerFilter)
+-- | Filters the list of entities based on the time that the list was
+-- submitted for processing. Returns only jobs submitted after the
+-- specified time. Jobs are returned in ascending order, oldest to newest.
+entityRecognizerFilter_submitTimeAfter :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
+entityRecognizerFilter_submitTimeAfter = Lens.lens (\EntityRecognizerFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EntityRecognizerFilter' {} a -> s {submitTimeAfter = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Core._Time
 
 instance Prelude.Hashable EntityRecognizerFilter where
   hashWithSalt _salt EntityRecognizerFilter' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` submitTimeAfter
+    _salt `Prelude.hashWithSalt` recognizerName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` submitTimeBefore
-      `Prelude.hashWithSalt` recognizerName
+      `Prelude.hashWithSalt` submitTimeAfter
 
 instance Prelude.NFData EntityRecognizerFilter where
   rnf EntityRecognizerFilter' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf submitTimeAfter
+    Prelude.rnf recognizerName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf submitTimeBefore
-      `Prelude.seq` Prelude.rnf recognizerName
+      `Prelude.seq` Prelude.rnf submitTimeAfter
 
 instance Core.ToJSON EntityRecognizerFilter where
   toJSON EntityRecognizerFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("SubmitTimeAfter" Core..=)
-              Prelude.<$> submitTimeAfter,
+          [ ("RecognizerName" Core..=)
+              Prelude.<$> recognizerName,
+            ("Status" Core..=) Prelude.<$> status,
             ("SubmitTimeBefore" Core..=)
               Prelude.<$> submitTimeBefore,
-            ("RecognizerName" Core..=)
-              Prelude.<$> recognizerName
+            ("SubmitTimeAfter" Core..=)
+              Prelude.<$> submitTimeAfter
           ]
       )

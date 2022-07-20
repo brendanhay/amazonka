@@ -58,12 +58,12 @@ data CustomerAction = CustomerAction'
     -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html AlarmState>
     -- API.
     actionName :: Prelude.Maybe CustomerActionName,
-    -- | Contains the configuration information of a snooze action.
-    snoozeActionConfiguration :: Prelude.Maybe SnoozeActionConfiguration,
     -- | Contains the configuration information of an enable action.
     enableActionConfiguration :: Prelude.Maybe EnableActionConfiguration,
     -- | Contains the configuration information of a disable action.
     disableActionConfiguration :: Prelude.Maybe DisableActionConfiguration,
+    -- | Contains the configuration information of a snooze action.
+    snoozeActionConfiguration :: Prelude.Maybe SnoozeActionConfiguration,
     -- | Contains the configuration information of an acknowledge action.
     acknowledgeActionConfiguration :: Prelude.Maybe AcknowledgeActionConfiguration
   }
@@ -101,11 +101,11 @@ data CustomerAction = CustomerAction'
 -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html AlarmState>
 -- API.
 --
--- 'snoozeActionConfiguration', 'customerAction_snoozeActionConfiguration' - Contains the configuration information of a snooze action.
---
 -- 'enableActionConfiguration', 'customerAction_enableActionConfiguration' - Contains the configuration information of an enable action.
 --
 -- 'disableActionConfiguration', 'customerAction_disableActionConfiguration' - Contains the configuration information of a disable action.
+--
+-- 'snoozeActionConfiguration', 'customerAction_snoozeActionConfiguration' - Contains the configuration information of a snooze action.
 --
 -- 'acknowledgeActionConfiguration', 'customerAction_acknowledgeActionConfiguration' - Contains the configuration information of an acknowledge action.
 newCustomerAction ::
@@ -115,9 +115,9 @@ newCustomerAction =
     { resetActionConfiguration =
         Prelude.Nothing,
       actionName = Prelude.Nothing,
-      snoozeActionConfiguration = Prelude.Nothing,
       enableActionConfiguration = Prelude.Nothing,
       disableActionConfiguration = Prelude.Nothing,
+      snoozeActionConfiguration = Prelude.Nothing,
       acknowledgeActionConfiguration = Prelude.Nothing
     }
 
@@ -149,10 +149,6 @@ customerAction_resetActionConfiguration = Lens.lens (\CustomerAction' {resetActi
 customerAction_actionName :: Lens.Lens' CustomerAction (Prelude.Maybe CustomerActionName)
 customerAction_actionName = Lens.lens (\CustomerAction' {actionName} -> actionName) (\s@CustomerAction' {} a -> s {actionName = a} :: CustomerAction)
 
--- | Contains the configuration information of a snooze action.
-customerAction_snoozeActionConfiguration :: Lens.Lens' CustomerAction (Prelude.Maybe SnoozeActionConfiguration)
-customerAction_snoozeActionConfiguration = Lens.lens (\CustomerAction' {snoozeActionConfiguration} -> snoozeActionConfiguration) (\s@CustomerAction' {} a -> s {snoozeActionConfiguration = a} :: CustomerAction)
-
 -- | Contains the configuration information of an enable action.
 customerAction_enableActionConfiguration :: Lens.Lens' CustomerAction (Prelude.Maybe EnableActionConfiguration)
 customerAction_enableActionConfiguration = Lens.lens (\CustomerAction' {enableActionConfiguration} -> enableActionConfiguration) (\s@CustomerAction' {} a -> s {enableActionConfiguration = a} :: CustomerAction)
@@ -160,6 +156,10 @@ customerAction_enableActionConfiguration = Lens.lens (\CustomerAction' {enableAc
 -- | Contains the configuration information of a disable action.
 customerAction_disableActionConfiguration :: Lens.Lens' CustomerAction (Prelude.Maybe DisableActionConfiguration)
 customerAction_disableActionConfiguration = Lens.lens (\CustomerAction' {disableActionConfiguration} -> disableActionConfiguration) (\s@CustomerAction' {} a -> s {disableActionConfiguration = a} :: CustomerAction)
+
+-- | Contains the configuration information of a snooze action.
+customerAction_snoozeActionConfiguration :: Lens.Lens' CustomerAction (Prelude.Maybe SnoozeActionConfiguration)
+customerAction_snoozeActionConfiguration = Lens.lens (\CustomerAction' {snoozeActionConfiguration} -> snoozeActionConfiguration) (\s@CustomerAction' {} a -> s {snoozeActionConfiguration = a} :: CustomerAction)
 
 -- | Contains the configuration information of an acknowledge action.
 customerAction_acknowledgeActionConfiguration :: Lens.Lens' CustomerAction (Prelude.Maybe AcknowledgeActionConfiguration)
@@ -173,9 +173,9 @@ instance Core.FromJSON CustomerAction where
           CustomerAction'
             Prelude.<$> (x Core..:? "resetActionConfiguration")
             Prelude.<*> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "snoozeActionConfiguration")
             Prelude.<*> (x Core..:? "enableActionConfiguration")
             Prelude.<*> (x Core..:? "disableActionConfiguration")
+            Prelude.<*> (x Core..:? "snoozeActionConfiguration")
             Prelude.<*> (x Core..:? "acknowledgeActionConfiguration")
       )
 
@@ -184,16 +184,16 @@ instance Prelude.Hashable CustomerAction where
     _salt
       `Prelude.hashWithSalt` resetActionConfiguration
       `Prelude.hashWithSalt` actionName
-      `Prelude.hashWithSalt` snoozeActionConfiguration
       `Prelude.hashWithSalt` enableActionConfiguration
       `Prelude.hashWithSalt` disableActionConfiguration
+      `Prelude.hashWithSalt` snoozeActionConfiguration
       `Prelude.hashWithSalt` acknowledgeActionConfiguration
 
 instance Prelude.NFData CustomerAction where
   rnf CustomerAction' {..} =
     Prelude.rnf resetActionConfiguration
       `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf snoozeActionConfiguration
       `Prelude.seq` Prelude.rnf enableActionConfiguration
       `Prelude.seq` Prelude.rnf disableActionConfiguration
+      `Prelude.seq` Prelude.rnf snoozeActionConfiguration
       `Prelude.seq` Prelude.rnf acknowledgeActionConfiguration

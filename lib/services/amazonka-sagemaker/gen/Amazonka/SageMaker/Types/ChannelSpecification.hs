@@ -32,10 +32,10 @@ import Amazonka.SageMaker.Types.TrainingInputMode
 data ChannelSpecification = ChannelSpecification'
   { -- | The allowed compression types, if data compression is used.
     supportedCompressionTypes :: Prelude.Maybe [CompressionType],
-    -- | Indicates whether the channel is required by the algorithm.
-    isRequired :: Prelude.Maybe Prelude.Bool,
     -- | A brief description of the channel.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the channel is required by the algorithm.
+    isRequired :: Prelude.Maybe Prelude.Bool,
     -- | The name of the channel.
     name :: Prelude.Text,
     -- | The supported MIME types for the data.
@@ -63,9 +63,9 @@ data ChannelSpecification = ChannelSpecification'
 --
 -- 'supportedCompressionTypes', 'channelSpecification_supportedCompressionTypes' - The allowed compression types, if data compression is used.
 --
--- 'isRequired', 'channelSpecification_isRequired' - Indicates whether the channel is required by the algorithm.
---
 -- 'description', 'channelSpecification_description' - A brief description of the channel.
+--
+-- 'isRequired', 'channelSpecification_isRequired' - Indicates whether the channel is required by the algorithm.
 --
 -- 'name', 'channelSpecification_name' - The name of the channel.
 --
@@ -90,8 +90,8 @@ newChannelSpecification pName_ pSupportedInputModes_ =
   ChannelSpecification'
     { supportedCompressionTypes =
         Prelude.Nothing,
-      isRequired = Prelude.Nothing,
       description = Prelude.Nothing,
+      isRequired = Prelude.Nothing,
       name = pName_,
       supportedContentTypes = Prelude.mempty,
       supportedInputModes =
@@ -102,13 +102,13 @@ newChannelSpecification pName_ pSupportedInputModes_ =
 channelSpecification_supportedCompressionTypes :: Lens.Lens' ChannelSpecification (Prelude.Maybe [CompressionType])
 channelSpecification_supportedCompressionTypes = Lens.lens (\ChannelSpecification' {supportedCompressionTypes} -> supportedCompressionTypes) (\s@ChannelSpecification' {} a -> s {supportedCompressionTypes = a} :: ChannelSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether the channel is required by the algorithm.
-channelSpecification_isRequired :: Lens.Lens' ChannelSpecification (Prelude.Maybe Prelude.Bool)
-channelSpecification_isRequired = Lens.lens (\ChannelSpecification' {isRequired} -> isRequired) (\s@ChannelSpecification' {} a -> s {isRequired = a} :: ChannelSpecification)
-
 -- | A brief description of the channel.
 channelSpecification_description :: Lens.Lens' ChannelSpecification (Prelude.Maybe Prelude.Text)
 channelSpecification_description = Lens.lens (\ChannelSpecification' {description} -> description) (\s@ChannelSpecification' {} a -> s {description = a} :: ChannelSpecification)
+
+-- | Indicates whether the channel is required by the algorithm.
+channelSpecification_isRequired :: Lens.Lens' ChannelSpecification (Prelude.Maybe Prelude.Bool)
+channelSpecification_isRequired = Lens.lens (\ChannelSpecification' {isRequired} -> isRequired) (\s@ChannelSpecification' {} a -> s {isRequired = a} :: ChannelSpecification)
 
 -- | The name of the channel.
 channelSpecification_name :: Lens.Lens' ChannelSpecification Prelude.Text
@@ -139,8 +139,8 @@ instance Core.FromJSON ChannelSpecification where
             Prelude.<$> ( x Core..:? "SupportedCompressionTypes"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IsRequired")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "IsRequired")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> ( x Core..:? "SupportedContentTypes"
                             Core..!= Prelude.mempty
@@ -152,8 +152,8 @@ instance Prelude.Hashable ChannelSpecification where
   hashWithSalt _salt ChannelSpecification' {..} =
     _salt
       `Prelude.hashWithSalt` supportedCompressionTypes
-      `Prelude.hashWithSalt` isRequired
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` isRequired
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` supportedContentTypes
       `Prelude.hashWithSalt` supportedInputModes
@@ -161,8 +161,8 @@ instance Prelude.Hashable ChannelSpecification where
 instance Prelude.NFData ChannelSpecification where
   rnf ChannelSpecification' {..} =
     Prelude.rnf supportedCompressionTypes
-      `Prelude.seq` Prelude.rnf isRequired
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf isRequired
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf supportedContentTypes
       `Prelude.seq` Prelude.rnf supportedInputModes
@@ -173,8 +173,8 @@ instance Core.ToJSON ChannelSpecification where
       ( Prelude.catMaybes
           [ ("SupportedCompressionTypes" Core..=)
               Prelude.<$> supportedCompressionTypes,
-            ("IsRequired" Core..=) Prelude.<$> isRequired,
             ("Description" Core..=) Prelude.<$> description,
+            ("IsRequired" Core..=) Prelude.<$> isRequired,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ( "SupportedContentTypes"

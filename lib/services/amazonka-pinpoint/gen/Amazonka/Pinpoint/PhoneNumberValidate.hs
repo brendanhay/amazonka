@@ -109,14 +109,7 @@ instance Core.ToHeaders PhoneNumberValidate where
 
 instance Core.ToJSON PhoneNumberValidate where
   toJSON PhoneNumberValidate' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "NumberValidateRequest"
-                  Core..= numberValidateRequest
-              )
-          ]
-      )
+    Core.toJSON numberValidateRequest
 
 instance Core.ToPath PhoneNumberValidate where
   toPath = Prelude.const "/v1/phone/number/validate"

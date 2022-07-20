@@ -36,8 +36,8 @@ module Amazonka.Chime.ListVoiceConnectors
     newListVoiceConnectorsResponse,
 
     -- * Response Lenses
-    listVoiceConnectorsResponse_nextToken,
     listVoiceConnectorsResponse_voiceConnectors,
+    listVoiceConnectorsResponse_nextToken,
     listVoiceConnectorsResponse_httpStatus,
   )
 where
@@ -94,10 +94,10 @@ instance Core.AWSRequest ListVoiceConnectors where
     Response.receiveJSON
       ( \s h x ->
           ListVoiceConnectorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "VoiceConnectors"
+            Prelude.<$> ( x Core..?> "VoiceConnectors"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,10 +126,10 @@ instance Core.ToQuery ListVoiceConnectors where
 
 -- | /See:/ 'newListVoiceConnectorsResponse' smart constructor.
 data ListVoiceConnectorsResponse = ListVoiceConnectorsResponse'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The details of the Amazon Chime Voice Connectors.
+  { -- | The details of the Amazon Chime Voice Connectors.
     voiceConnectors :: Prelude.Maybe [VoiceConnector],
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,9 +143,9 @@ data ListVoiceConnectorsResponse = ListVoiceConnectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVoiceConnectorsResponse_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'voiceConnectors', 'listVoiceConnectorsResponse_voiceConnectors' - The details of the Amazon Chime Voice Connectors.
+--
+-- 'nextToken', 'listVoiceConnectorsResponse_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'httpStatus', 'listVoiceConnectorsResponse_httpStatus' - The response's http status code.
 newListVoiceConnectorsResponse ::
@@ -154,19 +154,19 @@ newListVoiceConnectorsResponse ::
   ListVoiceConnectorsResponse
 newListVoiceConnectorsResponse pHttpStatus_ =
   ListVoiceConnectorsResponse'
-    { nextToken =
+    { voiceConnectors =
         Prelude.Nothing,
-      voiceConnectors = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use to retrieve the next page of results.
-listVoiceConnectorsResponse_nextToken :: Lens.Lens' ListVoiceConnectorsResponse (Prelude.Maybe Prelude.Text)
-listVoiceConnectorsResponse_nextToken = Lens.lens (\ListVoiceConnectorsResponse' {nextToken} -> nextToken) (\s@ListVoiceConnectorsResponse' {} a -> s {nextToken = a} :: ListVoiceConnectorsResponse)
 
 -- | The details of the Amazon Chime Voice Connectors.
 listVoiceConnectorsResponse_voiceConnectors :: Lens.Lens' ListVoiceConnectorsResponse (Prelude.Maybe [VoiceConnector])
 listVoiceConnectorsResponse_voiceConnectors = Lens.lens (\ListVoiceConnectorsResponse' {voiceConnectors} -> voiceConnectors) (\s@ListVoiceConnectorsResponse' {} a -> s {voiceConnectors = a} :: ListVoiceConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results.
+listVoiceConnectorsResponse_nextToken :: Lens.Lens' ListVoiceConnectorsResponse (Prelude.Maybe Prelude.Text)
+listVoiceConnectorsResponse_nextToken = Lens.lens (\ListVoiceConnectorsResponse' {nextToken} -> nextToken) (\s@ListVoiceConnectorsResponse' {} a -> s {nextToken = a} :: ListVoiceConnectorsResponse)
 
 -- | The response's http status code.
 listVoiceConnectorsResponse_httpStatus :: Lens.Lens' ListVoiceConnectorsResponse Prelude.Int
@@ -174,6 +174,6 @@ listVoiceConnectorsResponse_httpStatus = Lens.lens (\ListVoiceConnectorsResponse
 
 instance Prelude.NFData ListVoiceConnectorsResponse where
   rnf ListVoiceConnectorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf voiceConnectors
+    Prelude.rnf voiceConnectors
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

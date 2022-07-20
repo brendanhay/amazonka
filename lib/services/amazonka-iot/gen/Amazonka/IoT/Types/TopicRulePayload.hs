@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTopicRulePayload' smart constructor.
 data TopicRulePayload = TopicRulePayload'
-  { -- | The version of the SQL rules engine to use when evaluating the rule.
-    awsIotSqlVersion :: Prelude.Maybe Prelude.Text,
-    -- | The action to take when an error occurs.
+  { -- | The action to take when an error occurs.
     errorAction :: Prelude.Maybe Action,
-    -- | Specifies whether the rule is disabled.
-    ruleDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | The version of the SQL rules engine to use when evaluating the rule.
+    awsIotSqlVersion :: Prelude.Maybe Prelude.Text,
     -- | The description of the rule.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the rule is disabled.
+    ruleDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The SQL statement used to query the topic. For more information, see
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html IoT SQL Reference>
     -- in the /IoT Developer Guide/.
@@ -53,13 +53,13 @@ data TopicRulePayload = TopicRulePayload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsIotSqlVersion', 'topicRulePayload_awsIotSqlVersion' - The version of the SQL rules engine to use when evaluating the rule.
---
 -- 'errorAction', 'topicRulePayload_errorAction' - The action to take when an error occurs.
 --
--- 'ruleDisabled', 'topicRulePayload_ruleDisabled' - Specifies whether the rule is disabled.
+-- 'awsIotSqlVersion', 'topicRulePayload_awsIotSqlVersion' - The version of the SQL rules engine to use when evaluating the rule.
 --
 -- 'description', 'topicRulePayload_description' - The description of the rule.
+--
+-- 'ruleDisabled', 'topicRulePayload_ruleDisabled' - Specifies whether the rule is disabled.
 --
 -- 'sql', 'topicRulePayload_sql' - The SQL statement used to query the topic. For more information, see
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html IoT SQL Reference>
@@ -72,30 +72,29 @@ newTopicRulePayload ::
   TopicRulePayload
 newTopicRulePayload pSql_ =
   TopicRulePayload'
-    { awsIotSqlVersion =
-        Prelude.Nothing,
-      errorAction = Prelude.Nothing,
-      ruleDisabled = Prelude.Nothing,
+    { errorAction = Prelude.Nothing,
+      awsIotSqlVersion = Prelude.Nothing,
       description = Prelude.Nothing,
+      ruleDisabled = Prelude.Nothing,
       sql = pSql_,
       actions = Prelude.mempty
     }
-
--- | The version of the SQL rules engine to use when evaluating the rule.
-topicRulePayload_awsIotSqlVersion :: Lens.Lens' TopicRulePayload (Prelude.Maybe Prelude.Text)
-topicRulePayload_awsIotSqlVersion = Lens.lens (\TopicRulePayload' {awsIotSqlVersion} -> awsIotSqlVersion) (\s@TopicRulePayload' {} a -> s {awsIotSqlVersion = a} :: TopicRulePayload)
 
 -- | The action to take when an error occurs.
 topicRulePayload_errorAction :: Lens.Lens' TopicRulePayload (Prelude.Maybe Action)
 topicRulePayload_errorAction = Lens.lens (\TopicRulePayload' {errorAction} -> errorAction) (\s@TopicRulePayload' {} a -> s {errorAction = a} :: TopicRulePayload)
 
--- | Specifies whether the rule is disabled.
-topicRulePayload_ruleDisabled :: Lens.Lens' TopicRulePayload (Prelude.Maybe Prelude.Bool)
-topicRulePayload_ruleDisabled = Lens.lens (\TopicRulePayload' {ruleDisabled} -> ruleDisabled) (\s@TopicRulePayload' {} a -> s {ruleDisabled = a} :: TopicRulePayload)
+-- | The version of the SQL rules engine to use when evaluating the rule.
+topicRulePayload_awsIotSqlVersion :: Lens.Lens' TopicRulePayload (Prelude.Maybe Prelude.Text)
+topicRulePayload_awsIotSqlVersion = Lens.lens (\TopicRulePayload' {awsIotSqlVersion} -> awsIotSqlVersion) (\s@TopicRulePayload' {} a -> s {awsIotSqlVersion = a} :: TopicRulePayload)
 
 -- | The description of the rule.
 topicRulePayload_description :: Lens.Lens' TopicRulePayload (Prelude.Maybe Prelude.Text)
 topicRulePayload_description = Lens.lens (\TopicRulePayload' {description} -> description) (\s@TopicRulePayload' {} a -> s {description = a} :: TopicRulePayload)
+
+-- | Specifies whether the rule is disabled.
+topicRulePayload_ruleDisabled :: Lens.Lens' TopicRulePayload (Prelude.Maybe Prelude.Bool)
+topicRulePayload_ruleDisabled = Lens.lens (\TopicRulePayload' {ruleDisabled} -> ruleDisabled) (\s@TopicRulePayload' {} a -> s {ruleDisabled = a} :: TopicRulePayload)
 
 -- | The SQL statement used to query the topic. For more information, see
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html IoT SQL Reference>
@@ -109,19 +108,19 @@ topicRulePayload_actions = Lens.lens (\TopicRulePayload' {actions} -> actions) (
 
 instance Prelude.Hashable TopicRulePayload where
   hashWithSalt _salt TopicRulePayload' {..} =
-    _salt `Prelude.hashWithSalt` awsIotSqlVersion
-      `Prelude.hashWithSalt` errorAction
-      `Prelude.hashWithSalt` ruleDisabled
+    _salt `Prelude.hashWithSalt` errorAction
+      `Prelude.hashWithSalt` awsIotSqlVersion
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` ruleDisabled
       `Prelude.hashWithSalt` sql
       `Prelude.hashWithSalt` actions
 
 instance Prelude.NFData TopicRulePayload where
   rnf TopicRulePayload' {..} =
-    Prelude.rnf awsIotSqlVersion
-      `Prelude.seq` Prelude.rnf errorAction
-      `Prelude.seq` Prelude.rnf ruleDisabled
+    Prelude.rnf errorAction
+      `Prelude.seq` Prelude.rnf awsIotSqlVersion
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ruleDisabled
       `Prelude.seq` Prelude.rnf sql
       `Prelude.seq` Prelude.rnf actions
 
@@ -129,11 +128,11 @@ instance Core.ToJSON TopicRulePayload where
   toJSON TopicRulePayload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("awsIotSqlVersion" Core..=)
+          [ ("errorAction" Core..=) Prelude.<$> errorAction,
+            ("awsIotSqlVersion" Core..=)
               Prelude.<$> awsIotSqlVersion,
-            ("errorAction" Core..=) Prelude.<$> errorAction,
-            ("ruleDisabled" Core..=) Prelude.<$> ruleDisabled,
             ("description" Core..=) Prelude.<$> description,
+            ("ruleDisabled" Core..=) Prelude.<$> ruleDisabled,
             Prelude.Just ("sql" Core..= sql),
             Prelude.Just ("actions" Core..= actions)
           ]

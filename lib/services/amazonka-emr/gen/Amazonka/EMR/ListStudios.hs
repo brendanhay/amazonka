@@ -38,8 +38,8 @@ module Amazonka.EMR.ListStudios
     newListStudiosResponse,
 
     -- * Response Lenses
-    listStudiosResponse_studios,
     listStudiosResponse_marker,
+    listStudiosResponse_studios,
     listStudiosResponse_httpStatus,
   )
 where
@@ -102,8 +102,8 @@ instance Core.AWSRequest ListStudios where
     Response.receiveJSON
       ( \s h x ->
           ListStudiosResponse'
-            Prelude.<$> (x Core..?> "Studios" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Studios" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,10 +144,10 @@ instance Core.ToQuery ListStudios where
 
 -- | /See:/ 'newListStudiosResponse' smart constructor.
 data ListStudiosResponse = ListStudiosResponse'
-  { -- | The list of Studio summary objects.
-    studios :: Prelude.Maybe [StudioSummary],
-    -- | The pagination token that indicates the next set of results to retrieve.
+  { -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The list of Studio summary objects.
+    studios :: Prelude.Maybe [StudioSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,9 +161,9 @@ data ListStudiosResponse = ListStudiosResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studios', 'listStudiosResponse_studios' - The list of Studio summary objects.
---
 -- 'marker', 'listStudiosResponse_marker' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'studios', 'listStudiosResponse_studios' - The list of Studio summary objects.
 --
 -- 'httpStatus', 'listStudiosResponse_httpStatus' - The response's http status code.
 newListStudiosResponse ::
@@ -172,18 +172,18 @@ newListStudiosResponse ::
   ListStudiosResponse
 newListStudiosResponse pHttpStatus_ =
   ListStudiosResponse'
-    { studios = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      studios = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of Studio summary objects.
-listStudiosResponse_studios :: Lens.Lens' ListStudiosResponse (Prelude.Maybe [StudioSummary])
-listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> studios) (\s@ListStudiosResponse' {} a -> s {studios = a} :: ListStudiosResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that indicates the next set of results to retrieve.
 listStudiosResponse_marker :: Lens.Lens' ListStudiosResponse (Prelude.Maybe Prelude.Text)
 listStudiosResponse_marker = Lens.lens (\ListStudiosResponse' {marker} -> marker) (\s@ListStudiosResponse' {} a -> s {marker = a} :: ListStudiosResponse)
+
+-- | The list of Studio summary objects.
+listStudiosResponse_studios :: Lens.Lens' ListStudiosResponse (Prelude.Maybe [StudioSummary])
+listStudiosResponse_studios = Lens.lens (\ListStudiosResponse' {studios} -> studios) (\s@ListStudiosResponse' {} a -> s {studios = a} :: ListStudiosResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStudiosResponse_httpStatus :: Lens.Lens' ListStudiosResponse Prelude.Int
@@ -191,6 +191,6 @@ listStudiosResponse_httpStatus = Lens.lens (\ListStudiosResponse' {httpStatus} -
 
 instance Prelude.NFData ListStudiosResponse where
   rnf ListStudiosResponse' {..} =
-    Prelude.rnf studios
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf studios
       `Prelude.seq` Prelude.rnf httpStatus

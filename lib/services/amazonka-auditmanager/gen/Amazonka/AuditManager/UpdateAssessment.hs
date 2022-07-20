@@ -27,10 +27,10 @@ module Amazonka.AuditManager.UpdateAssessment
     newUpdateAssessment,
 
     -- * Request Lenses
-    updateAssessment_roles,
+    updateAssessment_assessmentName,
     updateAssessment_assessmentDescription,
     updateAssessment_assessmentReportsDestination,
-    updateAssessment_assessmentName,
+    updateAssessment_roles,
     updateAssessment_assessmentId,
     updateAssessment_scope,
 
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssessment' smart constructor.
 data UpdateAssessment = UpdateAssessment'
-  { -- | The list of roles for the specified assessment.
-    roles :: Prelude.Maybe [Role],
+  { -- | The name of the specified assessment to be updated.
+    assessmentName :: Prelude.Maybe Prelude.Text,
     -- | The description of the specified assessment.
     assessmentDescription :: Prelude.Maybe Prelude.Text,
     -- | The assessment report storage destination for the specified assessment
     -- that is being updated.
     assessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
-    -- | The name of the specified assessment to be updated.
-    assessmentName :: Prelude.Maybe Prelude.Text,
+    -- | The list of roles for the specified assessment.
+    roles :: Prelude.Maybe [Role],
     -- | The identifier for the specified assessment.
     assessmentId :: Prelude.Text,
     -- | The scope of the specified assessment.
@@ -77,14 +77,14 @@ data UpdateAssessment = UpdateAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roles', 'updateAssessment_roles' - The list of roles for the specified assessment.
+-- 'assessmentName', 'updateAssessment_assessmentName' - The name of the specified assessment to be updated.
 --
 -- 'assessmentDescription', 'updateAssessment_assessmentDescription' - The description of the specified assessment.
 --
 -- 'assessmentReportsDestination', 'updateAssessment_assessmentReportsDestination' - The assessment report storage destination for the specified assessment
 -- that is being updated.
 --
--- 'assessmentName', 'updateAssessment_assessmentName' - The name of the specified assessment to be updated.
+-- 'roles', 'updateAssessment_roles' - The list of roles for the specified assessment.
 --
 -- 'assessmentId', 'updateAssessment_assessmentId' - The identifier for the specified assessment.
 --
@@ -97,17 +97,17 @@ newUpdateAssessment ::
   UpdateAssessment
 newUpdateAssessment pAssessmentId_ pScope_ =
   UpdateAssessment'
-    { roles = Prelude.Nothing,
+    { assessmentName = Prelude.Nothing,
       assessmentDescription = Prelude.Nothing,
       assessmentReportsDestination = Prelude.Nothing,
-      assessmentName = Prelude.Nothing,
+      roles = Prelude.Nothing,
       assessmentId = pAssessmentId_,
       scope = pScope_
     }
 
--- | The list of roles for the specified assessment.
-updateAssessment_roles :: Lens.Lens' UpdateAssessment (Prelude.Maybe [Role])
-updateAssessment_roles = Lens.lens (\UpdateAssessment' {roles} -> roles) (\s@UpdateAssessment' {} a -> s {roles = a} :: UpdateAssessment) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the specified assessment to be updated.
+updateAssessment_assessmentName :: Lens.Lens' UpdateAssessment (Prelude.Maybe Prelude.Text)
+updateAssessment_assessmentName = Lens.lens (\UpdateAssessment' {assessmentName} -> assessmentName) (\s@UpdateAssessment' {} a -> s {assessmentName = a} :: UpdateAssessment)
 
 -- | The description of the specified assessment.
 updateAssessment_assessmentDescription :: Lens.Lens' UpdateAssessment (Prelude.Maybe Prelude.Text)
@@ -118,9 +118,9 @@ updateAssessment_assessmentDescription = Lens.lens (\UpdateAssessment' {assessme
 updateAssessment_assessmentReportsDestination :: Lens.Lens' UpdateAssessment (Prelude.Maybe AssessmentReportsDestination)
 updateAssessment_assessmentReportsDestination = Lens.lens (\UpdateAssessment' {assessmentReportsDestination} -> assessmentReportsDestination) (\s@UpdateAssessment' {} a -> s {assessmentReportsDestination = a} :: UpdateAssessment)
 
--- | The name of the specified assessment to be updated.
-updateAssessment_assessmentName :: Lens.Lens' UpdateAssessment (Prelude.Maybe Prelude.Text)
-updateAssessment_assessmentName = Lens.lens (\UpdateAssessment' {assessmentName} -> assessmentName) (\s@UpdateAssessment' {} a -> s {assessmentName = a} :: UpdateAssessment)
+-- | The list of roles for the specified assessment.
+updateAssessment_roles :: Lens.Lens' UpdateAssessment (Prelude.Maybe [Role])
+updateAssessment_roles = Lens.lens (\UpdateAssessment' {roles} -> roles) (\s@UpdateAssessment' {} a -> s {roles = a} :: UpdateAssessment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the specified assessment.
 updateAssessment_assessmentId :: Lens.Lens' UpdateAssessment Prelude.Text
@@ -145,19 +145,19 @@ instance Core.AWSRequest UpdateAssessment where
 
 instance Prelude.Hashable UpdateAssessment where
   hashWithSalt _salt UpdateAssessment' {..} =
-    _salt `Prelude.hashWithSalt` roles
+    _salt `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` assessmentDescription
       `Prelude.hashWithSalt` assessmentReportsDestination
-      `Prelude.hashWithSalt` assessmentName
+      `Prelude.hashWithSalt` roles
       `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` scope
 
 instance Prelude.NFData UpdateAssessment where
   rnf UpdateAssessment' {..} =
-    Prelude.rnf roles
+    Prelude.rnf assessmentName
       `Prelude.seq` Prelude.rnf assessmentDescription
       `Prelude.seq` Prelude.rnf assessmentReportsDestination
-      `Prelude.seq` Prelude.rnf assessmentName
+      `Prelude.seq` Prelude.rnf roles
       `Prelude.seq` Prelude.rnf assessmentId
       `Prelude.seq` Prelude.rnf scope
 
@@ -176,13 +176,13 @@ instance Core.ToJSON UpdateAssessment where
   toJSON UpdateAssessment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("roles" Core..=) Prelude.<$> roles,
+          [ ("assessmentName" Core..=)
+              Prelude.<$> assessmentName,
             ("assessmentDescription" Core..=)
               Prelude.<$> assessmentDescription,
             ("assessmentReportsDestination" Core..=)
               Prelude.<$> assessmentReportsDestination,
-            ("assessmentName" Core..=)
-              Prelude.<$> assessmentName,
+            ("roles" Core..=) Prelude.<$> roles,
             Prelude.Just ("scope" Core..= scope)
           ]
       )

@@ -28,11 +28,11 @@ module Amazonka.ImageBuilder.CreateImageRecipe
     newCreateImageRecipe,
 
     -- * Request Lenses
-    createImageRecipe_additionalInstanceConfiguration,
-    createImageRecipe_workingDirectory,
+    createImageRecipe_tags,
     createImageRecipe_blockDeviceMappings,
     createImageRecipe_description,
-    createImageRecipe_tags,
+    createImageRecipe_additionalInstanceConfiguration,
+    createImageRecipe_workingDirectory,
     createImageRecipe_name,
     createImageRecipe_semanticVersion,
     createImageRecipe_components,
@@ -44,8 +44,8 @@ module Amazonka.ImageBuilder.CreateImageRecipe
     newCreateImageRecipeResponse,
 
     -- * Response Lenses
-    createImageRecipeResponse_requestId,
     createImageRecipeResponse_clientToken,
+    createImageRecipeResponse_requestId,
     createImageRecipeResponse_imageRecipeArn,
     createImageRecipeResponse_httpStatus,
   )
@@ -60,16 +60,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateImageRecipe' smart constructor.
 data CreateImageRecipe = CreateImageRecipe'
-  { -- | Specify additional settings and launch scripts for your build instances.
-    additionalInstanceConfiguration :: Prelude.Maybe AdditionalInstanceConfiguration,
-    -- | The working directory used during build and test workflows.
-    workingDirectory :: Prelude.Maybe Prelude.Text,
+  { -- | The tags of the image recipe.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The block device mappings of the image recipe.
     blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
     -- | The description of the image recipe.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags of the image recipe.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specify additional settings and launch scripts for your build instances.
+    additionalInstanceConfiguration :: Prelude.Maybe AdditionalInstanceConfiguration,
+    -- | The working directory used during build and test workflows.
+    workingDirectory :: Prelude.Maybe Prelude.Text,
     -- | The name of the image recipe.
     name :: Prelude.Text,
     -- | The semantic version of the image recipe. This version follows the
@@ -113,15 +113,15 @@ data CreateImageRecipe = CreateImageRecipe'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'additionalInstanceConfiguration', 'createImageRecipe_additionalInstanceConfiguration' - Specify additional settings and launch scripts for your build instances.
---
--- 'workingDirectory', 'createImageRecipe_workingDirectory' - The working directory used during build and test workflows.
+-- 'tags', 'createImageRecipe_tags' - The tags of the image recipe.
 --
 -- 'blockDeviceMappings', 'createImageRecipe_blockDeviceMappings' - The block device mappings of the image recipe.
 --
 -- 'description', 'createImageRecipe_description' - The description of the image recipe.
 --
--- 'tags', 'createImageRecipe_tags' - The tags of the image recipe.
+-- 'additionalInstanceConfiguration', 'createImageRecipe_additionalInstanceConfiguration' - Specify additional settings and launch scripts for your build instances.
+--
+-- 'workingDirectory', 'createImageRecipe_workingDirectory' - The working directory used during build and test workflows.
 --
 -- 'name', 'createImageRecipe_name' - The name of the image recipe.
 --
@@ -173,12 +173,11 @@ newCreateImageRecipe
   pParentImage_
   pClientToken_ =
     CreateImageRecipe'
-      { additionalInstanceConfiguration =
-          Prelude.Nothing,
-        workingDirectory = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         blockDeviceMappings = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        additionalInstanceConfiguration = Prelude.Nothing,
+        workingDirectory = Prelude.Nothing,
         name = pName_,
         semanticVersion = pSemanticVersion_,
         components = Lens.coerced Lens.# pComponents_,
@@ -186,13 +185,9 @@ newCreateImageRecipe
         clientToken = pClientToken_
       }
 
--- | Specify additional settings and launch scripts for your build instances.
-createImageRecipe_additionalInstanceConfiguration :: Lens.Lens' CreateImageRecipe (Prelude.Maybe AdditionalInstanceConfiguration)
-createImageRecipe_additionalInstanceConfiguration = Lens.lens (\CreateImageRecipe' {additionalInstanceConfiguration} -> additionalInstanceConfiguration) (\s@CreateImageRecipe' {} a -> s {additionalInstanceConfiguration = a} :: CreateImageRecipe)
-
--- | The working directory used during build and test workflows.
-createImageRecipe_workingDirectory :: Lens.Lens' CreateImageRecipe (Prelude.Maybe Prelude.Text)
-createImageRecipe_workingDirectory = Lens.lens (\CreateImageRecipe' {workingDirectory} -> workingDirectory) (\s@CreateImageRecipe' {} a -> s {workingDirectory = a} :: CreateImageRecipe)
+-- | The tags of the image recipe.
+createImageRecipe_tags :: Lens.Lens' CreateImageRecipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createImageRecipe_tags = Lens.lens (\CreateImageRecipe' {tags} -> tags) (\s@CreateImageRecipe' {} a -> s {tags = a} :: CreateImageRecipe) Prelude.. Lens.mapping Lens.coerced
 
 -- | The block device mappings of the image recipe.
 createImageRecipe_blockDeviceMappings :: Lens.Lens' CreateImageRecipe (Prelude.Maybe [InstanceBlockDeviceMapping])
@@ -202,9 +197,13 @@ createImageRecipe_blockDeviceMappings = Lens.lens (\CreateImageRecipe' {blockDev
 createImageRecipe_description :: Lens.Lens' CreateImageRecipe (Prelude.Maybe Prelude.Text)
 createImageRecipe_description = Lens.lens (\CreateImageRecipe' {description} -> description) (\s@CreateImageRecipe' {} a -> s {description = a} :: CreateImageRecipe)
 
--- | The tags of the image recipe.
-createImageRecipe_tags :: Lens.Lens' CreateImageRecipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createImageRecipe_tags = Lens.lens (\CreateImageRecipe' {tags} -> tags) (\s@CreateImageRecipe' {} a -> s {tags = a} :: CreateImageRecipe) Prelude.. Lens.mapping Lens.coerced
+-- | Specify additional settings and launch scripts for your build instances.
+createImageRecipe_additionalInstanceConfiguration :: Lens.Lens' CreateImageRecipe (Prelude.Maybe AdditionalInstanceConfiguration)
+createImageRecipe_additionalInstanceConfiguration = Lens.lens (\CreateImageRecipe' {additionalInstanceConfiguration} -> additionalInstanceConfiguration) (\s@CreateImageRecipe' {} a -> s {additionalInstanceConfiguration = a} :: CreateImageRecipe)
+
+-- | The working directory used during build and test workflows.
+createImageRecipe_workingDirectory :: Lens.Lens' CreateImageRecipe (Prelude.Maybe Prelude.Text)
+createImageRecipe_workingDirectory = Lens.lens (\CreateImageRecipe' {workingDirectory} -> workingDirectory) (\s@CreateImageRecipe' {} a -> s {workingDirectory = a} :: CreateImageRecipe)
 
 -- | The name of the image recipe.
 createImageRecipe_name :: Lens.Lens' CreateImageRecipe Prelude.Text
@@ -257,20 +256,19 @@ instance Core.AWSRequest CreateImageRecipe where
     Response.receiveJSON
       ( \s h x ->
           CreateImageRecipeResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "clientToken")
+            Prelude.<$> (x Core..?> "clientToken")
+            Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (x Core..?> "imageRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateImageRecipe where
   hashWithSalt _salt CreateImageRecipe' {..} =
-    _salt
-      `Prelude.hashWithSalt` additionalInstanceConfiguration
-      `Prelude.hashWithSalt` workingDirectory
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` additionalInstanceConfiguration
+      `Prelude.hashWithSalt` workingDirectory
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` semanticVersion
       `Prelude.hashWithSalt` components
@@ -279,11 +277,11 @@ instance Prelude.Hashable CreateImageRecipe where
 
 instance Prelude.NFData CreateImageRecipe where
   rnf CreateImageRecipe' {..} =
-    Prelude.rnf additionalInstanceConfiguration
-      `Prelude.seq` Prelude.rnf workingDirectory
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf blockDeviceMappings
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf additionalInstanceConfiguration
+      `Prelude.seq` Prelude.rnf workingDirectory
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf semanticVersion
       `Prelude.seq` Prelude.rnf components
@@ -305,14 +303,14 @@ instance Core.ToJSON CreateImageRecipe where
   toJSON CreateImageRecipe' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("additionalInstanceConfiguration" Core..=)
-              Prelude.<$> additionalInstanceConfiguration,
-            ("workingDirectory" Core..=)
-              Prelude.<$> workingDirectory,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("blockDeviceMappings" Core..=)
               Prelude.<$> blockDeviceMappings,
             ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("additionalInstanceConfiguration" Core..=)
+              Prelude.<$> additionalInstanceConfiguration,
+            ("workingDirectory" Core..=)
+              Prelude.<$> workingDirectory,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("semanticVersion" Core..= semanticVersion),
@@ -330,10 +328,10 @@ instance Core.ToQuery CreateImageRecipe where
 
 -- | /See:/ 'newCreateImageRecipeResponse' smart constructor.
 data CreateImageRecipeResponse = CreateImageRecipeResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token used to make this request idempotent.
+  { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image recipe that was created by
     -- this request.
     imageRecipeArn :: Prelude.Maybe Prelude.Text,
@@ -350,9 +348,9 @@ data CreateImageRecipeResponse = CreateImageRecipeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'createImageRecipeResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'clientToken', 'createImageRecipeResponse_clientToken' - The idempotency token used to make this request idempotent.
+--
+-- 'requestId', 'createImageRecipeResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'imageRecipeArn', 'createImageRecipeResponse_imageRecipeArn' - The Amazon Resource Name (ARN) of the image recipe that was created by
 -- this request.
@@ -364,20 +362,20 @@ newCreateImageRecipeResponse ::
   CreateImageRecipeResponse
 newCreateImageRecipeResponse pHttpStatus_ =
   CreateImageRecipeResponse'
-    { requestId =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       imageRecipeArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The request ID that uniquely identifies this request.
-createImageRecipeResponse_requestId :: Lens.Lens' CreateImageRecipeResponse (Prelude.Maybe Prelude.Text)
-createImageRecipeResponse_requestId = Lens.lens (\CreateImageRecipeResponse' {requestId} -> requestId) (\s@CreateImageRecipeResponse' {} a -> s {requestId = a} :: CreateImageRecipeResponse)
-
 -- | The idempotency token used to make this request idempotent.
 createImageRecipeResponse_clientToken :: Lens.Lens' CreateImageRecipeResponse (Prelude.Maybe Prelude.Text)
 createImageRecipeResponse_clientToken = Lens.lens (\CreateImageRecipeResponse' {clientToken} -> clientToken) (\s@CreateImageRecipeResponse' {} a -> s {clientToken = a} :: CreateImageRecipeResponse)
+
+-- | The request ID that uniquely identifies this request.
+createImageRecipeResponse_requestId :: Lens.Lens' CreateImageRecipeResponse (Prelude.Maybe Prelude.Text)
+createImageRecipeResponse_requestId = Lens.lens (\CreateImageRecipeResponse' {requestId} -> requestId) (\s@CreateImageRecipeResponse' {} a -> s {requestId = a} :: CreateImageRecipeResponse)
 
 -- | The Amazon Resource Name (ARN) of the image recipe that was created by
 -- this request.
@@ -390,7 +388,7 @@ createImageRecipeResponse_httpStatus = Lens.lens (\CreateImageRecipeResponse' {h
 
 instance Prelude.NFData CreateImageRecipeResponse where
   rnf CreateImageRecipeResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imageRecipeArn
       `Prelude.seq` Prelude.rnf httpStatus

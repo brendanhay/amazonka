@@ -40,9 +40,9 @@ module Amazonka.IAM.ListInstanceProfiles
     newListInstanceProfiles,
 
     -- * Request Lenses
-    listInstanceProfiles_pathPrefix,
     listInstanceProfiles_marker,
     listInstanceProfiles_maxItems,
+    listInstanceProfiles_pathPrefix,
 
     -- * Destructuring the Response
     ListInstanceProfilesResponse (..),
@@ -65,20 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInstanceProfiles' smart constructor.
 data ListInstanceProfiles = ListInstanceProfiles'
-  { -- | The path prefix for filtering the results. For example, the prefix
-    -- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
-    -- path starts with @\/application_abc\/component_xyz\/@.
-    --
-    -- This parameter is optional. If it is not included, it defaults to a
-    -- slash (\/), listing all instance profiles. This parameter allows
-    -- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
-    -- of characters consisting of either a forward slash (\/) by itself or a
-    -- string that must begin and end with forward slashes. In addition, it can
-    -- contain any ASCII character from the ! (@\\u0021@) through the DEL
-    -- character (@\\u007F@), including most punctuation characters, digits,
-    -- and upper and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter only when paginating results and only after you
+  { -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
@@ -92,7 +79,20 @@ data ListInstanceProfiles = ListInstanceProfiles'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The path prefix for filtering the results. For example, the prefix
+    -- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
+    -- path starts with @\/application_abc\/component_xyz\/@.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/), listing all instance profiles. This parameter allows
+    -- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
+    -- of characters consisting of either a forward slash (\/) by itself or a
+    -- string that must begin and end with forward slashes. In addition, it can
+    -- contain any ASCII character from the ! (@\\u0021@) through the DEL
+    -- character (@\\u007F@), including most punctuation characters, digits,
+    -- and upper and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,19 +103,6 @@ data ListInstanceProfiles = ListInstanceProfiles'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'pathPrefix', 'listInstanceProfiles_pathPrefix' - The path prefix for filtering the results. For example, the prefix
--- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
--- path starts with @\/application_abc\/component_xyz\/@.
---
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/), listing all instance profiles. This parameter allows
--- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
--- of characters consisting of either a forward slash (\/) by itself or a
--- string that must begin and end with forward slashes. In addition, it can
--- contain any ASCII character from the ! (@\\u0021@) through the DEL
--- character (@\\u007F@), including most punctuation characters, digits,
--- and upper and lowercased letters.
 --
 -- 'marker', 'listInstanceProfiles_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -131,16 +118,8 @@ data ListInstanceProfiles = ListInstanceProfiles'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-newListInstanceProfiles ::
-  ListInstanceProfiles
-newListInstanceProfiles =
-  ListInstanceProfiles'
-    { pathPrefix = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
-    }
-
--- | The path prefix for filtering the results. For example, the prefix
+--
+-- 'pathPrefix', 'listInstanceProfiles_pathPrefix' - The path prefix for filtering the results. For example, the prefix
 -- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
 -- path starts with @\/application_abc\/component_xyz\/@.
 --
@@ -152,8 +131,14 @@ newListInstanceProfiles =
 -- contain any ASCII character from the ! (@\\u0021@) through the DEL
 -- character (@\\u007F@), including most punctuation characters, digits,
 -- and upper and lowercased letters.
-listInstanceProfiles_pathPrefix :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Text)
-listInstanceProfiles_pathPrefix = Lens.lens (\ListInstanceProfiles' {pathPrefix} -> pathPrefix) (\s@ListInstanceProfiles' {} a -> s {pathPrefix = a} :: ListInstanceProfiles)
+newListInstanceProfiles ::
+  ListInstanceProfiles
+newListInstanceProfiles =
+  ListInstanceProfiles'
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      pathPrefix = Prelude.Nothing
+    }
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -173,6 +158,21 @@ listInstanceProfiles_marker = Lens.lens (\ListInstanceProfiles' {marker} -> mark
 -- subsequent call that tells the service where to continue from.
 listInstanceProfiles_maxItems :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Natural)
 listInstanceProfiles_maxItems = Lens.lens (\ListInstanceProfiles' {maxItems} -> maxItems) (\s@ListInstanceProfiles' {} a -> s {maxItems = a} :: ListInstanceProfiles)
+
+-- | The path prefix for filtering the results. For example, the prefix
+-- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
+-- path starts with @\/application_abc\/component_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all instance profiles. This parameter allows
+-- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
+-- of characters consisting of either a forward slash (\/) by itself or a
+-- string that must begin and end with forward slashes. In addition, it can
+-- contain any ASCII character from the ! (@\\u0021@) through the DEL
+-- character (@\\u007F@), including most punctuation characters, digits,
+-- and upper and lowercased letters.
+listInstanceProfiles_pathPrefix :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Text)
+listInstanceProfiles_pathPrefix = Lens.lens (\ListInstanceProfiles' {pathPrefix} -> pathPrefix) (\s@ListInstanceProfiles' {} a -> s {pathPrefix = a} :: ListInstanceProfiles)
 
 instance Core.AWSPager ListInstanceProfiles where
   page rq rs
@@ -217,15 +217,15 @@ instance Core.AWSRequest ListInstanceProfiles where
 
 instance Prelude.Hashable ListInstanceProfiles where
   hashWithSalt _salt ListInstanceProfiles' {..} =
-    _salt `Prelude.hashWithSalt` pathPrefix
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` pathPrefix
 
 instance Prelude.NFData ListInstanceProfiles where
   rnf ListInstanceProfiles' {..} =
-    Prelude.rnf pathPrefix
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf pathPrefix
 
 instance Core.ToHeaders ListInstanceProfiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -240,9 +240,9 @@ instance Core.ToQuery ListInstanceProfiles where
           Core.=: ("ListInstanceProfiles" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Core.=: pathPrefix,
         "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+        "MaxItems" Core.=: maxItems,
+        "PathPrefix" Core.=: pathPrefix
       ]
 
 -- | Contains the response to a successful ListInstanceProfiles request.

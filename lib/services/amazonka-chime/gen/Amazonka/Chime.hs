@@ -62,38 +62,38 @@ module Amazonka.Chime
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
     -- ** ThrottledClientException
     _ThrottledClientException,
 
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** UnprocessableEntityException
-    _UnprocessableEntityException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** ServiceFailureException
-    _ServiceFailureException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** UnauthorizedClientException
     _UnauthorizedClientException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** ServiceFailureException
+    _ServiceFailureException,
 
     -- * Waiters
     -- $waiters
@@ -101,671 +101,11 @@ module Amazonka.Chime
     -- * Operations
     -- $operations
 
-    -- ** DescribeChannelMembership
-    DescribeChannelMembership (DescribeChannelMembership'),
-    newDescribeChannelMembership,
-    DescribeChannelMembershipResponse (DescribeChannelMembershipResponse'),
-    newDescribeChannelMembershipResponse,
-
-    -- ** CreateAppInstance
-    CreateAppInstance (CreateAppInstance'),
-    newCreateAppInstance,
-    CreateAppInstanceResponse (CreateAppInstanceResponse'),
-    newCreateAppInstanceResponse,
-
-    -- ** GetVoiceConnectorGroup
-    GetVoiceConnectorGroup (GetVoiceConnectorGroup'),
-    newGetVoiceConnectorGroup,
-    GetVoiceConnectorGroupResponse (GetVoiceConnectorGroupResponse'),
-    newGetVoiceConnectorGroupResponse,
-
-    -- ** ListVoiceConnectors
-    ListVoiceConnectors (ListVoiceConnectors'),
-    newListVoiceConnectors,
-    ListVoiceConnectorsResponse (ListVoiceConnectorsResponse'),
-    newListVoiceConnectorsResponse,
-
-    -- ** ListRoomMemberships
-    ListRoomMemberships (ListRoomMemberships'),
-    newListRoomMemberships,
-    ListRoomMembershipsResponse (ListRoomMembershipsResponse'),
-    newListRoomMembershipsResponse,
-
-    -- ** GetPhoneNumberSettings
-    GetPhoneNumberSettings (GetPhoneNumberSettings'),
-    newGetPhoneNumberSettings,
-    GetPhoneNumberSettingsResponse (GetPhoneNumberSettingsResponse'),
-    newGetPhoneNumberSettingsResponse,
-
-    -- ** UpdateGlobalSettings
-    UpdateGlobalSettings (UpdateGlobalSettings'),
-    newUpdateGlobalSettings,
-    UpdateGlobalSettingsResponse (UpdateGlobalSettingsResponse'),
-    newUpdateGlobalSettingsResponse,
-
-    -- ** ListAttendees
-    ListAttendees (ListAttendees'),
-    newListAttendees,
-    ListAttendeesResponse (ListAttendeesResponse'),
-    newListAttendeesResponse,
-
-    -- ** PutVoiceConnectorLoggingConfiguration
-    PutVoiceConnectorLoggingConfiguration (PutVoiceConnectorLoggingConfiguration'),
-    newPutVoiceConnectorLoggingConfiguration,
-    PutVoiceConnectorLoggingConfigurationResponse (PutVoiceConnectorLoggingConfigurationResponse'),
-    newPutVoiceConnectorLoggingConfigurationResponse,
-
-    -- ** GetVoiceConnectorTermination
-    GetVoiceConnectorTermination (GetVoiceConnectorTermination'),
-    newGetVoiceConnectorTermination,
-    GetVoiceConnectorTerminationResponse (GetVoiceConnectorTerminationResponse'),
-    newGetVoiceConnectorTerminationResponse,
-
-    -- ** DeleteAttendee
-    DeleteAttendee (DeleteAttendee'),
-    newDeleteAttendee,
-    DeleteAttendeeResponse (DeleteAttendeeResponse'),
-    newDeleteAttendeeResponse,
-
-    -- ** GetVoiceConnectorProxy
-    GetVoiceConnectorProxy (GetVoiceConnectorProxy'),
-    newGetVoiceConnectorProxy,
-    GetVoiceConnectorProxyResponse (GetVoiceConnectorProxyResponse'),
-    newGetVoiceConnectorProxyResponse,
-
-    -- ** DeleteVoiceConnectorEmergencyCallingConfiguration
-    DeleteVoiceConnectorEmergencyCallingConfiguration (DeleteVoiceConnectorEmergencyCallingConfiguration'),
-    newDeleteVoiceConnectorEmergencyCallingConfiguration,
-    DeleteVoiceConnectorEmergencyCallingConfigurationResponse (DeleteVoiceConnectorEmergencyCallingConfigurationResponse'),
-    newDeleteVoiceConnectorEmergencyCallingConfigurationResponse,
-
-    -- ** GetVoiceConnectorStreamingConfiguration
-    GetVoiceConnectorStreamingConfiguration (GetVoiceConnectorStreamingConfiguration'),
-    newGetVoiceConnectorStreamingConfiguration,
-    GetVoiceConnectorStreamingConfigurationResponse (GetVoiceConnectorStreamingConfigurationResponse'),
-    newGetVoiceConnectorStreamingConfigurationResponse,
-
-    -- ** UpdateSipMediaApplicationCall
-    UpdateSipMediaApplicationCall (UpdateSipMediaApplicationCall'),
-    newUpdateSipMediaApplicationCall,
-    UpdateSipMediaApplicationCallResponse (UpdateSipMediaApplicationCallResponse'),
-    newUpdateSipMediaApplicationCallResponse,
-
-    -- ** StopMeetingTranscription
-    StopMeetingTranscription (StopMeetingTranscription'),
-    newStopMeetingTranscription,
-    StopMeetingTranscriptionResponse (StopMeetingTranscriptionResponse'),
-    newStopMeetingTranscriptionResponse,
-
-    -- ** GetAppInstanceRetentionSettings
-    GetAppInstanceRetentionSettings (GetAppInstanceRetentionSettings'),
-    newGetAppInstanceRetentionSettings,
-    GetAppInstanceRetentionSettingsResponse (GetAppInstanceRetentionSettingsResponse'),
-    newGetAppInstanceRetentionSettingsResponse,
-
-    -- ** PutVoiceConnectorEmergencyCallingConfiguration
-    PutVoiceConnectorEmergencyCallingConfiguration (PutVoiceConnectorEmergencyCallingConfiguration'),
-    newPutVoiceConnectorEmergencyCallingConfiguration,
-    PutVoiceConnectorEmergencyCallingConfigurationResponse (PutVoiceConnectorEmergencyCallingConfigurationResponse'),
-    newPutVoiceConnectorEmergencyCallingConfigurationResponse,
-
-    -- ** CreateMeetingWithAttendees
-    CreateMeetingWithAttendees (CreateMeetingWithAttendees'),
-    newCreateMeetingWithAttendees,
-    CreateMeetingWithAttendeesResponse (CreateMeetingWithAttendeesResponse'),
-    newCreateMeetingWithAttendeesResponse,
-
-    -- ** ListChannels
-    ListChannels (ListChannels'),
-    newListChannels,
-    ListChannelsResponse (ListChannelsResponse'),
-    newListChannelsResponse,
-
-    -- ** DisassociatePhoneNumberFromUser
-    DisassociatePhoneNumberFromUser (DisassociatePhoneNumberFromUser'),
-    newDisassociatePhoneNumberFromUser,
-    DisassociatePhoneNumberFromUserResponse (DisassociatePhoneNumberFromUserResponse'),
-    newDisassociatePhoneNumberFromUserResponse,
-
-    -- ** DisassociateSigninDelegateGroupsFromAccount
-    DisassociateSigninDelegateGroupsFromAccount (DisassociateSigninDelegateGroupsFromAccount'),
-    newDisassociateSigninDelegateGroupsFromAccount,
-    DisassociateSigninDelegateGroupsFromAccountResponse (DisassociateSigninDelegateGroupsFromAccountResponse'),
-    newDisassociateSigninDelegateGroupsFromAccountResponse,
-
-    -- ** ResetPersonalPIN
-    ResetPersonalPIN (ResetPersonalPIN'),
-    newResetPersonalPIN,
-    ResetPersonalPINResponse (ResetPersonalPINResponse'),
-    newResetPersonalPINResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DeleteChannel
-    DeleteChannel (DeleteChannel'),
-    newDeleteChannel,
-    DeleteChannelResponse (DeleteChannelResponse'),
-    newDeleteChannelResponse,
-
-    -- ** UpdateChannel
-    UpdateChannel (UpdateChannel'),
-    newUpdateChannel,
-    UpdateChannelResponse (UpdateChannelResponse'),
-    newUpdateChannelResponse,
-
-    -- ** DescribeAppInstanceAdmin
-    DescribeAppInstanceAdmin (DescribeAppInstanceAdmin'),
-    newDescribeAppInstanceAdmin,
-    DescribeAppInstanceAdminResponse (DescribeAppInstanceAdminResponse'),
-    newDescribeAppInstanceAdminResponse,
-
-    -- ** CreateAttendee
-    CreateAttendee (CreateAttendee'),
-    newCreateAttendee,
-    CreateAttendeeResponse (CreateAttendeeResponse'),
-    newCreateAttendeeResponse,
-
-    -- ** ListSupportedPhoneNumberCountries
-    ListSupportedPhoneNumberCountries (ListSupportedPhoneNumberCountries'),
-    newListSupportedPhoneNumberCountries,
-    ListSupportedPhoneNumberCountriesResponse (ListSupportedPhoneNumberCountriesResponse'),
-    newListSupportedPhoneNumberCountriesResponse,
-
-    -- ** DeleteSipRule
-    DeleteSipRule (DeleteSipRule'),
-    newDeleteSipRule,
-    DeleteSipRuleResponse (DeleteSipRuleResponse'),
-    newDeleteSipRuleResponse,
-
-    -- ** UpdateSipRule
-    UpdateSipRule (UpdateSipRule'),
-    newUpdateSipRule,
-    UpdateSipRuleResponse (UpdateSipRuleResponse'),
-    newUpdateSipRuleResponse,
-
-    -- ** UpdateAccountSettings
-    UpdateAccountSettings (UpdateAccountSettings'),
-    newUpdateAccountSettings,
-    UpdateAccountSettingsResponse (UpdateAccountSettingsResponse'),
-    newUpdateAccountSettingsResponse,
-
-    -- ** DeleteVoiceConnectorOrigination
-    DeleteVoiceConnectorOrigination (DeleteVoiceConnectorOrigination'),
-    newDeleteVoiceConnectorOrigination,
-    DeleteVoiceConnectorOriginationResponse (DeleteVoiceConnectorOriginationResponse'),
-    newDeleteVoiceConnectorOriginationResponse,
-
-    -- ** DeleteSipMediaApplication
-    DeleteSipMediaApplication (DeleteSipMediaApplication'),
-    newDeleteSipMediaApplication,
-    DeleteSipMediaApplicationResponse (DeleteSipMediaApplicationResponse'),
-    newDeleteSipMediaApplicationResponse,
-
-    -- ** UpdateSipMediaApplication
-    UpdateSipMediaApplication (UpdateSipMediaApplication'),
-    newUpdateSipMediaApplication,
-    UpdateSipMediaApplicationResponse (UpdateSipMediaApplicationResponse'),
-    newUpdateSipMediaApplicationResponse,
-
-    -- ** DisassociatePhoneNumbersFromVoiceConnector
-    DisassociatePhoneNumbersFromVoiceConnector (DisassociatePhoneNumbersFromVoiceConnector'),
-    newDisassociatePhoneNumbersFromVoiceConnector,
-    DisassociatePhoneNumbersFromVoiceConnectorResponse (DisassociatePhoneNumbersFromVoiceConnectorResponse'),
-    newDisassociatePhoneNumbersFromVoiceConnectorResponse,
-
-    -- ** GetMessagingSessionEndpoint
-    GetMessagingSessionEndpoint (GetMessagingSessionEndpoint'),
-    newGetMessagingSessionEndpoint,
-    GetMessagingSessionEndpointResponse (GetMessagingSessionEndpointResponse'),
-    newGetMessagingSessionEndpointResponse,
-
-    -- ** PutVoiceConnectorOrigination
-    PutVoiceConnectorOrigination (PutVoiceConnectorOrigination'),
-    newPutVoiceConnectorOrigination,
-    PutVoiceConnectorOriginationResponse (PutVoiceConnectorOriginationResponse'),
-    newPutVoiceConnectorOriginationResponse,
-
-    -- ** CreateAppInstanceUser
-    CreateAppInstanceUser (CreateAppInstanceUser'),
-    newCreateAppInstanceUser,
-    CreateAppInstanceUserResponse (CreateAppInstanceUserResponse'),
-    newCreateAppInstanceUserResponse,
-
-    -- ** ListAttendeeTags
-    ListAttendeeTags (ListAttendeeTags'),
-    newListAttendeeTags,
-    ListAttendeeTagsResponse (ListAttendeeTagsResponse'),
-    newListAttendeeTagsResponse,
-
-    -- ** ListChannelsModeratedByAppInstanceUser
-    ListChannelsModeratedByAppInstanceUser (ListChannelsModeratedByAppInstanceUser'),
-    newListChannelsModeratedByAppInstanceUser,
-    ListChannelsModeratedByAppInstanceUserResponse (ListChannelsModeratedByAppInstanceUserResponse'),
-    newListChannelsModeratedByAppInstanceUserResponse,
-
-    -- ** RedactChannelMessage
-    RedactChannelMessage (RedactChannelMessage'),
-    newRedactChannelMessage,
-    RedactChannelMessageResponse (RedactChannelMessageResponse'),
-    newRedactChannelMessageResponse,
-
-    -- ** PutRetentionSettings
-    PutRetentionSettings (PutRetentionSettings'),
-    newPutRetentionSettings,
-    PutRetentionSettingsResponse (PutRetentionSettingsResponse'),
-    newPutRetentionSettingsResponse,
-
-    -- ** ListUsers (Paginated)
-    ListUsers (ListUsers'),
-    newListUsers,
-    ListUsersResponse (ListUsersResponse'),
-    newListUsersResponse,
-
-    -- ** DeleteVoiceConnectorStreamingConfiguration
-    DeleteVoiceConnectorStreamingConfiguration (DeleteVoiceConnectorStreamingConfiguration'),
-    newDeleteVoiceConnectorStreamingConfiguration,
-    DeleteVoiceConnectorStreamingConfigurationResponse (DeleteVoiceConnectorStreamingConfigurationResponse'),
-    newDeleteVoiceConnectorStreamingConfigurationResponse,
-
-    -- ** AssociatePhoneNumbersWithVoiceConnectorGroup
-    AssociatePhoneNumbersWithVoiceConnectorGroup (AssociatePhoneNumbersWithVoiceConnectorGroup'),
-    newAssociatePhoneNumbersWithVoiceConnectorGroup,
-    AssociatePhoneNumbersWithVoiceConnectorGroupResponse (AssociatePhoneNumbersWithVoiceConnectorGroupResponse'),
-    newAssociatePhoneNumbersWithVoiceConnectorGroupResponse,
-
-    -- ** PutAppInstanceRetentionSettings
-    PutAppInstanceRetentionSettings (PutAppInstanceRetentionSettings'),
-    newPutAppInstanceRetentionSettings,
-    PutAppInstanceRetentionSettingsResponse (PutAppInstanceRetentionSettingsResponse'),
-    newPutAppInstanceRetentionSettingsResponse,
-
-    -- ** GetVoiceConnectorLoggingConfiguration
-    GetVoiceConnectorLoggingConfiguration (GetVoiceConnectorLoggingConfiguration'),
-    newGetVoiceConnectorLoggingConfiguration,
-    GetVoiceConnectorLoggingConfigurationResponse (GetVoiceConnectorLoggingConfigurationResponse'),
-    newGetVoiceConnectorLoggingConfigurationResponse,
-
-    -- ** ListBots
-    ListBots (ListBots'),
-    newListBots,
-    ListBotsResponse (ListBotsResponse'),
-    newListBotsResponse,
-
-    -- ** DeleteChannelMembership
-    DeleteChannelMembership (DeleteChannelMembership'),
-    newDeleteChannelMembership,
-    DeleteChannelMembershipResponse (DeleteChannelMembershipResponse'),
-    newDeleteChannelMembershipResponse,
-
-    -- ** PutVoiceConnectorStreamingConfiguration
-    PutVoiceConnectorStreamingConfiguration (PutVoiceConnectorStreamingConfiguration'),
-    newPutVoiceConnectorStreamingConfiguration,
-    PutVoiceConnectorStreamingConfigurationResponse (PutVoiceConnectorStreamingConfigurationResponse'),
-    newPutVoiceConnectorStreamingConfigurationResponse,
-
-    -- ** ListChannelMemberships
-    ListChannelMemberships (ListChannelMemberships'),
-    newListChannelMemberships,
-    ListChannelMembershipsResponse (ListChannelMembershipsResponse'),
-    newListChannelMembershipsResponse,
-
-    -- ** GetGlobalSettings
-    GetGlobalSettings (GetGlobalSettings'),
-    newGetGlobalSettings,
-    GetGlobalSettingsResponse (GetGlobalSettingsResponse'),
-    newGetGlobalSettingsResponse,
-
-    -- ** DeleteMeeting
-    DeleteMeeting (DeleteMeeting'),
-    newDeleteMeeting,
-    DeleteMeetingResponse (DeleteMeetingResponse'),
-    newDeleteMeetingResponse,
-
-    -- ** ListMeetings
-    ListMeetings (ListMeetings'),
-    newListMeetings,
-    ListMeetingsResponse (ListMeetingsResponse'),
-    newListMeetingsResponse,
-
-    -- ** GetAttendee
-    GetAttendee (GetAttendee'),
-    newGetAttendee,
-    GetAttendeeResponse (GetAttendeeResponse'),
-    newGetAttendeeResponse,
-
-    -- ** DeleteAccount
-    DeleteAccount (DeleteAccount'),
-    newDeleteAccount,
-    DeleteAccountResponse (DeleteAccountResponse'),
-    newDeleteAccountResponse,
-
-    -- ** UpdateAccount
-    UpdateAccount (UpdateAccount'),
-    newUpdateAccount,
-    UpdateAccountResponse (UpdateAccountResponse'),
-    newUpdateAccountResponse,
-
-    -- ** ListAccounts (Paginated)
-    ListAccounts (ListAccounts'),
-    newListAccounts,
-    ListAccountsResponse (ListAccountsResponse'),
-    newListAccountsResponse,
-
-    -- ** UpdateBot
-    UpdateBot (UpdateBot'),
-    newUpdateBot,
-    UpdateBotResponse (UpdateBotResponse'),
-    newUpdateBotResponse,
-
-    -- ** ListPhoneNumberOrders
-    ListPhoneNumberOrders (ListPhoneNumberOrders'),
-    newListPhoneNumberOrders,
-    ListPhoneNumberOrdersResponse (ListPhoneNumberOrdersResponse'),
-    newListPhoneNumberOrdersResponse,
-
-    -- ** SearchAvailablePhoneNumbers
-    SearchAvailablePhoneNumbers (SearchAvailablePhoneNumbers'),
-    newSearchAvailablePhoneNumbers,
-    SearchAvailablePhoneNumbersResponse (SearchAvailablePhoneNumbersResponse'),
-    newSearchAvailablePhoneNumbersResponse,
-
-    -- ** CreateAppInstanceAdmin
-    CreateAppInstanceAdmin (CreateAppInstanceAdmin'),
-    newCreateAppInstanceAdmin,
-    CreateAppInstanceAdminResponse (CreateAppInstanceAdminResponse'),
-    newCreateAppInstanceAdminResponse,
-
-    -- ** TagMeeting
-    TagMeeting (TagMeeting'),
-    newTagMeeting,
-    TagMeetingResponse (TagMeetingResponse'),
-    newTagMeetingResponse,
-
-    -- ** ListVoiceConnectorGroups
-    ListVoiceConnectorGroups (ListVoiceConnectorGroups'),
-    newListVoiceConnectorGroups,
-    ListVoiceConnectorGroupsResponse (ListVoiceConnectorGroupsResponse'),
-    newListVoiceConnectorGroupsResponse,
-
-    -- ** LogoutUser
-    LogoutUser (LogoutUser'),
-    newLogoutUser,
-    LogoutUserResponse (LogoutUserResponse'),
-    newLogoutUserResponse,
-
-    -- ** ListVoiceConnectorTerminationCredentials
-    ListVoiceConnectorTerminationCredentials (ListVoiceConnectorTerminationCredentials'),
-    newListVoiceConnectorTerminationCredentials,
-    ListVoiceConnectorTerminationCredentialsResponse (ListVoiceConnectorTerminationCredentialsResponse'),
-    newListVoiceConnectorTerminationCredentialsResponse,
-
-    -- ** CreateMediaCapturePipeline
-    CreateMediaCapturePipeline (CreateMediaCapturePipeline'),
-    newCreateMediaCapturePipeline,
-    CreateMediaCapturePipelineResponse (CreateMediaCapturePipelineResponse'),
-    newCreateMediaCapturePipelineResponse,
-
-    -- ** CreateProxySession
-    CreateProxySession (CreateProxySession'),
-    newCreateProxySession,
-    CreateProxySessionResponse (CreateProxySessionResponse'),
-    newCreateProxySessionResponse,
-
-    -- ** DeleteEventsConfiguration
-    DeleteEventsConfiguration (DeleteEventsConfiguration'),
-    newDeleteEventsConfiguration,
-    DeleteEventsConfigurationResponse (DeleteEventsConfigurationResponse'),
-    newDeleteEventsConfigurationResponse,
-
-    -- ** PutEventsConfiguration
-    PutEventsConfiguration (PutEventsConfiguration'),
-    newPutEventsConfiguration,
-    PutEventsConfigurationResponse (PutEventsConfigurationResponse'),
-    newPutEventsConfigurationResponse,
-
-    -- ** GetChannelMessage
-    GetChannelMessage (GetChannelMessage'),
-    newGetChannelMessage,
-    GetChannelMessageResponse (GetChannelMessageResponse'),
-    newGetChannelMessageResponse,
-
-    -- ** UpdateRoom
-    UpdateRoom (UpdateRoom'),
-    newUpdateRoom,
-    UpdateRoomResponse (UpdateRoomResponse'),
-    newUpdateRoomResponse,
-
-    -- ** DeleteRoom
-    DeleteRoom (DeleteRoom'),
-    newDeleteRoom,
-    DeleteRoomResponse (DeleteRoomResponse'),
-    newDeleteRoomResponse,
-
-    -- ** PutSipMediaApplicationLoggingConfiguration
-    PutSipMediaApplicationLoggingConfiguration (PutSipMediaApplicationLoggingConfiguration'),
-    newPutSipMediaApplicationLoggingConfiguration,
-    PutSipMediaApplicationLoggingConfigurationResponse (PutSipMediaApplicationLoggingConfigurationResponse'),
-    newPutSipMediaApplicationLoggingConfigurationResponse,
-
-    -- ** DescribeChannelMembershipForAppInstanceUser
-    DescribeChannelMembershipForAppInstanceUser (DescribeChannelMembershipForAppInstanceUser'),
-    newDescribeChannelMembershipForAppInstanceUser,
-    DescribeChannelMembershipForAppInstanceUserResponse (DescribeChannelMembershipForAppInstanceUserResponse'),
-    newDescribeChannelMembershipForAppInstanceUserResponse,
-
-    -- ** ListAppInstanceAdmins
-    ListAppInstanceAdmins (ListAppInstanceAdmins'),
-    newListAppInstanceAdmins,
-    ListAppInstanceAdminsResponse (ListAppInstanceAdminsResponse'),
-    newListAppInstanceAdminsResponse,
-
-    -- ** DeletePhoneNumber
-    DeletePhoneNumber (DeletePhoneNumber'),
-    newDeletePhoneNumber,
-    DeletePhoneNumberResponse (DeletePhoneNumberResponse'),
-    newDeletePhoneNumberResponse,
-
-    -- ** UpdatePhoneNumber
-    UpdatePhoneNumber (UpdatePhoneNumber'),
-    newUpdatePhoneNumber,
-    UpdatePhoneNumberResponse (UpdatePhoneNumberResponse'),
-    newUpdatePhoneNumberResponse,
-
-    -- ** ListPhoneNumbers
-    ListPhoneNumbers (ListPhoneNumbers'),
-    newListPhoneNumbers,
-    ListPhoneNumbersResponse (ListPhoneNumbersResponse'),
-    newListPhoneNumbersResponse,
-
-    -- ** CreateChannelModerator
-    CreateChannelModerator (CreateChannelModerator'),
-    newCreateChannelModerator,
-    CreateChannelModeratorResponse (CreateChannelModeratorResponse'),
-    newCreateChannelModeratorResponse,
-
-    -- ** GetAppInstanceStreamingConfigurations
-    GetAppInstanceStreamingConfigurations (GetAppInstanceStreamingConfigurations'),
-    newGetAppInstanceStreamingConfigurations,
-    GetAppInstanceStreamingConfigurationsResponse (GetAppInstanceStreamingConfigurationsResponse'),
-    newGetAppInstanceStreamingConfigurationsResponse,
-
-    -- ** ListAppInstances
-    ListAppInstances (ListAppInstances'),
-    newListAppInstances,
-    ListAppInstancesResponse (ListAppInstancesResponse'),
-    newListAppInstancesResponse,
-
-    -- ** DescribeChannelModeratedByAppInstanceUser
-    DescribeChannelModeratedByAppInstanceUser (DescribeChannelModeratedByAppInstanceUser'),
-    newDescribeChannelModeratedByAppInstanceUser,
-    DescribeChannelModeratedByAppInstanceUserResponse (DescribeChannelModeratedByAppInstanceUserResponse'),
-    newDescribeChannelModeratedByAppInstanceUserResponse,
-
-    -- ** GetPhoneNumber
-    GetPhoneNumber (GetPhoneNumber'),
-    newGetPhoneNumber,
-    GetPhoneNumberResponse (GetPhoneNumberResponse'),
-    newGetPhoneNumberResponse,
-
-    -- ** GetEventsConfiguration
-    GetEventsConfiguration (GetEventsConfiguration'),
-    newGetEventsConfiguration,
-    GetEventsConfigurationResponse (GetEventsConfigurationResponse'),
-    newGetEventsConfigurationResponse,
-
-    -- ** GetSipMediaApplicationLoggingConfiguration
-    GetSipMediaApplicationLoggingConfiguration (GetSipMediaApplicationLoggingConfiguration'),
-    newGetSipMediaApplicationLoggingConfiguration,
-    GetSipMediaApplicationLoggingConfigurationResponse (GetSipMediaApplicationLoggingConfigurationResponse'),
-    newGetSipMediaApplicationLoggingConfigurationResponse,
-
-    -- ** BatchUpdateUser
-    BatchUpdateUser (BatchUpdateUser'),
-    newBatchUpdateUser,
-    BatchUpdateUserResponse (BatchUpdateUserResponse'),
-    newBatchUpdateUserResponse,
-
-    -- ** SendChannelMessage
-    SendChannelMessage (SendChannelMessage'),
-    newSendChannelMessage,
-    SendChannelMessageResponse (SendChannelMessageResponse'),
-    newSendChannelMessageResponse,
-
-    -- ** TagAttendee
-    TagAttendee (TagAttendee'),
-    newTagAttendee,
-    TagAttendeeResponse (TagAttendeeResponse'),
-    newTagAttendeeResponse,
-
-    -- ** UpdateVoiceConnector
-    UpdateVoiceConnector (UpdateVoiceConnector'),
-    newUpdateVoiceConnector,
-    UpdateVoiceConnectorResponse (UpdateVoiceConnectorResponse'),
-    newUpdateVoiceConnectorResponse,
-
-    -- ** DeleteVoiceConnector
-    DeleteVoiceConnector (DeleteVoiceConnector'),
-    newDeleteVoiceConnector,
-    DeleteVoiceConnectorResponse (DeleteVoiceConnectorResponse'),
-    newDeleteVoiceConnectorResponse,
-
-    -- ** GetMediaCapturePipeline
-    GetMediaCapturePipeline (GetMediaCapturePipeline'),
-    newGetMediaCapturePipeline,
-    GetMediaCapturePipelineResponse (GetMediaCapturePipelineResponse'),
-    newGetMediaCapturePipelineResponse,
-
-    -- ** UpdateRoomMembership
-    UpdateRoomMembership (UpdateRoomMembership'),
-    newUpdateRoomMembership,
-    UpdateRoomMembershipResponse (UpdateRoomMembershipResponse'),
-    newUpdateRoomMembershipResponse,
-
-    -- ** GetProxySession
-    GetProxySession (GetProxySession'),
-    newGetProxySession,
-    GetProxySessionResponse (GetProxySessionResponse'),
-    newGetProxySessionResponse,
-
-    -- ** DeleteRoomMembership
-    DeleteRoomMembership (DeleteRoomMembership'),
-    newDeleteRoomMembership,
-    DeleteRoomMembershipResponse (DeleteRoomMembershipResponse'),
-    newDeleteRoomMembershipResponse,
-
-    -- ** DescribeAppInstanceUser
-    DescribeAppInstanceUser (DescribeAppInstanceUser'),
-    newDescribeAppInstanceUser,
-    DescribeAppInstanceUserResponse (DescribeAppInstanceUserResponse'),
-    newDescribeAppInstanceUserResponse,
-
-    -- ** BatchUnsuspendUser
-    BatchUnsuspendUser (BatchUnsuspendUser'),
-    newBatchUnsuspendUser,
-    BatchUnsuspendUserResponse (BatchUnsuspendUserResponse'),
-    newBatchUnsuspendUserResponse,
-
-    -- ** DeleteChannelBan
-    DeleteChannelBan (DeleteChannelBan'),
-    newDeleteChannelBan,
-    DeleteChannelBanResponse (DeleteChannelBanResponse'),
-    newDeleteChannelBanResponse,
-
-    -- ** GetMeeting
-    GetMeeting (GetMeeting'),
-    newGetMeeting,
-    GetMeetingResponse (GetMeetingResponse'),
-    newGetMeetingResponse,
-
-    -- ** RestorePhoneNumber
-    RestorePhoneNumber (RestorePhoneNumber'),
-    newRestorePhoneNumber,
-    RestorePhoneNumberResponse (RestorePhoneNumberResponse'),
-    newRestorePhoneNumberResponse,
-
-    -- ** GetRetentionSettings
-    GetRetentionSettings (GetRetentionSettings'),
-    newGetRetentionSettings,
-    GetRetentionSettingsResponse (GetRetentionSettingsResponse'),
-    newGetRetentionSettingsResponse,
-
-    -- ** GetBot
-    GetBot (GetBot'),
-    newGetBot,
-    GetBotResponse (GetBotResponse'),
-    newGetBotResponse,
-
-    -- ** GetUser
-    GetUser (GetUser'),
-    newGetUser,
-    GetUserResponse (GetUserResponse'),
-    newGetUserResponse,
-
-    -- ** UntagAttendee
-    UntagAttendee (UntagAttendee'),
-    newUntagAttendee,
-    UntagAttendeeResponse (UntagAttendeeResponse'),
-    newUntagAttendeeResponse,
-
-    -- ** StartMeetingTranscription
-    StartMeetingTranscription (StartMeetingTranscription'),
-    newStartMeetingTranscription,
-    StartMeetingTranscriptionResponse (StartMeetingTranscriptionResponse'),
-    newStartMeetingTranscriptionResponse,
-
-    -- ** ListChannelBans
-    ListChannelBans (ListChannelBans'),
-    newListChannelBans,
-    ListChannelBansResponse (ListChannelBansResponse'),
-    newListChannelBansResponse,
-
-    -- ** CreateChannel
-    CreateChannel (CreateChannel'),
-    newCreateChannel,
-    CreateChannelResponse (CreateChannelResponse'),
-    newCreateChannelResponse,
-
-    -- ** BatchSuspendUser
-    BatchSuspendUser (BatchSuspendUser'),
-    newBatchSuspendUser,
-    BatchSuspendUserResponse (BatchSuspendUserResponse'),
-    newBatchSuspendUserResponse,
-
-    -- ** GetAccount
-    GetAccount (GetAccount'),
-    newGetAccount,
-    GetAccountResponse (GetAccountResponse'),
-    newGetAccountResponse,
-
-    -- ** DescribeChannelModerator
-    DescribeChannelModerator (DescribeChannelModerator'),
-    newDescribeChannelModerator,
-    DescribeChannelModeratorResponse (DescribeChannelModeratorResponse'),
-    newDescribeChannelModeratorResponse,
+    -- ** AssociatePhoneNumberWithUser
+    AssociatePhoneNumberWithUser (AssociatePhoneNumberWithUser'),
+    newAssociatePhoneNumberWithUser,
+    AssociatePhoneNumberWithUserResponse (AssociatePhoneNumberWithUserResponse'),
+    newAssociatePhoneNumberWithUserResponse,
 
     -- ** AssociatePhoneNumbersWithVoiceConnector
     AssociatePhoneNumbersWithVoiceConnector (AssociatePhoneNumbersWithVoiceConnector'),
@@ -773,215 +113,11 @@ module Amazonka.Chime
     AssociatePhoneNumbersWithVoiceConnectorResponse (AssociatePhoneNumbersWithVoiceConnectorResponse'),
     newAssociatePhoneNumbersWithVoiceConnectorResponse,
 
-    -- ** GetPhoneNumberOrder
-    GetPhoneNumberOrder (GetPhoneNumberOrder'),
-    newGetPhoneNumberOrder,
-    GetPhoneNumberOrderResponse (GetPhoneNumberOrderResponse'),
-    newGetPhoneNumberOrderResponse,
-
-    -- ** GetSipRule
-    GetSipRule (GetSipRule'),
-    newGetSipRule,
-    GetSipRuleResponse (GetSipRuleResponse'),
-    newGetSipRuleResponse,
-
-    -- ** GetUserSettings
-    GetUserSettings (GetUserSettings'),
-    newGetUserSettings,
-    GetUserSettingsResponse (GetUserSettingsResponse'),
-    newGetUserSettingsResponse,
-
-    -- ** GetSipMediaApplication
-    GetSipMediaApplication (GetSipMediaApplication'),
-    newGetSipMediaApplication,
-    GetSipMediaApplicationResponse (GetSipMediaApplicationResponse'),
-    newGetSipMediaApplicationResponse,
-
-    -- ** GetAccountSettings
-    GetAccountSettings (GetAccountSettings'),
-    newGetAccountSettings,
-    GetAccountSettingsResponse (GetAccountSettingsResponse'),
-    newGetAccountSettingsResponse,
-
-    -- ** CreateChannelBan
-    CreateChannelBan (CreateChannelBan'),
-    newCreateChannelBan,
-    CreateChannelBanResponse (CreateChannelBanResponse'),
-    newCreateChannelBanResponse,
-
-    -- ** ListMeetingTags
-    ListMeetingTags (ListMeetingTags'),
-    newListMeetingTags,
-    ListMeetingTagsResponse (ListMeetingTagsResponse'),
-    newListMeetingTagsResponse,
-
-    -- ** ListChannelMembershipsForAppInstanceUser
-    ListChannelMembershipsForAppInstanceUser (ListChannelMembershipsForAppInstanceUser'),
-    newListChannelMembershipsForAppInstanceUser,
-    ListChannelMembershipsForAppInstanceUserResponse (ListChannelMembershipsForAppInstanceUserResponse'),
-    newListChannelMembershipsForAppInstanceUserResponse,
-
-    -- ** GetVoiceConnectorOrigination
-    GetVoiceConnectorOrigination (GetVoiceConnectorOrigination'),
-    newGetVoiceConnectorOrigination,
-    GetVoiceConnectorOriginationResponse (GetVoiceConnectorOriginationResponse'),
-    newGetVoiceConnectorOriginationResponse,
-
-    -- ** BatchUpdatePhoneNumber
-    BatchUpdatePhoneNumber (BatchUpdatePhoneNumber'),
-    newBatchUpdatePhoneNumber,
-    BatchUpdatePhoneNumberResponse (BatchUpdatePhoneNumberResponse'),
-    newBatchUpdatePhoneNumberResponse,
-
-    -- ** DisassociatePhoneNumbersFromVoiceConnectorGroup
-    DisassociatePhoneNumbersFromVoiceConnectorGroup (DisassociatePhoneNumbersFromVoiceConnectorGroup'),
-    newDisassociatePhoneNumbersFromVoiceConnectorGroup,
-    DisassociatePhoneNumbersFromVoiceConnectorGroupResponse (DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'),
-    newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
-
-    -- ** UpdateChannelReadMarker
-    UpdateChannelReadMarker (UpdateChannelReadMarker'),
-    newUpdateChannelReadMarker,
-    UpdateChannelReadMarkerResponse (UpdateChannelReadMarkerResponse'),
-    newUpdateChannelReadMarkerResponse,
-
-    -- ** CreateSipMediaApplicationCall
-    CreateSipMediaApplicationCall (CreateSipMediaApplicationCall'),
-    newCreateSipMediaApplicationCall,
-    CreateSipMediaApplicationCallResponse (CreateSipMediaApplicationCallResponse'),
-    newCreateSipMediaApplicationCallResponse,
-
-    -- ** BatchDeletePhoneNumber
-    BatchDeletePhoneNumber (BatchDeletePhoneNumber'),
-    newBatchDeletePhoneNumber,
-    BatchDeletePhoneNumberResponse (BatchDeletePhoneNumberResponse'),
-    newBatchDeletePhoneNumberResponse,
-
-    -- ** ListSipMediaApplications
-    ListSipMediaApplications (ListSipMediaApplications'),
-    newListSipMediaApplications,
-    ListSipMediaApplicationsResponse (ListSipMediaApplicationsResponse'),
-    newListSipMediaApplicationsResponse,
-
-    -- ** CreateMeeting
-    CreateMeeting (CreateMeeting'),
-    newCreateMeeting,
-    CreateMeetingResponse (CreateMeetingResponse'),
-    newCreateMeetingResponse,
-
-    -- ** CreatePhoneNumberOrder
-    CreatePhoneNumberOrder (CreatePhoneNumberOrder'),
-    newCreatePhoneNumberOrder,
-    CreatePhoneNumberOrderResponse (CreatePhoneNumberOrderResponse'),
-    newCreatePhoneNumberOrderResponse,
-
-    -- ** ListSipRules
-    ListSipRules (ListSipRules'),
-    newListSipRules,
-    ListSipRulesResponse (ListSipRulesResponse'),
-    newListSipRulesResponse,
-
-    -- ** CreateBot
-    CreateBot (CreateBot'),
-    newCreateBot,
-    CreateBotResponse (CreateBotResponse'),
-    newCreateBotResponse,
-
-    -- ** UpdateUserSettings
-    UpdateUserSettings (UpdateUserSettings'),
-    newUpdateUserSettings,
-    UpdateUserSettingsResponse (UpdateUserSettingsResponse'),
-    newUpdateUserSettingsResponse,
-
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    CreateUserResponse (CreateUserResponse'),
-    newCreateUserResponse,
-
-    -- ** BatchCreateRoomMembership
-    BatchCreateRoomMembership (BatchCreateRoomMembership'),
-    newBatchCreateRoomMembership,
-    BatchCreateRoomMembershipResponse (BatchCreateRoomMembershipResponse'),
-    newBatchCreateRoomMembershipResponse,
-
-    -- ** DescribeAppInstance
-    DescribeAppInstance (DescribeAppInstance'),
-    newDescribeAppInstance,
-    DescribeAppInstanceResponse (DescribeAppInstanceResponse'),
-    newDescribeAppInstanceResponse,
-
-    -- ** CreateAccount
-    CreateAccount (CreateAccount'),
-    newCreateAccount,
-    CreateAccountResponse (CreateAccountResponse'),
-    newCreateAccountResponse,
-
-    -- ** CreateChannelMembership
-    CreateChannelMembership (CreateChannelMembership'),
-    newCreateChannelMembership,
-    CreateChannelMembershipResponse (CreateChannelMembershipResponse'),
-    newCreateChannelMembershipResponse,
-
-    -- ** DeleteVoiceConnectorTermination
-    DeleteVoiceConnectorTermination (DeleteVoiceConnectorTermination'),
-    newDeleteVoiceConnectorTermination,
-    DeleteVoiceConnectorTerminationResponse (DeleteVoiceConnectorTerminationResponse'),
-    newDeleteVoiceConnectorTerminationResponse,
-
-    -- ** AssociatePhoneNumberWithUser
-    AssociatePhoneNumberWithUser (AssociatePhoneNumberWithUser'),
-    newAssociatePhoneNumberWithUser,
-    AssociatePhoneNumberWithUserResponse (AssociatePhoneNumberWithUserResponse'),
-    newAssociatePhoneNumberWithUserResponse,
-
-    -- ** DeleteVoiceConnectorProxy
-    DeleteVoiceConnectorProxy (DeleteVoiceConnectorProxy'),
-    newDeleteVoiceConnectorProxy,
-    DeleteVoiceConnectorProxyResponse (DeleteVoiceConnectorProxyResponse'),
-    newDeleteVoiceConnectorProxyResponse,
-
-    -- ** CreateSipMediaApplication
-    CreateSipMediaApplication (CreateSipMediaApplication'),
-    newCreateSipMediaApplication,
-    CreateSipMediaApplicationResponse (CreateSipMediaApplicationResponse'),
-    newCreateSipMediaApplicationResponse,
-
-    -- ** PutVoiceConnectorProxy
-    PutVoiceConnectorProxy (PutVoiceConnectorProxy'),
-    newPutVoiceConnectorProxy,
-    PutVoiceConnectorProxyResponse (PutVoiceConnectorProxyResponse'),
-    newPutVoiceConnectorProxyResponse,
-
-    -- ** UpdateUser
-    UpdateUser (UpdateUser'),
-    newUpdateUser,
-    UpdateUserResponse (UpdateUserResponse'),
-    newUpdateUserResponse,
-
-    -- ** PutVoiceConnectorTermination
-    PutVoiceConnectorTermination (PutVoiceConnectorTermination'),
-    newPutVoiceConnectorTermination,
-    PutVoiceConnectorTerminationResponse (PutVoiceConnectorTerminationResponse'),
-    newPutVoiceConnectorTerminationResponse,
-
-    -- ** GetVoiceConnectorEmergencyCallingConfiguration
-    GetVoiceConnectorEmergencyCallingConfiguration (GetVoiceConnectorEmergencyCallingConfiguration'),
-    newGetVoiceConnectorEmergencyCallingConfiguration,
-    GetVoiceConnectorEmergencyCallingConfigurationResponse (GetVoiceConnectorEmergencyCallingConfigurationResponse'),
-    newGetVoiceConnectorEmergencyCallingConfigurationResponse,
-
-    -- ** PutVoiceConnectorTerminationCredentials
-    PutVoiceConnectorTerminationCredentials (PutVoiceConnectorTerminationCredentials'),
-    newPutVoiceConnectorTerminationCredentials,
-    PutVoiceConnectorTerminationCredentialsResponse (PutVoiceConnectorTerminationCredentialsResponse'),
-    newPutVoiceConnectorTerminationCredentialsResponse,
-
-    -- ** ListAppInstanceUsers
-    ListAppInstanceUsers (ListAppInstanceUsers'),
-    newListAppInstanceUsers,
-    ListAppInstanceUsersResponse (ListAppInstanceUsersResponse'),
-    newListAppInstanceUsersResponse,
+    -- ** AssociatePhoneNumbersWithVoiceConnectorGroup
+    AssociatePhoneNumbersWithVoiceConnectorGroup (AssociatePhoneNumbersWithVoiceConnectorGroup'),
+    newAssociatePhoneNumbersWithVoiceConnectorGroup,
+    AssociatePhoneNumbersWithVoiceConnectorGroupResponse (AssociatePhoneNumbersWithVoiceConnectorGroupResponse'),
+    newAssociatePhoneNumbersWithVoiceConnectorGroupResponse,
 
     -- ** AssociateSigninDelegateGroupsWithAccount
     AssociateSigninDelegateGroupsWithAccount (AssociateSigninDelegateGroupsWithAccount'),
@@ -989,95 +125,125 @@ module Amazonka.Chime
     AssociateSigninDelegateGroupsWithAccountResponse (AssociateSigninDelegateGroupsWithAccountResponse'),
     newAssociateSigninDelegateGroupsWithAccountResponse,
 
-    -- ** CreateSipRule
-    CreateSipRule (CreateSipRule'),
-    newCreateSipRule,
-    CreateSipRuleResponse (CreateSipRuleResponse'),
-    newCreateSipRuleResponse,
+    -- ** BatchCreateAttendee
+    BatchCreateAttendee (BatchCreateAttendee'),
+    newBatchCreateAttendee,
+    BatchCreateAttendeeResponse (BatchCreateAttendeeResponse'),
+    newBatchCreateAttendeeResponse,
 
-    -- ** DeleteVoiceConnectorTerminationCredentials
-    DeleteVoiceConnectorTerminationCredentials (DeleteVoiceConnectorTerminationCredentials'),
-    newDeleteVoiceConnectorTerminationCredentials,
-    DeleteVoiceConnectorTerminationCredentialsResponse (DeleteVoiceConnectorTerminationCredentialsResponse'),
-    newDeleteVoiceConnectorTerminationCredentialsResponse,
+    -- ** BatchCreateChannelMembership
+    BatchCreateChannelMembership (BatchCreateChannelMembership'),
+    newBatchCreateChannelMembership,
+    BatchCreateChannelMembershipResponse (BatchCreateChannelMembershipResponse'),
+    newBatchCreateChannelMembershipResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** BatchCreateRoomMembership
+    BatchCreateRoomMembership (BatchCreateRoomMembership'),
+    newBatchCreateRoomMembership,
+    BatchCreateRoomMembershipResponse (BatchCreateRoomMembershipResponse'),
+    newBatchCreateRoomMembershipResponse,
 
-    -- ** DeleteAppInstanceUser
-    DeleteAppInstanceUser (DeleteAppInstanceUser'),
-    newDeleteAppInstanceUser,
-    DeleteAppInstanceUserResponse (DeleteAppInstanceUserResponse'),
-    newDeleteAppInstanceUserResponse,
+    -- ** BatchDeletePhoneNumber
+    BatchDeletePhoneNumber (BatchDeletePhoneNumber'),
+    newBatchDeletePhoneNumber,
+    BatchDeletePhoneNumberResponse (BatchDeletePhoneNumberResponse'),
+    newBatchDeletePhoneNumberResponse,
 
-    -- ** UpdateAppInstanceUser
-    UpdateAppInstanceUser (UpdateAppInstanceUser'),
-    newUpdateAppInstanceUser,
-    UpdateAppInstanceUserResponse (UpdateAppInstanceUserResponse'),
-    newUpdateAppInstanceUserResponse,
+    -- ** BatchSuspendUser
+    BatchSuspendUser (BatchSuspendUser'),
+    newBatchSuspendUser,
+    BatchSuspendUserResponse (BatchSuspendUserResponse'),
+    newBatchSuspendUserResponse,
 
-    -- ** UntagMeeting
-    UntagMeeting (UntagMeeting'),
-    newUntagMeeting,
-    UntagMeetingResponse (UntagMeetingResponse'),
-    newUntagMeetingResponse,
+    -- ** BatchUnsuspendUser
+    BatchUnsuspendUser (BatchUnsuspendUser'),
+    newBatchUnsuspendUser,
+    BatchUnsuspendUserResponse (BatchUnsuspendUserResponse'),
+    newBatchUnsuspendUserResponse,
 
-    -- ** UpdateVoiceConnectorGroup
-    UpdateVoiceConnectorGroup (UpdateVoiceConnectorGroup'),
-    newUpdateVoiceConnectorGroup,
-    UpdateVoiceConnectorGroupResponse (UpdateVoiceConnectorGroupResponse'),
-    newUpdateVoiceConnectorGroupResponse,
+    -- ** BatchUpdatePhoneNumber
+    BatchUpdatePhoneNumber (BatchUpdatePhoneNumber'),
+    newBatchUpdatePhoneNumber,
+    BatchUpdatePhoneNumberResponse (BatchUpdatePhoneNumberResponse'),
+    newBatchUpdatePhoneNumberResponse,
 
-    -- ** RedactConversationMessage
-    RedactConversationMessage (RedactConversationMessage'),
-    newRedactConversationMessage,
-    RedactConversationMessageResponse (RedactConversationMessageResponse'),
-    newRedactConversationMessageResponse,
+    -- ** BatchUpdateUser
+    BatchUpdateUser (BatchUpdateUser'),
+    newBatchUpdateUser,
+    BatchUpdateUserResponse (BatchUpdateUserResponse'),
+    newBatchUpdateUserResponse,
 
-    -- ** DeleteChannelModerator
-    DeleteChannelModerator (DeleteChannelModerator'),
-    newDeleteChannelModerator,
-    DeleteChannelModeratorResponse (DeleteChannelModeratorResponse'),
-    newDeleteChannelModeratorResponse,
+    -- ** CreateAccount
+    CreateAccount (CreateAccount'),
+    newCreateAccount,
+    CreateAccountResponse (CreateAccountResponse'),
+    newCreateAccountResponse,
 
-    -- ** DeleteVoiceConnectorGroup
-    DeleteVoiceConnectorGroup (DeleteVoiceConnectorGroup'),
-    newDeleteVoiceConnectorGroup,
-    DeleteVoiceConnectorGroupResponse (DeleteVoiceConnectorGroupResponse'),
-    newDeleteVoiceConnectorGroupResponse,
+    -- ** CreateAppInstance
+    CreateAppInstance (CreateAppInstance'),
+    newCreateAppInstance,
+    CreateAppInstanceResponse (CreateAppInstanceResponse'),
+    newCreateAppInstanceResponse,
 
-    -- ** DescribeChannelBan
-    DescribeChannelBan (DescribeChannelBan'),
-    newDescribeChannelBan,
-    DescribeChannelBanResponse (DescribeChannelBanResponse'),
-    newDescribeChannelBanResponse,
+    -- ** CreateAppInstanceAdmin
+    CreateAppInstanceAdmin (CreateAppInstanceAdmin'),
+    newCreateAppInstanceAdmin,
+    CreateAppInstanceAdminResponse (CreateAppInstanceAdminResponse'),
+    newCreateAppInstanceAdminResponse,
 
-    -- ** DeleteMediaCapturePipeline
-    DeleteMediaCapturePipeline (DeleteMediaCapturePipeline'),
-    newDeleteMediaCapturePipeline,
-    DeleteMediaCapturePipelineResponse (DeleteMediaCapturePipelineResponse'),
-    newDeleteMediaCapturePipelineResponse,
+    -- ** CreateAppInstanceUser
+    CreateAppInstanceUser (CreateAppInstanceUser'),
+    newCreateAppInstanceUser,
+    CreateAppInstanceUserResponse (CreateAppInstanceUserResponse'),
+    newCreateAppInstanceUserResponse,
 
-    -- ** UpdateProxySession
-    UpdateProxySession (UpdateProxySession'),
-    newUpdateProxySession,
-    UpdateProxySessionResponse (UpdateProxySessionResponse'),
-    newUpdateProxySessionResponse,
+    -- ** CreateAttendee
+    CreateAttendee (CreateAttendee'),
+    newCreateAttendee,
+    CreateAttendeeResponse (CreateAttendeeResponse'),
+    newCreateAttendeeResponse,
 
-    -- ** DeleteProxySession
-    DeleteProxySession (DeleteProxySession'),
-    newDeleteProxySession,
-    DeleteProxySessionResponse (DeleteProxySessionResponse'),
-    newDeleteProxySessionResponse,
+    -- ** CreateBot
+    CreateBot (CreateBot'),
+    newCreateBot,
+    CreateBotResponse (CreateBotResponse'),
+    newCreateBotResponse,
 
-    -- ** GetVoiceConnectorTerminationHealth
-    GetVoiceConnectorTerminationHealth (GetVoiceConnectorTerminationHealth'),
-    newGetVoiceConnectorTerminationHealth,
-    GetVoiceConnectorTerminationHealthResponse (GetVoiceConnectorTerminationHealthResponse'),
-    newGetVoiceConnectorTerminationHealthResponse,
+    -- ** CreateChannel
+    CreateChannel (CreateChannel'),
+    newCreateChannel,
+    CreateChannelResponse (CreateChannelResponse'),
+    newCreateChannelResponse,
+
+    -- ** CreateChannelBan
+    CreateChannelBan (CreateChannelBan'),
+    newCreateChannelBan,
+    CreateChannelBanResponse (CreateChannelBanResponse'),
+    newCreateChannelBanResponse,
+
+    -- ** CreateChannelMembership
+    CreateChannelMembership (CreateChannelMembership'),
+    newCreateChannelMembership,
+    CreateChannelMembershipResponse (CreateChannelMembershipResponse'),
+    newCreateChannelMembershipResponse,
+
+    -- ** CreateChannelModerator
+    CreateChannelModerator (CreateChannelModerator'),
+    newCreateChannelModerator,
+    CreateChannelModeratorResponse (CreateChannelModeratorResponse'),
+    newCreateChannelModeratorResponse,
+
+    -- ** CreateMediaCapturePipeline
+    CreateMediaCapturePipeline (CreateMediaCapturePipeline'),
+    newCreateMediaCapturePipeline,
+    CreateMediaCapturePipelineResponse (CreateMediaCapturePipelineResponse'),
+    newCreateMediaCapturePipelineResponse,
+
+    -- ** CreateMeeting
+    CreateMeeting (CreateMeeting'),
+    newCreateMeeting,
+    CreateMeetingResponse (CreateMeetingResponse'),
+    newCreateMeetingResponse,
 
     -- ** CreateMeetingDialOut
     CreateMeetingDialOut (CreateMeetingDialOut'),
@@ -1085,35 +251,23 @@ module Amazonka.Chime
     CreateMeetingDialOutResponse (CreateMeetingDialOutResponse'),
     newCreateMeetingDialOutResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** CreateMeetingWithAttendees
+    CreateMeetingWithAttendees (CreateMeetingWithAttendees'),
+    newCreateMeetingWithAttendees,
+    CreateMeetingWithAttendeesResponse (CreateMeetingWithAttendeesResponse'),
+    newCreateMeetingWithAttendeesResponse,
 
-    -- ** ListProxySessions
-    ListProxySessions (ListProxySessions'),
-    newListProxySessions,
-    ListProxySessionsResponse (ListProxySessionsResponse'),
-    newListProxySessionsResponse,
+    -- ** CreatePhoneNumberOrder
+    CreatePhoneNumberOrder (CreatePhoneNumberOrder'),
+    newCreatePhoneNumberOrder,
+    CreatePhoneNumberOrderResponse (CreatePhoneNumberOrderResponse'),
+    newCreatePhoneNumberOrderResponse,
 
-    -- ** ListMediaCapturePipelines
-    ListMediaCapturePipelines (ListMediaCapturePipelines'),
-    newListMediaCapturePipelines,
-    ListMediaCapturePipelinesResponse (ListMediaCapturePipelinesResponse'),
-    newListMediaCapturePipelinesResponse,
-
-    -- ** UpdatePhoneNumberSettings
-    UpdatePhoneNumberSettings (UpdatePhoneNumberSettings'),
-    newUpdatePhoneNumberSettings,
-    UpdatePhoneNumberSettingsResponse (UpdatePhoneNumberSettingsResponse'),
-    newUpdatePhoneNumberSettingsResponse,
-
-    -- ** InviteUsers
-    InviteUsers (InviteUsers'),
-    newInviteUsers,
-    InviteUsersResponse (InviteUsersResponse'),
-    newInviteUsersResponse,
+    -- ** CreateProxySession
+    CreateProxySession (CreateProxySession'),
+    newCreateProxySession,
+    CreateProxySessionResponse (CreateProxySessionResponse'),
+    newCreateProxySessionResponse,
 
     -- ** CreateRoom
     CreateRoom (CreateRoom'),
@@ -1121,89 +275,35 @@ module Amazonka.Chime
     CreateRoomResponse (CreateRoomResponse'),
     newCreateRoomResponse,
 
-    -- ** ListChannelModerators
-    ListChannelModerators (ListChannelModerators'),
-    newListChannelModerators,
-    ListChannelModeratorsResponse (ListChannelModeratorsResponse'),
-    newListChannelModeratorsResponse,
+    -- ** CreateRoomMembership
+    CreateRoomMembership (CreateRoomMembership'),
+    newCreateRoomMembership,
+    CreateRoomMembershipResponse (CreateRoomMembershipResponse'),
+    newCreateRoomMembershipResponse,
 
-    -- ** GetVoiceConnector
-    GetVoiceConnector (GetVoiceConnector'),
-    newGetVoiceConnector,
-    GetVoiceConnectorResponse (GetVoiceConnectorResponse'),
-    newGetVoiceConnectorResponse,
+    -- ** CreateSipMediaApplication
+    CreateSipMediaApplication (CreateSipMediaApplication'),
+    newCreateSipMediaApplication,
+    CreateSipMediaApplicationResponse (CreateSipMediaApplicationResponse'),
+    newCreateSipMediaApplicationResponse,
 
-    -- ** DescribeChannel
-    DescribeChannel (DescribeChannel'),
-    newDescribeChannel,
-    DescribeChannelResponse (DescribeChannelResponse'),
-    newDescribeChannelResponse,
+    -- ** CreateSipMediaApplicationCall
+    CreateSipMediaApplicationCall (CreateSipMediaApplicationCall'),
+    newCreateSipMediaApplicationCall,
+    CreateSipMediaApplicationCallResponse (CreateSipMediaApplicationCallResponse'),
+    newCreateSipMediaApplicationCallResponse,
 
-    -- ** CreateVoiceConnectorGroup
-    CreateVoiceConnectorGroup (CreateVoiceConnectorGroup'),
-    newCreateVoiceConnectorGroup,
-    CreateVoiceConnectorGroupResponse (CreateVoiceConnectorGroupResponse'),
-    newCreateVoiceConnectorGroupResponse,
+    -- ** CreateSipRule
+    CreateSipRule (CreateSipRule'),
+    newCreateSipRule,
+    CreateSipRuleResponse (CreateSipRuleResponse'),
+    newCreateSipRuleResponse,
 
-    -- ** DeleteAppInstanceStreamingConfigurations
-    DeleteAppInstanceStreamingConfigurations (DeleteAppInstanceStreamingConfigurations'),
-    newDeleteAppInstanceStreamingConfigurations,
-    DeleteAppInstanceStreamingConfigurationsResponse (DeleteAppInstanceStreamingConfigurationsResponse'),
-    newDeleteAppInstanceStreamingConfigurationsResponse,
-
-    -- ** ListRooms
-    ListRooms (ListRooms'),
-    newListRooms,
-    ListRoomsResponse (ListRoomsResponse'),
-    newListRoomsResponse,
-
-    -- ** BatchCreateAttendee
-    BatchCreateAttendee (BatchCreateAttendee'),
-    newBatchCreateAttendee,
-    BatchCreateAttendeeResponse (BatchCreateAttendeeResponse'),
-    newBatchCreateAttendeeResponse,
-
-    -- ** DeleteAppInstanceAdmin
-    DeleteAppInstanceAdmin (DeleteAppInstanceAdmin'),
-    newDeleteAppInstanceAdmin,
-    DeleteAppInstanceAdminResponse (DeleteAppInstanceAdminResponse'),
-    newDeleteAppInstanceAdminResponse,
-
-    -- ** PutAppInstanceStreamingConfigurations
-    PutAppInstanceStreamingConfigurations (PutAppInstanceStreamingConfigurations'),
-    newPutAppInstanceStreamingConfigurations,
-    PutAppInstanceStreamingConfigurationsResponse (PutAppInstanceStreamingConfigurationsResponse'),
-    newPutAppInstanceStreamingConfigurationsResponse,
-
-    -- ** RegenerateSecurityToken
-    RegenerateSecurityToken (RegenerateSecurityToken'),
-    newRegenerateSecurityToken,
-    RegenerateSecurityTokenResponse (RegenerateSecurityTokenResponse'),
-    newRegenerateSecurityTokenResponse,
-
-    -- ** DeleteChannelMessage
-    DeleteChannelMessage (DeleteChannelMessage'),
-    newDeleteChannelMessage,
-    DeleteChannelMessageResponse (DeleteChannelMessageResponse'),
-    newDeleteChannelMessageResponse,
-
-    -- ** UpdateChannelMessage
-    UpdateChannelMessage (UpdateChannelMessage'),
-    newUpdateChannelMessage,
-    UpdateChannelMessageResponse (UpdateChannelMessageResponse'),
-    newUpdateChannelMessageResponse,
-
-    -- ** DeleteAppInstance
-    DeleteAppInstance (DeleteAppInstance'),
-    newDeleteAppInstance,
-    DeleteAppInstanceResponse (DeleteAppInstanceResponse'),
-    newDeleteAppInstanceResponse,
-
-    -- ** UpdateAppInstance
-    UpdateAppInstance (UpdateAppInstance'),
-    newUpdateAppInstance,
-    UpdateAppInstanceResponse (UpdateAppInstanceResponse'),
-    newUpdateAppInstanceResponse,
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
 
     -- ** CreateVoiceConnector
     CreateVoiceConnector (CreateVoiceConnector'),
@@ -1211,17 +311,359 @@ module Amazonka.Chime
     CreateVoiceConnectorResponse (CreateVoiceConnectorResponse'),
     newCreateVoiceConnectorResponse,
 
-    -- ** ListChannelMessages
-    ListChannelMessages (ListChannelMessages'),
-    newListChannelMessages,
-    ListChannelMessagesResponse (ListChannelMessagesResponse'),
-    newListChannelMessagesResponse,
+    -- ** CreateVoiceConnectorGroup
+    CreateVoiceConnectorGroup (CreateVoiceConnectorGroup'),
+    newCreateVoiceConnectorGroup,
+    CreateVoiceConnectorGroupResponse (CreateVoiceConnectorGroupResponse'),
+    newCreateVoiceConnectorGroupResponse,
 
-    -- ** RedactRoomMessage
-    RedactRoomMessage (RedactRoomMessage'),
-    newRedactRoomMessage,
-    RedactRoomMessageResponse (RedactRoomMessageResponse'),
-    newRedactRoomMessageResponse,
+    -- ** DeleteAccount
+    DeleteAccount (DeleteAccount'),
+    newDeleteAccount,
+    DeleteAccountResponse (DeleteAccountResponse'),
+    newDeleteAccountResponse,
+
+    -- ** DeleteAppInstance
+    DeleteAppInstance (DeleteAppInstance'),
+    newDeleteAppInstance,
+    DeleteAppInstanceResponse (DeleteAppInstanceResponse'),
+    newDeleteAppInstanceResponse,
+
+    -- ** DeleteAppInstanceAdmin
+    DeleteAppInstanceAdmin (DeleteAppInstanceAdmin'),
+    newDeleteAppInstanceAdmin,
+    DeleteAppInstanceAdminResponse (DeleteAppInstanceAdminResponse'),
+    newDeleteAppInstanceAdminResponse,
+
+    -- ** DeleteAppInstanceStreamingConfigurations
+    DeleteAppInstanceStreamingConfigurations (DeleteAppInstanceStreamingConfigurations'),
+    newDeleteAppInstanceStreamingConfigurations,
+    DeleteAppInstanceStreamingConfigurationsResponse (DeleteAppInstanceStreamingConfigurationsResponse'),
+    newDeleteAppInstanceStreamingConfigurationsResponse,
+
+    -- ** DeleteAppInstanceUser
+    DeleteAppInstanceUser (DeleteAppInstanceUser'),
+    newDeleteAppInstanceUser,
+    DeleteAppInstanceUserResponse (DeleteAppInstanceUserResponse'),
+    newDeleteAppInstanceUserResponse,
+
+    -- ** DeleteAttendee
+    DeleteAttendee (DeleteAttendee'),
+    newDeleteAttendee,
+    DeleteAttendeeResponse (DeleteAttendeeResponse'),
+    newDeleteAttendeeResponse,
+
+    -- ** DeleteChannel
+    DeleteChannel (DeleteChannel'),
+    newDeleteChannel,
+    DeleteChannelResponse (DeleteChannelResponse'),
+    newDeleteChannelResponse,
+
+    -- ** DeleteChannelBan
+    DeleteChannelBan (DeleteChannelBan'),
+    newDeleteChannelBan,
+    DeleteChannelBanResponse (DeleteChannelBanResponse'),
+    newDeleteChannelBanResponse,
+
+    -- ** DeleteChannelMembership
+    DeleteChannelMembership (DeleteChannelMembership'),
+    newDeleteChannelMembership,
+    DeleteChannelMembershipResponse (DeleteChannelMembershipResponse'),
+    newDeleteChannelMembershipResponse,
+
+    -- ** DeleteChannelMessage
+    DeleteChannelMessage (DeleteChannelMessage'),
+    newDeleteChannelMessage,
+    DeleteChannelMessageResponse (DeleteChannelMessageResponse'),
+    newDeleteChannelMessageResponse,
+
+    -- ** DeleteChannelModerator
+    DeleteChannelModerator (DeleteChannelModerator'),
+    newDeleteChannelModerator,
+    DeleteChannelModeratorResponse (DeleteChannelModeratorResponse'),
+    newDeleteChannelModeratorResponse,
+
+    -- ** DeleteEventsConfiguration
+    DeleteEventsConfiguration (DeleteEventsConfiguration'),
+    newDeleteEventsConfiguration,
+    DeleteEventsConfigurationResponse (DeleteEventsConfigurationResponse'),
+    newDeleteEventsConfigurationResponse,
+
+    -- ** DeleteMediaCapturePipeline
+    DeleteMediaCapturePipeline (DeleteMediaCapturePipeline'),
+    newDeleteMediaCapturePipeline,
+    DeleteMediaCapturePipelineResponse (DeleteMediaCapturePipelineResponse'),
+    newDeleteMediaCapturePipelineResponse,
+
+    -- ** DeleteMeeting
+    DeleteMeeting (DeleteMeeting'),
+    newDeleteMeeting,
+    DeleteMeetingResponse (DeleteMeetingResponse'),
+    newDeleteMeetingResponse,
+
+    -- ** DeletePhoneNumber
+    DeletePhoneNumber (DeletePhoneNumber'),
+    newDeletePhoneNumber,
+    DeletePhoneNumberResponse (DeletePhoneNumberResponse'),
+    newDeletePhoneNumberResponse,
+
+    -- ** DeleteProxySession
+    DeleteProxySession (DeleteProxySession'),
+    newDeleteProxySession,
+    DeleteProxySessionResponse (DeleteProxySessionResponse'),
+    newDeleteProxySessionResponse,
+
+    -- ** DeleteRoom
+    DeleteRoom (DeleteRoom'),
+    newDeleteRoom,
+    DeleteRoomResponse (DeleteRoomResponse'),
+    newDeleteRoomResponse,
+
+    -- ** DeleteRoomMembership
+    DeleteRoomMembership (DeleteRoomMembership'),
+    newDeleteRoomMembership,
+    DeleteRoomMembershipResponse (DeleteRoomMembershipResponse'),
+    newDeleteRoomMembershipResponse,
+
+    -- ** DeleteSipMediaApplication
+    DeleteSipMediaApplication (DeleteSipMediaApplication'),
+    newDeleteSipMediaApplication,
+    DeleteSipMediaApplicationResponse (DeleteSipMediaApplicationResponse'),
+    newDeleteSipMediaApplicationResponse,
+
+    -- ** DeleteSipRule
+    DeleteSipRule (DeleteSipRule'),
+    newDeleteSipRule,
+    DeleteSipRuleResponse (DeleteSipRuleResponse'),
+    newDeleteSipRuleResponse,
+
+    -- ** DeleteVoiceConnector
+    DeleteVoiceConnector (DeleteVoiceConnector'),
+    newDeleteVoiceConnector,
+    DeleteVoiceConnectorResponse (DeleteVoiceConnectorResponse'),
+    newDeleteVoiceConnectorResponse,
+
+    -- ** DeleteVoiceConnectorEmergencyCallingConfiguration
+    DeleteVoiceConnectorEmergencyCallingConfiguration (DeleteVoiceConnectorEmergencyCallingConfiguration'),
+    newDeleteVoiceConnectorEmergencyCallingConfiguration,
+    DeleteVoiceConnectorEmergencyCallingConfigurationResponse (DeleteVoiceConnectorEmergencyCallingConfigurationResponse'),
+    newDeleteVoiceConnectorEmergencyCallingConfigurationResponse,
+
+    -- ** DeleteVoiceConnectorGroup
+    DeleteVoiceConnectorGroup (DeleteVoiceConnectorGroup'),
+    newDeleteVoiceConnectorGroup,
+    DeleteVoiceConnectorGroupResponse (DeleteVoiceConnectorGroupResponse'),
+    newDeleteVoiceConnectorGroupResponse,
+
+    -- ** DeleteVoiceConnectorOrigination
+    DeleteVoiceConnectorOrigination (DeleteVoiceConnectorOrigination'),
+    newDeleteVoiceConnectorOrigination,
+    DeleteVoiceConnectorOriginationResponse (DeleteVoiceConnectorOriginationResponse'),
+    newDeleteVoiceConnectorOriginationResponse,
+
+    -- ** DeleteVoiceConnectorProxy
+    DeleteVoiceConnectorProxy (DeleteVoiceConnectorProxy'),
+    newDeleteVoiceConnectorProxy,
+    DeleteVoiceConnectorProxyResponse (DeleteVoiceConnectorProxyResponse'),
+    newDeleteVoiceConnectorProxyResponse,
+
+    -- ** DeleteVoiceConnectorStreamingConfiguration
+    DeleteVoiceConnectorStreamingConfiguration (DeleteVoiceConnectorStreamingConfiguration'),
+    newDeleteVoiceConnectorStreamingConfiguration,
+    DeleteVoiceConnectorStreamingConfigurationResponse (DeleteVoiceConnectorStreamingConfigurationResponse'),
+    newDeleteVoiceConnectorStreamingConfigurationResponse,
+
+    -- ** DeleteVoiceConnectorTermination
+    DeleteVoiceConnectorTermination (DeleteVoiceConnectorTermination'),
+    newDeleteVoiceConnectorTermination,
+    DeleteVoiceConnectorTerminationResponse (DeleteVoiceConnectorTerminationResponse'),
+    newDeleteVoiceConnectorTerminationResponse,
+
+    -- ** DeleteVoiceConnectorTerminationCredentials
+    DeleteVoiceConnectorTerminationCredentials (DeleteVoiceConnectorTerminationCredentials'),
+    newDeleteVoiceConnectorTerminationCredentials,
+    DeleteVoiceConnectorTerminationCredentialsResponse (DeleteVoiceConnectorTerminationCredentialsResponse'),
+    newDeleteVoiceConnectorTerminationCredentialsResponse,
+
+    -- ** DescribeAppInstance
+    DescribeAppInstance (DescribeAppInstance'),
+    newDescribeAppInstance,
+    DescribeAppInstanceResponse (DescribeAppInstanceResponse'),
+    newDescribeAppInstanceResponse,
+
+    -- ** DescribeAppInstanceAdmin
+    DescribeAppInstanceAdmin (DescribeAppInstanceAdmin'),
+    newDescribeAppInstanceAdmin,
+    DescribeAppInstanceAdminResponse (DescribeAppInstanceAdminResponse'),
+    newDescribeAppInstanceAdminResponse,
+
+    -- ** DescribeAppInstanceUser
+    DescribeAppInstanceUser (DescribeAppInstanceUser'),
+    newDescribeAppInstanceUser,
+    DescribeAppInstanceUserResponse (DescribeAppInstanceUserResponse'),
+    newDescribeAppInstanceUserResponse,
+
+    -- ** DescribeChannel
+    DescribeChannel (DescribeChannel'),
+    newDescribeChannel,
+    DescribeChannelResponse (DescribeChannelResponse'),
+    newDescribeChannelResponse,
+
+    -- ** DescribeChannelBan
+    DescribeChannelBan (DescribeChannelBan'),
+    newDescribeChannelBan,
+    DescribeChannelBanResponse (DescribeChannelBanResponse'),
+    newDescribeChannelBanResponse,
+
+    -- ** DescribeChannelMembership
+    DescribeChannelMembership (DescribeChannelMembership'),
+    newDescribeChannelMembership,
+    DescribeChannelMembershipResponse (DescribeChannelMembershipResponse'),
+    newDescribeChannelMembershipResponse,
+
+    -- ** DescribeChannelMembershipForAppInstanceUser
+    DescribeChannelMembershipForAppInstanceUser (DescribeChannelMembershipForAppInstanceUser'),
+    newDescribeChannelMembershipForAppInstanceUser,
+    DescribeChannelMembershipForAppInstanceUserResponse (DescribeChannelMembershipForAppInstanceUserResponse'),
+    newDescribeChannelMembershipForAppInstanceUserResponse,
+
+    -- ** DescribeChannelModeratedByAppInstanceUser
+    DescribeChannelModeratedByAppInstanceUser (DescribeChannelModeratedByAppInstanceUser'),
+    newDescribeChannelModeratedByAppInstanceUser,
+    DescribeChannelModeratedByAppInstanceUserResponse (DescribeChannelModeratedByAppInstanceUserResponse'),
+    newDescribeChannelModeratedByAppInstanceUserResponse,
+
+    -- ** DescribeChannelModerator
+    DescribeChannelModerator (DescribeChannelModerator'),
+    newDescribeChannelModerator,
+    DescribeChannelModeratorResponse (DescribeChannelModeratorResponse'),
+    newDescribeChannelModeratorResponse,
+
+    -- ** DisassociatePhoneNumberFromUser
+    DisassociatePhoneNumberFromUser (DisassociatePhoneNumberFromUser'),
+    newDisassociatePhoneNumberFromUser,
+    DisassociatePhoneNumberFromUserResponse (DisassociatePhoneNumberFromUserResponse'),
+    newDisassociatePhoneNumberFromUserResponse,
+
+    -- ** DisassociatePhoneNumbersFromVoiceConnector
+    DisassociatePhoneNumbersFromVoiceConnector (DisassociatePhoneNumbersFromVoiceConnector'),
+    newDisassociatePhoneNumbersFromVoiceConnector,
+    DisassociatePhoneNumbersFromVoiceConnectorResponse (DisassociatePhoneNumbersFromVoiceConnectorResponse'),
+    newDisassociatePhoneNumbersFromVoiceConnectorResponse,
+
+    -- ** DisassociatePhoneNumbersFromVoiceConnectorGroup
+    DisassociatePhoneNumbersFromVoiceConnectorGroup (DisassociatePhoneNumbersFromVoiceConnectorGroup'),
+    newDisassociatePhoneNumbersFromVoiceConnectorGroup,
+    DisassociatePhoneNumbersFromVoiceConnectorGroupResponse (DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'),
+    newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
+
+    -- ** DisassociateSigninDelegateGroupsFromAccount
+    DisassociateSigninDelegateGroupsFromAccount (DisassociateSigninDelegateGroupsFromAccount'),
+    newDisassociateSigninDelegateGroupsFromAccount,
+    DisassociateSigninDelegateGroupsFromAccountResponse (DisassociateSigninDelegateGroupsFromAccountResponse'),
+    newDisassociateSigninDelegateGroupsFromAccountResponse,
+
+    -- ** GetAccount
+    GetAccount (GetAccount'),
+    newGetAccount,
+    GetAccountResponse (GetAccountResponse'),
+    newGetAccountResponse,
+
+    -- ** GetAccountSettings
+    GetAccountSettings (GetAccountSettings'),
+    newGetAccountSettings,
+    GetAccountSettingsResponse (GetAccountSettingsResponse'),
+    newGetAccountSettingsResponse,
+
+    -- ** GetAppInstanceRetentionSettings
+    GetAppInstanceRetentionSettings (GetAppInstanceRetentionSettings'),
+    newGetAppInstanceRetentionSettings,
+    GetAppInstanceRetentionSettingsResponse (GetAppInstanceRetentionSettingsResponse'),
+    newGetAppInstanceRetentionSettingsResponse,
+
+    -- ** GetAppInstanceStreamingConfigurations
+    GetAppInstanceStreamingConfigurations (GetAppInstanceStreamingConfigurations'),
+    newGetAppInstanceStreamingConfigurations,
+    GetAppInstanceStreamingConfigurationsResponse (GetAppInstanceStreamingConfigurationsResponse'),
+    newGetAppInstanceStreamingConfigurationsResponse,
+
+    -- ** GetAttendee
+    GetAttendee (GetAttendee'),
+    newGetAttendee,
+    GetAttendeeResponse (GetAttendeeResponse'),
+    newGetAttendeeResponse,
+
+    -- ** GetBot
+    GetBot (GetBot'),
+    newGetBot,
+    GetBotResponse (GetBotResponse'),
+    newGetBotResponse,
+
+    -- ** GetChannelMessage
+    GetChannelMessage (GetChannelMessage'),
+    newGetChannelMessage,
+    GetChannelMessageResponse (GetChannelMessageResponse'),
+    newGetChannelMessageResponse,
+
+    -- ** GetEventsConfiguration
+    GetEventsConfiguration (GetEventsConfiguration'),
+    newGetEventsConfiguration,
+    GetEventsConfigurationResponse (GetEventsConfigurationResponse'),
+    newGetEventsConfigurationResponse,
+
+    -- ** GetGlobalSettings
+    GetGlobalSettings (GetGlobalSettings'),
+    newGetGlobalSettings,
+    GetGlobalSettingsResponse (GetGlobalSettingsResponse'),
+    newGetGlobalSettingsResponse,
+
+    -- ** GetMediaCapturePipeline
+    GetMediaCapturePipeline (GetMediaCapturePipeline'),
+    newGetMediaCapturePipeline,
+    GetMediaCapturePipelineResponse (GetMediaCapturePipelineResponse'),
+    newGetMediaCapturePipelineResponse,
+
+    -- ** GetMeeting
+    GetMeeting (GetMeeting'),
+    newGetMeeting,
+    GetMeetingResponse (GetMeetingResponse'),
+    newGetMeetingResponse,
+
+    -- ** GetMessagingSessionEndpoint
+    GetMessagingSessionEndpoint (GetMessagingSessionEndpoint'),
+    newGetMessagingSessionEndpoint,
+    GetMessagingSessionEndpointResponse (GetMessagingSessionEndpointResponse'),
+    newGetMessagingSessionEndpointResponse,
+
+    -- ** GetPhoneNumber
+    GetPhoneNumber (GetPhoneNumber'),
+    newGetPhoneNumber,
+    GetPhoneNumberResponse (GetPhoneNumberResponse'),
+    newGetPhoneNumberResponse,
+
+    -- ** GetPhoneNumberOrder
+    GetPhoneNumberOrder (GetPhoneNumberOrder'),
+    newGetPhoneNumberOrder,
+    GetPhoneNumberOrderResponse (GetPhoneNumberOrderResponse'),
+    newGetPhoneNumberOrderResponse,
+
+    -- ** GetPhoneNumberSettings
+    GetPhoneNumberSettings (GetPhoneNumberSettings'),
+    newGetPhoneNumberSettings,
+    GetPhoneNumberSettingsResponse (GetPhoneNumberSettingsResponse'),
+    newGetPhoneNumberSettingsResponse,
+
+    -- ** GetProxySession
+    GetProxySession (GetProxySession'),
+    newGetProxySession,
+    GetProxySessionResponse (GetProxySessionResponse'),
+    newGetProxySessionResponse,
+
+    -- ** GetRetentionSettings
+    GetRetentionSettings (GetRetentionSettings'),
+    newGetRetentionSettings,
+    GetRetentionSettingsResponse (GetRetentionSettingsResponse'),
+    newGetRetentionSettingsResponse,
 
     -- ** GetRoom
     GetRoom (GetRoom'),
@@ -1229,17 +671,575 @@ module Amazonka.Chime
     GetRoomResponse (GetRoomResponse'),
     newGetRoomResponse,
 
-    -- ** CreateRoomMembership
-    CreateRoomMembership (CreateRoomMembership'),
-    newCreateRoomMembership,
-    CreateRoomMembershipResponse (CreateRoomMembershipResponse'),
-    newCreateRoomMembershipResponse,
+    -- ** GetSipMediaApplication
+    GetSipMediaApplication (GetSipMediaApplication'),
+    newGetSipMediaApplication,
+    GetSipMediaApplicationResponse (GetSipMediaApplicationResponse'),
+    newGetSipMediaApplicationResponse,
 
-    -- ** BatchCreateChannelMembership
-    BatchCreateChannelMembership (BatchCreateChannelMembership'),
-    newBatchCreateChannelMembership,
-    BatchCreateChannelMembershipResponse (BatchCreateChannelMembershipResponse'),
-    newBatchCreateChannelMembershipResponse,
+    -- ** GetSipMediaApplicationLoggingConfiguration
+    GetSipMediaApplicationLoggingConfiguration (GetSipMediaApplicationLoggingConfiguration'),
+    newGetSipMediaApplicationLoggingConfiguration,
+    GetSipMediaApplicationLoggingConfigurationResponse (GetSipMediaApplicationLoggingConfigurationResponse'),
+    newGetSipMediaApplicationLoggingConfigurationResponse,
+
+    -- ** GetSipRule
+    GetSipRule (GetSipRule'),
+    newGetSipRule,
+    GetSipRuleResponse (GetSipRuleResponse'),
+    newGetSipRuleResponse,
+
+    -- ** GetUser
+    GetUser (GetUser'),
+    newGetUser,
+    GetUserResponse (GetUserResponse'),
+    newGetUserResponse,
+
+    -- ** GetUserSettings
+    GetUserSettings (GetUserSettings'),
+    newGetUserSettings,
+    GetUserSettingsResponse (GetUserSettingsResponse'),
+    newGetUserSettingsResponse,
+
+    -- ** GetVoiceConnector
+    GetVoiceConnector (GetVoiceConnector'),
+    newGetVoiceConnector,
+    GetVoiceConnectorResponse (GetVoiceConnectorResponse'),
+    newGetVoiceConnectorResponse,
+
+    -- ** GetVoiceConnectorEmergencyCallingConfiguration
+    GetVoiceConnectorEmergencyCallingConfiguration (GetVoiceConnectorEmergencyCallingConfiguration'),
+    newGetVoiceConnectorEmergencyCallingConfiguration,
+    GetVoiceConnectorEmergencyCallingConfigurationResponse (GetVoiceConnectorEmergencyCallingConfigurationResponse'),
+    newGetVoiceConnectorEmergencyCallingConfigurationResponse,
+
+    -- ** GetVoiceConnectorGroup
+    GetVoiceConnectorGroup (GetVoiceConnectorGroup'),
+    newGetVoiceConnectorGroup,
+    GetVoiceConnectorGroupResponse (GetVoiceConnectorGroupResponse'),
+    newGetVoiceConnectorGroupResponse,
+
+    -- ** GetVoiceConnectorLoggingConfiguration
+    GetVoiceConnectorLoggingConfiguration (GetVoiceConnectorLoggingConfiguration'),
+    newGetVoiceConnectorLoggingConfiguration,
+    GetVoiceConnectorLoggingConfigurationResponse (GetVoiceConnectorLoggingConfigurationResponse'),
+    newGetVoiceConnectorLoggingConfigurationResponse,
+
+    -- ** GetVoiceConnectorOrigination
+    GetVoiceConnectorOrigination (GetVoiceConnectorOrigination'),
+    newGetVoiceConnectorOrigination,
+    GetVoiceConnectorOriginationResponse (GetVoiceConnectorOriginationResponse'),
+    newGetVoiceConnectorOriginationResponse,
+
+    -- ** GetVoiceConnectorProxy
+    GetVoiceConnectorProxy (GetVoiceConnectorProxy'),
+    newGetVoiceConnectorProxy,
+    GetVoiceConnectorProxyResponse (GetVoiceConnectorProxyResponse'),
+    newGetVoiceConnectorProxyResponse,
+
+    -- ** GetVoiceConnectorStreamingConfiguration
+    GetVoiceConnectorStreamingConfiguration (GetVoiceConnectorStreamingConfiguration'),
+    newGetVoiceConnectorStreamingConfiguration,
+    GetVoiceConnectorStreamingConfigurationResponse (GetVoiceConnectorStreamingConfigurationResponse'),
+    newGetVoiceConnectorStreamingConfigurationResponse,
+
+    -- ** GetVoiceConnectorTermination
+    GetVoiceConnectorTermination (GetVoiceConnectorTermination'),
+    newGetVoiceConnectorTermination,
+    GetVoiceConnectorTerminationResponse (GetVoiceConnectorTerminationResponse'),
+    newGetVoiceConnectorTerminationResponse,
+
+    -- ** GetVoiceConnectorTerminationHealth
+    GetVoiceConnectorTerminationHealth (GetVoiceConnectorTerminationHealth'),
+    newGetVoiceConnectorTerminationHealth,
+    GetVoiceConnectorTerminationHealthResponse (GetVoiceConnectorTerminationHealthResponse'),
+    newGetVoiceConnectorTerminationHealthResponse,
+
+    -- ** InviteUsers
+    InviteUsers (InviteUsers'),
+    newInviteUsers,
+    InviteUsersResponse (InviteUsersResponse'),
+    newInviteUsersResponse,
+
+    -- ** ListAccounts (Paginated)
+    ListAccounts (ListAccounts'),
+    newListAccounts,
+    ListAccountsResponse (ListAccountsResponse'),
+    newListAccountsResponse,
+
+    -- ** ListAppInstanceAdmins
+    ListAppInstanceAdmins (ListAppInstanceAdmins'),
+    newListAppInstanceAdmins,
+    ListAppInstanceAdminsResponse (ListAppInstanceAdminsResponse'),
+    newListAppInstanceAdminsResponse,
+
+    -- ** ListAppInstanceUsers
+    ListAppInstanceUsers (ListAppInstanceUsers'),
+    newListAppInstanceUsers,
+    ListAppInstanceUsersResponse (ListAppInstanceUsersResponse'),
+    newListAppInstanceUsersResponse,
+
+    -- ** ListAppInstances
+    ListAppInstances (ListAppInstances'),
+    newListAppInstances,
+    ListAppInstancesResponse (ListAppInstancesResponse'),
+    newListAppInstancesResponse,
+
+    -- ** ListAttendeeTags
+    ListAttendeeTags (ListAttendeeTags'),
+    newListAttendeeTags,
+    ListAttendeeTagsResponse (ListAttendeeTagsResponse'),
+    newListAttendeeTagsResponse,
+
+    -- ** ListAttendees
+    ListAttendees (ListAttendees'),
+    newListAttendees,
+    ListAttendeesResponse (ListAttendeesResponse'),
+    newListAttendeesResponse,
+
+    -- ** ListBots
+    ListBots (ListBots'),
+    newListBots,
+    ListBotsResponse (ListBotsResponse'),
+    newListBotsResponse,
+
+    -- ** ListChannelBans
+    ListChannelBans (ListChannelBans'),
+    newListChannelBans,
+    ListChannelBansResponse (ListChannelBansResponse'),
+    newListChannelBansResponse,
+
+    -- ** ListChannelMemberships
+    ListChannelMemberships (ListChannelMemberships'),
+    newListChannelMemberships,
+    ListChannelMembershipsResponse (ListChannelMembershipsResponse'),
+    newListChannelMembershipsResponse,
+
+    -- ** ListChannelMembershipsForAppInstanceUser
+    ListChannelMembershipsForAppInstanceUser (ListChannelMembershipsForAppInstanceUser'),
+    newListChannelMembershipsForAppInstanceUser,
+    ListChannelMembershipsForAppInstanceUserResponse (ListChannelMembershipsForAppInstanceUserResponse'),
+    newListChannelMembershipsForAppInstanceUserResponse,
+
+    -- ** ListChannelMessages
+    ListChannelMessages (ListChannelMessages'),
+    newListChannelMessages,
+    ListChannelMessagesResponse (ListChannelMessagesResponse'),
+    newListChannelMessagesResponse,
+
+    -- ** ListChannelModerators
+    ListChannelModerators (ListChannelModerators'),
+    newListChannelModerators,
+    ListChannelModeratorsResponse (ListChannelModeratorsResponse'),
+    newListChannelModeratorsResponse,
+
+    -- ** ListChannels
+    ListChannels (ListChannels'),
+    newListChannels,
+    ListChannelsResponse (ListChannelsResponse'),
+    newListChannelsResponse,
+
+    -- ** ListChannelsModeratedByAppInstanceUser
+    ListChannelsModeratedByAppInstanceUser (ListChannelsModeratedByAppInstanceUser'),
+    newListChannelsModeratedByAppInstanceUser,
+    ListChannelsModeratedByAppInstanceUserResponse (ListChannelsModeratedByAppInstanceUserResponse'),
+    newListChannelsModeratedByAppInstanceUserResponse,
+
+    -- ** ListMediaCapturePipelines
+    ListMediaCapturePipelines (ListMediaCapturePipelines'),
+    newListMediaCapturePipelines,
+    ListMediaCapturePipelinesResponse (ListMediaCapturePipelinesResponse'),
+    newListMediaCapturePipelinesResponse,
+
+    -- ** ListMeetingTags
+    ListMeetingTags (ListMeetingTags'),
+    newListMeetingTags,
+    ListMeetingTagsResponse (ListMeetingTagsResponse'),
+    newListMeetingTagsResponse,
+
+    -- ** ListMeetings
+    ListMeetings (ListMeetings'),
+    newListMeetings,
+    ListMeetingsResponse (ListMeetingsResponse'),
+    newListMeetingsResponse,
+
+    -- ** ListPhoneNumberOrders
+    ListPhoneNumberOrders (ListPhoneNumberOrders'),
+    newListPhoneNumberOrders,
+    ListPhoneNumberOrdersResponse (ListPhoneNumberOrdersResponse'),
+    newListPhoneNumberOrdersResponse,
+
+    -- ** ListPhoneNumbers
+    ListPhoneNumbers (ListPhoneNumbers'),
+    newListPhoneNumbers,
+    ListPhoneNumbersResponse (ListPhoneNumbersResponse'),
+    newListPhoneNumbersResponse,
+
+    -- ** ListProxySessions
+    ListProxySessions (ListProxySessions'),
+    newListProxySessions,
+    ListProxySessionsResponse (ListProxySessionsResponse'),
+    newListProxySessionsResponse,
+
+    -- ** ListRoomMemberships
+    ListRoomMemberships (ListRoomMemberships'),
+    newListRoomMemberships,
+    ListRoomMembershipsResponse (ListRoomMembershipsResponse'),
+    newListRoomMembershipsResponse,
+
+    -- ** ListRooms
+    ListRooms (ListRooms'),
+    newListRooms,
+    ListRoomsResponse (ListRoomsResponse'),
+    newListRoomsResponse,
+
+    -- ** ListSipMediaApplications
+    ListSipMediaApplications (ListSipMediaApplications'),
+    newListSipMediaApplications,
+    ListSipMediaApplicationsResponse (ListSipMediaApplicationsResponse'),
+    newListSipMediaApplicationsResponse,
+
+    -- ** ListSipRules
+    ListSipRules (ListSipRules'),
+    newListSipRules,
+    ListSipRulesResponse (ListSipRulesResponse'),
+    newListSipRulesResponse,
+
+    -- ** ListSupportedPhoneNumberCountries
+    ListSupportedPhoneNumberCountries (ListSupportedPhoneNumberCountries'),
+    newListSupportedPhoneNumberCountries,
+    ListSupportedPhoneNumberCountriesResponse (ListSupportedPhoneNumberCountriesResponse'),
+    newListSupportedPhoneNumberCountriesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListUsers (Paginated)
+    ListUsers (ListUsers'),
+    newListUsers,
+    ListUsersResponse (ListUsersResponse'),
+    newListUsersResponse,
+
+    -- ** ListVoiceConnectorGroups
+    ListVoiceConnectorGroups (ListVoiceConnectorGroups'),
+    newListVoiceConnectorGroups,
+    ListVoiceConnectorGroupsResponse (ListVoiceConnectorGroupsResponse'),
+    newListVoiceConnectorGroupsResponse,
+
+    -- ** ListVoiceConnectorTerminationCredentials
+    ListVoiceConnectorTerminationCredentials (ListVoiceConnectorTerminationCredentials'),
+    newListVoiceConnectorTerminationCredentials,
+    ListVoiceConnectorTerminationCredentialsResponse (ListVoiceConnectorTerminationCredentialsResponse'),
+    newListVoiceConnectorTerminationCredentialsResponse,
+
+    -- ** ListVoiceConnectors
+    ListVoiceConnectors (ListVoiceConnectors'),
+    newListVoiceConnectors,
+    ListVoiceConnectorsResponse (ListVoiceConnectorsResponse'),
+    newListVoiceConnectorsResponse,
+
+    -- ** LogoutUser
+    LogoutUser (LogoutUser'),
+    newLogoutUser,
+    LogoutUserResponse (LogoutUserResponse'),
+    newLogoutUserResponse,
+
+    -- ** PutAppInstanceRetentionSettings
+    PutAppInstanceRetentionSettings (PutAppInstanceRetentionSettings'),
+    newPutAppInstanceRetentionSettings,
+    PutAppInstanceRetentionSettingsResponse (PutAppInstanceRetentionSettingsResponse'),
+    newPutAppInstanceRetentionSettingsResponse,
+
+    -- ** PutAppInstanceStreamingConfigurations
+    PutAppInstanceStreamingConfigurations (PutAppInstanceStreamingConfigurations'),
+    newPutAppInstanceStreamingConfigurations,
+    PutAppInstanceStreamingConfigurationsResponse (PutAppInstanceStreamingConfigurationsResponse'),
+    newPutAppInstanceStreamingConfigurationsResponse,
+
+    -- ** PutEventsConfiguration
+    PutEventsConfiguration (PutEventsConfiguration'),
+    newPutEventsConfiguration,
+    PutEventsConfigurationResponse (PutEventsConfigurationResponse'),
+    newPutEventsConfigurationResponse,
+
+    -- ** PutRetentionSettings
+    PutRetentionSettings (PutRetentionSettings'),
+    newPutRetentionSettings,
+    PutRetentionSettingsResponse (PutRetentionSettingsResponse'),
+    newPutRetentionSettingsResponse,
+
+    -- ** PutSipMediaApplicationLoggingConfiguration
+    PutSipMediaApplicationLoggingConfiguration (PutSipMediaApplicationLoggingConfiguration'),
+    newPutSipMediaApplicationLoggingConfiguration,
+    PutSipMediaApplicationLoggingConfigurationResponse (PutSipMediaApplicationLoggingConfigurationResponse'),
+    newPutSipMediaApplicationLoggingConfigurationResponse,
+
+    -- ** PutVoiceConnectorEmergencyCallingConfiguration
+    PutVoiceConnectorEmergencyCallingConfiguration (PutVoiceConnectorEmergencyCallingConfiguration'),
+    newPutVoiceConnectorEmergencyCallingConfiguration,
+    PutVoiceConnectorEmergencyCallingConfigurationResponse (PutVoiceConnectorEmergencyCallingConfigurationResponse'),
+    newPutVoiceConnectorEmergencyCallingConfigurationResponse,
+
+    -- ** PutVoiceConnectorLoggingConfiguration
+    PutVoiceConnectorLoggingConfiguration (PutVoiceConnectorLoggingConfiguration'),
+    newPutVoiceConnectorLoggingConfiguration,
+    PutVoiceConnectorLoggingConfigurationResponse (PutVoiceConnectorLoggingConfigurationResponse'),
+    newPutVoiceConnectorLoggingConfigurationResponse,
+
+    -- ** PutVoiceConnectorOrigination
+    PutVoiceConnectorOrigination (PutVoiceConnectorOrigination'),
+    newPutVoiceConnectorOrigination,
+    PutVoiceConnectorOriginationResponse (PutVoiceConnectorOriginationResponse'),
+    newPutVoiceConnectorOriginationResponse,
+
+    -- ** PutVoiceConnectorProxy
+    PutVoiceConnectorProxy (PutVoiceConnectorProxy'),
+    newPutVoiceConnectorProxy,
+    PutVoiceConnectorProxyResponse (PutVoiceConnectorProxyResponse'),
+    newPutVoiceConnectorProxyResponse,
+
+    -- ** PutVoiceConnectorStreamingConfiguration
+    PutVoiceConnectorStreamingConfiguration (PutVoiceConnectorStreamingConfiguration'),
+    newPutVoiceConnectorStreamingConfiguration,
+    PutVoiceConnectorStreamingConfigurationResponse (PutVoiceConnectorStreamingConfigurationResponse'),
+    newPutVoiceConnectorStreamingConfigurationResponse,
+
+    -- ** PutVoiceConnectorTermination
+    PutVoiceConnectorTermination (PutVoiceConnectorTermination'),
+    newPutVoiceConnectorTermination,
+    PutVoiceConnectorTerminationResponse (PutVoiceConnectorTerminationResponse'),
+    newPutVoiceConnectorTerminationResponse,
+
+    -- ** PutVoiceConnectorTerminationCredentials
+    PutVoiceConnectorTerminationCredentials (PutVoiceConnectorTerminationCredentials'),
+    newPutVoiceConnectorTerminationCredentials,
+    PutVoiceConnectorTerminationCredentialsResponse (PutVoiceConnectorTerminationCredentialsResponse'),
+    newPutVoiceConnectorTerminationCredentialsResponse,
+
+    -- ** RedactChannelMessage
+    RedactChannelMessage (RedactChannelMessage'),
+    newRedactChannelMessage,
+    RedactChannelMessageResponse (RedactChannelMessageResponse'),
+    newRedactChannelMessageResponse,
+
+    -- ** RedactConversationMessage
+    RedactConversationMessage (RedactConversationMessage'),
+    newRedactConversationMessage,
+    RedactConversationMessageResponse (RedactConversationMessageResponse'),
+    newRedactConversationMessageResponse,
+
+    -- ** RedactRoomMessage
+    RedactRoomMessage (RedactRoomMessage'),
+    newRedactRoomMessage,
+    RedactRoomMessageResponse (RedactRoomMessageResponse'),
+    newRedactRoomMessageResponse,
+
+    -- ** RegenerateSecurityToken
+    RegenerateSecurityToken (RegenerateSecurityToken'),
+    newRegenerateSecurityToken,
+    RegenerateSecurityTokenResponse (RegenerateSecurityTokenResponse'),
+    newRegenerateSecurityTokenResponse,
+
+    -- ** ResetPersonalPIN
+    ResetPersonalPIN (ResetPersonalPIN'),
+    newResetPersonalPIN,
+    ResetPersonalPINResponse (ResetPersonalPINResponse'),
+    newResetPersonalPINResponse,
+
+    -- ** RestorePhoneNumber
+    RestorePhoneNumber (RestorePhoneNumber'),
+    newRestorePhoneNumber,
+    RestorePhoneNumberResponse (RestorePhoneNumberResponse'),
+    newRestorePhoneNumberResponse,
+
+    -- ** SearchAvailablePhoneNumbers
+    SearchAvailablePhoneNumbers (SearchAvailablePhoneNumbers'),
+    newSearchAvailablePhoneNumbers,
+    SearchAvailablePhoneNumbersResponse (SearchAvailablePhoneNumbersResponse'),
+    newSearchAvailablePhoneNumbersResponse,
+
+    -- ** SendChannelMessage
+    SendChannelMessage (SendChannelMessage'),
+    newSendChannelMessage,
+    SendChannelMessageResponse (SendChannelMessageResponse'),
+    newSendChannelMessageResponse,
+
+    -- ** StartMeetingTranscription
+    StartMeetingTranscription (StartMeetingTranscription'),
+    newStartMeetingTranscription,
+    StartMeetingTranscriptionResponse (StartMeetingTranscriptionResponse'),
+    newStartMeetingTranscriptionResponse,
+
+    -- ** StopMeetingTranscription
+    StopMeetingTranscription (StopMeetingTranscription'),
+    newStopMeetingTranscription,
+    StopMeetingTranscriptionResponse (StopMeetingTranscriptionResponse'),
+    newStopMeetingTranscriptionResponse,
+
+    -- ** TagAttendee
+    TagAttendee (TagAttendee'),
+    newTagAttendee,
+    TagAttendeeResponse (TagAttendeeResponse'),
+    newTagAttendeeResponse,
+
+    -- ** TagMeeting
+    TagMeeting (TagMeeting'),
+    newTagMeeting,
+    TagMeetingResponse (TagMeetingResponse'),
+    newTagMeetingResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagAttendee
+    UntagAttendee (UntagAttendee'),
+    newUntagAttendee,
+    UntagAttendeeResponse (UntagAttendeeResponse'),
+    newUntagAttendeeResponse,
+
+    -- ** UntagMeeting
+    UntagMeeting (UntagMeeting'),
+    newUntagMeeting,
+    UntagMeetingResponse (UntagMeetingResponse'),
+    newUntagMeetingResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateAccount
+    UpdateAccount (UpdateAccount'),
+    newUpdateAccount,
+    UpdateAccountResponse (UpdateAccountResponse'),
+    newUpdateAccountResponse,
+
+    -- ** UpdateAccountSettings
+    UpdateAccountSettings (UpdateAccountSettings'),
+    newUpdateAccountSettings,
+    UpdateAccountSettingsResponse (UpdateAccountSettingsResponse'),
+    newUpdateAccountSettingsResponse,
+
+    -- ** UpdateAppInstance
+    UpdateAppInstance (UpdateAppInstance'),
+    newUpdateAppInstance,
+    UpdateAppInstanceResponse (UpdateAppInstanceResponse'),
+    newUpdateAppInstanceResponse,
+
+    -- ** UpdateAppInstanceUser
+    UpdateAppInstanceUser (UpdateAppInstanceUser'),
+    newUpdateAppInstanceUser,
+    UpdateAppInstanceUserResponse (UpdateAppInstanceUserResponse'),
+    newUpdateAppInstanceUserResponse,
+
+    -- ** UpdateBot
+    UpdateBot (UpdateBot'),
+    newUpdateBot,
+    UpdateBotResponse (UpdateBotResponse'),
+    newUpdateBotResponse,
+
+    -- ** UpdateChannel
+    UpdateChannel (UpdateChannel'),
+    newUpdateChannel,
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
+
+    -- ** UpdateChannelMessage
+    UpdateChannelMessage (UpdateChannelMessage'),
+    newUpdateChannelMessage,
+    UpdateChannelMessageResponse (UpdateChannelMessageResponse'),
+    newUpdateChannelMessageResponse,
+
+    -- ** UpdateChannelReadMarker
+    UpdateChannelReadMarker (UpdateChannelReadMarker'),
+    newUpdateChannelReadMarker,
+    UpdateChannelReadMarkerResponse (UpdateChannelReadMarkerResponse'),
+    newUpdateChannelReadMarkerResponse,
+
+    -- ** UpdateGlobalSettings
+    UpdateGlobalSettings (UpdateGlobalSettings'),
+    newUpdateGlobalSettings,
+    UpdateGlobalSettingsResponse (UpdateGlobalSettingsResponse'),
+    newUpdateGlobalSettingsResponse,
+
+    -- ** UpdatePhoneNumber
+    UpdatePhoneNumber (UpdatePhoneNumber'),
+    newUpdatePhoneNumber,
+    UpdatePhoneNumberResponse (UpdatePhoneNumberResponse'),
+    newUpdatePhoneNumberResponse,
+
+    -- ** UpdatePhoneNumberSettings
+    UpdatePhoneNumberSettings (UpdatePhoneNumberSettings'),
+    newUpdatePhoneNumberSettings,
+    UpdatePhoneNumberSettingsResponse (UpdatePhoneNumberSettingsResponse'),
+    newUpdatePhoneNumberSettingsResponse,
+
+    -- ** UpdateProxySession
+    UpdateProxySession (UpdateProxySession'),
+    newUpdateProxySession,
+    UpdateProxySessionResponse (UpdateProxySessionResponse'),
+    newUpdateProxySessionResponse,
+
+    -- ** UpdateRoom
+    UpdateRoom (UpdateRoom'),
+    newUpdateRoom,
+    UpdateRoomResponse (UpdateRoomResponse'),
+    newUpdateRoomResponse,
+
+    -- ** UpdateRoomMembership
+    UpdateRoomMembership (UpdateRoomMembership'),
+    newUpdateRoomMembership,
+    UpdateRoomMembershipResponse (UpdateRoomMembershipResponse'),
+    newUpdateRoomMembershipResponse,
+
+    -- ** UpdateSipMediaApplication
+    UpdateSipMediaApplication (UpdateSipMediaApplication'),
+    newUpdateSipMediaApplication,
+    UpdateSipMediaApplicationResponse (UpdateSipMediaApplicationResponse'),
+    newUpdateSipMediaApplicationResponse,
+
+    -- ** UpdateSipMediaApplicationCall
+    UpdateSipMediaApplicationCall (UpdateSipMediaApplicationCall'),
+    newUpdateSipMediaApplicationCall,
+    UpdateSipMediaApplicationCallResponse (UpdateSipMediaApplicationCallResponse'),
+    newUpdateSipMediaApplicationCallResponse,
+
+    -- ** UpdateSipRule
+    UpdateSipRule (UpdateSipRule'),
+    newUpdateSipRule,
+    UpdateSipRuleResponse (UpdateSipRuleResponse'),
+    newUpdateSipRuleResponse,
+
+    -- ** UpdateUser
+    UpdateUser (UpdateUser'),
+    newUpdateUser,
+    UpdateUserResponse (UpdateUserResponse'),
+    newUpdateUserResponse,
+
+    -- ** UpdateUserSettings
+    UpdateUserSettings (UpdateUserSettings'),
+    newUpdateUserSettings,
+    UpdateUserSettingsResponse (UpdateUserSettingsResponse'),
+    newUpdateUserSettingsResponse,
+
+    -- ** UpdateVoiceConnector
+    UpdateVoiceConnector (UpdateVoiceConnector'),
+    newUpdateVoiceConnector,
+    UpdateVoiceConnectorResponse (UpdateVoiceConnectorResponse'),
+    newUpdateVoiceConnectorResponse,
+
+    -- ** UpdateVoiceConnectorGroup
+    UpdateVoiceConnectorGroup (UpdateVoiceConnectorGroup'),
+    newUpdateVoiceConnectorGroup,
+    UpdateVoiceConnectorGroupResponse (UpdateVoiceConnectorGroupResponse'),
+    newUpdateVoiceConnectorGroupResponse,
 
     -- * Types
 

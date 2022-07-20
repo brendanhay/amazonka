@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubModule' smart constructor.
 data SubModule = SubModule'
-  { -- | The commit ID that contains the reference to the submodule.
-    commitId :: Prelude.Maybe Prelude.Text,
-    -- | The fully qualified path to the folder that contains the reference to
+  { -- | The fully qualified path to the folder that contains the reference to
     -- the submodule.
     absolutePath :: Prelude.Maybe Prelude.Text,
+    -- | The commit ID that contains the reference to the submodule.
+    commitId :: Prelude.Maybe Prelude.Text,
     -- | The relative path of the submodule from the folder where the query
     -- originated.
     relativePath :: Prelude.Maybe Prelude.Text
@@ -46,10 +46,10 @@ data SubModule = SubModule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'commitId', 'subModule_commitId' - The commit ID that contains the reference to the submodule.
---
 -- 'absolutePath', 'subModule_absolutePath' - The fully qualified path to the folder that contains the reference to
 -- the submodule.
+--
+-- 'commitId', 'subModule_commitId' - The commit ID that contains the reference to the submodule.
 --
 -- 'relativePath', 'subModule_relativePath' - The relative path of the submodule from the folder where the query
 -- originated.
@@ -57,19 +57,19 @@ newSubModule ::
   SubModule
 newSubModule =
   SubModule'
-    { commitId = Prelude.Nothing,
-      absolutePath = Prelude.Nothing,
+    { absolutePath = Prelude.Nothing,
+      commitId = Prelude.Nothing,
       relativePath = Prelude.Nothing
     }
-
--- | The commit ID that contains the reference to the submodule.
-subModule_commitId :: Lens.Lens' SubModule (Prelude.Maybe Prelude.Text)
-subModule_commitId = Lens.lens (\SubModule' {commitId} -> commitId) (\s@SubModule' {} a -> s {commitId = a} :: SubModule)
 
 -- | The fully qualified path to the folder that contains the reference to
 -- the submodule.
 subModule_absolutePath :: Lens.Lens' SubModule (Prelude.Maybe Prelude.Text)
 subModule_absolutePath = Lens.lens (\SubModule' {absolutePath} -> absolutePath) (\s@SubModule' {} a -> s {absolutePath = a} :: SubModule)
+
+-- | The commit ID that contains the reference to the submodule.
+subModule_commitId :: Lens.Lens' SubModule (Prelude.Maybe Prelude.Text)
+subModule_commitId = Lens.lens (\SubModule' {commitId} -> commitId) (\s@SubModule' {} a -> s {commitId = a} :: SubModule)
 
 -- | The relative path of the submodule from the folder where the query
 -- originated.
@@ -82,19 +82,19 @@ instance Core.FromJSON SubModule where
       "SubModule"
       ( \x ->
           SubModule'
-            Prelude.<$> (x Core..:? "commitId")
-            Prelude.<*> (x Core..:? "absolutePath")
+            Prelude.<$> (x Core..:? "absolutePath")
+            Prelude.<*> (x Core..:? "commitId")
             Prelude.<*> (x Core..:? "relativePath")
       )
 
 instance Prelude.Hashable SubModule where
   hashWithSalt _salt SubModule' {..} =
-    _salt `Prelude.hashWithSalt` commitId
-      `Prelude.hashWithSalt` absolutePath
+    _salt `Prelude.hashWithSalt` absolutePath
+      `Prelude.hashWithSalt` commitId
       `Prelude.hashWithSalt` relativePath
 
 instance Prelude.NFData SubModule where
   rnf SubModule' {..} =
-    Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf absolutePath
+    Prelude.rnf absolutePath
+      `Prelude.seq` Prelude.rnf commitId
       `Prelude.seq` Prelude.rnf relativePath

@@ -30,9 +30,9 @@ module Amazonka.IoTFleetHub.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_applicationDescription,
-    createApplication_clientToken,
     createApplication_tags,
+    createApplication_clientToken,
+    createApplication_applicationDescription,
     createApplication_applicationName,
     createApplication_roleArn,
 
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | An optional description of the web application.
-    applicationDescription :: Prelude.Maybe Prelude.Text,
+  { -- | A set of key\/value pairs that you can use to manage the web application
+    -- resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique case-sensitive identifier that you can provide to ensure the
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of key\/value pairs that you can use to manage the web application
-    -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description of the web application.
+    applicationDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the web application.
     applicationName :: Prelude.Text,
     -- | The ARN of the role that the web application assumes when it interacts
@@ -84,14 +84,14 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationDescription', 'createApplication_applicationDescription' - An optional description of the web application.
+-- 'tags', 'createApplication_tags' - A set of key\/value pairs that you can use to manage the web application
+-- resource.
 --
 -- 'clientToken', 'createApplication_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 --
--- 'tags', 'createApplication_tags' - A set of key\/value pairs that you can use to manage the web application
--- resource.
+-- 'applicationDescription', 'createApplication_applicationDescription' - An optional description of the web application.
 --
 -- 'applicationName', 'createApplication_applicationName' - The name of the web application.
 --
@@ -108,17 +108,17 @@ newCreateApplication ::
   CreateApplication
 newCreateApplication pApplicationName_ pRoleArn_ =
   CreateApplication'
-    { applicationDescription =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      applicationDescription = Prelude.Nothing,
       applicationName = pApplicationName_,
       roleArn = pRoleArn_
     }
 
--- | An optional description of the web application.
-createApplication_applicationDescription :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
-createApplication_applicationDescription = Lens.lens (\CreateApplication' {applicationDescription} -> applicationDescription) (\s@CreateApplication' {} a -> s {applicationDescription = a} :: CreateApplication)
+-- | A set of key\/value pairs that you can use to manage the web application
+-- resource.
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
@@ -126,10 +126,9 @@ createApplication_applicationDescription = Lens.lens (\CreateApplication' {appli
 createApplication_clientToken :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_clientToken = Lens.lens (\CreateApplication' {clientToken} -> clientToken) (\s@CreateApplication' {} a -> s {clientToken = a} :: CreateApplication)
 
--- | A set of key\/value pairs that you can use to manage the web application
--- resource.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
+-- | An optional description of the web application.
+createApplication_applicationDescription :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_applicationDescription = Lens.lens (\CreateApplication' {applicationDescription} -> applicationDescription) (\s@CreateApplication' {} a -> s {applicationDescription = a} :: CreateApplication)
 
 -- | The name of the web application.
 createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
@@ -159,17 +158,17 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationDescription
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` applicationDescription
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf applicationDescription
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf applicationDescription
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -188,10 +187,10 @@ instance Core.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("applicationDescription" Core..=)
-              Prelude.<$> applicationDescription,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("applicationDescription" Core..=)
+              Prelude.<$> applicationDescription,
             Prelude.Just
               ("applicationName" Core..= applicationName),
             Prelude.Just ("roleArn" Core..= roleArn)

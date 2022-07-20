@@ -39,29 +39,11 @@ module Amazonka.CognitoIdentity
     -- * Errors
     -- $errors
 
-    -- ** InvalidIdentityPoolConfigurationException
-    _InvalidIdentityPoolConfigurationException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** ExternalServiceException
-    _ExternalServiceException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** ResourceConflictException
-    _ResourceConflictException,
+    -- ** InternalErrorException
+    _InternalErrorException,
 
     -- ** DeveloperUserAlreadyRegisteredException
     _DeveloperUserAlreadyRegisteredException,
@@ -72,11 +54,77 @@ module Amazonka.CognitoIdentity
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ExternalServiceException
+    _ExternalServiceException,
+
+    -- ** InvalidIdentityPoolConfigurationException
+    _InvalidIdentityPoolConfigurationException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** CreateIdentityPool
+    CreateIdentityPool (CreateIdentityPool'),
+    newCreateIdentityPool,
+    IdentityPool (IdentityPool'),
+    newIdentityPool,
+
+    -- ** DeleteIdentities
+    DeleteIdentities (DeleteIdentities'),
+    newDeleteIdentities,
+    DeleteIdentitiesResponse (DeleteIdentitiesResponse'),
+    newDeleteIdentitiesResponse,
+
+    -- ** DeleteIdentityPool
+    DeleteIdentityPool (DeleteIdentityPool'),
+    newDeleteIdentityPool,
+    DeleteIdentityPoolResponse (DeleteIdentityPoolResponse'),
+    newDeleteIdentityPoolResponse,
+
+    -- ** DescribeIdentity
+    DescribeIdentity (DescribeIdentity'),
+    newDescribeIdentity,
+    IdentityDescription (IdentityDescription'),
+    newIdentityDescription,
+
+    -- ** DescribeIdentityPool
+    DescribeIdentityPool (DescribeIdentityPool'),
+    newDescribeIdentityPool,
+    IdentityPool (IdentityPool'),
+    newIdentityPool,
+
+    -- ** GetCredentialsForIdentity
+    GetCredentialsForIdentity (GetCredentialsForIdentity'),
+    newGetCredentialsForIdentity,
+    GetCredentialsForIdentityResponse (GetCredentialsForIdentityResponse'),
+    newGetCredentialsForIdentityResponse,
+
+    -- ** GetId
+    GetId (GetId'),
+    newGetId,
+    GetIdResponse (GetIdResponse'),
+    newGetIdResponse,
+
+    -- ** GetIdentityPoolRoles
+    GetIdentityPoolRoles (GetIdentityPoolRoles'),
+    newGetIdentityPoolRoles,
+    GetIdentityPoolRolesResponse (GetIdentityPoolRolesResponse'),
+    newGetIdentityPoolRolesResponse,
 
     -- ** GetOpenIdToken
     GetOpenIdToken (GetOpenIdToken'),
@@ -90,83 +138,11 @@ module Amazonka.CognitoIdentity
     GetOpenIdTokenForDeveloperIdentityResponse (GetOpenIdTokenForDeveloperIdentityResponse'),
     newGetOpenIdTokenForDeveloperIdentityResponse,
 
-    -- ** DescribeIdentityPool
-    DescribeIdentityPool (DescribeIdentityPool'),
-    newDescribeIdentityPool,
-    IdentityPool (IdentityPool'),
-    newIdentityPool,
-
-    -- ** SetPrincipalTagAttributeMap
-    SetPrincipalTagAttributeMap (SetPrincipalTagAttributeMap'),
-    newSetPrincipalTagAttributeMap,
-    SetPrincipalTagAttributeMapResponse (SetPrincipalTagAttributeMapResponse'),
-    newSetPrincipalTagAttributeMapResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetId
-    GetId (GetId'),
-    newGetId,
-    GetIdResponse (GetIdResponse'),
-    newGetIdResponse,
-
-    -- ** DeleteIdentityPool
-    DeleteIdentityPool (DeleteIdentityPool'),
-    newDeleteIdentityPool,
-    DeleteIdentityPoolResponse (DeleteIdentityPoolResponse'),
-    newDeleteIdentityPoolResponse,
-
-    -- ** UpdateIdentityPool
-    UpdateIdentityPool (UpdateIdentityPool'),
-    newUpdateIdentityPool,
-    IdentityPool (IdentityPool'),
-    newIdentityPool,
-
-    -- ** UnlinkDeveloperIdentity
-    UnlinkDeveloperIdentity (UnlinkDeveloperIdentity'),
-    newUnlinkDeveloperIdentity,
-    UnlinkDeveloperIdentityResponse (UnlinkDeveloperIdentityResponse'),
-    newUnlinkDeveloperIdentityResponse,
-
-    -- ** GetIdentityPoolRoles
-    GetIdentityPoolRoles (GetIdentityPoolRoles'),
-    newGetIdentityPoolRoles,
-    GetIdentityPoolRolesResponse (GetIdentityPoolRolesResponse'),
-    newGetIdentityPoolRolesResponse,
-
-    -- ** ListIdentityPools (Paginated)
-    ListIdentityPools (ListIdentityPools'),
-    newListIdentityPools,
-    ListIdentityPoolsResponse (ListIdentityPoolsResponse'),
-    newListIdentityPoolsResponse,
-
-    -- ** GetCredentialsForIdentity
-    GetCredentialsForIdentity (GetCredentialsForIdentity'),
-    newGetCredentialsForIdentity,
-    GetCredentialsForIdentityResponse (GetCredentialsForIdentityResponse'),
-    newGetCredentialsForIdentityResponse,
-
     -- ** GetPrincipalTagAttributeMap
     GetPrincipalTagAttributeMap (GetPrincipalTagAttributeMap'),
     newGetPrincipalTagAttributeMap,
     GetPrincipalTagAttributeMapResponse (GetPrincipalTagAttributeMapResponse'),
     newGetPrincipalTagAttributeMapResponse,
-
-    -- ** DeleteIdentities
-    DeleteIdentities (DeleteIdentities'),
-    newDeleteIdentities,
-    DeleteIdentitiesResponse (DeleteIdentitiesResponse'),
-    newDeleteIdentitiesResponse,
-
-    -- ** SetIdentityPoolRoles
-    SetIdentityPoolRoles (SetIdentityPoolRoles'),
-    newSetIdentityPoolRoles,
-    SetIdentityPoolRolesResponse (SetIdentityPoolRolesResponse'),
-    newSetIdentityPoolRolesResponse,
 
     -- ** ListIdentities
     ListIdentities (ListIdentities'),
@@ -174,17 +150,41 @@ module Amazonka.CognitoIdentity
     ListIdentitiesResponse (ListIdentitiesResponse'),
     newListIdentitiesResponse,
 
+    -- ** ListIdentityPools (Paginated)
+    ListIdentityPools (ListIdentityPools'),
+    newListIdentityPools,
+    ListIdentityPoolsResponse (ListIdentityPoolsResponse'),
+    newListIdentityPoolsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** LookupDeveloperIdentity
     LookupDeveloperIdentity (LookupDeveloperIdentity'),
     newLookupDeveloperIdentity,
     LookupDeveloperIdentityResponse (LookupDeveloperIdentityResponse'),
     newLookupDeveloperIdentityResponse,
 
-    -- ** UnlinkIdentity
-    UnlinkIdentity (UnlinkIdentity'),
-    newUnlinkIdentity,
-    UnlinkIdentityResponse (UnlinkIdentityResponse'),
-    newUnlinkIdentityResponse,
+    -- ** MergeDeveloperIdentities
+    MergeDeveloperIdentities (MergeDeveloperIdentities'),
+    newMergeDeveloperIdentities,
+    MergeDeveloperIdentitiesResponse (MergeDeveloperIdentitiesResponse'),
+    newMergeDeveloperIdentitiesResponse,
+
+    -- ** SetIdentityPoolRoles
+    SetIdentityPoolRoles (SetIdentityPoolRoles'),
+    newSetIdentityPoolRoles,
+    SetIdentityPoolRolesResponse (SetIdentityPoolRolesResponse'),
+    newSetIdentityPoolRolesResponse,
+
+    -- ** SetPrincipalTagAttributeMap
+    SetPrincipalTagAttributeMap (SetPrincipalTagAttributeMap'),
+    newSetPrincipalTagAttributeMap,
+    SetPrincipalTagAttributeMapResponse (SetPrincipalTagAttributeMapResponse'),
+    newSetPrincipalTagAttributeMapResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -192,11 +192,17 @@ module Amazonka.CognitoIdentity
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** DescribeIdentity
-    DescribeIdentity (DescribeIdentity'),
-    newDescribeIdentity,
-    IdentityDescription (IdentityDescription'),
-    newIdentityDescription,
+    -- ** UnlinkDeveloperIdentity
+    UnlinkDeveloperIdentity (UnlinkDeveloperIdentity'),
+    newUnlinkDeveloperIdentity,
+    UnlinkDeveloperIdentityResponse (UnlinkDeveloperIdentityResponse'),
+    newUnlinkDeveloperIdentityResponse,
+
+    -- ** UnlinkIdentity
+    UnlinkIdentity (UnlinkIdentity'),
+    newUnlinkIdentity,
+    UnlinkIdentityResponse (UnlinkIdentityResponse'),
+    newUnlinkIdentityResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -204,17 +210,11 @@ module Amazonka.CognitoIdentity
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** CreateIdentityPool
-    CreateIdentityPool (CreateIdentityPool'),
-    newCreateIdentityPool,
+    -- ** UpdateIdentityPool
+    UpdateIdentityPool (UpdateIdentityPool'),
+    newUpdateIdentityPool,
     IdentityPool (IdentityPool'),
     newIdentityPool,
-
-    -- ** MergeDeveloperIdentities
-    MergeDeveloperIdentities (MergeDeveloperIdentities'),
-    newMergeDeveloperIdentities,
-    MergeDeveloperIdentitiesResponse (MergeDeveloperIdentitiesResponse'),
-    newMergeDeveloperIdentitiesResponse,
 
     -- * Types
 

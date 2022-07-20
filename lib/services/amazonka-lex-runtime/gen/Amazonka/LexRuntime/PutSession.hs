@@ -32,11 +32,11 @@ module Amazonka.LexRuntime.PutSession
     newPutSession,
 
     -- * Request Lenses
+    putSession_dialogAction,
+    putSession_sessionAttributes,
     putSession_accept,
     putSession_activeContexts,
     putSession_recentIntentSummaryView,
-    putSession_dialogAction,
-    putSession_sessionAttributes,
     putSession_botName,
     putSession_botAlias,
     putSession_userId,
@@ -46,17 +46,17 @@ module Amazonka.LexRuntime.PutSession
     newPutSessionResponse,
 
     -- * Response Lenses
-    putSessionResponse_slots,
-    putSessionResponse_intentName,
-    putSessionResponse_encodedMessage,
-    putSessionResponse_dialogState,
-    putSessionResponse_activeContexts,
-    putSessionResponse_messageFormat,
     putSessionResponse_message,
-    putSessionResponse_sessionId,
     putSessionResponse_slotToElicit,
-    putSessionResponse_contentType,
+    putSessionResponse_dialogState,
     putSessionResponse_sessionAttributes,
+    putSessionResponse_messageFormat,
+    putSessionResponse_encodedMessage,
+    putSessionResponse_sessionId,
+    putSessionResponse_intentName,
+    putSessionResponse_activeContexts,
+    putSessionResponse_slots,
+    putSessionResponse_contentType,
     putSessionResponse_httpStatus,
     putSessionResponse_audioStream,
   )
@@ -71,7 +71,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutSession' smart constructor.
 data PutSession = PutSession'
-  { -- | The message that Amazon Lex returns in the response can be either text
+  { -- | Sets the next action that the bot should take to fulfill the
+    -- conversation.
+    dialogAction :: Prelude.Maybe DialogAction,
+    -- | Map of key\/value pairs representing the session-specific context
+    -- information. It contains application information passed between Amazon
+    -- Lex and a client application.
+    sessionAttributes :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The message that Amazon Lex returns in the response can be either text
     -- or speech based depending on the value of this field.
     --
     -- -   If the value is @text\/plain; charset=utf-8@, Amazon Lex returns
@@ -127,13 +134,6 @@ data PutSession = PutSession'
     -- the summary view and you call @PutSession@ with one intent in the
     -- summary view, the next call to @GetSession@ will only return one intent.
     recentIntentSummaryView :: Prelude.Maybe [IntentSummary],
-    -- | Sets the next action that the bot should take to fulfill the
-    -- conversation.
-    dialogAction :: Prelude.Maybe DialogAction,
-    -- | Map of key\/value pairs representing the session-specific context
-    -- information. It contains application information passed between Amazon
-    -- Lex and a client application.
-    sessionAttributes :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The name of the bot that contains the session data.
     botName :: Prelude.Text,
     -- | The alias in use for the bot that contains the session data.
@@ -151,6 +151,13 @@ data PutSession = PutSession'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dialogAction', 'putSession_dialogAction' - Sets the next action that the bot should take to fulfill the
+-- conversation.
+--
+-- 'sessionAttributes', 'putSession_sessionAttributes' - Map of key\/value pairs representing the session-specific context
+-- information. It contains application information passed between Amazon
+-- Lex and a client application.
 --
 -- 'accept', 'putSession_accept' - The message that Amazon Lex returns in the response can be either text
 -- or speech based depending on the value of this field.
@@ -208,13 +215,6 @@ data PutSession = PutSession'
 -- the summary view and you call @PutSession@ with one intent in the
 -- summary view, the next call to @GetSession@ will only return one intent.
 --
--- 'dialogAction', 'putSession_dialogAction' - Sets the next action that the bot should take to fulfill the
--- conversation.
---
--- 'sessionAttributes', 'putSession_sessionAttributes' - Map of key\/value pairs representing the session-specific context
--- information. It contains application information passed between Amazon
--- Lex and a client application.
---
 -- 'botName', 'putSession_botName' - The name of the bot that contains the session data.
 --
 -- 'botAlias', 'putSession_botAlias' - The alias in use for the bot that contains the session data.
@@ -231,15 +231,26 @@ newPutSession ::
   PutSession
 newPutSession pBotName_ pBotAlias_ pUserId_ =
   PutSession'
-    { accept = Prelude.Nothing,
+    { dialogAction = Prelude.Nothing,
+      sessionAttributes = Prelude.Nothing,
+      accept = Prelude.Nothing,
       activeContexts = Prelude.Nothing,
       recentIntentSummaryView = Prelude.Nothing,
-      dialogAction = Prelude.Nothing,
-      sessionAttributes = Prelude.Nothing,
       botName = pBotName_,
       botAlias = pBotAlias_,
       userId = pUserId_
     }
+
+-- | Sets the next action that the bot should take to fulfill the
+-- conversation.
+putSession_dialogAction :: Lens.Lens' PutSession (Prelude.Maybe DialogAction)
+putSession_dialogAction = Lens.lens (\PutSession' {dialogAction} -> dialogAction) (\s@PutSession' {} a -> s {dialogAction = a} :: PutSession)
+
+-- | Map of key\/value pairs representing the session-specific context
+-- information. It contains application information passed between Amazon
+-- Lex and a client application.
+putSession_sessionAttributes :: Lens.Lens' PutSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putSession_sessionAttributes = Lens.lens (\PutSession' {sessionAttributes} -> sessionAttributes) (\s@PutSession' {} a -> s {sessionAttributes = a} :: PutSession) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The message that Amazon Lex returns in the response can be either text
 -- or speech based depending on the value of this field.
@@ -303,17 +314,6 @@ putSession_activeContexts = Lens.lens (\PutSession' {activeContexts} -> activeCo
 putSession_recentIntentSummaryView :: Lens.Lens' PutSession (Prelude.Maybe [IntentSummary])
 putSession_recentIntentSummaryView = Lens.lens (\PutSession' {recentIntentSummaryView} -> recentIntentSummaryView) (\s@PutSession' {} a -> s {recentIntentSummaryView = a} :: PutSession) Prelude.. Lens.mapping Lens.coerced
 
--- | Sets the next action that the bot should take to fulfill the
--- conversation.
-putSession_dialogAction :: Lens.Lens' PutSession (Prelude.Maybe DialogAction)
-putSession_dialogAction = Lens.lens (\PutSession' {dialogAction} -> dialogAction) (\s@PutSession' {} a -> s {dialogAction = a} :: PutSession)
-
--- | Map of key\/value pairs representing the session-specific context
--- information. It contains application information passed between Amazon
--- Lex and a client application.
-putSession_sessionAttributes :: Lens.Lens' PutSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putSession_sessionAttributes = Lens.lens (\PutSession' {sessionAttributes} -> sessionAttributes) (\s@PutSession' {} a -> s {sessionAttributes = a} :: PutSession) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
-
 -- | The name of the bot that contains the session data.
 putSession_botName :: Lens.Lens' PutSession Prelude.Text
 putSession_botName = Lens.lens (\PutSession' {botName} -> botName) (\s@PutSession' {} a -> s {botName = a} :: PutSession)
@@ -334,39 +334,39 @@ instance Core.AWSRequest PutSession where
     Response.receiveBody
       ( \s h x ->
           PutSessionResponse'
-            Prelude.<$> (h Core..#? "x-amz-lex-slots")
-            Prelude.<*> (h Core..#? "x-amz-lex-intent-name")
-            Prelude.<*> (h Core..#? "x-amz-lex-encoded-message")
-            Prelude.<*> (h Core..#? "x-amz-lex-dialog-state")
-            Prelude.<*> (h Core..#? "x-amz-lex-active-contexts")
-            Prelude.<*> (h Core..#? "x-amz-lex-message-format")
-            Prelude.<*> (h Core..#? "x-amz-lex-message")
-            Prelude.<*> (h Core..#? "x-amz-lex-session-id")
+            Prelude.<$> (h Core..#? "x-amz-lex-message")
             Prelude.<*> (h Core..#? "x-amz-lex-slot-to-elicit")
-            Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Core..#? "x-amz-lex-dialog-state")
             Prelude.<*> (h Core..#? "x-amz-lex-session-attributes")
+            Prelude.<*> (h Core..#? "x-amz-lex-message-format")
+            Prelude.<*> (h Core..#? "x-amz-lex-encoded-message")
+            Prelude.<*> (h Core..#? "x-amz-lex-session-id")
+            Prelude.<*> (h Core..#? "x-amz-lex-intent-name")
+            Prelude.<*> (h Core..#? "x-amz-lex-active-contexts")
+            Prelude.<*> (h Core..#? "x-amz-lex-slots")
+            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
 
 instance Prelude.Hashable PutSession where
   hashWithSalt _salt PutSession' {..} =
-    _salt `Prelude.hashWithSalt` accept
+    _salt `Prelude.hashWithSalt` dialogAction
+      `Prelude.hashWithSalt` sessionAttributes
+      `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` activeContexts
       `Prelude.hashWithSalt` recentIntentSummaryView
-      `Prelude.hashWithSalt` dialogAction
-      `Prelude.hashWithSalt` sessionAttributes
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botAlias
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData PutSession where
   rnf PutSession' {..} =
-    Prelude.rnf accept
+    Prelude.rnf dialogAction
+      `Prelude.seq` Prelude.rnf sessionAttributes
+      `Prelude.seq` Prelude.rnf accept
       `Prelude.seq` Prelude.rnf activeContexts
       `Prelude.seq` Prelude.rnf recentIntentSummaryView
-      `Prelude.seq` Prelude.rnf dialogAction
-      `Prelude.seq` Prelude.rnf sessionAttributes
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf botAlias
       `Prelude.seq` Prelude.rnf userId
@@ -383,13 +383,13 @@ instance Core.ToJSON PutSession where
   toJSON PutSession' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("activeContexts" Core..=)
+          [ ("dialogAction" Core..=) Prelude.<$> dialogAction,
+            ("sessionAttributes" Core..=)
+              Prelude.<$> sessionAttributes,
+            ("activeContexts" Core..=)
               Prelude.<$> activeContexts,
             ("recentIntentSummaryView" Core..=)
-              Prelude.<$> recentIntentSummaryView,
-            ("dialogAction" Core..=) Prelude.<$> dialogAction,
-            ("sessionAttributes" Core..=)
-              Prelude.<$> sessionAttributes
+              Prelude.<$> recentIntentSummaryView
           ]
       )
 
@@ -410,26 +410,16 @@ instance Core.ToQuery PutSession where
 
 -- | /See:/ 'newPutSessionResponse' smart constructor.
 data PutSessionResponse = PutSessionResponse'
-  { -- | Map of zero or more intent slots Amazon Lex detected from the user input
-    -- during the conversation.
+  { -- | The next message that should be presented to the user.
     --
-    -- Amazon Lex creates a resolution list containing likely values for a
-    -- slot. The value that it returns is determined by the
-    -- @valueSelectionStrategy@ selected when the slot type was created or
-    -- updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@, the
-    -- value provided by the user is returned, if the user value is similar to
-    -- the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@
-    -- Amazon Lex returns the first value in the resolution list or, if there
-    -- is no resolution list, null. If you don\'t specify a
-    -- @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@.
-    slots :: Prelude.Maybe Prelude.Text,
-    -- | The name of the current intent.
-    intentName :: Prelude.Maybe Prelude.Text,
-    -- | The next message that should be presented to the user.
-    --
-    -- The @encodedMessage@ field is base-64 encoded. You must decode the field
-    -- before you can use the value.
-    encodedMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
+    -- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
+    -- @message@ field is null. You should use the @encodedMessage@ field
+    -- instead.
+    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | If the @dialogState@ is @ElicitSlot@, returns the name of the slot for
+    -- which Amazon Lex is eliciting a value.
+    slotToElicit :: Prelude.Maybe Prelude.Text,
     -- | -   @ConfirmIntent@ - Amazon Lex is expecting a \"yes\" or \"no\"
     --     response to confirm the intent before fulfilling an intent.
     --
@@ -449,8 +439,9 @@ data PutSessionResponse = PutSessionResponse'
     -- -   @ReadyForFulfillment@ - Conveys that the client has to fulfill the
     --     intent.
     dialogState :: Prelude.Maybe DialogState,
-    -- | A list of active contexts for the session.
-    activeContexts :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Map of key\/value pairs representing session-specific context
+    -- information.
+    sessionAttributes :: Prelude.Maybe Prelude.Text,
     -- | The format of the response message. One of the following values:
     --
     -- -   @PlainText@ - The message contains plain UTF-8 text.
@@ -465,21 +456,30 @@ data PutSessionResponse = PutSessionResponse'
     messageFormat :: Prelude.Maybe MessageFormatType,
     -- | The next message that should be presented to the user.
     --
-    -- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
-    -- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
-    -- @message@ field is null. You should use the @encodedMessage@ field
-    -- instead.
-    message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- The @encodedMessage@ field is base-64 encoded. You must decode the field
+    -- before you can use the value.
+    encodedMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A unique identifier for the session.
     sessionId :: Prelude.Maybe Prelude.Text,
-    -- | If the @dialogState@ is @ElicitSlot@, returns the name of the slot for
-    -- which Amazon Lex is eliciting a value.
-    slotToElicit :: Prelude.Maybe Prelude.Text,
+    -- | The name of the current intent.
+    intentName :: Prelude.Maybe Prelude.Text,
+    -- | A list of active contexts for the session.
+    activeContexts :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Map of zero or more intent slots Amazon Lex detected from the user input
+    -- during the conversation.
+    --
+    -- Amazon Lex creates a resolution list containing likely values for a
+    -- slot. The value that it returns is determined by the
+    -- @valueSelectionStrategy@ selected when the slot type was created or
+    -- updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@, the
+    -- value provided by the user is returned, if the user value is similar to
+    -- the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@
+    -- Amazon Lex returns the first value in the resolution list or, if there
+    -- is no resolution list, null. If you don\'t specify a
+    -- @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@.
+    slots :: Prelude.Maybe Prelude.Text,
     -- | Content type as specified in the @Accept@ HTTP header in the request.
     contentType :: Prelude.Maybe Prelude.Text,
-    -- | Map of key\/value pairs representing session-specific context
-    -- information.
-    sessionAttributes :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The audio version of the message to convey to the user.
@@ -495,25 +495,15 @@ data PutSessionResponse = PutSessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'slots', 'putSessionResponse_slots' - Map of zero or more intent slots Amazon Lex detected from the user input
--- during the conversation.
+-- 'message', 'putSessionResponse_message' - The next message that should be presented to the user.
 --
--- Amazon Lex creates a resolution list containing likely values for a
--- slot. The value that it returns is determined by the
--- @valueSelectionStrategy@ selected when the slot type was created or
--- updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@, the
--- value provided by the user is returned, if the user value is similar to
--- the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@
--- Amazon Lex returns the first value in the resolution list or, if there
--- is no resolution list, null. If you don\'t specify a
--- @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@.
+-- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
+-- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
+-- @message@ field is null. You should use the @encodedMessage@ field
+-- instead.
 --
--- 'intentName', 'putSessionResponse_intentName' - The name of the current intent.
---
--- 'encodedMessage', 'putSessionResponse_encodedMessage' - The next message that should be presented to the user.
---
--- The @encodedMessage@ field is base-64 encoded. You must decode the field
--- before you can use the value.
+-- 'slotToElicit', 'putSessionResponse_slotToElicit' - If the @dialogState@ is @ElicitSlot@, returns the name of the slot for
+-- which Amazon Lex is eliciting a value.
 --
 -- 'dialogState', 'putSessionResponse_dialogState' - -   @ConfirmIntent@ - Amazon Lex is expecting a \"yes\" or \"no\"
 --     response to confirm the intent before fulfilling an intent.
@@ -534,7 +524,8 @@ data PutSessionResponse = PutSessionResponse'
 -- -   @ReadyForFulfillment@ - Conveys that the client has to fulfill the
 --     intent.
 --
--- 'activeContexts', 'putSessionResponse_activeContexts' - A list of active contexts for the session.
+-- 'sessionAttributes', 'putSessionResponse_sessionAttributes' - Map of key\/value pairs representing session-specific context
+-- information.
 --
 -- 'messageFormat', 'putSessionResponse_messageFormat' - The format of the response message. One of the following values:
 --
@@ -548,22 +539,31 @@ data PutSessionResponse = PutSessionResponse'
 --     one or more messages from the groups that messages were assigned to
 --     when the intent was created.
 --
--- 'message', 'putSessionResponse_message' - The next message that should be presented to the user.
+-- 'encodedMessage', 'putSessionResponse_encodedMessage' - The next message that should be presented to the user.
 --
--- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
--- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
--- @message@ field is null. You should use the @encodedMessage@ field
--- instead.
+-- The @encodedMessage@ field is base-64 encoded. You must decode the field
+-- before you can use the value.
 --
 -- 'sessionId', 'putSessionResponse_sessionId' - A unique identifier for the session.
 --
--- 'slotToElicit', 'putSessionResponse_slotToElicit' - If the @dialogState@ is @ElicitSlot@, returns the name of the slot for
--- which Amazon Lex is eliciting a value.
+-- 'intentName', 'putSessionResponse_intentName' - The name of the current intent.
+--
+-- 'activeContexts', 'putSessionResponse_activeContexts' - A list of active contexts for the session.
+--
+-- 'slots', 'putSessionResponse_slots' - Map of zero or more intent slots Amazon Lex detected from the user input
+-- during the conversation.
+--
+-- Amazon Lex creates a resolution list containing likely values for a
+-- slot. The value that it returns is determined by the
+-- @valueSelectionStrategy@ selected when the slot type was created or
+-- updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@, the
+-- value provided by the user is returned, if the user value is similar to
+-- the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@
+-- Amazon Lex returns the first value in the resolution list or, if there
+-- is no resolution list, null. If you don\'t specify a
+-- @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@.
 --
 -- 'contentType', 'putSessionResponse_contentType' - Content type as specified in the @Accept@ HTTP header in the request.
---
--- 'sessionAttributes', 'putSessionResponse_sessionAttributes' - Map of key\/value pairs representing session-specific context
--- information.
 --
 -- 'httpStatus', 'putSessionResponse_httpStatus' - The response's http status code.
 --
@@ -576,46 +576,34 @@ newPutSessionResponse ::
   PutSessionResponse
 newPutSessionResponse pHttpStatus_ pAudioStream_ =
   PutSessionResponse'
-    { slots = Prelude.Nothing,
-      intentName = Prelude.Nothing,
-      encodedMessage = Prelude.Nothing,
-      dialogState = Prelude.Nothing,
-      activeContexts = Prelude.Nothing,
-      messageFormat = Prelude.Nothing,
-      message = Prelude.Nothing,
-      sessionId = Prelude.Nothing,
+    { message = Prelude.Nothing,
       slotToElicit = Prelude.Nothing,
-      contentType = Prelude.Nothing,
+      dialogState = Prelude.Nothing,
       sessionAttributes = Prelude.Nothing,
+      messageFormat = Prelude.Nothing,
+      encodedMessage = Prelude.Nothing,
+      sessionId = Prelude.Nothing,
+      intentName = Prelude.Nothing,
+      activeContexts = Prelude.Nothing,
+      slots = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       audioStream = pAudioStream_
     }
 
--- | Map of zero or more intent slots Amazon Lex detected from the user input
--- during the conversation.
---
--- Amazon Lex creates a resolution list containing likely values for a
--- slot. The value that it returns is determined by the
--- @valueSelectionStrategy@ selected when the slot type was created or
--- updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@, the
--- value provided by the user is returned, if the user value is similar to
--- the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@
--- Amazon Lex returns the first value in the resolution list or, if there
--- is no resolution list, null. If you don\'t specify a
--- @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@.
-putSessionResponse_slots :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_slots = Lens.lens (\PutSessionResponse' {slots} -> slots) (\s@PutSessionResponse' {} a -> s {slots = a} :: PutSessionResponse)
-
--- | The name of the current intent.
-putSessionResponse_intentName :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_intentName = Lens.lens (\PutSessionResponse' {intentName} -> intentName) (\s@PutSessionResponse' {} a -> s {intentName = a} :: PutSessionResponse)
-
 -- | The next message that should be presented to the user.
 --
--- The @encodedMessage@ field is base-64 encoded. You must decode the field
--- before you can use the value.
-putSessionResponse_encodedMessage :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_encodedMessage = Lens.lens (\PutSessionResponse' {encodedMessage} -> encodedMessage) (\s@PutSessionResponse' {} a -> s {encodedMessage = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+-- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
+-- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
+-- @message@ field is null. You should use the @encodedMessage@ field
+-- instead.
+putSessionResponse_message :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_message = Lens.lens (\PutSessionResponse' {message} -> message) (\s@PutSessionResponse' {} a -> s {message = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | If the @dialogState@ is @ElicitSlot@, returns the name of the slot for
+-- which Amazon Lex is eliciting a value.
+putSessionResponse_slotToElicit :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_slotToElicit = Lens.lens (\PutSessionResponse' {slotToElicit} -> slotToElicit) (\s@PutSessionResponse' {} a -> s {slotToElicit = a} :: PutSessionResponse)
 
 -- | -   @ConfirmIntent@ - Amazon Lex is expecting a \"yes\" or \"no\"
 --     response to confirm the intent before fulfilling an intent.
@@ -638,9 +626,10 @@ putSessionResponse_encodedMessage = Lens.lens (\PutSessionResponse' {encodedMess
 putSessionResponse_dialogState :: Lens.Lens' PutSessionResponse (Prelude.Maybe DialogState)
 putSessionResponse_dialogState = Lens.lens (\PutSessionResponse' {dialogState} -> dialogState) (\s@PutSessionResponse' {} a -> s {dialogState = a} :: PutSessionResponse)
 
--- | A list of active contexts for the session.
-putSessionResponse_activeContexts :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_activeContexts = Lens.lens (\PutSessionResponse' {activeContexts} -> activeContexts) (\s@PutSessionResponse' {} a -> s {activeContexts = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+-- | Map of key\/value pairs representing session-specific context
+-- information.
+putSessionResponse_sessionAttributes :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_sessionAttributes = Lens.lens (\PutSessionResponse' {sessionAttributes} -> sessionAttributes) (\s@PutSessionResponse' {} a -> s {sessionAttributes = a} :: PutSessionResponse)
 
 -- | The format of the response message. One of the following values:
 --
@@ -658,30 +647,41 @@ putSessionResponse_messageFormat = Lens.lens (\PutSessionResponse' {messageForma
 
 -- | The next message that should be presented to the user.
 --
--- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
--- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
--- @message@ field is null. You should use the @encodedMessage@ field
--- instead.
-putSessionResponse_message :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_message = Lens.lens (\PutSessionResponse' {message} -> message) (\s@PutSessionResponse' {} a -> s {message = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+-- The @encodedMessage@ field is base-64 encoded. You must decode the field
+-- before you can use the value.
+putSessionResponse_encodedMessage :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_encodedMessage = Lens.lens (\PutSessionResponse' {encodedMessage} -> encodedMessage) (\s@PutSessionResponse' {} a -> s {encodedMessage = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A unique identifier for the session.
 putSessionResponse_sessionId :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
 putSessionResponse_sessionId = Lens.lens (\PutSessionResponse' {sessionId} -> sessionId) (\s@PutSessionResponse' {} a -> s {sessionId = a} :: PutSessionResponse)
 
--- | If the @dialogState@ is @ElicitSlot@, returns the name of the slot for
--- which Amazon Lex is eliciting a value.
-putSessionResponse_slotToElicit :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_slotToElicit = Lens.lens (\PutSessionResponse' {slotToElicit} -> slotToElicit) (\s@PutSessionResponse' {} a -> s {slotToElicit = a} :: PutSessionResponse)
+-- | The name of the current intent.
+putSessionResponse_intentName :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_intentName = Lens.lens (\PutSessionResponse' {intentName} -> intentName) (\s@PutSessionResponse' {} a -> s {intentName = a} :: PutSessionResponse)
+
+-- | A list of active contexts for the session.
+putSessionResponse_activeContexts :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_activeContexts = Lens.lens (\PutSessionResponse' {activeContexts} -> activeContexts) (\s@PutSessionResponse' {} a -> s {activeContexts = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Map of zero or more intent slots Amazon Lex detected from the user input
+-- during the conversation.
+--
+-- Amazon Lex creates a resolution list containing likely values for a
+-- slot. The value that it returns is determined by the
+-- @valueSelectionStrategy@ selected when the slot type was created or
+-- updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@, the
+-- value provided by the user is returned, if the user value is similar to
+-- the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@
+-- Amazon Lex returns the first value in the resolution list or, if there
+-- is no resolution list, null. If you don\'t specify a
+-- @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@.
+putSessionResponse_slots :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_slots = Lens.lens (\PutSessionResponse' {slots} -> slots) (\s@PutSessionResponse' {} a -> s {slots = a} :: PutSessionResponse)
 
 -- | Content type as specified in the @Accept@ HTTP header in the request.
 putSessionResponse_contentType :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
 putSessionResponse_contentType = Lens.lens (\PutSessionResponse' {contentType} -> contentType) (\s@PutSessionResponse' {} a -> s {contentType = a} :: PutSessionResponse)
-
--- | Map of key\/value pairs representing session-specific context
--- information.
-putSessionResponse_sessionAttributes :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_sessionAttributes = Lens.lens (\PutSessionResponse' {sessionAttributes} -> sessionAttributes) (\s@PutSessionResponse' {} a -> s {sessionAttributes = a} :: PutSessionResponse)
 
 -- | The response's http status code.
 putSessionResponse_httpStatus :: Lens.Lens' PutSessionResponse Prelude.Int

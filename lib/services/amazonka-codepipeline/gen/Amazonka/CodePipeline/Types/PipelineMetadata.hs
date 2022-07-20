@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipelineMetadata' smart constructor.
 data PipelineMetadata = PipelineMetadata'
-  { -- | The date and time the pipeline was created, in timestamp format.
+  { -- | The date and time the pipeline was last updated, in timestamp format.
+    updated :: Prelude.Maybe Core.POSIX,
+    -- | The date and time the pipeline was created, in timestamp format.
     created :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the pipeline.
-    pipelineArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the pipeline was last updated, in timestamp format.
-    updated :: Prelude.Maybe Core.POSIX
+    pipelineArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,19 +44,23 @@ data PipelineMetadata = PipelineMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'updated', 'pipelineMetadata_updated' - The date and time the pipeline was last updated, in timestamp format.
+--
 -- 'created', 'pipelineMetadata_created' - The date and time the pipeline was created, in timestamp format.
 --
 -- 'pipelineArn', 'pipelineMetadata_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.
---
--- 'updated', 'pipelineMetadata_updated' - The date and time the pipeline was last updated, in timestamp format.
 newPipelineMetadata ::
   PipelineMetadata
 newPipelineMetadata =
   PipelineMetadata'
-    { created = Prelude.Nothing,
-      pipelineArn = Prelude.Nothing,
-      updated = Prelude.Nothing
+    { updated = Prelude.Nothing,
+      created = Prelude.Nothing,
+      pipelineArn = Prelude.Nothing
     }
+
+-- | The date and time the pipeline was last updated, in timestamp format.
+pipelineMetadata_updated :: Lens.Lens' PipelineMetadata (Prelude.Maybe Prelude.UTCTime)
+pipelineMetadata_updated = Lens.lens (\PipelineMetadata' {updated} -> updated) (\s@PipelineMetadata' {} a -> s {updated = a} :: PipelineMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time the pipeline was created, in timestamp format.
 pipelineMetadata_created :: Lens.Lens' PipelineMetadata (Prelude.Maybe Prelude.UTCTime)
@@ -66,29 +70,25 @@ pipelineMetadata_created = Lens.lens (\PipelineMetadata' {created} -> created) (
 pipelineMetadata_pipelineArn :: Lens.Lens' PipelineMetadata (Prelude.Maybe Prelude.Text)
 pipelineMetadata_pipelineArn = Lens.lens (\PipelineMetadata' {pipelineArn} -> pipelineArn) (\s@PipelineMetadata' {} a -> s {pipelineArn = a} :: PipelineMetadata)
 
--- | The date and time the pipeline was last updated, in timestamp format.
-pipelineMetadata_updated :: Lens.Lens' PipelineMetadata (Prelude.Maybe Prelude.UTCTime)
-pipelineMetadata_updated = Lens.lens (\PipelineMetadata' {updated} -> updated) (\s@PipelineMetadata' {} a -> s {updated = a} :: PipelineMetadata) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON PipelineMetadata where
   parseJSON =
     Core.withObject
       "PipelineMetadata"
       ( \x ->
           PipelineMetadata'
-            Prelude.<$> (x Core..:? "created")
+            Prelude.<$> (x Core..:? "updated")
+            Prelude.<*> (x Core..:? "created")
             Prelude.<*> (x Core..:? "pipelineArn")
-            Prelude.<*> (x Core..:? "updated")
       )
 
 instance Prelude.Hashable PipelineMetadata where
   hashWithSalt _salt PipelineMetadata' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt `Prelude.hashWithSalt` updated
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` pipelineArn
-      `Prelude.hashWithSalt` updated
 
 instance Prelude.NFData PipelineMetadata where
   rnf PipelineMetadata' {..} =
-    Prelude.rnf created
+    Prelude.rnf updated
+      `Prelude.seq` Prelude.rnf created
       `Prelude.seq` Prelude.rnf pipelineArn
-      `Prelude.seq` Prelude.rnf updated

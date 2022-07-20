@@ -29,9 +29,9 @@ module Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
     newStartEntitiesDetectionV2Job,
 
     -- * Request Lenses
-    startEntitiesDetectionV2Job_kmsKey,
-    startEntitiesDetectionV2Job_jobName,
     startEntitiesDetectionV2Job_clientRequestToken,
+    startEntitiesDetectionV2Job_jobName,
+    startEntitiesDetectionV2Job_kmsKey,
     startEntitiesDetectionV2Job_inputDataConfig,
     startEntitiesDetectionV2Job_outputDataConfig,
     startEntitiesDetectionV2Job_dataAccessRoleArn,
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartEntitiesDetectionV2Job' smart constructor.
 data StartEntitiesDetectionV2Job = StartEntitiesDetectionV2Job'
-  { -- | An AWS Key Management Service key to encrypt your output files. If you
-    -- do not specify a key, the files are written in plain text.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the request. If you don\'t set the client
+  { -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend Medical generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the job.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | An AWS Key Management Service key to encrypt your output files. If you
+    -- do not specify a key, the files are written in plain text.
+    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
@@ -87,13 +87,13 @@ data StartEntitiesDetectionV2Job = StartEntitiesDetectionV2Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKey', 'startEntitiesDetectionV2Job_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you
--- do not specify a key, the files are written in plain text.
+-- 'clientRequestToken', 'startEntitiesDetectionV2Job_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend Medical generates one.
 --
 -- 'jobName', 'startEntitiesDetectionV2Job_jobName' - The identifier of the job.
 --
--- 'clientRequestToken', 'startEntitiesDetectionV2Job_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- 'kmsKey', 'startEntitiesDetectionV2Job_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you
+-- do not specify a key, the files are written in plain text.
 --
 -- 'inputDataConfig', 'startEntitiesDetectionV2Job_inputDataConfig' - Specifies the format and location of the input data for the job.
 --
@@ -122,29 +122,29 @@ newStartEntitiesDetectionV2Job
   pDataAccessRoleArn_
   pLanguageCode_ =
     StartEntitiesDetectionV2Job'
-      { kmsKey =
+      { clientRequestToken =
           Prelude.Nothing,
         jobName = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+        kmsKey = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         languageCode = pLanguageCode_
       }
 
--- | An AWS Key Management Service key to encrypt your output files. If you
--- do not specify a key, the files are written in plain text.
-startEntitiesDetectionV2Job_kmsKey :: Lens.Lens' StartEntitiesDetectionV2Job (Prelude.Maybe Prelude.Text)
-startEntitiesDetectionV2Job_kmsKey = Lens.lens (\StartEntitiesDetectionV2Job' {kmsKey} -> kmsKey) (\s@StartEntitiesDetectionV2Job' {} a -> s {kmsKey = a} :: StartEntitiesDetectionV2Job)
+-- | A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend Medical generates one.
+startEntitiesDetectionV2Job_clientRequestToken :: Lens.Lens' StartEntitiesDetectionV2Job (Prelude.Maybe Prelude.Text)
+startEntitiesDetectionV2Job_clientRequestToken = Lens.lens (\StartEntitiesDetectionV2Job' {clientRequestToken} -> clientRequestToken) (\s@StartEntitiesDetectionV2Job' {} a -> s {clientRequestToken = a} :: StartEntitiesDetectionV2Job)
 
 -- | The identifier of the job.
 startEntitiesDetectionV2Job_jobName :: Lens.Lens' StartEntitiesDetectionV2Job (Prelude.Maybe Prelude.Text)
 startEntitiesDetectionV2Job_jobName = Lens.lens (\StartEntitiesDetectionV2Job' {jobName} -> jobName) (\s@StartEntitiesDetectionV2Job' {} a -> s {jobName = a} :: StartEntitiesDetectionV2Job)
 
--- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
-startEntitiesDetectionV2Job_clientRequestToken :: Lens.Lens' StartEntitiesDetectionV2Job (Prelude.Maybe Prelude.Text)
-startEntitiesDetectionV2Job_clientRequestToken = Lens.lens (\StartEntitiesDetectionV2Job' {clientRequestToken} -> clientRequestToken) (\s@StartEntitiesDetectionV2Job' {} a -> s {clientRequestToken = a} :: StartEntitiesDetectionV2Job)
+-- | An AWS Key Management Service key to encrypt your output files. If you
+-- do not specify a key, the files are written in plain text.
+startEntitiesDetectionV2Job_kmsKey :: Lens.Lens' StartEntitiesDetectionV2Job (Prelude.Maybe Prelude.Text)
+startEntitiesDetectionV2Job_kmsKey = Lens.lens (\StartEntitiesDetectionV2Job' {kmsKey} -> kmsKey) (\s@StartEntitiesDetectionV2Job' {} a -> s {kmsKey = a} :: StartEntitiesDetectionV2Job)
 
 -- | Specifies the format and location of the input data for the job.
 startEntitiesDetectionV2Job_inputDataConfig :: Lens.Lens' StartEntitiesDetectionV2Job InputDataConfig
@@ -181,9 +181,9 @@ instance Core.AWSRequest StartEntitiesDetectionV2Job where
 
 instance Prelude.Hashable StartEntitiesDetectionV2Job where
   hashWithSalt _salt StartEntitiesDetectionV2Job' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` outputDataConfig
       `Prelude.hashWithSalt` dataAccessRoleArn
@@ -191,9 +191,9 @@ instance Prelude.Hashable StartEntitiesDetectionV2Job where
 
 instance Prelude.NFData StartEntitiesDetectionV2Job where
   rnf StartEntitiesDetectionV2Job' {..} =
-    Prelude.rnf kmsKey
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
@@ -218,10 +218,10 @@ instance Core.ToJSON StartEntitiesDetectionV2Job where
   toJSON StartEntitiesDetectionV2Job' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
             Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
             Prelude.Just

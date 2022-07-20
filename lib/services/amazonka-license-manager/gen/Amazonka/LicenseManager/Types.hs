@@ -17,23 +17,23 @@ module Amazonka.LicenseManager.Types
     defaultService,
 
     -- * Errors
+    _RateLimitExceededException,
+    _LicenseUsageException,
+    _AuthorizationException,
+    _AccessDeniedException,
+    _InvalidResourceStateException,
+    _ServerInternalException,
+    _FailedDependencyException,
+    _ResourceNotFoundException,
+    _UnsupportedDigitalSignatureMethodException,
+    _FilterLimitExceededException,
+    _ResourceLimitExceededException,
+    _ConflictException,
     _NoEntitlementsAllowedException,
     _ValidationException,
-    _AccessDeniedException,
-    _ResourceLimitExceededException,
-    _InvalidResourceStateException,
-    _RateLimitExceededException,
-    _FailedDependencyException,
-    _ConflictException,
-    _FilterLimitExceededException,
-    _InvalidParameterValueException,
-    _AuthorizationException,
-    _RedirectException,
-    _ServerInternalException,
     _EntitlementNotAllowedException,
-    _UnsupportedDigitalSignatureMethodException,
-    _ResourceNotFoundException,
-    _LicenseUsageException,
+    _RedirectException,
+    _InvalidParameterValueException,
 
     -- * AllowedOperation
     AllowedOperation (..),
@@ -109,9 +109,9 @@ module Amazonka.LicenseManager.Types
     -- * ConsumptionConfiguration
     ConsumptionConfiguration (..),
     newConsumptionConfiguration,
+    consumptionConfiguration_renewType,
     consumptionConfiguration_borrowConfiguration,
     consumptionConfiguration_provisionalConfiguration,
-    consumptionConfiguration_renewType,
 
     -- * DatetimeRange
     DatetimeRange (..),
@@ -122,10 +122,10 @@ module Amazonka.LicenseManager.Types
     -- * Entitlement
     Entitlement (..),
     newEntitlement,
-    entitlement_maxCount,
-    entitlement_value,
-    entitlement_overage,
     entitlement_allowCheckIn,
+    entitlement_maxCount,
+    entitlement_overage,
+    entitlement_value,
     entitlement_name,
     entitlement_unit,
 
@@ -147,8 +147,8 @@ module Amazonka.LicenseManager.Types
     -- * Filter
     Filter (..),
     newFilter,
-    filter_values,
     filter_name,
+    filter_values,
 
     -- * Grant
     Grant (..),
@@ -167,21 +167,21 @@ module Amazonka.LicenseManager.Types
     -- * GrantedLicense
     GrantedLicense (..),
     newGrantedLicense,
-    grantedLicense_status,
     grantedLicense_productName,
-    grantedLicense_licenseName,
-    grantedLicense_productSKU,
-    grantedLicense_homeRegion,
-    grantedLicense_receivedMetadata,
-    grantedLicense_version,
-    grantedLicense_entitlements,
-    grantedLicense_validity,
-    grantedLicense_consumptionConfiguration,
-    grantedLicense_beneficiary,
     grantedLicense_issuer,
-    grantedLicense_licenseArn,
+    grantedLicense_licenseName,
     grantedLicense_licenseMetadata,
+    grantedLicense_licenseArn,
+    grantedLicense_consumptionConfiguration,
+    grantedLicense_entitlements,
+    grantedLicense_status,
+    grantedLicense_receivedMetadata,
+    grantedLicense_homeRegion,
     grantedLicense_createTime,
+    grantedLicense_productSKU,
+    grantedLicense_beneficiary,
+    grantedLicense_validity,
+    grantedLicense_version,
 
     -- * InventoryFilter
     InventoryFilter (..),
@@ -199,66 +199,66 @@ module Amazonka.LicenseManager.Types
     -- * IssuerDetails
     IssuerDetails (..),
     newIssuerDetails,
+    issuerDetails_name,
     issuerDetails_keyFingerprint,
     issuerDetails_signKey,
-    issuerDetails_name,
 
     -- * License
     License (..),
     newLicense,
-    license_status,
     license_productName,
-    license_licenseName,
-    license_productSKU,
-    license_homeRegion,
-    license_version,
-    license_entitlements,
-    license_validity,
-    license_consumptionConfiguration,
-    license_beneficiary,
     license_issuer,
-    license_licenseArn,
+    license_licenseName,
     license_licenseMetadata,
+    license_licenseArn,
+    license_consumptionConfiguration,
+    license_entitlements,
+    license_status,
+    license_homeRegion,
     license_createTime,
+    license_productSKU,
+    license_beneficiary,
+    license_validity,
+    license_version,
 
     -- * LicenseConfiguration
     LicenseConfiguration (..),
     newLicenseConfiguration,
-    licenseConfiguration_status,
-    licenseConfiguration_ownerAccountId,
-    licenseConfiguration_consumedLicenseSummaryList,
-    licenseConfiguration_licenseCount,
-    licenseConfiguration_managedResourceSummaryList,
     licenseConfiguration_name,
-    licenseConfiguration_licenseCountHardLimit,
-    licenseConfiguration_disassociateWhenNotFound,
     licenseConfiguration_productInformationList,
     licenseConfiguration_licenseCountingType,
-    licenseConfiguration_automatedDiscoveryInformation,
-    licenseConfiguration_consumedLicenses,
     licenseConfiguration_licenseRules,
-    licenseConfiguration_licenseConfigurationId,
-    licenseConfiguration_description,
+    licenseConfiguration_consumedLicenses,
     licenseConfiguration_licenseConfigurationArn,
+    licenseConfiguration_status,
+    licenseConfiguration_description,
+    licenseConfiguration_licenseConfigurationId,
+    licenseConfiguration_managedResourceSummaryList,
+    licenseConfiguration_ownerAccountId,
+    licenseConfiguration_licenseCount,
+    licenseConfiguration_licenseCountHardLimit,
+    licenseConfiguration_disassociateWhenNotFound,
+    licenseConfiguration_automatedDiscoveryInformation,
+    licenseConfiguration_consumedLicenseSummaryList,
 
     -- * LicenseConfigurationAssociation
     LicenseConfigurationAssociation (..),
     newLicenseConfigurationAssociation,
     licenseConfigurationAssociation_resourceType,
-    licenseConfigurationAssociation_amiAssociationScope,
+    licenseConfigurationAssociation_resourceOwnerId,
     licenseConfigurationAssociation_associationTime,
     licenseConfigurationAssociation_resourceArn,
-    licenseConfigurationAssociation_resourceOwnerId,
+    licenseConfigurationAssociation_amiAssociationScope,
 
     -- * LicenseConfigurationUsage
     LicenseConfigurationUsage (..),
     newLicenseConfigurationUsage,
     licenseConfigurationUsage_resourceType,
-    licenseConfigurationUsage_resourceStatus,
+    licenseConfigurationUsage_resourceOwnerId,
+    licenseConfigurationUsage_consumedLicenses,
     licenseConfigurationUsage_associationTime,
     licenseConfigurationUsage_resourceArn,
-    licenseConfigurationUsage_consumedLicenses,
-    licenseConfigurationUsage_resourceOwnerId,
+    licenseConfigurationUsage_resourceStatus,
 
     -- * LicenseConversionContext
     LicenseConversionContext (..),
@@ -268,27 +268,27 @@ module Amazonka.LicenseManager.Types
     -- * LicenseConversionTask
     LicenseConversionTask (..),
     newLicenseConversionTask,
-    licenseConversionTask_status,
-    licenseConversionTask_startTime,
-    licenseConversionTask_destinationLicenseContext,
-    licenseConversionTask_licenseConversionTaskId,
-    licenseConversionTask_resourceArn,
-    licenseConversionTask_statusMessage,
-    licenseConversionTask_endTime,
-    licenseConversionTask_licenseConversionTime,
     licenseConversionTask_sourceLicenseContext,
+    licenseConversionTask_licenseConversionTime,
+    licenseConversionTask_status,
+    licenseConversionTask_endTime,
+    licenseConversionTask_destinationLicenseContext,
+    licenseConversionTask_resourceArn,
+    licenseConversionTask_licenseConversionTaskId,
+    licenseConversionTask_statusMessage,
+    licenseConversionTask_startTime,
 
     -- * LicenseOperationFailure
     LicenseOperationFailure (..),
     newLicenseOperationFailure,
     licenseOperationFailure_resourceType,
+    licenseOperationFailure_resourceOwnerId,
+    licenseOperationFailure_errorMessage,
+    licenseOperationFailure_failureTime,
     licenseOperationFailure_operationRequestedBy,
     licenseOperationFailure_resourceArn,
     licenseOperationFailure_metadataList,
     licenseOperationFailure_operationName,
-    licenseOperationFailure_failureTime,
-    licenseOperationFailure_errorMessage,
-    licenseOperationFailure_resourceOwnerId,
 
     -- * LicenseSpecification
     LicenseSpecification (..),
@@ -304,14 +304,14 @@ module Amazonka.LicenseManager.Types
     -- * ManagedResourceSummary
     ManagedResourceSummary (..),
     newManagedResourceSummary,
-    managedResourceSummary_associationCount,
     managedResourceSummary_resourceType,
+    managedResourceSummary_associationCount,
 
     -- * Metadata
     Metadata (..),
     newMetadata,
-    metadata_value,
     metadata_name,
+    metadata_value,
 
     -- * OrganizationConfiguration
     OrganizationConfiguration (..),
@@ -339,8 +339,8 @@ module Amazonka.LicenseManager.Types
     -- * ReceivedMetadata
     ReceivedMetadata (..),
     newReceivedMetadata,
-    receivedMetadata_receivedStatus,
     receivedMetadata_allowedOperations,
+    receivedMetadata_receivedStatus,
     receivedMetadata_receivedStatusReason,
 
     -- * ReportContext
@@ -357,29 +357,29 @@ module Amazonka.LicenseManager.Types
     -- * ReportGenerator
     ReportGenerator (..),
     newReportGenerator,
+    reportGenerator_tags,
+    reportGenerator_reportType,
+    reportGenerator_reportFrequency,
+    reportGenerator_licenseManagerReportGeneratorArn,
     reportGenerator_lastReportGenerationTime,
+    reportGenerator_description,
+    reportGenerator_reportGeneratorName,
+    reportGenerator_s3Location,
+    reportGenerator_createTime,
     reportGenerator_lastRunFailureReason,
     reportGenerator_lastRunStatus,
-    reportGenerator_reportGeneratorName,
-    reportGenerator_reportFrequency,
-    reportGenerator_s3Location,
-    reportGenerator_licenseManagerReportGeneratorArn,
-    reportGenerator_reportCreatorAccount,
-    reportGenerator_description,
-    reportGenerator_reportType,
-    reportGenerator_createTime,
-    reportGenerator_tags,
     reportGenerator_reportContext,
+    reportGenerator_reportCreatorAccount,
 
     -- * ResourceInventory
     ResourceInventory (..),
     newResourceInventory,
-    resourceInventory_platform,
     resourceInventory_resourceId,
+    resourceInventory_resourceOwningAccountId,
     resourceInventory_resourceType,
+    resourceInventory_platform,
     resourceInventory_platformVersion,
     resourceInventory_resourceArn,
-    resourceInventory_resourceOwningAccountId,
 
     -- * S3Location
     S3Location (..),
@@ -390,19 +390,19 @@ module Amazonka.LicenseManager.Types
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
 
     -- * TokenData
     TokenData (..),
     newTokenData,
+    tokenData_licenseArn,
+    tokenData_expirationTime,
+    tokenData_roleArns,
     tokenData_status,
     tokenData_tokenId,
-    tokenData_tokenProperties,
-    tokenData_roleArns,
     tokenData_tokenType,
-    tokenData_expirationTime,
-    tokenData_licenseArn,
+    tokenData_tokenProperties,
   )
 where
 
@@ -493,35 +493,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -530,13 +503,130 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Too many requests have been submitted. Try again after a brief wait.
+_RateLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RateLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "RateLimitExceededException"
+
+-- | You do not have enough licenses available to support a new resource
+-- launch.
+_LicenseUsageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LicenseUsageException =
+  Core._MatchServiceError
+    defaultService
+    "LicenseUsageException"
+
+-- | The Amazon Web Services user account does not have permission to perform
+-- the action. Check the IAM policy associated with this account.
+_AuthorizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthorizationException =
+  Core._MatchServiceError
+    defaultService
+    "AuthorizationException"
+
+-- | Access to resource denied.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+
+-- | License Manager cannot allocate a license to a resource because of its
+-- state.
+--
+-- For example, you cannot allocate a license to an instance in the process
+-- of shutting down.
+_InvalidResourceStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceStateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidResourceStateException"
+
+-- | The server experienced an internal error. Try again.
+_ServerInternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerInternalException =
+  Core._MatchServiceError
+    defaultService
+    "ServerInternalException"
+
+-- | A dependency required to run the API is missing.
+_FailedDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FailedDependencyException =
+  Core._MatchServiceError
+    defaultService
+    "FailedDependencyException"
+
+-- | The resource cannot be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The digital signature method is unsupported. Try your request again.
+_UnsupportedDigitalSignatureMethodException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedDigitalSignatureMethodException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedDigitalSignatureMethodException"
+
+-- | The request uses too many filters or too many filter values.
+_FilterLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FilterLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "FilterLimitExceededException"
+
+-- | Your resource limits have been exceeded.
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceededException"
+
+-- | There was a conflict processing the request. Try your request again.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
 
 -- | There are no entitlements found for this license, or the entitlement
 -- maximum count is reached.
@@ -553,73 +643,12 @@ _ValidationException =
     defaultService
     "ValidationException"
 
--- | Access to resource denied.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
+-- | The entitlement is not allowed.
+_EntitlementNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntitlementNotAllowedException =
   Core._MatchServiceError
     defaultService
-    "AccessDeniedException"
-
--- | Your resource limits have been exceeded.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceLimitExceededException"
-
--- | License Manager cannot allocate a license to a resource because of its
--- state.
---
--- For example, you cannot allocate a license to an instance in the process
--- of shutting down.
-_InvalidResourceStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResourceStateException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidResourceStateException"
-
--- | Too many requests have been submitted. Try again after a brief wait.
-_RateLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RateLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "RateLimitExceededException"
-
--- | A dependency required to run the API is missing.
-_FailedDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_FailedDependencyException =
-  Core._MatchServiceError
-    defaultService
-    "FailedDependencyException"
-
--- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
--- | The request uses too many filters or too many filter values.
-_FilterLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_FilterLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "FilterLimitExceededException"
-
--- | One or more parameter values are not valid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterValueException"
-
--- | The Amazon Web Services user account does not have permission to perform
--- the action. Check the IAM policy associated with this account.
-_AuthorizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AuthorizationException =
-  Core._MatchServiceError
-    defaultService
-    "AuthorizationException"
+    "EntitlementNotAllowedException"
 
 -- | This is not the correct Region for the resource. Try again.
 _RedirectException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -628,38 +657,9 @@ _RedirectException =
     defaultService
     "RedirectException"
 
--- | The server experienced an internal error. Try again.
-_ServerInternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServerInternalException =
+-- | One or more parameter values are not valid.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
-    "ServerInternalException"
-
--- | The entitlement is not allowed.
-_EntitlementNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntitlementNotAllowedException =
-  Core._MatchServiceError
-    defaultService
-    "EntitlementNotAllowedException"
-
--- | The digital signature method is unsupported. Try your request again.
-_UnsupportedDigitalSignatureMethodException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedDigitalSignatureMethodException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedDigitalSignatureMethodException"
-
--- | The resource cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | You do not have enough licenses available to support a new resource
--- launch.
-_LicenseUsageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LicenseUsageException =
-  Core._MatchServiceError
-    defaultService
-    "LicenseUsageException"
+    "InvalidParameterValueException"

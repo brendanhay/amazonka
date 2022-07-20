@@ -23,21 +23,6 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
-newVaultNotExists :: Core.Wait DescribeVault
-newVaultNotExists =
-  Core.Wait
-    { Core._waitName = "VaultNotExists",
-      Core._waitAttempts = 15,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptRetry,
-          Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess
-        ]
-    }
-
--- | Polls 'Amazonka.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
 newVaultExists :: Core.Wait DescribeVault
 newVaultExists =
   Core.Wait
@@ -49,5 +34,20 @@ newVaultExists =
           Core.matchError
             "ResourceNotFoundException"
             Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
+newVaultNotExists :: Core.Wait DescribeVault
+newVaultNotExists =
+  Core.Wait
+    { Core._waitName = "VaultNotExists",
+      Core._waitAttempts = 15,
+      Core._waitDelay = 3,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptRetry,
+          Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess
         ]
     }

@@ -48,10 +48,10 @@ module Amazonka.ECR.UploadLayerPart
     newUploadLayerPartResponse,
 
     -- * Response Lenses
+    uploadLayerPartResponse_uploadId,
+    uploadLayerPartResponse_repositoryName,
     uploadLayerPartResponse_registryId,
     uploadLayerPartResponse_lastByteReceived,
-    uploadLayerPartResponse_repositoryName,
-    uploadLayerPartResponse_uploadId,
     uploadLayerPartResponse_httpStatus,
   )
 where
@@ -182,10 +182,10 @@ instance Core.AWSRequest UploadLayerPart where
     Response.receiveJSON
       ( \s h x ->
           UploadLayerPartResponse'
-            Prelude.<$> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "lastByteReceived")
+            Prelude.<$> (x Core..?> "uploadId")
             Prelude.<*> (x Core..?> "repositoryName")
-            Prelude.<*> (x Core..?> "uploadId")
+            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "lastByteReceived")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,14 +245,14 @@ instance Core.ToQuery UploadLayerPart where
 
 -- | /See:/ 'newUploadLayerPartResponse' smart constructor.
 data UploadLayerPartResponse = UploadLayerPartResponse'
-  { -- | The registry ID associated with the request.
+  { -- | The upload ID associated with the request.
+    uploadId :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The integer value of the last byte received in the request.
     lastByteReceived :: Prelude.Maybe Prelude.Natural,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The upload ID associated with the request.
-    uploadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,13 +266,13 @@ data UploadLayerPartResponse = UploadLayerPartResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'uploadLayerPartResponse_registryId' - The registry ID associated with the request.
---
--- 'lastByteReceived', 'uploadLayerPartResponse_lastByteReceived' - The integer value of the last byte received in the request.
+-- 'uploadId', 'uploadLayerPartResponse_uploadId' - The upload ID associated with the request.
 --
 -- 'repositoryName', 'uploadLayerPartResponse_repositoryName' - The repository name associated with the request.
 --
--- 'uploadId', 'uploadLayerPartResponse_uploadId' - The upload ID associated with the request.
+-- 'registryId', 'uploadLayerPartResponse_registryId' - The registry ID associated with the request.
+--
+-- 'lastByteReceived', 'uploadLayerPartResponse_lastByteReceived' - The integer value of the last byte received in the request.
 --
 -- 'httpStatus', 'uploadLayerPartResponse_httpStatus' - The response's http status code.
 newUploadLayerPartResponse ::
@@ -281,13 +281,21 @@ newUploadLayerPartResponse ::
   UploadLayerPartResponse
 newUploadLayerPartResponse pHttpStatus_ =
   UploadLayerPartResponse'
-    { registryId =
+    { uploadId =
         Prelude.Nothing,
-      lastByteReceived = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
-      uploadId = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      lastByteReceived = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The upload ID associated with the request.
+uploadLayerPartResponse_uploadId :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
+uploadLayerPartResponse_uploadId = Lens.lens (\UploadLayerPartResponse' {uploadId} -> uploadId) (\s@UploadLayerPartResponse' {} a -> s {uploadId = a} :: UploadLayerPartResponse)
+
+-- | The repository name associated with the request.
+uploadLayerPartResponse_repositoryName :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
+uploadLayerPartResponse_repositoryName = Lens.lens (\UploadLayerPartResponse' {repositoryName} -> repositoryName) (\s@UploadLayerPartResponse' {} a -> s {repositoryName = a} :: UploadLayerPartResponse)
 
 -- | The registry ID associated with the request.
 uploadLayerPartResponse_registryId :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
@@ -297,22 +305,14 @@ uploadLayerPartResponse_registryId = Lens.lens (\UploadLayerPartResponse' {regis
 uploadLayerPartResponse_lastByteReceived :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Natural)
 uploadLayerPartResponse_lastByteReceived = Lens.lens (\UploadLayerPartResponse' {lastByteReceived} -> lastByteReceived) (\s@UploadLayerPartResponse' {} a -> s {lastByteReceived = a} :: UploadLayerPartResponse)
 
--- | The repository name associated with the request.
-uploadLayerPartResponse_repositoryName :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
-uploadLayerPartResponse_repositoryName = Lens.lens (\UploadLayerPartResponse' {repositoryName} -> repositoryName) (\s@UploadLayerPartResponse' {} a -> s {repositoryName = a} :: UploadLayerPartResponse)
-
--- | The upload ID associated with the request.
-uploadLayerPartResponse_uploadId :: Lens.Lens' UploadLayerPartResponse (Prelude.Maybe Prelude.Text)
-uploadLayerPartResponse_uploadId = Lens.lens (\UploadLayerPartResponse' {uploadId} -> uploadId) (\s@UploadLayerPartResponse' {} a -> s {uploadId = a} :: UploadLayerPartResponse)
-
 -- | The response's http status code.
 uploadLayerPartResponse_httpStatus :: Lens.Lens' UploadLayerPartResponse Prelude.Int
 uploadLayerPartResponse_httpStatus = Lens.lens (\UploadLayerPartResponse' {httpStatus} -> httpStatus) (\s@UploadLayerPartResponse' {} a -> s {httpStatus = a} :: UploadLayerPartResponse)
 
 instance Prelude.NFData UploadLayerPartResponse where
   rnf UploadLayerPartResponse' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf lastByteReceived
+    Prelude.rnf uploadId
       `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf uploadId
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf lastByteReceived
       `Prelude.seq` Prelude.rnf httpStatus

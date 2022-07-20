@@ -125,14 +125,7 @@ instance
 
 instance Core.ToJSON CreateRecommenderConfiguration' where
   toJSON CreateRecommenderConfiguration'' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "CreateRecommenderConfiguration"
-                  Core..= createRecommenderConfiguration
-              )
-          ]
-      )
+    Core.toJSON createRecommenderConfiguration
 
 instance Core.ToPath CreateRecommenderConfiguration' where
   toPath = Prelude.const "/v1/recommenders"

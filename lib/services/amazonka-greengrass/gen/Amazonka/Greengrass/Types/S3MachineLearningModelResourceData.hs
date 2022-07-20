@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3MachineLearningModelResourceData' smart constructor.
 data S3MachineLearningModelResourceData = S3MachineLearningModelResourceData'
-  { ownerSetting :: Prelude.Maybe ResourceDownloadOwnerSetting,
-    -- | The absolute local path of the resource inside the Lambda environment.
+  { -- | The absolute local path of the resource inside the Lambda environment.
     destinationPath :: Prelude.Maybe Prelude.Text,
+    ownerSetting :: Prelude.Maybe ResourceDownloadOwnerSetting,
     -- | The URI of the source model in an S3 bucket. The model package must be
     -- in tar.gz or .zip format.
     s3Uri :: Prelude.Maybe Prelude.Text
@@ -45,9 +45,9 @@ data S3MachineLearningModelResourceData = S3MachineLearningModelResourceData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerSetting', 's3MachineLearningModelResourceData_ownerSetting' - Undocumented member.
---
 -- 'destinationPath', 's3MachineLearningModelResourceData_destinationPath' - The absolute local path of the resource inside the Lambda environment.
+--
+-- 'ownerSetting', 's3MachineLearningModelResourceData_ownerSetting' - Undocumented member.
 --
 -- 's3Uri', 's3MachineLearningModelResourceData_s3Uri' - The URI of the source model in an S3 bucket. The model package must be
 -- in tar.gz or .zip format.
@@ -55,19 +55,19 @@ newS3MachineLearningModelResourceData ::
   S3MachineLearningModelResourceData
 newS3MachineLearningModelResourceData =
   S3MachineLearningModelResourceData'
-    { ownerSetting =
+    { destinationPath =
         Prelude.Nothing,
-      destinationPath = Prelude.Nothing,
+      ownerSetting = Prelude.Nothing,
       s3Uri = Prelude.Nothing
     }
-
--- | Undocumented member.
-s3MachineLearningModelResourceData_ownerSetting :: Lens.Lens' S3MachineLearningModelResourceData (Prelude.Maybe ResourceDownloadOwnerSetting)
-s3MachineLearningModelResourceData_ownerSetting = Lens.lens (\S3MachineLearningModelResourceData' {ownerSetting} -> ownerSetting) (\s@S3MachineLearningModelResourceData' {} a -> s {ownerSetting = a} :: S3MachineLearningModelResourceData)
 
 -- | The absolute local path of the resource inside the Lambda environment.
 s3MachineLearningModelResourceData_destinationPath :: Lens.Lens' S3MachineLearningModelResourceData (Prelude.Maybe Prelude.Text)
 s3MachineLearningModelResourceData_destinationPath = Lens.lens (\S3MachineLearningModelResourceData' {destinationPath} -> destinationPath) (\s@S3MachineLearningModelResourceData' {} a -> s {destinationPath = a} :: S3MachineLearningModelResourceData)
+
+-- | Undocumented member.
+s3MachineLearningModelResourceData_ownerSetting :: Lens.Lens' S3MachineLearningModelResourceData (Prelude.Maybe ResourceDownloadOwnerSetting)
+s3MachineLearningModelResourceData_ownerSetting = Lens.lens (\S3MachineLearningModelResourceData' {ownerSetting} -> ownerSetting) (\s@S3MachineLearningModelResourceData' {} a -> s {ownerSetting = a} :: S3MachineLearningModelResourceData)
 
 -- | The URI of the source model in an S3 bucket. The model package must be
 -- in tar.gz or .zip format.
@@ -83,8 +83,8 @@ instance
       "S3MachineLearningModelResourceData"
       ( \x ->
           S3MachineLearningModelResourceData'
-            Prelude.<$> (x Core..:? "OwnerSetting")
-            Prelude.<*> (x Core..:? "DestinationPath")
+            Prelude.<$> (x Core..:? "DestinationPath")
+            Prelude.<*> (x Core..:? "OwnerSetting")
             Prelude.<*> (x Core..:? "S3Uri")
       )
 
@@ -95,8 +95,8 @@ instance
   hashWithSalt
     _salt
     S3MachineLearningModelResourceData' {..} =
-      _salt `Prelude.hashWithSalt` ownerSetting
-        `Prelude.hashWithSalt` destinationPath
+      _salt `Prelude.hashWithSalt` destinationPath
+        `Prelude.hashWithSalt` ownerSetting
         `Prelude.hashWithSalt` s3Uri
 
 instance
@@ -104,8 +104,8 @@ instance
     S3MachineLearningModelResourceData
   where
   rnf S3MachineLearningModelResourceData' {..} =
-    Prelude.rnf ownerSetting
-      `Prelude.seq` Prelude.rnf destinationPath
+    Prelude.rnf destinationPath
+      `Prelude.seq` Prelude.rnf ownerSetting
       `Prelude.seq` Prelude.rnf s3Uri
 
 instance
@@ -115,9 +115,9 @@ instance
   toJSON S3MachineLearningModelResourceData' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OwnerSetting" Core..=) Prelude.<$> ownerSetting,
-            ("DestinationPath" Core..=)
+          [ ("DestinationPath" Core..=)
               Prelude.<$> destinationPath,
+            ("OwnerSetting" Core..=) Prelude.<$> ownerSetting,
             ("S3Uri" Core..=) Prelude.<$> s3Uri
           ]
       )

@@ -38,10 +38,10 @@ module Amazonka.IoT.CreateProvisioningClaim
     newCreateProvisioningClaimResponse,
 
     -- * Response Lenses
-    createProvisioningClaimResponse_keyPair,
-    createProvisioningClaimResponse_certificatePem,
-    createProvisioningClaimResponse_certificateId,
     createProvisioningClaimResponse_expiration,
+    createProvisioningClaimResponse_keyPair,
+    createProvisioningClaimResponse_certificateId,
+    createProvisioningClaimResponse_certificatePem,
     createProvisioningClaimResponse_httpStatus,
   )
 where
@@ -92,10 +92,10 @@ instance Core.AWSRequest CreateProvisioningClaim where
     Response.receiveJSON
       ( \s h x ->
           CreateProvisioningClaimResponse'
-            Prelude.<$> (x Core..?> "keyPair")
-            Prelude.<*> (x Core..?> "certificatePem")
+            Prelude.<$> (x Core..?> "expiration")
+            Prelude.<*> (x Core..?> "keyPair")
             Prelude.<*> (x Core..?> "certificateId")
-            Prelude.<*> (x Core..?> "expiration")
+            Prelude.<*> (x Core..?> "certificatePem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,14 +126,14 @@ instance Core.ToQuery CreateProvisioningClaim where
 
 -- | /See:/ 'newCreateProvisioningClaimResponse' smart constructor.
 data CreateProvisioningClaimResponse = CreateProvisioningClaimResponse'
-  { -- | The provisioning claim key pair.
+  { -- | The provisioning claim expiration time.
+    expiration :: Prelude.Maybe Core.POSIX,
+    -- | The provisioning claim key pair.
     keyPair :: Prelude.Maybe KeyPair,
-    -- | The provisioning claim certificate.
-    certificatePem :: Prelude.Maybe Prelude.Text,
     -- | The ID of the certificate.
     certificateId :: Prelude.Maybe Prelude.Text,
-    -- | The provisioning claim expiration time.
-    expiration :: Prelude.Maybe Core.POSIX,
+    -- | The provisioning claim certificate.
+    certificatePem :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,13 +147,13 @@ data CreateProvisioningClaimResponse = CreateProvisioningClaimResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPair', 'createProvisioningClaimResponse_keyPair' - The provisioning claim key pair.
+-- 'expiration', 'createProvisioningClaimResponse_expiration' - The provisioning claim expiration time.
 --
--- 'certificatePem', 'createProvisioningClaimResponse_certificatePem' - The provisioning claim certificate.
+-- 'keyPair', 'createProvisioningClaimResponse_keyPair' - The provisioning claim key pair.
 --
 -- 'certificateId', 'createProvisioningClaimResponse_certificateId' - The ID of the certificate.
 --
--- 'expiration', 'createProvisioningClaimResponse_expiration' - The provisioning claim expiration time.
+-- 'certificatePem', 'createProvisioningClaimResponse_certificatePem' - The provisioning claim certificate.
 --
 -- 'httpStatus', 'createProvisioningClaimResponse_httpStatus' - The response's http status code.
 newCreateProvisioningClaimResponse ::
@@ -162,29 +162,29 @@ newCreateProvisioningClaimResponse ::
   CreateProvisioningClaimResponse
 newCreateProvisioningClaimResponse pHttpStatus_ =
   CreateProvisioningClaimResponse'
-    { keyPair =
+    { expiration =
         Prelude.Nothing,
-      certificatePem = Prelude.Nothing,
+      keyPair = Prelude.Nothing,
       certificateId = Prelude.Nothing,
-      expiration = Prelude.Nothing,
+      certificatePem = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The provisioning claim expiration time.
+createProvisioningClaimResponse_expiration :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.UTCTime)
+createProvisioningClaimResponse_expiration = Lens.lens (\CreateProvisioningClaimResponse' {expiration} -> expiration) (\s@CreateProvisioningClaimResponse' {} a -> s {expiration = a} :: CreateProvisioningClaimResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The provisioning claim key pair.
 createProvisioningClaimResponse_keyPair :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe KeyPair)
 createProvisioningClaimResponse_keyPair = Lens.lens (\CreateProvisioningClaimResponse' {keyPair} -> keyPair) (\s@CreateProvisioningClaimResponse' {} a -> s {keyPair = a} :: CreateProvisioningClaimResponse)
 
--- | The provisioning claim certificate.
-createProvisioningClaimResponse_certificatePem :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.Text)
-createProvisioningClaimResponse_certificatePem = Lens.lens (\CreateProvisioningClaimResponse' {certificatePem} -> certificatePem) (\s@CreateProvisioningClaimResponse' {} a -> s {certificatePem = a} :: CreateProvisioningClaimResponse)
-
 -- | The ID of the certificate.
 createProvisioningClaimResponse_certificateId :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.Text)
 createProvisioningClaimResponse_certificateId = Lens.lens (\CreateProvisioningClaimResponse' {certificateId} -> certificateId) (\s@CreateProvisioningClaimResponse' {} a -> s {certificateId = a} :: CreateProvisioningClaimResponse)
 
--- | The provisioning claim expiration time.
-createProvisioningClaimResponse_expiration :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.UTCTime)
-createProvisioningClaimResponse_expiration = Lens.lens (\CreateProvisioningClaimResponse' {expiration} -> expiration) (\s@CreateProvisioningClaimResponse' {} a -> s {expiration = a} :: CreateProvisioningClaimResponse) Prelude.. Lens.mapping Core._Time
+-- | The provisioning claim certificate.
+createProvisioningClaimResponse_certificatePem :: Lens.Lens' CreateProvisioningClaimResponse (Prelude.Maybe Prelude.Text)
+createProvisioningClaimResponse_certificatePem = Lens.lens (\CreateProvisioningClaimResponse' {certificatePem} -> certificatePem) (\s@CreateProvisioningClaimResponse' {} a -> s {certificatePem = a} :: CreateProvisioningClaimResponse)
 
 -- | The response's http status code.
 createProvisioningClaimResponse_httpStatus :: Lens.Lens' CreateProvisioningClaimResponse Prelude.Int
@@ -195,8 +195,8 @@ instance
     CreateProvisioningClaimResponse
   where
   rnf CreateProvisioningClaimResponse' {..} =
-    Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf certificatePem
+    Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf keyPair
       `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf expiration
+      `Prelude.seq` Prelude.rnf certificatePem
       `Prelude.seq` Prelude.rnf httpStatus

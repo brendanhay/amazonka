@@ -30,16 +30,16 @@ import Amazonka.SecurityHub.Types.AwsRdsDbSubnetGroupSubnet
 data AwsRdsDbSubnetGroup = AwsRdsDbSubnetGroup'
   { -- | The name of the subnet group.
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The VPC ID of the subnet group.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the subnet group.
+    subnetGroupStatus :: Prelude.Maybe Prelude.Text,
     -- | A list of subnets in the subnet group.
     subnets :: Prelude.Maybe [AwsRdsDbSubnetGroupSubnet],
     -- | The description of the subnet group.
     dbSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the subnet group.
     dbSubnetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the subnet group.
-    subnetGroupStatus :: Prelude.Maybe Prelude.Text
+    -- | The VPC ID of the subnet group.
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,7 +53,7 @@ data AwsRdsDbSubnetGroup = AwsRdsDbSubnetGroup'
 --
 -- 'dbSubnetGroupName', 'awsRdsDbSubnetGroup_dbSubnetGroupName' - The name of the subnet group.
 --
--- 'vpcId', 'awsRdsDbSubnetGroup_vpcId' - The VPC ID of the subnet group.
+-- 'subnetGroupStatus', 'awsRdsDbSubnetGroup_subnetGroupStatus' - The status of the subnet group.
 --
 -- 'subnets', 'awsRdsDbSubnetGroup_subnets' - A list of subnets in the subnet group.
 --
@@ -61,27 +61,27 @@ data AwsRdsDbSubnetGroup = AwsRdsDbSubnetGroup'
 --
 -- 'dbSubnetGroupArn', 'awsRdsDbSubnetGroup_dbSubnetGroupArn' - The ARN of the subnet group.
 --
--- 'subnetGroupStatus', 'awsRdsDbSubnetGroup_subnetGroupStatus' - The status of the subnet group.
+-- 'vpcId', 'awsRdsDbSubnetGroup_vpcId' - The VPC ID of the subnet group.
 newAwsRdsDbSubnetGroup ::
   AwsRdsDbSubnetGroup
 newAwsRdsDbSubnetGroup =
   AwsRdsDbSubnetGroup'
     { dbSubnetGroupName =
         Prelude.Nothing,
-      vpcId = Prelude.Nothing,
+      subnetGroupStatus = Prelude.Nothing,
       subnets = Prelude.Nothing,
       dbSubnetGroupDescription = Prelude.Nothing,
       dbSubnetGroupArn = Prelude.Nothing,
-      subnetGroupStatus = Prelude.Nothing
+      vpcId = Prelude.Nothing
     }
 
 -- | The name of the subnet group.
 awsRdsDbSubnetGroup_dbSubnetGroupName :: Lens.Lens' AwsRdsDbSubnetGroup (Prelude.Maybe Prelude.Text)
 awsRdsDbSubnetGroup_dbSubnetGroupName = Lens.lens (\AwsRdsDbSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@AwsRdsDbSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: AwsRdsDbSubnetGroup)
 
--- | The VPC ID of the subnet group.
-awsRdsDbSubnetGroup_vpcId :: Lens.Lens' AwsRdsDbSubnetGroup (Prelude.Maybe Prelude.Text)
-awsRdsDbSubnetGroup_vpcId = Lens.lens (\AwsRdsDbSubnetGroup' {vpcId} -> vpcId) (\s@AwsRdsDbSubnetGroup' {} a -> s {vpcId = a} :: AwsRdsDbSubnetGroup)
+-- | The status of the subnet group.
+awsRdsDbSubnetGroup_subnetGroupStatus :: Lens.Lens' AwsRdsDbSubnetGroup (Prelude.Maybe Prelude.Text)
+awsRdsDbSubnetGroup_subnetGroupStatus = Lens.lens (\AwsRdsDbSubnetGroup' {subnetGroupStatus} -> subnetGroupStatus) (\s@AwsRdsDbSubnetGroup' {} a -> s {subnetGroupStatus = a} :: AwsRdsDbSubnetGroup)
 
 -- | A list of subnets in the subnet group.
 awsRdsDbSubnetGroup_subnets :: Lens.Lens' AwsRdsDbSubnetGroup (Prelude.Maybe [AwsRdsDbSubnetGroupSubnet])
@@ -95,9 +95,9 @@ awsRdsDbSubnetGroup_dbSubnetGroupDescription = Lens.lens (\AwsRdsDbSubnetGroup' 
 awsRdsDbSubnetGroup_dbSubnetGroupArn :: Lens.Lens' AwsRdsDbSubnetGroup (Prelude.Maybe Prelude.Text)
 awsRdsDbSubnetGroup_dbSubnetGroupArn = Lens.lens (\AwsRdsDbSubnetGroup' {dbSubnetGroupArn} -> dbSubnetGroupArn) (\s@AwsRdsDbSubnetGroup' {} a -> s {dbSubnetGroupArn = a} :: AwsRdsDbSubnetGroup)
 
--- | The status of the subnet group.
-awsRdsDbSubnetGroup_subnetGroupStatus :: Lens.Lens' AwsRdsDbSubnetGroup (Prelude.Maybe Prelude.Text)
-awsRdsDbSubnetGroup_subnetGroupStatus = Lens.lens (\AwsRdsDbSubnetGroup' {subnetGroupStatus} -> subnetGroupStatus) (\s@AwsRdsDbSubnetGroup' {} a -> s {subnetGroupStatus = a} :: AwsRdsDbSubnetGroup)
+-- | The VPC ID of the subnet group.
+awsRdsDbSubnetGroup_vpcId :: Lens.Lens' AwsRdsDbSubnetGroup (Prelude.Maybe Prelude.Text)
+awsRdsDbSubnetGroup_vpcId = Lens.lens (\AwsRdsDbSubnetGroup' {vpcId} -> vpcId) (\s@AwsRdsDbSubnetGroup' {} a -> s {vpcId = a} :: AwsRdsDbSubnetGroup)
 
 instance Core.FromJSON AwsRdsDbSubnetGroup where
   parseJSON =
@@ -106,30 +106,30 @@ instance Core.FromJSON AwsRdsDbSubnetGroup where
       ( \x ->
           AwsRdsDbSubnetGroup'
             Prelude.<$> (x Core..:? "DbSubnetGroupName")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "SubnetGroupStatus")
             Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DbSubnetGroupDescription")
             Prelude.<*> (x Core..:? "DbSubnetGroupArn")
-            Prelude.<*> (x Core..:? "SubnetGroupStatus")
+            Prelude.<*> (x Core..:? "VpcId")
       )
 
 instance Prelude.Hashable AwsRdsDbSubnetGroup where
   hashWithSalt _salt AwsRdsDbSubnetGroup' {..} =
     _salt `Prelude.hashWithSalt` dbSubnetGroupName
-      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetGroupStatus
       `Prelude.hashWithSalt` subnets
       `Prelude.hashWithSalt` dbSubnetGroupDescription
       `Prelude.hashWithSalt` dbSubnetGroupArn
-      `Prelude.hashWithSalt` subnetGroupStatus
+      `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData AwsRdsDbSubnetGroup where
   rnf AwsRdsDbSubnetGroup' {..} =
     Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetGroupStatus
       `Prelude.seq` Prelude.rnf subnets
       `Prelude.seq` Prelude.rnf dbSubnetGroupDescription
       `Prelude.seq` Prelude.rnf dbSubnetGroupArn
-      `Prelude.seq` Prelude.rnf subnetGroupStatus
+      `Prelude.seq` Prelude.rnf vpcId
 
 instance Core.ToJSON AwsRdsDbSubnetGroup where
   toJSON AwsRdsDbSubnetGroup' {..} =
@@ -137,13 +137,13 @@ instance Core.ToJSON AwsRdsDbSubnetGroup where
       ( Prelude.catMaybes
           [ ("DbSubnetGroupName" Core..=)
               Prelude.<$> dbSubnetGroupName,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("SubnetGroupStatus" Core..=)
+              Prelude.<$> subnetGroupStatus,
             ("Subnets" Core..=) Prelude.<$> subnets,
             ("DbSubnetGroupDescription" Core..=)
               Prelude.<$> dbSubnetGroupDescription,
             ("DbSubnetGroupArn" Core..=)
               Prelude.<$> dbSubnetGroupArn,
-            ("SubnetGroupStatus" Core..=)
-              Prelude.<$> subnetGroupStatus
+            ("VpcId" Core..=) Prelude.<$> vpcId
           ]
       )

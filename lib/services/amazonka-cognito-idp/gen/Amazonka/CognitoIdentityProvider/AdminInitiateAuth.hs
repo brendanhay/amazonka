@@ -49,10 +49,10 @@ module Amazonka.CognitoIdentityProvider.AdminInitiateAuth
     newAdminInitiateAuth,
 
     -- * Request Lenses
-    adminInitiateAuth_clientMetadata,
-    adminInitiateAuth_contextData,
     adminInitiateAuth_analyticsMetadata,
+    adminInitiateAuth_clientMetadata,
     adminInitiateAuth_authParameters,
+    adminInitiateAuth_contextData,
     adminInitiateAuth_userPoolId,
     adminInitiateAuth_clientId,
     adminInitiateAuth_authFlow,
@@ -62,10 +62,10 @@ module Amazonka.CognitoIdentityProvider.AdminInitiateAuth
     newAdminInitiateAuthResponse,
 
     -- * Response Lenses
-    adminInitiateAuthResponse_challengeName,
-    adminInitiateAuthResponse_challengeParameters,
     adminInitiateAuthResponse_authenticationResult,
     adminInitiateAuthResponse_session,
+    adminInitiateAuthResponse_challengeName,
+    adminInitiateAuthResponse_challengeParameters,
     adminInitiateAuthResponse_httpStatus,
   )
 where
@@ -81,7 +81,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAdminInitiateAuth' smart constructor.
 data AdminInitiateAuth = AdminInitiateAuth'
-  { -- | A map of custom key-value pairs that you can provide as input for
+  { -- | The analytics metadata for collecting Amazon Pinpoint metrics for
+    -- @AdminInitiateAuth@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | A map of custom key-value pairs that you can provide as input for
     -- certain custom workflows that this action triggers.
     --
     -- You create custom workflows by assigning Lambda functions to user pool
@@ -137,13 +140,6 @@ data AdminInitiateAuth = AdminInitiateAuth'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Contextual data such as the user\'s device fingerprint, IP address, or
-    -- location used for evaluating the risk of an unexpected event by Amazon
-    -- Cognito advanced security.
-    contextData :: Prelude.Maybe ContextDataType,
-    -- | The analytics metadata for collecting Amazon Pinpoint metrics for
-    -- @AdminInitiateAuth@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | The authentication parameters. These are inputs corresponding to the
     -- @AuthFlow@ that you are invoking. The required values depend on the
     -- value of @AuthFlow@:
@@ -165,6 +161,10 @@ data AdminInitiateAuth = AdminInitiateAuth'
     --     authentication flow with password verification, include
     --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
     authParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | Contextual data such as the user\'s device fingerprint, IP address, or
+    -- location used for evaluating the risk of an unexpected event by Amazon
+    -- Cognito advanced security.
+    contextData :: Prelude.Maybe ContextDataType,
     -- | The ID of the Amazon Cognito user pool.
     userPoolId :: Prelude.Text,
     -- | The app client ID.
@@ -216,6 +216,9 @@ data AdminInitiateAuth = AdminInitiateAuth'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'analyticsMetadata', 'adminInitiateAuth_analyticsMetadata' - The analytics metadata for collecting Amazon Pinpoint metrics for
+-- @AdminInitiateAuth@ calls.
 --
 -- 'clientMetadata', 'adminInitiateAuth_clientMetadata' - A map of custom key-value pairs that you can provide as input for
 -- certain custom workflows that this action triggers.
@@ -273,13 +276,6 @@ data AdminInitiateAuth = AdminInitiateAuth'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
--- 'contextData', 'adminInitiateAuth_contextData' - Contextual data such as the user\'s device fingerprint, IP address, or
--- location used for evaluating the risk of an unexpected event by Amazon
--- Cognito advanced security.
---
--- 'analyticsMetadata', 'adminInitiateAuth_analyticsMetadata' - The analytics metadata for collecting Amazon Pinpoint metrics for
--- @AdminInitiateAuth@ calls.
---
 -- 'authParameters', 'adminInitiateAuth_authParameters' - The authentication parameters. These are inputs corresponding to the
 -- @AuthFlow@ that you are invoking. The required values depend on the
 -- value of @AuthFlow@:
@@ -300,6 +296,10 @@ data AdminInitiateAuth = AdminInitiateAuth'
 --     client is configured with client secret), @DEVICE_KEY@. To start the
 --     authentication flow with password verification, include
 --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
+--
+-- 'contextData', 'adminInitiateAuth_contextData' - Contextual data such as the user\'s device fingerprint, IP address, or
+-- location used for evaluating the risk of an unexpected event by Amazon
+-- Cognito advanced security.
 --
 -- 'userPoolId', 'adminInitiateAuth_userPoolId' - The ID of the Amazon Cognito user pool.
 --
@@ -354,15 +354,20 @@ newAdminInitiateAuth
   pClientId_
   pAuthFlow_ =
     AdminInitiateAuth'
-      { clientMetadata =
+      { analyticsMetadata =
           Prelude.Nothing,
-        contextData = Prelude.Nothing,
-        analyticsMetadata = Prelude.Nothing,
+        clientMetadata = Prelude.Nothing,
         authParameters = Prelude.Nothing,
+        contextData = Prelude.Nothing,
         userPoolId = pUserPoolId_,
         clientId = Core._Sensitive Lens.# pClientId_,
         authFlow = pAuthFlow_
       }
+
+-- | The analytics metadata for collecting Amazon Pinpoint metrics for
+-- @AdminInitiateAuth@ calls.
+adminInitiateAuth_analyticsMetadata :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe AnalyticsMetadataType)
+adminInitiateAuth_analyticsMetadata = Lens.lens (\AdminInitiateAuth' {analyticsMetadata} -> analyticsMetadata) (\s@AdminInitiateAuth' {} a -> s {analyticsMetadata = a} :: AdminInitiateAuth)
 
 -- | A map of custom key-value pairs that you can provide as input for
 -- certain custom workflows that this action triggers.
@@ -422,17 +427,6 @@ newAdminInitiateAuth
 adminInitiateAuth_clientMetadata :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 adminInitiateAuth_clientMetadata = Lens.lens (\AdminInitiateAuth' {clientMetadata} -> clientMetadata) (\s@AdminInitiateAuth' {} a -> s {clientMetadata = a} :: AdminInitiateAuth) Prelude.. Lens.mapping Lens.coerced
 
--- | Contextual data such as the user\'s device fingerprint, IP address, or
--- location used for evaluating the risk of an unexpected event by Amazon
--- Cognito advanced security.
-adminInitiateAuth_contextData :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe ContextDataType)
-adminInitiateAuth_contextData = Lens.lens (\AdminInitiateAuth' {contextData} -> contextData) (\s@AdminInitiateAuth' {} a -> s {contextData = a} :: AdminInitiateAuth)
-
--- | The analytics metadata for collecting Amazon Pinpoint metrics for
--- @AdminInitiateAuth@ calls.
-adminInitiateAuth_analyticsMetadata :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe AnalyticsMetadataType)
-adminInitiateAuth_analyticsMetadata = Lens.lens (\AdminInitiateAuth' {analyticsMetadata} -> analyticsMetadata) (\s@AdminInitiateAuth' {} a -> s {analyticsMetadata = a} :: AdminInitiateAuth)
-
 -- | The authentication parameters. These are inputs corresponding to the
 -- @AuthFlow@ that you are invoking. The required values depend on the
 -- value of @AuthFlow@:
@@ -455,6 +449,12 @@ adminInitiateAuth_analyticsMetadata = Lens.lens (\AdminInitiateAuth' {analyticsM
 --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
 adminInitiateAuth_authParameters :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 adminInitiateAuth_authParameters = Lens.lens (\AdminInitiateAuth' {authParameters} -> authParameters) (\s@AdminInitiateAuth' {} a -> s {authParameters = a} :: AdminInitiateAuth) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+
+-- | Contextual data such as the user\'s device fingerprint, IP address, or
+-- location used for evaluating the risk of an unexpected event by Amazon
+-- Cognito advanced security.
+adminInitiateAuth_contextData :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe ContextDataType)
+adminInitiateAuth_contextData = Lens.lens (\AdminInitiateAuth' {contextData} -> contextData) (\s@AdminInitiateAuth' {} a -> s {contextData = a} :: AdminInitiateAuth)
 
 -- | The ID of the Amazon Cognito user pool.
 adminInitiateAuth_userPoolId :: Lens.Lens' AdminInitiateAuth Prelude.Text
@@ -512,31 +512,31 @@ instance Core.AWSRequest AdminInitiateAuth where
     Response.receiveJSON
       ( \s h x ->
           AdminInitiateAuthResponse'
-            Prelude.<$> (x Core..?> "ChallengeName")
+            Prelude.<$> (x Core..?> "AuthenticationResult")
+            Prelude.<*> (x Core..?> "Session")
+            Prelude.<*> (x Core..?> "ChallengeName")
             Prelude.<*> ( x Core..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable AdminInitiateAuth where
   hashWithSalt _salt AdminInitiateAuth' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
-      `Prelude.hashWithSalt` contextData
-      `Prelude.hashWithSalt` analyticsMetadata
+    _salt `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` authParameters
+      `Prelude.hashWithSalt` contextData
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` authFlow
 
 instance Prelude.NFData AdminInitiateAuth where
   rnf AdminInitiateAuth' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf contextData
-      `Prelude.seq` Prelude.rnf analyticsMetadata
+    Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf clientMetadata
       `Prelude.seq` Prelude.rnf authParameters
+      `Prelude.seq` Prelude.rnf contextData
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf authFlow
@@ -560,13 +560,13 @@ instance Core.ToJSON AdminInitiateAuth where
   toJSON AdminInitiateAuth' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
-              Prelude.<$> clientMetadata,
-            ("ContextData" Core..=) Prelude.<$> contextData,
-            ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Core..=)
               Prelude.<$> analyticsMetadata,
+            ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
             ("AuthParameters" Core..=)
               Prelude.<$> authParameters,
+            ("ContextData" Core..=) Prelude.<$> contextData,
             Prelude.Just ("UserPoolId" Core..= userPoolId),
             Prelude.Just ("ClientId" Core..= clientId),
             Prelude.Just ("AuthFlow" Core..= authFlow)
@@ -583,7 +583,19 @@ instance Core.ToQuery AdminInitiateAuth where
 --
 -- /See:/ 'newAdminInitiateAuthResponse' smart constructor.
 data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
-  { -- | The name of the challenge which you are responding to with this call.
+  { -- | The result of the authentication response. This is only returned if the
+    -- caller does not need to pass another challenge. If the caller does need
+    -- to pass another challenge before it gets tokens, @ChallengeName@,
+    -- @ChallengeParameters@, and @Session@ are returned.
+    authenticationResult :: Prelude.Maybe AuthenticationResultType,
+    -- | The session which should be passed both ways in challenge-response calls
+    -- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@
+    -- API call determines that the caller needs to go through another
+    -- challenge, they return a session with other challenge parameters. This
+    -- session should be passed as it is to the next
+    -- @AdminRespondToAuthChallenge@ API call.
+    session :: Prelude.Maybe Prelude.Text,
+    -- | The name of the challenge which you are responding to with this call.
     -- This is returned to you in the @AdminInitiateAuth@ response if you need
     -- to pass another challenge.
     --
@@ -647,18 +659,6 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
     -- because, in the @AdminRespondToAuthChallenge@ API @ChallengeResponses@,
     -- the @USERNAME@ attribute cannot be an alias.
     challengeParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The result of the authentication response. This is only returned if the
-    -- caller does not need to pass another challenge. If the caller does need
-    -- to pass another challenge before it gets tokens, @ChallengeName@,
-    -- @ChallengeParameters@, and @Session@ are returned.
-    authenticationResult :: Prelude.Maybe AuthenticationResultType,
-    -- | The session which should be passed both ways in challenge-response calls
-    -- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@
-    -- API call determines that the caller needs to go through another
-    -- challenge, they return a session with other challenge parameters. This
-    -- session should be passed as it is to the next
-    -- @AdminRespondToAuthChallenge@ API call.
-    session :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -671,6 +671,18 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'authenticationResult', 'adminInitiateAuthResponse_authenticationResult' - The result of the authentication response. This is only returned if the
+-- caller does not need to pass another challenge. If the caller does need
+-- to pass another challenge before it gets tokens, @ChallengeName@,
+-- @ChallengeParameters@, and @Session@ are returned.
+--
+-- 'session', 'adminInitiateAuthResponse_session' - The session which should be passed both ways in challenge-response calls
+-- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@
+-- API call determines that the caller needs to go through another
+-- challenge, they return a session with other challenge parameters. This
+-- session should be passed as it is to the next
+-- @AdminRespondToAuthChallenge@ API call.
 --
 -- 'challengeName', 'adminInitiateAuthResponse_challengeName' - The name of the challenge which you are responding to with this call.
 -- This is returned to you in the @AdminInitiateAuth@ response if you need
@@ -736,18 +748,6 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
 -- because, in the @AdminRespondToAuthChallenge@ API @ChallengeResponses@,
 -- the @USERNAME@ attribute cannot be an alias.
 --
--- 'authenticationResult', 'adminInitiateAuthResponse_authenticationResult' - The result of the authentication response. This is only returned if the
--- caller does not need to pass another challenge. If the caller does need
--- to pass another challenge before it gets tokens, @ChallengeName@,
--- @ChallengeParameters@, and @Session@ are returned.
---
--- 'session', 'adminInitiateAuthResponse_session' - The session which should be passed both ways in challenge-response calls
--- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@
--- API call determines that the caller needs to go through another
--- challenge, they return a session with other challenge parameters. This
--- session should be passed as it is to the next
--- @AdminRespondToAuthChallenge@ API call.
---
 -- 'httpStatus', 'adminInitiateAuthResponse_httpStatus' - The response's http status code.
 newAdminInitiateAuthResponse ::
   -- | 'httpStatus'
@@ -755,13 +755,29 @@ newAdminInitiateAuthResponse ::
   AdminInitiateAuthResponse
 newAdminInitiateAuthResponse pHttpStatus_ =
   AdminInitiateAuthResponse'
-    { challengeName =
+    { authenticationResult =
         Prelude.Nothing,
-      challengeParameters = Prelude.Nothing,
-      authenticationResult = Prelude.Nothing,
       session = Prelude.Nothing,
+      challengeName = Prelude.Nothing,
+      challengeParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The result of the authentication response. This is only returned if the
+-- caller does not need to pass another challenge. If the caller does need
+-- to pass another challenge before it gets tokens, @ChallengeName@,
+-- @ChallengeParameters@, and @Session@ are returned.
+adminInitiateAuthResponse_authenticationResult :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe AuthenticationResultType)
+adminInitiateAuthResponse_authenticationResult = Lens.lens (\AdminInitiateAuthResponse' {authenticationResult} -> authenticationResult) (\s@AdminInitiateAuthResponse' {} a -> s {authenticationResult = a} :: AdminInitiateAuthResponse)
+
+-- | The session which should be passed both ways in challenge-response calls
+-- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@
+-- API call determines that the caller needs to go through another
+-- challenge, they return a session with other challenge parameters. This
+-- session should be passed as it is to the next
+-- @AdminRespondToAuthChallenge@ API call.
+adminInitiateAuthResponse_session :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe Prelude.Text)
+adminInitiateAuthResponse_session = Lens.lens (\AdminInitiateAuthResponse' {session} -> session) (\s@AdminInitiateAuthResponse' {} a -> s {session = a} :: AdminInitiateAuthResponse)
 
 -- | The name of the challenge which you are responding to with this call.
 -- This is returned to you in the @AdminInitiateAuth@ response if you need
@@ -831,30 +847,14 @@ adminInitiateAuthResponse_challengeName = Lens.lens (\AdminInitiateAuthResponse'
 adminInitiateAuthResponse_challengeParameters :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 adminInitiateAuthResponse_challengeParameters = Lens.lens (\AdminInitiateAuthResponse' {challengeParameters} -> challengeParameters) (\s@AdminInitiateAuthResponse' {} a -> s {challengeParameters = a} :: AdminInitiateAuthResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The result of the authentication response. This is only returned if the
--- caller does not need to pass another challenge. If the caller does need
--- to pass another challenge before it gets tokens, @ChallengeName@,
--- @ChallengeParameters@, and @Session@ are returned.
-adminInitiateAuthResponse_authenticationResult :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe AuthenticationResultType)
-adminInitiateAuthResponse_authenticationResult = Lens.lens (\AdminInitiateAuthResponse' {authenticationResult} -> authenticationResult) (\s@AdminInitiateAuthResponse' {} a -> s {authenticationResult = a} :: AdminInitiateAuthResponse)
-
--- | The session which should be passed both ways in challenge-response calls
--- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@
--- API call determines that the caller needs to go through another
--- challenge, they return a session with other challenge parameters. This
--- session should be passed as it is to the next
--- @AdminRespondToAuthChallenge@ API call.
-adminInitiateAuthResponse_session :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe Prelude.Text)
-adminInitiateAuthResponse_session = Lens.lens (\AdminInitiateAuthResponse' {session} -> session) (\s@AdminInitiateAuthResponse' {} a -> s {session = a} :: AdminInitiateAuthResponse)
-
 -- | The response's http status code.
 adminInitiateAuthResponse_httpStatus :: Lens.Lens' AdminInitiateAuthResponse Prelude.Int
 adminInitiateAuthResponse_httpStatus = Lens.lens (\AdminInitiateAuthResponse' {httpStatus} -> httpStatus) (\s@AdminInitiateAuthResponse' {} a -> s {httpStatus = a} :: AdminInitiateAuthResponse)
 
 instance Prelude.NFData AdminInitiateAuthResponse where
   rnf AdminInitiateAuthResponse' {..} =
-    Prelude.rnf challengeName
-      `Prelude.seq` Prelude.rnf challengeParameters
-      `Prelude.seq` Prelude.rnf authenticationResult
+    Prelude.rnf authenticationResult
       `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf challengeName
+      `Prelude.seq` Prelude.rnf challengeParameters
       `Prelude.seq` Prelude.rnf httpStatus

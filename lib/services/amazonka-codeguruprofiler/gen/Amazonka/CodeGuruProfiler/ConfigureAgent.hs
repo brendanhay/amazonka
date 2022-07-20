@@ -30,8 +30,8 @@ module Amazonka.CodeGuruProfiler.ConfigureAgent
     newConfigureAgent,
 
     -- * Request Lenses
-    configureAgent_fleetInstanceId,
     configureAgent_metadata,
+    configureAgent_fleetInstanceId,
     configureAgent_profilingGroupName,
 
     -- * Destructuring the Response
@@ -55,12 +55,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newConfigureAgent' smart constructor.
 data ConfigureAgent = ConfigureAgent'
-  { -- | A universally unique identifier (UUID) for a profiling instance. For
-    -- example, if the profiling instance is an Amazon EC2 instance, it is the
-    -- instance ID. If it is an AWS Fargate container, it is the container\'s
-    -- task ID.
-    fleetInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | Metadata captured about the compute platform the agent is running on. It
+  { -- | Metadata captured about the compute platform the agent is running on. It
     -- includes information about sampling and reporting. The valid fields are:
     --
     -- -   @COMPUTE_PLATFORM@ - The compute platform on which the agent is
@@ -88,6 +83,11 @@ data ConfigureAgent = ConfigureAgent'
     -- -   @LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS@ - The time in
     --     milliseconds for the previous Lambda invocation.
     metadata :: Prelude.Maybe (Prelude.HashMap MetadataField Prelude.Text),
+    -- | A universally unique identifier (UUID) for a profiling instance. For
+    -- example, if the profiling instance is an Amazon EC2 instance, it is the
+    -- instance ID. If it is an AWS Fargate container, it is the container\'s
+    -- task ID.
+    fleetInstanceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the profiling group for which the configured agent is
     -- collecting profiling data.
     profilingGroupName :: Prelude.Text
@@ -101,11 +101,6 @@ data ConfigureAgent = ConfigureAgent'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'fleetInstanceId', 'configureAgent_fleetInstanceId' - A universally unique identifier (UUID) for a profiling instance. For
--- example, if the profiling instance is an Amazon EC2 instance, it is the
--- instance ID. If it is an AWS Fargate container, it is the container\'s
--- task ID.
 --
 -- 'metadata', 'configureAgent_metadata' - Metadata captured about the compute platform the agent is running on. It
 -- includes information about sampling and reporting. The valid fields are:
@@ -135,6 +130,11 @@ data ConfigureAgent = ConfigureAgent'
 -- -   @LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS@ - The time in
 --     milliseconds for the previous Lambda invocation.
 --
+-- 'fleetInstanceId', 'configureAgent_fleetInstanceId' - A universally unique identifier (UUID) for a profiling instance. For
+-- example, if the profiling instance is an Amazon EC2 instance, it is the
+-- instance ID. If it is an AWS Fargate container, it is the container\'s
+-- task ID.
+--
 -- 'profilingGroupName', 'configureAgent_profilingGroupName' - The name of the profiling group for which the configured agent is
 -- collecting profiling data.
 newConfigureAgent ::
@@ -143,17 +143,10 @@ newConfigureAgent ::
   ConfigureAgent
 newConfigureAgent pProfilingGroupName_ =
   ConfigureAgent'
-    { fleetInstanceId = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
+      fleetInstanceId = Prelude.Nothing,
       profilingGroupName = pProfilingGroupName_
     }
-
--- | A universally unique identifier (UUID) for a profiling instance. For
--- example, if the profiling instance is an Amazon EC2 instance, it is the
--- instance ID. If it is an AWS Fargate container, it is the container\'s
--- task ID.
-configureAgent_fleetInstanceId :: Lens.Lens' ConfigureAgent (Prelude.Maybe Prelude.Text)
-configureAgent_fleetInstanceId = Lens.lens (\ConfigureAgent' {fleetInstanceId} -> fleetInstanceId) (\s@ConfigureAgent' {} a -> s {fleetInstanceId = a} :: ConfigureAgent)
 
 -- | Metadata captured about the compute platform the agent is running on. It
 -- includes information about sampling and reporting. The valid fields are:
@@ -185,6 +178,13 @@ configureAgent_fleetInstanceId = Lens.lens (\ConfigureAgent' {fleetInstanceId} -
 configureAgent_metadata :: Lens.Lens' ConfigureAgent (Prelude.Maybe (Prelude.HashMap MetadataField Prelude.Text))
 configureAgent_metadata = Lens.lens (\ConfigureAgent' {metadata} -> metadata) (\s@ConfigureAgent' {} a -> s {metadata = a} :: ConfigureAgent) Prelude.. Lens.mapping Lens.coerced
 
+-- | A universally unique identifier (UUID) for a profiling instance. For
+-- example, if the profiling instance is an Amazon EC2 instance, it is the
+-- instance ID. If it is an AWS Fargate container, it is the container\'s
+-- task ID.
+configureAgent_fleetInstanceId :: Lens.Lens' ConfigureAgent (Prelude.Maybe Prelude.Text)
+configureAgent_fleetInstanceId = Lens.lens (\ConfigureAgent' {fleetInstanceId} -> fleetInstanceId) (\s@ConfigureAgent' {} a -> s {fleetInstanceId = a} :: ConfigureAgent)
+
 -- | The name of the profiling group for which the configured agent is
 -- collecting profiling data.
 configureAgent_profilingGroupName :: Lens.Lens' ConfigureAgent Prelude.Text
@@ -205,14 +205,14 @@ instance Core.AWSRequest ConfigureAgent where
 
 instance Prelude.Hashable ConfigureAgent where
   hashWithSalt _salt ConfigureAgent' {..} =
-    _salt `Prelude.hashWithSalt` fleetInstanceId
-      `Prelude.hashWithSalt` metadata
+    _salt `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` fleetInstanceId
       `Prelude.hashWithSalt` profilingGroupName
 
 instance Prelude.NFData ConfigureAgent where
   rnf ConfigureAgent' {..} =
-    Prelude.rnf fleetInstanceId
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf fleetInstanceId
       `Prelude.seq` Prelude.rnf profilingGroupName
 
 instance Core.ToHeaders ConfigureAgent where
@@ -230,9 +230,9 @@ instance Core.ToJSON ConfigureAgent where
   toJSON ConfigureAgent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("fleetInstanceId" Core..=)
-              Prelude.<$> fleetInstanceId,
-            ("metadata" Core..=) Prelude.<$> metadata
+          [ ("metadata" Core..=) Prelude.<$> metadata,
+            ("fleetInstanceId" Core..=)
+              Prelude.<$> fleetInstanceId
           ]
       )
 

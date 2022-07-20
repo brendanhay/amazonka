@@ -91,13 +91,13 @@ module Amazonka.KMS.GetPublicKey
     newGetPublicKeyResponse,
 
     -- * Response Lenses
+    getPublicKeyResponse_publicKey,
+    getPublicKeyResponse_encryptionAlgorithms,
+    getPublicKeyResponse_customerMasterKeySpec,
+    getPublicKeyResponse_keyUsage,
     getPublicKeyResponse_keySpec,
     getPublicKeyResponse_keyId,
-    getPublicKeyResponse_customerMasterKeySpec,
-    getPublicKeyResponse_encryptionAlgorithms,
-    getPublicKeyResponse_publicKey,
     getPublicKeyResponse_signingAlgorithms,
-    getPublicKeyResponse_keyUsage,
     getPublicKeyResponse_httpStatus,
   )
 where
@@ -235,17 +235,17 @@ instance Core.AWSRequest GetPublicKey where
     Response.receiveJSON
       ( \s h x ->
           GetPublicKeyResponse'
-            Prelude.<$> (x Core..?> "KeySpec")
-            Prelude.<*> (x Core..?> "KeyId")
-            Prelude.<*> (x Core..?> "CustomerMasterKeySpec")
+            Prelude.<$> (x Core..?> "PublicKey")
             Prelude.<*> ( x Core..?> "EncryptionAlgorithms"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "PublicKey")
+            Prelude.<*> (x Core..?> "CustomerMasterKeySpec")
+            Prelude.<*> (x Core..?> "KeyUsage")
+            Prelude.<*> (x Core..?> "KeySpec")
+            Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> ( x Core..?> "SigningAlgorithms"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "KeyUsage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -289,18 +289,14 @@ instance Core.ToQuery GetPublicKey where
 
 -- | /See:/ 'newGetPublicKeyResponse' smart constructor.
 data GetPublicKeyResponse = GetPublicKeyResponse'
-  { -- | The type of the of the public key that was downloaded.
-    keySpec :: Prelude.Maybe KeySpec,
-    -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the asymmetric KMS key from which the public key was downloaded.
-    keyId :: Prelude.Maybe Prelude.Text,
-    -- | Instead, use the @KeySpec@ field in the @GetPublicKey@ response.
+  { -- | The exported public key.
     --
-    -- The @KeySpec@ and @CustomerMasterKeySpec@ fields have the same value. We
-    -- recommend that you use the @KeySpec@ field in your code. However, to
-    -- avoid breaking changes, KMS will support both fields.
-    customerMasterKeySpec :: Prelude.Maybe CustomerMasterKeySpec,
+    -- The value is a DER-encoded X.509 public key, also known as
+    -- @SubjectPublicKeyInfo@ (SPKI), as defined in
+    -- <https://tools.ietf.org/html/rfc5280 RFC 5280>. When you use the HTTP
+    -- API or the Amazon Web Services CLI, the value is Base64-encoded.
+    -- Otherwise, it is not Base64-encoded.
+    publicKey :: Prelude.Maybe Core.Base64,
     -- | The encryption algorithms that KMS supports for this key.
     --
     -- This information is critical. If a public key encrypts data outside of
@@ -310,25 +306,29 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
     -- This field appears in the response only when the @KeyUsage@ of the
     -- public key is @ENCRYPT_DECRYPT@.
     encryptionAlgorithms :: Prelude.Maybe [EncryptionAlgorithmSpec],
-    -- | The exported public key.
+    -- | Instead, use the @KeySpec@ field in the @GetPublicKey@ response.
     --
-    -- The value is a DER-encoded X.509 public key, also known as
-    -- @SubjectPublicKeyInfo@ (SPKI), as defined in
-    -- <https://tools.ietf.org/html/rfc5280 RFC 5280>. When you use the HTTP
-    -- API or the Amazon Web Services CLI, the value is Base64-encoded.
-    -- Otherwise, it is not Base64-encoded.
-    publicKey :: Prelude.Maybe Core.Base64,
-    -- | The signing algorithms that KMS supports for this key.
-    --
-    -- This field appears in the response only when the @KeyUsage@ of the
-    -- public key is @SIGN_VERIFY@.
-    signingAlgorithms :: Prelude.Maybe [SigningAlgorithmSpec],
+    -- The @KeySpec@ and @CustomerMasterKeySpec@ fields have the same value. We
+    -- recommend that you use the @KeySpec@ field in your code. However, to
+    -- avoid breaking changes, KMS will support both fields.
+    customerMasterKeySpec :: Prelude.Maybe CustomerMasterKeySpec,
     -- | The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@
     -- or @SIGN_VERIFY@.
     --
     -- This information is critical. If a public key with @SIGN_VERIFY@ key
     -- usage encrypts data outside of KMS, the ciphertext cannot be decrypted.
     keyUsage :: Prelude.Maybe KeyUsageType,
+    -- | The type of the of the public key that was downloaded.
+    keySpec :: Prelude.Maybe KeySpec,
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+    -- of the asymmetric KMS key from which the public key was downloaded.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The signing algorithms that KMS supports for this key.
+    --
+    -- This field appears in the response only when the @KeyUsage@ of the
+    -- public key is @SIGN_VERIFY@.
+    signingAlgorithms :: Prelude.Maybe [SigningAlgorithmSpec],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -342,27 +342,6 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keySpec', 'getPublicKeyResponse_keySpec' - The type of the of the public key that was downloaded.
---
--- 'keyId', 'getPublicKeyResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the asymmetric KMS key from which the public key was downloaded.
---
--- 'customerMasterKeySpec', 'getPublicKeyResponse_customerMasterKeySpec' - Instead, use the @KeySpec@ field in the @GetPublicKey@ response.
---
--- The @KeySpec@ and @CustomerMasterKeySpec@ fields have the same value. We
--- recommend that you use the @KeySpec@ field in your code. However, to
--- avoid breaking changes, KMS will support both fields.
---
--- 'encryptionAlgorithms', 'getPublicKeyResponse_encryptionAlgorithms' - The encryption algorithms that KMS supports for this key.
---
--- This information is critical. If a public key encrypts data outside of
--- KMS by using an unsupported encryption algorithm, the ciphertext cannot
--- be decrypted.
---
--- This field appears in the response only when the @KeyUsage@ of the
--- public key is @ENCRYPT_DECRYPT@.
---
 -- 'publicKey', 'getPublicKeyResponse_publicKey' - The exported public key.
 --
 -- The value is a DER-encoded X.509 public key, also known as
@@ -375,16 +354,37 @@ data GetPublicKeyResponse = GetPublicKeyResponse'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'signingAlgorithms', 'getPublicKeyResponse_signingAlgorithms' - The signing algorithms that KMS supports for this key.
+-- 'encryptionAlgorithms', 'getPublicKeyResponse_encryptionAlgorithms' - The encryption algorithms that KMS supports for this key.
+--
+-- This information is critical. If a public key encrypts data outside of
+-- KMS by using an unsupported encryption algorithm, the ciphertext cannot
+-- be decrypted.
 --
 -- This field appears in the response only when the @KeyUsage@ of the
--- public key is @SIGN_VERIFY@.
+-- public key is @ENCRYPT_DECRYPT@.
+--
+-- 'customerMasterKeySpec', 'getPublicKeyResponse_customerMasterKeySpec' - Instead, use the @KeySpec@ field in the @GetPublicKey@ response.
+--
+-- The @KeySpec@ and @CustomerMasterKeySpec@ fields have the same value. We
+-- recommend that you use the @KeySpec@ field in your code. However, to
+-- avoid breaking changes, KMS will support both fields.
 --
 -- 'keyUsage', 'getPublicKeyResponse_keyUsage' - The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@
 -- or @SIGN_VERIFY@.
 --
 -- This information is critical. If a public key with @SIGN_VERIFY@ key
 -- usage encrypts data outside of KMS, the ciphertext cannot be decrypted.
+--
+-- 'keySpec', 'getPublicKeyResponse_keySpec' - The type of the of the public key that was downloaded.
+--
+-- 'keyId', 'getPublicKeyResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the asymmetric KMS key from which the public key was downloaded.
+--
+-- 'signingAlgorithms', 'getPublicKeyResponse_signingAlgorithms' - The signing algorithms that KMS supports for this key.
+--
+-- This field appears in the response only when the @KeyUsage@ of the
+-- public key is @SIGN_VERIFY@.
 --
 -- 'httpStatus', 'getPublicKeyResponse_httpStatus' - The response's http status code.
 newGetPublicKeyResponse ::
@@ -393,44 +393,15 @@ newGetPublicKeyResponse ::
   GetPublicKeyResponse
 newGetPublicKeyResponse pHttpStatus_ =
   GetPublicKeyResponse'
-    { keySpec = Prelude.Nothing,
-      keyId = Prelude.Nothing,
-      customerMasterKeySpec = Prelude.Nothing,
+    { publicKey = Prelude.Nothing,
       encryptionAlgorithms = Prelude.Nothing,
-      publicKey = Prelude.Nothing,
-      signingAlgorithms = Prelude.Nothing,
+      customerMasterKeySpec = Prelude.Nothing,
       keyUsage = Prelude.Nothing,
+      keySpec = Prelude.Nothing,
+      keyId = Prelude.Nothing,
+      signingAlgorithms = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The type of the of the public key that was downloaded.
-getPublicKeyResponse_keySpec :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe KeySpec)
-getPublicKeyResponse_keySpec = Lens.lens (\GetPublicKeyResponse' {keySpec} -> keySpec) (\s@GetPublicKeyResponse' {} a -> s {keySpec = a} :: GetPublicKeyResponse)
-
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the asymmetric KMS key from which the public key was downloaded.
-getPublicKeyResponse_keyId :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe Prelude.Text)
-getPublicKeyResponse_keyId = Lens.lens (\GetPublicKeyResponse' {keyId} -> keyId) (\s@GetPublicKeyResponse' {} a -> s {keyId = a} :: GetPublicKeyResponse)
-
--- | Instead, use the @KeySpec@ field in the @GetPublicKey@ response.
---
--- The @KeySpec@ and @CustomerMasterKeySpec@ fields have the same value. We
--- recommend that you use the @KeySpec@ field in your code. However, to
--- avoid breaking changes, KMS will support both fields.
-getPublicKeyResponse_customerMasterKeySpec :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe CustomerMasterKeySpec)
-getPublicKeyResponse_customerMasterKeySpec = Lens.lens (\GetPublicKeyResponse' {customerMasterKeySpec} -> customerMasterKeySpec) (\s@GetPublicKeyResponse' {} a -> s {customerMasterKeySpec = a} :: GetPublicKeyResponse)
-
--- | The encryption algorithms that KMS supports for this key.
---
--- This information is critical. If a public key encrypts data outside of
--- KMS by using an unsupported encryption algorithm, the ciphertext cannot
--- be decrypted.
---
--- This field appears in the response only when the @KeyUsage@ of the
--- public key is @ENCRYPT_DECRYPT@.
-getPublicKeyResponse_encryptionAlgorithms :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe [EncryptionAlgorithmSpec])
-getPublicKeyResponse_encryptionAlgorithms = Lens.lens (\GetPublicKeyResponse' {encryptionAlgorithms} -> encryptionAlgorithms) (\s@GetPublicKeyResponse' {} a -> s {encryptionAlgorithms = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The exported public key.
 --
@@ -446,12 +417,24 @@ getPublicKeyResponse_encryptionAlgorithms = Lens.lens (\GetPublicKeyResponse' {e
 getPublicKeyResponse_publicKey :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe Prelude.ByteString)
 getPublicKeyResponse_publicKey = Lens.lens (\GetPublicKeyResponse' {publicKey} -> publicKey) (\s@GetPublicKeyResponse' {} a -> s {publicKey = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Core._Base64
 
--- | The signing algorithms that KMS supports for this key.
+-- | The encryption algorithms that KMS supports for this key.
+--
+-- This information is critical. If a public key encrypts data outside of
+-- KMS by using an unsupported encryption algorithm, the ciphertext cannot
+-- be decrypted.
 --
 -- This field appears in the response only when the @KeyUsage@ of the
--- public key is @SIGN_VERIFY@.
-getPublicKeyResponse_signingAlgorithms :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe [SigningAlgorithmSpec])
-getPublicKeyResponse_signingAlgorithms = Lens.lens (\GetPublicKeyResponse' {signingAlgorithms} -> signingAlgorithms) (\s@GetPublicKeyResponse' {} a -> s {signingAlgorithms = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Lens.coerced
+-- public key is @ENCRYPT_DECRYPT@.
+getPublicKeyResponse_encryptionAlgorithms :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe [EncryptionAlgorithmSpec])
+getPublicKeyResponse_encryptionAlgorithms = Lens.lens (\GetPublicKeyResponse' {encryptionAlgorithms} -> encryptionAlgorithms) (\s@GetPublicKeyResponse' {} a -> s {encryptionAlgorithms = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Instead, use the @KeySpec@ field in the @GetPublicKey@ response.
+--
+-- The @KeySpec@ and @CustomerMasterKeySpec@ fields have the same value. We
+-- recommend that you use the @KeySpec@ field in your code. However, to
+-- avoid breaking changes, KMS will support both fields.
+getPublicKeyResponse_customerMasterKeySpec :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe CustomerMasterKeySpec)
+getPublicKeyResponse_customerMasterKeySpec = Lens.lens (\GetPublicKeyResponse' {customerMasterKeySpec} -> customerMasterKeySpec) (\s@GetPublicKeyResponse' {} a -> s {customerMasterKeySpec = a} :: GetPublicKeyResponse)
 
 -- | The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@
 -- or @SIGN_VERIFY@.
@@ -461,17 +444,34 @@ getPublicKeyResponse_signingAlgorithms = Lens.lens (\GetPublicKeyResponse' {sign
 getPublicKeyResponse_keyUsage :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe KeyUsageType)
 getPublicKeyResponse_keyUsage = Lens.lens (\GetPublicKeyResponse' {keyUsage} -> keyUsage) (\s@GetPublicKeyResponse' {} a -> s {keyUsage = a} :: GetPublicKeyResponse)
 
+-- | The type of the of the public key that was downloaded.
+getPublicKeyResponse_keySpec :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe KeySpec)
+getPublicKeyResponse_keySpec = Lens.lens (\GetPublicKeyResponse' {keySpec} -> keySpec) (\s@GetPublicKeyResponse' {} a -> s {keySpec = a} :: GetPublicKeyResponse)
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the asymmetric KMS key from which the public key was downloaded.
+getPublicKeyResponse_keyId :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe Prelude.Text)
+getPublicKeyResponse_keyId = Lens.lens (\GetPublicKeyResponse' {keyId} -> keyId) (\s@GetPublicKeyResponse' {} a -> s {keyId = a} :: GetPublicKeyResponse)
+
+-- | The signing algorithms that KMS supports for this key.
+--
+-- This field appears in the response only when the @KeyUsage@ of the
+-- public key is @SIGN_VERIFY@.
+getPublicKeyResponse_signingAlgorithms :: Lens.Lens' GetPublicKeyResponse (Prelude.Maybe [SigningAlgorithmSpec])
+getPublicKeyResponse_signingAlgorithms = Lens.lens (\GetPublicKeyResponse' {signingAlgorithms} -> signingAlgorithms) (\s@GetPublicKeyResponse' {} a -> s {signingAlgorithms = a} :: GetPublicKeyResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getPublicKeyResponse_httpStatus :: Lens.Lens' GetPublicKeyResponse Prelude.Int
 getPublicKeyResponse_httpStatus = Lens.lens (\GetPublicKeyResponse' {httpStatus} -> httpStatus) (\s@GetPublicKeyResponse' {} a -> s {httpStatus = a} :: GetPublicKeyResponse)
 
 instance Prelude.NFData GetPublicKeyResponse where
   rnf GetPublicKeyResponse' {..} =
-    Prelude.rnf keySpec
-      `Prelude.seq` Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf customerMasterKeySpec
+    Prelude.rnf publicKey
       `Prelude.seq` Prelude.rnf encryptionAlgorithms
-      `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf signingAlgorithms
+      `Prelude.seq` Prelude.rnf customerMasterKeySpec
       `Prelude.seq` Prelude.rnf keyUsage
+      `Prelude.seq` Prelude.rnf keySpec
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf signingAlgorithms
       `Prelude.seq` Prelude.rnf httpStatus

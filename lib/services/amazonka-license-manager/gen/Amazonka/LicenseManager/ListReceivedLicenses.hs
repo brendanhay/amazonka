@@ -27,8 +27,8 @@ module Amazonka.LicenseManager.ListReceivedLicenses
     newListReceivedLicenses,
 
     -- * Request Lenses
-    listReceivedLicenses_filters,
     listReceivedLicenses_nextToken,
+    listReceivedLicenses_filters,
     listReceivedLicenses_licenseArns,
     listReceivedLicenses_maxResults,
 
@@ -52,7 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReceivedLicenses' smart constructor.
 data ListReceivedLicenses = ListReceivedLicenses'
-  { -- | Filters to scope the results. The following filters are supported:
+  { -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters to scope the results. The following filters are supported:
     --
     -- -   @ProductSKU@
     --
@@ -64,8 +66,6 @@ data ListReceivedLicenses = ListReceivedLicenses'
     --
     -- -   @Beneficiary@
     filters :: Prelude.Maybe [Filter],
-    -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Names (ARNs) of the licenses.
     licenseArns :: Prelude.Maybe [Prelude.Text],
     -- | Maximum number of results to return in a single call.
@@ -81,6 +81,8 @@ data ListReceivedLicenses = ListReceivedLicenses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listReceivedLicenses_nextToken' - Token for the next set of results.
+--
 -- 'filters', 'listReceivedLicenses_filters' - Filters to scope the results. The following filters are supported:
 --
 -- -   @ProductSKU@
@@ -93,8 +95,6 @@ data ListReceivedLicenses = ListReceivedLicenses'
 --
 -- -   @Beneficiary@
 --
--- 'nextToken', 'listReceivedLicenses_nextToken' - Token for the next set of results.
---
 -- 'licenseArns', 'listReceivedLicenses_licenseArns' - Amazon Resource Names (ARNs) of the licenses.
 --
 -- 'maxResults', 'listReceivedLicenses_maxResults' - Maximum number of results to return in a single call.
@@ -102,11 +102,15 @@ newListReceivedLicenses ::
   ListReceivedLicenses
 newListReceivedLicenses =
   ListReceivedLicenses'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       licenseArns = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Token for the next set of results.
+listReceivedLicenses_nextToken :: Lens.Lens' ListReceivedLicenses (Prelude.Maybe Prelude.Text)
+listReceivedLicenses_nextToken = Lens.lens (\ListReceivedLicenses' {nextToken} -> nextToken) (\s@ListReceivedLicenses' {} a -> s {nextToken = a} :: ListReceivedLicenses)
 
 -- | Filters to scope the results. The following filters are supported:
 --
@@ -121,10 +125,6 @@ newListReceivedLicenses =
 -- -   @Beneficiary@
 listReceivedLicenses_filters :: Lens.Lens' ListReceivedLicenses (Prelude.Maybe [Filter])
 listReceivedLicenses_filters = Lens.lens (\ListReceivedLicenses' {filters} -> filters) (\s@ListReceivedLicenses' {} a -> s {filters = a} :: ListReceivedLicenses) Prelude.. Lens.mapping Lens.coerced
-
--- | Token for the next set of results.
-listReceivedLicenses_nextToken :: Lens.Lens' ListReceivedLicenses (Prelude.Maybe Prelude.Text)
-listReceivedLicenses_nextToken = Lens.lens (\ListReceivedLicenses' {nextToken} -> nextToken) (\s@ListReceivedLicenses' {} a -> s {nextToken = a} :: ListReceivedLicenses)
 
 -- | Amazon Resource Names (ARNs) of the licenses.
 listReceivedLicenses_licenseArns :: Lens.Lens' ListReceivedLicenses (Prelude.Maybe [Prelude.Text])
@@ -150,15 +150,15 @@ instance Core.AWSRequest ListReceivedLicenses where
 
 instance Prelude.Hashable ListReceivedLicenses where
   hashWithSalt _salt ListReceivedLicenses' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` licenseArns
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListReceivedLicenses where
   rnf ListReceivedLicenses' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf licenseArns
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -181,8 +181,8 @@ instance Core.ToJSON ListReceivedLicenses where
   toJSON ListReceivedLicenses' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("LicenseArns" Core..=) Prelude.<$> licenseArns,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]

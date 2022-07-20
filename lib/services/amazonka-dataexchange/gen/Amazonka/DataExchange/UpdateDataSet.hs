@@ -36,16 +36,16 @@ module Amazonka.DataExchange.UpdateDataSet
     newUpdateDataSetResponse,
 
     -- * Response Lenses
-    updateDataSetResponse_origin,
-    updateDataSetResponse_arn,
-    updateDataSetResponse_createdAt,
+    updateDataSetResponse_name,
     updateDataSetResponse_sourceId,
     updateDataSetResponse_originDetails,
-    updateDataSetResponse_name,
+    updateDataSetResponse_arn,
     updateDataSetResponse_id,
     updateDataSetResponse_assetType,
-    updateDataSetResponse_updatedAt,
     updateDataSetResponse_description,
+    updateDataSetResponse_origin,
+    updateDataSetResponse_createdAt,
+    updateDataSetResponse_updatedAt,
     updateDataSetResponse_httpStatus,
   )
 where
@@ -115,16 +115,16 @@ instance Core.AWSRequest UpdateDataSet where
     Response.receiveJSON
       ( \s h x ->
           UpdateDataSetResponse'
-            Prelude.<$> (x Core..?> "Origin")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "SourceId")
             Prelude.<*> (x Core..?> "OriginDetails")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "AssetType")
-            Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "Origin")
+            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,13 +170,8 @@ instance Core.ToQuery UpdateDataSet where
 
 -- | /See:/ 'newUpdateDataSetResponse' smart constructor.
 data UpdateDataSetResponse = UpdateDataSetResponse'
-  { -- | A property that defines the data set as OWNED by the account (for
-    -- providers) or ENTITLED to the account (for subscribers).
-    origin :: Prelude.Maybe Origin,
-    -- | The ARN for the data set.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the data set was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The name of the data set.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The data set ID of the owned data set corresponding to the entitled data
     -- set being viewed. This parameter is returned when a data set owner is
     -- viewing the entitled copy of its owned data set.
@@ -184,17 +179,22 @@ data UpdateDataSetResponse = UpdateDataSetResponse'
     -- | If the origin of this data set is ENTITLED, includes the details for the
     -- product on AWS Marketplace.
     originDetails :: Prelude.Maybe OriginDetails,
-    -- | The name of the data set.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the data set.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the data set.
     id :: Prelude.Maybe Prelude.Text,
     -- | The type of asset that is added to a data set.
     assetType :: Prelude.Maybe AssetType,
+    -- | The description for the data set.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A property that defines the data set as OWNED by the account (for
+    -- providers) or ENTITLED to the account (for subscribers).
+    origin :: Prelude.Maybe Origin,
+    -- | The date and time that the data set was created, in ISO 8601 format.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the data set was last updated, in ISO 8601
     -- format.
     updatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The description for the data set.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,12 +208,7 @@ data UpdateDataSetResponse = UpdateDataSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'origin', 'updateDataSetResponse_origin' - A property that defines the data set as OWNED by the account (for
--- providers) or ENTITLED to the account (for subscribers).
---
--- 'arn', 'updateDataSetResponse_arn' - The ARN for the data set.
---
--- 'createdAt', 'updateDataSetResponse_createdAt' - The date and time that the data set was created, in ISO 8601 format.
+-- 'name', 'updateDataSetResponse_name' - The name of the data set.
 --
 -- 'sourceId', 'updateDataSetResponse_sourceId' - The data set ID of the owned data set corresponding to the entitled data
 -- set being viewed. This parameter is returned when a data set owner is
@@ -222,16 +217,21 @@ data UpdateDataSetResponse = UpdateDataSetResponse'
 -- 'originDetails', 'updateDataSetResponse_originDetails' - If the origin of this data set is ENTITLED, includes the details for the
 -- product on AWS Marketplace.
 --
--- 'name', 'updateDataSetResponse_name' - The name of the data set.
+-- 'arn', 'updateDataSetResponse_arn' - The ARN for the data set.
 --
 -- 'id', 'updateDataSetResponse_id' - The unique identifier for the data set.
 --
 -- 'assetType', 'updateDataSetResponse_assetType' - The type of asset that is added to a data set.
 --
+-- 'description', 'updateDataSetResponse_description' - The description for the data set.
+--
+-- 'origin', 'updateDataSetResponse_origin' - A property that defines the data set as OWNED by the account (for
+-- providers) or ENTITLED to the account (for subscribers).
+--
+-- 'createdAt', 'updateDataSetResponse_createdAt' - The date and time that the data set was created, in ISO 8601 format.
+--
 -- 'updatedAt', 'updateDataSetResponse_updatedAt' - The date and time that the data set was last updated, in ISO 8601
 -- format.
---
--- 'description', 'updateDataSetResponse_description' - The description for the data set.
 --
 -- 'httpStatus', 'updateDataSetResponse_httpStatus' - The response's http status code.
 newUpdateDataSetResponse ::
@@ -240,31 +240,22 @@ newUpdateDataSetResponse ::
   UpdateDataSetResponse
 newUpdateDataSetResponse pHttpStatus_ =
   UpdateDataSetResponse'
-    { origin = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { name = Prelude.Nothing,
       sourceId = Prelude.Nothing,
       originDetails = Prelude.Nothing,
-      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
       assetType = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
       description = Prelude.Nothing,
+      origin = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A property that defines the data set as OWNED by the account (for
--- providers) or ENTITLED to the account (for subscribers).
-updateDataSetResponse_origin :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Origin)
-updateDataSetResponse_origin = Lens.lens (\UpdateDataSetResponse' {origin} -> origin) (\s@UpdateDataSetResponse' {} a -> s {origin = a} :: UpdateDataSetResponse)
-
--- | The ARN for the data set.
-updateDataSetResponse_arn :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.Text)
-updateDataSetResponse_arn = Lens.lens (\UpdateDataSetResponse' {arn} -> arn) (\s@UpdateDataSetResponse' {} a -> s {arn = a} :: UpdateDataSetResponse)
-
--- | The date and time that the data set was created, in ISO 8601 format.
-updateDataSetResponse_createdAt :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.UTCTime)
-updateDataSetResponse_createdAt = Lens.lens (\UpdateDataSetResponse' {createdAt} -> createdAt) (\s@UpdateDataSetResponse' {} a -> s {createdAt = a} :: UpdateDataSetResponse) Prelude.. Lens.mapping Core._Time
+-- | The name of the data set.
+updateDataSetResponse_name :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.Text)
+updateDataSetResponse_name = Lens.lens (\UpdateDataSetResponse' {name} -> name) (\s@UpdateDataSetResponse' {} a -> s {name = a} :: UpdateDataSetResponse)
 
 -- | The data set ID of the owned data set corresponding to the entitled data
 -- set being viewed. This parameter is returned when a data set owner is
@@ -277,9 +268,9 @@ updateDataSetResponse_sourceId = Lens.lens (\UpdateDataSetResponse' {sourceId} -
 updateDataSetResponse_originDetails :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe OriginDetails)
 updateDataSetResponse_originDetails = Lens.lens (\UpdateDataSetResponse' {originDetails} -> originDetails) (\s@UpdateDataSetResponse' {} a -> s {originDetails = a} :: UpdateDataSetResponse)
 
--- | The name of the data set.
-updateDataSetResponse_name :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.Text)
-updateDataSetResponse_name = Lens.lens (\UpdateDataSetResponse' {name} -> name) (\s@UpdateDataSetResponse' {} a -> s {name = a} :: UpdateDataSetResponse)
+-- | The ARN for the data set.
+updateDataSetResponse_arn :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.Text)
+updateDataSetResponse_arn = Lens.lens (\UpdateDataSetResponse' {arn} -> arn) (\s@UpdateDataSetResponse' {} a -> s {arn = a} :: UpdateDataSetResponse)
 
 -- | The unique identifier for the data set.
 updateDataSetResponse_id :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.Text)
@@ -289,14 +280,23 @@ updateDataSetResponse_id = Lens.lens (\UpdateDataSetResponse' {id} -> id) (\s@Up
 updateDataSetResponse_assetType :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe AssetType)
 updateDataSetResponse_assetType = Lens.lens (\UpdateDataSetResponse' {assetType} -> assetType) (\s@UpdateDataSetResponse' {} a -> s {assetType = a} :: UpdateDataSetResponse)
 
+-- | The description for the data set.
+updateDataSetResponse_description :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.Text)
+updateDataSetResponse_description = Lens.lens (\UpdateDataSetResponse' {description} -> description) (\s@UpdateDataSetResponse' {} a -> s {description = a} :: UpdateDataSetResponse)
+
+-- | A property that defines the data set as OWNED by the account (for
+-- providers) or ENTITLED to the account (for subscribers).
+updateDataSetResponse_origin :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Origin)
+updateDataSetResponse_origin = Lens.lens (\UpdateDataSetResponse' {origin} -> origin) (\s@UpdateDataSetResponse' {} a -> s {origin = a} :: UpdateDataSetResponse)
+
+-- | The date and time that the data set was created, in ISO 8601 format.
+updateDataSetResponse_createdAt :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.UTCTime)
+updateDataSetResponse_createdAt = Lens.lens (\UpdateDataSetResponse' {createdAt} -> createdAt) (\s@UpdateDataSetResponse' {} a -> s {createdAt = a} :: UpdateDataSetResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The date and time that the data set was last updated, in ISO 8601
 -- format.
 updateDataSetResponse_updatedAt :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.UTCTime)
 updateDataSetResponse_updatedAt = Lens.lens (\UpdateDataSetResponse' {updatedAt} -> updatedAt) (\s@UpdateDataSetResponse' {} a -> s {updatedAt = a} :: UpdateDataSetResponse) Prelude.. Lens.mapping Core._Time
-
--- | The description for the data set.
-updateDataSetResponse_description :: Lens.Lens' UpdateDataSetResponse (Prelude.Maybe Prelude.Text)
-updateDataSetResponse_description = Lens.lens (\UpdateDataSetResponse' {description} -> description) (\s@UpdateDataSetResponse' {} a -> s {description = a} :: UpdateDataSetResponse)
 
 -- | The response's http status code.
 updateDataSetResponse_httpStatus :: Lens.Lens' UpdateDataSetResponse Prelude.Int
@@ -304,14 +304,14 @@ updateDataSetResponse_httpStatus = Lens.lens (\UpdateDataSetResponse' {httpStatu
 
 instance Prelude.NFData UpdateDataSetResponse where
   rnf UpdateDataSetResponse' {..} =
-    Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceId
       `Prelude.seq` Prelude.rnf originDetails
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf assetType
-      `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

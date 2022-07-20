@@ -33,9 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDimensionGroup' smart constructor.
 data DimensionGroup = DimensionGroup'
-  { -- | The maximum number of items to fetch for this dimension group.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | A list of specific dimensions from a dimension group. If this parameter
+  { -- | A list of specific dimensions from a dimension group. If this parameter
     -- is not present, then it signifies that all of the dimensions in the
     -- group were requested, or are present in the response.
     --
@@ -89,6 +87,8 @@ data DimensionGroup = DimensionGroup'
     -- -   @db.wait_event_type.name@ - The name of the event type for which the
     --     backend is waiting (all engines)
     dimensions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The maximum number of items to fetch for this dimension group.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the dimension group. Valid values are:
     --
     -- -   @db@ - The name of the database to which the client is connected
@@ -125,8 +125,6 @@ data DimensionGroup = DimensionGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'limit', 'dimensionGroup_limit' - The maximum number of items to fetch for this dimension group.
 --
 -- 'dimensions', 'dimensionGroup_dimensions' - A list of specific dimensions from a dimension group. If this parameter
 -- is not present, then it signifies that all of the dimensions in the
@@ -182,6 +180,8 @@ data DimensionGroup = DimensionGroup'
 -- -   @db.wait_event_type.name@ - The name of the event type for which the
 --     backend is waiting (all engines)
 --
+-- 'limit', 'dimensionGroup_limit' - The maximum number of items to fetch for this dimension group.
+--
 -- 'group'', 'dimensionGroup_group' - The name of the dimension group. Valid values are:
 --
 -- -   @db@ - The name of the database to which the client is connected
@@ -213,14 +213,10 @@ newDimensionGroup ::
   DimensionGroup
 newDimensionGroup pGroup_ =
   DimensionGroup'
-    { limit = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
+    { dimensions = Prelude.Nothing,
+      limit = Prelude.Nothing,
       group' = pGroup_
     }
-
--- | The maximum number of items to fetch for this dimension group.
-dimensionGroup_limit :: Lens.Lens' DimensionGroup (Prelude.Maybe Prelude.Natural)
-dimensionGroup_limit = Lens.lens (\DimensionGroup' {limit} -> limit) (\s@DimensionGroup' {} a -> s {limit = a} :: DimensionGroup)
 
 -- | A list of specific dimensions from a dimension group. If this parameter
 -- is not present, then it signifies that all of the dimensions in the
@@ -278,6 +274,10 @@ dimensionGroup_limit = Lens.lens (\DimensionGroup' {limit} -> limit) (\s@Dimensi
 dimensionGroup_dimensions :: Lens.Lens' DimensionGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 dimensionGroup_dimensions = Lens.lens (\DimensionGroup' {dimensions} -> dimensions) (\s@DimensionGroup' {} a -> s {dimensions = a} :: DimensionGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | The maximum number of items to fetch for this dimension group.
+dimensionGroup_limit :: Lens.Lens' DimensionGroup (Prelude.Maybe Prelude.Natural)
+dimensionGroup_limit = Lens.lens (\DimensionGroup' {limit} -> limit) (\s@DimensionGroup' {} a -> s {limit = a} :: DimensionGroup)
+
 -- | The name of the dimension group. Valid values are:
 --
 -- -   @db@ - The name of the database to which the client is connected
@@ -308,22 +308,22 @@ dimensionGroup_group = Lens.lens (\DimensionGroup' {group'} -> group') (\s@Dimen
 
 instance Prelude.Hashable DimensionGroup where
   hashWithSalt _salt DimensionGroup' {..} =
-    _salt `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` dimensions
+    _salt `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData DimensionGroup where
   rnf DimensionGroup' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToJSON DimensionGroup where
   toJSON DimensionGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
+          [ ("Dimensions" Core..=) Prelude.<$> dimensions,
+            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("Group" Core..= group')
           ]
       )

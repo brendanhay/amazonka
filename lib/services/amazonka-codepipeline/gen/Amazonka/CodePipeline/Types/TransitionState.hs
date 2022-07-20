@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitionState' smart constructor.
 data TransitionState = TransitionState'
-  { -- | Whether the transition between stages is enabled (true) or disabled
-    -- (false).
-    enabled :: Prelude.Maybe Prelude.Bool,
+  { -- | The timestamp when the transition state was last changed.
+    lastChangedAt :: Prelude.Maybe Core.POSIX,
     -- | The user-specified reason why the transition between two stages of a
     -- pipeline was disabled.
     disabledReason :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the transition state was last changed.
-    lastChangedAt :: Prelude.Maybe Core.POSIX,
+    -- | Whether the transition between stages is enabled (true) or disabled
+    -- (false).
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the user who last changed the transition state.
     lastChangedBy :: Prelude.Maybe Prelude.Text
   }
@@ -49,38 +49,38 @@ data TransitionState = TransitionState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'transitionState_enabled' - Whether the transition between stages is enabled (true) or disabled
--- (false).
+-- 'lastChangedAt', 'transitionState_lastChangedAt' - The timestamp when the transition state was last changed.
 --
 -- 'disabledReason', 'transitionState_disabledReason' - The user-specified reason why the transition between two stages of a
 -- pipeline was disabled.
 --
--- 'lastChangedAt', 'transitionState_lastChangedAt' - The timestamp when the transition state was last changed.
+-- 'enabled', 'transitionState_enabled' - Whether the transition between stages is enabled (true) or disabled
+-- (false).
 --
 -- 'lastChangedBy', 'transitionState_lastChangedBy' - The ID of the user who last changed the transition state.
 newTransitionState ::
   TransitionState
 newTransitionState =
   TransitionState'
-    { enabled = Prelude.Nothing,
+    { lastChangedAt = Prelude.Nothing,
       disabledReason = Prelude.Nothing,
-      lastChangedAt = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       lastChangedBy = Prelude.Nothing
     }
 
--- | Whether the transition between stages is enabled (true) or disabled
--- (false).
-transitionState_enabled :: Lens.Lens' TransitionState (Prelude.Maybe Prelude.Bool)
-transitionState_enabled = Lens.lens (\TransitionState' {enabled} -> enabled) (\s@TransitionState' {} a -> s {enabled = a} :: TransitionState)
+-- | The timestamp when the transition state was last changed.
+transitionState_lastChangedAt :: Lens.Lens' TransitionState (Prelude.Maybe Prelude.UTCTime)
+transitionState_lastChangedAt = Lens.lens (\TransitionState' {lastChangedAt} -> lastChangedAt) (\s@TransitionState' {} a -> s {lastChangedAt = a} :: TransitionState) Prelude.. Lens.mapping Core._Time
 
 -- | The user-specified reason why the transition between two stages of a
 -- pipeline was disabled.
 transitionState_disabledReason :: Lens.Lens' TransitionState (Prelude.Maybe Prelude.Text)
 transitionState_disabledReason = Lens.lens (\TransitionState' {disabledReason} -> disabledReason) (\s@TransitionState' {} a -> s {disabledReason = a} :: TransitionState)
 
--- | The timestamp when the transition state was last changed.
-transitionState_lastChangedAt :: Lens.Lens' TransitionState (Prelude.Maybe Prelude.UTCTime)
-transitionState_lastChangedAt = Lens.lens (\TransitionState' {lastChangedAt} -> lastChangedAt) (\s@TransitionState' {} a -> s {lastChangedAt = a} :: TransitionState) Prelude.. Lens.mapping Core._Time
+-- | Whether the transition between stages is enabled (true) or disabled
+-- (false).
+transitionState_enabled :: Lens.Lens' TransitionState (Prelude.Maybe Prelude.Bool)
+transitionState_enabled = Lens.lens (\TransitionState' {enabled} -> enabled) (\s@TransitionState' {} a -> s {enabled = a} :: TransitionState)
 
 -- | The ID of the user who last changed the transition state.
 transitionState_lastChangedBy :: Lens.Lens' TransitionState (Prelude.Maybe Prelude.Text)
@@ -92,22 +92,22 @@ instance Core.FromJSON TransitionState where
       "TransitionState"
       ( \x ->
           TransitionState'
-            Prelude.<$> (x Core..:? "enabled")
+            Prelude.<$> (x Core..:? "lastChangedAt")
             Prelude.<*> (x Core..:? "disabledReason")
-            Prelude.<*> (x Core..:? "lastChangedAt")
+            Prelude.<*> (x Core..:? "enabled")
             Prelude.<*> (x Core..:? "lastChangedBy")
       )
 
 instance Prelude.Hashable TransitionState where
   hashWithSalt _salt TransitionState' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` lastChangedAt
       `Prelude.hashWithSalt` disabledReason
-      `Prelude.hashWithSalt` lastChangedAt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` lastChangedBy
 
 instance Prelude.NFData TransitionState where
   rnf TransitionState' {..} =
-    Prelude.rnf enabled
+    Prelude.rnf lastChangedAt
       `Prelude.seq` Prelude.rnf disabledReason
-      `Prelude.seq` Prelude.rnf lastChangedAt
+      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf lastChangedBy
